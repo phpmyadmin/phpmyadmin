@@ -57,8 +57,11 @@ class PMA_ServerReplication_Test extends PHPUnit_Framework_TestCase
 
         $GLOBALS['table'] = "table";
         $GLOBALS['url_params'] = array();
+        $GLOBALS['pmaThemeImage'] = 'image';
 
         //$_SESSION
+        $_SESSION['PMA_Theme'] = Theme::load('./themes/pmahomme');
+        $_SESSION['PMA_Theme'] = new Theme();
 
         //Mock DBI
 

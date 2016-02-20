@@ -53,6 +53,8 @@ class NavigationTreeTest extends PMATestCase
         $GLOBALS['cfg']['ShowDatabasesNavigationAsTree']  = true;
 
         $GLOBALS['pmaThemeImage'] = 'image';
+        $_SESSION['PMA_Theme'] = Theme::load('./themes/pmahomme');
+        $_SESSION['PMA_Theme'] = new Theme();
         $this->object = new PMA\libraries\navigation\NavigationTree();
     }
 

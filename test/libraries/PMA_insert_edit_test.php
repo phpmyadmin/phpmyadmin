@@ -39,6 +39,8 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
     public function setup()
     {
         $GLOBALS['server'] = 1;
+        $_SESSION['PMA_Theme'] = Theme::load('./themes/pmahomme');
+        $GLOBALS['pmaThemeImage'] = 'theme/';
         $GLOBALS['PMA_PHP_SELF'] = 'index.php';
         $GLOBALS['cfg']['ServerDefault'] = 1;
         $GLOBALS['text_dir'] = 'ltr';
@@ -60,6 +62,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['SendErrorReports'] = 'ask';
         $GLOBALS['cfg']['DefaultTabDatabase'] = 'structure';
         $GLOBALS['cfg']['ShowDatabasesNavigationAsTree'] = true;
+        $GLOBALS['cfg']['PmaAbsoluteUri'] = '';
         $GLOBALS['cfg']['DefaultTabTable'] = 'browse';
         $GLOBALS['cfg']['NavigationTreeDefaultTabTable'] = 'structure';
         $GLOBALS['cfg']['NavigationTreeDefaultTabTable2'] = '';
@@ -2446,7 +2449,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
 
         $result = PMA_getCurrentValueForDifferentTypes(
             '123', '0', array(), '', array(), 0, array(), array(),
-            array(), true, true, '1', 'table', array()
+            array(), true, true, '1', 'table'
         );
 
         $this->assertEquals(
@@ -2457,7 +2460,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         // case 2
         $result = PMA_getCurrentValueForDifferentTypes(
             false, '0', array('test'), '', array(1), 0, array(), array(),
-            array(), true, true, '1', 'table', array()
+            array(), true, true, '1', 'table'
         );
 
         $this->assertEquals(
@@ -2468,7 +2471,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         // case 3
         $result = PMA_getCurrentValueForDifferentTypes(
             false, '0', array('test'), '', array(), 0, array(), array(),
-            array(), true, true, '1', 'table', array()
+            array(), true, true, '1', 'table'
         );
 
         $this->assertEquals(
@@ -2480,7 +2483,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         $_REQUEST['fields']['multi_edit'][0][0] = array();
         $result = PMA_getCurrentValueForDifferentTypes(
             false, '0', array('set'), '', array(), 0, array(), array(),
-            array(), true, true, '1', 'table', array()
+            array(), true, true, '1', 'table'
         );
 
         $this->assertEquals(
@@ -2491,7 +2494,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         // case 5
         $result = PMA_getCurrentValueForDifferentTypes(
             false, '0', array('protected'), '', array(), 0, array('a'), array(),
-            array(), true, true, '1', 'table', array()
+            array(), true, true, '1', 'table'
         );
 
         $this->assertEquals(
@@ -2502,7 +2505,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         // case 6
         $result = PMA_getCurrentValueForDifferentTypes(
             false, '0', array('protected'), '', array(), 0, array('a'), array(),
-            array(), true, true, '1', 'table', array()
+            array(), true, true, '1', 'table'
         );
 
         $this->assertEquals(
@@ -2513,7 +2516,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         // case 7
         $result = PMA_getCurrentValueForDifferentTypes(
             false, '0', array('bit'), '20\'12', array(), 0, array('a'), array(),
-            array(), true, true, '1', 'table', array()
+            array(), true, true, '1', 'table'
         );
 
         $this->assertEquals(
@@ -2524,7 +2527,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         // case 7
         $result = PMA_getCurrentValueForDifferentTypes(
             false, '0', array('date'), '20\'12', array(), 0, array('a'), array(),
-            array(), true, true, '1', 'table', array()
+            array(), true, true, '1', 'table'
         );
 
         $this->assertEquals(
@@ -2536,7 +2539,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         $_REQUEST['fields']['multi_edit'][0][0] = array();
         $result = PMA_getCurrentValueForDifferentTypes(
             false, '0', array('set'), '', array(), 0, array(), array(1),
-            array(), true, true, '1', 'table', array()
+            array(), true, true, '1', 'table'
         );
 
         $this->assertEquals(
@@ -2547,7 +2550,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         // case 9
         $result = PMA_getCurrentValueForDifferentTypes(
             false, '0', array('protected'), '', array(), 0, array('a'), array(),
-            array(1), true, true, '1', 'table', array()
+            array(1), true, true, '1', 'table'
         );
 
         $this->assertEquals(

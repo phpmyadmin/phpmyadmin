@@ -1,11 +1,12 @@
-/* Copyright (c) 2006-2013 by OpenLayers Contributors (see authors.txt for
- * full list of contributors). Published under the 2-clause BSD license.
- * See license.txt in the OpenLayers distribution or repository for the
+/* Copyright (c) 2006-2010 by OpenLayers Contributors (see authors.txt for 
+ * full list of contributors). Published under the Clear BSD license.  
+ * See http://svn.openlayers.org/trunk/openlayers/license.txt for the
  * full text of the license. */
 
 
 /**
  * @requires OpenLayers/Layer/Grid.js
+ * @requires OpenLayers/Tile/Image.js
  */
 
 /**
@@ -27,9 +28,21 @@ OpenLayers.Layer.WMS = OpenLayers.Class(OpenLayers.Layer.Grid, {
                       version: "1.1.1",
                       request: "GetMap",
                       styles: "",
+                      exceptions: "application/vnd.ogc.se_inimage",
                       format: "image/jpeg"
                      },
     
+    /**
+     * Property: reproject
+     * *Deprecated*. See http://trac.openlayers.org/wiki/SphericalMercator
+     * for information on the replacement for this functionality. 
+     * {Boolean} Try to reproject this layer if its coordinate reference system
+     *           is different than that of the base layer.  Default is true.  
+     *           Set this in the layer options.  Should be set to false in 
+     *           most cases.
+     */
+    reproject: false,
+ 
     /**
      * APIProperty: isBaseLayer
      * {Boolean} Default is true for WMS layer
@@ -56,47 +69,20 @@ OpenLayers.Layer.WMS = OpenLayers.Class(OpenLayers.Layer.Grid, {
      * Property: yx
      * {Object} Keys in this object are EPSG codes for which the axis order
      *     is to be reversed (yx instead of xy, LatLon instead of LonLat), with
-     *     true as value. This is only relevant for WMS versions >= 1.3.0, and
-     *     only if yx is not set in <OpenLayers.Projection.defaults> for the
-     *     used projection.
+     *     true as value. This is only relevant for WMS versions >= 1.3.0.
      */
-    yx: {},
+    yx: {'EPSG:4326': true},
     
     /**
      * Constructor: OpenLayers.Layer.WMS
      * Create a new WMS layer object
      *
-     * Examples:
-     *
-     * The code below creates a simple WMS layer using the image/jpeg format.
+     * Example:
      * (code)
      * var wms = new OpenLayers.Layer.WMS("NASA Global Mosaic",
      *                                    "http://wms.jpl.nasa.gov/wms.cgi", 
      *                                    {layers: "modis,global_mosaic"});
      * (end)
-     * Note the 3rd argument (params). Properties added to this object will be
-     * added to the WMS GetMap requests used for this layer's tiles. The only
-     * mandatory parameter is "layers". Other common WMS params include
-     * "transparent", "styles" and "format". Note that the "srs" param will
-     * always be ignored. Instead, it will be derived from the baseLayer's or
-     * map's projection.
-     *
-     * The code below creates a transparent WMS layer with additional options.
-     * (code)
-     * var wms = new OpenLayers.Layer.WMS("NASA Global Mosaic",
-     *                                    "http://wms.jpl.nasa.gov/wms.cgi", 
-     *                                    {
-     *                                        layers: "modis,global_mosaic",
-     *                                        transparent: true
-     *                                    }, {
-     *                                        opacity: 0.5,
-     *                                        singleTile: true
-     *                                    });
-     * (end)
-     * Note that by default, a WMS layer is configured as baseLayer. Setting
-     * the "transparent" param to true will apply some magic (see <noMagic>).
-     * The default image format changes from image/jpeg to image/png, and the
-     * layer is not configured as baseLayer.
      *
      * Parameters:
      * name - {String} A name for the layer
@@ -104,9 +90,7 @@ OpenLayers.Layer.WMS = OpenLayers.Class(OpenLayers.Layer.Grid, {
      *                (e.g. http://wms.jpl.nasa.gov/wms.cgi)
      * params - {Object} An object with key/value pairs representing the
      *                   GetMap query string parameters and parameter values.
-     * options - {Object} Hashtable of extra options to tag onto the layer.
-     *     These options include all properties listed above, plus the ones
-     *     inherited from superclasses.
+     * options - {Ojbect} Hashtable of extra options to tag onto the layer
      */
     initialize: function(name, url, params, options) {
         var newArguments = [];
@@ -133,7 +117,7 @@ OpenLayers.Layer.WMS = OpenLayers.Class(OpenLayers.Layer.Grid, {
             } 
             
             // jpegs can never be transparent, so intelligently switch the 
-            //  format, depending on the browser's capabilities
+            //  format, depending on teh browser's capabilities
             if (this.params.FORMAT == "image/jpeg") {
                 this.params.FORMAT = OpenLayers.Util.alphaHack() ? "image/gif"
                                                                  : "image/png";
@@ -142,6 +126,16 @@ OpenLayers.Layer.WMS = OpenLayers.Class(OpenLayers.Layer.Grid, {
 
     },    
 
+    /**
+     * Method: destroy
+     * Destroy this layer
+     */
+    destroy: function() {
+        // for now, nothing special to do here. 
+        OpenLayers.Layer.Grid.prototype.destroy.apply(this, arguments);  
+    },
+
+    
     /**
      * Method: clone
      * Create a clone of this layer
@@ -175,10 +169,8 @@ OpenLayers.Layer.WMS = OpenLayers.Class(OpenLayers.Layer.Grid, {
      * {Boolean} true if the axis order is reversed, false otherwise.
      */
     reverseAxisOrder: function() {
-        var projCode = this.projection.getCode();
-        return parseFloat(this.params.VERSION) >= 1.3 && 
-            !!(this.yx[projCode] || (OpenLayers.Projection.defaults[projCode] && 
-            OpenLayers.Projection.defaults[projCode].yx));
+        return (parseFloat(this.params.VERSION) >= 1.3 && 
+            !!this.yx[this.map.getProjectionObject().getCode()]);
     },
     
     /**
@@ -208,6 +200,22 @@ OpenLayers.Layer.WMS = OpenLayers.Class(OpenLayers.Layer.Grid, {
         newParams.HEIGHT = imageSize.h;
         var requestString = this.getFullRequestString(newParams);
         return requestString;
+    },
+
+    /**
+     * Method: addTile
+     * addTile creates a tile, initializes it, and adds it to the layer div. 
+     *
+     * Parameters:
+     * bounds - {<OpenLayers.Bounds>}
+     * position - {<OpenLayers.Pixel>}
+     * 
+     * Returns:
+     * {<OpenLayers.Tile.Image>} The added OpenLayers.Tile.Image
+     */
+    addTile:function(bounds,position) {
+        return new OpenLayers.Tile.Image(this, position, bounds, 
+                                         null, this.tileSize);
     },
 
     /**
@@ -244,19 +252,12 @@ OpenLayers.Layer.WMS = OpenLayers.Class(OpenLayers.Layer.Grid, {
      * {String} 
      */
     getFullRequestString:function(newParams, altUrl) {
-        var mapProjection = this.map.getProjectionObject();
-        var projectionCode = this.projection && this.projection.equals(mapProjection) ?
-            this.projection.getCode() :
-            mapProjection.getCode();
-        var value = (projectionCode == "none") ? null : projectionCode;
+        var projectionCode = this.map.getProjection();
+        var value = (projectionCode == "none") ? null : projectionCode
         if (parseFloat(this.params.VERSION) >= 1.3) {
             this.params.CRS = value;
         } else {
             this.params.SRS = value;
-        }
-        
-        if (typeof this.params.TRANSPARENT == "boolean") {
-            newParams.TRANSPARENT = this.params.TRANSPARENT ? "TRUE" : "FALSE";
         }
 
         return OpenLayers.Layer.Grid.prototype.getFullRequestString.apply(

@@ -30,7 +30,9 @@ class PMA_BuildActionTitles_Test extends PHPUnit_Framework_TestCase
      */
     function setup()
     {
+        $_SESSION['PMA_Theme'] = Theme::load('./themes/pmahomme');
         $GLOBALS['cfg'] = array('ActionLinksMode' => 'both');
+        $GLOBALS['pmaThemeImage'] = 'theme/';
     }
 
     /**

@@ -1,6 +1,6 @@
-/* Copyright (c) 2006-2013 by OpenLayers Contributors (see authors.txt for
- * full list of contributors). Published under the 2-clause BSD license.
- * See license.txt in the OpenLayers distribution or repository for the
+/* Copyright (c) 2006-2010 by OpenLayers Contributors (see authors.txt for 
+ * full list of contributors). Published under the Clear BSD license.  
+ * See http://svn.openlayers.org/trunk/openlayers/license.txt for the
  * full text of the license. */
 
 /**
@@ -21,6 +21,14 @@ OpenLayers.Handler.MouseWheel = OpenLayers.Class(OpenLayers.Handler, {
      */
     wheelListener: null,
 
+    /** 
+     * Property: mousePosition
+     * {<OpenLayers.Pixel>} mousePosition is necessary because
+     * evt.clientX/Y is buggy in Moz on wheel events, so we cache and use the
+     * value from the last mousemove.
+     */
+    mousePosition: null,
+
     /**
      * Property: interval
      * {Integer} In order to increase server performance, an interval (in 
@@ -30,14 +38,6 @@ OpenLayers.Handler.MouseWheel = OpenLayers.Class(OpenLayers.Handler, {
      *     Defaults to 0, meaning no interval. 
      */
     interval: 0,
-    
-    /**
-     * Property: maxDelta
-     * {Integer} Maximum delta to collect before breaking from the current
-     *    interval. In cumulative mode, this also limits the maximum delta
-     *    returned from the handler. Default is Number.POSITIVE_INFINITY.
-     */
-    maxDelta: Number.POSITIVE_INFINITY,
     
     /**
      * Property: delta
@@ -54,7 +54,7 @@ OpenLayers.Handler.MouseWheel = OpenLayers.Class(OpenLayers.Handler, {
      *     negative)
      */
     cumulative: true,
-    
+
     /**
      * Constructor: OpenLayers.Handler.MouseWheel
      *
@@ -101,13 +101,12 @@ OpenLayers.Handler.MouseWheel = OpenLayers.Class(OpenLayers.Handler, {
         
         // Ride up the element's DOM hierarchy to determine if it or any of 
         //  its ancestors was: 
-        //   * specifically marked as scrollable (CSS overflow property)
-        //   * one of our layer divs or a div marked as scrollable
-        //     ('olScrollable' CSS class)
+        //   * specifically marked as scrollable
+        //   * one of our layer divs
         //   * the map div
         //
         var overScrollableDiv = false;
-        var allowScroll = false;
+        var overLayerDiv = false;
         var overMapDiv = false;
         
         var elem = OpenLayers.Event.element(e);
@@ -115,13 +114,12 @@ OpenLayers.Handler.MouseWheel = OpenLayers.Class(OpenLayers.Handler, {
 
             if (!overScrollableDiv) {
                 try {
-                    var overflow;
                     if (elem.currentStyle) {
                         overflow = elem.currentStyle["overflow"];
                     } else {
                         var style = 
                             document.defaultView.getComputedStyle(elem, null);
-                        overflow = style.getPropertyValue("overflow");
+                        var overflow = style.getPropertyValue("overflow");
                     }
                     overScrollableDiv = ( overflow && 
                         (overflow == "auto") || (overflow == "scroll") );
@@ -131,18 +129,15 @@ OpenLayers.Handler.MouseWheel = OpenLayers.Class(OpenLayers.Handler, {
                 }
             }
 
-            if (!allowScroll) {
-                allowScroll = OpenLayers.Element.hasClass(elem, 'olScrollable');
-                if (!allowScroll) {
-                    for (var i = 0, len = this.map.layers.length; i < len; i++) {
-                        // Are we in the layer div? Note that we have two cases
-                        // here: one is to catch EventPane layers, which have a
-                        // pane above the layer (layer.pane)
-                        var layer = this.map.layers[i];
-                        if (elem == layer.div || elem == layer.pane) {
-                            allowScroll = true;
-                            break;
-                        }
+            if (!overLayerDiv) {
+                for(var i=0, len=this.map.layers.length; i<len; i++) {
+                    // Are we in the layer div? Note that we have two cases
+                    // here: one is to catch EventPane layers, which have a 
+                    // pane above the layer (layer.pane)
+                    if (elem == this.map.layers[i].div 
+                        || elem == this.map.layers[i].pane) { 
+                        overLayerDiv = true;
+                        break;
                     }
                 }
             }
@@ -158,7 +153,7 @@ OpenLayers.Handler.MouseWheel = OpenLayers.Class(OpenLayers.Handler, {
         //
         //    otherwise 
         // 
-        //    If we are over the layer div or a 'olScrollable' div:
+        //    If we are over the layer div: 
         //     * zoom/in out
         //     then
         //     * kill event (so as not to also scroll the page after zooming)
@@ -169,30 +164,26 @@ OpenLayers.Handler.MouseWheel = OpenLayers.Class(OpenLayers.Handler, {
         //        layerswitcher or the pan/zoom control)
         //
         if (!overScrollableDiv && overMapDiv) {
-            if (allowScroll) {
+            if (overLayerDiv) {
                 var delta = 0;
-                
-                if (e.wheelDelta) {
-                    delta = e.wheelDelta;
-                    if (delta % 160 === 0) {
-                        // opera have steps of 160 instead of 120
-                        delta = delta * 0.75;
-                    }
-                    delta = delta / 120;
-                } else if (e.detail) {
-                    // detail in Firefox on OS X is 1/3 of Windows
-                    // so force delta 1 / -1
-                    delta = - (e.detail / Math.abs(e.detail));
+                if (!e) {
+                    e = window.event;
                 }
-                this.delta += delta;
+                if (e.wheelDelta) {
+                    delta = e.wheelDelta/120; 
+                    if (window.opera && window.opera.version() < 9.2) {
+                        delta = -delta;
+                    }
+                } else if (e.detail) {
+                    delta = -e.detail / 3;
+                }
+                this.delta = this.delta + delta;
 
-                window.clearTimeout(this._timeoutId);
-                if(this.interval && Math.abs(this.delta) < this.maxDelta) {
-                    // store e because window.event might change during delay
-                    var evt = OpenLayers.Util.extend({}, e);
+                if(this.interval) {
+                    window.clearTimeout(this._timeoutId);
                     this._timeoutId = window.setTimeout(
                         OpenLayers.Function.bind(function(){
-                            this.wheelZoom(evt);
+                            this.wheelZoom(e);
                         }, this),
                         this.interval
                     );
@@ -217,17 +208,45 @@ OpenLayers.Handler.MouseWheel = OpenLayers.Class(OpenLayers.Handler, {
         this.delta = 0;
         
         if (delta) {
-            e.xy = this.map.events.getMousePosition(e);
+            // add the mouse position to the event because mozilla has 
+            // a bug with clientX and clientY (see 
+            // https://bugzilla.mozilla.org/show_bug.cgi?id=352179)
+            // getLonLatFromViewPortPx(e) returns wrong values
+            if (this.mousePosition) {
+                e.xy = this.mousePosition;
+            } 
+            if (!e.xy) {
+                // If the mouse hasn't moved over the map yet, then
+                // we don't have a mouse position (in FF), so we just
+                // act as if the mouse was at the center of the map.
+                // Note that we can tell we are in the map -- and 
+                // this.map is ensured to be true above.
+                e.xy = this.map.getPixelFromLonLat(
+                    this.map.getCenter()
+                );
+            }
             if (delta < 0) {
-                this.callback("down",
-                    [e, this.cumulative ? Math.max(-this.maxDelta, delta) : -1]);
+                this.callback("down", [e, this.cumulative ? delta : -1]);
             } else {
-                this.callback("up",
-                    [e, this.cumulative ? Math.min(this.maxDelta, delta) : 1]);
+                this.callback("up", [e, this.cumulative ? delta : 1]);
             }
         }
     },
     
+    /**
+     * Method: mousemove
+     * Update the stored mousePosition on every move.
+     * 
+     * Parameters:
+     * evt - {Event} The browser event
+     *
+     * Returns: 
+     * {Boolean} Allow event propagation
+     */
+    mousemove: function (evt) {
+        this.mousePosition = evt.xy;
+    },
+
     /**
      * Method: activate 
      */

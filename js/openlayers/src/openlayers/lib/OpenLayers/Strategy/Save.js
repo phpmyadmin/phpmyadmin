@@ -1,6 +1,6 @@
-/* Copyright (c) 2006-2013 by OpenLayers Contributors (see authors.txt for
- * full list of contributors). Published under the 2-clause BSD license.
- * See license.txt in the OpenLayers distribution or repository for the
+/* Copyright (c) 2006-2010 by OpenLayers Contributors (see authors.txt for 
+ * full list of contributors). Published under the Clear BSD license.  
+ * See http://svn.openlayers.org/trunk/openlayers/license.txt for the
  * full text of the license. */
 
 /**
@@ -20,21 +20,19 @@
 OpenLayers.Strategy.Save = OpenLayers.Class(OpenLayers.Strategy, {
     
     /**
-     * APIProperty: events
-     * {<OpenLayers.Events>} An events object that handles all 
-     *     events on the strategy object.
-     *
-     * Register a listener for a particular event with the following syntax:
+     * Constant: EVENT_TYPES
+     * {Array(String)} Supported application event types.  Register a listener
+     *     for a particular event with the following syntax:
      * (code)
      * strategy.events.register(type, obj, listener);
      * (end)
      *
-     * Supported event types:
-     * start - Triggered before saving
-     * success - Triggered after a successful transaction
-     * fail - Triggered after a failed transaction
-     * 
+     *  - *start* Triggered before saving
+     *  - *success* Triggered after a successful transaction
+     *  - *fail* Triggered after a failed transaction
+     *      
      */
+    EVENT_TYPES: ["start", "success", "fail"],
  
     /** 
      * Property: events
@@ -68,7 +66,7 @@ OpenLayers.Strategy.Save = OpenLayers.Class(OpenLayers.Strategy, {
      */
     initialize: function(options) {
         OpenLayers.Strategy.prototype.initialize.apply(this, [options]);
-        this.events = new OpenLayers.Events(this);
+        this.events = new OpenLayers.Events(this, null, this.EVENT_TYPES);
     },
    
     /**

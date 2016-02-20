@@ -169,6 +169,8 @@ class TableSearchController extends TableController
      */
     public function indexAction()
     {
+        $template_sec_tab=Template::get('secondary_tabs');
+        $template_selection_form=Template::get('table/search/selection_form');
         switch ($this->_searchType) {
         case 'replace':
             if (isset($_POST['find'])) {
@@ -182,17 +184,15 @@ class TableSearchController extends TableController
                 ->addFile('tbl_find_replace.js');
 
             // Show secondary level of tabs
-            $this->response->addHTML(
-                Template::get('secondary_tabs')
-                    ->render(
-                        array(
-                            'url_params' => array(
-                                'db'    => $this->db,
-                                'table' => $this->table,
-                            ),
-                            'sub_tabs'   => $this->_getSubTabs(),
-                        )
-                    )
+
+
+            $template_sec_tab->set(array(
+                    'url_params' => array(
+                        'db'    => $this->db,
+                        'table' => $this->table,
+                    ),
+                    'sub_tabs'   => $this->_getSubTabs(),
+                )
             );
 
             if (isset($_POST['replace'])) {
@@ -206,10 +206,8 @@ class TableSearchController extends TableController
             }
 
             // Displays the find and replace form
-            $this->response->addHTML(
-                Template::get('table/search/selection_form')
-                    ->render(
-                        array(
+
+            $template_selection_form->set( array(
                             'searchType'       => $this->_searchType,
                             'db'               => $this->db,
                             'table'            => $this->table,
@@ -221,8 +219,8 @@ class TableSearchController extends TableController
                             'columnCollations' => $this->_columnCollations,
                             'dataLabel'        => null,
                         )
-                    )
             );
+
             break;
 
         case 'normal':
@@ -252,7 +250,41 @@ class TableSearchController extends TableController
             if (!isset($_POST['columnsToDisplay'])
                 && !isset($_POST['displayAllColumns'])
             ) {
-                $this->displaySelectionFormAction();
+                $this->url_query .= '&amp;goto=tbl_select.php&amp;back=tbl_select.php';
+
+                include_once 'libraries/tbl_info.inc.php';
+                if (! isset($goto)) {
+                    $goto = Util::getScriptNameForOption(
+                        $GLOBALS['cfg']['DefaultTabTable'], 'table'
+                    );
+                }
+
+                $template_sec_tab->set(array(
+                        'url_params' => array(
+                            'db'    => $this->db,
+                            'table' => $this->table,
+                        ),
+                        'sub_tabs'   => $this->_getSubTabs(),
+                    )
+                 );
+
+                $template_selection_form->set( array(
+                            'searchType'       => $this->_searchType,
+                            'db'               => $this->db,
+                            'table'            => $this->table,
+                            'goto'             => $goto,
+                            'self'             => $this,
+                            'geomColumnFlag'   => $this->_geomColumnFlag,
+                            'columnNames'      => $this->_columnNames,
+                            'columnTypes'      => $this->_columnTypes,
+                            'columnCollations' => $this->_columnCollations,
+                            'dataLabel'        => null,
+                        )
+                );
+
+
+
+
             } else {
                 $this->doSelectionAction();
             }
@@ -322,36 +354,29 @@ class TableSearchController extends TableController
             }
 
             // Displays the zoom search form
-            $this->response->addHTML(
-                Template::get('secondary_tabs')
-                    ->render(
-                        array(
-                            'url_params' => array(
-                                'db'    => $this->db,
-                                'table' => $this->table,
-                            ),
-                            'sub_tabs'   => $this->_getSubTabs(),
-                        )
-                    )
-            );
-            $this->response->addHTML(
-                Template::get('table/search/selection_form')
-                    ->render(
-                        array(
-                            'searchType'       => $this->_searchType,
-                            'db'               => $this->db,
-                            'table'            => $this->table,
-                            'goto'             => $goto,
-                            'self'             => $this,
-                            'geomColumnFlag'   => $this->_geomColumnFlag,
-                            'columnNames'      => $this->_columnNames,
-                            'columnTypes'      => $this->_columnTypes,
-                            'columnCollations' => $this->_columnCollations,
-                            'dataLabel'        => $dataLabel,
-                        )
-                    )
+
+            $template_sec_tab->set(array(
+                    'url_params' => array(
+                        'db'    => $this->db,
+                        'table' => $this->table,
+                    ),
+                    'sub_tabs'   => $this->_getSubTabs(),
+                )
             );
 
+            $template_selection_form->set( array(
+                        'searchType'       => $this->_searchType,
+                        'db'               => $this->db,
+                        'table'            => $this->table,
+                        'goto'             => $goto,
+                        'self'             => $this,
+                        'geomColumnFlag'   => $this->_geomColumnFlag,
+                        'columnNames'      => $this->_columnNames,
+                        'columnTypes'      => $this->_columnTypes,
+                        'columnCollations' => $this->_columnCollations,
+                        'dataLabel'        => $dataLabel,
+                    )
+            );
             /*
              * Handle the input criteria and generate the query result
              * Form for displaying query results
@@ -365,6 +390,10 @@ class TableSearchController extends TableController
             }
             break;
         }
+
+        $html_sec_tabs=$template_sec_tab->render();
+        $html_selection_form=$template_selection_form->render();
+
     }
 
     /**
@@ -543,47 +572,7 @@ class TableSearchController extends TableController
      *
      * @return void
      */
-    public function displaySelectionFormAction()
-    {
-        $this->url_query .= '&amp;goto=tbl_select.php&amp;back=tbl_select.php';
 
-        include_once 'libraries/tbl_info.inc.php';
-        if (! isset($goto)) {
-            $goto = Util::getScriptNameForOption(
-                $GLOBALS['cfg']['DefaultTabTable'], 'table'
-            );
-        }
-        // Displays the table search form
-        $this->response->addHTML(
-            Template::get('secondary_tabs')
-                ->render(
-                    array(
-                        'url_params' => array(
-                            'db'    => $this->db,
-                            'table' => $this->table,
-                        ),
-                        'sub_tabs'   => $this->_getSubTabs(),
-                    )
-                )
-        );
-        $this->response->addHTML(
-            Template::get('table/search/selection_form')
-                ->render(
-                    array(
-                        'searchType'       => $this->_searchType,
-                        'db'               => $this->db,
-                        'table'            => $this->table,
-                        'goto'             => $goto,
-                        'self'             => $this,
-                        'geomColumnFlag'   => $this->_geomColumnFlag,
-                        'columnNames'      => $this->_columnNames,
-                        'columnTypes'      => $this->_columnTypes,
-                        'columnCollations' => $this->_columnCollations,
-                        'dataLabel'        => null,
-                    )
-                )
-        );
-    }
 
     /**
      * Range search action

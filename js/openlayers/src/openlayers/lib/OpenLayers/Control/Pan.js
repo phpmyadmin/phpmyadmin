@@ -1,10 +1,10 @@
-/* Copyright (c) 2006-2013 by OpenLayers Contributors (see authors.txt for
- * full list of contributors). Published under the 2-clause BSD license.
- * See license.txt in the OpenLayers distribution or repository for the
+/* Copyright (c) 2006-2010 by OpenLayers Contributors (see authors.txt for 
+ * full list of contributors). Published under the Clear BSD license.  
+ * See http://svn.openlayers.org/trunk/openlayers/license.txt for the
  * full text of the license. */
 
 /**
- * @requires OpenLayers/Control/Button.js
+ * @requires OpenLayers/Control.js
  */
 
 /**
@@ -15,30 +15,28 @@
  * Inherits from:
  *  - <OpenLayers.Control>
  */
-OpenLayers.Control.Pan = OpenLayers.Class(OpenLayers.Control.Button, {
+OpenLayers.Control.Pan = OpenLayers.Class(OpenLayers.Control, {
 
     /** 
      * APIProperty: slideFactor
      * {Integer} Number of pixels by which we'll pan the map in any direction 
-     *     on clicking the arrow buttons, defaults to 50.  If you want to pan
-     *     by some ratio of the map dimensions, use <slideRatio> instead.
+     *     on clicking the arrow buttons, defaults to 50.
      */
     slideFactor: 50,
-
-    /** 
-     * APIProperty: slideRatio
-     * {Number} The fraction of map width/height by which we'll pan the map            
-     *     on clicking the arrow buttons.  Default is null.  If set, will
-     *     override <slideFactor>. E.g. if slideRatio is .5, then Pan Up will
-     *     pan up half the map height. 
-     */
-    slideRatio: null,
 
     /** 
      * Property: direction
      * {String} in {'North', 'South', 'East', 'West'}
      */
     direction: null,
+
+    /**
+     * Property: type
+     * {String} The type of <OpenLayers.Control> -- When added to a 
+     *     <Control.Panel>, 'type' is used by the panel to determine how to 
+     *     handle our events.
+     */
+    type: OpenLayers.Control.TYPE_BUTTON,
 
     /**
      * Constructor: OpenLayers.Control.Pan 
@@ -62,27 +60,20 @@ OpenLayers.Control.Pan = OpenLayers.Class(OpenLayers.Control.Button, {
      * Method: trigger
      */
     trigger: function(){
-        if (this.map) {
-            var getSlideFactor = OpenLayers.Function.bind(function (dim) {
-                return this.slideRatio ?
-                    this.map.getSize()[dim] * this.slideRatio :
-                    this.slideFactor;
-            }, this);
     
-            switch (this.direction) {
-                case OpenLayers.Control.Pan.NORTH: 
-                    this.map.pan(0, -getSlideFactor("h"));
-                    break;
-                case OpenLayers.Control.Pan.SOUTH: 
-                    this.map.pan(0, getSlideFactor("h"));
-                    break;
-                case OpenLayers.Control.Pan.WEST: 
-                    this.map.pan(-getSlideFactor("w"), 0);
-                    break;
-                case OpenLayers.Control.Pan.EAST: 
-                    this.map.pan(getSlideFactor("w"), 0);
-                    break;
-            }   
+        switch (this.direction) {
+            case OpenLayers.Control.Pan.NORTH: 
+                this.map.pan(0, -this.slideFactor);
+                break;
+            case OpenLayers.Control.Pan.SOUTH: 
+                this.map.pan(0, this.slideFactor);
+                break;
+            case OpenLayers.Control.Pan.WEST: 
+                this.map.pan(-this.slideFactor, 0);
+                break;
+            case OpenLayers.Control.Pan.EAST: 
+                this.map.pan(this.slideFactor, 0);
+                break;
         }
     },
 

@@ -1,6 +1,6 @@
-/* Copyright (c) 2006-2013 by OpenLayers Contributors (see authors.txt for
- * full list of contributors). Published under the 2-clause BSD license.
- * See license.txt in the OpenLayers distribution or repository for the
+/* Copyright (c) 2006-2010 by OpenLayers Contributors (see authors.txt for 
+ * full list of contributors). Published under the Clear BSD license.  
+ * See http://svn.openlayers.org/trunk/openlayers/license.txt for the
  * full text of the license. */
 
 /**
@@ -96,18 +96,16 @@ OpenLayers.Format.Filter.v1_0_0 = OpenLayers.Class(
         "ogc": OpenLayers.Util.applyDefaults({
             "PropertyIsEqualTo": function(filter) {
                 var node = this.createElementNSPlus("ogc:PropertyIsEqualTo");
-                // no ogc:expression handling for PropertyName for now
+                // no ogc:expression handling for now
                 this.writeNode("PropertyName", filter, node);
-                // handle Literals or Functions for now
-                this.writeOgcExpression(filter.value, node);
+                this.writeNode("Literal", filter.value, node);
                 return node;
             },
             "PropertyIsNotEqualTo": function(filter) {
                 var node = this.createElementNSPlus("ogc:PropertyIsNotEqualTo");
-                // no ogc:expression handling for PropertyName for now
+                // no ogc:expression handling for now
                 this.writeNode("PropertyName", filter, node);
-                // handle Literals or Functions for now
-                this.writeOgcExpression(filter.value, node);
+                this.writeNode("Literal", filter.value, node);
                 return node;
             },
             "PropertyIsLike": function(filter) {
@@ -124,26 +122,17 @@ OpenLayers.Format.Filter.v1_0_0 = OpenLayers.Class(
             },
             "BBOX": function(filter) {
                 var node = this.createElementNSPlus("ogc:BBOX");
-                // PropertyName is mandatory in 1.0.0, but e.g. GeoServer also
-                // accepts filters without it. When this is used with
-                // OpenLayers.Protocol.WFS, OpenLayers.Format.WFST will set a
-                // missing filter.property to the geometryName that is
-                // configured with the protocol, which defaults to "the_geom".
-                // So the only way to omit this mandatory property is to not
-                // set the property on the filter and to set the geometryName
-                // on the WFS protocol to null. The latter also happens when
-                // the protocol is configured without a geometryName and a
-                // featureNS.
-                filter.property && this.writeNode("PropertyName", filter, node);
+                this.writeNode("PropertyName", filter, node);
                 var box = this.writeNode("gml:Box", filter.value, node);
                 if(filter.projection) {
                     box.setAttribute("srsName", filter.projection);
                 }
                 return node;
-            }
-        }, OpenLayers.Format.Filter.v1.prototype.writers["ogc"]),
+            }}, OpenLayers.Format.Filter.v1.prototype.writers["ogc"]),
+            
         "gml": OpenLayers.Format.GML.v2.prototype.writers["gml"],
         "feature": OpenLayers.Format.GML.v2.prototype.writers["feature"]
+        
     },
 
     /**
@@ -161,9 +150,6 @@ OpenLayers.Format.Filter.v1_0_0 = OpenLayers.Class(
     writeSpatial: function(filter, name) {
         var node = this.createElementNSPlus("ogc:"+name);
         this.writeNode("PropertyName", filter, node);
-        if(filter.value instanceof OpenLayers.Filter.Function) {
-            this.writeNode("Function", filter.value, node);
-        } else {
         var child;
         if(filter.value instanceof OpenLayers.Geometry) {
             child = this.writeNode("feature:_geometry", filter.value).firstChild;
@@ -174,7 +160,6 @@ OpenLayers.Format.Filter.v1_0_0 = OpenLayers.Class(
             child.setAttribute("srsName", filter.projection);
         }
         node.appendChild(child);
-        }
         return node;
     },
 

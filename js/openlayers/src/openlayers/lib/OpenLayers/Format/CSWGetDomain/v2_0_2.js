@@ -1,6 +1,6 @@
-/* Copyright (c) 2006-2013 by OpenLayers Contributors (see authors.txt for
- * full list of contributors). Published under the 2-clause BSD license.
- * See license.txt in the OpenLayers distribution or repository for the
+/* Copyright (c) 2006-2010 by OpenLayers Contributors (see authors.txt for 
+ * full list of contributors). Published under the Clear BSD license.  
+ * See http://svn.openlayers.org/trunk/openlayers/license.txt for the
  * full text of the license. */
 
 /**
@@ -74,6 +74,9 @@ OpenLayers.Format.CSWGetDomain.v2_0_2 = OpenLayers.Class(OpenLayers.Format.XML, 
      * - PropertyName
      * - ParameterName
      */
+    initialize: function(options) {
+        OpenLayers.Format.XML.prototype.initialize.apply(this, [options]);
+    },
 
     /**
      * APIMethod: read
@@ -105,7 +108,7 @@ OpenLayers.Format.CSWGetDomain.v2_0_2 = OpenLayers.Class(OpenLayers.Format.XML, 
                 this.readChildNodes(node, obj);
             },
             "DomainValues": function(node, obj) {
-                if (!(OpenLayers.Util.isArray(obj.DomainValues))) {
+                if (!(obj.DomainValues instanceof Array)) {
                     obj.DomainValues = [];
                 }
                 var attrs = node.attributes;
@@ -123,14 +126,14 @@ OpenLayers.Format.CSWGetDomain.v2_0_2 = OpenLayers.Class(OpenLayers.Format.XML, 
                 obj.ParameterName = this.getChildValue(node);
             },
             "ListOfValues": function(node, obj) {
-                if (!(OpenLayers.Util.isArray(obj.ListOfValues))) {
+                if (!(obj.ListOfValues instanceof Array)) {
                     obj.ListOfValues = [];
                 }
                 this.readChildNodes(node, obj.ListOfValues);
             },
             "Value": function(node, obj) {
                 var attrs = node.attributes;
-                var value = {};
+                var value = {}
                 for(var i=0, len=attrs.length; i<len; ++i) {
                     value[attrs[i].name] = attrs[i].nodeValue;
                 }
@@ -156,7 +159,7 @@ OpenLayers.Format.CSWGetDomain.v2_0_2 = OpenLayers.Class(OpenLayers.Format.XML, 
             },
             "MinValue": function(node, obj) {
                 var attrs = node.attributes;
-                var value = {};
+                var value = {}
                 for(var i=0, len=attrs.length; i<len; ++i) {
                     value[attrs[i].name] = attrs[i].nodeValue;
                 }
@@ -165,7 +168,7 @@ OpenLayers.Format.CSWGetDomain.v2_0_2 = OpenLayers.Class(OpenLayers.Format.XML, 
             },
             "MaxValue": function(node, obj) {
                 var attrs = node.attributes;
-                var value = {};
+                var value = {}
                 for(var i=0, len=attrs.length; i<len; ++i) {
                     value[attrs[i].name] = attrs[i].nodeValue;
                 }

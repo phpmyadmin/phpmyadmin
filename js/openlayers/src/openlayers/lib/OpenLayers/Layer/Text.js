@@ -1,6 +1,6 @@
-/* Copyright (c) 2006-2013 by OpenLayers Contributors (see authors.txt for
- * full list of contributors). Published under the 2-clause BSD license.
- * See license.txt in the OpenLayers distribution or repository for the
+/* Copyright (c) 2006-2010 by OpenLayers Contributors (see authors.txt for 
+ * full list of contributors). Published under the Clear BSD license.  
+ * See http://svn.openlayers.org/trunk/openlayers/license.txt for the
  * full text of the license. */
 
 
@@ -80,7 +80,7 @@ OpenLayers.Layer.Text = OpenLayers.Class(OpenLayers.Layer.Markers, {
      */
     initialize: function(name, options) {
         OpenLayers.Layer.Markers.prototype.initialize.apply(this, arguments);
-        this.features = [];
+        this.features = new Array();
     },
 
     /**
@@ -234,9 +234,6 @@ OpenLayers.Layer.Text = OpenLayers.Class(OpenLayers.Layer.Markers, {
      * 
      * Parameters:
      * evt - {Event} 
-     *
-     * Context:
-     * - {<OpenLayers.Feature>}
      */
     markerClick: function(evt) {
         var sameMarkerClicked = (this == this.layer.selectedFeature);

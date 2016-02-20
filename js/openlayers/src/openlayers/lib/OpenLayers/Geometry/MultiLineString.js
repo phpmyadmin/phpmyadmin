@@ -1,6 +1,6 @@
-/* Copyright (c) 2006-2013 by OpenLayers Contributors (see authors.txt for
- * full list of contributors). Published under the 2-clause BSD license.
- * See license.txt in the OpenLayers distribution or repository for the
+/* Copyright (c) 2006-2010 by OpenLayers Contributors (see authors.txt for 
+ * full list of contributors). Published under the Clear BSD license.  
+ * See http://svn.openlayers.org/trunk/openlayers/license.txt for the
  * full text of the license. */
 
 /**
@@ -36,13 +36,17 @@ OpenLayers.Geometry.MultiLineString = OpenLayers.Class(
      * components - {Array(<OpenLayers.Geometry.LineString>)} 
      *
      */
+    initialize: function(components) {
+        OpenLayers.Geometry.Collection.prototype.initialize.apply(this, 
+                                                                  arguments);        
+    },
     
     /**
      * Method: split
      * Use this geometry (the source) to attempt to split a target geometry.
      * 
      * Parameters:
-     * geometry - {<OpenLayers.Geometry>} The target geometry.
+     * target - {<OpenLayers.Geometry>} The target geometry.
      * options - {Object} Properties of this object will be used to determine
      *     how the split is conducted.
      *

@@ -1,6 +1,6 @@
-/* Copyright (c) 2006-2013 by OpenLayers Contributors (see authors.txt for
- * full list of contributors). Published under the 2-clause BSD license.
- * See license.txt in the OpenLayers distribution or repository for the
+/* Copyright (c) 2006-2010 by OpenLayers Contributors (see authors.txt for 
+ * full list of contributors). Published under the Clear BSD license.  
+ * See http://svn.openlayers.org/trunk/openlayers/license.txt for the
  * full text of the license. */
 
 
@@ -36,15 +36,8 @@ OpenLayers.Layer.TileCache = OpenLayers.Class(OpenLayers.Layer.Grid, {
 
     /**
      * APIProperty: serverResolutions
-     * {Array} A list of all resolutions available on the server.  Only set this
-     *     property if the map resolutions differ from the server. This
-     *     property serves two purposes. (a) <serverResolutions> can include
-     *     resolutions that the server supports and that you don't want to
-     *     provide with this layer. (b) The map can work with resolutions
-     *     that aren't supported by the server, i.e. that aren't in
-     *     <serverResolutions>. When the map is displayed in such a resolution
-     *     data for the closest server-supported resolution is loaded and the
-     *     layer div is stretched as necessary.
+     * {Array} A list of all resolutions available on the server.  Only set this 
+     *     property if the map resolutions differs from the server.
      */
     serverResolutions: null,
 
@@ -108,7 +101,7 @@ OpenLayers.Layer.TileCache = OpenLayers.Class(OpenLayers.Layer.Grid, {
      *     passed-in bounds and appropriate tile size specified as parameters.
      */
     getURL: function(bounds) {
-        var res = this.getServerResolution();
+        var res = this.map.getResolution();
         var bbox = this.maxExtent;
         var size = this.tileSize;
         var tileX = Math.round((bounds.left - bbox.left) / (res * size.w));
@@ -116,24 +109,56 @@ OpenLayers.Layer.TileCache = OpenLayers.Class(OpenLayers.Layer.Grid, {
         var tileZ = this.serverResolutions != null ?
             OpenLayers.Util.indexOf(this.serverResolutions, res) :
             this.map.getZoom();
-
+        /**
+         * Zero-pad a positive integer.
+         * number - {Int} 
+         * length - {Int} 
+         *
+         * Returns:
+         * {String} A zero-padded string
+         */
+        function zeroPad(number, length) {
+            number = String(number);
+            var zeros = [];
+            for(var i=0; i<length; ++i) {
+                zeros.push('0');
+            }
+            return zeros.join('').substring(0, length - number.length) + number;
+        }
         var components = [
             this.layername,
-            OpenLayers.Number.zeroPad(tileZ, 2),
-            OpenLayers.Number.zeroPad(parseInt(tileX / 1000000), 3),
-            OpenLayers.Number.zeroPad((parseInt(tileX / 1000) % 1000), 3),
-            OpenLayers.Number.zeroPad((parseInt(tileX) % 1000), 3),
-            OpenLayers.Number.zeroPad(parseInt(tileY / 1000000), 3),
-            OpenLayers.Number.zeroPad((parseInt(tileY / 1000) % 1000), 3),
-            OpenLayers.Number.zeroPad((parseInt(tileY) % 1000), 3) + '.' + this.extension
+            zeroPad(tileZ, 2),
+            zeroPad(parseInt(tileX / 1000000), 3),
+            zeroPad((parseInt(tileX / 1000) % 1000), 3),
+            zeroPad((parseInt(tileX) % 1000), 3),
+            zeroPad(parseInt(tileY / 1000000), 3),
+            zeroPad((parseInt(tileY / 1000) % 1000), 3),
+            zeroPad((parseInt(tileY) % 1000), 3) + '.' + this.extension
         ];
         var path = components.join('/'); 
         var url = this.url;
-        if (OpenLayers.Util.isArray(url)) {
+        if (url instanceof Array) {
             url = this.selectUrl(path, url);
         }
         url = (url.charAt(url.length - 1) == '/') ? url : url + '/';
         return url + path;
+    },
+
+    /**
+     * Method: addTile
+     * Create a tile, initialize it, and add it to the layer div. 
+     *
+     * Parameters: 
+     * bounds - {<OpenLayers.Bounds>} 
+     * position - {<OpenLayers.Pixel>}
+     *
+     * Returns:
+     * {<OpenLayers.Tile.Image>} The added <OpenLayers.Tile.Image>
+     */
+    addTile:function(bounds, position) {
+        var url = this.getURL(bounds);
+        return new OpenLayers.Tile.Image(this, position, bounds, 
+                                             url, this.tileSize);
     },
     
     CLASS_NAME: "OpenLayers.Layer.TileCache"

@@ -28,15 +28,15 @@ require_once 'libraries/string.lib.php';
  * echo PMA_ifSetOr($_REQUEST['db'], ''); // ''
  * // $_REQUEST['sql_query'] not set
  * echo PMA_ifSetOr($_REQUEST['sql_query']); // null
- * // $cfg['EnableFoo'] not set
- * echo PMA_ifSetOr($cfg['EnableFoo'], false, 'boolean'); // false
- * echo PMA_ifSetOr($cfg['EnableFoo']); // null
- * // $cfg['EnableFoo'] set to 1
- * echo PMA_ifSetOr($cfg['EnableFoo'], false, 'boolean'); // false
- * echo PMA_ifSetOr($cfg['EnableFoo'], false, 'similar'); // 1
- * echo PMA_ifSetOr($cfg['EnableFoo'], false); // 1
- * // $cfg['EnableFoo'] set to true
- * echo PMA_ifSetOr($cfg['EnableFoo'], false, 'boolean'); // true
+ * // $cfg['ForceSSL'] not set
+ * echo PMA_ifSetOr($cfg['ForceSSL'], false, 'boolean'); // false
+ * echo PMA_ifSetOr($cfg['ForceSSL']); // null
+ * // $cfg['ForceSSL'] set to 1
+ * echo PMA_ifSetOr($cfg['ForceSSL'], false, 'boolean'); // false
+ * echo PMA_ifSetOr($cfg['ForceSSL'], false, 'similar'); // 1
+ * echo PMA_ifSetOr($cfg['ForceSSL'], false); // 1
+ * // $cfg['ForceSSL'] set to true
+ * echo PMA_ifSetOr($cfg['ForceSSL'], false, 'boolean'); // true
  * </code>
  *
  * @param mixed &$var    param to check
@@ -488,7 +488,7 @@ function PMA_getenv($var_name)
  */
 function PMA_sendHeaderLocation($uri, $use_refresh = false)
 {
-    if ($GLOBALS['PMA_Config']->get('PMA_IS_IIS') && mb_strlen($uri) > 600) {
+    if (PMA_IS_IIS && mb_strlen($uri) > 600) {
         include_once './libraries/js_escape.lib.php';
         PMA\libraries\Response::getInstance()->disable();
 
@@ -498,20 +498,18 @@ function PMA_sendHeaderLocation($uri, $use_refresh = false)
         return;
     }
 
-    $response = PMA\libraries\Response::getInstance();
-
     if (SID) {
         if (mb_strpos($uri, '?') === false) {
-            $response->header('Location: ' . $uri . '?' . SID);
+            header('Location: ' . $uri . '?' . SID);
         } else {
             $separator = PMA_URL_getArgSeparator();
-            $response->header('Location: ' . $uri . $separator . SID);
+            header('Location: ' . $uri . $separator . SID);
         }
         return;
     }
 
     session_write_close();
-    if ($response->headersSent()) {
+    if (headers_sent()) {
         if (function_exists('debug_print_backtrace')) {
             echo '<pre>';
             debug_print_backtrace();
@@ -525,10 +523,10 @@ function PMA_sendHeaderLocation($uri, $use_refresh = false)
     // bug #1523784: IE6 does not like 'Refresh: 0', it
     // results in a blank page
     // but we need it when coming from the cookie login panel)
-    if ($GLOBALS['PMA_Config']->get('PMA_IS_IIS') && $use_refresh) {
-        $response->header('Refresh: 0; ' . $uri);
+    if (PMA_IS_IIS && $use_refresh) {
+        header('Refresh: 0; ' . $uri);
     } else {
-        $response->header('Location: ' . $uri);
+        header('Location: ' . $uri);
     }
 }
 

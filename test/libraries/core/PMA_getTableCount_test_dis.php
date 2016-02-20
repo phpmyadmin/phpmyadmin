@@ -12,6 +12,10 @@
 
 use PMA\libraries\Theme;
 
+require_once 'libraries/vendor_config.php';
+
+
+
 require_once 'libraries/js_escape.lib.php';
 require_once 'libraries/select_lang.inc.php';
 require_once 'libraries/sanitizing.lib.php';
@@ -42,6 +46,8 @@ class PMA_GetTableCount_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['PMA_Config'] = new PMA\libraries\Config();
         $GLOBALS['PMA_Config']->enableBc();
         $GLOBALS['cfg']['OBGzip'] = false;
+        $_SESSION['PMA_Theme'] = new Theme();
+        $GLOBALS['pmaThemeImage'] = 'theme/';
         $GLOBALS['pmaThemePath'] = $_SESSION['PMA_Theme']->getPath();
         $GLOBALS['server'] = 1;
         $GLOBALS['db'] = '';

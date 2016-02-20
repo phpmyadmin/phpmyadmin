@@ -1,17 +1,22 @@
-/* Copyright (c) 2006-2013 by OpenLayers Contributors (see authors.txt for
- * full list of contributors). Published under the 2-clause BSD license.
- * See license.txt in the OpenLayers distribution or repository for the
+/* Copyright (c) 2006-2010 by OpenLayers Contributors (see authors.txt for 
+ * full list of contributors). Published under the Clear BSD license.  
+ * See http://svn.openlayers.org/trunk/openlayers/license.txt for the
  * full text of the license. */
 
 /**
- * @requires OpenLayers/BaseTypes/Class.js
- * @requires OpenLayers/Animation.js
+ * @requires OpenLayers/Console.js
  */
 
 /**
  * Namespace: OpenLayers.Tween
  */
 OpenLayers.Tween = OpenLayers.Class({
+    
+    /**
+     * Constant: INTERVAL
+     * {int} Interval in milliseconds between 2 steps
+     */
+    INTERVAL: 10,
     
     /**
      * APIProperty: easing
@@ -53,26 +58,10 @@ OpenLayers.Tween = OpenLayers.Class({
     time: null,
     
     /**
-     * APIProperty: minFrameRate
-     * {Number} The minimum framerate for animations in frames per second. After
-     * each step, the time spent in the animation is compared to the calculated
-     * time at this frame rate. If the animation runs longer than the calculated
-     * time, the next step is skipped. Default is 30.
+     * Property: interval
+     * {int} Interval id returned by window.setInterval
      */
-    minFrameRate: null,
-
-    /**
-     * Property: startTime
-     * {Number} The timestamp of the first execution step. Used for skipping
-     * frames
-     */
-    startTime: null,
-    
-    /**
-     * Property: animationId
-     * {int} Loop id returned by OpenLayers.Animation.start
-     */
-    animationId: null,
+    interval: null,
     
     /**
      * Property: playing
@@ -99,8 +88,7 @@ OpenLayers.Tween = OpenLayers.Class({
      * begin - {Object} values to start the animation with
      * finish - {Object} values to finish the animation with
      * duration - {int} duration of the tween (number of steps)
-     * options - {Object} hash of options (callbacks (start, eachStep, done),
-     *     minFrameRate)
+     * options - {Object} hash of options (for example callbacks (start, eachStep, done))
      */
     start: function(begin, finish, duration, options) {
         this.playing = true;
@@ -108,17 +96,16 @@ OpenLayers.Tween = OpenLayers.Class({
         this.finish = finish;
         this.duration = duration;
         this.callbacks = options.callbacks;
-        this.minFrameRate = options.minFrameRate || 30;
         this.time = 0;
-        this.startTime = new Date().getTime();
-        OpenLayers.Animation.stop(this.animationId);
-        this.animationId = null;
+        if (this.interval) {
+            window.clearInterval(this.interval);
+            this.interval = null;
+        }
         if (this.callbacks && this.callbacks.start) {
             this.callbacks.start.call(this, this.begin);
         }
-        this.animationId = OpenLayers.Animation.start(
-            OpenLayers.Function.bind(this.play, this)
-        );
+        this.interval = window.setInterval(
+            OpenLayers.Function.bind(this.play, this), this.INTERVAL);
     },
     
     /**
@@ -134,8 +121,8 @@ OpenLayers.Tween = OpenLayers.Class({
         if (this.callbacks && this.callbacks.done) {
             this.callbacks.done.call(this, this.finish);
         }
-        OpenLayers.Animation.stop(this.animationId);
-        this.animationId = null;
+        window.clearInterval(this.interval);
+        this.interval = null;
         this.playing = false;
     },
     
@@ -149,19 +136,16 @@ OpenLayers.Tween = OpenLayers.Class({
             var b = this.begin[i];
             var f = this.finish[i];
             if (b == null || f == null || isNaN(b) || isNaN(f)) {
-                throw new TypeError('invalid value for Tween');
+                OpenLayers.Console.error('invalid value for Tween');
             }
-
+            
             var c = f - b;
             value[i] = this.easing.apply(this, [this.time, b, c, this.duration]);
         }
         this.time++;
         
         if (this.callbacks && this.callbacks.eachStep) {
-            // skip frames if frame rate drops below threshold
-            if ((new Date().getTime() - this.startTime) / this.time <= 1000 / this.minFrameRate) {
-                this.callbacks.eachStep.call(this, value);
-            }
+            this.callbacks.eachStep.call(this, value);
         }
         
         if (this.time > this.duration) {
@@ -201,9 +185,6 @@ OpenLayers.Easing.Linear = {
      * b - {Float} beginning position
      * c - {Float} total change
      * d - {Float} duration of the transition
-     *
-     * Returns:
-     * {Float}
      */
     easeIn: function(t, b, c, d) {
         return c*t/d + b;
@@ -217,9 +198,6 @@ OpenLayers.Easing.Linear = {
      * b - {Float} beginning position
      * c - {Float} total change
      * d - {Float} duration of the transition
-     *
-     * Returns:
-     * {Float}
      */
     easeOut: function(t, b, c, d) {
         return c*t/d + b;
@@ -233,9 +211,6 @@ OpenLayers.Easing.Linear = {
      * b - {Float} beginning position
      * c - {Float} total change
      * d - {Float} duration of the transition
-     *
-     * Returns:
-     * {Float}
      */
     easeInOut: function(t, b, c, d) {
         return c*t/d + b;
@@ -257,9 +232,6 @@ OpenLayers.Easing.Expo = {
      * b - {Float} beginning position
      * c - {Float} total change
      * d - {Float} duration of the transition
-     *
-     * Returns:
-     * {Float}
      */
     easeIn: function(t, b, c, d) {
         return (t==0) ? b : c * Math.pow(2, 10 * (t/d - 1)) + b;
@@ -273,9 +245,6 @@ OpenLayers.Easing.Expo = {
      * b - {Float} beginning position
      * c - {Float} total change
      * d - {Float} duration of the transition
-     *
-     * Returns:
-     * {Float}
      */
     easeOut: function(t, b, c, d) {
         return (t==d) ? b+c : c * (-Math.pow(2, -10 * t/d) + 1) + b;
@@ -289,9 +258,6 @@ OpenLayers.Easing.Expo = {
      * b - {Float} beginning position
      * c - {Float} total change
      * d - {Float} duration of the transition
-     *
-     * Returns:
-     * {Float}
      */
     easeInOut: function(t, b, c, d) {
         if (t==0) return b;
@@ -316,9 +282,6 @@ OpenLayers.Easing.Quad = {
      * b - {Float} beginning position
      * c - {Float} total change
      * d - {Float} duration of the transition
-     *
-     * Returns:
-     * {Float}
      */
     easeIn: function(t, b, c, d) {
         return c*(t/=d)*t + b;
@@ -332,9 +295,6 @@ OpenLayers.Easing.Quad = {
      * b - {Float} beginning position
      * c - {Float} total change
      * d - {Float} duration of the transition
-     *
-     * Returns:
-     * {Float}
      */
     easeOut: function(t, b, c, d) {
         return -c *(t/=d)*(t-2) + b;
@@ -348,9 +308,6 @@ OpenLayers.Easing.Quad = {
      * b - {Float} beginning position
      * c - {Float} total change
      * d - {Float} duration of the transition
-     *
-     * Returns:
-     * {Float}
      */
     easeInOut: function(t, b, c, d) {
         if ((t/=d/2) < 1) return c/2*t*t + b;

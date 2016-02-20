@@ -1,12 +1,11 @@
-/* Copyright (c) 2006-2013 by OpenLayers Contributors (see authors.txt for
- * full list of contributors). Published under the 2-clause BSD license.
- * See license.txt in the OpenLayers distribution or repository for the
+/* Copyright (c) 2006-2010 by OpenLayers Contributors (see authors.txt for 
+ * full list of contributors). Published under the Clear BSD license.  
+ * See http://svn.openlayers.org/trunk/openlayers/license.txt for the
  * full text of the license. */
 
 
 /**
  * @requires OpenLayers/Control.js
- * @requires OpenLayers/Lang.js
  */
 
 /**
@@ -20,7 +19,7 @@
 OpenLayers.Control.Scale = OpenLayers.Class(OpenLayers.Control, {
     
     /**
-     * Property: element
+     * Parameter: element
      * {DOMElement}
      */
     element: null,
@@ -92,7 +91,7 @@ OpenLayers.Control.Scale = OpenLayers.Class(OpenLayers.Control, {
             scale = Math.round(scale);
         }    
         
-        this.element.innerHTML = OpenLayers.i18n("Scale = 1 : ${scaleDenom}", {'scaleDenom':scale});
+        this.element.innerHTML = OpenLayers.i18n("scale", {'scaleDenom':scale});
     }, 
 
     CLASS_NAME: "OpenLayers.Control.Scale"

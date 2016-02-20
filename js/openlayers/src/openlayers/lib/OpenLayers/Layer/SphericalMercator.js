@@ -1,6 +1,6 @@
-/* Copyright (c) 2006-2013 by OpenLayers Contributors (see authors.txt for
- * full list of contributors). Published under the 2-clause BSD license.
- * See license.txt in the OpenLayers distribution or repository for the
+/* Copyright (c) 2006-2010 by OpenLayers Contributors (see authors.txt for 
+ * full list of contributors). Published under the Clear BSD license.  
+ * See http://svn.openlayers.org/trunk/openlayers/license.txt for the
  * full text of the license. */
 
 /**
@@ -95,7 +95,7 @@ OpenLayers.Layer.SphericalMercator = {
     initMercatorParameters: function() {
         // set up properties for Mercator - assume EPSG:900913
         this.RESOLUTIONS = [];
-        var maxResolution = 156543.03390625;
+        var maxResolution = 156543.0339;
         for(var zoom=0; zoom<=this.MAX_ZOOM_LEVEL; ++zoom) {
             this.RESOLUTIONS[zoom] = maxResolution / Math.pow(2, zoom);
         }
@@ -114,14 +114,14 @@ OpenLayers.Layer.SphericalMercator = {
      * Returns:
      * {<OpenLayers.LonLat>} The coordinates transformed to Mercator.
      */
-    forwardMercator: (function() {
-        var gg = new OpenLayers.Projection("EPSG:4326");
-        var sm = new OpenLayers.Projection("EPSG:900913");
-        return function(lon, lat) {
-            var point = OpenLayers.Projection.transform({x: lon, y: lat}, gg, sm);
-            return new OpenLayers.LonLat(point.x, point.y);
-        };
-    })(),
+    forwardMercator: function(lon, lat) {
+        var x = lon * 20037508.34 / 180;
+        var y = Math.log(Math.tan((90 + lat) * Math.PI / 360)) / (Math.PI / 180);
+
+        y = y * 20037508.34 / 180;
+        
+        return new OpenLayers.LonLat(x, y);
+    },
 
     /**
      * APIMethod: inverseMercator
@@ -134,13 +134,63 @@ OpenLayers.Layer.SphericalMercator = {
      * Returns:
      * {<OpenLayers.LonLat>} The coordinates transformed to EPSG:4326.
      */
-    inverseMercator: (function() {
-        var gg = new OpenLayers.Projection("EPSG:4326");
-        var sm = new OpenLayers.Projection("EPSG:900913");
-        return function(x, y) {
-            var point = OpenLayers.Projection.transform({x: x, y: y}, sm, gg);
-            return new OpenLayers.LonLat(point.x, point.y);
-        };
-    })()
+    inverseMercator: function(x, y) {
+
+        var lon = (x / 20037508.34) * 180;
+        var lat = (y / 20037508.34) * 180;
+
+        lat = 180/Math.PI * (2 * Math.atan(Math.exp(lat * Math.PI / 180)) - Math.PI / 2);
+        
+        return new OpenLayers.LonLat(lon, lat);
+    },
+
+    /**
+     * Method: projectForward 
+     * Given an object with x and y properties in EPSG:4326, modify the x,y
+     * properties on the object to be the Spherical Mercator projected
+     * coordinates.
+     *
+     * Parameters:
+     * point - {Object} An object with x and y properties. 
+     * 
+     * Returns:
+     * {Object} The point, with the x and y properties transformed to spherical
+     * mercator.
+     */
+    projectForward: function(point) {
+        var lonlat = OpenLayers.Layer.SphericalMercator.forwardMercator(point.x, point.y);
+        point.x = lonlat.lon;
+        point.y = lonlat.lat;
+        return point;
+    },
+    
+    /**
+     * Method: projectInverse
+     * Given an object with x and y properties in Spherical Mercator, modify
+     * the x,y properties on the object to be the unprojected coordinates.
+     *
+     * Parameters:
+     * point - {Object} An object with x and y properties. 
+     * 
+     * Returns:
+     * {Object} The point, with the x and y properties transformed from
+     * spherical mercator to unprojected coordinates..
+     */
+    projectInverse: function(point) {
+        var lonlat = OpenLayers.Layer.SphericalMercator.inverseMercator(point.x, point.y);
+        point.x = lonlat.lon;
+        point.y = lonlat.lat;
+        return point;
+    }
 
 };
+
+/**
+ * Note: Two transforms declared
+ * Transforms from EPSG:4326 to EPSG:900913 and from EPSG:900913 to EPSG:4326
+ *     are set by this class.
+ */
+OpenLayers.Projection.addTransform("EPSG:4326", "EPSG:900913",
+    OpenLayers.Layer.SphericalMercator.projectForward);
+OpenLayers.Projection.addTransform("EPSG:900913", "EPSG:4326",
+    OpenLayers.Layer.SphericalMercator.projectInverse);

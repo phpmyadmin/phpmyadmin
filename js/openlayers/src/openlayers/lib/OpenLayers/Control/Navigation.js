@@ -1,6 +1,6 @@
-/* Copyright (c) 2006-2013 by OpenLayers Contributors (see authors.txt for
- * full list of contributors). Published under the 2-clause BSD license.
- * See license.txt in the OpenLayers distribution or repository for the
+/* Copyright (c) 2006-2010 by OpenLayers Contributors (see authors.txt for 
+ * full list of contributors). Published under the Clear BSD license.  
+ * See http://svn.openlayers.org/trunk/openlayers/license.txt for the
  * full text of the license. */
 
 /**
@@ -32,22 +32,10 @@ OpenLayers.Control.Navigation = OpenLayers.Class(OpenLayers.Control, {
     dragPan: null,
 
     /**
-     * APIProperty: dragPanOptions
+     * APIProprety: dragPanOptions
      * {Object} Options passed to the DragPan control.
      */
     dragPanOptions: null,
-
-    /**
-     * Property: pinchZoom
-     * {<OpenLayers.Control.PinchZoom>}
-     */
-    pinchZoom: null,
-
-    /**
-     * APIProperty: pinchZoomOptions
-     * {Object} Options passed to the PinchZoom control.
-     */
-    pinchZoomOptions: null,
 
     /**
      * APIProperty: documentDrag
@@ -77,9 +65,7 @@ OpenLayers.Control.Navigation = OpenLayers.Class(OpenLayers.Control, {
     /**
      * Property: mouseWheelOptions
      * {Object} Options passed to the MouseWheel control (only useful if
-     *     <zoomWheelEnabled> is set to true). Default is no options for maps
-     *     with fractionalZoom set to true, otherwise
-     *     {cumulative: false, interval: 50, maxDelta: 6} 
+     *     <zoomWheelEnabled> is set to true)
      */
     mouseWheelOptions: null,
 
@@ -96,7 +82,7 @@ OpenLayers.Control.Navigation = OpenLayers.Class(OpenLayers.Control, {
      *    You should probably set handleRightClicks to true if you use this
      *    with MOD_CTRL, to disable the context menu for machines which use
      *    CTRL-Click as a right click.
-     * Default: <OpenLayers.Handler.MOD_SHIFT>
+     * Default: <OpenLayers.Handler.MOD_SHIFT
      */
     zoomBoxKeyMask: OpenLayers.Handler.MOD_SHIFT,
     
@@ -138,12 +124,6 @@ OpenLayers.Control.Navigation = OpenLayers.Class(OpenLayers.Control, {
             this.zoomBox.destroy();
         }
         this.zoomBox = null;
-
-        if (this.pinchZoom) {
-            this.pinchZoom.destroy();
-        }
-        this.pinchZoom = null;
-
         OpenLayers.Control.prototype.destroy.apply(this,arguments);
     },
     
@@ -159,9 +139,6 @@ OpenLayers.Control.Navigation = OpenLayers.Class(OpenLayers.Control, {
         if (this.zoomBoxEnabled) {
             this.zoomBox.activate();
         }
-        if (this.pinchZoom) {
-            this.pinchZoom.activate();
-        }
         return OpenLayers.Control.prototype.activate.apply(this,arguments);
     },
 
@@ -169,9 +146,6 @@ OpenLayers.Control.Navigation = OpenLayers.Class(OpenLayers.Control, {
      * Method: deactivate
      */
     deactivate: function() {
-        if (this.pinchZoom) {
-            this.pinchZoom.deactivate();
-        }
         this.zoomBox.deactivate();
         this.dragPan.deactivate();
         this.handlers.click.deactivate();
@@ -189,7 +163,6 @@ OpenLayers.Control.Navigation = OpenLayers.Class(OpenLayers.Control, {
         }
 
         var clickCallbacks = { 
-            'click': this.defaultClick,
             'dblclick': this.defaultDblClick, 
             'dblrightclick': this.defaultDblRightClick 
         };
@@ -210,32 +183,10 @@ OpenLayers.Control.Navigation = OpenLayers.Class(OpenLayers.Control, {
                     {map: this.map, keyMask: this.zoomBoxKeyMask});
         this.dragPan.draw();
         this.zoomBox.draw();
-        var wheelOptions = this.map.fractionalZoom ? {} : {
-            cumulative: false,
-            interval: 50,
-            maxDelta: 6
-        };
         this.handlers.wheel = new OpenLayers.Handler.MouseWheel(
-            this, {up : this.wheelUp, down: this.wheelDown},
-            OpenLayers.Util.extend(wheelOptions, this.mouseWheelOptions)
-        );
-        if (OpenLayers.Control.PinchZoom) {
-            this.pinchZoom = new OpenLayers.Control.PinchZoom(
-                OpenLayers.Util.extend(
-                    {map: this.map}, this.pinchZoomOptions));
-        }
-    },
-
-    /**
-     * Method: defaultClick
-     *
-     * Parameters:
-     * evt - {Event}
-     */
-    defaultClick: function (evt) {
-        if (evt.lastTouches && evt.lastTouches.length == 2) {
-            this.map.zoomOut();
-        }
+                                    this, {"up"  : this.wheelUp,
+                                           "down": this.wheelDown},
+                                    this.mouseWheelOptions );
     },
 
     /**
@@ -245,7 +196,8 @@ OpenLayers.Control.Navigation = OpenLayers.Class(OpenLayers.Control, {
      * evt - {Event} 
      */
     defaultDblClick: function (evt) {
-        this.map.zoomTo(this.map.zoom + 1, evt.xy);
+        var newCenter = this.map.getLonLatFromViewPortPx( evt.xy ); 
+        this.map.setCenter(newCenter, this.map.zoom + 1);
     },
 
     /**
@@ -255,7 +207,8 @@ OpenLayers.Control.Navigation = OpenLayers.Class(OpenLayers.Control, {
      * evt - {Event} 
      */
     defaultDblRightClick: function (evt) {
-        this.map.zoomTo(this.map.zoom - 1, evt.xy);
+        var newCenter = this.map.getLonLatFromViewPortPx( evt.xy ); 
+        this.map.setCenter(newCenter, this.map.zoom - 1);
     },
     
     /**
@@ -266,17 +219,22 @@ OpenLayers.Control.Navigation = OpenLayers.Class(OpenLayers.Control, {
      * deltaZ - {Integer}
      */
     wheelChange: function(evt, deltaZ) {
-        if (!this.map.fractionalZoom) {
-            deltaZ =  Math.round(deltaZ);
-        }
-        var currentZoom = this.map.getZoom(),
-            newZoom = currentZoom + deltaZ;
+        var currentZoom = this.map.getZoom();
+        var newZoom = this.map.getZoom() + Math.round(deltaZ);
         newZoom = Math.max(newZoom, 0);
         newZoom = Math.min(newZoom, this.map.getNumZoomLevels());
         if (newZoom === currentZoom) {
             return;
         }
-        this.map.zoomTo(newZoom, evt.xy);
+        var size    = this.map.getSize();
+        var deltaX  = size.w/2 - evt.xy.x;
+        var deltaY  = evt.xy.y - size.h/2;
+        var newRes  = this.map.baseLayer.getResolutionForZoom(newZoom);
+        var zoomPoint = this.map.getLonLatFromPixel(evt.xy);
+        var newCenter = new OpenLayers.LonLat(
+                            zoomPoint.lon + deltaX * newRes,
+                            zoomPoint.lat + deltaY * newRes );
+        this.map.setCenter( newCenter, newZoom );
     },
 
     /** 

@@ -1,6 +1,6 @@
-/* Copyright (c) 2006-2013 by OpenLayers Contributors (see authors.txt for
- * full list of contributors). Published under the 2-clause BSD license.
- * See license.txt in the OpenLayers distribution or repository for the
+/* Copyright (c) 2006-2010 by OpenLayers Contributors (see authors.txt for 
+ * full list of contributors). Published under the Clear BSD license.  
+ * See http://svn.openlayers.org/trunk/openlayers/license.txt for the
  * full text of the license. */
 
 
@@ -8,16 +8,10 @@
  * @requires OpenLayers/Layer/SphericalMercator.js
  * @requires OpenLayers/Layer/EventPane.js
  * @requires OpenLayers/Layer/FixedZoomLevels.js
- * @requires OpenLayers/Lang.js
  */
 
 /**
  * Class: OpenLayers.Layer.Google
- * 
- * Provides a wrapper for Google's Maps API
- * Normally the Terms of Use for this API do not allow wrapping, but Google
- * have provided written consent to OpenLayers for this - see email in 
- * http://osgeo-org.1560.n6.nabble.com/Google-Maps-API-Terms-of-Use-changes-tp4910013p4911981.html
  * 
  * Inherits from:
  *  - <OpenLayers.Layer.SphericalMercator>
@@ -182,7 +176,7 @@ OpenLayers.Layer.Google = OpenLayers.Class(
      * Hide or show the Layer
      * 
      * Parameters:
-     * visible - {Boolean}
+     * display - {Boolean}
      */
     display: function(visible) {
         if (!this._dragging) {
@@ -195,7 +189,7 @@ OpenLayers.Layer.Google = OpenLayers.Class(
      * Method: moveTo
      * 
      * Parameters:
-     * bounds - {<OpenLayers.Bounds>}
+     * bound - {<OpenLayers.Bounds>}
      * zoomChanged - {Boolean} Tells when zoom has changed, as layers have to
      *     do some init work in that case.
      * dragging - {Boolean}
@@ -210,7 +204,7 @@ OpenLayers.Layer.Google = OpenLayers.Class(
      * APIMethod: setOpacity
      * Sets the opacity for the entire layer (all images)
      * 
-     * Parameters:
+     * Parameter:
      * opacity - {Float}
      */
     setOpacity: function(opacity) {
@@ -273,10 +267,6 @@ OpenLayers.Layer.Google = OpenLayers.Class(
             var poweredBy = cache.poweredBy;
             if (poweredBy && poweredBy.parentNode) {
                 poweredBy.parentNode.removeChild(poweredBy);
-            }
-            if (this.mapObject && window.google && google.maps &&
-                    google.maps.event && google.maps.event.clearListeners) {
-                google.maps.event.clearListeners(this.mapObject, 'tilesloaded');
             }
         }
     },
@@ -471,10 +461,6 @@ OpenLayers.Layer.Google.cache = {};
  * Constant: OpenLayers.Layer.Google.v2
  * 
  * Mixin providing functionality specific to the Google Maps API v2.
- * 
- * This API has been deprecated by Google.
- * Developers are encouraged to migrate to v3 of the API; support for this
- * is provided by <OpenLayers.Layer.Google.v3>
  */
 OpenLayers.Layer.Google.v2 = {
     

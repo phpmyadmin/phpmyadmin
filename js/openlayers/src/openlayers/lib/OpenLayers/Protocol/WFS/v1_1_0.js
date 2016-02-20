@@ -1,6 +1,6 @@
-/* Copyright (c) 2006-2013 by OpenLayers Contributors (see authors.txt for
- * full list of contributors). Published under the 2-clause BSD license.
- * See license.txt in the OpenLayers distribution or repository for the
+/* Copyright (c) 2006-2010 by OpenLayers Contributors (see authors.txt for 
+ * full list of contributors). Published under the Clear BSD license.  
+ * See http://svn.openlayers.org/trunk/openlayers/license.txt for the
  * full text of the license. */
 
 /**
@@ -42,27 +42,7 @@ OpenLayers.Protocol.WFS.v1_1_0 = OpenLayers.Class(OpenLayers.Protocol.WFS.v1, {
      * featurePrefix - {String} Feature namespace alias (optional - only used
      *     if featureNS is provided).  Default is 'feature'.
      * geometryName - {String} Name of geometry attribute.  Default is 'the_geom'.
-     * outputFormat - {String} Optional output format to use for WFS GetFeature
-     *     requests. This can be any format advertized by the WFS's
-     *     GetCapabilities response. If set, an appropriate readFormat also
-     *     has to be provided, unless outputFormat is GML3, GML2 or JSON.
-     * readFormat - {<OpenLayers.Format>} An appropriate format parser if
-     *     outputFormat is none of GML3, GML2 or JSON.
      */
-    initialize: function(options) {
-        OpenLayers.Protocol.WFS.v1.prototype.initialize.apply(this, arguments);
-        if (this.outputFormat && !this.readFormat) {
-            if (this.outputFormat.toLowerCase() == "gml2") {
-                this.readFormat = new OpenLayers.Format.GML.v2({
-                    featureType: this.featureType,
-                    featureNS: this.featureNS,
-                    geometryName: this.geometryName
-                });
-            } else if (this.outputFormat.toLowerCase() == "json") {
-                this.readFormat = new OpenLayers.Format.GeoJSON();
-            }
-        }
-    },
    
     CLASS_NAME: "OpenLayers.Protocol.WFS.v1_1_0"
 });

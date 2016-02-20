@@ -1,16 +1,15 @@
-/* Copyright (c) 2006-2013 by OpenLayers Contributors (see authors.txt for
- * full list of contributors). Published under the 2-clause BSD license.
- * See license.txt in the OpenLayers distribution or repository for the
+/* Copyright (c) 2006-2010 by OpenLayers Contributors (see authors.txt for 
+ * full list of contributors). Published under the Clear BSD license.  
+ * See http://svn.openlayers.org/trunk/openlayers/license.txt for the
  * full text of the license. */
 
 /**
  * @requires OpenLayers/Protocol.js
+ * @requires OpenLayers/Feature/Vector.js
+ * @requires OpenLayers/Filter/Spatial.js
+ * @requires OpenLayers/Filter/Comparison.js
+ * @requires OpenLayers/Filter/Logical.js
  * @requires OpenLayers/Request/XMLHttpRequest.js
- */
-
-/**
- * if application uses the query string, for example, for BBOX parameters,
- * OpenLayers/Format/QueryStringFilter.js should be included in the build config file
  */
 
 /**
@@ -62,26 +61,11 @@ OpenLayers.Protocol.HTTP = OpenLayers.Class(OpenLayers.Protocol, {
     scope: null,
 
     /**
-     * APIProperty: readWithPOST
+     * Property: readWithPOST
      * {Boolean} true if read operations are done with POST requests
      *     instead of GET, defaults to false.
      */
     readWithPOST: false,
-
-    /**
-     * APIProperty: updateWithPOST
-     * {Boolean} true if update operations are done with POST requests
-     *     defaults to false.
-     */
-    updateWithPOST: false,
-    
-    /**
-     * APIProperty: deleteWithPOST
-     * {Boolean} true if delete operations are done with POST requests
-     *     defaults to false.
-     *     if true, POST data is set to output of format.write().
-     */
-    deleteWithPOST: false,
 
     /**
      * Property: wildcarded.
@@ -95,15 +79,6 @@ OpenLayers.Protocol.HTTP = OpenLayers.Class(OpenLayers.Protocol, {
     wildcarded: false,
 
     /**
-     * APIProperty: srsInBBOX
-     * {Boolean} Include the SRS identifier in BBOX query string parameter.  
-     *     Default is false.  If true and the layer has a projection object set,
-     *     any BBOX filter will be serialized with a fifth item identifying the
-     *     projection.  E.g. bbox=-1000,-1000,1000,1000,EPSG:900913
-     */
-    srsInBBOX: false,
-
-    /**
      * Constructor: OpenLayers.Protocol.HTTP
      * A class for giving layers generic HTTP protocol.
      *
@@ -114,7 +89,7 @@ OpenLayers.Protocol.HTTP = OpenLayers.Class(OpenLayers.Protocol, {
      * Valid options include:
      * url - {String}
      * headers - {Object} 
-     * params - {Object} URL parameters for GET requests
+     * params - {Object}
      * format - {<OpenLayers.Format>}
      * callback - {Function}
      * scope - {Object}
@@ -124,16 +99,6 @@ OpenLayers.Protocol.HTTP = OpenLayers.Class(OpenLayers.Protocol, {
         this.params = {};
         this.headers = {};
         OpenLayers.Protocol.prototype.initialize.apply(this, arguments);
-
-        if (!this.filterToParams && OpenLayers.Format.QueryStringFilter) {
-            var format = new OpenLayers.Format.QueryStringFilter({
-                wildcarded: this.wildcarded,
-                srsInBBOX: this.srsInBBOX
-            });
-            this.filterToParams = function(filter, params) {
-                return format.write(filter, params);
-            };
-        }
     },
     
     /**
@@ -145,22 +110,7 @@ OpenLayers.Protocol.HTTP = OpenLayers.Class(OpenLayers.Protocol, {
         this.headers = null;
         OpenLayers.Protocol.prototype.destroy.apply(this);
     },
-
-    /**
-     * APIMethod: filterToParams
-     * Optional method to translate an <OpenLayers.Filter> object into an object
-     *     that can be serialized as request query string provided.  If a custom
-     *     method is not provided, the filter will be serialized using the 
-     *     <OpenLayers.Format.QueryStringFilter> class.
-     *
-     * Parameters:
-     * filter - {<OpenLayers.Filter>} filter to convert.
-     * params - {Object} The parameters object.
-     *
-     * Returns:
-     * {Object} The resulting parameters object.
-     */
-    
+   
     /**
      * APIMethod: read
      * Construct a request for reading new features.
@@ -181,30 +131,28 @@ OpenLayers.Protocol.HTTP = OpenLayers.Class(OpenLayers.Protocol, {
      * {<OpenLayers.Protocol.Response>} A response object, whose "priv" property
      *     references the HTTP request, this object is also passed to the
      *     callback function when the request completes, its "features" property
-     *     is then populated with the features received from the server.
+     *     is then populated with the the features received from the server.
      */
     read: function(options) {
         OpenLayers.Protocol.prototype.read.apply(this, arguments);
-        options = options || {};
+        options = OpenLayers.Util.applyDefaults(options, this.options);
         options.params = OpenLayers.Util.applyDefaults(
             options.params, this.options.params);
-        options = OpenLayers.Util.applyDefaults(options, this.options);
-        if (options.filter && this.filterToParams) {
+        if(options.filter) {
             options.params = this.filterToParams(
-                options.filter, options.params
-            );
+                options.filter, options.params);
         }
         var readWithPOST = (options.readWithPOST !== undefined) ?
                            options.readWithPOST : this.readWithPOST;
         var resp = new OpenLayers.Protocol.Response({requestType: "read"});
         if(readWithPOST) {
-            var headers = options.headers || {};
-            headers["Content-Type"] = "application/x-www-form-urlencoded";
             resp.priv = OpenLayers.Request.POST({
                 url: options.url,
                 callback: this.createCallback(this.handleRead, resp, options),
                 data: OpenLayers.Util.getParameterString(options.params),
-                headers: headers
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded"
+                }
             });
         } else {
             resp.priv = OpenLayers.Request.GET({
@@ -229,6 +177,121 @@ OpenLayers.Protocol.HTTP = OpenLayers.Class(OpenLayers.Protocol, {
      */
     handleRead: function(resp, options) {
         this.handleResponse(resp, options);
+    },
+
+    /**
+     * Method: filterToParams
+     * Convert an <OpenLayers.Filter> object to parameters.
+     *
+     * Parameters:
+     * filter - {OpenLayers.Filter} filter to convert.
+     * params - {Object} The parameters object.
+     *
+     * Returns:
+     * {Object} The resulting parameters object.
+     */
+    filterToParams: function(filter, params) {
+        params = params || {};
+        var className = filter.CLASS_NAME;
+        var filterType = className.substring(className.lastIndexOf(".") + 1);
+        switch(filterType) {
+            case "Spatial":
+                switch(filter.type) {
+                    case OpenLayers.Filter.Spatial.BBOX:
+                        params.bbox = filter.value.toArray();
+                        break;
+                    case OpenLayers.Filter.Spatial.DWITHIN:
+                        params.tolerance = filter.distance;
+                        // no break here
+                    case OpenLayers.Filter.Spatial.WITHIN:
+                        params.lon = filter.value.x;
+                        params.lat = filter.value.y;
+                        break;
+                    default:
+                        OpenLayers.Console.warn(
+                            "Unknown spatial filter type " + filter.type);
+                }
+                break;
+            case "Comparison":
+                var op = OpenLayers.Protocol.HTTP.COMP_TYPE_TO_OP_STR[filter.type];
+                if(op !== undefined) {
+                    var value = filter.value;
+                    if(filter.type == OpenLayers.Filter.Comparison.LIKE) {
+                        value = this.regex2value(value);
+                        if(this.wildcarded) {
+                            value = "%" + value + "%";
+                        }
+                    }
+                    params[filter.property + "__" + op] = value;
+                    params.queryable = params.queryable || [];
+                    params.queryable.push(filter.property);
+                } else {
+                    OpenLayers.Console.warn(
+                        "Unknown comparison filter type " + filter.type);
+                }
+                break;
+            case "Logical":
+                if(filter.type === OpenLayers.Filter.Logical.AND) {
+                    for(var i=0,len=filter.filters.length; i<len; i++) {
+                        params = this.filterToParams(filter.filters[i], params);
+                    }
+                } else {
+                    OpenLayers.Console.warn(
+                        "Unsupported logical filter type " + filter.type);
+                }
+                break;
+            default:
+                OpenLayers.Console.warn("Unknown filter type " + filterType);
+        }
+        return params;
+    },
+
+    /**
+     * Method: regex2value
+     * Convert the value from a regular expression string to a LIKE/ILIKE
+     * string known to the web service.
+     *
+     * Parameters:
+     * value - {String} The regex string.
+     *
+     * Returns:
+     * {String} The converted string.
+     */
+    regex2value: function(value) {
+
+        // highly sensitive!! Do not change this without running the
+        // Protocol/HTTP.html unit tests
+
+        // convert % to \%
+        value = value.replace(/%/g, "\\%");
+
+        // convert \\. to \\_ (\\.* occurences converted later)
+        value = value.replace(/\\\\\.(\*)?/g, function($0, $1) {
+            return $1 ? $0 : "\\\\_";
+        });
+
+        // convert \\.* to \\%
+        value = value.replace(/\\\\\.\*/g, "\\\\%");
+
+        // convert . to _ (\. and .* occurences converted later)
+        value = value.replace(/(\\)?\.(\*)?/g, function($0, $1, $2) {
+            return $1 || $2 ? $0 : "_";
+        });
+
+        // convert .* to % (\.* occurnces converted later)
+        value = value.replace(/(\\)?\.\*/g, function($0, $1) {
+            return $1 ? $0 : "%";
+        });
+
+        // convert \. to .
+        value = value.replace(/\\\./g, ".");
+
+        // replace \* with * (watching out for \\*)
+        value = value.replace(/(\\)?\\\*/g, function($0, $1) {
+            return $1 ? $0 : "*";
+        });
+
+        return value;
     },
 
     /**
@@ -308,8 +371,7 @@ OpenLayers.Protocol.HTTP = OpenLayers.Class(OpenLayers.Protocol, {
             requestType: "update"
         });
 
-        var method = this.updateWithPOST ? "POST" : "PUT";
-        resp.priv = OpenLayers.Request[method]({
+        resp.priv = OpenLayers.Request.PUT({
             url: url,
             callback: this.createCallback(this.handleUpdate, resp, options),
             headers: options.headers,
@@ -360,16 +422,11 @@ OpenLayers.Protocol.HTTP = OpenLayers.Class(OpenLayers.Protocol, {
             requestType: "delete"
         });
 
-        var method = this.deleteWithPOST ? "POST" : "DELETE";
-        var requestOptions = {
+        resp.priv = OpenLayers.Request.DELETE({
             url: url,
             callback: this.createCallback(this.handleDelete, resp, options),
             headers: options.headers
-        };
-        if (this.deleteWithPOST) {
-            requestOptions.data = this.format.write(feature);
-        }
-        resp.priv = OpenLayers.Request[method](requestOptions);
+        });
 
         return resp;
     },
@@ -578,3 +635,21 @@ OpenLayers.Protocol.HTTP = OpenLayers.Class(OpenLayers.Protocol, {
 
     CLASS_NAME: "OpenLayers.Protocol.HTTP" 
 });
+
+/**
+ * Property: OpenLayers.Protocol.HTTP.COMP_TYPE_TO_OP_STR
+ * {Object} A private class-level property mapping the
+ *     OpenLayers.Filter.Comparison types to the operation
+ *     strings of the protocol.
+ */
+(function() {
+    var o = OpenLayers.Protocol.HTTP.COMP_TYPE_TO_OP_STR = {};
+    o[OpenLayers.Filter.Comparison.EQUAL_TO]                 = "eq";
+    o[OpenLayers.Filter.Comparison.NOT_EQUAL_TO]             = "ne";
+    o[OpenLayers.Filter.Comparison.LESS_THAN]                = "lt";
+    o[OpenLayers.Filter.Comparison.LESS_THAN_OR_EQUAL_TO]    = "lte";
+    o[OpenLayers.Filter.Comparison.GREATER_THAN]             = "gt";
+    o[OpenLayers.Filter.Comparison.GREATER_THAN_OR_EQUAL_TO] = "gte";
+    o[OpenLayers.Filter.Comparison.LIKE]                     = "ilike";
+})();
+

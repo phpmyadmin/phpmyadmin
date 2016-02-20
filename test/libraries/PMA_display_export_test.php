@@ -61,9 +61,12 @@ class PMA_DisplayExport_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['server'] = 0;
 
         $GLOBALS['table'] = "table";
+        $GLOBALS['pmaThemeImage'] = 'image';
         $GLOBALS['db'] = "PMA";
 
         //$_SESSION
+        $_SESSION['PMA_Theme'] = Theme::load('./themes/pmahomme');
+        $_SESSION['PMA_Theme'] = new Theme();
         $_SESSION['relation'][$GLOBALS['server']] = "";
 
         $pmaconfig = $this->getMockBuilder('PMA\libraries\Config')

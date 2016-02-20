@@ -1,6 +1,6 @@
-/* Copyright (c) 2006-2013 by OpenLayers Contributors (see authors.txt for
- * full list of contributors). Published under the 2-clause BSD license.
- * See license.txt in the OpenLayers distribution or repository for the
+/* Copyright (c) 2006-2010 by OpenLayers Contributors (see authors.txt for 
+ * full list of contributors). Published under the Clear BSD license.  
+ * See http://svn.openlayers.org/trunk/openlayers/license.txt for the
  * full text of the license. */
 
 /**
@@ -32,13 +32,6 @@ OpenLayers.Handler.Keyboard = OpenLayers.Class(OpenLayers.Handler, {
     * {Function}
     */
     eventListener: null,
-
-    /**
-     * Property: observeElement
-     * {DOMElement|String} The DOM element on which we listen for
-     *     key events. Default to the document.
-     */
-    observeElement: null,
 
     /**
      * Constructor: OpenLayers.Handler.Keyboard
@@ -78,10 +71,9 @@ OpenLayers.Handler.Keyboard = OpenLayers.Class(OpenLayers.Handler, {
      */
     activate: function() {
         if (OpenLayers.Handler.prototype.activate.apply(this, arguments)) {
-            this.observeElement = this.observeElement || document;
             for (var i=0, len=this.KEY_EVENTS.length; i<len; i++) {
                 OpenLayers.Event.observe(
-                    this.observeElement, this.KEY_EVENTS[i], this.eventListener);
+                    document, this.KEY_EVENTS[i], this.eventListener);
             }
             return true;
         } else {
@@ -97,7 +89,7 @@ OpenLayers.Handler.Keyboard = OpenLayers.Class(OpenLayers.Handler, {
         if (OpenLayers.Handler.prototype.deactivate.apply(this, arguments)) {
             for (var i=0, len=this.KEY_EVENTS.length; i<len; i++) {
                 OpenLayers.Event.stopObserving(
-                    this.observeElement, this.KEY_EVENTS[i], this.eventListener);
+                    document, this.KEY_EVENTS[i], this.eventListener);
             }
             deactivated = true;
         }

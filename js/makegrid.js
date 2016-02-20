@@ -1405,6 +1405,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
              * @var is_null String capturing whether 'checkbox_null_<field_name>_<row_index>' is checked.
              */
             var is_null = $(g.cEdit).find('input:checkbox').is(':checked');
+            var value;
 
             if ($(g.cEdit).find('.edit_area').is('.edit_area_loading')) {
                 // the edit area is still loading (retrieving cell data), no need to post
@@ -1578,14 +1579,14 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                         g.dragStartReorder(e, this);
                     }
                 })
-                .mouseenter(function () {
+                .mouseenter(function (e) {
                     if (g.visibleHeadersCount > 1) {
                         $(this).css('cursor', 'move');
                     } else {
                         $(this).css('cursor', 'inherit');
                     }
                 })
-                .mouseleave(function () {
+                .mouseleave(function (e) {
                     g.showReorderHint = false;
                     $(this).tooltip("option", {
                         content: g.updateHint()
@@ -2027,7 +2028,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
 
             $(g.cEditStd).on('keydown', 'input.edit_box, select', handleCtrlNavigation);
 
-            $(g.cEditStd).find('.edit_box').focus(function () {
+            $(g.cEditStd).find('.edit_box').focus(function (e) {
                 g.showEditArea();
             });
             $(g.cEditStd).on('keydown', '.edit_box, select', function (e) {
@@ -2046,7 +2047,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
 
             $(g.cEditTextarea).on('keydown', 'textarea.edit_box, select', handleCtrlNavigation);
 
-            $(g.cEditTextarea).find('.edit_box').focus(function () {
+            $(g.cEditTextarea).find('.edit_box').focus(function (e) {
                 g.showEditArea();
             });
             $(g.cEditTextarea).on('keydown', '.edit_box, select', function (e) {
@@ -2081,7 +2082,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                 g.hideEditCell();
                 g.postEditedCell();
             });
-            $(window).bind('beforeunload', function () {
+            $(window).bind('beforeunload', function (e) {
                 if (g.isCellEdited) {
                     return g.saveCellWarning;
                 }
@@ -2198,14 +2199,14 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
 
     // register events for hint tooltip (anchors inside draggable th)
     $(t).find('th.draggable a')
-        .mouseenter(function () {
+        .mouseenter(function (e) {
             g.showSortHint = true;
             g.showMultiSortHint = true;
             $(t).find("th.draggable").tooltip("option", {
                 content: g.updateHint()
             });
         })
-        .mouseleave(function () {
+        .mouseleave(function (e) {
             g.showSortHint = false;
             g.showMultiSortHint = false;
             $(t).find("th.draggable").tooltip("option", {
@@ -2228,46 +2229,3 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
     $(t).removeClass('data');
     $(g.gDiv).addClass('data');
 }
-
-/**
- * jQuery plugin to cancel selection in HTML code.
- */
-(function ($) {
-    $.fn.noSelect = function (p) { //no select plugin by Paulo P.Marinas
-        var prevent = (p === null) ? true : p;
-        var is_msie = navigator.userAgent.indexOf('MSIE') > -1 || !!window.navigator.userAgent.match(/Trident.*rv\:11\./);
-        var is_firefox = navigator.userAgent.indexOf('Firefox') > -1;
-        var is_safari = navigator.userAgent.indexOf("Safari") > -1;
-        var is_opera = navigator.userAgent.indexOf("Presto") > -1;
-        if (prevent) {
-            return this.each(function () {
-                if (is_msie || is_safari) {
-                    $(this).bind('selectstart', function () {
-                        return false;
-                    });
-                } else if (is_firefox) {
-                    $(this).css('MozUserSelect', 'none');
-                    $('body').trigger('focus');
-                } else if (is_opera) {
-                    $(this).bind('mousedown', function () {
-                        return false;
-                    });
-                } else {
-                    $(this).attr('unselectable', 'on');
-                }
-            });
-        } else {
-            return this.each(function () {
-                if (is_msie || is_safari) {
-                    $(this).unbind('selectstart');
-                } else if (is_firefox) {
-                    $(this).css('MozUserSelect', 'inherit');
-                } else if (is_opera) {
-                    $(this).unbind('mousedown');
-                } else {
-                    $(this).removeAttr('unselectable');
-                }
-            });
-        }
-    }; //end noSelect
-})(jQuery);

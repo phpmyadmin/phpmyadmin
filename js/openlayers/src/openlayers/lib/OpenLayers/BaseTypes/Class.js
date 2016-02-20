@@ -1,11 +1,7 @@
-/* Copyright (c) 2006-2013 by OpenLayers Contributors (see authors.txt for
- * full list of contributors). Published under the 2-clause BSD license.
- * See license.txt in the OpenLayers distribution or repository for the
+/* Copyright (c) 2006-2010 by OpenLayers Contributors (see authors.txt for 
+ * full list of contributors). Published under the Clear BSD license.  
+ * See http://svn.openlayers.org/trunk/openlayers/license.txt for the
  * full text of the license. */
-
-/**
- * @requires OpenLayers/SingleFile.js
- */
 
 /**
  * Constructor: OpenLayers.Class
@@ -17,105 +13,104 @@
  *     will be removed.
  * 
  * To create a new OpenLayers-style class, use the following syntax:
- * (code)
- *     var MyClass = OpenLayers.Class(prototype);
- * (end)
+ * > var MyClass = OpenLayers.Class(prototype);
  *
  * To create a new OpenLayers-style class with multiple inheritance, use the
  *     following syntax:
- * (code)
- *     var MyClass = OpenLayers.Class(Class1, Class2, prototype);
- * (end)
- * 
- * Note that instanceof reflection will only reveal Class1 as superclass.
+ * > var MyClass = OpenLayers.Class(Class1, Class2, prototype);
+ * Note that instanceof reflection will only reveil Class1 as superclass.
+ * Class2 ff are mixins.
  *
  */
 OpenLayers.Class = function() {
-    var len = arguments.length;
-    var P = arguments[0];
-    var F = arguments[len-1];
-
-    var C = typeof F.initialize == "function" ?
-        F.initialize :
-        function(){ P.prototype.initialize.apply(this, arguments); };
-
-    if (len > 1) {
-        var newArgs = [C, P].concat(
-                Array.prototype.slice.call(arguments).slice(1, len-1), F);
-        OpenLayers.inherit.apply(null, newArgs);
-    } else {
-        C.prototype = F;
+    var Class = function() {
+        /**
+         * This following condition can be removed at 3.0 - this is only for
+         * backwards compatibility while the Class.inherit method is still
+         * in use.  So at 3.0, the following three lines would be replaced with
+         * simply:
+         * this.initialize.apply(this, arguments);
+         */
+        if (arguments && arguments[0] != OpenLayers.Class.isPrototype) {
+            this.initialize.apply(this, arguments);
+        }
+    };
+    var extended = {};
+    var parent, initialize, Type;
+    for(var i=0, len=arguments.length; i<len; ++i) {
+        Type = arguments[i];
+        if(typeof Type == "function") {
+            // make the class passed as the first argument the superclass
+            if(i == 0 && len > 1) {
+                initialize = Type.prototype.initialize;
+                // replace the initialize method with an empty function,
+                // because we do not want to create a real instance here
+                Type.prototype.initialize = function() {};
+                // the line below makes sure that the new class has a
+                // superclass
+                extended = new Type();
+                // restore the original initialize method
+                if(initialize === undefined) {
+                    delete Type.prototype.initialize;
+                } else {
+                    Type.prototype.initialize = initialize;
+                }
+            }
+            // get the prototype of the superclass
+            parent = Type.prototype;
+        } else {
+            // in this case we're extending with the prototype
+            parent = Type;
+        }
+        OpenLayers.Util.extend(extended, parent);
     }
-    return C;
+    Class.prototype = extended;
+    return Class;
 };
 
 /**
- * Function: OpenLayers.inherit
- *
- * Parameters:
- * C - {Object} the class that inherits
- * P - {Object} the superclass to inherit from
- *
- * In addition to the mandatory C and P parameters, an arbitrary number of
- * objects can be passed, which will extend C.
+ * Property: isPrototype
+ * *Deprecated*.  This is no longer needed and will be removed at 3.0.
  */
-OpenLayers.inherit = function(C, P) {
-   var F = function() {};
-   F.prototype = P.prototype;
-   C.prototype = new F;
-   var i, l, o;
-   for(i=2, l=arguments.length; i<l; i++) {
-       o = arguments[i];
-       if(typeof o === "function") {
-           o = o.prototype;
-       }
-       OpenLayers.Util.extend(C.prototype, o);
-   }
-};
+OpenLayers.Class.isPrototype = function () {};
 
 /**
- * APIFunction: extend
- * Copy all properties of a source object to a destination object.  Modifies
- *     the passed in destination object.  Any properties on the source object
- *     that are set to undefined will not be (re)set on the destination object.
- *
- * Parameters:
- * destination - {Object} The object that will be modified
- * source - {Object} The object with properties to be set on the destination
+ * APIFunction: OpenLayers.create
+ * *Deprecated*.  Old method to create an OpenLayers style class.  Use the
+ *     <OpenLayers.Class> constructor instead.
  *
  * Returns:
- * {Object} The destination object.
+ * An OpenLayers class
  */
-OpenLayers.Util = OpenLayers.Util || {};
-OpenLayers.Util.extend = function(destination, source) {
-    destination = destination || {};
-    if (source) {
-        for (var property in source) {
-            var value = source[property];
-            if (value !== undefined) {
-                destination[property] = value;
-            }
+OpenLayers.Class.create = function() {
+    return function() {
+        if (arguments && arguments[0] != OpenLayers.Class.isPrototype) {
+            this.initialize.apply(this, arguments);
         }
+    };
+};
 
-        /**
-         * IE doesn't include the toString property when iterating over an object's
-         * properties with the for(property in object) syntax.  Explicitly check if
-         * the source has its own toString property.
-         */
 
-        /*
-         * FF/Windows < 2.0.0.13 reports "Illegal operation on WrappedNative
-         * prototype object" when calling hawOwnProperty if the source object
-         * is an instance of window.Event.
-         */
-
-        var sourceIsEvt = typeof window.Event == "function"
-                          && source instanceof window.Event;
-
-        if (!sourceIsEvt
-           && source.hasOwnProperty && source.hasOwnProperty("toString")) {
-            destination.toString = source.toString;
+/**
+ * APIFunction: inherit
+ * *Deprecated*.  Old method to inherit from one or more OpenLayers style
+ *     classes.  Use the <OpenLayers.Class> constructor instead.
+ *
+ * Parameters:
+ * class - One or more classes can be provided as arguments
+ *
+ * Returns:
+ * An object prototype
+ */
+OpenLayers.Class.inherit = function () {
+    var superClass = arguments[0];
+    var proto = new superClass(OpenLayers.Class.isPrototype);
+    for (var i=1, len=arguments.length; i<len; i++) {
+        if (typeof arguments[i] == "function") {
+            var mixin = arguments[i];
+            arguments[i] = new mixin(OpenLayers.Class.isPrototype);
         }
+        OpenLayers.Util.extend(proto, arguments[i]);
     }
-    return destination;
+    return proto;
 };

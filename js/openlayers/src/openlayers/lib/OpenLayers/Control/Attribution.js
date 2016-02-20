@@ -1,6 +1,6 @@
-/* Copyright (c) 2006-2013 by OpenLayers Contributors (see authors.txt for
- * full list of contributors). Published under the 2-clause BSD license.
- * See license.txt in the OpenLayers distribution or repository for the
+/* Copyright (c) 2006-2010 by OpenLayers Contributors (see authors.txt for 
+ * full list of contributors). Published under the Clear BSD license.  
+ * See http://svn.openlayers.org/trunk/openlayers/license.txt for the
  * full text of the license. */
 
 /**
@@ -19,18 +19,10 @@ OpenLayers.Control.Attribution =
   OpenLayers.Class(OpenLayers.Control, {
     
     /**
-     * APIProperty: separator
-     * {String} String used to separate layers.
+     * APIProperty: seperator
+     * {String} String used to seperate layers.
      */
     separator: ", ",
-    
-    /**
-     * APIProperty: template
-     * {String} Template for the attribution. This has to include the substring
-     *     "${layers}", which will be replaced by the layer specific
-     *     attributions, separated by <separator>. The default is "${layers}".
-     */
-    template: "${layers}",
     
     /**
      * Constructor: OpenLayers.Control.Attribution 
@@ -38,6 +30,9 @@ OpenLayers.Control.Attribution =
      * Parameters:
      * options - {Object} Options for control.
      */
+    initialize: function(options) {
+        OpenLayers.Control.prototype.initialize.apply(this, arguments);
+    },
 
     /** 
      * Method: destroy
@@ -94,9 +89,7 @@ OpenLayers.Control.Attribution =
                     }
                 }
             } 
-            this.div.innerHTML = OpenLayers.String.format(this.template, {
-                layers: attributions.join(this.separator)
-            });
+            this.div.innerHTML = attributions.join(this.separator);
         }
     },
 

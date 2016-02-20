@@ -1,6 +1,6 @@
-/* Copyright (c) 2006-2013 by OpenLayers Contributors (see authors.txt for
- * full list of contributors). Published under the 2-clause BSD license.
- * See license.txt in the OpenLayers distribution or repository for the
+/* Copyright (c) 2006-2010 by OpenLayers Contributors (see authors.txt for 
+ * full list of contributors). Published under the Clear BSD license.  
+ * See http://svn.openlayers.org/trunk/openlayers/license.txt for the
  * full text of the license. */
 
 /**
@@ -56,6 +56,11 @@ OpenLayers.Format.WMSGetFeatureInfo = OpenLayers.Class(OpenLayers.Format.XML, {
      * options - {Object} An optional object whose properties will be set on
      *     this instance.
      */
+    initialize: function(options) {
+        OpenLayers.Format.XML.prototype.initialize.apply(this, arguments);
+        OpenLayers.Util.extend(this, options);
+        this.options = options;
+    },
 
     /**
      * APIMethod: read
@@ -150,25 +155,10 @@ OpenLayers.Format.WMSGetFeatureInfo = OpenLayers.Class(OpenLayers.Format.XML, {
             var featureNode = featureNodes[i];
             var geom = null;
 
-            // attributes can be actual attributes on the FIELDS tag, 
-            // or FIELD children
             var attributes = {};
-            var j;
-            var jlen = featureNode.attributes.length;
-            if (jlen > 0) {
-                for(j=0; j<jlen; j++) {
-                    var attribute = featureNode.attributes[j];
-                    attributes[attribute.nodeName] = attribute.nodeValue;
-                }
-            } else {
-                var nodes = featureNode.childNodes;
-                for (j=0, jlen=nodes.length; j<jlen; ++j) {
-                    var node = nodes[j];
-                    if (node.nodeType != 3) {
-                        attributes[node.getAttribute("name")] = 
-                            node.getAttribute("value");
-                    }
-                }
+            for(var j=0, jlen=featureNode.attributes.length; j<jlen; j++) {
+                var attribute = featureNode.attributes[j];
+                attributes[attribute.nodeName] = attribute.nodeValue;
             }
 
             response.push(
@@ -190,7 +180,7 @@ OpenLayers.Format.WMSGetFeatureInfo = OpenLayers.Class(OpenLayers.Format.XML, {
      * criteria - {String} Search string which will match some part of a tagName 
      *                                       
      * Returns:
-     * Array({DOMElement}) An array of sibling xml nodes
+     * Array({DOMElement)) An array of sibling xml nodes
      */                
     getSiblingNodesByTagCriteria: function(node, criteria){
         var nodes = [];
@@ -245,14 +235,12 @@ OpenLayers.Format.WMSGetFeatureInfo = OpenLayers.Class(OpenLayers.Format.XML, {
                 var child = children[i];
                 if (child.nodeType == 1) {
                     var grandchildren = child.childNodes;
-                    var name = (child.prefix) ?
-                        child.nodeName.split(":")[1] : child.nodeName;
-                    if (grandchildren.length == 0) {
-                        attributes[name] = null;
-                    } else if (grandchildren.length == 1) {
+                    if (grandchildren.length == 1) {
                         var grandchild = grandchildren[0];
                         if (grandchild.nodeType == 3 ||
                             grandchild.nodeType == 4) {
+                            var name = (child.prefix) ? 
+                                child.nodeName.split(":")[1] : child.nodeName;
                             var value = grandchild.nodeValue.replace(
                                 this.regExes.trimSpace, "");
                             attributes[name] = value;

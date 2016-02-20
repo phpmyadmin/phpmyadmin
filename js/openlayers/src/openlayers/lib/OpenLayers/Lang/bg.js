@@ -14,11 +14,15 @@
  */
 OpenLayers.Lang["bg"] = OpenLayers.Util.applyDefaults({
 
-    'Permalink': "Постоянна препратка",
+    'permalink': "Постоянна препратка",
 
-    'Base Layer': "Основен слой",
+    'baseLayer': "Основен слой",
 
-    'Scale = 1 : ${scaleDenom}': "Мащаб = 1 : ${scaleDenom}",
+    'errorLoadingGML': "Грешка при зареждане на GML файл ${url}",
+
+    'scale': "Мащаб = 1 : ${scaleDenom}",
+
+    'layerAlreadyAdded': "Опитахте да добавите слой ${layerName} в картата, но той вече е добавен",
 
     'methodDeprecated': "Този метод е остарял и ще бъде премахват в 3.0. Вместо него използвайте ${newMethod}."
 

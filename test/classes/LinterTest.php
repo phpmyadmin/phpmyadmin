@@ -72,7 +72,7 @@ class LinterTest extends PMATestCase
     /**
      * Test for Linter::lint
      *
-     * @dataProvider lintProvider
+     * @dataProvider testLintProvider
      *
      * @param array  $expected The expected result.
      * @param string $query    The query to be analyzed.
@@ -89,7 +89,7 @@ class LinterTest extends PMATestCase
      *
      * @return array
      */
-    public static function lintProvider()
+    public static function testLintProvider()
     {
         return array(
             array(

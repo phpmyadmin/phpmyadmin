@@ -1,10 +1,11 @@
-/* Copyright (c) 2006-2013 by OpenLayers Contributors (see authors.txt for
- * full list of contributors). Published under the 2-clause BSD license.
- * See license.txt in the OpenLayers distribution or repository for the
+/* Copyright (c) 2006-2010 by OpenLayers Contributors (see authors.txt for 
+ * full list of contributors). Published under the Clear BSD license.  
+ * See http://svn.openlayers.org/trunk/openlayers/license.txt for the
  * full text of the license. */
 
 /**
  * @requires OpenLayers/Filter.js
+ * @requires OpenLayers/Console.js
  */
 
 /**
@@ -12,7 +13,7 @@
  * This class represents a spatial filter.
  * Currently implemented: BBOX, DWithin and Intersects
  * 
- * Inherits from:
+ * Inherits from
  * - <OpenLayers.Filter>
  */
 OpenLayers.Filter.Spatial = OpenLayers.Class(OpenLayers.Filter, {
@@ -67,6 +68,9 @@ OpenLayers.Filter.Spatial = OpenLayers.Class(OpenLayers.Filter, {
      * Returns:
      * {<OpenLayers.Filter.Spatial>}
      */
+    initialize: function(options) {
+        OpenLayers.Filter.prototype.initialize.apply(this, [options]);
+    },
 
    /**
     * Method: evaluate
@@ -94,7 +98,9 @@ OpenLayers.Filter.Spatial = OpenLayers.Class(OpenLayers.Filter, {
                 }
                 break;
             default:
-                throw new Error('evaluate is not implemented for this filter type.');
+                OpenLayers.Console.error(
+                    OpenLayers.i18n("filterEvaluateNotImplemented"));
+                break;
         }
         return intersect;
     },

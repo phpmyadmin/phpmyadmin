@@ -1,6 +1,6 @@
-/* Copyright (c) 2006-2013 by OpenLayers Contributors (see authors.txt for
- * full list of contributors). Published under the 2-clause BSD license.
- * See license.txt in the OpenLayers distribution or repository for the
+/* Copyright (c) 2006-2010 by OpenLayers Contributors (see authors.txt for 
+ * full list of contributors). Published under the Clear BSD license.  
+ * See http://svn.openlayers.org/trunk/openlayers/license.txt for the
  * full text of the license. */
 
 
@@ -120,6 +120,7 @@ OpenLayers.Control.WMTSGetFeatureInfo = OpenLayers.Class(OpenLayers.Control, {
      * }
      * (end)
      */
+    handlerOptions: null,
     
     /**
      * Property: handler
@@ -134,17 +135,10 @@ OpenLayers.Control.WMTSGetFeatureInfo = OpenLayers.Class(OpenLayers.Control, {
      */
     hoverRequest: null,
     
-    /** 
-     * APIProperty: events
-     * {<OpenLayers.Events>} Events instance for listeners and triggering
-     *     control specific events.
+    /**
+     * Constant: EVENT_TYPES
      *
-     * Register a listener for a particular event with the following syntax:
-     * (code)
-     * control.events.register(type, obj, listener);
-     * (end)
-     *
-     * Supported event types (in addition to those from <OpenLayers.Control.events>):
+     * Supported event types (in addition to those from <OpenLayers.Control>):
      * beforegetfeatureinfo - Triggered before each request is sent.
      *      The event object has an *xy* property with the position of the 
      *      mouse click or hover event that triggers the request and a *layer*
@@ -163,6 +157,7 @@ OpenLayers.Control.WMTSGetFeatureInfo = OpenLayers.Class(OpenLayers.Control, {
      *      an event with *request*, *xy*, and *layer*  properties.  In the case 
      *      of a parsing error, the event will also contain an *error* property.
      */
+    EVENT_TYPES: ["beforegetfeatureinfo", "getfeatureinfo", "exception"],
     
     /** 
      * Property: pending
@@ -177,6 +172,12 @@ OpenLayers.Control.WMTSGetFeatureInfo = OpenLayers.Class(OpenLayers.Control, {
      * options - {Object} 
      */
     initialize: function(options) {
+        // concatenate events specific to vector with those from the base
+        this.EVENT_TYPES =
+            OpenLayers.Control.WMTSGetFeatureInfo.prototype.EVENT_TYPES.concat(
+            OpenLayers.Control.prototype.EVENT_TYPES
+        );
+
         options = options || {};
         options.handlerOptions = options.handlerOptions || {};
 
@@ -211,6 +212,35 @@ OpenLayers.Control.WMTSGetFeatureInfo = OpenLayers.Class(OpenLayers.Control, {
         }
     },
 
+    /**
+     * Method: activate
+     * Activates the control.
+     * 
+     * Returns:
+     * {Boolean} The control was effectively activated.
+     */
+    activate: function () {
+        if (!this.active) {
+            this.handler.activate();
+        }
+        return OpenLayers.Control.prototype.activate.apply(
+            this, arguments
+        );
+    },
+
+    /**
+     * Method: deactivate
+     * Deactivates the control.
+     * 
+     * Returns:
+     * {Boolean} The control was effectively deactivated.
+     */
+    deactivate: function () {
+        return OpenLayers.Control.prototype.deactivate.apply(
+            this, arguments
+        );
+    },
+    
     /**
      * Method: getInfoForClick 
      * Called on click
@@ -298,7 +328,7 @@ OpenLayers.Control.WMTSGetFeatureInfo = OpenLayers.Class(OpenLayers.Control, {
         });
         OpenLayers.Util.applyDefaults(params, this.vendorParams);
         return {
-            url: OpenLayers.Util.isArray(layer.url) ? layer.url[0] : layer.url,
+            url: layer.url instanceof Array ? layer.url[0] : layer.url,
             params: OpenLayers.Util.upperCaseObject(params),
             callback: function(request) {
                 this.handleResponse(xy, request, layer);
@@ -394,6 +424,18 @@ OpenLayers.Control.WMTSGetFeatureInfo = OpenLayers.Class(OpenLayers.Control, {
                 });
             }
         }
+    },
+   
+    /** 
+     * Method: setMap
+     * Set the map property for the control. 
+     * 
+     * Parameters:
+     * map - {<OpenLayers.Map>} 
+     */
+    setMap: function(map) {
+        this.handler.setMap(map);
+        OpenLayers.Control.prototype.setMap.apply(this, arguments);
     },
 
     CLASS_NAME: "OpenLayers.Control.WMTSGetFeatureInfo"

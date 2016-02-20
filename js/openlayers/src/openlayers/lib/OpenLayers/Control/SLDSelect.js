@@ -1,17 +1,16 @@
-/* Copyright (c) 2006-2013 by OpenLayers Contributors (see authors.txt for
- * full list of contributors). Published under the 2-clause BSD license.
- * See license.txt in the OpenLayers distribution or repository for the
+/* Copyright (c) 2006-2010 by OpenLayers Contributors (see authors.txt for 
+ * full list of contributors). Published under the Clear BSD license.  
+ * See http://svn.openlayers.org/trunk/openlayers/license.txt for the
  * full text of the license. */
 
 /**
  * @requires OpenLayers/Control.js
- * @requires OpenLayers/Layer/WMS.js
+ * @requires OpenLayers/Layer/WMS/Post.js
  * @requires OpenLayers/Handler/RegularPolygon.js
  * @requires OpenLayers/Handler/Polygon.js
  * @requires OpenLayers/Handler/Path.js
  * @requires OpenLayers/Handler/Click.js
  * @requires OpenLayers/Filter/Spatial.js
- * @requires OpenLayers/Format/SLD/v1_0_0.js
  */
 
 /**
@@ -23,22 +22,25 @@
  */
 OpenLayers.Control.SLDSelect = OpenLayers.Class(OpenLayers.Control, {
 
-    /** 
-     * APIProperty: events
-     * {<OpenLayers.Events>} Events instance for listeners and triggering
-     *     control specific events.
-     *
-     * Register a listener for a particular event with the following syntax:
+    /**
+     * Constant: EVENT_TYPES
+     * {Array(String)} Supported application event types.  Register a listener
+     *     for a particular event with the following syntax:
      * (code)
      * control.events.register(type, obj, listener);
      * (end)
      *
-     * Supported event types (in addition to those from <OpenLayers.Control.events>):
+     * Listeners will be called with a reference to an event object.  The
+     *     properties of this event depends on exactly what happened.
+     *
+     * Supported control event types (in addition to those from 
+     * <OpenLayers.Control>):
      * selected - Triggered when a selection occurs.  Listeners receive an 
      *     event with *filters* and *layer* properties.  Filters will be an 
      *     array of OpenLayers.Filter objects created in order to perform 
      *     the particular selection.
      */
+    EVENT_TYPES: ["selected"],
 
     /**
      * APIProperty: clearOnDeactivate
@@ -82,6 +84,7 @@ OpenLayers.Control.SLDSelect = OpenLayers.Class(OpenLayers.Control, {
      * APIProperty: handlerOptions
      * {Object} Used to set non-default properties on the control's handler
      */
+    handlerOptions: null,
 
     /**
      * APIProperty: sketchStyle
@@ -96,7 +99,7 @@ OpenLayers.Control.SLDSelect = OpenLayers.Class(OpenLayers.Control, {
      *         layerOptions: {
      *             styleMap: new OpenLayers.StyleMap({
      *                 "default": {strokeColor: "yellow"}
-     *             })
+     *             });
      *         }
      *     }
      * });
@@ -116,7 +119,7 @@ OpenLayers.Control.SLDSelect = OpenLayers.Class(OpenLayers.Control, {
      * APIProperty: layerCache
      * {Object} Cache to use for storing references to the selection layers.
      *     Normally each source layer will have exactly 1 selection layer of
-     *     type OpenLayers.Layer.WMS. If not provided, layers will
+     *     type OpenLayers.Layer.WMS.Post. If not provided, layers will
      *     be cached on the prototype. Note that if <clearOnDeactivate> is
      *     true, the layer will no longer be cached after deactivating the
      *     control.
@@ -144,14 +147,18 @@ OpenLayers.Control.SLDSelect = OpenLayers.Class(OpenLayers.Control, {
      *     selection on.
      */
     initialize: function(handler, options) {
+        // concatenate events specific to this control with those from the base
+        this.EVENT_TYPES =
+            OpenLayers.Control.SLDSelect.prototype.EVENT_TYPES.concat(
+            OpenLayers.Control.prototype.EVENT_TYPES
+        );
         OpenLayers.Control.prototype.initialize.apply(this, [options]);
 
         this.callbacks = OpenLayers.Util.extend({done: this.select, 
             click: this.select}, this.callbacks);
         this.handlerOptions = this.handlerOptions || {};
         this.layerOptions = OpenLayers.Util.applyDefaults(this.layerOptions, {
-            displayInLayerSwitcher: false,
-            tileOptions: {maxGetUrlLength: 2048}
+            displayInLayerSwitcher: false
         });
         if (this.sketchStyle) {
             this.handlerOptions.layerOptions = OpenLayers.Util.applyDefaults(
@@ -182,9 +189,6 @@ OpenLayers.Control.SLDSelect = OpenLayers.Class(OpenLayers.Control, {
      *     layer visibility. So if the source layer is turned off, the
      *     selection layer is also turned off.
      *
-     * Context: 
-     * - {<OpenLayers.Layer>}
-     *
      * Parameters:
      * evt - {Object}
      */
@@ -203,14 +207,14 @@ OpenLayers.Control.SLDSelect = OpenLayers.Class(OpenLayers.Control, {
      *     is performed.
      *
      * Returns:
-     * {<OpenLayers.Layer.WMS>} A WMS layer with maxGetUrlLength configured to 2048
-     *     since SLD selections can easily get quite long.
+     * {<OpenLayers.Layer.WMS.Post>} A WMS Post layer since SLD selections can
+     *     easily get quite long.
      */
     createSelectionLayer: function(source) {
         // check if we already have a selection layer for the source layer
         var selectionLayer;
         if (!this.layerCache[source.id]) {
-            selectionLayer = new OpenLayers.Layer.WMS(source.name, 
+            selectionLayer = new OpenLayers.Layer.WMS.Post(source.name, 
                 source.url, source.params, 
                 OpenLayers.Util.applyDefaults(
                     this.layerOptions,
@@ -267,7 +271,7 @@ OpenLayers.Control.SLDSelect = OpenLayers.Class(OpenLayers.Control, {
                     maxScaleDenominator: layer.options.minScale})
             ]});
         }
-        return new OpenLayers.Format.SLD({srsName: this.map.getProjection()}).write(sld);
+        return new OpenLayers.Format.SLD().write(sld);
     },
 
     /**
@@ -533,13 +537,12 @@ OpenLayers.Control.SLDSelect = OpenLayers.Class(OpenLayers.Control, {
                 }
     
                 var selectionLayer = this.createSelectionLayer(layer);
+                var sld = this.createSLD(layer, filters, geometryAttributes);
     
                 this.events.triggerEvent("selected", {
                     layer: layer,
                     filters: filters
                 });
-
-                var sld = this.createSLD(layer, filters, geometryAttributes);
     
                 selectionLayer.mergeNewParams({SLD_BODY: sld});
                 delete this._queue;

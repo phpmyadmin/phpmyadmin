@@ -1,12 +1,19 @@
-/* Copyright (c) 2006-2013 by OpenLayers Contributors (see authors.txt for
- * full list of contributors). Published under the 2-clause BSD license.
- * See license.txt in the OpenLayers distribution or repository for the
+/* Copyright (c) 2006-2010 by OpenLayers Contributors (see authors.txt for 
+ * full list of contributors). Published under the Clear BSD license.  
+ * See http://svn.openlayers.org/trunk/openlayers/license.txt for the
  * full text of the license. */
 
 /**
- * @requires OpenLayers/SingleFile.js
+ * @requires OpenLayers/BaseTypes/Class.js
+ * @requires OpenLayers/BaseTypes/LonLat.js
+ * @requires OpenLayers/BaseTypes/Size.js
+ * @requires OpenLayers/BaseTypes/Pixel.js
+ * @requires OpenLayers/BaseTypes/Bounds.js
+ * @requires OpenLayers/BaseTypes/Element.js
+ * @requires OpenLayers/Lang/en.js
+ * @requires OpenLayers/Console.js
  */
-
+ 
 /** 
  * Header: OpenLayers Base Types
  * OpenLayers custom string, number and function functions are described here.
@@ -24,7 +31,7 @@ OpenLayers.String = {
      * 
      * Parameters:
      * str - {String} The string to test.
-     * sub - {String} The substring to look for.
+     * sub - {Sring} The substring to look for.
      *  
      * Returns:
      * {Boolean} The first string starts with the second.
@@ -127,9 +134,7 @@ OpenLayers.String = {
                 if (i == 0) {
                     replacement = context;
                 }
-                if (replacement === undefined) {
-                    break;
-                }
+
                 replacement = replacement[subs[i]];
             }
 
@@ -154,20 +159,20 @@ OpenLayers.String = {
     },
 
     /**
-     * Property: tokenRegEx
+     * Property: OpenLayers.String.tokenRegEx
      * Used to find tokens in a string.
      * Examples: ${a}, ${a.b.c}, ${a-b}, ${5}
      */
     tokenRegEx:  /\$\{([\w.]+?)\}/g,
     
     /**
-     * Property: numberRegEx
+     * Property: OpenLayers.String.numberRegEx
      * Used to test strings as numbers.
      */
     numberRegEx: /^([+-]?)(?=\d|\.\d)\d*(\.\d*)?([Ee]([+-]?\d+))?$/,
     
     /**
-     * APIFunction: isNumeric
+     * APIFunction: OpenLayers.String.isNumeric
      * Determine whether a string contains only a numeric value.
      *
      * Examples:
@@ -189,23 +194,84 @@ OpenLayers.String = {
      * APIFunction: numericIf
      * Converts a string that appears to be a numeric value into a number.
      * 
-     * Parameters:
-     * value - {String}
-     * trimWhitespace - {Boolean}
-     *
-     * Returns:
+     * Returns
      * {Number|String} a Number if the passed value is a number, a String
      *     otherwise. 
      */
-    numericIf: function(value, trimWhitespace) {
-        var originalValue = value;
-        if (trimWhitespace === true && value != null && value.replace) {
-            value = value.replace(/^\s*|\s*$/g, "");
-        }
-        return OpenLayers.String.isNumeric(value) ? parseFloat(value) : originalValue;
+    numericIf: function(value) {
+        return OpenLayers.String.isNumeric(value) ? parseFloat(value) : value;
     }
 
 };
+
+if (!String.prototype.startsWith) {
+    /**
+     * APIMethod: String.startsWith
+     * *Deprecated*. Whether or not a string starts with another string. 
+     * 
+     * Parameters:
+     * sStart - {Sring} The string we're testing for.
+     *  
+     * Returns:
+     * {Boolean} Whether or not this string starts with the string passed in.
+     */
+    String.prototype.startsWith = function(sStart) {
+        OpenLayers.Console.warn(OpenLayers.i18n("methodDeprecated",
+                                {'newMethod':'OpenLayers.String.startsWith'}));
+        return OpenLayers.String.startsWith(this, sStart);
+    };
+}
+
+if (!String.prototype.contains) {
+    /**
+     * APIMethod: String.contains
+     * *Deprecated*. Whether or not a string contains another string.
+     * 
+     * Parameters:
+     * str - {String} The string that we're testing for.
+     * 
+     * Returns:
+     * {Boolean} Whether or not this string contains with the string passed in.
+     */
+    String.prototype.contains = function(str) {
+        OpenLayers.Console.warn(OpenLayers.i18n("methodDeprecated",
+                                  {'newMethod':'OpenLayers.String.contains'}));
+        return OpenLayers.String.contains(this, str);
+    };
+}
+
+if (!String.prototype.trim) {
+    /**
+     * APIMethod: String.trim
+     * *Deprecated*. Removes leading and trailing whitespace characters from a string.
+     * 
+     * Returns:
+     * {String} A trimmed version of the string - all leading and 
+     *          trailing spaces removed
+     */
+    String.prototype.trim = function() {
+        OpenLayers.Console.warn(OpenLayers.i18n("methodDeprecated",
+                                      {'newMethod':'OpenLayers.String.trim'}));
+        return OpenLayers.String.trim(this);
+    };
+}
+
+if (!String.prototype.camelize) {
+    /**
+     * APIMethod: String.camelize
+     * *Deprecated*. Camel-case a hyphenated string. 
+     *     Ex. "chicken-head" becomes "chickenHead", and
+     *     "-chicken-head" becomes "ChickenHead".
+     * 
+     * Returns:
+     * {String} The string, camelized
+     */
+    String.prototype.camelize = function() {
+        OpenLayers.Console.warn(OpenLayers.i18n("methodDeprecated",
+                                  {'newMethod':'OpenLayers.String.camelize'}));
+        return OpenLayers.String.camelize(this);
+    };
+}
 
 /**
  * Namespace: OpenLayers.Number
@@ -297,26 +363,28 @@ OpenLayers.Number = {
             str = integer + dsep + rem;
         }
         return str;
-    },
-
-    /**
-     * Method: zeroPad
-     * Create a zero padded string optionally with a radix for casting numbers.
-     *
-     * Parameters:
-     * num - {Number} The number to be zero padded.
-     * len - {Number} The length of the string to be returned.
-     * radix - {Number} An integer between 2 and 36 specifying the base to use
-     *     for representing numeric values.
-     */
-    zeroPad: function(num, len, radix) {
-        var str = num.toString(radix || 10);
-        while (str.length < len) {
-            str = "0" + str;
-        }
-        return str;
-    }    
+    }
 };
+
+if (!Number.prototype.limitSigDigs) {
+    /**
+     * APIMethod: Number.limitSigDigs
+     * *Deprecated*. Limit the number of significant digits on an integer. Does *not*
+     *     work with floats!
+     * 
+     * Parameters:
+     * sig - {Integer}
+     * 
+     * Returns:
+     * {Integer} The number, rounded to the specified number of significant digits.
+     *           If null, 0, or negative value passed in, returns 0
+     */
+    Number.prototype.limitSigDigs = function(sig) {
+        OpenLayers.Console.warn(OpenLayers.i18n("methodDeprecated",
+                              {'newMethod':'OpenLayers.Number.limitSigDigs'}));
+        return OpenLayers.Number.limitSigDigs(this, sig);
+    };
+}
 
 /**
  * Namespace: OpenLayers.Function
@@ -396,18 +464,49 @@ OpenLayers.Function = {
      */
     True : function() {
         return true;
-    },
-    
-    /**
-     * APIFunction: Void
-     * A reusable function that returns ``undefined``.
-     *
-     * Returns:
-     * {undefined}
-     */
-    Void: function() {}
-
+    }
 };
+
+if (!Function.prototype.bind) {
+    /**
+     * APIMethod: Function.bind
+     * *Deprecated*. Bind a function to an object. 
+     * Method to easily create closures with 'this' altered.
+     * 
+     * Parameters:
+     * object - {Object} the this parameter
+     * 
+     * Returns:
+     * {Function} A closure with 'this' altered to the first
+     *            argument.
+     */
+    Function.prototype.bind = function() {
+        OpenLayers.Console.warn(OpenLayers.i18n("methodDeprecated",
+                                {'newMethod':'OpenLayers.Function.bind'}));
+        // new function takes the same arguments with this function up front
+        Array.prototype.unshift.apply(arguments, [this]);
+        return OpenLayers.Function.bind.apply(null, arguments);
+    };
+}
+
+if (!Function.prototype.bindAsEventListener) {
+    /**
+     * APIMethod: Function.bindAsEventListener
+     * *Deprecated*. Bind a function to an object, and configure it to receive the
+     *     event object as first parameter when called. 
+     * 
+     * Parameters:
+     * object - {Object} A reference to this.
+     * 
+     * Returns:
+     * {Function}
+     */
+    Function.prototype.bindAsEventListener = function(object) {
+        OpenLayers.Console.warn(OpenLayers.i18n("methodDeprecated",
+                        {'newMethod':'OpenLayers.Function.bindAsEventListener'}));
+        return OpenLayers.Function.bindAsEventListener(this, object);
+    };
+}
 
 /**
  * Namespace: OpenLayers.Array
@@ -460,4 +559,124 @@ OpenLayers.Array = {
         return selected;
     }
     
+};
+
+/**
+ * Namespace: OpenLayers.Date
+ * Contains implementations of Date.parse and date.toISOString that match the 
+ *     ECMAScript 5 specification for parsing RFC 3339 dates.
+ *     http://tools.ietf.org/html/rfc3339
+ */
+OpenLayers.Date = {
+    
+    /**
+     * APIMethod: toISOString
+     * Generates a string representing a date.  The format of the string follows 
+     *     the profile of ISO 8601 for date and time on the Internet (see 
+     *     http://tools.ietf.org/html/rfc3339).  If the toISOString method is 
+     *     available on the Date prototype, that is used.  The toISOString
+     *     method for Date instances is defined in ECMA-262.
+     *
+     * Parameters:
+     * date - {Date} A date object.
+     *
+     * Returns:
+     * {String} A string representing the date (e.g. 
+     *     "2010-08-07T16:58:23.123Z").  If the date does not have a valid time
+     *     (i.e. isNaN(date.getTime())) this method returns the string "Invalid
+     *     Date".  The ECMA standard says the toISOString method should throw
+     *     RangeError in this case, but Firefox returns a string instead.  For
+     *     best results, use isNaN(date.getTime()) to determine date validity
+     *     before generating date strings.  
+     */
+    toISOString: (function() {
+        if ("toISOString" in Date.prototype) {
+            return function(date) {
+                return date.toISOString();
+            }
+        } else {
+            function pad(num, len) {
+                var str = num + "";
+                while (str.length < len) {
+                    str = "0" + str;
+                }
+                return str;
+            }
+            return function(date) {
+                var str;
+                if (isNaN(date.getTime())) {
+                    // ECMA-262 says throw RangeError, Firefox returns 
+                    // "Invalid Date"
+                    str = "Invalid Date";
+                } else {
+                    str = 
+                        date.getUTCFullYear() + "-" +
+                        pad(date.getUTCMonth() + 1, 2) + "-" +
+                        pad(date.getUTCDate(), 2) + "T" +
+                        pad(date.getUTCHours(), 2) + ":" +
+                        pad(date.getUTCMinutes(), 2) + ":" +
+                        pad(date.getUTCSeconds(), 2) + "." +
+                        pad(date.getUTCMilliseconds(), 3) + "Z";
+                }
+                return str;
+            }
+        }
+
+    })(),
+    
+    /**
+     * APIMethod: parse
+     * Generate a date object from a string.  The format for the string follows
+     *     the profile of ISO 8601 for date and time on the Internet (see 
+     *     http://tools.ietf.org/html/rfc3339).  If the parse method on 
+     *     the Date constructor returns a valid date for the given string,
+     *     that method is used.
+     *
+     * Parameters:
+     * str - {String} A string representing the date (e.g. 
+     *     "2010", "2010-08", "2010-08-07", "2010-08-07T16:58:23.123Z",
+     *     "2010-08-07T11:58:23.123-06").
+     * 
+     * Returns:
+     * {Date} A date object.  If the string could not be parsed, an invalid
+     *     date is returned (i.e. isNaN(date.getTime())).
+     */
+    parse: function(str) {
+        var date;
+        // first check if the native parse method can parse it
+        var elapsed = Date.parse(str);
+        if (!isNaN(elapsed)) {
+            date = new Date(elapsed);
+        } else {
+            var match = str.match(/^(?:(\d{4})(?:-(\d{2})(?:-(\d{2}))?)?)?(?:T(\d{1,2}):(\d{2}):(\d{2}(?:\.\d+)?)(Z|(?:[+-]\d{1,2}(?::(\d{2}))?)))?$/);
+            var date;
+            if (match && (match[1] || match[7])) { // must have at least year or time
+                var year = parseInt(match[1], 10) || 0;
+                var month = (parseInt(match[2], 10) - 1) || 0;
+                var day = parseInt(match[3], 10) || 1;
+                date = new Date(Date.UTC(year, month, day));
+                // optional time
+                var type = match[7];
+                if (type) {
+                    var hours = parseInt(match[4], 10);
+                    var minutes = parseInt(match[5], 10);
+                    var secFrac = parseFloat(match[6]);
+                    var seconds = secFrac | 0;
+                    var milliseconds = Math.round(1000 * (secFrac - seconds));
+                    date.setUTCHours(hours, minutes, seconds, milliseconds);
+                    // check offset
+                    if (type !== "Z") {
+                        var hoursOffset = parseInt(type, 10);
+                        var minutesOffset = parseInt(match[8]) || 0;
+                        var offset = -1000 * (60 * (hoursOffset * 60) + minutesOffset * 60);
+                        date = new Date(date.getTime() + offset);
+                    }
+                }
+            } else {
+                date = new Date("invalid");
+            }
+        }
+        return date;
+    }
+
 };

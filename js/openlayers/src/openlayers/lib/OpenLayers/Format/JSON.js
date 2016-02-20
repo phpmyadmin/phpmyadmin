@@ -1,6 +1,6 @@
-/* Copyright (c) 2006-2013 by OpenLayers Contributors (see authors.txt for
- * full list of contributors). Published under the 2-clause BSD license.
- * See license.txt in the OpenLayers distribution or repository for the
+/* Copyright (c) 2006-2010 by OpenLayers Contributors (see authors.txt for 
+ * full list of contributors). Published under the Clear BSD license.  
+ * See http://svn.openlayers.org/trunk/openlayers/license.txt for the
  * full text of the license. */
 
 /**
@@ -60,14 +60,6 @@ OpenLayers.Format.JSON = OpenLayers.Class(OpenLayers.Format, {
     pretty: false,
 
     /**
-     * Property: nativeJSON
-     * {Boolean} Does the browser support native json?
-     */
-    nativeJSON: (function() {
-        return !!(window.JSON && typeof JSON.parse == "function" && typeof JSON.stringify == "function");
-    })(),
-
-    /**
      * Constructor: OpenLayers.Format.JSON
      * Create a new parser for JSON.
      *
@@ -75,6 +67,9 @@ OpenLayers.Format.JSON = OpenLayers.Class(OpenLayers.Format, {
      * options - {Object} An optional object whose properties will be set on
      *     this instance.
      */
+    initialize: function(options) {
+        OpenLayers.Format.prototype.initialize.apply(this, [options]);
+    },
 
     /**
      * APIMethod: read
@@ -92,18 +87,15 @@ OpenLayers.Format.JSON = OpenLayers.Class(OpenLayers.Format, {
      * {Object} An object, array, string, or number .
      */
     read: function(json, filter) {
-        var object;
-        if (this.nativeJSON) {
-            object = JSON.parse(json, filter);
-        } else try {
-            /**
-             * Parsing happens in three stages. In the first stage, we run the
-             *     text against a regular expression which looks for non-JSON
-             *     characters. We are especially concerned with '()' and 'new'
-             *     because they can cause invocation, and '=' because it can
-             *     cause mutation. But just to be safe, we will reject all
-             *     unexpected characters.
-             */
+        /**
+         * Parsing happens in three stages. In the first stage, we run the text
+         *     against a regular expression which looks for non-JSON
+         *     characters. We are especially concerned with '()' and 'new'
+         *     because they can cause invocation, and '=' because it can cause
+         *     mutation. But just to be safe, we will reject all unexpected
+         *     characters.
+         */
+        try {
             if (/^[\],:{}\s]*$/.test(json.replace(/\\["\\\/bfnrtu]/g, '@').
                                 replace(/"[^"\\\n\r]*"|true|false|null|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?/g, ']').
                                 replace(/(?:^|:|,)(?:\s*\[)+/g, ''))) {
@@ -115,7 +107,7 @@ OpenLayers.Format.JSON = OpenLayers.Class(OpenLayers.Format, {
                  *     begin a block or an object literal. We wrap the text in
                  *     parens to eliminate the ambiguity.
                  */
-                object = eval('(' + json + ')');
+                var object = eval('(' + json + ')');
 
                 /**
                  * In the optional third stage, we recursively walk the new
@@ -135,16 +127,17 @@ OpenLayers.Format.JSON = OpenLayers.Class(OpenLayers.Format, {
                     }
                     object = walk('', object);
                 }
+
+                if(this.keepData) {
+                    this.data = object;
+                }
+
+                return object;
             }
         } catch(e) {
             // Fall through if the regexp test fails.
         }
-
-        if(this.keepData) {
-            this.data = object;
-        }
-
-        return object;
+        return null;
     },
 
     /**
@@ -166,9 +159,7 @@ OpenLayers.Format.JSON = OpenLayers.Class(OpenLayers.Format, {
         var type = typeof value;
         if(this.serialize[type]) {
             try {
-                json = (!this.pretty && this.nativeJSON) ?
-                    JSON.stringify(value) :
-                    this.serialize[type].apply(this, [value]);
+                json = this.serialize[type].apply(this, [value]);
             } catch(err) {
                 OpenLayers.Console.error("Trouble serializing: " + err);
             }

@@ -1,12 +1,11 @@
-/* Copyright (c) 2006-2013 by OpenLayers Contributors (see authors.txt for
- * full list of contributors). Published under the 2-clause BSD license.
- * See license.txt in the OpenLayers distribution or repository for the
+/* Copyright (c) 2006-2010 by OpenLayers Contributors (see authors.txt for 
+ * full list of contributors). Published under the Clear BSD license.  
+ * See http://svn.openlayers.org/trunk/openlayers/license.txt for the
  * full text of the license. */
 
 /**
  * @requires OpenLayers/Format/GML.js
  * @requires OpenLayers/Console.js
- * @requires OpenLayers/Lang.js
  */
 
 /**
@@ -20,23 +19,20 @@ OpenLayers.Format.WFS = OpenLayers.Class(OpenLayers.Format.GML, {
     
     /** 
      * Property: layer
-     * {<OpenLayers.Layer>}
      */
     layer: null,
     
     /**
      * APIProperty: wfsns
-     * {String}
      */
     wfsns: "http://www.opengis.net/wfs",
     
     /**
      * Property: ogcns
-     * {String}
      */
     ogcns: "http://www.opengis.net/ogc",
     
-    /**
+    /*
      * Constructor: OpenLayers.Format.WFS
      * Create a WFS-T formatter. This requires a layer: that layer should
      * have two properties: geometry_column and typename. The parser
@@ -48,6 +44,7 @@ OpenLayers.Format.WFS = OpenLayers.Class(OpenLayers.Format.GML, {
      * options - {Object} 
      * layer - {<OpenLayers.Layer>} 
      */
+    
     initialize: function(options, layer) {
         OpenLayers.Format.GML.prototype.initialize.apply(this, [options]);
         this.layer = layer;

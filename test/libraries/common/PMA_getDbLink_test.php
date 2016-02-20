@@ -29,6 +29,7 @@ class PMA_GetDbLink_Test extends PHPUnit_Framework_TestCase
     function setUp()
     {
         global $cfg;
+        include_once 'libraries/vendor_config.php';
         include 'libraries/config.default.php';
         $GLOBALS['server'] = 99;
     }

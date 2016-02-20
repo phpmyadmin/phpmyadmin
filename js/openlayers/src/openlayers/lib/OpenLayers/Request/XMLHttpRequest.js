@@ -24,19 +24,13 @@
     // Define on browser type
     var bGecko    = !!window.controllers,
         bIE        = window.document.all && !window.opera,
-        bIE7    = bIE && window.navigator.userAgent.match(/MSIE 7.0/);
-
-    // Enables "XMLHttpRequest()" call next to "new XMLHttpReques()"
-    function fXMLHttpRequest() {
-        this._object    = oXMLHttpRequest && !bIE7 ? new oXMLHttpRequest : new window.ActiveXObject("Microsoft.XMLHTTP");
-        this._listeners    = [];
-    };
+        bIE7    = bIE && window.navigator.userAgent.match(/MSIE ([\.0-9]+)/) && RegExp.$1 == 7;
 
     // Constructor
     function cXMLHttpRequest() {
-        return new fXMLHttpRequest;
+        this._object    = oXMLHttpRequest && !bIE7 ? new oXMLHttpRequest : new window.ActiveXObject("Microsoft.XMLHTTP");
+        this._listeners    = [];
     };
-    cXMLHttpRequest.prototype    = fXMLHttpRequest.prototype;
 
     // BUGFIX: Firefox with Firebug installed would break pages if not executed
     if (bGecko && oXMLHttpRequest.wrapped)
@@ -55,9 +49,6 @@
     cXMLHttpRequest.prototype.responseXML    = null;
     cXMLHttpRequest.prototype.status        = 0;
     cXMLHttpRequest.prototype.statusText    = '';
-
-    // Priority proposal
-    cXMLHttpRequest.prototype.priority        = "NORMAL";
 
     // Instance-level Events Handlers
     cXMLHttpRequest.prototype.onreadystatechange    = null;
@@ -94,7 +85,7 @@
                     oRequest.abort();
                 }
             };
-            window.attachEvent("onunload", fOnUnload);
+                window.attachEvent("onunload", fOnUnload);
         }
 
         // Add method sniffer
@@ -109,8 +100,10 @@
         else
             this._object.open(sMethod, sUrl, bAsync);
 
-        this.readyState    = cXMLHttpRequest.OPENED;
-        fReadyStateChange(this);
+        if (!bGecko && !bIE) {
+            this.readyState    = cXMLHttpRequest.OPENED;
+            fReadyStateChange(this);
+        }
 
         this._object.onreadystatechange    = function() {
             if (bGecko && !bAsync)
@@ -132,10 +125,6 @@
             }
 
             if (oRequest.readyState == cXMLHttpRequest.DONE) {
-                // Free up queue
-                delete oRequest._data;
-/*                if (bAsync)
-                    fQueue_remove(oRequest);*/
                 //
                 fCleanTransport(oRequest);
 // Uncomment this block if you need a fix for IE cache
@@ -151,7 +140,7 @@
                     // Re-send request
                     if (sUser) {
                          if (sPassword)
-                            oRequest._object.open(sMethod, sUrl, bAsync, sUser, sPassword);
+                    oRequest._object.open(sMethod, sUrl, bAsync, sUser, sPassword);
                         else
                             oRequest._object.open(sMethod, sUrl, bAsync, sUser);
                     }
@@ -216,33 +205,10 @@
             nState    = oRequest.readyState;
         }
     };
-    function fXMLHttpRequest_send(oRequest) {
-        oRequest._object.send(oRequest._data);
-
-        // BUGFIX: Gecko - missing readystatechange calls in synchronous requests
-        if (bGecko && !oRequest._async) {
-            oRequest.readyState    = cXMLHttpRequest.OPENED;
-
-            // Synchronize state
-            fSynchronizeValues(oRequest);
-
-            // Simulate missing states
-            while (oRequest.readyState < cXMLHttpRequest.DONE) {
-                oRequest.readyState++;
-                fReadyStateChange(oRequest);
-                // Check if we are aborted
-                if (oRequest._aborted)
-                    return;
-            }
-        }
-    };
     cXMLHttpRequest.prototype.send    = function(vData) {
         // Add method sniffer
         if (cXMLHttpRequest.onsend)
             cXMLHttpRequest.onsend.apply(this, arguments);
-
-        if (!arguments.length)
-            vData    = null;
 
         // BUGFIX: Safari - fails sending documents created/modified dynamically, so an explicit serialization required
         // BUGFIX: IE - rewrites any custom mime-type to "text/xml" in case an XMLNode is sent
@@ -253,13 +219,24 @@
                 this._object.setRequestHeader("Content-Type", "application/xml");
         }
 
-        this._data    = vData;
-/*
-        // Add to queue
-        if (this._async)
-            fQueue_add(this);
-        else*/
-            fXMLHttpRequest_send(this);
+        this._object.send(vData);
+
+        // BUGFIX: Gecko - missing readystatechange calls in synchronous requests
+        if (bGecko && !this._async) {
+            this.readyState    = cXMLHttpRequest.OPENED;
+
+            // Synchronize state
+            fSynchronizeValues(this);
+
+            // Simulate missing states
+            while (this.readyState < cXMLHttpRequest.DONE) {
+                this.readyState++;
+                fReadyStateChange(this);
+                // Check if we are aborted
+                if (this._aborted)
+                    return;
+            }
+        }
     };
     cXMLHttpRequest.prototype.abort    = function() {
         // Add method sniffer
@@ -274,12 +251,6 @@
 
         // BUGFIX: IE - memory leak
         fCleanTransport(this);
-
-        this.readyState    = cXMLHttpRequest.UNSENT;
-
-        delete this._data;
-/*        if (this._async)
-            fQueue_remove(this);*/
     };
     cXMLHttpRequest.prototype.getAllResponseHeaders    = function() {
         return this._object.getAllResponseHeaders();
@@ -390,45 +361,7 @@
         // BUGFIX: IE - memory leak (on-page leak)
         oRequest._object.onreadystatechange    = new window.Function;
     };
-/*
-    // Queue manager
-    var oQueuePending    = {"CRITICAL":[],"HIGH":[],"NORMAL":[],"LOW":[],"LOWEST":[]},
-        aQueueRunning    = [];
-    function fQueue_add(oRequest) {
-        oQueuePending[oRequest.priority in oQueuePending ? oRequest.priority : "NORMAL"].push(oRequest);
-        //
-        setTimeout(fQueue_process);
-    };
 
-    function fQueue_remove(oRequest) {
-        for (var nIndex = 0, bFound    = false; nIndex < aQueueRunning.length; nIndex++)
-            if (bFound)
-                aQueueRunning[nIndex - 1]    = aQueueRunning[nIndex];
-            else
-            if (aQueueRunning[nIndex] == oRequest)
-                bFound    = true;
-        if (bFound)
-            aQueueRunning.length--;
-        //
-        setTimeout(fQueue_process);
-    };
-
-    function fQueue_process() {
-        if (aQueueRunning.length < 6) {
-            for (var sPriority in oQueuePending) {
-                if (oQueuePending[sPriority].length) {
-                    var oRequest    = oQueuePending[sPriority][0];
-                    oQueuePending[sPriority]    = oQueuePending[sPriority].slice(1);
-                    //
-                    aQueueRunning.push(oRequest);
-                    // Send request
-                    fXMLHttpRequest_send(oRequest);
-                    break;
-                }
-            }
-        }
-    };
-*/
     // Internet Explorer 5.0 (missing apply)
     if (!window.Function.prototype.apply) {
         window.Function.prototype.apply    = function(oRequest, oArguments) {
@@ -447,12 +380,5 @@
      *     XMLHttpRequest object.  From
      *     http://code.google.com/p/xmlhttprequest/.
      */
-    if (!OpenLayers.Request) {
-        /**
-         * This allows for OpenLayers/Request.js to be included
-         * before or after this script.
-         */
-        OpenLayers.Request = {};
-    }
     OpenLayers.Request.XMLHttpRequest = cXMLHttpRequest;
 })();

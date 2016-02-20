@@ -1,6 +1,6 @@
-/* Copyright (c) 2006-2013 by OpenLayers Contributors (see authors.txt for
- * full list of contributors). Published under the 2-clause BSD license.
- * See license.txt in the OpenLayers distribution or repository for the
+/* Copyright (c) 2006-2010 by OpenLayers Contributors (see authors.txt for 
+ * full list of contributors). Published under the Clear BSD license.  
+ * See http://svn.openlayers.org/trunk/openlayers/license.txt for the
  * full text of the license. */
 
 /**
@@ -33,19 +33,9 @@ OpenLayers.Control.PanPanel = OpenLayers.Class(OpenLayers.Control.Panel, {
     /** 
      * APIProperty: slideFactor
      * {Integer} Number of pixels by which we'll pan the map in any direction 
-     *     on clicking the arrow buttons, defaults to 50.  If you want to pan
-     *     by some ratio of the map dimensions, use <slideRatio> instead.
+     *     on clicking the arrow buttons, defaults to 50.
      */
     slideFactor: 50,
-
-    /** 
-     * APIProperty: slideRatio
-     * {Number} The fraction of map width/height by which we'll pan the map            
-     *     on clicking the arrow buttons.  Default is null.  If set, will
-     *     override <slideFactor>. E.g. if slideRatio is .5, then Pan Up will
-     *     pan up half the map height. 
-     */
-    slideRatio: null,
 
     /**
      * Constructor: OpenLayers.Control.PanPanel 
@@ -57,15 +47,15 @@ OpenLayers.Control.PanPanel = OpenLayers.Class(OpenLayers.Control.Panel, {
      */
     initialize: function(options) {
         OpenLayers.Control.Panel.prototype.initialize.apply(this, [options]);
-        var options = {
-            slideFactor: this.slideFactor,
-            slideRatio: this.slideRatio
-        };
         this.addControls([
-            new OpenLayers.Control.Pan(OpenLayers.Control.Pan.NORTH, options),
-            new OpenLayers.Control.Pan(OpenLayers.Control.Pan.SOUTH, options),
-            new OpenLayers.Control.Pan(OpenLayers.Control.Pan.EAST, options),
-            new OpenLayers.Control.Pan(OpenLayers.Control.Pan.WEST, options)
+            new OpenLayers.Control.Pan(OpenLayers.Control.Pan.NORTH,
+                                       {slideFactor: this.slideFactor}),
+            new OpenLayers.Control.Pan(OpenLayers.Control.Pan.SOUTH,
+                                       {slideFactor: this.slideFactor}),
+            new OpenLayers.Control.Pan(OpenLayers.Control.Pan.EAST,
+                                       {slideFactor: this.slideFactor}),
+            new OpenLayers.Control.Pan(OpenLayers.Control.Pan.WEST,
+                                       {slideFactor: this.slideFactor})
         ]);
     },
 

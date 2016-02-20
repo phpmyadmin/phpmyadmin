@@ -30,13 +30,11 @@ require_once './libraries/js_escape.lib.php';
 
 $buffer = PMA\libraries\OutputBuffering::getInstance();
 $buffer->start();
-if (!defined('TESTSUITE')) {
-    register_shutdown_function(
-        function () {
-            echo PMA\libraries\OutputBuffering::getInstance()->getContents();
-        }
-    );
-}
+register_shutdown_function(
+    function () {
+        echo PMA\libraries\OutputBuffering::getInstance()->getContents();
+    }
+);
 
 $js_messages['strNoDropDatabases'] = __('"DROP DATABASE" statements are disabled.');
 if ($cfg['AllowUserDropDatabase']) {

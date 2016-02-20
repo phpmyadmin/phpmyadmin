@@ -1,6 +1,6 @@
-/* Copyright (c) 2006-2013 by OpenLayers Contributors (see authors.txt for
- * full list of contributors). Published under the 2-clause BSD license.
- * See license.txt in the OpenLayers distribution or repository for the
+/* Copyright (c) 2006-2010 by OpenLayers Contributors (see authors.txt for 
+ * full list of contributors). Published under the Clear BSD license.  
+ * See http://svn.openlayers.org/trunk/openlayers/license.txt for the
  * full text of the license. */
 
 
@@ -25,6 +25,9 @@ OpenLayers.Layer.Boxes = OpenLayers.Class(OpenLayers.Layer.Markers, {
      * name - {String} 
      * options - {Object} Hashtable of extra options to tag onto the layer
      */
+    initialize: function (name, options) {
+        OpenLayers.Layer.Markers.prototype.initialize.apply(this, arguments);
+    },
     
     /**
      * Method: drawMarker 
@@ -35,21 +38,18 @@ OpenLayers.Layer.Boxes = OpenLayers.Class(OpenLayers.Layer.Markers, {
      * marker - {<OpenLayers.Marker.Box>} 
      */
     drawMarker: function(marker) {
-        var topleft = this.map.getLayerPxFromLonLat({
-            lon: marker.bounds.left,
-            lat: marker.bounds.top
-        });
-        var botright = this.map.getLayerPxFromLonLat({
-            lon: marker.bounds.right,
-            lat: marker.bounds.bottom
-        });
+        var bounds   = marker.bounds;
+        var topleft  = this.map.getLayerPxFromLonLat(
+                            new OpenLayers.LonLat(bounds.left,  bounds.top));
+        var botright = this.map.getLayerPxFromLonLat(
+                             new OpenLayers.LonLat(bounds.right, bounds.bottom));
         if (botright == null || topleft == null) {
             marker.display(false);
         } else {
-            var markerDiv = marker.draw(topleft, {
-                w: Math.max(1, botright.x - topleft.x),
-                h: Math.max(1, botright.y - topleft.y)
-            });
+            var sz = new OpenLayers.Size(
+                Math.max(1, botright.x - topleft.x),
+                Math.max(1, botright.y - topleft.y));
+            var markerDiv = marker.draw(topleft, sz);
             if (!marker.drawn) {
                 this.div.appendChild(markerDiv);
                 marker.drawn = true;

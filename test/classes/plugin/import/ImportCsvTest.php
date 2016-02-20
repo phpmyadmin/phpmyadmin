@@ -61,6 +61,7 @@ class ImportCsvTest extends PMATestCase
         $GLOBALS['compression'] = 'none';
         $GLOBALS['read_multiply'] = 10;
         $GLOBALS['import_type'] = 'Xml';
+        $GLOBALS['pmaThemeImage'] = 'image';
         $GLOBALS['import_handle'] = @fopen($GLOBALS['import_file'], 'r');
 
         //separator for csv
@@ -70,6 +71,8 @@ class ImportCsvTest extends PMATestCase
         $GLOBALS['csv_new_line'] = 'auto';
 
         //$_SESSION
+        $_SESSION['PMA_Theme'] = Theme::load('./themes/pmahomme');
+        $_SESSION['PMA_Theme'] = new Theme();
 
         //Mock DBI
         $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')

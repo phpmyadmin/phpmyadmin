@@ -1,6 +1,6 @@
-/* Copyright (c) 2006-2013 by OpenLayers Contributors (see authors.txt for
- * full list of contributors). Published under the 2-clause BSD license.
- * See license.txt in the OpenLayers distribution or repository for the
+/* Copyright (c) 2006-2010 by OpenLayers Contributors (see authors.txt for 
+ * full list of contributors). Published under the Clear BSD license.  
+ * See http://svn.openlayers.org/trunk/openlayers/license.txt for the
  * full text of the license. */
 
 /**
@@ -13,11 +13,11 @@
 
 /**
  * Class: OpenLayers.Format.ArcXML
- * Read/Write ArcXML. Create a new instance with the <OpenLayers.Format.ArcXML>
+ * Read/Wite ArcXML. Create a new instance with the <OpenLayers.Format.ArcXML>
  *     constructor.
  * 
  * Inherits from:
- *  - <OpenLayers.Format.XML>
+ *  - <OpenLayers.Format>
  */
 OpenLayers.Format.ArcXML = OpenLayers.Class(OpenLayers.Format.XML, {
 
@@ -135,7 +135,7 @@ OpenLayers.Format.ArcXML = OpenLayers.Class(OpenLayers.Format.XML, {
      *
      * Parameters:
      * imsize - {Object} An ArcXML imagesize object.
-     * olsize - {<OpenLayers.Size>} The image size to set.
+     * olsize - {OpenLayers.Size} The image size to set.
      */
     addImageSize: function(imsize, olsize) {
         if (olsize !== null) {
@@ -152,7 +152,7 @@ OpenLayers.Format.ArcXML = OpenLayers.Class(OpenLayers.Format.XML, {
      *
      * Parameters:
      * featOrFilt - {Object} A featurecoordsys or filtercoordsys ArcXML structure.
-     * fsys - {String} or {<OpenLayers.Projection>} or {filtercoordsys} or 
+     * fsys - {String} or {OpenLayers.Projection} or {filtercoordsys} or 
      * {featurecoordsys} A projection representation. If it's a {String}, 
      * the value is assumed to be the SRID.  If it's a {OpenLayers.Projection} 
      * AND Proj4js is available, the projection number and name are extracted 
@@ -205,7 +205,7 @@ OpenLayers.Format.ArcXML = OpenLayers.Class(OpenLayers.Format.XML, {
      * data - {String} or {DOMElement} data to read/parse.
      *
      * Returns:
-     * {<OpenLayers.Format.ArcXML.Response>} An ArcXML response. Note that this response
+     * {OpenLayers.Format.ArcXML.Response} An ArcXML response. Note that this response
      *     data may change in the future. 
      */
     read: function(data) {
@@ -496,7 +496,7 @@ OpenLayers.Format.ArcXML = OpenLayers.Class(OpenLayers.Format.XML, {
     
     
     addRenderer: function(topRelem, renderer) {
-        if (OpenLayers.Util.isArray(renderer)) {
+        if (renderer instanceof Array) {
             this.addGroupRenderer(topRelem, renderer);
         } else {
             var renderElem = this.createElementNS("", renderer.type.toUpperCase() + "RENDERER");
@@ -873,7 +873,7 @@ OpenLayers.Format.ArcXML = OpenLayers.Class(OpenLayers.Format.XML, {
      * node - {<DOMElement>} An element to parse <COORDS> or <POINT> arcxml data from.
      *
      * Returns:
-     * {<OpenLayers.Geometry.LinearRing>} A linear ring represented by the node's points.
+     * {OpenLayers.Geometry.LinearRing} A linear ring represented by the node's points.
      */
     parsePointGeometry: function(node) {
         var ringPoints = [];
@@ -885,7 +885,7 @@ OpenLayers.Format.ArcXML = OpenLayers.Class(OpenLayers.Format.XML, {
             coordArr = coordArr.split(/;/);
             for (var cn = 0; cn < coordArr.length; cn++) {
                 var coordItems = coordArr[cn].split(/ /);
-                ringPoints.push(new OpenLayers.Geometry.Point(coordItems[0], coordItems[1]));
+                ringPoints.push(new OpenLayers.Geometry.Point(parseFloat(coordItems[0]), parseFloat(coordItems[1])));
             }
             coords = null;
         } else {

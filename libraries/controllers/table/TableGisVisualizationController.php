@@ -160,6 +160,7 @@ class TableGisVisualizationController extends TableController
                 'openlayers/OpenLayers.js',
                 'jquery/jquery.svg.js',
                 'tbl_gis_visualization.js',
+                'OpenStreetMap.js'
             )
         );
 

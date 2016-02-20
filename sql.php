@@ -177,7 +177,7 @@ if (isset($find_real_end) && $find_real_end) {
  * Bookmark add
  */
 if (isset($_POST['store_bkm'])) {
-    PMA_addBookmark($goto);
+    PMA_addBookmark($cfg['PmaAbsoluteUri'], $goto);
     // script has exited at this point
 } // end if
 

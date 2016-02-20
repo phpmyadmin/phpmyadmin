@@ -29,46 +29,18 @@ class FilesTest extends PHPUnit_Framework_TestCase
     {
     }
 
-    /**
-     * Test for dynamic javascript files
-     *
-     * @param $name     string Filename to test
-     * @param $expected string Expected output
-     *
-     * @return void
-     *
-     * @dataProvider listScripts
-     */
-    public function testDynamicJs($name, $expected)
+    public function testJsMessages()
     {
+        ob_start();
         $GLOBALS['pmaThemeImage'] = '';
-        $GLOBALS['goto_whitelist'] = array('x');
-        $_GET['scripts'] = '["ajax.js"]';
         $cfg = array(
             'AllowUserDropDatabase' => true,
             'GridEditing' => 'click',
-            'OBGzip' => false,
-            'ServerDefault' => 1,
         );
-        $GLOBALS['cfg'] = $cfg;
-        require $name;
-        $buffer->stop();
-        $out = $buffer->getContents();
-        $this->assertContains($expected, $out);
+        require 'js/messages.php';
+        $out = ob_get_contents();
+        ob_end_clean();
+        $this->assertContains('var PMA_messages = new Array();', $out);
     }
 
-    /**
-     * Data provider for scripts testing
-     *
-     * @return array
-     */
-    public function listScripts()
-    {
-        return array(
-            array('js/whitelist.php', 'var PMA_gotoWhitelist'),
-            array('js/messages.php', 'var PMA_messages = new Array();'),
-            array('js/get_image.js.php', 'function PMA_getImage'),
-            array('js/get_scripts.js.php', 'var AJAX'),
-        );
-    }
 }

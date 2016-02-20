@@ -763,11 +763,12 @@ function PMA_setColumnOrderOrVisibility($table, $db)
 /**
  * Function to add a bookmark
  *
- * @param String $goto goto page URL
+ * @param String $pmaAbsoluteUri absolute URI
+ * @param String $goto           goto page URL
  *
  * @return void
  */
-function PMA_addBookmark($goto)
+function PMA_addBookmark($pmaAbsoluteUri, $goto)
 {
     $result = PMA_Bookmark_save(
         $_POST['bkm_fields'],
@@ -793,7 +794,7 @@ function PMA_addBookmark($goto)
          * @todo In which scenario does this happen?
          */
         PMA_sendHeaderLocation(
-            './' . $goto
+            $pmaAbsoluteUri . $goto
             . '&label=' . $_POST['bkm_fields']['bkm_label']
         );
     }

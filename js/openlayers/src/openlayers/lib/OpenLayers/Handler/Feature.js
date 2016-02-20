@@ -1,6 +1,6 @@
-/* Copyright (c) 2006-2013 by OpenLayers Contributors (see authors.txt for
- * full list of contributors). Published under the 2-clause BSD license.
- * See license.txt in the OpenLayers distribution or repository for the
+/* Copyright (c) 2006-2010 by OpenLayers Contributors (see authors.txt for 
+ * full list of contributors). Published under the Clear BSD license.  
+ * See http://svn.openlayers.org/trunk/openlayers/license.txt for the
  * full text of the license. */
 
 
@@ -16,9 +16,6 @@
  *
  * This handler stops event propagation for mousedown and mouseup if those
  *     browser events target features that can be selected.
- *
- * Inherits from:
- *  - <OpenLayers.Handler>
  */
 OpenLayers.Handler.Feature = OpenLayers.Class(OpenLayers.Handler, {
 
@@ -32,8 +29,7 @@ OpenLayers.Handler.Feature = OpenLayers.Class(OpenLayers.Handler, {
         'mousemove': {'in': 'over', 'out': 'out'},
         'dblclick': {'in': 'dblclick', 'out': null},
         'mousedown': {'in': null, 'out': null},
-        'mouseup': {'in': null, 'out': null},
-        'touchstart': {'in': 'click', 'out': 'clickout'}
+        'mouseup': {'in': null, 'out': null}
     },
 
     /**
@@ -121,34 +117,6 @@ OpenLayers.Handler.Feature = OpenLayers.Class(OpenLayers.Handler, {
         this.layer = layer;
     },
 
-    /**
-     * Method: touchstart
-     * Handle touchstart events
-     *
-     * Parameters:
-     * evt - {Event}
-     *
-     * Returns:
-     * {Boolean} Let the event propagate.
-     */
-    touchstart: function(evt) {
-        this.startTouch(); 
-        return OpenLayers.Event.isMultiTouch(evt) ?
-                true : this.mousedown(evt);
-    },
-
-    /**
-     * Method: touchmove
-     * Handle touchmove events. We just prevent the browser default behavior,
-     *    for Android Webkit not to select text when moving the finger after
-     *    selecting a feature.
-     *
-     * Parameters:
-     * evt - {Event}
-     */
-    touchmove: function(evt) {
-        OpenLayers.Event.preventDefault(evt);
-    },
 
     /**
      * Method: mousedown
@@ -159,13 +127,7 @@ OpenLayers.Handler.Feature = OpenLayers.Class(OpenLayers.Handler, {
      * evt - {Event} 
      */
     mousedown: function(evt) {
-        // Feature selection is only done with a left click. Other handlers may stop the
-        // propagation of left-click mousedown events but not right-click mousedown events.
-        // This mismatch causes problems when comparing the location of the down and up
-        // events in the click function so it is important ignore right-clicks.
-        if (OpenLayers.Event.isLeftClick(evt) || OpenLayers.Event.isSingleTouch(evt)) {
-            this.down = evt.xy;
-        }
+        this.down = evt.xy;
         return this.handle(evt) ? !this.stopDown : true;
     },
     
@@ -264,7 +226,7 @@ OpenLayers.Handler.Feature = OpenLayers.Class(OpenLayers.Handler, {
         var type = evt.type;
         var handled = false;
         var previouslyIn = !!(this.feature); // previously in a feature
-        var click = (type == "click" || type == "dblclick" || type == "touchstart");
+        var click = (type == "click" || type == "dblclick");
         this.feature = this.layer.getFeatureFromEvent(evt);
         if(this.feature && !this.feature.layer) {
             // feature has been destroyed
@@ -275,11 +237,6 @@ OpenLayers.Handler.Feature = OpenLayers.Class(OpenLayers.Handler, {
             this.lastFeature = null;
         }
         if(this.feature) {
-            if(type === "touchstart") {
-                // stop the event to prevent Android Webkit from
-                // "flashing" the map div
-                OpenLayers.Event.preventDefault(evt);
-            }
             var inNew = (this.feature != this.lastFeature);
             if(this.geometryTypeMatches(this.feature)) {
                 // in to a feature
@@ -308,8 +265,10 @@ OpenLayers.Handler.Feature = OpenLayers.Class(OpenLayers.Handler, {
                 // we enter handle. Yes, a bit hackish...
                 this.feature = null;
             }
-        } else if(this.lastFeature && (previouslyIn || click)) {
-            this.triggerCallback(type, 'out', [this.lastFeature]);
+        } else {
+            if(this.lastFeature && (previouslyIn || click)) {
+                this.triggerCallback(type, 'out', [this.lastFeature]);
+            }
         }
         return handled;
     },
@@ -334,11 +293,6 @@ OpenLayers.Handler.Feature = OpenLayers.Class(OpenLayers.Handler, {
                 if(dpx <= this.clickTolerance) {
                     this.callback(key, args);
                 }
-                // we're done with this set of events now: clear the cached
-                // positions so we can't trip over them later (this can occur
-                // if one of the up/down events gets eaten before it gets to us
-                // but we still get the click)
-                this.up = this.down = null;
             } else {
                 this.callback(key, args);
             }
@@ -392,13 +346,13 @@ OpenLayers.Handler.Feature = OpenLayers.Class(OpenLayers.Handler, {
     },
     
     /**
-     * Method: handleMapEvents
+     * Method handleMapEvents
      * 
      * Parameters:
      * evt - {Object}
      */
     handleMapEvents: function(evt) {
-        if (evt.type == "removelayer" || evt.property == "order") {
+        if (!evt.property || evt.property == "order") {
             this.moveLayerToTop();
         }
     },

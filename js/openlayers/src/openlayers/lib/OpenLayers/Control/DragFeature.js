@@ -1,6 +1,6 @@
-/* Copyright (c) 2006-2013 by OpenLayers Contributors (see authors.txt for
- * full list of contributors). Published under the 2-clause BSD license.
- * See license.txt in the OpenLayers distribution or repository for the
+/* Copyright (c) 2006-2010 by OpenLayers Contributors (see authors.txt for 
+ * full list of contributors). Published under the Clear BSD license.  
+ * See http://svn.openlayers.org/trunk/openlayers/license.txt for the
  * full text of the license. */
 
 
@@ -66,28 +66,6 @@ OpenLayers.Control.DragFeature = OpenLayers.Class(OpenLayers.Control, {
     onComplete: function(feature, pixel) {},
 
     /**
-     * APIProperty: onEnter
-     * {Function} Define this function if you want to know when the mouse
-     *     goes over a feature and thereby makes this feature a candidate
-     *     for dragging.
-     *
-     * Parameters:
-     * feature - {<OpenLayers.Feature.Vector>} The feature that is ready
-     *     to be dragged.
-     */
-    onEnter: function(feature) {},
-
-    /**
-     * APIProperty: onLeave
-     * {Function} Define this function if you want to know when the mouse
-     *     goes out of the feature that was dragged.
-     *
-     * Parameters:
-     * feature - {<OpenLayers.Feature.Vector>} The feature that was dragged.
-     */
-    onLeave: function(feature) {},
-
-    /**
      * APIProperty: documentDrag
      * {Boolean} If set to true, mouse dragging will continue even if the
      *     mouse cursor leaves the map viewport. Default is false.
@@ -151,10 +129,6 @@ OpenLayers.Control.DragFeature = OpenLayers.Class(OpenLayers.Control, {
             ),
             feature: new OpenLayers.Handler.Feature(
                 this, this.layer, OpenLayers.Util.extend({
-                    // 'click' and 'clickout' callback are for the mobile
-                    // support: no 'over' or 'out' in touch based browsers.
-                    click: this.clickFeature,
-                    clickout: this.clickoutFeature,
                     over: this.overFeature,
                     out: this.outFeature
                 }, this.featureCallbacks),
@@ -162,36 +136,7 @@ OpenLayers.Control.DragFeature = OpenLayers.Class(OpenLayers.Control, {
             )
         };
     },
-
-    /**
-     * Method: clickFeature
-     * Called when the feature handler detects a click-in on a feature.
-     *
-     * Parameters:
-     * feature - {<OpenLayers.Feature.Vector>}
-     */
-    clickFeature: function(feature) {
-        if (this.handlers.feature.touch && !this.over && this.overFeature(feature)) {
-            this.handlers.drag.dragstart(this.handlers.feature.evt);
-            // to let the events propagate to the feature handler (click callback)
-            this.handlers.drag.stopDown = false;
-        }
-    },
-
-    /**
-     * Method: clickoutFeature
-     * Called when the feature handler detects a click-out on a feature.
-     *
-     * Parameters:
-     * feature - {<OpenLayers.Feature.Vector>}
-     */
-    clickoutFeature: function(feature) {
-        if (this.handlers.feature.touch && this.over) {
-            this.outFeature(feature);
-            this.handlers.drag.stopDown = true;
-        }
-    },
-
+    
     /**
      * APIMethod: destroy
      * Take care of things that are not handled in superclass
@@ -240,19 +185,13 @@ OpenLayers.Control.DragFeature = OpenLayers.Class(OpenLayers.Control, {
      *
      * Parameters:
      * feature - {<OpenLayers.Feature.Vector>} The selected feature.
-     *
-     * Returns:
-     * {Boolean} Successfully activated the drag handler.
      */
     overFeature: function(feature) {
-        var activated = false;
         if(!this.handlers.drag.dragging) {
             this.feature = feature;
             this.handlers.drag.activate();
-            activated = true;
             this.over = true;
             OpenLayers.Element.addClass(this.map.viewPortDiv, this.displayClass + "Over");
-            this.onEnter(feature);
         } else {
             if(this.feature.id == feature.id) {
                 this.over = true;
@@ -260,7 +199,6 @@ OpenLayers.Control.DragFeature = OpenLayers.Class(OpenLayers.Control, {
                 this.over = false;
             }
         }
-        return activated;
     },
 
     /**
@@ -331,7 +269,6 @@ OpenLayers.Control.DragFeature = OpenLayers.Class(OpenLayers.Control, {
             OpenLayers.Element.removeClass(
                 this.map.viewPortDiv, this.displayClass + "Over"
             );
-            this.onLeave(feature);
             this.feature = null;
         } else {
             if(this.feature.id == feature.id) {

@@ -1,10 +1,12 @@
-/* Copyright (c) 2006-2013 by OpenLayers Contributors (see authors.txt for
- * full list of contributors). Published under the 2-clause BSD license.
- * See license.txt in the OpenLayers distribution or repository for the
+/* Copyright (c) 2006-2010 by OpenLayers Contributors (see authors.txt for 
+ * full list of contributors). Published under the Clear BSD license.  
+ * See http://svn.openlayers.org/trunk/openlayers/license.txt for the
  * full text of the license. */
+
 
 /**
  * @requires OpenLayers/Layer/Grid.js
+ * @requires OpenLayers/Tile/Image.js
  */
 
 /**
@@ -55,11 +57,10 @@ OpenLayers.Layer.ArcGIS93Rest = OpenLayers.Class(OpenLayers.Layer.Grid, {
      * url - {String} Base url for the ArcGIS server REST service
      * options - {Object} An object with key/value pairs representing the
      *                    options and option values.
-     *
      * Valid Options:
-     *        format - {String} MIME type of desired image type.
-     *        layers - {String} Comma-separated list of layers to display.
-     *        srs - {String} Projection ID.
+     *        format: {String} MIME type of desired image type.
+     *        layers: {String} Comma-separated list of layers to display.
+     *        srs: {String} Projection ID.
      */
     initialize: function(name, url, params, options) {
         var newArguments = [];
@@ -90,6 +91,16 @@ OpenLayers.Layer.ArcGIS93Rest = OpenLayers.Class(OpenLayers.Layer.Grid, {
         }
     },    
 
+    
+    /**
+     * Method: destroy
+     * Destroy this layer
+     */
+    destroy: function() {
+        // for now, nothing special to do here. 
+        OpenLayers.Layer.Grid.prototype.destroy.apply(this, arguments);  
+    },   
+    
     /**
          * Method: clone
          * Create a clone of this layer
@@ -221,5 +232,22 @@ OpenLayers.Layer.ArcGIS93Rest = OpenLayers.Class(OpenLayers.Layer.Grid, {
                                                              newArguments);
     },
 
+    /**
+     * Method: addTile
+     * addTile creates a tile, initializes it, and adds it to the layer div. 
+     *
+     * Parameters:
+     * bounds - {<OpenLayers.Bounds>}
+     * position - {<OpenLayers.Pixel>}
+     * 
+     * Returns:
+     * {<OpenLayers.Tile.Image>} The added OpenLayers.Tile.Image
+     */
+    addTile:function(bounds,position) {
+        return new OpenLayers.Tile.Image(this, position, bounds, 
+                                         null, this.tileSize);
+    },
+
+    
     CLASS_NAME: "OpenLayers.Layer.ArcGIS93Rest"
 });

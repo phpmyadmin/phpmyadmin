@@ -1,6 +1,6 @@
-/* Copyright (c) 2006-2013 by OpenLayers Contributors (see authors.txt for
- * full list of contributors). Published under the 2-clause BSD license.
- * See license.txt in the OpenLayers distribution or repository for the
+/* Copyright (c) 2006-2010 by OpenLayers Contributors (see authors.txt for 
+ * full list of contributors). Published under the Clear BSD license.  
+ * See http://svn.openlayers.org/trunk/openlayers/license.txt for the
  * full text of the license. */
 
 /**
@@ -63,29 +63,6 @@ OpenLayers.Format.WFST.v1_0_0 = OpenLayers.Class(
     },
     
     /**
-     * Method: readNode
-     * Shorthand for applying one of the named readers given the node
-     *     namespace and local name.  Readers take two args (node, obj) and
-     *     generally extend or modify the second.
-     *
-     * Parameters:
-     * node - {DOMElement} The node to be read (required).
-     * obj - {Object} The object to be modified (optional).
-     * first - {Boolean} Should be set to true for the first node read. This
-     *     is usually the readNode call in the read method. Without this being
-     *     set, auto-configured properties will stick on subsequent reads.
-     *
-     * Returns:
-     * {Object} The input object, modified (or a new one if none was provided).
-     */
-    readNode: function(node, obj, first) {
-        // Not the superclass, only the mixin classes inherit from
-        // Format.GML.v2. We need this because we don't want to get readNode
-        // from the superclass's superclass, which is OpenLayers.Format.XML.
-        return OpenLayers.Format.GML.v2.prototype.readNode.apply(this, arguments);
-    },
-    
-    /**
      * Property: readers
      * Contains public functions, grouped by namespace prefix, that will
      *     be applied when a namespaced node is found matching the function
@@ -103,7 +80,7 @@ OpenLayers.Format.WFST.v1_0_0 = OpenLayers.Class(
             "InsertResult": function(node, container) {
                 var obj = {fids: []};
                 this.readChildNodes(node, obj);
-                container.insertIds = container.insertIds.concat(obj.fids);
+                container.insertIds.push(obj.fids[0]);
             },
             "TransactionResult": function(node, obj) {
                 this.readChildNodes(node, obj);
@@ -136,10 +113,9 @@ OpenLayers.Format.WFST.v1_0_0 = OpenLayers.Class(
                     srsName: this.srsName,
                     srsNameInQuery: this.srsNameInQuery
                 }, options);
-                var prefix = options.featurePrefix;
                 var node = this.createElementNSPlus("wfs:Query", {
                     attributes: {
-                        typeName: (prefix ? prefix + ":" : "") +
+                        typeName: (options.featureNS ? options.featurePrefix + ":" : "") +
                             options.featureType
                     }
                 });
@@ -147,7 +123,7 @@ OpenLayers.Format.WFST.v1_0_0 = OpenLayers.Class(
                     node.setAttribute("srsName", options.srsName);
                 }
                 if(options.featureNS) {
-                    node.setAttribute("xmlns:" + prefix, options.featureNS);
+                    node.setAttribute("xmlns:" + options.featurePrefix, options.featureNS);
                 }
                 if(options.propertyNames) {
                     for(var i=0,len = options.propertyNames.length; i<len; i++) {

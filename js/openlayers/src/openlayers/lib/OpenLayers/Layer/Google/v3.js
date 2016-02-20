@@ -1,6 +1,6 @@
-/* Copyright (c) 2006-2013 by OpenLayers Contributors (see authors.txt for
- * full list of contributors). Published under the 2-clause BSD license.
- * See license.txt in the OpenLayers distribution or repository for the
+/* Copyright (c) 2006-2010 by OpenLayers Contributors (see authors.txt for 
+ * full list of contributors). Published under the Clear BSD license.  
+ * See http://svn.openlayers.org/trunk/openlayers/license.txt for the
  * full text of the license. */
 
 
@@ -11,13 +11,10 @@
 /**
  * Constant: OpenLayers.Layer.Google.v3
  * 
- * Mixin providing functionality specific to the Google Maps API v3.
- * 
- * To use this layer, you must include the GMaps v3 API in your html.
- * 
- * Note that this layer configures the google.maps.map object with the
- * "disableDefaultUI" option set to true. Using UI controls that the Google
- * Maps API provides is not supported by the OpenLayers API.
+ * Mixin providing functionality specific to the Google Maps API v3. Note that
+ * this layer configures the google.maps.map object with the "disableDefaultUI"
+ * option set to true. Using UI controls that the Google Maps API provides is
+ * not supported by the OpenLayers API.
  */
 OpenLayers.Layer.Google.v3 = {
     
@@ -28,34 +25,38 @@ OpenLayers.Layer.Google.v3 = {
      * 
      * (code)
      * {
+     *     maxExtent: new OpenLayers.Bounds(
+     *         -128 * 156543.0339,
+     *         -128 * 156543.0339,
+     *         128 * 156543.0339,
+     *         128 * 156543.0339
+     *     ),
      *     sphericalMercator: true,
+     *     maxResolution: 156543.0339,
+     *     units: "m",
      *     projection: "EPSG:900913"
      * }
      * (end)
      */
     DEFAULTS: {
+        maxExtent: new OpenLayers.Bounds(
+            -128 * 156543.0339,
+            -128 * 156543.0339,
+            128 * 156543.0339,
+            128 * 156543.0339
+        ),
         sphericalMercator: true,
+        maxResolution: 156543.0339,
+        units: "m",
         projection: "EPSG:900913"
     },
 
-    /**
-     * APIProperty: animationEnabled
-     * {Boolean} If set to true, the transition between zoom levels will be
-     *     animated (if supported by the GMaps API for the device used). Set to
-     *     false to match the zooming experience of other layer types. Default
-     *     is true. Note that the GMaps API does not give us control over zoom
-     *     animation, so if set to false, when zooming, this will make the
-     *     layer temporarily invisible, wait until GMaps reports the map being
-     *     idle, and make it visible again. The result will be a blank layer
-     *     for a few moments while zooming.
-     */
-    animationEnabled: true, 
-
     /** 
      * Method: loadMapObject
-     * Load the GMap and register appropriate event listeners.
+     * Load the GMap and register appropriate event listeners. If we can't 
+     *     load GMap2, then display a warning message.
      */
-    loadMapObject: function() {
+    loadMapObject:function() {
         if (!this.type) {
             this.type = google.maps.MapTypeId.ROADMAP;
         }
@@ -68,13 +69,18 @@ OpenLayers.Layer.Google.v3 = {
             ++cache.count;
         } else {
             // this is the first Google layer for this map
-            // create GMap
+
+            var container = this.map.viewPortDiv;
+            var div = document.createElement("div");
+            div.id = this.map.id + "_GMapContainer";
+            div.style.position = "absolute";
+            div.style.width = "100%";
+            div.style.height = "100%";
+            container.appendChild(div);
+
+            // create GMap and shuffle elements
             var center = this.map.getCenter();
-            var container = document.createElement('div');
-            container.className = "olForeignContainer";
-            container.style.width = '100%';
-            container.style.height = '100%';
-            mapObject = new google.maps.Map(container, {
+            mapObject = new google.maps.Map(div, {
                 center: center ?
                     new google.maps.LatLng(center.lat, center.lon) :
                     new google.maps.LatLng(0, 0),
@@ -84,33 +90,87 @@ OpenLayers.Layer.Google.v3 = {
                 keyboardShortcuts: false,
                 draggable: false,
                 disableDoubleClickZoom: true,
-                scrollwheel: false,
-                streetViewControl: false
+                scrollwheel: false
             });
-            var googleControl = document.createElement('div');
-            googleControl.style.width = '100%';
-            googleControl.style.height = '100%';
-            mapObject.controls[google.maps.ControlPosition.TOP_LEFT].push(googleControl);
             
             // cache elements for use by any other google layers added to
             // this same map
             cache = {
-                googleControl: googleControl,
                 mapObject: mapObject,
                 count: 1
             };
             OpenLayers.Layer.Google.cache[this.map.id] = cache;
+            this.repositionListener = google.maps.event.addListenerOnce(
+                mapObject, 
+                "center_changed", 
+                OpenLayers.Function.bind(this.repositionMapElements, this)
+            );
         }
         this.mapObject = mapObject;
         this.setGMapVisibility(this.visibility);
     },
     
     /**
+     * Method: repositionMapElements
+     *
+     * Waits until powered by and terms of use elements are available and then
+     * moves them so they are clickable.
+     */
+    repositionMapElements: function() {
+
+        // This is the first time any Google layer in this mapObject has been
+        // made visible.  The mapObject needs to know the container size.
+        google.maps.event.trigger(this.mapObject, "resize");
+        
+        var div = this.mapObject.getDiv().firstChild;
+        if (!div || div.childNodes.length < 3) {
+            this.repositionTimer = window.setTimeout(
+                OpenLayers.Function.bind(this.repositionMapElements, this),
+                250
+            );
+            return false;
+        }
+
+        var cache = OpenLayers.Layer.Google.cache[this.map.id];
+        var container = this.map.viewPortDiv;
+
+        // move the ToS and branding stuff up to the container div
+        var termsOfUse = div.lastChild;
+        container.appendChild(termsOfUse);
+        termsOfUse.style.zIndex = "1100";
+        termsOfUse.style.bottom = "";
+        termsOfUse.className = "olLayerGoogleCopyright olLayerGoogleV3";
+        termsOfUse.style.display = "";
+        cache.termsOfUse = termsOfUse;
+
+        var poweredBy = div.lastChild;
+        container.appendChild(poweredBy);
+        poweredBy.style.zIndex = "1100";
+        poweredBy.style.bottom = "";
+        poweredBy.className = "olLayerGooglePoweredBy olLayerGoogleV3 gmnoprint";
+        poweredBy.style.display = "";
+        cache.poweredBy = poweredBy;
+
+        this.setGMapVisibility(this.visibility);
+
+    },
+
+    /**
      * APIMethod: onMapResize
      */
     onMapResize: function() {
         if (this.visibility) {
             google.maps.event.trigger(this.mapObject, "resize");
+        } else {
+            if (!this._resized) {
+                var layer = this;
+                google.maps.event.addListenerOnce(this.mapObject, "tilesloaded", function() {
+                    delete layer._resized;
+                    google.maps.event.trigger(layer.mapObject, "resize");
+                    layer.moveTo(layer.map.getCenter(), layer.map.getZoom());
+                });
+            }
+            this._resized = true;
         }
     },
 
@@ -123,10 +183,9 @@ OpenLayers.Layer.Google.v3 = {
      */
     setGMapVisibility: function(visible) {
         var cache = OpenLayers.Layer.Google.cache[this.map.id];
-        var map = this.map;
         if (cache) {
             var type = this.type;
-            var layers = map.layers;
+            var layers = this.map.layers;
             var layer;
             for (var i=layers.length-1; i>=0; --i) {
                 layer = layers[i];
@@ -139,24 +198,27 @@ OpenLayers.Layer.Google.v3 = {
             }
             var container = this.mapObject.getDiv();
             if (visible === true) {
-                if (container.parentNode !== map.div) {
-                    if (!cache.rendered) {
-                        var me = this;
-                        google.maps.event.addListenerOnce(this.mapObject, 'tilesloaded', function() {
-                            cache.rendered = true;
-                            me.setGMapVisibility(me.getVisibility());
-                            me.moveTo(me.map.getCenter());
-                        });
-                    } else {
-                        map.div.appendChild(container);
-                        cache.googleControl.appendChild(map.viewPortDiv);
-                        google.maps.event.trigger(this.mapObject, 'resize');
-                    }
-                }
                 this.mapObject.setMapTypeId(type);                
-            } else if (cache.googleControl.hasChildNodes()) {
-                map.div.appendChild(map.viewPortDiv);
-                map.div.removeChild(container);
+                container.style.left = "";
+                if (cache.termsOfUse && cache.termsOfUse.style) {
+                    cache.termsOfUse.style.left = "";
+                    cache.termsOfUse.style.display = "";
+                    cache.poweredBy.style.display = "";            
+                }
+                cache.displayed = this.id;
+            } else {
+                delete cache.displayed;
+                container.style.left = "-9999px";
+                if (cache.termsOfUse && cache.termsOfUse.style) {
+                    cache.termsOfUse.style.display = "none";
+                    // move ToU far to the left in addition to setting
+                    // display to "none", because at the end of the GMap
+                    // load sequence, display: none will be unset and ToU
+                    // would be visible after loading a map with a google
+                    // layer that is initially hidden. 
+                    cache.termsOfUse.style.left = "-9999px";
+                    cache.poweredBy.style.display = "none";
+                }
             }
         }
     },
@@ -255,8 +317,11 @@ OpenLayers.Layer.Google.v3 = {
         var lat = this.getLatitudeFromMapObjectLonLat(moLonLat);
         var res = this.map.getResolution();
         var extent = this.map.getExtent();
-        return this.getMapObjectPixelFromXY((1/res * (lon - extent.left)),
-                                            (1/res * (extent.top - lat)));
+        var px = new OpenLayers.Pixel(
+            (1/res * (lon - extent.left)),
+            (1/res * (extent.top - lat))
+        );    
+        return this.getMapObjectPixelFromXY(px.x, px.y);
     },
 
   
@@ -269,17 +334,6 @@ OpenLayers.Layer.Google.v3 = {
      * zoom - {int} MapObject zoom format
      */
     setMapObjectCenter: function(center, zoom) {
-        if (this.animationEnabled === false && zoom != this.mapObject.zoom) {
-            var mapContainer = this.getMapContainer();
-            google.maps.event.addListenerOnce(
-                this.mapObject, 
-                "idle", 
-                function() {
-                    mapContainer.style.visibility = "";
-                }
-            );
-            mapContainer.style.visibility = "hidden";
-        }
         this.mapObject.setOptions({
             center: center,
             zoom: zoom
@@ -346,6 +400,20 @@ OpenLayers.Layer.Google.v3 = {
      */
     getMapObjectPixelFromXY: function(x, y) {
         return new google.maps.Point(x, y);
+    },
+        
+    /**
+     * APIMethod: destroy
+     * Clean up this layer.
+     */
+    destroy: function() {
+        if (this.repositionListener) {
+            google.maps.event.removeListener(this.repositionListener);
+        }
+        if (this.repositionTimer) {
+            window.clearTimeout(this.repositionTimer);
+        }
+        OpenLayers.Layer.Google.prototype.destroy.apply(this, arguments);
     }
     
 };

@@ -1,6 +1,6 @@
-/* Copyright (c) 2006-2013 by OpenLayers Contributors (see authors.txt for
- * full list of contributors). Published under the 2-clause BSD license.
- * See license.txt in the OpenLayers distribution or repository for the
+/* Copyright (c) 2006-2010 by OpenLayers Contributors (see authors.txt for 
+ * full list of contributors). Published under the Clear BSD license.  
+ * See http://svn.openlayers.org/trunk/openlayers/license.txt for the
  * full text of the license. */
 
 /**
@@ -77,16 +77,6 @@ OpenLayers.Format.WMC.v1_1_0 = OpenLayers.Class(
     },
 
     /**
-     * Method: read_wmc_SRS
-     */
-    read_wmc_SRS: function(layerContext, node) {
-        if (! ("srs" in layerContext)) {
-            layerContext.srs = {};
-        }
-        layerContext.srs[this.getChildValue(node)] = true;
-    },
-
-    /**
      * Method: write_wmc_Layer
      * Create a Layer node given a layer context object. This method adds
      *     elements specific to version 1.1.0.
@@ -119,24 +109,12 @@ OpenLayers.Format.WMC.v1_1_0 = OpenLayers.Class(
             node.appendChild(maxSD);
         }
 
-        // optional SRS element(s)
-        if (context.srs) {
-            for(var name in context.srs) {
-                node.appendChild(this.createElementDefaultNS("SRS", name));
-            }
-        }
-
         // optional FormatList element
         node.appendChild(this.write_wmc_FormatList(context));
 
         // optional StyleList element
         node.appendChild(this.write_wmc_StyleList(context));
         
-        // optional DimensionList element
-        if (context.dimensions) {
-            node.appendChild(this.write_wmc_DimensionList(context));
-        }
-
         // OpenLayers specific properties go in an Extension element
         node.appendChild(this.write_wmc_LayerExtension(context));
         

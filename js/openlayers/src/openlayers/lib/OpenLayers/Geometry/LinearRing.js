@@ -1,6 +1,6 @@
-/* Copyright (c) 2006-2013 by OpenLayers Contributors (see authors.txt for
- * full list of contributors). Published under the 2-clause BSD license.
- * See license.txt in the OpenLayers distribution or repository for the
+/* Copyright (c) 2006-2010 by OpenLayers Contributors (see authors.txt for 
+ * full list of contributors). Published under the Clear BSD license.  
+ * See http://svn.openlayers.org/trunk/openlayers/license.txt for the
  * full text of the license. */
 
 /**
@@ -42,6 +42,10 @@ OpenLayers.Geometry.LinearRing = OpenLayers.Class(
      * Parameters:
      * points - {Array(<OpenLayers.Geometry.Point>)} points
      */
+    initialize: function(points) {
+        OpenLayers.Geometry.LineString.prototype.initialize.apply(this, 
+                                                                  arguments);
+    },
 
     /**
      * APIMethod: addComponent
@@ -53,7 +57,7 @@ OpenLayers.Geometry.LinearRing = OpenLayers.Class(
      *     be overridden by calling the method with a non-null index as the 
      *     second argument.
      *
-     * Parameters:
+     * Parameter:
      * point - {<OpenLayers.Geometry.Point>}
      * index - {Integer} Index into the array to insert the component
      * 
@@ -87,13 +91,10 @@ OpenLayers.Geometry.LinearRing = OpenLayers.Class(
      *
      * Parameters:
      * point - {<OpenLayers.Geometry.Point>}
-     *
-     * Returns: 
-     * {Boolean} The component was removed.
      */
     removeComponent: function(point) {
-        var removed = this.components && (this.components.length > 3);
-        if (removed) {
+        if (this.components.length > 4) {
+
             //remove last point
             this.components.pop();
             
@@ -105,7 +106,6 @@ OpenLayers.Geometry.LinearRing = OpenLayers.Class(
             OpenLayers.Geometry.Collection.prototype.addComponent.apply(this, 
                                                                 [firstPoint]);
         }
-        return removed;
     },
     
     /**
@@ -153,7 +153,7 @@ OpenLayers.Geometry.LinearRing = OpenLayers.Class(
      * ratio - {Float} Optional x:y ratio for resizing.  Default ratio is 1.
      * 
      * Returns:
-     * {<OpenLayers.Geometry>} - The current geometry. 
+     * {OpenLayers.Geometry} - The current geometry. 
      */
     resize: function(scale, origin, ratio) {
         for(var i=0, len=this.components.length; i<len - 1; ++i) {
@@ -191,37 +191,21 @@ OpenLayers.Geometry.LinearRing = OpenLayers.Class(
      * {<OpenLayers.Geometry.Point>} The centroid of the collection
      */
     getCentroid: function() {
-        if (this.components) {
-            var len = this.components.length;
-            if (len > 0 && len <= 2) {
-                return this.components[0].clone();
-            } else if (len > 2) {
-                var sumX = 0.0;
-                var sumY = 0.0;
-                var x0 = this.components[0].x;
-                var y0 = this.components[0].y;
-                var area = -1 * this.getArea();
-                if (area != 0) {
-                    for (var i = 0; i < len - 1; i++) {
-                        var b = this.components[i];
-                        var c = this.components[i+1];
-                        sumX += (b.x + c.x - 2 * x0) * ((b.x - x0) * (c.y - y0) - (c.x - x0) * (b.y - y0));
-                        sumY += (b.y + c.y - 2 * y0) * ((b.x - x0) * (c.y - y0) - (c.x - x0) * (b.y - y0));
-                    }
-                    var x = x0 + sumX / (6 * area);
-                    var y = y0 + sumY / (6 * area);
-                } else {
-                    for (var i = 0; i < len - 1; i++) {
-                        sumX += this.components[i].x;
-                        sumY += this.components[i].y;
-                    }
-                    var x = sumX / (len - 1);
-                    var y = sumY / (len - 1);
-                }
-                return new OpenLayers.Geometry.Point(x, y);
-            } else {
-                return null;
+        if (this.components && (this.components.length > 2)) {
+            var sumX = 0.0;
+            var sumY = 0.0;
+            for (var i = 0; i < this.components.length - 1; i++) {
+                var b = this.components[i];
+                var c = this.components[i+1];
+                sumX += (b.x + c.x) * (b.x * c.y - c.x * b.y);
+                sumY += (b.y + c.y) * (b.x * c.y - c.x * b.y);
             }
+            var area = -1 * this.getArea();
+            var x = sumX / (6 * area);
+            var y = sumY / (6 * area);
+            return new OpenLayers.Geometry.Point(x, y);
+        } else {
+            return null;
         }
     },
 
@@ -310,7 +294,7 @@ OpenLayers.Geometry.LinearRing = OpenLayers.Class(
         var px = approx(point.x, digs);
         var py = approx(point.y, digs);
         function getX(y, x1, y1, x2, y2) {
-            return (y - y2) * ((x2 - x1) / (y2 - y1)) + x2;
+            return (((x1 - x2) * y) + ((x2 * y1) - (x1 * y2))) / (y1 - y2);
         }
         var numSeg = this.components.length - 1;
         var start, end, x1, y1, x2, y2, cx, cy;

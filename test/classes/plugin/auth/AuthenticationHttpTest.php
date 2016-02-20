@@ -51,8 +51,33 @@ class AuthenticationHttpTest extends PMATestCase
         unset($this->object);
     }
 
-    public function doMockResponse($set_minimal, $body_id, $set_title)
+    /**
+     * Test for PMA\libraries\plugins\auth\AuthenticationHttp::auth
+     *
+     * @return void
+     */
+    public function testAuth()
     {
+        if (! defined('PMA_TEST_HEADERS')) {
+            $this->markTestSkipped(
+                'Cannot redefine constant/function - missing runkit extension'
+            );
+        }
+
+        $_REQUEST['old_usr'] = '1';
+        $GLOBALS['cfg']['Server']['LogoutURL'] = 'http://phpmyadmin.net/logout';
+
+        $this->assertFalse(
+            $this->object->auth()
+        );
+
+        $this->assertContains(
+            'Location: http://phpmyadmin.net/logout',
+            $GLOBALS['header'][0]
+        );
+
+        // case 2
+
         $restoreInstance = PMA\libraries\Response::getInstance();
 
         // mock footer
@@ -61,7 +86,7 @@ class AuthenticationHttpTest extends PMATestCase
             ->setMethods(array('setMinimal'))
             ->getMock();
 
-        $mockFooter->expects($this->exactly($set_minimal))
+        $mockFooter->expects($this->once())
             ->method('setMinimal')
             ->with();
 
@@ -74,40 +99,35 @@ class AuthenticationHttpTest extends PMATestCase
             )
             ->getMock();
 
-        $mockHeader->expects($this->exactly($body_id))
+        $mockHeader->expects($this->once())
             ->method('setBodyId')
             ->with('loginform');
 
-        $mockHeader->expects($this->exactly($set_title))
+        $mockHeader->expects($this->once())
             ->method('setTitle')
             ->with('Access denied!');
 
-        $mockHeader->expects($this->exactly($set_title))
+        $mockHeader->expects($this->once())
             ->method('disableMenuAndConsole')
             ->with();
 
         // set mocked headers and footers
         $mockResponse = $this->getMockBuilder('PMA\libraries\Response')
             ->disableOriginalConstructor()
-            ->setMethods(array('getHeader', 'getFooter', 'addHTML', 'header', 'headersSent'))
+            ->setMethods(array('getHeader', 'getFooter', 'addHTML'))
             ->getMock();
 
-        $mockResponse->expects($this->exactly($set_title))
+        $mockResponse->expects($this->once())
             ->method('getFooter')
             ->with()
             ->will($this->returnValue($mockFooter));
 
-        $mockResponse->expects($this->exactly($set_title))
+        $mockResponse->expects($this->once())
             ->method('getHeader')
             ->with()
             ->will($this->returnValue($mockHeader));
 
-        $mockResponse->expects($this->any())
-            ->method('headersSent')
-            ->with()
-            ->will($this->returnValue(false));
-
-        $mockResponse->expects($this->exactly($set_title * 6))
+        $mockResponse->expects($this->exactly(6))
             ->method('addHTML')
             ->with();
 
@@ -115,75 +135,59 @@ class AuthenticationHttpTest extends PMATestCase
         $attrInstance->setAccessible(true);
         $attrInstance->setValue($mockResponse);
 
-        $headers = array_slice(func_get_args(), 3);
-
-        $header_method = $mockResponse->expects($this->exactly(count($headers)))
-            ->method('header');
-
-        call_user_func_array(array($header_method, 'withConsecutive'), $headers);
-
-        try {
-            $this->assertFalse(
-                $this->object->auth()
-            );
-        } finally {
-            $attrInstance->setValue($restoreInstance);
-        }
-    }
-
-    /**
-     * Test for PMA\libraries\plugins\auth\AuthenticationHttp::auth
-     *
-     * @return void
-     */
-    public function testAuthLogoutUrl()
-    {
-
-        $_REQUEST['old_usr'] = '1';
-        $GLOBALS['cfg']['Server']['LogoutURL'] = 'http://phpmyadmin.net/logout';
-
-        $this->doMockResponse(
-            0, 0, 0,
-            array('Location: http://phpmyadmin.net/logout' . ((SID) ? '?' . SID : ''))
-        );
-    }
-
-    public function testAuthVerbose()
-    {
+        $GLOBALS['header'] = array();
         $_REQUEST['old_usr'] = '';
         $GLOBALS['cfg']['Server']['verbose'] = 'verboseMessagê';
 
-        $this->doMockResponse(
-            1, 1, 1,
-            array('WWW-Authenticate: Basic realm="phpMyAdmin verboseMessag"'),
-            array('HTTP/1.0 401 Unauthorized'),
-            array('status: 401 Unauthorized')
+        $this->assertFalse(
+            $this->object->auth()
         );
-    }
 
-    public function testAuthHost()
-    {
+        $this->assertEquals(
+            array(
+                'WWW-Authenticate: Basic realm="phpMyAdmin verboseMessag"',
+                'HTTP/1.0 401 Unauthorized',
+                'status: 401 Unauthorized'
+            ),
+            $GLOBALS['header']
+        );
+
+        $attrInstance->setValue($restoreInstance);
+
+        // case 3
+
+        $GLOBALS['header'] = array();
         $GLOBALS['cfg']['Server']['verbose'] = '';
         $GLOBALS['cfg']['Server']['host'] = 'hòst';
-
-        $this->doMockResponse(
-            1, 1, 1,
-            array('WWW-Authenticate: Basic realm="phpMyAdmin hst"'),
-            array('HTTP/1.0 401 Unauthorized'),
-            array('status: 401 Unauthorized')
+        $this->assertFalse(
+            $this->object->auth()
         );
-    }
 
-    public function testAuthRealm()
-    {
+        $this->assertEquals(
+            array(
+                'WWW-Authenticate: Basic realm="phpMyAdmin hst"',
+                'HTTP/1.0 401 Unauthorized',
+                'status: 401 Unauthorized'
+            ),
+            $GLOBALS['header']
+        );
+
+        // case 4
+
+        $GLOBALS['header'] = array();
         $GLOBALS['cfg']['Server']['host'] = '';
         $GLOBALS['cfg']['Server']['auth_http_realm'] = 'rêäealmmessage';
+        $this->assertFalse(
+            $this->object->auth()
+        );
 
-        $this->doMockResponse(
-            1, 1, 1,
-            array('WWW-Authenticate: Basic realm="realmmessage"'),
-            array('HTTP/1.0 401 Unauthorized'),
-            array('status: 401 Unauthorized')
+        $this->assertEquals(
+            array(
+                'WWW-Authenticate: Basic realm="realmmessage"',
+                'HTTP/1.0 401 Unauthorized',
+                'status: 401 Unauthorized'
+            ),
+            $GLOBALS['header']
         );
     }
 

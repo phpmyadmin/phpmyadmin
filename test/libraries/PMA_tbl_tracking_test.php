@@ -45,6 +45,7 @@ class PMA_TblTrackingTest extends PHPUnit_Framework_TestCase
         $GLOBALS['server'] = 1;
         $GLOBALS['db'] = "PMA_db";
         $GLOBALS['table'] = "PMA_table";
+        $GLOBALS['pmaThemeImage'] = "image";
         $GLOBALS['cfg']['ServerDefault'] = "server";
         $GLOBALS['cfg']['ActionLinksMode'] = 'both';
         $GLOBALS['cfg']['MaxCharactersInDisplayedSQL'] = 1000;
@@ -55,6 +56,7 @@ class PMA_TblTrackingTest extends PHPUnit_Framework_TestCase
             'tracking' => 'tracking',
             'trackingwork' => true
         );
+        $_SESSION['PMA_Theme'] = new Theme();
 
         $GLOBALS['cfg']['Server']['tracking_default_statements'] = 'DELETE';
 

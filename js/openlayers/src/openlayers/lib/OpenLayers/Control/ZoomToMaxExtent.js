@@ -1,10 +1,10 @@
-/* Copyright (c) 2006-2013 by OpenLayers Contributors (see authors.txt for
- * full list of contributors). Published under the 2-clause BSD license.
- * See license.txt in the OpenLayers distribution or repository for the
+/* Copyright (c) 2006-2010 by OpenLayers Contributors (see authors.txt for 
+ * full list of contributors). Published under the Clear BSD license.  
+ * See http://svn.openlayers.org/trunk/openlayers/license.txt for the
  * full text of the license. */
 
 /**
- * @requires OpenLayers/Control/Button.js
+ * @requires OpenLayers/Control.js
  */
 
 /**
@@ -16,14 +16,19 @@
  * Inherits from:
  *  - <OpenLayers.Control>
  */
-OpenLayers.Control.ZoomToMaxExtent = OpenLayers.Class(OpenLayers.Control.Button, {
+OpenLayers.Control.ZoomToMaxExtent = OpenLayers.Class(OpenLayers.Control, {
 
     /**
+     * Property: type
+     * {String} The type of <OpenLayers.Control> -- When added to a 
+     *     <Control.Panel>, 'type' is used by the panel to determine how to 
+     *     handle our events.
+     */
+    type: OpenLayers.Control.TYPE_BUTTON,
+    
+    /*
      * Method: trigger
-     * 
-     * Called whenever this control is being rendered inside of a panel and a 
-     *     click occurs on this controls element. Actually zooms to the maximum
-     *     extent of this controls map.
+     * Do the zoom.
      */
     trigger: function() {
         if (this.map) {

@@ -1,6 +1,6 @@
-/* Copyright (c) 2006-2013 by OpenLayers Contributors (see authors.txt for
- * full list of contributors). Published under the 2-clause BSD license.
- * See license.txt in the OpenLayers distribution or repository for the
+/* Copyright (c) 2006-2010 by OpenLayers Contributors (see authors.txt for 
+ * full list of contributors). Published under the Clear BSD license.  
+ * See http://svn.openlayers.org/trunk/openlayers/license.txt for the
  * full text of the license. */
 
 /**
@@ -90,7 +90,7 @@ OpenLayers.Format.GML.v2 = OpenLayers.Class(OpenLayers.Format.GML.Base, {
      */
     write: function(features) {
         var name;
-        if(OpenLayers.Util.isArray(features)) {
+        if(features instanceof Array) {
             // GML2 only has abstract feature collections
             // wfs provides a feature collection from a well-known schema
             name = "wfs:FeatureCollection";

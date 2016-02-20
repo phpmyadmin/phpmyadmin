@@ -31,6 +31,7 @@ class NodeDatabaseTest extends PMATestCase
         $GLOBALS['cfg']['MaxNavigationItems'] = 250;
         $GLOBALS['cfg']['Server'] = array();
         $GLOBALS['cfg']['Server']['DisableIS'] = true;
+        $_SESSION['PMA_Theme'] = Theme::load('./themes/pmahomme');
     }
 
     /**

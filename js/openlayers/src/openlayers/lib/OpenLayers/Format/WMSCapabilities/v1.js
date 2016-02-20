@@ -1,11 +1,10 @@
-/* Copyright (c) 2006-2013 by OpenLayers Contributors (see authors.txt for
- * full list of contributors). Published under the 2-clause BSD license.
- * See license.txt in the OpenLayers distribution or repository for the
+/* Copyright (c) 2006-2010 by OpenLayers Contributors (see authors.txt for 
+ * full list of contributors). Published under the Clear BSD license.  
+ * See http://svn.openlayers.org/trunk/openlayers/license.txt for the
  * full text of the license. */
 
 /**
  * @requires OpenLayers/Format/WMSCapabilities.js
- * @requires OpenLayers/Format/OGCExceptionReport.js
  * @requires OpenLayers/Format/XML.js
  */
 
@@ -43,6 +42,9 @@ OpenLayers.Format.WMSCapabilities.v1 = OpenLayers.Class(
      * options - {Object} An optional object whose properties will be set on
      *     this instance.
      */
+    initialize: function(options) {
+        OpenLayers.Format.XML.prototype.initialize.apply(this, [options]);
+    },
 
     /**
      * APIMethod: read
@@ -58,20 +60,116 @@ OpenLayers.Format.WMSCapabilities.v1 = OpenLayers.Class(
         if(typeof data == "string") {
             data = OpenLayers.Format.XML.prototype.read.apply(this, [data]);
         }
-        var raw = data;
         if(data && data.nodeType == 9) {
             data = data.documentElement;
         }
         var capabilities = {};
         this.readNode(data, capabilities);
-        if (capabilities.service === undefined) {
-            // an exception must have occurred, so parse it
-            var parser = new OpenLayers.Format.OGCExceptionReport();
-            capabilities.error = parser.read(raw);
-        }
+    
+        // postprocess the layer list
+        this.postProcessLayers(capabilities);
+    
         return capabilities;
     },
 
+    /**
+     * Method: postProcessLayers
+     * Post process the layers, so that the nested layer structure is converted
+     * to a flat layer list with only named layers.
+     *
+     * Parameters:
+     * capabilities - {Object} The object (structure) returned by the parser with
+     *     all the info from the GetCapabilities response.
+     */
+    postProcessLayers: function(capabilities) {
+        if (capabilities.capability) {
+            capabilities.capability.layers = [];
+            var layers = capabilities.capability.nestedLayers;
+            for (var i=0, len = layers.length; i<len; ++i) {
+                var layer = layers[i];
+                this.processLayer(capabilities.capability, layer);
+            }
+        }
+    },
+
+    /**
+     * Method: processLayer
+     * Recursive submethod of postProcessLayers. This function will among
+     * others deal with property inheritance.
+     *
+     * Parameters:
+     * capability - {Object} The capability part of the capabilities object
+     * layer - {Object} The layer that needs processing
+     * parentLayer - {Object} The parent layer of the respective layer
+    */
+    processLayer: function(capability, layer, parentLayer) {
+        if (layer.formats === undefined) {
+            layer.formats = capability.request.getmap.formats;
+        }
+
+        // deal with property inheritance
+        if(parentLayer) {
+            // add style
+            layer.styles = layer.styles.concat(parentLayer.styles);
+            var attributes = ["queryable",
+                              "cascaded",
+                              "fixedWidth",
+                              "fixedHeight",
+                              "opaque",
+                              "noSubsets",
+                              "llbbox",
+                              "minScale",
+                              "maxScale",
+                              "attribution"];
+
+            var complexAttr = ["srs",
+                               "bbox",
+                               "dimensions",
+                               "authorityURLs"];
+            
+            var key;
+            for (var j=0; j<attributes.length; j++) {
+                key = attributes[j];
+                if (key in parentLayer) {
+                    // only take parent value if not present (null or undefined)
+                    if (layer[key] == null) {
+                        layer[key] = parentLayer[key];
+                    }
+                    // if attribute isn't present, and we haven't
+                    // inherited anything from a parent layer
+                    // set to default value
+                    if (layer[key] == null) {
+                        var intAttr = ["cascaded", "fixedWidth", "fixedHeight"];
+                        var boolAttr = ["queryable", "opaque", "noSubsets"];
+                        if (OpenLayers.Util.indexOf(intAttr, key) != -1) {
+                            layer[key] = 0;
+                        }
+                        if (OpenLayers.Util.indexOf(boolAttr, key) != -1) {
+                            layer[key] = false;
+                        }
+                    }
+                }
+            }
+
+            for (var j=0; j<complexAttr.length; j++) {
+                key = complexAttr[j];
+                layer[key] = OpenLayers.Util.extend(
+                    layer[key], parentLayer[key]);
+            }
+        }
+
+        // process sublayers
+        for (var i=0, len=layer.nestedLayers.length; i<len; i++) {
+            var childLayer = layer.nestedLayers[i];
+            this.processLayer(capability, childLayer, layer);
+        }
+        
+        if (layer.name) {
+            capability.layers.push(layer);
+        }
+    
+    },
+    
     /**
      * Property: readers
      * Contains public functions, grouped by namespace prefix, that will
@@ -180,10 +278,7 @@ OpenLayers.Format.WMSCapabilities.v1 = OpenLayers.Class(
                 }
             },
             "Capability": function(node, obj) {
-                obj.capability = {
-                    nestedLayers: [],
-                    layers: []
-                };
+                obj.capability = {nestedLayers: []};
                 this.readChildNodes(node, obj.capability);
             },
             "Request": function(node, obj) {
@@ -195,7 +290,7 @@ OpenLayers.Format.WMSCapabilities.v1 = OpenLayers.Class(
                 this.readChildNodes(node, obj.getcapabilities);
             },
             "Format": function(node, obj) {
-                if (OpenLayers.Util.isArray(obj.formats)) {
+                if (obj.formats instanceof Array) {
                     obj.formats.push(this.getChildValue(node));
                 } else {
                     obj.format = this.getChildValue(node);
@@ -208,20 +303,10 @@ OpenLayers.Format.WMSCapabilities.v1 = OpenLayers.Class(
                 this.readChildNodes(node, obj);
             },
             "Get": function(node, obj) {
-                obj.get = {};
-                this.readChildNodes(node, obj.get);
-                // backwards compatibility
-                if (!obj.href) {
-                    obj.href = obj.get.href;
-                }
+                this.readChildNodes(node, obj);
             },
             "Post": function(node, obj) {
-                obj.post = {};
-                this.readChildNodes(node, obj.post);
-                // backwards compatibility
-                if (!obj.href) {
-                    obj.href = obj.get.href;
-                }
+                this.readChildNodes(node, obj);
             },
             "GetMap": function(node, obj) {
                 obj.getmap = {formats: []};
@@ -236,13 +321,6 @@ OpenLayers.Format.WMSCapabilities.v1 = OpenLayers.Class(
                 this.readChildNodes(node, obj.exception);
             },
             "Layer": function(node, obj) {
-                var parentLayer, capability;
-                if (obj.capability) {
-                    capability = obj.capability;
-                    parentLayer = obj;
-                } else {
-                    capability = obj;
-                }
                 var attrNode = node.getAttributeNode("queryable");
                 var queryable = (attrNode && attrNode.specified) ? 
                     node.getAttribute("queryable") : null;
@@ -255,55 +333,27 @@ OpenLayers.Format.WMSCapabilities.v1 = OpenLayers.Class(
                 var noSubsets = node.getAttribute('noSubsets');
                 var fixedWidth = node.getAttribute('fixedWidth');
                 var fixedHeight = node.getAttribute('fixedHeight');
-                var parent = parentLayer || {},
-                    extend = OpenLayers.Util.extend;
-                var layer = {
-                    nestedLayers: [],
-                    styles: parentLayer ? [].concat(parentLayer.styles) : [],
-                    srs: parentLayer ? extend({}, parent.srs) : {}, 
-                    metadataURLs: [],
-                    bbox: parentLayer ? extend({}, parent.bbox) : {},
-                    llbbox: parent.llbbox,
-                    dimensions: parentLayer ? extend({}, parent.dimensions) : {},
-                    authorityURLs: parentLayer ? extend({}, parent.authorityURLs) : {},
-                    identifiers: {},
-                    keywords: [],
+                var layer = {nestedLayers: [], styles: [], srs: {}, 
+                    metadataURLs: [], bbox: {}, dimensions: {},
+                    authorityURLs: {}, identifiers: {}, keywords: [],
                     queryable: (queryable && queryable !== "") ? 
-                        (queryable === "1" || queryable === "true" ) :
-                        (parent.queryable || false),
-                    cascaded: (cascaded !== null) ? parseInt(cascaded) :
-                        (parent.cascaded || 0),
+                        ( queryable === "1" || queryable === "true" ) : null,
+                    cascaded: (cascaded !== null) ? parseInt(cascaded) : null,
                     opaque: opaque ? 
-                        (opaque === "1" || opaque === "true" ) :
-                        (parent.opaque || false),
+                        (opaque === "1" || opaque === "true" ) : null,
                     noSubsets: (noSubsets !== null) ? 
-                        (noSubsets === "1" || noSubsets === "true" ) :
-                        (parent.noSubsets || false),
+                        ( noSubsets === "1" || noSubsets === "true" ) : null,
                     fixedWidth: (fixedWidth != null) ? 
-                        parseInt(fixedWidth) : (parent.fixedWidth || 0),
+                        parseInt(fixedWidth) : null,
                     fixedHeight: (fixedHeight != null) ? 
-                        parseInt(fixedHeight) : (parent.fixedHeight || 0),
-                    minScale: parent.minScale,
-                    maxScale: parent.maxScale,
-                    attribution: parent.attribution
+                        parseInt(fixedHeight) : null
                 };
                 obj.nestedLayers.push(layer);
-                layer.capability = capability;
                 this.readChildNodes(node, layer);
-                delete layer.capability;
                 if(layer.name) {
-                    var parts = layer.name.split(":"),
-                        request = capability.request,
-                        gfi = request.getfeatureinfo;
+                    var parts = layer.name.split(":");
                     if(parts.length > 0) {
                         layer.prefix = parts[0];
-                    }
-                    capability.layers.push(layer);
-                    if (layer.formats === undefined) {
-                        layer.formats = request.getmap.formats;
-                    }
-                    if (layer.infoFormats === undefined && gfi) {
-                        layer.infoFormats = gfi.formats;
                     }
                 }
             },

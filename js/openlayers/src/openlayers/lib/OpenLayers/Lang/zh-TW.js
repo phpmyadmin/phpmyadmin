@@ -13,16 +13,32 @@ OpenLayers.Lang["zh-TW"] = {
 
     'unhandledRequest': "未處理的請求，傳回值為 ${statusText}。",
 
-    'Permalink': "永久連結",
+    'permalink': "永久連結",
 
-    'Overlays': "額外圖層",
+    'overlays': "額外圖層",
 
-    'Base Layer': "基礎圖層",
+    'baseLayer': "基礎圖層",
+
+    'sameProjection':
+        "地圖縮覽(OverviewMap)只能在跟主地圖相同投影時起作用。",
+
+    'readNotImplemented': "沒有實作讀取的功能。",
+
+    'writeNotImplemented': "沒有實作寫入的功能。",
 
     'noFID': "因為沒有 FID 所以無法更新 feature。",
 
+    'errorLoadingGML': "讀取GML檔案 ${url} 錯誤。",
+
     'browserNotSupported':
         "您的瀏覽器未支援向量渲染. 目前支援的渲染方式是:\n${renderers}",
+
+    'componentShouldBe': "addFeatures : 元件應該為 ${geomType}",
+
+    // console message
+    'getFeatureError':
+        "getFeatureFromEvent 在一個沒有被渲染的圖層裡被呼叫。這通常意味著您 " +
+        "摧毀了一個圖層，但並未摧毀相關的handler。",
 
     // console message
     'minZoomLevelError':
@@ -61,7 +77,11 @@ OpenLayers.Lang["zh-TW"] = {
         "<a href='http://trac.openlayers.org/wiki/${layerLib}' " +
         "target='_blank'>請按這裡</a>",
 
-    'Scale = 1 : ${scaleDenom}': "Scale = 1 : ${scaleDenom}",
+    'scale': "Scale = 1 : ${scaleDenom}",
+
+    // console message
+    'layerAlreadyAdded':
+        "你試著新增圖層: ${layerName} 到地圖上，但圖層之前就已經被新增了。",
 
     // console message
     'reprojectDeprecated':
@@ -77,5 +97,21 @@ OpenLayers.Lang["zh-TW"] = {
         "這個方法已經不再使用且在3.0將會被移除，" +
         "請使用 ${newMethod} 來代替。",
 
+    // console message
+    'boundsAddError': "您必須傳入 x 跟 y 兩者的值進 add 函數。",
+
+    // console message
+    'lonlatAddError': "您必須傳入 lon 跟 lat 兩者的值進 add 函數。",
+
+    // console message
+    'pixelAddError': "您必須傳入 x 跟 y 兩者的值進 add 函數。",
+
+    // console message
+    'unsupportedGeometryType': "未支援的幾何型別: ${geomType}。",
+
+    // console message
+    'pagePositionFailed':
+        "OpenLayers.Util.pagePosition 失敗: id ${elemId} 的 element 可能被錯置。",
+                    
     'end': ''
 };

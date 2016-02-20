@@ -1,6 +1,6 @@
-/* Copyright (c) 2006-2013 by OpenLayers Contributors (see authors.txt for
- * full list of contributors). Published under the 2-clause BSD license.
- * See license.txt in the OpenLayers distribution or repository for the
+/* Copyright (c) 2006-2010 by OpenLayers Contributors (see authors.txt for 
+ * full list of contributors). Published under the Clear BSD license.  
+ * See http://svn.openlayers.org/trunk/openlayers/license.txt for the
  * full text of the license. */
 
 
@@ -88,7 +88,7 @@ OpenLayers.Layer.KaMapCache = OpenLayers.Class(OpenLayers.Layer.KaMap, {
      */
     initialize: function(name, url, params, options) {
         OpenLayers.Layer.KaMap.prototype.initialize.apply(this, arguments);
-        this.extension = this.IMAGE_EXTENSIONS[this.params.i.toLowerCase() || this.DEFAULT_FORMAT];
+        this.extension = this.IMAGE_EXTENSIONS[this.params.i.toLowerCase() || DEFAULT_FORMAT];
     },
 
     /**
@@ -111,8 +111,18 @@ OpenLayers.Layer.KaMapCache = OpenLayers.Class(OpenLayers.Layer.KaMap, {
 
         var metaX = Math.floor(pX / this.tileSize.w / this.params.metaTileSize.w) * this.tileSize.w * this.params.metaTileSize.w;
         var metaY = Math.floor(pY / this.tileSize.h / this.params.metaTileSize.h) * this.tileSize.h * this.params.metaTileSize.h;
+
+        // if url is not a string, it should be an array of strings,
+        // in which case we will deterministically select one of them in
+        // order to evenly distribute requests to different urls.
+        //
+        var url = this.url;
+        if (url instanceof Array) {
+            url = this.selectUrl(paramsString, url);
+        }  
     
         var components = [
+            url,
             "/",
             this.params.map,
             "/",
@@ -130,13 +140,8 @@ OpenLayers.Layer.KaMapCache = OpenLayers.Class(OpenLayers.Layer.KaMap, {
             ".",
             this.extension
           ];
-
-        var url = this.url;
-
-        if (OpenLayers.Util.isArray(url)) {
-            url = this.selectUrl(components.join(''), url);
-        }
-        return url + components.join("");
+          
+        return components.join("");
     },
 
     CLASS_NAME: "OpenLayers.Layer.KaMapCache"

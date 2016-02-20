@@ -93,8 +93,9 @@ class RenameOperation extends Component
                     $parser,
                     $list,
                     array(
-                        'breakOnAlias' => true,
-                        'parseField' => 'table',
+                        'noAlias' => true,
+                        'noBrackets' => true,
+                        'skipColumn' => true,
                     )
                 );
                 if (empty($expr->old)) {
@@ -119,8 +120,9 @@ class RenameOperation extends Component
                     $parser,
                     $list,
                     array(
-                        'breakOnAlias' => true,
-                        'parseField' => 'table',
+                        'noBrackets' => true,
+                        'skipColumn' => true,
+                        'noAlias' => true,
                     )
                 );
                 if (empty($expr->new)) {

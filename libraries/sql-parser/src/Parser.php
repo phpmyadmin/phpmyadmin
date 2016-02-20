@@ -36,7 +36,6 @@ class Parser
 
         // MySQL Utility Statements
         'DESCRIBE'          => 'SqlParser\\Statements\\ExplainStatement',
-        'DESC'              => 'SqlParser\\Statements\\ExplainStatement',
         'EXPLAIN'           => 'SqlParser\\Statements\\ExplainStatement',
         'FLUSH'             => '',
         'GRANT'             => '',
@@ -125,17 +124,17 @@ class Parser
         'ALTER'                 => array(
             'class'             => 'SqlParser\\Components\\Expression',
             'field'             => 'table',
-            'options'           => array('parseField' => 'table'),
+            'options'           => array('skipColumn' => true),
         ),
         'ANALYZE'               => array(
             'class'             => 'SqlParser\\Components\\ExpressionArray',
             'field'             => 'tables',
-            'options'           => array('parseField' => 'table'),
+            'options'           => array('skipColumn' => true),
         ),
         'BACKUP'                => array(
             'class'             => 'SqlParser\\Components\\ExpressionArray',
             'field'             => 'tables',
-            'options'           => array('parseField' => 'table'),
+            'options'           => array('skipColumn' => true),
         ),
         'CALL'                  => array(
             'class'             => 'SqlParser\\Components\\FunctionCall',
@@ -144,22 +143,22 @@ class Parser
         'CHECK'                 => array(
             'class'             => 'SqlParser\\Components\\ExpressionArray',
             'field'             => 'tables',
-            'options'           => array('parseField' => 'table'),
+            'options'           => array('skipColumn' => true),
         ),
         'CHECKSUM'              => array(
             'class'             => 'SqlParser\\Components\\ExpressionArray',
             'field'             => 'tables',
-            'options'           => array('parseField' => 'table'),
+            'options'           => array('skipColumn' => true),
         ),
         'DROP'                  => array(
             'class'             => 'SqlParser\\Components\\ExpressionArray',
             'field'             => 'fields',
-            'options'           => array('parseField' => 'table'),
+            'options'           => array('skipColumn' => true),
         ),
         'FROM'                  => array(
             'class'             => 'SqlParser\\Components\\ExpressionArray',
             'field'             => 'from',
-            'options'           => array('parseField' => 'table'),
+            'options'           => array('skipColumn' => true),
         ),
         'GROUP BY'              => array(
             'class'             => 'SqlParser\\Components\\OrderKeyword',
@@ -212,7 +211,7 @@ class Parser
         'OPTIMIZE'              => array(
             'class'             => 'SqlParser\\Components\\ExpressionArray',
             'field'             => 'tables',
-            'options'           => array('parseField' => 'table'),
+            'options'           => array('skipColumn' => true),
         ),
         'ORDER BY'              => array(
             'class'             => 'SqlParser\\Components\\OrderKeyword',
@@ -233,12 +232,12 @@ class Parser
         'REPAIR'                => array(
             'class'             => 'SqlParser\\Components\\ExpressionArray',
             'field'             => 'tables',
-            'options'           => array('parseField' => 'table'),
+            'options'           => array('skipColumn' => true),
         ),
         'RESTORE'               => array(
             'class'             => 'SqlParser\\Components\\ExpressionArray',
             'field'             => 'tables',
-            'options'           => array('parseField' => 'table'),
+            'options'           => array('skipColumn' => true),
         ),
         'SET'                   => array(
             'class'             => 'SqlParser\\Components\\SetOperation',
@@ -251,12 +250,12 @@ class Parser
         'TRUNCATE'              => array(
             'class'             => 'SqlParser\\Components\\Expression',
             'field'             => 'table',
-            'options'           => array('parseField' => 'table'),
+            'options'           => array('skipColumn' => true),
         ),
         'UPDATE'                => array(
             'class'             => 'SqlParser\\Components\\ExpressionArray',
             'field'             => 'tables',
-            'options'           => array('parseField' => 'table'),
+            'options'           => array('skipColumn' => true),
         ),
         'VALUE'                 => array(
             'class'             => 'SqlParser\\Components\\Array2d',

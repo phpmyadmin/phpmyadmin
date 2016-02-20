@@ -1,14 +1,11 @@
-/* Copyright (c) 2006-2013 by OpenLayers Contributors (see authors.txt for
- * full list of contributors). Published under the 2-clause BSD license.
- * See license.txt in the OpenLayers distribution or repository for the
+/* Copyright (c) 2006-2010 by OpenLayers Contributors (see authors.txt for 
+ * full list of contributors). Published under the Clear BSD license.  
+ * See http://svn.openlayers.org/trunk/openlayers/license.txt for the
  * full text of the license. */
 
 /**
  * @requires OpenLayers/Popup/Framed.js
  * @requires OpenLayers/Util.js
- * @requires OpenLayers/BaseTypes/Bounds.js
- * @requires OpenLayers/BaseTypes/Pixel.js
- * @requires OpenLayers/BaseTypes/Size.js
  */
 
 /**
@@ -218,9 +215,16 @@ OpenLayers.Popup.FramedCloud =
     initialize:function(id, lonlat, contentSize, contentHTML, anchor, closeBox, 
                         closeBoxCallback) {
 
-        this.imageSrc = OpenLayers.Util.getImageLocation('cloud-popup-relative.png');
+        this.imageSrc = OpenLayers.Util.getImagesLocation() + 'cloud-popup-relative.png';
         OpenLayers.Popup.Framed.prototype.initialize.apply(this, arguments);
         this.contentDiv.className = this.contentDisplayClass;
+    },
+
+    /** 
+     * APIMethod: destroy
+     */
+    destroy: function() {
+        OpenLayers.Popup.Framed.prototype.destroy.apply(this, arguments);
     },
 
     CLASS_NAME: "OpenLayers.Popup.FramedCloud"

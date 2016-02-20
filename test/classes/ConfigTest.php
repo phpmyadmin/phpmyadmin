@@ -13,6 +13,7 @@
 use PMA\libraries\Theme;
 
 require_once 'libraries/relation.lib.php';
+require_once 'libraries/vendor_config.php';
 require_once 'libraries/url_generating.lib.php';
 require_once 'test/PMATestCase.php';
 
@@ -314,7 +315,7 @@ class ConfigTest extends PMATestCase
     /**
      * test for CheckGd2
      *
-     * @return void
+     * @return array
      */
     public function testCheckGd2()
     {
@@ -422,7 +423,7 @@ class ConfigTest extends PMATestCase
     /**
      * test for CheckWebServerOs
      *
-     * @return void
+     * @return array
      */
     public function testCheckWebServerOs()
     {
@@ -501,7 +502,7 @@ class ConfigTest extends PMATestCase
     /**
      * test for CheckConfigSource
      *
-     * @return void
+     * @return array
      */
     public function testCheckConfigSource()
     {
@@ -549,10 +550,101 @@ class ConfigTest extends PMATestCase
         );
     }
 
+
+    /**
+     * test for CheckPmaAbsoluteUriEmpty
+     *
+     * @return array
+     */
+    public function testCheckPmaAbsoluteUriEmpty()
+    {
+        $this->object->set('PmaAbsoluteUri', '');
+        $this->assertNull(
+            $this->object->checkPmaAbsoluteUri(),
+            'PmaAbsoluteUri is not set and should be error'
+        );
+        $this->assertTrue(
+            $this->object->error_pma_uri,
+            'PmaAbsoluteUri is not set and should be error'
+        );
+    }
+
+    /**
+     * Checks correcting of absolute URI
+     *
+     * @param string $real     Real URI received
+     * @param string $expected Expected corrected URI
+     *
+     * @return void
+     *
+     * @depends testCheckPmaAbsoluteUriEmpty
+     * @dataProvider absoluteUris
+     */
+    public function testCheckPmaAbsoluteUri($real, $expected)
+    {
+        $this->object->set('PmaAbsoluteUri', $real);
+        $this->object->checkPmaAbsoluteUri();
+        $this->assertEquals($expected, $this->object->get('PmaAbsoluteUri'));
+    }
+
+    /**
+     * return absolute Uris
+     *
+     * @return array
+     */
+    public function absoluteUris()
+    {
+        return array(
+            array(
+                'http://localhost/phpmyadmin/',
+                'http://localhost/phpmyadmin/',
+            ),
+            array(
+                'http://localhost/phpmyadmin',
+                'http://localhost/phpmyadmin/',
+            ),
+            array(
+                'localhost/phpmyadmin/',
+                'http://localhost/phpmyadmin/',
+            ),
+            array(
+                'http://user:pwd@localhost/phpmyadmin/index.php',
+                "http://user:pwd@localhost/phpmyadmin/index.php/",
+            ),
+            array(
+                'https://user:pwd@localhost/phpmyadmin/index.php',
+                "https://user:pwd@localhost/phpmyadmin/index.php/",
+            ),
+        );
+    }
+
+    /**
+     * Test for absolute URI composition
+     *
+     * @return void
+     *
+     * @depends testCheckPmaAbsoluteUri
+     */
+    public function testCheckPmaAbsoluteUriScheme()
+    {
+        $_SERVER['HTTP_HOST'] = 'localhost';
+        $_SERVER['HTTP_SCHEME'] = 'http';
+        $_SERVER['HTTPS'] = 'off';
+        $GLOBALS['PMA_PHP_SELF'] = 'index.php';
+
+        $this->object->set('PmaAbsoluteUri', '');
+
+        $this->object->checkPmaAbsoluteUri();
+        $this->assertEquals(
+            "http://localhost/",
+            $this->object->get('PmaAbsoluteUri')
+        );
+    }
+
     /**
      * test for CheckCollationConnection
      *
-     * @return void
+     * @return array
      */
     public function testCheckCollationConnection()
     {
@@ -568,42 +660,62 @@ class ConfigTest extends PMATestCase
     /**
      * test for IsHttp
      *
-     * @return void
-     *
-     * @dataProvider httpsParams
+     * @return array
      */
-    public function testIsHttps($scheme, $https, $uri, $lb, $front, $proto, $port, $expected)
+    public function testIsHttps()
     {
-        $_SERVER['HTTP_SCHEME'] = $scheme;
-        $_SERVER['HTTPS'] = $https;
-        $_SERVER['REQUEST_URI'] = $uri;
-        $_SERVER['HTTP_HTTPS_FROM_LB'] = $lb;
-        $_SERVER['HTTP_FRONT_END_HTTPS'] = $front;
-        $_SERVER['HTTP_X_FORWARDED_PROTO'] = $proto;
-        $_SERVER['SERVER_PORT'] = $port;
+        $this->object->set('is_https', null);
+        $this->object->set('PmaAbsoluteUri', 'http://some_host.com/phpMyAdmin');
+        $this->assertFalse($this->object->isHttps());
 
         $this->object->set('is_https', null);
-        $this->assertEquals($expected, $this->object->isHttps());
+        $this->object->set('PmaAbsoluteUri', 'https://some_host.com/phpMyAdmin');
+        $this->assertTrue($this->object->isHttps());
     }
 
     /**
-     * Data provider for https detection
+     * test for DetectHttps
      *
      * @return array
      */
-    public function httpsParams()
+    public function testDetectHttps()
     {
-        return array(
-            array('http', '', '', '', '', 'http', 80, false),
-            array('http', '', 'http://', '', '', 'http', 80, false),
-            array('http', '', '', '', '', 'http', 443, true),
-            array('http', '', '', '', '', 'https', 80, true),
-            array('http', '', '', '', 'on', 'http', 80, true),
-            array('http', '', '', 'on', '', 'http', 80, true),
-            array('http', '', 'https://', '', '', 'http', 80, true),
-            array('http', 'on', '', '', '', 'http', 80, true),
-            array('https', '', '', '', '', 'http', 80, true),
-        );
+        unset($_SERVER['REQUEST_URI']);
+        unset($_SERVER['HTTP_SCHEME']);
+        unset($_SERVER['HTTPS']);
+
+        $this->assertFalse($this->object->detectHttps());
+
+        $_SERVER['REQUEST_URI'] = '/url:\this_is_not_url';
+        $this->assertFalse($this->object->detectHttps());
+
+        $_SERVER['REQUEST_URI'] = 'file://localhost/phpmyadmin/index.php';
+        $this->assertFalse($this->object->detectHttps());
+
+        $_ENV['REQUEST_URI'] = 'http://localhost/phpmyadmin/index.php';
+        $this->assertFalse($this->object->detectHttps());
+
+        $_SERVER['REQUEST_URI'] = 'https://localhost/phpmyadmin/index.php';
+        $this->assertTrue($this->object->detectHttps());
+
+        $_SERVER['REQUEST_URI'] = 'localhost/phpmyadmin/index.php';
+        $_SERVER['HTTP_SCHEME'] = 'https';
+        $_SERVER['HTTPS'] = 'on';
+        $this->assertTrue($this->object->detectHttps());
+    }
+
+    /**
+     * Test for checking cookie path
+     *
+     * @return void
+     *
+     * @depends testDetectHttps
+     */
+    public function testCheckCookiePath()
+    {
+        $this->object->checkCookiePath();
+        echo $this->object->get('cookie_path');
+        $this->assertEquals('', $this->object->get('cookie_path'));
     }
 
     /**
@@ -626,6 +738,7 @@ class ConfigTest extends PMATestCase
             'PMA_THEME_VERSION',
             'PMA_THEME_GENERATION',
             'PMA_IS_WINDOWS',
+            'PMA_IS_IIS',
             'PMA_IS_GD2',
             'PMA_USR_OS',
             'PMA_USR_BROWSER_VER',
@@ -650,7 +763,7 @@ class ConfigTest extends PMATestCase
      */
     public function testGetCookiePath($absolute, $expected)
     {
-        $GLOBALS['PMA_PHP_SELF'] = $absolute;
+        $this->object->set('PmaAbsoluteUri', $absolute);
         $this->assertEquals($expected, $this->object->getCookiePath());
     }
 
@@ -662,18 +775,6 @@ class ConfigTest extends PMATestCase
     public function cookieUris()
     {
         return array(
-            array(
-                '/foo/bar/phpmyadmin/index.php',
-                '/foo/bar/phpmyadmin/',
-            ),
-            array(
-                '/foo/bar/phpmyadmin/',
-                '/foo/bar/phpmyadmin/',
-            ),
-            array(
-                'http://example.net/baz/phpmyadmin/',
-                '/baz/phpmyadmin/',
-            ),
             array(
                 'http://example.net/phpmyadmin/',
                 '/phpmyadmin/',
@@ -771,6 +872,7 @@ class ConfigTest extends PMATestCase
     public function testGetThemeUniqueValue()
     {
 
+        $_SESSION['PMA_Theme'] = Theme::load('./themes/pmahomme');
 
         $partial_sum = (
             PHPUnit_Framework_Assert::readAttribute($this->object, 'source_mtime') +
@@ -896,5 +998,49 @@ class ConfigTest extends PMATestCase
         $this->assertFalse(
             $this->object->checkHTTP("http://www.phpmyadmin.net/test/nothing")
         );
+    }
+
+    /**
+     * Tests for rewriting URL to SSL variant
+     *
+     * @param string $original Original URL
+     * @param string $expected Expected URL rewritten to SSL
+     *
+     * @return void
+     *
+     * @dataProvider sslUris
+     */
+    public function testSSLUri($original, $expected)
+    {
+        $this->object->set('PmaAbsoluteUri', $original);
+        $this->assertEquals($expected, $this->object->getSSLUri());
+    }
+
+
+    /**
+     * return of ssl Uris
+     *
+     * @return array
+     */
+    public function sslUris()
+    {
+        return array(
+            array(
+                'http://server.foo/path/',
+                'https://server.foo:443/path/'
+            ),
+            array(
+                'http://server.foo:80/path/',
+                'https://server.foo:443/path/'
+            ),
+            array(
+                'http://server.foo.bar:123/path/',
+                'https://server.foo.bar:443/path/'
+            ),
+            array(
+                'http://[FEDC:BA98:7654:3210:FEDC:BA98:7654:3210]:80/',
+                'https://[FEDC:BA98:7654:3210:FEDC:BA98:7654:3210]:443/'
+            ),
+            );
     }
 }

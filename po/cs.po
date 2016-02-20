@@ -3,13 +3,13 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
+"Project-Id-Version: phpMyAdmin 4.6.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2016-02-08 09:42+0100\n"
+"POT-Creation-Date: 2016-01-14 09:15+0100\n"
 "PO-Revision-Date: 2016-01-31 11:31+0000\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Czech <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"cs/>\n"
+"Language-Team: Czech "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/cs/>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -43,8 +43,8 @@ msgstr "Zobrazeny záznamy %1$s - %2$s."
 msgid "Database comment"
 msgstr "Komentář k databázi"
 
-#: db_datadict.php:104 libraries/plugins/schema/pdf/PdfRelationSchema.php:596
-#: templates/columns_definitions/column_definitions_form.phtml:88
+#: db_datadict.php:104 libraries/plugins/schema/pdf/PdfRelationSchema.php:595
+#: templates/columns_definitions/column_definitions_form.phtml:84
 msgid "Table comments:"
 msgstr "Komentář k tabulce:"
 
@@ -59,16 +59,16 @@ msgstr "Komentář k tabulce:"
 #: libraries/plugins/export/ExportTexytext.php:284
 #: libraries/plugins/export/ExportTexytext.php:375
 #: libraries/plugins/export/PMA_ExportPdf.php:472
-#: libraries/plugins/schema/pdf/PdfRelationSchema.php:629
-#: libraries/plugins/schema/pdf/PdfRelationSchema.php:652
+#: libraries/plugins/schema/pdf/PdfRelationSchema.php:628
+#: libraries/plugins/schema/pdf/PdfRelationSchema.php:651
 #: libraries/tracking.lib.php:892 libraries/tracking.lib.php:990
 #: templates/columns_definitions/column_name.phtml:18
 #: templates/table/index_form.phtml:124
-#: templates/table/relation/common_form.phtml:11
-#: templates/table/relation/common_form.phtml:26
-#: templates/table/relation/common_form.phtml:78
-#: templates/table/relation/foreign_key_row.phtml:178
-#: templates/table/relation/foreign_key_row.phtml:190
+#: templates/table/relation/common_form.phtml:12
+#: templates/table/relation/common_form.phtml:27
+#: templates/table/relation/common_form.phtml:79
+#: templates/table/relation/foreign_key_row.phtml:176
+#: templates/table/relation/foreign_key_row.phtml:188
 #: templates/table/relation/internal_relational_row.phtml:73
 #: templates/table/search/table_header.phtml:6
 #: templates/table/search/zoom_result_form.phtml:33
@@ -86,8 +86,8 @@ msgstr "Pole"
 #: libraries/plugins/export/ExportTexytext.php:285
 #: libraries/plugins/export/ExportTexytext.php:376
 #: libraries/plugins/export/PMA_ExportPdf.php:474
-#: libraries/plugins/schema/pdf/PdfRelationSchema.php:630
-#: libraries/plugins/schema/pdf/PdfRelationSchema.php:653
+#: libraries/plugins/schema/pdf/PdfRelationSchema.php:629
+#: libraries/plugins/schema/pdf/PdfRelationSchema.php:652
 #: libraries/rte/rte_list.lib.php:78 libraries/rte/rte_list.lib.php:106
 #: libraries/rte/rte_routines.lib.php:890
 #: libraries/rte/rte_routines.lib.php:921
@@ -112,8 +112,8 @@ msgstr "Typ"
 #: libraries/plugins/export/ExportTexytext.php:286
 #: libraries/plugins/export/ExportTexytext.php:377
 #: libraries/plugins/export/PMA_ExportPdf.php:476
-#: libraries/plugins/schema/pdf/PdfRelationSchema.php:632
-#: libraries/plugins/schema/pdf/PdfRelationSchema.php:655
+#: libraries/plugins/schema/pdf/PdfRelationSchema.php:631
+#: libraries/plugins/schema/pdf/PdfRelationSchema.php:654
 #: libraries/tracking.lib.php:895 libraries/tracking.lib.php:993
 #: templates/columns_definitions/table_fields_definitions.phtml:39
 #: templates/table/search/zoom_result_form.phtml:34
@@ -131,8 +131,8 @@ msgstr "Nulový"
 #: libraries/plugins/export/ExportTexytext.php:287
 #: libraries/plugins/export/ExportTexytext.php:378
 #: libraries/plugins/export/PMA_ExportPdf.php:478
-#: libraries/plugins/schema/pdf/PdfRelationSchema.php:633
-#: libraries/plugins/schema/pdf/PdfRelationSchema.php:656
+#: libraries/plugins/schema/pdf/PdfRelationSchema.php:632
+#: libraries/plugins/schema/pdf/PdfRelationSchema.php:655
 #: libraries/replication_gui.lib.php:151 libraries/tracking.lib.php:896
 #: templates/columns_definitions/table_fields_definitions.phtml:25
 #: templates/database/structure/body_for_table_summary.phtml:55
@@ -145,8 +145,8 @@ msgstr "Výchozí"
 #: libraries/plugins/export/ExportOdt.php:493
 #: libraries/plugins/export/ExportTexytext.php:380
 #: libraries/plugins/export/PMA_ExportPdf.php:487
-#: libraries/plugins/schema/pdf/PdfRelationSchema.php:635
-#: libraries/plugins/schema/pdf/PdfRelationSchema.php:658
+#: libraries/plugins/schema/pdf/PdfRelationSchema.php:634
+#: libraries/plugins/schema/pdf/PdfRelationSchema.php:657
 msgid "Links to"
 msgstr "Odkazuje na"
 
@@ -157,8 +157,8 @@ msgstr "Odkazuje na"
 #: libraries/plugins/export/ExportOdt.php:498
 #: libraries/plugins/export/ExportTexytext.php:383
 #: libraries/plugins/export/PMA_ExportPdf.php:494
-#: libraries/plugins/schema/pdf/PdfRelationSchema.php:646
-#: libraries/plugins/schema/pdf/PdfRelationSchema.php:659
+#: libraries/plugins/schema/pdf/PdfRelationSchema.php:645
+#: libraries/plugins/schema/pdf/PdfRelationSchema.php:658
 #: templates/columns_definitions/table_fields_definitions.phtml:65
 #: templates/table/structure/table_structure_header.phtml:14
 msgid "Comments"
@@ -169,7 +169,7 @@ msgstr "Komentáře"
 #: libraries/controllers/table/TableStructureController.php:1208
 #: libraries/tracking.lib.php:935
 #: templates/columns_definitions/column_indexes.phtml:6
-#: templates/table/structure/check_all_table_column.phtml:21
+#: templates/table/structure/check_all_table_column.phtml:22
 #: templates/table/structure/display_structure.phtml:81
 msgid "Primary"
 msgstr "Primární"
@@ -183,14 +183,14 @@ msgstr "Primární"
 #: libraries/plugins/export/ExportLatex.php:600
 #: libraries/plugins/export/ExportOdt.php:792
 #: libraries/plugins/export/ExportTexytext.php:608
-#: libraries/plugins/schema/pdf/PdfRelationSchema.php:705
+#: libraries/plugins/schema/pdf/PdfRelationSchema.php:704
 #: libraries/server_privileges.lib.php:2851
 #: libraries/server_privileges.lib.php:3039
 #: libraries/server_privileges.lib.php:3059
 #: libraries/server_privileges.lib.php:3696
 #: libraries/server_privileges.lib.php:3719 libraries/tracking.lib.php:946
 #: libraries/tracking.lib.php:1025 libraries/tracking.lib.php:1030
-#: prefs_manage.php:142 templates/prefs_autoload.phtml:13
+#: prefs_manage.php:142 templates/prefs_autoload.phtml:15
 #: templates/privileges/privileges_summary_row.phtml:4
 #: templates/privileges/privileges_summary_row.phtml:7
 #: templates/privileges/privileges_summary_row.phtml:9
@@ -217,14 +217,14 @@ msgstr "Ne"
 #: libraries/plugins/export/ExportLatex.php:600
 #: libraries/plugins/export/ExportOdt.php:793
 #: libraries/plugins/export/ExportTexytext.php:608
-#: libraries/plugins/schema/pdf/PdfRelationSchema.php:706
+#: libraries/plugins/schema/pdf/PdfRelationSchema.php:705
 #: libraries/server_privileges.lib.php:2851
 #: libraries/server_privileges.lib.php:3036
 #: libraries/server_privileges.lib.php:3057
 #: libraries/server_privileges.lib.php:3693
 #: libraries/server_privileges.lib.php:3719 libraries/tracking.lib.php:946
 #: libraries/tracking.lib.php:1023 libraries/tracking.lib.php:1028
-#: prefs_manage.php:140 templates/prefs_autoload.phtml:12
+#: prefs_manage.php:140 templates/prefs_autoload.phtml:14
 #: templates/privileges/privileges_summary_row.phtml:4
 #: templates/privileges/privileges_summary_row.phtml:7
 #: templates/privileges/privileges_summary_row.phtml:9
@@ -236,19 +236,19 @@ msgstr "Ano"
 msgid "View dump (schema) of database"
 msgstr "Zobrazit výpis (schéma) databáze"
 
-#: db_export.php:51 db_tracking.php:102 export.php:383 libraries/DbQbe.php:324
+#: db_export.php:51 db_tracking.php:102 export.php:381 libraries/DbQbe.php:324
 #: libraries/controllers/database/DatabaseStructureController.php:158
 #: libraries/navigation/NavigationTree.php:917
 msgid "No tables found in database."
 msgstr "V databázi nebyly nalezeny žádné tabulky."
 
 #: db_export.php:65 libraries/ServerStatusData.php:126
-#: libraries/config/messages.inc.php:277
+#: libraries/config/messages.inc.php:279
 #: libraries/controllers/server/ServerDatabasesController.php:336
 #: libraries/navigation/nodes/NodeTableContainer.php:25
 #: libraries/navigation/nodes/NodeTableContainer.php:26
 #: libraries/plugins/export/ExportXml.php:118
-#: templates/database/structure/show_create.phtml:18
+#: templates/database/structure/show_create.phtml:19
 msgid "Tables"
 msgstr "Tabulky"
 
@@ -257,8 +257,8 @@ msgstr "Tabulky"
 #: libraries/Util.php:3698 libraries/Util.php:4335 libraries/Util.php:4352
 #: libraries/central_columns.lib.php:725 libraries/config.values.php:39
 #: libraries/config.values.php:47 libraries/config.values.php:110
-#: libraries/config.values.php:116 libraries/config/setup.forms.php:320
-#: libraries/config/setup.forms.php:361 libraries/config/setup.forms.php:387
+#: libraries/config.values.php:116 libraries/config/setup.forms.php:321
+#: libraries/config/setup.forms.php:362 libraries/config/setup.forms.php:388
 #: libraries/config/user_preferences.forms.php:219
 #: libraries/config/user_preferences.forms.php:260
 #: libraries/config/user_preferences.forms.php:286
@@ -271,9 +271,9 @@ msgstr "Tabulky"
 msgid "Structure"
 msgstr "Struktura"
 
-#: db_export.php:67 libraries/config/setup.forms.php:333
-#: libraries/config/setup.forms.php:369 libraries/config/setup.forms.php:392
-#: libraries/config/setup.forms.php:397
+#: db_export.php:67 libraries/config/setup.forms.php:334
+#: libraries/config/setup.forms.php:370 libraries/config/setup.forms.php:393
+#: libraries/config/setup.forms.php:398
 #: libraries/config/user_preferences.forms.php:232
 #: libraries/config/user_preferences.forms.php:268
 #: libraries/config/user_preferences.forms.php:291
@@ -284,7 +284,7 @@ msgstr "Struktura"
 msgid "Data"
 msgstr "Data"
 
-#: db_export.php:70 libraries/DbSearch.php:442
+#: db_export.php:70 libraries/DbSearch.php:441
 #: libraries/display_export.lib.php:42 libraries/replication_gui.lib.php:377
 msgid "Select all"
 msgstr "Vybrat vše"
@@ -322,7 +322,7 @@ msgstr "Přepnout na %svizuálního návrháře%s"
 #: db_search.php:31 libraries/plugins/AuthenticationPlugin.php:68
 #: libraries/plugins/auth/AuthenticationConfig.php:93
 #: libraries/plugins/auth/AuthenticationConfig.php:108
-#: libraries/plugins/auth/AuthenticationHttp.php:89
+#: libraries/plugins/auth/AuthenticationHttp.php:87
 msgid "Access denied!"
 msgstr "Přístup odepřen!"
 
@@ -371,11 +371,11 @@ msgstr "Pokud narazíte na jakékoliv problémy, prosíme nahlaste chybu ručně
 msgid "You may want to refresh the page."
 msgstr "Možná budete potřebovat obnovit tuto stránku."
 
-#: export.php:190 schema_export.php:64
+#: export.php:188 schema_export.php:60
 msgid "Bad type!"
 msgstr "Chybný typ!"
 
-#: export.php:277
+#: export.php:275
 msgid "Bad parameters!"
 msgstr "Chybné parametry!"
 
@@ -383,87 +383,87 @@ msgstr "Chybné parametry!"
 msgid "Invalid export type"
 msgstr "Chybný typ exportu"
 
-#: gis_data_editor.php:117
+#: gis_data_editor.php:113
 #, php-format
 msgid "Value for the column \"%s\""
 msgstr "Hodnota pro sloupec „%s“"
 
-#: gis_data_editor.php:145
-#: templates/table/gis_visualization/gis_visualization.phtml:38
+#: gis_data_editor.php:141
+#: templates/table/gis_visualization/gis_visualization.phtml:37
 msgid "Use OpenStreetMaps as Base Layer"
 msgstr "Použít OpenStreetMap jako základní vrstvu"
 
 #. l10n: Spatial Reference System Identifier
-#: gis_data_editor.php:167
+#: gis_data_editor.php:163
 msgid "SRID:"
 msgstr "SRID:"
 
-#: gis_data_editor.php:193
+#: gis_data_editor.php:186
 #, php-format
 msgid "Geometry %d:"
 msgstr "Geometrie %d:"
 
-#: gis_data_editor.php:215
+#: gis_data_editor.php:208
 msgid "Point:"
 msgstr "Bod:"
 
-#: gis_data_editor.php:216 gis_data_editor.php:243 gis_data_editor.php:299
-#: gis_data_editor.php:372 js/messages.php:508
+#: gis_data_editor.php:209 gis_data_editor.php:236 gis_data_editor.php:292
+#: gis_data_editor.php:365 js/messages.php:508
 msgid "X"
 msgstr "X"
 
-#: gis_data_editor.php:219 gis_data_editor.php:247 gis_data_editor.php:303
-#: gis_data_editor.php:378 js/messages.php:509
+#: gis_data_editor.php:212 gis_data_editor.php:240 gis_data_editor.php:296
+#: gis_data_editor.php:371 js/messages.php:509
 msgid "Y"
 msgstr "Y"
 
-#: gis_data_editor.php:241 gis_data_editor.php:297 gis_data_editor.php:370
+#: gis_data_editor.php:234 gis_data_editor.php:290 gis_data_editor.php:363
 #: js/messages.php:511
 #, php-format
 msgid "Point %d"
 msgstr "Bod %d"
 
-#: gis_data_editor.php:254 gis_data_editor.php:310 gis_data_editor.php:388
+#: gis_data_editor.php:247 gis_data_editor.php:303 gis_data_editor.php:381
 #: js/messages.php:517
 msgid "Add a point"
 msgstr "Přidat bod"
 
-#: gis_data_editor.php:271
+#: gis_data_editor.php:264
 #, php-format
 msgid "Linestring %d:"
 msgstr "Linka %d:"
 
-#: gis_data_editor.php:274 gis_data_editor.php:351
+#: gis_data_editor.php:267 gis_data_editor.php:344
 msgid "Outer ring:"
 msgstr "Vnější obrys:"
 
-#: gis_data_editor.php:276 gis_data_editor.php:353
+#: gis_data_editor.php:269 gis_data_editor.php:346
 #, php-format
 msgid "Inner ring %d:"
 msgstr "Vnitřní obrys %d:"
 
-#: gis_data_editor.php:313
+#: gis_data_editor.php:306
 msgid "Add a linestring"
 msgstr "Přidat linku"
 
-#: gis_data_editor.php:314 gis_data_editor.php:393 js/messages.php:518
+#: gis_data_editor.php:307 gis_data_editor.php:386 js/messages.php:518
 msgid "Add an inner ring"
 msgstr "Přidat vnitřní obrys"
 
-#: gis_data_editor.php:335
+#: gis_data_editor.php:328
 #, php-format
 msgid "Polygon %d:"
 msgstr "Mnohoúhelník %d:"
 
-#: gis_data_editor.php:399
+#: gis_data_editor.php:392
 msgid "Add a polygon"
 msgstr "Přidat mnohoúhelník"
 
-#: gis_data_editor.php:405
+#: gis_data_editor.php:398
 msgid "Add geometry"
 msgstr "Přidat geometrii"
 
-#: gis_data_editor.php:411 js/messages.php:349 libraries/DbSearch.php:463
+#: gis_data_editor.php:404 js/messages.php:349 libraries/DbSearch.php:462
 #: libraries/DisplayResults.php:1790 libraries/browse_foreigners.lib.php:139
 #: libraries/display_change_password.lib.php:147
 #: libraries/display_export.lib.php:400 libraries/display_export.lib.php:406
@@ -472,16 +472,16 @@ msgstr "Přidat geometrii"
 #: libraries/normalization.lib.php:162 libraries/normalization.lib.php:819
 #: libraries/operations.lib.php:41 libraries/operations.lib.php:106
 #: libraries/operations.lib.php:256 libraries/operations.lib.php:299
-#: libraries/operations.lib.php:796 libraries/operations.lib.php:866
-#: libraries/operations.lib.php:915 libraries/operations.lib.php:1326
-#: libraries/operations.lib.php:1643
-#: libraries/plugins/auth/AuthenticationCookie.php:225
+#: libraries/operations.lib.php:792 libraries/operations.lib.php:862
+#: libraries/operations.lib.php:911 libraries/operations.lib.php:1322
+#: libraries/operations.lib.php:1639
+#: libraries/plugins/auth/AuthenticationCookie.php:239
 #: libraries/replication_gui.lib.php:120 libraries/replication_gui.lib.php:159
 #: libraries/replication_gui.lib.php:324 libraries/replication_gui.lib.php:461
 #: libraries/replication_gui.lib.php:906 libraries/rte/rte_events.lib.php:512
 #: libraries/rte/rte_routines.lib.php:1060
 #: libraries/rte/rte_routines.lib.php:1672
-#: libraries/rte/rte_triggers.lib.php:398
+#: libraries/rte/rte_triggers.lib.php:398 libraries/server_bin_log.lib.php:59
 #: libraries/server_privileges.lib.php:705
 #: libraries/server_privileges.lib.php:2344
 #: libraries/server_privileges.lib.php:3182
@@ -490,23 +490,22 @@ msgstr "Přidat geometrii"
 #: libraries/sql_query_form.lib.php:370 libraries/sql_query_form.lib.php:430
 #: libraries/tracking.lib.php:546 libraries/tracking.lib.php:666
 #: prefs_manage.php:276 prefs_manage.php:354
-#: templates/columns_definitions/column_definitions_form.phtml:68
+#: templates/columns_definitions/column_definitions_form.phtml:64
 #: templates/database/create_table.phtml:21 templates/header_location.phtml:28
 #: templates/privileges/privileges_summary.phtml:66
-#: templates/server/binlog/log_selector.phtml:25
 #: templates/startAndNumberOfRowsPanel.phtml:14
-#: templates/table/index_form.phtml:243
-#: templates/table/search/selection_form.phtml:78
+#: templates/table/index_form.phtml:238
+#: templates/table/search/selection_form.phtml:75
 #: templates/table/structure/add_column.phtml:25 view_create.php:280
 #: view_operations.php:107
 msgid "Go"
 msgstr "Proveď"
 
-#: gis_data_editor.php:414
+#: gis_data_editor.php:407
 msgid "Output"
 msgstr "Výstup"
 
-#: gis_data_editor.php:417
+#: gis_data_editor.php:410
 msgid ""
 "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
 "below into the \"Value\" field."
@@ -580,7 +579,7 @@ msgid "Could not load import plugins, please check your installation!"
 msgstr ""
 "Nepodařilo se nahrát pluginy pro import, zkontrolujte prosím vaší instalaci!"
 
-#: import.php:668 libraries/sql.lib.php:781 libraries/sql.lib.php:1561
+#: import.php:668 libraries/sql.lib.php:782 libraries/sql.lib.php:1557
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "Byl vytvořen oblíbený dotaz %s."
@@ -614,7 +613,7 @@ msgstr "Nelze zjistit průběh importu."
 
 #: import_status.php:116 js/messages.php:448 js/messages.php:600
 #: libraries/Util.php:796 libraries/export.lib.php:516
-#: libraries/plugins/schema/ExportRelationSchema.php:297 user_password.php:293
+#: libraries/plugins/schema/ExportRelationSchema.php:297 user_password.php:292
 msgid "Back"
 msgstr "Zpět"
 
@@ -638,7 +637,7 @@ msgstr "Obecná nastavení"
 
 #: index.php:191 js/messages.php:625
 #: libraries/display_change_password.lib.php:50
-#: libraries/display_change_password.lib.php:53 user_password.php:287
+#: libraries/display_change_password.lib.php:53 user_password.php:286
 msgid "Change password"
 msgstr "Změnit heslo"
 
@@ -658,7 +657,7 @@ msgstr "Více nastavení"
 msgid "Database server"
 msgstr "Databázový server"
 
-#: index.php:287 libraries/plugins/auth/AuthenticationCookie.php:171
+#: index.php:287 libraries/plugins/auth/AuthenticationCookie.php:185
 msgid "Server:"
 msgstr "Server:"
 
@@ -704,43 +703,43 @@ msgstr "Verze PHP:"
 msgid "Show PHP information"
 msgstr "Zobrazit informace o PHP"
 
-#: index.php:381
+#: index.php:385
 msgid "Version information:"
 msgstr "Informace o verzi:"
 
-#: index.php:390 libraries/Util.php:445 libraries/Util.php:511
+#: index.php:394 libraries/Util.php:445 libraries/Util.php:511
 #: libraries/config/FormDisplay.tpl.php:163
 #: libraries/display_export.lib.php:575 libraries/engines/Pbxt.php:166
 #: libraries/navigation/NavigationHeader.php:196
-#: templates/server/variables/link_template.phtml:9
+#: templates/server/variables/link_template.phtml:10
 msgid "Documentation"
 msgstr "Dokumentace"
 
-#: index.php:397
+#: index.php:401
 msgid "Wiki"
 msgstr "Wiki"
 
-#: index.php:406
+#: index.php:410
 msgid "Official Homepage"
 msgstr "Oficiální stránka phpMyAdmina"
 
-#: index.php:413
+#: index.php:417
 msgid "Contribute"
 msgstr "Přispějte"
 
-#: index.php:420
+#: index.php:424
 msgid "Get support"
 msgstr "Získejte podporu"
 
-#: index.php:427
+#: index.php:431
 msgid "List of changes"
 msgstr "Seznam změn"
 
-#: index.php:434 templates/server/plugins/section.phtml:12
+#: index.php:438 templates/server/plugins/section.phtml:12
 msgid "License"
 msgstr "Licence"
 
-#: index.php:454
+#: index.php:458
 msgid ""
 "You have enabled mbstring.func_overload in your PHP configuration. This "
 "option is incompatible with phpMyAdmin and might cause some data to be "
@@ -749,7 +748,7 @@ msgstr ""
 "V nastavení PHP máte zapnuto mbstring.func_overload. Toto nastavení není "
 "kompatibilní s phpMyAdminem a může způsobit poškození dat!"
 
-#: index.php:469
+#: index.php:473
 msgid ""
 "The mbstring PHP extension was not found and you seem to be using a "
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
@@ -759,13 +758,7 @@ msgstr ""
 "bajtovou znakovou sadu. Bez rozšíření mbstring neumí phpMyAdmin správně "
 "rozdělovat řetězce a proto to může mít nečekané následky."
 
-#: index.php:484
-msgid ""
-"The curl extension was not found and allow_url_fopen is disabled. Due to "
-"this some features such as error reporting or version check are disabled."
-msgstr ""
-
-#: index.php:499
+#: index.php:490
 msgid ""
 "Your PHP parameter [a@http://php.net/manual/en/session.configuration.php#ini."
 "session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower than "
@@ -777,7 +770,7 @@ msgstr ""
 "než platnost cookie nastavená v phpMyAdminovi. Z tohoto důvodu bude vaše "
 "přilášení neplatné dříve, než jak je nastaveno v phpMyAdminovi."
 
-#: index.php:518
+#: index.php:509
 msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
@@ -786,13 +779,13 @@ msgstr ""
 "phpMyAdminovi. Z tohoto důvodu vaše přihlášení vyprší dříve než je nastavené "
 "v phpMyAdminovi."
 
-#: index.php:534
+#: index.php:525
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
 msgstr ""
 "Nastavte klíč pro šifrování cookies (blowfish_secret) v konfiguračním "
 "souboru (config.inc.php)."
 
-#: index.php:547
+#: index.php:538
 msgid ""
 "Directory [code]config[/code], which is used by the setup script, still "
 "exists in your phpMyAdmin directory. It is strongly recommended to remove it "
@@ -804,7 +797,7 @@ msgstr ""
 "phpMyAdmin nastaven. Pokud tak neučiníte, může být váš server ohrožen cizími "
 "lidmi přistupujícími k vašemu nastavení."
 
-#: index.php:563
+#: index.php:554
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
@@ -813,14 +806,14 @@ msgstr ""
 "Úložiště nastavení phpMyAdmina není plně dostupné, některé z rozšířených "
 "funkcí phpMyAdmina nelze používat. %sZjistěte proč%s. "
 
-#: index.php:570
+#: index.php:561
 msgid ""
 "Or alternately go to 'Operations' tab of any database to set it up there."
 msgstr ""
 "Nebo alternativně jděte do oddílu 'Operace' u jakékoli databáze, kde je "
 "možné rovněž toto nastavit."
 
-#: index.php:613
+#: index.php:604
 #, php-format
 msgid ""
 "Your PHP MySQL library version %s differs from your MySQL server version %s. "
@@ -829,7 +822,7 @@ msgstr ""
 "Používaný MySQL modul v PHP je kompilován pro MySQL %s a server používá "
 "verzi %s. Používání různých verzí může způsobit problémy."
 
-#: index.php:641
+#: index.php:632
 #, php-format
 msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
@@ -939,6 +932,7 @@ msgid "Do you really want to TRUNCATE the selected partition(s)?"
 msgstr "Opravdu si přejete ZKRÁTIT vybrané oddíly?"
 
 #: js/messages.php:85
+#| msgid "Do you really want to TRUNCATE the selected partition(s)?"
 msgid "Do you really want to remove partitioning?"
 msgstr "Opravdu si přejete odstranit vybrané oddíly?"
 
@@ -1020,7 +1014,7 @@ msgstr "Přidat klíč"
 msgid "Edit index"
 msgstr "Upravit klíč"
 
-#: js/messages.php:122 templates/table/index_form.phtml:237
+#: js/messages.php:122 templates/table/index_form.phtml:232
 #, php-format
 msgid "Add %s column(s) to index"
 msgstr "Přidat %s polí do klíče"
@@ -1046,9 +1040,9 @@ msgid "You have to add at least one column."
 msgstr "Musíte přidat alespoň jedno pole."
 
 #: js/messages.php:132 libraries/insert_edit.lib.php:1551
-#: templates/columns_definitions/column_definitions_form.phtml:163
-#: templates/table/index_form.phtml:242
-#: templates/table/relation/common_form.phtml:126
+#: templates/columns_definitions/column_definitions_form.phtml:159
+#: templates/table/index_form.phtml:237
+#: templates/table/relation/common_form.phtml:127
 msgid "Preview SQL"
 msgstr "Náhled SQL"
 
@@ -1298,7 +1292,7 @@ msgstr "Prosím přidejte do série alespoň jednu hodnotu!"
 #: libraries/plugins/export/ExportSql.php:2151
 #: libraries/plugins/schema/SchemaPdf.php:103
 #: libraries/server_status_monitor.lib.php:232
-#: libraries/server_status_processes.lib.php:288
+#: libraries/server_status_processes.lib.php:280
 #: templates/columns_definitions/transformation.phtml:4
 #: templates/database/designer/options_panel.phtml:178
 #: templates/privileges/privileges_summary.phtml:31
@@ -1600,7 +1594,7 @@ msgstr ""
 
 #: js/messages.php:325 libraries/Menu.php:358 libraries/Menu.php:460
 #: libraries/Menu.php:581 libraries/Util.php:4325 libraries/Util.php:4340
-#: libraries/Util.php:4357 libraries/config/messages.inc.php:261
+#: libraries/Util.php:4357 libraries/config/messages.inc.php:263
 #: libraries/display_import.lib.php:103
 #: libraries/server_status_monitor.lib.php:313 prefs_manage.php:237
 #: setup/frames/menu.inc.php:26
@@ -1660,6 +1654,7 @@ msgid "Formatting SQL…"
 msgstr "Formátuji SQL…"
 
 #: js/messages.php:346
+#| msgid "Bad parameters!"
 msgid "No parameters found!"
 msgstr "Nebyly nalezeny parametry!"
 
@@ -1675,7 +1670,7 @@ msgstr "Nebyly nalezeny parametry!"
 msgid "Cancel"
 msgstr "Zrušit"
 
-#: js/messages.php:353 libraries/Header.php:456
+#: js/messages.php:353 libraries/Header.php:457
 msgid "Page-related settings"
 msgstr "Nastavení stránky"
 
@@ -1790,7 +1785,7 @@ msgstr "Definice uložené funkce musí obsahovat příkaz RETURN!"
 #: libraries/DisplayResults.php:5137 libraries/Menu.php:350
 #: libraries/Menu.php:451 libraries/Menu.php:577 libraries/Util.php:3705
 #: libraries/Util.php:3706 libraries/Util.php:4324 libraries/Util.php:4339
-#: libraries/Util.php:4356 libraries/config/messages.inc.php:255
+#: libraries/Util.php:4356 libraries/config/messages.inc.php:257
 #: libraries/display_export.lib.php:168 libraries/rte/rte_list.lib.php:149
 #: libraries/server_privileges.lib.php:2513
 #: libraries/server_privileges.lib.php:2592
@@ -1842,20 +1837,20 @@ msgstr "Zobrazit pole pro dotaz"
 #: libraries/Index.php:721 libraries/Util.php:726 libraries/Util.php:1236
 #: libraries/Util.php:3703 libraries/Util.php:3704
 #: libraries/central_columns.lib.php:848 libraries/central_columns.lib.php:1191
-#: libraries/config/messages.inc.php:896
-#: libraries/server_user_groups.lib.php:117 setup/frames/index.inc.php:182
+#: libraries/config/messages.inc.php:898
+#: libraries/server_user_groups.lib.php:117 setup/frames/index.inc.php:183
 #: templates/server/variables/variable_row.phtml:4
 #: templates/server/variables/variable_row.phtml:7
 msgid "Edit"
 msgstr "Upravit"
 
-#: js/messages.php:410 libraries/Console.php:89 libraries/DbSearch.php:361
+#: js/messages.php:410 libraries/Console.php:89 libraries/DbSearch.php:360
 #: libraries/DisplayResults.php:3541 libraries/DisplayResults.php:4822
 #: libraries/central_columns.lib.php:850 libraries/central_columns.lib.php:1196
 #: libraries/display_export.lib.php:223
 #: libraries/server_user_groups.lib.php:127
 #: libraries/sql_query_form.lib.php:417 libraries/tracking.lib.php:490
-#: setup/frames/index.inc.php:186 setup/frames/index.inc.php:293
+#: setup/frames/index.inc.php:187 setup/frames/index.inc.php:295
 #: templates/database/designer/delete_relation_panel.phtml:27
 msgid "Delete"
 msgstr "Odstranit"
@@ -1869,7 +1864,7 @@ msgstr "%d není platné číslo řádku."
 #: js/messages.php:412
 #: libraries/controllers/table/TableSearchController.php:426
 #: libraries/controllers/table/TableSearchController.php:896
-#: libraries/sql.lib.php:193 tbl_change.php:158
+#: libraries/sql.lib.php:193 tbl_change.php:159
 msgid "Browse foreign values"
 msgstr "Projít hodnoty cizích klíčů"
 
@@ -2026,11 +2021,11 @@ msgstr "Nebyly vybrány žádné závislosti!"
 
 #: js/messages.php:469 libraries/central_columns.lib.php:1212
 #: libraries/insert_edit.lib.php:1461 setup/frames/config.inc.php:43
-#: setup/frames/index.inc.php:281
-#: templates/columns_definitions/column_definitions_form.phtml:166
+#: setup/frames/index.inc.php:283
+#: templates/columns_definitions/column_definitions_form.phtml:162
 #: templates/server/variables/link_template.phtml:2
 #: templates/table/gis_visualization/gis_visualization.phtml:48
-#: templates/table/relation/common_form.phtml:127
+#: templates/table/relation/common_form.phtml:128
 #: templates/table/structure/partition_definition_form.phtml:11
 msgid "Save"
 msgstr "Uložit"
@@ -2109,7 +2104,7 @@ msgstr "Obsah datového bodu"
 
 #: js/messages.php:506 js/messages.php:660 js/messages.php:677
 #: libraries/ErrorHandler.php:342 libraries/insert_edit.lib.php:2577
-#: templates/table/index_form.phtml:154 templates/table/index_form.phtml:199
+#: templates/table/index_form.phtml:154 templates/table/index_form.phtml:194
 msgid "Ignore"
 msgstr "Ignorovat"
 
@@ -2396,7 +2391,7 @@ msgstr "Skrýt panel"
 msgid "Show hidden navigation tree items."
 msgstr "Zobrazit skryté položky navigačního panelu."
 
-#: js/messages.php:634 libraries/config/messages.inc.php:479
+#: js/messages.php:634 libraries/config/messages.inc.php:481
 #: libraries/navigation/NavigationTree.php:1434
 msgid "Link with main panel"
 msgstr "Spojit s hlavním panelem"
@@ -2532,14 +2527,17 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:711
+#| msgid "Copy database to"
 msgid "Copy tables to"
 msgstr "Zkopírovat tabulky do"
 
 #: js/messages.php:712
+#| msgid "Add table prefix:"
 msgid "Add table prefix"
 msgstr "Přidat tabulce předponu"
 
 #: js/messages.php:713
+#| msgid "Replace table prefix"
 msgid "Replace table with prefix"
 msgstr "Nahradit tabulce předponu"
 
@@ -2926,18 +2924,18 @@ msgid "Unexpected character on line %1$s. Expected tab, but found \"%2$s\"."
 msgstr ""
 "Neočekávaný znak na řádku %1$s. Očekáván tabelátor, ale nalezeno „%2$s“."
 
-#: libraries/Config.php:1141
+#: libraries/Config.php:1186
 #, php-format
 msgid "Existing configuration file (%s) is not readable."
 msgstr "Nepodařilo se přečíst existující konfigurační soubor (%s)."
 
-#: libraries/Config.php:1171
+#: libraries/Config.php:1216
 msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr ""
 "Chybná přístupová práva konfiguračního souboru, neměl by být zapisovatelný "
 "pro všechny!"
 
-#: libraries/Config.php:1518
+#: libraries/Config.php:1797
 msgid "Font size"
 msgstr "Velikost písma"
 
@@ -2954,7 +2952,7 @@ msgid "Requery"
 msgstr "Znovu"
 
 #: libraries/Console.php:91 libraries/Console.php:223 libraries/Menu.php:220
-#: libraries/config/messages.inc.php:926 libraries/mult_submits.lib.php:334
+#: libraries/config/messages.inc.php:928 libraries/mult_submits.lib.php:334
 #: libraries/plugins/export/ExportHtmlword.php:149
 #: libraries/plugins/export/ExportOdt.php:197
 #: libraries/plugins/export/ExportTexytext.php:133
@@ -2965,8 +2963,8 @@ msgstr "Znovu"
 #: libraries/server_privileges.lib.php:4637
 #: libraries/server_status_processes.lib.php:79
 #: templates/server/databases/table_header.phtml:8
-#: templates/table/relation/common_form.phtml:24
-#: templates/table/relation/foreign_key_row.phtml:149
+#: templates/table/relation/common_form.phtml:25
+#: templates/table/relation/foreign_key_row.phtml:147
 #: templates/table/relation/internal_relational_row.phtml:57
 msgid "Database"
 msgstr "Databáze"
@@ -3033,7 +3031,7 @@ msgid "Console"
 msgstr "Konzole"
 
 #: libraries/Console.php:237 libraries/sql_query_form.lib.php:244
-#: setup/frames/index.inc.php:300
+#: setup/frames/index.inc.php:302
 msgid "Clear"
 msgstr "Vyčistit"
 
@@ -3137,8 +3135,8 @@ msgid "Count:"
 msgstr "Počet:"
 
 #: libraries/Console.php:339 libraries/Util.php:1292
-#: libraries/config/messages.inc.php:898
-#: libraries/server_status_processes.lib.php:235
+#: libraries/config/messages.inc.php:900
+#: libraries/server_status_processes.lib.php:227
 #: libraries/server_status_variables.lib.php:39
 msgid "Refresh"
 msgstr "Obnovit"
@@ -3191,33 +3189,27 @@ msgstr ""
 msgid "Switch to dark theme"
 msgstr "Přepnout na tmavý motiv"
 
-#: libraries/DatabaseInterface.php:1528
-#, fuzzy
-#| msgid "Failed to read configuration file!"
-msgid "Failed to set configured collation connection!"
-msgstr "Nepodařilo se načíst konfigurační soubor!"
-
-#: libraries/DatabaseInterface.php:2139
+#: libraries/DatabaseInterface.php:2126
 msgid ""
 "The server is not responding (or the local server's socket is not correctly "
 "configured)."
 msgstr ""
 "Server neodpovídá (nebo není správně nastaven lokální socket MySQL serveru)."
 
-#: libraries/DatabaseInterface.php:2144
+#: libraries/DatabaseInterface.php:2131
 msgid "The server is not responding."
 msgstr "Server neodpovídá."
 
-#: libraries/DatabaseInterface.php:2150
+#: libraries/DatabaseInterface.php:2137
 msgid "Please check privileges of directory containing database."
 msgstr ""
 "Prosím zkontrolujte přístupová práva u adresáře obsahujícího tuto databázi."
 
-#: libraries/DatabaseInterface.php:2161
+#: libraries/DatabaseInterface.php:2148
 msgid "Details…"
 msgstr "Podrobnosti…"
 
-#: libraries/DatabaseInterface.php:2368
+#: libraries/DatabaseInterface.php:2355
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr ""
 "Nepodařilo se připojit jako controluser, který je nadefinován v nastaveních."
@@ -3225,8 +3217,8 @@ msgstr ""
 #: libraries/DbQbe.php:403 libraries/DisplayResults.php:2256
 #: libraries/DisplayResults.php:2262 libraries/config.values.php:70
 #: libraries/controllers/server/ServerDatabasesController.php:539
-#: libraries/operations.lib.php:789
-#: libraries/server_status_processes.lib.php:166
+#: libraries/operations.lib.php:785
+#: libraries/server_status_processes.lib.php:163
 #: templates/database/structure/sortable_header.phtml:21
 #: templates/database/structure/sortable_header.phtml:38
 #: templates/table/search/options.phtml:68
@@ -3236,8 +3228,8 @@ msgstr "Vzestupně"
 #: libraries/DbQbe.php:406 libraries/DisplayResults.php:2252
 #: libraries/DisplayResults.php:2266 libraries/config.values.php:71
 #: libraries/controllers/server/ServerDatabasesController.php:539
-#: libraries/operations.lib.php:792
-#: libraries/server_status_processes.lib.php:163
+#: libraries/operations.lib.php:788
+#: libraries/server_status_processes.lib.php:160
 #: templates/database/structure/sortable_header.phtml:26
 #: templates/database/structure/sortable_header.phtml:43
 #: templates/table/search/options.phtml:69
@@ -3341,19 +3333,19 @@ msgstr "Upravit uložené vyhledávání"
 msgid "Delete bookmark"
 msgstr "Odstranit uložené vyhledávání"
 
-#: libraries/DbSearch.php:96 libraries/DbSearch.php:400
+#: libraries/DbSearch.php:96 libraries/DbSearch.php:399
 msgid "at least one of the words"
 msgstr "alespoň jedno ze slov"
 
-#: libraries/DbSearch.php:97 libraries/DbSearch.php:404
+#: libraries/DbSearch.php:97 libraries/DbSearch.php:403
 msgid "all words"
 msgstr "všechna slova"
 
-#: libraries/DbSearch.php:98 libraries/DbSearch.php:408
+#: libraries/DbSearch.php:98 libraries/DbSearch.php:407
 msgid "the exact phrase"
 msgstr "přesnou frázi"
 
-#: libraries/DbSearch.php:99 libraries/DbSearch.php:409
+#: libraries/DbSearch.php:99 libraries/DbSearch.php:408
 msgid "as regular expression"
 msgstr "jako regulární výraz"
 
@@ -3378,7 +3370,7 @@ msgstr[0] "%1$s odpovídající záznam v <strong>%2$s</strong>"
 msgstr[1] "%1$s odpovídající záznamy v <strong>%2$s</strong>"
 msgstr[2] "%1$s odpovídajících záznamů v <strong>%2$s</strong>"
 
-#: libraries/DbSearch.php:350 libraries/Menu.php:317 libraries/Util.php:3406
+#: libraries/DbSearch.php:349 libraries/Menu.php:317 libraries/Util.php:3406
 #: libraries/Util.php:3416 libraries/Util.php:3692 libraries/Util.php:3693
 #: libraries/Util.php:4351 libraries/config.values.php:43
 #: libraries/config.values.php:51 libraries/config.values.php:120
@@ -3387,37 +3379,37 @@ msgstr[2] "%1$s odpovídajících záznamů v <strong>%2$s</strong>"
 msgid "Browse"
 msgstr "Projít"
 
-#: libraries/DbSearch.php:357
+#: libraries/DbSearch.php:356
 #, php-format
 msgid "Delete the matches for the %s table?"
 msgstr "Odstranit nalezené záznamy z tabulky %s?"
 
-#: libraries/DbSearch.php:384
+#: libraries/DbSearch.php:383
 msgid "Search in database"
 msgstr "Vyhledávání v databázi"
 
-#: libraries/DbSearch.php:388
+#: libraries/DbSearch.php:387
 msgid "Words or values to search for (wildcard: \"%\"):"
 msgstr "Slova nebo hodnoty, které si přejete vyhledat (zástupný znak: „%“):"
 
-#: libraries/DbSearch.php:397 templates/table/search/search_and_replace.phtml:1
+#: libraries/DbSearch.php:396 templates/table/search/search_and_replace.phtml:1
 msgid "Find:"
 msgstr "Najít:"
 
-#: libraries/DbSearch.php:402 libraries/DbSearch.php:406
+#: libraries/DbSearch.php:401 libraries/DbSearch.php:405
 msgid "Words are separated by a space character (\" \")."
 msgstr "Slova jsou oddělena mezerou („ “)."
 
-#: libraries/DbSearch.php:421
+#: libraries/DbSearch.php:420
 msgid "Inside tables:"
 msgstr "V tabulkách:"
 
-#: libraries/DbSearch.php:446 libraries/display_export.lib.php:48
+#: libraries/DbSearch.php:445 libraries/display_export.lib.php:48
 #: libraries/replication_gui.lib.php:379
 msgid "Unselect all"
 msgstr "Odznačit vše"
 
-#: libraries/DbSearch.php:451
+#: libraries/DbSearch.php:450
 msgid "Inside column:"
 msgstr "Uvnitř pole:"
 
@@ -3444,17 +3436,15 @@ msgid "Begin"
 msgstr "První"
 
 #: libraries/DisplayResults.php:986 libraries/Util.php:2602
-#: libraries/Util.php:2605
-#: libraries/controllers/server/ServerBinlogController.php:193
-#: libraries/controllers/server/ServerBinlogController.php:195
+#: libraries/Util.php:2605 libraries/server_bin_log.lib.php:168
+#: libraries/server_bin_log.lib.php:170
 msgctxt "Previous page"
 msgid "Previous"
 msgstr "Předchozí"
 
 #: libraries/DisplayResults.php:1052 libraries/Util.php:2633
-#: libraries/Util.php:2643
-#: libraries/controllers/server/ServerBinlogController.php:227
-#: libraries/controllers/server/ServerBinlogController.php:229
+#: libraries/Util.php:2643 libraries/server_bin_log.lib.php:202
+#: libraries/server_bin_log.lib.php:204
 msgctxt "Next page"
 msgid "Next"
 msgstr "Následující"
@@ -3519,7 +3509,7 @@ msgid "The row has been deleted."
 msgstr "Řádek byl smazán."
 
 #: libraries/DisplayResults.php:3568 libraries/DisplayResults.php:4822
-#: libraries/server_status_processes.lib.php:282
+#: libraries/server_status_processes.lib.php:274
 msgid "Kill"
 msgstr "Ukončit"
 
@@ -3559,7 +3549,7 @@ msgstr "%1$d celkem, %2$d v dotazu"
 msgid "%d total"
 msgstr "%d celkem"
 
-#: libraries/DisplayResults.php:4725 libraries/sql.lib.php:1376
+#: libraries/DisplayResults.php:4725 libraries/sql.lib.php:1372
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "Dotaz trval %01.4f sekund."
@@ -3678,15 +3668,15 @@ msgstr "Chybí informace o revizi Gitu!"
 msgid "Open new phpMyAdmin window"
 msgstr "Otevřít nové okno phpMyAdmina"
 
-#: libraries/Header.php:377
+#: libraries/Header.php:378
 msgid "Print view"
 msgstr "Náhled pro tisk"
 
-#: libraries/Header.php:463
+#: libraries/Header.php:464
 msgid "Click on the bar to scroll to top of page"
 msgstr "Klikněte na pruh pro posunutí stránky nahoru"
 
-#: libraries/Header.php:759 libraries/plugins/auth/AuthenticationCookie.php:142
+#: libraries/Header.php:764 libraries/plugins/auth/AuthenticationCookie.php:156
 msgid "Javascript must be enabled past this point!"
 msgstr "Pro použití phpMyAdmina musíte mít zapnutý Javascript!"
 
@@ -3729,7 +3719,7 @@ msgstr "Název klíče"
 #: libraries/controllers/table/TableStructureController.php:1210
 #: libraries/tracking.lib.php:988
 #: templates/columns_definitions/column_indexes.phtml:11
-#: templates/table/structure/check_all_table_column.phtml:25
+#: templates/table/structure/check_all_table_column.phtml:26
 msgid "Unique"
 msgstr "Unikátní"
 
@@ -3745,7 +3735,7 @@ msgstr "Mohutnost"
 #: libraries/central_columns.lib.php:1381
 #: libraries/controllers/server/ServerDatabasesController.php:330
 #: libraries/mysql_charsets.lib.php:43 libraries/operations.lib.php:286
-#: libraries/operations.lib.php:1061 libraries/tracking.lib.php:894
+#: libraries/operations.lib.php:1057 libraries/tracking.lib.php:894
 #: libraries/tracking.lib.php:992
 #: templates/columns_definitions/table_fields_definitions.phtml:33
 #: templates/database/structure/table_header.phtml:55
@@ -3778,7 +3768,7 @@ msgstr "Klíč %s byl odstraněn."
 #: libraries/controllers/server/ServerDatabasesController.php:387
 #: libraries/controllers/table/TableStructureController.php:1201
 #: libraries/controllers/table/TableStructureController.php:1202
-#: libraries/operations.lib.php:1592 libraries/rte/rte_list.lib.php:153
+#: libraries/operations.lib.php:1588 libraries/rte/rte_list.lib.php:153
 #: templates/database/structure/check_all_tables.phtml:17
 #: templates/table/relation/foreign_key_row.phtml:75
 #: templates/table/structure/check_all_table_column.phtml:15
@@ -3797,8 +3787,8 @@ msgstr ""
 
 #: libraries/Language.php:195 libraries/PDF.php:71 libraries/Util.php:2590
 #: libraries/browse_foreigners.lib.php:324
-#: libraries/plugins/schema/pdf/PdfRelationSchema.php:495
-#: libraries/plugins/schema/pdf/PdfRelationSchema.php:520
+#: libraries/plugins/schema/pdf/PdfRelationSchema.php:494
+#: libraries/plugins/schema/pdf/PdfRelationSchema.php:519
 msgid "Page number:"
 msgstr "Strana číslo:"
 
@@ -3819,7 +3809,7 @@ msgid "%1$s (near <code>%2$s</code>)"
 msgstr "%1$s (poblíž <code>%2$s</code>)"
 
 #: libraries/Menu.php:201 libraries/ServerStatusData.php:422
-#: libraries/config/messages.inc.php:934
+#: libraries/config/messages.inc.php:936
 msgid "Server"
 msgstr "Server"
 
@@ -3830,7 +3820,7 @@ msgstr "Server"
 msgid "View"
 msgstr "Pohled"
 
-#: libraries/Menu.php:249 libraries/config/messages.inc.php:936
+#: libraries/Menu.php:249 libraries/config/messages.inc.php:938
 #: libraries/plugins/export/ExportXml.php:493 libraries/rte/rte_list.lib.php:90
 #: libraries/rte/rte_triggers.lib.php:333
 #: libraries/server_privileges.lib.php:1267
@@ -3840,8 +3830,8 @@ msgstr "Pohled"
 #: libraries/server_privileges.lib.php:4651 libraries/tracking.lib.php:1473
 #: libraries/tracking.lib.php:1619
 #: templates/database/structure/table_header.phtml:21
-#: templates/table/relation/common_form.phtml:25
-#: templates/table/relation/foreign_key_row.phtml:160
+#: templates/table/relation/common_form.phtml:26
+#: templates/table/relation/foreign_key_row.phtml:158
 #: templates/table/relation/internal_relational_row.phtml:65
 msgid "Table"
 msgstr "Tabulka"
@@ -3851,7 +3841,7 @@ msgstr "Tabulka"
 #: libraries/Util.php:4321 libraries/Util.php:4336 libraries/Util.php:4353
 #: libraries/config.values.php:40 libraries/config.values.php:48
 #: libraries/config.values.php:111 libraries/config.values.php:117
-#: libraries/config/messages.inc.php:324
+#: libraries/config/messages.inc.php:326
 #: libraries/navigation/nodes/NodeTable.php:308
 msgid "SQL"
 msgstr "SQL"
@@ -3937,8 +3927,8 @@ msgid "Central columns"
 msgstr "Centrální sloupce"
 
 #: libraries/Menu.php:543 libraries/Util.php:4320
-#: libraries/config.values.php:104 libraries/config/messages.inc.php:269
-#: libraries/config/messages.inc.php:344
+#: libraries/config.values.php:104 libraries/config/messages.inc.php:271
+#: libraries/config/messages.inc.php:346
 #: libraries/navigation/NavigationTree.php:1268
 #: libraries/server_common.lib.php:45 libraries/server_privileges.lib.php:4637
 msgid "Databases"
@@ -4038,7 +4028,7 @@ msgstr "Nedávné tabulky"
 msgid "Recent"
 msgstr "Nedávné"
 
-#: libraries/RecentFavoriteTable.php:249 libraries/config/messages.inc.php:545
+#: libraries/RecentFavoriteTable.php:249 libraries/config/messages.inc.php:547
 msgid "Favorite tables"
 msgstr "Oblíbené tabulky"
 
@@ -4111,8 +4101,7 @@ msgstr "Řazení"
 msgid "Transaction coordinator"
 msgstr "Koordinátor transakcí"
 
-#: libraries/ServerStatusData.php:128
-#: templates/server/binlog/log_selector.phtml:19
+#: libraries/ServerStatusData.php:128 libraries/server_bin_log.lib.php:51
 msgid "Files"
 msgstr "Soubory"
 
@@ -4616,7 +4605,7 @@ msgstr "Při analýze bylo nalezeno %d chyb."
 msgid "MySQL said: "
 msgstr "MySQL hlásí: "
 
-#: libraries/Util.php:1200 libraries/config/messages.inc.php:897
+#: libraries/Util.php:1200 libraries/config/messages.inc.php:899
 msgid "Explain SQL"
 msgstr "Vysvětlit SQL"
 
@@ -4630,14 +4619,16 @@ msgid "Analyze Explain at %s"
 msgstr "Analyzovat výstup příkazu EXPLAIN na %s"
 
 #: libraries/Util.php:1250
+#| msgid "Without PHP Code"
 msgid "Without PHP code"
 msgstr "Bez PHP kódu"
 
 #: libraries/Util.php:1262
+#| msgid "Submit Query"
 msgid "Submit query"
 msgstr "Provést dotaz"
 
-#: libraries/Util.php:1273 libraries/config/messages.inc.php:899
+#: libraries/Util.php:1273 libraries/config/messages.inc.php:901
 msgid "Create PHP code"
 msgstr "Vytvořit PHP kód"
 
@@ -4788,7 +4779,7 @@ msgstr "NE"
 #: libraries/plugins/export/PMA_ExportPdf.php:312
 #: libraries/rte/rte_list.lib.php:76 libraries/rte/rte_list.lib.php:88
 #: libraries/rte/rte_list.lib.php:103 libraries/rte/rte_routines.lib.php:920
-#: libraries/rte/rte_routines.lib.php:1583 setup/frames/index.inc.php:165
+#: libraries/rte/rte_routines.lib.php:1583 setup/frames/index.inc.php:166
 #: templates/columns_definitions/table_fields_definitions.phtml:8
 #: templates/database/create_table.phtml:11
 #: templates/table/structure/display_partitions.phtml:25
@@ -4828,18 +4819,18 @@ msgid "Add new column"
 msgstr "Přidat nový sloupec"
 
 #: libraries/central_columns.lib.php:1381
-#: libraries/plugins/schema/pdf/PdfRelationSchema.php:631
-#: libraries/plugins/schema/pdf/PdfRelationSchema.php:654
+#: libraries/plugins/schema/pdf/PdfRelationSchema.php:630
+#: libraries/plugins/schema/pdf/PdfRelationSchema.php:653
 #: templates/columns_definitions/table_fields_definitions.phtml:36
 #: templates/table/structure/table_structure_header.phtml:10
 msgid "Attributes"
 msgstr "Vlastnosti"
 
-#: libraries/common.inc.php:482
+#: libraries/common.inc.php:504
 msgid "Failed to read configuration file!"
 msgstr "Nepodařilo se načíst konfigurační soubor!"
 
-#: libraries/common.inc.php:485
+#: libraries/common.inc.php:507
 msgid ""
 "This usually means there is a syntax error in it, please check any errors "
 "shown below."
@@ -4847,31 +4838,39 @@ msgstr ""
 "Obvykle to je způsobenou chybou v tomto souboru, prosím opravte jakékoliv "
 "chyby vypsané níže."
 
-#: libraries/common.inc.php:494
+#: libraries/common.inc.php:516
 #, php-format
 msgid "Could not load default configuration from: %1$s"
 msgstr "Nepodařilo se nahrát výchozí nastavení ze souboru: %1$s"
 
-#: libraries/common.inc.php:528
+#: libraries/common.inc.php:524
+msgid ""
+"The [code]$cfg['PmaAbsoluteUri'][/code] directive MUST be set in your "
+"configuration file!"
+msgstr ""
+"V konfiguračním souboru musí být nastaven parametr "
+"[code]$cfg['PmaAbsoluteUri'][/code]!"
+
+#: libraries/common.inc.php:559
 #, php-format
 msgid "Invalid server index: %s"
 msgstr "Chybné číslo serveru: %s"
 
-#: libraries/common.inc.php:540
+#: libraries/common.inc.php:571
 #, php-format
 msgid "Invalid hostname for server %1$s. Please review your configuration."
 msgstr "Chybné jméno serveru pro server %1$s. Prosím zkontrolujte nastavení."
 
-#: libraries/common.inc.php:558
+#: libraries/common.inc.php:589
 #, php-format
 msgid "Server %d"
 msgstr "Server %d"
 
-#: libraries/common.inc.php:698
+#: libraries/common.inc.php:729
 msgid "Invalid authentication method set in configuration:"
 msgstr "V nastavení máte špatnou přihlašovací metodu:"
 
-#: libraries/common.inc.php:841
+#: libraries/common.inc.php:872
 #, php-format
 msgid ""
 "Unable to use timezone %1$s for server %2$d. Please check your configuration "
@@ -4882,24 +4881,24 @@ msgstr ""
 "nastavení pro [em]$cfg['Servers'][%3$d]['SessionTimeZone'][/em]. phpMyAdmin "
 "momentálně používá výchozí časové pásmo databázového serveru."
 
-#: libraries/common.inc.php:873
+#: libraries/common.inc.php:904
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "Měli byste aktualizovat %s na verzi %s nebo vyšší."
 
-#: libraries/common.inc.php:974
+#: libraries/common.inc.php:1005
 msgid "Error: Token mismatch"
 msgstr "Chyba: neplatný token"
 
-#: libraries/common.inc.php:1006
+#: libraries/common.inc.php:1037
 msgid "GLOBALS overwrite attempt"
 msgstr "Pokus o přepsání GLOBALS"
 
-#: libraries/common.inc.php:1013
+#: libraries/common.inc.php:1044
 msgid "possible exploit"
 msgstr "možný pokus o exploit"
 
-#: libraries/common.inc.php:1022
+#: libraries/common.inc.php:1053
 msgid "numeric key detected"
 msgstr "detekován číselný klíč"
 
@@ -5112,7 +5111,7 @@ msgid "Set value: %s"
 msgstr "Nastavena hodnota: %s"
 
 #: libraries/config/FormDisplay.tpl.php:336
-#: libraries/config/messages.inc.php:614
+#: libraries/config/messages.inc.php:616
 msgid "Restore default value"
 msgstr "Obnovit výchozí hodnotu"
 
@@ -5121,29 +5120,30 @@ msgid "Allow users to customize this value"
 msgstr "Povolit uživatelům změnit tuto hodnotu"
 
 #: libraries/config/PageSettings.php:141
+#| msgid "Cannot save settings, submitted form contains errors!"
 msgid "Cannot save settings, submitted configuration form contains errors!"
 msgstr ""
 "Nepodařilo se uložit nastavení, odeslaný konfigurační formulář obsahuje "
 "chyby!"
 
-#: libraries/config/ServerConfigChecks.php:157
+#: libraries/config/ServerConfigChecks.php:170
 msgid "You should use SSL connections if your database server supports it."
 msgstr "Měli byste použít SSL připojení, pokud to váš databázový podporuje."
 
-#: libraries/config/ServerConfigChecks.php:196
+#: libraries/config/ServerConfigChecks.php:209
 msgid "You allow for connecting to the server without a password."
 msgstr "Dovolujete připojit se k serveru bez hesla."
 
-#: libraries/config/ServerConfigChecks.php:335
+#: libraries/config/ServerConfigChecks.php:348
 msgid "Key is too short, it should have at least 8 characters."
 msgstr "Tajný klíč je příliš krátký, měl by obsahovat alespoň 8 znaků."
 
-#: libraries/config/ServerConfigChecks.php:345
+#: libraries/config/ServerConfigChecks.php:358
 msgid "Key should contain letters, numbers [em]and[/em] special characters."
 msgstr ""
 "Tajný klíč by měl obsahovat číslice, písmena [em]A[/em] zvláštní znaky."
 
-#: libraries/config/ServerConfigChecks.php:370
+#: libraries/config/ServerConfigChecks.php:383
 #, php-format
 msgid ""
 "This %soption%s should be disabled as it allows attackers to bruteforce "
@@ -5159,7 +5159,7 @@ msgstr ""
 "být spolehlivá, pokud Vaše IP adresa patří poskytovateli internetových "
 "služeb, ke kterému jsou připojeny tisíce uživatelů včetně vás."
 
-#: libraries/config/ServerConfigChecks.php:390
+#: libraries/config/ServerConfigChecks.php:403
 msgid ""
 "You didn't have blowfish secret set and have enabled [kbd]cookie[/kbd] "
 "authentication, so a key was automatically generated for you. It is used to "
@@ -5169,7 +5169,7 @@ msgstr ""
 "povolené přihlašování pomocí [kbd]cookie[/kbd], takže byl Váš tajný klíč "
 "vygenerován. Klíč bude použit pro zašifrování cookies."
 
-#: libraries/config/ServerConfigChecks.php:396
+#: libraries/config/ServerConfigChecks.php:409
 #, php-format
 msgid ""
 "%sBzip2 compression and decompression%s requires functions (%s) which are "
@@ -5178,7 +5178,7 @@ msgstr ""
 "%sKomprese a dekomprese bzip2%s vyžaduje funkce (%s) které nejsou dostupné "
 "na tomto systému."
 
-#: libraries/config/ServerConfigChecks.php:406
+#: libraries/config/ServerConfigChecks.php:419
 msgid ""
 "This value should be double checked to ensure that this directory is neither "
 "world accessible nor readable or writable by other users on your server."
@@ -5187,7 +5187,12 @@ msgstr ""
 "adresář není dostupný zvenčí, ani není čitelný nebo zapisovatelný pro "
 "ostatní uživatele na Vašem serveru."
 
-#: libraries/config/ServerConfigChecks.php:411
+#: libraries/config/ServerConfigChecks.php:424
+#, php-format
+msgid "This %soption%s should be enabled if your web server supports it."
+msgstr "Pokud to váš webserver podporuje, měli byste použít %sSSL připojení%s."
+
+#: libraries/config/ServerConfigChecks.php:433
 #, php-format
 msgid ""
 "%sGZip compression and decompression%s requires functions (%s) which are "
@@ -5196,7 +5201,7 @@ msgstr ""
 "%sGZip komprese a dekomprese%s vyžaduje funkce (%s) které nejsou dostupné na "
 "tomto systému."
 
-#: libraries/config/ServerConfigChecks.php:422
+#: libraries/config/ServerConfigChecks.php:444
 #, php-format
 msgid ""
 "%sLogin cookie validity%s greater than %ssession.gc_maxlifetime%s may cause "
@@ -5205,7 +5210,7 @@ msgstr ""
 "%sPlatnost přihlašovací cookie%s větší než %ssession.gc_maxlifetime%s může "
 "způsobit náhodné ukončení sezení (session.gc_maxlifetime je nastaveno na %d)."
 
-#: libraries/config/ServerConfigChecks.php:438
+#: libraries/config/ServerConfigChecks.php:460
 #, php-format
 msgid ""
 "%sLogin cookie validity%s should be set to 1800 seconds (30 minutes) at "
@@ -5215,7 +5220,7 @@ msgstr ""
 "sekund (30 minut). Hodnoty vyšší než 1800 mohou znamenat bezpečnostní "
 "riziko; hrozí například podvržení identity."
 
-#: libraries/config/ServerConfigChecks.php:449
+#: libraries/config/ServerConfigChecks.php:471
 #, php-format
 msgid ""
 "If using [kbd]cookie[/kbd] authentication and %sLogin cookie store%s is not "
@@ -5225,7 +5230,7 @@ msgstr ""
 "přihlašovaci cookie%s vyšší než 0 musí být %sPlatnost přihlašovací cookie%s "
 "nastavena na vyšší hodnotu než je tato."
 
-#: libraries/config/ServerConfigChecks.php:463
+#: libraries/config/ServerConfigChecks.php:485
 #, php-format
 msgid ""
 "If you feel this is necessary, use additional protection settings - %shost "
@@ -5238,7 +5243,7 @@ msgstr ""
 "založené na IP adresách nemusí být spolehlivé, pokud je vaše IP adresa "
 "dynamicky přidělována poskytovatelem spolu s mnoha dalšími uživateli."
 
-#: libraries/config/ServerConfigChecks.php:478
+#: libraries/config/ServerConfigChecks.php:500
 #, php-format
 msgid ""
 "You set the [kbd]config[/kbd] authentication type and included username and "
@@ -5253,7 +5258,7 @@ msgstr ""
 "Vašemu phpMyAdmin panelu. Nastavte %styp přihlašování%s na [kbd]cookie[/kbd] "
 "nebo [kbd]http[/kbd]."
 
-#: libraries/config/ServerConfigChecks.php:491
+#: libraries/config/ServerConfigChecks.php:513
 #, php-format
 msgid ""
 "%sZip compression%s requires functions (%s) which are unavailable on this "
@@ -5261,7 +5266,7 @@ msgid ""
 msgstr ""
 "%sZip komprese%s vyžaduje funkce (%s) které nejsou dostupné na tomto systému."
 
-#: libraries/config/ServerConfigChecks.php:502
+#: libraries/config/ServerConfigChecks.php:524
 #, php-format
 msgid ""
 "%sZip decompression%s requires functions (%s) which are unavailable on this "
@@ -5490,7 +5495,7 @@ msgid "Compress on the fly"
 msgstr "Komprimovat za letu"
 
 #: libraries/config/messages.inc.php:90 setup/frames/config.inc.php:25
-#: setup/frames/index.inc.php:215
+#: setup/frames/index.inc.php:216
 msgid "Configuration file"
 msgstr "Konfigurační soubor"
 
@@ -5547,6 +5552,7 @@ msgid "Whether the table structure actions should be hidden."
 msgstr "Jestli mají být schovávány akce při zobrazení struktury tabulek."
 
 #: libraries/config/messages.inc.php:117
+#| msgid "Show table comments"
 msgid "Show column comments"
 msgstr "Zobrazit komentář ke sloupci"
 
@@ -5599,7 +5605,7 @@ msgstr "Použi %s příkaz"
 msgid "Save as file"
 msgstr "Uložit jako soubor"
 
-#: libraries/config/messages.inc.php:138 libraries/config/messages.inc.php:369
+#: libraries/config/messages.inc.php:138 libraries/config/messages.inc.php:371
 msgid "Character set of the file"
 msgstr "Znaková sada souboru"
 
@@ -5627,14 +5633,14 @@ msgstr "Komprese"
 msgid "Put columns names in the first row"
 msgstr "Přidat jména polí na první řádek"
 
-#: libraries/config/messages.inc.php:142 libraries/config/messages.inc.php:371
-#: libraries/config/messages.inc.php:384
+#: libraries/config/messages.inc.php:142 libraries/config/messages.inc.php:373
+#: libraries/config/messages.inc.php:386
 #: libraries/plugins/import/ImportCsv.php:133
 msgid "Columns enclosed with"
 msgstr "Pole uzavřené do"
 
-#: libraries/config/messages.inc.php:143 libraries/config/messages.inc.php:372
-#: libraries/config/messages.inc.php:385
+#: libraries/config/messages.inc.php:143 libraries/config/messages.inc.php:374
+#: libraries/config/messages.inc.php:387
 #: libraries/plugins/import/ImportCsv.php:144
 msgid "Columns escaped with"
 msgstr "Pole escapována"
@@ -5651,13 +5657,13 @@ msgstr "Nahradit NULL hodnoty"
 msgid "Remove CRLF characters within columns"
 msgstr "Odstranit znaky konců řádek z polí"
 
-#: libraries/config/messages.inc.php:146 libraries/config/messages.inc.php:378
-#: libraries/config/messages.inc.php:392
+#: libraries/config/messages.inc.php:146 libraries/config/messages.inc.php:380
+#: libraries/config/messages.inc.php:394
 #: libraries/plugins/import/ImportCsv.php:118
 msgid "Columns terminated with"
 msgstr "Pole oddělené"
 
-#: libraries/config/messages.inc.php:147 libraries/config/messages.inc.php:370
+#: libraries/config/messages.inc.php:147 libraries/config/messages.inc.php:372
 #: libraries/plugins/import/ImportCsv.php:153
 msgid "Lines terminated with"
 msgstr "Řádky ukončené"
@@ -5743,7 +5749,7 @@ msgid "Remember file name template"
 msgstr "Pamatovat si vzor pro jména souborů"
 
 #: libraries/config/messages.inc.php:189 libraries/operations.lib.php:221
-#: libraries/operations.lib.php:844 libraries/operations.lib.php:1280
+#: libraries/operations.lib.php:840 libraries/operations.lib.php:1276
 msgid "Add AUTO_INCREMENT value"
 msgstr "Přidat hodnotu AUTO_INCREMENT"
 
@@ -5751,7 +5757,7 @@ msgstr "Přidat hodnotu AUTO_INCREMENT"
 msgid "Enclose table and column names with backquotes"
 msgstr "Použít zpětné uvozovky u jmen tabulek a polí"
 
-#: libraries/config/messages.inc.php:192 libraries/config/messages.inc.php:401
+#: libraries/config/messages.inc.php:192 libraries/config/messages.inc.php:403
 #: libraries/display_export.lib.php:396
 msgid "SQL compatibility mode"
 msgstr "Režim kompatibility SQL"
@@ -5782,7 +5788,7 @@ msgstr "Exportovat související metadata z úložiště konfigurace phpMyAdmin"
 #: libraries/config/messages.inc.php:203 libraries/config/messages.inc.php:205
 #: libraries/config/messages.inc.php:206 libraries/config/messages.inc.php:208
 #: libraries/config/messages.inc.php:220 libraries/operations.lib.php:216
-#: libraries/operations.lib.php:1276
+#: libraries/operations.lib.php:1272
 #, php-format
 msgid "Add %s"
 msgstr "Přidat %s"
@@ -5825,7 +5831,15 @@ msgstr "Uzavřít příkazy v transakci"
 msgid "Export time in UTC"
 msgstr "Exportovat čas v UTC"
 
+#: libraries/config/messages.inc.php:233
+msgid "Force secured connection while using phpMyAdmin."
+msgstr "Vynutit zabezpečené spojení při použití phpMyAdmina."
+
 #: libraries/config/messages.inc.php:234
+msgid "Force SSL connection"
+msgstr "Vynutit SSL spojení"
+
+#: libraries/config/messages.inc.php:236
 msgid ""
 "Sort order for items in a foreign-key dropdown box; [kbd]content[/kbd] is "
 "the referenced data, [kbd]id[/kbd] is the key value."
@@ -5833,161 +5847,161 @@ msgstr ""
 "Pořadí řazení položek v rozbalovací nabídce cizích klíčů; [kbd]obsah[/kbd] "
 "jsou referenční data, [kbd]id[/kbd] je hodnota klíče."
 
-#: libraries/config/messages.inc.php:237
+#: libraries/config/messages.inc.php:239
 msgid "Foreign key dropdown order"
 msgstr "Pořadí cizích klíčů v rozbalovací nabídce"
 
-#: libraries/config/messages.inc.php:239
+#: libraries/config/messages.inc.php:241
 msgid "A dropdown will be used if fewer items are present."
 msgstr ""
 "Rozbalovací nabídka bude použita pokud je přítomno menší množství položek."
 
-#: libraries/config/messages.inc.php:240
+#: libraries/config/messages.inc.php:242
 msgid "Foreign key limit"
 msgstr "Nejvyšší počet cizích klíčů"
 
-#: libraries/config/messages.inc.php:242
+#: libraries/config/messages.inc.php:244
 #, fuzzy
 msgid "Default value for foreign key checks checkbox for some queries."
 msgstr ""
 "Implicitní hodnota cizího klíče, u některých dotazů, zaškrtne checkbox."
 
-#: libraries/config/messages.inc.php:244
+#: libraries/config/messages.inc.php:246
 msgid "Foreign key checks"
 msgstr "Kontrola cizích klíčů"
 
-#: libraries/config/messages.inc.php:245
+#: libraries/config/messages.inc.php:247
 msgid "Browse mode"
 msgstr "Režim prohlížení"
 
-#: libraries/config/messages.inc.php:246
+#: libraries/config/messages.inc.php:248
 msgid "Customize browse mode."
 msgstr "Přizpůsobí režim prohlížení."
 
-#: libraries/config/messages.inc.php:248 libraries/config/messages.inc.php:250
-#: libraries/config/messages.inc.php:268 libraries/config/messages.inc.php:281
-#: libraries/config/messages.inc.php:283 libraries/config/messages.inc.php:327
+#: libraries/config/messages.inc.php:250 libraries/config/messages.inc.php:252
+#: libraries/config/messages.inc.php:270 libraries/config/messages.inc.php:283
+#: libraries/config/messages.inc.php:285 libraries/config/messages.inc.php:329
 msgid "Customize default options."
 msgstr "Přizpůsobí výchozí nastavení."
 
-#: libraries/config/messages.inc.php:249 libraries/config/setup.forms.php:266
-#: libraries/config/setup.forms.php:344
+#: libraries/config/messages.inc.php:251 libraries/config/setup.forms.php:267
+#: libraries/config/setup.forms.php:345
 #: libraries/config/user_preferences.forms.php:167
 #: libraries/config/user_preferences.forms.php:243
 msgid "CSV"
 msgstr "CSV"
 
-#: libraries/config/messages.inc.php:251
+#: libraries/config/messages.inc.php:253
 msgid "Developer"
 msgstr "Pro vývojáře"
 
-#: libraries/config/messages.inc.php:252
+#: libraries/config/messages.inc.php:254
 msgid "Settings for phpMyAdmin developers."
 msgstr "Nastavení pro vývojáře phpMyAdmina."
 
-#: libraries/config/messages.inc.php:253
+#: libraries/config/messages.inc.php:255
 msgid "Edit mode"
 msgstr "Režim úprav"
 
-#: libraries/config/messages.inc.php:254
+#: libraries/config/messages.inc.php:256
 msgid "Customize edit mode."
 msgstr "Přizpůsobí režim úprav."
 
-#: libraries/config/messages.inc.php:256
+#: libraries/config/messages.inc.php:258
 msgid "Export defaults"
 msgstr "Výchozí nastavení exportu"
 
-#: libraries/config/messages.inc.php:257
+#: libraries/config/messages.inc.php:259
 msgid "Customize default export options."
 msgstr "Přizpůsobí výchozí nastavení exportu."
 
-#: libraries/config/messages.inc.php:258 libraries/config/messages.inc.php:319
+#: libraries/config/messages.inc.php:260 libraries/config/messages.inc.php:321
 #: setup/frames/menu.inc.php:22
 msgid "Features"
 msgstr "Funkce"
 
-#: libraries/config/messages.inc.php:259
+#: libraries/config/messages.inc.php:261
 msgid "General"
 msgstr "Obecné"
 
-#: libraries/config/messages.inc.php:260
+#: libraries/config/messages.inc.php:262
 msgid "Set some commonly used options."
 msgstr "Nejčastěji používaná nastavení."
 
-#: libraries/config/messages.inc.php:262
+#: libraries/config/messages.inc.php:264
 msgid "Import defaults"
 msgstr "Výchozí nastavení importu"
 
-#: libraries/config/messages.inc.php:263
+#: libraries/config/messages.inc.php:265
 msgid "Customize default common import options."
 msgstr "Přizpůsobí výchozí nastavení importu."
 
-#: libraries/config/messages.inc.php:264
+#: libraries/config/messages.inc.php:266
 msgid "Import / export"
 msgstr "Import / export"
 
-#: libraries/config/messages.inc.php:266
+#: libraries/config/messages.inc.php:268
 msgid "Set import and export directories and compression options."
 msgstr "Nastaví adresáře pro import a export a volby komprese."
 
-#: libraries/config/messages.inc.php:267
+#: libraries/config/messages.inc.php:269
 msgid "LaTeX"
 msgstr "LaTeX"
 
-#: libraries/config/messages.inc.php:270
+#: libraries/config/messages.inc.php:272
 msgid "Databases display options."
 msgstr "Nastavení zobrazení databází."
 
-#: libraries/config/messages.inc.php:271 setup/frames/menu.inc.php:24
+#: libraries/config/messages.inc.php:273 setup/frames/menu.inc.php:24
 msgid "Navigation panel"
 msgstr "Navigační panel"
 
-#: libraries/config/messages.inc.php:272
+#: libraries/config/messages.inc.php:274
 msgid "Customize appearance of the navigation panel."
 msgstr "Přizpůsobí vzhled navigačního panelu."
 
-#: libraries/config/messages.inc.php:273
+#: libraries/config/messages.inc.php:275
 msgid "Navigation tree"
 msgstr "Navigační strom"
 
-#: libraries/config/messages.inc.php:274
+#: libraries/config/messages.inc.php:276
 msgid "Customize the navigation tree."
 msgstr "Přizpůsobení navigačního stromu."
 
-#: libraries/config/messages.inc.php:275 libraries/select_server.lib.php:43
-#: setup/frames/index.inc.php:147
+#: libraries/config/messages.inc.php:277 libraries/select_server.lib.php:43
+#: setup/frames/index.inc.php:148
 msgid "Servers"
 msgstr "Servery"
 
-#: libraries/config/messages.inc.php:276
+#: libraries/config/messages.inc.php:278
 msgid "Servers display options."
 msgstr "Nastavení zobrazení serverů."
 
-#: libraries/config/messages.inc.php:278
+#: libraries/config/messages.inc.php:280
 msgid "Tables display options."
 msgstr "Nastavení zobrazení tabulek."
 
-#: libraries/config/messages.inc.php:279 setup/frames/menu.inc.php:25
+#: libraries/config/messages.inc.php:281 setup/frames/menu.inc.php:25
 msgid "Main panel"
 msgstr "Hlavní panel"
 
-#: libraries/config/messages.inc.php:280
+#: libraries/config/messages.inc.php:282
 msgid "Microsoft Office"
 msgstr "Microsoft Office"
 
-#: libraries/config/messages.inc.php:284
+#: libraries/config/messages.inc.php:286
 msgid "Other core settings"
 msgstr "Jiná důležitá nastavení"
 
-#: libraries/config/messages.inc.php:286
+#: libraries/config/messages.inc.php:288
 msgid "Settings that didn't fit anywhere else."
 msgstr "Nastavení, která nelze zařadit jinam."
 
-#: libraries/config/messages.inc.php:287
+#: libraries/config/messages.inc.php:289
 msgid "Page titles"
 msgstr "Jména stránek"
 
-#: libraries/config/messages.inc.php:289
+#: libraries/config/messages.inc.php:291
 msgid ""
 "Specify browser's title bar text. Refer to [doc@faq6-27]documentation[/doc] "
 "for magic strings that can be used to get special values."
@@ -5995,11 +6009,11 @@ msgstr ""
 "Zadejte titulek který zobrazí prohlížeč. V [doc@faq6-27]dokumentaci[/doc] "
 "naleznete jaké proměnné můžete použít."
 
-#: libraries/config/messages.inc.php:293
+#: libraries/config/messages.inc.php:295
 msgid "Security"
 msgstr "Zabezpečení"
 
-#: libraries/config/messages.inc.php:295
+#: libraries/config/messages.inc.php:297
 msgid ""
 "Please note that phpMyAdmin is just a user interface and its features do not "
 "limit MySQL."
@@ -6007,23 +6021,23 @@ msgstr ""
 "Prosíme uvědomte si, že phpMyAdmin je pouze uživatelské rozhraní a jeho "
 "funkce neomezují MySQL."
 
-#: libraries/config/messages.inc.php:298
+#: libraries/config/messages.inc.php:300
 msgid "Basic settings"
 msgstr "Základní nastavení"
 
-#: libraries/config/messages.inc.php:299
+#: libraries/config/messages.inc.php:301
 msgid "Authentication"
 msgstr "Přihlašování"
 
-#: libraries/config/messages.inc.php:300
+#: libraries/config/messages.inc.php:302
 msgid "Authentication settings."
 msgstr "Nastavení přihlašování."
 
-#: libraries/config/messages.inc.php:301
+#: libraries/config/messages.inc.php:303
 msgid "Server configuration"
 msgstr "Nastavení serveru"
 
-#: libraries/config/messages.inc.php:303
+#: libraries/config/messages.inc.php:305
 msgid ""
 "Advanced server configuration, do not change these options unless you know "
 "what they are for."
@@ -6031,15 +6045,15 @@ msgstr ""
 "Pokročilé nastavení serveru, neměňte tyto volby, pokud nevíte, čeho se "
 "týkají."
 
-#: libraries/config/messages.inc.php:306
+#: libraries/config/messages.inc.php:308
 msgid "Enter server connection parameters."
 msgstr "Vložte parametry připojení k serveru."
 
-#: libraries/config/messages.inc.php:307
+#: libraries/config/messages.inc.php:309
 msgid "Configuration storage"
 msgstr "Úložiště nastavení"
 
-#: libraries/config/messages.inc.php:309
+#: libraries/config/messages.inc.php:311
 msgid ""
 "Configure phpMyAdmin configuration storage to gain access to additional "
 "features, see [doc@linked-tables]phpMyAdmin configuration storage[/doc] in "
@@ -6049,11 +6063,11 @@ msgstr ""
 "dodatečným funkcím, viz sekce [doc@linked-tables]úložiště nastavení "
 "phpMyAdmina[/doc] v dokumentaci."
 
-#: libraries/config/messages.inc.php:313
+#: libraries/config/messages.inc.php:315
 msgid "Changes tracking"
 msgstr "Sledování změn"
 
-#: libraries/config/messages.inc.php:315
+#: libraries/config/messages.inc.php:317
 msgid ""
 "Tracking of changes made in database. Requires the phpMyAdmin configuration "
 "storage."
@@ -6061,111 +6075,111 @@ msgstr ""
 "Sledování změn provedených v databazí. Vyžaduje nastavené úložiště nastavení "
 "phpMyAdmina."
 
-#: libraries/config/messages.inc.php:318
+#: libraries/config/messages.inc.php:320
 msgid "Customize export options"
 msgstr "Přizpůsobení exportu"
 
-#: libraries/config/messages.inc.php:320
+#: libraries/config/messages.inc.php:322
 msgid "Customize import defaults"
 msgstr "Přizpůsobení výchozího nastavení importu"
 
-#: libraries/config/messages.inc.php:321
+#: libraries/config/messages.inc.php:323
 msgid "Customize navigation panel"
 msgstr "Přizpůsobení navigačního panelu"
 
-#: libraries/config/messages.inc.php:322
+#: libraries/config/messages.inc.php:324
 msgid "Customize main panel"
 msgstr "Přizpůsobení hlavního panelu"
 
-#: libraries/config/messages.inc.php:323 libraries/config/messages.inc.php:328
+#: libraries/config/messages.inc.php:325 libraries/config/messages.inc.php:330
 #: setup/frames/menu.inc.php:23
 msgid "SQL queries"
 msgstr "SQL dotazy"
 
-#: libraries/config/messages.inc.php:325
+#: libraries/config/messages.inc.php:327
 msgid "SQL Query box"
 msgstr "Políčko pro SQL dotazy"
 
-#: libraries/config/messages.inc.php:326
+#: libraries/config/messages.inc.php:328
 msgid "Customize links shown in SQL Query boxes."
 msgstr "Přizpůsobení odkazů zobrazených v políčcích pro SQL dotazy."
 
-#: libraries/config/messages.inc.php:329
+#: libraries/config/messages.inc.php:331
 msgid "SQL queries settings."
 msgstr "Nastavení SQL dotazů."
 
-#: libraries/config/messages.inc.php:330
+#: libraries/config/messages.inc.php:332
 msgid "Startup"
 msgstr "Úvodní stránka"
 
-#: libraries/config/messages.inc.php:331
+#: libraries/config/messages.inc.php:333
 msgid "Customize startup page."
 msgstr "Přizpůsobení úvodní stránky."
 
-#: libraries/config/messages.inc.php:332
+#: libraries/config/messages.inc.php:334
 msgid "Database structure"
 msgstr "Struktura databáze"
 
-#: libraries/config/messages.inc.php:334
+#: libraries/config/messages.inc.php:336
 msgid ""
 "Choose which details to show in the database structure (list of tables)."
 msgstr ""
 "Zvolte co se má zobrazit při zobrazení struktury databáze (seznam tabulek)."
 
-#: libraries/config/messages.inc.php:335
+#: libraries/config/messages.inc.php:337
 #: libraries/plugins/export/ExportPdf.php:282
 #: templates/table/secondary_tabs.phtml:8
 msgid "Table structure"
 msgstr "Struktura tabulky"
 
-#: libraries/config/messages.inc.php:337
+#: libraries/config/messages.inc.php:339
 msgid "Settings for the table structure (list of columns)."
 msgstr ""
 "Zvolte co se má zobrazit při zobrazení struktury tabulky (seznam polí)."
 
-#: libraries/config/messages.inc.php:338
+#: libraries/config/messages.inc.php:340
 msgid "Tabs"
 msgstr "Panely"
 
-#: libraries/config/messages.inc.php:339
+#: libraries/config/messages.inc.php:341
 msgid "Choose how you want tabs to work."
 msgstr "Nastaví, jak mají fungovat panely."
 
-#: libraries/config/messages.inc.php:340
+#: libraries/config/messages.inc.php:342
 msgid "Display relational schema"
 msgstr "Zobrazit relační schéma"
 
-#: libraries/config/messages.inc.php:342
+#: libraries/config/messages.inc.php:344
 #: libraries/plugins/schema/SchemaDia.php:72
 #: libraries/plugins/schema/SchemaPdf.php:80
 msgid "Paper size"
 msgstr "Velikost stránky"
 
-#: libraries/config/messages.inc.php:345
+#: libraries/config/messages.inc.php:347
 msgid "Text fields"
 msgstr "Textová pole"
 
-#: libraries/config/messages.inc.php:346
+#: libraries/config/messages.inc.php:348
 msgid "Customize text input fields."
 msgstr "Přizpůsobení textových polí."
 
-#: libraries/config/messages.inc.php:347
+#: libraries/config/messages.inc.php:349
 msgid "Texy! text"
 msgstr "Texy! text"
 
-#: libraries/config/messages.inc.php:348
+#: libraries/config/messages.inc.php:350
 msgid "Customize default options"
 msgstr "Přizpůsobí výchozí nastavení"
 
-#: libraries/config/messages.inc.php:349
+#: libraries/config/messages.inc.php:351
 msgid "Warnings"
 msgstr "Varování"
 
-#: libraries/config/messages.inc.php:351
+#: libraries/config/messages.inc.php:353
 msgid "Disable some of the warnings shown by phpMyAdmin."
 msgstr "Vypnout některá varování zobrazovaná phpMyAdminem."
 
-#: libraries/config/messages.inc.php:353
+#: libraries/config/messages.inc.php:355
 msgid ""
 "Enable [a@http://en.wikipedia.org/wiki/Gzip]gzip[/a] compression for import "
 "and export operations."
@@ -6173,15 +6187,15 @@ msgstr ""
 "Povolí [a@http://cs.wikipedia.org/wiki/Gzip]gzip[/a] kompresi pro "
 "importování a exportování."
 
-#: libraries/config/messages.inc.php:356
+#: libraries/config/messages.inc.php:358
 msgid "GZip"
 msgstr "GZip"
 
-#: libraries/config/messages.inc.php:357
+#: libraries/config/messages.inc.php:359
 msgid "Extra parameters for iconv"
 msgstr "Další parametry pro iconv"
 
-#: libraries/config/messages.inc.php:359
+#: libraries/config/messages.inc.php:361
 msgid ""
 "If enabled, phpMyAdmin continues computing multiple-statement queries even "
 "if one of the queries failed."
@@ -6189,11 +6203,11 @@ msgstr ""
 "Pokud je povoleno, PMA pokračuje ve zpracování víceprvkových dotazů, i když "
 "jeden z nich selhal."
 
-#: libraries/config/messages.inc.php:362
+#: libraries/config/messages.inc.php:364
 msgid "Ignore multiple statement errors"
 msgstr "Ignorovat chyby ve víceprvkových dotazech"
 
-#: libraries/config/messages.inc.php:364
+#: libraries/config/messages.inc.php:366
 msgid ""
 "Allow interrupt of import in case script detects it is close to time limit. "
 "This might be a good way to import large files, however it can break "
@@ -6203,25 +6217,25 @@ msgstr ""
 "časového limitu. Tento způsob může být vhodný pro import velkých souborů, "
 "ovšem může poškodit transakce."
 
-#: libraries/config/messages.inc.php:368
+#: libraries/config/messages.inc.php:370
 msgid "Partial import: allow interrupt"
 msgstr "Častečný import: povolit přerušení"
 
-#: libraries/config/messages.inc.php:373 libraries/config/messages.inc.php:386
+#: libraries/config/messages.inc.php:375 libraries/config/messages.inc.php:388
 #: libraries/plugins/import/ImportCsv.php:85
 #: libraries/plugins/import/ImportLdi.php:79
 msgid "Do not abort on INSERT error"
 msgstr "Nepřerušit při chybě v příkazu INSERT"
 
-#: libraries/config/messages.inc.php:374 libraries/config/messages.inc.php:388
+#: libraries/config/messages.inc.php:376 libraries/config/messages.inc.php:390
 msgid "Add ON DUPLICATE KEY UPDATE"
 msgstr "Přidat ON DUPLICATE KEY UPDATE"
 
-#: libraries/config/messages.inc.php:376 libraries/config/messages.inc.php:390
+#: libraries/config/messages.inc.php:378 libraries/config/messages.inc.php:392
 msgid "Update data when duplicate keys found on import"
 msgstr "Aktualizovat data pokud importované klíče už existují"
 
-#: libraries/config/messages.inc.php:380
+#: libraries/config/messages.inc.php:382
 msgid ""
 "Default format; be aware that this list depends on location (database, "
 "table) and only SQL is always available."
@@ -6229,73 +6243,73 @@ msgstr ""
 "Výchozí formát; uvědomte si, že toto závisí na umístění (databáze, tabulka) "
 "a pouze SQL je vždy dostupný."
 
-#: libraries/config/messages.inc.php:383
+#: libraries/config/messages.inc.php:385
 msgid "Format of imported file"
 msgstr "Formát importovaného souboru"
 
-#: libraries/config/messages.inc.php:387
+#: libraries/config/messages.inc.php:389
 #: libraries/plugins/import/ImportLdi.php:85
 msgid "Use LOCAL keyword"
 msgstr "Použít klíčové slovo LOCAL"
 
-#: libraries/config/messages.inc.php:393 libraries/config/messages.inc.php:405
-#: libraries/config/messages.inc.php:406
+#: libraries/config/messages.inc.php:395 libraries/config/messages.inc.php:407
+#: libraries/config/messages.inc.php:408
 msgid "Column names in first row"
 msgstr "Jména polí na prvním řádku"
 
-#: libraries/config/messages.inc.php:394
+#: libraries/config/messages.inc.php:396
 #: libraries/plugins/import/ImportOds.php:80
 msgid "Do not import empty rows"
 msgstr "Neimportovat prázdné řádky"
 
-#: libraries/config/messages.inc.php:396
+#: libraries/config/messages.inc.php:398
 msgid "Import currencies ($5.00 to 5.00)"
 msgstr "Importovat měny (5.00 místo $5.00)"
 
-#: libraries/config/messages.inc.php:398
+#: libraries/config/messages.inc.php:400
 msgid "Import percentages as proper decimals (12.00% to .12)"
 msgstr "Importovat procenta jako desetinná čísla (0.12 místo 12.00%)"
 
-#: libraries/config/messages.inc.php:399
+#: libraries/config/messages.inc.php:401
 msgid "Number of queries to skip from start."
 msgstr "Počet dotazů od začátku, které se mají přeskočit."
 
-#: libraries/config/messages.inc.php:400
+#: libraries/config/messages.inc.php:402
 msgid "Partial import: skip queries"
 msgstr "Částečný import: přeskočit dotazy"
 
-#: libraries/config/messages.inc.php:403
+#: libraries/config/messages.inc.php:405
 msgid "Do not use AUTO_INCREMENT for zero values"
 msgstr "Nepoužívat AUTO_INCREMENT pro nulové hodnoty"
 
-#: libraries/config/messages.inc.php:404
+#: libraries/config/messages.inc.php:406
 #, fuzzy
 #| msgid "Read misses"
 msgid "Read as multibytes"
 msgstr "Číst jako řetězec"
 
-#: libraries/config/messages.inc.php:407
+#: libraries/config/messages.inc.php:409
 msgid "Initial state for sliders"
 msgstr "Počáteční stav pro rozbalovací pole"
 
-#: libraries/config/messages.inc.php:408
+#: libraries/config/messages.inc.php:410
 msgid "How many rows can be inserted at one time."
 msgstr "Kolik řádků může být vloženo naráz."
 
-#: libraries/config/messages.inc.php:409
+#: libraries/config/messages.inc.php:411
 msgid "Number of inserted rows"
 msgstr "Počet vkládaných řádků"
 
-#: libraries/config/messages.inc.php:411
+#: libraries/config/messages.inc.php:413
 msgid ""
 "Maximum number of characters shown in any non-numeric column on browse view."
 msgstr "Nejvyšší počet znaků zobrazeních v nečíselných polích při procházení."
 
-#: libraries/config/messages.inc.php:413
+#: libraries/config/messages.inc.php:415
 msgid "Limit column characters"
 msgstr "Omezení počtu znaků"
 
-#: libraries/config/messages.inc.php:415
+#: libraries/config/messages.inc.php:417
 msgid ""
 "If TRUE, logout deletes cookies for all servers; when set to FALSE, logout "
 "only occurs for the current server. Setting this to FALSE makes it easy to "
@@ -6306,11 +6320,11 @@ msgstr ""
 "Zakázání může způsobit, že se zapomenete odhlásit od ostatních serverů, "
 "pokud jich používáte více."
 
-#: libraries/config/messages.inc.php:419
+#: libraries/config/messages.inc.php:421
 msgid "Delete all cookies on logout"
 msgstr "Smazat všechny cookies při odhlášení"
 
-#: libraries/config/messages.inc.php:421
+#: libraries/config/messages.inc.php:423
 msgid ""
 "Define whether the previous login should be recalled or not in [kbd]cookie[/"
 "kbd] authentication mode."
@@ -6318,11 +6332,11 @@ msgstr ""
 "Určuje, zda se má pamatovat předchozí přihlášení, při použití přihlašování "
 "pomocí [kbd]cookie[/kbd]."
 
-#: libraries/config/messages.inc.php:424
+#: libraries/config/messages.inc.php:426
 msgid "Recall user name"
 msgstr "Pamatovat si uživatelské jméno"
 
-#: libraries/config/messages.inc.php:426
+#: libraries/config/messages.inc.php:428
 msgid ""
 "Defines how long (in seconds) a login cookie should be stored in browser. "
 "The default of 0 means that it will be kept for the existing session only, "
@@ -6334,48 +6348,48 @@ msgstr ""
 "sezení, čili, že bude smazána v okamžiku, kdy zavřete okno prohlížeče. Tato "
 "volba je doporučena pro nedůvěryhodná prostředí."
 
-#: libraries/config/messages.inc.php:431
+#: libraries/config/messages.inc.php:433
 msgid "Login cookie store"
 msgstr "Uložení přihlašovací cookie"
 
-#: libraries/config/messages.inc.php:433
+#: libraries/config/messages.inc.php:435
 msgid "Define how long (in seconds) a login cookie is valid."
 msgstr "Určuje, jak dlouho (v sekundách) je přihlašovací cookie platná."
 
-#: libraries/config/messages.inc.php:434
+#: libraries/config/messages.inc.php:436
 msgid "Login cookie validity"
 msgstr "Platnost přihlašovací cookie"
 
-#: libraries/config/messages.inc.php:436
+#: libraries/config/messages.inc.php:438
 msgid "Double size of textarea for LONGTEXT columns."
 msgstr "Zdvojnásobit velikost editačního pole pro sloupec typu LONGTEXT."
 
-#: libraries/config/messages.inc.php:437
+#: libraries/config/messages.inc.php:439
 msgid "Bigger textarea for LONGTEXT"
 msgstr "Větší editační pole pro LONGTEXT"
 
-#: libraries/config/messages.inc.php:439
+#: libraries/config/messages.inc.php:441
 msgid "Maximum number of characters used when a SQL query is displayed."
 msgstr "Nejvyšší počet znaků SQL dotazu, které se ještě zobrazí."
 
-#: libraries/config/messages.inc.php:440
+#: libraries/config/messages.inc.php:442
 msgid "Maximum displayed SQL length"
 msgstr "Nejvyšší délka zobrazeného SQL dotazu"
 
-#: libraries/config/messages.inc.php:441 libraries/config/messages.inc.php:460
-#: libraries/config/messages.inc.php:598
+#: libraries/config/messages.inc.php:443 libraries/config/messages.inc.php:462
+#: libraries/config/messages.inc.php:600
 msgid "Users cannot set a higher value"
 msgstr "Uživatelé nemohou nastavit větší hodnotu"
 
-#: libraries/config/messages.inc.php:443
+#: libraries/config/messages.inc.php:445
 msgid "Maximum number of databases displayed in database list."
 msgstr "Nejvyšší počet databází zobrazených v seznamu databází."
 
-#: libraries/config/messages.inc.php:444
+#: libraries/config/messages.inc.php:446
 msgid "Maximum databases"
 msgstr "Nejvyšší počet databází"
 
-#: libraries/config/messages.inc.php:446
+#: libraries/config/messages.inc.php:448
 msgid ""
 "The number of items that can be displayed on each page on the first level of "
 "the navigation tree."
@@ -6383,22 +6397,22 @@ msgstr ""
 "Počet položek, které se mají zobrazit na každé stránce první úrovně "
 "navigačního stromu."
 
-#: libraries/config/messages.inc.php:449
+#: libraries/config/messages.inc.php:451
 msgid "Maximum items on first level"
 msgstr "Nejvyšší počet položek na první úrovni"
 
-#: libraries/config/messages.inc.php:451
+#: libraries/config/messages.inc.php:453
 msgid ""
 "The number of items that can be displayed on each page of the navigation "
 "tree."
 msgstr ""
 "Počet položek, které se mají zobrazit na každé stránce navigačního stromu."
 
-#: libraries/config/messages.inc.php:453
+#: libraries/config/messages.inc.php:455
 msgid "Maximum items in branch"
 msgstr "Nejvyšší počet položek ve větvi"
 
-#: libraries/config/messages.inc.php:455
+#: libraries/config/messages.inc.php:457
 msgid ""
 "Number of rows displayed when browsing a result set. If the result set "
 "contains more rows, \"Previous\" and \"Next\" links will be shown."
@@ -6406,19 +6420,19 @@ msgstr ""
 "Počet řádků, které se zobrazí při procházení množiny výsledků. Pokud je "
 "množina výsledků delší, zobrazí se odkazy „Předchozí“ a „Další“."
 
-#: libraries/config/messages.inc.php:459
+#: libraries/config/messages.inc.php:461
 msgid "Maximum number of rows to display"
 msgstr "Nejvyšší počet zobrazených řádků"
 
-#: libraries/config/messages.inc.php:462
+#: libraries/config/messages.inc.php:464
 msgid "Maximum number of tables displayed in table list."
 msgstr "Nejvyšší počet tabulek zobrazených v seznamu tabulek."
 
-#: libraries/config/messages.inc.php:464
+#: libraries/config/messages.inc.php:466
 msgid "Maximum tables"
 msgstr "Nejvyšší počet zobrazených tabulek"
 
-#: libraries/config/messages.inc.php:466
+#: libraries/config/messages.inc.php:468
 #, fuzzy
 #| msgid ""
 #| "The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd] "
@@ -6430,41 +6444,41 @@ msgstr ""
 "Počet bytů, které si může skript alokovat, např. [kbd]32M[/kbd] ([kbd]-1[/"
 "kbd] pro neomezené a [kbd]0[/kbd] pro žádnou změnu)."
 
-#: libraries/config/messages.inc.php:469
+#: libraries/config/messages.inc.php:471
 msgid "Memory limit"
 msgstr "Omezení paměti"
 
-#: libraries/config/messages.inc.php:471
+#: libraries/config/messages.inc.php:473
 msgid "In the navigation panel, replaces the database tree with a selector"
 msgstr ""
 "V navigačním panelu nahradit databázové rozbalovacím menu pomocí stromu"
 
-#: libraries/config/messages.inc.php:474
+#: libraries/config/messages.inc.php:476
 msgid "Show databases navigation as tree"
 msgstr "Zobrazit databázovou navigaci jako strom"
 
-#: libraries/config/messages.inc.php:477
+#: libraries/config/messages.inc.php:479
 msgid "Link with main panel by highlighting the current database or table."
 msgstr ""
 "Propojení s hlavním panelem pomocí zvýraznění aktuální databáze nebo tabulky."
 
-#: libraries/config/messages.inc.php:480
+#: libraries/config/messages.inc.php:482
 msgid "Show logo in navigation panel."
 msgstr "Zobrazit logo v navigačním panelu."
 
-#: libraries/config/messages.inc.php:481
+#: libraries/config/messages.inc.php:483
 msgid "Display logo"
 msgstr "Zobrazit logo"
 
-#: libraries/config/messages.inc.php:483
+#: libraries/config/messages.inc.php:485
 msgid "URL where logo in the navigation panel will point to."
 msgstr "URL na které bude odkazovat logo v navigačním panelu."
 
-#: libraries/config/messages.inc.php:484
+#: libraries/config/messages.inc.php:486
 msgid "Logo link URL"
 msgstr "URL odkazu loga"
 
-#: libraries/config/messages.inc.php:486
+#: libraries/config/messages.inc.php:488
 msgid ""
 "Open the linked page in the main window ([kbd]main[/kbd]) or in a new one "
 "([kbd]new[/kbd])."
@@ -6472,27 +6486,27 @@ msgstr ""
 "Zda se má odkazovaná stránka otevřít v hlavním okně ([kbd]hlavní[/kbd]) nebo "
 "v novém ([kbd]nové[/kbd])."
 
-#: libraries/config/messages.inc.php:489
+#: libraries/config/messages.inc.php:491
 msgid "Logo link target"
 msgstr "Cíl odkazu loga"
 
-#: libraries/config/messages.inc.php:491
+#: libraries/config/messages.inc.php:493
 msgid "Display server choice at the top of the navigation panel."
 msgstr "Zobrazí volbu serveru v horní části navigačního panelu."
 
-#: libraries/config/messages.inc.php:492
+#: libraries/config/messages.inc.php:494
 msgid "Display servers selection"
 msgstr "Zobrazit výběr serverů"
 
-#: libraries/config/messages.inc.php:493
+#: libraries/config/messages.inc.php:495
 msgid "Target for quick access icon"
 msgstr "Cíl pro ikonu rychlého přístupu"
 
-#: libraries/config/messages.inc.php:495
+#: libraries/config/messages.inc.php:497
 msgid "Target for second quick access icon"
 msgstr "Cíl po kliknutí na druhou ikonku rychlého přístupu"
 
-#: libraries/config/messages.inc.php:498
+#: libraries/config/messages.inc.php:500
 msgid ""
 "Defines the minimum number of items (tables, views, routines and events) to "
 "display a filter box."
@@ -6500,15 +6514,15 @@ msgstr ""
 "Definuje minimální počet položek (tabulky, pohledy, procedury a události) "
 "pro zobrazení filtrovacího pole."
 
-#: libraries/config/messages.inc.php:502
+#: libraries/config/messages.inc.php:504
 msgid "Minimum number of items to display the filter box"
 msgstr "Minimální počet položek pro zobrazení filtrovacího pole"
 
-#: libraries/config/messages.inc.php:504
+#: libraries/config/messages.inc.php:506
 msgid "Minimum number of databases to display the database filter box"
 msgstr "Minimální počet tabulek pro zobrazení filtru databází"
 
-#: libraries/config/messages.inc.php:506
+#: libraries/config/messages.inc.php:508
 msgid ""
 "Group items in the navigation tree (determined by the separator defined in "
 "the Databases and Tables tabs above)."
@@ -6516,52 +6530,52 @@ msgstr ""
 "Seskupovat položky v navigačním stromu (určeno oddělovačem nastaveným nahoře "
 "v záložce Databáze a Tabulky)."
 
-#: libraries/config/messages.inc.php:509
+#: libraries/config/messages.inc.php:511
 msgid "Group items in the tree"
 msgstr "Seskupovat položky ve stromu"
 
-#: libraries/config/messages.inc.php:511
+#: libraries/config/messages.inc.php:513
 msgid "String that separates databases into different tree levels."
 msgstr "Řetězec, který rozděluje databáze do různých pater stromu."
 
-#: libraries/config/messages.inc.php:512
+#: libraries/config/messages.inc.php:514
 msgid "Database tree separator"
 msgstr "Oddělovač databázového stromu"
 
-#: libraries/config/messages.inc.php:514
+#: libraries/config/messages.inc.php:516
 msgid "String that separates tables into different tree levels."
 msgstr "Řetězec, který rozděluje tabulky do různých pater stromu."
 
-#: libraries/config/messages.inc.php:515
+#: libraries/config/messages.inc.php:517
 msgid "Table tree separator"
 msgstr "Oddělovač tabulkovýho stromu"
 
-#: libraries/config/messages.inc.php:516
+#: libraries/config/messages.inc.php:518
 msgid "Maximum table tree depth"
 msgstr "Nejvyšší počet pater tabulkového stromu"
 
-#: libraries/config/messages.inc.php:518
+#: libraries/config/messages.inc.php:520
 msgid "Highlight server under the mouse cursor."
 msgstr "Zvýrazní server pod kurzorem myši."
 
-#: libraries/config/messages.inc.php:519
+#: libraries/config/messages.inc.php:521
 msgid "Enable highlighting"
 msgstr "Povolit zvýrazňování"
 
-#: libraries/config/messages.inc.php:521
+#: libraries/config/messages.inc.php:523
 msgid ""
 "Whether to offer the possibility of tree expansion in the navigation panel."
 msgstr "Nabídnout možnost rozbalení stromu v navigačním panelu."
 
-#: libraries/config/messages.inc.php:524
+#: libraries/config/messages.inc.php:526
 msgid "Enable navigation tree expansion"
 msgstr "Umožnit rozbalení navigačního stromu"
 
-#: libraries/config/messages.inc.php:525
+#: libraries/config/messages.inc.php:527
 msgid "Show tables in tree"
 msgstr "Zobrazit/Skrýt tabulky ve stromu"
 
-#: libraries/config/messages.inc.php:527
+#: libraries/config/messages.inc.php:529
 #, fuzzy
 #| msgid ""
 #| "Whether to offer the possibility of tree expansion in the navigation "
@@ -6569,98 +6583,98 @@ msgstr "Zobrazit/Skrýt tabulky ve stromu"
 msgid "Whether to show tables under database in the navigation tree"
 msgstr "Nabídnout možnost rozbalení stromu v navigačním panelu."
 
-#: libraries/config/messages.inc.php:528
+#: libraries/config/messages.inc.php:530
 msgid "Show views in tree"
 msgstr "Zobrazit ve stromu pohledy"
 
-#: libraries/config/messages.inc.php:530
+#: libraries/config/messages.inc.php:532
 #, fuzzy
 #| msgid "Show databases navigation as tree"
 msgid "Whether to show views under database in the navigation tree"
 msgstr "Zobrazit databázovou navigaci jako strom"
 
-#: libraries/config/messages.inc.php:531
+#: libraries/config/messages.inc.php:533
 msgid "Show functions in tree"
 msgstr "Zobrazit ve stromu fuknce"
 
-#: libraries/config/messages.inc.php:533
+#: libraries/config/messages.inc.php:535
 msgid "Whether to show functions under database in the navigation tree"
 msgstr ""
 
-#: libraries/config/messages.inc.php:534
+#: libraries/config/messages.inc.php:536
 msgid "Show procedures in tree"
 msgstr "Zobrazit ve stromu procedury"
 
-#: libraries/config/messages.inc.php:536
+#: libraries/config/messages.inc.php:538
 msgid "Whether to show procedures under database in the navigation tree"
 msgstr ""
 
-#: libraries/config/messages.inc.php:537
+#: libraries/config/messages.inc.php:539
 msgid "Show events in tree"
 msgstr "Zobrazit ve stromu události"
 
-#: libraries/config/messages.inc.php:539
+#: libraries/config/messages.inc.php:541
 #, fuzzy
 #| msgid "Show databases navigation as tree"
 msgid "Whether to show events under database in the navigation tree"
 msgstr "Zobrazit databázovou navigaci jako strom"
 
-#: libraries/config/messages.inc.php:541
+#: libraries/config/messages.inc.php:543
 msgid "Maximum number of recently used tables; set 0 to disable."
 msgstr ""
 "Nejvyšší počet tabulek v seznamu nedávných tabulek; nastavte 0 pro vypnutí."
 
-#: libraries/config/messages.inc.php:543
+#: libraries/config/messages.inc.php:545
 msgid "Maximum number of favorite tables; set 0 to disable."
 msgstr ""
 "Nejvyšší počet tabulek v seznamu oblíbených tabulek; nastavte 0 pro vypnutí."
 
-#: libraries/config/messages.inc.php:544
+#: libraries/config/messages.inc.php:546
 msgid "Recently used tables"
 msgstr "Nedávno použité tabulky"
 
-#: libraries/config/messages.inc.php:546
+#: libraries/config/messages.inc.php:548
 msgid "These are Edit, Copy and Delete links."
 msgstr "Jedná se o odkazy Upravit, Kopírovat a Odstranit."
 
-#: libraries/config/messages.inc.php:547
+#: libraries/config/messages.inc.php:549
 msgid "Where to show the table row links"
 msgstr "Kde zobrazit odkazy s akcemi při procházení"
 
-#: libraries/config/messages.inc.php:549
+#: libraries/config/messages.inc.php:551
 msgid "Whether to show row links even in the absence of a unique key."
 msgstr ""
 
-#: libraries/config/messages.inc.php:551
+#: libraries/config/messages.inc.php:553
 msgid "Show row links anyway"
 msgstr ""
 
-#: libraries/config/messages.inc.php:553
+#: libraries/config/messages.inc.php:555
 msgid "Use natural order for sorting table and database names."
 msgstr "Použít přirozené řazení pro jména tabulek a databází."
 
-#: libraries/config/messages.inc.php:554
+#: libraries/config/messages.inc.php:556
 msgid "Natural order"
 msgstr "Přirozené pořadí"
 
-#: libraries/config/messages.inc.php:555 libraries/config/messages.inc.php:586
-#: libraries/config/messages.inc.php:588
+#: libraries/config/messages.inc.php:557 libraries/config/messages.inc.php:588
+#: libraries/config/messages.inc.php:590
 msgid "Use only icons, only text or both."
 msgstr "Zda se mají zobrazit pouze ikony, nebo pouze text, případně obojí."
 
-#: libraries/config/messages.inc.php:556
+#: libraries/config/messages.inc.php:558
 msgid "Table navigation bar"
 msgstr "Lišta při procházení tabulky"
 
-#: libraries/config/messages.inc.php:558
+#: libraries/config/messages.inc.php:560
 msgid "Use GZip output buffering for increased speed in HTTP transfers."
 msgstr "Použít vyrovnávací paměť výstupu GZip pro zrychlení přenosů HTTP."
 
-#: libraries/config/messages.inc.php:559
+#: libraries/config/messages.inc.php:561
 msgid "GZip output buffering"
 msgstr "Mezipaměť pro GZip výstup"
 
-#: libraries/config/messages.inc.php:561
+#: libraries/config/messages.inc.php:563
 msgid ""
 "[kbd]SMART[/kbd] - i.e. descending order for columns of type TIME, DATE, "
 "DATETIME and TIMESTAMP, ascending order otherwise."
@@ -6668,19 +6682,19 @@ msgstr ""
 "[kbd]SMART[/kbd] - t.j. řazení sestupně pro pole typu TIME, DATE, DATETIME a "
 "TIMESTAMP, v ostatních případech se použije vzestupné řazení."
 
-#: libraries/config/messages.inc.php:564
+#: libraries/config/messages.inc.php:566
 msgid "Default sorting order"
 msgstr "Výchozí pořadí řazení"
 
-#: libraries/config/messages.inc.php:566
+#: libraries/config/messages.inc.php:568
 msgid "Use persistent connections to MySQL databases."
 msgstr "Používat trvalé připojení k databázím MySQL."
 
-#: libraries/config/messages.inc.php:567
+#: libraries/config/messages.inc.php:569
 msgid "Persistent connections"
 msgstr "Trvalé připojení"
 
-#: libraries/config/messages.inc.php:569
+#: libraries/config/messages.inc.php:571
 msgid ""
 "Disable the default warning that is displayed on the database details "
 "Structure page if any of the required tables for the phpMyAdmin "
@@ -6689,11 +6703,11 @@ msgstr ""
 "Vypne varování o nekompletních relacích na stránce s detaily databáze pokud "
 "chybí jakákoliv tabulka z úložiště nastavení phpMyAdmina."
 
-#: libraries/config/messages.inc.php:574
+#: libraries/config/messages.inc.php:576
 msgid "Missing phpMyAdmin configuration storage tables"
 msgstr "Chybějící tabulky v úložišti nastavení phpMyAdmina"
 
-#: libraries/config/messages.inc.php:576
+#: libraries/config/messages.inc.php:578
 msgid ""
 "Disable the default warning that is displayed if a difference between the "
 "MySQL library and server is detected."
@@ -6701,11 +6715,11 @@ msgstr ""
 "Vypne varování, která se zobrazí, pokud je zjištěna rozdílná verze knihovny "
 "MySQL a serveru."
 
-#: libraries/config/messages.inc.php:580
+#: libraries/config/messages.inc.php:582
 msgid "Server/library difference warning"
 msgstr "Varování o rozdílných verzích"
 
-#: libraries/config/messages.inc.php:582
+#: libraries/config/messages.inc.php:584
 msgid ""
 "Disable the default warning that is displayed on the Structure page if "
 "column names in a table are reserved MySQL words."
@@ -6713,27 +6727,27 @@ msgstr ""
 "Vypne varování o použití klíčového slova MySQL v názvu sloupce na stránce se "
 "strukturou tabulky."
 
-#: libraries/config/messages.inc.php:585
+#: libraries/config/messages.inc.php:587
 msgid "MySQL reserved word warning"
 msgstr "Varování o klíčových slovech MySQL"
 
-#: libraries/config/messages.inc.php:587
+#: libraries/config/messages.inc.php:589
 msgid "How to display the menu tabs"
 msgstr "Jak zobrazit panely nabídky"
 
-#: libraries/config/messages.inc.php:589
+#: libraries/config/messages.inc.php:591
 msgid "How to display various action links"
 msgstr "Jak zobrazit akční odkazy"
 
-#: libraries/config/messages.inc.php:590
+#: libraries/config/messages.inc.php:592
 msgid "Disallow BLOB and BINARY columns from editing."
 msgstr "Zakáže úpravu polí BLOB a BINARY."
 
-#: libraries/config/messages.inc.php:591
+#: libraries/config/messages.inc.php:593
 msgid "Protect binary columns"
 msgstr "Chránit binární pole"
 
-#: libraries/config/messages.inc.php:593
+#: libraries/config/messages.inc.php:595
 msgid ""
 "Enable if you want DB-based query history (requires phpMyAdmin configuration "
 "storage). If disabled, this utilizes JS-routines to display query history "
@@ -6744,104 +6758,104 @@ msgstr ""
 "historie Java Scriptové rutiny (se zavřením okna ztratíte předchozí "
 "historii)."
 
-#: libraries/config/messages.inc.php:597
+#: libraries/config/messages.inc.php:599
 msgid "Permanent query history"
 msgstr "Nepřetržitá historie dotazů"
 
-#: libraries/config/messages.inc.php:599
+#: libraries/config/messages.inc.php:601
 msgid "How many queries are kept in history."
 msgstr "Kolik dotazů se má držet v historii."
 
-#: libraries/config/messages.inc.php:600
+#: libraries/config/messages.inc.php:602
 msgid "Query history length"
 msgstr "Délka historie dotazů"
 
-#: libraries/config/messages.inc.php:602
+#: libraries/config/messages.inc.php:604
 msgid "Select which functions will be used for character set conversion."
 msgstr "Vybere, které funkce budou použity pro konverzi znakových sad."
 
-#: libraries/config/messages.inc.php:603
+#: libraries/config/messages.inc.php:605
 msgid "Recoding engine"
 msgstr "Nástroje pro konverzi znakových sad"
 
-#: libraries/config/messages.inc.php:605
+#: libraries/config/messages.inc.php:607
 msgid "When browsing tables, the sorting of each table is remembered."
 msgstr "Při procházení tabulek se pro každou uloží nastavené řazení."
 
-#: libraries/config/messages.inc.php:606
+#: libraries/config/messages.inc.php:608
 msgid "Remember table's sorting"
 msgstr "Pamatovat si řazení u tabulkek"
 
-#: libraries/config/messages.inc.php:608
+#: libraries/config/messages.inc.php:610
 msgid "Default sort order for tables with a primary key."
 msgstr "Výchozí způsob řazení pro tabulky s primárním klíčem."
 
-#: libraries/config/messages.inc.php:610
+#: libraries/config/messages.inc.php:612
 msgid "Primary key default sort order"
 msgstr "Výchozí způsob řazení primárního klíče"
 
-#: libraries/config/messages.inc.php:612
+#: libraries/config/messages.inc.php:614
 msgid ""
 "Repeat the headers every X cells, [kbd]0[/kbd] deactivates this feature."
 msgstr "Zopakovat záhlaví každých X buněk, [kbd]0[/kbd] vypne tuto funknci."
 
-#: libraries/config/messages.inc.php:613
+#: libraries/config/messages.inc.php:615
 msgid "Repeat headers"
 msgstr "Opakovat záhlaví"
 
-#: libraries/config/messages.inc.php:615
+#: libraries/config/messages.inc.php:617
 msgid "Grid editing: trigger action"
 msgstr "Úpravy v mřížce: činnost pro spuštění"
 
-#: libraries/config/messages.inc.php:616
+#: libraries/config/messages.inc.php:618
 msgid "Relational display"
 msgstr "Relační zobrazení"
 
-#: libraries/config/messages.inc.php:617
+#: libraries/config/messages.inc.php:619
 msgid "For display Options"
 msgstr "Pro zobrazení Nastavení"
 
-#: libraries/config/messages.inc.php:618
+#: libraries/config/messages.inc.php:620
 msgid "Grid editing: save all edited cells at once"
 msgstr "Úpravy v mřížce: Uložit všechny upravené buňky najednou"
 
-#: libraries/config/messages.inc.php:619
+#: libraries/config/messages.inc.php:621
 msgid "Directory where exports can be saved on server."
 msgstr "Adresář na serveru pro ukládání exportů."
 
-#: libraries/config/messages.inc.php:620
+#: libraries/config/messages.inc.php:622
 msgid "Save directory"
 msgstr "Adresář pro ukládání"
 
-#: libraries/config/messages.inc.php:621
+#: libraries/config/messages.inc.php:623
 msgid "Leave blank if not used."
 msgstr "Pokud tuto volbu nepoužíváte, nechte ji prázdnou."
 
-#: libraries/config/messages.inc.php:622
+#: libraries/config/messages.inc.php:624
 msgid "Host authorization order"
 msgstr "Pořadí ověřování hostitelů"
 
-#: libraries/config/messages.inc.php:623
+#: libraries/config/messages.inc.php:625
 msgid "Leave blank for defaults."
 msgstr "Nechte volbu prázdnou pro výchozí nastavení."
 
-#: libraries/config/messages.inc.php:624
+#: libraries/config/messages.inc.php:626
 msgid "Host authorization rules"
 msgstr "Pravidla ověřování hostitelů"
 
-#: libraries/config/messages.inc.php:625
+#: libraries/config/messages.inc.php:627
 msgid "Allow logins without a password"
 msgstr "Povolit přihlášení bez hesla"
 
-#: libraries/config/messages.inc.php:626
+#: libraries/config/messages.inc.php:628
 msgid "Allow root login"
 msgstr "Povolit přihlašování uživatele root"
 
-#: libraries/config/messages.inc.php:627
+#: libraries/config/messages.inc.php:629
 msgid "Session timezone"
 msgstr "Časová zóna relace"
 
-#: libraries/config/messages.inc.php:629
+#: libraries/config/messages.inc.php:631
 msgid ""
 "Sets the effective timezone; possibly different than the one from your "
 "database server"
@@ -6849,15 +6863,15 @@ msgstr ""
 "Nastaví efektivní časovou zónu; pravděpodobně odlišnou od nastavení vašeho "
 "databázového serveru"
 
-#: libraries/config/messages.inc.php:633
+#: libraries/config/messages.inc.php:635
 msgid "HTTP Basic Auth Realm name to display when doing HTTP Auth."
 msgstr "Název pro zobrazení při HTTP přihlašování."
 
-#: libraries/config/messages.inc.php:634
+#: libraries/config/messages.inc.php:636
 msgid "HTTP Realm"
 msgstr "HTTP doméma"
 
-#: libraries/config/messages.inc.php:636
+#: libraries/config/messages.inc.php:638
 msgid ""
 "The path for the config file for [a@http://swekey.com]SweKey hardware "
 "authentication[/a] (not located in your document root; suggested: /etc/"
@@ -6867,19 +6881,19 @@ msgstr ""
 "přihlašování SweKey[/a] (Není umístěna ve Vašem kořenovém adresáři "
 "dokumentů; Doporučení: /etc/swekey.conf)."
 
-#: libraries/config/messages.inc.php:640
+#: libraries/config/messages.inc.php:642
 msgid "SweKey config file"
 msgstr "Konfigurační soubor SweKey"
 
-#: libraries/config/messages.inc.php:641
+#: libraries/config/messages.inc.php:643
 msgid "Authentication method to use."
 msgstr "Která přihlašovací metoda se má použít."
 
-#: libraries/config/messages.inc.php:642 setup/frames/index.inc.php:166
+#: libraries/config/messages.inc.php:644 setup/frames/index.inc.php:167
 msgid "Authentication type"
 msgstr "Typ přihlašování"
 
-#: libraries/config/messages.inc.php:644
+#: libraries/config/messages.inc.php:646
 msgid ""
 "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/a] "
 "support, suggested: [kbd]pma__bookmark[/kbd]"
@@ -6887,11 +6901,11 @@ msgstr ""
 "Nechte prázdné pro vypnutí podpory [a@http://wiki.phpmyadmin.net/pma/"
 "bookmark]záložek[/a], doporučené nastavení: [kbd]pma__bookmarks[/kbd]"
 
-#: libraries/config/messages.inc.php:647
+#: libraries/config/messages.inc.php:649
 msgid "Bookmark table"
 msgstr "Tabulka záložek"
 
-#: libraries/config/messages.inc.php:649
+#: libraries/config/messages.inc.php:651
 msgid ""
 "Leave blank for no column comments/mime types, suggested: "
 "[kbd]pma__column_info[/kbd]."
@@ -6899,32 +6913,32 @@ msgstr ""
 "Nechte prázdné pro žádné komentáře či mime typy polí, výchozí nastavení: "
 "[kbd]pma__column_info[/kbd]."
 
-#: libraries/config/messages.inc.php:652
+#: libraries/config/messages.inc.php:654
 msgid "Column information table"
 msgstr "Tabulka informací o polích"
 
-#: libraries/config/messages.inc.php:653
+#: libraries/config/messages.inc.php:655
 msgid "Compress connection to MySQL server."
 msgstr "Zda se má komprimovat připojení k MySQL serveru."
 
-#: libraries/config/messages.inc.php:654
+#: libraries/config/messages.inc.php:656
 msgid "Compress connection"
 msgstr "Komprimovat připojení"
 
-#: libraries/config/messages.inc.php:656
+#: libraries/config/messages.inc.php:658
 msgid "How to connect to server, keep [kbd]tcp[/kbd] if unsure."
 msgstr ""
 "Způsob připojení k serveru, pokud si nejste jistí ponechte [kbd]tcp[/kbd]."
 
-#: libraries/config/messages.inc.php:657
+#: libraries/config/messages.inc.php:659
 msgid "Connection type"
 msgstr "Typ připojení"
 
-#: libraries/config/messages.inc.php:658
+#: libraries/config/messages.inc.php:660
 msgid "Control user password"
 msgstr "Heslo kontrolního uživatele"
 
-#: libraries/config/messages.inc.php:660
+#: libraries/config/messages.inc.php:662
 msgid ""
 "A special MySQL user configured with limited permissions, more information "
 "available on [a@http://wiki.phpmyadmin.net/pma/controluser]wiki[/a]."
@@ -6932,21 +6946,21 @@ msgstr ""
 "Zvláštní MySQL uživatel s omezenými právy, více informací na [a@http://wiki."
 "phpmyadmin.net/pma/controluser]wiki[/a]."
 
-#: libraries/config/messages.inc.php:663
+#: libraries/config/messages.inc.php:665
 msgid "Control user"
 msgstr "Kontrolní uživatel"
 
-#: libraries/config/messages.inc.php:665
+#: libraries/config/messages.inc.php:667
 msgid ""
 "An alternate host to hold the configuration storage; leave blank to use the "
 "already defined host."
 msgstr "Jiný server na kterém bude umístěno úložiště nastavení phpMyAdmina."
 
-#: libraries/config/messages.inc.php:668
+#: libraries/config/messages.inc.php:670
 msgid "Control host"
 msgstr "Kontrolní host"
 
-#: libraries/config/messages.inc.php:670
+#: libraries/config/messages.inc.php:672
 msgid ""
 "An alternate port to connect to the host that holds the configuration "
 "storage; leave blank to use the default port, or the already defined port, "
@@ -6956,15 +6970,15 @@ msgstr ""
 "nastavení phpMyAdmina; ponechte prázdné pro použití výchozího portu, nebo "
 "již nastaveného, pokud je nastaven stejný server jako pro připojení."
 
-#: libraries/config/messages.inc.php:674
+#: libraries/config/messages.inc.php:676
 msgid "Control port"
 msgstr "Kontrolní port"
 
-#: libraries/config/messages.inc.php:676
+#: libraries/config/messages.inc.php:678
 msgid "Hide databases matching regular expression (PCRE)."
 msgstr "Skrýt databáze odpovídající regulárnímu výrazu (PCRE)."
 
-#: libraries/config/messages.inc.php:678
+#: libraries/config/messages.inc.php:680
 msgid ""
 "More information on [a@https://sourceforge.net/p/phpmyadmin/bugs/2606/]PMA "
 "bug tracker[/a] and [a@http://bugs.mysql.com/19588]MySQL Bugs[/a]"
@@ -6972,15 +6986,15 @@ msgstr ""
 "Více informací v [a@https://sourceforge.net/p/phpmyadmin/bugs/2606/]PMA bug "
 "trackeru[/a] a [a@http://bugs.mysql.com/19588]MySQL Bugs[/a]"
 
-#: libraries/config/messages.inc.php:681
+#: libraries/config/messages.inc.php:683
 msgid "Disable use of INFORMATION_SCHEMA"
 msgstr "Zakázat použití INFORMATION_SCHEMA"
 
-#: libraries/config/messages.inc.php:682
+#: libraries/config/messages.inc.php:684
 msgid "Hide databases"
 msgstr "Skrýt databáze"
 
-#: libraries/config/messages.inc.php:684
+#: libraries/config/messages.inc.php:686
 msgid ""
 "Leave blank for no SQL query history support, suggested: [kbd]pma__history[/"
 "kbd]."
@@ -6988,23 +7002,23 @@ msgstr ""
 "Nechte prázdné pro vypnutí SQL historie, výchozí hodnota [kbd]pma__history[/"
 "kbd]."
 
-#: libraries/config/messages.inc.php:687
+#: libraries/config/messages.inc.php:689
 msgid "SQL query history table"
 msgstr "Tabulka pro historii SQL dotazů"
 
-#: libraries/config/messages.inc.php:688
+#: libraries/config/messages.inc.php:690
 msgid "Hostname where MySQL server is running."
 msgstr "Jméno počítače, kde běží MySQL server."
 
-#: libraries/config/messages.inc.php:689
+#: libraries/config/messages.inc.php:691
 msgid "Server hostname"
 msgstr "Jméno serveru"
 
-#: libraries/config/messages.inc.php:690
+#: libraries/config/messages.inc.php:692
 msgid "Logout URL"
 msgstr "URL pro odhlášení"
 
-#: libraries/config/messages.inc.php:692
+#: libraries/config/messages.inc.php:694
 msgid ""
 "Limits number of table preferences which are stored in database, the oldest "
 "records are automatically removed."
@@ -7012,15 +7026,15 @@ msgstr ""
 "Omezí počet nastavení prohlížení tabulek, která budou uložena v databázi, "
 "nejstarší záznamy jsou automaticky odstraněny."
 
-#: libraries/config/messages.inc.php:696
+#: libraries/config/messages.inc.php:698
 msgid "Maximal number of table preferences to store"
 msgstr "Nejvyšší počet uložených nastavení tabulek"
 
-#: libraries/config/messages.inc.php:697
+#: libraries/config/messages.inc.php:699
 msgid "QBE saved searches table"
 msgstr "Tabulka s uloženými dotazy"
 
-#: libraries/config/messages.inc.php:699
+#: libraries/config/messages.inc.php:701
 msgid ""
 "Leave blank for no QBE saved searches support, suggested: "
 "[kbd]pma__savedsearches[/kbd]."
@@ -7028,11 +7042,11 @@ msgstr ""
 "Nechte prázdné pro vypnutí podpory pro ukládání dotazů, doporučené "
 "nastavení: [kbd]pma__savedsearches[/kbd]."
 
-#: libraries/config/messages.inc.php:702
+#: libraries/config/messages.inc.php:704
 msgid "Export templates table"
 msgstr "Exportovat tabulku šablon"
 
-#: libraries/config/messages.inc.php:704
+#: libraries/config/messages.inc.php:706
 msgid ""
 "Leave blank for no export template support, suggested: "
 "[kbd]pma__export_templates[/kbd]."
@@ -7040,11 +7054,11 @@ msgstr ""
 "Nechte prázdné pro vypnutí podpory exportních šablon, doporučené nastavení: "
 "[kbd]pma__export_templates[/kbd]."
 
-#: libraries/config/messages.inc.php:707
+#: libraries/config/messages.inc.php:709
 msgid "Central columns table"
 msgstr "Centrální sloupcová tabulka"
 
-#: libraries/config/messages.inc.php:709
+#: libraries/config/messages.inc.php:711
 msgid ""
 "Leave blank for no central columns support, suggested: "
 "[kbd]pma__central_columns[/kbd]."
@@ -7052,15 +7066,15 @@ msgstr ""
 "Nechte prázdné pro vypnutí podpory centrálních sloupců, například: "
 "[kbd]pma__table_coords[/kbd]."
 
-#: libraries/config/messages.inc.php:712
+#: libraries/config/messages.inc.php:714
 msgid "Try to connect without password."
 msgstr "Pokusit se připojit bez hesla."
 
-#: libraries/config/messages.inc.php:713
+#: libraries/config/messages.inc.php:715
 msgid "Connect without password"
 msgstr "Připojit bez hesla"
 
-#: libraries/config/messages.inc.php:715
+#: libraries/config/messages.inc.php:717
 msgid ""
 "You can use MySQL wildcard characters (% and _), escape them if you want to "
 "use their literal instances, i.e. use [kbd]'my\\_db'[/kbd] and not "
@@ -7069,30 +7083,30 @@ msgstr ""
 "Můžete použít žolíky MySQL (% a _), escapujte je, pokud si je přejete použít "
 "jako znaky, např. použijte [kbd]'moje\\_db'[/kbd] a ne [kbd]'moje_db'[/kbd]."
 
-#: libraries/config/messages.inc.php:719
+#: libraries/config/messages.inc.php:721
 msgid "Show only listed databases"
 msgstr "Zobrazit jen vybrané databáze"
 
-#: libraries/config/messages.inc.php:720 libraries/config/messages.inc.php:829
+#: libraries/config/messages.inc.php:722 libraries/config/messages.inc.php:831
 msgid "Leave empty if not using config auth."
 msgstr "Nechte prázdné, pokud nepoužíváte přihlašování config."
 
-#: libraries/config/messages.inc.php:721
+#: libraries/config/messages.inc.php:723
 msgid "Password for config auth"
 msgstr "Heslo pro přihlašování config"
 
-#: libraries/config/messages.inc.php:723
+#: libraries/config/messages.inc.php:725
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__pdf_pages[/kbd]."
 msgstr ""
 "Nechte prázdné pro vypnutí podpory pro PDF schémata, doporučené nastavení: "
 "[kbd]pma__table_pages[/kbd]."
 
-#: libraries/config/messages.inc.php:725
+#: libraries/config/messages.inc.php:727
 msgid "PDF schema: pages table"
 msgstr "PDF schémata: tabulka stránek"
 
-#: libraries/config/messages.inc.php:727
+#: libraries/config/messages.inc.php:729
 msgid ""
 "Database used for relations, bookmarks, and PDF features. See [a@http://wiki."
 "phpmyadmin.net/pma/pmadb]pmadb[/a] for complete information. Leave blank for "
@@ -7103,21 +7117,21 @@ msgstr ""
 "ponecháte prázdné, budou tyto funkce vypnuté. Doporučená hodnota: "
 "[kbd]phpmyadmin[/kbd]."
 
-#: libraries/config/messages.inc.php:731
+#: libraries/config/messages.inc.php:733
 #: templates/server/databases/create.phtml:20
 msgid "Database name"
 msgstr "Jméno databáze"
 
-#: libraries/config/messages.inc.php:733
+#: libraries/config/messages.inc.php:735
 msgid "Port on which MySQL server is listening, leave empty for default."
 msgstr ""
 "Port na kterém poslouchá MySQL server, ponechte prázdné pro výchozí hodnotu."
 
-#: libraries/config/messages.inc.php:734
+#: libraries/config/messages.inc.php:736
 msgid "Server port"
 msgstr "Port serveru"
 
-#: libraries/config/messages.inc.php:736
+#: libraries/config/messages.inc.php:738
 msgid ""
 "Leave blank for no \"persistent\" recently used tables across sessions, "
 "suggested: [kbd]pma__recent[/kbd]."
@@ -7125,11 +7139,11 @@ msgstr ""
 "Nechte prázdné pro vypnutí „trvalého“ ukládání nedávných tabulek, výchozí "
 "nastavení: [kbd]pma__recent[/kbd]."
 
-#: libraries/config/messages.inc.php:739
+#: libraries/config/messages.inc.php:741
 msgid "Recently used table"
 msgstr "Naposledy použité tabulky"
 
-#: libraries/config/messages.inc.php:741
+#: libraries/config/messages.inc.php:743
 msgid ""
 "Leave blank for no \"persistent\" favorite tables across sessions, "
 "suggested: [kbd]pma__favorite[/kbd]."
@@ -7137,11 +7151,11 @@ msgstr ""
 "Nechte prázdné pro vypnutí „trvalého“ ukládání oblíbených tabulek, výchozí "
 "nastavení: [kbd]pma__favorite[/kbd]."
 
-#: libraries/config/messages.inc.php:744
+#: libraries/config/messages.inc.php:746
 msgid "Favorites table"
 msgstr "Oblíbené tabulky"
 
-#: libraries/config/messages.inc.php:746
+#: libraries/config/messages.inc.php:748
 msgid ""
 "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
 "links[/a] support, suggested: [kbd]pma__relation[/kbd]."
@@ -7149,11 +7163,11 @@ msgstr ""
 "Nechte prázdné pro vypnutí podpory pro [a@http://wiki.phpmyadmin.net/pma/"
 "relation]relace[/a], doporučené nastavení: [kbd]pma__relation[/kbd]."
 
-#: libraries/config/messages.inc.php:750
+#: libraries/config/messages.inc.php:752
 msgid "Relation table"
 msgstr "Tabulka s relacemi"
 
-#: libraries/config/messages.inc.php:752
+#: libraries/config/messages.inc.php:754
 msgid ""
 "See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
 "types[/a] for an example."
@@ -7161,33 +7175,33 @@ msgstr ""
 "Příklad můžete nalézt na [a@http://wiki.phpmyadmin.net/pma/"
 "auth_types#signon]authentication types[/a]."
 
-#: libraries/config/messages.inc.php:755
+#: libraries/config/messages.inc.php:757
 msgid "Signon session name"
 msgstr "Jméno signon session"
 
-#: libraries/config/messages.inc.php:756
+#: libraries/config/messages.inc.php:758
 msgid "Signon URL"
 msgstr "URL pro přihlášení"
 
-#: libraries/config/messages.inc.php:758
+#: libraries/config/messages.inc.php:760
 msgid "Socket on which MySQL server is listening, leave empty for default."
 msgstr ""
 "Socket na kterém poslouchá MySQL server, ponechte prázdné pro výchozí "
 "hodnotu."
 
-#: libraries/config/messages.inc.php:759
+#: libraries/config/messages.inc.php:761
 msgid "Server socket"
 msgstr "Socket serveru"
 
-#: libraries/config/messages.inc.php:760
+#: libraries/config/messages.inc.php:762
 msgid "Enable SSL for connection to MySQL server."
 msgstr "Zda se má použít SSL pro připojení k MySQL serveru."
 
-#: libraries/config/messages.inc.php:761
+#: libraries/config/messages.inc.php:763
 msgid "Use SSL"
 msgstr "Použít SSL"
 
-#: libraries/config/messages.inc.php:763
+#: libraries/config/messages.inc.php:765
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__table_coords[/"
 "kbd]."
@@ -7195,11 +7209,11 @@ msgstr ""
 "Nechte prázdné pro vypnutí podpory pro PDF schémata, doporučené nastavení: "
 "[kbd]pma__table_coords[/kbd]."
 
-#: libraries/config/messages.inc.php:766
+#: libraries/config/messages.inc.php:768
 msgid "Designer and PDF schema: table coordinates"
 msgstr "Designér a PDF schéma: tabulka souřadnic"
 
-#: libraries/config/messages.inc.php:769
+#: libraries/config/messages.inc.php:771
 msgid ""
 "Table to describe the display columns, leave blank for no support; "
 "suggested: [kbd]pma__table_info[/kbd]."
@@ -7207,11 +7221,11 @@ msgstr ""
 "Tabulka obsahující popisy polí, nechte prázdnou pro vypnutí této funkce, "
 "doporučené nastavení: [kbd]pma__table_info[/kbd]."
 
-#: libraries/config/messages.inc.php:772
+#: libraries/config/messages.inc.php:774
 msgid "Display columns table"
 msgstr "Tabulka s popisem polí"
 
-#: libraries/config/messages.inc.php:774
+#: libraries/config/messages.inc.php:776
 msgid ""
 "Leave blank for no \"persistent\" tables' UI preferences across sessions, "
 "suggested: [kbd]pma__table_uiprefs[/kbd]."
@@ -7219,11 +7233,11 @@ msgstr ""
 "Nechte prázdné pro vypnutí podpory pro „trvalé“ ukládání nastavení "
 "procházení tabulek, doporučené nastavení: [kbd]pma__uiprefs[/kbd]."
 
-#: libraries/config/messages.inc.php:777
+#: libraries/config/messages.inc.php:779
 msgid "UI preferences table"
 msgstr "Tabulka pro nastavení rozhraní"
 
-#: libraries/config/messages.inc.php:779
+#: libraries/config/messages.inc.php:781
 msgid ""
 "Whether a DROP DATABASE IF EXISTS statement will be added as first line to "
 "the log when creating a database."
@@ -7231,43 +7245,43 @@ msgstr ""
 "Jestli přidat příkaz DROP DATABASE IF EXISTS jako první při vytváření "
 "databáze."
 
-#: libraries/config/messages.inc.php:782
+#: libraries/config/messages.inc.php:784
 msgid "Add DROP DATABASE"
 msgstr "Přidat DROP DATABASE"
 
-#: libraries/config/messages.inc.php:784
+#: libraries/config/messages.inc.php:786
 msgid ""
 "Whether a DROP TABLE IF EXISTS statement will be added as first line to the "
 "log when creating a table."
 msgstr ""
 "Jestli přidat příkaz DROP TABLE IF EXISTS jako první při vytváření tabulky."
 
-#: libraries/config/messages.inc.php:787 libraries/mult_submits.lib.php:347
+#: libraries/config/messages.inc.php:789 libraries/mult_submits.lib.php:347
 msgid "Add DROP TABLE"
 msgstr "Přidat DROP TABLE"
 
-#: libraries/config/messages.inc.php:789
+#: libraries/config/messages.inc.php:791
 msgid ""
 "Whether a DROP VIEW IF EXISTS statement will be added as first line to the "
 "log when creating a view."
 msgstr ""
 "Jestli přidat příkaz DROP VIEW IF EXISTS jako první při vytváření pohledu."
 
-#: libraries/config/messages.inc.php:792
+#: libraries/config/messages.inc.php:794
 msgid "Add DROP VIEW"
 msgstr "Přidat DROP VIEW"
 
-#: libraries/config/messages.inc.php:794
+#: libraries/config/messages.inc.php:796
 msgid "Defines the list of statements the auto-creation uses for new versions."
 msgstr ""
 "Určuje seznam příkazů které se automaticky používají pro vytvoření nových "
 "verzí."
 
-#: libraries/config/messages.inc.php:795
+#: libraries/config/messages.inc.php:797
 msgid "Statements to track"
 msgstr "Sledované příkazy"
 
-#: libraries/config/messages.inc.php:797
+#: libraries/config/messages.inc.php:799
 msgid ""
 "Leave blank for no SQL query tracking support, suggested: "
 "[kbd]pma__tracking[/kbd]."
@@ -7275,22 +7289,22 @@ msgstr ""
 "Nechte prázdné pro vypnutí podpory pro sledování SQL dotazů, doporučené "
 "nastavení: [kbd]pma__tracking[/kbd]."
 
-#: libraries/config/messages.inc.php:800
+#: libraries/config/messages.inc.php:802
 msgid "SQL query tracking table"
 msgstr "Tabulka pro sledování SQL dotazů"
 
-#: libraries/config/messages.inc.php:802
+#: libraries/config/messages.inc.php:804
 msgid ""
 "Whether the tracking mechanism creates versions for tables and views "
 "automatically."
 msgstr ""
 "Jestli má sledování tabulek automaticky vytvářet verze pro tabulky a pohledy."
 
-#: libraries/config/messages.inc.php:806
+#: libraries/config/messages.inc.php:808
 msgid "Automatically create versions"
 msgstr "Automaticky vytvářet verze"
 
-#: libraries/config/messages.inc.php:808
+#: libraries/config/messages.inc.php:810
 msgid ""
 "Leave blank for no user preferences storage in database, suggested: "
 "[kbd]pma__userconfig[/kbd]."
@@ -7298,11 +7312,11 @@ msgstr ""
 "Nechte prázdné pro vypnutí podpory pro uživatelské nastavení v databázi, "
 "doporučené nastavení: [kbd]pma__userconfig[/kbd]."
 
-#: libraries/config/messages.inc.php:811
+#: libraries/config/messages.inc.php:813
 msgid "User preferences storage table"
 msgstr "Tabulka pro uživatelská nastavení"
 
-#: libraries/config/messages.inc.php:813
+#: libraries/config/messages.inc.php:815
 #, fuzzy
 #| msgid ""
 #| "Both this table and the user groups table are required to enable the "
@@ -7317,11 +7331,11 @@ msgstr ""
 "uživatelů. Pokud libovolnou z nich nevyplníte, bude tato funkcionalita "
 "vypnutá. Doporučené nastavení: [kbd]pma__users[/kbd]."
 
-#: libraries/config/messages.inc.php:817
+#: libraries/config/messages.inc.php:819
 msgid "Users table"
 msgstr "Tabulka uživatelů"
 
-#: libraries/config/messages.inc.php:819
+#: libraries/config/messages.inc.php:821
 msgid ""
 "Both this table and the users table are required to enable the configurable "
 "menus feature; leaving either one of them blank will disable this feature, "
@@ -7331,11 +7345,11 @@ msgstr ""
 "uživatelských nastavení. Pokud libovolnou z nich nevyplníte, bude tato "
 "funkcionalita vypnutá. Doporučené nastavení: [kbd]pma__users[/kbd]."
 
-#: libraries/config/messages.inc.php:823
+#: libraries/config/messages.inc.php:825
 msgid "User groups table"
 msgstr "Tabulka skupin uživatelů"
 
-#: libraries/config/messages.inc.php:825
+#: libraries/config/messages.inc.php:827
 msgid ""
 "Leave blank to disable the feature to hide and show navigation items, "
 "suggested: [kbd]pma__navigationhiding[/kbd]."
@@ -7343,34 +7357,34 @@ msgstr ""
 "Nechte prázdné pro vypnutí podpory pro schovávání navigačních položek, "
 "doporučené nastavení: [kbd]pma__navigationhiding[/kbd]."
 
-#: libraries/config/messages.inc.php:828
+#: libraries/config/messages.inc.php:830
 msgid "Hidden navigation items table"
 msgstr "Tabulka skrývání navigace"
 
-#: libraries/config/messages.inc.php:830
+#: libraries/config/messages.inc.php:832
 msgid "User for config auth"
 msgstr "Uživatel pro přihlašování config"
 
-#: libraries/config/messages.inc.php:832
+#: libraries/config/messages.inc.php:834
 msgid ""
 "A user-friendly description of this server. Leave blank to display the "
 "hostname instead."
 msgstr ""
 "Přívětivý popis tohoto serveru. Pokud necháte prázdné, zobrazí se jeho jméno."
 
-#: libraries/config/messages.inc.php:835
+#: libraries/config/messages.inc.php:837
 msgid "Verbose name of this server"
 msgstr "Dlouhé jméno tohoto serveru"
 
-#: libraries/config/messages.inc.php:837
+#: libraries/config/messages.inc.php:839
 msgid "Whether a user should be displayed a \"show all (rows)\" button."
 msgstr "Jestli bude uživateli zobrazeno tlačítko „Zobrazit vše“."
 
-#: libraries/config/messages.inc.php:839
+#: libraries/config/messages.inc.php:841
 msgid "Allow to display all the rows"
 msgstr "Umožní zobrazit všechny řádky"
 
-#: libraries/config/messages.inc.php:841
+#: libraries/config/messages.inc.php:843
 msgid ""
 "Please note that enabling this has no effect with [kbd]config[/kbd] "
 "authentication mode because the password is hard coded in the configuration "
@@ -7381,81 +7395,81 @@ msgstr ""
 "neomezuje možnost spustit daný příkaz přímo, jen ovlivňuje zobrazení "
 "formuláře."
 
-#: libraries/config/messages.inc.php:845
+#: libraries/config/messages.inc.php:847
 msgid "Show password change form"
 msgstr "Zobrazit formulář pro změnu hesla"
 
-#: libraries/config/messages.inc.php:846
+#: libraries/config/messages.inc.php:848
 msgid "Show create database form"
 msgstr "Zobrazit formulář pro vytvoření databáze"
 
-#: libraries/config/messages.inc.php:848
+#: libraries/config/messages.inc.php:850
 msgid "Show or hide a column displaying the comments for all tables."
 msgstr "Zobrazit nebo skrýt sloupec zobrazující komentář pro všechny tabulky."
 
-#: libraries/config/messages.inc.php:850
+#: libraries/config/messages.inc.php:852
 msgid "Show table comments"
 msgstr "Zobrazit komentář k tabulce"
 
-#: libraries/config/messages.inc.php:852
+#: libraries/config/messages.inc.php:854
 msgid "Show or hide a column displaying the Creation timestamp for all tables."
 msgstr ""
 "Zobrazit nebo skrýt sloupec zobrazující čas vytvoření pro všechny tabulky."
 
-#: libraries/config/messages.inc.php:854
+#: libraries/config/messages.inc.php:856
 msgid "Show creation timestamp"
 msgstr "Zobrazit čas vytvoření"
 
-#: libraries/config/messages.inc.php:856
+#: libraries/config/messages.inc.php:858
 msgid ""
 "Show or hide a column displaying the Last update timestamp for all tables."
 msgstr ""
 "Zobrazit nebo skrýt sloupec zobrazující čas poslední změny pro všechny "
 "tabulky."
 
-#: libraries/config/messages.inc.php:858
+#: libraries/config/messages.inc.php:860
 msgid "Show last update timestamp"
 msgstr "Zobrazit čas poslední změny"
 
-#: libraries/config/messages.inc.php:860
+#: libraries/config/messages.inc.php:862
 msgid ""
 "Show or hide a column displaying the Last check timestamp for all tables."
 msgstr ""
 "Zobrazit nebo skrýt sloupec zobrazující čas poslední kontroly pro všechny "
 "tabulky."
 
-#: libraries/config/messages.inc.php:862
+#: libraries/config/messages.inc.php:864
 msgid "Show last check timestamp"
 msgstr "Zobrazit čas poslední kontroly"
 
-#: libraries/config/messages.inc.php:864
+#: libraries/config/messages.inc.php:866
 msgid ""
 "Defines whether or not type fields should be initially displayed in edit/"
 "insert mode."
 msgstr ""
 "Určuje, jestli mají být zobrazeny typy polí při úpravě a vkládání záznamů."
 
-#: libraries/config/messages.inc.php:867
+#: libraries/config/messages.inc.php:869
 msgid "Show field types"
 msgstr "Zobrazit typy polí"
 
-#: libraries/config/messages.inc.php:869
+#: libraries/config/messages.inc.php:871
 msgid "Display the function fields in edit/insert mode."
 msgstr "Zobrazí seznam funkcí v editačním režimu."
 
-#: libraries/config/messages.inc.php:871
+#: libraries/config/messages.inc.php:873
 msgid "Show function fields"
 msgstr "Zobrazit seznam fukncí"
 
-#: libraries/config/messages.inc.php:872
+#: libraries/config/messages.inc.php:874
 msgid "Whether to show hint or not."
 msgstr "Zda zobrazit nápovědu nebo ne."
 
-#: libraries/config/messages.inc.php:873
+#: libraries/config/messages.inc.php:875
 msgid "Show hint"
 msgstr "Zobrazit nápovědu"
 
-#: libraries/config/messages.inc.php:875
+#: libraries/config/messages.inc.php:877
 msgid ""
 "Shows link to [a@http://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
 "output."
@@ -7463,53 +7477,53 @@ msgstr ""
 "Zobrazí link na výstup funkce [a@http://php.net/manual/function.phpinfo."
 "php]phpinfo()[/a]."
 
-#: libraries/config/messages.inc.php:878
+#: libraries/config/messages.inc.php:880
 msgid "Show phpinfo() link"
 msgstr "Zobrazit odkaz na phpinfo()"
 
-#: libraries/config/messages.inc.php:879
+#: libraries/config/messages.inc.php:881
 msgid "Show detailed MySQL server information"
 msgstr "Zobrazí podrobné informace o MySQL serveru"
 
-#: libraries/config/messages.inc.php:881
+#: libraries/config/messages.inc.php:883
 msgid ""
 "Defines whether SQL queries generated by phpMyAdmin should be displayed."
 msgstr "Určuje, jestli SQL dotazy vytvořené phpMyAdminem budou zobrazeny."
 
-#: libraries/config/messages.inc.php:883
+#: libraries/config/messages.inc.php:885
 msgid "Show SQL queries"
 msgstr "Zobrazit SQL dotazy"
 
-#: libraries/config/messages.inc.php:885
+#: libraries/config/messages.inc.php:887
 msgid ""
 "Defines whether the query box should stay on-screen after its submission."
 msgstr "Určuje zda má pole pro zadání dotazu zůstat zobrazeno i po odeslání."
 
-#: libraries/config/messages.inc.php:887 libraries/sql_query_form.lib.php:352
+#: libraries/config/messages.inc.php:889 libraries/sql_query_form.lib.php:352
 msgid "Retain query box"
 msgstr "Zachovat pole pro dotaz"
 
-#: libraries/config/messages.inc.php:889
+#: libraries/config/messages.inc.php:891
 msgid "Allow to display database and table statistics (eg. space usage)."
 msgstr ""
 "Povolí zobrazení statistik (např. použití místa) pro databáze a tabulky."
 
-#: libraries/config/messages.inc.php:891
+#: libraries/config/messages.inc.php:893
 msgid "Show statistics"
 msgstr "Zobrazit statistiky"
 
-#: libraries/config/messages.inc.php:893
+#: libraries/config/messages.inc.php:895
 msgid ""
 "Mark used tables and make it possible to show databases with locked tables."
 msgstr ""
 "Označit používané tabulky a tím umožnit zobrazení databází se zamčenými "
 "tabulkami."
 
-#: libraries/config/messages.inc.php:895
+#: libraries/config/messages.inc.php:897
 msgid "Skip locked tables"
 msgstr "Přeskočit zamčené tabulky"
 
-#: libraries/config/messages.inc.php:901
+#: libraries/config/messages.inc.php:903
 #, fuzzy
 #| msgid "A warning is displayed on the main page if Suhosin is detected."
 msgid ""
@@ -7517,11 +7531,11 @@ msgid ""
 "detected."
 msgstr "Vypne varování na hlavní stránce pokud se používá Suhosin."
 
-#: libraries/config/messages.inc.php:904
+#: libraries/config/messages.inc.php:906
 msgid "Suhosin warning"
 msgstr "Varování o Suhosinu"
 
-#: libraries/config/messages.inc.php:906
+#: libraries/config/messages.inc.php:908
 msgid ""
 "Disable the default warning that is displayed on the main page if the value "
 "of the PHP setting session.gc_maxlifetime is less than the value of "
@@ -7531,11 +7545,11 @@ msgstr ""
 "hodnota PHP nastavení session.gc_maxlifetime menší než hodnota "
 "'LoginCookieValidity'."
 
-#: libraries/config/messages.inc.php:911
+#: libraries/config/messages.inc.php:913
 msgid "Login cookie validity warning"
 msgstr "Varování o platnosti přihlašovací cookie"
 
-#: libraries/config/messages.inc.php:914
+#: libraries/config/messages.inc.php:916
 msgid ""
 "Textarea size (columns) in edit mode, this value will be emphasized for SQL "
 "query textareas (*2)."
@@ -7543,11 +7557,11 @@ msgstr ""
 "Velikost editačního pole (počet sloupců), tato hodnota bude navýšena pro SQL "
 "dotazy (*2)."
 
-#: libraries/config/messages.inc.php:917
+#: libraries/config/messages.inc.php:919
 msgid "Textarea columns"
 msgstr "Sloupců v textové oblasti"
 
-#: libraries/config/messages.inc.php:919
+#: libraries/config/messages.inc.php:921
 msgid ""
 "Textarea size (rows) in edit mode, this value will be emphasized for SQL "
 "query textareas (*2)."
@@ -7555,31 +7569,31 @@ msgstr ""
 "Velikost editačního pole (počet řádek), tato hodnota bude navýšena pro SQL "
 "dotazy (*2)."
 
-#: libraries/config/messages.inc.php:922
+#: libraries/config/messages.inc.php:924
 msgid "Textarea rows"
 msgstr "Řádků v textové oblasti"
 
-#: libraries/config/messages.inc.php:924
+#: libraries/config/messages.inc.php:926
 msgid "Title of browser window when a database is selected."
 msgstr "Titulek prohlížeče pokud je vybraná databáze."
 
-#: libraries/config/messages.inc.php:928
+#: libraries/config/messages.inc.php:930
 msgid "Title of browser window when nothing is selected."
 msgstr "Titulek prohlížeče pokud není nic vybráno."
 
-#: libraries/config/messages.inc.php:930
+#: libraries/config/messages.inc.php:932
 msgid "Default title"
 msgstr "Výchozí titulek"
 
-#: libraries/config/messages.inc.php:932
+#: libraries/config/messages.inc.php:934
 msgid "Title of browser window when a server is selected."
 msgstr "Titulek prohlížeče pokud je vybraný server."
 
-#: libraries/config/messages.inc.php:935
+#: libraries/config/messages.inc.php:937
 msgid "Title of browser window when a table is selected."
 msgstr "Titulek prohlížeče pokud je vybraná tabulka."
 
-#: libraries/config/messages.inc.php:938
+#: libraries/config/messages.inc.php:940
 msgid ""
 "Input proxies as [kbd]IP: trusted HTTP header[/kbd]. The following example "
 "specifies that phpMyAdmin should trust a HTTP_X_FORWARDED_FOR (X-Forwarded-"
@@ -7591,27 +7605,27 @@ msgstr ""
 "Forwarded-For) přicházející od proxy 1.2.3.4:[br][kbd]1.2.3.4: "
 "HTTP_X_FORWARDED_FOR[/kbd]."
 
-#: libraries/config/messages.inc.php:943
+#: libraries/config/messages.inc.php:945
 msgid "List of trusted proxies for IP allow/deny"
 msgstr "Seznam důvěryhodných proxy pro ověření IP adresy"
 
-#: libraries/config/messages.inc.php:945
+#: libraries/config/messages.inc.php:947
 msgid "Directory on server where you can upload files for import."
 msgstr "Adresář na serveru, kam můžete nahrát souboru pro import."
 
-#: libraries/config/messages.inc.php:947
+#: libraries/config/messages.inc.php:949
 msgid "Upload directory"
 msgstr "Adresář pro nahrávání"
 
-#: libraries/config/messages.inc.php:948
+#: libraries/config/messages.inc.php:950
 msgid "Allow for searching inside the entire database."
 msgstr "Povolit prohledávání přes celou databázi."
 
-#: libraries/config/messages.inc.php:949
+#: libraries/config/messages.inc.php:951
 msgid "Use database search"
 msgstr "Použít prohledávání databáze"
 
-#: libraries/config/messages.inc.php:951
+#: libraries/config/messages.inc.php:953
 msgid ""
 "When disabled, users cannot set any of the options below, regardless of the "
 "checkbox on the right."
@@ -7619,26 +7633,26 @@ msgstr ""
 "Pokud je vypnuto, uživatelé nemůžou změnit žádná z níže uvedených nastavení, "
 "bez ohledu na zaškrtávátko napravo."
 
-#: libraries/config/messages.inc.php:954
+#: libraries/config/messages.inc.php:956
 msgid "Enable the Developer tab in settings"
 msgstr "Povolit záložku Pro vývojáře v nastaveních"
 
-#: libraries/config/messages.inc.php:955 setup/frames/index.inc.php:314
+#: libraries/config/messages.inc.php:957 setup/frames/index.inc.php:316
 msgid "Check for latest version"
 msgstr "Zkontrolovat nejnovější verzi"
 
-#: libraries/config/messages.inc.php:957
+#: libraries/config/messages.inc.php:959
 msgid "Enables check for latest version on main phpMyAdmin page."
 msgstr "Povolí kontrolu poslední verze phpMyAdmina na hlavní stránce."
 
-#: libraries/config/messages.inc.php:959 setup/lib/index.lib.php:120
+#: libraries/config/messages.inc.php:961 setup/lib/index.lib.php:120
 #: setup/lib/index.lib.php:143 setup/lib/index.lib.php:156
 #: setup/lib/index.lib.php:168 setup/lib/index.lib.php:176
 #: setup/lib/index.lib.php:183
 msgid "Version check"
 msgstr "Kontrola verze"
 
-#: libraries/config/messages.inc.php:961
+#: libraries/config/messages.inc.php:963
 msgid ""
 "The url of the proxy to be used when retrieving the information about the "
 "latest version of phpMyAdmin or when submitting error reports. You need this "
@@ -7650,11 +7664,11 @@ msgstr ""
 "potřebujete pokud na serveru, kde je nainstalován phpMyAdmin, nemá přímý "
 "přístup k internetu. Formát je: \"hostname:portnumber\"."
 
-#: libraries/config/messages.inc.php:966
+#: libraries/config/messages.inc.php:968
 msgid "Proxy url"
 msgstr "Adresa proxy"
 
-#: libraries/config/messages.inc.php:968
+#: libraries/config/messages.inc.php:970
 msgid ""
 "The username for authenticating with the proxy. By default, no "
 "authentication is performed. If a username is supplied, Basic Authentication "
@@ -7665,19 +7679,19 @@ msgstr ""
 "základní ověřování. V současné době nejsou podporovány žádné další typy "
 "ověřování."
 
-#: libraries/config/messages.inc.php:973
+#: libraries/config/messages.inc.php:975
 msgid "Proxy username"
 msgstr "Uživatel proxy"
 
-#: libraries/config/messages.inc.php:974
+#: libraries/config/messages.inc.php:976
 msgid "The password for authenticating with the proxy."
 msgstr "Heslo pro přihlášení k serveru proxy."
 
-#: libraries/config/messages.inc.php:975
+#: libraries/config/messages.inc.php:977
 msgid "Proxy password"
 msgstr "Heslo proxy"
 
-#: libraries/config/messages.inc.php:978
+#: libraries/config/messages.inc.php:980
 msgid ""
 "Enable [a@http://en.wikipedia.org/wiki/ZIP_(file_format)]ZIP[/a] compression "
 "for import and export operations."
@@ -7685,35 +7699,35 @@ msgstr ""
 "Povolí [a@http://cs.wikipedia.org/wiki/ZIP_(souborový_formát)]ZIP[/a] "
 "kompresi pro import a export."
 
-#: libraries/config/messages.inc.php:981
+#: libraries/config/messages.inc.php:983
 msgid "ZIP"
 msgstr "ZIP"
 
-#: libraries/config/messages.inc.php:983
+#: libraries/config/messages.inc.php:985
 msgid "Enter your public key for your domain reCaptcha service."
 msgstr "Zadejte veřejný klíč pro službu reCaptcha."
 
-#: libraries/config/messages.inc.php:985
+#: libraries/config/messages.inc.php:987
 msgid "Public key for reCaptcha"
 msgstr "Veřejný klíč reCaptcha"
 
-#: libraries/config/messages.inc.php:987
+#: libraries/config/messages.inc.php:989
 msgid "Enter your private key for your domain reCaptcha service."
 msgstr "Zadejte soukromý klíč pro službu reCaptcha."
 
-#: libraries/config/messages.inc.php:989
+#: libraries/config/messages.inc.php:991
 msgid "Private key for reCaptcha"
 msgstr "Soukromý klíč reCaptcha"
 
-#: libraries/config/messages.inc.php:992
+#: libraries/config/messages.inc.php:994
 msgid "Choose the default action when sending error reports."
 msgstr "Zvolte výchozí akci při odesílání hlášení o chybě."
 
-#: libraries/config/messages.inc.php:994
+#: libraries/config/messages.inc.php:996
 msgid "Send error reports"
 msgstr "Odeslat chybová hlášení"
 
-#: libraries/config/messages.inc.php:997
+#: libraries/config/messages.inc.php:999
 msgid ""
 "Queries are executed by pressing Enter (instead of Ctrl+Enter). New lines "
 "will be inserted with Shift+Enter."
@@ -7721,11 +7735,11 @@ msgstr ""
 "Dotazy jsou spuštěny zmáčknutím klávesy Enter (místo Ctrl+Enter). Nové řádky "
 "budou vloženy pomocí Shift+Enter."
 
-#: libraries/config/messages.inc.php:1000
+#: libraries/config/messages.inc.php:1002
 msgid "Enter executes queries in console"
 msgstr "Enter spustí dotazy v konzoli"
 
-#: libraries/config/messages.inc.php:1003
+#: libraries/config/messages.inc.php:1005
 msgid ""
 "Enable Zero Configuration mode which lets you setup phpMyAdmin configuration "
 "storage tables automatically."
@@ -7733,7 +7747,7 @@ msgstr ""
 "Povolí mód Automatické konfigurace, který vám dovolí nastavit phpMyAdmin "
 "konfigurační úložiště tabulek automaticky."
 
-#: libraries/config/messages.inc.php:1006
+#: libraries/config/messages.inc.php:1008
 msgid "Enable Zero Configuration mode"
 msgstr "Umožnit mód Automatické konfigurace"
 
@@ -7753,38 +7767,38 @@ msgstr "Přihlašování přes HTTP"
 msgid "Signon authentication"
 msgstr "Přihlašování signon"
 
-#: libraries/config/setup.forms.php:274
+#: libraries/config/setup.forms.php:275
 #: libraries/config/user_preferences.forms.php:175
 msgid "CSV using LOAD DATA"
 msgstr "CSV pomocí LOAD DATA"
 
-#: libraries/config/setup.forms.php:283 libraries/config/setup.forms.php:381
+#: libraries/config/setup.forms.php:284 libraries/config/setup.forms.php:382
 #: libraries/config/user_preferences.forms.php:183
 #: libraries/config/user_preferences.forms.php:280
 msgid "OpenDocument Spreadsheet"
 msgstr "Sešit OpenDocument"
 
-#: libraries/config/setup.forms.php:290
+#: libraries/config/setup.forms.php:291
 #: libraries/config/user_preferences.forms.php:190
 msgid "Quick"
 msgstr "Rychlý"
 
-#: libraries/config/setup.forms.php:294
+#: libraries/config/setup.forms.php:295
 #: libraries/config/user_preferences.forms.php:194
 msgid "Custom"
 msgstr "Vlastní"
 
-#: libraries/config/setup.forms.php:353
+#: libraries/config/setup.forms.php:354
 #: libraries/config/user_preferences.forms.php:252
 msgid "CSV for MS Excel"
 msgstr "CSV pro MS Excel"
 
-#: libraries/config/setup.forms.php:376
+#: libraries/config/setup.forms.php:377
 #: libraries/config/user_preferences.forms.php:275
 msgid "Microsoft Word 2000"
 msgstr "Microsoft Word 2000"
 
-#: libraries/config/setup.forms.php:385
+#: libraries/config/setup.forms.php:386
 #: libraries/config/user_preferences.forms.php:284
 msgid "OpenDocument Text"
 msgstr "Text OpenDocument"
@@ -7794,19 +7808,19 @@ msgid "Favorite List is full!"
 msgstr "Seznam oblíbených je plný!"
 
 #: libraries/controllers/database/DatabaseStructureController.php:551
-#: tbl_operations.php:380
+#: tbl_operations.php:381
 #, php-format
 msgid "Table %s has been emptied."
 msgstr "Tabulka %s byla vyprázdněna."
 
 #: libraries/controllers/database/DatabaseStructureController.php:572
-#: tbl_operations.php:398 view_operations.php:122
+#: tbl_operations.php:399 view_operations.php:122
 #, php-format
 msgid "View %s has been dropped."
 msgstr "Pohled %s byl odstraněn."
 
 #: libraries/controllers/database/DatabaseStructureController.php:573
-#: tbl_operations.php:399
+#: tbl_operations.php:400
 #, php-format
 msgid "Table %s has been dropped."
 msgstr "Tabulka %s byla odstraněna."
@@ -7815,43 +7829,6 @@ msgstr "Tabulka %s byla odstraněna."
 #: libraries/mysql_charsets.lib.php:359 libraries/mysql_charsets.lib.php:366
 msgid "unknown"
 msgstr "neznámý"
-
-#: libraries/controllers/server/ServerBinlogController.php:151
-msgid "Log name"
-msgstr "Jméno logu"
-
-#: libraries/controllers/server/ServerBinlogController.php:152
-msgid "Position"
-msgstr "Pozice"
-
-#: libraries/controllers/server/ServerBinlogController.php:153
-#: libraries/rte/rte_events.lib.php:411
-msgid "Event type"
-msgstr "Typ události"
-
-#: libraries/controllers/server/ServerBinlogController.php:154
-#: libraries/replication_gui.lib.php:618
-msgid "Server ID"
-msgstr "ID serveru"
-
-#: libraries/controllers/server/ServerBinlogController.php:155
-msgid "Original position"
-msgstr "Původní pozice"
-
-#: libraries/controllers/server/ServerBinlogController.php:156
-#: templates/table/structure/display_table_stats.phtml:4
-msgid "Information"
-msgstr "Informace"
-
-#: libraries/controllers/server/ServerBinlogController.php:206
-#: libraries/server_status_processes.lib.php:177
-msgid "Truncate Shown Queries"
-msgstr "Zobrazit zkrácené dotazy"
-
-#: libraries/controllers/server/ServerBinlogController.php:210
-#: libraries/server_status_processes.lib.php:182
-msgid "Show Full Queries"
-msgstr "Zobrazit celé dotazy"
 
 #: libraries/controllers/server/ServerDatabasesController.php:119
 msgid "No databases"
@@ -7873,7 +7850,7 @@ msgstr[2] "%1$d databází bylo úspěšně zrušeno."
 #: libraries/controllers/server/ServerDatabasesController.php:341
 #: libraries/import.lib.php:109
 #: templates/database/structure/table_header.phtml:36
-#: templates/table/structure/actions_in_table_structure.phtml:111
+#: templates/table/structure/actions_in_table_structure.phtml:114
 #: templates/table/structure/display_partitions.phtml:29
 #: templates/table/structure/row_stats_table.phtml:42
 msgid "Rows"
@@ -7958,7 +7935,7 @@ msgid "Zoom search"
 msgstr "Zoom vyhledávání"
 
 #: libraries/controllers/table/TableSearchController.php:832
-#: templates/table/search/selection_form.phtml:60
+#: templates/table/search/selection_form.phtml:59
 msgid "Find and replace"
 msgstr "Vyhledat a nahradit"
 
@@ -8000,7 +7977,7 @@ msgstr "Změnit"
 #: libraries/navigation/nodes/NodeIndex.php:30 libraries/tracking.lib.php:939
 #: templates/columns_definitions/column_indexes.phtml:16
 #: templates/columns_definitions/table_fields_definitions.phtml:57
-#: templates/table/structure/check_all_table_column.phtml:29
+#: templates/table/structure/check_all_table_column.phtml:30
 #: templates/table/structure/display_structure.phtml:86
 #: templates/table/structure/display_table_stats.phtml:22
 msgid "Index"
@@ -8015,7 +7992,7 @@ msgstr "Prostorový"
 #: libraries/controllers/table/TableStructureController.php:1207
 #: libraries/controllers/table/TableStructureController.php:1212
 #: templates/columns_definitions/column_indexes.phtml:21
-#: templates/table/structure/check_all_table_column.phtml:38
+#: templates/table/structure/check_all_table_column.phtml:40
 msgid "Fulltext"
 msgstr "Fulltext"
 
@@ -8028,8 +8005,8 @@ msgstr "Odlišné hodnoty"
 msgid "The %s extension is missing. Please check your PHP configuration."
 msgstr "Chybí rozšíření %s. Prosím zkontrolujte nastavení PHP."
 
-#: libraries/core.lib.php:849 libraries/mult_submits.inc.php:332
-#: tbl_operations.php:210 tbl_replace.php:306 templates/preview_sql.phtml:3
+#: libraries/core.lib.php:827 libraries/mult_submits.inc.php:332
+#: tbl_operations.php:211 tbl_replace.php:306 templates/preview_sql.phtml:3
 msgid "No change"
 msgstr "Žádná změna"
 
@@ -8058,7 +8035,7 @@ msgid "No Password"
 msgstr "Žádné heslo"
 
 #: libraries/display_change_password.lib.php:68
-#: libraries/plugins/auth/AuthenticationCookie.php:189
+#: libraries/plugins/auth/AuthenticationCookie.php:203
 #: libraries/replication_gui.lib.php:422 libraries/replication_gui.lib.php:862
 #: libraries/server_privileges.lib.php:1806
 msgid "Password:"
@@ -8393,6 +8370,9 @@ msgstr ""
 "ale může to způsobit problémy s transakcemi.)</i>"
 
 #: libraries/display_import.lib.php:312
+#| msgid ""
+#| "Skip this number of queries (for SQL) or lines (for other formats), "
+#| "starting from the first one:"
 msgid "Skip this number of queries (for SQL) starting from the first one:"
 msgstr "Přeskočit daný počet dotazů (pro SQL) počínaje od:"
 
@@ -8805,12 +8785,12 @@ msgid "Dump has been saved to file %s."
 msgstr "Výpis byl uložen do souboru %s."
 
 #: libraries/import.lib.php:117 libraries/insert_edit.lib.php:122
-#: libraries/rte/rte_routines.lib.php:1444 libraries/sql.lib.php:1370
+#: libraries/rte/rte_routines.lib.php:1444 libraries/sql.lib.php:1366
 #: tbl_get_field.php:45
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL vrátil prázdný výsledek (tj. nulový počet řádků)."
 
-#: libraries/import.lib.php:290 libraries/sql.lib.php:1384
+#: libraries/import.lib.php:290 libraries/sql.lib.php:1380
 msgid "[ROLLBACK occurred.]"
 msgstr "[ROLLBACK nastal]"
 
@@ -8909,7 +8889,7 @@ msgstr "Nebo"
 msgid "web server upload directory:"
 msgstr "soubor z adresáře pro upload:"
 
-#: libraries/insert_edit.lib.php:1351 templates/table/search/input_box.phtml:46
+#: libraries/insert_edit.lib.php:1351 templates/table/search/input_box.phtml:49
 msgid "Edit/Insert"
 msgstr "Upravit/Vložit"
 
@@ -8972,11 +8952,11 @@ msgstr ""
 msgid "Value"
 msgstr "Hodnota"
 
-#: libraries/insert_edit.lib.php:1944 libraries/sql.lib.php:1367
+#: libraries/insert_edit.lib.php:1944 libraries/sql.lib.php:1363
 msgid "Showing SQL query"
 msgstr "Zobrazuji SQL dotaz"
 
-#: libraries/insert_edit.lib.php:1969 libraries/sql.lib.php:1345
+#: libraries/insert_edit.lib.php:1969 libraries/sql.lib.php:1341
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "ID vloženého řádku: %1$d"
@@ -8997,17 +8977,17 @@ msgid "Success!"
 msgstr "Úspěch!"
 
 #: libraries/mult_submits.lib.php:341 libraries/operations.lib.php:169
-#: libraries/operations.lib.php:1263 libraries/tracking.lib.php:531
+#: libraries/operations.lib.php:1259 libraries/tracking.lib.php:531
 msgid "Structure only"
 msgstr "Pouze strukturu"
 
 #: libraries/mult_submits.lib.php:343 libraries/operations.lib.php:170
-#: libraries/operations.lib.php:1264 libraries/tracking.lib.php:537
+#: libraries/operations.lib.php:1260 libraries/tracking.lib.php:537
 msgid "Structure and data"
 msgstr "Strukturu a data"
 
 #: libraries/mult_submits.lib.php:345 libraries/operations.lib.php:171
-#: libraries/operations.lib.php:1265 libraries/tracking.lib.php:534
+#: libraries/operations.lib.php:1261 libraries/tracking.lib.php:534
 msgid "Data only"
 msgstr "Jen data"
 
@@ -9018,13 +8998,13 @@ msgid "Add AUTO INCREMENT value"
 msgstr "Přidat hodnotu AUTO_INCREMENT"
 
 #: libraries/mult_submits.lib.php:351 libraries/operations.lib.php:225
-#: libraries/operations.lib.php:1288
+#: libraries/operations.lib.php:1284
 msgid "Add constraints"
 msgstr "Přidat integritní omezení"
 
 #: libraries/mult_submits.lib.php:353 libraries/operations.lib.php:100
-#: libraries/operations.lib.php:243 libraries/operations.lib.php:862
-#: libraries/operations.lib.php:953 libraries/operations.lib.php:1307
+#: libraries/operations.lib.php:243 libraries/operations.lib.php:858
+#: libraries/operations.lib.php:949 libraries/operations.lib.php:1303
 #: libraries/rte/rte_routines.lib.php:1000
 #: templates/columns_definitions/table_fields_definitions.phtml:47
 msgid "Adjust privileges"
@@ -9262,7 +9242,7 @@ msgid "Views:"
 msgstr "Pohledy:"
 
 #: libraries/navigation/Navigation.php:218 libraries/tracking.lib.php:286
-#: libraries/tracking.lib.php:1625 tbl_change.php:163
+#: libraries/tracking.lib.php:1625 tbl_change.php:164
 msgid "Show"
 msgstr "Zobrazit"
 
@@ -9408,7 +9388,7 @@ msgstr "Nová"
 #: libraries/navigation/nodes/NodeViewContainer.php:25
 #: libraries/navigation/nodes/NodeViewContainer.php:26
 #: libraries/plugins/export/ExportXml.php:128
-#: templates/database/structure/show_create.phtml:29
+#: templates/database/structure/show_create.phtml:32
 msgid "Views"
 msgstr "Pohledy"
 
@@ -9717,8 +9697,8 @@ msgid "Rename database to"
 msgstr "Přejmenovat databázi na"
 
 #: libraries/operations.lib.php:93 libraries/operations.lib.php:237
-#: libraries/operations.lib.php:856 libraries/operations.lib.php:947
-#: libraries/operations.lib.php:1301
+#: libraries/operations.lib.php:852 libraries/operations.lib.php:943
+#: libraries/operations.lib.php:1297
 #: templates/columns_definitions/column_adjust_privileges.phtml:16
 msgid ""
 "You don't have sufficient privileges to perform this operation; Please refer "
@@ -9752,187 +9732,187 @@ msgstr "Vytvořit databázi před kopírováním (CREATE DATABASE)"
 msgid "Switch to copied database"
 msgstr "Přepnout na zkopírovanou databázi"
 
-#: libraries/operations.lib.php:777
+#: libraries/operations.lib.php:773
 msgid "Alter table order by"
 msgstr "Změnit pořadí tabulky podle"
 
-#: libraries/operations.lib.php:785
+#: libraries/operations.lib.php:781
 msgid "(singly)"
 msgstr "(po jednom)"
 
-#: libraries/operations.lib.php:821
+#: libraries/operations.lib.php:817
 msgid "Move table to (database<b>.</b>table)"
 msgstr "Přesunout tabulku do (databáze<b>.</b>tabulka)"
 
-#: libraries/operations.lib.php:930
+#: libraries/operations.lib.php:926
 msgid "Rename table to"
 msgstr "Přejmenovat tabulku na"
 
-#: libraries/operations.lib.php:970
+#: libraries/operations.lib.php:966
 msgid "Table comments"
 msgstr "Komentář k tabulce"
 
-#: libraries/operations.lib.php:1043
+#: libraries/operations.lib.php:1039
 msgid "Table options"
 msgstr "Parametry tabulky"
 
-#: libraries/operations.lib.php:1050 templates/server/engines/engines.phtml:4
+#: libraries/operations.lib.php:1046 templates/server/engines/engines.phtml:4
 msgid "Storage Engine"
 msgstr "Úložiště"
 
-#: libraries/operations.lib.php:1075
+#: libraries/operations.lib.php:1071
 msgid "Change all column collations"
 msgstr "Změnit kódování všech sloupců"
 
-#: libraries/operations.lib.php:1246
+#: libraries/operations.lib.php:1242
 msgid "Copy table to (database<b>.</b>table)"
 msgstr "Kopírovat tabulku do (databáze<b>.</b>tabulka)"
 
-#: libraries/operations.lib.php:1322
+#: libraries/operations.lib.php:1318
 msgid "Switch to copied table"
 msgstr "Přepnout na zkopírovanou tabulku"
 
-#: libraries/operations.lib.php:1349
+#: libraries/operations.lib.php:1345
 #: templates/database/structure/check_all_tables.phtml:19
 msgid "Table maintenance"
 msgstr "Údržba tabulky"
 
-#: libraries/operations.lib.php:1387
+#: libraries/operations.lib.php:1383
 #: templates/database/structure/check_all_tables.phtml:20
 msgid "Analyze table"
 msgstr "Analyzovat tabulku"
 
-#: libraries/operations.lib.php:1402
+#: libraries/operations.lib.php:1398
 #: templates/database/structure/check_all_tables.phtml:21
 msgid "Check table"
 msgstr "Zkontrolovat tabulku"
 
-#: libraries/operations.lib.php:1416
+#: libraries/operations.lib.php:1412
 #: templates/database/structure/check_all_tables.phtml:22
 msgid "Checksum table"
 msgstr "Tabulka kontrolních součtů"
 
-#: libraries/operations.lib.php:1430
+#: libraries/operations.lib.php:1426
 msgid "Defragment table"
 msgstr "Opravit rozdrobení tabulky"
 
-#: libraries/operations.lib.php:1442
+#: libraries/operations.lib.php:1438
 #, php-format
 msgid "Table %s has been flushed."
 msgstr "Vyrovnávací paměť pro tabulku %s byla vyprázdněna."
 
-#: libraries/operations.lib.php:1448
+#: libraries/operations.lib.php:1444
 msgid "Flush the table (FLUSH)"
 msgstr "Vyprázdnit vyrovnávací paměť pro tabulku („FLUSH“)"
 
-#: libraries/operations.lib.php:1462
+#: libraries/operations.lib.php:1458
 #: templates/database/structure/check_all_tables.phtml:23
 #: templates/table/structure/display_table_stats.phtml:59
 msgid "Optimize table"
 msgstr "Optimalizovat tabulku"
 
-#: libraries/operations.lib.php:1477
+#: libraries/operations.lib.php:1473
 #: templates/database/structure/check_all_tables.phtml:24
 msgid "Repair table"
 msgstr "Opravit tabulku"
 
-#: libraries/operations.lib.php:1523
+#: libraries/operations.lib.php:1519
 #: templates/database/structure/check_all_tables.phtml:15
 #: view_operations.php:130
 msgid "Delete data or table"
 msgstr "Odstranit data nebo tabulku"
 
-#: libraries/operations.lib.php:1531
+#: libraries/operations.lib.php:1527
 msgid "Empty the table (TRUNCATE)"
 msgstr "Vyprázdnit tabulku (TRUNCATE)"
 
-#: libraries/operations.lib.php:1539
+#: libraries/operations.lib.php:1535
 msgid "Delete the table (DROP)"
 msgstr "Odstranit tabulku (DROP)"
 
-#: libraries/operations.lib.php:1579
+#: libraries/operations.lib.php:1575
 #: templates/table/structure/display_structure.phtml:191
 msgid "Analyze"
 msgstr "Analyzovat"
 
-#: libraries/operations.lib.php:1580
+#: libraries/operations.lib.php:1576
 #: templates/table/structure/display_structure.phtml:192
 msgid "Check"
 msgstr "Zkontrolovat"
 
-#: libraries/operations.lib.php:1581
+#: libraries/operations.lib.php:1577
 #: templates/table/structure/display_structure.phtml:193
 msgid "Optimize"
 msgstr "Optimalizovat"
 
-#: libraries/operations.lib.php:1582
+#: libraries/operations.lib.php:1578
 #: templates/table/structure/display_structure.phtml:194
 msgid "Rebuild"
 msgstr "Přestavět"
 
-#: libraries/operations.lib.php:1583
+#: libraries/operations.lib.php:1579
 #: templates/table/structure/display_structure.phtml:195
 msgid "Repair"
 msgstr "Opravit"
 
-#: libraries/operations.lib.php:1584
+#: libraries/operations.lib.php:1580
 #: templates/table/structure/display_structure.phtml:196
 msgid "Truncate"
 msgstr "Vyprázdnit"
 
-#: libraries/operations.lib.php:1594
+#: libraries/operations.lib.php:1590
 #, fuzzy
 #| msgid "Collapse"
 msgid "Coalesce"
 msgstr "Vyhledat první platný záznam"
 
-#: libraries/operations.lib.php:1603
+#: libraries/operations.lib.php:1599
 msgid "Partition maintenance"
 msgstr "Údržba oddílů"
 
-#: libraries/operations.lib.php:1620
+#: libraries/operations.lib.php:1616
 #, php-format
 msgid "Partition %s"
 msgstr "Oddíl %s"
 
-#: libraries/operations.lib.php:1638
-#: templates/table/structure/display_partitions.phtml:137
+#: libraries/operations.lib.php:1634
+#: templates/table/structure/display_partitions.phtml:138
 msgid "Remove partitioning"
 msgstr "Zrušit dělení"
 
-#: libraries/operations.lib.php:1664
+#: libraries/operations.lib.php:1660
 msgid "Check referential integrity:"
 msgstr "Zkontrolovat integritu odkazů:"
 
-#: libraries/operations.lib.php:2081
+#: libraries/operations.lib.php:2077
 msgid "Can't move table to same one!"
 msgstr "Nelze přesunout tabulku na sebe samu!"
 
-#: libraries/operations.lib.php:2083
+#: libraries/operations.lib.php:2079
 msgid "Can't copy table to same one!"
 msgstr "Nelze kopírovat tabulku na sebe samu!"
 
-#: libraries/operations.lib.php:2107
+#: libraries/operations.lib.php:2103
 #, php-format
 msgid "Table %s has been moved to %s. Privileges have been adjusted."
 msgstr "Tabulka %s byla přesunuta do %s. Práva byla upravena."
 
-#: libraries/operations.lib.php:2114
+#: libraries/operations.lib.php:2110
 #, php-format
 msgid "Table %s has been copied to %s. Privileges have been adjusted."
 msgstr "Tabulka %s byla zkopírována do %s. Práva byla upravena."
 
-#: libraries/operations.lib.php:2123
+#: libraries/operations.lib.php:2119
 #, php-format
 msgid "Table %s has been moved to %s."
 msgstr "Tabulka %s byla přesunuta do %s."
 
-#: libraries/operations.lib.php:2127
+#: libraries/operations.lib.php:2123
 #, php-format
 msgid "Table %s has been copied to %s."
 msgstr "Tabulka %s byla zkopírována do %s."
 
-#: libraries/operations.lib.php:2149
+#: libraries/operations.lib.php:2145
 msgid "The table name is empty!"
 msgstr "Jméno tabulky je prázdné!"
 
@@ -9970,8 +9950,8 @@ msgid "Cannot connect: invalid settings."
 msgstr "Nepodařilo se připojit: chybné nastavení."
 
 #: libraries/plugins/auth/AuthenticationConfig.php:98
-#: libraries/plugins/auth/AuthenticationCookie.php:124
-#: libraries/plugins/auth/AuthenticationHttp.php:94
+#: libraries/plugins/auth/AuthenticationCookie.php:138
+#: libraries/plugins/auth/AuthenticationHttp.php:92
 #, php-format
 msgid "Welcome to %s"
 msgstr "Vítejte v %s"
@@ -10001,40 +9981,40 @@ msgstr ""
 msgid "Retry to connect"
 msgstr "Zkusit se připojit znovu"
 
-#: libraries/plugins/auth/AuthenticationCookie.php:136
+#: libraries/plugins/auth/AuthenticationCookie.php:150
 msgid "Your session has expired. Please log in again."
 msgstr "Vaše sezení vypršelo, prosím přihlaste se znovu."
 
-#: libraries/plugins/auth/AuthenticationCookie.php:160
+#: libraries/plugins/auth/AuthenticationCookie.php:174
 msgid "Log in"
 msgstr "Přihlášení"
 
-#: libraries/plugins/auth/AuthenticationCookie.php:168
-#: libraries/plugins/auth/AuthenticationCookie.php:178
+#: libraries/plugins/auth/AuthenticationCookie.php:182
+#: libraries/plugins/auth/AuthenticationCookie.php:192
 msgid "You can enter hostname/IP address and port separated by space."
 msgstr "Můžete zadat jméno počítače nebo IP adresu a port oddělené mezerou."
 
-#: libraries/plugins/auth/AuthenticationCookie.php:183
+#: libraries/plugins/auth/AuthenticationCookie.php:197
 msgid "Username:"
 msgstr "Jméno:"
 
-#: libraries/plugins/auth/AuthenticationCookie.php:195
+#: libraries/plugins/auth/AuthenticationCookie.php:209
 msgid "Server Choice:"
 msgstr "Volba serveru:"
 
-#: libraries/plugins/auth/AuthenticationCookie.php:356
+#: libraries/plugins/auth/AuthenticationCookie.php:370
 msgid "Entered captcha is wrong, try again!"
 msgstr "Zadaný kód nebyl správný, zkuste to znovu!"
 
-#: libraries/plugins/auth/AuthenticationCookie.php:360
+#: libraries/plugins/auth/AuthenticationCookie.php:374
 msgid "Please enter correct captcha!"
 msgstr "Zadejte, prosím, správný kód!"
 
-#: libraries/plugins/auth/AuthenticationCookie.php:386
+#: libraries/plugins/auth/AuthenticationCookie.php:400
 msgid "You are not allowed to log in to this MySQL server!"
 msgstr "Nemáte povolení se přihlásit k tomuto MySQL serveru!"
 
-#: libraries/plugins/auth/AuthenticationHttp.php:99
+#: libraries/plugins/auth/AuthenticationHttp.php:97
 msgid "Wrong username/password. Access denied."
 msgstr "Špatné uživatelské jméno nebo heslo. Přístup odepřen."
 
@@ -10442,17 +10422,17 @@ msgid "Metadata for database %s"
 msgstr "Metadata pro %s"
 
 #: libraries/plugins/export/ExportSql.php:1401
-#: libraries/plugins/schema/pdf/PdfRelationSchema.php:603
+#: libraries/plugins/schema/pdf/PdfRelationSchema.php:602
 msgid "Creation:"
 msgstr "Vytvořeno:"
 
 #: libraries/plugins/export/ExportSql.php:1414
-#: libraries/plugins/schema/pdf/PdfRelationSchema.php:610
+#: libraries/plugins/schema/pdf/PdfRelationSchema.php:609
 msgid "Last update:"
 msgstr "Poslední změna:"
 
 #: libraries/plugins/export/ExportSql.php:1427
-#: libraries/plugins/schema/pdf/PdfRelationSchema.php:617
+#: libraries/plugins/schema/pdf/PdfRelationSchema.php:616
 msgid "Last check:"
 msgstr "Poslední kontrola:"
 
@@ -10719,7 +10699,7 @@ msgstr "Název (sestupně)"
 
 #: libraries/plugins/schema/dia/TableStatsDia.php:74
 #: libraries/plugins/schema/eps/TableStatsEps.php:92
-#: libraries/plugins/schema/pdf/TableStatsPdf.php:94
+#: libraries/plugins/schema/pdf/TableStatsPdf.php:93
 #: libraries/plugins/schema/svg/TableStatsSvg.php:92
 #, php-format
 msgid "The %s table doesn't exist!"
@@ -10735,22 +10715,22 @@ msgstr "Schéma databáze %s - Strana %s"
 msgid "PDF export page"
 msgstr "Stránka exportu PDF"
 
-#: libraries/plugins/schema/pdf/PdfRelationSchema.php:102
+#: libraries/plugins/schema/pdf/PdfRelationSchema.php:101
 #, php-format
 msgid "Schema of the %s database"
 msgstr "Schéma databáze %s"
 
-#: libraries/plugins/schema/pdf/PdfRelationSchema.php:130
-#: libraries/plugins/schema/pdf/PdfRelationSchema.php:525
+#: libraries/plugins/schema/pdf/PdfRelationSchema.php:129
+#: libraries/plugins/schema/pdf/PdfRelationSchema.php:524
 msgid "Relational schema"
 msgstr "Relační schéma"
 
-#: libraries/plugins/schema/pdf/PdfRelationSchema.php:486
+#: libraries/plugins/schema/pdf/PdfRelationSchema.php:485
 msgid "Table of contents"
 msgstr "Obsah"
 
-#: libraries/plugins/schema/pdf/PdfRelationSchema.php:634
-#: libraries/plugins/schema/pdf/PdfRelationSchema.php:657
+#: libraries/plugins/schema/pdf/PdfRelationSchema.php:633
+#: libraries/plugins/schema/pdf/PdfRelationSchema.php:656
 #: libraries/tracking.lib.php:897
 #: templates/table/structure/table_structure_header.phtml:16
 msgid "Extra"
@@ -11389,6 +11369,10 @@ msgstr "Stav podřízeného"
 msgid "Variable"
 msgstr "Proměnná"
 
+#: libraries/replication_gui.lib.php:618 libraries/server_bin_log.lib.php:129
+msgid "Server ID"
+msgstr "ID serveru"
+
 #: libraries/replication_gui.lib.php:619 libraries/replication_gui.lib.php:707
 #: libraries/replication_gui.lib.php:851
 #: libraries/server_status_processes.lib.php:75
@@ -11551,6 +11535,10 @@ msgstr "Podrobnosti"
 #: libraries/rte/rte_events.lib.php:390
 msgid "Event name"
 msgstr "Název události"
+
+#: libraries/rte/rte_events.lib.php:411 libraries/server_bin_log.lib.php:128
+msgid "Event type"
+msgstr "Typ události"
 
 #: libraries/rte/rte_events.lib.php:433 libraries/rte/rte_routines.lib.php:905
 #, php-format
@@ -11908,6 +11896,37 @@ msgstr "Nejsou zde žádné události k zobrazení."
 #: libraries/select_server.lib.php:40 libraries/select_server.lib.php:45
 msgid "Current server:"
 msgstr "Aktuální server:"
+
+#: libraries/server_bin_log.lib.php:28
+msgid "Select binary log to view"
+msgstr "Zvolte binární log pro zobrazení"
+
+#: libraries/server_bin_log.lib.php:126
+msgid "Log name"
+msgstr "Jméno logu"
+
+#: libraries/server_bin_log.lib.php:127
+msgid "Position"
+msgstr "Pozice"
+
+#: libraries/server_bin_log.lib.php:130
+msgid "Original position"
+msgstr "Původní pozice"
+
+#: libraries/server_bin_log.lib.php:131
+#: templates/table/structure/display_table_stats.phtml:4
+msgid "Information"
+msgstr "Informace"
+
+#: libraries/server_bin_log.lib.php:181
+#: libraries/server_status_processes.lib.php:174
+msgid "Truncate Shown Queries"
+msgstr "Zobrazit zkrácené dotazy"
+
+#: libraries/server_bin_log.lib.php:185
+#: libraries/server_status_processes.lib.php:179
+msgid "Show Full Queries"
+msgstr "Zobrazit celé dotazy"
 
 #: libraries/server_common.lib.php:24
 msgid "Server variables and settings"
@@ -12846,13 +12865,13 @@ msgstr "Příkaz"
 msgid "Progress"
 msgstr ""
 
-#: libraries/server_status_processes.lib.php:232
+#: libraries/server_status_processes.lib.php:224
 #: libraries/server_status_variables.lib.php:36
 #: templates/server/variables/variable_filter.phtml:2
 msgid "Filters"
 msgstr "Filtry"
 
-#: libraries/server_status_processes.lib.php:240
+#: libraries/server_status_processes.lib.php:232
 msgid "Show only active"
 msgstr "Zobrazit jen aktivní"
 
@@ -13848,20 +13867,20 @@ msgstr "Název:"
 msgid "Let every user access this bookmark"
 msgstr "Umožnit všem uživatelům používat tuto oblíbenou položku"
 
-#: libraries/sql.lib.php:785
+#: libraries/sql.lib.php:786
 msgid "Bookmark not created!"
 msgstr "Nepodařilo se uložit oblíbený dotaz!"
 
-#: libraries/sql.lib.php:894
+#: libraries/sql.lib.php:895
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr "Pro procházení databáze je použit oblíbený dotaz „%s\"."
 
-#: libraries/sql.lib.php:1364
+#: libraries/sql.lib.php:1360
 msgid "Showing as PHP code"
 msgstr "Zobrazuji jako PHP kód"
 
-#: libraries/sql.lib.php:1736
+#: libraries/sql.lib.php:1732
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
@@ -13870,7 +13889,7 @@ msgstr ""
 "Aktuální výběr neobsahuje unikátní klíč. Editování v mřížce, zaškrtávací "
 "políčka nebo odkazy na editaci a mazání proto nejsou k dispozici. %s"
 
-#: libraries/sql.lib.php:1750
+#: libraries/sql.lib.php:1746
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, Edit, Copy "
@@ -13879,7 +13898,7 @@ msgstr ""
 "Aktuální výběr neobsahuje unikátní klíč. Editování v mřížce může vést na "
 "nežádoucí chování. %s"
 
-#: libraries/sql.lib.php:1792
+#: libraries/sql.lib.php:1788
 #, php-format
 msgid "Problems with indexes of table `%s`"
 msgstr "Problémy s klíči v tabulce „%s\""
@@ -14287,7 +14306,7 @@ msgstr ""
 "phpMyAdminovi se nepodařilo ukončit vlákno %s. Pravděpodobně jeho běh již "
 "skončil."
 
-#: server_status_queries.php:42
+#: server_status_queries.php:47
 msgid "Not enough privilege to view query statistics."
 msgstr ""
 
@@ -14295,7 +14314,7 @@ msgstr ""
 msgid "Not enough privilege to view status variables."
 msgstr ""
 
-#: setup/frames/config.inc.php:42 setup/frames/index.inc.php:278
+#: setup/frames/config.inc.php:42 setup/frames/index.inc.php:280
 msgid "Download"
 msgstr "Stáhnout"
 
@@ -14341,11 +14360,11 @@ msgstr ""
 msgid "Insecure connection"
 msgstr "Nezabezpečené připojení"
 
-#: setup/frames/index.inc.php:122
+#: setup/frames/index.inc.php:123
 msgid "Configuration saved."
 msgstr "Nastavení bylo uloženo."
 
-#: setup/frames/index.inc.php:125
+#: setup/frames/index.inc.php:126
 msgid ""
 "Configuration saved to file config/config.inc.php in phpMyAdmin top level "
 "directory, copy it to top level one and delete directory config to use it."
@@ -14354,55 +14373,55 @@ msgstr ""
 "phpMyAdmina, přesuňte ji do adresáře phpMyAdmin a smažte adresář config pro "
 "její použití."
 
-#: setup/frames/index.inc.php:136 setup/frames/menu.inc.php:19
+#: setup/frames/index.inc.php:137 setup/frames/menu.inc.php:19
 msgid "Overview"
 msgstr "Přehled"
 
-#: setup/frames/index.inc.php:143
+#: setup/frames/index.inc.php:144
 msgid "Show hidden messages (#MSG_COUNT)"
 msgstr "Zobrazit skyté zprávy (#MSG_COUNT)"
 
-#: setup/frames/index.inc.php:196
+#: setup/frames/index.inc.php:197
 msgid "There are no configured servers"
 msgstr "Žádné servery nejsou nastaveny"
 
-#: setup/frames/index.inc.php:205
+#: setup/frames/index.inc.php:206
 msgid "New server"
 msgstr "Nový server"
 
-#: setup/frames/index.inc.php:234
+#: setup/frames/index.inc.php:236
 msgid "Default language"
 msgstr "Výchozí jazyk"
 
-#: setup/frames/index.inc.php:244
+#: setup/frames/index.inc.php:246
 msgid "let the user choose"
 msgstr "nechat uživatele, aby si vybral"
 
-#: setup/frames/index.inc.php:255
+#: setup/frames/index.inc.php:257
 msgid "- none -"
 msgstr "- žádný -"
 
-#: setup/frames/index.inc.php:259
+#: setup/frames/index.inc.php:261
 msgid "Default server"
 msgstr "Výchozí server"
 
-#: setup/frames/index.inc.php:271
+#: setup/frames/index.inc.php:273
 msgid "End of line"
 msgstr "Konec řádku"
 
-#: setup/frames/index.inc.php:277
+#: setup/frames/index.inc.php:279
 msgid "Display"
 msgstr "Zobrazit"
 
-#: setup/frames/index.inc.php:287
+#: setup/frames/index.inc.php:289
 msgid "Load"
 msgstr "Nahrát"
 
-#: setup/frames/index.inc.php:310
+#: setup/frames/index.inc.php:312
 msgid "phpMyAdmin homepage"
 msgstr "Domovská stránka phpMyAdmina"
 
-#: setup/frames/index.inc.php:312
+#: setup/frames/index.inc.php:314
 msgid "Donate"
 msgstr "Přispějte"
 
@@ -14528,23 +14547,23 @@ msgstr "Žádná"
 msgid "As defined:"
 msgstr "Dle zadání:"
 
-#: templates/columns_definitions/column_definitions_form.phtml:48
+#: templates/columns_definitions/column_definitions_form.phtml:44
 msgid "Table name"
 msgstr "Jméno tabulky"
 
-#: templates/columns_definitions/column_definitions_form.phtml:92
+#: templates/columns_definitions/column_definitions_form.phtml:88
 msgid "Collation:"
 msgstr "Porovnávání:"
 
-#: templates/columns_definitions/column_definitions_form.phtml:96
+#: templates/columns_definitions/column_definitions_form.phtml:92
 msgid "Storage Engine:"
 msgstr "Úložiště:"
 
-#: templates/columns_definitions/column_definitions_form.phtml:101
+#: templates/columns_definitions/column_definitions_form.phtml:97
 msgid "Connection:"
 msgstr "Připojení:"
 
-#: templates/columns_definitions/column_definitions_form.phtml:146
+#: templates/columns_definitions/column_definitions_form.phtml:142
 msgid "PARTITION definition:"
 msgstr "Definice PARTITION:"
 
@@ -14561,7 +14580,7 @@ msgstr "Odkazováno v %s."
 msgid "Is a foreign key."
 msgstr "Jedná se o cizí klíč."
 
-#: templates/columns_definitions/column_name.phtml:43
+#: templates/columns_definitions/column_name.phtml:44
 #, fuzzy
 #| msgid "Remove column(s)"
 msgid "Pick from Central Columns"
@@ -15067,7 +15086,7 @@ msgstr "Prohlédněte si informace v hlášení:"
 msgid "Please explain the steps that lead to the error:"
 msgstr "Prosím popište co předcházelo této chybě:"
 
-#: templates/prefs_autoload.phtml:8
+#: templates/prefs_autoload.phtml:9
 msgid ""
 "Your browser has phpMyAdmin configuration for this domain. Would you like to "
 "import it for current session?"
@@ -15098,10 +15117,6 @@ msgstr "Přidat oprávnění pro tabulku:"
 #: templates/privileges/privileges_summary.phtml:21
 msgid "Column-specific privileges"
 msgstr "Oprávnění pro jednotlivá pole"
-
-#: templates/server/binlog/log_selector.phtml:5
-msgid "Select binary log to view"
-msgstr "Zvolte binární log pro zobrazení"
 
 #: templates/server/databases/create.phtml:7
 #: templates/server/databases/create.phtml:27
@@ -15208,39 +15223,39 @@ msgstr "Osa X:"
 msgid "Series:"
 msgstr "Série:"
 
-#: templates/table/chart/tbl_chart.phtml:104
+#: templates/table/chart/tbl_chart.phtml:103
 msgid "X-Axis label:"
 msgstr "Popis osy X:"
 
-#: templates/table/chart/tbl_chart.phtml:106
+#: templates/table/chart/tbl_chart.phtml:105
 msgid "X Values"
 msgstr "Hodnoty X"
 
-#: templates/table/chart/tbl_chart.phtml:109
+#: templates/table/chart/tbl_chart.phtml:108
 msgid "Y-Axis label:"
 msgstr "Popis osy Y:"
 
-#: templates/table/chart/tbl_chart.phtml:111
+#: templates/table/chart/tbl_chart.phtml:110
 msgid "Y Values"
 msgstr "Hodnoty Y"
 
-#: templates/table/chart/tbl_chart.phtml:117
+#: templates/table/chart/tbl_chart.phtml:116
 msgid "Series names are in a column"
 msgstr ""
 
-#: templates/table/chart/tbl_chart.phtml:120
+#: templates/table/chart/tbl_chart.phtml:119
 #, fuzzy
 #| msgid "Inside column:"
 msgid "Series column:"
 msgstr "Uvnitř pole:"
 
-#: templates/table/chart/tbl_chart.phtml:134
+#: templates/table/chart/tbl_chart.phtml:131
 #, fuzzy
 #| msgid "Values for column %s"
 msgid "Value Column:"
 msgstr "Hodnoty pro sloupec %s"
 
-#: templates/table/chart/tbl_chart.phtml:154
+#: templates/table/chart/tbl_chart.phtml:151
 msgid "Save chart as image"
 msgstr "Uložit graf jako obrázek"
 
@@ -15289,7 +15304,7 @@ msgstr "Syntaktický analyzátor:"
 msgid "Comment:"
 msgstr "Komentář:"
 
-#: templates/table/index_form.phtml:149 templates/table/index_form.phtml:195
+#: templates/table/index_form.phtml:149 templates/table/index_form.phtml:190
 msgid "Drag to reorder"
 msgstr "Uspořádejte přetažením"
 
@@ -15307,36 +15322,36 @@ msgstr "Akce"
 msgid "Constraint properties"
 msgstr "Vlastnosti omezení"
 
-#: templates/table/relation/common_form.phtml:12
+#: templates/table/relation/common_form.phtml:13
 msgid ""
 "Only columns with index will be displayed. You can define an index below."
 msgstr ""
 
-#: templates/table/relation/common_form.phtml:17
+#: templates/table/relation/common_form.phtml:18
 msgid "Foreign key constraint"
 msgstr "Omezení cizího klíče"
 
-#: templates/table/relation/common_form.phtml:59
+#: templates/table/relation/common_form.phtml:60
 msgid "+ Add constraint"
 msgstr "+ Přidat omezení"
 
-#: templates/table/relation/common_form.phtml:69
-#: templates/table/relation/common_form.phtml:75
+#: templates/table/relation/common_form.phtml:70
+#: templates/table/relation/common_form.phtml:76
 msgid "Internal relations"
 msgstr "interních relací"
 
-#: templates/table/relation/common_form.phtml:79
+#: templates/table/relation/common_form.phtml:80
 msgid "Internal relation"
 msgstr "Interní relace"
 
-#: templates/table/relation/common_form.phtml:82
+#: templates/table/relation/common_form.phtml:83
 msgid ""
 "An internal relation is not necessary when a corresponding FOREIGN KEY "
 "relation exists."
 msgstr ""
 "Interní relace není potřebná pokud existuje stejná relace pomocí FOREIGN KEY."
 
-#: templates/table/relation/common_form.phtml:110
+#: templates/table/relation/common_form.phtml:111
 msgid "Choose column to display:"
 msgstr "Zvolte která pole zobrazit:"
 
@@ -15345,11 +15360,11 @@ msgstr "Zvolte která pole zobrazit:"
 msgid "Foreign key constraint %s has been dropped"
 msgstr "Omezení cizího klíče %s bylo odstraněno"
 
-#: templates/table/relation/foreign_key_row.phtml:86
+#: templates/table/relation/foreign_key_row.phtml:84
 msgid "Constraint name"
 msgstr "Jméno omezení"
 
-#: templates/table/relation/foreign_key_row.phtml:141
+#: templates/table/relation/foreign_key_row.phtml:139
 msgid "+ Add column"
 msgstr "+ Přidat sloupec"
 
@@ -15410,7 +15425,7 @@ msgid "Do a \"query by example\" (wildcard: \"%\") for two different columns"
 msgstr ""
 "Provést „dotaz podle příkladu“ (zástupný znak: „%“) pro dva různé sloupce"
 
-#: templates/table/search/selection_form.phtml:35
+#: templates/table/search/selection_form.phtml:34
 msgid "Do a \"query by example\" (wildcard: \"%\")"
 msgstr "Provést „dotaz podle příkladu“ (zástupný znak: „%“)"
 
@@ -15430,28 +15445,28 @@ msgstr "Obnovit zvětšení"
 msgid "Relation view"
 msgstr "Zobrazení relací"
 
-#: templates/table/structure/actions_in_table_structure.phtml:15
+#: templates/table/structure/actions_in_table_structure.phtml:16
 #, php-format
 msgid "A primary key has been added on %s."
 msgstr "Na poli %s byl vytvořen primární klíč."
 
-#: templates/table/structure/actions_in_table_structure.phtml:34
-#: templates/table/structure/actions_in_table_structure.phtml:53
-#: templates/table/structure/actions_in_table_structure.phtml:78
-#: templates/table/structure/actions_in_table_structure.phtml:100
+#: templates/table/structure/actions_in_table_structure.phtml:36
+#: templates/table/structure/actions_in_table_structure.phtml:56
+#: templates/table/structure/actions_in_table_structure.phtml:81
+#: templates/table/structure/actions_in_table_structure.phtml:103
 #, php-format
 msgid "An index has been added on %s."
 msgstr "Na poli %s byl vytvořen klíč."
 
-#: templates/table/structure/actions_in_table_structure.phtml:128
-#: templates/table/structure/check_all_table_column.phtml:50
+#: templates/table/structure/actions_in_table_structure.phtml:131
+#: templates/table/structure/check_all_table_column.phtml:52
 #, fuzzy
 #| msgid "Remove column(s)"
 msgid "Remove from central columns"
 msgstr "Odstranit pole"
 
-#: templates/table/structure/actions_in_table_structure.phtml:136
-#: templates/table/structure/check_all_table_column.phtml:45
+#: templates/table/structure/actions_in_table_structure.phtml:139
+#: templates/table/structure/check_all_table_column.phtml:48
 #, fuzzy
 #| msgid "CHAR textarea columns"
 msgid "Add to central columns"
@@ -15497,13 +15512,13 @@ msgstr "Délka řádku"
 msgid "Index length"
 msgstr "Délka klíče"
 
-#: templates/table/structure/display_partitions.phtml:135
+#: templates/table/structure/display_partitions.phtml:136
 #, fuzzy
 #| msgid "partitioned"
 msgid "Partition table"
 msgstr "používá oddíly"
 
-#: templates/table/structure/display_partitions.phtml:138
+#: templates/table/structure/display_partitions.phtml:139
 #: templates/table/structure/partition_definition_form.phtml:7
 #, fuzzy
 #| msgid "Remove partitioning"
@@ -16896,23 +16911,6 @@ msgstr ""
 #: libraries/advisory_rules.txt:457
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert je nastaveno na 0"
-
-#~ msgid ""
-#~ "The [code]$cfg['PmaAbsoluteUri'][/code] directive MUST be set in your "
-#~ "configuration file!"
-#~ msgstr ""
-#~ "V konfiguračním souboru musí být nastaven parametr "
-#~ "[code]$cfg['PmaAbsoluteUri'][/code]!"
-
-#~ msgid "This %soption%s should be enabled if your web server supports it."
-#~ msgstr ""
-#~ "Pokud to váš webserver podporuje, měli byste použít %sSSL připojení%s."
-
-#~ msgid "Force secured connection while using phpMyAdmin."
-#~ msgstr "Vynutit zabezpečené spojení při použití phpMyAdmina."
-
-#~ msgid "Force SSL connection"
-#~ msgstr "Vynutit SSL spojení"
 
 #~ msgid ""
 #~ "Your web browser does not support local storage of settings or the quota "

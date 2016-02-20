@@ -1,6 +1,6 @@
-/* Copyright (c) 2006-2013 by OpenLayers Contributors (see authors.txt for
- * full list of contributors). Published under the 2-clause BSD license.
- * See license.txt in the OpenLayers distribution or repository for the
+/* Copyright (c) 2006-2010 by OpenLayers Contributors (see authors.txt for 
+ * full list of contributors). Published under the Clear BSD license.  
+ * See http://svn.openlayers.org/trunk/openlayers/license.txt for the
  * full text of the license. */
 
 /**
@@ -8,24 +8,11 @@
  */
 
 /**
- * Class: OpenLayers.Protocol.WFS
+ * Function: OpenLayers.Protocol.WFS
  * Used to create a versioned WFS protocol.  Default version is 1.0.0.
  *
  * Returns:
  * {<OpenLayers.Protocol>} A WFS protocol of the given version.
- *
- * Example:
- * (code)
- *     var protocol = new OpenLayers.Protocol.WFS({
- *         version: "1.1.0",
- *         url:  "http://demo.opengeo.org/geoserver/wfs",
- *         featureType: "tasmania_roads",
- *         featureNS: "http://www.openplans.org/topp",
- *         geometryName: "the_geom"
- *     });
- * (end)
- *
- * See the protocols for specific WFS versions for more detail.
  */
 OpenLayers.Protocol.WFS = function(options) {
     options = OpenLayers.Util.applyDefaults(
@@ -39,7 +26,7 @@ OpenLayers.Protocol.WFS = function(options) {
 };
 
 /**
- * Function: fromWMSLayer
+ * Function: OpenLayers.Protocol.WFS.fromWMSLayer
  * Convenience function to create a WFS protocol from a WMS layer.  This makes
  *     the assumption that a WFS requests can be issued at the same URL as
  *     WMS requests and that a WFS featureType exists with the same name as the
@@ -47,20 +34,18 @@ OpenLayers.Protocol.WFS = function(options) {
  *     
  * This function is designed to auto-configure <url>, <featureType>,
  *     <featurePrefix> and <srsName> for WFS <version> 1.1.0. Note that
- *     srsName matching with the WMS layer will not work with WFS 1.0.0.
+ *     srsName matching with the WMS layer will not work with WFS 1.0.0..
  * 
  * Parameters:
  * layer - {<OpenLayers.Layer.WMS>} WMS layer that has a matching WFS
  *     FeatureType at the same server url with the same typename.
  * options - {Object} Default properties to be set on the protocol.
  *
- * Returns:
- * {<OpenLayers.Protocol.WFS>}
  */
 OpenLayers.Protocol.WFS.fromWMSLayer = function(layer, options) {
     var typeName, featurePrefix;
     var param = layer.params["LAYERS"];
-    var parts = (OpenLayers.Util.isArray(param) ? param[0] : param).split(":");
+    var parts = (param instanceof Array ? param[0] : param).split(":");
     if(parts.length > 1) {
         featurePrefix = parts[0];
     }

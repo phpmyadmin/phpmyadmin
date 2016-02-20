@@ -961,7 +961,7 @@ function PMA_handleControlRequest()
                 );
             } else {
                 PMA_sendHeaderLocation(
-                    './server_replication.php'
+                    $GLOBALS['cfg']['PmaAbsoluteUri'] . 'server_replication.php'
                     . PMA_URL_getCommon($GLOBALS['url_params'], 'text')
                 );
             }

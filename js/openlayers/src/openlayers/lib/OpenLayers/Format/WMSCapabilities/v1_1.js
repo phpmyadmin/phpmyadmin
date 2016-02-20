@@ -1,6 +1,6 @@
-/* Copyright (c) 2006-2013 by OpenLayers Contributors (see authors.txt for
- * full list of contributors). Published under the 2-clause BSD license.
- * See license.txt in the OpenLayers distribution or repository for the
+/* Copyright (c) 2006-2010 by OpenLayers Contributors (see authors.txt for 
+ * full list of contributors). Published under the Clear BSD license.  
+ * See http://svn.openlayers.org/trunk/openlayers/license.txt for the
  * full text of the license. */
 
 /**
@@ -78,18 +78,14 @@ OpenLayers.Format.WMSCapabilities.v1_1 = OpenLayers.Class(
                 var max = node.getAttribute("max");
                 var rad2 = Math.pow(2, 0.5);
                 var ipm = OpenLayers.INCHES_PER_UNIT["m"];
-                if (min != 0) {
-                    obj.maxScale = parseFloat(
-                        ((min / rad2) * ipm * 
-                            OpenLayers.DOTS_PER_INCH).toPrecision(13)
-                    );
-                }
-                if (max != Number.POSITIVE_INFINITY) {
-                    obj.minScale = parseFloat(
-                        ((max / rad2) * ipm * 
-                            OpenLayers.DOTS_PER_INCH).toPrecision(13)
-                    );
-                }
+                obj.maxScale = parseFloat(
+                    ((min / rad2) * ipm * 
+                        OpenLayers.DOTS_PER_INCH).toPrecision(13)
+                );
+                obj.minScale = parseFloat(
+                    ((max / rad2) * ipm * 
+                        OpenLayers.DOTS_PER_INCH).toPrecision(13)
+                );
             },
             "Dimension": function(node, obj) {
                 var name = node.getAttribute("name").toLowerCase();

@@ -1,10 +1,10 @@
-/* Copyright (c) 2006-2013 by OpenLayers Contributors (see authors.txt for
- * full list of contributors). Published under the 2-clause BSD license.
- * See license.txt in the OpenLayers distribution or repository for the
+/* Copyright (c) 2006-2010 by OpenLayers Contributors (see authors.txt for 
+ * full list of contributors). Published under the Clear BSD license.  
+ * See http://svn.openlayers.org/trunk/openlayers/license.txt for the
  * full text of the license. */
 
 /**
- * @requires OpenLayers/BaseTypes/Class.js
+ * @requires OpenLayers/Console.js
  */
 
 /**
@@ -68,8 +68,7 @@ OpenLayers.Pixel = OpenLayers.Class({
      * Determine whether one pixel is equivalent to another
      *
      * Parameters:
-     * px - {<OpenLayers.Pixel>|Object} An OpenLayers.Pixel or an object with
-     *                                  a 'x' and 'y' properties.
+     * px - {<OpenLayers.Pixel>}
      *
      * Returns:
      * {Boolean} The point passed in as parameter is equal to this. Note that
@@ -85,24 +84,6 @@ OpenLayers.Pixel = OpenLayers.Class({
     },
 
     /**
-     * APIMethod: distanceTo
-     * Returns the distance to the pixel point passed in as a parameter.
-     *
-     * Parameters:
-     * px - {<OpenLayers.Pixel>}
-     *
-     * Returns:
-     * {Float} The pixel point passed in as parameter to calculate the
-     *     distance to.
-     */
-    distanceTo:function(px) {
-        return Math.sqrt(
-            Math.pow(this.x - px.x, 2) +
-            Math.pow(this.y - px.y, 2)
-        );
-    },
-
-    /**
      * APIMethod: add
      *
      * Parameters:
@@ -115,7 +96,9 @@ OpenLayers.Pixel = OpenLayers.Class({
      */
     add:function(x, y) {
         if ( (x == null) || (y == null) ) {
-            throw new TypeError('Pixel.add cannot receive null values');
+            var msg = OpenLayers.i18n("pixelAddError");
+            OpenLayers.Console.error(msg);
+            return null;
         }
         return new OpenLayers.Pixel(this.x + x, this.y + y);
     },
@@ -124,8 +107,7 @@ OpenLayers.Pixel = OpenLayers.Class({
     * APIMethod: offset
     * 
     * Parameters
-    * px - {<OpenLayers.Pixel>|Object} An OpenLayers.Pixel or an object with
-    *                                  a 'x' and 'y' properties.
+    * px - {<OpenLayers.Pixel>}
     * 
     * Returns:
     * {<OpenLayers.Pixel>} A new Pixel with this pixel's x&y augmented by the 

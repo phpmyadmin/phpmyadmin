@@ -63,32 +63,20 @@ class ArrayObj extends Component
         $ret = empty($options['type']) ? new ArrayObj() : array();
 
         /**
-         * The last raw expression.
+         * The state of the parser.
          *
-         * @var string $lastRaw
-         */
-        $lastRaw = '';
-
-        /**
-         * The last value.
+         * Below are the states of the parser.
          *
-         * @var string $lastValue
-         */
-        $lastValue = '';
-
-        /**
-         * Counts brackets.
+         *      0 -----------------------[ ( ]------------------------> 1
          *
-         * @var int $brackets
-         */
-        $brackets = 0;
-
-        /**
-         * Last separator (bracket or comma).
+         *      1 ------------------[ array element ]-----------------> 2
          *
-         * @var boolean $isCommaLast
+         *      2 ------------------------[ , ]-----------------------> 1
+         *      2 ------------------------[ ) ]-----------------------> (END)
+         *
+         * @var int $state
          */
-        $isCommaLast = false;
+        $state = 0;
 
         for (; $list->idx < $list->count; ++$list->idx) {
             /**
@@ -104,72 +92,49 @@ class ArrayObj extends Component
             }
 
             // Skipping whitespaces and comments.
-            if (($token->type === Token::TYPE_WHITESPACE)
-                || ($token->type === Token::TYPE_COMMENT)
-            ) {
-                $lastRaw .= $token->token;
-                $lastValue = trim($lastValue) .' ';
+            if (($token->type === Token::TYPE_WHITESPACE) || ($token->type === Token::TYPE_COMMENT)) {
                 continue;
             }
 
-            if (($brackets === 0)
-                && (($token->type !== Token::TYPE_OPERATOR)
-                || ($token->value !== '('))
-            ) {
-                $parser->error(__('An opening bracket was expected.'), $token);
-                break;
-            }
-
-            if ($token->type === Token::TYPE_OPERATOR) {
-                if ($token->value === '(') {
-                    if (++$brackets === 1) { // 1 is the base level.
-                        continue;
-                    }
-                } elseif ($token->value === ')') {
-                    if (--$brackets === 0) { // Array ended.
-                        break;
-                    }
-                } elseif ($token->value === ',') {
-                    if ($brackets === 1) {
-                        $isCommaLast = true;
-                        if (empty($options['type'])) {
-                            $ret->raw[] = trim($lastRaw);
-                            $ret->values[] = trim($lastValue);
-                            $lastRaw = $lastValue = '';
-                        }
-                    }
-                    continue;
+            if ($state === 0) {
+                if (($token->type !== Token::TYPE_OPERATOR) || ($token->value !== '(')) {
+                    $parser->error(
+                        __('An opening bracket was expected.'),
+                        $token
+                    );
+                    break;
+                }
+                $state = 1;
+            } elseif ($state === 1) {
+                if (($token->type === Token::TYPE_OPERATOR) && ($token->value === ')')) {
+                    // Empty array.
+                    break;
+                }
+                if (empty($options['type'])) {
+                    $ret->values[] = $token->value;
+                    $ret->raw[] = $token->token;
+                } else {
+                    $ret[] = $options['type']::parse(
+                        $parser,
+                        $list,
+                        empty($options['typeOptions']) ? array() : $options['typeOptions']
+                    );
+                }
+                $state = 2;
+            } elseif ($state === 2) {
+                if (($token->type !== Token::TYPE_OPERATOR) || (($token->value !== ',') && ($token->value !== ')'))) {
+                    $parser->error(
+                        __('A comma or a closing bracket was expected'),
+                        $token
+                    );
+                    break;
+                }
+                if ($token->value === ',') {
+                    $state = 1;
+                } else { // )
+                    break;
                 }
             }
-
-            if (empty($options['type'])) {
-                $lastRaw .= $token->token;
-                $lastValue .= $token->value;
-            } else {
-                $ret[] = $options['type']::parse(
-                    $parser,
-                    $list,
-                    empty($options['typeOptions']) ? array() : $options['typeOptions']
-                );
-            }
-        }
-
-        // Handling last element.
-        //
-        // This is treated differently to treat the following cases:
-        //
-        //           => array()
-        //      (,)  => array('', '')
-        //      ()   => array()
-        //      (a,) => array('a', '')
-        //      (a)  => array('a')
-        //
-        $lastRaw = trim($lastRaw);
-        if ((empty($options['type']))
-            && ((strlen($lastRaw) > 0) || ($isCommaLast))
-        ) {
-            $ret->raw[] = $lastRaw;
-            $ret->values[] = trim($lastValue);
         }
 
         return $ret;

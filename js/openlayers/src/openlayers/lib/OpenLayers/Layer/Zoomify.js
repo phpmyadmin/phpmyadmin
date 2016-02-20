@@ -1,6 +1,6 @@
-/* Copyright (c) 2006-2013 by OpenLayers Contributors (see authors.txt for
- * full list of contributors). Published under the 2-clause BSD license.
- * See license.txt in the OpenLayers distribution or repository for the
+/* Copyright (c) 2006-2010 by OpenLayers Contributors (see authors.txt for 
+ * full list of contributors). Published under the Clear BSD license.  
+ * See http://svn.openlayers.org/trunk/openlayers/license.txt for the
  * full text of the license. */
 
 /*
@@ -22,6 +22,12 @@
 OpenLayers.Layer.Zoomify = OpenLayers.Class(OpenLayers.Layer.Grid, {
 
     /**
+     * Property: url
+     * {String} URL for root directory with TileGroupX subdirectories.
+     */
+    url: null,
+
+    /**
      * Property: size
      * {<OpenLayers.Size>} The Zoomify image size in pixels.
      */
@@ -39,12 +45,6 @@ OpenLayers.Layer.Zoomify = OpenLayers.Class(OpenLayers.Layer.Grid, {
      */
     standardTileSize: 256,
 
-    /** 
-     * Property: tileOriginCorner
-     * {String} This layer uses top-left as tile origin
-     **/
-    tileOriginCorner: "tl",
-
     /**
      * Property: numberOfTiers
      * {Integer} Depth of the Zoomify pyramid, number of tiers (zoom levels)
@@ -57,21 +57,21 @@ OpenLayers.Layer.Zoomify = OpenLayers.Class(OpenLayers.Layer.Grid, {
      * {Array(Integer)} Number of tiles up to the given tier of pyramid.
      *                          - filled during Zoomify pyramid initialization.
      */
-    tileCountUpToTier: null,
+    tileCountUpToTier: new Array(),
 
     /**
      * Property: tierSizeInTiles
      * {Array(<OpenLayers.Size>)} Size (in tiles) for each tier of pyramid.
      *                          - filled during Zoomify pyramid initialization.
      */
-    tierSizeInTiles: null,
+    tierSizeInTiles: new Array(),
 
     /**
      * Property: tierImageSize
      * {Array(<OpenLayers.Size>)} Image size in pixels for each pyramid tier.
      *                          - filled during Zoomify pyramid initialization.
      */
-    tierImageSize: null,
+    tierImageSize: new Array(),
 
     /**
      * Constructor: OpenLayers.Layer.Zoomify
@@ -87,11 +87,12 @@ OpenLayers.Layer.Zoomify = OpenLayers.Class(OpenLayers.Layer.Grid, {
     initialize: function(name, url, size, options) {
 
         // initilize the Zoomify pyramid for given size
-        this.initializeZoomify(size);
+        this.initializeZoomify( size );
 
-        OpenLayers.Layer.Grid.prototype.initialize.apply(this, [
-            name, url, size, {}, options
-        ]);
+        var newArguments = [];
+        newArguments.push(name, url, size, {}, options);
+
+        OpenLayers.Layer.Grid.prototype.initialize.apply(this, newArguments);
     },
 
     /**
@@ -104,15 +105,14 @@ OpenLayers.Layer.Zoomify = OpenLayers.Class(OpenLayers.Layer.Grid, {
      */
     initializeZoomify: function( size ) {
 
-        var imageSize = size.clone();
-        this.size = size.clone();
+        var imageSize = size.clone()
         var tiles = new OpenLayers.Size(
             Math.ceil( imageSize.w / this.standardTileSize ),
             Math.ceil( imageSize.h / this.standardTileSize )
             );
 
-        this.tierSizeInTiles = [tiles];
-        this.tierImageSize = [imageSize];
+        this.tierSizeInTiles.push( tiles );
+        this.tierImageSize.push( imageSize );
 
         while (imageSize.w > this.standardTileSize ||
                imageSize.h > this.standardTileSize ) {
@@ -133,17 +133,13 @@ OpenLayers.Layer.Zoomify = OpenLayers.Class(OpenLayers.Layer.Grid, {
         this.tierImageSize.reverse();
 
         this.numberOfTiers = this.tierSizeInTiles.length;
-        var resolutions = [1];
-        this.tileCountUpToTier = [0];
+
+        this.tileCountUpToTier[0] = 0;
         for (var i = 1; i < this.numberOfTiers; i++) {
-            resolutions.unshift(Math.pow(2, i));
             this.tileCountUpToTier.push(
                 this.tierSizeInTiles[i-1].w * this.tierSizeInTiles[i-1].h +
                 this.tileCountUpToTier[i-1]
                 );
-        }
-        if (!this.serverResolutions) {
-            this.serverResolutions = resolutions;
         }
     },
 
@@ -155,9 +151,9 @@ OpenLayers.Layer.Zoomify = OpenLayers.Class(OpenLayers.Layer.Grid, {
         OpenLayers.Layer.Grid.prototype.destroy.apply(this, arguments);
 
         // Remove from memory the Zoomify pyramid - is that enough?
-        this.tileCountUpToTier.length = 0;
-        this.tierSizeInTiles.length = 0;
-        this.tierImageSize.length = 0;
+        this.tileCountUpToTier.length = 0
+        this.tierSizeInTiles.length = 0
+        this.tierImageSize.length = 0
 
     },
 
@@ -200,16 +196,16 @@ OpenLayers.Layer.Zoomify = OpenLayers.Class(OpenLayers.Layer.Grid, {
      */
     getURL: function (bounds) {
         bounds = this.adjustBounds(bounds);
-        var res = this.getServerResolution();
+        var res = this.map.getResolution();
         var x = Math.round((bounds.left - this.tileOrigin.lon) / (res * this.tileSize.w));
         var y = Math.round((this.tileOrigin.lat - bounds.top) / (res * this.tileSize.h));
-        var z = this.getZoomForResolution( res );
+        var z = this.map.getZoom();
 
         var tileIndex = x + y * this.tierSizeInTiles[z].w + this.tileCountUpToTier[z];
         var path = "TileGroup" + Math.floor( (tileIndex) / 256 ) +
             "/" + z + "-" + x + "-" + y + ".jpg";
         var url = this.url;
-        if (OpenLayers.Util.isArray(url)) {
+        if (url instanceof Array) {
             url = this.selectUrl(path, url);
         }
         return url + path;
@@ -223,23 +219,39 @@ OpenLayers.Layer.Zoomify = OpenLayers.Class(OpenLayers.Layer.Grid, {
      */
     getImageSize: function() {
         if (arguments.length > 0) {
-            var bounds = this.adjustBounds(arguments[0]);
-            var res = this.getServerResolution();
+            bounds = this.adjustBounds(arguments[0]);
+            var res = this.map.getResolution();
             var x = Math.round((bounds.left - this.tileOrigin.lon) / (res * this.tileSize.w));
             var y = Math.round((this.tileOrigin.lat - bounds.top) / (res * this.tileSize.h));
-            var z = this.getZoomForResolution( res );
+            var z = this.map.getZoom();
             var w = this.standardTileSize;
             var h = this.standardTileSize;
             if (x == this.tierSizeInTiles[z].w -1 ) {
                 var w = this.tierImageSize[z].w % this.standardTileSize;
-            }
+            };
             if (y == this.tierSizeInTiles[z].h -1 ) {
                 var h = this.tierImageSize[z].h % this.standardTileSize;
-            }
+            };
             return (new OpenLayers.Size(w, h));
         } else {
             return this.tileSize;
         }
+    },
+
+    /**
+     * Method: addTile
+     * addTile creates a tile, initializes it, and adds it to the layer div.
+     *
+     * Parameters:
+     * bounds - {<OpenLayers.Bounds>}
+     * position - {<OpenLayers.Pixel>}
+     *
+     * Returns:
+     * {<OpenLayers.Tile.Image>} The added OpenLayers.Tile.Image
+     */
+    addTile:function(bounds,position) {
+        return new OpenLayers.Tile.Image(this, position, bounds,
+                                         null, this.tileSize);
     },
 
     /**
@@ -254,6 +266,42 @@ OpenLayers.Layer.Zoomify = OpenLayers.Class(OpenLayers.Layer.Grid, {
         OpenLayers.Layer.Grid.prototype.setMap.apply(this, arguments);
         this.tileOrigin = new OpenLayers.LonLat(this.map.maxExtent.left,
                                                 this.map.maxExtent.top);
+    },
+
+    /**
+     * Method: calculateGridLayout
+     * Generate parameters for the grid layout. This
+     *
+     * Parameters:
+     * bounds - {<OpenLayers.Bound>}
+     * extent - {<OpenLayers.Bounds>}
+     * resolution - {Number}
+     *
+     * Returns:
+     * Object containing properties tilelon, tilelat, tileoffsetlat,
+     * tileoffsetlat, tileoffsetx, tileoffsety
+     */
+    calculateGridLayout: function(bounds, extent, resolution) {
+        var tilelon = resolution * this.tileSize.w;
+        var tilelat = resolution * this.tileSize.h;
+
+        var offsetlon = bounds.left - extent.left;
+        var tilecol = Math.floor(offsetlon/tilelon) - this.buffer;
+        var tilecolremain = offsetlon/tilelon - tilecol;
+        var tileoffsetx = -tilecolremain * this.tileSize.w;
+        var tileoffsetlon = extent.left + tilecol * tilelon;
+
+        var offsetlat = extent.top - bounds.top + tilelat;
+        var tilerow = Math.floor(offsetlat/tilelat) - this.buffer;
+        var tilerowremain = tilerow - offsetlat/tilelat;
+        var tileoffsety = tilerowremain * this.tileSize.h;
+        var tileoffsetlat = extent.top - tilelat*tilerow;
+
+        return {
+          tilelon: tilelon, tilelat: tilelat,
+          tileoffsetlon: tileoffsetlon, tileoffsetlat: tileoffsetlat,
+          tileoffsetx: tileoffsetx, tileoffsety: tileoffsety
+        };
     },
 
     CLASS_NAME: "OpenLayers.Layer.Zoomify"

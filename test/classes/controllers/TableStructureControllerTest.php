@@ -48,8 +48,11 @@ class TableStructureControllerTest extends PMATestCase
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
 
         $GLOBALS['table'] = "table";
+        $GLOBALS['pmaThemeImage'] = 'image';
 
         //$_SESSION
+        $_SESSION['PMA_Theme'] = Theme::load('./themes/pmahomme');
+        $_SESSION['PMA_Theme'] = new Theme();
 
         $table = $this->getMockBuilder('PMA\libraries\Table')
             ->disableOriginalConstructor()

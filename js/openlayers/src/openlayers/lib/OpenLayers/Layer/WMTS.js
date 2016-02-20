@@ -1,10 +1,11 @@
-/* Copyright (c) 2006-2013 by OpenLayers Contributors (see authors.txt for
- * full list of contributors). Published under the 2-clause BSD license.
- * See license.txt in the OpenLayers distribution or repository for the
+/* Copyright (c) 2006-2010 by OpenLayers Contributors (see authors.txt for 
+ * full list of contributors). Published under the Clear BSD license.  
+ * See http://svn.openlayers.org/trunk/openlayers/license.txt for the
  * full text of the license. */
 
 /**
  * @requires OpenLayers/Layer/Grid.js
+ * @requires OpenLayers/Tile/Image.js
  */
 
 /**
@@ -37,10 +38,7 @@ OpenLayers.Layer.WMTS = OpenLayers.Class(OpenLayers.Layer.Grid, {
     
     /**
      * APIProperty: url
-     * {String|Array(String)} The base URL or request URL template for the WMTS
-     * service. Must be provided. Array is only supported for base URLs, not
-     * for request URL templates. URL templates are only supported for
-     * REST <requestEncoding>.
+     * {String} The base URL for the WMTS service.  Must be provided.
      */
     url: null,
 
@@ -106,7 +104,6 @@ OpenLayers.Layer.WMTS = OpenLayers.Class(OpenLayers.Layer.Grid, {
      * 
      * Matrix properties:
      * identifier - {String} The matrix identifier (required).
-     * scaleDenominator - {Number} The matrix scale denominator.
      * topLeftCorner - {<OpenLayers.LonLat>} The top left corner of the 
      *     matrix.  Must be provided if different than the layer <tileOrigin>.
      * tileWidth - {Number} The tile width for the matrix.  Must be provided 
@@ -153,23 +150,7 @@ OpenLayers.Layer.WMTS = OpenLayers.Class(OpenLayers.Layer.Grid, {
      *     the <matrixIds> property.  Defaults to 0 (no zoom offset).
      */
     zoomOffset: 0,
-
-    /**
-     * APIProperty: serverResolutions
-     * {Array} A list of all resolutions available on the server.  Only set this
-     *     property if the map resolutions differ from the server. This
-     *     property serves two purposes. (a) <serverResolutions> can include
-     *     resolutions that the server supports and that you don't want to
-     *     provide with this layer; you can also look at <zoomOffset>, which is
-     *     an alternative to <serverResolutions> for that specific purpose.
-     *     (b) The map can work with resolutions that aren't supported by
-     *     the server, i.e. that aren't in <serverResolutions>. When the
-     *     map is displayed in such a resolution data for the closest
-     *     server-supported resolution is loaded and the layer div is
-     *     stretched as necessary.
-     */
-    serverResolutions: null,
-
+    
     /**
      * Property: formatSuffixMap
      * {Object} a map between WMTS 'format' request parameter and tile image file suffix
@@ -264,6 +245,7 @@ OpenLayers.Layer.WMTS = OpenLayers.Class(OpenLayers.Layer.Grid, {
      */
     setMap: function() {
         OpenLayers.Layer.Grid.prototype.setMap.apply(this, arguments);
+        this.updateMatrixProperties();
     },
     
     /**
@@ -296,7 +278,7 @@ OpenLayers.Layer.WMTS = OpenLayers.Class(OpenLayers.Layer.Grid, {
      * Method: moveTo
      * 
      * Parameters:
-     * bounds - {<OpenLayers.Bounds>}
+     * bound - {<OpenLayers.Bounds>}
      * zoomChanged - {Boolean} Tells when zoom has changed, as layers have to
      *     do some init work in that case.
      * dragging - {Boolean}
@@ -326,14 +308,6 @@ OpenLayers.Layer.WMTS = OpenLayers.Class(OpenLayers.Layer.Grid, {
         // copy/set any non-init, non-simple values here
         return obj;
     },
-
-    /**
-     * Method: getIdentifier
-     * Get the current index in the matrixIds array.
-     */
-    getIdentifier: function() {
-        return this.getServerZoom();
-    },
     
     /**
      * Method: getMatrix
@@ -342,7 +316,7 @@ OpenLayers.Layer.WMTS = OpenLayers.Class(OpenLayers.Layer.Grid, {
     getMatrix: function() {
         var matrix;
         if (!this.matrixIds || this.matrixIds.length === 0) {
-            matrix = {identifier: this.getIdentifier()};
+            matrix = {identifier: this.map.getZoom() + this.zoomOffset};
         } else {
             // get appropriate matrix given the map scale if possible
             if ("scaleDenominator" in this.matrixIds[0]) {
@@ -350,7 +324,7 @@ OpenLayers.Layer.WMTS = OpenLayers.Class(OpenLayers.Layer.Grid, {
                 var denom = 
                     OpenLayers.METERS_PER_INCH * 
                     OpenLayers.INCHES_PER_UNIT[this.units] * 
-                    this.getServerResolution() / 0.28E-3;
+                    this.map.getResolution() / 0.28E-3;
                 var diff = Number.POSITIVE_INFINITY;
                 var delta;
                 for (var i=0, ii=this.matrixIds.length; i<ii; ++i) {
@@ -362,7 +336,7 @@ OpenLayers.Layer.WMTS = OpenLayers.Class(OpenLayers.Layer.Grid, {
                 }
             } else {
                 // fall back on zoom as index
-                matrix = this.matrixIds[this.getIdentifier()];
+                matrix = this.matrixIds[this.map.getZoom() + this.zoomOffset];
             }
         }
         return matrix;
@@ -382,7 +356,7 @@ OpenLayers.Layer.WMTS = OpenLayers.Class(OpenLayers.Layer.Grid, {
      *     (respectively) of the given location within the target tile.
      */
     getTileInfo: function(loc) {
-        var res = this.getServerResolution();
+        var res = this.map.getResolution();
         
         var fx = (loc.lon - this.tileOrigin.lon) / (res * this.tileSize.w);
         var fy = (this.tileOrigin.lat - loc.lat) / (res * this.tileSize.h);
@@ -415,63 +389,39 @@ OpenLayers.Layer.WMTS = OpenLayers.Class(OpenLayers.Layer.Grid, {
             var center = bounds.getCenterLonLat();            
             var info = this.getTileInfo(center);
             var matrixId = this.matrix.identifier;
-            var dimensions = this.dimensions, params;
-
-            if (OpenLayers.Util.isArray(this.url)) {
-                url = this.selectUrl([
-                    this.version, this.style, this.matrixSet,
-                    this.matrix.identifier, info.row, info.col
-                ].join(","), this.url);
-            } else {
-                url = this.url;
-            }
 
             if (this.requestEncoding.toUpperCase() === "REST") {
-                params = this.params;
-                if (url.indexOf("{") !== -1) {
-                    var template = url.replace(/\{/g, "${");
-                    var context = {
-                        // spec does not make clear if capital S or not
-                        style: this.style, Style: this.style,
-                        TileMatrixSet: this.matrixSet,
-                        TileMatrix: this.matrix.identifier,
-                        TileRow: info.row,
-                        TileCol: info.col
-                    };
-                    if (dimensions) {
-                        var dimension, i;
-                        for (i=dimensions.length-1; i>=0; --i) {
-                            dimension = dimensions[i];
-                            context[dimension] = params[dimension.toUpperCase()];
+
+                // include 'version', 'layer' and 'style' in tile resource url
+                var path = this.version + "/" + this.layer + "/" + this.style + "/";
+
+                // append optional dimension path elements
+                if (this.dimensions) {
+                    for (var i=0; i<this.dimensions.length; i++) {
+                        if (this.params[this.dimensions[i]]) {
+                            path = path + this.params[this.dimensions[i]] + "/";
                         }
                     }
-                    url = OpenLayers.String.format(template, context);
-                } else {
-                    // include 'version', 'layer' and 'style' in tile resource url
-                    var path = this.version + "/" + this.layer + "/" + this.style + "/";
-
-                    // append optional dimension path elements
-                    if (dimensions) {
-                        for (var i=0; i<dimensions.length; i++) {
-                            if (params[dimensions[i]]) {
-                                path = path + params[dimensions[i]] + "/";
-                            }
-                        }
-                    }
-
-                    // append other required path elements
-                    path = path + this.matrixSet + "/" + this.matrix.identifier + 
-                        "/" + info.row + "/" + info.col + "." + this.formatSuffix;
-
-                    if (!url.match(/\/$/)) {
-                        url = url + "/";
-                    }
-                    url = url + path;
                 }
+
+                // append other required path elements
+                path = path + this.matrixSet + "/" + this.matrix.identifier + 
+                    "/" + info.row + "/" + info.col + "." + this.formatSuffix;
+                
+                if (this.url instanceof Array) {
+                    url = this.selectUrl(path, this.url);
+                } else {
+                    url = this.url;
+                }
+                if (!url.match(/\/$/)) {
+                    url = url + "/";
+                }
+                url = url + path;
+
             } else if (this.requestEncoding.toUpperCase() === "KVP") {
 
                 // assemble all required parameters
-                params = {
+                var params = {
                     SERVICE: "WMTS",
                     REQUEST: "GetTile",
                     VERSION: this.version,
@@ -504,6 +454,22 @@ OpenLayers.Layer.WMTS = OpenLayers.Class(OpenLayers.Layer.Grid, {
                 this, [OpenLayers.Util.upperCaseObject(newParams)]
             );
         }
+    },
+
+    /**
+     * Method: addTile
+     * Create a tile, initialize it, and add it to the layer div. 
+     * 
+     * Parameters:
+     * bounds - {<OpenLayers.Bounds>}
+     * position - {<OpenLayers.Pixel>}
+     * 
+     * Returns:
+     * {<OpenLayers.Tile.Image>} The added OpenLayers.Tile.Image
+     */
+    addTile: function(bounds,position) {
+        return new OpenLayers.Tile.Image(this, position, bounds, 
+                                         null, this.tileSize);
     },
 
     CLASS_NAME: "OpenLayers.Layer.WMTS"

@@ -349,11 +349,32 @@ class TableStructureController extends TableController
             $this->db, $this->table, null, true
         );
 
+        // Get more complete field information
+        // For now, this is done just for MySQL 4.1.2+ new TIMESTAMP options
+        // but later, if the analyser returns more information, it
+        // could be executed for any MySQL version and replace
+        // the info given by SHOW FULL COLUMNS FROM.
+        //
+        // We also need this to correctly learn if a TIMESTAMP is NOT NULL, since
+        // SHOW FULL COLUMNS or INFORMATION_SCHEMA incorrectly says NULL
+        // and SHOW CREATE TABLE says NOT NULL (tested
+        // in MySQL 4.0.25 and 5.0.21, http://bugs.mysql.com/20910).
+
+        $show_create_table = $this->table_obj->showCreate();
+        $parser = new SqlParser\Parser($show_create_table);
+
+        /**
+         * @var CreateStatement $stmt
+         */
+        $stmt = $parser->statements[0];
+
+        $create_table_fields = SqlTable::getFields($stmt);
+
         //display table structure
         $this->response->addHTML(
             $this->displayStructure(
-                $cfgRelation, $columns_with_unique_index, $url_params,
-                $primary, $fields, $columns_with_index
+                $cfgRelation, $columns_with_unique_index, $url_params, $primary,
+                $fields, $columns_with_index, $create_table_fields
             )
         );
 
@@ -1146,12 +1167,13 @@ class TableStructureController extends TableController
      *                                               no one exists
      * @param array       $fields                    Fields
      * @param array       $columns_with_index        Columns with index
+     * @param array       $create_table_fields       Fields of the table.
      *
      * @return string
      */
     protected function displayStructure(
-        $cfgRelation, $columns_with_unique_index, $url_params,
-        $primary_index, $fields, $columns_with_index
+        $cfgRelation, $columns_with_unique_index, $url_params, $primary_index,
+        $fields, $columns_with_index, $create_table_fields
     ) {
         /* TABLE INFORMATION */
         $HideStructureActions = '';
@@ -1274,6 +1296,7 @@ class TableStructureController extends TableController
                 'fields' => $fields,
                 'columns_with_index' => $columns_with_index,
                 'central_list' => $central_list,
+                'create_table_fields' => $create_table_fields,
                 'comments_map' => $comments_map
             )
         );

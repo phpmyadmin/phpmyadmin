@@ -46,6 +46,7 @@ class TableIndexesControllerTest extends PMATestCase
          */
         $GLOBALS['server'] = 1;
         $GLOBALS['cfg']['Server']['pmadb'] = '';
+        $GLOBALS['pmaThemeImage'] = 'theme/';
         $GLOBALS['url_params'] = array(
             'db' => 'db',
             'server' => 1
@@ -79,6 +80,8 @@ class TableIndexesControllerTest extends PMATestCase
         $GLOBALS['dbi'] = $dbi;
 
         //$_SESSION
+        $_SESSION['PMA_Theme'] = Theme::load('./themes/pmahomme');
+        $_SESSION['PMA_Theme'] = new Theme();
     }
 
     /**

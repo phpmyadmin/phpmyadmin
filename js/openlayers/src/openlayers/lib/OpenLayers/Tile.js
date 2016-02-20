@@ -1,15 +1,15 @@
-/* Copyright (c) 2006-2013 by OpenLayers Contributors (see authors.txt for
- * full list of contributors). Published under the 2-clause BSD license.
- * See license.txt in the OpenLayers distribution or repository for the
+/* Copyright (c) 2006-2010 by OpenLayers Contributors (see authors.txt for 
+ * full list of contributors). Published under the Clear BSD license.  
+ * See http://svn.openlayers.org/trunk/openlayers/license.txt for the
  * full text of the license. */
 
 
-/**
- * @requires OpenLayers/BaseTypes/Class.js
+/*
  * @requires OpenLayers/Util.js
+ * @requires OpenLayers/Console.js
  */
 
-/**
+/*
  * Class: OpenLayers.Tile 
  * This is a class designed to designate a single tile, however
  *     it is explicitly designed to do relatively little. Tiles store 
@@ -23,53 +23,18 @@
  */
 OpenLayers.Tile = OpenLayers.Class({
     
+    /** 
+     * Constant: EVENT_TYPES
+     * {Array(String)} Supported application event types
+     */
+    EVENT_TYPES: [ "loadstart", "loadend", "reload", "unload"],
+    
     /**
      * APIProperty: events
      * {<OpenLayers.Events>} An events object that handles all 
-     *     events on the tile.
-     *
-     * Register a listener for a particular event with the following syntax:
-     * (code)
-     * tile.events.register(type, obj, listener);
-     * (end)
-     *
-     * Supported event types:
-     * beforedraw - Triggered before the tile is drawn. Used to defer
-     *     drawing to an animation queue. To defer drawing, listeners need
-     *     to return false, which will abort drawing. The queue handler needs
-     *     to call <draw>(true) to actually draw the tile.
-     * loadstart - Triggered when tile loading starts.
-     * loadend - Triggered when tile loading ends.
-     * loaderror - Triggered before the loadend event (i.e. when the tile is
-     *     still hidden) if the tile could not be loaded.
-     * reload - Triggered when an already loading tile is reloaded.
-     * unload - Triggered before a tile is unloaded.
+     *                       events on the tile.
      */
     events: null,
-
-    /**
-     * APIProperty: eventListeners
-     * {Object} If set as an option at construction, the eventListeners
-     *     object will be registered with <OpenLayers.Events.on>.  Object
-     *     structure must be a listeners object as shown in the example for
-     *     the events.on method.
-     *
-     * This options can be set in the ``tileOptions`` option from
-     * <OpenLayers.Layer.Grid>. For example, to be notified of the
-     * ``loadend`` event of each tiles:
-     * (code)
-     * new OpenLayers.Layer.OSM('osm', 'http://tile.openstreetmap.org/${z}/${x}/${y}.png', {
-     *     tileOptions: {
-     *         eventListeners: {
-     *             'loadend': function(evt) {
-     *                 // do something on loadend
-     *             }
-     *         }
-     *     }
-     * });
-     * (end)
-     */
-    eventListeners: null,
 
     /**
      * Property: id 
@@ -110,18 +75,16 @@ OpenLayers.Tile = OpenLayers.Class({
      * {<OpenLayers.Pixel>} Top Left pixel of the tile
      */    
     position: null,
-    
+
     /**
      * Property: isLoading
      * {Boolean} Is the tile loading?
      */
     isLoading: false,
-    
+        
     /** TBD 3.0 -- remove 'url' from the list of parameters to the constructor.
      *             there is no need for the base tile class to have a url.
-     */
-
-    /** 
+     * 
      * Constructor: OpenLayers.Tile
      * Constructor for a new <OpenLayers.Tile> instance.
      * 
@@ -131,26 +94,18 @@ OpenLayers.Tile = OpenLayers.Class({
      * bounds - {<OpenLayers.Bounds>}
      * url - {<String>}
      * size - {<OpenLayers.Size>}
-     * options - {Object}
      */   
-    initialize: function(layer, position, bounds, url, size, options) {
+    initialize: function(layer, position, bounds, url, size) {
         this.layer = layer;
         this.position = position.clone();
-        this.setBounds(bounds);
+        this.bounds = bounds.clone();
         this.url = url;
-        if (size) {
-            this.size = size.clone();
-        }
+        this.size = size.clone();
 
         //give the tile a unique id based on its BBOX.
         this.id = OpenLayers.Util.createUniqueID("Tile_");
-
-        OpenLayers.Util.extend(this, options);
-
-        this.events = new OpenLayers.Events(this);
-        if (this.eventListeners instanceof Object) {
-            this.events.on(this.eventListeners);
-        }
+        
+        this.events = new OpenLayers.Events(this, null, this.EVENT_TYPES);
     },
 
     /**
@@ -177,84 +132,58 @@ OpenLayers.Tile = OpenLayers.Class({
         this.size = null;
         this.position = null;
         
-        if (this.eventListeners) {
-            this.events.un(this.eventListeners);
-        }
         this.events.destroy();
-        this.eventListeners = null;
         this.events = null;
     },
     
     /**
+     * Method: clone
+     *
+     * Parameters:
+     * obj - {<OpenLayers.Tile>} The tile to be cloned
+     *
+     * Returns:
+     * {<OpenLayers.Tile>} An exact clone of this <OpenLayers.Tile>
+     */
+    clone: function (obj) {
+        if (obj == null) {
+            obj = new OpenLayers.Tile(this.layer, 
+                                      this.position, 
+                                      this.bounds, 
+                                      this.url, 
+                                      this.size);
+        } 
+        
+        // catch any randomly tagged-on properties
+        OpenLayers.Util.applyDefaults(obj, this);
+        
+        return obj;
+    },
+
+    /**
      * Method: draw
      * Clear whatever is currently in the tile, then return whether or not 
-     *     it should actually be re-drawn. This is an example implementation
-     *     that can be overridden by subclasses. The minimum thing to do here
-     *     is to call <clear> and return the result from <shouldDraw>.
-     *
-     * Parameters:
-     * force - {Boolean} If true, the tile will not be cleared and no beforedraw
-     *     event will be fired. This is used for drawing tiles asynchronously
-     *     after drawing has been cancelled by returning false from a beforedraw
-     *     listener.
+     *     it should actually be re-drawn.
      * 
      * Returns:
-     * {Boolean} Whether or not the tile should actually be drawn. Returns null
-     *     if a beforedraw listener returned false.
+     * {Boolean} Whether or not the tile should actually be drawn. Note that 
+     *     this is not really the best way of doing things, but such is 
+     *     the way the code has been developed. Subclasses call this and
+     *     depend on the return to know if they should draw or not.
      */
-    draw: function(force) {
-        if (!force) {
-            //clear tile's contents and mark as not drawn
-            this.clear();
-        }
-        var draw = this.shouldDraw();
-        if (draw && !force && this.events.triggerEvent("beforedraw") === false) {
-            draw = null;
-        }
-        return draw;
-    },
-    
-    /**
-     * Method: shouldDraw
-     * Return whether or not the tile should actually be (re-)drawn. The only
-     * case where we *wouldn't* want to draw the tile is if the tile is outside
-     * its layer's maxExtent
-     * 
-     * Returns:
-     * {Boolean} Whether or not the tile should actually be drawn.
-     */
-    shouldDraw: function() {        
-        var withinMaxExtent = false,
-            maxExtent = this.layer.maxExtent;
-        if (maxExtent) {
-            var map = this.layer.map;
-            var worldBounds = map.baseLayer.wrapDateLine && map.getMaxExtent();
-            if (this.bounds.intersectsBounds(maxExtent, {inclusive: false, worldBounds: worldBounds})) {
-                withinMaxExtent = true;
-            }
-        }
+    draw: function() {
+        var maxExtent = this.layer.maxExtent;
+        var withinMaxExtent = (maxExtent &&
+                               this.bounds.intersectsBounds(maxExtent, false));
+ 
+        // The only case where we *wouldn't* want to draw the tile is if the 
+        // tile is outside its layer's maxExtent.
+        this.shouldDraw = (withinMaxExtent || this.layer.displayOutsideMaxExtent);
+                
+        //clear tile's contents and mark as not drawn
+        this.clear();
         
-        return withinMaxExtent || this.layer.displayOutsideMaxExtent;
-    },
-    
-    /**
-     * Method: setBounds
-     * Sets the bounds on this instance
-     *
-     * Parameters:
-     * bounds {<OpenLayers.Bounds>}
-     */
-    setBounds: function(bounds) {
-        bounds = bounds.clone();
-        if (this.layer.map.baseLayer.wrapDateLine) {
-            var worldExtent = this.layer.map.getMaxExtent(),
-                tolerance = this.layer.map.getResolution();
-            bounds = bounds.wrapDateLine(worldExtent, {
-                leftTolerance: tolerance,
-                rightTolerance: tolerance
-            });
-        }
-        this.bounds = bounds;
+        return this.shouldDraw;
     },
     
     /** 
@@ -272,7 +201,7 @@ OpenLayers.Tile = OpenLayers.Class({
             redraw = true;
         }
 
-        this.setBounds(bounds);
+        this.bounds = bounds.clone();
         this.position = position.clone();
         if (redraw) {
             this.draw();
@@ -282,11 +211,71 @@ OpenLayers.Tile = OpenLayers.Class({
     /** 
      * Method: clear
      * Clear the tile of any bounds/position-related data so that it can 
-     *     be reused in a new location.
+     *     be reused in a new location. To be implemented by subclasses.
      */
-    clear: function(draw) {
-        // to be extended by subclasses
+    clear: function() {
+        // to be implemented by subclasses
     },
+    
+    /**   
+     * Method: getBoundsFromBaseLayer
+     * Take the pixel locations of the corner of the tile, and pass them to 
+     *     the base layer and ask for the location of those pixels, so that 
+     *     displaying tiles over Google works fine.
+     *
+     * Parameters:
+     * position - {<OpenLayers.Pixel>}
+     *
+     * Returns:
+     * bounds - {<OpenLayers.Bounds>} 
+     */
+    getBoundsFromBaseLayer: function(position) {
+        var msg = OpenLayers.i18n('reprojectDeprecated',
+                                              {'layerName':this.layer.name});
+        OpenLayers.Console.warn(msg);
+        var topLeft = this.layer.map.getLonLatFromLayerPx(position); 
+        var bottomRightPx = position.clone();
+        bottomRightPx.x += this.size.w;
+        bottomRightPx.y += this.size.h;
+        var bottomRight = this.layer.map.getLonLatFromLayerPx(bottomRightPx); 
+        // Handle the case where the base layer wraps around the date line.
+        // Google does this, and it breaks WMS servers to request bounds in 
+        // that fashion.  
+        if (topLeft.lon > bottomRight.lon) {
+            if (topLeft.lon < 0) {
+                topLeft.lon = -180 - (topLeft.lon+180);
+            } else {
+                bottomRight.lon = 180+bottomRight.lon+180;
+            }        
+        }
+        var bounds = new OpenLayers.Bounds(topLeft.lon, 
+                                       bottomRight.lat, 
+                                       bottomRight.lon, 
+                                       topLeft.lat);  
+        return bounds;
+    },        
+        
+    /** 
+     * Method: showTile
+     * Show the tile only if it should be drawn.
+     */
+    showTile: function() { 
+        if (this.shouldDraw) {
+            this.show();
+        }
+    },
+    
+    /** 
+     * Method: show
+     * Show the tile.  To be implemented by subclasses.
+     */
+    show: function() { },
+    
+    /** 
+     * Method: hide
+     * Hide the tile.  To be implemented by subclasses.
+     */
+    hide: function() { },
     
     CLASS_NAME: "OpenLayers.Tile"
 });

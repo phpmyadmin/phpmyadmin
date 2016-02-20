@@ -14,7 +14,7 @@
  */
 OpenLayers.Lang["te"] = OpenLayers.Util.applyDefaults({
 
-    'Permalink': "స్థిరలింకు",
+    'permalink': "స్థిరలింకు",
 
     'W': "ప",
 

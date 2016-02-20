@@ -12,16 +12,32 @@ OpenLayers.Lang['da-DK'] = {
 
     'unhandledRequest': "En ikke håndteret forespørgsel returnerede ${statusText}",
 
-    'Permalink': "Permalink",
+    'permalink': "Permalink",
 
-    'Overlays': "Kortlag",
+    'overlays': "Kortlag",
 
-    'Base Layer': "Baggrundslag",
+    'baseLayer': "Baggrundslag",
+
+    'sameProjection':
+        "Oversigtskortet fungerer kun når det har samme projektion som hovedkortet",
+
+    'readNotImplemented': "Læsning er ikke implementeret.",
+
+    'writeNotImplemented': "Skrivning er ikke implementeret.",
 
     'noFID': "Kan ikke opdateret en feature (et objekt) der ikke har et FID.",
 
+    'errorLoadingGML': "Fejlede under indlæsning af GML fil ${url}",
+
     'browserNotSupported':
         "Din browser understøtter ikke vektor visning. Følgende vektor visninger understøttes:\n${renderers}",
+
+    'componentShouldBe': "addFeatures : komponenten skal være en ${geomType}",
+
+    // console message
+    'getFeatureError':
+        "getFeatureFromEvent blev kaldt på et lag uden en visning. Dette betyder som regel at du " +
+        "har destrueret et lag, men ikke de håndteringer der var tilknyttet.",
 
     // console message
     'minZoomLevelError':
@@ -62,7 +78,11 @@ OpenLayers.Lang['da-DK'] = {
         "<a href='http://trac.openlayers.org/wiki/${layerLib}' " +
         "target='_blank'>klik her</a>",
 
-    'Scale = 1 : ${scaleDenom}': "Målforhold = 1 : ${scaleDenom}",
+    'scale': "Målforhold = 1 : ${scaleDenom}",
+
+    // console message
+    'layerAlreadyAdded':
+        "Du har forsøgt at tilføje laget: ${layerName} til kortet, men det er allerede tilføjet",
 
     // console message
     'reprojectDeprecated':
@@ -76,5 +96,24 @@ OpenLayers.Lang['da-DK'] = {
     // console message
     'methodDeprecated':
         "Denne funktion bør ikke længere anvendes, og vil blive fjernet i version 3.0. " +
-        "Anvend venligst funktionen ${newMethod} istedet."
+        "Anvend venligst funktionen ${newMethod} istedet.",
+
+    // console message
+    'boundsAddError': "Du skal angive både x og y værdier i kaldet til add funktionen.",
+
+    // console message
+    'lonlatAddError': "Du skal angive både lon og lat værdier i kaldet til add funktionen.",
+
+    // console message
+    'pixelAddError': "Du skal angive både x og y værdier i kaldet til add funktionen.",
+
+    // console message
+    'unsupportedGeometryType': "Geometri typen: ${geomType} er ikke understøttet.",
+
+    // console message
+    'pagePositionFailed':
+        "OpenLayers.Util.pagePosition fejlede: elementet med id ${elemId} er måske placeret forkert.",
+
+    // console message
+    'filterEvaluateNotImplemented': "evaluering er ikke implementeret for denne filter type."
 };

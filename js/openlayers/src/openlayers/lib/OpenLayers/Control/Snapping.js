@@ -1,6 +1,6 @@
-/* Copyright (c) 2006-2013 by OpenLayers Contributors (see authors.txt for
- * full list of contributors). Published under the 2-clause BSD license.
- * See license.txt in the OpenLayers distribution or repository for the
+/* Copyright (c) 2006-2010 by OpenLayers Contributors (see authors.txt for 
+ * full list of contributors). Published under the Clear BSD license.  
+ * See http://svn.openlayers.org/trunk/openlayers/license.txt for the
  * full text of the license. */
 
 /**
@@ -17,17 +17,18 @@
  */
 OpenLayers.Control.Snapping = OpenLayers.Class(OpenLayers.Control, {
 
-    /** 
-     * APIProperty: events
-     * {<OpenLayers.Events>} Events instance for listeners and triggering
-     *     control specific events.
-     *
-     * Register a listener for a particular event with the following syntax:
+    /**
+     * Constant: EVENT_TYPES
+     * {Array(String)} Supported application event types.  Register a listener
+     *     for a particular event with the following syntax:
      * (code)
      * control.events.register(type, obj, listener);
      * (end)
      *
-     * Supported event types (in addition to those from <OpenLayers.Control.events>):
+     * Listeners will be called with a reference to an event object.  The
+     *     properties of this event depends on exactly what happened.
+     *
+     * Supported control event types (in addition to those from <OpenLayers.Control>):
      * beforesnap - Triggered before a snap occurs.  Listeners receive an
      *     event object with *point*, *x*, *y*, *distance*, *layer*, and
      *     *snapType* properties.  The point property will be original point
@@ -44,6 +45,7 @@ OpenLayers.Control.Snapping = OpenLayers.Class(OpenLayers.Control, {
      * unsnap - Triggered when a vertex is unsnapped.  Listeners receive an
      *     event with a *point* property.
      */
+    EVENT_TYPES: ["beforesnap", "snap", "unsnap"],
     
     /**
      * CONSTANT: DEFAULTS
@@ -116,7 +118,7 @@ OpenLayers.Control.Snapping = OpenLayers.Class(OpenLayers.Control, {
      *     the control.
      *
      * Valid options:
-     * layer - {<OpenLayers.Layer.Vector>} The editable layer.  Features from this
+     * layer - {OpenLayers.Layer.Vector} The editable layer.  Features from this
      *     layer that are digitized or modified may have vertices snapped to
      *     features from any of the target layers.
      * targets - {Array(Object | OpenLayers.Layer.Vector)} A list of objects for
@@ -124,7 +126,7 @@ OpenLayers.Control.Snapping = OpenLayers.Class(OpenLayers.Control, {
      *     objects below.  If the items in the targets list are vector layers
      *     (instead of configuration objects), the defaults from the <defaults>
      *     property will apply.  The editable layer itself may be a target
-     *     layer, allowing newly created or edited features to be snapped to
+     *     layer - allowing newly created or edited features to be snapped to
      *     existing features from the same layer.  If no targets are provided
      *     the layer given in the constructor (as <layer>) will become the
      *     initial target.
@@ -142,7 +144,7 @@ OpenLayers.Control.Snapping = OpenLayers.Class(OpenLayers.Control, {
      *     continues after an eligible feature is found in a target layer.
      *
      * Valid target properties:
-     * layer - {<OpenLayers.Layer.Vector>} A target layer.  Features from this
+     * layer - {OpenLayers.Layer.Vector} A target layer.  Features from this
      *     layer will be eligible to act as snapping target for the editable
      *     layer.
      * tolerance - {Float} The distance (in pixels) at which snapping may occur.
@@ -160,19 +162,15 @@ OpenLayers.Control.Snapping = OpenLayers.Class(OpenLayers.Control, {
      * edgeTolerance - {Float} Optional distance at which snapping may occur
      *     for edges specifically.  If none is provided, <tolerance> will be
      *     used.
-     * filter - {<OpenLayers.Filter>} Optional filter to evaluate to determine if
+     * filter - {OpenLayers.Filter} Optional filter to evaluate to determine if
      *     feature is eligible for snapping.  If filter evaluates to true for a
      *     target feature a vertex may be snapped to the feature. 
-     * minResolution - {Number} If a minResolution is provided, snapping to this
-     *     target will only be considered if the map resolution is greater than
-     *     or equal to this value (the minResolution is inclusive).  Default is
-     *     no minimum resolution limit.
-     * maxResolution - {Number} If a maxResolution is provided, snapping to this
-     *     target will only be considered if the map resolution is strictly
-     *     less than this value (the maxResolution is exclusive).  Default is
-     *     no maximum resolution limit.
      */
     initialize: function(options) {
+        // concatenate events specific to measure with those from the base
+        Array.prototype.push.apply(
+            this.EVENT_TYPES, OpenLayers.Control.prototype.EVENT_TYPES
+        );
         OpenLayers.Control.prototype.initialize.apply(this, [options]);
         this.options = options || {}; // TODO: this could be done by the super
         
@@ -199,7 +197,7 @@ OpenLayers.Control.Snapping = OpenLayers.Class(OpenLayers.Control, {
      *     layer is set.
      *
      * Parameters:
-     * layer - {<OpenLayers.Layer.Vector>}  The new editable layer.
+     * layer - {OpenLayers.Layer.Vector}  The new editable layer.
      */
     setLayer: function(layer) {
         if(this.active) {
@@ -366,7 +364,7 @@ OpenLayers.Control.Snapping = OpenLayers.Class(OpenLayers.Control, {
      * Method: considerSnapping
      *
      * Parameters:
-     * point - {<OpenLayers.Geometry.Point>} The vertex to be snapped (or
+     * point - {<OpenLayers.Geometry.Point}} The vertex to be snapped (or
      *     unsnapped).
      * loc - {<OpenLayers.Geometry.Point>} The location of the mouse in map
      *     coords.
@@ -438,21 +436,10 @@ OpenLayers.Control.Snapping = OpenLayers.Class(OpenLayers.Control, {
      *     Returns null if candidate is not eligible for snapping.
      */
     testTarget: function(target, loc) {
-        var resolution = this.layer.map.getResolution();
-        if ("minResolution" in target) {
-            if (resolution < target.minResolution) {
-                return null;
-            }
-        }
-        if ("maxResolution" in target) {
-            if (resolution >= target.maxResolution) {
-                return null;
-            }
-        }
         var tolerance = {
-            node: this.getGeoTolerance(target.nodeTolerance, resolution),
-            vertex: this.getGeoTolerance(target.vertexTolerance, resolution),
-            edge: this.getGeoTolerance(target.edgeTolerance, resolution)
+            node: this.getGeoTolerance(target.nodeTolerance),
+            vertex: this.getGeoTolerance(target.vertexTolerance),
+            edge: this.getGeoTolerance(target.edgeTolerance)
         };
         // this could be cached if we don't support setting tolerance values directly
         var maxTolerance = Math.max(
@@ -470,7 +457,7 @@ OpenLayers.Control.Snapping = OpenLayers.Class(OpenLayers.Control, {
             feature = features[i];
             if(feature !== this.feature && !feature._sketch &&
                feature.state !== OpenLayers.State.DELETE &&
-               (!target.filter || target.filter.evaluate(feature))) {
+               (!target.filter || target.filter.evaluate(feature.attributes))) {
                 if(feature.atPoint(ll, maxTolerance, maxTolerance)) {
                     for(var j=0, stop=Math.min(result.rank+1, numTypes); j<stop; ++j) {
                         type = this.precedence[j];
@@ -525,12 +512,12 @@ OpenLayers.Control.Snapping = OpenLayers.Class(OpenLayers.Control, {
      *     
      * Parameters:
      * tolerance - {Number} A tolerance value in pixels.
-     * resolution - {Number} Map resolution.
      *
      * Returns:
      * {Number} A tolerance value in map units.
      */
-    getGeoTolerance: function(tolerance, resolution) {
+    getGeoTolerance: function(tolerance) {
+        var resolution = this.layer.map.getResolution();
         if(resolution !== this.resolution) {
             this.resolution = resolution;
             this.geoToleranceCache = {};

@@ -1,6 +1,6 @@
-/* Copyright (c) 2006-2013 by OpenLayers Contributors (see authors.txt for
- * full list of contributors). Published under the 2-clause BSD license.
- * See license.txt in the OpenLayers distribution or repository for the
+/* Copyright (c) 2006-2010 by OpenLayers Contributors (see authors.txt for 
+ * full list of contributors). Published under the Clear BSD license.  
+ * See http://svn.openlayers.org/trunk/openlayers/license.txt for the
  * full text of the license. */
 
 
@@ -38,7 +38,7 @@ OpenLayers.Layer.HTTPRequest = OpenLayers.Class(OpenLayers.Layer, {
     
     /** 
      * APIProperty: reproject
-     * *Deprecated*. See http://docs.openlayers.org/library/spherical_mercator.html
+     * *Deprecated*. See http://trac.openlayers.org/wiki/SpatialMercator
      * for information on the replacement for this functionality. 
      * {Boolean} Whether layer should reproject itself based on base layer 
      *           locations. This allows reprojection onto commercial layers. 
@@ -58,11 +58,11 @@ OpenLayers.Layer.HTTPRequest = OpenLayers.Class(OpenLayers.Layer, {
      * options - {Object} Hashtable of extra options to tag onto the layer
      */
     initialize: function(name, url, params, options) {
-        OpenLayers.Layer.prototype.initialize.apply(this, [name, options]);
+        var newArguments = arguments;
+        newArguments = [name, options];
+        OpenLayers.Layer.prototype.initialize.apply(this, newArguments);
         this.url = url;
-        if (!this.params) {
-            this.params = OpenLayers.Util.extend({}, params);
-        }
+        this.params = OpenLayers.Util.extend( {}, params);
     },
 
     /**
@@ -209,7 +209,7 @@ OpenLayers.Layer.HTTPRequest = OpenLayers.Class(OpenLayers.Layer, {
         // in which case we will deterministically select one of them in 
         // order to evenly distribute requests to different urls.
         //
-        if (OpenLayers.Util.isArray(url)) {
+        if (url instanceof Array) {
             url = this.selectUrl(paramsString, url);
         }   
  

@@ -1,6 +1,6 @@
-/* Copyright (c) 2006-2013 by OpenLayers Contributors (see authors.txt for
- * full list of contributors). Published under the 2-clause BSD license.
- * See license.txt in the OpenLayers distribution or repository for the
+/* Copyright (c) 2006-2010 by OpenLayers Contributors (see authors.txt for 
+ * full list of contributors). Published under the Clear BSD license.  
+ * See http://svn.openlayers.org/trunk/openlayers/license.txt for the
  * full text of the license. */
 
 /**
@@ -16,37 +16,32 @@ OpenLayers.Symbolizer.Text = OpenLayers.Class(OpenLayers.Symbolizer, {
     /** 
      * APIProperty: label
      * {String} The text for the label.
-     * 
-     * No default set here.  Use OpenLayers.Renderer.defaultRenderer for defaults.
      */
+    label: null,
     
     /** 
      * APIProperty: fontFamily
      * {String} The font family for the label.
-     * 
-     * No default set here.  Use OpenLayers.Renderer.defaultRenderer for defaults.
      */
+    fontFamily: null,
 
     /** 
      * APIProperty: fontSize
      * {String} The font size for the label.
-     * 
-     * No default set here.  Use OpenLayers.Renderer.defaultRenderer for defaults.
      */
+    fontSize: null,
 
     /** 
      * APIProperty: fontWeight
      * {String} The font weight for the label.
-     * 
-     * No default set here.  Use OpenLayers.Renderer.defaultRenderer for defaults.
      */
+    fontWeight: null,
     
     /**
      * Property: fontStyle
      * {String} The font style for the label.
-     * 
-     * No default set here.  Use OpenLayers.Renderer.defaultRenderer for defaults.
      */
+    fontStyle: null,
 
     /**
      * Constructor: OpenLayers.Symbolizer.Text

@@ -92,7 +92,7 @@ class SetOperation extends Component
             if ($state === 0) {
                 if ($token->token === '=') {
                     $state = 1;
-                } elseif ($token->value !== ',') {
+                } else if ($token->value !== ',') {
                     $expr->column .= $token->token;
                 }
             } elseif ($state === 1) {
@@ -100,7 +100,7 @@ class SetOperation extends Component
                     $parser,
                     $list,
                     array(
-                        'breakOnAlias' => true,
+                        'noAlias' => true,
                     )
                 );
                 if ($tmp == null) {

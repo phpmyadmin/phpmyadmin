@@ -1,6 +1,6 @@
-/* Copyright (c) 2006-2013 by OpenLayers Contributors (see authors.txt for
- * full list of contributors). Published under the 2-clause BSD license.
- * See license.txt in the OpenLayers distribution or repository for the
+/* Copyright (c) 2006-2010 by OpenLayers Contributors (see authors.txt for 
+ * full list of contributors). Published under the Clear BSD license.  
+ * See http://svn.openlayers.org/trunk/openlayers/license.txt for the
  * full text of the license. */
 
 /**
@@ -26,6 +26,9 @@ OpenLayers.Geometry.LineString = OpenLayers.Class(OpenLayers.Geometry.Curve, {
      *          generate the linestring
      *
      */
+    initialize: function(points) {
+        OpenLayers.Geometry.Curve.prototype.initialize.apply(this, arguments);        
+    },
 
     /**
      * APIMethod: removeComponent
@@ -34,17 +37,12 @@ OpenLayers.Geometry.LineString = OpenLayers.Class(OpenLayers.Geometry.Curve, {
      *
      * Parameters: 
      * point - {<OpenLayers.Geometry.Point>} The point to be removed
-     *
-     * Returns: 
-     * {Boolean} The component was removed.
      */
     removeComponent: function(point) {
-        var removed = this.components && (this.components.length > 2);
-        if (removed) {
+        if ( this.components && (this.components.length > 2)) {
             OpenLayers.Geometry.Collection.prototype.removeComponent.apply(this, 
                                                                   arguments);
         }
-        return removed;
     },
     
     /**
@@ -548,98 +546,6 @@ OpenLayers.Geometry.LineString = OpenLayers.Class(OpenLayers.Geometry.Curve, {
             }
         }
         return best;
-    },
-    
-    /**
-     * APIMethod: simplify
-     * This function will return a simplified LineString.
-     * Simplification is based on the Douglas-Peucker algorithm.
-     *
-     *
-     * Parameters:
-     * tolerance - {number} threshhold for simplification in map units
-     *
-     * Returns:
-     * {OpenLayers.Geometry.LineString} the simplified LineString
-     */
-    simplify: function(tolerance){
-        if (this && this !== null) {
-            var points = this.getVertices();
-            if (points.length < 3) {
-                return this;
-            }
-    
-            var compareNumbers = function(a, b){
-                return (a-b);
-            };
-    
-            /**
-             * Private function doing the Douglas-Peucker reduction
-             */
-            var douglasPeuckerReduction = function(points, firstPoint, lastPoint, tolerance){
-                var maxDistance = 0;
-                var indexFarthest = 0;
-    
-                for (var index = firstPoint, distance; index < lastPoint; index++) {
-                    distance = perpendicularDistance(points[firstPoint], points[lastPoint], points[index]);
-                    if (distance > maxDistance) {
-                        maxDistance = distance;
-                        indexFarthest = index;
-                    }
-                }
-    
-                if (maxDistance > tolerance && indexFarthest != firstPoint) {
-                    //Add the largest point that exceeds the tolerance
-                    pointIndexsToKeep.push(indexFarthest);
-                    douglasPeuckerReduction(points, firstPoint, indexFarthest, tolerance);
-                    douglasPeuckerReduction(points, indexFarthest, lastPoint, tolerance);
-                }
-            };
-    
-            /**
-             * Private function calculating the perpendicular distance
-             * TODO: check whether OpenLayers.Geometry.LineString::distanceTo() is faster or slower
-             */
-            var perpendicularDistance = function(point1, point2, point){
-                //Area = |(1/2)(x1y2 + x2y3 + x3y1 - x2y1 - x3y2 - x1y3)|   *Area of triangle
-                //Base = v((x1-x2)²+(x1-x2)²)                               *Base of Triangle*
-                //Area = .5*Base*H                                          *Solve for height
-                //Height = Area/.5/Base
-    
-                var area = Math.abs(0.5 * (point1.x * point2.y + point2.x * point.y + point.x * point1.y - point2.x * point1.y - point.x * point2.y - point1.x * point.y));
-                var bottom = Math.sqrt(Math.pow(point1.x - point2.x, 2) + Math.pow(point1.y - point2.y, 2));
-                var height = area / bottom * 2;
-    
-                return height;
-            };
-    
-            var firstPoint = 0;
-            var lastPoint = points.length - 1;
-            var pointIndexsToKeep = [];
-    
-            //Add the first and last index to the keepers
-            pointIndexsToKeep.push(firstPoint);
-            pointIndexsToKeep.push(lastPoint);
-    
-            //The first and the last point cannot be the same
-            while (points[firstPoint].equals(points[lastPoint])) {
-                lastPoint--;
-                //Addition: the first point not equal to first point in the LineString is kept as well
-                pointIndexsToKeep.push(lastPoint);
-            }
-    
-            douglasPeuckerReduction(points, firstPoint, lastPoint, tolerance);
-            var returnPoints = [];
-            pointIndexsToKeep.sort(compareNumbers);
-            for (var index = 0; index < pointIndexsToKeep.length; index++) {
-                returnPoints.push(points[pointIndexsToKeep[index]]);
-            }
-            return new OpenLayers.Geometry.LineString(returnPoints);
-    
-        }
-        else {
-            return this;
-        }
     },
 
     CLASS_NAME: "OpenLayers.Geometry.LineString"

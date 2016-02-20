@@ -1,6 +1,6 @@
-/* Copyright (c) 2006-2013 by OpenLayers Contributors (see authors.txt for
- * full list of contributors). Published under the 2-clause BSD license.
- * See license.txt in the OpenLayers distribution or repository for the
+/* Copyright (c) 2006-2010 by OpenLayers Contributors (see authors.txt for 
+ * full list of contributors). Published under the Clear BSD license.  
+ * See http://svn.openlayers.org/trunk/openlayers/license.txt for the
  * full text of the license. */
 
 /**
@@ -31,27 +31,10 @@ OpenLayers.Control.ZoomBox = OpenLayers.Class(OpenLayers.Control, {
     out: false,
 
     /**
-     * APIProperty: keyMask
-     * {Integer} Zoom only occurs if the keyMask matches the combination of 
-     *     keys down. Use bitwise operators and one or more of the
-     *     <OpenLayers.Handler> constants to construct a keyMask. Leave null if 
-     *     not used mask. Default is null.
-     */
-    keyMask: null,
-
-    /**
-     * APIProperty: alwaysZoom
-     * {Boolean} Always zoom in/out when box drawn, even if the zoom level does
-     * not change.
+     * Property: alwaysZoom
+     * {Boolean} Always zoom in/out, when box drawed 
      */
     alwaysZoom: false,
-    
-    /**
-     * APIProperty: zoomOnClick
-     * {Boolean} Should we zoom when no box was dragged, i.e. the user only
-     * clicked? Default is true.
-     */
-    zoomOnClick: true,
 
     /**
      * Method: draw
@@ -69,26 +52,22 @@ OpenLayers.Control.ZoomBox = OpenLayers.Class(OpenLayers.Control, {
      */
     zoomBox: function (position) {
         if (position instanceof OpenLayers.Bounds) {
-            var bounds,
-                targetCenterPx = position.getCenterPixel();
+            var bounds;
             if (!this.out) {
-                var minXY = this.map.getLonLatFromPixel({
-                    x: position.left,
-                    y: position.bottom
-                });
-                var maxXY = this.map.getLonLatFromPixel({
-                    x: position.right,
-                    y: position.top
-                });
+                var minXY = this.map.getLonLatFromPixel(
+                            new OpenLayers.Pixel(position.left, position.bottom));
+                var maxXY = this.map.getLonLatFromPixel(
+                            new OpenLayers.Pixel(position.right, position.top));
                 bounds = new OpenLayers.Bounds(minXY.lon, minXY.lat,
                                                maxXY.lon, maxXY.lat);
             } else {
-                var pixWidth = position.right - position.left;
-                var pixHeight = position.bottom - position.top;
+                var pixWidth = Math.abs(position.right-position.left);
+                var pixHeight = Math.abs(position.top-position.bottom);
                 var zoomFactor = Math.min((this.map.size.h / pixHeight),
                     (this.map.size.w / pixWidth));
                 var extent = this.map.getExtent();
-                var center = this.map.getLonLatFromPixel(targetCenterPx);
+                var center = this.map.getLonLatFromPixel(
+                    position.getCenterPixel());
                 var xmin = center.lon - (extent.getWidth()/2)*zoomFactor;
                 var xmax = center.lon + (extent.getWidth()/2)*zoomFactor;
                 var ymin = center.lat - (extent.getHeight()/2)*zoomFactor;
@@ -96,31 +75,18 @@ OpenLayers.Control.ZoomBox = OpenLayers.Class(OpenLayers.Control, {
                 bounds = new OpenLayers.Bounds(xmin, ymin, xmax, ymax);
             }
             // always zoom in/out 
-            var lastZoom = this.map.getZoom(),
-                size = this.map.getSize(),
-                centerPx = {x: size.w / 2, y: size.h / 2},
-                zoom = this.map.getZoomForExtent(bounds),
-                oldRes = this.map.getResolution(),
-                newRes = this.map.getResolutionForZoom(zoom);
-            if (oldRes == newRes) {
-                this.map.setCenter(this.map.getLonLatFromPixel(targetCenterPx));
-            } else {
-              var zoomOriginPx = {
-                    x: (oldRes * targetCenterPx.x - newRes * centerPx.x) /
-                        (oldRes - newRes),
-                    y: (oldRes * targetCenterPx.y - newRes * centerPx.y) /
-                        (oldRes - newRes)
-                };
-                this.map.zoomTo(zoom, zoomOriginPx);
-            }
+            var lastZoom = this.map.getZoom(); 
+            this.map.zoomToExtent(bounds);
             if (lastZoom == this.map.getZoom() && this.alwaysZoom == true){ 
                 this.map.zoomTo(lastZoom + (this.out ? -1 : 1)); 
             }
-        } else if (this.zoomOnClick) { // it's a pixel
+        } else { // it's a pixel
             if (!this.out) {
-                this.map.zoomTo(this.map.getZoom() + 1, position);
+                this.map.setCenter(this.map.getLonLatFromPixel(position),
+                               this.map.getZoom() + 1);
             } else {
-                this.map.zoomTo(this.map.getZoom() - 1, position);
+                this.map.setCenter(this.map.getLonLatFromPixel(position),
+                               this.map.getZoom() - 1);
             }
         }
     },

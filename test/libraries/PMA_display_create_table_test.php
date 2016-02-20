@@ -51,8 +51,11 @@ class PMA_DisplayCreateTable_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['ShowHint'] = true;
         $GLOBALS['cfg']['ActionLinksMode'] = 'icons';
         $GLOBALS['PMA_PHP_SELF'] = "server_privileges.php";
+        $GLOBALS['pmaThemeImage'] = 'image';
 
         //$_SESSION
+        $_SESSION['PMA_Theme'] = Theme::load('./themes/pmahomme');
+        $_SESSION['PMA_Theme'] = new Theme();
         $_SESSION['relation'][$GLOBALS['server']] = "relation";
     }
 

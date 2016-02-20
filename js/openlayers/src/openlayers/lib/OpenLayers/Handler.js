@@ -1,10 +1,9 @@
-/* Copyright (c) 2006-2013 by OpenLayers Contributors (see authors.txt for
- * full list of contributors). Published under the 2-clause BSD license.
- * See license.txt in the OpenLayers distribution or repository for the
+/* Copyright (c) 2006-2010 by OpenLayers Contributors (see authors.txt for 
+ * full list of contributors). Published under the Clear BSD license.  
+ * See http://svn.openlayers.org/trunk/openlayers/license.txt for the
  * full text of the license. */
 
 /**
- * @requires OpenLayers/BaseTypes/Class.js
  * @requires OpenLayers/Events.js
  */
 
@@ -85,14 +84,6 @@ OpenLayers.Handler = OpenLayers.Class({
      *     the OpenLayers code.
      */
     evt: null,
-    
-    /**
-     * Property: touch
-     * {Boolean} Indicates the support of touch events. When touch events are 
-     *     started touch will be true and all mouse related listeners will do 
-     *     nothing.
-     */
-    touch: false,
 
     /**
      * Constructor: OpenLayers.Handler
@@ -147,8 +138,7 @@ OpenLayers.Handler = OpenLayers.Class({
         var keyModifiers =
             (evt.shiftKey ? OpenLayers.Handler.MOD_SHIFT : 0) |
             (evt.ctrlKey  ? OpenLayers.Handler.MOD_CTRL  : 0) |
-            (evt.altKey   ? OpenLayers.Handler.MOD_ALT   : 0) |
-            (evt.metaKey  ? OpenLayers.Handler.MOD_META  : 0);
+            (evt.altKey   ? OpenLayers.Handler.MOD_ALT   : 0);
     
         /* if it differs from the handler object's key mask,
            bail out of the event handler */
@@ -195,30 +185,8 @@ OpenLayers.Handler = OpenLayers.Class({
                 this.unregister(events[i], this[events[i]]); 
             }
         } 
-        this.touch = false;
         this.active = false;
         return true;
-    },
-
-    /**
-     * Method: startTouch
-     * Start touch events, this method must be called by subclasses in 
-     *     "touchstart" method. When touch events are started <touch> will be
-     *     true and all mouse related listeners will do nothing.
-     */
-    startTouch: function() {
-        if (!this.touch) {
-            this.touch = true;
-            var events = [
-                "mousedown", "mouseup", "mousemove", "click", "dblclick",
-                "mouseout"
-            ];
-            for (var i=0, len=events.length; i<len; i++) {
-                if (this[events[i]]) {
-                    this.unregister(events[i], this[events[i]]); 
-                }
-            } 
-        }
     },
 
     /**
@@ -263,12 +231,12 @@ OpenLayers.Handler = OpenLayers.Class({
      *     to get more information about the event that the handler is
      *     processing.
      *
-     * This allows modifier keys on the event to be checked (alt, shift, ctrl,
-     *     and meta cannot be checked with the keyboard handler).  For a
+     * This allows modifier keys on the event to be checked (alt, shift,
+     *     and ctrl cannot be checked with the keyboard handler).  For a
      *     control to determine which modifier keys are associated with the
      *     event that a handler is currently processing, it should access
      *     (code)handler.evt.altKey || handler.evt.shiftKey ||
-     *     handler.evt.ctrlKey || handler.evt.metaKey(end).
+     *     handler.evt.ctrlKey(end).
      *
      * Parameters:
      * evt - {Event} The browser event.
@@ -315,11 +283,5 @@ OpenLayers.Handler.MOD_CTRL  = 2;
  * If set as the <keyMask>, <checkModifiers> returns false if Alt is down.
  */
 OpenLayers.Handler.MOD_ALT   = 4;
-
-/**
- * Constant: OpenLayers.Handler.MOD_META
- * If set as the <keyMask>, <checkModifiers> returns false if Cmd is down.
- */
-OpenLayers.Handler.MOD_META  = 8;
 
 

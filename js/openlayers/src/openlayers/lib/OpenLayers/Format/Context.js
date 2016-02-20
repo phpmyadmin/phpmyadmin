@@ -1,20 +1,23 @@
-/* Copyright (c) 2006-2013 by OpenLayers Contributors (see authors.txt for
- * full list of contributors). Published under the 2-clause BSD license.
- * See license.txt in the OpenLayers distribution or repository for the
+/* Copyright (c) 2006-2010 by OpenLayers Contributors (see authors.txt for 
+ * full list of contributors). Published under the Clear BSD license.  
+ * See http://svn.openlayers.org/trunk/openlayers/license.txt for the
  * full text of the license. */
 
 /**
- * @requires OpenLayers/Format/XML/VersionedOGC.js
+ * @requires OpenLayers/Format/XML.js
  */
 
 /**
  * Class: OpenLayers.Format.Context
  * Base class for both Format.WMC and Format.OWSContext
- *
- * Inherits from:
- *  - <OpenLayers.Format.XML.VersionedOGC>
  */
-OpenLayers.Format.Context = OpenLayers.Class(OpenLayers.Format.XML.VersionedOGC, {
+OpenLayers.Format.Context = OpenLayers.Class({
+
+    /**
+     * APIProperty: version
+     * {String} Specify a version string if one is known.
+     */
+    version: null,
 
     /**
      * Property: layerOptions
@@ -33,6 +36,13 @@ OpenLayers.Format.Context = OpenLayers.Class(OpenLayers.Format.XML.VersionedOGC,
     layerParams: null,
 
     /**
+     * Property: parser
+     * {Object} Instance of the versioned parser.  Cached for multiple read and
+     *     write calls of the same version.
+     */
+    parser: null,
+
+    /**
      * Constructor: OpenLayers.Format.Context
      * Create a new parser for Context documents.
      *
@@ -40,6 +50,10 @@ OpenLayers.Format.Context = OpenLayers.Class(OpenLayers.Format.XML.VersionedOGC,
      * options - {Object} An optional object whose properties will be set on
      *     this instance.
      */
+    initialize: function(options) {
+        OpenLayers.Util.extend(this, options);
+        this.options = options;
+    },
 
     /**
      * APIMethod: read
@@ -58,8 +72,16 @@ OpenLayers.Format.Context = OpenLayers.Class(OpenLayers.Format.XML.VersionedOGC,
      * {<OpenLayers.Map>} A map based on the context.
      */
     read: function(data, options) {
-        var context = OpenLayers.Format.XML.VersionedOGC.prototype.read.apply(this, 
-            arguments);
+        if(typeof data == "string") {
+            data = OpenLayers.Format.XML.prototype.read.apply(this, [data]);
+        }
+        var root = data.documentElement;
+        var version = this.version;
+        if(!version) {
+            version = root.getAttribute("version");
+        }
+        var parser = this.getParser(version);
+        var context = parser.read(data, options);
         var map;
         if(options && options.map) {
             this.context = context;
@@ -100,11 +122,7 @@ OpenLayers.Format.Context = OpenLayers.Class(OpenLayers.Format.XML.VersionedOGC,
             visibility: layerContext.visibility,
             maxExtent: layerContext.maxExtent,
             metadata: OpenLayers.Util.applyDefaults(layerContext.metadata, 
-            {styles: layerContext.styles,
-             formats: layerContext.formats,
-             "abstract": layerContext["abstract"],
-             dataURL: layerContext.dataURL
-            }),
+                {styles: layerContext.styles}),
             numZoomLevels: layerContext.numZoomLevels,
             units: layerContext.units,
             isBaseLayer: layerContext.isBaseLayer,
@@ -117,10 +135,7 @@ OpenLayers.Format.Context = OpenLayers.Class(OpenLayers.Format.XML.VersionedOGC,
                     layerContext.tileSize.height
                 ) : undefined,
             minScale: layerContext.minScale || layerContext.maxScaleDenominator,
-            maxScale: layerContext.maxScale || layerContext.minScaleDenominator,
-            srs: layerContext.srs,
-            dimensions: layerContext.dimensions,
-            metadataURL: layerContext.metadataURL
+            maxScale: layerContext.maxScale || layerContext.minScaleDenominator
         };
         if (this.layerOptions) {
             OpenLayers.Util.applyDefaults(options, this.layerOptions);
@@ -254,26 +269,9 @@ OpenLayers.Format.Context = OpenLayers.Class(OpenLayers.Format.XML.VersionedOGC,
      */
     contextToMap: function(context, options) {
         options = OpenLayers.Util.applyDefaults({
-            maxExtent:  context.maxExtent,
-            projection: context.projection,
-            units:      context.units
+            maxExtent: context.maxExtent,
+            projection: context.projection
         }, options);
-
-        if (options.maxExtent) {
-            options.maxResolution = 
-                options.maxExtent.getWidth() / OpenLayers.Map.TILE_WIDTH;
-        }
-
-        var metadata = {
-            contactInformation: context.contactInformation,
-            "abstract":         context["abstract"],
-            keywords:           context.keywords,
-            logo:               context.logo,
-            descriptionURL:     context.descriptionURL
-        };
-
-        options.metadata = metadata;
-
         var map = new OpenLayers.Map(options);
         map.addLayers(this.getLayersFromContext(context.layersContext));
         map.setCenter(
@@ -312,8 +310,10 @@ OpenLayers.Format.Context = OpenLayers.Class(OpenLayers.Format.XML.VersionedOGC,
      */
     write: function(obj, options) {
         obj = this.toContext(obj);
-        return OpenLayers.Format.XML.VersionedOGC.prototype.write.apply(this,
-            arguments);
+        var version = options && options.version;
+        var parser = this.getParser(version);
+        var context = parser.write(obj, options);
+        return context;
     },
 
     CLASS_NAME: "OpenLayers.Format.Context"

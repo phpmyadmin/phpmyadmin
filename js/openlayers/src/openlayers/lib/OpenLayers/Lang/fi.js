@@ -15,11 +15,13 @@
  */
 OpenLayers.Lang["fi"] = OpenLayers.Util.applyDefaults({
 
-    'Permalink': "Ikilinkki",
+    'permalink': "Ikilinkki",
 
-    'Overlays': "Kerrokset",
+    'overlays': "Kerrokset",
 
-    'Base Layer': "Peruskerros",
+    'baseLayer': "Peruskerros",
+
+    'sameProjection': "Yleiskuvakarttaa voi käyttää vain, kun sillä on sama projektio kuin pääkartalla.",
 
     'W': "L",
 

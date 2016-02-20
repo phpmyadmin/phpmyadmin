@@ -1,6 +1,6 @@
-/* Copyright (c) 2006-2013 by OpenLayers Contributors (see authors.txt for
- * full list of contributors). Published under the 2-clause BSD license.
- * See license.txt in the OpenLayers distribution or repository for the
+/* Copyright (c) 2006-2010 by OpenLayers Contributors (see authors.txt for 
+ * full list of contributors). Published under the Clear BSD license.  
+ * See http://svn.openlayers.org/trunk/openlayers/license.txt for the
  * full text of the license. */
 
 /**
@@ -9,10 +9,8 @@
 
 /**
  * Class: OpenLayers.Format.OWSCommon.v1_0_0
- * Parser for OWS Common version 1.0.0.
- *
- * Inherits from:
- *  - <OpenLayers.Format.OWSCommon.v1>
+ * Parser for OWS Common version 1.0.0 which can be used by other parsers.
+ * It is not intended to be used on its own.
  */
 OpenLayers.Format.OWSCommon.v1_0_0 = OpenLayers.Class(OpenLayers.Format.OWSCommon.v1, {
     
@@ -21,7 +19,7 @@ OpenLayers.Format.OWSCommon.v1_0_0 = OpenLayers.Class(OpenLayers.Format.OWSCommo
      * {Object} Mapping of namespace aliases to namespace URIs.
      */
     namespaces: {
-        ows: "http://www.opengis.net/ows",
+        ows: "http://www.opengis.net/ows/1.0",
         xlink: "http://www.w3.org/1999/xlink"
     },    
     
@@ -34,17 +32,7 @@ OpenLayers.Format.OWSCommon.v1_0_0 = OpenLayers.Class(OpenLayers.Format.OWSCommo
      *     from the parent.
      */
     readers: {
-        "ows": OpenLayers.Util.applyDefaults({
-            "ExceptionReport": function(node, obj) {
-                obj.success = false;
-                obj.exceptionReport = {
-                    version: node.getAttribute('version'),
-                    language: node.getAttribute('language'),
-                    exceptions: []
-                };
-                this.readChildNodes(node, obj.exceptionReport);
-            } 
-        }, OpenLayers.Format.OWSCommon.v1.prototype.readers.ows)
+        "ows": OpenLayers.Format.OWSCommon.v1.prototype.readers["ows"]
     },
 
     /**
@@ -54,9 +42,9 @@ OpenLayers.Format.OWSCommon.v1_0_0 = OpenLayers.Class(OpenLayers.Format.OWSCommo
      *     node names they produce.
      */
     writers: {
-        "ows": OpenLayers.Format.OWSCommon.v1.prototype.writers.ows
+        "ows": OpenLayers.Format.OWSCommon.v1.prototype.writers["ows"]
     },
     
-    CLASS_NAME: "OpenLayers.Format.OWSCommon.v1_0_0"
+    CLASS_NAME: "OpenLayers.Format.OWSCommon.v1_1_0"
 
 });

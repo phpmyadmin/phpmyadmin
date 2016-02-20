@@ -1,6 +1,6 @@
-/* Copyright (c) 2006-2013 by OpenLayers Contributors (see authors.txt for
- * full list of contributors). Published under the 2-clause BSD license.
- * See license.txt in the OpenLayers distribution or repository for the
+/* Copyright (c) 2006-2010 by OpenLayers Contributors (see authors.txt for 
+ * full list of contributors). Published under the Clear BSD license.  
+ * See http://svn.openlayers.org/trunk/openlayers/license.txt for the
  * full text of the license. */
 
 /**
@@ -18,17 +18,18 @@
  */
 OpenLayers.Control.Split = OpenLayers.Class(OpenLayers.Control, {
 
-    /** 
-     * APIProperty: events
-     * {<OpenLayers.Events>} Events instance for listeners and triggering
-     *     control specific events.
-     *
-     * Register a listener for a particular event with the following syntax:
+    /**
+     * Constant: EVENT_TYPES
+     * {Array(String)} Supported application event types.  Register a listener
+     *     for a particular event with the following syntax:
      * (code)
      * control.events.register(type, obj, listener);
      * (end)
      *
-     * Supported event types (in addition to those from <OpenLayers.Control.events>):
+     * Listeners will be called with a reference to an event object.  The
+     *     properties of this event depends on exactly what happened.
+     *
+     * Supported control event types (in addition to those from <OpenLayers.Control>):
      * beforesplit - Triggered before a split occurs.  Listeners receive an
      *     event object with *source* and *target* properties.
      * split - Triggered when a split occurs.  Listeners receive an event with
@@ -46,6 +47,7 @@ OpenLayers.Control.Split = OpenLayers.Class(OpenLayers.Control, {
      *     sketch or modified feature used as a splitter.  The features
      *     property is a list of all resulting features.
      */
+    EVENT_TYPES: ["beforesplit", "split", "aftersplit"],
     
     /**
      * APIProperty: layer
@@ -107,7 +109,7 @@ OpenLayers.Control.Split = OpenLayers.Class(OpenLayers.Control, {
     
     /**
      * APIProperty: targetFilter
-     * {<OpenLayers.Filter>} Optional filter that will be evaluated
+     * {OpenLayers.Filter} Optional filter that will be evaluated
      *     to determine if a feature from the target layer is eligible for
      *     splitting.
      */
@@ -115,8 +117,8 @@ OpenLayers.Control.Split = OpenLayers.Class(OpenLayers.Control, {
     
     /**
      * APIProperty: sourceFilter
-     * {<OpenLayers.Filter>} Optional filter that will be evaluated
-     *     to determine if a feature from the source layer is eligible for
+     * {OpenLayers.Filter} Optional filter that will be evaluated
+     *     to determine if a feature from the target layer is eligible for
      *     splitting.
      */
     sourceFilter: null,
@@ -142,10 +144,10 @@ OpenLayers.Control.Split = OpenLayers.Class(OpenLayers.Control, {
      *     the control.
      *
      * Valid options:
-     * layer - {<OpenLayers.Layer.Vector>} The target layer.  Features from this
+     * layer - {OpenLayers.Layer.Vector} The target layer.  Features from this
      *     layer will be split by new or modified features on the source layer
      *     or temporary sketch layer.
-     * source - {<OpenLayers.Layer.Vector>} Optional source layer.  If provided
+     * source - {OpenLayers.Layer.Vector} Optional source layer.  If provided
      *     newly created features or modified features will be used to split
      *     features on the target layer.  If not provided, a temporary sketch
      *     layer will be created for drawing lines.
@@ -159,14 +161,18 @@ OpenLayers.Control.Split = OpenLayers.Class(OpenLayers.Control, {
      * mutual - {Boolean} If source and target are the same, split source
      *     features and target features where they intersect.  Default is
      *     true.  If false, only target features will be split.
-     * targetFilter - {<OpenLayers.Filter>} Optional filter that will be evaluated
+     * targetFilter - {OpenLayers.Filter} Optional filter that will be evaluated
      *     to determine if a feature from the target layer is eligible for
      *     splitting.
-     * sourceFilter - {<OpenLayers.Filter>} Optional filter that will be evaluated
+     * sourceFilter - {OpenLayers.Filter} Optional filter that will be evaluated
      *     to determine if a feature from the target layer is eligible for
      *     splitting.
      */
     initialize: function(options) {
+        // concatenate events specific to measure with those from the base
+        Array.prototype.push.apply(
+            this.EVENT_TYPES, OpenLayers.Control.prototype.EVENT_TYPES
+        );
         OpenLayers.Control.prototype.initialize.apply(this, [options]);
         this.options = options || {}; // TODO: this could be done by the super
         
@@ -181,7 +187,7 @@ OpenLayers.Control.Split = OpenLayers.Class(OpenLayers.Control, {
      * Set the source layer for edits layer.
      *
      * Parameters:
-     * layer - {<OpenLayers.Layer.Vector>}  The new source layer layer.  If
+     * layer - {OpenLayers.Layer.Vector}  The new source layer layer.  If
      *     null, a temporary sketch layer will be created.
      */
     setSource: function(layer) {
@@ -240,7 +246,7 @@ OpenLayers.Control.Split = OpenLayers.Class(OpenLayers.Control, {
         var deactivated = OpenLayers.Control.prototype.deactivate.call(this);
         if(deactivated) {
             if(this.source && this.source.events) {
-                this.source.events.un({
+                this.layer.events.un({
                     sketchcomplete: this.onSketchComplete,
                     afterfeaturemodified: this.afterFeatureModified,
                     scope: this
@@ -278,7 +284,8 @@ OpenLayers.Control.Split = OpenLayers.Class(OpenLayers.Control, {
     afterFeatureModified: function(event) {
         if(event.modified) {
             var feature = event.feature;
-            if (typeof feature.geometry.split === "function") {
+            if(feature.geometry instanceof OpenLayers.Geometry.LineString ||
+               feature.geometry instanceof OpenLayers.Geometry.MultiLineString) {
                 this.feature = event.feature;
                 this.considerSplit(event.feature);
             }
@@ -290,7 +297,7 @@ OpenLayers.Control.Split = OpenLayers.Class(OpenLayers.Control, {
      * Remove a feature from a list based on the given geometry.
      *
      * Parameters:
-     * features - {Array(<OpenLayers.Feature.Vector>)} A list of features.
+     * features - {Array(<OpenLayers.Feature.Vector>} A list of features.
      * geometry - {<OpenLayers.Geometry>} A geometry.
      */
     removeByGeometry: function(features, geometry) {
@@ -313,20 +320,17 @@ OpenLayers.Control.Split = OpenLayers.Class(OpenLayers.Control, {
      * {Boolean} The target is eligible for splitting.
      */
     isEligible: function(target) {
-        if (!target.geometry) {
-            return false;
-        } else {
-            return (
-                target.state !== OpenLayers.State.DELETE
-            ) && (
-                typeof target.geometry.split === "function"
-            ) && (
-                this.feature !== target
-            ) && (
-                !this.targetFilter ||
-                this.targetFilter.evaluate(target.attributes)
-            );
-        }
+        return (
+            target.state !== OpenLayers.State.DELETE
+        ) && (
+            target.geometry instanceof OpenLayers.Geometry.LineString ||
+            target.geometry instanceof OpenLayers.Geometry.MultiLineString
+        ) && (
+            this.feature !== target
+        ) && (
+            !this.targetFilter ||
+            this.targetFilter.evaluate(target.attributes)
+        );
     },
 
     /**
@@ -336,7 +340,7 @@ OpenLayers.Control.Split = OpenLayers.Class(OpenLayers.Control, {
      *     will be split if eligible.
      *
      * Parameters:
-     * feature - {<OpenLayers.Feature.Vector>} The newly created or modified
+     * feature - {<OpenLayers.Feature.Vector}} The newly created or modified
      *     feature.
      *
      * Returns:

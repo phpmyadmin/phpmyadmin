@@ -1,11 +1,7 @@
-/* Copyright (c) 2006-2013 by OpenLayers Contributors (see authors.txt for
- * full list of contributors). Published under the 2-clause BSD license.
- * See license.txt in the OpenLayers distribution or repository for the
+/* Copyright (c) 2006-2010 by OpenLayers Contributors (see authors.txt for 
+ * full list of contributors). Published under the Clear BSD license.  
+ * See http://svn.openlayers.org/trunk/openlayers/license.txt for the
  * full text of the license. */
-
-/**
- * @requires OpenLayers/BaseTypes/Class.js
- */
 
 /**
  * Class: OpenLayers.Size
@@ -45,7 +41,7 @@ OpenLayers.Size = OpenLayers.Class({
      *
      * Returns:
      * {String} The string representation of OpenLayers.Size object. 
-     * (e.g. <i>"w=55,h=66"</i>)
+     * (ex. <i>"w=55,h=66"</i>)
      */
     toString:function() {
         return ("w=" + this.w + ",h=" + this.h);
@@ -69,12 +65,12 @@ OpenLayers.Size = OpenLayers.Class({
      * Determine where this size is equal to another
      *
      * Parameters:
-     * sz - {<OpenLayers.Size>|Object} An OpenLayers.Size or an object with
-     *                                  a 'w' and 'h' properties.
+     * sz - {<OpenLayers.Size>}
      *
      * Returns: 
      * {Boolean} The passed in size has the same h and w properties as this one.
      * Note that if sz passed in is null, returns false.
+     *
      */
     equals:function(sz) {
         var equals = false;

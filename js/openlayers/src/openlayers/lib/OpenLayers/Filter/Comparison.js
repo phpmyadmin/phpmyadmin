@@ -1,17 +1,18 @@
-/* Copyright (c) 2006-2013 by OpenLayers Contributors (see authors.txt for
- * full list of contributors). Published under the 2-clause BSD license.
- * See license.txt in the OpenLayers distribution or repository for the
+/* Copyright (c) 2006-2010 by OpenLayers Contributors (see authors.txt for 
+ * full list of contributors). Published under the Clear BSD license.  
+ * See http://svn.openlayers.org/trunk/openlayers/license.txt for the
  * full text of the license. */
 
 /**
  * @requires OpenLayers/Filter.js
+ * @requires OpenLayers/Console.js
  */
 
 /**
  * Class: OpenLayers.Filter.Comparison
  * This class represents a comparison filter.
  * 
- * Inherits from:
+ * Inherits from
  * - <OpenLayers.Filter>
  */
 OpenLayers.Filter.Comparison = OpenLayers.Class(OpenLayers.Filter, {
@@ -26,8 +27,7 @@ OpenLayers.Filter.Comparison = OpenLayers.Class(OpenLayers.Filter, {
      * - OpenLayers.Filter.Comparison.LESS_THAN_OR_EQUAL_TO    = "<=";
      * - OpenLayers.Filter.Comparison.GREATER_THAN_OR_EQUAL_TO = ">=";
      * - OpenLayers.Filter.Comparison.BETWEEN                  = "..";
-     * - OpenLayers.Filter.Comparison.LIKE                     = "~";
-     * - OpenLayers.Filter.Comparison.IS_NULL                  = "NULL";
+     * - OpenLayers.Filter.Comparison.LIKE                     = "~"; 
      */
     type: null,
     
@@ -55,7 +55,7 @@ OpenLayers.Filter.Comparison = OpenLayers.Class(OpenLayers.Filter, {
      *     elements.  This property will be serialized with those elements only
      *     if using the v1.1.0 filter format. However, when evaluating filters
      *     here, the matchCase property will always be respected (for EQUAL_TO
-     *     and NOT_EQUAL_TO).  Default is true. 
+     *     and NOT_EQUAL_TO).  Default is true.
      */
     matchCase: true,
     
@@ -90,12 +90,6 @@ OpenLayers.Filter.Comparison = OpenLayers.Class(OpenLayers.Filter, {
      */
     initialize: function(options) {
         OpenLayers.Filter.prototype.initialize.apply(this, [options]);
-        // since matchCase on PropertyIsLike is not schema compliant, we only
-        // want to use this if explicitly asked for
-        if (this.type === OpenLayers.Filter.Comparison.LIKE 
-            && options.matchCase === undefined) {
-                this.matchCase = null;
-        }
     },
 
     /**
@@ -115,10 +109,9 @@ OpenLayers.Filter.Comparison = OpenLayers.Class(OpenLayers.Filter, {
         }
         var result = false;
         var got = context[this.property];
-        var exp;
         switch(this.type) {
             case OpenLayers.Filter.Comparison.EQUAL_TO:
-                exp = this.value;
+                var exp = this.value;
                 if(!this.matchCase &&
                    typeof got == "string" && typeof exp == "string") {
                     result = (got.toUpperCase() == exp.toUpperCase());
@@ -127,7 +120,7 @@ OpenLayers.Filter.Comparison = OpenLayers.Class(OpenLayers.Filter, {
                 }
                 break;
             case OpenLayers.Filter.Comparison.NOT_EQUAL_TO:
-                exp = this.value;
+                var exp = this.value;
                 if(!this.matchCase &&
                    typeof got == "string" && typeof exp == "string") {
                     result = (got.toUpperCase() != exp.toUpperCase());
@@ -155,9 +148,6 @@ OpenLayers.Filter.Comparison = OpenLayers.Class(OpenLayers.Filter, {
                 var regexp = new RegExp(this.value, "gi");
                 result = regexp.test(got);
                 break;
-            case OpenLayers.Filter.Comparison.IS_NULL:
-                result = (got === null);
-                break;
         }
         return result;
     },
@@ -170,11 +160,11 @@ OpenLayers.Filter.Comparison = OpenLayers.Class(OpenLayers.Filter, {
      * regular expression already.
      * 
      * Parameters:
-     * wildCard   - {Char} wildcard character in the above value, default
+     * wildCard   - {<Char>} wildcard character in the above value, default
      *              is "*"
-     * singleChar - {Char} single-character wildcard in the above value
+     * singleChar - {<Char>) single-character wildcard in the above value
      *              default is "."
-     * escapeChar - {Char} escape character in the above value, default is
+     * escape     - {<Char>) escape character in the above value, default is
      *              "!"
      * 
      * Returns:
@@ -182,8 +172,10 @@ OpenLayers.Filter.Comparison = OpenLayers.Class(OpenLayers.Filter, {
      */
     value2regex: function(wildCard, singleChar, escapeChar) {
         if (wildCard == ".") {
-            throw new Error("'.' is an unsupported wildCard character for " +
-                            "OpenLayers.Filter.Comparison");
+            var msg = "'.' is an unsupported wildCard character for "+
+                    "OpenLayers.Filter.Comparison";
+            OpenLayers.Console.error(msg);
+            return null;
         }
         
 
@@ -264,4 +256,3 @@ OpenLayers.Filter.Comparison.LESS_THAN_OR_EQUAL_TO    = "<=";
 OpenLayers.Filter.Comparison.GREATER_THAN_OR_EQUAL_TO = ">=";
 OpenLayers.Filter.Comparison.BETWEEN                  = "..";
 OpenLayers.Filter.Comparison.LIKE                     = "~";
-OpenLayers.Filter.Comparison.IS_NULL                  = "NULL";

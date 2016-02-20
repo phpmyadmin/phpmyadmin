@@ -1,6 +1,6 @@
-/* Copyright (c) 2006-2013 by OpenLayers Contributors (see authors.txt for
- * full list of contributors). Published under the 2-clause BSD license.
- * See license.txt in the OpenLayers distribution or repository for the
+/* Copyright (c) 2006-2010 by OpenLayers Contributors (see authors.txt for 
+ * full list of contributors). Published under the Clear BSD license.  
+ * See http://svn.openlayers.org/trunk/openlayers/license.txt for the
  * full text of the license. */
 
 
@@ -13,23 +13,17 @@
  * This class represents a ogc:FeatureId Filter, as being used for rule-based SLD
  * styling
  * 
- * Inherits from:
+ * Inherits from
  * - <OpenLayers.Filter>
  */
 OpenLayers.Filter.FeatureId = OpenLayers.Class(OpenLayers.Filter, {
 
     /** 
      * APIProperty: fids
-     * {Array(String)} Feature Ids to evaluate this rule against. 
-     *     To be passed inside the params object.
+     * {Array(String)} Feature Ids to evaluate this rule against. To be passed
+     * To be passed inside the params object.
      */
     fids: null,
-    
-    /** 
-     * Property: type
-     * {String} Type to identify this filter.
-     */
-    type: "FID",
     
     /** 
      * Constructor: OpenLayers.Filter.FeatureId

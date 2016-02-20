@@ -600,7 +600,7 @@ AJAX.registerOnload('config.js', function () {
     var tab_check_fnc = function () {
         if (location.hash != prev_hash) {
             prev_hash = location.hash;
-            if (location.hash.match(/^#tab_[a-zA-Z0-9_]+/) && $('#' + location.hash.substr(5)).length) {
+            if (location.hash.match(/^#tab_.+/) && $('#' + location.hash.substr(5)).length) {
                 setTab(location.hash.substr(5));
             }
         }

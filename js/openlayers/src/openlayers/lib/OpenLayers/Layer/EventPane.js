@@ -1,6 +1,6 @@
-/* Copyright (c) 2006-2013 by OpenLayers Contributors (see authors.txt for
- * full list of contributors). Published under the 2-clause BSD license.
- * See license.txt in the OpenLayers distribution or repository for the
+/* Copyright (c) 2006-2010 by OpenLayers Contributors (see authors.txt for 
+ * full list of contributors). Published under the Clear BSD license.  
+ * See http://svn.openlayers.org/trunk/openlayers/license.txt for the
  * full text of the license. */
 
 
@@ -11,13 +11,7 @@
 
 /**
  * Class: OpenLayers.Layer.EventPane
- * Base class for 3rd party layers, providing a DOM element which isolates
- * the 3rd-party layer from mouse events.
- * Only used by Google layers.
- *
- * Automatically instantiated by the Google constructor, and not usually instantiated directly.
- *
- * Create a new event pane layer with the
+ * Base class for 3rd party layers.  Create a new event pane layer with the
  * <OpenLayers.Layer.EventPane> constructor.
  * 
  * Inherits from:
@@ -108,9 +102,9 @@ OpenLayers.Layer.EventPane = OpenLayers.Class(OpenLayers.Layer, {
         this.pane.style.display = this.div.style.display;
         this.pane.style.width="100%";
         this.pane.style.height="100%";
-        if (OpenLayers.BROWSER_NAME == "msie") {
+        if (OpenLayers.Util.getBrowserName() == "msie") {
             this.pane.style.background = 
-                "url(" + OpenLayers.Util.getImageLocation("blank.gif") + ")";
+                "url(" + OpenLayers.Util.getImagesLocation() + "blank.gif)";
         }
 
         if (this.isFixed) {
@@ -217,24 +211,6 @@ OpenLayers.Layer.EventPane = OpenLayers.Class(OpenLayers.Layer, {
         OpenLayers.Layer.prototype.setZIndex.apply(this, arguments);
         this.pane.style.zIndex = parseInt(this.div.style.zIndex) + 1;
     },
-    
-    /**
-     * Method: moveByPx
-     * Move the layer based on pixel vector. To be implemented by subclasses.
-     *
-     * Parameters:
-     * dx - {Number} The x coord of the displacement vector.
-     * dy - {Number} The y coord of the displacement vector.
-     */
-    moveByPx: function(dx, dy) {
-        OpenLayers.Layer.prototype.moveByPx.apply(this, arguments);
-        
-        if (this.dragPanMapObject) {
-            this.dragPanMapObject(dx, -dy);
-        } else {
-            this.moveTo(this.map.getCachedCenter());
-        }
-    },
 
     /**
      * Method: moveTo
@@ -261,9 +237,10 @@ OpenLayers.Layer.EventPane = OpenLayers.Class(OpenLayers.Layer, {
                 var moOldZoom = this.getMapObjectZoom();
                 var oldZoom= this.getOLZoomFromMapObjectZoom(moOldZoom);
 
-                if (!(newCenter.equals(oldCenter)) || newZoom != oldZoom) {
+                if ( !(newCenter.equals(oldCenter)) || 
+                     !(newZoom == oldZoom) ) {
 
-                    if (!zoomChanged && oldCenter && this.dragPanMapObject && 
+                    if (dragging && this.dragPanMapObject && 
                         this.smoothDragPan) {
                         var oldPx = this.map.getViewPortPxFromLonLat(oldCenter);
                         var newPx = this.map.getViewPortPxFromLonLat(newCenter);

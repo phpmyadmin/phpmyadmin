@@ -53,6 +53,7 @@ class PMA_MultSubmits_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['server'] = 0;
         $GLOBALS['cfg']['ActionLinksMode'] = "both";
+        $GLOBALS['pmaThemeImage'] = 'image';
 
         //_SESSION
         $_SESSION['relation'][$GLOBALS['server']] = array(
@@ -69,6 +70,8 @@ class PMA_MultSubmits_Test extends PHPUnit_Framework_TestCase
         );
 
         //$_SESSION
+        $_SESSION['PMA_Theme'] = Theme::load('./themes/pmahomme');
+        $_SESSION['PMA_Theme'] = new Theme();
 
         //Mock DBI
         $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')

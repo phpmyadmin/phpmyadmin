@@ -51,6 +51,8 @@ class ServerDatabasesControllerTest extends PMATestCase
         $GLOBALS['text_dir'] = "text_dir";
 
         //$_SESSION
+        $_SESSION['PMA_Theme'] = Theme::load('./themes/pmahomme');
+        $_SESSION['PMA_Theme'] = new Theme();
         $GLOBALS['server'] = 1;
 
         $container = Container::getDefaultContainer();

@@ -1,15 +1,14 @@
-/* Copyright (c) 2006-2013 by OpenLayers Contributors (see authors.txt for
- * full list of contributors). Published under the 2-clause BSD license.
- * See license.txt in the OpenLayers distribution or repository for the
+/* Copyright (c) 2006-2010 by OpenLayers Contributors (see authors.txt for 
+ * full list of contributors). Published under the Clear BSD license.  
+ * See http://svn.openlayers.org/trunk/openlayers/license.txt for the
  * full text of the license. */
 
 /**
  * @requires OpenLayers/Format/WMSDescribeLayer.js
- * @requires OpenLayers/Format/OGCExceptionReport.js
  */
 
 /**
- * Class: OpenLayers.Format.WMSDescribeLayer.v1_1_1
+ * Class: OpenLayers.Format.WMSDescribeLayer.v1_1
  * Read SLD WMS DescribeLayer response for WMS 1.1.X
  * WMS 1.1.X is tightly coupled to SLD 1.0.0
  *
@@ -19,7 +18,7 @@
  * Inherits from:
  *  - <OpenLayers.Format.WMSDescribeLayer>
  */
-OpenLayers.Format.WMSDescribeLayer.v1_1_1 = OpenLayers.Class(
+OpenLayers.Format.WMSDescribeLayer.v1_1 = OpenLayers.Class(
     OpenLayers.Format.WMSDescribeLayer, {
     
     /**
@@ -45,12 +44,10 @@ OpenLayers.Format.WMSDescribeLayer.v1_1_1 = OpenLayers.Class(
      * data - {String} or {DOMElement} data to read/parse.
      *
      * Returns:
-     * {Object} Object with a layerDescriptions property, which holds an Array
-     * of {<LayerDescription>} objects which have:
+     * {Array} Array of {<LayerDescription>} objects which have:
      * - {String} owsType: WFS/WCS
      * - {String} owsURL: the online resource
-     * - {String} typeName: the name of the typename on the owsType service
-     * - {String} layerName: the name of the WMS layer we did a lookup for
+     * - {String} typeName: the name of the typename on the service
      */
     read: function(data) {
         if(typeof data == "string") {
@@ -58,7 +55,7 @@ OpenLayers.Format.WMSDescribeLayer.v1_1_1 = OpenLayers.Class(
         }
         var root = data.documentElement;
         var children = root.childNodes; 
-        var describelayer = {layerDescriptions: []};
+        var describelayer = [];
         var childNode, nodeName;
         for(var i=0; i<children.length; ++i) { 
             childNode = children[i];
@@ -91,32 +88,13 @@ OpenLayers.Format.WMSDescribeLayer.v1_1_1 = OpenLayers.Class(
                         typeName = query[0].getAttribute('typename');
                     }
                 }
-                var layerDescription = {
-                    layerName: layerName, owsType: owsType, 
-                    owsURL: owsURL, typeName: typeName
-                };
-                describelayer.layerDescriptions.push(layerDescription);
-                
-                //TODO do this in deprecated.js instead:
-                // array style index for backwards compatibility
-                describelayer.length = describelayer.layerDescriptions.length;
-                describelayer[describelayer.length - 1] = layerDescription; 
-                
-            } else if (nodeName == 'ServiceException') {
-                // an exception must have occurred, so parse it
-                var parser = new OpenLayers.Format.OGCExceptionReport();
-                return {
-                    error: parser.read(data)
-                };
+                describelayer.push({layerName: layerName, owsType: owsType, 
+                    owsURL: owsURL, typeName: typeName}); 
             }
         }
         return describelayer;
     },
     
-    CLASS_NAME: "OpenLayers.Format.WMSDescribeLayer.v1_1_1"
+    CLASS_NAME: "OpenLayers.Format.WMSDescribeLayer.v1_1" 
 
 });
-
-// Version alias - workaround for http://trac.osgeo.org/mapserver/ticket/2257
-OpenLayers.Format.WMSDescribeLayer.v1_1_0 =
-    OpenLayers.Format.WMSDescribeLayer.v1_1_1;

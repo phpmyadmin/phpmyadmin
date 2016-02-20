@@ -1,11 +1,7 @@
-/* Copyright (c) 2006-2013 by OpenLayers Contributors (see authors.txt for
- * full list of contributors). Published under the 2-clause BSD license.
- * See license.txt in the OpenLayers distribution or repository for the
+/* Copyright (c) 2006-2010 by OpenLayers Contributors (see authors.txt for 
+ * full list of contributors). Published under the Clear BSD license.  
+ * See http://svn.openlayers.org/trunk/openlayers/license.txt for the
  * full text of the license. */
-
-/**
- * @requires OpenLayers/BaseTypes/Class.js
- */
 
 
 /**
@@ -341,7 +337,7 @@ OpenLayers.Popup = OpenLayers.Class({
         }
         
         //listen to movestart, moveend to disable overflow (FF bug)
-        if (!this.disableFirefoxOverflowHack && OpenLayers.BROWSER_NAME == 'firefox') {
+        if (!this.disableFirefoxOverflowHack && OpenLayers.Util.getBrowserName() == 'firefox') {
             this.map.events.register("movestart", this, function() {
                 var style = document.defaultView.getComputedStyle(
                     this.contentDiv, null
@@ -431,7 +427,7 @@ OpenLayers.Popup = OpenLayers.Class({
      * Makes the popup visible.
      */
     show: function() {
-        this.div.style.display = '';
+        OpenLayers.Element.show(this.div);
 
         if (this.panMapIfOutOfView) {
             this.panIntoView();
@@ -443,7 +439,7 @@ OpenLayers.Popup = OpenLayers.Class({
      * Makes the popup invisible.
      */
     hide: function() {
-        this.div.style.display = 'none';
+        OpenLayers.Element.hide(this.div);
     },
 
     /**
@@ -482,7 +478,7 @@ OpenLayers.Popup = OpenLayers.Class({
         //now if our browser is IE, we need to actually make the contents 
         // div itself bigger to take its own padding into effect. this makes 
         // me want to shoot someone, but so it goes.
-        if (OpenLayers.BROWSER_NAME == "msie") {
+        if (OpenLayers.Util.getBrowserName() == "msie") {
             this.contentSize.w += 
                 contentDivPadding.left + contentDivPadding.right;
             this.contentSize.h += 
@@ -513,9 +509,10 @@ OpenLayers.Popup = OpenLayers.Class({
             this.contentDiv.innerHTML + 
             "</div>";
  
-        var containerElement = (this.map) ? this.map.div : document.body;
+        var containerElement = (this.map) ? this.map.layerContainerDiv
+        								  : document.body;
         var realSize = OpenLayers.Util.getRenderedDimensions(
-            preparedHTML, null, {
+            preparedHTML, null,	{
                 displayClass: this.displayClass,
                 containerElement: containerElement
             }
@@ -532,12 +529,11 @@ OpenLayers.Popup = OpenLayers.Class({
 
         } else {
 
-            // make a new 'size' object with the clipped dimensions 
+            //make a new OL.Size object with the clipped dimensions 
             // set or null if not clipped.
-            var fixedSize = {
-                w: (safeSize.w < realSize.w) ? safeSize.w : null,
-                h: (safeSize.h < realSize.h) ? safeSize.h : null
-            };
+            var fixedSize = new OpenLayers.Size();
+            fixedSize.w = (safeSize.w < realSize.w) ? safeSize.w : null;
+            fixedSize.h = (safeSize.h < realSize.h) ? safeSize.h : null;
         
             if (fixedSize.w && fixedSize.h) {
                 //content is too big in both directions, so we will use 
@@ -684,9 +680,7 @@ OpenLayers.Popup = OpenLayers.Class({
         // 'img' properties in the context.
         //
         var onImgLoad = function() {
-            if (this.popup.id === null) { // this.popup has been destroyed!
-                return;
-            }
+            
             this.popup.updateSize();
      
             if ( this.popup.visible() && this.popup.panMapIfOutOfView ) {
@@ -694,7 +688,7 @@ OpenLayers.Popup = OpenLayers.Class({
             }
 
             OpenLayers.Event.stopObserving(
-                this.img, "load", this.img._onImgLoad
+                this.img, "load", this.img._onImageLoad
             );
     
         };
@@ -838,12 +832,12 @@ OpenLayers.Popup = OpenLayers.Class({
         var contentDivPadding = this._contentDivPadding;
         if (!contentDivPadding) {
 
-            if (this.div.parentNode == null) {
-                //make the div invisible and add it to the page        
-                this.div.style.display = "none";
-                document.body.appendChild(this.div);
-            }
-                    
+        	if (this.div.parentNode == null) {
+	        	//make the div invisible and add it to the page        
+	            this.div.style.display = "none";
+	            document.body.appendChild(this.div);
+	    	}
+	            
             //read the padding settings from css, put them in an OL.Bounds        
             contentDivPadding = new OpenLayers.Bounds(
                 OpenLayers.Element.getStyle(this.contentDiv, "padding-left"),
@@ -856,9 +850,9 @@ OpenLayers.Popup = OpenLayers.Class({
             this._contentDivPadding = contentDivPadding;
 
             if (this.div.parentNode == document.body) {
-                //remove the div from the page and make it visible again
-                document.body.removeChild(this.div);
-                this.div.style.display = "";
+	            //remove the div from the page and make it visible again
+	            document.body.removeChild(this.div);
+	            this.div.style.display = "";
             }
         }
         return contentDivPadding;
@@ -874,7 +868,7 @@ OpenLayers.Popup = OpenLayers.Class({
     addCloseBox: function(callback) {
 
         this.closeDiv = OpenLayers.Util.createDiv(
-            this.id + "_close", null, {w: 17, h: 17}
+            this.id + "_close", null, new OpenLayers.Size(17, 17)
         );
         this.closeDiv.className = "olPopupCloseBox"; 
         
@@ -890,8 +884,6 @@ OpenLayers.Popup = OpenLayers.Class({
             this.hide();
             OpenLayers.Event.stop(e);
         };
-        OpenLayers.Event.observe(this.closeDiv, "touchend", 
-                OpenLayers.Function.bindAsEventListener(closePopup, this));
         OpenLayers.Event.observe(this.closeDiv, "click", 
                 OpenLayers.Function.bindAsEventListener(closePopup, this));
     },
@@ -948,8 +940,7 @@ OpenLayers.Popup = OpenLayers.Class({
      *   Because the user might select the zoom-rectangle option and
      *    then drag it over a popup, we need a safe way to allow the
      *    mousemove and mouseup events to pass through the popup when
-     *    they are initiated from outside. The same procedure is needed for
-     *    touchmove and touchend events.
+     *    they are initiated from outside.
      * 
      *   Otherwise, we want to essentially kill the event propagation
      *    for all other events, though we have to do so carefully, 
@@ -959,9 +950,6 @@ OpenLayers.Popup = OpenLayers.Class({
      registerEvents:function() {
         this.events = new OpenLayers.Events(this, this.div, null, true);
 
-        function onTouchstart(evt) {
-            OpenLayers.Event.stop(evt, true);
-        }
         this.events.on({
             "mousedown": this.onmousedown,
             "mousemove": this.onmousemove,
@@ -969,7 +957,6 @@ OpenLayers.Popup = OpenLayers.Class({
             "click": this.onclick,
             "mouseout": this.onmouseout,
             "dblclick": this.ondblclick,
-            "touchstart": onTouchstart,
             scope: this
         });
         

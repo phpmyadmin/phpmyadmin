@@ -1,10 +1,10 @@
-/* Copyright (c) 2006-2013 by OpenLayers Contributors (see authors.txt for
- * full list of contributors). Published under the 2-clause BSD license.
- * See license.txt in the OpenLayers distribution or repository for the
+/* Copyright (c) 2006-2010 by OpenLayers Contributors (see authors.txt for 
+ * full list of contributors). Published under the Clear BSD license.  
+ * See http://svn.openlayers.org/trunk/openlayers/license.txt for the
  * full text of the license. */
 
 /**
- * @requires OpenLayers/Format/XML/VersionedOGC.js
+ * @requires OpenLayers/Format/XML.js
  * @requires OpenLayers/Style.js
  * @requires OpenLayers/Rule.js
  * @requires OpenLayers/Filter/FeatureId.js
@@ -15,23 +15,14 @@
 
 /**
  * Class: OpenLayers.Format.SLD
- * Read/Write SLD. Create a new instance with the <OpenLayers.Format.SLD>
+ * Read/Wite SLD. Create a new instance with the <OpenLayers.Format.SLD>
  *     constructor.
  * 
  * Inherits from:
- *  - <OpenLayers.Format.XML.VersionedOGC>
+ *  - <OpenLayers.Format.XML>
  */
-OpenLayers.Format.SLD = OpenLayers.Class(OpenLayers.Format.XML.VersionedOGC, {
+OpenLayers.Format.SLD = OpenLayers.Class(OpenLayers.Format.XML, {
     
-    /**
-     * APIProperty: profile
-     * {String} If provided, use a custom profile.
-     *
-     * Currently supported profiles:
-     * - GeoServer - parses GeoServer vendor specific capabilities for SLD.
-     */
-    profile: null,
-
     /**
      * APIProperty: defaultVersion
      * {String} Version number to assume if none found.  Default is "1.0.0".
@@ -39,11 +30,10 @@ OpenLayers.Format.SLD = OpenLayers.Class(OpenLayers.Format.XML.VersionedOGC, {
     defaultVersion: "1.0.0",
     
     /**
-     * APIProperty: stringifyOutput
-     * {Boolean} If true, write will return a string otherwise a DOMElement.
-     * Default is true.
+     * APIProperty: version
+     * {String} Specify a version string if one is known.
      */
-    stringifyOutput: true,
+    version: null,
     
     /**
      * APIProperty: namedLayersAsArray
@@ -53,6 +43,25 @@ OpenLayers.Format.SLD = OpenLayers.Class(OpenLayers.Format.XML.VersionedOGC, {
      */
     namedLayersAsArray: false,
     
+    /**
+     * Property: parser
+     * {Object} Instance of the versioned parser.  Cached for multiple read and
+     *     write calls of the same version.
+     */
+    parser: null,
+
+    /**
+     * Constructor: OpenLayers.Format.SLD
+     * Create a new parser for SLD.
+     *
+     * Parameters:
+     * options - {Object} An optional object whose properties will be set on
+     *     this instance.
+     */
+    initialize: function(options) {
+        OpenLayers.Format.XML.prototype.initialize.apply(this, [options]);
+    },
+
     /**
      * APIMethod: write
      * Write a SLD document given a list of styles.
@@ -64,6 +73,22 @@ OpenLayers.Format.SLD = OpenLayers.Class(OpenLayers.Format.XML.VersionedOGC, {
      * Returns:
      * {String} An SLD document string.
      */
+    write: function(sld, options) {
+        var version = (options && options.version) ||
+                      this.version || this.defaultVersion;
+        if(!this.parser || this.parser.VERSION != version) {
+            var format = OpenLayers.Format.SLD[
+                "v" + version.replace(/\./g, "_")
+            ];
+            if(!format) {
+                throw "Can't find a SLD parser for version " +
+                      version;
+            }
+            this.parser = new format(this.options);
+        }
+        var root = this.parser.write(sld);
+        return OpenLayers.Format.XML.prototype.write.apply(this, [root]);
+    },
     
     /**
      * APIMethod: read
@@ -76,6 +101,31 @@ OpenLayers.Format.SLD = OpenLayers.Class(OpenLayers.Format.XML.VersionedOGC, {
      * Returns:
      * {Object} An object representing the SLD.
      */
+    read: function(data, options) {
+        if(typeof data == "string") {
+            data = OpenLayers.Format.XML.prototype.read.apply(this, [data]);
+        }
+        var root = data.documentElement;
+        var version = this.version;
+        if(!version) {
+            version = root.getAttribute("version");
+            if(!version) {
+                version = this.defaultVersion;
+            }
+        }
+        if(!this.parser || this.parser.VERSION != version) {
+            var format = OpenLayers.Format.SLD[
+                "v" + version.replace(/\./g, "_")
+            ];
+            if(!format) {
+                throw "Can't find a SLD parser for version " +
+                      version;
+            }
+            this.parser = new format(this.options);
+        }
+        var sld = this.parser.read(data, options);
+        return sld;
+    },
 
     CLASS_NAME: "OpenLayers.Format.SLD" 
 });

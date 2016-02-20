@@ -1,11 +1,11 @@
-/* Copyright (c) 2006-2013 by OpenLayers Contributors (see authors.txt for
- * full list of contributors). Published under the 2-clause BSD license.
- * See license.txt in the OpenLayers distribution or repository for the
+/* Copyright (c) 2006-2010 by OpenLayers Contributors (see authors.txt for 
+ * full list of contributors). Published under the Clear BSD license.  
+ * See http://svn.openlayers.org/trunk/openlayers/license.txt for the
  * full text of the license. */
 
 /**
- * @requires OpenLayers/BaseTypes/Class.js
  * @requires OpenLayers/Util.js
+ * @requires OpenLayers/Console.js
  */
 
 /**
@@ -102,7 +102,7 @@ OpenLayers.Format = OpenLayers.Class({
      * Depends on the subclass
      */
     read: function(data) {
-        throw new Error('Read not implemented.');
+        OpenLayers.Console.userError(OpenLayers.i18n("readNotImplemented"));
     },
     
     /**
@@ -116,7 +116,7 @@ OpenLayers.Format = OpenLayers.Class({
      * {String} A string representation of the object.
      */
     write: function(object) {
-        throw new Error('Write not implemented.');
+        OpenLayers.Console.userError(OpenLayers.i18n("writeNotImplemented"));
     },
 
     CLASS_NAME: "OpenLayers.Format"

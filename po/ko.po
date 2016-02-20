@@ -1,13 +1,13 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
+"Project-Id-Version: phpMyAdmin 4.6.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2016-02-08 09:42+0100\n"
-"PO-Revision-Date: 2016-02-08 15:17+0000\n"
-"Last-Translator: Seongki Shin <skshin@gmail.com>\n"
-"Language-Team: Korean "
-"<https://hosted.weblate.org/projects/phpmyadmin/master/ko/>\n"
+"POT-Creation-Date: 2016-01-14 09:15+0100\n"
+"PO-Revision-Date: 2016-01-10 01:48+0000\n"
+"Last-Translator: Kyeong Su Shin <cdac1234@gmail.com>\n"
+"Language-Team: Korean <https://hosted.weblate.org/projects/phpmyadmin/master/"
+"ko/>\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -41,8 +41,8 @@ msgstr "%1$s - %2$s행 표시 중."
 msgid "Database comment"
 msgstr "데이터베이스 설명"
 
-#: db_datadict.php:104 libraries/plugins/schema/pdf/PdfRelationSchema.php:596
-#: templates/columns_definitions/column_definitions_form.phtml:88
+#: db_datadict.php:104 libraries/plugins/schema/pdf/PdfRelationSchema.php:595
+#: templates/columns_definitions/column_definitions_form.phtml:84
 msgid "Table comments:"
 msgstr "테이블 설명:"
 
@@ -57,16 +57,16 @@ msgstr "테이블 설명:"
 #: libraries/plugins/export/ExportTexytext.php:284
 #: libraries/plugins/export/ExportTexytext.php:375
 #: libraries/plugins/export/PMA_ExportPdf.php:472
-#: libraries/plugins/schema/pdf/PdfRelationSchema.php:629
-#: libraries/plugins/schema/pdf/PdfRelationSchema.php:652
+#: libraries/plugins/schema/pdf/PdfRelationSchema.php:628
+#: libraries/plugins/schema/pdf/PdfRelationSchema.php:651
 #: libraries/tracking.lib.php:892 libraries/tracking.lib.php:990
 #: templates/columns_definitions/column_name.phtml:18
 #: templates/table/index_form.phtml:124
-#: templates/table/relation/common_form.phtml:11
-#: templates/table/relation/common_form.phtml:26
-#: templates/table/relation/common_form.phtml:78
-#: templates/table/relation/foreign_key_row.phtml:178
-#: templates/table/relation/foreign_key_row.phtml:190
+#: templates/table/relation/common_form.phtml:12
+#: templates/table/relation/common_form.phtml:27
+#: templates/table/relation/common_form.phtml:79
+#: templates/table/relation/foreign_key_row.phtml:176
+#: templates/table/relation/foreign_key_row.phtml:188
 #: templates/table/relation/internal_relational_row.phtml:73
 #: templates/table/search/table_header.phtml:6
 #: templates/table/search/zoom_result_form.phtml:33
@@ -84,8 +84,8 @@ msgstr "컬럼명"
 #: libraries/plugins/export/ExportTexytext.php:285
 #: libraries/plugins/export/ExportTexytext.php:376
 #: libraries/plugins/export/PMA_ExportPdf.php:474
-#: libraries/plugins/schema/pdf/PdfRelationSchema.php:630
-#: libraries/plugins/schema/pdf/PdfRelationSchema.php:653
+#: libraries/plugins/schema/pdf/PdfRelationSchema.php:629
+#: libraries/plugins/schema/pdf/PdfRelationSchema.php:652
 #: libraries/rte/rte_list.lib.php:78 libraries/rte/rte_list.lib.php:106
 #: libraries/rte/rte_routines.lib.php:890
 #: libraries/rte/rte_routines.lib.php:921
@@ -110,8 +110,8 @@ msgstr "종류"
 #: libraries/plugins/export/ExportTexytext.php:286
 #: libraries/plugins/export/ExportTexytext.php:377
 #: libraries/plugins/export/PMA_ExportPdf.php:476
-#: libraries/plugins/schema/pdf/PdfRelationSchema.php:632
-#: libraries/plugins/schema/pdf/PdfRelationSchema.php:655
+#: libraries/plugins/schema/pdf/PdfRelationSchema.php:631
+#: libraries/plugins/schema/pdf/PdfRelationSchema.php:654
 #: libraries/tracking.lib.php:895 libraries/tracking.lib.php:993
 #: templates/columns_definitions/table_fields_definitions.phtml:39
 #: templates/table/search/zoom_result_form.phtml:34
@@ -129,8 +129,8 @@ msgstr "Null"
 #: libraries/plugins/export/ExportTexytext.php:287
 #: libraries/plugins/export/ExportTexytext.php:378
 #: libraries/plugins/export/PMA_ExportPdf.php:478
-#: libraries/plugins/schema/pdf/PdfRelationSchema.php:633
-#: libraries/plugins/schema/pdf/PdfRelationSchema.php:656
+#: libraries/plugins/schema/pdf/PdfRelationSchema.php:632
+#: libraries/plugins/schema/pdf/PdfRelationSchema.php:655
 #: libraries/replication_gui.lib.php:151 libraries/tracking.lib.php:896
 #: templates/columns_definitions/table_fields_definitions.phtml:25
 #: templates/database/structure/body_for_table_summary.phtml:55
@@ -143,8 +143,8 @@ msgstr "기본값"
 #: libraries/plugins/export/ExportOdt.php:493
 #: libraries/plugins/export/ExportTexytext.php:380
 #: libraries/plugins/export/PMA_ExportPdf.php:487
-#: libraries/plugins/schema/pdf/PdfRelationSchema.php:635
-#: libraries/plugins/schema/pdf/PdfRelationSchema.php:658
+#: libraries/plugins/schema/pdf/PdfRelationSchema.php:634
+#: libraries/plugins/schema/pdf/PdfRelationSchema.php:657
 msgid "Links to"
 msgstr "링크 대상"
 
@@ -155,8 +155,8 @@ msgstr "링크 대상"
 #: libraries/plugins/export/ExportOdt.php:498
 #: libraries/plugins/export/ExportTexytext.php:383
 #: libraries/plugins/export/PMA_ExportPdf.php:494
-#: libraries/plugins/schema/pdf/PdfRelationSchema.php:646
-#: libraries/plugins/schema/pdf/PdfRelationSchema.php:659
+#: libraries/plugins/schema/pdf/PdfRelationSchema.php:645
+#: libraries/plugins/schema/pdf/PdfRelationSchema.php:658
 #: templates/columns_definitions/table_fields_definitions.phtml:65
 #: templates/table/structure/table_structure_header.phtml:14
 msgid "Comments"
@@ -167,7 +167,7 @@ msgstr "설명"
 #: libraries/controllers/table/TableStructureController.php:1208
 #: libraries/tracking.lib.php:935
 #: templates/columns_definitions/column_indexes.phtml:6
-#: templates/table/structure/check_all_table_column.phtml:21
+#: templates/table/structure/check_all_table_column.phtml:22
 #: templates/table/structure/display_structure.phtml:81
 msgid "Primary"
 msgstr "기본"
@@ -181,14 +181,14 @@ msgstr "기본"
 #: libraries/plugins/export/ExportLatex.php:600
 #: libraries/plugins/export/ExportOdt.php:792
 #: libraries/plugins/export/ExportTexytext.php:608
-#: libraries/plugins/schema/pdf/PdfRelationSchema.php:705
+#: libraries/plugins/schema/pdf/PdfRelationSchema.php:704
 #: libraries/server_privileges.lib.php:2851
 #: libraries/server_privileges.lib.php:3039
 #: libraries/server_privileges.lib.php:3059
 #: libraries/server_privileges.lib.php:3696
 #: libraries/server_privileges.lib.php:3719 libraries/tracking.lib.php:946
 #: libraries/tracking.lib.php:1025 libraries/tracking.lib.php:1030
-#: prefs_manage.php:142 templates/prefs_autoload.phtml:13
+#: prefs_manage.php:142 templates/prefs_autoload.phtml:15
 #: templates/privileges/privileges_summary_row.phtml:4
 #: templates/privileges/privileges_summary_row.phtml:7
 #: templates/privileges/privileges_summary_row.phtml:9
@@ -215,14 +215,14 @@ msgstr "아니오"
 #: libraries/plugins/export/ExportLatex.php:600
 #: libraries/plugins/export/ExportOdt.php:793
 #: libraries/plugins/export/ExportTexytext.php:608
-#: libraries/plugins/schema/pdf/PdfRelationSchema.php:706
+#: libraries/plugins/schema/pdf/PdfRelationSchema.php:705
 #: libraries/server_privileges.lib.php:2851
 #: libraries/server_privileges.lib.php:3036
 #: libraries/server_privileges.lib.php:3057
 #: libraries/server_privileges.lib.php:3693
 #: libraries/server_privileges.lib.php:3719 libraries/tracking.lib.php:946
 #: libraries/tracking.lib.php:1023 libraries/tracking.lib.php:1028
-#: prefs_manage.php:140 templates/prefs_autoload.phtml:12
+#: prefs_manage.php:140 templates/prefs_autoload.phtml:14
 #: templates/privileges/privileges_summary_row.phtml:4
 #: templates/privileges/privileges_summary_row.phtml:7
 #: templates/privileges/privileges_summary_row.phtml:9
@@ -234,19 +234,19 @@ msgstr "예"
 msgid "View dump (schema) of database"
 msgstr "데이터베이스의 덤프(스키마) 데이터 보기"
 
-#: db_export.php:51 db_tracking.php:102 export.php:383 libraries/DbQbe.php:324
+#: db_export.php:51 db_tracking.php:102 export.php:381 libraries/DbQbe.php:324
 #: libraries/controllers/database/DatabaseStructureController.php:158
 #: libraries/navigation/NavigationTree.php:917
 msgid "No tables found in database."
 msgstr "데이터베이스에 테이블이 없습니다."
 
 #: db_export.php:65 libraries/ServerStatusData.php:126
-#: libraries/config/messages.inc.php:277
+#: libraries/config/messages.inc.php:279
 #: libraries/controllers/server/ServerDatabasesController.php:336
 #: libraries/navigation/nodes/NodeTableContainer.php:25
 #: libraries/navigation/nodes/NodeTableContainer.php:26
 #: libraries/plugins/export/ExportXml.php:118
-#: templates/database/structure/show_create.phtml:18
+#: templates/database/structure/show_create.phtml:19
 msgid "Tables"
 msgstr "테이블"
 
@@ -255,8 +255,8 @@ msgstr "테이블"
 #: libraries/Util.php:3698 libraries/Util.php:4335 libraries/Util.php:4352
 #: libraries/central_columns.lib.php:725 libraries/config.values.php:39
 #: libraries/config.values.php:47 libraries/config.values.php:110
-#: libraries/config.values.php:116 libraries/config/setup.forms.php:320
-#: libraries/config/setup.forms.php:361 libraries/config/setup.forms.php:387
+#: libraries/config.values.php:116 libraries/config/setup.forms.php:321
+#: libraries/config/setup.forms.php:362 libraries/config/setup.forms.php:388
 #: libraries/config/user_preferences.forms.php:219
 #: libraries/config/user_preferences.forms.php:260
 #: libraries/config/user_preferences.forms.php:286
@@ -269,9 +269,9 @@ msgstr "테이블"
 msgid "Structure"
 msgstr "구조"
 
-#: db_export.php:67 libraries/config/setup.forms.php:333
-#: libraries/config/setup.forms.php:369 libraries/config/setup.forms.php:392
-#: libraries/config/setup.forms.php:397
+#: db_export.php:67 libraries/config/setup.forms.php:334
+#: libraries/config/setup.forms.php:370 libraries/config/setup.forms.php:393
+#: libraries/config/setup.forms.php:398
 #: libraries/config/user_preferences.forms.php:232
 #: libraries/config/user_preferences.forms.php:268
 #: libraries/config/user_preferences.forms.php:291
@@ -282,7 +282,7 @@ msgstr "구조"
 msgid "Data"
 msgstr "데이터"
 
-#: db_export.php:70 libraries/DbSearch.php:442
+#: db_export.php:70 libraries/DbSearch.php:441
 #: libraries/display_export.lib.php:42 libraries/replication_gui.lib.php:377
 msgid "Select all"
 msgstr "모두 선택"
@@ -321,7 +321,7 @@ msgstr "%s비주얼 쿼리 빌더%s로 전환"
 #: db_search.php:31 libraries/plugins/AuthenticationPlugin.php:68
 #: libraries/plugins/auth/AuthenticationConfig.php:93
 #: libraries/plugins/auth/AuthenticationConfig.php:108
-#: libraries/plugins/auth/AuthenticationHttp.php:89
+#: libraries/plugins/auth/AuthenticationHttp.php:87
 msgid "Access denied!"
 msgstr "접근이 거부되었습니다!"
 
@@ -368,11 +368,11 @@ msgstr "사용중 발생한 문제는 수동으로 제출해 주세요."
 msgid "You may want to refresh the page."
 msgstr "페이지를 새로고침 하세요."
 
-#: export.php:190 schema_export.php:64
+#: export.php:188 schema_export.php:60
 msgid "Bad type!"
 msgstr "잘못된 타입!"
 
-#: export.php:277
+#: export.php:275
 msgid "Bad parameters!"
 msgstr "잘못된 인자!"
 
@@ -380,87 +380,87 @@ msgstr "잘못된 인자!"
 msgid "Invalid export type"
 msgstr "잘못된 내보내기 타입"
 
-#: gis_data_editor.php:117
+#: gis_data_editor.php:113
 #, php-format
 msgid "Value for the column \"%s\""
 msgstr "\"%s\"행의 값"
 
-#: gis_data_editor.php:145
-#: templates/table/gis_visualization/gis_visualization.phtml:38
+#: gis_data_editor.php:141
+#: templates/table/gis_visualization/gis_visualization.phtml:37
 msgid "Use OpenStreetMaps as Base Layer"
 msgstr "기본 레이어로 OpenStreetMaps를 사용"
 
 #. l10n: Spatial Reference System Identifier
-#: gis_data_editor.php:167
+#: gis_data_editor.php:163
 msgid "SRID:"
 msgstr "SRID:"
 
-#: gis_data_editor.php:193
+#: gis_data_editor.php:186
 #, php-format
 msgid "Geometry %d:"
 msgstr "기하데이터 %d:"
 
-#: gis_data_editor.php:215
+#: gis_data_editor.php:208
 msgid "Point:"
 msgstr "포인트:"
 
-#: gis_data_editor.php:216 gis_data_editor.php:243 gis_data_editor.php:299
-#: gis_data_editor.php:372 js/messages.php:508
+#: gis_data_editor.php:209 gis_data_editor.php:236 gis_data_editor.php:292
+#: gis_data_editor.php:365 js/messages.php:508
 msgid "X"
 msgstr "X"
 
-#: gis_data_editor.php:219 gis_data_editor.php:247 gis_data_editor.php:303
-#: gis_data_editor.php:378 js/messages.php:509
+#: gis_data_editor.php:212 gis_data_editor.php:240 gis_data_editor.php:296
+#: gis_data_editor.php:371 js/messages.php:509
 msgid "Y"
 msgstr "Y"
 
-#: gis_data_editor.php:241 gis_data_editor.php:297 gis_data_editor.php:370
+#: gis_data_editor.php:234 gis_data_editor.php:290 gis_data_editor.php:363
 #: js/messages.php:511
 #, php-format
 msgid "Point %d"
 msgstr "포인트 %d"
 
-#: gis_data_editor.php:254 gis_data_editor.php:310 gis_data_editor.php:388
+#: gis_data_editor.php:247 gis_data_editor.php:303 gis_data_editor.php:381
 #: js/messages.php:517
 msgid "Add a point"
 msgstr "포인트 추가"
 
-#: gis_data_editor.php:271
+#: gis_data_editor.php:264
 #, php-format
 msgid "Linestring %d:"
 msgstr "문자열 %d:"
 
-#: gis_data_editor.php:274 gis_data_editor.php:351
+#: gis_data_editor.php:267 gis_data_editor.php:344
 msgid "Outer ring:"
 msgstr "외부 원:"
 
-#: gis_data_editor.php:276 gis_data_editor.php:353
+#: gis_data_editor.php:269 gis_data_editor.php:346
 #, php-format
 msgid "Inner ring %d:"
 msgstr "내부 원 %d:"
 
-#: gis_data_editor.php:313
+#: gis_data_editor.php:306
 msgid "Add a linestring"
 msgstr "선 추가"
 
-#: gis_data_editor.php:314 gis_data_editor.php:393 js/messages.php:518
+#: gis_data_editor.php:307 gis_data_editor.php:386 js/messages.php:518
 msgid "Add an inner ring"
 msgstr "내부 링 추가"
 
-#: gis_data_editor.php:335
+#: gis_data_editor.php:328
 #, php-format
 msgid "Polygon %d:"
 msgstr "폴리곤 %d:"
 
-#: gis_data_editor.php:399
+#: gis_data_editor.php:392
 msgid "Add a polygon"
 msgstr "폴리곤 추가"
 
-#: gis_data_editor.php:405
+#: gis_data_editor.php:398
 msgid "Add geometry"
 msgstr "공간 데이터를 추가"
 
-#: gis_data_editor.php:411 js/messages.php:349 libraries/DbSearch.php:463
+#: gis_data_editor.php:404 js/messages.php:349 libraries/DbSearch.php:462
 #: libraries/DisplayResults.php:1790 libraries/browse_foreigners.lib.php:139
 #: libraries/display_change_password.lib.php:147
 #: libraries/display_export.lib.php:400 libraries/display_export.lib.php:406
@@ -469,16 +469,16 @@ msgstr "공간 데이터를 추가"
 #: libraries/normalization.lib.php:162 libraries/normalization.lib.php:819
 #: libraries/operations.lib.php:41 libraries/operations.lib.php:106
 #: libraries/operations.lib.php:256 libraries/operations.lib.php:299
-#: libraries/operations.lib.php:796 libraries/operations.lib.php:866
-#: libraries/operations.lib.php:915 libraries/operations.lib.php:1326
-#: libraries/operations.lib.php:1643
-#: libraries/plugins/auth/AuthenticationCookie.php:225
+#: libraries/operations.lib.php:792 libraries/operations.lib.php:862
+#: libraries/operations.lib.php:911 libraries/operations.lib.php:1322
+#: libraries/operations.lib.php:1639
+#: libraries/plugins/auth/AuthenticationCookie.php:239
 #: libraries/replication_gui.lib.php:120 libraries/replication_gui.lib.php:159
 #: libraries/replication_gui.lib.php:324 libraries/replication_gui.lib.php:461
 #: libraries/replication_gui.lib.php:906 libraries/rte/rte_events.lib.php:512
 #: libraries/rte/rte_routines.lib.php:1060
 #: libraries/rte/rte_routines.lib.php:1672
-#: libraries/rte/rte_triggers.lib.php:398
+#: libraries/rte/rte_triggers.lib.php:398 libraries/server_bin_log.lib.php:59
 #: libraries/server_privileges.lib.php:705
 #: libraries/server_privileges.lib.php:2344
 #: libraries/server_privileges.lib.php:3182
@@ -487,23 +487,22 @@ msgstr "공간 데이터를 추가"
 #: libraries/sql_query_form.lib.php:370 libraries/sql_query_form.lib.php:430
 #: libraries/tracking.lib.php:546 libraries/tracking.lib.php:666
 #: prefs_manage.php:276 prefs_manage.php:354
-#: templates/columns_definitions/column_definitions_form.phtml:68
+#: templates/columns_definitions/column_definitions_form.phtml:64
 #: templates/database/create_table.phtml:21 templates/header_location.phtml:28
 #: templates/privileges/privileges_summary.phtml:66
-#: templates/server/binlog/log_selector.phtml:25
 #: templates/startAndNumberOfRowsPanel.phtml:14
-#: templates/table/index_form.phtml:243
-#: templates/table/search/selection_form.phtml:78
+#: templates/table/index_form.phtml:238
+#: templates/table/search/selection_form.phtml:75
 #: templates/table/structure/add_column.phtml:25 view_create.php:280
 #: view_operations.php:107
 msgid "Go"
 msgstr "실행"
 
-#: gis_data_editor.php:414
+#: gis_data_editor.php:407
 msgid "Output"
 msgstr "출력"
 
-#: gis_data_editor.php:417
+#: gis_data_editor.php:410
 msgid ""
 "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
 "below into the \"Value\" field."
@@ -577,7 +576,7 @@ msgid "Could not load import plugins, please check your installation!"
 msgstr ""
 "가져오기 플러그인을 로드할 수 없습니다. 올바로 설치되었는지 확인해주세요!"
 
-#: import.php:668 libraries/sql.lib.php:781 libraries/sql.lib.php:1561
+#: import.php:668 libraries/sql.lib.php:782 libraries/sql.lib.php:1557
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "북마크 %s가 생성되었습니다."
@@ -610,7 +609,7 @@ msgstr "가져오기에 필요한 절차를 로드할 수 없습니다."
 
 #: import_status.php:116 js/messages.php:448 js/messages.php:600
 #: libraries/Util.php:796 libraries/export.lib.php:516
-#: libraries/plugins/schema/ExportRelationSchema.php:297 user_password.php:293
+#: libraries/plugins/schema/ExportRelationSchema.php:297 user_password.php:292
 msgid "Back"
 msgstr "뒤로"
 
@@ -634,7 +633,7 @@ msgstr "일반 설정"
 
 #: index.php:191 js/messages.php:625
 #: libraries/display_change_password.lib.php:50
-#: libraries/display_change_password.lib.php:53 user_password.php:287
+#: libraries/display_change_password.lib.php:53 user_password.php:286
 msgid "Change password"
 msgstr "암호 변경"
 
@@ -654,7 +653,7 @@ msgstr "자세한 설정"
 msgid "Database server"
 msgstr "데이터베이스 서버"
 
-#: index.php:287 libraries/plugins/auth/AuthenticationCookie.php:171
+#: index.php:287 libraries/plugins/auth/AuthenticationCookie.php:185
 msgid "Server:"
 msgstr "서버:"
 
@@ -700,43 +699,43 @@ msgstr "PHP 버전:"
 msgid "Show PHP information"
 msgstr "PHP 정보 보기"
 
-#: index.php:381
+#: index.php:385
 msgid "Version information:"
 msgstr "버전 정보:"
 
-#: index.php:390 libraries/Util.php:445 libraries/Util.php:511
+#: index.php:394 libraries/Util.php:445 libraries/Util.php:511
 #: libraries/config/FormDisplay.tpl.php:163
 #: libraries/display_export.lib.php:575 libraries/engines/Pbxt.php:166
 #: libraries/navigation/NavigationHeader.php:196
-#: templates/server/variables/link_template.phtml:9
+#: templates/server/variables/link_template.phtml:10
 msgid "Documentation"
 msgstr "문서"
 
-#: index.php:397
+#: index.php:401
 msgid "Wiki"
 msgstr "위키"
 
-#: index.php:406
+#: index.php:410
 msgid "Official Homepage"
 msgstr "phpMyAdmin 공식 홈"
 
-#: index.php:413
+#: index.php:417
 msgid "Contribute"
 msgstr "기여"
 
-#: index.php:420
+#: index.php:424
 msgid "Get support"
 msgstr "지원 받기"
 
-#: index.php:427
+#: index.php:431
 msgid "List of changes"
 msgstr "변경 목록"
 
-#: index.php:434 templates/server/plugins/section.phtml:12
+#: index.php:438 templates/server/plugins/section.phtml:12
 msgid "License"
 msgstr "라이선스"
 
-#: index.php:454
+#: index.php:458
 msgid ""
 "You have enabled mbstring.func_overload in your PHP configuration. This "
 "option is incompatible with phpMyAdmin and might cause some data to be "
@@ -745,7 +744,7 @@ msgstr ""
 "PHP 설정에서 mbstring.func_overload를 활성화해야합니다. 이 옵션은 phpMyAdmin"
 "와 호환되지 않고 일부 데이터가 손상될 수 있습니다!"
 
-#: index.php:469
+#: index.php:473
 msgid ""
 "The mbstring PHP extension was not found and you seem to be using a "
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
@@ -755,13 +754,7 @@ msgstr ""
 "니다. mbstring PHP extension 이 없다면 phpMyAdmin 에서 문자열을 정확하게 나"
 "눌 수 없으며 이로 인해 예상하지 못한 결과가 발생 할 수 있습니다."
 
-#: index.php:484
-msgid ""
-"The curl extension was not found and allow_url_fopen is disabled. Due to "
-"this some features such as error reporting or version check are disabled."
-msgstr ""
-
-#: index.php:499
+#: index.php:490
 msgid ""
 "Your PHP parameter [a@http://php.net/manual/en/session.configuration.php#ini."
 "session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower than "
@@ -773,7 +766,7 @@ msgstr ""
 "cookie 유효기간보다 작게 설정되어 있어, 로그인이 phpMyAdmin 설정값보다 빨리 "
 "만료될 수 있습니다."
 
-#: index.php:518
+#: index.php:509
 msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
@@ -781,11 +774,11 @@ msgstr ""
 "로그인 쿠키의 저장 시간이 phpMyAdmin에서 설정한 쿠키 유효 시간보다 짧게 설정"
 "되어 있어, 로그인이 설정한 것보다 일찍 만료됩니다."
 
-#: index.php:534
+#: index.php:525
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
-msgstr "설정 파일에 암호화 문자열(blowfish_secret)이 필요하게 되었습니다."
+msgstr "이제 설정 파일은 암호화 문자열(blowfish_scret) 을 필요로 합니다."
 
-#: index.php:547
+#: index.php:538
 msgid ""
 "Directory [code]config[/code], which is used by the setup script, still "
 "exists in your phpMyAdmin directory. It is strongly recommended to remove it "
@@ -796,7 +789,7 @@ msgstr ""
 "도 존재합니다. phpMyAdmin 설정 완료후 꼭 삭제하세요. 그렇지 않으며 보안에 취"
 "약해 집니다."
 
-#: index.php:563
+#: index.php:554
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
@@ -805,12 +798,12 @@ msgstr ""
 "phpMyAdmin 설정 스토리지가 완전히 설정되지 않아, 일부 확장 기능들이 비활성화 "
 "된 상태입니다. 원인을 확인하려면 %s여기%s를 클릭하세요. "
 
-#: index.php:570
+#: index.php:561
 msgid ""
 "Or alternately go to 'Operations' tab of any database to set it up there."
 msgstr "대신 데이터베이스 작업 탭을 사용하여 설정할 수도 있습니다."
 
-#: index.php:613
+#: index.php:604
 #, php-format
 msgid ""
 "Your PHP MySQL library version %s differs from your MySQL server version %s. "
@@ -819,7 +812,7 @@ msgstr ""
 "PHP MySQL 라이브버리 버전(%s) 과 MySQL server version(%s) 이 다릅니다. 이것"
 "은 예상하지 못한 문제를 야기할 수 있습니다."
 
-#: index.php:641
+#: index.php:632
 #, php-format
 msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
@@ -1011,7 +1004,7 @@ msgstr "인덱스 추가"
 msgid "Edit index"
 msgstr "인덱스 수정"
 
-#: js/messages.php:122 templates/table/index_form.phtml:237
+#: js/messages.php:122 templates/table/index_form.phtml:232
 #, php-format
 msgid "Add %s column(s) to index"
 msgstr "인덱스에 %s 열 추가"
@@ -1022,7 +1015,7 @@ msgstr "단일 컬럼 인덱스 생성"
 
 #: js/messages.php:124
 msgid "Create composite index"
-msgstr "복합 인덱스 생성"
+msgstr ""
 
 #: js/messages.php:125
 msgid "Composite with:"
@@ -1037,9 +1030,9 @@ msgid "You have to add at least one column."
 msgstr "적어도 한 개 이상의 컬럼을 추가해야 합니다."
 
 #: js/messages.php:132 libraries/insert_edit.lib.php:1551
-#: templates/columns_definitions/column_definitions_form.phtml:163
-#: templates/table/index_form.phtml:242
-#: templates/table/relation/common_form.phtml:126
+#: templates/columns_definitions/column_definitions_form.phtml:159
+#: templates/table/index_form.phtml:237
+#: templates/table/relation/common_form.phtml:127
 msgid "Preview SQL"
 msgstr "SQL 미리보기"
 
@@ -1289,7 +1282,7 @@ msgstr "하나 이상의 변수를 시리즈에 추가하십시오!"
 #: libraries/plugins/export/ExportSql.php:2151
 #: libraries/plugins/schema/SchemaPdf.php:103
 #: libraries/server_status_monitor.lib.php:232
-#: libraries/server_status_processes.lib.php:288
+#: libraries/server_status_processes.lib.php:280
 #: templates/columns_definitions/transformation.phtml:4
 #: templates/database/designer/options_panel.phtml:178
 #: templates/privileges/privileges_summary.phtml:31
@@ -1585,7 +1578,7 @@ msgstr "가져온 설정과 차트 격자를 그리는데 실패했습니다. �
 
 #: js/messages.php:325 libraries/Menu.php:358 libraries/Menu.php:460
 #: libraries/Menu.php:581 libraries/Util.php:4325 libraries/Util.php:4340
-#: libraries/Util.php:4357 libraries/config/messages.inc.php:261
+#: libraries/Util.php:4357 libraries/config/messages.inc.php:263
 #: libraries/display_import.lib.php:103
 #: libraries/server_status_monitor.lib.php:313 prefs_manage.php:237
 #: setup/frames/menu.inc.php:26
@@ -1662,7 +1655,7 @@ msgstr "잘못된 인자!"
 msgid "Cancel"
 msgstr "취소"
 
-#: js/messages.php:353 libraries/Header.php:456
+#: js/messages.php:353 libraries/Header.php:457
 msgid "Page-related settings"
 msgstr "페이지 관련 설정"
 
@@ -1777,7 +1770,7 @@ msgstr "저장 함수의 정의는 RETURN문을 포함해야 합니다!"
 #: libraries/DisplayResults.php:5137 libraries/Menu.php:350
 #: libraries/Menu.php:451 libraries/Menu.php:577 libraries/Util.php:3705
 #: libraries/Util.php:3706 libraries/Util.php:4324 libraries/Util.php:4339
-#: libraries/Util.php:4356 libraries/config/messages.inc.php:255
+#: libraries/Util.php:4356 libraries/config/messages.inc.php:257
 #: libraries/display_export.lib.php:168 libraries/rte/rte_list.lib.php:149
 #: libraries/server_privileges.lib.php:2513
 #: libraries/server_privileges.lib.php:2592
@@ -1829,20 +1822,20 @@ msgstr "질의 상자 보이기"
 #: libraries/Index.php:721 libraries/Util.php:726 libraries/Util.php:1236
 #: libraries/Util.php:3703 libraries/Util.php:3704
 #: libraries/central_columns.lib.php:848 libraries/central_columns.lib.php:1191
-#: libraries/config/messages.inc.php:896
-#: libraries/server_user_groups.lib.php:117 setup/frames/index.inc.php:182
+#: libraries/config/messages.inc.php:898
+#: libraries/server_user_groups.lib.php:117 setup/frames/index.inc.php:183
 #: templates/server/variables/variable_row.phtml:4
 #: templates/server/variables/variable_row.phtml:7
 msgid "Edit"
 msgstr "수정"
 
-#: js/messages.php:410 libraries/Console.php:89 libraries/DbSearch.php:361
+#: js/messages.php:410 libraries/Console.php:89 libraries/DbSearch.php:360
 #: libraries/DisplayResults.php:3541 libraries/DisplayResults.php:4822
 #: libraries/central_columns.lib.php:850 libraries/central_columns.lib.php:1196
 #: libraries/display_export.lib.php:223
 #: libraries/server_user_groups.lib.php:127
 #: libraries/sql_query_form.lib.php:417 libraries/tracking.lib.php:490
-#: setup/frames/index.inc.php:186 setup/frames/index.inc.php:293
+#: setup/frames/index.inc.php:187 setup/frames/index.inc.php:295
 #: templates/database/designer/delete_relation_panel.phtml:27
 msgid "Delete"
 msgstr "삭제"
@@ -1856,7 +1849,7 @@ msgstr "%d는 올바른 행번호가 아닙니다."
 #: js/messages.php:412
 #: libraries/controllers/table/TableSearchController.php:426
 #: libraries/controllers/table/TableSearchController.php:896
-#: libraries/sql.lib.php:193 tbl_change.php:158
+#: libraries/sql.lib.php:193 tbl_change.php:159
 msgid "Browse foreign values"
 msgstr "외래값 탐색"
 
@@ -2007,11 +2000,11 @@ msgstr "의존성이 선택되지 않았습니다!"
 
 #: js/messages.php:469 libraries/central_columns.lib.php:1212
 #: libraries/insert_edit.lib.php:1461 setup/frames/config.inc.php:43
-#: setup/frames/index.inc.php:281
-#: templates/columns_definitions/column_definitions_form.phtml:166
+#: setup/frames/index.inc.php:283
+#: templates/columns_definitions/column_definitions_form.phtml:162
 #: templates/server/variables/link_template.phtml:2
 #: templates/table/gis_visualization/gis_visualization.phtml:48
-#: templates/table/relation/common_form.phtml:127
+#: templates/table/relation/common_form.phtml:128
 #: templates/table/structure/partition_definition_form.phtml:11
 msgid "Save"
 msgstr "저장"
@@ -2090,7 +2083,7 @@ msgstr "데이터 포인트 내용"
 
 #: js/messages.php:506 js/messages.php:660 js/messages.php:677
 #: libraries/ErrorHandler.php:342 libraries/insert_edit.lib.php:2577
-#: templates/table/index_form.phtml:154 templates/table/index_form.phtml:199
+#: templates/table/index_form.phtml:154 templates/table/index_form.phtml:194
 msgid "Ignore"
 msgstr "무시"
 
@@ -2376,7 +2369,7 @@ msgstr "패널 숨기기"
 msgid "Show hidden navigation tree items."
 msgstr "숨겨진 탐색 트리의 항목보기."
 
-#: js/messages.php:634 libraries/config/messages.inc.php:479
+#: js/messages.php:634 libraries/config/messages.inc.php:481
 #: libraries/navigation/NavigationTree.php:1434
 msgid "Link with main panel"
 msgstr "매인 패널에 링크"
@@ -2908,17 +2901,17 @@ msgstr ""
 "%1$s 행에 알 수 없는 문자가 있습니다. 탭 문자가 있어야 하지만, \"%2$s\"가 있"
 "습니다."
 
-#: libraries/Config.php:1141
+#: libraries/Config.php:1186
 #, php-format
 msgid "Existing configuration file (%s) is not readable."
 msgstr "이미 존재하고 있는 환경설정 파일 (%s) 을 읽을 수 없습니다."
 
-#: libraries/Config.php:1171
+#: libraries/Config.php:1216
 msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr ""
 "설정 파일에 잘못된 권한이 지정되어있습니다. 익명 쓰기 권한이면 안됩니다!"
 
-#: libraries/Config.php:1518
+#: libraries/Config.php:1797
 msgid "Font size"
 msgstr "글꼴 크기"
 
@@ -2935,7 +2928,7 @@ msgid "Requery"
 msgstr "다시 쿼리하기"
 
 #: libraries/Console.php:91 libraries/Console.php:223 libraries/Menu.php:220
-#: libraries/config/messages.inc.php:926 libraries/mult_submits.lib.php:334
+#: libraries/config/messages.inc.php:928 libraries/mult_submits.lib.php:334
 #: libraries/plugins/export/ExportHtmlword.php:149
 #: libraries/plugins/export/ExportOdt.php:197
 #: libraries/plugins/export/ExportTexytext.php:133
@@ -2946,8 +2939,8 @@ msgstr "다시 쿼리하기"
 #: libraries/server_privileges.lib.php:4637
 #: libraries/server_status_processes.lib.php:79
 #: templates/server/databases/table_header.phtml:8
-#: templates/table/relation/common_form.phtml:24
-#: templates/table/relation/foreign_key_row.phtml:149
+#: templates/table/relation/common_form.phtml:25
+#: templates/table/relation/foreign_key_row.phtml:147
 #: templates/table/relation/internal_relational_row.phtml:57
 msgid "Database"
 msgstr "데이터베이스"
@@ -3012,7 +3005,7 @@ msgid "Console"
 msgstr "콘솔"
 
 #: libraries/Console.php:237 libraries/sql_query_form.lib.php:244
-#: setup/frames/index.inc.php:300
+#: setup/frames/index.inc.php:302
 msgid "Clear"
 msgstr ""
 
@@ -3116,8 +3109,8 @@ msgid "Count:"
 msgstr "개수:"
 
 #: libraries/Console.php:339 libraries/Util.php:1292
-#: libraries/config/messages.inc.php:898
-#: libraries/server_status_processes.lib.php:235
+#: libraries/config/messages.inc.php:900
+#: libraries/server_status_processes.lib.php:227
 #: libraries/server_status_variables.lib.php:39
 msgid "Refresh"
 msgstr "다시 보기"
@@ -3168,13 +3161,7 @@ msgstr ""
 msgid "Switch to dark theme"
 msgstr "어두운 테마로 변경"
 
-#: libraries/DatabaseInterface.php:1528
-#, fuzzy
-#| msgid "Failed to read configuration file!"
-msgid "Failed to set configured collation connection!"
-msgstr "설정 파일을 읽는데 실패했습니다!"
-
-#: libraries/DatabaseInterface.php:2139
+#: libraries/DatabaseInterface.php:2126
 msgid ""
 "The server is not responding (or the local server's socket is not correctly "
 "configured)."
@@ -3182,27 +3169,27 @@ msgstr ""
 "서버가 응답하지 않습니다 (또는 로컬 서버의 소켓이 현재 제대로 구성되어 있지 "
 "않습니다)."
 
-#: libraries/DatabaseInterface.php:2144
+#: libraries/DatabaseInterface.php:2131
 msgid "The server is not responding."
 msgstr "서버가 응답하지 않습니다."
 
-#: libraries/DatabaseInterface.php:2150
+#: libraries/DatabaseInterface.php:2137
 msgid "Please check privileges of directory containing database."
 msgstr "디렉토리를 포함하는 데이터베이스의 권한을 확인하십시오."
 
-#: libraries/DatabaseInterface.php:2161
+#: libraries/DatabaseInterface.php:2148
 msgid "Details…"
 msgstr "자세히…"
 
-#: libraries/DatabaseInterface.php:2368
+#: libraries/DatabaseInterface.php:2355
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr "관리사용자(controluser, 설정에 정의됨)로서의 접속에 실패."
 
 #: libraries/DbQbe.php:403 libraries/DisplayResults.php:2256
 #: libraries/DisplayResults.php:2262 libraries/config.values.php:70
 #: libraries/controllers/server/ServerDatabasesController.php:539
-#: libraries/operations.lib.php:789
-#: libraries/server_status_processes.lib.php:166
+#: libraries/operations.lib.php:785
+#: libraries/server_status_processes.lib.php:163
 #: templates/database/structure/sortable_header.phtml:21
 #: templates/database/structure/sortable_header.phtml:38
 #: templates/table/search/options.phtml:68
@@ -3212,8 +3199,8 @@ msgstr "오름차순"
 #: libraries/DbQbe.php:406 libraries/DisplayResults.php:2252
 #: libraries/DisplayResults.php:2266 libraries/config.values.php:71
 #: libraries/controllers/server/ServerDatabasesController.php:539
-#: libraries/operations.lib.php:792
-#: libraries/server_status_processes.lib.php:163
+#: libraries/operations.lib.php:788
+#: libraries/server_status_processes.lib.php:160
 #: templates/database/structure/sortable_header.phtml:26
 #: templates/database/structure/sortable_header.phtml:43
 #: templates/table/search/options.phtml:69
@@ -3317,19 +3304,19 @@ msgstr "북마크 업데이트"
 msgid "Delete bookmark"
 msgstr "북마크 삭제"
 
-#: libraries/DbSearch.php:96 libraries/DbSearch.php:400
+#: libraries/DbSearch.php:96 libraries/DbSearch.php:399
 msgid "at least one of the words"
 msgstr "최소 한 단어"
 
-#: libraries/DbSearch.php:97 libraries/DbSearch.php:404
+#: libraries/DbSearch.php:97 libraries/DbSearch.php:403
 msgid "all words"
 msgstr "모든 단어"
 
-#: libraries/DbSearch.php:98 libraries/DbSearch.php:408
+#: libraries/DbSearch.php:98 libraries/DbSearch.php:407
 msgid "the exact phrase"
 msgstr "정확한 문구"
 
-#: libraries/DbSearch.php:99 libraries/DbSearch.php:409
+#: libraries/DbSearch.php:99 libraries/DbSearch.php:408
 msgid "as regular expression"
 msgstr "정규표현식"
 
@@ -3350,7 +3337,7 @@ msgid "%1$s match in <strong>%2$s</strong>"
 msgid_plural "%1$s matches in <strong>%2$s</strong>"
 msgstr[0] "<strong>%2$s</strong> 에서 %1$s 건 일치"
 
-#: libraries/DbSearch.php:350 libraries/Menu.php:317 libraries/Util.php:3406
+#: libraries/DbSearch.php:349 libraries/Menu.php:317 libraries/Util.php:3406
 #: libraries/Util.php:3416 libraries/Util.php:3692 libraries/Util.php:3693
 #: libraries/Util.php:4351 libraries/config.values.php:43
 #: libraries/config.values.php:51 libraries/config.values.php:120
@@ -3359,37 +3346,37 @@ msgstr[0] "<strong>%2$s</strong> 에서 %1$s 건 일치"
 msgid "Browse"
 msgstr "보기"
 
-#: libraries/DbSearch.php:357
+#: libraries/DbSearch.php:356
 #, php-format
 msgid "Delete the matches for the %s table?"
 msgstr "테이블 %s에 대하여 일치하는 것들을 삭제 하겠습니까?"
 
-#: libraries/DbSearch.php:384
+#: libraries/DbSearch.php:383
 msgid "Search in database"
 msgstr "데이터베이스 검색"
 
-#: libraries/DbSearch.php:388
+#: libraries/DbSearch.php:387
 msgid "Words or values to search for (wildcard: \"%\"):"
 msgstr "찾을 단어, 값 (와일드카드: \"%\"):"
 
-#: libraries/DbSearch.php:397 templates/table/search/search_and_replace.phtml:1
+#: libraries/DbSearch.php:396 templates/table/search/search_and_replace.phtml:1
 msgid "Find:"
 msgstr "찾는 방식:"
 
-#: libraries/DbSearch.php:402 libraries/DbSearch.php:406
+#: libraries/DbSearch.php:401 libraries/DbSearch.php:405
 msgid "Words are separated by a space character (\" \")."
 msgstr "단어는 스페이스(\" \")로 구분됩니다."
 
-#: libraries/DbSearch.php:421
+#: libraries/DbSearch.php:420
 msgid "Inside tables:"
 msgstr "검색할 테이블:"
 
-#: libraries/DbSearch.php:446 libraries/display_export.lib.php:48
+#: libraries/DbSearch.php:445 libraries/display_export.lib.php:48
 #: libraries/replication_gui.lib.php:379
 msgid "Unselect all"
 msgstr "모두 선택해제"
 
-#: libraries/DbSearch.php:451
+#: libraries/DbSearch.php:450
 msgid "Inside column:"
 msgstr "검색할 컬럼:"
 
@@ -3416,17 +3403,15 @@ msgid "Begin"
 msgstr "처음"
 
 #: libraries/DisplayResults.php:986 libraries/Util.php:2602
-#: libraries/Util.php:2605
-#: libraries/controllers/server/ServerBinlogController.php:193
-#: libraries/controllers/server/ServerBinlogController.php:195
+#: libraries/Util.php:2605 libraries/server_bin_log.lib.php:168
+#: libraries/server_bin_log.lib.php:170
 msgctxt "Previous page"
 msgid "Previous"
 msgstr "이전"
 
 #: libraries/DisplayResults.php:1052 libraries/Util.php:2633
-#: libraries/Util.php:2643
-#: libraries/controllers/server/ServerBinlogController.php:227
-#: libraries/controllers/server/ServerBinlogController.php:229
+#: libraries/Util.php:2643 libraries/server_bin_log.lib.php:202
+#: libraries/server_bin_log.lib.php:204
 msgctxt "Next page"
 msgid "Next"
 msgstr "다음"
@@ -3493,7 +3478,7 @@ msgid "The row has been deleted."
 msgstr "행을 삭제 하였습니다."
 
 #: libraries/DisplayResults.php:3568 libraries/DisplayResults.php:4822
-#: libraries/server_status_processes.lib.php:282
+#: libraries/server_status_processes.lib.php:274
 msgid "Kill"
 msgstr "강제로 끝냄"
 
@@ -3533,7 +3518,7 @@ msgstr "총 %1$d개 중 현재 쿼리에 %2$d개"
 msgid "%d total"
 msgstr "합계 %d"
 
-#: libraries/DisplayResults.php:4725 libraries/sql.lib.php:1376
+#: libraries/DisplayResults.php:4725 libraries/sql.lib.php:1372
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "질의 실행시간 %01.4f 초."
@@ -3651,15 +3636,15 @@ msgstr "Git정보가 없습니다!"
 msgid "Open new phpMyAdmin window"
 msgstr "새 창으로 phpMyAdmin 열기"
 
-#: libraries/Header.php:377
+#: libraries/Header.php:378
 msgid "Print view"
 msgstr "인쇄용 보기"
 
-#: libraries/Header.php:463
+#: libraries/Header.php:464
 msgid "Click on the bar to scroll to top of page"
 msgstr "클릭하여 페이지 상단으로 이동"
 
-#: libraries/Header.php:759 libraries/plugins/auth/AuthenticationCookie.php:142
+#: libraries/Header.php:764 libraries/plugins/auth/AuthenticationCookie.php:156
 msgid "Javascript must be enabled past this point!"
 msgstr "이 페이지를 넘기려면 Javascript 사용을 허용해야 합니다!"
 
@@ -3702,7 +3687,7 @@ msgstr "키 이름"
 #: libraries/controllers/table/TableStructureController.php:1210
 #: libraries/tracking.lib.php:988
 #: templates/columns_definitions/column_indexes.phtml:11
-#: templates/table/structure/check_all_table_column.phtml:25
+#: templates/table/structure/check_all_table_column.phtml:26
 msgid "Unique"
 msgstr "고유값"
 
@@ -3718,7 +3703,7 @@ msgstr "관계성"
 #: libraries/central_columns.lib.php:1381
 #: libraries/controllers/server/ServerDatabasesController.php:330
 #: libraries/mysql_charsets.lib.php:43 libraries/operations.lib.php:286
-#: libraries/operations.lib.php:1061 libraries/tracking.lib.php:894
+#: libraries/operations.lib.php:1057 libraries/tracking.lib.php:894
 #: libraries/tracking.lib.php:992
 #: templates/columns_definitions/table_fields_definitions.phtml:33
 #: templates/database/structure/table_header.phtml:55
@@ -3751,7 +3736,7 @@ msgstr "인덱스 %s 를 제거했습니다."
 #: libraries/controllers/server/ServerDatabasesController.php:387
 #: libraries/controllers/table/TableStructureController.php:1201
 #: libraries/controllers/table/TableStructureController.php:1202
-#: libraries/operations.lib.php:1592 libraries/rte/rte_list.lib.php:153
+#: libraries/operations.lib.php:1588 libraries/rte/rte_list.lib.php:153
 #: templates/database/structure/check_all_tables.phtml:17
 #: templates/table/relation/foreign_key_row.phtml:75
 #: templates/table/structure/check_all_table_column.phtml:15
@@ -3769,8 +3754,8 @@ msgstr ""
 
 #: libraries/Language.php:195 libraries/PDF.php:71 libraries/Util.php:2590
 #: libraries/browse_foreigners.lib.php:324
-#: libraries/plugins/schema/pdf/PdfRelationSchema.php:495
-#: libraries/plugins/schema/pdf/PdfRelationSchema.php:520
+#: libraries/plugins/schema/pdf/PdfRelationSchema.php:494
+#: libraries/plugins/schema/pdf/PdfRelationSchema.php:519
 msgid "Page number:"
 msgstr "페이지 번호:"
 
@@ -3789,7 +3774,7 @@ msgid "%1$s (near <code>%2$s</code>)"
 msgstr ""
 
 #: libraries/Menu.php:201 libraries/ServerStatusData.php:422
-#: libraries/config/messages.inc.php:934
+#: libraries/config/messages.inc.php:936
 msgid "Server"
 msgstr "서버"
 
@@ -3800,7 +3785,7 @@ msgstr "서버"
 msgid "View"
 msgstr "뷰"
 
-#: libraries/Menu.php:249 libraries/config/messages.inc.php:936
+#: libraries/Menu.php:249 libraries/config/messages.inc.php:938
 #: libraries/plugins/export/ExportXml.php:493 libraries/rte/rte_list.lib.php:90
 #: libraries/rte/rte_triggers.lib.php:333
 #: libraries/server_privileges.lib.php:1267
@@ -3810,8 +3795,8 @@ msgstr "뷰"
 #: libraries/server_privileges.lib.php:4651 libraries/tracking.lib.php:1473
 #: libraries/tracking.lib.php:1619
 #: templates/database/structure/table_header.phtml:21
-#: templates/table/relation/common_form.phtml:25
-#: templates/table/relation/foreign_key_row.phtml:160
+#: templates/table/relation/common_form.phtml:26
+#: templates/table/relation/foreign_key_row.phtml:158
 #: templates/table/relation/internal_relational_row.phtml:65
 msgid "Table"
 msgstr "테이블"
@@ -3821,7 +3806,7 @@ msgstr "테이블"
 #: libraries/Util.php:4321 libraries/Util.php:4336 libraries/Util.php:4353
 #: libraries/config.values.php:40 libraries/config.values.php:48
 #: libraries/config.values.php:111 libraries/config.values.php:117
-#: libraries/config/messages.inc.php:324
+#: libraries/config/messages.inc.php:326
 #: libraries/navigation/nodes/NodeTable.php:308
 msgid "SQL"
 msgstr "SQL"
@@ -3907,8 +3892,8 @@ msgid "Central columns"
 msgstr "중심 열"
 
 #: libraries/Menu.php:543 libraries/Util.php:4320
-#: libraries/config.values.php:104 libraries/config/messages.inc.php:269
-#: libraries/config/messages.inc.php:344
+#: libraries/config.values.php:104 libraries/config/messages.inc.php:271
+#: libraries/config/messages.inc.php:346
 #: libraries/navigation/NavigationTree.php:1268
 #: libraries/server_common.lib.php:45 libraries/server_privileges.lib.php:4637
 msgid "Databases"
@@ -4002,7 +3987,7 @@ msgstr "최근 테이블"
 msgid "Recent"
 msgstr "최근"
 
-#: libraries/RecentFavoriteTable.php:249 libraries/config/messages.inc.php:545
+#: libraries/RecentFavoriteTable.php:249 libraries/config/messages.inc.php:547
 msgid "Favorite tables"
 msgstr "즐겨찾기 테이블"
 
@@ -4075,8 +4060,7 @@ msgstr "정렬"
 msgid "Transaction coordinator"
 msgstr "트랜잭션 코디네이터"
 
-#: libraries/ServerStatusData.php:128
-#: templates/server/binlog/log_selector.phtml:19
+#: libraries/ServerStatusData.php:128 libraries/server_bin_log.lib.php:51
 msgid "Files"
 msgstr "파일들"
 
@@ -4577,7 +4561,7 @@ msgstr ""
 msgid "MySQL said: "
 msgstr "MySQL 메시지: "
 
-#: libraries/Util.php:1200 libraries/config/messages.inc.php:897
+#: libraries/Util.php:1200 libraries/config/messages.inc.php:899
 msgid "Explain SQL"
 msgstr "SQL 해석"
 
@@ -4602,7 +4586,7 @@ msgstr "PHP 코드 없이 보기"
 msgid "Submit query"
 msgstr "질의 실행"
 
-#: libraries/Util.php:1273 libraries/config/messages.inc.php:899
+#: libraries/Util.php:1273 libraries/config/messages.inc.php:901
 msgid "Create PHP code"
 msgstr "PHP 코드 보기"
 
@@ -4751,7 +4735,7 @@ msgstr "아니오"
 #: libraries/plugins/export/PMA_ExportPdf.php:312
 #: libraries/rte/rte_list.lib.php:76 libraries/rte/rte_list.lib.php:88
 #: libraries/rte/rte_list.lib.php:103 libraries/rte/rte_routines.lib.php:920
-#: libraries/rte/rte_routines.lib.php:1583 setup/frames/index.inc.php:165
+#: libraries/rte/rte_routines.lib.php:1583 setup/frames/index.inc.php:166
 #: templates/columns_definitions/table_fields_definitions.phtml:8
 #: templates/database/create_table.phtml:11
 #: templates/table/structure/display_partitions.phtml:25
@@ -4791,18 +4775,18 @@ msgid "Add new column"
 msgstr "새 컬럼 추가"
 
 #: libraries/central_columns.lib.php:1381
-#: libraries/plugins/schema/pdf/PdfRelationSchema.php:631
-#: libraries/plugins/schema/pdf/PdfRelationSchema.php:654
+#: libraries/plugins/schema/pdf/PdfRelationSchema.php:630
+#: libraries/plugins/schema/pdf/PdfRelationSchema.php:653
 #: templates/columns_definitions/table_fields_definitions.phtml:36
 #: templates/table/structure/table_structure_header.phtml:10
 msgid "Attributes"
 msgstr "보기"
 
-#: libraries/common.inc.php:482
+#: libraries/common.inc.php:504
 msgid "Failed to read configuration file!"
 msgstr "설정 파일을 읽는데 실패했습니다!"
 
-#: libraries/common.inc.php:485
+#: libraries/common.inc.php:507
 msgid ""
 "This usually means there is a syntax error in it, please check any errors "
 "shown below."
@@ -4810,31 +4794,38 @@ msgstr ""
 "일반적으로 이것은 문법 오류가 있음을 의미합니다. 다음의 모든 오류를 확인하십"
 "시오."
 
-#: libraries/common.inc.php:494
+#: libraries/common.inc.php:516
 #, php-format
 msgid "Could not load default configuration from: %1$s"
 msgstr "기본 설정을 가져올 수 없습니다: %1$s"
 
-#: libraries/common.inc.php:528
+#: libraries/common.inc.php:524
+msgid ""
+"The [code]$cfg['PmaAbsoluteUri'][/code] directive MUST be set in your "
+"configuration file!"
+msgstr ""
+"환경설정 파일에 [code]$cfg['PmaAbsoluteUri'][/code] 변수가 정의되어야 합니다!"
+
+#: libraries/common.inc.php:559
 #, php-format
 msgid "Invalid server index: %s"
 msgstr "잘못된 서버 인덱스: %s"
 
-#: libraries/common.inc.php:540
+#: libraries/common.inc.php:571
 #, php-format
 msgid "Invalid hostname for server %1$s. Please review your configuration."
 msgstr "서버 %1$s의 호스트 이름이 잘못되었습니다. 설정을 확인하십시오."
 
-#: libraries/common.inc.php:558
+#: libraries/common.inc.php:589
 #, php-format
 msgid "Server %d"
 msgstr "서버 %d"
 
-#: libraries/common.inc.php:698
+#: libraries/common.inc.php:729
 msgid "Invalid authentication method set in configuration:"
 msgstr "설정 파일에 잘못된 인증 방식 설정되어 있습니다.:"
 
-#: libraries/common.inc.php:841
+#: libraries/common.inc.php:872
 #, php-format
 msgid ""
 "Unable to use timezone %1$s for server %2$d. Please check your configuration "
@@ -4842,24 +4833,24 @@ msgid ""
 "currently using the default time zone of the database server."
 msgstr ""
 
-#: libraries/common.inc.php:873
+#: libraries/common.inc.php:904
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "%s를 %s 이상으로 업그레이드 하십시오."
 
-#: libraries/common.inc.php:974
+#: libraries/common.inc.php:1005
 msgid "Error: Token mismatch"
 msgstr "오류: 토큰 불일치"
 
-#: libraries/common.inc.php:1006
+#: libraries/common.inc.php:1037
 msgid "GLOBALS overwrite attempt"
 msgstr "GLOBALS 덮어쓰기 시도"
 
-#: libraries/common.inc.php:1013
+#: libraries/common.inc.php:1044
 msgid "possible exploit"
 msgstr "어떤 공격을 받고있을 가능성이 있습니다"
 
-#: libraries/common.inc.php:1022
+#: libraries/common.inc.php:1053
 msgid "numeric key detected"
 msgstr "전역 변수에서 숫자로 된 키가 발견 되었습니다"
 
@@ -5072,7 +5063,7 @@ msgid "Set value: %s"
 msgstr "설정된 값: %s"
 
 #: libraries/config/FormDisplay.tpl.php:336
-#: libraries/config/messages.inc.php:614
+#: libraries/config/messages.inc.php:616
 msgid "Restore default value"
 msgstr "기본값으로 복원"
 
@@ -5086,23 +5077,23 @@ msgstr "이 값을 사용자화하기 위한 사용자 허용"
 msgid "Cannot save settings, submitted configuration form contains errors!"
 msgstr "설정을 저장할 수 없음, 전송된 폼 값에 오류가 있음!"
 
-#: libraries/config/ServerConfigChecks.php:157
+#: libraries/config/ServerConfigChecks.php:170
 msgid "You should use SSL connections if your database server supports it."
 msgstr "데이터베이스 서버가 지원한다면 SSL 연결을 사용해야 합니다."
 
-#: libraries/config/ServerConfigChecks.php:196
+#: libraries/config/ServerConfigChecks.php:209
 msgid "You allow for connecting to the server without a password."
 msgstr "암호 없이 서버 접속을 허용합니다."
 
-#: libraries/config/ServerConfigChecks.php:335
+#: libraries/config/ServerConfigChecks.php:348
 msgid "Key is too short, it should have at least 8 characters."
 msgstr "키가 너무 짧습니다. 최소 8글자 이상이어야 합니다."
 
-#: libraries/config/ServerConfigChecks.php:345
+#: libraries/config/ServerConfigChecks.php:358
 msgid "Key should contain letters, numbers [em]and[/em] special characters."
 msgstr "키는 문자, 숫자 [em]그리고[/em] 특수문자가 포함되어야 합니다."
 
-#: libraries/config/ServerConfigChecks.php:370
+#: libraries/config/ServerConfigChecks.php:383
 #, fuzzy, php-format
 #| msgid ""
 #| "This %soption%s should be disabled as it allows attackers to bruteforce "
@@ -5122,7 +5113,7 @@ msgstr ""
 "proxies list%s 옵션을 사용하세요. 하지만 IP 기반의 방어는 당신의 IP 주소가 수"
 "천명이 함께쓰는 ISP 대역에 있을 경우 안전하지 않습니다."
 
-#: libraries/config/ServerConfigChecks.php:390
+#: libraries/config/ServerConfigChecks.php:403
 msgid ""
 "You didn't have blowfish secret set and have enabled [kbd]cookie[/kbd] "
 "authentication, so a key was automatically generated for you. It is used to "
@@ -5132,7 +5123,7 @@ msgstr ""
 "어 있습니다. 그래서 키를 자동으로 생성하였습니다. 이 키는 쿠키를 암호화하는"
 "데 사용하여, 굳이 외울 필요는 없습니다."
 
-#: libraries/config/ServerConfigChecks.php:396
+#: libraries/config/ServerConfigChecks.php:409
 #, php-format
 msgid ""
 "%sBzip2 compression and decompression%s requires functions (%s) which are "
@@ -5141,7 +5132,7 @@ msgstr ""
 "%sBzip2 compression and decompression%s는 (%s) 기능이 필요한데, 이 기능은 이 "
 "시스템이서는 사용할 수 없습니다."
 
-#: libraries/config/ServerConfigChecks.php:406
+#: libraries/config/ServerConfigChecks.php:419
 msgid ""
 "This value should be double checked to ensure that this directory is neither "
 "world accessible nor readable or writable by other users on your server."
@@ -5149,7 +5140,12 @@ msgstr ""
 "이 값은, 이 디렉토리가 외부에서 접속할 수 없도록, 이 서버의 다른 사용자가 읽"
 "거나 쓸 수 없도록 이중으로 체크되어야 합니다."
 
-#: libraries/config/ServerConfigChecks.php:411
+#: libraries/config/ServerConfigChecks.php:424
+#, php-format
+msgid "This %soption%s should be enabled if your web server supports it."
+msgstr "웹서버가 지원한다면 이 %s옵션 %s이 활성화됩니다."
+
+#: libraries/config/ServerConfigChecks.php:433
 #, php-format
 msgid ""
 "%sGZip compression and decompression%s requires functions (%s) which are "
@@ -5158,7 +5154,7 @@ msgstr ""
 "%sGZip compression and decompression%s은 (%s) 기능이 필요한데, 이 기능은 이 "
 "시스템이서는 사용할 수 없습니다."
 
-#: libraries/config/ServerConfigChecks.php:422
+#: libraries/config/ServerConfigChecks.php:444
 #, php-format
 msgid ""
 "%sLogin cookie validity%s greater than %ssession.gc_maxlifetime%s may cause "
@@ -5167,7 +5163,7 @@ msgstr ""
 "%ssession.gc_maxlifetime%s보다 큰 %sLogin cookie validity%s은 불규칙적으로 세"
 "션 파기를 유발할 수 있습니다(현재 session.gc_maxlifetime은 %d)."
 
-#: libraries/config/ServerConfigChecks.php:438
+#: libraries/config/ServerConfigChecks.php:460
 #, php-format
 msgid ""
 "%sLogin cookie validity%s should be set to 1800 seconds (30 minutes) at "
@@ -5176,7 +5172,7 @@ msgstr ""
 "%sLogin cookie validity%s은 1800초(30분) 이하로 설정되어야 합니다.. 1800 초과"
 "시 인증 속이기 등의 보안 위험에 노출될 수 있습니다."
 
-#: libraries/config/ServerConfigChecks.php:449
+#: libraries/config/ServerConfigChecks.php:471
 #, php-format
 msgid ""
 "If using [kbd]cookie[/kbd] authentication and %sLogin cookie store%s is not "
@@ -5185,7 +5181,7 @@ msgstr ""
 "[kbd]쿠키[/kbd] 인증을 사용하면서 %sLogin cookie store%s가 0이 아니라면, "
 "%sLogin cookie validity%s은 그 값 이하의 값을 가져야합니다."
 
-#: libraries/config/ServerConfigChecks.php:463
+#: libraries/config/ServerConfigChecks.php:485
 #, php-format
 msgid ""
 "If you feel this is necessary, use additional protection settings - %shost "
@@ -5197,7 +5193,7 @@ msgstr ""
 "authentication%s 설정과 %strusted proxies list%s. 하지만 IP 기반 보안은, 당신"
 "이 수천명의 사용자와 함께 쓰는 IP 대역을 사용할경우 그다지 안전하지 않습니다."
 
-#: libraries/config/ServerConfigChecks.php:478
+#: libraries/config/ServerConfigChecks.php:500
 #, php-format
 msgid ""
 "You set the [kbd]config[/kbd] authentication type and included username and "
@@ -5211,14 +5207,14 @@ msgstr ""
 "이 설치된 주소를 추측하고 접속하여 phpMyAdmin 패널을 건드릴 수 있습니다. "
 "%sauthentication type%s을 [kbd]cookie[/kbd]나 [kbd]http[/kbd]로 설정하세요."
 
-#: libraries/config/ServerConfigChecks.php:491
+#: libraries/config/ServerConfigChecks.php:513
 #, php-format
 msgid ""
 "%sZip compression%s requires functions (%s) which are unavailable on this "
 "system."
 msgstr "%sZip 압축%s을 하기 위한 함수 %s가 현재 시스템에서 사용할 수 없습니다."
 
-#: libraries/config/ServerConfigChecks.php:502
+#: libraries/config/ServerConfigChecks.php:524
 #, php-format
 msgid ""
 "%sZip decompression%s requires functions (%s) which are unavailable on this "
@@ -5435,7 +5431,7 @@ msgid "Compress on the fly"
 msgstr "즉시 압축"
 
 #: libraries/config/messages.inc.php:90 setup/frames/config.inc.php:25
-#: setup/frames/index.inc.php:215
+#: setup/frames/index.inc.php:216
 msgid "Configuration file"
 msgstr "설정 파일"
 
@@ -5546,7 +5542,7 @@ msgstr "%s 구문 사용"
 msgid "Save as file"
 msgstr "파일로 저장"
 
-#: libraries/config/messages.inc.php:138 libraries/config/messages.inc.php:369
+#: libraries/config/messages.inc.php:138 libraries/config/messages.inc.php:371
 msgid "Character set of the file"
 msgstr "파일 문자셋"
 
@@ -5574,14 +5570,14 @@ msgstr "압축"
 msgid "Put columns names in the first row"
 msgstr "첫 줄에 열 이름을 넣기"
 
-#: libraries/config/messages.inc.php:142 libraries/config/messages.inc.php:371
-#: libraries/config/messages.inc.php:384
+#: libraries/config/messages.inc.php:142 libraries/config/messages.inc.php:373
+#: libraries/config/messages.inc.php:386
 #: libraries/plugins/import/ImportCsv.php:133
 msgid "Columns enclosed with"
 msgstr "열을 시작하는 문자"
 
-#: libraries/config/messages.inc.php:143 libraries/config/messages.inc.php:372
-#: libraries/config/messages.inc.php:385
+#: libraries/config/messages.inc.php:143 libraries/config/messages.inc.php:374
+#: libraries/config/messages.inc.php:387
 #: libraries/plugins/import/ImportCsv.php:144
 msgid "Columns escaped with"
 msgstr "특수 문자 구분에 사용된 문자"
@@ -5598,13 +5594,13 @@ msgstr "NULL을 변경"
 msgid "Remove CRLF characters within columns"
 msgstr "열 내의 CRLF 문자를 제거하기"
 
-#: libraries/config/messages.inc.php:146 libraries/config/messages.inc.php:378
-#: libraries/config/messages.inc.php:392
+#: libraries/config/messages.inc.php:146 libraries/config/messages.inc.php:380
+#: libraries/config/messages.inc.php:394
 #: libraries/plugins/import/ImportCsv.php:118
 msgid "Columns terminated with"
 msgstr "열을 종료하는 문자"
 
-#: libraries/config/messages.inc.php:147 libraries/config/messages.inc.php:370
+#: libraries/config/messages.inc.php:147 libraries/config/messages.inc.php:372
 #: libraries/plugins/import/ImportCsv.php:153
 msgid "Lines terminated with"
 msgstr "행을 종료하는 문자"
@@ -5690,7 +5686,7 @@ msgid "Remember file name template"
 msgstr "파일명 템플릿을 저장하기"
 
 #: libraries/config/messages.inc.php:189 libraries/operations.lib.php:221
-#: libraries/operations.lib.php:844 libraries/operations.lib.php:1280
+#: libraries/operations.lib.php:840 libraries/operations.lib.php:1276
 msgid "Add AUTO_INCREMENT value"
 msgstr "AUTO_INCREMENT 값 추가"
 
@@ -5698,7 +5694,7 @@ msgstr "AUTO_INCREMENT 값 추가"
 msgid "Enclose table and column names with backquotes"
 msgstr "테이블과 열 이름을 백쿼트(`)로 감싸기"
 
-#: libraries/config/messages.inc.php:192 libraries/config/messages.inc.php:401
+#: libraries/config/messages.inc.php:192 libraries/config/messages.inc.php:403
 #: libraries/display_export.lib.php:396
 msgid "SQL compatibility mode"
 msgstr "SQL 호환 모드"
@@ -5729,7 +5725,7 @@ msgstr "phpMyAdmin 설정 공간으로부터 관련 메타데이터 내보내기
 #: libraries/config/messages.inc.php:203 libraries/config/messages.inc.php:205
 #: libraries/config/messages.inc.php:206 libraries/config/messages.inc.php:208
 #: libraries/config/messages.inc.php:220 libraries/operations.lib.php:216
-#: libraries/operations.lib.php:1276
+#: libraries/operations.lib.php:1272
 #, php-format
 msgid "Add %s"
 msgstr "%s 추가"
@@ -5770,7 +5766,15 @@ msgstr "내보내기에 트랜잭션 포함"
 msgid "Export time in UTC"
 msgstr "세계 표준시(UTC)로 시간 내보내기"
 
+#: libraries/config/messages.inc.php:233
+msgid "Force secured connection while using phpMyAdmin."
+msgstr "강제적인 보안 연결로 phpMyAdmin을 사용하기."
+
 #: libraries/config/messages.inc.php:234
+msgid "Force SSL connection"
+msgstr "강제적인 SSL 연결"
+
+#: libraries/config/messages.inc.php:236
 msgid ""
 "Sort order for items in a foreign-key dropdown box; [kbd]content[/kbd] is "
 "the referenced data, [kbd]id[/kbd] is the key value."
@@ -5778,158 +5782,158 @@ msgstr ""
 "외래키 드롭다운 박스 항목을 정렬; [kbd]content[/kbd]: 참조 데이터, [kbd]id[/"
 "kbd]: 키 값."
 
-#: libraries/config/messages.inc.php:237
+#: libraries/config/messages.inc.php:239
 msgid "Foreign key dropdown order"
 msgstr "외래키 드롭다운 순서(정렬)"
 
-#: libraries/config/messages.inc.php:239
+#: libraries/config/messages.inc.php:241
 msgid "A dropdown will be used if fewer items are present."
 msgstr "이보다 적은 항목의 경우 드롭다운이 사용됩니다."
 
-#: libraries/config/messages.inc.php:240
+#: libraries/config/messages.inc.php:242
 msgid "Foreign key limit"
 msgstr "외래키 제한"
 
-#: libraries/config/messages.inc.php:242
+#: libraries/config/messages.inc.php:244
 msgid "Default value for foreign key checks checkbox for some queries."
 msgstr ""
 
-#: libraries/config/messages.inc.php:244
+#: libraries/config/messages.inc.php:246
 msgid "Foreign key checks"
 msgstr "외래 키(foreign key) 확인"
 
-#: libraries/config/messages.inc.php:245
+#: libraries/config/messages.inc.php:247
 msgid "Browse mode"
 msgstr "탐색 모드"
 
-#: libraries/config/messages.inc.php:246
+#: libraries/config/messages.inc.php:248
 msgid "Customize browse mode."
 msgstr "탐색 모드 사용자화."
 
-#: libraries/config/messages.inc.php:248 libraries/config/messages.inc.php:250
-#: libraries/config/messages.inc.php:268 libraries/config/messages.inc.php:281
-#: libraries/config/messages.inc.php:283 libraries/config/messages.inc.php:327
+#: libraries/config/messages.inc.php:250 libraries/config/messages.inc.php:252
+#: libraries/config/messages.inc.php:270 libraries/config/messages.inc.php:283
+#: libraries/config/messages.inc.php:285 libraries/config/messages.inc.php:329
 msgid "Customize default options."
 msgstr "기본옵션 사용자화."
 
-#: libraries/config/messages.inc.php:249 libraries/config/setup.forms.php:266
-#: libraries/config/setup.forms.php:344
+#: libraries/config/messages.inc.php:251 libraries/config/setup.forms.php:267
+#: libraries/config/setup.forms.php:345
 #: libraries/config/user_preferences.forms.php:167
 #: libraries/config/user_preferences.forms.php:243
 msgid "CSV"
 msgstr "CSV 데이터"
 
-#: libraries/config/messages.inc.php:251
+#: libraries/config/messages.inc.php:253
 msgid "Developer"
 msgstr "개발자"
 
-#: libraries/config/messages.inc.php:252
+#: libraries/config/messages.inc.php:254
 msgid "Settings for phpMyAdmin developers."
 msgstr "phpMyAdmin 개발자를 위한 설정."
 
-#: libraries/config/messages.inc.php:253
+#: libraries/config/messages.inc.php:255
 msgid "Edit mode"
 msgstr "편집 모드"
 
-#: libraries/config/messages.inc.php:254
+#: libraries/config/messages.inc.php:256
 msgid "Customize edit mode."
 msgstr "편집모드 사용자화."
 
-#: libraries/config/messages.inc.php:256
+#: libraries/config/messages.inc.php:258
 msgid "Export defaults"
 msgstr "기본설정 내보내기"
 
-#: libraries/config/messages.inc.php:257
+#: libraries/config/messages.inc.php:259
 msgid "Customize default export options."
 msgstr "기본 내보내기 옵션 사용자화."
 
-#: libraries/config/messages.inc.php:258 libraries/config/messages.inc.php:319
+#: libraries/config/messages.inc.php:260 libraries/config/messages.inc.php:321
 #: setup/frames/menu.inc.php:22
 msgid "Features"
 msgstr "특징"
 
-#: libraries/config/messages.inc.php:259
+#: libraries/config/messages.inc.php:261
 msgid "General"
 msgstr "일반"
 
-#: libraries/config/messages.inc.php:260
+#: libraries/config/messages.inc.php:262
 msgid "Set some commonly used options."
 msgstr "일반적인 옵션 설정."
 
-#: libraries/config/messages.inc.php:262
+#: libraries/config/messages.inc.php:264
 msgid "Import defaults"
 msgstr "가져오기 기본값"
 
-#: libraries/config/messages.inc.php:263
+#: libraries/config/messages.inc.php:265
 msgid "Customize default common import options."
 msgstr "기본 가져오기 옵션 사용자화."
 
-#: libraries/config/messages.inc.php:264
+#: libraries/config/messages.inc.php:266
 msgid "Import / export"
 msgstr "가져오기 / 내보내기"
 
-#: libraries/config/messages.inc.php:266
+#: libraries/config/messages.inc.php:268
 msgid "Set import and export directories and compression options."
 msgstr "가져오기/내보내기 디렉토리와 압축 옵션 설정."
 
-#: libraries/config/messages.inc.php:267
+#: libraries/config/messages.inc.php:269
 msgid "LaTeX"
 msgstr "LaTeX"
 
-#: libraries/config/messages.inc.php:270
+#: libraries/config/messages.inc.php:272
 msgid "Databases display options."
 msgstr "데이터베이스 표시 옵션."
 
-#: libraries/config/messages.inc.php:271 setup/frames/menu.inc.php:24
+#: libraries/config/messages.inc.php:273 setup/frames/menu.inc.php:24
 msgid "Navigation panel"
 msgstr "내비게이션 패널"
 
-#: libraries/config/messages.inc.php:272
+#: libraries/config/messages.inc.php:274
 msgid "Customize appearance of the navigation panel."
 msgstr "내비게이션 패널 모양 설정."
 
-#: libraries/config/messages.inc.php:273
+#: libraries/config/messages.inc.php:275
 msgid "Navigation tree"
 msgstr "내비게이션 트리"
 
-#: libraries/config/messages.inc.php:274
+#: libraries/config/messages.inc.php:276
 msgid "Customize the navigation tree."
 msgstr "내비게이션 트리 사용자화."
 
-#: libraries/config/messages.inc.php:275 libraries/select_server.lib.php:43
-#: setup/frames/index.inc.php:147
+#: libraries/config/messages.inc.php:277 libraries/select_server.lib.php:43
+#: setup/frames/index.inc.php:148
 msgid "Servers"
 msgstr "서버"
 
-#: libraries/config/messages.inc.php:276
+#: libraries/config/messages.inc.php:278
 msgid "Servers display options."
 msgstr "서버보기 옵션."
 
-#: libraries/config/messages.inc.php:278
+#: libraries/config/messages.inc.php:280
 msgid "Tables display options."
 msgstr "테이블보기 옵션."
 
-#: libraries/config/messages.inc.php:279 setup/frames/menu.inc.php:25
+#: libraries/config/messages.inc.php:281 setup/frames/menu.inc.php:25
 msgid "Main panel"
 msgstr "메인 패널"
 
-#: libraries/config/messages.inc.php:280
+#: libraries/config/messages.inc.php:282
 msgid "Microsoft Office"
 msgstr "마이크로소프트 오피스"
 
-#: libraries/config/messages.inc.php:284
+#: libraries/config/messages.inc.php:286
 msgid "Other core settings"
 msgstr "기타 핵심기능 설정"
 
-#: libraries/config/messages.inc.php:286
+#: libraries/config/messages.inc.php:288
 msgid "Settings that didn't fit anywhere else."
 msgstr "어디에도 해당되지 않는 설정."
 
-#: libraries/config/messages.inc.php:287
+#: libraries/config/messages.inc.php:289
 msgid "Page titles"
 msgstr "페이지 제목"
 
-#: libraries/config/messages.inc.php:289
+#: libraries/config/messages.inc.php:291
 msgid ""
 "Specify browser's title bar text. Refer to [doc@faq6-27]documentation[/doc] "
 "for magic strings that can be used to get special values."
@@ -5937,11 +5941,11 @@ msgstr ""
 "브라우저의 타이틀바 텍스트를 지정합니다. 특수한 값을 얻기 위해 사용가능한 매"
 "직 문자열들에 대한 내용은 [doc@faq6-27]문서[/doc]를 참조하십시오."
 
-#: libraries/config/messages.inc.php:293
+#: libraries/config/messages.inc.php:295
 msgid "Security"
 msgstr "보안"
 
-#: libraries/config/messages.inc.php:295
+#: libraries/config/messages.inc.php:297
 msgid ""
 "Please note that phpMyAdmin is just a user interface and its features do not "
 "limit MySQL."
@@ -5949,37 +5953,37 @@ msgstr ""
 "phpMyAdmin은 유저 인터페이스일 뿐이며, 해당 기능들이 MySQL을 제한하지 않습니"
 "다."
 
-#: libraries/config/messages.inc.php:298
+#: libraries/config/messages.inc.php:300
 msgid "Basic settings"
 msgstr "기본 설정"
 
-#: libraries/config/messages.inc.php:299
+#: libraries/config/messages.inc.php:301
 msgid "Authentication"
 msgstr "인증"
 
-#: libraries/config/messages.inc.php:300
+#: libraries/config/messages.inc.php:302
 msgid "Authentication settings."
 msgstr "인증 설정."
 
-#: libraries/config/messages.inc.php:301
+#: libraries/config/messages.inc.php:303
 msgid "Server configuration"
 msgstr "서버 환경설정"
 
-#: libraries/config/messages.inc.php:303
+#: libraries/config/messages.inc.php:305
 msgid ""
 "Advanced server configuration, do not change these options unless you know "
 "what they are for."
 msgstr "고급 서버 설정 (이 옵션에 대해 자세히 모른다면 변경하지 마세요)."
 
-#: libraries/config/messages.inc.php:306
+#: libraries/config/messages.inc.php:308
 msgid "Enter server connection parameters."
 msgstr "서버 연결 파라미터 입력."
 
-#: libraries/config/messages.inc.php:307
+#: libraries/config/messages.inc.php:309
 msgid "Configuration storage"
 msgstr "설정 저장공간"
 
-#: libraries/config/messages.inc.php:309
+#: libraries/config/messages.inc.php:311
 msgid ""
 "Configure phpMyAdmin configuration storage to gain access to additional "
 "features, see [doc@linked-tables]phpMyAdmin configuration storage[/doc] in "
@@ -5988,119 +5992,119 @@ msgstr ""
 "추가적인 기능을 사용하기 위해 phpMyAdmin 설정 저장공간을 설정하세요. 설명서"
 "의 [doc@linked-tables]phpMyAdmin configuration storage[/doc] 참고."
 
-#: libraries/config/messages.inc.php:313
+#: libraries/config/messages.inc.php:315
 msgid "Changes tracking"
 msgstr "변경 추적하기"
 
-#: libraries/config/messages.inc.php:315
+#: libraries/config/messages.inc.php:317
 msgid ""
 "Tracking of changes made in database. Requires the phpMyAdmin configuration "
 "storage."
 msgstr "데이터베이스 변경 추적 기능. phpMyAdmin 설정 저장공간이 필요함."
 
-#: libraries/config/messages.inc.php:318
+#: libraries/config/messages.inc.php:320
 msgid "Customize export options"
 msgstr "내보내기 옵션 사용자화"
 
-#: libraries/config/messages.inc.php:320
+#: libraries/config/messages.inc.php:322
 msgid "Customize import defaults"
 msgstr "기본 가져오기 사용자화"
 
-#: libraries/config/messages.inc.php:321
+#: libraries/config/messages.inc.php:323
 msgid "Customize navigation panel"
 msgstr "네비게이션 패널 사용자화"
 
-#: libraries/config/messages.inc.php:322
+#: libraries/config/messages.inc.php:324
 msgid "Customize main panel"
 msgstr "매인 패널 사용자화"
 
-#: libraries/config/messages.inc.php:323 libraries/config/messages.inc.php:328
+#: libraries/config/messages.inc.php:325 libraries/config/messages.inc.php:330
 #: setup/frames/menu.inc.php:23
 msgid "SQL queries"
 msgstr "SQL 질의문"
 
-#: libraries/config/messages.inc.php:325
+#: libraries/config/messages.inc.php:327
 msgid "SQL Query box"
 msgstr "SQL 질의 상자"
 
-#: libraries/config/messages.inc.php:326
+#: libraries/config/messages.inc.php:328
 msgid "Customize links shown in SQL Query boxes."
 msgstr "SQL 쿼리 박스에 표시할 링크를 설정."
 
-#: libraries/config/messages.inc.php:329
+#: libraries/config/messages.inc.php:331
 msgid "SQL queries settings."
 msgstr "SQL 질의문 설정."
 
-#: libraries/config/messages.inc.php:330
+#: libraries/config/messages.inc.php:332
 msgid "Startup"
 msgstr "시작"
 
-#: libraries/config/messages.inc.php:331
+#: libraries/config/messages.inc.php:333
 msgid "Customize startup page."
 msgstr "시작 페이지 사용자화."
 
-#: libraries/config/messages.inc.php:332
+#: libraries/config/messages.inc.php:334
 msgid "Database structure"
 msgstr "데이터베이스 구조"
 
-#: libraries/config/messages.inc.php:334
+#: libraries/config/messages.inc.php:336
 msgid ""
 "Choose which details to show in the database structure (list of tables)."
 msgstr "데이터베이스 구조(테이블 목록)란에서 어떤 정보를 보여줄 지 선택."
 
-#: libraries/config/messages.inc.php:335
+#: libraries/config/messages.inc.php:337
 #: libraries/plugins/export/ExportPdf.php:282
 #: templates/table/secondary_tabs.phtml:8
 msgid "Table structure"
 msgstr "테이블 구조"
 
-#: libraries/config/messages.inc.php:337
+#: libraries/config/messages.inc.php:339
 msgid "Settings for the table structure (list of columns)."
 msgstr "테이블 구조(컬럼 목록) 설정."
 
-#: libraries/config/messages.inc.php:338
+#: libraries/config/messages.inc.php:340
 msgid "Tabs"
 msgstr "탭"
 
-#: libraries/config/messages.inc.php:339
+#: libraries/config/messages.inc.php:341
 msgid "Choose how you want tabs to work."
 msgstr "탭이 어떻게 동작할지 선택."
 
-#: libraries/config/messages.inc.php:340
+#: libraries/config/messages.inc.php:342
 msgid "Display relational schema"
 msgstr "릴레이션 스키마 표시"
 
-#: libraries/config/messages.inc.php:342
+#: libraries/config/messages.inc.php:344
 #: libraries/plugins/schema/SchemaDia.php:72
 #: libraries/plugins/schema/SchemaPdf.php:80
 msgid "Paper size"
 msgstr "용지 크기"
 
-#: libraries/config/messages.inc.php:345
+#: libraries/config/messages.inc.php:347
 msgid "Text fields"
 msgstr "텍스트 필드"
 
-#: libraries/config/messages.inc.php:346
+#: libraries/config/messages.inc.php:348
 msgid "Customize text input fields."
 msgstr "문자열 입력필드 사용자화."
 
-#: libraries/config/messages.inc.php:347
+#: libraries/config/messages.inc.php:349
 msgid "Texy! text"
 msgstr "Texy! 텍스트"
 
-#: libraries/config/messages.inc.php:348
+#: libraries/config/messages.inc.php:350
 msgid "Customize default options"
 msgstr "기본옵션 사용자화"
 
-#: libraries/config/messages.inc.php:349
+#: libraries/config/messages.inc.php:351
 msgid "Warnings"
 msgstr "경고"
 
-#: libraries/config/messages.inc.php:351
+#: libraries/config/messages.inc.php:353
 msgid "Disable some of the warnings shown by phpMyAdmin."
 msgstr "phpMyAdmin로 인해 출력되는 경고의 일부를 끔."
 
-#: libraries/config/messages.inc.php:353
+#: libraries/config/messages.inc.php:355
 msgid ""
 "Enable [a@http://en.wikipedia.org/wiki/Gzip]gzip[/a] compression for import "
 "and export operations."
@@ -6108,15 +6112,15 @@ msgstr ""
 "가져오기와 내보내기 작업에 [a@http://en.wikipedia.org/wiki/Gzip]gzip[/a] 압"
 "축 사용."
 
-#: libraries/config/messages.inc.php:356
+#: libraries/config/messages.inc.php:358
 msgid "GZip"
 msgstr "GZip"
 
-#: libraries/config/messages.inc.php:357
+#: libraries/config/messages.inc.php:359
 msgid "Extra parameters for iconv"
 msgstr "iconv 확장 파라미터"
 
-#: libraries/config/messages.inc.php:359
+#: libraries/config/messages.inc.php:361
 msgid ""
 "If enabled, phpMyAdmin continues computing multiple-statement queries even "
 "if one of the queries failed."
@@ -6124,11 +6128,11 @@ msgstr ""
 "활성화 할 경우, phpMyAdmin은 다중 쿼리 실행 중 하나가 실패하더라도 실행을 계"
 "속합니다."
 
-#: libraries/config/messages.inc.php:362
+#: libraries/config/messages.inc.php:364
 msgid "Ignore multiple statement errors"
 msgstr "여러 개의 구문 오류 무시"
 
-#: libraries/config/messages.inc.php:364
+#: libraries/config/messages.inc.php:366
 msgid ""
 "Allow interrupt of import in case script detects it is close to time limit. "
 "This might be a good way to import large files, however it can break "
@@ -6138,25 +6142,25 @@ msgstr ""
 "것을 허용합니다. 이는, 크기가 큰 파일을 임포트할 때 유용합니다. 하지만, 트랜"
 "잭션이 끊어질 수 있습니다."
 
-#: libraries/config/messages.inc.php:368
+#: libraries/config/messages.inc.php:370
 msgid "Partial import: allow interrupt"
 msgstr "일부분만 가져오기: 인터럽트 허용"
 
-#: libraries/config/messages.inc.php:373 libraries/config/messages.inc.php:386
+#: libraries/config/messages.inc.php:375 libraries/config/messages.inc.php:388
 #: libraries/plugins/import/ImportCsv.php:85
 #: libraries/plugins/import/ImportLdi.php:79
 msgid "Do not abort on INSERT error"
 msgstr "INSERT 에러시 종료하지 않기"
 
-#: libraries/config/messages.inc.php:374 libraries/config/messages.inc.php:388
+#: libraries/config/messages.inc.php:376 libraries/config/messages.inc.php:390
 msgid "Add ON DUPLICATE KEY UPDATE"
 msgstr ""
 
-#: libraries/config/messages.inc.php:376 libraries/config/messages.inc.php:390
+#: libraries/config/messages.inc.php:378 libraries/config/messages.inc.php:392
 msgid "Update data when duplicate keys found on import"
 msgstr ""
 
-#: libraries/config/messages.inc.php:380
+#: libraries/config/messages.inc.php:382
 msgid ""
 "Default format; be aware that this list depends on location (database, "
 "table) and only SQL is always available."
@@ -6164,71 +6168,71 @@ msgstr ""
 "기본 포멧; 주의: 이 리스트는 선택된 데이터베이스와 테이블에 영향을 받습니다. "
 "그리고 SQL에서만 가능합니다."
 
-#: libraries/config/messages.inc.php:383
+#: libraries/config/messages.inc.php:385
 msgid "Format of imported file"
 msgstr "가져올 파일의 형식"
 
-#: libraries/config/messages.inc.php:387
+#: libraries/config/messages.inc.php:389
 #: libraries/plugins/import/ImportLdi.php:85
 msgid "Use LOCAL keyword"
 msgstr "LOCAL 키워드 사용"
 
-#: libraries/config/messages.inc.php:393 libraries/config/messages.inc.php:405
-#: libraries/config/messages.inc.php:406
+#: libraries/config/messages.inc.php:395 libraries/config/messages.inc.php:407
+#: libraries/config/messages.inc.php:408
 msgid "Column names in first row"
 msgstr "첫행에 컬럼명 출력"
 
-#: libraries/config/messages.inc.php:394
+#: libraries/config/messages.inc.php:396
 #: libraries/plugins/import/ImportOds.php:80
 msgid "Do not import empty rows"
 msgstr "가져오기시 비어있는 행 제외"
 
-#: libraries/config/messages.inc.php:396
+#: libraries/config/messages.inc.php:398
 msgid "Import currencies ($5.00 to 5.00)"
 msgstr "통화 값 가져오기 ($5.00은 5.00으로 가져옴)"
 
-#: libraries/config/messages.inc.php:398
+#: libraries/config/messages.inc.php:400
 msgid "Import percentages as proper decimals (12.00% to .12)"
 msgstr "퍼센티지값을 소수로 가져오기 (12.00%를 .12로)"
 
-#: libraries/config/messages.inc.php:399
+#: libraries/config/messages.inc.php:401
 msgid "Number of queries to skip from start."
 msgstr "건너뛰고 시작할 쿼리 수."
 
-#: libraries/config/messages.inc.php:400
+#: libraries/config/messages.inc.php:402
 msgid "Partial import: skip queries"
 msgstr "일부분만 가져오기: 쿼리 건너뛰기"
 
-#: libraries/config/messages.inc.php:403
+#: libraries/config/messages.inc.php:405
 msgid "Do not use AUTO_INCREMENT for zero values"
 msgstr "값이 없는 경우(zero value) AUTO_INCREMENT 사용 금지"
 
-#: libraries/config/messages.inc.php:404
+#: libraries/config/messages.inc.php:406
 msgid "Read as multibytes"
 msgstr ""
 
-#: libraries/config/messages.inc.php:407
+#: libraries/config/messages.inc.php:409
 msgid "Initial state for sliders"
 msgstr "슬라이더의 초기 상태"
 
-#: libraries/config/messages.inc.php:408
+#: libraries/config/messages.inc.php:410
 msgid "How many rows can be inserted at one time."
 msgstr "한 번에 삽입할 행 개수."
 
-#: libraries/config/messages.inc.php:409
+#: libraries/config/messages.inc.php:411
 msgid "Number of inserted rows"
 msgstr "입력된 행 갯수"
 
-#: libraries/config/messages.inc.php:411
+#: libraries/config/messages.inc.php:413
 msgid ""
 "Maximum number of characters shown in any non-numeric column on browse view."
 msgstr "둘러보기 뷰에서 숫자가 아닌 컬럼을 표시할 때 최대 문자 수."
 
-#: libraries/config/messages.inc.php:413
+#: libraries/config/messages.inc.php:415
 msgid "Limit column characters"
 msgstr "컬럼 문자 제한"
 
-#: libraries/config/messages.inc.php:415
+#: libraries/config/messages.inc.php:417
 msgid ""
 "If TRUE, logout deletes cookies for all servers; when set to FALSE, logout "
 "only occurs for the current server. Setting this to FALSE makes it easy to "
@@ -6238,21 +6242,21 @@ msgstr ""
 "아웃 시 현재 서버만 적용됩니다. FALSE로 설정하면 여러 서버에 연결되어 있을 "
 "때 다른 서버에서 로그아웃 하는 것을 잊을 수 있습니다."
 
-#: libraries/config/messages.inc.php:419
+#: libraries/config/messages.inc.php:421
 msgid "Delete all cookies on logout"
 msgstr "로그아웃시 모든 쿠키 삭제"
 
-#: libraries/config/messages.inc.php:421
+#: libraries/config/messages.inc.php:423
 msgid ""
 "Define whether the previous login should be recalled or not in [kbd]cookie[/"
 "kbd] authentication mode."
 msgstr "[kbd]쿠키[/kbd] 인증 모드에서 이전 로그인이 다시 불려질지 여부."
 
-#: libraries/config/messages.inc.php:424
+#: libraries/config/messages.inc.php:426
 msgid "Recall user name"
 msgstr "유저명 다시 호출"
 
-#: libraries/config/messages.inc.php:426
+#: libraries/config/messages.inc.php:428
 msgid ""
 "Defines how long (in seconds) a login cookie should be stored in browser. "
 "The default of 0 means that it will be kept for the existing session only, "
@@ -6263,68 +6267,68 @@ msgstr ""
 "0으로, 이는 쿠키가 현재 세션에만 유효하며 브라우저 창을 닫으면 바로 삭제됨을 "
 "의미합니다. 이는 신뢰되지 않는 환경에서 권장됩니다."
 
-#: libraries/config/messages.inc.php:431
+#: libraries/config/messages.inc.php:433
 msgid "Login cookie store"
 msgstr "로그인 쿠키 저장 시간"
 
-#: libraries/config/messages.inc.php:433
+#: libraries/config/messages.inc.php:435
 msgid "Define how long (in seconds) a login cookie is valid."
 msgstr "로그인 쿠키의 유효시간을 설정 (초 단위)."
 
-#: libraries/config/messages.inc.php:434
+#: libraries/config/messages.inc.php:436
 msgid "Login cookie validity"
 msgstr "로그인 쿠키 유효시간"
 
-#: libraries/config/messages.inc.php:436
+#: libraries/config/messages.inc.php:438
 msgid "Double size of textarea for LONGTEXT columns."
 msgstr "LONGTEXT 형식의 컬럼에 대해 두 배 크기의 textarea를 사용."
 
-#: libraries/config/messages.inc.php:437
+#: libraries/config/messages.inc.php:439
 msgid "Bigger textarea for LONGTEXT"
 msgstr "LONGTEXT의 경우 더 큰 textarea를 사용"
 
-#: libraries/config/messages.inc.php:439
+#: libraries/config/messages.inc.php:441
 msgid "Maximum number of characters used when a SQL query is displayed."
 msgstr "SQL 쿼리 출력시 사용할 최대 문자수."
 
-#: libraries/config/messages.inc.php:440
+#: libraries/config/messages.inc.php:442
 msgid "Maximum displayed SQL length"
 msgstr "최대한 표시될 SQL 길이"
 
-#: libraries/config/messages.inc.php:441 libraries/config/messages.inc.php:460
-#: libraries/config/messages.inc.php:598
+#: libraries/config/messages.inc.php:443 libraries/config/messages.inc.php:462
+#: libraries/config/messages.inc.php:600
 msgid "Users cannot set a higher value"
 msgstr "사용자는 더 높은 값을 설정 할 수 없습니다"
 
-#: libraries/config/messages.inc.php:443
+#: libraries/config/messages.inc.php:445
 msgid "Maximum number of databases displayed in database list."
 msgstr "데이터베이스 목록에 표시할 데이터베이스의 최대 갯수."
 
-#: libraries/config/messages.inc.php:444
+#: libraries/config/messages.inc.php:446
 msgid "Maximum databases"
 msgstr "데이터베이스의 최대 갯수"
 
-#: libraries/config/messages.inc.php:446
+#: libraries/config/messages.inc.php:448
 msgid ""
 "The number of items that can be displayed on each page on the first level of "
 "the navigation tree."
 msgstr "탐색 트리 첫번째 단계에서 페이지 당 보여질 아이템 수."
 
-#: libraries/config/messages.inc.php:449
+#: libraries/config/messages.inc.php:451
 msgid "Maximum items on first level"
 msgstr "첫번째 단계에서 최대 아이템 갯수"
 
-#: libraries/config/messages.inc.php:451
+#: libraries/config/messages.inc.php:453
 msgid ""
 "The number of items that can be displayed on each page of the navigation "
 "tree."
 msgstr "탐색 트리에서 페이지 당 보여질 아이템 수."
 
-#: libraries/config/messages.inc.php:453
+#: libraries/config/messages.inc.php:455
 msgid "Maximum items in branch"
 msgstr "브렌치 당 최대 아이템 갯수"
 
-#: libraries/config/messages.inc.php:455
+#: libraries/config/messages.inc.php:457
 msgid ""
 "Number of rows displayed when browsing a result set. If the result set "
 "contains more rows, \"Previous\" and \"Next\" links will be shown."
@@ -6332,19 +6336,19 @@ msgstr ""
 "결과셋을 탐색할 때 보여질 행의 수. 만약 결과셋에 설정값 이상의 행이 있다면, "
 "\"이전\"과 \"다음 링크가 표시됩니다."
 
-#: libraries/config/messages.inc.php:459
+#: libraries/config/messages.inc.php:461
 msgid "Maximum number of rows to display"
 msgstr "출력할 최대 행 갯수"
 
-#: libraries/config/messages.inc.php:462
+#: libraries/config/messages.inc.php:464
 msgid "Maximum number of tables displayed in table list."
 msgstr "테이블 목록에 표시할 테이블의 최대 갯수."
 
-#: libraries/config/messages.inc.php:464
+#: libraries/config/messages.inc.php:466
 msgid "Maximum tables"
 msgstr "최대 테이블 수"
 
-#: libraries/config/messages.inc.php:466
+#: libraries/config/messages.inc.php:468
 msgid ""
 "The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd] "
 "([kbd]-1[/kbd] for no limit and [kbd]0[/kbd] for no change)."
@@ -6352,39 +6356,39 @@ msgstr ""
 "스크립트가 사용 가능한 메모리 최대값. 예: [kbd]32M[/kbd] ([kbd]-1[/kbd] 이면 "
 "무제한, [kbd]0[/kbd]은 변경하지 않음)."
 
-#: libraries/config/messages.inc.php:469
+#: libraries/config/messages.inc.php:471
 msgid "Memory limit"
 msgstr "메모리 제한"
 
-#: libraries/config/messages.inc.php:471
+#: libraries/config/messages.inc.php:473
 msgid "In the navigation panel, replaces the database tree with a selector"
 msgstr ""
 
-#: libraries/config/messages.inc.php:474
+#: libraries/config/messages.inc.php:476
 msgid "Show databases navigation as tree"
 msgstr "데이터베이스 내비게이션을 트리로 보기"
 
-#: libraries/config/messages.inc.php:477
+#: libraries/config/messages.inc.php:479
 msgid "Link with main panel by highlighting the current database or table."
 msgstr ""
 
-#: libraries/config/messages.inc.php:480
+#: libraries/config/messages.inc.php:482
 msgid "Show logo in navigation panel."
 msgstr "탐색 패널에 로고를 보여줌."
 
-#: libraries/config/messages.inc.php:481
+#: libraries/config/messages.inc.php:483
 msgid "Display logo"
 msgstr "로고 출력"
 
-#: libraries/config/messages.inc.php:483
+#: libraries/config/messages.inc.php:485
 msgid "URL where logo in the navigation panel will point to."
 msgstr "탐색 패널의 로고가 가리키는 URL."
 
-#: libraries/config/messages.inc.php:484
+#: libraries/config/messages.inc.php:486
 msgid "Logo link URL"
 msgstr "로고 링크 URL"
 
-#: libraries/config/messages.inc.php:486
+#: libraries/config/messages.inc.php:488
 msgid ""
 "Open the linked page in the main window ([kbd]main[/kbd]) or in a new one "
 "([kbd]new[/kbd])."
@@ -6392,42 +6396,42 @@ msgstr ""
 "링크된 페이지를 메인 창([kbd]메인[/kbd])으로 열지, 새 창([kbd]새[/kbd])으로 "
 "열지 선택."
 
-#: libraries/config/messages.inc.php:489
+#: libraries/config/messages.inc.php:491
 msgid "Logo link target"
 msgstr "로고 링크 타겟"
 
-#: libraries/config/messages.inc.php:491
+#: libraries/config/messages.inc.php:493
 msgid "Display server choice at the top of the navigation panel."
 msgstr "네비게이션 패널 맨 위에 서버 선택 메뉴를 표시."
 
-#: libraries/config/messages.inc.php:492
+#: libraries/config/messages.inc.php:494
 msgid "Display servers selection"
 msgstr "서버 선택 출력"
 
-#: libraries/config/messages.inc.php:493
+#: libraries/config/messages.inc.php:495
 msgid "Target for quick access icon"
 msgstr "빠른 접근 아이콘 대상"
 
-#: libraries/config/messages.inc.php:495
+#: libraries/config/messages.inc.php:497
 msgid "Target for second quick access icon"
 msgstr "두 번째 빠른 접근 아이콘 대상"
 
-#: libraries/config/messages.inc.php:498
+#: libraries/config/messages.inc.php:500
 msgid ""
 "Defines the minimum number of items (tables, views, routines and events) to "
 "display a filter box."
 msgstr ""
 "필터 박스에 표시할 아이템(테이블, 뷰, 루틴, 이벤트)의 최소 개수를 정의."
 
-#: libraries/config/messages.inc.php:502
+#: libraries/config/messages.inc.php:504
 msgid "Minimum number of items to display the filter box"
 msgstr "필터 박스에 표시할 최소 아이템 개수"
 
-#: libraries/config/messages.inc.php:504
+#: libraries/config/messages.inc.php:506
 msgid "Minimum number of databases to display the database filter box"
 msgstr "데이터베이스 필터 박스에 표시할 최소 데이터베이스 수"
 
-#: libraries/config/messages.inc.php:506
+#: libraries/config/messages.inc.php:508
 msgid ""
 "Group items in the navigation tree (determined by the separator defined in "
 "the Databases and Tables tabs above)."
@@ -6435,161 +6439,161 @@ msgstr ""
 "내비게이션 트리의 그룹 아이템 (위쪽 '데이터베이스와 테이블' 탭에서 정의한 구"
 "분자로 구분)."
 
-#: libraries/config/messages.inc.php:509
+#: libraries/config/messages.inc.php:511
 msgid "Group items in the tree"
 msgstr "트리의 그룹 아이템"
 
-#: libraries/config/messages.inc.php:511
+#: libraries/config/messages.inc.php:513
 msgid "String that separates databases into different tree levels."
 msgstr "데이터베이스를 서로 다른 트리 레벨로 구분하기 위한 문자열."
 
-#: libraries/config/messages.inc.php:512
+#: libraries/config/messages.inc.php:514
 msgid "Database tree separator"
 msgstr "데이터베이스 트리 구분자"
 
-#: libraries/config/messages.inc.php:514
+#: libraries/config/messages.inc.php:516
 msgid "String that separates tables into different tree levels."
 msgstr "테이블을 서로 다른 트리 레벨로 구분하기 위한 문자열."
 
-#: libraries/config/messages.inc.php:515
+#: libraries/config/messages.inc.php:517
 msgid "Table tree separator"
 msgstr "테이블 트리 구분자"
 
-#: libraries/config/messages.inc.php:516
+#: libraries/config/messages.inc.php:518
 msgid "Maximum table tree depth"
 msgstr "테이블 트리의 최대 깊이(depth)"
 
-#: libraries/config/messages.inc.php:518
+#: libraries/config/messages.inc.php:520
 msgid "Highlight server under the mouse cursor."
 msgstr "마우스 커서 아래의 서버를 강조 표시."
 
-#: libraries/config/messages.inc.php:519
+#: libraries/config/messages.inc.php:521
 msgid "Enable highlighting"
 msgstr "﻿강조 표시 사용"
 
-#: libraries/config/messages.inc.php:521
+#: libraries/config/messages.inc.php:523
 #, fuzzy
 #| msgid "Whether to disable the possibility of database expansion or not."
 msgid ""
 "Whether to offer the possibility of tree expansion in the navigation panel."
 msgstr "데이터베이스 확장 가능 여부를 비활성화할 것인지."
 
-#: libraries/config/messages.inc.php:524
+#: libraries/config/messages.inc.php:526
 #, fuzzy
 #| msgid "Table navigation bar"
 msgid "Enable navigation tree expansion"
 msgstr "테이블 네비게이션 바"
 
-#: libraries/config/messages.inc.php:525
+#: libraries/config/messages.inc.php:527
 #, fuzzy
 #| msgid "Show/Hide tables list"
 msgid "Show tables in tree"
 msgstr "테이블 목록 표시/숨김"
 
-#: libraries/config/messages.inc.php:527
+#: libraries/config/messages.inc.php:529
 #, fuzzy
 #| msgid "Whether to disable the possibility of database expansion or not."
 msgid "Whether to show tables under database in the navigation tree"
 msgstr "데이터베이스 확장 가능 여부를 비활성화할 것인지."
 
-#: libraries/config/messages.inc.php:528
+#: libraries/config/messages.inc.php:530
 #, fuzzy
 #| msgid "Show versions"
 msgid "Show views in tree"
 msgstr "버전 보기"
 
-#: libraries/config/messages.inc.php:530
+#: libraries/config/messages.inc.php:532
 #, fuzzy
 #| msgid "Show hidden navigation tree items."
 msgid "Whether to show views under database in the navigation tree"
 msgstr "숨겨진 탐색 트리의 항목보기."
 
-#: libraries/config/messages.inc.php:531
+#: libraries/config/messages.inc.php:533
 #, fuzzy
 #| msgid "Show function fields"
 msgid "Show functions in tree"
 msgstr "함수 필드 보이기"
 
-#: libraries/config/messages.inc.php:533
+#: libraries/config/messages.inc.php:535
 msgid "Whether to show functions under database in the navigation tree"
 msgstr ""
 
-#: libraries/config/messages.inc.php:534
+#: libraries/config/messages.inc.php:536
 #, fuzzy
 #| msgid "procedures"
 msgid "Show procedures in tree"
 msgstr "프로시저"
 
-#: libraries/config/messages.inc.php:536
+#: libraries/config/messages.inc.php:538
 msgid "Whether to show procedures under database in the navigation tree"
 msgstr ""
 
-#: libraries/config/messages.inc.php:537
+#: libraries/config/messages.inc.php:539
 #, fuzzy
 #| msgid "Show versions"
 msgid "Show events in tree"
 msgstr "버전 보기"
 
-#: libraries/config/messages.inc.php:539
+#: libraries/config/messages.inc.php:541
 #, fuzzy
 #| msgid "Show hidden navigation tree items."
 msgid "Whether to show events under database in the navigation tree"
 msgstr "숨겨진 탐색 트리의 항목보기."
 
-#: libraries/config/messages.inc.php:541
+#: libraries/config/messages.inc.php:543
 msgid "Maximum number of recently used tables; set 0 to disable."
 msgstr "최근 사용한 테이블 최대 개수; 0이면 이 기능 사용 안 함."
 
-#: libraries/config/messages.inc.php:543
+#: libraries/config/messages.inc.php:545
 msgid "Maximum number of favorite tables; set 0 to disable."
 msgstr "즐겨찾기 테이블 최대 개수; 0이면 이 기능 사용 안 함."
 
-#: libraries/config/messages.inc.php:544
+#: libraries/config/messages.inc.php:546
 msgid "Recently used tables"
 msgstr "최근 사용한 테이블"
 
-#: libraries/config/messages.inc.php:546
+#: libraries/config/messages.inc.php:548
 msgid "These are Edit, Copy and Delete links."
 msgstr "수정, 복사, 삭제 링크가 있음."
 
-#: libraries/config/messages.inc.php:547
+#: libraries/config/messages.inc.php:549
 msgid "Where to show the table row links"
 msgstr "테이블 열 링크를 표시할 위치"
 
-#: libraries/config/messages.inc.php:549
+#: libraries/config/messages.inc.php:551
 msgid "Whether to show row links even in the absence of a unique key."
 msgstr ""
 
-#: libraries/config/messages.inc.php:551
+#: libraries/config/messages.inc.php:553
 msgid "Show row links anyway"
 msgstr ""
 
-#: libraries/config/messages.inc.php:553
+#: libraries/config/messages.inc.php:555
 msgid "Use natural order for sorting table and database names."
 msgstr "테이블과 데이터베이스를 정렬할 때 자연 순서(natural order) 사용."
 
-#: libraries/config/messages.inc.php:554
+#: libraries/config/messages.inc.php:556
 msgid "Natural order"
 msgstr "자연순서"
 
-#: libraries/config/messages.inc.php:555 libraries/config/messages.inc.php:586
-#: libraries/config/messages.inc.php:588
+#: libraries/config/messages.inc.php:557 libraries/config/messages.inc.php:588
+#: libraries/config/messages.inc.php:590
 msgid "Use only icons, only text or both."
 msgstr "아이콘만 사용, 텍스트만 사용, 둘 다 사용."
 
-#: libraries/config/messages.inc.php:556
+#: libraries/config/messages.inc.php:558
 msgid "Table navigation bar"
 msgstr "테이블 네비게이션 바"
 
-#: libraries/config/messages.inc.php:558
+#: libraries/config/messages.inc.php:560
 msgid "Use GZip output buffering for increased speed in HTTP transfers."
 msgstr "HTTP 전송 시 속도에 맞춰 GZip 출력 버퍼를 사용."
 
-#: libraries/config/messages.inc.php:559
+#: libraries/config/messages.inc.php:561
 msgid "GZip output buffering"
 msgstr "GZip 출력 버퍼"
 
-#: libraries/config/messages.inc.php:561
+#: libraries/config/messages.inc.php:563
 msgid ""
 "[kbd]SMART[/kbd] - i.e. descending order for columns of type TIME, DATE, "
 "DATETIME and TIMESTAMP, ascending order otherwise."
@@ -6597,19 +6601,19 @@ msgstr ""
 "[kbd]SMART[/kbd] - 예: TIME, DATE, DATETIME 및 TIMESTAMP 형식 컬럼에 대해 내"
 "림차순 정렬, 다른 형식에 대해 오름차순 정렬."
 
-#: libraries/config/messages.inc.php:564
+#: libraries/config/messages.inc.php:566
 msgid "Default sorting order"
 msgstr "기본 정렬 순서"
 
-#: libraries/config/messages.inc.php:566
+#: libraries/config/messages.inc.php:568
 msgid "Use persistent connections to MySQL databases."
 msgstr "MySQL 데이터베이스에 영속적인 연결 사용."
 
-#: libraries/config/messages.inc.php:567
+#: libraries/config/messages.inc.php:569
 msgid "Persistent connections"
 msgstr "영속적인 연결"
 
-#: libraries/config/messages.inc.php:569
+#: libraries/config/messages.inc.php:571
 msgid ""
 "Disable the default warning that is displayed on the database details "
 "Structure page if any of the required tables for the phpMyAdmin "
@@ -6618,21 +6622,21 @@ msgstr ""
 "데이터베이스 상세 구조 페이지에서, phpMyAdmin 설정 저장용 테이블 중 하나가 없"
 "을 경우 출력되는 기본 경고를 끄기."
 
-#: libraries/config/messages.inc.php:574
+#: libraries/config/messages.inc.php:576
 msgid "Missing phpMyAdmin configuration storage tables"
 msgstr "phpMyAdmin 설정 공간 테이블이 없습니다"
 
-#: libraries/config/messages.inc.php:576
+#: libraries/config/messages.inc.php:578
 msgid ""
 "Disable the default warning that is displayed if a difference between the "
 "MySQL library and server is detected."
 msgstr "MySQL 라이브러리와 서버간의 차이가 있을 때 출력되는 기본 경고를 끄기."
 
-#: libraries/config/messages.inc.php:580
+#: libraries/config/messages.inc.php:582
 msgid "Server/library difference warning"
 msgstr "서버/라이브러리 차이점 경고"
 
-#: libraries/config/messages.inc.php:582
+#: libraries/config/messages.inc.php:584
 msgid ""
 "Disable the default warning that is displayed on the Structure page if "
 "column names in a table are reserved MySQL words."
@@ -6640,27 +6644,27 @@ msgstr ""
 "테이블의 컬럼 이름이 MySQL 예약어일 경우 구조 페이지에서 출력되는 기본 경고"
 "를 끄기."
 
-#: libraries/config/messages.inc.php:585
+#: libraries/config/messages.inc.php:587
 msgid "MySQL reserved word warning"
 msgstr "MySQL 예약어 경고"
 
-#: libraries/config/messages.inc.php:587
+#: libraries/config/messages.inc.php:589
 msgid "How to display the menu tabs"
 msgstr "메뉴탭 보여주기 방식"
 
-#: libraries/config/messages.inc.php:589
+#: libraries/config/messages.inc.php:591
 msgid "How to display various action links"
 msgstr "여러 기능 링크를 표시하는 방법"
 
-#: libraries/config/messages.inc.php:590
+#: libraries/config/messages.inc.php:592
 msgid "Disallow BLOB and BINARY columns from editing."
 msgstr "BLOB, 바이너리 컬럼 편집 허용 안함."
 
-#: libraries/config/messages.inc.php:591
+#: libraries/config/messages.inc.php:593
 msgid "Protect binary columns"
 msgstr "바이너리 컬럼 보호"
 
-#: libraries/config/messages.inc.php:593
+#: libraries/config/messages.inc.php:595
 msgid ""
 "Enable if you want DB-based query history (requires phpMyAdmin configuration "
 "storage). If disabled, this utilizes JS-routines to display query history "
@@ -6670,125 +6674,125 @@ msgstr ""
 "다). 비활성화 할 경우, 쿼리 기록으로 JS-routines가 사용됩니다 (창을 닫을 경"
 "우 소멸됩니다)."
 
-#: libraries/config/messages.inc.php:597
+#: libraries/config/messages.inc.php:599
 msgid "Permanent query history"
 msgstr "영구적 쿼리 기록"
 
-#: libraries/config/messages.inc.php:599
+#: libraries/config/messages.inc.php:601
 msgid "How many queries are kept in history."
 msgstr "히스토리에 저장될 쿼리의 갯수."
 
-#: libraries/config/messages.inc.php:600
+#: libraries/config/messages.inc.php:602
 msgid "Query history length"
 msgstr "쿼리 기록 길이"
 
-#: libraries/config/messages.inc.php:602
+#: libraries/config/messages.inc.php:604
 msgid "Select which functions will be used for character set conversion."
 msgstr "문자열 변환을 위한 함수를 선택하세요."
 
-#: libraries/config/messages.inc.php:603
+#: libraries/config/messages.inc.php:605
 msgid "Recoding engine"
 msgstr "기록 엔진"
 
-#: libraries/config/messages.inc.php:605
+#: libraries/config/messages.inc.php:607
 msgid "When browsing tables, the sorting of each table is remembered."
 msgstr "조회한 테이블의 정렬 순서를 기억함."
 
-#: libraries/config/messages.inc.php:606
+#: libraries/config/messages.inc.php:608
 msgid "Remember table's sorting"
 msgstr "테이블의 정렬 순서 기억하기"
 
-#: libraries/config/messages.inc.php:608
+#: libraries/config/messages.inc.php:610
 msgid "Default sort order for tables with a primary key."
 msgstr "기본 키를 가진 테이블의 기본 정렬 순서."
 
-#: libraries/config/messages.inc.php:610
+#: libraries/config/messages.inc.php:612
 msgid "Primary key default sort order"
 msgstr "기본 키 기본 정렬 순서"
 
-#: libraries/config/messages.inc.php:612
+#: libraries/config/messages.inc.php:614
 msgid ""
 "Repeat the headers every X cells, [kbd]0[/kbd] deactivates this feature."
 msgstr ""
 "X번의 셀 마다 헤더를 다시 보여줍니다. [kbd]0[/kbd]이면 이 기능 비활성화."
 
-#: libraries/config/messages.inc.php:613
+#: libraries/config/messages.inc.php:615
 msgid "Repeat headers"
 msgstr "반복 헤더"
 
-#: libraries/config/messages.inc.php:615
+#: libraries/config/messages.inc.php:617
 msgid "Grid editing: trigger action"
 msgstr "격자판 수정: 트리거 동작"
 
-#: libraries/config/messages.inc.php:616
+#: libraries/config/messages.inc.php:618
 #, fuzzy
 #| msgid "Relational display column"
 msgid "Relational display"
 msgstr "연관된 행 표시"
 
-#: libraries/config/messages.inc.php:617
+#: libraries/config/messages.inc.php:619
 #, fuzzy
 #| msgid "Servers display options."
 msgid "For display Options"
 msgstr "서버보기 옵션."
 
-#: libraries/config/messages.inc.php:618
+#: libraries/config/messages.inc.php:620
 msgid "Grid editing: save all edited cells at once"
 msgstr "격자판 수정: 수정된 칸들이 한 번에 저장됨"
 
-#: libraries/config/messages.inc.php:619
+#: libraries/config/messages.inc.php:621
 msgid "Directory where exports can be saved on server."
 msgstr "내보내기가 저장될 서버상의 디렉토리."
 
-#: libraries/config/messages.inc.php:620
+#: libraries/config/messages.inc.php:622
 msgid "Save directory"
 msgstr "저장 디렉토리"
 
-#: libraries/config/messages.inc.php:621
+#: libraries/config/messages.inc.php:623
 msgid "Leave blank if not used."
 msgstr "사용하지 않으면 빈칸으로 두세요."
 
-#: libraries/config/messages.inc.php:622
+#: libraries/config/messages.inc.php:624
 msgid "Host authorization order"
 msgstr "호스트 인증 지시"
 
-#: libraries/config/messages.inc.php:623
+#: libraries/config/messages.inc.php:625
 msgid "Leave blank for defaults."
 msgstr "빈칸으로 두면 기본값이 적용됩니다."
 
-#: libraries/config/messages.inc.php:624
+#: libraries/config/messages.inc.php:626
 msgid "Host authorization rules"
 msgstr "호스트 인증 규칙"
 
-#: libraries/config/messages.inc.php:625
+#: libraries/config/messages.inc.php:627
 msgid "Allow logins without a password"
 msgstr "암호 없이 로그인 허용"
 
-#: libraries/config/messages.inc.php:626
+#: libraries/config/messages.inc.php:628
 msgid "Allow root login"
 msgstr "루트 사용자 로그인 허용"
 
-#: libraries/config/messages.inc.php:627
+#: libraries/config/messages.inc.php:629
 #, fuzzy
 #| msgid "Session value"
 msgid "Session timezone"
 msgstr "세션 값"
 
-#: libraries/config/messages.inc.php:629
+#: libraries/config/messages.inc.php:631
 msgid ""
 "Sets the effective timezone; possibly different than the one from your "
 "database server"
 msgstr ""
 
-#: libraries/config/messages.inc.php:633
+#: libraries/config/messages.inc.php:635
 msgid "HTTP Basic Auth Realm name to display when doing HTTP Auth."
 msgstr "HTTP 인증시 HTTP 기본 렐름 이름."
 
-#: libraries/config/messages.inc.php:634
+#: libraries/config/messages.inc.php:636
 msgid "HTTP Realm"
 msgstr "HTTP 렐름"
 
-#: libraries/config/messages.inc.php:636
+#: libraries/config/messages.inc.php:638
 msgid ""
 "The path for the config file for [a@http://swekey.com]SweKey hardware "
 "authentication[/a] (not located in your document root; suggested: /etc/"
@@ -6797,19 +6801,19 @@ msgstr ""
 "[a@http://swekey.com]SweKey hardware authentication[/a] 설정 파일 경로 "
 "(document root에 없습니다; 권장값: /etc/swekey.conf)."
 
-#: libraries/config/messages.inc.php:640
+#: libraries/config/messages.inc.php:642
 msgid "SweKey config file"
 msgstr "SweKey 설정 파일"
 
-#: libraries/config/messages.inc.php:641
+#: libraries/config/messages.inc.php:643
 msgid "Authentication method to use."
 msgstr "사용할 인증 방법."
 
-#: libraries/config/messages.inc.php:642 setup/frames/index.inc.php:166
+#: libraries/config/messages.inc.php:644 setup/frames/index.inc.php:167
 msgid "Authentication type"
 msgstr "인증 형식"
 
-#: libraries/config/messages.inc.php:644
+#: libraries/config/messages.inc.php:646
 msgid ""
 "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/a] "
 "support, suggested: [kbd]pma__bookmark[/kbd]"
@@ -6817,11 +6821,11 @@ msgstr ""
 "[a@http://wiki.phpmyadmin.net/pma/bookmark]북마크[/a] 지원이 필요 없는 경우 "
 "비워두세요, 추천: [kbd]pma__bookmark[/kbd]"
 
-#: libraries/config/messages.inc.php:647
+#: libraries/config/messages.inc.php:649
 msgid "Bookmark table"
 msgstr "테이블 즐겨찾기"
 
-#: libraries/config/messages.inc.php:649
+#: libraries/config/messages.inc.php:651
 msgid ""
 "Leave blank for no column comments/mime types, suggested: "
 "[kbd]pma__column_info[/kbd]."
@@ -6829,31 +6833,31 @@ msgstr ""
 "컬럼의 주석이나 마임타입을 지정하지 않을 경우 비워두세요. 제안값: "
 "[kbd]pma__column_info[/kbd]."
 
-#: libraries/config/messages.inc.php:652
+#: libraries/config/messages.inc.php:654
 msgid "Column information table"
 msgstr "컬럼 정보 테이블"
 
-#: libraries/config/messages.inc.php:653
+#: libraries/config/messages.inc.php:655
 msgid "Compress connection to MySQL server."
 msgstr "MySQL 서버와의 압축된 통신."
 
-#: libraries/config/messages.inc.php:654
+#: libraries/config/messages.inc.php:656
 msgid "Compress connection"
 msgstr "연결 압축"
 
-#: libraries/config/messages.inc.php:656
+#: libraries/config/messages.inc.php:658
 msgid "How to connect to server, keep [kbd]tcp[/kbd] if unsure."
 msgstr "서버와의 연결 방법, 모르면 [kbd]tcp[/kbd]로 두세요."
 
-#: libraries/config/messages.inc.php:657
+#: libraries/config/messages.inc.php:659
 msgid "Connection type"
 msgstr "연결 형식"
 
-#: libraries/config/messages.inc.php:658
+#: libraries/config/messages.inc.php:660
 msgid "Control user password"
 msgstr "유저 비밀번호 제어"
 
-#: libraries/config/messages.inc.php:660
+#: libraries/config/messages.inc.php:662
 msgid ""
 "A special MySQL user configured with limited permissions, more information "
 "available on [a@http://wiki.phpmyadmin.net/pma/controluser]wiki[/a]."
@@ -6861,21 +6865,21 @@ msgstr ""
 "제한된 권한 설정을 위한 특별한 MySQL 사용자 설정. 추가 정보는 [a@http://wiki."
 "phpmyadmin.net/pma/controluser]위키[/a]에."
 
-#: libraries/config/messages.inc.php:663
+#: libraries/config/messages.inc.php:665
 msgid "Control user"
 msgstr "유저 제어"
 
-#: libraries/config/messages.inc.php:665
+#: libraries/config/messages.inc.php:667
 msgid ""
 "An alternate host to hold the configuration storage; leave blank to use the "
 "already defined host."
 msgstr "설정 저장을 위한 대체서버; 비워두면 이전에 정의된 서버를 사용."
 
-#: libraries/config/messages.inc.php:668
+#: libraries/config/messages.inc.php:670
 msgid "Control host"
 msgstr "호스트 제어"
 
-#: libraries/config/messages.inc.php:670
+#: libraries/config/messages.inc.php:672
 msgid ""
 "An alternate port to connect to the host that holds the configuration "
 "storage; leave blank to use the default port, or the already defined port, "
@@ -6884,29 +6888,29 @@ msgstr ""
 "설정 저장공간을 가지고 있는 서버에 연결할 포트 번호; 빈 값으로 두면 기본값을 "
 "사용하거나, controlhost와 host가 같은 경우 다른 곳에 정의된 값을 사용합니다."
 
-#: libraries/config/messages.inc.php:674
+#: libraries/config/messages.inc.php:676
 msgid "Control port"
 msgstr "제어 포트"
 
-#: libraries/config/messages.inc.php:676
+#: libraries/config/messages.inc.php:678
 msgid "Hide databases matching regular expression (PCRE)."
 msgstr "정규식에 일치하는 데이터베이스 숨기기 (PCRE)."
 
-#: libraries/config/messages.inc.php:678
+#: libraries/config/messages.inc.php:680
 msgid ""
 "More information on [a@https://sourceforge.net/p/phpmyadmin/bugs/2606/]PMA "
 "bug tracker[/a] and [a@http://bugs.mysql.com/19588]MySQL Bugs[/a]"
 msgstr ""
 
-#: libraries/config/messages.inc.php:681
+#: libraries/config/messages.inc.php:683
 msgid "Disable use of INFORMATION_SCHEMA"
 msgstr "INFORMATION_SCHEMA를 사용할 수 없도록 함"
 
-#: libraries/config/messages.inc.php:682
+#: libraries/config/messages.inc.php:684
 msgid "Hide databases"
 msgstr "데이터베이스 숨기기"
 
-#: libraries/config/messages.inc.php:684
+#: libraries/config/messages.inc.php:686
 msgid ""
 "Leave blank for no SQL query history support, suggested: [kbd]pma__history[/"
 "kbd]."
@@ -6914,38 +6918,38 @@ msgstr ""
 "SQL 쿼리 내역 저장 기능을 사용하지 않으려면 빈 칸으로 비워두세요, 권장: "
 "[kbd]pma__history[/kbd]."
 
-#: libraries/config/messages.inc.php:687
+#: libraries/config/messages.inc.php:689
 msgid "SQL query history table"
 msgstr "SQL 쿼리 히스토리 테이블"
 
-#: libraries/config/messages.inc.php:688
+#: libraries/config/messages.inc.php:690
 msgid "Hostname where MySQL server is running."
 msgstr "MySQL 서버가 구동중인 호스트의 이름."
 
-#: libraries/config/messages.inc.php:689
+#: libraries/config/messages.inc.php:691
 msgid "Server hostname"
 msgstr "서버 호스트명"
 
-#: libraries/config/messages.inc.php:690
+#: libraries/config/messages.inc.php:692
 msgid "Logout URL"
 msgstr "로그아웃 URL"
 
-#: libraries/config/messages.inc.php:692
+#: libraries/config/messages.inc.php:694
 msgid ""
 "Limits number of table preferences which are stored in database, the oldest "
 "records are automatically removed."
 msgstr ""
 "데이터베이스에 저장될 테이블 설정 갯수 제한, 오래된 것은 자동으로 삭제됨."
 
-#: libraries/config/messages.inc.php:696
+#: libraries/config/messages.inc.php:698
 msgid "Maximal number of table preferences to store"
 msgstr "저장될 테이블 설정의 최대 갯수"
 
-#: libraries/config/messages.inc.php:697
+#: libraries/config/messages.inc.php:699
 msgid "QBE saved searches table"
 msgstr "QBE가 검색 테이블에 저장되었습니다"
 
-#: libraries/config/messages.inc.php:699
+#: libraries/config/messages.inc.php:701
 #, fuzzy
 #| msgid ""
 #| "Leave blank for no PDF schema support, suggested: [kbd]pma__pdf_pages[/"
@@ -6956,13 +6960,13 @@ msgid ""
 msgstr ""
 "PDF 스키마를 제공하지 않을 경우 비워두세요. 제안값: [kbd]pma__pdf_pages[/kbd]"
 
-#: libraries/config/messages.inc.php:702
+#: libraries/config/messages.inc.php:704
 #, fuzzy
 #| msgid "Export views as tables"
 msgid "Export templates table"
 msgstr "뷰를 테이블로 내보내기"
 
-#: libraries/config/messages.inc.php:704
+#: libraries/config/messages.inc.php:706
 #, fuzzy
 #| msgid ""
 #| "Leave blank for no PDF schema support, suggested: [kbd]pma__pdf_pages[/"
@@ -6973,13 +6977,13 @@ msgid ""
 msgstr ""
 "PDF 스키마를 제공하지 않을 경우 비워두세요. 권장: [kbd]pma__pdf_pages[/kbd]."
 
-#: libraries/config/messages.inc.php:707
+#: libraries/config/messages.inc.php:709
 #, fuzzy
 #| msgid "Central columns"
 msgid "Central columns table"
 msgstr "중심 열"
 
-#: libraries/config/messages.inc.php:709
+#: libraries/config/messages.inc.php:711
 #, fuzzy
 #| msgid ""
 #| "Leave blank for no PDF schema support, suggested: [kbd]pma__table_coords[/"
@@ -6991,15 +6995,15 @@ msgstr ""
 "PDF 스키마를 제공하지 않을 경우 비워두세요. 제안값: [kbd]pma__table_coords[/"
 "kbd]."
 
-#: libraries/config/messages.inc.php:712
+#: libraries/config/messages.inc.php:714
 msgid "Try to connect without password."
 msgstr "암호없이 연결 시도."
 
-#: libraries/config/messages.inc.php:713
+#: libraries/config/messages.inc.php:715
 msgid "Connect without password"
 msgstr "암호없이 연결"
 
-#: libraries/config/messages.inc.php:715
+#: libraries/config/messages.inc.php:717
 msgid ""
 "You can use MySQL wildcard characters (% and _), escape them if you want to "
 "use their literal instances, i.e. use [kbd]'my\\_db'[/kbd] and not "
@@ -7008,29 +7012,29 @@ msgstr ""
 "MySQL 와일드카드 문자 (%와 _)를 쓸 수 있습니다. 원래 의미로 쓰기 위해서는 이"
 "스케이프 하세요([kbd]'my_db'[/kbd]로 하지 말고 [kbd]'my\\_db'[/kbd])."
 
-#: libraries/config/messages.inc.php:719
+#: libraries/config/messages.inc.php:721
 msgid "Show only listed databases"
 msgstr "리스트에 있는 데이터베이스만 보여주기"
 
-#: libraries/config/messages.inc.php:720 libraries/config/messages.inc.php:829
+#: libraries/config/messages.inc.php:722 libraries/config/messages.inc.php:831
 msgid "Leave empty if not using config auth."
 msgstr "config 인증을 사용하지 않을 경우 비워두세요."
 
-#: libraries/config/messages.inc.php:721
+#: libraries/config/messages.inc.php:723
 msgid "Password for config auth"
 msgstr "config 인증용 패스워드"
 
-#: libraries/config/messages.inc.php:723
+#: libraries/config/messages.inc.php:725
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__pdf_pages[/kbd]."
 msgstr ""
 "PDF 스키마를 제공하지 않을 경우 비워두세요. 권장: [kbd]pma__pdf_pages[/kbd]."
 
-#: libraries/config/messages.inc.php:725
+#: libraries/config/messages.inc.php:727
 msgid "PDF schema: pages table"
 msgstr "PDF 스키마: 페이지 테이블"
 
-#: libraries/config/messages.inc.php:727
+#: libraries/config/messages.inc.php:729
 msgid ""
 "Database used for relations, bookmarks, and PDF features. See [a@http://wiki."
 "phpmyadmin.net/pma/pmadb]pmadb[/a] for complete information. Leave blank for "
@@ -7040,20 +7044,20 @@ msgstr ""
 "phpmyadmin.net/pma/pmadb]pmadb[/a]를 참고하세요. 이 기능들을 제공하지 않으려"
 "면 비워두세요. 권장: [kbd]phpmyadmin[/kbd]."
 
-#: libraries/config/messages.inc.php:731
+#: libraries/config/messages.inc.php:733
 #: templates/server/databases/create.phtml:20
 msgid "Database name"
 msgstr "데이터베이스명"
 
-#: libraries/config/messages.inc.php:733
+#: libraries/config/messages.inc.php:735
 msgid "Port on which MySQL server is listening, leave empty for default."
 msgstr "MySQL 서버의 네트워크 포트. 기본값을 쓰려면 비워두세요."
 
-#: libraries/config/messages.inc.php:734
+#: libraries/config/messages.inc.php:736
 msgid "Server port"
 msgstr "서버 포트"
 
-#: libraries/config/messages.inc.php:736
+#: libraries/config/messages.inc.php:738
 #, fuzzy
 #| msgid ""
 #| "Leave blank for no user preferences storage in database, suggested: "
@@ -7065,11 +7069,11 @@ msgstr ""
 "데이터베이스에 사용자 설정 스토리지를 두지 않으려면 비워둠, 추천: "
 "[kbd]pma__userconfig[/kbd]"
 
-#: libraries/config/messages.inc.php:739
+#: libraries/config/messages.inc.php:741
 msgid "Recently used table"
 msgstr "최근에 사용한 테이블"
 
-#: libraries/config/messages.inc.php:741
+#: libraries/config/messages.inc.php:743
 #, fuzzy
 #| msgid ""
 #| "Leave blank for no user preferences storage in database, suggested: "
@@ -7081,13 +7085,13 @@ msgstr ""
 "데이터베이스에 사용자 설정 스토리지를 두지 않으려면 비워둠, 추천: "
 "[kbd]pma__userconfig[/kbd]"
 
-#: libraries/config/messages.inc.php:744
+#: libraries/config/messages.inc.php:746
 #, fuzzy
 #| msgid "Favorite tables"
 msgid "Favorites table"
 msgstr "즐겨찾기 테이블"
 
-#: libraries/config/messages.inc.php:746
+#: libraries/config/messages.inc.php:748
 #, fuzzy
 #| msgid ""
 #| "Leave blank for no SQL query tracking support, suggested: "
@@ -7099,11 +7103,11 @@ msgstr ""
 "SQL 쿼리 추적 기능을 사용하지 않으려면 빈 칸으로 비워두세요. 권장: "
 "[kbd]pma__tracking[/kbd]"
 
-#: libraries/config/messages.inc.php:750
+#: libraries/config/messages.inc.php:752
 msgid "Relation table"
 msgstr "연관된 테이블"
 
-#: libraries/config/messages.inc.php:752
+#: libraries/config/messages.inc.php:754
 msgid ""
 "See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
 "types[/a] for an example."
@@ -7111,31 +7115,31 @@ msgstr ""
 "[a@http://wiki.phpmyadmin.net/pma/auth_types#signon]인증 타입[/a] 예제를 참조"
 "하세요."
 
-#: libraries/config/messages.inc.php:755
+#: libraries/config/messages.inc.php:757
 msgid "Signon session name"
 msgstr "접속 세션 이름"
 
-#: libraries/config/messages.inc.php:756
+#: libraries/config/messages.inc.php:758
 msgid "Signon URL"
 msgstr "접속 URL"
 
-#: libraries/config/messages.inc.php:758
+#: libraries/config/messages.inc.php:760
 msgid "Socket on which MySQL server is listening, leave empty for default."
 msgstr "MySQL 서버가 listen하고 있는 소켓으로, 비워두면 기본값으로 설정됩니다."
 
-#: libraries/config/messages.inc.php:759
+#: libraries/config/messages.inc.php:761
 msgid "Server socket"
 msgstr "서버 소켓"
 
-#: libraries/config/messages.inc.php:760
+#: libraries/config/messages.inc.php:762
 msgid "Enable SSL for connection to MySQL server."
 msgstr "MySQL 서버 연결시 SSL을 활성화합니다."
 
-#: libraries/config/messages.inc.php:761
+#: libraries/config/messages.inc.php:763
 msgid "Use SSL"
 msgstr "SSL 사용"
 
-#: libraries/config/messages.inc.php:763
+#: libraries/config/messages.inc.php:765
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__table_coords[/"
 "kbd]."
@@ -7143,11 +7147,11 @@ msgstr ""
 "PDF 스키마를 제공하지 않을 경우 비워두세요. 제안값: [kbd]pma__table_coords[/"
 "kbd]."
 
-#: libraries/config/messages.inc.php:766
+#: libraries/config/messages.inc.php:768
 msgid "Designer and PDF schema: table coordinates"
 msgstr ""
 
-#: libraries/config/messages.inc.php:769
+#: libraries/config/messages.inc.php:771
 #, fuzzy
 #| msgid ""
 #| "Leave blank for no PDF schema support, suggested: [kbd]pma__pdf_pages[/"
@@ -7158,11 +7162,11 @@ msgid ""
 msgstr ""
 "PDF 스키마를 제공하지 않을 경우 비워두세요. 제안값: [kbd]pma__pdf_pages[/kbd]"
 
-#: libraries/config/messages.inc.php:772
+#: libraries/config/messages.inc.php:774
 msgid "Display columns table"
 msgstr "열 목록 표시"
 
-#: libraries/config/messages.inc.php:774
+#: libraries/config/messages.inc.php:776
 #, fuzzy
 #| msgid ""
 #| "Leave blank for no user preferences storage in database, suggested: "
@@ -7174,11 +7178,11 @@ msgstr ""
 "데이터베이스에 사용자 설정 스토리지를 두지 않으려면 비워둠, 추천: "
 "[kbd]pma__userconfig[/kbd]"
 
-#: libraries/config/messages.inc.php:777
+#: libraries/config/messages.inc.php:779
 msgid "UI preferences table"
 msgstr "UI 설정 테이블"
 
-#: libraries/config/messages.inc.php:779
+#: libraries/config/messages.inc.php:781
 msgid ""
 "Whether a DROP DATABASE IF EXISTS statement will be added as first line to "
 "the log when creating a database."
@@ -7186,41 +7190,41 @@ msgstr ""
 "데이터베이스 생성 시 DROP DATABASE IF EXISTS 구문을 로그 첫 번째 줄에 추가할"
 "지 여부."
 
-#: libraries/config/messages.inc.php:782
+#: libraries/config/messages.inc.php:784
 msgid "Add DROP DATABASE"
 msgstr "DROP DATABASE 추가"
 
-#: libraries/config/messages.inc.php:784
+#: libraries/config/messages.inc.php:786
 msgid ""
 "Whether a DROP TABLE IF EXISTS statement will be added as first line to the "
 "log when creating a table."
 msgstr ""
 "테이블 생성 시 DROP TABLE IF EXISTS 구문을 로그 첫 번째 줄에 추가할지 여부."
 
-#: libraries/config/messages.inc.php:787 libraries/mult_submits.lib.php:347
+#: libraries/config/messages.inc.php:789 libraries/mult_submits.lib.php:347
 msgid "Add DROP TABLE"
 msgstr "DROP TABLE 추가"
 
-#: libraries/config/messages.inc.php:789
+#: libraries/config/messages.inc.php:791
 msgid ""
 "Whether a DROP VIEW IF EXISTS statement will be added as first line to the "
 "log when creating a view."
 msgstr ""
 "뷰를 생성할 때 로그의 첫 번째 줄에 DROP VIEW IF EXISTS 구문을 추가할지 여부."
 
-#: libraries/config/messages.inc.php:792
+#: libraries/config/messages.inc.php:794
 msgid "Add DROP VIEW"
 msgstr "DROP VIEW 추가"
 
-#: libraries/config/messages.inc.php:794
+#: libraries/config/messages.inc.php:796
 msgid "Defines the list of statements the auto-creation uses for new versions."
 msgstr ""
 
-#: libraries/config/messages.inc.php:795
+#: libraries/config/messages.inc.php:797
 msgid "Statements to track"
 msgstr "문장 추적"
 
-#: libraries/config/messages.inc.php:797
+#: libraries/config/messages.inc.php:799
 msgid ""
 "Leave blank for no SQL query tracking support, suggested: "
 "[kbd]pma__tracking[/kbd]."
@@ -7228,21 +7232,21 @@ msgstr ""
 "SQL 쿼리 추적 기능을 사용하지 않으려면 빈 칸으로 비워두세요. 권장: "
 "[kbd]pma__tracking[/kbd]."
 
-#: libraries/config/messages.inc.php:800
+#: libraries/config/messages.inc.php:802
 msgid "SQL query tracking table"
 msgstr "SQL 쿼리 추적 테이블"
 
-#: libraries/config/messages.inc.php:802
+#: libraries/config/messages.inc.php:804
 msgid ""
 "Whether the tracking mechanism creates versions for tables and views "
 "automatically."
 msgstr "SQL 쿼리 추적 기능이 테이블과 뷰에 대한 버전을 자동으로 생성할지 여부."
 
-#: libraries/config/messages.inc.php:806
+#: libraries/config/messages.inc.php:808
 msgid "Automatically create versions"
 msgstr "버전 자동생성"
 
-#: libraries/config/messages.inc.php:808
+#: libraries/config/messages.inc.php:810
 msgid ""
 "Leave blank for no user preferences storage in database, suggested: "
 "[kbd]pma__userconfig[/kbd]."
@@ -7250,11 +7254,11 @@ msgstr ""
 "데이터베이스에 사용자 설정 저장공간을 두지 않으려면 비워둠, 권장: "
 "[kbd]pma__userconfig[/kbd]."
 
-#: libraries/config/messages.inc.php:811
+#: libraries/config/messages.inc.php:813
 msgid "User preferences storage table"
 msgstr "사용자 설정 스토리지 테이블"
 
-#: libraries/config/messages.inc.php:813
+#: libraries/config/messages.inc.php:815
 #, fuzzy
 #| msgid ""
 #| "Both this table and the user groups table are required to enable the "
@@ -7269,11 +7273,11 @@ msgstr ""
 "하나라도 값을 비워두면 해당 기능을 사용할 수 없음. 권장: [kbd]pma__users[/"
 "kbd]."
 
-#: libraries/config/messages.inc.php:817
+#: libraries/config/messages.inc.php:819
 msgid "Users table"
 msgstr "사용자 목록"
 
-#: libraries/config/messages.inc.php:819
+#: libraries/config/messages.inc.php:821
 msgid ""
 "Both this table and the users table are required to enable the configurable "
 "menus feature; leaving either one of them blank will disable this feature, "
@@ -7283,11 +7287,11 @@ msgstr ""
 "도 값을 비워두면 해당 기능을 사용할 수 없음. 권장: [kbd]pma__usergroups[/"
 "kbd]."
 
-#: libraries/config/messages.inc.php:823
+#: libraries/config/messages.inc.php:825
 msgid "User groups table"
 msgstr "사용자 그룹 테이블"
 
-#: libraries/config/messages.inc.php:825
+#: libraries/config/messages.inc.php:827
 msgid ""
 "Leave blank to disable the feature to hide and show navigation items, "
 "suggested: [kbd]pma__navigationhiding[/kbd]."
@@ -7295,34 +7299,34 @@ msgstr ""
 "네비게이션 아이템 숨기기/보이기 기능을 사용하지 않으려면 비워두세요. 권장: "
 "[kbd]pma__navigationhiding[/kbd]."
 
-#: libraries/config/messages.inc.php:828
+#: libraries/config/messages.inc.php:830
 msgid "Hidden navigation items table"
 msgstr "숨겨진 네비게이션 아이템 테이블"
 
-#: libraries/config/messages.inc.php:830
+#: libraries/config/messages.inc.php:832
 msgid "User for config auth"
 msgstr "설정 인증용 사용자"
 
-#: libraries/config/messages.inc.php:832
+#: libraries/config/messages.inc.php:834
 msgid ""
 "A user-friendly description of this server. Leave blank to display the "
 "hostname instead."
 msgstr ""
 "이 서버에 대한 알기 쉬운 설명. 호스트 이름을 표시하려면 공백으로 두세요."
 
-#: libraries/config/messages.inc.php:835
+#: libraries/config/messages.inc.php:837
 msgid "Verbose name of this server"
 msgstr "이 서버 이름 보기"
 
-#: libraries/config/messages.inc.php:837
+#: libraries/config/messages.inc.php:839
 msgid "Whether a user should be displayed a \"show all (rows)\" button."
 msgstr "\"모든 행 보기\" 버튼을 출력할지 여부."
 
-#: libraries/config/messages.inc.php:839
+#: libraries/config/messages.inc.php:841
 msgid "Allow to display all the rows"
 msgstr "모든 행 보기 허용"
 
-#: libraries/config/messages.inc.php:841
+#: libraries/config/messages.inc.php:843
 msgid ""
 "Please note that enabling this has no effect with [kbd]config[/kbd] "
 "authentication mode because the password is hard coded in the configuration "
@@ -7332,132 +7336,132 @@ msgstr ""
 "다. 왜나하면 패스워드가 설정 파일에 적혀있기 때문입니다. 이 기능은 같은 명령"
 "어를 직접 실행하는 것을 제한하는 기능은 없습니다."
 
-#: libraries/config/messages.inc.php:845
+#: libraries/config/messages.inc.php:847
 msgid "Show password change form"
 msgstr "비밀번호 변경 폼 보기"
 
-#: libraries/config/messages.inc.php:846
+#: libraries/config/messages.inc.php:848
 msgid "Show create database form"
 msgstr "데이터베이스 생성 폼 보기"
 
-#: libraries/config/messages.inc.php:848
+#: libraries/config/messages.inc.php:850
 #, fuzzy
 #| msgid ""
 #| "Show or hide a column displaying the Creation timestamp for all tables."
 msgid "Show or hide a column displaying the comments for all tables."
 msgstr "전체 테이블의 생성 시간을 표시하는 컬럼을 보이기/숨기기."
 
-#: libraries/config/messages.inc.php:850
+#: libraries/config/messages.inc.php:852
 #, fuzzy
 #| msgid "Table comments"
 msgid "Show table comments"
 msgstr "테이블 설명"
 
-#: libraries/config/messages.inc.php:852
+#: libraries/config/messages.inc.php:854
 msgid "Show or hide a column displaying the Creation timestamp for all tables."
 msgstr "전체 테이블의 생성 시간을 표시하는 컬럼을 보이기/숨기기."
 
-#: libraries/config/messages.inc.php:854
+#: libraries/config/messages.inc.php:856
 msgid "Show creation timestamp"
 msgstr "생성 시간 보기"
 
-#: libraries/config/messages.inc.php:856
+#: libraries/config/messages.inc.php:858
 msgid ""
 "Show or hide a column displaying the Last update timestamp for all tables."
 msgstr "모든 테이블에 대해 최종 업데이트 시간을 표시하는 컬럼을 보이기/숨기기."
 
-#: libraries/config/messages.inc.php:858
+#: libraries/config/messages.inc.php:860
 msgid "Show last update timestamp"
 msgstr "최종 업데이트 시간 표시"
 
-#: libraries/config/messages.inc.php:860
+#: libraries/config/messages.inc.php:862
 msgid ""
 "Show or hide a column displaying the Last check timestamp for all tables."
 msgstr "모든 테이블에 대해 최종 체크 시간을 표시하는 컬럼을 보이기/숨기기."
 
-#: libraries/config/messages.inc.php:862
+#: libraries/config/messages.inc.php:864
 #, fuzzy
 #| msgid "Show Last check timestamp"
 msgid "Show last check timestamp"
 msgstr "최종 체크 시간 표시"
 
-#: libraries/config/messages.inc.php:864
+#: libraries/config/messages.inc.php:866
 msgid ""
 "Defines whether or not type fields should be initially displayed in edit/"
 "insert mode."
 msgstr "편집/삽입 모드에서 타입 필드가 기본적으로 보일지 여부 정의."
 
-#: libraries/config/messages.inc.php:867
+#: libraries/config/messages.inc.php:869
 msgid "Show field types"
 msgstr "필드 타입 출력"
 
-#: libraries/config/messages.inc.php:869
+#: libraries/config/messages.inc.php:871
 msgid "Display the function fields in edit/insert mode."
 msgstr "편집/삽입 모드에서 함수 필드 보이기."
 
-#: libraries/config/messages.inc.php:871
+#: libraries/config/messages.inc.php:873
 msgid "Show function fields"
 msgstr "함수 필드 보이기"
 
-#: libraries/config/messages.inc.php:872
+#: libraries/config/messages.inc.php:874
 msgid "Whether to show hint or not."
 msgstr "힌트 보여주기 여부."
 
-#: libraries/config/messages.inc.php:873
+#: libraries/config/messages.inc.php:875
 msgid "Show hint"
 msgstr "힌트 보여주기"
 
-#: libraries/config/messages.inc.php:875
+#: libraries/config/messages.inc.php:877
 msgid ""
 "Shows link to [a@http://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
 "output."
 msgstr ""
 "[a@http://php.net/manual/function.phpinfo.php]phpinfo()[/a] 출력 링크 표시."
 
-#: libraries/config/messages.inc.php:878
+#: libraries/config/messages.inc.php:880
 msgid "Show phpinfo() link"
 msgstr "phpinfo()링크 표시"
 
-#: libraries/config/messages.inc.php:879
+#: libraries/config/messages.inc.php:881
 msgid "Show detailed MySQL server information"
 msgstr "MYSQL 서버 정보 자세하게 표시"
 
-#: libraries/config/messages.inc.php:881
+#: libraries/config/messages.inc.php:883
 msgid ""
 "Defines whether SQL queries generated by phpMyAdmin should be displayed."
 msgstr "phpMyAdmin이 생성한 SQL 쿼리를 표시할지 여부를 정의."
 
-#: libraries/config/messages.inc.php:883
+#: libraries/config/messages.inc.php:885
 msgid "Show SQL queries"
 msgstr "SQL 쿼리 보기"
 
-#: libraries/config/messages.inc.php:885
+#: libraries/config/messages.inc.php:887
 msgid ""
 "Defines whether the query box should stay on-screen after its submission."
 msgstr "쿼리 전송 후 쿼리 박스가 화면상에 남아있을지 여부."
 
-#: libraries/config/messages.inc.php:887 libraries/sql_query_form.lib.php:352
+#: libraries/config/messages.inc.php:889 libraries/sql_query_form.lib.php:352
 msgid "Retain query box"
 msgstr "쿼리 박스 유지"
 
-#: libraries/config/messages.inc.php:889
+#: libraries/config/messages.inc.php:891
 msgid "Allow to display database and table statistics (eg. space usage)."
 msgstr "데이터베이스와 테이블 상태 출력 허용 (사용량 등)."
 
-#: libraries/config/messages.inc.php:891
+#: libraries/config/messages.inc.php:893
 msgid "Show statistics"
 msgstr "통계보기"
 
-#: libraries/config/messages.inc.php:893
+#: libraries/config/messages.inc.php:895
 msgid ""
 "Mark used tables and make it possible to show databases with locked tables."
 msgstr ""
 
-#: libraries/config/messages.inc.php:895
+#: libraries/config/messages.inc.php:897
 msgid "Skip locked tables"
 msgstr "잠긴 테이블 건너띄기"
 
-#: libraries/config/messages.inc.php:901
+#: libraries/config/messages.inc.php:903
 #, fuzzy
 #| msgid "A warning is displayed on the main page if Suhosin is detected."
 msgid ""
@@ -7465,11 +7469,11 @@ msgid ""
 "detected."
 msgstr "Suhosin이 발견될 경우 메인 페이지에 경고가 표시됩니다."
 
-#: libraries/config/messages.inc.php:904
+#: libraries/config/messages.inc.php:906
 msgid "Suhosin warning"
 msgstr "수호신 경고"
 
-#: libraries/config/messages.inc.php:906
+#: libraries/config/messages.inc.php:908
 #, fuzzy
 #| msgid ""
 #| "Disable the default warning that is displayed on the Structure page if "
@@ -7482,53 +7486,53 @@ msgstr ""
 "테이블의 컬럼 이름이 MySQL 예약어일 경우 구조 페이지에서 출력되는 기본 경고"
 "를 끄기."
 
-#: libraries/config/messages.inc.php:911
+#: libraries/config/messages.inc.php:913
 #, fuzzy
 #| msgid "Login cookie validity"
 msgid "Login cookie validity warning"
 msgstr "로그인 쿠키 유효시간"
 
-#: libraries/config/messages.inc.php:914
+#: libraries/config/messages.inc.php:916
 msgid ""
 "Textarea size (columns) in edit mode, this value will be emphasized for SQL "
 "query textareas (*2)."
 msgstr ""
 
-#: libraries/config/messages.inc.php:917
+#: libraries/config/messages.inc.php:919
 msgid "Textarea columns"
 msgstr "텍스트 편집 필드 칸 수"
 
-#: libraries/config/messages.inc.php:919
+#: libraries/config/messages.inc.php:921
 msgid ""
 "Textarea size (rows) in edit mode, this value will be emphasized for SQL "
 "query textareas (*2)."
 msgstr ""
 
-#: libraries/config/messages.inc.php:922
+#: libraries/config/messages.inc.php:924
 msgid "Textarea rows"
 msgstr "텍스트 편집 필드 줄 수"
 
-#: libraries/config/messages.inc.php:924
+#: libraries/config/messages.inc.php:926
 msgid "Title of browser window when a database is selected."
 msgstr "데이터베이스가 선택되었을 때 브라우저 창의 제목."
 
-#: libraries/config/messages.inc.php:928
+#: libraries/config/messages.inc.php:930
 msgid "Title of browser window when nothing is selected."
 msgstr "브라우저 윈도우 제목이 아무것도 선택되지 않았을때."
 
-#: libraries/config/messages.inc.php:930
+#: libraries/config/messages.inc.php:932
 msgid "Default title"
 msgstr "기본 제목"
 
-#: libraries/config/messages.inc.php:932
+#: libraries/config/messages.inc.php:934
 msgid "Title of browser window when a server is selected."
 msgstr "서버가 선택되었을 때의 브라우저 윈도우의 제목."
 
-#: libraries/config/messages.inc.php:935
+#: libraries/config/messages.inc.php:937
 msgid "Title of browser window when a table is selected."
 msgstr "테이블이 선택되었을 때 브라우저 윈도우의 제목."
 
-#: libraries/config/messages.inc.php:938
+#: libraries/config/messages.inc.php:940
 msgid ""
 "Input proxies as [kbd]IP: trusted HTTP header[/kbd]. The following example "
 "specifies that phpMyAdmin should trust a HTTP_X_FORWARDED_FOR (X-Forwarded-"
@@ -7536,27 +7540,27 @@ msgid ""
 "HTTP_X_FORWARDED_FOR[/kbd]."
 msgstr ""
 
-#: libraries/config/messages.inc.php:943
+#: libraries/config/messages.inc.php:945
 msgid "List of trusted proxies for IP allow/deny"
 msgstr "IP 허용/거부를 위한 신뢰할만한 프록시 목록"
 
-#: libraries/config/messages.inc.php:945
+#: libraries/config/messages.inc.php:947
 msgid "Directory on server where you can upload files for import."
 msgstr "가져오기 파일을 업로드할 서버 상의 디렉토리."
 
-#: libraries/config/messages.inc.php:947
+#: libraries/config/messages.inc.php:949
 msgid "Upload directory"
 msgstr "업로드 디렉토리"
 
-#: libraries/config/messages.inc.php:948
+#: libraries/config/messages.inc.php:950
 msgid "Allow for searching inside the entire database."
 msgstr "전체 데이터베이스 내에서의 검색 허용."
 
-#: libraries/config/messages.inc.php:949
+#: libraries/config/messages.inc.php:951
 msgid "Use database search"
 msgstr "데이터베이스 검색 사용"
 
-#: libraries/config/messages.inc.php:951
+#: libraries/config/messages.inc.php:953
 msgid ""
 "When disabled, users cannot set any of the options below, regardless of the "
 "checkbox on the right."
@@ -7564,26 +7568,26 @@ msgstr ""
 "꺼져있을 경우, 사용자들은 오른쪽 체크박스에 관계없이 아래의 옵션 중 어느것도 "
 "설정할 수 없습니다."
 
-#: libraries/config/messages.inc.php:954
+#: libraries/config/messages.inc.php:956
 msgid "Enable the Developer tab in settings"
 msgstr "설정화면에서 개발자 탭을 가능하게 함"
 
-#: libraries/config/messages.inc.php:955 setup/frames/index.inc.php:314
+#: libraries/config/messages.inc.php:957 setup/frames/index.inc.php:316
 msgid "Check for latest version"
 msgstr "최신 버전 확인"
 
-#: libraries/config/messages.inc.php:957
+#: libraries/config/messages.inc.php:959
 msgid "Enables check for latest version on main phpMyAdmin page."
 msgstr "phpMyAdmin 메인 화면에서 최근 버전 확인을 활성화함."
 
-#: libraries/config/messages.inc.php:959 setup/lib/index.lib.php:120
+#: libraries/config/messages.inc.php:961 setup/lib/index.lib.php:120
 #: setup/lib/index.lib.php:143 setup/lib/index.lib.php:156
 #: setup/lib/index.lib.php:168 setup/lib/index.lib.php:176
 #: setup/lib/index.lib.php:183
 msgid "Version check"
 msgstr "버전 확인"
 
-#: libraries/config/messages.inc.php:961
+#: libraries/config/messages.inc.php:963
 msgid ""
 "The url of the proxy to be used when retrieving the information about the "
 "latest version of phpMyAdmin or when submitting error reports. You need this "
@@ -7595,30 +7599,30 @@ msgstr ""
 "고 프록시를 거쳐야 하는 경우 필요합니다. 양식은 \"hostname:포트 번호\" 입니"
 "다."
 
-#: libraries/config/messages.inc.php:966
+#: libraries/config/messages.inc.php:968
 msgid "Proxy url"
 msgstr "프록시 주소"
 
-#: libraries/config/messages.inc.php:968
+#: libraries/config/messages.inc.php:970
 msgid ""
 "The username for authenticating with the proxy. By default, no "
 "authentication is performed. If a username is supplied, Basic Authentication "
 "will be performed. No other types of authentication are currently supported."
 msgstr ""
 
-#: libraries/config/messages.inc.php:973
+#: libraries/config/messages.inc.php:975
 msgid "Proxy username"
 msgstr "프록시 사용자명"
 
-#: libraries/config/messages.inc.php:974
+#: libraries/config/messages.inc.php:976
 msgid "The password for authenticating with the proxy."
 msgstr "프록시를 이용한 인증에 사용할 암호입니다."
 
-#: libraries/config/messages.inc.php:975
+#: libraries/config/messages.inc.php:977
 msgid "Proxy password"
 msgstr "프록시 암호"
 
-#: libraries/config/messages.inc.php:978
+#: libraries/config/messages.inc.php:980
 msgid ""
 "Enable [a@http://en.wikipedia.org/wiki/ZIP_(file_format)]ZIP[/a] compression "
 "for import and export operations."
@@ -7626,35 +7630,35 @@ msgstr ""
 "가져오기와 내보내기 작업들에 대해 [a@http://en.wikipedia.org/wiki/"
 "ZIP_(file_format)]ZIP[/a] 압축이 가능하게 함."
 
-#: libraries/config/messages.inc.php:981
+#: libraries/config/messages.inc.php:983
 msgid "ZIP"
 msgstr "ZIP"
 
-#: libraries/config/messages.inc.php:983
+#: libraries/config/messages.inc.php:985
 msgid "Enter your public key for your domain reCaptcha service."
 msgstr "당신의 도메인의 reCaptcha 서비스를 위한 공개키를 입력하세요."
 
-#: libraries/config/messages.inc.php:985
+#: libraries/config/messages.inc.php:987
 msgid "Public key for reCaptcha"
 msgstr "reCaptcha용 공개 키(Public key)"
 
-#: libraries/config/messages.inc.php:987
+#: libraries/config/messages.inc.php:989
 msgid "Enter your private key for your domain reCaptcha service."
 msgstr "당신의 도메인의 reCaptcha 서비스를 위한 개인키를 입력하세요."
 
-#: libraries/config/messages.inc.php:989
+#: libraries/config/messages.inc.php:991
 msgid "Private key for reCaptcha"
 msgstr "reCaptcha용 개인 키(Private key)"
 
-#: libraries/config/messages.inc.php:992
+#: libraries/config/messages.inc.php:994
 msgid "Choose the default action when sending error reports."
 msgstr "오류 보고를 전송하기 전 물어보기."
 
-#: libraries/config/messages.inc.php:994
+#: libraries/config/messages.inc.php:996
 msgid "Send error reports"
 msgstr "오류보고서 전송"
 
-#: libraries/config/messages.inc.php:997
+#: libraries/config/messages.inc.php:999
 msgid ""
 "Queries are executed by pressing Enter (instead of Ctrl+Enter). New lines "
 "will be inserted with Shift+Enter."
@@ -7662,17 +7666,17 @@ msgstr ""
 "질의는 (Ctrl+Enter 대신)Enter를 누르면 실행됩니다. 새 줄은 Shift+Enter로 입"
 "력 가능합니다."
 
-#: libraries/config/messages.inc.php:1000
+#: libraries/config/messages.inc.php:1002
 msgid "Enter executes queries in console"
 msgstr ""
 
-#: libraries/config/messages.inc.php:1003
+#: libraries/config/messages.inc.php:1005
 msgid ""
 "Enable Zero Configuration mode which lets you setup phpMyAdmin configuration "
 "storage tables automatically."
 msgstr ""
 
-#: libraries/config/messages.inc.php:1006
+#: libraries/config/messages.inc.php:1008
 msgid "Enable Zero Configuration mode"
 msgstr "제로-설정 모드를 활성화함"
 
@@ -7692,38 +7696,38 @@ msgstr "HTTP 인증"
 msgid "Signon authentication"
 msgstr "Signon 인증"
 
-#: libraries/config/setup.forms.php:274
+#: libraries/config/setup.forms.php:275
 #: libraries/config/user_preferences.forms.php:175
 msgid "CSV using LOAD DATA"
 msgstr "LOAD DATA문을 이용한 CSV 들여오기"
 
-#: libraries/config/setup.forms.php:283 libraries/config/setup.forms.php:381
+#: libraries/config/setup.forms.php:284 libraries/config/setup.forms.php:382
 #: libraries/config/user_preferences.forms.php:183
 #: libraries/config/user_preferences.forms.php:280
 msgid "OpenDocument Spreadsheet"
 msgstr "Open Document 스프레드시트 형식"
 
-#: libraries/config/setup.forms.php:290
+#: libraries/config/setup.forms.php:291
 #: libraries/config/user_preferences.forms.php:190
 msgid "Quick"
 msgstr ""
 
-#: libraries/config/setup.forms.php:294
+#: libraries/config/setup.forms.php:295
 #: libraries/config/user_preferences.forms.php:194
 msgid "Custom"
 msgstr "사용자 지정"
 
-#: libraries/config/setup.forms.php:353
+#: libraries/config/setup.forms.php:354
 #: libraries/config/user_preferences.forms.php:252
 msgid "CSV for MS Excel"
 msgstr "MS엑셀 CSV 데이터"
 
-#: libraries/config/setup.forms.php:376
+#: libraries/config/setup.forms.php:377
 #: libraries/config/user_preferences.forms.php:275
 msgid "Microsoft Word 2000"
 msgstr "Microsoft Word 2000"
 
-#: libraries/config/setup.forms.php:385
+#: libraries/config/setup.forms.php:386
 #: libraries/config/user_preferences.forms.php:284
 msgid "OpenDocument Text"
 msgstr "OpenDocument 형식"
@@ -7733,20 +7737,20 @@ msgid "Favorite List is full!"
 msgstr "즐겨찾기 목록이 가득 찼습니다!"
 
 #: libraries/controllers/database/DatabaseStructureController.php:551
-#: tbl_operations.php:380
+#: tbl_operations.php:381
 #, php-format
 msgid "Table %s has been emptied."
 msgstr "테이블 %s 을 비웠습니다."
 
 #: libraries/controllers/database/DatabaseStructureController.php:572
-#: tbl_operations.php:398 view_operations.php:122
+#: tbl_operations.php:399 view_operations.php:122
 #, fuzzy, php-format
 #| msgid "View %s has been dropped."
 msgid "View %s has been dropped."
 msgstr "뷰 %s가 제거되었습니다."
 
 #: libraries/controllers/database/DatabaseStructureController.php:573
-#: tbl_operations.php:399
+#: tbl_operations.php:400
 #, fuzzy, php-format
 #| msgid "Table %s has been dropped."
 msgid "Table %s has been dropped."
@@ -7756,43 +7760,6 @@ msgstr "테이블 %s를 삭제했습니다."
 #: libraries/mysql_charsets.lib.php:359 libraries/mysql_charsets.lib.php:366
 msgid "unknown"
 msgstr "알수없음"
-
-#: libraries/controllers/server/ServerBinlogController.php:151
-msgid "Log name"
-msgstr "로그 이름"
-
-#: libraries/controllers/server/ServerBinlogController.php:152
-msgid "Position"
-msgstr "위치"
-
-#: libraries/controllers/server/ServerBinlogController.php:153
-#: libraries/rte/rte_events.lib.php:411
-msgid "Event type"
-msgstr "이벤트 종류"
-
-#: libraries/controllers/server/ServerBinlogController.php:154
-#: libraries/replication_gui.lib.php:618
-msgid "Server ID"
-msgstr "서버 아이디"
-
-#: libraries/controllers/server/ServerBinlogController.php:155
-msgid "Original position"
-msgstr "원본 위치"
-
-#: libraries/controllers/server/ServerBinlogController.php:156
-#: templates/table/structure/display_table_stats.phtml:4
-msgid "Information"
-msgstr "정보"
-
-#: libraries/controllers/server/ServerBinlogController.php:206
-#: libraries/server_status_processes.lib.php:177
-msgid "Truncate Shown Queries"
-msgstr "보여줄 쿼리 중략하기"
-
-#: libraries/controllers/server/ServerBinlogController.php:210
-#: libraries/server_status_processes.lib.php:182
-msgid "Show Full Queries"
-msgstr "전체 쿼리 보기"
 
 #: libraries/controllers/server/ServerDatabasesController.php:119
 msgid "No databases"
@@ -7812,7 +7779,7 @@ msgstr[0] "%1$d개의 데이터베이스를 삭제했습니다."
 #: libraries/controllers/server/ServerDatabasesController.php:341
 #: libraries/import.lib.php:109
 #: templates/database/structure/table_header.phtml:36
-#: templates/table/structure/actions_in_table_structure.phtml:111
+#: templates/table/structure/actions_in_table_structure.phtml:114
 #: templates/table/structure/display_partitions.phtml:29
 #: templates/table/structure/row_stats_table.phtml:42
 msgid "Rows"
@@ -7902,7 +7869,7 @@ msgid "Zoom search"
 msgstr "추가 검색"
 
 #: libraries/controllers/table/TableSearchController.php:832
-#: templates/table/search/selection_form.phtml:60
+#: templates/table/search/selection_form.phtml:59
 msgid "Find and replace"
 msgstr "찾기 및 바꾸기"
 
@@ -7944,7 +7911,7 @@ msgstr "변경"
 #: libraries/navigation/nodes/NodeIndex.php:30 libraries/tracking.lib.php:939
 #: templates/columns_definitions/column_indexes.phtml:16
 #: templates/columns_definitions/table_fields_definitions.phtml:57
-#: templates/table/structure/check_all_table_column.phtml:29
+#: templates/table/structure/check_all_table_column.phtml:30
 #: templates/table/structure/display_structure.phtml:86
 #: templates/table/structure/display_table_stats.phtml:22
 msgid "Index"
@@ -7959,7 +7926,7 @@ msgstr ""
 #: libraries/controllers/table/TableStructureController.php:1207
 #: libraries/controllers/table/TableStructureController.php:1212
 #: templates/columns_definitions/column_indexes.phtml:21
-#: templates/table/structure/check_all_table_column.phtml:38
+#: templates/table/structure/check_all_table_column.phtml:40
 msgid "Fulltext"
 msgstr "Fulltext"
 
@@ -7972,8 +7939,8 @@ msgstr "중복되지 않은 값"
 msgid "The %s extension is missing. Please check your PHP configuration."
 msgstr "%s 확장기능이 설치되지 않았습니다. PHP의 설정을 확인하십시오."
 
-#: libraries/core.lib.php:849 libraries/mult_submits.inc.php:332
-#: tbl_operations.php:210 tbl_replace.php:306 templates/preview_sql.phtml:3
+#: libraries/core.lib.php:827 libraries/mult_submits.inc.php:332
+#: tbl_operations.php:211 tbl_replace.php:306 templates/preview_sql.phtml:3
 msgid "No change"
 msgstr "변화 없음"
 
@@ -8001,7 +7968,7 @@ msgid "No Password"
 msgstr "암호 없음"
 
 #: libraries/display_change_password.lib.php:68
-#: libraries/plugins/auth/AuthenticationCookie.php:189
+#: libraries/plugins/auth/AuthenticationCookie.php:203
 #: libraries/replication_gui.lib.php:422 libraries/replication_gui.lib.php:862
 #: libraries/server_privileges.lib.php:1806
 msgid "Password:"
@@ -8751,12 +8718,12 @@ msgid "Dump has been saved to file %s."
 msgstr "덤프 파일이 %s에 저장되었습니다."
 
 #: libraries/import.lib.php:117 libraries/insert_edit.lib.php:122
-#: libraries/rte/rte_routines.lib.php:1444 libraries/sql.lib.php:1370
+#: libraries/rte/rte_routines.lib.php:1444 libraries/sql.lib.php:1366
 #: tbl_get_field.php:45
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "결과값이 없습니다. (빈 레코드 리턴)."
 
-#: libraries/import.lib.php:290 libraries/sql.lib.php:1384
+#: libraries/import.lib.php:290 libraries/sql.lib.php:1380
 msgid "[ROLLBACK occurred.]"
 msgstr ""
 
@@ -8853,7 +8820,7 @@ msgstr "또는"
 msgid "web server upload directory:"
 msgstr "웹 서버 업로드 디렉터리:"
 
-#: libraries/insert_edit.lib.php:1351 templates/table/search/input_box.phtml:46
+#: libraries/insert_edit.lib.php:1351 templates/table/search/input_box.phtml:49
 msgid "Edit/Insert"
 msgstr "편집/삽입"
 
@@ -8914,11 +8881,11 @@ msgstr "TAB 키나 CTRL+화살표로 값 사이를 이동할 수 있습니다"
 msgid "Value"
 msgstr "값"
 
-#: libraries/insert_edit.lib.php:1944 libraries/sql.lib.php:1367
+#: libraries/insert_edit.lib.php:1944 libraries/sql.lib.php:1363
 msgid "Showing SQL query"
 msgstr "SQL 쿼리 보기"
 
-#: libraries/insert_edit.lib.php:1969 libraries/sql.lib.php:1345
+#: libraries/insert_edit.lib.php:1969 libraries/sql.lib.php:1341
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "삽입된 행의 id: %1$d"
@@ -8939,17 +8906,17 @@ msgid "Success!"
 msgstr "성공!"
 
 #: libraries/mult_submits.lib.php:341 libraries/operations.lib.php:169
-#: libraries/operations.lib.php:1263 libraries/tracking.lib.php:531
+#: libraries/operations.lib.php:1259 libraries/tracking.lib.php:531
 msgid "Structure only"
 msgstr "구조만"
 
 #: libraries/mult_submits.lib.php:343 libraries/operations.lib.php:170
-#: libraries/operations.lib.php:1264 libraries/tracking.lib.php:537
+#: libraries/operations.lib.php:1260 libraries/tracking.lib.php:537
 msgid "Structure and data"
 msgstr "구조와 데이터 모두"
 
 #: libraries/mult_submits.lib.php:345 libraries/operations.lib.php:171
-#: libraries/operations.lib.php:1265 libraries/tracking.lib.php:534
+#: libraries/operations.lib.php:1261 libraries/tracking.lib.php:534
 msgid "Data only"
 msgstr "데이터만"
 
@@ -8960,13 +8927,13 @@ msgid "Add AUTO INCREMENT value"
 msgstr "AUTO_INCREMENT 값 추가"
 
 #: libraries/mult_submits.lib.php:351 libraries/operations.lib.php:225
-#: libraries/operations.lib.php:1288
+#: libraries/operations.lib.php:1284
 msgid "Add constraints"
 msgstr "제약조건 추가"
 
 #: libraries/mult_submits.lib.php:353 libraries/operations.lib.php:100
-#: libraries/operations.lib.php:243 libraries/operations.lib.php:862
-#: libraries/operations.lib.php:953 libraries/operations.lib.php:1307
+#: libraries/operations.lib.php:243 libraries/operations.lib.php:858
+#: libraries/operations.lib.php:949 libraries/operations.lib.php:1303
 #: libraries/rte/rte_routines.lib.php:1000
 #: templates/columns_definitions/table_fields_definitions.phtml:47
 #, fuzzy
@@ -9209,7 +9176,7 @@ msgid "Views:"
 msgstr "뷰:"
 
 #: libraries/navigation/Navigation.php:218 libraries/tracking.lib.php:286
-#: libraries/tracking.lib.php:1625 tbl_change.php:163
+#: libraries/tracking.lib.php:1625 tbl_change.php:164
 msgid "Show"
 msgstr "보기"
 
@@ -9358,7 +9325,7 @@ msgstr ""
 #: libraries/navigation/nodes/NodeViewContainer.php:25
 #: libraries/navigation/nodes/NodeViewContainer.php:26
 #: libraries/plugins/export/ExportXml.php:128
-#: templates/database/structure/show_create.phtml:29
+#: templates/database/structure/show_create.phtml:32
 msgid "Views"
 msgstr "뷰"
 
@@ -9644,8 +9611,8 @@ msgid "Rename database to"
 msgstr "데이터베이스 이름을 변경합니다"
 
 #: libraries/operations.lib.php:93 libraries/operations.lib.php:237
-#: libraries/operations.lib.php:856 libraries/operations.lib.php:947
-#: libraries/operations.lib.php:1301
+#: libraries/operations.lib.php:852 libraries/operations.lib.php:943
+#: libraries/operations.lib.php:1297
 #: templates/columns_definitions/column_adjust_privileges.phtml:16
 msgid ""
 "You don't have sufficient privileges to perform this operation; Please refer "
@@ -9679,191 +9646,191 @@ msgstr "복사 전에 CREATE DATABASE 실행"
 msgid "Switch to copied database"
 msgstr "복사한 테이블로 옮겨감"
 
-#: libraries/operations.lib.php:777
+#: libraries/operations.lib.php:773
 msgid "Alter table order by"
 msgstr "다음 순서대로 테이블 정렬(변경)"
 
-#: libraries/operations.lib.php:785
+#: libraries/operations.lib.php:781
 msgid "(singly)"
 msgstr "(단독으로)"
 
-#: libraries/operations.lib.php:821
+#: libraries/operations.lib.php:817
 msgid "Move table to (database<b>.</b>table)"
 msgstr "테이블 이동 (데이터베이스명<b>.</b>테이블명)"
 
-#: libraries/operations.lib.php:930
+#: libraries/operations.lib.php:926
 msgid "Rename table to"
 msgstr "테이블 이름 바꾸기"
 
-#: libraries/operations.lib.php:970
+#: libraries/operations.lib.php:966
 msgid "Table comments"
 msgstr "테이블 설명"
 
-#: libraries/operations.lib.php:1043
+#: libraries/operations.lib.php:1039
 msgid "Table options"
 msgstr "테이블 옵션"
 
-#: libraries/operations.lib.php:1050 templates/server/engines/engines.phtml:4
+#: libraries/operations.lib.php:1046 templates/server/engines/engines.phtml:4
 msgid "Storage Engine"
 msgstr "스토리지 엔진"
 
-#: libraries/operations.lib.php:1075
+#: libraries/operations.lib.php:1071
 msgid "Change all column collations"
 msgstr ""
 
-#: libraries/operations.lib.php:1246
+#: libraries/operations.lib.php:1242
 msgid "Copy table to (database<b>.</b>table)"
 msgstr "테이블 복사 (데이터베이스명<b>.</b>테이블명)"
 
-#: libraries/operations.lib.php:1322
+#: libraries/operations.lib.php:1318
 msgid "Switch to copied table"
 msgstr "복사한 테이블로 옮겨감"
 
-#: libraries/operations.lib.php:1349
+#: libraries/operations.lib.php:1345
 #: templates/database/structure/check_all_tables.phtml:19
 msgid "Table maintenance"
 msgstr "테이블 유지보수"
 
-#: libraries/operations.lib.php:1387
+#: libraries/operations.lib.php:1383
 #: templates/database/structure/check_all_tables.phtml:20
 msgid "Analyze table"
 msgstr "테이블 분석"
 
-#: libraries/operations.lib.php:1402
+#: libraries/operations.lib.php:1398
 #: templates/database/structure/check_all_tables.phtml:21
 msgid "Check table"
 msgstr "테이블 검사"
 
-#: libraries/operations.lib.php:1416
+#: libraries/operations.lib.php:1412
 #: templates/database/structure/check_all_tables.phtml:22
 #, fuzzy
 #| msgid "Check table"
 msgid "Checksum table"
 msgstr "테이블 검사"
 
-#: libraries/operations.lib.php:1430
+#: libraries/operations.lib.php:1426
 msgid "Defragment table"
 msgstr "테이블 단편화 제거"
 
-#: libraries/operations.lib.php:1442
+#: libraries/operations.lib.php:1438
 #, php-format
 msgid "Table %s has been flushed."
 msgstr "테이블 %s을 플러시 했습니다."
 
-#: libraries/operations.lib.php:1448
+#: libraries/operations.lib.php:1444
 msgid "Flush the table (FLUSH)"
 msgstr "테이블 갱신 (캐시 삭제)"
 
-#: libraries/operations.lib.php:1462
+#: libraries/operations.lib.php:1458
 #: templates/database/structure/check_all_tables.phtml:23
 #: templates/table/structure/display_table_stats.phtml:59
 msgid "Optimize table"
 msgstr "테이블 최적화"
 
-#: libraries/operations.lib.php:1477
+#: libraries/operations.lib.php:1473
 #: templates/database/structure/check_all_tables.phtml:24
 msgid "Repair table"
 msgstr "테이블 복구"
 
-#: libraries/operations.lib.php:1523
+#: libraries/operations.lib.php:1519
 #: templates/database/structure/check_all_tables.phtml:15
 #: view_operations.php:130
 msgid "Delete data or table"
 msgstr "데이터나 테이블 삭제"
 
-#: libraries/operations.lib.php:1531
+#: libraries/operations.lib.php:1527
 msgid "Empty the table (TRUNCATE)"
 msgstr "테이블 내용 비우기(TRUNCATE)"
 
-#: libraries/operations.lib.php:1539
+#: libraries/operations.lib.php:1535
 msgid "Delete the table (DROP)"
 msgstr "테이블 삭제(DROP)"
 
-#: libraries/operations.lib.php:1579
+#: libraries/operations.lib.php:1575
 #: templates/table/structure/display_structure.phtml:191
 msgid "Analyze"
 msgstr "분석"
 
-#: libraries/operations.lib.php:1580
+#: libraries/operations.lib.php:1576
 #: templates/table/structure/display_structure.phtml:192
 msgid "Check"
 msgstr "검사"
 
-#: libraries/operations.lib.php:1581
+#: libraries/operations.lib.php:1577
 #: templates/table/structure/display_structure.phtml:193
 msgid "Optimize"
 msgstr "옵티마이저"
 
-#: libraries/operations.lib.php:1582
+#: libraries/operations.lib.php:1578
 #: templates/table/structure/display_structure.phtml:194
 msgid "Rebuild"
 msgstr "리빌드"
 
-#: libraries/operations.lib.php:1583
+#: libraries/operations.lib.php:1579
 #: templates/table/structure/display_structure.phtml:195
 msgid "Repair"
 msgstr "복구"
 
-#: libraries/operations.lib.php:1584
+#: libraries/operations.lib.php:1580
 #: templates/table/structure/display_structure.phtml:196
 msgid "Truncate"
 msgstr ""
 
-#: libraries/operations.lib.php:1594
+#: libraries/operations.lib.php:1590
 #, fuzzy
 #| msgid "Collapse"
 msgid "Coalesce"
 msgstr "접기"
 
-#: libraries/operations.lib.php:1603
+#: libraries/operations.lib.php:1599
 msgid "Partition maintenance"
 msgstr "파티션 유지 보수"
 
-#: libraries/operations.lib.php:1620
+#: libraries/operations.lib.php:1616
 #, php-format
 msgid "Partition %s"
 msgstr "파티션 %s"
 
-#: libraries/operations.lib.php:1638
-#: templates/table/structure/display_partitions.phtml:137
+#: libraries/operations.lib.php:1634
+#: templates/table/structure/display_partitions.phtml:138
 msgid "Remove partitioning"
 msgstr "파티셔닝 삭제"
 
-#: libraries/operations.lib.php:1664
+#: libraries/operations.lib.php:1660
 msgid "Check referential integrity:"
 msgstr "referential 무결성 검사:"
 
-#: libraries/operations.lib.php:2081
+#: libraries/operations.lib.php:2077
 msgid "Can't move table to same one!"
 msgstr "같은 테이블이 있어 옮길 수 없음!"
 
-#: libraries/operations.lib.php:2083
+#: libraries/operations.lib.php:2079
 msgid "Can't copy table to same one!"
 msgstr "같은 테이블이 있어 복사할 수 없음!"
 
-#: libraries/operations.lib.php:2107
+#: libraries/operations.lib.php:2103
 #, fuzzy, php-format
 #| msgid "Table %s has been moved to %s."
 msgid "Table %s has been moved to %s. Privileges have been adjusted."
 msgstr "테이블 %s 을 %s 로 옮겼습니다."
 
-#: libraries/operations.lib.php:2114
+#: libraries/operations.lib.php:2110
 #, fuzzy, php-format
 #| msgid "Table %s has been copied to %s."
 msgid "Table %s has been copied to %s. Privileges have been adjusted."
 msgstr "%s 테이블이 %s 으로 복사되었습니다."
 
-#: libraries/operations.lib.php:2123
+#: libraries/operations.lib.php:2119
 #, php-format
 msgid "Table %s has been moved to %s."
 msgstr "테이블 %s 을 %s 로 옮겼습니다."
 
-#: libraries/operations.lib.php:2127
+#: libraries/operations.lib.php:2123
 #, php-format
 msgid "Table %s has been copied to %s."
 msgstr "%s 테이블이 %s 으로 복사되었습니다."
 
-#: libraries/operations.lib.php:2149
+#: libraries/operations.lib.php:2145
 msgid "The table name is empty!"
 msgstr "테이블명이 없습니다!"
 
@@ -9902,8 +9869,8 @@ msgid "Cannot connect: invalid settings."
 msgstr "연결할 수 없습니다: 잘못된 설정."
 
 #: libraries/plugins/auth/AuthenticationConfig.php:98
-#: libraries/plugins/auth/AuthenticationCookie.php:124
-#: libraries/plugins/auth/AuthenticationHttp.php:94
+#: libraries/plugins/auth/AuthenticationCookie.php:138
+#: libraries/plugins/auth/AuthenticationHttp.php:92
 #, php-format
 msgid "Welcome to %s"
 msgstr "%s에 오셨습니다"
@@ -9932,42 +9899,42 @@ msgstr ""
 msgid "Retry to connect"
 msgstr ""
 
-#: libraries/plugins/auth/AuthenticationCookie.php:136
+#: libraries/plugins/auth/AuthenticationCookie.php:150
 msgid "Your session has expired. Please log in again."
 msgstr "세션유효기간이 만료되었습니다. 다시 로그인하세요."
 
-#: libraries/plugins/auth/AuthenticationCookie.php:160
+#: libraries/plugins/auth/AuthenticationCookie.php:174
 msgid "Log in"
 msgstr "로그인"
 
-#: libraries/plugins/auth/AuthenticationCookie.php:168
-#: libraries/plugins/auth/AuthenticationCookie.php:178
+#: libraries/plugins/auth/AuthenticationCookie.php:182
+#: libraries/plugins/auth/AuthenticationCookie.php:192
 msgid "You can enter hostname/IP address and port separated by space."
 msgstr "호스트이름/IP주소와 포트를 공백으로 구분하여 입력할 수 있습니다."
 
-#: libraries/plugins/auth/AuthenticationCookie.php:183
+#: libraries/plugins/auth/AuthenticationCookie.php:197
 msgid "Username:"
 msgstr "사용자명:"
 
-#: libraries/plugins/auth/AuthenticationCookie.php:195
+#: libraries/plugins/auth/AuthenticationCookie.php:209
 msgid "Server Choice:"
 msgstr "서버 선택:"
 
-#: libraries/plugins/auth/AuthenticationCookie.php:356
+#: libraries/plugins/auth/AuthenticationCookie.php:370
 msgid "Entered captcha is wrong, try again!"
 msgstr ""
 
-#: libraries/plugins/auth/AuthenticationCookie.php:360
+#: libraries/plugins/auth/AuthenticationCookie.php:374
 msgid "Please enter correct captcha!"
 msgstr ""
 
-#: libraries/plugins/auth/AuthenticationCookie.php:386
+#: libraries/plugins/auth/AuthenticationCookie.php:400
 #, fuzzy
 #| msgid "Cannot log in to the MySQL server"
 msgid "You are not allowed to log in to this MySQL server!"
 msgstr "MySQL 서버에 로그인할 수 없습니다"
 
-#: libraries/plugins/auth/AuthenticationHttp.php:99
+#: libraries/plugins/auth/AuthenticationHttp.php:97
 msgid "Wrong username/password. Access denied."
 msgstr "사용자명/암호가 틀렸습니다. 접근이 거부되었습니다."
 
@@ -10375,17 +10342,17 @@ msgid "Metadata for database %s"
 msgstr "%s 데이터 누락"
 
 #: libraries/plugins/export/ExportSql.php:1401
-#: libraries/plugins/schema/pdf/PdfRelationSchema.php:603
+#: libraries/plugins/schema/pdf/PdfRelationSchema.php:602
 msgid "Creation:"
 msgstr "생성:"
 
 #: libraries/plugins/export/ExportSql.php:1414
-#: libraries/plugins/schema/pdf/PdfRelationSchema.php:610
+#: libraries/plugins/schema/pdf/PdfRelationSchema.php:609
 msgid "Last update:"
 msgstr "마지막 업데이트:"
 
 #: libraries/plugins/export/ExportSql.php:1427
-#: libraries/plugins/schema/pdf/PdfRelationSchema.php:617
+#: libraries/plugins/schema/pdf/PdfRelationSchema.php:616
 msgid "Last check:"
 msgstr "마지막 검사:"
 
@@ -10664,7 +10631,7 @@ msgstr "내림차순"
 
 #: libraries/plugins/schema/dia/TableStatsDia.php:74
 #: libraries/plugins/schema/eps/TableStatsEps.php:92
-#: libraries/plugins/schema/pdf/TableStatsPdf.php:94
+#: libraries/plugins/schema/pdf/TableStatsPdf.php:93
 #: libraries/plugins/schema/svg/TableStatsSvg.php:92
 #, php-format
 msgid "The %s table doesn't exist!"
@@ -10682,22 +10649,22 @@ msgstr "데이터베이스 %s의 스키마 - 페이지 %s"
 msgid "PDF export page"
 msgstr "잘못된 내보내기 타입"
 
-#: libraries/plugins/schema/pdf/PdfRelationSchema.php:102
+#: libraries/plugins/schema/pdf/PdfRelationSchema.php:101
 #, php-format
 msgid "Schema of the %s database"
 msgstr "데이터베이스 %s의 스키마"
 
-#: libraries/plugins/schema/pdf/PdfRelationSchema.php:130
-#: libraries/plugins/schema/pdf/PdfRelationSchema.php:525
+#: libraries/plugins/schema/pdf/PdfRelationSchema.php:129
+#: libraries/plugins/schema/pdf/PdfRelationSchema.php:524
 msgid "Relational schema"
 msgstr "릴레이션 스키마"
 
-#: libraries/plugins/schema/pdf/PdfRelationSchema.php:486
+#: libraries/plugins/schema/pdf/PdfRelationSchema.php:485
 msgid "Table of contents"
 msgstr "목차(차례)"
 
-#: libraries/plugins/schema/pdf/PdfRelationSchema.php:634
-#: libraries/plugins/schema/pdf/PdfRelationSchema.php:657
+#: libraries/plugins/schema/pdf/PdfRelationSchema.php:633
+#: libraries/plugins/schema/pdf/PdfRelationSchema.php:656
 #: libraries/tracking.lib.php:897
 #: templates/table/structure/table_structure_header.phtml:16
 msgid "Extra"
@@ -11287,6 +11254,10 @@ msgstr "슬레이브 상태"
 msgid "Variable"
 msgstr "변수"
 
+#: libraries/replication_gui.lib.php:618 libraries/server_bin_log.lib.php:129
+msgid "Server ID"
+msgstr "서버 아이디"
+
 #: libraries/replication_gui.lib.php:619 libraries/replication_gui.lib.php:707
 #: libraries/replication_gui.lib.php:851
 #: libraries/server_status_processes.lib.php:75
@@ -11462,6 +11433,10 @@ msgstr "자세한 내용"
 #: libraries/rte/rte_events.lib.php:390
 msgid "Event name"
 msgstr "이벤트 이름"
+
+#: libraries/rte/rte_events.lib.php:411 libraries/server_bin_log.lib.php:128
+msgid "Event type"
+msgstr "이벤트 종류"
 
 #: libraries/rte/rte_events.lib.php:433 libraries/rte/rte_routines.lib.php:905
 #, php-format
@@ -11817,6 +11792,37 @@ msgstr "표시할 이벤트가 없습니다."
 #: libraries/select_server.lib.php:40 libraries/select_server.lib.php:45
 msgid "Current server:"
 msgstr "현재 서버:"
+
+#: libraries/server_bin_log.lib.php:28
+msgid "Select binary log to view"
+msgstr "표시할 바이너리 로그를 선택하세요"
+
+#: libraries/server_bin_log.lib.php:126
+msgid "Log name"
+msgstr "로그 이름"
+
+#: libraries/server_bin_log.lib.php:127
+msgid "Position"
+msgstr "위치"
+
+#: libraries/server_bin_log.lib.php:130
+msgid "Original position"
+msgstr "원본 위치"
+
+#: libraries/server_bin_log.lib.php:131
+#: templates/table/structure/display_table_stats.phtml:4
+msgid "Information"
+msgstr "정보"
+
+#: libraries/server_bin_log.lib.php:181
+#: libraries/server_status_processes.lib.php:174
+msgid "Truncate Shown Queries"
+msgstr "보여줄 쿼리 중략하기"
+
+#: libraries/server_bin_log.lib.php:185
+#: libraries/server_status_processes.lib.php:179
+msgid "Show Full Queries"
+msgstr "전체 쿼리 보기"
 
 #: libraries/server_common.lib.php:24
 msgid "Server variables and settings"
@@ -12744,13 +12750,13 @@ msgstr "커맨드"
 msgid "Progress"
 msgstr ""
 
-#: libraries/server_status_processes.lib.php:232
+#: libraries/server_status_processes.lib.php:224
 #: libraries/server_status_variables.lib.php:36
 #: templates/server/variables/variable_filter.phtml:2
 msgid "Filters"
 msgstr "검색어"
 
-#: libraries/server_status_processes.lib.php:240
+#: libraries/server_status_processes.lib.php:232
 #, fuzzy
 #| msgid "Show only alert values"
 msgid "Show only active"
@@ -13686,22 +13692,22 @@ msgstr ""
 msgid "Let every user access this bookmark"
 msgstr ""
 
-#: libraries/sql.lib.php:785
+#: libraries/sql.lib.php:786
 #, fuzzy
 #| msgid "Bookmark %s created"
 msgid "Bookmark not created!"
 msgstr "북마크 %s가 생성되었습니다."
 
-#: libraries/sql.lib.php:894
+#: libraries/sql.lib.php:895
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr ""
 
-#: libraries/sql.lib.php:1364
+#: libraries/sql.lib.php:1360
 msgid "Showing as PHP code"
 msgstr "PHP 코드 보기"
 
-#: libraries/sql.lib.php:1736
+#: libraries/sql.lib.php:1732
 #, fuzzy, php-format
 #| msgid ""
 #| "This table does not contain a unique column. Grid edit, checkbox, Edit, "
@@ -13713,7 +13719,7 @@ msgstr ""
 "이 테이블에는 유일 속성을 가진 컬럼이 없습니다. 격자창 편집, 체크박스, 편집, "
 "복사, 삭제 기능을 사용할 수 없습니다."
 
-#: libraries/sql.lib.php:1750
+#: libraries/sql.lib.php:1746
 #, fuzzy, php-format
 #| msgid ""
 #| "This table does not contain a unique column. Grid edit, checkbox, Edit, "
@@ -13725,7 +13731,7 @@ msgstr ""
 "이 테이블에는 유일 속성을 가진 컬럼이 없습니다. 격자창 편집, 체크박스, 편집, "
 "복사, 삭제 기능을 사용할 수 없습니다."
 
-#: libraries/sql.lib.php:1792
+#: libraries/sql.lib.php:1788
 #, php-format
 msgid "Problems with indexes of table `%s`"
 msgstr ""
@@ -14138,7 +14144,7 @@ msgstr ""
 "phpMyAdmin이 쓰레드 %s를 종료하는데 실패했습니다. 이미 해당 쓰레드가 종료되었"
 "을 것입니다."
 
-#: server_status_queries.php:42
+#: server_status_queries.php:47
 msgid "Not enough privilege to view query statistics."
 msgstr ""
 
@@ -14146,7 +14152,7 @@ msgstr ""
 msgid "Not enough privilege to view status variables."
 msgstr ""
 
-#: setup/frames/config.inc.php:42 setup/frames/index.inc.php:278
+#: setup/frames/config.inc.php:42 setup/frames/index.inc.php:280
 msgid "Download"
 msgstr "다운로드"
 
@@ -14187,67 +14193,67 @@ msgstr ""
 msgid "Insecure connection"
 msgstr "보호되지 않은 연결"
 
-#: setup/frames/index.inc.php:122
+#: setup/frames/index.inc.php:123
 msgid "Configuration saved."
 msgstr "설정이 저장되었습니다."
 
-#: setup/frames/index.inc.php:125
+#: setup/frames/index.inc.php:126
 msgid ""
 "Configuration saved to file config/config.inc.php in phpMyAdmin top level "
 "directory, copy it to top level one and delete directory config to use it."
 msgstr ""
 
-#: setup/frames/index.inc.php:136 setup/frames/menu.inc.php:19
+#: setup/frames/index.inc.php:137 setup/frames/menu.inc.php:19
 msgid "Overview"
 msgstr ""
 
-#: setup/frames/index.inc.php:143
+#: setup/frames/index.inc.php:144
 msgid "Show hidden messages (#MSG_COUNT)"
 msgstr ""
 
-#: setup/frames/index.inc.php:196
+#: setup/frames/index.inc.php:197
 #, fuzzy
 #| msgid "There are no recent tables"
 msgid "There are no configured servers"
 msgstr "최근 테이블이 없습니다."
 
-#: setup/frames/index.inc.php:205
+#: setup/frames/index.inc.php:206
 msgid "New server"
 msgstr "새 서버"
 
-#: setup/frames/index.inc.php:234
+#: setup/frames/index.inc.php:236
 msgid "Default language"
 msgstr "기본 언어"
 
-#: setup/frames/index.inc.php:244
+#: setup/frames/index.inc.php:246
 msgid "let the user choose"
 msgstr "사용자 선택"
 
-#: setup/frames/index.inc.php:255
+#: setup/frames/index.inc.php:257
 msgid "- none -"
 msgstr "-없음-"
 
-#: setup/frames/index.inc.php:259
+#: setup/frames/index.inc.php:261
 msgid "Default server"
 msgstr "기본 서버"
 
-#: setup/frames/index.inc.php:271
+#: setup/frames/index.inc.php:273
 msgid "End of line"
 msgstr "줄 끝"
 
-#: setup/frames/index.inc.php:277
+#: setup/frames/index.inc.php:279
 msgid "Display"
 msgstr "보기"
 
-#: setup/frames/index.inc.php:287
+#: setup/frames/index.inc.php:289
 msgid "Load"
 msgstr "로드"
 
-#: setup/frames/index.inc.php:310
+#: setup/frames/index.inc.php:312
 msgid "phpMyAdmin homepage"
 msgstr "phpMyAdmin 홈페이지"
 
-#: setup/frames/index.inc.php:312
+#: setup/frames/index.inc.php:314
 msgid "Donate"
 msgstr "기부"
 
@@ -14373,25 +14379,25 @@ msgstr "없음"
 msgid "As defined:"
 msgstr "사용자 정의:"
 
-#: templates/columns_definitions/column_definitions_form.phtml:48
+#: templates/columns_definitions/column_definitions_form.phtml:44
 msgid "Table name"
 msgstr "테이블 이름"
 
-#: templates/columns_definitions/column_definitions_form.phtml:92
+#: templates/columns_definitions/column_definitions_form.phtml:88
 msgid "Collation:"
 msgstr "데이터정렬방식:"
 
-#: templates/columns_definitions/column_definitions_form.phtml:96
+#: templates/columns_definitions/column_definitions_form.phtml:92
 msgid "Storage Engine:"
 msgstr "저장 엔진:"
 
-#: templates/columns_definitions/column_definitions_form.phtml:101
+#: templates/columns_definitions/column_definitions_form.phtml:97
 #, fuzzy
 #| msgid "Connections"
 msgid "Connection:"
 msgstr "연결 수"
 
-#: templates/columns_definitions/column_definitions_form.phtml:146
+#: templates/columns_definitions/column_definitions_form.phtml:142
 msgid "PARTITION definition:"
 msgstr ""
 
@@ -14409,7 +14415,7 @@ msgstr "참고키 선택"
 msgid "Is a foreign key."
 msgstr "외래키 입니까."
 
-#: templates/columns_definitions/column_name.phtml:43
+#: templates/columns_definitions/column_name.phtml:44
 #, fuzzy
 #| msgid "Remove from Favorites"
 msgid "Pick from Central Columns"
@@ -14928,7 +14934,7 @@ msgstr ""
 msgid "Please explain the steps that lead to the error:"
 msgstr ""
 
-#: templates/prefs_autoload.phtml:8
+#: templates/prefs_autoload.phtml:9
 msgid ""
 "Your browser has phpMyAdmin configuration for this domain. Would you like to "
 "import it for current session?"
@@ -14957,10 +14963,6 @@ msgstr "다음 테이블에 대한 권한 추가:"
 #: templates/privileges/privileges_summary.phtml:21
 msgid "Column-specific privileges"
 msgstr "열(칼럼)에 관한 권한"
-
-#: templates/server/binlog/log_selector.phtml:5
-msgid "Select binary log to view"
-msgstr "표시할 바이너리 로그를 선택하세요"
 
 #: templates/server/databases/create.phtml:7
 #: templates/server/databases/create.phtml:27
@@ -15067,39 +15069,39 @@ msgstr "X축:"
 msgid "Series:"
 msgstr "시리즈:"
 
-#: templates/table/chart/tbl_chart.phtml:104
+#: templates/table/chart/tbl_chart.phtml:103
 msgid "X-Axis label:"
 msgstr "X축 레이블:"
 
-#: templates/table/chart/tbl_chart.phtml:106
+#: templates/table/chart/tbl_chart.phtml:105
 msgid "X Values"
 msgstr "X 값"
 
-#: templates/table/chart/tbl_chart.phtml:109
+#: templates/table/chart/tbl_chart.phtml:108
 msgid "Y-Axis label:"
 msgstr "Y축 레이블:"
 
-#: templates/table/chart/tbl_chart.phtml:111
+#: templates/table/chart/tbl_chart.phtml:110
 msgid "Y Values"
 msgstr "Y값"
 
-#: templates/table/chart/tbl_chart.phtml:117
+#: templates/table/chart/tbl_chart.phtml:116
 msgid "Series names are in a column"
 msgstr ""
 
-#: templates/table/chart/tbl_chart.phtml:120
+#: templates/table/chart/tbl_chart.phtml:119
 #, fuzzy
 #| msgid "Inside column:"
 msgid "Series column:"
 msgstr "검색할 컬럼:"
 
-#: templates/table/chart/tbl_chart.phtml:134
+#: templates/table/chart/tbl_chart.phtml:131
 #, fuzzy
 #| msgid "Values for column %s"
 msgid "Value Column:"
 msgstr "\"%s\" 열의 값"
 
-#: templates/table/chart/tbl_chart.phtml:154
+#: templates/table/chart/tbl_chart.phtml:151
 msgid "Save chart as image"
 msgstr "차트를 이미지 파일로 저장"
 
@@ -15158,7 +15160,7 @@ msgstr "사용자:"
 msgid "Comment:"
 msgstr "설명:"
 
-#: templates/table/index_form.phtml:149 templates/table/index_form.phtml:195
+#: templates/table/index_form.phtml:149 templates/table/index_form.phtml:190
 #, fuzzy
 #| msgid "Drag to reorder."
 msgid "Drag to reorder"
@@ -15180,36 +15182,36 @@ msgstr "실행"
 msgid "Constraint properties"
 msgstr "테이블의 제약사항"
 
-#: templates/table/relation/common_form.phtml:12
+#: templates/table/relation/common_form.phtml:13
 msgid ""
 "Only columns with index will be displayed. You can define an index below."
 msgstr ""
 
-#: templates/table/relation/common_form.phtml:17
+#: templates/table/relation/common_form.phtml:18
 msgid "Foreign key constraint"
 msgstr "외래키 제약"
 
-#: templates/table/relation/common_form.phtml:59
+#: templates/table/relation/common_form.phtml:60
 msgid "+ Add constraint"
 msgstr "+ 제약조건 추가"
 
-#: templates/table/relation/common_form.phtml:69
-#: templates/table/relation/common_form.phtml:75
+#: templates/table/relation/common_form.phtml:70
+#: templates/table/relation/common_form.phtml:76
 msgid "Internal relations"
 msgstr "내부 릴레이션"
 
-#: templates/table/relation/common_form.phtml:79
+#: templates/table/relation/common_form.phtml:80
 msgid "Internal relation"
 msgstr "내부 릴레이션"
 
-#: templates/table/relation/common_form.phtml:82
+#: templates/table/relation/common_form.phtml:83
 msgid ""
 "An internal relation is not necessary when a corresponding FOREIGN KEY "
 "relation exists."
 msgstr ""
 "외래키 릴레이션이 있을 경우, 거기에 해당하는 내부 릴레이션은 필요 없습니다."
 
-#: templates/table/relation/common_form.phtml:110
+#: templates/table/relation/common_form.phtml:111
 msgid "Choose column to display:"
 msgstr "출력할 필드 선택:"
 
@@ -15218,11 +15220,11 @@ msgstr "출력할 필드 선택:"
 msgid "Foreign key constraint %s has been dropped"
 msgstr "외래키 제약 %s 가 제거되었습니다"
 
-#: templates/table/relation/foreign_key_row.phtml:86
+#: templates/table/relation/foreign_key_row.phtml:84
 msgid "Constraint name"
 msgstr ""
 
-#: templates/table/relation/foreign_key_row.phtml:141
+#: templates/table/relation/foreign_key_row.phtml:139
 #, fuzzy
 #| msgid "Add column"
 msgid "+ Add column"
@@ -15284,7 +15286,7 @@ msgstr "정규표현식 사용"
 msgid "Do a \"query by example\" (wildcard: \"%\") for two different columns"
 msgstr "두 개의 다른 컬럼을 위해 다음으로 질의를 만들기 (와일드카드: \"%\")"
 
-#: templates/table/search/selection_form.phtml:35
+#: templates/table/search/selection_form.phtml:34
 msgid "Do a \"query by example\" (wildcard: \"%\")"
 msgstr "다음으로 질의를 만들기 (와일드카드: \"%\")"
 
@@ -15306,28 +15308,28 @@ msgstr "줌 초기화"
 msgid "Relation view"
 msgstr "릴레이션 뷰"
 
-#: templates/table/structure/actions_in_table_structure.phtml:15
+#: templates/table/structure/actions_in_table_structure.phtml:16
 #, php-format
 msgid "A primary key has been added on %s."
 msgstr "%s에 기본 키가 추가되었습니다."
 
-#: templates/table/structure/actions_in_table_structure.phtml:34
-#: templates/table/structure/actions_in_table_structure.phtml:53
-#: templates/table/structure/actions_in_table_structure.phtml:78
-#: templates/table/structure/actions_in_table_structure.phtml:100
+#: templates/table/structure/actions_in_table_structure.phtml:36
+#: templates/table/structure/actions_in_table_structure.phtml:56
+#: templates/table/structure/actions_in_table_structure.phtml:81
+#: templates/table/structure/actions_in_table_structure.phtml:103
 #, php-format
 msgid "An index has been added on %s."
 msgstr "%s에 인덱스를 추가했습니다."
 
-#: templates/table/structure/actions_in_table_structure.phtml:128
-#: templates/table/structure/check_all_table_column.phtml:50
+#: templates/table/structure/actions_in_table_structure.phtml:131
+#: templates/table/structure/check_all_table_column.phtml:52
 #, fuzzy
 #| msgid "Remove from Favorites"
 msgid "Remove from central columns"
 msgstr "즐겨찾기에서 삭제"
 
-#: templates/table/structure/actions_in_table_structure.phtml:136
-#: templates/table/structure/check_all_table_column.phtml:45
+#: templates/table/structure/actions_in_table_structure.phtml:139
+#: templates/table/structure/check_all_table_column.phtml:48
 #, fuzzy
 #| msgid "CHAR textarea columns"
 msgid "Add to central columns"
@@ -15379,13 +15381,13 @@ msgstr "행 길이"
 msgid "Index length"
 msgstr "인덱스 길이"
 
-#: templates/table/structure/display_partitions.phtml:135
+#: templates/table/structure/display_partitions.phtml:136
 #, fuzzy
 #| msgid "partitioned"
 msgid "Partition table"
 msgstr "파티션 있음"
 
-#: templates/table/structure/display_partitions.phtml:138
+#: templates/table/structure/display_partitions.phtml:139
 #: templates/table/structure/partition_definition_form.phtml:7
 #, fuzzy
 #| msgid "Remove partitioning"
@@ -16739,22 +16741,6 @@ msgstr ""
 #: libraries/advisory_rules.txt:457
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert가 0으로 설정되었습니다"
-
-#~ msgid ""
-#~ "The [code]$cfg['PmaAbsoluteUri'][/code] directive MUST be set in your "
-#~ "configuration file!"
-#~ msgstr ""
-#~ "환경설정 파일에 [code]$cfg['PmaAbsoluteUri'][/code] 변수가 정의되어야 합니"
-#~ "다!"
-
-#~ msgid "This %soption%s should be enabled if your web server supports it."
-#~ msgstr "웹서버가 지원한다면 이 %s옵션 %s이 활성화됩니다."
-
-#~ msgid "Force secured connection while using phpMyAdmin."
-#~ msgstr "강제적인 보안 연결로 phpMyAdmin을 사용하기."
-
-#~ msgid "Force SSL connection"
-#~ msgstr "강제적인 SSL 연결"
 
 #~ msgid "Replace table prefix:"
 #~ msgstr "테이블의 접두사를 교체:"

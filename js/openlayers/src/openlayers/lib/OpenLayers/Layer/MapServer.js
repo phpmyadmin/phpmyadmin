@@ -1,6 +1,6 @@
-/* Copyright (c) 2006-2013 by OpenLayers Contributors (see authors.txt for
- * full list of contributors). Published under the 2-clause BSD license.
- * See license.txt in the OpenLayers distribution or repository for the
+/* Copyright (c) 2006-2010 by OpenLayers Contributors (see authors.txt for 
+ * full list of contributors). Published under the Clear BSD license.  
+ * See http://svn.openlayers.org/trunk/openlayers/license.txt for the
  * full text of the license. */
 
 /**
@@ -36,10 +36,12 @@ OpenLayers.Layer.MapServer = OpenLayers.Class(OpenLayers.Layer.Grid, {
      *       (e.g. http://www2.dmsolutions.ca/cgi-bin/mapserv)
      * params - {Object} An object with key/value pairs representing the
      *          GetMap query string parameters and parameter values.
-     * options - {Object} Hashtable of extra options to tag onto the layer
+     * options - {Ojbect} Hashtable of extra options to tag onto the layer
      */
     initialize: function(name, url, params, options) {
-        OpenLayers.Layer.Grid.prototype.initialize.apply(this, arguments);
+        var newArguments = [];
+        newArguments.push(name, url, params, options);
+        OpenLayers.Layer.Grid.prototype.initialize.apply(this, newArguments);
 
         this.params = OpenLayers.Util.applyDefaults(
             this.params, this.DEFAULT_PARAMS
@@ -73,6 +75,22 @@ OpenLayers.Layer.MapServer = OpenLayers.Class(OpenLayers.Layer.Grid, {
         // copy/set any non-init, non-simple values here
 
         return obj;
+    },
+
+    /**
+     * Method: addTile
+     * Creates a tile, initializes it, and adds it to the layer div. 
+     *
+     * Parameters:
+     * bounds - {<OpenLayers.Bounds>}
+     * position - {<OpenLayers.Pixel>}
+     * 
+     * Returns:
+     * {<OpenLayers.Tile.Image>} The added OpenLayers.Tile.Image
+     */
+    addTile:function(bounds,position) {
+        return new OpenLayers.Tile.Image(this, position, bounds, 
+                                         null, this.tileSize);
     },
     
     /**
@@ -112,7 +130,7 @@ OpenLayers.Layer.MapServer = OpenLayers.Class(OpenLayers.Layer.Grid, {
      * Method: getFullRequestString
      * combine the layer's url with its params and these newParams. 
      *   
-     * Parameters:
+     * Parameter:
      * newParams - {Object} New parameters that should be added to the 
      *                      request string.
      * altUrl - {String} (optional) Replace the URL in the full request  
@@ -134,7 +152,7 @@ OpenLayers.Layer.MapServer = OpenLayers.Class(OpenLayers.Layer.Grid, {
         // if url is not a string, it should be an array of strings, 
         // in which case we will deterministically select one of them in 
         // order to evenly distribute requests to different urls.
-        if (OpenLayers.Util.isArray(url)) {
+        if (url instanceof Array) {
             url = this.selectUrl(paramsString, url);
         }   
         

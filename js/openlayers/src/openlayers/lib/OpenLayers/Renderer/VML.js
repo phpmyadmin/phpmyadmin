@@ -1,6 +1,6 @@
-/* Copyright (c) 2006-2013 by OpenLayers Contributors (see authors.txt for
- * full list of contributors). Published under the 2-clause BSD license.
- * See license.txt in the OpenLayers distribution or repository for the
+/* Copyright (c) 2006-2010 by OpenLayers Contributors (see authors.txt for 
+ * full list of contributors). Published under the Clear BSD license.  
+ * See http://svn.openlayers.org/trunk/openlayers/license.txt for the
  * full text of the license. */
 
 /**
@@ -67,6 +67,14 @@ OpenLayers.Renderer.VML = OpenLayers.Class(OpenLayers.Renderer.Elements, {
     },
 
     /**
+     * APIMethod: destroy
+     * Deconstruct the renderer.
+     */
+    destroy: function() {
+        OpenLayers.Renderer.Elements.prototype.destroy.apply(this, arguments);
+    },
+
+    /**
      * APIMethod: supported
      * Determine whether a browser supports this renderer.
      *
@@ -90,7 +98,8 @@ OpenLayers.Renderer.VML = OpenLayers.Class(OpenLayers.Renderer.Elements, {
      *     the coordinate range, and the features will not need to be redrawn.
      */
     setExtent: function(extent, resolutionChanged) {
-        var coordSysUnchanged = OpenLayers.Renderer.Elements.prototype.setExtent.apply(this, arguments);
+        OpenLayers.Renderer.Elements.prototype.setExtent.apply(this, 
+                                                               arguments);
         var resolution = this.getResolution();
     
         var left = (extent.left/resolution) | 0;
@@ -105,7 +114,7 @@ OpenLayers.Renderer.VML = OpenLayers.Class(OpenLayers.Renderer.Elements, {
         }
 
         
-        var org = (left - this.xOffset) + " " + top;
+        var org = left + " " + top;
         this.root.coordorigin = org;
         var roots = [this.root, this.vectorRoot, this.textRoot];
         var root;
@@ -120,7 +129,7 @@ OpenLayers.Renderer.VML = OpenLayers.Class(OpenLayers.Renderer.Elements, {
         // matches the display Y axis of the map
         this.root.style.flip = "y";
         
-        return coordSysUnchanged;
+        return true;
     },
 
 
@@ -182,6 +191,7 @@ OpenLayers.Renderer.VML = OpenLayers.Class(OpenLayers.Renderer.Elements, {
             case "OpenLayers.Geometry.LinearRing":
             case "OpenLayers.Geometry.Polygon":
             case "OpenLayers.Geometry.Curve":
+            case "OpenLayers.Geometry.Surface":
                 nodeType = "olv:shape";
                 break;
             default:
@@ -207,14 +217,11 @@ OpenLayers.Renderer.VML = OpenLayers.Class(OpenLayers.Renderer.Elements, {
         options = options || node._options;
         var fillColor = style.fillColor;
 
-        var title = style.title || style.graphicTitle;
-        if (title) {
-            node.title = title;
-        } 
-
         if (node._geometryClass === "OpenLayers.Geometry.Point") {
             if (style.externalGraphic) {
-                options.isFilled = true;
+                if (style.graphicTitle) {
+                    node.title=style.graphicTitle;
+                } 
                 var width = style.graphicWidth || style.graphicHeight;
                 var height = style.graphicHeight || style.graphicWidth;
                 width = width ? width : style.pointRadius*2;
@@ -226,7 +233,7 @@ OpenLayers.Renderer.VML = OpenLayers.Class(OpenLayers.Renderer.Elements, {
                 var yOffset = (style.graphicYOffset != undefined) ?
                     style.graphicYOffset : -(0.5 * height);
                 
-                node.style.left = ((((geometry.x - this.featureDx)/resolution - this.offset.x)+xOffset) | 0) + "px";
+                node.style.left = (((geometry.x/resolution - this.offset.x)+xOffset) | 0) + "px";
                 node.style.top = (((geometry.y/resolution - this.offset.y)-(yOffset+height)) | 0) + "px";
                 node.style.width = width + "px";
                 node.style.height = height + "px";
@@ -483,9 +490,9 @@ OpenLayers.Renderer.VML = OpenLayers.Class(OpenLayers.Renderer.Elements, {
             var resolution = this.getResolution();
         
             var scaledBox = 
-                new OpenLayers.Bounds(((bbox.left - this.featureDx)/resolution - this.offset.x) | 0,
+                new OpenLayers.Bounds((bbox.left/resolution - this.offset.x) | 0,
                                       (bbox.bottom/resolution - this.offset.y) | 0,
-                                      ((bbox.right - this.featureDx)/resolution - this.offset.x) | 0,
+                                      (bbox.right/resolution - this.offset.x) | 0,
                                       (bbox.top/resolution - this.offset.y) | 0);
             
             // Set the internal coordinate system to draw the path
@@ -652,7 +659,7 @@ OpenLayers.Renderer.VML = OpenLayers.Class(OpenLayers.Renderer.Elements, {
         if(!isNaN(geometry.x)&& !isNaN(geometry.y)) {
             var resolution = this.getResolution();
 
-            node.style.left = ((((geometry.x - this.featureDx) /resolution - this.offset.x) | 0) - radius) + "px";
+            node.style.left = (((geometry.x /resolution - this.offset.x) | 0) - radius) + "px";
             node.style.top = (((geometry.y /resolution - this.offset.y) | 0) - radius) + "px";
     
             var diameter = radius * 2;
@@ -718,7 +725,7 @@ OpenLayers.Renderer.VML = OpenLayers.Class(OpenLayers.Renderer.Elements, {
         var comp, x, y;
         for (var i = 0; i < numComponents; i++) {
             comp = geometry.components[i];
-            x = ((comp.x - this.featureDx)/resolution - this.offset.x) | 0;
+            x = (comp.x/resolution - this.offset.x) | 0;
             y = (comp.y/resolution - this.offset.y) | 0;
             parts[i] = " " + x + "," + y + " l ";
         }
@@ -744,43 +751,21 @@ OpenLayers.Renderer.VML = OpenLayers.Class(OpenLayers.Renderer.Elements, {
         var resolution = this.getResolution();
     
         var path = [];
-        var j, jj, points, area, first, second, i, ii, comp, pathComp, x, y;
-        for (j=0, jj=geometry.components.length; j<jj; j++) {
+        var linearRing, i, j, len, ilen, comp, x, y;
+        for (j = 0, len=geometry.components.length; j<len; j++) {
+            linearRing = geometry.components[j];
+
             path.push("m");
-            points = geometry.components[j].components;
-            // we only close paths of interior rings with area
-            area = (j === 0);
-            first = null;
-            second = null;
-            for (i=0, ii=points.length; i<ii; i++) {
-                comp = points[i];
-                x = ((comp.x - this.featureDx) / resolution - this.offset.x) | 0;
+            for (i=0, ilen=linearRing.components.length; i<ilen; i++) {
+                comp = linearRing.components[i];
+                x = (comp.x / resolution - this.offset.x) | 0;
                 y = (comp.y / resolution - this.offset.y) | 0;
-                pathComp = " " + x + "," + y;
-                path.push(pathComp);
+                path.push(" " + x + "," + y);
                 if (i==0) {
                     path.push(" l");
                 }
-                if (!area) {
-                    // IE improperly renders sub-paths that have no area.
-                    // Instead of checking the area of every ring, we confirm
-                    // the ring has at least three distinct points.  This does
-                    // not catch all non-zero area cases, but it greatly improves
-                    // interior ring digitizing and is a minor performance hit
-                    // when rendering rings with many points.
-                    if (!first) {
-                        first = pathComp;
-                    } else if (first != pathComp) {
-                        if (!second) {
-                            second = pathComp;
-                        } else if (second != pathComp) {
-                            // stop looking
-                            area = true;
-                        }
-                    }
-                }
             }
-            path.push(area ? " x " : " ");
+            path.push(" x ");
         }
         path.push("e");
         node.path = path.join("");
@@ -801,7 +786,7 @@ OpenLayers.Renderer.VML = OpenLayers.Class(OpenLayers.Renderer.Elements, {
     drawRectangle: function(node, geometry) {
         var resolution = this.getResolution();
     
-        node.style.left = (((geometry.x - this.featureDx)/resolution - this.offset.x) | 0) + "px";
+        node.style.left = ((geometry.x/resolution - this.offset.x) | 0) + "px";
         node.style.top = ((geometry.y/resolution - this.offset.y) | 0) + "px";
         node.style.width = ((geometry.width/resolution) | 0) + "px";
         node.style.height = ((geometry.height/resolution) | 0) + "px";
@@ -823,15 +808,12 @@ OpenLayers.Renderer.VML = OpenLayers.Class(OpenLayers.Renderer.Elements, {
         var textbox = this.nodeFactory(featureId + this.LABEL_ID_SUFFIX + "_textbox", "olv:textbox");
         
         var resolution = this.getResolution();
-        label.style.left = (((location.x - this.featureDx)/resolution - this.offset.x) | 0) + "px";
+        label.style.left = ((location.x/resolution - this.offset.x) | 0) + "px";
         label.style.top = ((location.y/resolution - this.offset.y) | 0) + "px";
         label.style.flip = "y";
 
         textbox.innerText = style.label;
 
-        if (style.cursor != "inherit" && style.cursor != null) {
-            textbox.style.cursor = style.cursor;
-        }
         if (style.fontColor) {
             textbox.style.color = style.fontColor;
         }
@@ -846,9 +828,6 @@ OpenLayers.Renderer.VML = OpenLayers.Class(OpenLayers.Renderer.Elements, {
         }
         if (style.fontWeight) {
             textbox.style.fontWeight = style.fontWeight;
-        }
-        if (style.fontStyle) {
-            textbox.style.fontStyle = style.fontStyle;
         }
         if(style.labelSelect === true) {
             label._featureId = featureId;
@@ -878,6 +857,41 @@ OpenLayers.Renderer.VML = OpenLayers.Class(OpenLayers.Renderer.Elements, {
         label.style.left = parseInt(label.style.left)-xshift-1+"px";
         label.style.top = parseInt(label.style.top)+yshift+"px";
         
+    },
+
+    /**
+     * Method: drawSurface
+     * 
+     * Parameters:
+     * node - {DOMElement}
+     * geometry - {<OpenLayers.Geometry>}
+     * 
+     * Returns:
+     * {DOMElement}
+     */
+    drawSurface: function(node, geometry) {
+
+        this.setNodeDimension(node, geometry);
+
+        var resolution = this.getResolution();
+    
+        var path = [];
+        var comp, x, y;
+        for (var i=0, len=geometry.components.length; i<len; i++) {
+            comp = geometry.components[i];
+            x = (comp.x / resolution - this.offset.x) | 0;
+            y = (comp.y / resolution - this.offset.y) | 0;
+            if ((i%3)==0 && (i/3)==0) {
+                path.push("m");
+            } else if ((i%3)==1) {
+                path.push(" c");
+            }
+            path.push(" " + x + "," + y);
+        }
+        path.push(" x e");
+
+        node.path = path.join("");
+        return node;
     },
     
     /**

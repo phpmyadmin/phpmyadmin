@@ -541,7 +541,7 @@ if (! empty($_SESSION['encryption_key'])
  * Check for existence of config directory which should not exist in
  * production environment.
  */
-if (@file_exists('config')) {
+if (file_exists('config')) {
     trigger_error(
         __(
             'Directory [code]config[/code], which is used by the setup script, ' .
@@ -573,7 +573,7 @@ if ($server > 0) {
         }
         $msg = PMA\libraries\Message::notice($msg_text);
         $msg->addParam(
-            '<a href="./chk_rel.php'
+            '<a href="' . $cfg['PmaAbsoluteUri'] . 'chk_rel.php'
             . $common_url_query . '">',
             false
         );
@@ -653,7 +653,7 @@ if ($cfg['SuhosinDisableWarning'] == false
  *
  * The data file is created while creating release by ./scripts/remove-incomplete-mo
  */
-if (@file_exists('libraries/language_stats.inc.php')) {
+if (file_exists('libraries/language_stats.inc.php')) {
     include 'libraries/language_stats.inc.php';
     /*
      * This message is intentionally not translated, because we're

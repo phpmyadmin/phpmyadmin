@@ -1847,24 +1847,26 @@ function PMA_getTableAltersArray($is_myisam_or_aria, $is_isam, $pack_keys,
 /**
  * set initial value of the set of variables, based on the current table engine
  *
- * @param string $tbl_storage_engine table storage engine in upper case
+ * @param string $tbl_storage_engine table storage engine
  *
  * @return array ($is_myisam_or_aria, $is_innodb, $is_isam,
  *                $is_berkeleydb, $is_aria, $is_pbxt)
  */
 function PMA_setGlobalVariablesForEngine($tbl_storage_engine)
 {
-    //Options that apply to MYISAM usually apply to ARIA
-    $is_myisam_or_aria = ($tbl_storage_engine == 'MYISAM'
-        || $tbl_storage_engine == 'ARIA'
-        || $tbl_storage_engine == 'MARIA'
-    );
-    $is_aria = ($tbl_storage_engine == 'ARIA');
+    $upperTblStorEngine = $tbl_storage_engine;
 
-    $is_isam = ($tbl_storage_engine == 'ISAM');
-    $is_innodb = ($tbl_storage_engine == 'INNODB');
-    $is_berkeleydb = ($tbl_storage_engine == 'BERKELEYDB');
-    $is_pbxt = ($tbl_storage_engine == 'PBXT');
+    //Options that apply to MYISAM usually apply to ARIA
+    $is_myisam_or_aria = ($upperTblStorEngine == 'MYISAM'
+        || $upperTblStorEngine == 'ARIA'
+        || $upperTblStorEngine == 'MARIA'
+    );
+    $is_aria = ($upperTblStorEngine == 'ARIA');
+
+    $is_isam = ($upperTblStorEngine == 'ISAM');
+    $is_innodb = ($upperTblStorEngine == 'INNODB');
+    $is_berkeleydb = ($upperTblStorEngine == 'BERKELEYDB');
+    $is_pbxt = ($upperTblStorEngine == 'PBXT');
 
     return array(
         $is_myisam_or_aria, $is_innodb, $is_isam,

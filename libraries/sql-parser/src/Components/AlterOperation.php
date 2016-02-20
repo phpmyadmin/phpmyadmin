@@ -172,8 +172,8 @@ class AlterOperation extends Component
                     $parser,
                     $list,
                     array(
-                        'breakOnAlias' => true,
-                        'parseField' => 'column',
+                        'noAlias' => true,
+                        'noBrackets' => true,
                     )
                 );
                 if ($ret->field === null) {

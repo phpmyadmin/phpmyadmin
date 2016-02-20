@@ -1,10 +1,10 @@
-/* Copyright (c) 2006-2013 by OpenLayers Contributors (see authors.txt for
- * full list of contributors). Published under the 2-clause BSD license.
- * See license.txt in the OpenLayers distribution or repository for the
+/* Copyright (c) 2006-2010 by OpenLayers Contributors (see authors.txt for 
+ * full list of contributors). Published under the Clear BSD license.  
+ * See http://svn.openlayers.org/trunk/openlayers/license.txt for the
  * full text of the license. */
 
 /**
- * @requires OpenLayers/Format/XML/VersionedOGC.js
+ * @requires OpenLayers/Format/XML.js
  */
 
 /**
@@ -12,15 +12,21 @@
  * Read WFS Capabilities.
  * 
  * Inherits from:
- *  - <OpenLayers.Format.XML.VersionedOGC>
+ *  - <OpenLayers.Format.XML>
  */
-OpenLayers.Format.WFSCapabilities = OpenLayers.Class(OpenLayers.Format.XML.VersionedOGC, {
+OpenLayers.Format.WFSCapabilities = OpenLayers.Class(OpenLayers.Format.XML, {
     
     /**
      * APIProperty: defaultVersion
      * {String} Version number to assume if none found.  Default is "1.1.0".
      */
     defaultVersion: "1.1.0",
+    
+    /**
+     * APIProperty: version
+     * {String} Specify a version string if one is known.
+     */
+    version: null,
 
     /**
      * Constructor: OpenLayers.Format.WFSCapabilities
@@ -30,6 +36,10 @@ OpenLayers.Format.WFSCapabilities = OpenLayers.Class(OpenLayers.Format.XML.Versi
      * options - {Object} An optional object whose properties will be set on
      *     this instance.
      */
+    initialize: function(options) {
+        OpenLayers.Format.XML.prototype.initialize.apply(this, [options]);
+        this.options = options;
+    },
 
     /**
      * APIMethod: read
@@ -41,6 +51,29 @@ OpenLayers.Format.WFSCapabilities = OpenLayers.Class(OpenLayers.Format.XML.Versi
      * Returns:
      * {Array} List of named layers.
      */
+    read: function(data) {
+        if(typeof data == "string") {
+            data = OpenLayers.Format.XML.prototype.read.apply(this, [data]);
+        }
+        var root = data.documentElement;
+        var version = this.version;
+        if(!version) {
+            version = root.getAttribute("version");
+            if(!version) {
+                version = this.defaultVersion;
+            }
+        }
+        var constr = OpenLayers.Format.WFSCapabilities[
+            "v" + version.replace(/\./g, "_")
+        ];
+        if(!constr) {
+            throw "Can't find a WFS capabilities parser for version " + version;
+        }
+        var parser = new constr(this.options);
+        var capabilities = parser.read(data);
+        capabilities.version = version;
+        return capabilities;
+    },
     
     CLASS_NAME: "OpenLayers.Format.WFSCapabilities" 
 

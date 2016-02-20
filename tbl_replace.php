@@ -181,10 +181,6 @@ foreach ($loop_array as $rownumber => $where_clause) {
         = isset($_REQUEST['auto_increment']['multi_edit'][$rownumber])
         ? $_REQUEST['auto_increment']['multi_edit'][$rownumber]
         : null;
-    $multi_edit_virtual
-        = isset($_REQUEST['virtual']['multi_edit'][$rownumber])
-        ? $_REQUEST['virtual']['multi_edit'][$rownumber]
-        : null;
 
     // When a select field is nullified, it's not present in $_REQUEST
     // so initialize it; this way, the foreach($multi_edit_columns) will process it
@@ -244,7 +240,7 @@ foreach ($loop_array as $rownumber => $where_clause) {
         }
 
         if ($file_to_insert->isError()) {
-            $insert_errors[] = $file_to_insert->getError();
+            $message .= $file_to_insert->getError();
         }
         // delete $file_to_insert temporary variable
         $file_to_insert->cleanUp();
@@ -254,7 +250,7 @@ foreach ($loop_array as $rownumber => $where_clause) {
             $current_value, $multi_edit_auto_increment,
             $rownumber, $multi_edit_columns_name, $multi_edit_columns_null,
             $multi_edit_columns_null_prev, $is_insert,
-            $using_key, $where_clause, $table, $multi_edit_funcs
+            $using_key, $where_clause, $table
         );
 
         $current_value_as_an_array = PMA_getCurrentValueAsAnArrayForMultipleEdit(
@@ -263,15 +259,13 @@ foreach ($loop_array as $rownumber => $where_clause) {
             $gis_from_wkb_functions, $func_optional_param, $func_no_param, $key
         );
 
-        if (! isset($multi_edit_virtual) || ! isset($multi_edit_virtual[$key])) {
-            list($query_values, $query_fields)
-                = PMA_getQueryValuesForInsertAndUpdateInMultipleEdit(
-                    $multi_edit_columns_name, $multi_edit_columns_null, $current_value,
-                    $multi_edit_columns_prev, $multi_edit_funcs, $is_insert,
-                    $query_values, $query_fields, $current_value_as_an_array,
-                    $value_sets, $key, $multi_edit_columns_null_prev
-                );
-        }
+        list($query_values, $query_fields)
+            = PMA_getQueryValuesForInsertAndUpdateInMultipleEdit(
+                $multi_edit_columns_name, $multi_edit_columns_null, $current_value,
+                $multi_edit_columns_prev, $multi_edit_funcs, $is_insert,
+                $query_values, $query_fields, $current_value_as_an_array,
+                $value_sets, $key, $multi_edit_columns_null_prev
+            );
         if (isset($multi_edit_columns_null[$key])) {
             $multi_edit_columns[$key] = null;
         }

@@ -1,6 +1,6 @@
-/* Copyright (c) 2006-2013 by OpenLayers Contributors (see authors.txt for
- * full list of contributors). Published under the 2-clause BSD license.
- * See license.txt in the OpenLayers distribution or repository for the
+/* Copyright (c) 2006-2010 by OpenLayers Contributors (see authors.txt for 
+ * full list of contributors). Published under the Clear BSD license.  
+ * See http://svn.openlayers.org/trunk/openlayers/license.txt for the
  * full text of the license. */
 
 /**
@@ -231,26 +231,6 @@ OpenLayers.Format.XML = OpenLayers.Class(OpenLayers.Format, {
     },
 
     /**
-     * APIMethod: createDocumentFragment
-     * Create a document fragment node that can be appended to another node
-     *     created by createElementNS.  This will call 
-     *     document.createDocumentFragment outside of IE.  In IE, the ActiveX
-     *     object's createDocumentFragment method is used.
-     *
-     * Returns:
-     * {Element} A document fragment.
-     */
-    createDocumentFragment: function() {
-        var element;
-        if (this.xmldom) {
-            element = this.xmldom.createDocumentFragment();
-        } else {
-            element = document.createDocumentFragment();
-        }
-        return element;
-    },
-
-    /**
      * APIMethod: createTextNode
      * Create a text node.  This node can be appended to another node with
      *     the standard node.appendChild method.  For cross-browser support,
@@ -399,6 +379,40 @@ OpenLayers.Format.XML = OpenLayers.Class(OpenLayers.Format, {
         return value;
     },
 
+    /**
+     * APIMethod: concatChildValues
+     * *Deprecated*. Use <getChildValue> instead.
+     *
+     * Concatenate the value of all child nodes if any exist, or return an
+     *     optional default string.  Returns an empty string if no children
+     *     exist and no default value is supplied.  Not optimized for large
+     *     numbers of child nodes.
+     *
+     * Parameters:
+     * node - {DOMElement} The element used to look for child values.
+     * def - {String} Optional string to return in the event that no
+     *     child exist.
+     *
+     * Returns:
+     * {String} The concatenated value of all child nodes of the given node.
+     */
+    concatChildValues: function(node, def) {
+        var value = "";
+        var child = node.firstChild;
+        var childValue;
+        while(child) {
+            childValue = child.nodeValue;
+            if(childValue) {
+                value += childValue;
+            }
+            child = child.nextSibling;
+        }
+        if(value == "" && def != undefined) {
+            value = def;
+        }
+        return value;
+    },
+    
     /**
      * APIMethod: isSimpleContent
      * Test if the given node has only simple content (i.e. no child element
@@ -834,29 +848,6 @@ OpenLayers.Format.XML = OpenLayers.Class(OpenLayers.Format, {
         return uri;
     },
     
-    /**
-     * Method: getXMLDoc
-     * Get an XML document for nodes that are not supported in HTML (e.g.
-     * createCDATASection). On IE, this will either return an existing or
-     * create a new <xmldom> on the instance. On other browsers, this will
-     * either return an existing or create a new shared document (see
-     * <OpenLayers.Format.XML.document>).
-     *
-     * Returns:
-     * {XMLDocument}
-     */
-    getXMLDoc: function() {
-        if (!OpenLayers.Format.XML.document && !this.xmldom) {
-            if (document.implementation && document.implementation.createDocument) {
-                OpenLayers.Format.XML.document =
-                    document.implementation.createDocument("", "", null);
-            } else if (!this.xmldom && window.ActiveXObject) {
-                this.xmldom = new ActiveXObject("Microsoft.XMLDOM");
-            }
-        }
-        return OpenLayers.Format.XML.document || this.xmldom;
-    },
-
     CLASS_NAME: "OpenLayers.Format.XML" 
 
 });     
@@ -888,10 +879,3 @@ OpenLayers.Format.XML.lookupNamespaceURI = OpenLayers.Function.bind(
     OpenLayers.Format.XML.prototype.lookupNamespaceURI,
     OpenLayers.Format.XML.prototype
 );
-
-/**
- * Property: OpenLayers.Format.XML.document
- * {XMLDocument} XML document to reuse for creating non-HTML compliant nodes,
- * like document.createCDATASection.
- */
-OpenLayers.Format.XML.document = null;

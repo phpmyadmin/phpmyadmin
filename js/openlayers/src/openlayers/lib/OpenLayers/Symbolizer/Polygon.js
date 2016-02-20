@@ -1,6 +1,6 @@
-/* Copyright (c) 2006-2013 by OpenLayers Contributors (see authors.txt for
- * full list of contributors). Published under the 2-clause BSD license.
- * See license.txt in the OpenLayers distribution or repository for the
+/* Copyright (c) 2006-2010 by OpenLayers Contributors (see authors.txt for 
+ * full list of contributors). Published under the Clear BSD license.  
+ * See http://svn.openlayers.org/trunk/openlayers/license.txt for the
  * full text of the license. */
 
 /**
@@ -17,30 +17,26 @@ OpenLayers.Symbolizer.Polygon = OpenLayers.Class(OpenLayers.Symbolizer, {
      * APIProperty: strokeColor
      * {String} Color for line stroke.  This is a RGB hex value (e.g. "#ff0000"
      *     for red).
-     * 
-     * No default set here.  Use OpenLayers.Renderer.defaultRenderer for defaults.
      */
+    strokeColor: null,
     
     /**
      * APIProperty: strokeOpacity
      * {Number} Stroke opacity (0-1).
-     * 
-     * No default set here.  Use OpenLayers.Renderer.defaultRenderer for defaults.
      */
+    strokeOpacity: null,
     
     /**
      * APIProperty: strokeWidth
      * {Number} Pixel stroke width.
-     * 
-     * No default set here.  Use OpenLayers.Renderer.defaultRenderer for defaults.
      */
+    strokeWidth: null,
     
     /**
      * APIProperty: strokeLinecap
      * {String} Stroke cap type ("butt", "round", or "square").
-     * 
-     * No default set here.  Use OpenLayers.Renderer.defaultRenderer for defaults.
      */
+    strokeLinecap: null,
     
     /**
      * Property: strokeDashstyle
@@ -48,23 +44,20 @@ OpenLayers.Symbolizer.Polygon = OpenLayers.Class(OpenLayers.Symbolizer, {
      *     OpenLayers values for strokeDashstyle ("dot", "dash", "dashdot",
      *     "longdash", "longdashdot", or "solid") will not work in SLD, but
      *     most SLD patterns will render correctly in OpenLayers.
-     * 
-     * No default set here.  Use OpenLayers.Renderer.defaultRenderer for defaults.
      */
+    strokeDashstyle: null,
 
     /**
      * APIProperty: fillColor
      * {String} RGB hex fill color (e.g. "#ff0000" for red).
-     * 
-     * No default set here.  Use OpenLayers.Renderer.defaultRenderer for defaults.
      */
+    fillColor: null,
     
     /**
      * APIProperty: fillOpacity
      * {Number} Fill opacity (0-1).
-     * 
-     * No default set here.  Use OpenLayers.Renderer.defaultRenderer for defaults.
      */
+    fillOpacity: null, 
 
     /**
      * Constructor: OpenLayers.Symbolizer.Polygon

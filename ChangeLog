@@ -1,9 +1,6 @@
 phpMyAdmin - ChangeLog
 ======================
 
-4.7.0.0 (not yet released)
-- issue #11924 Remove caching of server information
-
 4.6.0.0 (not yet released)
 + issue #11456 Disabled storage engines
 + issue #11479 Allow setting routine wise privileges
@@ -40,12 +37,6 @@ phpMyAdmin - ChangeLog
 + issue #11874 Show more used PHP extensions
 - issue #11874 Report when version check and error reporting are disabled
 - issue #11849 Fix PDF schema export
-- issue #11412 Remove ForceSSL configuration directive
-- issue        Remove support for Mozilla Prism
-- issue #11412 Remove PmaAbsoluteUri configuration directive
-- issue #11914 Fix autoloading of phpseclib
-- issue #11880 Fixed rendering of missing extension error
-- issue #11923 Errors on Structure tab when user only has select access on certain columns
 
 4.5.5.0 (not yet released)
 - issue        Undefined index: is_ajax_request
@@ -53,30 +44,6 @@ phpMyAdmin - ChangeLog
 - issue #11874 Validate version information before further processing it
 - issue #11881 Full processlist lost on refresh
 - issue #11834 Adjust privileges fails if database name contains underscores
-- issue #11906 'Loading...' banner shows on login screen
-- issue #11930 Fixed changing of table parameters, eg. AUTO_INCREMENT
-- issue #11885 Call to undefined function SqlParser\ctype_alnum()
-- issue #11879 4.5.3.1 - NOW() function not recognized by parser
-- issue #11867 Gracefully handle the DESC statement
-- issue #11843 Fractional timestamp causes corrupted SQL export
-- issue #11836 Static analysis error for valid WHERE condition with IF keyword
-- issue #11800 Syntax Verifier error using REGEXP in SQL statement
-- issue #11799 Backslashes in comments are being interpreted as escape characters
-- issue #11909 Can't insert row into table that contains generated column
-- issue #11677 sql-parser and php-gettext collide.
-- issue #11920 Can't disable backquotes in export
-- issue #11911 Inserts via tbl_change.php in VARBINARY columns does not allow using HEX() and MD5()
-- issue #11939 Correct content type for uploaded error reports
-- issue #11940 Silent errors from checking local documentation
-- issue #11944 Fixed error on servers with disabled php_uname
-- issue #11946 Correctly store and report file upload errors
-- issue #11948 Avoid javascript errors on invalid location hash
-- issue #11950 Fix PHP warning on configuration errors
-- issue #11951 Silent errors on checking for writable folders
-- issue #11952 Silent warning on invalid file upload
-- issue #11953 Do not fail getting filename with open_basedir limitations
-- issue #11956 unrecognized keyword interval
-- issue        Field names and aliases are being correctly parsed now.
 
 4.5.4.1 (2016-01-29)
 - issue #11892 Error with PMA 4.4.15.3

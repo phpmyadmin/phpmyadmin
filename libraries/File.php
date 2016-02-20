@@ -439,7 +439,10 @@ class File
     {
         // suppress warnings from being displayed, but not from being logged
         // any file access outside of open_basedir will issue a warning
-        return @is_readable($this->getName());
+        ob_start();
+        $is_readable = is_readable($this->getName());
+        ob_end_clean();
+        return $is_readable;
     }
 
     /**
@@ -458,7 +461,7 @@ class File
         }
 
         if (empty($GLOBALS['cfg']['TempDir'])
-            || ! @is_writable($GLOBALS['cfg']['TempDir'])
+            || ! is_writable($GLOBALS['cfg']['TempDir'])
         ) {
             // cannot create directory or access, point user to FAQ 1.11
             $this->_error_message = __(

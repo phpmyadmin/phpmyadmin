@@ -1,12 +1,11 @@
-/* Copyright (c) 2006-2013 by OpenLayers Contributors (see authors.txt for
- * full list of contributors). Published under the 2-clause BSD license.
- * See license.txt in the OpenLayers distribution or repository for the
+/* Copyright (c) 2006-2010 by OpenLayers Contributors (see authors.txt for 
+ * full list of contributors). Published under the Clear BSD license.  
+ * See http://svn.openlayers.org/trunk/openlayers/license.txt for the
  * full text of the license. */
 
 /**
  * @requires OpenLayers/Format/WFST/v1.js
  * @requires OpenLayers/Format/Filter/v1_1_0.js
- * @requires OpenLayers/Format/OWSCommon/v1_0_0.js
  */
 
 /**
@@ -62,29 +61,6 @@ OpenLayers.Format.WFST.v1_1_0 = OpenLayers.Class(
     },
     
     /**
-     * Method: readNode
-     * Shorthand for applying one of the named readers given the node
-     *     namespace and local name.  Readers take two args (node, obj) and
-     *     generally extend or modify the second.
-     *
-     * Parameters:
-     * node - {DOMElement} The node to be read (required).
-     * obj - {Object} The object to be modified (optional).
-     * first - {Boolean} Should be set to true for the first node read. This
-     *     is usually the readNode call in the read method. Without this being
-     *     set, auto-configured properties will stick on subsequent reads.
-     *
-     * Returns:
-     * {Object} The input object, modified (or a new one if none was provided).
-     */
-    readNode: function(node, obj, first) {
-        // Not the superclass, only the mixin classes inherit from
-        // Format.GML.v3. We need this because we don't want to get readNode
-        // from the superclass's superclass, which is OpenLayers.Format.XML.
-        return OpenLayers.Format.GML.v3.prototype.readNode.apply(this, arguments);
-    },
-    
-    /**
      * Property: readers
      * Contains public functions, grouped by namespace prefix, that will
      *     be applied when a namespaced node is found matching the function
@@ -120,8 +96,7 @@ OpenLayers.Format.WFST.v1_1_0 = OpenLayers.Class(
         }, OpenLayers.Format.WFST.v1.prototype.readers["wfs"]),
         "gml": OpenLayers.Format.GML.v3.prototype.readers["gml"],
         "feature": OpenLayers.Format.GML.v3.prototype.readers["feature"],
-        "ogc": OpenLayers.Format.Filter.v1_1_0.prototype.readers["ogc"],
-        "ows": OpenLayers.Format.OWSCommon.v1_0_0.prototype.readers["ows"]
+        "ogc": OpenLayers.Format.Filter.v1_1_0.prototype.readers["ogc"]
     },
 
     /**
@@ -134,10 +109,8 @@ OpenLayers.Format.WFST.v1_1_0 = OpenLayers.Class(
         "wfs": OpenLayers.Util.applyDefaults({
             "GetFeature": function(options) {
                 var node = OpenLayers.Format.WFST.v1.prototype.writers["wfs"]["GetFeature"].apply(this, arguments);
-                options && this.setAttributes(node, {
-                    resultType: options.resultType,
-                    startIndex: options.startIndex,
-                    count: options.count
+                options && options.resultType && this.setAttributes(node, {
+                    resultType: options.resultType
                 });
                 return node;
             },
@@ -148,16 +121,15 @@ OpenLayers.Format.WFST.v1_1_0 = OpenLayers.Class(
                     featureType: this.featureType,
                     srsName: this.srsName
                 }, options);
-                var prefix = options.featurePrefix;
                 var node = this.createElementNSPlus("wfs:Query", {
                     attributes: {
-                        typeName: (prefix ? prefix + ":" : "") +
+                        typeName: (options.featureNS ? options.featurePrefix + ":" : "") +
                             options.featureType,
                         srsName: options.srsName
                     }
                 });
                 if(options.featureNS) {
-                    node.setAttribute("xmlns:" + prefix, options.featureNS);
+                    node.setAttribute("xmlns:" + options.featurePrefix, options.featureNS);
                 }
                 if(options.propertyNames) {
                     for(var i=0,len = options.propertyNames.length; i<len; i++) {
@@ -169,7 +141,7 @@ OpenLayers.Format.WFST.v1_1_0 = OpenLayers.Class(
                     }
                 }
                 if(options.filter) {
-                    OpenLayers.Format.WFST.v1_1_0.prototype.setFilterProperty.call(this, options.filter);
+                    this.setFilterProperty(options.filter);
                     this.writeNode("ogc:Filter", options.filter, node);
                 }
                 return node;

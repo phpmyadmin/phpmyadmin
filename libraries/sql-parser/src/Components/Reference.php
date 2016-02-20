@@ -121,8 +121,9 @@ class Reference extends Component
                     $parser,
                     $list,
                     array(
-                        'parseField' => 'table',
-                        'breakOnAlias' => true,
+                        'noAlias' => true,
+                        'skipColumn' => true,
+                        'noBrackets' => true,
                     )
                 );
                 $state = 1;

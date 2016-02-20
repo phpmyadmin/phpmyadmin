@@ -1,6 +1,6 @@
-/* Copyright (c) 2006-2013 by OpenLayers Contributors (see authors.txt for
- * full list of contributors). Published under the 2-clause BSD license.
- * See license.txt in the OpenLayers distribution or repository for the
+/* Copyright (c) 2006-2010 by OpenLayers Contributors (see authors.txt for 
+ * full list of contributors). Published under the Clear BSD license.  
+ * See http://svn.openlayers.org/trunk/openlayers/license.txt for the
  * full text of the license. */
 
 
@@ -18,7 +18,7 @@ OpenLayers.Popup.Anchored =
   OpenLayers.Class(OpenLayers.Popup, {
 
     /** 
-     * Property: relativePosition
+     * Parameter: relativePosition
      * {String} Relative position of the popup ("br", "tr", "tl" or "bl").
      */
     relativePosition: null,
@@ -38,7 +38,7 @@ OpenLayers.Popup.Anchored =
     keepInMap: true,
 
     /**
-     * Property: anchor
+     * Parameter: anchor
      * {Object} Object to which we'll anchor the popup. Must expose a 
      *     'size' (<OpenLayers.Size>) and 'offset' (<OpenLayers.Pixel>).
      */
@@ -107,8 +107,11 @@ OpenLayers.Popup.Anchored =
     moveTo: function(px) {
         var oldRelativePosition = this.relativePosition;
         this.relativePosition = this.calculateRelativePosition(px);
-
-        OpenLayers.Popup.prototype.moveTo.call(this, this.calculateNewPx(px));
+        
+        var newPx = this.calculateNewPx(px);
+        
+        var newArguments = new Array(newPx);        
+        OpenLayers.Popup.prototype.moveTo.apply(this, newArguments);
         
         //if this move has caused the popup to change its relative position, 
         // we need to make the appropriate cosmetic changes.
@@ -159,8 +162,8 @@ OpenLayers.Popup.Anchored =
      * 
      *     Note that in the classic Anchored popup, there is nothing to do 
      *     here, since the popup looks exactly the same in all four positions.
-     *     Subclasses such as Framed, however, will want to do something
-     *     special here.
+     *     Subclasses such as the AnchoredBubble and Framed, however, will 
+     *     want to do something special here.
      */
     updateRelativePosition: function() {
         //to be overridden by subclasses
@@ -183,10 +186,10 @@ OpenLayers.Popup.Anchored =
         var size = this.size || this.contentSize;
 
         var top = (this.relativePosition.charAt(0) == 't');
-        newPx.y += (top) ? -size.h : this.anchor.size.h;
+        newPx.y += (top) ? -(size.h + this.anchor.size.h) : this.anchor.size.h;
         
         var left = (this.relativePosition.charAt(1) == 'l');
-        newPx.x += (left) ? -size.w : this.anchor.size.w;
+        newPx.x += (left) ? -(size.w + this.anchor.size.w) : this.anchor.size.w;
 
         return newPx;   
     },

@@ -1,6 +1,6 @@
-/* Copyright (c) 2006-2013 by OpenLayers Contributors (see authors.txt for
- * full list of contributors). Published under the 2-clause BSD license.
- * See license.txt in the OpenLayers distribution or repository for the
+/* Copyright (c) 2006-2010 by OpenLayers Contributors (see authors.txt for 
+ * full list of contributors). Published under the Clear BSD license.  
+ * See http://svn.openlayers.org/trunk/openlayers/license.txt for the
  * full text of the license. */
 
 /**
@@ -12,19 +12,20 @@
  * @requires OpenLayers/Geometry/MultiLineString.js
  * @requires OpenLayers/Geometry/Polygon.js
  * @requires OpenLayers/Geometry/MultiPolygon.js
+ * @requires OpenLayers/Console.js
  */
 
 /**
  * Class: OpenLayers.Format.GML
- * Read/Write GML. Create a new instance with the <OpenLayers.Format.GML>
+ * Read/Wite GML. Create a new instance with the <OpenLayers.Format.GML>
  *     constructor.  Supports the GML simple features profile.
  * 
  * Inherits from:
- *  - <OpenLayers.Format.XML>
+ *  - <OpenLayers.Format>
  */
 OpenLayers.Format.GML = OpenLayers.Class(OpenLayers.Format.XML, {
     
-    /**
+    /*
      * APIProperty: featureNS
      * {String} Namespace used for feature attributes.  Default is
      *     "http://mapserver.gis.umn.edu/mapserver".
@@ -38,13 +39,13 @@ OpenLayers.Format.GML = OpenLayers.Class(OpenLayers.Format.XML, {
      */
     featurePrefix: "feature",
     
-    /**
+    /*
      * APIProperty: featureName
      * {String} Element name for features. Default is "featureMember".
      */
     featureName: "featureMember", 
     
-    /**
+    /*
      * APIProperty: layerName
      * {String} Name of data layer. Default is "features".
      */
@@ -157,7 +158,8 @@ OpenLayers.Format.GML = OpenLayers.Class(OpenLayers.Format.XML, {
                                            this.internalProjection); 
                     }                       
                 } else {
-                    throw new TypeError("Unsupported geometry type: " + type);
+                    OpenLayers.Console.error(OpenLayers.i18n(
+                                "unsupportedGeometryType", {'geomType':type}));
                 }
                 // stop looking for different geometry types
                 break;
@@ -579,7 +581,7 @@ OpenLayers.Format.GML = OpenLayers.Class(OpenLayers.Format.XML, {
      * Method: parseAttributes
      *
      * Parameters:
-     * node - {DOMElement}
+     * node - {<DOMElement>}
      *
      * Returns:
      * {Object} An attributes object.
@@ -636,7 +638,7 @@ OpenLayers.Format.GML = OpenLayers.Class(OpenLayers.Format.XML, {
      * {String} A string representing the GML document.
      */
     write: function(features) {
-        if(!(OpenLayers.Util.isArray(features))) {
+        if(!(features instanceof Array)) {
             features = [features];
         }
         var gml = this.createElementNS("http://www.opengis.net/wfs",
@@ -887,7 +889,6 @@ OpenLayers.Format.GML = OpenLayers.Class(OpenLayers.Format.XML, {
      * (code)
      * <gml:coordinates decimal="." cs="," ts=" ">...</gml:coordinates>
      * (end)
-     *
      * Parameters: 
      * geometry - {<OpenLayers.Geometry>} 
      *

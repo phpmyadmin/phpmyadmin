@@ -1,11 +1,7 @@
-/* Copyright (c) 2006-2013 by OpenLayers Contributors (see authors.txt for
- * full list of contributors). Published under the 2-clause BSD license.
- * See license.txt in the OpenLayers distribution or repository for the
+/* Copyright (c) 2006-2010 by OpenLayers Contributors (see authors.txt for 
+ * full list of contributors). Published under the Clear BSD license.  
+ * See http://svn.openlayers.org/trunk/openlayers/license.txt for the
  * full text of the license. */
-
-/**
- * @requires OpenLayers/BaseTypes/Class.js
- */
 
 /**
  * Class: OpenLayers.Icon
@@ -29,22 +25,19 @@ OpenLayers.Icon = OpenLayers.Class({
     
     /** 
      * Property: size 
-     * {<OpenLayers.Size>|Object} An OpenLayers.Size or
-     * an object with a 'w' and 'h' properties.
+     * {<OpenLayers.Size>} 
      */
     size: null,
 
     /** 
      * Property: offset 
-     * {<OpenLayers.Pixel>|Object} distance in pixels to offset the
-     * image when being rendered. An OpenLayers.Pixel or an object
-     * with a 'x' and 'y' properties.
+     * {<OpenLayers.Pixel>} distance in pixels to offset the image when being rendered
      */
     offset: null,    
     
     /** 
      * Property: calculateOffset 
-     * {Function} Function to calculate the offset (based on the size)
+     * {<OpenLayers.Pixel>} Function to calculate the offset (based on the size) 
      */
     calculateOffset: null,    
     
@@ -56,8 +49,7 @@ OpenLayers.Icon = OpenLayers.Class({
 
     /** 
      * Property: px 
-     * {<OpenLayers.Pixel>|Object} An OpenLayers.Pixel or an object
-     * with a 'x' and 'y' properties.
+     * {<OpenLayers.Pixel>} 
      */
     px: null,
     
@@ -66,18 +58,14 @@ OpenLayers.Icon = OpenLayers.Class({
      * Creates an icon, which is an image tag in a div.  
      *
      * url - {String} 
-     * size - {<OpenLayers.Size>|Object} An OpenLayers.Size or an
-     *                                   object with a 'w' and 'h'
-     *                                   properties.
-     * offset - {<OpenLayers.Pixel>|Object} An OpenLayers.Pixel or an
-     *                                      object with a 'x' and 'y'
-     *                                      properties.
+     * size - {<OpenLayers.Size>} 
+     * offset - {<OpenLayers.Pixel>}
      * calculateOffset - {Function} 
      */
     initialize: function(url, size, offset, calculateOffset) {
         this.url = url;
-        this.size = size || {w: 20, h: 20};
-        this.offset = offset || {x: -(this.size.w/2), y: -(this.size.h/2)};
+        this.size = (size) ? size : new OpenLayers.Size(20,20);
+        this.offset = offset ? offset : new OpenLayers.Pixel(-(this.size.w/2), -(this.size.h/2));
         this.calculateOffset = calculateOffset;
 
         var id = OpenLayers.Util.createUniqueID("OL_Icon_");
@@ -115,8 +103,7 @@ OpenLayers.Icon = OpenLayers.Class({
      * Method: setSize
      * 
      * Parameters:
-     * size - {<OpenLayers.Size>|Object} An OpenLayers.Size or
-     * an object with a 'w' and 'h' properties.
+     * size - {<OpenLayers.Size>} 
      */
     setSize: function(size) {
         if (size != null) {
@@ -143,8 +130,7 @@ OpenLayers.Icon = OpenLayers.Class({
      * Move the div to the given pixel.
      * 
      * Parameters:
-     * px - {<OpenLayers.Pixel>|Object} An OpenLayers.Pixel or an
-     *                                  object with a 'x' and 'y' properties.
+     * px - {<OpenLayers.Pixel>} 
      * 
      * Returns:
      * {DOMElement} A new DOM Image of this icon set at the location passed-in
@@ -163,6 +149,7 @@ OpenLayers.Icon = OpenLayers.Class({
     /** 
      * Method: erase
      * Erase the underlying image element.
+     *
      */
     erase: function() {
         if (this.imageDiv != null && this.imageDiv.parentNode != null) {
@@ -188,8 +175,7 @@ OpenLayers.Icon = OpenLayers.Class({
      * move icon to passed in px.
      *
      * Parameters:
-     * px - {<OpenLayers.Pixel>|Object} the pixel position to move to.
-     * An OpenLayers.Pixel or an object with a 'x' and 'y' properties.
+     * px - {<OpenLayers.Pixel>} 
      */
     moveTo: function (px) {
         //if no px passed in, use stored location
@@ -204,10 +190,8 @@ OpenLayers.Icon = OpenLayers.Class({
                 if (this.calculateOffset) {
                     this.offset = this.calculateOffset(this.size);  
                 }
-                OpenLayers.Util.modifyAlphaImageDiv(this.imageDiv, null, {
-                    x: this.px.x + this.offset.x,
-                    y: this.px.y + this.offset.y
-                });
+                var offsetPx = this.px.offset(this.offset);
+                OpenLayers.Util.modifyAlphaImageDiv(this.imageDiv, null, offsetPx);
             }
         }
     },

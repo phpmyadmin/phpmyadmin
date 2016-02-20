@@ -1,14 +1,11 @@
-/* Copyright (c) 2006-2013 by OpenLayers Contributors (see authors.txt for
- * full list of contributors). Published under the 2-clause BSD license.
- * See license.txt in the OpenLayers distribution or repository for the
+/* Copyright (c) 2006-2010 by OpenLayers Contributors (see authors.txt for 
+ * full list of contributors). Published under the Clear BSD license.  
+ * See http://svn.openlayers.org/trunk/openlayers/license.txt for the
  * full text of the license. */
 
 /**
  * @requires OpenLayers/Format/XML.js
- * @requires OpenLayers/Format/OGCExceptionReport.js
- */
- 
-/**
+ *
  * Class: OpenLayers.Format.WFSDescribeFeatureType
  * Read WFS DescribeFeatureType response
  * 
@@ -17,14 +14,6 @@
  */
 OpenLayers.Format.WFSDescribeFeatureType = OpenLayers.Class(
     OpenLayers.Format.XML, {
-
-    /**
-     * Property: regExes
-     * Compiled regular expressions for manipulating strings.
-     */
-    regExes: {
-        trimSpace: (/^\s*|\s*$/g)
-    },
     
     /**
      * Property: namespaces
@@ -42,6 +31,9 @@ OpenLayers.Format.WFSDescribeFeatureType = OpenLayers.Class(
      * options - {Object} An optional object whose properties will be set on
      *     this instance.
      */
+    initialize: function(options) {
+        OpenLayers.Format.XML.prototype.initialize.apply(this, [options]);
+    },
     
     /**
      * Property: readers
@@ -60,16 +52,15 @@ OpenLayers.Format.WFSDescribeFeatureType = OpenLayers.Class(
                     complexTypes: complexTypes,
                     customTypes: customTypes
                 };
-                var i, len;
                 
                 this.readChildNodes(node, schema);
 
                 var attributes = node.attributes;
                 var attr, name;
-                for(i=0, len=attributes.length; i<len; ++i) {
+                for(var i=0, len=attributes.length; i<len; ++i) {
                     attr = attributes[i];
                     name = attr.name;
-                    if(name.indexOf("xmlns") === 0) {
+                    if(name.indexOf("xmlns") == 0) {
                         this.setNamespace(name.split(":")[1] || "", attr.value);
                     } else {
                         obj[name] = attr.value;
@@ -80,7 +71,7 @@ OpenLayers.Format.WFSDescribeFeatureType = OpenLayers.Class(
                 
                 // map complexTypes to names of customTypes
                 var complexType, customType;
-                for(i=0, len=complexTypes.length; i<len; ++i) {
+                for(var i=0, len=complexTypes.length; i<len; ++i) {
                     complexType = complexTypes[i];
                     customType = customTypes[complexType.typeName];
                     if(customTypes[complexType.typeName]) {
@@ -112,7 +103,6 @@ OpenLayers.Format.WFSDescribeFeatureType = OpenLayers.Class(
                 obj.properties = sequence.elements;
             },
             "element": function(node, obj) {
-                var type;
                 if(obj.elements) {
                     var element = {};
                     var attributes = node.attributes;
@@ -122,7 +112,7 @@ OpenLayers.Format.WFSDescribeFeatureType = OpenLayers.Class(
                         element[attr.name] = attr.value;
                     }
                     
-                    type = element.type;
+                    var type = element.type;
                     if(!type) {
                         type = {};
                         this.readChildNodes(node, type);
@@ -132,37 +122,16 @@ OpenLayers.Format.WFSDescribeFeatureType = OpenLayers.Class(
                     var fullType = type.base || type;
                     element.localType = fullType.split(":").pop();
                     obj.elements.push(element);
-                    this.readChildNodes(node, element);
                 }
                 
                 if(obj.complexTypes) {
-                    type = node.getAttribute("type");
+                    var type = node.getAttribute("type");
                     var localType = type.split(":").pop();
                     obj.customTypes[localType] = {
                         "name": node.getAttribute("name"),
                         "type": type
                     };
                 }
-            },
-            "annotation": function(node, obj) {
-                obj.annotation = {};
-                this.readChildNodes(node, obj.annotation);
-            },
-            "appinfo": function(node, obj) {
-                if (!obj.appinfo) {
-                    obj.appinfo = [];
-                }
-                obj.appinfo.push(this.getChildValue(node));
-            },
-            "documentation": function(node, obj) {
-                if (!obj.documentation) {
-                    obj.documentation = [];
-                }
-                var value = this.getChildValue(node);
-                obj.documentation.push({
-                    lang: node.getAttribute("xml:lang"),
-                    textContent: value.replace(this.regExes.trimSpace, "")
-                });
             },
             "simpleType": function(node, obj) {
                 this.readChildNodes(node, obj);
@@ -179,8 +148,8 @@ OpenLayers.Format.WFSDescribeFeatureType = OpenLayers.Class(
      * Reads restriction defined in the child nodes of a restriction element
      * 
      * Parameters:
-     * node - {DOMElement} the node to parse
-     * obj - {Object} the object that receives the read result
+     * node {DOMElement} - the node to parse
+     * obj {Object} - the object that receives the read result
      */
     readRestriction: function(node, obj) {
         var children = node.childNodes;
@@ -219,13 +188,8 @@ OpenLayers.Format.WFSDescribeFeatureType = OpenLayers.Class(
             data = data.documentElement;
         }
         var schema = {};
-        if (data.nodeName.split(":").pop() === 'ExceptionReport') {
-            // an exception must have occurred, so parse it
-            var parser = new OpenLayers.Format.OGCExceptionReport();
-            schema.error = parser.read(data);
-        } else {
-            this.readNode(data, schema);
-        }
+        this.readNode(data, schema);
+        
         return schema;
     },
     

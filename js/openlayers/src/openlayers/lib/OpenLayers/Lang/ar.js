@@ -15,11 +15,17 @@
  */
 OpenLayers.Lang["ar"] = OpenLayers.Util.applyDefaults({
 
-    'Permalink': "وصلة دائمة",
+    'permalink': "وصلة دائمة",
 
-    'Base Layer': "الطبقة الاساسية",
+    'baseLayer': "الطبقة الاساسية",
 
-    'Scale = 1 : ${scaleDenom}': "النسبة = 1 : ${scaleDenom}",
+    'readNotImplemented': "القراءة غير محققة.",
+
+    'writeNotImplemented': "الكتابة غير محققة",
+
+    'errorLoadingGML': "خطأ عند تحميل الملف جي ام ال ${url}",
+
+    'scale': "النسبة = 1 : ${scaleDenom}",
 
     'W': "غ",
 

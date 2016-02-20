@@ -107,8 +107,9 @@ class IntoKeyword extends Component
                     $parser,
                     $list,
                     array(
-                        'parseField' => 'table',
-                        'breakOnAlias' => true,
+                        'noAlias' => true,
+                        'noBrackets' => true,
+                        'skipColumn' => true,
                     )
                 );
                 $state = 1;

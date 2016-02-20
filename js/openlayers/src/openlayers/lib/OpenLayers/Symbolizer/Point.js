@@ -1,6 +1,6 @@
-/* Copyright (c) 2006-2013 by OpenLayers Contributors (see authors.txt for
- * full list of contributors). Published under the 2-clause BSD license.
- * See license.txt in the OpenLayers distribution or repository for the
+/* Copyright (c) 2006-2010 by OpenLayers Contributors (see authors.txt for 
+ * full list of contributors). Published under the Clear BSD license.  
+ * See http://svn.openlayers.org/trunk/openlayers/license.txt for the
  * full text of the license. */
 
 /**
@@ -17,30 +17,26 @@ OpenLayers.Symbolizer.Point = OpenLayers.Class(OpenLayers.Symbolizer, {
      * APIProperty: strokeColor
      * {String} Color for line stroke.  This is a RGB hex value (e.g. "#ff0000"
      *     for red).
-     * 
-     * No default set here.  Use OpenLayers.Renderer.defaultRenderer for defaults.
      */
+    strokeColor: null,
     
     /**
      * APIProperty: strokeOpacity
      * {Number} Stroke opacity (0-1).
-     * 
-     * No default set here.  Use OpenLayers.Renderer.defaultRenderer for defaults.
      */
+    strokeOpacity: null,
     
     /**
      * APIProperty: strokeWidth
      * {Number} Pixel stroke width.
-     * 
-     * No default set here.  Use OpenLayers.Renderer.defaultRenderer for defaults.
      */
+    strokeWidth: null,
     
     /**
      * APIProperty: strokeLinecap
      * {String} Stroke cap type ("butt", "round", or "square").
-     * 
-     * No default set here.  Use OpenLayers.Renderer.defaultRenderer for defaults.
      */
+    strokeLinecap: null,
     
     /**
      * Property: strokeDashstyle
@@ -48,92 +44,80 @@ OpenLayers.Symbolizer.Point = OpenLayers.Class(OpenLayers.Symbolizer, {
      *     OpenLayers values for strokeDashstyle ("dot", "dash", "dashdot",
      *     "longdash", "longdashdot", or "solid") will not work in SLD, but
      *     most SLD patterns will render correctly in OpenLayers.
-     * 
-     * No default set here.  Use OpenLayers.Renderer.defaultRenderer for defaults.
      */
+    strokeDashstyle: null,
 
     /**
      * APIProperty: fillColor
      * {String} RGB hex fill color (e.g. "#ff0000" for red).
-     * 
-     * No default set here.  Use OpenLayers.Renderer.defaultRenderer for defaults.
      */
+    fillColor: null,
     
     /**
      * APIProperty: fillOpacity
      * {Number} Fill opacity (0-1).
-     * 
-     * No default set here.  Use OpenLayers.Renderer.defaultRenderer for defaults.
      */
+    fillOpacity: null, 
 
     /**
      * APIProperty: pointRadius
      * {Number} Pixel point radius.
-     * 
-     * No default set here.  Use OpenLayers.Renderer.defaultRenderer for defaults.
      */
+    pointRadius: null,
 
     /**
      * APIProperty: externalGraphic
      * {String} Url to an external graphic that will be used for rendering 
      *     points.
-     * 
-     * No default set here.  Use OpenLayers.Renderer.defaultRenderer for defaults.
      */
+    externalGraphic: null,
     
     /**
      * APIProperty: graphicWidth
      * {Number} Pixel width for sizing an external graphic.
-     * 
-     * No default set here.  Use OpenLayers.Renderer.defaultRenderer for defaults.
      */
+    graphicWidth: null,
     
     /**
      * APIProperty: graphicHeight
      * {Number} Pixel height for sizing an external graphic.
-     * 
-     * No default set here.  Use OpenLayers.Renderer.defaultRenderer for defaults.
      */
+    graphicHeight: null,
     
     /**
      * APIProperty: graphicOpacity
      * {Number} Opacity (0-1) for an external graphic.
-     * 
-     * No default set here.  Use OpenLayers.Renderer.defaultRenderer for defaults.
      */
+    graphicOpacity: null,
     
     /**
      * APIProperty: graphicXOffset
      * {Number} Pixel offset along the positive x axis for displacing an 
      *     external graphic.
-     * 
-     * No default set here.  Use OpenLayers.Renderer.defaultRenderer for defaults.
      */
+    graphicXOffset: null,
     
     /**
      * APIProperty: graphicYOffset
      * {Number} Pixel offset along the positive y axis for displacing an 
      *     external graphic.
-     * 
-     * No default set here.  Use OpenLayers.Renderer.defaultRenderer for defaults.
      */
+    graphicYOffset: null,
 
     /**
      * APIProperty: rotation
      * {Number} The rotation of a graphic in the clockwise direction about its 
      *     center point (or any point off center as specified by 
      *     <graphicXOffset> and <graphicYOffset>).
-     * 
-     * No default set here.  Use OpenLayers.Renderer.defaultRenderer for defaults.
      */
+    rotation: null,
     
     /**
      * APIProperty: graphicName
      * {String} Named graphic to use when rendering points.  Supported values 
      *     include "circle", "square", "star", "x", "cross", and "triangle".
-     * 
-     * No default set here.  Use OpenLayers.Renderer.defaultRenderer for defaults.
      */
+    graphicName: null,
     
     /**
      * Constructor: OpenLayers.Symbolizer.Point

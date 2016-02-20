@@ -1,6 +1,6 @@
-/* Copyright (c) 2006-2013 by OpenLayers Contributors (see authors.txt for
- * full list of contributors). Published under the 2-clause BSD license.
- * See license.txt in the OpenLayers distribution or repository for the
+/* Copyright (c) 2006-2010 by OpenLayers Contributors (see authors.txt for 
+ * full list of contributors). Published under the Clear BSD license.  
+ * See http://svn.openlayers.org/trunk/openlayers/license.txt for the
  * full text of the license. */
 
 /**
@@ -112,7 +112,6 @@ OpenLayers.Format.WMTSCapabilities.v1_0_0 = OpenLayers.Class(
                 var layer = {
                     styles: [],
                     formats: [],
-                    dimensions: [],
                     tileMatrixSetLinks: []
                 };
                 layer.layers = [];
@@ -192,20 +191,7 @@ OpenLayers.Format.WMTSCapabilities.v1_0_0 = OpenLayers.Class(
             },
             "MatrixHeight": function(node, obj) {
                 obj.matrixHeight = parseInt(this.getChildValue(node)); 
-            },
-            "ResourceURL": function(node, obj) {
-                obj.resourceUrl = obj.resourceUrl || {};
-                var resourceType = node.getAttribute("resourceType");
-                if (!obj.resourceUrls) {
-                    obj.resourceUrls = [];
-                }
-                var resourceUrl = obj.resourceUrl[resourceType] = {
-                    format: node.getAttribute("format"),
-                    template: node.getAttribute("template"),
-                    resourceType: resourceType
-                };
-                obj.resourceUrls.push(resourceUrl);
-            },
+            },        
             // not used for now, can be added in the future though
             /*"Themes": function(node, obj) {
                 obj.themes = [];
@@ -225,23 +211,7 @@ OpenLayers.Format.WMTSCapabilities.v1_0_0 = OpenLayers.Class(
                 obj.serviceMetadataUrl = {};
                 obj.serviceMetadataUrl.href = node.getAttribute("xlink:href");
                 // TODO: other attributes of <ServiceMetadataURL> element                
-            },
-            "LegendURL": function(node, obj) {
-                obj.legend = {};
-                obj.legend.href = node.getAttribute("xlink:href");
-                obj.legend.format = node.getAttribute("format");
-            },
-            "Dimension": function(node, obj) {
-                var dimension = {values: []};
-                this.readChildNodes(node, dimension);
-                obj.dimensions.push(dimension);
-            },
-            "Default": function(node, obj) {
-                obj["default"] = this.getChildValue(node);
-            },
-            "Value": function(node, obj) {
-                obj.values.push(this.getChildValue(node));
-            }
+            }            
         },
         "ows": OpenLayers.Format.OWSCommon.v1_1_0.prototype.readers["ows"]
     },    

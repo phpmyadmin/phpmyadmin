@@ -12,16 +12,32 @@ OpenLayers.Lang.ca = {
 
     'unhandledRequest': "Resposta a petició no gestionada ${statusText}",
 
-    'Permalink': "Enllaç permanent",
+    'permalink': "Enllaç permanent",
 
-    'Overlays': "Capes addicionals",
+    'overlays': "Capes addicionals",
 
-    'Base Layer': "Capa Base",
+    'baseLayer': "Capa Base",
+
+    'sameProjection':
+        "El mapa de referència només funciona si té la mateixa projecció que el mapa principal",
+
+    'readNotImplemented': "Lectura no implementada.",
+
+    'writeNotImplemented': "Escriptura no implementada.",
 
     'noFID': "No es pot actualitzar un element per al que no existeix FID.",
 
+    'errorLoadingGML': "Error carregant el fitxer GML ${url}",
+
     'browserNotSupported':
         "El seu navegador no suporta renderització vectorial. Els renderitzadors suportats actualment són:\n${renderers}",
+
+    'componentShouldBe': "addFeatures : el component ha de ser de tipus ${geomType}",
+
+    // console message
+    'getFeatureError':
+        "getFeatureFromEvent ha estat cridat des d'una capa sense renderizador. Això normalment vol dir que " +
+        "s'ha eliminat una capa, però no el handler associat a ella.",
 
     // console message
     'minZoomLevelError':
@@ -60,15 +76,19 @@ OpenLayers.Lang.ca = {
         "<a href='http://trac.openlayers.org/wiki/${layerLib}' " +
         "target='_blank'>féu clic aquí</a>",
 
-    'Scale = 1 : ${scaleDenom}': "Escala = 1 : ${scaleDenom}",
+    'scale': "Escala = 1 : ${scaleDenom}",
 
     //labels for the graticule control
     'W': 'O',
     'E': 'E',
     'N': 'N',
     'S': 'S',
-    'Graticule': 'Retícula',    
+    'graticule': 'Retícula',    
         
+    // console message
+    'layerAlreadyAdded':
+        "Heu intentat afegir la capa: ${layerName} al mapa, però ja ha estat afegida anteriorment",
+
     // console message
     'reprojectDeprecated':
         "Esteu fent servir l'opció 'reproject' a la capa " +
@@ -82,6 +102,25 @@ OpenLayers.Lang.ca = {
     'methodDeprecated':
         "Aquest mètode és obsolet i s'eliminarà a la versió 3.0. " +
         "Si us plau feu servir em mètode alternatiu ${newMethod}.",
+
+    // console message
+    'boundsAddError': "Ha de proporcionar els valors x i y a la funció add.",
+
+    // console message
+    'lonlatAddError': "Ha de proporcionar els valors lon i lat a la funció add.",
+
+    // console message
+    'pixelAddError': "Ha de proporcionar els valors x i y a la funció add.",
+
+    // console message
+    'unsupportedGeometryType': "Tipus de geometria no suportada: ${geomType}",
+
+    // console message
+    'pagePositionFailed':
+        "OpenLayers.Util.pagePosition ha fallat: l'element amb id ${elemId} pot estar fora de lloc.",
+                    
+    // console message
+    'filterEvaluateNotImplemented': "evaluate no està implementat per aquest tipus de filtre.",
 
     // **** end ****
     'end': ''

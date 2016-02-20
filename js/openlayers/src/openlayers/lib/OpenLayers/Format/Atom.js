@@ -1,6 +1,6 @@
-/* Copyright (c) 2006-2013 by OpenLayers Contributors (see authors.txt for
- * full list of contributors). Published under the 2-clause BSD license.
- * See license.txt in the OpenLayers distribution or repository for the
+/* Copyright (c) 2006-2010 by OpenLayers Contributors (see authors.txt for 
+ * full list of contributors). Published under the Clear BSD license.  
+ * See http://svn.openlayers.org/trunk/openlayers/license.txt for the
  * full text of the license. */
 
 /**
@@ -67,6 +67,9 @@ OpenLayers.Format.Atom = OpenLayers.Class(OpenLayers.Format.XML, {
      * options - {Object} An optional object whose properties will be set on
      *     this instance.
      */
+    initialize: function(options) {
+        OpenLayers.Format.XML.prototype.initialize.apply(this, [options]);
+    },
     
     /**
      * APIMethod: read
@@ -76,7 +79,7 @@ OpenLayers.Format.Atom = OpenLayers.Class(OpenLayers.Format.XML, {
      * doc - {Element} or {String}
      *
      * Returns:
-     * Array({<OpenLayers.Feature.Vector>})
+     * An Array of <OpenLayers.Feature.Vector>s
      */
     read: function(doc) {
         if (typeof doc == "string") {
@@ -90,7 +93,8 @@ OpenLayers.Format.Atom = OpenLayers.Class(OpenLayers.Format.XML, {
      * Serialize or more feature nodes to Atom documents.
      *
      * Parameters:
-     * features - {<OpenLayers.Feature.Vector>} or Array({<OpenLayers.Feature.Vector>})
+     * features - a single {<OpenLayers.Feature.Vector>} or an
+     * Array({<OpenLayers.Feature.Vector>}).
      *
      * Returns:
      * {String} an Atom entry document if passed one feature node, or a feed
@@ -98,7 +102,7 @@ OpenLayers.Format.Atom = OpenLayers.Class(OpenLayers.Format.XML, {
      */
     write: function(features) {
         var doc;
-        if (OpenLayers.Util.isArray(features)) {
+        if (features instanceof Array) {
             doc = this.createElementNSPlus("atom:feed");
             doc.appendChild(
                 this.createElementNSPlus("atom:title", {
@@ -182,7 +186,7 @@ OpenLayers.Format.Atom = OpenLayers.Class(OpenLayers.Format.XML, {
         
         // atom:author
         if (atomAttrib.authors) {
-            var authors = OpenLayers.Util.isArray(atomAttrib.authors) ?
+            var authors = atomAttrib.authors instanceof Array ?
                 atomAttrib.authors : [atomAttrib.authors];
             for (var i=0, ii=authors.length; i<ii; i++) {
                 entryNode.appendChild(
@@ -195,7 +199,7 @@ OpenLayers.Format.Atom = OpenLayers.Class(OpenLayers.Format.XML, {
         
         // atom:category
         if (atomAttrib.categories) {
-            var categories = OpenLayers.Util.isArray(atomAttrib.categories) ?
+            var categories = atomAttrib.categories instanceof Array ?
                 atomAttrib.categories : [atomAttrib.categories];
             var category;
             for (var i=0, ii=categories.length; i<ii; i++) {
@@ -219,7 +223,7 @@ OpenLayers.Format.Atom = OpenLayers.Class(OpenLayers.Format.XML, {
         
         // atom:contributor
         if (atomAttrib.contributors) {
-            var contributors = OpenLayers.Util.isArray(atomAttrib.contributors) ?
+            var contributors = atomAttrib.contributors instanceof Array ?
                 atomAttrib.contributors : [atomAttrib.contributors];
             for (var i=0, ii=contributors.length; i<ii; i++) {
                 entryNode.appendChild(
@@ -242,7 +246,7 @@ OpenLayers.Format.Atom = OpenLayers.Class(OpenLayers.Format.XML, {
         
         // atom:link
         if (atomAttrib.links) {
-            var links = OpenLayers.Util.isArray(atomAttrib.links) ?
+            var links = atomAttrib.links instanceof Array ?
                 atomAttrib.links : [atomAttrib.links];
             var link;
             for (var i=0, ii=links.length; i<ii; i++) {
@@ -418,7 +422,7 @@ OpenLayers.Format.Atom = OpenLayers.Class(OpenLayers.Format.XML, {
      * node - {DOMElement} An Atom entry or feed node.
      *
      * Returns:
-     * {<OpenLayers.Feature.Vector>}
+     * An <OpenLayers.Feature.Vector>.
      */
     parseFeature: function(node) {
         var atomAttrib = {};
@@ -554,7 +558,7 @@ OpenLayers.Format.Atom = OpenLayers.Class(OpenLayers.Format.XML, {
      * node - {DOMElement} An Atom entry or feed node.
      *
      * Returns:
-     * Array({<OpenLayers.Feature.Vector>})
+     * An Array of <OpenLayers.Feature.Vector>s.
      */
     parseFeatures: function(node) {
         var features = [];
@@ -578,7 +582,7 @@ OpenLayers.Format.Atom = OpenLayers.Class(OpenLayers.Format.XML, {
      * node - {DOMElement} An Atom entry or feed node.
      *
      * Returns:
-     * Array({<OpenLayers.Geometry>})
+     * An Array of <OpenLayers.Geometry>s.
      */
     parseLocations: function(node) {
         var georssns = this.namespaces.georss;
@@ -606,7 +610,12 @@ OpenLayers.Format.Atom = OpenLayers.Class(OpenLayers.Format.XML, {
                                 point[i].firstChild.nodeValue
                                 ).split(/\s*,\s*/);
                 }
-                components.push(new OpenLayers.Geometry.Point(xy[1], xy[0]));
+                components.push(
+                    new OpenLayers.Geometry.Point(
+                        parseFloat(xy[1]),
+                        parseFloat(xy[0])
+                    )
+                );
             }
         }
 
@@ -621,7 +630,10 @@ OpenLayers.Format.Atom = OpenLayers.Class(OpenLayers.Format.XML, {
                                 ).split(/\s+/);
                 points = [];
                 for (var j=0, jj=coords.length; j<jj; j+=2) {
-                    p = new OpenLayers.Geometry.Point(coords[j+1], coords[j]);
+                    p = new OpenLayers.Geometry.Point(
+                        parseFloat(coords[j+1]),
+                        parseFloat(coords[j])
+                    );
                     points.push(p);
                 }
                 components.push(
@@ -641,12 +653,15 @@ OpenLayers.Format.Atom = OpenLayers.Class(OpenLayers.Format.XML, {
                             ).split(/\s+/);
                 points = [];
                 for (var j=0, jj=coords.length; j<jj; j+=2) {
-                    p = new OpenLayers.Geometry.Point(coords[j+1], coords[j]);
+                    p = new OpenLayers.Geometry.Point(
+                        parseFloat(coords[j+1]),
+                        parseFloat(coords[j])
+                    );
                     points.push(p);
                 }
                 components.push(
                     new OpenLayers.Geometry.Polygon(
-                        [new OpenLayers.Geometry.LinearRing(points)]
+                        [new OpenLayers.Geometry.LinearRing(components)]
                     )
                 );
             }

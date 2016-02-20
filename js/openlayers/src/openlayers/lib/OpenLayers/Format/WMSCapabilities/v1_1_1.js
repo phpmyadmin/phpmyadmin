@@ -1,6 +1,6 @@
-/* Copyright (c) 2006-2013 by OpenLayers Contributors (see authors.txt for
- * full list of contributors). Published under the 2-clause BSD license.
- * See license.txt in the OpenLayers distribution or repository for the
+/* Copyright (c) 2006-2010 by OpenLayers Contributors (see authors.txt for 
+ * full list of contributors). Published under the Clear BSD license.  
+ * See http://svn.openlayers.org/trunk/openlayers/license.txt for the
  * full text of the license. */
 
 /**
@@ -10,13 +10,6 @@
 /**
  * Class: OpenLayers.Format.WMSCapabilities/v1_1_1
  * Read WMS Capabilities version 1.1.1.
- *
- * Note on <ScaleHint> parsing: If the 'min' attribute is set to "0", no
- * maxScale will be set on the layer object. If the 'max' attribute is set to
- * "Infinity", no minScale will be set. This makes it easy to create proper
- * {<OpenLayers.Layer.WMS>} configurations directly from the layer object
- * literals returned by this format, because no minScale/maxScale modifications
- * need to be made.
  * 
  * Inherits from:
  *  - <OpenLayers.Format.WMSCapabilities.v1_1>
@@ -38,6 +31,11 @@ OpenLayers.Format.WMSCapabilities.v1_1_1 = OpenLayers.Class(
      * options - {Object} An optional object whose properties will be set on
      *     this instance.
      */
+    initialize: function(options) {
+        OpenLayers.Format.WMSCapabilities.v1_1.prototype.initialize.apply(
+            this, [options]
+        );
+    },
 
     /**
      * Property: readers

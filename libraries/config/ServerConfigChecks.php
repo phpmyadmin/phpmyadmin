@@ -45,7 +45,7 @@ class ServerConfigChecks
 
         list(
             $sAllowArbitraryServerWarn, $sBlowfishSecretMsg,
-            $sBZipDumpWarn, $sDirectoryNotice,
+            $sBZipDumpWarn, $sDirectoryNotice, $sForceSSLNotice,
             $sGZipDumpWarn, $sLoginCookieValidityWarn,
             $sLoginCookieValidityWarn2, $sLoginCookieValidityWarn3,
             $sSecurityInfoMsg, $sSrvAuthCfgMsg, $sZipDumpExportWarn,
@@ -62,6 +62,19 @@ class ServerConfigChecks
             $cookieAuthUsed, $blowfishSecretSet, $sBlowfishSecretMsg,
             $blowfishSecret
         );
+
+        //
+        // $cfg['ForceSSL']
+        // should be enabled if possible
+        //
+        if (!$this->cfg->getValue('ForceSSL')) {
+            PMA_messagesSet(
+                'notice',
+                'ForceSSL',
+                PMA_lang(PMA_langName('ForceSSL')),
+                PMA_lang($sForceSSLNotice)
+            );
+        }
 
         //
         // $cfg['AllowArbitraryServer']
@@ -407,6 +420,15 @@ class ServerConfigChecks
             . 'neither world accessible nor readable or writable by other users on '
             . 'your server.'
         );
+        $sForceSSLNotice = __(
+            'This %soption%s should be enabled if your web server supports it.'
+        );
+        $sForceSSLNotice = sprintf(
+            $sForceSSLNotice,
+            '[a@?page=form' . PMA_URL_getCommon(array(), 'html', '&')
+            . '&amp;formset=Features#tab_Security]',
+            '[/a]'
+        );
         $sGZipDumpWarning = __(
             '%sGZip compression and decompression%s requires functions (%s) which '
             . 'are unavailable on this system.'
@@ -511,7 +533,7 @@ class ServerConfigChecks
         );
         return array(
             $sAllowArbitraryServerWarn, $sBlowfishSecretMsg, $sBZipDumpWarning,
-            $sDirectoryNotice, $sGZipDumpWarning,
+            $sDirectoryNotice, $sForceSSLNotice, $sGZipDumpWarning,
             $sLoginCookieValidityWarn, $sLoginCookieValidityWarn2,
             $sLoginCookieValidityWarn3, $sSecurityInfoMsg, $sServerAuthConfigMsg,
             $sZipDumpExportWarn, $sZipDumpImportWarn

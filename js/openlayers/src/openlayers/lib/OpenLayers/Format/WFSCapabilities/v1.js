@@ -1,6 +1,6 @@
-/* Copyright (c) 2006-2013 by OpenLayers Contributors (see authors.txt for
- * full list of contributors). Published under the 2-clause BSD license.
- * See license.txt in the OpenLayers distribution or repository for the
+/* Copyright (c) 2006-2010 by OpenLayers Contributors (see authors.txt for 
+ * full list of contributors). Published under the Clear BSD license.  
+ * See http://svn.openlayers.org/trunk/openlayers/license.txt for the
  * full text of the license. */
 
 /**
@@ -15,33 +15,7 @@
  *  - <OpenLayers.Format.XML>
  */
 OpenLayers.Format.WFSCapabilities.v1 = OpenLayers.Class(
-    OpenLayers.Format.XML, {
-
-    /**
-     * Property: namespaces
-     * {Object} Mapping of namespace aliases to namespace URIs.
-     */
-    namespaces: {
-        wfs: "http://www.opengis.net/wfs",
-        xlink: "http://www.w3.org/1999/xlink",
-        xsi: "http://www.w3.org/2001/XMLSchema-instance",
-        ows: "http://www.opengis.net/ows"
-    },
-
-
-    /**
-     * APIProperty: errorProperty
-     * {String} Which property of the returned object to check for in order to
-     * determine whether or not parsing has failed. In the case that the
-     * errorProperty is undefined on the returned object, the document will be
-     * run through an OGCExceptionReport parser.
-     */
-    errorProperty: "featureTypeList",
-
-    /**
-     * Property: defaultPrefix
-     */
-    defaultPrefix: "wfs",
+    OpenLayers.Format.WFSCapabilities, {
     
     /**
      * Constructor: OpenLayers.Format.WFSCapabilities.v1_1
@@ -51,6 +25,10 @@ OpenLayers.Format.WFSCapabilities.v1 = OpenLayers.Class(
      * options - {Object} An optional object whose properties will be set on
      *     this instance.
      */
+    initialize: function(options) {
+        OpenLayers.Format.XML.prototype.initialize.apply(this, [options]);
+        this.options = options;
+    },
 
     /**
      * APIMethod: read
@@ -66,64 +44,83 @@ OpenLayers.Format.WFSCapabilities.v1 = OpenLayers.Class(
         if(typeof data == "string") {
             data = OpenLayers.Format.XML.prototype.read.apply(this, [data]);
         }
-        var raw = data;
-        if(data && data.nodeType == 9) {
-            data = data.documentElement;
-        }
         var capabilities = {};
-        this.readNode(data, capabilities);
+        var root = data.documentElement;
+        this.runChildNodes(capabilities, root);
         return capabilities;
     },
-
+    
     /**
-     * Property: readers
-     * Contains public functions, grouped by namespace prefix, that will
-     *     be applied when a namespaced node is found matching the function
-     *     name.  The function will be applied in the scope of this parser
-     *     with two arguments: the node being read and a context object passed
-     *     from the parent.
+     * Method: runChildNodes
      */
-    readers: {
-        "wfs": {
-            "WFS_Capabilities": function(node, obj) {
-                this.readChildNodes(node, obj);
-            },
-            "FeatureTypeList": function(node, request) {
-                request.featureTypeList = {
-                    featureTypes: []
-                };
-                this.readChildNodes(node, request.featureTypeList);
-            },
-            "FeatureType": function(node, featureTypeList) {
-                var featureType = {};
-                this.readChildNodes(node, featureType);
-                featureTypeList.featureTypes.push(featureType);
-            },
-            "Name": function(node, obj) {
-                var name = this.getChildValue(node);
-                if(name) {
-                    var parts = name.split(":");
-                    obj.name = parts.pop();
-                    if(parts.length > 0) {
-                        obj.featureNS = this.lookupNamespaceURI(node, parts[0]);
-                    }
-                }
-            },
-            "Title": function(node, obj) {
-                var title = this.getChildValue(node);
-                if(title) {
-                    obj.title = title;
-                }
-            },
-            "Abstract": function(node, obj) {
-                var abst = this.getChildValue(node);
-                if(abst) {
-                    obj["abstract"] = abst;
+    runChildNodes: function(obj, node) {
+        var children = node.childNodes;
+        var childNode, processor;
+        for(var i=0; i<children.length; ++i) {
+            childNode = children[i];
+            if(childNode.nodeType == 1) {
+                processor = this["read_cap_" + childNode.nodeName];
+                if(processor) {
+                    processor.apply(this, [obj, childNode]);
                 }
             }
         }
     },
+    
+    /**
+     * Method: read_cap_FeatureTypeList
+     */
+    read_cap_FeatureTypeList: function(request, node) {
+        var featureTypeList = {
+            featureTypes: []
+        };
+        this.runChildNodes(featureTypeList, node);
+        request.featureTypeList = featureTypeList;
+    },
+    
+    /**
+     * Method: read_cap_FeatureType
+     */
+    read_cap_FeatureType: function(featureTypeList, node, parentLayer) {
+        var featureType = {};
+        this.runChildNodes(featureType, node);
+        featureTypeList.featureTypes.push(featureType);
+    },
+    
+    /**
+     * Method: read_cap_Name
+     */
+    read_cap_Name: function(obj, node) {
+        var name = this.getChildValue(node);
+        if(name) {
+            var parts = name.split(":");
+            obj.name = parts.pop();
+            if(parts.length > 0) {
+                obj.featureNS = this.lookupNamespaceURI(node, parts[0]);
+            }
+        }
+    },
 
+    /**
+     * Method: read_cap_Title
+     */
+    read_cap_Title: function(obj, node) {
+        var title = this.getChildValue(node);
+        if(title) {
+            obj.title = title;
+        }
+    },
+
+    /**
+     * Method: read_cap_Abstract
+     */
+    read_cap_Abstract: function(obj, node) {
+        var abst = this.getChildValue(node);
+        if(abst) {
+            obj["abstract"] = abst;
+        }
+    },
+    
     CLASS_NAME: "OpenLayers.Format.WFSCapabilities.v1" 
 
 });

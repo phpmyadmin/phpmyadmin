@@ -1,6 +1,6 @@
-/* Copyright (c) 2006-2013 by OpenLayers Contributors (see authors.txt for
- * full list of contributors). Published under the 2-clause BSD license.
- * See license.txt in the OpenLayers distribution or repository for the
+/* Copyright (c) 2006-2010 by OpenLayers Contributors (see authors.txt for 
+ * full list of contributors). Published under the Clear BSD license.  
+ * See http://svn.openlayers.org/trunk/openlayers/license.txt for the
  * full text of the license. */
 
 /**
@@ -18,51 +18,53 @@
 OpenLayers.Control.Measure = OpenLayers.Class(OpenLayers.Control, {
 
     /**
-     * APIProperty: events
-     * {<OpenLayers.Events>} Events instance for listeners and triggering
-     *     control specific events.
-     *
-     * Register a listener for a particular event with the following syntax:
+     * Constant: EVENT_TYPES
+     * {Array(String)} Supported application event types.  Register a listener
+     *     for a particular event with the following syntax:
      * (code)
      * control.events.register(type, obj, listener);
      * (end)
      *
-     * Supported event types (in addition to those from <OpenLayers.Control.events>):
+     * Listeners will be called with a reference to an event object.  The
+     *     properties of this event depends on exactly what happened.
+     *
+     * Supported control event types (in addition to those from <OpenLayers.Control>):
      * measure - Triggered when a measurement sketch is complete.  Listeners
      *      will receive an event with measure, units, order, and geometry
      *      properties.
      * measurepartial - Triggered when a new point is added to the
-     *      measurement sketch or if the <immediate> property is true and the
-     *      measurement sketch is modified.  Listeners receive an event with measure,
+     *      measurement sketch.  Listeners receive an event with measure,
      *      units, order, and geometry.
      */
+    EVENT_TYPES: ['measure', 'measurepartial'],
 
     /**
      * APIProperty: handlerOptions
      * {Object} Used to set non-default properties on the control's handler
      */
-
+    handlerOptions: null,
+    
     /**
      * Property: callbacks
      * {Object} The functions that are sent to the handler for callback
      */
     callbacks: null,
-
+    
     /**
-     * APIProperty: displaySystem
+     * Property: displaySystem
      * {String} Display system for output measurements.  Supported values
      *     are 'english', 'metric', and 'geographic'.  Default is 'metric'.
      */
     displaySystem: 'metric',
-
+    
     /**
-     * APIProperty: geodesic
+     * Property: geodesic
      * {Boolean} Calculate geodesic metrics instead of planar metrics.  This
      *     requires that geometries can be transformed into Geographic/WGS84
      *     (if that is not already the map projection).  Default is false.
      */
     geodesic: false,
-
+    
     /**
      * Property: displaySystemUnits
      * {Object} Units for various measurement systems.  Values are arrays
@@ -91,7 +93,7 @@ OpenLayers.Control.Measure = OpenLayers.Class(OpenLayers.Control, {
      * {Number} Timeout id of trigger for measurepartial.
      */
     delayedTrigger: null,
-
+    
     /**
      * APIProperty: persist
      * {Boolean} Keep the temporary measurement sketch drawn after the
@@ -102,69 +104,41 @@ OpenLayers.Control.Measure = OpenLayers.Class(OpenLayers.Control, {
     persist: false,
 
     /**
-     * APIProperty: immediate
-     * {Boolean} Activates the immediate measurement so that the "measurepartial"
-     *     event is also fired once the measurement sketch is modified.
-     *     Default is false.
-     */
-    immediate : false,
-
-    /**
      * Constructor: OpenLayers.Control.Measure
-     *
+     * 
      * Parameters:
-     * handler - {<OpenLayers.Handler>}
-     * options - {Object}
+     * handler - {<OpenLayers.Handler>} 
+     * options - {Object} 
      */
     initialize: function(handler, options) {
+        // concatenate events specific to measure with those from the base
+        this.EVENT_TYPES =
+            OpenLayers.Control.Measure.prototype.EVENT_TYPES.concat(
+            OpenLayers.Control.prototype.EVENT_TYPES
+        );
         OpenLayers.Control.prototype.initialize.apply(this, [options]);
-        var callbacks = {done: this.measureComplete,
-            point: this.measurePartial};
-        if (this.immediate){
-            callbacks.modify = this.measureImmediate;
-        }
-        this.callbacks = OpenLayers.Util.extend(callbacks, this.callbacks);
+        this.callbacks = OpenLayers.Util.extend(
+            {done: this.measureComplete, point: this.measurePartial},
+            this.callbacks
+        );
 
-        // let the handler options override, so old code that passes 'persist'
+        // let the handler options override, so old code that passes 'persist' 
         // directly to the handler does not need an update
         this.handlerOptions = OpenLayers.Util.extend(
             {persist: this.persist}, this.handlerOptions
         );
         this.handler = new handler(this, this.callbacks, this.handlerOptions);
     },
-
-    /**
-     * APIMethod: deactivate
-     */
-    deactivate: function() {
-        this.cancelDelay();
-        return OpenLayers.Control.prototype.deactivate.apply(this, arguments);
-    },
-
+    
     /**
      * APIMethod: cancel
      * Stop the control from measuring.  If <persist> is true, the temporary
      *     sketch will be erased.
      */
     cancel: function() {
-        this.cancelDelay();
         this.handler.cancel();
     },
-
-    /**
-     * APIMethod: setImmediate
-     * Sets the <immediate> property. Changes the activity of immediate
-     * measurement.
-     */
-    setImmediate: function(immediate) {
-        this.immediate = immediate;
-        if (this.immediate){
-            this.callbacks.modify = this.measureImmediate;
-        } else {
-            delete this.callbacks.modify;
-        }
-    },
-
+    
     /**
      * Method: updateHandler
      *
@@ -191,10 +165,12 @@ OpenLayers.Control.Measure = OpenLayers.Class(OpenLayers.Control, {
      * geometry - {<OpenLayers.Geometry>}
      */
     measureComplete: function(geometry) {
-        this.cancelDelay();
+        if(this.delayedTrigger) {
+            window.clearTimeout(this.delayedTrigger);
+        }
         this.measure(geometry, "measure");
     },
-
+    
     /**
      * Method: measurePartial
      * Called each time a new point is added to the measurement sketch.
@@ -204,48 +180,14 @@ OpenLayers.Control.Measure = OpenLayers.Class(OpenLayers.Control, {
      * geometry - {<OpenLayers.Geometry>} The sketch geometry.
      */
     measurePartial: function(point, geometry) {
-        this.cancelDelay();
-        geometry = geometry.clone();
-        // when we're wating for a dblclick, we have to trigger measurepartial
-        // after some delay to deal with reflow issues in IE
-        if (this.handler.freehandMode(this.handler.evt)) {
-            // no dblclick in freehand mode
-            this.measure(geometry, "measurepartial");
-        } else {
+        if (geometry.getLength() > 0) {
+            geometry = geometry.clone();
             this.delayedTrigger = window.setTimeout(
                 OpenLayers.Function.bind(function() {
-                    this.delayedTrigger = null;
                     this.measure(geometry, "measurepartial");
                 }, this),
                 this.partialDelay
             );
-        }
-    },
-
-    /**
-     * Method: measureImmediate
-     * Called each time the measurement sketch is modified.
-     *
-     * Parameters:
-     * point - {<OpenLayers.Geometry.Point>} The point at the mouse position.
-     * feature - {<OpenLayers.Feature.Vector>} The sketch feature.
-     * drawing - {Boolean} Indicates whether we're currently drawing.
-     */
-    measureImmediate : function(point, feature, drawing) {
-        if (drawing && !this.handler.freehandMode(this.handler.evt)) {
-            this.cancelDelay();
-            this.measure(feature.geometry, "measurepartial");
-        }
-    },
-
-    /**
-     * Method: cancelDelay
-     * Cancels the delay measurement that measurePartial began.
-     */
-    cancelDelay: function() {
-        if (this.delayedTrigger !== null) {
-            window.clearTimeout(this.delayedTrigger);
-            this.delayedTrigger = null;
         }
     },
 
@@ -272,7 +214,7 @@ OpenLayers.Control.Measure = OpenLayers.Class(OpenLayers.Control, {
             geometry: geometry
         });
     },
-
+    
     /**
      * Method: getBestArea
      * Based on the <displaySystem> returns the area of a geometry.
@@ -296,7 +238,7 @@ OpenLayers.Control.Measure = OpenLayers.Class(OpenLayers.Control, {
         }
         return [area, unit];
     },
-
+    
     /**
      * Method: getArea
      *
@@ -323,7 +265,7 @@ OpenLayers.Control.Measure = OpenLayers.Class(OpenLayers.Control, {
         }
         return area;
     },
-
+    
     /**
      * Method: getBestLength
      * Based on the <displaySystem> returns the length of a geometry.

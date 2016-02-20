@@ -1,11 +1,10 @@
-/* Copyright (c) 2006-2013 by OpenLayers Contributors (see authors.txt for
- * full list of contributors). Published under the 2-clause BSD license.
- * See license.txt in the OpenLayers distribution or repository for the
+/* Copyright (c) 2006-2010 by OpenLayers Contributors (see authors.txt for 
+ * full list of contributors). Published under the Clear BSD license.  
+ * See http://svn.openlayers.org/trunk/openlayers/license.txt for the
  * full text of the license. */
 
 
 /**
- * @requires OpenLayers/BaseTypes/Class.js
  * @requires OpenLayers/Util.js
  * @requires OpenLayers/Style.js
  */
@@ -18,7 +17,7 @@ OpenLayers.Filter = OpenLayers.Class({
     
     /** 
      * Constructor: OpenLayers.Filter
-     * This class represents a generic filter.
+     * This is an abstract class.  Create an instance of a filter subclass.
      *
      * Parameters:
      * options - {Object} Optional object whose properties will be set on the
@@ -40,8 +39,8 @@ OpenLayers.Filter = OpenLayers.Class({
 
     /**
      * APIMethod: evaluate
-     * Evaluates this filter in a specific context.  Instances or subclasses
-     * are supposed to override this method.
+     * Evaluates this filter in a specific context.  Should be implemented by
+     *     subclasses.
      * 
      * Parameters:
      * context - {Object} Context to use in evaluating the filter.  If a vector
@@ -56,31 +55,13 @@ OpenLayers.Filter = OpenLayers.Class({
     
     /**
      * APIMethod: clone
-     * Clones this filter. Should be implemented by subclasses.
+     * Clones this filter. Should be implementted by subclasses.
      * 
      * Returns:
      * {<OpenLayers.Filter>} Clone of this filter.
      */
     clone: function() {
         return null;
-    },
-    
-    /**
-     * APIMethod: toString
-     *
-     * Returns:
-     * {String} Include <OpenLayers.Format.CQL> in your build to get a CQL
-     *     representation of the filter returned. Otherwise "[Object object]"
-     *     will be returned.
-     */
-    toString: function() {
-        var string;
-        if (OpenLayers.Format && OpenLayers.Format.CQL) {
-            string = OpenLayers.Format.CQL.prototype.write(this);
-        } else {
-            string = Object.prototype.toString.call(this);
-        }
-        return string;
     },
     
     CLASS_NAME: "OpenLayers.Filter"

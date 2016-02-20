@@ -45,6 +45,11 @@ var sql_autocomplete = false;
 var sql_autocomplete_default_table = '';
 
 /**
+ * @var chart_activeTimeouts object active timeouts that refresh the charts. When disabling a realtime chart, this can be used to stop the continuous ajax requests
+ */
+var chart_activeTimeouts = {};
+
+/**
  * @var central_column_list array to hold the columns in central list per db.
  */
 var central_column_list = [];
@@ -901,9 +906,6 @@ AJAX.registerOnload('functions.js', function () {
                             updateTimeout = window.setTimeout(UpdateIdleTime, 2000);
                         }
                     } else { //timeout occurred
-                        if(isStorageSupported('sessionStorage')){
-                            window.sessionStorage.clear();
-                        }
                         window.location.reload(true);
                         clearInterval(IncInterval);
                     }
@@ -4289,6 +4291,48 @@ AJAX.registerOnload('functions.js', function () {
         $(this).data('val-hash', AJAX.hash($(this).is(":checked")));
     });
 });
+/**
+ * jQuery plugin to cancel selection in HTML code.
+ */
+(function ($) {
+    $.fn.noSelect = function (p) { //no select plugin by Paulo P.Marinas
+        var prevent = (p === null) ? true : p;
+        var is_msie = navigator.userAgent.indexOf('MSIE') > -1 || !!window.navigator.userAgent.match(/Trident.*rv\:11\./);
+        var is_firefox = navigator.userAgent.indexOf('Firefox') > -1;
+        var is_safari = navigator.userAgent.indexOf("Safari") > -1;
+        var is_opera = navigator.userAgent.indexOf("Presto") > -1;
+        if (prevent) {
+            return this.each(function () {
+                if (is_msie || is_safari) {
+                    $(this).bind('selectstart', function () {
+                        return false;
+                    });
+                } else if (is_firefox) {
+                    $(this).css('MozUserSelect', 'none');
+                    $('body').trigger('focus');
+                } else if (is_opera) {
+                    $(this).bind('mousedown', function () {
+                        return false;
+                    });
+                } else {
+                    $(this).attr('unselectable', 'on');
+                }
+            });
+        } else {
+            return this.each(function () {
+                if (is_msie || is_safari) {
+                    $(this).unbind('selectstart');
+                } else if (is_firefox) {
+                    $(this).css('MozUserSelect', 'inherit');
+                } else if (is_opera) {
+                    $(this).unbind('mousedown');
+                } else {
+                    $(this).removeAttr('unselectable');
+                }
+            });
+        }
+    }; //end noSelect
+})(jQuery);
 
 /**
  * jQuery plugin to correctly filter input fields by value, needed

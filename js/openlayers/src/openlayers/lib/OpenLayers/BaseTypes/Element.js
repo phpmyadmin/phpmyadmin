@@ -1,12 +1,7 @@
-/* Copyright (c) 2006-2013 by OpenLayers Contributors (see authors.txt for
- * full list of contributors). Published under the 2-clause BSD license.
- * See license.txt in the OpenLayers distribution or repository for the
+/* Copyright (c) 2006-2010 by OpenLayers Contributors (see authors.txt for 
+ * full list of contributors). Published under the Clear BSD license.  
+ * See http://svn.openlayers.org/trunk/openlayers/license.txt for the
  * full text of the license. */
-
-/**
- * @requires OpenLayers/Util.js
- * @requires OpenLayers/BaseTypes.js
- */
 
 /**
  * Namespace: OpenLayers.Element
@@ -36,9 +31,42 @@ OpenLayers.Element = {
     toggle: function() {
         for (var i=0, len=arguments.length; i<len; i++) {
             var element = OpenLayers.Util.getElement(arguments[i]);
-            var display = OpenLayers.Element.visible(element) ? 'none' 
-                                                              : '';
-            element.style.display = display;
+            var display = OpenLayers.Element.visible(element) ? 'hide' 
+                                                              : 'show';
+            OpenLayers.Element[display](element);
+        }
+    },
+
+
+    /**
+     * APIFunction: hide
+     * Hide element(s) passed in
+     * 
+     * Parameters:
+     * element - {DOMElement} Actually user can pass any number of elements
+     */
+    hide: function() {
+        for (var i=0, len=arguments.length; i<len; i++) {
+            var element = OpenLayers.Util.getElement(arguments[i]);
+            if (element) {
+                element.style.display = 'none';
+            }
+        }
+    },
+
+    /**
+     * APIFunction: show
+     * Show element(s) passed in
+     * 
+     * Parameters:
+     * element - {DOMElement} Actually user can pass any number of elements
+     */
+    show: function() {
+        for (var i=0, len=arguments.length; i<len; i++) {
+            var element = OpenLayers.Util.getElement(arguments[i]);
+            if (element) {
+                element.style.display = '';
+            }
         }
     },
 
@@ -66,6 +94,40 @@ OpenLayers.Element = {
     getHeight: function(element) {
         element = OpenLayers.Util.getElement(element);
         return element.offsetHeight;
+    },
+
+    /**
+     * APIFunction: getDimensions
+     * *Deprecated*. Returns dimensions of the element passed in.
+     *  
+     * Parameters:
+     * element - {DOMElement}
+     * 
+     * Returns:
+     * {Object} Object with 'width' and 'height' properties which are the 
+     *          dimensions of the element passed in.
+     */
+    getDimensions: function(element) {
+        element = OpenLayers.Util.getElement(element);
+        if (OpenLayers.Element.getStyle(element, 'display') != 'none') {
+            return {width: element.offsetWidth, height: element.offsetHeight};
+        }
+    
+        // All *Width and *Height properties give 0 on elements with display none,
+        // so enable the element temporarily
+        var els = element.style;
+        var originalVisibility = els.visibility;
+        var originalPosition = els.position;
+        var originalDisplay = els.display;
+        els.visibility = 'hidden';
+        els.position = 'absolute';
+        els.display = '';
+        var originalWidth = element.clientWidth;
+        var originalHeight = element.clientHeight;
+        els.display = originalDisplay;
+        els.position = originalPosition;
+        els.visibility = originalVisibility;
+        return {width: originalWidth, height: originalHeight};
     },
 
     /**
