@@ -29,7 +29,7 @@ require_once './libraries/user_preferences.lib.php';
 restore_error_handler();
 
 // Save current language in a cookie, required since we use PMA_MINIMUM_COMMON
-$GLOBALS['PMA_Config']->setCookie('pma_lang', $GLOBALS['lang']);
+$GLOBALS['PMA_Config']->setCookieArr('pmaUser','pma_lang', $GLOBALS['lang']);
 
 $GLOBALS['ConfigFile'] = new ConfigFile();
 $GLOBALS['ConfigFile']->setPersistKeys(
