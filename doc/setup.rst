@@ -105,15 +105,15 @@ The installation is possible by adding our own repository
 Installing using Docker
 +++++++++++++++++++++++
 
-phpMyAdmin comes with an Docker image, which you can easily deploy. You can
+phpMyAdmin comes with a Docker image, which you can easily deploy. You can
 download it using:
 
 .. code-block:: sh
 
     docker pull phpmyadmin/phpmyadmin
 
-The phpMyAdmin will be executed on port 80. It supports several ways of
-configuring link to the database server, which you can configure using
+The phpMyAdmin server will be executed on port 80. It supports several ways of
+configuring the link to the database server, which you can manage using
 environment variables:
 
 .. envvar:: PMA_ARBITRARY
