@@ -2306,30 +2306,40 @@ function PMA_getHtmlForAddUser($dbname)
     $html_output .= '<fieldset id="fieldset_add_user_database">' . "\n"
         . '<legend>' . __('Database for user account') . '</legend>' . "\n";
 
-    $html_output .= Util::getCheckbox(
-        'createdb-1',
-        __('Create database with same name and grant all privileges.'),
-        false, false, 'createdb-1'
-    );
+    $html_output .= Template::get('checkbox')
+        ->render(
+            array(
+                'html_field_name'   => 'createdb-1',
+                'label'             => __('Create database with same name and grant all privileges.'),
+                'checked'           => false,
+                'onclick'           => false,
+                'html_field_id'     => 'createdb-1',
+            )
+        );
     $html_output .= '<br />' . "\n";
-    $html_output .= Util::getCheckbox(
-        'createdb-2',
-        __('Grant all privileges on wildcard name (username\\_%).'),
-        false, false, 'createdb-2'
-    );
+    $html_output .= Template::get('checkbox')
+        ->render(
+            array(
+                'html_field_name'   => 'createdb-2',
+                'label'             => __('Grant all privileges on wildcard name (username\\_%).'),
+                'checked'           => false,
+                'onclick'           => false,
+                'html_field_id'     => 'createdb-2',
+            )
+        );
     $html_output .= '<br />' . "\n";
 
     if (! empty($dbname) ) {
-        $html_output .= Util::getCheckbox(
-            'createdb-3',
-            sprintf(
-                __('Grant all privileges on database "%s".'),
-                htmlspecialchars($dbname)
-            ),
-            true,
-            false,
-            'createdb-3'
-        );
+        $html_output .= Template::get('checkbox')
+            ->render(
+                array(
+                    'html_field_name'   => 'createdb-3',
+                    'label'             => sprintf(__('Grant all privileges on database %s.'), htmlspecialchars($dbname)),
+                    'checked'           => true,
+                    'onclick'           => false,
+                    'html_field_id'     => 'createdb-3',
+                )
+            );
         $html_output .= '<input type="hidden" name="dbname" value="'
             . htmlspecialchars($dbname) . '" />' . "\n";
         $html_output .= '<br />' . "\n";
@@ -2506,9 +2516,14 @@ function PMA_getHtmlForSpecificDbPrivileges($db)
         $html_output .= '</table>';
 
         $html_output .= '<div class="floatleft">';
-        $html_output .= Util::getWithSelected(
-            $GLOBALS['pmaThemeImage'], $GLOBALS['text_dir'], "usersForm"
-        );
+        $html_output .= Template::get('select_all')
+            ->render(
+                array(
+                    'pmaThemeImage' => $GLOBALS['pmaThemeImage'],
+                    'text_dir'      => $GLOBALS['text_dir'],
+                    'formName'      => "usersForm",
+                )
+            );
         $html_output .= Util::getButtonOrImage(
             'submit_mult', 'mult_submit',
             __('Export'), 'b_tblexport.png', 'export'
@@ -2585,9 +2600,14 @@ function PMA_getHtmlForSpecificTablePrivileges($db, $table)
         $html_output .= '</table>';
 
         $html_output .= '<div class="floatleft">';
-        $html_output .= Util::getWithSelected(
-            $GLOBALS['pmaThemeImage'], $GLOBALS['text_dir'], "usersForm"
-        );
+        $html_output .= Template::get('select_all')
+            ->render(
+                array(
+                    'pmaThemeImage' => $GLOBALS['pmaThemeImage'],
+                    'text_dir'      => $GLOBALS['text_dir'],
+                    'formName'      => "usersForm",
+                )
+            );
         $html_output .= Util::getButtonOrImage(
             'submit_mult', 'mult_submit',
             __('Export'), 'b_tblexport.png', 'export'
@@ -3602,8 +3622,14 @@ function PMA_getUsersOverview($result, $db_rights, $pmaThemeImage, $text_dir)
         . '</table>' . "\n";
 
     $html_output .= '<div class="floatleft">'
-        . Util::getWithSelected($pmaThemeImage, $text_dir, "usersForm") . "\n";
-
+        . Template::get('select_all')
+            ->render(
+                array(
+                    'pmaThemeImage' => $pmaThemeImage,
+                    'text_dir'      => $text_dir,
+                    'formName'      => 'usersForm',
+                )
+            ) . "\n";
     $html_output .= Util::getButtonOrImage(
         'submit_mult', 'mult_submit',
         __('Export'), 'b_tblexport.png', 'export'

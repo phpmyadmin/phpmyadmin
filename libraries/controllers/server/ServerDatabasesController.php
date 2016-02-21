@@ -378,9 +378,15 @@ class ServerDatabasesController extends Controller
             return '';
         }
 
-        $html = Util::getWithSelected(
-            $GLOBALS['pmaThemeImage'], $GLOBALS['text_dir'], "dbStatsForm"
-        );
+        $html = Template::get('select_all')
+            ->render(
+                array(
+                    'pmaThemeImage' => $GLOBALS['pmaThemeImage'],
+                    'text_dir'      => $GLOBALS['text_dir'],
+                    'formName'      => 'dbStatsForm',
+                )
+            );
+
         $html .= Util::getButtonOrImage(
             '',
             'mult_submit' . ' ajax',

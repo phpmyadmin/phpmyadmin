@@ -1746,16 +1746,26 @@ class DisplayResults
         }
 
         $options_html .= '<div class="formelement">'
-            . Util::getCheckbox(
-                'display_binary', __('Show binary contents'),
-                ! empty($_SESSION['tmpval']['display_binary']), false,
-                'display_binary_' . $this->__get('unique_id')
+            . Template::get('checkbox')
+            ->render(
+                array(
+                    'html_field_name'   => 'display_binary',
+                    'label'             => __('Show binary contents'),
+                    'checked'           => ! empty($_SESSION['tmpval']['display_binary']),
+                    'onclick'           => false,
+                    'html_field_id'     => 'display_binary_' . $this->__get('unique_id'),
+                )
             )
             . '<br />'
-            . Util::getCheckbox(
-                'display_blob', __('Show BLOB contents'),
-                ! empty($_SESSION['tmpval']['display_blob']), false,
-                'display_blob_' . $this->__get('unique_id')
+            . Template::get('checkbox')
+            ->render(
+                array(
+                    'html_field_name'   => 'display_blob',
+                    'label'             => __('Show BLOB contents'),
+                    'checked'           => ! empty($_SESSION['tmpval']['display_blob']),
+                    'onclick'           => false,
+                    'html_field_id'     => 'display_blob_' . $this->__get('unique_id'),
+                )
             )
             . '</div>';
 
@@ -1764,10 +1774,15 @@ class DisplayResults
         // per SQL query, and at the same time have a default that displays
         // the transformations.
         $options_html .= '<div class="formelement">'
-            . Util::getCheckbox(
-                'hide_transformation', __('Hide browser transformation'),
-                ! empty($_SESSION['tmpval']['hide_transformation']), false,
-                'hide_transformation_' . $this->__get('unique_id')
+            . Template::get('checkbox')
+            ->render(
+                array(
+                    'html_field_name'   => 'hide_transformation',
+                    'label'             => __('Hide browser transformation'),
+                    'checked'           => ! empty($_SESSION['tmpval']['hide_transformation']),
+                    'onclick'           => false,
+                    'html_field_id'     => 'hide_transformation_' . $this->__get('unique_id'),
+                )
             )
             . '</div>';
 

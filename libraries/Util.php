@@ -16,6 +16,7 @@ use stdClass;
 use SqlParser\Utils\Error as ParserError;
 use PMA\libraries\URL;
 use PMA\libraries\Sanitize;
+use PMA\libraries\Template;
 
 if (! defined('PHPMYADMIN')) {
     exit;
@@ -1318,12 +1319,16 @@ class Util
             // be checked, which would reexecute an INSERT, for example
             if (! empty($refresh_link) && self::profilingSupported()) {
                 $retval .= '<input type="hidden" name="profiling_form" value="1" />';
-                $retval .= self::getCheckbox(
-                    'profiling',
-                    __('Profiling'),
-                    isset($_SESSION['profiling']),
-                    true
-                );
+                $retval .= Template::get('checkbox')
+                    ->render(
+                        array(
+                            'html_field_name'   => 'profiling',
+                            'label'             => __('Profiling'),
+                            'checked'           => isset($_SESSION['profiling']),
+                            'onclick'           => true,
+                            'html_field_id'     => '',
+                        )
+                    );
             }
             $retval .= '</form>';
 
@@ -2728,28 +2733,6 @@ class Util
             );
         }
         return $ext_but_html;
-    }
-
-    /**
-     * Returns a HTML checkbox
-     *
-     * @param string  $html_field_name the checkbox HTML field
-     * @param string  $label           label for checkbox
-     * @param boolean $checked         is it initially checked?
-     * @param boolean $onclick         should it submit the form on click?
-     * @param string  $html_field_id   id for the checkbox
-     *
-     * @return string                  HTML for the checkbox
-     */
-    public static function getCheckbox(
-        $html_field_name, $label, $checked, $onclick, $html_field_id = ''
-    ) {
-        return '<input type="checkbox" name="' . $html_field_name . '"'
-            . ($html_field_id ? ' id="' . $html_field_id . '"' : '')
-            . ($checked ? ' checked="checked"' : '')
-            . ($onclick ? ' class="autosubmit"' : '') . ' />'
-            . '<label' . ($html_field_id ? ' for="' . $html_field_id . '"' : '')
-            . '>' . $label . '</label>';
     }
 
     /**
@@ -4588,31 +4571,6 @@ class Util
         } // end while
 
         return array($primary, $pk_array, $indexes_info, $indexes_data);
-    }
-
-    /**
-     * Returns the HTML for check all check box and with selected text
-     * for multi submits
-     *
-     * @param string $pmaThemeImage path to theme's image folder
-     * @param string $text_dir      text direction
-     * @param string $formName      name of the enclosing form
-     *
-     * @return string HTML
-     */
-    public static function getWithSelected($pmaThemeImage, $text_dir, $formName)
-    {
-        $html = '<img class="selectallarrow" '
-            . 'src="' . $pmaThemeImage . 'arrow_' . $text_dir . '.png" '
-            . 'width="38" height="22" alt="' . __('With selected:') . '" />';
-        $html .= '<input type="checkbox" id="' . $formName . '_checkall" '
-            . 'class="checkall_box" title="' . __('Check all') . '" />'
-            . '<label for="' . $formName . '_checkall">' . __('Check all')
-            . '</label>';
-        $html .= '<i style="margin-left: 2em">'
-            . __('With selected:') . '</i>';
-
-        return $html;
     }
 
     /**
