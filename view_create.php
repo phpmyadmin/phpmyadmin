@@ -7,6 +7,7 @@
  * @todo (also validate if js is disabled, after form submission?)
  * @package PhpMyAdmin
  */
+use PMA\libraries\URL;
 
 require_once './libraries/common.inc.php';
 
@@ -178,7 +179,7 @@ $url_params['reload'] = 1;
 $htmlString = '<!-- CREATE VIEW options -->'
     . '<div id="div_view_options">'
     . '<form method="post" action="view_create.php">'
-    . PMA_URL_getHiddenInputs($url_params)
+    . URL::getHiddenInputs($url_params)
     . '<fieldset>'
     . '<legend>'
     . (isset($_REQUEST['ajax_dialog']) ?

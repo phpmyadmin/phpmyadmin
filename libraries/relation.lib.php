@@ -9,6 +9,7 @@ use PMA\libraries\Message;
 use PMA\libraries\Table;
 use PMA\libraries\RecentFavoriteTable;
 use SqlParser\Statements\CreateStatement;
+use PMA\libraries\URL;
 
 /**
  * Executes a query as controluser if possible, otherwise as normal user
@@ -1971,7 +1972,7 @@ function PMA_getHtmlFixPMATables($allTables, $createDb = false)
 {
     $retval = '';
 
-    $url_query = PMA_URL_getCommon(array('db' => $GLOBALS['db']));
+    $url_query = URL::getCommon(array('db' => $GLOBALS['db']));
     if ($allTables) {
         if ($createDb) {
             $url_query .= '&amp;goto=db_operations.php&amp;create_pmadb=1';

@@ -8,6 +8,7 @@
  * @package PhpMyAdmin
  */
 use PMA\libraries\Table;
+use PMA\libraries\URL;
 
 /**
  * Gets url params
@@ -323,7 +324,7 @@ function PMA_buildOrExecuteQueryForMulti(
 function PMA_getHtmlForCopyMultipleTables($action, $_url_params)
 {
     $html = '<form id="ajax_form" action="' . $action . '" method="post">';
-    $html .= PMA_URL_getHiddenInputs($_url_params);
+    $html .= URL::getHiddenInputs($_url_params);
     $html .= '<fieldset class = "input">';
     $databases_list = $GLOBALS['dblist']->databases;
     foreach ($databases_list as $key => $db_name)
@@ -368,7 +369,7 @@ function PMA_getHtmlForCopyMultipleTables($action, $_url_params)
 function PMA_getHtmlForReplacePrefixTable($action, $_url_params)
 {
     $html  = '<form id="ajax_form" action="' . $action . '" method="post">';
-    $html .= PMA_URL_getHiddenInputs($_url_params);
+    $html .= URL::getHiddenInputs($_url_params);
     $html .= '<fieldset class = "input">';
     $html .= '<table>';
     $html .= '<tr>';
@@ -402,7 +403,7 @@ function PMA_getHtmlForReplacePrefixTable($action, $_url_params)
 function PMA_getHtmlForAddPrefixTable($action, $_url_params)
 {
     $html  = '<form id="ajax_form" action="' . $action . '" method="post">';
-    $html .= PMA_URL_getHiddenInputs($_url_params);
+    $html .= URL::getHiddenInputs($_url_params);
     $html .= '<fieldset class = "input">';
     $html .= '<table>';
     $html .= '<tr>';
@@ -433,7 +434,7 @@ function PMA_getHtmlForAddPrefixTable($action, $_url_params)
 function PMA_getHtmlForOtherActions($what, $action, $_url_params, $full_query)
 {
     $html = '<form action="' . $action . '" method="post">';
-    $html .= PMA_URL_getHiddenInputs($_url_params);
+    $html .= URL::getHiddenInputs($_url_params);
     $html .= '<fieldset class="confirmation">';
     $html .= '<legend>';
     if ($what == 'drop_db') {

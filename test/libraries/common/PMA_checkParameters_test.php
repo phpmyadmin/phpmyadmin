@@ -12,9 +12,6 @@
  */
 use PMA\libraries\Theme;
 
-
-require_once 'libraries/sanitizing.lib.php';
-
 /**
  ** Test for PMA\libraries\Util::checkParameters from Util.php
  *

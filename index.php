@@ -6,6 +6,8 @@
  * @package PhpMyAdmin
  */
 use PMA\libraries\RecentFavoriteTable;
+use PMA\libraries\URL;
+use PMA\libraries\Sanitize;
 
 /**
  * Gets some core libraries and displays a top message if required
@@ -105,7 +107,7 @@ if (! empty($message)) {
     unset($message);
 }
 
-$common_url_query =  PMA_URL_getCommon();
+$common_url_query =  URL::getCommon();
 $mysql_cur_user_and_host = '';
 
 // when $server > 0, a server has been chosen so we can display
@@ -202,7 +204,7 @@ if ($server > 0 || count($cfg['Servers']) > 1
         } // end if
         echo '    <li id="li_select_mysql_collation" class="no_bullets" >';
         echo '        <form method="post" action="index.php">' , "\n"
-           . PMA_URL_getHiddenInputs(null, null, 4, 'collation_connection')
+           . URL::getHiddenInputs(null, null, 4, 'collation_connection')
            . '            <label for="select_collation_connection">' . "\n"
            . '                ' . PMA\libraries\Util::getImage('s_asci.png')
             . "&nbsp;" . __('Server connection collation') . "\n"
@@ -426,14 +428,14 @@ PMA_printListItem(
 PMA_printListItem(
     __('List of changes'),
     'li_pma_changes',
-    'changelog.php' . PMA_URL_getCommon(),
+    'changelog.php' . URL::getCommon(),
     null,
     '_blank'
 );
 PMA_printListItem(
     __('License'),
     'li_pma_license',
-    'license.php' . PMA_URL_getCommon(),
+    'license.php' . URL::getCommon(),
     null,
     '_blank'
 );
@@ -607,7 +609,7 @@ if (isset($GLOBALS['dbi'])
         )
     ) {
         trigger_error(
-            PMA_sanitize(
+            Sanitize::sanitize(
                 sprintf(
                     __(
                         'Your PHP MySQL library version %s differs from your ' .

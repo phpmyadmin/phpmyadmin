@@ -6,6 +6,8 @@
  * @package PhpMyAdmin
  */
 use PMA\libraries\plugins\ExportPlugin;
+use PMA\libraries\URL;
+use PMA\libraries\Sanitize;
 
 /**
  * Get the variables sent or posted to this script and a core script
@@ -254,11 +256,11 @@ if (!defined('TESTSUITE')) {
 
     // Generate error url and check for needed variables
     if ($export_type == 'server') {
-        $err_url = 'server_export.php' . PMA_URL_getCommon();
+        $err_url = 'server_export.php' . URL::getCommon();
     } elseif ($export_type == 'database'
         && mb_strlen($db)
     ) {
-        $err_url = 'db_export.php' . PMA_URL_getCommon(array('db' => $db));
+        $err_url = 'db_export.php' . URL::getCommon(array('db' => $db));
         // Check if we have something to export
         if (isset($table_select)) {
             $tables = $table_select;
@@ -268,7 +270,7 @@ if (!defined('TESTSUITE')) {
     } elseif ($export_type == 'table' && mb_strlen($db)
         && mb_strlen($table)
     ) {
-        $err_url = 'tbl_export.php' . PMA_URL_getCommon(
+        $err_url = 'tbl_export.php' . URL::getCommon(
             array(
                 'db' => $db, 'table' => $table
             )
@@ -371,7 +373,7 @@ if (!defined('TESTSUITE')) {
             // (avoid rewriting data containing HTML with anchors and forms;
             // this was reported to happen under Plesk)
             @ini_set('url_rewriter.tags', '');
-            $filename = PMA_sanitizeFilename($filename);
+            $filename = Sanitize::sanitizeFilename($filename);
 
             PMA_downloadHeader($filename, $mime_type);
         } else {

@@ -7,6 +7,7 @@
  */
 use PMA\libraries\Message;
 use PMA\libraries\Response;
+use PMA\libraries\URL;
 
 if (! defined('PHPMYADMIN')) {
     exit;
@@ -32,12 +33,12 @@ if ($db_is_system_schema) {
 /**
  * Defines the urls to return to in case of error in a sql statement
  */
-$err_url_0 = 'index.php' . PMA_URL_getCommon();
+$err_url_0 = 'index.php' . URL::getCommon();
 
 $err_url = PMA\libraries\Util::getScriptNameForOption(
     $GLOBALS['cfg']['DefaultTabDatabase'], 'database'
 )
-    . PMA_URL_getCommon(array('db' => $db));
+    . URL::getCommon(array('db' => $db));
 
 /**
  * Ensures the database exists (else move to the "parent" script) and displays
@@ -58,7 +59,7 @@ if (! isset($is_db) || ! $is_db) {
     }
     // Not a valid db name -> back to the welcome page
     $uri = './index.php'
-        . PMA_URL_getCommon(array(), 'text')
+        . URL::getCommon(array(), 'text')
         . (isset($message) ? '&message=' . urlencode($message) : '') . '&reload=1';
     if (!mb_strlen($db) || ! $is_db) {
         $response = PMA\libraries\Response::getInstance();
@@ -106,5 +107,5 @@ if (isset($_REQUEST['submitcollation'])
 /**
  * Set parameters for links
  */
-$url_query = PMA_URL_getCommon(array('db' => $db));
+$url_query = URL::getCommon(array('db' => $db));
 
