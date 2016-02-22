@@ -10,6 +10,7 @@ use PMA\libraries\config\FormDisplay;
 use PMA\libraries\Message;
 use PMA\libraries\Response;
 use PMA\libraries\Util;
+use PMA\libraries\URL;
 
 /**
  * Gets some core libraries and displays a top message if required
@@ -122,7 +123,7 @@ if (isset($_POST['submit_export'])
             echo $form_display->displayErrors();
             echo '</div>';
             echo '<form action="prefs_manage.php" method="post">';
-            echo PMA_URL_getHiddenInputs() , "\n";
+            echo URL::getHiddenInputs() , "\n";
             echo '<input type="hidden" name="json" value="'
                 , htmlspecialchars($json) , '" />';
             echo '<input type="hidden" name="fix_errors" value="1" />';
@@ -238,7 +239,7 @@ echo '<h2>' , __('Import') , '</h2>'
     , '<form class="group-cnt prefs-form disableAjax" name="prefs_import"'
     , ' action="prefs_manage.php" method="post" enctype="multipart/form-data">'
     , Util::generateHiddenMaxFileSize($GLOBALS['max_upload_size'])
-    , PMA_URL_getHiddenInputs()
+    , URL::getHiddenInputs()
     , '<input type="hidden" name="json" value="" />'
     , '<input type="radio" id="import_text_file" name="import_type"'
     , ' value="text_file" checked="checked" />'
@@ -309,7 +310,7 @@ if (file_exists('setup/index.php')) {
             </div>
             <form class="group-cnt prefs-form disableAjax" name="prefs_export"
                   action="prefs_manage.php" method="post">
-                <?php echo PMA_URL_getHiddenInputs(); ?>
+                <?php echo URL::getHiddenInputs(); ?>
                 <div style="padding-bottom:0.5em">
                     <input type="radio" id="export_text_file" name="export_type"
                            value="text_file" checked="checked" />
@@ -361,7 +362,7 @@ if (file_exists('setup/index.php')) {
             <form class="group-cnt prefs-form disableAjax" name="prefs_reset"
                   action="prefs_manage.php" method="post">
                 <?php
-                echo PMA_URL_getHiddenInputs() , __(
+                echo URL::getHiddenInputs() , __(
                     'You can reset all your settings and restore them to default '
                     . 'values.'
                 );

@@ -7,6 +7,7 @@
  */
 use PMA\libraries\Message;
 use PMA\libraries\Util;
+use PMA\libraries\URL;
 
 /**
  * Defines the central_columns parameters for the current user
@@ -613,7 +614,7 @@ function PMA_getHTMLforTableNavigation($total_rows, $pos, $db)
     if ($pos - $max_rows >= 0) {
         $table_navigation_html .= '<td>'
             . '<form action="db_central_columns.php" method="post">'
-            . PMA_URL_getHiddenInputs(
+            . URL::getHiddenInputs(
                 $db
             )
             . '<input type="hidden" name="pos" value="' . ($pos - $max_rows) . '" />'
@@ -628,7 +629,7 @@ function PMA_getHTMLforTableNavigation($total_rows, $pos, $db)
         $table_navigation_html .= '<td>';
         $table_navigation_html .= '<form action="db_central_columns.php'
             . '" method="post">'
-            . PMA_URL_getHiddenInputs(
+            . URL::getHiddenInputs(
                 $db
             )
             . '<input type="hidden" name="total_rows" value="' . $total_rows . '"/>';
@@ -641,7 +642,7 @@ function PMA_getHTMLforTableNavigation($total_rows, $pos, $db)
     if ($pos + $max_rows < $total_rows) {
         $table_navigation_html .= '<td>'
             . '<form action="db_central_columns.php" method="post">'
-            . PMA_URL_getHiddenInputs(
+            . URL::getHiddenInputs(
                 $db
             )
             . '<input type="hidden" name="pos" value="' . ($pos + $max_rows) . '" />'
@@ -801,7 +802,7 @@ function PMA_getHTMLforAddCentralColumn($total_rows, $pos, $db)
             __('Add column')
         )
         . '<form id="add_column" action="db_central_columns.php" method="post">'
-        . PMA_URL_getHiddenInputs(
+        . URL::getHiddenInputs(
             $db
         )
         . '<input type="hidden" name="add_column" value="add">'
@@ -835,7 +836,7 @@ function PMA_getHTMLforCentralColumnsTableRow($row, $odd_row, $row_num, $db)
 {
     $tableHtml = '<tr data-rownum="' . $row_num . '" id="f_' . $row_num . '" '
         . 'class="' . ($odd_row ? 'odd' : 'even') . '">'
-        . PMA_URL_getHiddenInputs(
+        . URL::getHiddenInputs(
             $db
         )
         . '<input type="hidden" name="edit_save" value="save">'
@@ -1259,7 +1260,7 @@ function PMA_getHTMLforAddNewColumn($db)
         . '<span>+</span> ' . __('Add new column') . '</a>'
         . '<form id="add_new" style="min-width:100%;display:none" '
         . 'method="post" action="db_central_columns.php">'
-        . PMA_URL_getHiddenInputs(
+        . URL::getHiddenInputs(
             $db
         )
         . '<input type="hidden" name="add_new_column" value="add_new_column">'

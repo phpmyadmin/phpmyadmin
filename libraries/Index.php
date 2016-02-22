@@ -7,6 +7,8 @@
  */
 namespace PMA\libraries;
 
+use PMA\libraries\URL;
+
 /**
  * Index manipulation class
  *
@@ -717,7 +719,7 @@ class Index
                 $r .= '" ' . $row_span . '>'
                    . '    <a class="';
                 $r .= 'ajax';
-                $r .= '" href="tbl_indexes.php' . PMA_URL_getCommon($this_params)
+                $r .= '" href="tbl_indexes.php' . URL::getCommon($this_params)
                    . '">' . Util::getIcon('b_edit.png', __('Edit')) . '</a>'
                    . '</td>' . "\n";
                 $this_params = $GLOBALS['url_params'];
@@ -750,7 +752,7 @@ class Index
                     . ' value="' . $js_msg . '" />';
                 $r .= '    <a class="drop_primary_key_index_anchor';
                 $r .= ' ajax';
-                $r .= '" href="sql.php' . PMA_URL_getCommon($this_params)
+                $r .= '" href="sql.php' . URL::getCommon($this_params)
                    . '" >'
                    . Util::getIcon('b_drop.png', __('Drop'))  . '</a>'
                    . '</td>' . "\n";

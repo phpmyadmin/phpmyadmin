@@ -7,6 +7,7 @@
  */
 
 use PMA\libraries\Theme;
+use PMA\libraries\URL;
 
 $GLOBALS['server'] = 0;
 $GLOBALS['cfg']['Server']['DisableIS'] = false;
@@ -14,8 +15,6 @@ $GLOBALS['cfg']['DBG']['sql'] = false;
 /*
  * Include to test.
  */
-
-require_once 'libraries/url_generating.lib.php';
 
 require_once 'libraries/database_interface.inc.php';
 require_once 'libraries/display_create_table.lib.php';
@@ -80,9 +79,9 @@ class PMA_DisplayCreateTable_Test extends PHPUnit_Framework_TestCase
             $html
         );
 
-        //PMA_URL_getHiddenInputs
+        //URL::getHiddenInputs
         $this->assertContains(
-            PMA_URL_getHiddenInputs($db),
+            URL::getHiddenInputs($db),
             $html
         );
         //label

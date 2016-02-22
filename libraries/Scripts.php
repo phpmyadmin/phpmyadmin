@@ -7,6 +7,8 @@
  */
 namespace PMA\libraries;
 
+use PMA\libraries\URL;
+
 /**
  * Collects information about which JavaScript
  * files and objects are necessary to render
@@ -51,7 +53,7 @@ class Scripts
         $first_dynamic_scripts = "";
         $dynamic_scripts = "";
         $scripts = array();
-        $separator = PMA_URL_getArgSeparator();
+        $separator = URL::getArgSeparator();
         foreach ($files as $value) {
             if (mb_strpos($value['filename'], "?") !== false) {
                 $file_name = $value['filename'] . $separator
@@ -72,7 +74,7 @@ class Scripts
                 $scripts[] = "scripts%5B%5D=" . $value['filename'];
             }
         }
-        $separator = PMA_URL_getArgSeparator();
+        $separator = URL::getArgSeparator();
         $static_scripts = '';
         // Using chunks of 20 files to avoid too long URLs
         $script_chunks = array_chunk($scripts, 20);

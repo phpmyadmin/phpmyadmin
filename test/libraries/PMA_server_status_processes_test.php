@@ -10,9 +10,9 @@
  * Include to test.
  */
 use PMA\libraries\Theme;
+use PMA\libraries\URL;
 
 
-require_once 'libraries/url_generating.lib.php';
 require_once 'libraries/server_status_processes.lib.php';
 require_once 'libraries/database_interface.inc.php';
 
@@ -208,7 +208,7 @@ class PMA_ServerStatusProcesses_Test extends PHPUnit_Framework_TestCase
             'ajax_request' => true
         );
         $kill_process = 'server_status_processes.php'
-            . PMA_URL_getCommon($url_params);
+            . URL::getCommon($url_params);
         $this->assertContains(
             $kill_process,
             $html

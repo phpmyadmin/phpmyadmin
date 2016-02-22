@@ -6,6 +6,8 @@
  * @package PhpMyAdmin
  */
 use SqlParser\Statements\CreateStatement;
+use PMA\libraries\URL;
+
 
 if (! defined('PHPMYADMIN')) {
     exit;
@@ -56,7 +58,7 @@ function PMA_RTE_getList($type, $items)
         break;
     }
     $retval .= '">';
-    $retval .= PMA_URL_getHiddenInputs($GLOBALS['db'], $GLOBALS['table']);
+    $retval .= URL::getHiddenInputs($GLOBALS['db'], $GLOBALS['table']);
     $retval .= "<fieldset>\n";
     $retval .= "    <legend>\n";
     $retval .= "        " . PMA_RTE_getWord('title') . "\n";

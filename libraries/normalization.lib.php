@@ -7,6 +7,7 @@
  */
 use PMA\libraries\Message;
 use PMA\libraries\Util;
+use PMA\libraries\URL;
 
 /**
  * build the html for columns of $colTypeCategory category
@@ -796,7 +797,7 @@ function PMA_getHtmlForNormalizetable()
         . 'name="normalize" '
         . 'id="normalizeTable" '
         . '>'
-        . PMA_URL_getHiddenInputs($GLOBALS['db'], $GLOBALS['table'])
+        . URL::getHiddenInputs($GLOBALS['db'], $GLOBALS['table'])
         . '<input type="hidden" name="step1" value="1">';
     $html_output .= '<fieldset>';
     $html_output .= '<legend>'

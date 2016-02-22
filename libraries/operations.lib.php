@@ -13,6 +13,7 @@ use PMA\libraries\Response;
 use PMA\libraries\StorageEngine;
 use PMA\libraries\Table;
 use PMA\libraries\Util;
+use PMA\libraries\URL;
 
 /**
  * Get HTML output for database comment
@@ -25,7 +26,7 @@ function PMA_getHtmlForDatabaseComment($db)
 {
     $html_output = '<div class="operations_half_width">'
         . '<form method="post" action="db_operations.php" id="formDatabaseComment">'
-        . PMA_URL_getHiddenInputs($db)
+        . URL::getHiddenInputs($db)
         . '<fieldset>'
         . '<legend>';
     if (PMA\libraries\Util::showIcons('ActionLinksMode')) {
@@ -67,7 +68,7 @@ function PMA_getHtmlForRenameDatabase($db)
     }
     $html_output .= '<input type="hidden" name="what" value="data" />'
         . '<input type="hidden" name="db_rename" value="true" />'
-        . PMA_URL_getHiddenInputs($db)
+        . URL::getHiddenInputs($db)
         . '<fieldset>'
         . '<legend>';
 
@@ -189,7 +190,7 @@ function PMA_getHtmlForCopyDatabase($db)
         . 'value="' . $_REQUEST['db_collation'] . '" />' . "\n";
     }
     $html_output .= '<input type="hidden" name="db_copy" value="true" />' . "\n"
-        . PMA_URL_getHiddenInputs($db);
+        . URL::getHiddenInputs($db);
     $html_output .= '<fieldset>'
         . '<legend>';
 
@@ -276,7 +277,7 @@ function PMA_getHtmlForChangeDatabaseCharset($db, $table)
     $html_output .= 'class="ajax" ';
     $html_output .= 'method="post" action="db_operations.php">';
 
-    $html_output .= PMA_URL_getHiddenInputs($db, $table);
+    $html_output .= URL::getHiddenInputs($db, $table);
 
     $html_output .= '<fieldset>' . "\n"
        . '    <legend>';
@@ -770,7 +771,7 @@ function PMA_getHtmlForOrderTheTable($columns)
     $html_output = '<div class="operations_half_width">';
     $html_output .= '<form method="post" id="alterTableOrderby" '
         . 'action="tbl_operations.php">';
-    $html_output .= PMA_URL_getHiddenInputs(
+    $html_output .= URL::getHiddenInputs(
         $GLOBALS['db'], $GLOBALS['table']
     );
     $html_output .= '<fieldset id="fieldset_table_order">'
@@ -812,7 +813,7 @@ function PMA_getHtmlForMoveTable()
     $html_output .= '<form method="post" action="tbl_operations.php"'
         . ' id="moveTableForm" class="ajax"'
         . ' onsubmit="return emptyCheckTheField(this, \'new_name\')">'
-        . PMA_URL_getHiddenInputs($GLOBALS['db'], $GLOBALS['table']);
+        . URL::getHiddenInputs($GLOBALS['db'], $GLOBALS['table']);
 
     $html_output .= '<input type="hidden" name="reload" value="1" />'
         . '<input type="hidden" name="what" value="data" />'
@@ -898,7 +899,7 @@ function PMA_getTableOptionDiv($comment, $tbl_collation, $tbl_storage_engine,
     $html_output = '<div class="operations_half_width clearfloat">';
     $html_output .= '<form method="post" action="tbl_operations.php"';
     $html_output .= ' id="tableOptionsForm" class="ajax">';
-    $html_output .= PMA_URL_getHiddenInputs(
+    $html_output .= URL::getHiddenInputs(
         $GLOBALS['db'], $GLOBALS['table']
     );
     $html_output .= '<input type="hidden" name="reload" value="1" />';
@@ -1238,7 +1239,7 @@ function PMA_getHtmlForCopytable()
         . 'id="copyTable" '
         . ' class="ajax" '
         . 'onsubmit="return emptyCheckTheField(this, \'new_name\')">'
-        . PMA_URL_getHiddenInputs($GLOBALS['db'], $GLOBALS['table'])
+        . URL::getHiddenInputs($GLOBALS['db'], $GLOBALS['table'])
         . '<input type="hidden" name="reload" value="1" />';
 
     $html_output .= '<fieldset>';
@@ -1499,7 +1500,7 @@ function PMA_getMaintainActionlink($action_message, $params, $url_params, $link)
     return '<li>'
         . '<a class="maintain_action ajax" '
         . 'href="sql.php'
-        . PMA_URL_getCommon(array_merge($url_params, $params)) . '">'
+        . URL::getCommon(array_merge($url_params, $params)) . '">'
         . $action_message
         . '</a>'
         . PMA\libraries\Util::showMySQLDocu($link)
@@ -1558,7 +1559,7 @@ function PMA_getHtmlForDeleteDataOrTable(
 function PMA_getDeleteDataOrTablelink($url_params, $syntax, $link, $htmlId)
 {
     return  '<li><a '
-        . 'href="sql.php' . PMA_URL_getCommon($url_params) . '"'
+        . 'href="sql.php' . URL::getCommon($url_params) . '"'
         . ' id="' . $htmlId . '" class="ajax">'
         . $link . '</a>'
         . PMA\libraries\Util::showMySQLDocu($syntax)
@@ -1597,7 +1598,7 @@ function PMA_getHtmlForPartitionMaintenance($partition_names, $url_params)
     $html_output = '<div class="operations_half_width">'
         . '<form id="partitionsForm" class="ajax" '
         . 'method="post" action="tbl_operations.php" >'
-        . PMA_URL_getHiddenInputs($GLOBALS['db'], $GLOBALS['table'])
+        . URL::getHiddenInputs($GLOBALS['db'], $GLOBALS['table'])
         . '<fieldset>'
         . '<legend>'
         . __('Partition maintenance')
@@ -1634,7 +1635,7 @@ function PMA_getHtmlForPartitionMaintenance($partition_names, $url_params)
     $html_output .= '<div class="clearfloat" /><br />';
 
     $html_output .= '<a href="sql.php'
-        . PMA_URL_getCommon($this_url_params) . '">'
+        . URL::getCommon($this_url_params) . '">'
         . __('Remove partitioning') . '</a>';
 
     $html_output .= '</fieldset>'
@@ -1703,7 +1704,7 @@ function PMA_getHtmlForReferentialIntegrityCheck($foreign, $url_params)
 
         $html_output .= '<li>'
             . '<a href="sql.php'
-            . PMA_URL_getCommon($this_url_params)
+            . URL::getCommon($this_url_params)
             . '">'
             . $master . '&nbsp;->&nbsp;' . $arr['foreign_db'] . '.'
             . $arr['foreign_table'] . '.' . $arr['foreign_field']

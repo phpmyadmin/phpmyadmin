@@ -7,6 +7,8 @@
  */
 namespace PMA\libraries\config;
 
+use PMA\libraries\URL;
+
 /**
  * Performs various compatibility, security and consistency checks on current config
  *
@@ -376,13 +378,13 @@ class ServerConfigChecks
         );
         $sAllowArbitraryServerWarn = sprintf(
             $sAllowArbitraryServerWarn,
-            '[a@?page=form' . PMA_URL_getCommon(array(), 'html', '&')
+            '[a@?page=form' . URL::getCommon(array(), 'html', '&')
             . '&amp;formset=Features#tab_Security]',
             '[/a]',
-            '[a@?page=form' . PMA_URL_getCommon(array(), 'html', '&')
+            '[a@?page=form' . URL::getCommon(array(), 'html', '&')
             . '&amp;formset=Features#tab_Security]',
             '[/a]',
-            '[a@?page=form' . PMA_URL_getCommon(array(), 'html', '&')
+            '[a@?page=form' . URL::getCommon(array(), 'html', '&')
             . '&amp;formset=Features#tab_Security]',
             '[/a]'
         );
@@ -398,7 +400,7 @@ class ServerConfigChecks
         );
         $sBZipDumpWarning = sprintf(
             $sBZipDumpWarning,
-            '[a@?page=form' . PMA_URL_getCommon(array(), 'html', '&')
+            '[a@?page=form' . URL::getCommon(array(), 'html', '&')
             . '&amp;formset=Features#tab_Import_export]',
             '[/a]', '%s'
         );
@@ -413,7 +415,7 @@ class ServerConfigChecks
         );
         $sGZipDumpWarning = sprintf(
             $sGZipDumpWarning,
-            '[a@?page=form' . PMA_URL_getCommon(array(), 'html', '&')
+            '[a@?page=form' . URL::getCommon(array(), 'html', '&')
             . '&amp;formset=Features#tab_Import_export]',
             '[/a]',
             '%s'
@@ -425,7 +427,7 @@ class ServerConfigChecks
         );
         $sLoginCookieValidityWarn = sprintf(
             $sLoginCookieValidityWarn,
-            '[a@?page=form' . PMA_URL_getCommon(array(), 'html', '&')
+            '[a@?page=form' . URL::getCommon(array(), 'html', '&')
             . '&amp;formset=Features#tab_Security]',
             '[/a]',
             '[a@' . PMA_getPHPDocLink(
@@ -441,7 +443,7 @@ class ServerConfigChecks
         );
         $sLoginCookieValidityWarn2 = sprintf(
             $sLoginCookieValidityWarn2,
-            '[a@?page=form' . PMA_URL_getCommon(array(), 'html', '&')
+            '[a@?page=form' . URL::getCommon(array(), 'html', '&')
             . '&amp;formset=Features#tab_Security]',
             '[/a]'
         );
@@ -452,10 +454,10 @@ class ServerConfigChecks
         );
         $sLoginCookieValidityWarn3 = sprintf(
             $sLoginCookieValidityWarn3,
-            '[a@?page=form' . PMA_URL_getCommon(array(), 'html', '&')
+            '[a@?page=form' . URL::getCommon(array(), 'html', '&')
             . '&amp;formset=Features#tab_Security]',
             '[/a]',
-            '[a@?page=form' . PMA_URL_getCommon(array(), 'html', '&')
+            '[a@?page=form' . URL::getCommon(array(), 'html', '&')
             . '&amp;formset=Features#tab_Security]',
             '[/a]'
         );
@@ -467,10 +469,10 @@ class ServerConfigChecks
         );
         $sSecurityInfoMsg = sprintf(
             $sSecurityInfoMsg,
-            '[a@?page=servers' . PMA_URL_getCommon(array(), 'html', '&')
+            '[a@?page=servers' . URL::getCommon(array(), 'html', '&')
             . '&amp;mode=edit&amp;id=%1$d#tab_Server_config]',
             '[/a]',
-            '[a@?page=form' . PMA_URL_getCommon(array(), 'html', '&')
+            '[a@?page=form' . URL::getCommon(array(), 'html', '&')
             . '&amp;formset=Features#tab_Security]',
             '[/a]'
         );
@@ -483,7 +485,7 @@ class ServerConfigChecks
         );
         $sServerAuthConfigMsg = sprintf(
             $sServerAuthConfigMsg,
-            '[a@?page=servers' . PMA_URL_getCommon(array(), 'html', '&')
+            '[a@?page=servers' . URL::getCommon(array(), 'html', '&')
             . '&amp;mode=edit&amp;id=%1$d#tab_Server]',
             '[/a]'
         );
@@ -493,7 +495,7 @@ class ServerConfigChecks
         );
         $sZipDumpExportWarn = sprintf(
             $sZipDumpExportWarn,
-            '[a@?page=form' . PMA_URL_getCommon(array(), 'html', '&')
+            '[a@?page=form' . URL::getCommon(array(), 'html', '&')
             . '&amp;formset=Features#tab_Import_export]',
             '[/a]',
             '%s'
@@ -504,7 +506,7 @@ class ServerConfigChecks
         );
         $sZipDumpImportWarn = sprintf(
             $sZipDumpImportWarn,
-            '[a@?page=form' . PMA_URL_getCommon(array(), 'html', '&')
+            '[a@?page=form' . URL::getCommon(array(), 'html', '&')
             . '&amp;formset=Features#tab_Import_export]',
             '[/a]',
             '%s'

@@ -5,6 +5,7 @@
  *
  * @package PhpMyAdmin
  */
+use PMA\libraries\URL;
 
 /**
  *
@@ -117,7 +118,7 @@ if (!empty($submit_mult)) {
     default:
         $action = 'tbl_row_action.php';
         $err_url = 'tbl_row_action.php'
-            . PMA_URL_getCommon($GLOBALS['url_params']);
+            . URL::getCommon($GLOBALS['url_params']);
         if (! isset($_REQUEST['mult_btn'])) {
             $original_sql_query = $sql_query;
             if (! empty($url_query)) {
@@ -127,7 +128,7 @@ if (!empty($submit_mult)) {
         include 'libraries/mult_submits.inc.php';
         $_url_params = $GLOBALS['url_params'];
         $_url_params['goto'] = 'tbl_sql.php';
-        $url_query = PMA_URL_getCommon($_url_params);
+        $url_query = URL::getCommon($_url_params);
 
 
         /**

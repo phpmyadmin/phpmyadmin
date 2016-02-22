@@ -28,7 +28,7 @@ if (isset($approx_rows)) {
     );
 }
 $cell_text = ($approx_rows)
-        ? '<a href="db_structure.php' . PMA_URL_getCommon($row_sum_url)
+        ? '<a href="db_structure.php' . PMA\libraries\URL::getCommon($row_sum_url)
         . '" class="ajax row_count_sum">' . '~' . $row_count_sum . '</a>'
         : $row_count_sum;
 ?>

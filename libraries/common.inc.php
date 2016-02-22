@@ -112,11 +112,6 @@ if (! defined('PMA_MINIMUM_COMMON') || defined('PMA_SETUP')) {
      * JavaScript escaping.
      */
     include_once './libraries/js_escape.lib.php';
-
-    /**
-     * Include URL/hidden inputs generating.
-     */
-    include_once './libraries/url_generating.lib.php';
 }
 
 /******************************************************************************/

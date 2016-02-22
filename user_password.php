@@ -6,6 +6,7 @@
  *
  * @package PhpMyAdmin
  */
+use PMA\libraries\URL;
 
 /**
  * Gets some core libraries
@@ -224,7 +225,7 @@ function PMA_changePassHashingFunction()
 function PMA_changePassUrlParamsAndSubmitQuery(
     $username, $hostname, $password, $sql_query, $hashing_function, $orig_auth_plugin
 ) {
-    $err_url = 'user_password.php' . PMA_URL_getCommon();
+    $err_url = 'user_password.php' . URL::getCommon();
 
     $serverType = PMA\libraries\Util::getServerType();
 
@@ -288,7 +289,7 @@ function PMA_changePassDisplayPage($message, $sql_query)
     echo PMA\libraries\Util::getMessage(
         $message, $sql_query, 'success'
     );
-    echo '<a href="index.php' , PMA_URL_getCommon()
+    echo '<a href="index.php' , URL::getCommon()
         , ' target="_parent">' , "\n"
         , '<strong>' , __('Back') , '</strong></a>';
     exit;

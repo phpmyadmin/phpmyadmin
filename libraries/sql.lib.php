@@ -9,6 +9,7 @@ use PMA\libraries\DisplayResults;
 use PMA\libraries\Message;
 use PMA\libraries\Table;
 use PMA\libraries\Response;
+use PMA\libraries\URL;
 
 /**
  * Parses and analyzes the given SQL query.
@@ -188,7 +189,7 @@ function PMA_getHtmlForRelationalColumnDropdown($db, $table, $column, $curr_valu
             . htmlspecialchars($_REQUEST['curr_value'])
             . '</span>'
             . '<a href="browse_foreigners.php'
-            . PMA_URL_getCommon($_url_params) . '"'
+            . URL::getCommon($_url_params) . '"'
             . 'class="ajax browse_foreign" ' . '>'
             . __('Browse foreign values')
             . '</a>';
@@ -222,7 +223,7 @@ function PMA_getHtmlForProfilingChart($url_query, $db, $profiling_results)
         $pma_token = $_SESSION[' PMA_token '];
         $url_query = isset($url_query)
             ? $url_query
-            : PMA_URL_getCommon(array('db' => $db));
+            : URL::getCommon(array('db' => $db));
 
         $profiling_table = '';
         $profiling_table .= '<fieldset><legend>' . __('Profiling')
@@ -536,7 +537,7 @@ function PMA_getHtmlForBookmark($displayParts, $cfgBookmark, $sql_query, $db,
         && ! empty($sql_query)
     ) {
         $goto = 'sql.php'
-            . PMA_URL_getCommon(
+            . URL::getCommon(
                 array(
                     'db' => $db,
                     'table' => $table,
@@ -551,7 +552,7 @@ function PMA_getHtmlForBookmark($displayParts, $cfgBookmark, $sql_query, $db,
             . ' onsubmit="return ! emptyCheckTheField(this,'
             . '\'bkm_fields[bkm_label]\');"'
             . ' class="bookmarkQueryForm print_ignore">';
-        $html .= PMA_URL_getHiddenInputs();
+        $html .= URL::getHiddenInputs();
         $html .= '<input type="hidden" name="db"'
             . ' value="' . htmlspecialchars($db) . '" />';
         $html .= '<input type="hidden" name="goto" value="' . $goto . '" />';

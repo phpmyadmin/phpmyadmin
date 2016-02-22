@@ -9,6 +9,7 @@ namespace PMA\libraries;
 
 use PMA\libraries\dbi\DBIExtension;
 use PMA\libraries\LanguageManager;
+use PMA\libraries\URL;
 
 require_once './libraries/logging.lib.php';
 require_once './libraries/util.lib.php';
@@ -2069,7 +2070,7 @@ class DatabaseInterface
                  */
                 $error .= ' - ' . $error_message .
                     ' (<a href="server_engines.php' .
-                    PMA_URL_getCommon(
+                    URL::getCommon(
                         array('engine' => 'InnoDB', 'page' => 'Status')
                     ) . '">' . __('Details…') . '</a>)';
             }

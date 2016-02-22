@@ -10,7 +10,6 @@ use PMA\libraries\Theme;
 
 require_once 'libraries/config/FormDisplay.tpl.php';
 require_once 'libraries/user_preferences.lib.php';
-require_once 'libraries/url_generating.lib.php';
 require_once 'libraries/js_escape.lib.php';
 
 /**
