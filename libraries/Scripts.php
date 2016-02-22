@@ -131,7 +131,7 @@ class Scripts
     /**
      * Add new files to the list of scripts
      *
-     * @param array $filelist       The array of file names
+     * @param array $filelist The array of file names
      *
      * @return void
      */
