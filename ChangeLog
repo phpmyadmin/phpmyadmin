@@ -4,6 +4,7 @@ phpMyAdmin - ChangeLog
 4.7.0.0 (not yet released)
 - issue #11924 Remove caching of server information
 - issue #6146  Log authentication attempts to syslog
+- issue #11981 Remove support for Swekey authentication
 
 4.6.0.0 (not yet released)
 + issue #11456 Disabled storage engines
