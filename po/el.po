@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-02-22 14:22+0100\n"
-"PO-Revision-Date: 2016-02-22 14:44+0000\n"
+"PO-Revision-Date: 2016-02-22 14:45+0000\n"
 "Last-Translator: Παναγιώτης Παπάζογλου <papaz_p@yahoo.com>\n"
 "Language-Team: Greek "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/el/>\n"
@@ -15051,7 +15051,6 @@ msgid "Tracking is not active."
 msgstr "Η παρακολούθηση δεν είναι ενεργοποιημένη."
 
 #: templates/error/report_form.phtml:7
-#, fuzzy
 #| msgid ""
 #| "phpMyAdmin has encountered an error. We have collected data about this "
 #| "error as well as information about relevant configuration settings to "
@@ -15061,9 +15060,9 @@ msgid ""
 "about relevant configuration settings. It will be sent to the phpMyAdmin "
 "team for debugging the error."
 msgstr ""
-"Το Phpmyadmin παρουσίασε ένα σφάλμα. Συλλέξαμε δεδομένα για αυτό το σφάλμα "
-"καθώς και πληροφορίες για τις σχετικές ρυθμίσεις για να τα στείλουμε στη "
-"ομάδα του phpmyadmin για να μας βοηθήσει να διορθώσουμε το πρόβλημα."
+"Αυτή η αναφορά περιλαμβάνει αυτόματα δεδομένα σχετικά με το σφάλμα και "
+"πληροφορίες σχετικά με τις επιλογές ρυθμίσεων. θα σταλεί στη ομάδα του "
+"phpMyAdmin για την επίλυση του σφάλματος."
 
 #: templates/error/report_form.phtml:14
 msgid ""
@@ -15757,10 +15756,9 @@ msgstr "Αναμενόταν μια λέξη-κλειδί «RETURNS»."
 
 #: vendor/phpmyadmin/sql-parser/tests/Lexer/LexerTest.php:21
 #: vendor/phpmyadmin/sql-parser/tests/Parser/ParserTest.php:58
-#, fuzzy
 #| msgid "errors."
 msgid "error #1"
-msgstr "σφάλματα."
+msgstr "σφάλμα #1"
 
 #: vendor/phpmyadmin/sql-parser/tests/Lexer/LexerTest.php:23
 #: vendor/phpmyadmin/sql-parser/tests/Parser/ParserTest.php:59
@@ -15770,10 +15768,9 @@ msgstr "%2$s #%1$d"
 
 #: vendor/phpmyadmin/sql-parser/tests/Lexer/LexerTest.php:48
 #: vendor/phpmyadmin/sql-parser/tests/Parser/ParserTest.php:80
-#, fuzzy
 #| msgid "Gather errors"
 msgid "strict error"
-msgstr "Συγκέντρωση σφαλμάτων"
+msgstr "περιορισμένο σφάλμα"
 
 #: view_create.php:233
 msgid "VIEW name"
