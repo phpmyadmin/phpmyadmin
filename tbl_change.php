@@ -111,12 +111,7 @@ $_form_params = PMA_getFormParametersForInsertForm(
  */
 // autocomplete feature of IE kills the "onchange" event handler and it
 //        must be replaced by the "onpropertychange" one in this case
-$chg_evt_handler = (PMA_USR_BROWSER_AGENT == 'IE'
-    && PMA_USR_BROWSER_VER >= 5
-    && PMA_USR_BROWSER_VER < 7
-)
-     ? 'onpropertychange'
-     : 'onchange';
+$chg_evt_handler =  'onchange';
 // Had to put the URI because when hosted on an https server,
 // some browsers send wrongly this form to the http server.
 

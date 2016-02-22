@@ -145,11 +145,11 @@ function PMA_RTE_getList($type, $items)
             $GLOBALS['pmaThemeImage'], $GLOBALS['text_dir'], 'rteListForm'
         );
         $retval .= PMA\libraries\Util::getButtonOrImage(
-            'submit_mult', 'mult_submit', 'submit_mult_export',
+            'submit_mult', 'mult_submit',
             __('Export'), 'b_export.png', 'export'
         );
         $retval .= PMA\libraries\Util::getButtonOrImage(
-            'submit_mult', 'mult_submit', 'submit_mult_drop',
+            'submit_mult', 'mult_submit',
             __('Drop'), 'b_drop.png', 'drop'
         );
         $retval .= '</div>';

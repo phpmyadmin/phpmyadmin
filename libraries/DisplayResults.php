@@ -4834,23 +4834,23 @@ class DisplayResults
             . '<i style="margin-left: 2em">' . __('With selected:') . '</i>' . "\n";
 
         $links_html .= Util::getButtonOrImage(
-            'submit_mult', 'mult_submit', 'submit_mult_change',
+            'submit_mult', 'mult_submit',
             __('Edit'), 'b_edit.png', 'edit'
         );
 
         $links_html .= Util::getButtonOrImage(
-            'submit_mult', 'mult_submit', 'submit_mult_copy',
+            'submit_mult', 'mult_submit',
             __('Copy'), 'b_insrow.png', 'copy'
         );
 
         $links_html .= Util::getButtonOrImage(
-            'submit_mult', 'mult_submit', 'submit_mult_delete',
+            'submit_mult', 'mult_submit',
             $delete_text, 'b_drop.png', 'delete'
         );
 
         if ($analyzed_sql_results['querytype'] == 'SELECT') {
             $links_html .= Util::getButtonOrImage(
-                'submit_mult', 'mult_submit', 'submit_mult_export',
+                'submit_mult', 'mult_submit',
                 __('Export'), 'b_tblexport.png', 'export'
             );
         }
