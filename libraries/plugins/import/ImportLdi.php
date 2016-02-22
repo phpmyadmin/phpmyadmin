@@ -90,9 +90,11 @@ class ImportLdi extends AbstractImportCsv
     /**
      * Handles the whole import logic
      *
+     * @param array &$sql_data 2-element array with sql data
+     *
      * @return void
      */
-    public function doImport()
+    public function doImport(&$sql_data = array())
     {
         global $finished, $import_file, $compression, $charset_conversion, $table;
         global $ldi_local_option, $ldi_replace, $ldi_ignore, $ldi_terminated,
@@ -164,8 +166,8 @@ class ImportLdi extends AbstractImportCsv
             $sql .= ')';
         }
 
-        PMA_importRunQuery($sql, $sql);
-        PMA_importRunQuery();
+        PMA_importRunQuery($sql, $sql, $sql_data);
+        PMA_importRunQuery('', '', $sql_data);
         $finished = true;
     }
 }

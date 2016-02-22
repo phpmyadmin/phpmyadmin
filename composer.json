@@ -20,12 +20,24 @@
         "source": "https://github.com/phpmyadmin/phpmyadmin"
     },
     "non-feature-branches": ["RELEASE_.*"],
+    "autoload": {
+        "psr-4": {
+            "PMA\\": "./"
+        }
+    },
     "require": {
-        "php": ">=5.5.0"
+        "php": ">=5.5.0",
+        "phpmyadmin/sql-parser": "~3.3",
+        "tecnickcom/tcpdf": "~6.2",
+        "phpseclib/phpseclib": "~2.0",
+        "google/recaptcha": "~1.1"
+    },
+    "suggest": {
+        "tecnickcom/tcpdf": "For PDF support"
     },
     "require-dev": {
         "satooshi/php-coveralls": "~0.6",
-        "phpunit/phpunit": "~3.7",
+        "phpunit/phpunit": "~4.1",
         "codacy/coverage": "dev-master",
         "phpunit/phpunit-selenium": "~1.2",
         "squizlabs/php_codesniffer": "2.*"

@@ -93,7 +93,6 @@ AJAX.registerOnload('tbl_structure.js', function () {
 
     // Re-initialize variables.
     primary_indexes = [];
-    unique_indexes = [];
     indexes = [];
     fulltext_indexes = [];
     spatial_indexes = [];

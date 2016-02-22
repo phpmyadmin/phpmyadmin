@@ -14,7 +14,13 @@ if (! defined('PHPMYADMIN')) {
  */
 $GLOBALS['is_superuser'] = $GLOBALS['dbi']->isSuperuser();
 
-
+/**
+ * Extracts details from a result row of a SHOW GRANT query
+ *
+ * @param string $row grant row
+ *
+ * @return array
+ */
 function PMA_getItemsFromShowGrantsRow($row)
 {
     $db_name_offset = mb_strpos($row, ' ON ') + 4;
@@ -293,6 +299,11 @@ function PMA_analyseShowGrant()
         $GLOBALS['dbs_where_create_table_allowed']
     );
     PMA\libraries\Util::cacheSet('dbs_to_test', $GLOBALS['dbs_to_test']);
+
+    PMA\libraries\Util::cacheSet('proc_priv', $GLOBALS['proc_priv']);
+    PMA\libraries\Util::cacheSet('table_priv', $GLOBALS['table_priv']);
+    PMA\libraries\Util::cacheSet('col_priv', $GLOBALS['col_priv']);
+    PMA\libraries\Util::cacheSet('db_priv', $GLOBALS['db_priv']);
 } // end function
 
 $user = $GLOBALS['dbi']->fetchValue("SELECT CURRENT_USER();");

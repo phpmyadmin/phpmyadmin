@@ -39,11 +39,8 @@ class ServerEnginesControllerTest extends PMATestCase
         //$GLOBALS
         $GLOBALS['server'] = 0;
         $GLOBALS['table'] = "table";
-        $GLOBALS['pmaThemeImage'] = 'image';
 
         //$_SESSION
-        $_SESSION['PMA_Theme'] = Theme::load('./themes/pmahomme');
-        $_SESSION['PMA_Theme'] = new Theme();
     }
 
     /**

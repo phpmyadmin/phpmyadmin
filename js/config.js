@@ -4,6 +4,30 @@
  */
 
 /**
+ * checks whether browser supports web storage
+ *
+ * @param type the type of storage i.e. localStorage or sessionStorage
+ *
+ * @returns bool
+ */
+function isStorageSupported(type)
+{
+    try {
+        window[type].setItem('PMATest', 'test');
+        // Check whether key-value pair was set successfully
+        if (window[type].getItem('PMATest') === 'test') {
+            // Supported, remove test variable from storage
+            window[type].removeItem('PMATest');
+            return true;
+        }
+    } catch(error) {
+        // Not supported
+        PMA_ajaxShowMessage(PMA_messages.strNoLocalStorage, false);
+    }
+    return false;
+}
+
+/**
  * Unbind all event handlers before tearing down a page
  */
 AJAX.registerTeardown('config.js', function () {
@@ -600,7 +624,7 @@ AJAX.registerOnload('config.js', function () {
     var tab_check_fnc = function () {
         if (location.hash != prev_hash) {
             prev_hash = location.hash;
-            if (location.hash.match(/^#tab_.+/) && $('#' + location.hash.substr(5)).length) {
+            if (location.hash.match(/^#tab_[a-zA-Z0-9_]+/) && $('#' + location.hash.substr(5)).length) {
                 setTab(location.hash.substr(5));
             }
         }

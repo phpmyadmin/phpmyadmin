@@ -542,7 +542,6 @@ button.mult_submit {
 table tr.odd th,
 .odd {
     background: #fff;
-    <?php echo $_SESSION['PMA_Theme']->getCssIEClearFilter(); ?>
 }
 
 /* even items 2,4,6,8,... */
@@ -550,7 +549,6 @@ table tr.odd th,
 table tr.even th,
 .even {
     background: #DFDFDF;
-    <?php echo $_SESSION['PMA_Theme']->getCssIEClearFilter(); ?>
 }
 
 /* odd table rows 1,3,5,7,... */
@@ -2954,10 +2952,6 @@ body .ui-widget {
 
 div#page_content div#tableslistcontainer table.data {
     border-top: 0.1px solid #EEEEEE;
-}
-
-div#page_content form#db_search_form.ajax fieldset {
-    margin-top: -0.3em;
 }
 
 div#page_content div#tableslistcontainer, div#page_content div.notice, div#page_content div.result_query {

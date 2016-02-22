@@ -1,10 +1,14 @@
-/* Copyright (c) 2006-2010 by OpenLayers Contributors (see authors.txt for 
- * full list of contributors). Published under the Clear BSD license.  
- * See http://svn.openlayers.org/trunk/openlayers/license.txt for the
+/* Copyright (c) 2006-2013 by OpenLayers Contributors (see authors.txt for
+ * full list of contributors). Published under the 2-clause BSD license.
+ * See license.txt in the OpenLayers distribution or repository for the
  * full text of the license. */
 
 /**
  * @requires OpenLayers/Control.js
+ * @requires OpenLayers/Lang.js
+ * @requires OpenLayers/Rule.js
+ * @requires OpenLayers/StyleMap.js
+ * @requires OpenLayers/Layer/Vector.js
  */
 
 /**
@@ -97,7 +101,7 @@ OpenLayers.Control.Graticule = OpenLayers.Class(OpenLayers.Control, {
 
     /**
      * Property: gratLayer
-     * {OpenLayers.Layer.Vector} vector layer used to draw the graticule on
+     * {<OpenLayers.Layer.Vector>} vector layer used to draw the graticule on
      */
     gratLayer: null,
 
@@ -112,7 +116,7 @@ OpenLayers.Control.Graticule = OpenLayers.Class(OpenLayers.Control, {
      */
     initialize: function(options) {
         options = options || {};
-        options.layerName = options.layerName || OpenLayers.i18n("graticule");
+        options.layerName = options.layerName || OpenLayers.i18n("Graticule");
         OpenLayers.Control.prototype.initialize.apply(this, [options]);
         
         this.labelSymbolizer.stroke = false;
@@ -233,8 +237,8 @@ OpenLayers.Control.Graticule = OpenLayers.Class(OpenLayers.Control, {
         for (var i=0; i<this.intervals.length; ++i) {
             llInterval = this.intervals[i];   //could do this for both x and y??
             var delta = llInterval/2;  
-            var p1 = mapCenterLL.offset(new OpenLayers.Pixel(-delta, -delta));  //test coords in EPSG:4326 space
-            var p2 = mapCenterLL.offset(new OpenLayers.Pixel( delta,  delta));
+            var p1 = mapCenterLL.offset({x: -delta, y: -delta});  //test coords in EPSG:4326 space
+            var p2 = mapCenterLL.offset({x: delta, y: delta});
             OpenLayers.Projection.transform(p1, llProj, mapProj); // convert them back to map projection
             OpenLayers.Projection.transform(p2, llProj, mapProj);
             var distSq = (p1.x-p2.x)*(p1.x-p2.x) + (p1.y-p2.y)*(p1.y-p2.y);
@@ -260,13 +264,13 @@ OpenLayers.Control.Graticule = OpenLayers.Class(OpenLayers.Control, {
         var newPoint = mapCenterLL.clone();
         var mapXY;
         do {
-            newPoint = newPoint.offset(new OpenLayers.Pixel(0,llInterval));
+            newPoint = newPoint.offset({x: 0, y: llInterval});
             mapXY = OpenLayers.Projection.transform(newPoint.clone(), llProj, mapProj);
             centerLonPoints.unshift(newPoint);
         } while (mapBounds.containsPixel(mapXY) && ++iter<1000);
         newPoint = mapCenterLL.clone();
         do {          
-            newPoint = newPoint.offset(new OpenLayers.Pixel(0,-llInterval));
+            newPoint = newPoint.offset({x: 0, y: -llInterval});
             mapXY = OpenLayers.Projection.transform(newPoint.clone(), llProj, mapProj);
             centerLonPoints.push(newPoint);
         } while (mapBounds.containsPixel(mapXY) && ++iter<1000);
@@ -276,13 +280,13 @@ OpenLayers.Control.Graticule = OpenLayers.Class(OpenLayers.Control, {
         var centerLatPoints = [mapCenterLL.clone()];
         newPoint = mapCenterLL.clone();
         do {
-            newPoint = newPoint.offset(new OpenLayers.Pixel(-llInterval, 0));
+            newPoint = newPoint.offset({x: -llInterval, y: 0});
             mapXY = OpenLayers.Projection.transform(newPoint.clone(), llProj, mapProj);
             centerLatPoints.unshift(newPoint);
         } while (mapBounds.containsPixel(mapXY) && ++iter<1000);
         newPoint = mapCenterLL.clone();
         do {          
-            newPoint = newPoint.offset(new OpenLayers.Pixel(llInterval, 0));
+            newPoint = newPoint.offset({x: llInterval, y: 0});
             mapXY = OpenLayers.Projection.transform(newPoint.clone(), llProj, mapProj);
             centerLatPoints.push(newPoint);
         } while (mapBounds.containsPixel(mapXY) && ++iter<1000);

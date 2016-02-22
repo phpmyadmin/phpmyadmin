@@ -12,32 +12,16 @@ OpenLayers.Lang.it = {
 
     'unhandledRequest': "Codice di ritorno della richiesta ${statusText}",
 
-    'permalink': "Permalink",
+    'Permalink': "Permalink",
 
-    'overlays': "Overlays",
+    'Overlays': "Overlays",
 
-    'baseLayer': "Livello base",
-
-    'sameProjection':
-        "La mini mappa funziona solamente se ha la stessa proiezione della mappa principale",
-
-    'readNotImplemented': "Lettura non implementata.",
-
-    'writeNotImplemented': "Scrittura non implementata.",
+    'Base Layer': "Livello base",
 
     'noFID': "Impossibile aggiornare un elemento grafico che non abbia il FID.",
 
-    'errorLoadingGML': "Errore nel caricamento del file GML ${url}",
-
     'browserNotSupported':
         "Il tuo browser non supporta il rendering vettoriale. I renderizzatore attualemnte supportati sono:\n${renderers}",
-
-    'componentShouldBe': "addFeatures : il componente dovrebbe essere di tipo ${geomType}",
-
-    // console message
-    'getFeatureError':
-        "getFeatureFromEvent chiamata su di un livello senza renderizzatore. Ciò significa che " +
-        "il livello è stato cancellato, ma non i gestori associati ad esso.",
 
     // console message
     'minZoomLevelError':
@@ -76,11 +60,7 @@ OpenLayers.Lang.it = {
         "<a href='http://trac.openlayers.org/wiki/${layerLib}' " +
         "target='_blank'>clicca qui</a>",
 
-    'scale': "Scala = 1 : ${scaleDenom}",
-
-    // console message
-    'layerAlreadyAdded':
-        "Stai cercando di aggiungere il livello: ${layerName} alla mappa, ma tale livello è già stato aggiunto.",
+    'Scale = 1 : ${scaleDenom}': "Scala = 1 : ${scaleDenom}",
 
     // console message
     'reprojectDeprecated':
@@ -96,21 +76,5 @@ OpenLayers.Lang.it = {
         "Questo metodo è stato deprecato e sarà rimosso dalla versione 3.0. " +
         "Si prega di utilizzare il metodo ${newMethod} in alternativa.",
 
-    // console message
-    'boundsAddError': "Devi specificare i valori di x e y alla funzione add.",
-
-    // console message
-    'lonlatAddError': "Devi specificare i valori di lon e lat alla funzione add.",
-
-    // console message
-    'pixelAddError': "Devi specificare i valori di x e y alla funzione add.",
-
-    // console message
-    'unsupportedGeometryType': "Tipo di geometria non supportata: ${geomType}",
-
-    // console message
-    'pagePositionFailed':
-        "OpenLayers.Util.pagePosition fallita: l'elemento con id ${elemId} è posizionato in modo errato.",
-                    
     'end': ''
 };

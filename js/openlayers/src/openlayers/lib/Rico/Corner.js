@@ -1,3 +1,9 @@
+/**
+ * @requires OpenLayers/Console.js
+ * @requires Rico/Color.js
+ */
+
+
 /*
  * This file has been edited substantially from the Rico-released
  * version by the OpenLayers development team.
@@ -16,8 +22,11 @@
  * implied. See the License for the specific language governing
  * permissions * and limitations under the License.
  *
- */  
-OpenLayers.Rico = new Object();
+ */
+
+OpenLayers.Console.warn("OpenLayers.Rico is deprecated");
+
+OpenLayers.Rico = OpenLayers.Rico || {};
 OpenLayers.Rico.Corner = {
 
     round: function(e, options) {

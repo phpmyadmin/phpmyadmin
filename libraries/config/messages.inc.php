@@ -230,8 +230,6 @@ $strConfigExport_xls_columns_name = __('Put columns names in the first row');
 $strConfigExport_xls_null_name = __('Replace NULL with');
 $strConfigExport_xlsx_columns_name = __('Put columns names in the first row');
 $strConfigExport_xlsx_null_name = __('Replace NULL with');
-$strConfigForceSSL_desc = __('Force secured connection while using phpMyAdmin.');
-$strConfigForceSSL_name = __('Force SSL connection');
 $strConfigForeignKeyDropdownOrder_desc = __(
     'Sort order for items in a foreign-key dropdown box; [kbd]content[/kbd] is '
     . 'the referenced data, [kbd]id[/kbd] is the key value.'
@@ -551,6 +549,8 @@ $strConfigRowActionLinksWithoutUnique_desc = __(
     'Whether to show row links even in the absence of a unique key.'
 );
 $strConfigRowActionLinksWithoutUnique_name = __('Show row links anyway');
+$strConfigDisableShortcutKeys_name = __('Disable shortcut keys');
+$strConfigDisableShortcutKeys_desc = __('Disable shortcut keys');
 $strConfigNaturalOrder_desc
     = __('Use natural order for sorting table and database names.');
 $strConfigNaturalOrder_name = __('Natural order');

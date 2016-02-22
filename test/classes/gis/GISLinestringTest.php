@@ -9,7 +9,6 @@
 use PMA\libraries\gis\GISLinestring;
 
 require_once 'GISGeomTest.php';
-require_once 'libraries/tcpdf/tcpdf.php';
 
 /**
  * Tests for PMA\libraries\gis\GISLinestring class

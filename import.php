@@ -64,6 +64,8 @@ if (isset($_REQUEST['console_bookmark_add'])) {
     }
 }
 
+$format = '';
+
 /**
  * Sets globals from $_POST
  */
@@ -79,7 +81,6 @@ $post_params = array(
     'local_import_file'
 );
 
-// TODO: adapt full list of allowed parameters, as in export.php
 foreach ($post_params as $one_post_param) {
     if (isset($_POST[$one_post_param])) {
         $GLOBALS[$one_post_param] = $_POST[$one_post_param];
@@ -452,7 +453,7 @@ if ($import_file != 'none' && ! $error) {
             $tmp_subdir = sys_get_temp_dir();
         }
         $tmp_subdir = rtrim($tmp_subdir, DIRECTORY_SEPARATOR);
-        if (is_writable($tmp_subdir)) {
+        if (@is_writable($tmp_subdir)) {
             $import_file_new = $tmp_subdir . DIRECTORY_SEPARATOR
                 . basename($import_file) . uniqid();
             if (move_uploaded_file($import_file, $import_file_new)) {
@@ -669,12 +670,16 @@ if (! empty($id_bookmark) && $_REQUEST['action_bookmark'] == 2) {
         htmlspecialchars($_POST['bkm_label'])
     );
 } elseif ($finished && ! $error) {
-    if ($import_type == 'query') {
-        $message = PMA\libraries\Message::success();
-    } else {
+    // Do not display the query with message, we do it separately
+    $display_query = ';';
+    if ($import_type != 'query') {
         $message = PMA\libraries\Message::success(
             '<em>'
-            . __('Import has been successfully finished, %d queries executed.')
+            . _ngettext(
+                'Import has been successfully finished, %d query executed.',
+                'Import has been successfully finished, %d queries executed.',
+                $executed_queries
+            )
             . '</em>'
         );
         $message->addParam($executed_queries);

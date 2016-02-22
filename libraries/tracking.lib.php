@@ -359,7 +359,7 @@ function PMA_getHtmlForTableVersionDetails(
         "versionsForm"
     );
     $html .= PMA\libraries\Util::getButtonOrImage(
-        'submit_mult', 'mult_submit', 'submit_mult_delete_version',
+        'submit_mult', 'mult_submit',
         __('Delete version'), 'b_drop.png', 'delete_version'
     );
 
@@ -1492,7 +1492,7 @@ function PMA_displayUntrackedTables(
         "untrackedForm"
     );
     echo PMA\libraries\Util::getButtonOrImage(
-        'submit_mult', 'mult_submit', 'submit_mult_track',
+        'submit_mult', 'mult_submit',
         __('Track table'), 'eye.png', 'track'
     );
     ?>
@@ -1712,7 +1712,7 @@ function PMA_displayTrackedTables(
         "trackedForm"
     );
     echo PMA\libraries\Util::getButtonOrImage(
-        'submit_mult', 'mult_submit', 'submit_mult_delete_tracking',
+        'submit_mult', 'mult_submit',
         __('Delete tracking'), 'b_drop.png', 'delete_tracking'
     );
     ?>

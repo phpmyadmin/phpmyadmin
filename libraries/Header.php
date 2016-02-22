@@ -195,13 +195,16 @@ class Header
         $this->_scripts->addFile(
             'get_image.js.php?theme=' . $theme_id
         );
+        $this->_scripts->addFile('config.js');
         $this->_scripts->addFile('doclinks.js');
         $this->_scripts->addFile('functions.js');
         $this->_scripts->addFile('navigation.js');
         $this->_scripts->addFile('indexes.js');
         $this->_scripts->addFile('common.js');
-        $this->_scripts->addFile('config.js');
         $this->_scripts->addFile('page_settings.js');
+        if(!$GLOBALS['cfg']['DisableShortcutKeys']) {
+            $this->_scripts->addFile('shortcuts_handler.js');
+        }
         $this->_scripts->addCode($this->getJsParamsCode());
     }
 
@@ -237,7 +240,6 @@ class Header
             'token' => $_SESSION[' PMA_token '],
             'text_dir' => $GLOBALS['text_dir'],
             'show_databases_navigation_as_tree' => $GLOBALS['cfg']['ShowDatabasesNavigationAsTree'],
-            'pma_absolute_uri' => $GLOBALS['cfg']['PmaAbsoluteUri'],
             'pma_text_default_tab' => Util::getTitleForTarget(
                 $GLOBALS['cfg']['DefaultTabTable']
             ),
@@ -518,11 +520,7 @@ class Header
         if (defined('TESTSUITE') && ! defined('PMA_TEST_HEADERS')) {
             return;
         }
-        if ($GLOBALS['PMA_Config']->isHttps()) {
-            $map_tile_urls = '';
-        } else {
-            $map_tile_urls = ' *.tile.openstreetmap.org *.tile.opencyclemap.org';
-        }
+        $map_tile_urls = ' *.tile.openstreetmap.org';
 
         /**
          * Sends http headers

@@ -389,5 +389,26 @@ class Response
         $buffer->flush();
         exit;
     }
-}
 
+    /**
+     * Wrapper around PHP's header() function.
+     *
+     * @param string $text header string
+     *
+     * @return void
+     */
+    public function header($text)
+    {
+        header($text);
+    }
+
+    /**
+     * Wrapper around PHP's headers_sent() function.
+     *
+     * @return bool
+     */
+    public function headersSent()
+    {
+        return headers_sent();
+    }
+}

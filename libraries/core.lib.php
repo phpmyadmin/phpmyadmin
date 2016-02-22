@@ -28,15 +28,15 @@ require_once 'libraries/string.lib.php';
  * echo PMA_ifSetOr($_REQUEST['db'], ''); // ''
  * // $_REQUEST['sql_query'] not set
  * echo PMA_ifSetOr($_REQUEST['sql_query']); // null
- * // $cfg['ForceSSL'] not set
- * echo PMA_ifSetOr($cfg['ForceSSL'], false, 'boolean'); // false
- * echo PMA_ifSetOr($cfg['ForceSSL']); // null
- * // $cfg['ForceSSL'] set to 1
- * echo PMA_ifSetOr($cfg['ForceSSL'], false, 'boolean'); // false
- * echo PMA_ifSetOr($cfg['ForceSSL'], false, 'similar'); // 1
- * echo PMA_ifSetOr($cfg['ForceSSL'], false); // 1
- * // $cfg['ForceSSL'] set to true
- * echo PMA_ifSetOr($cfg['ForceSSL'], false, 'boolean'); // true
+ * // $cfg['EnableFoo'] not set
+ * echo PMA_ifSetOr($cfg['EnableFoo'], false, 'boolean'); // false
+ * echo PMA_ifSetOr($cfg['EnableFoo']); // null
+ * // $cfg['EnableFoo'] set to 1
+ * echo PMA_ifSetOr($cfg['EnableFoo'], false, 'boolean'); // false
+ * echo PMA_ifSetOr($cfg['EnableFoo'], false, 'similar'); // 1
+ * echo PMA_ifSetOr($cfg['EnableFoo'], false); // 1
+ * // $cfg['EnableFoo'] set to true
+ * echo PMA_ifSetOr($cfg['EnableFoo'], false, 'boolean'); // true
  * </code>
  *
  * @param mixed &$var    param to check
@@ -226,17 +226,6 @@ function PMA_fatalError(
         $response->addJSON('message', PMA\libraries\Message::error($error_message));
     } else {
         $error_message = strtr($error_message, array('<br />' => '[br]'));
-
-        /* Load gettext for fatal errors */
-        if (!function_exists('__')) {
-            // It is possible that PMA_fatalError() is called before including
-            // vendor_config.php which defines GETTEXT_INC. See bug #4557
-            if (defined(GETTEXT_INC)) {
-                include_once GETTEXT_INC;
-            } else {
-                include_once './libraries/php-gettext/gettext.inc';
-            }
-        }
 
         // these variables are used in the included file libraries/error.inc.php
         //first check if php-mbstring is available
@@ -488,7 +477,7 @@ function PMA_getenv($var_name)
  */
 function PMA_sendHeaderLocation($uri, $use_refresh = false)
 {
-    if (PMA_IS_IIS && mb_strlen($uri) > 600) {
+    if ($GLOBALS['PMA_Config']->get('PMA_IS_IIS') && mb_strlen($uri) > 600) {
         include_once './libraries/js_escape.lib.php';
         PMA\libraries\Response::getInstance()->disable();
 
@@ -498,18 +487,20 @@ function PMA_sendHeaderLocation($uri, $use_refresh = false)
         return;
     }
 
+    $response = PMA\libraries\Response::getInstance();
+
     if (SID) {
         if (mb_strpos($uri, '?') === false) {
-            header('Location: ' . $uri . '?' . SID);
+            $response->header('Location: ' . $uri . '?' . SID);
         } else {
             $separator = PMA_URL_getArgSeparator();
-            header('Location: ' . $uri . $separator . SID);
+            $response->header('Location: ' . $uri . $separator . SID);
         }
         return;
     }
 
     session_write_close();
-    if (headers_sent()) {
+    if ($response->headersSent()) {
         if (function_exists('debug_print_backtrace')) {
             echo '<pre>';
             debug_print_backtrace();
@@ -523,10 +514,10 @@ function PMA_sendHeaderLocation($uri, $use_refresh = false)
     // bug #1523784: IE6 does not like 'Refresh: 0', it
     // results in a blank page
     // but we need it when coming from the cookie login panel)
-    if (PMA_IS_IIS && $use_refresh) {
-        header('Refresh: 0; ' . $uri);
+    if ($GLOBALS['PMA_Config']->get('PMA_IS_IIS') && $use_refresh) {
+        $response->header('Refresh: 0; ' . $uri);
     } else {
-        header('Location: ' . $uri);
+        $response->header('Location: ' . $uri);
     }
 }
 
@@ -567,18 +558,6 @@ function PMA_noCacheHeader()
         'Cache-Control: no-store, no-cache, must-revalidate,'
         . '  pre-check=0, post-check=0, max-age=0'
     );
-    if (PMA_USR_BROWSER_AGENT == 'IE') {
-        /* On SSL IE sometimes fails with:
-         *
-         * Internet Explorer was not able to open this Internet site. The
-         * requested site is either unavailable or cannot be found. Please
-         * try again later.
-         *
-         * Adding Pragma: public fixes this.
-         */
-        header('Pragma: public');
-        return;
-    }
 
     header('Pragma: no-cache'); // HTTP/1.0
     // test case: exporting a database into a .gz file with Safari
@@ -969,6 +948,15 @@ function PMA_checkExtensions()
 
 /* Compatibility with PHP < 5.6 */
 if(! function_exists('hash_equals')) {
+
+    /**
+     * Timing attack safe string comparison
+     *
+     * @param string $a first string
+     * @param string $b second string
+     *
+     * @return boolean whether they are equal
+     */
     function hash_equals($a, $b) {
         $ret = strlen($a) ^ strlen($b);
         $ret |= array_sum(unpack("C*", $a ^ $b));

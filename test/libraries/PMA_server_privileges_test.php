@@ -66,7 +66,6 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['AllowThirdPartyFraming'] = false;
         $GLOBALS['cfg']['ActionLinksMode'] = "both";
         $GLOBALS['cfg']['DefaultTabDatabase'] = 'structure';
-        $GLOBALS['cfg']['PmaAbsoluteUri'] = "PmaAbsoluteUri";
         $GLOBALS['cfg']['DefaultTabTable'] = "structure";
         $GLOBALS['cfg']['NavigationTreeDefaultTabTable'] = "structure";
         $GLOBALS['cfg']['NavigationTreeDefaultTabTable2'] = "";
@@ -88,8 +87,6 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
         //$_POST
         $_POST['pred_password'] = 'none';
         //$_SESSION
-        $_SESSION['PMA_Theme'] = Theme::load('./themes/pmahomme');
-        $_SESSION['PMA_Theme'] = new Theme();
         $_SESSION['relation'][$GLOBALS['server']] = array(
             'PMA_VERSION' => PMA_VERSION,
             'db' => 'pmadb',

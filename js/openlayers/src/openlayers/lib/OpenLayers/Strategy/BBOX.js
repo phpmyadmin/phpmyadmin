@@ -1,6 +1,6 @@
-/* Copyright (c) 2006-2010 by OpenLayers Contributors (see authors.txt for 
- * full list of contributors). Published under the Clear BSD license.  
- * See http://svn.openlayers.org/trunk/openlayers/license.txt for the
+/* Copyright (c) 2006-2013 by OpenLayers Contributors (see authors.txt for
+ * full list of contributors). Published under the 2-clause BSD license.
+ * See license.txt in the OpenLayers distribution or repository for the
  * full text of the license. */
 
 /**
@@ -68,9 +68,6 @@ OpenLayers.Strategy.BBOX = OpenLayers.Class(OpenLayers.Strategy, {
      * options - {Object} Optional object whose properties will be set on the
      *     instance.
      */
-    initialize: function(options) {
-        OpenLayers.Strategy.prototype.initialize.apply(this, [options]);
-    },
     
     /**
      * Method: activate
@@ -84,12 +81,11 @@ OpenLayers.Strategy.BBOX = OpenLayers.Class(OpenLayers.Strategy, {
         if(activated) {
             this.layer.events.on({
                 "moveend": this.update,
-                scope: this
-            });
-            this.layer.events.on({
                 "refresh": this.update,
+                "visibilitychanged": this.update,
                 scope: this
             });
+            this.update();
         }
         return activated;
     },
@@ -106,10 +102,8 @@ OpenLayers.Strategy.BBOX = OpenLayers.Class(OpenLayers.Strategy, {
         if(deactivated) {
             this.layer.events.un({
                 "moveend": this.update,
-                scope: this
-            });
-            this.layer.events.un({
                 "refresh": this.update,
+                "visibilitychanged": this.update,
                 scope: this
             });
         }
@@ -121,16 +115,20 @@ OpenLayers.Strategy.BBOX = OpenLayers.Class(OpenLayers.Strategy, {
      * Callback function called on "moveend" or "refresh" layer events.
      *
      * Parameters:
-     * options - {Object} An object with a property named "force", this
-     *      property references a boolean value indicating if new data
-     *      must be incondtionally read.
+     * options - {Object} Optional object whose properties will determine
+     *     the behaviour of this Strategy
+     *
+     * Valid options include:
+     * force - {Boolean} if true, new data must be unconditionally read.
+     * noAbort - {Boolean} if true, do not abort previous requests.
      */
     update: function(options) {
         var mapBounds = this.getMapBounds();
-        if ((options && options.force) || this.invalidBounds(mapBounds)) {
+        if (mapBounds !== null && ((options && options.force) ||
+          (this.layer.visibility && this.layer.calculateInRange() && this.invalidBounds(mapBounds)))) {
             this.calculateBounds(mapBounds);
             this.resolution = this.layer.map.getResolution(); 
-            this.triggerRead();
+            this.triggerRead(options);
         }
     },
     
@@ -142,8 +140,12 @@ OpenLayers.Strategy.BBOX = OpenLayers.Class(OpenLayers.Strategy, {
      * {<OpenLayers.Bounds>} Map bounds in the projection of the layer.
      */
     getMapBounds: function() {
+        if (this.layer.map === null) {
+            return null;
+        }
         var bounds = this.layer.map.getExtent();
-        if(!this.layer.projection.equals(this.layer.map.getProjectionObject())) {
+        if(bounds && !this.layer.projection.equals(
+                this.layer.map.getProjectionObject())) {
             bounds = bounds.clone().transform(
                 this.layer.map.getProjectionObject(), this.layer.projection
             );
@@ -202,21 +204,27 @@ OpenLayers.Strategy.BBOX = OpenLayers.Class(OpenLayers.Strategy, {
     /**
      * Method: triggerRead
      *
+     * Parameters:
+     * options - {Object} Additional options for the protocol's read method 
+     *     (optional)
+     *
      * Returns:
      * {<OpenLayers.Protocol.Response>} The protocol response object
      *      returned by the layer protocol.
      */
-    triggerRead: function() {
-        if (this.response) {
+    triggerRead: function(options) {
+        if (this.response && !(options && options.noAbort === true)) {
             this.layer.protocol.abort(this.response);
             this.layer.events.triggerEvent("loadend");
         }
-        this.layer.events.triggerEvent("loadstart");
-        this.response = this.layer.protocol.read({
-            filter: this.createFilter(),
-            callback: this.merge,
-            scope: this
-        });
+        var evt = {filter: this.createFilter()};
+        this.layer.events.triggerEvent("loadstart", evt);
+        this.response = this.layer.protocol.read(
+            OpenLayers.Util.applyDefaults({
+                filter: evt.filter,
+                callback: this.merge,
+                scope: this
+        }, options));
     },
  
     /**
@@ -255,23 +263,27 @@ OpenLayers.Strategy.BBOX = OpenLayers.Class(OpenLayers.Strategy, {
      */
     merge: function(resp) {
         this.layer.destroyFeatures();
-        var features = resp.features;
-        if(features && features.length > 0) {
-            var remote = this.layer.projection;
-            var local = this.layer.map.getProjectionObject();
-            if(!local.equals(remote)) {
-                var geom;
-                for(var i=0, len=features.length; i<len; ++i) {
-                    geom = features[i].geometry;
-                    if(geom) {
-                        geom.transform(remote, local);
+        if (resp.success()) {
+            var features = resp.features;
+            if(features && features.length > 0) {
+                var remote = this.layer.projection;
+                var local = this.layer.map.getProjectionObject();
+                if(!local.equals(remote)) {
+                    var geom;
+                    for(var i=0, len=features.length; i<len; ++i) {
+                        geom = features[i].geometry;
+                        if(geom) {
+                            geom.transform(remote, local);
+                        }
                     }
                 }
+                this.layer.addFeatures(features);
             }
-            this.layer.addFeatures(features);
+        } else {
+            this.bounds = null;
         }
         this.response = null;
-        this.layer.events.triggerEvent("loadend");
+        this.layer.events.triggerEvent("loadend", {response: resp});
     },
    
     CLASS_NAME: "OpenLayers.Strategy.BBOX" 

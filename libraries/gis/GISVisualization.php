@@ -9,7 +9,7 @@
 namespace PMA\libraries\gis;
 
 use PMA\libraries\Util;
-use \TCPDF;
+use TCPDF;
 
 require_once 'libraries/sql.lib.php';
 
@@ -434,9 +434,13 @@ class GISVisualization
             . 'var map = new OpenLayers.Map("openlayersmap", options);'
             . 'var layerNone = new OpenLayers.Layer.Boxes('
             . '"None", {isBaseLayer: true});'
-            . 'var layerMapnik = new OpenLayers.Layer.OSM.Mapnik("Mapnik");'
-            . 'var layerCycleMap = new OpenLayers.Layer.OSM.CycleMap("CycleMap");'
-            . 'map.addLayers([layerMapnik,layerCycleMap,layerNone]);'
+            . 'var layerOSM = new OpenLayers.Layer.OSM("OSM",'
+            . '['
+            . '"https://a.tile.openstreetmap.org/${z}/${x}/${y}.png",'
+            . '"https://b.tile.openstreetmap.org/${z}/${x}/${y}.png",'
+            . '"https://c.tile.openstreetmap.org/${z}/${x}/${y}.png"'
+            . ']);'
+            . 'map.addLayers([layerOSM,layerNone]);'
             . 'var vectorLayer = new OpenLayers.Layer.Vector("Data");'
             . 'var bound;';
         $output .= $this->_prepareDataSet($this->_data, $scale_data, 'ol', '');
@@ -463,8 +467,6 @@ class GISVisualization
     public function toFileAsPdf($file_name)
     {
         $this->init();
-
-        include_once './libraries/tcpdf/tcpdf.php';
 
         // create pdf
         $pdf = new TCPDF(

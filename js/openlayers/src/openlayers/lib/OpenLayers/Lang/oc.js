@@ -16,27 +16,15 @@ OpenLayers.Lang["oc"] = OpenLayers.Util.applyDefaults({
 
     'unhandledRequest': "Requèsta pas gerida, retorna ${statusText}",
 
-    'permalink': "Permaligam",
+    'Permalink': "Permaligam",
 
-    'overlays': "Calques",
+    'Overlays': "Calques",
 
-    'baseLayer': "Calc de basa",
-
-    'sameProjection': "La carta de situacion fonciona pas que quora sa projeccion es la meteissa que la de la carta principala",
-
-    'readNotImplemented': "Lectura pas implementada.",
-
-    'writeNotImplemented': "Escritura pas implementada.",
+    'Base Layer': "Calc de basa",
 
     'noFID': "Impossible de metre a jorn un objècte sens identificant (fid).",
 
-    'errorLoadingGML': "Error al cargament del fichièr GML ${url}",
-
     'browserNotSupported': "Vòstre navegidor supòrta pas lo rendut vectorial. Los renderers actualament suportats son : \n${renderers}",
-
-    'componentShouldBe': "addFeatures : lo compausant deuriá èsser de tipe ${geomType}",
-
-    'getFeatureError': "getFeatureFromEvent es estat apelat sus un calc sens renderer. Aquò significa generalament qu\'avètz destruch aqueste jaç, mas qu\'avètz conservat un handler que li èra associat.",
 
     'minZoomLevelError': "La proprietat minZoomLevel deu èsser utilizada solament per de jaces FixedZoomLevels-descendent. Lo fach qu\'aqueste jaç WFS verifique la preséncia de minZoomLevel es una relica del passat. Çaquelà, la podèm suprimir sens copar d\'aplicacions que ne poirián dependre. Es per aquò que la depreciam -- la verificacion del minZoomLevel serà suprimida en version 3.0. A la plaça, mercés d\'utilizar los paramètres de resolucions min/max tal coma descrich sus : http://trac.openlayers.org/wiki/SettingZoomLevels",
 
@@ -48,7 +36,7 @@ OpenLayers.Lang["oc"] = OpenLayers.Util.applyDefaults({
 
     'getLayerWarning': "Lo jaç ${layerType} es pas en mesura de se cargar corrèctament.\x3cbr\x3e\x3cbr\x3ePer suprimir aqueste messatge, causissètz una  BaseLayer novèla dins lo selector de jaç en naut a drecha.\x3cbr\x3e\x3cbr\x3eAquò es possiblament causat per la non-inclusion de la librariá ${layerLib}.\x3cbr\x3e\x3cbr\x3eDesvolopaires : per saber cossí corregir aquí, \x3ca href=\'http://trac.openlayers.org/wiki/${layerLib}\' target=\'_blank\'\x3eclicatz aicí\x3c/a\x3e",
 
-    'scale': "Escala ~ 1 : ${scaleDenom}",
+    'Scale = 1 : ${scaleDenom}': "Escala ~ 1 : ${scaleDenom}",
 
     'W': "O",
 
@@ -58,22 +46,8 @@ OpenLayers.Lang["oc"] = OpenLayers.Util.applyDefaults({
 
     'S': "S",
 
-    'layerAlreadyAdded': "Avètz ensajat d\'apondre a la carta lo calc : ${layerName}, mas ja es present",
-
     'reprojectDeprecated': "Utilizatz l\'opcion \'reproject\' sul jaç ${layerName}. Aquesta opcion es despreciada : Son usatge permetiá d\'afichar de donadas al dessús de jaces raster comercials. Aquesta foncionalitat ara es suportada en utilizant lo supòrt de la projeccion Mercator Esferica. Mai d\'informacion es disponibla sus http://trac.openlayers.org/wiki/SphericalMercator.",
 
-    'methodDeprecated': "Aqueste metòde es despreciada, e serà suprimida a la version 3.0. Mercés d\'utilizar ${newMethod} a la plaça.",
-
-    'boundsAddError': "Vos cal passar las doas valors x e y a la foncion add.",
-
-    'lonlatAddError': "Vos cal passar las doas valors lon e lat a la foncion add.",
-
-    'pixelAddError': "Vos cal passar las doas valors x e y a la foncion add.",
-
-    'unsupportedGeometryType': "Tipe de geometria pas suportat : ${geomType}",
-
-    'pagePositionFailed': "OpenLayers.Util.pagePosition a fracassat : l\'element d\'id ${elemId} poiriá èsser mal posicionat.",
-
-    'filterEvaluateNotImplemented': "evaluar es pas encara estat implementat per aqueste tipe de filtre."
+    'methodDeprecated': "Aqueste metòde es despreciada, e serà suprimida a la version 3.0. Mercés d\'utilizar ${newMethod} a la plaça."
 
 });

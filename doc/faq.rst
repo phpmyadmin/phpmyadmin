@@ -627,6 +627,7 @@ A list of files and corresponding functionality which degrade gracefully when re
 * :file:`./setup/` (setup script)
 * :file:`./examples/`
 * :file:`./sql/` (SQL scripts to configure advanced functionality)
+* :file:`./js/openlayers/` (GIS visualization)
 
 .. _faqconfig:
 
@@ -712,8 +713,11 @@ revision.
 2.5 Each time I want to insert or change a row or drop a database or a table, an error 404 (page not found) is displayed or, with HTTP or cookie authentication, I'm asked to log in again. What's wrong?
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-Check the value you set for the :config:option:`$cfg['PmaAbsoluteUri']` directive in the phpMyAdmin
-configuration file.
+Check your webserver setup if it correctly fills in either PHP_SELF or REQUEST_URI variables.
+
+If you are running phpMyAdmin older than 4.6.0, you can also check the value
+you set for the :config:option:`$cfg['PmaAbsoluteUri']` directive in the
+phpMyAdmin configuration file.
 
 .. _faq2_6:
 

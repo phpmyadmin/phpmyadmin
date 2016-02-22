@@ -1,19 +1,18 @@
-/* Copyright (c) 2006-2010 by OpenLayers Contributors (see authors.txt for 
- * full list of contributors). Published under the Clear BSD license.  
- * See http://svn.openlayers.org/trunk/openlayers/license.txt for the
+/* Copyright (c) 2006-2013 by OpenLayers Contributors (see authors.txt for
+ * full list of contributors). Published under the 2-clause BSD license.
+ * See license.txt in the OpenLayers distribution or repository for the
  * full text of the license. */
 
 /**
- * @requires OpenLayers/Format/XML.js
+ * @requires OpenLayers/Format/OWSCommon.js
  */
-
-if (!OpenLayers.Format.OWSCommon) {
-    OpenLayers.Format.OWSCommon = {};
-}
 
 /**
  * Class: OpenLayers.Format.OWSCommon.v1
  * Common readers and writers for OWSCommon v1.X formats
+ *
+ * Inherits from:
+ *  - <OpenLayers.Format.XML>
  */
 OpenLayers.Format.OWSCommon.v1 = OpenLayers.Class(OpenLayers.Format.XML, {
    
@@ -29,6 +28,23 @@ OpenLayers.Format.OWSCommon.v1 = OpenLayers.Class(OpenLayers.Format.XML, {
     },
 
     /**
+     * Method: read
+     *
+     * Parameters:
+     * data - {DOMElement} An OWSCommon document element.
+     * options - {Object} Options for the reader.
+     *
+     * Returns:
+     * {Object} An object representing the OWSCommon document.
+     */
+    read: function(data, options) {
+        options = OpenLayers.Util.applyDefaults(options, this.options);
+        var ows = {};
+        this.readChildNodes(data, ows);
+        return ows;
+    },
+
+    /**
      * Property: readers
      * Contains public functions, grouped by namespace prefix, that will
      *     be applied when a namespaced node is found matching the function
@@ -38,6 +54,19 @@ OpenLayers.Format.OWSCommon.v1 = OpenLayers.Class(OpenLayers.Format.XML, {
      */
     readers: {
         "ows": {
+            "Exception": function(node, exceptionReport) {
+                var exception = {
+                    code: node.getAttribute('exceptionCode'),
+                    locator: node.getAttribute('locator'),
+                    texts: []
+                };
+                exceptionReport.exceptions.push(exception);
+                this.readChildNodes(node, exception);
+            },
+            "ExceptionText": function(node, exception) {
+                var text = this.getChildValue(node);
+                exception.texts.push(text);
+            },
             "ServiceIdentification": function(node, obj) {
                 obj.serviceIdentification = {};
                 this.readChildNodes(node, obj.serviceIdentification);
@@ -145,12 +174,24 @@ OpenLayers.Format.OWSCommon.v1 = OpenLayers.Class(OpenLayers.Format.XML, {
                 this.readChildNodes(node, dcp.http);
             },
             "Get": function(node, http) {
-                http.get = this.getAttributeNS(node, 
-                    this.namespaces.xlink, "href");
+                if (!http.get) {
+                    http.get = [];
+                }
+                var obj = {
+                    url: this.getAttributeNS(node, this.namespaces.xlink, "href")
+                };
+                this.readChildNodes(node, obj);
+                http.get.push(obj);
             },
             "Post": function(node, http) {
-                http.post = this.getAttributeNS(node, 
-                    this.namespaces.xlink, "href");
+                if (!http.post) {
+                    http.post = [];
+                }
+                var obj = {
+                    url: this.getAttributeNS(node, this.namespaces.xlink, "href")
+                };
+                this.readChildNodes(node, obj);
+                http.post.push(obj);
             },
             "Parameter": function(node, operation) {
                 if (!operation.parameters) {
@@ -159,6 +200,14 @@ OpenLayers.Format.OWSCommon.v1 = OpenLayers.Class(OpenLayers.Format.XML, {
                 var name = node.getAttribute("name");
                 operation.parameters[name] = {};
                 this.readChildNodes(node, operation.parameters[name]);
+            },
+            "Constraint": function(node, obj) {
+                if (!obj.constraints) {
+                    obj.constraints = {};
+                }
+                var name = node.getAttribute("name");
+                obj.constraints[name] = {};
+                this.readChildNodes(node, obj.constraints[name]);
             },
             "Value": function(node, allowedValues) {
                 allowedValues[this.getChildValue(node)] = true;
@@ -206,6 +255,9 @@ OpenLayers.Format.OWSCommon.v1 = OpenLayers.Class(OpenLayers.Format.XML, {
                 delete obj.bottom;
                 delete obj.right;
                 delete obj.top;
+            },
+            "Language": function(node, obj) {
+                obj.language = this.getChildValue(node);
             }
         }
     },
@@ -218,8 +270,8 @@ OpenLayers.Format.OWSCommon.v1 = OpenLayers.Class(OpenLayers.Format.XML, {
      */
     writers: {
         "ows": {
-            "BoundingBox": function(options) {
-                var node = this.createElementNSPlus("ows:BoundingBox", {
+            "BoundingBox": function(options, nodeName) {
+                var node = this.createElementNSPlus(nodeName || "ows:BoundingBox", {
                     attributes: {
                         crs: options.projection
                     }
@@ -238,9 +290,19 @@ OpenLayers.Format.OWSCommon.v1 = OpenLayers.Class(OpenLayers.Format.XML, {
                     value: options.bounds.right + " " + options.bounds.top });
                 return node;
             },
+            "Identifier": function(identifier) {
+                var node = this.createElementNSPlus("ows:Identifier", {
+                    value: identifier });
+                return node;
+            },
             "Title": function(title) {
                 var node = this.createElementNSPlus("ows:Title", {
                     value: title });
+                return node;
+            },
+            "Abstract": function(abstractValue) {
+                var node = this.createElementNSPlus("ows:Abstract", {
+                    value: abstractValue });
                 return node;
             },
             "OutputFormat": function(format) {

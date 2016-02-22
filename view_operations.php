@@ -6,6 +6,7 @@
  * @package PhpMyAdmin
  */
 use PMA\libraries\Table;
+use PMA\libraries\Response;
 
 /**
  *
@@ -18,6 +19,14 @@ $pma_table = new Table($GLOBALS['table'], $GLOBALS['db']);
  * functions implementation for this script
  */
 require_once 'libraries/operations.lib.php';
+
+/**
+ * Load JavaScript files
+ */
+$response = Response::getInstance();
+$header   = $response->getHeader();
+$scripts  = $header->getScripts();
+$scripts->addFile('tbl_operations.js');
 
 /**
  * Runs common work

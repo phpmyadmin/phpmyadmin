@@ -31,4 +31,16 @@ PMA\libraries\Response::getInstance()->disable();
 
 PMA_headerJSON();
 
+if (! empty($_POST['options'])) {
+    $options = $_POST['options'];
+
+    if (! empty($options['routine_editor'])) {
+        $sql_query = 'CREATE PROCEDURE `a`() ' . $sql_query;
+    } elseif (! empty($options['trigger_editor'])) {
+        $sql_query = 'CREATE TRIGGER `a` AFTER INSERT ON `b` FOR EACH ROW ' . $sql_query;
+    } elseif (! empty($options['event_editor'])) {
+        $sql_query = 'CREATE EVENT `a` ON SCHEDULE EVERY MINUTE DO ' . $sql_query;
+    }
+}
+
 echo json_encode(Linter::lint($sql_query));

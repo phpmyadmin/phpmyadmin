@@ -192,14 +192,7 @@ class Util
         // If it's the first time this function is called
         if (! isset($sprites)) {
             // Try to load the list of sprites
-            $sprite_file = $_SESSION['PMA_Theme']->getPath() . '/sprites.lib.php';
-            if (is_readable($sprite_file)) {
-                include_once $sprite_file;
-                $sprites = PMA_sprites();
-            } else {
-                // No sprites are available for this theme
-                $sprites = array();
-            }
+            $sprites = $_SESSION['PMA_Theme']->getSpriteData();
         }
 
         // Check if we have the requested image as a sprite
@@ -432,18 +425,23 @@ class Util
     /**
      * Displays a link to the documentation as an icon
      *
-     * @param string $link   documentation link
-     * @param string $target optional link target
+     * @param string  $link   documentation link
+     * @param string  $target optional link target
+     * @param boolean $bbcode optional flag indicating whether to output bbcode
      *
      * @return string the html link
      *
      * @access public
      */
-    public static function showDocLink($link, $target = 'documentation')
+    public static function showDocLink($link, $target = 'documentation', $bbcode = false)
     {
-        return '<a href="' . $link . '" target="' . $target . '">'
-            . self::getImage('b_help.png', __('Documentation'))
-            . '</a>';
+        if($bbcode){
+            return "[a@$link@$target][dochelpicon][/a]";
+        }else{
+            return '<a href="' . $link . '" target="' . $target . '">'
+                . self::getImage('b_help.png', __('Documentation'))
+                . '</a>';
+        }
     } // end of the 'showDocLink()' function
 
     /**
@@ -534,7 +532,7 @@ class Util
         if (defined('TESTSUITE')) {
             /* Provide consistent URL for testsuite */
             return PMA_linkURL('http://docs.phpmyadmin.net/en/latest/' . $url);
-        } elseif (file_exists('doc/html/index.html')) {
+        } elseif (@file_exists('doc/html/index.html')) {
             if (defined('PMA_SETUP')) {
                 return '../doc/html/' . $url;
             } else {
@@ -549,16 +547,17 @@ class Util
     /**
      * Displays a link to the phpMyAdmin documentation
      *
-     * @param string $page   Page in documentation
-     * @param string $anchor Optional anchor in page
+     * @param string  $page   Page in documentation
+     * @param string  $anchor Optional anchor in page
+     * @param boolean $bbcode Optional flag indicating whether to output bbcode
      *
      * @return string  the html link
      *
      * @access  public
      */
-    public static function showDocu($page, $anchor = '')
+    public static function showDocu($page, $anchor = '', $bbcode = false)
     {
-        return self::showDocLink(self::getDocuLink($page, $anchor));
+        return self::showDocLink(self::getDocuLink($page, $anchor), 'documentation', $bbcode);
     } // end of the 'showDocu()' function
 
     /**
@@ -1093,18 +1092,18 @@ class Util
             }
         }
 
+        $render_sql = $cfg['ShowSQL'] == true && ! empty($sql_query) && $sql_query !== ';';
+
         if (isset($GLOBALS['using_bookmark_message'])) {
             $retval .= $GLOBALS['using_bookmark_message']->getDisplay();
             unset($GLOBALS['using_bookmark_message']);
         }
 
-        // In an Ajax request, $GLOBALS['cell_align_left'] may not be defined. Hence,
-        // check for it's presence before using it
-        $retval .= '<div class="result_query"'
-            . ( isset($GLOBALS['cell_align_left'])
-                ? ' style="text-align: ' . $GLOBALS['cell_align_left'] . '"'
-                : '' )
-            . '>' . "\n";
+        if ($render_sql) {
+            $retval .= '<div class="result_query"'
+                . ' style="text-align: ' . $GLOBALS['cell_align_left'] . '"'
+                . '>' . "\n";
+        }
 
         if ($message instanceof Message) {
             if (isset($GLOBALS['special_message'])) {
@@ -1122,7 +1121,7 @@ class Util
             $retval .= '</div>';
         }
 
-        if ($cfg['ShowSQL'] == true && ! empty($sql_query) && $sql_query !== ';') {
+        if ($render_sql) {
             // Html format the query to be displayed
             // If we want to show some sql code it is easiest to create it here
             /* SQL-Parser-Analyzer */
@@ -1343,9 +1342,9 @@ class Util
             $retval .= $inline_edit_link . $edit_link . $explain_link . $php_link
                 . $refresh_link;
             $retval .= '</div>';
-        }
 
-        $retval .= '</div>';
+            $retval .= '</div>';
+        }
 
         return $retval;
     } // end of the 'getMessage()' function
@@ -2180,8 +2179,8 @@ class Util
                 $error_message .= $reported_script_name
                     . ': ' . __('Missing parameter:') . ' '
                     . $param
-                    . self::showDocu('faq', 'faqmissingparameters')
-                    . '<br />';
+                    . self::showDocu('faq', 'faqmissingparameters',true)
+                    . '[br]';
                 $found_error = true;
             }
         }
@@ -2375,7 +2374,6 @@ class Util
      *
      * @param string $button_name  name of button element
      * @param string $button_class class of button or image element
-     * @param string $image_name   name of image element
      * @param string $text         text to display
      * @param string $image        image to display
      * @param string $value        value
@@ -2385,36 +2383,21 @@ class Util
      * @access  public
      */
     public static function getButtonOrImage(
-        $button_name, $button_class, $image_name, $text, $image, $value = ''
+        $button_name, $button_class, $text, $image, $value = ''
     ) {
         if ($value == '') {
             $value = $text;
         }
-
         if ($GLOBALS['cfg']['ActionLinksMode'] == 'text') {
             return ' <input type="submit" name="' . $button_name . '"'
                 . ' value="' . htmlspecialchars($value) . '"'
                 . ' title="' . htmlspecialchars($text) . '" />' . "\n";
         }
-
-        /* Opera has trouble with <input type="image"> */
-        /* IE (before version 9) has trouble with <button> */
-        if (PMA_USR_BROWSER_AGENT == 'IE' && PMA_USR_BROWSER_VER < 9) {
-            return '<input type="image" name="' . $image_name
-                . '" class="' . $button_class
-                . '" value="' . htmlspecialchars($value)
-                . '" title="' . htmlspecialchars($text)
-                . '" src="' . $GLOBALS['pmaThemeImage'] . $image . '" />'
-                . ($GLOBALS['cfg']['ActionLinksMode'] == 'both'
-                    ? '&nbsp;' . htmlspecialchars($text)
-                    : '') . "\n";
-        } else {
-            return '<button class="' . $button_class . '" type="submit"'
-                . ' name="' . $button_name . '" value="' . htmlspecialchars($value)
-                . '" title="' . htmlspecialchars($text) . '">' . "\n"
-                . self::getIcon($image, $text)
-                . '</button>' . "\n";
-        }
+        return '<button class="' . $button_class . '" type="submit"'
+            . ' name="' . $button_name . '" value="' . htmlspecialchars($value)
+            . '" title="' . htmlspecialchars($text) . '">' . "\n"
+            . self::getIcon($image, $text)
+            . '</button>' . "\n";
     } // end function
 
     /**
@@ -4943,6 +4926,7 @@ class Util
                             'ENGINE' => '',
                             'TABLE_TYPE' => '',
                             'TABLE_ROWS' => 0,
+                            'TABLE_COMMENT' => '',
                         );
                     }
                 } // end while
@@ -4983,4 +4967,3 @@ class Util
         return $result;
     }
 }
-

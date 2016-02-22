@@ -38,7 +38,6 @@ class PMA_Operations_Test extends PHPUnit_Framework_TestCase
     {
         $GLOBALS['table'] = 'table';
         $GLOBALS['db'] = 'db';
-        $_SESSION['PMA_Theme'] = Theme::load('./themes/pmahomme');
         $GLOBALS['cfg'] = array(
             'ServerDefault' => 1,
             'ActionLinksMode' => 'icons',

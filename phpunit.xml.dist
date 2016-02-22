@@ -41,15 +41,12 @@
         <whitelist addUncoveredFilesFromWhitelist="true">
             <directory suffix=".php">.</directory>
             <exclude>
-                <!-- excluding the tests from the coverage -->
-                <directory>test/</directory>
+                <!-- composer packages -->
+                <directory>vendor/</directory>
                 <!-- we don't care about coverage of embedded libraries -->
                 <directory suffix=".inc">libraries/php-gettext</directory>
-                <directory suffix=".php">libraries/bfShapeFiles</directory>
                 <directory suffix=".php">libraries/php-gettext</directory>
-                <directory suffix=".php">libraries/phpseclib</directory>
-                <directory suffix=".php">libraries/sql-parser</directory>
-                <directory suffix=".php">libraries/tcpdf</directory>
+                <directory suffix=".php">libraries/bfShapeFiles</directory>
                 <!-- code sniffer checker -->
                 <directory suffix=".php">PMAStandard</directory>
                 <!-- examples for users -->

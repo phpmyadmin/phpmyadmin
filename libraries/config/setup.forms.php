@@ -102,7 +102,6 @@ $forms['Features']['Import_export'] = array(
     'CompressOnFly');
 $forms['Features']['Security'] = array(
     'blowfish_secret',
-    'ForceSSL',
     'CheckConfigurationPermissions',
     'TrustedProxies',
     'AllowUserDropDatabase',
@@ -148,7 +147,8 @@ $forms['Features']['Other_core_settings'] = array(
     'ProxyUser',
     'ProxyPass',
     'AllowThirdPartyFraming',
-    'ZeroConf'
+    'ZeroConf',
+    'DisableShortcutKeys'
 );
 $forms['Sql_queries']['Sql_queries'] = array(
     'ShowSQL',

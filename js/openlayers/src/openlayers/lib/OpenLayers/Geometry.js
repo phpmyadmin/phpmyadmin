@@ -1,11 +1,10 @@
-/* Copyright (c) 2006-2010 by OpenLayers Contributors (see authors.txt for 
- * full list of contributors). Published under the Clear BSD license.  
- * See http://svn.openlayers.org/trunk/openlayers/license.txt for the
+/* Copyright (c) 2006-2013 by OpenLayers Contributors (see authors.txt for
+ * full list of contributors). Published under the 2-clause BSD license.
+ * See license.txt in the OpenLayers distribution or repository for the
  * full text of the license. */
  
 /**
- * @requires OpenLayers/Format/WKT.js
- * @requires OpenLayers/Feature/Vector.js
+ * @requires OpenLayers/BaseTypes/Class.js
  */
 
 /**
@@ -13,6 +12,9 @@
  * A Geometry is a description of a geographic object.  Create an instance of
  * this class with the <OpenLayers.Geometry> constructor.  This is a base class,
  * typical geometry types are described by subclasses of this class.
+ *
+ * Note that if you use the <OpenLayers.Geometry.fromWKT> method, you must
+ * explicitly include the OpenLayers.Format.WKT in your build.
  */
 OpenLayers.Geometry = OpenLayers.Class({
 
@@ -65,10 +67,11 @@ OpenLayers.Geometry = OpenLayers.Class({
     },
     
     /**
+     * Method: setBounds
      * Set the bounds for this Geometry.
      * 
      * Parameters:
-     * object - {<OpenLayers.Bounds>} 
+     * bounds - {<OpenLayers.Bounds>} 
      */
     setBounds: function(bounds) {
         if (bounds) {
@@ -173,7 +176,8 @@ OpenLayers.Geometry = OpenLayers.Class({
      * geometry.
      * 
      * Parameters:
-     * lonlat - {<OpenLayers.LonLat>} 
+     * lonlat - {<OpenLayers.LonLat>|Object} OpenLayers.LonLat or an
+     *     object with a 'lon' and 'lat' properties.
      * toleranceLon - {float} Optional tolerance in Geometric Coords
      * toleranceLat - {float} Optional tolerance in Geographic Coords
      * 
@@ -239,15 +243,23 @@ OpenLayers.Geometry = OpenLayers.Class({
 
     /**
      * Method: toString
-     * Returns the Well-Known Text representation of a geometry
+     * Returns a text representation of the geometry.  If the WKT format is
+     *     included in a build, this will be the Well-Known Text 
+     *     representation.
      *
      * Returns:
-     * {String} Well-Known Text
+     * {String} String representation of this geometry.
      */
     toString: function() {
-        return OpenLayers.Format.WKT.prototype.write(
-            new OpenLayers.Feature.Vector(this)
-        );
+        var string;
+        if (OpenLayers.Format && OpenLayers.Format.WKT) {
+            string = OpenLayers.Format.WKT.prototype.write(
+                new OpenLayers.Feature.Vector(this)
+            );
+        } else {
+            string = Object.prototype.toString.call(this);
+        }
+        return string;
     },
 
     CLASS_NAME: "OpenLayers.Geometry"
@@ -255,7 +267,9 @@ OpenLayers.Geometry = OpenLayers.Class({
 
 /**
  * Function: OpenLayers.Geometry.fromWKT
- * Generate a geometry given a Well-Known Text string.
+ * Generate a geometry given a Well-Known Text string.  For this method to
+ *     work, you must include the OpenLayers.Format.WKT in your build 
+ *     explicitly.
  *
  * Parameters:
  * wkt - {String} A string representing the geometry in Well-Known Text.
@@ -264,22 +278,24 @@ OpenLayers.Geometry = OpenLayers.Class({
  * {<OpenLayers.Geometry>} A geometry of the appropriate class.
  */
 OpenLayers.Geometry.fromWKT = function(wkt) {
-    var format = arguments.callee.format;
-    if(!format) {
-        format = new OpenLayers.Format.WKT();
-        arguments.callee.format = format;
-    }
     var geom;
-    var result = format.read(wkt);
-    if(result instanceof OpenLayers.Feature.Vector) {
-        geom = result.geometry;
-    } else if(result instanceof Array) {
-        var len = result.length;
-        var components = new Array(len);
-        for(var i=0; i<len; ++i) {
-            components[i] = result[i].geometry;
+    if (OpenLayers.Format && OpenLayers.Format.WKT) {
+        var format = OpenLayers.Geometry.fromWKT.format;
+        if (!format) {
+            format = new OpenLayers.Format.WKT();
+            OpenLayers.Geometry.fromWKT.format = format;
         }
-        geom = new OpenLayers.Geometry.Collection(components);
+        var result = format.read(wkt);
+        if (result instanceof OpenLayers.Feature.Vector) {
+            geom = result.geometry;
+        } else if (OpenLayers.Util.isArray(result)) {
+            var len = result.length;
+            var components = new Array(len);
+            for (var i=0; i<len; ++i) {
+                components[i] = result[i].geometry;
+            }
+            geom = new OpenLayers.Geometry.Collection(components);
+        }
     }
     return geom;
 };
@@ -422,12 +438,39 @@ OpenLayers.Geometry.segmentsIntersect = function(seg1, seg2, options) {
  *     representing endpoint coordinates.
  *
  * Returns:
- * {Object} An object with distance, x, and y properties.  The distance
+ * {Object} An object with distance, along, x, and y properties.  The distance
  *     will be the shortest distance between the input point and segment.
  *     The x and y properties represent the coordinates along the segment
- *     where the shortest distance meets the segment.
+ *     where the shortest distance meets the segment. The along attribute
+ *     describes how far between the two segment points the given point is.
  */
 OpenLayers.Geometry.distanceToSegment = function(point, segment) {
+    var result = OpenLayers.Geometry.distanceSquaredToSegment(point, segment);
+    result.distance = Math.sqrt(result.distance);
+    return result;
+};
+
+/**
+ * Function: OpenLayers.Geometry.distanceSquaredToSegment
+ *
+ * Usually the distanceToSegment function should be used. This variant however
+ * can be used for comparisons where the exact distance is not important.
+ *
+ * Parameters:
+ * point - {Object} An object with x and y properties representing the
+ *     point coordinates.
+ * segment - {Object} An object with x1, y1, x2, and y2 properties
+ *     representing endpoint coordinates.
+ *
+ * Returns:
+ * {Object} An object with squared distance, along, x, and y properties.
+ *     The distance will be the shortest distance between the input point and
+ *     segment. The x and y properties represent the coordinates along the
+ *     segment where the shortest distance meets the segment. The along
+ *     attribute describes how far between the two segment points the given
+ *     point is.
+ */
+OpenLayers.Geometry.distanceSquaredToSegment = function(point, segment) {
     var x0 = point.x;
     var y0 = point.y;
     var x1 = segment.x1;
@@ -450,7 +493,8 @@ OpenLayers.Geometry.distanceToSegment = function(point, segment) {
         y = y1 + along * dy;
     }
     return {
-        distance: Math.sqrt(Math.pow(x - x0, 2) + Math.pow(y - y0, 2)),
-        x: x, y: y
+        distance: Math.pow(x - x0, 2) + Math.pow(y - y0, 2),
+        x: x, y: y,
+        along: along
     };
 };

@@ -67,9 +67,19 @@ if (version_compare(PHP_VERSION, '5.5.0', 'lt')) {
 define('PHPMYADMIN', true);
 
 /**
+ * Load vendor configuration.
+ */
+require_once './libraries/vendor_config.php';
+
+/**
+ * Load gettext functions.
+ */
+require_once GETTEXT_INC;
+
+/**
  * Activate autoloader
  */
-require_once './libraries/autoloader.php';
+require_once './vendor/autoload.php';
 
 /**
  * initialize the error handler
@@ -138,6 +148,12 @@ $variables_whitelist = array (
     'PMA_PHP_SELF',
     'variables_whitelist',
     'key',
+    # following are set by gettext.inc
+    'text_domains',
+    'default_domain',
+    'LC_CATEGORIES',
+    'EMULATEGETTEXT',
+    'CURRENTLOCALE',
 );
 
 foreach (get_defined_vars() as $key => $value) {
@@ -146,6 +162,20 @@ foreach (get_defined_vars() as $key => $value) {
     }
 }
 unset($key, $value, $variables_whitelist);
+
+/**
+ * @global boolean $GLOBALS['is_ajax_request']
+ * @todo should this be moved to the variables init section above?
+ *
+ * Check if the current request is an AJAX request, and set is_ajax_request
+ * accordingly.  Suppress headers, footers and unnecessary output if set to
+ * true
+ */
+if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
+    $GLOBALS['is_ajax_request'] = true;
+} else {
+    $GLOBALS['is_ajax_request'] = false;
+}
 
 
 /**
@@ -217,10 +247,6 @@ date_default_timezone_set(@date_default_timezone_get());
  */
 $GLOBALS['PMA_Config'] = new Config(CONFIG_FILE);
 
-if (!defined('PMA_MINIMUM_COMMON')) {
-    $GLOBALS['PMA_Config']->checkPmaAbsoluteUri();
-}
-
 /**
  * BC - enable backward compatibility
  * exports all configuration settings into $GLOBALS ($GLOBALS['cfg'])
@@ -244,24 +270,6 @@ if (isset($_COOKIE)) {
         $GLOBALS['PMA_Config']->setCookie('pmaCookieVer', $pma_cookie_version);
     }
 }
-
-
-/**
- * check HTTPS connection
- */
-if ($GLOBALS['PMA_Config']->get('ForceSSL')
-    && ! $GLOBALS['PMA_Config']->detectHttps()
-) {
-    require './libraries/select_lang.lib.php';
-    // grab SSL URL
-    $url = $GLOBALS['PMA_Config']->getSSLUri();
-    // Actually redirect
-    PMA_sendHeaderLocation($url . PMA_URL_getCommon($_GET, 'text'));
-    // delete the current session, otherwise we get problems (see bug #2397877)
-    $GLOBALS['PMA_Config']->removeCookie($GLOBALS['session_name']);
-    exit;
-}
-
 
 /**
  * include session handling after the globals, to prevent overwriting
@@ -475,11 +483,6 @@ if (PMA_isValid($_REQUEST['sql_query'])) {
 /* loading language file                       LABEL_loading_language_file    */
 
 /**
- * Load gettext functions.
- */
-require_once GETTEXT_INC;
-
-/**
  * lang detection is done here
  */
 $language = LanguageManager::getInstance()->selectLanguage();
@@ -517,15 +520,6 @@ if ($GLOBALS['PMA_Config']->error_config_default_file) {
         $GLOBALS['PMA_Config']->default_source
     );
     trigger_error($error, E_USER_ERROR);
-}
-if ($GLOBALS['PMA_Config']->error_pma_uri) {
-    trigger_error(
-        __(
-            'The [code]$cfg[\'PmaAbsoluteUri\'][/code]'
-            . ' directive MUST be set in your configuration file!'
-        ),
-        E_USER_ERROR
-    );
 }
 
 
@@ -921,11 +915,6 @@ if (! defined('PMA_MINIMUM_COMMON')) {
             $mysql_collations_flat = array();
         }
 
-        /**
-         * Initializes the SQL parsing library.
-         */
-        include_once SQL_PARSER_AUTOLOAD;
-
         // Loads closest context to this version.
         SqlParser\Context::loadClosest('MySql' . PMA_MYSQL_INT_VERSION);
 
@@ -1018,20 +1007,6 @@ $GLOBALS['PMA_Config']->set('default_server', '');
 
 /* Tell tracker that it can actually work */
 Tracker::enable();
-
-/**
- * @global boolean $GLOBALS['is_ajax_request']
- * @todo should this be moved to the variables init section above?
- *
- * Check if the current request is an AJAX request, and set is_ajax_request
- * accordingly.  Suppress headers, footers and unnecessary output if set to
- * true
- */
-if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
-    $GLOBALS['is_ajax_request'] = true;
-} else {
-    $GLOBALS['is_ajax_request'] = false;
-}
 
 if (isset($_REQUEST['GLOBALS']) || isset($_FILES['GLOBALS'])) {
     PMA_fatalError(__("GLOBALS overwrite attempt"));
