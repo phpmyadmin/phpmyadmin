@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-02-22 14:22+0100\n"
-"PO-Revision-Date: 2016-02-17 13:24+0000\n"
+"PO-Revision-Date: 2016-02-22 15:51+0000\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
-"Language-Team: Interlingua <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/ia/>\n"
+"Language-Team: Interlingua "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/ia/>\n"
 "Language: ia\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -6747,10 +6747,9 @@ msgid "Show row links anyway"
 msgstr "Monstra ligamines de rango de omne modo"
 
 #: libraries/config/messages.inc.php:552 libraries/config/messages.inc.php:553
-#, fuzzy
 #| msgid "Disable foreign key checks"
 msgid "Disable shortcut keys"
-msgstr "Dishabilita le verificationes sur le clave estranie"
+msgstr "Dishabilita  claves de via breve"
 
 #: libraries/config/messages.inc.php:555
 msgid "Use natural order for sorting table and database names."
@@ -14639,7 +14638,6 @@ msgid "Tracking is not active."
 msgstr ""
 
 #: templates/error/report_form.phtml:7
-#, fuzzy
 #| msgid ""
 #| "phpMyAdmin has encountered an error. We have collected data about this "
 #| "error as well as information about relevant configuration settings to "
@@ -14649,9 +14647,9 @@ msgid ""
 "about relevant configuration settings. It will be sent to the phpMyAdmin "
 "team for debugging the error."
 msgstr ""
-"phpMyAdmin ha incontrate un error. Nos ha colligite datos re iste error assi "
-"como informationes re preferentias de configuration relevante pro inviar al "
-"equipa de phpMyAdmin pro adjutar nos a analysar le problema."
+"Iste reporto automaticamente include datos re le error e informationes re "
+"preferentias de configuration relevante. Illo essera inviate al equipa de "
+"phpMyAdmin pro analysar le error."
 
 #: templates/error/report_form.phtml:14
 msgid ""
@@ -15330,10 +15328,9 @@ msgstr ""
 
 #: vendor/phpmyadmin/sql-parser/tests/Lexer/LexerTest.php:21
 #: vendor/phpmyadmin/sql-parser/tests/Parser/ParserTest.php:58
-#, fuzzy
 #| msgid "Error"
 msgid "error #1"
-msgstr "Error"
+msgstr "error #1"
 
 #: vendor/phpmyadmin/sql-parser/tests/Lexer/LexerTest.php:23
 #: vendor/phpmyadmin/sql-parser/tests/Parser/ParserTest.php:59
@@ -15343,10 +15340,9 @@ msgstr ""
 
 #: vendor/phpmyadmin/sql-parser/tests/Lexer/LexerTest.php:48
 #: vendor/phpmyadmin/sql-parser/tests/Parser/ParserTest.php:80
-#, fuzzy
 #| msgid "Gather errors"
 msgid "strict error"
-msgstr "Accumula errores"
+msgstr "stricte error"
 
 #: view_create.php:233
 msgid "VIEW name"
