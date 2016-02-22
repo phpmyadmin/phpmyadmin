@@ -549,6 +549,8 @@ $strConfigRowActionLinksWithoutUnique_desc = __(
     'Whether to show row links even in the absence of a unique key.'
 );
 $strConfigRowActionLinksWithoutUnique_name = __('Show row links anyway');
+$strConfigDisableShortcutKeys_name = __('Disable shortcut keys');
+$strConfigDisableShortcutKeys_desc = __('Disable shortcut keys');
 $strConfigNaturalOrder_desc
     = __('Use natural order for sorting table and database names.');
 $strConfigNaturalOrder_name = __('Natural order');
