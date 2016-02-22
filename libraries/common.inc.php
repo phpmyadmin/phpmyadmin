@@ -72,9 +72,14 @@ define('PHPMYADMIN', true);
 require_once './libraries/vendor_config.php';
 
 /**
+ * Load gettext functions.
+ */
+require_once GETTEXT_INC;
+
+/**
  * Activate autoloader
  */
-require_once './libraries/autoloader.php';
+require_once './vendor/autoload.php';
 
 /**
  * initialize the error handler
@@ -143,6 +148,12 @@ $variables_whitelist = array (
     'PMA_PHP_SELF',
     'variables_whitelist',
     'key',
+    # following are set by gettext.inc
+    'text_domains',
+    'default_domain',
+    'LC_CATEGORIES',
+    'EMULATEGETTEXT',
+    'CURRENTLOCALE',
 );
 
 foreach (get_defined_vars() as $key => $value) {
@@ -470,11 +481,6 @@ if (PMA_isValid($_REQUEST['sql_query'])) {
 
 /******************************************************************************/
 /* loading language file                       LABEL_loading_language_file    */
-
-/**
- * Load gettext functions.
- */
-require_once GETTEXT_INC;
 
 /**
  * lang detection is done here
@@ -908,11 +914,6 @@ if (! defined('PMA_MINIMUM_COMMON')) {
             $mysql_charsets = array();
             $mysql_collations_flat = array();
         }
-
-        /**
-         * Initializes the SQL parsing library.
-         */
-        include_once SQL_PARSER_AUTOLOAD;
 
         // Loads closest context to this version.
         SqlParser\Context::loadClosest('MySql' . PMA_MYSQL_INT_VERSION);

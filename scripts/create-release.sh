@@ -14,20 +14,66 @@ set -e
 KITS="all-languages english"
 COMPRESSIONS="zip-7z tbz txz tgz 7z"
 
-if [ $# -lt 2 ]
-then
-  echo "Usages:"
-  echo "  create-release.sh <version> <from_branch> [--tag] [--stable]"
-  echo ""
-  echo "If --tag is specified, release tag is automatically created (use this for all releases including pre-releases)"
-  echo "If --stable is specified, the STABLE branch is updated with this release"
-  echo ""
-  echo "Examples:"
-  echo "  create-release.sh 2.9.0-rc1 QA_2_9"
-  echo "  create-release.sh 2.9.0 MAINT_2_9_0 --tag --stable"
-  exit 65
-fi
+# Process parameters
 
+version=""
+branch=""
+do_tag=0
+do_stable=0
+do_test=0
+do_ci=0
+
+while [ $# -gt 0 ] ; do
+    case "$1" in
+        --tag)
+            do_tag=1
+            ;;
+        --stable)
+            do_stable=1
+            ;;
+        --test)
+            do_test=1
+            ;;
+        --ci)
+            do_test=1
+            do_ci=1
+            if [ -z "$branch" ] ; then
+                git branch ci
+                branch="ci"
+            fi
+            version="ci"
+            ;;
+        --help)
+            echo "Usages:"
+            echo "  create-release.sh <version> <from_branch> [--tag] [--stable] [--test] [--ci]"
+            echo ""
+            echo "If --tag is specified, release tag is automatically created (use this for all releases including pre-releases)"
+            echo "If --stable is specified, the STABLE branch is updated with this release"
+            echo "If --test is specified, the testsuite is executed before creating the release"
+            echo "If --ci is specified, the testsuite is executed and no actual release is crated"
+            echo ""
+            echo "Examples:"
+            echo "  create-release.sh 2.9.0-rc1 QA_2_9"
+            echo "  create-release.sh 2.9.0 MAINT_2_9_0 --tag --stable"
+            exit 65
+            ;;
+        *)
+            if [ -z "$version" ] ; then
+                version="$1"
+            elif [ -z "$branch" ] ; then
+                branch="$1"
+            else
+                echo "Unknown parameter: $1!"
+                exit 1
+            fi
+    esac
+    shift
+done
+
+if [ -z "$version" -o -z "$branch" ] ; then
+    echo "Branch and version have to be specified!"
+    exit 1
+fi
 
 # Checks whether remote branch has local tracking branch
 ensure_local_branch() {
@@ -45,23 +91,21 @@ mark_as_release() {
     ensure_local_branch $rel_branch
     git checkout $rel_branch
     git merge -s recursive -X theirs $branch
+    git checkout master
 }
 
-# Read required parameters
-version=$1
-shift
-branch=$1
-shift
+# Ensure we have tracking branch
+ensure_local_branch $branch
 
-git checkout $branch
-if [ -f libraries/Config.php ] ; then
+# Check if we're releasing older
+if git cat-file -e $branch:libraries/Config.php ; then
     CONFIG_LIB=libraries/Config.php
 else
     CONFIG_LIB=libraries/Config.class.php
 fi
-git checkout master
 
-cat <<END
+if [ $do_ci -eq 0 ] ; then
+    cat <<END
 
 Please ensure you have incremented rc count or version in the repository :
      - in $CONFIG_LIB PMA\libraries\Config::__constructor() the line
@@ -73,44 +117,40 @@ Please ensure you have incremented rc count or version in the repository :
 
 Continue (y/n)?
 END
-read do_release
+    read do_release
 
-if [ "$do_release" != 'y' ]; then
-    exit 100
+    if [ "$do_release" != 'y' ]; then
+        exit 100
+    fi
 fi
-
-# Ensure we have tracking branch
-ensure_local_branch $branch
 
 # Create working copy
 mkdir -p release
+git worktree prune
 workdir=release/phpMyAdmin-$version
 if [ -d $workdir ] ; then
     echo "Working directory '$workdir' already exists, please move it out of way"
     exit 1
 fi
-git clone --local . $workdir
+
+# Add worktree with chosen branch
+git worktree add --force $workdir $branch
 cd $workdir
 
-# Checkout branch
-ensure_local_branch $branch
-git checkout $branch
-
 # Check release version
-if ! grep -q "'PMA_VERSION', '$version'" $CONFIG_LIB ; then
-    echo "There seems to be wrong version in $CONFIG_LIB!"
-    exit 2
-fi
-if test -f Documentation.html && ! grep -q "phpMyAdmin $version - Documentation" Documentation.html ; then
-    echo "There seems to be wrong version in Documentation.html"
-fi
-if test -f doc/conf.py && ! grep -q "version = '$version'" doc/conf.py ; then
-    echo "There seems to be wrong version in doc/conf.py"
-    exit 2
-fi
-if ! grep -q "Version $version\$" README ; then
-    echo "There seems to be wrong version in README"
-    exit 2
+if [ $do_ci -eq 0 ] ; then
+    if ! grep -q "'PMA_VERSION', '$version'" $CONFIG_LIB ; then
+        echo "There seems to be wrong version in $CONFIG_LIB!"
+        exit 2
+    fi
+    if ! grep -q "version = '$version'" doc/conf.py ; then
+        echo "There seems to be wrong version in doc/conf.py"
+        exit 2
+    fi
+    if ! grep -q "Version $version\$" README ; then
+        echo "There seems to be wrong version in README"
+        exit 2
+    fi
 fi
 
 # Cleanup release dir
@@ -118,12 +158,8 @@ LC_ALL=C date -u > RELEASE-DATE-${version}
 
 # Building documentation
 echo "* Generating documentation"
-if [ -f doc/conf.py ] ; then
-    LC_ALL=C make -C doc html
-    find doc -name '*.pyc' -print0 | xargs -0 -r rm -f
-else
-    LC_ALL=C w3m -dump Documentation.html > Documentation.txt
-fi
+LC_ALL=C make -C doc html
+find doc -name '*.pyc' -print0 | xargs -0 -r rm -f
 
 # Check for gettext support
 if [ -d po ] ; then
@@ -144,10 +180,6 @@ fi
 
 echo "* Removing unneeded files"
 
-# Remove test directory from package to avoid Path disclosure messages
-# if someone runs /test/wui.php and there are test failures
-rm -rf test
-
 # Remove developer information
 rm -rf .github
 
@@ -155,14 +187,60 @@ rm -rf .github
 rm -rf PMAStandard
 
 # Testsuite setup
-rm -f build.xml phpunit.xml.dist .travis.yml .jshintrc
+rm -f .travis.yml .coveralls.yml .scrutinizer.yml .jshintrc
 
 # Remove readme for github
 rm -f README.rst
 
 # Remove git metadata
-rm -rf .git
+rm .git
 find . -name .gitignore -print0 | xargs -0 -r rm -f
+
+if [ ! -d libraries/tcpdf ] ; then
+    echo "* Running composer"
+    composer update --no-dev
+    echo "* Cleanup of composer packages"
+    rm -rf \
+        vendor/phpmyadmin/sql-parser/tests/ \
+        vendor/phpmyadmin/sql-parser/tools/ \
+        vendor/phpseclib/phpseclib/phpseclib/File/ \
+        vendor/phpseclib/phpseclib/phpseclib/Math/ \
+        vendor/phpseclib/phpseclib/phpseclib/Net/ \
+        vendor/phpseclib/phpseclib/phpseclib/System/ \
+        vendor/phpseclib/phpseclib/phpseclib/*.* \
+        vendor/tecnickcom/tcpdf/examples/ \
+        vendor/tecnickcom/tcpdf/tools/ \
+        vendor/tecnickcom/tcpdf/fonts/ae_fonts_*/ \
+        vendor/tecnickcom/tcpdf/fonts/dejavu-fonts-ttf-2.33/ \
+        vendor/tecnickcom/tcpdf/fonts/freefont-*/ \
+        vendor/google/recaptcha/examples/ \
+        vendor/google/recaptcha/tests/
+    find vendor/phpseclib/phpseclib/phpseclib/Crypt/ -maxdepth 1 -type f -not -name AES.php -not -name Base.php -not -name Random.php -not -name Rijndael.php -print0 | xargs -0 rm
+    find vendor/tecnickcom/tcpdf/fonts/ -maxdepth 1 -type f -not -name 'dejavusans.*' -not -name 'dejavusansb.*' -not -name 'helvetica.php' -print0 | xargs -0 rm
+fi
+
+if [ $do_test -eq 1 ] ; then
+    composer update
+    ant phpunit-nocoverage
+    test_ret=$?
+    if [ $do_ci -eq 1 ] ; then
+        cd ../..
+        rm -rf $workdir
+        git worktree prune
+        if [ "$branch" = "ci" ] ; then
+            git branch -D ci
+        fi
+        exit $test_ret
+    fi
+    if [ $test_ret -ne 0 ] ; then
+        exit $test_ret
+    fi
+    # Remove libs installed for testing
+    if [ ! -d libraries/tcpdf ] ; then
+        composer update --no-dev
+    fi
+fi
+
 
 cd ..
 
@@ -175,19 +253,10 @@ for kit in $KITS ; do
     # Cleanup translations
     cd phpMyAdmin-$version-$kit
     scripts/lang-cleanup.sh $kit
-    if [ -f sql/create_tables.sql ] ; then
-        # 3.5 and newer
-        rm -rf scripts
-    else
-        # 3.4 and older
-        # Remove javascript compiler, no need to ship it
-        rm -rf scripts/google-javascript-compiler/
 
-        # Remove scripts which are not useful for user
-        for s in generate-sprites advisor2po lang-cleanup.sh locales-contributors remove-incomplete-mo compress-js create-release.sh generate-mo remove_control_m.sh update-po upload-release ; do
-            rm -f scripts/$s
-        done
-    fi
+    # Remove developer scripts
+    rm -rf scripts
+
     cd ..
 
     # Remove tar file possibly left from previous run
@@ -241,6 +310,7 @@ done
 
 # Cleanup
 rm -rf phpMyAdmin-${version}
+git worktree prune
 
 # Signing of files with default GPG key
 echo "* Signing files"
@@ -261,30 +331,19 @@ ls -la *.gz *.zip *.xz *.bz2 *.7z
 
 cd ..
 
-
-if [ $# -gt 0 ] ; then
+# Tag as release
+if [ $do_tag -eq 1 ] ; then
     echo
     echo "Additional tasks:"
-    while [ $# -gt 0 ] ; do
-        param=$1
-        case $1 in
-            --tag)
-                tagname=RELEASE_`echo $version | tr . _ | tr '[:lower:]' '[:upper:]' | tr -d -`
-                echo "* Tagging release as $tagname"
-                git tag -a -m "Released $version" $tagname $branch
-                echo "   Dont forget to push tags using: git push --tags"
-                ;;
-            --stable)
-                mark_as_release $branch STABLE
-                git checkout master
-                ;;
-            *)
-                echo "Unknown parameter: $1!"
-                exit 1
-        esac
-        shift
-    done
-    echo
+    tagname=RELEASE_`echo $version | tr . _ | tr '[:lower:]' '[:upper:]' | tr -d -`
+    echo "* Tagging release as $tagname"
+    git tag -a -m "Released $version" $tagname $branch
+    echo "   Dont forget to push tags using: git push --tags"
+fi
+
+# Mark as stable release
+if [ $do_stable -eq 1 ] ; then
+    mark_as_release $branch STABLE
 fi
 
 cat <<END

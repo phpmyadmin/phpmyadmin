@@ -325,7 +325,6 @@ class AuthenticationCookie extends AuthenticationPlugin
             ) {
                 if (! empty($_POST["g-recaptcha-response"])) {
 
-                    include_once 'libraries/plugins/auth/recaptcha/autoload.php';
                     $reCaptcha = new ReCaptcha(
                         $GLOBALS['cfg']['CaptchaLoginPrivateKey']
                     );

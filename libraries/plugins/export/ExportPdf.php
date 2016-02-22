@@ -19,7 +19,7 @@ use PMA\libraries\properties\options\items\TextPropertyItem;
 /**
  * Skip the plugin if TCPDF is not available.
  */
-if (!@file_exists(TCPDF_INC)) {
+if (! class_exists('TCPDF')) {
     $GLOBALS['skip_import'] = true;
     return;
 }
