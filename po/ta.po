@@ -10831,7 +10831,7 @@ msgid "Enabled"
 msgstr ""
 
 #: libraries/relation.lib.php:100
-msgid "Configuration of pmadb… "
+msgid "Configuration of pmadb…"
 msgstr "pmadbஇன் அமைப்பாக்கம்... "
 
 #: libraries/relation.lib.php:104 libraries/relation.lib.php:140

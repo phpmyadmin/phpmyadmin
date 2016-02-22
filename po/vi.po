@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-01-14 09:16+0100\n"
-"PO-Revision-Date: 2016-01-13 15:59+0000\n"
+"PO-Revision-Date: 2016-01-22 10:12+0000\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Vietnamese <https://hosted.weblate.org/projects/"
-"phpmyadmin/4-5/vi/>\n"
+"Language-Team: Vietnamese "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-5/vi/>\n"
 "Language: vi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -30,7 +30,7 @@ msgstr ""
 
 #: db_central_columns.php:105
 msgid "The central list of columns for the current database is empty."
-msgstr "Danh sách các cột trong CSDL hiện thời trống."
+msgstr "Danh sách các cột trong Cơ sở dữ liệu hiện tại trống."
 
 #: db_central_columns.php:130
 msgid "Click to sort."
@@ -39,22 +39,22 @@ msgstr "Nhấn vào để sắp xếp."
 #: db_central_columns.php:149
 #, php-format
 msgid "Showing rows %1$s - %2$s."
-msgstr "Hiển thị các bản ghi từ %1$s tới %2$s."
+msgstr "Hiển thị các hàng %1$s - %2$s."
 
 #: db_create.php:61
 #, php-format
 msgid "Database %1$s has been created."
-msgstr "Database %1$s đã được tạo."
+msgstr "Cơ sở dữ liệu %1$s đã được tạo ra."
 
 #: db_datadict.php:58 libraries/operations.lib.php:33
 msgid "Database comment"
-msgstr "Chú thích của Database"
+msgstr "Chú thích của cơ sở dữ liệu"
 
 #: db_datadict.php:105
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:966
 #: templates/columns_definitions/column_definitions_form.phtml:79
 msgid "Table comments:"
-msgstr "Các chú thích của Bảng:"
+msgstr "Chú thích của bảng:"
 
 #: db_datadict.php:114 libraries/Index.class.php:699
 #: libraries/insert_edit.lib.php:1565
@@ -80,7 +80,7 @@ msgstr "Các chú thích của Bảng:"
 #: templates/table/search/table_header.phtml:6
 #: templates/table/search/zoom_result_form.phtml:33
 msgid "Column"
-msgstr "Trường"
+msgstr "Cột"
 
 #: db_datadict.php:115 libraries/Index.class.php:696
 #: libraries/central_columns.lib.php:697 libraries/central_columns.lib.php:1383
@@ -168,7 +168,7 @@ msgstr "Liên kết tới"
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:1029
 #: templates/columns_definitions/table_fields_definitions.phtml:65
 msgid "Comments"
-msgstr "Chú thích"
+msgstr "Ghi chú"
 
 #: db_datadict.php:156
 #: libraries/controllers/TableStructureController.class.php:968
@@ -178,7 +178,7 @@ msgstr "Chú thích"
 #: templates/table/structure/check_all_table_column.phtml:22
 #: templates/table/structure/display_structure.phtml:75
 msgid "Primary"
-msgstr "Khóa Chính"
+msgstr "Chính"
 
 #: db_datadict.php:166 js/messages.php:318 libraries/Index.class.php:567
 #: libraries/Index.class.php:606 libraries/Index.class.php:1021
@@ -238,14 +238,14 @@ msgstr "Có"
 
 #: db_export.php:44
 msgid "View dump (schema) of database"
-msgstr "Xem cấu trúc (lược đồ) của CSDL"
+msgstr "Xem phần đổ (lược đồ) của cơ sở dữ liệu"
 
 #: db_export.php:48 db_tracking.php:101 export.php:381
 #: libraries/DBQbe.class.php:326
 #: libraries/controllers/DatabaseStructureController.class.php:180
 #: libraries/navigation/NavigationTree.class.php:898
 msgid "No tables found in database."
-msgstr "Không có bảng nào trong CSDL."
+msgstr "Không tìm thấy bảng nào trong cơ sở dữ liệu"
 
 #: db_export.php:62 libraries/ServerStatusData.class.php:129
 #: libraries/build_html_for_db.lib.php:28 libraries/config/messages.inc.php:276
@@ -254,7 +254,7 @@ msgstr "Không có bảng nào trong CSDL."
 #: libraries/plugins/export/ExportXml.class.php:120
 #: templates/database/structure/show_create.phtml:19
 msgid "Tables"
-msgstr "Bảng"
+msgstr "Các bảng"
 
 #: db_export.php:63 libraries/Menu.class.php:320 libraries/Menu.class.php:428
 #: libraries/Util.class.php:3350 libraries/Util.class.php:3360
@@ -296,17 +296,17 @@ msgstr "Chọn tất cả"
 
 #: db_operations.php:53 tbl_create.php:24
 msgid "The database name is empty!"
-msgstr "Tên cơ sở dữ liệu trống!"
+msgstr "Tên cơ sở dữ liệu bị trống!"
 
 #: db_operations.php:141
 #, php-format
 msgid "Database %1$s has been renamed to %2$s."
-msgstr "CSDL %1$s đã được đổi tên thành %2$s."
+msgstr "Cơ sở dữ liệu %1$s đã được đổi tên thành %2$s."
 
 #: db_operations.php:153
 #, php-format
 msgid "Database %1$s has been copied to %2$s."
-msgstr "CSDL %1$s đã được sao chép sang %2$s."
+msgstr "Cơ sở dữ liệu %1$s đã được sao chép sang %2$s."
 
 #: db_operations.php:283
 #, php-format
@@ -316,23 +316,23 @@ msgstr "Cấu hình phpMyAdmin đã bị vô hiệu hóa. %sTìm hiểu lý do%s
 
 #: db_qbe.php:129
 msgid "You have to choose at least one column to display!"
-msgstr "Bạn phải chọn ít nhất 1 trường để hiển thị!"
+msgstr "Bạn cần phải chỉ ra ít một cột cần hiển thị!"
 
 #: db_qbe.php:146
 #, php-format
 msgid "Switch to %svisual builder%s"
-msgstr "Chuyển sang chế độ %svisual builder%s"
+msgstr "Chuyển sang %sbộ xây dựng trực quan%s"
 
 #: db_search.php:30 libraries/plugins/AuthenticationPlugin.class.php:70
 #: libraries/plugins/auth/AuthenticationConfig.class.php:103
 #: libraries/plugins/auth/AuthenticationConfig.class.php:118
 #: libraries/plugins/auth/AuthenticationHttp.class.php:91
 msgid "Access denied!"
-msgstr "Truy cập bị từ chối!"
+msgstr "Không đủ thẩm quyền!"
 
 #: db_tracking.php:51 db_tracking.php:76
 msgid "Tracking data deleted successfully."
-msgstr "Các dữ liệu theo dõi đã được xoá."
+msgstr "Các dữ liệu theo dõi đã được xóa thành công."
 
 #: db_tracking.php:60
 #, php-format
@@ -346,7 +346,7 @@ msgstr "Chưa có bảng nào được chọn."
 
 #: db_tracking.php:145
 msgid "Database Log"
-msgstr "Database Log"
+msgstr "Nhật ký Cơ sở dữ liệu"
 
 #: error_report.php:68
 msgid ""
@@ -376,19 +376,19 @@ msgstr ""
 
 #: error_report.php:85
 msgid "You may want to refresh the page."
-msgstr "Bạn cần làm mới lại trang."
+msgstr "Bạn có lẽ nên làm tươi trang này lại."
 
 #: export.php:188 schema_export.php:61
 msgid "Bad type!"
-msgstr "Kiểu dữ liệu không phù hợp!"
+msgstr "Sai kiểu!"
 
 #: export.php:275
 msgid "Bad parameters!"
-msgstr "Tham số không đúng!"
+msgstr "Tham số sai!"
 
 #: file_echo.php:22
 msgid "Invalid export type"
-msgstr "Sai kiểu tập tin xuất"
+msgstr "Kiểu xuất ra không hợp lệ"
 
 #: gis_data_editor.php:118
 #, php-format
@@ -412,7 +412,7 @@ msgstr "Hình dạng %d:"
 
 #: gis_data_editor.php:213
 msgid "Point:"
-msgstr "Điểm:"
+msgstr "Tọa độ:"
 
 #: gis_data_editor.php:214 gis_data_editor.php:241 gis_data_editor.php:297
 #: gis_data_editor.php:370 js/messages.php:434
@@ -1498,7 +1498,7 @@ msgstr "Xuất vùng chọn:"
 #: libraries/server_status_processes.lib.php:92 libraries/tracking.lib.php:279
 #: libraries/tracking.lib.php:1620
 msgid "Status"
-msgstr "Trạng thái"
+msgstr "Tình trạng"
 
 #: js/messages.php:245 js/messages.php:762
 #: libraries/plugins/export/ExportHtmlword.class.php:472
@@ -2793,7 +2793,7 @@ msgstr "calendar-month-year"
 #: js/messages.php:751
 msgctxt "Year suffix"
 msgid "none"
-msgstr "none"
+msgstr "Không"
 
 #: js/messages.php:763
 msgid "Hour"
@@ -2995,7 +2995,7 @@ msgstr "Truy vấn lại"
 #: templates/table/relation/foreign_key_row.phtml:165
 #: templates/table/relation/internal_relational_row.phtml:55
 msgid "Database"
-msgstr "CSDL"
+msgstr "Cơ sở dữ liệu"
 
 #: libraries/Console.class.php:100
 #, php-format
@@ -4736,7 +4736,7 @@ msgstr "Dùng giá trị này"
 #: templates/table/structure/display_partitions.phtml:24
 #: templates/table/structure/row_stats_table.phtml:42
 msgid "Rows"
-msgstr "Bản ghi"
+msgstr "Hàng"
 
 #: libraries/build_html_for_db.lib.php:48 libraries/engines/innodb.lib.php:180
 #: libraries/server_databases.lib.php:173 libraries/server_status.lib.php:195
@@ -9017,7 +9017,7 @@ msgstr "Trình bày:"
 #: libraries/navigation/Navigation.class.php:219 libraries/tracking.lib.php:281
 #: libraries/tracking.lib.php:1622 tbl_change.php:160
 msgid "Show"
-msgstr "Hiển thị"
+msgstr "Hiện"
 
 #: libraries/navigation/NavigationHeader.class.php:162
 msgid "Home"
@@ -10167,22 +10167,22 @@ msgstr ""
 #: libraries/plugins/export/ExportSql.class.php:1395
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:973
 msgid "Creation:"
-msgstr "Khởi tạo:"
+msgstr "Tạo:"
 
 #: libraries/plugins/export/ExportSql.class.php:1408
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:980
 msgid "Last update:"
-msgstr "Lần sửa đối cuối:"
+msgstr "Cập nhật lần cuối:"
 
 #: libraries/plugins/export/ExportSql.class.php:1421
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:987
 msgid "Last check:"
-msgstr "Lần cuối kiểm tra:"
+msgstr "Lần kiểm tra cuối:"
 
 #: libraries/plugins/export/ExportSql.class.php:1471
 #: templates/database/structure/structure_table_row.phtml:183
 msgid "in use"
-msgstr "Thông dụng"
+msgstr "đang dùng"
 
 #: libraries/plugins/export/ExportSql.class.php:1516
 msgid "It appears your database uses views;"
@@ -10689,7 +10689,7 @@ msgid "Enabled"
 msgstr "Bật"
 
 #: libraries/relation.lib.php:100
-msgid "Configuration of pmadb… "
+msgid "Configuration of pmadb…"
 msgstr "Cấu hình của pmadb…"
 
 #: libraries/relation.lib.php:104 libraries/relation.lib.php:140
@@ -13530,11 +13530,11 @@ msgstr "Ngưng hoạt động ngay"
 
 #: libraries/tracking.lib.php:277 libraries/tracking.lib.php:1618
 msgid "Created"
-msgstr "Đã tạo"
+msgstr "Đã được tạo"
 
 #: libraries/tracking.lib.php:278 libraries/tracking.lib.php:1619
 msgid "Updated"
-msgstr "Đã cập nhật"
+msgstr "Đã được cập nhật"
 
 #: libraries/tracking.lib.php:288 libraries/tracking.lib.php:351
 msgid "Delete version"
@@ -13548,17 +13548,17 @@ msgstr "Báo cáo theo dõi"
 #: libraries/tracking.lib.php:290 libraries/tracking.lib.php:827
 #: libraries/tracking.lib.php:1633
 msgid "Structure snapshot"
-msgstr "Cấu trúc ảnh chụp"
+msgstr "Chụp cấu trúc"
 
 #: libraries/tracking.lib.php:417 libraries/tracking.lib.php:1443
 #: libraries/tracking.lib.php:1730
 msgid "active"
-msgstr "Kích hoạt"
+msgstr "tích cực"
 
 #: libraries/tracking.lib.php:419 libraries/tracking.lib.php:1445
 #: libraries/tracking.lib.php:1725
 msgid "not active"
-msgstr "Chưa kích hoạt"
+msgstr "không hoạt động"
 
 #: libraries/tracking.lib.php:461
 msgid "Tracking statements"
@@ -13677,20 +13677,20 @@ msgstr "Phiên bản %1$s đã được tạo, việc theo dõi %2$s đang hoạ
 
 #: libraries/tracking.lib.php:1464
 msgid "Untracked tables"
-msgstr "Những bảng chưa theo dõi"
+msgstr "Các bảng chưa được theo dõi"
 
 #: libraries/tracking.lib.php:1493 libraries/tracking.lib.php:1517
 #: templates/table/structure/optional_action_links.phtml:18
 msgid "Track table"
-msgstr "Theo dõi bảng"
+msgstr "Bảng theo dõi"
 
 #: libraries/tracking.lib.php:1605
 msgid "Tracked tables"
-msgstr "Các bảng đã theo dõi"
+msgstr "Các bảng được theo dõi"
 
 #: libraries/tracking.lib.php:1617
 msgid "Last version"
-msgstr " "
+msgstr "Phiên bản cuối"
 
 #: libraries/tracking.lib.php:1630 libraries/tracking.lib.php:1704
 msgid "Delete tracking"

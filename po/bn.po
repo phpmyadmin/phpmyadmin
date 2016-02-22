@@ -11598,7 +11598,7 @@ msgstr "কার্যকর"
 #: libraries/relation.lib.php:100
 #, fuzzy
 #| msgid "Configuration saved."
-msgid "Configuration of pmadb… "
+msgid "Configuration of pmadb…"
 msgstr "কনফিগারেশন সংরক্ষন করা হয়েছে।"
 
 #: libraries/relation.lib.php:104 libraries/relation.lib.php:140

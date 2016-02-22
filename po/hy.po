@@ -10668,7 +10668,7 @@ msgid "Enabled"
 msgstr "Առկա"
 
 #: libraries/relation.lib.php:100
-msgid "Configuration of pmadb… "
+msgid "Configuration of pmadb…"
 msgstr ""
 
 #: libraries/relation.lib.php:104 libraries/relation.lib.php:140
@@ -14443,9 +14443,6 @@ msgid ""
 "as well as information about relevant configuration settings to send to the "
 "phpMyAdmin team to help us in debugging the problem."
 msgstr ""
-"Ձեր կայանքները պահպանվելու են միայն ընթացիկ ժամանակաշրջանի համար։ Դրանց "
-"մշտական պահպանման համար անհրաժեշտ է %sphpMyAdmin-ի կազմաձևի պահպանման "
-"ընդլայնումը%s։"
 
 #: templates/error/report_form.phtml:15
 msgid "You may examine the data in the error report:"

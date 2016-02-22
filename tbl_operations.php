@@ -136,9 +136,9 @@ if (isset($_REQUEST['submitoptions'])) {
     }
 
     if (! empty($_REQUEST['new_tbl_storage_engine'])
-        && /*overload*/mb_strtolower($_REQUEST['new_tbl_storage_engine']) !== $tbl_storage_engine
+        && /*overload*/mb_strtoupper($_REQUEST['new_tbl_storage_engine']) !== $tbl_storage_engine
     ) {
-        $new_tbl_storage_engine = $_REQUEST['new_tbl_storage_engine'];
+        $new_tbl_storage_engine = mb_strtoupper($_REQUEST['new_tbl_storage_engine']);
         // reset the globals for the new engine
         list($is_myisam_or_aria, $is_innodb, $is_isam,
             $is_berkeleydb, $is_aria, $is_pbxt

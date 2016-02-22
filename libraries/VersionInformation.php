@@ -87,12 +87,19 @@ class VersionInformation
             }
         }
 
+        /* Parse response */
         $data = json_decode($response);
-        if (is_object($data)
-            && ! empty($data->version)
-            && ! empty($data->date)
-            && $save
+
+        /* Basic sanity checking */
+        if (! is_object($data)
+            || empty($data->version)
+            || empty($data->releases)
+            || empty($data->date)
         ) {
+            return null;
+        }
+
+        if ($save) {
             if (! isset($_SESSION) && ! defined('TESTSUITE')) {
                 ini_set('session.use_only_cookies', 'false');
                 ini_set('session.use_cookies', 'false');

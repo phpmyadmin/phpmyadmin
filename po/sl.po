@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-01-14 09:16+0100\n"
-"PO-Revision-Date: 2015-12-18 16:43+0000\n"
+"PO-Revision-Date: 2016-01-16 01:16+0000\n"
 "Last-Translator: Domen <mitenem@outlook.com>\n"
-"Language-Team: Slovenian <https://hosted.weblate.org/projects/phpmyadmin/4-5/"
-"sl/>\n"
+"Language-Team: Slovenian "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-5/sl/>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
-"%100==4 ? 2 : 3;\n"
+"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
+"n%100==4 ? 2 : 3;\n"
 "X-Generator: Weblate 2.5-dev\n"
 
 #: changelog.php:37 license.php:30
@@ -2589,6 +2589,12 @@ msgid ""
 "cause such a problem, clearing your \"Offline Website Data\" might help. In "
 "Safari, such problem is commonly caused by \"Private Mode Browsing\"."
 msgstr ""
+"Pri dostopanju do shrambe vašega brskalnika je prišlo do napake, zato "
+"nekatere zmožnosti morda ne bodo delovale pravilno. Najverjetneje brskalnik "
+"ne podpira shrambe ali pa je bila dosežena omejitev kvote. V Firefoxu lahko "
+"tako težavo povzroči tudi pokvarjena shramba, pri čemer lahko pomaga "
+"čiščenje vaših \"Podatkov pri delu brez povezave\". V Safariju je za težavo "
+"pogosto krivo \"Brskanje v zasebnem načinu\"."
 
 #: js/messages.php:635
 msgctxt "Previous month"
@@ -11139,7 +11145,7 @@ msgid "Enabled"
 msgstr "Omogočeno"
 
 #: libraries/relation.lib.php:100
-msgid "Configuration of pmadb… "
+msgid "Configuration of pmadb…"
 msgstr "Konfiguracija pmadb ... "
 
 #: libraries/relation.lib.php:104 libraries/relation.lib.php:140

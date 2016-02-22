@@ -1551,6 +1551,12 @@ class ExportSql extends ExportPlugin
             // analysis.
             if (!$view) {
 
+                if (empty($sql_backquotes)) {
+                    // Option "Enclose table and column names with backquotes"
+                    // was checked.
+                    Context::$MODE |= Context::NO_ENCLOSING_QUOTES;
+                }
+
                 // Using appropriate quotes.
                 if (($compat === 'MSSQL') || ($sql_backquotes === '"')) {
                     SqlParser\Context::$MODE |= SqlParser\Context::ANSI_QUOTES;
@@ -1621,7 +1627,9 @@ class ExportSql extends ExportPlugin
                             $indexes_fulltext[] = $field->build($field);
                             unset($statement->fields[$key]);
                         } else if (empty($GLOBALS['sql_if_not_exists'])) {
-                            $indexes[] = $field->build($field);
+                            $indexes[] = str_replace(
+                                'COMMENT=\'', 'COMMENT \'', $field::build($field)
+                            );
                             unset($statement->fields[$key]);
                         }
                     }

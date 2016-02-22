@@ -11864,7 +11864,7 @@ msgstr ""
 #: libraries/relation.lib.php:100
 #, fuzzy
 #| msgid "Configuration storage"
-msgid "Configuration of pmadb… "
+msgid "Configuration of pmadb…"
 msgstr "تشکیل ذخیرہ"
 
 #: libraries/relation.lib.php:104 libraries/relation.lib.php:140

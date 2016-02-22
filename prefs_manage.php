@@ -58,7 +58,7 @@ if (isset($_POST['submit_export'])
         // directory
         if (!empty($open_basedir)) {
             $tmp_subdir = (PMA_IS_WINDOWS ? '.\\tmp\\' : 'tmp/');
-            if (is_writable($tmp_subdir)) {
+            if (@is_writable($tmp_subdir)) {
                 $import_file_new = tempnam($tmp_subdir, 'prefs');
                 if (move_uploaded_file($import_file, $import_file_new)) {
                     $import_file = $import_file_new;

@@ -88,7 +88,7 @@ class ImportShp extends ImportPlugin
             // and use the files in it for import
             if ($compression == 'application/zip'
                 && ! empty($GLOBALS['cfg']['TempDir'])
-                && is_writable($GLOBALS['cfg']['TempDir'])
+                && @is_writable($GLOBALS['cfg']['TempDir'])
             ) {
                 $dbf_file_name = PMA_findFileFromZipArchive(
                     '/^.*\.dbf$/i', $import_file

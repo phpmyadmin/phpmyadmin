@@ -339,7 +339,7 @@ function PMA_openExportFile($filename, $quick_export)
             )
         );
         $message->addParam($save_filename);
-    } elseif (is_file($save_filename) && ! is_writable($save_filename)) {
+    } elseif (is_file($save_filename) && ! @is_writable($save_filename)) {
         $message = PMA_Message::error(
             __(
                 'The web server does not have permission '

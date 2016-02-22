@@ -165,6 +165,9 @@ function PMA_getHtmlForServerProcesslist()
         if ($is_sorted && $_REQUEST['sort_order'] === 'ASC') {
             $column['sort_order'] = 'DESC';
         }
+        if (isset($_REQUEST['showExecuting'])) {
+            $column['showExecuting'] = 'on';
+        }
 
         $retval .= '<th>';
         $columnUrl = PMA_URL_getCommon($column);
@@ -244,7 +247,12 @@ function PMA_getHtmlForProcessListFilter()
     }
 
     $url_params = array(
-        'ajax_request' => true
+        'ajax_request' => true,
+        'full' => (isset($_REQUEST['full']) ? $_REQUEST['full'] : ''),
+        'column_name' => (isset($_REQUEST['column_name']) ? $_REQUEST['column_name'] : ''),
+        'order_by_field'
+            => (isset($_REQUEST['order_by_field']) ? $_REQUEST['order_by_field'] : ''),
+        'sort_order' => (isset($_REQUEST['sort_order']) ? $_REQUEST['sort_order'] : ''),
     );
 
     $retval  = '';
