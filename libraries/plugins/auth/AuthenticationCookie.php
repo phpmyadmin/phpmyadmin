@@ -26,11 +26,6 @@ if (! empty($_REQUEST['target'])) {
 }
 
 /**
- * Swekey authentication functions.
- */
-require './libraries/plugins/auth/swekey/swekey.auth.lib.php';
-
-/**
  * Handles the cookie authentication method
  *
  * @package PhpMyAdmin-Authentication
@@ -239,10 +234,6 @@ class AuthenticationCookie extends AuthenticationPlugin
         echo '</fieldset>
     </form>';
 
-        // BEGIN Swekey Integration
-        Swekey_login('input_username', 'input_go');
-        // END Swekey Integration
-
         if ($GLOBALS['error_handler']->hasDisplayErrors()) {
             echo '<div id="pma_errors">';
             $GLOBALS['error_handler']->dispErrors();
@@ -288,12 +279,6 @@ class AuthenticationCookie extends AuthenticationPlugin
 
         $GLOBALS['PHP_AUTH_USER'] = $GLOBALS['PHP_AUTH_PW'] = '';
         $GLOBALS['from_cookie'] = false;
-
-        // BEGIN Swekey Integration
-        if (! Swekey_Auth_check()) {
-            return false;
-        }
-        // END Swekey Integration
 
         if (defined('PMA_CLEAR_COOKIES')) {
             foreach ($GLOBALS['cfg']['Servers'] as $key => $val) {
