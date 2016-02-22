@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-02-22 14:22+0100\n"
-"PO-Revision-Date: 2016-02-04 11:09+0000\n"
+"PO-Revision-Date: 2016-02-22 22:10+0000\n"
 "Last-Translator: Stefano Martinelli <stefano.ste.martinelli@gmail.com>\n"
-"Language-Team: Italian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/it/>\n"
+"Language-Team: Italian "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/it/>\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -592,11 +592,11 @@ msgid "Bookmark %s has been created."
 msgstr "Segnalibro %s creato."
 
 #: import.php:679
-#, fuzzy, php-format
+#, php-format
 #| msgid "Import has been successfully finished, %d queries executed."
 msgid "Import has been successfully finished, %d query executed."
 msgid_plural "Import has been successfully finished, %d queries executed."
-msgstr[0] "Importazione eseguita con successo, %d query eseguite."
+msgstr[0] "Importazione eseguita con successo, %d query eseguita."
 msgstr[1] "Importazione eseguita con successo, %d query eseguite."
 
 #: import.php:710
@@ -779,6 +779,9 @@ msgid ""
 "The curl extension was not found and allow_url_fopen is disabled. Due to "
 "this some features such as error reporting or version check are disabled."
 msgstr ""
+"Estensione curl non trovata e parametro allow_url_fopen disabilitato. Per "
+"questo motivo alcune funzioni quali, ad esempio, il reporting egli errori o "
+"il check della versione, sono disabilitate."
 
 #: index.php:499
 msgid ""
@@ -3053,8 +3056,8 @@ msgstr "Database"
 #, php-format
 msgid "Showing %1$d bookmark (both private and shared)"
 msgid_plural "Showing %1$d bookmarks (both private and shared)"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Visualizzo %1$d bookmark (sia privato che condiviso)"
+msgstr[1] "Visualizzo %1$d bookmark (sia privati che condivisi)"
 
 #: libraries/Console.php:107
 msgid "No bookmarks"
@@ -3252,10 +3255,11 @@ msgid "Switch to dark theme"
 msgstr "Passare al tema scuro"
 
 #: libraries/DatabaseInterface.php:1441
-#, fuzzy
 #| msgid "Failed to read configuration file!"
 msgid "Failed to set configured collation connection!"
-msgstr "Lettura del file di configurazione fallita!"
+msgstr ""
+"Errore durante l'impostazione della connessione per la collazione "
+"configurata!"
 
 #: libraries/DatabaseInterface.php:2052
 msgid ""
@@ -6747,10 +6751,9 @@ msgid "Show row links anyway"
 msgstr "Mostra comunque i link di riga"
 
 #: libraries/config/messages.inc.php:552 libraries/config/messages.inc.php:553
-#, fuzzy
 #| msgid "Disable foreign key checks"
 msgid "Disable shortcut keys"
-msgstr "Disabilita i controlli sulle chiavi straniere"
+msgstr "Disabilita le scorciatoie da tastiera"
 
 #: libraries/config/messages.inc.php:555
 msgid "Use natural order for sorting table and database names."
@@ -15053,7 +15056,6 @@ msgid "Tracking is not active."
 msgstr "Il tracking non è attivo."
 
 #: templates/error/report_form.phtml:7
-#, fuzzy
 #| msgid ""
 #| "phpMyAdmin has encountered an error. We have collected data about this "
 #| "error as well as information about relevant configuration settings to "
@@ -15063,15 +15065,17 @@ msgid ""
 "about relevant configuration settings. It will be sent to the phpMyAdmin "
 "team for debugging the error."
 msgstr ""
-"phpMyAdmin è incorso in un errore. Abbiamo raccolto i dati dell'errore oltre "
-"a informazioni sui parametri di configurazione da inviare al team di "
-"phpMyAdmin per aiutarci a risolvere il problema."
+"Questo report include automaticamente dati sull'errore e informazioni sui "
+"settaggi di configurazione più importanti. Verrà inviato al team di "
+"phpMyAdmin per la risoluzione dell'errore."
 
 #: templates/error/report_form.phtml:14
 msgid ""
 "Can you tell us the steps leading to this error? It decisively helps in "
 "debugging:"
 msgstr ""
+"Puoi indicarci i passaggi che hanno portato a questo errore? E' un aiuto "
+"decisivo per la risoluzione dello stesso (debugging):"
 
 #: templates/error/report_form.phtml:21
 msgid "You may examine the data in the error report:"
@@ -15754,23 +15758,21 @@ msgstr "Era attesa una parola chiave \"RETURNS\"."
 
 #: vendor/phpmyadmin/sql-parser/tests/Lexer/LexerTest.php:21
 #: vendor/phpmyadmin/sql-parser/tests/Parser/ParserTest.php:58
-#, fuzzy
 #| msgid "errors."
 msgid "error #1"
-msgstr "errori."
+msgstr "errore #1"
 
 #: vendor/phpmyadmin/sql-parser/tests/Lexer/LexerTest.php:23
 #: vendor/phpmyadmin/sql-parser/tests/Parser/ParserTest.php:59
 #, php-format
 msgid "%2$s #%1$d"
-msgstr ""
+msgstr "%2$s %1$d"
 
 #: vendor/phpmyadmin/sql-parser/tests/Lexer/LexerTest.php:48
 #: vendor/phpmyadmin/sql-parser/tests/Parser/ParserTest.php:80
-#, fuzzy
 #| msgid "Gather errors"
 msgid "strict error"
-msgstr "Accumula gli errori"
+msgstr "errore di tipo strict"
 
 #: view_create.php:233
 msgid "VIEW name"
