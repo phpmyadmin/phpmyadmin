@@ -2,10 +2,11 @@
 use PMA\libraries\Partition;
 use PMA\libraries\Template;
 use PMA\libraries\Util;
+use PMA\libraries\URL;
 
 $rownum = 0; $odd_row = true; ?>
 <form method="post" action="tbl_structure.php" name="fieldsForm" id="fieldsForm" class="ajax<?= $HideStructureActions; ?>">
-    <?= PMA_URL_getHiddenInputs($db, $table); ?>
+    <?= URL::getHiddenInputs($db, $table); ?>
     <input type="hidden" name="table_type" value=
     <?php if ($db_is_system_schema): ?>
         "information_schema" />

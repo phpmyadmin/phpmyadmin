@@ -52,7 +52,7 @@ if ($requested_sort == $sort) {
 $_url_params = array(
     'db' => $_REQUEST['db'],
 );
-$url = 'db_structure.php' . PMA_URL_getCommon($_url_params);
+$url = 'db_structure.php' . PMA\libraries\URL::getCommon($_url_params);
 // We set the position back to 0 every time they sort.
 $url .= "&amp;pos=0&amp;sort=$sort&amp;sort_order=$future_sort_order";
 if (! empty($_REQUEST['tbl_type'])) {

@@ -92,11 +92,6 @@ $GLOBALS['error_handler'] = new ErrorHandler();
 require './libraries/core.lib.php';
 
 /**
- * Input sanitizing
- */
-require './libraries/sanitizing.lib.php';
-
-/**
  * Warning about missing PHP extensions.
  */
 PMA_checkExtensions();
@@ -112,17 +107,6 @@ mb_internal_encoding('utf-8');
  */
 require './libraries/relation.lib.php';
 
-if (! defined('PMA_MINIMUM_COMMON') || defined('PMA_SETUP')) {
-    /**
-     * JavaScript escaping.
-     */
-    include_once './libraries/js_escape.lib.php';
-
-    /**
-     * Include URL/hidden inputs generating.
-     */
-    include_once './libraries/url_generating.lib.php';
-}
 
 /******************************************************************************/
 /* start procedural code                       label_start_procedural         */

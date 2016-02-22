@@ -9,7 +9,8 @@
 /*
  * Include to test.
  */
-require_once 'libraries/js_escape.lib.php';
+use PMA\libraries\Sanitize;
+
 
 /**
  * Test for javascript escaping.
@@ -19,7 +20,7 @@ require_once 'libraries/js_escape.lib.php';
 class PMA_EscapeJsString_Test extends PHPUnit_Framework_TestCase
 {
     /**
-     * PMA_escapeJsString tests
+     * Sanitize::escapeJsString tests
      *
      * @param string $target expected output
      * @param string $source string to be escaped
@@ -29,7 +30,7 @@ class PMA_EscapeJsString_Test extends PHPUnit_Framework_TestCase
      */
     public function testEscape($target, $source)
     {
-        $this->assertEquals($target, PMA_escapeJsString($source));
+        $this->assertEquals($target, Sanitize::escapeJsString($source));
     }
 
     /**

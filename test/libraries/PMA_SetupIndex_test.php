@@ -12,10 +12,8 @@
 use PMA\libraries\config\ConfigFile;
 use PMA\libraries\config\ServerConfigChecks;
 
-require_once 'libraries/sanitizing.lib.php';
 require_once 'libraries/config/config_functions.lib.php';
 require_once 'setup/lib/index.lib.php';
-require_once 'libraries/sanitizing.lib.php';
 
 /**
  * tests for methods under setup/lib/index.lib.php

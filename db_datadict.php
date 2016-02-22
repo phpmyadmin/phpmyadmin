@@ -5,6 +5,7 @@
  *
  * @package PhpMyAdmin
  */
+use PMA\libraries\URL;
 
 /**
  * Gets the variables sent or posted to this script, then displays headers
@@ -45,7 +46,7 @@ PMA\libraries\Util::checkParameters(array('db'));
 /**
  * Defines the url to return to in case of error in a sql statement
  */
-$err_url = 'db_sql.php' . PMA_URL_getCommon(array('db' => $db));
+$err_url = 'db_sql.php' . URL::getCommon(array('db' => $db));
 
 if ($cfgRelation['commwork']) {
     $comment = PMA_getDbComment($db);

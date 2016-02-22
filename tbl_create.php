@@ -5,6 +5,7 @@
  *
  * @package PhpMyAdmin
  */
+use PMA\libraries\URL;
 
 /**
  * Get some core libraries
@@ -40,7 +41,7 @@ if ($GLOBALS['dbi']->getColumns($db, $table)) {
         sprintf(__('Table %s already exists!'), htmlspecialchars($table)),
         '',
         false,
-        'db_structure.php' . PMA_URL_getCommon(array('db' => $db))
+        'db_structure.php' . URL::getCommon(array('db' => $db))
     );
 }
 

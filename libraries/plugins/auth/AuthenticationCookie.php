@@ -14,6 +14,7 @@ use PMA\libraries\plugins\AuthenticationPlugin;
 use PMA\libraries\Response;
 use PMA\libraries\Util;
 use ReCaptcha\ReCaptcha;
+use PMA\libraries\URL;
 
 /**
  * Remember where to redirect the user
@@ -230,7 +231,7 @@ class AuthenticationCookie extends AuthenticationPlugin
         }
         // do not generate a "server" hidden field as we want the "server"
         // drop-down to have priority
-        echo PMA_URL_getHiddenInputs($_form_params, '', 0, 'server');
+        echo URL::getHiddenInputs($_form_params, '', 0, 'server');
         echo '</fieldset>
     </form>';
 
@@ -569,7 +570,7 @@ class AuthenticationCookie extends AuthenticationPlugin
                 ->disable();
 
             PMA_sendHeaderLocation(
-                $redirect_url . PMA_URL_getCommon($url_params, 'text'),
+                $redirect_url . URL::getCommon($url_params, 'text'),
                 true
             );
             if (! defined('TESTSUITE')) {

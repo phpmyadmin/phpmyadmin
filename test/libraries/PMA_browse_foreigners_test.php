@@ -11,8 +11,6 @@
  */
 require_once 'libraries/browse_foreigners.lib.php';
 
-require_once 'libraries/url_generating.lib.php';
-
 /**
  * Tests for libraries/browse_foreigners.lib.php
  *

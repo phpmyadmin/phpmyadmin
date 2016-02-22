@@ -9,7 +9,6 @@
 use PMA\libraries\plugins\auth\AuthenticationConfig;
 
 require_once 'libraries/config.default.php';
-require_once 'libraries/js_escape.lib.php';
 require_once 'test/PMATestCase.php';
 
 /**
