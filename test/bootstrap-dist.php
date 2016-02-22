@@ -38,6 +38,7 @@ $test_defaults = array(
     'TESTSUITE_BROWSERSTACK_USER' => '',
     'TESTSUITE_BROWSERSTACK_KEY' => '',
     'TESTSUITE_FULL' => '',
+    'CI_MODE' => ''
 );
 foreach ($test_defaults as $varname => $defvalue) {
     $envvar = getenv($varname);
