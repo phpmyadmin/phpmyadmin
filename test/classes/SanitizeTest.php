@@ -15,7 +15,7 @@ use PMA\libraries\Sanitize;
  *
  * @package PhpMyAdmin-test
  */
-class PMA_Sanitize_Test extends PHPUnit_Framework_TestCase
+class SanitizeTest extends PHPUnit_Framework_TestCase
 {
     /**
      * Setup various pre conditions
@@ -192,7 +192,7 @@ class PMA_Sanitize_Test extends PHPUnit_Framework_TestCase
      */
     public function testJsFormat()
     {
-        $this->assertEquals("`foo`", Sanitize::jsFormat('foo'));
+        $this->assertEquals("`foo`", SanitizeTest::jsFormat('foo'));
     }
 
     /**
