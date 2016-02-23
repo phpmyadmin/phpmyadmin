@@ -192,7 +192,7 @@ class SanitizeTest extends PHPUnit_Framework_TestCase
      */
     public function testJsFormat()
     {
-        $this->assertEquals("`foo`", SanitizeTest::jsFormat('foo'));
+        $this->assertEquals("`foo`", Sanitize::jsFormat('foo'));
     }
 
     /**
