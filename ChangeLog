@@ -7,6 +7,7 @@ phpMyAdmin - ChangeLog
 - issue #11981 Remove support for Swekey authentication
 - issue #11987 Remove code for no longer supported MSIE versions
 + issue #11962 Remove embedded PHP libraries, use composer to install them
++ issue #12017 Cannot easily select multiple tables when exporting
 
 4.6.0.0 (not yet released)
 + issue #11456 Disabled storage engines
