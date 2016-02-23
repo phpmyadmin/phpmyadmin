@@ -6,6 +6,8 @@
  * @package PhpMyAdmin
  */
 
+use PMA\libraries\URL;
+
 /**
  * Renders the server selection in list or selectbox form, or option tags only
  *
@@ -14,8 +16,6 @@
  *
  * @return string
  */
-use PMA\libraries\URL;
-
 function PMA_selectServer($not_only_options, $omit_fieldset)
 {
     $retval = '';
