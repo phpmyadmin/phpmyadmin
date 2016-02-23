@@ -90,6 +90,7 @@ foreach (array('table_select', 'table_structure', 'table_data') as $one_key) {
     }
 }
 
+$odd = true;
 foreach ($tables as $each_table) {
     if (isset($_GET['table_select']) && is_array($_GET['table_select'])) {
         $is_checked = PMA_getCheckedClause(
@@ -117,9 +118,9 @@ foreach ($tables as $each_table) {
         $data_checked = $is_checked;
     }
     $table_html   = htmlspecialchars($each_table['Name']);
-    $multi_values .= '<tr>';
+    $multi_values .= '<tr class="' . ($odd ? 'odd' : 'even') . ' marked">';
     $multi_values .= '<td><input type="checkbox" name="table_select[]"'
-        . ' value="' . $table_html . '"' . $is_checked . ' /></td>';
+        . ' value="' . $table_html . '"' . $is_checked . ' class="checkall"/></td>';
     $multi_values .= '<td class="export_table_name">'
         . str_replace(' ', '&nbsp;', $table_html) . '</td>';
     $multi_values .= '<td class="export_structure">'
@@ -129,6 +130,7 @@ foreach ($tables as $each_table) {
         . '<input type="checkbox" name="table_data[]"'
         . ' value="' . $table_html . '"' . $data_checked . ' /></td>';
     $multi_values .= '</tr>';
+    $odd = ! $odd;
 } // end for
 
 $multi_values .= "\n";

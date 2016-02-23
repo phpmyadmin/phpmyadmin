@@ -522,10 +522,13 @@ function check_table_selected(row) {
 
     if (data && structure) {
         table_select.prop({checked: true, indeterminate: false});
+        $row.addClass('marked');
     } else if (data || structure) {
         table_select.prop({checked: true, indeterminate: true});
+        $row.removeClass('marked');
     } else {
         table_select.prop({checked: false, indeterminate: false});
+        $row.removeClass('marked');
     }
 }
 
@@ -535,8 +538,10 @@ function toggle_table_select(row) {
 
     if (table_selected) {
         $row.find('input[type="checkbox"]:not(:disabled)').prop('checked', true);
+        $row.addClass('marked');
     } else {
         $row.find('input[type="checkbox"]:not(:disabled)').prop('checked', false);
+        $row.removeClass('marked');
     }
 }
 
