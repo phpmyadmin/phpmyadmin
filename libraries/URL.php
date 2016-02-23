@@ -1,12 +1,17 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * URL/hidden inputs generating.
+ * Static methods for URL/hidden inputs generating
  *
  * @package PhpMyAdmin
  */
 namespace PMA\libraries;
 
+/**
+ * Static methods for URL/hidden inputs generating
+ *
+ * @package PhpMyAdmin
+ */
 class URL {
 
     /**
