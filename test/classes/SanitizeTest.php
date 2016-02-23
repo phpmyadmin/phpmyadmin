@@ -47,7 +47,6 @@ class SanitizeTest extends PHPUnit_Framework_TestCase
     public function testLink()
     {
         $lang = $GLOBALS['lang'];
-        $collation_connection = $GLOBALS['collation_connection'];
 
         unset($GLOBALS['server']);
         unset($GLOBALS['lang']);
@@ -58,7 +57,6 @@ class SanitizeTest extends PHPUnit_Framework_TestCase
         );
 
         $GLOBALS['lang'] = $lang;
-        $GLOBALS['collation_connection'] = $collation_connection;
     }
 
     /**
