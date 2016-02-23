@@ -46,7 +46,6 @@ class SanitizeTest extends PHPUnit_Framework_TestCase
      */
     public function testLink()
     {
-        $server = $GLOBALS['server'];
         $lang = $GLOBALS['lang'];
         $collation_connection = $GLOBALS['collation_connection'];
 
@@ -58,7 +57,6 @@ class SanitizeTest extends PHPUnit_Framework_TestCase
             Sanitize::sanitize('[a@http://www.phpmyadmin.net/@target]link[/a]')
         );
 
-        $GLOBALS['server'] = $server;
         $GLOBALS['lang'] = $lang;
         $GLOBALS['collation_connection'] = $collation_connection;
     }
