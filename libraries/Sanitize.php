@@ -14,8 +14,8 @@ use PMA\libraries\Util;
  *
  * @package PhpMyAdmin
  */
-class Sanitize {
-
+class Sanitize
+{
     /**
      * Checks whether given link is valid
      *

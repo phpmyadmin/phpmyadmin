@@ -12,8 +12,8 @@ namespace PMA\libraries;
  *
  * @package PhpMyAdmin
  */
-class URL {
-
+class URL
+{
     /**
      * Generates text with hidden inputs.
      *
