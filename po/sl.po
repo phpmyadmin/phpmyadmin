@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-02-22 14:22+0100\n"
-"PO-Revision-Date: 2016-02-17 17:14+0000\n"
+"PO-Revision-Date: 2016-02-22 16:50+0000\n"
 "Last-Translator: Domen <mitenem@outlook.com>\n"
-"Language-Team: Slovenian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/sl/>\n"
+"Language-Team: Slovenian "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/sl/>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
-"%100==4 ? 2 : 3;\n"
+"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
+"n%100==4 ? 2 : 3;\n"
 "X-Generator: Weblate 2.5-dev\n"
 
 #: changelog.php:37 license.php:33
@@ -6682,10 +6682,9 @@ msgid "Show row links anyway"
 msgstr "Prikaži povezave vrstic v vsakem primeru"
 
 #: libraries/config/messages.inc.php:552 libraries/config/messages.inc.php:553
-#, fuzzy
 #| msgid "Disable foreign key checks"
 msgid "Disable shortcut keys"
-msgstr "Onemogoči preverjanja tujih ključev"
+msgstr "Onemogoči bližnjične tipke"
 
 #: libraries/config/messages.inc.php:555
 msgid "Use natural order for sorting table and database names."
@@ -14865,7 +14864,6 @@ msgid "Tracking is not active."
 msgstr "Sledenje ni aktivno."
 
 #: templates/error/report_form.phtml:7
-#, fuzzy
 #| msgid ""
 #| "phpMyAdmin has encountered an error. We have collected data about this "
 #| "error as well as information about relevant configuration settings to "
@@ -14875,15 +14873,17 @@ msgid ""
 "about relevant configuration settings. It will be sent to the phpMyAdmin "
 "team for debugging the error."
 msgstr ""
-"phpMyAdmin je naletel na napako. Zbrali smo podatke o napaki, kakor tudi "
-"informacije o bistvenih konfiguracijskih nastavitvah, za pošiljanje "
-"administratorski skupini, ki nam bo pomagala pri odpravljanju težave."
+"Poročilo samodejno vključuje podatke o napaki in informacije o bistvenih "
+"konfiguracijskih nastavitvah. Poslali ga bomo skupini phpMyAdmin za "
+"odpravljanje napak."
 
 #: templates/error/report_form.phtml:14
 msgid ""
 "Can you tell us the steps leading to this error? It decisively helps in "
 "debugging:"
 msgstr ""
+"Nam lahko zaupate korake, ki so vodili v to napako? To lahko bistveno pomaga "
+"pri odpravljanju težave:"
 
 #: templates/error/report_form.phtml:21
 msgid "You may examine the data in the error report:"
@@ -15562,23 +15562,21 @@ msgstr "Pričakovali smo ključno besedo \"RETURNS\"."
 
 #: vendor/phpmyadmin/sql-parser/tests/Lexer/LexerTest.php:21
 #: vendor/phpmyadmin/sql-parser/tests/Parser/ParserTest.php:58
-#, fuzzy
 #| msgid "errors."
 msgid "error #1"
-msgstr "napak."
+msgstr "napaka #1"
 
 #: vendor/phpmyadmin/sql-parser/tests/Lexer/LexerTest.php:23
 #: vendor/phpmyadmin/sql-parser/tests/Parser/ParserTest.php:59
 #, php-format
 msgid "%2$s #%1$d"
-msgstr ""
+msgstr "%2$s št. %1$d"
 
 #: vendor/phpmyadmin/sql-parser/tests/Lexer/LexerTest.php:48
 #: vendor/phpmyadmin/sql-parser/tests/Parser/ParserTest.php:80
-#, fuzzy
 #| msgid "Gather errors"
 msgid "strict error"
-msgstr "Zberi napake"
+msgstr "stroga napaka"
 
 #: view_create.php:233
 msgid "VIEW name"
