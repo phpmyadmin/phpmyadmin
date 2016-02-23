@@ -170,7 +170,7 @@ class SanitizeTest extends PHPUnit_Framework_TestCase
      *
      * @return void
      */
-    public function testFormat($key, $value, $expected)
+    public function testGetJsValue($key, $value, $expected)
     {
         $this->assertEquals($expected, Sanitize::getJsValue($key, $value));
         $this->assertEquals('foo = 100', Sanitize::getJsValue('foo', '100', false));
@@ -223,7 +223,7 @@ class SanitizeTest extends PHPUnit_Framework_TestCase
      *
      * @dataProvider escapeDataProvider
      */
-    public function testEscape($target, $source)
+    public function testEscapeJsString($target, $source)
     {
         $this->assertEquals($target, Sanitize::escapeJsString($source));
     }
