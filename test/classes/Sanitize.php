@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * tests for Sanitize::sanitize()
+ * Tests for methods in Sanitize class
  *
  * @package PhpMyAdmin-test
  */
@@ -11,7 +11,7 @@
 use PMA\libraries\Sanitize;
 
 /**
- * tests for Sanitize::sanitize()
+ * Tests for methods in Sanitize class
  *
  * @package PhpMyAdmin-test
  */
