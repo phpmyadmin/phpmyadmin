@@ -1,0 +1,10 @@
+<div class="toolbar <?= $parentDivClasses ?>">
+    <?php foreach ($contentArray as $content) :
+        if (isset($content)): ?>
+        <div class="<?= $content[0] ?>">
+            <?= isset($content['image']) ? $content['image'] : '' ?>
+            <span> <?= $content[1] ?> </span>
+        </div>
+    <?php  endif ;
+      endforeach ;                         ?>
+</div>
