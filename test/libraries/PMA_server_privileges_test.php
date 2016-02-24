@@ -1206,11 +1206,16 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
             $html
         );
 
-        $item = PMA\libraries\Util::getCheckbox(
-            'createdb-2',
-            __('Grant all privileges on wildcard name (username\\_%).'),
-            false, false, 'createdb-2'
-        );
+        $item = PMA\libraries\Template::get('checkbox')
+            ->render(
+                array(
+                    'html_field_name'   => 'createdb-2',
+                    'label'             => __('Grant all privileges on wildcard name (username\\_%).'),
+                    'checked'           => false,
+                    'onclick'           => false,
+                    'html_field_id'     => 'createdb-2',
+                )
+            );
         $this->assertContains(
             $item,
             $html

@@ -1,5 +1,12 @@
 <div class="print_ignore" >
-    <?= PMA\libraries\Util::getWithSelected($pmaThemeImage, $text_dir, "fieldsForm") ?>
+    <?= PMA\libraries\Template::get('select_all')
+            ->render(
+                array(
+                    'pmaThemeImage' => $pmaThemeImage,
+                    'text_dir'      => $text_dir,
+                    'formName'      => "fieldsForm",
+                )
+            ); ?>
     <?= PMA\libraries\Util::getButtonOrImage(
     'submit_mult', 'mult_submit',
     __('Browse'), 'b_browse.png', 'browse'

@@ -355,11 +355,14 @@ function PMA_getHtmlForTableVersionDetails(
     $html .= '</tbody>';
     $html .= '</table>';
 
-    $html .= PMA\libraries\Util::getWithSelected(
-        $pmaThemeImage,
-        $text_dir,
-        "versionsForm"
-    );
+    $html .= PMA\libraries\Template::get('select_all')
+        ->render(
+            array(
+                'pmaThemeImage' => $pmaThemeImage,
+                'text_dir'      => $text_dir,
+                'formName'      => 'versionsForm',
+            )
+        );
     $html .= PMA\libraries\Util::getButtonOrImage(
         'submit_mult', 'mult_submit',
         __('Delete version'), 'b_drop.png', 'delete_version'
@@ -1488,11 +1491,14 @@ function PMA_displayUntrackedTables(
     </tbody>
     </table>
     <?php
-    echo PMA\libraries\Util::getWithSelected(
-        $pmaThemeImage,
-        $text_dir,
-        "untrackedForm"
-    );
+    echo PMA\libraries\Template::get('select_all')
+        ->render(
+            array(
+                'pmaThemeImage' => $pmaThemeImage,
+                'text_dir'      => $text_dir,
+                'formName'      => 'untrackedForm',
+            )
+        );
     echo PMA\libraries\Util::getButtonOrImage(
         'submit_mult', 'mult_submit',
         __('Track table'), 'eye.png', 'track'
@@ -1708,11 +1714,14 @@ function PMA_displayTrackedTables(
     </tbody>
     </table>
     <?php
-    echo PMA\libraries\Util::getWithSelected(
-        $pmaThemeImage,
-        $text_dir,
-        "trackedForm"
-    );
+    echo PMA\libraries\Template::get('select_all')
+        ->render(
+            array(
+                'pmaThemeImage' => $pmaThemeImage,
+                'text_dir'      => $text_dir,
+                'formName'      => 'trackedForm',
+            )
+        );
     echo PMA\libraries\Util::getButtonOrImage(
         'submit_mult', 'mult_submit',
         __('Delete tracking'), 'b_drop.png', 'delete_tracking'

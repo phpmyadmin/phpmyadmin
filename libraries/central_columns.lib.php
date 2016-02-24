@@ -1184,9 +1184,14 @@ function PMA_getCentralColumnsListRaw($db, $table)
  */
 function PMA_getCentralColumnsTableFooter($pmaThemeImage, $text_dir)
 {
-    $html_output = Util::getWithSelected(
-        $pmaThemeImage, $text_dir, "tableslistcontainer"
-    );
+    $html_output = PMA\libraries\Template::get('select_all')
+        ->render(
+            array(
+                'pmaThemeImage' => $pmaThemeImage,
+                'text_dir'      => $text_dir,
+                'formName'      => 'tableslistcontainer',
+            )
+        );
     $html_output .= Util::getButtonOrImage(
         'edit_central_columns', 'mult_submit change_central_columns',
         __('Edit'), 'b_edit.png', 'edit central columns'
