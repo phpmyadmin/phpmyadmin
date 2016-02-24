@@ -72,14 +72,14 @@ define('PHPMYADMIN', true);
 require_once './libraries/vendor_config.php';
 
 /**
- * Load gettext functions.
- */
-require_once GETTEXT_INC;
-
-/**
  * Activate autoloader
  */
 require_once './vendor/autoload.php';
+
+/**
+ * Load gettext functions.
+ */
+MoTranslator\Loader::load_functions();
 
 /**
  * initialize the error handler
@@ -90,11 +90,6 @@ $GLOBALS['error_handler'] = new ErrorHandler();
  * core functions
  */
 require './libraries/core.lib.php';
-
-/**
- * Input sanitizing
- */
-require './libraries/sanitizing.lib.php';
 
 /**
  * Warning about missing PHP extensions.
@@ -112,17 +107,6 @@ mb_internal_encoding('utf-8');
  */
 require './libraries/relation.lib.php';
 
-if (! defined('PMA_MINIMUM_COMMON') || defined('PMA_SETUP')) {
-    /**
-     * JavaScript escaping.
-     */
-    include_once './libraries/js_escape.lib.php';
-
-    /**
-     * Include URL/hidden inputs generating.
-     */
-    include_once './libraries/url_generating.lib.php';
-}
 
 /******************************************************************************/
 /* start procedural code                       label_start_procedural         */
@@ -148,12 +132,6 @@ $variables_whitelist = array (
     'PMA_PHP_SELF',
     'variables_whitelist',
     'key',
-    # following are set by gettext.inc
-    'text_domains',
-    'default_domain',
-    'LC_CATEGORIES',
-    'EMULATEGETTEXT',
-    'CURRENTLOCALE',
 );
 
 foreach (get_defined_vars() as $key => $value) {

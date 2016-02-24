@@ -7,6 +7,9 @@
  */
 namespace PMA\libraries;
 
+use PMA\libraries\URL;
+use PMA\libraries\Sanitize;
+
 /**
  * Collects information about which JavaScript
  * files and objects are necessary to render
@@ -51,7 +54,7 @@ class Scripts
         $first_dynamic_scripts = "";
         $dynamic_scripts = "";
         $scripts = array();
-        $separator = PMA_URL_getArgSeparator();
+        $separator = URL::getArgSeparator();
         foreach ($files as $value) {
             if (mb_strpos($value['filename'], "?") !== false) {
                 $file_name = $value['filename'] . $separator
@@ -72,7 +75,7 @@ class Scripts
                 $scripts[] = "scripts%5B%5D=" . $value['filename'];
             }
         }
-        $separator = PMA_URL_getArgSeparator();
+        $separator = URL::getArgSeparator();
         $static_scripts = '';
         // Using chunks of 20 files to avoid too long URLs
         $script_chunks = array_chunk($scripts, 20);
@@ -237,7 +240,7 @@ class Scripts
         foreach ($this->_files as $file) {
             $code .= sprintf(
                 '.add("%s",%d)',
-                PMA_escapeJsString($file['filename']),
+                Sanitize::escapeJsString($file['filename']),
                 $file['has_onload'] ? 1 : 0
             );
         }
@@ -248,7 +251,7 @@ class Scripts
         foreach ($this->_files as $file) {
             if ($file['has_onload']) {
                 $code .= 'AJAX.fireOnload("';
-                $code .= PMA_escapeJsString($file['filename']);
+                $code .= Sanitize::escapeJsString($file['filename']);
                 $code .= '");';
             }
         }

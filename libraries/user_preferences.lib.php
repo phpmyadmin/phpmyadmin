@@ -7,6 +7,7 @@
  */
 use PMA\libraries\config\ConfigFile;
 use PMA\libraries\Message;
+use PMA\libraries\URL;
 
 if (! defined('PHPMYADMIN')) {
     exit;
@@ -256,7 +257,7 @@ function PMA_userprefsRedirect($file_name,
         $hash = '#' . urlencode($hash);
     }
     PMA_sendHeaderLocation('./' . $file_name
-        . PMA_URL_getCommon($url_params, '&') . $hash
+        . URL::getCommon($url_params, '&') . $hash
     );
 }
 
@@ -283,7 +284,7 @@ function PMA_userprefsAutoloadGetHeader()
     return PMA\libraries\Template::get('prefs_autoload')
         ->render(
             array(
-                'hiddenInputs' => PMA_URL_getHiddenInputs(),
+                'hiddenInputs' => URL::getHiddenInputs(),
                 'return_url' => $return_url,
             )
         );

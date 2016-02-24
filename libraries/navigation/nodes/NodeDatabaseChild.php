@@ -8,6 +8,7 @@
 namespace PMA\libraries\navigation\nodes;
 
 use PMA;
+use PMA\libraries\URL;
 
 /**
  * Represents a node that is a child of a database node
@@ -39,7 +40,7 @@ abstract class NodeDatabaseChild extends Node
             $item = $this->real_name;
             $ret = '<span class="navItemControls">'
                 . '<a href="navigation.php'
-                . PMA_URL_getCommon()
+                . URL::getCommon()
                 . '&hideNavItem=true'
                 . '&itemType=' . urlencode($this->getItemType())
                 . '&itemName=' . urlencode($item)

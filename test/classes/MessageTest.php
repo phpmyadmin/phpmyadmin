@@ -11,7 +11,6 @@
  */
 use PMA\libraries\Theme;
 
-require_once 'libraries/sanitizing.lib.php';
 require_once 'test/PMATestCase.php';
 
 /**

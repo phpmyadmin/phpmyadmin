@@ -7,6 +7,8 @@
  */
 namespace PMA\libraries;
 
+use PMA\libraries\URL;
+
 /**
  * phpMyAdmin theme manager
  *
@@ -357,7 +359,7 @@ class ThemeManager
         if ($form) {
             $select_box .= '<form name="setTheme" method="get"';
             $select_box .= ' action="index.php" class="disableAjax">';
-            $select_box .=  PMA_URL_getHiddenInputs();
+            $select_box .=  URL::getHiddenInputs();
         }
 
         $theme_preview_path= './themes.php';

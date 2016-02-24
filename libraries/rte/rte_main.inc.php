@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin
  */
+use PMA\libraries\URL;
+
 if (! defined('PHPMYADMIN')) {
     exit;
 }
@@ -50,7 +52,7 @@ if ($GLOBALS['is_ajax_request'] != true) {
     if (mb_strlen($db)) {
         $GLOBALS['dbi']->selectDb($db);
         if (! isset($url_query)) {
-            $url_query = PMA_URL_getCommon(
+            $url_query = URL::getCommon(
                 array(
                     'db' => $db, 'table' => $table
                 )

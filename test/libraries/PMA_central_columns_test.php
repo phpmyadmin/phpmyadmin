@@ -11,15 +11,13 @@
  */
 use PMA\libraries\Theme;
 use PMA\libraries\TypesMySQL;
+use PMA\libraries\URL;
 
 $GLOBALS['server'] = 1;
 
 require_once 'libraries/database_interface.inc.php';
 
 require_once 'libraries/relation.lib.php';
-
-require_once 'libraries/url_generating.lib.php';
-
 
 require_once 'libraries/mysql_charsets.inc.php';
 require_once 'libraries/central_columns.lib.php';
@@ -455,7 +453,7 @@ class PMA_Central_Columns_Test extends PHPUnit_Framework_TestCase
         $result_1 = PMA_getHTMLforTableNavigation(25, 10, 'phpmyadmin');
         $this->assertContains(
             '<form action="db_central_columns.php" method="post">'
-            . PMA_URL_getHiddenInputs(
+            . URL::getHiddenInputs(
                 'phpmyadmin'
             ),
             $result_1
@@ -564,7 +562,7 @@ class PMA_Central_Columns_Test extends PHPUnit_Framework_TestCase
             $result
         );
         $this->assertContains(
-            PMA_URL_getHiddenInputs('phpmyadmin'),
+            URL::getHiddenInputs('phpmyadmin'),
             $result
         );
     }
@@ -658,7 +656,7 @@ class PMA_Central_Columns_Test extends PHPUnit_Framework_TestCase
             $result
         );
         $this->assertContains(
-            PMA_URL_getHiddenInputs('phpmyadmin')
+            URL::getHiddenInputs('phpmyadmin')
             . '<input type="hidden" name="add_column" value="add">'
             . '<input type="hidden" name="pos" value="0" />'
             . '<input type="hidden" name="total_rows" value="20"/>',

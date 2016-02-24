@@ -3,7 +3,7 @@
         <legend><?= __('Display GIS Visualization'); ?></legend>
         <div id="gis_div" style="position:relative;">
             <form method="post" action="tbl_gis_visualization.php">
-                <?= PMA_URL_getHiddenInputs($url_params); ?>
+                <?= \PMA\libraries\URL::getHiddenInputs($url_params); ?>
                 <label for="labelColumn">
                     <?= __("Label column"); ?>
                 </label>

@@ -8,15 +8,12 @@
 
 use PMA\libraries\di\Container;
 use PMA\libraries\Theme;
+use PMA\libraries\URL;
 
-require_once 'libraries/url_generating.lib.php';
 
 require_once 'libraries/database_interface.inc.php';
 require_once 'test/libraries/stubs/ResponseStub.php';
 require_once 'test/PMATestCase.php';
-
-require_once 'libraries/sanitizing.lib.php';
-require_once 'libraries/js_escape.lib.php';
 
 /**
  * Tests for ServerVariablesController class
@@ -170,7 +167,7 @@ class ServerVariablesControllerTest extends PMATestCase
 
         //Call the test function
         $html = $method->invoke($ctrl);
-        $url = 'server_variables.php' . PMA_URL_getCommon(array());
+        $url = 'server_variables.php' . URL::getCommon(array());
 
         //validate 1: URL
         $this->assertContains(

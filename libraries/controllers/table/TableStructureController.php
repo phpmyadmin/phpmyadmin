@@ -20,6 +20,7 @@ use SqlParser\Statements\CreateStatement;
 use SqlParser\Utils\Table as SqlTable;
 use PMA\libraries\Table;
 use PMA\libraries\controllers\TableController;
+use PMA\libraries\URL;
 
 require_once 'libraries/mysql_charsets.inc.php';
 require_once 'libraries/transformations.lib.php';
@@ -826,7 +827,7 @@ class TableStructureController extends TableController
      */
     protected function updateColumns()
     {
-        $err_url = 'tbl_structure.php' . PMA_URL_getCommon(
+        $err_url = 'tbl_structure.php' . URL::getCommon(
             array(
                 'db' => $this->db, 'table' => $this->table
             )
@@ -1228,7 +1229,7 @@ class TableStructureController extends TableController
             );
 
             $edit_view_url = 'view_create.php'
-                . PMA_URL_getCommon($url_params) . '&amp;'
+                . URL::getCommon($url_params) . '&amp;'
                 . implode(
                     '&amp;',
                     array_map(

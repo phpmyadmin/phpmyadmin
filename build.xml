@@ -67,7 +67,6 @@
               --exclude PMAStandard
               --exclude build
               --exclude vendor
-              --exclude libraries/php-gettext
               --exclude libraries/bfShapeFiles
               ${source}" />
   </exec>
@@ -80,7 +79,6 @@
               --exclude PMAStandard
               --exclude build
               --exclude vendor
-              --exclude libraries/php-gettext
               --exclude libraries/bfShapeFiles
               ${source}" />
   </exec>
@@ -89,7 +87,7 @@
  <target name="phpcs" description="Generate checkstyle.xml using PHP_CodeSniffer excluding third party libraries">
   <exec executable="phpcs">
    <arg line="
-              --ignore=*/php-gettext/*,*/vendor/*,*/canvg/*,*/codemirror/*,*/openlayers/*,*/jquery/*,*/jqplot/*,*/build/*,*/bfShapeFiles/*,*/PMAStandard/*
+              --ignore=*/vendor/*,*/canvg/*,*/codemirror/*,*/openlayers/*,*/jquery/*,*/jqplot/*,*/build/*,*/bfShapeFiles/*,*/PMAStandard/*
               --report=checkstyle
               --extensions=php
               --report-file='${basedir}/build/logs/checkstyle.xml'

@@ -10,15 +10,8 @@
  * Include to test.
  */
 use PMA\libraries\Theme;
-
-
-require_once 'libraries/js_escape.lib.php';
-require_once 'libraries/sanitizing.lib.php';
-
-require_once 'libraries/url_generating.lib.php';
-
-
-
+use PMA\libraries\URL;
+use PMA\libraries\Sanitize;
 
 /**
  * Test function sending headers.
@@ -113,7 +106,7 @@ class PMA_HeaderLocation_Test extends PHPUnit_Framework_TestCase
             runkit_constant_redefine('SID', md5('test_hash'));
 
             $testUri = 'http://testurl.com/test.php?test=test';
-            $separator = PMA_URL_getArgSeparator();
+            $separator = URL::getArgSeparator();
 
             $header = array('Location: ' . $testUri . $separator . SID);
 
@@ -233,7 +226,7 @@ class PMA_HeaderLocation_Test extends PHPUnit_Framework_TestCase
             . '&test=test&test=test&test=test&test=test&test=test&test=test'
             . '&test=test&test=test';
         $testUri_html = htmlspecialchars($testUri);
-        $testUri_js = PMA_escapeJsString($testUri);
+        $testUri_js = Sanitize::escapeJsString($testUri);
 
         $header = "<html><head><title>- - -</title>
     <meta http-equiv=\"expires\" content=\"0\">"

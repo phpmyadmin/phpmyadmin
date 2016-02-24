@@ -7,6 +7,7 @@
  * @package PhpMyAdmin
  */
 use PMA\libraries\Message;
+use PMA\libraries\URL;
 
 if (! defined('PHPMYADMIN')) {
     exit;
@@ -42,7 +43,7 @@ if (empty($is_db)) {
                 }
                 PMA_sendHeaderLocation(
                     './index.php'
-                    . PMA_URL_getCommon($url_params, 'text')
+                    . URL::getCommon($url_params, 'text')
                 );
             }
             exit;

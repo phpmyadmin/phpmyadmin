@@ -14,14 +14,6 @@
  */
 use PMA\libraries\Theme;
 
-
-require_once 'libraries/js_escape.lib.php';
-require_once 'libraries/sanitizing.lib.php';
-
-require_once 'libraries/url_generating.lib.php';
-
-
-
 /**
  *
  * PMA_fatalError() displays the given error message on phpMyAdmin error page in

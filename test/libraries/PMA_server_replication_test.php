@@ -12,15 +12,9 @@
 use PMA\libraries\Theme;
 
 
-require_once 'libraries/url_generating.lib.php';
-
 require_once 'libraries/database_interface.inc.php';
 require_once 'libraries/replication.inc.php';
 require_once 'libraries/replication_gui.lib.php';
-
-
-require_once 'libraries/sanitizing.lib.php';
-require_once 'libraries/js_escape.lib.php';
 
 /**
  * PMA_Serverreplication_Test class
