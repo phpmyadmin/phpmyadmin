@@ -72,14 +72,14 @@ define('PHPMYADMIN', true);
 require_once './libraries/vendor_config.php';
 
 /**
- * Load gettext functions.
- */
-require_once GETTEXT_INC;
-
-/**
  * Activate autoloader
  */
 require_once './vendor/autoload.php';
+
+/**
+ * Load gettext functions.
+ */
+MoTranslator\Loader::load_functions();
 
 /**
  * initialize the error handler
@@ -132,12 +132,6 @@ $variables_whitelist = array (
     'PMA_PHP_SELF',
     'variables_whitelist',
     'key',
-    # following are set by gettext.inc
-    'text_domains',
-    'default_domain',
-    'LC_CATEGORIES',
-    'EMULATEGETTEXT',
-    'CURRENTLOCALE',
 );
 
 foreach (get_defined_vars() as $key => $value) {
