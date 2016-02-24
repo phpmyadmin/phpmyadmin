@@ -93,7 +93,7 @@ class Key extends Component
      * @param TokensList $list    The list of tokens that are being parsed.
      * @param array      $options Parameters for parsing.
      *
-     * @return Key[]
+     * @return Key
      */
     public static function parse(Parser $parser, TokensList $list, array $options = array())
     {

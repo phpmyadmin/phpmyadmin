@@ -53,6 +53,9 @@ class CreateStatement extends Statement
         'EVENT'                         => 6,
         'FUNCTION'                      => 6,
         'INDEX'                         => 6,
+        'UNIQUE INDEX'                  => 6,
+        'FULLTEXT INDEX'                => 6,
+        'SPATIAL INDEX'                 => 6,
         'PROCEDURE'                     => 6,
         'SERVER'                        => 6,
         'TABLE'                         => 6,
@@ -314,13 +317,11 @@ class CreateStatement extends Statement
                 . Expression::build($this->name) . ' '
                 . ParameterDefinition::build($this->parameters) . ' '
                 . $tmp . ' ' . TokensList::build($this->body);
-        } else {
-            return 'CREATE '
-                . OptionsArray::build($this->options) . ' '
-                . Expression::build($this->name) . ' '
-                . TokensList::build($this->body);
         }
-        return '';
+        return 'CREATE '
+            . OptionsArray::build($this->options) . ' '
+            . Expression::build($this->name) . ' '
+            . TokensList::build($this->body);
     }
 
     /**

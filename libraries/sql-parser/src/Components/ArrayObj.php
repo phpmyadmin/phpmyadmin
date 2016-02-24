@@ -108,7 +108,7 @@ class ArrayObj extends Component
                 || ($token->type === Token::TYPE_COMMENT)
             ) {
                 $lastRaw .= $token->token;
-                $lastValue = trim($lastValue) .' ';
+                $lastValue = trim($lastValue) . ' ';
                 continue;
             }
 
