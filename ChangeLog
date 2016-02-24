@@ -47,6 +47,10 @@ phpMyAdmin - ChangeLog
 - issue #11907 Avoid displaying UPDATE query twice
 - issue #11850 Fixed CSV import
 - issue        Fix SQL syntax highlighting in database search page
+- issue #11971 CREATE UNIQUE INDEX index type is not recognized by parser.
+- issue #11982 Row count wrong when grouping joined tables.
+- issue #12012 Column definition with default value and comment in CREATE TABLE expoerted faulty.
+- issue #12020 New statement but no delimiter and unexpected token with REPLACE.
 
 4.5.5.0 (2016-02-22)
 - issue        Undefined index: is_ajax_request
