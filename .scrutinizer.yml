@@ -3,7 +3,7 @@ imports:
     - javascript
     - php
 filter:
-    excluded_paths: [libraries/php-gettext/*, libraries/bfShapeFiles/*, PMAStandard/*, js/jquery/*, js/jqplot/*, js/openlayers/*, js/codemirror/*, js/canvg/*, js/tracekit/*, js/sprintf.js, test/libraries/php-gettext/*]
+    excluded_paths: [libraries/bfShapeFiles/*, PMAStandard/*, js/jquery/*, js/jqplot/*, js/openlayers/*, js/codemirror/*, js/canvg/*, js/tracekit/*, js/sprintf.js]
 tools:
     php_code_sniffer:
         config:
