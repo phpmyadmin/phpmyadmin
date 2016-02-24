@@ -56,7 +56,7 @@ phpMyAdmin - ChangeLog
 - issue #11850 Fixed CSV import
 - issue        Fix SQL syntax highlighting in database search page
 
-4.5.5.0 (not yet released)
+4.5.5.0 (2016-02-22)
 - issue        Undefined index: is_ajax_request
 - issue #11855 Fix password change on MariaDB 10.1 and newer
 - issue #11874 Validate version information before further processing it
@@ -134,8 +134,6 @@ phpMyAdmin - ChangeLog
 - issue        [Security] XSS vulnerability in normalization page, see PMASA-2016-7
 - issue        [Security] Full path disclosure vulnerability in SQL parser, see PMASA-2016-8
 - issue        [Security] XSS vulnerability in SQL editor, see PMASA-2016-9
-
-4.3.14.0 (not yet released)
 
          --- Older ChangeLogs can be found on our project website ---
                      http://www.phpmyadmin.net/old-stuff/ChangeLogs/
