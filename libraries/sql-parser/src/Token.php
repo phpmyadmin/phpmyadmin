@@ -235,17 +235,17 @@ class Token
                 if ($this->flags & Token::FLAG_NUMBER_HEX) {
                     if ($this->flags & Token::FLAG_NUMBER_NEGATIVE) {
                         $ret = str_replace('-', '', $this->token);
-                        sscanf($ret, "%x", $ret);
+                        sscanf($ret, '%x', $ret);
                         $ret = -$ret;
                     } else {
-                        sscanf($ret, "%x", $ret);
+                        sscanf($ret, '%x', $ret);
                     }
                 } elseif (($this->flags & Token::FLAG_NUMBER_APPROXIMATE)
                 || ($this->flags & Token::FLAG_NUMBER_FLOAT)
                 ) {
-                    sscanf($ret, "%f", $ret);
+                    sscanf($ret, '%f', $ret);
                 } else {
-                    sscanf($ret, "%d", $ret);
+                    sscanf($ret, '%d', $ret);
                 }
                 return $ret;
             case Token::TYPE_STRING:

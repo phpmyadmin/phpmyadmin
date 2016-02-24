@@ -287,10 +287,12 @@ class OptionsArray extends Component
     public function has($key, $getExpr = false)
     {
         foreach ($this->options as $option) {
-            if ($key === $option) {
+            if (is_array($option)) {
+                if (!strcasecmp($key, $option['name'])) {
+                    return $getExpr ? $option['expr'] : $option['value'];
+                }
+            } elseif (!strcasecmp($key, $option)) {
                 return true;
-            } elseif ((is_array($option)) && ($key === $option['name'])) {
-                return $getExpr ? $option['expr'] : $option['value'];
             }
         }
         return false;
@@ -306,9 +308,12 @@ class OptionsArray extends Component
     public function remove($key)
     {
         foreach ($this->options as $idx => $option) {
-            if (($key === $option)
-                || ((is_array($option)) && ($key === $option['name']))
-            ) {
+            if (is_array($option)) {
+                if (!strcasecmp($key, $option['name'])) {
+                    unset($this->options[$idx]);
+                    return true;
+                }
+            } elseif (!strcasecmp($key, $option)) {
                 unset($this->options[$idx]);
                 return true;
             }

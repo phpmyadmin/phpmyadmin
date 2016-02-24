@@ -80,7 +80,7 @@ class Formatter
                  *
                  * @var string
                  */
-                'indentation' => "  ",
+                'indentation' => '  ',
 
                 /**
                  * Whether comments should be removed or not.
@@ -122,49 +122,49 @@ class Formatter
                         'type'      => Token::TYPE_KEYWORD,
                         'flags'     => Token::FLAG_KEYWORD_RESERVED,
                         'html'      => 'class="sql-reserved"',
-                        'cli'      => "\e[35m",
+                        'cli'       => "\e[35m",
                         'function'  => 'strtoupper',
                     ),
                     array(
                         'type'      => Token::TYPE_KEYWORD,
                         'flags'     => 0,
                         'html'      => 'class="sql-keyword"',
-                        'cli'      => "\e[95m",
+                        'cli'       => "\e[95m",
                         'function'  => 'strtoupper',
                     ),
                     array(
                         'type'      => Token::TYPE_COMMENT,
                         'flags'     => 0,
                         'html'      => 'class="sql-comment"',
-                        'cli'      => "\e[37m",
+                        'cli'       => "\e[37m",
                         'function'  => '',
                     ),
                     array(
                         'type'      => Token::TYPE_BOOL,
                         'flags'     => 0,
                         'html'      => 'class="sql-atom"',
-                        'cli'      => "\e[36m",
+                        'cli'       => "\e[36m",
                         'function'  => 'strtoupper',
                     ),
                     array(
                         'type'      => Token::TYPE_NUMBER,
                         'flags'     => 0,
                         'html'      => 'class="sql-number"',
-                        'cli'      => "\e[92m",
+                        'cli'       => "\e[92m",
                         'function'  => 'strtolower',
                     ),
                     array(
                         'type'      => Token::TYPE_STRING,
                         'flags'     => 0,
                         'html'      => 'class="sql-string"',
-                        'cli'      => "\e[91m",
+                        'cli'       => "\e[91m",
                         'function'  => '',
                     ),
                     array(
                         'type'      => Token::TYPE_SYMBOL,
                         'flags'     => 0,
                         'html'      => 'class="sql-variable"',
-                        'cli'      => "\e[36m",
+                        'cli'       => "\e[36m",
                         'function'  => '',
                     ),
                 )
@@ -387,7 +387,8 @@ class Formatter
                     // Also, some tokens do not have spaces before or after them.
                     if (!((($prev->type === Token::TYPE_OPERATOR) && (($prev->value === '.') || ($prev->value === '(')))
                         // No space after . (
-                        || (($curr->type === Token::TYPE_OPERATOR) && (($curr->value === '.') || ($curr->value === ',') || ($curr->value === '(') || ($curr->value === ')')))
+                        || (($curr->type === Token::TYPE_OPERATOR) && (($curr->value === '.') || ($curr->value === ',')
+                        || ($curr->value === '(') || ($curr->value === ')')))
                         // No space before . , ( )
                         || (($curr->type === Token::TYPE_DELIMITER)) && (mb_strlen($curr->value, 'UTF-8') < 2))
                         // A space after delimiters that are longer than 2 characters.

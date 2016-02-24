@@ -85,7 +85,10 @@ class SetOperation extends Component
             }
 
             // No keyword is expected.
-            if (($token->type === Token::TYPE_KEYWORD) && ($token->flags & Token::FLAG_KEYWORD_RESERVED) && ($state == 0)) {
+            if (($token->type === Token::TYPE_KEYWORD)
+                && ($token->flags & Token::FLAG_KEYWORD_RESERVED)
+                && ($state == 0)
+            ) {
                 break;
             }
 
@@ -104,7 +107,6 @@ class SetOperation extends Component
                     )
                 );
                 if ($tmp == null) {
-                    $expr = null;
                     break;
                 }
                 $expr->column = trim($expr->column);
