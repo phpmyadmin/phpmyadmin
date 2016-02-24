@@ -43,6 +43,8 @@
             <exclude>
                 <!-- composer packages -->
                 <directory>vendor/</directory>
+                <!-- excluding the tests from the coverage -->
+                <directory>test/</directory>
                 <!-- we don't care about coverage of embedded libraries -->
                 <directory suffix=".inc">libraries/php-gettext</directory>
                 <directory suffix=".php">libraries/php-gettext</directory>
