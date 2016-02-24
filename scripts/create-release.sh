@@ -203,6 +203,7 @@ if [ ! -d libraries/tcpdf ] ; then
     rm -rf \
         vendor/phpmyadmin/sql-parser/tests/ \
         vendor/phpmyadmin/sql-parser/tools/ \
+        vendor/phpmyadmin/motranslator/tests/ \
         vendor/phpseclib/phpseclib/phpseclib/File/ \
         vendor/phpseclib/phpseclib/phpseclib/Math/ \
         vendor/phpseclib/phpseclib/phpseclib/Net/ \
