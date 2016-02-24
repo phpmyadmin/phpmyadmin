@@ -171,9 +171,8 @@ class Language
         $GLOBALS['lang'] = $this->code;
 
         // Set locale
-        _setlocale(LC_MESSAGES, $this->code);
+        _setlocale(0, $this->code);
         _bindtextdomain('phpmyadmin', LOCALE_PATH);
-        _bind_textdomain_codeset('phpmyadmin', 'UTF-8');
         _textdomain('phpmyadmin');
 
         /* Text direction for language */

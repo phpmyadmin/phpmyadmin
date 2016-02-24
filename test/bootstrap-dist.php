@@ -50,9 +50,9 @@ foreach ($test_defaults as $varname => $defvalue) {
 }
 
 require_once 'libraries/vendor_config.php';
-require_once GETTEXT_INC;
 require_once 'vendor/autoload.php';
 require_once 'libraries/core.lib.php';
+MoTranslator\Loader::load_functions();
 $CFG = new PMA\libraries\Config();
 // Initialize PMA_VERSION variable
 define('PMA_VERSION', $CFG->get('PMA_VERSION'));
