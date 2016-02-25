@@ -8004,8 +8004,6 @@ class TCPDF {
 					}
 					curl_setopt($cs, CURLOPT_CONNECTTIMEOUT, 5);
 					curl_setopt($cs, CURLOPT_TIMEOUT, 30);
-					curl_setopt($cs, CURLOPT_SSL_VERIFYPEER, false);
-					curl_setopt($cs, CURLOPT_SSL_VERIFYHOST, false);
 					curl_setopt($cs, CURLOPT_USERAGENT, 'TCPDF');
 					$imgdata = curl_exec($cs);
 					curl_close($cs);
