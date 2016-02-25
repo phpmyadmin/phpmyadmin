@@ -601,6 +601,8 @@ class Config
                     fclose($pack_file);
                 }
             }
+        } elseif (!function_exists('gzcompress')){
+            return;
         }
 
         // check if commit exists in Github
