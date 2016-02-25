@@ -127,7 +127,7 @@ function goToStep4()
             $("#mainContent #newCols").html('');
             $('.tblFooters').html('');
             for(var pk in primary_key) {
-                $("#extra input[value='"+primary_key[pk]+"']").attr("disabled","disabled");
+                $("#extra input[value='"+escapeJsString(primary_key[pk])+"']").attr("disabled","disabled");
             }
         }
     );
@@ -152,7 +152,7 @@ function goToStep3()
             $('.tblFooters').html('');
             primary_key = $.parseJSON(data.primary_key);
             for(var pk in primary_key) {
-                $("#extra input[value='"+primary_key[pk]+"']").attr("disabled","disabled");
+                $("#extra input[value='"+escapeJsString(primary_key[pk])+"']").attr("disabled","disabled");
             }
         }
     );
