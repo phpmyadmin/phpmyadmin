@@ -51,16 +51,20 @@ if ($requested_sort == $sort) {
 }
 $_url_params = array(
     'db' => $_REQUEST['db'],
+    'pos' => 0, // We set the position back to 0 every time they sort.
+    'sort' => $sort,
+    'sort_order' => $future_sort_order,
 );
-$url = 'db_structure.php' . PMA_URL_getCommon($_url_params);
-// We set the position back to 0 every time they sort.
-$url .= "&amp;pos=0&amp;sort=$sort&amp;sort_order=$future_sort_order";
-if (! empty($_REQUEST['tbl_type'])) {
-    $url .= "&amp;tbl_type=" . $_REQUEST['tbl_type'];
+
+if (PMA_isValid($_REQUEST['tbl_type'], array('view', 'table'))) {
+     $_url_params['tbl_type'] = $_REQUEST['tbl_type'];
 }
 if (! empty($_REQUEST['tbl_group'])) {
-    $url .= "&amp;tbl_group=" . $_REQUEST['tbl_group'];
+    $_url_params['tbl_group'] = $_REQUEST['tbl_group'];
 }
+
+$url = 'db_structure.php' . PMA_URL_getCommon($_url_params);
+
 echo PMA_Util::linkOrButton(
     $url, $title . $order_img, $order_link_params
 );
