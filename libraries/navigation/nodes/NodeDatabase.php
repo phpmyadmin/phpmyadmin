@@ -8,6 +8,7 @@
 namespace PMA\libraries\navigation\nodes;
 
 use PMA\libraries\Util;
+use PMA\libraries\URL;
 
 /**
  * Represents a database node in the navigation tree
@@ -688,7 +689,7 @@ class NodeDatabase extends Node
             if ($this->hiddenCount > 0) {
                 $ret = '<span class="dbItemControls">'
                     . '<a href="navigation.php'
-                    . PMA_URL_getCommon()
+                    . URL::getCommon()
                     . '&showUnhideDialog=true'
                     . '&dbName=' . urldecode($this->real_name) . '"'
                     . ' class="showUnhide ajax">'

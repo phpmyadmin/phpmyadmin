@@ -8,6 +8,7 @@
 use PMA\libraries\Message;
 use PMA\libraries\Table;
 use PMA\libraries\Util;
+use PMA\libraries\URL;
 
 if (! defined('PHPMYADMIN')) {
     exit;
@@ -239,8 +240,6 @@ function PMA_importRunQuery($sql = '', $full = '', &$sql_data = array())
                     $sql_data['valid_queries'] = 0;
                     unset($sql_data['valid_full']);
                     for ($i = 0; $i < $count; $i++) {
-                        print_r($queries[$i]);
-
                         PMA_executeQuery(
                             $queries[$i],
                             $fulls[$i],
@@ -1248,8 +1247,8 @@ function PMA_buildSQL($db_name, &$tables, &$analyses = null,
     }
 
     $params = array('db' => (string)$db_name);
-    $db_url = 'db_structure.php' . PMA_URL_getCommon($params);
-    $db_ops_url = 'db_operations.php' . PMA_URL_getCommon($params);
+    $db_url = 'db_structure.php' . URL::getCommon($params);
+    $db_ops_url = 'db_operations.php' . URL::getCommon($params);
 
     $message = '<br /><br />';
     $message .= '<strong>' . __(
@@ -1289,9 +1288,9 @@ function PMA_buildSQL($db_name, &$tables, &$analyses = null,
              'db' => (string) $db_name,
              'table' => (string) $tables[$i][TBL_NAME]
         );
-        $tbl_url = 'sql.php' . PMA_URL_getCommon($params);
-        $tbl_struct_url = 'tbl_structure.php' . PMA_URL_getCommon($params);
-        $tbl_ops_url = 'tbl_operations.php' . PMA_URL_getCommon($params);
+        $tbl_url = 'sql.php' . URL::getCommon($params);
+        $tbl_struct_url = 'tbl_structure.php' . URL::getCommon($params);
+        $tbl_ops_url = 'tbl_operations.php' . URL::getCommon($params);
 
         unset($params);
 
@@ -1471,7 +1470,7 @@ function PMA_getMatchedRows($analyzed_sql_results = array())
         'db'        => $GLOBALS['db'],
         'sql_query' => $matched_row_query
     );
-    $matched_rows_url  = 'sql.php' . PMA_URL_getCommon($_url_params);
+    $matched_rows_url  = 'sql.php' . URL::getCommon($_url_params);
 
     return array(
         'sql_query' => PMA\libraries\Util::formatSql($analyzed_sql_results['query']),

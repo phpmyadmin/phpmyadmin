@@ -12,7 +12,6 @@
 use PMA\libraries\Theme;
 
 
-require_once 'libraries/url_generating.lib.php';
 require_once 'libraries/server_common.lib.php';
 
 
@@ -32,7 +31,6 @@ class PMA_ServerCommon_Test extends PHPUnit_Framework_TestCase
      */
     public function setUp()
     {
-        $_SESSION['PMA_Theme'] = Theme::load('./themes/pmahomme');
     }
 
     /**

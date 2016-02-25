@@ -10,6 +10,7 @@
 use PMA\libraries\config\PageSettings;
 use PMA\libraries\Response;
 use PMA\libraries\Util;
+use PMA\libraries\URL;
 
 /**
  * Gets some core libraries
@@ -60,7 +61,7 @@ if (empty($goto)) {
 
 if (! isset($err_url)) {
     $err_url = (! empty($back) ? $back : $goto)
-        . '?' . PMA_URL_getCommon(array('db' => $GLOBALS['db']))
+        . '?' . URL::getCommon(array('db' => $GLOBALS['db']))
         . ((mb_strpos(' ' . $goto, 'db_') != 1
             && mb_strlen($table))
             ? '&amp;table=' . urlencode($table)
@@ -187,7 +188,7 @@ if (isset($_POST['store_bkm'])) {
  */
 if ($goto == 'sql.php') {
     $is_gotofile = false;
-    $goto = 'sql.php' . PMA_URL_getCommon(
+    $goto = 'sql.php' . URL::getCommon(
         array(
             'db' => $db,
             'table' => $table,

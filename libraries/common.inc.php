@@ -74,7 +74,12 @@ require_once './libraries/vendor_config.php';
 /**
  * Activate autoloader
  */
-require_once './libraries/autoloader.php';
+require_once './vendor/autoload.php';
+
+/**
+ * Load gettext functions.
+ */
+MoTranslator\Loader::load_functions();
 
 /**
  * initialize the error handler
@@ -85,11 +90,6 @@ $GLOBALS['error_handler'] = new ErrorHandler();
  * core functions
  */
 require './libraries/core.lib.php';
-
-/**
- * Input sanitizing
- */
-require './libraries/sanitizing.lib.php';
 
 /**
  * Warning about missing PHP extensions.
@@ -107,17 +107,6 @@ mb_internal_encoding('utf-8');
  */
 require './libraries/relation.lib.php';
 
-if (! defined('PMA_MINIMUM_COMMON') || defined('PMA_SETUP')) {
-    /**
-     * JavaScript escaping.
-     */
-    include_once './libraries/js_escape.lib.php';
-
-    /**
-     * Include URL/hidden inputs generating.
-     */
-    include_once './libraries/url_generating.lib.php';
-}
 
 /******************************************************************************/
 /* start procedural code                       label_start_procedural         */
@@ -470,11 +459,6 @@ if (PMA_isValid($_REQUEST['sql_query'])) {
 
 /******************************************************************************/
 /* loading language file                       LABEL_loading_language_file    */
-
-/**
- * Load gettext functions.
- */
-require_once GETTEXT_INC;
 
 /**
  * lang detection is done here
@@ -908,11 +892,6 @@ if (! defined('PMA_MINIMUM_COMMON')) {
             $mysql_charsets = array();
             $mysql_collations_flat = array();
         }
-
-        /**
-         * Initializes the SQL parsing library.
-         */
-        include_once SQL_PARSER_AUTOLOAD;
 
         // Loads closest context to this version.
         SqlParser\Context::loadClosest('MySql' . PMA_MYSQL_INT_VERSION);

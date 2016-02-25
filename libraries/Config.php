@@ -8,6 +8,7 @@
 namespace PMA\libraries;
 
 use DirectoryIterator;
+use PMA\libraries\URL;
 
 /**
  * Indication for error handler (see end of this file).
@@ -101,7 +102,7 @@ class Config
      */
     public function checkSystem()
     {
-        $this->set('PMA_VERSION', '4.6.0-alpha1');
+        $this->set('PMA_VERSION', '4.7.0-dev');
         /**
          * @deprecated
          */
@@ -600,6 +601,8 @@ class Config
                     fclose($pack_file);
                 }
             }
+        } elseif (!function_exists('gzcompress')){
+            return;
         }
 
         // check if commit exists in Github
@@ -1432,7 +1435,6 @@ class Config
             'PMA_THEME_VERSION',
             'PMA_THEME_GENERATION',
             'PMA_IS_WINDOWS',
-            'PMA_IS_IIS',
             'PMA_IS_GD2',
             'PMA_USR_OS',
             'PMA_USR_BROWSER_VER',
@@ -1550,7 +1552,7 @@ class Config
     {
         return '<form name="form_fontsize_selection" id="form_fontsize_selection"'
             . ' method="get" action="index.php" class="disableAjax">' . "\n"
-            . PMA_URL_getHiddenInputs() . "\n"
+            . URL::getHiddenInputs() . "\n"
             . Config::getFontsizeSelection() . "\n"
             . '</form>';
     }

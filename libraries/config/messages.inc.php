@@ -549,6 +549,8 @@ $strConfigRowActionLinksWithoutUnique_desc = __(
     'Whether to show row links even in the absence of a unique key.'
 );
 $strConfigRowActionLinksWithoutUnique_name = __('Show row links anyway');
+$strConfigDisableShortcutKeys_name = __('Disable shortcut keys');
+$strConfigDisableShortcutKeys_desc = __('Disable shortcut keys');
 $strConfigNaturalOrder_desc
     = __('Use natural order for sorting table and database names.');
 $strConfigNaturalOrder_name = __('Natural order');
@@ -632,12 +634,6 @@ $strConfigServers_SessionTimeZone_desc = __(
 $strConfigServers_auth_http_realm_desc
     = __('HTTP Basic Auth Realm name to display when doing HTTP Auth.');
 $strConfigServers_auth_http_realm_name = __('HTTP Realm');
-$strConfigServers_auth_swekey_config_desc = __(
-    'The path for the config file for [a@http://swekey.com]SweKey hardware '
-    . 'authentication[/a] (not located in your document root; suggested: '
-    . '/etc/swekey.conf).'
-);
-$strConfigServers_auth_swekey_config_name = __('SweKey config file');
 $strConfigServers_auth_type_desc = __('Authentication method to use.');
 $strConfigServers_auth_type_name = __('Authentication type');
 $strConfigServers_bookmarktable_desc = __(

@@ -41,7 +41,7 @@ TESTSUITE_SELENIUM_BROWSER
 
 With BrowserStack, set following:
 
-TESTSUITE_BROWSERSTACK_UNAME
+TESTSUITE_BROWSERSTACK_USER
     BrowserStack username.
 TESTSUITE_BROWSERSTACK_KEY
     BrowserStack access key.

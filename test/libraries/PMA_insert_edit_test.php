@@ -17,11 +17,8 @@ use PMA\libraries\TypesMySQL;
 
 require_once 'libraries/insert_edit.lib.php';
 require_once 'libraries/database_interface.inc.php';
-require_once 'libraries/url_generating.lib.php';
-require_once 'libraries/js_escape.lib.php';
 require_once 'libraries/relation.lib.php';
 require_once 'libraries/transformations.lib.php';
-require_once 'libraries/sanitizing.lib.php';
 
 /**
  * Tests for libraries/insert_edit.lib.php
@@ -39,8 +36,6 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
     public function setup()
     {
         $GLOBALS['server'] = 1;
-        $_SESSION['PMA_Theme'] = Theme::load('./themes/pmahomme');
-        $GLOBALS['pmaThemeImage'] = 'theme/';
         $GLOBALS['PMA_PHP_SELF'] = 'index.php';
         $GLOBALS['cfg']['ServerDefault'] = 1;
         $GLOBALS['text_dir'] = 'ltr';

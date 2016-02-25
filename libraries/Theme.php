@@ -7,6 +7,8 @@
  */
 namespace PMA\libraries;
 
+use PMA\libraries\URL;
+
 /**
  * handles theme
  *
@@ -365,9 +367,32 @@ class Theme
             }
         }
 
+        $theme = $this;
         include './themes/sprites.css.php';
 
         return $success;
+    }
+
+    /**
+     * Loads sprites data
+     *
+     * @return array with sprites
+     */
+    public function getSpriteData()
+    {
+        $sprites = array();
+        $filename = $this->getPath() . '/sprites.lib.php';
+        if (is_readable($filename)) {
+
+            // This defines sprites array
+            include $filename;
+
+            // Backwards compatibility for themes from 4.6 and older
+            if (function_exists('PMA_sprites')) {
+                $sprites = PMA_sprites();
+            }
+        }
+        return $sprites;
     }
 
     /**
@@ -379,7 +404,7 @@ class Theme
     public function getPrintPreview()
     {
         $url_params = array('set_theme' => $this->getId());
-        $url = 'index.php' . PMA_URL_getCommon($url_params);
+        $url = 'index.php' . URL::getCommon($url_params);
 
         $retval  = '<div class="theme_preview">';
         $retval .= '<h2>';
@@ -404,20 +429,6 @@ class Theme
         $retval .= '</p>';
         $retval .= '</div>';
         return $retval;
-    }
-
-    /**
-     * Remove filter for IE.
-     *
-     * @return string CSS code.
-     */
-    function getCssIEClearFilter()
-    {
-        return PMA_USR_BROWSER_AGENT == 'IE'
-            && PMA_USR_BROWSER_VER >= 6
-            && PMA_USR_BROWSER_VER <= 8
-            ? 'filter: none'
-            : '';
     }
 
     /**
@@ -468,15 +479,6 @@ class Theme
         // Opera 11.10
         $result[] = 'background: -o-linear-gradient(top, #'
             . $start_color . ', #' . $end_color . ');';
-        // IE 6-8
-        if (PMA_USR_BROWSER_AGENT == 'IE'
-            && PMA_USR_BROWSER_VER >= 6
-            && PMA_USR_BROWSER_VER <= 8
-        ) {
-            $result[] = 'filter: '
-                . 'progid:DXImageTransform.Microsoft.gradient(startColorstr="#'
-                . $start_color . '", endColorstr="#' . $end_color . '");';
-        }
         return implode("\n", $result);
     }
 }

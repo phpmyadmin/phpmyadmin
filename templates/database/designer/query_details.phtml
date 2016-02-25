@@ -14,6 +14,6 @@
         <textarea cols="80" name="sql_query" id="textSqlquery" rows="15">
         </textarea>
         <input type="hidden" name="submit_sql" value="true">
-        <?= PMA_URL_getHiddenInputs($_GET['db']); ?>
+        <?= PMA\libraries\URL::getHiddenInputs($_GET['db']); ?>
     </form>
 </div>

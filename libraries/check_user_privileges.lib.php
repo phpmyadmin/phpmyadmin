@@ -14,7 +14,13 @@ if (! defined('PHPMYADMIN')) {
  */
 $GLOBALS['is_superuser'] = $GLOBALS['dbi']->isSuperuser();
 
-
+/**
+ * Extracts details from a result row of a SHOW GRANT query
+ *
+ * @param string $row grant row
+ *
+ * @return array
+ */
 function PMA_getItemsFromShowGrantsRow($row)
 {
     $db_name_offset = mb_strpos($row, ' ON ') + 4;

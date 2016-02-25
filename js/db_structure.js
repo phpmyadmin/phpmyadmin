@@ -295,7 +295,7 @@ AJAX.registerOnload('db_structure.js', function () {
          * @var question    String containing the question to be asked for confirmation
          */
         var question = PMA_messages.strTruncateTableStrongWarning + ' ' +
-            PMA_sprintf(PMA_messages.strDoYouReally, 'TRUNCATE ' + escapeHtml(curr_table_name)) +
+            PMA_sprintf(PMA_messages.strDoYouReally, 'TRUNCATE `' + escapeHtml(curr_table_name) + '`') +
             getForeignKeyCheckboxLoader();
 
         $this_anchor.PMA_confirm(question, $this_anchor.attr('href'), function (url) {
@@ -354,10 +354,10 @@ AJAX.registerOnload('db_structure.js', function () {
         var question;
         if (! is_view) {
             question = PMA_messages.strDropTableStrongWarning + ' ' +
-                PMA_sprintf(PMA_messages.strDoYouReally, 'DROP TABLE ' + escapeHtml(curr_table_name));
+                PMA_sprintf(PMA_messages.strDoYouReally, 'DROP TABLE `' + escapeHtml(curr_table_name) + '`');
         } else {
             question =
-                PMA_sprintf(PMA_messages.strDoYouReally, 'DROP VIEW ' + escapeHtml(curr_table_name));
+                PMA_sprintf(PMA_messages.strDoYouReally, 'DROP VIEW `' + escapeHtml(curr_table_name) + '`');
         }
         question += getForeignKeyCheckboxLoader();
 

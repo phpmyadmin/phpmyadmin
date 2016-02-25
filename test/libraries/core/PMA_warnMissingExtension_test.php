@@ -11,10 +11,6 @@
  */
 use PMA\libraries\Theme;
 
-
-require_once 'libraries/js_escape.lib.php';
-require_once 'libraries/sanitizing.lib.php';
-
 /**
  * PMA_warnMissingExtension warns or fails on missing extension.
  *
@@ -36,8 +32,6 @@ class PMA_WarnMissingExtension_Test extends PHPUnit_Framework_TestCase
             'verbose' => 'verbose',
         );
         $GLOBALS['cfg']['OBGzip'] = false;
-        $_SESSION['PMA_Theme'] = new Theme();
-        $GLOBALS['pmaThemeImage'] = 'theme/';
         $GLOBALS['pmaThemePath'] = $_SESSION['PMA_Theme']->getPath();
         $GLOBALS['server'] = 1;
         $GLOBALS['db'] = '';

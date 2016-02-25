@@ -8,6 +8,9 @@
  * @package PhpMyAdmin
  */
 use PMA\libraries\Message;
+use PMA\libraries\URL;
+use PMA\libraries\Sanitize;
+
 
 if (! defined('PHPMYADMIN')) {
     exit;
@@ -226,17 +229,6 @@ function PMA_fatalError(
         $response->addJSON('message', PMA\libraries\Message::error($error_message));
     } else {
         $error_message = strtr($error_message, array('<br />' => '[br]'));
-
-        /* Load gettext for fatal errors */
-        if (!function_exists('__')) {
-            // It is possible that PMA_fatalError() is called before including
-            // vendor_config.php which defines GETTEXT_INC. See bug #4557
-            if (defined(GETTEXT_INC)) {
-                include_once GETTEXT_INC;
-            } else {
-                include_once './libraries/php-gettext/gettext.inc';
-            }
-        }
 
         // these variables are used in the included file libraries/error.inc.php
         //first check if php-mbstring is available
@@ -488,8 +480,7 @@ function PMA_getenv($var_name)
  */
 function PMA_sendHeaderLocation($uri, $use_refresh = false)
 {
-    if (PMA_IS_IIS && mb_strlen($uri) > 600) {
-        include_once './libraries/js_escape.lib.php';
+    if ($GLOBALS['PMA_Config']->get('PMA_IS_IIS') && mb_strlen($uri) > 600) {
         PMA\libraries\Response::getInstance()->disable();
 
         echo PMA\libraries\Template::get('header_location')
@@ -504,7 +495,7 @@ function PMA_sendHeaderLocation($uri, $use_refresh = false)
         if (mb_strpos($uri, '?') === false) {
             $response->header('Location: ' . $uri . '?' . SID);
         } else {
-            $separator = PMA_URL_getArgSeparator();
+            $separator = URL::getArgSeparator();
             $response->header('Location: ' . $uri . $separator . SID);
         }
         return;
@@ -525,7 +516,7 @@ function PMA_sendHeaderLocation($uri, $use_refresh = false)
     // bug #1523784: IE6 does not like 'Refresh: 0', it
     // results in a blank page
     // but we need it when coming from the cookie login panel)
-    if (PMA_IS_IIS && $use_refresh) {
+    if ($GLOBALS['PMA_Config']->get('PMA_IS_IIS') && $use_refresh) {
         $response->header('Refresh: 0; ' . $uri);
     } else {
         $response->header('Location: ' . $uri);
@@ -569,18 +560,6 @@ function PMA_noCacheHeader()
         'Cache-Control: no-store, no-cache, must-revalidate,'
         . '  pre-check=0, post-check=0, max-age=0'
     );
-    if (PMA_USR_BROWSER_AGENT == 'IE') {
-        /* On SSL IE sometimes fails with:
-         *
-         * Internet Explorer was not able to open this Internet site. The
-         * requested site is either unavailable or cannot be found. Please
-         * try again later.
-         *
-         * Adding Pragma: public fixes this.
-         */
-        header('Pragma: public');
-        return;
-    }
 
     header('Pragma: no-cache'); // HTTP/1.0
     // test case: exporting a database into a .gz file with Safari
@@ -728,13 +707,10 @@ function PMA_linkURL($url)
         return $url;
     }
 
-    if (!function_exists('PMA_URL_getCommon')) {
-        include_once './libraries/url_generating.lib.php';
-    }
     $params = array();
     $params['url'] = $url;
 
-    $url = PMA_URL_getCommon($params);
+    $url = URL::getCommon($params);
     //strip off token and such sensitive information. Just keep url.
     $arr = parse_url($url);
     parse_str($arr["query"], $vars);
@@ -816,7 +792,7 @@ function PMA_addJSCode($str)
  */
 function PMA_addJSVar($key, $value, $escape = true)
 {
-    PMA_addJSCode(PMA_getJsValue($key, $value, $escape));
+    PMA_addJSCode(Sanitize::getJsValue($key, $value, $escape));
 }
 
 /**
@@ -971,6 +947,15 @@ function PMA_checkExtensions()
 
 /* Compatibility with PHP < 5.6 */
 if(! function_exists('hash_equals')) {
+
+    /**
+     * Timing attack safe string comparison
+     *
+     * @param string $a first string
+     * @param string $b second string
+     *
+     * @return boolean whether they are equal
+     */
     function hash_equals($a, $b) {
         $ret = strlen($a) ^ strlen($b);
         $ret |= array_sum(unpack("C*", $a ^ $b));

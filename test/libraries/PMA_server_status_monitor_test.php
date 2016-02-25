@@ -13,14 +13,9 @@ use PMA\libraries\ServerStatusData;
 use PMA\libraries\Theme;
 
 
-require_once 'libraries/url_generating.lib.php';
-
 require_once 'libraries/server_status_monitor.lib.php';
 
 require_once 'libraries/database_interface.inc.php';
-
-require_once 'libraries/sanitizing.lib.php';
-require_once 'libraries/js_escape.lib.php';
 
 /**
  * class PMA_ServerStatusMonitor_Test
@@ -66,8 +61,6 @@ class PMA_ServerStatusMonitor_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['pmaThemeImage'] = 'image';
 
         //$_SESSION
-        $_SESSION['PMA_Theme'] = Theme::load('./themes/pmahomme');
-        $_SESSION['PMA_Theme'] = new Theme();
 
         //Mock DBI
         $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')

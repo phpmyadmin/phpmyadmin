@@ -12,8 +12,6 @@
 
 use PMA\libraries\Scripts;
 
-require_once 'libraries/js_escape.lib.php';
-require_once 'libraries/url_generating.lib.php';
 require_once 'test/PMATestCase.php';
 
 /**
@@ -90,8 +88,7 @@ class ScriptsTest extends PMATestCase
                     array(
                         array(
                             'has_onload' => false,
-                            'filename' => 'common.js',
-                            'conditional_ie' => false
+                            'filename' => 'common.js'
                         )
                     )
                 )
@@ -187,7 +184,6 @@ $(function() {});
             $hash => array(
                 'has_onload' => 1,
                 'filename' => 'common.js',
-                'conditional_ie' => false,
                 'before_statics' => false
             )
         );
@@ -198,15 +194,6 @@ $(function() {});
             $this->object
         );
 
-        // Add same script file again w/
-        // conditional_ie true
-        $this->object->addFile($file, true);
-        // No change in _files as file was already added
-        $this->assertAttributeEquals(
-            $_files,
-            '_files',
-            $this->object
-        );
     }
 
     /**
@@ -225,17 +212,15 @@ $(function() {});
             'd7716810d825f4b55d18727c3ccb24e6' => array(
                 'has_onload' => 1,
                 'filename' => 'common.js',
-                'conditional_ie' => true,
                 'before_statics' => false
             ),
             '347a57484fcd6ea6d8a125e6e1d31f78' => array(
                 'has_onload' => 1,
                 'filename' => 'sql.js',
-                'conditional_ie' => true,
                 'before_statics' => false
             ),
         );
-        $this->object->addFiles($filenames, true);
+        $this->object->addFiles($filenames);
         $this->assertAttributeEquals(
             $_files,
             '_files',

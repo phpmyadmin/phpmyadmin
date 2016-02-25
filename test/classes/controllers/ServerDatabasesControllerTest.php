@@ -9,13 +9,9 @@
 use PMA\libraries\di\Container;
 use PMA\libraries\Theme;
 
-require_once 'libraries/url_generating.lib.php';
 require_once 'libraries/mysql_charsets.lib.php';
 
 require_once 'libraries/database_interface.inc.php';
-
-require_once 'libraries/sanitizing.lib.php';
-require_once 'libraries/js_escape.lib.php';
 
 require_once 'test/libraries/stubs/ResponseStub.php';
 require_once 'test/PMATestCase.php';
@@ -51,8 +47,6 @@ class ServerDatabasesControllerTest extends PMATestCase
         $GLOBALS['text_dir'] = "text_dir";
 
         //$_SESSION
-        $_SESSION['PMA_Theme'] = Theme::load('./themes/pmahomme');
-        $_SESSION['PMA_Theme'] = new Theme();
         $GLOBALS['server'] = 1;
 
         $container = Container::getDefaultContainer();

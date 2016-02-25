@@ -9,7 +9,6 @@
 /*
  * Include to test.
  */
-require_once 'libraries/url_generating.lib.php';
 require_once 'test/PMATestCase.php';
 
 use PMA\libraries\Advisor;
@@ -31,7 +30,6 @@ class AdvisorTest extends PMATestCase
      */
     public function setup()
     {
-        $_SESSION['PMA_Theme'] = Theme::load('./themes/pmahomme');
         $GLOBALS['server'] = 1;
     }
 

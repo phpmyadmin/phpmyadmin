@@ -7,12 +7,12 @@
  */
 
 use PMA\libraries\Theme;
+use PMA\libraries\URL;
 
 
 
 require_once 'libraries/relation.lib.php';
 require_once 'libraries/database_interface.inc.php';
-require_once 'libraries/url_generating.lib.php';
 /*
  * Include to test.
  */
@@ -43,9 +43,6 @@ class PMA_ServerUserGroupsTest extends PHPUnit_Framework_TestCase
             'usergroups' => 'usergroups'
         );
 
-        $GLOBALS['pmaThemeImage'] = 'image';
-        $_SESSION['PMA_Theme'] = Theme::load('./themes/pmahomme');
-        $_SESSION['PMA_Theme'] = new Theme();
     }
 
     /**
@@ -80,7 +77,7 @@ class PMA_ServerUserGroupsTest extends PHPUnit_Framework_TestCase
             $html
         );
         $url_tag = '<a href="server_user_groups.php'
-            . PMA_URL_getCommon(array('addUserGroup' => 1));
+            . URL::getCommon(array('addUserGroup' => 1));
         $this->assertContains(
             $url_tag,
             $html
@@ -134,7 +131,7 @@ class PMA_ServerUserGroupsTest extends PHPUnit_Framework_TestCase
             $html
         );
         $url_tag = '<a class="" href="server_user_groups.php'
-            . PMA_URL_getCommon(
+            . URL::getCommon(
                 array(
                     'viewUsers'=>1, 'userGroup'=>htmlspecialchars('usergroup')
                 )
@@ -144,7 +141,7 @@ class PMA_ServerUserGroupsTest extends PHPUnit_Framework_TestCase
             $html
         );
         $url_tag = '<a class="" href="server_user_groups.php'
-            . PMA_URL_getCommon(
+            . URL::getCommon(
                 array(
                     'editUserGroup'=>1,
                     'userGroup'=>htmlspecialchars('usergroup')
@@ -155,7 +152,7 @@ class PMA_ServerUserGroupsTest extends PHPUnit_Framework_TestCase
             $html
         );
         $url_tag = '<a class="deleteUserGroup ajax" href="server_user_groups.php'
-            . PMA_URL_getCommon(
+            . URL::getCommon(
                 array(
                     'deleteUserGroup'=> 1,
                     'userGroup'=>htmlspecialchars('usergroup')

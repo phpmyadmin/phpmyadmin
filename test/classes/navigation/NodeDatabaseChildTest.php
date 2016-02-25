@@ -9,8 +9,8 @@
 use PMA\libraries\navigation\NodeFactory;
 use PMA\libraries\navigation\nodes\NodeDatabaseChild;
 use PMA\libraries\Theme;
+use PMA\libraries\URL;
 
-require_once 'libraries/url_generating.lib.php';
 require_once 'libraries/relation.lib.php';
 require_once 'test/PMATestCase.php';
 
@@ -34,9 +34,7 @@ class NodeDatabaseChildTest extends PMATestCase
      */
     protected function setUp()
     {
-        $_SESSION['PMA_Theme'] = new Theme();
         $GLOBALS['pmaThemePath'] = $_SESSION['PMA_Theme']->getPath();
-        $GLOBALS['pmaThemeImage'] = 'theme/';
         $GLOBALS['cfg']['DefaultTabDatabase'] = 'structure';
         $GLOBALS['server'] = 1;
         $GLOBALS['cfg']['ServerDefault'] = 1;
@@ -82,7 +80,7 @@ class NodeDatabaseChildTest extends PMATestCase
             $html
         );
         $this->assertContains(
-            '<a href="navigation.php' . PMA_URL_getCommon()
+            '<a href="navigation.php' . URL::getCommon()
             . '&hideNavItem=true&itemType=itemType&itemName=child'
             . '&dbName=parent" class="hideNavItem ajax">',
             $html

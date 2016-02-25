@@ -71,7 +71,7 @@
         <td class="value tbl_rows"
             data-table="<?= htmlspecialchars($current_table['TABLE_NAME']); ?>">
             <?php if ($approx_rows): ?>
-                <a href="db_structure.php<?= PMA_URL_getCommon(
+                <a href="db_structure.php<?= PMA\libraries\URL::getCommon(
                     array(
                         'ajax_request'   => true,
                         'db'             => $GLOBALS['db'],

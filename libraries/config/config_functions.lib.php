@@ -5,11 +5,12 @@
  *
  * @package PhpMyAdmin
  */
+use PMA\libraries\Sanitize;
 
 /**
  * Returns sanitized language string, taking into account our special codes
  * for formatting. Takes variable number of arguments.
- * Based on PMA_sanitize from sanitize.lib.php.
+ * Based on Sanitize::sanitize from sanitize.lib.php.
  *
  * @param string $lang_key key in $GLOBALS WITHOUT 'strSetup' prefix
  *
@@ -20,7 +21,7 @@ function PMA_lang($lang_key)
     $message = isset($GLOBALS["strConfig$lang_key"])
         ? $GLOBALS["strConfig$lang_key"] : $lang_key;
 
-    $message = PMA_sanitize($message);
+    $message = Sanitize::sanitize($message);
 
     if (func_num_args() == 1) {
         return $message;

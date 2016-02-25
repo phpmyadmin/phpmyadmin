@@ -7,6 +7,8 @@
  */
 namespace PMA\libraries;
 
+use PMA\libraries\Sanitize;
+
 /**
  * a single message
  *
@@ -583,7 +585,7 @@ class Message
      */
     static public function decodeBB($message)
     {
-        return PMA_sanitize($message, false, true);
+        return Sanitize::sanitize($message, false, true);
     }
 
     /**

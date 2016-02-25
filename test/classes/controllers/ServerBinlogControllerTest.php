@@ -12,10 +12,7 @@ use PMA\libraries\di\Container;
 use PMA\libraries\Util;
 
 require_once 'test/PMATestCase.php';
-require_once 'libraries/url_generating.lib.php';
 require_once 'libraries/database_interface.inc.php';
-require_once 'libraries/sanitizing.lib.php';
-require_once 'libraries/js_escape.lib.php';
 
 /**
  * Tests for ServerCollationsController class
@@ -50,8 +47,6 @@ class ServerBinlogControllerTest extends PMATestCase
         $GLOBALS['pmaThemeImage'] = 'image';
 
         //$_SESSION
-        $_SESSION['PMA_Theme'] = Theme::load('./themes/pmahomme');
-        $_SESSION['PMA_Theme'] = new Theme();
 
         Util::cacheSet('profiling_supported', true);
 

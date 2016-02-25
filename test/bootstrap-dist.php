@@ -38,6 +38,7 @@ $test_defaults = array(
     'TESTSUITE_BROWSERSTACK_USER' => '',
     'TESTSUITE_BROWSERSTACK_KEY' => '',
     'TESTSUITE_FULL' => '',
+    'CI_MODE' => ''
 );
 foreach ($test_defaults as $varname => $defvalue) {
     $envvar = getenv($varname);
@@ -49,16 +50,15 @@ foreach ($test_defaults as $varname => $defvalue) {
 }
 
 require_once 'libraries/vendor_config.php';
-require_once 'libraries/autoloader.php';
+require_once 'vendor/autoload.php';
 require_once 'libraries/core.lib.php';
+MoTranslator\Loader::load_functions();
 $CFG = new PMA\libraries\Config();
 // Initialize PMA_VERSION variable
 define('PMA_VERSION', $CFG->get('PMA_VERSION'));
 unset($CFG);
-require_once 'libraries/sql-parser/autoload.php';
 
 /* Ensure default langauge is active */
-require_once 'libraries/php-gettext/gettext.inc';
 PMA\libraries\LanguageManager::getInstance()->getLanguage('en')->activate();
 
 // Set proxy information from env, if available
@@ -78,6 +78,7 @@ session_start();
 
 // Standard environment for tests
 $_SESSION[' PMA_token '] = 'token';
+$_SESSION['PMA_Theme'] = PMA\libraries\Theme::load('./themes/pmahomme');
 $_SESSION['tmpval']['pftext'] = 'F';
 $GLOBALS['lang'] = 'en';
 $GLOBALS['is_ajax_request'] = false;

@@ -8,7 +8,6 @@
  */
 use PMA\libraries\gis\GISGeometrycollection;
 
-require_once 'libraries/tcpdf/tcpdf.php';
 
 /**
  * Tests for PMA\libraries\gis\GISGeometrycollection class

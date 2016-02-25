@@ -14,7 +14,6 @@ use PMA\libraries\Theme;
 
 $GLOBALS['server'] = 1;
 require_once 'libraries/operations.lib.php';
-require_once 'libraries/url_generating.lib.php';
 require_once 'libraries/relation.lib.php';
 
 
@@ -38,7 +37,6 @@ class PMA_Operations_Test extends PHPUnit_Framework_TestCase
     {
         $GLOBALS['table'] = 'table';
         $GLOBALS['db'] = 'db';
-        $_SESSION['PMA_Theme'] = Theme::load('./themes/pmahomme');
         $GLOBALS['cfg'] = array(
             'ServerDefault' => 1,
             'ActionLinksMode' => 'icons',

@@ -127,12 +127,6 @@ var PMA_console = {
             PMA_consoleDebug.initialize();
 
             PMA_console.$consoleToolbar.children('.console_switch').click(PMA_console.toggle);
-            $(document).keydown(function(event) {
-                // Ctrl + Alt + C
-                if (event.ctrlKey && event.altKey && event.keyCode === 67) {
-                    PMA_console.toggle();
-                }
-            });
 
             $('#pma_console').find('.toolbar').children().mousedown(function(event) {
                 event.preventDefault();

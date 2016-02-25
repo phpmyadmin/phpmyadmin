@@ -9,6 +9,8 @@ namespace PMA\libraries;
 
 use SqlParser\Utils\Query;
 use PMA\libraries\plugins\transformations\Text_Plain_Link;
+use PMA\libraries\URL;
+use PMA\libraries\Sanitize;
 
 require_once './libraries/transformations.lib.php';
 
@@ -730,7 +732,7 @@ class DisplayResults
 
         return '<td>'
             . '<form action="sql.php" method="post" ' . $onsubmit . '>'
-            . PMA_URL_getHiddenInputs(
+            . URL::getHiddenInputs(
                 $this->__get('db'), $this->__get('table')
             )
             . '<input type="hidden" name="sql_query" value="'
@@ -785,7 +787,7 @@ class DisplayResults
             //<form> to keep the form alignment of button < and <<
             // and also to know what to execute when the selector changes
             $table_navigation_html .= '<form action="sql.php'
-                . PMA_URL_getCommon($_url_params)
+                . URL::getCommon($_url_params)
                 . '" method="post">';
 
             $table_navigation_html .= Util::pageselector(
@@ -935,7 +937,7 @@ class DisplayResults
                 . ')'
             . '">';
 
-        $table_navigation_html .= PMA_URL_getHiddenInputs(
+        $table_navigation_html .= URL::getHiddenInputs(
             $this->__get('db'), $this->__get('table')
         );
 
@@ -1007,7 +1009,7 @@ class DisplayResults
         return "\n"
             . '<td>'
             . '<form action="sql.php" method="post">'
-            . PMA_URL_getHiddenInputs(
+            . URL::getHiddenInputs(
                 $this->__get('db'), $this->__get('table')
             )
             . '<input type="hidden" name="sql_query" value="'
@@ -1286,7 +1288,7 @@ class DisplayResults
         $table_headers_html .= '<input class="save_cells_at_once" type="hidden"'
             . ' value="' . $GLOBALS['cfg']['SaveCellsAtOnce'] . '" />'
             . '<div class="common_hidden_inputs">'
-            . PMA_URL_getHiddenInputs(
+            . URL::getHiddenInputs(
                 $this->__get('db'), $this->__get('table')
             )
             . '</div>';
@@ -1420,11 +1422,11 @@ class DisplayResults
 
         $drop_down_html .= '<form action="sql.php" method="post" ' .
             'class="print_ignore">' . "\n"
-            . PMA_URL_getHiddenInputs(
+            . URL::getHiddenInputs(
                 $this->__get('db'), $this->__get('table')
             )
             // to avoid calling PMA_handleSortOrder() later
-            . PMA_getHiddenFields(array('sort_by_key' => '1'))
+            . URL::getHiddenFields(array('sort_by_key' => '1'))
             . __('Sort by key')
             . ': <select name="sql_query" class="autosubmit">' . "\n";
 
@@ -1705,7 +1707,7 @@ class DisplayResults
             'display_options_form' => 1
         );
 
-        $options_html .= PMA_URL_getHiddenInputs($url_params)
+        $options_html .= URL::getHiddenInputs($url_params)
             . '<br />'
             . Util::getDivForSliderEffect(
                 '', __('Options')
@@ -1744,16 +1746,26 @@ class DisplayResults
         }
 
         $options_html .= '<div class="formelement">'
-            . Util::getCheckbox(
-                'display_binary', __('Show binary contents'),
-                ! empty($_SESSION['tmpval']['display_binary']), false,
-                'display_binary_' . $this->__get('unique_id')
+            . Template::get('checkbox')
+            ->render(
+                array(
+                    'html_field_name'   => 'display_binary',
+                    'label'             => __('Show binary contents'),
+                    'checked'           => ! empty($_SESSION['tmpval']['display_binary']),
+                    'onclick'           => false,
+                    'html_field_id'     => 'display_binary_' . $this->__get('unique_id'),
+                )
             )
             . '<br />'
-            . Util::getCheckbox(
-                'display_blob', __('Show BLOB contents'),
-                ! empty($_SESSION['tmpval']['display_blob']), false,
-                'display_blob_' . $this->__get('unique_id')
+            . Template::get('checkbox')
+            ->render(
+                array(
+                    'html_field_name'   => 'display_blob',
+                    'label'             => __('Show BLOB contents'),
+                    'checked'           => ! empty($_SESSION['tmpval']['display_blob']),
+                    'onclick'           => false,
+                    'html_field_id'     => 'display_blob_' . $this->__get('unique_id'),
+                )
             )
             . '</div>';
 
@@ -1762,10 +1774,15 @@ class DisplayResults
         // per SQL query, and at the same time have a default that displays
         // the transformations.
         $options_html .= '<div class="formelement">'
-            . Util::getCheckbox(
-                'hide_transformation', __('Hide browser transformation'),
-                ! empty($_SESSION['tmpval']['hide_transformation']), false,
-                'hide_transformation_' . $this->__get('unique_id')
+            . Template::get('checkbox')
+            ->render(
+                array(
+                    'html_field_name'   => 'hide_transformation',
+                    'label'             => __('Hide browser transformation'),
+                    'checked'           => ! empty($_SESSION['tmpval']['hide_transformation']),
+                    'onclick'           => false,
+                    'html_field_id'     => 'hide_transformation_' . $this->__get('unique_id'),
+                )
             )
             . '</div>';
 
@@ -1830,7 +1847,7 @@ class DisplayResults
 
         $tmp_image = '<img class="fulltext" src="' . $tmp_image_file . '" alt="'
                      . $tmp_txt . '" title="' . $tmp_txt . '" />';
-        $tmp_url = 'sql.php' . PMA_URL_getCommon($url_params_full_text);
+        $tmp_url = 'sql.php' . URL::getCommon($url_params_full_text);
 
         return Util::linkOrButton(
             $tmp_url, $tmp_image, array(), false
@@ -1864,7 +1881,7 @@ class DisplayResults
             $form_html .= ' class="ajax" ';
 
             $form_html .= '>'
-                . PMA_URL_getHiddenInputs(
+                . URL::getHiddenInputs(
                     $this->__get('db'), $this->__get('table'), 1
                 )
                 . '<input type="hidden" name="goto" value="sql.php" />';
@@ -1996,8 +2013,8 @@ class DisplayResults
             'session_max_rows'   => $session_max_rows,
             'is_browse_distinct' => $this->__get('is_browse_distinct'),
         );
-        $single_order_url  = 'sql.php' . PMA_URL_getCommon($_single_url_params);
-        $multi_order_url = 'sql.php' . PMA_URL_getCommon($_multi_url_params);
+        $single_order_url  = 'sql.php' . URL::getCommon($_single_url_params);
+        $multi_order_url = 'sql.php' . URL::getCommon($_multi_url_params);
 
         // Displays the sorting URL
         // enable sort order swapping for image
@@ -3153,7 +3170,7 @@ class DisplayResults
             }
 
             $transform_options['wrapper_link']
-                = PMA_URL_getCommon($_url_params);
+                = URL::getCommon($_url_params);
 
             $display_params = $this->__get('display_params');
 
@@ -3270,7 +3287,7 @@ class DisplayResults
         $divider = strpos($link_relations['default_page'], '?') ? '&' : '?';
         if (empty($link_relations['link_dependancy_params'])) {
             return $link_relations['default_page']
-                . PMA_URL_getCommon($linking_url_params, 'html', $divider);
+                . URL::getCommon($linking_url_params, 'html', $divider);
         }
 
         foreach ($link_relations['link_dependancy_params'] as $new_param) {
@@ -3294,7 +3311,7 @@ class DisplayResults
         }
 
         return $link_relations['default_page']
-            . PMA_URL_getCommon($linking_url_params, 'html', $divider);
+            . URL::getCommon($linking_url_params, 'html', $divider);
     }
 
 
@@ -3459,12 +3476,12 @@ class DisplayResults
             );
 
         $edit_url = 'tbl_change.php'
-            . PMA_URL_getCommon(
+            . URL::getCommon(
                 $_url_params + array('default_action' => 'update')
             );
 
         $copy_url = 'tbl_change.php'
-            . PMA_URL_getCommon(
+            . URL::getCommon(
                 $_url_params + array('default_action' => 'insert')
             );
 
@@ -3518,7 +3535,7 @@ class DisplayResults
                 'goto'      => (empty($goto) ? 'tbl_sql.php' : $goto),
             );
 
-            $lnk_goto = 'sql.php' . PMA_URL_getCommon($_url_params, 'text');
+            $lnk_goto = 'sql.php' . URL::getCommon($_url_params, 'text');
 
             $del_query = 'DELETE FROM '
                 . Util::backquote($this->__get('table'))
@@ -3532,10 +3549,10 @@ class DisplayResults
                     'message_to_show' => __('The row has been deleted.'),
                     'goto'      => $lnk_goto,
                 );
-            $del_url  = 'sql.php' . PMA_URL_getCommon($_url_params);
+            $del_url  = 'sql.php' . URL::getCommon($_url_params);
 
-            $js_conf  = 'DELETE FROM ' . PMA_jsFormat($this->__get('table'))
-                . ' WHERE ' . PMA_jsFormat($where_clause, false)
+            $js_conf  = 'DELETE FROM ' . Sanitize::jsFormat($this->__get('table'))
+                . ' WHERE ' . Sanitize::jsFormat($where_clause, false)
                 . ($clause_is_unique ? '' : ' LIMIT 1');
 
             $del_str = $this->_getActionLinkContent('b_drop.png', __('Delete'));
@@ -3550,7 +3567,7 @@ class DisplayResults
                 );
 
             $lnk_goto = 'sql.php'
-                . PMA_URL_getCommon(
+                . URL::getCommon(
                     $_url_params, 'text'
                 );
 
@@ -3562,7 +3579,7 @@ class DisplayResults
                     'goto'      => $lnk_goto,
                 );
 
-            $del_url  = 'sql.php' . PMA_URL_getCommon($_url_params);
+            $del_url  = 'sql.php' . URL::getCommon($_url_params);
             $js_conf  = $kill;
             $del_str = Util::getIcon(
                 'b_drop.png', __('Kill')
@@ -4256,7 +4273,7 @@ class DisplayResults
             // "j u s t   b r o w s i n g"
             $pre_count = '~';
             $after_count = Util::showHint(
-                PMA_sanitize(
+                Sanitize::sanitize(
                     __('May be approximate. See [doc@faq3-11]FAQ 3.11[/doc].')
                 )
             );
@@ -4834,23 +4851,23 @@ class DisplayResults
             . '<i style="margin-left: 2em">' . __('With selected:') . '</i>' . "\n";
 
         $links_html .= Util::getButtonOrImage(
-            'submit_mult', 'mult_submit', 'submit_mult_change',
+            'submit_mult', 'mult_submit',
             __('Edit'), 'b_edit.png', 'edit'
         );
 
         $links_html .= Util::getButtonOrImage(
-            'submit_mult', 'mult_submit', 'submit_mult_copy',
+            'submit_mult', 'mult_submit',
             __('Copy'), 'b_insrow.png', 'copy'
         );
 
         $links_html .= Util::getButtonOrImage(
-            'submit_mult', 'mult_submit', 'submit_mult_delete',
+            'submit_mult', 'mult_submit',
             $delete_text, 'b_drop.png', 'delete'
         );
 
         if ($analyzed_sql_results['querytype'] == 'SELECT') {
             $links_html .= Util::getButtonOrImage(
-                'submit_mult', 'mult_submit', 'submit_mult_export',
+                'submit_mult', 'mult_submit',
                 __('Export'), 'b_tblexport.png', 'export'
             );
         }
@@ -5067,7 +5084,7 @@ class DisplayResults
                     'printview' => '1',
                     'sql_query' => $this->__get('sql_query'),
                 );
-        $url_query = PMA_URL_getCommon($_url_params);
+        $url_query = URL::getCommon($_url_params);
 
         if (!$header_shown) {
             $results_operations_html .= $header;
@@ -5132,7 +5149,7 @@ class DisplayResults
             }
 
             $results_operations_html .= Util::linkOrButton(
-                'tbl_export.php' . PMA_URL_getCommon($_url_params),
+                'tbl_export.php' . URL::getCommon($_url_params),
                 Util::getIcon(
                     'b_tblexport.png', __('Export'), true
                 ),
@@ -5145,7 +5162,7 @@ class DisplayResults
 
             // prepare chart
             $results_operations_html .= Util::linkOrButton(
-                'tbl_chart.php' . PMA_URL_getCommon($_url_params),
+                'tbl_chart.php' . URL::getCommon($_url_params),
                 Util::getIcon(
                     'b_chart.png', __('Display chart'), true
                 ),
@@ -5170,7 +5187,7 @@ class DisplayResults
                 $results_operations_html
                     .= Util::linkOrButton(
                         'tbl_gis_visualization.php'
-                        . PMA_URL_getCommon($_url_params),
+                        . URL::getCommon($_url_params),
                         Util::getIcon(
                             'b_globe.gif', __('Visualize GIS data'), true
                         ),
@@ -5315,7 +5332,7 @@ class DisplayResults
             && (!empty($tmpdb) && !empty($meta->orgtable))
         ) {
             $result = '<a href="tbl_get_field.php'
-                . PMA_URL_getCommon($url_params)
+                . URL::getCommon($url_params)
                 . '" class="disableAjax">'
                 . $result . '</a>';
         }
@@ -5483,7 +5500,7 @@ class DisplayResults
                 );
 
                 $result .= '<a class="ajax" href="sql.php'
-                    . PMA_URL_getCommon($_url_params)
+                    . URL::getCommon($_url_params)
                     . '"' . $title . '>';
 
                 if ($transformation_plugin != $default_function) {
