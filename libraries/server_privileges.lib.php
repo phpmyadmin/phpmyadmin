@@ -4739,7 +4739,8 @@ function PMA_getHtmlForUserOverview($pmaThemeImage, $text_dir)
        . '</h2>' . "\n";
 
     $password_column = 'Password';
-    if (Util::getServerType() == 'MySQL'
+	$server_type = Util::getServerType();
+    if (($server_type == 'MySQL' || $server_type == 'Percona Server')
         && PMA_MYSQL_INT_VERSION >= 50706
     ) {
         $password_column = 'authentication_string';
