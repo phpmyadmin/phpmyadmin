@@ -72,7 +72,7 @@ $scripts = $header->getScripts();
 $scripts->addFile('normalization.js');
 $scripts->addFile('jquery/jquery.uitablefilter.js');
 $normalForm = '1nf';
-if (isset($_REQUEST['normalizeTo'])) {
+if (PMA_isValid($_REQUEST['normalizeTo'], array('1nf', '2nf', '3nf'))) {
     $normalForm = $_REQUEST['normalizeTo'];
 }
 if (isset($_REQUEST['createNewTables2NF'])) {
