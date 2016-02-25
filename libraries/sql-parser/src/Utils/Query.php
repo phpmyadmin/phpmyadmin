@@ -57,8 +57,8 @@ class Query
     /**
      * Gets an array with flags this statement has.
      *
-     * @param Statement $statement The statement to be processed.
-     * @param bool      $all       If `false`, false values will not be included.
+     * @param Statement|null $statement The statement to be processed.
+     * @param bool           $all       If `false`, false values will not be included.
      *
      * @return array
      */
@@ -380,7 +380,7 @@ class Query
         $parser = new Parser($query);
 
         if (empty($parser->statements[0])) {
-            return array();
+            return static::getFlags(null, true);
         }
 
         $statement = $parser->statements[0];

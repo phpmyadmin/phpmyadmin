@@ -185,6 +185,11 @@ class Parser
             'class'             => 'SqlParser\\Components\\JoinKeyword',
             'field'             => 'join',
         ),
+        'ON'                    => array(
+            'class'             => 'SqlParser\\Components\\Expression',
+            'field'             => 'table',
+            'options'           => array('parseField' => 'table'),
+        ),
         'RIGHT JOIN'            => array(
             'class'             => 'SqlParser\\Components\\JoinKeyword',
             'field'             => 'join',

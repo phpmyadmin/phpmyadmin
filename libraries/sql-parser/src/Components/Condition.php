@@ -166,7 +166,10 @@ class Condition extends Component
                 }
             }
 
-            if (($token->type === Token::TYPE_KEYWORD) && ($token->flags & Token::FLAG_KEYWORD_RESERVED)) {
+            if (($token->type === Token::TYPE_KEYWORD)
+                && ($token->flags & Token::FLAG_KEYWORD_RESERVED)
+                && !($token->flags & Token::FLAG_KEYWORD_FUNCTION)
+            ) {
                 if ($token->value === 'BETWEEN') {
                     $betweenBefore = true;
                 }

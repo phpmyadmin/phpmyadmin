@@ -243,9 +243,9 @@ class Expression extends Component
                         if (!empty($options['breakOnAlias'])) {
                             break;
                         }
-                        if (!empty($ret->alias)) {
+                        if ($alias) {
                             $parser->error(
-                                __('An alias was previously found.'),
+                                __('An alias was expected.'),
                                 $token
                             );
                             break;
