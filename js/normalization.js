@@ -635,7 +635,7 @@ AJAX.registerOnload('normalization.js', function() {
                 '</ol>';
             $("#newCols").html(confirmStr);
             $('.tblFooters').html('<input type="submit" value="'+PMA_messages.strCancel+'" onclick="$(\'#newCols\').html(\'\');$(\'#extra input[type=checkbox]\').removeAttr(\'checked\')"/>'+
-                '<input type="submit" value="'+PMA_messages.strGo+'" onclick="moveRepeatingGroup(\''+repeatingCols+'\')"/>');
+                '<input type="submit" value="'+PMA_messages.strGo+'" onclick="moveRepeatingGroup(\'' + escapeJsString(escapeHtml(repeatingCols)) + '\')"/>');
         }
     });
     $("#mainContent p").on("click", "#createPrimaryKey", function(event) {
