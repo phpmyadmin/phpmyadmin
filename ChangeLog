@@ -1,7 +1,11 @@
 phpMyAdmin - ChangeLog
 ======================
 
-4.5.4.0 (not yet released)
+4.5.4.1 (2016-01-29)
+- issue #11892 Error with PMA 4.4.15.3
+- issue #11896 Remove hard dependency on phpseclib
+
+4.5.4.0 (2016-01-28)
 - issue #11724 live data edit of big sets is not working
 - issue        Table list not saved in db QBE bookmarked search
 - issue #11777 While 'changing a column', query fails with a syntax error after the 'CHARSET=' keyword
