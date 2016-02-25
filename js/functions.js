@@ -243,6 +243,24 @@ function escapeHtml(unsafe) {
     }
 }
 
+function escapeJsString(unsafe) {
+    if (typeof(unsafe) != 'undefined') {
+        return unsafe
+            .toString()
+            .replace("\000", '')
+            .replace('\\', '\\\\')
+            .replace('\'', '\\\'')
+            .replace("&#039;", "\\\&#039;")
+            .replace('"', '\"')
+            .replace("&quot;", "\&quot;")
+            .replace("\n", '\n')
+            .replace("\r", '\r')
+            .replace(/<\/script/gi, '</\' + \'script')
+    } else {
+        return false;
+    }
+}
+
 function PMA_sprintf() {
     return sprintf.apply(this, arguments);
 }
