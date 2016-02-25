@@ -1,6 +1,9 @@
 phpMyAdmin - ChangeLog
 ======================
 
+4.0.10.15 (not yet released)
+- issue        [security] Multiple XSS vulnerabilities, see PMASA-2016-11.
+
 4.0.10.14 (2016-01-29)
 - issue #11891 Error with PMA 4.0.10.13 with PHP 5.2
 
