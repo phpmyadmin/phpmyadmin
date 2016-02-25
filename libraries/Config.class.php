@@ -1347,7 +1347,7 @@ class PMA_Config
                 $pma_absolute_uri .= '@';
             }
             // Add hostname
-            $pma_absolute_uri .= $url['host'];
+            $pma_absolute_uri .= urlencode($url['host']);
             // Add port, if it not the default one
             if (! empty($url['port'])
                 && (($url['scheme'] == 'http' && $url['port'] != 80)
