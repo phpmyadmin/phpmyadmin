@@ -81,7 +81,7 @@ function goTo2NFStep1() {
             $("#mainContent #extra").html(data.extra);
             $("#mainContent #newCols").html('');
             if (data.subText !== '') {
-                $('.tblFooters').html('<input type="submit" value="'+PMA_messages.strDone+'" onclick="processDependencies(\''+data.primary_key+'\');">');
+                $('.tblFooters').html('<input type="submit" value="'+PMA_messages.strDone+'" onclick="processDependencies(\'' + escapeJsString(escapeHtml(data.primary_key)) + '\');">');
             } else {
                 if (normalizeto === '3nf') {
                     $("#mainContent #newCols").html(PMA_messages.strToNextStep);
