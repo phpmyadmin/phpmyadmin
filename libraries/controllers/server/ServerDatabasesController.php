@@ -13,6 +13,7 @@ use PMA\libraries\controllers\Controller;
 use PMA\libraries\Message;
 use PMA\libraries\Template;
 use PMA\libraries\Util;
+use PMA\libraries\URL;
 
 /**
  * Handles viewing and creating and deleting databases
@@ -163,7 +164,7 @@ class ServerDatabasesController extends Controller
                 'sql_query', Util::getMessage(null, $sql_query, 'success')
             );
 
-            $url_query = PMA_URL_getCommon(array('db' => $_POST['new_db']));
+            $url_query = URL::getCommon(array('db' => $_POST['new_db']));
             $this->response->addJSON(
                 'url_query',
                 Util::getScriptNameForOption(
@@ -186,7 +187,7 @@ class ServerDatabasesController extends Controller
             $message = Message::error(__('No databases selected.'));
         } else {
             $action = 'server_databases.php';
-            $err_url = $action . PMA_URL_getCommon();
+            $err_url = $action . URL::getCommon();
 
             $GLOBALS['submit_mult'] = 'drop_db';
             $GLOBALS['mult_btn'] = __('Yes');
@@ -279,7 +280,7 @@ class ServerDatabasesController extends Controller
 
         $html .= '<form class="ajax" action="server_databases.php" ';
         $html .= 'method="post" name="dbStatsForm" id="dbStatsForm">' . "\n";
-        $html .= PMA_URL_getHiddenInputs($_url_params);
+        $html .= URL::getHiddenInputs($_url_params);
 
         $_url_params['sort_by'] = 'SCHEMA_NAME';
         $_url_params['sort_order']
@@ -377,13 +378,18 @@ class ServerDatabasesController extends Controller
             return '';
         }
 
-        $html = Util::getWithSelected(
-            $GLOBALS['pmaThemeImage'], $GLOBALS['text_dir'], "dbStatsForm"
-        );
+        $html = Template::get('select_all')
+            ->render(
+                array(
+                    'pmaThemeImage' => $GLOBALS['pmaThemeImage'],
+                    'text_dir'      => $GLOBALS['text_dir'],
+                    'formName'      => 'dbStatsForm',
+                )
+            );
+
         $html .= Util::getButtonOrImage(
             '',
             'mult_submit' . ' ajax',
-            'drop_selected_dbs',
             __('Drop'), 'b_deltbl.png'
         );
 

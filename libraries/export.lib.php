@@ -10,6 +10,9 @@ use PMA\libraries\Message;
 use PMA\libraries\plugins\ExportPlugin;
 use PMA\libraries\Table;
 use PMA\libraries\ZipFile;
+use PMA\libraries\URL;
+use PMA\libraries\Sanitize;
+
 
 /**
  * Sets a session variable upon a possible fatal error during export
@@ -280,7 +283,7 @@ function PMA_getExportFilenameAndMimetype(
     $filename = PMA\libraries\Util::expandUserString($filename_template);
     // remove dots in filename (coming from either the template or already
     // part of the filename) to avoid a remote code execution vulnerability
-    $filename = PMA_sanitizeFilename($filename, $replaceDots = true);
+    $filename = Sanitize::sanitizeFilename($filename, $replaceDots = true);
 
     // Grab basic dump extension and mime type
     // Check if the user already added extension;
@@ -475,11 +478,11 @@ function PMA_getHtmlForDisplayedExportHeader($export_type, $db, $table)
      */
     $back_button = '<p>[ <a href="';
     if ($export_type == 'server') {
-        $back_button .= 'server_export.php' . PMA_URL_getCommon();
+        $back_button .= 'server_export.php' . URL::getCommon();
     } elseif ($export_type == 'database') {
-        $back_button .= 'db_export.php' . PMA_URL_getCommon(array('db' => $db));
+        $back_button .= 'db_export.php' . URL::getCommon(array('db' => $db));
     } else {
-        $back_button .= 'tbl_export.php' . PMA_URL_getCommon(
+        $back_button .= 'tbl_export.php' . URL::getCommon(
             array(
                 'db' => $db, 'table' => $table
             )

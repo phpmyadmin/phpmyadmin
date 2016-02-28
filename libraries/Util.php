@@ -14,6 +14,9 @@ use SqlParser\Parser;
 use SqlParser\Token;
 use stdClass;
 use SqlParser\Utils\Error as ParserError;
+use PMA\libraries\URL;
+use PMA\libraries\Sanitize;
+use PMA\libraries\Template;
 
 if (! defined('PHPMYADMIN')) {
     exit;
@@ -711,14 +714,14 @@ class Util
                     $_url_params['db'] = $db;
                     $_url_params['table'] = $table;
                     $doedit_goto = '<a href="tbl_sql.php'
-                        . PMA_URL_getCommon($_url_params) . '">';
+                        . URL::getCommon($_url_params) . '">';
                 } elseif (mb_strlen($db)) {
                     $_url_params['db'] = $db;
                     $doedit_goto = '<a href="db_sql.php'
-                        . PMA_URL_getCommon($_url_params) . '">';
+                        . URL::getCommon($_url_params) . '">';
                 } else {
                     $doedit_goto = '<a href="server_sql.php'
-                        . PMA_URL_getCommon($_url_params) . '">';
+                        . URL::getCommon($_url_params) . '">';
                 }
 
                 $error_msg .= $doedit_goto
@@ -1092,18 +1095,18 @@ class Util
             }
         }
 
+        $render_sql = $cfg['ShowSQL'] == true && ! empty($sql_query) && $sql_query !== ';';
+
         if (isset($GLOBALS['using_bookmark_message'])) {
             $retval .= $GLOBALS['using_bookmark_message']->getDisplay();
             unset($GLOBALS['using_bookmark_message']);
         }
 
-        // In an Ajax request, $GLOBALS['cell_align_left'] may not be defined. Hence,
-        // check for it's presence before using it
-        $retval .= '<div class="result_query"'
-            . ( isset($GLOBALS['cell_align_left'])
-                ? ' style="text-align: ' . $GLOBALS['cell_align_left'] . '"'
-                : '' )
-            . '>' . "\n";
+        if ($render_sql) {
+            $retval .= '<div class="result_query"'
+                . ' style="text-align: ' . $GLOBALS['cell_align_left'] . '"'
+                . '>' . "\n";
+        }
 
         if ($message instanceof Message) {
             if (isset($GLOBALS['special_message'])) {
@@ -1113,15 +1116,15 @@ class Util
             $retval .= $message->getDisplay();
         } else {
             $retval .= '<div class="' . $type . '">';
-            $retval .= PMA_sanitize($message);
+            $retval .= Sanitize::sanitize($message);
             if (isset($GLOBALS['special_message'])) {
-                $retval .= PMA_sanitize($GLOBALS['special_message']);
+                $retval .= Sanitize::sanitize($GLOBALS['special_message']);
                 unset($GLOBALS['special_message']);
             }
             $retval .= '</div>';
         }
 
-        if ($cfg['ShowSQL'] == true && ! empty($sql_query) && $sql_query !== ';') {
+        if ($render_sql) {
             // Html format the query to be displayed
             // If we want to show some sql code it is easiest to create it here
             /* SQL-Parser-Analyzer */
@@ -1195,7 +1198,7 @@ class Util
                     $explain_params['sql_query'] = 'EXPLAIN ' . $sql_query;
                     $explain_link = ' ['
                         . self::linkOrButton(
-                            'import.php' . PMA_URL_getCommon($explain_params),
+                            'import.php' . URL::getCommon($explain_params),
                             __('Explain SQL')
                         ) . ']';
                 } elseif (preg_match(
@@ -1206,7 +1209,7 @@ class Util
                         = mb_substr($sql_query, 8);
                     $explain_link = ' ['
                         . self::linkOrButton(
-                            'import.php' . PMA_URL_getCommon($explain_params),
+                            'import.php' . URL::getCommon($explain_params),
                             __('Skip Explain SQL')
                         ) . ']';
                     $url = 'https://mariadb.org/explain_analyzer/analyze/'
@@ -1230,7 +1233,7 @@ class Util
             // even if the query is big and was truncated, offer the chance
             // to edit it (unless it's enormous, see linkOrButton() )
             if (! empty($cfg['SQLQuery']['Edit'])) {
-                $edit_link .= PMA_URL_getCommon($url_params) . '#querybox';
+                $edit_link .= URL::getCommon($url_params) . '#querybox';
                 $edit_link = ' ['
                     . self::linkOrButton($edit_link, __('Edit'))
                     . ']';
@@ -1245,7 +1248,7 @@ class Util
                 if (! empty($GLOBALS['show_as_php'])) {
                     $php_link = ' ['
                         . self::linkOrButton(
-                            'import.php' . PMA_URL_getCommon($url_params),
+                            'import.php' . URL::getCommon($url_params),
                             __('Without PHP code'),
                             array(),
                             true,
@@ -1257,7 +1260,7 @@ class Util
 
                     $php_link .= ' ['
                         . self::linkOrButton(
-                            'import.php' . PMA_URL_getCommon($url_params),
+                            'import.php' . URL::getCommon($url_params),
                             __('Submit query'),
                             array(),
                             true,
@@ -1272,7 +1275,7 @@ class Util
                     $_message = __('Create PHP code');
                     $php_link = ' ['
                         . self::linkOrButton(
-                            'import.php' . PMA_URL_getCommon($php_params),
+                            'import.php' . URL::getCommon($php_params),
                             $_message
                         )
                         . ']';
@@ -1286,7 +1289,7 @@ class Util
                 && ! isset($GLOBALS['show_as_php']) // 'Submit query' does the same
                 && preg_match('@^(SELECT|SHOW)[[:space:]]+@i', $sql_query)
             ) {
-                $refresh_link = 'import.php' . PMA_URL_getCommon($url_params);
+                $refresh_link = 'import.php' . URL::getCommon($url_params);
                 $refresh_link = ' ['
                     . self::linkOrButton($refresh_link, __('Refresh')) . ']';
             } else {
@@ -1308,7 +1311,7 @@ class Util
 
             $retval .= '<div class="tools print_ignore">';
             $retval .= '<form action="sql.php" method="post">';
-            $retval .= PMA_URL_getHiddenInputs($GLOBALS['db'], $GLOBALS['table']);
+            $retval .= URL::getHiddenInputs($GLOBALS['db'], $GLOBALS['table']);
             $retval .= '<input type="hidden" name="sql_query" value="'
                 . htmlspecialchars($sql_query) . '" />';
 
@@ -1316,12 +1319,16 @@ class Util
             // be checked, which would reexecute an INSERT, for example
             if (! empty($refresh_link) && self::profilingSupported()) {
                 $retval .= '<input type="hidden" name="profiling_form" value="1" />';
-                $retval .= self::getCheckbox(
-                    'profiling',
-                    __('Profiling'),
-                    isset($_SESSION['profiling']),
-                    true
-                );
+                $retval .= Template::get('checkbox')
+                    ->render(
+                        array(
+                            'html_field_name'   => 'profiling',
+                            'label'             => __('Profiling'),
+                            'checked'           => isset($_SESSION['profiling']),
+                            'onclick'           => true,
+                            'html_field_id'     => '',
+                        )
+                    );
             }
             $retval .= '</form>';
 
@@ -1342,9 +1349,9 @@ class Util
             $retval .= $inline_edit_link . $edit_link . $explain_link . $php_link
                 . $refresh_link;
             $retval .= '</div>';
-        }
 
-        $retval .= '</div>';
+            $retval .= '</div>';
+        }
 
         return $retval;
     } // end of the 'getMessage()' function
@@ -1773,10 +1780,10 @@ class Util
         // build the link
         if (! empty($tab['link'])) {
             $tab['link'] = htmlentities($tab['link']);
-            $tab['link'] = $tab['link'] . PMA_URL_getCommon($url_params);
+            $tab['link'] = $tab['link'] . URL::getCommon($url_params);
             if (! empty($tab['args'])) {
                 foreach ($tab['args'] as $param => $value) {
-                    $tab['link'] .= PMA_URL_getArgSeparator('html')
+                    $tab['link'] .= URL::getArgSeparator('html')
                         . urlencode($param) . '=' . urlencode($value);
                 }
             }
@@ -1901,7 +1908,7 @@ class Util
             $tag_params = array();
             if (! empty($tmp)) {
                 $tag_params['onclick'] = 'return confirmLink(this, \''
-                    . PMA_escapeJsString($tmp) . '\')';
+                    . Sanitize::escapeJsString($tmp) . '\')';
             }
             unset($tmp);
         }
@@ -2036,7 +2043,7 @@ class Util
     public static function splitURLQuery($url)
     {
         // decode encoded url separators
-        $separator = PMA_URL_getArgSeparator();
+        $separator = URL::getArgSeparator();
         // on most places separator is still hard coded ...
         if ($separator !== '&') {
             // ... so always replace & with $separator
@@ -2374,7 +2381,6 @@ class Util
      *
      * @param string $button_name  name of button element
      * @param string $button_class class of button or image element
-     * @param string $image_name   name of image element
      * @param string $text         text to display
      * @param string $image        image to display
      * @param string $value        value
@@ -2384,36 +2390,21 @@ class Util
      * @access  public
      */
     public static function getButtonOrImage(
-        $button_name, $button_class, $image_name, $text, $image, $value = ''
+        $button_name, $button_class, $text, $image, $value = ''
     ) {
         if ($value == '') {
             $value = $text;
         }
-
         if ($GLOBALS['cfg']['ActionLinksMode'] == 'text') {
             return ' <input type="submit" name="' . $button_name . '"'
                 . ' value="' . htmlspecialchars($value) . '"'
                 . ' title="' . htmlspecialchars($text) . '" />' . "\n";
         }
-
-        /* Opera has trouble with <input type="image"> */
-        /* IE (before version 9) has trouble with <button> */
-        if (PMA_USR_BROWSER_AGENT == 'IE' && PMA_USR_BROWSER_VER < 9) {
-            return '<input type="image" name="' . $image_name
-                . '" class="' . $button_class
-                . '" value="' . htmlspecialchars($value)
-                . '" title="' . htmlspecialchars($text)
-                . '" src="' . $GLOBALS['pmaThemeImage'] . $image . '" />'
-                . ($GLOBALS['cfg']['ActionLinksMode'] == 'both'
-                    ? '&nbsp;' . htmlspecialchars($text)
-                    : '') . "\n";
-        } else {
-            return '<button class="' . $button_class . '" type="submit"'
-                . ' name="' . $button_name . '" value="' . htmlspecialchars($value)
-                . '" title="' . htmlspecialchars($text) . '">' . "\n"
-                . self::getIcon($image, $text)
-                . '</button>' . "\n";
-        }
+        return '<button class="' . $button_class . '" type="submit"'
+            . ' name="' . $button_name . '" value="' . htmlspecialchars($value)
+            . '" title="' . htmlspecialchars($text) . '">' . "\n"
+            . self::getIcon($image, $text)
+            . '</button>' . "\n";
     } // end function
 
     /**
@@ -2605,19 +2596,19 @@ class Util
 
                 $_url_params[$name] = 0;
                 $list_navigator_html .= '<a' . $class . $title1 . ' href="' . $script
-                    . PMA_URL_getCommon($_url_params) . '">' . $caption1
+                    . URL::getCommon($_url_params) . '">' . $caption1
                     . '</a>';
 
                 $_url_params[$name] = $pos - $max_count;
                 $list_navigator_html .= ' <a' . $class . $title2
-                    . ' href="' . $script . PMA_URL_getCommon($_url_params) . '">'
+                    . ' href="' . $script . URL::getCommon($_url_params) . '">'
                     . $caption2 . '</a>';
             }
 
             $list_navigator_html .= '<form action="' . basename($script)
                 . '" method="post">';
 
-            $list_navigator_html .= PMA_URL_getHiddenInputs($_url_params);
+            $list_navigator_html .= URL::getHiddenInputs($_url_params);
             $list_navigator_html .= self::pageselector(
                 $name,
                 $max_count,
@@ -2644,7 +2635,7 @@ class Util
 
                 $_url_params[$name] = $pos + $max_count;
                 $list_navigator_html .= '<a' . $class . $title3 . ' href="' . $script
-                    . PMA_URL_getCommon($_url_params) . '" >' . $caption3
+                    . URL::getCommon($_url_params) . '" >' . $caption3
                     . '</a>';
 
                 $_url_params[$name] = floor($count / $max_count) * $max_count;
@@ -2653,7 +2644,7 @@ class Util
                 }
 
                 $list_navigator_html .= ' <a' . $class . $title4
-                    . ' href="' . $script . PMA_URL_getCommon($_url_params) . '" >'
+                    . ' href="' . $script . URL::getCommon($_url_params) . '" >'
                     . $caption4 . '</a>';
             }
             $list_navigator_html .= '</div>' . "\n";
@@ -2707,7 +2698,7 @@ class Util
             . Util::getScriptNameForOption(
                 $GLOBALS['cfg']['DefaultTabDatabase'], 'database'
             )
-            . PMA_URL_getCommon(array('db' => $database)) . '" title="'
+            . URL::getCommon(array('db' => $database)) . '" title="'
             . htmlspecialchars(
                 sprintf(
                     __('Jump to database "%s".'),
@@ -2742,28 +2733,6 @@ class Util
             );
         }
         return $ext_but_html;
-    }
-
-    /**
-     * Returns a HTML checkbox
-     *
-     * @param string  $html_field_name the checkbox HTML field
-     * @param string  $label           label for checkbox
-     * @param boolean $checked         is it initially checked?
-     * @param boolean $onclick         should it submit the form on click?
-     * @param string  $html_field_id   id for the checkbox
-     *
-     * @return string                  HTML for the checkbox
-     */
-    public static function getCheckbox(
-        $html_field_name, $label, $checked, $onclick, $html_field_id = ''
-    ) {
-        return '<input type="checkbox" name="' . $html_field_name . '"'
-            . ($html_field_id ? ' id="' . $html_field_id . '"' : '')
-            . ($checked ? ' checked="checked"' : '')
-            . ($onclick ? ' class="autosubmit"' : '') . ' />'
-            . '<label' . ($html_field_id ? ' for="' . $html_field_id . '"' : '')
-            . '>' . $label . '</label>';
     }
 
     /**
@@ -4605,31 +4574,6 @@ class Util
     }
 
     /**
-     * Returns the HTML for check all check box and with selected text
-     * for multi submits
-     *
-     * @param string $pmaThemeImage path to theme's image folder
-     * @param string $text_dir      text direction
-     * @param string $formName      name of the enclosing form
-     *
-     * @return string HTML
-     */
-    public static function getWithSelected($pmaThemeImage, $text_dir, $formName)
-    {
-        $html = '<img class="selectallarrow" '
-            . 'src="' . $pmaThemeImage . 'arrow_' . $text_dir . '.png" '
-            . 'width="38" height="22" alt="' . __('With selected:') . '" />';
-        $html .= '<input type="checkbox" id="' . $formName . '_checkall" '
-            . 'class="checkall_box" title="' . __('Check all') . '" />'
-            . '<label for="' . $formName . '_checkall">' . __('Check all')
-            . '</label>';
-        $html .= '<i style="margin-left: 2em">'
-            . __('With selected:') . '</i>';
-
-        return $html;
-    }
-
-    /**
      * Function to get html for the start row and number of rows panel
      *
      * @param string $sql_query sql query
@@ -4942,6 +4886,7 @@ class Util
                             'ENGINE' => '',
                             'TABLE_TYPE' => '',
                             'TABLE_ROWS' => 0,
+                            'TABLE_COMMENT' => '',
                         );
                     }
                 } // end while
@@ -4982,4 +4927,3 @@ class Util
         return $result;
     }
 }
-

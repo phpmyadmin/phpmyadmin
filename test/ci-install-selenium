@@ -1,0 +1,6 @@
+#!/bin/sh
+
+pip install --user codecov
+./test/install-browserstack
+composer install --dev --no-interaction
+

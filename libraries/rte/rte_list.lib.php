@@ -6,6 +6,9 @@
  * @package PhpMyAdmin
  */
 use SqlParser\Statements\CreateStatement;
+use PMA\libraries\URL;
+use PMA\libraries\Template;
+
 
 if (! defined('PHPMYADMIN')) {
     exit;
@@ -56,7 +59,7 @@ function PMA_RTE_getList($type, $items)
         break;
     }
     $retval .= '">';
-    $retval .= PMA_URL_getHiddenInputs($GLOBALS['db'], $GLOBALS['table']);
+    $retval .= URL::getHiddenInputs($GLOBALS['db'], $GLOBALS['table']);
     $retval .= "<fieldset>\n";
     $retval .= "    <legend>\n";
     $retval .= "        " . PMA_RTE_getWord('title') . "\n";
@@ -141,15 +144,20 @@ function PMA_RTE_getList($type, $items)
 
     if (count($items)) {
         $retval .= '<div class="withSelected">';
-        $retval .= PMA\libraries\Util::getWithSelected(
-            $GLOBALS['pmaThemeImage'], $GLOBALS['text_dir'], 'rteListForm'
-        );
+        $retval .= Template::get('select_all')
+            ->render(
+                array(
+                    'pmaThemeImage' => $GLOBALS['pmaThemeImage'],
+                    'text_dir'      => $GLOBALS['text_dir'],
+                    'formName'      => 'rteListForm',
+                )
+            );
         $retval .= PMA\libraries\Util::getButtonOrImage(
-            'submit_mult', 'mult_submit', 'submit_mult_export',
+            'submit_mult', 'mult_submit',
             __('Export'), 'b_export.png', 'export'
         );
         $retval .= PMA\libraries\Util::getButtonOrImage(
-            'submit_mult', 'mult_submit', 'submit_mult_drop',
+            'submit_mult', 'mult_submit',
             __('Drop'), 'b_drop.png', 'drop'
         );
         $retval .= '</div>';

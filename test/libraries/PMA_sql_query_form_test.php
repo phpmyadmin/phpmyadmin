@@ -8,6 +8,7 @@
 
 //the following definition should be used globally
 use PMA\libraries\Theme;
+use PMA\libraries\URL;
 
 $GLOBALS['server'] = 0;
 
@@ -15,12 +16,9 @@ $GLOBALS['server'] = 0;
  * Include to test.
 */
 
-require_once 'libraries/url_generating.lib.php';
 require_once 'libraries/relation.lib.php';
 
 
-require_once 'libraries/sanitizing.lib.php';
-require_once 'libraries/js_escape.lib.php';
 require_once 'libraries/database_interface.inc.php';
 require_once 'libraries/sql_query_form.lib.php';
 require_once 'libraries/kanji-encoding.lib.php';
@@ -202,7 +200,7 @@ class PMA_SqlQueryForm_Test extends PHPUnit_Framework_TestCase
         $table  = $GLOBALS['table'];
         $db     = $GLOBALS['db'];
         $this->assertContains(
-            PMA_URL_getHiddenInputs($db, $table),
+            URL::getHiddenInputs($db, $table),
             $html
         );
 

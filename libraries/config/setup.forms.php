@@ -41,9 +41,6 @@ $forms['Servers']['Server_auth'] = array('Servers' => array(1 => array(
         'user',
         'password',
         ':group:end',
-    ':group:' . __('Cookie authentication'),
-        'auth_swekey_config' => './swekey.conf',
-        ':group:end',
     ':group:' . __('HTTP authentication'),
         'auth_http_realm',
         ':group:end',
@@ -150,7 +147,8 @@ $forms['Features']['Other_core_settings'] = array(
     'ProxyUser',
     'ProxyPass',
     'AllowThirdPartyFraming',
-    'ZeroConf'
+    'ZeroConf',
+    'DisableShortcutKeys'
 );
 $forms['Sql_queries']['Sql_queries'] = array(
     'ShowSQL',

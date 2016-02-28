@@ -5,6 +5,7 @@
  *
  * @package PhpMyAdmin
  */
+use PMA\libraries\URL;
 
 /**
  * Get HTML for display indexes
@@ -28,7 +29,7 @@ function PMA_getHtmlForDisplayIndexes()
     );
     $html_output .= '<fieldset class="tblFooters print_ignore" style="text-align: '
         . 'left;"><form action="tbl_indexes.php" method="post">';
-    $html_output .= PMA_URL_getHiddenInputs(
+    $html_output .= URL::getHiddenInputs(
         $GLOBALS['db'], $GLOBALS['table']
     );
     $html_output .= sprintf(

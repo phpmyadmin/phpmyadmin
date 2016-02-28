@@ -12,8 +12,6 @@ use PMA\libraries\Theme;
 $GLOBALS['PMA_Config'] = new PMA\libraries\Config();
 
 require_once 'libraries/config.default.php';
-require_once 'libraries/js_escape.lib.php';
-require_once 'libraries/sanitizing.lib.php';
 require_once 'libraries/database_interface.inc.php';
 require_once 'libraries/plugins/auth/AuthenticationCookie.php';
 require_once 'test/PMATestCase.php';
@@ -408,14 +406,6 @@ class AuthenticationCookieTest extends PMATestCase
             }
         }
 
-        $GLOBALS['cfg']['Server']['auth_swekey_config'] = 'testConfigSwekey';
-
-        file_put_contents('testConfigSwekey', '');
-        $this->assertFalse(
-            $this->object->authCheck()
-        );
-        @unlink('testConfigSwekey');
-
         // case 2
 
         $GLOBALS['cfg']['CaptchaLoginPrivateKey'] = 'testprivkey';
@@ -555,7 +545,6 @@ class AuthenticationCookieTest extends PMATestCase
             $remove = true;
         }
 
-        $GLOBALS['cfg']['Server']['auth_swekey_config'] = 'testConfigSwekey';
         $GLOBALS['cfg']['Servers'] = array(1);
         $_COOKIE['pmaPass-0'] = 1;
         $_COOKIE['pmaServer-0'] = 1;
@@ -589,7 +578,6 @@ class AuthenticationCookieTest extends PMATestCase
      */
     public function testAuthCheckDecryptUser()
     {
-        $GLOBALS['cfg']['Server']['auth_swekey_config'] = 'testConfigSwekey';
         $GLOBALS['server'] = 1;
         $_REQUEST['old_usr'] = '';
         $_REQUEST['pma_username'] = '';
@@ -628,7 +616,6 @@ class AuthenticationCookieTest extends PMATestCase
      */
     public function testAuthCheckDecryptPassword()
     {
-        $GLOBALS['cfg']['Server']['auth_swekey_config'] = 'testConfigSwekey';
         $GLOBALS['server'] = 1;
         $_REQUEST['old_usr'] = '';
         $_REQUEST['pma_username'] = '';
@@ -674,7 +661,6 @@ class AuthenticationCookieTest extends PMATestCase
      */
     public function testAuthCheckAuthFails()
     {
-        $GLOBALS['cfg']['Server']['auth_swekey_config'] = 'testConfigSwekey';
         $GLOBALS['server'] = 1;
         $_REQUEST['old_usr'] = '';
         $_REQUEST['pma_username'] = '';
@@ -927,7 +913,6 @@ class AuthenticationCookieTest extends PMATestCase
         $GLOBALS['server'] = 2;
         $_COOKIE['pmaPass-2'] = 'pass';
 
-
         $GLOBALS['allowDeny_forbidden'] = '';
         $GLOBALS['no_activity'] = '1';
         $GLOBALS['cfg']['LoginCookieValidity'] = 10;
@@ -953,7 +938,6 @@ class AuthenticationCookieTest extends PMATestCase
 
         $GLOBALS['server'] = 2;
         $_COOKIE['pmaPass-2'] = 'pass';
-
 
         $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()

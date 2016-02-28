@@ -7,7 +7,6 @@
  */
 use PMA\libraries\Theme;
 
-require_once 'libraries/url_generating.lib.php';
 require_once 'test/PMATestCase.php';
 
 /**
@@ -328,19 +327,6 @@ class ThemeTest extends PMATestCase
             . '&amp;collation_connection=utf-8'
             . '&amp;token=token">No preview available.[ <strong>take it</strong> ]'
             . '</a></p></div>'
-        );
-    }
-
-    /**
-     * Test for getCssIEClearFilter
-     *
-     * @return void
-     */
-    public function testGetCssIEClearFilter()
-    {
-        $this->assertEquals(
-            $this->object->getCssIEClearFilter(),
-            ''
         );
     }
 

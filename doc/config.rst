@@ -41,7 +41,7 @@ Basic settings
     :type: string
     :default: ``''``
 
-    .. versionremoved:: 4.6.0
+    .. deprecated:: 4.6.0
         
         This setting is no longer available since phpMyAdmin 4.6.0. Please
         adjust your webserver instead.
@@ -396,15 +396,6 @@ Server connection settings
     "phpMyAdmin " and either :config:option:`$cfg['Servers'][$i]['verbose']` or
     :config:option:`$cfg['Servers'][$i]['host']` will be used.
 
-.. _servers_auth_swekey_config:
-.. config:option:: $cfg['Servers'][$i]['auth_swekey_config']
-
-    :type: string
-    :default: ``''``
-
-    The name of the file containing :ref:`swekey` ids and login names for hardware
-    authentication. Leave empty to deactivate this feature.
-
 .. _servers_user:
 .. config:option:: $cfg['Servers'][$i]['user']
 
@@ -727,7 +718,6 @@ Server connection settings
     of recent tables shown. When you select a table from the list, it will jump to
     the page specified in :config:option:`$cfg['NavigationTreeDefaultTabTable']`.
 
-
     Without configuring the storage, you can still access the recently used tables,
     but it will disappear after you logout.
 
@@ -736,6 +726,34 @@ Server connection settings
     * set up :config:option:`$cfg['Servers'][$i]['pmadb']` and the phpMyAdmin configuration storage
     * put the table name in :config:option:`$cfg['Servers'][$i]['recent']` (e.g.
       ``pma__recent``)
+
+    This feature can be disabled by setting the configuration to ``false``.
+
+.. _favorite:
+.. config:option:: $cfg['Servers'][$i]['favorite']
+
+    :type: string or false
+    :default: ``''``
+
+    Since release 4.2.0 you can show a list of selected tables in the
+    navigation panel. It helps you to jump to the table directly, without
+    the need to select the database, and then select the table. When you
+    select a table from the list, it will jump to the page specified in
+    :config:option:`$cfg['NavigationTreeDefaultTabTable']`.
+    
+    You can add tables to this list or remove tables from it in database
+    structure page by clicking on the star icons next to table names. Using
+    :config:option:`$cfg['NumFavoriteTables']` you can configure the maximum
+    number of favorite tables shown.
+
+    Without configuring the storage, you can still access the favorite tables,
+    but it will disappear after you logout.
+
+    To allow the usage of this functionality persistently:
+
+    * set up :config:option:`$cfg['Servers'][$i]['pmadb']` and the phpMyAdmin configuration storage
+    * put the table name in :config:option:`$cfg['Servers'][$i]['favorite']` (e.g.
+      ``pma__favorite``)
 
     This feature can be disabled by setting the configuration to ``false``.
 
@@ -1172,6 +1190,13 @@ Server connection settings
 Generic settings
 ----------------
 
+.. config:option:: $cfg['DisableShortcutKeys']
+
+    :type: boolean
+    :default: false
+
+    You can disable phpMyAdmin shortcut keys by setting :config:option:`$cfg['DisableShortcutKeys']` to false.
+
 .. config:option:: $cfg['ServerDefault']
 
     :type: integer
@@ -1279,7 +1304,7 @@ Generic settings
     :type: boolean
     :default: false
 
-    .. versionremoved:: 4.6.0
+    .. deprecated:: 4.6.0
         
         This setting is no longer available since phpMyAdmin 4.6.0. Please
         adjust your webserver instead.
@@ -1594,6 +1619,14 @@ Navigation panel setup
 
     The maximum number of recently used tables shown in the navigation
     panel. Set this to 0 (zero) to disable the listing of recent tables.
+
+.. config:option:: $cfg['NumFavoriteTables']
+
+    :type: integer
+    :default: 10
+
+    The maximum number of favorite tables shown in the navigation
+    panel. Set this to 0 (zero) to disable the listing of favorite tables.
 
 .. config:option:: $cfg['ZeroConf']
 

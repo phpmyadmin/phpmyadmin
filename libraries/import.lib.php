@@ -8,6 +8,7 @@
 use PMA\libraries\Message;
 use PMA\libraries\Table;
 use PMA\libraries\Util;
+use PMA\libraries\URL;
 
 if (! defined('PHPMYADMIN')) {
     exit;
@@ -239,8 +240,6 @@ function PMA_importRunQuery($sql = '', $full = '', &$sql_data = array())
                     $sql_data['valid_queries'] = 0;
                     unset($sql_data['valid_full']);
                     for ($i = 0; $i < $count; $i++) {
-                        print_r($queries[$i]);
-
                         PMA_executeQuery(
                             $queries[$i],
                             $fulls[$i],
@@ -974,6 +973,7 @@ $import_notice = null;
  * @param array  &$analyses       Analyses of the tables
  * @param array  &$additional_sql Additional SQL statements to be executed
  * @param array  $options         Associative array of options
+ * @param array  &$sql_data       2-element array with sql data
  *
  * @return void
  * @access  public
@@ -981,7 +981,7 @@ $import_notice = null;
  * @link http://wiki.phpmyadmin.net/pma/Import
  */
 function PMA_buildSQL($db_name, &$tables, &$analyses = null,
-    &$additional_sql = null, $options = null
+    &$additional_sql = null, $options = null, &$sql_data
 ) {
     /* Take care of the options */
     if (isset($options['db_collation'])&& ! is_null($options['db_collation'])) {
@@ -1021,7 +1021,7 @@ function PMA_buildSQL($db_name, &$tables, &$analyses = null,
     /* Execute the SQL statements create above */
     $sql_len = count($sql);
     for ($i = 0; $i < $sql_len; ++$i) {
-        PMA_importRunQuery($sql[$i], $sql[$i]);
+        PMA_importRunQuery($sql[$i], $sql[$i], $sql_data);
     }
 
     /* No longer needed */
@@ -1056,7 +1056,7 @@ function PMA_buildSQL($db_name, &$tables, &$analyses = null,
                 $additional_sql[$i]
             );
             /* Execute the resulting statements */
-            PMA_importRunQuery($additional_sql[$i], $additional_sql[$i]);
+            PMA_importRunQuery($additional_sql[$i], $additional_sql[$i], $sql_data);
         }
     }
 
@@ -1108,7 +1108,7 @@ function PMA_buildSQL($db_name, &$tables, &$analyses = null,
              * after it is formed so that we don't have
              * to store them in a (possibly large) buffer
              */
-            PMA_importRunQuery($tempSQLStr, $tempSQLStr);
+            PMA_importRunQuery($tempSQLStr, $tempSQLStr, $sql_data);
         }
     }
 
@@ -1199,7 +1199,7 @@ function PMA_buildSQL($db_name, &$tables, &$analyses = null,
          * after it is formed so that we don't have
          * to store them in a (possibly large) buffer
          */
-        PMA_importRunQuery($tempSQLStr, $tempSQLStr);
+        PMA_importRunQuery($tempSQLStr, $tempSQLStr, $sql_data);
     }
 
     /* No longer needed */
@@ -1247,8 +1247,8 @@ function PMA_buildSQL($db_name, &$tables, &$analyses = null,
     }
 
     $params = array('db' => (string)$db_name);
-    $db_url = 'db_structure.php' . PMA_URL_getCommon($params);
-    $db_ops_url = 'db_operations.php' . PMA_URL_getCommon($params);
+    $db_url = 'db_structure.php' . URL::getCommon($params);
+    $db_ops_url = 'db_operations.php' . URL::getCommon($params);
 
     $message = '<br /><br />';
     $message .= '<strong>' . __(
@@ -1288,9 +1288,9 @@ function PMA_buildSQL($db_name, &$tables, &$analyses = null,
              'db' => (string) $db_name,
              'table' => (string) $tables[$i][TBL_NAME]
         );
-        $tbl_url = 'sql.php' . PMA_URL_getCommon($params);
-        $tbl_struct_url = 'tbl_structure.php' . PMA_URL_getCommon($params);
-        $tbl_ops_url = 'tbl_operations.php' . PMA_URL_getCommon($params);
+        $tbl_url = 'sql.php' . URL::getCommon($params);
+        $tbl_struct_url = 'tbl_structure.php' . URL::getCommon($params);
+        $tbl_ops_url = 'tbl_operations.php' . URL::getCommon($params);
 
         unset($params);
 
@@ -1470,7 +1470,7 @@ function PMA_getMatchedRows($analyzed_sql_results = array())
         'db'        => $GLOBALS['db'],
         'sql_query' => $matched_row_query
     );
-    $matched_rows_url  = 'sql.php' . PMA_URL_getCommon($_url_params);
+    $matched_rows_url  = 'sql.php' . URL::getCommon($_url_params);
 
     return array(
         'sql_query' => PMA\libraries\Util::formatSql($analyzed_sql_results['query']),

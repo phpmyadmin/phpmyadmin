@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin
  */
+use PMA\libraries\URL;
+
 if (! defined('PHPMYADMIN')) {
     exit;
 }
@@ -23,7 +25,7 @@ $db_is_system_schema = $GLOBALS['dbi']->isSystemSchema($db);
  * Set parameters for links
  * @deprecated
  */
-$url_query = PMA_URL_getCommon(array('db' => $db, 'table' => $table));
+$url_query = URL::getCommon(array('db' => $db, 'table' => $table));
 
 /**
  * Set parameters for links
@@ -38,12 +40,12 @@ $url_params['table'] = $table;
 $err_url_0 = PMA\libraries\Util::getScriptNameForOption(
     $GLOBALS['cfg']['DefaultTabDatabase'], 'database'
 )
-    . PMA_URL_getCommon(array('db' => $db));
+    . URL::getCommon(array('db' => $db));
 
 $err_url = PMA\libraries\Util::getScriptNameForOption(
     $GLOBALS['cfg']['DefaultTabTable'], 'table'
 )
-    . PMA_URL_getCommon($url_params);
+    . URL::getCommon($url_params);
 
 
 /**

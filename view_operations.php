@@ -6,6 +6,8 @@
  * @package PhpMyAdmin
  */
 use PMA\libraries\Table;
+use PMA\libraries\Response;
+use PMA\libraries\URL;
 
 /**
  *
@@ -18,6 +20,14 @@ $pma_table = new Table($GLOBALS['table'], $GLOBALS['db']);
  * functions implementation for this script
  */
 require_once 'libraries/operations.lib.php';
+
+/**
+ * Load JavaScript files
+ */
+$response = Response::getInstance();
+$header   = $response->getHeader();
+$scripts  = $header->getScripts();
+$scripts->addFile('tbl_operations.js');
 
 /**
  * Runs common work
@@ -87,7 +97,7 @@ $url_params['back'] = 'view_operations.php';
 <!-- Table operations -->
 <div class="operations_half_width">
 <form method="post" action="view_operations.php">
-<?php echo PMA_URL_getHiddenInputs($GLOBALS['db'], $GLOBALS['table']); ?>
+<?php echo URL::getHiddenInputs($GLOBALS['db'], $GLOBALS['table']); ?>
 <input type="hidden" name="reload" value="1" />
 <fieldset>
     <legend><?php echo __('Operations'); ?></legend>

@@ -9,7 +9,7 @@
                 </strong>
                 <br />
 
-                <?= PMA_URL_getHiddenInputs('', '', 5); ?>
+                <?= \PMA\libraries\URL::getHiddenInputs('', '', 5); ?>
                 <input type="hidden" name="reload" value="1" />
                 <?php if (! empty($dbstats)): ?>
                     <input type="hidden" name="dbstats" value="1" />

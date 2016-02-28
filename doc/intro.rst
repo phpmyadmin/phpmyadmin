@@ -48,6 +48,21 @@ Currently phpMyAdmin can:
   <https://www.phpmyadmin.net/translations/>`_
 
 
+Shortcut keys
+-------------
+
+Currently phpMyAdmin supports following shortcuts:
+
+* k - Toggle console
+* h - Go to home page
+* s - Open settings
+* d + s - Go to database structure (Provided you are in database related page)
+* d + f - Search database (Provided you are in database related page)
+* t + s - Go to table structure (Provided you are in table related page)
+* t + f - Search table (Provided you are in table related page)
+* backspace - Takes you to older page.
+
+
 A word about users
 ------------------
 

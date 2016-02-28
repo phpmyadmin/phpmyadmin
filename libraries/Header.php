@@ -8,9 +8,9 @@
 namespace PMA\libraries;
 
 use PMA\libraries\navigation\Navigation;
+use PMA\libraries\URL;
+use PMA\libraries\Sanitize;
 
-require_once 'libraries/js_escape.lib.php';
-require_once 'libraries/url_generating.lib.php';
 
 /**
  * Class used to output the HTTP and HTML headers
@@ -155,7 +155,7 @@ class Header
         }
         $this->_scripts->addFile('jquery/jquery-2.1.4.min.js');
         $this->_scripts->addFile(
-            'whitelist.php' . PMA_URL_getCommon($params), false, true
+            'whitelist.php' . URL::getCommon($params), false, true
         );
         $this->_scripts->addFile('sprintf.js');
         $this->_scripts->addFile('ajax.js');
@@ -183,7 +183,7 @@ class Header
         // Here would not be a good place to add CodeMirror because
         // the user preferences have not been merged at this point
 
-        $this->_scripts->addFile('messages.php' . PMA_URL_getCommon($params));
+        $this->_scripts->addFile('messages.php' . URL::getCommon($params));
         // Append the theme id to this url to invalidate
         // the cache on a theme change. Though this might be
         // unavailable for fatal errors.
@@ -195,13 +195,16 @@ class Header
         $this->_scripts->addFile(
             'get_image.js.php?theme=' . $theme_id
         );
+        $this->_scripts->addFile('config.js');
         $this->_scripts->addFile('doclinks.js');
         $this->_scripts->addFile('functions.js');
         $this->_scripts->addFile('navigation.js');
         $this->_scripts->addFile('indexes.js');
         $this->_scripts->addFile('common.js');
-        $this->_scripts->addFile('config.js');
         $this->_scripts->addFile('page_settings.js');
+        if(!$GLOBALS['cfg']['DisableShortcutKeys']) {
+            $this->_scripts->addFile('shortcuts_handler.js');
+        }
         $this->_scripts->addCode($this->getJsParamsCode());
     }
 
@@ -224,7 +227,7 @@ class Header
         }
 
         $params = array(
-            'common_query' => PMA_URL_getCommon(array(), 'text'),
+            'common_query' => URL::getCommon(array(), 'text'),
             'opendb_url' => Util::getScriptNameForOption(
                 $GLOBALS['cfg']['DefaultTabDatabase'], 'database'
             ),
@@ -272,7 +275,7 @@ class Header
     {
         $params = $this->getJsParams();
         foreach ($params as $key => $value) {
-            $params[$key] = $key . ':"' . PMA_escapeJsString($value) . '"';
+            $params[$key] = $key . ':"' . Sanitize::escapeJsString($value) . '"';
         }
         return 'PMA_commonParams.setAll({' . implode(',', $params) . '});';
     }

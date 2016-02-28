@@ -10,6 +10,8 @@
  * @usedby  tbl_tracking.php
  * @package PhpMyAdmin
  */
+use PMA\libraries\URL;
+
 if (! defined('PHPMYADMIN')) {
     exit;
 }
@@ -81,7 +83,7 @@ function PMA_getHtmlForSqlQueryForm(
     $html .= ' id="sqlqueryform" name="sqlform">' . "\n";
 
     $html .= '<input type="hidden" name="is_js_confirmed" value="0" />'
-        . "\n" . PMA_URL_getHiddenInputs($db, $table) . "\n"
+        . "\n" . URL::getHiddenInputs($db, $table) . "\n"
         . '<input type="hidden" name="pos" value="0" />' . "\n"
         . '<input type="hidden" name="goto" value="'
         . htmlspecialchars($goto) . '" />' . "\n"
@@ -147,7 +149,7 @@ function PMA_initQueryForm($query)
         $tmp_db_link = '<a href="' . PMA\libraries\Util::getScriptNameForOption(
             $GLOBALS['cfg']['DefaultTabDatabase'], 'database'
         )
-            . PMA_URL_getCommon(array('db' => $db)) . '"';
+            . URL::getCommon(array('db' => $db)) . '"';
         $tmp_db_link .= '>'
             . htmlspecialchars($db) . '</a>';
         $legend = sprintf(__('Run SQL query/queries on database %s'), $tmp_db_link);
@@ -168,7 +170,7 @@ function PMA_initQueryForm($query)
 
         $tmp_tbl_link = '<a href="' . PMA\libraries\Util::getScriptNameForOption(
             $GLOBALS['cfg']['DefaultTabTable'], 'table'
-        ) . PMA_URL_getCommon(array('db' => $db, 'table' => $table)) . '" >';
+        ) . URL::getCommon(array('db' => $db, 'table' => $table)) . '" >';
         $tmp_tbl_link .= htmlspecialchars($db)
             . '.' . htmlspecialchars($table) . '</a>';
         $legend = sprintf(__('Run SQL query/queries on table %s'), $tmp_tbl_link);

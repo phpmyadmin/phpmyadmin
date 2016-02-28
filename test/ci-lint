@@ -1,0 +1,4 @@
+#!/bin/sh
+
+ant locales lint
+

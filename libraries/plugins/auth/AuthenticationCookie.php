@@ -14,6 +14,7 @@ use PMA\libraries\plugins\AuthenticationPlugin;
 use PMA\libraries\Response;
 use PMA\libraries\Util;
 use ReCaptcha\ReCaptcha;
+use PMA\libraries\URL;
 
 /**
  * Remember where to redirect the user
@@ -24,11 +25,6 @@ if (! empty($_REQUEST['target'])) {
 } else if (PMA_getenv('SCRIPT_NAME')) {
     $GLOBALS['target'] = basename(PMA_getenv('SCRIPT_NAME'));
 }
-
-/**
- * Swekey authentication functions.
- */
-require './libraries/plugins/auth/swekey/swekey.auth.lib.php';
 
 /**
  * Handles the cookie authentication method
@@ -235,13 +231,9 @@ class AuthenticationCookie extends AuthenticationPlugin
         }
         // do not generate a "server" hidden field as we want the "server"
         // drop-down to have priority
-        echo PMA_URL_getHiddenInputs($_form_params, '', 0, 'server');
+        echo URL::getHiddenInputs($_form_params, '', 0, 'server');
         echo '</fieldset>
     </form>';
-
-        // BEGIN Swekey Integration
-        Swekey_login('input_username', 'input_go');
-        // END Swekey Integration
 
         if ($GLOBALS['error_handler']->hasDisplayErrors()) {
             echo '<div id="pma_errors">';
@@ -289,12 +281,6 @@ class AuthenticationCookie extends AuthenticationPlugin
         $GLOBALS['PHP_AUTH_USER'] = $GLOBALS['PHP_AUTH_PW'] = '';
         $GLOBALS['from_cookie'] = false;
 
-        // BEGIN Swekey Integration
-        if (! Swekey_Auth_check()) {
-            return false;
-        }
-        // END Swekey Integration
-
         if (defined('PMA_CLEAR_COOKIES')) {
             foreach ($GLOBALS['cfg']['Servers'] as $key => $val) {
                 $GLOBALS['PMA_Config']->removeCookie('pmaPass-' . $key);
@@ -340,7 +326,6 @@ class AuthenticationCookie extends AuthenticationPlugin
             ) {
                 if (! empty($_POST["g-recaptcha-response"])) {
 
-                    include_once 'libraries/plugins/auth/recaptcha/autoload.php';
                     $reCaptcha = new ReCaptcha(
                         $GLOBALS['cfg']['CaptchaLoginPrivateKey']
                     );
@@ -585,7 +570,7 @@ class AuthenticationCookie extends AuthenticationPlugin
                 ->disable();
 
             PMA_sendHeaderLocation(
-                $redirect_url . PMA_URL_getCommon($url_params, 'text'),
+                $redirect_url . URL::getCommon($url_params, 'text'),
                 true
             );
             if (! defined('TESTSUITE')) {

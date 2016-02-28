@@ -36,9 +36,9 @@ class Template
     /**
      * Template constructor
      *
-     * @param string $name Template name
-     * @param array $data Variables to be provided to the template
-     * @param array $helperFunctions Helper functions to be used by template
+     * @param string $name            Template name
+     * @param array  $data            Variables to be provided to the template
+     * @param array  $helperFunctions Helper functions to be used by template
      */
     protected function __construct($name, $data = array(), $helperFunctions = array())
     {
@@ -50,9 +50,9 @@ class Template
     /**
      * Template getter
      *
-     * @param string $name Template name
-     * @param array $data Variables to be provided to the template
-     * @param array $helperFunctions Helper functions to be used by template
+     * @param string $name            Template name
+     * @param array  $data            Variables to be provided to the template
+     * @param array  $helperFunctions Helper functions to be used by template
      *
      * @return Template
      */
@@ -78,7 +78,7 @@ class Template
     /**
      * Adds more entries to the data for this template
      *
-     * @param array|string $data containing data array or data key
+     * @param array|string $data  containing data array or data key
      * @param string       $value containing data value
      */
     public function set($data, $value = null)
@@ -96,8 +96,8 @@ class Template
     /**
      * Adds a function for use by the template
      *
-     * @param string $funcName function name
-     * @param callable $funcDef function definition
+     * @param string   $funcName function name
+     * @param callable $funcDef  function definition
      */
     public function setHelper($funcName, $funcDef)
     {
@@ -129,7 +129,7 @@ class Template
     /**
      * Magic call to locally inaccessible but associated helper functions
      *
-     * @param string $funcName function name
+     * @param string $funcName  function name
      * @param array  $arguments function arguments
      */
     public function __call($funcName, $arguments)
@@ -146,8 +146,8 @@ class Template
     /**
      * Render template
      *
-     * @param array $data Variables to be provided to the template
-     * @param bool  $trim Trim content
+     * @param array $data            Variables to be provided to the template
+     * @param bool  $trim            Trim content
      * @param array $helperFunctions Helper functions to be used by template
      *
      * @return string

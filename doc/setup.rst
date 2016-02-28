@@ -86,13 +86,35 @@ which include phpMyAdmin together with a database and web server such as
 
 You can find more of such options at `Wikipedia <https://en.wikipedia.org/wiki/List_of_AMP_packages>`_.
 
+Installing from Git
++++++++++++++++++++
+
+You can clone current phpMyAdmin source from
+``https://github.com/phpmyadmin/phpmyadmin.git``:
+
+.. code-block:: sh
+
+    git clone https://github.com/phpmyadmin/phpmyadmin.git
+
+Additionally you need to install dependencies using `Composer`_:
+
+.. code-block:: sh
+
+    composer update
+
+If you do not intend to develop, you can skip installation of developer tools
+by invoking:
+
+.. code-block:: sh
+
+    composer update --no-dev
+
 
 Installing using Composer
 +++++++++++++++++++++++++
 
-You can install phpMyAdmin using `Composer <https://getcomposer.org/>`_,
-however it's currently not available in the default
-`Packagist <https://packagist.org/>`_ repository due to its technical
+You can install phpMyAdmin using `Composer`_, however it's currently not
+available in the default `Packagist`_ repository due to its technical
 limitations.
 
 The installation is possible by adding our own repository
@@ -105,15 +127,15 @@ The installation is possible by adding our own repository
 Installing using Docker
 +++++++++++++++++++++++
 
-phpMyAdmin comes with an Docker image, which you can easily deploy. You can
+phpMyAdmin comes with a Docker image, which you can easily deploy. You can
 download it using:
 
 .. code-block:: sh
 
     docker pull phpmyadmin/phpmyadmin
 
-The phpMyAdmin will be executed on port 80. It supports several ways of
-configuring link to the database server, which you can configure using
+The phpMyAdmin server will be executed on port 80. It supports several ways of
+configuring the link to the database server, which you can manage using
 environment variables:
 
 .. envvar:: PMA_ARBITRARY
@@ -145,6 +167,14 @@ environment variables:
    
     The fully-qualified path (``https://pma.example.net/``) where the reverse
     proxy makes phpMyAdmin available.
+
+.. envvar:: PHP_UPLOAD_MAX_FILESIZE
+   
+    Define upload_max_filesize and post_max_size PHP settings.
+
+.. envvar:: PHP_MAX_INPUT_VARS
+   
+    Define max_input_vars PHP setting.
 
 By default, :ref:`cookie` is used, but if :envvar:`PMA_USER` and
 :envvar:`PMA_PASSWORD` are set, it is switched to :ref:`auth_config`.
@@ -378,9 +408,9 @@ for it. Once you have both of them in the same folder, you can verify the signat
 
 .. code-block:: console
 
-    $ gpg --verify phpMyAdmin-4.4.9-all-languages.zip.asc
-    gpg: Signature made Fri Jun 12 13:09:58 2015 CEST using RSA key ID 81AF644A
-    gpg: Can't check signature: No public key
+    $ gpg --verify phpMyAdmin-4.5.4.1-all-languages.zip.asc
+    gpg: Signature made Fri 29 Jan 2016 08:59:37 AM EST using RSA key ID 8259BD92
+    gpg: Can't check signature: public key not found
 
 As you can see gpg complains that it does not know the public key. At this
 point you should do one of the following steps:
@@ -395,9 +425,9 @@ point you should do one of the following steps:
 
 .. code-block:: console
 
-    $ gpg --keyserver hkp://pgp.mit.edu --recv-keys 81AF644A
-    gpg: requesting key 81AF644A from hkp server pgp.mit.edu
-    gpg: key 81AF644A: public key "Marc Delisle <marc@infomarc.info>" imported
+    $ gpg --keyserver hkp://pgp.mit.edu --recv-keys 8259BD92
+    gpg: requesting key 8259BD92 from hkp server pgp.mit.edu
+    gpg: key 8259BD92: public key "Isaac Bennetch <bennetch@gmail.com>" imported
     gpg: no ultimately trusted keys found
     gpg: Total number processed: 1
     gpg:               imported: 1  (RSA: 1)
@@ -408,12 +438,13 @@ in the key:
 
 .. code-block:: console
 
-    $ gpg --verify phpMyAdmin-4.4.9-all-languages.zip.asc
-    gpg: Signature made Fri Jun 12 13:09:58 2015 CEST using RSA key ID 81AF644A
-    gpg: Good signature from "Marc Delisle <marc@infomarc.info>" [unknown]
+    $ gpg --verify phpMyAdmin-4.5.4.1-all-languages.zip.asc
+    gpg: Signature made Fri 29 Jan 2016 08:59:37 AM EST using RSA key ID 8259BD92
+    gpg: Good signature from "Isaac Bennetch <bennetch@gmail.com>"
+    gpg:                 aka "Isaac Bennetch <isaac@bennetch.org>"
     gpg: WARNING: This key is not certified with a trusted signature!
     gpg:          There is no indication that the signature belongs to the owner.
-    Primary key fingerprint: 436F F188 4B1A 0C3F DCBF  0D79 FEFC 65D1 81AF 644A
+    Primary key fingerprint: 3D06 A59E CE73 0EB7 1B51  1C17 CE75 2F17 8259 BD92
 
 The problem here is that anybody could issue the key with this name.  You need to
 ensure that the key is actually owned by the mentioned person.  The GNU Privacy
@@ -421,29 +452,29 @@ Handbook covers this topic in the chapter `Validating other keys on your public
 keyring`_. The most reliable method is to meet the developer in person and
 exchange key fingerprints, however you can also rely on the web of trust. This way
 you can trust the key transitively though signatures of others, who have met
-the developer in person. For example you can see how `Marc's key links to
+the developer in person. For example you can see how `Isaac's key links to
 Linus's key`_.
 
 Once the key is trusted, the warning will not occur:
 
 .. code-block:: console
 
-    $ gpg --verify phpMyAdmin-4.4.9-all-languages.zip.asc
-    gpg: Signature made Fri Jun 12 13:09:58 2015 CEST using RSA key ID 81AF644A
-    gpg: Good signature from "Marc Delisle <marc@infomarc.info>" [full]
+    $ gpg --verify phpMyAdmin-4.5.4.1-all-languages.zip.asc
+    gpg: Signature made Fri 29 Jan 2016 08:59:37 AM EST using RSA key ID 8259BD92
+    gpg: Good signature from "Isaac Bennetch <bennetch@gmail.com>" [full]
 
 Should the signature be invalid (the archive has been changed), you would get a
 clear error regardless of the fact that the key is trusted or not:
 
 .. code-block:: console
 
-    $ gpg --verify phpMyAdmin-4.4.9-all-languages.zip.asc
-    gpg: Signature made Fri Jun 12 13:09:58 2015 CEST using RSA key ID 81AF644A
-    gpg: BAD signature from "Marc Delisle <marc@infomarc.info>" [unknown]
+    $ gpg --verify phpMyAdmin-4.5.4.1-all-languages.zip.asc
+    gpg: Signature made Fri 29 Jan 2016 08:59:37 AM EST using RSA key ID 8259BD92
+    gpg: BAD signature from "Isaac Bennetch <bennetch@gmail.com>" [unknown]
 
 .. _Validating other keys on your public keyring: https://www.gnupg.org/gph/en/manual.html#AEN335
 
-.. _Marc's key links to Linus's key: http://pgp.cs.uu.nl/mk_path.cgi?FROM=00411886&TO=81AF644A
+.. _Isaac's key links to Linus's key: http://pgp.cs.uu.nl/mk_path.cgi?FROM=00411886&TO=8259BD92
 
 
 .. index::
@@ -703,41 +734,6 @@ Config authentication mode
   of which are beyond the scope of this manual but easily searchable
   with Google).
 
-.. index:: pair: Swekey; Authentication mode
-
-.. _swekey:
-
-Swekey authentication mode
---------------------------
-
-The Swekey is a low cost authentication USB key that can be used in
-web applications. When Swekey authentication is activated, phpMyAdmin
-requires the users's Swekey to be plugged before entering the login
-page (currently supported for cookie authentication mode only). Swekey
-Authentication is disabled by default. To enable it, add the following
-line to :file:`config.inc.php`:
-
-.. code-block:: php
-
-    $cfg['Servers'][$i]['auth_swekey_config'] = '/etc/swekey.conf';
-
-You then have to create the ``swekey.conf`` file that will associate
-each user with their Swekey Id. It is important to place this file
-outside of your web server's document root (in the example, it is
-located in ``/etc``). Feel free to use it with your own users'
-information. If you want to purchase a Swekey please visit
-`https://www.phpmyadmin.net/auth\_key/ <https://www.phpmyadmin.net/auth_key/>`_
-since this link provides funding for phpMyAdmin.
-
-A self documented sample file is provided in the
-file :file:`examples/swekey.sample.conf`:
-
-.. literalinclude:: ../examples/swekey.sample.conf
-    :language: sh
-
-.. seealso:: :config:option:`$cfg['Servers'][$i]['auth_swekey_config']`
-
-
 Securing your phpMyAdmin installation
 +++++++++++++++++++++++++++++++++++++
 
@@ -774,6 +770,8 @@ are always ways to make your installation more secure:
 * If you are afraid of automated attacks, enabling Captcha by
   :config:option:`$cfg['CaptchaLoginPublicKey']` and
   :config:option:`$cfg['CaptchaLoginPrivateKey']` might be an option.
+* Alternative approach might be using using fail2ban as phpMyAdmin logs failed
+  authentication attempts to syslog (if available)
 
 Known issues
 ++++++++++++
@@ -792,3 +790,7 @@ Trouble logging back in after logging out using 'http' authentication
 
 When using the 'http' ``auth_type``, it can be impossible to log back in (when the logout comes
 manually or after a period of inactivity). `Issue 11898 <https://github.com/phpmyadmin/phpmyadmin/issues/11898>`_.
+
+
+.. _Composer: https://getcomposer.org/
+.. _Packagist: https://packagist.org/

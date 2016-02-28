@@ -6,6 +6,7 @@
  * @package PhpMyAdmin
  */
 use PMA\libraries\plugins\ImportPlugin;
+use PMA\libraries\URL;
 
 /**
  * Get the variables sent or posted to this script and a core script
@@ -81,7 +82,6 @@ $post_params = array(
     'local_import_file'
 );
 
-// TODO: adapt full list of allowed parameters, as in export.php
 foreach ($post_params as $one_post_param) {
     if (isset($_POST[$one_post_param])) {
         $GLOBALS[$one_post_param] = $_POST[$one_post_param];
@@ -242,7 +242,7 @@ $format = PMA_securePath($format);
 
 // Create error and goto url
 if ($import_type == 'table') {
-    $err_url = 'tbl_import.php' . PMA_URL_getCommon(
+    $err_url = 'tbl_import.php' . URL::getCommon(
         array(
             'db' => $db, 'table' => $table
         )
@@ -250,11 +250,11 @@ if ($import_type == 'table') {
     $_SESSION['Import_message']['go_back_url'] = $err_url;
     $goto = 'tbl_import.php';
 } elseif ($import_type == 'database') {
-    $err_url = 'db_import.php' . PMA_URL_getCommon(array('db' => $db));
+    $err_url = 'db_import.php' . URL::getCommon(array('db' => $db));
     $_SESSION['Import_message']['go_back_url'] = $err_url;
     $goto = 'db_import.php';
 } elseif ($import_type == 'server') {
-    $err_url = 'server_import.php' . PMA_URL_getCommon();
+    $err_url = 'server_import.php' . URL::getCommon();
     $_SESSION['Import_message']['go_back_url'] = $err_url;
     $goto = 'server_import.php';
 } else {
@@ -268,11 +268,11 @@ if ($import_type == 'table') {
         }
     }
     if (mb_strlen($table) && mb_strlen($db)) {
-        $common = PMA_URL_getCommon(array('db' => $db, 'table' => $table));
+        $common = URL::getCommon(array('db' => $db, 'table' => $table));
     } elseif (mb_strlen($db)) {
-        $common = PMA_URL_getCommon(array('db' => $db));
+        $common = URL::getCommon(array('db' => $db));
     } else {
-        $common = PMA_URL_getCommon();
+        $common = URL::getCommon();
     }
     $err_url  = $goto . $common
         . (preg_match('@^tbl_[a-z]*\.php$@', $goto)
@@ -671,12 +671,16 @@ if (! empty($id_bookmark) && $_REQUEST['action_bookmark'] == 2) {
         htmlspecialchars($_POST['bkm_label'])
     );
 } elseif ($finished && ! $error) {
-    if ($import_type == 'query') {
-        $message = PMA\libraries\Message::success();
-    } else {
+    // Do not display the query with message, we do it separately
+    $display_query = ';';
+    if ($import_type != 'query') {
         $message = PMA\libraries\Message::success(
             '<em>'
-            . __('Import has been successfully finished, %d queries executed.')
+            . _ngettext(
+                'Import has been successfully finished, %d query executed.',
+                'Import has been successfully finished, %d queries executed.',
+                $executed_queries
+            )
             . '</em>'
         );
         $message->addParam($executed_queries);
