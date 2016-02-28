@@ -1,0 +1,21 @@
+<select name="<?php echo htmlspecialchars($select_name);?>"
+        id="<?php echo htmlspecialchars($id);?>"
+        <?php if(!empty($class)):?>
+            class="<?php echo htmlspecialchars($id);?>"
+        <?php endif; ?>>
+ <?php foreach ($choices as $one_choice_value=>$one_choice_label):?>
+    <option value="<?php echo htmlspecialchars($one_choice_value);?>"
+    <?php if ($one_choice_value == $active_choice):?>
+        selected="selected"
+        <?php $selected=true;?>
+    <?php endif;?>><?php echo htmlspecialchars($one_choice_label); ?></option>
+<?php endforeach; ?>
+<?php if(!empty($placeholder)):?>
+    <option disabled="disabled"
+    <?php if(!$selected):?>
+        selected="selected"
+    <?php else:?>
+        selected="<?php echo $placeholder;?>"
+    <?php endif;?>></option>
+<?php endif;?>
+</select>
