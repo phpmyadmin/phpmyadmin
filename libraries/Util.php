@@ -2862,26 +2862,11 @@ class Util
      */
     public static function getDivForSliderEffect($id = '', $message = '')
     {
-        if ($GLOBALS['cfg']['InitialSlidersState'] == 'disabled') {
-            return '<div' . ($id ? ' id="' . $id . '"' : '') . '>';
-        }
-        /**
-         * Bad hack on the next line. document.write() conflicts with jQuery,
-         * hence, opening the <div> with PHP itself instead of JavaScript.
-         *
-         * @todo find a better solution that uses $.append(), the recommended
-         * method maybe by using an additional param, the id of the div to
-         * append to
-         */
-
-        return '<div'
-             . ($id ? ' id="' . $id . '"' : '')
-            . (($GLOBALS['cfg']['InitialSlidersState'] == 'closed')
-                ? ' style="display: none; overflow:auto;"'
-                : '')
-            . ' class="pma_auto_slider"'
-            . ($message ? ' title="' . htmlspecialchars($message) . '"' : '')
-            . '>';
+        return Template::get('getDivForSliderEffect')->render([
+            'id'                   => $id,
+            'InitialSlidersState'  => $GLOBALS['cfg']['InitialSlidersState'],
+            'message'              => $message,
+        ]);
     }
 
     /**
@@ -2911,42 +2896,19 @@ class Util
             $state = 'on';
         }
 
-        // Generate output
-        return "<!-- TOGGLE START -->\n"
-            . "<div class='wrapper toggleAjax hide'>\n"
-            . "    <div class='toggleButton'>\n"
-            . "        <div title='" . __('Click to toggle')
-            . "' class='container $state'>\n"
-            . "           <img src='" . htmlspecialchars($GLOBALS['pmaThemeImage'])
-            . "toggle-" . htmlspecialchars($GLOBALS['text_dir']) . ".png'\n"
-            . "                 alt='' />\n"
-            . "            <table class='nospacing nopadding'>\n"
-            . "                <tbody>\n"
-            . "                <tr>\n"
-            . "                <td class='toggleOn'>\n"
-            . "                    <span class='hide'>$link_on</span>\n"
-            . "                    <div>"
-            . str_replace(' ', '&nbsp;', htmlspecialchars($options[1]['label']))
-            . "\n" . "                    </div>\n"
-            . "                </td>\n"
-            . "                <td><div>&nbsp;</div></td>\n"
-            . "                <td class='toggleOff'>\n"
-            . "                    <span class='hide'>$link_off</span>\n"
-            . "                    <div>"
-            . str_replace(' ', '&nbsp;', htmlspecialchars($options[0]['label']))
-            . "\n" . "                    </div>\n"
-            . "                </tr>\n"
-            . "                </tbody>\n"
-            . "            </table>\n"
-            . "            <span class='hide callback'>"
-            . htmlspecialchars($callback) . "</span>\n"
-            . "            <span class='hide text_direction'>"
-            . htmlspecialchars($GLOBALS['text_dir']) . "</span>\n"
-            . "        </div>\n"
-            . "    </div>\n"
-            . "</div>\n"
-            . "<!-- TOGGLE END -->";
-
+        return Template::get('toggleButton')->render(
+            [
+                'pmaThemeImage'     => $GLOBALS['pmaThemeImage'],
+                'text_dir'          => $GLOBALS['text_dir'],
+                'link_on'           => $link_on,
+                'toggleOn'          => str_replace(' ', '&nbsp;', htmlspecialchars(
+                                        $options[1]['label'])),
+                'toggleOff'         => str_replace(' ', '&nbsp;', htmlspecialchars(
+                                        $options[0]['label'])),
+                'link_off'          => $link_off,
+                'callback'          => $callback,
+                'state'             => $state
+            ]);
     } // end toggleButton()
 
     /**
