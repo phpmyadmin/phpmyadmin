@@ -101,7 +101,7 @@ class Config
      */
     public function checkSystem()
     {
-        $this->set('PMA_VERSION', '4.6.0-alpha1');
+        $this->set('PMA_VERSION', '4.6.0-rc1');
         /**
          * @deprecated
          */
@@ -724,8 +724,8 @@ class Config
         Util::configureCurl($handle);
         curl_setopt($handle, CURLOPT_FOLLOWLOCATION, 0);
         curl_setopt($handle, CURLOPT_RETURNTRANSFER, 1);
-        curl_setopt($handle, CURLOPT_SSL_VERIFYHOST, 0);
-        curl_setopt($handle, CURLOPT_SSL_VERIFYPEER, 0);
+        curl_setopt($handle, CURLOPT_SSL_VERIFYHOST, '2');
+        curl_setopt($handle, CURLOPT_SSL_VERIFYPEER, '1');
         curl_setopt($handle, CURLOPT_CONNECTTIMEOUT, 5);
         curl_setopt($handle, CURLOPT_TIMEOUT, 5);
         curl_setopt($handle, CURLOPT_IPRESOLVE, CURL_IPRESOLVE_V4);

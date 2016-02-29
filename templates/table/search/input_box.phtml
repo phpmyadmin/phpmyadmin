@@ -20,7 +20,7 @@ if ($_foreigners
                <?php if (isset($criteriaValues[$column_index])
                    && is_string($criteriaValues[$column_index])
                ): ?>
-                   value="<?= $criteriaValues[$column_index]; ?>"
+                   value="<?= htmlspecialchars($criteriaValues[$column_index]); ?>"
                <?php endif; ?> />
         <a class="ajax browse_foreign"
            href="<?= ('browse_foreigners.php') , PMA_URL_getCommon(array('db' => $db, 'table' => $table))
@@ -90,6 +90,7 @@ if ($_foreigners
                 && is_array($criteriaValues[$column_index])
                 && in_array($value[$j], $criteriaValues[$column_index])
             ): ?>
+<<<<<<< HEAD
                 <option value="<?= $value[$j]; ?>"
                         selected>
                     <?= $value[$j]; ?>
@@ -97,6 +98,15 @@ if ($_foreigners
             <?php else: ?>
                 <option value="<?= $value[$j]; ?>">
                     <?= $value[$j]; ?>
+=======
+                <option value="<?php echo htmlspecialchars($value[$j]); ?>"
+                        selected>
+                    <?php echo htmlspecialchars($value[$j]); ?>
+                </option>
+            <?php else: ?>
+                <option value="<?php echo htmlspecialchars($value[$j]); ?>">
+                    <?php echo htmlspecialchars($value[$j]); ?>
+>>>>>>> MAINT_4_5_5-security
                 </option>
             <?php endif; ?>
         <?php endfor; ?>
@@ -126,7 +136,11 @@ if ($_foreigners
            <?php if (isset($criteriaValues[$column_index])
                && is_string($criteriaValues[$column_index])
            ): ?>
+<<<<<<< HEAD
                value="<?= $criteriaValues[$column_index]; ?>"
+=======
+               value="<?php echo htmlspecialchars($criteriaValues[$column_index]); ?>"
+>>>>>>> MAINT_4_5_5-security
            <?php endif; ?>/>
 
 <?php endif; ?>

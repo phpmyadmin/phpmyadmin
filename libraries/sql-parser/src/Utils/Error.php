@@ -90,7 +90,7 @@ class Error
                 ++$i,
                 $err[0],
                 $err[1],
-                $err[2],
+                htmlspecialchars($err[2]),
                 $err[3]
             );
         }

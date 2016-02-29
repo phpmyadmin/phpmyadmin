@@ -54,6 +54,10 @@ phpMyAdmin - ChangeLog
 - issue #12012 Column definition with default value and comment in CREATE TABLE expoerted faulty.
 - issue #12020 New statement but no delimiter and unexpected token with REPLACE.
 - issue #12029 Fixed incorrect usage of SQL parser context in SQL export
+- issue        [security] XSS vulnerability in SQL parser, see PMASA-2016-10.
+- issue        [security] Multiple XSS vulnerabilities, see PMASA-2016-11.
+- issue        [security] Multiple XSS vulnerabilities, see PMASA-2016-12.
+- issue        [security] Vulnerability allowing man-in-the-middle attack on API call to GitHub, see PMASA-2016-13.
 - issue #12048 Fixed inclusion of gettext library from SQL parser
 
 4.5.5.0 (2016-02-22)
