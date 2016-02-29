@@ -11,6 +11,7 @@ phpMyAdmin - ChangeLog
 - issue        [security] Multiple XSS vulnerabilities, see PMASA-2016-11.
 - issue        [security] Multiple XSS vulnerabilities, see PMASA-2016-12.
 - issue        [security] Vulnerability allowing man-in-the-middle attack on API call to GitHub, see PMASA-2016-13.
+- issue #12048 Fixed inclusion of gettext library from SQL parser
 
 4.5.5.0 (2016-02-22)
 - issue        Undefined index: is_ajax_request
