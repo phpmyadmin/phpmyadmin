@@ -243,6 +243,24 @@ function escapeHtml(unsafe) {
     }
 }
 
+function escapeJsString(unsafe) {
+    if (typeof(unsafe) != 'undefined') {
+        return unsafe
+            .toString()
+            .replace("\000", '')
+            .replace('\\', '\\\\')
+            .replace('\'', '\\\'')
+            .replace("&#039;", "\\\&#039;")
+            .replace('"', '\"')
+            .replace("&quot;", "\&quot;")
+            .replace("\n", '\n')
+            .replace("\r", '\r')
+            .replace(/<\/script/gi, '</\' + \'script')
+    } else {
+        return false;
+    }
+}
+
 function PMA_sprintf() {
     return sprintf.apply(this, arguments);
 }
@@ -1840,7 +1858,7 @@ AJAX.registerOnload('functions.js', function () {
         var $inner_sql = $(this).parent().prev().find('code.sql');
         var old_text   = $inner_sql.html();
 
-        var new_content = "<textarea name=\"sql_query_edit\" id=\"sql_query_edit\">" + sql_query + "</textarea>\n";
+        var new_content = "<textarea name=\"sql_query_edit\" id=\"sql_query_edit\">" + escapeHtml(sql_query) + "</textarea>\n";
         new_content    += getForeignKeyCheckboxLoader();
         new_content    += "<input type=\"submit\" id=\"sql_query_edit_save\" class=\"button btnSave\" value=\"" + PMA_messages.strGo + "\"/>\n";
         new_content    += "<input type=\"button\" id=\"sql_query_edit_discard\" class=\"button btnDiscard\" value=\"" + PMA_messages.strCancel + "\"/>\n";

@@ -1,6 +1,18 @@
 phpMyAdmin - ChangeLog
 ======================
 
+4.5.5.1 (2016-02-29)
+- issue #11971 CREATE UNIQUE INDEX index type is not recognized by parser.
+- issue #11982 Row count wrong when grouping joined tables.
+- issue #12012 Column definition with default value and comment in CREATE TABLE expoerted faulty.
+- issue #12020 New statement but no delimiter and unexpected token with REPLACE.
+- issue #12029 Fixed incorrect usage of SQL parser context in SQL export
+- issue        [security] XSS vulnerability in SQL parser, see PMASA-2016-10.
+- issue        [security] Multiple XSS vulnerabilities, see PMASA-2016-11.
+- issue        [security] Multiple XSS vulnerabilities, see PMASA-2016-12.
+- issue        [security] Vulnerability allowing man-in-the-middle attack on API call to GitHub, see PMASA-2016-13.
+- issue #12048 Fixed inclusion of gettext library from SQL parser
+
 4.5.5.0 (2016-02-22)
 - issue        Undefined index: is_ajax_request
 - issue #11855 Fix password change on MariaDB 10.1 and newer
@@ -70,15 +82,15 @@ phpMyAdmin - ChangeLog
 - issue #11854 Undefined property: stdClass::$releases at version check when disabled in config
 - issue #11814 SQL comment and variable stripped from bookmark on save
 - issue        Gracefully handle errors in regex based javascript search
-- issue        [Security] Multiple full path disclosure vulnerabilities, see PMASA-2016-1
-- issue        [Security] Unsafe generation of CSRF token, see PMASA-2016-2
-- issue        [Security] Multiple XSS vulnerabilities, see PMASA-2016-3
-- issue        [Security] Insecure password generation in JavaScript, see PMASA-2016-4
-- issue        [Security] Unsafe comparison of CSRF token, see PMASA-2016-5
-- issue        [Security] Multiple full path disclosure vulnerabilities, see PMASA-2016-6
-- issue        [Security] XSS vulnerability in normalization page, see PMASA-2016-7
-- issue        [Security] Full path disclosure vulnerability in SQL parser, see PMASA-2016-8
-- issue        [Security] XSS vulnerability in SQL editor, see PMASA-2016-9
+- issue        [security] Multiple full path disclosure vulnerabilities, see PMASA-2016-1
+- issue        [security] Unsafe generation of CSRF token, see PMASA-2016-2
+- issue        [security] Multiple XSS vulnerabilities, see PMASA-2016-3
+- issue        [security] Insecure password generation in JavaScript, see PMASA-2016-4
+- issue        [security] Unsafe comparison of CSRF token, see PMASA-2016-5
+- issue        [security] Multiple full path disclosure vulnerabilities, see PMASA-2016-6
+- issue        [security] XSS vulnerability in normalization page, see PMASA-2016-7
+- issue        [security] Full path disclosure vulnerability in SQL parser, see PMASA-2016-8
+- issue        [security] XSS vulnerability in SQL editor, see PMASA-2016-9
 
          --- Older ChangeLogs can be found on our project website ---
                      http://www.phpmyadmin.net/old-stuff/ChangeLogs/

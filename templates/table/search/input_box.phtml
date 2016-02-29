@@ -20,7 +20,7 @@ if ($_foreigners
                <?php if (isset($criteriaValues[$column_index])
                    && is_string($criteriaValues[$column_index])
                ): ?>
-                   value="<?php echo $criteriaValues[$column_index]; ?>"
+                   value="<?php echo htmlspecialchars($criteriaValues[$column_index]); ?>"
                <?php endif; ?> />
         <a class="ajax browse_foreign"
            href="browse_foreigners.php<?php
@@ -93,13 +93,13 @@ if ($_foreigners
                 && is_array($criteriaValues[$column_index])
                 && in_array($value[$j], $criteriaValues[$column_index])
             ): ?>
-                <option value="<?php echo $value[$j]; ?>"
+                <option value="<?php echo htmlspecialchars($value[$j]); ?>"
                         selected>
-                    <?php echo $value[$j]; ?>
+                    <?php echo htmlspecialchars($value[$j]); ?>
                 </option>
             <?php else: ?>
-                <option value="<?php echo $value[$j]; ?>">
-                    <?php echo $value[$j]; ?>
+                <option value="<?php echo htmlspecialchars($value[$j]); ?>">
+                    <?php echo htmlspecialchars($value[$j]); ?>
                 </option>
             <?php endif; ?>
         <?php endfor; ?>
@@ -129,7 +129,7 @@ if ($_foreigners
            <?php if (isset($criteriaValues[$column_index])
                && is_string($criteriaValues[$column_index])
            ): ?>
-               value="<?php echo $criteriaValues[$column_index]; ?>"
+               value="<?php echo htmlspecialchars($criteriaValues[$column_index]); ?>"
            <?php endif; ?>/>
 
 <?php endif; ?>

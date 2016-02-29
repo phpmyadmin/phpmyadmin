@@ -68,7 +68,7 @@ for ($i = 0; $i < 4; $i++): ?>
         </td>
         <!-- Inputbox for search criteria value -->
         <td>
-            <?php echo (isset($value[$i]) ? htmlspecialchars($value[$i]) : ''); ?>
+            <?php echo (isset($value[$i]) ? $value[$i] : ''); ?>
         </td>
     </tr>
     <!-- Displays hidden fields -->

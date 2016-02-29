@@ -92,7 +92,7 @@ if (isset($_REQUEST['total_rows']) && $_REQUEST['total_rows']) {
 } else {
     $total_rows = PMA_getCentralColumnsCount($db);
 }
-if (isset($_REQUEST['pos'])) {
+if (PMA_isValid($_REQUEST['pos'], 'integer')) {
     $pos = $_REQUEST['pos'];
 } else {
     $pos = 0;

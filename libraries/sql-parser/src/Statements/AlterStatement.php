@@ -51,6 +51,15 @@ class AlterStatement extends Statement
         'ONLINE'                        => 1,
         'OFFLINE'                       => 1,
         'IGNORE'                        => 2,
+
+        'DATABASE'                      => 3,
+        'EVENT'                         => 3,
+        'FUNCTION'                      => 3,
+        'PROCEDURE'                     => 3,
+        'SERVER'                        => 3,
+        'TABLE'                         => 3,
+        'TABLESPACE'                    => 3,
+        'VIEW'                          => 3,
     );
 
     /**
@@ -67,16 +76,14 @@ class AlterStatement extends Statement
             $list,
             static::$OPTIONS
         );
-
-        // Skipping `TABLE`.
-        $list->getNextOfTypeAndValue(Token::TYPE_KEYWORD, 'TABLE');
+        ++$list->idx;
 
         // Parsing affected table.
         $this->table = Expression::parse(
             $parser,
             $list,
             array(
-                'parseField' => 'column',
+                'parseField' => 'table',
                 'breakOnAlias' => true,
             )
         );
@@ -114,7 +121,16 @@ class AlterStatement extends Statement
             }
 
             if ($state === 0) {
-                $this->altered[] = AlterOperation::parse($parser, $list);
+                $options = array();
+                if ($this->options->has('DATABASE')) {
+                    $options = AlterOperation::$DB_OPTIONS;
+                } elseif ($this->options->has('TABLE')) {
+                    $options = AlterOperation::$TABLE_OPTIONS;
+                } elseif ($this->options->has('VIEW')) {
+                    $options = AlterOperation::$VIEW_OPTIONS;
+                }
+
+                $this->altered[] = AlterOperation::parse($parser, $list, $options);
                 $state = 1;
             } elseif ($state === 1) {
                 if (($token->type === Token::TYPE_OPERATOR) && ($token->value === ',')) {
@@ -135,7 +151,7 @@ class AlterStatement extends Statement
         }
 
         return 'ALTER ' . OptionsArray::build($this->options)
-            . ' TABLE ' . Expression::build($this->table)
+            . ' ' . Expression::build($this->table)
             . ' ' . implode(', ', $tmp);
     }
 }

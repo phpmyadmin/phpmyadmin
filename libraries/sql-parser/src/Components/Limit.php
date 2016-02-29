@@ -128,7 +128,7 @@ class Limit extends Component
     public static function build($component, array $options = array())
     {
         if (empty($component->offset)) {
-            return $component->rowCount;
+            return (string) $component->rowCount;
         } else {
             return $component->offset . ', ' . $component->rowCount;
         }
