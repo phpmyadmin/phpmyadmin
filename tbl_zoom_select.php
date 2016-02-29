@@ -94,7 +94,11 @@ if (isset($_REQUEST['change_tbl_info']) && $_REQUEST['change_tbl_info'] == true)
         exit;
     }
     $key = array_search($field, $table_search->getColumnNames());
-    $properties = $table_search->getColumnProperties($_REQUEST['it'], $key);
+    $search_index = 0;
+    if (PMA_isValid($_REQUEST['it'], 'integer')) {
+        $search_index = $_REQUEST['it'];
+    }
+    $properties = $table_search->getColumnProperties($search_index, $key);
     $response->addJSON('field_type', htmlspecialchars($properties['type']));
     $response->addJSON('field_collation', $properties['collation']);
     $response->addJSON('field_operators', $properties['func']);
