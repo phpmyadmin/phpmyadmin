@@ -38,7 +38,7 @@ class NavigationTest extends PMATestCase
         $GLOBALS['cfgRelation']['navigationhiding'] = 'navigationhiding';
         $GLOBALS['cfg']['Server']['user'] = 'user';
         $GLOBALS['cfg']['ActionLinksMode'] = 'both';
-
+        $GLOBALS['pmaThemeImage'] = '';
     }
 
     /**
