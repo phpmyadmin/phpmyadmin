@@ -98,6 +98,8 @@ class ServerDatabasesController extends Controller
             $html .= Template::get('server/databases/create')->render();
         }
 
+        $html .= Template::get('filter')->render(array('filterValue'=>''));
+
         /**
          * Gets the databases list
          */
@@ -432,6 +434,7 @@ class ServerDatabasesController extends Controller
 
         foreach ($this->_databases as $current) {
             $tr_class = $odd_row ? 'odd' : 'even';
+            $tr_class .= ' db-row';
             if ($this->dbi->isSystemSchema($current['SCHEMA_NAME'], true)) {
                 $tr_class .= ' noclick';
             }

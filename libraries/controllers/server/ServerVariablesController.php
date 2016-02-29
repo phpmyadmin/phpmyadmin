@@ -272,7 +272,7 @@ class ServerVariablesController extends Controller
     {
         // filter
         $filterValue = ! empty($_REQUEST['filter']) ? $_REQUEST['filter'] : '';
-        $output = Template::get('server/variables/variable_filter')
+        $output = Template::get('filter')
             ->render(array('filterValue' => $filterValue));
 
         $output .= '<table id="serverVariables" class="data filteredData noclick">';
