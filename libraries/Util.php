@@ -2862,7 +2862,7 @@ class Util
      */
     public static function getDivForSliderEffect($id = '', $message = '')
     {
-        return Template::get('getDivForSliderEffect')->render([
+        return Template::get('div_for_slider_effect')->render([
             'id'                   => $id,
             'InitialSlidersState'  => $GLOBALS['cfg']['InitialSlidersState'],
             'message'              => $message,
@@ -2896,7 +2896,7 @@ class Util
             $state = 'on';
         }
 
-        return Template::get('toggleButton')->render(
+        return Template::get('toggle_button')->render(
             [
                 'pmaThemeImage'     => $GLOBALS['pmaThemeImage'],
                 'text_dir'          => $GLOBALS['text_dir'],
