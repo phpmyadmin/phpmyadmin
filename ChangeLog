@@ -1,7 +1,7 @@
 phpMyAdmin - ChangeLog
 ======================
 
-4.4.15.5 (not yet released)
+4.4.15.5 (2016-02-29)
 - issue        [security] Multiple XSS vulnerabilities, see PMASA-2016-11.
 - issue        [security] Multiple XSS vulnerabilities, see PMASA-2016-12.
 
