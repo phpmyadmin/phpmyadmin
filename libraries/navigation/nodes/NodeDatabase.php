@@ -694,7 +694,7 @@ class NodeDatabase extends Node
                     . '&dbName=' . urldecode($this->real_name) . '"'
                     . ' class="showUnhide ajax">'
                     . Util::getImage(
-                        'lightbulb.png',
+                        'show.png',
                         __('Show hidden items')
                     )
                     . '</a></span>';

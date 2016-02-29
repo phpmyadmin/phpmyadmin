@@ -216,7 +216,7 @@ class Navigation
                             . '&itemName=' . urlencode($hiddenItem)
                             . '&dbName=' . urlencode($dbName) . '"'
                             . ' class="unhideNavItem ajax">'
-                            . Util::getIcon('lightbulb.png', __('Show'))
+                            . Util::getIcon('show.png', __('Show'))
                             .  '</a></td>';
                         $odd = ! $odd;
                     }
