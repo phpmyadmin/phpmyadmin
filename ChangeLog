@@ -54,6 +54,7 @@ phpMyAdmin - ChangeLog
 - issue #12012 Column definition with default value and comment in CREATE TABLE expoerted faulty.
 - issue #12020 New statement but no delimiter and unexpected token with REPLACE.
 - issue #12029 Fixed incorrect usage of SQL parser context in SQL export
+- issue #12048 Fixed inclusion of gettext library from SQL parser
 
 4.5.5.0 (2016-02-22)
 - issue        Undefined index: is_ajax_request
