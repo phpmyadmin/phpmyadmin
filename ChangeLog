@@ -1,7 +1,7 @@
 phpMyAdmin - ChangeLog
 ======================
 
-4.5.5.1 (not yet released)
+4.5.5.1 (2016-02-29)
 - issue #11971 CREATE UNIQUE INDEX index type is not recognized by parser.
 - issue #11982 Row count wrong when grouping joined tables.
 - issue #12012 Column definition with default value and comment in CREATE TABLE expoerted faulty.
