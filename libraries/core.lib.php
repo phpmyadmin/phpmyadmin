@@ -246,8 +246,8 @@ function PMA_fatalError(
         } else {
             $error_header = 'Error';
         }
-        $lang = $GLOBALS['lang'];
-        $dir = $GLOBALS['text_dir'];
+        $lang = isset($GLOBALS['lang']) ? $GLOBALS['lang'] : 'en';
+        $dir = isset($GLOBALS['text_dir']) ? $GLOBALS['text_dir'] : 'ltr';
 
         // on fatal errors it cannot hurt to always delete the current session
         if ($delete_session

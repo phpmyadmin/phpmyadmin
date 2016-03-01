@@ -191,14 +191,14 @@ class Util
 
         // If it's the first time this function is called
         if (! isset($sprites)) {
+            $sprites = array();
             // Try to load the list of sprites
-            $sprite_file = $_SESSION['PMA_Theme']->getPath() . '/sprites.lib.php';
-            if (is_readable($sprite_file)) {
-                include_once $sprite_file;
-                $sprites = PMA_sprites();
-            } else {
-                // No sprites are available for this theme
-                $sprites = array();
+            if (isset($_SESSION['PMA_Theme'])) {
+                $sprite_file = $_SESSION['PMA_Theme']->getPath() . '/sprites.lib.php';
+                if (is_readable($sprite_file)) {
+                    include_once $sprite_file;
+                    $sprites = PMA_sprites();
+                }
             }
         }
 
