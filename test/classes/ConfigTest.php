@@ -49,6 +49,7 @@ class ConfigTest extends PMATestCase
         $GLOBALS['server'] = 0;
         $_SESSION['is_git_revision'] = true;
         $GLOBALS['PMA_Config'] = new PMA\libraries\Config(CONFIG_FILE);
+        $GLOBALS['cfg']['ProxyUrl'] = '';
 
         //for testing file permissions
         $this->permTestObj = new PMA\libraries\Config("./config.sample.inc.php");
@@ -886,14 +887,19 @@ class ConfigTest extends PMATestCase
             $this->markTestSkipped('Missing curl extension!');
         }
         $this->assertTrue(
-            $this->object->checkHTTP("http://www.phpmyadmin.net/test/data")
+            $this->object->checkHTTP("https://www.phpmyadmin.net/test/data")
         );
         $this->assertContains(
             "TEST DATA",
-            $this->object->checkHTTP("http://www.phpmyadmin.net/test/data", true)
+            $this->object->checkHTTP("https://www.phpmyadmin.net/test/data", true)
         );
         $this->assertFalse(
-            $this->object->checkHTTP("http://www.phpmyadmin.net/test/nothing")
+            $this->object->checkHTTP("https://www.phpmyadmin.net/test/nothing")
+        );
+        // Use rate limit API as it's not subject to rate limiting
+        $this->assertContains(
+            '"resources"',
+            $this->object->checkHTTP("https://api.github.com/rate_limit", true)
         );
     }
 }
