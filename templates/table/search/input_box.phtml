@@ -90,23 +90,13 @@ if ($_foreigners
                 && is_array($criteriaValues[$column_index])
                 && in_array($value[$j], $criteriaValues[$column_index])
             ): ?>
-<<<<<<< HEAD
-                <option value="<?= $value[$j]; ?>"
-                        selected>
-                    <?= $value[$j]; ?>
-                </option>
-            <?php else: ?>
-                <option value="<?= $value[$j]; ?>">
-                    <?= $value[$j]; ?>
-=======
-                <option value="<?php echo htmlspecialchars($value[$j]); ?>"
+                <option value="<?= htmlspecialchars($value[$j]); ?>"
                         selected>
                     <?php echo htmlspecialchars($value[$j]); ?>
                 </option>
             <?php else: ?>
-                <option value="<?php echo htmlspecialchars($value[$j]); ?>">
+                <option value="<?= htmlspecialchars($value[$j]); ?>">
                     <?php echo htmlspecialchars($value[$j]); ?>
->>>>>>> MAINT_4_5_5-security
                 </option>
             <?php endif; ?>
         <?php endfor; ?>
@@ -136,11 +126,7 @@ if ($_foreigners
            <?php if (isset($criteriaValues[$column_index])
                && is_string($criteriaValues[$column_index])
            ): ?>
-<<<<<<< HEAD
-               value="<?= $criteriaValues[$column_index]; ?>"
-=======
-               value="<?php echo htmlspecialchars($criteriaValues[$column_index]); ?>"
->>>>>>> MAINT_4_5_5-security
+               value="<?= htmlspecialchars($criteriaValues[$column_index]); ?>"
            <?php endif; ?>/>
 
 <?php endif; ?>
