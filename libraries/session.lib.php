@@ -30,7 +30,7 @@ function PMA_secureSession()
  */
 function PMA_generateToken()
 {
-    if (! function_exists('openssl_random_pseudo_bytes')) {
+    if (class_exists('phpseclib\Crypt\Random')) {
         $_SESSION[' PMA_token '] = bin2hex(phpseclib\Crypt\Random::string(16));
     } else {
         $_SESSION[' PMA_token '] = bin2hex(openssl_random_pseudo_bytes(16));

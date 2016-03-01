@@ -692,11 +692,7 @@ class AuthenticationCookie extends AuthenticationPlugin
      */
     public static function useOpenSSL()
     {
-        return (
-            function_exists('openssl_encrypt')
-            && function_exists('openssl_decrypt')
-            && function_exists('openssl_random_pseudo_bytes')
-        );
+        return ! class_exists('phpseclib\Crypt\Random');
     }
 
     /**
