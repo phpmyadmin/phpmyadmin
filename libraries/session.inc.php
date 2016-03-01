@@ -117,5 +117,13 @@ if (! isset($_SESSION[' PMA_token '])) {
         $_SESSION[' PMA_token '] = bin2hex(openssl_random_pseudo_bytes(16));
     }
 }
+/**
+ * Check if token is properly generated (both above functions can return false).
+ */
+if (empty($_SESSION[' PMA_token '])) {
+    PMA_fatalError(
+        'Failed to generate random CSRF token!'
+    );
+}
 
 require_once 'libraries/session.lib.php';
