@@ -194,8 +194,11 @@ class Util
 
         // If it's the first time this function is called
         if (! isset($sprites)) {
+            $sprites = array();
             // Try to load the list of sprites
-            $sprites = $_SESSION['PMA_Theme']->getSpriteData();
+            if (isset($_SESSION['PMA_Theme'])) {
+                $sprites = $_SESSION['PMA_Theme']->getSpriteData();
+            }
         }
 
         // Check if we have the requested image as a sprite

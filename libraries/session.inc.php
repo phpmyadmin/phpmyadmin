@@ -13,6 +13,8 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
+require_once 'libraries/session.lib.php';
+
 // verify if PHP supports session, die if it does not
 
 if (!@function_exists('session_name')) {
@@ -111,11 +113,13 @@ if (! isset($_COOKIE[$session_name])) {
  * (we use "space PMA_token space" to prevent overwriting)
  */
 if (! isset($_SESSION[' PMA_token '])) {
-    if (! function_exists('openssl_random_pseudo_bytes')) {
-        $_SESSION[' PMA_token '] = bin2hex(phpseclib\Crypt\Random::string(16));
-    } else {
-        $_SESSION[' PMA_token '] = bin2hex(openssl_random_pseudo_bytes(16));
-    }
+    PMA_generateToken();
 }
-
-require_once 'libraries/session.lib.php';
+/**
+ * Check if token is properly generated (both above functions can return false).
+ */
+if (empty($_SESSION[' PMA_token '])) {
+    PMA_fatalError(
+        'Failed to generate random CSRF token!'
+    );
+}
