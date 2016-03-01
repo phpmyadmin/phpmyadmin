@@ -19,6 +19,17 @@ function PMA_secureSession()
     if (session_status() === PHP_SESSION_ACTIVE) {
         session_regenerate_id(true);
     }
+    PMA_generateToken();
+}
+
+
+/**
+ * Generates PMA_token session variable.
+ *
+ * @return void
+ */
+function PMA_generateToken()
+{
     if (! function_exists('openssl_random_pseudo_bytes')) {
         $_SESSION[' PMA_token '] = bin2hex(phpseclib\Crypt\Random::string(16));
     } else {
