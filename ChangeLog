@@ -49,6 +49,7 @@ phpMyAdmin - ChangeLog
 - issue        Fix SQL syntax highlighting in database search page
 - issue #12056 Fix error when we can not generate random string
 - issue #12055 Fixed PHP syntax error in templates
+- issue #12054 Fixed processing of queries with escaped quotes
 
 4.5.5.1 (2016-02-29)
 - issue #11971 CREATE UNIQUE INDEX index type is not recognized by parser.
