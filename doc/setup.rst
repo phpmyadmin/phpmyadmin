@@ -770,7 +770,7 @@ are always ways to make your installation more secure:
 * If you are afraid of automated attacks, enabling Captcha by
   :config:option:`$cfg['CaptchaLoginPublicKey']` and
   :config:option:`$cfg['CaptchaLoginPrivateKey']` might be an option.
-* Alternative approach might be using using fail2ban as phpMyAdmin logs failed
+* Alternative approach might be using fail2ban as phpMyAdmin logs failed
   authentication attempts to syslog (if available)
 
 Known issues
