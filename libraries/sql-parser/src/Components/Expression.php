@@ -254,6 +254,9 @@ class Expression extends Component
                         continue;
                     }
                     $isExpr = true;
+                } elseif ($brackets === 0 && count($ret->expr) > 0) {
+                    /* End of expression */
+                    break;
                 }
             }
 
