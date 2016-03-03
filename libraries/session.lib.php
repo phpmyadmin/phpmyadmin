@@ -35,4 +35,14 @@ function PMA_generateToken()
     } else {
         $_SESSION[' PMA_token '] = bin2hex(openssl_random_pseudo_bytes(16));
     }
+
+    /**
+     * Check if token is properly generated (the genration can fail, for example
+     * due to missing /dev/random for openssl).
+     */
+    if (empty($_SESSION[' PMA_token '])) {
+        PMA_fatalError(
+            'Failed to generate random CSRF token!'
+        );
+    }
 }

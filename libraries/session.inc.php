@@ -115,11 +115,3 @@ if (! isset($_COOKIE[$session_name])) {
 if (! isset($_SESSION[' PMA_token '])) {
     PMA_generateToken();
 }
-/**
- * Check if token is properly generated (both above functions can return false).
- */
-if (empty($_SESSION[' PMA_token '])) {
-    PMA_fatalError(
-        'Failed to generate random CSRF token!'
-    );
-}
