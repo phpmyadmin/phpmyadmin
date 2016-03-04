@@ -1286,7 +1286,7 @@ h3#serverstatusqueries span {
 
 /* Also used for the variables page */
 fieldset#tableFilter {
-    margin-bottom: 1em;
+    padding: 0.1em 1em;
 }
 
 div#serverStatusTabs {
