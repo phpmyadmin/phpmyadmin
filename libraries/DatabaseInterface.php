@@ -229,12 +229,13 @@ class DatabaseInterface
     public function tryQuery($query, $link = null, $options = 0,
         $cache_affected_rows = true
     ) {
+        $debug = isset($GLOBALS['cfg']['DBG']['sql']) && $GLOBALS['cfg']['DBG']['sql'];
         $link = $this->getLink($link);
         if ($link === false) {
             return false;
         }
 
-        if ($GLOBALS['cfg']['DBG']['sql']) {
+        if ($debug) {
             $time = microtime(true);
         }
 
@@ -244,7 +245,7 @@ class DatabaseInterface
             $GLOBALS['cached_affected_rows'] = $this->affectedRows($link, false);
         }
 
-        if ($GLOBALS['cfg']['DBG']['sql']) {
+        if ($debug) {
             $time = microtime(true) - $time;
             $this->_dbgQuery($query, $link, $result, $time);
         }
