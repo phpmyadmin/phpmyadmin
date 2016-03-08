@@ -574,6 +574,13 @@ class DisplayResults
                 $prev_table = $fields_meta[$i]->table;
             }
         } // end for
+
+        if ($prev_table == '') { // no table for any of the columns
+            // don't display links
+            $displayParts['edit_lnk'] = self::NO_EDIT_OR_DELETE;
+            $displayParts['del_lnk']  = self::NO_EDIT_OR_DELETE;
+        }
+
         return $displayParts;
     }
 
