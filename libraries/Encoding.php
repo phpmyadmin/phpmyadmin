@@ -29,7 +29,7 @@ class Encoding
     );
 
     private static $_engineorder = array(
-        'iconv', 'recode', 'mb'
+        'mb', 'iconv', 'recode',
     );
 
     private static $_kanji_encodings = null;
