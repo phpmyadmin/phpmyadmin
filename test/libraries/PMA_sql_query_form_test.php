@@ -18,8 +18,6 @@ $GLOBALS['server'] = 0;
 */
 
 require_once 'libraries/relation.lib.php';
-
-
 require_once 'libraries/database_interface.inc.php';
 require_once 'libraries/sql_query_form.lib.php';
 require_once 'libraries/mysql_charsets.inc.php';
@@ -174,6 +172,7 @@ class PMA_SqlQueryForm_Test extends PHPUnit_Framework_TestCase
     {
         //Call the test function
         $GLOBALS['is_upload'] = true;
+        $GLOBALS['lang'] = 'ja';
         $query = "select * from PMA";
         $html = PMA_getHtmlForSqlQueryForm($query);
 
@@ -216,5 +215,6 @@ class PMA_SqlQueryForm_Test extends PHPUnit_Framework_TestCase
             Encoding::kanjiEncodingForm(),
             $html
         );
+        $GLOBALS['lang'] = 'en';
     }
 }
