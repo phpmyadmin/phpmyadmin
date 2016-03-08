@@ -7,8 +7,6 @@
  */
 namespace PMA\libraries;
 
-use PMA\libraries\LanguageManager;
-
 /**
  * Encoding conversion helper class
  *
