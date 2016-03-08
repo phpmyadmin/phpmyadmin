@@ -38,6 +38,7 @@ class Condition extends Component
      * @var array
      */
     public static $ALLOWED_KEYWORDS = array(
+        'ALL'                           => 1,
         'AND'                           => 1,
         'BETWEEN'                       => 1,
         'EXISTS'                        => 1,
