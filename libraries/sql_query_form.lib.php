@@ -10,6 +10,7 @@
  * @usedby  tbl_tracking.php
  * @package PhpMyAdmin
  */
+use PMA\libraries\Encoding;
 use PMA\libraries\URL;
 
 if (! defined('PHPMYADMIN')) {
@@ -107,9 +108,9 @@ function PMA_getHtmlForSqlQueryForm(
         }
     }
 
-    // Encoding setting form appended by Y.Kawada
-    if (function_exists('PMA_Kanji_encodingForm')) {
-        $html .= PMA_Kanji_encodingForm();
+    // Japanese encoding setting
+    if (Encoding::canConvertKanji()) {
+        $html .= Encoding::kanjiEncodingForm();
     }
 
     $html .= '</form>' . "\n";

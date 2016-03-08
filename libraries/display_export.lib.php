@@ -383,12 +383,11 @@ function PMA_getHtmlForExportOptionsFormat($export_list)
     $html .= PMA_pluginGetOptions('Export', $export_list);
     $html .= '</div>';
 
-    if (function_exists('PMA_Kanji_encodingForm')) {
-        // Encoding setting form appended by Y.Kawada
+    if (Encoding::canConvertKanji()) {
         // Japanese encoding setting
         $html .= '<div class="exportoptions" id="kanji_encoding">';
         $html .= '<h3>' . __('Encoding Conversion:') . '</h3>';
-        $html .= PMA_Kanji_encodingForm();
+        $html .= Encoding::kanjiEncodingForm();
         $html .= '</div>';
     }
 

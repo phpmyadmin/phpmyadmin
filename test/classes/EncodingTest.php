@@ -7,10 +7,6 @@
  */
 
 use PMA\libraries\Encoding;
-/*
- * Include to test.
- */
-$cfg['RecodingEngine'] = null;
 
 /**
  * Tests for Charset Conversions
@@ -98,6 +94,155 @@ class EncodingTest extends PHPUnit_Framework_TestCase
             Encoding::convertString(
                 'UTF-8', 'ISO-8859-1', "This is the Euro symbol '€'."
             )
+        );
+    }
+
+    /**
+     * Test for kanjiCheckEncoding
+     *
+     * @param string $encoding Encoding to set
+     * @param string $expected Expected encoding list
+     *
+     * @return void
+     * @test
+     * @dataProvider checkKanjiEncodingData
+     */
+    public function testCheckKanjiEncoding($encoding, $expected)
+    {
+        mb_internal_encoding($encoding);
+        Encoding::kanjiCheckEncoding();
+        $this->assertEquals($expected, Encoding::getKanjiEncodings());
+    }
+
+    /**
+     * Data provider for testCheckKanjiEncoding
+     *
+     * @return array Test data
+     */
+    public function checkKanjiEncodingData()
+    {
+        return array(
+            array('UTF-8', 'ASCII,SJIS,EUC-JP,JIS'),
+            array('EUC-JP', 'ASCII,EUC-JP,SJIS,JIS')
+        );
+    }
+
+    /**
+     * Test for kanjiChangeOrder
+     *
+     * @param string $kanji_test_list current list
+     * @param string $expected        expected list
+     *
+     * @return void
+     * @test
+     * @dataProvider changeOrderData
+     */
+    public function testChangeOrder($kanji_test_list, $expected)
+    {
+        Encoding::setKanjiEncodings($kanji_test_list);
+        Encoding::kanjiChangeOrder();
+        $this->assertEquals($expected, Encoding::getKanjiEncodings());
+    }
+
+    /**
+     * Data Provider for testEncoding::kanjiChangeOrder
+     *
+     * @return array Test data
+     */
+    public function changeOrderData()
+    {
+        return array(
+            array('ASCII,SJIS,EUC-JP,JIS', 'ASCII,EUC-JP,SJIS,JIS'),
+            array('ASCII,EUC-JP,SJIS,JIS', 'ASCII,SJIS,EUC-JP,JIS')
+        );
+    }
+
+    /**
+     * Test for Encoding::kanjiStrConv
+     *
+     * @return void
+     * @test
+     */
+    public function testKanjiStrConv()
+    {
+        $this->assertEquals(
+            'test',
+            Encoding::kanjiStrConv('test', '', '')
+        );
+
+        $GLOBALS['kanji_encoding_list'] = 'ASCII,SJIS,EUC-JP,JIS';
+
+        $this->assertEquals(
+            'test è',
+            Encoding::kanjiStrConv('test è', '', '')
+        );
+
+        $this->assertEquals(
+            mb_convert_encoding('test è', 'ASCII', 'SJIS'),
+            Encoding::kanjiStrConv('test è', 'ASCII', '')
+        );
+
+        $this->assertEquals(
+            mb_convert_kana('全角', 'KV', 'SJIS'),
+            Encoding::kanjiStrConv('全角', '', 'kana')
+        );
+    }
+
+
+    /**
+     * Test for Encoding::kanjiFileConv
+     *
+     * @return void
+     * @test
+     */
+    public function testFileConv()
+    {
+        $file_str = "教育漢字常用漢字";
+        $filename = 'test.kanji';
+        $file = fopen($filename, 'w');
+        fputs($file, $file_str);
+        fclose($file);
+        $GLOBALS['kanji_encoding_list'] = 'ASCII,EUC-JP,SJIS,JIS';
+
+        $result = Encoding::kanjiFileConv($filename, 'JIS', 'kana');
+
+        $string = file_get_contents($result);
+        Encoding::kanjiChangeOrder();
+        $expected = Encoding::kanjiStrConv($file_str, 'JIS', 'kana');
+        Encoding::kanjiChangeOrder();
+        $this->assertEquals($string, $expected);
+        unlink($result);
+    }
+
+
+    /**
+     * Test for Encoding::kanjiEncodingForm
+     *
+     * @return void
+     * @test
+     */
+    public function testEncodingForm()
+    {
+        $actual = Encoding::kanjiEncodingForm();
+        $this->assertContains(
+            '<input type="radio" name="knjenc"',
+            $actual
+        );
+        $this->assertContains(
+            'type="radio" name="knjenc"',
+            $actual
+        );
+        $this->assertContains(
+            '<input type="radio" name="knjenc" value="EUC-JP" id="kj-euc" />',
+            $actual
+        );
+        $this->assertContains(
+            '<input type="radio" name="knjenc" value="SJIS" id="kj-sjis" />',
+            $actual
+        );
+        $this->assertContains(
+            '<input type="checkbox" name="xkana" value="kana" id="kj-kana" />',
+            $actual
         );
     }
 }

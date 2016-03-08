@@ -374,11 +374,11 @@ function PMA_getHtmlForImportOptionsFormat($import_list)
     $html .= '    </div>';
     $html .= '        <div class="clearfloat"></div>';
 
-    // Encoding setting form appended by Y.Kawada
-    if (function_exists('PMA_Kanji_encodingForm')) {
+    // Japanese encoding setting
+    if (Encoding::canConvertKanji()) {
         $html .= '        <div class="importoptions" id="kanji_encoding">';
         $html .= '            <h3>' . __('Encoding Conversion:') . '</h3>';
-        $html .= PMA_Kanji_encodingForm();
+        $html .= Encoding::kanjiEncodingForm();
         $html .= '        </div>';
 
     }

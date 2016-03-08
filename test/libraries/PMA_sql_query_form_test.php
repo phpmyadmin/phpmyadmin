@@ -6,10 +6,11 @@
  * @package PhpMyAdmin-test
  */
 
-//the following definition should be used globally
+use PMA\libraries\Encoding;
 use PMA\libraries\Theme;
 use PMA\libraries\URL;
 
+//the following definition should be used globally
 $GLOBALS['server'] = 0;
 
 /*
@@ -21,7 +22,6 @@ require_once 'libraries/relation.lib.php';
 
 require_once 'libraries/database_interface.inc.php';
 require_once 'libraries/sql_query_form.lib.php';
-require_once 'libraries/kanji-encoding.lib.php';
 require_once 'libraries/mysql_charsets.inc.php';
 
 /**
@@ -211,9 +211,9 @@ class PMA_SqlQueryForm_Test extends PHPUnit_Framework_TestCase
             $html
         );
 
-        //validate 6: PMA_Kanji_encodingForm
+        //validate 6: Kanji encoding form
         $this->assertContains(
-            PMA_Kanji_encodingForm(),
+            Encoding::kanjiEncodingForm(),
             $html
         );
     }

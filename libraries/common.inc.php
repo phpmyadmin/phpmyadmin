@@ -632,15 +632,6 @@ if (! defined('PMA_MINIMUM_COMMON')) {
     $GLOBALS['url_params']['server'] = $GLOBALS['server'];
 
     /**
-     * Kanji encoding convert feature appended by Y.Kawada (2002/2/20)
-     */
-    if (function_exists('mb_convert_encoding')
-        && $lang == 'ja'
-    ) {
-        include_once './libraries/kanji-encoding.lib.php';
-    } // end if
-
-    /**
      * save some settings in cookies
      * @todo should be done in PMA\libraries\Config
      */

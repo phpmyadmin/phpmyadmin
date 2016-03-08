@@ -85,7 +85,7 @@ function PMA_exportOutputHandler($line)
 
     // Kanji encoding convert feature
     if ($GLOBALS['output_kanji_conversion']) {
-        $line = PMA_Kanji_strConv(
+        $line = Encoding::kanjiStrConv(
             $line,
             $GLOBALS['knjenc'],
             isset($GLOBALS['xkana']) ? $GLOBALS['xkana'] : ''

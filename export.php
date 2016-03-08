@@ -325,8 +325,7 @@ if (!defined('TESTSUITE')) {
         $crlf = PMA\libraries\Util::whichCrlf();
     }
 
-    $output_kanji_conversion = function_exists('PMA_Kanji_strConv')
-        && $type != 'xls';
+    $output_kanji_conversion = Encoding::canConvertKanji() && $type != 'xls';
 
     // Do we need to convert charset?
     $output_charset_conversion = $asfile
