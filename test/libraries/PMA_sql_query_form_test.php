@@ -68,7 +68,7 @@ class PMA_SqlQueryForm_Test extends PHPUnit_Framework_TestCase
             'table_info' => 'table_info',
             'relwork' => 'relwork',
             'relation' => 'relation',
-            'bookmarkwork' => 'bookmarkwork',
+            'bookmarkwork' => false,
         );
         //$GLOBALS
         $GLOBALS['cfg']['Server']['user'] = "user";
