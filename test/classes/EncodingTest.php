@@ -98,36 +98,6 @@ class EncodingTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for kanjiCheckEncoding
-     *
-     * @param string $encoding Encoding to set
-     * @param string $expected Expected encoding list
-     *
-     * @return void
-     * @test
-     * @dataProvider checkKanjiEncodingData
-     */
-    public function testCheckKanjiEncoding($encoding, $expected)
-    {
-        mb_internal_encoding($encoding);
-        Encoding::kanjiCheckEncoding();
-        $this->assertEquals($expected, Encoding::getKanjiEncodings());
-    }
-
-    /**
-     * Data provider for testCheckKanjiEncoding
-     *
-     * @return array Test data
-     */
-    public function checkKanjiEncodingData()
-    {
-        return array(
-            array('UTF-8', 'ASCII,SJIS,EUC-JP,JIS'),
-            array('EUC-JP', 'ASCII,EUC-JP,SJIS,JIS')
-        );
-    }
-
-    /**
      * Test for kanjiChangeOrder
      *
      * @param string $kanji_test_list current list
@@ -135,26 +105,14 @@ class EncodingTest extends PHPUnit_Framework_TestCase
      *
      * @return void
      * @test
-     * @dataProvider changeOrderData
      */
-    public function testChangeOrder($kanji_test_list, $expected)
+    public function testChangeOrder()
     {
-        Encoding::setKanjiEncodings($kanji_test_list);
+        $this->assertEquals('ASCII,SJIS,EUC-JP,JIS', Encoding::getKanjiEncodings());
         Encoding::kanjiChangeOrder();
-        $this->assertEquals($expected, Encoding::getKanjiEncodings());
-    }
-
-    /**
-     * Data Provider for testEncoding::kanjiChangeOrder
-     *
-     * @return array Test data
-     */
-    public function changeOrderData()
-    {
-        return array(
-            array('ASCII,SJIS,EUC-JP,JIS', 'ASCII,EUC-JP,SJIS,JIS'),
-            array('ASCII,EUC-JP,SJIS,JIS', 'ASCII,SJIS,EUC-JP,JIS')
-        );
+        $this->assertEquals('ASCII,EUC-JP,SJIS,JIS', Encoding::getKanjiEncodings());
+        Encoding::kanjiChangeOrder();
+        $this->assertEquals('ASCII,SJIS,EUC-JP,JIS', Encoding::getKanjiEncodings());
     }
 
     /**

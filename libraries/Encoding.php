@@ -81,7 +81,7 @@ class Encoding
      *
      * @var string
      */
-    private static $_kanji_encodings = null;
+    private static $_kanji_encodings = 'ASCII,SJIS,EUC-JP,JIS';
 
     /**
      * Initializes encoding engine detecting available backends.
@@ -218,30 +218,12 @@ class Encoding
     }
 
     /**
-     * Gets the php internal encoding codes and sets the available encoding
-     * codes list
-     *
-     * @return void
-     */
-    public static function kanjiCheckEncoding()
-    {
-        if (mb_internal_encoding() == 'EUC-JP') {
-            self::$_kanji_encodings = 'ASCII,EUC-JP,SJIS,JIS';
-        } else {
-            self::$_kanji_encodings = 'ASCII,SJIS,EUC-JP,JIS';
-        }
-    }
-
-    /**
      * Reverses SJIS & EUC-JP position in the encoding codes list
      *
      * @return void
      */
     public static function kanjiChangeOrder()
     {
-        if (is_null(self::$_kanji_encodings)) {
-            self::kanjiCheckEncoding();
-        }
         $parts = explode(',', self::$_kanji_encodings);
         if ($parts[1] == 'EUC-JP') {
             self::$_kanji_encodings = 'ASCII,SJIS,EUC-JP,JIS';
@@ -263,10 +245,6 @@ class Encoding
     {
         if ($enc == '' && $kana == '') {
             return $str;
-        }
-
-        if (is_null(self::$_kanji_encodings)) {
-            self::kanjiCheckEncoding();
         }
 
         $string_encoding = mb_detect_encoding($str, self::$_kanji_encodings);
