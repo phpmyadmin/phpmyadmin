@@ -3,8 +3,6 @@
 /**
  * Displays form for editing and inserting new table rows
  *
- * register_globals_save (mark this file save for disabling register globals)
- *
  * @package PhpMyAdmin
  */
 use PMA\libraries\config\PageSettings;

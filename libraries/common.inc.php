@@ -982,17 +982,6 @@ if (count($_REQUEST) > 1000) {
     PMA_fatalError(__('possible exploit'));
 }
 
-/**
- * Check for numeric keys
- * (if register_globals is on, numeric key can be found in $GLOBALS)
- */
-foreach ($GLOBALS as $key => $dummy) {
-    if (is_numeric($key)) {
-        PMA_fatalError(__('numeric key detected'));
-    }
-}
-unset($dummy);
-
 // here, the function does not exist with this configuration:
 // $cfg['ServerDefault'] = 0;
 $GLOBALS['is_superuser']
