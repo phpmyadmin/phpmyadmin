@@ -14,13 +14,52 @@ namespace PMA\libraries;
  */
 class Encoding
 {
+    /**
+     * None encoding conversion engine
+     *
+     * @var int
+     */
+
     const ENGINE_NONE = 0;
+    /**
+     * iconv encoding conversion engine
+     *
+     * @var int
+     */
     const ENGINE_ICONV = 1;
+
+    /**
+     * recode encoding conversion engine
+     *
+     * @var int
+     */
     const ENGINE_RECODE = 2;
+
+    /**
+     * mbstring encoding conversion engine
+     *
+     * @var int
+     */
     const ENGINE_MB = 3;
 
+    /**
+     * Chosen encoding engine
+     *
+     * @var int
+     */
     private static $_engine = null;
 
+    /**
+     * Map of conversion engine configurations
+     *
+     * Each entry contains:
+     *
+     * - function to detect
+     * - engine contant
+     * - extension name to warn when missing
+     *
+     * @var array
+     */
     private static $_enginemap = array(
         'iconv' => array('iconv', self::ENGINE_ICONV, 'iconv'),
         'recode' => array('recode_string', self::ENGINE_RECODE, 'recode'),
@@ -28,12 +67,27 @@ class Encoding
         'none' => array('isset', self::ENGINE_NONE, ''),
     );
 
+    /**
+     * Order of automatic detection of engines
+     *
+     * @var array
+     */
     private static $_engineorder = array(
         'mb', 'iconv', 'recode',
     );
 
+    /**
+     * Kanji encodings list
+     *
+     * @var string
+     */
     private static $_kanji_encodings = null;
 
+    /**
+     * Initializes encoding engine detecting available backends.
+     *
+     * @return void
+     */
     public static function initEngine()
     {
         $engine = 'auto';
@@ -63,11 +117,21 @@ class Encoding
         self::$_engine = self::ENGINE_NONE;
     }
 
+    /**
+     * Setter for engine. Use with caution, mostly useful for testing.
+     *
+     * @return void
+     */
     public static function setEngine($engine)
     {
         self::$_engine = $engine;
     }
 
+    /**
+     * Checks whether there is any charset conversion supported
+     *
+     * @return bool
+     */
     public static function isSupported()
     {
         if (is_null(self::$_engine)) {
@@ -87,7 +151,6 @@ class Encoding
      * @return string   converted text
      *
      * @access  public
-     *
      */
     public static function convertString($src_charset, $dest_charset, $what)
     {
@@ -123,6 +186,8 @@ class Encoding
 
     /**
      * Detects whether Kanji encoding is available
+     *
+     * @return bool
      */
     public static function canConvertKanji()
     {
@@ -132,11 +197,21 @@ class Encoding
         );
     }
 
+    /**
+     * Setter for Kanji encodings. Use with caution, mostly useful for testing.
+     *
+     * @return string
+     */
     public static function getKanjiEncodings()
     {
         return self::$_kanji_encodings;
     }
 
+    /**
+     * Setter for Kanji encodings. Use with caution, mostly useful for testing.
+     *
+     * @return void
+     */
     public static function setKanjiEncodings($value)
     {
         self::$_kanji_encodings = $value;
@@ -145,7 +220,6 @@ class Encoding
     /**
      * Gets the php internal encoding codes and sets the available encoding
      * codes list
-     * 2002/1/4 by Y.Kawada
      *
      * @return void
      */
