@@ -16,7 +16,6 @@ use PMA\libraries\URL;
 require_once 'libraries/display_export.lib.php';
 
 require_once 'libraries/database_interface.inc.php';
-require_once 'libraries/charset_conversion.lib.php';
 require_once 'libraries/plugin_interface.lib.php';
 require_once 'libraries/relation.lib.php';
 

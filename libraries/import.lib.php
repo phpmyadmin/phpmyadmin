@@ -5,6 +5,7 @@
  *
  * @package PhpMyAdmin-Import
  */
+use PMA\libraries\Encoding;
 use PMA\libraries\Message;
 use PMA\libraries\Table;
 use PMA\libraries\Util;
@@ -410,7 +411,7 @@ function PMA_importGetNextChunk($size = 32768)
     $GLOBALS['offset'] += $size;
 
     if ($charset_conversion) {
-        return PMA_convertString($charset_of_file, 'utf-8', $result);
+        return Encoding::convertString($charset_of_file, 'utf-8', $result);
     }
 
     /**

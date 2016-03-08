@@ -5,6 +5,7 @@
  *
  * @package PhpMyAdmin
  */
+use PMA\libraries\Encoding;
 use PMA\libraries\plugins\ExportPlugin;
 use PMA\libraries\URL;
 use PMA\libraries\Sanitize;
@@ -521,7 +522,7 @@ if (!defined('TESTSUITE')) {
 
     // Convert the charset if required.
     if ($output_charset_conversion) {
-        $dump_buffer = PMA_convertString(
+        $dump_buffer = Encoding::convertString(
             'utf-8',
             $GLOBALS['charset'],
             $dump_buffer

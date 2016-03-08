@@ -579,11 +579,6 @@ ThemeManager::initializeTheme();
 
 if (! defined('PMA_MINIMUM_COMMON')) {
     /**
-     * Character set conversion.
-     */
-    include_once './libraries/charset_conversion.lib.php';
-
-    /**
      * Lookup server by name
      * (see FAQ 4.8)
      */

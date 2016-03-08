@@ -6,6 +6,7 @@
  *
  * @package PhpMyAdmin
  */
+use PMA\libraries\Encoding;
 use PMA\libraries\Message;
 use PMA\libraries\plugins\ExportPlugin;
 use PMA\libraries\Table;
@@ -101,7 +102,7 @@ function PMA_exportOutputHandler($line)
 
             if ($dump_buffer_len > $GLOBALS['memory_limit']) {
                 if ($GLOBALS['output_charset_conversion']) {
-                    $dump_buffer = PMA_convertString(
+                    $dump_buffer = Encoding::convertString(
                         'utf-8',
                         $GLOBALS['charset'],
                         $dump_buffer
@@ -141,7 +142,7 @@ function PMA_exportOutputHandler($line)
     } else {
         if ($GLOBALS['asfile']) {
             if ($GLOBALS['output_charset_conversion']) {
-                $line = PMA_convertString(
+                $line = Encoding::convertString(
                     'utf-8',
                     $GLOBALS['charset'],
                     $line
