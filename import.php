@@ -5,6 +5,7 @@
  *
  * @package PhpMyAdmin
  */
+use PMA\libraries\Encoding;
 use PMA\libraries\plugins\ImportPlugin;
 use PMA\libraries\URL;
 
@@ -586,7 +587,7 @@ if ($import_file != 'none' && ! $error) {
 //$_SESSION['Import_message'] = $message->getDisplay();
 
 // Convert the file's charset if necessary
-if ($GLOBALS['PMA_recoding_engine'] != PMA_CHARSET_NONE && isset($charset_of_file)) {
+if (Encoding::isSupported() && isset($charset_of_file)) {
     if ($charset_of_file != 'utf-8') {
         $charset_conversion = true;
     }

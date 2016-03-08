@@ -330,7 +330,7 @@ if (!defined('TESTSUITE')) {
 
     // Do we need to convert charset?
     $output_charset_conversion = $asfile
-        && $GLOBALS['PMA_recoding_engine'] != PMA_CHARSET_NONE
+        && Encoding::isSupported()
         && isset($charset) && $charset != 'utf-8'
         && $type != 'xls';
 

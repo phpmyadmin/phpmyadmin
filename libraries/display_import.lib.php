@@ -175,7 +175,7 @@ function PMA_getHtmlForImportCharset()
     global $cfg;
     $html = '       <div class="formelementrow" id="charaset_of_file">';
     // charset of file
-    if ($GLOBALS['PMA_recoding_engine'] != PMA_CHARSET_NONE) {
+    if (Encoding::isSupported()) {
         $html .= '<label for="charset_of_file">' . __('Character set of the file:')
             . '</label>';
         $html .= '<select id="charset_of_file" name="charset_of_file" size="1">';

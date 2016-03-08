@@ -66,6 +66,14 @@ class Encoding
         self::$_engine = $engine;
     }
 
+    public static function isSupported()
+    {
+        if (is_null(self::$_engine)) {
+            self::initEngine();
+        }
+        return self::$_engine != self::ENGINE_NONE;
+    }
+
     /**
      * Converts encoding of text according to parameters with detected
      * conversion function.

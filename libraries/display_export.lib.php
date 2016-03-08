@@ -6,6 +6,7 @@
  *
  * @package PhpMyAdmin
  */
+use PMA\libraries\Encoding;
 use PMA\libraries\Message;
 use PMA\libraries\plugins\ExportPlugin;
 use PMA\libraries\Table;
@@ -815,7 +816,7 @@ function PMA_getHtmlForExportOptionsOutput($export_type)
     $html .= PMA_getHtmlForExportOptionsOutputFormat($export_type);
 
     // charset of file
-    if ($GLOBALS['PMA_recoding_engine'] != PMA_CHARSET_NONE) {
+    if (Encoding::isSupported()) {
         $html .= PMA_getHtmlForExportOptionsOutputCharset();
     } // end if
 
