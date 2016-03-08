@@ -42,6 +42,7 @@ use PMA\libraries\Response;
 use PMA\libraries\TypesMySQL;
 use PMA\libraries\Util;
 use PMA\libraries\LanguageManager;
+use PMA\libraries\Logging;
 
 /**
  * block attempts to directly run this script
@@ -665,8 +666,6 @@ if (! defined('PMA_MINIMUM_COMMON')) {
          */
         include_once './libraries/database_interface.inc.php';
 
-        include_once './libraries/logging.lib.php';
-
         // get LoginCookieValidity from preferences cache
         // no generic solution for loading preferences from cache as some settings
         // need to be kept for processing in
@@ -758,7 +757,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
 
             // Ejects the user if banished
             if ($allowDeny_forbidden) {
-                PMA_logUser($cfg['Server']['user'], 'allow-denied');
+                Logging::logUser($cfg['Server']['user'], 'allow-denied');
                 $auth_plugin->authFails();
             }
         } // end if
@@ -766,7 +765,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         // is root allowed?
         if (! $cfg['Server']['AllowRoot'] && $cfg['Server']['user'] == 'root') {
             $allowDeny_forbidden = true;
-            PMA_logUser($cfg['Server']['user'], 'root-denied');
+            Logging::logUser($cfg['Server']['user'], 'root-denied');
             $auth_plugin->authFails();
         }
 
@@ -775,7 +774,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
             && $cfg['Server']['password'] == ''
         ) {
             $login_without_password_is_forbidden = true;
-            PMA_logUser($cfg['Server']['user'], 'empty-denied');
+            Logging::logUser($cfg['Server']['user'], 'empty-denied');
             $auth_plugin->authFails();
         }
 
@@ -869,7 +868,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         $auth_plugin->storeUserCredentials();
 
         /* Log success */
-        PMA_logUser($cfg['Server']['user']);
+        Logging::logUser($cfg['Server']['user']);
 
         if (PMA_MYSQL_INT_VERSION < $cfg['MysqlMinVersion']['internal']) {
             PMA_fatalError(

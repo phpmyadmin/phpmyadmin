@@ -10,8 +10,8 @@ namespace PMA\libraries;
 use PMA\libraries\dbi\DBIExtension;
 use PMA\libraries\LanguageManager;
 use PMA\libraries\URL;
+use PMA\libraries\Logging;
 
-require_once './libraries/logging.lib.php';
 require_once './libraries/util.lib.php';
 
 /**
@@ -2293,7 +2293,7 @@ class DatabaseInterface
             return false;
         }
 
-        PMA_logUser($user, 'mysql-denied');
+        Logging::logUser($user, 'mysql-denied');
         $GLOBALS['auth_plugin']->authFails();
 
         return $result;
