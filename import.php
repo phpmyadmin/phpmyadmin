@@ -334,7 +334,9 @@ if (! empty($_REQUEST['id_bookmark'])) {
         );
 
         if (! empty($_REQUEST['bookmark_variable'])) {
-            $import_text = $bookmark->applyVariables();
+            $import_text = $bookmark->applyVariables(
+                $_REQUEST['bookmark_variable']
+            );
         } else {
             $import_text = $bookmark->getQuery();
         }

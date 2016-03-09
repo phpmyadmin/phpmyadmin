@@ -161,9 +161,11 @@ class Bookmark
     /**
      * Replace the placeholders in the bookmark query with variables
      *
+     * @param $variables array of variables
+     *
      * @return string query with variables applied
      */
-    public function applyVariables()
+    public function applyVariables($variables)
     {
         // remove comments that encloses a variable placeholder
         $query = preg_replace(
@@ -175,10 +177,8 @@ class Bookmark
         $number_of_variables = $this->getVariableCount();
         for ($i = 1; $i <= $number_of_variables; $i++) {
             $var = '';
-            if (! empty($_REQUEST['bookmark_variable'][$i])) {
-                $var = Util::sqlAddSlashes(
-                    $_REQUEST['bookmark_variable'][$i]
-                );
+            if (! empty($variables[$i])) {
+                $var = Util::sqlAddSlashes($variables[$i]);
             }
             $query = str_replace('[VARIABLE' . $i . ']', $var, $query);
             // backward compatibility
