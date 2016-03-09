@@ -120,7 +120,6 @@ class TableStructureController extends TableController
         include_once 'libraries/check_user_privileges.lib.php';
         include_once 'libraries/index.lib.php';
         include_once 'libraries/sql.lib.php';
-        include_once 'libraries/bookmark.lib.php';
 
         $this->response->getHeader()->getScripts()->addFiles(
             array(

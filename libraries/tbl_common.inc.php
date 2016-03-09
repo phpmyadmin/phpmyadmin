@@ -11,11 +11,6 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
-/**
- * Gets some core libraries
- */
-require_once './libraries/bookmark.lib.php';
-
 // Check parameters
 PMA\libraries\Util::checkParameters(array('db', 'table'));
 

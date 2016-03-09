@@ -1,25 +1,21 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * tests for bookmark.lib.php
+ * Tests for Bookmark class
  *
  * @package PhpMyAdmin-test
  */
-
-/*
- * Include to test.
- */
+use PMA\libraries\Bookmark;
 
 require_once 'libraries/database_interface.inc.php';
-
 require_once 'libraries/relation.lib.php';
 
 /**
- * tests for bookmark.lib.php
+ * Tests for Bookmark class
  *
  * @package PhpMyAdmin-test
  */
-class PMA_Bookmark_Test extends PHPUnit_Framework_TestCase
+class BookmarkTest extends PHPUnit_Framework_TestCase
 {
     /**
      * Sets up the fixture, for example, opens a network connection.
@@ -34,12 +30,10 @@ class PMA_Bookmark_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['Server']['pmadb'] = 'phpmyadmin';
         $GLOBALS['cfg']['Server']['bookmarktable'] = 'pma_bookmark';
         $GLOBALS['server'] = 1;
-
-        include_once 'libraries/bookmark.lib.php';
     }
 
     /**
-     * Test for PMA_Bookmark_getParams
+     * Tests for Bookmark:getParams()
      *
      * @return void
      */
@@ -47,12 +41,12 @@ class PMA_Bookmark_Test extends PHPUnit_Framework_TestCase
     {
         $this->assertEquals(
             false,
-            PMA_Bookmark_getParams()
+            Bookmark::getParams()
         );
     }
 
     /**
-     * Test for PMA_Bookmark_getList
+     * Tests for Bookmark::getList()
      *
      * @return void
      */
@@ -60,49 +54,37 @@ class PMA_Bookmark_Test extends PHPUnit_Framework_TestCase
     {
         $this->assertEquals(
             array(),
-            PMA_Bookmark_getList('phpmyadmin')
+            Bookmark::getList('phpmyadmin')
         );
     }
 
     /**
-     * Test for PMA_Bookmark_get
+     * Tests for Bookmark::get()
      *
      * @return void
      */
     public function testGet()
     {
-        $this->assertEquals(
-            '',
-            PMA_Bookmark_get('phpmyadmin', '1')
+        $this->assertNull(
+            Bookmark::get('phpmyadmin', '1')
         );
     }
 
     /**
-     * Test for PMA_Bookmark_save
+     * Tests for Bookmark::save()
      *
      * @return void
      */
     public function testSave()
     {
-        $bookmark = array(
-            'dbase' => 'phpmyadmin',
-            'user' => 'phpmyadmin',
-            'query' => 'SELECT "phpmyadmin"',
-            'label' => 'phpmyadmin',
+        $bookmarkData = array(
+            'bkm_database' => 'phpmyadmin',
+            'bkm_user' => 'root',
+            'bkm_sql_query' => 'SELECT "phpmyadmin"',
+            'bkm_label' => 'bookmark1',
         );
 
-        $this->assertfalse(PMA_Bookmark_save($bookmark));
-    }
-
-    /**
-     * Test for PMA_Bookmark_delete
-     *
-     * @return void
-     */
-    public function testDelete()
-    {
-        $this->assertFalse(
-            PMA_Bookmark_delete('1')
-        );
+        $bookmark = Bookmark::createBookmark($bookmarkData);
+        $this->assertfalse($bookmark->save());
     }
 }

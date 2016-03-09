@@ -12,6 +12,7 @@
  */
 use PMA\libraries\Encoding;
 use PMA\libraries\URL;
+use PMA\libraries\Bookmark;
 
 if (! defined('PHPMYADMIN')) {
     exit;
@@ -21,7 +22,6 @@ if (! defined('PHPMYADMIN')) {
  *
  */
 require_once './libraries/file_listing.lib.php'; // used for file listing
-require_once './libraries/bookmark.lib.php'; // used for bookmarks
 
 /**
  * return HTML for the sql query boxes
@@ -102,7 +102,7 @@ function PMA_getHtmlForSqlQueryForm(
 
     // Bookmark Support
     if ($display_tab === 'full') {
-        $cfgBookmark = PMA_Bookmark_getParams();
+        $cfgBookmark = Bookmark::getParams();
         if ($cfgBookmark) {
             $html .= PMA_getHtmlForSqlQueryFormBookmark();
         }
@@ -299,7 +299,7 @@ function PMA_getHtmlForSqlQueryFormInsert(
     $html .= '<div class="clearfloat"></div>' . "\n";
     $html .= '</div>' . "\n";
 
-    $cfgBookmark = PMA_Bookmark_getParams();
+    $cfgBookmark = Bookmark::getParams();
     if ($cfgBookmark) {
         $html .= '<div id="bookmarkoptions">';
         $html .= '<div class="formelement">';
@@ -386,7 +386,7 @@ function PMA_getHtmlForSqlQueryFormInsert(
  */
 function PMA_getHtmlForSqlQueryFormBookmark()
 {
-    $bookmark_list = PMA_Bookmark_getList($GLOBALS['db']);
+    $bookmark_list = Bookmark::getList($GLOBALS['db']);
     if (empty($bookmark_list) || count($bookmark_list) < 1) {
         return null;
     }
@@ -397,11 +397,13 @@ function PMA_getHtmlForSqlQueryFormBookmark()
     $html .= '<div class="formelement">';
     $html .= '<select name="id_bookmark" id="id_bookmark">' . "\n";
     $html .= '<option value="">&nbsp;</option>' . "\n";
-    foreach ($bookmark_list as $key => $value) {
-        $html .= '<option value="' . htmlspecialchars($key) . '"'
-            . ' data-varcount="' . PMA_Bookmark_getVariableCount($value['query'])
+    foreach ($bookmark_list as $bookmark) {
+        $html .= '<option value="' . htmlspecialchars($bookmark->getId()) . '"'
+            . ' data-varcount="' . $bookmark->getVariableCount()
             . '">'
-            . htmlspecialchars($value['label']) . '</option>' . "\n";
+            . htmlspecialchars($bookmark->getLabel())
+            . (empty($bookmark->getUser()) ? (' (' . __('shared') . ')') : '')
+            . '</option>' . "\n";
     }
     // &nbsp; is required for correct display with styles/line height
     $html .= '</select>&nbsp;' . "\n";

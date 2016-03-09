@@ -15,7 +15,6 @@ use PMA\libraries\DatabaseInterface;
 
 require_once 'libraries/mysql_charsets.inc.php';
 require_once 'libraries/sql.lib.php';
-require_once 'libraries/bookmark.lib.php';
 
 /**
  * Class TableSearchController

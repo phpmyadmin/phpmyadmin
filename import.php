@@ -8,13 +8,13 @@
 use PMA\libraries\Encoding;
 use PMA\libraries\plugins\ImportPlugin;
 use PMA\libraries\URL;
+use PMA\libraries\Bookmark;
 
 /**
  * Get the variables sent or posted to this script and a core script
  */
 require_once 'libraries/common.inc.php';
 require_once 'libraries/sql.lib.php';
-require_once 'libraries/bookmark.lib.php';
 //require_once 'libraries/display_import_functions.lib.php';
 
 if (isset($_REQUEST['show_as_php'])) {
@@ -44,7 +44,7 @@ if (isset($_REQUEST['console_bookmark_add'])) {
     if (isset($_REQUEST['label']) && isset($_REQUEST['db'])
         && isset($_REQUEST['bookmark_query']) && isset($_REQUEST['shared'])
     ) {
-        $cfgBookmark = PMA_Bookmark_getParams();
+        $cfgBookmark = Bookmark::getParams();
         $bookmarkFields = array(
             'bkm_database' => $_REQUEST['db'],
             'bkm_user'  => $cfgBookmark['user'],
@@ -52,7 +52,8 @@ if (isset($_REQUEST['console_bookmark_add'])) {
             'bkm_label' => $_REQUEST['label']
         );
         $isShared = ($_REQUEST['shared'] == 'true' ? true : false);
-        if (PMA_Bookmark_save($bookmarkFields, $isShared)) {
+        $bookmark = Bookmark::createBookmark($bookmarkFields, $isShared);
+        if ($bookmark !== false && $bookmark->save()) {
             $response->addJSON('message', __('Succeeded'));
             $response->addJSON('data', $bookmarkFields);
             $response->addJSON('isShared', $isShared);
@@ -324,19 +325,21 @@ $bookmark_created = false;
 // Bookmark Support: get a query back from bookmark if required
 if (! empty($_REQUEST['id_bookmark'])) {
     $id_bookmark = (int)$_REQUEST['id_bookmark'];
-    include_once 'libraries/bookmark.lib.php';
     switch ($_REQUEST['action_bookmark']) {
     case 0: // bookmarked query that have to be run
-        $import_text = PMA_Bookmark_get(
+        $bookmark = Bookmark::get(
             $db,
             $id_bookmark,
             'id',
             isset($_REQUEST['action_bookmark_all'])
         );
+
         if (! empty($_REQUEST['bookmark_variable'])) {
-            $import_text = PMA_Bookmark_applyVariables(
-                $import_text
+            $import_text = $bookmark->applyVariables(
+                $_REQUEST['bookmark_variable']
             );
+        } else {
+            $import_text = $bookmark->getQuery();
         }
 
         // refresh navigation and main panels
@@ -358,7 +361,8 @@ if (! empty($_REQUEST['id_bookmark'])) {
         }
         break;
     case 1: // bookmarked query that have to be displayed
-        $import_text = PMA_Bookmark_get($db, $id_bookmark);
+        $bookmark = Bookmark::get($db, $id_bookmark);
+        $import_text = $bookmark->getQuery();
         if ($GLOBALS['is_ajax_request'] == true) {
             $message = PMA\libraries\Message::success(__('Showing bookmark'));
             $response = PMA\libraries\Response::getInstance();
@@ -372,22 +376,25 @@ if (! empty($_REQUEST['id_bookmark'])) {
         }
         break;
     case 2: // bookmarked query that have to be deleted
-        $import_text = PMA_Bookmark_get($db, $id_bookmark);
-        PMA_Bookmark_delete($id_bookmark);
-        if ($GLOBALS['is_ajax_request'] == true) {
-            $message = PMA\libraries\Message::success(
-                __('The bookmark has been deleted.')
-            );
-            $response = PMA\libraries\Response::getInstance();
-            $response->setRequestStatus($message->isSuccess());
-            $response->addJSON('message', $message);
-            $response->addJSON('action_bookmark', $_REQUEST['action_bookmark']);
-            $response->addJSON('id_bookmark', $id_bookmark);
-            exit;
-        } else {
-            $run_query = false;
-            $error = true; // this is kind of hack to skip processing the query
+        $bookmark = Bookmark::get($db, $id_bookmark);
+        if (! empty($bookmark)) {
+            $bookmark->delete();
+            if ($GLOBALS['is_ajax_request'] == true) {
+                $message = PMA\libraries\Message::success(
+                    __('The bookmark has been deleted.')
+                );
+                $response = PMA\libraries\Response::getInstance();
+                $response->setRequestStatus($message->isSuccess());
+                $response->addJSON('message', $message);
+                $response->addJSON('action_bookmark', $_REQUEST['action_bookmark']);
+                $response->addJSON('id_bookmark', $id_bookmark);
+                exit;
+            } else {
+                $run_query = false;
+                $error = true; // this is kind of hack to skip processing the query
+            }
         }
+
         break;
     }
 } // end bookmarks reading
@@ -810,7 +817,7 @@ if ($go_sql) {
 } else if ($result) {
     // Save a Bookmark with more than one queries (if Bookmark label given).
     if (! empty($_POST['bkm_label']) && ! empty($import_text)) {
-        $cfgBookmark = PMA_Bookmark_getParams();
+        $cfgBookmark = Bookmark::getParams();
         PMA_storeTheQueryAsBookmark(
             $db, $cfgBookmark['user'],
             $_REQUEST['sql_query'], $_POST['bkm_label'],

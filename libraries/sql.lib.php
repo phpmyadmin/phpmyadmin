@@ -10,6 +10,7 @@ use PMA\libraries\Message;
 use PMA\libraries\Table;
 use PMA\libraries\Response;
 use PMA\libraries\URL;
+use PMA\libraries\Bookmark;
 
 /**
  * Parses and analyzes the given SQL query.
@@ -770,12 +771,13 @@ function PMA_setColumnOrderOrVisibility($table, $db)
  */
 function PMA_addBookmark($goto)
 {
-    $result = PMA_Bookmark_save(
+    $bookmark = Bookmark::createBookmark(
         $_POST['bkm_fields'],
         (isset($_POST['bkm_all_users'])
             && $_POST['bkm_all_users'] == 'true' ? true : false
         )
     );
+    $result = $bookmark->save();
     $response = Response::getInstance();
     if ($response->isAjax()) {
         if ($result) {
@@ -881,16 +883,15 @@ function PMA_getEnumOrSetValues($db, $table, $columnType)
  */
 function PMA_getDefaultSqlQueryForBrowse($db, $table)
 {
-    include_once 'libraries/bookmark.lib.php';
-    $book_sql_query = PMA_Bookmark_get(
+    $bookmark = Bookmark::get(
         $db,
-        '\'' . PMA\libraries\Util::sqlAddSlashes($table) . '\'',
+        $table,
         'label',
         false,
         true
     );
 
-    if (! empty($book_sql_query)) {
+    if (! empty($bookmark) && ! empty($bookmark->getQuery())) {
         $GLOBALS['using_bookmark_message'] = Message::notice(
             __('Using bookmark "%s" as default browse query.')
         );
@@ -898,7 +899,7 @@ function PMA_getDefaultSqlQueryForBrowse($db, $table)
         $GLOBALS['using_bookmark_message']->addMessage(
             PMA\libraries\Util::showDocu('faq', 'faq6-22')
         );
-        $sql_query = $book_sql_query;
+        $sql_query = $bookmark->getQuery();
     } else {
 
         $defaultOrderByClause = '';
@@ -934,7 +935,6 @@ function PMA_getDefaultSqlQueryForBrowse($db, $table)
             . $defaultOrderByClause;
 
     }
-    unset($book_sql_query);
 
     return $sql_query;
 }
@@ -975,7 +975,6 @@ function PMA_handleQueryExecuteError($is_gotofile, $error, $full_sql_query)
 function PMA_storeTheQueryAsBookmark($db, $bkm_user, $sql_query_for_bookmark,
     $bkm_label, $bkm_replace
 ) {
-    include_once 'libraries/bookmark.lib.php';
     $bfields = array(
                  'bkm_database' => $db,
                  'bkm_user'  => $bkm_user,
@@ -985,16 +984,16 @@ function PMA_storeTheQueryAsBookmark($db, $bkm_user, $sql_query_for_bookmark,
 
     // Should we replace bookmark?
     if (isset($bkm_replace)) {
-        $bookmarks = PMA_Bookmark_getList($db);
-        foreach ($bookmarks as $key => $val) {
-            if ($val['label'] == $bkm_label) {
-                PMA_Bookmark_delete($key);
+        $bookmarks = Bookmark::getList($db);
+        foreach ($bookmarks as $bookmark) {
+            if ($bookmark->getLabel() == $bkm_label) {
+                $bookmark->delete();
             }
         }
     }
 
-    PMA_Bookmark_save($bfields, isset($_POST['bkm_all_users']));
-
+    $bookmark = Bookmark::createBookmark($bfields, isset($_POST['bkm_all_users']));
+    $bookmark->save();
 }
 
 /**
@@ -1230,7 +1229,7 @@ function PMA_executeTheQuery($analyzed_sql_results, $full_sql_query, $is_gotofil
         // If there are no errors and bookmarklabel was given,
         // store the query as a bookmark
         if (! empty($_POST['bkm_label']) && ! empty($sql_query_for_bookmark)) {
-            $cfgBookmark = PMA_Bookmark_getParams();
+            $cfgBookmark = Bookmark::getParams();
             PMA_storeTheQueryAsBookmark(
                 $db, $cfgBookmark['user'],
                 $sql_query_for_bookmark, $_POST['bkm_label'],
@@ -1479,7 +1478,7 @@ function PMA_getQueryResponseForNoResultsReturned($analyzed_sql_results, $db,
                 $analyzed_sql_results
             );
 
-            $cfgBookmark = PMA_Bookmark_getParams();
+            $cfgBookmark = Bookmark::getParams();
             if ($cfgBookmark) {
                 $html_output .= PMA_getHtmlForBookmark(
                     $displayParts,
@@ -1975,7 +1974,7 @@ function PMA_getQueryResponseForResultsReturned($result, $analyzed_sql_results,
         isset($selectedTables) ? $selectedTables : null, $db
     );
 
-    $cfgBookmark = PMA_Bookmark_getParams();
+    $cfgBookmark = Bookmark::getParams();
     if ($cfgBookmark) {
         $bookmark_support_html = PMA_getHtmlForBookmark(
             $displayParts,
