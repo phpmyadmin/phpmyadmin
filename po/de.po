@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-02-22 14:22+0100\n"
-"PO-Revision-Date: 2016-03-09 09:59+0000\n"
+"PO-Revision-Date: 2016-03-09 13:05+0000\n"
 "Last-Translator: Julian Ladisch <github.com-t3if@ladisch.de>\n"
 "Language-Team: German "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/de/>\n"
@@ -15096,7 +15096,6 @@ msgid "Tracking is not active."
 msgstr "Tracking ist nicht aktiviert."
 
 #: templates/error/report_form.phtml:7
-#, fuzzy
 #| msgid ""
 #| "phpMyAdmin has encountered an error. We have collected data about this "
 #| "error as well as information about relevant configuration settings to "
@@ -15106,9 +15105,9 @@ msgid ""
 "about relevant configuration settings. It will be sent to the phpMyAdmin "
 "team for debugging the error."
 msgstr ""
-"In phpMyAdmin ist ein Fehler aufgetreten. Wir haben sowohl Daten über diesen "
-"Fehler gesammelt als auch über relevante Konfigurations-Einstellungen, um "
-"sie an das phpMyAdmin-Team zu senden. Das hilft uns, das Problem zu beheben."
+"Automatisch enthält dieser Bericht Daten über den Fehler und Informationen "
+"über relevante Konfigurationseinstellungen. Er wird an das phpMyAdmin-Team "
+"geschickt, um das Problem zu beheben."
 
 #: templates/error/report_form.phtml:14
 msgid ""
@@ -15814,10 +15813,9 @@ msgstr "%2$s #%1$d"
 
 #: vendor/phpmyadmin/sql-parser/tests/Lexer/LexerTest.php:48
 #: vendor/phpmyadmin/sql-parser/tests/Parser/ParserTest.php:80
-#, fuzzy
 #| msgid "Gather errors"
 msgid "strict error"
-msgstr "Fehler sammeln"
+msgstr "strikter Fehler"
 
 #: view_create.php:233
 msgid "VIEW name"
