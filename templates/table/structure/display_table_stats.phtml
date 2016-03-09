@@ -26,7 +26,7 @@
                 <?php endif; ?>
 
                 <?php if (isset($free_size)): ?>
-                    <tr class="<?= ((!$odd_row) ? 'odd' : 'even'); ?>">
+                    <tr class="<?= (($odd_row = !$odd_row) ? 'odd' : 'even'); ?>">
                         <th class="name"><?= __('Overhead'); ?></th>
                         <td class="value"><?= $free_size; ?></td>
                         <td class="unit"><?= $free_unit; ?></td>
