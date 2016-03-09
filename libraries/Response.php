@@ -364,7 +364,40 @@ class Response
         // response correctly.
         PMA_headerJSON();
 
-        echo json_encode($this->_JSON);
+        $result = json_encode($this->_JSON);
+        if ($result === false) {
+            switch (json_last_error()) {
+                case JSON_ERROR_NONE:
+                    $error = 'No errors';
+                break;
+                case JSON_ERROR_DEPTH:
+                    $error = 'Maximum stack depth exceeded';
+                break;
+                case JSON_ERROR_STATE_MISMATCH:
+                    $error = 'Underflow or the modes mismatch';
+                break;
+                case JSON_ERROR_CTRL_CHAR:
+                    $error = 'Unexpected control character found';
+                break;
+                case JSON_ERROR_SYNTAX:
+                    $error = 'Syntax error, malformed JSON';
+                break;
+                case JSON_ERROR_UTF8:
+                    $error = 'Malformed UTF-8 characters, possibly incorrectly encoded';
+                break;
+                default:
+                    $error = 'Unknown error';
+                break;
+            }
+            echo json_encode(
+                array(
+                    'success' => false,
+                    'error' => 'JSON encoding failed: ' . $error,
+                )
+            );
+        } else {
+            echo $result;
+        }
     }
 
     /**

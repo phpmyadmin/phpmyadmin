@@ -63,6 +63,7 @@ phpMyAdmin - ChangeLog
 - issue #12073 Hide edit and delete buttons when the results are not related to a table
 - issue #12083 Fixed parsing of field definition
 - issue #12081 Fixed rendering of table stats
+- issue #11705 Fixed problems with PHP on Windows on table structure
 
 4.5.5.1 (2016-02-29)
 - issue #11971 CREATE UNIQUE INDEX index type is not recognized by parser.
