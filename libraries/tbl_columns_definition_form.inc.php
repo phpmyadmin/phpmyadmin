@@ -301,7 +301,7 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
     // differs from the ones of the corresponding database.
     // rtrim the type, for cases like "float unsigned"
     $type = rtrim(
-        mb_ereg_replace('[\w\W]character set[\w\W]*', '', $type)
+        preg_replace('/[\s]character set[\s][\S]+/', '', $type)
     );
 
     /**
