@@ -78,10 +78,10 @@ class BookmarkTest extends PHPUnit_Framework_TestCase
     public function testSave()
     {
         $bookmarkData = array(
-            'dbase' => 'phpmyadmin',
-            'user' => 'phpmyadmin',
-            'query' => 'SELECT "phpmyadmin"',
-            'label' => 'phpmyadmin',
+            'bkm_database' => 'phpmyadmin',
+            'bkm_user' => 'root',
+            'bkm_sql_query' => 'SELECT "phpmyadmin"',
+            'bkm_label' => 'bookmark1',
         );
 
         $bookmark = Bookmark::createBookmark($bookmarkData);
