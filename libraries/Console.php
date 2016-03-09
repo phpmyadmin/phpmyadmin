@@ -6,7 +6,9 @@
  * @package PhpMyAdmin
  */
 namespace PMA\libraries;
+
 use PMA\libraries\Template;
+use PMA\libraries\Bookmark;
 
 if (! defined('PHPMYADMIN')) {
     exit;
@@ -78,9 +80,9 @@ class Console
      */
     public static function getBookmarkContent()
     {
-        $cfgBookmark = PMA_Bookmark_getParams();
+        $cfgBookmark = Bookmark::getParams();
         if ($cfgBookmark) {
-            $bookmarks = PMA_Bookmark_getList();
+            $bookmarks = Bookmark::getList();
             $count_bookmarks = count($bookmarks);
             if ($count_bookmarks > 0) {
                 $welcomeMessage = sprintf(
@@ -125,7 +127,7 @@ class Console
     public function getDisplay()
     {
         if ((! $this->_isAjax) && $this->_isEnabled) {
-            $cfgBookmark = PMA_Bookmark_getParams();
+            $cfgBookmark = Bookmark::getParams();
 
             $image = Util::getImage('console.png', __('SQL Query Console'));
             $_sql_history = PMA_getHistory($GLOBALS['cfg']['Server']['user']);

@@ -2,9 +2,10 @@
     <span> <?= $welcomeMessage ; ?> </span>
 </div>
 <?php
-    foreach ($bookmarks as $val): ?>
-        <div class="message collapsed bookmark" bookmarkid="<?= $val['id']; ?>"
-            targetdb="<?= htmlspecialchars($val['db']) ?>">
+    /* @var $bookmark PMA\libraries\Bookmark */
+    foreach ($bookmarks as $bookmark): ?>
+        <div class="message collapsed bookmark" bookmarkid="<?= $bookmark->getId() ?>"
+            targetdb="<?= htmlspecialchars($bookmark->getDatabase()) ?>">
             <?= PMA\libraries\Template::get('console/query_action')
                 ->render(
                     array(
@@ -15,16 +16,16 @@
                             ['action requery',          __('Requery')],
                             ['action edit_bookmark',    __('Edit')],
                             ['action delete_bookmark',  __('Delete')],
-                            ['text targetdb',           __('Database'), 'extraSpan' => htmlspecialchars($val['db'])],
+                            ['text targetdb',           __('Database'), 'extraSpan' => htmlspecialchars($bookmark->getDatabase())],
                         ]
                     )
                 );
             ?>
-            <span class="bookmark_label <?= ($val['shared'] ? 'shared' : ''); ?>">
-                <?= htmlspecialchars($val['label']) ; ?>
+            <span class="bookmark_label <?= (empty($bookmark->getUser()) ? 'shared' : ''); ?>">
+                <?= htmlspecialchars($bookmark->getLabel()) ; ?>
             </span>
             <span class="query">
-                <?= htmlspecialchars($val['query']) ; ?>
+                <?= htmlspecialchars($bookmark->getQuery()) ; ?>
             </span>
         </div>
 <?php endforeach; ?>

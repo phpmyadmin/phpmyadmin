@@ -6,10 +6,11 @@
  * @package PhpMyAdmin-test
  */
 
+use PMA\libraries\Bookmark;
+
 /*
  * Include to test.
  */
-
 require_once 'libraries/database_interface.inc.php';
 
 require_once 'libraries/relation.lib.php';
@@ -47,7 +48,7 @@ class PMA_Bookmark_Test extends PHPUnit_Framework_TestCase
     {
         $this->assertEquals(
             false,
-            PMA_Bookmark_getParams()
+            Bookmark::getParams()
         );
     }
 
@@ -60,7 +61,7 @@ class PMA_Bookmark_Test extends PHPUnit_Framework_TestCase
     {
         $this->assertEquals(
             array(),
-            PMA_Bookmark_getList('phpmyadmin')
+            Bookmark::getList('phpmyadmin')
         );
     }
 
@@ -71,9 +72,8 @@ class PMA_Bookmark_Test extends PHPUnit_Framework_TestCase
      */
     public function testGet()
     {
-        $this->assertEquals(
-            '',
-            PMA_Bookmark_get('phpmyadmin', '1')
+        $this->assertNull(
+            Bookmark::get('phpmyadmin', '1')
         );
     }
 
@@ -84,25 +84,14 @@ class PMA_Bookmark_Test extends PHPUnit_Framework_TestCase
      */
     public function testSave()
     {
-        $bookmark = array(
+        $bookmarkData = array(
             'dbase' => 'phpmyadmin',
             'user' => 'phpmyadmin',
             'query' => 'SELECT "phpmyadmin"',
             'label' => 'phpmyadmin',
         );
 
-        $this->assertfalse(PMA_Bookmark_save($bookmark));
-    }
-
-    /**
-     * Test for PMA_Bookmark_delete
-     *
-     * @return void
-     */
-    public function testDelete()
-    {
-        $this->assertFalse(
-            PMA_Bookmark_delete('1')
-        );
+        $bookmark = Bookmark::createBookmark($bookmarkData);
+        $this->assertfalse($bookmark->save());
     }
 }
