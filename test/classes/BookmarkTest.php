@@ -1,26 +1,21 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * tests for bookmark.lib.php
+ * Tests for Bookmark class
  *
  * @package PhpMyAdmin-test
  */
-
 use PMA\libraries\Bookmark;
 
-/*
- * Include to test.
- */
 require_once 'libraries/database_interface.inc.php';
-
 require_once 'libraries/relation.lib.php';
 
 /**
- * tests for bookmark.lib.php
+ * Tests for Bookmark class
  *
  * @package PhpMyAdmin-test
  */
-class PMA_Bookmark_Test extends PHPUnit_Framework_TestCase
+class BookmarkTest extends PHPUnit_Framework_TestCase
 {
     /**
      * Sets up the fixture, for example, opens a network connection.
@@ -40,7 +35,7 @@ class PMA_Bookmark_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_Bookmark_getParams
+     * Tests for Bookmark:getParams()
      *
      * @return void
      */
@@ -53,7 +48,7 @@ class PMA_Bookmark_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_Bookmark_getList
+     * Tests for Bookmark::getList()
      *
      * @return void
      */
@@ -66,7 +61,7 @@ class PMA_Bookmark_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_Bookmark_get
+     * Tests for Bookmark::get()
      *
      * @return void
      */
@@ -78,7 +73,7 @@ class PMA_Bookmark_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_Bookmark_save
+     * Tests for Bookmark::save()
      *
      * @return void
      */
