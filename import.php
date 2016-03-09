@@ -53,7 +53,7 @@ if (isset($_REQUEST['console_bookmark_add'])) {
         );
         $isShared = ($_REQUEST['shared'] == 'true' ? true : false);
         $bookmark = Bookmark::createBookmark($bookmarkFields, $isShared);
-        if ($bookmark->save()) {
+        if ($bookmark !== false && $bookmark->save()) {
             $response->addJSON('message', __('Succeeded'));
             $response->addJSON('data', $bookmarkFields);
             $response->addJSON('isShared', $isShared);
