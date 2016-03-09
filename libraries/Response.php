@@ -385,6 +385,14 @@ class Response
                 case JSON_ERROR_UTF8:
                     $error = 'Malformed UTF-8 characters, possibly incorrectly encoded';
                 break;
+                case JSON_ERROR_RECURSION:
+                    $error = 'One or more recursive references in the value to be encoded';
+                break;
+                case JSON_ERROR_INF_OR_NAN:
+                    $error = 'One or more NAN or INF values in the value to be encoded';
+                break;
+                case JSON_ERROR_UNSUPPORTED_TYPE:
+                    $error = 'A value of a type that cannot be encoded was given';
                 default:
                     $error = 'Unknown error';
                 break;
