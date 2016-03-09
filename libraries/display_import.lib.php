@@ -8,6 +8,7 @@
  *
  * @package PhpMyAdmin
  */
+use PMA\libraries\Encoding;
 use PMA\libraries\Message;
 use PMA\libraries\plugins\ImportPlugin;
 use PMA\libraries\URL;
