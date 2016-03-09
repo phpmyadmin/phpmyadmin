@@ -332,9 +332,11 @@ if (! empty($_REQUEST['id_bookmark'])) {
             'id',
             isset($_REQUEST['action_bookmark_all'])
         );
-        $import_text = $bookmark->getQuery();
+
         if (! empty($_REQUEST['bookmark_variable'])) {
-            $import_text = Bookmark::applyVariables($import_text);
+            $import_text = $bookmark->applyVariables();
+        } else {
+            $import_text = $bookmark->getQuery();
         }
 
         // refresh navigation and main panels

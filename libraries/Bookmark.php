@@ -147,6 +147,49 @@ class Bookmark
     }
 
     /**
+     * Returns the number of variables in a bookmark
+     *
+     * @return number number of variables
+     */
+    public function getVariableCount()
+    {
+        $matches = array();
+        preg_match_all("/\[VARIABLE[0-9]*\]/", $this->_query, $matches, PREG_SET_ORDER);
+        return count($matches);
+    }
+
+    /**
+     * Replace the placeholders in the bookmark query with variables
+     *
+     * @return string query with variables applied
+     */
+    public function applyVariables()
+    {
+        // remove comments that encloses a variable placeholder
+        $query = preg_replace(
+            '|/\*(.*\[VARIABLE[0-9]*\].*)\*/|imsU',
+            '${1}',
+            $this->_query
+        );
+        // replace variable placeholders with values
+        $number_of_variables = $this->getVariableCount();
+        for ($i = 1; $i <= $number_of_variables; $i++) {
+            $var = '';
+            if (! empty($_REQUEST['bookmark_variable'][$i])) {
+                $var = Util::sqlAddSlashes(
+                    $_REQUEST['bookmark_variable'][$i]
+                );
+            }
+            $query = str_replace('[VARIABLE' . $i . ']', $var, $query);
+            // backward compatibility
+            if ($i == 1) {
+                $query = str_replace('[VARIABLE]', $var, $query);
+            }
+        }
+        return $query;
+    }
+
+    /**
      * Defines the bookmark parameters for the current user
      *
      * @return array the bookmark parameters for the current user
@@ -312,52 +355,5 @@ class Bookmark
         }
 
         return null;
-    }
-
-    /**
-     * Returns the number of variables in a bookmark
-     *
-     * @param string $query bookmarked query
-     *
-     * @return number number of variables
-     */
-    public static function getVariableCount($query)
-    {
-        $matches = array();
-        preg_match_all("/\[VARIABLE[0-9]*\]/", $query, $matches, PREG_SET_ORDER);
-        return count($matches);
-    }
-
-    /**
-     * Replace the placeholders in the bookmark query with variables
-     *
-     * @param string $query bookmarked query
-     *
-     * @return string query with variables applied
-     */
-    public static function applyVariables($query)
-    {
-        // remove comments that encloses a variable placeholder
-        $query = preg_replace(
-            '|/\*(.*\[VARIABLE[0-9]*\].*)\*/|imsU',
-            '${1}',
-            $query
-        );
-        // replace variable placeholders with values
-        $number_of_variables = self::getVariableCount($query);
-        for ($i = 1; $i <= $number_of_variables; $i++) {
-            $var = '';
-            if (! empty($_REQUEST['bookmark_variable'][$i])) {
-                $var = Util::sqlAddSlashes(
-                    $_REQUEST['bookmark_variable'][$i]
-                );
-            }
-            $query = str_replace('[VARIABLE' . $i . ']', $var, $query);
-            // backward compatibility
-            if ($i == 1) {
-                $query = str_replace('[VARIABLE]', $var, $query);
-            }
-        }
-        return $query;
     }
 }
