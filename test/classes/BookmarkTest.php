@@ -30,8 +30,6 @@ class BookmarkTest extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['Server']['pmadb'] = 'phpmyadmin';
         $GLOBALS['cfg']['Server']['bookmarktable'] = 'pma_bookmark';
         $GLOBALS['server'] = 1;
-
-        include_once 'libraries/bookmark.lib.php';
     }
 
     /**

@@ -12,7 +12,6 @@ use PMA\libraries\URL;
  * requirements
  */
 require_once 'libraries/common.inc.php';
-require_once 'libraries/bookmark.lib.php';
 require_once 'libraries/sql.lib.php';
 
 $response = PMA\libraries\Response::getInstance();

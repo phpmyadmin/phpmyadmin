@@ -13,7 +13,6 @@ if (! defined('PHPMYADMIN')) {
 }
 
 require_once 'libraries/transformations.lib.php';
-require_once 'libraries/bookmark.lib.php';
 require_once 'libraries/sql.lib.php';
 require_once 'libraries/mult_submits.lib.php';
 

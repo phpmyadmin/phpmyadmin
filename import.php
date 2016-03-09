@@ -14,7 +14,6 @@ use PMA\libraries\Bookmark;
  */
 require_once 'libraries/common.inc.php';
 require_once 'libraries/sql.lib.php';
-require_once 'libraries/bookmark.lib.php';
 //require_once 'libraries/display_import_functions.lib.php';
 
 if (isset($_REQUEST['show_as_php'])) {
@@ -325,7 +324,6 @@ $bookmark_created = false;
 // Bookmark Support: get a query back from bookmark if required
 if (! empty($_REQUEST['id_bookmark'])) {
     $id_bookmark = (int)$_REQUEST['id_bookmark'];
-    include_once 'libraries/bookmark.lib.php';
     switch ($_REQUEST['action_bookmark']) {
     case 0: // bookmarked query that have to be run
         $bookmark = Bookmark::get(

@@ -14,8 +14,6 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
-require_once 'libraries/bookmark.lib.php';
-
 /**
  * Class used to output the console
  *

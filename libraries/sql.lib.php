@@ -883,7 +883,6 @@ function PMA_getEnumOrSetValues($db, $table, $columnType)
  */
 function PMA_getDefaultSqlQueryForBrowse($db, $table)
 {
-    include_once 'libraries/bookmark.lib.php';
     $bookmark = Bookmark::get(
         $db,
         $table,
@@ -976,7 +975,6 @@ function PMA_handleQueryExecuteError($is_gotofile, $error, $full_sql_query)
 function PMA_storeTheQueryAsBookmark($db, $bkm_user, $sql_query_for_bookmark,
     $bkm_label, $bkm_replace
 ) {
-    include_once 'libraries/bookmark.lib.php';
     $bfields = array(
                  'bkm_database' => $db,
                  'bkm_user'  => $bkm_user,
