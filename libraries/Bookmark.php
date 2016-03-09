@@ -179,7 +179,8 @@ class Bookmark
      *
      * @param array   $bkm_fields the properties of the bookmark to add; here,
      *                            $bkm_fields['bkm_sql_query'] is urlencoded
-     * @param boolean $all_users  whether to make the bookmark available for all users
+     * @param boolean $all_users  whether to make the bookmark available
+     *                            for all users
      *
      * @return Bookmark|false
      */
@@ -275,8 +276,8 @@ class Bookmark
      * @global  resource $controllink the controluser db connection handle
      *
      */
-    public static function get($db, $id, $id_field = 'id', $action_bookmark_all = false,
-        $exact_user_match = false
+    public static function get($db, $id, $id_field = 'id',
+        $action_bookmark_all = false, $exact_user_match = false
     ) {
         global $controllink;
 
