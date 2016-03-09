@@ -112,6 +112,10 @@ class Bookmark
         global $controllink;
 
         $cfgBookmark = self::getParams();
+        if (empty($cfgBookmark)) {
+            return false;
+        }
+
         $query = "INSERT INTO " . Util::backquote($cfgBookmark['db'])
             . "." . Util::backquote($cfgBookmark['table'])
             . " (id, dbase, user, query, label) VALUES (NULL, "
@@ -135,11 +139,11 @@ class Bookmark
     {
         global $controllink;
 
-        if (empty($this->_id)) {
-            return true;
+        $cfgBookmark = self::getParams();
+        if (empty($cfgBookmark)) {
+            return false;
         }
 
-        $cfgBookmark = self::getParams();
         $query  = "DELETE FROM " . Util::backquote($cfgBookmark['db'])
             . "." . Util::backquote($cfgBookmark['table'])
             . " WHERE id = " . $this->_id;
