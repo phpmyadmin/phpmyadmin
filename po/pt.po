@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.0-alpha1\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-02-17 11:55+0100\n"
-"PO-Revision-Date: 2016-03-10 10:51+0000\n"
-"Last-Translator: Tiago Rozeira <tiagorozeira@outlook.pt>\n"
+"PO-Revision-Date: 2016-03-10 11:06+0000\n"
+"Last-Translator: Pedro Ribeiro <p.m42.ribeiro@gmail.com>\n"
 "Language-Team: Portuguese "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-6/pt/>\n"
 "Language: pt\n"
@@ -972,10 +972,9 @@ msgstr ""
 "apagará os dados relacionados às partição(ões) selecionada(s)!"
 
 #: js/messages.php:83
-#, fuzzy
 #| msgid "Do you really want to delete the search \"%s\"?"
 msgid "Do you really want to TRUNCATE the selected partition(s)?"
-msgstr "Deseja realmente eliminar a pesquisa \"%s\"?"
+msgstr "Deseja realmente TRUNCAR a(s) partição(ões) seleccionada(s)?"
 
 #: js/messages.php:85
 #, fuzzy
@@ -1470,9 +1469,8 @@ msgid "Current settings"
 msgstr "Configurações atuais"
 
 #: js/messages.php:256
-#, fuzzy
 msgid "Chart title"
-msgstr "Tipo de Exportação"
+msgstr "Título do gráfico"
 
 #. l10n: As in differential values
 #: js/messages.php:258
