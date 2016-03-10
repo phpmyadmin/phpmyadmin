@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.0-alpha1\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-02-17 11:55+0100\n"
-"PO-Revision-Date: 2016-03-10 11:06+0000\n"
-"Last-Translator: Pedro Ribeiro <p.m42.ribeiro@gmail.com>\n"
+"PO-Revision-Date: 2016-03-10 11:12+0000\n"
+"Last-Translator: Paulo Lopes Duarte <paulolduarte@hotmail.com>\n"
 "Language-Team: Portuguese "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-6/pt/>\n"
 "Language: pt\n"
@@ -660,7 +660,7 @@ msgstr "Ordenação de caracteres da ligação ao servidor"
 
 #: index.php:230
 msgid "Appearance settings"
-msgstr "Definições de aspecto"
+msgstr "Configurações de aspecto"
 
 #: index.php:262 prefs_manage.php:284
 msgid "More settings"
