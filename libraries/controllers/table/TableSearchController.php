@@ -1149,14 +1149,8 @@ class TableSearchController extends TableController
                 && 'BETWEEN' != $func_type
                 && 'NOT BETWEEN' != $func_type
             ) {
-                if ($func_type == 'LIKE %...%' || $func_type == 'LIKE') {
-                    $where = $backquoted_name . ' ' . $func_type . ' ' . $quot
-                        . Util::sqlAddSlashes($criteriaValues, true) . $quot;
-                } else {
-                    $where = $backquoted_name . ' ' . $func_type . ' ' . $quot
+                return $backquoted_name . ' ' . $func_type . ' ' . $quot
                         . Util::sqlAddSlashes($criteriaValues) . $quot;
-                }
-                return $where;
             }
             $func_type = str_replace(' (...)', '', $func_type);
 
