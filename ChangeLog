@@ -65,6 +65,7 @@ phpMyAdmin - ChangeLog
 - issue #12081 Fixed rendering of table stats
 - issue #11705 Fixed problems with PHP on Windows on table structure
 - issue #12085 Like search strings being escaped incorrectly
+- issue #12092 Rename exported databases/tables doesn't seem to work
 
 4.5.5.1 (2016-02-29)
 - issue #11971 CREATE UNIQUE INDEX index type is not recognized by parser.
