@@ -285,15 +285,11 @@ if (!defined('TESTSUITE')) {
     if ((!empty($parser->statements[0]))
         && ($parser->statements[0] instanceof SqlParser\Statements\SelectStatement)
     ) {
-        if (!empty($_REQUEST['aliases'])) {
-            $aliases = PMA_mergeAliases(
-                SqlParser\Utils\Misc::getAliases($parser->statements[0], $db),
-                $_REQUEST['aliases']
-            );
-            $_SESSION['tmpval']['aliases'] = $_REQUEST['aliases'];
-        } else {
-            $aliases = SqlParser\Utils\Misc::getAliases($parser->statements[0], $db);
-        }
+        $aliases = SqlParser\Utils\Misc::getAliases($parser->statements[0], $db);
+    }
+    if (!empty($_REQUEST['aliases'])) {
+        $aliases = PMA_mergeAliases($aliases, $_REQUEST['aliases']);
+        $_SESSION['tmpval']['aliases'] = $_REQUEST['aliases'];
     }
 
     /**
