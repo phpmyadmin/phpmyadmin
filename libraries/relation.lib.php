@@ -484,6 +484,7 @@ function PMA_checkRelationsParam()
 
     if ($GLOBALS['server'] == 0
         || empty($GLOBALS['cfg']['Server']['pmadb'])
+        || empty($GLOBALS['controllink'])
         || ! $GLOBALS['dbi']->selectDb(
             $GLOBALS['cfg']['Server']['pmadb'], $GLOBALS['controllink']
         )
