@@ -868,6 +868,8 @@ class DatabaseStructureController extends DatabaseController
      */
     protected function checkFavoriteTable($current_table)
     {
+        // ensure $_SESSION['tmpval']['favorite_tables'] is initialized
+        RecentFavoriteTable::getInstance('favorite');
         foreach (
             $_SESSION['tmpval']['favorite_tables'][$GLOBALS['server']] as $value
         ) {
