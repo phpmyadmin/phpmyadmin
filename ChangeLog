@@ -1,6 +1,8 @@
 phpMyAdmin - ChangeLog
 ======================
 
+4.6.1 (not yet released)
+
 4.6.0.0 (2016-03-22)
 + issue #11456 Disabled storage engines
 + issue #11479 Allow setting routine wise privileges
