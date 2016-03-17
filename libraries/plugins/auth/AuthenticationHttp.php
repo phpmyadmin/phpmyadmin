@@ -126,10 +126,6 @@ class AuthenticationHttp extends AuthenticationPlugin
     {
         global $PHP_AUTH_USER, $PHP_AUTH_PW;
 
-        if ($GLOBALS['token_provided'] && $GLOBALS['token_mismatch']) {
-            return false;
-        }
-
         // Grabs the $PHP_AUTH_USER variable whatever are the values of the
         // 'register_globals' and the 'variables_order' directives
         if (empty($PHP_AUTH_USER)) {
