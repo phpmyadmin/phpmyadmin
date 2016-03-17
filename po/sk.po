@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-02-22 14:22+0100\n"
-"PO-Revision-Date: 2016-01-19 21:35+0000\n"
-"Last-Translator: Martin Lacina <martin@whistler.sk>\n"
-"Language-Team: Slovak <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"sk/>\n"
+"PO-Revision-Date: 2016-03-17 08:31+0000\n"
+"Last-Translator: Jozef Pistej <pistej2@gmail.com>\n"
+"Language-Team: Slovak "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/sk/>\n"
 "Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Weblate 2.5-dev\n"
+"X-Generator: Weblate 2.5\n"
 
 #: changelog.php:37 license.php:33
 #, php-format
@@ -1106,7 +1106,7 @@ msgstr "Šablóna bola vytvorená."
 
 #: js/messages.php:155
 msgid "Template was loaded."
-msgstr ""
+msgstr "Šablóna bola načítaná."
 
 #: js/messages.php:156
 msgid "Template was updated."
@@ -2538,10 +2538,9 @@ msgid "Copy tables to"
 msgstr "Skopírovať tabuľky do"
 
 #: js/messages.php:714
-#, fuzzy
 #| msgid "Add table prefix:"
 msgid "Add table prefix"
-msgstr "Pridať prefix tabuľky:"
+msgstr "Pridať prefix tabuľky"
 
 #: js/messages.php:715
 #, fuzzy
