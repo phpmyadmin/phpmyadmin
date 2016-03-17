@@ -15,7 +15,7 @@ if (!isset($_REQUEST['exception_type'])
     die('Oops, something went wrong!!');
 }
 
-$response = PMA_Response::getInstance();
+$response = PMA\libraries\Response::getInstance();
 
 if (isset($_REQUEST['send_error_report'])
     && ($_REQUEST['send_error_report'] == true
@@ -35,7 +35,7 @@ if (isset($_REQUEST['send_error_report'])
         ) {
             $_SESSION['error_subm_count'] = 0;
             $_SESSION['prev_errors'] = '';
-             $response = PMA_Response::getInstance();
+             $response = PMA\libraries\Response::getInstance();
             $response->addJSON('_stopErrorReportLoop', '1');
         } else {
             $_SESSION['prev_error_subm_time'] = time();
@@ -86,9 +86,9 @@ if (isset($_REQUEST['send_error_report'])
 
         /* Create message object */
         if ($success) {
-            $msg = PMA_Message::notice($msg);
+            $msg = PMA\libraries\Message::notice($msg);
         } else {
-            $msg = PMA_Message::error($msg);
+            $msg = PMA\libraries\Message::error($msg);
         }
 
         /* Add message to response */

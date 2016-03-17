@@ -16,12 +16,12 @@ if ($requested_sort == $sort) {
     if ($requested_sort_order == 'ASC') {
         $future_sort_order = 'DESC';
         // current sort order is ASC
-        $order_img  = ' ' . PMA_Util::getImage(
+        $order_img  = ' ' . PMA\libraries\Util::getImage(
             's_asc.png',
             __('Ascending'),
             array('class' => 'sort_arrow', 'title' => '')
         );
-        $order_img .= ' ' . PMA_Util::getImage(
+        $order_img .= ' ' . PMA\libraries\Util::getImage(
             's_desc.png',
              __('Descending'),
             array('class' => 'sort_arrow hide', 'title' => '')
@@ -33,12 +33,12 @@ if ($requested_sort == $sort) {
     } else {
         $future_sort_order = 'ASC';
         // current sort order is DESC
-        $order_img  = ' ' . PMA_Util::getImage(
+        $order_img  = ' ' . PMA\libraries\Util::getImage(
             's_asc.png',
             __('Ascending'),
             array('class' => 'sort_arrow hide', 'title' => '')
         );
-        $order_img .= ' ' . PMA_Util::getImage(
+        $order_img .= ' ' . PMA\libraries\Util::getImage(
             's_desc.png',
             __('Descending'),
             array('class' => 'sort_arrow', 'title' => '')
@@ -65,6 +65,6 @@ if (! empty($_REQUEST['tbl_group'])) {
 
 $url = 'db_structure.php' . PMA_URL_getCommon($_url_params);
 
-echo PMA_Util::linkOrButton(
+echo PMA\libraries\Util::linkOrButton(
     $url, $title . $order_img, $order_link_params
 );

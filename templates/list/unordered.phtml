@@ -9,21 +9,19 @@
  * $content - mandatory string - Content to display if $item is empty
  */
 ?>
-<ul<?php
-echo !empty($class) ? ' class="' . $class . '"' : null;
-echo !empty($id) ? ' id="' . $id . '"' : null;
-?>>
-    <?php
-    if (!empty($items)) :
-        foreach ($items as $item) :
-            if (!is_array($item)) {
-                $item = array('content' => $item);
-            }
-            echo PMA\Template::get('list/item')
-                ->render($item);
-        endforeach;
-    elseif (!empty($content)) :
-        echo $content;
-    endif;
-    ?>
+<ul<?= !empty($class) ? ' class="' . $class . '"' : null ?>
+    <?= !empty($id) ? ' id="' . $id . '"' : null ?>>
+
+    <?php if (!empty($items)): ?>
+        <?php foreach ($items as $item): ?>
+            <?php if (!is_array($item)): ?>
+                <?php $item = array('content' => $item) ?>
+            <?php endif; ?>
+            <?= PMA\libraries\Template::get('list/item')
+                ->render($item)
+            ?>
+        <?php endforeach; ?>
+    <?php elseif (!empty($content)): ?>
+        <?= $content ?>
+    <?php endif; ?>
 </ul>

@@ -22,5 +22,5 @@ if ($GLOBALS['cfg']['EnableAutocompleteForTablesAndColumns']) {
 } else {
     $sql_autocomplete = true;
 }
-$response = PMA_Response::getInstance();
+$response = PMA\libraries\Response::getInstance();
 $response->addJSON("tables", json_encode($sql_autocomplete));

@@ -15,16 +15,19 @@
     "support": {
         "forum": "https://www.phpmyadmin.net/support/",
         "issues": "https://github.com/phpmyadmin/phpmyadmin/issues",
-        "wiki": "http://wiki.phpmyadmin.net/",
+        "wiki": "https://wiki.phpmyadmin.net/",
+        "docs": "https://docs.phpmyadmin.net/",
         "source": "https://github.com/phpmyadmin/phpmyadmin"
     },
+    "non-feature-branches": ["RELEASE_.*"],
     "require": {
         "php": ">=5.5.0"
     },
     "require-dev": {
-        "satooshi/php-coveralls": ">=0.6",
-        "phpunit/phpunit": ">=3.7",
-        "phpunit/phpunit-selenium": ">=1.2",
+        "satooshi/php-coveralls": "~0.6",
+        "phpunit/phpunit": "~4.1",
+        "codacy/coverage": "dev-master",
+        "phpunit/phpunit-selenium": "~1.2",
         "squizlabs/php_codesniffer": "2.*"
     },
     "repositories": [

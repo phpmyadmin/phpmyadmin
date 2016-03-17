@@ -8,22 +8,20 @@
 
 namespace PMA;
 
-use PMA_Index;
-use PMA_Response;
+use PMA\libraries\controllers\table\TableIndexesController;
+use PMA\libraries\Index;
+use PMA\libraries\Response;
 
 require_once 'libraries/common.inc.php';
-require_once 'libraries/di/Container.class.php';
-require_once 'libraries/controllers/TableIndexesController.class.php';
-require_once 'libraries/Response.class.php';
-require_once 'libraries/Index.class.php';
 
-$container = DI\Container::getDefaultContainer();
-$container->factory('PMA\Controllers\Table\TableIndexesController');
+$container = libraries\di\Container::getDefaultContainer();
+$container->factory('PMA\libraries\controllers\table\TableIndexesController');
 $container->alias(
-    'TableIndexesController', 'PMA\Controllers\Table\TableIndexesController'
+    'TableIndexesController',
+    'PMA\libraries\controllers\table\TableIndexesController'
 );
-$container->set('PMA_Response', PMA_Response::getInstance());
-$container->alias('response', 'PMA_Response');
+$container->set('PMA\libraries\Response', Response::getInstance());
+$container->alias('response', 'PMA\libraries\Response');
 
 /* Define dependencies for the concerned controller */
 $db = $container->get('db');
@@ -36,18 +34,18 @@ if (!isset($_REQUEST['create_edit_table'])) {
 if (isset($_REQUEST['index'])) {
     if (is_array($_REQUEST['index'])) {
         // coming already from form
-        $index = new PMA_Index($_REQUEST['index']);
+        $index = new Index($_REQUEST['index']);
     } else {
         $index = $dbi->getTable($db, $table)->getIndex($_REQUEST['index']);
     }
 } else {
-    $index = new PMA_Index;
+    $index = new Index;
 }
 
 $dependency_definitions = array(
     "index" => $index
 );
 
-/** @var Controllers\Table\TableIndexesController $controller */
+/** @var TableIndexesController $controller */
 $controller = $container->get('TableIndexesController', $dependency_definitions);
 $controller->indexAction();

@@ -6,6 +6,8 @@
  * @package PhpMyAdmin-Setup
  */
 
+use PMA\libraries\config\FormDisplay;
+
 if (!defined('PHPMYADMIN')) {
     exit;
 }
@@ -13,8 +15,6 @@ if (!defined('PHPMYADMIN')) {
 /**
  * Core libraries.
  */
-require_once './libraries/config/Form.class.php';
-require_once './libraries/config/FormDisplay.class.php';
 require_once './setup/lib/form_processing.lib.php';
 
 require './libraries/config/setup.forms.php';
@@ -26,7 +26,7 @@ if (! isset($forms[$formset_id]) || substr($formset_id, 0, 1) === '_') {
 }
 
 if (isset($GLOBALS['strConfigFormset_' . $formset_id])) {
-    echo '<h2>' . $GLOBALS['strConfigFormset_' . $formset_id] . '</h2>';
+    echo '<h2>' , $GLOBALS['strConfigFormset_' . $formset_id] , '</h2>';
 }
 $form_display = new FormDisplay($GLOBALS['ConfigFile']);
 foreach ($forms[$formset_id] as $form_name => $form) {

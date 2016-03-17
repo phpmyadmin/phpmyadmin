@@ -9,19 +9,21 @@
 /*
  * Include to test.
  */
+use PMA\libraries\Theme;
+use PMA\libraries\TypesMySQL;
+
 $GLOBALS['server'] = 1;
-require_once 'libraries/Util.class.php';
-require_once 'libraries/php-gettext/gettext.inc';
+
 require_once 'libraries/database_interface.inc.php';
-require_once 'libraries/Tracker.class.php';
+
 require_once 'libraries/relation.lib.php';
-require_once 'libraries/Message.class.php';
+
 require_once 'libraries/url_generating.lib.php';
-require_once 'libraries/Theme.class.php';
-require_once 'libraries/Types.class.php';
+
+
 require_once 'libraries/mysql_charsets.inc.php';
 require_once 'libraries/normalization.lib.php';
-require_once 'libraries/Index.class.php';
+
 
 /**
  * tests for normalization.lib.php
@@ -38,7 +40,7 @@ class PMA_Normalization_Test extends PHPUnit_Framework_TestCase
     public function setUp()
     {
         $GLOBALS['cfg']['LimitChars'] = 50;
-        $GLOBALS['PMA_Types'] = new PMA_Types_MySQL();
+        $GLOBALS['PMA_Types'] = new TypesMySQL();
         $GLOBALS['cfg']['ServerDefault'] = "PMA_server";
         $GLOBALS['pmaThemeImage'] = 'image';
         $GLOBALS['cfg']['ShowHint'] = true;
@@ -49,11 +51,11 @@ class PMA_Normalization_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['server'] = 1;
 
         //$_SESSION
-        $_SESSION['PMA_Theme'] = PMA_Theme::load('./themes/pmahomme');
-        $_SESSION['PMA_Theme'] = new PMA_Theme();
+        $_SESSION['PMA_Theme'] = Theme::load('./themes/pmahomme');
+        $_SESSION['PMA_Theme'] = new Theme();
 
         //mock DBI
-        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
         $GLOBALS['dbi'] = $dbi;
@@ -434,7 +436,7 @@ class PMA_Normalization_Test extends PHPUnit_Framework_TestCase
         $this->assertArrayHasKey('queryError', $result);
         $this->assertArrayHasKey('message', $result);
         $this->assertInstanceOf(
-            'PMA_Message', $result['message']
+            'PMA\libraries\Message', $result['message']
         );
     }
 
@@ -489,7 +491,7 @@ class PMA_Normalization_Test extends PHPUnit_Framework_TestCase
             '2nf'      => __('Second step of normalization (1NF+2NF)'),
             '3nf'  => __('Third step of normalization (1NF+2NF+3NF)'));
 
-        $html_tmp = PMA_Util::getRadioFields(
+        $html_tmp = PMA\libraries\Util::getRadioFields(
             'normalizeTo', $choices, '1nf', true
         );
         $this->assertContains($html_tmp, $result);

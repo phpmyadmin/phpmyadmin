@@ -1,16 +1,21 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Responsile for retrieving version information and notifiying about latest version
+ * Responsible for retrieving version information and notifiying about latest version
  *
  * @package PhpMyAdmin
  */
-if (! defined('PHPMYADMIN')) {
+namespace PMA\libraries;
+
+use PMA\libraries\Util;
+use stdClass;
+
+if (!defined('PHPMYADMIN')) {
     exit;
 }
 
 /**
- * Responsile for retrieving version information and notifiying about latest version
+ * Responsible for retrieving version information and notifiying about latest version
  *
  * @package PhpMyAdmin
  *
@@ -50,7 +55,7 @@ class VersionInformation
                         'timeout' => $connection_timeout,
                     )
                 );
-                $context = PMA_Util::handleContext($context);
+                $context = Util::handleContext($context);
                 if (! defined('TESTSUITE')) {
                     session_write_close();
                 }
@@ -64,7 +69,7 @@ class VersionInformation
                 if ($curl_handle === false) {
                     return null;
                 }
-                $curl_handle = PMA_Util::configureCurl($curl_handle);
+                $curl_handle = Util::configureCurl($curl_handle);
                 curl_setopt(
                     $curl_handle,
                     CURLOPT_HEADER,
@@ -182,11 +187,11 @@ class VersionInformation
 
     /**
      * Returns the version and date of the latest phpMyAdmin version compatible
-     * with avilable PHP and MySQL versions
+     * with the available PHP and MySQL versions
      *
      * @param array $releases array of information related to each version
      *
-     * @return array containing the version and date of latest compatibel version
+     * @return array containing the version and date of latest compatible version
      */
     public function getLatestCompatibleVersion($releases)
     {
@@ -205,7 +210,7 @@ class VersionInformation
                 $mysqlVersions = $release->mysql_versions;
                 $mysqlConditions = explode(",", $mysqlVersions);
                 foreach ($mysqlConditions as $mysqlCondition) {
-                    if (! $this->evaluateVersionCondition('MySQL', $mysqlCondition)) {
+                    if (!$this->evaluateVersionCondition('MySQL', $mysqlCondition)) {
                         continue 2;
                     }
                 }
@@ -271,7 +276,6 @@ class VersionInformation
      */
     protected function getMySQLVersion()
     {
-        return PMA_Util::cacheGet('PMA_MYSQL_STR_VERSION');
+        return Util::cacheGet('PMA_MYSQL_STR_VERSION');
     }
 }
-?>

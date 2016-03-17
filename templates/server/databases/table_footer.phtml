@@ -1,0 +1,42 @@
+<tfoot>
+    <tr>
+        <?php if ($GLOBALS['is_superuser'] || $GLOBALS['cfg']['AllowUserDropDatabase']): ?>
+            <th></th>
+        <?php endif; ?>
+        <th>
+            <?= __('Total'); ?>: <span id="databases_count"><?= $databaseCount; ?></span>
+        </th>
+        <?php foreach ($column_order as $stat_name => $stat):
+            if (! array_key_exists($stat_name, $first_database)) {
+                continue;
+            }
+            if ($stat['format'] === 'byte') {
+                list($value, $unit) = \PMA\libraries\Util::formatByteDown($stat['footer'], 3, 1);
+            } elseif ($stat['format'] === 'number') {
+                $value = \PMA\libraries\Util::formatNumber($stat['footer'], 0);
+            } else {
+                $value = htmlentities($stat['footer'], 0);
+            } ?>
+
+            <th class="value">
+                <?php if (isset($stat['description_function'])): ?>
+                    <dfn title="<?= $stat['description_function']($stat['footer']); ?>">
+                        <?= $value; ?>
+                    </dfn>
+                <?php else: ?>
+                    <?= $value; ?>
+                <?php endif; ?>
+            </th>
+            <?php if ($stat['format'] === 'byte'): ?>
+                <th class="unit"><?= $unit; ?></th>
+            <?php endif; ?>
+        <?php endforeach; ?>
+        <?php if ($master_replication): ?>
+            <th></th>
+        <?php endif; ?>
+        <?php if ($slave_replication): ?>
+            <th></th>
+        <?php endif; ?>
+        <th></th>
+    </tr>
+</tfoot>

@@ -4,13 +4,11 @@
 /**
  * functions for displaying server, database and table export
  *
- * @usedby display_export.inc.php
- *
  * @package PhpMyAdmin
  */
-if (! defined('PHPMYADMIN')) {
-    exit;
-}
+use PMA\libraries\Message;
+use PMA\libraries\plugins\ExportPlugin;
+use PMA\libraries\Table;
 
 /**
  * Outputs appropriate checked statement for checkbox.
@@ -60,7 +58,7 @@ function PMA_getHtmlForExportSelectOptions($tmp_select = '')
         $_GET['db_select'] = explode(",", $_GET['db_select']);
     }
 
-    foreach ($GLOBALS['pma']->databases as $current_db) {
+    foreach ($GLOBALS['dblist']->databases as $current_db) {
         if ($GLOBALS['dbi']->isSystemSchema($current_db, true)) {
             continue;
         }
@@ -71,7 +69,7 @@ function PMA_getHtmlForExportSelectOptions($tmp_select = '')
                 $is_selected = '';
             }
         } elseif (!empty($tmp_select)) {
-            if (/*overload*/mb_strpos(
+            if (mb_strpos(
                 ' ' . $tmp_select,
                 '|' . $current_db . '|'
             )) {
@@ -167,7 +165,7 @@ function PMA_getHtmlForExportOptionHeader($export_type, $db, $table)
 {
     $html  = '<div class="exportoptions" id="header">';
     $html .= '<h2>';
-    $html .= PMA_Util::getImage('b_export.png', __('Export'));
+    $html .= PMA\libraries\Util::getImage('b_export.png', __('Export'));
     if ($export_type == 'server') {
         $html .= __('Exporting databases from the current server');
     } elseif ($export_type == 'database') {
@@ -248,24 +246,27 @@ function PMA_getOptionsForExportTemplates($export_type)
     $cfgRelation = PMA_getRelationsParam();
 
     $query = "SELECT `id`, `template_name` FROM "
-       . PMA_Util::backquote($cfgRelation['db']) . '.'
-       . PMA_Util::backquote($cfgRelation['export_templates'])
+       . PMA\libraries\Util::backquote($cfgRelation['db']) . '.'
+       . PMA\libraries\Util::backquote($cfgRelation['export_templates'])
        . " WHERE `username` = "
-       . "'" . PMA_Util::sqlAddSlashes($GLOBALS['cfg']['Server']['user']) . "'"
-       . " AND `export_type` = '" . $export_type . "'"
+       . "'" . PMA\libraries\Util::sqlAddSlashes($GLOBALS['cfg']['Server']['user'])
+        . "' AND `export_type` = '" . $export_type . "'"
        . " ORDER BY `template_name`;";
 
     $result = PMA_queryAsControlUser($query);
-    if ($result) {
-        while ($row = $GLOBALS['dbi']->fetchAssoc($result, $GLOBALS['controllink'])) {
-            $ret .= '<option value="' . htmlspecialchars($row['id']) . '"';
-            if (!empty($_GET['template_id']) && $_GET['template_id'] == $row['id']) {
-                $ret .= ' selected="selected"';
-            }
-            $ret .= '>';
-            $ret .=  htmlspecialchars($row['template_name']) . '</option>';
-        }
+    if (!$result) {
+        return $ret;
     }
+
+    while ($row = $GLOBALS['dbi']->fetchAssoc($result, $GLOBALS['controllink'])) {
+        $ret .= '<option value="' . htmlspecialchars($row['id']) . '"';
+        if (!empty($_GET['template_id']) && $_GET['template_id'] == $row['id']) {
+            $ret .= ' selected="selected"';
+        }
+        $ret .= '>';
+        $ret .=  htmlspecialchars($row['template_name']) . '</option>';
+    }
+
     return $ret;
 }
 
@@ -391,7 +392,7 @@ function PMA_getHtmlForExportOptionsFormat($export_list)
 
     $html .= '<div class="exportoptions" id="submit">';
 
-    $html .= PMA_Util::getExternalBug(
+    $html .= PMA\libraries\Util::getExternalBug(
         __('SQL compatibility mode'), 'mysql', '50027', '14515'
     );
     global $cfg;
@@ -438,7 +439,7 @@ function PMA_getHtmlForExportOptionsRows($db, $table, $unlim_num_rows)
     } elseif (!empty($unlim_num_rows)) {
         $html .= $unlim_num_rows;
     } else {
-        $_table = new PMA_Table($table, $db);
+        $_table = new Table($table, $db);
         $html .= $_table->countRecords();
     }
     $html .= '" onfocus="this.select()" />';
@@ -487,7 +488,7 @@ function PMA_getHtmlForExportOptionsQuickExport()
     $html .= '<label for="checkbox_quick_dump_onserver">';
     $html .= sprintf(
         __('Save on server in the directory <b>%s</b>'),
-        htmlspecialchars(PMA_Util::userDir($cfg['SaveDir']))
+        htmlspecialchars(PMA\libraries\Util::userDir($cfg['SaveDir']))
     );
     $html .= '</label>';
     $html .= '</li>';
@@ -522,7 +523,7 @@ function PMA_getHtmlForExportOptionsOutputSaveDir()
     $html .= '<label for="checkbox_dump_onserver">';
     $html .= sprintf(
         __('Save on server in the directory <b>%s</b>'),
-        htmlspecialchars(PMA_Util::userDir($cfg['SaveDir']))
+        htmlspecialchars(PMA\libraries\Util::userDir($cfg['SaveDir']))
     );
     $html .= '</label>';
     $html .= '</li>';
@@ -552,7 +553,7 @@ function PMA_getHtmlForExportOptionsOutputFormat($export_type)
     $html  = '<li>';
     $html .= '<label for="filename_template" class="desc">';
     $html .= __('File name template:');
-    $trans = new PMA_Message;
+    $trans = new Message;
     $trans->addMessage(__('@SERVER@ will become the server name'));
     if ($export_type == 'database' || $export_type == 'table') {
         $trans->addMessage(__(', @DATABASE@ will become the database name'));
@@ -561,7 +562,7 @@ function PMA_getHtmlForExportOptionsOutputFormat($export_type)
         }
     }
 
-    $msg = new PMA_Message(
+    $msg = new Message(
         __(
             'This value is interpreted using %1$sstrftime%2$s, '
             . 'so you can use time formatting strings. '
@@ -576,14 +577,14 @@ function PMA_getHtmlForExportOptionsOutputFormat($export_type)
     );
     $msg->addParam('</a>', false);
     $msg->addParam($trans);
-    $doc_url = PMA_Util::getDocuLink('faq', 'faq6-27');
+    $doc_url = PMA\libraries\Util::getDocuLink('faq', 'faq6-27');
     $msg->addParam(
         '<a href="' . $doc_url . '" target="documentation">',
         false
     );
     $msg->addParam('</a>', false);
 
-    $html .= PMA_Util::showHint($msg);
+    $html .= PMA\libraries\Util::showHint($msg);
     $html .= '</label>';
     $html .= '<input type="text" name="filename_template" id="filename_template" ';
     $html .= ' value="';
@@ -636,7 +637,6 @@ function PMA_getHtmlForExportOptionsOutputCharset()
     global $cfg;
     $html = '        <li><label for="select_charset" class="desc">'
         . __('Character set of the file:') . '</label>' . "\n";
-    reset($cfg['AvailableCharsets']);
     $html .= '<select id="select_charset" name="charset" size="1">';
     foreach ($cfg['AvailableCharsets'] as $temp_charset) {
         $html .= '<option value="' . $temp_charset . '"';
@@ -868,8 +868,8 @@ function PMA_getHtmlForExportOptions(
     $html .= PMA_getHtmlForExportOptionsFormatDropdown($export_list);
     $html .= PMA_getHtmlForExportOptionsSelection($export_type, $multi_values);
 
-    $tableLength = /*overload*/mb_strlen($table);
-    $_table = new PMA_Table($table, $db);
+    $tableLength = mb_strlen($table);
+    $_table = new Table($table, $db);
     if ($tableLength && empty($num_tables) && ! $_table->isMerge()) {
         $html .= PMA_getHtmlForExportOptionsRows($db, $table, $unlim_num_rows);
     }
@@ -1020,4 +1020,162 @@ function PMA_getHtmlForAliasModalDialog($db = '', $table = '')
 
     $html .= '</div>';
     return $html;
+}
+
+/**
+ * Gets HTML to display export dialogs
+ *
+ * @param String $export_type    export type: server|database|table
+ * @param String $db             selected DB
+ * @param String $table          selected table
+ * @param String $sql_query      SQL query
+ * @param Int    $num_tables     number of tables
+ * @param Int    $unlim_num_rows unlimited number of rows
+ * @param String $multi_values   selector options
+ *
+ * @return string $html
+ */
+function PMA_getExportDisplay(
+    $export_type, $db, $table, $sql_query, $num_tables,
+    $unlim_num_rows, $multi_values
+) {
+    $cfgRelation = PMA_getRelationsParam();
+
+    if (isset($_REQUEST['single_table'])) {
+        $GLOBALS['single_table'] = $_REQUEST['single_table'];
+    }
+
+    include_once './libraries/file_listing.lib.php';
+    include_once './libraries/plugin_interface.lib.php';
+    include_once './libraries/display_export.lib.php';
+
+    /* Scan for plugins */
+    /* @var $export_list ExportPlugin[] */
+    $export_list = PMA_getPlugins(
+        "export",
+        'libraries/plugins/export/',
+        array(
+            'export_type' => $export_type,
+            'single_table' => isset($GLOBALS['single_table'])
+        )
+    );
+
+    /* Fail if we didn't find any plugin */
+    if (empty($export_list)) {
+        Message::error(
+            __('Could not load export plugins, please check your installation!')
+        )->display();
+        exit;
+    }
+
+    $html = PMA_getHtmlForExportOptionHeader($export_type, $db, $table);
+
+    if ($cfgRelation['exporttemplateswork']) {
+        $html .= PMA_getHtmlForExportTemplateLoading($export_type);
+    }
+
+    $html .= '<form method="post" action="export.php" '
+        . ' name="dump" class="disableAjax">';
+
+    //output Hidden Inputs
+    $single_table_str = isset($GLOBALS['single_table']) ? $GLOBALS['single_table']
+        : '';
+    $html .= PMA_getHtmlForHiddenInput(
+        $export_type,
+        $db,
+        $table,
+        $single_table_str,
+        $sql_query
+    );
+
+    //output Export Options
+    $html .= PMA_getHtmlForExportOptions(
+        $export_type,
+        $db,
+        $table,
+        $multi_values,
+        $num_tables,
+        $export_list,
+        $unlim_num_rows
+    );
+
+    $html .= '</form>';
+    return $html;
+}
+
+/**
+ * Handles export template actions
+ *
+ * @param array $cfgRelation Relation configuration
+ *
+ * @return void
+ */
+function PMA_handleExportTemplateActions($cfgRelation)
+{
+    if (isset($_REQUEST['templateId'])) {
+        $id = PMA\libraries\Util::sqlAddSlashes($_REQUEST['templateId']);
+    } else {
+        $id = '';
+    }
+
+    $templateTable = PMA\libraries\Util::backquote($cfgRelation['db']) . '.'
+       . PMA\libraries\Util::backquote($cfgRelation['export_templates']);
+    $user = PMA\libraries\Util::sqlAddSlashes($GLOBALS['cfg']['Server']['user']);
+
+    switch ($_REQUEST['templateAction']) {
+    case 'create':
+        $query = "INSERT INTO " . $templateTable . "("
+            . " `username`, `export_type`,"
+            . " `template_name`, `template_data`"
+            . ") VALUES ("
+            . "'" . $user . "', "
+            . "'" . PMA\libraries\Util::sqlAddSlashes($_REQUEST['exportType'])
+            . "', '" . PMA\libraries\Util::sqlAddSlashes($_REQUEST['templateName'])
+            . "', '" . PMA\libraries\Util::sqlAddSlashes($_REQUEST['templateData'])
+            . "');";
+        break;
+    case 'load':
+        $query = "SELECT `template_data` FROM " . $templateTable
+             . " WHERE `id` = " . $id  . " AND `username` = '" . $user . "'";
+        break;
+    case 'update':
+        $query = "UPDATE " . $templateTable . " SET `template_data` = "
+          . "'" . PMA\libraries\Util::sqlAddSlashes($_REQUEST['templateData']) . "'"
+          . " WHERE `id` = " . $id  . " AND `username` = '" . $user . "'";
+        break;
+    case 'delete':
+        $query = "DELETE FROM " . $templateTable
+           . " WHERE `id` = " . $id  . " AND `username` = '" . $user . "'";
+        break;
+    default:
+        $query = '';
+        break;
+    }
+
+    $result = PMA_queryAsControlUser($query, false);
+
+    $response = PMA\libraries\Response::getInstance();
+    if (! $result) {
+        $error = $GLOBALS['dbi']->getError($GLOBALS['controllink']);
+        $response->setRequestStatus(false);
+        $response->addJSON('message', $error);
+        exit;
+    }
+
+    $response->setRequestStatus(true);
+    if ('create' == $_REQUEST['templateAction']) {
+        $response->addJSON(
+            'data',
+            PMA_getOptionsForExportTemplates($_REQUEST['exportType'])
+        );
+    } elseif ('load' == $_REQUEST['templateAction']) {
+        $data = null;
+        while ($row = $GLOBALS['dbi']->fetchAssoc(
+            $result, $GLOBALS['controllink']
+        )) {
+            $data = $row['template_data'];
+        }
+        $response->addJSON('data', $data);
+    }
+    $GLOBALS['dbi']->freeResult($result);
 }

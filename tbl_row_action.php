@@ -66,12 +66,13 @@ if (!empty($submit_mult)) {
         && (! isset($_REQUEST['rows_to_delete'])
         || ! is_array($_REQUEST['rows_to_delete']))
     ) {
-        $response = PMA_Response::getInstance();
-        $response->isSuccess(false);
+        $response = PMA\libraries\Response::getInstance();
+        $response->setRequestStatus(false);
         $response->addJSON('message', __('No row selected.'));
     }
 
     switch($submit_mult) {
+    /** @noinspection PhpMissingBreakStatementInspection */
     case 'row_copy':
         $_REQUEST['default_action'] = 'insert';
         // no break to allow for fallthough
@@ -149,13 +150,8 @@ if (!empty($submit_mult)) {
         }
 
         $active_page = 'sql.php';
-        /**
-         * Parse and analyze the query
-         */
-        include_once 'libraries/parse_analyze.inc.php';
-
         PMA_executeQueryAndSendQueryResponse(
-            $analyzed_sql_results, // analyzed_sql_results
+            null, // analyzed_sql_results
             false, // is_gotofile
             $db, // db
             $table, // table

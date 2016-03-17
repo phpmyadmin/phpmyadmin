@@ -1,9 +1,9 @@
 phpMyAdmin - Readme
 ===================
 
-Version 4.5.5.1
+Version 4.6.0
 
-A set of PHP-scripts to manage MySQL over the web.
+A web interface for MySQL and MariaDB.
 
 https://www.phpmyadmin.net/
 

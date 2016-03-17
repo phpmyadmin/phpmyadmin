@@ -142,7 +142,7 @@ var processList = {
     getUrlParams: function() {
         var urlParams = { 'ajax_request': true, 'refresh': true };
         if ($('#showExecuting').is(":checked")) {
-            urlParams['showExecuting'] = true;
+            urlParams.showExecuting = true;
             return urlParams;
         }
         return urlParams;

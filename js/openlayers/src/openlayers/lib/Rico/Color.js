@@ -1,9 +1,19 @@
+/** 
+ * @requires Rico/license.js
+ * @requires OpenLayers/Console.js
+ * @requires OpenLayers/BaseTypes/Class.js
+ * @requires OpenLayers/BaseTypes/Element.js
+ */
+
+
 /*
  * This file has been edited substantially from the Rico-released version by
  * the OpenLayers development team.
- *
- * This file is licensed under the Apache License, Version 2.0.
  */
+
+OpenLayers.Console.warn("OpenLayers.Rico is deprecated");
+
+OpenLayers.Rico = OpenLayers.Rico || {};
 OpenLayers.Rico.Color = OpenLayers.Class({
 
    initialize: function(red, green, blue) {
@@ -118,9 +128,8 @@ shortHexCode.charAt(i));
 OpenLayers.Rico.Color.createColorFromBackground = function(elem) {
 
    var actualColor = 
-      RicoUtil.getElementsComputedStyle(OpenLayers.Util.getElement(elem), 
-                                        "backgroundColor", 
-                                        "background-color");
+      OpenLayers.Element.getStyle(OpenLayers.Util.getElement(elem), 
+                                        "backgroundColor");
 
    if ( actualColor == "transparent" && elem.parentNode ) {
       return OpenLayers.Rico.Color.createColorFromBackground(elem.parentNode);

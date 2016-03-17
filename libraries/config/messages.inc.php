@@ -114,6 +114,9 @@ $strConfigEnableAutocompleteForTablesAndColumns_name = __(
 );
 $strConfigHideStructureActions_desc
     = __('Whether the table structure actions should be hidden.');
+$strConfigShowColumnComments_name = __('Show column comments');
+$strConfigShowColumnComments_desc
+    = __('Whether column comments should be shown in table structure view');
 $strConfigHideStructureActions_name = __('Hide table structure actions');
 $strConfigDisplayServersList_desc
     = __('Show server listing as a list instead of a drop down.');
@@ -227,8 +230,6 @@ $strConfigExport_xls_columns_name = __('Put columns names in the first row');
 $strConfigExport_xls_null_name = __('Replace NULL with');
 $strConfigExport_xlsx_columns_name = __('Put columns names in the first row');
 $strConfigExport_xlsx_null_name = __('Replace NULL with');
-$strConfigForceSSL_desc = __('Force secured connection while using phpMyAdmin.');
-$strConfigForceSSL_name = __('Force SSL connection');
 $strConfigForeignKeyDropdownOrder_desc = __(
     'Sort order for items in a foreign-key dropdown box; [kbd]content[/kbd] is '
     . 'the referenced data, [kbd]id[/kbd] is the key value.'

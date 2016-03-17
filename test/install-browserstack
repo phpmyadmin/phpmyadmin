@@ -1,6 +1,11 @@
 #!/bin/sh
 
 set -e
+set -x
+
+if [ -z  "$SELENIUM" ] ; then
+    exit 0
+fi
 
 mkdir -p ~/browserstack
 cd ~/browserstack

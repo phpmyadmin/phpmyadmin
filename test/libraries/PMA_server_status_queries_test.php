@@ -10,14 +10,16 @@
  * Include to test.
  */
 
-require_once 'libraries/Util.class.php';
-require_once 'libraries/php-gettext/gettext.inc';
+use PMA\libraries\ServerStatusData;
+use PMA\libraries\Theme;
+
+
 require_once 'libraries/url_generating.lib.php';
-require_once 'libraries/ServerStatusData.class.php';
+
 require_once 'libraries/server_status_queries.lib.php';
-require_once 'libraries/Theme.class.php';
+
 require_once 'libraries/database_interface.inc.php';
-require_once 'libraries/Message.class.php';
+
 require_once 'libraries/sanitizing.lib.php';
 require_once 'libraries/js_escape.lib.php';
 
@@ -63,15 +65,15 @@ class PMA_ServerStatusQueries_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['pmaThemeImage'] = 'image';
 
         //$_SESSION
-        $_SESSION['PMA_Theme'] = PMA_Theme::load('./themes/pmahomme');
-        $_SESSION['PMA_Theme'] = new PMA_Theme();
+        $_SESSION['PMA_Theme'] = Theme::load('./themes/pmahomme');
+        $_SESSION['PMA_Theme'] = new Theme();
 
         //Mock DBI
-        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
-        //this data is needed when PMA_ServerStatusData constructs
+        //this data is needed when ServerStatusData constructs
         $server_status = array(
             "Aborted_clients" => "0",
             "Aborted_connects" => "0",
@@ -111,7 +113,7 @@ class PMA_ServerStatusQueries_Test extends PHPUnit_Framework_TestCase
             ->will($this->returnValueMap($fetchResult));
 
         $GLOBALS['dbi'] = $dbi;
-        $this->ServerStatusData = new PMA_ServerStatusData();
+        $this->ServerStatusData = new ServerStatusData();
         $upTime = "10h";
         $this->ServerStatusData->status['Uptime'] = $upTime;
         $this->ServerStatusData->used_queries = array(
@@ -140,7 +142,7 @@ class PMA_ServerStatusQueries_Test extends PHPUnit_Framework_TestCase
 
         $questions_from_start = sprintf(
             __('Questions since startup: %s'),
-            PMA_Util::formatNumber($total_queries, 0)
+            PMA\libraries\Util::formatNumber($total_queries, 0)
         );
 
         //validate 1: PMA_getHtmlForQueryStatistics
@@ -159,12 +161,12 @@ class PMA_ServerStatusQueries_Test extends PHPUnit_Framework_TestCase
             $html
         );
         $this->assertContains(
-            PMA_Util::formatNumber($total_queries * $hour_factor, 0),
+            PMA\libraries\Util::formatNumber($total_queries * $hour_factor, 0),
             $html
         );
 
         //validate 3:per minute
-        $value_per_minute = PMA_Util::formatNumber(
+        $value_per_minute = PMA\libraries\Util::formatNumber(
             $total_queries * 60 / $this->ServerStatusData->status['Uptime'],
             0
         );

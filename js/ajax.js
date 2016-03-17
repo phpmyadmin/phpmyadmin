@@ -141,7 +141,7 @@ var AJAX = {
      */
     lockPageHandler: function(event) {
         //Don't lock on enter.
-        if (0 == event.charCode) {
+        if (0 === event.charCode) {
             return;
         }
 
@@ -549,11 +549,11 @@ var AJAX = {
             var self = this;
             // Clear loaded scripts if they are from another version of phpMyAdmin.
             // Depends on common params being set before loading scripts in responseHandler
-            if (self._scriptsVersion == null) {
-            	self._scriptsVersion = PMA_commonParams.get('PMA_VERSION');
+            if (self._scriptsVersion === null) {
+                self._scriptsVersion = PMA_commonParams.get('PMA_VERSION');
             } else if (self._scriptsVersion != PMA_commonParams.get('PMA_VERSION')) {
-            	self._scripts = [];
-            	self._scriptsVersion = PMA_commonParams.get('PMA_VERSION');
+                self._scripts = [];
+                self._scriptsVersion = PMA_commonParams.get('PMA_VERSION');
             }
             self._scriptsToBeLoaded = [];
             self._scriptsToBeFired = [];
@@ -739,7 +739,7 @@ $(function () {
                 //TODO: Check if sometimes menu is not retrieved from server,
                 // Not sure but it seems menu was missing only for printview which
                 // been removed lately, so if it's right some dead menu checks/fallbacks
-                // may need to be removed from this file and Header.class.php
+                // may need to be removed from this file and Header.php
                 //AJAX.handleMenu.replace(event.originalEvent.state.menu);
             }
         });

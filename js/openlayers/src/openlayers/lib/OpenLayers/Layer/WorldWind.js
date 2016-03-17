@@ -1,6 +1,6 @@
-/* Copyright (c) 2006-2010 by OpenLayers Contributors (see authors.txt for 
- * full list of contributors). Published under the Clear BSD license.  
- * See http://svn.openlayers.org/trunk/openlayers/license.txt for the
+/* Copyright (c) 2006-2013 by OpenLayers Contributors (see authors.txt for
+ * full list of contributors). Published under the 2-clause BSD license.
+ * See license.txt in the OpenLayers distribution or repository for the
  * full text of the license. */
 
 
@@ -21,20 +21,19 @@ OpenLayers.Layer.WorldWind = OpenLayers.Class(OpenLayers.Layer.Grid, {
 
     /**
      * APIProperty: isBaseLayer
-     * WorldWind layer is a base layer by default.
+     * {Boolean} WorldWind layer is a base layer by default.
      */
-    isBaseLayer: true,    
+    isBaseLayer: true,
 
-    
     /** 
      * APIProperty: lzd
-     * LevelZeroTileSizeDegrees
+     * {Float} LevelZeroTileSizeDegrees
      */
     lzd: null,
 
     /**
      * APIProperty: zoomLevels
-     * Number of zoom levels.
+     * {Integer} Number of zoom levels.
      */
     zoomLevels: null,
     
@@ -45,7 +44,7 @@ OpenLayers.Layer.WorldWind = OpenLayers.Class(OpenLayers.Layer.Grid, {
      * name - {String} Name of Layer
      * url - {String} Base URL  
      * lzd - {Float} Level zero tile size degrees 
-     * zoomLevels - {Int} number of zoom levels
+     * zoomLevels - {Integer} number of zoom levels
      * params - {Object} additional parameters
      * options - {Object} additional options
      */
@@ -58,20 +57,6 @@ OpenLayers.Layer.WorldWind = OpenLayers.Class(OpenLayers.Layer.Grid, {
         this.params = OpenLayers.Util.applyDefaults(
             this.params, this.DEFAULT_PARAMS
         );
-    },
-    /**
-     * Method: addTile
-     * 
-     * Parameters:
-     * bounds - {<OpenLayers.Bounds>}
-     * position - {<OpenLayers.Pixel>}
-     * 
-     * Returns:
-     * {<OpenLayers.Tile.Image>} The added OpenLayers.Tile.Image
-     */
-    addTile:function(bounds,position) {
-        return new OpenLayers.Tile.Image(this, position, bounds, 
-                                             null, this.tileSize);
     },
 
     /**
@@ -111,7 +96,7 @@ OpenLayers.Layer.WorldWind = OpenLayers.Class(OpenLayers.Layer.Grid, {
                 Y: y
               });
         } else {
-            return OpenLayers.Util.getImagesLocation() + "blank.gif";
+            return OpenLayers.Util.getImageLocation("blank.gif");
         }
 
     },

@@ -39,6 +39,7 @@ class DropStatement extends Statement
         'SCHEMA'                        => 1,
         'SERVER'                        => 1,
         'TABLE'                         => 1,
+        'VIEW'                          => 1,
         'TABLESPACE'                    => 1,
         'TRIGGER'                       => 1,
 

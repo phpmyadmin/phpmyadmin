@@ -1,6 +1,71 @@
 phpMyAdmin - ChangeLog
 ======================
 
+4.6.0.0 (2016-03-22)
++ issue #11456 Disabled storage engines
++ issue #11479 Allow setting routine wise privileges
+- issue        Hide Insert tab for non-updatable views
++ issue #11490 UI for defining partitioning in create table window
++ issue #11438 Support JSON data type
++ issue        Editing partitions in table Structure
+- issue        Tracking does not make sense for information_schema
+- issue #11550 Regression in Find and replace
++ issue #11619 TokuDB Tables Show Size as "unknown"
++ issue #11654 Use a slider for Internal relations
++ issue #11641 Ability to disable the navigationhiding Feature
+- issue #11647 Restrict configuration NavigationTreeDbSeparator to strings
+- issue #11667 Disable the tooltip in the navigation panel's filter box
++ issue        Copy results to clipboard
++ issue #11504 Reactivate cut&paste possibility in print view
+- issue #11702 Extraneous message after edit + grid-edit
+- issue #11668 Table header is empty with browsing an empty table
++ issue #11701 Allow changing parameter order of routines
+- issue #11708 Remove no password warning
++ issue #11711 Clarify the meaning of "Stand-in structure for view" in SQL export
+- issue        HTML line break shown after a MySQL connection error message
+- issue #11728 CSV import skip row count after
+- issue        Fixed displaying of SQL query on table operations
+- issue #6321  Display binary strings as text if they are valid UTF-8
++ issue #11743 Display routine specific privileges
++ issue #11538 Copy multiple tables to database
++ issue        Support Cloudflare Flexible SSL
+- issue        Handle empty TABLE_COMMENT
++ issue #11833 Drop support for old Internet Explorer versions
++ issue #11796 Use modals for displaying forms in db structure page
++ issue #11789 Show MySQL error messages in user language
++ issue        Add 'ssl_verify' configuration directive for self-signed certificates with mysqlnd and PHP >= 5.6
++ issue #11874 Show more used PHP extensions
+- issue #11874 Report when version check and error reporting are disabled
+- issue #11849 Fix PDF schema export
+- issue #11412 Remove ForceSSL configuration directive
+- issue        Remove support for Mozilla Prism
+- issue #11412 Remove PmaAbsoluteUri configuration directive
+- issue #11914 Fix autoloading of phpseclib
+- issue #11880 Fixed rendering of missing extension error
+- issue #11923 Errors on Structure tab when user only has select access on certain columns
+- issue #11972 Missing documentation for $cfg['Servers'][$i]['favorite'] and $cfg['NumFavoriteTables']
+- issue #11907 Avoid displaying UPDATE query twice
+- issue #11850 Fixed CSV import
+- issue        Fix SQL syntax highlighting in database search page
+- issue #12056 Fix error when we can not generate random string
+- issue #12055 Fixed PHP syntax error in templates
+- issue #12054 Fixed processing of queries with escaped quotes
+- issue #12041 Fixed exporting tables with fields DEFAULT and COMMENT
+- issue #12073 Hide edit and delete buttons when the results are not related to a table
+- issue #12083 Fixed parsing of field definition
+- issue #12081 Fixed rendering of table stats
+- issue #11705 Fixed problems with PHP on Windows on table structure
+- issue #12085 Like search strings being escaped incorrectly
+- issue #12092 Rename exported databases/tables doesn't seem to work
+- issue #12099 Undefined index: controllink
+- issue #12094 PHP Fatal error: Call to undefined function __()
+- issue #12098 Fix login after logout with http authentication
+- issue #12074 Fixed possible invalid SQL export
+- issue #12026 Fixed parsing of UNION SELECT with brackets
+- issue #12109 Fixed parsing of CREATE TABLE [AS] SELECT
+- issue #12105 Multi-server drap-and-drop import always fails
+- issue #12116 Fulltext indexes are not copied when using copy database function
+
 4.5.5.1 (2016-02-29)
 - issue #11971 CREATE UNIQUE INDEX index type is not recognized by parser.
 - issue #11982 Row count wrong when grouping joined tables.

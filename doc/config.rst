@@ -41,6 +41,11 @@ Basic settings
     :type: string
     :default: ``''``
 
+    .. deprecated:: 4.6.0
+        
+        This setting is no longer available since phpMyAdmin 4.6.0. Please
+        adjust your webserver instead.
+
     Sets here the complete :term:`URL` (with full path) to your phpMyAdmin
     installation's directory. E.g.
     ``http://www.example.net/path_to_your_phpMyAdmin_directory/``.  Note also
@@ -290,6 +295,20 @@ Server connection settings
 
     List of allowable ciphers for SSL connections to the MySQL server.
 
+.. config:option:: $cfg['Servers'][$i]['ssl_verify']
+
+    :type: boolean
+    :default: true
+
+    If your PHP install uses the MySQL Native Driver (mysqlnd), your
+    MySQL server is 5.6 or later, and your SSL certificate is self-signed,
+    there is a chance your SSL connection will fail due to validation.
+    Setting this to ``false`` will disable the validation check.
+
+    .. note::
+
+        This flag only works with PHP 5.6.16 or later
+
 .. config:option:: $cfg['Servers'][$i]['connect_type']
 
     :type: string
@@ -502,7 +521,7 @@ Server connection settings
 .. _bookmark:
 .. config:option:: $cfg['Servers'][$i]['bookmarktable']
 
-    :type: string
+    :type: string or false
     :default: ``''``
 
     Since release 2.2.0 phpMyAdmin allows users to bookmark queries. This
@@ -512,11 +531,12 @@ Server connection settings
     * set up :config:option:`$cfg['Servers'][$i]['pmadb']` and the phpMyAdmin configuration storage
     * enter the table name in :config:option:`$cfg['Servers'][$i]['bookmarktable']`
 
+    This feature can be disabled by setting the configuration to ``false``.
 
 .. _relation:
 .. config:option:: $cfg['Servers'][$i]['relation']
 
-    :type: string
+    :type: string or false
     :default: ``''``
 
     Since release 2.2.4 you can describe, in a special 'relation' table,
@@ -546,6 +566,8 @@ Server connection settings
       where you want to use this feature, click :guilabel:`Structure/Relation view/`
       and choose foreign columns.
 
+    This feature can be disabled by setting the configuration to ``false``.
+
     .. note::
 
         In the current version, ``master_db`` must be the same as ``foreign_db``.
@@ -555,7 +577,7 @@ Server connection settings
 .. _table_info:
 .. config:option:: $cfg['Servers'][$i]['table_info']
 
-    :type: string
+    :type: string or false
     :default: ``''``
 
     Since release 2.3.0 you can describe, in a special 'table\_info'
@@ -571,17 +593,19 @@ Server connection settings
       "Structure/Relation view/Choose column to display" to choose the
       column.
 
+    This feature can be disabled by setting the configuration to ``false``.
+
     .. seealso:: :ref:`faqdisplay`
 
 .. _table_coords:
 .. config:option:: $cfg['Servers'][$i]['table_coords']
 
-    :type: string
+    :type: string or false
     :default: ``''``
 
 .. config:option:: $cfg['Servers'][$i]['pdf_pages']
 
-    :type: string
+    :type: string or false
     :default: ``''``
 
     Since release 2.3.0 you can have phpMyAdmin create :term:`PDF` pages
@@ -598,12 +622,14 @@ Server connection settings
       :config:option:`$cfg['Servers'][$i]['table\_coords']` and
       :config:option:`$cfg['Servers'][$i]['pdf\_pages']`
 
+    This feature can be disabled by setting either of the configurations to ``false``.
+
     .. seealso:: :ref:`faqpdf`.
 
 .. _col_com:
 .. config:option:: $cfg['Servers'][$i]['column_info']
 
-    :type: string
+    :type: string or false
     :default: ``''``
 
     This part requires a content update!  Since release 2.3.0 you can
@@ -651,6 +677,8 @@ Server connection settings
     * to update your PRE-4.3.0 Column\_info table manually use this
       ``./sql/upgrade_column_info_4_3_0+.sql`` SQL script.
 
+    This feature can be disabled by setting the configuration to ``false``.
+
     .. note::
 
         For auto-upgrade functionality to work, your
@@ -662,7 +690,7 @@ Server connection settings
 .. _history:
 .. config:option:: $cfg['Servers'][$i]['history']
 
-    :type: string
+    :type: string or false
     :default: ``''``
 
     Since release 2.5.0 you can store your :term:`SQL` history, which means all
@@ -684,10 +712,12 @@ Server connection settings
     * put the table name in :config:option:`$cfg['Servers'][$i]['history']` (e.g.
       ``pma__history``)
 
+    This feature can be disabled by setting the configuration to ``false``.
+
 .. _recent:
 .. config:option:: $cfg['Servers'][$i]['recent']
 
-    :type: string
+    :type: string or false
     :default: ``''``
 
     Since release 3.5.0 you can show recently used tables in the
@@ -696,7 +726,6 @@ Server connection settings
     :config:option:`$cfg['NumRecentTables']` you can configure the maximum number
     of recent tables shown. When you select a table from the list, it will jump to
     the page specified in :config:option:`$cfg['NavigationTreeDefaultTabTable']`.
-
 
     Without configuring the storage, you can still access the recently used tables,
     but it will disappear after you logout.
@@ -707,10 +736,40 @@ Server connection settings
     * put the table name in :config:option:`$cfg['Servers'][$i]['recent']` (e.g.
       ``pma__recent``)
 
+    This feature can be disabled by setting the configuration to ``false``.
+
+.. _favorite:
+.. config:option:: $cfg['Servers'][$i]['favorite']
+
+    :type: string or false
+    :default: ``''``
+
+    Since release 4.2.0 you can show a list of selected tables in the
+    navigation panel. It helps you to jump to the table directly, without
+    the need to select the database, and then select the table. When you
+    select a table from the list, it will jump to the page specified in
+    :config:option:`$cfg['NavigationTreeDefaultTabTable']`.
+    
+    You can add tables to this list or remove tables from it in database
+    structure page by clicking on the star icons next to table names. Using
+    :config:option:`$cfg['NumFavoriteTables']` you can configure the maximum
+    number of favorite tables shown.
+
+    Without configuring the storage, you can still access the favorite tables,
+    but it will disappear after you logout.
+
+    To allow the usage of this functionality persistently:
+
+    * set up :config:option:`$cfg['Servers'][$i]['pmadb']` and the phpMyAdmin configuration storage
+    * put the table name in :config:option:`$cfg['Servers'][$i]['favorite']` (e.g.
+      ``pma__favorite``)
+
+    This feature can be disabled by setting the configuration to ``false``.
+
 .. _table_uiprefs:
 .. config:option:: $cfg['Servers'][$i]['table_uiprefs']
 
-    :type: string
+    :type: string or false
     :default: ``''``
 
     Since release 3.5.0 phpMyAdmin can be configured to remember several
@@ -725,15 +784,17 @@ Server connection settings
     * put the table name in :config:option:`$cfg['Servers'][$i]['table\_uiprefs']` (e.g.
       ``pma__table_uiprefs``)
 
+    This feature can be disabled by setting the configuration to ``false``.
+
 .. _configurablemenus:
 .. config:option:: $cfg['Servers'][$i]['users']
 
-    :type: string
+    :type: string or false
     :default: ``''``
 
 .. config:option:: $cfg['Servers'][$i]['usergroups']
 
-    :type: string
+    :type: string or false
     :default: ``''``
 
     Since release 4.1.0 you can create different user groups with menu items
@@ -749,10 +810,12 @@ Server connection settings
       :config:option:`$cfg['Servers'][$i]['users']` (e.g. ``pma__users``) and
       :config:option:`$cfg['Servers'][$i]['usergroups']` (e.g. ``pma__usergroups``)
 
+    This feature can be disabled by setting either of the configurations to ``false``.
+
 .. _navigationhiding:
 .. config:option:: $cfg['Servers'][$i]['navigationhiding']
 
-    :type: string
+    :type: string or false
     :default: ``''``
 
     Since release 4.1.0 you can hide/show items in the navigation tree.
@@ -763,10 +826,12 @@ Server connection settings
     * put the table name in :config:option:`$cfg['Servers'][$i]['navigationhiding']` (e.g.
       ``pma__navigationhiding``)
 
+    This feature can be disabled by setting the configuration to ``false``.
+
 .. _central_columns:
 .. config:option:: $cfg['Servers'][$i]['central_columns']
 
-    :type: string
+    :type: string or false
     :default: ``''``
 
     Since release 4.3.0 you can have a central list of columns per database.
@@ -782,10 +847,12 @@ Server connection settings
     * put the table name in :config:option:`$cfg['Servers'][$i]['central_columns']` (e.g.
       ``pma__central_columns``)
 
+    This feature can be disabled by setting the configuration to ``false``.
+
 .. _designer_settings:
 .. config:option:: $cfg['Servers'][$i]['designer_settings']
 
-    :type: string
+    :type: string or false
     :default: ``''``
 
     Since release 4.5.0 your designer settings can be remembered.
@@ -798,10 +865,12 @@ Server connection settings
     * put the table name in :config:option:`$cfg['Servers'][$i]['designer_settings']` (e.g.
       ``pma__designer_settings``)
 
+    This feature can be disabled by setting the configuration to ``false``.
+
 .. _savedsearches:
 .. config:option:: $cfg['Servers'][$i]['savedsearches']
 
-    :type: string
+    :type: string or false
     :default: ``''``
 
     Since release 4.2.0 you can save and load query-by-example searches from the Database > Query panel.
@@ -812,10 +881,12 @@ Server connection settings
     * put the table name in :config:option:`$cfg['Servers'][$i]['savedsearches']` (e.g.
       ``pma__savedsearches``)
 
+    This feature can be disabled by setting the configuration to ``false``.
+
 .. _export_templates:
 .. config:option:: $cfg['Servers'][$i]['export_templates']
 
-    :type: string
+    :type: string or false
     :default: ``''``
 
     Since release 4.5.0 you can save and load export templates.
@@ -826,10 +897,12 @@ Server connection settings
     * put the table name in :config:option:`$cfg['Servers'][$i]['export_templates']` (e.g.
       ``pma__export_templates``)
 
+    This feature can be disabled by setting the configuration to ``false``.
+
 .. _tracking:
 .. config:option:: $cfg['Servers'][$i]['tracking']
 
-    :type: string
+    :type: string or false
     :default: ``''``
 
     Since release 3.3.x a tracking mechanism is available. It helps you to
@@ -858,6 +931,7 @@ Server connection settings
     * put the table name in :config:option:`$cfg['Servers'][$i]['tracking']` (e.g.
       ``pma__tracking``)
 
+    This feature can be disabled by setting the configuration to ``false``.
 
 .. _tracking2:
 .. config:option:: $cfg['Servers'][$i]['tracking_version_auto_create']
@@ -915,7 +989,7 @@ Server connection settings
 .. _userconfig:
 .. config:option:: $cfg['Servers'][$i]['userconfig']
 
-    :type: string
+    :type: string or false
     :default: ``''``
 
     Since release 3.4.x phpMyAdmin allows users to set most preferences by
@@ -930,6 +1004,8 @@ Server connection settings
 
     * set up :config:option:`$cfg['Servers'][$i]['pmadb']` and the phpMyAdmin configuration storage
     * put the table name in :config:option:`$cfg['Servers'][$i]['userconfig']`
+
+    This feature can be disabled by setting the configuration to ``false``.
 
 .. config:option:: $cfg['Servers'][$i]['MaxTableUiprefs']
 
@@ -1230,6 +1306,11 @@ Generic settings
     :type: boolean
     :default: false
 
+    .. deprecated:: 4.6.0
+        
+        This setting is no longer available since phpMyAdmin 4.6.0. Please
+        adjust your webserver instead.
+
     Whether to force using https while accessing phpMyAdmin. In a reverse
     proxy setup, setting this to ``true`` is not supported.
 
@@ -1507,12 +1588,11 @@ Navigation panel setup
 
 .. config:option:: $cfg['NavigationTreeDbSeparator']
 
-    :type: string or array
+    :type: string
     :default: ``'_'``
 
     The string used to separate the parts of the database name when
-    showing them in a tree. Alternatively you can specify more strings in
-    an array and all of them will be used as a separator.
+    showing them in a tree.
 
 .. config:option:: $cfg['NavigationTreeTableSeparator']
 
@@ -1541,6 +1621,14 @@ Navigation panel setup
 
     The maximum number of recently used tables shown in the navigation
     panel. Set this to 0 (zero) to disable the listing of recent tables.
+
+.. config:option:: $cfg['NumFavoriteTables']
+
+    :type: integer
+    :default: 10
+
+    The maximum number of favorite tables shown in the navigation
+    panel. Set this to 0 (zero) to disable the listing of favorite tables.
 
 .. config:option:: $cfg['ZeroConf']
 
@@ -2114,8 +2202,7 @@ Languages
     Defines the default connection collation to use, if not user-defined.
     See the `MySQL documentation for charsets
     <http://dev.mysql.com/doc/mysql/en/charset-charsets.html>`_
-    for list of possible values. This setting is
-    ignored when connected to Drizzle server.
+    for list of possible values.
 
 .. config:option:: $cfg['Lang']
 
@@ -2277,130 +2364,8 @@ Web server settings
 Theme settings
 --------------
 
-.. config:option:: $cfg['NaviWidth']
-
-    :type: integer
-    :default:
-
-    Navigation panel width in pixels. See
-    :file:`themes/themename/layout.inc.php`.
-
-.. config:option:: $cfg['NaviBackground']
-
-    :type: string [CSS color for background]
-    :default:
-
-.. config:option:: $cfg['MainBackground']
-
-    :type: string [CSS color for background]
-    :default:
-
-    The background styles used for both the frames. See
-    :file:`themes/themename/layout.inc.php`.
-
-.. config:option:: $cfg['NaviPointerBackground']
-
-    :type: string [CSS color for background]
-    :default:
-
-.. config:option:: $cfg['NaviPointerColor']
-
-    :type: string [CSS color]
-    :default:
-
-    The style used for the pointer in the navigation panel. See
-    :file:`themes/themename/layout.inc.php`.
-
-.. config:option:: $cfg['Border']
-
-    :type: integer
-    :default:
-
-    The size of a table's border. See :file:`themes/themename/layout.inc.php`.
-
-.. config:option:: $cfg['ThBackground']
-
-    :type: string [CSS color for background]
-    :default:
-
-.. config:option:: $cfg['ThColor']
-
-    :type: string [CSS color]
-    :default:
-
-    The style used for table headers. See
-    :file:`themes/themename/layout.inc.php`.
-
-.. _cfg_BgcolorOne:
-.. config:option:: $cfg['BgOne']
-
-    :type: string [CSS color]
-    :default:
-
-    The color (HTML) #1 for table rows. See
-    :file:`themes/themename/layout.inc.php`.
-
-.. _cfg_BgcolorTwo:
-.. config:option:: $cfg['BgTwo']
-
-    :type: string [CSS color]
-    :default:
-
-    The color (HTML) #2 for table rows. See
-    :file:`themes/themename/layout.inc.php`.
-
-.. config:option:: $cfg['BrowsePointerBackground']
-
-    :type: string [CSS color]
-    :default:
-
-    The background color used when hovering over a row in the Browse panel.
-    See :file:`themes/themename/layout.inc.php`.
-
-.. config:option:: $cfg['BrowsePointerColor']
-
-    :type: string [CSS color]
-    :default:
-
-    The text color used when hovering over a row in the Browse panel.
-    Used when :config:option:`$cfg['BrowsePointerEnable']` is true.
-    See :file:`themes/themename/layout.inc.php`.
-
-.. config:option:: $cfg['BrowseMarkerBackground']
-
-    :type: string [CSS color]
-    :default:
-
-    The background color used to highlight a row selected by checkbox in the Browse panel or
-    when a column is selected.
-    Used when :config:option:`$cfg['BrowsePointerEnable']` is true.
-    See :file:`themes/themename/layout.inc.php`.
-
-.. config:option:: $cfg['BrowseMarkerColor']
-
-    :type: string [CSS color]
-    :default:
-
-    The color used when you visually mark a row or column in the Browse panel.
-    Rows can be marked by clicking the checkbox to the left of the row and columns can be
-    marked by clicking the column's header (outside of the header text).
-    See :file:`themes/themename/layout.inc.php`.
-
-.. config:option:: $cfg['FontFamily']
-
-    :type: string
-    :default:
-
-    You put here a valid CSS font family value, for example ``arial, sans-
-    serif``. See :file:`themes/themename/layout.inc.php`.
-
-.. config:option:: $cfg['FontFamilyFixed']
-
-    :type: string
-    :default:
-
-    You put here a valid CSS font family value, for example ``monospace``.
-    This one is used in textarea. See :file:`themes/themename/layout.inc.php`.
+    Please directly modify :file:`themes/themename/layout.inc.php`, although
+    your changes will be overwritten with the next update.
 
 Design customization
 --------------------

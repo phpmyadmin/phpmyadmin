@@ -1,17 +1,18 @@
 <?php
-
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * set of functions with the operations section in pma
  *
  * @package PhpMyAdmin
  */
-
-if (! defined('PHPMYADMIN')) {
-    exit;
-}
-
-require_once 'libraries/Partition.class.php';
+use PMA\libraries\engines\Innodb;
+use PMA\libraries\Message;
+use PMA\libraries\Partition;
+use PMA\libraries\plugins\export\ExportSql;
+use PMA\libraries\Response;
+use PMA\libraries\StorageEngine;
+use PMA\libraries\Table;
+use PMA\libraries\Util;
 
 /**
  * Get HTML output for database comment
@@ -27,8 +28,8 @@ function PMA_getHtmlForDatabaseComment($db)
         . PMA_URL_getHiddenInputs($db)
         . '<fieldset>'
         . '<legend>';
-    if (PMA_Util::showIcons('ActionLinksMode')) {
-        $html_output .= PMA_Util::getImage('b_comment.png') . '&nbsp;';
+    if (PMA\libraries\Util::showIcons('ActionLinksMode')) {
+        $html_output .= PMA\libraries\Util::getImage('b_comment.png') . '&nbsp;';
     }
     $html_output .=  __('Database comment');
     $html_output .= '</legend>';
@@ -70,8 +71,8 @@ function PMA_getHtmlForRenameDatabase($db)
         . '<fieldset>'
         . '<legend>';
 
-    if (PMA_Util::showIcons('ActionLinksMode')) {
-        $html_output .= PMA_Util::getImage('b_edit.png') . '&nbsp;';
+    if (PMA\libraries\Util::showIcons('ActionLinksMode')) {
+        $html_output .= PMA\libraries\Util::getImage('b_edit.png') . '&nbsp;';
     }
     $html_output .= __('Rename database to')
         . '</legend>';
@@ -80,26 +81,24 @@ function PMA_getHtmlForRenameDatabase($db)
         . 'maxlength="64" size="30" class="textfield" required="required" '
         . 'value="' . htmlspecialchars($db) . '"/>';
 
-    if (! PMA_DRIZZLE) {
-        if ($GLOBALS['db_priv'] && $GLOBALS['table_priv']
-            && $GLOBALS['col_priv'] && $GLOBALS['proc_priv']
-            && $GLOBALS['is_reload_priv']
-        ) {
-            $html_output .= '<input type="checkbox" name="adjust_privileges" '
-                . 'value="1" id="checkbox_adjust_privileges" checked="checked" />';
-        } else {
-            $html_output .= '<input type="checkbox" name="adjust_privileges" '
-                . 'value="1" id="checkbox_adjust_privileges" title="' . __(
-                    'You don\'t have sufficient privileges to perform this '
-                    . 'operation; Please refer to the documentation for more details'
-                )
-                . '" disabled/>';
-        }
-
-        $html_output .= '<label for="checkbox_adjust_privileges">'
-                . __('Adjust privileges') . PMA_Util::showDocu('faq', 'faq6-39')
-                . '</label><br />';
+    if ($GLOBALS['db_priv'] && $GLOBALS['table_priv']
+        && $GLOBALS['col_priv'] && $GLOBALS['proc_priv']
+        && $GLOBALS['is_reload_priv']
+    ) {
+        $html_output .= '<input type="checkbox" name="adjust_privileges" '
+            . 'value="1" id="checkbox_adjust_privileges" checked="checked" />';
+    } else {
+        $html_output .= '<input type="checkbox" name="adjust_privileges" '
+            . 'value="1" id="checkbox_adjust_privileges" title="' . __(
+                'You don\'t have sufficient privileges to perform this '
+                . 'operation; Please refer to the documentation for more details'
+            )
+            . '" disabled/>';
     }
+
+    $html_output .= '<label for="checkbox_adjust_privileges">'
+            . __('Adjust privileges') . Util::showDocu('faq', 'faq6-39')
+            . '</label><br />';
 
     $html_output .= ''
         . '</fieldset>'
@@ -121,7 +120,7 @@ function PMA_getHtmlForRenameDatabase($db)
  */
 function PMA_getHtmlForDropDatabaseLink($db)
 {
-    $this_sql_query = 'DROP DATABASE ' . PMA_Util::backquote($db);
+    $this_sql_query = 'DROP DATABASE ' . PMA\libraries\Util::backquote($db);
     $this_url_params = array(
         'sql_query' => $this_sql_query,
         'back' => 'db_operations.php',
@@ -130,7 +129,7 @@ function PMA_getHtmlForDropDatabaseLink($db)
         'purge' => '1',
         'message_to_show' => sprintf(
             __('Database %s has been dropped.'),
-            htmlspecialchars(PMA_Util::backquote($db))
+            htmlspecialchars(PMA\libraries\Util::backquote($db))
         ),
         'db' => null,
     );
@@ -138,8 +137,8 @@ function PMA_getHtmlForDropDatabaseLink($db)
     $html_output = '<div class="operations_half_width">'
         . '<fieldset class="caution">';
     $html_output .= '<legend>';
-    if (PMA_Util::showIcons('ActionLinksMode')) {
-        $html_output .= PMA_Util::getImage('b_deltbl.png') . '&nbsp';
+    if (PMA\libraries\Util::showIcons('ActionLinksMode')) {
+        $html_output .= PMA\libraries\Util::getImage('b_deltbl.png') . '&nbsp';
     }
     $html_output .= __('Remove database')
         . '</legend>';
@@ -194,15 +193,15 @@ function PMA_getHtmlForCopyDatabase($db)
     $html_output .= '<fieldset>'
         . '<legend>';
 
-    if (PMA_Util::showIcons('ActionLinksMode')) {
-        $html_output .= PMA_Util::getImage('b_edit.png') . '&nbsp';
+    if (PMA\libraries\Util::showIcons('ActionLinksMode')) {
+        $html_output .= PMA\libraries\Util::getImage('b_edit.png') . '&nbsp';
     }
     $html_output .= __('Copy database to')
         . '</legend>'
         . '<input type="text" maxlength="64" name="newname" size="30" '
         . 'class="textfield" value="' . htmlspecialchars($db) . '" '
         . 'required="required" /><br />'
-        . PMA_Util::getRadioFields(
+        . PMA\libraries\Util::getRadioFields(
             'what', $choices, 'data', true
         );
     $html_output .= '<br />';
@@ -226,25 +225,23 @@ function PMA_getHtmlForCopyDatabase($db)
         . __('Add constraints') . '</label><br />';
     $html_output .= '<br />';
 
-    if (! PMA_DRIZZLE) {
-        if ($GLOBALS['db_priv'] && $GLOBALS['table_priv']
-            && $GLOBALS['col_priv'] && $GLOBALS['proc_priv']
-            && $GLOBALS['is_reload_priv']
-        ) {
-            $html_output .= '<input type="checkbox" name="adjust_privileges" '
-                . 'value="1" id="checkbox_privileges" checked="checked" />';
-        } else {
-            $html_output .= '<input type="checkbox" name="adjust_privileges" '
-                . 'value="1" id="checkbox_privileges" title="' . __(
-                    'You don\'t have sufficient privileges to perform this '
-                    . 'operation; Please refer to the documentation for more details'
-                )
-                . '" disabled/>';
-        }
-        $html_output .= '<label for="checkbox_privileges">'
-            . __('Adjust privileges') . PMA_Util::showDocu('faq', 'faq6-39')
-            . '</label><br />';
+    if ($GLOBALS['db_priv'] && $GLOBALS['table_priv']
+        && $GLOBALS['col_priv'] && $GLOBALS['proc_priv']
+        && $GLOBALS['is_reload_priv']
+    ) {
+        $html_output .= '<input type="checkbox" name="adjust_privileges" '
+            . 'value="1" id="checkbox_privileges" checked="checked" />';
+    } else {
+        $html_output .= '<input type="checkbox" name="adjust_privileges" '
+            . 'value="1" id="checkbox_privileges" title="' . __(
+                'You don\'t have sufficient privileges to perform this '
+                . 'operation; Please refer to the documentation for more details'
+            )
+            . '" disabled/>';
     }
+    $html_output .= '<label for="checkbox_privileges">'
+        . __('Adjust privileges') . Util::showDocu('faq', 'faq6-39')
+        . '</label><br />';
 
     $html_output .= '<input type="checkbox" name="switch_to_new" value="true"'
         . 'id="checkbox_switch"'
@@ -283,8 +280,8 @@ function PMA_getHtmlForChangeDatabaseCharset($db, $table)
 
     $html_output .= '<fieldset>' . "\n"
        . '    <legend>';
-    if (PMA_Util::showIcons('ActionLinksMode')) {
-        $html_output .= PMA_Util::getImage('s_asci.png') . '&nbsp';
+    if (PMA\libraries\Util::showIcons('ActionLinksMode')) {
+        $html_output .= PMA\libraries\Util::getImage('s_asci.png') . '&nbsp';
     }
     $html_output .= '<label for="select_db_collation">' . __('Collation')
         . '</label>' . "\n"
@@ -356,19 +353,17 @@ function PMA_runProcedureAndFunctionDefinitions($db)
 function PMA_createDbBeforeCopy()
 {
     // lower_case_table_names=1 `DB` becomes `db`
-    if (! PMA_DRIZZLE) {
-        $lowerCaseTableNames = $GLOBALS['dbi']->fetchValue(
-            'SELECT @@lower_case_table_names'
+    $lowerCaseTableNames = $GLOBALS['dbi']->fetchValue(
+        'SELECT @@lower_case_table_names'
+    );
+    if ($lowerCaseTableNames === '1') {
+        $_REQUEST['newname'] = mb_strtolower(
+            $_REQUEST['newname']
         );
-        if ($lowerCaseTableNames === '1') {
-            $_REQUEST['newname'] = /*overload*/mb_strtolower(
-                $_REQUEST['newname']
-            );
-        }
     }
 
     $local_query = 'CREATE DATABASE IF NOT EXISTS '
-        . PMA_Util::backquote($_REQUEST['newname']);
+        . PMA\libraries\Util::backquote($_REQUEST['newname']);
     if (isset($_REQUEST['db_collation'])) {
         $local_query .= ' DEFAULT'
             . PMA_generateCharsetQueryPart($_REQUEST['db_collation']);
@@ -376,7 +371,7 @@ function PMA_createDbBeforeCopy()
     $local_query .= ';';
     $GLOBALS['sql_query'] .= $local_query;
 
-    // save the original db name because Tracker.class.php which
+    // save the original db name because Tracker.php which
     // may be called under $GLOBALS['dbi']->query() changes $GLOBALS['db']
     // for some statements, one of which being CREATE DATABASE
     $original_db = $GLOBALS['db'];
@@ -385,14 +380,12 @@ function PMA_createDbBeforeCopy()
 
     // Set the SQL mode to NO_AUTO_VALUE_ON_ZERO to prevent MySQL from creating
     // export statements it cannot import
-    if (! PMA_DRIZZLE) {
-        $sql_set_mode = "SET SQL_MODE='NO_AUTO_VALUE_ON_ZERO'";
-        $GLOBALS['dbi']->query($sql_set_mode);
-    }
+    $sql_set_mode = "SET SQL_MODE='NO_AUTO_VALUE_ON_ZERO'";
+    $GLOBALS['dbi']->query($sql_set_mode);
 
-    // rebuild the database list because PMA_Table::moveCopy
+    // rebuild the database list because Table::moveCopy
     // checks in this list if the target db exists
-    $GLOBALS['pma']->databases->build();
+    $GLOBALS['dblist']->databases->build();
 }
 
 /**
@@ -420,8 +413,8 @@ function PMA_getViewsAndCreateSqlViewStandIn(
                 && $_REQUEST['drop_if_exists'] == 'true'
             ) {
                 $drop_query = 'DROP VIEW IF EXISTS '
-                    . PMA_Util::backquote($_REQUEST['newname']) . '.'
-                    . PMA_Util::backquote($each_table);
+                    . PMA\libraries\Util::backquote($_REQUEST['newname']) . '.'
+                    . PMA\libraries\Util::backquote($each_table);
                 $GLOBALS['dbi']->query($drop_query);
 
                 $GLOBALS['sql_query'] .= "\n" . $drop_query . ';';
@@ -478,7 +471,7 @@ function PMA_copyTables($tables_full, $move, $db)
             //  for importing via the mysql client or our Import feature)
             $triggers = $GLOBALS['dbi']->getTriggers($db, $each_table, '');
 
-            if (! PMA_Table::moveCopy(
+            if (! Table::moveCopy(
                 $db, $each_table, $_REQUEST['newname'], $each_table,
                 (isset($this_what) ? $this_what : 'data'),
                 $move, 'db_copy'
@@ -522,7 +515,7 @@ function PMA_runEventDefinitionsForDb($db)
 {
     $event_names = $GLOBALS['dbi']->fetchResult(
         'SELECT EVENT_NAME FROM information_schema.EVENTS WHERE EVENT_SCHEMA= \''
-        . PMA_Util::sqlAddSlashes($db, true) . '\';'
+        . PMA\libraries\Util::sqlAddSlashes($db, true) . '\';'
     );
     if ($event_names) {
         foreach ($event_names as $event_name) {
@@ -556,7 +549,7 @@ function PMA_handleTheViews($views, $move, $db)
 
     $_REQUEST['drop_if_exists'] = 'true';
     foreach ($views as $view) {
-        $copying_succeeded = PMA_Table::moveCopy(
+        $copying_succeeded = Table::moveCopy(
             $db, $view, $_REQUEST['newname'], $view, 'structure', $move, 'db_copy'
         );
         if (! $copying_succeeded) {
@@ -582,43 +575,41 @@ function PMA_handleTheViews($views, $move, $db)
  */
 function PMA_AdjustPrivileges_moveDB($oldDb, $newname)
 {
-    if (! PMA_DRIZZLE) {
-        if ($GLOBALS['db_priv'] && $GLOBALS['table_priv']
-            && $GLOBALS['col_priv'] && $GLOBALS['proc_priv']
-            && $GLOBALS['is_reload_priv']
-        ) {
-            $GLOBALS['dbi']->selectDb('mysql');
-            $newname = str_replace("_", "\_", $newname);
-            $oldDb = str_replace("_", "\_", $oldDb);
+    if ($GLOBALS['db_priv'] && $GLOBALS['table_priv']
+        && $GLOBALS['col_priv'] && $GLOBALS['proc_priv']
+        && $GLOBALS['is_reload_priv']
+    ) {
+        $GLOBALS['dbi']->selectDb('mysql');
+        $newname = str_replace("_", "\_", $newname);
+        $oldDb = str_replace("_", "\_", $oldDb);
 
-            // For Db specific privileges
-            $query_db_specific = 'UPDATE ' . PMA_Util::backquote('db')
-                . 'SET Db = "' . $newname
-                . '" where Db = "' . $oldDb . '";';
-            $GLOBALS['dbi']->query($query_db_specific);
+        // For Db specific privileges
+        $query_db_specific = 'UPDATE ' . Util::backquote('db')
+            . 'SET Db = "' . $newname
+            . '" where Db = "' . $oldDb . '";';
+        $GLOBALS['dbi']->query($query_db_specific);
 
-            // For table specific privileges
-            $query_table_specific = 'UPDATE ' . PMA_Util::backquote('tables_priv')
-                . 'SET Db = "' . $newname
-                . '" where Db = "' . $oldDb . '";';
-            $GLOBALS['dbi']->query($query_table_specific);
+        // For table specific privileges
+        $query_table_specific = 'UPDATE ' . Util::backquote('tables_priv')
+            . 'SET Db = "' . $newname
+            . '" where Db = "' . $oldDb . '";';
+        $GLOBALS['dbi']->query($query_table_specific);
 
-            // For column specific privileges
-            $query_col_specific = 'UPDATE ' . PMA_Util::backquote('columns_priv')
-                . 'SET Db = "' . $newname
-                . '" where Db = "' . $oldDb . '";';
-            $GLOBALS['dbi']->query($query_col_specific);
+        // For column specific privileges
+        $query_col_specific = 'UPDATE ' . Util::backquote('columns_priv')
+            . 'SET Db = "' . $newname
+            . '" where Db = "' . $oldDb . '";';
+        $GLOBALS['dbi']->query($query_col_specific);
 
-            // For procedures specific privileges
-            $query_proc_specific = 'UPDATE ' . PMA_Util::backquote('procs_priv')
-                . 'SET Db = "' . $newname
-                . '" where Db = "' . $oldDb . '";';
-            $GLOBALS['dbi']->query($query_proc_specific);
+        // For procedures specific privileges
+        $query_proc_specific = 'UPDATE ' . Util::backquote('procs_priv')
+            . 'SET Db = "' . $newname
+            . '" where Db = "' . $oldDb . '";';
+        $GLOBALS['dbi']->query($query_proc_specific);
 
-            // Finally FLUSH the new privileges
-            $flush_query = "FLUSH PRIVILEGES;";
-            $GLOBALS['dbi']->query($flush_query);
-        }
+        // Finally FLUSH the new privileges
+        $flush_query = "FLUSH PRIVILEGES;";
+        $GLOBALS['dbi']->query($flush_query);
     }
 }
 
@@ -632,102 +623,100 @@ function PMA_AdjustPrivileges_moveDB($oldDb, $newname)
  */
 function PMA_AdjustPrivileges_copyDB($oldDb, $newname)
 {
-    if (! PMA_DRIZZLE) {
-        if ($GLOBALS['db_priv'] && $GLOBALS['table_priv']
-            && $GLOBALS['col_priv'] && $GLOBALS['proc_priv']
-            && $GLOBALS['is_reload_priv']
-        ) {
-            $GLOBALS['dbi']->selectDb('mysql');
-            $newname = str_replace("_", "\_", $newname);
-            $oldDb = str_replace("_", "\_", $oldDb);
+    if ($GLOBALS['db_priv'] && $GLOBALS['table_priv']
+        && $GLOBALS['col_priv'] && $GLOBALS['proc_priv']
+        && $GLOBALS['is_reload_priv']
+    ) {
+        $GLOBALS['dbi']->selectDb('mysql');
+        $newname = str_replace("_", "\_", $newname);
+        $oldDb = str_replace("_", "\_", $oldDb);
 
-            $query_db_specific_old = 'SELECT * FROM '
-                . PMA_Util::backquote('db') . ' WHERE '
-                . 'Db = "' . $oldDb . '";';
+        $query_db_specific_old = 'SELECT * FROM '
+            . Util::backquote('db') . ' WHERE '
+            . 'Db = "' . $oldDb . '";';
 
-            $old_privs_db = $GLOBALS['dbi']->fetchResult($query_db_specific_old, 0);
+        $old_privs_db = $GLOBALS['dbi']->fetchResult($query_db_specific_old, 0);
 
-            foreach ($old_privs_db as $old_priv) {
-                $newDb_db_privs_query = 'INSERT INTO ' . PMA_Util::backquote('db')
-                    . ' VALUES("' . $old_priv[0] . '", "' . $newname . '", "'
-                    . $old_priv[2] . '", "' . $old_priv[3] . '", "' . $old_priv[4]
-                    . '", "' . $old_priv[5] . '", "' . $old_priv[6] . '", "'
-                    . $old_priv[7] . '", "' . $old_priv[8] . '", "' . $old_priv[9]
-                    . '", "' . $old_priv[10] . '", "' . $old_priv[11] . '", "'
-                    . $old_priv[12] . '", "' . $old_priv[13] . '", "' . $old_priv[14]
-                    . '", "' . $old_priv[15] . '", "' . $old_priv[16] . '", "'
-                    . $old_priv[17] . '", "' . $old_priv[18] . '", "' . $old_priv[19]
-                    . '", "' . $old_priv[20] . '", "' . $old_priv[21] . '");';
-
-                $GLOBALS['dbi']->query($newDb_db_privs_query);
-            }
-
-            // For Table Specific privileges
-            $query_table_specific_old = 'SELECT * FROM '
-                . PMA_Util::backquote('tables_priv') . ' WHERE '
-                . 'Db = "' . $oldDb . '";';
-
-            $old_privs_table = $GLOBALS['dbi']->fetchResult(
-                $query_table_specific_old,
-                0
-            );
-
-            foreach ($old_privs_table as $old_priv) {
-                $newDb_table_privs_query = 'INSERT INTO ' . PMA_Util::backquote(
-                    'tables_priv'
-                ) . ' VALUES("' . $old_priv[0] . '", "' . $newname . '", "'
+        foreach ($old_privs_db as $old_priv) {
+            $newDb_db_privs_query = 'INSERT INTO ' . Util::backquote('db')
+                . ' VALUES("' . $old_priv[0] . '", "' . $newname . '", "'
                 . $old_priv[2] . '", "' . $old_priv[3] . '", "' . $old_priv[4]
                 . '", "' . $old_priv[5] . '", "' . $old_priv[6] . '", "'
-                . $old_priv[7] . '");';
+                . $old_priv[7] . '", "' . $old_priv[8] . '", "' . $old_priv[9]
+                . '", "' . $old_priv[10] . '", "' . $old_priv[11] . '", "'
+                . $old_priv[12] . '", "' . $old_priv[13] . '", "' . $old_priv[14]
+                . '", "' . $old_priv[15] . '", "' . $old_priv[16] . '", "'
+                . $old_priv[17] . '", "' . $old_priv[18] . '", "' . $old_priv[19]
+                . '", "' . $old_priv[20] . '", "' . $old_priv[21] . '");';
 
-                $GLOBALS['dbi']->query($newDb_table_privs_query);
-            }
-
-            // For Column Specific privileges
-            $query_col_specific_old = 'SELECT * FROM '
-                . PMA_Util::backquote('columns_priv') . ' WHERE '
-                . 'Db = "' . $oldDb . '";';
-
-            $old_privs_col = $GLOBALS['dbi']->fetchResult(
-                $query_col_specific_old,
-                0
-            );
-
-            foreach ($old_privs_col as $old_priv) {
-                $newDb_col_privs_query = 'INSERT INTO ' . PMA_Util::backquote(
-                    'columns_priv'
-                ) . ' VALUES("' . $old_priv[0] . '", "' . $newname . '", "'
-                . $old_priv[2] . '", "' . $old_priv[3] . '", "' . $old_priv[4]
-                . '", "' . $old_priv[5] . '", "' . $old_priv[6] . '");';
-
-                $GLOBALS['dbi']->query($newDb_col_privs_query);
-            }
-
-            // For Procedure Specific privileges
-            $query_proc_specific_old = 'SELECT * FROM '
-                . PMA_Util::backquote('procs_priv') . ' WHERE '
-                . 'Db = "' . $oldDb . '";';
-
-            $old_privs_proc = $GLOBALS['dbi']->fetchResult(
-                $query_proc_specific_old,
-                0
-            );
-
-            foreach ($old_privs_proc as $old_priv) {
-                $newDb_proc_privs_query = 'INSERT INTO ' . PMA_Util::backquote(
-                    'procs_priv'
-                ) . ' VALUES("' . $old_priv[0] . '", "' . $newname . '", "'
-                . $old_priv[2] . '", "' . $old_priv[3] . '", "' . $old_priv[4]
-                . '", "' . $old_priv[5] . '", "' . $old_priv[6] . '", "'
-                . $old_priv[7] . '");';
-
-                $GLOBALS['dbi']->query($newDb_proc_privs_query);
-            }
-
-            // Finally FLUSH the new privileges
-            $flush_query = "FLUSH PRIVILEGES;";
-            $GLOBALS['dbi']->query($flush_query);
+            $GLOBALS['dbi']->query($newDb_db_privs_query);
         }
+
+        // For Table Specific privileges
+        $query_table_specific_old = 'SELECT * FROM '
+            . Util::backquote('tables_priv') . ' WHERE '
+            . 'Db = "' . $oldDb . '";';
+
+        $old_privs_table = $GLOBALS['dbi']->fetchResult(
+            $query_table_specific_old,
+            0
+        );
+
+        foreach ($old_privs_table as $old_priv) {
+            $newDb_table_privs_query = 'INSERT INTO ' . Util::backquote(
+                'tables_priv'
+            ) . ' VALUES("' . $old_priv[0] . '", "' . $newname . '", "'
+            . $old_priv[2] . '", "' . $old_priv[3] . '", "' . $old_priv[4]
+            . '", "' . $old_priv[5] . '", "' . $old_priv[6] . '", "'
+            . $old_priv[7] . '");';
+
+            $GLOBALS['dbi']->query($newDb_table_privs_query);
+        }
+
+        // For Column Specific privileges
+        $query_col_specific_old = 'SELECT * FROM '
+            . Util::backquote('columns_priv') . ' WHERE '
+            . 'Db = "' . $oldDb . '";';
+
+        $old_privs_col = $GLOBALS['dbi']->fetchResult(
+            $query_col_specific_old,
+            0
+        );
+
+        foreach ($old_privs_col as $old_priv) {
+            $newDb_col_privs_query = 'INSERT INTO ' . Util::backquote(
+                'columns_priv'
+            ) . ' VALUES("' . $old_priv[0] . '", "' . $newname . '", "'
+            . $old_priv[2] . '", "' . $old_priv[3] . '", "' . $old_priv[4]
+            . '", "' . $old_priv[5] . '", "' . $old_priv[6] . '");';
+
+            $GLOBALS['dbi']->query($newDb_col_privs_query);
+        }
+
+        // For Procedure Specific privileges
+        $query_proc_specific_old = 'SELECT * FROM '
+            . Util::backquote('procs_priv') . ' WHERE '
+            . 'Db = "' . $oldDb . '";';
+
+        $old_privs_proc = $GLOBALS['dbi']->fetchResult(
+            $query_proc_specific_old,
+            0
+        );
+
+        foreach ($old_privs_proc as $old_priv) {
+            $newDb_proc_privs_query = 'INSERT INTO ' . Util::backquote(
+                'procs_priv'
+            ) . ' VALUES("' . $old_priv[0] . '", "' . $newname . '", "'
+            . $old_priv[2] . '", "' . $old_priv[3] . '", "' . $old_priv[4]
+            . '", "' . $old_priv[5] . '", "' . $old_priv[6] . '", "'
+            . $old_priv[7] . '");';
+
+            $GLOBALS['dbi']->query($newDb_proc_privs_query);
+        }
+
+        // Finally FLUSH the new privileges
+        $flush_query = "FLUSH PRIVILEGES;";
+        $GLOBALS['dbi']->query($flush_query);
     }
 }
 
@@ -762,7 +751,7 @@ function PMA_duplicateBookmarks($_error, $db)
         $get_fields = array('user', 'label', 'query');
         $where_fields = array('dbase' => $db);
         $new_fields = array('dbase' => $_REQUEST['newname']);
-        PMA_Table::duplicateInfo(
+        Table::duplicateInfo(
             'bookmarkwork', 'bookmark', $get_fields,
             $where_fields, $new_fields
         );
@@ -832,13 +821,13 @@ function PMA_getHtmlForMoveTable()
     $html_output .= '<legend>' . __('Move table to (database<b>.</b>table)')
         . '</legend>';
 
-    if (count($GLOBALS['pma']->databases) > $GLOBALS['cfg']['MaxDbList']) {
+    if (count($GLOBALS['dblist']->databases) > $GLOBALS['cfg']['MaxDbList']) {
         $html_output .= '<input type="text" maxlength="100" size="30" '
             . 'name="target_db" value="' . htmlspecialchars($GLOBALS['db'])
             . '"/>';
     } else {
         $html_output .= '<select class="halfWidth" name="target_db">'
-            . $GLOBALS['pma']->databases->getHtmlOptions(true, false)
+            . $GLOBALS['dblist']->databases->getHtmlOptions(true, false)
             . '</select>';
     }
     $html_output .= '&nbsp;<strong>.</strong>&nbsp;';
@@ -855,25 +844,23 @@ function PMA_getHtmlForMoveTable()
         . __('Add AUTO_INCREMENT value')
         . '</label><br />';
 
-    if (! PMA_DRIZZLE) {
-        if ($GLOBALS['table_priv'] && $GLOBALS['col_priv']
-            && $GLOBALS['is_reload_priv']
-        ) {
-            $html_output .= '<input type="checkbox" name="adjust_privileges" '
-                . 'value="1" id="checkbox_privileges_tables_move" '
-                . 'checked="checked" />';
-        } else {
-            $html_output .= '<input type="checkbox" name="adjust_privileges" '
-                . 'value="1" id="checkbox_privileges_tables_move" title="' . __(
-                    'You don\'t have sufficient privileges to perform this '
-                    . 'operation; Please refer to the documentation for more details'
-                )
-                . '" disabled/>';
-        }
-        $html_output .= '<label for="checkbox_privileges_tables_move">'
-            . __('Adjust privileges') . PMA_Util::showDocu('faq', 'faq6-39')
-            . '</label><br />';
+    if ($GLOBALS['table_priv'] && $GLOBALS['col_priv']
+        && $GLOBALS['is_reload_priv']
+    ) {
+        $html_output .= '<input type="checkbox" name="adjust_privileges" '
+            . 'value="1" id="checkbox_privileges_tables_move" '
+            . 'checked="checked" />';
+    } else {
+        $html_output .= '<input type="checkbox" name="adjust_privileges" '
+            . 'value="1" id="checkbox_privileges_tables_move" title="' . __(
+                'You don\'t have sufficient privileges to perform this '
+                . 'operation; Please refer to the documentation for more details'
+            )
+            . '" disabled/>';
     }
+    $html_output .= '<label for="checkbox_privileges_tables_move">'
+        . __('Adjust privileges') . Util::showDocu('faq', 'faq6-39')
+        . '</label><br />';
 
     $html_output .= '</fieldset><fieldset class="tblFooters">'
         . '<input type="submit" name="submit_move" value="' . __('Go') . '" />'
@@ -948,25 +935,23 @@ function PMA_getHtmlForRenameTable()
         . '</td></tr>'
         . '<tr><td></td><td>';
 
-    if (! PMA_DRIZZLE) {
-        if ($GLOBALS['table_priv'] && $GLOBALS['col_priv']
-            && $GLOBALS['is_reload_priv']
-        ) {
-            $html_output .= '<input type="checkbox" name="adjust_privileges" '
-                . 'value="1" id="checkbox_privileges_table_options" '
-                . 'checked="checked" />';
-        } else {
-            $html_output .= '<input type="checkbox" name="adjust_privileges" '
-                . 'value="1" id="checkbox_privileges_table_options" title="' . __(
-                    'You don\'t have sufficient privileges to perform this '
-                    . 'operation; Please refer to the documentation for more details'
-                )
-                . '" disabled/>';
-        }
-        $html_output .= '<label for="checkbox_privileges_table_options">'
-            . __('Adjust privileges') . '&nbsp;'
-            . PMA_Util::showDocu('faq', 'faq6-39') . '</label>';
+    if ($GLOBALS['table_priv'] && $GLOBALS['col_priv']
+        && $GLOBALS['is_reload_priv']
+    ) {
+        $html_output .= '<input type="checkbox" name="adjust_privileges" '
+            . 'value="1" id="checkbox_privileges_table_options" '
+            . 'checked="checked" />';
+    } else {
+        $html_output .= '<input type="checkbox" name="adjust_privileges" '
+            . 'value="1" id="checkbox_privileges_table_options" title="' . __(
+                'You don\'t have sufficient privileges to perform this '
+                . 'operation; Please refer to the documentation for more details'
+            )
+            . '" disabled/>';
     }
+    $html_output .= '<label for="checkbox_privileges_table_options">'
+        . __('Adjust privileges') . '&nbsp;'
+        . Util::showDocu('faq', 'faq6-39') . '</label>';
 
     $html_output .= '</td></tr>';
     return $html_output;
@@ -1063,10 +1048,10 @@ function PMA_getTableOptionFieldset($comment, $tbl_collation,
 
     //Storage engine
     $html_output .= '<tr><td class="vmiddle">' . __('Storage Engine')
-        . '&nbsp;' . PMA_Util::showMySQLDocu('Storage_engines')
+        . '&nbsp;' . PMA\libraries\Util::showMySQLDocu('Storage_engines')
         . '</td>'
         . '<td>'
-        . PMA_StorageEngine::getHtmlSelect(
+        . StorageEngine::getHtmlSelect(
             'new_tbl_storage_engine', null, $tbl_storage_engine
         )
         . '</td>'
@@ -1123,7 +1108,7 @@ function PMA_getTableOptionFieldset($comment, $tbl_collation,
         );
     } // end if (ARIA)
 
-    if (/*overload*/mb_strlen($auto_increment) > 0
+    if (mb_strlen($auto_increment) > 0
         && ($is_myisam_or_aria || $is_innodb || $is_pbxt)
     ) {
         $html_output .= '<tr><td class="vmiddle">'
@@ -1144,11 +1129,11 @@ function PMA_getTableOptionFieldset($comment, $tbl_collation,
 
     if (isset($possible_row_formats[$tbl_storage_engine])) {
         $current_row_format
-            = /*overload*/mb_strtoupper($GLOBALS['showtable']['Row_format']);
+            = mb_strtoupper($GLOBALS['showtable']['Row_format']);
         $html_output .= '<tr><td class="vmiddle">'
             . '<label for="new_row_format">ROW_FORMAT</label></td>'
             . '<td>';
-        $html_output .= PMA_Util::getDropdown(
+        $html_output .= PMA\libraries\Util::getDropdown(
             'new_row_format', $possible_row_formats[$tbl_storage_engine],
             $current_row_format, 'new_row_format'
         );
@@ -1195,6 +1180,9 @@ function PMA_getPossibleRowFormat()
     // option values as keys then the dropdown option labels
 
     $possible_row_formats = array(
+        'ARCHIVE' => array(
+            'COMPRESSED' => 'COMPRESSED',
+        ),
         'ARIA'  => array(
             'FIXED'     => 'FIXED',
             'DYNAMIC'   => 'DYNAMIC',
@@ -1219,8 +1207,8 @@ function PMA_getPossibleRowFormat()
         )
     );
 
-    /** @var PMA_StorageEngine_Innodb $innodbEnginePlugin */
-    $innodbEnginePlugin = PMA_StorageEngine::getEngine('innodb');
+    /** @var Innodb $innodbEnginePlugin */
+    $innodbEnginePlugin = StorageEngine::getEngine('Innodb');
     $innodbPluginVersion = $innodbEnginePlugin->getInnodbPluginVersion();
     if (!empty($innodbPluginVersion)) {
         $innodb_file_format = $innodbEnginePlugin->getInnodbFileFormat();
@@ -1257,13 +1245,13 @@ function PMA_getHtmlForCopytable()
     $html_output .= '<legend>'
         . __('Copy table to (database<b>.</b>table)') . '</legend>';
 
-    if (count($GLOBALS['pma']->databases) > $GLOBALS['cfg']['MaxDbList']) {
+    if (count($GLOBALS['dblist']->databases) > $GLOBALS['cfg']['MaxDbList']) {
         $html_output .= '<input class="halfWidth" type="text" maxlength="100" '
             . 'size="30" name="target_db" '
             . 'value="' . htmlspecialchars($GLOBALS['db']) . '"/>';
     } else {
         $html_output .= '<select class="halfWidth" name="target_db">'
-            . $GLOBALS['pma']->databases->getHtmlOptions(true, false)
+            . $GLOBALS['dblist']->databases->getHtmlOptions(true, false)
             . '</select>';
     }
     $html_output .= '&nbsp;<strong>.</strong>&nbsp;';
@@ -1277,7 +1265,7 @@ function PMA_getHtmlForCopytable()
         'dataonly'  => __('Data only')
     );
 
-    $html_output .= PMA_Util::getRadioFields(
+    $html_output .= PMA\libraries\Util::getRadioFields(
         'what', $choices, 'data', true
     );
     $html_output .= '<br />';
@@ -1302,24 +1290,22 @@ function PMA_getHtmlForCopytable()
 
     $html_output .= '<br />';
 
-    if (! PMA_DRIZZLE) {
-        if ($GLOBALS['table_priv'] && $GLOBALS['col_priv']
-            && $GLOBALS['is_reload_priv']
-        ) {
-            $html_output .= '<input type="checkbox" name="adjust_privileges" '
-                . 'value="1" id="checkbox_adjust_privileges" checked="checked" />';
-        } else {
-            $html_output .= '<input type="checkbox" name="adjust_privileges" '
-                . 'value="1" id="checkbox_adjust_privileges" title="' . __(
-                    'You don\'t have sufficient privileges to perform this '
-                    . 'operation; Please refer to the documentation for more details'
-                )
-                . '" disabled/>';
-        }
-        $html_output .= '<label for="checkbox_adjust_privileges">'
-            . __('Adjust privileges') . PMA_Util::showDocu('faq', 'faq6-39')
-            . '</label><br />';
+    if ($GLOBALS['table_priv'] && $GLOBALS['col_priv']
+        && $GLOBALS['is_reload_priv']
+    ) {
+        $html_output .= '<input type="checkbox" name="adjust_privileges" '
+            . 'value="1" id="checkbox_adjust_privileges" checked="checked" />';
+    } else {
+        $html_output .= '<input type="checkbox" name="adjust_privileges" '
+            . 'value="1" id="checkbox_adjust_privileges" title="' . __(
+                'You don\'t have sufficient privileges to perform this '
+                . 'operation; Please refer to the documentation for more details'
+            )
+            . '" disabled/>';
     }
+    $html_output .= '<label for="checkbox_adjust_privileges">'
+        . __('Adjust privileges') . Util::showDocu('faq', 'faq6-39')
+        . '</label><br />';
 
     if (isset($_COOKIE['pma_switch_to_new'])
         && $_COOKIE['pma_switch_to_new'] == 'true'
@@ -1394,7 +1380,7 @@ function PMA_getListofMaintainActionLink($is_myisam_or_aria,
     if ($is_innodb || $is_myisam_or_aria || $is_berkeleydb) {
         $params = array(
             'sql_query' => 'ANALYZE TABLE '
-                . PMA_Util::backquote($GLOBALS['table']),
+                . PMA\libraries\Util::backquote($GLOBALS['table']),
             'table_maintenance' => 'Go',
         );
         $html_output .= PMA_getMaintainActionlink(
@@ -1409,7 +1395,7 @@ function PMA_getListofMaintainActionLink($is_myisam_or_aria,
     if ($is_myisam_or_aria || $is_innodb) {
         $params = array(
             'sql_query' => 'CHECK TABLE '
-                . PMA_Util::backquote($GLOBALS['table']),
+                . PMA\libraries\Util::backquote($GLOBALS['table']),
             'table_maintenance' => 'Go',
         );
         $html_output .= PMA_getMaintainActionlink(
@@ -1421,25 +1407,23 @@ function PMA_getListofMaintainActionLink($is_myisam_or_aria,
     }
 
     // checksum table
-    if (! PMA_DRIZZLE) {
-        $params = array(
-            'sql_query' => 'CHECKSUM TABLE '
-                . PMA_Util::backquote($GLOBALS['table']),
-            'table_maintenance' => 'Go',
-        );
-        $html_output .= PMA_getMaintainActionlink(
-            __('Checksum table'),
-            $params,
-            $url_params,
-            'CHECKSUM_TABLE'
-        );
-    }
+    $params = array(
+        'sql_query' => 'CHECKSUM TABLE '
+            . Util::backquote($GLOBALS['table']),
+        'table_maintenance' => 'Go',
+    );
+    $html_output .= PMA_getMaintainActionlink(
+        __('Checksum table'),
+        $params,
+        $url_params,
+        'CHECKSUM_TABLE'
+    );
 
     // defragment table
     if ($is_innodb) {
         $params = array(
             'sql_query' => 'ALTER TABLE '
-            . PMA_Util::backquote($GLOBALS['table'])
+            . PMA\libraries\Util::backquote($GLOBALS['table'])
             . ' ENGINE = InnoDB;'
         );
         $html_output .= PMA_getMaintainActionlink(
@@ -1453,7 +1437,7 @@ function PMA_getListofMaintainActionLink($is_myisam_or_aria,
     // flush table
     $params = array(
         'sql_query' => 'FLUSH TABLE '
-            . PMA_Util::backquote($GLOBALS['table']),
+            . PMA\libraries\Util::backquote($GLOBALS['table']),
         'message_to_show' => sprintf(
             __('Table %s has been flushed.'),
             htmlspecialchars($GLOBALS['table'])
@@ -1468,12 +1452,10 @@ function PMA_getListofMaintainActionLink($is_myisam_or_aria,
     );
 
     // optimize table
-    if (($is_myisam_or_aria || $is_innodb || $is_berkeleydb)
-        && !PMA_DRIZZLE
-    ) {
+    if ($is_myisam_or_aria || $is_innodb || $is_berkeleydb) {
         $params = array(
             'sql_query' => 'OPTIMIZE TABLE '
-                . PMA_Util::backquote($GLOBALS['table']),
+                . PMA\libraries\Util::backquote($GLOBALS['table']),
             'table_maintenance' => 'Go',
         );
         $html_output .= PMA_getMaintainActionlink(
@@ -1485,10 +1467,10 @@ function PMA_getListofMaintainActionLink($is_myisam_or_aria,
     }
 
     // repair table
-    if ($is_myisam_or_aria && !PMA_DRIZZLE) {
+    if ($is_myisam_or_aria) {
         $params = array(
             'sql_query' => 'REPAIR TABLE '
-                . PMA_Util::backquote($GLOBALS['table']),
+                . PMA\libraries\Util::backquote($GLOBALS['table']),
             'table_maintenance' => 'Go',
         );
         $html_output .= PMA_getMaintainActionlink(
@@ -1520,7 +1502,7 @@ function PMA_getMaintainActionlink($action_message, $params, $url_params, $link)
         . PMA_URL_getCommon(array_merge($url_params, $params)) . '">'
         . $action_message
         . '</a>'
-        . PMA_Util::showMySQLDocu($link)
+        . PMA\libraries\Util::showMySQLDocu($link)
         . '</li>';
 }
 
@@ -1579,7 +1561,7 @@ function PMA_getDeleteDataOrTablelink($url_params, $syntax, $link, $htmlId)
         . 'href="sql.php' . PMA_URL_getCommon($url_params) . '"'
         . ' id="' . $htmlId . '" class="ajax">'
         . $link . '</a>'
-        . PMA_Util::showMySQLDocu($syntax)
+        . PMA\libraries\Util::showMySQLDocu($syntax)
         . '</li>';
 }
 
@@ -1602,7 +1584,7 @@ function PMA_getHtmlForPartitionMaintenance($partition_names, $url_params)
         'TRUNCATE' => __('Truncate')
     );
 
-    $partition_method = PMA_Partition::getPartitionMethod(
+    $partition_method = Partition::getPartitionMethod(
         $GLOBALS['db'], $GLOBALS['table']
     );
     // add COALESCE or DROP option to choices array depeding on Partition method
@@ -1619,7 +1601,7 @@ function PMA_getHtmlForPartitionMaintenance($partition_names, $url_params)
         . '<fieldset>'
         . '<legend>'
         . __('Partition maintenance')
-        . PMA_Util::showMySQLDocu('partitioning_maintenance')
+        . PMA\libraries\Util::showMySQLDocu('partitioning_maintenance')
         . '</legend>';
 
     $html_select = '<select id="partition_name" name="partition_name[]"'
@@ -1638,14 +1620,14 @@ function PMA_getHtmlForPartitionMaintenance($partition_names, $url_params)
     $html_output .= sprintf(__('Partition %s'), $html_select);
 
     $html_output .= '<div class="clearfloat" />';
-    $html_output .= PMA_Util::getRadioFields(
+    $html_output .= PMA\libraries\Util::getRadioFields(
         'partition_operation', $choices, 'ANALYZE', false, true, 'floatleft'
     );
     $this_url_params = array_merge(
         $url_params,
         array(
             'sql_query' => 'ALTER TABLE '
-            . PMA_Util::backquote($GLOBALS['table'])
+            . PMA\libraries\Util::backquote($GLOBALS['table'])
             . ' REMOVE PARTITIONING;'
         )
     );
@@ -1685,34 +1667,34 @@ function PMA_getHtmlForReferentialIntegrityCheck($foreign, $url_params)
 
     foreach ($foreign as $master => $arr) {
         $join_query  = 'SELECT '
-            . PMA_Util::backquote($GLOBALS['table']) . '.*'
-            . ' FROM ' . PMA_Util::backquote($GLOBALS['table'])
+            . PMA\libraries\Util::backquote($GLOBALS['table']) . '.*'
+            . ' FROM ' . PMA\libraries\Util::backquote($GLOBALS['table'])
             . ' LEFT JOIN '
-            . PMA_Util::backquote($arr['foreign_db'])
+            . PMA\libraries\Util::backquote($arr['foreign_db'])
             . '.'
-            . PMA_Util::backquote($arr['foreign_table']);
+            . PMA\libraries\Util::backquote($arr['foreign_table']);
         if ($arr['foreign_table'] == $GLOBALS['table']) {
             $foreign_table = $GLOBALS['table'] . '1';
-            $join_query .= ' AS ' . PMA_Util::backquote($foreign_table);
+            $join_query .= ' AS ' . PMA\libraries\Util::backquote($foreign_table);
         } else {
             $foreign_table = $arr['foreign_table'];
         }
         $join_query .= ' ON '
-            . PMA_Util::backquote($GLOBALS['table']) . '.'
-            . PMA_Util::backquote($master)
+            . PMA\libraries\Util::backquote($GLOBALS['table']) . '.'
+            . PMA\libraries\Util::backquote($master)
             . ' = '
-            . PMA_Util::backquote($arr['foreign_db'])
+            . PMA\libraries\Util::backquote($arr['foreign_db'])
             . '.'
-            . PMA_Util::backquote($foreign_table) . '.'
-            . PMA_Util::backquote($arr['foreign_field'])
+            . PMA\libraries\Util::backquote($foreign_table) . '.'
+            . PMA\libraries\Util::backquote($arr['foreign_field'])
             . ' WHERE '
-            . PMA_Util::backquote($arr['foreign_db'])
+            . PMA\libraries\Util::backquote($arr['foreign_db'])
             . '.'
-            . PMA_Util::backquote($foreign_table) . '.'
-            . PMA_Util::backquote($arr['foreign_field'])
+            . PMA\libraries\Util::backquote($foreign_table) . '.'
+            . PMA\libraries\Util::backquote($arr['foreign_field'])
             . ' IS NULL AND '
-            . PMA_Util::backquote($GLOBALS['table']) . '.'
-            . PMA_Util::backquote($master)
+            . PMA\libraries\Util::backquote($GLOBALS['table']) . '.'
+            . PMA\libraries\Util::backquote($master)
             . ' IS NOT NULL';
         $this_url_params = array_merge(
             $url_params,
@@ -1740,9 +1722,9 @@ function PMA_getHtmlForReferentialIntegrityCheck($foreign, $url_params)
 function PMA_getQueryAndResultForReorderingTable()
 {
     $sql_query = 'ALTER TABLE '
-        . PMA_Util::backquote($GLOBALS['table'])
+        . PMA\libraries\Util::backquote($GLOBALS['table'])
         . ' ORDER BY '
-        . PMA_Util::backquote(urldecode($_REQUEST['order_field']));
+        . PMA\libraries\Util::backquote(urldecode($_REQUEST['order_field']));
     if (isset($_REQUEST['order_order'])
         && $_REQUEST['order_order'] === 'desc'
     ) {
@@ -1785,11 +1767,11 @@ function PMA_getTableAltersArray($is_myisam_or_aria, $is_isam, $pack_keys,
         && urldecode($_REQUEST['prev_comment']) !== $_REQUEST['comment']
     ) {
         $table_alters[] = 'COMMENT = \''
-            . PMA_Util::sqlAddSlashes($_REQUEST['comment']) . '\'';
+            . PMA\libraries\Util::sqlAddSlashes($_REQUEST['comment']) . '\'';
     }
 
     if (! empty($newTblStorageEngine)
-        && /*overload*/mb_strtolower($newTblStorageEngine) !== /*overload*/mb_strtolower($GLOBALS['tbl_storage_engine'])
+        && mb_strtolower($newTblStorageEngine) !== mb_strtolower($GLOBALS['tbl_storage_engine'])
     ) {
         $table_alters[] = 'ENGINE = ' . $newTblStorageEngine;
     }
@@ -1844,18 +1826,18 @@ function PMA_getTableAltersArray($is_myisam_or_aria, $is_isam, $pack_keys,
         || $_REQUEST['new_auto_increment'] !== $auto_increment)
     ) {
         $table_alters[] = 'auto_increment = '
-            . PMA_Util::sqlAddSlashes($_REQUEST['new_auto_increment']);
+            . PMA\libraries\Util::sqlAddSlashes($_REQUEST['new_auto_increment']);
     }
 
     if (! empty($_REQUEST['new_row_format'])) {
         $newRowFormat = $_REQUEST['new_row_format'];
-        $newRowFormatLower = /*overload*/mb_strtolower($newRowFormat);
+        $newRowFormatLower = mb_strtolower($newRowFormat);
         if (($is_myisam_or_aria || $is_innodb || $is_pbxt)
-            && (!/*overload*/mb_strlen($row_format)
-            || $newRowFormatLower !== /*overload*/mb_strtolower($row_format))
+            && (!mb_strlen($row_format)
+            || $newRowFormatLower !== mb_strtolower($row_format))
         ) {
             $table_alters[] = 'ROW_FORMAT = '
-                . PMA_Util::sqlAddSlashes($newRowFormat);
+                . PMA\libraries\Util::sqlAddSlashes($newRowFormat);
         }
     }
 
@@ -1865,26 +1847,24 @@ function PMA_getTableAltersArray($is_myisam_or_aria, $is_isam, $pack_keys,
 /**
  * set initial value of the set of variables, based on the current table engine
  *
- * @param string $tbl_storage_engine table storage engine
+ * @param string $tbl_storage_engine table storage engine in upper case
  *
  * @return array ($is_myisam_or_aria, $is_innodb, $is_isam,
  *                $is_berkeleydb, $is_aria, $is_pbxt)
  */
 function PMA_setGlobalVariablesForEngine($tbl_storage_engine)
 {
-    $upperTblStorEngine = $tbl_storage_engine;
-
     //Options that apply to MYISAM usually apply to ARIA
-    $is_myisam_or_aria = ($upperTblStorEngine == 'MYISAM'
-        || $upperTblStorEngine == 'ARIA'
-        || $upperTblStorEngine == 'MARIA'
+    $is_myisam_or_aria = ($tbl_storage_engine == 'MYISAM'
+        || $tbl_storage_engine == 'ARIA'
+        || $tbl_storage_engine == 'MARIA'
     );
-    $is_aria = ($upperTblStorEngine == 'ARIA');
+    $is_aria = ($tbl_storage_engine == 'ARIA');
 
-    $is_isam = ($upperTblStorEngine == 'ISAM');
-    $is_innodb = ($upperTblStorEngine == 'INNODB');
-    $is_berkeleydb = ($upperTblStorEngine == 'BERKELEYDB');
-    $is_pbxt = ($upperTblStorEngine == 'PBXT');
+    $is_isam = ($tbl_storage_engine == 'ISAM');
+    $is_innodb = ($tbl_storage_engine == 'INNODB');
+    $is_berkeleydb = ($tbl_storage_engine == 'BERKELEYDB');
+    $is_pbxt = ($tbl_storage_engine == 'PBXT');
 
     return array(
         $is_myisam_or_aria, $is_innodb, $is_isam,
@@ -1927,7 +1907,7 @@ function PMA_getWarningMessagesArray()
 function PMA_getQueryAndResultForPartition()
 {
     $sql_query = 'ALTER TABLE '
-        . PMA_Util::backquote($GLOBALS['table']) . ' '
+        . PMA\libraries\Util::backquote($GLOBALS['table']) . ' '
         . $_REQUEST['partition_operation']
         . ' PARTITION ';
 
@@ -1954,30 +1934,28 @@ function PMA_getQueryAndResultForPartition()
  */
 function PMA_AdjustPrivileges_renameOrMoveTable($oldDb, $oldTable, $newDb, $newTable)
 {
-    if (! PMA_DRIZZLE) {
-        if ($GLOBALS['table_priv'] && $GLOBALS['col_priv']
-            && $GLOBALS['is_reload_priv']
-        ) {
-            $GLOBALS['dbi']->selectDb('mysql');
+    if ($GLOBALS['table_priv'] && $GLOBALS['col_priv']
+        && $GLOBALS['is_reload_priv']
+    ) {
+        $GLOBALS['dbi']->selectDb('mysql');
 
-            // For table specific privileges
-            $query_table_specific = 'UPDATE ' . PMA_Util::backquote('tables_priv')
-                . 'SET Db = "' . $newDb . '", Table_name = "' . $newTable
-                . '" where Db = "' . $oldDb . '" AND Table_name = "' . $oldTable
-                . '";';
-            $GLOBALS['dbi']->query($query_table_specific);
+        // For table specific privileges
+        $query_table_specific = 'UPDATE ' . Util::backquote('tables_priv')
+            . 'SET Db = "' . $newDb . '", Table_name = "' . $newTable
+            . '" where Db = "' . $oldDb . '" AND Table_name = "' . $oldTable
+            . '";';
+        $GLOBALS['dbi']->query($query_table_specific);
 
-            // For column specific privileges
-            $query_col_specific = 'UPDATE ' . PMA_Util::backquote('columns_priv')
-                . 'SET Db = "' . $newDb . '", Table_name = "' . $newTable
-                . '" where Db = "' . $oldDb . '" AND Table_name = "' . $oldTable
-                . '";';
-            $GLOBALS['dbi']->query($query_col_specific);
+        // For column specific privileges
+        $query_col_specific = 'UPDATE ' . Util::backquote('columns_priv')
+            . 'SET Db = "' . $newDb . '", Table_name = "' . $newTable
+            . '" where Db = "' . $oldDb . '" AND Table_name = "' . $oldTable
+            . '";';
+        $GLOBALS['dbi']->query($query_col_specific);
 
-            // Finally FLUSH the new privileges
-            $flush_query = "FLUSH PRIVILEGES;";
-            $GLOBALS['dbi']->query($flush_query);
-        }
+        // Finally FLUSH the new privileges
+        $flush_query = "FLUSH PRIVILEGES;";
+        $GLOBALS['dbi']->query($flush_query);
     }
 }
 
@@ -1993,56 +1971,54 @@ function PMA_AdjustPrivileges_renameOrMoveTable($oldDb, $oldTable, $newDb, $newT
  */
 function PMA_AdjustPrivileges_copyTable($oldDb, $oldTable, $newDb, $newTable)
 {
-    if (! PMA_DRIZZLE) {
-        if ($GLOBALS['table_priv'] && $GLOBALS['col_priv']
-            && $GLOBALS['is_reload_priv']
-        ) {
-            $GLOBALS['dbi']->selectDb('mysql');
+    if ($GLOBALS['table_priv'] && $GLOBALS['col_priv']
+        && $GLOBALS['is_reload_priv']
+    ) {
+        $GLOBALS['dbi']->selectDb('mysql');
 
-            // For Table Specific privileges
-            $query_table_specific_old = 'SELECT * FROM '
-                . PMA_Util::backquote('tables_priv') . ' where '
-                . 'Db = "' . $oldDb . '" AND Table_name = "' . $oldTable . '";';
+        // For Table Specific privileges
+        $query_table_specific_old = 'SELECT * FROM '
+            . Util::backquote('tables_priv') . ' where '
+            . 'Db = "' . $oldDb . '" AND Table_name = "' . $oldTable . '";';
 
-            $old_privs_table = $GLOBALS['dbi']->fetchResult(
-                $query_table_specific_old,
-                0
-            );
+        $old_privs_table = $GLOBALS['dbi']->fetchResult(
+            $query_table_specific_old,
+            0
+        );
 
-            foreach ($old_privs_table as $old_priv) {
-                $newDb_table_privs_query = 'INSERT INTO '
-                    . PMA_Util::backquote('tables_priv') . ' VALUES("'
-                    . $old_priv[0] . '", "' . $newDb . '", "' . $old_priv[2] . '", "'
-                    . $newTable . '", "' . $old_priv[4] . '", "' . $old_priv[5]
-                    . '", "' . $old_priv[6] . '", "' . $old_priv[7] . '");';
+        foreach ($old_privs_table as $old_priv) {
+            $newDb_table_privs_query = 'INSERT INTO '
+                . Util::backquote('tables_priv') . ' VALUES("'
+                . $old_priv[0] . '", "' . $newDb . '", "' . $old_priv[2] . '", "'
+                . $newTable . '", "' . $old_priv[4] . '", "' . $old_priv[5]
+                . '", "' . $old_priv[6] . '", "' . $old_priv[7] . '");';
 
-                $GLOBALS['dbi']->query($newDb_table_privs_query);
-            }
-
-            // For Column Specific privileges
-            $query_col_specific_old = 'SELECT * FROM '
-                . PMA_Util::backquote('columns_priv') . ' WHERE '
-                . 'Db = "' . $oldDb . '" AND Table_name = "' . $oldTable . '";';
-
-            $old_privs_col = $GLOBALS['dbi']->fetchResult(
-                $query_col_specific_old,
-                0
-            );
-
-            foreach ($old_privs_col as $old_priv) {
-                $newDb_col_privs_query = 'INSERT INTO '
-                    . PMA_Util::backquote('columns_priv') . ' VALUES("'
-                    . $old_priv[0] . '", "' . $newDb . '", "' . $old_priv[2] . '", "'
-                    . $newTable . '", "' . $old_priv[4] . '", "' . $old_priv[5]
-                    . '", "' . $old_priv[6] . '");';
-
-                $GLOBALS['dbi']->query($newDb_col_privs_query);
-            }
-
-            // Finally FLUSH the new privileges
-            $flush_query = "FLUSH PRIVILEGES;";
-            $GLOBALS['dbi']->query($flush_query);
+            $GLOBALS['dbi']->query($newDb_table_privs_query);
         }
+
+        // For Column Specific privileges
+        $query_col_specific_old = 'SELECT * FROM '
+            . Util::backquote('columns_priv') . ' WHERE '
+            . 'Db = "' . $oldDb . '" AND Table_name = "' . $oldTable . '";';
+
+        $old_privs_col = $GLOBALS['dbi']->fetchResult(
+            $query_col_specific_old,
+            0
+        );
+
+        foreach ($old_privs_col as $old_priv) {
+            $newDb_col_privs_query = 'INSERT INTO '
+                . Util::backquote('columns_priv') . ' VALUES("'
+                . $old_priv[0] . '", "' . $newDb . '", "' . $old_priv[2] . '", "'
+                . $newTable . '", "' . $old_priv[4] . '", "' . $old_priv[5]
+                . '", "' . $old_priv[6] . '");';
+
+            $GLOBALS['dbi']->query($newDb_col_privs_query);
+        }
+
+        // Finally FLUSH the new privileges
+        $flush_query = "FLUSH PRIVILEGES;";
+        $GLOBALS['dbi']->query($flush_query);
     }
 }
 
@@ -2060,7 +2036,7 @@ function PMA_changeAllColumnsCollation($db, $table, $tbl_collation)
     $GLOBALS['dbi']->selectDb($db);
 
     $change_all_collations_query = 'ALTER TABLE '
-        . PMA_Util::backquote($table)
+        . PMA\libraries\Util::backquote($table)
         . ' CONVERT TO';
 
     list($charset) = explode('_', $tbl_collation);
@@ -2100,12 +2076,12 @@ function PMA_moveOrCopyTable($db, $table)
     if (PMA_isValid($_REQUEST['new_name'])) {
         if ($db == $_REQUEST['target_db'] && $table == $_REQUEST['new_name']) {
             if (isset($_REQUEST['submit_move'])) {
-                $message = PMA_Message::error(__('Can\'t move table to same one!'));
+                $message = Message::error(__('Can\'t move table to same one!'));
             } else {
-                $message = PMA_Message::error(__('Can\'t copy table to same one!'));
+                $message = Message::error(__('Can\'t copy table to same one!'));
             }
         } else {
-            PMA_Table::moveCopy(
+            Table::moveCopy(
                 $db, $table, $_REQUEST['target_db'], $_REQUEST['new_name'],
                 $_REQUEST['what'], isset($_REQUEST['submit_move']), 'one_table'
             );
@@ -2124,14 +2100,14 @@ function PMA_moveOrCopyTable($db, $table)
                 }
 
                 if (isset($_REQUEST['submit_move'])) {
-                    $message = PMA_Message::success(
+                    $message = Message::success(
                         __(
                             'Table %s has been moved to %s. Privileges have been '
                             . 'adjusted.'
                         )
                     );
                 } else {
-                    $message = PMA_Message::success(
+                    $message = Message::success(
                         __(
                             'Table %s has been copied to %s. Privileges have been '
                             . 'adjusted.'
@@ -2141,21 +2117,21 @@ function PMA_moveOrCopyTable($db, $table)
 
             } else {
                 if (isset($_REQUEST['submit_move'])) {
-                    $message = PMA_Message::success(
+                    $message = Message::success(
                         __('Table %s has been moved to %s.')
                     );
                 } else {
-                    $message = PMA_Message::success(
+                    $message = Message::success(
                         __('Table %s has been copied to %s.')
                     );
                 }
             }
 
-            $old = PMA_Util::backquote($db) . '.'
-                . PMA_Util::backquote($table);
+            $old = PMA\libraries\Util::backquote($db) . '.'
+                . PMA\libraries\Util::backquote($table);
             $message->addParam($old);
-            $new = PMA_Util::backquote($_REQUEST['target_db']) . '.'
-                . PMA_Util::backquote($_REQUEST['new_name']);
+            $new = PMA\libraries\Util::backquote($_REQUEST['target_db']) . '.'
+                . PMA\libraries\Util::backquote($_REQUEST['new_name']);
             $message->addParam($new);
 
             /* Check: Work on new table or on old table? */
@@ -2168,16 +2144,16 @@ function PMA_moveOrCopyTable($db, $table)
         /**
          * No new name for the table!
          */
-        $message = PMA_Message::error(__('The table name is empty!'));
+        $message = Message::error(__('The table name is empty!'));
     }
 
     if ($GLOBALS['is_ajax_request'] == true) {
-        $response = PMA_Response::getInstance();
+        $response = PMA\libraries\Response::getInstance();
         $response->addJSON('message', $message);
         if ($message->isSuccess()) {
             $response->addJSON('db', $GLOBALS['db']);
         } else {
-            $response->isSuccess(false);
+            $response->setRequestStatus(false);
         }
         exit;
     }

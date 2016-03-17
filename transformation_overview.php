@@ -12,7 +12,7 @@
 require_once './libraries/common.inc.php';
 require_once './libraries/transformations.lib.php';
 
-$response = PMA_Response::getInstance();
+$response = PMA\libraries\Response::getInstance();
 $header   = $response->getHeader();
 $header->disableMenuAndConsole();
 
@@ -24,9 +24,9 @@ $types = PMA_getAvailableMIMEtypes();
 foreach ($types['mimetype'] as $key => $mimetype) {
 
     if (isset($types['empty_mimetype'][$mimetype])) {
-        echo '<i>' . $mimetype . '</i><br />';
+        echo '<i>' , $mimetype , '</i><br />';
     } else {
-        echo $mimetype . '<br />';
+        echo $mimetype , '<br />';
     }
 
 }

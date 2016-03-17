@@ -414,6 +414,12 @@ Credits, in chronological order
 
   * Other UI improvements
 
+* Deven Bansod (Google Summer of Code 2015)
+
+  * Print view using CSS
+
+  * Other UI improvements and new features
+
 And also to the following people who have contributed minor changes,
 enhancements, bugfixes or support for a new language since version
 2.1.0:
@@ -435,192 +441,628 @@ Translators
 
 Following people have contributed to translation of phpMyAdmin:
 
+
+
+* Albanian
+
+    * Arben Çokaj <acokaj\_at\_shkoder.net>
+
+
 * Arabic
 
-  * Abdullah Al-Saedi <abdullah.10\_at\_windowslive.com>
+    * Ahmed Saleh Abd El-Raouf Ismae <a.saleh.ismael\_at\_gmail.com>
+    * Ahmed Saad <egbrave\_at\_hotmail.com>
+    * hassan mokhtari <persiste1\_at\_gmail.com>
+
+
+* Armenian
+
+    * Andrey Aleksanyants <aaleksanyants\_at\_yahoo.com>
+
+
+* Azerbaijani
+
+    * Mircəlal <01youknowme\_at\_gmail.com>
+    * Huseyn <huseyn_esgerov\_at\_mail.ru>
+    * Sevdimali İsa <sevdimaliisayev\_at\_mail.ru>
+    * Jafar <sharifov\_at\_programmer.net>
+
+
+* Belarusian
+
+    * Viktar Palstsiuk <vipals\_at\_gmail.com>
+
 
 * Bulgarian
 
-  * stoyanster <stoyanster\_at\_gmail.com>
+    * Boyan Kehayov <bkehayov\_at\_gmail.com>
+    * Valter Georgiev <blagynchy\_at\_gmail.com>
+    * Valentin Mladenov <hudsonvsm\_at\_gmail.com>
+    * P <plamen_mbx\_at\_yahoo.com>
+    * krasimir <vip\_at\_krasio-valia.com>
+
 
 * Catalan
 
-  * Xavier Navarro <xvnavarro\_at\_gmail.com>
+    * josep constanti <jconstanti\_at\_yahoo.es>
+    * Xavier Navarro <xvnavarro\_at\_gmail.com>
+
+
+* Chinese (China)
+
+    * Vincent Lau <3092849\_at\_qq.com>
+    * Zheng Dan <clanboy\_at\_163.com>
+    * disorderman <disorderman\_at\_qq.com>
+    * Rex Lee <duguying2008\_at\_gmail.com>
+    *  <fundawang\_at\_gmail.com>
+    * popcorner <memoword\_at\_163.com>
+    * Yizhou Qiang <qyz.yswy\_at\_hotmail.com>
+    * zz <tczzjin\_at\_gmail.com>
+    * Terry Weng <wengshiyu\_at\_gmail.com>
+    * whh <whhlcj\_at\_126.com>
+
+
+* Chinese (Taiwan)
+
+    * Albert Song <albb0920\_at\_gmail.com>
+    * Chien Wei Lin <cwlin0416\_at\_gmail.com>
+    * LNDDYL <lnddyl\_at\_outlook.com>
+    * Peter Dave Hello <xs910203\_at\_gmail.com>
+
+
+* Colognian
+
+    * Purodha <publi\_at\_web.de>
+
 
 * Czech
 
-  * Michal Čihař <michal\_at\_cihar.com>
+    * Aleš Hakl <ales\_at\_hakl.net>
+    * Dalibor Straka <dalibor.straka3\_at\_gmail.com>
+    * Martin Vidner <martin\_at\_vidner.net>
+    * Ondra Šimeček <ondrasek.simecek\_at\_gmail.com>
+    * Jan Palider <palider\_at\_seznam.cz>
+    * Petr Kateřiňák <petr.katerinak\_at\_gmail.com>
+
 
 * Danish
 
-  * opensource <opensource\_at\_jth.net>
-  * Jørgen Thomsen <opensource\_at\_jth.net>
+    * Aputsiaĸ Niels Janussen <aj\_at\_isit.gl>
+    * Dennis Jakobsen <dennis.jakobsen\_at\_gmail.com>
+    * Jonas <jonas.den.smarte\_at\_gmail.com>
+    * Claus Svalekjaer <just.my.smtp.server\_at\_gmail.com>
 
-* German
-
-  * mrbendig <mrbendig\_at\_mrbendig.com>
-  * torsten.funck <torsten.funck\_at\_googlemail.com>
-  * Sven Strickroth <email\_at\_cs-ware.de>
-  * typo3 <typo3\_at\_dirk-weise.de>
-  * Jo Michael <me\_at\_mynetx.net>
-
-* Greek
-
-  * Panagiotis Papazoglou <papaz_p\_at\_yahoo.com>
-
-* English (United Kingdom)
-
-  * Robert Readman <robert_readman\_at\_hotmail.com>
-
-* Spanish
-
-  * Matías Bellone <matiasbellone\_at\_gmail.com>
-
-* French
-
-  * Marc Delisle <marc\_at\_infomarc.info>
-
-* Hindi
-
-  * u4663530 <u4663530\_at\_anu.edu.au>
-  * rsedwardian <rsedwardian\_at\_gmail.com>
-
-* Hungarian
-
-  * gergo314 <gergo314\_at\_gmail.com>
-
-* Italian
-
-  * Rouslan Placella <rouslan\_at\_placella.com>
-
-* Japanese
-
-  * Yuichiro <yuichiro\_at\_pop07.odn.ne.jp>
-
-* Lithuanian
-
-  * Kęstutis <forkik\_at\_gmail.com>
-
-* Norwegian Bokmål
-
-  * Sven-Erik Andersen <sven.erik.andersen\_at\_gmail.com>
 
 * Dutch
 
-  * Dieter Adriaenssens <ruleant\_at\_users.sourceforge.net>
-  * Herman van Rink <rink\_at\_initfour.nl>
+    * A. Voogt <a.voogt\_at\_hccnet.nl>
+    * dingo thirteen <dingo13\_at\_gmail.com>
+    * Robin van der Vliet <info\_at\_robinvandervliet.nl>
+    * Dieter Adriaenssens <ruleant\_at\_users.sourceforge.net>
+    * Niko Strijbol <strijbol.niko\_at\_gmail.com>
+
+
+* English (United Kingdom)
+
+    * Dries Verschuere <dries.verschuere\_at\_outlook.com>
+    * Francisco Rocha <j.francisco.o.rocha\_at\_zoho.com>
+    * Marc Delisle <marc\_at\_infomarc.info>
+    * Marek Tomaštík <tomastik.m\_at\_gmail.com>
+
+
+* Esperanto
+
+    * Eliovir <eliovir\_at\_gmail.com>
+    * Robin van der Vliet <info\_at\_robinvandervliet.nl>
+
+
+* Estonian
+
+    * Kristjan Räts <kristjanrats\_at\_gmail.com>
+
+
+* Finnish
+
+    * Juha <jremes\_at\_outlook.com>
+    * Lari Oesch <lari\_at\_oesch.me>
+
+
+* French
+
+    * Marc Delisle <marc\_at\_infomarc.info>
+
+
+* Frisian
+
+    * Robin van der Vliet <info\_at\_robinvandervliet.nl>
+
+
+* Galician
+
+    * Xosé Calvo <xosecalvo\_at\_gmail.com>
+
+
+* German
+
+    * Julian Ladisch <github.com-t3if\_at\_ladisch.de>
+    * Jan Erik Zassenhaus <jan.zassenhaus\_at\_jgerman.de>
+    * Lasse Goericke <lasse\_at\_mydom.de>
+    * Matthias Bluthardt <matthias\_at\_bluthardt.org>
+    * Michael Koch <michael.koch\_at\_enough.de>
+    * Ann + J.M. <phpMyAdmin\_at\_ZweiSteinSoft.de>
+    *  <pma\_at\_sebastianmendel.de>
+    * Phillip Rohmberger <rohmberger\_at\_hotmail.de>
+    * Hauke Henningsen <sqrt\_at\_entless.org>
+
+
+* Greek
+
+    * Παναγιώτης Παπάζογλου <papaz_p\_at\_yahoo.com>
+
+
+* Hebrew
+
+    * Moshe Harush <mmh15\_at\_windowslive.com>
+    * Yaron Shahrabani <sh.yaron\_at\_gmail.com>
+    * Eyal Visoker <visokereyal\_at\_gmail.com>
+
+
+* Hindi
+
+    * Atul Pratap Singh <atulpratapsingh05\_at\_gmail.com>
+    * Yogeshwar <charanyogeshwar\_at\_gmail.com>
+    * Deven Bansod <devenbansod.bits\_at\_gmail.com>
+    * Kushagra Pandey <kushagra4296\_at\_gmail.com>
+    * Nisarg Jhaveri <nisargjhaveri\_at\_gmail.com>
+    * Roohan Kazi <roohan_cena\_at\_yahoo.co.in>
+    * Yugal Pantola <yug.scorpio\_at\_gmail.com>
+
+
+* Hungarian
+
+    * Akos Eros <erosakos02\_at\_gmail.com>
+    * Dániel Tóth <leedermeister\_at\_gmail.com>
+    * Szász Attila <undernetangel\_at\_gmail.com>
+    * Balázs Úr <urbalazs\_at\_gmail.com>
+
+
+* Indonesian
+
+    * Deky Arifianto <Deky40\_at\_gmail.com>
+    * Andika Triwidada <andika\_at\_gmail.com>
+    * Dadan Setia <da2n_s\_at\_yahoo.co.id>
+    * Dadan Setia <dadan.setia\_at\_gmail.com>
+    * Yohanes Edwin <edwin\_at\_yohanesedwin.com>
+    * Fadhiil Rachman <fadhiilrachman\_at\_gmail.com>
+    * Benny <tarzq28\_at\_gmail.com>
+    * Tommy Surbakti <tommy\_at\_surbakti.net>
+    * Zufar Fathi Suhardi <zufar.bogor\_at\_gmail.com>
+
+
+* Interlingua
+
+    * Giovanni Sora <g.sora\_at\_tiscali.it>
+
+
+* Italian
+
+    * Francesco Saverio Giacobazzi <francesco.giacobazzi\_at\_ferrania.it>
+    * Marco Pozzato <ironpotts\_at\_gmail.com>
+    * Stefano Martinelli <stefano.ste.martinelli\_at\_gmail.com>
+
+
+* Japanese
+
+    * k725 <alexalex.kobayashi\_at\_gmail.com>
+    * Hiroshi Chiyokawa <hiroshi.chiyokawa\_at\_gmail.com>
+    * Masahiko HISAKAWA <orzkun\_at\_ageage.jp>
+    * worldwideskier <worldwideskier\_at\_yahoo.co.jp>
+
+
+* Kannada
+
+    * Robin van der Vliet <info\_at\_robinvandervliet.nl>
+    * Shameem Ahmed A Mulla <shameem.sam\_at\_gmail.com>
+
+
+* Korean
+
+    * Bumsoo Kim <bskim45\_at\_gmail.com>
+    * Kyeong Su Shin <cdac1234\_at\_gmail.com>
+    * Dongyoung Kim <dckyoung\_at\_gmail.com>
+    * Myung-han Yu <greatymh\_at\_gmail.com>
+    * JongDeok <human.zion\_at\_gmail.com>
+    * Yong Kim <kim\_at\_nhn.com>
+    * 이경준 <kyungjun2\_at\_gmail.com>
+    * Seongki Shin <skshin\_at\_gmail.com>
+    * Yoon Bum-Jong <virusyoon\_at\_gmail.com>
+    * Koo Youngmin <youngminz.kr\_at\_gmail.com>
+
+
+* Kurdish Sorani
+
+    * Alan Hilal <alan.hilal94\_at\_gmail.com>
+    * Aso Naderi <aso.naderi\_at\_gmail.com>
+    * muhammad <esy_vb\_at\_yahoo.com>
+    * Zrng Abdulla <zhyarabdulla94\_at\_gmail.com>
+
+
+* Latvian
+
+    * Latvian TV <dnighttv\_at\_gmail.com>
+    * Edgars Neimanis <edgarsneims5092\_at\_inbox.lv>
+    * Ukko <perkontevs\_at\_gmail.com>
+
+
+* Limburgish
+
+    * Robin van der Vliet <info\_at\_robinvandervliet.nl>
+
+
+* Lithuanian
+
+    * Vytautas Motuzas <v.motuzas\_at\_gmail.com>
+
+
+* Malay
+
+    * Amir Hamzah <amir.overlord666\_at\_gmail.com>
+    * diprofinfiniti <anonynuine-999\_at\_yahoo.com>
+
+
+* Nepali
+
+    * Nabin Ghimire <nnabinn\_at\_hotmail.com>
+
+
+* Norwegian Bokmål
+
+    * Børge Holm-Wennberg <borge947\_at\_gmail.com>
+    * Tor Stokkan <danorse\_at\_gmail.com>
+    * Espen Frøyshov <efroys\_at\_gmail.com>
+    * Kurt Eilertsen <kurt\_at\_kheds.com>
+    * Christoffer Haugom <ph3n1x.nobody\_at\_gmail.com>
+    * Sebastian <sebastian\_at\_sgundersen.com>
+    * Tomas <tomas\_at\_tomasruud.com>
+
+
+* Persian
+
+    * ashkan shirian <ashkan.shirian\_at\_gmail.com>
+    * HM <goodlinuxuser\_at\_chmail.ir>
+
 
 * Polish
 
-  * Stanisław Krukowski <stankruk\_at\_neostrada.pl>
-  * Marcin Kozioł <lord_dark\_at\_wp.pl>
+    * Andrzej <andrzej\_at\_kynu.pl>
+    * Przemo <info\_at\_opsbielany.waw.pl>
+    * Krystian Biesaga <krystian4842\_at\_gmail.com>
+    * Maciej Gryniuk <maciejka45\_at\_gmail.com>
+    * Michał VonFlynee <vonflynee\_at\_gmail.com>
+
 
 * Portuguese
 
-  * JoaoTMDias <contacto\_at\_joaodias.me>
+    * Alexandre Badalo <alexandre.badalo\_at\_sapo.pt>
+    * João Rodrigues <geral\_at\_jonilive.com>
+    * Pedro Ribeiro <p.m42.ribeiro\_at\_gmail.com>
+    * Sandro Amaral <sandro123iv\_at\_gmail.com>
+
 
 * Portuguese (Brazil)
 
-  * wiltave <wiltave\_at\_gmail.com>
-  * emerson4br <emerson4br\_at\_gmail.com>
+    * Alex Rohleder <alexrohleder96\_at\_outlook.com>
+    * bruno mendax <brunomendax\_at\_gmail.com>
+    * Danilo GUia <danilo.eng\_at\_globomail.com>
+    * Douglas Rafael Morais Kollar <douglas.kollar\_at\_pg.df.gov.br>
+    * Douglas Eccker <douglaseccker\_at\_hotmail.com>
+    * Ed Jr <edjacobjunior\_at\_gmail.com>
+    * Guilherme Souza Silva <g.szsilva\_at\_gmail.com>
+    * Guilherme Seibt <gui\_at\_webseibt.net>
+    * Helder Santana <helder.bs.santana\_at\_gmail.com>
+    * Junior Zancan <jrzancan\_at\_hotmail.com>
+    * Luis <luis.eduardo.braschi\_at\_outlook.com>
+    * Marcos Algeri <malgeri\_at\_gmail.com>
+    * Marc Delisle <marc\_at\_infomarc.info>
+    * Renato Rodrigues de Lima Júnio <renatomdd\_at\_yahoo.com.br>
+    * Thiago Casotti <thiago.casotti\_at\_uol.com.br>
+    * Victor Laureano <victor.laureano\_at\_gmail.com>
+    * Vinícius Araújo <vinipitta\_at\_gmail.com>
+    * Washington Bruno Rodrigues Cav <washingtonbruno\_at\_msn.com>
+    * Yan Gabriel <yansilvagabriel\_at\_gmail.com>
+
+
+* Punjabi
+
+    * Robin van der Vliet <info\_at\_robinvandervliet.nl>
+
 
 * Romanian
 
-  * alexukf <alex.ukf\_at\_gmail.com>
+    * Alex <amihaita\_at\_yahoo.com>
+    * Costel Cocerhan <costa1988sv\_at\_gmail.com>
+    * Ion Adrian-Ionut <john\_at\_panevo.ro>
+    * Raul Molnar <molnar.raul\_at\_wservices.eu>
+    * Deleted User <noreply\_at\_weblate.org>
+    * Stefan Murariu <stefan.murariu\_at\_yahoo.com>
+
 
 * Russian
 
-  * Victor Volkov <hanut\_at\_php-myadmin.ru>
+    * Andrey Aleksanyants <aaleksanyants\_at\_yahoo.com>
+    *  <ddrmoscow\_at\_gmail.com>
+    * Robin van der Vliet <info\_at\_robinvandervliet.nl>
+    * Хомутов Иван Сергеевич <khomutov.ivan\_at\_mail.ru>
+    * Alexey Rubinov <orion1979\_at\_yandex.ru>
+    * Олег Карпов <salvadoporjc\_at\_gmail.com>
+    * Egorov Artyom <unlucky\_at\_inbox.ru>
+
+
+* Serbian
+
+    * Smart Kid <kidsmart33\_at\_gmail.com>
+
 
 * Sinhala
 
-  * Madhura Jayaratne <madhura.cj\_at\_gmail.com>
+    * Madhura Jayaratne <madhura.cj\_at\_gmail.com>
+
 
 * Slovak
 
-  * Martin Lacina <martin\_at\_whistler.sk>
+    * Martin Lacina <martin\_at\_whistler.sk>
+    * Patrik Kollmann <parkourpotex\_at\_gmail.com>
+    * Jozef Pistej <pistej2\_at\_gmail.com>
+
 
 * Slovenian
 
-  * Domen <dbc334\_at\_gmail.com>
+    * Domen <mitenem\_at\_outlook.com>
+
+
+* Spanish
+
+    * Luis García Sevillano <floss.dev\_at\_gmail.com>
+    * Franco <fulanodetal.github1\_at\_openaliasbox.org>
+    * Luis Ruiz <luisan00\_at\_hotmail.com>
+    * Macofe <macofe.languagetool\_at\_gmail.com>
+    * Matías Bellone <matiasbellone+weblate\_at\_gmail.com>
+    * Rodrigo A. <ra4\_at\_openmailbox.org>
+    * FAMMA TV NOTICIAS MEDIOS DE CO <revistafammatvmusic.oficial\_at\_gmail.com>
+    * Ronnie Simon <ronniesimonf\_at\_gmail.com>
+
 
 * Swedish
 
-  * stefan <stefan\_at\_inkopsforum.se>
+    * Anders Jonsson <anders.jonsson\_at\_norsjovallen.se>
+
 
 * Tamil
 
-  * ysajeepan <ysajeepan\_at\_live.com>
+    * கணேஷ் குமார் <GANESHTHEONE\_at\_gmail.com>
+    * Achchuthan Yogarajah <achch1990\_at\_gmail.com>
+    * Rifthy Ahmed <rifthy456\_at\_gmail.com>
 
-* Telugu
-
-  * veeven <veeven\_at\_gmail.com>
 
 * Thai
 
-  * kanitchet <kanichet\_at\_hotmail.com>
+    *  <nontawat39\_at\_gmail.com>
+    * Somthanat W. <somthanat\_at\_gmail.com>
+
 
 * Turkish
 
-  * Burak Yavuz <hitowerdigit\_at\_hotmail.com>
+    * Burak Yavuz <hitowerdigit\_at\_hotmail.com>
 
-* Uighur
-
-  * gheni <gheni\_at\_yahoo.cn>
 
 * Ukrainian
 
-  * typim <duke3d\_at\_ukr.net>
-  * oleg-ilnytskyi <ukraine.oleg\_at\_gmail.com>
+    * Сергій Педько <nitrotoll\_at\_gmail.com>
+    * Igor <vmta\_at\_yahoo.com>
+    * Vitaliy Perekupka <vperekupka\_at\_gmail.com>
 
-* Urdu
 
-  * Mehbooob Khan <mehboobbugti\_at\_gmail.com>
+* Vietnamese
 
-* Simplified Chinese
+    * Bao Phan <baophan94\_at\_icloud.com>
+    * Xuan Hung <mr.hungdx\_at\_gmail.com>
+    * Bao trinh minh <trinhminhbao\_at\_gmail.com>
 
-  * shanyan baishui <Siramizu\_at\_gmail.com>
 
-* Traditional Chinese
+* West Flemish
 
-  * star <star\_at\_origin.club.tw>
+    * Robin van der Vliet <info\_at\_robinvandervliet.nl>
 
 Documentation translators
 +++++++++++++++++++++++++
 
 Following people have contributed to translation of phpMyAdmin documentation:
 
+* Albanian
+
+    * Arben Çokaj <acokaj\_at\_shkoder.net>
+
+
+* Arabic
+
+    * Ahmed El Azzabi <ahmedtek1993\_at\_gmail.com>
+    * Omar Essam <omar_2412\_at\_live.com>
+
+
+* Armenian
+
+    * Andrey Aleksanyants <aaleksanyants\_at\_yahoo.com>
+
+
+* Azerbaijani
+
+    * Mircəlal <01youknowme\_at\_gmail.com>
+    * Sevdimali İsa <sevdimaliisayev\_at\_mail.ru>
+
+
+* Catalan
+
+    * josep constanti <jconstanti\_at\_yahoo.es>
+    * Joan Montané <joan\_at\_montane.cat>
+    * Xavier Navarro <xvnavarro\_at\_gmail.com>
+
+
+* Chinese (China)
+
+    * Vincent Lau <3092849\_at\_qq.com>
+    * 罗攀登 <6375lpd\_at\_gmail.com>
+    * disorderman <disorderman\_at\_qq.com>
+    * ITXiaoPang <djh1017555\_at\_126.com>
+    * tunnel213 <tunnel213\_at\_aliyun.com>
+    * Terry Weng <wengshiyu\_at\_gmail.com>
+    * whh <whhlcj\_at\_126.com>
+
+
+* Chinese (Taiwan)
+
+    * Chien Wei Lin <cwlin0416\_at\_gmail.com>
+    * Peter Dave Hello <xs910203\_at\_gmail.com>
+
+
 * Czech
 
-  * Michal Čihař <michal\_at\_cihar.com>
+    * Aleš Hakl <ales\_at\_hakl.net>
+    * Michal Čihař <michal\_at\_cihar.com>
+    * Jan Palider <palider\_at\_seznam.cz>
+    * Petr Kateřiňák <petr.katerinak\_at\_gmail.com>
 
-* Greek
 
-  * Panagiotis Papazoglou <papaz_p\_at\_yahoo.com>
+* Danish
 
-* English (United Kingdom)
+    * Aputsiaĸ Niels Janussen <aj\_at\_isit.gl>
+    * Claus Svalekjaer <just.my.smtp.server\_at\_gmail.com>
 
-  * Robert Readman <robert_readman\_at\_hotmail.com>
+
+* Dutch
+
+    * A. Voogt <a.voogt\_at\_hccnet.nl>
+    * dingo thirteen <dingo13\_at\_gmail.com>
+    * Dries Verschuere <dries.verschuere\_at\_outlook.com>
+    * Robin van der Vliet <info\_at\_robinvandervliet.nl>
+    * Stefan Koolen <nast3zz\_at\_gmail.com>
+    * Ray Borggreve <ray\_at\_datahuis.net>
+    * Dieter Adriaenssens <ruleant\_at\_users.sourceforge.net>
+    * Tom Hofman <tom.hofman\_at\_gmail.com>
+
+
+* Estonian
+
+    * Kristjan Räts <kristjanrats\_at\_gmail.com>
+
+
+* Finnish
+
+    * Juha <jremes\_at\_outlook.com>
+
 
 * French
 
-  * Cédric Corazza <cedric.corazza\_at\_wanadoo.fr>
+    * Cédric Corazza <cedric.corazza\_at\_wanadoo.fr>
+    * Étienne Gilli <etienne.gilli\_at\_gmail.com>
+    * Marc Delisle <marc\_at\_infomarc.info>
+    * Donavan_Martin <mart.donavan\_at\_hotmail.com>
+
+
+* Frisian
+
+    * Robin van der Vliet <info\_at\_robinvandervliet.nl>
+
+
+* Galician
+
+    * Xosé Calvo <xosecalvo\_at\_gmail.com>
+
+
+* German
+
+    * Daniel <d.gnauk89\_at\_googlemail.com>
+    * JH M <janhenrikm\_at\_yahoo.de>
+    * Lasse Goericke <lasse\_at\_mydom.de>
+    * Michael Koch <michael.koch\_at\_enough.de>
+    * Ann + J.M. <phpMyAdmin\_at\_ZweiSteinSoft.de>
+    * Niemand Jedermann <predatorix\_at\_web.de>
+    * Phillip Rohmberger <rohmberger\_at\_hotmail.de>
+    * Hauke Henningsen <sqrt\_at\_entless.org>
+
+
+* Greek
+
+    * Παναγιώτης Παπάζογλου <papaz_p\_at\_yahoo.com>
+
+
+* Hungarian
+
+    * Balázs Úr <urbalazs\_at\_gmail.com>
+
+
+* Italian
+
+    * Francesco Saverio Giacobazzi <francesco.giacobazzi\_at\_ferrania.it>
+    * Marco Pozzato <ironpotts\_at\_gmail.com>
+    * Stefano Martinelli <stefano.ste.martinelli\_at\_gmail.com>
+    * TWS <tablettws\_at\_gmail.com>
+
 
 * Japanese
 
-  * Yuichiro Takahashi <yuichiro\_at\_pop07.odn.ne.jp>
+    * Eshin Kunishima <ek\_at\_luna.miko.im>
+    * Hiroshi Chiyokawa <hiroshi.chiyokawa\_at\_gmail.com>
 
-* Polish
 
-  * Stanisław Krukowski <stankruk\_at\_neostrada.pl>
+* Lithuanian
+
+    * Jur Kis <atvejis\_at\_gmail.com>
+    * Dovydas <dovy.buz\_at\_gmail.com>
+
+
+* Norwegian Bokmål
+
+    * Tor Stokkan <danorse\_at\_gmail.com>
+    * Kurt Eilertsen <kurt\_at\_kheds.com>
+
 
 * Portuguese (Brazil)
 
-  * mjaning <mjaning\_at\_gmail.com>
+    * Alexandre Moretti <alemoretti2010\_at\_hotmail.com>
+    * Douglas Rafael Morais Kollar <douglas.kollar\_at\_pg.df.gov.br>
+    * Guilherme Seibt <gui\_at\_webseibt.net>
+    * Helder Santana <helder.bs.santana\_at\_gmail.com>
+    * Michal Čihař <michal\_at\_cihar.com>
+    * Michel Souza <michel.ekio\_at\_gmail.com>
+    * Danilo Azevedo <mrdaniloazevedo\_at\_gmail.com>
+    * Thiago Casotti <thiago.casotti\_at\_uol.com.br>
+    * Vinícius Araújo <vinipitta\_at\_gmail.com>
+    * Yan Gabriel <yansilvagabriel\_at\_gmail.com>
+
+
+* Slovak
+
+    * Martin Lacina <martin\_at\_whistler.sk>
+    * Michal Čihař <michal\_at\_cihar.com>
+    * Jozef Pistej <pistej2\_at\_gmail.com>
+
 
 * Slovenian
 
-  * Domen <dbc334\_at\_gmail.com>
+    * Domen <mitenem\_at\_outlook.com>
+
+
+* Spanish
+
+    * Luis García Sevillano <floss.dev\_at\_gmail.com>
+    * Franco <fulanodetal.github1\_at\_openaliasbox.org>
+    * Matías Bellone <matiasbellone+weblate\_at\_gmail.com>
+    * Ronnie Simon <ronniesimonf\_at\_gmail.com>
+
+
+* Turkish
+
+    * Burak Yavuz <hitowerdigit\_at\_hotmail.com>
 
 Original Credits of Version 2.1.0
 +++++++++++++++++++++++++++++++++

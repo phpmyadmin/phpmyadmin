@@ -15,15 +15,12 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
-/* Get the export interface */
-require_once 'libraries/plugins/ExportPlugin.class.php';
-
 /**
  * Handles the export for the [Name] format
  *
  * @package PhpMyAdmin-Export
  */
-class Export[Name] extends ExportPlugin
+class Export[Name] extends PMA\libraries\plugins\ExportPlugin
 {
     /**
      * optional - declare variables and descriptions
@@ -70,17 +67,7 @@ class Export[Name] extends ExportPlugin
      */
     protected function setProperties()
     {
-        // set properties
-        $props = 'libraries/properties/';
-        // include the main class for properties for the export plug-ins
-        include_once "$props/plugins/ExportPluginProperties.class.php";
-        // include the group properties classes
-        include_once "$props/options/groups/OptionsPropertyRootGroup.class.php";
-        include_once "$props/options/groups/OptionsPropertyMainGroup.class.php";
-        // include the needed single property items
-        include_once "$props/options/items/RadioPropertyItem.class.php";
-
-        $exportPluginProperties = new ExportPluginProperties();
+        $exportPluginProperties = new PMA\libraries\properties\plugins\ExportPluginProperties();
         $exportPluginProperties->setText('[name]');             // the name of your plug-in
         $exportPluginProperties->setExtension('[ext]');         // extension this plug-in can handle
         $exportPluginProperties->setOptionsText(__('Options'));
@@ -88,12 +75,14 @@ class Export[Name] extends ExportPlugin
         // create the root group that will be the options field for
         // $exportPluginProperties
         // this will be shown as "Format specific options"
-        $exportSpecificOptions = new OptionsPropertyRootGroup();
-        $exportSpecificOptions->setName("Format Specific Options");
+        $exportSpecificOptions = new PMA\libraries\properties\options\groups\OptionsPropertyRootGroup(
+            "Format Specific Options"
+        );
 
         // general options main group
-        $generalOptions = new OptionsPropertyMainGroup();
-        $generalOptions->setName("general_opts");
+        $generalOptions = new PMA\libraries\properties\options\groups\OptionsPropertyMainGroup(
+            "general_opts"
+        );
 
         // optional :
         // create primary items and add them to the group
@@ -103,8 +92,9 @@ class Export[Name] extends ExportPlugin
         // size - size of text element
         // len  - maximal size of input
         // values - possible values of the item
-        $leaf = new RadioPropertyItem();
-        $leaf->setName("structure_or_data");
+        $leaf = new PMA\libraries\properties\options\items\RadioPropertyItem(
+            "structure_or_data"
+        );
         $leaf->setValues(
             array(
                 'structure' => __('structure'),
@@ -204,7 +194,7 @@ class Export[Name] extends ExportPlugin
         return true;
     }
 
-    // optional - implement other methods defined in ExportPlugin.class.php:
+    // optional - implement other methods defined in PMA\libraries\plugins\ExportPlugin.class.php:
     //  - exportRoutines()
     //  - exportStructure()
     //  - getTableDefStandIn()
@@ -213,7 +203,7 @@ class Export[Name] extends ExportPlugin
     // optional - implement other private methods in order to avoid
     // having huge methods or avoid duplicate code. Make use of them
     // as well as of the getters and setters declared both here
-    // and in the ExportPlugin class
+    // and in the PMA\libraries\plugins\ExportPlugin class
 
 
     // optional:

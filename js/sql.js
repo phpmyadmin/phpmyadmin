@@ -160,7 +160,7 @@ AJAX.registerOnload('sql.js', function () {
             if ($link.hasClass('formLinkSubmit')) {
                 submitFormLink($link);
             } else {
-                $.get(url, {'ajax_request': true, 'is_js_confirmed': true}, function (data) {
+                $.post(url, {'ajax_request': true, 'is_js_confirmed': true}, function (data) {
                     if (data.success) {
                         PMA_ajaxShowMessage(data.message);
                         $link.closest('tr').remove();
@@ -193,14 +193,24 @@ AJAX.registerOnload('sql.js', function () {
     }).trigger('keyup');
 
     /**
-     * Attach Event Handler for 'Print View'
+     * Attach Event Handler for 'Copy to clipbpard
+     */
+    $(document).on('click', "#copyToClipBoard", function (event) {
+        event.preventDefault();
+
+        // Print the page
+        copyToClipboard();
+    }); //end of Copy to Clipboard action
+
+    /**
+     * Attach Event Handler for 'Print' link
      */
     $(document).on('click', "#printView", function (event) {
         event.preventDefault();
 
-        // Print the page
-        printPage();
-    }); //end of Print View action
+        // Take to preview mode
+        printPreview();
+    }); //end of 'Print' action
 
     /**
      * Attach the {@link makegrid} function to a custom event, which will be
@@ -771,7 +781,7 @@ function makeProfilingChart()
     $('#profilingchart').html('').show();
     $('#profilingChartData').html('');
 
-    PMA_createProfilingChartJqplot('profilingchart', data);
+    PMA_createProfilingChart('profilingchart', data);
 }
 
 /*
@@ -824,7 +834,7 @@ function setStickyColumnsPosition($sticky_columns, $table_results, position, top
  * Initialize sticky columns
  */
 function initStickyColumns($table_results) {
-    var $sticky_columns = $('<table class="sticky_columns"></table>')
+    return $('<table class="sticky_columns"></table>')
             .insertBefore($table_results)
             .css("position", "fixed")
             .css("z-index", "99")
@@ -832,7 +842,6 @@ function initStickyColumns($table_results) {
             .css("margin-left", $('#page_content').css("margin-left"))
             .css("top", $('#floating_menubar').height())
             .css("display", "none");
-    return $sticky_columns;
 }
 
 /*

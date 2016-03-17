@@ -5,13 +5,15 @@
  *
  * @package PhpMyAdmin
  */
+use PMA\libraries\Table;
+use PMA\libraries\Response;
 
 /**
  *
  */
 require_once './libraries/common.inc.php';
 
-$pma_table = new PMA_Table($GLOBALS['table'], $GLOBALS['db']);
+$pma_table = new Table($GLOBALS['table'], $GLOBALS['db']);
 
 /**
  * functions implementation for this script
@@ -21,7 +23,7 @@ require_once 'libraries/operations.lib.php';
 /**
  * Load JavaScript files
  */
-$response = PMA_Response::getInstance();
+$response = Response::getInstance();
 $header   = $response->getHeader();
 $scripts  = $header->getScripts();
 $scripts->addFile('tbl_operations.js');
@@ -73,12 +75,12 @@ if (isset($result)) {
         $_type = $result ? 'success' : 'error';
     }
     if (! empty($warning_messages)) {
-        $_message = new PMA_Message;
+        $_message = new PMA\libraries\Message;
         $_message->addMessages($warning_messages);
         $_message->isError(true);
         unset($warning_messages);
     }
-    echo PMA_Util::getMessage(
+    echo PMA\libraries\Util::getMessage(
         $_message, $sql_query, $_type
     );
     unset($_message, $_type);
@@ -119,7 +121,9 @@ $url_params['back'] = 'view_operations.php';
 $drop_view_url_params = array_merge(
     $url_params,
     array(
-        'sql_query' => 'DROP VIEW ' . PMA_Util::backquote($GLOBALS['table']),
+        'sql_query' => 'DROP VIEW ' . PMA\libraries\Util::backquote(
+            $GLOBALS['table']
+        ),
         'goto' => 'tbl_structure.php',
         'reload' => '1',
         'purge' => '1',
@@ -132,7 +136,7 @@ $drop_view_url_params = array_merge(
 );
 echo '<div class="operations_half_width">';
 echo '<fieldset class="caution">';
-echo '<legend>' . __('Delete data or table') . '</legend>';
+echo '<legend>' , __('Delete data or table') , '</legend>';
 
 echo '<ul>';
 echo PMA_getDeleteDataOrTableLink(

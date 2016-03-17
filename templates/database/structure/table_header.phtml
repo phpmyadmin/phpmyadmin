@@ -11,12 +11,12 @@ if ($GLOBALS['cfg']['NumFavoriteTables'] > 0) {
 }
 ?>
 <form method="post" action="db_structure.php" name="tablesForm" id="tablesForm">
-<?php echo PMA_URL_getHiddenInputs($db); ?>
+<?= PMA_URL_getHiddenInputs($db); ?>
 <table class="data">
     <thead>
         <tr>
             <th class="print_ignore"></th>
-            <th><?php echo PMA\Template::get('database/structure/sortable_header')->render(
+            <th><?= PMA\libraries\Template::get('database/structure/sortable_header')->render(
                    array(
                        'title' => __('Table'),
                        'sort' => 'table',
@@ -24,33 +24,33 @@ if ($GLOBALS['cfg']['NumFavoriteTables'] > 0) {
                    )
                 ); ?></th>
             <?php if ($replication): ?>
-                <th><?php echo __('Replication'); ?></th>
+                <th><?= __('Replication'); ?></th>
             <?php endif; ?>
-            <th colspan="<?php echo $action_colspan; ?>" class="print_ignore">
-                <?php echo __('Action'); ?>
+            <th colspan="<?= $action_colspan; ?>" class="print_ignore">
+                <?= __('Action'); ?>
             </th>
             <!-- larger values are more interesting so default sort order is DESC-->
             <th>
-                <?php echo PMA\Template::get('database/structure/sortable_header')->render(
+                <?= PMA\libraries\Template::get('database/structure/sortable_header')->render(
                     array(
                         'title' => __('Rows'),
                         'sort' => 'records',
                         'initial_sort_order' => 'DESC'
                     )
                 ); ?>
-                <?php echo PMA_Util::showHint(PMA_sanitize(
+                <?= PMA\libraries\Util::showHint(PMA_sanitize(
                     __('May be approximate. Click on the number to get the exact'
                         . ' count. See [doc@faq3-11]FAQ 3.11[/doc].'))); ?>
             </th>
             <?php if (!($GLOBALS['cfg']['PropertiesNumColumns'] > 1)): ?>
-                <th><?php echo PMA\Template::get('database/structure/sortable_header')->render(
+                <th><?= PMA\libraries\Template::get('database/structure/sortable_header')->render(
                         array(
                             'title' => __('Type'),
                             'sort' => 'type',
                             'initial_sort_order' => 'ASC'
                         )
                     ); $cnt++; ?></th>
-                <th><?php echo PMA\Template::get('database/structure/sortable_header')->render(
+                <th><?= PMA\libraries\Template::get('database/structure/sortable_header')->render(
                         array(
                             'title' => __('Collation'),
                             'sort' => 'collation',
@@ -61,7 +61,7 @@ if ($GLOBALS['cfg']['NumFavoriteTables'] > 0) {
 
             <?php if ($GLOBALS['is_show_stats']): ?>
                 <!-- larger values are more interesting so default sort order is DESC -->
-                <th><?php echo PMA\Template::get('database/structure/sortable_header')->render(
+                <th><?= PMA\libraries\Template::get('database/structure/sortable_header')->render(
                         array(
                             'title' => __('Size'),
                             'sort' => 'size',
@@ -69,7 +69,7 @@ if ($GLOBALS['cfg']['NumFavoriteTables'] > 0) {
                         )
                     ); $cnt++; ?></th>
                 <!-- larger values are more interesting so default sort order is DESC -->
-                <th><?php echo PMA\Template::get('database/structure/sortable_header')->render(
+                <th><?= PMA\libraries\Template::get('database/structure/sortable_header')->render(
                         array(
                             'title' => __('Overhead'),
                             'sort' => 'overhead',
@@ -79,7 +79,7 @@ if ($GLOBALS['cfg']['NumFavoriteTables'] > 0) {
             <?php endif; ?>
 
             <?php if ($GLOBALS['cfg']['ShowDbStructureComment']): ?>
-                <th><?php echo PMA\Template::get('database/structure/sortable_header')->render(
+                <th><?= PMA\libraries\Template::get('database/structure/sortable_header')->render(
                         array(
                             'title' => __('Comment'),
                             'sort' => 'comment',
@@ -90,7 +90,7 @@ if ($GLOBALS['cfg']['NumFavoriteTables'] > 0) {
 
             <?php if ($GLOBALS['cfg']['ShowDbStructureCreation']): ?>
                 <!-- newer values are more interesting so default sort order is DESC -->
-                <th><?php echo PMA\Template::get('database/structure/sortable_header')->render(
+                <th><?= PMA\libraries\Template::get('database/structure/sortable_header')->render(
                         array(
                             'title' => __('Creation'),
                             'sort' => 'creation',
@@ -101,7 +101,7 @@ if ($GLOBALS['cfg']['NumFavoriteTables'] > 0) {
 
             <?php if ($GLOBALS['cfg']['ShowDbStructureLastUpdate']): ?>
                 <!-- newer values are more interesting so default sort order is DESC -->
-                <th><?php echo PMA\Template::get('database/structure/sortable_header')->render(
+                <th><?= PMA\libraries\Template::get('database/structure/sortable_header')->render(
                         array(
                             'title' => __('Last update'),
                             'sort' => 'last_update',
@@ -112,7 +112,7 @@ if ($GLOBALS['cfg']['NumFavoriteTables'] > 0) {
 
             <?php if ($GLOBALS['cfg']['ShowDbStructureLastCheck']): ?>
                 <!-- newer values are more interesting so default sort order is DESC -->
-                <th><?php echo PMA\Template::get('database/structure/sortable_header')->render(
+                <th><?= PMA\libraries\Template::get('database/structure/sortable_header')->render(
                         array(
                             'title' => __('Last check'),
                             'sort' => 'last_check',
@@ -124,4 +124,3 @@ if ($GLOBALS['cfg']['NumFavoriteTables'] > 0) {
     </thead>
     <tbody>
         <?php $GLOBALS['colspan_for_structure'] = $cnt + $action_colspan + 3; ?>
-

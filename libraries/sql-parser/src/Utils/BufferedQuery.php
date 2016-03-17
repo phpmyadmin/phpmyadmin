@@ -209,14 +209,14 @@ class BufferedQuery
              */
             if ($this->status === static::STATUS_STRING_SINGLE_QUOTES) {
                 // Single-quoted strings like 'foo'.
-                if ($this->query[$i] === '\'') {
+                if ($this->query[$i] === '\'' && $this->query[$i - 1] !== '\\') {
                     $this->status = 0;
                 }
                 $this->current .= $this->query[$i];
                 continue;
             } elseif ($this->status === static::STATUS_STRING_DOUBLE_QUOTES) {
                 // Double-quoted strings like "bar".
-                if ($this->query[$i] === '"') {
+                if ($this->query[$i] === '"' && $this->query[$i - 1] !== '\\') {
                     $this->status = 0;
                 }
                 $this->current .= $this->query[$i];

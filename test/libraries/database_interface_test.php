@@ -9,9 +9,8 @@
 /*
  * Include to test.
  */
-require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/database_interface.inc.php';
-require_once 'libraries/Tracker.class.php';
+
 require_once 'libraries/charset_conversion.lib.php';
 
 /**
@@ -28,6 +27,7 @@ class PMA_DBI_Test extends PHPUnit_Framework_TestCase
      */
     function setup()
     {
+        $GLOBALS['cfg']['DBG']['sql'] = false;
         $GLOBALS['cfg']['IconvExtraParams'] = '';
     }
 
@@ -116,7 +116,7 @@ class PMA_DBI_Test extends PHPUnit_Framework_TestCase
             array(1234, 'foobar', '#1234 - foobar'),
             array(
                 2002, 'foobar',
-                '#2002 - foobar<br />The server is not responding (or the local '
+                '#2002 - foobar &mdash; The server is not responding (or the local '
                 . 'server\'s socket is not correctly configured).'
             ),
         );

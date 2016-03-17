@@ -5,12 +5,14 @@
  *
  * @package PhpMyAdmin
  */
+use PMA\libraries\Message;
+use PMA\libraries\plugins\SchemaPlugin;
+
 if (! defined('PHPMYADMIN')) {
     exit;
 }
 
 require_once 'libraries/relation.lib.php';
-require_once 'libraries/Template.class.php';
 
 /**
  * Function to get html to display a page selector
@@ -22,7 +24,7 @@ require_once 'libraries/Template.class.php';
  */
 function PMA_getHtmlForPageSelector($cfgRelation, $db)
 {
-    return PMA\Template::get('database/designer/page_selector')
+    return PMA\libraries\Template::get('database/designer/page_selector')
         ->render(
             array(
                 'db' => $db,
@@ -41,7 +43,7 @@ function PMA_getHtmlForPageSelector($cfgRelation, $db)
  */
 function PMA_getHtmlForEditOrDeletePages($db, $operation)
 {
-    return PMA\Template::get('database/designer/edit_delete_pages')
+    return PMA\libraries\Template::get('database/designer/edit_delete_pages')
         ->render(
             array(
                 'db' => $db,
@@ -59,7 +61,7 @@ function PMA_getHtmlForEditOrDeletePages($db, $operation)
  */
 function PMA_getHtmlForPageSaveAs($db)
 {
-    return PMA\Template::get('database/designer/page_save_as')
+    return PMA\libraries\Template::get('database/designer/page_save_as')
         ->render(
             array(
                 'db' => $db
@@ -78,12 +80,12 @@ function PMA_getPageIdsAndNames($db)
 {
     $cfgRelation = PMA_getRelationsParam();
     $page_query = "SELECT `page_nr`, `page_descr` FROM "
-        . PMA_Util::backquote($cfgRelation['db']) . "."
-        . PMA_Util::backquote($cfgRelation['pdf_pages'])
-        . " WHERE db_name = '" . PMA_Util::sqlAddSlashes($db) . "'"
+        . PMA\libraries\Util::backquote($cfgRelation['db']) . "."
+        . PMA\libraries\Util::backquote($cfgRelation['pdf_pages'])
+        . " WHERE db_name = '" . PMA\libraries\Util::sqlAddSlashes($db) . "'"
         . " ORDER BY `page_descr`";
     $page_rs = PMA_queryAsControlUser(
-        $page_query, false, PMA_DatabaseInterface::QUERY_STORE
+        $page_query, false, PMA\libraries\DatabaseInterface::QUERY_STORE
     );
 
     $result = array();
@@ -113,12 +115,12 @@ function PMA_getHtmlForSchemaExport($db, $page)
 
     /* Fail if we didn't find any schema plugin */
     if (empty($export_list)) {
-        return PMA_Message::error(
+        return Message::error(
             __('Could not load schema plugins, please check your installation!')
         )->getDisplay();
     }
 
-    return PMA\Template::get('database/designer/schema_export')
+    return PMA\libraries\Template::get('database/designer/schema_export')
         ->render(
             array(
                 'db' => $db,
@@ -141,7 +143,7 @@ function PMA_getHtmlForSchemaExport($db, $page)
 function PMA_getHtmlForJSFields(
     $script_tables, $script_contr, $script_display_field, $display_page
 ) {
-    return PMA\Template::get('database/designer/js_fields')
+    return PMA\libraries\Template::get('database/designer/js_fields')
         ->render(
             array(
                 'script_tables' => $script_tables,
@@ -164,7 +166,7 @@ function PMA_getHtmlForJSFields(
  */
 function PMA_getDesignerPageMenu($visualBuilder, $selected_page, $params_array)
 {
-    return PMA\Template::get('database/designer/side_menu')
+    return PMA\libraries\Template::get('database/designer/side_menu')
         ->render(
             array(
                 'visualBuilder' => $visualBuilder,
@@ -188,9 +190,9 @@ function PMA_getSideMenuParamsArray()
     if ($GLOBALS['cfgRelation']['designersettingswork']) {
 
         $query = 'SELECT `settings_data` FROM '
-            . PMA_Util::backquote($cfgRelation['db']) . '.'
-            . PMA_Util::backquote($cfgRelation['designer_settings'])
-            . ' WHERE ' . PMA_Util::backquote('username') . ' = "'
+            . PMA\libraries\Util::backquote($cfgRelation['db']) . '.'
+            . PMA\libraries\Util::backquote($cfgRelation['designer_settings'])
+            . ' WHERE ' . PMA\libraries\Util::backquote('username') . ' = "'
             . $GLOBALS['cfg']['Server']['user'] . '";';
 
         $result = $GLOBALS['dbi']->fetchSingleRow($query);
@@ -269,7 +271,7 @@ function PMA_returnClassNamesFromMenuButtons()
  */
 function PMA_getHTMLCanvas()
 {
-    return PMA\Template::get('database/designer/canvas')->render();
+    return PMA\libraries\Template::get('database/designer/canvas')->render();
 }
 
 /**
@@ -282,7 +284,7 @@ function PMA_getHTMLCanvas()
  */
 function PMA_getHTMLTableList($tab_pos, $display_page)
 {
-    return PMA\Template::get('database/designer/table_list')
+    return PMA\libraries\Template::get('database/designer/table_list')
         ->render(
             array(
                 'tab_pos' => $tab_pos,
@@ -305,7 +307,7 @@ function PMA_getHTMLTableList($tab_pos, $display_page)
 function PMA_getDatabaseTables(
     $tab_pos, $display_page, $tab_column, $tables_all_keys, $tables_pk_or_unique_keys
 ) {
-    return PMA\Template::get('database/designer/database_tables')
+    return PMA\libraries\Template::get('database/designer/database_tables')
         ->render(
             array(
                 'tab_pos' => $tab_pos,
@@ -324,7 +326,8 @@ function PMA_getDatabaseTables(
  */
 function PMA_getNewRelationPanel()
 {
-    return PMA\Template::get('database/designer/new_relation_panel')->render();
+    return PMA\libraries\Template::get('database/designer/new_relation_panel')
+        ->render();
 }
 
 /**
@@ -334,7 +337,8 @@ function PMA_getNewRelationPanel()
  */
 function PMA_getDeleteRelationPanel()
 {
-    return PMA\Template::get('database/designer/delete_relation_panel')->render();
+    return PMA\libraries\Template::get('database/designer/delete_relation_panel')
+        ->render();
 }
 
 /**
@@ -344,7 +348,7 @@ function PMA_getDeleteRelationPanel()
  */
 function PMA_getOptionsPanel()
 {
-    return PMA\Template::get('database/designer/options_panel')->render();
+    return PMA\libraries\Template::get('database/designer/options_panel')->render();
 }
 
 /**
@@ -354,7 +358,8 @@ function PMA_getOptionsPanel()
  */
 function PMA_getRenameToPanel()
 {
-    return PMA\Template::get('database/designer/rename_to_panel')->render();
+    return PMA\libraries\Template::get('database/designer/rename_to_panel')
+        ->render();
 }
 
 /**
@@ -364,7 +369,8 @@ function PMA_getRenameToPanel()
  */
 function PMA_getHavingQueryPanel()
 {
-    return PMA\Template::get('database/designer/having_query_panel')->render();
+    return PMA\libraries\Template::get('database/designer/having_query_panel')
+        ->render();
 }
 
 /**
@@ -374,7 +380,8 @@ function PMA_getHavingQueryPanel()
  */
 function PMA_getAggregateQueryPanel()
 {
-    return PMA\Template::get('database/designer/aggregate_query_panel')->render();
+    return PMA\libraries\Template::get('database/designer/aggregate_query_panel')
+        ->render();
 }
 
 /**
@@ -384,7 +391,8 @@ function PMA_getAggregateQueryPanel()
  */
 function PMA_getWhereQueryPanel()
 {
-    return PMA\Template::get('database/designer/where_query_panel')->render();
+    return PMA\libraries\Template::get('database/designer/where_query_panel')
+        ->render();
 }
 
 /**
@@ -394,5 +402,5 @@ function PMA_getWhereQueryPanel()
  */
 function PMA_getQueryDetails()
 {
-    return PMA\Template::get('database/designer/query_details')->render();
+    return PMA\libraries\Template::get('database/designer/query_details')->render();
 }

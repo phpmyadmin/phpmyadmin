@@ -1,0 +1,27 @@
+<form action="server_binlog.php" method="get">
+    <?= PMA_URL_getHiddenInputs($url_params); ?>
+    <fieldset>
+        <legend>
+            <?= __('Select binary log to view'); ?>
+        </legend>
+        <?php $full_size = 0; ?>
+        <select name="log">
+            <?php foreach ($binary_logs as $each_log): ?>
+                <option value="<?= $each_log['Log_name']; ?>"<?= ($each_log['Log_name'] == $_REQUEST['log'] ? ' selected="selected"' : ''); ?>>
+                    <?= $each_log['Log_name']; ?>
+                    <?php if (isset($each_log['File_size'])): ?>
+                        (<?= implode(' ', \PMA\libraries\Util::formatByteDown($each_log['File_size'], 3, 2)); ?>)
+                        <?php $full_size += $each_log['File_size']; ?>
+                    <?php endif; ?>
+                </option>
+            <?php endforeach; ?>
+        </select>
+        <?= count($binary_logs) . ' ' . __('Files') . ', '; ?>
+        <?php if ($full_size > 0): ?>
+            <?= implode(' ', \PMA\libraries\Util::formatByteDown($full_size)); ?>
+        <?php endif; ?>
+    </fieldset>
+    <fieldset class="tblFooters">
+        <input type="submit" value="<?= __('Go'); ?>" />
+    </fieldset>
+</form>

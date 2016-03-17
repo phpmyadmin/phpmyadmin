@@ -5,10 +5,8 @@
  *
  * @package PhpMyAdmin
  */
-
-if (! defined('PHPMYADMIN')) {
-    exit;
-}
+use PMA\libraries\Message;
+use PMA\libraries\plugins\TransformationsPlugin;
 
 /**
  * Retrieve form parameters for insert/edit form
@@ -81,11 +79,11 @@ function PMA_analyzeWhereClauses(
     foreach ($where_clause_array as $key_id => $where_clause) {
 
         $local_query     = 'SELECT * FROM '
-            . PMA_Util::backquote($db) . '.'
-            . PMA_Util::backquote($table)
+            . PMA\libraries\Util::backquote($db) . '.'
+            . PMA\libraries\Util::backquote($table)
             . ' WHERE ' . $where_clause . ';';
         $result[$key_id] = $GLOBALS['dbi']->query(
-            $local_query, null, PMA_DatabaseInterface::QUERY_STORE
+            $local_query, null, PMA\libraries\DatabaseInterface::QUERY_STORE
         );
         $rows[$key_id]   = $GLOBALS['dbi']->fetchAssoc($result[$key_id]);
 
@@ -119,8 +117,8 @@ function PMA_showEmptyResultMessageOrSetUniqueCondition($rows, $key_id,
     // No row returned
     if (! $rows[$key_id]) {
         unset($rows[$key_id], $where_clause_array[$key_id]);
-        PMA_Response::getInstance()->addHtml(
-            PMA_Util::getMessage(
+        PMA\libraries\Response::getInstance()->addHtml(
+            PMA\libraries\Util::getMessage(
                 __('MySQL returned an empty result set (i.e. zero rows).'),
                 $local_query
             )
@@ -133,7 +131,7 @@ function PMA_showEmptyResultMessageOrSetUniqueCondition($rows, $key_id,
         $meta = $GLOBALS['dbi']->getFieldsMeta($result[$key_id]);
 
         list($unique_condition, $tmp_clause_is_unique)
-            = PMA_Util::getUniqueCondition(
+            = PMA\libraries\Util::getUniqueCondition(
                 $result[$key_id], // handle
                 count($meta), // fields_cnt
                 $meta, // fields_meta
@@ -162,10 +160,10 @@ function PMA_showEmptyResultMessageOrSetUniqueCondition($rows, $key_id,
 function PMA_loadFirstRow($table, $db)
 {
     $result = $GLOBALS['dbi']->query(
-        'SELECT * FROM ' . PMA_Util::backquote($db)
-        . '.' . PMA_Util::backquote($table) . ' LIMIT 1;',
+        'SELECT * FROM ' . PMA\libraries\Util::backquote($db)
+        . '.' . PMA\libraries\Util::backquote($table) . ' LIMIT 1;',
         null,
-        PMA_DatabaseInterface::QUERY_STORE
+        PMA\libraries\DatabaseInterface::QUERY_STORE
     );
     $rows = array_fill(0, $GLOBALS['cfg']['InsertRows'], false);
     return array($result, $rows);
@@ -322,7 +320,7 @@ function PMA_getColumnTitle($column, $comments_map)
 function PMA_isColumn($column, $types)
 {
     foreach ($types as $one_type) {
-        if (/*overload*/mb_stripos($column['Type'], $one_type) === 0) {
+        if (mb_stripos($column['Type'], $one_type) === 0) {
             return true;
         }
     }
@@ -397,8 +395,8 @@ function PMA_getFunctionColumn($column, $is_upload, $column_name_appendix,
         && $column['is_binary'])
     ) {
         $html_output .= '<td class="center">' . __('Binary') . '</td>' . "\n";
-    } elseif (/*overload*/mb_strstr($column['True_Type'], 'enum')
-        || /*overload*/mb_strstr($column['True_Type'], 'set')
+    } elseif (mb_strstr($column['True_Type'], 'enum')
+        || mb_strstr($column['True_Type'], 'set')
         || in_array($column['pma_type'], $no_support_types)
     ) {
         $html_output .= '<td class="center">--</td>' . "\n";
@@ -409,7 +407,10 @@ function PMA_getFunctionColumn($column, $is_upload, $column_name_appendix,
             . ' ' . $onChangeClause
             . ' tabindex="' . ($tabindex + $tabindex_for_function) . '"'
             . ' id="field_' . $idindex . '_1">';
-        $html_output .= PMA_Util::getFunctionsForField($column, $insert_mode) . "\n";
+        $html_output .= PMA\libraries\Util::getFunctionsForField(
+            $column,
+            $insert_mode
+        ) . "\n";
 
         $html_output .= '</select>' .  "\n";
         $html_output .= '</td>' .  "\n";
@@ -483,13 +484,13 @@ function PMA_getNullColumn($column, $column_name_appendix, $real_null_value,
 function PMA_getNullifyCodeForNullColumn($column, $foreigners, $foreignData)
 {
     $foreigner = PMA_searchColumnInForeigners($foreigners, $column['Field']);
-    if (/*overload*/mb_strstr($column['True_Type'], 'enum')) {
-        if (/*overload*/mb_strlen($column['Type']) > 20) {
+    if (mb_strstr($column['True_Type'], 'enum')) {
+        if (mb_strlen($column['Type']) > 20) {
             $nullify_code = '1';
         } else {
             $nullify_code = '2';
         }
-    } elseif (/*overload*/mb_strstr($column['True_Type'], 'set')) {
+    } elseif (mb_strstr($column['True_Type'], 'set')) {
         $nullify_code = '3';
     } elseif (!empty($foreigners)
         && !empty($foreigner)
@@ -572,7 +573,7 @@ function PMA_getValueColumn($column, $backup_field, $column_name_appendix,
         );
 
     } elseif ($GLOBALS['cfg']['LongtextDoubleTextarea']
-        && /*overload*/mb_strstr($column['pma_type'], 'longtext')
+        && mb_strstr($column['pma_type'], 'longtext')
     ) {
         $html_output = '&nbsp;</td>';
         $html_output .= '</tr>';
@@ -584,7 +585,7 @@ function PMA_getValueColumn($column, $backup_field, $column_name_appendix,
             $special_chars_encoded, $data_type
         );
 
-    } elseif (/*overload*/mb_strstr($column['pma_type'], 'text')) {
+    } elseif (mb_strstr($column['pma_type'], 'text')) {
 
         $html_output .= PMA_getTextarea(
             $column, $backup_field, $column_name_appendix, $onChangeClause,
@@ -592,7 +593,7 @@ function PMA_getValueColumn($column, $backup_field, $column_name_appendix,
             $special_chars_encoded, $data_type
         );
         $html_output .= "\n";
-        if (/*overload*/mb_strlen($special_chars) > 32000) {
+        if (mb_strlen($special_chars) > 32000) {
             $html_output .= "</td>\n";
             $html_output .= '<td>' . __(
                 'Because of its length,<br /> this column might not be editable.'
@@ -759,10 +760,12 @@ function PMA_getTextarea($column, $backup_field, $column_name_appendix,
         $the_class = 'char';
         $textAreaRows = $GLOBALS['cfg']['CharTextareaRows'];
         $textareaCols = $GLOBALS['cfg']['CharTextareaCols'];
-        $extracted_columnspec = PMA_Util::extractColumnSpec($column['Type']);
+        $extracted_columnspec = PMA\libraries\Util::extractColumnSpec(
+            $column['Type']
+        );
         $maxlength = $extracted_columnspec['spec_in_brackets'];
     } elseif ($GLOBALS['cfg']['LongtextDoubleTextarea']
-        && /*overload*/mb_strstr($column['pma_type'], 'longtext')
+        && mb_strstr($column['pma_type'], 'longtext')
     ) {
         $textAreaRows = $GLOBALS['cfg']['TextareaRows'] * 2;
         $textareaCols = $GLOBALS['cfg']['TextareaCols'] * 2;
@@ -815,7 +818,7 @@ function PMA_getPmaTypeEnum($column, $backup_field, $column_name_appendix,
     $html_output .= '<input type="hidden" name="fields_type'
         . $column_name_appendix . '" value="enum" />';
     $html_output .= "\n" . '            ' . $backup_field . "\n";
-    if (/*overload*/mb_strlen($column['Type']) > 20) {
+    if (mb_strlen($column['Type']) > 20) {
         $html_output .= PMA_getDropDownDependingOnLength(
             $column, $column_name_appendix, $onChangeClause,
             $tabindex, $tabindex_for_value, $idindex, $data, $column_enum_values
@@ -1047,8 +1050,8 @@ function PMA_getBinaryAndBlobColumn(
     ) {
         $html_output .= __('Binary - do not edit');
         if (isset($data)) {
-            $data_size = PMA_Util::formatByteDown(
-                /*overload*/mb_strlen(stripslashes($data)), 3, 1
+            $data_size = PMA\libraries\Util::formatByteDown(
+                mb_strlen(stripslashes($data)), 3, 1
             );
             $html_output .= ' (' . $data_size[0] . ' ' . $data_size[1] . ')';
             unset($data_size);
@@ -1129,7 +1132,9 @@ function PMA_getHTMLinput(
     }
     $input_min_max = false;
     if (in_array($column['True_Type'], $GLOBALS['PMA_Types']->getIntegerTypes())) {
-        $extracted_columnspec = PMA_Util::extractColumnSpec($column['Type']);
+        $extracted_columnspec = PMA\libraries\Util::extractColumnSpec(
+            $column['Type']
+        );
         $is_unsigned = $extracted_columnspec['unsigned'];
         $min_max_values = $GLOBALS['PMA_Types']->getIntegerRange(
             $column['True_Type'], ! $is_unsigned
@@ -1163,11 +1168,11 @@ function PMA_getHTMLinput(
 function PMA_getSelectOptionForUpload($vkey, $column)
 {
     $files = PMA_getFileSelectOptions(
-        PMA_Util::userDir($GLOBALS['cfg']['UploadDir'])
+        PMA\libraries\Util::userDir($GLOBALS['cfg']['UploadDir'])
     );
 
     if ($files === false) {
-        return '<font color="red">' . __('Error') . '</font><br />' . "\n"
+        return '<span style="color:red">' . __('Error') . '</span><br />' . "\n"
             .  __('The directory you set for upload work cannot be reached.') . "\n";
     } elseif (!empty($files)) {
         return "<br />\n"
@@ -1211,7 +1216,7 @@ function PMA_getMaxUploadSize($column, $biggest_max_file_size)
         $this_field_max_size = $max_field_sizes[$column['pma_type']];
     }
     $html_output
-        = PMA_Util::getFormattedMaximumUploadSize(
+        = PMA\libraries\Util::getFormattedMaximumUploadSize(
             $this_field_max_size
         ) . "\n";
     // do not generate here the MAX_FILE_SIZE, because we should
@@ -1258,7 +1263,7 @@ function PMA_getValueColumnForOtherDatatypes($column, $default_char_editing,
     $html_output = $backup_field . "\n";
     if ($column['is_char']
         && ($GLOBALS['cfg']['CharEditing'] == 'textarea'
-        || /*overload*/mb_strpos($data, "\n") !== false)
+        || mb_strpos($data, "\n") !== false)
     ) {
         $html_output .= "\n";
         $GLOBALS['cfg']['CharEditing'] = $default_char_editing;
@@ -1350,9 +1355,9 @@ function PMA_getColumnSize($column, $extracted_columnspec)
  */
 function PMA_getHTMLforGisDataTypes()
 {
-    $edit_str = PMA_Util::getIcon('b_edit.png', __('Edit/Insert'));
+    $edit_str = PMA\libraries\Util::getIcon('b_edit.png', __('Edit/Insert'));
     return '<span class="open_gis_editor">'
-        . PMA_Util::linkOrButton(
+        . PMA\libraries\Util::linkOrButton(
             '#', $edit_str, array(), false, false, '_blank'
         )
         . '</span>';
@@ -1540,10 +1545,10 @@ function PMA_getAfterInsertDropDown($where_clause, $after_insert, $found_unique_
 function PMA_getSubmitAndResetButtonForActionsPanel($tabindex, $tabindex_for_value)
 {
     return '<td>'
-    . PMA_Util::showHint(
+    . PMA\libraries\Util::showHint(
         __(
             'Use TAB key to move from value to value,'
-            . ' or CTRL+arrows to move anywhere'
+            . ' or CTRL+arrows to move anywhere.'
         )
     )
     . '</td>'
@@ -1623,18 +1628,18 @@ function PMA_getSpecialCharsAndBackupFieldForExistingRow(
     } elseif ($column['True_Type'] == 'bit') {
         $special_chars = $as_is
             ? $current_row[$column['Field']]
-            : PMA_Util::printableBitValue(
+            : PMA\libraries\Util::printableBitValue(
                 $current_row[$column['Field']],
                 $extracted_columnspec['spec_in_brackets']
             );
     } elseif ((substr($column['True_Type'], 0, 9) == 'timestamp'
         || $column['True_Type'] == 'datetime'
         || $column['True_Type'] == 'time')
-        && (/*overload*/mb_strpos($current_row[$column['Field']], ".") !== false)
+        && (mb_strpos($current_row[$column['Field']], ".") !== false)
     ) {
         $current_row[$column['Field']] = $as_is
             ? $current_row[$column['Field']]
-            : PMA_Util::addMicroseconds(
+            : PMA\libraries\Util::addMicroseconds(
                 $current_row[$column['Field']]
             );
         $special_chars = htmlspecialchars($current_row[$column['Field']]);
@@ -1642,7 +1647,7 @@ function PMA_getSpecialCharsAndBackupFieldForExistingRow(
         // Convert gis data to Well Know Text format
         $current_row[$column['Field']] = $as_is
             ? $current_row[$column['Field']]
-            : PMA_Util::asWKT(
+            : PMA\libraries\Util::asWKT(
                 $current_row[$column['Field']], true
             );
         $special_chars = htmlspecialchars($current_row[$column['Field']]);
@@ -1662,7 +1667,7 @@ function PMA_getSpecialCharsAndBackupFieldForExistingRow(
         //We need to duplicate the first \n or otherwise we will lose
         //the first newline entered in a VARCHAR or TEXT column
         $special_chars_encoded
-            = PMA_Util::duplicateFirstNewline($special_chars);
+            = PMA\libraries\Util::duplicateFirstNewline($special_chars);
 
         $data = $current_row[$column['Field']];
     } // end if... else...
@@ -1673,7 +1678,7 @@ function PMA_getSpecialCharsAndBackupFieldForExistingRow(
         && $_REQUEST['default_action'] === 'insert'
     ) {
         if ($column['Key'] === 'PRI'
-            && /*overload*/mb_strpos($column['Extra'], 'auto_increment') !== false
+            && mb_strpos($column['Extra'], 'auto_increment') !== false
         ) {
             $data = $special_chars_encoded = $special_chars = null;
         }
@@ -1718,19 +1723,23 @@ function PMA_getSpecialCharsAndBackupFieldForInsertingMode(
     $trueType = $column['True_Type'];
 
     if ($trueType == 'bit') {
-        $special_chars = PMA_Util::convertBitDefaultValue($column['Default']);
+        $special_chars = PMA\libraries\Util::convertBitDefaultValue(
+            $column['Default']
+        );
     } elseif (substr($trueType, 0, 9) == 'timestamp'
         || $trueType == 'datetime'
         || $trueType == 'time'
     ) {
-        $special_chars = PMA_Util::addMicroseconds($column['Default']);
+        $special_chars = PMA\libraries\Util::addMicroseconds($column['Default']);
     } elseif ($trueType == 'binary' || $trueType == 'varbinary') {
         $special_chars = bin2hex($column['Default']);
     } else {
         $special_chars = htmlspecialchars($column['Default']);
     }
     $backup_field = '';
-    $special_chars_encoded = PMA_Util::duplicateFirstNewline($special_chars);
+    $special_chars_encoded = PMA\libraries\Util::duplicateFirstNewline(
+        $special_chars
+    );
     return array(
         $real_null_value, $data, $special_chars,
         $backup_field, $special_chars_encoded
@@ -1783,7 +1792,7 @@ function PMA_isInsertRow()
         && $_REQUEST['insert_rows'] != $GLOBALS['cfg']['InsertRows']
     ) {
         $GLOBALS['cfg']['InsertRows'] = $_REQUEST['insert_rows'];
-        $response = PMA_Response::getInstance();
+        $response = PMA\libraries\Response::getInstance();
         $header = $response->getHeader();
         $scripts = $header->getScripts();
         $scripts->addFile('tbl_change.js');
@@ -1803,8 +1812,8 @@ function PMA_isInsertRow()
  */
 function PMA_setSessionForEditNext($one_where_clause)
 {
-    $local_query = 'SELECT * FROM ' . PMA_Util::backquote($GLOBALS['db'])
-        . '.' . PMA_Util::backquote($GLOBALS['table']) . ' WHERE '
+    $local_query = 'SELECT * FROM ' . PMA\libraries\Util::backquote($GLOBALS['db'])
+        . '.' . PMA\libraries\Util::backquote($GLOBALS['table']) . ' WHERE '
         . str_replace('` =', '` >', $one_where_clause) . ' LIMIT 1;';
 
     $res            = $GLOBALS['dbi']->query($local_query);
@@ -1813,7 +1822,7 @@ function PMA_setSessionForEditNext($one_where_clause)
     // must find a unique condition based on unique key,
     // not a combination of all fields
     list($unique_condition, $clause_is_unique)
-        = PMA_Util::getUniqueCondition(
+        = PMA\libraries\Util::getUniqueCondition(
             $res, // handle
             count($meta), // fields_cnt
             $meta, // fields_meta
@@ -1854,13 +1863,13 @@ function PMA_getGotoInclude($goto_include)
             $goto_include = $GLOBALS['goto'];
         }
         if ($GLOBALS['goto'] == 'db_sql.php'
-            && /*overload*/mb_strlen($GLOBALS['table'])
+            && mb_strlen($GLOBALS['table'])
         ) {
             $GLOBALS['table'] = '';
         }
     }
     if (! $goto_include) {
-        if (! /*overload*/mb_strlen($GLOBALS['table'])) {
+        if (! mb_strlen($GLOBALS['table'])) {
             $goto_include = 'db_sql.php';
         } else {
             $goto_include = 'tbl_sql.php';
@@ -1903,7 +1912,7 @@ function PMA_buildSqlQuery($is_insertignore, $query_fields, $value_sets)
     }
     $query = array(
         $insert_command . 'INTO '
-        . PMA_Util::backquote($GLOBALS['table'])
+        . PMA\libraries\Util::backquote($GLOBALS['table'])
         . ' (' . implode(', ', $query_fields) . ') VALUES ('
         . implode('), (', $value_sets) . ')'
     );
@@ -1939,7 +1948,7 @@ function PMA_executeSqlQuery($url_params, $query)
 
     foreach ($query as $single_query) {
         if ($_REQUEST['submit_type'] == 'showinsert') {
-            $last_messages[] = PMA_Message::notice(__('Showing SQL query'));
+            $last_messages[] = Message::notice(__('Showing SQL query'));
             continue;
         }
         if ($GLOBALS['cfg']['IgnoreMultiSubmitErrors']) {
@@ -1948,7 +1957,7 @@ function PMA_executeSqlQuery($url_params, $query)
             $result = $GLOBALS['dbi']->query($single_query);
         }
         if (! $result) {
-            $error_messages[] = PMA_Message::sanitize($GLOBALS['dbi']->getError());
+            $error_messages[] = Message::sanitize($GLOBALS['dbi']->getError());
         } else {
             // The next line contains a real assignment, it's not a typo
             if ($tmp = @$GLOBALS['dbi']->affectedRows()) {
@@ -1964,7 +1973,7 @@ function PMA_executeSqlQuery($url_params, $query)
                 if ($total_affected_rows > 0) {
                     $insert_id = $insert_id + $total_affected_rows - 1;
                 }
-                $last_message = PMA_Message::notice(__('Inserted row id: %1$d'));
+                $last_message = Message::notice(__('Inserted row id: %1$d'));
                 $last_message->addParam($insert_id);
                 $last_messages[] = $last_message;
             }
@@ -1991,7 +2000,7 @@ function PMA_getWarningMessages()
 {
     $warning_essages = array();
     foreach ($GLOBALS['dbi']->getWarnings() as $warning) {
-        $warning_essages[] = PMA_Message::sanitize(
+        $warning_essages[] = Message::sanitize(
             $warning['Level'] . ': #' . $warning['Code'] . ' ' . $warning['Message']
         );
     }
@@ -2017,21 +2026,23 @@ function PMA_getDisplayValueForForeignTableColumn($where_comparison,
         $foreigner['foreign_table']
     );
     // Field to display from the foreign table?
-    if (isset($display_field) && /*overload*/mb_strlen($display_field)) {
-        $dispsql = 'SELECT ' . PMA_Util::backquote($display_field)
-            . ' FROM ' . PMA_Util::backquote($foreigner['foreign_db'])
-            . '.' . PMA_Util::backquote($foreigner['foreign_table'])
-            . ' WHERE ' . PMA_Util::backquote($foreigner['foreign_field'])
+    if (isset($display_field) && mb_strlen($display_field)) {
+        $dispsql = 'SELECT ' . PMA\libraries\Util::backquote($display_field)
+            . ' FROM ' . PMA\libraries\Util::backquote($foreigner['foreign_db'])
+            . '.' . PMA\libraries\Util::backquote($foreigner['foreign_table'])
+            . ' WHERE ' . PMA\libraries\Util::backquote($foreigner['foreign_field'])
             . $where_comparison;
         $dispresult  = $GLOBALS['dbi']->tryQuery(
-            $dispsql, null, PMA_DatabaseInterface::QUERY_STORE
+            $dispsql, null, PMA\libraries\DatabaseInterface::QUERY_STORE
         );
         if ($dispresult && $GLOBALS['dbi']->numRows($dispresult) > 0) {
             list($dispval) = $GLOBALS['dbi']->fetchRow($dispresult, 0);
         } else {
             $dispval = '';
         }
-        @$GLOBALS['dbi']->freeResult($dispresult);
+        if ($dispresult) {
+            $GLOBALS['dbi']->freeResult($dispresult);
+        }
         return $dispval;
     }
     return '';
@@ -2067,9 +2078,9 @@ function PMA_getLinkForRelationalDisplayField($map, $relation_field,
         'table' => $foreigner['foreign_table'],
         'pos'   => '0',
         'sql_query' => 'SELECT * FROM '
-            . PMA_Util::backquote($foreigner['foreign_db'])
-            . '.' . PMA_Util::backquote($foreigner['foreign_table'])
-            . ' WHERE ' . PMA_Util::backquote($foreigner['foreign_field'])
+            . PMA\libraries\Util::backquote($foreigner['foreign_db'])
+            . '.' . PMA\libraries\Util::backquote($foreigner['foreign_table'])
+            . ' WHERE ' . PMA\libraries\Util::backquote($foreigner['foreign_field'])
             . $where_comparison
     );
     $output = '<a href="sql.php'
@@ -2121,7 +2132,7 @@ function PMA_transformEditedValues($db, $table,
         );
         $transform_options['wrapper_link']
             = PMA_URL_getCommon($_url_params);
-        $class_name = PMA_getTransformationClassName($file);
+        $class_name = PMA_getTransformationClassName($include_file);
         /** @var TransformationsPlugin $transformation_plugin */
         $transformation_plugin = new $class_name();
 
@@ -2170,7 +2181,7 @@ function PMA_getCurrentValueAsAnArrayForMultipleEdit( $multi_edit_funcs,
         || in_array($multi_edit_funcs[$key], $gis_from_wkb_functions)
     ) {
         // Remove enclosing apostrophes
-        $current_value = /*overload*/mb_substr($current_value, 1, -1);
+        $current_value = mb_substr($current_value, 1, -1);
         // Remove escaping apostrophes
         $current_value = str_replace("''", "'", $current_value);
         return $multi_edit_funcs[$key] . '(' . $current_value . ')';
@@ -2187,7 +2198,7 @@ function PMA_getCurrentValueAsAnArrayForMultipleEdit( $multi_edit_funcs,
             || $multi_edit_funcs[$key] == "ENCRYPT"))
         ) {
             return $multi_edit_funcs[$key] . '(' . $current_value . ",'"
-                   . PMA_Util::sqlAddSlashes($multi_edit_salt[$key]) . "')";
+                . PMA\libraries\Util::sqlAddSlashes($multi_edit_salt[$key]) . "')";
         } else {
             return $multi_edit_funcs[$key] . '(' . $current_value . ')';
         }
@@ -2224,11 +2235,11 @@ function PMA_getQueryValuesForInsertAndUpdateInMultipleEdit($multi_edit_columns_
     //  i n s e r t
     if ($is_insert) {
         // no need to add column into the valuelist
-        if (/*overload*/mb_strlen($current_value_as_an_array)) {
+        if (mb_strlen($current_value_as_an_array)) {
             $query_values[] = $current_value_as_an_array;
             // first inserted row so prepare the list of fields
             if (empty($value_sets)) {
-                $query_fields[] = PMA_Util::backquote(
+                $query_fields[] = PMA\libraries\Util::backquote(
                     $multi_edit_columns_name[$key]
                 );
             }
@@ -2242,11 +2253,11 @@ function PMA_getQueryValuesForInsertAndUpdateInMultipleEdit($multi_edit_columns_
         // field had the null checkbox before the update
         // field no longer has the null checkbox
         $query_values[]
-            = PMA_Util::backquote($multi_edit_columns_name[$key])
+            = PMA\libraries\Util::backquote($multi_edit_columns_name[$key])
             . ' = ' . $current_value_as_an_array;
     } elseif (empty($multi_edit_funcs[$key])
         && isset($multi_edit_columns_prev[$key])
-        && (("'" . PMA_Util::sqlAddSlashes($multi_edit_columns_prev[$key]) . "'" === $current_value)
+        && (("'" . PMA\libraries\Util::sqlAddSlashes($multi_edit_columns_prev[$key]) . "'" === $current_value)
         || ('0x' . $multi_edit_columns_prev[$key] === $current_value))
     ) {
         // No change for this column and no MySQL function is used -> next column
@@ -2258,7 +2269,7 @@ function PMA_getQueryValuesForInsertAndUpdateInMultipleEdit($multi_edit_columns_
             || empty($multi_edit_columns_null[$key])
         ) {
              $query_values[]
-                 = PMA_Util::backquote($multi_edit_columns_name[$key])
+                 = PMA\libraries\Util::backquote($multi_edit_columns_name[$key])
                 . ' = ' . $current_value_as_an_array;
         }
     }
@@ -2297,7 +2308,7 @@ function PMA_getCurrentValueForDifferentTypes($possibly_uploaded_val, $key,
         && is_array($multi_edit_columns_type) && !empty($where_clause)
     ) {
         $protected_row = $GLOBALS['dbi']->fetchSingleRow(
-            'SELECT * FROM ' . PMA_Util::backquote($table)
+            'SELECT * FROM ' . PMA\libraries\Util::backquote($table)
             . ' WHERE ' . $where_clause . ';'
         );
     }
@@ -2315,7 +2326,7 @@ function PMA_getCurrentValueForDifferentTypes($possibly_uploaded_val, $key,
         }
 
         if ($type != 'protected' && $type != 'set'
-            && 0 === /*overload*/mb_strlen($current_value)
+            && 0 === mb_strlen($current_value)
         ) {
             // best way to avoid problems in strict mode
             // (works also in non-strict mode)
@@ -2331,7 +2342,8 @@ function PMA_getCurrentValueForDifferentTypes($possibly_uploaded_val, $key,
                 $current_value = implode(
                     ',', $_REQUEST['fields']['multi_edit'][$rownumber][$key]
                 );
-                $current_value = "'" . PMA_Util::sqlAddSlashes($current_value) . "'";
+                $current_value = "'"
+                    . PMA\libraries\Util::sqlAddSlashes($current_value) . "'";
             } else {
                  $current_value = "''";
             }
@@ -2354,11 +2366,13 @@ function PMA_getCurrentValueForDifferentTypes($possibly_uploaded_val, $key,
             $current_value = '0x' . $current_value;
         } elseif ($type == 'bit') {
             $current_value = preg_replace('/[^01]/', '0', $current_value);
-            $current_value = "b'" . PMA_Util::sqlAddSlashes($current_value) . "'";
+            $current_value = "b'" . PMA\libraries\Util::sqlAddSlashes($current_value)
+                . "'";
         } elseif (! ($type == 'datetime' || $type == 'timestamp')
             || $current_value != 'CURRENT_TIMESTAMP'
         ) {
-            $current_value = "'" . PMA_Util::sqlAddSlashes($current_value) . "'";
+            $current_value = "'" . PMA\libraries\Util::sqlAddSlashes($current_value)
+                . "'";
         }
 
         // Was the Null checkbox checked for this field?
@@ -2399,10 +2413,10 @@ function PMA_verifyWhetherValueCanBeTruncatedAndAppendExtraData(
 
     $extra_data['isNeedToRecheck'] = false;
 
-    $sql_for_real_value = 'SELECT ' . PMA_Util::backquote($table) . '.'
-        . PMA_Util::backquote($column_name)
-        . ' FROM ' . PMA_Util::backquote($db) . '.'
-        . PMA_Util::backquote($table)
+    $sql_for_real_value = 'SELECT ' . PMA\libraries\Util::backquote($table) . '.'
+        . PMA\libraries\Util::backquote($column_name)
+        . ' FROM ' . PMA\libraries\Util::backquote($db) . '.'
+        . PMA\libraries\Util::backquote($table)
         . ' WHERE ' . $_REQUEST['where_clause'][0];
 
     $result = $GLOBALS['dbi']->tryQuery($sql_for_real_value);
@@ -2414,7 +2428,7 @@ function PMA_verifyWhetherValueCanBeTruncatedAndAppendExtraData(
             || ($meta->type == 'datetime')
             || ($meta->type == 'time')
         ) {
-            $new_value = PMA_Util::addMicroseconds($new_value);
+            $new_value = PMA\libraries\Util::addMicroseconds($new_value);
         }
         $extra_data['isNeedToRecheck'] = true;
         $extra_data['truncatableFieldValue'] = $new_value;
@@ -2510,15 +2524,6 @@ function PMA_determineInsertOrEdit($where_clause, $db, $table)
  */
 function PMA_getCommentsMap($db, $table)
 {
-    /**
-     * get table information
-     * @todo should be done by a Table object
-     */
-    include 'libraries/tbl_info.inc.php';
-
-    /**
-     * Get comments for table fields/columns
-     */
     $comments_map = array();
 
     if ($GLOBALS['cfg']['ShowPropertyComments']) {
@@ -2599,7 +2604,7 @@ function PMA_getHtmlForFunctionOption($odd_row, $column, $column_name_appendix)
     return '<tr class="noclick ' . ($odd_row ? 'odd' : 'even' ) . '">'
         . '<td '
         . ($longDoubleTextArea
-            && /*overload*/mb_strstr($column['True_Type'], 'longtext')
+            && mb_strstr($column['True_Type'], 'longtext')
             ? 'rowspan="2"'
             : ''
         )
@@ -2706,7 +2711,7 @@ function PMA_getHtmlForInsertEditFormColumn($table_columns, $column_number,
     }
 
     $extracted_columnspec
-        = PMA_Util::extractColumnSpec($column['Type']);
+        = PMA\libraries\Util::extractColumnSpec($column['Type']);
 
     if (-1 === $column['len']) {
         $column['len'] = $GLOBALS['dbi']->fieldLen(
@@ -2745,7 +2750,7 @@ function PMA_getHtmlForInsertEditFormColumn($table_columns, $column_number,
     } //End if
 
     // Get a list of GIS data types.
-    $gis_data_types = PMA_Util::getGISDatatypes();
+    $gis_data_types = PMA\libraries\Util::getGISDatatypes();
 
     // Prepares the field value
     $real_null_value = false;
@@ -2780,7 +2785,7 @@ function PMA_getHtmlForInsertEditFormColumn($table_columns, $column_number,
     $tabindex = $idindex;
 
     // Get a list of data types that are not yet supported.
-    $no_support_types = PMA_Util::unsupportedDatatypes();
+    $no_support_types = PMA\libraries\Util::unsupportedDatatypes();
 
     // The function column
     // -------------------
@@ -2829,7 +2834,7 @@ function PMA_getHtmlForInsertEditFormColumn($table_columns, $column_number,
         $include_file = 'libraries/plugins/transformations/' . $file;
         if (is_file($include_file)) {
             include_once $include_file;
-            $class_name = PMA_getTransformationClassName($file);
+            $class_name = PMA_getTransformationClassName($include_file);
             $transformation_plugin = new $class_name();
             $transformation_options = PMA_Transformation_getOptions(
                 $column_mime['input_transformation_options']
@@ -2969,6 +2974,5 @@ function PMA_userHasColumnPrivileges($table_column, $insert_mode)
 {
     $privileges = $table_column['Privileges'];
     return ($insert_mode && strstr($privileges, 'insert') !== false)
-        || (! $insert_mode && strstr($privileges, 'update') !== false)
-        || is_null($privileges); // Drizzle
+        || (! $insert_mode && strstr($privileges, 'update') !== false);
 }

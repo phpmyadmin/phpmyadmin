@@ -99,7 +99,8 @@ $cfg_db['RelationalDisplay'] = array(
     'D' => __('display column')
 );
 $cfg_db['DefaultTabServer'] = array(
-    'welcome' => __('Welcome'),        // the welcome page (recommended for multiuser setups)
+    // the welcome page (recommended for multiuser setups)
+    'welcome' => __('Welcome'),
     'databases' => __('Databases'),    // list of databases
     'status' => __('Status'),          // runtime information
     'variables' => __('Variables'),    // MySQL server variables
@@ -219,7 +220,7 @@ $cfg_db['Export']['texytext_null'] = 'short_string';
 $cfg_db['_overrides'] = array();
 
 /**
- * Basic validator assignments (functions from libraries/config/Validator.class.php
+ * Basic validator assignments (functions from libraries/config/Validator.php
  * and 'validators' object in js/config.js)
  * Use only full paths and form ids
  */

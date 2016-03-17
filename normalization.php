@@ -12,7 +12,6 @@
 require_once 'libraries/common.inc.php';
 require_once 'libraries/transformations.lib.php';
 require_once 'libraries/normalization.lib.php';
-require_once 'libraries/Index.class.php';
 
 if (isset($_REQUEST['getColumns'])) {
     $html = '<option selected disabled>' . __('Select one…') . '</option>'
@@ -66,7 +65,7 @@ if (isset($_REQUEST['getNewTables3NF'])) {
     exit;
 }
 
-$response = PMA_Response::getInstance();
+$response = PMA\libraries\Response::getInstance();
 $header = $response->getHeader();
 $scripts = $header->getScripts();
 $scripts->addFile('normalization.js');
@@ -108,13 +107,13 @@ if (isset($_REQUEST['step1'])) {
 } else if (isset($_REQUEST['step3'])) {
     $res = PMA_getHtmlContentsFor1NFStep3($db, $table);
     $response->addJSON($res);
-} else if (isset ($_REQUEST['step4'])) {
+} else if (isset($_REQUEST['step4'])) {
     $res = PMA_getHtmlContentsFor1NFStep4($db, $table);
     $response->addJSON($res);
-} else if (isset($_REQUEST['step']) && $_REQUEST['step'] == 2.1) {
+} else if (isset($_REQUEST['step']) && $_REQUEST['step'] == '2.1') {
     $res = PMA_getHtmlFor2NFstep1($db, $table);
     $response->addJSON($res);
-} else if (isset($_REQUEST['step']) && $_REQUEST['step'] == 3.1) {
+} else if (isset($_REQUEST['step']) && $_REQUEST['step'] == '3.1') {
     $tables = $_REQUEST['tables'];
     $res = PMA_getHtmlFor3NFstep1($db, $tables);
     $response->addJSON($res);

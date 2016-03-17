@@ -4,53 +4,50 @@
 if ($_foreigners
     && PMA_searchColumnInForeigners($_foreigners, $column_name)): ?>
     <?php if (is_array($foreignData['disp_row'])): ?>
-        <select name="criteriaValues[<?php echo $column_index; ?>]"
-                id="<?php echo $column_id . $column_index; ?>">
-            <?php echo PMA_foreignDropdown(
+        <select name="criteriaValues[<?= $column_index; ?>]"
+                id="<?= $column_id , $column_index ?>">
+            <?= PMA_foreignDropdown(
                 $foreignData['disp_row'], $foreignData['foreign_field'],
                 $foreignData['foreign_display'], '', $foreignMaxLimit
-            ); ?>
+            ) ?>
         </select>
     <?php elseif ($foreignData['foreign_link'] == true): ?>
         <input type="text"
-               id="<?php echo $column_id . $column_index; ?>"
-               name="criteriaValues[<?php echo $column_index; ?>]"
-               id="field_<?php echo md5($column_name); ?>[<?php echo $column_index; ?>]"
+               id="<?= $column_id , $column_index; ?>"
+               name="criteriaValues[<?= $column_index; ?>]"
+               id="field_<?= md5($column_name); ?>[<?= $column_index; ?>]"
                class="textfield"
                <?php if (isset($criteriaValues[$column_index])
                    && is_string($criteriaValues[$column_index])
                ): ?>
-                   value="<?php echo htmlspecialchars($criteriaValues[$column_index]); ?>"
+                   value="<?= htmlspecialchars($criteriaValues[$column_index]); ?>"
                <?php endif; ?> />
         <a class="ajax browse_foreign"
-           href="browse_foreigners.php<?php
-               echo PMA_URL_getCommon(
-                   array('db' => $db, 'table' => $table)
-               );
-           ?>&amp;field=<?php
-               echo urlencode($column_name);
-           ?>&amp;fieldkey=<?php
-               echo $column_index;
-           ?>&amp;fromsearch=1">
-            <?php echo str_replace("'", "\\'", $titles['Browse']); ?>
+           href="<?= ('browse_foreigners.php') , PMA_URL_getCommon(array('db' => $db, 'table' => $table))
+                    , ('&amp;field=') , urlencode($column_name)
+                    , ('&amp;fieldkey=') , $column_index
+                    , ('&amp;fromsearch=1')
+                ?>">
+
+            <?= str_replace("'", "\\'", $titles['Browse']); ?>
         </a>
     <?php endif; ?>
 
-<?php elseif (in_array($column_type, PMA_Util::getGISDatatypes())): ?>
+<?php elseif (in_array($column_type, PMA\libraries\Util::getGISDatatypes())): ?>
     <input type="text"
-           name="criteriaValues[<?php echo $column_index; ?>]"
+           name="criteriaValues[<?= $column_index; ?>]"
            size="40"
            class="textfield"
-           id="field_<?php echo $column_index; ?>" />
+           id="field_<?= $column_index; ?>" />
     <?php if ($in_fbs): ?>
 
         <?php
         $edit_url = 'gis_data_editor.php' . PMA_URL_getCommon();
-        $edit_str = PMA_Util::getIcon('b_edit.png', __('Edit/Insert'));
+        $edit_str = PMA\libraries\Util::getIcon('b_edit.png', __('Edit/Insert'));
         ?>
 
         <span class="open_search_gis_editor">
-            <?php echo PMA_Util::linkOrButton(
+            <?= PMA\libraries\Util::linkOrButton(
                 $edit_url, $edit_str, array(), false, false, '_blank'
             ); ?>
         </span>
@@ -64,7 +61,7 @@ if ($_foreigners
     <?php
     $in_zoom_search_edit = false;
     $column_type = htmlspecialchars($column_type);
-    $value = explode(', ', str_replace("'", '', /*overload*/mb_substr($column_type, 5, -1)));
+    $value = explode(', ', str_replace("'", '', mb_substr($column_type, 5, -1)));
     $cnt_value = count($value);
     /*
      * Enum in edit mode   --> dropdown
@@ -78,13 +75,13 @@ if ($_foreigners
     <?php if ((strncasecmp($column_type, 'enum', 4) && ! $in_zoom_search_edit)
         || (strncasecmp($column_type, 'set', 3) && $in_zoom_search_edit)
     ): ?>
-        <select name="criteriaValues[<?php echo $column_index; ?>]"
-                id="<?php echo $column_id . $column_index; ?>">
+        <select name="criteriaValues[<?= $column_index; ?>]"
+                id="<?= $column_id , $column_index; ?>">
     <?php else: ?>
-        <select name="criteriaValues[<?php echo $column_index; ?>]"
-                id="<?php echo $column_id . $column_index; ?>"
+        <select name="criteriaValues[<?= $column_index; ?>]"
+                id="<?= $column_id , $column_index; ?>"
                 multiple="multiple"
-                size="<?php echo min(3, $cnt_value); ?>">
+                size="<?= min(3, $cnt_value); ?>">
     <?php endif; ?>
 
         <!-- Add select options-->
@@ -93,12 +90,12 @@ if ($_foreigners
                 && is_array($criteriaValues[$column_index])
                 && in_array($value[$j], $criteriaValues[$column_index])
             ): ?>
-                <option value="<?php echo htmlspecialchars($value[$j]); ?>"
+                <option value="<?= htmlspecialchars($value[$j]); ?>"
                         selected>
                     <?php echo htmlspecialchars($value[$j]); ?>
                 </option>
             <?php else: ?>
-                <option value="<?php echo htmlspecialchars($value[$j]); ?>">
+                <option value="<?= htmlspecialchars($value[$j]); ?>">
                     <?php echo htmlspecialchars($value[$j]); ?>
                 </option>
             <?php endif; ?>
@@ -122,14 +119,14 @@ if ($_foreigners
     }
     ?>
     <input type="text"
-           name="criteriaValues[<?php echo $column_index; ?>]"
+           name="criteriaValues[<?= $column_index; ?>]"
            size="40"
-           class="<?php echo $the_class; ?>"
-           id="<?php echo $column_id .  $column_index; ?>"
+           class="<?= $the_class; ?>"
+           id="<?= $column_id , $column_index; ?>"
            <?php if (isset($criteriaValues[$column_index])
                && is_string($criteriaValues[$column_index])
            ): ?>
-               value="<?php echo htmlspecialchars($criteriaValues[$column_index]); ?>"
+               value="<?= htmlspecialchars($criteriaValues[$column_index]); ?>"
            <?php endif; ?>/>
 
 <?php endif; ?>

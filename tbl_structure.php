@@ -9,24 +9,25 @@
 
 namespace PMA;
 
-use PMA_Response;
+use PMA\libraries\controllers\table\TableStructureController;
+use PMA\libraries\Response;
 
 require_once 'libraries/common.inc.php';
 require_once 'libraries/tbl_info.inc.php';
 require_once 'libraries/mysql_charsets.inc.php';
-require_once 'libraries/config/page_settings.class.php';
 require_once 'libraries/bookmark.lib.php';
-require_once 'libraries/di/Container.class.php';
-require_once 'libraries/controllers/TableStructureController.class.php';
-require_once 'libraries/Response.class.php';
+require_once 'libraries/config/messages.inc.php';
+require_once 'libraries/config/user_preferences.forms.php';
+require_once 'libraries/config/page_settings.forms.php';
 
-$container = DI\Container::getDefaultContainer();
-$container->factory('PMA\Controllers\TableStructureController');
+$container = libraries\di\Container::getDefaultContainer();
+$container->factory('PMA\libraries\controllers\table\TableStructureController');
 $container->alias(
-    'TableStructureController', 'PMA\Controllers\TableStructureController'
+    'TableStructureController',
+    'PMA\libraries\controllers\table\TableStructureController'
 );
-$container->set('PMA_Response', PMA_Response::getInstance());
-$container->alias('response', 'PMA_Response');
+$container->set('PMA\libraries\Response', Response::getInstance());
+$container->alias('response', 'PMA\libraries\Response');
 
 global $db, $table, $db_is_system_schema, $tbl_is_view, $tbl_storage_engine,
     $table_info_num_rows, $tbl_collation, $showtable;
@@ -43,6 +44,6 @@ $dependency_definitions = array(
     'showtable' => $showtable
 );
 
-/** @var Controllers\TableStructureController $controller */
+/** @var TableStructureController $controller */
 $controller = $container->get('TableStructureController', $dependency_definitions);
 $controller->indexAction();

@@ -10,8 +10,7 @@
 /*
  * Include to test.
  */
-require_once 'libraries/Util.class.php';
-require_once 'libraries/php-gettext/gettext.inc';
+
 
 /**
  * Test for generating localised date or timespan expression
@@ -89,7 +88,7 @@ class PMA_LocalisedDateTimespan_Test extends PHPUnit_Framework_TestCase
     public function testLocalisedDate($a, $b, $e)
     {
         $this->assertEquals(
-            $e, PMA_Util::localisedDate($a, $b)
+            $e, PMA\libraries\Util::localisedDate($a, $b)
         );
     }
 
@@ -121,7 +120,7 @@ class PMA_LocalisedDateTimespan_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['timespanfmt'] = '%s days, %s hours, %s minutes and %s seconds';
 
         $this->assertEquals(
-            $e, PMA_Util::timespanFormat($a)
+            $e, PMA\libraries\Util::timespanFormat($a)
         );
     }
 }

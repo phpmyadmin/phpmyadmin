@@ -9,18 +9,16 @@
 /*
  * Include to test.
  */
-require_once 'libraries/Util.class.php';
-require_once 'libraries/vendor_config.php';
-require_once 'libraries/core.lib.php';
+use PMA\libraries\Theme;
+
+
 require_once 'libraries/js_escape.lib.php';
-require_once 'libraries/select_lang.lib.php';
 require_once 'libraries/sanitizing.lib.php';
-require_once 'libraries/Config.class.php';
+
 require_once 'libraries/url_generating.lib.php';
-require_once 'libraries/Theme.class.php';
-require_once 'libraries/Table.class.php';
-require_once 'libraries/php-gettext/gettext.inc';
-require_once 'libraries/Response.class.php';
+
+
+
 
 /**
  * Test function sending headers.
@@ -83,9 +81,9 @@ class PMA_HeaderLocation_Test extends PHPUnit_Framework_TestCase
             }
 
         }
-        $_SESSION['PMA_Theme'] = PMA_Theme::load('./themes/pmahomme');
+        $_SESSION['PMA_Theme'] = Theme::load('./themes/pmahomme');
         $GLOBALS['server'] = 0;
-        $GLOBALS['PMA_Config'] = new PMA_Config();
+        $GLOBALS['PMA_Config'] = new PMA\libraries\Config();
         $GLOBALS['PMA_Config']->enableBc();
     }
 
@@ -236,7 +234,7 @@ class PMA_HeaderLocation_Test extends PHPUnit_Framework_TestCase
             runkit_constant_redefine('PMA_IS_IIS', true);
         } elseif (!defined('PMA_IS_IIS')) {
             define('PMA_IS_IIS', true);
-        } else {
+        } elseif (! PMA_IS_IIS) {
             $this->markTestSkipped(
                 'Cannot redefine constant/function - missing runkit extension'
             );
@@ -272,6 +270,27 @@ class PMA_HeaderLocation_Test extends PHPUnit_Framework_TestCase
 
         $this->expectOutputString($header);
 
+        $restoreInstance = PMA\libraries\Response::getInstance();
+
+        $mockResponse = $this->getMockBuilder('PMA\libraries\Response')
+            ->disableOriginalConstructor()
+            ->setMethods(array('disable', 'header', 'headersSent'))
+            ->getMock();
+
+        $mockResponse->expects($this->once())
+            ->method('disable');
+
+        $mockResponse->expects($this->any())
+            ->method('headersSent')
+            ->with()
+            ->will($this->returnValue(false));
+
+        $attrInstance = new ReflectionProperty('PMA\libraries\Response', '_instance');
+        $attrInstance->setAccessible(true);
+        $attrInstance->setValue($mockResponse);
+
         PMA_sendHeaderLocation($testUri);
+
+        $attrInstance->setValue($restoreInstance);
     }
 }

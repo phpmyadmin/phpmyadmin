@@ -1,19 +1,19 @@
-<tr class="<?php echo $odd_row ? 'odd' : 'even'; ?> <?php if ($table_is_view) echo 'is_view'; ?>"
-    id="row_tbl_<?php echo $curr; ?>">
+<tr class="<?= ($odd_row ? 'odd' : 'even') , ($table_is_view ? ' is_view' : '') ?>"
+    id="row_tbl_<?= $curr; ?>">
     <td class="center print_ignore">
         <input type="checkbox"
                name="selected_tbl[]"
                class="checkall"
-               value="<?php echo htmlspecialchars($current_table['TABLE_NAME']); ?>"
-               id="checkbox_tbl_<?php echo $curr; ?>" />
+               value="<?= htmlspecialchars($current_table['TABLE_NAME']); ?>"
+               id="checkbox_tbl_<?= $curr; ?>" />
     </td>
     <th>
-        <?php echo $browse_table_label . $tracking_icon; ?>
+        <?= $browse_table_label , $tracking_icon; ?>
     </th>
     <?php if ($server_slave_status): ?>
         <td class="center">
-            <?php echo ($ignored ? PMA_Util::getImage('s_cancel.png', __('Not replicated')) : ''); ?>
-            <?php echo ($do ? PMA_Util::getImage('s_success.png', __('Replicated')) : ''); ?>
+            <?= ($ignored ? PMA\libraries\Util::getImage('s_cancel.png', __('Not replicated')) : ''); ?>
+            <?= ($do ? PMA\libraries\Util::getImage('s_success.png', __('Replicated')) : ''); ?>
         </td>
     <?php endif; ?>
 
@@ -22,7 +22,7 @@
     ?>
     <?php if ($GLOBALS['cfg']['NumFavoriteTables'] > 0): ?>
         <td class="center print_ignore">
-            <?php echo PMA\Template::get('database/structure/favorite_anchor')->render(
+            <?= PMA\libraries\Template::get('database/structure/favorite_anchor')->render(
                 array(
                     'db' => $db,
                     'current_table' => $current_table,
@@ -34,26 +34,26 @@
     <?php endif; ?>
 
     <td class="center print_ignore">
-        <?php echo $browse_table; ?>
+        <?= $browse_table; ?>
     </td>
     <td class="center print_ignore">
-        <a href="tbl_structure.php<?php echo $tbl_url_query; ?>">
-            <?php echo $titles['Structure']; ?>
+        <a href="tbl_structure.php<?= $tbl_url_query; ?>">
+            <?= $titles['Structure']; ?>
         </a>
     </td>
     <td class="center print_ignore">
-        <?php echo $search_table; ?>
+        <?= $search_table; ?>
     </td>
 
     <?php if (!$db_is_system_schema): ?>
         <td class="insert_table center print_ignore">
-            <a href="tbl_change.php<?php echo $tbl_url_query; ?>"><?php echo $titles['Insert']; ?></a>
+            <a href="tbl_change.php<?= $tbl_url_query; ?>"><?= $titles['Insert']; ?></a>
         </td>
-        <td class="center print_ignore"><?php echo $empty_table; ?></td>
+        <td class="center print_ignore"><?= $empty_table; ?></td>
         <td class="center print_ignore">
-            <a class="ajax drop_table_anchor <?php if ($table_is_view || $current_table['ENGINE'] == null) echo 'view'; ?>"
-               href="sql.php<?php echo $tbl_url_query; ?>&amp;reload=1&amp;purge=1&amp;sql_query=<?php echo urlencode($drop_query); ?>&amp;message_to_show=<?php echo urlencode($drop_message); ?>" >
-                <?php echo $titles['Drop']; ?>
+            <a class="ajax drop_table_anchor <?= ($table_is_view || $current_table['ENGINE'] == null) ? ' view' : '' ?>"
+               href="sql.php<?= $tbl_url_query; ?>&amp;reload=1&amp;purge=1&amp;sql_query=<?= urlencode($drop_query); ?>&amp;message_to_show=<?= urlencode($drop_message); ?>" >
+                <?= $titles['Drop']; ?>
             </a>
         </td>
     <?php endif; ?>
@@ -63,15 +63,15 @@
 
         <?php
         // Get the row count.
-        $row_count = PMA_Util::formatNumber($current_table['TABLE_ROWS'], 0);
+        $row_count = PMA\libraries\Util::formatNumber($current_table['TABLE_ROWS'], 0);
 
         // Content to be appended into 'tbl_rows' cell.
         // If row count is approximate, display it as an anchor to get real count.
         ?>
         <td class="value tbl_rows"
-            data-table="<?php echo htmlspecialchars($current_table['TABLE_NAME']); ?>">
+            data-table="<?= htmlspecialchars($current_table['TABLE_NAME']); ?>">
             <?php if ($approx_rows): ?>
-                <a href="db_structure.php<?php echo PMA_URL_getCommon(
+                <a href="db_structure.php<?= PMA_URL_getCommon(
                     array(
                         'ajax_request'   => true,
                         'db'             => $GLOBALS['db'],
@@ -80,75 +80,75 @@
                     )
                 ); ?>" class="ajax real_row_count">
                     <bdi>
-                        ~<?php echo $row_count; ?>
+                        ~<?= $row_count; ?>
                     </bdi>
                 </a>
             <?php else: ?>
-                <?php echo $row_count; ?>
+                <?= $row_count; ?>
             <?php endif; ?>
-            <?php echo $show_superscript; ?>
+            <?= $show_superscript; ?>
         </td>
 
         <?php if (!($GLOBALS['cfg']['PropertiesNumColumns'] > 1)): ?>
             <td class="nowrap">
                 <?php if (!empty($current_table['ENGINE'])): ?>
-                    <?php echo $current_table['ENGINE']; ?>
+                    <?= $current_table['ENGINE']; ?>
                 <?php elseif ($table_is_view): ?>
-                    <?php echo __('View'); ?>
+                    <?= __('View'); ?>
                 <?php endif; ?>
             </td>
-            <?php if (/*overload*/mb_strlen($collation)): ?>
+            <?php if (mb_strlen($collation)): ?>
                 <td class="nowrap">
-                    <?php echo $collation; ?>
+                    <?= $collation; ?>
                 </td>
             <?php endif; ?>
         <?php endif; ?>
 
         <?php if ($is_show_stats): ?>
             <td class="value tbl_size">
-                <a href="tbl_structure.php<?php echo $tbl_url_query ?>#showusage">
-                    <span><?php echo $formatted_size; ?></span>
-                    <span class="unit"><?php echo $unit; ?></span>
+                <a href="tbl_structure.php<?= $tbl_url_query ?>#showusage">
+                    <span><?= $formatted_size; ?></span>
+                    <span class="unit"><?= $unit; ?></span>
                 </a>
             </td>
             <td class="value tbl_overhead">
-                <?php echo $overhead; ?>
+                <?= $overhead; ?>
             </td>
         <?php endif; ?>
 
         <?php if ($GLOBALS['cfg']['ShowDbStructureComment']): ?>
             <?php $comment = $current_table['Comment']; ?>
             <td>
-                <?php if (/*overload*/mb_strlen($comment) > $GLOBALS['cfg']['LimitChars']): ?>
-                    <abbr title="<?php echo htmlspecialchars($comment); ?>">
-                        <?php echo htmlspecialchars(
-                            /*overload*/mb_substr(
+                <?php if (mb_strlen($comment) > $GLOBALS['cfg']['LimitChars']): ?>
+                    <abbr title="<?= htmlspecialchars($comment); ?>">
+                        <?= htmlspecialchars(
+                            mb_substr(
                                 $comment, 0, $GLOBALS['cfg']['LimitChars']
                             )
                         ); ?>
                         ...
                     </abbr>
                 <?php else: ?>
-                    <?php echo htmlspecialchars($comment); ?>
+                    <?= htmlspecialchars($comment); ?>
                 <?php endif; ?>
             </td>
         <?php endif; ?>
 
         <?php if ($GLOBALS['cfg']['ShowDbStructureCreation']): ?>
             <td class="value tbl_creation">
-                <?php echo $create_time ? PMA_Util::localisedDate(strtotime($create_time)) : '-'; ?>
+                <?= $create_time ? PMA\libraries\Util::localisedDate(strtotime($create_time)) : '-'; ?>
             </td>
         <?php endif; ?>
 
         <?php if ($GLOBALS['cfg']['ShowDbStructureLastUpdate']): ?>
             <td class="value tbl_last_update">
-                <?php echo $update_time ? PMA_Util::localisedDate(strtotime($update_time)) : '-'; ?>
+                <?= $update_time ? PMA\libraries\Util::localisedDate(strtotime($update_time)) : '-'; ?>
             </td>
         <?php endif; ?>
 
         <?php if ($GLOBALS['cfg']['ShowDbStructureLastCheck']): ?>
             <td class="value tbl_last_check">
-                <?php echo $check_time ? PMA_Util::localisedDate(strtotime($check_time)) : '-'; ?>
+                <?= $check_time ? PMA\libraries\Util::localisedDate(strtotime($check_time)) : '-'; ?>
             </td>
         <?php endif; ?>
 
@@ -156,7 +156,7 @@
 
         <td class="value tbl_rows">-</td>
         <td class="nowrap">
-            <?php echo __('View'); ?>
+            <?= __('View'); ?>
         </td>
         <td class="nowrap">---</td>
         <?php if ($is_show_stats): ?>
@@ -178,9 +178,9 @@
 
     <?php else: ?>
 
-        <td colspan="<?php echo $colspan_for_structure - ($db_is_system_schema ? 6 : 9); ?>"
+        <td colspan="<?= $colspan_for_structure - ($db_is_system_schema ? 6 : 9); ?>"
             class="center">
-            <?php echo __('in use'); ?>
+            <?= __('in use'); ?>
         </td>
 
     <?php endif; ?>

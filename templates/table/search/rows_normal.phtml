@@ -6,11 +6,11 @@ for (
     $column_index < $nb;
     $column_index++
 ): ?>
-    <tr class="noclick <?php echo $odd_row ? 'odd' : 'even'; ?>">
+    <tr class="noclick <?= $odd_row ? 'odd' : 'even'; ?>">
         <?php $odd_row = !$odd_row; ?>
         <!-- If 'Function' column is present -->
         <?php if ($geomColumnFlag): ?>
-            <?php echo PMA\Template::get('table/search/geom_func')
+            <?= PMA\libraries\Template::get('table/search/geom_func')
                 ->render(array(
                     'column_index' => $column_index,
                     'columnTypes' => $columnTypes,
@@ -18,35 +18,35 @@ for (
         <?php endif; ?>
         <!-- Displays column's name, type, collation and value -->
         <th>
-            <?php echo htmlspecialchars($columnNames[$column_index]); ?>
+            <?= htmlspecialchars($columnNames[$column_index]); ?>
         </th>
         <?php $properties = $self->getColumnProperties($column_index, $column_index); ?>
         <td dir="ltr">
-            <?php echo htmlspecialchars($properties['type']); ?>
+            <?= htmlspecialchars($properties['type']); ?>
         </td>
         <td>
-            <?php echo $properties['collation']; ?>
+            <?= $properties['collation']; ?>
         </td>
         <td>
-            <?php echo $properties['func']; ?>
+            <?= $properties['func']; ?>
         </td>
         <!-- here, the data-type attribute is needed for a date/time picker-->
-        <td data-type="<?php echo htmlspecialchars($properties['type']); ?>">
-            <?php echo $properties['value']; ?>
+        <td data-type="<?= htmlspecialchars($properties['type']); ?>">
+            <?= $properties['value']; ?>
         </td>
     </tr>
     <!-- Displays hidden fields -->
     <tr>
         <td>
             <input type="hidden"
-                   name="criteriaColumnNames[<?php echo $column_index; ?>]"
-                   value="<?php echo htmlspecialchars($columnNames[$column_index]); ?>" />
+                   name="criteriaColumnNames[<?= $column_index; ?>]"
+                   value="<?= htmlspecialchars($columnNames[$column_index]); ?>" />
             <input type="hidden"
-                   name="criteriaColumnTypes[<?php echo $column_index; ?>]"
-                   value="<?php echo htmlspecialchars($columnTypes[$column_index]); ?>" />
+                   name="criteriaColumnTypes[<?= $column_index; ?>]"
+                   value="<?= htmlspecialchars($columnTypes[$column_index]); ?>" />
             <input type="hidden"
-                   name="criteriaColumnCollations[<?php echo $column_index; ?>]"
-                   value="<?php echo $columnCollations[$column_index]; ?>" />
+                   name="criteriaColumnCollations[<?= $column_index; ?>]"
+                   value="<?= $columnCollations[$column_index]; ?>" />
         </td>
     </tr>
 <?php endfor; ?>

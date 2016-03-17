@@ -15,7 +15,7 @@ if (! $GLOBALS['cfgRelation']['menuswork']) {
     exit;
 }
 
-$response = PMA_Response::getInstance();
+$response = PMA\libraries\Response::getInstance();
 $header   = $response->getHeader();
 $scripts  = $header->getScripts();
 $scripts->addFile('server_user_groups.js');
@@ -24,7 +24,10 @@ $scripts->addFile('server_user_groups.js');
  * Only allowed to superuser
  */
 if (! $GLOBALS['is_superuser']) {
-    $response->addHTML(PMA_Message::error(__('No Privileges'))->getDisplay());
+    $response->addHTML(
+        PMA\libraries\Message::error(__('No Privileges'))
+            ->getDisplay()
+    );
     exit;
 }
 

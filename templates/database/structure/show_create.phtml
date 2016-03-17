@@ -1,5 +1,5 @@
 <div class="show_create_results">
-    <h2><?php echo __('Showing create queries'); ?></h2>
+    <h2><?= __('Showing create queries'); ?></h2>
     <?php
         $views = array();
         $tables = array();
@@ -12,28 +12,24 @@
         }
     ?>
     <?php if (! empty($tables)): ?>
-        <?php
-            echo PMA\Template::get('database/structure/show_create_row')->render(
-              array(
-                  'db' => $db,
-                  'title' => __('Tables'),
-                  'raw_title' => 'Table',
-                  'db_objects' => $tables
-              )
-            );
-        ?>
+        <?= PMA\libraries\Template::get('database/structure/show_create_row')->render(
+            array(
+              'db' => $db,
+              'title' => __('Tables'),
+              'raw_title' => 'Table',
+              'db_objects' => $tables
+            )
+        ) ?>
     <?php endif; ?>
 
     <?php if (! empty($views)): ?>
-        <?php
-        echo PMA\Template::get('database/structure/show_create_row')->render(
+        <?= PMA\libraries\Template::get('database/structure/show_create_row')->render(
             array(
                 'db' => $db,
                 'title' => __('Views'),
                 'raw_title' => 'View',
                 'db_objects' => $views
             )
-        );
-        ?>
+        ) ?>
     <?php endif; ?>
 </div>

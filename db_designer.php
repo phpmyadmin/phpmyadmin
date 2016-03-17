@@ -10,7 +10,7 @@ require_once 'libraries/common.inc.php';
 require_once 'libraries/pmd_common.php';
 require_once 'libraries/db_designer.lib.php';
 
-$response = PMA_Response::getInstance();
+$response = PMA\libraries\Response::getInstance();
 
 if (isset($_REQUEST['dialog'])) {
 
@@ -37,7 +37,7 @@ if (isset($_REQUEST['operation'])) {
 
     if ($_REQUEST['operation'] == 'deletePage') {
         $success = PMA_deletePage($_REQUEST['selected_page']);
-        $response->isSuccess($success);
+        $response->setRequestStatus($success);
     } elseif ($_REQUEST['operation'] == 'savePage') {
         if ($_REQUEST['save_page'] == 'same') {
             $page = $_REQUEST['selected_page'];
@@ -46,12 +46,12 @@ if (isset($_REQUEST['operation'])) {
             $response->addJSON('id', $page);
         }
         $success = PMA_saveTablePositions($page);
-        $response->isSuccess($success);
+        $response->setRequestStatus($success);
     } elseif ($_REQUEST['operation'] == 'setDisplayField') {
         PMA_saveDisplayField(
             $_REQUEST['db'], $_REQUEST['table'], $_REQUEST['field']
         );
-        $response->isSuccess(true);
+        $response->setRequestStatus(true);
     } elseif ($_REQUEST['operation'] == 'addNewRelation') {
         list($success, $message) = PMA_addNewRelation(
             $_REQUEST['db'],
@@ -62,7 +62,7 @@ if (isset($_REQUEST['operation'])) {
             $_REQUEST['on_delete'],
             $_REQUEST['on_update']
         );
-        $response->isSuccess($success);
+        $response->setRequestStatus($success);
         $response->addJSON('message', $message);
     } elseif ($_REQUEST['operation'] == 'removeRelation') {
         list($success, $message) = PMA_removeRelation(
@@ -71,11 +71,11 @@ if (isset($_REQUEST['operation'])) {
             $_REQUEST['T2'],
             $_REQUEST['F2']
         );
-        $response->isSuccess($success);
+        $response->setRequestStatus($success);
         $response->addJSON('message', $message);
     } elseif ($_REQUEST['operation'] == 'save_setting_value') {
         $success = PMA_saveDesignerSetting($_REQUEST['index'], $_REQUEST['value']);
-        $response->isSuccess($success);
+        $response->setRequestStatus($success);
     }
 
     return;
@@ -113,7 +113,7 @@ if (isset($_GET['db'])) {
     $params['db'] = $_GET['db'];
 }
 
-$response = PMA_Response::getInstance();
+$response = PMA\libraries\Response::getInstance();
 $response->getFooter()->setMinimal();
 $header   = $response->getHeader();
 $header->setBodyId('pmd_body');
@@ -125,7 +125,6 @@ $scripts->addFile('pmd/designer_objects.js');
 $scripts->addFile('pmd/designer_page.js');
 $scripts->addFile('pmd/history.js');
 $scripts->addFile('pmd/move.js');
-$scripts->addFile('pmd/iecanvas.js', true);
 $scripts->addFile('pmd/init.js');
 
 list(
@@ -138,7 +137,7 @@ list(
     $tooltip_truename,
     $tooltip_aliasname,
     $pos
-) = PMA_Util::getDbInfo($db, isset($sub_part) ? $sub_part : '');
+) = PMA\libraries\Util::getDbInfo($db, isset($sub_part) ? $sub_part : '');
 
 // Embed some data into HTML, later it will be read
 // by pmd/init.js and converted to JS variables.
@@ -148,7 +147,11 @@ $response->addHTML(
     )
 );
 $response->addHTML(
-    PMA_getDesignerPageMenu(isset($_REQUEST['query']), $selected_page, $classes_side_menu)
+    PMA_getDesignerPageMenu(
+        isset($_REQUEST['query']),
+        $selected_page,
+        $classes_side_menu
+    )
 );
 
 

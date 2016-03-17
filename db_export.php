@@ -5,22 +5,25 @@
  *
  * @package PhpMyAdmin
  */
+use PMA\libraries\config\PageSettings;
+use PMA\libraries\Response;
 
 /**
  * Gets some core libraries
  */
 require_once 'libraries/common.inc.php';
-require_once 'libraries/config/page_settings.class.php';
+require_once 'libraries/config/user_preferences.forms.php';
+require_once 'libraries/config/page_settings.forms.php';
 require_once 'libraries/export.lib.php';
 
-PMA_PageSettings::showGroup('Export');
+PageSettings::showGroup('Export');
 
-$response = PMA_Response::getInstance();
+$response = Response::getInstance();
 $header   = $response->getHeader();
 $scripts  = $header->getScripts();
 $scripts->addFile('export.js');
 
-// $sub_part is used in PMA_Util::getDbInfo() to see if we are coming from
+// $sub_part is used in PMA\libraries\Util::getDbInfo() to see if we are coming from
 // db_export.php, in which case we don't obey $cfg['MaxTableList']
 $sub_part  = '_export';
 require_once 'libraries/db_common.inc.php';
@@ -36,7 +39,7 @@ list(
     $tooltip_truename,
     $tooltip_aliasname,
     $pos
-) = PMA_Util::getDbInfo($db, isset($sub_part) ? $sub_part : '');
+) = PMA\libraries\Util::getDbInfo($db, isset($sub_part) ? $sub_part : '');
 
 /**
  * Displays the form
@@ -45,7 +48,7 @@ $export_page_title = __('View dump (schema) of database');
 
 // exit if no tables in db found
 if ($num_tables < 1) {
-    PMA_Message::error(__('No tables found in database.'))->display();
+    PMA\libraries\Message::error(__('No tables found in database.'))->display();
     exit;
 } // end if
 
@@ -88,7 +91,7 @@ foreach (array('table_select', 'table_structure', 'table_data') as $one_key) {
 }
 
 foreach ($tables as $each_table) {
-    if (isset($_GET['table_select'])) {
+    if (isset($_GET['table_select']) && is_array($_GET['table_select'])) {
         $is_checked = PMA_getCheckedClause(
             $each_table['Name'], $_GET['table_select']
         );
@@ -99,7 +102,7 @@ foreach ($tables as $each_table) {
     } else {
         $is_checked = ' checked="checked"';
     }
-    if (isset($_GET['table_structure'])) {
+    if (isset($_GET['table_structure']) && is_array($_GET['table_structure'])) {
         $structure_checked = PMA_getCheckedClause(
             $each_table['Name'], $_GET['table_structure']
         );
@@ -131,5 +134,23 @@ foreach ($tables as $each_table) {
 $multi_values .= "\n";
 $multi_values .= '</tbody></table></div>';
 
-$export_type = 'database';
-require_once 'libraries/display_export.inc.php';
+require_once 'libraries/display_export.lib.php';
+if (! isset($sql_query)) {
+    $sql_query = '';
+}
+if (! isset($num_tables)) {
+    $num_tables = 0;
+}
+if (! isset($unlim_num_rows)) {
+    $unlim_num_rows = 0;
+}
+if (! isset($multi_values)) {
+    $multi_values = '';
+}
+$response = Response::getInstance();
+$response->addHTML(
+    PMA_getExportDisplay(
+        'database', $db, $table, $sql_query, $num_tables,
+        $unlim_num_rows, $multi_values
+    )
+);

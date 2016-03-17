@@ -9,15 +9,12 @@
 /*
  * Include to test
  */
-require_once 'libraries/php-gettext/gettext.inc';
+use PMA\libraries\config\ConfigFile;
+use PMA\libraries\config\ServerConfigChecks;
+
 require_once 'libraries/sanitizing.lib.php';
 require_once 'libraries/config/config_functions.lib.php';
-require_once 'libraries/config/ConfigFile.class.php';
-require_once 'libraries/core.lib.php';
-require_once 'libraries/Util.class.php';
-require_once 'libraries/config/ServerConfigChecks.class.php';
 require_once 'setup/lib/index.lib.php';
-require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/sanitizing.lib.php';
 
 /**
@@ -261,7 +258,7 @@ class PMA_SetupIndex_Test extends PHPUnit_Framework_TestCase
         $cf = new ConfigFile();
         $GLOBALS['ConfigFile'] = $cf;
 
-        $reflection = new \ReflectionProperty('ConfigFile', '_id');
+        $reflection = new \ReflectionProperty('PMA\libraries\config\ConfigFile', '_id');
         $reflection->setAccessible(true);
         $sessionID = $reflection->getValue($cf);
 
@@ -278,7 +275,6 @@ class PMA_SetupIndex_Test extends PHPUnit_Framework_TestCase
             )
         );
 
-        $_SESSION[$sessionID]['ForceSSL'] = false;
         $_SESSION[$sessionID]['AllowArbitraryServer'] = true;
         $_SESSION[$sessionID]['LoginCookieValidity'] = 5000;
         $_SESSION[$sessionID]['LoginCookieStore'] = 4000;
@@ -293,7 +289,6 @@ class PMA_SetupIndex_Test extends PHPUnit_Framework_TestCase
             'SaveDir',
             'LoginCookieValidity',
             'AllowArbitraryServer',
-            'ForceSSL',
             'Servers/1/AllowNoPassword',
             'Servers/1/auth_type',
             'Servers/1/ssl'
@@ -351,7 +346,6 @@ class PMA_SetupIndex_Test extends PHPUnit_Framework_TestCase
             )
         );
 
-        $_SESSION[$sessionID]['ForceSSL'] = true;
         $_SESSION[$sessionID]['AllowArbitraryServer'] = false;
         $_SESSION[$sessionID]['LoginCookieValidity'] = -1;
         $_SESSION[$sessionID]['LoginCookieStore'] = 0;

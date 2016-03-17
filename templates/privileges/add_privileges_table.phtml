@@ -1,0 +1,14 @@
+<input type="hidden" name="dbname" value="<?= htmlspecialchars($database); ?>"/>
+
+<label for="text_tablename"><?= __('Add privileges on the following table:'); ?></label>
+
+<?php if (! empty($tables)) : ?>
+    <select name="pred_tablename" class="autosubmit">
+        <option value="" selected="selected"><?= __('Use text field'); ?>:</option>
+        <?php foreach ($tables as $table) : ?>
+            <option value="<?= htmlspecialchars($table); ?>"><?= htmlspecialchars($table); ?></option>
+        <?php endforeach; ?>
+    </select>
+<?php endif; ?>
+
+<input type="text" id="text_tablename" name="tablename" />

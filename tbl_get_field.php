@@ -9,19 +9,20 @@
 /**
  * Common functions.
  */
-// we don't want the usual PMA_Response-generated HTML above the column's data
+// we don't want the usual PMA\libraries\Response-generated HTML above the column's
+// data
 define('PMA_BYPASS_GET_INSTANCE', 1);
 require_once 'libraries/common.inc.php';
 require_once 'libraries/mime.lib.php';
 
 /* Check parameters */
-PMA_Util::checkParameters(
+PMA\libraries\Util::checkParameters(
     array('db', 'table')
 );
 
 /* Select database */
 if (!$GLOBALS['dbi']->selectDb($db)) {
-    PMA_Util::mysqlDie(
+    PMA\libraries\Util::mysqlDie(
         sprintf(__('\'%s\' database does not exist.'), htmlspecialchars($db)),
         '', false
     );
@@ -29,18 +30,18 @@ if (!$GLOBALS['dbi']->selectDb($db)) {
 
 /* Check if table exists */
 if (!$GLOBALS['dbi']->getColumns($db, $table)) {
-    PMA_Util::mysqlDie(__('Invalid table name'));
+    PMA\libraries\Util::mysqlDie(__('Invalid table name'));
 }
 
 /* Grab data */
-$sql = 'SELECT ' . PMA_Util::backquote($_GET['transform_key'])
-    . ' FROM ' . PMA_Util::backquote($table)
+$sql = 'SELECT ' . PMA\libraries\Util::backquote($_GET['transform_key'])
+    . ' FROM ' . PMA\libraries\Util::backquote($table)
     . ' WHERE ' . $_GET['where_clause'] . ';';
 $result = $GLOBALS['dbi']->fetchValue($sql);
 
 /* Check return code */
 if ($result === false) {
-    PMA_Util::mysqlDie(
+    PMA\libraries\Util::mysqlDie(
         __('MySQL returned an empty result set (i.e. zero rows).'), $sql
     );
 }
@@ -51,6 +52,6 @@ if ($result === false) {
 PMA_downloadHeader(
     $table . '-' .  $_GET['transform_key'] . '.bin',
     PMA_detectMIME($result),
-    /*overload*/mb_strlen($result, '8bit')
+    mb_strlen($result, '8bit')
 );
 echo $result;

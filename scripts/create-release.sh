@@ -53,14 +53,23 @@ shift
 branch=$1
 shift
 
+git checkout $branch
+if [ -f libraries/Config.php ] ; then
+    CONFIG_LIB=libraries/Config.php
+else
+    CONFIG_LIB=libraries/Config.class.php
+fi
+git checkout master
+
 cat <<END
 
 Please ensure you have incremented rc count or version in the repository :
-     - in libraries/Config.class.php PMA_Config::__constructor() the line
+     - in $CONFIG_LIB PMA\libraries\Config::__constructor() the line
           " \$this->set( 'PMA_VERSION', '$version' ); "
      - in doc/conf.py the line
           " version = '$version' "
      - in README
+     - set release date in ChangeLog
 
 Continue (y/n)?
 END
@@ -88,8 +97,8 @@ ensure_local_branch $branch
 git checkout $branch
 
 # Check release version
-if ! grep -q "'PMA_VERSION', '$version'" libraries/Config.class.php ; then
-    echo "There seems to be wrong version in libraries/Config.class.php!"
+if ! grep -q "'PMA_VERSION', '$version'" $CONFIG_LIB ; then
+    echo "There seems to be wrong version in $CONFIG_LIB!"
     exit 2
 fi
 if test -f Documentation.html && ! grep -q "phpMyAdmin $version - Documentation" Documentation.html ; then
@@ -301,7 +310,7 @@ Todo now:
     based on documentation.
 
  6. increment rc count or version in the repository :
-        - in libraries/Config.class.php PMA_Config::__constructor() the line
+        - in $CONFIG_LIB PMA\libraries\Config::__constructor() the line
               " \$this->set( 'PMA_VERSION', '2.7.1-dev' ); "
         - in Documentation.html (if it exists) the 2 lines
               " <title>phpMyAdmin 2.2.2-rc1 - Documentation</title> "
@@ -309,7 +318,7 @@ Todo now:
         - in doc/conf.py (if it exists) the line
               " version = '2.7.1-dev' "
 
- 7. on https://github.com/phpmyadmin/phpmyadmin/milestones close the milestone corresponding to the released version and open a new one for the next minor release
+ 7. on https://github.com/phpmyadmin/phpmyadmin/milestones close the milestone corresponding to the released version (if this is a stable release) and open a new one for the next minor release
 
  8. if a maintenance version was released, delete the branch corresponding to the previous one; for example git push origin --delete MAINT_4_4_12
 

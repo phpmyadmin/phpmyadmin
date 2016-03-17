@@ -12,38 +12,30 @@
  *                        - title - optional string - Title of link
  */
 ?>
-<li<?php
-echo !empty($id) ? ' id="' . $id . '"' : null;
-echo !empty($class) ? ' class="' . $class . '"' : null;
-?>>
-    <?php
-    if (!empty($url) && is_array($url)) : ?>
-        <a<?php echo !empty($url['href']) ? ' href="' . $url['href'] . '"' : null ?>"
-        <?php
-        echo !empty($url['target'])
+<li <?= !empty($id) ? ' id="' . $id . '"' : null ?>
+    <?= !empty($class) ? ' class="' . $class . '"' : null ?>>
+
+    <?php if (isset($url) && is_array($url) && array_filter($url)) : ?>
+        <a<?= !empty($url['href']) ? ' href="' . $url['href'] . '"' : null ?>
+        <?= !empty($url['target'])
             ? ' target="' . $url['target'] . '"'
             : null;
         ?>
-        <?php echo !empty($url['id']) ? ' id="' . $url['id'] . '"' : null; ?>
-        <?php
-        echo !empty($url['class'])
+        <?= !empty($url['id']) ? ' id="' . $url['id'] . '"' : null; ?>
+        <?= !empty($url['class'])
             ? ' class="' . $url['class'] . '"'
             : null;
         ?>
-        <?php
-        echo !empty($url['title'])
+        <?= !empty($url['title'])
             ? ' title="' . $url['title'] . '"'
             : null;
         ?>>
-        <?php
-    endif;
-    echo $content;
-    if (!empty($url) && is_array($url)) : ?>
+    <?php endif; ?>
+        <?= $content ?>
+    <?php if (!empty($url) && is_array($url)): ?>
         </a>
-    <?php
-    endif;
-    if (!empty($mysql_help_page)) :
-        echo PMA_Util::showMySQLDocu($mysql_help_page);
-    endif;
-    ?>
+    <?php endif; ?>
+    <?php if (!empty($mysql_help_page)): ?>
+        <?= PMA\libraries\Util::showMySQLDocu($mysql_help_page) ?>
+    <?php endif; ?>
 </li>

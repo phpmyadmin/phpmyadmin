@@ -8,10 +8,8 @@
  *
  * @package PhpMyAdmin
  */
-
-if (! defined('PHPMYADMIN')) {
-    exit;
-}
+use PMA\libraries\Message;
+use PMA\libraries\plugins\ImportPlugin;
 
 /**
  * Prints Html For Display Import Hidden Input
@@ -59,7 +57,7 @@ function PMA_getHtmlForImportJS($upload_id)
     // hide form
     $html .= '        $("#upload_form_form").css("display", "none");';
 
-    if ($_SESSION[$SESSION_KEY]["handler"] != "UploadNoplugin") {
+    if ($_SESSION[$SESSION_KEY]["handler"] != 'PMA\libraries\plugins\import\upload\UploadNoplugin') {
 
         $html .= PMA_getHtmlForImportWithPlugin($upload_id);
 
@@ -72,7 +70,7 @@ function PMA_getHtmlForImportJS($upload_id)
                     . 'Details about the upload are not available.'
                 ),
                 false
-            ) . PMA_Util::showDocu('faq', 'faq2-9');
+            ) . PMA\libraries\Util::showDocu('faq', 'faq2-9');
         $html .= "   $('#upload_form_status_info').html('" . $image_tag . "');";
         $html .= '   $("#upload_form_status").css("display", "none");';
     } // else
@@ -102,7 +100,7 @@ function PMA_getHtmlForImportOptions($import_type, $db, $table)
 {
     $html  = '    <div class="exportoptions" id="header">';
     $html .= '        <h2>';
-    $html .= PMA_Util::getImage('b_import.png', __('Import'));
+    $html .= PMA\libraries\Util::getImage('b_import.png', __('Import'));
 
     if ($import_type == 'server') {
         $html .= __('Importing into the current server');
@@ -178,7 +176,6 @@ function PMA_getHtmlForImportCharset()
     if ($GLOBALS['PMA_recoding_engine'] != PMA_CHARSET_NONE) {
         $html .= '<label for="charset_of_file">' . __('Character set of the file:')
             . '</label>';
-        reset($cfg['AvailableCharsets']);
         $html .= '<select id="charset_of_file" name="charset_of_file" size="1">';
         foreach ($cfg['AvailableCharsets'] as $temp_charset) {
             $html .= '<option value="' . htmlentities($temp_charset) .  '"';
@@ -230,7 +227,7 @@ function PMA_getHtmlForImportOptionsFile(
         $html .= '            <li>';
         $html .= '                <input type="radio" name="file_location" '
             . 'id="radio_import_file" required="required" />';
-        $html .= PMA_Util::getBrowseUploadFileBlock($max_upload_size);
+        $html .= PMA\libraries\Util::getBrowseUploadFileBlock($max_upload_size);
         $html .= '<br />' . __('You may also drag and drop a file on any page.');
         $html .= '            </li>';
         $html .= '            <li>';
@@ -242,19 +239,25 @@ function PMA_getHtmlForImportOptionsFile(
             $html .= ' checked="checked"';
         }
         $html .= ' />';
-        $html .= PMA_Util::getSelectUploadFileBlock($import_list, $cfg['UploadDir']);
+        $html .= PMA\libraries\Util::getSelectUploadFileBlock(
+            $import_list,
+            $cfg['UploadDir']
+        );
         $html .= '            </li>';
         $html .= '            </ul>';
 
     } elseif ($GLOBALS['is_upload']) {
-        $html .= PMA_Util::getBrowseUploadFileBlock($max_upload_size);
+        $html .= PMA\libraries\Util::getBrowseUploadFileBlock($max_upload_size);
         $html .= '<br />' . __('You may also drag and drop a file on any page.');
     } elseif (!$GLOBALS['is_upload']) {
-        $html .= PMA_Message::notice(
+        $html .= Message::notice(
             __('File uploads are not allowed on this server.')
         )->getDisplay();
     } elseif (!empty($cfg['UploadDir'])) {
-        $html .= PMA_Util::getSelectUploadFileBlock($import_list, $cfg['UploadDir']);
+        $html .= PMA\libraries\Util::getSelectUploadFileBlock(
+            $import_list,
+            $cfg['UploadDir']
+        );
     } // end if (web-server upload directory)
 
     $html .= '        </div>';
@@ -338,7 +341,7 @@ function PMA_getHtmlForImportOptionsOther()
     $html  = '   <div class="importoptions">';
     $html .= '       <h3>' . __('Other options:') . '</h3>';
     $html .= '       <div class="formelementrow">';
-    $html .= PMA_Util::getFKCheckbox();
+    $html .= PMA\libraries\Util::getFKCheckbox();
     $html .= '       </div>';
     $html .= '   </div>';
 
@@ -429,7 +432,7 @@ function PMA_getHtmlForImport(
     $html .= '    <form id="import_file_form" action="import.php" method="post" '
         . 'enctype="multipart/form-data"';
     $html .= '        name="import"';
-    if ($_SESSION[$SESSION_KEY]["handler"] != "UploadNoplugin") {
+    if ($_SESSION[$SESSION_KEY]["handler"] != 'PMA\libraries\plugins\import\upload\UploadNoplugin') {
         $html .= ' target="import_upload_iframe"';
     }
     $html .= ' class="ajax"';
@@ -637,8 +640,12 @@ function PMA_getImportDisplay($import_type, $db, $table, $max_upload_size)
     global $SESSION_KEY;
     include_once './libraries/file_listing.lib.php';
     include_once './libraries/plugin_interface.lib.php';
-    // this one generates also some globals
+
     include_once './libraries/display_import_ajax.lib.php';
+    list(
+        $SESSION_KEY,
+        $upload_id,
+    ) = PMA_uploadProgressSetup();
 
     /* Scan for plugins */
     /* @var $import_list ImportPlugin[] */
@@ -650,7 +657,7 @@ function PMA_getImportDisplay($import_type, $db, $table, $max_upload_size)
 
     /* Fail if we didn't find any plugin */
     if (empty($import_list)) {
-        PMA_Message::error(
+        Message::error(
             __(
                 'Could not load import plugins, please check your installation!'
             )

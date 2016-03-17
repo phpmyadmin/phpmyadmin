@@ -13,14 +13,11 @@ require_once 'libraries/common.inc.php';
 require_once 'libraries/create_addfield.lib.php';
 
 // Check parameters
-PMA_Util::checkParameters(array('db'));
-
-/** @var PMA_String $pmaString */
-$pmaString = $GLOBALS['PMA_String'];
+PMA\libraries\Util::checkParameters(array('db'));
 
 /* Check if database name is empty */
-if (/*overload*/mb_strlen($db) == 0) {
-    PMA_Util::mysqlDie(
+if (mb_strlen($db) == 0) {
+    PMA\libraries\Util::mysqlDie(
         __('The database name is empty!'), '', false, 'index.php'
     );
 }
@@ -29,7 +26,7 @@ if (/*overload*/mb_strlen($db) == 0) {
  * Selects the database to work with
  */
 if (!$GLOBALS['dbi']->selectDb($db)) {
-    PMA_Util::mysqlDie(
+    PMA\libraries\Util::mysqlDie(
         sprintf(__('\'%s\' database does not exist.'), htmlspecialchars($db)),
         '',
         false,
@@ -39,7 +36,7 @@ if (!$GLOBALS['dbi']->selectDb($db)) {
 
 if ($GLOBALS['dbi']->getColumns($db, $table)) {
     // table exists already
-    PMA_Util::mysqlDie(
+    PMA\libraries\Util::mysqlDie(
         sprintf(__('Table %s already exists!'), htmlspecialchars($table)),
         '',
         false,
@@ -76,7 +73,7 @@ if (isset($_REQUEST['do_save_data'])) {
         ) {
             foreach ($_REQUEST['field_mimetype'] as $fieldindex => $mimetype) {
                 if (isset($_REQUEST['field_name'][$fieldindex])
-                    && /*overload*/mb_strlen($_REQUEST['field_name'][$fieldindex])
+                    && mb_strlen($_REQUEST['field_name'][$fieldindex])
                 ) {
                     PMA_setMIME(
                         $db, $table,
@@ -90,8 +87,8 @@ if (isset($_REQUEST['do_save_data'])) {
             }
         }
     } else {
-        $response = PMA_Response::getInstance();
-        $response->isSuccess(false);
+        $response = PMA\libraries\Response::getInstance();
+        $response->setRequestStatus(false);
         $response->addJSON('message', $GLOBALS['dbi']->getError());
     }
     exit;

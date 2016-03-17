@@ -1,125 +1,142 @@
+<?php use PMA\libraries\Message;
+use PMA\libraries\Util; ?>
 <div id="partitions">
     <fieldset>
-        <legend><?php echo __('Partitions')
-            . PMA_Util::showMySQLDocu('partitioning'); ?>
+        <legend><?= __('Partitions')
+            , Util::showMySQLDocu('partitioning'); ?>
         </legend>
-        <p>
-            <?php echo __('Partitioned by:');?>
-            <code><?php echo $partitionMethod . '(' . $partitionExpression . ' )'; ?></code>
-        </p>
-        <?php if ($hasSubPartitions): ?>
+        <?php if (empty($partitions)): ?>
+            <?= Message::notice(__('No partitioning defined!'))->getDisplay(); ?>
+        <?php else: ?>
             <p>
-                <?php echo __('Sub partitioned by:'); ?>
-                <code><?php echo $subPartitionMethod . '(' . $subPartitionExpression . ' )'; ?></code>
-            <p>
-        <?php endif; ?>
-        <table>
-            <thead>
-                <tr>
-                    <th colspan="2">#</th>
-                    <th><?php echo __('Name'); ?></th>
-                    <?php if ($hasDescription): ?>
-                        <th><?php echo __('Expression'); ?></th>
-                    <?php endif; ?>
-                    <th><?php echo __('Rows'); ?></th>
-                    <th><?php echo __('Data length'); ?></th>
-                    <th><?php echo __('Index length'); ?></th>
-                    <th><?php echo __('Comment'); ?></th>
-                    <th colspan="<?php echo $rangeOrList ? '7' : '6'; ?>">
-                        <?php echo __('Action'); ?>
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-            <?php $odd = true; ?>
-            <?php foreach ($partitions as $partition): ?>
-                <tr class="noclick <?php echo $odd ? 'odd' : 'even'; echo $hasSubPartitions ? ' marked' : '';?>">
-                    <?php if ($hasSubPartitions): ?>
-                        <td><?php echo $partition->getOrdinal(); ?></td>
-                        <td></td>
-                    <?php else: ?>
-                        <td colspan="2"><?php echo $partition->getOrdinal(); ?></td>
-                    <?php endif; ?>
-                    <th><?php echo htmlspecialchars($partition->getName()); ?></th>
-                    <?php if ($hasDescription): ?>
-                        <td>
-                            <code>
-                                <?php
-                                echo htmlspecialchars($partition->getExpression())
-                                    . ($partition->getMethod() == 'LIST' ? ' IN (' : ' < ')
-                                    . htmlspecialchars($partition->getDescription())
-                                    . ($partition->getMethod() == 'LIST' ? ')' : '');
-                                ?>
-                            </code>
-                        </td>
-                    <?php endif; ?>
-                    <td class="value"><?php echo $partition->getRows(); ?></td>
-                    <td class="value"><?php
-                        list($value, $unit) = PMA_Util::formatByteDown(
-                            $partition->getDataLength(), 3, 1
-                        );
-                        ?>
-                        <span><?php echo $value; ?></span>
-                        <span class="unit"><?php echo $unit; ?></span>
-                    </td>
-                    <td class="value"><?php
-                        list($value, $unit) = PMA_Util::formatByteDown(
-                            $partition->getIndexLength(), 3, 1
-                        );
-                        ?>
-                        <span><?php echo $value; ?></span>
-                        <span class="unit"><?php echo $unit; ?></span>
-                    </td>
-                    <td><?php echo $partition->getComment(); ?></td>
-                    <?php foreach ($actionIcons as $action => $icon): ?>
-                        <td>
-                            <a  href="tbl_structure.php<?php echo $url_query; ?>&amp;partition_maintenance=1&amp;sql_query=<?php echo urlencode(
-                                    "ALTER TABLE " . PMA_Util::backquote($table) . $action . " PARTITION " . $partition->getName()
-                                ) ?>"
-                                id="partition_action_<?php echo $action; ?>"
-                                name="partition_action_<?php echo $action; ?>"
-                                class="ajax"
-                            >
-                                <?php echo $icon; ?>
-                            </a>
-                        </td>
-                    <?php endforeach; ?>
-
-                    <?php if ($hasSubPartitions): ?>
-                        <?php foreach ($partition->getSubPartitions() as $subParition): ?>
-                            <tr class="noclick <?php echo $odd ? 'odd' : 'even' ?>">
-                                <td></td>
-                                <td><?php echo $subParition->getOrdinal(); ?></td>
-                                <td><?php echo htmlspecialchars($subParition->getName()); ?></td>
-                                <?php if ($hasDescription): ?>
-                                    <td></td>
-                                <?php endif; ?>
-                                <td class="value"><?php echo $subParition->getRows(); ?></td>
-                                <td class="value"><?php
-                                    list($value, $unit) = PMA_Util::formatByteDown(
-                                        $subParition->getDataLength(), 3, 1
-                                    );
+                <?= __('Partitioned by:');?>
+                <code><?= $partitionMethod , '(' , $partitionExpression , ' )'; ?></code>
+            </p>
+            <?php if ($hasSubPartitions): ?>
+                <p>
+                    <?= __('Sub partitioned by:'); ?>
+                    <code><?= $subPartitionMethod , '(' , $subPartitionExpression , ' )'; ?></code>
+                <p>
+            <?php endif; ?>
+            <table>
+                <thead>
+                    <tr>
+                        <th colspan="2">#</th>
+                        <th><?= __('Name'); ?></th>
+                        <?php if ($hasDescription): ?>
+                            <th><?= __('Expression'); ?></th>
+                        <?php endif; ?>
+                        <th><?= __('Rows'); ?></th>
+                        <th><?= __('Data length'); ?></th>
+                        <th><?= __('Index length'); ?></th>
+                        <th><?= __('Comment'); ?></th>
+                        <th colspan="<?= $rangeOrList ? '7' : '6'; ?>">
+                            <?= __('Action'); ?>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                <?php $odd = true; ?>
+                <?php foreach ($partitions as $partition): ?>
+                    <tr class="noclick <?= ($odd ? 'odd' : 'even') , ($hasSubPartitions ? ' marked' : '') ?>">
+                        <?php if ($hasSubPartitions): ?>
+                            <td><?= $partition->getOrdinal(); ?></td>
+                            <td></td>
+                        <?php else: ?>
+                            <td colspan="2"><?= $partition->getOrdinal(); ?></td>
+                        <?php endif; ?>
+                        <th><?= htmlspecialchars($partition->getName()); ?></th>
+                        <?php if ($hasDescription): ?>
+                            <td>
+                                <code>
+                                    <?= htmlspecialchars($partition->getExpression())
+                                        , ($partition->getMethod() == 'LIST' ? ' IN (' : ' < ')
+                                        , htmlspecialchars($partition->getDescription())
+                                        , ($partition->getMethod() == 'LIST' ? ')' : '');
                                     ?>
-                                    <span><?php echo $value; ?></span>
-                                    <span class="unit"><?php echo $unit; ?></span>
-                                </td>
-                                <td class="value"><?php
-                                    list($value, $unit) = PMA_Util::formatByteDown(
-                                        $subParition->getIndexLength(), 3, 1
-                                    );
-                                    ?>
-                                    <span><?php echo $value; ?></span>
-                                    <span class="unit"><?php echo $unit; ?></span>
-                                </td>
-                                <td><?php echo $subParition->getComment(); ?></td>
-                                <td colspan="<?php echo $rangeOrList ? '7' : '6'; ?>"></td>
-                            </tr>
+                                </code>
+                            </td>
+                        <?php endif; ?>
+                        <td class="value"><?= $partition->getRows(); ?></td>
+                        <td class="value"><?php
+                            list($value, $unit) = Util::formatByteDown(
+                                $partition->getDataLength(), 3, 1
+                            );
+                            ?>
+                            <span><?= $value; ?></span>
+                            <span class="unit"><?= $unit; ?></span>
+                        </td>
+                        <td class="value"><?php
+                            list($value, $unit) = Util::formatByteDown(
+                                $partition->getIndexLength(), 3, 1
+                            );
+                            ?>
+                            <span><?= $value; ?></span>
+                            <span class="unit"><?= $unit; ?></span>
+                        </td>
+                        <td><?= $partition->getComment(); ?></td>
+                        <?php foreach ($actionIcons as $action => $icon): ?>
+                            <td>
+                                <a  href="tbl_structure.php<?= $url_query; ?>&amp;partition_maintenance=1&amp;sql_query=<?= urlencode(
+                                        "ALTER TABLE " . Util::backquote($table) . $action . " PARTITION " . $partition->getName()
+                                    ) ?>"
+                                    id="partition_action_<?= $action; ?>"
+                                    name="partition_action_<?= $action; ?>"
+                                    class="ajax"
+                                >
+                                    <?= $icon; ?>
+                                </a>
+                            </td>
                         <?php endforeach; ?>
-                    <?php endif; ?>
-                </tr>
-                <?php $odd = ! $odd; ?>
-            <?php endforeach; ?>
-            </tbody>
-        </table>
+
+                        <?php if ($hasSubPartitions): ?>
+                            <?php foreach ($partition->getSubPartitions() as $subParition): ?>
+                                <tr class="noclick <?= $odd ? 'odd' : 'even' ?>">
+                                    <td></td>
+                                    <td><?= $subParition->getOrdinal(); ?></td>
+                                    <td><?= htmlspecialchars($subParition->getName()); ?></td>
+                                    <?php if ($hasDescription): ?>
+                                        <td></td>
+                                    <?php endif; ?>
+                                    <td class="value"><?= $subParition->getRows(); ?></td>
+                                    <td class="value"><?php
+                                        list($value, $unit) = Util::formatByteDown(
+                                            $subParition->getDataLength(), 3, 1
+                                        );
+                                        ?>
+                                        <span><?= $value; ?></span>
+                                        <span class="unit"><?= $unit; ?></span>
+                                    </td>
+                                    <td class="value"><?php
+                                        list($value, $unit) = Util::formatByteDown(
+                                            $subParition->getIndexLength(), 3, 1
+                                        );
+                                        ?>
+                                        <span><?= $value; ?></span>
+                                        <span class="unit"><?= $unit; ?></span>
+                                    </td>
+                                    <td><?= $subParition->getComment(); ?></td>
+                                    <td colspan="<?= $rangeOrList ? '7' : '6'; ?>"></td>
+                                </tr>
+                            <?php endforeach; ?>
+                        <?php endif; ?>
+                    </tr>
+                    <?php $odd = ! $odd; ?>
+                <?php endforeach; ?>
+                </tbody>
+            </table>
+        <?php endif; ?>
+    </fieldset>
+    <fieldset class="tblFooters print_ignore">
+        <form action="tbl_structure.php" method="post">
+            <?= PMA_URL_getHiddenInputs($db, $table); ?>
+            <input type="hidden" name="edit_partitioning" value="true" />
+            <?php if (empty($partitions)): ?>
+                <input type="submit" name="edit_partitioning" value="<?= __('Partition table'); ?>" />
+            <?php else: ?>
+                <?= Util::linkOrButton($removeUrl, __('Remove partitioning'), ['class' => 'button ajax', 'id' => 'remove_partitioning'])?>
+                <input type="submit" name="edit_partitioning" value="<?= __('Edit partitioning'); ?>" />
+            <?php endif; ?>
+        </form>
     </fieldset>
 </div>

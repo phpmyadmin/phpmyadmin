@@ -38,6 +38,7 @@ class Condition extends Component
      * @var array
      */
     public static $ALLOWED_KEYWORDS = array(
+        'ALL'                           => 1,
         'AND'                           => 1,
         'BETWEEN'                       => 1,
         'EXISTS'                        => 1,
@@ -182,6 +183,9 @@ class Condition extends Component
                 if ($token->value === '(') {
                     ++$brackets;
                 } elseif ($token->value === ')') {
+                    if ($brackets == 0) {
+                        break;
+                    }
                     --$brackets;
                 }
             }

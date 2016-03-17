@@ -57,6 +57,7 @@ function loadResult(result_path, table_name, link)
                     PMA_makegrid(this, true, true, true, true);
                 });
                 $('#browse-results').show();
+                PMA_highlightSQL($('#browse-results'));
             } else {
                 PMA_ajaxShowMessage(data.error, false);
             }
@@ -84,26 +85,26 @@ function deleteResult(result_path, msg)
             var $msg = PMA_ajaxShowMessage(PMA_messages.strDeleting, false);
             /** Load the deleted option to the page*/
             $('#sqlqueryform').html('');
-            var url = result_path;
-            $.get(url, {'ajax_request': true, 'is_js_confirmed': true},
+            $.post(result_path, {'ajax_request': true, 'is_js_confirmed': true},
                 function (data) {
-                    if (typeof data !== 'undefined' && data.success) {
-                        $('#sqlqueryform').html(data.sql_query);
-                        /** Refresh the search results after the deletion */
-                        document.getElementById('buttonGo').click();
-                        $('#togglequerybox').html(PMA_messages.strHideQueryBox);
-                        /** Show the results of the deletion option */
-                        $('#browse-results').hide();
-                        $('#sqlqueryform').show();
-                        $('#togglequerybox').show();
-                        $('html, body')
-                            .animate({
-                                scrollTop: $("#browse-results").offset().top
-                            }, 1000);
-                        PMA_ajaxRemoveMessage($msg);
-                    } else {
+                    if (typeof data === 'undefined' || !data.success) {
                         PMA_ajaxShowMessage(data.error, false);
+                        return;
                     }
+
+                    $('#sqlqueryform').html(data.sql_query);
+                    /** Refresh the search results after the deletion */
+                    document.getElementById('buttonGo').click();
+                    $('#togglequerybox').html(PMA_messages.strHideQueryBox);
+                    /** Show the results of the deletion option */
+                    $('#browse-results').hide();
+                    $('#sqlqueryform').show();
+                    $('#togglequerybox').show();
+                    $('html, body')
+                        .animate({
+                            scrollTop: $("#browse-results").offset().top
+                        }, 1000);
+                    PMA_ajaxRemoveMessage($msg);
                 }
             );
         }

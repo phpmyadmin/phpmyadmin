@@ -9,19 +9,18 @@
 /*
  * Needed for backquote()
  */
-require_once 'libraries/Util.class.php';
+
 
 /*
  * Needed by PMA_TRI_getQueryFromRequest()
  */
-require_once 'libraries/php-gettext/gettext.inc';
 
 /*
  * Include to test.
  */
 require_once 'libraries/rte/rte_triggers.lib.php';
 require_once 'libraries/database_interface.inc.php';
-require_once 'libraries/Tracker.class.php';
+
 
 /**
  * Test for generating CREATE TRIGGER query from HTTP request
@@ -38,6 +37,7 @@ class PMA_TRI_GetQueryFromRequest_Test extends PHPUnit_Framework_TestCase
     public function setUp()
     {
         $GLOBALS['db'] = 'pma_test';
+        $GLOBALS['cfg']['DBG']['sql'] = false;
     }
 
     /**
@@ -70,6 +70,7 @@ class PMA_TRI_GetQueryFromRequest_Test extends PHPUnit_Framework_TestCase
         $_REQUEST['item_event']      = $event;
         $_REQUEST['item_table']      = $table;
         $_REQUEST['item_definition'] = $definition;
+        $GLOBALS['server'] = 1;
 
         $this->assertEquals($query, PMA_TRI_getQueryFromRequest());
         $this->assertEquals($num_err, count($errors));

@@ -195,8 +195,6 @@ For older MySQL versions, our `Downloads <https://www.phpmyadmin.net/downloads/>
 
 For `MariaDB <http://mariadb.org/>`_, versions 5.5 and newer are supported.
 
-For `Drizzle <http://www.drizzle.org>`_, versions 7.1 and newer are supported.
-
 .. _faq1_17a:
 
 1.17a I cannot connect to the MySQL server. It always returns the error message, "Client does not support authentication protocol requested by server; consider upgrading MySQL client"
@@ -611,6 +609,25 @@ some robots accessing your installation.
 
 Because your PHP's ``memory_limit`` is too low; adjust it in :file:`php.ini`.
 
+.. _faq1:44:
+
+1.44 How can I reduce the installed size of phpMyAdmin on disk?
+---------------------------------------------------------------
+
+Some users have requested to be able to reduce the size of the phpMyAdmin installation.
+This is not recommended and could lead to confusion over missing features, but can be done.
+A list of files and corresponding functionality which degrade gracefully when removed include:
+
+* :file:`./libraries/tcpdf` folder (exporting to PDF)
+* :file:`./locale/` folder, or unused subfolders (interface translations)
+* Any unused themes in :file:`./themes/`
+* :file:`./js/jquery/src/` (included for licensing reasons)
+* :file:`./js/line_counts.php`
+* :file:`./doc/` (documentation)
+* :file:`./setup/` (setup script)
+* :file:`./examples/`
+* :file:`./sql/` (SQL scripts to configure advanced functionality)
+
 .. _faqconfig:
 
 Configuration
@@ -695,8 +712,11 @@ revision.
 2.5 Each time I want to insert or change a row or drop a database or a table, an error 404 (page not found) is displayed or, with HTTP or cookie authentication, I'm asked to log in again. What's wrong?
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-Check the value you set for the :config:option:`$cfg['PmaAbsoluteUri']` directive in the phpMyAdmin
-configuration file.
+Check your webserver setup if it correctly fills in either PHP_SELF or REQUEST_URI variables.
+
+If you are running phpMyAdmin older than 4.6.0, you can also check the value
+you set for the :config:option:`$cfg['PmaAbsoluteUri']` directive in the
+phpMyAdmin configuration file.
 
 .. _faq2_6:
 

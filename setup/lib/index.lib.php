@@ -6,6 +6,8 @@
  * @package PhpMyAdmin-Setup
  */
 
+use PMA\libraries\VersionInformation;
+
 if (!defined('PHPMYADMIN')) {
     exit;
 }
@@ -80,16 +82,16 @@ function PMA_messagesShowHtml()
     $old_ids = array();
     foreach ($_SESSION['messages'] as $type => $messages) {
         foreach ($messages as $id => $msg) {
-            echo '<div class="' . $type . '" id="' . $id . '">'
-                . '<h4>' . $msg['title'] . '</h4>'
-                . $msg['message'] . '</div>';
+            echo '<div class="' , $type , '" id="' , $id , '">'
+                , '<h4>' , $msg['title'] , '</h4>'
+                , $msg['message'] , '</div>';
             if (!$msg['fresh'] && $type != 'error') {
                 $old_ids[] = $id;
             }
         }
     }
 
-    echo "\n" . '<script type="text/javascript">';
+    echo "\n" , '<script type="text/javascript">';
     foreach ($old_ids as $id) {
         echo "\nhiddenMessages.push('$id');";
     }

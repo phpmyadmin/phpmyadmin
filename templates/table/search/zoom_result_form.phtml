@@ -1,10 +1,10 @@
 <form method="post" action="tbl_zoom_select.php" name="displayResultForm" id="zoom_display_form" class="ajax">
-    <?php echo PMA_URL_getHiddenInputs($_db, $_table); ?>
-    <input type="hidden" name="goto" value="<?php echo $goto; ?>" />
+    <?= PMA_URL_getHiddenInputs($_db, $_table); ?>
+    <input type="hidden" name="goto" value="<?= $goto; ?>" />
     <input type="hidden" name="back" value="tbl_zoom_select.php" />
 
     <fieldset id="displaySection">
-        <legend><?php echo __('Browse/Edit the points');?></legend>
+        <legend><?= __('Browse/Edit the points');?></legend>
 
     <!-- JSON encode the data(query result) -->
         <center>
@@ -12,15 +12,15 @@
                 <div id="resizer">
                     <center>
                         <a href="#" onclick="displayHelp();">
-                            <?php echo __('How to use'); ?>
+                            <?= __('How to use'); ?>
                         </a>
                     </center>
                     <div id="querydata" style="display:none">
-                        <?php echo json_encode($data); ?>
+                        <?= json_encode($data); ?>
                     </div>
                     <div id="querychart"></div>
                     <button class="button-reset">
-                        <?php echo __('Reset zoom'); ?></button>
+                        <?= __('Reset zoom'); ?></button>
                 </div>
             <?php endif; ?>
         </center>
@@ -30,9 +30,9 @@
             <table>
                 <thead>
                 <tr>
-                    <th><?php echo __('Column'); ?> </th>
-                    <th><?php echo __('Null'); ?> </th>
-                    <th><?php echo __('Value'); ?> </th>
+                    <th><?= __('Column'); ?> </th>
+                    <th><?= __('Null'); ?> </th>
+                    <th><?= __('Value'); ?> </th>
                 </tr>
                 </thead>
                 <tbody>
@@ -59,22 +59,21 @@
                     <?php
                         $fieldpopup = $_columnNames[$column_index];
                         $foreignData = PMA_getForeignData($_foreigners, $fieldpopup, false, '', '' );?>
-                    <tr class="noclick <?php echo ($odd_row ? 'odd' : 'even'); ?>">
+                    <tr class="noclick <?= ($odd_row ? 'odd' : 'even'); ?>">
                         <?php $odd_row = ! $odd_row; ?>
                         <!-- Display column Names -->
-                        <th><?php echo htmlspecialchars($_columnNames[$column_index]); ?></th>
+                        <th><?= htmlspecialchars($_columnNames[$column_index]); ?></th>
                         <!-- Null checkbox if column can be null -->
                         <th>
                             <?php if ($_columnNullFlags[$column_index] == 'YES'): ?>
                                 <input type="checkbox" class="checkbox_null"
-                                       name="criteriaColumnNullFlags[<?php echo $column_index; ?>]"
-                                       id="edit_fields_null_id_'<?php echo $column_index;?>" />
+                                       name="criteriaColumnNullFlags[<?= $column_index; ?>]"
+                                       id="edit_fields_null_id_'<?= $column_index;?>" />
                             <?php endif; ?>
                         </th>
 <!-- Column's Input box-->
                         <th>
-                            <?php
-                            echo PMA\Template::get('table/search/input_box')->render(array(
+                            <?= PMA\libraries\Template::get('table/search/input_box')->render(array(
                                     'str' => '',
                                     'column_type' => $_columnTypes[$column_index],
                                     'column_id' => ($_columnTypes[$column_index]) ? 'edit_fieldID_' : 'fieldID_',

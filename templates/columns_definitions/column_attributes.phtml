@@ -9,7 +9,7 @@ $ci_offset = -1;
 
 <td class="center">
     <!-- column name -->
-    <?php echo PMA\Template::get('columns_definitions/column_name')
+    <?= PMA\libraries\Template::get('columns_definitions/column_name')
         ->render(array(
             'columnNumber' => $columnNumber,
             'ci' => $ci++,
@@ -20,7 +20,7 @@ $ci_offset = -1;
 </td>
 <td class="center">
     <!-- column type -->
-    <?php echo PMA\Template::get('columns_definitions/column_type')
+    <?= PMA\libraries\Template::get('columns_definitions/column_type')
         ->render(array(
             'columnNumber' => $columnNumber,
             'ci' => $ci++,
@@ -31,7 +31,7 @@ $ci_offset = -1;
 </td>
 <td class="center">
     <!-- column length -->
-    <?php echo PMA\Template::get('columns_definitions/column_length')
+    <?= PMA\libraries\Template::get('columns_definitions/column_length')
         ->render(array(
             'columnNumber' => $columnNumber,
             'ci' => $ci++,
@@ -42,7 +42,7 @@ $ci_offset = -1;
 </td>
 <td class="center">
     <!-- column default -->
-    <?php echo PMA\Template::get('columns_definitions/column_default')
+    <?= PMA\libraries\Template::get('columns_definitions/column_default')
         ->render(array(
             'columnNumber' => $columnNumber,
             'ci' => $ci++,
@@ -54,7 +54,7 @@ $ci_offset = -1;
 <td class="center">
     <!-- column collation -->
     <?php $tmp_collation = empty($columnMeta['Collation']) ? null : $columnMeta['Collation']; ?>
-    <?php echo PMA_generateCharsetDropdownBox(
+    <?= PMA_generateCharsetDropdownBox(
         PMA_CSDROPDOWN_COLLATION,
         'field_collation[' . $columnNumber . ']',
         'field_' . $columnNumber . '_' . ($ci - $ci_offset),
@@ -64,7 +64,7 @@ $ci_offset = -1;
 </td>
 <td class="center">
     <!-- column attribute -->
-    <?php echo PMA\Template::get('columns_definitions/column_attribute')
+    <?= PMA\libraries\Template::get('columns_definitions/column_attribute')
         ->render(array(
             'columnNumber' => $columnNumber,
             'ci' => $ci++,
@@ -76,7 +76,7 @@ $ci_offset = -1;
 </td>
 <td class="center">
     <!-- column NULL -->
-    <?php echo PMA\Template::get('columns_definitions/column_null')
+    <?= PMA\libraries\Template::get('columns_definitions/column_null')
         ->render(array(
             'columnNumber' => $columnNumber,
             'ci' => $ci++,
@@ -84,11 +84,11 @@ $ci_offset = -1;
             'columnMeta' => isset($columnMeta) ? $columnMeta : null
         )); ?>
 </td>
-<?php if (isset($_REQUEST['change_column']) && !empty($_REQUEST['change_column']) && ! PMA_DRIZZLE): ?>
+<?php if (isset($_REQUEST['change_column']) && !empty($_REQUEST['change_column'])): ?>
     <!-- column Adjust privileges, Only for 'Edit' Column(s) -->
     <td class="center">
         <?php $privs_available = $GLOBALS['col_priv'] && $GLOBALS['is_reload_priv']; ?>
-        <?php echo PMA\Template::get('columns_definitions/column_adjust_privileges')
+        <?= PMA\libraries\Template::get('columns_definitions/column_adjust_privileges')
             ->render(array(
                 'columnNumber' => $columnNumber,
                 'ci' => $ci++,
@@ -100,7 +100,7 @@ $ci_offset = -1;
 <?php if (!$is_backup): ?>
     <!-- column indexes, See my other comment about  this 'if'. -->
     <td class="center">
-        <?php echo PMA\Template::get('columns_definitions/column_indexes')
+        <?= PMA\libraries\Template::get('columns_definitions/column_indexes')
             ->render(array(
                 'columnNumber' => $columnNumber,
                 'ci' => $ci++,
@@ -111,7 +111,7 @@ $ci_offset = -1;
 <?php endif; ?>
 <td class="center">
     <!-- column auto_increment -->
-    <?php echo PMA\Template::get('columns_definitions/column_auto_increment')
+    <?= PMA\libraries\Template::get('columns_definitions/column_auto_increment')
         ->render(array(
             'columnNumber' => $columnNumber,
             'ci' => $ci++,
@@ -121,7 +121,7 @@ $ci_offset = -1;
 </td>
 <td class="center">
     <!-- column comments -->
-    <?php echo PMA\Template::get('columns_definitions/column_comment')
+    <?= PMA\libraries\Template::get('columns_definitions/column_comment')
         ->render(array(
             'columnNumber' => $columnNumber,
             'ci' => $ci++,
@@ -131,9 +131,9 @@ $ci_offset = -1;
         )); ?>
 </td>
  <!-- column virtuality -->
-<?php if (PMA_Util::isVirtualColumnsSupported()): ?>
+<?php if (PMA\libraries\Util::isVirtualColumnsSupported()): ?>
     <td class="center">
-        <?php echo PMA\Template::get('columns_definitions/column_virtuality')
+        <?= PMA\libraries\Template::get('columns_definitions/column_virtuality')
             ->render(array(
                 'columnNumber' => $columnNumber,
                 'ci' => $ci++,
@@ -153,7 +153,7 @@ $ci_offset = -1;
     } ?>
 
     <td class="center">
-        <?php echo PMA\Template::get('columns_definitions/move_column')
+        <?= PMA\libraries\Template::get('columns_definitions/move_column')
             ->render(array(
                 'columnNumber' => $columnNumber,
                 'ci' => $ci++,
@@ -168,7 +168,7 @@ $ci_offset = -1;
 <?php if ($cfgRelation['mimework'] && $GLOBALS['cfg']['BrowseMIME'] && $cfgRelation['commwork']): ?>
     <td class="center">
         <!-- Column Mime-type -->
-        <?php echo PMA\Template::get('columns_definitions/mime_type')
+        <?= PMA\libraries\Template::get('columns_definitions/mime_type')
             ->render(array(
                 'columnNumber' => $columnNumber,
                 'ci' => $ci++,
@@ -180,7 +180,7 @@ $ci_offset = -1;
     </td>
     <td class="center">
         <!-- Column Browser transformation -->
-        <?php echo PMA\Template::get('columns_definitions/transformation')
+        <?= PMA\libraries\Template::get('columns_definitions/transformation')
             ->render(array(
                 'columnNumber' => $columnNumber,
                 'ci' => $ci++,
@@ -193,7 +193,7 @@ $ci_offset = -1;
     </td>
     <td class="center">
         <!-- column Transformation options -->
-        <?php echo PMA\Template::get('columns_definitions/transformation_option')
+        <?= PMA\libraries\Template::get('columns_definitions/transformation_option')
             ->render(array(
                 'columnNumber' => $columnNumber,
                 'ci' => $ci++,
@@ -205,7 +205,7 @@ $ci_offset = -1;
     </td>
     <td class="center">
         <!-- Column Input transformation -->
-        <?php echo PMA\Template::get('columns_definitions/transformation')
+        <?= PMA\libraries\Template::get('columns_definitions/transformation')
             ->render(array(
                 'columnNumber' => $columnNumber,
                 'ci' => $ci++,
@@ -218,7 +218,7 @@ $ci_offset = -1;
     </td>
     <td class="center">
         <!-- column Input transformation options -->
-        <?php echo PMA\Template::get('columns_definitions/transformation_option')
+        <?= PMA\libraries\Template::get('columns_definitions/transformation_option')
             ->render(array(
                 'columnNumber' => $columnNumber,
                 'ci' => $ci++,

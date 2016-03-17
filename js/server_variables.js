@@ -88,7 +88,7 @@ AJAX.registerOnload('server_variables.js', function () {
 
         $mySaveLink.click(function () {
             var $msgbox = PMA_ajaxShowMessage(PMA_messages.strProcessingRequest);
-            $.get($(this).attr('href'), {
+            $.post($(this).attr('href'), {
                     ajax_request: true,
                     type: 'setval',
                     varName: varName,

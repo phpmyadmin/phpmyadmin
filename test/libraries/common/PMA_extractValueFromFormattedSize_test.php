@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- ** Test for PMA_Util::extractValueFromFormattedSize from common.lib
+ ** Test for PMA\libraries\Util::extractValueFromFormattedSize from common.lib
  *
  * @package PhpMyAdmin-test
  * @group common.lib-tests
@@ -10,10 +10,10 @@
 /*
  * Include to test.
  */
-require_once 'libraries/Util.class.php';
+
 
 /**
- ** Test for PMA_Util::extractValueFromFormattedSize from common.lib
+ ** Test for PMA\libraries\Util::extractValueFromFormattedSize from common.lib
  *
  * @package PhpMyAdmin-test
  * @group common.lib-tests
@@ -34,7 +34,7 @@ class PMA_ExtractValueFromFormattedSize_Test extends PHPUnit_Framework_TestCase
     {
         $this->assertEquals(
             $expected,
-            PMA_Util::extractValueFromFormattedSize($size)
+            PMA\libraries\Util::extractValueFromFormattedSize($size)
         );
     }
 

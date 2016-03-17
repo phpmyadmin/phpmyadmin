@@ -87,6 +87,104 @@ which include phpMyAdmin together with a database and web server such as
 You can find more of such options at `Wikipedia <https://en.wikipedia.org/wiki/List_of_AMP_packages>`_.
 
 
+Installing using Composer
++++++++++++++++++++++++++
+
+You can install phpMyAdmin using `Composer <https://getcomposer.org/>`_,
+however it's currently not available in the default
+`Packagist <https://packagist.org/>`_ repository due to its technical
+limitations.
+
+The installation is possible by adding our own repository
+<https://www.phpmyadmin.net/packages.json>:
+
+.. code-block:: sh
+
+    composer create-project phpmyadmin/phpmyadmin --repository-url=https://www.phpmyadmin.net/packages.json --no-dev
+
+Installing using Docker
++++++++++++++++++++++++
+
+phpMyAdmin comes with a Docker image, which you can easily deploy. You can
+download it using:
+
+.. code-block:: sh
+
+    docker pull phpmyadmin/phpmyadmin
+
+The phpMyAdmin server will be executed on port 80. It supports several ways of
+configuring the link to the database server, which you can manage using
+environment variables:
+
+.. envvar:: PMA_ARBITRARY
+
+    Allows you to enter database server hostname on login form (see
+    :config:option:`$cfg['AllowArbitraryServer']`).
+
+.. envvar:: PMA_HOST
+    
+    Host name or IP address of the database server to use.
+
+.. envvar:: PMA_HOSTS
+    
+    Comma separated host names or IP addresses of the database servers to use.
+
+.. envvar:: PMA_USER
+    
+    User name to use for :ref:`auth_config`.
+
+.. envvar:: PMA_PASSWORD
+    
+    Password to use for :ref:`auth_config`.
+
+.. envvar:: PMA_PORT
+    
+    Port of the databse server to use.
+
+.. envvar:: PMA_ABSOLUTE_URI
+   
+    The fully-qualified path (``https://pma.example.net/``) where the reverse
+    proxy makes phpMyAdmin available.
+
+By default, :ref:`cookie` is used, but if :envvar:`PMA_USER` and
+:envvar:`PMA_PASSWORD` are set, it is switched to :ref:`auth_config`.
+
+
+To connect phpMyAdmin to given server use:
+
+.. code-block:: sh
+
+    docker run --name myadmin -d -e PMA_HOST=dbhost -p 8080:80 phpmyadmin/phpmyadmin
+
+To connect phpMyAdmin to more servers use:
+
+.. code-block:: sh
+
+    docker run --name myadmin -d -e PMA_HOSTS=dbhost1,dbhost2,dbhost3 -p 8080:80 phpmyadmin/phpmyadmin
+
+To use arbitrary server option:
+
+.. code-block:: sh
+
+    docker run --name myadmin -d --link mysql_db_server:db -p 8080:80 -e PMA_ARBITRARY=1 phpmyadmin/phpmyadmin
+
+You can also link the database container using Docker:
+
+.. code-block:: sh
+
+    docker run --name phpmyadmin -d --link mysql_db_server:db -p 8080:80 phpmyadmin/phpmyadmin
+
+Using docker-compose
+--------------------
+
+Alternatively you can also use docker-compose with the docker-compose.yml from
+<https://github.com/phpmyadmin/docker>.  This will run phpMyAdmin with
+arbitrary server - allowing you to specify MySQL/MariaDB server on login page.
+
+.. code-block:: sh
+
+    docker-compose up -d
+
 .. _quick_install:
 
 Quick Install
@@ -507,6 +605,15 @@ HTTP authentication mode
 * Is supported with most PHP configurations. For :term:`IIS` (:term:`ISAPI`)
   support using :term:`CGI` PHP see :ref:`faq1_32`, for using with Apache
   :term:`CGI` see :ref:`faq1_35`.
+* When PHP is running under Apache's :term:`mod_proxy_fcgi` (e.g. with PHP-FPM),
+  :term:`Authorization` headers are not passed to the underlying FCGI application,
+  such that your credentials will not reach the application. In this case, you can
+  add the following configuration directive:
+
+  .. code-block:: apache
+
+     SetEnvIf Authorization "(.*)" HTTP_AUTHORIZATION=$1
+
 * See also :ref:`faq4_4` about not using the :term:`.htaccess` mechanism along with
   ':term:`HTTP`' authentication mode.
 
@@ -574,6 +681,8 @@ in :file:`examples/signon-script.php`:
 
 .. index:: pair: Config; Authentication mode
 
+.. _auth_config:
+
 Config authentication mode
 --------------------------
 
@@ -636,6 +745,8 @@ Securing your phpMyAdmin installation
 The phpMyAdmin team tries hard to make the application secure, however there
 are always ways to make your installation more secure:
 
+* Serve phpMyAdmin on HTTPS only. Preferably, you should use HSTS as well, so that
+  you're protected from protocol downgrade attacks.
 * Remove the ``setup`` directory from phpMyAdmin, you will probably not
   use it after the initial setup.
 * Properly choose an authentication method - :ref:`cookie`

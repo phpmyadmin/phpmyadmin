@@ -6,9 +6,10 @@
  * @package PhpMyAdmin-test
  */
 
-require_once 'libraries/php-gettext/gettext.inc';
-require_once 'libraries/Util.class.php';
-require_once 'libraries/Theme.class.php';
+use PMA\libraries\Theme;
+
+
+
 require_once 'libraries/relation.lib.php';
 require_once 'libraries/database_interface.inc.php';
 require_once 'libraries/url_generating.lib.php';
@@ -43,8 +44,8 @@ class PMA_ServerUserGroupsTest extends PHPUnit_Framework_TestCase
         );
 
         $GLOBALS['pmaThemeImage'] = 'image';
-        $_SESSION['PMA_Theme'] = PMA_Theme::load('./themes/pmahomme');
-        $_SESSION['PMA_Theme'] = new PMA_Theme();
+        $_SESSION['PMA_Theme'] = Theme::load('./themes/pmahomme');
+        $_SESSION['PMA_Theme'] = new Theme();
     }
 
     /**
@@ -58,7 +59,7 @@ class PMA_ServerUserGroupsTest extends PHPUnit_Framework_TestCase
         $expectedQuery = "SELECT * FROM `pmadb`.`usergroups`"
             . " ORDER BY `usergroup` ASC";
 
-        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
         $dbi->expects($this->once())
@@ -96,7 +97,7 @@ class PMA_ServerUserGroupsTest extends PHPUnit_Framework_TestCase
         $expectedQuery = "SELECT * FROM `pmadb`.`usergroups`"
             . " ORDER BY `usergroup` ASC";
 
-        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
         $dbi->expects($this->once())
@@ -178,7 +179,7 @@ class PMA_ServerUserGroupsTest extends PHPUnit_Framework_TestCase
         $userGrpDelQuery = "DELETE FROM `pmadb`.`usergroups`"
             . " WHERE `usergroup`='ug'";
 
-        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
         $dbi->expects($this->at(0))
@@ -212,7 +213,7 @@ class PMA_ServerUserGroupsTest extends PHPUnit_Framework_TestCase
 
         $expectedQuery = "SELECT * FROM `pmadb`.`usergroups`"
             . " WHERE `usergroup`='ug'";
-        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
         $dbi->expects($this->once())

@@ -6,9 +6,7 @@
  * @package Swekey
  */
 
-if (! defined('PHPMYADMIN')) {
-    exit;
-}
+use PMA\libraries\Message;
 
 /**
  * Checks Swekey authentication.
@@ -101,7 +99,7 @@ function Swekey_Auth_error()
     {
         var valids = "<?php
         foreach ($_SESSION['SWEKEY']['VALID_SWEKEYS'] as $key => $value) {
-                echo $key . ',';
+                echo $key , ',';
         }
         ?>";
         var connected_keys = Swekey_ListKeyIds().split(",");
@@ -228,7 +226,7 @@ function Swekey_Auth_error()
                 url = url.substr(0, url.indexOf("?"));
             }
             Swekey_SetUnplugUrl(key, "pma_login", url + "?session_to_unset=<?php echo session_id();?>&token=<?php echo $_SESSION[' PMA_token ']; ?>");
-            var otp = Swekey_GetOtp(key, <?php echo '"' . $_SESSION['SWEKEY']['RND_TOKEN'] . '"';?>);
+            var otp = Swekey_GetOtp(key, <?php echo '"' , $_SESSION['SWEKEY']['RND_TOKEN'] , '"';?>);
             window.location.search="?swekey_id=" + key + "&swekey_otp=" + otp + "&token=<?php echo $_SESSION[' PMA_token ']; ?>";
         }
         </script>
@@ -252,7 +250,7 @@ function Swekey_login($input_name, $input_go)
 {
     $swekeyErr = Swekey_Auth_error();
     if ($swekeyErr != null) {
-        PMA_Message::error($swekeyErr)->display();
+        Message::error($swekeyErr)->display();
         if ($GLOBALS['error_handler']->hasDisplayErrors()) {
             echo '<div>';
             $GLOBALS['error_handler']->dispErrors();

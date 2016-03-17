@@ -9,12 +9,11 @@
 /*
  * Needed for backquote()
  */
-require_once 'libraries/Util.class.php';
+
 
 /*
  * Needed by PMA_EVN_getQueryFromRequest()
  */
-require_once 'libraries/php-gettext/gettext.inc';
 
 /*
  * Include to test.

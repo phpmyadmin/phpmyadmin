@@ -12,24 +12,24 @@
  */
 namespace PMA\Test\Stubs;
 
-use PMA_Header;
-use PMA_Message;
+use PMA\libraries\Header;
+use PMA\libraries\Message;
 
-require_once 'libraries/Response.class.php';
-require_once 'libraries/Header.class.php';
+
+
 
 /**
- * Class PMA_Response
+ * Class Response
  *
  * @package PMA\Test\Stubs
  */
-class PMA_Response
+class Response
 {
     /**
-     * PMA_Header instance
+     * PMA\libraries\Header instance
      *
      * @access private
-     * @var PMA_Header
+     * @var Header
      */
     protected $header;
 
@@ -69,7 +69,7 @@ class PMA_Response
         $this->json = array();
 
         $GLOBALS['lang'] = 'en';
-        $this->header = new PMA_Header();
+        $this->header = new Header();
     }
 
     /**
@@ -86,7 +86,7 @@ class PMA_Response
             foreach ($content as $msg) {
                 $this->addHTML($msg);
             }
-        } elseif ($content instanceof PMA_Message) {
+        } elseif ($content instanceof Message) {
             $this->htmlString .= $content->getDisplay();
         } else {
             $this->htmlString .= $content;
@@ -110,7 +110,7 @@ class PMA_Response
                 $this->addJSON($key, $value);
             }
         } else {
-            if ($value instanceof PMA_Message) {
+            if ($value instanceof Message) {
                 $this->json[$json] = $value->getDisplay();
             } else {
                 $this->json[$json] = $value;
@@ -139,10 +139,10 @@ class PMA_Response
     }
 
     /**
-     * Current I choose to return PMA_Header object directly because
-     * our test has nothing about the PMA_Scripts and PMA_Header class.
+     * Current I choose to return PMA\libraries\Header object directly because
+     * our test has nothing about the Scripts and PMA\libraries\Header class.
      *
-     * @return PMA_Header
+     * @return Header
      */
     public function getHeader()
     {
@@ -157,7 +157,7 @@ class PMA_Response
      *
      * @return void
      */
-    public function isSuccess($state)
+    public function setRequestStatus($state)
     {
         $this->_isSuccess = $state;
     }

@@ -3,12 +3,7 @@
   <!-- http://pear.php.net/manual/en/package.php.php-codesniffer.annotated-ruleset.php -->
   <description>phpMyAdmin custom coding standard</description>
 
-  <rule ref="PEAR">
-    <exclude name="PEAR.Commenting.FileComment" />
-    <exclude name="PEAR.Commenting.ClassComment" />
-    <exclude name="PEAR.Commenting.FunctionComment" />
-    <exclude name="Generic.Commenting.DocComment" />
-  </rule>
+  <rule ref="PSR1" />
   <rule ref="Generic.Metrics.NestingLevel" />
   <!-- There MUST NOT be trailing whitespace at the end of lines. -->
   <rule ref="Squiz.WhiteSpace.SuperfluousWhitespace" />

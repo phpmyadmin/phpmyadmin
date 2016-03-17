@@ -1,6 +1,5 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
-
 /**
  * functions for displaying server status sub item: monitor
  *
@@ -8,14 +7,13 @@
  *
  * @package PhpMyAdmin
  */
-if (! defined('PHPMYADMIN')) {
-    exit;
-}
+use PMA\libraries\ServerStatusData;
+use PMA\libraries\Util;
 
 /**
  * Prints html with monitor
  *
- * @param PMA_ServerStatusData $ServerStatusData Server status data
+ * @param ServerStatusData $ServerStatusData Server status data
  *
  * @return string
  */
@@ -29,9 +27,7 @@ function PMA_getHtmlForMonitor($ServerStatusData)
 
     $retval .= PMA_getHtmlForAddChartDialog();
 
-    if (! PMA_DRIZZLE) {
-        $retval .= PMA_getHtmlForAnalyseDialog();
-    }
+    $retval .= PMA_getHtmlForAnalyseDialog();
 
     $retval .= '<table class="clearfloat" id="chartGrid"></table>';
     $retval .= '<div id="logTable">';
@@ -142,7 +138,7 @@ function PMA_getHtmlForInstructionsDialog()
     );
     $retval .= '</p>';
     $retval .= '<p>';
-    $retval .= PMA_Util::getImage('s_attention.png');
+    $retval .= PMA\libraries\Util::getImage('s_attention.png');
     $retval .= '<strong>';
     $retval .= __('Please note:');
     $retval .= '</strong><br />';
@@ -251,17 +247,15 @@ function PMA_getHtmlForTabLinks()
 {
     $retval  = '<div class="tabLinks">';
     $retval .= '<a href="#pauseCharts">';
-    $retval .= PMA_Util::getImage('play.png') . __('Start Monitor');
+    $retval .= PMA\libraries\Util::getImage('play.png') . __('Start Monitor');
     $retval .= '</a>';
     $retval .= '<a href="#settingsPopup" class="popupLink">';
-    $retval .= PMA_Util::getImage('s_cog.png') .  __('Settings');
+    $retval .= PMA\libraries\Util::getImage('s_cog.png') .  __('Settings');
     $retval .= '</a>';
-    if (! PMA_DRIZZLE) {
-        $retval .= '<a href="#monitorInstructionsDialog">';
-        $retval .= PMA_Util::getImage('b_help.png') . __('Instructions/Setup');
-    }
+    $retval .= '<a href="#monitorInstructionsDialog">';
+    $retval .= Util::getImage('b_help.png') . __('Instructions/Setup');
     $retval .= '<a href="#endChartEditMode" style="display:none;">';
-    $retval .= PMA_Util::getImage('s_okay.png');
+    $retval .= Util::getImage('s_okay.png');
     $retval .= __('Done dragging (rearranging) charts');
     $retval .= '</a>';
     $retval .= '</div>';
@@ -278,15 +272,16 @@ function PMA_getHtmlForSettingsDialog()
 {
     $retval  = '<div class="popupContent settingsPopup">';
     $retval .= '<a href="#addNewChart">';
-    $retval .= PMA_Util::getImage('b_chart.png') . __('Add chart');
+    $retval .= PMA\libraries\Util::getImage('b_chart.png') . __('Add chart');
     $retval .= '</a>';
     $retval .= '<a href="#rearrangeCharts">';
-    $retval .= PMA_Util::getImage('b_tblops.png') . __('Enable charts dragging');
+    $retval .= PMA\libraries\Util::getImage('b_tblops.png')
+        . __('Enable charts dragging');
     $retval .= '</a>';
     $retval .= '<div class="clearfloat paddingtop"></div>';
     $retval .= '<div class="floatleft">';
     $retval .= __('Refresh rate') . '<br />';
-    $retval .= PMA_ServerStatusData::getHtmlForRefreshList(
+    $retval .= ServerStatusData::getHtmlForRefreshList(
         'gridChartRefresh',
         5,
         Array(2, 3, 4, 5, 10, 20, 40, 60, 120, 300, 600, 1200)
@@ -307,7 +302,7 @@ function PMA_getHtmlForSettingsDialog()
     $retval .= '</div>';
     $retval .= '<div class="clearfloat paddingtop">';
     $retval .= '<b>' . __('Chart arrangement') . '</b> ';
-    $retval .= PMA_Util::showHint(
+    $retval .= PMA\libraries\Util::showHint(
         __(
             'The arrangement of the charts is stored to the browsers local storage. '
             . 'You may want to export it if you have a complicated set up.'
@@ -335,7 +330,7 @@ function PMA_getHtmlForSettingsDialog()
 /**
  * Define some data and links needed on the client side
  *
- * @param PMA_ServerStatusData $ServerStatusData Server status data
+ * @param ServerStatusData $ServerStatusData Server status data
  *
  * @return string
  */
@@ -355,10 +350,10 @@ function PMA_getHtmlForClientSideDataAndLinks($ServerStatusData)
      * Define some links used on client side
      */
     $links  = '<div id="profiling_docu" class="hide">';
-    $links .= PMA_Util::showMySQLDocu('general-thread-states');
+    $links .= PMA\libraries\Util::showMySQLDocu('general-thread-states');
     $links .= '</div>';
     $links .= '<div id="explain_docu" class="hide">';
-    $links .= PMA_Util::showMySQLDocu('explain-output');
+    $links .= PMA\libraries\Util::showMySQLDocu('explain-output');
     $links .= '</div>';
 
     return $form . $links;
@@ -369,7 +364,7 @@ function PMA_getHtmlForClientSideDataAndLinks($ServerStatusData)
 /**
  * Returns JSon for real-time charting data
  *
- * @return Array
+ * @return array
  */
 function PMA_getJsonForChartingData()
 {
@@ -558,7 +553,7 @@ function PMA_getJsonForChartingDataSwitch(
  * @param int $start Unix Time: Start time for query
  * @param int $end   Unix Time: End time for query
  *
- * @return Array
+ * @return array
  */
 function PMA_getJsonForLogDataTypeSlow($start, $end)
 {
@@ -577,11 +572,11 @@ function PMA_getJsonForLogDataTypeSlow($start, $end)
     $return = array('rows' => array(), 'sum' => array());
 
     while ($row = $GLOBALS['dbi']->fetchAssoc($result)) {
-        $type = /*overload*/mb_strtolower(
-            /*overload*/mb_substr(
+        $type = mb_strtolower(
+            mb_substr(
                 $row['sql_text'],
                 0,
-                /*overload*/mb_strpos($row['sql_text'], ' ')
+                mb_strpos($row['sql_text'], ' ')
             )
         );
 
@@ -589,14 +584,14 @@ function PMA_getJsonForLogDataTypeSlow($start, $end)
         case 'insert':
         case 'update':
             //Cut off big inserts and updates, but append byte count instead
-            if (/*overload*/mb_strlen($row['sql_text']) > 220) {
+            if (mb_strlen($row['sql_text']) > 220) {
                 $implode_sql_text = implode(
                     ' ',
-                    PMA_Util::formatByteDown(
-                        /*overload*/mb_strlen($row['sql_text']), 2, 2
+                    PMA\libraries\Util::formatByteDown(
+                        mb_strlen($row['sql_text']), 2, 2
                     )
                 );
-                $row['sql_text'] = /*overload*/mb_substr($row['sql_text'], 0, 200)
+                $row['sql_text'] = mb_substr($row['sql_text'], 0, 200)
                     . '... [' . $implode_sql_text . ']';
             }
             break;
@@ -624,7 +619,7 @@ function PMA_getJsonForLogDataTypeSlow($start, $end)
  * @param int $start Unix Time: Start time for query
  * @param int $end   Unix Time: End time for query
  *
- * @return Array
+ * @return array
  */
 function PMA_getJsonForLogDataTypeGeneral($start, $end)
 {
@@ -653,7 +648,7 @@ function PMA_getJsonForLogDataTypeGeneral($start, $end)
 
     while ($row = $GLOBALS['dbi']->fetchAssoc($result)) {
         preg_match('/^(\w+)\s/', $row['argument'], $match);
-        $type = /*overload*/mb_strtolower($match[1]);
+        $type = mb_strtolower($match[1]);
 
         if (! isset($return['sum'][$type])) {
             $return['sum'][$type] = 0;
@@ -680,7 +675,7 @@ function PMA_getJsonForLogDataTypeGeneral($start, $end)
                     $temp = $return['rows'][$insertTablesFirst]['argument'];
                     $return['rows'][$insertTablesFirst]['argument']
                         .= PMA_getSuspensionPoints(
-                            $temp[/*overload*/mb_strlen($temp) - 1]
+                            $temp[mb_strlen($temp) - 1]
                         );
 
                     // Group this value, thus do not add to the result list
@@ -695,13 +690,13 @@ function PMA_getJsonForLogDataTypeGeneral($start, $end)
         case 'update':
             // Cut off big inserts and updates,
             // but append byte count therefor
-            if (/*overload*/mb_strlen($row['argument']) > 220) {
-                $row['argument'] = /*overload*/mb_substr($row['argument'], 0, 200)
+            if (mb_strlen($row['argument']) > 220) {
+                $row['argument'] = mb_substr($row['argument'], 0, 200)
                     . '... ['
                     .  implode(
                         ' ',
-                        PMA_Util::formatByteDown(
-                            /*overload*/mb_strlen($row['argument']),
+                        PMA\libraries\Util::formatByteDown(
+                            mb_strlen($row['argument']),
                             2,
                             2
                         )
@@ -744,12 +739,12 @@ function PMA_getSuspensionPoints($lastChar)
 /**
  * Returns JSon for logging vars
  *
- * @return Array
+ * @return array
  */
 function PMA_getJsonForLoggingVars()
 {
     if (isset($_REQUEST['varName']) && isset($_REQUEST['varValue'])) {
-        $value = PMA_Util::sqlAddSlashes($_REQUEST['varValue']);
+        $value = PMA\libraries\Util::sqlAddSlashes($_REQUEST['varValue']);
         if (! is_numeric($value)) {
             $value="'" . $value . "'";
         }
@@ -774,17 +769,17 @@ function PMA_getJsonForLoggingVars()
 /**
  * Returns JSon for query_analyzer
  *
- * @return Array
+ * @return array
  */
 function PMA_getJsonForQueryAnalyzer()
 {
     $return = array();
 
-    if (/*overload*/mb_strlen($_REQUEST['database'])) {
+    if (mb_strlen($_REQUEST['database'])) {
         $GLOBALS['dbi']->selectDb($_REQUEST['database']);
     }
 
-    if ($profiling = PMA_Util::profilingSupported()) {
+    if ($profiling = PMA\libraries\Util::profilingSupported()) {
         $GLOBALS['dbi']->query('SET PROFILING=1;');
     }
 

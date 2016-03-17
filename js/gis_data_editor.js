@@ -119,6 +119,9 @@ function loadJSAndGISEditor(value, field, type, input_name, token) {
     script.onload = function () {
         loadGISEditor(value, field, type, input_name, token);
     };
+    script.onerror = function() {
+        loadGISEditor(value, field, type, input_name, token);
+    }
 
     script.src = 'js/openlayers/OpenLayers.js';
     head.appendChild(script);

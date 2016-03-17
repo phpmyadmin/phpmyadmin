@@ -11,6 +11,7 @@
  *
  * @package PhpMyAdmin
  */
+use PMA\libraries\plugins\export\ExportSql;
 
 /**
  * requirements
@@ -26,7 +27,7 @@ require_once 'libraries/check_user_privileges.lib.php';
 require_once 'libraries/operations.lib.php';
 
 // add a javascript file for jQuery functions to handle Ajax actions
-$response = PMA_Response::getInstance();
+$response = PMA\libraries\Response::getInstance();
 $header = $response->getHeader();
 $scripts = $header->getScripts();
 $scripts->addFile('db_operations.js');
@@ -36,9 +37,7 @@ $sql_query = '';
 /**
  * Rename/move or copy database
  */
-/** @var PMA_String $pmaString */
-$pmaString = $GLOBALS['PMA_String'];
-if (/*overload*/mb_strlen($GLOBALS['db'])
+if (mb_strlen($GLOBALS['db'])
     && (! empty($_REQUEST['db_rename']) || ! empty($_REQUEST['db_copy']))
 ) {
     if (! empty($_REQUEST['db_rename'])) {
@@ -48,9 +47,9 @@ if (/*overload*/mb_strlen($GLOBALS['db'])
     }
 
     if (! isset($_REQUEST['newname'])
-        || ! /*overload*/mb_strlen($_REQUEST['newname'])
+        || ! mb_strlen($_REQUEST['newname'])
     ) {
-        $message = PMA_Message::error(__('The database name is empty!'));
+        $message = PMA\libraries\Message::error(__('The database name is empty!'));
     } else {
         $_error = false;
         if ($move || ! empty($_REQUEST['create_database_before_copying'])) {
@@ -105,7 +104,7 @@ if (/*overload*/mb_strlen($GLOBALS['db'])
         }
         unset($sqlConstratints);
 
-        if (! PMA_DRIZZLE && PMA_MYSQL_INT_VERSION >= 50100) {
+        if (PMA_MYSQL_INT_VERSION >= 50100) {
             // here DELIMITER is not used because it's not part of the
             // language; each statement is sent one by one
 
@@ -133,11 +132,11 @@ if (/*overload*/mb_strlen($GLOBALS['db'])
 
             // if someday the RENAME DATABASE reappears, do not DROP
             $local_query = 'DROP DATABASE '
-                . PMA_Util::backquote($GLOBALS['db']) . ';';
+                . PMA\libraries\Util::backquote($GLOBALS['db']) . ';';
             $sql_query .= "\n" . $local_query;
             $GLOBALS['dbi']->query($local_query);
 
-            $message = PMA_Message::success(
+            $message = PMA\libraries\Message::success(
                 __('Database %1$s has been renamed to %2$s.')
             );
             $message->addParam($GLOBALS['db']);
@@ -149,13 +148,13 @@ if (/*overload*/mb_strlen($GLOBALS['db'])
                 PMA_AdjustPrivileges_copyDB($GLOBALS['db'], $_REQUEST['newname']);
             }
 
-            $message = PMA_Message::success(
+            $message = PMA\libraries\Message::success(
                 __('Database %1$s has been copied to %2$s.')
             );
             $message->addParam($GLOBALS['db']);
             $message->addParam($_REQUEST['newname']);
         } else {
-            $message = PMA_Message::error();
+            $message = PMA\libraries\Message::error();
         }
         $reload     = true;
 
@@ -176,16 +175,16 @@ if (/*overload*/mb_strlen($GLOBALS['db'])
 
     /**
      * Database has been successfully renamed/moved.  If in an Ajax request,
-     * generate the output with {@link PMA_Response} and exit
+     * generate the output with {@link PMA\libraries\Response} and exit
      */
     if ($GLOBALS['is_ajax_request'] == true) {
-        $response = PMA_Response::getInstance();
-        $response->isSuccess($message->isSuccess());
+        $response = PMA\libraries\Response::getInstance();
+        $response->setRequestStatus($message->isSuccess());
         $response->addJSON('message', $message);
         $response->addJSON('newname', $_REQUEST['newname']);
         $response->addJSON(
             'sql_query',
-            PMA_Util::getMessage(null, $sql_query)
+            PMA\libraries\Util::getMessage(null, $sql_query)
         );
         $response->addJSON('db', $GLOBALS['db']);
         exit;
@@ -222,12 +221,12 @@ list(
     $tooltip_truename,
     $tooltip_aliasname,
     $pos
-) = PMA_Util::getDbInfo($db, isset($sub_part) ? $sub_part : '');
+) = PMA\libraries\Util::getDbInfo($db, isset($sub_part) ? $sub_part : '');
 
 echo "\n";
 
 if (isset($message)) {
-    echo PMA_Util::getMessage($message, $sql_query);
+    echo PMA\libraries\Util::getMessage($message, $sql_query);
     unset($message);
 }
 
@@ -261,7 +260,7 @@ if (!$is_information_schema) {
     // Don't allow to easily drop mysql database, RFE #1327514.
     if (($is_superuser || $GLOBALS['cfg']['AllowUserDropDatabase'])
         && ! $db_is_system_schema
-        && (PMA_DRIZZLE || $GLOBALS['db'] != 'mysql')
+        && $GLOBALS['db'] != 'mysql'
     ) {
         $response->addHTML(PMA_getHtmlForDropDatabaseLink($GLOBALS['db']));
     }
@@ -278,15 +277,15 @@ if (!$is_information_schema) {
     if (! $cfgRelation['allworks']
         && $cfg['PmaNoRelation_DisableWarning'] == false
     ) {
-        $message = PMA_Message::notice(
+        $message = PMA\libraries\Message::notice(
             __(
                 'The phpMyAdmin configuration storage has been deactivated. ' .
                 '%sFind out why%s.'
             )
         );
         $message->addParam(
-            '<a href="' . $cfg['PmaAbsoluteUri']
-            . 'chk_rel.php' . $url_query . '">',
+            '<a href="'
+            . './chk_rel.php' . $url_query . '">',
             false
         );
         $message->addParam('</a>', false);
@@ -303,13 +302,14 @@ $response->addHTML('</div>');
 if ($cfgRelation['pdfwork'] && $num_tables > 0) {
     // We only show this if we find something in the new pdf_pages table
     $test_query = '
-         SELECT *
-           FROM ' . PMA_Util::backquote($GLOBALS['cfgRelation']['db'])
-            . '.' . PMA_Util::backquote($cfgRelation['pdf_pages']) . '
-          WHERE db_name = \'' . PMA_Util::sqlAddSlashes($GLOBALS['db']) . '\'';
+        SELECT *
+        FROM ' . PMA\libraries\Util::backquote($GLOBALS['cfgRelation']['db'])
+        . '.' . PMA\libraries\Util::backquote($cfgRelation['pdf_pages']) . '
+        WHERE db_name = \'' . PMA\libraries\Util::sqlAddSlashes($GLOBALS['db'])
+        . '\'';
     $test_rs = PMA_queryAsControlUser(
         $test_query,
         false,
-        PMA_DatabaseInterface::QUERY_STORE
+        PMA\libraries\DatabaseInterface::QUERY_STORE
     );
 } // end if

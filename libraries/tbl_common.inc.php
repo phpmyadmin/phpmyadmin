@@ -15,7 +15,7 @@ if (! defined('PHPMYADMIN')) {
 require_once './libraries/bookmark.lib.php';
 
 // Check parameters
-PMA_Util::checkParameters(array('db', 'table'));
+PMA\libraries\Util::checkParameters(array('db', 'table'));
 
 $db_is_system_schema = $GLOBALS['dbi']->isSystemSchema($db);
 
@@ -35,12 +35,12 @@ $url_params['table'] = $table;
 /**
  * Defines the urls to return to in case of error in a sql statement
  */
-$err_url_0 = PMA_Util::getScriptNameForOption(
+$err_url_0 = PMA\libraries\Util::getScriptNameForOption(
     $GLOBALS['cfg']['DefaultTabDatabase'], 'database'
 )
     . PMA_URL_getCommon(array('db' => $db));
 
-$err_url = PMA_Util::getScriptNameForOption(
+$err_url = PMA\libraries\Util::getScriptNameForOption(
     $GLOBALS['cfg']['DefaultTabTable'], 'table'
 )
     . PMA_URL_getCommon($url_params);

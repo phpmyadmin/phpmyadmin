@@ -1,11 +1,11 @@
 <div class="preview_sql">
     <?php if (empty($query_data)): ?>
-        <?php echo __('No change'); ?>
+        <?= __('No change'); ?>
     <?php elseif (is_array($query_data)): ?>
         <?php foreach ($query_data as $query): ?>
-            <?php echo PMA_Util::formatSql($query); ?>
+            <?= PMA\libraries\Util::formatSql($query); ?>
         <?php endforeach; ?>
     <?php else: ?>
-        <?php echo PMA_Util::formatSql($query_data); ?>
+        <?= PMA\libraries\Util::formatSql($query_data); ?>
     <?php endif; ?>
 </div>

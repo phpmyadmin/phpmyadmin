@@ -9,14 +9,15 @@
 /*
  * Include to test.
  */
+use PMA\libraries\Theme;
+
 require_once 'libraries/tracking.lib.php';
-require_once 'libraries/Util.class.php';
+
 require_once 'libraries/database_interface.inc.php';
-require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/relation.lib.php';
 require_once 'libraries/url_generating.lib.php';
-require_once 'libraries/Tracker.class.php';
-require_once 'libraries/Message.class.php';
+
+
 require_once 'libraries/js_escape.lib.php';
 
 /**
@@ -55,10 +56,11 @@ class PMA_TblTrackingTest extends PHPUnit_Framework_TestCase
             'tracking' => 'tracking',
             'trackingwork' => true
         );
+        $_SESSION['PMA_Theme'] = new Theme();
 
         $GLOBALS['cfg']['Server']['tracking_default_statements'] = 'DELETE';
 
-        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -397,7 +399,7 @@ class PMA_TblTrackingTest extends PHPUnit_Framework_TestCase
         $text_dir = "ltr";
 
         $dbi_old = $GLOBALS['dbi'];
-        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -495,7 +497,7 @@ class PMA_TblTrackingTest extends PHPUnit_Framework_TestCase
         $url_query = "select * from PMA";
 
         $dbi_old = $GLOBALS['dbi'];
-        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 

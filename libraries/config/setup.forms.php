@@ -105,7 +105,6 @@ $forms['Features']['Import_export'] = array(
     'CompressOnFly');
 $forms['Features']['Security'] = array(
     'blowfish_secret',
-    'ForceSSL',
     'CheckConfigurationPermissions',
     'TrustedProxies',
     'AllowUserDropDatabase',
@@ -215,7 +214,8 @@ $forms['Main_panel']['DbStructure'] = array(
     'ShowDbStructureLastUpdate',
     'ShowDbStructureLastCheck');
 $forms['Main_panel']['TableStructure'] = array(
-    'HideStructureActions');
+    'HideStructureActions',
+    'ShowColumnComments');
 $forms['Main_panel']['Browse'] = array(
     'TableNavigationLinksMode',
     'ShowAll',

@@ -1,11 +1,12 @@
-/* Copyright (c) 2006-2010 by OpenLayers Contributors (see authors.txt for 
- * full list of contributors). Published under the Clear BSD license.  
- * See http://svn.openlayers.org/trunk/openlayers/license.txt for the
+/* Copyright (c) 2006-2013 by OpenLayers Contributors (see authors.txt for
+ * full list of contributors). Published under the 2-clause BSD license.
+ * See license.txt in the OpenLayers distribution or repository for the
  * full text of the license. */
 
 
 /**
  * @requires OpenLayers/Control.js
+ * @requires OpenLayers/Events/buttonclick.js
  */
 
 /**
@@ -64,10 +65,24 @@ OpenLayers.Control.PanZoom = OpenLayers.Class(OpenLayers.Control, {
      * APIMethod: destroy
      */
     destroy: function() {
-        OpenLayers.Control.prototype.destroy.apply(this, arguments);
+        if (this.map) {
+            this.map.events.unregister("buttonclick", this, this.onButtonClick);
+        }
         this.removeButtons();
         this.buttons = null;
         this.position = null;
+        OpenLayers.Control.prototype.destroy.apply(this, arguments);
+    },
+
+    /** 
+     * Method: setMap
+     *
+     * Properties:
+     * map - {<OpenLayers.Map>} 
+     */
+    setMap: function(map) {
+        OpenLayers.Control.prototype.setMap.apply(this, arguments);
+        this.map.events.register("buttonclick", this, this.onButtonClick);
     },
 
     /**
@@ -87,7 +102,7 @@ OpenLayers.Control.PanZoom = OpenLayers.Class(OpenLayers.Control, {
         // place the controls
         this.buttons = [];
 
-        var sz = new OpenLayers.Size(18,18);
+        var sz = {w: 18, h: 18};
         var centered = new OpenLayers.Pixel(px.x+sz.w/2, px.y);
 
         this._addButton("panup", "north-mini.png", centered, sz);
@@ -119,37 +134,16 @@ OpenLayers.Control.PanZoom = OpenLayers.Class(OpenLayers.Control, {
      *     image of the button, and has all the proper event handlers set.
      */
     _addButton:function(id, img, xy, sz) {
-        var imgLocation = OpenLayers.Util.getImagesLocation() + img;
+        var imgLocation = OpenLayers.Util.getImageLocation(img);
         var btn = OpenLayers.Util.createAlphaImageDiv(
                                     this.id + "_" + id, 
                                     xy, sz, imgLocation, "absolute");
-
+        btn.style.cursor = "pointer";
         //we want to add the outer div
         this.div.appendChild(btn);
-
-        OpenLayers.Event.observe(btn, "mousedown", 
-            OpenLayers.Function.bindAsEventListener(this.buttonDown, btn));
-        OpenLayers.Event.observe(btn, "dblclick", 
-            OpenLayers.Function.bindAsEventListener(this.doubleClick, btn));
-        OpenLayers.Event.observe(btn, "click", 
-            OpenLayers.Function.bindAsEventListener(this.doubleClick, btn));
         btn.action = id;
-        btn.map = this.map;
+        btn.className = "olButton";
     
-        if(!this.slideRatio){
-            var slideFactorPixels = this.slideFactor;
-            var getSlideFactor = function() {
-                return slideFactorPixels;
-            };
-        } else {
-            var slideRatio = this.slideRatio;
-            var getSlideFactor = function(dim) {
-                return this.map.getSize()[dim] * slideRatio;
-            };
-        }
-
-        btn.getSlideFactor = getSlideFactor;
-
         //we want to remember/reference the outer div
         this.buttons.push(btn);
         return btn;
@@ -162,9 +156,6 @@ OpenLayers.Control.PanZoom = OpenLayers.Class(OpenLayers.Control, {
      * btn - {Object}
      */
     _removeButton: function(btn) {
-        OpenLayers.Event.stopObservingElement(btn);
-        btn.map = null;
-        btn.getSlideFactor = null;
         this.div.removeChild(btn);
         OpenLayers.Util.removeItem(this.buttons, btn);
     },
@@ -179,31 +170,14 @@ OpenLayers.Control.PanZoom = OpenLayers.Class(OpenLayers.Control, {
     },
     
     /**
-     * Method: doubleClick
+     * Method: onButtonClick
      *
      * Parameters:
-     * evt - {Event} 
-     *
-     * Returns:
-     * {Boolean}
+     * evt - {Event}
      */
-    doubleClick: function (evt) {
-        OpenLayers.Event.stop(evt);
-        return false;
-    },
-    
-    /**
-     * Method: buttonDown
-     *
-     * Parameters:
-     * evt - {Event} 
-     */
-    buttonDown: function (evt) {
-        if (!OpenLayers.Event.isLeftClick(evt)) {
-            return;
-        }
-
-        switch (this.action) {
+    onButtonClick: function(evt) {
+        var btn = evt.buttonElement;
+        switch (btn.action) {
             case "panup": 
                 this.map.pan(0, -this.getSlideFactor("h"));
                 break;
@@ -226,8 +200,21 @@ OpenLayers.Control.PanZoom = OpenLayers.Class(OpenLayers.Control, {
                 this.map.zoomToMaxExtent(); 
                 break;
         }
-
-        OpenLayers.Event.stop(evt);
+    },
+    
+    /**
+     * Method: getSlideFactor
+     *
+     * Parameters:
+     * dim - {String} "w" or "h" (for width or height).
+     *
+     * Returns:
+     * {Number} The slide factor for panning in the requested direction.
+     */
+    getSlideFactor: function(dim) {
+        return this.slideRatio ?
+            this.map.getSize()[dim] * this.slideRatio :
+            this.slideFactor;
     },
 
     CLASS_NAME: "OpenLayers.Control.PanZoom"

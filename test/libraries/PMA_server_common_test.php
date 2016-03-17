@@ -9,11 +9,12 @@
 /*
  * Include to test.
  */
-require_once 'libraries/Util.class.php';
-require_once 'libraries/php-gettext/gettext.inc';
+use PMA\libraries\Theme;
+
+
 require_once 'libraries/url_generating.lib.php';
 require_once 'libraries/server_common.lib.php';
-require_once 'libraries/Theme.class.php';
+
 
 /**
  * PMA_ServerCommon_Test class
@@ -31,7 +32,7 @@ class PMA_ServerCommon_Test extends PHPUnit_Framework_TestCase
      */
     public function setUp()
     {
-        $_SESSION['PMA_Theme'] = PMA_Theme::load('./themes/pmahomme');
+        $_SESSION['PMA_Theme'] = Theme::load('./themes/pmahomme');
     }
 
     /**

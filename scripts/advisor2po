@@ -15,7 +15,7 @@ function add_message($rules, $idx, $type) {
     global $messages, $locations;
     // Get message text
     if ($type == 'justification') {
-        $msgs = Advisor::splitJustification($rules['rules'][$idx]);
+        $msgs = PMA\libraries\Advisor::splitJustification($rules['rules'][$idx]);
         $msg = $msgs[0];
     } else {
         $msg = $rules['rules'][$idx][$type];
@@ -43,23 +43,18 @@ function print_message($idx) {
         echo '#, php-format';
         echo "\n";
     }
-    echo 'msgid "' . addcslashes(Advisor::escapePercent($messages[$idx]), '"\\') . '"';
+    echo 'msgid "' . addcslashes(PMA\libraries\Advisor::escapePercent($messages[$idx]), '"\\') . '"';
     echo "\n";
     echo 'msgstr ""';
     echo "\n";
 }
 
 define('PHPMYADMIN', 1);
-if (!file_exists('./libraries/Advisor.class.php')) {
-    chdir('..');
-}
-include './libraries/String.class.php';
+require_once 'libraries/vendor_config.php';
+require_once 'libraries/autoloader.php';
+require_once 'libraries/core.lib.php';
 
-$GLOBALS['PMA_String'] = new PMA_String();
-
-include './libraries/Advisor.class.php';
-
-$rules = Advisor::parseRulesFile();
+$rules = PMA\libraries\Advisor::parseRulesFile();
 
 foreach($rules['rules'] as $idx => $rule) {
     add_message($rules, $idx, 'name');

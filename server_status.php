@@ -6,36 +6,32 @@
  * @package PhpMyAdmin
  */
 
+use PMA\libraries\Message;
+use PMA\libraries\ServerStatusData;
+
 require_once 'libraries/common.inc.php';
 require_once 'libraries/server_common.inc.php';
-require_once 'libraries/ServerStatusData.class.php';
 require_once 'libraries/server_status.lib.php';
 
 /**
  * Replication library
  */
-if (PMA_DRIZZLE) {
-    $GLOBALS['replication_info'] = array();
-    $GLOBALS['replication_info']['master']['status'] = false;
-    $GLOBALS['replication_info']['slave']['status'] = false;
-} else {
-    include_once 'libraries/replication.inc.php';
-    include_once 'libraries/replication_gui.lib.php';
-}
+require_once 'libraries/replication.inc.php';
+require_once 'libraries/replication_gui.lib.php';
 
 /**
  * start output
  */
-$response = PMA_Response::getInstance();
+$response = PMA\libraries\Response::getInstance();
 $response->addHTML('<div>');
 
-$serverStatusData = new PMA_ServerStatusData();
+$serverStatusData = new ServerStatusData();
 $response->addHTML($serverStatusData->getMenuHtml());
 if ($serverStatusData->dataLoaded) {
     $response->addHTML(PMA_getHtmlForServerStatus($serverStatusData));
 } else {
     $response->addHTML(
-        PMA_Message::error(
+        Message::error(
             __('Not enough privilege to view server status.')
         )->getDisplay()
     );

@@ -6,23 +6,17 @@
  * @package PhpMyAdmin
  */
 
+use PMA\libraries\Message;
+use PMA\libraries\ServerStatusData;
+
 require_once 'libraries/common.inc.php';
-require_once 'libraries/Advisor.class.php';
-require_once 'libraries/ServerStatusData.class.php';
 require_once 'libraries/server_status_advisor.lib.php';
+require_once 'libraries/replication.inc.php';
+require_once 'libraries/replication_gui.lib.php';
 
-if (PMA_DRIZZLE) {
-    $GLOBALS['replication_info'] = array();
-    $GLOBALS['replication_info']['master']['status'] = false;
-    $GLOBALS['replication_info']['slave']['status'] = false;
-} else {
-    include_once 'libraries/replication.inc.php';
-    include_once 'libraries/replication_gui.lib.php';
-}
+$serverStatusData = new ServerStatusData();
 
-$serverStatusData = new PMA_ServerStatusData();
-
-$response = PMA_Response::getInstance();
+$response = PMA\libraries\Response::getInstance();
 $scripts = $response->getHeader()->getScripts();
 $scripts->addFile('server_status_advisor.js');
 
@@ -35,7 +29,7 @@ if ($serverStatusData->dataLoaded) {
     $response->addHTML(PMA_getHtmlForAdvisor());
 } else {
     $response->addHTML(
-        PMA_Message::error(
+        Message::error(
             __('Not enough privilege to view the advisor.')
         )->getDisplay()
     );

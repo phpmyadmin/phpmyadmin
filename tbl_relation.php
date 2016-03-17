@@ -19,24 +19,21 @@
  */
 namespace PMA;
 
-use PMA_Response;
-use PMA_Table;
-use PMA_Util;
+use PMA\libraries\controllers\table\TableRelationController;
+use PMA\libraries\Response;
+use PMA\libraries\Table;
+use PMA\libraries\Util;
 
 require_once 'libraries/common.inc.php';
-require_once 'libraries/di/Container.class.php';
-require_once 'libraries/controllers/TableRelationController.class.php';
-require_once 'libraries/Response.class.php';
-require_once 'libraries/Table.class.php';
-require_once 'libraries/Util.class.php';
 
-$container = DI\Container::getDefaultContainer();
-$container->factory('PMA\Controllers\Table\TableRelationController');
+$container = libraries\di\Container::getDefaultContainer();
+$container->factory('PMA\libraries\controllers\table\TableRelationController');
 $container->alias(
-    'TableRelationController', 'PMA\Controllers\Table\TableRelationController'
+    'TableRelationController',
+    'PMA\libraries\controllers\table\TableRelationController'
 );
-$container->set('PMA_Response', PMA_Response::getInstance());
-$container->alias('response', 'PMA_Response');
+$container->set('PMA\libraries\Response', Response::getInstance());
+$container->alias('response', 'PMA\libraries\Response');
 
 /* Define dependencies for the concerned controller */
 $db = $container->get('db');
@@ -49,11 +46,10 @@ $options_array = array(
     'RESTRICT' => 'RESTRICT',
 );
 $cfgRelation = PMA_getRelationsParam();
-$tbl_storage_engine = /*overload*/
-    mb_strtoupper(
-        $GLOBALS['dbi']->getTable($db, $table)->getStatusInfo('Engine')
-    );
-$upd_query = new PMA_Table($table, $db, $dbi);
+$tbl_storage_engine = mb_strtoupper(
+    $dbi->getTable($db, $table)->getStatusInfo('Engine')
+);
+$upd_query = new Table($table, $db, $dbi);
 
 $dependency_definitions = array(
     "options_array" => $options_array,
@@ -66,7 +62,7 @@ if ($cfgRelation['relwork']) {
         $db, $table, '', 'internal'
     );
 }
-if (PMA_Util::isForeignKeySupported($tbl_storage_engine)) {
+if (Util::isForeignKeySupported($tbl_storage_engine)) {
     $dependency_definitions['existrel_foreign'] = PMA_getForeigners(
         $db, $table, '', 'foreign'
     );
@@ -77,6 +73,6 @@ if ($cfgRelation['displaywork']) {
     $dependency_definitions['disp'] = 'asas';
 }
 
-/** @var Controllers\Table\TableRelationController $controller */
+/** @var TableRelationController $controller */
 $controller = $container->get('TableRelationController', $dependency_definitions);
 $controller->indexAction();

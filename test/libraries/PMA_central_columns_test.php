@@ -9,16 +9,18 @@
 /*
  * Include to test.
  */
+use PMA\libraries\Theme;
+use PMA\libraries\TypesMySQL;
+
 $GLOBALS['server'] = 1;
-require_once 'libraries/Util.class.php';
-require_once 'libraries/php-gettext/gettext.inc';
+
 require_once 'libraries/database_interface.inc.php';
-require_once 'libraries/Tracker.class.php';
+
 require_once 'libraries/relation.lib.php';
-require_once 'libraries/Message.class.php';
+
 require_once 'libraries/url_generating.lib.php';
-require_once 'libraries/Theme.class.php';
-require_once 'libraries/Types.class.php';
+
+
 require_once 'libraries/mysql_charsets.inc.php';
 require_once 'libraries/central_columns.lib.php';
 
@@ -73,7 +75,7 @@ class PMA_Central_Columns_Test extends PHPUnit_Framework_TestCase
      */
     public function setUp()
     {
-        $GLOBALS['PMA_Types'] = new PMA_Types_MySQL();
+        $GLOBALS['PMA_Types'] = new TypesMySQL();
         $GLOBALS['cfg']['Server']['user'] = 'pma_user';
         $GLOBALS['cfg']['Server']['DisableIS'] = true;
         $GLOBALS['cfg']['MaxRows'] = 10;
@@ -87,8 +89,8 @@ class PMA_Central_Columns_Test extends PHPUnit_Framework_TestCase
 
         //$_SESSION
         $GLOBALS['server'] = 1;
-        $_SESSION['PMA_Theme'] = PMA_Theme::load('./themes/pmahomme');
-        $_SESSION['PMA_Theme'] = new PMA_Theme();
+        $_SESSION['PMA_Theme'] = Theme::load('./themes/pmahomme');
+        $_SESSION['PMA_Theme'] = new Theme();
         $_SESSION['relation'][1] = array(
             'PMA_VERSION' => PMA_VERSION,
             'centralcolumnswork' => true,
@@ -99,7 +101,7 @@ class PMA_Central_Columns_Test extends PHPUnit_Framework_TestCase
         );
 
         // mock DBI
-        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
         $GLOBALS['dbi'] = $dbi;
@@ -269,11 +271,11 @@ class PMA_Central_Columns_Test extends PHPUnit_Framework_TestCase
 
         // when column does not exist in the central column list
         $this->assertInstanceOf(
-            'PMA_Message', PMA_deleteColumnsFromList(array('column1'), false)
+            'PMA\libraries\Message', PMA_deleteColumnsFromList(array('column1'), false)
         );
 
         $this->assertInstanceOf(
-            'PMA_Message', PMA_deleteColumnsFromList(array('PMA_table'))
+            'PMA\libraries\Message', PMA_deleteColumnsFromList(array('PMA_table'))
         );
     }
 
@@ -468,7 +470,7 @@ class PMA_Central_Columns_Test extends PHPUnit_Framework_TestCase
             $result_1
         );
         $this->assertContains(
-            PMA_Util::pageselector(
+            PMA\libraries\Util::pageselector(
                 'pos', 10, 2, 3
             ),
             $result_1
@@ -578,7 +580,7 @@ class PMA_Central_Columns_Test extends PHPUnit_Framework_TestCase
     public function testPMAConfigErrorMessage()
     {
         $this->assertInstanceOf(
-            'PMA_Message',
+            'PMA\libraries\Message',
             PMA_configErrorMessage()
         );
     }

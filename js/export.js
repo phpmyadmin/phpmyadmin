@@ -305,16 +305,16 @@ AJAX.registerOnload('export.js', function () {
         } else {
             // enable the SQL comment options
             if (comments_are_present) {
-                $("#checkbox_sql_dates").removeProp('disabled').parent().fadeTo('fast', 1);
+                $("#checkbox_sql_dates").prop('disabled', false).parent().fadeTo('fast', 1);
             }
-            $("#checkbox_sql_relation").removeProp('disabled').parent().fadeTo('fast', 1);
-            $("#checkbox_sql_mime").removeProp('disabled').parent().fadeTo('fast', 1);
+            $("#checkbox_sql_relation").prop('disabled', false).parent().fadeTo('fast', 1);
+            $("#checkbox_sql_mime").prop('disabled', false).parent().fadeTo('fast', 1);
         }
 
         if (show == 'structure') {
             $('#checkbox_sql_auto_increment').prop('disabled', true).parent().fadeTo('fast', 0.4);
         } else {
-            $("#checkbox_sql_auto_increment").removeProp('disabled').parent().fadeTo('fast', 1);
+            $("#checkbox_sql_auto_increment").prop('disabled', false).parent().fadeTo('fast', 1);
         }
     });
 
@@ -349,7 +349,7 @@ function setup_table_structure_or_data() {
     } else {
         $('input[name="structure_or_data_forced"]').val(0);
         $('.export_structure input[type="checkbox"], .export_data input[type="checkbox"]')
-            .removeProp('disabled');
+            .prop('disabled', false);
         $('.export_structure, .export_data').fadeTo('fast', 1);
 
         var structure_or_data = $('input[name="' + formElemName + '_default"]').val();
@@ -442,10 +442,10 @@ function toggle_sql_include_comments()
         } else {
             // If structure is not being exported, the comment options for structure should not be enabled
             if ($("#radio_sql_structure_or_data_data").prop("checked")) {
-                $("#text_sql_header_comment").removeProp('disabled').parent("li").fadeTo('fast', 1);
+                $("#text_sql_header_comment").prop('disabled', false).parent("li").fadeTo('fast', 1);
             } else {
                 $ulIncludeComments.find("> li").fadeTo('fast', 1);
-                $ulIncludeComments.find("> li > input").removeProp('disabled');
+                $ulIncludeComments.find("> li > input").prop('disabled', false);
             }
         }
     });

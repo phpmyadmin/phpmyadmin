@@ -63,9 +63,9 @@ AJAX.registerOnload('tbl_select.js', function () {
      * after a couple of clicks
      */
     $('<div id="togglesearchformdiv"><a id="togglesearchformlink"></a></div>')
-     .insertAfter('#tbl_search_form')
-     // don't show it until we have results on-screen
-     .hide();
+        .insertAfter('#tbl_search_form')
+        // don't show it until we have results on-screen
+        .hide();
 
     $('#togglesearchformlink')
         .html(PMA_messages.strShowSearchCriteria)
@@ -160,17 +160,18 @@ AJAX.registerOnload('tbl_select.js', function () {
                     $(".sqlqueryresults").trigger('makegrid').trigger('stickycolumns');
                 }
                 $('#tbl_search_form')
-                // workaround for bug #3168569 - Issue on toggling the "Hide search criteria" in chrome.
-                 .slideToggle()
-                 .hide();
+                    // workaround for bug #3168569 - Issue on toggling the "Hide search criteria" in chrome.
+                    .slideToggle()
+                    .hide();
                 $('#togglesearchformlink')
-                 // always start with the Show message
-                 .text(PMA_messages.strShowSearchCriteria);
+                    // always start with the Show message
+                    .text(PMA_messages.strShowSearchCriteria);
                 $('#togglesearchformdiv')
-                 // now it's time to show the div containing the link
-                 .show();
-                 // needed for the display options slider in the results
+                    // now it's time to show the div containing the link
+                    .show();
+                // needed for the display options slider in the results
                 PMA_init_slider();
+                $('html, body').animate({scrollTop: 0}, 'fast');
             } else {
                 $("#sqlqueryresultsouter").html(data.error);
             }
@@ -369,11 +370,11 @@ AJAX.registerOnload('tbl_select.js', function () {
                         $('<div/>').append(
                             '<fieldset>' +
                             '<legend>' + operator + '</legend>' +
-                            '<lablel for="min_value">' + PMA_messages.strMinValue +
+                            '<label for="min_value">' + PMA_messages.strMinValue +
                             '</label>' +
                             '<input type="text" id="min_value" />' + '<br>' +
                             '<span class="small_font">' + min + '</span>' + '<br>' +
-                            '<lablel for="max_value">' + PMA_messages.strMaxValue +
+                            '<label for="max_value">' + PMA_messages.strMaxValue +
                             '</label>' +
                             '<input type="text" id="max_value" />' + '<br>' +
                             '<span class="small_font">' + max + '</span>' +
@@ -403,5 +404,4 @@ AJAX.registerOnload('tbl_select.js', function () {
             });
         }
     });
-
 });

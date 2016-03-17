@@ -7,7 +7,7 @@
  */
 
 // unplanned execution path
-if (! defined('PMA_MINIMUM_COMMON')) {
+if (! defined('PMA_MINIMUM_COMMON') && ! defined('TESTSUITE')) {
     exit();
 }
 

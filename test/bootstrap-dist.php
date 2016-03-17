@@ -48,15 +48,18 @@ foreach ($test_defaults as $varname => $defvalue) {
     }
 }
 
-require_once 'libraries/String.class.php';
+require_once 'libraries/vendor_config.php';
+require_once 'libraries/autoloader.php';
 require_once 'libraries/core.lib.php';
-$GLOBALS['PMA_String'] = new PMA_String();
-require_once 'libraries/Config.class.php';
-$CFG = new PMA_Config();
+$CFG = new PMA\libraries\Config();
 // Initialize PMA_VERSION variable
 define('PMA_VERSION', $CFG->get('PMA_VERSION'));
 unset($CFG);
 require_once 'libraries/sql-parser/autoload.php';
+
+/* Ensure default langauge is active */
+require_once 'libraries/php-gettext/gettext.inc';
+PMA\libraries\LanguageManager::getInstance()->getLanguage('en')->activate();
 
 // Set proxy information from env, if available
 $http_proxy = getenv('http_proxy');
@@ -78,6 +81,7 @@ $_SESSION[' PMA_token '] = 'token';
 $_SESSION['tmpval']['pftext'] = 'F';
 $GLOBALS['lang'] = 'en';
 $GLOBALS['is_ajax_request'] = false;
+$GLOBALS['cell_align_left'] = 'left';
 
 // Check whether we have runkit extension
 define('PMA_HAS_RUNKIT', function_exists('runkit_constant_redefine'));

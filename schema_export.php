@@ -5,12 +5,12 @@
  *
  * @package PhpMyAdmin
  */
+use PMA\libraries\plugins\SchemaPlugin;
 
 /**
  * Gets some core libraries
  */
 require_once 'libraries/common.inc.php';
-require 'libraries/StorageEngine.class.php';
 
 /**
  * get all variables needed for exporting relational schema
@@ -18,12 +18,11 @@ require 'libraries/StorageEngine.class.php';
  */
 $cfgRelation = PMA_getRelationsParam();
 
-require_once 'libraries/Index.class.php';
 require_once 'libraries/pmd_common.php';
 require_once 'libraries/plugin_interface.lib.php';
 
 if (! isset($_REQUEST['export_type'])) {
-    PMA_Util::checkParameters(array('export_type'));
+    PMA\libraries\Util::checkParameters(array('export_type'));
 }
 
 /**

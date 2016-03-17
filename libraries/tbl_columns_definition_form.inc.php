@@ -6,6 +6,9 @@
  *
  * @package PhpMyAdmin
  */
+use PMA\libraries\Table;
+use PMA\Util;
+
 if (!defined('PHPMYADMIN')) {
     exit;
 }
@@ -13,14 +16,11 @@ if (!defined('PHPMYADMIN')) {
 /**
  * Check parameters
  */
-require_once 'libraries/di/Container.class.php';
-require_once 'libraries/Util.class.php';
-require_once 'libraries/Template.class.php';
 require_once 'libraries/util.lib.php';
 
-use PMA\Util;
-
-PMA_Util::checkParameters(array('server', 'db', 'table', 'action', 'num_fields'));
+PMA\libraries\Util::checkParameters(
+    array('server', 'db', 'table', 'action', 'num_fields')
+);
 
 global $db, $table;
 
@@ -41,15 +41,6 @@ if (!isset($columnMeta)) {
 
 // Get available character sets and storage engines
 require_once './libraries/mysql_charsets.inc.php';
-require_once './libraries/StorageEngine.class.php';
-
-/**
- * Class for partition management
- */
-require_once './libraries/Partition.class.php';
-
-/** @var PMA_String $pmaString */
-$pmaString = $GLOBALS['PMA_String'];
 
 $length_values_input_size = 8;
 
@@ -102,8 +93,8 @@ $comments_map = PMA_getComments($db, $table);
 
 $move_columns = array();
 if (isset($fields_meta)) {
-    /** @var PMA_DatabaseInterface $dbi */
-    $dbi = \PMA\DI\Container::getDefaultContainer()->get('dbi');
+    /** @var PMA\libraries\DatabaseInterface $dbi */
+    $dbi = \PMA\libraries\di\Container::getDefaultContainer()->get('dbi');
     $move_columns = $dbi->getTable($db, $table)->getColumnsMeta();
 }
 
@@ -121,7 +112,9 @@ if (isset($field_fulltext) && is_array($field_fulltext)) {
         $submit_fulltext[$fulltext_indexkey] = $fulltext_indexkey;
     }
 }
-if (isset($_REQUEST['submit_num_fields'])) {
+if (isset($_REQUEST['submit_num_fields'])
+    || isset($_REQUEST['submit_partition_change'])
+) {
     //if adding new fields, set regenerate to keep the original values
     $regenerate = 1;
 }
@@ -239,7 +232,7 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
             'VIRTUAL', 'PERSISTENT', 'VIRTUAL GENERATED', 'STORED GENERATED'
         );
         if (in_array($columnMeta['Extra'], $virtual)) {
-            $tableObj = new PMA_Table($GLOBALS['table'], $GLOBALS['db']);
+            $tableObj = new Table($GLOBALS['table'], $GLOBALS['db']);
             $expressions = $tableObj->getColumnGenerationExpression(
                 $columnMeta['Field']
             );
@@ -272,10 +265,12 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
     }
 
     if (isset($columnMeta['Type'])) {
-        $extracted_columnspec = PMA_Util::extractColumnSpec($columnMeta['Type']);
+        $extracted_columnspec = PMA\libraries\Util::extractColumnSpec(
+            $columnMeta['Type']
+        );
         if ($extracted_columnspec['type'] == 'bit') {
             $columnMeta['Default']
-                = PMA_Util::convertBitDefaultValue($columnMeta['Default']);
+                = PMA\libraries\Util::convertBitDefaultValue($columnMeta['Default']);
         }
         $type = $extracted_columnspec['type'];
         if ($length == '') {
@@ -306,7 +301,7 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
     // differs from the ones of the corresponding database.
     // rtrim the type, for cases like "float unsigned"
     $type = rtrim(
-        mb_ereg_replace('[\w\W]character set[\w\W]*', '', $type)
+        preg_replace('/[\s]character set[\s][\S]+/', '', $type)
     );
 
     /**
@@ -331,15 +326,11 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
         // old column type
         if (isset($columnMeta['Type'])) {
             // keep in uppercase because the new type will be in uppercase
-            $form_params['field_type_orig[' . $columnNumber . ']']
-                = /*overload*/
-                mb_strtoupper($type);
+            $form_params['field_type_orig[' . $columnNumber . ']'] = mb_strtoupper($type);
             if (isset($columnMeta['column_status'])
                 && !$columnMeta['column_status']['isEditable']
             ) {
-                $form_params['field_type[' . $columnNumber . ']']
-                    = /*overload*/
-                    mb_strtoupper($type);
+                $form_params['field_type[' . $columnNumber . ']'] = mb_strtoupper($type);
             }
         } else {
             $form_params['field_type_orig[' . $columnNumber . ']'] = '';
@@ -386,7 +377,7 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
     $content_cells[$columnNumber] = array(
         'columnNumber' => $columnNumber,
         'columnMeta' => $columnMeta,
-        'type_upper' => /*overload*/mb_strtoupper($type),
+        'type_upper' => mb_strtoupper($type),
         'length_values_input_size' => $length_values_input_size,
         'length' => $length,
         'extracted_columnspec' => $extracted_columnspec,
@@ -401,20 +392,21 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
     );
 } // end for
 
-$html = PMA\Template::get('columns_definitions/column_definitions_form')->render(
-    array(
-        'is_backup' => $is_backup,
-        'fields_meta' => isset($fields_meta) ? $fields_meta : null,
-        'mimework' => $cfgRelation['mimework'],
-        'action' => $action,
-        'form_params' => $form_params,
-        'content_cells' => $content_cells,
-    )
-);
+$html = PMA\libraries\Template::get('columns_definitions/column_definitions_form')
+    ->render(
+        array(
+            'is_backup'     => $is_backup,
+            'fields_meta'   => isset($fields_meta) ? $fields_meta : null,
+            'mimework'      => $cfgRelation['mimework'],
+            'action'        => $action,
+            'form_params'   => $form_params,
+            'content_cells' => $content_cells,
+        )
+    );
 
 unset($form_params);
 
-$response = PMA_Response::getInstance();
+$response = PMA\libraries\Response::getInstance();
 $response->getHeader()->getScripts()->addFiles(
     array(
         'jquery/jquery.uitablefilter.js',

@@ -148,10 +148,14 @@ function initGISVisualization() {
     selectVisualization();
     // Resizes the GIS visualization to fit into the space available
     resizeGISVisualization();
-    // Adds necessary styles to the div that coontains the openStreetMap
-    styleOSM();
-    // Draws openStreetMap with openLayers
-    drawOpenLayers();
+    if (typeof OpenLayers !== 'undefined') {
+        // Configure OpenLayers
+        OpenLayers._getScriptLocation = function() {return './js/openlayers/';};
+        // Adds necessary styles to the div that coontains the openStreetMap
+        styleOSM();
+        // Draws openStreetMap with openLayers
+        drawOpenLayers();
+    }
     // Loads the SVG element and make a reference to it
     loadSVG();
     // Adds controllers for zooming and panning
@@ -207,6 +211,9 @@ AJAX.registerOnload('tbl_gis_visualization.js', function () {
         initGISVisualization();
     }
 
+    if (typeof OpenLayers === 'undefined') {
+        $('#choice, #labelChoice').hide();
+    }
     $(document).on('click', '#choice', function () {
         if ($(this).prop('checked') === false) {
             $('#placeholder').show();

@@ -12,32 +12,16 @@ OpenLayers.Lang["zh-CN"] = {
 
     'unhandledRequest': "未处理的请求，返回值为 ${statusText}",
 
-    'permalink': "永久链接",
+    'Permalink': "永久链接",
 
-    'overlays': "叠加层",
+    'Overlays': "叠加层",
 
-    'baseLayer': "基础图层",
-
-    'sameProjection':
-        "鹰眼地图只有在和主地图使用相同的投影的时候才能正常共工作",
-
-    'readNotImplemented': "读取功能没有实现。",
-
-    'writeNotImplemented': "写入功能没有实现。",
+    'Base Layer': "基础图层",
 
     'noFID': "无法更新feature，缺少FID。",
 
-    'errorLoadingGML': "加载GML文件 ${url} 出现错误。",
-
     'browserNotSupported':
         "你使用的浏览器不支持矢量渲染。当前支持的渲染方式包括：\n${renderers}",
-
-    'componentShouldBe': "addFeatures : 组件类型应该是 ${geomType}",
-
-    // console message
-    'getFeatureError':
-        "getFeatureFromEvent方法在一个没有渲染器的图层上被调用。 这通常意味着您" +
-        "销毁了一个图层，但并未销毁其关联的handler。",
 
     // console message
     'minZoomLevelError':
@@ -76,11 +60,7 @@ OpenLayers.Lang["zh-CN"] = {
         "<a href='http://trac.openlayers.org/wiki/${layerLib}' " +
         "target='_blank'>点击这里</a>",
 
-    'scale': "比例尺 = 1 : ${scaleDenom}",
-
-    // console message
-    'layerAlreadyAdded':
-        "你尝试添加图层： ${layerName} 到地图中，但是它之前就已经被添加。",
+    'Scale = 1 : ${scaleDenom}': "比例尺 = 1 : ${scaleDenom}",
 
     // console message
     'reprojectDeprecated':
@@ -96,21 +76,5 @@ OpenLayers.Lang["zh-CN"] = {
         "该方法已经不再被支持，并且将在3.0中被移除。" +
         "请使用 ${newMethod} 方法来替代。",
 
-    // console message
-    'boundsAddError': "您必须传递 x 和 y 两个参数值到 add 方法。",
-
-    // console message
-    'lonlatAddError': "您必须传递 lon 和 lat 两个参数值到 add 方法。",
-
-    // console message
-    'pixelAddError': "您必须传递 x and y 两个参数值到 add 方法。",
-
-    // console message
-    'unsupportedGeometryType': "不支持的几何体类型： ${geomType}",
-
-    // console message
-    'pagePositionFailed':
-        "OpenLayers.Util.pagePosition 失败：id 为 ${elemId} 的元素可能被错置。",
-                    
     'end': ''
 };

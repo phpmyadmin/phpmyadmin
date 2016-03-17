@@ -9,15 +9,16 @@
 /*
  * Include to test.
  */
-require_once 'libraries/Util.class.php';
-require_once 'libraries/php-gettext/gettext.inc';
+use PMA\libraries\Theme;
+
+
 require_once 'libraries/url_generating.lib.php';
-require_once 'libraries/Tracker.class.php';
+
 require_once 'libraries/database_interface.inc.php';
 require_once 'libraries/replication.inc.php';
 require_once 'libraries/replication_gui.lib.php';
-require_once 'libraries/Theme.class.php';
-require_once 'libraries/Message.class.php';
+
+
 require_once 'libraries/sanitizing.lib.php';
 require_once 'libraries/js_escape.lib.php';
 
@@ -59,8 +60,8 @@ class PMA_ServerReplication_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['pmaThemeImage'] = 'image';
 
         //$_SESSION
-        $_SESSION['PMA_Theme'] = PMA_Theme::load('./themes/pmahomme');
-        $_SESSION['PMA_Theme'] = new PMA_Theme();
+        $_SESSION['PMA_Theme'] = Theme::load('./themes/pmahomme');
+        $_SESSION['PMA_Theme'] = new Theme();
 
         //Mock DBI
 
@@ -80,7 +81,7 @@ class PMA_ServerReplication_Test extends PHPUnit_Framework_TestCase
             ),
         );
 
-        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 

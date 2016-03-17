@@ -1,0 +1,30 @@
+<div id="div_mysql_charset_collations">
+    <table class="data noclick">
+        <tr>
+            <th id="collationHeader"><?= __('Collation'); ?></th>
+            <th><?= __('Description'); ?></th>
+        </tr>
+        <?php foreach ($mysqlCharsets as $current_charset): ?>
+            <tr>
+                <th colspan="2" class="right">
+                    <?= htmlspecialchars($current_charset); ?>
+                    <?php if (! empty($mysqlCharsetsDesc[$current_charset])): ?>
+                        (<i><?= htmlspecialchars($mysqlCharsetsDesc[$current_charset]); ?></i>)
+                    <?php endif; ?>
+                </th>
+            </tr>
+            <?php $odd_row = true; ?>
+            <?php foreach ($mysqlCollations[$current_charset] as $current_collation): ?>
+                <tr class="
+                    <?= ($odd_row ? 'odd' : 'even'); ?>
+                    <?= ($mysqlDftCollations[$current_charset] == $current_collation ? ' marked' : ''); ?>
+                    <?= ($mysqlCollAvailable[$current_collation] ? '' : ' disabled'); ?>
+                    ">
+                    <td><?= htmlspecialchars($current_collation); ?></td>
+                    <td><?= PMA_getCollationDescr($current_collation); ?></td>
+                </tr>
+                <?php $odd_row = ! $odd_row; ?>
+            <?php endforeach; ?>
+        <?php endforeach; ?>
+    </table>
+</div>

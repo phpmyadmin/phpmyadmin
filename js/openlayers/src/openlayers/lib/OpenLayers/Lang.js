@@ -1,9 +1,10 @@
-/* Copyright (c) 2006-2010 by OpenLayers Contributors (see authors.txt for 
- * full list of contributors). Published under the Clear BSD license.  
- * See http://svn.openlayers.org/trunk/openlayers/license.txt for the
+/* Copyright (c) 2006-2013 by OpenLayers Contributors (see authors.txt for
+ * full list of contributors). Published under the 2-clause BSD license.
+ * See license.txt in the OpenLayers distribution or repository for the
  * full text of the license. */
 
 /**
+ * @requires OpenLayers/BaseTypes.js
  * @requires OpenLayers/Console.js
  */
 
@@ -34,7 +35,7 @@ OpenLayers.Lang = {
      * Get the current language code.
      *
      * Returns:
-     * The current language code.
+     * {String} The current language code.
      */
     getCode: function() {
         if(!OpenLayers.Lang.code) {
@@ -48,7 +49,7 @@ OpenLayers.Lang = {
      * Set the language code for string translation.  This code is used by
      *     the <OpenLayers.Lang.translate> method.
      *
-     * Parameters-
+     * Parameters:
      * code - {String} These codes follow the IETF recommendations at
      *     http://www.ietf.org/rfc/rfc3066.txt.  If no value is set, the
      *     browser's language setting will be tested.  If no <OpenLayers.Lang>
@@ -58,7 +59,7 @@ OpenLayers.Lang = {
     setCode: function(code) {
         var lang;
         if(!code) {
-            code = (OpenLayers.Util.getBrowserName() == "msie") ?
+            code = (OpenLayers.BROWSER_NAME == "msie") ?
                 navigator.userLanguage : navigator.language;
         }
         var parts = code.split('-');
@@ -101,7 +102,7 @@ OpenLayers.Lang = {
      */
     translate: function(key, context) {
         var dictionary = OpenLayers.Lang[OpenLayers.Lang.getCode()];
-        var message = dictionary[key];
+        var message = dictionary && dictionary[key];
         if(!message) {
             // Message not found, fall back to message key
             message = key;

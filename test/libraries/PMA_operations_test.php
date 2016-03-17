@@ -10,15 +10,16 @@
  * Include to test.
  */
 
+use PMA\libraries\Theme;
+
 $GLOBALS['server'] = 1;
 require_once 'libraries/operations.lib.php';
 require_once 'libraries/url_generating.lib.php';
-require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/relation.lib.php';
-require_once 'libraries/Util.class.php';
-require_once 'libraries/Theme.class.php';
+
+
 require_once 'libraries/database_interface.inc.php';
-require_once 'libraries/Tracker.class.php';
+
 require_once 'libraries/mysql_charsets.inc.php';
 
 /**
@@ -37,13 +38,19 @@ class PMA_Operations_Test extends PHPUnit_Framework_TestCase
     {
         $GLOBALS['table'] = 'table';
         $GLOBALS['db'] = 'db';
-        $_SESSION['PMA_Theme'] = PMA_Theme::load('./themes/pmahomme');
+        $_SESSION['PMA_Theme'] = Theme::load('./themes/pmahomme');
         $GLOBALS['cfg'] = array(
             'ServerDefault' => 1,
             'ActionLinksMode' => 'icons',
         );
         $GLOBALS['cfg']['DBG']['sql'] = false;
         $GLOBALS['server'] = 1;
+
+        $GLOBALS['db_priv'] = true;
+        $GLOBALS['table_priv'] = true;
+        $GLOBALS['col_priv'] = true;
+        $GLOBALS['proc_priv'] = true;
+        $GLOBALS['flush_priv'] = true;
     }
 
     /**

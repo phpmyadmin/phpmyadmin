@@ -6,15 +6,14 @@
  * @package PhpMyAdmin-test
  */
 
+use PMA\libraries\Theme;
+
 /*
  * Include to test.
  */
 require_once 'libraries/transformations.lib.php';
-require_once 'libraries/Util.class.php';
 require_once 'libraries/database_interface.inc.php';
-require_once 'libraries/Tracker.class.php';
 require_once 'libraries/relation.lib.php';
-require_once 'libraries/Theme.class.php';
 
 /**
  * tests for transformation wrappers
@@ -33,7 +32,7 @@ class PMA_Transformation_Test extends PHPUnit_Framework_TestCase
     {
         $GLOBALS['table'] = 'table';
         $GLOBALS['db'] = 'db';
-        $_SESSION['PMA_Theme'] = PMA_Theme::load('./themes/pmahomme');
+        $_SESSION['PMA_Theme'] = Theme::load('./themes/pmahomme');
         $GLOBALS['cfg'] = array(
             'ServerDefault' => 1,
             'ActionLinksMode' => 'icons',
@@ -109,7 +108,7 @@ class PMA_Transformation_Test extends PHPUnit_Framework_TestCase
                     4 => 'Image/PNG: Inline',
                     5 => 'Text/Octetstream: Sql',
                     6 => 'Text/Plain: Binarytoip',
-                    7 => 'Text/Plain: Bool2text',
+                    7 => 'Text/Plain: Bool2Text',
                     8 => 'Text/Plain: Dateformat',
                     9 => 'Text/Plain: External',
                     10 => 'Text/Plain: Formatted',
@@ -119,55 +118,55 @@ class PMA_Transformation_Test extends PHPUnit_Framework_TestCase
                     14 => 'Text/Plain: Xml',
                     15 => 'Text/Plain: Link',
                     16 => 'Text/Plain: Longtoipv4',
-                    17 => 'Text/Plain: Preappend',
+                    17 => 'Text/Plain: PreApPend',
                     18 => 'Text/Plain: Substring',
                     ),
                 'transformation_file' => array (
-                    0 => 'output/Application_Octetstream_Download.class.php',
-                    1 => 'output/Application_Octetstream_Hex.class.php',
-                    2 => 'output/Image_JPEG_Inline.class.php',
-                    3 => 'output/Image_JPEG_Link.class.php',
-                    4 => 'output/Image_PNG_Inline.class.php',
-                    5 => 'output/Text_Octetstream_Sql.class.php',
-                    6 => 'output/Text_Plain_Binarytoip.class.php',
-                    7 => 'output/Text_Plain_Bool2text.class.php',
-                    8 => 'output/Text_Plain_Dateformat.class.php',
-                    9 => 'output/Text_Plain_External.class.php',
-                    10 => 'output/Text_Plain_Formatted.class.php',
-                    11 => 'output/Text_Plain_Imagelink.class.php',
-                    12 => 'output/Text_Plain_Json.class.php',
-                    13 => 'output/Text_Plain_Sql.class.php',
-                    14 => 'output/Text_Plain_Xml.class.php',
-                    15 => 'Text_Plain_Link.class.php',
-                    16 => 'Text_Plain_Longtoipv4.class.php',
-                    17 => 'Text_Plain_Preappend.class.php',
-                    18 => 'Text_Plain_Substring.class.php',
+                    0 => 'output/Application_Octetstream_Download.php',
+                    1 => 'output/Application_Octetstream_Hex.php',
+                    2 => 'output/Image_JPEG_Inline.php',
+                    3 => 'output/Image_JPEG_Link.php',
+                    4 => 'output/Image_PNG_Inline.php',
+                    5 => 'output/Text_Octetstream_Sql.php',
+                    6 => 'output/Text_Plain_Binarytoip.php',
+                    7 => 'output/Text_Plain_Bool2Text.php',
+                    8 => 'output/Text_Plain_Dateformat.php',
+                    9 => 'output/Text_Plain_External.php',
+                    10 => 'output/Text_Plain_Formatted.php',
+                    11 => 'output/Text_Plain_Imagelink.php',
+                    12 => 'output/Text_Plain_Json.php',
+                    13 => 'output/Text_Plain_Sql.php',
+                    14 => 'output/Text_Plain_Xml.php',
+                    15 => 'Text_Plain_Link.php',
+                    16 => 'Text_Plain_Longtoipv4.php',
+                    17 => 'Text_Plain_PreApPend.php',
+                    18 => 'Text_Plain_Substring.php',
                 ),
                 'input_transformation' => array(
                     'Image/JPEG: Upload',
-                    'Text/Plain: Fileupload',
+                    'Text/Plain: FileUpload',
                     'Text/Plain: Iptobinary',
                     'Text/Plain: JsonEditor',
-                    'Text/Plain: Regexvalidation',
+                    'Text/Plain: RegexValidation',
                     'Text/Plain: SqlEditor',
                     'Text/Plain: XmlEditor',
                     'Text/Plain: Link',
                     'Text/Plain: Longtoipv4',
-                    'Text/Plain: Preappend',
+                    'Text/Plain: PreApPend',
                     'Text/Plain: Substring',
                 ),
                 'input_transformation_file' => array(
-                    'input/Image_JPEG_Upload.class.php',
-                    'input/Text_Plain_Fileupload.class.php',
-                    'input/Text_Plain_Iptobinary.class.php',
-                    'input/Text_Plain_JsonEditor.class.php',
-                    'input/Text_Plain_Regexvalidation.class.php',
-                    'input/Text_Plain_SqlEditor.class.php',
-                    'input/Text_Plain_XmlEditor.class.php',
-                    'Text_Plain_Link.class.php',
-                    'Text_Plain_Longtoipv4.class.php',
-                    'Text_Plain_Preappend.class.php',
-                    'Text_Plain_Substring.class.php',
+                    'input/Image_JPEG_Upload.php',
+                    'input/Text_Plain_FileUpload.php',
+                    'input/Text_Plain_Iptobinary.php',
+                    'input/Text_Plain_JsonEditor.php',
+                    'input/Text_Plain_RegexValidation.php',
+                    'input/Text_Plain_SqlEditor.php',
+                    'input/Text_Plain_XmlEditor.php',
+                    'Text_Plain_Link.php',
+                    'Text_Plain_Longtoipv4.php',
+                    'Text_Plain_PreApPend.php',
+                    'Text_Plain_Substring.php',
                 ),
             ),
             PMA_getAvailableMIMEtypes()
@@ -245,7 +244,7 @@ class PMA_Transformation_Test extends PHPUnit_Framework_TestCase
     public function testClearTransformations()
     {
         // Mock dbi
-        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
         $dbi->expects($this->any())
