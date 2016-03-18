@@ -36,6 +36,13 @@ use PMA\libraries\properties\options\items\TextPropertyItem;
 class ExportSql extends ExportPlugin
 {
     /**
+     * Whether charset header was sent.
+     *
+     * @var boolean
+     */
+    private $_sent_charset = false;
+
+    /**
      * Constructor
      */
     public function __construct()
@@ -630,11 +637,7 @@ class ExportSql extends ExportPlugin
         }
 
         // restore connection settings
-        $charset = isset($GLOBALS['charset'])
-            ? $GLOBALS['charset'] : '';
-        if (!empty($GLOBALS['asfile'])
-            && isset($mysql_charset_map[$charset])
-        ) {
+        if ($this->_sent_charset) {
             $foot .= $crlf
                 . '/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;'
                 . $crlf
@@ -642,6 +645,7 @@ class ExportSql extends ExportPlugin
                 . $crlf
                 . '/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;'
                 . $crlf;
+            $this->_sent_charset = false;
         }
 
         /* Restore timezone */
@@ -754,6 +758,7 @@ class ExportSql extends ExportPlugin
                 . '/*!40101 SET @OLD_COLLATION_CONNECTION='
                 . '@@COLLATION_CONNECTION */;' . $crlf
                 . '/*!40101 SET NAMES ' . $set_names . ' */;' . $crlf . $crlf;
+            $this->_sent_charset = true;
         }
 
         return PMA_exportOutputHandler($head);
