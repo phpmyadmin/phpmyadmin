@@ -408,6 +408,10 @@ class Formatter
             $prev = $curr;
         }
 
+        if ($this->options['type'] === 'cli') {
+            return $ret . "\e[0m";
+        }
+
         return $ret;
     }
 
