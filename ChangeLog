@@ -70,6 +70,7 @@ phpMyAdmin - ChangeLog
 - issue #12094 PHP Fatal error: Call to undefined function __()
 - issue #12098 Fix login after logout with http authentication
 - issue #12074 Fixed possible invalid SQL export
+- issue #12026 Fixed parsing of UNION SELECT with brackets
 
 4.5.5.1 (2016-02-29)
 - issue #11971 CREATE UNIQUE INDEX index type is not recognized by parser.
