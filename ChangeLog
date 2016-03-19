@@ -62,6 +62,7 @@ phpMyAdmin - ChangeLog
 - issue #12098 Fix login after logout with http authentication
 - issue #12074 Fixed possible invalid SQL export
 - issue #12026 Fixed parsing of UNION SELECT with brackets
+- issue #12109 Fixed parsing of CREATE TABLE [AS] SELECT
 
 4.5.5.1 (2016-02-29)
 - issue #11971 CREATE UNIQUE INDEX index type is not recognized by parser.
