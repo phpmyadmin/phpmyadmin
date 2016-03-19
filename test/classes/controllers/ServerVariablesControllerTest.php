@@ -124,22 +124,31 @@ class ServerVariablesControllerTest extends PMATestCase
         $name_for_value_not_num = "PMA_key";
 
         //name is_numeric and the value type is byte
+        $args = array($name_for_value_byte, "3");
+        list($formattedValue, $isHtmlFormatted) = $method->invokeArgs($ctrl, $args);
         $this->assertEquals(
             '<abbr title="3">3 B</abbr>',
-            $method->invoke($ctrl, $name_for_value_byte, "3")
+            $formattedValue
         );
+        $this->assertEquals(true, $isHtmlFormatted);
 
         //name is_numeric and the value type is not byte
+        $args = array($name_for_value_not_byte, "3");
+        list($formattedValue, $isHtmlFormatted) = $method->invokeArgs($ctrl, $args);
         $this->assertEquals(
             '3',
-            $method->invoke($ctrl, $name_for_value_not_byte, "3")
+            $formattedValue
         );
+        $this->assertEquals(false, $isHtmlFormatted);
 
         //value is not a number
+        $args = array($name_for_value_not_byte, "value");
+        list($formattedValue, $isHtmlFormatted) = $method->invokeArgs($ctrl, $args);
         $this->assertEquals(
             'value',
-            $method->invoke($ctrl, $name_for_value_not_num, "value")
+            $formattedValue
         );
+        $this->assertEquals(false, $isHtmlFormatted);
     }
 
     /**
@@ -293,7 +302,8 @@ class ServerVariablesControllerTest extends PMATestCase
         $formatVariable = $class->getMethod('_formatVariable');
         $formatVariable->setAccessible(true);
 
-        $value = $formatVariable->invoke($ctrl, $name, "12");
+        $args = array($name, "12");
+        list($value, $isHtmlFormatted) = $formatVariable->invokeArgs($ctrl, $args);
         $this->assertContains(
             $value,
             $html
@@ -305,7 +315,8 @@ class ServerVariablesControllerTest extends PMATestCase
             $html
         );
 
-        $value = $formatVariable->invoke($ctrl, $name, "13");
+        $args = array($name, "13");
+        list($value, $isHtmlFormatted) = $formatVariable->invokeArgs($ctrl, $args);
         $this->assertContains(
             $value,
             $html
