@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-02-22 14:22+0100\n"
-"PO-Revision-Date: 2016-03-09 13:05+0000\n"
-"Last-Translator: Julian Ladisch <github.com-t3if@ladisch.de>\n"
+"PO-Revision-Date: 2016-03-21 22:00+0000\n"
+"Last-Translator: Tobias Bannert <tobannert@gmail.com>\n"
 "Language-Team: German "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/de/>\n"
 "Language: de\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.5-dev\n"
+"X-Generator: Weblate 2.6-dev\n"
 
 #: changelog.php:37 license.php:33
 #, php-format
@@ -390,7 +390,7 @@ msgstr "Ungültiger Typ für Export"
 #: gis_data_editor.php:117
 #, php-format
 msgid "Value for the column \"%s\""
-msgstr "Wert für die Spalte \"%s\""
+msgstr "Wert für die Spalte »%s«"
 
 #: gis_data_editor.php:145
 #: templates/table/gis_visualization/gis_visualization.phtml:38
