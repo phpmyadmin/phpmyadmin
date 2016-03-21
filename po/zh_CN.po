@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-02-22 14:22+0100\n"
-"PO-Revision-Date: 2015-11-19 08:10+0000\n"
-"Last-Translator: disorderman <disorderman@qq.com>\n"
-"Language-Team: Chinese (China) <https://hosted.weblate.org/projects/"
-"phpmyadmin/master/zh_CN/>\n"
+"PO-Revision-Date: 2016-03-21 08:37+0000\n"
+"Last-Translator: YF <yfdyh000@gmail.com>\n"
+"Language-Team: Chinese (China) "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/zh_CN/>\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 2.5-dev\n"
+"X-Generator: Weblate 2.6-dev\n"
 
 #: changelog.php:37 license.php:33
 #, php-format
@@ -573,7 +573,7 @@ msgid "Bookmark %s has been created."
 msgstr "已创建书签 %s。"
 
 #: import.php:679
-#, fuzzy, php-format
+#, php-format
 #| msgid "Import has been successfully finished, %d queries executed."
 msgid "Import has been successfully finished, %d query executed."
 msgid_plural "Import has been successfully finished, %d queries executed."
@@ -750,7 +750,7 @@ msgstr ""
 msgid ""
 "The curl extension was not found and allow_url_fopen is disabled. Due to "
 "this some features such as error reporting or version check are disabled."
-msgstr ""
+msgstr "curl 扩展未找到并且 allow_url_fopen 已禁用。因此一些功能如错误报告和版本检查已禁用。"
 
 #: index.php:499
 msgid ""
@@ -913,10 +913,9 @@ msgid "Do you really want to TRUNCATE the selected partition(s)?"
 msgstr "您真的要清空所选择的分区吗？"
 
 #: js/messages.php:87
-#, fuzzy
 #| msgid "Do you really want to TRUNCATE the selected partition(s)?"
 msgid "Do you really want to remove partitioning?"
-msgstr "您真的要清空所选择的分区吗？"
+msgstr "您真的要移除分区吗？"
 
 #: js/messages.php:88
 msgid "Do you really want to RESET SLAVE?"
@@ -1626,10 +1625,9 @@ msgid "Formatting SQL…"
 msgstr "正在格式化SQL……"
 
 #: js/messages.php:348
-#, fuzzy
 #| msgid "Bad parameters!"
 msgid "No parameters found!"
-msgstr "参数无效！"
+msgstr "未找到参数！"
 
 #: js/messages.php:352
 #: templates/database/designer/aggregate_query_panel.phtml:63
@@ -2480,22 +2478,19 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:713
-#, fuzzy
 #| msgid "Copy database to"
 msgid "Copy tables to"
-msgstr "复制数据库到"
+msgstr "复制数据表到"
 
 #: js/messages.php:714
-#, fuzzy
 #| msgid "Add table prefix:"
 msgid "Add table prefix"
-msgstr "添加表前缀："
+msgstr "添加表前缀"
 
 #: js/messages.php:715
-#, fuzzy
 #| msgid "Replace table prefix"
 msgid "Replace table with prefix"
-msgstr "修改表前缀"
+msgstr "替换表前缀"
 
 #: js/messages.php:716 templates/database/structure/check_all_tables.phtml:29
 msgid "Copy table with prefix"
@@ -2924,7 +2919,7 @@ msgstr "数据库"
 #, php-format
 msgid "Showing %1$d bookmark (both private and shared)"
 msgid_plural "Showing %1$d bookmarks (both private and shared)"
-msgstr[0] ""
+msgstr[0] "已显示 %1$d 个书签（包括私有和共享）"
 
 #: libraries/Console.php:107
 msgid "No bookmarks"
