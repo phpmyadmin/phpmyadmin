@@ -409,6 +409,8 @@ PMA_DROP_IMPORT = {
      */
     _drop: function (event) {
         var dbname = PMA_commonParams.get('db');
+        var server = PMA_commonParams.get('server');
+
         //if no database is selected -- no
         if (dbname !== '') {
             var files = event.originalEvent.dataTransfer.files;
@@ -449,6 +451,7 @@ PMA_DROP_IMPORT = {
                     fd.append('import_file', files[i]);
                     fd.append('noplugin', Math.random().toString(36).substring(2, 12));
                     fd.append('db', dbname);
+                    fd.append('server', server);
                     fd.append('token', PMA_commonParams.get('token'));
                     fd.append('import_type', 'database');
                     // todo: method to find the value below
