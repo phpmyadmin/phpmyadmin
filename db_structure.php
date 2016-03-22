@@ -28,7 +28,9 @@ list(
 ) = Util::getDbInfo($GLOBALS['db'], isset($sub_part) ? $sub_part : '');
 
 $container = libraries\di\Container::getDefaultContainer();
-$container->factory('PMA\libraries\controllers\database\DatabaseStructureController');
+$container->factory(
+    'PMA\libraries\controllers\database\DatabaseStructureController'
+);
 $container->alias(
     'DatabaseStructureController',
     'PMA\libraries\controllers\database\DatabaseStructureController'

@@ -266,10 +266,11 @@ foreach ($loop_array as $rownumber => $where_clause) {
         if (! isset($multi_edit_virtual) || ! isset($multi_edit_virtual[$key])) {
             list($query_values, $query_fields)
                 = PMA_getQueryValuesForInsertAndUpdateInMultipleEdit(
-                    $multi_edit_columns_name, $multi_edit_columns_null, $current_value,
-                    $multi_edit_columns_prev, $multi_edit_funcs, $is_insert,
-                    $query_values, $query_fields, $current_value_as_an_array,
-                    $value_sets, $key, $multi_edit_columns_null_prev
+                    $multi_edit_columns_name, $multi_edit_columns_null,
+                    $current_value, $multi_edit_columns_prev, $multi_edit_funcs,
+                    $is_insert, $query_values, $query_fields,
+                    $current_value_as_an_array, $value_sets, $key,
+                    $multi_edit_columns_null_prev
                 );
         }
         if (isset($multi_edit_columns_null[$key])) {

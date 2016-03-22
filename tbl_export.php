@@ -108,7 +108,7 @@ if (! empty($sql_query)) {
                 ),
                 array(
                     new SqlParser\Token($table),
-                    new SqlParser\Token('.',SqlParser\Token::TYPE_OPERATOR)
+                    new SqlParser\Token('.', SqlParser\Token::TYPE_OPERATOR)
                 )
             );
         }
