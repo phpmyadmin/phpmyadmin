@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-02-22 14:22+0100\n"
-"PO-Revision-Date: 2016-03-07 21:44+0000\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2016-03-22 04:00+0000\n"
+"Last-Translator: Chan Je Park <ejnahc@gmail.com>\n"
 "Language-Team: Korean "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/ko/>\n"
 "Language: ko\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 2.5-dev\n"
+"X-Generator: Weblate 2.6-dev\n"
 
 #: changelog.php:37 license.php:33
 #, php-format
@@ -763,6 +763,8 @@ msgid ""
 "The curl extension was not found and allow_url_fopen is disabled. Due to "
 "this some features such as error reporting or version check are disabled."
 msgstr ""
+"curl 확장 기능이 발견되지 않았고 allow_url_fopen 이 비활성화 되어있습니다. 이로 인해 오류 보고나 버전 체크와 같은 "
+"기능들이 제한됩니다."
 
 #: index.php:499
 msgid ""
@@ -1096,7 +1098,7 @@ msgstr "템플릿이 생성되었습니다."
 
 #: js/messages.php:155
 msgid "Template was loaded."
-msgstr ""
+msgstr "템플릿을 불러왔습니다."
 
 #: js/messages.php:156
 msgid "Template was updated."
