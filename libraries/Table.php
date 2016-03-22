@@ -940,30 +940,35 @@ class Table
 
                 $parser = new Parser($GLOBALS['sql_indexes']);
 
+                $GLOBALS['sql_indexes'] = '';
                 /**
                  * The ALTER statement that generates the indexes.
                  * @var \SqlParser\Statements\AlterStatement $statement
                  */
-                $statement = $parser->statements[0];
+                foreach ($parser->statements as $statement) {
 
-                // Changing the altered table to the destination.
-                $statement->table = $destination;
+                    // Changing the altered table to the destination.
+                    $statement->table = $destination;
 
-                // Removing the name of the constraints.
-                foreach ($statement->altered as $idx => $altered) {
-                    // All constraint names are removed because they must be unique.
-                    if ($altered->options->has('CONSTRAINT')) {
-                        $altered->field = null;
+                    // Removing the name of the constraints.
+                    foreach ($statement->altered as $idx => $altered) {
+                        // All constraint names are removed because they must be unique.
+                        if ($altered->options->has('CONSTRAINT')) {
+                            $altered->field = null;
+                        }
                     }
+
+                    // Building back the query.
+                    $sql_index = $statement->build() . ';';
+
+                    // Executing it.
+                    if ($mode == 'one_table' || $mode == 'db_copy') {
+                        $GLOBALS['dbi']->query($sql_index);
+                    }
+
+                    $GLOBALS['sql_indexes'] .= $sql_index;
                 }
 
-                // Building back the query.
-                $GLOBALS['sql_indexes'] = $statement->build() . ';';
-
-                // Executing it.
-                if ($mode == 'one_table' || $mode == 'db_copy') {
-                    $GLOBALS['dbi']->query($GLOBALS['sql_indexes']);
-                }
                 $GLOBALS['sql_query'] .= "\n" . $GLOBALS['sql_indexes'];
                 if ($mode == 'one_table' || $mode == 'db_copy') {
                     unset($GLOBALS['sql_indexes']);

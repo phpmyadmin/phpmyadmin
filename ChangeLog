@@ -64,6 +64,7 @@ phpMyAdmin - ChangeLog
 - issue #12026 Fixed parsing of UNION SELECT with brackets
 - issue #12109 Fixed parsing of CREATE TABLE [AS] SELECT
 - issue #12105 Multi-server drap-and-drop import always fails
+- issue #12116 Fulltext indexes are not copied when using copy database function
 
 4.5.5.1 (2016-02-29)
 - issue #11971 CREATE UNIQUE INDEX index type is not recognized by parser.
