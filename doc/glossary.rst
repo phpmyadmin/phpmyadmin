@@ -229,6 +229,10 @@ From Wikipedia, the free encyclopedia
 
       .. seealso:: <http://www.wikipedia.org/wiki/module>
 
+    mod_proxy_fcgi
+      an Apache module implmenting a Fast CGI interface; PHP can be run as a CGI module, FastCGI, or
+      directly as an Apache module.
+
     MySQL
       a multithreaded, multi-user, SQL (Structured Query Language) Database Management System (DBMS).	
 
