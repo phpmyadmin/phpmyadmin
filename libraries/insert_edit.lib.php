@@ -2316,7 +2316,8 @@ function PMA_getCurrentValueForDifferentTypes($possibly_uploaded_val, $key,
     if (false !== $possibly_uploaded_val) {
         $current_value = $possibly_uploaded_val;
     } else if (! empty($multi_edit_funcs[$key])) {
-        $current_value = "'" . PMA_Util::sqlAddSlashes($current_value) . "'";
+        $current_value = "'" . PMA\libraries\Util::sqlAddSlashes($current_value)
+            . "'";
     } else {
         // c o l u m n    v a l u e    i n    t h e    f o r m
         if (isset($multi_edit_columns_type[$key])) {
