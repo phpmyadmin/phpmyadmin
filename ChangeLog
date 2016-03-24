@@ -12,6 +12,7 @@ phpMyAdmin - ChangeLog
 
 4.6.1 (not yet released)
 - issue #12120 PMA_Util not found in insert_edit.lib.php
+- issue #12118 Fixed activation of some languages
 
 4.6.0.0 (2016-03-22)
 + issue #11456 Disabled storage engines
