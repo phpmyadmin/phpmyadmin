@@ -1933,7 +1933,7 @@ Note: The Range search feature will work only `Numeric` and `Date` data type col
 
 .. _faq6_36:
 
-6.36 What is Central columns and How can I use this feature?
+6.36 What is Central columns and how can I use this feature?
 ------------------------------------------------------------
 
 As the name suggests, the Central columns feature enables to maintain a central list of
