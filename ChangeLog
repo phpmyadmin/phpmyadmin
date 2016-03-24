@@ -11,6 +11,7 @@ phpMyAdmin - ChangeLog
 + issue #12047 Add javascript filtering for databases
 
 4.6.1 (not yet released)
+- issue #12120 PMA_Util not found in insert_edit.lib.php
 
 4.6.0.0 (2016-03-22)
 + issue #11456 Disabled storage engines
