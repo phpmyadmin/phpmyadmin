@@ -1575,10 +1575,10 @@ etc.).
 
 .. _faq6_17:
 
-6.17 Transformations: I can't enter my own mimetype! WTF is this feature then useful for?
+6.17 Transformations: I can't enter my own mimetype! What is this feature then useful for?
 -----------------------------------------------------------------------------------------
 
-Slow down :). Defining mimetypes is of no use, if you can't put
+Defining mimetypes is of no use if you can't put
 transformations on them. Otherwise you could just put a comment on the
 column. Because entering your own mimetype will cause serious syntax
 checking issues and validation, this introduces a high-risk false-
