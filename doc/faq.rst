@@ -2083,6 +2083,8 @@ phpMyAdmin project
 ---------------------------------------------------
 
 Our issues tracker is located at <https://github.com/phpmyadmin/phpmyadmin/issues>.
+For security issues, please refer to the instructions at <https://www.phpmyadmin.net/security> to email
+the developers directly.
 
 .. _faq7_2:
 
