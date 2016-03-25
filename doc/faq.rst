@@ -1187,20 +1187,13 @@ till version 6.
 
 .. _faq5_5:
 
-5.5 In Internet Explorer 5.0, I get JavaScript errors when browsing my rows.
+5.5 (withdrawn).
 ----------------------------------------------------------------------------
-
-Upgrade to at least Internet Explorer 5.5 SP2.
 
 .. _faq5_6:
 
-5.6 In Internet Explorer 5.0, 5.5 or 6.0, I get an error (like "Page not found") when trying to modify a row in a table with many columns, or with a text column.
+5.6 (withdrawn).
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-Your table neither have a primary key nor an unique one, so we must use a long
-:term:`URL` to identify this row. There is a limit on the length of the
-:term:`URL` in those browsers, and this not happen in Netscape, for example.
-The workaround is to create a primary or unique key, or use another browser.
 
 .. _faq5_7:
 
@@ -1228,12 +1221,8 @@ This is a Mozilla bug (see bug #26882 at `BugZilla
 
 .. _faq5_10:
 
-5.10 With Netscape 4.75 I get empty rows between each row of data in a CSV exported file.
+5.10 (withdrawn).
 -----------------------------------------------------------------------------------------
-
-This is a known Netscape 4.75 bug: it adds some line feeds when
-exporting data in octet-stream mode. Since we can't detect the
-specific Netscape version, we cannot workaround this bug.
 
 .. _faq5_11:
 
@@ -1255,25 +1244,18 @@ Netscape and Mozilla do not have this problem.
 
 .. _faq5_13:
 
-5.13 With Internet Explorer 5.5 or 6, and HTTP authentication type, I cannot manage two servers: I log in to the first one, then the other one, but if I switch back to the first, I have to log in on each operation.
+5.13 (withdrawn)
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-This is a bug in Internet Explorer, other browsers do not behave this
-way.
 
 .. _faq5_14:
 
-5.14 Using Opera6, I can manage to get to the authentication, but nothing happens after that, only a blank screen.
+5.14 (withdrawn)
 ------------------------------------------------------------------------------------------------------------------
-
-Please upgrade to Opera7 at least.
 
 .. _faq5_15:
 
-5.15 I have display problems with Safari.
+5.15 (withdrawn)
 -----------------------------------------
-
-Please upgrade to at least version 1.2.3.
 
 .. _faq5_16:
 
@@ -1301,13 +1283,8 @@ installed in their Firefox is causing the problem.
 
 .. _faq5_18:
 
-5.18 With Konqueror 4.2.x an invalid ``LIMIT`` clause is generated when I browse a table.
+5.18 (withdrawn)
 -----------------------------------------------------------------------------------------
-
-This happens only when both of these conditions are met: using the
-``http`` authentication mode and ``register_globals`` being set to
-``On`` on the server. It seems to be a browser-specific problem;
-meanwhile use the ``cookie`` authentication mode.
 
 .. _faq5_19:
 
@@ -1598,10 +1575,10 @@ etc.).
 
 .. _faq6_17:
 
-6.17 Transformations: I can't enter my own mimetype! WTF is this feature then useful for?
+6.17 Transformations: I can't enter my own mimetype! What is this feature then useful for?
 -----------------------------------------------------------------------------------------
 
-Slow down :). Defining mimetypes is of no use, if you can't put
+Defining mimetypes is of no use if you can't put
 transformations on them. Otherwise you could just put a comment on the
 column. Because entering your own mimetype will cause serious syntax
 checking issues and validation, this introduces a high-risk false-
@@ -1956,7 +1933,7 @@ Note: The Range search feature will work only `Numeric` and `Date` data type col
 
 .. _faq6_36:
 
-6.36 What is Central columns and How can I use this feature?
+6.36 What is Central columns and how can I use this feature?
 ------------------------------------------------------------
 
 As the name suggests, the Central columns feature enables to maintain a central list of
@@ -2106,6 +2083,8 @@ phpMyAdmin project
 ---------------------------------------------------
 
 Our issues tracker is located at <https://github.com/phpmyadmin/phpmyadmin/issues>.
+For security issues, please refer to the instructions at <https://www.phpmyadmin.net/security> to email
+the developers directly.
 
 .. _faq7_2:
 
