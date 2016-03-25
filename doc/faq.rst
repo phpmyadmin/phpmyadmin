@@ -618,7 +618,7 @@ Some users have requested to be able to reduce the size of the phpMyAdmin instal
 This is not recommended and could lead to confusion over missing features, but can be done.
 A list of files and corresponding functionality which degrade gracefully when removed include:
 
-* :file:`./libraries/tcpdf` folder (exporting to PDF)
+* :file:`./vendor/tecnickcom/tcpdf` folder (exporting to PDF)
 * :file:`./locale/` folder, or unused subfolders (interface translations)
 * Any unused themes in :file:`./themes/`
 * :file:`./js/jquery/src/` (included for licensing reasons)
