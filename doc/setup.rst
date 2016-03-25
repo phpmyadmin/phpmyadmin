@@ -606,7 +606,7 @@ HTTP authentication mode
   support using :term:`CGI` PHP see :ref:`faq1_32`, for using with Apache
   :term:`CGI` see :ref:`faq1_35`.
 * When PHP is running under Apache's :term:`mod_proxy_fcgi` (e.g. with PHP-FPM),
-  :term:`Authorization` headers are not passed to the underlying FCGI application,
+  ``Authorization`` headers are not passed to the underlying FCGI application,
   such that your credentials will not reach the application. In this case, you can
   add the following configuration directive:
 
