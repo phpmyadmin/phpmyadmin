@@ -535,9 +535,12 @@ class TypesMySQL extends Types
             'GEOMETRYCOLLECTION',
         );
 
-        $ret['JSON'] = array(
-            'JSON',
-        );
+        if (PMA_MYSQL_INT_VERSION >= 50708
+        ) {
+          $ret['JSON'] = array(
+              'JSON',
+          );
+        }
 
         return $ret;
     }
