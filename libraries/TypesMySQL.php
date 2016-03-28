@@ -536,6 +536,7 @@ class TypesMySQL extends Types
         );
 
         if (PMA_MYSQL_INT_VERSION >= 50708
+            && \PMA\libraries\Util::getServerType() != 'MariaDB'
         ) {
           $ret['JSON'] = array(
               'JSON',
