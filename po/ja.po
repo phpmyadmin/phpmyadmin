@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.0-alpha1\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-02-17 11:55+0100\n"
-"PO-Revision-Date: 2016-03-22 01:22+0000\n"
+"PO-Revision-Date: 2016-03-30 03:00+0000\n"
 "Last-Translator: Eshin Kunishima <ek@esh.ink>\n"
 "Language-Team: Japanese "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-6/ja/>\n"
@@ -1845,7 +1845,7 @@ msgstr "新しいカラムに対しての値"
 
 #: js/messages.php:398
 msgid "Enter each value in a separate field."
-msgstr "個々の入力欄にそれぞれ値を入力してください"
+msgstr "個々の入力欄にそれぞれ値を入力してください。"
 
 #: js/messages.php:399
 #, php-format
@@ -1941,7 +1941,7 @@ msgstr "もっと見る"
 
 #: js/messages.php:425
 msgid "Are you sure?"
-msgstr ""
+msgstr "本当ですか?"
 
 #: js/messages.php:427
 msgid ""
@@ -1982,7 +1982,7 @@ msgstr "改行コード"
 
 #: js/messages.php:439
 msgid "Second step of normalization (2NF)"
-msgstr ""
+msgstr "第2正規化 (2NF)"
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:440 js/messages.php:739 libraries/normalization.lib.php:285
@@ -2202,7 +2202,7 @@ msgstr "暗号化キーをコピーしますか？"
 
 #: js/messages.php:521
 msgid "Encryption key"
-msgstr ""
+msgstr "暗号化鍵"
 
 #: js/messages.php:525
 msgid ""
@@ -2290,7 +2290,7 @@ msgstr ""
 
 #: js/messages.php:549
 msgid "Successfully deleted the page"
-msgstr ""
+msgstr "ページの削除に成功しました"
 
 #: js/messages.php:550
 msgid "Export relational schema"
@@ -2406,7 +2406,7 @@ msgstr "中断"
 
 #: js/messages.php:593
 msgid "Success"
-msgstr ""
+msgstr "成功"
 
 #: js/messages.php:594
 #, fuzzy
@@ -2910,7 +2910,7 @@ msgstr "秒"
 
 #: js/messages.php:884
 msgid "This field is required"
-msgstr ""
+msgstr "このフィールドは必須です"
 
 #: js/messages.php:885
 #, fuzzy
@@ -3084,7 +3084,7 @@ msgstr ""
 
 #: libraries/Console.php:86 libraries/Console.php:197 libraries/Console.php:299
 msgid "Expand"
-msgstr ""
+msgstr "展開"
 
 #: libraries/Console.php:87 libraries/Console.php:198
 #, fuzzy
@@ -3162,7 +3162,7 @@ msgstr "SQL クエリボックス"
 
 #: libraries/Console.php:216
 msgid "Console"
-msgstr ""
+msgstr "コンソール"
 
 #: libraries/Console.php:219 libraries/sql_query_form.lib.php:244
 #: setup/frames/index.inc.php:300
@@ -5220,11 +5220,11 @@ msgstr "右"
 
 #: libraries/config.values.php:93
 msgid "Click"
-msgstr ""
+msgstr "クリック"
 
 #: libraries/config.values.php:94
 msgid "Double click"
-msgstr ""
+msgstr "ダブルクリック"
 
 #: libraries/config.values.php:95 libraries/config.values.php:125
 #: libraries/config/FormDisplay.tpl.php:234 libraries/relation.lib.php:98
