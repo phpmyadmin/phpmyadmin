@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.0-alpha1\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-02-17 11:55+0100\n"
-"PO-Revision-Date: 2015-10-15 11:09+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Hungarian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/hu/>\n"
+"PO-Revision-Date: 2016-03-31 11:24+0000\n"
+"Last-Translator: Krisztián Patai <pataikrisztian@gmail.com>\n"
+"Language-Team: Hungarian "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-6/hu/>\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.5-dev\n"
+"X-Generator: Weblate 2.6-dev\n"
 
 #: changelog.php:37 license.php:33
 #, php-format
@@ -776,6 +776,9 @@ msgid ""
 "The curl extension was not found and allow_url_fopen is disabled. Due to "
 "this some features such as error reporting or version check are disabled."
 msgstr ""
+"A curl kiterjesztés nem található és az allow_url_fopen le van tiltva. "
+"Emiatt néhány funkció - mint például a hibajelentés, vagy verzió ellenőrzés -"
+" le lett tiltva."
 
 #: index.php:499
 msgid ""
@@ -3689,7 +3692,7 @@ msgstr "Mind kijelölése"
 
 #: libraries/DisplayResults.php:5006
 msgid "Copy to clipboard"
-msgstr ""
+msgstr "Másolás vágólapra"
 
 #: libraries/DisplayResults.php:5062
 msgid "Query results operations"
