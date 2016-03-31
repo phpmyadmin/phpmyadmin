@@ -651,7 +651,11 @@ function PMA_changeClassForColumn($this_th, newclass, isAddClass)
     if (has_big_t) {
         th_index--;
     }
-    var $tds = $this_th.parents(".table_results").find('tbody tr').find('td.data:eq(' + th_index + ')');
+    var $table = $this_th.parents('.table_results');
+    if (! $table.length) {
+        $table = $this_th.parents('table').siblings('.table_results');
+    }
+    var $tds = $table.find('tbody tr').find('td.data:eq(' + th_index + ')');
     if (isAddClass === undefined) {
         $tds.toggleClass(newclass);
     } else {
