@@ -16,6 +16,7 @@ phpMyAdmin - ChangeLog
 - issue #12121 Fixed error in 3NF step of normalization
 - issue #12135 Fix offering JSON datatype in incompatible MySQL versions
 - issue #12132 Can not open table with JSON field
+- issue #12125 Cannot highlight a column if I scroll down from the top of the table
 
 4.6.0.0 (2016-03-22)
 + issue #11456 Disabled storage engines
