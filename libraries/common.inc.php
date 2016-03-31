@@ -788,7 +788,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
 
         // is a login without password allowed?
         if (! $cfg['Server']['AllowNoPassword']
-            && $cfg['Server']['password'] == ''
+            && $cfg['Server']['password'] === ''
         ) {
             $login_without_password_is_forbidden = true;
             PMA_logUser($cfg['Server']['user'], 'empty-denied');
