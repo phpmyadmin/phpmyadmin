@@ -9,6 +9,7 @@ phpMyAdmin - ChangeLog
 - issue #12132 Can not open table with JSON field
 - issue #12125 Cannot highlight a column if I scroll down from the top of the table
 - issue #12154 Fixed possible PHP error in SQL parser
+- issue #12029 Fixed SQL quoting in SQL export
 
 4.6.0.0 (2016-03-22)
 + issue #11456 Disabled storage engines
