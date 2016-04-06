@@ -151,7 +151,7 @@ class DBIMysqli implements DBIExtension
         }
 
         /* Optionally enable SSL */
-        if ($cfg['Server']['ssl'] && defined('MYSQLI_CLIENT_SSL')) {
+        if ($cfg['Server']['ssl']) {
             mysqli_ssl_set(
                 $link,
                 $cfg['Server']['ssl_key'],
@@ -160,16 +160,16 @@ class DBIMysqli implements DBIExtension
                 $cfg['Server']['ssl_ca_path'],
                 $cfg['Server']['ssl_ciphers']
             );
-            $ssl_flag = MYSQLI_CLIENT_SSL;
             /*
              * disables SSL certificate validation on mysqlnd for MySQL 5.6 or later
              * @link https://bugs.php.net/bug.php?id=68344
              * @link https://github.com/phpmyadmin/phpmyadmin/pull/11838
              */
-            if(!$cfg['Server']['ssl_verify'] && defined('MYSQLI_CLIENT_SSL_DONT_VERIFY_SERVER_CERT')) {
-                $ssl_flag = MYSQLI_CLIENT_SSL_DONT_VERIFY_SERVER_CERT;
-            }
-            $client_flags |= $ssl_flag;
+            mysqli_options(
+                $link,
+                MYSQLI_OPT_SSL_VERIFY_SERVER_CERT,
+                $cfg['Server']['ssl_verify']
+            );
         }
 
         if (! $server) {
