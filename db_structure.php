@@ -25,7 +25,7 @@ list(
     $tooltip_truename,
     $tooltip_aliasname,
     $pos
-) = Util::getDbInfo($GLOBALS['db'], isset($sub_part) ? $sub_part : '');
+) = Util::getDbInfo($GLOBALS['db'], '_structure');
 
 $container = libraries\di\Container::getDefaultContainer();
 $container->factory(
