@@ -4644,105 +4644,86 @@ class Util
         /**
          * information about tables in db
          */
-        $tables = array();
-
         $tooltip_truename = array();
         $tooltip_aliasname = array();
 
-        // Special speedup for newer MySQL Versions (in 4.0 format changed)
-        if (true === $cfg['SkipLockedTables']) {
-            $db_info_result = $GLOBALS['dbi']->query(
-                'SHOW OPEN TABLES FROM ' . Util::backquote($db) . ';'
+        // Set some sorting defaults
+        $sort = 'Name';
+        $sort_order = 'ASC';
+
+        if (isset($_REQUEST['sort'])) {
+            $sortable_name_mappings = array(
+                'table'       => 'Name',
+                'records'     => 'Rows',
+                'type'        => 'Engine',
+                'collation'   => 'Collation',
+                'size'        => 'Data_length',
+                'overhead'    => 'Data_free',
+                'creation'    => 'Create_time',
+                'last_update' => 'Update_time',
+                'last_check'  => 'Check_time',
+                'comment'     => 'Comment',
             );
 
-            // Blending out tables in use
-            if ($db_info_result && $GLOBALS['dbi']->numRows($db_info_result) > 0) {
-                $tables = self::getTablesWhenOpen($db, $db_info_result);
-
-            } elseif ($db_info_result) {
-                $GLOBALS['dbi']->freeResult($db_info_result);
+            // Make sure the sort type is implemented
+            if (isset($sortable_name_mappings[$_REQUEST['sort']])) {
+                $sort = $sortable_name_mappings[$_REQUEST['sort']];
+                if ($_REQUEST['sort_order'] == 'DESC') {
+                    $sort_order = 'DESC';
+                }
             }
         }
 
-        if (empty($tables)) {
-            // Set some sorting defaults
-            $sort = 'Name';
-            $sort_order = 'ASC';
+        $groupWithSeparator = false;
+        $tbl_type = null;
+        $limit_offset = 0;
+        $limit_count = false;
+        $groupTable = array();
 
-            if (isset($_REQUEST['sort'])) {
-                $sortable_name_mappings = array(
-                    'table'       => 'Name',
-                    'records'     => 'Rows',
-                    'type'        => 'Engine',
-                    'collation'   => 'Collation',
-                    'size'        => 'Data_length',
-                    'overhead'    => 'Data_free',
-                    'creation'    => 'Create_time',
-                    'last_update' => 'Update_time',
-                    'last_check'  => 'Check_time',
-                    'comment'     => 'Comment',
+        if (! empty($_REQUEST['tbl_group']) || ! empty($_REQUEST['tbl_type'])) {
+            if (! empty($_REQUEST['tbl_type'])) {
+                // only tables for selected type
+                $tbl_type = $_REQUEST['tbl_type'];
+            }
+            if (! empty($_REQUEST['tbl_group'])) {
+                // only tables for selected group
+                $tbl_group = $_REQUEST['tbl_group'];
+                // include the table with the exact name of the group if such
+                // exists
+                $groupTable = $GLOBALS['dbi']->getTablesFull(
+                    $db, $tbl_group, false, null, $limit_offset,
+                    $limit_count, $sort, $sort_order, $tbl_type
                 );
-
-                // Make sure the sort type is implemented
-                if (isset($sortable_name_mappings[$_REQUEST['sort']])) {
-                    $sort = $sortable_name_mappings[$_REQUEST['sort']];
-                    if ($_REQUEST['sort_order'] == 'DESC') {
-                        $sort_order = 'DESC';
-                    }
-                }
+                $groupWithSeparator = $tbl_group
+                    . $GLOBALS['cfg']['NavigationTreeTableSeparator'];
             }
-
-            $groupWithSeparator = false;
-            $tbl_type = null;
-            $limit_offset = 0;
-            $limit_count = false;
-            $groupTable = array();
-
-            if (! empty($_REQUEST['tbl_group']) || ! empty($_REQUEST['tbl_type'])) {
-                if (! empty($_REQUEST['tbl_type'])) {
-                    // only tables for selected type
-                    $tbl_type = $_REQUEST['tbl_type'];
-                }
-                if (! empty($_REQUEST['tbl_group'])) {
-                    // only tables for selected group
-                    $tbl_group = $_REQUEST['tbl_group'];
-                    // include the table with the exact name of the group if such
-                    // exists
-                    $groupTable = $GLOBALS['dbi']->getTablesFull(
-                        $db, $tbl_group, false, null, $limit_offset,
-                        $limit_count, $sort, $sort_order, $tbl_type
-                    );
-                    $groupWithSeparator = $tbl_group
-                        . $GLOBALS['cfg']['NavigationTreeTableSeparator'];
-                }
+        } else {
+            // all tables in db
+            // - get the total number of tables
+            //  (needed for proper working of the MaxTableList feature)
+            $tables = $GLOBALS['dbi']->getTables($db);
+            $total_num_tables = count($tables);
+            if (isset($sub_part) && $sub_part == '_export') {
+                // (don't fetch only a subset if we are coming from
+                // db_export.php, because I think it's too risky to display only
+                // a subset of the table names when exporting a db)
+                /**
+                 *
+                 * @todo Page selector for table names?
+                 */
             } else {
-                // all tables in db
-                // - get the total number of tables
-                //  (needed for proper working of the MaxTableList feature)
-                $tables = $GLOBALS['dbi']->getTables($db);
-                $total_num_tables = count($tables);
-                if (isset($sub_part) && $sub_part == '_export') {
-                    // (don't fetch only a subset if we are coming from
-                    // db_export.php, because I think it's too risky to display only
-                    // a subset of the table names when exporting a db)
-                    /**
-                     *
-                     * @todo Page selector for table names?
-                     */
-                } else {
-                    // fetch the details for a possible limited subset
-                    $limit_offset = $pos;
-                    $limit_count = true;
-                }
+                // fetch the details for a possible limited subset
+                $limit_offset = $pos;
+                $limit_count = true;
             }
-            $tables = array_merge(
-                $groupTable,
-                $GLOBALS['dbi']->getTablesFull(
-                    $db, $groupWithSeparator, ($groupWithSeparator !== false), null,
-                    $limit_offset, $limit_count, $sort, $sort_order, $tbl_type
-                )
-            );
         }
+        $tables = array_merge(
+            $groupTable,
+            $GLOBALS['dbi']->getTablesFull(
+                $db, $groupWithSeparator, ($groupWithSeparator !== false), null,
+                $limit_offset, $limit_count, $sort, $sort_order, $tbl_type
+            )
+        );
 
         $num_tables = count($tables);
         //  (needed for proper working of the MaxTableList feature)
@@ -4769,88 +4750,6 @@ class Util
             $tooltip_aliasname,
             $pos
         );
-    }
-
-    /**
-     * Gets the list of tables in the current db, taking into account
-     * that they might be "in use"
-     *
-     * @param string $db             database name
-     * @param object $db_info_result result set
-     *
-     * @return array $tables list of tables
-     *
-     */
-    public static function getTablesWhenOpen($db, $db_info_result)
-    {
-        $sot_cache = $tables = array();
-
-        while ($tmp = $GLOBALS['dbi']->fetchAssoc($db_info_result)) {
-            // if in use, memorize table name
-            if ($tmp['In_use'] > 0) {
-                $sot_cache[$tmp['Table']] = true;
-            }
-        }
-        $GLOBALS['dbi']->freeResult($db_info_result);
-
-        // is there at least one "in use" table?
-        if (isset($sot_cache)) {
-            $tblGroupSql = "";
-            $whereAdded = false;
-            if (PMA_isValid($_REQUEST['tbl_group'])) {
-                $group = Util::escapeMysqlWildcards($_REQUEST['tbl_group']);
-                $groupWithSeparator = Util::escapeMysqlWildcards(
-                    $_REQUEST['tbl_group']
-                    . $GLOBALS['cfg']['NavigationTreeTableSeparator']
-                );
-                $tblGroupSql .= " WHERE ("
-                    . Util::backquote('Tables_in_' . $db)
-                    . " LIKE '" . $groupWithSeparator . "%'"
-                    . " OR "
-                    . Util::backquote('Tables_in_' . $db)
-                    . " LIKE '" . $group . "')";
-                $whereAdded = true;
-            }
-            if (PMA_isValid($_REQUEST['tbl_type'], array('table', 'view'))) {
-                $tblGroupSql .= $whereAdded ? " AND" : " WHERE";
-                if ($_REQUEST['tbl_type'] == 'view') {
-                    $tblGroupSql .= " `Table_type` != 'BASE TABLE'";
-                } else {
-                    $tblGroupSql .= " `Table_type` = 'BASE TABLE'";
-                }
-            }
-            $db_info_result = $GLOBALS['dbi']->query(
-                'SHOW FULL TABLES FROM ' . Util::backquote($db) . $tblGroupSql,
-                null, DatabaseInterface::QUERY_STORE
-            );
-            unset($tblGroupSql, $whereAdded);
-
-            if ($db_info_result && $GLOBALS['dbi']->numRows($db_info_result) > 0) {
-                while ($tmp = $GLOBALS['dbi']->fetchRow($db_info_result)) {
-                    if (! isset($sot_cache[$tmp[0]])) {
-                        $tables[$tmp[0]] = $GLOBALS['dbi']->getTablesFull(
-                            $db, $tmp[0]
-                        )[$tmp[0]];
-                    } else { // table in use
-                        $tables[$tmp[0]] = array(
-                            'TABLE_NAME' => $tmp[0],
-                            'ENGINE' => '',
-                            'TABLE_TYPE' => '',
-                            'TABLE_ROWS' => 0,
-                            'TABLE_COMMENT' => '',
-                        );
-                    }
-                } // end while
-                if ($GLOBALS['cfg']['NaturalOrder']) {
-                    uksort($tables, 'strnatcasecmp');
-                }
-
-            } elseif ($db_info_result) {
-                $GLOBALS['dbi']->freeResult($db_info_result);
-            }
-            unset($sot_cache);
-        }
-        return $tables;
     }
 
     /**

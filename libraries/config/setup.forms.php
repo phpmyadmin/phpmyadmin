@@ -137,7 +137,6 @@ $forms['Features']['Other_core_settings'] = array(
     'PersistentConnections',
     'ExecTimeLimit',
     'MemoryLimit',
-    'SkipLockedTables',
     'DisableMultiTableMaintenance',
     'UseDbSearch',
     'VersionCheck',
