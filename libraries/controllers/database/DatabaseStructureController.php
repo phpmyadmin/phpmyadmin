@@ -91,7 +91,7 @@ class DatabaseStructureController extends DatabaseController
             ,
             ,
             $pos
-        ) = Util::getDbInfo($GLOBALS['db'], $sub_part);
+        ) = Util::getDbInfo($this->db, $sub_part);
 
         $this->_tables = $tables;
         $this->_num_tables = $num_tables;
