@@ -254,6 +254,7 @@ class DatabaseInterface
         if ($debug) {
             $time = microtime(true) - $time;
             $this->_dbgQuery($query, $link, $result, $time);
+            syslog(LOG_WARNING, 'SQL: ' . sprintf('%0.3f', $time) . ' > ' . $query);
         }
 
         if ((!empty($result)) && (Tracker::isActive())) {

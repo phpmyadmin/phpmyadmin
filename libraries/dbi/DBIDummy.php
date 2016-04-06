@@ -605,7 +605,7 @@ $GLOBALS['dummy_queries'] = array(
         'query'   => "SELECT tracking_active FROM `pmadb`.`tracking`" .
             " WHERE db_name = 'pma_test_db'" .
             " AND table_name = 'pma_test_table'" .
-            " ORDER BY version DESC",
+            " ORDER BY version DESC LIMIT 1",
         'columns' => array('tracking_active'),
         'result'  => array(
             array(1),
@@ -615,7 +615,7 @@ $GLOBALS['dummy_queries'] = array(
         'query'  => "SELECT tracking_active FROM `pmadb`.`tracking`" .
             " WHERE db_name = 'pma_test_db'" .
             " AND table_name = 'pma_test_table2'" .
-            " ORDER BY version DESC",
+            " ORDER BY version DESC LIMIT 1",
         'result' => array(),
     ),
     array(
