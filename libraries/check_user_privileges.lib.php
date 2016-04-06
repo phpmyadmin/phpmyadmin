@@ -306,8 +306,8 @@ function PMA_analyseShowGrant()
     PMA\libraries\Util::cacheSet('db_priv', $GLOBALS['db_priv']);
 } // end function
 
-$user = $GLOBALS['dbi']->fetchValue("SELECT CURRENT_USER();");
-if ($user == '@') { // MySQL is started with --skip-grant-tables
+list($username, $hostname) = $GLOBALS['dbi']->getCurrentUserAndHost();
+if ($username === '') { // MySQL is started with --skip-grant-tables
     $GLOBALS['is_create_db_priv'] = true;
     $GLOBALS['is_reload_priv']    = true;
     $GLOBALS['db_to_create']      = '';

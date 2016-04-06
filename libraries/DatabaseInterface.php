@@ -49,6 +49,11 @@ class DatabaseInterface
     private $_table_cache;
 
     /**
+     * @var array Current user and host cache
+     */
+    private $_current_user;
+
+    /**
      * Constructor
      *
      * @param DBIExtension $ext Object to be used for database queries
@@ -57,6 +62,7 @@ class DatabaseInterface
     {
         $this->_extension = $ext;
         $this->_table_cache = array();
+        $this->_current_user = array();
     }
 
     /**
@@ -2138,12 +2144,12 @@ class DatabaseInterface
             if ($type === 'super') {
                 $query = 'SELECT 1 FROM mysql.user LIMIT 1';
             } elseif ($type === 'create') {
-                list($user, $host) = $this->_getCurrentUserAndHost();
+                list($user, $host) = $this->getCurrentUserAndHost();
                 $query = "SELECT 1 FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` "
                     . "WHERE `PRIVILEGE_TYPE` = 'CREATE USER' AND "
                     . "'''" . $user . "''@''" . $host . "''' LIKE `GRANTEE` LIMIT 1";
             } elseif ($type === 'grant') {
-                list($user, $host) = $this->_getCurrentUserAndHost();
+                list($user, $host) = $this->getCurrentUserAndHost();
                 $query = "SELECT 1 FROM ("
                     . "SELECT `GRANTEE`, `IS_GRANTABLE` FROM "
                     . "`INFORMATION_SCHEMA`.`COLUMN_PRIVILEGES` UNION "
@@ -2207,10 +2213,13 @@ class DatabaseInterface
      *
      * @return array array of username and hostname
      */
-    private function _getCurrentUserAndHost()
+    public function getCurrentUserAndHost()
     {
-        $user = $GLOBALS['dbi']->fetchValue("SELECT CURRENT_USER();");
-        return explode("@", $user);
+        if (count($this->_current_user) == 0) {
+            $user = $GLOBALS['dbi']->fetchValue("SELECT CURRENT_USER();");
+            $this->_current_user = explode("@", $user);
+        }
+        return $this->_current_user;
     }
 
     /**

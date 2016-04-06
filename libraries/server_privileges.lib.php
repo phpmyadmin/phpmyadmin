@@ -1966,12 +1966,7 @@ function PMA_getCurrentAuthenticationPlugin(
             $authentication_plugin = $row['plugin'];
         }
     } elseif ($mode == 'change') {
-        $row = $GLOBALS['dbi']->fetchSingleRow(
-            'SELECT CURRENT_USER() as user;'
-        );
-        if (isset($row) && $row) {
-            list($username, $hostname) = explode('@', $row['user']);
-        }
+        list($username, $hostname) = $GLOBALS['dbi']->getCurrentUserAndHost();
 
         $row = $GLOBALS['dbi']->fetchSingleRow(
             'SELECT `plugin` FROM `mysql`.`user` WHERE '

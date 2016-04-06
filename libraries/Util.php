@@ -4036,20 +4036,16 @@ class Util
     {
         // Get the username for the current user in the format
         // required to use in the information schema database.
-        $user = $GLOBALS['dbi']->fetchValue("SELECT CURRENT_USER();");
-        if ($user === false) {
-            return false;
-        }
+        list($user, $host) = $GLOBALS['dbi']->getCurrentUserAndHost();
 
-        if ($user == '@') { // MySQL is started with --skip-grant-tables
+        if ($user === '') { // MySQL is started with --skip-grant-tables
             return true;
         }
 
-        $user = explode('@', $user);
         $username  = "''";
-        $username .= str_replace("'", "''", $user[0]);
+        $username .= str_replace("'", "''", $user);
         $username .= "''@''";
-        $username .= str_replace("'", "''", $user[1]);
+        $username .= str_replace("'", "''", $host);
         $username .= "''";
 
         // Prepare the query

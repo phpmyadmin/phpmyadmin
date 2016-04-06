@@ -141,9 +141,7 @@ function PMA_changePassword($password, $message, $change_password_message)
 
     $hashing_function = PMA_changePassHashingFunction();
 
-    $row = $GLOBALS['dbi']->fetchSingleRow('SELECT CURRENT_USER() as user');
-    $curr_user = $row['user'];
-    list($username, $hostname) = explode('@', $curr_user);
+    list($username, $hostname) = $GLOBALS['dbi']->getCurrentUserAndHost();
 
     $serverType = PMA\libraries\Util::getServerType();
 
