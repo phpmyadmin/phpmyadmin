@@ -612,11 +612,7 @@ class DatabaseInterface
                             =& $each_tables[$table_name]['Type'];
                     }
 
-                    // MySQL forward compatibility
-                    // so pma could use this array as if every server
-                    // is of version >5.0
-                    // todo : remove and check usage in the rest of the code,
-                    // MySQL 5.0 is required by current PMA version
+                    // Compatibility with INFORMATION_SCHEMA output
                     $each_tables[$table_name]['TABLE_SCHEMA']
                         = $each_database;
                     $each_tables[$table_name]['TABLE_NAME']
@@ -833,10 +829,7 @@ class DatabaseInterface
         } else {
             $databases = array();
             foreach ($GLOBALS['dblist']->databases as $database_name) {
-                // MySQL forward compatibility
-                // so pma could use this array as if every server is of version >5.0
-                // todo : remove and check the rest of the code for usage,
-                // MySQL 5.0 or higher is required for current PMA version
+                // Compatibility with INFORMATION_SCHEMA output
                 $databases[$database_name]['SCHEMA_NAME']      = $database_name;
 
                 include_once './libraries/mysql_charsets.inc.php';
@@ -1075,10 +1068,7 @@ class DatabaseInterface
             $ordinal_position = 1;
             foreach ($columns as $column_name => $each_column) {
 
-                // MySQL forward compatibility
-                // so pma could use this array as if every server is of version >5.0
-                // todo : remove and check the rest of the code for usage,
-                // MySQL 5.0 or higher is required for current PMA version
+                // Compatibility with INFORMATION_SCHEMA output
                 $columns[$column_name]['COLUMN_NAME']
                     =& $columns[$column_name]['Field'];
                 $columns[$column_name]['COLUMN_TYPE']
