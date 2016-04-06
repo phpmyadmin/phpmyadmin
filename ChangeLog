@@ -12,6 +12,7 @@ phpMyAdmin - ChangeLog
 - issue #12029 Fixed SQL quoting in SQL export
 - issue #12129 Improve performance of database structure page
 - issue #12159 Fix PHP error if user did unpack new version over old one
+- issue #12165 Fix parsing of expression 0
 
 4.6.0.0 (2016-03-22)
 + issue #11456 Disabled storage engines
