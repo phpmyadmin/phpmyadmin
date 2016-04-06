@@ -559,8 +559,11 @@ using following statement:
 Upgrading from an older version
 +++++++++++++++++++++++++++++++
 
-**Never** extract the new version over an existing installation
-of phpMyAdmin; we had evidence of problems caused by this.
+.. warning::
+
+    **Never** extract the new version over an existing installation of
+    phpMyAdmin. This way you will leave old no longer working code in the
+    directory, what can have severe security implications.
 
 Simply copy :file:`config.inc.php` from your previous installation into
 the newly unpacked one. Configuration files from old versions may
