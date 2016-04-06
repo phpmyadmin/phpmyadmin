@@ -4828,19 +4828,9 @@ class Util
             if ($db_info_result && $GLOBALS['dbi']->numRows($db_info_result) > 0) {
                 while ($tmp = $GLOBALS['dbi']->fetchRow($db_info_result)) {
                     if (! isset($sot_cache[$tmp[0]])) {
-                        $sts_result = $GLOBALS['dbi']->query(
-                            "SHOW TABLE STATUS FROM " . Util::backquote($db)
-                            . " LIKE '" . Util::sqlAddSlashes($tmp[0], true)
-                            . "';"
-                        );
-                        $sts_tmp = $GLOBALS['dbi']->fetchAssoc($sts_result);
-                        $GLOBALS['dbi']->freeResult($sts_result);
-                        unset($sts_result);
-
-                        $tableArray = $GLOBALS['dbi']->copyTableProperties(
-                            array($sts_tmp), $db
-                        );
-                                $tables[$sts_tmp['Name']] = $tableArray[0];
+                        $tables[$tmp[0]] = $GLOBALS['dbi']->getTablesFull(
+                            $db, $tmp[0]
+                        )[$tmp[0]];
                     } else { // table in use
                         $tables[$tmp[0]] = array(
                             'TABLE_NAME' => $tmp[0],
