@@ -115,7 +115,7 @@ function get_list_of_locales($locale) {
  */
 function _get_reader($domain=null, $category=5, $enable_cache=true) {
     global $text_domains, $default_domain, $LC_CATEGORIES;
-    if (!isset($domain)) $domain = $default_domain;
+    if (is_null($domain)) $domain = $default_domain;
     if (!isset($text_domains[$domain]->l10n)) {
         // get the current locale
         $locale = _setlocale(LC_MESSAGES, 0);
