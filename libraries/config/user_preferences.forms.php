@@ -26,7 +26,6 @@ $forms['Features']['General'] = array(
     'NaturalOrder',
     'InitialSlidersState',
     'LoginCookieValidity',
-    'SkipLockedTables',
     'DisableMultiTableMaintenance',
     'MaxTableList',
     'ShowHint',

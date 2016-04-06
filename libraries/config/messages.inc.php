@@ -885,10 +885,6 @@ $strConfigShowStats_desc = __(
     'Allow to display database and table statistics (eg. space usage).'
 );
 $strConfigShowStats_name = __('Show statistics');
-$strConfigSkipLockedTables_desc = __(
-    'Mark used tables and make it possible to show databases with locked tables.'
-);
-$strConfigSkipLockedTables_name = __('Skip locked tables');
 $strConfigSQLQuery_Edit_name = __('Edit');
 $strConfigSQLQuery_Explain_name = __('Explain SQL');
 $strConfigSQLQuery_Refresh_name = __('Refresh');

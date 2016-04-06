@@ -706,13 +706,6 @@ $cfg['SessionSavePath'] = '';
 $cfg['MemoryLimit'] = '-1';
 
 /**
- * mark used tables, make possible to show locked tables (since MySQL 3.23.30)
- *
- * @global boolean $cfg['SkipLockedTables']
- */
-$cfg['SkipLockedTables'] = false;
-
-/**
  * show SQL queries as run
  *
  * @global boolean $cfg['ShowSQL']
