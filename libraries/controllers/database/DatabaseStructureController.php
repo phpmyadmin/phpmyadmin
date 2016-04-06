@@ -314,7 +314,7 @@ class DatabaseStructureController extends DatabaseController
         // Array to store the results.
         $real_row_count_all = array();
         // Iterate over each table and fetch real row count.
-        foreach ($GLOBALS['tables'] as $table) {
+        foreach ($this->_tables as $table) {
             $row_count = $this->dbi
                 ->getTable($this->db, $table['TABLE_NAME'])
                 ->getRealRowCountTable();
@@ -699,9 +699,9 @@ class DatabaseStructureController extends DatabaseController
     {
         $tracking_icon = '';
         if (Tracker::isActive()) {
-            $is_tracked = Tracker::isTracked($GLOBALS["db"], $table);
+            $is_tracked = Tracker::isTracked($this->db, $table);
             if ($is_tracked
-                || Tracker::getVersion($GLOBALS["db"], $table) > 0
+                || Tracker::getVersion($this->db, $table) > 0
             ) {
                 $tracking_icon = Template::get(
                     'database/structure/tracking_icon'
