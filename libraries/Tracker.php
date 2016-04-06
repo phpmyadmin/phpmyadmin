@@ -125,15 +125,11 @@ class Tracker
         $sql_query = " SELECT tracking_active FROM " . self::_getTrackingTable() .
         " WHERE db_name = '" . Util::sqlAddSlashes($dbname) . "' " .
         " AND table_name = '" . Util::sqlAddSlashes($tablename) . "' " .
-        " ORDER BY version DESC";
+        " ORDER BY version DESC LIMIT 1";
 
-        $row = $GLOBALS['dbi']->fetchArray(PMA_queryAsControlUser($sql_query));
+        $result = $GLOBALS['dbi']->fetchValue($sql_query);
 
-        if (isset($row['tracking_active']) && $row['tracking_active'] == 1) {
-            return true;
-        } else {
-            return false;
-        }
+        return ($result == 1);
     }
 
     /**
