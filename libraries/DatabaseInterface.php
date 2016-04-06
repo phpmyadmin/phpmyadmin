@@ -725,6 +725,50 @@ class DatabaseInterface
                     =& $tables[$table_name]['Type'];
             }
 
+            // MySQL forward compatibility
+            // so pma could use this array as if every server
+            // is of version >5.0
+            // todo : remove and check usage in the rest of the code,
+            // MySQL 5.0 is required by current PMA version
+            $tables[$table_name]['TABLE_SCHEMA']
+                = $database;
+            $tables[$table_name]['TABLE_NAME']
+                =& $tables[$table_name]['Name'];
+            $tables[$table_name]['ENGINE']
+                =& $tables[$table_name]['Engine'];
+            $tables[$table_name]['VERSION']
+                =& $tables[$table_name]['Version'];
+            $tables[$table_name]['ROW_FORMAT']
+                =& $tables[$table_name]['Row_format'];
+            $tables[$table_name]['TABLE_ROWS']
+                =& $tables[$table_name]['Rows'];
+            $tables[$table_name]['AVG_ROW_LENGTH']
+                =& $tables[$table_name]['Avg_row_length'];
+            $tables[$table_name]['DATA_LENGTH']
+                =& $tables[$table_name]['Data_length'];
+            $tables[$table_name]['MAX_DATA_LENGTH']
+                =& $tables[$table_name]['Max_data_length'];
+            $tables[$table_name]['INDEX_LENGTH']
+                =& $tables[$table_name]['Index_length'];
+            $tables[$table_name]['DATA_FREE']
+                =& $tables[$table_name]['Data_free'];
+            $tables[$table_name]['AUTO_INCREMENT']
+                =& $tables[$table_name]['Auto_increment'];
+            $tables[$table_name]['CREATE_TIME']
+                =& $tables[$table_name]['Create_time'];
+            $tables[$table_name]['UPDATE_TIME']
+                =& $tables[$table_name]['Update_time'];
+            $tables[$table_name]['CHECK_TIME']
+                =& $tables[$table_name]['Check_time'];
+            $tables[$table_name]['TABLE_COLLATION']
+                =& $tables[$table_name]['Collation'];
+            $tables[$table_name]['CHECKSUM']
+                =& $tables[$table_name]['Checksum'];
+            $tables[$table_name]['CREATE_OPTIONS']
+                =& $tables[$table_name]['Create_options'];
+            $tables[$table_name]['TABLE_COMMENT']
+                =& $tables[$table_name]['Comment'];
+
             $commentUpper = mb_strtoupper(
                 $tables[$table_name]['Comment']
             );
