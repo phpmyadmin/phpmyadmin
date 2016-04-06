@@ -150,7 +150,7 @@ class DatabaseStructureController extends DatabaseController
             $this->response->addHTML(
                 Message::notice(__('No tables found in database.'))
             );
-            if (empty($db_is_system_schema)) {
+            if (empty($this->_db_is_system_schema)) {
                 $this->response->addHTML(PMA_getHtmlForCreateTable($this->db));
             }
             return;
