@@ -76,7 +76,7 @@ function PMA_getPlugins($plugin_type, $plugins_dir, $plugin_param)
         // with ".php"
         if (is_file($plugins_dir . $file)
             && preg_match(
-                '@^' . $class_type . '(.+)\.php$@i',
+                '@^' . $class_type . '([^\.]+)\.php$@i',
                 $file,
                 $matches
             )
