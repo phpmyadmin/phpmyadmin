@@ -53,6 +53,10 @@ class DatabaseStructureControllerTest extends PMATestCase
 
         //$_SESSION
 
+        if (!defined('PMA_USR_BROWSER_AGENT')) {
+            define('PMA_USR_BROWSER_AGENT', 'Other');
+        }
+
         $table = $this->getMockBuilder('PMA\libraries\Table')
             ->disableOriginalConstructor()
             ->getMock();
@@ -98,12 +102,13 @@ class DatabaseStructureControllerTest extends PMATestCase
         $class = new ReflectionClass('PMA\libraries\controllers\database\DatabaseStructureController');
         $method = $class->getMethod('getValuesForInnodbTable');
         $method->setAccessible(true);
-        // Showing statistics
-        $is_show_stats = true;
         $ctrl = new DatabaseStructureController(
-            null, null, null, null,
-            null, null, $is_show_stats
+            $GLOBALS['db'], null
         );
+        // Showing statistics
+        $property = $class->getProperty('_is_show_stats');
+        $property->setAccessible(true);
+        $property->setValue($ctrl, true);
 
         $GLOBALS['cfg']['MaxExactCount'] = 10;
         $current_table = array(
@@ -144,8 +149,7 @@ class DatabaseStructureControllerTest extends PMATestCase
         // Not showing statistics
         $is_show_stats = false;
         $ctrl = new DatabaseStructureController(
-            null, null, null, null,
-            null, null, $is_show_stats
+            $GLOBALS['db'], null
         );
 
         $current_table['ENGINE'] = 'InnoDB';
@@ -185,12 +189,16 @@ class DatabaseStructureControllerTest extends PMATestCase
         $method = $class->getMethod('getValuesForAriaTable');
         $method->setAccessible(true);
 
-        $db_is_system_schema = true;
-        $is_show_stats = true;
         $ctrl = new DatabaseStructureController(
-            null, null, null, $db_is_system_schema,
-            null, null, $is_show_stats
+            $GLOBALS['db'], null
         );
+        // Showing statistics
+        $property = $class->getProperty('_is_show_stats');
+        $property->setAccessible(true);
+        $property->setValue($ctrl, true);
+        $property = $class->getProperty('_db_is_system_schema');
+        $property->setAccessible(true);
+        $property->setValue($ctrl, true);
 
         $current_table = array(
             'Data_length'  => 16384,
@@ -220,8 +228,7 @@ class DatabaseStructureControllerTest extends PMATestCase
 
         $is_show_stats = false;
         $ctrl = new DatabaseStructureController(
-            null, null, null, $db_is_system_schema,
-            null, null, $is_show_stats
+            $GLOBALS['db'], null
         );
         list($current_table,,,,,, $sum_size)
             = $method->invokeArgs($ctrl, array($current_table, 0, 0, 0, 0, 0, 0));
@@ -229,7 +236,7 @@ class DatabaseStructureControllerTest extends PMATestCase
 
         $db_is_system_schema = false;
         $ctrl = new DatabaseStructureController(
-            null, null, null, $db_is_system_schema, null, null, $is_show_stats
+            $GLOBALS['db'], null
         );
         list($current_table,,,,,,)
             = $method->invokeArgs($ctrl, array($current_table, 0, 0, 0, 0, 0, 0,));
@@ -249,13 +256,7 @@ class DatabaseStructureControllerTest extends PMATestCase
         $method->setAccessible(true);
 
         $ctrl = new DatabaseStructureController(
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null
+            $GLOBALS['db'], null
         );
 
         // When parameter $db is empty
@@ -296,13 +297,7 @@ class DatabaseStructureControllerTest extends PMATestCase
         $method->setAccessible(true);
 
         $ctrl = new DatabaseStructureController(
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null
+            $GLOBALS['db'], null
         );
 
         $_SESSION['tmpval']['favorite_tables'][$GLOBALS['server']] = array(
@@ -348,7 +343,7 @@ class DatabaseStructureControllerTest extends PMATestCase
         $method->setAccessible(true);
 
         $ctrl = new DatabaseStructureController(
-            null, null, null, null, null, null, null
+            $GLOBALS['db'], null
         );
 
         // The user hash for test
@@ -377,14 +372,12 @@ class DatabaseStructureControllerTest extends PMATestCase
         $_REQUEST['table'] = 'table';
 
         $ctrl = new DatabaseStructureController(
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null
+            $GLOBALS['db'], null
         );
+        // Showing statistics
+        $class = new ReflectionClass('PMA\libraries\controllers\database\DatabaseStructureController');
+        $property = $class->getProperty('_tables');
+        $property->setAccessible(true);
 
         $ctrl->handleRealRowCountRequestAction();
         $json = $this->_response->getJSONResult();
@@ -395,9 +388,12 @@ class DatabaseStructureControllerTest extends PMATestCase
 
         // Fall into another branch
         $_REQUEST['real_row_count_all'] = 'abc';
-        $GLOBALS['tables'] = array(
+        $property->setValue(
+            $ctrl,
             array(
-                'TABLE_NAME' => 'table'
+                array(
+                    'TABLE_NAME' => 'table'
+                )
             )
         );
         $ctrl->handleRealRowCountRequestAction();
