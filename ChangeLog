@@ -9,6 +9,7 @@ phpMyAdmin - ChangeLog
 + issue #11962 Remove embedded PHP libraries, use composer to install them
 + issue #12017 Cannot easily select multiple tables when exporting
 + issue #12047 Add javascript filtering for databases
+- issue #12166 More compact rendering of navigation tree
 
 4.6.1 (not yet released)
 - issue #12120 PMA_Util not found in insert_edit.lib.php
