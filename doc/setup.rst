@@ -564,9 +564,9 @@ Upgrading from an older version
     **Never** extract the new version over an existing installation of
     phpMyAdmin, always first remove the old files keeping just the
     configuration.
-    
+
     This way you will not leave old no longer working code in the directory,
-    what can have severe security implications or can cause various breakages.
+    which can have severe security implications or can cause various breakages.
 
 Simply copy :file:`config.inc.php` from your previous installation into
 the newly unpacked one. Configuration files from old versions may
