@@ -349,9 +349,7 @@ class AuthenticationCookie extends AuthenticationPlugin
 
             // The user just logged in
             $GLOBALS['PHP_AUTH_USER'] = $_REQUEST['pma_username'];
-            $GLOBALS['PHP_AUTH_PW']   = empty($_REQUEST['pma_password'])
-                ? ''
-                : $_REQUEST['pma_password'];
+            $GLOBALS['PHP_AUTH_PW']   = $_REQUEST['pma_password'];
             if ($GLOBALS['cfg']['AllowArbitraryServer']
                 && isset($_REQUEST['pma_servername'])
             ) {
@@ -437,10 +435,6 @@ class AuthenticationCookie extends AuthenticationPlugin
             $_COOKIE['pmaPass-' . $GLOBALS['server']],
             $this->_getSessionEncryptionSecret()
         );
-
-        if ($GLOBALS['PHP_AUTH_PW'] == "\xff(blank)") {
-            $GLOBALS['PHP_AUTH_PW'] = '';
-        }
 
         $GLOBALS['from_cookie'] = true;
 
@@ -616,7 +610,7 @@ class AuthenticationCookie extends AuthenticationPlugin
         $GLOBALS['PMA_Config']->setCookie(
             'pmaPass-' . $GLOBALS['server'],
             $this->cookieEncrypt(
-                ! empty($password) ? $password : "\xff(blank)",
+                $password,
                 $this->_getSessionEncryptionSecret()
             ),
             null,
