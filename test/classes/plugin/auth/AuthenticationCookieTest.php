@@ -395,17 +395,6 @@ class AuthenticationCookieTest extends PMATestCase
     {
         $defineAgain = 'PMA_TEST_NO_DEFINE';
 
-        if (defined('PMA_CLEAR_COOKIES')) {
-            if (! PMA_HAS_RUNKIT) {
-                $this->markTestSkipped(
-                    'Cannot redefine constant/function - missing runkit extension'
-                );
-            } else {
-                $defineAgain = PMA_CLEAR_COOKIES;
-                runkit_constant_remove('PMA_CLEAR_COOKIES');
-            }
-        }
-
         // case 2
 
         $GLOBALS['cfg']['CaptchaLoginPrivateKey'] = 'testprivkey';
@@ -519,56 +508,6 @@ class AuthenticationCookieTest extends PMATestCase
         $this->assertFalse(
             $this->object->authCheck()
         );
-
-        if ($defineAgain !== 'PMA_TEST_NO_DEFINE') {
-            define('PMA_CLEAR_COOKIES', $defineAgain);
-        }
-    }
-
-    /**
-     * Test for PMA\libraries\plugins\auth\AuthenticationConfig::authCheck with constant modifications
-     *
-     * @return void
-     */
-    public function testAuthCheckWithConstants()
-    {
-        if (!defined('PMA_CLEAR_COOKIES') && !PMA_HAS_RUNKIT) {
-            $this->markTestSkipped(
-                'Cannot redefine constant/function - missing runkit extension'
-            );
-        }
-
-        $remove = false;
-
-        if (! defined('PMA_CLEAR_COOKIES')) {
-            define('PMA_CLEAR_COOKIES', true);
-            $remove = true;
-        }
-
-        $GLOBALS['cfg']['Servers'] = array(1);
-        $_COOKIE['pmaPass-0'] = 1;
-        $_COOKIE['pmaServer-0'] = 1;
-        $_COOKIE['pmaUser-0'] = 1;
-
-        $this->assertFalse(
-            $this->object->authCheck()
-        );
-
-        $this->assertFalse(
-            isset($_COOKIE['pmaPass-0'])
-        );
-
-        $this->assertFalse(
-            isset($_COOKIE['pmaServer-0'])
-        );
-
-        $this->assertFalse(
-            isset($_COOKIE['pmaUser-0'])
-        );
-
-        if ($remove) {
-            runkit_constant_remove('PMA_CLEAR_COOKIES');
-        }
     }
 
     /**
