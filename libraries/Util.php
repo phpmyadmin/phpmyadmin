@@ -4652,7 +4652,7 @@ class Util
         // Special speedup for newer MySQL Versions (in 4.0 format changed)
         if (true === $cfg['SkipLockedTables']) {
             $db_info_result = $GLOBALS['dbi']->query(
-                'SHOW OPEN TABLES FROM ' . Util::backquote($db) . ';'
+                'SHOW OPEN TABLES FROM ' . Util::backquote($db) . ' WHERE In_use > 0;'
             );
 
             // Blending out tables in use
@@ -4786,10 +4786,7 @@ class Util
         $sot_cache = $tables = array();
 
         while ($tmp = $GLOBALS['dbi']->fetchAssoc($db_info_result)) {
-            // if in use, memorize table name
-            if ($tmp['In_use'] > 0) {
-                $sot_cache[$tmp['Table']] = true;
-            }
+            $sot_cache[$tmp['Table']] = true;
         }
         $GLOBALS['dbi']->freeResult($db_info_result);
 
