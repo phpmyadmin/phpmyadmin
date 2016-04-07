@@ -304,9 +304,9 @@ class DatabaseInterface
     /**
      * returns a segment of the SQL WHERE clause regarding table name and type
      *
-     * @param string  $table        table
-     * @param boolean $tbl_is_group $table is a table group
-     * @param string  $table_type   whether table or view
+     * @param array|string  $table        table(s)
+     * @param boolean       $tbl_is_group $table is a table group
+     * @param string        $table_type   whether table or view
      *
      * @return string a segment of the WHERE clause
      */
@@ -314,7 +314,18 @@ class DatabaseInterface
     {
         // get table information from information_schema
         if ($table) {
-            if (true === $tbl_is_group) {
+            if (is_array($table)) {
+                $sql_where_table = 'AND t.`TABLE_NAME` '
+                    . Util::getCollateForIS() . ' IN (\''
+                    . implode(
+                        '\', \'',
+                        array_map(
+                            'PMA\libraries\Util::sqlAddSlashes',
+                            $table
+                        )
+                    )
+                    . '\')';
+            } elseif (true === $tbl_is_group) {
                 $sql_where_table = 'AND t.`TABLE_NAME` LIKE \''
                     . Util::escapeMysqlWildcards(
                         Util::sqlAddSlashes($table)
@@ -395,7 +406,7 @@ class DatabaseInterface
      * </code>
      *
      * @param string          $database     database
-     * @param string          $table        table name
+     * @param string|array    $table        table name(s)
      * @param boolean         $tbl_is_group $table is a table group
      * @param mixed           $link         mysql link
      * @param integer         $limit_offset zero-based offset for the count
@@ -498,11 +509,22 @@ class DatabaseInterface
                         . ' WHERE';
                     $needAnd = false;
                     if ($table || (true === $tbl_is_group)) {
-                        $sql .= " `Name` LIKE '"
-                            . Util::escapeMysqlWildcards(
-                                Util::sqlAddSlashes($table, true)
-                            )
-                            . "%'";
+                        if (is_array($table)) {
+                            $sql .= ' `Name` IN (\''
+                                . implode(
+                                    '\', \'',
+                                    array_map(
+                                        'PMA\libraries\Util::sqlAddSlashes',
+                                        $table
+                                    )
+                                ) . '\')';
+                        } else {
+                            $sql .= " `Name` LIKE '"
+                                . Util::escapeMysqlWildcards(
+                                    Util::sqlAddSlashes($table, true)
+                                )
+                                . "%'";
+                        }
                         $needAnd = true;
                     }
                     if (! empty($table_type)) {

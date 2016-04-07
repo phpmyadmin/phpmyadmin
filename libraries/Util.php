@@ -4823,11 +4823,10 @@ class Util
             unset($tblGroupSql, $whereAdded);
 
             if ($db_info_result && $GLOBALS['dbi']->numRows($db_info_result) > 0) {
+                $names = array();
                 while ($tmp = $GLOBALS['dbi']->fetchRow($db_info_result)) {
                     if (! isset($sot_cache[$tmp[0]])) {
-                        $tables[$tmp[0]] = $GLOBALS['dbi']->getTablesFull(
-                            $db, $tmp[0]
-                        )[$tmp[0]];
+                        $names[] = $tmp[0];
                     } else { // table in use
                         $tables[$tmp[0]] = array(
                             'TABLE_NAME' => $tmp[0],
@@ -4838,6 +4837,12 @@ class Util
                         );
                     }
                 } // end while
+                if (count($names) > 0) {
+                    $tables = array_merge(
+                        $tables,
+                        $GLOBALS['dbi']->getTablesFull($db, $names)
+                    );
+                }
                 if ($GLOBALS['cfg']['NaturalOrder']) {
                     uksort($tables, 'strnatcasecmp');
                 }
