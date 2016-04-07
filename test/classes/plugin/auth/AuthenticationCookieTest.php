@@ -40,8 +40,8 @@ class AuthenticationCookieTest extends PMATestCase
         $GLOBALS['text_dir'] = 'ltr';
         $GLOBALS['db'] = 'db';
         $GLOBALS['table'] = 'table';
+        $_REQUEST['pma_password'] = '';
         $this->object = new AuthenticationCookie();
-
     }
 
     /**
@@ -637,7 +637,7 @@ class AuthenticationCookieTest extends PMATestCase
 
         $this->object->expects($this->at(1))
             ->method('cookieDecrypt')
-            ->will($this->returnValue("\xff(blank)"));
+            ->will($this->returnValue(''));
 
         $this->assertTrue(
             $this->object->authCheck()
