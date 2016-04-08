@@ -127,7 +127,7 @@ The installation is possible by adding our own repository
 Installing using Docker
 +++++++++++++++++++++++
 
-phpMyAdmin comes with a Docker image, which you can easily deploy. You can
+phpMyAdmin comes with a `Docker image`_, which you can easily deploy. You can
 download it using:
 
 .. code-block:: sh
@@ -800,3 +800,4 @@ manually or after a period of inactivity). `Issue 11898 <https://github.com/phpm
 
 .. _Composer: https://getcomposer.org/
 .. _Packagist: https://packagist.org/
+.. _Docker image: https://hub.docker.com/r/phpmyadmin/phpmyadmin/
