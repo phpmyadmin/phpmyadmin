@@ -14,15 +14,7 @@ use PMA\libraries\URL;
  */
 function PMA_getHtmlForDisplayIndexes()
 {
-    $html_output = '<div id="index_div" class="ajax';
-    if ($GLOBALS['cfg']['InitialSlidersState'] != 'disabled') {
-        $html_output .= ' print_ignore';
-    }
-    $html_output .= '" >';
-
-    $html_output .= PMA\libraries\Util::getDivForSliderEffect(
-        'indexes', __('Indexes')
-    );
+    $html_output = '<div id="index_div" class="ajax" >';
     $html_output .= PMA\libraries\Index::getHtmlForIndexes(
         $GLOBALS['table'],
         $GLOBALS['db']
@@ -43,7 +35,6 @@ function PMA_getHtmlForDisplayIndexes()
 
     $html_output .= '</form>'
         . '</fieldset>'
-        . '</div>'
         . '</div>';
 
     return $html_output;
