@@ -63,10 +63,12 @@ class ImportShp extends ImportPlugin
      */
     public function doImport(&$sql_data = array())
     {
-        global $db, $error, $finished, $compression,
+        global $db, $error, $finished,
                $import_file, $local_import_file, $message;
 
         $GLOBALS['finished'] = false;
+
+        $compression = $GLOBALS['import_handle']->getCompression();
 
         $shp = new ShapeFile(1);
         // If the zip archive has more than one file,

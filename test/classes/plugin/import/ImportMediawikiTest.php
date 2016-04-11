@@ -9,6 +9,7 @@
  * since 'check_user_privileges.lib.php' will use it globally
  */
 use PMA\libraries\plugins\import\ImportMediawiki;
+use PMA\libraries\File;
 
 $GLOBALS['server'] = 0;
 
@@ -51,10 +52,10 @@ class ImportMediawikiTest extends PMATestCase
 
         $GLOBALS['import_file'] = 'test/test_data/phpmyadmin.mediawiki';
         $GLOBALS['import_text'] = 'ImportMediawiki_Test';
-        $GLOBALS['compression'] = 'none';
         $GLOBALS['read_multiply'] = 10;
         $GLOBALS['import_type'] = 'Mediawiki';
-        $GLOBALS['import_handle'] = @fopen($GLOBALS['import_file'], 'r');
+        $GLOBALS['import_handle'] = new File($GLOBALS['import_file']);
+        $GLOBALS['import_handle']->open();
     }
 
     /**

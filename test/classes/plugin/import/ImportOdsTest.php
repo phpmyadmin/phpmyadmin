@@ -10,6 +10,7 @@
  * since 'check_user_privileges.lib.php' will use it globally
  */
 use PMA\libraries\plugins\import\ImportOds;
+use PMA\libraries\File;
 
 $GLOBALS['server'] = 0;
 
@@ -56,13 +57,11 @@ class ImportOdsTest extends PMATestCase
         /**
          * Load interface for zip extension.
         */
-        include_once 'libraries/zip_extension.lib.php';
-        $result = PMA_getZipContents($GLOBALS['import_file']);
-        $GLOBALS['import_text'] = $result["data"];
-        $GLOBALS['compression'] = 'application/zip';
         $GLOBALS['read_multiply'] = 10;
         $GLOBALS['import_type'] = 'ods';
-        $GLOBALS['import_handle'] = @fopen($GLOBALS['import_file'], 'r');
+        $GLOBALS['import_handle'] = new File($GLOBALS['import_file']);
+        $GLOBALS['import_handle']->setDecompressContent(true);
+        $GLOBALS['import_handle']->open();
 
         //variable for Ods
         $_REQUEST['ods_recognize_percentages'] = true;

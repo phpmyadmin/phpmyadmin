@@ -10,6 +10,7 @@
  * since 'check_user_privileges.lib.php' will use it globally
  */
 use PMA\libraries\plugins\import\ImportSql;
+use PMA\libraries\File;
 
 $GLOBALS['server'] = 0;
 
@@ -54,7 +55,8 @@ class ImportSqlTest extends PMATestCase
         $GLOBALS['compression'] = 'none';
         $GLOBALS['read_multiply'] = 10;
         $GLOBALS['import_type'] = 'Xml';
-        $GLOBALS['import_handle'] = @fopen($GLOBALS['import_file'], 'r');
+        $GLOBALS['import_handle'] = new File($GLOBALS['import_file']);
+        $GLOBALS['import_handle']->open();
     }
 
     /**

@@ -10,6 +10,7 @@
  * since 'check_user_privileges.lib.php' will use it globally
  */
 use PMA\libraries\plugins\import\ImportShp;
+use PMA\libraries\File;
 
 $GLOBALS['server'] = 0;
 
@@ -70,7 +71,9 @@ class ImportShpTest extends PMATestCase
     protected function runImport($filename)
     {
         $GLOBALS['import_file'] = $filename;
-        $GLOBALS['import_handle'] = @fopen($filename, 'r');
+        $GLOBALS['import_handle'] = new File($filename);
+        $GLOBALS['import_handle']->setDecompressContent(true);
+        $GLOBALS['import_handle']->open();
 
         $this->object->doImport();
     }
