@@ -75,7 +75,11 @@ class ImportShpTest extends PMATestCase
         $GLOBALS['import_handle']->setDecompressContent(true);
         $GLOBALS['import_handle']->open();
 
+        $GLOBALS['message'] = '';
+        $GLOBALS['error'] = false;
         $this->object->doImport();
+        $this->assertEquals('', $GLOBALS['message']);
+        $this->assertFalse($GLOBALS['error']);
     }
 
     /**
