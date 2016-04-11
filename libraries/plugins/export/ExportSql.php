@@ -15,6 +15,7 @@ use PMA\libraries\properties\options\items\NumberPropertyItem;
 use PMA\libraries\properties\options\groups\OptionsPropertyMainGroup;
 use PMA\libraries\properties\options\groups\OptionsPropertyRootGroup;
 use PMA\libraries\properties\options\groups\OptionsPropertySubgroup;
+use PMA\libraries\Charsets;
 use PMA\libraries\DatabaseInterface;
 use PMA\libraries\plugins\ExportPlugin;
 use PMA\libraries\Util;
@@ -624,7 +625,7 @@ class ExportSql extends ExportPlugin
      */
     public function exportFooter()
     {
-        global $crlf, $mysql_charset_map;
+        global $crlf;
 
         $foot = '';
 
@@ -665,7 +666,6 @@ class ExportSql extends ExportPlugin
     public function exportHeader()
     {
         global $crlf, $cfg;
-        global $mysql_charset_map;
 
         if (isset($GLOBALS['sql_compatibility'])) {
             $tmp_compat = $GLOBALS['sql_compatibility'];
@@ -739,13 +739,13 @@ class ExportSql extends ExportPlugin
             // so that a utility like the mysql client can interpret
             // the file correctly
             if (isset($GLOBALS['charset'])
-                && isset($mysql_charset_map[$GLOBALS['charset']])
+                && isset(Charsets::$mysql_charset_map[$GLOBALS['charset']])
             ) {
                 // we got a charset from the export dialog
-                $set_names = $mysql_charset_map[$GLOBALS['charset']];
+                $set_names = Charsets::$mysql_charset_map[$GLOBALS['charset']];
             } else {
                 // by default we use the connection charset
-                $set_names = $mysql_charset_map['utf-8'];
+                $set_names = Charsets::$mysql_charset_map['utf-8'];
             }
             if ($set_names == 'utf8' && PMA_MYSQL_INT_VERSION > 50503) {
                 $set_names = 'utf8mb4';

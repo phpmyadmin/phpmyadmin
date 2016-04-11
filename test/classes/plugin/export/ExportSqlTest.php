@@ -451,7 +451,6 @@ class ExportSqlTest extends PMATestCase
         $GLOBALS['sql_disable_fk'] = true;
         $GLOBALS['sql_use_transaction'] = true;
         $GLOBALS['charset'] = 'utf-8';
-        $GLOBALS['mysql_charset_map']['utf-8'] = true;
         $GLOBALS['sql_utc_time'] = true;
         $GLOBALS['old_tz'] = 'GMT';
         $GLOBALS['asfile'] = 'yes';
@@ -501,7 +500,6 @@ class ExportSqlTest extends PMATestCase
         $GLOBALS['sql_use_transaction'] = true;
         $GLOBALS['sql_include_comments'] = true;
         $GLOBALS['charset'] = 'utf-8';
-        $GLOBALS['mysql_charset_map']['utf-8'] = true;
 
         $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
