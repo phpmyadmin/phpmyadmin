@@ -309,6 +309,9 @@ class Charsets
         case 'korean':
             $descr = __('Korean');
             break;
+        case 'myanmar':
+            $descr = __('Burmese');
+            break;
         case 'persian':
             $descr = __('Persian');
             break;
@@ -363,6 +366,10 @@ class Charsets
             // Unicode charsets
             case 'ucs2':
             case 'utf8':
+            case 'utf16':
+            case 'utf16le':
+            case 'utf16be':
+            case 'utf32':
             case 'utf8mb4':
                 $descr = __('Unicode') . ' (' . __('multilingual') . ')';
                 break;
@@ -450,16 +457,16 @@ class Charsets
                 break;
             }
             if (!empty($is_bin)) {
-                $descr .= ', ' . __('Binary');
+                $descr .= ', ' . __('binary collation');
             }
             break;
         default: $descr = __('unknown');
         }
         if (!empty($parts[2])) {
             if ($parts[2] == 'ci') {
-                $descr .= ', ' . __('case-insensitive');
+                $descr .= ', ' . __('case-insensitive collation');
             } elseif ($parts[2] == 'cs') {
-                $descr .= ', ' . __('case-sensitive');
+                $descr .= ', ' . __('case-sensitive collation');
             }
         }
 

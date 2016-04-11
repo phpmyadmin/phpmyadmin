@@ -116,9 +116,12 @@ class PMA_Operations_Test extends PHPUnit_Framework_TestCase
     {
 
         $_REQUEST['db_collation'] = 'db1';
+        $result = PMA_getHtmlForChangeDatabaseCharset("pma", "bookmark");
         $this->assertRegExp(
-            '/.*db_operations.php(.|[\n])*select_db_collation([\n]|.)*Collation.*/m',
-            PMA_getHtmlForChangeDatabaseCharset("pma", "bookmark")
+            '/.*select_db_collation.*Collation.*/m', $result
+        );
+        $this->assertRegExp(
+            '/.*db_operations.php.*/', $result
         );
     }
 

@@ -45,8 +45,8 @@ class CharsetsTest extends PHPUnit_Framework_TestCase
             array('gb2312_chinese', 'Simplified Chinese'),
             array('gbk_chinese', 'Simplified Chinese'),
             array('big5_chinese', 'Traditional Chinese'),
-            array('foo_ci_bar', 'unknown, case-insensitive'),
-            array('foo_cs_bar', 'unknown, case-sensitive'),
+            array('foo_ci_bar', 'unknown, case-insensitive collation'),
+            array('foo_cs_bar', 'unknown, case-sensitive collation'),
             array('foo_croatian_bar', 'Croatian'),
             array('foo_czech_bar', 'Czech'),
             array('foo_danish_bar', 'Danish'),
@@ -111,7 +111,7 @@ class CharsetsTest extends PHPUnit_Framework_TestCase
             array('tis620', 'Thai'),
             array('foobar', 'unknown'),
             array('foo_test_bar', 'unknown'),
-            array('foo_bin_bar', 'unknown, Binary')
+            array('foo_bin_bar', 'unknown, binary collation')
         );
     }
 
