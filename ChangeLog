@@ -12,6 +12,7 @@ phpMyAdmin - ChangeLog
 - issue #12166 More compact rendering of navigation tree
 + issue #12129 Improve performance with SkipLockedTables
 - issue #12173 Do not hide indexes under a slider
+- issue        Improve performance of zip file import
 
 4.6.1 (not yet released)
 - issue #12120 PMA_Util not found in insert_edit.lib.php

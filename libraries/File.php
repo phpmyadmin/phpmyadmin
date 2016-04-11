@@ -638,6 +638,7 @@ class File
                     return false;
                 }
                 $this->_content = $result['data'];
+                $this->_offset = 0;
             } else {
                 $this->errorUnsupported();
                 return false;
@@ -664,7 +665,7 @@ class File
         if (! is_null($this->_handle)) {
             return feof($this->_handle);
         }
-        return empty($this->_content);
+        return $this->_offset == strlen($this->_content);
     }
 
     /**
@@ -677,6 +678,7 @@ class File
             $this->_handle = null;
         } else {
             $this->_content = '';
+            $this->_offset = 0;
         }
         $this->cleanUp();
     }
@@ -694,8 +696,8 @@ class File
         case 'application/gzip':
             return gzread($this->_handle, $size);
         case 'application/zip':
-            $result = mb_substr($this->_content, 0, $size);
-            $this->_content = mb_substr($this->_content, $size);
+            $result = mb_strcut($this->_content, $this->_offset, $size);
+            $this->_offset += strlen($result);
             return $result;
         case 'none':
         default:
