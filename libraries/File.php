@@ -647,6 +647,13 @@ class File
         return ($this->_handle !== false);
     }
 
+    /**
+     * Opens file from zip
+     *
+     * @param string|null $specific_entry Entry to open
+     *
+     * @return bool
+     */
     public function openZip($specific_entry = null)
     {
         include_once './libraries/zip_extension.lib.php';
@@ -675,6 +682,8 @@ class File
 
     /**
      * Closes the file
+     *
+     * @return void
      */
     public function close()
     {
@@ -690,6 +699,8 @@ class File
 
     /**
      * Reads data from file
+     *
+     * @param int $size Number of bytes to read
      *
      * @return string
      */
