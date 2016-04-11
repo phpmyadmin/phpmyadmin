@@ -30,10 +30,10 @@ class File
     var $_content = null;
 
     /**
-     * @var Message the error message
+     * @var Message|null the error message
      * @access protected
      */
-    var $_error_message = '';
+    var $_error_message = null;
 
     /**
      * @var bool whether the file is temporary or not
@@ -359,7 +359,7 @@ class File
      * Returns possible error message.
      *
      * @access  public
-     * @return Message error message
+     * @return Message|null error message
      */
     public function getError()
     {
@@ -374,7 +374,7 @@ class File
      */
     public function isError()
     {
-        return ! empty($this->_error_message);
+        return ! is_null($this->_error_message);
     }
 
     /**
@@ -391,11 +391,11 @@ class File
     {
         if ($this->setUploadedFromTblChangeRequest($key, $rownumber)) {
             // well done ...
-            $this->_error_message = '';
+            $this->_error_message = null;
             return true;
         } elseif ($this->setSelectedFromTblChangeRequest($key, $rownumber)) {
             // well done ...
-            $this->_error_message = '';
+            $this->_error_message = null;
             return true;
         }
         // all failed, whether just no file uploaded/selected or an error
@@ -589,14 +589,14 @@ class File
      */
     public function errorUnsupported()
     {
-        $this->_error_message = sprintf(
+        $this->_error_message = Message::error(sprintf(
             __(
                 'You attempted to load file with unsupported compression (%s). '
                 . 'Either support for it is not implemented or disabled by your '
                 . 'configuration.'
             ),
             $this->getCompression()
-        );
+        ));
     }
 
     /**
