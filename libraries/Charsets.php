@@ -70,9 +70,9 @@ class Charsets
 
         self::$_charsets = array();
         while ($row = $GLOBALS['dbi']->fetchAssoc($res)) {
-            self::$_charsets[] = $row['CHARACTER_SET_NAME'];
-            self::$_charsets_descriptions[$row['CHARACTER_SET_NAME']]
-                = $row['DESCRIPTION'];
+            $name = $row['CHARACTER_SET_NAME'];
+            self::$_charsets[] = $name;
+            self::$_charsets_descriptions[$name] = $row['DESCRIPTION'];
         }
         $GLOBALS['dbi']->freeResult($res);
 
@@ -98,18 +98,19 @@ class Charsets
         $res = $GLOBALS['dbi']->query($sql);
         while ($row = $GLOBALS['dbi']->fetchAssoc($res)) {
             $char_set_name = $row['CHARACTER_SET_NAME'];
+            $name = $row['COLLATION_NAME'];
             if (! is_array(self::$_collations[$char_set_name])) {
-                self::$_collations[$char_set_name] = array($row['COLLATION_NAME']);
+                self::$_collations[$char_set_name] = array($name);
             } else {
-                self::$_collations[$char_set_name][] = $row['COLLATION_NAME'];
+                self::$_collations[$char_set_name][] = $name;
             }
             if ($row['IS_DEFAULT'] == 'Yes' || $row['IS_DEFAULT'] == '1') {
-                self::$_default_collations[$char_set_name] = $row['COLLATION_NAME'];
+                self::$_default_collations[$char_set_name] = $name;
             }
-            self::$_collations_available[$row['COLLATION_NAME']] = true;
+            self::$_collations_available[$name] = true;
             self::$_charsets_available[$char_set_name]
                 = !empty(self::$_charsets_available[$char_set_name])
-                || !empty(self::$_collations_available[$row['COLLATION_NAME']]);
+                || !empty(self::$_collations_available[$name]);
         }
         $GLOBALS['dbi']->freeResult($res);
 
