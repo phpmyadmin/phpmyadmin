@@ -29,8 +29,8 @@ function PMA_getHtmlForDatabaseComment($db)
         . URL::getHiddenInputs($db)
         . '<fieldset>'
         . '<legend>';
-    if (PMA\libraries\Util::showIcons('ActionLinksMode')) {
-        $html_output .= PMA\libraries\Util::getImage('b_comment.png') . '&nbsp;';
+    if (Util::showIcons('ActionLinksMode')) {
+        $html_output .= Util::getImage('b_comment.png') . '&nbsp;';
     }
     $html_output .=  __('Database comment');
     $html_output .= '</legend>';
@@ -72,8 +72,8 @@ function PMA_getHtmlForRenameDatabase($db)
         . '<fieldset>'
         . '<legend>';
 
-    if (PMA\libraries\Util::showIcons('ActionLinksMode')) {
-        $html_output .= PMA\libraries\Util::getImage('b_edit.png') . '&nbsp;';
+    if (Util::showIcons('ActionLinksMode')) {
+        $html_output .= Util::getImage('b_edit.png') . '&nbsp;';
     }
     $html_output .= __('Rename database to')
         . '</legend>';
@@ -121,7 +121,7 @@ function PMA_getHtmlForRenameDatabase($db)
  */
 function PMA_getHtmlForDropDatabaseLink($db)
 {
-    $this_sql_query = 'DROP DATABASE ' . PMA\libraries\Util::backquote($db);
+    $this_sql_query = 'DROP DATABASE ' . Util::backquote($db);
     $this_url_params = array(
         'sql_query' => $this_sql_query,
         'back' => 'db_operations.php',
@@ -130,7 +130,7 @@ function PMA_getHtmlForDropDatabaseLink($db)
         'purge' => '1',
         'message_to_show' => sprintf(
             __('Database %s has been dropped.'),
-            htmlspecialchars(PMA\libraries\Util::backquote($db))
+            htmlspecialchars(Util::backquote($db))
         ),
         'db' => null,
     );
@@ -138,8 +138,8 @@ function PMA_getHtmlForDropDatabaseLink($db)
     $html_output = '<div class="operations_half_width">'
         . '<fieldset class="caution">';
     $html_output .= '<legend>';
-    if (PMA\libraries\Util::showIcons('ActionLinksMode')) {
-        $html_output .= PMA\libraries\Util::getImage('b_deltbl.png') . '&nbsp';
+    if (Util::showIcons('ActionLinksMode')) {
+        $html_output .= Util::getImage('b_deltbl.png') . '&nbsp';
     }
     $html_output .= __('Remove database')
         . '</legend>';
@@ -194,15 +194,15 @@ function PMA_getHtmlForCopyDatabase($db)
     $html_output .= '<fieldset>'
         . '<legend>';
 
-    if (PMA\libraries\Util::showIcons('ActionLinksMode')) {
-        $html_output .= PMA\libraries\Util::getImage('b_edit.png') . '&nbsp';
+    if (Util::showIcons('ActionLinksMode')) {
+        $html_output .= Util::getImage('b_edit.png') . '&nbsp';
     }
     $html_output .= __('Copy database to')
         . '</legend>'
         . '<input type="text" maxlength="64" name="newname" size="30" '
         . 'class="textfield" value="' . htmlspecialchars($db) . '" '
         . 'required="required" /><br />'
-        . PMA\libraries\Util::getRadioFields(
+        . Util::getRadioFields(
             'what', $choices, 'data', true
         );
     $html_output .= '<br />';
@@ -281,8 +281,8 @@ function PMA_getHtmlForChangeDatabaseCharset($db, $table)
 
     $html_output .= '<fieldset>' . "\n"
        . '    <legend>';
-    if (PMA\libraries\Util::showIcons('ActionLinksMode')) {
-        $html_output .= PMA\libraries\Util::getImage('s_asci.png') . '&nbsp';
+    if (Util::showIcons('ActionLinksMode')) {
+        $html_output .= Util::getImage('s_asci.png') . '&nbsp';
     }
     $html_output .= '<label for="select_db_collation">' . __('Collation')
         . '</label>' . "\n"
@@ -364,7 +364,7 @@ function PMA_createDbBeforeCopy()
     }
 
     $local_query = 'CREATE DATABASE IF NOT EXISTS '
-        . PMA\libraries\Util::backquote($_REQUEST['newname']);
+        . Util::backquote($_REQUEST['newname']);
     if (isset($_REQUEST['db_collation'])) {
         $local_query .= ' DEFAULT'
             . PMA_generateCharsetQueryPart($_REQUEST['db_collation']);
@@ -414,8 +414,8 @@ function PMA_getViewsAndCreateSqlViewStandIn(
                 && $_REQUEST['drop_if_exists'] == 'true'
             ) {
                 $drop_query = 'DROP VIEW IF EXISTS '
-                    . PMA\libraries\Util::backquote($_REQUEST['newname']) . '.'
-                    . PMA\libraries\Util::backquote($each_table);
+                    . Util::backquote($_REQUEST['newname']) . '.'
+                    . Util::backquote($each_table);
                 $GLOBALS['dbi']->query($drop_query);
 
                 $GLOBALS['sql_query'] .= "\n" . $drop_query . ';';
@@ -516,7 +516,7 @@ function PMA_runEventDefinitionsForDb($db)
 {
     $event_names = $GLOBALS['dbi']->fetchResult(
         'SELECT EVENT_NAME FROM information_schema.EVENTS WHERE EVENT_SCHEMA= \''
-        . PMA\libraries\Util::sqlAddSlashes($db, true) . '\';'
+        . Util::sqlAddSlashes($db, true) . '\';'
     );
     if ($event_names) {
         foreach ($event_names as $event_name) {
@@ -1049,7 +1049,7 @@ function PMA_getTableOptionFieldset($comment, $tbl_collation,
 
     //Storage engine
     $html_output .= '<tr><td class="vmiddle">' . __('Storage Engine')
-        . '&nbsp;' . PMA\libraries\Util::showMySQLDocu('Storage_engines')
+        . '&nbsp;' . Util::showMySQLDocu('Storage_engines')
         . '</td>'
         . '<td>'
         . StorageEngine::getHtmlSelect(
@@ -1134,7 +1134,7 @@ function PMA_getTableOptionFieldset($comment, $tbl_collation,
         $html_output .= '<tr><td class="vmiddle">'
             . '<label for="new_row_format">ROW_FORMAT</label></td>'
             . '<td>';
-        $html_output .= PMA\libraries\Util::getDropdown(
+        $html_output .= Util::getDropdown(
             'new_row_format', $possible_row_formats[$tbl_storage_engine],
             $current_row_format, 'new_row_format'
         );
@@ -1266,7 +1266,7 @@ function PMA_getHtmlForCopytable()
         'dataonly'  => __('Data only')
     );
 
-    $html_output .= PMA\libraries\Util::getRadioFields(
+    $html_output .= Util::getRadioFields(
         'what', $choices, 'data', true
     );
     $html_output .= '<br />';
@@ -1381,7 +1381,7 @@ function PMA_getListofMaintainActionLink($is_myisam_or_aria,
     if ($is_innodb || $is_myisam_or_aria || $is_berkeleydb) {
         $params = array(
             'sql_query' => 'ANALYZE TABLE '
-                . PMA\libraries\Util::backquote($GLOBALS['table']),
+                . Util::backquote($GLOBALS['table']),
             'table_maintenance' => 'Go',
         );
         $html_output .= PMA_getMaintainActionlink(
@@ -1396,7 +1396,7 @@ function PMA_getListofMaintainActionLink($is_myisam_or_aria,
     if ($is_myisam_or_aria || $is_innodb) {
         $params = array(
             'sql_query' => 'CHECK TABLE '
-                . PMA\libraries\Util::backquote($GLOBALS['table']),
+                . Util::backquote($GLOBALS['table']),
             'table_maintenance' => 'Go',
         );
         $html_output .= PMA_getMaintainActionlink(
@@ -1424,7 +1424,7 @@ function PMA_getListofMaintainActionLink($is_myisam_or_aria,
     if ($is_innodb) {
         $params = array(
             'sql_query' => 'ALTER TABLE '
-            . PMA\libraries\Util::backquote($GLOBALS['table'])
+            . Util::backquote($GLOBALS['table'])
             . ' ENGINE = InnoDB;'
         );
         $html_output .= PMA_getMaintainActionlink(
@@ -1438,7 +1438,7 @@ function PMA_getListofMaintainActionLink($is_myisam_or_aria,
     // flush table
     $params = array(
         'sql_query' => 'FLUSH TABLE '
-            . PMA\libraries\Util::backquote($GLOBALS['table']),
+            . Util::backquote($GLOBALS['table']),
         'message_to_show' => sprintf(
             __('Table %s has been flushed.'),
             htmlspecialchars($GLOBALS['table'])
@@ -1456,7 +1456,7 @@ function PMA_getListofMaintainActionLink($is_myisam_or_aria,
     if ($is_myisam_or_aria || $is_innodb || $is_berkeleydb) {
         $params = array(
             'sql_query' => 'OPTIMIZE TABLE '
-                . PMA\libraries\Util::backquote($GLOBALS['table']),
+                . Util::backquote($GLOBALS['table']),
             'table_maintenance' => 'Go',
         );
         $html_output .= PMA_getMaintainActionlink(
@@ -1471,7 +1471,7 @@ function PMA_getListofMaintainActionLink($is_myisam_or_aria,
     if ($is_myisam_or_aria) {
         $params = array(
             'sql_query' => 'REPAIR TABLE '
-                . PMA\libraries\Util::backquote($GLOBALS['table']),
+                . Util::backquote($GLOBALS['table']),
             'table_maintenance' => 'Go',
         );
         $html_output .= PMA_getMaintainActionlink(
@@ -1503,7 +1503,7 @@ function PMA_getMaintainActionlink($action_message, $params, $url_params, $link)
         . URL::getCommon(array_merge($url_params, $params)) . '">'
         . $action_message
         . '</a>'
-        . PMA\libraries\Util::showMySQLDocu($link)
+        . Util::showMySQLDocu($link)
         . '</li>';
 }
 
@@ -1562,7 +1562,7 @@ function PMA_getDeleteDataOrTablelink($url_params, $syntax, $link, $htmlId)
         . 'href="sql.php' . URL::getCommon($url_params) . '"'
         . ' id="' . $htmlId . '" class="ajax">'
         . $link . '</a>'
-        . PMA\libraries\Util::showMySQLDocu($syntax)
+        . Util::showMySQLDocu($syntax)
         . '</li>';
 }
 
@@ -1602,7 +1602,7 @@ function PMA_getHtmlForPartitionMaintenance($partition_names, $url_params)
         . '<fieldset>'
         . '<legend>'
         . __('Partition maintenance')
-        . PMA\libraries\Util::showMySQLDocu('partitioning_maintenance')
+        . Util::showMySQLDocu('partitioning_maintenance')
         . '</legend>';
 
     $html_select = '<select id="partition_name" name="partition_name[]"'
@@ -1621,14 +1621,14 @@ function PMA_getHtmlForPartitionMaintenance($partition_names, $url_params)
     $html_output .= sprintf(__('Partition %s'), $html_select);
 
     $html_output .= '<div class="clearfloat" />';
-    $html_output .= PMA\libraries\Util::getRadioFields(
+    $html_output .= Util::getRadioFields(
         'partition_operation', $choices, 'ANALYZE', false, true, 'floatleft'
     );
     $this_url_params = array_merge(
         $url_params,
         array(
             'sql_query' => 'ALTER TABLE '
-            . PMA\libraries\Util::backquote($GLOBALS['table'])
+            . Util::backquote($GLOBALS['table'])
             . ' REMOVE PARTITIONING;'
         )
     );
@@ -1668,34 +1668,34 @@ function PMA_getHtmlForReferentialIntegrityCheck($foreign, $url_params)
 
     foreach ($foreign as $master => $arr) {
         $join_query  = 'SELECT '
-            . PMA\libraries\Util::backquote($GLOBALS['table']) . '.*'
-            . ' FROM ' . PMA\libraries\Util::backquote($GLOBALS['table'])
+            . Util::backquote($GLOBALS['table']) . '.*'
+            . ' FROM ' . Util::backquote($GLOBALS['table'])
             . ' LEFT JOIN '
-            . PMA\libraries\Util::backquote($arr['foreign_db'])
+            . Util::backquote($arr['foreign_db'])
             . '.'
-            . PMA\libraries\Util::backquote($arr['foreign_table']);
+            . Util::backquote($arr['foreign_table']);
         if ($arr['foreign_table'] == $GLOBALS['table']) {
             $foreign_table = $GLOBALS['table'] . '1';
-            $join_query .= ' AS ' . PMA\libraries\Util::backquote($foreign_table);
+            $join_query .= ' AS ' . Util::backquote($foreign_table);
         } else {
             $foreign_table = $arr['foreign_table'];
         }
         $join_query .= ' ON '
-            . PMA\libraries\Util::backquote($GLOBALS['table']) . '.'
-            . PMA\libraries\Util::backquote($master)
+            . Util::backquote($GLOBALS['table']) . '.'
+            . Util::backquote($master)
             . ' = '
-            . PMA\libraries\Util::backquote($arr['foreign_db'])
+            . Util::backquote($arr['foreign_db'])
             . '.'
-            . PMA\libraries\Util::backquote($foreign_table) . '.'
-            . PMA\libraries\Util::backquote($arr['foreign_field'])
+            . Util::backquote($foreign_table) . '.'
+            . Util::backquote($arr['foreign_field'])
             . ' WHERE '
-            . PMA\libraries\Util::backquote($arr['foreign_db'])
+            . Util::backquote($arr['foreign_db'])
             . '.'
-            . PMA\libraries\Util::backquote($foreign_table) . '.'
-            . PMA\libraries\Util::backquote($arr['foreign_field'])
+            . Util::backquote($foreign_table) . '.'
+            . Util::backquote($arr['foreign_field'])
             . ' IS NULL AND '
-            . PMA\libraries\Util::backquote($GLOBALS['table']) . '.'
-            . PMA\libraries\Util::backquote($master)
+            . Util::backquote($GLOBALS['table']) . '.'
+            . Util::backquote($master)
             . ' IS NOT NULL';
         $this_url_params = array_merge(
             $url_params,
@@ -1723,9 +1723,9 @@ function PMA_getHtmlForReferentialIntegrityCheck($foreign, $url_params)
 function PMA_getQueryAndResultForReorderingTable()
 {
     $sql_query = 'ALTER TABLE '
-        . PMA\libraries\Util::backquote($GLOBALS['table'])
+        . Util::backquote($GLOBALS['table'])
         . ' ORDER BY '
-        . PMA\libraries\Util::backquote(urldecode($_REQUEST['order_field']));
+        . Util::backquote(urldecode($_REQUEST['order_field']));
     if (isset($_REQUEST['order_order'])
         && $_REQUEST['order_order'] === 'desc'
     ) {
@@ -1768,7 +1768,7 @@ function PMA_getTableAltersArray($is_myisam_or_aria, $is_isam, $pack_keys,
         && urldecode($_REQUEST['prev_comment']) !== $_REQUEST['comment']
     ) {
         $table_alters[] = 'COMMENT = \''
-            . PMA\libraries\Util::sqlAddSlashes($_REQUEST['comment']) . '\'';
+            . Util::sqlAddSlashes($_REQUEST['comment']) . '\'';
     }
 
     if (! empty($newTblStorageEngine)
@@ -1827,7 +1827,7 @@ function PMA_getTableAltersArray($is_myisam_or_aria, $is_isam, $pack_keys,
         || $_REQUEST['new_auto_increment'] !== $auto_increment)
     ) {
         $table_alters[] = 'auto_increment = '
-            . PMA\libraries\Util::sqlAddSlashes($_REQUEST['new_auto_increment']);
+            . Util::sqlAddSlashes($_REQUEST['new_auto_increment']);
     }
 
     if (! empty($_REQUEST['new_row_format'])) {
@@ -1838,7 +1838,7 @@ function PMA_getTableAltersArray($is_myisam_or_aria, $is_isam, $pack_keys,
             || $newRowFormatLower !== mb_strtolower($row_format))
         ) {
             $table_alters[] = 'ROW_FORMAT = '
-                . PMA\libraries\Util::sqlAddSlashes($newRowFormat);
+                . Util::sqlAddSlashes($newRowFormat);
         }
     }
 
@@ -1908,7 +1908,7 @@ function PMA_getWarningMessagesArray()
 function PMA_getQueryAndResultForPartition()
 {
     $sql_query = 'ALTER TABLE '
-        . PMA\libraries\Util::backquote($GLOBALS['table']) . ' '
+        . Util::backquote($GLOBALS['table']) . ' '
         . $_REQUEST['partition_operation']
         . ' PARTITION ';
 
@@ -2037,7 +2037,7 @@ function PMA_changeAllColumnsCollation($db, $table, $tbl_collation)
     $GLOBALS['dbi']->selectDb($db);
 
     $change_all_collations_query = 'ALTER TABLE '
-        . PMA\libraries\Util::backquote($table)
+        . Util::backquote($table)
         . ' CONVERT TO';
 
     list($charset) = explode('_', $tbl_collation);
@@ -2128,11 +2128,11 @@ function PMA_moveOrCopyTable($db, $table)
                 }
             }
 
-            $old = PMA\libraries\Util::backquote($db) . '.'
-                . PMA\libraries\Util::backquote($table);
+            $old = Util::backquote($db) . '.'
+                . Util::backquote($table);
             $message->addParam($old);
-            $new = PMA\libraries\Util::backquote($_REQUEST['target_db']) . '.'
-                . PMA\libraries\Util::backquote($_REQUEST['new_name']);
+            $new = Util::backquote($_REQUEST['target_db']) . '.'
+                . Util::backquote($_REQUEST['new_name']);
             $message->addParam($new);
 
             /* Check: Work on new table or on old table? */
@@ -2149,7 +2149,7 @@ function PMA_moveOrCopyTable($db, $table)
     }
 
     if ($GLOBALS['is_ajax_request'] == true) {
-        $response = PMA\libraries\Response::getInstance();
+        $response = Response::getInstance();
         $response->addJSON('message', $message);
         if ($message->isSuccess()) {
             $response->addJSON('db', $GLOBALS['db']);
