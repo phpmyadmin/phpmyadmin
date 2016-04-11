@@ -481,26 +481,7 @@ if ($GLOBALS['text_dir'] == 'ltr') {
  * this check is done here after loading language files to present errors in locale
  */
 $GLOBALS['PMA_Config']->checkPermissions();
-
-if ($GLOBALS['PMA_Config']->error_config_file) {
-    $error = '[strong]' . __('Failed to read configuration file!') . '[/strong]'
-        . '[br][br]'
-        . __(
-            'This usually means there is a syntax error in it, '
-            . 'please check any errors shown below.'
-        )
-        . '[br][br]'
-        . '[conferr]';
-    trigger_error($error, E_USER_ERROR);
-}
-if ($GLOBALS['PMA_Config']->error_config_default_file) {
-    $error = sprintf(
-        __('Could not load default configuration from: %1$s'),
-        $GLOBALS['PMA_Config']->default_source
-    );
-    trigger_error($error, E_USER_ERROR);
-}
-
+$GLOBALS['PMA_Config']->checkErrors();
 
 /******************************************************************************/
 /* setup servers                                       LABEL_setup_servers    */

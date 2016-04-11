@@ -768,7 +768,18 @@ class Config
             $this->error_config_default_file = true;
             return false;
         }
-        include $this->default_source;
+        $old_error_reporting = error_reporting(0);
+        ob_start();
+        $GLOBALS['pma_config_loading'] = true;
+        $eval_result = include $this->default_source;
+        $GLOBALS['pma_config_loading'] = false;
+        ob_end_clean();
+        error_reporting($old_error_reporting);
+
+        if ($eval_result === false) {
+            $this->error_config_default_file = true;
+            return false;
+        }
 
         $this->default_source_mtime = filemtime($this->default_source);
 
@@ -1170,6 +1181,36 @@ class Config
                     );
                 }
             }
+        }
+    }
+
+    /**
+     * Checks for errors
+     * (must be called after config.inc.php has been merged)
+     *
+     * @return void
+     */
+    public function checkErrors()
+    {
+        if ($this->error_config_default_file) {
+            PMA_fatalError(
+                sprintf(
+                    __('Could not load default configuration from: %1$s'),
+                    $this->default_source
+                )
+            );
+        }
+
+        if ($this->error_config_file) {
+            $error = '[strong]' . __('Failed to read configuration file!') . '[/strong]'
+                . '[br][br]'
+                . __(
+                    'This usually means there is a syntax error in it, '
+                    . 'please check any errors shown below.'
+                )
+                . '[br][br]'
+                . '[conferr]';
+            trigger_error($error, E_USER_ERROR);
         }
     }
 
