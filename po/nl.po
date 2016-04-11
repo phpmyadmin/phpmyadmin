@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-04-11 15:40+0200\n"
-"PO-Revision-Date: 2016-02-22 20:18+0000\n"
+"PO-Revision-Date: 2016-04-11 18:31+0000\n"
 "Last-Translator: dingo thirteen <dingo13@gmail.com>\n"
-"Language-Team: Dutch <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"nl/>\n"
+"Language-Team: Dutch "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/nl/>\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.5-dev\n"
+"X-Generator: Weblate 2.6-dev\n"
 
 #: changelog.php:37 license.php:33
 #, php-format
@@ -3093,7 +3093,7 @@ msgstr "Koreaans"
 
 #: libraries/Charsets.php:313
 msgid "Burmese"
-msgstr ""
+msgstr "Birmees"
 
 #: libraries/Charsets.php:316
 msgid "Persian"
@@ -3207,22 +3207,19 @@ msgid "unknown"
 msgstr "onbekend"
 
 #: libraries/Charsets.php:460
-#, fuzzy
 #| msgid "Collation"
 msgid "binary collation"
-msgstr "Collatie"
+msgstr "binaire vergelijking"
 
 #: libraries/Charsets.php:467
-#, fuzzy
 #| msgid "case-insensitive"
 msgid "case-insensitive collation"
-msgstr "ongevoelig voor hoofdletters"
+msgstr "niet hoofdlettergevoelige vergelijking"
 
 #: libraries/Charsets.php:469
-#, fuzzy
 #| msgid "case-sensitive"
 msgid "case-sensitive collation"
-msgstr "hoofdlettergevoelig"
+msgstr "hoofdlettergevoelige vergelijking"
 
 #: libraries/Config.php:1137
 #, php-format
@@ -12311,10 +12308,10 @@ msgid "Grant all privileges on wildcard name (username\\_%)."
 msgstr "Alle rechten geven op de wildcardnaam (gebruikersnaam\\_%)."
 
 #: libraries/server_privileges.lib.php:2332
-#, fuzzy, php-format
+#, php-format
 #| msgid "Grant all privileges on database \"%s\"."
 msgid "Grant all privileges on database %s."
-msgstr "Alle rechten geven op database \"%s\"."
+msgstr "Alle rechten geven op database %s."
 
 #: libraries/server_privileges.lib.php:2496
 #: libraries/server_privileges.lib.php:2567
