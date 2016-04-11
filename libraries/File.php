@@ -457,9 +457,19 @@ class File
             return true;
         }
 
-        if (empty($GLOBALS['cfg']['TempDir'])
-            || ! @is_writable($GLOBALS['cfg']['TempDir'])
+        if (! empty($GLOBALS['cfg']['TempDir'])
+            && @is_writable($GLOBALS['cfg']['TempDir'])
         ) {
+            $tmp_subdir = $GLOBALS['cfg']['TempDir'];
+        } else {
+            $tmp_subdir = ini_get('upload_tmp_dir');
+            if (empty($tmp_subdir)) {
+                $tmp_subdir = sys_get_temp_dir();
+            }
+            $tmp_subdir = rtrim($tmp_subdir, DIRECTORY_SEPARATOR);
+        }
+
+        if (@is_writable($tmp_subdir)) {
             // cannot create directory or access, point user to FAQ 1.11
             $this->_error_message = __(
                 'Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc].'
@@ -468,7 +478,7 @@ class File
         }
 
         $new_file_to_upload = tempnam(
-            realpath($GLOBALS['cfg']['TempDir']),
+            realpath($tmp_subdir),
             basename($this->getName())
         );
 
