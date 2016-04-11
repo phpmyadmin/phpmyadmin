@@ -457,6 +457,9 @@ if ($import_file != 'none' && ! $error) {
      */
     $import_handle = new File($import_file);
     $import_handle->checkUploadedFile();
+    if ($import_handle->isError()) {
+        PMA_stopImport($import_handle->getError());
+    }
     $import_handle->setDecompressContent(true);
     $import_handle->open();
     if ($import_handle->isError()) {
