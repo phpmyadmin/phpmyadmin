@@ -1316,7 +1316,7 @@ Alternatively it can be also server configuration issue (if the webserver is
 configured to emit :mailheader:`Content Security Policy` headers, they can
 override the ones from phpMyAdmin).
 
-Programs know to cause these kind of errors:
+Programs known to cause these kind of errors:
 
 * Kaspersky Internet Security
 
