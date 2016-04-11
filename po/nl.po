@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-04-11 15:40+0200\n"
-"PO-Revision-Date: 2016-04-11 18:31+0000\n"
+"PO-Revision-Date: 2016-04-11 18:35+0000\n"
 "Last-Translator: dingo thirteen <dingo13@gmail.com>\n"
 "Language-Team: Dutch "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/nl/>\n"
@@ -14719,7 +14719,6 @@ msgid "Show query history at start"
 msgstr "Query geschiedenis aan begin weergeven"
 
 #: templates/console/display.phtml:189
-#, fuzzy
 #| msgid "Show current browsing query"
 msgid "Sow current browsing query"
 msgstr "Toon huidige blader query"
@@ -15598,20 +15597,19 @@ msgid "The profile has been updated."
 msgstr "Het profiel is aangepast."
 
 #: vendor/phpmyadmin/motranslator/tests/MoFilesTest.php:24
-#, fuzzy
 #| msgid "Column names"
 msgid "Column parser"
-msgstr "Kolomnamen"
+msgstr "Kolom parser"
 
 #: vendor/phpmyadmin/motranslator/tests/MoFilesTest.php:83
 #: vendor/phpmyadmin/motranslator/tests/MoFilesTest.php:127
-#, fuzzy, php-format
+#, php-format
 #| msgid "%d second"
 #| msgid_plural "%d seconds"
 msgid "\"%d\" second"
 msgid_plural "\"%d\" seconds"
-msgstr[0] "%d seconde"
-msgstr[1] "%d seconden"
+msgstr[0] "\"%d\" seconde"
+msgstr[1] "\"%d\" seconden"
 
 #: vendor/phpmyadmin/sql-parser/src/Component.php:48
 #: vendor/phpmyadmin/sql-parser/src/Component.php:68
@@ -15637,10 +15635,9 @@ msgid "An opening bracket was expected."
 msgstr "Een openingshaakje werd verwacht."
 
 #: vendor/phpmyadmin/sql-parser/src/Components/CreateDefinition.php:225
-#, fuzzy
 #| msgid "Variable name was expected."
 msgid "A symbol name was expected!"
-msgstr "Naam van variabele  werd verwacht."
+msgstr "Naam van een symbool  werd verwacht!"
 
 #: vendor/phpmyadmin/sql-parser/src/Components/CreateDefinition.php:257
 msgid "A comma or a closing bracket was expected."
