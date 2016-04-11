@@ -631,14 +631,7 @@ class File
             break;
         case 'application/zip':
             if ($GLOBALS['cfg']['ZipDump'] && @function_exists('zip_open')) {
-                include_once './libraries/zip_extension.lib.php';
-                $result = PMA_getZipContents($this->getName());
-                if (! empty($result['error'])) {
-                    $this->_error_message = Message::rawError($result['error']);
-                    return false;
-                }
-                $this->_content = $result['data'];
-                $this->_offset = 0;
+                return $this->openZip();
             } else {
                 $this->errorUnsupported();
                 return false;
@@ -652,6 +645,19 @@ class File
             return false;
         }
 
+        return true;
+    }
+
+    public function openZip($specific_entry = null)
+    {
+        include_once './libraries/zip_extension.lib.php';
+        $result = PMA_getZipContents($this->getName(), $specific_entry);
+        if (! empty($result['error'])) {
+            $this->_error_message = Message::rawError($result['error']);
+            return false;
+        }
+        $this->_content = $result['data'];
+        $this->_offset = 0;
         return true;
     }
 

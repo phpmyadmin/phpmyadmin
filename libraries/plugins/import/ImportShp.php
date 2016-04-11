@@ -76,17 +76,14 @@ class ImportShp extends ImportPlugin
         if ($compression == 'application/zip'
             && PMA_getNoOfFilesInZip($import_file) > 1
         ) {
-            $zip_content = PMA_getZipContents($import_file, '/^.*\.shp$/i');
-            if (!empty($zip_content['error'])) {
-                $error = true;
+            if ($GLOBALS['import_handle']->openZip('/^.*\.shp$/i') === false) {
                 $message = PMA\libraries\Message::error(
                     __('There was an error importing the ESRI shape file: "%s".')
                 );
-                $message->addParam($zip_content['error']);
+                $message->addParam($GLOBALS['import_handle']->getError());
 
                 return;
             }
-            $GLOBALS['import_text'] = $zip_content['data'];
         }
 
         $temp_dbf_file = false;
