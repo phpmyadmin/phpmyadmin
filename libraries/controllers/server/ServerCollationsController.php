@@ -38,8 +38,7 @@ class ServerCollationsController extends Controller
                 Charsets::getMySQLCharsets(),
                 Charsets::getMySQLCollations(),
                 Charsets::getMySQLCharsetsDescriptions(),
-                Charsets::getMySQLCollationsDefault(),
-                Charsets::getMySQLCollationsAvailable()
+                Charsets::getMySQLCollationsDefault()
             )
         );
     }
@@ -51,12 +50,11 @@ class ServerCollationsController extends Controller
      * @param array $mysqlCollations    Mysql Collations list
      * @param array $mysqlCharsetsDesc  Charsets descriptions
      * @param array $mysqlDftCollations Default Collations list
-     * @param array $mysqlCollAvailable Available Collations list
      *
      * @return string
      */
     function _getHtmlForCharsets($mysqlCharsets, $mysqlCollations,
-        $mysqlCharsetsDesc, $mysqlDftCollations, $mysqlCollAvailable
+        $mysqlCharsetsDesc, $mysqlDftCollations
     ) {
         return Template::get('server/collations/charsets')->render(
             array(
@@ -64,7 +62,6 @@ class ServerCollationsController extends Controller
                 'mysqlCollations' => $mysqlCollations,
                 'mysqlCharsetsDesc' => $mysqlCharsetsDesc,
                 'mysqlDftCollations' => $mysqlDftCollations,
-                'mysqlCollAvailable' => $mysqlCollAvailable,
             )
         );
     }

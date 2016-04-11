@@ -49,10 +49,8 @@ class Charsets
 
     private static $_charsets = array();
     private static $_charsets_descriptions = array();
-    private static $_charsets_available = array();
     private static $_collations = array();
     private static $_default_collations = array();
-    private static $_collations_available = array();
 
     /**
      * Loads charset data from the MySQL server.
@@ -108,10 +106,6 @@ class Charsets
             if ($row['IS_DEFAULT'] == 'Yes' || $row['IS_DEFAULT'] == '1') {
                 self::$_default_collations[$char_set_name] = $name;
             }
-            self::$_collations_available[$name] = true;
-            self::$_charsets_available[$char_set_name]
-                = !empty(self::$_charsets_available[$char_set_name])
-                || !empty(self::$_collations_available[$name]);
         }
         $GLOBALS['dbi']->freeResult($res);
 
@@ -132,12 +126,6 @@ class Charsets
         return self::$_charsets_descriptions;
     }
 
-    public static function getMySQLCharsetsAvailable()
-    {
-        self::loadCollations();
-        return self::$_charsets_available;
-    }
-
     public static function getMySQLCollations()
     {
         self::loadCollations();
@@ -148,12 +136,6 @@ class Charsets
     {
         self::loadCollations();
         return self::$_default_collations;
-    }
-
-    public static function getMySQLCollationsAvailable()
-    {
-        self::loadCollations();
-        return self::$_collations_available;
     }
 
     /**
@@ -187,9 +169,6 @@ class Charsets
         }
         $return_str .= '<option value=""></option>' . "\n";
         foreach (self::$_charsets as $current_charset) {
-            if (!self::$_charsets_available[$current_charset]) {
-                continue;
-            }
             $current_cs_descr
                 = empty(self::$_charsets_descriptions[$current_charset])
                 ? $current_charset
@@ -236,9 +215,6 @@ class Charsets
         }
         $return_str .= '<option value=""></option>' . "\n";
         foreach (self::$_charsets as $current_charset) {
-            if (!self::$_charsets_available[$current_charset]) {
-                continue;
-            }
             $current_cs_descr
                 = empty(self::$_charsets_descriptions[$current_charset])
                 ? $current_charset
@@ -247,9 +223,6 @@ class Charsets
             $return_str .= '<optgroup label="' . $current_charset
                 . '" title="' . $current_cs_descr . '">' . "\n";
             foreach (self::$_collations[$current_charset] as $current_collation) {
-                if (!self::$_collations_available[$current_collation]) {
-                    continue;
-                }
                 $return_str .= '<option value="' . $current_collation
                     . '" title="' . self::getCollationDescr($current_collation) . '"'
                     . ($default == $current_collation ? ' selected="selected"' : '')

@@ -18,7 +18,6 @@
                 <tr class="
                     <?= ($odd_row ? 'odd' : 'even'); ?>
                     <?= ($mysqlDftCollations[$current_charset] == $current_collation ? ' marked' : ''); ?>
-                    <?= ($mysqlCollAvailable[$current_collation] ? '' : ' disabled'); ?>
                     ">
                     <td><?= htmlspecialchars($current_collation); ?></td>
                     <td><?= PMA\libraries\Charsets::getCollationDescr($current_collation); ?></td>
