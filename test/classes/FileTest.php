@@ -69,6 +69,7 @@ class FileTest extends PMATestCase
         $file->setDecompressContent(true);
         $file->open();
         $this->assertEquals("TEST FILE\n", $file->read(100));
+        $file->close();
     }
 
     /**
