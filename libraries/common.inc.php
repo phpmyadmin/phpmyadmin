@@ -875,7 +875,6 @@ if (! defined('PMA_MINIMUM_COMMON')) {
 
         if (!isset($mysql_charsets)) {
             $mysql_charsets = array();
-            $mysql_collations_flat = array();
         }
 
         // Loads closest context to this version.

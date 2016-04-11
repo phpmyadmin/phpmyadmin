@@ -16,7 +16,7 @@ if (! defined('PHPMYADMIN')) {
 if (! PMA\libraries\Util::cacheExists('mysql_charsets')) {
     global $mysql_charsets, $mysql_charsets_descriptions,
         $mysql_charsets_available, $mysql_collations, $mysql_collations_available,
-        $mysql_default_collations, $mysql_collations_flat;
+        $mysql_default_collations;
     $sql = 'SELECT * FROM information_schema.CHARACTER_SETS';
     $res = $GLOBALS['dbi']->query($sql);
 
@@ -33,8 +33,7 @@ if (! PMA\libraries\Util::cacheExists('mysql_charsets')) {
     sort($mysql_charsets, SORT_STRING);
 
     $mysql_collations = array_flip($mysql_charsets);
-    $mysql_default_collations = $mysql_collations_flat
-        = $mysql_charsets_available = $mysql_collations_available = array();
+    $mysql_default_collations = $mysql_charsets_available = $mysql_collations_available = array();
 
     $sql = 'SELECT * FROM information_schema.COLLATIONS';
     $res = $GLOBALS['dbi']->query($sql);
@@ -45,7 +44,6 @@ if (! PMA\libraries\Util::cacheExists('mysql_charsets')) {
         } else {
             $mysql_collations[$char_set_name][] = $row['COLLATION_NAME'];
         }
-        $mysql_collations_flat[] = $row['COLLATION_NAME'];
         if ($row['IS_DEFAULT'] == 'Yes' || $row['IS_DEFAULT'] == '1') {
             $mysql_default_collations[$char_set_name]
                 = $row['COLLATION_NAME'];
@@ -60,7 +58,6 @@ if (! PMA\libraries\Util::cacheExists('mysql_charsets')) {
     $GLOBALS['dbi']->freeResult($res);
     unset($res, $row);
 
-    sort($mysql_collations_flat, SORT_STRING);
     foreach ($mysql_collations as $key => $value) {
         sort($mysql_collations[$key], SORT_STRING);
     }
@@ -82,9 +79,6 @@ if (! PMA\libraries\Util::cacheExists('mysql_charsets')) {
         'mysql_default_collations', $GLOBALS['mysql_default_collations']
     );
     PMA\libraries\Util::cacheSet(
-        'mysql_collations_flat', $GLOBALS['mysql_collations_flat']
-    );
-    PMA\libraries\Util::cacheSet(
         'mysql_collations_available', $GLOBALS['mysql_collations_available']
     );
 } else {
@@ -102,9 +96,6 @@ if (! PMA\libraries\Util::cacheExists('mysql_charsets')) {
     );
     $GLOBALS['mysql_default_collations'] = PMA\libraries\Util::cacheGet(
         'mysql_default_collations'
-    );
-    $GLOBALS['mysql_collations_flat'] = PMA\libraries\Util::cacheGet(
-        'mysql_collations_flat'
     );
     $GLOBALS['mysql_collations_available'] = PMA\libraries\Util::cacheGet(
         'mysql_collations_available'
