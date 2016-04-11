@@ -1329,7 +1329,7 @@ class DatabaseInterface
         if ($link === false) {
             return false;
         }
-        $current_value = $GLOBALS['dbi']->getVariable(
+        $current_value = $this->getVariable(
             $var, self::GETVAR_SESSION, $link
         );
         if ($current_value == $value) {
@@ -2068,7 +2068,7 @@ class DatabaseInterface
         if (Util::cacheExists('mysql_cur_user')) {
             return Util::cacheGet('mysql_cur_user');
         }
-        $user = $GLOBALS['dbi']->fetchValue('SELECT USER();');
+        $user = $this->fetchValue('SELECT USER();');
         if ($user !== false) {
             Util::cacheSet('mysql_cur_user', $user);
             return Util::cacheGet('mysql_cur_user');
@@ -2134,20 +2134,20 @@ class DatabaseInterface
             }
 
             $is = false;
-            $result = $GLOBALS['dbi']->tryQuery(
+            $result = $this->tryQuery(
                 $query,
                 $GLOBALS['userlink'],
                 self::QUERY_STORE
             );
             if ($result) {
-                $is = (bool) $GLOBALS['dbi']->numRows($result);
+                $is = (bool) $this->numRows($result);
             }
-            $GLOBALS['dbi']->freeResult($result);
+            $this->freeResult($result);
 
             Util::cacheSet('is_' . $type . 'user', $is);
         } else {
             $is = false;
-            $grants = $GLOBALS['dbi']->fetchResult(
+            $grants = $this->fetchResult(
                 "SHOW GRANTS FOR CURRENT_USER();",
                 null,
                 null,
@@ -2186,7 +2186,7 @@ class DatabaseInterface
     public function getCurrentUserAndHost()
     {
         if (count($this->_current_user) == 0) {
-            $user = $GLOBALS['dbi']->fetchValue("SELECT CURRENT_USER();");
+            $user = $this->fetchValue("SELECT CURRENT_USER();");
             $this->_current_user = explode("@", $user);
         }
         return $this->_current_user;
@@ -2251,7 +2251,7 @@ class DatabaseInterface
 
         if ($result) {
             if (! $auxiliary_connection && ! $is_controluser) {
-                $GLOBALS['dbi']->postConnect($result);
+                $this->postConnect($result);
             }
             return $result;
         }
@@ -2494,7 +2494,7 @@ class DatabaseInterface
         // When no controluser is defined, using mysqli_insert_id($link)
         // does not always return the last insert id due to a mixup with
         // the tracking mechanism, but this works:
-        return $GLOBALS['dbi']->fetchValue('SELECT LAST_INSERT_ID();', 0, 0, $link);
+        return $this->fetchValue('SELECT LAST_INSERT_ID();', 0, 0, $link);
     }
 
     /**
