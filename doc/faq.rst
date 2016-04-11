@@ -1295,6 +1295,31 @@ Issues have been reported with some combinations of browser
 extensions. To troubleshoot, disable all extensions then clear your
 browser cache to see if the problem goes away.
 
+.. _faq5_20:
+
+5.20 I get errors about violating Content Security Policy.
+----------------------------------------------------------
+
+If you see errors like::
+
+    Refused to apply inline style because it violates the following Content Security Policy directive
+
+This is usually caused by some software, which wrongly rewrites
+:mailheader:`Content Security Policy` headers. Usually this is caused by
+antivirus proxy or browser addons which are causing such errors.
+
+If you see these errors, try disabling the HTTP proxy in antivirus or disable
+the :mailheader:`Content Security Policy` rewriting in it. If that doesn't
+help, try disabling browser extensions.
+
+Alternatively it can be also server configuration issue (if the webserver is
+configured to emit :mailheader:`Content Security Policy` headers, they can
+override the ones from phpMyAdmin).
+
+Programs know to cause these kind of errors:
+
+* Kaspersky Internet Security
+
 .. _faqusing:
 
 Using phpMyAdmin
