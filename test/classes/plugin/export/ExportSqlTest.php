@@ -10,7 +10,6 @@ use PMA\libraries\Table;
 
 require_once 'libraries/export.lib.php';
 require_once 'libraries/config.default.php';
-require_once 'libraries/mysql_charsets.lib.php';
 require_once 'libraries/relation.lib.php';
 require_once 'libraries/transformations.lib.php';
 require_once 'export.php';
@@ -576,9 +575,9 @@ class ExportSqlTest extends PMATestCase
             ->getMock();
 
         $dbi->expects($this->once())
-            ->method('isSystemSchema')
+            ->method('getDbCollation')
             ->with('db')
-            ->will($this->returnValue(true));
+            ->will($this->returnValue('utf8_general_ci'));
 
         $GLOBALS['dbi'] = $dbi;
 
@@ -614,8 +613,8 @@ class ExportSqlTest extends PMATestCase
             ->getMock();
 
         $dbi->expects($this->once())
-            ->method('fetchValue')
-            ->with('SELECT @@collation_database')
+            ->method('getDbCollation')
+            ->with('db')
             ->will($this->returnValue('testcollation'));
 
         $GLOBALS['dbi'] = $dbi;

@@ -11,7 +11,6 @@ use PMA\libraries\URL;
  *
  */
 require_once 'libraries/common.inc.php';
-require_once 'libraries/mysql_charsets.inc.php';
 require_once 'libraries/sql.lib.php';
 
 if (isset($_REQUEST['submit_mult'])) {

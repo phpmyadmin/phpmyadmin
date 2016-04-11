@@ -17,7 +17,6 @@ use PMA\libraries\plugins\export\ExportSql;
  * requirements
  */
 require_once 'libraries/common.inc.php';
-require_once 'libraries/mysql_charsets.inc.php';
 require_once 'libraries/display_create_table.lib.php';
 
 /**

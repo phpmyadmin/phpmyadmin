@@ -8,8 +8,7 @@
 
 use PMA\libraries\di\Container;
 use PMA\libraries\Theme;
-
-require_once 'libraries/mysql_charsets.lib.php';
+use PMA\libraries\Charsets;
 
 require_once 'libraries/database_interface.inc.php';
 
@@ -277,7 +276,10 @@ class ServerDatabasesControllerTest extends PMATestCase
             array(
                 'DEFAULT_COLLATION_NAME' => array(
                     'disp_name' => __('Collation'),
-                    'description_function' => 'PMA_getCollationDescr',
+                    'description_function' => array(
+                        '\PMA\libraries\Charsets',
+                        'getCollationDescr'
+                    ),
                     'format'    => 'string',
                     'footer'    => 'utf8_general_ci'
                 ),

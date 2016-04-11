@@ -31,10 +31,6 @@ class ServerCollationsController extends Controller
          * Does the common work
          */
         include_once 'libraries/server_common.inc.php';
-        /**
-         * Includes the required charset library
-         */
-        include_once 'libraries/mysql_charsets.inc.php';
 
         $this->response->addHTML(PMA_getHtmlForSubPageHeader('collations'));
         $this->response->addHTML(

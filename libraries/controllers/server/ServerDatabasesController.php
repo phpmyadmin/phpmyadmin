@@ -10,6 +10,7 @@
 namespace PMA\libraries\controllers\server;
 
 use PMA\libraries\controllers\Controller;
+use PMA\libraries\Charsets;
 use PMA\libraries\Message;
 use PMA\libraries\Template;
 use PMA\libraries\Util;
@@ -65,7 +66,6 @@ class ServerDatabasesController extends Controller
         }
 
         include_once 'libraries/replication.inc.php';
-        include_once 'libraries/mysql_charsets.inc.php';
 
         if (! empty($_POST['new_db'])
             && $GLOBALS['is_ajax_request']
@@ -138,8 +138,10 @@ class ServerDatabasesController extends Controller
         $sql_query = 'CREATE DATABASE ' . Util::backquote($_POST['new_db']);
         if (! empty($_POST['db_collation'])) {
             list($db_charset) = explode('_', $_POST['db_collation']);
-            if (in_array($db_charset, $GLOBALS['mysql_charsets'])
-                && in_array($_POST['db_collation'], $GLOBALS['mysql_collations'][$db_charset])
+            $charsets = Charsets::getMySQLCharsets();
+            $collations = Charsets::getMySQLCollations();
+            if (in_array($db_charset, $charsets)
+                && in_array($_POST['db_collation'], $collations[$db_charset])
             ) {
                 $sql_query .= ' DEFAULT'
                     . Util::getCharsetQueryPart($_POST['db_collation']);
@@ -331,7 +333,7 @@ class ServerDatabasesController extends Controller
         $column_order = array();
         $column_order['DEFAULT_COLLATION_NAME'] = array(
             'disp_name' => __('Collation'),
-            'description_function' => 'PMA_getCollationDescr',
+            'description_function' => array('\PMA\libraries\Charsets', 'getCollationDescr'),
             'format'    => 'string',
             'footer'    => $this->dbi->getServerCollation(),
         );

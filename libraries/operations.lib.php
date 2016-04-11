@@ -6,6 +6,7 @@
  * @package PhpMyAdmin
  */
 use PMA\libraries\engines\Innodb;
+use PMA\libraries\Charsets;
 use PMA\libraries\Message;
 use PMA\libraries\Partition;
 use PMA\libraries\plugins\export\ExportSql;
@@ -287,7 +288,7 @@ function PMA_getHtmlForChangeDatabaseCharset($db, $table)
     $html_output .= '<label for="select_db_collation">' . __('Collation')
         . '</label>' . "\n"
         . '</legend>' . "\n"
-        . PMA_generateCharsetDropdownBox(
+        . Charsets::generateCharsetDropdownBox(
             PMA_CSDROPDOWN_COLLATION,
             'db_collation',
             'select_db_collation',
@@ -1061,7 +1062,7 @@ function PMA_getTableOptionFieldset($comment, $tbl_collation,
     //Table character set
     $html_output .= '<tr><td class="vmiddle">' . __('Collation') . '</td>'
         . '<td>'
-        . PMA_generateCharsetDropdownBox(
+        . Charsets::generateCharsetDropdownBox(
             PMA_CSDROPDOWN_COLLATION,
             'tbl_collation', null, $tbl_collation, false
         )

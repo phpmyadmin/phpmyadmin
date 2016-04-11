@@ -20,7 +20,6 @@ $GLOBALS['server'] = 0;
 require_once 'libraries/relation.lib.php';
 require_once 'libraries/database_interface.inc.php';
 require_once 'libraries/sql_query_form.lib.php';
-require_once 'libraries/mysql_charsets.inc.php';
 
 /**
  * class PMA_SqlQueryForm_Test

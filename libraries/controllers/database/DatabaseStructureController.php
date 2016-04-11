@@ -11,6 +11,7 @@ namespace PMA\libraries\controllers\database;
 
 use PMA\libraries\config\PageSettings;
 use PMA\libraries\controllers\DatabaseController;
+use PMA\libraries\Charsets;
 use PMA\libraries\Message;
 use PMA\libraries\RecentFavoriteTable;
 use PMA\libraries\Template;
@@ -19,7 +20,6 @@ use PMA\libraries\Util;
 use PMA\libraries\URL;
 use PMA\libraries\Sanitize;
 
-require_once 'libraries/mysql_charsets.inc.php';
 require_once 'libraries/display_create_table.lib.php';
 require_once 'libraries/config/messages.inc.php';
 require_once 'libraries/config/user_preferences.forms.php';
@@ -415,7 +415,7 @@ class DatabaseStructureController extends DatabaseController
 
             if (isset($current_table['Collation'])) {
                 $collation = '<dfn title="'
-                    . PMA_getCollationDescr($current_table['Collation']) . '">'
+                    . Charsets::getCollationDescr($current_table['Collation']) . '">'
                     . $current_table['Collation'] . '</dfn>';
             } else {
                 $collation = '---';

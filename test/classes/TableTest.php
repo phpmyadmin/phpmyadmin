@@ -13,7 +13,6 @@ use PMA\libraries\Table;
 use PMA\libraries\Theme;
 use PMA\libraries\Util;
 
-require_once 'libraries/mysql_charsets.lib.php';
 require_once 'libraries/database_interface.inc.php';
 require_once 'libraries/relation.lib.php';
 require_once 'test/PMATestCase.php';

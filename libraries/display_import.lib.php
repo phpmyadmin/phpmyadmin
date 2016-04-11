@@ -8,6 +8,7 @@
  *
  * @package PhpMyAdmin
  */
+use PMA\libraries\Charsets;
 use PMA\libraries\Encoding;
 use PMA\libraries\Message;
 use PMA\libraries\plugins\ImportPlugin;
@@ -193,7 +194,7 @@ function PMA_getHtmlForImportCharset()
     } else {
         $html .= '<label for="charset_of_file">' . __('Character set of the file:')
             . '</label>' . "\n";
-        $html .= PMA_generateCharsetDropdownBox(
+        $html .= Charsets::generateCharsetDropdownBox(
             PMA_CSDROPDOWN_CHARSET,
             'charset_of_file',
             'charset_of_file',

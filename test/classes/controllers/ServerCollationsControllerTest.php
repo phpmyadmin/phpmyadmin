@@ -29,7 +29,6 @@ $GLOBALS['cfg']['Server'] = array(
 
 require_once 'libraries/database_interface.inc.php';
 require_once 'libraries/server_common.inc.php';
-require_once 'libraries/mysql_charsets.inc.php';
 require_once 'test/PMATestCase.php';
 
 /**

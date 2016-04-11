@@ -868,15 +868,6 @@ if (! defined('PMA_MINIMUM_COMMON')) {
          */
         $GLOBALS['PMA_Types'] = new TypesMySQL();
 
-        /**
-         * Charset information
-         */
-        include_once './libraries/mysql_charsets.inc.php';
-
-        if (!isset($mysql_charsets)) {
-            $mysql_charsets = array();
-        }
-
         // Loads closest context to this version.
         SqlParser\Context::loadClosest('MySql' . PMA_MYSQL_INT_VERSION);
 

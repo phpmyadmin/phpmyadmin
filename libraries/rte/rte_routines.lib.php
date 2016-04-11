@@ -5,6 +5,7 @@
  *
  * @package PhpMyAdmin
  */
+use PMA\libraries\Charsets;
 use PMA\libraries\Message;
 use PMA\libraries\Response;
 use PMA\libraries\Util;
@@ -745,7 +746,7 @@ function PMA_RTN_getParameterRow($routine = array(), $index = null, $class = '')
     $retval .= "            </td>\n";
     $retval .= "            <td class='hide no_len'>---</td>\n";
     $retval .= "            <td class='routine_param_opts_text'>\n";
-    $retval .= PMA_generateCharsetDropdownBox(
+    $retval .= Charsets::generateCharsetDropdownBox(
         PMA_CSDROPDOWN_CHARSET,
         "item_param_opts_text[$index]",
         null,
@@ -961,7 +962,7 @@ function PMA_RTN_getEditorForm($mode, $operation, $routine)
     $retval .= "<tr class='routine_return_row" . $isfunction_class . "'>";
     $retval .= "    <td>" . __('Return options') . "</td>";
     $retval .= "    <td><div>";
-    $retval .= PMA_generateCharsetDropdownBox(
+    $retval .= Charsets::generateCharsetDropdownBox(
         PMA_CSDROPDOWN_CHARSET,
         "item_returnopts_text",
         null,

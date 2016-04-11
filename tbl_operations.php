@@ -41,11 +41,6 @@ $url_params['goto'] = $url_params['back'] = 'tbl_operations.php';
  */
 $cfgRelation = PMA_getRelationsParam();
 
-/**
- * Gets available MySQL charsets and storage engines
- */
-require_once 'libraries/mysql_charsets.inc.php';
-
 // reselect current db (needed in some cases probably due to
 // the calling of relation.lib.php)
 $GLOBALS['dbi']->selectDb($GLOBALS['db']);

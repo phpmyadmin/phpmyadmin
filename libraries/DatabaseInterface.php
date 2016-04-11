@@ -855,7 +855,6 @@ class DatabaseInterface
                 // Compatibility with INFORMATION_SCHEMA output
                 $databases[$database_name]['SCHEMA_NAME']      = $database_name;
 
-                include_once './libraries/mysql_charsets.inc.php';
                 $databases[$database_name]['DEFAULT_COLLATION_NAME']
                     = $this->getDbCollation($database_name);
 

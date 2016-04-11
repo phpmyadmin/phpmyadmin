@@ -38,10 +38,6 @@ if (!isset($columnMeta)) {
     $columnMeta = array();
 }
 
-
-// Get available character sets and storage engines
-require_once './libraries/mysql_charsets.inc.php';
-
 $length_values_input_size = 8;
 
 $content_cells = array();

@@ -16,10 +16,7 @@ $GLOBALS['server'] = 1;
 require_once 'libraries/operations.lib.php';
 require_once 'libraries/relation.lib.php';
 
-
 require_once 'libraries/database_interface.inc.php';
-
-require_once 'libraries/mysql_charsets.inc.php';
 
 /**
  * tests for operations

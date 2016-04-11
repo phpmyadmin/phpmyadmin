@@ -22,7 +22,6 @@ use PMA\libraries\Table;
 use PMA\libraries\controllers\TableController;
 use PMA\libraries\URL;
 
-require_once 'libraries/mysql_charsets.inc.php';
 require_once 'libraries/transformations.lib.php';
 require_once 'libraries/util.lib.php';
 require_once 'libraries/config/messages.inc.php';

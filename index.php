@@ -214,7 +214,7 @@ if ($server > 0 || count($cfg['Servers']) > 1
            . ': ' .  "\n"
            . '            </label>' . "\n"
 
-           . PMA_generateCharsetDropdownBox(
+           . Charsets::generateCharsetDropdownBox(
                PMA_CSDROPDOWN_COLLATION,
                'collation_connection',
                'select_collation_connection',

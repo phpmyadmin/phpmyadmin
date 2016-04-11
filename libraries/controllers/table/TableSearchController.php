@@ -13,7 +13,6 @@ use PMA\libraries\Template;
 use PMA\libraries\controllers\TableController;
 use PMA\libraries\DatabaseInterface;
 
-require_once 'libraries/mysql_charsets.inc.php';
 require_once 'libraries/sql.lib.php';
 
 /**
