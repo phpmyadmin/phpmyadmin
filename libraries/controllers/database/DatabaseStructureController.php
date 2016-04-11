@@ -650,7 +650,7 @@ class DatabaseStructureController extends DatabaseController
 
         $this->response->addHTML('</tbody>');
 
-        $db_collation = PMA_getDbCollation($this->db);
+        $db_collation = $this->dbi->getDbCollation($this->db);
 
         // Show Summary
         $this->response->addHTML(

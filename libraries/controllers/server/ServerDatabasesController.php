@@ -333,7 +333,7 @@ class ServerDatabasesController extends Controller
             'disp_name' => __('Collation'),
             'description_function' => 'PMA_getCollationDescr',
             'format'    => 'string',
-            'footer'    => PMA_getServerCollation(),
+            'footer'    => $this->dbi->getServerCollation(),
         );
         $column_order['SCHEMA_TABLES'] = array(
             'disp_name' => __('Tables'),

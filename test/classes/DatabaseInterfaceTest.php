@@ -25,7 +25,18 @@ class DatabaseInterfaceTest extends PMATestCase
      */
     function setup()
     {
-        //$extension = new PMA\libraries\dbi\DBIDummy();
+        $extension = new PMA\libraries\dbi\DBIDummy();
+        $this->_dbi = new PMA\libraries\DatabaseInterface($extension);
+    }
+
+    /**
+     * Tests for DBI::getColumnMapFromSql() method.
+     *
+     * @return void
+     * @test
+     */
+    public function testPMAGetColumnMap()
+    {
         $extension = $this->getMockBuilder('PMA\libraries\dbi\DBIDummy')
             ->disableOriginalConstructor()
             ->getMock();
@@ -52,23 +63,14 @@ class DatabaseInterfaceTest extends PMATestCase
                 )
             );
 
-        $this->_dbi = new PMA\libraries\DatabaseInterface($extension);
-    }
+        $dbi = new PMA\libraries\DatabaseInterface($extension);
 
-    /**
-     * Tests for DBI::getColumnMapFromSql() method.
-     *
-     * @return void
-     * @test
-     */
-    public function testPMAGetColumnMap()
-    {
         $sql_query = "PMA_sql_query";
         $view_columns = array(
             "view_columns1", "view_columns2"
         );
 
-        $column_map = $this->_dbi->getColumnMapFromSql(
+        $column_map = $dbi->getColumnMapFromSql(
             $sql_query, $view_columns
         );
 
@@ -100,6 +102,43 @@ class DatabaseInterfaceTest extends PMATestCase
     {
         $sd = $this->_dbi->getSystemDatabase();
         $this->assertInstanceOf('PMA\libraries\SystemDatabase', $sd);
+    }
+
+    /**
+     * Test for getDbCollation
+     *
+     * @return void
+     * @test
+     */
+    public function testGetDbCollation()
+    {
+        $GLOBALS['server'] = 1;
+        // test case for system schema
+        $this->assertEquals(
+            'utf8_general_ci',
+            $this->_dbi->getDbCollation("information_schema")
+        );
+
+        $GLOBALS['cfg']['Server']['DisableIS'] = false;
+        $GLOBALS['cfg']['DBG']['sql'] = false;
+
+        $this->assertEquals(
+            'utf8_general_ci',
+            $this->_dbi->getDbCollation('pma_test')
+        );
+    }
+
+    /**
+     * Test for getServerCollation
+     *
+     * @return void
+     * @test
+     */
+    public function testGetServerCollation()
+    {
+        $GLOBALS['server'] = 1;
+        $GLOBALS['cfg']['DBG']['sql'] = true;
+        $this->assertEquals('utf8_general_ci', $this->_dbi->getServerCollation());
     }
 }
 

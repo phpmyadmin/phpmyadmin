@@ -809,7 +809,7 @@ class ExportSql extends ExportPlugin
                 $compat,
                 isset($GLOBALS['sql_backquotes'])
             );
-        $collation = PMA_getDbCollation($db);
+        $collation = $GLOBALS['dbi']->getDbCollation($db);
         if (mb_strpos($collation, '_')) {
             $create_query .= ' DEFAULT CHARACTER SET '
                 . mb_substr(

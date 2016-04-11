@@ -100,47 +100,6 @@ function PMA_generateCharsetQueryPart($collation, $override = false)
 }
 
 /**
- * returns collation of given db
- *
- * @param string $db name of db
- *
- * @return string  collation of $db
- */
-function PMA_getDbCollation($db)
-{
-    if ($GLOBALS['dbi']->isSystemSchema($db)) {
-        // We don't have to check the collation of the virtual
-        // information_schema database: We know it!
-        return 'utf8_general_ci';
-    }
-
-    if (! $GLOBALS['cfg']['Server']['DisableIS']) {
-        // this is slow with thousands of databases
-        $sql = 'SELECT DEFAULT_COLLATION_NAME FROM information_schema.SCHEMATA'
-            . ' WHERE SCHEMA_NAME = \'' . Util::sqlAddSlashes($db)
-            . '\' LIMIT 1';
-        return $GLOBALS['dbi']->fetchValue($sql);
-    } else {
-        $GLOBALS['dbi']->selectDb($db);
-        $return = $GLOBALS['dbi']->fetchValue('SELECT @@collation_database');
-        if ($db !== $GLOBALS['db']) {
-            $GLOBALS['dbi']->selectDb($GLOBALS['db']);
-        }
-        return $return;
-    }
-}
-
-/**
- * returns default server collation from show variables
- *
- * @return string  $server_collation
- */
-function PMA_getServerCollation()
-{
-    return $GLOBALS['dbi']->fetchValue('SELECT @@collation_server');
-}
-
-/**
  * returns description for given collation
  *
  * @param string $collation MySQL collation string

@@ -50,31 +50,6 @@ class PMA_MySQL_Charsets_Test extends PHPUnit_Framework_TestCase
         );
     }
 
-
-    /**
-     * Test for PMA_getDbCollation
-     *
-     * @return void
-     * @test
-     */
-    public function testGetDbCollation()
-    {
-        $GLOBALS['server'] = 1;
-        // test case for system schema
-        $this->assertEquals(
-            'utf8_general_ci',
-            PMA_getDbCollation("information_schema")
-        );
-
-        $GLOBALS['cfg']['Server']['DisableIS'] = false;
-        $GLOBALS['cfg']['DBG']['sql'] = false;
-
-        $this->assertEquals(
-            'utf8_general_ci',
-            PMA_getDbCollation('pma_test')
-        );
-    }
-
     /**
      * Test case for PMA_getCollationDescr()
      *
@@ -231,18 +206,5 @@ class PMA_MySQL_Charsets_Test extends PHPUnit_Framework_TestCase
         $this->assertContains('class="autosubmit"', $result);
         $this->assertContains('id="test_id"', $result);
         $this->assertContains('selected="selected">latin1', $result);
-    }
-
-    /**
-     * Test for PMA_getServerCollation
-     *
-     * @return void
-     * @test
-     */
-    public function testGetServerCollation()
-    {
-        $GLOBALS['server'] = 1;
-        $GLOBALS['cfg']['DBG']['sql'] = false;
-        $this->assertEquals('utf8_general_ci', PMA_getServerCollation());
     }
 }

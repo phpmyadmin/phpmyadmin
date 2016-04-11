@@ -857,7 +857,7 @@ class DatabaseInterface
 
                 include_once './libraries/mysql_charsets.inc.php';
                 $databases[$database_name]['DEFAULT_COLLATION_NAME']
-                    = PMA_getDbCollation($database_name);
+                    = $this->getDbCollation($database_name);
 
                 if (!$force_stats) {
                     continue;
@@ -2697,5 +2697,46 @@ class DatabaseInterface
     public function getTable($db_name, $table_name)
     {
         return new Table($table_name, $db_name, $this);
+    }
+
+    /**
+     * returns collation of given db
+     *
+     * @param string $db name of db
+     *
+     * @return string  collation of $db
+     */
+    public function getDbCollation($db)
+    {
+        if ($this->isSystemSchema($db)) {
+            // We don't have to check the collation of the virtual
+            // information_schema database: We know it!
+            return 'utf8_general_ci';
+        }
+
+        if (! $GLOBALS['cfg']['Server']['DisableIS']) {
+            // this is slow with thousands of databases
+            $sql = 'SELECT DEFAULT_COLLATION_NAME FROM information_schema.SCHEMATA'
+                . ' WHERE SCHEMA_NAME = \'' . Util::sqlAddSlashes($db)
+                . '\' LIMIT 1';
+            return $this->fetchValue($sql);
+        } else {
+            $this->selectDb($db);
+            $return = $this->fetchValue('SELECT @@collation_database');
+            if ($db !== $GLOBALS['db']) {
+                $this->selectDb($GLOBALS['db']);
+            }
+            return $return;
+        }
+    }
+
+    /**
+     * returns default server collation from show variables
+     *
+     * @return string  $server_collation
+     */
+    function getServerCollation()
+    {
+        return $this->fetchValue('SELECT @@collation_server');
     }
 }

@@ -230,7 +230,7 @@ if (isset($message)) {
     unset($message);
 }
 
-$_REQUEST['db_collation'] = PMA_getDbCollation($GLOBALS['db']);
+$_REQUEST['db_collation'] = $GLOBALS['dbi']->getDbCollation($GLOBALS['db']);
 $is_information_schema = $GLOBALS['dbi']->isSystemSchema($GLOBALS['db']);
 
 $response->addHTML('<div id="boxContainer" data-box-width="300">');
