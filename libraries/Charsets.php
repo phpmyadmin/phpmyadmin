@@ -46,12 +46,12 @@ class Charsets
         'windows-1257' => 'cp1257',
     );
 
-    private static $_mysql_charsets = array();
-    private static $_mysql_charsets_descriptions = array();
-    private static $_mysql_charsets_available = array();
-    private static $_mysql_collations = array();
-    private static $_mysql_default_collations = array();
-    private static $_mysql_collations_available = array();
+    private static $_charsets = array();
+    private static $_charsets_descriptions = array();
+    private static $_charsets_available = array();
+    private static $_collations = array();
+    private static $_default_collations = array();
+    private static $_collations_available = array();
 
     /**
      * Loads charset data from the MySQL server.
@@ -61,22 +61,22 @@ class Charsets
     public static function loadCharsets()
     {
         /* Data already loaded */
-        if (count(self::$_mysql_charsets) > 0) {
+        if (count(self::$_charsets) > 0) {
             return;
         }
 
         $sql = 'SELECT * FROM information_schema.CHARACTER_SETS';
         $res = $GLOBALS['dbi']->query($sql);
 
-        self::$_mysql_charsets = array();
+        self::$_charsets = array();
         while ($row = $GLOBALS['dbi']->fetchAssoc($res)) {
-            self::$_mysql_charsets[] = $row['CHARACTER_SET_NAME'];
-            self::$_mysql_charsets_descriptions[$row['CHARACTER_SET_NAME']]
+            self::$_charsets[] = $row['CHARACTER_SET_NAME'];
+            self::$_charsets_descriptions[$row['CHARACTER_SET_NAME']]
                 = $row['DESCRIPTION'];
         }
         $GLOBALS['dbi']->freeResult($res);
 
-        sort(self::$_mysql_charsets, SORT_STRING);
+        sort(self::$_charsets, SORT_STRING);
     }
 
     /**
@@ -87,71 +87,70 @@ class Charsets
     public static function loadCollations()
     {
         /* Data already loaded */
-        if (count(self::$_mysql_collations) > 0) {
+        if (count(self::$_collations) > 0) {
             return;
         }
         self::loadCharsets();
 
-        self::$_mysql_collations = array_flip(self::$_mysql_charsets);
+        self::$_collations = array_flip(self::$_charsets);
 
         $sql = 'SELECT * FROM information_schema.COLLATIONS';
         $res = $GLOBALS['dbi']->query($sql);
         while ($row = $GLOBALS['dbi']->fetchAssoc($res)) {
             $char_set_name = $row['CHARACTER_SET_NAME'];
-            if (! is_array(self::$_mysql_collations[$char_set_name])) {
-                self::$_mysql_collations[$char_set_name] = array($row['COLLATION_NAME']);
+            if (! is_array(self::$_collations[$char_set_name])) {
+                self::$_collations[$char_set_name] = array($row['COLLATION_NAME']);
             } else {
-                self::$_mysql_collations[$char_set_name][] = $row['COLLATION_NAME'];
+                self::$_collations[$char_set_name][] = $row['COLLATION_NAME'];
             }
             if ($row['IS_DEFAULT'] == 'Yes' || $row['IS_DEFAULT'] == '1') {
-                self::$_mysql_default_collations[$char_set_name]
-                    = $row['COLLATION_NAME'];
+                self::$_default_collations[$char_set_name] = $row['COLLATION_NAME'];
             }
-            self::$_mysql_collations_available[$row['COLLATION_NAME']] = true;
-            self::$_mysql_charsets_available[$char_set_name]
-                = !empty(self::$_mysql_charsets_available[$char_set_name])
-                || !empty(self::$_mysql_collations_available[$row['COLLATION_NAME']]);
+            self::$_collations_available[$row['COLLATION_NAME']] = true;
+            self::$_charsets_available[$char_set_name]
+                = !empty(self::$_charsets_available[$char_set_name])
+                || !empty(self::$_collations_available[$row['COLLATION_NAME']]);
         }
         $GLOBALS['dbi']->freeResult($res);
 
-        foreach (self::$_mysql_collations as $key => $value) {
-            sort(self::$_mysql_collations[$key], SORT_STRING);
+        foreach (self::$_collations as $key => $value) {
+            sort(self::$_collations[$key], SORT_STRING);
         }
     }
 
     public static function getMySQLCharsets()
     {
         self::loadCharsets();
-        return self::$_mysql_charsets;
+        return self::$_charsets;
     }
 
     public static function getMySQLCharsetsDescriptions()
     {
         self::loadCharsets();
-        return self::$_mysql_charsets_descriptions;
+        return self::$_charsets_descriptions;
     }
 
     public static function getMySQLCharsetsAvailable()
     {
         self::loadCollations();
-        return self::$_mysql_charsets_available;
+        return self::$_charsets_available;
     }
 
     public static function getMySQLCollations()
     {
         self::loadCollations();
-        return self::$_mysql_collations;
+        return self::$_collations;
     }
 
     public static function getMySQLCollationsDefault()
     {
         self::loadCollations();
-        return self::$_mysql_default_collations;
+        return self::$_default_collations;
     }
 
     public static function getMySQLCollationsAvailable()
     {
         self::loadCollations();
-        return self::$_mysql_collations_available;
+        return self::$_collations_available;
     }
 }
