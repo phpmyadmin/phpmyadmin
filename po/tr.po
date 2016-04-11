@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-04-11 15:40+0200\n"
-"PO-Revision-Date: 2016-04-11 18:52+0000\n"
+"PO-Revision-Date: 2016-04-11 18:56+0000\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/tr/>\n"
@@ -15463,20 +15463,19 @@ msgid "The profile has been updated."
 msgstr "Profil güncellendi."
 
 #: vendor/phpmyadmin/motranslator/tests/MoFilesTest.php:24
-#, fuzzy
 #| msgid "Column names"
 msgid "Column parser"
-msgstr "Sütun adları"
+msgstr "Sütun ayrıştırıcı"
 
 #: vendor/phpmyadmin/motranslator/tests/MoFilesTest.php:83
 #: vendor/phpmyadmin/motranslator/tests/MoFilesTest.php:127
-#, fuzzy, php-format
+#, php-format
 #| msgid "%d second"
 #| msgid_plural "%d seconds"
 msgid "\"%d\" second"
 msgid_plural "\"%d\" seconds"
-msgstr[0] "%d saniye"
-msgstr[1] "%d saniye"
+msgstr[0] "\"%d\" saniye"
+msgstr[1] "\"%d\" saniye"
 
 #: vendor/phpmyadmin/sql-parser/src/Component.php:48
 #: vendor/phpmyadmin/sql-parser/src/Component.php:68
@@ -15502,10 +15501,9 @@ msgid "An opening bracket was expected."
 msgstr "Açık bir köşeli parantez beklenmekte."
 
 #: vendor/phpmyadmin/sql-parser/src/Components/CreateDefinition.php:225
-#, fuzzy
 #| msgid "Variable name was expected."
 msgid "A symbol name was expected!"
-msgstr "Değişken adı beklenmekte."
+msgstr "Bir sembol adı beklenmekte!"
 
 #: vendor/phpmyadmin/sql-parser/src/Components/CreateDefinition.php:257
 msgid "A comma or a closing bracket was expected."
