@@ -636,7 +636,6 @@ class File
                 $this->errorUnsupported();
                 return false;
             }
-            break;
         case 'none':
             $this->_handle = @fopen($this->getName(), 'r');
             break;
@@ -645,7 +644,7 @@ class File
             return false;
         }
 
-        return true;
+        return ($this->_handle !== false);
     }
 
     public function openZip($specific_entry = null)
