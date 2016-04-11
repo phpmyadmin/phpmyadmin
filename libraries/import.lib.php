@@ -48,23 +48,6 @@ function PMA_checkTimeout()
 }
 
 /**
- * Detects what compression the file uses
- *
- * @param string $filepath filename to check
- *
- * @return string MIME type of compression, none for none
- * @access public
- */
-function PMA_detectCompression($filepath)
-{
-    $file = @fopen($filepath, 'rb');
-    if (! $file) {
-        return false;
-    }
-    return PMA\libraries\Util::getCompressionMimeType($file);
-}
-
-/**
  * Runs query inside import buffer. This is needed to allow displaying
  * of last SELECT, SHOW or HANDLER results and similar nice stuff.
  *
