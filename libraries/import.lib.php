@@ -386,28 +386,8 @@ function PMA_importGetNextChunk($size = 32768)
         }
     }
 
-    switch ($compression) {
-    case 'application/bzip2':
-        $result = bzread($import_handle, $size);
-        $GLOBALS['finished'] = feof($import_handle);
-        break;
-    case 'application/gzip':
-        $result = gzread($import_handle, $size);
-        $GLOBALS['finished'] = feof($import_handle);
-        break;
-    case 'application/zip':
-        $result = mb_substr($GLOBALS['import_text'], 0, $size);
-        $GLOBALS['import_text'] = mb_substr(
-            $GLOBALS['import_text'],
-            $size
-        );
-        $GLOBALS['finished'] = empty($GLOBALS['import_text']);
-        break;
-    case 'none':
-        $result = fread($import_handle, $size);
-        $GLOBALS['finished'] = feof($import_handle);
-        break;
-    }
+    $result = $import_handle->read($size);
+    $GLOBALS['finished'] = $import_handle->eof();
     $GLOBALS['offset'] += $size;
 
     if ($charset_conversion) {

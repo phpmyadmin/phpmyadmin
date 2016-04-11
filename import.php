@@ -7,6 +7,7 @@
  */
 use PMA\libraries\Encoding;
 use PMA\libraries\plugins\ImportPlugin;
+use PMA\libraries\File;
 use PMA\libraries\URL;
 use PMA\libraries\Bookmark;
 
@@ -451,132 +452,15 @@ if (! empty($local_import_file) && ! empty($cfg['UploadDir'])) {
 // Do we have file to import?
 
 if ($import_file != 'none' && ! $error) {
-    // work around open_basedir and other limitations
-    $open_basedir = @ini_get('open_basedir');
-
-    // If we are on a server with open_basedir, we must move the file
-    // before opening it.
-
-    if (! empty($open_basedir)) {
-        $tmp_subdir = ini_get('upload_tmp_dir');
-        if (empty($tmp_subdir)) {
-            $tmp_subdir = sys_get_temp_dir();
-        }
-        $tmp_subdir = rtrim($tmp_subdir, DIRECTORY_SEPARATOR);
-        if (@is_writable($tmp_subdir)) {
-            $import_file_new = $tmp_subdir . DIRECTORY_SEPARATOR
-                . basename($import_file) . uniqid();
-            if (move_uploaded_file($import_file, $import_file_new)) {
-                $import_file = $import_file_new;
-                $file_to_unlink = $import_file_new;
-            }
-
-            $size = filesize($import_file);
-        } else {
-
-            // If the php.ini is misconfigured (eg. there is no /tmp access defined
-            // with open_basedir), $tmp_subdir won't be writable and the user gets
-            // a 'File could not be read!' error (at PMA_detectCompression), which
-            // is not too meaningful. Show a meaningful error message to the user
-            // instead.
-
-            $message = PMA\libraries\Message::error(
-                __(
-                    'Uploaded file cannot be moved, because the server has ' .
-                    'open_basedir enabled without access to the %s directory ' .
-                    '(for temporary files).'
-                )
-            );
-            $message->addParam($tmp_subdir);
-            PMA_stopImport($message);
-        }
-    }
-
     /**
      *  Handle file compression
-     * @todo duplicate code exists in File.php
      */
-    $compression = PMA_detectCompression($import_file);
-    if ($compression === false) {
-        $message = PMA\libraries\Message::error(__('File could not be read!'));
-        PMA_stopImport($message); //Contains an 'exit'
-    }
-
-    switch ($compression) {
-    case 'application/bzip2':
-        if ($cfg['BZipDump'] && @function_exists('bzopen')) {
-            $import_handle = @bzopen($import_file, 'r');
-        } else {
-            $message = PMA\libraries\Message::error(
-                __(
-                    'You attempted to load file with unsupported compression ' .
-                    '(%s). Either support for it is not implemented or disabled ' .
-                    'by your configuration.'
-                )
-            );
-            $message->addParam($compression);
-            PMA_stopImport($message);
-        }
-        break;
-    case 'application/gzip':
-        if ($cfg['GZipDump'] && @function_exists('gzopen')) {
-            $import_handle = @gzopen($import_file, 'r');
-        } else {
-            $message = PMA\libraries\Message::error(
-                __(
-                    'You attempted to load file with unsupported compression ' .
-                    '(%s). Either support for it is not implemented or disabled ' .
-                    'by your configuration.'
-                )
-            );
-            $message->addParam($compression);
-            PMA_stopImport($message);
-        }
-        break;
-    case 'application/zip':
-        if ($cfg['ZipDump'] && @function_exists('zip_open')) {
-            /**
-             * Load interface for zip extension.
-             */
-            include_once 'libraries/zip_extension.lib.php';
-            $zipResult = PMA_getZipContents($import_file);
-            if (! empty($zipResult['error'])) {
-                $message = PMA\libraries\Message::rawError($zipResult['error']);
-                PMA_stopImport($message);
-            } else {
-                $import_text = $zipResult['data'];
-            }
-        } else {
-            $message = PMA\libraries\Message::error(
-                __(
-                    'You attempted to load file with unsupported compression ' .
-                    '(%s). Either support for it is not implemented or disabled ' .
-                    'by your configuration.'
-                )
-            );
-            $message->addParam($compression);
-            PMA_stopImport($message);
-        }
-        break;
-    case 'none':
-        $import_handle = @fopen($import_file, 'r');
-        break;
-    default:
-        $message = PMA\libraries\Message::error(
-            __(
-                'You attempted to load file with unsupported compression (%s). ' .
-                'Either support for it is not implemented or disabled by your ' .
-                'configuration.'
-            )
-        );
-        $message->addParam($compression);
-        PMA_stopImport($message);
-        // the previous function exits
-    }
-    // use isset() because zip compression type does not use a handle
-    if (! $error && isset($import_handle) && $import_handle === false) {
-        $message = PMA\libraries\Message::error(__('File could not be read!'));
-        PMA_stopImport($message);
+    $import_handle = new File($import_file);
+    $import_handle->checkUploadedFile();
+    $import_handle->setDecompressContent(true);
+    $import_handle->open();
+    if ($import_handle->isError()) {
+        PMA_stopImport($import_handle->getError());
     }
 } elseif (! $error) {
     if (! isset($import_text) || empty($import_text)) {
@@ -650,8 +534,8 @@ if (! $error) {
     }
 }
 
-if (! empty($import_handle)) {
-    fclose($import_handle);
+if (isset($import_handle)) {
+    $import_handle->close();
 }
 
 // Cleanup temporary file

@@ -627,7 +627,7 @@ class File
                     $this->_error_message = Message::rawError($result['error']);
                     return false;
                 }
-                unset($result);
+                $this->_content = $result['data'];
             } else {
                 $this->errorUnsupported();
                 return false;
@@ -642,6 +642,55 @@ class File
         }
 
         return true;
+    }
+
+    /**
+     * Checks whether we've reached end of file
+     *
+     * @return bool
+     */
+    public function eof()
+    {
+        if (! is_null($this->_handle)) {
+            return feof($this->_handle);
+        }
+        return empty($this->_content);
+    }
+
+    /**
+     * Closes the file
+     */
+    public function close()
+    {
+        if (! is_null($this->_handle)) {
+            fclose($this->_handle);
+            $this->_handle = null;
+        } else {
+            $this->_content = '';
+        }
+        $this->cleanUp();
+    }
+
+    /**
+     * Reads data from file
+     *
+     * @return string
+     */
+    public function read($size)
+    {
+        switch ($this->_compression) {
+        case 'application/bzip2':
+            return bzread($this->_handle, $size);
+        case 'application/gzip':
+            return gzread($this->_handle, $size);
+        case 'application/zip':
+            $result = mb_substr($this->_content, 0, $size);
+            $this->_content = mb_substr($this->_content, $size);
+            return $result;
+        case 'none':
+        default:
+            return fread($this->_handle, $size);
+        }
     }
 
     /**
@@ -721,20 +770,5 @@ class File
     public function getContentLength()
     {
         return mb_strlen($this->_content);
-    }
-
-    /**
-     * Returns whether the end of the file has been reached
-     *
-     * @return boolean whether the end of the file has been reached
-     */
-    public function eof()
-    {
-        if ($this->getHandle()) {
-            return feof($this->getHandle());
-        } else {
-            return ($this->getOffset() >= $this->getContentLength());
-        }
-
     }
 }
