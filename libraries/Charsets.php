@@ -89,20 +89,13 @@ class Charsets
         if (count(self::$_collations) > 0) {
             return;
         }
-        self::loadCharsets();
-
-        self::$_collations = array_flip(self::$_charsets);
 
         $sql = 'SELECT * FROM information_schema.COLLATIONS';
         $res = $GLOBALS['dbi']->query($sql);
         while ($row = $GLOBALS['dbi']->fetchAssoc($res)) {
             $char_set_name = $row['CHARACTER_SET_NAME'];
             $name = $row['COLLATION_NAME'];
-            if (! is_array(self::$_collations[$char_set_name])) {
-                self::$_collations[$char_set_name] = array($name);
-            } else {
-                self::$_collations[$char_set_name][] = $name;
-            }
+            self::$_collations[$char_set_name][] = $name;
             if ($row['IS_DEFAULT'] == 'Yes' || $row['IS_DEFAULT'] == '1') {
                 self::$_default_collations[$char_set_name] = $name;
             }
@@ -153,7 +146,7 @@ class Charsets
         $name = null, $id = null, $default = null, $label = true,
         $submitOnChange = false
     ) {
-        self::loadCollations();
+        self::loadCharsets();
         if (empty($name)) {
             $name = 'character_set';
         }
@@ -199,6 +192,7 @@ class Charsets
         $name = null, $id = null, $default = null, $label = true,
         $submitOnChange = false
     ) {
+        self::loadCharsets();
         self::loadCollations();
         if (empty($name)) {
             $name = 'collation';
