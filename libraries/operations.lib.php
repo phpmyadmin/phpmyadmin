@@ -288,8 +288,7 @@ function PMA_getHtmlForChangeDatabaseCharset($db, $table)
     $html_output .= '<label for="select_db_collation">' . __('Collation')
         . '</label>' . "\n"
         . '</legend>' . "\n"
-        . Charsets::generateCharsetDropdownBox(
-            PMA_CSDROPDOWN_COLLATION,
+        . Charsets::getCollationDropdownBox(
             'db_collation',
             'select_db_collation',
             isset($_REQUEST['db_collation']) ? $_REQUEST['db_collation'] : '',
@@ -1062,8 +1061,7 @@ function PMA_getTableOptionFieldset($comment, $tbl_collation,
     //Table character set
     $html_output .= '<tr><td class="vmiddle">' . __('Collation') . '</td>'
         . '<td>'
-        . Charsets::generateCharsetDropdownBox(
-            PMA_CSDROPDOWN_COLLATION,
+        . Charsets::getCollationDropdownBox(
             'tbl_collation', null, $tbl_collation, false
         )
         . '</td>'

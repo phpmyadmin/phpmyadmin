@@ -937,8 +937,8 @@ function PMA_getHTMLforCentralColumnsTableRow($row, $odd_row, $row_num, $db)
     $tableHtml .=
         '<td name="collation" class="nowrap">'
         . '<span>' . htmlspecialchars($row['col_collation']) . '</span>'
-        . Charsets::generateCharsetDropdownBox(
-            PMA_CSDROPDOWN_COLLATION, 'field_collation[' . $row_num . ']',
+        . Charsets::getCollationDropdownBox(
+            'field_collation[' . $row_num . ']',
             'field_' . $row_num . '_4', $row['col_collation'], false
         )
         . '</td>';
@@ -1079,8 +1079,8 @@ function PMA_getHTMLforCentralColumnsEditTableRow($row, $odd_row, $row_num)
         . '</td>';
     $tableHtml .=
         '<td name="collation" class="nowrap">'
-        . Charsets::generateCharsetDropdownBox(
-            PMA_CSDROPDOWN_COLLATION, 'field_collation[' . $row_num . ']',
+        . Charsets::getCollationDropdownBox(
+            'field_collation[' . $row_num . ']',
             'field_' . $row_num . '_4', $row['col_collation'], false
         )
         . '</td>';
@@ -1324,8 +1324,8 @@ function PMA_getHTMLforAddNewColumn($db)
             )
         . '</td>'
         . '<td name="collation" class="nowrap">'
-        . Charsets::generateCharsetDropdownBox(
-            PMA_CSDROPDOWN_COLLATION, 'field_collation[0]',
+        . Charsets::getCollationDropdownBox(
+            'field_collation[0]',
             'field_0_4', null, false
         )
         . '</td>'

@@ -746,8 +746,7 @@ function PMA_RTN_getParameterRow($routine = array(), $index = null, $class = '')
     $retval .= "            </td>\n";
     $retval .= "            <td class='hide no_len'>---</td>\n";
     $retval .= "            <td class='routine_param_opts_text'>\n";
-    $retval .= Charsets::generateCharsetDropdownBox(
-        PMA_CSDROPDOWN_CHARSET,
+    $retval .= Charsets::getCharsetDropdownBox(
         "item_param_opts_text[$index]",
         null,
         $routine['item_param_opts_text'][$i]
@@ -962,8 +961,7 @@ function PMA_RTN_getEditorForm($mode, $operation, $routine)
     $retval .= "<tr class='routine_return_row" . $isfunction_class . "'>";
     $retval .= "    <td>" . __('Return options') . "</td>";
     $retval .= "    <td><div>";
-    $retval .= Charsets::generateCharsetDropdownBox(
-        PMA_CSDROPDOWN_CHARSET,
+    $retval .= Charsets::getCharsetDropdownBox(
         "item_returnopts_text",
         null,
         $routine['item_returnopts_text']

@@ -8,9 +8,6 @@
 namespace PMA\libraries;
 use PMA\libraries\Util;
 
-define('PMA_CSDROPDOWN_COLLATION', 0);
-define('PMA_CSDROPDOWN_CHARSET',   1);
-
 /**
  * Class used to manage MySQL charsets
  *
@@ -162,7 +159,6 @@ class Charsets
     /**
      * Generate charset dropdown box
      *
-     * @param int         $type           Type
      * @param string      $name           Element name
      * @param string      $id             Element id
      * @param null|string $default        Default value
@@ -171,17 +167,13 @@ class Charsets
      *
      * @return string
      */
-    public static function generateCharsetDropdownBox($type = PMA_CSDROPDOWN_COLLATION,
+    public static function getCharsetDropdownBox(
         $name = null, $id = null, $default = null, $label = true,
         $submitOnChange = false
     ) {
         self::loadCollations();
         if (empty($name)) {
-            if ($type == PMA_CSDROPDOWN_COLLATION) {
-                $name = 'collation';
-            } else {
-                $name = 'character_set';
-            }
+            $name = 'character_set';
         }
 
         $return_str  = '<select lang="en" dir="ltr" name="'
@@ -190,7 +182,7 @@ class Charsets
             . ($submitOnChange ? ' class="autosubmit"' : '') . '>' . "\n";
         if ($label) {
             $return_str .= '<option value="">'
-                . ($type == PMA_CSDROPDOWN_COLLATION ? __('Collation') : __('Charset'))
+                . __('Charset')
                 . '</option>' . "\n";
         }
         $return_str .= '<option value=""></option>' . "\n";
@@ -203,26 +195,68 @@ class Charsets
                 ? $current_charset
                 : self::$_charsets_descriptions[$current_charset];
 
-            if ($type == PMA_CSDROPDOWN_COLLATION) {
-                $return_str .= '<optgroup label="' . $current_charset
-                    . '" title="' . $current_cs_descr . '">' . "\n";
-                foreach (self::$_collations[$current_charset] as $current_collation) {
-                    if (!self::$_collations_available[$current_collation]) {
-                        continue;
-                    }
-                    $return_str .= '<option value="' . $current_collation
-                        . '" title="' . self::getCollationDescr($current_collation) . '"'
-                        . ($default == $current_collation ? ' selected="selected"' : '')
-                        . '>'
-                        . $current_collation . '</option>' . "\n";
-                }
-                $return_str .= '</optgroup>' . "\n";
-            } else {
-                $return_str .= '<option value="' . $current_charset
-                    . '" title="' . $current_cs_descr . '"'
-                    . ($default == $current_charset ? ' selected="selected"' : '') . '>'
-                    . $current_charset . '</option>' . "\n";
+            $return_str .= '<option value="' . $current_charset
+                . '" title="' . $current_cs_descr . '"'
+                . ($default == $current_charset ? ' selected="selected"' : '') . '>'
+                . $current_charset . '</option>' . "\n";
+        }
+        $return_str .= '</select>' . "\n";
+
+        return $return_str;
+    }
+
+    /**
+     * Generate collation dropdown box
+     *
+     * @param string      $name           Element name
+     * @param string      $id             Element id
+     * @param null|string $default        Default value
+     * @param bool        $label          Label
+     * @param bool        $submitOnChange Submit on change
+     *
+     * @return string
+     */
+    public static function getCollationDropdownBox(
+        $name = null, $id = null, $default = null, $label = true,
+        $submitOnChange = false
+    ) {
+        self::loadCollations();
+        if (empty($name)) {
+            $name = 'collation';
+        }
+
+        $return_str  = '<select lang="en" dir="ltr" name="'
+            . htmlspecialchars($name) . '"'
+            . (empty($id) ? '' : ' id="' . htmlspecialchars($id) . '"')
+            . ($submitOnChange ? ' class="autosubmit"' : '') . '>' . "\n";
+        if ($label) {
+            $return_str .= '<option value="">'
+                . __('Collation')
+                . '</option>' . "\n";
+        }
+        $return_str .= '<option value=""></option>' . "\n";
+        foreach (self::$_charsets as $current_charset) {
+            if (!self::$_charsets_available[$current_charset]) {
+                continue;
             }
+            $current_cs_descr
+                = empty(self::$_charsets_descriptions[$current_charset])
+                ? $current_charset
+                : self::$_charsets_descriptions[$current_charset];
+
+            $return_str .= '<optgroup label="' . $current_charset
+                . '" title="' . $current_cs_descr . '">' . "\n";
+            foreach (self::$_collations[$current_charset] as $current_collation) {
+                if (!self::$_collations_available[$current_collation]) {
+                    continue;
+                }
+                $return_str .= '<option value="' . $current_collation
+                    . '" title="' . self::getCollationDescr($current_collation) . '"'
+                    . ($default == $current_collation ? ' selected="selected"' : '')
+                    . '>'
+                    . $current_collation . '</option>' . "\n";
+            }
+            $return_str .= '</optgroup>' . "\n";
         }
         $return_str .= '</select>' . "\n";
 

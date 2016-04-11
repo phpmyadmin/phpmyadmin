@@ -194,8 +194,7 @@ function PMA_getHtmlForImportCharset()
     } else {
         $html .= '<label for="charset_of_file">' . __('Character set of the file:')
             . '</label>' . "\n";
-        $html .= Charsets::generateCharsetDropdownBox(
-            PMA_CSDROPDOWN_CHARSET,
+        $html .= Charsets::getCharsetDropdownBox(
             'charset_of_file',
             'charset_of_file',
             'utf8',

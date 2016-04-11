@@ -116,14 +116,14 @@ class CharsetsTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA\libraries\Charsets::generateCharsetDropdownBox
+     * Test for PMA\libraries\Charsets::getCollationDropdownBox
      *
      * @return void
      * @test
      */
-    public function testGenerateCharsetDropdownBox()
+    public function testGetCollationDropdownBox()
     {
-        $result = PMA\libraries\Charsets::generateCharsetDropdownBox();
+        $result = PMA\libraries\Charsets::getCollationDropdownBox();
 
         $this->assertContains('name="collation"', $result);
         $this->assertNotContains('id="', $result);
@@ -135,9 +135,18 @@ class CharsetsTest extends PHPUnit_Framework_TestCase
         $this->assertContains('title="cp1252', $result);
         $this->assertNotContains('value="latin2_general1_ci"', $result);
         $this->assertContains('title="Swedish', $result);
+    }
 
-        $result = PMA\libraries\Charsets::generateCharsetDropdownBox(
-            2, null, "test_id", "latin1", false, true
+    /**
+     * Test for PMA\libraries\Charsets::getCharsetDropdownBox
+     *
+     * @return void
+     * @test
+     */
+    public function testGetCharsetDropdownBox()
+    {
+        $result = PMA\libraries\Charsets::getCharsetDropdownBox(
+            null, "test_id", "latin1", false, true
         );
         $this->assertContains('name="character_set"', $result);
         $this->assertNotContains('Charset</option>', $result);

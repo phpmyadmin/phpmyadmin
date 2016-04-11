@@ -114,8 +114,7 @@ use PMA\libraries\URL;
                 </td>
                 <td width="25">&nbsp;</td>
                 <td>
-                    <?= PMA\libraries\Charsets::generateCharsetDropdownBox(
-                        PMA_CSDROPDOWN_COLLATION,
+                    <?= PMA\libraries\Charsets::getCollationDropdownBox(
                         'tbl_collation',
                         null,
                         isset($_REQUEST['tbl_collation']) ? $_REQUEST['tbl_collation'] : null,
