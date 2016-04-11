@@ -30,7 +30,7 @@ class File
     var $_content = null;
 
     /**
-     * @var string the error message
+     * @var Message the error message
      * @access protected
      */
     var $_error_message = '';
@@ -220,7 +220,7 @@ class File
 
         if (! $this->isUploaded()) {
             $this->setName(null);
-            $this->_error_message = __('File was not an uploaded file.');
+            $this->_error_message = Message::error(__('File was not an uploaded file.'));
             return false;
         }
 
@@ -259,33 +259,33 @@ class File
         case 4: //UPLOAD_ERR_NO_FILE:
             break;
         case 1: //UPLOAD_ERR_INI_SIZE:
-            $this->_error_message = __(
+            $this->_error_message = Message::error(__(
                 'The uploaded file exceeds the upload_max_filesize directive in '
                 . 'php.ini.'
-            );
+            ));
             break;
         case 2: //UPLOAD_ERR_FORM_SIZE:
-            $this->_error_message = __(
+            $this->_error_message = Message::error(__(
                 'The uploaded file exceeds the MAX_FILE_SIZE directive that was '
                 . 'specified in the HTML form.'
-            );
+            ));
             break;
         case 3: //UPLOAD_ERR_PARTIAL:
-            $this->_error_message = __(
+            $this->_error_message = Message::error(__(
                 'The uploaded file was only partially uploaded.'
-            );
+            ));
             break;
         case 6: //UPLOAD_ERR_NO_TMP_DIR:
-            $this->_error_message = __('Missing a temporary folder.');
+            $this->_error_message = Message::error(__('Missing a temporary folder.'));
             break;
         case 7: //UPLOAD_ERR_CANT_WRITE:
-            $this->_error_message = __('Failed to write file to disk.');
+            $this->_error_message = Message::error(__('Failed to write file to disk.'));
             break;
         case 8: //UPLOAD_ERR_EXTENSION:
-            $this->_error_message = __('File upload stopped by extension.');
+            $this->_error_message = Message::error(__('File upload stopped by extension.'));
             break;
         default:
-            $this->_error_message = __('Unknown error in file upload.');
+            $this->_error_message = Message::error(__('Unknown error in file upload.'));
         } // end switch
 
         return false;
@@ -359,7 +359,7 @@ class File
      * Returns possible error message.
      *
      * @access  public
-     * @return string  error message
+     * @return Message error message
      */
     public function getError()
     {
@@ -421,7 +421,7 @@ class File
             Util::userDir($GLOBALS['cfg']['UploadDir']) . PMA_securePath($name)
         );
         if (! $this->isReadable()) {
-            $this->_error_message = __('File could not be read!');
+            $this->_error_message = Message::error(__('File could not be read!'));
             $this->setName(null);
             return false;
         }
@@ -471,9 +471,9 @@ class File
 
         if (@is_writable($tmp_subdir)) {
             // cannot create directory or access, point user to FAQ 1.11
-            $this->_error_message = __(
+            $this->_error_message = Message::error(__(
                 'Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc].'
-            );
+            ));
             return false;
         }
 
@@ -491,7 +491,7 @@ class File
         );
         ob_end_clean();
         if (! $move_uploaded_file_result) {
-            $this->_error_message = __('Error while moving uploaded file.');
+            $this->_error_message = Message::error(__('Error while moving uploaded file.'));
             return false;
         }
 
@@ -499,7 +499,7 @@ class File
         $this->isTemp(true);
 
         if (! $this->isReadable()) {
-            $this->_error_message = __('Cannot read uploaded file.');
+            $this->_error_message = Message::error(__('Cannot read uploaded file.'));
             return false;
         }
 
@@ -524,7 +524,7 @@ class File
         ob_end_clean();
 
         if (! $file) {
-            $this->_error_message = __('File could not be read!');
+            $this->_error_message = Message::error(__('File could not be read!'));
             return false;
         }
 
