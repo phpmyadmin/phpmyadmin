@@ -10,6 +10,7 @@
 namespace PMA\libraries\controllers\server;
 
 use PMA\libraries\controllers\Controller;
+use PMA\libraries\Charsets;
 use PMA\libraries\Template;
 
 /**
@@ -38,11 +39,11 @@ class ServerCollationsController extends Controller
         $this->response->addHTML(PMA_getHtmlForSubPageHeader('collations'));
         $this->response->addHTML(
             $this->_getHtmlForCharsets(
-                $GLOBALS['mysql_charsets'],
-                $GLOBALS['mysql_collations'],
-                $GLOBALS['mysql_charsets_descriptions'],
-                $GLOBALS['mysql_default_collations'],
-                $GLOBALS['mysql_collations_available']
+                Charsets::getMySQLCharsets(),
+                Charsets::getMySQLCollations(),
+                Charsets::getMySQLCharsetsDescriptions(),
+                Charsets::getMySQLCollationsDefault(),
+                Charsets::getMySQLCollationsAvailable()
             )
         );
     }

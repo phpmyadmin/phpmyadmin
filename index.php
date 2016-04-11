@@ -312,9 +312,10 @@ if ($server > 0 && $GLOBALS['cfg']['ShowServerInfo']) {
     echo '    <li id="li_select_mysql_charset">';
     echo '        ' , __('Server charset:') , ' '
        . '        <span lang="en" dir="ltr">';
-    echo '           ' , $mysql_charsets_descriptions[Charsets::$mysql_charset_map['utf-8']];
-    echo '           (' , Charsets::$mysql_charset_map['utf-8'] , ')'
-       . '        </span>'
+    $unicode = Charsets::$mysql_charset_map['utf-8'];
+    $charsets = Charsets::getMySQLCharsetsDescriptions();
+    echo '           ' , $charsets[$unicode], ' ('. $unicode, ')';
+    echo '        </span>'
        . '    </li>'
        . '  </ul>'
        . ' </div>';
