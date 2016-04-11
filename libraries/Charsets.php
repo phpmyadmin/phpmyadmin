@@ -72,8 +72,6 @@ class Charsets
         self::$_mysql_charsets = array();
         while ($row = $GLOBALS['dbi']->fetchAssoc($res)) {
             self::$_mysql_charsets[] = $row['CHARACTER_SET_NAME'];
-            // never used
-            //$mysql_charsets_maxlen[$row['Charset']] = $row['Maxlen'];
             self::$_mysql_charsets_descriptions[$row['CHARACTER_SET_NAME']]
                 = $row['DESCRIPTION'];
         }
@@ -96,8 +94,6 @@ class Charsets
                 self::$_mysql_default_collations[$char_set_name]
                     = $row['COLLATION_NAME'];
             }
-            //$mysql_collations_available[$row['Collation']]
-            //    = ! isset($row['Compiled']) || $row['Compiled'] == 'Yes';
             self::$_mysql_collations_available[$row['COLLATION_NAME']] = true;
             self::$_mysql_charsets_available[$char_set_name]
                 = !empty(self::$_mysql_charsets_available[$char_set_name])
