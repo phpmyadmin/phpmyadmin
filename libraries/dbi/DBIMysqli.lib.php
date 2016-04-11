@@ -10,7 +10,7 @@
 /**
  * Names of field flags.
  */
-$pma_mysqli_flag_names = array(
+$GLOBALS['pma_mysqli_flag_names'] = array(
     MYSQLI_NUM_FLAG => 'num',
     MYSQLI_PART_KEY_FLAG => 'part_key',
     MYSQLI_SET_FLAG => 'set',
