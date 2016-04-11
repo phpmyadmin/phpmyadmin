@@ -24,9 +24,7 @@
  */
 
 /*
-if (version_compare(PHP_VERSION, '5.4.0', '>=')
-    && ini_get('session.upload_progress.enabled')
-) {
+if (ini_get('session.upload_progress.enabled')) {
 
     $sessionupload = array();
     define('UPLOAD_PREFIX', ini_get('session.upload_progress.prefix'));
