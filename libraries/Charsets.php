@@ -46,7 +46,6 @@ class Charsets
         'windows-1257' => 'cp1257',
     );
 
-    private static $_loaded = false;
     private static $_mysql_charsets = array();
     private static $_mysql_charsets_descriptions = array();
     private static $_mysql_charsets_available = array();
@@ -62,7 +61,7 @@ class Charsets
     public static function loadCharsets()
     {
         /* Data already loaded */
-        if (self::$_loaded) {
+        if (count(self::$_mysql_charsets) > 0) {
             return;
         }
 
@@ -78,6 +77,20 @@ class Charsets
         $GLOBALS['dbi']->freeResult($res);
 
         sort(self::$_mysql_charsets, SORT_STRING);
+    }
+
+    /**
+     * Loads collation data from the MySQL server.
+     *
+     * @return void
+     */
+    public static function loadCollations()
+    {
+        /* Data already loaded */
+        if (count(self::$_mysql_collations) > 0) {
+            return;
+        }
+        self::loadCharsets();
 
         self::$_mysql_collations = array_flip(self::$_mysql_charsets);
 
@@ -104,8 +117,6 @@ class Charsets
         foreach (self::$_mysql_collations as $key => $value) {
             sort(self::$_mysql_collations[$key], SORT_STRING);
         }
-
-        self::$_loaded = true;
     }
 
     public static function getMySQLCharsets()
@@ -122,25 +133,25 @@ class Charsets
 
     public static function getMySQLCharsetsAvailable()
     {
-        self::loadCharsets();
+        self::loadCollations();
         return self::$_mysql_charsets_available;
     }
 
     public static function getMySQLCollations()
     {
-        self::loadCharsets();
+        self::loadCollations();
         return self::$_mysql_collations;
     }
 
     public static function getMySQLCollationsDefault()
     {
-        self::loadCharsets();
+        self::loadCollations();
         return self::$_mysql_default_collations;
     }
 
     public static function getMySQLCollationsAvailable()
     {
-        self::loadCharsets();
+        self::loadCollations();
         return self::$_mysql_collations_available;
     }
 }
