@@ -96,4 +96,35 @@ class UtilTest extends PMATestCase
         );
     }
 
+    /**
+     * Test for getCharsetQueryPart
+     *
+     * @param string $collation Collation
+     * @param string $expected  Expected Charset Query
+     *
+     * @return void
+     * @test
+     * @dataProvider charsetQueryData
+     */
+    public function testGenerateCharsetQueryPart($collation, $expected)
+    {
+        $this->assertEquals(
+            $expected,
+            PMA\libraries\Util::getCharsetQueryPart($collation)
+        );
+    }
+
+    /**
+     * Data Provider for testgetCharsetQueryPart
+     *
+     * @return array test data
+     */
+    public function charsetQueryData()
+    {
+        return array(
+            array("a_b_c_d", " CHARSET=a COLLATE a_b_c_d"),
+            array("a_", " CHARSET=a COLLATE a_"),
+            array("a", " CHARSET=a"),
+        );
+    }
 }

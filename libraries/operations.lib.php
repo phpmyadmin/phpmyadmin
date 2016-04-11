@@ -367,7 +367,7 @@ function PMA_createDbBeforeCopy()
         . Util::backquote($_REQUEST['newname']);
     if (isset($_REQUEST['db_collation'])) {
         $local_query .= ' DEFAULT'
-            . PMA_generateCharsetQueryPart($_REQUEST['db_collation']);
+            . Util::getCharsetQueryPart($_REQUEST['db_collation']);
     }
     $local_query .= ';';
     $GLOBALS['sql_query'] .= $local_query;
@@ -1780,7 +1780,7 @@ function PMA_getTableAltersArray($is_myisam_or_aria, $is_isam, $pack_keys,
         && $_REQUEST['tbl_collation'] !== $tbl_collation
     ) {
         $table_alters[] = 'DEFAULT '
-            . PMA_generateCharsetQueryPart($_REQUEST['tbl_collation']);
+            . Util::getCharsetQueryPart($_REQUEST['tbl_collation']);
     }
 
     if (($is_myisam_or_aria || $is_isam)

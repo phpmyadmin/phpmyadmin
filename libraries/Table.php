@@ -415,7 +415,7 @@ class Table
                 $type
             );
             if (! empty($collation) && $collation != 'NULL' && $matches) {
-                $query .= PMA_generateCharsetQueryPart($collation, true);
+                $query .= Util::getCharsetQueryPart($collation, true);
             }
 
             if ($null !== false) {

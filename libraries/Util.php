@@ -2380,6 +2380,26 @@ class Util
     } // end function
 
     /**
+     * Generate the charset query part
+     *
+     * @param string           $collation Collation
+     * @param boolean optional $override  force 'CHARACTER SET' keyword
+     *
+     * @return string
+     */
+    static function getCharsetQueryPart($collation, $override = false)
+    {
+        list($charset) = explode('_', $collation);
+        $keyword = ' CHARSET=';
+
+        if ($override) {
+            $keyword = ' CHARACTER SET ';
+        }
+        return $keyword . $charset
+            . ($charset == $collation ? '' : ' COLLATE ' . $collation);
+    }
+
+    /**
      * Generate a button or image tag
      *
      * @param string $button_name  name of button element

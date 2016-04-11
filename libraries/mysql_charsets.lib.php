@@ -80,26 +80,6 @@ function PMA_generateCharsetDropdownBox($type = PMA_CSDROPDOWN_COLLATION,
 }
 
 /**
- * Generate the charset query part
- *
- * @param string           $collation Collation
- * @param boolean optional $override  force 'CHARACTER SET' keyword
- *
- * @return string
- */
-function PMA_generateCharsetQueryPart($collation, $override = false)
-{
-    list($charset) = explode('_', $collation);
-    $keyword = ' CHARSET=';
-
-    if ($override) {
-        $keyword = ' CHARACTER SET ';
-    }
-    return $keyword . $charset
-        . ($charset == $collation ? '' : ' COLLATE ' . $collation);
-}
-
-/**
  * returns description for given collation
  *
  * @param string $collation MySQL collation string

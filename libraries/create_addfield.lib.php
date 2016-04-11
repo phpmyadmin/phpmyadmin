@@ -6,6 +6,7 @@
  * @package PhpMyAdmin
  */
 use PMA\libraries\Table;
+use PMA\libraries\Util;
 
 /**
  * Transforms the radio button field_key into 4 arrays
@@ -418,7 +419,7 @@ function PMA_getTableCreationQuery($db, $table)
         $sql_query .= ' ENGINE = ' . $_REQUEST['tbl_storage_engine'];
     }
     if (!empty($_REQUEST['tbl_collation'])) {
-        $sql_query .= PMA_generateCharsetQueryPart($_REQUEST['tbl_collation']);
+        $sql_query .= Util::getCharsetQueryPart($_REQUEST['tbl_collation']);
     }
     if (! empty($_REQUEST['connection'])
         && ! empty($_REQUEST['tbl_storage_engine'])

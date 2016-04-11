@@ -142,7 +142,7 @@ class ServerDatabasesController extends Controller
                 && in_array($_POST['db_collation'], $GLOBALS['mysql_collations'][$db_charset])
             ) {
                 $sql_query .= ' DEFAULT'
-                    . PMA_generateCharsetQueryPart($_POST['db_collation']);
+                    . Util::getCharsetQueryPart($_POST['db_collation']);
             }
         }
         $sql_query .= ';';

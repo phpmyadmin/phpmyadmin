@@ -8,6 +8,7 @@
 use PMA\libraries\Message;
 use PMA\libraries\Response;
 use PMA\libraries\URL;
+use PMA\libraries\Util;
 
 if (! defined('PHPMYADMIN')) {
     exit;
@@ -81,7 +82,7 @@ if (isset($_REQUEST['submitcollation'])
     list($db_charset) = explode('_', $_REQUEST['db_collation']);
     $sql_query        = 'ALTER DATABASE '
         . PMA\libraries\Util::backquote($db)
-        . ' DEFAULT' . PMA_generateCharsetQueryPart($_REQUEST['db_collation']);
+        . ' DEFAULT' . Util::getCharsetQueryPart($_REQUEST['db_collation']);
     $result           = $GLOBALS['dbi']->query($sql_query);
     $message          = Message::success();
     unset($db_charset);
