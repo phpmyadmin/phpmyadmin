@@ -1343,7 +1343,7 @@ function PMA_stopImport( Message $error_message )
 
     // Close open handles
     if ($import_handle !== false && $import_handle !== null) {
-        fclose($import_handle);
+        $import_handle->close();
     }
 
     // Delete temporary file
