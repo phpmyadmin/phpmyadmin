@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2016-04-11 15:40+0200\n"
+"POT-Creation-Date: 2016-04-12 11:23+0200\n"
 "PO-Revision-Date: 2015-10-15 11:19+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Ukrainian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -267,7 +267,7 @@ msgstr "Таблиці"
 #: libraries/config/user_preferences.forms.php:219
 #: libraries/config/user_preferences.forms.php:260
 #: libraries/config/user_preferences.forms.php:286
-#: libraries/import.lib.php:1302 libraries/navigation/nodes/NodeColumn.php:40
+#: libraries/import.lib.php:1265 libraries/navigation/nodes/NodeColumn.php:40
 #: libraries/navigation/nodes/NodeDatabase.php:53
 #: libraries/navigation/nodes/NodeTable.php:292
 #: libraries/server_privileges.lib.php:1240 libraries/tracking.lib.php:892
@@ -518,19 +518,19 @@ msgstr ""
 "Оберіть \"GeomFromText\" зі стовпчика \"Функції\" та вставте нижче у поле "
 "\"Значення\"."
 
-#: import.php:57
+#: import.php:58
 msgid "Succeeded"
 msgstr "Вдало"
 
-#: import.php:61 js/messages.php:595
+#: import.php:62 js/messages.php:595
 msgid "Failed"
 msgstr "Помилка"
 
-#: import.php:65
+#: import.php:66
 msgid "Incomplete params"
 msgstr "Неповні параметри"
 
-#: import.php:189
+#: import.php:190
 #, php-format
 msgid ""
 "You probably tried to upload a file that is too large. Please refer to "
@@ -540,38 +540,15 @@ msgstr ""
 "зверніться до %sдокументації%s для знаходження шляхів вирішення цієї "
 "проблеми."
 
-#: import.php:368 import.php:676
+#: import.php:369 import.php:563
 msgid "Showing bookmark"
 msgstr "Показані закладки"
 
-#: import.php:385 import.php:672
+#: import.php:386 import.php:559
 msgid "The bookmark has been deleted."
 msgstr "Закладку було видалено."
 
-#: import.php:485
-#, php-format
-msgid ""
-"Uploaded file cannot be moved, because the server has open_basedir enabled "
-"without access to the %s directory (for temporary files)."
-msgstr ""
-"Завантажений файл не може бути переміщений, тому що на сервері включений "
-"open_basedir без доступу до директорії %s (для тимчасових файлів)."
-
-#: import.php:501 import.php:578 libraries/File.php:424 libraries/File.php:517
-msgid "File could not be read!"
-msgstr "Неможливо прочитати файл!"
-
-#: import.php:512 import.php:527 import.php:552 import.php:567
-#: libraries/File.php:584
-#, php-format
-msgid ""
-"You attempted to load file with unsupported compression (%s). Either support "
-"for it is not implemented or disabled by your configuration."
-msgstr ""
-"Ви намагаєтесь завантажити файл з непідтримуваним стисненням (%s). Підтримка "
-"не здійснюється або вимкнена у вашій конфігурації."
-
-#: import.php:585
+#: import.php:472
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
@@ -581,18 +558,18 @@ msgstr ""
 "перевищив допустимий максимум для вашої PHP конфігурації. Дивіться "
 "[doc@faq1-16]FAQ 1.16[/doc]."
 
-#: import.php:637 libraries/display_import.lib.php:665
+#: import.php:524 libraries/display_import.lib.php:665
 msgid "Could not load import plugins, please check your installation!"
 msgstr ""
 "Неможливо завантажити імпортовані плагіни, будь ласка, перевірте вашу "
 "установку!"
 
-#: import.php:679 libraries/sql.lib.php:784 libraries/sql.lib.php:1561
+#: import.php:566 libraries/sql.lib.php:784 libraries/sql.lib.php:1561
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "Закладку %s створено."
 
-#: import.php:689
+#: import.php:576
 #, fuzzy, php-format
 #| msgid "Import has been successfully finished, %d queries executed."
 msgid "Import has been successfully finished, %d query executed."
@@ -601,7 +578,7 @@ msgstr[0] "Імпорт завершився вдало, %d запитів ви�
 msgstr[1] "Імпорт завершився вдало, %d запитів виконано."
 msgstr[2] "Імпорт завершився вдало, %d запитів виконано."
 
-#: import.php:720
+#: import.php:607
 #, php-format
 msgid ""
 "Script timeout passed, if you want to finish import, please %sresubmit the "
@@ -610,7 +587,7 @@ msgstr ""
 "Виконання скрипту перевищило допустимий час, якщо Ви бажаєте закінчити "
 "імпорт, необхідно %sповторно відправити той самий файл%s."
 
-#: import.php:730
+#: import.php:617
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
@@ -859,7 +836,7 @@ msgstr ""
 "Сервер працює з Suhosin. Щодо можливих проблем звертайтеся до %sdocumentation"
 "%s."
 
-#: js/messages.php:42 libraries/import.lib.php:209 sql.php:161
+#: js/messages.php:42 libraries/import.lib.php:192 sql.php:161
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "Оператори \"DROP DATABASE\" заборонені."
 
@@ -3022,7 +2999,7 @@ msgid "Please enter a valid HEX input"
 msgstr "Введіть вірний номер!"
 
 #: js/messages.php:949 libraries/Message.php:202 libraries/Util.php:678
-#: libraries/core.lib.php:237 libraries/import.lib.php:101
+#: libraries/core.lib.php:237 libraries/import.lib.php:84
 #: libraries/insert_edit.lib.php:1177 view_operations.php:74
 msgid "Error"
 msgstr "Помилка"
@@ -3313,18 +3290,35 @@ msgstr "нечутливий до регістру"
 msgid "case-sensitive collation"
 msgstr "чутливий до регістру"
 
-#: libraries/Config.php:1137
+#: libraries/Config.php:1148
 #, php-format
 msgid "Existing configuration file (%s) is not readable."
 msgstr "Існуючий файл конфігурації (%s) не читабельний."
 
-#: libraries/Config.php:1167
+#: libraries/Config.php:1178
 msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr ""
 "Невірні права доступу до конфігураційного файлу, він не повинен бути "
 "доступним для всіх!"
 
-#: libraries/Config.php:1528
+#: libraries/Config.php:1198
+#, php-format
+msgid "Could not load default configuration from: %1$s"
+msgstr "Неможливо завантажити стандартну функціональність із: %1$s"
+
+#: libraries/Config.php:1205
+msgid "Failed to read configuration file!"
+msgstr "Не вдалося прочитати файл конфігурації!"
+
+#: libraries/Config.php:1208
+msgid ""
+"This usually means there is a syntax error in it, please check any errors "
+"shown below."
+msgstr ""
+"Як правило, це означає, що в ньому є синтаксичні помилки, будь ласка, "
+"перевірте будь-які помилки що показано нижче."
+
+#: libraries/Config.php:1569
 msgid "Font size"
 msgstr "Розмір шрифту"
 
@@ -3634,8 +3628,8 @@ msgstr "Число рядків:"
 msgid "Sort by key"
 msgstr "Сортувати за ключем"
 
-#: libraries/DisplayResults.php:1720 libraries/import.lib.php:1268
-#: libraries/import.lib.php:1303 libraries/mult_submits.lib.php:340
+#: libraries/DisplayResults.php:1720 libraries/import.lib.php:1231
+#: libraries/import.lib.php:1266 libraries/mult_submits.lib.php:340
 #: libraries/plugins/export/ExportCodegen.php:84
 #: libraries/plugins/export/ExportCsv.php:48
 #: libraries/plugins/export/ExportExcel.php:38
@@ -3854,19 +3848,32 @@ msgstr "Завантаження файла зупинено розширенн�
 msgid "Unknown error in file upload."
 msgstr "Невідома помилка під час завантаження файла."
 
-#: libraries/File.php:465
+#: libraries/File.php:424 libraries/File.php:527
+msgid "File could not be read!"
+msgstr "Неможливо прочитати файл!"
+
+#: libraries/File.php:475
 msgid "Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc]."
 msgstr "Помилка під час переміщення файла, дивись [doc@faq1-11]FAQ 1.11[/doc]."
 
-#: libraries/File.php:484
+#: libraries/File.php:494
 msgid "Error while moving uploaded file."
 msgstr "Помилка під час переміщення завантаженого файла."
 
-#: libraries/File.php:492
+#: libraries/File.php:502
 #, fuzzy
 #| msgid "Cannot read (moved) upload file."
 msgid "Cannot read uploaded file."
 msgstr "Не вдалося прочитати (перемістити) завантажений файл."
+
+#: libraries/File.php:594
+#, php-format
+msgid ""
+"You attempted to load file with unsupported compression (%s). Either support "
+"for it is not implemented or disabled by your configuration."
+msgstr ""
+"Ви намагаєтесь завантажити файл з непідтримуваним стисненням (%s). Підтримка "
+"не здійснюється або вимкнена у вашій конфігурації."
 
 #: libraries/Footer.php:74
 #, php-format
@@ -5059,44 +5066,27 @@ msgstr "Додати стовпчик"
 msgid "Attributes"
 msgstr "Атрибути"
 
-#: libraries/common.inc.php:486
-msgid "Failed to read configuration file!"
-msgstr "Не вдалося прочитати файл конфігурації!"
-
-#: libraries/common.inc.php:489
-msgid ""
-"This usually means there is a syntax error in it, please check any errors "
-"shown below."
-msgstr ""
-"Як правило, це означає, що в ньому є синтаксичні помилки, будь ласка, "
-"перевірте будь-які помилки що показано нижче."
-
-#: libraries/common.inc.php:498
-#, php-format
-msgid "Could not load default configuration from: %1$s"
-msgstr "Неможливо завантажити стандартну функціональність із: %1$s"
-
-#: libraries/common.inc.php:532
+#: libraries/common.inc.php:513
 #, php-format
 msgid "Invalid server index: %s"
 msgstr "Невірний індекс сервера: %s"
 
-#: libraries/common.inc.php:544
+#: libraries/common.inc.php:525
 #, php-format
 msgid "Invalid hostname for server %1$s. Please review your configuration."
 msgstr ""
 "Невірна назва хоста для сервера %1$s. Будь ласка, перевірте конфігурацію."
 
-#: libraries/common.inc.php:562
+#: libraries/common.inc.php:543
 #, php-format
 msgid "Server %d"
 msgstr "Сервер %d"
 
-#: libraries/common.inc.php:686
+#: libraries/common.inc.php:667
 msgid "Invalid authentication method set in configuration:"
 msgstr "Невірний метод аутентифікації встановленний в налаштуваннях:"
 
-#: libraries/common.inc.php:829
+#: libraries/common.inc.php:810
 #, php-format
 msgid ""
 "Unable to use timezone %1$s for server %2$d. Please check your configuration "
@@ -5104,20 +5094,20 @@ msgid ""
 "currently using the default time zone of the database server."
 msgstr ""
 
-#: libraries/common.inc.php:861
+#: libraries/common.inc.php:842
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "Вам необхідно оновити до %s %s або пізнішої."
 
-#: libraries/common.inc.php:947
+#: libraries/common.inc.php:928
 msgid "Error: Token mismatch"
 msgstr "Помилка: невідповідний токен"
 
-#: libraries/common.inc.php:965
+#: libraries/common.inc.php:946
 msgid "GLOBALS overwrite attempt"
 msgstr "спроба перезапису GLOBALS"
 
-#: libraries/common.inc.php:972
+#: libraries/common.inc.php:953
 msgid "possible exploit"
 msgstr "можливе використання"
 
@@ -8174,7 +8164,7 @@ msgstr[1] "%1$d бази даних успішно знищено."
 msgstr[2] "%1$d баз даних успішно знищено."
 
 #: libraries/controllers/server/ServerDatabasesController.php:346
-#: libraries/import.lib.php:111
+#: libraries/import.lib.php:94
 #: templates/database/structure/table_header.phtml:36
 #: templates/table/structure/actions_in_table_structure.phtml:111
 #: templates/table/structure/display_partitions.phtml:30
@@ -9157,66 +9147,66 @@ msgstr "Веб-сервер не має привілеїв для збереже
 msgid "Dump has been saved to file %s."
 msgstr "Dump збережено у файл %s."
 
-#: libraries/import.lib.php:119 libraries/insert_edit.lib.php:124
+#: libraries/import.lib.php:102 libraries/insert_edit.lib.php:124
 #: libraries/rte/rte_routines.lib.php:1444 libraries/sql.lib.php:1370
 #: tbl_get_field.php:45
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL повернула пустий результат (тобто нуль рядків)."
 
-#: libraries/import.lib.php:290 libraries/sql.lib.php:1384
+#: libraries/import.lib.php:273 libraries/sql.lib.php:1384
 msgid "[ROLLBACK occurred.]"
 msgstr ""
 
-#: libraries/import.lib.php:1256
+#: libraries/import.lib.php:1219
 msgid ""
 "The following structures have either been created or altered. Here you can:"
 msgstr "Наступні структури були створені, або змінені. Ви можете:"
 
-#: libraries/import.lib.php:1259
+#: libraries/import.lib.php:1222
 msgid "View a structure's contents by clicking on its name."
 msgstr "Переглянути деталі структури клацанням по її імені."
 
-#: libraries/import.lib.php:1262
+#: libraries/import.lib.php:1225
 msgid ""
 "Change any of its settings by clicking the corresponding \"Options\" link."
 msgstr ""
 "Змінити будь-яке налаштування клацанням по відповідному посиланню \"Параметри"
 "\"."
 
-#: libraries/import.lib.php:1264
+#: libraries/import.lib.php:1227
 msgid "Edit structure by following the \"Structure\" link."
 msgstr "Відредагувати структуру за посиланням \"Структура\"."
 
-#: libraries/import.lib.php:1271
+#: libraries/import.lib.php:1234
 #, php-format
 msgid "Go to database: %s"
 msgstr "Перейти до бази даних: %s"
 
-#: libraries/import.lib.php:1277 libraries/import.lib.php:1321
+#: libraries/import.lib.php:1240 libraries/import.lib.php:1284
 #, php-format
 msgid "Edit settings for %s"
 msgstr "Редагувати налаштування для %s"
 
-#: libraries/import.lib.php:1306
+#: libraries/import.lib.php:1269
 #, php-format
 msgid "Go to table: %s"
 msgstr "Перейти до таблиці: %s"
 
-#: libraries/import.lib.php:1314
+#: libraries/import.lib.php:1277
 #, php-format
 msgid "Structure of %s"
 msgstr "Структура %s"
 
-#: libraries/import.lib.php:1332
+#: libraries/import.lib.php:1295
 #, php-format
 msgid "Go to view: %s"
 msgstr "Перейти до подання: %s"
 
-#: libraries/import.lib.php:1392
+#: libraries/import.lib.php:1355
 msgid "Only single-table UPDATE and DELETE queries can be simulated."
 msgstr ""
 
-#: libraries/import.lib.php:1615
+#: libraries/import.lib.php:1578
 msgid ""
 "Only INSERT, UPDATE, DELETE and REPLACE SQL queries containing transactional "
 "engine tables can be rolled back."
@@ -10729,7 +10719,7 @@ msgstr "Неправильний формат вхідних CSV-даних в �
 msgid "Invalid column count in CSV input on line %d."
 msgstr "Невідповідність кількості стовпців в CSV даних на рядку %d."
 
-#: libraries/plugins/import/ImportLdi.php:109
+#: libraries/plugins/import/ImportLdi.php:111
 msgid "This plugin does not support compressed imports!"
 msgstr "Цей модуль не підтримує імпорт стиснених даних!"
 
@@ -10769,12 +10759,13 @@ msgstr "Неможливо прочитати електронну таблиц�
 msgid "ESRI Shape File"
 msgstr "Файл ESRI"
 
-#: libraries/plugins/import/ImportShp.php:138
+#: libraries/plugins/import/ImportShp.php:81
+#: libraries/plugins/import/ImportShp.php:146
 #, php-format
 msgid "There was an error importing the ESRI shape file: \"%s\"."
 msgstr "При імпорті файлу ESRI сталася помилка: \"%s\"."
 
-#: libraries/plugins/import/ImportShp.php:195
+#: libraries/plugins/import/ImportShp.php:203
 msgid ""
 "You tried to import an invalid file or the imported file contains invalid "
 "data!"
@@ -10782,12 +10773,12 @@ msgstr ""
 "Ви спробували імпортувати некоректний файл або цей файл містить некоректні "
 "дані!"
 
-#: libraries/plugins/import/ImportShp.php:201
+#: libraries/plugins/import/ImportShp.php:209
 #, php-format
 msgid "MySQL Spatial Extension does not support ESRI type \"%s\"."
 msgstr "Просторове розширення MySQL не підтримує тип ESRI \"%s\"."
 
-#: libraries/plugins/import/ImportShp.php:250
+#: libraries/plugins/import/ImportShp.php:258
 msgid "The imported file does not contain any data!"
 msgstr "Імпортований файл не містить даних!"
 
@@ -15003,7 +14994,7 @@ msgid "Show query history at start"
 msgstr "Показати історію на початку"
 
 #: templates/console/display.phtml:189
-msgid "Sow current browsing query"
+msgid "Show current browsing query"
 msgstr ""
 
 #: templates/console/display.phtml:194
@@ -17464,6 +17455,13 @@ msgstr ""
 #: libraries/advisory_rules.txt:457
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert встановлено у 0"
+
+#~ msgid ""
+#~ "Uploaded file cannot be moved, because the server has open_basedir "
+#~ "enabled without access to the %s directory (for temporary files)."
+#~ msgstr ""
+#~ "Завантажений файл не може бути переміщений, тому що на сервері включений "
+#~ "open_basedir без доступу до директорії %s (для тимчасових файлів)."
 
 #~ msgid "Invalid export type"
 #~ msgstr "Невірний тип експорту"

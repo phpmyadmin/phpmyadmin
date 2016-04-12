@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2016-04-11 15:40+0200\n"
+"POT-Creation-Date: 2016-04-12 11:23+0200\n"
 "PO-Revision-Date: 2015-11-20 15:47+0000\n"
 "Last-Translator: Dana Akram <dana@kurdish.one>\n"
 "Language-Team: Kurdish Sorani <https://hosted.weblate.org/projects/"
@@ -270,7 +270,7 @@ msgstr "خشتەکان"
 #: libraries/config/user_preferences.forms.php:219
 #: libraries/config/user_preferences.forms.php:260
 #: libraries/config/user_preferences.forms.php:286
-#: libraries/import.lib.php:1302 libraries/navigation/nodes/NodeColumn.php:40
+#: libraries/import.lib.php:1265 libraries/navigation/nodes/NodeColumn.php:40
 #: libraries/navigation/nodes/NodeDatabase.php:53
 #: libraries/navigation/nodes/NodeTable.php:292
 #: libraries/server_privileges.lib.php:1240 libraries/tracking.lib.php:892
@@ -516,19 +516,19 @@ msgstr ""
 "\"GeomFromText\" لە ستوونی \"فرمان\" هەڵبژێرە و ڕیزبەندی خوارەوە لە خانەی "
 "\"نرخ\" داخڵ بکە."
 
-#: import.php:57
+#: import.php:58
 msgid "Succeeded"
 msgstr "سەرکەوتووبوو"
 
-#: import.php:61 js/messages.php:595
+#: import.php:62 js/messages.php:595
 msgid "Failed"
 msgstr "سەرکەوتوو نەبوو"
 
-#: import.php:65
+#: import.php:66
 msgid "Incomplete params"
 msgstr "ڕاگەێینی ناتەواو"
 
-#: import.php:189
+#: import.php:190
 #, php-format
 msgid ""
 "You probably tried to upload a file that is too large. Please refer to "
@@ -537,38 +537,15 @@ msgstr ""
 "لەوانەیە تۆ هەوڵت دابێت فایلێک بە قەبارەیەکی زۆر بار بکەی. تکایە سەردانی "
 "%sبەڵگەسازی%s بکە بۆ چارەکردنی ئەم سنوردار کردنە."
 
-#: import.php:368 import.php:676
+#: import.php:369 import.php:563
 msgid "Showing bookmark"
 msgstr "پیشاندانی شوێندۆز"
 
-#: import.php:385 import.php:672
+#: import.php:386 import.php:559
 msgid "The bookmark has been deleted."
 msgstr "شوێندۆز سڕایەوە."
 
-#: import.php:485
-#, php-format
-msgid ""
-"Uploaded file cannot be moved, because the server has open_basedir enabled "
-"without access to the %s directory (for temporary files)."
-msgstr ""
-"ناتوانرا پەڕگەی بارکراو بگوێزرێتەوە چوونکە  open_basedir چالاکە بەبێ توانای "
-"کارکردن لەگەڵ %s بوخچەی کارکردن لەگەڵ پەڕگە کاتییەکان (temporary files)."
-
-#: import.php:501 import.php:578 libraries/File.php:424 libraries/File.php:517
-msgid "File could not be read!"
-msgstr "نەتوانرا پەڕگە بخوێنرێتەوە!"
-
-#: import.php:512 import.php:527 import.php:552 import.php:567
-#: libraries/File.php:584
-#, php-format
-msgid ""
-"You attempted to load file with unsupported compression (%s). Either support "
-"for it is not implemented or disabled by your configuration."
-msgstr ""
-"ئێوە فایلێک بە پەستێنەر سازێکی پاڵپشتی نەکراو بار ئەکەن (%s).لەوانەیە لە "
-"ڕێکخستنەکان ناچالاک بێت وە یان پاڵپشتی بەردەست نییە بۆ ئەم فایلە."
-
-#: import.php:585
+#: import.php:472
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
@@ -577,16 +554,16 @@ msgstr ""
 "هیچ داتایەک وەرنەگیرا بۆ هاوردە کردن. یان فایلێک دیاری نەکراوە ، یان فایلەکە "
 "لە ڕێژە دیاری کراوەکە زیاترە. سەردانی  [doc@faq1-16]FAQ 1.16[/doc] بکەن."
 
-#: import.php:637 libraries/display_import.lib.php:665
+#: import.php:524 libraries/display_import.lib.php:665
 msgid "Could not load import plugins, please check your installation!"
 msgstr "هەڵە لە بارکردنی پێوەکراەکان, تکایە فۆناغەکانی دامەزراندن بپشکنن!"
 
-#: import.php:679 libraries/sql.lib.php:784 libraries/sql.lib.php:1561
+#: import.php:566 libraries/sql.lib.php:784 libraries/sql.lib.php:1561
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "شوێندۆز  %s دروستکرا."
 
-#: import.php:689
+#: import.php:576
 #, fuzzy, php-format
 #| msgid "Import has been successfully finished, %d queries executed."
 msgid "Import has been successfully finished, %d query executed."
@@ -596,7 +573,7 @@ msgstr[0] ""
 msgstr[1] ""
 "داخڵ کردنی زانیاریەکان بە سەرکەوتوویی بە کۆتا هات، %d پرسگە دامەزرا ."
 
-#: import.php:720
+#: import.php:607
 #, php-format
 msgid ""
 "Script timeout passed, if you want to finish import, please %sresubmit the "
@@ -605,7 +582,7 @@ msgstr ""
 "بەشە کاتیی ئەم هەنگاوە تێپەڕیی، ئەگەر دەتەوێت پرۆسەکە بەردەوام بێت، دووبارە "
 "%sهەمان پەڕگە%s باربکەوە و بەردەوام دەبێت."
 
-#: import.php:730
+#: import.php:617
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
@@ -841,7 +818,7 @@ msgid ""
 "issues."
 msgstr ""
 
-#: js/messages.php:42 libraries/import.lib.php:209 sql.php:161
+#: js/messages.php:42 libraries/import.lib.php:192 sql.php:161
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "دەستەواژەکانی \"سڕینەوەی بنکەی زانیاری\" ناچالاککراوە."
 
@@ -2982,7 +2959,7 @@ msgid "Please enter a valid HEX input"
 msgstr "%d ژمارەی ڕیزی نادروستە."
 
 #: js/messages.php:949 libraries/Message.php:202 libraries/Util.php:678
-#: libraries/core.lib.php:237 libraries/import.lib.php:101
+#: libraries/core.lib.php:237 libraries/import.lib.php:84
 #: libraries/insert_edit.lib.php:1177 view_operations.php:74
 msgid "Error"
 msgstr "هەڵە"
@@ -3264,16 +3241,33 @@ msgstr ""
 msgid "case-sensitive collation"
 msgstr ""
 
-#: libraries/Config.php:1137
+#: libraries/Config.php:1148
 #, php-format
 msgid "Existing configuration file (%s) is not readable."
 msgstr ""
 
-#: libraries/Config.php:1167
+#: libraries/Config.php:1178
 msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr ""
 
-#: libraries/Config.php:1528
+#: libraries/Config.php:1198
+#, php-format
+msgid "Could not load default configuration from: %1$s"
+msgstr ""
+
+#: libraries/Config.php:1205
+#, fuzzy
+#| msgid "Local monitor configuration incompatible"
+msgid "Failed to read configuration file!"
+msgstr "چاودێری شێوه‌پێدانی ناوخۆیی نەگونجاوە"
+
+#: libraries/Config.php:1208
+msgid ""
+"This usually means there is a syntax error in it, please check any errors "
+"shown below."
+msgstr ""
+
+#: libraries/Config.php:1569
 msgid "Font size"
 msgstr "قەبارەی فۆنت"
 
@@ -3609,8 +3603,8 @@ msgstr ""
 msgid "Sort by key"
 msgstr "ڕیزکردنی بە پێی کلیل"
 
-#: libraries/DisplayResults.php:1720 libraries/import.lib.php:1268
-#: libraries/import.lib.php:1303 libraries/mult_submits.lib.php:340
+#: libraries/DisplayResults.php:1720 libraries/import.lib.php:1231
+#: libraries/import.lib.php:1266 libraries/mult_submits.lib.php:340
 #: libraries/plugins/export/ExportCodegen.php:84
 #: libraries/plugins/export/ExportCsv.php:48
 #: libraries/plugins/export/ExportExcel.php:38
@@ -3837,19 +3831,32 @@ msgstr "بارکردنی فایل ڕاگیرا بەهۆی پاشگرەوە."
 msgid "Unknown error in file upload."
 msgstr "هەڵەیەکی نەزانراو لە بارکردنی فایل."
 
-#: libraries/File.php:465
+#: libraries/File.php:424 libraries/File.php:527
+msgid "File could not be read!"
+msgstr "نەتوانرا پەڕگە بخوێنرێتەوە!"
+
+#: libraries/File.php:475
 msgid "Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc]."
 msgstr ""
 
-#: libraries/File.php:484
+#: libraries/File.php:494
 msgid "Error while moving uploaded file."
 msgstr "هەڵەیەک لەکاتی گواستنەوەی فایلی بارکراو."
 
-#: libraries/File.php:492
+#: libraries/File.php:502
 #, fuzzy
 #| msgid "File was not an uploaded file."
 msgid "Cannot read uploaded file."
 msgstr "فایلەکە لە فایلی بارکراو نیە."
+
+#: libraries/File.php:594
+#, php-format
+msgid ""
+"You attempted to load file with unsupported compression (%s). Either support "
+"for it is not implemented or disabled by your configuration."
+msgstr ""
+"ئێوە فایلێک بە پەستێنەر سازێکی پاڵپشتی نەکراو بار ئەکەن (%s).لەوانەیە لە "
+"ڕێکخستنەکان ناچالاک بێت وە یان پاڵپشتی بەردەست نییە بۆ ئەم فایلە."
 
 #: libraries/Footer.php:74
 #, php-format
@@ -5036,44 +5043,27 @@ msgstr "زیادکردن/سڕینەوەی ستونەکان"
 msgid "Attributes"
 msgstr ""
 
-#: libraries/common.inc.php:486
-#, fuzzy
-#| msgid "Local monitor configuration incompatible"
-msgid "Failed to read configuration file!"
-msgstr "چاودێری شێوه‌پێدانی ناوخۆیی نەگونجاوە"
-
-#: libraries/common.inc.php:489
-msgid ""
-"This usually means there is a syntax error in it, please check any errors "
-"shown below."
-msgstr ""
-
-#: libraries/common.inc.php:498
-#, php-format
-msgid "Could not load default configuration from: %1$s"
-msgstr ""
-
-#: libraries/common.inc.php:532
+#: libraries/common.inc.php:513
 #, php-format
 msgid "Invalid server index: %s"
 msgstr ""
 
-#: libraries/common.inc.php:544
+#: libraries/common.inc.php:525
 #, php-format
 msgid "Invalid hostname for server %1$s. Please review your configuration."
 msgstr ""
 
-#: libraries/common.inc.php:562
+#: libraries/common.inc.php:543
 #, fuzzy, php-format
 #| msgid "Server"
 msgid "Server %d"
 msgstr "سێرڤەر"
 
-#: libraries/common.inc.php:686
+#: libraries/common.inc.php:667
 msgid "Invalid authentication method set in configuration:"
 msgstr ""
 
-#: libraries/common.inc.php:829
+#: libraries/common.inc.php:810
 #, php-format
 msgid ""
 "Unable to use timezone %1$s for server %2$d. Please check your configuration "
@@ -5081,20 +5071,20 @@ msgid ""
 "currently using the default time zone of the database server."
 msgstr ""
 
-#: libraries/common.inc.php:861
+#: libraries/common.inc.php:842
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr ""
 
-#: libraries/common.inc.php:947
+#: libraries/common.inc.php:928
 msgid "Error: Token mismatch"
 msgstr ""
 
-#: libraries/common.inc.php:965
+#: libraries/common.inc.php:946
 msgid "GLOBALS overwrite attempt"
 msgstr ""
 
-#: libraries/common.inc.php:972
+#: libraries/common.inc.php:953
 msgid "possible exploit"
 msgstr ""
 
@@ -7877,7 +7867,7 @@ msgstr[0] ""
 msgstr[1] ""
 
 #: libraries/controllers/server/ServerDatabasesController.php:346
-#: libraries/import.lib.php:111
+#: libraries/import.lib.php:94
 #: templates/database/structure/table_header.phtml:36
 #: templates/table/structure/actions_in_table_structure.phtml:111
 #: templates/table/structure/display_partitions.phtml:30
@@ -8794,64 +8784,64 @@ msgstr "وێبڕاژه‌كار مۆڵەتی پاشه‌كه‌وت کردنی �
 msgid "Dump has been saved to file %s."
 msgstr "زانیاری وەدەست هاتوو لە فایلی %s پاشەکەوت کرا."
 
-#: libraries/import.lib.php:119 libraries/insert_edit.lib.php:124
+#: libraries/import.lib.php:102 libraries/insert_edit.lib.php:124
 #: libraries/rte/rte_routines.lib.php:1444 libraries/sql.lib.php:1370
 #: tbl_get_field.php:45
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr ""
 
-#: libraries/import.lib.php:290 libraries/sql.lib.php:1384
+#: libraries/import.lib.php:273 libraries/sql.lib.php:1384
 msgid "[ROLLBACK occurred.]"
 msgstr ""
 
-#: libraries/import.lib.php:1256
+#: libraries/import.lib.php:1219
 msgid ""
 "The following structures have either been created or altered. Here you can:"
 msgstr ""
 
-#: libraries/import.lib.php:1259
+#: libraries/import.lib.php:1222
 msgid "View a structure's contents by clicking on its name."
 msgstr ""
 
-#: libraries/import.lib.php:1262
+#: libraries/import.lib.php:1225
 msgid ""
 "Change any of its settings by clicking the corresponding \"Options\" link."
 msgstr ""
 
-#: libraries/import.lib.php:1264
+#: libraries/import.lib.php:1227
 msgid "Edit structure by following the \"Structure\" link."
 msgstr ""
 
-#: libraries/import.lib.php:1271
+#: libraries/import.lib.php:1234
 #, php-format
 msgid "Go to database: %s"
 msgstr ""
 
-#: libraries/import.lib.php:1277 libraries/import.lib.php:1321
+#: libraries/import.lib.php:1240 libraries/import.lib.php:1284
 #, php-format
 msgid "Edit settings for %s"
 msgstr ""
 
-#: libraries/import.lib.php:1306
+#: libraries/import.lib.php:1269
 #, php-format
 msgid "Go to table: %s"
 msgstr ""
 
-#: libraries/import.lib.php:1314
+#: libraries/import.lib.php:1277
 #, php-format
 msgid "Structure of %s"
 msgstr ""
 
-#: libraries/import.lib.php:1332
+#: libraries/import.lib.php:1295
 #, php-format
 msgid "Go to view: %s"
 msgstr ""
 
-#: libraries/import.lib.php:1392
+#: libraries/import.lib.php:1355
 msgid "Only single-table UPDATE and DELETE queries can be simulated."
 msgstr ""
 
-#: libraries/import.lib.php:1615
+#: libraries/import.lib.php:1578
 msgid ""
 "Only INSERT, UPDATE, DELETE and REPLACE SQL queries containing transactional "
 "engine tables can be rolled back."
@@ -10346,7 +10336,7 @@ msgstr ""
 msgid "Invalid column count in CSV input on line %d."
 msgstr ""
 
-#: libraries/plugins/import/ImportLdi.php:109
+#: libraries/plugins/import/ImportLdi.php:111
 msgid "This plugin does not support compressed imports!"
 msgstr ""
 
@@ -10385,23 +10375,24 @@ msgstr "نەتوانرا خشتە تازەکە پاشەکەوت بکرێت"
 msgid "ESRI Shape File"
 msgstr ""
 
-#: libraries/plugins/import/ImportShp.php:138
+#: libraries/plugins/import/ImportShp.php:81
+#: libraries/plugins/import/ImportShp.php:146
 #, php-format
 msgid "There was an error importing the ESRI shape file: \"%s\"."
 msgstr ""
 
-#: libraries/plugins/import/ImportShp.php:195
+#: libraries/plugins/import/ImportShp.php:203
 msgid ""
 "You tried to import an invalid file or the imported file contains invalid "
 "data!"
 msgstr ""
 
-#: libraries/plugins/import/ImportShp.php:201
+#: libraries/plugins/import/ImportShp.php:209
 #, php-format
 msgid "MySQL Spatial Extension does not support ESRI type \"%s\"."
 msgstr ""
 
-#: libraries/plugins/import/ImportShp.php:250
+#: libraries/plugins/import/ImportShp.php:258
 msgid "The imported file does not contain any data!"
 msgstr ""
 
@@ -14302,7 +14293,7 @@ msgid "Show query history at start"
 msgstr ""
 
 #: templates/console/display.phtml:189
-msgid "Sow current browsing query"
+msgid "Show current browsing query"
 msgstr ""
 
 #: templates/console/display.phtml:194
@@ -16527,6 +16518,14 @@ msgstr ""
 #: libraries/advisory_rules.txt:457
 msgid "concurrent_insert is set to 0"
 msgstr "نرخی concurrent_insert ڕێکخراوە بۆ 0"
+
+#~ msgid ""
+#~ "Uploaded file cannot be moved, because the server has open_basedir "
+#~ "enabled without access to the %s directory (for temporary files)."
+#~ msgstr ""
+#~ "ناتوانرا پەڕگەی بارکراو بگوێزرێتەوە چوونکە  open_basedir چالاکە بەبێ "
+#~ "توانای کارکردن لەگەڵ %s بوخچەی کارکردن لەگەڵ پەڕگە کاتییەکان (temporary "
+#~ "files)."
 
 #~ msgid "Invalid export type"
 #~ msgstr "هەناردنی ئەم جۆرە ڕێگەپێدراو نییە"

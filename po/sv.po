@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2016-04-11 15:40+0200\n"
+"POT-Creation-Date: 2016-04-12 11:23+0200\n"
 "PO-Revision-Date: 2016-04-04 22:23+0000\n"
 "Last-Translator: Anders Jonsson <anders.jonsson@norsjovallen.se>\n"
 "Language-Team: Swedish <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -266,7 +266,7 @@ msgstr "Tabeller"
 #: libraries/config/user_preferences.forms.php:219
 #: libraries/config/user_preferences.forms.php:260
 #: libraries/config/user_preferences.forms.php:286
-#: libraries/import.lib.php:1302 libraries/navigation/nodes/NodeColumn.php:40
+#: libraries/import.lib.php:1265 libraries/navigation/nodes/NodeColumn.php:40
 #: libraries/navigation/nodes/NodeDatabase.php:53
 #: libraries/navigation/nodes/NodeTable.php:292
 #: libraries/server_privileges.lib.php:1240 libraries/tracking.lib.php:892
@@ -514,19 +514,19 @@ msgstr ""
 "Välj \"GeomFromText\" i kolumnen \"Funktion\" och klistra in strängen i "
 "fältet \"Värde\"."
 
-#: import.php:57
+#: import.php:58
 msgid "Succeeded"
 msgstr "Lyckades"
 
-#: import.php:61 js/messages.php:595
+#: import.php:62 js/messages.php:595
 msgid "Failed"
 msgstr "Misslyckades"
 
-#: import.php:65
+#: import.php:66
 msgid "Incomplete params"
 msgstr "Ofullständig parametrar"
 
-#: import.php:189
+#: import.php:190
 #, php-format
 msgid ""
 "You probably tried to upload a file that is too large. Please refer to "
@@ -535,38 +535,15 @@ msgstr ""
 "Du försökte ladda upp en fil som är för stor. Se %sdocumentation%s för att "
 "gå runt denna begränsning."
 
-#: import.php:368 import.php:676
+#: import.php:369 import.php:563
 msgid "Showing bookmark"
 msgstr "Visar bokmärke"
 
-#: import.php:385 import.php:672
+#: import.php:386 import.php:559
 msgid "The bookmark has been deleted."
 msgstr "Bokmärket har tagits bort."
 
-#: import.php:485
-#, php-format
-msgid ""
-"Uploaded file cannot be moved, because the server has open_basedir enabled "
-"without access to the %s directory (for temporary files)."
-msgstr ""
-"Skickad fil kan inte flyttas eftersom servern har open_basedir aktiverat "
-"utan åtkomst till katalogen %s (för temporära filer)."
-
-#: import.php:501 import.php:578 libraries/File.php:424 libraries/File.php:517
-msgid "File could not be read!"
-msgstr "Filen kunde inte läsas!"
-
-#: import.php:512 import.php:527 import.php:552 import.php:567
-#: libraries/File.php:584
-#, php-format
-msgid ""
-"You attempted to load file with unsupported compression (%s). Either support "
-"for it is not implemented or disabled by your configuration."
-msgstr ""
-"Du försökte ladda en fil med en komprimering (%s) som inte stöds. Antingen "
-"är detta inte implementerat, eller inaktiverat i din konfiguration."
-
-#: import.php:585
+#: import.php:472
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
@@ -576,17 +553,17 @@ msgstr ""
 "översteg filens storlek den maximalt tillåtna storleken i din PHP-"
 "konfiguration. Se [doc@faq1-16]FAQ 1.16[/doc]."
 
-#: import.php:637 libraries/display_import.lib.php:665
+#: import.php:524 libraries/display_import.lib.php:665
 msgid "Could not load import plugins, please check your installation!"
 msgstr ""
 "Kunde inte läsa in insticksprogram för import, kontrollera din installation!"
 
-#: import.php:679 libraries/sql.lib.php:784 libraries/sql.lib.php:1561
+#: import.php:566 libraries/sql.lib.php:784 libraries/sql.lib.php:1561
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "Bokmärket %s har skapats."
 
-#: import.php:689
+#: import.php:576
 #, fuzzy, php-format
 #| msgid "Import has been successfully finished, %d queries executed."
 msgid "Import has been successfully finished, %d query executed."
@@ -594,7 +571,7 @@ msgid_plural "Import has been successfully finished, %d queries executed."
 msgstr[0] "Importen har slutförts korrekt, %d frågor besvarade."
 msgstr[1] "Importen har slutförts korrekt, %d frågor besvarade."
 
-#: import.php:720
+#: import.php:607
 #, php-format
 msgid ""
 "Script timeout passed, if you want to finish import, please %sresubmit the "
@@ -603,7 +580,7 @@ msgstr ""
 "Timeout för skript passerade, om du vill avsluta import, vänligen %sresubmit "
 "samma fil%s och import kommer att återupptas."
 
-#: import.php:730
+#: import.php:617
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
@@ -840,7 +817,7 @@ msgid ""
 "issues."
 msgstr "Server körs med Suhosin. Se %sdokumentation%s för möjliga problem."
 
-#: js/messages.php:42 libraries/import.lib.php:209 sql.php:161
+#: js/messages.php:42 libraries/import.lib.php:192 sql.php:161
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "\"DROP DATABASE\"-satser är inaktiverade."
 
@@ -2894,7 +2871,7 @@ msgid "Please enter a valid HEX input"
 msgstr "Skriv in en giltig Hexadecimalt värde"
 
 #: js/messages.php:949 libraries/Message.php:202 libraries/Util.php:678
-#: libraries/core.lib.php:237 libraries/import.lib.php:101
+#: libraries/core.lib.php:237 libraries/import.lib.php:84
 #: libraries/insert_edit.lib.php:1177 view_operations.php:74
 msgid "Error"
 msgstr "Fel"
@@ -3182,17 +3159,34 @@ msgstr "skiftlägesokänslig"
 msgid "case-sensitive collation"
 msgstr "skiftlägeskänslig"
 
-#: libraries/Config.php:1137
+#: libraries/Config.php:1148
 #, php-format
 msgid "Existing configuration file (%s) is not readable."
 msgstr "Befintlig konfigurationsfil (%s) är inte läsbar."
 
-#: libraries/Config.php:1167
+#: libraries/Config.php:1178
 msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr ""
 "Fel behörigheter på konfigurationsfilen, bör inte vara \"world\" skrivbar!"
 
-#: libraries/Config.php:1528
+#: libraries/Config.php:1198
+#, php-format
+msgid "Could not load default configuration from: %1$s"
+msgstr "Kunde inte läsa in standardkonfiguration från: %1$s"
+
+#: libraries/Config.php:1205
+msgid "Failed to read configuration file!"
+msgstr "Kunde inte läsa konfigurationsfilen!"
+
+#: libraries/Config.php:1208
+msgid ""
+"This usually means there is a syntax error in it, please check any errors "
+"shown below."
+msgstr ""
+"Detta betyder oftast att det finns ett syntaxfel i den, kontrollera "
+"eventuella fel som visas nedan."
+
+#: libraries/Config.php:1569
 msgid "Font size"
 msgstr "Teckenstorlek"
 
@@ -3496,8 +3490,8 @@ msgstr "Antal rader:"
 msgid "Sort by key"
 msgstr "Sortera efter nyckel"
 
-#: libraries/DisplayResults.php:1720 libraries/import.lib.php:1268
-#: libraries/import.lib.php:1303 libraries/mult_submits.lib.php:340
+#: libraries/DisplayResults.php:1720 libraries/import.lib.php:1231
+#: libraries/import.lib.php:1266 libraries/mult_submits.lib.php:340
 #: libraries/plugins/export/ExportCodegen.php:84
 #: libraries/plugins/export/ExportCsv.php:48
 #: libraries/plugins/export/ExportExcel.php:38
@@ -3710,17 +3704,30 @@ msgstr "Filuppladdning stoppades av tillägg."
 msgid "Unknown error in file upload."
 msgstr "Okänt fel i filuppladdning."
 
-#: libraries/File.php:465
+#: libraries/File.php:424 libraries/File.php:527
+msgid "File could not be read!"
+msgstr "Filen kunde inte läsas!"
+
+#: libraries/File.php:475
 msgid "Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc]."
 msgstr "Fel vid flytt av uppladdad fil, se [doc@faq1-11]FAQ 1.11[/doc]."
 
-#: libraries/File.php:484
+#: libraries/File.php:494
 msgid "Error while moving uploaded file."
 msgstr "Fel vid flytt av uppladdad fil."
 
-#: libraries/File.php:492
+#: libraries/File.php:502
 msgid "Cannot read uploaded file."
 msgstr "Kan inte läsa uppladdad fil."
+
+#: libraries/File.php:594
+#, php-format
+msgid ""
+"You attempted to load file with unsupported compression (%s). Either support "
+"for it is not implemented or disabled by your configuration."
+msgstr ""
+"Du försökte ladda en fil med en komprimering (%s) som inte stöds. Antingen "
+"är detta inte implementerat, eller inaktiverat i din konfiguration."
 
 #: libraries/Footer.php:74
 #, php-format
@@ -4924,43 +4931,26 @@ msgstr "Lägg till ny kolumn"
 msgid "Attributes"
 msgstr "Attribut"
 
-#: libraries/common.inc.php:486
-msgid "Failed to read configuration file!"
-msgstr "Kunde inte läsa konfigurationsfilen!"
-
-#: libraries/common.inc.php:489
-msgid ""
-"This usually means there is a syntax error in it, please check any errors "
-"shown below."
-msgstr ""
-"Detta betyder oftast att det finns ett syntaxfel i den, kontrollera "
-"eventuella fel som visas nedan."
-
-#: libraries/common.inc.php:498
-#, php-format
-msgid "Could not load default configuration from: %1$s"
-msgstr "Kunde inte läsa in standardkonfiguration från: %1$s"
-
-#: libraries/common.inc.php:532
+#: libraries/common.inc.php:513
 #, php-format
 msgid "Invalid server index: %s"
 msgstr "Ogiltigt serverindex: %s"
 
-#: libraries/common.inc.php:544
+#: libraries/common.inc.php:525
 #, php-format
 msgid "Invalid hostname for server %1$s. Please review your configuration."
 msgstr "Ogiltigt värdnamn för server %1$s. Var god granska din konfiguration."
 
-#: libraries/common.inc.php:562
+#: libraries/common.inc.php:543
 #, php-format
 msgid "Server %d"
 msgstr "Server %d"
 
-#: libraries/common.inc.php:686
+#: libraries/common.inc.php:667
 msgid "Invalid authentication method set in configuration:"
 msgstr "Ogiltig metod för verifiering angiven i konfiguration:"
 
-#: libraries/common.inc.php:829
+#: libraries/common.inc.php:810
 #, php-format
 msgid ""
 "Unable to use timezone %1$s for server %2$d. Please check your configuration "
@@ -4972,20 +4962,20 @@ msgstr ""
 "['SessionTimeZone'][/em]. phpMyAdmin för närvarande används "
 "standardtidszonen på databasservern."
 
-#: libraries/common.inc.php:861
+#: libraries/common.inc.php:842
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "Du bör uppgradera till %s %s eller senare."
 
-#: libraries/common.inc.php:947
+#: libraries/common.inc.php:928
 msgid "Error: Token mismatch"
 msgstr "Fel: Token matchningsfel"
 
-#: libraries/common.inc.php:965
+#: libraries/common.inc.php:946
 msgid "GLOBALS overwrite attempt"
 msgstr "Överskrivningsförsök av GLOBALS"
 
-#: libraries/common.inc.php:972
+#: libraries/common.inc.php:953
 msgid "possible exploit"
 msgstr "möjlig exploatering"
 
@@ -7925,7 +7915,7 @@ msgstr[0] "%1$d databas har framgångsrikt tagits bort."
 msgstr[1] "%1$d databaser har framgångsrikt tagits bort."
 
 #: libraries/controllers/server/ServerDatabasesController.php:346
-#: libraries/import.lib.php:111
+#: libraries/import.lib.php:94
 #: templates/database/structure/table_header.phtml:36
 #: templates/table/structure/actions_in_table_structure.phtml:111
 #: templates/table/structure/display_partitions.phtml:30
@@ -8868,66 +8858,66 @@ msgstr "Webbservern har inte behörighet att spara filen %s."
 msgid "Dump has been saved to file %s."
 msgstr "Dump har sparats till filen %s."
 
-#: libraries/import.lib.php:119 libraries/insert_edit.lib.php:124
+#: libraries/import.lib.php:102 libraries/insert_edit.lib.php:124
 #: libraries/rte/rte_routines.lib.php:1444 libraries/sql.lib.php:1370
 #: tbl_get_field.php:45
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL returnerade ett tomt resultat (dvs inga rader)."
 
-#: libraries/import.lib.php:290 libraries/sql.lib.php:1384
+#: libraries/import.lib.php:273 libraries/sql.lib.php:1384
 msgid "[ROLLBACK occurred.]"
 msgstr "[ÅTERTOG tidigare version]"
 
-#: libraries/import.lib.php:1256
+#: libraries/import.lib.php:1219
 msgid ""
 "The following structures have either been created or altered. Here you can:"
 msgstr "Följande strukturer har antingen skapats eller ändrats. Du kan:"
 
-#: libraries/import.lib.php:1259
+#: libraries/import.lib.php:1222
 msgid "View a structure's contents by clicking on its name."
 msgstr "Visa en strukturs innehåll genom att klicka på namnet."
 
-#: libraries/import.lib.php:1262
+#: libraries/import.lib.php:1225
 msgid ""
 "Change any of its settings by clicking the corresponding \"Options\" link."
 msgstr ""
 "Ändra någon av dess inställningar genom att klicka på motsvarande "
 "\"Alternativ\"-länk."
 
-#: libraries/import.lib.php:1264
+#: libraries/import.lib.php:1227
 msgid "Edit structure by following the \"Structure\" link."
 msgstr "Redigera strukturen genom att följa länken \"Struktur\"."
 
-#: libraries/import.lib.php:1271
+#: libraries/import.lib.php:1234
 #, php-format
 msgid "Go to database: %s"
 msgstr "Gå till databas: %s"
 
-#: libraries/import.lib.php:1277 libraries/import.lib.php:1321
+#: libraries/import.lib.php:1240 libraries/import.lib.php:1284
 #, php-format
 msgid "Edit settings for %s"
 msgstr "Redigera inställningar för %s"
 
-#: libraries/import.lib.php:1306
+#: libraries/import.lib.php:1269
 #, php-format
 msgid "Go to table: %s"
 msgstr "Gå till tabell: %s"
 
-#: libraries/import.lib.php:1314
+#: libraries/import.lib.php:1277
 #, php-format
 msgid "Structure of %s"
 msgstr "Struktur för %s"
 
-#: libraries/import.lib.php:1332
+#: libraries/import.lib.php:1295
 #, php-format
 msgid "Go to view: %s"
 msgstr "Gå till vy: %s"
 
-#: libraries/import.lib.php:1392
+#: libraries/import.lib.php:1355
 msgid "Only single-table UPDATE and DELETE queries can be simulated."
 msgstr "Endast entabells-UPDATE och DELETE-körningar simuleras."
 
-#: libraries/import.lib.php:1615
+#: libraries/import.lib.php:1578
 msgid ""
 "Only INSERT, UPDATE, DELETE and REPLACE SQL queries containing transactional "
 "engine tables can be rolled back."
@@ -10438,7 +10428,7 @@ msgstr "Ogiltigt format i CSV-indata på rad %d."
 msgid "Invalid column count in CSV input on line %d."
 msgstr "Ogiltigt antal kolumner i CSV-indata på rad %d."
 
-#: libraries/plugins/import/ImportLdi.php:109
+#: libraries/plugins/import/ImportLdi.php:111
 msgid "This plugin does not support compressed imports!"
 msgstr "Detta insticksprogram stöder inte komprimerade importer!"
 
@@ -10478,12 +10468,13 @@ msgstr "Kunde inte tolka OpenDocument-kalkylblad!"
 msgid "ESRI Shape File"
 msgstr "ESRI Shape-fil"
 
-#: libraries/plugins/import/ImportShp.php:138
+#: libraries/plugins/import/ImportShp.php:81
+#: libraries/plugins/import/ImportShp.php:146
 #, php-format
 msgid "There was an error importing the ESRI shape file: \"%s\"."
 msgstr "Det uppstod ett fel vid importen av ESRI Shape-filen: \"%s\"."
 
-#: libraries/plugins/import/ImportShp.php:195
+#: libraries/plugins/import/ImportShp.php:203
 msgid ""
 "You tried to import an invalid file or the imported file contains invalid "
 "data!"
@@ -10491,12 +10482,12 @@ msgstr ""
 "Du försökte importera en ogiltig fil eller så innehåller den importerade "
 "filen ogiltiga data!"
 
-#: libraries/plugins/import/ImportShp.php:201
+#: libraries/plugins/import/ImportShp.php:209
 #, php-format
 msgid "MySQL Spatial Extension does not support ESRI type \"%s\"."
 msgstr "MySQL Spatial Extension stöder inte ESRI-typen \"%s\"."
 
-#: libraries/plugins/import/ImportShp.php:250
+#: libraries/plugins/import/ImportShp.php:258
 msgid "The imported file does not contain any data!"
 msgstr "Den importerade filen innehåller inte några data!"
 
@@ -14555,7 +14546,7 @@ msgstr "Visa sökhistorik vid start"
 #: templates/console/display.phtml:189
 #, fuzzy
 #| msgid "Show current browsing query"
-msgid "Sow current browsing query"
+msgid "Show current browsing query"
 msgstr "Visa sökningar under denna session"
 
 #: templates/console/display.phtml:194
@@ -16907,6 +16898,13 @@ msgstr ""
 #: libraries/advisory_rules.txt:457
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert är satt till 0"
+
+#~ msgid ""
+#~ "Uploaded file cannot be moved, because the server has open_basedir "
+#~ "enabled without access to the %s directory (for temporary files)."
+#~ msgstr ""
+#~ "Skickad fil kan inte flyttas eftersom servern har open_basedir aktiverat "
+#~ "utan åtkomst till katalogen %s (för temporära filer)."
 
 #~ msgid "Invalid export type"
 #~ msgstr "Ogiltig export-typ"

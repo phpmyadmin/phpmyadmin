@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2016-04-11 15:40+0200\n"
+"POT-Creation-Date: 2016-04-12 11:23+0200\n"
 "PO-Revision-Date: 2015-06-28 13:36+0200\n"
 "Last-Translator: Valter Georgiev <blagynchy@gmail.com>\n"
 "Language-Team: Bulgarian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -266,7 +266,7 @@ msgstr "Таблици"
 #: libraries/config/user_preferences.forms.php:219
 #: libraries/config/user_preferences.forms.php:260
 #: libraries/config/user_preferences.forms.php:286
-#: libraries/import.lib.php:1302 libraries/navigation/nodes/NodeColumn.php:40
+#: libraries/import.lib.php:1265 libraries/navigation/nodes/NodeColumn.php:40
 #: libraries/navigation/nodes/NodeDatabase.php:53
 #: libraries/navigation/nodes/NodeTable.php:292
 #: libraries/server_privileges.lib.php:1240 libraries/tracking.lib.php:892
@@ -517,19 +517,19 @@ msgstr ""
 "Изберете \"GeomFromText\" (ГеомОтТекст) от колона \"Function\" (Функция) и "
 "копирайте текста по-долу в полето \"Стойност\"."
 
-#: import.php:57
+#: import.php:58
 msgid "Succeeded"
 msgstr "Успешно"
 
-#: import.php:61 js/messages.php:595
+#: import.php:62 js/messages.php:595
 msgid "Failed"
 msgstr "Неуспешно"
 
-#: import.php:65
+#: import.php:66
 msgid "Incomplete params"
 msgstr "Непълни параметри"
 
-#: import.php:189
+#: import.php:190
 #, php-format
 msgid ""
 "You probably tried to upload a file that is too large. Please refer to "
@@ -538,38 +538,15 @@ msgstr ""
 "Вероятно сте направили опит да качите твърде голям файл. Моля, обърнете се "
 "към %sдокументацията%s за да намерите начин да избегнете това ограничение."
 
-#: import.php:368 import.php:676
+#: import.php:369 import.php:563
 msgid "Showing bookmark"
 msgstr "Показване на белязка"
 
-#: import.php:385 import.php:672
+#: import.php:386 import.php:559
 msgid "The bookmark has been deleted."
 msgstr "Белязката беше изтрита."
 
-#: import.php:485
-#, php-format
-msgid ""
-"Uploaded file cannot be moved, because the server has open_basedir enabled "
-"without access to the %s directory (for temporary files)."
-msgstr ""
-"Каченият файл не може да бъде преместен, защото сървърът има разрешен "
-"open_basedir баез достъп до папката %s (за временни файлове)."
-
-#: import.php:501 import.php:578 libraries/File.php:424 libraries/File.php:517
-msgid "File could not be read!"
-msgstr "Файлът не може да бъде прочетен!"
-
-#: import.php:512 import.php:527 import.php:552 import.php:567
-#: libraries/File.php:584
-#, php-format
-msgid ""
-"You attempted to load file with unsupported compression (%s). Either support "
-"for it is not implemented or disabled by your configuration."
-msgstr ""
-"Опитахте се да заредите файл с неподдържана компресия (%s). Или поддръжката "
-"ѝ не е реализирана, или е забранена от конфигурацията."
-
-#: import.php:585
+#: import.php:472
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
@@ -579,18 +556,18 @@ msgstr ""
 "по-голям от разрешеното в конфигурацията на PHP. Вижте [doc@faq1-16]ЧЗВ "
 "1.16[/doc]."
 
-#: import.php:637 libraries/display_import.lib.php:665
+#: import.php:524 libraries/display_import.lib.php:665
 msgid "Could not load import plugins, please check your installation!"
 msgstr ""
 "Не могат да бъдат заредени разширенията за импорт, моля проверете "
 "инсталацията!"
 
-#: import.php:679 libraries/sql.lib.php:784 libraries/sql.lib.php:1561
+#: import.php:566 libraries/sql.lib.php:784 libraries/sql.lib.php:1561
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "Отметката %s беше създадена."
 
-#: import.php:689
+#: import.php:576
 #, fuzzy, php-format
 #| msgid "Import has been successfully finished, %d queries executed."
 msgid "Import has been successfully finished, %d query executed."
@@ -598,7 +575,7 @@ msgid_plural "Import has been successfully finished, %d queries executed."
 msgstr[0] "Импортирането приключи успешно, бяха изпълнени %d заявки."
 msgstr[1] "Импортирането приключи успешно, бяха изпълнени %d заявки."
 
-#: import.php:720
+#: import.php:607
 #, php-format
 msgid ""
 "Script timeout passed, if you want to finish import, please %sresubmit the "
@@ -607,7 +584,7 @@ msgstr ""
 "Времето за изчакване на скрипта изтече, ако искате да завършите импорта,моля "
 "пуснете (%s) отново същия файл (%s) и той ще си продължи."
 
-#: import.php:730
+#: import.php:617
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
@@ -850,7 +827,7 @@ msgstr ""
 "Сървърът е с кръпка Suhosin. Прочетете %sдокументацията%s за възможни "
 "проблеми."
 
-#: js/messages.php:42 libraries/import.lib.php:209 sql.php:161
+#: js/messages.php:42 libraries/import.lib.php:192 sql.php:161
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "\"DROP DATABASE\" заявката е забранена."
 
@@ -2968,7 +2945,7 @@ msgid "Please enter a valid HEX input"
 msgstr "Моля, въведете валиден HEX"
 
 #: js/messages.php:949 libraries/Message.php:202 libraries/Util.php:678
-#: libraries/core.lib.php:237 libraries/import.lib.php:101
+#: libraries/core.lib.php:237 libraries/import.lib.php:84
 #: libraries/insert_edit.lib.php:1177 view_operations.php:74
 msgid "Error"
 msgstr "Грешка"
@@ -3258,18 +3235,37 @@ msgstr "нечувствителен към регистъра"
 msgid "case-sensitive collation"
 msgstr "чувствително към регистъра"
 
-#: libraries/Config.php:1137
+#: libraries/Config.php:1148
 #, php-format
 msgid "Existing configuration file (%s) is not readable."
 msgstr "Текущия файл с настройки (%s) е недостъпен."
 
-#: libraries/Config.php:1167
+#: libraries/Config.php:1178
 msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr ""
 "Неподходящи права на файлът с настройки, в него не трябва да може да пише "
 "всеки!"
 
-#: libraries/Config.php:1528
+#: libraries/Config.php:1198
+#, php-format
+msgid "Could not load default configuration from: %1$s"
+msgstr "Конфигурацията по подразбиране не може да бъде заредена от: %1$s"
+
+#: libraries/Config.php:1205
+#, fuzzy
+#| msgid "Failed to read configuration file"
+msgid "Failed to read configuration file!"
+msgstr "Неуспешно прочитане на конфигурацията"
+
+#: libraries/Config.php:1208
+msgid ""
+"This usually means there is a syntax error in it, please check any errors "
+"shown below."
+msgstr ""
+"Това обикновено означава, че има синтактична грешка в него, моля, проверете "
+"всички грешки, показани по-долу."
+
+#: libraries/Config.php:1569
 msgid "Font size"
 msgstr "Размер шрифт"
 
@@ -3586,8 +3582,8 @@ msgstr "Брой редове:"
 msgid "Sort by key"
 msgstr "Сортиране по ключ"
 
-#: libraries/DisplayResults.php:1720 libraries/import.lib.php:1268
-#: libraries/import.lib.php:1303 libraries/mult_submits.lib.php:340
+#: libraries/DisplayResults.php:1720 libraries/import.lib.php:1231
+#: libraries/import.lib.php:1266 libraries/mult_submits.lib.php:340
 #: libraries/plugins/export/ExportCodegen.php:84
 #: libraries/plugins/export/ExportCsv.php:48
 #: libraries/plugins/export/ExportExcel.php:38
@@ -3817,22 +3813,35 @@ msgstr "Качването на файлът беше спряно от разш
 msgid "Unknown error in file upload."
 msgstr "Неизвестна грешка при качване."
 
-#: libraries/File.php:465
+#: libraries/File.php:424 libraries/File.php:527
+msgid "File could not be read!"
+msgstr "Файлът не може да бъде прочетен!"
+
+#: libraries/File.php:475
 #, fuzzy
 #| msgid "Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc]"
 msgid "Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc]."
 msgstr ""
 "Грешка при преместване на качения файл, виж [doc@faq1-11]ЧЗВ 1.11[/doc]"
 
-#: libraries/File.php:484
+#: libraries/File.php:494
 msgid "Error while moving uploaded file."
 msgstr "Грешка при преместване на качения файл."
 
-#: libraries/File.php:492
+#: libraries/File.php:502
 #, fuzzy
 #| msgid "Cannot read (moved) upload file."
 msgid "Cannot read uploaded file."
 msgstr "Не може да бъде прочетен (преместен) качен файл."
+
+#: libraries/File.php:594
+#, php-format
+msgid ""
+"You attempted to load file with unsupported compression (%s). Either support "
+"for it is not implemented or disabled by your configuration."
+msgstr ""
+"Опитахте се да заредите файл с неподдържана компресия (%s). Или поддръжката "
+"ѝ не е реализирана, или е забранена от конфигурацията."
 
 #: libraries/Footer.php:74
 #, php-format
@@ -5036,46 +5045,27 @@ msgstr "Добавяне колона"
 msgid "Attributes"
 msgstr "Атрибути"
 
-#: libraries/common.inc.php:486
-#, fuzzy
-#| msgid "Failed to read configuration file"
-msgid "Failed to read configuration file!"
-msgstr "Неуспешно прочитане на конфигурацията"
-
-#: libraries/common.inc.php:489
-msgid ""
-"This usually means there is a syntax error in it, please check any errors "
-"shown below."
-msgstr ""
-"Това обикновено означава, че има синтактична грешка в него, моля, проверете "
-"всички грешки, показани по-долу."
-
-#: libraries/common.inc.php:498
-#, php-format
-msgid "Could not load default configuration from: %1$s"
-msgstr "Конфигурацията по подразбиране не може да бъде заредена от: %1$s"
-
-#: libraries/common.inc.php:532
+#: libraries/common.inc.php:513
 #, php-format
 msgid "Invalid server index: %s"
 msgstr "Невалиден индекс на сървър: %s"
 
-#: libraries/common.inc.php:544
+#: libraries/common.inc.php:525
 #, php-format
 msgid "Invalid hostname for server %1$s. Please review your configuration."
 msgstr "Невалиден хост за сървър %1$s. Прегледайте конфигурацията."
 
-#: libraries/common.inc.php:562
+#: libraries/common.inc.php:543
 #, fuzzy, php-format
 #| msgid "Server"
 msgid "Server %d"
 msgstr "Сървър"
 
-#: libraries/common.inc.php:686
+#: libraries/common.inc.php:667
 msgid "Invalid authentication method set in configuration:"
 msgstr "Невалиден метод за удостоверяване в конфогурацията:"
 
-#: libraries/common.inc.php:829
+#: libraries/common.inc.php:810
 #, php-format
 msgid ""
 "Unable to use timezone %1$s for server %2$d. Please check your configuration "
@@ -5083,20 +5073,20 @@ msgid ""
 "currently using the default time zone of the database server."
 msgstr ""
 
-#: libraries/common.inc.php:861
+#: libraries/common.inc.php:842
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "Осъвременете до %s %s или по-нова."
 
-#: libraries/common.inc.php:947
+#: libraries/common.inc.php:928
 msgid "Error: Token mismatch"
 msgstr ""
 
-#: libraries/common.inc.php:965
+#: libraries/common.inc.php:946
 msgid "GLOBALS overwrite attempt"
 msgstr ""
 
-#: libraries/common.inc.php:972
+#: libraries/common.inc.php:953
 msgid "possible exploit"
 msgstr "възможен пробив в сигурността"
 
@@ -8322,7 +8312,7 @@ msgstr[0] "%1$d БД беше изтрита успешно."
 msgstr[1] "%1$ds БД бяха изтрити успешно."
 
 #: libraries/controllers/server/ServerDatabasesController.php:346
-#: libraries/import.lib.php:111
+#: libraries/import.lib.php:94
 #: templates/database/structure/table_header.phtml:36
 #: templates/table/structure/actions_in_table_structure.phtml:111
 #: templates/table/structure/display_partitions.phtml:30
@@ -9259,64 +9249,64 @@ msgstr "Web сървърът няма права за писане върху ф
 msgid "Dump has been saved to file %s."
 msgstr "Схемата беше запазена във файл %s."
 
-#: libraries/import.lib.php:119 libraries/insert_edit.lib.php:124
+#: libraries/import.lib.php:102 libraries/insert_edit.lib.php:124
 #: libraries/rte/rte_routines.lib.php:1444 libraries/sql.lib.php:1370
 #: tbl_get_field.php:45
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL върна празен резултат (т.е. нула редове)."
 
-#: libraries/import.lib.php:290 libraries/sql.lib.php:1384
+#: libraries/import.lib.php:273 libraries/sql.lib.php:1384
 msgid "[ROLLBACK occurred.]"
 msgstr ""
 
-#: libraries/import.lib.php:1256
+#: libraries/import.lib.php:1219
 msgid ""
 "The following structures have either been created or altered. Here you can:"
 msgstr ""
 
-#: libraries/import.lib.php:1259
+#: libraries/import.lib.php:1222
 msgid "View a structure's contents by clicking on its name."
 msgstr ""
 
-#: libraries/import.lib.php:1262
+#: libraries/import.lib.php:1225
 msgid ""
 "Change any of its settings by clicking the corresponding \"Options\" link."
 msgstr ""
 
-#: libraries/import.lib.php:1264
+#: libraries/import.lib.php:1227
 msgid "Edit structure by following the \"Structure\" link."
 msgstr ""
 
-#: libraries/import.lib.php:1271
+#: libraries/import.lib.php:1234
 #, php-format
 msgid "Go to database: %s"
 msgstr "Към БД: %s"
 
-#: libraries/import.lib.php:1277 libraries/import.lib.php:1321
+#: libraries/import.lib.php:1240 libraries/import.lib.php:1284
 #, php-format
 msgid "Edit settings for %s"
 msgstr "Редактиране настройките на %s"
 
-#: libraries/import.lib.php:1306
+#: libraries/import.lib.php:1269
 #, php-format
 msgid "Go to table: %s"
 msgstr "Към таблица: %s"
 
-#: libraries/import.lib.php:1314
+#: libraries/import.lib.php:1277
 #, php-format
 msgid "Structure of %s"
 msgstr "Структурата на %s"
 
-#: libraries/import.lib.php:1332
+#: libraries/import.lib.php:1295
 #, php-format
 msgid "Go to view: %s"
 msgstr ""
 
-#: libraries/import.lib.php:1392
+#: libraries/import.lib.php:1355
 msgid "Only single-table UPDATE and DELETE queries can be simulated."
 msgstr ""
 
-#: libraries/import.lib.php:1615
+#: libraries/import.lib.php:1578
 msgid ""
 "Only INSERT, UPDATE, DELETE and REPLACE SQL queries containing transactional "
 "engine tables can be rolled back."
@@ -10897,7 +10887,7 @@ msgstr ""
 msgid "Invalid column count in CSV input on line %d."
 msgstr ""
 
-#: libraries/plugins/import/ImportLdi.php:109
+#: libraries/plugins/import/ImportLdi.php:111
 msgid "This plugin does not support compressed imports!"
 msgstr ""
 
@@ -10936,23 +10926,24 @@ msgstr "Open Document Spreadsheet"
 msgid "ESRI Shape File"
 msgstr ""
 
-#: libraries/plugins/import/ImportShp.php:138
+#: libraries/plugins/import/ImportShp.php:81
+#: libraries/plugins/import/ImportShp.php:146
 #, php-format
 msgid "There was an error importing the ESRI shape file: \"%s\"."
 msgstr ""
 
-#: libraries/plugins/import/ImportShp.php:195
+#: libraries/plugins/import/ImportShp.php:203
 msgid ""
 "You tried to import an invalid file or the imported file contains invalid "
 "data!"
 msgstr ""
 
-#: libraries/plugins/import/ImportShp.php:201
+#: libraries/plugins/import/ImportShp.php:209
 #, php-format
 msgid "MySQL Spatial Extension does not support ESRI type \"%s\"."
 msgstr ""
 
-#: libraries/plugins/import/ImportShp.php:250
+#: libraries/plugins/import/ImportShp.php:258
 #, fuzzy
 #| msgid "The imported file does not contain any data"
 msgid "The imported file does not contain any data!"
@@ -15089,7 +15080,7 @@ msgstr "Покажи историята на заявката в началот�
 #: templates/console/display.phtml:189
 #, fuzzy
 #| msgid "Show current browsing query"
-msgid "Sow current browsing query"
+msgid "Show current browsing query"
 msgstr "Показване на текущата заявка браузване"
 
 #: templates/console/display.phtml:194
@@ -17425,6 +17416,13 @@ msgstr ""
 #: libraries/advisory_rules.txt:457
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert e 0"
+
+#~ msgid ""
+#~ "Uploaded file cannot be moved, because the server has open_basedir "
+#~ "enabled without access to the %s directory (for temporary files)."
+#~ msgstr ""
+#~ "Каченият файл не може да бъде преместен, защото сървърът има разрешен "
+#~ "open_basedir баез достъп до папката %s (за временни файлове)."
 
 #~ msgid "Invalid export type"
 #~ msgstr "Невалиден тип експорт"

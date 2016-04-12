@@ -3,11 +3,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2016-04-11 15:40+0200\n"
+"POT-Creation-Date: 2016-04-12 11:23+0200\n"
 "PO-Revision-Date: 2016-04-11 18:56+0000\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
-"Language-Team: Turkish "
-"<https://hosted.weblate.org/projects/phpmyadmin/master/tr/>\n"
+"Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/"
+"master/tr/>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -266,7 +266,7 @@ msgstr "Tablolar"
 #: libraries/config/user_preferences.forms.php:219
 #: libraries/config/user_preferences.forms.php:260
 #: libraries/config/user_preferences.forms.php:286
-#: libraries/import.lib.php:1302 libraries/navigation/nodes/NodeColumn.php:40
+#: libraries/import.lib.php:1265 libraries/navigation/nodes/NodeColumn.php:40
 #: libraries/navigation/nodes/NodeDatabase.php:53
 #: libraries/navigation/nodes/NodeTable.php:292
 #: libraries/server_privileges.lib.php:1240 libraries/tracking.lib.php:892
@@ -517,19 +517,19 @@ msgstr ""
 "\"Function\" sütunundan \"GeomFromText\"i seçin ve \"Value\" alanı içinde "
 "alta dizgiyi yapıştırın."
 
-#: import.php:57
+#: import.php:58
 msgid "Succeeded"
 msgstr "Başarılı oldu"
 
-#: import.php:61 js/messages.php:595
+#: import.php:62 js/messages.php:595
 msgid "Failed"
 msgstr "Başarısız oldu"
 
-#: import.php:65
+#: import.php:66
 msgid "Incomplete params"
 msgstr "Tamamlanmamış parametreler"
 
-#: import.php:189
+#: import.php:190
 #, php-format
 msgid ""
 "You probably tried to upload a file that is too large. Please refer to "
@@ -538,38 +538,15 @@ msgstr ""
 "Muhtemelen çok büyük dosya göndermeyi denediniz. Lütfen bu sınır için çözüm "
 "yolu olarak %sbelgeden%s yararlanın."
 
-#: import.php:368 import.php:676
+#: import.php:369 import.php:563
 msgid "Showing bookmark"
 msgstr "Gösterilen yer imi"
 
-#: import.php:385 import.php:672
+#: import.php:386 import.php:559
 msgid "The bookmark has been deleted."
 msgstr "Yer imi silindi."
 
-#: import.php:485
-#, php-format
-msgid ""
-"Uploaded file cannot be moved, because the server has open_basedir enabled "
-"without access to the %s directory (for temporary files)."
-msgstr ""
-"Gönderilen dosya açılamaz çünkü sunucu %s dizinine (geçici dosyalar için) "
-"erişmeden open_basedir etkinleştirildi."
-
-#: import.php:501 import.php:578 libraries/File.php:424 libraries/File.php:517
-msgid "File could not be read!"
-msgstr "Dosya okunamadı!"
-
-#: import.php:512 import.php:527 import.php:552 import.php:567
-#: libraries/File.php:584
-#, php-format
-msgid ""
-"You attempted to load file with unsupported compression (%s). Either support "
-"for it is not implemented or disabled by your configuration."
-msgstr ""
-"Desteklenmeyen sıkıştırmayla (%s) dosya yüklemeyi denediniz. Ya bunun için "
-"destek henüz tamamlanmadı ya da yapılandırmanız tarafından etkisizleştirildi."
-
-#: import.php:585
+#: import.php:472
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
@@ -579,23 +556,23 @@ msgstr ""
 "boyutu PHP yapılandırmanız tarafından izin verilen en fazla boyutu aştı. "
 "[doc@faq1-16]SSS 1.16[/doc]'ya bakın."
 
-#: import.php:637 libraries/display_import.lib.php:665
+#: import.php:524 libraries/display_import.lib.php:665
 msgid "Could not load import plugins, please check your installation!"
 msgstr "İçe aktarma eklentileri yüklenemedi, lütfen kurulumunuzu kontrol edin!"
 
-#: import.php:679 libraries/sql.lib.php:784 libraries/sql.lib.php:1561
+#: import.php:566 libraries/sql.lib.php:784 libraries/sql.lib.php:1561
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "Yer imi %s oluşturuldu."
 
-#: import.php:689
+#: import.php:576
 #, php-format
 msgid "Import has been successfully finished, %d query executed."
 msgid_plural "Import has been successfully finished, %d queries executed."
 msgstr[0] "İçe aktarma başarılı olarak tamamlandı, %d sorgu çalıştırıldı."
 msgstr[1] "İçe aktarma başarılı olarak tamamlandı, %d sorgu çalıştırıldı."
 
-#: import.php:720
+#: import.php:607
 #, php-format
 msgid ""
 "Script timeout passed, if you want to finish import, please %sresubmit the "
@@ -604,7 +581,7 @@ msgstr ""
 "Betik zaman aşımı geçti, eğer içe aktarmayı bitirmek istiyorsanız, lütfen "
 "%saynı dosyayı yeniden gönderin%s ve içe aktarma devam edecektir."
 
-#: import.php:730
+#: import.php:617
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
@@ -848,7 +825,7 @@ msgstr ""
 "Sunucu Suhosin ile çalışıyor. Lütfen olası sorunlar için %sbelgeden%s "
 "yararlanın."
 
-#: js/messages.php:42 libraries/import.lib.php:209 sql.php:161
+#: js/messages.php:42 libraries/import.lib.php:192 sql.php:161
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "\"DROP DATABASE\" ifadesi etkisizleştirildi."
 
@@ -2919,7 +2896,7 @@ msgid "Please enter a valid HEX input"
 msgstr "Lütfen geçerli bir ONALTILIK girdi değeri girin"
 
 #: js/messages.php:949 libraries/Message.php:202 libraries/Util.php:678
-#: libraries/core.lib.php:237 libraries/import.lib.php:101
+#: libraries/core.lib.php:237 libraries/import.lib.php:84
 #: libraries/insert_edit.lib.php:1177 view_operations.php:74
 msgid "Error"
 msgstr "Hata"
@@ -3190,31 +3167,45 @@ msgid "unknown"
 msgstr "bilinmiyor"
 
 #: libraries/Charsets.php:460
-#| msgid "Collation"
 msgid "binary collation"
 msgstr "ikili karşılaştırma"
 
 #: libraries/Charsets.php:467
-#| msgid "case-insensitive"
 msgid "case-insensitive collation"
 msgstr "büyük küçük harfe duyarsız karşılaştırma"
 
 #: libraries/Charsets.php:469
-#| msgid "case-sensitive"
 msgid "case-sensitive collation"
 msgstr "büyük küçük harfe duyarlı karşılaştırma"
 
-#: libraries/Config.php:1137
+#: libraries/Config.php:1148
 #, php-format
 msgid "Existing configuration file (%s) is not readable."
 msgstr "Mevcut yapılandırma dosyası (%s) okunabilir değil."
 
-#: libraries/Config.php:1167
+#: libraries/Config.php:1178
 msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr ""
 "Yapılandırma dosyasında yanlış izinler, herkesçe yazılabilir olmamalıdır!"
 
-#: libraries/Config.php:1528
+#: libraries/Config.php:1198
+#, php-format
+msgid "Could not load default configuration from: %1$s"
+msgstr "Varsayılan yapılandırma bundan yüklenemedi: %1$s"
+
+#: libraries/Config.php:1205
+msgid "Failed to read configuration file!"
+msgstr "Yapılandırma dosyasını okuma başarısız!"
+
+#: libraries/Config.php:1208
+msgid ""
+"This usually means there is a syntax error in it, please check any errors "
+"shown below."
+msgstr ""
+"Bu genellikle bir sözdizimi hatası var anlamına gelir, lütfen aşağıda "
+"gösterilen her hatayı kontrol edin."
+
+#: libraries/Config.php:1569
 msgid "Font size"
 msgstr "Yazı tipi boyutu"
 
@@ -3517,8 +3508,8 @@ msgstr "Satır sayısı:"
 msgid "Sort by key"
 msgstr "Anahtara göre sırala"
 
-#: libraries/DisplayResults.php:1720 libraries/import.lib.php:1268
-#: libraries/import.lib.php:1303 libraries/mult_submits.lib.php:340
+#: libraries/DisplayResults.php:1720 libraries/import.lib.php:1231
+#: libraries/import.lib.php:1266 libraries/mult_submits.lib.php:340
 #: libraries/plugins/export/ExportCodegen.php:84
 #: libraries/plugins/export/ExportCsv.php:48
 #: libraries/plugins/export/ExportExcel.php:38
@@ -3732,17 +3723,30 @@ msgstr "Dosya gönderme uzantısından dolayı durduruldu."
 msgid "Unknown error in file upload."
 msgstr "Dosya göndermede bilinmeyen hata oldu."
 
-#: libraries/File.php:465
+#: libraries/File.php:424 libraries/File.php:527
+msgid "File could not be read!"
+msgstr "Dosya okunamadı!"
+
+#: libraries/File.php:475
 msgid "Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc]."
 msgstr "Gönderilen dosyayı taşıma hatası, [doc@faq1-11]SSS 1.11[/doc]'e bakın."
 
-#: libraries/File.php:484
+#: libraries/File.php:494
 msgid "Error while moving uploaded file."
 msgstr "Gönderilmiş dosya taşınırken hata oldu."
 
-#: libraries/File.php:492
+#: libraries/File.php:502
 msgid "Cannot read uploaded file."
 msgstr "Gönderilen dosya okunamıyor."
+
+#: libraries/File.php:594
+#, php-format
+msgid ""
+"You attempted to load file with unsupported compression (%s). Either support "
+"for it is not implemented or disabled by your configuration."
+msgstr ""
+"Desteklenmeyen sıkıştırmayla (%s) dosya yüklemeyi denediniz. Ya bunun için "
+"destek henüz tamamlanmadı ya da yapılandırmanız tarafından etkisizleştirildi."
 
 #: libraries/Footer.php:74
 #, php-format
@@ -4944,45 +4948,28 @@ msgstr "Yeni sütun ekle"
 msgid "Attributes"
 msgstr "Öznitelikler"
 
-#: libraries/common.inc.php:486
-msgid "Failed to read configuration file!"
-msgstr "Yapılandırma dosyasını okuma başarısız!"
-
-#: libraries/common.inc.php:489
-msgid ""
-"This usually means there is a syntax error in it, please check any errors "
-"shown below."
-msgstr ""
-"Bu genellikle bir sözdizimi hatası var anlamına gelir, lütfen aşağıda "
-"gösterilen her hatayı kontrol edin."
-
-#: libraries/common.inc.php:498
-#, php-format
-msgid "Could not load default configuration from: %1$s"
-msgstr "Varsayılan yapılandırma bundan yüklenemedi: %1$s"
-
-#: libraries/common.inc.php:532
+#: libraries/common.inc.php:513
 #, php-format
 msgid "Invalid server index: %s"
 msgstr "Geçersiz sunucu indeksi: %s"
 
-#: libraries/common.inc.php:544
+#: libraries/common.inc.php:525
 #, php-format
 msgid "Invalid hostname for server %1$s. Please review your configuration."
 msgstr ""
 "%1$s sunucusu için geçersiz anamakine. Lütfen yapılandırma dosyanızı gözden "
 "geçirin."
 
-#: libraries/common.inc.php:562
+#: libraries/common.inc.php:543
 #, php-format
 msgid "Server %d"
 msgstr "Sunucu %d"
 
-#: libraries/common.inc.php:686
+#: libraries/common.inc.php:667
 msgid "Invalid authentication method set in configuration:"
 msgstr "Yapılandırma içinde geçersiz kimlik doğrulaması yöntemi ayarı:"
 
-#: libraries/common.inc.php:829
+#: libraries/common.inc.php:810
 #, php-format
 msgid ""
 "Unable to use timezone %1$s for server %2$d. Please check your configuration "
@@ -4994,20 +4981,20 @@ msgstr ""
 "phpMyAdmin, veritabanı sunucusunun şu anki varsayılan saat dilimini "
 "kullanıyor."
 
-#: libraries/common.inc.php:861
+#: libraries/common.inc.php:842
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "%s %s veya sonrasına yükseltmelisiniz."
 
-#: libraries/common.inc.php:947
+#: libraries/common.inc.php:928
 msgid "Error: Token mismatch"
 msgstr "Hata: Belirteç uyuşmazlığı"
 
-#: libraries/common.inc.php:965
+#: libraries/common.inc.php:946
 msgid "GLOBALS overwrite attempt"
 msgstr "GLOBALS üzerine yazma girişimi"
 
-#: libraries/common.inc.php:972
+#: libraries/common.inc.php:953
 msgid "possible exploit"
 msgstr "olası kötüye kullanma"
 
@@ -7986,7 +7973,7 @@ msgstr[0] "%1$d veritabanı başarılı olarak kaldırıldı."
 msgstr[1] "%1$d veritabanı başarılı olarak kaldırıldı."
 
 #: libraries/controllers/server/ServerDatabasesController.php:346
-#: libraries/import.lib.php:111
+#: libraries/import.lib.php:94
 #: templates/database/structure/table_header.phtml:36
 #: templates/table/structure/actions_in_table_structure.phtml:111
 #: templates/table/structure/display_partitions.phtml:30
@@ -8928,66 +8915,66 @@ msgstr "Web sunucusu %s dosyasını kaydetmek için izne sahip değil."
 msgid "Dump has been saved to file %s."
 msgstr "Döküm, %s dosyasına kaydedildi."
 
-#: libraries/import.lib.php:119 libraries/insert_edit.lib.php:124
+#: libraries/import.lib.php:102 libraries/insert_edit.lib.php:124
 #: libraries/rte/rte_routines.lib.php:1444 libraries/sql.lib.php:1370
 #: tbl_get_field.php:45
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL boş bir sonuç kümesi döndürdü (yani sıfır satır)."
 
-#: libraries/import.lib.php:290 libraries/sql.lib.php:1384
+#: libraries/import.lib.php:273 libraries/sql.lib.php:1384
 msgid "[ROLLBACK occurred.]"
 msgstr "[ROLLBACK meydana geldi.]"
 
-#: libraries/import.lib.php:1256
+#: libraries/import.lib.php:1219
 msgid ""
 "The following structures have either been created or altered. Here you can:"
 msgstr "Aşağıdaki yapılar ya oluşturuldu ya da değiştirildi. Buyurun:"
 
-#: libraries/import.lib.php:1259
+#: libraries/import.lib.php:1222
 msgid "View a structure's contents by clicking on its name."
 msgstr "Adına tıklayarak yapının içeriklerini görün."
 
-#: libraries/import.lib.php:1262
+#: libraries/import.lib.php:1225
 msgid ""
 "Change any of its settings by clicking the corresponding \"Options\" link."
 msgstr ""
 "Uyan \"Seçenekler\" bağlantısına tıklayarak bunun herhangi bir ayarını "
 "değiştirin."
 
-#: libraries/import.lib.php:1264
+#: libraries/import.lib.php:1227
 msgid "Edit structure by following the \"Structure\" link."
 msgstr "Aşağıdaki \"Yapı\" bağlantısıyla yapısını düzenleyin."
 
-#: libraries/import.lib.php:1271
+#: libraries/import.lib.php:1234
 #, php-format
 msgid "Go to database: %s"
 msgstr "Şu veritabanına git: %s"
 
-#: libraries/import.lib.php:1277 libraries/import.lib.php:1321
+#: libraries/import.lib.php:1240 libraries/import.lib.php:1284
 #, php-format
 msgid "Edit settings for %s"
 msgstr "%s için ayarları düzenle"
 
-#: libraries/import.lib.php:1306
+#: libraries/import.lib.php:1269
 #, php-format
 msgid "Go to table: %s"
 msgstr "Şu tabloya git: %s"
 
-#: libraries/import.lib.php:1314
+#: libraries/import.lib.php:1277
 #, php-format
 msgid "Structure of %s"
 msgstr "%s yapısı"
 
-#: libraries/import.lib.php:1332
+#: libraries/import.lib.php:1295
 #, php-format
 msgid "Go to view: %s"
 msgstr "Şu görünüme git: %s"
 
-#: libraries/import.lib.php:1392
+#: libraries/import.lib.php:1355
 msgid "Only single-table UPDATE and DELETE queries can be simulated."
 msgstr "Sadece tek tablo UPDATE ve DELETE sorguları benzetilebilir."
 
-#: libraries/import.lib.php:1615
+#: libraries/import.lib.php:1578
 msgid ""
 "Only INSERT, UPDATE, DELETE and REPLACE SQL queries containing transactional "
 "engine tables can be rolled back."
@@ -10498,7 +10485,7 @@ msgstr "%d. satırda CSV girdisinin geçersiz biçimi."
 msgid "Invalid column count in CSV input on line %d."
 msgstr "CSV girdisinde %d. satırda geçersiz sütun sayısı."
 
-#: libraries/plugins/import/ImportLdi.php:109
+#: libraries/plugins/import/ImportLdi.php:111
 msgid "This plugin does not support compressed imports!"
 msgstr "Bu eklenti sıkıştırılmış içe aktarım dosyalarını desteklemez!"
 
@@ -10537,12 +10524,13 @@ msgstr "OpenDocument Hesap Tablosu ayrıştırılamadı!"
 msgid "ESRI Shape File"
 msgstr "ESRI Şekil Dosyası"
 
-#: libraries/plugins/import/ImportShp.php:138
+#: libraries/plugins/import/ImportShp.php:81
+#: libraries/plugins/import/ImportShp.php:146
 #, php-format
 msgid "There was an error importing the ESRI shape file: \"%s\"."
 msgstr "ESRI şekil dosyasının içe aktarılmasında hata var: \"%s\"."
 
-#: libraries/plugins/import/ImportShp.php:195
+#: libraries/plugins/import/ImportShp.php:203
 msgid ""
 "You tried to import an invalid file or the imported file contains invalid "
 "data!"
@@ -10550,12 +10538,12 @@ msgstr ""
 "Geçersiz bir dosyayı içe aktarmayı deniyorsunuz ya da içe aktarılan dosya "
 "geçersiz veri içeriyor!"
 
-#: libraries/plugins/import/ImportShp.php:201
+#: libraries/plugins/import/ImportShp.php:209
 #, php-format
 msgid "MySQL Spatial Extension does not support ESRI type \"%s\"."
 msgstr "MySQL Uzaysal Uzantısı ESRI türü \"%s\" desteklemiyor."
 
-#: libraries/plugins/import/ImportShp.php:250
+#: libraries/plugins/import/ImportShp.php:258
 msgid "The imported file does not contain any data!"
 msgstr "İçe aktarılan dosya herhangi bir veri içermiyor!"
 
@@ -12213,7 +12201,6 @@ msgstr "Joker isimlere tüm yetkileri ver (kullanıcıadı\\_%)."
 
 #: libraries/server_privileges.lib.php:2332
 #, php-format
-#| msgid "Grant all privileges on database \"%s\"."
 msgid "Grant all privileges on database %s."
 msgstr "%s veritabanı üzerindeki tüm yetkileri verir."
 
@@ -14592,7 +14579,7 @@ msgstr "Başlangıçta sorgu geçmişini göster"
 #: templates/console/display.phtml:189
 #, fuzzy
 #| msgid "Show current browsing query"
-msgid "Sow current browsing query"
+msgid "Show current browsing query"
 msgstr "Şu anki gözatılan sorguyu göster"
 
 #: templates/console/display.phtml:194
@@ -15463,15 +15450,12 @@ msgid "The profile has been updated."
 msgstr "Profil güncellendi."
 
 #: vendor/phpmyadmin/motranslator/tests/MoFilesTest.php:24
-#| msgid "Column names"
 msgid "Column parser"
 msgstr "Sütun ayrıştırıcı"
 
 #: vendor/phpmyadmin/motranslator/tests/MoFilesTest.php:83
 #: vendor/phpmyadmin/motranslator/tests/MoFilesTest.php:127
 #, php-format
-#| msgid "%d second"
-#| msgid_plural "%d seconds"
 msgid "\"%d\" second"
 msgid_plural "\"%d\" seconds"
 msgstr[0] "\"%d\" saniye"
@@ -15501,7 +15485,6 @@ msgid "An opening bracket was expected."
 msgstr "Açık bir köşeli parantez beklenmekte."
 
 #: vendor/phpmyadmin/sql-parser/src/Components/CreateDefinition.php:225
-#| msgid "Variable name was expected."
 msgid "A symbol name was expected!"
 msgstr "Bir sembol adı beklenmekte!"
 
@@ -16908,6 +16891,13 @@ msgstr ""
 #: libraries/advisory_rules.txt:457
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert 0'a ayarlı"
+
+#~ msgid ""
+#~ "Uploaded file cannot be moved, because the server has open_basedir "
+#~ "enabled without access to the %s directory (for temporary files)."
+#~ msgstr ""
+#~ "Gönderilen dosya açılamaz çünkü sunucu %s dizinine (geçici dosyalar için) "
+#~ "erişmeden open_basedir etkinleştirildi."
 
 #~ msgid "Invalid export type"
 #~ msgstr "Geçersiz dışa aktarma türü"

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2016-04-11 15:40+0200\n"
+"POT-Creation-Date: 2016-04-12 11:23+0200\n"
 "PO-Revision-Date: 2015-11-21 11:45+0000\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Persian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -268,7 +268,7 @@ msgstr "جدولها"
 #: libraries/config/user_preferences.forms.php:219
 #: libraries/config/user_preferences.forms.php:260
 #: libraries/config/user_preferences.forms.php:286
-#: libraries/import.lib.php:1302 libraries/navigation/nodes/NodeColumn.php:40
+#: libraries/import.lib.php:1265 libraries/navigation/nodes/NodeColumn.php:40
 #: libraries/navigation/nodes/NodeDatabase.php:53
 #: libraries/navigation/nodes/NodeTable.php:292
 #: libraries/server_privileges.lib.php:1240 libraries/tracking.lib.php:892
@@ -526,21 +526,21 @@ msgstr ""
 "گزینه \"شکل از متن\" را از ستون \"عملکرد\" انتخاب کنید و رشته زیر را در بخش "
 "\"مقدار\" وارد کنید"
 
-#: import.php:57
+#: import.php:58
 msgid "Succeeded"
 msgstr "عملیات موفق شد"
 
-#: import.php:61 js/messages.php:595
+#: import.php:62 js/messages.php:595
 msgid "Failed"
 msgstr "عملیات شکست خورد"
 
-#: import.php:65
+#: import.php:66
 #, fuzzy
 #| msgid "complete inserts"
 msgid "Incomplete params"
 msgstr "پارامترهای ناقص"
 
-#: import.php:189
+#: import.php:190
 #, php-format
 msgid ""
 "You probably tried to upload a file that is too large. Please refer to "
@@ -549,36 +549,15 @@ msgstr ""
 "احتمالاً شما سعی کرده اید یک فایل حجیم را آپلود کنید. لطفاً برای یافتن راه حلی "
 "برای این محدودیت به  %sdocumentation%s مراجعه کنید."
 
-#: import.php:368 import.php:676
+#: import.php:369 import.php:563
 msgid "Showing bookmark"
 msgstr "نمایش نشانه گذاری"
 
-#: import.php:385 import.php:672
+#: import.php:386 import.php:559
 msgid "The bookmark has been deleted."
 msgstr "نشانه گذاری حذف شد."
 
-#: import.php:485
-#, php-format
-msgid ""
-"Uploaded file cannot be moved, because the server has open_basedir enabled "
-"without access to the %s directory (for temporary files)."
-msgstr ""
-
-#: import.php:501 import.php:578 libraries/File.php:424 libraries/File.php:517
-msgid "File could not be read!"
-msgstr "امکان خواندن فایل وجود ندارد!"
-
-#: import.php:512 import.php:527 import.php:552 import.php:567
-#: libraries/File.php:584
-#, php-format
-msgid ""
-"You attempted to load file with unsupported compression (%s). Either support "
-"for it is not implemented or disabled by your configuration."
-msgstr ""
-"فایلی که می خواهید بارگذاری کنید با فرمت (%s) فشرده سازی شده است که پشتیبانی "
-"نشده یا در تنظیمات برنامه، غیر فعال شده است."
-
-#: import.php:585
+#: import.php:472
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
@@ -588,23 +567,23 @@ msgstr ""
 "حداکثر اندازه ای که در تنظیمات PHP مشخص شده، بیشتر است [doc@faq1-16]FAQ "
 "1.16[/doc]."
 
-#: import.php:637 libraries/display_import.lib.php:665
+#: import.php:524 libraries/display_import.lib.php:665
 msgid "Could not load import plugins, please check your installation!"
 msgstr "خطا در بارگزاری افزونه ها, لطفا مراحل نصب را چک کنید!"
 
-#: import.php:679 libraries/sql.lib.php:784 libraries/sql.lib.php:1561
+#: import.php:566 libraries/sql.lib.php:784 libraries/sql.lib.php:1561
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "نشانه گذاری %s ایجاد شده است."
 
-#: import.php:689
+#: import.php:576
 #, fuzzy, php-format
 msgid "Import has been successfully finished, %d query executed."
 msgid_plural "Import has been successfully finished, %d queries executed."
 msgstr[0] "وارد کردن اطلاعات با موفقیت به پایان رسید، درخواست ها اجرا شد."
 msgstr[1] "وارد کردن اطلاعات با موفقیت به پایان رسید، درخواست ها اجرا شد."
 
-#: import.php:720
+#: import.php:607
 #, fuzzy, php-format
 #| msgid ""
 #| "Script timeout passed, if you want to finish import, please resubmit same "
@@ -616,7 +595,7 @@ msgstr ""
 "زمان انتظار اسکریپت به پایان رسیده، اگر مایلید عملیات را به پایان برسانید، "
 "همان فایل را دوباره ارسال کنید تا وارد کردن اطلاعات ادامه پیدا کند."
 
-#: import.php:730
+#: import.php:617
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
@@ -845,7 +824,7 @@ msgid ""
 "issues."
 msgstr ""
 
-#: js/messages.php:42 libraries/import.lib.php:209 sql.php:161
+#: js/messages.php:42 libraries/import.lib.php:192 sql.php:161
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "عبارت \"DROP DATABASE\" غیر فعال است."
 
@@ -3127,7 +3106,7 @@ msgid "Please enter a valid HEX input"
 msgstr "شماره پورت معتبر نیست"
 
 #: js/messages.php:949 libraries/Message.php:202 libraries/Util.php:678
-#: libraries/core.lib.php:237 libraries/import.lib.php:101
+#: libraries/core.lib.php:237 libraries/import.lib.php:84
 #: libraries/insert_edit.lib.php:1177 view_operations.php:74
 msgid "Error"
 msgstr "خطا"
@@ -3414,16 +3393,34 @@ msgstr ""
 msgid "case-sensitive collation"
 msgstr ""
 
-#: libraries/Config.php:1137
+#: libraries/Config.php:1148
 #, php-format
 msgid "Existing configuration file (%s) is not readable."
 msgstr "فایل تنظیمات فعلی (%s) قابل خواندن نیست."
 
-#: libraries/Config.php:1167
+#: libraries/Config.php:1178
 msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr "تنظمیات دسترسی اشتباه در فایل تنظیمات ، نباید قابل نوشتن جهانی باشد!"
 
-#: libraries/Config.php:1528
+#: libraries/Config.php:1198
+#, php-format
+msgid "Could not load default configuration from: %1$s"
+msgstr "فایل تنظیمات اولیه را نمی توان بارگیری نمود: %1$s"
+
+#: libraries/Config.php:1205
+#, fuzzy
+#| msgid "Failed to read configuration file"
+msgid "Failed to read configuration file!"
+msgstr "در خواندن فایل تنظیمات ناموفق بود"
+
+#: libraries/Config.php:1208
+msgid ""
+"This usually means there is a syntax error in it, please check any errors "
+"shown below."
+msgstr ""
+"معمولا به معنی وجود خطا می باشد، لطفا خطاهای نمایش داده شده زیر را چک کنید."
+
+#: libraries/Config.php:1569
 msgid "Font size"
 msgstr "اندازه فونت"
 
@@ -3762,8 +3759,8 @@ msgstr "تعداد سطرها در هر صفحه"
 msgid "Sort by key"
 msgstr ""
 
-#: libraries/DisplayResults.php:1720 libraries/import.lib.php:1268
-#: libraries/import.lib.php:1303 libraries/mult_submits.lib.php:340
+#: libraries/DisplayResults.php:1720 libraries/import.lib.php:1231
+#: libraries/import.lib.php:1266 libraries/mult_submits.lib.php:340
 #: libraries/plugins/export/ExportCodegen.php:84
 #: libraries/plugins/export/ExportCsv.php:48
 #: libraries/plugins/export/ExportExcel.php:38
@@ -3999,19 +3996,32 @@ msgstr ""
 msgid "Unknown error in file upload."
 msgstr "خطای ناشناخته در آپلود فایل."
 
-#: libraries/File.php:465
+#: libraries/File.php:424 libraries/File.php:527
+msgid "File could not be read!"
+msgstr "امکان خواندن فایل وجود ندارد!"
+
+#: libraries/File.php:475
 msgid "Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc]."
 msgstr ""
 
-#: libraries/File.php:484
+#: libraries/File.php:494
 msgid "Error while moving uploaded file."
 msgstr "خطا در موقع جابجا کردن فایل آپلود شده."
 
-#: libraries/File.php:492
+#: libraries/File.php:502
 #, fuzzy
 #| msgid "File was not an uploaded file."
 msgid "Cannot read uploaded file."
 msgstr "فایل آپلود شده نبود."
+
+#: libraries/File.php:594
+#, php-format
+msgid ""
+"You attempted to load file with unsupported compression (%s). Either support "
+"for it is not implemented or disabled by your configuration."
+msgstr ""
+"فایلی که می خواهید بارگذاری کنید با فرمت (%s) فشرده سازی شده است که پشتیبانی "
+"نشده یا در تنظیمات برنامه، غیر فعال شده است."
 
 #: libraries/Footer.php:74
 #, php-format
@@ -5226,46 +5236,28 @@ msgstr "افزودن ستون جديد"
 msgid "Attributes"
 msgstr "ويژگيها"
 
-#: libraries/common.inc.php:486
-#, fuzzy
-#| msgid "Failed to read configuration file"
-msgid "Failed to read configuration file!"
-msgstr "در خواندن فایل تنظیمات ناموفق بود"
-
-#: libraries/common.inc.php:489
-msgid ""
-"This usually means there is a syntax error in it, please check any errors "
-"shown below."
-msgstr ""
-"معمولا به معنی وجود خطا می باشد، لطفا خطاهای نمایش داده شده زیر را چک کنید."
-
-#: libraries/common.inc.php:498
-#, php-format
-msgid "Could not load default configuration from: %1$s"
-msgstr "فایل تنظیمات اولیه را نمی توان بارگیری نمود: %1$s"
-
-#: libraries/common.inc.php:532
+#: libraries/common.inc.php:513
 #, php-format
 msgid "Invalid server index: %s"
 msgstr "ایندکس غلط در سرور : %s"
 
-#: libraries/common.inc.php:544
+#: libraries/common.inc.php:525
 #, php-format
 msgid "Invalid hostname for server %1$s. Please review your configuration."
 msgstr ""
 "نام هاست برای سرور %1$s اشتباه است. لطفا تنظیمات خود را بازبینی نمایید."
 
-#: libraries/common.inc.php:562
+#: libraries/common.inc.php:543
 #, fuzzy, php-format
 #| msgid "Server"
 msgid "Server %d"
 msgstr "سرور"
 
-#: libraries/common.inc.php:686
+#: libraries/common.inc.php:667
 msgid "Invalid authentication method set in configuration:"
 msgstr "روش احراز هویت در تنظیمات صحیح نمی باشد:"
 
-#: libraries/common.inc.php:829
+#: libraries/common.inc.php:810
 #, php-format
 msgid ""
 "Unable to use timezone %1$s for server %2$d. Please check your configuration "
@@ -5273,20 +5265,20 @@ msgid ""
 "currently using the default time zone of the database server."
 msgstr ""
 
-#: libraries/common.inc.php:861
+#: libraries/common.inc.php:842
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "شما باید به  %s %s یا جدیدتر به روز شوید."
 
-#: libraries/common.inc.php:947
+#: libraries/common.inc.php:928
 msgid "Error: Token mismatch"
 msgstr ""
 
-#: libraries/common.inc.php:965
+#: libraries/common.inc.php:946
 msgid "GLOBALS overwrite attempt"
 msgstr ""
 
-#: libraries/common.inc.php:972
+#: libraries/common.inc.php:953
 msgid "possible exploit"
 msgstr "احتمال وجود exploit"
 
@@ -8190,7 +8182,7 @@ msgid_plural "%1$d databases have been dropped successfully."
 msgstr[0] "پايگاه داده %s حذف گرديد."
 
 #: libraries/controllers/server/ServerDatabasesController.php:346
-#: libraries/import.lib.php:111
+#: libraries/import.lib.php:94
 #: templates/database/structure/table_header.phtml:36
 #: templates/table/structure/actions_in_table_structure.phtml:111
 #: templates/table/structure/display_partitions.phtml:30
@@ -9142,65 +9134,65 @@ msgstr "وب سرور مجوز ذخیره فایل %s را ندارد ."
 msgid "Dump has been saved to file %s."
 msgstr "اطلاعات دریافت شده در فایل %s ذخیره شد‬."
 
-#: libraries/import.lib.php:119 libraries/insert_edit.lib.php:124
+#: libraries/import.lib.php:102 libraries/insert_edit.lib.php:124
 #: libraries/rte/rte_routines.lib.php:1444 libraries/sql.lib.php:1370
 #: tbl_get_field.php:45
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL يك نتيجه خالي داد. (مثلا 0 سطر)."
 
-#: libraries/import.lib.php:290 libraries/sql.lib.php:1384
+#: libraries/import.lib.php:273 libraries/sql.lib.php:1384
 msgid "[ROLLBACK occurred.]"
 msgstr ""
 
-#: libraries/import.lib.php:1256
+#: libraries/import.lib.php:1219
 msgid ""
 "The following structures have either been created or altered. Here you can:"
 msgstr ""
 
-#: libraries/import.lib.php:1259
+#: libraries/import.lib.php:1222
 msgid "View a structure's contents by clicking on its name."
 msgstr ""
 
-#: libraries/import.lib.php:1262
+#: libraries/import.lib.php:1225
 msgid ""
 "Change any of its settings by clicking the corresponding \"Options\" link."
 msgstr ""
 
-#: libraries/import.lib.php:1264
+#: libraries/import.lib.php:1227
 msgid "Edit structure by following the \"Structure\" link."
 msgstr ""
 
-#: libraries/import.lib.php:1271
+#: libraries/import.lib.php:1234
 #, fuzzy, php-format
 msgid "Go to database: %s"
 msgstr "No databases"
 
-#: libraries/import.lib.php:1277 libraries/import.lib.php:1321
+#: libraries/import.lib.php:1240 libraries/import.lib.php:1284
 #, php-format
 msgid "Edit settings for %s"
 msgstr ""
 
-#: libraries/import.lib.php:1306
+#: libraries/import.lib.php:1269
 #, fuzzy, php-format
 msgid "Go to table: %s"
 msgstr "No databases"
 
-#: libraries/import.lib.php:1314
+#: libraries/import.lib.php:1277
 #, fuzzy, php-format
 #| msgid "Structure only"
 msgid "Structure of %s"
 msgstr "فقط ساختار"
 
-#: libraries/import.lib.php:1332
+#: libraries/import.lib.php:1295
 #, php-format
 msgid "Go to view: %s"
 msgstr ""
 
-#: libraries/import.lib.php:1392
+#: libraries/import.lib.php:1355
 msgid "Only single-table UPDATE and DELETE queries can be simulated."
 msgstr ""
 
-#: libraries/import.lib.php:1615
+#: libraries/import.lib.php:1578
 msgid ""
 "Only INSERT, UPDATE, DELETE and REPLACE SQL queries containing transactional "
 "engine tables can be rolled back."
@@ -10787,7 +10779,7 @@ msgstr ""
 msgid "Invalid column count in CSV input on line %d."
 msgstr ""
 
-#: libraries/plugins/import/ImportLdi.php:109
+#: libraries/plugins/import/ImportLdi.php:111
 msgid "This plugin does not support compressed imports!"
 msgstr ""
 
@@ -10826,23 +10818,24 @@ msgstr "مستندات باز"
 msgid "ESRI Shape File"
 msgstr ""
 
-#: libraries/plugins/import/ImportShp.php:138
+#: libraries/plugins/import/ImportShp.php:81
+#: libraries/plugins/import/ImportShp.php:146
 #, php-format
 msgid "There was an error importing the ESRI shape file: \"%s\"."
 msgstr ""
 
-#: libraries/plugins/import/ImportShp.php:195
+#: libraries/plugins/import/ImportShp.php:203
 msgid ""
 "You tried to import an invalid file or the imported file contains invalid "
 "data!"
 msgstr ""
 
-#: libraries/plugins/import/ImportShp.php:201
+#: libraries/plugins/import/ImportShp.php:209
 #, php-format
 msgid "MySQL Spatial Extension does not support ESRI type \"%s\"."
 msgstr ""
 
-#: libraries/plugins/import/ImportShp.php:250
+#: libraries/plugins/import/ImportShp.php:258
 #, fuzzy
 #| msgid "File %s does not contain any key id"
 msgid "The imported file does not contain any data!"
@@ -14935,7 +14928,7 @@ msgid "Show query history at start"
 msgstr "جدول تاریخ دستورات اس کیو ال"
 
 #: templates/console/display.phtml:189
-msgid "Sow current browsing query"
+msgid "Show current browsing query"
 msgstr ""
 
 #: templates/console/display.phtml:194

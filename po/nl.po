@@ -3,11 +3,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2016-04-11 15:40+0200\n"
+"POT-Creation-Date: 2016-04-12 11:23+0200\n"
 "PO-Revision-Date: 2016-04-11 18:35+0000\n"
 "Last-Translator: dingo thirteen <dingo13@gmail.com>\n"
-"Language-Team: Dutch "
-"<https://hosted.weblate.org/projects/phpmyadmin/master/nl/>\n"
+"Language-Team: Dutch <https://hosted.weblate.org/projects/phpmyadmin/master/"
+"nl/>\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -266,7 +266,7 @@ msgstr "Tabellen"
 #: libraries/config/user_preferences.forms.php:219
 #: libraries/config/user_preferences.forms.php:260
 #: libraries/config/user_preferences.forms.php:286
-#: libraries/import.lib.php:1302 libraries/navigation/nodes/NodeColumn.php:40
+#: libraries/import.lib.php:1265 libraries/navigation/nodes/NodeColumn.php:40
 #: libraries/navigation/nodes/NodeDatabase.php:53
 #: libraries/navigation/nodes/NodeTable.php:292
 #: libraries/server_privileges.lib.php:1240 libraries/tracking.lib.php:892
@@ -519,19 +519,19 @@ msgstr ""
 "Kies 'GeomFormText' uit de kolom 'Functie' en kopieer onderstaande string in "
 "het veld 'Waarde'."
 
-#: import.php:57
+#: import.php:58
 msgid "Succeeded"
 msgstr "Geslaagd"
 
-#: import.php:61 js/messages.php:595
+#: import.php:62 js/messages.php:595
 msgid "Failed"
 msgstr "Mislukt"
 
-#: import.php:65
+#: import.php:66
 msgid "Incomplete params"
 msgstr "Onvolledige parameters"
 
-#: import.php:189
+#: import.php:190
 #, php-format
 msgid ""
 "You probably tried to upload a file that is too large. Please refer to "
@@ -540,40 +540,15 @@ msgstr ""
 "U probeerde waarschijnlijk een bestand te uploaden dat te groot is. Zie "
 "%sdocumentatie%s om deze limiet te omzeilen."
 
-#: import.php:368 import.php:676
+#: import.php:369 import.php:563
 msgid "Showing bookmark"
 msgstr "Bladwijzer tonen"
 
-#: import.php:385 import.php:672
+#: import.php:386 import.php:559
 msgid "The bookmark has been deleted."
 msgstr "De bladwijzer is verwijderd."
 
-#: import.php:485
-#, php-format
-msgid ""
-"Uploaded file cannot be moved, because the server has open_basedir enabled "
-"without access to the %s directory (for temporary files)."
-msgstr ""
-"Het geüploade bestand kan niet verplaatst worden, omdat op de server "
-"'open_basedir' ingeschakeld is zonder toegang tot de map %s (voor tijdelijke "
-"bestanden)."
-
-#: import.php:501 import.php:578 libraries/File.php:424 libraries/File.php:517
-msgid "File could not be read!"
-msgstr "Bestand kon niet worden gelezen!"
-
-#: import.php:512 import.php:527 import.php:552 import.php:567
-#: libraries/File.php:584
-#, php-format
-msgid ""
-"You attempted to load file with unsupported compression (%s). Either support "
-"for it is not implemented or disabled by your configuration."
-msgstr ""
-"U probeerde een bestand met een niet-ondersteunde compressie (%s) te "
-"uploaden. De ondersteuning is niet geïmplementeerd of uitgeschakeld in de "
-"configuratie."
-
-#: import.php:585
+#: import.php:472
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
@@ -584,24 +559,24 @@ msgstr ""
 "bestandsgrootte zoals opgegeven in de PHP-configuratie. Zie [doc@faq1-16]FAQ "
 "1.16[/doc]."
 
-#: import.php:637 libraries/display_import.lib.php:665
+#: import.php:524 libraries/display_import.lib.php:665
 msgid "Could not load import plugins, please check your installation!"
 msgstr ""
 "De importeer-plugins konden niet worden geladen, controleer de installatie!"
 
-#: import.php:679 libraries/sql.lib.php:784 libraries/sql.lib.php:1561
+#: import.php:566 libraries/sql.lib.php:784 libraries/sql.lib.php:1561
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "Bladwijzer %s is aangemaakt."
 
-#: import.php:689
+#: import.php:576
 #, php-format
 msgid "Import has been successfully finished, %d query executed."
 msgid_plural "Import has been successfully finished, %d queries executed."
 msgstr[0] "Het importeren is geslaagd, %d query uitgevoerd."
 msgstr[1] "Het importeren is geslaagd, %d queries uitgevoerd."
 
-#: import.php:720
+#: import.php:607
 #, php-format
 msgid ""
 "Script timeout passed, if you want to finish import, please %sresubmit the "
@@ -610,7 +585,7 @@ msgstr ""
 "De maximale uitvoertijd is verstreken, als u het importeren wilt afmaken, "
 "%sresubmit dezelfde file%s opnieuw en de import zal hervat worden."
 
-#: import.php:730
+#: import.php:617
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
@@ -853,7 +828,7 @@ msgid ""
 msgstr ""
 "De server gebruikt Suhosin. Zie de %sdocumentatie%s voor mogelijke problemen."
 
-#: js/messages.php:42 libraries/import.lib.php:209 sql.php:161
+#: js/messages.php:42 libraries/import.lib.php:192 sql.php:161
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "\"DROP DATABASE\" opdrachten zijn uitgeschakeld."
 
@@ -2936,7 +2911,7 @@ msgid "Please enter a valid HEX input"
 msgstr "Vul a.u.b.een geldige waarde in HEX in"
 
 #: js/messages.php:949 libraries/Message.php:202 libraries/Util.php:678
-#: libraries/core.lib.php:237 libraries/import.lib.php:101
+#: libraries/core.lib.php:237 libraries/import.lib.php:84
 #: libraries/insert_edit.lib.php:1177 view_operations.php:74
 msgid "Error"
 msgstr "Fout"
@@ -3207,32 +3182,47 @@ msgid "unknown"
 msgstr "onbekend"
 
 #: libraries/Charsets.php:460
-#| msgid "Collation"
 msgid "binary collation"
 msgstr "binaire vergelijking"
 
 #: libraries/Charsets.php:467
-#| msgid "case-insensitive"
 msgid "case-insensitive collation"
 msgstr "niet hoofdlettergevoelige vergelijking"
 
 #: libraries/Charsets.php:469
-#| msgid "case-sensitive"
 msgid "case-sensitive collation"
 msgstr "hoofdlettergevoelige vergelijking"
 
-#: libraries/Config.php:1137
+#: libraries/Config.php:1148
 #, php-format
 msgid "Existing configuration file (%s) is not readable."
 msgstr "Het bestaande configuratiebestand (%s) is niet leesbaar."
 
-#: libraries/Config.php:1167
+#: libraries/Config.php:1178
 msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr ""
 "Verkeerde rechten ingesteld op het configuratiebestand, dit mag niet "
 "leesbaar zijn voor iedereen!"
 
-#: libraries/Config.php:1528
+# 'kon niet vanuit "%1$s" geladen worden' is juister.
+#: libraries/Config.php:1198
+#, php-format
+msgid "Could not load default configuration from: %1$s"
+msgstr "Standaard configuratiebestand kon niet geladen worden vanuit: %1$s"
+
+#: libraries/Config.php:1205
+msgid "Failed to read configuration file!"
+msgstr "Lezen van het configuratiebestand is niet gelukt!"
+
+#: libraries/Config.php:1208
+msgid ""
+"This usually means there is a syntax error in it, please check any errors "
+"shown below."
+msgstr ""
+"Dit betekent meestal dat er een syntaxfout is, controleer de onderstaande "
+"foutmeldingen."
+
+#: libraries/Config.php:1569
 msgid "Font size"
 msgstr "Lettertypegrootte"
 
@@ -3534,8 +3524,8 @@ msgstr "Aantal rijen:"
 msgid "Sort by key"
 msgstr "Sorteren op sleutel"
 
-#: libraries/DisplayResults.php:1720 libraries/import.lib.php:1268
-#: libraries/import.lib.php:1303 libraries/mult_submits.lib.php:340
+#: libraries/DisplayResults.php:1720 libraries/import.lib.php:1231
+#: libraries/import.lib.php:1266 libraries/mult_submits.lib.php:340
 #: libraries/plugins/export/ExportCodegen.php:84
 #: libraries/plugins/export/ExportCsv.php:48
 #: libraries/plugins/export/ExportExcel.php:38
@@ -3751,19 +3741,33 @@ msgstr "Upload afgebroken vanwege de extensie."
 msgid "Unknown error in file upload."
 msgstr "Onbekende fout bij het uploaden."
 
-#: libraries/File.php:465
+#: libraries/File.php:424 libraries/File.php:527
+msgid "File could not be read!"
+msgstr "Bestand kon niet worden gelezen!"
+
+#: libraries/File.php:475
 msgid "Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc]."
 msgstr ""
 "Fout bij het verplaatsen van het geüploade bestand, zie [doc@faq1-11]FAQ "
 "1.11[/doc]."
 
-#: libraries/File.php:484
+#: libraries/File.php:494
 msgid "Error while moving uploaded file."
 msgstr "Fout bij het verplaatsen van het geüploade bestand."
 
-#: libraries/File.php:492
+#: libraries/File.php:502
 msgid "Cannot read uploaded file."
 msgstr "Kan het geüploade bestand niet lezen."
+
+#: libraries/File.php:594
+#, php-format
+msgid ""
+"You attempted to load file with unsupported compression (%s). Either support "
+"for it is not implemented or disabled by your configuration."
+msgstr ""
+"U probeerde een bestand met een niet-ondersteunde compressie (%s) te "
+"uploaden. De ondersteuning is niet geïmplementeerd of uitgeschakeld in de "
+"configuratie."
 
 #: libraries/Footer.php:74
 #, php-format
@@ -4977,44 +4981,26 @@ msgstr "Nieuwe kolom toevoegen"
 msgid "Attributes"
 msgstr "Attributen"
 
-#: libraries/common.inc.php:486
-msgid "Failed to read configuration file!"
-msgstr "Lezen van het configuratiebestand is niet gelukt!"
-
-#: libraries/common.inc.php:489
-msgid ""
-"This usually means there is a syntax error in it, please check any errors "
-"shown below."
-msgstr ""
-"Dit betekent meestal dat er een syntaxfout is, controleer de onderstaande "
-"foutmeldingen."
-
-# 'kon niet vanuit "%1$s" geladen worden' is juister.
-#: libraries/common.inc.php:498
-#, php-format
-msgid "Could not load default configuration from: %1$s"
-msgstr "Standaard configuratiebestand kon niet geladen worden vanuit: %1$s"
-
-#: libraries/common.inc.php:532
+#: libraries/common.inc.php:513
 #, php-format
 msgid "Invalid server index: %s"
 msgstr "Ongeldige serverindex: %s"
 
-#: libraries/common.inc.php:544
+#: libraries/common.inc.php:525
 #, php-format
 msgid "Invalid hostname for server %1$s. Please review your configuration."
 msgstr "Ongeldige hostnaam voor server %1$s. Controleer uw configuratie."
 
-#: libraries/common.inc.php:562
+#: libraries/common.inc.php:543
 #, php-format
 msgid "Server %d"
 msgstr "Server %d"
 
-#: libraries/common.inc.php:686
+#: libraries/common.inc.php:667
 msgid "Invalid authentication method set in configuration:"
 msgstr "Ongeldige authenticatiemethode opgegeven in configuratie:"
 
-#: libraries/common.inc.php:829
+#: libraries/common.inc.php:810
 #, php-format
 msgid ""
 "Unable to use timezone %1$s for server %2$d. Please check your configuration "
@@ -5026,20 +5012,20 @@ msgstr ""
 "['SessionTimeZone'][/em]. phpMyAdmin gebruikt nu de standaard tijdzone van "
 "de database server."
 
-#: libraries/common.inc.php:861
+#: libraries/common.inc.php:842
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "U moet upgraden naar %s %s of hoger."
 
-#: libraries/common.inc.php:947
+#: libraries/common.inc.php:928
 msgid "Error: Token mismatch"
 msgstr "Fout: token niet hetzelfde"
 
-#: libraries/common.inc.php:965
+#: libraries/common.inc.php:946
 msgid "GLOBALS overwrite attempt"
 msgstr "poging om GLOBALS te overschrijven"
 
-#: libraries/common.inc.php:972
+#: libraries/common.inc.php:953
 msgid "possible exploit"
 msgstr "mogelijk misbruik"
 
@@ -8037,7 +8023,7 @@ msgstr[0] "%1$d database werd succesvol verwijderd."
 msgstr[1] "%1$d databases werden succesvol verwijderd."
 
 #: libraries/controllers/server/ServerDatabasesController.php:346
-#: libraries/import.lib.php:111
+#: libraries/import.lib.php:94
 #: templates/database/structure/table_header.phtml:36
 #: templates/table/structure/actions_in_table_structure.phtml:111
 #: templates/table/structure/display_partitions.phtml:30
@@ -8989,66 +8975,66 @@ msgstr "De webserver heeft geen rechten om het bestand %s op te slaan."
 msgid "Dump has been saved to file %s."
 msgstr "Het exportbestand is bewaard als %s."
 
-#: libraries/import.lib.php:119 libraries/insert_edit.lib.php:124
+#: libraries/import.lib.php:102 libraries/insert_edit.lib.php:124
 #: libraries/rte/rte_routines.lib.php:1444 libraries/sql.lib.php:1370
 #: tbl_get_field.php:45
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL gaf een lege resultatenset terug (0 rijen)."
 
-#: libraries/import.lib.php:290 libraries/sql.lib.php:1384
+#: libraries/import.lib.php:273 libraries/sql.lib.php:1384
 msgid "[ROLLBACK occurred.]"
 msgstr "[ROLLBACK is uitgevoerd]"
 
-#: libraries/import.lib.php:1256
+#: libraries/import.lib.php:1219
 msgid ""
 "The following structures have either been created or altered. Here you can:"
 msgstr "De volgende structuren zijn aangemaakt of aangepast. Hier kunt u:"
 
-#: libraries/import.lib.php:1259
+#: libraries/import.lib.php:1222
 msgid "View a structure's contents by clicking on its name."
 msgstr "Bekijk de inhoud van een structuur door op de naam te klikken."
 
-#: libraries/import.lib.php:1262
+#: libraries/import.lib.php:1225
 msgid ""
 "Change any of its settings by clicking the corresponding \"Options\" link."
 msgstr "Een instelling wijzigen door op \"Opties\" te klikken."
 
-#: libraries/import.lib.php:1264
+#: libraries/import.lib.php:1227
 msgid "Edit structure by following the \"Structure\" link."
 msgstr "Klik op de \"Structuur\"-link om de structuur aan te passen."
 
-#: libraries/import.lib.php:1271
+#: libraries/import.lib.php:1234
 #, php-format
 msgid "Go to database: %s"
 msgstr "Ga naar database: %s"
 
-#: libraries/import.lib.php:1277 libraries/import.lib.php:1321
+#: libraries/import.lib.php:1240 libraries/import.lib.php:1284
 #, php-format
 msgid "Edit settings for %s"
 msgstr "Instellingen voor %s wijzigen"
 
-#: libraries/import.lib.php:1306
+#: libraries/import.lib.php:1269
 #, php-format
 msgid "Go to table: %s"
 msgstr "Ga naar tabel: %s"
 
-#: libraries/import.lib.php:1314
+#: libraries/import.lib.php:1277
 #, php-format
 msgid "Structure of %s"
 msgstr "Structuur van %s"
 
-#: libraries/import.lib.php:1332
+#: libraries/import.lib.php:1295
 #, php-format
 msgid "Go to view: %s"
 msgstr "Ga naar view: %s"
 
-#: libraries/import.lib.php:1392
+#: libraries/import.lib.php:1355
 msgid "Only single-table UPDATE and DELETE queries can be simulated."
 msgstr ""
 "Enkel UPDATE- en DELETE-query's die inwerken op 1 tabel kunnen gesimuleerd "
 "worden."
 
-#: libraries/import.lib.php:1615
+#: libraries/import.lib.php:1578
 msgid ""
 "Only INSERT, UPDATE, DELETE and REPLACE SQL queries containing transactional "
 "engine tables can be rolled back."
@@ -10573,7 +10559,7 @@ msgstr "Ongeldig formaat van CSV-invoer op regel %d."
 msgid "Invalid column count in CSV input on line %d."
 msgstr "Verkeerd aantal kolommen in CSV-invoer op regel %d."
 
-#: libraries/plugins/import/ImportLdi.php:109
+#: libraries/plugins/import/ImportLdi.php:111
 msgid "This plugin does not support compressed imports!"
 msgstr "Deze plugin heeft geen ondersteuning voor gecomprimeerde imports!"
 
@@ -10612,14 +10598,15 @@ msgstr "Kon OpenDocument-rekenblad niet inlezen!"
 msgid "ESRI Shape File"
 msgstr "ESRI-vormbestand"
 
-#: libraries/plugins/import/ImportShp.php:138
+#: libraries/plugins/import/ImportShp.php:81
+#: libraries/plugins/import/ImportShp.php:146
 #, php-format
 msgid "There was an error importing the ESRI shape file: \"%s\"."
 msgstr ""
 "Er is een fout opgetreden bij het importeren van het ESRI-vormbestand: \"%s"
 "\"."
 
-#: libraries/plugins/import/ImportShp.php:195
+#: libraries/plugins/import/ImportShp.php:203
 msgid ""
 "You tried to import an invalid file or the imported file contains invalid "
 "data!"
@@ -10627,12 +10614,12 @@ msgstr ""
 "U probeerde een ongeldig bestand te importeren, of het geïmporteerde bestand "
 "bevat ongeldige gegevens!"
 
-#: libraries/plugins/import/ImportShp.php:201
+#: libraries/plugins/import/ImportShp.php:209
 #, php-format
 msgid "MySQL Spatial Extension does not support ESRI type \"%s\"."
 msgstr "De extensie MySQL Spatial ondersteunt ESRI-type \"%s\" niet."
 
-#: libraries/plugins/import/ImportShp.php:250
+#: libraries/plugins/import/ImportShp.php:258
 msgid "The imported file does not contain any data!"
 msgstr "Het geïmporteerde bestand bevat geen gegevens!"
 
@@ -12309,7 +12296,6 @@ msgstr "Alle rechten geven op de wildcardnaam (gebruikersnaam\\_%)."
 
 #: libraries/server_privileges.lib.php:2332
 #, php-format
-#| msgid "Grant all privileges on database \"%s\"."
 msgid "Grant all privileges on database %s."
 msgstr "Alle rechten geven op database %s."
 
@@ -14719,8 +14705,9 @@ msgid "Show query history at start"
 msgstr "Query geschiedenis aan begin weergeven"
 
 #: templates/console/display.phtml:189
-#| msgid "Show current browsing query"
-msgid "Sow current browsing query"
+#, fuzzy
+#| msgid "Sow current browsing query"
+msgid "Show current browsing query"
 msgstr "Toon huidige blader query"
 
 #: templates/console/display.phtml:194
@@ -15597,15 +15584,12 @@ msgid "The profile has been updated."
 msgstr "Het profiel is aangepast."
 
 #: vendor/phpmyadmin/motranslator/tests/MoFilesTest.php:24
-#| msgid "Column names"
 msgid "Column parser"
 msgstr "Kolom parser"
 
 #: vendor/phpmyadmin/motranslator/tests/MoFilesTest.php:83
 #: vendor/phpmyadmin/motranslator/tests/MoFilesTest.php:127
 #, php-format
-#| msgid "%d second"
-#| msgid_plural "%d seconds"
 msgid "\"%d\" second"
 msgid_plural "\"%d\" seconds"
 msgstr[0] "\"%d\" seconde"
@@ -15635,7 +15619,6 @@ msgid "An opening bracket was expected."
 msgstr "Een openingshaakje werd verwacht."
 
 #: vendor/phpmyadmin/sql-parser/src/Components/CreateDefinition.php:225
-#| msgid "Variable name was expected."
 msgid "A symbol name was expected!"
 msgstr "Naam van een symbool  werd verwacht!"
 
@@ -17085,6 +17068,14 @@ msgstr ""
 #: libraries/advisory_rules.txt:457
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert is ingesteld op 0"
+
+#~ msgid ""
+#~ "Uploaded file cannot be moved, because the server has open_basedir "
+#~ "enabled without access to the %s directory (for temporary files)."
+#~ msgstr ""
+#~ "Het geüploade bestand kan niet verplaatst worden, omdat op de server "
+#~ "'open_basedir' ingeschakeld is zonder toegang tot de map %s (voor "
+#~ "tijdelijke bestanden)."
 
 #~ msgid "Invalid export type"
 #~ msgstr "Ongeldig exporttype"

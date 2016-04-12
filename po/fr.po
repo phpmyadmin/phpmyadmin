@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2016-04-11 15:40+0200\n"
+"POT-Creation-Date: 2016-04-12 11:23+0200\n"
 "PO-Revision-Date: 2016-02-18 12:28+0000\n"
 "Last-Translator: Adam Magnier <adam@magnier.io>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -267,7 +267,7 @@ msgstr "Tables"
 #: libraries/config/user_preferences.forms.php:219
 #: libraries/config/user_preferences.forms.php:260
 #: libraries/config/user_preferences.forms.php:286
-#: libraries/import.lib.php:1302 libraries/navigation/nodes/NodeColumn.php:40
+#: libraries/import.lib.php:1265 libraries/navigation/nodes/NodeColumn.php:40
 #: libraries/navigation/nodes/NodeDatabase.php:53
 #: libraries/navigation/nodes/NodeTable.php:292
 #: libraries/server_privileges.lib.php:1240 libraries/tracking.lib.php:892
@@ -521,19 +521,19 @@ msgstr ""
 "Choisissez «GeomFromText» depuis la colonne «Fonction» et collez la chaîne "
 "ci dessous dans le champ «Valeur»."
 
-#: import.php:57
+#: import.php:58
 msgid "Succeeded"
 msgstr "Succès"
 
-#: import.php:61 js/messages.php:595
+#: import.php:62 js/messages.php:595
 msgid "Failed"
 msgstr "Échec"
 
-#: import.php:65
+#: import.php:66
 msgid "Incomplete params"
 msgstr "Paramètres incomplets"
 
-#: import.php:189
+#: import.php:190
 #, php-format
 msgid ""
 "You probably tried to upload a file that is too large. Please refer to "
@@ -543,39 +543,15 @@ msgstr ""
 "Veuillez vous référer à la %sdocumentation%s pour trouver le moyen de "
 "contourner cette limite."
 
-#: import.php:368 import.php:676
+#: import.php:369 import.php:563
 msgid "Showing bookmark"
 msgstr "Affichage du signet"
 
-#: import.php:385 import.php:672
+#: import.php:386 import.php:559
 msgid "The bookmark has been deleted."
 msgstr "Le signet a été effacé."
 
-#: import.php:485
-#, php-format
-msgid ""
-"Uploaded file cannot be moved, because the server has open_basedir enabled "
-"without access to the %s directory (for temporary files)."
-msgstr ""
-"Le fichier téléchargé ne peut pas être déplacé, car le serveur a l'option "
-"open_basedir activée mais n'a pas accès au répertoire %s (pour les fichiers "
-"temporaires)."
-
-#: import.php:501 import.php:578 libraries/File.php:424 libraries/File.php:517
-msgid "File could not be read!"
-msgstr "Le fichier n'a pu être lu !"
-
-#: import.php:512 import.php:527 import.php:552 import.php:567
-#: libraries/File.php:584
-#, php-format
-msgid ""
-"You attempted to load file with unsupported compression (%s). Either support "
-"for it is not implemented or disabled by your configuration."
-msgstr ""
-"Vous avez tenté d'importer un fichier dont le mode de compression (%s) n'est "
-"pas supporté par votre configuration PHP ou est désactivé dans celle-ci."
-
-#: import.php:585
+#: import.php:472
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
@@ -585,25 +561,25 @@ msgstr ""
 "n'a été fourni, ou encore la taille du fichier a dépassé la limite permise "
 "par votre configuration de PHP. Voir [doc@faq1-16]FAQ 1.16[/doc]."
 
-#: import.php:637 libraries/display_import.lib.php:665
+#: import.php:524 libraries/display_import.lib.php:665
 msgid "Could not load import plugins, please check your installation!"
 msgstr ""
 "Chargement impossible des greffons d'importation, veuillez vérifier votre "
 "installation !"
 
-#: import.php:679 libraries/sql.lib.php:784 libraries/sql.lib.php:1561
+#: import.php:566 libraries/sql.lib.php:784 libraries/sql.lib.php:1561
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "Signet %s créé."
 
-#: import.php:689
+#: import.php:576
 #, php-format
 msgid "Import has been successfully finished, %d query executed."
 msgid_plural "Import has been successfully finished, %d queries executed."
 msgstr[0] "L'importation a réussi, %d requête exécutée."
 msgstr[1] "L'importation a réussi, %d requêtes exécutées."
 
-#: import.php:720
+#: import.php:607
 #, php-format
 msgid ""
 "Script timeout passed, if you want to finish import, please %sresubmit the "
@@ -612,7 +588,7 @@ msgstr ""
 "La limite de temps a été atteinte; si vous voulez terminer l'importation, "
 "%ssoumettez à nouveau%s le même fichier et l'importation continuera."
 
-#: import.php:730
+#: import.php:617
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
@@ -859,7 +835,7 @@ msgstr ""
 "Ce serveur utilise Suhosin. Veuillez vous référer à la %sdocumentation%s "
 "pour en connaître les conséquences possibles."
 
-#: js/messages.php:42 libraries/import.lib.php:209 sql.php:161
+#: js/messages.php:42 libraries/import.lib.php:192 sql.php:161
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "La commande «DROP DATABASE» est désactivée."
 
@@ -2941,7 +2917,7 @@ msgid "Please enter a valid HEX input"
 msgstr "Veuillez saisir une valeur hexadécimale valide"
 
 #: js/messages.php:949 libraries/Message.php:202 libraries/Util.php:678
-#: libraries/core.lib.php:237 libraries/import.lib.php:101
+#: libraries/core.lib.php:237 libraries/import.lib.php:84
 #: libraries/insert_edit.lib.php:1177 view_operations.php:74
 msgid "Error"
 msgstr "Erreur"
@@ -3231,18 +3207,35 @@ msgstr "insensible à la casse"
 msgid "case-sensitive collation"
 msgstr "sensible à la casse"
 
-#: libraries/Config.php:1137
+#: libraries/Config.php:1148
 #, php-format
 msgid "Existing configuration file (%s) is not readable."
 msgstr "Le fichier de configuration (%s) est illisible."
 
-#: libraries/Config.php:1167
+#: libraries/Config.php:1178
 msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr ""
 "Permissions sur le fichier de configuration incorrectes, il ne doit pas être "
 "en écriture pour tout le monde !"
 
-#: libraries/Config.php:1528
+#: libraries/Config.php:1198
+#, php-format
+msgid "Could not load default configuration from: %1$s"
+msgstr "Chargement de la configuration par défaut impossible depuis %1$s"
+
+#: libraries/Config.php:1205
+msgid "Failed to read configuration file!"
+msgstr "Impossible de lire le fichier de configuration !"
+
+#: libraries/Config.php:1208
+msgid ""
+"This usually means there is a syntax error in it, please check any errors "
+"shown below."
+msgstr ""
+"Ceci indique habituellement qu'il y a une erreur de syntaxe, veuillez "
+"vérifier si une erreur s'affiche plus bas."
+
+#: libraries/Config.php:1569
 msgid "Font size"
 msgstr "Taille du texte"
 
@@ -3547,8 +3540,8 @@ msgstr "Nombre de lignes : "
 msgid "Sort by key"
 msgstr "Trier sur l'index"
 
-#: libraries/DisplayResults.php:1720 libraries/import.lib.php:1268
-#: libraries/import.lib.php:1303 libraries/mult_submits.lib.php:340
+#: libraries/DisplayResults.php:1720 libraries/import.lib.php:1231
+#: libraries/import.lib.php:1266 libraries/mult_submits.lib.php:340
 #: libraries/plugins/export/ExportCodegen.php:84
 #: libraries/plugins/export/ExportCsv.php:48
 #: libraries/plugins/export/ExportExcel.php:38
@@ -3765,19 +3758,32 @@ msgstr "Téléchargement arrêté par l'extension."
 msgid "Unknown error in file upload."
 msgstr "Erreur inconnue durant le téléchargement."
 
-#: libraries/File.php:465
+#: libraries/File.php:424 libraries/File.php:527
+msgid "File could not be read!"
+msgstr "Le fichier n'a pu être lu !"
+
+#: libraries/File.php:475
 msgid "Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc]."
 msgstr ""
 "Erreur lors du déplacement du fichier téléchargé, voir [doc@faq1-11]FAQ "
 "1.11[/doc]."
 
-#: libraries/File.php:484
+#: libraries/File.php:494
 msgid "Error while moving uploaded file."
 msgstr "Erreur lors du déplacement du fichier téléversé."
 
-#: libraries/File.php:492
+#: libraries/File.php:502
 msgid "Cannot read uploaded file."
 msgstr "Impossible de lire le fichier téléversé."
+
+#: libraries/File.php:594
+#, php-format
+msgid ""
+"You attempted to load file with unsupported compression (%s). Either support "
+"for it is not implemented or disabled by your configuration."
+msgstr ""
+"Vous avez tenté d'importer un fichier dont le mode de compression (%s) n'est "
+"pas supporté par votre configuration PHP ou est désactivé dans celle-ci."
 
 #: libraries/Footer.php:74
 #, php-format
@@ -4992,46 +4998,29 @@ msgstr "Ajouter une colonne"
 msgid "Attributes"
 msgstr "Attributs"
 
-#: libraries/common.inc.php:486
-msgid "Failed to read configuration file!"
-msgstr "Impossible de lire le fichier de configuration !"
-
-#: libraries/common.inc.php:489
-msgid ""
-"This usually means there is a syntax error in it, please check any errors "
-"shown below."
-msgstr ""
-"Ceci indique habituellement qu'il y a une erreur de syntaxe, veuillez "
-"vérifier si une erreur s'affiche plus bas."
-
-#: libraries/common.inc.php:498
-#, php-format
-msgid "Could not load default configuration from: %1$s"
-msgstr "Chargement de la configuration par défaut impossible depuis %1$s"
-
-#: libraries/common.inc.php:532
+#: libraries/common.inc.php:513
 #, php-format
 msgid "Invalid server index: %s"
 msgstr "Indice de serveur invalide: %s"
 
-#: libraries/common.inc.php:544
+#: libraries/common.inc.php:525
 #, php-format
 msgid "Invalid hostname for server %1$s. Please review your configuration."
 msgstr ""
 "Nom d'hôte invalide pour le serveur %1$s. Veuillez vérifier votre "
 "configuration."
 
-#: libraries/common.inc.php:562
+#: libraries/common.inc.php:543
 #, php-format
 msgid "Server %d"
 msgstr "Serveur %d"
 
-#: libraries/common.inc.php:686
+#: libraries/common.inc.php:667
 msgid "Invalid authentication method set in configuration:"
 msgstr ""
 "Le fichier de configuration contient un type d'authentification invalide : "
 
-#: libraries/common.inc.php:829
+#: libraries/common.inc.php:810
 #, php-format
 msgid ""
 "Unable to use timezone %1$s for server %2$d. Please check your configuration "
@@ -5043,20 +5032,20 @@ msgstr ""
 "['SessionTimeZone'][/em]. phpMyAdmin utilise actuellement le fuseau horaire "
 "par défaut du serveur de base de données."
 
-#: libraries/common.inc.php:861
+#: libraries/common.inc.php:842
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "Vous devriez utiliser %s en version %s ou plus récente."
 
-#: libraries/common.inc.php:947
+#: libraries/common.inc.php:928
 msgid "Error: Token mismatch"
 msgstr "Erreur: disparité du jeton"
 
-#: libraries/common.inc.php:965
+#: libraries/common.inc.php:946
 msgid "GLOBALS overwrite attempt"
 msgstr "Tentative d'écrasement de GLOBALS"
 
-#: libraries/common.inc.php:972
+#: libraries/common.inc.php:953
 msgid "possible exploit"
 msgstr "vulnérabilité possible"
 
@@ -8053,7 +8042,7 @@ msgstr[0] "%1$d bases de données a été supprimée."
 msgstr[1] "%1$d bases de données ont été supprimées."
 
 #: libraries/controllers/server/ServerDatabasesController.php:346
-#: libraries/import.lib.php:111
+#: libraries/import.lib.php:94
 #: templates/database/structure/table_header.phtml:36
 #: templates/table/structure/actions_in_table_structure.phtml:111
 #: templates/table/structure/display_partitions.phtml:30
@@ -9009,68 +8998,68 @@ msgstr ""
 msgid "Dump has been saved to file %s."
 msgstr "Le fichier d'exportation a été sauvegardé sous %s."
 
-#: libraries/import.lib.php:119 libraries/insert_edit.lib.php:124
+#: libraries/import.lib.php:102 libraries/insert_edit.lib.php:124
 #: libraries/rte/rte_routines.lib.php:1444 libraries/sql.lib.php:1370
 #: tbl_get_field.php:45
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL a retourné un résultat vide (aucune ligne)."
 
-#: libraries/import.lib.php:290 libraries/sql.lib.php:1384
+#: libraries/import.lib.php:273 libraries/sql.lib.php:1384
 msgid "[ROLLBACK occurred.]"
 msgstr "[Un ROLLBACK a eu lieu]"
 
-#: libraries/import.lib.php:1256
+#: libraries/import.lib.php:1219
 msgid ""
 "The following structures have either been created or altered. Here you can:"
 msgstr ""
 "Les structures suivantes ont été créées ou modifiées. Ici vous pouvez :"
 
-#: libraries/import.lib.php:1259
+#: libraries/import.lib.php:1222
 msgid "View a structure's contents by clicking on its name."
 msgstr "Consulter le contenu d'une structure en cliquant sur son nom."
 
-#: libraries/import.lib.php:1262
+#: libraries/import.lib.php:1225
 msgid ""
 "Change any of its settings by clicking the corresponding \"Options\" link."
 msgstr ""
 "Modifiez l'un des paramètres en cliquant le lien «Options» correspondant."
 
-#: libraries/import.lib.php:1264
+#: libraries/import.lib.php:1227
 msgid "Edit structure by following the \"Structure\" link."
 msgstr "Modifier sa structure via le lien «Structure»."
 
-#: libraries/import.lib.php:1271
+#: libraries/import.lib.php:1234
 #, php-format
 msgid "Go to database: %s"
 msgstr "Aller à la base de données : %s"
 
-#: libraries/import.lib.php:1277 libraries/import.lib.php:1321
+#: libraries/import.lib.php:1240 libraries/import.lib.php:1284
 #, php-format
 msgid "Edit settings for %s"
 msgstr "Paramètres de modification pour %s"
 
-#: libraries/import.lib.php:1306
+#: libraries/import.lib.php:1269
 #, php-format
 msgid "Go to table: %s"
 msgstr "Aller à la table : %s"
 
-#: libraries/import.lib.php:1314
+#: libraries/import.lib.php:1277
 #, php-format
 msgid "Structure of %s"
 msgstr "Structure de %s"
 
-#: libraries/import.lib.php:1332
+#: libraries/import.lib.php:1295
 #, php-format
 msgid "Go to view: %s"
 msgstr "Aller à la vue : %s"
 
-#: libraries/import.lib.php:1392
+#: libraries/import.lib.php:1355
 msgid "Only single-table UPDATE and DELETE queries can be simulated."
 msgstr ""
 "Seulement les requêtes UPDATE et DELETE portant sur une seule table peuvent "
 "être simulées."
 
-#: libraries/import.lib.php:1615
+#: libraries/import.lib.php:1578
 msgid ""
 "Only INSERT, UPDATE, DELETE and REPLACE SQL queries containing transactional "
 "engine tables can be rolled back."
@@ -10599,7 +10588,7 @@ msgstr "Format invalide pour les données CSV à la ligne %d."
 msgid "Invalid column count in CSV input on line %d."
 msgstr "Nombre de colonnes invalide dans les données CSV à la ligne %d."
 
-#: libraries/plugins/import/ImportLdi.php:109
+#: libraries/plugins/import/ImportLdi.php:111
 msgid "This plugin does not support compressed imports!"
 msgstr "Ce greffon ne supporte pas les importations en format comprimé !"
 
@@ -10639,12 +10628,13 @@ msgstr "La feuille de calcul OpenDocument n'a pas pu être parcourue !"
 msgid "ESRI Shape File"
 msgstr "Fichier de formes ESRI"
 
-#: libraries/plugins/import/ImportShp.php:138
+#: libraries/plugins/import/ImportShp.php:81
+#: libraries/plugins/import/ImportShp.php:146
 #, php-format
 msgid "There was an error importing the ESRI shape file: \"%s\"."
 msgstr "Erreur lors de l'importation du fichier de formes ESRI :«%s»."
 
-#: libraries/plugins/import/ImportShp.php:195
+#: libraries/plugins/import/ImportShp.php:203
 msgid ""
 "You tried to import an invalid file or the imported file contains invalid "
 "data!"
@@ -10652,12 +10642,12 @@ msgstr ""
 "Vous avez tenté d'importer un fichier invalide ou ce fichier contient des "
 "données invalides !"
 
-#: libraries/plugins/import/ImportShp.php:201
+#: libraries/plugins/import/ImportShp.php:209
 #, php-format
 msgid "MySQL Spatial Extension does not support ESRI type \"%s\"."
 msgstr "Les données spatiales MySQL ne supportent pas le type ESRI «%s»."
 
-#: libraries/plugins/import/ImportShp.php:250
+#: libraries/plugins/import/ImportShp.php:258
 msgid "The imported file does not contain any data!"
 msgstr "Le fichier importé ne contient aucune donnée !"
 
@@ -14737,7 +14727,7 @@ msgstr "Afficher l'historique des requêtes au début"
 #: templates/console/display.phtml:189
 #, fuzzy
 #| msgid "Show current browsing query"
-msgid "Sow current browsing query"
+msgid "Show current browsing query"
 msgstr "Montrer la requête courante"
 
 #: templates/console/display.phtml:194
@@ -17097,6 +17087,14 @@ msgstr ""
 #: libraries/advisory_rules.txt:457
 msgid "concurrent_insert is set to 0"
 msgstr "Le paramètre concurrent_insert a une valeur de 0"
+
+#~ msgid ""
+#~ "Uploaded file cannot be moved, because the server has open_basedir "
+#~ "enabled without access to the %s directory (for temporary files)."
+#~ msgstr ""
+#~ "Le fichier téléchargé ne peut pas être déplacé, car le serveur a l'option "
+#~ "open_basedir activée mais n'a pas accès au répertoire %s (pour les "
+#~ "fichiers temporaires)."
 
 #~ msgid "Invalid export type"
 #~ msgstr "Type d'exportation invalide"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2016-04-11 15:40+0200\n"
+"POT-Creation-Date: 2016-04-12 11:23+0200\n"
 "PO-Revision-Date: 2015-12-18 18:19+0000\n"
 "Last-Translator: Andrey Aleksanyants <aaleksanyants@yahoo.com>\n"
 "Language-Team: Armenian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -270,7 +270,7 @@ msgstr "Աղյուսակներ"
 #: libraries/config/user_preferences.forms.php:219
 #: libraries/config/user_preferences.forms.php:260
 #: libraries/config/user_preferences.forms.php:286
-#: libraries/import.lib.php:1302 libraries/navigation/nodes/NodeColumn.php:40
+#: libraries/import.lib.php:1265 libraries/navigation/nodes/NodeColumn.php:40
 #: libraries/navigation/nodes/NodeDatabase.php:53
 #: libraries/navigation/nodes/NodeTable.php:292
 #: libraries/server_privileges.lib.php:1240 libraries/tracking.lib.php:892
@@ -522,19 +522,19 @@ msgstr ""
 "\"Գործառույթ\" սյունակից ընտրեք \"GeomFromText\" և տեղադրեք տողը ներքևում՝ "
 "\"Արժեքը\" դաշտի մեջ։"
 
-#: import.php:57
+#: import.php:58
 msgid "Succeeded"
 msgstr "Հաջողվեց"
 
-#: import.php:61 js/messages.php:595
+#: import.php:62 js/messages.php:595
 msgid "Failed"
 msgstr "Ձախողվեց"
 
-#: import.php:65
+#: import.php:66
 msgid "Incomplete params"
 msgstr "Թերի հարաչափեր"
 
-#: import.php:189
+#: import.php:190
 #, php-format
 msgid ""
 "You probably tried to upload a file that is too large. Please refer to "
@@ -543,38 +543,15 @@ msgstr ""
 "Ըստ երևույթի դուք փորձեցիք վերբեռնել չափազանց մեծ ֆայլ։ Դիմեք "
 "%sուղեցույցներին%s՝ այս սահմանափակումը շրջանցելու համար։"
 
-#: import.php:368 import.php:676
+#: import.php:369 import.php:563
 msgid "Showing bookmark"
 msgstr "Էջանիշի ցուցադրում"
 
-#: import.php:385 import.php:672
+#: import.php:386 import.php:559
 msgid "The bookmark has been deleted."
 msgstr "Էջանիշը ջնջվեց։"
 
-#: import.php:485
-#, php-format
-msgid ""
-"Uploaded file cannot be moved, because the server has open_basedir enabled "
-"without access to the %s directory (for temporary files)."
-msgstr ""
-"Հնարավոր չէ տեղափոխել վերբեռնված ֆայլը, քանի որ սպասարկչում open_basedir "
-"հարաչափը միացրած է առանց %s ժամանակավոր պանակի մատչման արտոնությանը։"
-
-#: import.php:501 import.php:578 libraries/File.php:424 libraries/File.php:517
-msgid "File could not be read!"
-msgstr "Չհաջողվեց կարդալ ֆայլը։"
-
-#: import.php:512 import.php:527 import.php:552 import.php:567
-#: libraries/File.php:584
-#, php-format
-msgid ""
-"You attempted to load file with unsupported compression (%s). Either support "
-"for it is not implemented or disabled by your configuration."
-msgstr ""
-"Դուք փորձեցիք բեռնել չաջակցվող սեղմումով (%s) ֆայլ։ Այս եղանակի աջակցումը "
-"կամ չի կիչառվում, կամ էլ կասեցված է ձեր կազմաձևի մեջ։"
-
-#: import.php:585
+#: import.php:472
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
@@ -584,18 +561,18 @@ msgstr ""
 "ֆայլի չափը գերազանցում է ձեր PHP կազմաձևում առավելագույն թույլատրելի չափը։ "
 "Դիմեք [doc@faq1-16]FAQ 1.16[/doc]։"
 
-#: import.php:637 libraries/display_import.lib.php:665
+#: import.php:524 libraries/display_import.lib.php:665
 msgid "Could not load import plugins, please check your installation!"
 msgstr ""
 "Չհաջողվեց բեռնել ներմուծման հանգույցները։ Խնդրում ենք ստուգել ձեր տեղակայման "
 "ամբողջականությունը։"
 
-#: import.php:679 libraries/sql.lib.php:784 libraries/sql.lib.php:1561
+#: import.php:566 libraries/sql.lib.php:784 libraries/sql.lib.php:1561
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "%s էջանիշը ստեղծվեց։"
 
-#: import.php:689
+#: import.php:576
 #, fuzzy, php-format
 #| msgid "Import has been successfully finished, %d queries executed."
 msgid "Import has been successfully finished, %d query executed."
@@ -603,7 +580,7 @@ msgid_plural "Import has been successfully finished, %d queries executed."
 msgstr[0] "Ներմուծումը հաջողությամբ ավարտվեց, կատարվել է %d հարցում։"
 msgstr[1] "Ներմուծումը հաջողությամբ ավարտվեց, կատարվել է %d հարցում։"
 
-#: import.php:720
+#: import.php:607
 #, php-format
 msgid ""
 "Script timeout passed, if you want to finish import, please %sresubmit the "
@@ -612,7 +589,7 @@ msgstr ""
 "Սցենարի կատարման ժամանակի սահմանաչափը սպառվել է։ Ներմուծումը ավարտելու համար "
 "խնդրում ենք %sկրկին ուղարկեք նույն ֆայլը%s, և ներմուծումը կշարունակվի։"
 
-#: import.php:730
+#: import.php:617
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
@@ -854,7 +831,7 @@ msgstr ""
 "Սպասարկչում օգտագործվում է Suhosin պաշտպանիչ համակարգը։ Խնդիրների առաջացման "
 "դեպում դիմեք %sպաշտոնական ուղեցույցներին%s։"
 
-#: js/messages.php:42 libraries/import.lib.php:209 sql.php:161
+#: js/messages.php:42 libraries/import.lib.php:192 sql.php:161
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "\"DROP DATABASE\" արտահայտությունները կասեցված են։"
 
@@ -2925,7 +2902,7 @@ msgid "Please enter a valid HEX input"
 msgstr "Խնդրում ենք մուտքագրել վավերական տասնվեցերորդական արժեքը"
 
 #: js/messages.php:949 libraries/Message.php:202 libraries/Util.php:678
-#: libraries/core.lib.php:237 libraries/import.lib.php:101
+#: libraries/core.lib.php:237 libraries/import.lib.php:84
 #: libraries/insert_edit.lib.php:1177 view_operations.php:74
 msgid "Error"
 msgstr "Սխալ"
@@ -3215,18 +3192,35 @@ msgstr "ոչ դուրճազգայուն"
 msgid "case-sensitive collation"
 msgstr "դուրճազգայուն"
 
-#: libraries/Config.php:1137
+#: libraries/Config.php:1148
 #, php-format
 msgid "Existing configuration file (%s) is not readable."
 msgstr "Առկա կազմաձևի ֆայլը (%s) կարդացվող չէ։"
 
-#: libraries/Config.php:1167
+#: libraries/Config.php:1178
 msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr ""
 "Անվավեր արտոնություններ կազմաձևի ֆայլում։ Այն չպետք է բոլորի կողմից գրվող "
 "լինի։"
 
-#: libraries/Config.php:1528
+#: libraries/Config.php:1198
+#, php-format
+msgid "Could not load default configuration from: %1$s"
+msgstr ""
+
+#: libraries/Config.php:1205
+msgid "Failed to read configuration file!"
+msgstr ""
+
+#: libraries/Config.php:1208
+msgid ""
+"This usually means there is a syntax error in it, please check any errors "
+"shown below."
+msgstr ""
+"Սա սովորաբար նշանակում է շարահյուսության սխալների առկայություն, խնդրում ենք "
+"ստուգել ստորև ցուցադրվող սխալները։"
+
+#: libraries/Config.php:1569
 msgid "Font size"
 msgstr "Տառաչափ"
 
@@ -3529,8 +3523,8 @@ msgstr "Տողերի քանակը՝"
 msgid "Sort by key"
 msgstr "Դասակարգել ըստ բանալիի"
 
-#: libraries/DisplayResults.php:1720 libraries/import.lib.php:1268
-#: libraries/import.lib.php:1303 libraries/mult_submits.lib.php:340
+#: libraries/DisplayResults.php:1720 libraries/import.lib.php:1231
+#: libraries/import.lib.php:1266 libraries/mult_submits.lib.php:340
 #: libraries/plugins/export/ExportCodegen.php:84
 #: libraries/plugins/export/ExportCsv.php:48
 #: libraries/plugins/export/ExportExcel.php:38
@@ -3746,17 +3740,30 @@ msgstr "Ֆայլի վերբեռնումը կասեցվել է ընդլայնմա
 msgid "Unknown error in file upload."
 msgstr "Ֆայլի վերբեռման անհայտ սխալ։"
 
-#: libraries/File.php:465
+#: libraries/File.php:424 libraries/File.php:527
+msgid "File could not be read!"
+msgstr "Չհաջողվեց կարդալ ֆայլը։"
+
+#: libraries/File.php:475
 msgid "Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc]."
 msgstr "Վերբեռնված ֆայլի տեղափոխման սխալ, դիմեք [doc@faq1-11]FAQ 1.11[/doc]։"
 
-#: libraries/File.php:484
+#: libraries/File.php:494
 msgid "Error while moving uploaded file."
 msgstr "Վերբեռնված ֆայլի տեղափոխման սխալ։"
 
-#: libraries/File.php:492
+#: libraries/File.php:502
 msgid "Cannot read uploaded file."
 msgstr "Չհաջողվեց կարդալ վերբեռնված ֆայլը։"
+
+#: libraries/File.php:594
+#, php-format
+msgid ""
+"You attempted to load file with unsupported compression (%s). Either support "
+"for it is not implemented or disabled by your configuration."
+msgstr ""
+"Դուք փորձեցիք բեռնել չաջակցվող սեղմումով (%s) ֆայլ։ Այս եղանակի աջակցումը "
+"կամ չի կիչառվում, կամ էլ կասեցված է ձեր կազմաձևի մեջ։"
 
 #: libraries/Footer.php:74
 #, php-format
@@ -4921,45 +4928,28 @@ msgstr "Ավելացնել նոր սյունակ"
 msgid "Attributes"
 msgstr "Հատկանիշներ"
 
-#: libraries/common.inc.php:486
-msgid "Failed to read configuration file!"
-msgstr ""
-
-#: libraries/common.inc.php:489
-msgid ""
-"This usually means there is a syntax error in it, please check any errors "
-"shown below."
-msgstr ""
-"Սա սովորաբար նշանակում է շարահյուսության սխալների առկայություն, խնդրում ենք "
-"ստուգել ստորև ցուցադրվող սխալները։"
-
-#: libraries/common.inc.php:498
-#, php-format
-msgid "Could not load default configuration from: %1$s"
-msgstr ""
-
-#: libraries/common.inc.php:532
+#: libraries/common.inc.php:513
 #, php-format
 msgid "Invalid server index: %s"
 msgstr ""
 
-#: libraries/common.inc.php:544
+#: libraries/common.inc.php:525
 #, php-format
 msgid "Invalid hostname for server %1$s. Please review your configuration."
 msgstr ""
 "%1$s սպասարկչի համար նշված խնամորդի անունը անվավեր է։ Խնդրում ենք կատարել "
 "ուղղումներ ձեր կազմաձևի ֆայլում։"
 
-#: libraries/common.inc.php:562
+#: libraries/common.inc.php:543
 #, php-format
 msgid "Server %d"
 msgstr "Սպասարկիչ %d"
 
-#: libraries/common.inc.php:686
+#: libraries/common.inc.php:667
 msgid "Invalid authentication method set in configuration:"
 msgstr "Կազմաձևի ֆայլում նշված վավերացման եղանակը անվավեր է՝"
 
-#: libraries/common.inc.php:829
+#: libraries/common.inc.php:810
 #, php-format
 msgid ""
 "Unable to use timezone %1$s for server %2$d. Please check your configuration "
@@ -4971,20 +4961,20 @@ msgstr ""
 "[/em]-ի համար։ Տվյալ պահին phpMyAdmin-ը օգտագործում է սպասարկչի լռելյայն "
 "ժամային գոտին։"
 
-#: libraries/common.inc.php:861
+#: libraries/common.inc.php:842
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "Անհրաժեշտ է արդիացնել %s-ը %s կամ բարձր տարբերակին։"
 
-#: libraries/common.inc.php:947
+#: libraries/common.inc.php:928
 msgid "Error: Token mismatch"
 msgstr "Սխալ՝ հետքանշիչի անհամապատասխանություն"
 
-#: libraries/common.inc.php:965
+#: libraries/common.inc.php:946
 msgid "GLOBALS overwrite attempt"
 msgstr "GLOBALS վրագրելու փորձ"
 
-#: libraries/common.inc.php:972
+#: libraries/common.inc.php:953
 msgid "possible exploit"
 msgstr "հնարավոր խոցելիություն"
 
@@ -7727,7 +7717,7 @@ msgstr[0] "%1$d տվյալների բազա հաջողությամբ ջնջվե�
 msgstr[1] "%1$d տվյալների բազա հաջողությամբ ջնջվեցին։"
 
 #: libraries/controllers/server/ServerDatabasesController.php:346
-#: libraries/import.lib.php:111
+#: libraries/import.lib.php:94
 #: templates/database/structure/table_header.phtml:36
 #: templates/table/structure/actions_in_table_structure.phtml:111
 #: templates/table/structure/display_partitions.phtml:30
@@ -8598,64 +8588,64 @@ msgstr ""
 msgid "Dump has been saved to file %s."
 msgstr ""
 
-#: libraries/import.lib.php:119 libraries/insert_edit.lib.php:124
+#: libraries/import.lib.php:102 libraries/insert_edit.lib.php:124
 #: libraries/rte/rte_routines.lib.php:1444 libraries/sql.lib.php:1370
 #: tbl_get_field.php:45
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr ""
 
-#: libraries/import.lib.php:290 libraries/sql.lib.php:1384
+#: libraries/import.lib.php:273 libraries/sql.lib.php:1384
 msgid "[ROLLBACK occurred.]"
 msgstr "[Տեղի է ունեցել ՀԵՏԴԱՐՁ]"
 
-#: libraries/import.lib.php:1256
+#: libraries/import.lib.php:1219
 msgid ""
 "The following structures have either been created or altered. Here you can:"
 msgstr ""
 
-#: libraries/import.lib.php:1259
+#: libraries/import.lib.php:1222
 msgid "View a structure's contents by clicking on its name."
 msgstr ""
 
-#: libraries/import.lib.php:1262
+#: libraries/import.lib.php:1225
 msgid ""
 "Change any of its settings by clicking the corresponding \"Options\" link."
 msgstr ""
 
-#: libraries/import.lib.php:1264
+#: libraries/import.lib.php:1227
 msgid "Edit structure by following the \"Structure\" link."
 msgstr ""
 
-#: libraries/import.lib.php:1271
+#: libraries/import.lib.php:1234
 #, php-format
 msgid "Go to database: %s"
 msgstr ""
 
-#: libraries/import.lib.php:1277 libraries/import.lib.php:1321
+#: libraries/import.lib.php:1240 libraries/import.lib.php:1284
 #, php-format
 msgid "Edit settings for %s"
 msgstr "Խմբագրել կայանքներ %s-ի համար"
 
-#: libraries/import.lib.php:1306
+#: libraries/import.lib.php:1269
 #, php-format
 msgid "Go to table: %s"
 msgstr "Անցնել աղյուսակին՝ %s"
 
-#: libraries/import.lib.php:1314
+#: libraries/import.lib.php:1277
 #, php-format
 msgid "Structure of %s"
 msgstr "%s-ի կառուցվածքը"
 
-#: libraries/import.lib.php:1332
+#: libraries/import.lib.php:1295
 #, php-format
 msgid "Go to view: %s"
 msgstr "Անցնել ներկայացնամնը (VIEW)՝ %s"
 
-#: libraries/import.lib.php:1392
+#: libraries/import.lib.php:1355
 msgid "Only single-table UPDATE and DELETE queries can be simulated."
 msgstr ""
 
-#: libraries/import.lib.php:1615
+#: libraries/import.lib.php:1578
 msgid ""
 "Only INSERT, UPDATE, DELETE and REPLACE SQL queries containing transactional "
 "engine tables can be rolled back."
@@ -10078,7 +10068,7 @@ msgstr ""
 msgid "Invalid column count in CSV input on line %d."
 msgstr ""
 
-#: libraries/plugins/import/ImportLdi.php:109
+#: libraries/plugins/import/ImportLdi.php:111
 msgid "This plugin does not support compressed imports!"
 msgstr ""
 
@@ -10115,23 +10105,24 @@ msgstr ""
 msgid "ESRI Shape File"
 msgstr "ESRI ձևի ֆայլ"
 
-#: libraries/plugins/import/ImportShp.php:138
+#: libraries/plugins/import/ImportShp.php:81
+#: libraries/plugins/import/ImportShp.php:146
 #, php-format
 msgid "There was an error importing the ESRI shape file: \"%s\"."
 msgstr "ESRI ձևի ֆայլը ներմուծելու ժամանակ առաջացել է սխալ՝ \"%s\"։"
 
-#: libraries/plugins/import/ImportShp.php:195
+#: libraries/plugins/import/ImportShp.php:203
 msgid ""
 "You tried to import an invalid file or the imported file contains invalid "
 "data!"
 msgstr ""
 
-#: libraries/plugins/import/ImportShp.php:201
+#: libraries/plugins/import/ImportShp.php:209
 #, php-format
 msgid "MySQL Spatial Extension does not support ESRI type \"%s\"."
 msgstr ""
 
-#: libraries/plugins/import/ImportShp.php:250
+#: libraries/plugins/import/ImportShp.php:258
 msgid "The imported file does not contain any data!"
 msgstr ""
 
@@ -13880,7 +13871,7 @@ msgstr "Սկզբոից ցուցադրել հարցումների պատմութ�
 #: templates/console/display.phtml:189
 #, fuzzy
 #| msgid "Show current browsing query"
-msgid "Sow current browsing query"
+msgid "Show current browsing query"
 msgstr "Ցուցադրել ընթացիկ դիտվող հարցումը"
 
 #: templates/console/display.phtml:194
@@ -15975,6 +15966,13 @@ msgstr ""
 #: libraries/advisory_rules.txt:457
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert նշված է 0"
+
+#~ msgid ""
+#~ "Uploaded file cannot be moved, because the server has open_basedir "
+#~ "enabled without access to the %s directory (for temporary files)."
+#~ msgstr ""
+#~ "Հնարավոր չէ տեղափոխել վերբեռնված ֆայլը, քանի որ սպասարկչում open_basedir "
+#~ "հարաչափը միացրած է առանց %s ժամանակավոր պանակի մատչման արտոնությանը։"
 
 #~ msgid "Invalid export type"
 #~ msgstr "Անվավեր արտահանման տեսակ"

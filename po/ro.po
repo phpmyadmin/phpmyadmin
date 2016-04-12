@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2016-04-11 15:40+0200\n"
+"POT-Creation-Date: 2016-04-12 11:23+0200\n"
 "PO-Revision-Date: 2015-10-15 11:02+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Romanian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -267,7 +267,7 @@ msgstr "Tabele"
 #: libraries/config/user_preferences.forms.php:219
 #: libraries/config/user_preferences.forms.php:260
 #: libraries/config/user_preferences.forms.php:286
-#: libraries/import.lib.php:1302 libraries/navigation/nodes/NodeColumn.php:40
+#: libraries/import.lib.php:1265 libraries/navigation/nodes/NodeColumn.php:40
 #: libraries/navigation/nodes/NodeDatabase.php:53
 #: libraries/navigation/nodes/NodeTable.php:292
 #: libraries/server_privileges.lib.php:1240 libraries/tracking.lib.php:892
@@ -521,19 +521,19 @@ msgstr ""
 "Alege \"GeomFromText\" din coloana \"Function\" și salvează valoarea "
 "alăturată în atributul \"Value\"."
 
-#: import.php:57
+#: import.php:58
 msgid "Succeeded"
 msgstr "Reușit"
 
-#: import.php:61 js/messages.php:595
+#: import.php:62 js/messages.php:595
 msgid "Failed"
 msgstr "Eșuat"
 
-#: import.php:65
+#: import.php:66
 msgid "Incomplete params"
 msgstr "Parametrii incompleți"
 
-#: import.php:189
+#: import.php:190
 #, php-format
 msgid ""
 "You probably tried to upload a file that is too large. Please refer to "
@@ -542,40 +542,15 @@ msgstr ""
 "Probabil ați încercat să încărcați un fișier prea mare. Faceți referire la "
 "%sdocumentație%s pentru căi de ocolire a acestei limite."
 
-#: import.php:368 import.php:676
+#: import.php:369 import.php:563
 msgid "Showing bookmark"
 msgstr "Afișând semn de carte"
 
-#: import.php:385 import.php:672
+#: import.php:386 import.php:559
 msgid "The bookmark has been deleted."
 msgstr "Semnul de carte a fost șters."
 
-#: import.php:485
-#, php-format
-msgid ""
-"Uploaded file cannot be moved, because the server has open_basedir enabled "
-"without access to the %s directory (for temporary files)."
-msgstr ""
-"Fișierul încărcat nu poate fi mutat, deoarece server-ul are activat "
-"open_basedir , dar fără drepturi de acces la directorul %s (pentru fișiere "
-"temporare)."
-
-#: import.php:501 import.php:578 libraries/File.php:424 libraries/File.php:517
-msgid "File could not be read!"
-msgstr "Fișierul nu poate fi citit!"
-
-#: import.php:512 import.php:527 import.php:552 import.php:567
-#: libraries/File.php:584
-#, php-format
-msgid ""
-"You attempted to load file with unsupported compression (%s). Either support "
-"for it is not implemented or disabled by your configuration."
-msgstr ""
-"Ați încercat să încărcați un fișier cu compresie nesuportată (%s). Fie "
-"suportul pentru aceasta nu este implementat, fie este dezactivat de "
-"configurația dumneavoastră."
-
-#: import.php:585
+#: import.php:472
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
@@ -586,18 +561,18 @@ msgstr ""
 "permisă de configurația PHP-ului dumneavoastră. Vedeți [doc@faq1-16]FAQ "
 "1.16[/doc]."
 
-#: import.php:637 libraries/display_import.lib.php:665
+#: import.php:524 libraries/display_import.lib.php:665
 msgid "Could not load import plugins, please check your installation!"
 msgstr ""
 "Nu au putut fi încărcate extensii suplimentare de import, verificați "
 "instalarea!"
 
-#: import.php:679 libraries/sql.lib.php:784 libraries/sql.lib.php:1561
+#: import.php:566 libraries/sql.lib.php:784 libraries/sql.lib.php:1561
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "Semnul de carte %s a fost creat."
 
-#: import.php:689
+#: import.php:576
 #, fuzzy, php-format
 #| msgid "Import has been successfully finished, %d queries executed."
 msgid "Import has been successfully finished, %d query executed."
@@ -606,7 +581,7 @@ msgstr[0] "Importul s-a terminat cu succes, %d interogări executate."
 msgstr[1] "Importul s-a terminat cu succes, %d interogări executate."
 msgstr[2] "Importul s-a terminat cu succes, %d interogări executate."
 
-#: import.php:720
+#: import.php:607
 #, php-format
 msgid ""
 "Script timeout passed, if you want to finish import, please %sresubmit the "
@@ -616,7 +591,7 @@ msgstr ""
 "încărcarea, %s vă rog să re-trimiteți același fișier %s și încărcarea va "
 "continua de unde s-a întrerupt."
 
-#: import.php:730
+#: import.php:617
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
@@ -864,7 +839,7 @@ msgstr ""
 "Serverul rulează cu Suhosin. Consultați %sdocumentation%s pentru posibile "
 "probleme."
 
-#: js/messages.php:42 libraries/import.lib.php:209 sql.php:161
+#: js/messages.php:42 libraries/import.lib.php:192 sql.php:161
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "Comenzile \"DROP DATABASE\" sunt dezactivate."
 
@@ -3051,7 +3026,7 @@ msgid "Please enter a valid HEX input"
 msgstr "Introduceţi un număr valid!"
 
 #: js/messages.php:949 libraries/Message.php:202 libraries/Util.php:678
-#: libraries/core.lib.php:237 libraries/import.lib.php:101
+#: libraries/core.lib.php:237 libraries/import.lib.php:84
 #: libraries/insert_edit.lib.php:1177 view_operations.php:74
 msgid "Error"
 msgstr "Eroare"
@@ -3342,18 +3317,33 @@ msgstr "insensibil la registru"
 msgid "case-sensitive collation"
 msgstr "sensibil la registru"
 
-#: libraries/Config.php:1137
+#: libraries/Config.php:1148
 #, php-format
 msgid "Existing configuration file (%s) is not readable."
 msgstr "Fișierul de configurare existent (%s) nu poate fi citit."
 
-#: libraries/Config.php:1167
+#: libraries/Config.php:1178
 msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr ""
 "Permisiuni greșite asupra fișierului de configurare, acesta nu ar trebui să "
 "aibă permisiuni de scriere pentru oricine!"
 
-#: libraries/Config.php:1528
+#: libraries/Config.php:1198
+#, php-format
+msgid "Could not load default configuration from: %1$s"
+msgstr "Nu s-a putut încărca configurația implicită de la: %1$s"
+
+#: libraries/Config.php:1205
+msgid "Failed to read configuration file!"
+msgstr "Fișierul de configurare nu poate fi citit!"
+
+#: libraries/Config.php:1208
+msgid ""
+"This usually means there is a syntax error in it, please check any errors "
+"shown below."
+msgstr ""
+
+#: libraries/Config.php:1569
 msgid "Font size"
 msgstr "Dimensiune font"
 
@@ -3666,8 +3656,8 @@ msgstr "Număr de rânduri:"
 msgid "Sort by key"
 msgstr "Sortare după cheie"
 
-#: libraries/DisplayResults.php:1720 libraries/import.lib.php:1268
-#: libraries/import.lib.php:1303 libraries/mult_submits.lib.php:340
+#: libraries/DisplayResults.php:1720 libraries/import.lib.php:1231
+#: libraries/import.lib.php:1266 libraries/mult_submits.lib.php:340
 #: libraries/plugins/export/ExportCodegen.php:84
 #: libraries/plugins/export/ExportCsv.php:48
 #: libraries/plugins/export/ExportExcel.php:38
@@ -3886,20 +3876,34 @@ msgstr "Încărcarea fișierului a fost împiedicată de extensie."
 msgid "Unknown error in file upload."
 msgstr "Eroare necunoscută la încărcarea fișierului."
 
-#: libraries/File.php:465
+#: libraries/File.php:424 libraries/File.php:527
+msgid "File could not be read!"
+msgstr "Fișierul nu poate fi citit!"
+
+#: libraries/File.php:475
 msgid "Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc]."
 msgstr ""
 "Eroare la mutarea fișierului încărcat, vezi [doc@faq1-11]FAQ 1.11[/doc]."
 
-#: libraries/File.php:484
+#: libraries/File.php:494
 msgid "Error while moving uploaded file."
 msgstr "Eroare la mutarea fișierului încărcat."
 
-#: libraries/File.php:492
+#: libraries/File.php:502
 #, fuzzy
 #| msgid "Cannot read (moved) upload file."
 msgid "Cannot read uploaded file."
 msgstr "Nu se poate citi fișierul încărcat (și mutat)."
+
+#: libraries/File.php:594
+#, php-format
+msgid ""
+"You attempted to load file with unsupported compression (%s). Either support "
+"for it is not implemented or disabled by your configuration."
+msgstr ""
+"Ați încercat să încărcați un fișier cu compresie nesuportată (%s). Fie "
+"suportul pentru aceasta nu este implementat, fie este dezactivat de "
+"configurația dumneavoastră."
 
 #: libraries/Footer.php:74
 #, php-format
@@ -5093,43 +5097,28 @@ msgstr "Adăugați o coloană nouă"
 msgid "Attributes"
 msgstr "Proprietăți"
 
-#: libraries/common.inc.php:486
-msgid "Failed to read configuration file!"
-msgstr "Fișierul de configurare nu poate fi citit!"
-
-#: libraries/common.inc.php:489
-msgid ""
-"This usually means there is a syntax error in it, please check any errors "
-"shown below."
-msgstr ""
-
-#: libraries/common.inc.php:498
-#, php-format
-msgid "Could not load default configuration from: %1$s"
-msgstr "Nu s-a putut încărca configurația implicită de la: %1$s"
-
-#: libraries/common.inc.php:532
+#: libraries/common.inc.php:513
 #, php-format
 msgid "Invalid server index: %s"
 msgstr "Index de server invalid: %s"
 
-#: libraries/common.inc.php:544
+#: libraries/common.inc.php:525
 #, php-format
 msgid "Invalid hostname for server %1$s. Please review your configuration."
 msgstr ""
 "Gazdă nevalidă pentru serverul %1$s. Vă rugăm să revizuiți configurația "
 "dumneavoastră."
 
-#: libraries/common.inc.php:562
+#: libraries/common.inc.php:543
 #, php-format
 msgid "Server %d"
 msgstr "Server %d"
 
-#: libraries/common.inc.php:686
+#: libraries/common.inc.php:667
 msgid "Invalid authentication method set in configuration:"
 msgstr "Metodă de autentificare nevalidă stabilită în configurație:"
 
-#: libraries/common.inc.php:829
+#: libraries/common.inc.php:810
 #, php-format
 msgid ""
 "Unable to use timezone %1$s for server %2$d. Please check your configuration "
@@ -5137,20 +5126,20 @@ msgid ""
 "currently using the default time zone of the database server."
 msgstr ""
 
-#: libraries/common.inc.php:861
+#: libraries/common.inc.php:842
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "Ar trebui sa reactualizati serverul %s %s la o versiune mai noua."
 
-#: libraries/common.inc.php:947
+#: libraries/common.inc.php:928
 msgid "Error: Token mismatch"
 msgstr "Eroare: Tokenii nu se potrivesc"
 
-#: libraries/common.inc.php:965
+#: libraries/common.inc.php:946
 msgid "GLOBALS overwrite attempt"
 msgstr "S-a încercat suprascrierea valorilor globale"
 
-#: libraries/common.inc.php:972
+#: libraries/common.inc.php:953
 msgid "possible exploit"
 msgstr "potenţială vulnerabilitate"
 
@@ -8528,7 +8517,7 @@ msgstr[1] "%s baza(ele) de data(e) au fost aruncate."
 msgstr[2] "%s baza(ele) de data(e) au fost aruncate."
 
 #: libraries/controllers/server/ServerDatabasesController.php:346
-#: libraries/import.lib.php:111
+#: libraries/import.lib.php:94
 #: templates/database/structure/table_header.phtml:36
 #: templates/table/structure/actions_in_table_structure.phtml:111
 #: templates/table/structure/display_partitions.phtml:30
@@ -9552,66 +9541,66 @@ msgstr "Serverul web nu are drepturile necesare pentru a salva fișierul %s."
 msgid "Dump has been saved to file %s."
 msgstr "Copia a fost salvată în fișierul %s."
 
-#: libraries/import.lib.php:119 libraries/insert_edit.lib.php:124
+#: libraries/import.lib.php:102 libraries/insert_edit.lib.php:124
 #: libraries/rte/rte_routines.lib.php:1444 libraries/sql.lib.php:1370
 #: tbl_get_field.php:45
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL a dat un set de rezultate gol (zero linii)."
 
-#: libraries/import.lib.php:290 libraries/sql.lib.php:1384
+#: libraries/import.lib.php:273 libraries/sql.lib.php:1384
 msgid "[ROLLBACK occurred.]"
 msgstr ""
 
-#: libraries/import.lib.php:1256
+#: libraries/import.lib.php:1219
 msgid ""
 "The following structures have either been created or altered. Here you can:"
 msgstr ""
 
-#: libraries/import.lib.php:1259
+#: libraries/import.lib.php:1222
 msgid "View a structure's contents by clicking on its name."
 msgstr ""
 
-#: libraries/import.lib.php:1262
+#: libraries/import.lib.php:1225
 msgid ""
 "Change any of its settings by clicking the corresponding \"Options\" link."
 msgstr ""
 
-#: libraries/import.lib.php:1264
+#: libraries/import.lib.php:1227
 msgid "Edit structure by following the \"Structure\" link."
 msgstr ""
 
-#: libraries/import.lib.php:1271
+#: libraries/import.lib.php:1234
 #, fuzzy, php-format
 msgid "Go to database: %s"
 msgstr "Nu sînt baze de date"
 
-#: libraries/import.lib.php:1277 libraries/import.lib.php:1321
+#: libraries/import.lib.php:1240 libraries/import.lib.php:1284
 #, php-format
 msgid "Edit settings for %s"
 msgstr ""
 
-#: libraries/import.lib.php:1306
+#: libraries/import.lib.php:1269
 #, fuzzy, php-format
 msgid "Go to table: %s"
 msgstr "Nu sînt baze de date"
 
-#: libraries/import.lib.php:1314
+#: libraries/import.lib.php:1277
 #, fuzzy, php-format
 #| msgid "Structure only"
 msgid "Structure of %s"
 msgstr "Numai structura"
 
-#: libraries/import.lib.php:1332
+#: libraries/import.lib.php:1295
 #, fuzzy, php-format
 #| msgid "Export views"
 msgid "Go to view: %s"
 msgstr "Modul de export"
 
-#: libraries/import.lib.php:1392
+#: libraries/import.lib.php:1355
 msgid "Only single-table UPDATE and DELETE queries can be simulated."
 msgstr ""
 
-#: libraries/import.lib.php:1615
+#: libraries/import.lib.php:1578
 msgid ""
 "Only INSERT, UPDATE, DELETE and REPLACE SQL queries containing transactional "
 "engine tables can be rolled back."
@@ -11230,7 +11219,7 @@ msgstr ""
 msgid "Invalid column count in CSV input on line %d."
 msgstr "Invalid field count in CSV input on line %d."
 
-#: libraries/plugins/import/ImportLdi.php:109
+#: libraries/plugins/import/ImportLdi.php:111
 msgid "This plugin does not support compressed imports!"
 msgstr "Modulul opțional nu suportă importuri comprimate!"
 
@@ -11270,23 +11259,24 @@ msgstr "Foaie de calcul Open Document"
 msgid "ESRI Shape File"
 msgstr ""
 
-#: libraries/plugins/import/ImportShp.php:138
+#: libraries/plugins/import/ImportShp.php:81
+#: libraries/plugins/import/ImportShp.php:146
 #, php-format
 msgid "There was an error importing the ESRI shape file: \"%s\"."
 msgstr ""
 
-#: libraries/plugins/import/ImportShp.php:195
+#: libraries/plugins/import/ImportShp.php:203
 msgid ""
 "You tried to import an invalid file or the imported file contains invalid "
 "data!"
 msgstr ""
 
-#: libraries/plugins/import/ImportShp.php:201
+#: libraries/plugins/import/ImportShp.php:209
 #, php-format
 msgid "MySQL Spatial Extension does not support ESRI type \"%s\"."
 msgstr ""
 
-#: libraries/plugins/import/ImportShp.php:250
+#: libraries/plugins/import/ImportShp.php:258
 #, fuzzy
 #| msgid "File %s does not contain any key id"
 msgid "The imported file does not contain any data!"
@@ -15604,7 +15594,7 @@ msgstr "Arată istoricul interogărilor la pornire"
 #: templates/console/display.phtml:189
 #, fuzzy
 #| msgid "Show current browsing query"
-msgid "Sow current browsing query"
+msgid "Show current browsing query"
 msgstr "Arată interogarea curentă de navigare"
 
 #: templates/console/display.phtml:194
@@ -18080,6 +18070,14 @@ msgstr ""
 #: libraries/advisory_rules.txt:457
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert este setat cu 0"
+
+#~ msgid ""
+#~ "Uploaded file cannot be moved, because the server has open_basedir "
+#~ "enabled without access to the %s directory (for temporary files)."
+#~ msgstr ""
+#~ "Fișierul încărcat nu poate fi mutat, deoarece server-ul are activat "
+#~ "open_basedir , dar fără drepturi de acces la directorul %s (pentru "
+#~ "fișiere temporare)."
 
 #~ msgid "Invalid export type"
 #~ msgstr "Tip invalid de export"
