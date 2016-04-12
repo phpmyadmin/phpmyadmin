@@ -4,17 +4,17 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-04-12 11:23+0200\n"
-"PO-Revision-Date: 2016-02-22 16:50+0000\n"
+"PO-Revision-Date: 2016-04-12 18:55+0000\n"
 "Last-Translator: Domen <mitenem@outlook.com>\n"
-"Language-Team: Slovenian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/sl/>\n"
+"Language-Team: Slovenian "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/sl/>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
-"%100==4 ? 2 : 3;\n"
-"X-Generator: Weblate 2.5-dev\n"
+"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
+"n%100==4 ? 2 : 3;\n"
+"X-Generator: Weblate 2.6-dev\n"
 
 #: changelog.php:37 license.php:33
 #, php-format
@@ -3051,7 +3051,7 @@ msgstr "Korejsko"
 
 #: libraries/Charsets.php:313
 msgid "Burmese"
-msgstr ""
+msgstr "burmanščina"
 
 #: libraries/Charsets.php:316
 msgid "Persian"
@@ -3165,22 +3165,19 @@ msgid "unknown"
 msgstr "neznano"
 
 #: libraries/Charsets.php:460
-#, fuzzy
 #| msgid "Collation"
 msgid "binary collation"
-msgstr "Pravilo za razvrščanje znakov"
+msgstr "dvojiško pravilo za razvrščanje znakov"
 
 #: libraries/Charsets.php:467
-#, fuzzy
 #| msgid "case-insensitive"
 msgid "case-insensitive collation"
-msgstr "ne razlikuj velikih in malih črk"
+msgstr "na velikost črk neobčutljivo pravilo za razvrščanje znakov"
 
 #: libraries/Charsets.php:469
-#, fuzzy
 #| msgid "case-sensitive"
 msgid "case-sensitive collation"
-msgstr "razlikuj velike in male črke"
+msgstr "na velikost črk občutljivo pravilo za razvrščanje znakov"
 
 #: libraries/Config.php:1148
 #, php-format
@@ -12191,10 +12188,10 @@ msgstr ""
 "Dodeli vse privilegije na imenu z nadomestnim znakom (uporabniskoime\\_%)."
 
 #: libraries/server_privileges.lib.php:2332
-#, fuzzy, php-format
+#, php-format
 #| msgid "Grant all privileges on database \"%s\"."
 msgid "Grant all privileges on database %s."
-msgstr "Dodeli vse privilegije za zbirko podatkov \"%s\"."
+msgstr "Dodeli vse privilegije za zbirko podatkov %s."
 
 #: libraries/server_privileges.lib.php:2496
 #: libraries/server_privileges.lib.php:2567
@@ -14562,7 +14559,6 @@ msgid "Show query history at start"
 msgstr "Na začetku prikaži zgodovino"
 
 #: templates/console/display.phtml:189
-#, fuzzy
 #| msgid "Show current browsing query"
 msgid "Show current browsing query"
 msgstr "Prikaži trenutno poizvedbo brskanja"
@@ -15435,22 +15431,21 @@ msgid "The profile has been updated."
 msgstr "Profil je posodobljen."
 
 #: vendor/phpmyadmin/motranslator/tests/MoFilesTest.php:24
-#, fuzzy
 #| msgid "Column names"
 msgid "Column parser"
-msgstr "Imena stolpcev"
+msgstr "Razčlenjevalnik stolpcev"
 
 #: vendor/phpmyadmin/motranslator/tests/MoFilesTest.php:83
 #: vendor/phpmyadmin/motranslator/tests/MoFilesTest.php:127
-#, fuzzy, php-format
+#, php-format
 #| msgid "%d second"
 #| msgid_plural "%d seconds"
 msgid "\"%d\" second"
 msgid_plural "\"%d\" seconds"
-msgstr[0] "%d sekunda"
-msgstr[1] "%d sekundi"
-msgstr[2] "%d sekunde"
-msgstr[3] "%d sekund"
+msgstr[0] "\"%d\" sekunda"
+msgstr[1] "\"%d\" sekundi"
+msgstr[2] "\"%d\" sekunde"
+msgstr[3] "\"%d\" sekund"
 
 #: vendor/phpmyadmin/sql-parser/src/Component.php:48
 #: vendor/phpmyadmin/sql-parser/src/Component.php:68
@@ -15476,10 +15471,9 @@ msgid "An opening bracket was expected."
 msgstr "Pričakovali smo začetni oklepaj."
 
 #: vendor/phpmyadmin/sql-parser/src/Components/CreateDefinition.php:225
-#, fuzzy
 #| msgid "Variable name was expected."
 msgid "A symbol name was expected!"
-msgstr "Pričakovali smo ime spremenljivke."
+msgstr "Pričakovali smo ime znaka!"
 
 #: vendor/phpmyadmin/sql-parser/src/Components/CreateDefinition.php:257
 msgid "A comma or a closing bracket was expected."
