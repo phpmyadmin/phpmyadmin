@@ -6,16 +6,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-04-11 15:40+0200\n"
-"PO-Revision-Date: 2016-02-23 09:36+0000\n"
+"PO-Revision-Date: 2016-04-12 11:05+0000\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
-"Language-Team: Estonian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/et/>\n"
+"Language-Team: Estonian "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/et/>\n"
 "Language: et\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.5-dev\n"
+"X-Generator: Weblate 2.6-dev\n"
 
 #: changelog.php:37 license.php:33
 #, php-format
@@ -3057,7 +3057,7 @@ msgstr "Korea"
 
 #: libraries/Charsets.php:313
 msgid "Burmese"
-msgstr ""
+msgstr "birma keel"
 
 #: libraries/Charsets.php:316
 msgid "Persian"
@@ -3171,22 +3171,19 @@ msgid "unknown"
 msgstr "tundmatu"
 
 #: libraries/Charsets.php:460
-#, fuzzy
 #| msgid "Collation"
 msgid "binary collation"
-msgstr "Kodeering"
+msgstr "binaarne sortimine"
 
 #: libraries/Charsets.php:467
-#, fuzzy
 #| msgid "case-insensitive"
 msgid "case-insensitive collation"
-msgstr "tõstutundetu"
+msgstr "tõstutundetu sortimine"
 
 #: libraries/Charsets.php:469
-#, fuzzy
 #| msgid "case-sensitive"
 msgid "case-sensitive collation"
-msgstr "tõstutundlik"
+msgstr "tõstutundlik sortimine"
 
 #: libraries/Config.php:1137
 #, php-format
@@ -12100,10 +12097,10 @@ msgid "Grant all privileges on wildcard name (username\\_%)."
 msgstr "Anna kõik õigused metamärgiga nimele (kasutajanimi\\_%)."
 
 #: libraries/server_privileges.lib.php:2332
-#, fuzzy, php-format
+#, php-format
 #| msgid "Grant all privileges on database \"%s\"."
 msgid "Grant all privileges on database %s."
-msgstr "Anna kõik õigused \"%s\" andmebaasis."
+msgstr "Anna kõik õigused andmebaasis %s."
 
 #: libraries/server_privileges.lib.php:2496
 #: libraries/server_privileges.lib.php:2567
@@ -14457,7 +14454,6 @@ msgid "Show query history at start"
 msgstr "Kuva päringu ajalugu alguses"
 
 #: templates/console/display.phtml:189
-#, fuzzy
 #| msgid "Show current browsing query"
 msgid "Sow current browsing query"
 msgstr "Kuva valitud lehitsemise päring"
@@ -15328,20 +15324,19 @@ msgid "The profile has been updated."
 msgstr "Profiil on uuendatud."
 
 #: vendor/phpmyadmin/motranslator/tests/MoFilesTest.php:24
-#, fuzzy
 #| msgid "Column names"
 msgid "Column parser"
-msgstr "Veeru nimed"
+msgstr "Veeru parser"
 
 #: vendor/phpmyadmin/motranslator/tests/MoFilesTest.php:83
 #: vendor/phpmyadmin/motranslator/tests/MoFilesTest.php:127
-#, fuzzy, php-format
+#, php-format
 #| msgid "%d second"
 #| msgid_plural "%d seconds"
 msgid "\"%d\" second"
 msgid_plural "\"%d\" seconds"
-msgstr[0] "%d sekund"
-msgstr[1] "%d sekundit"
+msgstr[0] "\"%d\" sekund"
+msgstr[1] "\"%d\" sekundit"
 
 #: vendor/phpmyadmin/sql-parser/src/Component.php:48
 #: vendor/phpmyadmin/sql-parser/src/Component.php:68
@@ -15367,10 +15362,9 @@ msgid "An opening bracket was expected."
 msgstr "Oodati avanevat sulgu."
 
 #: vendor/phpmyadmin/sql-parser/src/Components/CreateDefinition.php:225
-#, fuzzy
 #| msgid "Variable name was expected."
 msgid "A symbol name was expected!"
-msgstr "Oodati muutuja nime."
+msgstr "Oodati sümboli nime!"
 
 #: vendor/phpmyadmin/sql-parser/src/Components/CreateDefinition.php:257
 msgid "A comma or a closing bracket was expected."
