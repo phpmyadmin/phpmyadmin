@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-04-12 11:23+0200\n"
-"PO-Revision-Date: 2016-03-29 18:28+0000\n"
-"Last-Translator: Ricardo Crivelli <ricardocrivelli@gmail.com>\n"
-"Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
-"phpmyadmin/master/pt_BR/>\n"
+"PO-Revision-Date: 2016-04-13 19:13+0000\n"
+"Last-Translator: Guilherme <guilherme@rigon.info>\n"
+"Language-Team: Portuguese (Brazil) "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/pt_BR/>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -7999,6 +7999,8 @@ msgid ""
 "Queries are executed by pressing Enter (instead of Ctrl+Enter). New lines "
 "will be inserted with Shift+Enter."
 msgstr ""
+"Queries são executadas pressionando Enter (no lugar de Ctrl + enter). Nova "
+"linhas serão inseridas com Shift + Enter."
 
 #: libraries/config/messages.inc.php:996
 #, fuzzy
@@ -10022,7 +10024,7 @@ msgstr "Reparar"
 #: libraries/operations.lib.php:1584
 #: templates/table/structure/display_structure.phtml:177
 msgid "Truncate"
-msgstr ""
+msgstr "Truncar"
 
 #: libraries/operations.lib.php:1594
 #, fuzzy
@@ -10651,7 +10653,7 @@ msgstr "Estrutura da view %s exportado como tabela"
 
 #: libraries/plugins/export/ExportSql.php:2099
 msgid "(See below for the actual view)"
-msgstr ""
+msgstr "(Veja abaixo para a visão atual)"
 
 #: libraries/plugins/export/ExportSql.php:2185
 msgid "Error reading data:"
