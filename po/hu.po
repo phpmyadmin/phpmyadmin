@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-04-12 11:23+0200\n"
-"PO-Revision-Date: 2016-03-31 11:24+0000\n"
-"Last-Translator: Krisztián Patai <pataikrisztian@gmail.com>\n"
-"Language-Team: Hungarian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/hu/>\n"
+"PO-Revision-Date: 2016-04-15 16:48+0000\n"
+"Last-Translator: Szász Attila <undernetangel@gmail.com>\n"
+"Language-Team: Hungarian "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/hu/>\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -617,7 +617,6 @@ msgstr ""
 "a root, debian-sys-maint és pma felhasználókon. További információ: %s."
 
 #: index.php:164
-#, fuzzy
 #| msgid "General Settings"
 msgid "General settings"
 msgstr "Általános beállítások"
@@ -633,7 +632,6 @@ msgid "Server connection collation"
 msgstr "Kiszolgálókapcsolat illesztése"
 
 #: index.php:232
-#, fuzzy
 #| msgid "Appearance Settings"
 msgid "Appearance settings"
 msgstr "Megjelenési beállítások"
@@ -998,7 +996,6 @@ msgstr ""
 "alakítani az adatokat?"
 
 #: js/messages.php:114
-#, fuzzy
 #| msgid "Save & Close"
 msgid "Save & close"
 msgstr "Mentés és bezárás"
@@ -1009,7 +1006,6 @@ msgid "Reset"
 msgstr "Visszaállítás"
 
 #: js/messages.php:116
-#, fuzzy
 #| msgid "Reset All"
 msgid "Reset all"
 msgstr "Összes visszaállítása"
@@ -2623,6 +2619,12 @@ msgid ""
 "cause such a problem, clearing your \"Offline Website Data\" might help. In "
 "Safari, such problem is commonly caused by \"Private Mode Browsing\"."
 msgstr ""
+"Probléma adódott, amikor a böngészője tárolóját próbáltuk elérni, néhány "
+"megoldás nem fog tökéletesen működni az ön számára. Úgy tűnik, hogy a "
+"böngésző nem támogatja a helyi tárolást, vagy elérte a kvóta felső határát. "
+"Firefox esetében a sérült tároló okozhat ilyen problémát: az \"Offline "
+"adatok törlése\" segíthet. Safari böngészőnél ezt a hibát általában a privát "
+"módú böngészés okozza."
 
 #: js/messages.php:714
 #, fuzzy
@@ -3295,8 +3297,8 @@ msgstr "Betűméret"
 #, php-format
 msgid "Showing %1$d bookmark (both private and shared)"
 msgid_plural "Showing %1$d bookmarks (both private and shared)"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1$d könyvjelző megjelenítése (privát és megosztott egyaránt)"
+msgstr[1] "%1$d könyvjelző megjelenítése (privát és megosztott egyaránt)"
 
 #: libraries/Console.php:95
 msgid "No bookmarks"
@@ -3974,6 +3976,8 @@ msgstr "Nem támogatott nyelvi kód mellőzése."
 msgid ""
 "Linting is disabled for this query because it exceeds the maximum length."
 msgstr ""
+"A kódtisztítás ki van kapcsolva erre a lekérésre, mivel meghaladja a "
+"maximális hosszt."
 
 #: libraries/Linter.php:165
 #, php-format
@@ -4763,6 +4767,8 @@ msgid ""
 "Stores and enables efficient access to data in JSON (JavaScript Object "
 "Notation) documents"
 msgstr ""
+"Eltárolja és bekapcsolja a hatékony hozzáférést a JSON (JavaScript Object "
+"Notation) dokumentumok adataihoz"
 
 #: libraries/TypesMySQL.php:479
 msgctxt "numeric types"
@@ -5632,6 +5638,8 @@ msgid ""
 "Find any errors in the query before executing it. Requires CodeMirror to be "
 "enabled."
 msgstr ""
+"Megkeresi a lekérés hibáit a végrehajtás előtt. Bekapcsolt CodeMirror "
+"szükséges a működéshez."
 
 #: libraries/config/messages.inc.php:67
 #, fuzzy
@@ -5769,6 +5777,8 @@ msgstr "Tábla megjegyzéseinek megjelenítése"
 #: libraries/config/messages.inc.php:119
 msgid "Whether column comments should be shown in table structure view"
 msgstr ""
+"Meghatározza, hogy az oszlop megjegyzéseket megjelenítse-e a táblázat "
+"struktúra nézetben"
 
 #: libraries/config/messages.inc.php:120
 msgid "Hide table structure actions"
@@ -6012,6 +6022,8 @@ msgid ""
 "Add IF NOT EXISTS (less efficient as indexes will be generated during table "
 "creation)"
 msgstr ""
+"IF NOT EXISTS hozzáadása (kevésbé hatékony, mivel a tábla létrehozása idején "
+"indexeket generálunk)"
 
 #: libraries/config/messages.inc.php:214
 msgid "Use ignore inserts"
@@ -8306,6 +8318,8 @@ msgid ""
 "connection that encrypts the password using RSA</i>'; while connecting to "
 "the server."
 msgstr ""
+"Ez a módszer <i>SSL kapcsolatot</i> vagy <i>RSA-val kódolt jelszót előállító "
+"nem kódolt kapcsolatot</i> igényel a szerverhez kapcsolódás közben."
 
 #: libraries/display_export.lib.php:172
 msgid "Exporting databases from the current server"
@@ -9350,7 +9364,7 @@ msgstr[1] "%s eredmény található"
 #: libraries/navigation/NavigationTree.php:1365
 #: libraries/navigation/NavigationTree.php:1402
 msgid "Type to filter these, Enter to search all"
-msgstr ""
+msgstr "Gépeljen ezen elemek szűréséhez, vagy Enterrel keressen mindegyikre"
 
 #: libraries/navigation/NavigationTree.php:1367
 #: libraries/navigation/NavigationTree.php:1403
@@ -10372,6 +10386,7 @@ msgstr "%s utasítások hozzáadása"
 #: libraries/plugins/export/ExportSql.php:286
 msgid "(less efficient as indexes will be generated during table creation)"
 msgstr ""
+"(kevésbé hatékony, mivel az indexek a tábla létrehozása közben generálódnak)"
 
 #: libraries/plugins/export/ExportSql.php:294
 #, fuzzy, php-format
@@ -10564,7 +10579,7 @@ msgstr "%s nézet struktúrája táblaként exportálva"
 
 #: libraries/plugins/export/ExportSql.php:2099
 msgid "(See below for the actual view)"
-msgstr ""
+msgstr "(Lásd alább az aktuális nézetet)"
 
 #: libraries/plugins/export/ExportSql.php:2185
 msgid "Error reading data:"
@@ -11113,7 +11128,7 @@ msgstr "Engedélyezett"
 
 #: libraries/relation.lib.php:102
 msgid "Configuration of pmadb…"
-msgstr "A pmadb beállítása… "
+msgstr "A pmadb beállítása…"
 
 #: libraries/relation.lib.php:106 libraries/relation.lib.php:142
 msgid "General relation features"
@@ -14235,6 +14250,8 @@ msgid ""
 "Username and hostname didn't change. If you only want to change the "
 "password, 'Change password' tab should be used."
 msgstr ""
+"A felhasználónév és a kiszolgálónév nem változott. Ha csak a jelszót óhajtja "
+"cserélni, használja a \"Jelszócsere\" fület."
 
 #: server_status.php:35
 #, fuzzy
@@ -15785,12 +15802,12 @@ msgstr "%1$d értékek voltak elvárva, de %2$d található."
 
 #: vendor/phpmyadmin/sql-parser/src/Components/Array2d.php:115
 msgid "An opening bracket followed by a set of values was expected."
-msgstr ""
+msgstr "Nyitó kapcsos zárójelet és az azt követő értékeket vártuk."
 
 #: vendor/phpmyadmin/sql-parser/src/Components/ArrayObj.php:119
 #: vendor/phpmyadmin/sql-parser/src/Components/CreateDefinition.php:207
 msgid "An opening bracket was expected."
-msgstr ""
+msgstr "Nyitó kapcsos zárójelet vártunk."
 
 #: vendor/phpmyadmin/sql-parser/src/Components/CreateDefinition.php:225
 #, fuzzy
@@ -15806,7 +15823,7 @@ msgstr "Nincsenek táblák kiválasztva."
 
 #: vendor/phpmyadmin/sql-parser/src/Components/CreateDefinition.php:273
 msgid "A closing bracket was expected."
-msgstr ""
+msgstr "Záró kapcsos zárójelet vártunk."
 
 #: vendor/phpmyadmin/sql-parser/src/Components/DataType.php:128
 msgid "Unrecognized data type."
@@ -15838,7 +15855,7 @@ msgstr "Nincsenek verziók kijelölve."
 #: vendor/phpmyadmin/sql-parser/src/Components/Limit.php:91
 #: vendor/phpmyadmin/sql-parser/src/Components/Limit.php:113
 msgid "An offset was expected."
-msgstr ""
+msgstr "Offsetet vártunk."
 
 #: vendor/phpmyadmin/sql-parser/src/Components/OptionsArray.php:147
 #, php-format
@@ -15853,7 +15870,7 @@ msgstr "A megnyitott táblák száma."
 
 #: vendor/phpmyadmin/sql-parser/src/Components/RenameOperation.php:112
 msgid "Keyword \"TO\" was expected."
-msgstr ""
+msgstr "\"TO\" kulcsszavat vártunk."
 
 #: vendor/phpmyadmin/sql-parser/src/Components/RenameOperation.php:128
 #, fuzzy
@@ -15873,12 +15890,12 @@ msgstr "Váratlan karakter."
 
 #: vendor/phpmyadmin/sql-parser/src/Lexer.php:304
 msgid "Expected whitespace(s) before delimiter."
-msgstr ""
+msgstr "A határoló előtt szóközö(ke)t vártunk."
 
 #: vendor/phpmyadmin/sql-parser/src/Lexer.php:322
 #: vendor/phpmyadmin/sql-parser/src/Lexer.php:338
 msgid "Expected delimiter."
-msgstr ""
+msgstr "Határolót vártunk."
 
 #: vendor/phpmyadmin/sql-parser/src/Lexer.php:784
 #, fuzzy, php-format
@@ -15941,7 +15958,7 @@ msgstr "A sablon törölve lett."
 
 #: vendor/phpmyadmin/sql-parser/src/Statements/CreateStatement.php:518
 msgid "A \"RETURNS\" keyword was expected."
-msgstr ""
+msgstr "\"RETURNS\" kulcsszavat vártunk."
 
 #: vendor/phpmyadmin/sql-parser/tests/Lexer/LexerTest.php:21
 #: vendor/phpmyadmin/sql-parser/tests/Parser/ParserTest.php:58
