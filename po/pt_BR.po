@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.0-alpha1\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-02-17 11:55+0100\n"
-"PO-Revision-Date: 2016-04-13 19:12+0000\n"
-"Last-Translator: Guilherme <guilherme@rigon.info>\n"
+"PO-Revision-Date: 2016-04-16 14:09+0000\n"
+"Last-Translator: Rogerio Marques <rogerio@algoincomum.com.br>\n"
 "Language-Team: Portuguese (Brazil) "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-6/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -1772,10 +1772,9 @@ msgid "No databases selected."
 msgstr "Nenhum banco de dados selecionado."
 
 #: js/messages.php:365
-#, fuzzy
 #| msgid "Dropping Column"
 msgid "Dropping column"
-msgstr "Excluindo coluna"
+msgstr "Excluíndo coluna"
 
 #: js/messages.php:366
 msgid "Adding primary key"
@@ -2580,7 +2579,7 @@ msgstr ""
 "Ocorreram alguns erros enquanto informações de debug do SQL eram gerados."
 
 #: js/messages.php:704
-#, fuzzy, php-format
+#, php-format
 #| msgid "Executed queries"
 msgid "%s queries executed %s times in %s seconds."
 msgstr "%s consultas executadas %s vezes em %s segundos"
@@ -4743,7 +4742,7 @@ msgstr "Pular demonstração do SQL"
 #: libraries/Util.php:1225
 #, php-format
 msgid "Analyze Explain at %s"
-msgstr ""
+msgstr "Explicação da analise em %1"
 
 #: libraries/Util.php:1256
 #| msgid "Without PHP Code"
