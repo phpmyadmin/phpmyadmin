@@ -423,11 +423,11 @@ Yes. This procedure was tested with phpMyAdmin 2.6.1, PHP 4.3.9 in
 ------------------------------------------------------
 
 Yes. Out of the box, you can use :term:`URL` like
-http://server/phpMyAdmin/index.php?server=X&db=database&table=table&target=script.
+``http://server/phpMyAdmin/index.php?server=X&db=database&table=table&target=script``.
 For ``server`` you use the server number
 which refers to the order of the server paragraph in
 :file:`config.inc.php`. Table and script parts are optional. If you want
-http://server/phpMyAdmin/database[/table][/script] :term:`URL`, you need to do some configuration. Following
+``http://server/phpMyAdmin/database[/table][/script]`` :term:`URL`, you need to do some configuration. Following
 lines apply only for `Apache <http://httpd.apache.org>`_ web server.
 First make sure, that you have enabled some features within global
 configuration. You need ``Options FollowSymLinks`` and ``AllowOverride
@@ -531,7 +531,7 @@ You can also disable the warning using the :config:option:`$cfg['SuhosinDisableW
 Be sure that you have enabled ``SSLOptions`` and ``StdEnvVars`` in
 your Apache configuration.
 
-.. seealso:: <http://httpd.apache.org/docs/2.0/mod/mod_ssl.html#ssloptions>
+.. seealso:: <http://httpd.apache.org/docs/2.4/mod/mod_ssl.html>
 
 .. _faq1_40:
 
@@ -549,7 +549,7 @@ the set-cookie headers. Example from the Apache 2.2 documentation:
     ProxyPassReverseCookieDomain backend.example.com public.example.com
     ProxyPassReverseCookiePath / /mirror/foo/
 
-Note: if the backend url looks like http://host/~user/phpmyadmin, the
+Note: if the backend url looks like ``http://host/~user/phpmyadmin``, the
 tilde (~) must be url encoded as %7E in the ProxyPassReverse\* lines.
 This is not specific to phpmyadmin, it's just the behavior of Apache.
 
@@ -1822,8 +1822,7 @@ other.
 Not every table can be put to the chart. Only tables with one, two or
 three columns can be visualised as a chart. Moreover the table must be
 in a special format for chart script to understand it. Currently
-supported formats can be found in the `wiki <http://wiki.phpmyadmin.ne
-t/pma/Charts#Data_formats_for_query_results_chart>`_.
+supported formats can be found in the `wiki <http://wiki.phpmyadmin.net/pma/Charts>`_.
 
 .. _faq6_30:
 
