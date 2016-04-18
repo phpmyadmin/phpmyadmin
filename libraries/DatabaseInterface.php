@@ -2351,9 +2351,21 @@ class DatabaseInterface
         $user, $password, $is_controluser = false, $server = null,
         $auxiliary_connection = false
     ) {
+        $error_count = $GLOBALS['error_handler']->countErrors();
         $result = $this->_extension->connect(
             $user, $password, $is_controluser, $server, $auxiliary_connection
         );
+
+        /* Any errors from connection? */
+        if ($GLOBALS['error_handler']->countErrors() > $error_count) {
+            $errors = $GLOBALS['error_handler']->sliceErrors($error_count);
+            foreach ($errors as $error) {
+                trigger_error(
+                    $error->getMessage(),
+                    E_USER_ERROR
+                );
+            }
+        }
 
         if ($result) {
             if (! $auxiliary_connection && ! $is_controluser) {
