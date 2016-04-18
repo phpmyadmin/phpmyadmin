@@ -184,16 +184,11 @@ class ErrorHandlerTest extends PMATestCase
      */
     public function testCountErrors()
     {
-
-        $err = array();
-        $err[] = new PMA\libraries\Error('256', 'Compile Error', 'error.txt', 15);
-        $errHandler = $this->getMock('PMA\libraries\ErrorHandler');
-        $errHandler->expects($this->any())
-            ->method('getErrors')
-            ->will($this->returnValue($err));
-
+        $this->object->addError(
+            'Compile Error', E_WARNING, 'error.txt', 15
+        );
         $this->assertEquals(
-            0,
+            1,
             $this->object->countErrors()
         );
     }
@@ -205,16 +200,18 @@ class ErrorHandlerTest extends PMATestCase
      */
     public function testCountUserErrors()
     {
-
-        $err = array();
-        $err[] = new PMA\libraries\Error('256', 'Compile Error', 'error.txt', 15);
-        $errHandler = $this->getMock('PMA\libraries\ErrorHandler');
-        $errHandler->expects($this->any())
-            ->method('countErrors', 'getErrors')
-            ->will($this->returnValue(1, $err));
-
+        $this->object->addError(
+            'Compile Error', E_WARNING, 'error.txt', 15
+        );
         $this->assertEquals(
             0,
+            $this->object->countUserErrors()
+        );
+        $this->object->addError(
+            'Compile Error', E_USER_WARNING, 'error.txt', 15
+        );
+        $this->assertEquals(
+            1,
             $this->object->countUserErrors()
         );
     }
