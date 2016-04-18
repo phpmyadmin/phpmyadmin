@@ -165,11 +165,14 @@ class DBIMysqli implements DBIExtension
              * @link https://bugs.php.net/bug.php?id=68344
              * @link https://github.com/phpmyadmin/phpmyadmin/pull/11838
              */
-            mysqli_options(
-                $link,
-                MYSQLI_OPT_SSL_VERIFY_SERVER_CERT,
-                $cfg['Server']['ssl_verify']
-            );
+            if (! $cfg['Server']['ssl_verify']) {
+                mysqli_options(
+                    $link,
+                    MYSQLI_OPT_SSL_VERIFY_SERVER_CERT,
+                    $cfg['Server']['ssl_verify']
+                );
+                $client_flags |= MYSQLI_CLIENT_SSL_DONT_VERIFY_SERVER_CERT;
+            }
         }
 
         if (! $server) {
