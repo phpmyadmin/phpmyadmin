@@ -296,16 +296,12 @@ Server connection settings
 
     Directory containing trusted SSL CA certificates in PEM format.
 
-    .. seealso:: :ref:`example-google-ssl`
-
 .. config:option:: $cfg['Servers'][$i]['ssl_ciphers']
 
     :type: string
     :default: NULL
 
     List of allowable ciphers for SSL connections to the MySQL server.
-
-    .. seealso:: :ref:`example-google-ssl`
 
 .. config:option:: $cfg['Servers'][$i]['ssl_verify']
 
@@ -2942,3 +2938,11 @@ server certificates and tell phpMyAdmin to use them:
     $cfg['Servers'][$i]['ssl_ca'] = '../server-ca.pem';
     // Disable SSL verification (see above note)
     $cfg['Servers'][$i]['ssl_verify'] = false;
+
+.. seealso::
+
+    :config:option:`$cfg['Servers'][$i]['ssl']`,
+    :config:option:`$cfg['Servers'][$i]['ssl_key']`,
+    :config:option:`$cfg['Servers'][$i]['ssl_cert']`,
+    :config:option:`$cfg['Servers'][$i]['ssl_ca']`,
+    :config:option:`$cfg['Servers'][$i]['ssl_verify']`
