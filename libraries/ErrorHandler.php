@@ -82,7 +82,7 @@ class ErrorHandler
      *
      * @return Error[]
      */
-    protected function getErrors()
+    public function getErrors()
     {
         $this->checkSavedErrors();
         return $this->errors;
@@ -97,6 +97,20 @@ class ErrorHandler
     public function getCurrentErrors()
     {
         return $this->errors;
+    }
+
+    /**
+     * Pops recent erros from the storage
+     *
+     * @param int $count Old error count
+     *
+     * @return Error[]
+     */
+    public function sliceErrors($count)
+    {
+        $errors = $this->getErrors();
+        $this->errors = array_splice($errors, 0, $count);
+        return array_splice($errors, $count);
     }
 
     /**
