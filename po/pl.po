@@ -4,17 +4,17 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-04-12 11:23+0200\n"
-"PO-Revision-Date: 2015-12-31 14:50+0000\n"
-"Last-Translator: Sebastian Weremczuk <weremczuksebastian@gmail.com>\n"
-"Language-Team: Polish <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"pl/>\n"
+"PO-Revision-Date: 2016-04-18 19:35+0000\n"
+"Last-Translator: bladerunn3r <tkrzywonos@gmail.com>\n"
+"Language-Team: Polish "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/pl/>\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 2.5-dev\n"
+"X-Generator: Weblate 2.6-dev\n"
 
 #: changelog.php:37 license.php:33
 #, php-format
@@ -1992,12 +1992,13 @@ msgid "No partial dependencies selected!"
 msgstr "Żadne częściowe zależności nie zostały wybrane!"
 
 #: js/messages.php:453
+#, fuzzy
 msgid "Show me the possible partial dependencies based on data in the table"
-msgstr ""
+msgstr "Pokaż częściowe zależności w oparciu o dane w tabeli"
 
 #: js/messages.php:454
 msgid "Hide partial dependencies list"
-msgstr ""
+msgstr "Ukryj listę częściowych zależności"
 
 #: js/messages.php:456
 msgid ""
@@ -2036,7 +2037,7 @@ msgstr ""
 
 #: js/messages.php:468
 msgid "Selected dependencies are as follows:"
-msgstr ""
+msgstr "Wybrano następujące zależności:"
 
 #: js/messages.php:469
 msgid "No dependencies selected!"
@@ -2891,7 +2892,7 @@ msgstr "Wprowadź co najmniej {0} znaków"
 
 #: js/messages.php:918
 msgid "Please enter a value between {0} and {1} characters long"
-msgstr ""
+msgstr "Wprowadź wartość o długości pomiędzy {0} a {1} znaków"
 
 #: js/messages.php:923
 msgid "Please enter a value between {0} and {1}"
@@ -3680,7 +3681,7 @@ msgstr "Zaznacz wszystko"
 
 #: libraries/DisplayResults.php:5030
 msgid "Copy to clipboard"
-msgstr ""
+msgstr "Kopiuj do schowka"
 
 #: libraries/DisplayResults.php:5086
 msgid "Query results operations"
@@ -3906,8 +3907,9 @@ msgid "Page number:"
 msgstr "Numer strony:"
 
 #: libraries/LanguageManager.php:863
+#, fuzzy
 msgid "Ignoring unsupported language code."
-msgstr ""
+msgstr "Ignorowanie niewspieranego kodu językowego."
 
 #: libraries/Linter.php:99
 msgid ""
@@ -5264,10 +5266,9 @@ msgid "Allow users to customize this value"
 msgstr "Zezwól użytkownikom na zmianę tej wartości"
 
 #: libraries/config/PageSettings.php:141
-#, fuzzy
 #| msgid "Cannot save settings, submitted form contains errors!"
 msgid "Cannot save settings, submitted configuration form contains errors!"
-msgstr "Nie można zapisać ustawień, formularz złożony zawiera błędy!"
+msgstr "Nie można zapisać ustawień, złożony formularz  zawiera błędy!"
 
 #: libraries/config/ServerConfigChecks.php:159
 msgid "You should use SSL connections if your database server supports it."
@@ -5997,10 +5998,13 @@ msgid "Use hexadecimal for BINARY & BLOB"
 msgstr "Użyj liczb szesnastkowych dla BLOB"
 
 #: libraries/config/messages.inc.php:211
+#, fuzzy
 msgid ""
 "Add IF NOT EXISTS (less efficient as indexes will be generated during table "
 "creation)"
 msgstr ""
+"Dodaj IF NOT EXISTS (mniej efektywne, indeksy będą generowane podczas "
+"tworzenia tabeli)"
 
 #: libraries/config/messages.inc.php:214
 msgid "Use ignore inserts"
@@ -6677,8 +6681,9 @@ msgid "Show databases navigation as tree"
 msgstr "Pokaż ukryte elementy drzewa nawigacji."
 
 #: libraries/config/messages.inc.php:477
+#, fuzzy
 msgid "Link with main panel by highlighting the current database or table."
-msgstr ""
+msgstr "Połącz z panelem głównym zaznaczając obecną bazę danych lub tabelę."
 
 #: libraries/config/messages.inc.php:480
 msgid "Show logo in navigation panel."
@@ -6985,8 +6990,9 @@ msgstr ""
 "jeśli jakiekolwiek ze słów w nazwach kolumn są zastrzeżone dla MySQL"
 
 #: libraries/config/messages.inc.php:587
+#, fuzzy
 msgid "MySQL reserved word warning"
-msgstr ""
+msgstr "Ostrzeżenie słowa kluczowego MySQL"
 
 #: libraries/config/messages.inc.php:589
 msgid "How to display the menu tabs"
@@ -7046,8 +7052,9 @@ msgid "Remember table's sorting"
 msgstr "Zapamiętaj sortowanie tabel"
 
 #: libraries/config/messages.inc.php:610
+#, fuzzy
 msgid "Default sort order for tables with a primary key."
-msgstr ""
+msgstr "Domyślny porządek sortowania tabel kluczem głównym."
 
 #: libraries/config/messages.inc.php:612
 #, fuzzy
@@ -7125,10 +7132,11 @@ msgid "Session timezone"
 msgstr "Strefa czasowa sesji"
 
 #: libraries/config/messages.inc.php:631
+#, fuzzy
 msgid ""
 "Sets the effective timezone; possibly different than the one from your "
 "database server"
-msgstr ""
+msgstr "Ustawia strefę czasową; może ona być różna od tej z serwera bazy danych"
 
 #: libraries/config/messages.inc.php:635
 #, fuzzy
@@ -15235,10 +15243,13 @@ msgid "Show current browsing query"
 msgstr ""
 
 #: templates/console/display.phtml:194
+#, fuzzy
 msgid ""
 "Execute queries on Enter and insert new line with Shift + Enter. To make "
 "this permanent, view settings."
 msgstr ""
+"Wykonaj zapytanie poprzez Enter i wprowadź nową linię poprzez  Shift + "
+"Enter. Aby wykonać to trwale, wyświetl opcje."
 
 #: templates/console/display.phtml:198
 msgid "Switch to dark theme"
