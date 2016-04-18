@@ -194,6 +194,40 @@ class ErrorHandlerTest extends PMATestCase
     }
 
     /**
+     * Test for sliceErrors
+     *
+     * @return void
+     *
+     * @group medium
+     */
+    public function testSliceErrors()
+    {
+        $this->object->addError(
+            'Compile Error', E_WARNING, 'error.txt', 15
+        );
+        $this->assertEquals(
+            1,
+            $this->object->countErrors()
+        );
+        $this->assertEquals(
+            array(),
+            $this->object->sliceErrors(1)
+        );
+        $this->assertEquals(
+            1,
+            $this->object->countErrors()
+        );
+        $this->assertEquals(
+            1,
+            count($this->object->sliceErrors(0))
+        );
+        $this->assertEquals(
+            0,
+            $this->object->countErrors()
+        );
+    }
+
+    /**
      * Test for countUserErrors
      *
      * @return void
