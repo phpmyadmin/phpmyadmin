@@ -2737,6 +2737,8 @@ Various display setting
     ``SELECT COUNT`` will be used, otherwise the approximate count will be
     used.
 
+    .. seealso:: :ref:`faq3_11`
+
 .. config:option:: $cfg['MaxExactCountViews']
 
     :type: integer

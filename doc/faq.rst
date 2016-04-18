@@ -952,6 +952,8 @@ However, one can easily replace the approximate row count with exact count by
 simply clicking on the approximate count. This can also be done for all tables
 at once by clicking on the rows sum displayed at the bottom.
 
+.. seealso:: :config:option:`$cfg['MaxExactCount']`
+
 .. _faq3_12:
 
 3.12 (withdrawn).
