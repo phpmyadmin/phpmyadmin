@@ -139,7 +139,7 @@ Credits, in chronological order
   * created current website for phpMyAdmin
 
 * Christophe Gesché from the "MySQL Form Generator for PHPMyAdmin"
-  (http://sf.net/projects/phpmysqlformgen/)
+  (https://sourceforge.net/projects/phpmysqlformgen/)
 
   * suggested the patch for multiple table printviews
 
@@ -182,7 +182,7 @@ Credits, in chronological order
 
   * :term:`PDF` schema output, thanks also to
     Olivier Plathey for the "FPDF" library (see <http://www.fpdf.org/>), Steven
-    Wittens for the "UFPDF" library (see <http://www.acko.net/node/56>) and
+    Wittens for the "UFPDF" library (see <https://acko.net/blog/ufpdf-unicode-utf-8-extension-for-fpdf/>) and
     Nicola Asuni for the "TCPDF" library (see <http://www.tcpdf.org/>).
 
 * Olof Edlund <olof.edlund\_at\_upright.se>

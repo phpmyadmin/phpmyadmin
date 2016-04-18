@@ -689,7 +689,7 @@ Server connection settings
         For auto-upgrade functionality to work, your
         ``$cfg['Servers'][$i]['controluser']`` must have ALTER privilege on
         ``phpmyadmin`` database. See the `MySQL documentation for GRANT
-        <http://dev.mysql.com/doc/mysql/en/grant.html>`_ on how to
+        <http://dev.mysql.com/doc/refman/5.7/en/grant.html>`_ on how to
         ``GRANT`` privileges to a user.
 
 .. _history:
@@ -1550,7 +1550,7 @@ Cookie authentication options
     :default: ``''``
 
     The public key for the reCaptcha service that can be obtained from
-    http://www.google.com/recaptcha.
+    http://www.google.com/recaptcha/intro/.
 
     reCaptcha will be then used in :ref:`cookie`.
 
@@ -1560,7 +1560,7 @@ Cookie authentication options
     :default: ``''``
 
     The private key for the reCaptcha service that can be obtain from
-    http://www.google.com/recaptcha.
+    http://www.google.com/recaptcha/intro/.
 
     reCaptcha will be then used in :ref:`cookie`.
 
@@ -2216,7 +2216,7 @@ Languages
 
     Defines the default connection collation to use, if not user-defined.
     See the `MySQL documentation for charsets
-    <http://dev.mysql.com/doc/mysql/en/charset-charsets.html>`_
+    <http://dev.mysql.com/doc/refman/5.7/en/charset-charsets.html>`_
     for list of possible values.
 
 .. config:option:: $cfg['Lang']
@@ -2901,7 +2901,7 @@ Developer
     :default: false
 
     Enable to let server present itself as demo server.
-    This is used for <http://demo.phpmyadmin.net/>.
+    This is used for `phpMyAdmin demo server <https://www.phpmyadmin.net/try>`_.
 
 
 Examples

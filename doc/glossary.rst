@@ -319,7 +319,7 @@ From Wikipedia, the free encyclopedia
     socket
       a form of inter-process communication.	
 
-      .. seealso:: <http://www.wikipedia.org/wiki/Socket#Computer_sockets>
+      .. seealso:: <https://en.wikipedia.org/wiki/Unix_domain_socket>
 
     SSL
       Secure Sockets Layer is a cryptographic protocol which provides secure
@@ -369,7 +369,7 @@ From Wikipedia, the free encyclopedia
     UFPDF
       Unicode/UTF-8 extension for :term:`FPDF`
 
-      .. seealso:: <http://www.acko.net/node/56>
+      .. seealso:: <https://acko.net/blog/ufpdf-unicode-utf-8-extension-for-fpdf/>
 
     URL
       Uniform Resource Locator is a sequence of characters, conforming to a

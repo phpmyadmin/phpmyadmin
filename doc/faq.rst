@@ -45,7 +45,7 @@ groups.
 
 You just forgot to read the *install.txt* file from the PHP
 distribution. Have a look at the last message in this `PHP bug report #12061
-<http://bugs.php.net/bug.php?id=12061>`_ from the official PHP bug
+<https://bugs.php.net/bug.php?id=12061>`_ from the official PHP bug
 database.
 
 .. _faq1_5:
@@ -129,7 +129,7 @@ and after execution of your :term:`SQL` commands, removed.
 -------------------------------------------------------
 
 The MySQL manual explains how to `reset the permissions
-<http://dev.mysql.com/doc/mysql/en/resetting-permissions.html>`_.
+<http://dev.mysql.com/doc/refman/5.7/en/resetting-permissions.html>`_.
 
 .. _faq1_13:
 
@@ -173,7 +173,7 @@ hosting provider is unwilling to change the settings:
   then able to import the files from the temporary directory. More
   information is available in the :ref:`config`  of this document.
 * Using a utility (such as `BigDump
-  <http://www.ozerov.de/bigdump.php>`_) to split the files before
+  <http://www.ozerov.de/bigdump/>`_) to split the files before
   uploading. We cannot support this or any third party applications, but
   are aware of users having success with it.
 * If you have shell (command line) access, use MySQL to import the files
@@ -210,7 +210,7 @@ The proper solution is to use the `mysqli extension
 <http://php.net/mysqli>`_ with the proper client library to match
 your MySQL installation. More
 information (and several workarounds) are located in the `MySQL
-Documentation <http://dev.mysql.com/doc/mysql/en/old-client.html>`_.
+Documentation <http://dev.mysql.com/doc/refman/5.7/en/old-client.html>`_.
 
 .. _faq1_18:
 
@@ -324,7 +324,7 @@ should work.
 1.27 I get empty page when I want to view huge page (eg. db\_structure.php with plenty of tables).
 --------------------------------------------------------------------------------------------------
 
-This was caused by a `PHP bug <http://bugs.php.net/21079>`_ that occur when
+This was caused by a `PHP bug <https://bugs.php.net/bug.php?id=21079>`_ that occur when
 GZIP output buffering is enabled. If you turn off it (by
 :config:option:`$cfg['OBGzip']` in :file:`config.inc.php`), it should work.
 This bug will has been fixed in PHP 5.0.0.
@@ -501,32 +501,23 @@ The default values for most Suhosin configuration options will work in
 most scenarios, however you might want to adjust at least following
 parameters:
 
-* `suhosin.request.max\_vars <http://www.hardened-
-  php.net/suhosin/configuration.html#suhosin.request.max_vars>`_ should
+* `suhosin.request.max\_vars <https://suhosin.org/stories/configuration.html#suhosin-request-max-vars>`_ should
   be increased (eg. 2048)
-* `suhosin.post.max\_vars <http://www.hardened-
-  php.net/suhosin/configuration.html#suhosin.post.max_vars>`_ should be
+* `suhosin.post.max\_vars <https://suhosin.org/stories/configuration.html#suhosin-post-max-vars>`_ should be
   increased (eg. 2048)
-* `suhosin.request.max\_array\_index\_length <http://www.hardened-php.ne
-  t/suhosin/configuration.html#suhosin.request.max_array_index_length>`_
+* `suhosin.request.max\_array\_index\_length <https://suhosin.org/stories/configuration.html#suhosin-request-max-array-index-length>`_
   should be increased (eg. 256)
-* `suhosin.post.max\_array\_index\_length <http://www.hardened-php.net/s
-  uhosin/configuration.html#suhosin.post.max_array_index_length>`_
+* `suhosin.post.max\_array\_index\_length <https://suhosin.org/stories/configuration.html#suhosin-post-max-array-index-length>`_
   should be increased (eg. 256)
-* `suhosin.request.max\_totalname\_length <http://www.hardened-php.net/s
-  uhosin/configuration.html#suhosin.request.max_totalname_length>`_
+* `suhosin.request.max\_totalname\_length <https://suhosin.org/stories/configuration.html#suhosin-request-max-totalname-length>`_
   should be increased (eg. 8192)
-* `suhosin.post.max\_totalname\_length <http://www.hardened-php.net/suho
-  sin/configuration.html#suhosin.post.max_totalname_length>`_ should be
+* `suhosin.post.max\_totalname\_length <https://suhosin.org/stories/configuration.html#suhosin-post-max-totalname-length>`_ should be
   increased (eg. 8192)
-* `suhosin.get.max\_value\_length <http://www.hardened-
-  php.net/suhosin/configuration.html#suhosin.get.max_value_length>`_
+* `suhosin.get.max\_value\_length <https://suhosin.org/stories/configuration.html#suhosin-get-max-value-length>`_
   should be increased (eg. 1024)
-* `suhosin.sql.bailout\_on\_error <http://www.hardened-
-  php.net/suhosin/configuration.html#suhosin.sql.bailout_on_error>`_
+* `suhosin.sql.bailout\_on\_error <https://suhosin.org/stories/configuration.html#suhosin-sql-bailout-on-error>`_
   needs to be disabled (the default)
-* `suhosin.log.\* <http://www.hardened-
-  php.net/suhosin/configuration.html#logging_configuration>`_ should not
+* `suhosin.log.\* <https://suhosin.org/stories/configuration.html#logging-configuration>`_ should not
   include :term:`SQL`, otherwise you get big
   slowdown
 
@@ -791,7 +782,7 @@ Here are a few points to check:
 * In :file:`config.inc.php`, try to leave the :config:option:`$cfg['PmaAbsoluteUri']` directive empty. See also
   :ref:`faq4_7`.
 * Maybe you have a broken PHP installation or you need to upgrade your
-  Zend Optimizer. See <http://bugs.php.net/bug.php?id=31134>.
+  Zend Optimizer. See <https://bugs.php.net/bug.php?id=31134>.
 * If you are using Hardened PHP with the ini directive
   ``varfilter.max_request_variables`` set to the default (200) or
   another low value, you could get this error if your table has a high
@@ -1227,7 +1218,7 @@ Mozilla versions.
 -------------------------------------------------------------------------------------------------------------------------------
 
 This is a Mozilla bug (see bug #26882 at `BugZilla
-<http://bugzilla.mozilla.org/>`_).
+<https://bugzilla.mozilla.org/>`_).
 
 .. _faq5_10:
 
