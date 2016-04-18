@@ -358,7 +358,7 @@ options which the setup script does not provide.
    recommended, for example with HTTP–AUTH in a :term:`.htaccess` file or switch to using
    ``auth_type`` cookie or http. See the :ref:`faqmultiuser`
    for additional information, especially :ref:`faq4_4`.
-#. Open the `main phpMyAdmin directory <index.php>`_ in your browser.
+#. Open the main phpMyAdmin directory in your browser.
    phpMyAdmin should now display a welcome screen and your databases, or
    a login dialog if using :term:`HTTP` or
    cookie authentication mode.
