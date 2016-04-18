@@ -84,7 +84,7 @@ class DBIMysqli implements DBIExtension
         }
 
         if ($client_flags === null) {
-            return @mysqli_real_connect(
+            return mysqli_real_connect(
                 $link,
                 $host,
                 $user,
@@ -94,7 +94,7 @@ class DBIMysqli implements DBIExtension
                 $server_socket
             );
         } else {
-            return @mysqli_real_connect(
+            return mysqli_real_connect(
                 $link,
                 $host,
                 $user,
