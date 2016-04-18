@@ -78,7 +78,7 @@ function PMA_ipMaskTest($testRange, $ipToTest)
 /**
  * Based on IP Pattern Matcher
  * Originally by J.Adams <jna@retina.net>
- * Found on <http://www.php.net/manual/en/function.ip2long.php>
+ * Found on <http://php.net/manual/en/function.ip2long.php>
  * Modified for phpMyAdmin
  *
  * Matches:
