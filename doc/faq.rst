@@ -272,12 +272,20 @@ directory and add the following line to the group [mysqld]:
 
     set-variable = lower_case_table_names=0
 
+.. note::
+    
+    Forcing this variable to 0 with --lower-case-table-names=0 on a
+    case-insensitive filesystem and access MyISAM tablenames using different
+    lettercases, index corruption may result.
+
 Next, save the file and restart the MySQL service. You can always
 check the value of this directive using the query
 
 .. code-block:: mysql
 
     SHOW VARIABLES LIKE 'lower_case_table_names';
+
+.. seealso:: `Identifier Case Sensitivity in the MySQL Reference Manual <http://dev.mysql.com/doc/refman/5.7/en/identifier-case-sensitivity.html>`_
 
 .. _faq1_24:
 
