@@ -29,7 +29,7 @@ options, you can consult your *<www.your-host.com>/<your-install-
 dir>/transformation\_overview.php* installation.
 
 For a tutorial on how to effectively use transformations, see our
-`Link section <http://www.phpmyadmin.net/home_page/docs.php>`_ on the
+`Link section <https://www.phpmyadmin.net/docs/>`_ on the
 official phpMyAdmin homepage.
 
 .. _transformationshowto:
@@ -128,9 +128,9 @@ The applyTransformation() method always gets passed three variables:
    function as an array.
 #. **$meta** - Contains an object with information about your column. The
    data is drawn from the output of the `mysql\_fetch\_field()
-   <http://www.php.net/mysql_fetch_field>`_ function. This means, all
+   <http://php.net/mysql_fetch_field>`_ function. This means, all
    object properties described on the `manual page
-   <http://www.php.net/mysql_fetch_field>`_ are available in this
+   <http://php.net/mysql_fetch_field>`_ are available in this
    variable and can be used to transform a column accordingly to
    unsigned/zerofill/not\_null/... properties. The $meta->mimetype
    variable contains the original MIME-type of the column (i.e.

@@ -42,7 +42,7 @@ Ubuntu
 
 Ubuntu ships phpMyAdmin package, however if you want to use recent version, you
 can use packages from
-`PPA for Michal Čihař <https://launchpad.net/~nijel/+archive/phpmyadmin>`_.
+`PPA for Michal Čihař <https://launchpad.net/~nijel/+archive/ubuntu/phpmyadmin>`_.
 
 Gentoo
 ------
@@ -82,7 +82,7 @@ Installing on Windows
 
 The easiest way to get phpMyAdmin on Windows is using third party products
 which include phpMyAdmin together with a database and web server such as
-`XAMPP <http://www.apachefriends.org/en/xampp.html>`_.
+`XAMPP <https://www.apachefriends.org/index.html>`_.
 
 You can find more of such options at `Wikipedia <https://en.wikipedia.org/wiki/List_of_AMP_packages>`_.
 

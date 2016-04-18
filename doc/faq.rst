@@ -932,7 +932,7 @@ official phpMyAdmin-homepage.
 
 When MySQL is running in ANSI-compatibility mode, there are some major
 differences in how :term:`SQL` is structured (see
-<http://dev.mysql.com/doc/mysql/en/ansi-mode.html>). Most important of all, the
+<http://dev.mysql.com/doc/refman/5.7/en/sql-mode.html>). Most important of all, the
 quote-character (") is interpreted as an identifier quote character and not as
 a string quote character, which makes many internal phpMyAdmin operations into
 invalid :term:`SQL` statements. There is no
