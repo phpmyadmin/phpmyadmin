@@ -176,7 +176,7 @@ class DBIMysqli implements DBIExtension
         }
 
         if (! $server) {
-            $return_value = @$this->_realConnect(
+            $return_value = $this->_realConnect(
                 $link,
                 $cfg['Server']['host'],
                 $user,
@@ -192,7 +192,7 @@ class DBIMysqli implements DBIExtension
                 && $cfg['Server']['nopassword']
                 && ! $is_controluser
             ) {
-                $return_value = @$this->_realConnect(
+                $return_value = $this->_realConnect(
                     $link,
                     $cfg['Server']['host'],
                     $user,
@@ -204,7 +204,7 @@ class DBIMysqli implements DBIExtension
                 );
             }
         } else {
-            $return_value = @$this->_realConnect(
+            $return_value = $this->_realConnect(
                 $link,
                 $server['host'],
                 $user,
