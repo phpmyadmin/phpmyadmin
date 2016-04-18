@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-04-12 11:23+0200\n"
-"PO-Revision-Date: 2016-04-16 14:09+0000\n"
-"Last-Translator: Rogerio Marques <rogerio@algoincomum.com.br>\n"
+"PO-Revision-Date: 2016-04-18 12:46+0000\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Portuguese (Brazil) "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -4811,7 +4811,7 @@ msgstr "Pular demonstração do SQL"
 #: libraries/Util.php:1224
 #, php-format
 msgid "Analyze Explain at %s"
-msgstr "Explicação da analise em %1"
+msgstr "Explicação da analise em %s"
 
 #: libraries/Util.php:1255
 msgid "Without PHP code"
