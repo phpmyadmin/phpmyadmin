@@ -1964,6 +1964,9 @@ Browse mode
     descending order for columns of type TIME, DATE, DATETIME and
     TIMESTAMP, ascending order else- by default.
 
+    .. versionchanged:: 3.4.0
+        Since phpMyAdmin 3.4.0 the default value is ``'SMART'``.
+
 .. config:option:: $cfg['GridEditing']
 
     :type: string
