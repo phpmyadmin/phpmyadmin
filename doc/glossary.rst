@@ -241,12 +241,12 @@ From Wikipedia, the free encyclopedia
     mysqli
       the improved MySQL client PHP extension.	
 
-      .. seealso:: <http://php.net/mysqli>
+      .. seealso:: <http://php.net/manual/en/book.mysqli.php>
 
     mysql
       the MySQL client PHP extension.	
 
-      .. seealso:: <http://php.net/mysql>
+      .. seealso:: <http://php.net/manual/en/book.mysql.php>
 
     OpenDocument
       open standard for office documents.	
