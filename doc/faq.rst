@@ -790,7 +790,7 @@ Here are a few points to check:
   Dorninger for the hint).
 * In the :file:`php.ini` directive ``arg_separator.input``, a value of ";"
   will cause this error. Replace it with "&;".
-* If you are using `Suhosin <https://suhosin.org/>`_, you
+* If you are using `Suhosin <https://suhosin.org/stories/index.html>`_, you
   might want to increase `request limits <https://suhosin.org/stories/faq.html>`_.
 * The directory specified in the :file:`php.ini` directive
   ``session.save_path`` does not exist or is read-only.
