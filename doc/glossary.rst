@@ -76,7 +76,7 @@ From Wikipedia, the free encyclopedia
     extension
       a PHP module that extends PHP with additional functionality.	
 
-      .. seealso:: <https://en.wikipedia.org/wiki/extension>
+      .. seealso:: <https://en.wikipedia.org/wiki/Software_extension>
 
     FAQ
       Frequently Asked Questions is a list of commonly asked question and there
@@ -227,7 +227,7 @@ From Wikipedia, the free encyclopedia
     module
       some sort of extension for the Apache Webserver.	
 
-      .. seealso:: <https://en.wikipedia.org/wiki/module>
+      .. seealso:: <https://en.wikipedia.org/wiki/Apache_HTTP_Server>
 
     mod_proxy_fcgi
       an Apache module implmenting a Fast CGI interface; PHP can be run as a CGI module, FastCGI, or
