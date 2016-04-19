@@ -21,7 +21,8 @@
     },
     "non-feature-branches": ["RELEASE_.*"],
     "require": {
-        "php": ">=5.5.0"
+        "php": ">=5.5.0",
+        "phpmyadmin/coding-standard": ">=0.1.0"
     },
     "require-dev": {
         "satooshi/php-coveralls": "~0.6",

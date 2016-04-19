@@ -51,8 +51,6 @@
                 <directory suffix=".php">libraries/plugins/auth/swekey/</directory>
                 <directory suffix=".php">libraries/sql-parser</directory>
                 <directory suffix=".php">libraries/tcpdf</directory>
-                <!-- code sniffer checker -->
-                <directory suffix=".php">PMAStandard</directory>
                 <!-- examples for users -->
                 <directory suffix=".php">examples</directory>
                 <!-- maintenance scripts -->
