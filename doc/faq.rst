@@ -693,8 +693,7 @@ Here is a fix suggested by Brad Ummer:
   '0755').
 
 Have also a look at the `corresponding section of the MySQL
-documentation <http://dev.mysql.com/doc/en/can-not-connect-to-
-server.html>`_.
+documentation <http://dev.mysql.com/doc/refman/5.7/en/can-not-connect-to-server.html>`_.
 
 .. _faq2_4:
 
@@ -1507,7 +1506,7 @@ schema layout. Which tables will go on which pages?
 ---------------------------------------------------------
 
 No, it's MySQL that is doing `silent column type changing
-<http://dev.mysql.com/doc/en/silent-column-changes.html>`_.
+<http://dev.mysql.com/doc/refman/5.7/en/silent-column-changes.html>`_.
 
 .. _underscore:
 
@@ -1535,7 +1534,7 @@ It means "average".
 **Structure:**
 
 * "Add DROP TABLE" will add a line telling MySQL to `drop the table
-  <http://dev.mysql.com/doc/mysql/en/drop-table.html>`_, if it already
+  <http://dev.mysql.com/doc/refman/5.7/en/drop-table.html>`_, if it already
   exists during the import. It does NOT drop the table after your
   export, it only affects the import file.
 * "If Not Exists" will only create the table if it doesn't exist.
@@ -1556,10 +1555,10 @@ It means "average".
 * "Extended inserts" provides a shorter dump file by using only once the
   INSERT verb and the table name.
 * "Delayed inserts" are best explained in the `MySQL manual - INSERT DELAYED Syntax
-  <http://dev.mysql.com/doc/mysql/en/insert-delayed.html>`_.
+  <http://dev.mysql.com/doc/refman/5.7/en/insert-delayed.html>`_.
 * "Ignore inserts" treats errors as a warning instead. Again, more info
   is provided in the `MySQL manual - INSERT Syntax
-  <http://dev.mysql.com/doc/mysql/en/insert.html>`_, but basically with
+  <http://dev.mysql.com/doc/refman/5.7/en/insert.html>`_, but basically with
   this selected, invalid values are adjusted and inserted rather than
   causing the entire statement to fail.
 
@@ -1698,7 +1697,7 @@ DATABASES, LOCK TABLES. Those privileges also enable users to see all the
 database names. So if your users do not need those privileges, you can remove
 them and their databases list will shorten.
 
-.. seealso:: <http://bugs.mysql.com/179>
+.. seealso:: <https://bugs.mysql.com/bug.php?id=179>
 
 .. _faq6_21:
 
