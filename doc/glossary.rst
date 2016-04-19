@@ -314,7 +314,7 @@ From Wikipedia, the free encyclopedia
     Storage Engines
       handlers for different table types	
 
-      .. seealso:: <http://dev.mysql.com/doc/en/storage-engines.html>
+      .. seealso:: <http://dev.mysql.com/doc/refman/5.7/en/storage-engines.html>
 
     socket
       a form of inter-process communication.	
