@@ -26,7 +26,6 @@
         }
     },
     "require": {
-<<<<<<< HEAD
         "php": ">=5.5.0",
         "ext-mbstring": "*",
         "ext-xml": "*",
