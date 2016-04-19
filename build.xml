@@ -55,7 +55,7 @@
    <arg line="${source_comma_sep}
               xml
               codesize,design,naming,unusedcode
-              --exclude test,build,bfShapeFiles,PMAStandard,vendor
+              --exclude test,build,bfShapeFiles,vendor
               --reportfile '${basedir}/build/logs/pmd.xml'" />
   </exec>
  </target>
@@ -64,7 +64,6 @@
   <exec executable="phpcpd">
    <arg line="--log-pmd '${basedir}/build/logs/pmd-cpd.xml'
               --exclude test
-              --exclude PMAStandard
               --exclude build
               --exclude vendor
               --exclude libraries/bfShapeFiles
@@ -76,7 +75,6 @@
   <exec executable="phploc">
    <arg line="--log-csv '${basedir}/build/logs/phploc.csv'
               --exclude test
-              --exclude PMAStandard
               --exclude build
               --exclude vendor
               --exclude libraries/bfShapeFiles
@@ -84,10 +82,16 @@
   </exec>
  </target>
 
- <target name="phpcs" description="Generate checkstyle.xml using PHP_CodeSniffer excluding third party libraries">
+ <target name="phpcs-config" description="PHPCS configuration tweaking">
+  <exec executable="phpcs">
+   <arg line="--config-set installed_paths ${basedir}/vendor/phpmyadmin/coding-standard" />
+  </exec>
+ </target>
+
+ <target name="phpcs" description="Generate checkstyle.xml using PHP_CodeSniffer excluding third party libraries" depends="phpcs-config">
   <exec executable="phpcs">
    <arg line="
-              --ignore=*/vendor/*,*/canvg/*,*/codemirror/*,*/openlayers/*,*/jquery/*,*/jqplot/*,*/build/*,*/bfShapeFiles/*,*/PMAStandard/*
+              --ignore=*/vendor/*,*/canvg/*,*/codemirror/*,*/openlayers/*,*/jquery/*,*/jqplot/*,*/build/*,*/bfShapeFiles/*
               --report=checkstyle
               --extensions=php
               --report-file='${basedir}/build/logs/checkstyle.xml'
