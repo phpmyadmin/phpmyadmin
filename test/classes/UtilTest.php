@@ -103,6 +103,8 @@ class UtilTest extends PMATestCase
      */
     public function testIsForeignKeySupported()
     {
+        $GLOBALS['server'] = 1;
+
         $this->assertTrue(
             PMA\libraries\Util::isForeignKeySupported('innodb')
         );
