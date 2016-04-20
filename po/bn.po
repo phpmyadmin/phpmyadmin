@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2016-04-12 11:23+0200\n"
+"POT-Creation-Date: 2016-04-20 12:42+0200\n"
 "PO-Revision-Date: 2015-10-15 11:44+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Bengali <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -258,8 +258,8 @@ msgid "Tables"
 msgstr "টেবল"
 
 #: db_export.php:66 libraries/Menu.php:325 libraries/Menu.php:432
-#: libraries/Util.php:3355 libraries/Util.php:3365 libraries/Util.php:3371
-#: libraries/Util.php:3651 libraries/Util.php:4284 libraries/Util.php:4301
+#: libraries/Util.php:3360 libraries/Util.php:3370 libraries/Util.php:3376
+#: libraries/Util.php:3656 libraries/Util.php:4289 libraries/Util.php:4306
 #: libraries/central_columns.lib.php:727 libraries/config.values.php:39
 #: libraries/config.values.php:47 libraries/config.values.php:110
 #: libraries/config.values.php:116 libraries/config/setup.forms.php:318
@@ -1354,7 +1354,7 @@ msgstr "প্রশ্নসমূহ"
 msgid "Traffic"
 msgstr "গমনাগমন"
 
-#: js/messages.php:217 libraries/Menu.php:587 libraries/Util.php:4275
+#: js/messages.php:217 libraries/Menu.php:587 libraries/Util.php:4280
 #: libraries/server_status_monitor.lib.php:253
 msgid "Settings"
 msgstr "সেটিংস"
@@ -1570,7 +1570,7 @@ msgstr "বিশ্লেষন করছি…"
 msgid "Explain output"
 msgstr "আউটপুটের ব্যাখা"
 
-#: js/messages.php:294 libraries/Menu.php:553 libraries/Util.php:4271
+#: js/messages.php:294 libraries/Menu.php:553 libraries/Util.php:4276
 #: libraries/config.values.php:105 libraries/rte/rte_events.lib.php:397
 #: libraries/rte/rte_list.lib.php:107
 #: libraries/server_status_processes.lib.php:92 libraries/tracking.lib.php:286
@@ -1669,8 +1669,8 @@ msgstr ""
 "অবস্থায় সেট করা হচ্ছে…"
 
 #: js/messages.php:328 libraries/Menu.php:360 libraries/Menu.php:462
-#: libraries/Menu.php:583 libraries/Util.php:4274 libraries/Util.php:4289
-#: libraries/Util.php:4306 libraries/config/messages.inc.php:261
+#: libraries/Menu.php:583 libraries/Util.php:4279 libraries/Util.php:4294
+#: libraries/Util.php:4311 libraries/config/messages.inc.php:261
 #: libraries/display_import.lib.php:107
 #: libraries/server_status_monitor.lib.php:313 prefs_manage.php:239
 #: setup/frames/menu.inc.php:27
@@ -1848,7 +1848,7 @@ msgstr "ডাটাবেইজের প্রতিলিপি করছি"
 msgid "Changing charset"
 msgstr "বর্ণ রাশি পরিবর্তন করছি"
 
-#: js/messages.php:380 libraries/Util.php:3237
+#: js/messages.php:380 libraries/Util.php:3242
 #, fuzzy
 #| msgid "Disable foreign key checks"
 msgid "Enable foreign key checks"
@@ -1886,9 +1886,9 @@ msgstr "সঞ্চিত ফাংশনে অবশ্যই একটি �
 
 #: js/messages.php:395 libraries/DisplayResults.php:4878
 #: libraries/DisplayResults.php:5161 libraries/Menu.php:352
-#: libraries/Menu.php:453 libraries/Menu.php:579 libraries/Util.php:3658
-#: libraries/Util.php:3659 libraries/Util.php:4273 libraries/Util.php:4288
-#: libraries/Util.php:4305 libraries/config/messages.inc.php:255
+#: libraries/Menu.php:453 libraries/Menu.php:579 libraries/Util.php:3663
+#: libraries/Util.php:3664 libraries/Util.php:4278 libraries/Util.php:4293
+#: libraries/Util.php:4310 libraries/config/messages.inc.php:255
 #: libraries/display_export.lib.php:170 libraries/rte/rte_list.lib.php:157
 #: libraries/server_privileges.lib.php:2524
 #: libraries/server_privileges.lib.php:2608
@@ -1937,8 +1937,8 @@ msgstr "অনুসন্ধান বক্সটি দেখাও"
 
 #: js/messages.php:412 libraries/DisplayResults.php:3496
 #: libraries/DisplayResults.php:4862 libraries/Index.php:728
-#: libraries/Util.php:731 libraries/Util.php:1241 libraries/Util.php:3656
-#: libraries/Util.php:3657 libraries/central_columns.lib.php:850
+#: libraries/Util.php:731 libraries/Util.php:1241 libraries/Util.php:3661
+#: libraries/Util.php:3662 libraries/central_columns.lib.php:850
 #: libraries/central_columns.lib.php:1198 libraries/config/messages.inc.php:892
 #: libraries/server_user_groups.lib.php:118 setup/frames/index.inc.php:184
 #: templates/console/bookmark_content.phtml:17
@@ -2232,7 +2232,7 @@ msgid "Data point content"
 msgstr "প্রতিটি পয়েন্টের বিষয়"
 
 #: js/messages.php:509 js/messages.php:663 js/messages.php:680
-#: libraries/ErrorHandler.php:342 libraries/insert_edit.lib.php:2591
+#: libraries/ErrorHandler.php:356 libraries/insert_edit.lib.php:2591
 #: templates/table/index_form.phtml:154 templates/table/index_form.phtml:199
 msgid "Ignore"
 msgstr "উপেক্ষা"
@@ -2509,7 +2509,7 @@ msgid "Select database first"
 msgstr "টেবল নির্বাচন"
 
 #: js/messages.php:602 libraries/DisplayResults.php:5053
-#: libraries/Util.php:4166
+#: libraries/Util.php:4171
 #: templates/database/structure/print_view_data_dictionary_link.phtml:3
 #: templates/table/structure/optional_action_links.phtml:6
 msgid "Print"
@@ -2659,7 +2659,7 @@ msgstr ""
 msgid "Please look at the bottom of this window."
 msgstr ""
 
-#: js/messages.php:683 libraries/ErrorHandler.php:346
+#: js/messages.php:683 libraries/ErrorHandler.php:360
 #, fuzzy
 #| msgid "Ignore"
 msgid "Ignore All"
@@ -3382,33 +3382,33 @@ msgstr ""
 msgid "case-sensitive collation"
 msgstr ""
 
-#: libraries/Config.php:1148
+#: libraries/Config.php:1154
 #, php-format
 msgid "Existing configuration file (%s) is not readable."
 msgstr "বর্তমান কনফিগারেশন ফাইল (%s) টি পড়া যাচ্ছে না।"
 
-#: libraries/Config.php:1178
+#: libraries/Config.php:1184
 msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr "কনফিগারেশন ফাইলে ভুল অনুমতি দেয়া, ওটা লেখার মত নয়"
 
-#: libraries/Config.php:1198
+#: libraries/Config.php:1204
 #, php-format
 msgid "Could not load default configuration from: %1$s"
 msgstr "স্বাভাবিক কনফিগারেশন লোড করা যাচ্ছে না:%1$s"
 
-#: libraries/Config.php:1205
+#: libraries/Config.php:1211
 #, fuzzy
 #| msgid "Failed to read configuration file"
 msgid "Failed to read configuration file!"
 msgstr "কনফিগারেশন ফাইল পড়া যায়নি"
 
-#: libraries/Config.php:1208
+#: libraries/Config.php:1214
 msgid ""
 "This usually means there is a syntax error in it, please check any errors "
 "shown below."
 msgstr "ইহা সাধারনত বাক্যে ভুল বোঝায়, কোন ভুল আছে কিনা পরীক্ষা করুন।"
 
-#: libraries/Config.php:1569
+#: libraries/Config.php:1575
 msgid "Font size"
 msgstr "অক্ষরের আকার"
 
@@ -3431,32 +3431,32 @@ msgstr "সর্ম্পক মুছা"
 msgid "SQL Query Console"
 msgstr "SQL অনুসন্ধান বক্স"
 
-#: libraries/DatabaseInterface.php:1418
+#: libraries/DatabaseInterface.php:1387
 #, fuzzy
 #| msgid "Failed to read configuration file"
 msgid "Failed to set configured collation connection!"
 msgstr "কনফিগারেশন ফাইল পড়া যায়নি"
 
-#: libraries/DatabaseInterface.php:2029
+#: libraries/DatabaseInterface.php:1998
 msgid ""
 "The server is not responding (or the local server's socket is not correctly "
 "configured)."
 msgstr ""
 "সার্ভারটি সাড়া দিচ্ছে না। (বা স্থানীয় সার্ভারটির সকেট সঠিকভাবে কনফিগার করা হয়নি)।"
 
-#: libraries/DatabaseInterface.php:2034
+#: libraries/DatabaseInterface.php:2003
 msgid "The server is not responding."
 msgstr "সার্ভারটি সাড়া দিচ্ছে না।"
 
-#: libraries/DatabaseInterface.php:2040
+#: libraries/DatabaseInterface.php:2009
 msgid "Please check privileges of directory containing database."
 msgstr "ডাটাবেইজ ডিরেক্টরির অধিকারসমূহ পরীক্ষা করুন।"
 
-#: libraries/DatabaseInterface.php:2051
+#: libraries/DatabaseInterface.php:2020
 msgid "Details…"
 msgstr "বিশদ…"
 
-#: libraries/DatabaseInterface.php:2261
+#: libraries/DatabaseInterface.php:2242
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr "নিয়ন্ত্রক ব্যবহারকারীর জন্য নির্ধারিত কনফিগারেশন সংযোগে ব্যার্থ হয়েছে।"
 
@@ -3626,9 +3626,9 @@ msgid_plural "%1$s matches in <strong>%2$s</strong>"
 msgstr[0] "<strong>%2$s</strong> মধ্যে %1$s মিল"
 msgstr[1] "<strong>%2$s</strong> মধ্যে %1$s গুলো মিল"
 
-#: libraries/DbSearch.php:353 libraries/Menu.php:319 libraries/Util.php:3359
-#: libraries/Util.php:3369 libraries/Util.php:3645 libraries/Util.php:3646
-#: libraries/Util.php:4300 libraries/config.values.php:43
+#: libraries/DbSearch.php:353 libraries/Menu.php:319 libraries/Util.php:3364
+#: libraries/Util.php:3374 libraries/Util.php:3650 libraries/Util.php:3651
+#: libraries/Util.php:4305 libraries/config.values.php:43
 #: libraries/config.values.php:51 libraries/config.values.php:120
 #: libraries/navigation/nodes/NodeTable.php:313
 #: templates/table/structure/check_all_table_column.phtml:12
@@ -3906,13 +3906,13 @@ msgstr "কানায় রুপান্তর কর"
 msgid "Too many error messages, some are not displayed."
 msgstr "অনেক বেশী ভুল সংক্রান্ত তথ্য, কতগুলো দেখানো হয় নাই।"
 
-#: libraries/ErrorHandler.php:331
+#: libraries/ErrorHandler.php:345
 #, fuzzy
 #| msgid "Import"
 msgid "Report"
 msgstr "আমদানি"
 
-#: libraries/ErrorHandler.php:336 templates/error/report_form.phtml:27
+#: libraries/ErrorHandler.php:350 templates/error/report_form.phtml:27
 msgid "Automatically send report next time"
 msgstr "পরবর্তী সময়ে স্বয়ংক্রীয়ভাবে প্রতিবেদন পাঠাবে"
 
@@ -4070,7 +4070,7 @@ msgstr "প্রাথমিক কী মুছা হয়েছে।"
 msgid "Index %s has been dropped."
 msgstr "ইনডেক্স %s মুছা হয়েছে।"
 
-#: libraries/Index.php:762 libraries/Util.php:3652 libraries/Util.php:3653
+#: libraries/Index.php:762 libraries/Util.php:3657 libraries/Util.php:3658
 #: libraries/controllers/server/ServerDatabasesController.php:397
 #: libraries/controllers/table/TableStructureController.php:1178
 #: libraries/controllers/table/TableStructureController.php:1179
@@ -4159,8 +4159,8 @@ msgid "Table"
 msgstr "টেবল"
 
 #: libraries/Menu.php:333 libraries/Menu.php:436 libraries/Menu.php:549
-#: libraries/Util.php:3356 libraries/Util.php:3366 libraries/Util.php:3372
-#: libraries/Util.php:4270 libraries/Util.php:4285 libraries/Util.php:4302
+#: libraries/Util.php:3361 libraries/Util.php:3371 libraries/Util.php:3377
+#: libraries/Util.php:4275 libraries/Util.php:4290 libraries/Util.php:4307
 #: libraries/config.values.php:40 libraries/config.values.php:48
 #: libraries/config.values.php:111 libraries/config.values.php:117
 #: libraries/config/messages.inc.php:324
@@ -4168,25 +4168,25 @@ msgstr "টেবল"
 msgid "SQL"
 msgstr "এসকিউএল"
 
-#: libraries/Menu.php:336 libraries/Menu.php:439 libraries/Util.php:3357
-#: libraries/Util.php:3367 libraries/Util.php:3373 libraries/Util.php:3647
-#: libraries/Util.php:3648 libraries/Util.php:4286 libraries/Util.php:4303
+#: libraries/Menu.php:336 libraries/Menu.php:439 libraries/Util.php:3362
+#: libraries/Util.php:3372 libraries/Util.php:3378 libraries/Util.php:3652
+#: libraries/Util.php:3653 libraries/Util.php:4291 libraries/Util.php:4308
 #: libraries/config.values.php:41 libraries/config.values.php:49
 #: libraries/config.values.php:112 libraries/config.values.php:118
 #: libraries/navigation/nodes/NodeTable.php:298
 msgid "Search"
 msgstr "খোঁজা"
 
-#: libraries/Menu.php:346 libraries/Util.php:3358 libraries/Util.php:3368
-#: libraries/Util.php:3649 libraries/Util.php:3650 libraries/Util.php:4304
+#: libraries/Menu.php:346 libraries/Util.php:3363 libraries/Util.php:3373
+#: libraries/Util.php:3654 libraries/Util.php:3655 libraries/Util.php:4309
 #: libraries/config.values.php:42 libraries/config.values.php:50
 #: libraries/config.values.php:119 libraries/navigation/nodes/NodeTable.php:304
 #: libraries/sql_query_form.lib.php:289 libraries/sql_query_form.lib.php:292
 msgid "Insert"
 msgstr "ইনর্সাট"
 
-#: libraries/Menu.php:370 libraries/Menu.php:474 libraries/Util.php:4291
-#: libraries/Util.php:4307 libraries/config.values.php:107
+#: libraries/Menu.php:370 libraries/Menu.php:474 libraries/Util.php:4296
+#: libraries/Util.php:4312 libraries/config.values.php:107
 #: libraries/server_common.lib.php:48 libraries/server_privileges.lib.php:2688
 #: libraries/server_privileges.lib.php:4545
 #: templates/privileges/privileges_summary.phtml:16
@@ -4194,19 +4194,19 @@ msgid "Privileges"
 msgstr "অধিকারসমূহ"
 
 #: libraries/Menu.php:379 libraries/Menu.php:387 libraries/Menu.php:466
-#: libraries/Util.php:3360 libraries/Util.php:3374 libraries/Util.php:4290
-#: libraries/Util.php:4308 libraries/config.values.php:113
+#: libraries/Util.php:3365 libraries/Util.php:3379 libraries/Util.php:4295
+#: libraries/Util.php:4313 libraries/config.values.php:113
 #: view_operations.php:103
 msgid "Operations"
 msgstr "কাজসমূহ"
 
-#: libraries/Menu.php:392 libraries/Menu.php:496 libraries/Util.php:4295
-#: libraries/Util.php:4309 libraries/relation.lib.php:265
+#: libraries/Menu.php:392 libraries/Menu.php:496 libraries/Util.php:4300
+#: libraries/Util.php:4314 libraries/relation.lib.php:265
 msgid "Tracking"
 msgstr "ট্রেকিং"
 
-#: libraries/Menu.php:404 libraries/Menu.php:490 libraries/Util.php:4294
-#: libraries/Util.php:4310
+#: libraries/Menu.php:404 libraries/Menu.php:490 libraries/Util.php:4299
+#: libraries/Util.php:4315
 #: libraries/navigation/nodes/NodeTriggerContainer.php:25
 #: libraries/plugins/export/ExportHtmlword.php:578
 #: libraries/plugins/export/ExportOdt.php:713
@@ -4222,16 +4222,16 @@ msgstr "ট্রিগারসমূহ"
 msgid "Database seems to be empty!"
 msgstr "ডাটাবেইজটি খালি মনে হয়!"
 
-#: libraries/Menu.php:446 libraries/Util.php:4287
+#: libraries/Menu.php:446 libraries/Util.php:4292
 msgid "Query"
 msgstr "অনুসন্ধান"
 
-#: libraries/Menu.php:479 libraries/Util.php:4292
+#: libraries/Menu.php:479 libraries/Util.php:4297
 #: libraries/rte/rte_words.lib.php:36
 msgid "Routines"
 msgstr "রুটিনসমূহ"
 
-#: libraries/Menu.php:484 libraries/Util.php:4293
+#: libraries/Menu.php:484 libraries/Util.php:4298
 #: libraries/navigation/nodes/NodeEventContainer.php:25
 #: libraries/plugins/export/ExportSql.php:952
 #: libraries/plugins/export/ExportXml.php:103
@@ -4239,18 +4239,18 @@ msgstr "রুটিনসমূহ"
 msgid "Events"
 msgstr "ইভেন্টসমূহ"
 
-#: libraries/Menu.php:502 libraries/Util.php:4296
+#: libraries/Menu.php:502 libraries/Util.php:4301
 msgid "Designer"
 msgstr "নকশাকারী"
 
-#: libraries/Menu.php:511 libraries/Util.php:4297
+#: libraries/Menu.php:511 libraries/Util.php:4302
 #: templates/database/structure/check_all_tables.phtml:34
 #, fuzzy
 #| msgid "Textarea columns"
 msgid "Central columns"
 msgstr "টেক্সএরিয়া স্তম্ভ"
 
-#: libraries/Menu.php:545 libraries/Util.php:4269
+#: libraries/Menu.php:545 libraries/Util.php:4274
 #: libraries/config.values.php:104 libraries/config/messages.inc.php:269
 #: libraries/config/messages.inc.php:344
 #: libraries/navigation/NavigationTree.php:1269
@@ -4265,34 +4265,34 @@ msgid "User accounts"
 msgstr "ব্যবহারকারীর দল"
 
 #: libraries/Menu.php:596 libraries/ServerStatusData.php:121
-#: libraries/Util.php:4276 libraries/server_common.lib.php:33
+#: libraries/Util.php:4281 libraries/server_common.lib.php:33
 msgid "Binary log"
 msgstr "বাইনারী লগ"
 
 #: libraries/Menu.php:602 libraries/ServerStatusData.php:126
-#: libraries/Util.php:4277 libraries/server_common.lib.php:39
+#: libraries/Util.php:4282 libraries/server_common.lib.php:39
 #: templates/database/structure/body_for_table_summary.phtml:10
 #: templates/database/structure/table_header.phtml:27
 msgid "Replication"
 msgstr "অনুলিপি"
 
 #: libraries/Menu.php:607 libraries/ServerStatusData.php:193
-#: libraries/Util.php:4278 libraries/config.values.php:106
+#: libraries/Util.php:4283 libraries/config.values.php:106
 #: libraries/sql_query_form.lib.php:427
 #: templates/server/engines/engine.phtml:15
 #: templates/server/engines/engine.phtml:18
 msgid "Variables"
 msgstr "চলকসমূহ"
 
-#: libraries/Menu.php:611 libraries/Util.php:4279
+#: libraries/Menu.php:611 libraries/Util.php:4284
 msgid "Charsets"
 msgstr "বর্ণরাশী"
 
-#: libraries/Menu.php:615 libraries/Util.php:4281
+#: libraries/Menu.php:615 libraries/Util.php:4286
 msgid "Engines"
 msgstr "ব্যবস্থাসমূহ"
 
-#: libraries/Menu.php:619 libraries/Util.php:4280
+#: libraries/Menu.php:619 libraries/Util.php:4285
 #: libraries/server_common.lib.php:30
 msgid "Plugins"
 msgstr "প্লাগইন"
@@ -4619,35 +4619,35 @@ msgstr "ইনডেক্সের অংশ দেওয়া হয়নি!"
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr "%1$s এ ফরেন কী তৈরী করতে সমস্যা হচ্ছে (তথ্যের ধরন পরীক্ষা করুন)"
 
-#: libraries/Theme.php:170
+#: libraries/Theme.php:168
 #, php-format
 msgid "No valid image path for theme %s found!"
 msgstr "%s থীমের জন্য ছবির পথ পাওয়া যায়নি!"
 
-#: libraries/Theme.php:425
+#: libraries/Theme.php:422
 msgid "No preview available."
 msgstr "পূর্বদর্শনের ব্যবস্থা নাই।"
 
-#: libraries/Theme.php:427
+#: libraries/Theme.php:424
 msgid "take it"
 msgstr "ইহা নাও"
 
-#: libraries/ThemeManager.php:137
+#: libraries/ThemeManager.php:126
 #, php-format
 msgid "Default theme %s not found!"
 msgstr "স্বাভাবিক থীম %s পাওয়া যায়নি"
 
-#: libraries/ThemeManager.php:194
+#: libraries/ThemeManager.php:182
 #, php-format
 msgid "Theme %s not found!"
 msgstr "থীম %s পাওয়া যায়নি!"
 
-#: libraries/ThemeManager.php:274
+#: libraries/ThemeManager.php:262
 #, php-format
 msgid "Theme path not found for theme %s!"
 msgstr "থীম %s এর থীম পথ পাওয়া যায়নি!"
 
-#: libraries/ThemeManager.php:368
+#: libraries/ThemeManager.php:356
 msgid "Theme:"
 msgstr "খীম:"
 
@@ -5013,7 +5013,7 @@ msgctxt "Short week day name"
 msgid "Sun"
 msgstr "রবিবার"
 
-#. l10n: See http://www.php.net/manual/en/function.strftime.php
+#. l10n: See http://php.net/manual/en/function.strftime.php
 #: libraries/Util.php:1707
 #: libraries/plugins/transformations/abs/DateFormatTransformationsPlugin.php:67
 msgid "%B %d, %Y at %I:%M %p"
@@ -5038,35 +5038,35 @@ msgstr "ডাটাবেইজ \"%s\" যাও।"
 msgid "The %s functionality is affected by a known bug, see %s"
 msgstr "%s কার্যকারিতা একটি চিহ্নিত সমস্যা, %s দেখুন"
 
-#: libraries/Util.php:3564 prefs_manage.php:249
+#: libraries/Util.php:3569 prefs_manage.php:249
 msgid "Browse your computer:"
 msgstr "আপনার কম্পিউটারে দেখুন:"
 
-#: libraries/Util.php:3589
+#: libraries/Util.php:3594
 #, php-format
 msgid "Select from the web server upload directory <b>%s</b>:"
 msgstr "ওয়েভ সার্ভারের আপলোড ডিরেক্টরি থেকে নির্বাচন করুন <b>%s</b>:"
 
-#: libraries/Util.php:3618 libraries/insert_edit.lib.php:1178
+#: libraries/Util.php:3623 libraries/insert_edit.lib.php:1178
 msgid "The directory you set for upload work cannot be reached."
 msgstr "আপলোড করার জন্য নির্ধারিত ডিরেক্টরীটি পাওয়া যাচ্ছে না।"
 
-#: libraries/Util.php:3629
+#: libraries/Util.php:3634
 #, fuzzy
 #| msgid "There are no files to upload"
 msgid "There are no files to upload!"
 msgstr "আপলোড করার জন্য কোন ফাইল নাই"
 
-#: libraries/Util.php:3654 libraries/Util.php:3655
+#: libraries/Util.php:3659 libraries/Util.php:3660
 #: templates/database/structure/check_all_tables.phtml:16
 msgid "Empty"
 msgstr "খালি"
 
-#: libraries/Util.php:3660 libraries/Util.php:3661
+#: libraries/Util.php:3665 libraries/Util.php:3666
 msgid "Execute"
 msgstr "কর"
 
-#: libraries/Util.php:4272
+#: libraries/Util.php:4277
 msgid "Users"
 msgstr "ব্যবহারকারী"
 

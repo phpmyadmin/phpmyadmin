@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2016-04-12 11:23+0200\n"
+"POT-Creation-Date: 2016-04-20 12:42+0200\n"
 "PO-Revision-Date: 2016-01-13 15:59+0000\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Vietnamese <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -262,8 +262,8 @@ msgid "Tables"
 msgstr "Các bảng"
 
 #: db_export.php:66 libraries/Menu.php:325 libraries/Menu.php:432
-#: libraries/Util.php:3355 libraries/Util.php:3365 libraries/Util.php:3371
-#: libraries/Util.php:3651 libraries/Util.php:4284 libraries/Util.php:4301
+#: libraries/Util.php:3360 libraries/Util.php:3370 libraries/Util.php:3376
+#: libraries/Util.php:3656 libraries/Util.php:4289 libraries/Util.php:4306
 #: libraries/central_columns.lib.php:727 libraries/config.values.php:39
 #: libraries/config.values.php:47 libraries/config.values.php:110
 #: libraries/config.values.php:116 libraries/config/setup.forms.php:318
@@ -1250,7 +1250,7 @@ msgstr "Câu hỏi"
 msgid "Traffic"
 msgstr "Lưu lượng"
 
-#: js/messages.php:217 libraries/Menu.php:587 libraries/Util.php:4275
+#: js/messages.php:217 libraries/Menu.php:587 libraries/Util.php:4280
 #: libraries/server_status_monitor.lib.php:253
 msgid "Settings"
 msgstr "Cài đặt"
@@ -1471,7 +1471,7 @@ msgstr "Đang phân tích…"
 msgid "Explain output"
 msgstr "Xuất vùng chọn:"
 
-#: js/messages.php:294 libraries/Menu.php:553 libraries/Util.php:4271
+#: js/messages.php:294 libraries/Menu.php:553 libraries/Util.php:4276
 #: libraries/config.values.php:105 libraries/rte/rte_events.lib.php:397
 #: libraries/rte/rte_list.lib.php:107
 #: libraries/server_status_processes.lib.php:92 libraries/tracking.lib.php:286
@@ -1573,8 +1573,8 @@ msgstr ""
 "thành cấu hình mặc định…"
 
 #: js/messages.php:328 libraries/Menu.php:360 libraries/Menu.php:462
-#: libraries/Menu.php:583 libraries/Util.php:4274 libraries/Util.php:4289
-#: libraries/Util.php:4306 libraries/config/messages.inc.php:261
+#: libraries/Menu.php:583 libraries/Util.php:4279 libraries/Util.php:4294
+#: libraries/Util.php:4311 libraries/config/messages.inc.php:261
 #: libraries/display_import.lib.php:107
 #: libraries/server_status_monitor.lib.php:313 prefs_manage.php:239
 #: setup/frames/menu.inc.php:27
@@ -1728,7 +1728,7 @@ msgstr "Đang chép cơ sở dữ liệu"
 msgid "Changing charset"
 msgstr "Đang đổi bảng mã"
 
-#: js/messages.php:380 libraries/Util.php:3237
+#: js/messages.php:380 libraries/Util.php:3242
 msgid "Enable foreign key checks"
 msgstr "Bật kiểm tra khóa ngoại"
 
@@ -1762,9 +1762,9 @@ msgstr "Định nghĩa hàm lưu trữ phải có chứa lệnh RETURN!"
 
 #: js/messages.php:395 libraries/DisplayResults.php:4878
 #: libraries/DisplayResults.php:5161 libraries/Menu.php:352
-#: libraries/Menu.php:453 libraries/Menu.php:579 libraries/Util.php:3658
-#: libraries/Util.php:3659 libraries/Util.php:4273 libraries/Util.php:4288
-#: libraries/Util.php:4305 libraries/config/messages.inc.php:255
+#: libraries/Menu.php:453 libraries/Menu.php:579 libraries/Util.php:3663
+#: libraries/Util.php:3664 libraries/Util.php:4278 libraries/Util.php:4293
+#: libraries/Util.php:4310 libraries/config/messages.inc.php:255
 #: libraries/display_export.lib.php:170 libraries/rte/rte_list.lib.php:157
 #: libraries/server_privileges.lib.php:2524
 #: libraries/server_privileges.lib.php:2608
@@ -1813,8 +1813,8 @@ msgstr "Hiện hộp truy vấn"
 
 #: js/messages.php:412 libraries/DisplayResults.php:3496
 #: libraries/DisplayResults.php:4862 libraries/Index.php:728
-#: libraries/Util.php:731 libraries/Util.php:1241 libraries/Util.php:3656
-#: libraries/Util.php:3657 libraries/central_columns.lib.php:850
+#: libraries/Util.php:731 libraries/Util.php:1241 libraries/Util.php:3661
+#: libraries/Util.php:3662 libraries/central_columns.lib.php:850
 #: libraries/central_columns.lib.php:1198 libraries/config/messages.inc.php:892
 #: libraries/server_user_groups.lib.php:118 setup/frames/index.inc.php:184
 #: templates/console/bookmark_content.phtml:17
@@ -2084,7 +2084,7 @@ msgid "Data point content"
 msgstr "bài tóm tắt diễn tả nội dung của dữ liệu này"
 
 #: js/messages.php:509 js/messages.php:663 js/messages.php:680
-#: libraries/ErrorHandler.php:342 libraries/insert_edit.lib.php:2591
+#: libraries/ErrorHandler.php:356 libraries/insert_edit.lib.php:2591
 #: templates/table/index_form.phtml:154 templates/table/index_form.phtml:199
 msgid "Ignore"
 msgstr "Bỏ qua"
@@ -2324,7 +2324,7 @@ msgid "Select database first"
 msgstr "Hãy chọn cơ sở dữ liệu trước"
 
 #: js/messages.php:602 libraries/DisplayResults.php:5053
-#: libraries/Util.php:4166
+#: libraries/Util.php:4171
 #: templates/database/structure/print_view_data_dictionary_link.phtml:3
 #: templates/table/structure/optional_action_links.phtml:6
 msgid "Print"
@@ -2460,7 +2460,7 @@ msgstr "Một số lỗi đã thấy trên máy phục vụ!"
 msgid "Please look at the bottom of this window."
 msgstr "Vui lòng xem ở phần dưới của cửa sổ này."
 
-#: js/messages.php:683 libraries/ErrorHandler.php:346
+#: js/messages.php:683 libraries/ErrorHandler.php:360
 msgid "Ignore All"
 msgstr "Bỏ qua tất"
 
@@ -3146,26 +3146,26 @@ msgstr "không phân biệt HOA/thường"
 msgid "case-sensitive collation"
 msgstr "phân biệt chữ HOA/thường"
 
-#: libraries/Config.php:1148
+#: libraries/Config.php:1154
 #, php-format
 msgid "Existing configuration file (%s) is not readable."
 msgstr "Tập tin cấu hình sẵn có (%s) không thể đọc được."
 
-#: libraries/Config.php:1178
+#: libraries/Config.php:1184
 msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr ""
 "Tập tin cấu hình được phân quyền không đúng, không thể là ai cũng được đọc!"
 
-#: libraries/Config.php:1198
+#: libraries/Config.php:1204
 #, php-format
 msgid "Could not load default configuration from: %1$s"
 msgstr "Không thể tải cấu hình mặc định từ: %1$s"
 
-#: libraries/Config.php:1205
+#: libraries/Config.php:1211
 msgid "Failed to read configuration file!"
 msgstr "Gặp lỗi khi đọc tập tin cấu hình!"
 
-#: libraries/Config.php:1208
+#: libraries/Config.php:1214
 msgid ""
 "This usually means there is a syntax error in it, please check any errors "
 "shown below."
@@ -3173,7 +3173,7 @@ msgstr ""
 "Việc này thường do có lỗi cú pháp trong đó, vui lòng kiểm tra xem các lỗi "
 "hiển thị bên dưới."
 
-#: libraries/Config.php:1569
+#: libraries/Config.php:1575
 msgid "Font size"
 msgstr "Cỡ phông chữ"
 
@@ -3191,13 +3191,13 @@ msgstr "Không có đánh dấu nào"
 msgid "SQL Query Console"
 msgstr "Hộp truy vấn SQL"
 
-#: libraries/DatabaseInterface.php:1418
+#: libraries/DatabaseInterface.php:1387
 #, fuzzy
 #| msgid "Failed to read configuration file!"
 msgid "Failed to set configured collation connection!"
 msgstr "Gặp lỗi khi đọc tập tin cấu hình!"
 
-#: libraries/DatabaseInterface.php:2029
+#: libraries/DatabaseInterface.php:1998
 msgid ""
 "The server is not responding (or the local server's socket is not correctly "
 "configured)."
@@ -3205,19 +3205,19 @@ msgstr ""
 "Máy phục vụ không trả lời (hoặc ổ cắm mạng của máy phục vụ nội bộ hiện chưa "
 "được cấu hình)."
 
-#: libraries/DatabaseInterface.php:2034
+#: libraries/DatabaseInterface.php:2003
 msgid "The server is not responding."
 msgstr "Máy phục vụ không trả lời."
 
-#: libraries/DatabaseInterface.php:2040
+#: libraries/DatabaseInterface.php:2009
 msgid "Please check privileges of directory containing database."
 msgstr "Vui lòng kiểm tra đặc quyền của thư mục chứa cơ sở dữ liệu."
 
-#: libraries/DatabaseInterface.php:2051
+#: libraries/DatabaseInterface.php:2020
 msgid "Details…"
 msgstr "Chi tiết…"
 
-#: libraries/DatabaseInterface.php:2261
+#: libraries/DatabaseInterface.php:2242
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr ""
 
@@ -3373,9 +3373,9 @@ msgid "%1$s match in <strong>%2$s</strong>"
 msgid_plural "%1$s matches in <strong>%2$s</strong>"
 msgstr[0] "%1$s khớp trong <strong>%2$s</strong>"
 
-#: libraries/DbSearch.php:353 libraries/Menu.php:319 libraries/Util.php:3359
-#: libraries/Util.php:3369 libraries/Util.php:3645 libraries/Util.php:3646
-#: libraries/Util.php:4300 libraries/config.values.php:43
+#: libraries/DbSearch.php:353 libraries/Menu.php:319 libraries/Util.php:3364
+#: libraries/Util.php:3374 libraries/Util.php:3650 libraries/Util.php:3651
+#: libraries/Util.php:4305 libraries/config.values.php:43
 #: libraries/config.values.php:51 libraries/config.values.php:120
 #: libraries/navigation/nodes/NodeTable.php:313
 #: templates/table/structure/check_all_table_column.phtml:12
@@ -3643,11 +3643,11 @@ msgstr "Chuyển đổi sang Kana"
 msgid "Too many error messages, some are not displayed."
 msgstr "Quá nhiều lời nhắn lỗi, một số trong chúng sẽ không được hiển thị."
 
-#: libraries/ErrorHandler.php:331
+#: libraries/ErrorHandler.php:345
 msgid "Report"
 msgstr "Báo cáo"
 
-#: libraries/ErrorHandler.php:336 templates/error/report_form.phtml:27
+#: libraries/ErrorHandler.php:350 templates/error/report_form.phtml:27
 msgid "Automatically send report next time"
 msgstr "Lần sau sẽ tự động gửi báo cáo"
 
@@ -3806,7 +3806,7 @@ msgstr "Khóa chính đã được xóa bỏ"
 msgid "Index %s has been dropped."
 msgstr "Chỉ mục %s đã được xóa bỏ."
 
-#: libraries/Index.php:762 libraries/Util.php:3652 libraries/Util.php:3653
+#: libraries/Index.php:762 libraries/Util.php:3657 libraries/Util.php:3658
 #: libraries/controllers/server/ServerDatabasesController.php:397
 #: libraries/controllers/table/TableStructureController.php:1178
 #: libraries/controllers/table/TableStructureController.php:1179
@@ -3899,8 +3899,8 @@ msgid "Table"
 msgstr "Bảng"
 
 #: libraries/Menu.php:333 libraries/Menu.php:436 libraries/Menu.php:549
-#: libraries/Util.php:3356 libraries/Util.php:3366 libraries/Util.php:3372
-#: libraries/Util.php:4270 libraries/Util.php:4285 libraries/Util.php:4302
+#: libraries/Util.php:3361 libraries/Util.php:3371 libraries/Util.php:3377
+#: libraries/Util.php:4275 libraries/Util.php:4290 libraries/Util.php:4307
 #: libraries/config.values.php:40 libraries/config.values.php:48
 #: libraries/config.values.php:111 libraries/config.values.php:117
 #: libraries/config/messages.inc.php:324
@@ -3908,25 +3908,25 @@ msgstr "Bảng"
 msgid "SQL"
 msgstr "SQL"
 
-#: libraries/Menu.php:336 libraries/Menu.php:439 libraries/Util.php:3357
-#: libraries/Util.php:3367 libraries/Util.php:3373 libraries/Util.php:3647
-#: libraries/Util.php:3648 libraries/Util.php:4286 libraries/Util.php:4303
+#: libraries/Menu.php:336 libraries/Menu.php:439 libraries/Util.php:3362
+#: libraries/Util.php:3372 libraries/Util.php:3378 libraries/Util.php:3652
+#: libraries/Util.php:3653 libraries/Util.php:4291 libraries/Util.php:4308
 #: libraries/config.values.php:41 libraries/config.values.php:49
 #: libraries/config.values.php:112 libraries/config.values.php:118
 #: libraries/navigation/nodes/NodeTable.php:298
 msgid "Search"
 msgstr "Tìm kiếm"
 
-#: libraries/Menu.php:346 libraries/Util.php:3358 libraries/Util.php:3368
-#: libraries/Util.php:3649 libraries/Util.php:3650 libraries/Util.php:4304
+#: libraries/Menu.php:346 libraries/Util.php:3363 libraries/Util.php:3373
+#: libraries/Util.php:3654 libraries/Util.php:3655 libraries/Util.php:4309
 #: libraries/config.values.php:42 libraries/config.values.php:50
 #: libraries/config.values.php:119 libraries/navigation/nodes/NodeTable.php:304
 #: libraries/sql_query_form.lib.php:289 libraries/sql_query_form.lib.php:292
 msgid "Insert"
 msgstr "Chèn"
 
-#: libraries/Menu.php:370 libraries/Menu.php:474 libraries/Util.php:4291
-#: libraries/Util.php:4307 libraries/config.values.php:107
+#: libraries/Menu.php:370 libraries/Menu.php:474 libraries/Util.php:4296
+#: libraries/Util.php:4312 libraries/config.values.php:107
 #: libraries/server_common.lib.php:48 libraries/server_privileges.lib.php:2688
 #: libraries/server_privileges.lib.php:4545
 #: templates/privileges/privileges_summary.phtml:16
@@ -3934,19 +3934,19 @@ msgid "Privileges"
 msgstr "Đặc quyền"
 
 #: libraries/Menu.php:379 libraries/Menu.php:387 libraries/Menu.php:466
-#: libraries/Util.php:3360 libraries/Util.php:3374 libraries/Util.php:4290
-#: libraries/Util.php:4308 libraries/config.values.php:113
+#: libraries/Util.php:3365 libraries/Util.php:3379 libraries/Util.php:4295
+#: libraries/Util.php:4313 libraries/config.values.php:113
 #: view_operations.php:103
 msgid "Operations"
 msgstr "Thao tác"
 
-#: libraries/Menu.php:392 libraries/Menu.php:496 libraries/Util.php:4295
-#: libraries/Util.php:4309 libraries/relation.lib.php:265
+#: libraries/Menu.php:392 libraries/Menu.php:496 libraries/Util.php:4300
+#: libraries/Util.php:4314 libraries/relation.lib.php:265
 msgid "Tracking"
 msgstr "Theo dõi"
 
-#: libraries/Menu.php:404 libraries/Menu.php:490 libraries/Util.php:4294
-#: libraries/Util.php:4310
+#: libraries/Menu.php:404 libraries/Menu.php:490 libraries/Util.php:4299
+#: libraries/Util.php:4315
 #: libraries/navigation/nodes/NodeTriggerContainer.php:25
 #: libraries/plugins/export/ExportHtmlword.php:578
 #: libraries/plugins/export/ExportOdt.php:713
@@ -3962,16 +3962,16 @@ msgstr "Bẫy"
 msgid "Database seems to be empty!"
 msgstr "Cơ sở dữ liệu có vẻ là đang trống rỗng!"
 
-#: libraries/Menu.php:446 libraries/Util.php:4287
+#: libraries/Menu.php:446 libraries/Util.php:4292
 msgid "Query"
 msgstr "Truy vấn"
 
-#: libraries/Menu.php:479 libraries/Util.php:4292
+#: libraries/Menu.php:479 libraries/Util.php:4297
 #: libraries/rte/rte_words.lib.php:36
 msgid "Routines"
 msgstr "Thủ tục"
 
-#: libraries/Menu.php:484 libraries/Util.php:4293
+#: libraries/Menu.php:484 libraries/Util.php:4298
 #: libraries/navigation/nodes/NodeEventContainer.php:25
 #: libraries/plugins/export/ExportSql.php:952
 #: libraries/plugins/export/ExportXml.php:103
@@ -3979,16 +3979,16 @@ msgstr "Thủ tục"
 msgid "Events"
 msgstr "Sự kiện"
 
-#: libraries/Menu.php:502 libraries/Util.php:4296
+#: libraries/Menu.php:502 libraries/Util.php:4301
 msgid "Designer"
 msgstr "Bộ thiết kế"
 
-#: libraries/Menu.php:511 libraries/Util.php:4297
+#: libraries/Menu.php:511 libraries/Util.php:4302
 #: templates/database/structure/check_all_tables.phtml:34
 msgid "Central columns"
 msgstr "Các cột trung tâm"
 
-#: libraries/Menu.php:545 libraries/Util.php:4269
+#: libraries/Menu.php:545 libraries/Util.php:4274
 #: libraries/config.values.php:104 libraries/config/messages.inc.php:269
 #: libraries/config/messages.inc.php:344
 #: libraries/navigation/NavigationTree.php:1269
@@ -4001,34 +4001,34 @@ msgid "User accounts"
 msgstr "Các tài khoản người dùng"
 
 #: libraries/Menu.php:596 libraries/ServerStatusData.php:121
-#: libraries/Util.php:4276 libraries/server_common.lib.php:33
+#: libraries/Util.php:4281 libraries/server_common.lib.php:33
 msgid "Binary log"
 msgstr "Nhật ký nhị phân"
 
 #: libraries/Menu.php:602 libraries/ServerStatusData.php:126
-#: libraries/Util.php:4277 libraries/server_common.lib.php:39
+#: libraries/Util.php:4282 libraries/server_common.lib.php:39
 #: templates/database/structure/body_for_table_summary.phtml:10
 #: templates/database/structure/table_header.phtml:27
 msgid "Replication"
 msgstr "Bản sao"
 
 #: libraries/Menu.php:607 libraries/ServerStatusData.php:193
-#: libraries/Util.php:4278 libraries/config.values.php:106
+#: libraries/Util.php:4283 libraries/config.values.php:106
 #: libraries/sql_query_form.lib.php:427
 #: templates/server/engines/engine.phtml:15
 #: templates/server/engines/engine.phtml:18
 msgid "Variables"
 msgstr "Biến"
 
-#: libraries/Menu.php:611 libraries/Util.php:4279
+#: libraries/Menu.php:611 libraries/Util.php:4284
 msgid "Charsets"
 msgstr "Bảng mã"
 
-#: libraries/Menu.php:615 libraries/Util.php:4281
+#: libraries/Menu.php:615 libraries/Util.php:4286
 msgid "Engines"
 msgstr "Bộ máy"
 
-#: libraries/Menu.php:619 libraries/Util.php:4280
+#: libraries/Menu.php:619 libraries/Util.php:4285
 #: libraries/server_common.lib.php:30
 msgid "Plugins"
 msgstr "Phần bổ sung"
@@ -4323,35 +4323,35 @@ msgstr "Chưa định nghĩa bộ phận chỉ mục nào!"
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr "Gặp lỗi khi tạo khóa ngoại trên %1$s (kiểm tra lại kiểu dữ liệu)"
 
-#: libraries/Theme.php:170
+#: libraries/Theme.php:168
 #, php-format
 msgid "No valid image path for theme %s found!"
 msgstr "Không thấy đường dẫn ảnh hợp lệ cho chủ đề %s!"
 
-#: libraries/Theme.php:425
+#: libraries/Theme.php:422
 msgid "No preview available."
 msgstr "Không có sẵn xem thử nào."
 
-#: libraries/Theme.php:427
+#: libraries/Theme.php:424
 msgid "take it"
 msgstr "lấy nó"
 
-#: libraries/ThemeManager.php:137
+#: libraries/ThemeManager.php:126
 #, php-format
 msgid "Default theme %s not found!"
 msgstr "Không tìm thấy chủ đề mặc định %s!"
 
-#: libraries/ThemeManager.php:194
+#: libraries/ThemeManager.php:182
 #, php-format
 msgid "Theme %s not found!"
 msgstr "Không tìm thấy chủ đề %s!"
 
-#: libraries/ThemeManager.php:274
+#: libraries/ThemeManager.php:262
 #, php-format
 msgid "Theme path not found for theme %s!"
 msgstr "Không tìm thấy đường dẫn cho chủ đề %s!"
 
-#: libraries/ThemeManager.php:368
+#: libraries/ThemeManager.php:356
 msgid "Theme:"
 msgstr "Chủ đề:"
 
@@ -4670,7 +4670,7 @@ msgctxt "Short week day name"
 msgid "Sun"
 msgstr "CN"
 
-#. l10n: See http://www.php.net/manual/en/function.strftime.php
+#. l10n: See http://php.net/manual/en/function.strftime.php
 #: libraries/Util.php:1707
 #: libraries/plugins/transformations/abs/DateFormatTransformationsPlugin.php:67
 msgid "%B %d, %Y at %I:%M %p"
@@ -4695,33 +4695,33 @@ msgstr "Nhảy tới cơ sở dữ liệu \"%s\"."
 msgid "The %s functionality is affected by a known bug, see %s"
 msgstr "Hàm %s bị ảnh hưởng bởi lỗi đã biết, xem %s"
 
-#: libraries/Util.php:3564 prefs_manage.php:249
+#: libraries/Util.php:3569 prefs_manage.php:249
 msgid "Browse your computer:"
 msgstr "Duyệt máy tính của bạn:"
 
-#: libraries/Util.php:3589
+#: libraries/Util.php:3594
 #, php-format
 msgid "Select from the web server upload directory <b>%s</b>:"
 msgstr "Chọn từ thư mục tải lên của máy phục vụ web <b>%s</b>:"
 
-#: libraries/Util.php:3618 libraries/insert_edit.lib.php:1178
+#: libraries/Util.php:3623 libraries/insert_edit.lib.php:1178
 msgid "The directory you set for upload work cannot be reached."
 msgstr "Thư mục bạn đặt cho việc tải lên không thể tiếp cận được."
 
-#: libraries/Util.php:3629
+#: libraries/Util.php:3634
 msgid "There are no files to upload!"
 msgstr "Không có tập tin nào để tải lên!"
 
-#: libraries/Util.php:3654 libraries/Util.php:3655
+#: libraries/Util.php:3659 libraries/Util.php:3660
 #: templates/database/structure/check_all_tables.phtml:16
 msgid "Empty"
 msgstr "Rỗng"
 
-#: libraries/Util.php:3660 libraries/Util.php:3661
+#: libraries/Util.php:3665 libraries/Util.php:3666
 msgid "Execute"
 msgstr "Thi hành"
 
-#: libraries/Util.php:4272
+#: libraries/Util.php:4277
 msgid "Users"
 msgstr "Người dùng"
 

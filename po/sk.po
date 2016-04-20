@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2016-04-12 11:23+0200\n"
+"POT-Creation-Date: 2016-04-20 12:42+0200\n"
 "PO-Revision-Date: 2016-03-17 08:31+0000\n"
 "Last-Translator: Jozef Pistej <pistej2@gmail.com>\n"
 "Language-Team: Slovak <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -257,8 +257,8 @@ msgid "Tables"
 msgstr "Tabuľky"
 
 #: db_export.php:66 libraries/Menu.php:325 libraries/Menu.php:432
-#: libraries/Util.php:3355 libraries/Util.php:3365 libraries/Util.php:3371
-#: libraries/Util.php:3651 libraries/Util.php:4284 libraries/Util.php:4301
+#: libraries/Util.php:3360 libraries/Util.php:3370 libraries/Util.php:3376
+#: libraries/Util.php:3656 libraries/Util.php:4289 libraries/Util.php:4306
 #: libraries/central_columns.lib.php:727 libraries/config.values.php:39
 #: libraries/config.values.php:47 libraries/config.values.php:110
 #: libraries/config.values.php:116 libraries/config/setup.forms.php:318
@@ -1262,7 +1262,7 @@ msgstr "Dopyty"
 msgid "Traffic"
 msgstr "Vyťaženie"
 
-#: js/messages.php:217 libraries/Menu.php:587 libraries/Util.php:4275
+#: js/messages.php:217 libraries/Menu.php:587 libraries/Util.php:4280
 #: libraries/server_status_monitor.lib.php:253
 msgid "Settings"
 msgstr "Nastavenia"
@@ -1482,7 +1482,7 @@ msgstr "Analyzujem…"
 msgid "Explain output"
 msgstr "Vysvetliť výstup"
 
-#: js/messages.php:294 libraries/Menu.php:553 libraries/Util.php:4271
+#: js/messages.php:294 libraries/Menu.php:553 libraries/Util.php:4276
 #: libraries/config.values.php:105 libraries/rte/rte_events.lib.php:397
 #: libraries/rte/rte_list.lib.php:107
 #: libraries/server_status_processes.lib.php:92 libraries/tracking.lib.php:286
@@ -1584,8 +1584,8 @@ msgstr ""
 "nastavenia…"
 
 #: js/messages.php:328 libraries/Menu.php:360 libraries/Menu.php:462
-#: libraries/Menu.php:583 libraries/Util.php:4274 libraries/Util.php:4289
-#: libraries/Util.php:4306 libraries/config/messages.inc.php:261
+#: libraries/Menu.php:583 libraries/Util.php:4279 libraries/Util.php:4294
+#: libraries/Util.php:4311 libraries/config/messages.inc.php:261
 #: libraries/display_import.lib.php:107
 #: libraries/server_status_monitor.lib.php:313 prefs_manage.php:239
 #: setup/frames/menu.inc.php:27
@@ -1739,7 +1739,7 @@ msgstr "Kopírujem databázu"
 msgid "Changing charset"
 msgstr "Mením znakovú sadu"
 
-#: js/messages.php:380 libraries/Util.php:3237
+#: js/messages.php:380 libraries/Util.php:3242
 msgid "Enable foreign key checks"
 msgstr "Povoliť kontrolu cudzích kľúčov"
 
@@ -1773,9 +1773,9 @@ msgstr "Definícia uloženej funkcie musí obsahovať príkaz RETURN!"
 
 #: js/messages.php:395 libraries/DisplayResults.php:4878
 #: libraries/DisplayResults.php:5161 libraries/Menu.php:352
-#: libraries/Menu.php:453 libraries/Menu.php:579 libraries/Util.php:3658
-#: libraries/Util.php:3659 libraries/Util.php:4273 libraries/Util.php:4288
-#: libraries/Util.php:4305 libraries/config/messages.inc.php:255
+#: libraries/Menu.php:453 libraries/Menu.php:579 libraries/Util.php:3663
+#: libraries/Util.php:3664 libraries/Util.php:4278 libraries/Util.php:4293
+#: libraries/Util.php:4310 libraries/config/messages.inc.php:255
 #: libraries/display_export.lib.php:170 libraries/rte/rte_list.lib.php:157
 #: libraries/server_privileges.lib.php:2524
 #: libraries/server_privileges.lib.php:2608
@@ -1825,8 +1825,8 @@ msgstr "Zobrazit vyhľadávacie pole"
 
 #: js/messages.php:412 libraries/DisplayResults.php:3496
 #: libraries/DisplayResults.php:4862 libraries/Index.php:728
-#: libraries/Util.php:731 libraries/Util.php:1241 libraries/Util.php:3656
-#: libraries/Util.php:3657 libraries/central_columns.lib.php:850
+#: libraries/Util.php:731 libraries/Util.php:1241 libraries/Util.php:3661
+#: libraries/Util.php:3662 libraries/central_columns.lib.php:850
 #: libraries/central_columns.lib.php:1198 libraries/config/messages.inc.php:892
 #: libraries/server_user_groups.lib.php:118 setup/frames/index.inc.php:184
 #: templates/console/bookmark_content.phtml:17
@@ -2094,7 +2094,7 @@ msgid "Data point content"
 msgstr "Obsah datového bodu"
 
 #: js/messages.php:509 js/messages.php:663 js/messages.php:680
-#: libraries/ErrorHandler.php:342 libraries/insert_edit.lib.php:2591
+#: libraries/ErrorHandler.php:356 libraries/insert_edit.lib.php:2591
 #: templates/table/index_form.phtml:154 templates/table/index_form.phtml:199
 msgid "Ignore"
 msgstr "Ignorovať"
@@ -2329,7 +2329,7 @@ msgid "Select database first"
 msgstr "Najprv vyberte databázu"
 
 #: js/messages.php:602 libraries/DisplayResults.php:5053
-#: libraries/Util.php:4166
+#: libraries/Util.php:4171
 #: templates/database/structure/print_view_data_dictionary_link.phtml:3
 #: templates/table/structure/optional_action_links.phtml:6
 msgid "Print"
@@ -2462,7 +2462,7 @@ msgstr "Na serveri boli zistené chyby!"
 msgid "Please look at the bottom of this window."
 msgstr "Prosím, pozrite sa na spodnú časť okna."
 
-#: js/messages.php:683 libraries/ErrorHandler.php:346
+#: js/messages.php:683 libraries/ErrorHandler.php:360
 msgid "Ignore All"
 msgstr "Ignorovať všetko"
 
@@ -3146,27 +3146,27 @@ msgstr "nerozlišovať veľké a malé písmená"
 msgid "case-sensitive collation"
 msgstr "rozlišovať veľké a malé písmená"
 
-#: libraries/Config.php:1148
+#: libraries/Config.php:1154
 #, php-format
 msgid "Existing configuration file (%s) is not readable."
 msgstr "Existujúci konfiguračný súbor (%s) nie je čitateľný."
 
-#: libraries/Config.php:1178
+#: libraries/Config.php:1184
 msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr ""
 "Konfiguračný súbor má zlé prístupové práva, nemal by byť zapisovateľný pre "
 "všetkých!"
 
-#: libraries/Config.php:1198
+#: libraries/Config.php:1204
 #, php-format
 msgid "Could not load default configuration from: %1$s"
 msgstr "Nepodarilo sa načítať prednastavenú konfiguráciu zo súboru: %1$s"
 
-#: libraries/Config.php:1205
+#: libraries/Config.php:1211
 msgid "Failed to read configuration file!"
 msgstr "Nepodarilo sa načítať konfiguračný súbor!"
 
-#: libraries/Config.php:1208
+#: libraries/Config.php:1214
 msgid ""
 "This usually means there is a syntax error in it, please check any errors "
 "shown below."
@@ -3174,7 +3174,7 @@ msgstr ""
 "Toto je často spôsobené syntaktickou chybou v súbore, prosím skontrolujte "
 "chyby vypísané nižšie."
 
-#: libraries/Config.php:1569
+#: libraries/Config.php:1575
 msgid "Font size"
 msgstr "Veľkosť písma"
 
@@ -3194,13 +3194,13 @@ msgstr "Žiadne záložky"
 msgid "SQL Query Console"
 msgstr "Konzola pre SQL dopyty"
 
-#: libraries/DatabaseInterface.php:1418
+#: libraries/DatabaseInterface.php:1387
 #, fuzzy
 #| msgid "Failed to read configuration file!"
 msgid "Failed to set configured collation connection!"
 msgstr "Nepodarilo sa načítať konfiguračný súbor!"
 
-#: libraries/DatabaseInterface.php:2029
+#: libraries/DatabaseInterface.php:1998
 msgid ""
 "The server is not responding (or the local server's socket is not correctly "
 "configured)."
@@ -3208,19 +3208,19 @@ msgstr ""
 "Server neodpovedá (alebo socket lokálneho MySQL servera nie je správne "
 "nastavený)."
 
-#: libraries/DatabaseInterface.php:2034
+#: libraries/DatabaseInterface.php:2003
 msgid "The server is not responding."
 msgstr "Server neodpovedá."
 
-#: libraries/DatabaseInterface.php:2040
+#: libraries/DatabaseInterface.php:2009
 msgid "Please check privileges of directory containing database."
 msgstr "Overte prístupové práva k adresáru, v ktorom je uložená databáza."
 
-#: libraries/DatabaseInterface.php:2051
+#: libraries/DatabaseInterface.php:2020
 msgid "Details…"
 msgstr "Podrobnosti…"
 
-#: libraries/DatabaseInterface.php:2261
+#: libraries/DatabaseInterface.php:2242
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr "Nepodarilo sa pripojiť ku controluser podľa nastavení z konfigurácie."
 
@@ -3380,9 +3380,9 @@ msgstr[0] "%1$s výskyt v <strong>%2$s</strong>"
 msgstr[1] "%1$s výskyty v <strong>%2$s</strong>"
 msgstr[2] "%1$s výskytov v <strong>%2$s</strong>"
 
-#: libraries/DbSearch.php:353 libraries/Menu.php:319 libraries/Util.php:3359
-#: libraries/Util.php:3369 libraries/Util.php:3645 libraries/Util.php:3646
-#: libraries/Util.php:4300 libraries/config.values.php:43
+#: libraries/DbSearch.php:353 libraries/Menu.php:319 libraries/Util.php:3364
+#: libraries/Util.php:3374 libraries/Util.php:3650 libraries/Util.php:3651
+#: libraries/Util.php:4305 libraries/config.values.php:43
 #: libraries/config.values.php:51 libraries/config.values.php:120
 #: libraries/navigation/nodes/NodeTable.php:313
 #: templates/table/structure/check_all_table_column.phtml:12
@@ -3650,11 +3650,11 @@ msgstr ""
 msgid "Too many error messages, some are not displayed."
 msgstr "Príliš veľa chybových správ, niektoré neboli zobrazené."
 
-#: libraries/ErrorHandler.php:331
+#: libraries/ErrorHandler.php:345
 msgid "Report"
 msgstr "Nahlásiť"
 
-#: libraries/ErrorHandler.php:336 templates/error/report_form.phtml:27
+#: libraries/ErrorHandler.php:350 templates/error/report_form.phtml:27
 msgid "Automatically send report next time"
 msgstr "Nabudúce automaticky odosielať hlásenia"
 
@@ -3815,7 +3815,7 @@ msgstr "Primárny kľúč bol zrušený."
 msgid "Index %s has been dropped."
 msgstr "Index pre %s bol odstránený."
 
-#: libraries/Index.php:762 libraries/Util.php:3652 libraries/Util.php:3653
+#: libraries/Index.php:762 libraries/Util.php:3657 libraries/Util.php:3658
 #: libraries/controllers/server/ServerDatabasesController.php:397
 #: libraries/controllers/table/TableStructureController.php:1178
 #: libraries/controllers/table/TableStructureController.php:1179
@@ -3906,8 +3906,8 @@ msgid "Table"
 msgstr "Tabuľka"
 
 #: libraries/Menu.php:333 libraries/Menu.php:436 libraries/Menu.php:549
-#: libraries/Util.php:3356 libraries/Util.php:3366 libraries/Util.php:3372
-#: libraries/Util.php:4270 libraries/Util.php:4285 libraries/Util.php:4302
+#: libraries/Util.php:3361 libraries/Util.php:3371 libraries/Util.php:3377
+#: libraries/Util.php:4275 libraries/Util.php:4290 libraries/Util.php:4307
 #: libraries/config.values.php:40 libraries/config.values.php:48
 #: libraries/config.values.php:111 libraries/config.values.php:117
 #: libraries/config/messages.inc.php:324
@@ -3915,25 +3915,25 @@ msgstr "Tabuľka"
 msgid "SQL"
 msgstr "SQL"
 
-#: libraries/Menu.php:336 libraries/Menu.php:439 libraries/Util.php:3357
-#: libraries/Util.php:3367 libraries/Util.php:3373 libraries/Util.php:3647
-#: libraries/Util.php:3648 libraries/Util.php:4286 libraries/Util.php:4303
+#: libraries/Menu.php:336 libraries/Menu.php:439 libraries/Util.php:3362
+#: libraries/Util.php:3372 libraries/Util.php:3378 libraries/Util.php:3652
+#: libraries/Util.php:3653 libraries/Util.php:4291 libraries/Util.php:4308
 #: libraries/config.values.php:41 libraries/config.values.php:49
 #: libraries/config.values.php:112 libraries/config.values.php:118
 #: libraries/navigation/nodes/NodeTable.php:298
 msgid "Search"
 msgstr "Hľadať"
 
-#: libraries/Menu.php:346 libraries/Util.php:3358 libraries/Util.php:3368
-#: libraries/Util.php:3649 libraries/Util.php:3650 libraries/Util.php:4304
+#: libraries/Menu.php:346 libraries/Util.php:3363 libraries/Util.php:3373
+#: libraries/Util.php:3654 libraries/Util.php:3655 libraries/Util.php:4309
 #: libraries/config.values.php:42 libraries/config.values.php:50
 #: libraries/config.values.php:119 libraries/navigation/nodes/NodeTable.php:304
 #: libraries/sql_query_form.lib.php:289 libraries/sql_query_form.lib.php:292
 msgid "Insert"
 msgstr "Vložiť"
 
-#: libraries/Menu.php:370 libraries/Menu.php:474 libraries/Util.php:4291
-#: libraries/Util.php:4307 libraries/config.values.php:107
+#: libraries/Menu.php:370 libraries/Menu.php:474 libraries/Util.php:4296
+#: libraries/Util.php:4312 libraries/config.values.php:107
 #: libraries/server_common.lib.php:48 libraries/server_privileges.lib.php:2688
 #: libraries/server_privileges.lib.php:4545
 #: templates/privileges/privileges_summary.phtml:16
@@ -3941,19 +3941,19 @@ msgid "Privileges"
 msgstr "Oprávnenia"
 
 #: libraries/Menu.php:379 libraries/Menu.php:387 libraries/Menu.php:466
-#: libraries/Util.php:3360 libraries/Util.php:3374 libraries/Util.php:4290
-#: libraries/Util.php:4308 libraries/config.values.php:113
+#: libraries/Util.php:3365 libraries/Util.php:3379 libraries/Util.php:4295
+#: libraries/Util.php:4313 libraries/config.values.php:113
 #: view_operations.php:103
 msgid "Operations"
 msgstr "Operácie"
 
-#: libraries/Menu.php:392 libraries/Menu.php:496 libraries/Util.php:4295
-#: libraries/Util.php:4309 libraries/relation.lib.php:265
+#: libraries/Menu.php:392 libraries/Menu.php:496 libraries/Util.php:4300
+#: libraries/Util.php:4314 libraries/relation.lib.php:265
 msgid "Tracking"
 msgstr "Sledovanie"
 
-#: libraries/Menu.php:404 libraries/Menu.php:490 libraries/Util.php:4294
-#: libraries/Util.php:4310
+#: libraries/Menu.php:404 libraries/Menu.php:490 libraries/Util.php:4299
+#: libraries/Util.php:4315
 #: libraries/navigation/nodes/NodeTriggerContainer.php:25
 #: libraries/plugins/export/ExportHtmlword.php:578
 #: libraries/plugins/export/ExportOdt.php:713
@@ -3969,16 +3969,16 @@ msgstr "Spúšťače"
 msgid "Database seems to be empty!"
 msgstr "Databáza vyzerá prázdna!"
 
-#: libraries/Menu.php:446 libraries/Util.php:4287
+#: libraries/Menu.php:446 libraries/Util.php:4292
 msgid "Query"
 msgstr "Dopyt podľa príkladu"
 
-#: libraries/Menu.php:479 libraries/Util.php:4292
+#: libraries/Menu.php:479 libraries/Util.php:4297
 #: libraries/rte/rte_words.lib.php:36
 msgid "Routines"
 msgstr "Rutiny"
 
-#: libraries/Menu.php:484 libraries/Util.php:4293
+#: libraries/Menu.php:484 libraries/Util.php:4298
 #: libraries/navigation/nodes/NodeEventContainer.php:25
 #: libraries/plugins/export/ExportSql.php:952
 #: libraries/plugins/export/ExportXml.php:103
@@ -3986,16 +3986,16 @@ msgstr "Rutiny"
 msgid "Events"
 msgstr "Udalosti"
 
-#: libraries/Menu.php:502 libraries/Util.php:4296
+#: libraries/Menu.php:502 libraries/Util.php:4301
 msgid "Designer"
 msgstr "Dizajnér"
 
-#: libraries/Menu.php:511 libraries/Util.php:4297
+#: libraries/Menu.php:511 libraries/Util.php:4302
 #: templates/database/structure/check_all_tables.phtml:34
 msgid "Central columns"
 msgstr "Centrálne stĺpce"
 
-#: libraries/Menu.php:545 libraries/Util.php:4269
+#: libraries/Menu.php:545 libraries/Util.php:4274
 #: libraries/config.values.php:104 libraries/config/messages.inc.php:269
 #: libraries/config/messages.inc.php:344
 #: libraries/navigation/NavigationTree.php:1269
@@ -4008,34 +4008,34 @@ msgid "User accounts"
 msgstr "Užívateľské účty"
 
 #: libraries/Menu.php:596 libraries/ServerStatusData.php:121
-#: libraries/Util.php:4276 libraries/server_common.lib.php:33
+#: libraries/Util.php:4281 libraries/server_common.lib.php:33
 msgid "Binary log"
 msgstr "Binárny log"
 
 #: libraries/Menu.php:602 libraries/ServerStatusData.php:126
-#: libraries/Util.php:4277 libraries/server_common.lib.php:39
+#: libraries/Util.php:4282 libraries/server_common.lib.php:39
 #: templates/database/structure/body_for_table_summary.phtml:10
 #: templates/database/structure/table_header.phtml:27
 msgid "Replication"
 msgstr "Replikácia"
 
 #: libraries/Menu.php:607 libraries/ServerStatusData.php:193
-#: libraries/Util.php:4278 libraries/config.values.php:106
+#: libraries/Util.php:4283 libraries/config.values.php:106
 #: libraries/sql_query_form.lib.php:427
 #: templates/server/engines/engine.phtml:15
 #: templates/server/engines/engine.phtml:18
 msgid "Variables"
 msgstr "Premenné"
 
-#: libraries/Menu.php:611 libraries/Util.php:4279
+#: libraries/Menu.php:611 libraries/Util.php:4284
 msgid "Charsets"
 msgstr "Znakové sady"
 
-#: libraries/Menu.php:615 libraries/Util.php:4281
+#: libraries/Menu.php:615 libraries/Util.php:4286
 msgid "Engines"
 msgstr "Systémy"
 
-#: libraries/Menu.php:619 libraries/Util.php:4280
+#: libraries/Menu.php:619 libraries/Util.php:4285
 #: libraries/server_common.lib.php:30
 msgid "Plugins"
 msgstr "Rozšírenia"
@@ -4342,35 +4342,35 @@ msgstr "Časti indexu neboli definované!"
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr ""
 
-#: libraries/Theme.php:170
+#: libraries/Theme.php:168
 #, php-format
 msgid "No valid image path for theme %s found!"
 msgstr "Nebola nájdená platná cesta k obrázkom pre vzhľad %s!"
 
-#: libraries/Theme.php:425
+#: libraries/Theme.php:422
 msgid "No preview available."
 msgstr "Náhľad nie je dostupný."
 
-#: libraries/Theme.php:427
+#: libraries/Theme.php:424
 msgid "take it"
 msgstr "zvoliť"
 
-#: libraries/ThemeManager.php:137
+#: libraries/ThemeManager.php:126
 #, php-format
 msgid "Default theme %s not found!"
 msgstr "Predvolený vzhľad %s nebol nájdený!"
 
-#: libraries/ThemeManager.php:194
+#: libraries/ThemeManager.php:182
 #, php-format
 msgid "Theme %s not found!"
 msgstr "Vzhľad %s nebol nájdený!"
 
-#: libraries/ThemeManager.php:274
+#: libraries/ThemeManager.php:262
 #, php-format
 msgid "Theme path not found for theme %s!"
 msgstr "Nebola nájdená platná cesta ku vzhľadu %s!"
 
-#: libraries/ThemeManager.php:368
+#: libraries/ThemeManager.php:356
 msgid "Theme:"
 msgstr "Vzhľad:"
 
@@ -4737,7 +4737,7 @@ msgctxt "Short week day name"
 msgid "Sun"
 msgstr "Ne"
 
-#. l10n: See http://www.php.net/manual/en/function.strftime.php
+#. l10n: See http://php.net/manual/en/function.strftime.php
 #: libraries/Util.php:1707
 #: libraries/plugins/transformations/abs/DateFormatTransformationsPlugin.php:67
 msgid "%B %d, %Y at %I:%M %p"
@@ -4762,33 +4762,33 @@ msgstr "Prejsť na databázu \"%s\"."
 msgid "The %s functionality is affected by a known bug, see %s"
 msgstr "Funkčnosť %s je ovplyvnená známou chybou, pozri %s"
 
-#: libraries/Util.php:3564 prefs_manage.php:249
+#: libraries/Util.php:3569 prefs_manage.php:249
 msgid "Browse your computer:"
 msgstr "Prechádzať váš počítač:"
 
-#: libraries/Util.php:3589
+#: libraries/Util.php:3594
 #, php-format
 msgid "Select from the web server upload directory <b>%s</b>:"
 msgstr "Zvoľte súbor z upload adresára <b>%s</b> web servera:"
 
-#: libraries/Util.php:3618 libraries/insert_edit.lib.php:1178
+#: libraries/Util.php:3623 libraries/insert_edit.lib.php:1178
 msgid "The directory you set for upload work cannot be reached."
 msgstr "Adresár určený pre upload súborov sa nedá otvoriť."
 
-#: libraries/Util.php:3629
+#: libraries/Util.php:3634
 msgid "There are no files to upload!"
 msgstr "Žiadny súbor pre nahrávanie!"
 
-#: libraries/Util.php:3654 libraries/Util.php:3655
+#: libraries/Util.php:3659 libraries/Util.php:3660
 #: templates/database/structure/check_all_tables.phtml:16
 msgid "Empty"
 msgstr "Vyprázdniť"
 
-#: libraries/Util.php:3660 libraries/Util.php:3661
+#: libraries/Util.php:3665 libraries/Util.php:3666
 msgid "Execute"
 msgstr "Spustiť"
 
-#: libraries/Util.php:4272
+#: libraries/Util.php:4277
 msgid "Users"
 msgstr "Používatelia"
 
