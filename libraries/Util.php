@@ -3200,8 +3200,13 @@ class Util
         if (($engine == 'INNODB') || ($engine == 'PBXT')) {
             return true;
         } elseif ($engine == 'NDBCLUSTER' || $engine == 'NDB') {
-            $ndbver = $GLOBALS['dbi']->fetchValue("SELECT @@ndb_version_string");
-            return ($ndbver >= 7.3);
+            $ndbver = strtolower(
+                $GLOBALS['dbi']->fetchValue("SELECT @@ndb_version_string")
+            );
+            if (substr($ndbver, 0, 4) == 'ndb-') {
+                $ndbver = substr($ndbver, 4);
+            }
+            return version_compare($ndbver, 7.3, '>=');
         } else {
             return false;
         }
