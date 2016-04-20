@@ -736,20 +736,18 @@ doesn't work in this configuration with port forwarding. If you enter
 2.7 Using and creating themes
 -----------------------------
 
-Themes are configured with :config:option:`$cfg['ThemePath']`,
-:config:option:`$cfg['ThemeManager']` and :config:option:`$cfg['ThemeDefault']`.
-Under :config:option:`$cfg['ThemePath']`, you should not delete the
-directory ``pmahomme`` or its underlying structure, because this is the
-system theme used by phpMyAdmin. ``pmahomme`` contains all images and
-styles, for backwards compatibility and for all themes that would not
-include images or css-files.  If :config:option:`$cfg['ThemeManager']`
-is enabled, you can select your favorite theme on the main page. Your selected
-theme will be stored in a cookie.
+Themes are configured with :config:option:`$cfg['ThemeManager']` and
+:config:option:`$cfg['ThemeDefault']`.  Under :file:`./themes/`, you should not
+delete the directory ``pmahomme`` or its underlying structure, because this is
+the system theme used by phpMyAdmin. ``pmahomme`` contains all images and
+styles, for backwards compatibility and for all themes that would not include
+images or css-files.  If :config:option:`$cfg['ThemeManager']` is enabled, you
+can select your favorite theme on the main page. Your selected theme will be
+stored in a cookie.
 
 To create a theme:
 
-* make a new subdirectory (for example "your\_theme\_name") under :config:option:`$cfg['ThemePath']` (by
-  default ``themes``)
+* make a new subdirectory (for example "your\_theme\_name") under :file:`./themes/`.
 * copy the files and directories from ``pmahomme`` to "your\_theme\_name"
 * edit the css-files in "your\_theme\_name/css"
 * put your new images in "your\_theme\_name/img"

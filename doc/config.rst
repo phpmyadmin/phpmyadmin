@@ -2815,14 +2815,6 @@ Page titles
 Theme manager settings
 ----------------------
 
-.. config:option:: $cfg['ThemePath']
-
-    :type: string
-    :default: ``'./themes'``
-
-    If theme manager is active, use this as the path of the subdirectory
-    containing all the themes.
-
 .. config:option:: $cfg['ThemeManager']
 
     :type: boolean
@@ -2835,7 +2827,7 @@ Theme manager settings
     :type: string
     :default: ``'pmahomme'``
 
-    The default theme (a subdirectory under :config:option:`$cfg['ThemePath']`).
+    The default theme (a subdirectory under :file:`./themes/`).
 
 .. config:option:: $cfg['ThemePerServer']
 

@@ -156,9 +156,7 @@ class Theme
         }
 
         // try fallback theme
-        $fallback = $GLOBALS['cfg']['ThemePath'] . '/'
-            . ThemeManager::FALLBACK_THEME
-            . '/img/';
+        $fallback = './themes/' . ThemeManager::FALLBACK_THEME . '/img/';
         if (is_dir($fallback)) {
             $this->setImgPath($fallback);
             return true;
@@ -329,8 +327,7 @@ class Theme
             return $this->img_path . $file;
         }
 
-        return $GLOBALS['cfg']['ThemePath'] . '/'
-            . ThemeManager::FALLBACK_THEME . '/img/' . $file;
+        return './themes/' . ThemeManager::FALLBACK_THEME . '/img/' . $file;
     }
 
     /**

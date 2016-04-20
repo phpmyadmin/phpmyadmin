@@ -176,14 +176,11 @@ class ThemeTest extends PMATestCase
      * Test fir Theme::checkImgPath
      *
      * @return void
-     * @expectedException PHPUnit_Framework_Error
      */
-    public function testCheckImgPathBad()
+    public function testCheckImgPathFallback()
     {
-        $GLOBALS['cfg']['ThemePath'] = 'nowhere';
         $this->object->setPath('path/to/nowhere');
-
-        $this->assertFalse($this->object->checkImgPath());
+        $this->assertTrue($this->object->checkImgPath());
     }
 
     /**
@@ -195,35 +192,6 @@ class ThemeTest extends PMATestCase
     {
         $this->object->setPath('./themes/original');
         $this->assertTrue($this->object->checkImgPath());
-    }
-
-    /**
-     * Test for Theme::checkImgPath
-     *
-     * @return void
-     */
-    public function testCheckImgPathGlobals()
-    {
-        $this->object->setPath('/this/is/wrong/path');
-        $GLOBALS['cfg']['ThemePath'] = 'themes';
-        $this->assertTrue($this->object->checkImgPath());
-    }
-
-    /**
-     * Test for Theme::checkImgPath
-     *
-     * @return void
-     * @expectedException PHPUnit_Framework_Error
-     */
-    public function testCheckImgPathGlobalsWrongPath()
-    {
-        $prevThemePath = $GLOBALS['cfg']['ThemePath'];
-        $GLOBALS['cfg']['ThemePath'] = 'no_themes';
-
-        $this->object->setPath('/this/is/wrong/path');
-        $this->object->checkImgPath();
-
-        $GLOBALS['cfg']['ThemePath'] = $prevThemePath;
     }
 
     /**

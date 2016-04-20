@@ -20,7 +20,7 @@ class ThemeManager
      * @var string path to theme folder
      * @access protected
      */
-    private $_themes_path;
+    private $_themes_path = './themes/';
 
     /**
      * @var array available themes
@@ -86,17 +86,6 @@ class ThemeManager
     }
 
     /**
-     * Returns path to folder containing themes
-     *
-     * @access public
-     * @return string theme path
-     */
-    public function getThemesPath()
-    {
-        return $this->_themes_path;
-    }
-
-    /**
      * sets if there are different themes per server
      *
      * @param boolean $per_server Whether to enable per server flag
@@ -121,7 +110,7 @@ class ThemeManager
         $this->theme_default = self::FALLBACK_THEME;
         $this->active_theme = '';
 
-        if (! $this->setThemesPath($GLOBALS['cfg']['ThemePath'])) {
+        if (! $this->setThemesPath('./themes/')) {
             return;
         }
 
@@ -166,8 +155,7 @@ class ThemeManager
      */
     public function checkConfig()
     {
-        if ($this->_themes_path != trim($GLOBALS['cfg']['ThemePath'])
-            || $this->theme_default != $GLOBALS['cfg']['ThemeDefault']
+        if ($this->theme_default != $GLOBALS['cfg']['ThemeDefault']
         ) {
             $this->init();
         } else {
@@ -292,10 +280,10 @@ class ThemeManager
     {
         $this->themes = array();
 
-        if (false === ($handleThemes = opendir($this->getThemesPath()))) {
+        if (false === ($handleThemes = opendir($this->_themes_path))) {
             trigger_error(
                 'phpMyAdmin-ERROR: cannot open themes folder: '
-                . $this->getThemesPath(),
+                . $this->_themes_path,
                 E_USER_WARNING
             );
             return false;
@@ -306,7 +294,7 @@ class ThemeManager
             // Skip non dirs, . and ..
             if ($PMA_Theme == '.'
                 || $PMA_Theme == '..'
-                || ! is_dir($this->getThemesPath() . '/' . $PMA_Theme)
+                || ! is_dir($this->_themes_path . $PMA_Theme)
             ) {
                 continue;
             }
@@ -314,7 +302,7 @@ class ThemeManager
                 continue;
             }
             $new_theme = Theme::load(
-                $this->getThemesPath() . '/' . $PMA_Theme
+                $this->_themes_path . $PMA_Theme
             );
             if ($new_theme) {
                 $new_theme->setId($PMA_Theme);

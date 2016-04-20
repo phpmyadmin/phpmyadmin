@@ -211,7 +211,6 @@ class PMA_FormDisplay_Tpl_Test extends PHPUnit_Framework_TestCase
 
         define('PMA_SETUP', true);
         $GLOBALS['_FormDislayGroup'] = 0;
-        $GLOBALS['cfg']['ThemePath'] = 'themePath';
         $opts = array();
         $opts['errors'] = array();
         $opts['setvalue'] = 'setVal';
@@ -255,7 +254,6 @@ class PMA_FormDisplay_Tpl_Test extends PHPUnit_Framework_TestCase
 
         // short_text
         $GLOBALS['_FormDislayGroup'] = 0;
-        $GLOBALS['cfg']['ThemePath'] = 'themePath';
         $opts = array();
         $opts['errors'] = array();
 
