@@ -1018,8 +1018,14 @@ class Config
             }
         } else {
             // read language from settings
-            if (isset($config_data['lang']) && PMA_langSet($config_data['lang'])) {
-                $this->setCookie('pma_lang', $GLOBALS['lang']);
+            if (isset($config_data['lang'])) {
+                $language = LanguageManager::getInstance()->getLanguage(
+                    $config_data['lang']
+                );
+                if ($language !== false) {
+                    $language->activate();
+                    $this->setCookie('pma_lang', $language->getCode());
+                }
             }
         }
 

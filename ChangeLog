@@ -15,6 +15,7 @@ phpMyAdmin - ChangeLog
 - issue #12165 Fix parsing of expression 0
 - issue #12146 Document setup with Google Cloud SQL
 - issue #12197 Fix parsing of queries with double \
+- issue #12202 Fixed setting of language from user configuration
 
 4.6.0.0 (2016-03-22)
 + issue #11456 Disabled storage engines
