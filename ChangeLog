@@ -31,6 +31,7 @@ phpMyAdmin - ChangeLog
 - issue #12197 Fix parsing of queries with double \
 - issue #12202 Fixed setting of language from user configuration
 - issue #12200 Fixed check for ndb version
+- issue #12206 Fixed loading of configuration file
 
 4.6.0.0 (2016-03-22)
 + issue #11456 Disabled storage engines
