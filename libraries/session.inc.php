@@ -70,36 +70,48 @@ session_cache_limiter('private');
 // on some servers (for example, sourceforge.net), we get a permission error
 // on the session data directory, so I add some "@"
 
+
+function PMA_sessionFailed($errors)
+{
+    $messages = array();
+    foreach ($errors as $error) {
+        $messages[] = $error->getMessage();
+    }
+
+    /*
+     * Session initialization is done before selecting language, so we
+     * can not use translations here.
+     */
+    PMA_fatalError(
+        'Error during session start; please check your PHP and/or '
+        . 'webserver log file and configure your PHP '
+        . 'installation properly. Also ensure that cookies are enabled '
+        . 'in your browser.'
+        . '<br /><br />'
+        . implode('<br /><br />', $messages)
+    );
+}
+
 // See bug #1538132. This would block normal behavior on a cluster
 //ini_set('session.save_handler', 'files');
 
 $session_name = 'phpMyAdmin';
 @session_name($session_name);
 
-if (! isset($_COOKIE[$session_name])) {
-    // on first start of session we check for errors
-    // f.e. session dir cannot be accessed - session file not created
-    $orig_error_count = $GLOBALS['error_handler']->countErrors();
-    $session_result = session_start();
-    if ($session_result !== true
-        || $orig_error_count != $GLOBALS['error_handler']->countErrors()
-    ) {
-        setcookie($session_name, '', 1);
-        /*
-         * Session initialization is done before selecting language, so we
-         * can not use translations here.
-         */
-        PMA_fatalError(
-            'Error during session start; please check your PHP and/or '
-            . 'webserver log file and configure your PHP '
-            . 'installation properly. Also ensure that cookies are enabled '
-            . 'in your browser.'
-        );
-    }
-    unset($orig_error_count, $session_result);
-} else {
-    session_start();
+// on first start of session we check for errors
+// f.e. session dir cannot be accessed - session file not created
+$orig_error_count = $GLOBALS['error_handler']->countErrors();
+
+$session_result = session_start();
+
+if ($session_result !== true
+    || $orig_error_count != $GLOBALS['error_handler']->countErrors()
+) {
+    setcookie($session_name, '', 1);
+    $errors = $GLOBALS['error_handler']->sliceErrors($orig_error_count);
+    PMA_sessionFailed($errors);
 }
+unset($orig_error_count, $session_result);
 
 /**
  * Disable setting of session cookies for further session_start() calls.
@@ -116,6 +128,20 @@ if (! isset($_SESSION[' PMA_token '])) {
     } else {
         $_SESSION[' PMA_token '] = bin2hex(openssl_random_pseudo_bytes(16));
     }
+
+    /**
+     * Check for disk space on session storage by trying to write it.
+     *
+     * This seems to be most reliable approach to test if sessions are working,
+     * otherwise the check would fail with custom session backends.
+     */
+    $orig_error_count = $GLOBALS['error_handler']->countErrors();
+    session_write_close();
+    if ($GLOBALS['error_handler']->countErrors() > $orig_error_count) {
+        $errors = $GLOBALS['error_handler']->sliceErrors($orig_error_count);
+        PMA_sessionFailed($errors);
+    }
+    session_start();
 }
 /**
  * Check if token is properly generated (both above functions can return false).
