@@ -207,8 +207,10 @@ class Util
         if (array_key_exists($class, $sprites)) {
             $is_sprite = true;
             $url = (defined('PMA_TEST_THEME') ? '../' : '') . 'themes/dot.gif';
-        } else {
+        } elseif (isset($GLOBALS['pmaThemeImage'])) {
             $url = $GLOBALS['pmaThemeImage'] . $image;
+        } else {
+            $url = './themes/pmahomme/' . $image;
         }
 
         // set class attribute

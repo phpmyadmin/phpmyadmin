@@ -32,6 +32,7 @@ phpMyAdmin - ChangeLog
 - issue #12202 Fixed setting of language from user configuration
 - issue #12200 Fixed check for ndb version
 - issue #12206 Fixed loading of configuration file
+- issue #12204 Check if sessions are working and report failures
 
 4.6.0.0 (2016-03-22)
 + issue #11456 Disabled storage engines
