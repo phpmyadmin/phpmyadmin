@@ -3844,7 +3844,8 @@ function PMA_getHtmlForInitials($array_initials)
     }
 
     $initials = $GLOBALS['dbi']->tryQuery(
-        'SELECT DISTINCT UPPER(LEFT(`User`,1)) FROM `user` ORDER BY `User` ASC',
+        'SELECT DISTINCT UPPER(LEFT(`User`,1)) FROM `user`'
+        . ' ORDER BY UPPER(LEFT(`User`,1)) ASC',
         null,
         PMA\libraries\DatabaseInterface::QUERY_STORE
     );
