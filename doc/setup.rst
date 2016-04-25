@@ -362,17 +362,6 @@ options which the setup script does not provide.
    phpMyAdmin should now display a welcome screen and your databases, or
    a login dialog if using :term:`HTTP` or
    cookie authentication mode.
-#. You should deny access to the ``./libraries`` and ``./setup/lib``
-   subfolders in your webserver configuration.
-   Such configuration prevents from possible
-   path exposure and cross side scripting vulnerabilities that might
-   happen to be found in that code. For the Apache webserver, this is
-   often accomplished with a :term:`.htaccess` file in those directories.
-#. It is generally a good idea to protect a public phpMyAdmin installation
-   against access by robots as they usually can not do anything good
-   there. You can do this using ``robots.txt`` file in root of your
-   webserver or limit access by web server configuration, see
-   :ref:`faq1_42`.
 
 
 .. _verify:
@@ -746,12 +735,27 @@ Securing your phpMyAdmin installation
 The phpMyAdmin team tries hard to make the application secure, however there
 are always ways to make your installation more secure:
 
+* Follow our `Security announcements <https://www.phpmyadmin.net/security/>`_ and upgrade
+  phpMyAdmin whenever new vulnerability is published.
 * Serve phpMyAdmin on HTTPS only. Preferably, you should use HSTS as well, so that
   you're protected from protocol downgrade attacks.
+* Ensure your PHP setup follows recommendations for production sites, for example
+  `display_errors <http://php.net/manual/en/errorfunc.configuration.php#ini.display-errors>`_ 
+  should be disabled.
 * Remove the ``setup`` directory from phpMyAdmin, you will probably not
   use it after the initial setup.
 * Properly choose an authentication method - :ref:`cookie`
   is probably the best choice for shared hosting.
+* Deny access to auxiliary files in :file:`./libraries/` or
+  :file:`./templates/` subfolders in your webserver configuration.
+  Such configuration prevents from possible path exposure and cross side
+  scripting vulnerabilities that might happen to be found in that code. For the
+  Apache webserver, this is often accomplished with a :term:`.htaccess` file in
+  those directories.
+* It is generally a good idea to protect a public phpMyAdmin installation
+  against access by robots as they usually can not do anything good there. You
+  can do this using ``robots.txt`` file in root of your webserver or limit
+  access by web server configuration, see :ref:`faq1_42`.
 * In case you don't want all MySQL users to be able to access
   phpMyAdmin, you can use :config:option:`$cfg['Servers'][$i]['AllowDeny']['rules']` to limit them.
 * Consider hiding phpMyAdmin behind an authentication proxy, so that
