@@ -308,6 +308,10 @@ Server connection settings
     :type: boolean
     :default: true
 
+    .. versionadded:: 4.6.0
+
+        This is supported since phpMyAdmin 4.6.0.
+
     If your PHP install uses the MySQL Native Driver (mysqlnd), your
     MySQL server is 5.6 or later, and your SSL certificate is self-signed,
     there is a chance your SSL connection will fail due to validation.
