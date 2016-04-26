@@ -3039,6 +3039,27 @@ AJAX.registerTeardown('functions.js', function () {
  */
 AJAX.registerOnload('functions.js', function () {
 
+    /* Handler for password type */
+    $(document).on('change', '#select_pred_password', function () {
+        if (this.value == 'none') {
+            $('#text_pma_pw2').prop('required', false).val('');
+            $('#text_pma_pw').prop('required', false).val('');
+        } else if (this.value == 'userdefined') {
+            $('#text_pma_pw2').prop('required', true);
+            $('#text_pma_pw').prop('required', true).focus().select();
+        } else {
+            $('#text_pma_pw2').prop('required', false);
+            $('#text_pma_pw').prop('required', false);
+        }
+    });
+
+    /* Handler for editing password */
+    $(document).on('change', '#text_pma_pw,#text_pma_pw2', function () {
+        $('#select_pred_password').val('userdefined');
+        $('#text_pma_pw2').prop('required', true);
+        $('#text_pma_pw').prop('required', true);
+    });
+
     /**
      * Attach Ajax event handler on the change password anchor
      */

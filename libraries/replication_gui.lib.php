@@ -863,11 +863,7 @@ function PMA_getHtmlForTableInfoForm($hostname_length)
         . '</label>'
         . '<span class="options">'
         . '    <select name="pred_password" id="select_pred_password" title="'
-        . __('Password') . '"'
-        . '            onchange="if (this.value == \'none\') '
-        .                       '{ pma_pw.value = \'\'; pma_pw2.value = \'\'; } '
-        .                       'else if (this.value == \'userdefined\') '
-        .                       '{ pma_pw.focus(); pma_pw.select(); }">'
+        . __('Password') . '">'
         . '        <option value="none"';
     if (isset($_REQUEST['username'])) {
         $html .= '  selected="selected"';
@@ -879,7 +875,7 @@ function PMA_getHtmlForTableInfoForm($hostname_length)
         . '    </select>'
         . '</span>'
         . '<input type="password" id="text_pma_pw" name="pma_pw" title="'
-        . __('Password') . '" onchange="pred_password.value = \'userdefined\';" />'
+        . __('Password') . '" />'
         . '</div>'
         . '<div class="item">'
         . '<label for="text_pma_pw2">'
@@ -887,7 +883,7 @@ function PMA_getHtmlForTableInfoForm($hostname_length)
         . '</label>'
         . '<span class="options">&nbsp;</span>'
         . '<input type="password" name="pma_pw2" id="text_pma_pw2" title="'
-        . __('Re-type') . '" onchange="pred_password.value = \'userdefined\';" />'
+        . __('Re-type') . '" />'
         . '</div>'
         . '<div class="item">'
         . '<label for="button_generate_password">'

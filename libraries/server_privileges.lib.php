@@ -1807,18 +1807,7 @@ function PMA_getHtmlForLoginInformationFields(
         . '</label>' . "\n"
         . '<span class="options">' . "\n"
         . '<select name="pred_password" id="select_pred_password" title="'
-        . __('Password') . '"' . "\n";
-
-    $html_output .= '            onchange="'
-        . 'if (this.value == \'none\') { '
-        . '    pma_pw.value = \'\'; pma_pw2.value = \'\'; '
-        . '    pma_pw.required = false; pma_pw2.required = false; '
-        . '} else if (this.value == \'userdefined\') { '
-        . '    pma_pw.focus(); pma_pw.select(); '
-        . '    pma_pw.required = true; pma_pw2.required = true; '
-        . '} else { '
-        . '    pma_pw.required = false; pma_pw2.required = false; '
-        . '}">' . "\n"
+        . __('Password') . '">' . "\n"
         . ($mode == 'change' ? '<option value="keep" selected="selected">'
             . __('Do not change the password')
             . '</option>' . "\n" : '')
@@ -1836,8 +1825,6 @@ function PMA_getHtmlForLoginInformationFields(
         . '</span>' . "\n"
         . '<input type="password" id="text_pma_pw" name="pma_pw" '
         . 'title="' . __('Password') . '" '
-        . 'onchange="pred_password.value = \'userdefined\'; this.required = true; '
-        . 'pma_pw2.required = true;" '
         . (isset($GLOBALS['username']) ? '' : 'required="required"')
         . '/>' . "\n"
         . '</div>' . "\n";
@@ -1850,8 +1837,6 @@ function PMA_getHtmlForLoginInformationFields(
         . '<span class="options">&nbsp;</span>' . "\n"
         . '<input type="password" name="pma_pw2" id="text_pma_pw2" '
         . 'title="' . __('Re-type') . '" '
-        . 'onchange="pred_password.value = \'userdefined\'; this.required = true; '
-        . 'pma_pw.required = true;" '
         . (isset($GLOBALS['username']) ? '' : 'required="required"')
         . '/>' . "\n"
         . '</div>' . "\n"
