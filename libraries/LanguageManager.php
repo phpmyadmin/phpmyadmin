@@ -202,6 +202,13 @@ class LanguageManager
             'fi|finnish',
             'fi_FI',
         ),
+        'fil' => array(
+            'fil',
+            'Filipino',
+            'Pilipino',
+            'fil|filipino',
+            '',
+        ),
         'fr' => array(
             'fr',
             'French',
