@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2016-04-20 12:42+0200\n"
+"POT-Creation-Date: 2016-04-26 14:40+0200\n"
 "PO-Revision-Date: 2015-10-15 11:26+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Basque <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -97,7 +97,7 @@ msgstr "Zutabea"
 #: libraries/rte/rte_routines.lib.php:891
 #: libraries/rte/rte_routines.lib.php:922
 #: libraries/rte/rte_routines.lib.php:1584
-#: libraries/server_privileges.lib.php:2687 libraries/tracking.lib.php:898
+#: libraries/server_privileges.lib.php:2642 libraries/tracking.lib.php:898
 #: libraries/tracking.lib.php:992
 #: templates/columns_definitions/table_fields_definitions.phtml:11
 #: templates/database/structure/table_header.phtml:48
@@ -193,11 +193,11 @@ msgstr "Lehen mailakoa"
 #: libraries/plugins/export/ExportOdt.php:792
 #: libraries/plugins/export/ExportTexytext.php:608
 #: libraries/plugins/schema/pdf/PdfRelationSchema.php:705
-#: libraries/server_privileges.lib.php:2867
-#: libraries/server_privileges.lib.php:3055
-#: libraries/server_privileges.lib.php:3075
-#: libraries/server_privileges.lib.php:3718
-#: libraries/server_privileges.lib.php:3741 libraries/tracking.lib.php:951
+#: libraries/server_privileges.lib.php:2822
+#: libraries/server_privileges.lib.php:3010
+#: libraries/server_privileges.lib.php:3030
+#: libraries/server_privileges.lib.php:3673
+#: libraries/server_privileges.lib.php:3696 libraries/tracking.lib.php:951
 #: libraries/tracking.lib.php:1030 libraries/tracking.lib.php:1035
 #: prefs_manage.php:144 templates/prefs_autoload.phtml:13
 #: templates/privileges/privileges_summary_row.phtml:4
@@ -227,11 +227,11 @@ msgstr "Ez"
 #: libraries/plugins/export/ExportOdt.php:793
 #: libraries/plugins/export/ExportTexytext.php:608
 #: libraries/plugins/schema/pdf/PdfRelationSchema.php:706
-#: libraries/server_privileges.lib.php:2867
-#: libraries/server_privileges.lib.php:3052
-#: libraries/server_privileges.lib.php:3073
-#: libraries/server_privileges.lib.php:3715
-#: libraries/server_privileges.lib.php:3741 libraries/tracking.lib.php:951
+#: libraries/server_privileges.lib.php:2822
+#: libraries/server_privileges.lib.php:3007
+#: libraries/server_privileges.lib.php:3028
+#: libraries/server_privileges.lib.php:3670
+#: libraries/server_privileges.lib.php:3696 libraries/tracking.lib.php:951
 #: libraries/tracking.lib.php:1028 libraries/tracking.lib.php:1033
 #: prefs_manage.php:142 templates/prefs_autoload.phtml:12
 #: templates/privileges/privileges_summary_row.phtml:4
@@ -262,8 +262,8 @@ msgid "Tables"
 msgstr "Taulak"
 
 #: db_export.php:66 libraries/Menu.php:325 libraries/Menu.php:432
-#: libraries/Util.php:3360 libraries/Util.php:3370 libraries/Util.php:3376
-#: libraries/Util.php:3656 libraries/Util.php:4289 libraries/Util.php:4306
+#: libraries/Util.php:3362 libraries/Util.php:3372 libraries/Util.php:3378
+#: libraries/Util.php:3658 libraries/Util.php:4291 libraries/Util.php:4308
 #: libraries/central_columns.lib.php:727 libraries/config.values.php:39
 #: libraries/config.values.php:47 libraries/config.values.php:110
 #: libraries/config.values.php:116 libraries/config/setup.forms.php:318
@@ -504,14 +504,14 @@ msgstr "Gehitu geometria"
 #: libraries/plugins/auth/AuthenticationCookie.php:221
 #: libraries/replication_gui.lib.php:121 libraries/replication_gui.lib.php:160
 #: libraries/replication_gui.lib.php:325 libraries/replication_gui.lib.php:462
-#: libraries/replication_gui.lib.php:907 libraries/rte/rte_events.lib.php:513
+#: libraries/replication_gui.lib.php:892 libraries/rte/rte_events.lib.php:513
 #: libraries/rte/rte_routines.lib.php:1060
 #: libraries/rte/rte_routines.lib.php:1672
 #: libraries/rte/rte_triggers.lib.php:399
 #: libraries/server_privileges.lib.php:706
-#: libraries/server_privileges.lib.php:2350
-#: libraries/server_privileges.lib.php:3198
-#: libraries/server_privileges.lib.php:3822
+#: libraries/server_privileges.lib.php:2305
+#: libraries/server_privileges.lib.php:3153
+#: libraries/server_privileges.lib.php:3777
 #: libraries/server_user_groups.lib.php:287
 #: libraries/sql_query_form.lib.php:373 libraries/sql_query_form.lib.php:435
 #: libraries/tracking.lib.php:551 libraries/tracking.lib.php:671
@@ -617,7 +617,7 @@ msgid "Could not load the progress of the import."
 msgstr ""
 
 #: import_status.php:114 js/messages.php:451 js/messages.php:603
-#: libraries/Util.php:801 libraries/export.lib.php:520
+#: libraries/Util.php:803 libraries/export.lib.php:520
 #: libraries/plugins/schema/ExportRelationSchema.php:298 user_password.php:292
 msgid "Back"
 msgstr "Itzuli"
@@ -732,8 +732,8 @@ msgstr "PHP informazioa erakutsi"
 msgid "Version information:"
 msgstr "Saioa hasteko informazioa"
 
-#: index.php:393 libraries/Sanitize.php:145 libraries/Util.php:448
-#: libraries/Util.php:515 libraries/config/FormDisplay.tpl.php:165
+#: index.php:393 libraries/Sanitize.php:145 libraries/Util.php:450
+#: libraries/Util.php:517 libraries/config/FormDisplay.tpl.php:165
 #: libraries/display_export.lib.php:576 libraries/engines/Pbxt.php:166
 #: libraries/navigation/NavigationHeader.php:197
 #: templates/server/variables/link_template.phtml:9
@@ -1113,7 +1113,7 @@ msgstr "kontsultan"
 msgid "Matched rows:"
 msgstr "Lar"
 
-#: js/messages.php:140 libraries/Util.php:702
+#: js/messages.php:140 libraries/Util.php:704
 #, fuzzy
 #| msgid "SQL query"
 msgid "SQL query:"
@@ -1134,12 +1134,12 @@ msgstr "Zerbitzariaren izena hutsik dago!"
 msgid "The user name is empty!"
 msgstr "Erabiltzailearen izena hutsik dago!"
 
-#: js/messages.php:149 libraries/server_privileges.lib.php:2033
+#: js/messages.php:149 libraries/server_privileges.lib.php:1988
 #: user_password.php:117
 msgid "The password is empty!"
 msgstr "Pasahitza hutsik dago!"
 
-#: js/messages.php:150 libraries/server_privileges.lib.php:2031
+#: js/messages.php:150 libraries/server_privileges.lib.php:1986
 #: user_password.php:121
 msgid "The passwords aren't the same!"
 msgstr "Pasahitzek ez dute bat egiten!"
@@ -1181,12 +1181,12 @@ msgid "Other"
 msgstr "Beste"
 
 #. l10n: Thousands separator
-#: js/messages.php:163 libraries/Util.php:1500
+#: js/messages.php:163 libraries/Util.php:1502
 msgid ","
 msgstr ","
 
 #. l10n: Decimal separator
-#: js/messages.php:165 libraries/Util.php:1502
+#: js/messages.php:165 libraries/Util.php:1504
 msgid "."
 msgstr "."
 
@@ -1303,40 +1303,40 @@ msgid "Processes"
 msgstr "Prozesuak"
 
 #. l10n: shortcuts for Byte
-#: js/messages.php:205 libraries/Util.php:1444
+#: js/messages.php:205 libraries/Util.php:1446
 msgid "B"
 msgstr "Byte"
 
 #. l10n: shortcuts for Kilobyte
-#: js/messages.php:206 libraries/Util.php:1446
+#: js/messages.php:206 libraries/Util.php:1448
 #: libraries/server_status_monitor.lib.php:213
 msgid "KiB"
 msgstr "KiB"
 
 #. l10n: shortcuts for Megabyte
-#: js/messages.php:207 libraries/Util.php:1448
+#: js/messages.php:207 libraries/Util.php:1450
 #: libraries/display_export.lib.php:843
 #: libraries/server_status_monitor.lib.php:214
 msgid "MiB"
 msgstr "MiB"
 
 #. l10n: shortcuts for Gigabyte
-#: js/messages.php:208 libraries/Util.php:1450
+#: js/messages.php:208 libraries/Util.php:1452
 msgid "GiB"
 msgstr "GB"
 
 #. l10n: shortcuts for Terabyte
-#: js/messages.php:209 libraries/Util.php:1452
+#: js/messages.php:209 libraries/Util.php:1454
 msgid "TiB"
 msgstr "TB"
 
 #. l10n: shortcuts for Petabyte
-#: js/messages.php:210 libraries/Util.php:1454
+#: js/messages.php:210 libraries/Util.php:1456
 msgid "PiB"
 msgstr "PB"
 
 #. l10n: shortcuts for Exabyte
-#: js/messages.php:211 libraries/Util.php:1456
+#: js/messages.php:211 libraries/Util.php:1458
 msgid "EiB"
 msgstr "EB"
 
@@ -1357,7 +1357,7 @@ msgstr "Eragiketak"
 msgid "Traffic"
 msgstr "Trafikoa"
 
-#: js/messages.php:217 libraries/Menu.php:587 libraries/Util.php:4280
+#: js/messages.php:217 libraries/Menu.php:587 libraries/Util.php:4282
 #: libraries/server_status_monitor.lib.php:253
 #, fuzzy
 #| msgid "General relation features"
@@ -1581,7 +1581,7 @@ msgstr "Aztertu"
 msgid "Explain output"
 msgstr "SQL-a azaldu"
 
-#: js/messages.php:294 libraries/Menu.php:553 libraries/Util.php:4276
+#: js/messages.php:294 libraries/Menu.php:553 libraries/Util.php:4278
 #: libraries/config.values.php:105 libraries/rte/rte_events.lib.php:397
 #: libraries/rte/rte_list.lib.php:107
 #: libraries/server_status_processes.lib.php:92 libraries/tracking.lib.php:286
@@ -1692,8 +1692,8 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:328 libraries/Menu.php:360 libraries/Menu.php:462
-#: libraries/Menu.php:583 libraries/Util.php:4279 libraries/Util.php:4294
-#: libraries/Util.php:4311 libraries/config/messages.inc.php:261
+#: libraries/Menu.php:583 libraries/Util.php:4281 libraries/Util.php:4296
+#: libraries/Util.php:4313 libraries/config/messages.inc.php:261
 #: libraries/display_import.lib.php:107
 #: libraries/server_status_monitor.lib.php:313 prefs_manage.php:239
 #: setup/frames/menu.inc.php:27
@@ -1874,7 +1874,7 @@ msgstr "Datu-baserik ez"
 msgid "Changing charset"
 msgstr "Karaktere-jokoa"
 
-#: js/messages.php:380 libraries/Util.php:3242
+#: js/messages.php:380 libraries/Util.php:3244
 msgid "Enable foreign key checks"
 msgstr ""
 
@@ -1917,14 +1917,14 @@ msgstr ""
 
 #: js/messages.php:395 libraries/DisplayResults.php:4878
 #: libraries/DisplayResults.php:5161 libraries/Menu.php:352
-#: libraries/Menu.php:453 libraries/Menu.php:579 libraries/Util.php:3663
-#: libraries/Util.php:3664 libraries/Util.php:4278 libraries/Util.php:4293
-#: libraries/Util.php:4310 libraries/config/messages.inc.php:255
+#: libraries/Menu.php:453 libraries/Menu.php:579 libraries/Util.php:3665
+#: libraries/Util.php:3666 libraries/Util.php:4280 libraries/Util.php:4295
+#: libraries/Util.php:4312 libraries/config/messages.inc.php:255
 #: libraries/display_export.lib.php:170 libraries/rte/rte_list.lib.php:157
-#: libraries/server_privileges.lib.php:2524
-#: libraries/server_privileges.lib.php:2608
-#: libraries/server_privileges.lib.php:2957
-#: libraries/server_privileges.lib.php:3630
+#: libraries/server_privileges.lib.php:2479
+#: libraries/server_privileges.lib.php:2563
+#: libraries/server_privileges.lib.php:2912
+#: libraries/server_privileges.lib.php:3585
 #: libraries/server_status_monitor.lib.php:317 prefs_manage.php:304
 #: setup/frames/menu.inc.php:28
 #: templates/database/structure/check_all_tables.phtml:12
@@ -1972,8 +1972,8 @@ msgstr "SQL kontsulta"
 
 #: js/messages.php:412 libraries/DisplayResults.php:3496
 #: libraries/DisplayResults.php:4862 libraries/Index.php:728
-#: libraries/Util.php:731 libraries/Util.php:1241 libraries/Util.php:3661
-#: libraries/Util.php:3662 libraries/central_columns.lib.php:850
+#: libraries/Util.php:733 libraries/Util.php:1243 libraries/Util.php:3663
+#: libraries/Util.php:3664 libraries/central_columns.lib.php:850
 #: libraries/central_columns.lib.php:1198 libraries/config/messages.inc.php:892
 #: libraries/server_user_groups.lib.php:118 setup/frames/index.inc.php:184
 #: templates/console/bookmark_content.phtml:17
@@ -2472,7 +2472,7 @@ msgstr ""
 #: js/messages.php:579 libraries/DisplayResults.php:1035
 #: libraries/browse_foreigners.lib.php:288
 #: libraries/browse_foreigners.lib.php:341
-#: libraries/server_privileges.lib.php:3889
+#: libraries/server_privileges.lib.php:3845
 msgid "Show all"
 msgstr "Dena erakutsi"
 
@@ -2526,7 +2526,7 @@ msgid "Select database first"
 msgstr "Taulak hautatu"
 
 #: js/messages.php:602 libraries/DisplayResults.php:5053
-#: libraries/Util.php:4171
+#: libraries/Util.php:4173
 #: templates/database/structure/print_view_data_dictionary_link.phtml:3
 #: templates/table/structure/optional_action_links.phtml:6
 msgid "Print"
@@ -2561,7 +2561,7 @@ msgstr ""
 msgid "Generate password"
 msgstr "Pasahitza aldatu"
 
-#: js/messages.php:627 libraries/replication_gui.lib.php:899
+#: js/messages.php:627 libraries/replication_gui.lib.php:884
 #, fuzzy
 msgid "Generate"
 msgstr "Egilea:"
@@ -2844,27 +2844,27 @@ msgid "December"
 msgstr ""
 
 #. l10n: Short month name
-#: js/messages.php:776 libraries/Util.php:1666
+#: js/messages.php:776 libraries/Util.php:1668
 msgid "Jan"
 msgstr "Urt"
 
 #. l10n: Short month name
-#: js/messages.php:778 libraries/Util.php:1668
+#: js/messages.php:778 libraries/Util.php:1670
 msgid "Feb"
 msgstr "Ots"
 
 #. l10n: Short month name
-#: js/messages.php:780 libraries/Util.php:1670
+#: js/messages.php:780 libraries/Util.php:1672
 msgid "Mar"
 msgstr "Mar"
 
 #. l10n: Short month name
-#: js/messages.php:782 libraries/Util.php:1672
+#: js/messages.php:782 libraries/Util.php:1674
 msgid "Apr"
 msgstr "Api"
 
 #. l10n: Short month name
-#: js/messages.php:784 libraries/Util.php:1674
+#: js/messages.php:784 libraries/Util.php:1676
 #, fuzzy
 #| msgid "May"
 msgctxt "Short month name"
@@ -2872,37 +2872,37 @@ msgid "May"
 msgstr "Mai"
 
 #. l10n: Short month name
-#: js/messages.php:786 libraries/Util.php:1676
+#: js/messages.php:786 libraries/Util.php:1678
 msgid "Jun"
 msgstr "Eka"
 
 #. l10n: Short month name
-#: js/messages.php:788 libraries/Util.php:1678
+#: js/messages.php:788 libraries/Util.php:1680
 msgid "Jul"
 msgstr "Uzt"
 
 #. l10n: Short month name
-#: js/messages.php:790 libraries/Util.php:1680
+#: js/messages.php:790 libraries/Util.php:1682
 msgid "Aug"
 msgstr "Abu"
 
 #. l10n: Short month name
-#: js/messages.php:792 libraries/Util.php:1682
+#: js/messages.php:792 libraries/Util.php:1684
 msgid "Sep"
 msgstr "Ira"
 
 #. l10n: Short month name
-#: js/messages.php:794 libraries/Util.php:1684
+#: js/messages.php:794 libraries/Util.php:1686
 msgid "Oct"
 msgstr "Urr"
 
 #. l10n: Short month name
-#: js/messages.php:796 libraries/Util.php:1686
+#: js/messages.php:796 libraries/Util.php:1688
 msgid "Nov"
 msgstr "Aza"
 
 #. l10n: Short month name
-#: js/messages.php:798 libraries/Util.php:1688
+#: js/messages.php:798 libraries/Util.php:1690
 msgid "Dec"
 msgstr "Abe"
 
@@ -2951,32 +2951,32 @@ msgid "Sun"
 msgstr "Iga"
 
 #. l10n: Short week day name
-#: js/messages.php:819 libraries/Util.php:1693
+#: js/messages.php:819 libraries/Util.php:1695
 msgid "Mon"
 msgstr "Astel"
 
 #. l10n: Short week day name
-#: js/messages.php:821 libraries/Util.php:1695
+#: js/messages.php:821 libraries/Util.php:1697
 msgid "Tue"
 msgstr "Astea"
 
 #. l10n: Short week day name
-#: js/messages.php:823 libraries/Util.php:1697
+#: js/messages.php:823 libraries/Util.php:1699
 msgid "Wed"
 msgstr "Astez"
 
 #. l10n: Short week day name
-#: js/messages.php:825 libraries/Util.php:1699
+#: js/messages.php:825 libraries/Util.php:1701
 msgid "Thu"
 msgstr "Oste"
 
 #. l10n: Short week day name
-#: js/messages.php:827 libraries/Util.php:1701
+#: js/messages.php:827 libraries/Util.php:1703
 msgid "Fri"
 msgstr "Osti"
 
 #. l10n: Short week day name
-#: js/messages.php:829 libraries/Util.php:1703
+#: js/messages.php:829 libraries/Util.php:1705
 msgid "Sat"
 msgstr "Lar"
 
@@ -3143,7 +3143,7 @@ msgstr "Aukeratu editatzeko orria mesedez"
 msgid "Please enter a valid HEX input"
 msgstr ""
 
-#: js/messages.php:949 libraries/Message.php:202 libraries/Util.php:678
+#: js/messages.php:949 libraries/Message.php:202 libraries/Util.php:680
 #: libraries/core.lib.php:237 libraries/import.lib.php:84
 #: libraries/insert_edit.lib.php:1177 view_operations.php:74
 msgid "Error"
@@ -3692,9 +3692,9 @@ msgid_plural "%1$s matches in <strong>%2$s</strong>"
 msgstr[0] "%s emaitza <i>%s</i> taulan"
 msgstr[1] "%s emaitzak <i>%s</i> taulan"
 
-#: libraries/DbSearch.php:353 libraries/Menu.php:319 libraries/Util.php:3364
-#: libraries/Util.php:3374 libraries/Util.php:3650 libraries/Util.php:3651
-#: libraries/Util.php:4305 libraries/config.values.php:43
+#: libraries/DbSearch.php:353 libraries/Menu.php:319 libraries/Util.php:3366
+#: libraries/Util.php:3376 libraries/Util.php:3652 libraries/Util.php:3653
+#: libraries/Util.php:4307 libraries/config.values.php:43
 #: libraries/config.values.php:51 libraries/config.values.php:120
 #: libraries/navigation/nodes/NodeTable.php:313
 #: templates/table/structure/check_all_table_column.phtml:12
@@ -3757,16 +3757,16 @@ msgstr "Eremuak"
 msgid "Search this table"
 msgstr "Datu-basean bilatu"
 
-#: libraries/DisplayResults.php:992 libraries/Util.php:2614
-#: libraries/Util.php:2617
+#: libraries/DisplayResults.php:992 libraries/Util.php:2616
+#: libraries/Util.php:2619
 #, fuzzy
 #| msgid "Begin"
 msgctxt "First page"
 msgid "Begin"
 msgstr "Hasi"
 
-#: libraries/DisplayResults.php:995 libraries/Util.php:2615
-#: libraries/Util.php:2618
+#: libraries/DisplayResults.php:995 libraries/Util.php:2617
+#: libraries/Util.php:2620
 #: libraries/controllers/server/ServerBinlogController.php:194
 #: libraries/controllers/server/ServerBinlogController.php:196
 #, fuzzy
@@ -3775,8 +3775,8 @@ msgctxt "Previous page"
 msgid "Previous"
 msgstr "Aurrekoa"
 
-#: libraries/DisplayResults.php:1061 libraries/Util.php:2646
-#: libraries/Util.php:2656
+#: libraries/DisplayResults.php:1061 libraries/Util.php:2648
+#: libraries/Util.php:2658
 #: libraries/controllers/server/ServerBinlogController.php:228
 #: libraries/controllers/server/ServerBinlogController.php:230
 #, fuzzy
@@ -3785,8 +3785,8 @@ msgctxt "Next page"
 msgid "Next"
 msgstr "Hurrengoa"
 
-#: libraries/DisplayResults.php:1091 libraries/Util.php:2647
-#: libraries/Util.php:2657
+#: libraries/DisplayResults.php:1091 libraries/Util.php:2649
+#: libraries/Util.php:2659
 #, fuzzy
 #| msgid "End"
 msgctxt "Last page"
@@ -4115,8 +4115,8 @@ msgstr "Indizeak"
 
 #: libraries/Index.php:694 libraries/central_columns.lib.php:686
 #: libraries/rte/rte_list.lib.php:80 libraries/rte/rte_list.lib.php:95
-#: libraries/rte/rte_list.lib.php:108 libraries/server_privileges.lib.php:2690
-#: libraries/server_privileges.lib.php:3610
+#: libraries/rte/rte_list.lib.php:108 libraries/server_privileges.lib.php:2645
+#: libraries/server_privileges.lib.php:3565
 #: libraries/server_user_groups.lib.php:80 libraries/tracking.lib.php:287
 #: libraries/tracking.lib.php:811 libraries/tracking.lib.php:1479
 #: libraries/tracking.lib.php:1632
@@ -4170,7 +4170,7 @@ msgstr "Lehen mailako gakoa ezabatu da."
 msgid "Index %s has been dropped."
 msgstr "%s indizea ezabatu da."
 
-#: libraries/Index.php:762 libraries/Util.php:3657 libraries/Util.php:3658
+#: libraries/Index.php:762 libraries/Util.php:3659 libraries/Util.php:3660
 #: libraries/controllers/server/ServerDatabasesController.php:397
 #: libraries/controllers/table/TableStructureController.php:1178
 #: libraries/controllers/table/TableStructureController.php:1179
@@ -4189,14 +4189,14 @@ msgid ""
 "removed."
 msgstr ""
 
-#: libraries/Language.php:194 libraries/PDF.php:69 libraries/Util.php:2603
+#: libraries/Language.php:194 libraries/PDF.php:69 libraries/Util.php:2605
 #: libraries/browse_foreigners.lib.php:325
 #: libraries/plugins/schema/pdf/PdfRelationSchema.php:495
 #: libraries/plugins/schema/pdf/PdfRelationSchema.php:520
 msgid "Page number:"
 msgstr "Orri zenbakia:"
 
-#: libraries/LanguageManager.php:863
+#: libraries/LanguageManager.php:870
 msgid "Ignoring unsupported language code."
 msgstr ""
 
@@ -4221,10 +4221,10 @@ msgstr "Zerbitzaria"
 #: libraries/plugins/export/ExportOdt.php:197
 #: libraries/plugins/export/ExportTexytext.php:133
 #: libraries/server_privileges.lib.php:1265
-#: libraries/server_privileges.lib.php:3216
-#: libraries/server_privileges.lib.php:3387
-#: libraries/server_privileges.lib.php:3389
-#: libraries/server_privileges.lib.php:4659
+#: libraries/server_privileges.lib.php:3171
+#: libraries/server_privileges.lib.php:3342
+#: libraries/server_privileges.lib.php:3344
+#: libraries/server_privileges.lib.php:4615
 #: libraries/server_status_processes.lib.php:80
 #: templates/console/bookmark_content.phtml:19
 #: templates/console/display.phtml:57 templates/console/display.phtml:219
@@ -4246,10 +4246,10 @@ msgstr "Ikusipegia"
 #: libraries/plugins/export/ExportXml.php:493 libraries/rte/rte_list.lib.php:93
 #: libraries/rte/rte_triggers.lib.php:334
 #: libraries/server_privileges.lib.php:1268
-#: libraries/server_privileges.lib.php:3234
-#: libraries/server_privileges.lib.php:3393
-#: libraries/server_privileges.lib.php:3395
-#: libraries/server_privileges.lib.php:4673 libraries/tracking.lib.php:1478
+#: libraries/server_privileges.lib.php:3189
+#: libraries/server_privileges.lib.php:3348
+#: libraries/server_privileges.lib.php:3350
+#: libraries/server_privileges.lib.php:4629 libraries/tracking.lib.php:1478
 #: libraries/tracking.lib.php:1627
 #: templates/database/structure/table_header.phtml:21
 #: templates/table/relation/common_form.phtml:25
@@ -4259,8 +4259,8 @@ msgid "Table"
 msgstr "Taula"
 
 #: libraries/Menu.php:333 libraries/Menu.php:436 libraries/Menu.php:549
-#: libraries/Util.php:3361 libraries/Util.php:3371 libraries/Util.php:3377
-#: libraries/Util.php:4275 libraries/Util.php:4290 libraries/Util.php:4307
+#: libraries/Util.php:3363 libraries/Util.php:3373 libraries/Util.php:3379
+#: libraries/Util.php:4277 libraries/Util.php:4292 libraries/Util.php:4309
 #: libraries/config.values.php:40 libraries/config.values.php:48
 #: libraries/config.values.php:111 libraries/config.values.php:117
 #: libraries/config/messages.inc.php:324
@@ -4268,45 +4268,45 @@ msgstr "Taula"
 msgid "SQL"
 msgstr "SQL"
 
-#: libraries/Menu.php:336 libraries/Menu.php:439 libraries/Util.php:3362
-#: libraries/Util.php:3372 libraries/Util.php:3378 libraries/Util.php:3652
-#: libraries/Util.php:3653 libraries/Util.php:4291 libraries/Util.php:4308
+#: libraries/Menu.php:336 libraries/Menu.php:439 libraries/Util.php:3364
+#: libraries/Util.php:3374 libraries/Util.php:3380 libraries/Util.php:3654
+#: libraries/Util.php:3655 libraries/Util.php:4293 libraries/Util.php:4310
 #: libraries/config.values.php:41 libraries/config.values.php:49
 #: libraries/config.values.php:112 libraries/config.values.php:118
 #: libraries/navigation/nodes/NodeTable.php:298
 msgid "Search"
 msgstr "Bilatu"
 
-#: libraries/Menu.php:346 libraries/Util.php:3363 libraries/Util.php:3373
-#: libraries/Util.php:3654 libraries/Util.php:3655 libraries/Util.php:4309
+#: libraries/Menu.php:346 libraries/Util.php:3365 libraries/Util.php:3375
+#: libraries/Util.php:3656 libraries/Util.php:3657 libraries/Util.php:4311
 #: libraries/config.values.php:42 libraries/config.values.php:50
 #: libraries/config.values.php:119 libraries/navigation/nodes/NodeTable.php:304
 #: libraries/sql_query_form.lib.php:289 libraries/sql_query_form.lib.php:292
 msgid "Insert"
 msgstr "Txertatu"
 
-#: libraries/Menu.php:370 libraries/Menu.php:474 libraries/Util.php:4296
-#: libraries/Util.php:4312 libraries/config.values.php:107
-#: libraries/server_common.lib.php:48 libraries/server_privileges.lib.php:2688
-#: libraries/server_privileges.lib.php:4545
+#: libraries/Menu.php:370 libraries/Menu.php:474 libraries/Util.php:4298
+#: libraries/Util.php:4314 libraries/config.values.php:107
+#: libraries/server_common.lib.php:48 libraries/server_privileges.lib.php:2643
+#: libraries/server_privileges.lib.php:4501
 #: templates/privileges/privileges_summary.phtml:16
 msgid "Privileges"
 msgstr "Pribilegioak"
 
 #: libraries/Menu.php:379 libraries/Menu.php:387 libraries/Menu.php:466
-#: libraries/Util.php:3365 libraries/Util.php:3379 libraries/Util.php:4295
-#: libraries/Util.php:4313 libraries/config.values.php:113
+#: libraries/Util.php:3367 libraries/Util.php:3381 libraries/Util.php:4297
+#: libraries/Util.php:4315 libraries/config.values.php:113
 #: view_operations.php:103
 msgid "Operations"
 msgstr "Eragiketak"
 
-#: libraries/Menu.php:392 libraries/Menu.php:496 libraries/Util.php:4300
-#: libraries/Util.php:4314 libraries/relation.lib.php:265
+#: libraries/Menu.php:392 libraries/Menu.php:496 libraries/Util.php:4302
+#: libraries/Util.php:4316 libraries/relation.lib.php:265
 msgid "Tracking"
 msgstr ""
 
-#: libraries/Menu.php:404 libraries/Menu.php:490 libraries/Util.php:4299
-#: libraries/Util.php:4315
+#: libraries/Menu.php:404 libraries/Menu.php:490 libraries/Util.php:4301
+#: libraries/Util.php:4317
 #: libraries/navigation/nodes/NodeTriggerContainer.php:25
 #: libraries/plugins/export/ExportHtmlword.php:578
 #: libraries/plugins/export/ExportOdt.php:713
@@ -4322,16 +4322,16 @@ msgstr ""
 msgid "Database seems to be empty!"
 msgstr ""
 
-#: libraries/Menu.php:446 libraries/Util.php:4292
+#: libraries/Menu.php:446 libraries/Util.php:4294
 msgid "Query"
 msgstr "Kontsulta"
 
-#: libraries/Menu.php:479 libraries/Util.php:4297
+#: libraries/Menu.php:479 libraries/Util.php:4299
 #: libraries/rte/rte_words.lib.php:36
 msgid "Routines"
 msgstr ""
 
-#: libraries/Menu.php:484 libraries/Util.php:4298
+#: libraries/Menu.php:484 libraries/Util.php:4300
 #: libraries/navigation/nodes/NodeEventContainer.php:25
 #: libraries/plugins/export/ExportSql.php:952
 #: libraries/plugins/export/ExportXml.php:103
@@ -4339,22 +4339,22 @@ msgstr ""
 msgid "Events"
 msgstr ""
 
-#: libraries/Menu.php:502 libraries/Util.php:4301
+#: libraries/Menu.php:502 libraries/Util.php:4303
 msgid "Designer"
 msgstr ""
 
-#: libraries/Menu.php:511 libraries/Util.php:4302
+#: libraries/Menu.php:511 libraries/Util.php:4304
 #: templates/database/structure/check_all_tables.phtml:34
 #, fuzzy
 #| msgid "Add/Delete Field Columns"
 msgid "Central columns"
 msgstr "Gehitu/ezabatu irizpide-zutabea"
 
-#: libraries/Menu.php:545 libraries/Util.php:4274
+#: libraries/Menu.php:545 libraries/Util.php:4276
 #: libraries/config.values.php:104 libraries/config/messages.inc.php:269
 #: libraries/config/messages.inc.php:344
 #: libraries/navigation/NavigationTree.php:1269
-#: libraries/server_common.lib.php:45 libraries/server_privileges.lib.php:4659
+#: libraries/server_common.lib.php:45 libraries/server_privileges.lib.php:4615
 msgid "Databases"
 msgstr "Datu-baseak"
 
@@ -4365,35 +4365,35 @@ msgid "User accounts"
 msgstr "Erabiltzailea"
 
 #: libraries/Menu.php:596 libraries/ServerStatusData.php:121
-#: libraries/Util.php:4281 libraries/server_common.lib.php:33
+#: libraries/Util.php:4283 libraries/server_common.lib.php:33
 #, fuzzy
 msgid "Binary log"
 msgstr "Binarioa "
 
 #: libraries/Menu.php:602 libraries/ServerStatusData.php:126
-#: libraries/Util.php:4282 libraries/server_common.lib.php:39
+#: libraries/Util.php:4284 libraries/server_common.lib.php:39
 #: templates/database/structure/body_for_table_summary.phtml:10
 #: templates/database/structure/table_header.phtml:27
 msgid "Replication"
 msgstr "Ihardetsi"
 
 #: libraries/Menu.php:607 libraries/ServerStatusData.php:193
-#: libraries/Util.php:4283 libraries/config.values.php:106
+#: libraries/Util.php:4285 libraries/config.values.php:106
 #: libraries/sql_query_form.lib.php:427
 #: templates/server/engines/engine.phtml:15
 #: templates/server/engines/engine.phtml:18
 msgid "Variables"
 msgstr "Aldagaiak"
 
-#: libraries/Menu.php:611 libraries/Util.php:4284
+#: libraries/Menu.php:611 libraries/Util.php:4286
 msgid "Charsets"
 msgstr "Karaktere-multzoa"
 
-#: libraries/Menu.php:615 libraries/Util.php:4286
+#: libraries/Menu.php:615 libraries/Util.php:4288
 msgid "Engines"
 msgstr ""
 
-#: libraries/Menu.php:619 libraries/Util.php:4285
+#: libraries/Menu.php:619 libraries/Util.php:4287
 #: libraries/server_common.lib.php:30
 msgid "Plugins"
 msgstr ""
@@ -5002,21 +5002,21 @@ msgctxt "spatial types"
 msgid "Spatial"
 msgstr "Gutira"
 
-#: libraries/Util.php:266
+#: libraries/Util.php:268
 #, php-format
 msgid "Max: %s%s"
 msgstr ""
 
-#: libraries/Util.php:685
+#: libraries/Util.php:687
 msgid "Static analysis:"
 msgstr ""
 
-#: libraries/Util.php:688
+#: libraries/Util.php:690
 #, php-format
 msgid "%d errors were found during analysis."
 msgstr ""
 
-#: libraries/Util.php:751 libraries/rte/rte_events.lib.php:114
+#: libraries/Util.php:753 libraries/rte/rte_events.lib.php:114
 #: libraries/rte/rte_events.lib.php:123 libraries/rte/rte_events.lib.php:154
 #: libraries/rte/rte_general.lib.php:39 libraries/rte/rte_routines.lib.php:230
 #: libraries/rte/rte_routines.lib.php:257
@@ -5027,50 +5027,50 @@ msgstr ""
 msgid "MySQL said: "
 msgstr "MySQL-ek zera dio: "
 
-#: libraries/Util.php:1205 libraries/config/messages.inc.php:893
+#: libraries/Util.php:1207 libraries/config/messages.inc.php:893
 msgid "Explain SQL"
 msgstr "SQL-a azaldu"
 
-#: libraries/Util.php:1216
+#: libraries/Util.php:1218
 msgid "Skip Explain SQL"
 msgstr "SQL-ren azalpena saltatu"
 
-#: libraries/Util.php:1224
+#: libraries/Util.php:1226
 #, php-format
 msgid "Analyze Explain at %s"
 msgstr ""
 
-#: libraries/Util.php:1255
+#: libraries/Util.php:1257
 #, fuzzy
 #| msgid "Without PHP Code"
 msgid "Without PHP code"
 msgstr "PHP Koderik gabe"
 
-#: libraries/Util.php:1267
+#: libraries/Util.php:1269
 #, fuzzy
 #| msgid "Submit Query"
 msgid "Submit query"
 msgstr "Kontsulta bidali"
 
-#: libraries/Util.php:1278 libraries/config/messages.inc.php:895
+#: libraries/Util.php:1280 libraries/config/messages.inc.php:895
 #, fuzzy
 #| msgid "Create PHP Code"
 msgid "Create PHP code"
 msgstr "PHP kodea sortu"
 
-#: libraries/Util.php:1297 libraries/config/messages.inc.php:894
+#: libraries/Util.php:1299 libraries/config/messages.inc.php:894
 #: libraries/server_status_processes.lib.php:236
 #: libraries/server_status_variables.lib.php:40
 #: templates/console/display.phtml:125
 msgid "Refresh"
 msgstr ""
 
-#: libraries/Util.php:1329 libraries/sql.lib.php:230
+#: libraries/Util.php:1331 libraries/sql.lib.php:230
 #: templates/console/display.phtml:53 templates/console/display.phtml:215
 msgid "Profiling"
 msgstr ""
 
-#: libraries/Util.php:1345
+#: libraries/Util.php:1347
 #, fuzzy
 #| msgid "Print view"
 msgctxt "Inline edit query"
@@ -5078,64 +5078,64 @@ msgid "Edit inline"
 msgstr "Inprimatzeko ikuspegia"
 
 #. l10n: Short week day name
-#: libraries/Util.php:1691
+#: libraries/Util.php:1693
 msgctxt "Short week day name"
 msgid "Sun"
 msgstr "Iga"
 
 #. l10n: See http://php.net/manual/en/function.strftime.php
-#: libraries/Util.php:1707
+#: libraries/Util.php:1709
 #: libraries/plugins/transformations/abs/DateFormatTransformationsPlugin.php:67
 msgid "%B %d, %Y at %I:%M %p"
 msgstr "%Y-%m-%d, %H:%M:%S"
 
-#: libraries/Util.php:2094
+#: libraries/Util.php:2096
 #, php-format
 msgid "%s days, %s hours, %s minutes and %s seconds"
 msgstr "%s egun, %s ordu, %s minutu eta %s segundu"
 
-#: libraries/Util.php:2190
+#: libraries/Util.php:2192
 msgid "Missing parameter:"
 msgstr ""
 
-#: libraries/Util.php:2727
+#: libraries/Util.php:2729
 #, php-format
 msgid "Jump to database \"%s\"."
 msgstr "\"%s\" datu-basera joan."
 
-#: libraries/Util.php:2752
+#: libraries/Util.php:2754
 #, php-format
 msgid "The %s functionality is affected by a known bug, see %s"
 msgstr ""
 
-#: libraries/Util.php:3569 prefs_manage.php:249
+#: libraries/Util.php:3571 prefs_manage.php:249
 msgid "Browse your computer:"
 msgstr ""
 
-#: libraries/Util.php:3594
+#: libraries/Util.php:3596
 #, fuzzy, php-format
 #| msgid "web server upload directory"
 msgid "Select from the web server upload directory <b>%s</b>:"
 msgstr "Fitxategiak igotzeko web-zerbitzariaren direktorioa"
 
-#: libraries/Util.php:3623 libraries/insert_edit.lib.php:1178
+#: libraries/Util.php:3625 libraries/insert_edit.lib.php:1178
 msgid "The directory you set for upload work cannot be reached."
 msgstr "Igoerentzat ezarri duzun direktorioa ez dago eskuragarri."
 
-#: libraries/Util.php:3634
+#: libraries/Util.php:3636
 msgid "There are no files to upload!"
 msgstr ""
 
-#: libraries/Util.php:3659 libraries/Util.php:3660
+#: libraries/Util.php:3661 libraries/Util.php:3662
 #: templates/database/structure/check_all_tables.phtml:16
 msgid "Empty"
 msgstr "Hutsik"
 
-#: libraries/Util.php:3665 libraries/Util.php:3666
+#: libraries/Util.php:3667 libraries/Util.php:3668
 msgid "Execute"
 msgstr ""
 
-#: libraries/Util.php:4277
+#: libraries/Util.php:4279
 #, fuzzy
 #| msgid "User"
 msgid "Users"
@@ -8437,21 +8437,21 @@ msgid "Could not load schema plugins, please check your installation!"
 msgstr ""
 
 #: libraries/display_change_password.lib.php:57
-#: libraries/replication_gui.lib.php:876
-#: libraries/server_privileges.lib.php:1831
+#: libraries/replication_gui.lib.php:861
+#: libraries/server_privileges.lib.php:1790
 msgid "No Password"
 msgstr "Pasahitzik ez"
 
 #: libraries/display_change_password.lib.php:65
 #: libraries/plugins/auth/AuthenticationCookie.php:185
-#: libraries/replication_gui.lib.php:423 libraries/replication_gui.lib.php:863
-#: libraries/server_privileges.lib.php:1807
+#: libraries/replication_gui.lib.php:423 libraries/replication_gui.lib.php:852
+#: libraries/server_privileges.lib.php:1777
 msgid "Password:"
 msgstr "Pasahitza:"
 
 #: libraries/display_change_password.lib.php:71
-#: libraries/replication_gui.lib.php:887
-#: libraries/server_privileges.lib.php:1849
+#: libraries/replication_gui.lib.php:872
+#: libraries/server_privileges.lib.php:1806
 #, fuzzy
 #| msgid "Re-type"
 msgid "Re-type:"
@@ -8465,7 +8465,7 @@ msgid "Password Hashing:"
 msgstr "Pasahitza:"
 
 #: libraries/display_change_password.lib.php:115
-#: libraries/server_privileges.lib.php:1894
+#: libraries/server_privileges.lib.php:1849
 msgid ""
 "This method requires using an '<i>SSL connection</i>' or an '<i>unencrypted "
 "connection that encrypts the password using RSA</i>'; while connecting to "
@@ -11619,27 +11619,27 @@ msgid ""
 "not, please add the following line into [mysqld] section:"
 msgstr ""
 
-#: libraries/replication_gui.lib.php:411 libraries/replication_gui.lib.php:797
+#: libraries/replication_gui.lib.php:411 libraries/replication_gui.lib.php:789
 #: libraries/server_privileges.lib.php:1615
 #, fuzzy
 #| msgid "User name"
 msgid "User name:"
 msgstr "Erabiltzaile-izena"
 
-#: libraries/replication_gui.lib.php:417 libraries/replication_gui.lib.php:801
-#: libraries/replication_gui.lib.php:817
+#: libraries/replication_gui.lib.php:417 libraries/replication_gui.lib.php:793
+#: libraries/replication_gui.lib.php:806
 #: libraries/server_privileges.lib.php:1620
-#: libraries/server_privileges.lib.php:1652
-#: libraries/server_privileges.lib.php:2685
-#: libraries/server_privileges.lib.php:3597
+#: libraries/server_privileges.lib.php:1642
+#: libraries/server_privileges.lib.php:2640
+#: libraries/server_privileges.lib.php:3552
 msgid "User name"
 msgstr "Erabiltzaile-izena"
 
-#: libraries/replication_gui.lib.php:428 libraries/replication_gui.lib.php:867
-#: libraries/replication_gui.lib.php:883
-#: libraries/server_privileges.lib.php:1811
-#: libraries/server_privileges.lib.php:1839
-#: libraries/server_privileges.lib.php:3599
+#: libraries/replication_gui.lib.php:428 libraries/replication_gui.lib.php:856
+#: libraries/replication_gui.lib.php:868
+#: libraries/server_privileges.lib.php:1781
+#: libraries/server_privileges.lib.php:1798
+#: libraries/server_privileges.lib.php:3554
 msgid "Password"
 msgstr "Pasahitza"
 
@@ -11663,7 +11663,7 @@ msgid "Variable"
 msgstr "Aldagaia"
 
 #: libraries/replication_gui.lib.php:620 libraries/replication_gui.lib.php:708
-#: libraries/replication_gui.lib.php:852
+#: libraries/replication_gui.lib.php:841
 #: libraries/server_status_processes.lib.php:76
 msgid "Host"
 msgstr "Zerbitzaria"
@@ -11674,116 +11674,116 @@ msgid ""
 "this list."
 msgstr ""
 
-#: libraries/replication_gui.lib.php:754
-#: libraries/server_privileges.lib.php:1744
+#: libraries/replication_gui.lib.php:746
+#: libraries/server_privileges.lib.php:1716
 msgid "Any host"
 msgstr "Edozein ostalari"
 
-#: libraries/replication_gui.lib.php:759
-#: libraries/server_privileges.lib.php:1752
+#: libraries/replication_gui.lib.php:751
+#: libraries/server_privileges.lib.php:1724
 msgid "Local"
 msgstr "Lokal"
 
-#: libraries/replication_gui.lib.php:766
-#: libraries/server_privileges.lib.php:1761
+#: libraries/replication_gui.lib.php:758
+#: libraries/server_privileges.lib.php:1733
 msgid "This Host"
 msgstr "Host hau"
 
-#: libraries/replication_gui.lib.php:808
-#: libraries/server_privileges.lib.php:1636
+#: libraries/replication_gui.lib.php:797
+#: libraries/server_privileges.lib.php:1626
 msgid "Any user"
 msgstr "Edozein erabiltzaile"
 
-#: libraries/replication_gui.lib.php:813 libraries/replication_gui.lib.php:846
-#: libraries/replication_gui.lib.php:879
-#: libraries/server_privileges.lib.php:1780
+#: libraries/replication_gui.lib.php:802 libraries/replication_gui.lib.php:835
+#: libraries/replication_gui.lib.php:864
+#: libraries/server_privileges.lib.php:1752
 #, fuzzy
 #| msgid "Use text field"
 msgid "Use text field:"
 msgstr "Testu-eremua erabili"
 
-#: libraries/replication_gui.lib.php:840
-#: libraries/server_privileges.lib.php:1771
+#: libraries/replication_gui.lib.php:829
+#: libraries/server_privileges.lib.php:1743
 msgid "Use Host Table"
 msgstr "Host taula erabili"
 
-#: libraries/replication_gui.lib.php:856
-#: libraries/server_privileges.lib.php:1799
+#: libraries/replication_gui.lib.php:845
+#: libraries/server_privileges.lib.php:1769
 msgid ""
 "When Host table is used, this field is ignored and values stored in Host "
 "table are used instead."
 msgstr ""
 
-#: libraries/replication_gui.lib.php:891
-#: libraries/server_privileges.lib.php:1853
+#: libraries/replication_gui.lib.php:876
+#: libraries/server_privileges.lib.php:1810
 msgid "Re-type"
 msgstr "Berridatzi"
 
-#: libraries/replication_gui.lib.php:895
+#: libraries/replication_gui.lib.php:880
 #, fuzzy
 #| msgid "Change password"
 msgid "Generate password:"
 msgstr "Pasahitza aldatu"
 
-#: libraries/replication_gui.lib.php:933
+#: libraries/replication_gui.lib.php:918
 #, fuzzy
 #| msgid "Chart generated successfully."
 msgid "Replication started successfully."
 msgstr "Pribilegioak arrakastaz berkargatu dira."
 
-#: libraries/replication_gui.lib.php:934
+#: libraries/replication_gui.lib.php:919
 msgid "Error starting replication."
 msgstr ""
 
-#: libraries/replication_gui.lib.php:937
+#: libraries/replication_gui.lib.php:922
 #, fuzzy
 #| msgid "Chart generated successfully."
 msgid "Replication stopped successfully."
 msgstr "Pribilegioak arrakastaz berkargatu dira."
 
-#: libraries/replication_gui.lib.php:938
+#: libraries/replication_gui.lib.php:923
 msgid "Error stopping replication."
 msgstr ""
 
-#: libraries/replication_gui.lib.php:941
+#: libraries/replication_gui.lib.php:926
 #, fuzzy
 #| msgid "Chart generated successfully."
 msgid "Replication resetting successfully."
 msgstr "Pribilegioak arrakastaz berkargatu dira."
 
-#: libraries/replication_gui.lib.php:942
+#: libraries/replication_gui.lib.php:927
 msgid "Error resetting replication."
 msgstr ""
 
-#: libraries/replication_gui.lib.php:945
+#: libraries/replication_gui.lib.php:930
 msgid "Success."
 msgstr ""
 
-#: libraries/replication_gui.lib.php:946
+#: libraries/replication_gui.lib.php:931
 #, fuzzy
 #| msgid "Error"
 msgid "Error."
 msgstr "Errorea"
 
-#: libraries/replication_gui.lib.php:991
+#: libraries/replication_gui.lib.php:976
 msgid "Unknown error"
 msgstr ""
 
-#: libraries/replication_gui.lib.php:1001
+#: libraries/replication_gui.lib.php:986
 #, php-format
 msgid "Unable to connect to master %s."
 msgstr ""
 
-#: libraries/replication_gui.lib.php:1012
+#: libraries/replication_gui.lib.php:997
 msgid ""
 "Unable to read master log position. Possible privilege problem on master."
 msgstr ""
 
-#: libraries/replication_gui.lib.php:1030
+#: libraries/replication_gui.lib.php:1015
 msgid "Unable to change master!"
 msgstr ""
 
-#: libraries/replication_gui.lib.php:1034
+#: libraries/replication_gui.lib.php:1019
 #, fuzzy, php-format
 #| msgid "The privileges were reloaded successfully."
 msgid "Master server changed successfully to %s."
@@ -12427,7 +12427,7 @@ msgstr "Batez"
 
 #: libraries/server_privileges.lib.php:528
 #: libraries/server_privileges.lib.php:555
-#: libraries/server_privileges.lib.php:3606
+#: libraries/server_privileges.lib.php:3561
 #: libraries/server_user_groups.lib.php:76
 msgid "User group"
 msgstr ""
@@ -12501,9 +12501,9 @@ msgstr ""
 "Erabiltzaileak orduko ireki dezakeen konexio berrien kopurua mugatzen du."
 
 #: libraries/server_privileges.lib.php:1004
-#: libraries/server_privileges.lib.php:3399
-#: libraries/server_privileges.lib.php:3401
-#: libraries/server_privileges.lib.php:4688
+#: libraries/server_privileges.lib.php:3354
+#: libraries/server_privileges.lib.php:3356
+#: libraries/server_privileges.lib.php:4644
 #: templates/privileges/edit_routine_privileges.phtml:11
 #, fuzzy
 #| msgid "Add %s field(s)"
@@ -12530,14 +12530,14 @@ msgstr "Taula berriak sortzea baimentzen du."
 
 #: libraries/server_privileges.lib.php:1098
 #: libraries/server_privileges.lib.php:1267
-#: libraries/server_privileges.lib.php:3394
+#: libraries/server_privileges.lib.php:3349
 #: templates/privileges/privileges_summary.phtml:19
 msgid "Table-specific privileges"
 msgstr "Taularen pribilegio espezifikoak"
 
 #: libraries/server_privileges.lib.php:1101
 #: libraries/server_privileges.lib.php:1277
-#: libraries/server_privileges.lib.php:3602
+#: libraries/server_privileges.lib.php:3557
 #: templates/privileges/edit_routine_privileges.phtml:16
 #, fuzzy
 #| msgid "Note: MySQL privilege names are expressed in English"
@@ -12549,7 +12549,7 @@ msgid "Administration"
 msgstr "Kudeaketa"
 
 #: libraries/server_privileges.lib.php:1261
-#: libraries/server_privileges.lib.php:3600
+#: libraries/server_privileges.lib.php:3555
 msgid "Global privileges"
 msgstr "Pribilegio orokorrak"
 
@@ -12560,7 +12560,7 @@ msgid "Global"
 msgstr "orokorra"
 
 #: libraries/server_privileges.lib.php:1264
-#: libraries/server_privileges.lib.php:3388
+#: libraries/server_privileges.lib.php:3343
 msgid "Database-specific privileges"
 msgstr "Datu-basearen pribilegio espezifikoak"
 
@@ -12591,172 +12591,172 @@ msgid "Native MySQL Authentication"
 msgstr "Dokumentazioa"
 
 #: libraries/server_privileges.lib.php:1612
-#: libraries/server_privileges.lib.php:3180
+#: libraries/server_privileges.lib.php:3135
 msgid "Login Information"
 msgstr "Saioa hasteko informazioa"
 
-#: libraries/server_privileges.lib.php:1645
-#: libraries/server_privileges.lib.php:1834
+#: libraries/server_privileges.lib.php:1635
+#: libraries/server_privileges.lib.php:1793
 #: templates/privileges/add_privileges_routine.phtml:7
 #: templates/privileges/add_privileges_table.phtml:7
 msgid "Use text field"
 msgstr "Testu-eremua erabili"
 
-#: libraries/server_privileges.lib.php:1672
+#: libraries/server_privileges.lib.php:1661
 msgid ""
 "An account already exists with the same username but possibly a different "
 "hostname."
 msgstr ""
 
-#: libraries/server_privileges.lib.php:1681
+#: libraries/server_privileges.lib.php:1670
 #, fuzzy
 #| msgid "User name"
 msgid "Host name:"
 msgstr "Erabiltzaile-izena"
 
-#: libraries/server_privileges.lib.php:1686
-#: libraries/server_privileges.lib.php:1788
-#: libraries/server_privileges.lib.php:2686
-#: libraries/server_privileges.lib.php:3598
+#: libraries/server_privileges.lib.php:1675
+#: libraries/server_privileges.lib.php:1760
+#: libraries/server_privileges.lib.php:2641
+#: libraries/server_privileges.lib.php:3553
 #, fuzzy
 #| msgid "Constraints for table"
 msgid "Host name"
 msgstr "Taularentzako murrizketak"
 
-#: libraries/server_privileges.lib.php:1824
+#: libraries/server_privileges.lib.php:1783
 msgid "Do not change the password"
 msgstr "Pasahitza ez aldatu"
 
-#: libraries/server_privileges.lib.php:1874
+#: libraries/server_privileges.lib.php:1829
 #, fuzzy
 #| msgid "Documentation"
 msgid "Authentication Plugin"
 msgstr "Dokumentazioa"
 
-#: libraries/server_privileges.lib.php:1881
+#: libraries/server_privileges.lib.php:1836
 #, fuzzy
 #| msgid "Password:"
 msgid "Password Hashing Method"
 msgstr "Pasahitza:"
 
-#: libraries/server_privileges.lib.php:2159
+#: libraries/server_privileges.lib.php:2114
 #, php-format
 msgid "The password for %s was changed successfully."
 msgstr "%s-arentzako pasahitza arrakastaz aldatua izan da."
 
-#: libraries/server_privileges.lib.php:2206
+#: libraries/server_privileges.lib.php:2161
 #, php-format
 msgid "You have revoked the privileges for %s."
 msgstr "Zuk %s-(r)en pribilegioak ezeztatu dituzu."
 
-#: libraries/server_privileges.lib.php:2293
-#: libraries/server_privileges.lib.php:4617
+#: libraries/server_privileges.lib.php:2248
+#: libraries/server_privileges.lib.php:4573
 #, fuzzy
 #| msgid "Add user"
 msgid "Add user account"
 msgstr "Gehitu erabiltzailea"
 
-#: libraries/server_privileges.lib.php:2302
+#: libraries/server_privileges.lib.php:2257
 #, fuzzy
 #| msgid "Database export options"
 msgid "Database for user account"
 msgstr "Datu-basea esportatzeko aukerak"
 
-#: libraries/server_privileges.lib.php:2308
+#: libraries/server_privileges.lib.php:2263
 msgid "Create database with same name and grant all privileges."
 msgstr ""
 
-#: libraries/server_privileges.lib.php:2319
+#: libraries/server_privileges.lib.php:2274
 msgid "Grant all privileges on wildcard name (username\\_%)."
 msgstr ""
 
-#: libraries/server_privileges.lib.php:2332
+#: libraries/server_privileges.lib.php:2287
 #, fuzzy, php-format
 msgid "Grant all privileges on database %s."
 msgstr "\"%s\" datu-basearen pribilegioak egiaztatu."
 
-#: libraries/server_privileges.lib.php:2496
-#: libraries/server_privileges.lib.php:2567
+#: libraries/server_privileges.lib.php:2451
+#: libraries/server_privileges.lib.php:2522
 #, php-format
 msgid "Users having access to \"%s\""
 msgstr "\"%s\"-(e)ra sarbidea duten erabiltzaileak"
 
-#: libraries/server_privileges.lib.php:2536
+#: libraries/server_privileges.lib.php:2491
 #, fuzzy
 msgid "User has been added."
 msgstr "%s eremua ezabatu da"
 
-#: libraries/server_privileges.lib.php:2689
-#: libraries/server_privileges.lib.php:3608
+#: libraries/server_privileges.lib.php:2644
+#: libraries/server_privileges.lib.php:3563
 #: templates/privileges/privileges_summary.phtml:17
 msgid "Grant"
 msgstr "Baimendu"
 
-#: libraries/server_privileges.lib.php:2704
+#: libraries/server_privileges.lib.php:2659
 msgid "Not enough privilege to view users."
 msgstr ""
 
-#: libraries/server_privileges.lib.php:2724
-#: libraries/server_privileges.lib.php:4084
+#: libraries/server_privileges.lib.php:2679
+#: libraries/server_privileges.lib.php:4040
 #, fuzzy
 #| msgid "No user(s) found."
 msgid "No user found."
 msgstr "Ez da erabiltzailerik aurkitu."
 
-#: libraries/server_privileges.lib.php:2755
-#: libraries/server_privileges.lib.php:3045
-#: libraries/server_privileges.lib.php:3690
+#: libraries/server_privileges.lib.php:2710
+#: libraries/server_privileges.lib.php:3000
+#: libraries/server_privileges.lib.php:3645
 msgid "Any"
 msgstr "Edozein"
 
-#: libraries/server_privileges.lib.php:2809
+#: libraries/server_privileges.lib.php:2764
 msgid "global"
 msgstr "orokorra"
 
-#: libraries/server_privileges.lib.php:2812
+#: libraries/server_privileges.lib.php:2767
 msgid "database-specific"
 msgstr "Datubasearentzat espezifikoa"
 
-#: libraries/server_privileges.lib.php:2814
+#: libraries/server_privileges.lib.php:2769
 msgid "wildcard"
 msgstr "komodina"
 
-#: libraries/server_privileges.lib.php:2820
+#: libraries/server_privileges.lib.php:2775
 #, fuzzy
 #| msgid "database-specific"
 msgid "table-specific"
 msgstr "Datubasearentzat espezifikoa"
 
-#: libraries/server_privileges.lib.php:2951
+#: libraries/server_privileges.lib.php:2906
 #, fuzzy
 #| msgid "Edit Privileges"
 msgid "Edit privileges"
 msgstr "Editatu Pribilegioak"
 
-#: libraries/server_privileges.lib.php:2954
+#: libraries/server_privileges.lib.php:2909
 msgid "Revoke"
 msgstr "Ezeztatu"
 
-#: libraries/server_privileges.lib.php:2978
+#: libraries/server_privileges.lib.php:2933
 #, fuzzy
 #| msgid "Edit next row"
 msgid "Edit user group"
 msgstr "Editatu hurrengo lerroa"
 
-#: libraries/server_privileges.lib.php:3159
+#: libraries/server_privileges.lib.php:3114
 msgid "… keep the old one."
 msgstr "… mantendu aurrekoa."
 
-#: libraries/server_privileges.lib.php:3160
+#: libraries/server_privileges.lib.php:3115
 msgid "… delete the old one from the user tables."
 msgstr "… zaharra ezabatu erabiltzaileen tauletatik."
 
-#: libraries/server_privileges.lib.php:3162
+#: libraries/server_privileges.lib.php:3117
 msgid ""
 "… revoke all active privileges from the old one and delete it afterwards."
 msgstr "… zaharraren pribilegio aktibo guztiak errebokatu eta ondoren ezabatu."
 
-#: libraries/server_privileges.lib.php:3166
+#: libraries/server_privileges.lib.php:3121
 msgid ""
 "… delete the old one from the user tables and reload the privileges "
 "afterwards."
@@ -12764,122 +12764,122 @@ msgstr ""
 "… zaharra ezabatu erabiltzaileen tauletatik eta ondoren berkargatu "
 "pribilegioak."
 
-#: libraries/server_privileges.lib.php:3181
+#: libraries/server_privileges.lib.php:3136
 #, fuzzy
 #| msgid "Change Login Information / Copy User"
 msgid "Change login information / Copy user account"
 msgstr "Aldatu saioa hasteko informazioa / Erabiltzailea kopiatu"
 
-#: libraries/server_privileges.lib.php:3187
+#: libraries/server_privileges.lib.php:3142
 #, fuzzy
 #| msgid "Create a new user with the same privileges and …"
 msgid "Create a new user account with the same privileges and …"
 msgstr "Erabiltzaile berri bat sortu pribilegio berdinekin eta …"
 
-#: libraries/server_privileges.lib.php:3400
+#: libraries/server_privileges.lib.php:3355
 #: templates/privileges/edit_routine_privileges.phtml:12
 #, fuzzy
 #| msgid "Column-specific privileges"
 msgid "Routine-specific privileges"
 msgstr "Zutabearen pribilegio espezifikoak"
 
-#: libraries/server_privileges.lib.php:3791
+#: libraries/server_privileges.lib.php:3746
 #, fuzzy
 #| msgid "Remove selected users"
 msgid "Remove selected user accounts"
 msgstr "Hautatutako erabiltzaileak baztertu"
 
-#: libraries/server_privileges.lib.php:3797
+#: libraries/server_privileges.lib.php:3752
 msgid "Revoke all active privileges from the users and delete them afterwards."
 msgstr ""
 "Erabiltzaileen pribilegio aktibo guztiak ezeztatu eta ondoren denak ezabatu."
 
-#: libraries/server_privileges.lib.php:3805
-#: libraries/server_privileges.lib.php:3811
-#: libraries/server_privileges.lib.php:3814
+#: libraries/server_privileges.lib.php:3760
+#: libraries/server_privileges.lib.php:3766
+#: libraries/server_privileges.lib.php:3769
 msgid "Drop the databases that have the same names as the users."
 msgstr "Erabiltzaileen izen berdina duten datu-baseak ezabatu."
 
-#: libraries/server_privileges.lib.php:3957
+#: libraries/server_privileges.lib.php:3913
 msgid "No users selected for deleting!"
 msgstr ""
 
-#: libraries/server_privileges.lib.php:3960
+#: libraries/server_privileges.lib.php:3916
 msgid "Reloading the privileges"
 msgstr "Pribilegioak berkargatzen"
 
-#: libraries/server_privileges.lib.php:3979
+#: libraries/server_privileges.lib.php:3935
 msgid "The selected users have been deleted successfully."
 msgstr "Hautatutako erabiltzaileak arrakastaz ezabatu dira."
 
-#: libraries/server_privileges.lib.php:4054
+#: libraries/server_privileges.lib.php:4010
 #, php-format
 msgid "You have updated the privileges for %s."
 msgstr "%s-aren pribilegioak eguneratu dituzu."
 
-#: libraries/server_privileges.lib.php:4158
+#: libraries/server_privileges.lib.php:4114
 #, php-format
 msgid "Deleting %s"
 msgstr "%s ezabatzen"
 
-#: libraries/server_privileges.lib.php:4188
+#: libraries/server_privileges.lib.php:4144
 msgid "The privileges were reloaded successfully."
 msgstr "Pribilegioak arrakastaz berkargatu dira."
 
-#: libraries/server_privileges.lib.php:4289
+#: libraries/server_privileges.lib.php:4245
 #, php-format
 msgid "The user %s already exists!"
 msgstr "%s erabiltzailea badago lehendik ere!"
 
-#: libraries/server_privileges.lib.php:4559
+#: libraries/server_privileges.lib.php:4515
 #, fuzzy, php-format
 #| msgid "Privileges"
 msgid "Privileges for %s"
 msgstr "Pribilegioak"
 
-#: libraries/server_privileges.lib.php:4568
+#: libraries/server_privileges.lib.php:4524
 #: libraries/server_status_processes.lib.php:72
 #: libraries/server_user_groups.lib.php:37
 msgid "User"
 msgstr "Erabiltzailea"
 
-#: libraries/server_privileges.lib.php:4609
+#: libraries/server_privileges.lib.php:4565
 msgctxt "Create new user"
 msgid "New"
 msgstr ""
 
-#: libraries/server_privileges.lib.php:4638
+#: libraries/server_privileges.lib.php:4594
 #, fuzzy
 #| msgid "Edit Privileges"
 msgid "Edit privileges:"
 msgstr "Editatu Pribilegioak"
 
-#: libraries/server_privileges.lib.php:4639
+#: libraries/server_privileges.lib.php:4595
 #, fuzzy
 #| msgid "User"
 msgid "User account"
 msgstr "Erabiltzailea"
 
-#: libraries/server_privileges.lib.php:4713
+#: libraries/server_privileges.lib.php:4669
 msgid ""
 "Note: You are attempting to edit privileges of the user with which you are "
 "currently logged in."
 msgstr ""
 
-#: libraries/server_privileges.lib.php:4733 libraries/server_users.lib.php:22
+#: libraries/server_privileges.lib.php:4689 libraries/server_users.lib.php:22
 #, fuzzy
 #| msgid "User overview"
 msgid "User accounts overview"
 msgstr "Erabiltzailearen info orokorra"
 
-#: libraries/server_privileges.lib.php:4802
+#: libraries/server_privileges.lib.php:4758
 msgid ""
 "A user account allowing any user from localhost to connect is present. This "
 "will prevent other users from connecting if the host part of their account "
 "allows a connection from any (%) host."
 msgstr ""
 
-#: libraries/server_privileges.lib.php:4843
+#: libraries/server_privileges.lib.php:4799
 #, php-format
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
@@ -12893,7 +12893,7 @@ msgstr ""
 "daitezke. Kasu honetan, jarraitu aurretik %spribilegioak berkargatu%s "
 "beharko zenituzke."
 
-#: libraries/server_privileges.lib.php:4862
+#: libraries/server_privileges.lib.php:4818
 #, fuzzy
 #| msgid ""
 #| "Note: phpMyAdmin gets the users' privileges directly from MySQL's "
@@ -12913,11 +12913,11 @@ msgstr ""
 "daitezke. Kasu honetan, jarraitu aurretik %spribilegioak berkargatu%s "
 "beharko zenituzke."
 
-#: libraries/server_privileges.lib.php:4912
+#: libraries/server_privileges.lib.php:4868
 msgid "The selected user was not found in the privilege table."
 msgstr "Hautatutako erabiltzailea ez da pribilegioen taulan aurkitu."
 
-#: libraries/server_privileges.lib.php:5136
+#: libraries/server_privileges.lib.php:5092
 msgid "You have added a new user."
 msgstr "Erabiltzaile berria gehitu duzu."
 
