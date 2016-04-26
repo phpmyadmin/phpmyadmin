@@ -35,6 +35,7 @@ phpMyAdmin - ChangeLog
 - issue #12204 Check if sessions are working and report failures
 - issue #12211 non-clickable initial letter for users / and can't modify users with MySQL 5.7.12
 - issue #12215 Fixed config tab persistence errors
+- issue #12217 Fixed javascript erros on user creation
 
 4.6.0.0 (2016-03-22)
 + issue #11456 Disabled storage engines
