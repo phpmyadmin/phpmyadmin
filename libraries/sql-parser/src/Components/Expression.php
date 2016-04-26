@@ -227,7 +227,8 @@ class Expression extends Component
                     // beginning of a statement, so this is a subquery.
                     $ret->subquery = $token->value;
                 } elseif (($token->flags & Token::FLAG_KEYWORD_FUNCTION)
-                    && (empty($options['parseField']))
+                    && (empty($options['parseField'])
+                    && ! $alias)
                 ) {
                     $isExpr = true;
                 } elseif (($token->flags & Token::FLAG_KEYWORD_RESERVED)
@@ -254,7 +255,7 @@ class Expression extends Component
                         continue;
                     }
                     $isExpr = true;
-                } elseif ($brackets === 0 && count($ret->expr) > 0) {
+                } elseif ($brackets === 0 && count($ret->expr) > 0 && ! $alias) {
                     /* End of expression */
                     break;
                 }

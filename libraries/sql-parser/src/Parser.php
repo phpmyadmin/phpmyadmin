@@ -210,6 +210,10 @@ class Parser
             'class'             => 'SqlParser\\Components\\JoinKeyword',
             'field'             => 'join',
         ),
+        'FULL OUTER JOIN'       => array(
+            'class'             => 'SqlParser\\Components\\JoinKeyword',
+            'field'             => 'join',
+        ),
         'STRAIGHT_JOIN'         => array(
             'class'             => 'SqlParser\\Components\\JoinKeyword',
             'field'             => 'join',

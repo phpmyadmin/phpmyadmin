@@ -22,6 +22,8 @@ phpMyAdmin - ChangeLog
 - issue #12211 non-clickable initial letter for users / and can't modify users with MySQL 5.7.12
 - issue #12215 Fixed config tab persistence errors
 - issue #12217 Fixed javascript erros on user creation
+- issue #12144 Fixed parsing of some AS clauses
+- issue #12205 Fixed parsing of FULL OUTER JOIN queries
 
 4.6.0.0 (2016-03-22)
 + issue #11456 Disabled storage engines

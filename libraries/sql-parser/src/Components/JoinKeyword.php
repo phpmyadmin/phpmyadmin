@@ -32,6 +32,7 @@ class JoinKeyword extends Component
      */
     public static $JOINS = array(
         'FULL JOIN'                     => 'FULL',
+        'FULL OUTER JOIN'               => 'FULL',
         'INNER JOIN'                    => 'INNER',
         'JOIN'                          => 'JOIN',
         'LEFT JOIN'                     => 'LEFT',
