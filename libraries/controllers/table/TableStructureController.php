@@ -317,14 +317,14 @@ class TableStructureController extends TableController
         // got to be eliminated in long run
         $db = &$this->db;
         $table = &$this->table;
+        $url_params = array();
         include_once 'libraries/tbl_common.inc.php';
         $this->_db_is_system_schema = $db_is_system_schema;
         $this->_url_query = $url_query
             . '&amp;goto=tbl_structure.php&amp;back=tbl_structure.php';
-        $url_params = array(
-            'goto' => 'tbl_structure.php',
-            'back' => 'tbl_structure.php',
-        );
+        /* The url_params array is initialized in above include */
+        $url_params['goto'] = 'tbl_structure.php';
+        $url_params['back'] = 'tbl_structure.php';
 
         /**
          * Gets tables information
