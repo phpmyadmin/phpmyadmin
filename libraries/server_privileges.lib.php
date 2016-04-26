@@ -1616,17 +1616,7 @@ function PMA_getHtmlForLoginInformationFields(
         . '<span class="options">' . "\n";
 
     $html_output .= '<select name="pred_username" id="select_pred_username" '
-        . 'title="' . __('User name') . '"' . "\n";
-
-    $html_output .= '        onchange="'
-        . 'if (this.value == \'any\') {'
-        . '    username.value = \'\'; '
-        . '    user_exists_warning.style.display = \'none\'; '
-        . '    username.required = false; '
-        . '} else if (this.value == \'userdefined\') {'
-        . '    username.focus(); username.select(); '
-        . '    username.required = true; '
-        . '}">' . "\n";
+        . 'title="' . __('User name') . '">' . "\n";
 
     $html_output .= '<option value="any"'
         . ((isset($GLOBALS['pred_username']) && $GLOBALS['pred_username'] == 'any')
@@ -1647,7 +1637,7 @@ function PMA_getHtmlForLoginInformationFields(
     $html_output .= '</select>' . "\n"
         . '</span>' . "\n";
 
-    $html_output .= '<input type="text" name="username" class="autofocus"'
+    $html_output .= '<input type="text" name="username" id="pma_username" class="autofocus"'
         . ' maxlength="' . $username_length . '" title="' . __('User name') . '"'
         . (empty($GLOBALS['username'])
            ? ''
@@ -1657,7 +1647,6 @@ function PMA_getHtmlForLoginInformationFields(
                : $GLOBALS['username']
            ) . '"'
         )
-        . ' onchange="pred_username.value = \'userdefined\'; this.required = true;" '
         . ((! isset($GLOBALS['pred_username'])
                 || $GLOBALS['pred_username'] == 'userdefined'
             )

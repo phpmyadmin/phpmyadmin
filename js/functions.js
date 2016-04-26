@@ -3039,6 +3039,22 @@ AJAX.registerTeardown('functions.js', function () {
  */
 AJAX.registerOnload('functions.js', function () {
 
+    /* Handler for username type */
+    $(document).on('change', '#select_pred_username', function () {
+        if (this.value == 'any') {
+            $('#pma_username').val('').prop('required', false);
+            $('#user_exists_warning').css('display', 'none');
+        } else if (this.value == 'userdefined') {
+            $('#pma_username').focus().select().prop('required', true);
+        }
+    });
+
+    /* Handler for editing username */
+    $(document).on('change', '#pma_username', function () {
+        $('#select_pred_username').val('userdefined');
+        $('#pma_username').prop('required', true);
+    });
+
     /* Handler for password type */
     $(document).on('change', '#select_pred_password', function () {
         if (this.value == 'none') {

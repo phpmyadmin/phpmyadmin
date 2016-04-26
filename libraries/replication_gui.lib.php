@@ -797,10 +797,7 @@ function PMA_getHtmlForAddUserLoginForm($username_length)
         . '</label>'
         . '<span class="options">'
         . '    <select name="pred_username" id="select_pred_username" '
-        .         'title="' . __('User name') . '"'
-        . '        onchange="if (this.value == \'any\') { username.value = \'\'; } '
-        .                   'else if (this.value == \'userdefined\') { '
-        .                       ' username.focus(); username.select(); }">'
+        .         'title="' . __('User name') . '">'
         . '        <option value="any"'
         . ((isset($GLOBALS['pred_username'])
             && $GLOBALS['pred_username'] == 'any') ? ' selected="selected"' : '')
@@ -812,13 +809,13 @@ function PMA_getHtmlForAddUserLoginForm($username_length)
         . '>' . __('Use text field:') . '</option>'
         . '    </select>'
         . '</span>'
-        . '<input type="text" name="username" maxlength="'
+        . '<input type="text" name="username" id="pma_username" maxlength="'
         . $username_length . '" title="' . __('User name') . '"'
         . (empty($_REQUEST['username']) ? '' : ' value="'
         . (isset($GLOBALS['new_username'])
             ? $GLOBALS['new_username']
             : $_REQUEST['username']) . '"')
-        . ' onchange="pred_username.value = \'userdefined\';" />'
+        . ' />'
         . '</div>';
 
     return $html;
