@@ -1682,30 +1682,13 @@ function PMA_getHtmlForLoginInformationFields(
                 (mb_strrpos($_current_user, '@') + 1)
             )
         );
-        if ($thishost == 'localhost' || $thishost == '127.0.0.1') {
+        if ($thishost != 'localhost' && $thishost != '127.0.0.1') {
+            $html_output .= ' data-thishost="' . htmlspecialchars($thishost) . '" ';
+        } else {
             unset($thishost);
         }
     }
-    $html_output .= '    onchange="'
-        . 'if (this.value == \'any\') { '
-        . '     hostname.value = \'%\'; '
-        . '} else if (this.value == \'localhost\') { '
-        . '    hostname.value = \'localhost\'; '
-        . '} '
-        . (empty($thishost)
-            ? ''
-            : 'else if (this.value == \'thishost\') { '
-            . '    hostname.value = \'' . addslashes(htmlspecialchars($thishost))
-            . '\'; '
-            . '} '
-        )
-        . 'else if (this.value == \'hosttable\') { '
-        . '    hostname.value = \'\'; '
-        . '    hostname.required = false; '
-        . '} else if (this.value == \'userdefined\') {'
-        . '    hostname.focus(); hostname.select(); '
-        . '    hostname.required = true; '
-        . '}">' . "\n";
+    $html_output .= '>' . "\n";
     unset($_current_user);
 
     // when we start editing a user, $GLOBALS['pred_hostname'] is not defined
@@ -1769,13 +1752,11 @@ function PMA_getHtmlForLoginInformationFields(
         . '</select>' . "\n"
         . '</span>' . "\n";
 
-    $html_output .= '<input type="text" name="hostname" maxlength="'
+    $html_output .= '<input type="text" name="hostname" id="pma_hostname" maxlength="'
         . $hostname_length . '" value="'
         // use default value of '%' to match with the default 'Any host'
         . htmlspecialchars(isset($GLOBALS['hostname']) ? $GLOBALS['hostname'] : '%')
         . '" title="' . __('Host name')
-        . '" onchange="pred_hostname.value = \'userdefined\'; '
-        . 'this.required = true;" '
         . ((isset($GLOBALS['pred_hostname'])
                 && $GLOBALS['pred_hostname'] == 'userdefined'
             )

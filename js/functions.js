@@ -3039,6 +3039,28 @@ AJAX.registerTeardown('functions.js', function () {
  */
 AJAX.registerOnload('functions.js', function () {
 
+    /* Handler for hostname type */
+    $(document).on('change', '#select_pred_hostname', function () {
+        var hostname = $('#pma_hostname');
+        if (this.value == 'any') {
+            hostname.val('%');
+        } else if (this.value == 'localhost') {
+            hostname.val('localhost');
+        } else if (this.value == 'thishost' && $(this).data('thishost')) {
+            hostname.val($(this).data('thishost'));
+        } else if (this.value == 'hosttable') {
+            hostname.val('').prop('required', false);
+        } else if (this.value == 'userdefined') {
+            hostname.focus().select().prop('required', true);
+        }
+    });
+
+    /* Handler for editing hostname */
+    $(document).on('change', '#pma_hostname', function () {
+        $('#select_pred_hostname').val('userdefined');
+        $('#pma_hostname').prop('required', true);
+    });
+
     /* Handler for username type */
     $(document).on('change', '#select_pred_username', function () {
         if (this.value == 'any') {
