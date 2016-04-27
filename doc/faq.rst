@@ -1655,6 +1655,11 @@ mimetypes by heart so he/she can enter it at will?
 6.18 Bookmarks: Where can I store bookmarks? Why can't I see any bookmarks below the query box? What are these variables for?
 -----------------------------------------------------------------------------------------------------------------------------
 
+.. note:: 
+
+    You need to have configured the :ref:`linked-tables` for using bookmarks
+    feature.
+
 Any query you have executed can be stored as a bookmark on the page
 where the results are displayed. You will find a button labeled
 'Bookmark this query' just at the end of the page. As soon as you have
