@@ -68,7 +68,7 @@ and :file:`index.php`.
 
 .. _faq1_7:
 
-1.7 How can I GZip a dump or a CSV export? It does not seem to work.
+1.7 How can I gzip a dump or a CSV export? It does not seem to work.
 --------------------------------------------------------------------
 
 This feature is based on the ``gzencode()``
@@ -868,9 +868,9 @@ again.
 ----------------------------------------------------------------------------------------------------
 
 Compressed dumps are built in memory and because of this are limited
-to php's memory limit. For GZip/BZip2 exports this can be overcome
+to php's memory limit. For gzip/bzip2 exports this can be overcome
 since 2.5.4 using :config:option:`$cfg['CompressOnFly']` (enabled by default).
-Zip exports can not be handled this way, so if you need Zip files for larger
+zip exports can not be handled this way, so if you need zip files for larger
 dump, you have to use another way.
 
 .. _faq3_3:
@@ -1201,12 +1201,12 @@ Xitami server.
 5.3 I have problems dumping tables with Konqueror (phpMyAdmin 2.2.2).
 ---------------------------------------------------------------------
 
-With Konqueror 2.1.1: plain dumps, zip and GZip dumps work ok, except
+With Konqueror 2.1.1: plain dumps, zip and gzip dumps work ok, except
 that the proposed file name for the dump is always 'tbl\_dump.php'.
-Bzip2 dumps don't seem to work. With Konqueror 2.2.1: plain dumps
+The bzip2 dumps don't seem to work. With Konqueror 2.2.1: plain dumps
 work; zip dumps are placed into the user's temporary directory, so
 they must be moved before closing Konqueror, or else they disappear.
-GZip dumps give an error message. Testing needs to be done for
+gzip dumps give an error message. Testing needs to be done for
 Konqueror 2.2.2.
 
 .. _faq5_4:
@@ -1872,7 +1872,7 @@ methods:
 Configure upload directory with :config:option:`$cfg['UploadDir']`, upload both .shp and .dbf files with
 the same filename and chose the .shp file from the import page.
 
-Create a Zip archive with .shp and .dbf files and import it. For this
+Create a zip archive with .shp and .dbf files and import it. For this
 to work, you need to set :config:option:`$cfg['TempDir']` to a place where the web server user can
 write (for example ``'./tmp'``).
 
