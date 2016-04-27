@@ -115,8 +115,8 @@ It seems to clear up many problems between Internet Explorer and SSL.
 
 .. _faq1_11:
 
-1.11 I get an 'open\_basedir restriction' while uploading a file from the query box.
-------------------------------------------------------------------------------------
+1.11 I get an 'open\_basedir restriction' while uploading a file from the import tab.
+-------------------------------------------------------------------------------------
 
 Since version 2.2.4, phpMyAdmin supports servers with open\_basedir
 restrictions. However you need to create temporary directory and configure it
