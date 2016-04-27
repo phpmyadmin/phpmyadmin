@@ -5,10 +5,15 @@
 Configuration
 =============
 
-Almost all configurable data is placed in :file:`config.inc.php`. If this file
-does not exist, please refer to the :ref:`setup` section to create one. This
-file only needs to contain the parameters you want to change from their
-corresponding default value in :file:`libraries/config.default.php`.
+All configurable data is placed in :file:`config.inc.php` in phpMyAdmin's
+toplevel directory.  If this file does not exist, please refer to the
+:ref:`setup` section to create one. This file only needs to contain the
+parameters you want to change from their corresponding default value in
+:file:`libraries/config.default.php` (this file is not inteded for changes).
+
+.. seealso::
+
+    :ref:`config-examples` for examples of configurations
 
 If a directive is missing from your file, you can just add another line with
 the file. This file is for over-writing the defaults; if you wish to use the
@@ -49,13 +54,12 @@ Basic settings
     Sets here the complete :term:`URL` (with full path) to your phpMyAdmin
     installation's directory. E.g.
     ``http://www.example.net/path_to_your_phpMyAdmin_directory/``.  Note also
-    that the :term:`URL` on most of web servers are case–sensitive. Don’t
-    forget the trailing slash at the end.
+    that the :term:`URL` on most of web servers are case sensitive (even on
+    Windows). Don’t forget the trailing slash at the end.
 
     Starting with version 2.3.0, it is advisable to try leaving this blank. In
     most cases phpMyAdmin automatically detects the proper setting. Users of
-    port forwarding will need to set :config:option:`$cfg['PmaAbsoluteUri']`
-    (`more info <https://sourceforge.net/p/phpmyadmin/support-requests/795/>`_).
+    port forwarding or complex reverse proxy setup might need to set this.
 
     A good test is to browse a table, edit a row and save it. There should be
     an error message if phpMyAdmin is having trouble auto–detecting the correct
@@ -458,13 +462,13 @@ Server connection settings
     Whether config or cookie or :term:`HTTP` or signon authentication should be
     used for this server.
 
-    * 'config' authentication (``$auth_type = 'config'``) is the plain old
+    * 'config' authentication (``$auth_type = 'config'``) is the plain old
       way: username and password are stored in :file:`config.inc.php`.
-    * 'cookie' authentication mode (``$auth_type = 'cookie'``) allows you to
+    * 'cookie' authentication mode (``$auth_type = 'cookie'``) allows you to
       log in as any valid MySQL user with the help of cookies.
     * 'http' authentication allows you to log in as any
       valid MySQL user via HTTP-Auth.
-    * 'signon' authentication mode (``$auth_type = 'signon'``) allows you to
+    * 'signon' authentication mode (``$auth_type = 'signon'``) allows you to
       log in from prepared PHP session data or using supplied PHP script.
 
     .. seealso:: :ref:`authentication_modes`
@@ -2967,10 +2971,68 @@ Developer
     This is used for `phpMyAdmin demo server <https://www.phpmyadmin.net/try>`_.
 
 
+.. _config-examples:
+
 Examples
 --------
 
 See following configuration snippets for usual setups of phpMyAdmin.
+
+Basic example
++++++++++++++
+
+Example configuration file, which can be copied to :file:`config.inc.php` to
+get some core configuration layout, it is distributed with phpMyAdmin as
+:file:`config.sample.inc.php`. Please note that it does not contain all
+configuration options, only the most frequently used ones.
+
+.. literalinclude:: ../config.sample.inc.php
+   :language: php
+
+.. warning::
+
+    Don't use the controluser 'pma' if not existing yet and don't use 'pmapass'
+    as password.
+
+
+.. _example-signon:
+
+Example for signon authentication
++++++++++++++++++++++++++++++++++
+
+This example uses :file:`examples/signon.php` to demostrate usage of :ref:`auth_signon`:
+
+.. code-block:: php
+
+    <?php
+    $i = 0;
+    $i++;
+    $cfg['Servers'][$i]['extension']     = 'mysqli';
+    $cfg['Servers'][$i]['auth_type']     = 'signon';
+    $cfg['Servers'][$i]['SignonSession'] = 'SignonSession';
+    $cfg['Servers'][$i]['SignonURL']     = 'examples/signon.php';
+    ?>`
+
+Example for IP address limited autologin
+++++++++++++++++++++++++++++++++++++++++
+
+If you want to automatically login when accessing phpMyAdmin locally while ask
+for password when remotely, you can achieve it using following snippet:
+
+.. code-block:: php
+
+    if ($_SERVER["REMOTE_ADDR"] == "127.0.0.1") {
+        $cfg['Servers'][$i]['auth_type'] = 'config';
+        $cfg['Servers'][$i]['user'] = 'root';
+        $cfg['Servers'][$i]['password'] = 'yourpassword';
+    } else {
+        $cfg['Servers'][$i]['auth_type'] = 'cookie';
+    }
+
+.. note::
+
+    Filtering based on IP addresses isn't reliable over the internet, use it
+    only for local address.
 
 .. _example-google-ssl:
 

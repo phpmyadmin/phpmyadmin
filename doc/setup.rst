@@ -310,6 +310,12 @@ Linux/Unix system you can use the following commands:
     mkdir config                        # create directory for saving
     chmod o+rw config                   # give it world writable permissions
 
+.. note::
+
+    Following documentation covers default behavior of phpMyAdmin. Some
+    distributions have changed this, please check following sections for
+    information on this topic.
+
 And to edit an existing configuration, copy it over first:
 
 .. code-block:: sh
@@ -317,11 +323,6 @@ And to edit an existing configuration, copy it over first:
 
     cp config.inc.php config/           # copy current configuration for editing
     chmod o+w config/config.inc.php     # give it world writable permissions
-
-.. note::
-
-    Debian and Ubuntu have simplified this setup and all you need to do is to
-    execute :program:`/usr/sbin/pma-configure`.
 
 On other platforms, simply create the folder and ensure that your web
 server has read and write access to it. :ref:`faq1_26` can help with
@@ -349,10 +350,6 @@ measure:
     chmod o-rw config.inc.php          # remove world read and write permissions
     rm -rf config                      # remove not needed directory
 
-.. note::
-
-    Debian and Ubuntu have simplified this setup and all you need to do is to
-    execute :program:`/usr/sbin/pma-secure`.
 
 Now the file is ready to be used. You can choose to review or edit the
 file with your favorite editor, if you prefer to set some advanced
@@ -369,6 +366,32 @@ options which the setup script does not provide.
    phpMyAdmin should now display a welcome screen and your databases, or
    a login dialog if using :term:`HTTP` or
    cookie authentication mode.
+
+Setup script on Debian, Ubuntu and derivatives
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Debian and Ubuntu have changed way how setup is enabled and disabled, in a way
+that single command has to be executed for either of these.
+
+To allow editing configuration invoke:
+
+.. code-block:: sh
+
+   /usr/sbin/pma-configure
+
+To block editing configuration invoke:
+
+.. code-block:: sh
+    
+    /usr/sbin/pma-secure
+
+Setup script on openSUSE
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+Some openSUSE releases do not include setup script in the package. In case you
+want to generate configuration on these you can either download original
+package from <https://www.phpmyadmin.net/> or use setup script on our demo
+server: <https://demo.phpmyadmin.net/master/setup/>.
 
 
 .. _verify:
@@ -627,7 +650,17 @@ What the user may now do is controlled entirely by the MySQL user management
 system. With HTTP or cookie authentication mode, you don't need to fill the
 user/password fields inside the :config:option:`$cfg['Servers']`.
 
+.. seealso::
+
+    :ref:`faq1_32`,
+    :ref:`faq1_35`,
+    :ref:`faq4_1`,
+    :ref:`faq4_2`,
+    :ref:`faq4_3`
+
 .. index:: pair: HTTP; Authentication mode
+
+.. _auth_http:
 
 HTTP authentication mode
 ------------------------
@@ -649,6 +682,13 @@ HTTP authentication mode
 * See also :ref:`faq4_4` about not using the :term:`.htaccess` mechanism along with
   ':term:`HTTP`' authentication mode.
 
+.. note::
+
+    There is no way to do proper logout in HTTP authentication, most browsers
+    will remember credentials until there is no different successful
+    authentication. Because of this this method has limitation that you can not
+    login with same user after logout.
+
 .. index:: pair: Cookie; Authentication mode
 
 .. _cookie:
@@ -659,12 +699,12 @@ Cookie authentication mode
 * Username and password are stored in cookies during the session and password
   is deleted when it ends.
 * With this mode, the user can truly log out of phpMyAdmin and log
-  back in with the same username.
+  back in with the same username (this is not possible with :ref:`auth_http`).
 * If you want to allow users to enter any hostname to connect (rather than only
   servers that are configured in :file:`config.inc.php`),
   see the :config:option:`$cfg['AllowArbitraryServer']` directive.
-* As mentioned in the :ref:`require` section, having the ``mcrypt`` extension will
-  speed up access considerably, but is not required.
+* As mentioned in the :ref:`require` section, having the ``mcrypt`` or
+  ``openssl`` extension will speed up access considerably, but is not required.
 
 .. index:: pair: Signon; Authentication mode
 
@@ -708,7 +748,8 @@ in :file:`examples/signon-script.php`:
     :config:option:`$cfg['Servers'][$i]['auth_type']`,
     :config:option:`$cfg['Servers'][$i]['SignonSession']`,
     :config:option:`$cfg['Servers'][$i]['SignonScript']`,
-    :config:option:`$cfg['Servers'][$i]['SignonURL']`
+    :config:option:`$cfg['Servers'][$i]['SignonURL']`,
+    :ref:`example-signon`
 
 
 .. index:: pair: Config; Authentication mode
