@@ -122,7 +122,7 @@ commonly used formats:
 CodeGen
 -------
 
-`NHibernate <http://en.wikipedia.org/wiki/NHibernate>`_ file format. Planned
+`NHibernate <https://en.wikipedia.org/wiki/NHibernate>`_ file format. Planned
 versions: Java, Hibernate, PHP PDO, JSON, etc. So the preliminary name is
 codegen.
 
@@ -161,8 +161,8 @@ LaTeX is a typesetting system that is very suitable for producing scientific
 and mathematical documents of high typographical quality. It is also suitable
 for producing all sorts of other documents, from simple letters to complete
 books. LaTeX uses TeX as its formatting engine. Learn more about TeX and
-LaTeX on `the Comprehensive TeX Archive Network <http://www.ctan.org/>`_
-also see the `short description od TeX <http://www.ctan.org/what_is_tex.html>`_.
+LaTeX on `the Comprehensive TeX Archive Network <https://www.ctan.org/>`_
+also see the `short description od TeX <https://www.ctan.org/tex/>`_.
 
 The output needs to be embedded into a LaTeX document before it can be
 rendered, for example in following document:
@@ -255,8 +255,8 @@ INSERT speed when imported, and is generally recommended.
 Texy!
 -----
 
-`Texy! <http://texy.info/>`_ markup format. You can see example on `Texy! demo
-<http://texy.info/en/try/4q5we>`.
+`Texy! <https://texy.info/>`_ markup format. You can see example on `Texy! demo
+<https://texy.info/en/try/4q5we>`_.
 
 XML
 ---
