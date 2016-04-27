@@ -2982,11 +2982,18 @@ See following configuration snippets for usual setups of phpMyAdmin.
 Basic example
 +++++++++++++
 
-This example is distributed with phpMyAdmin as :file:`config.sample.inc.php`:
+Example configuration file, which can be copied to :file:`config.inc.php` to
+get some core configuration layout, it is distributed with phpMyAdmin as
+:file:`config.sample.inc.php`. Please note that it does not contain all
+configuration options, only the most frequently used ones.
 
 .. literalinclude:: ../config.sample.inc.php
    :language: php
 
+.. warning::
+
+    Don't use the controluser 'pma' if not existing yet and don't use 'pmapass'
+    as password.
 
 .. _example-google-ssl:
 
