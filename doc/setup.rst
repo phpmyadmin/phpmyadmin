@@ -506,8 +506,13 @@ clear error regardless of the fact that the key is trusted or not:
 phpMyAdmin configuration storage
 ++++++++++++++++++++++++++++++++
 
-For a whole set of additional features (bookmarks, comments, :term:`SQL`-history,
-tracking mechanism, :term:`PDF`-generation, column contents transformation,
+.. versionchanged:: 3.4.0
+
+   Prior to phpMyAdmin 3.4.0 this was called Linked Tables Infrastructure, but
+   the name was changed due to extended scope of the storage.
+
+For a whole set of additional features (:ref:`bookmarks`, comments, :term:`SQL`-history,
+tracking mechanism, :term:`PDF`-generation, :ref:`transformations`, :ref:`relations`
 etc.) you need to create a set of special tables.  Those tables can be located
 in your own database, or in a central database for a multi-user installation
 (this database would then be accessed by the controluser, so no other user
