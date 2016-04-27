@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-04-26 14:40+0200\n"
-"PO-Revision-Date: 2016-04-11 00:29+0000\n"
-"Last-Translator: Ming Tsay <mt@moztw.org>\n"
-"Language-Team: Chinese (Taiwan) <https://hosted.weblate.org/projects/"
-"phpmyadmin/master/zh_TW/>\n"
+"PO-Revision-Date: 2016-04-27 14:06+0000\n"
+"Last-Translator: Chien Wei Lin <cwlin0416@gmail.com>\n"
+"Language-Team: Chinese (Taiwan) "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/zh_TW/>\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -898,10 +898,9 @@ msgid "Do you really want to TRUNCATE the selected partition(s)?"
 msgstr "您確定要清空(TRUNCATE)選擇的分區？"
 
 #: js/messages.php:88
-#, fuzzy
 #| msgid "Do you really want to TRUNCATE the selected partition(s)?"
 msgid "Do you really want to remove partitioning?"
-msgstr "您確定要清空(TRUNCATE)選擇的分區？"
+msgstr "您確定要移除分區？"
 
 #: js/messages.php:89
 msgid "Do you really want to RESET SLAVE?"
@@ -1621,10 +1620,9 @@ msgid "Formatting SQL…"
 msgstr "格式化 SQL…"
 
 #: js/messages.php:349
-#, fuzzy
 #| msgid "Bad parameters!"
 msgid "No parameters found!"
-msgstr "參數錯誤!"
+msgstr "查無參數!"
 
 #: js/messages.php:353
 #: templates/database/designer/aggregate_query_panel.phtml:63
@@ -2478,6 +2476,8 @@ msgid ""
 "cause such a problem, clearing your \"Offline Website Data\" might help. In "
 "Safari, such problem is commonly caused by \"Private Mode Browsing\"."
 msgstr ""
+"存取您的瀏覽器儲存空間時發生錯誤，部份功能可能無法正常運作。似乎是瀏覽器不支援儲存空間或者已達空間使用上限。在 Firefox "
+"中，損壞的儲存空間可能會造成此問題，您可清空您的 \"離線網站資料\" 來解決。 在 Safari 通常是使用 \"隱私模式瀏覽\"。"
 
 #: js/messages.php:714
 #, fuzzy
