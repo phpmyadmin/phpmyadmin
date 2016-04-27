@@ -563,8 +563,12 @@ You can also disable the warning using the :config:option:`$cfg['SuhosinDisableW
 1.39 When I try to connect via https, I can log in, but then my connection is redirected back to http. What can cause this behavior?
 ------------------------------------------------------------------------------------------------------------------------------------
 
-Be sure that you have enabled ``SSLOptions`` and ``StdEnvVars`` in
-your Apache configuration.
+This is caused by the fact that PHP scripts have no knowledge that the site is
+using https. Depending on used webserver, you should configure it to let PHP
+know about URL and scheme used to access it.
+
+For example in Apache ensure that you have enabled ``SSLOptions`` and
+``StdEnvVars`` in the configuration.
 
 .. seealso:: <http://httpd.apache.org/docs/2.4/mod/mod_ssl.html>
 
