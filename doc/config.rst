@@ -462,13 +462,13 @@ Server connection settings
     Whether config or cookie or :term:`HTTP` or signon authentication should be
     used for this server.
 
-    * 'config' authentication (``$auth_type = 'config'``) is the plain old
+    * 'config' authentication (``$auth_type = 'config'``) is the plain old
       way: username and password are stored in :file:`config.inc.php`.
-    * 'cookie' authentication mode (``$auth_type = 'cookie'``) allows you to
+    * 'cookie' authentication mode (``$auth_type = 'cookie'``) allows you to
       log in as any valid MySQL user with the help of cookies.
     * 'http' authentication allows you to log in as any
       valid MySQL user via HTTP-Auth.
-    * 'signon' authentication mode (``$auth_type = 'signon'``) allows you to
+    * 'signon' authentication mode (``$auth_type = 'signon'``) allows you to
       log in from prepared PHP session data or using supplied PHP script.
 
     .. seealso:: :ref:`authentication_modes`
@@ -3005,14 +3005,34 @@ This example uses :file:`examples/signon.php` to demostrate usage of :ref:`auth_
 .. code-block:: php
 
     <?php
-    $i = 0;
+    $i = 0;
     $i++;
-    $cfg['Servers'][$i]['extension']     = 'mysqli';
-    $cfg['Servers'][$i]['auth_type']     = 'signon';
-    $cfg['Servers'][$i]['SignonSession'] = 'SignonSession';
-    $cfg['Servers'][$i]['SignonURL']     = 'examples/signon.php';
+    $cfg['Servers'][$i]['extension']     = 'mysqli';
+    $cfg['Servers'][$i]['auth_type']     = 'signon';
+    $cfg['Servers'][$i]['SignonSession'] = 'SignonSession';
+    $cfg['Servers'][$i]['SignonURL']     = 'examples/signon.php';
     ?>`
 
+Example for IP address limited autologin
+++++++++++++++++++++++++++++++++++++++++
+
+If you want to automatically login when accessing phpMyAdmin locally while ask
+for password when remotely, you can achieve it using following snippet:
+
+.. code-block:: php
+
+    if ($_SERVER["REMOTE_ADDR"] == "127.0.0.1") {
+        $cfg['Servers'][$i]['auth_type'] = 'config';
+        $cfg['Servers'][$i]['user'] = 'root';
+        $cfg['Servers'][$i]['password'] = 'yourpassword';
+    } else {
+        $cfg['Servers'][$i]['auth_type'] = 'cookie';
+    }
+
+.. note::
+
+    Filtering based on IP addresses isn't reliable over the internet, use it
+    only for local address.
 
 .. _example-google-ssl:
 
