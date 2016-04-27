@@ -699,7 +699,22 @@ support into PHP.
 2.3 The error message "Warning: MySQL Connection Failed: Can't connect to local MySQL server through socket '/tmp/mysql.sock' (111) ..." is displayed. What can I do?
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-For RedHat users, Harald Legner suggests this on the mailing list:
+The error message can also be: :guilabel:`Error #2002 - The server is not
+responding (or the local MySQL server's socket is not correctly configured)`.
+
+First, you need to determine what socket is being used by MySQL. To do this,
+connect to your server and go to the MySQL bin directory. In this directory
+there should be a file named *mysqladmin*. Type ``./mysqladmin variables``, and
+this should give you a bunch of info about your MySQL server, including the
+socket (*/tmp/mysql.sock*, for example). You can also ask your ISP for the
+connection info or, if you're hosting your own, connect from the 'mysql'
+command-line client and type 'status' to get the connection type and socket or
+port number.
+
+Then, you need to tell PHP to use this socket. You can do this for all PHP in
+the :file:`php.ini` or for phpMyAdmin only in the :file:`config.inc.php`. For
+example: :config:option:`$cfg['Servers'][$i]['socket']`  Please also make sure
+that the permissions of this file allow to be readable by your webserver.
 
 On my RedHat-Box the socket of MySQL is */var/lib/mysql/mysql.sock*.
 In your :file:`php.ini` you will find a line
@@ -715,21 +730,6 @@ change it to
     mysql.default_socket = /var/lib/mysql/mysql.sock
 
 Then restart apache and it will work.
-
-Here is a fix suggested by Brad Ummer:
-
-* First, you need to determine what socket is being used by MySQL. To do
-  this, telnet to your server and go to the MySQL bin directory. In this
-  directory there should be a file named *mysqladmin*. Type
-  ``./mysqladmin variables``, and this should give you a bunch of info
-  about your MySQL server, including the socket (*/tmp/mysql.sock*, for
-  example).
-* Then, you need to tell PHP to use this socket. To do this in
-  phpMyAdmin, you need to complete the socket information in the
-  :file:`config.inc.php`. For example:
-  :config:option:`$cfg['Servers'][$i]['socket']`  Please also make sure that
-  the permissions of this file allow to be readable by your webserver (i.e.
-  '0755').
 
 Have also a look at the `corresponding section of the MySQL
 documentation <http://dev.mysql.com/doc/refman/5.7/en/can-not-connect-to-server.html>`_.
