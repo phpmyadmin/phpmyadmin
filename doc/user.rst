@@ -7,5 +7,6 @@ User Guide
     transformations
     bookmarks
     privileges
+    relations
     other
     import_export

@@ -1538,6 +1538,10 @@ schema layout. Which tables will go on which pages?
   Browsers on other operating systems, and other browsers on Windows, do
   not have this problem.
 
+.. seealso:: 
+
+    :ref:`relations`
+
 .. _faq6_9:
 
 6.9 phpMyAdmin is changing the type of one of my columns!
