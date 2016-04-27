@@ -829,7 +829,8 @@ Here are a few points to check:
 * If you are using `Suhosin <https://suhosin.org/stories/index.html>`_, you
   might want to increase `request limits <https://suhosin.org/stories/faq.html>`_.
 * The directory specified in the :file:`php.ini` directive
-  ``session.save_path`` does not exist or is read-only.
+  ``session.save_path`` does not exist or is read-only (this can be caused
+  by `bug in the PHP installer <https://bugs.php.net/bug.php?id=39842>`_).
 
 .. _faq2_9:
 
