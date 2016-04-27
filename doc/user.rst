@@ -5,6 +5,7 @@ User Guide
     :maxdepth: 2
 
     transformations
+    bookmarks
     privileges
     other
     import_export
