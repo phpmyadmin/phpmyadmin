@@ -681,7 +681,7 @@ Edit your :file:`config.inc.php` file and ensure there is nothing (I.E. no
 blank lines, no spaces, no characters...) neither before the ``<?php`` tag at
 the beginning, neither after the ``?>`` tag at the end. We also got a report
 from a user under :term:`IIS`, that used a zipped distribution kit: the file
-:file:`libraries/Config.class.php` contained an end-of-line character (hex 0A)
+:file:`libraries/Config.php` contained an end-of-line character (hex 0A)
 at the end; removing this character cleared his errors.
 
 .. _faq2_2:
