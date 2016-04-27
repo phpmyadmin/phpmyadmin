@@ -5,10 +5,15 @@
 Configuration
 =============
 
-Almost all configurable data is placed in :file:`config.inc.php`. If this file
-does not exist, please refer to the :ref:`setup` section to create one. This
-file only needs to contain the parameters you want to change from their
-corresponding default value in :file:`libraries/config.default.php`.
+All configurable data is placed in :file:`config.inc.php` in phpMyAdmin's
+toplevel directory.  If this file does not exist, please refer to the
+:ref:`setup` section to create one. This file only needs to contain the
+parameters you want to change from their corresponding default value in
+:file:`libraries/config.default.php` (this file is not inteded for changes).
+
+.. seealso::
+
+    :ref:`config-examples` for examples of configurations
 
 If a directive is missing from your file, you can just add another line with
 the file. This file is for over-writing the defaults; if you wish to use the
@@ -2967,10 +2972,21 @@ Developer
     This is used for `phpMyAdmin demo server <https://www.phpmyadmin.net/try>`_.
 
 
+.. _config-examples:
+
 Examples
 --------
 
 See following configuration snippets for usual setups of phpMyAdmin.
+
+Basic example
++++++++++++++
+
+This example is distributed with phpMyAdmin as :file:`config.sample.inc.php`:
+
+.. literalinclude:: ../config.sample.inc.php
+   :language: php
+
 
 .. _example-google-ssl:
 
