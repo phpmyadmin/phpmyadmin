@@ -770,99 +770,99 @@ class TrackerTest extends PMATestCase
         );
         */
         $query[] = array(
-            "- CREATE VIEW v AS SELECT * FROM t;",
+            "CREATE VIEW v AS SELECT * FROM t;",
             "DDL",
             "CREATE VIEW",
             "v",
         );
         $query[] = array(
-            "- ALTER VIEW db1.v AS SELECT col1, col2, col3, col4 FROM t",
+            "ALTER VIEW db1.v AS SELECT col1, col2, col3, col4 FROM t",
             "DDL",
             "ALTER VIEW",
             "v"
         );
         $query[] = array(
-            "- DROP VIEW db1.v;",
+            "DROP VIEW db1.v;",
             "DDL",
             "DROP VIEW",
             "v"
         );
         $query[] = array(
-            "- DROP VIEW IF EXISTS db1.v;",
+            "DROP VIEW IF EXISTS db1.v;",
             "DDL",
             "DROP VIEW",
             "v"
         );
         $query[] = array(
-            "- CREATE DATABASE db1; -",
+            "CREATE DATABASE db1;",
             "DDL",
             "CREATE DATABASE",
             "",
             "db1"
         );
         $query[] = array(
-            "- ALTER DATABASE db1; -",
+            "ALTER DATABASE db1;",
             "DDL",
             "ALTER DATABASE",
             ""
         );
         $query[] = array(
-            "- DROP DATABASE db1; -",
+            "DROP DATABASE db1;",
             "DDL",
             "DROP DATABASE",
             "",
             "db1"
         );
         $query[] = array(
-            "- CREATE TABLE db1.t1 (c1 INT);",
+            "CREATE TABLE db1.t1 (c1 INT);",
             "DDL",
             "CREATE TABLE",
             "t1"
         );
         $query[] =  array(
-            "- ALTER TABLE db1.t1 ADD c2 TEXT;",
+            "ALTER TABLE db1.t1 ADD c2 TEXT;",
             "DDL",
             "ALTER TABLE",
             "t1"
         );
         $query[] =  array(
-            "- DROP TABLE db1.t1",
+            "DROP TABLE db1.t1",
             "DDL",
             "DROP TABLE",
             "t1"
         );
         $query[] =  array(
-            "- DROP TABLE IF EXISTS db1.t1",
+            "DROP TABLE IF EXISTS db1.t1",
             "DDL",
             "DROP TABLE",
             "t1"
         );
         $query[] =  array(
-            "- CREATE INDEX ind ON db1.t1 (c2(10));",
+            "CREATE INDEX ind ON db1.t1 (c2(10));",
             "DDL",
             "CREATE INDEX",
             "t1"
         );
         $query[] =  array(
-            "- CREATE UNIQUE INDEX ind ON db1.t1 (c2(10));",
+            "CREATE UNIQUE INDEX ind ON db1.t1 (c2(10));",
             "DDL",
             "CREATE INDEX",
             "t1"
         );
         $query[] =  array(
-            "- CREATE SPATIAL INDEX ind ON db1.t1 (c2(10));",
+            "CREATE SPATIAL INDEX ind ON db1.t1 (c2(10));",
             "DDL",
             "CREATE INDEX",
             "t1"
         );
         $query[] =  array(
-            "- DROP INDEX ind ON db1.t1;",
+            "DROP INDEX ind ON db1.t1;",
             "DDL",
             "DROP INDEX",
             "t1"
         );
         $query[] =  array(
-            "- RENAME TABLE db1.t1 TO db1.t2",
+            "RENAME TABLE db1.t1 TO db1.t2",
             "DDL",
             "RENAME TABLE",
             "t1",
@@ -870,25 +870,25 @@ class TrackerTest extends PMATestCase
             "t2"
         );
         $query[] =  array(
-            "- UPDATE db1.t1 SET a = 2",
+            "UPDATE db1.t1 SET a = 2",
             "DML",
             "UPDATE",
             "t1"
         );
         $query[] =  array(
-            "- INSERT INTO db1.t1 (a, b, c) VALUES(1, 2, 3)",
+            "INSERT INTO db1.t1 (a, b, c) VALUES(1, 2, 3)",
             "DML",
             "INSERT",
             "t1"
         );
         $query[] =  array(
-            "- DELETE FROM db1.t1",
+            "DELETE FROM db1.t1",
             "DML",
             "DELETE",
             "t1"
         );
         $query[] =  array(
-            "- TRUNCATE db1.t1",
+            "TRUNCATE db1.t1",
             "DML",
             "TRUNCATE",
             "t1"
