@@ -2928,7 +2928,7 @@ server certificates and tell phpMyAdmin to use them:
 .. code-block:: php
 
     // IP address of your instance
-    $cfg['Servers'][2]['host'] = '8.8.8.8';
+    $cfg['Servers'][$i]['host'] = '8.8.8.8';
     // Use SSL for connection
     $cfg['Servers'][$i]['ssl'] = true;
     // Client secret key
