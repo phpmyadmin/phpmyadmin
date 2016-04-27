@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-04-26 14:40+0200\n"
-"PO-Revision-Date: 2016-04-27 14:06+0000\n"
+"PO-Revision-Date: 2016-04-27 14:26+0000\n"
 "Last-Translator: Chien Wei Lin <cwlin0416@gmail.com>\n"
 "Language-Team: Chinese (Taiwan) "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/zh_TW/>\n"
@@ -2480,22 +2480,19 @@ msgstr ""
 "中，損壞的儲存空間可能會造成此問題，您可清空您的 \"離線網站資料\" 來解決。 在 Safari 通常是使用 \"隱私模式瀏覽\"。"
 
 #: js/messages.php:714
-#, fuzzy
 #| msgid "Copy database to"
 msgid "Copy tables to"
-msgstr "複製資料庫到"
+msgstr "複製資料表到"
 
 #: js/messages.php:715
-#, fuzzy
 #| msgid "Add table prefix:"
 msgid "Add table prefix"
-msgstr "新增資料表的前綴文字："
+msgstr "增加資料表字首"
 
 #: js/messages.php:716
-#, fuzzy
 #| msgid "Replace table prefix"
 msgid "Replace table with prefix"
-msgstr "覆蓋資料表名稱的前綴文字"
+msgstr "取代資料表字首"
 
 #: js/messages.php:717 templates/database/structure/check_all_tables.phtml:29
 msgid "Copy table with prefix"
@@ -3097,22 +3094,19 @@ msgid "unknown"
 msgstr "未知"
 
 #: libraries/Charsets.php:460
-#, fuzzy
 #| msgid "Collation"
 msgid "binary collation"
-msgstr "編碼與排序"
+msgstr "二進位編碼與排序"
 
 #: libraries/Charsets.php:467
-#, fuzzy
 #| msgid "case-insensitive"
 msgid "case-insensitive collation"
-msgstr "不區分大小寫"
+msgstr "不區分大小寫編碼與排序"
 
 #: libraries/Charsets.php:469
-#, fuzzy
 #| msgid "case-sensitive"
 msgid "case-sensitive collation"
-msgstr "區分大小寫"
+msgstr "區分大小寫編碼與排序"
 
 #: libraries/Config.php:1154
 #, php-format
@@ -3146,7 +3140,7 @@ msgstr "字體大小"
 #, php-format
 msgid "Showing %1$d bookmark (both private and shared)"
 msgid_plural "Showing %1$d bookmarks (both private and shared)"
-msgstr[0] ""
+msgstr[0] "顯示 %1$d 書籤 (含私有與共用)"
 
 #: libraries/Console.php:95
 msgid "No bookmarks"
@@ -3157,10 +3151,9 @@ msgid "SQL Query Console"
 msgstr "SQL 查詢主控台"
 
 #: libraries/DatabaseInterface.php:1387
-#, fuzzy
 #| msgid "Failed to read configuration file!"
 msgid "Failed to set configured collation connection!"
-msgstr "無法讀取設定檔！"
+msgstr "設定編碼與排序連線失敗！"
 
 #: libraries/DatabaseInterface.php:1998
 msgid ""
@@ -4622,10 +4615,9 @@ msgid "Analyze Explain at %s"
 msgstr "分析語句於 %s"
 
 #: libraries/Util.php:1257
-#, fuzzy
 #| msgid "Without PHP Code"
 msgid "Without PHP code"
-msgstr "關閉 PHP 程式碼"
+msgstr "不含 PHP 程式碼"
 
 #: libraries/Util.php:1269
 #, fuzzy
@@ -5496,14 +5488,13 @@ msgid "Whether the table structure actions should be hidden."
 msgstr "是否隱藏資料表結構操作項目。"
 
 #: libraries/config/messages.inc.php:117
-#, fuzzy
 #| msgid "Show table comments"
 msgid "Show column comments"
-msgstr "顯示資料表備註"
+msgstr "顯示欄位備註"
 
 #: libraries/config/messages.inc.php:119
 msgid "Whether column comments should be shown in table structure view"
-msgstr ""
+msgstr "在資料表結檢畫面是否顯示欄位備註"
 
 #: libraries/config/messages.inc.php:120
 msgid "Hide table structure actions"
@@ -6536,10 +6527,9 @@ msgid "Show row links anyway"
 msgstr "不論如何顯示資料列連結"
 
 #: libraries/config/messages.inc.php:552 libraries/config/messages.inc.php:553
-#, fuzzy
 #| msgid "Disable foreign key checks"
 msgid "Disable shortcut keys"
-msgstr "關閉外鍵(Foreign Key)檢查"
+msgstr "關閉快速鍵"
 
 #: libraries/config/messages.inc.php:555
 msgid "Use natural order for sorting table and database names."
@@ -8713,12 +8703,11 @@ msgid "Edit next row"
 msgstr "編輯下一行"
 
 #: libraries/insert_edit.lib.php:1552
-#, fuzzy
 #| msgid ""
 #| "Use TAB key to move from value to value, or CTRL+arrows to move anywhere"
 msgid ""
 "Use TAB key to move from value to value, or CTRL+arrows to move anywhere."
-msgstr "按 TAB 鍵跳到下一個數值，或 CTRL+方向鍵 作隨意移動"
+msgstr "按 TAB 鍵跳到下一個數值，或 CTRL+方向鍵 作隨意移動。"
 
 #: libraries/insert_edit.lib.php:1589 libraries/replication_gui.lib.php:543
 #: libraries/rte/rte_routines.lib.php:1588
@@ -8761,10 +8750,9 @@ msgid "Data only"
 msgstr "僅資料"
 
 #: libraries/mult_submits.lib.php:350
-#, fuzzy
 #| msgid "Add AUTO_INCREMENT value"
 msgid "Add AUTO INCREMENT value"
-msgstr "加入自動遞增(AUTO_INCREMENT)數值"
+msgstr "加入自動遞增 (AUTO INCREMENT) 數值"
 
 #: libraries/mult_submits.lib.php:352 libraries/operations.lib.php:227
 #: libraries/operations.lib.php:1288
@@ -8860,7 +8848,7 @@ msgstr[0] "找到 %s 筆結果"
 #: libraries/navigation/NavigationTree.php:1365
 #: libraries/navigation/NavigationTree.php:1402
 msgid "Type to filter these, Enter to search all"
-msgstr ""
+msgstr "輸入文字來過濾清單，按下 Enter 來搜尋全部"
 
 #: libraries/navigation/NavigationTree.php:1367
 #: libraries/navigation/NavigationTree.php:1403
@@ -8878,10 +8866,10 @@ msgid "Invalid class name \"%1$s\", using default of \"Node\""
 msgstr "不正確的類別名稱 \"%1$s\"，使用預設的 \"Node\""
 
 #: libraries/navigation/NodeFactory.php:61
-#, fuzzy, php-format
+#, php-format
 #| msgid "Could not add columns!"
 msgid "Could not load class \"%1$s\""
-msgstr "無法新增欄位！"
+msgstr "無法載入類別 \"%1$s\""
 
 #: libraries/navigation/nodes/Node.php:799
 msgid "Expand/Collapse"
@@ -8998,14 +8986,13 @@ msgid "Show me the central list of columns that are not already in this table"
 msgstr "顯示不存在於此資料表的欄位中央清單"
 
 #: libraries/normalization.lib.php:146
-#, fuzzy
 #| msgid ""
 #| "Select a column which can be split into more than one. (on select of 'no "
 #| "such column', it'll move to next step)"
 msgid ""
 "Select a column which can be split into more than one (on select of 'no such "
 "column', it'll move to next step)."
-msgstr "選擇一個可切割為一個以上的欄位。 (選擇 '無此欄位'，將會進行下一階段)"
+msgstr "選擇一個可切割為一個以上的欄位 (選擇 '無此欄位'，將會進行下一階段)。"
 
 #: libraries/normalization.lib.php:153 normalization.php:18
 msgid "Select one…"
@@ -9920,10 +9907,9 @@ msgstr ""
 "到不同時區的伺服器)</i>"
 
 #: libraries/plugins/export/ExportSql.php:516
-#, fuzzy
 #| msgid "It appears your database uses functions;"
 msgid "It appears your database uses routines;"
-msgstr "您的資料庫使用了函數(Function)；"
+msgstr "您的資料庫使用了 Routine；"
 
 #: libraries/plugins/export/ExportSql.php:519
 #: libraries/plugins/export/ExportSql.php:1531
@@ -9936,16 +9922,16 @@ msgid "Metadata"
 msgstr "詮釋資料"
 
 #: libraries/plugins/export/ExportSql.php:1067
-#, fuzzy, php-format
+#, php-format
 #| msgid "Metadata for %s"
 msgid "Metadata for table %s"
-msgstr "%s 的 Metadata"
+msgstr "資料表 %s 的 Metadata"
 
 #: libraries/plugins/export/ExportSql.php:1074
-#, fuzzy, php-format
+#, php-format
 #| msgid "Metadata for %s"
 msgid "Metadata for database %s"
-msgstr "%s 的 Metadata"
+msgstr "資料庫 %s 的 Metadata"
 
 #: libraries/plugins/export/ExportSql.php:1406
 #: libraries/plugins/schema/pdf/PdfRelationSchema.php:603
@@ -10014,7 +10000,7 @@ msgstr "將視表 %s 結構匯出成資料表"
 
 #: libraries/plugins/export/ExportSql.php:2099
 msgid "(See below for the actual view)"
-msgstr ""
+msgstr "(請參考以下實際畫面)"
 
 #: libraries/plugins/export/ExportSql.php:2185
 msgid "Error reading data:"
@@ -10297,7 +10283,6 @@ msgstr ""
 "必須留空。"
 
 #: libraries/plugins/transformations/abs/ExternalTransformationsPlugin.php:28
-#, fuzzy
 #| msgid ""
 #| "LINUX ONLY: Launches an external application and feeds it the column data "
 #| "via standard input. Returns the standard output of the application. The "
@@ -10321,13 +10306,11 @@ msgid ""
 "option, if set to 1, will prevent wrapping and ensure that the output "
 "appears all on one line (Default 1)."
 msgstr ""
-"僅 LINUX 可用: 執行外部的應用程並透過標準輸入提供欄位資料。 並以標準輸出回傳"
-"應用程式的結果。 預設使用 Tidy，用來格式化 HTML 程式碼。 為了安全起見，您須要"
-"手動編輯檔案 libraries/plugins/transformations/output/Text_Plain_External."
-"class.php 並且列出您要使用的工具。 第一個選項是您欲使用的程式項次，第二個選是"
-"是該程式的參數。第三個選項若設為 1 將會使用 htmlspecialchars() 轉換輸出結果 "
-"(預設為 1)。第四個選項若設為 1 將會避免自動換行並確保輸出結果以一行顯示 (預設"
-"為 1)。"
+"僅 LINUX 可用: 執行外部的應用程並透過標準輸入提供欄位資料。 並以標準輸出回傳應用程式的結果。 預設使用 Tidy，用來格式化 HTML 程式碼。"
+" 為了安全起見，您須要手動編輯檔案 libraries/plugins/transformations/output/"
+"Text_Plain_External.php 並且列出您要使用的工具。 第一個選項是您欲使用的程式項次，第二個選是是該程式的參數。第三個選項若設為 1 "
+"將會使用 htmlspecialchars() 轉換輸出結果 (預設為 1)。第四個選項若設為 1 將會避免自動換行並確保輸出結果以一行顯示 (預設為 "
+"1)。"
 
 #: libraries/plugins/transformations/abs/FormattedTransformationsPlugin.php:28
 msgid ""
@@ -11561,10 +11544,9 @@ msgid "User group"
 msgstr "使用者群組"
 
 #: libraries/server_privileges.lib.php:731
-#, fuzzy
 #| msgid "Requires SSL-encrypted connections."
 msgid "Does not require SSL-encrypted connections."
-msgstr "需要已加密的 SSL 連線。"
+msgstr "不需要已加密的 SSL 連線。"
 
 #: libraries/server_privileges.lib.php:752
 msgid "Requires SSL-encrypted connections."
@@ -11624,10 +11606,9 @@ msgstr "使用者可同時連線的數量限制。"
 #: libraries/server_privileges.lib.php:3356
 #: libraries/server_privileges.lib.php:4644
 #: templates/privileges/edit_routine_privileges.phtml:11
-#, fuzzy
 #| msgid "Routines"
 msgid "Routine"
-msgstr "預存程序"
+msgstr ""
 
 #: libraries/server_privileges.lib.php:1036
 #: libraries/server_privileges.lib.php:1410 server_privileges.php:72
@@ -11768,10 +11749,10 @@ msgid "Grant all privileges on wildcard name (username\\_%)."
 msgstr "給以 帳號_ 開頭的資料庫 (username\\_%) 授予所有權限。"
 
 #: libraries/server_privileges.lib.php:2287
-#, fuzzy, php-format
+#, php-format
 #| msgid "Grant all privileges on database \"%s\"."
 msgid "Grant all privileges on database %s."
-msgstr "授予資料庫“%s”的所有權限。"
+msgstr "授予資料庫 %s 的所有權限。"
 
 #: libraries/server_privileges.lib.php:2451
 #: libraries/server_privileges.lib.php:2522
@@ -11861,10 +11842,9 @@ msgstr "建立具有相同權限的新使用者帳號並且 …"
 
 #: libraries/server_privileges.lib.php:3355
 #: templates/privileges/edit_routine_privileges.phtml:12
-#, fuzzy
 #| msgid "Column-specific privileges"
 msgid "Routine-specific privileges"
-msgstr "指定欄位權限"
+msgstr "指定 Routine 權限"
 
 #: libraries/server_privileges.lib.php:3746
 msgid "Remove selected user accounts"
@@ -13778,38 +13758,32 @@ msgid "after %s"
 msgstr "於 %s 之後"
 
 #: templates/columns_definitions/partitions.phtml:9
-#, fuzzy
 #| msgid "Partitioned by:"
 msgid "Partition by:"
-msgstr "已做分區依："
+msgstr "分區依："
 
 #: templates/columns_definitions/partitions.phtml:25
 #: templates/columns_definitions/partitions.phtml:54
-#, fuzzy
 #| msgid "Values for column %s"
 msgid "Expression or column list"
-msgstr "%s 欄位的值"
+msgstr "表示法或欄位清單"
 
 #: templates/columns_definitions/partitions.phtml:30
-#, fuzzy
 #| msgid "Partitions"
 msgid "Partitions:"
-msgstr "分區"
+msgstr "分區："
 
 #: templates/columns_definitions/partitions.phtml:38
-#, fuzzy
 #| msgid "Sub partitioned by:"
 msgid "Subpartition by:"
-msgstr "已做子分區依："
+msgstr "子分區依："
 
 #: templates/columns_definitions/partitions.phtml:59
-#, fuzzy
 #| msgid "Sub partitioned by:"
 msgid "Subpartitions:"
-msgstr "已做子分區依："
+msgstr "子分區依："
 
 #: templates/columns_definitions/partitions.phtml:71
-#, fuzzy
 #| msgid "Partitions"
 msgid "Partition"
 msgstr "分區"
@@ -13821,10 +13795,9 @@ msgid "Values"
 msgstr "值"
 
 #: templates/columns_definitions/partitions.phtml:76
-#, fuzzy
 #| msgid "partitioned"
 msgid "Subpartition"
-msgstr "已分區"
+msgstr "于分區"
 
 #: templates/columns_definitions/partitions.phtml:78
 #, fuzzy
