@@ -2994,6 +2994,26 @@ configuration options, only the most frequently used ones.
     Don't use the controluser 'pma' if not existing yet and don't use 'pmapass'
     as password.
 
+
+.. _example-signon:
+
+Example for signon authentication
++++++++++++++++++++++++++++++++++
+
+This example uses :file:`examples/signon.php` to demostrate usage of :ref:`auth_signon`:
+
+.. code-block:: php
+
+    <?php
+    $i = 0;
+    $i++;
+    $cfg['Servers'][$i]['extension']     = 'mysqli';
+    $cfg['Servers'][$i]['auth_type']     = 'signon';
+    $cfg['Servers'][$i]['SignonSession'] = 'SignonSession';
+    $cfg['Servers'][$i]['SignonURL']     = 'examples/signon.php';
+    ?>`
+
+
 .. _example-google-ssl:
 
 Google Cloud SQL with SSL

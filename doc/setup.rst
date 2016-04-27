@@ -650,7 +650,17 @@ What the user may now do is controlled entirely by the MySQL user management
 system. With HTTP or cookie authentication mode, you don't need to fill the
 user/password fields inside the :config:option:`$cfg['Servers']`.
 
+.. seealso::
+
+    :ref:`faq1_32`,
+    :ref:`faq1_35`,
+    :ref:`faq4_1`,
+    :ref:`faq4_2`,
+    :ref:`faq4_3`
+
 .. index:: pair: HTTP; Authentication mode
+
+.. _auth_http:
 
 HTTP authentication mode
 ------------------------
@@ -672,6 +682,13 @@ HTTP authentication mode
 * See also :ref:`faq4_4` about not using the :term:`.htaccess` mechanism along with
   ':term:`HTTP`' authentication mode.
 
+.. note::
+
+    There is no way to do proper logout in HTTP authentication, most browsers
+    will remember credentials until there is no different successful
+    authentication. Because of this this method has limitation that you can not
+    login with same user after logout.
+
 .. index:: pair: Cookie; Authentication mode
 
 .. _cookie:
@@ -682,12 +699,12 @@ Cookie authentication mode
 * Username and password are stored in cookies during the session and password
   is deleted when it ends.
 * With this mode, the user can truly log out of phpMyAdmin and log
-  back in with the same username.
+  back in with the same username (this is not possible with :ref:`auth_http`).
 * If you want to allow users to enter any hostname to connect (rather than only
   servers that are configured in :file:`config.inc.php`),
   see the :config:option:`$cfg['AllowArbitraryServer']` directive.
-* As mentioned in the :ref:`require` section, having the ``mcrypt`` extension will
-  speed up access considerably, but is not required.
+* As mentioned in the :ref:`require` section, having the ``mcrypt`` or
+  ``openssl`` extension will speed up access considerably, but is not required.
 
 .. index:: pair: Signon; Authentication mode
 
@@ -731,7 +748,8 @@ in :file:`examples/signon-script.php`:
     :config:option:`$cfg['Servers'][$i]['auth_type']`,
     :config:option:`$cfg['Servers'][$i]['SignonSession']`,
     :config:option:`$cfg['Servers'][$i]['SignonScript']`,
-    :config:option:`$cfg['Servers'][$i]['SignonURL']`
+    :config:option:`$cfg['Servers'][$i]['SignonURL']`,
+    :ref:`example-signon`
 
 
 .. index:: pair: Config; Authentication mode
