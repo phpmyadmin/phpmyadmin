@@ -242,6 +242,26 @@ or something similar.
 There are currently two interfaces PHP provides as MySQL extensions - ``mysql``
 and ``mysqli``. The ``mysqli`` is tried first, because it's the best one.
 
+This problem can be also caused by wrong paths in the :file:`php.ini` or using
+wrong :file:`php.ini`.
+
+First check if your :file:`php.ini` contains correct path to PHP extensions:
+
+.. code-block:: ini
+
+    [PHP]
+
+    ; Directory in which the loadable extensions (modules) reside.
+    extension_dir = "C:/Apache2/modules/php/ext"
+
+The :file:`php.ini` can be loaded from several locations (especially on
+Windows), so please check you're updating the correct one. If using Apache,
+you can tell it to use specific path for this file:
+
+.. code-block:: apache
+
+    PHPIniDir "C:/php_50104"
+
 .. _faq1_21:
 
 1.21 I am running the CGI version of PHP under Unix, and I cannot log in using cookie auth.
