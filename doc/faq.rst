@@ -245,7 +245,10 @@ and ``mysqli``. The ``mysqli`` is tried first, because it's the best one.
 This problem can be also caused by wrong paths in the :file:`php.ini` or using
 wrong :file:`php.ini`.
 
-First check if your :file:`php.ini` contains correct path to PHP extensions:
+Make sure that the extension files do exist in the folder which the
+``extension_dir`` points to and that the corresponding lines in your
+:file:`php.ini` are not commented out (you can use ``phpinfo()`` to check
+current setup):
 
 .. code-block:: ini
 
@@ -255,12 +258,24 @@ First check if your :file:`php.ini` contains correct path to PHP extensions:
     extension_dir = "C:/Apache2/modules/php/ext"
 
 The :file:`php.ini` can be loaded from several locations (especially on
-Windows), so please check you're updating the correct one. If using Apache,
-you can tell it to use specific path for this file:
+Windows), so please check you're updating the correct one. If using Apache, you
+can tell it to use specific path for this file using ``PHPIniDir`` directive:
 
 .. code-block:: apache
 
-    PHPIniDir "C:/php_50104"
+    LoadFile "C:/php/php5ts.dll"
+    LoadModule php5_module "C:/php/php5apache2_2.dll"
+    <IfModule php5_module>
+        PHPIniDir "C:/PHP"
+        <Location>
+           AddType text/html .php
+           AddHandler application/x-httpd-php .php
+        </Location>
+    </IfModule>
+
+In some rare cases this problem can be also caused by other extensions loaded
+in PHP which prevent MySQL extensions to be loaded. If anything else fails, you
+can try commenting out extensions for other databses from :file:`php.ini`.
 
 .. _faq1_21:
 
