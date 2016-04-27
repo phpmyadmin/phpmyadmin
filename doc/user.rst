@@ -8,5 +8,6 @@ User Guide
     bookmarks
     privileges
     relations
+    charts
     other
     import_export
