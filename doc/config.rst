@@ -247,14 +247,23 @@ Server connection settings
     :type: boolean
     :default: false
 
-    Whether to enable SSL for the connection between phpMyAdmin and the MySQL server.
+    Whether to enable SSL for the connection between phpMyAdmin and the MySQL
+    server to secure the connection.
 
     When using the ``'mysql'`` extension,
     none of the remaining ``'ssl...'`` configuration options apply.
 
     We strongly recommend the ``'mysqli'`` extension when using this option.
 
-    .. seealso:: :ref:`example-google-ssl`
+    .. seealso::
+
+        :ref:`example-google-ssl`
+        :config:option:`$cfg['Servers'][$i]['ssl_key']`,
+        :config:option:`$cfg['Servers'][$i]['ssl_cert']`,
+        :config:option:`$cfg['Servers'][$i]['ssl_ca']`,
+        :config:option:`$cfg['Servers'][$i]['ssl_ca_path']`,
+        :config:option:`$cfg['Servers'][$i]['ssl_ciphers']`,
+        :config:option:`$cfg['Servers'][$i]['ssl_verify']`
 
 .. config:option:: $cfg['Servers'][$i]['ssl_key']
 
@@ -269,7 +278,15 @@ Server connection settings
 
         $cfg['Servers'][$i]['ssl_key'] = '/etc/mysql/server-key.pem';
 
-    .. seealso:: :ref:`example-google-ssl`
+    .. seealso::
+
+        :ref:`example-google-ssl`
+        :config:option:`$cfg['Servers'][$i]['ssl']`,
+        :config:option:`$cfg['Servers'][$i]['ssl_cert']`,
+        :config:option:`$cfg['Servers'][$i]['ssl_ca']`,
+        :config:option:`$cfg['Servers'][$i]['ssl_ca_path']`,
+        :config:option:`$cfg['Servers'][$i]['ssl_ciphers']`,
+        :config:option:`$cfg['Servers'][$i]['ssl_verify']`
 
 .. config:option:: $cfg['Servers'][$i]['ssl_cert']
 
@@ -278,7 +295,15 @@ Server connection settings
 
     Path to the cert file when using SSL for connecting to the MySQL server.
 
-    .. seealso:: :ref:`example-google-ssl`
+    .. seealso::
+
+        :ref:`example-google-ssl`
+        :config:option:`$cfg['Servers'][$i]['ssl']`,
+        :config:option:`$cfg['Servers'][$i]['ssl_key']`,
+        :config:option:`$cfg['Servers'][$i]['ssl_ca']`,
+        :config:option:`$cfg['Servers'][$i]['ssl_ca_path']`,
+        :config:option:`$cfg['Servers'][$i]['ssl_ciphers']`,
+        :config:option:`$cfg['Servers'][$i]['ssl_verify']`
 
 .. config:option:: $cfg['Servers'][$i]['ssl_ca']
 
@@ -287,7 +312,15 @@ Server connection settings
 
     Path to the CA file when using SSL for connecting to the MySQL server.
 
-    .. seealso:: :ref:`example-google-ssl`
+    .. seealso::
+
+        :ref:`example-google-ssl`
+        :config:option:`$cfg['Servers'][$i]['ssl']`,
+        :config:option:`$cfg['Servers'][$i]['ssl_key']`,
+        :config:option:`$cfg['Servers'][$i]['ssl_cert']`,
+        :config:option:`$cfg['Servers'][$i]['ssl_ca_path']`,
+        :config:option:`$cfg['Servers'][$i]['ssl_ciphers']`,
+        :config:option:`$cfg['Servers'][$i]['ssl_verify']`
 
 .. config:option:: $cfg['Servers'][$i]['ssl_ca_path']
 
@@ -296,12 +329,32 @@ Server connection settings
 
     Directory containing trusted SSL CA certificates in PEM format.
 
+    .. seealso::
+
+        :ref:`example-google-ssl`
+        :config:option:`$cfg['Servers'][$i]['ssl']`,
+        :config:option:`$cfg['Servers'][$i]['ssl_key']`,
+        :config:option:`$cfg['Servers'][$i]['ssl_cert']`,
+        :config:option:`$cfg['Servers'][$i]['ssl_ca']`,
+        :config:option:`$cfg['Servers'][$i]['ssl_ciphers']`,
+        :config:option:`$cfg['Servers'][$i]['ssl_verify']`
+
 .. config:option:: $cfg['Servers'][$i]['ssl_ciphers']
 
     :type: string
     :default: NULL
 
     List of allowable ciphers for SSL connections to the MySQL server.
+
+    .. seealso::
+
+        :config:option:`$cfg['Servers'][$i]['ssl']`,
+        :config:option:`$cfg['Servers'][$i]['ssl_key']`,
+        :config:option:`$cfg['Servers'][$i]['ssl_cert']`,
+        :config:option:`$cfg['Servers'][$i]['ssl_ca']`,
+        :config:option:`$cfg['Servers'][$i]['ssl_ca_path']`,
+        :config:option:`$cfg['Servers'][$i]['ssl_verify']`
+
 
 .. config:option:: $cfg['Servers'][$i]['ssl_verify']
 
@@ -320,12 +373,26 @@ Server connection settings
     Since PHP 5.6.0 it also verifies whether server name matches CN of it's
     certificate. There is currently no way to disable just this check without
     disabling complete SSL verification.
+    
+    .. warning::
+
+        Disabling the certificate verification defeats purpose of using SSL.
+        This will make the connection vulnerable to man in the middle attacks.
 
     .. note::
 
         This flag only works with PHP 5.6.16 or later.
 
-    .. seealso:: :ref:`example-google-ssl`
+    .. seealso::
+
+        :ref:`example-google-ssl`
+        :config:option:`$cfg['Servers'][$i]['ssl']`,
+        :config:option:`$cfg['Servers'][$i]['ssl_key']`,
+        :config:option:`$cfg['Servers'][$i]['ssl_cert']`,
+        :config:option:`$cfg['Servers'][$i]['ssl_ca']`,
+        :config:option:`$cfg['Servers'][$i]['ssl_ca_path']`,
+        :config:option:`$cfg['Servers'][$i]['ssl_ciphers']`,
+        :config:option:`$cfg['Servers'][$i]['ssl_verify']`
 
 .. config:option:: $cfg['Servers'][$i]['connect_type']
 
