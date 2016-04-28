@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-04-26 14:40+0200\n"
-"PO-Revision-Date: 2016-04-27 14:26+0000\n"
+"PO-Revision-Date: 2016-04-28 05:13+0000\n"
 "Last-Translator: Chien Wei Lin <cwlin0416@gmail.com>\n"
 "Language-Team: Chinese (Taiwan) "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/zh_TW/>\n"
@@ -553,7 +553,7 @@ msgid "Bookmark %s has been created."
 msgstr "已建立書籤 %s。"
 
 #: import.php:576
-#, fuzzy, php-format
+#, php-format
 #| msgid "Import has been successfully finished, %d queries executed."
 msgid "Import has been successfully finished, %d query executed."
 msgid_plural "Import has been successfully finished, %d queries executed."
@@ -927,7 +927,6 @@ msgid "Are you sure you wish to change the collation and convert the data?"
 msgstr "您確定您要更改編碼與排序(Collation)並轉換資料？"
 
 #: js/messages.php:101
-#, fuzzy
 #| msgid ""
 #| "Through this operation, MySQL attempts to map the data values between "
 #| "collations. If the character sets are incompatible, there may be data "
@@ -943,10 +942,8 @@ msgid ""
 "column(s) editing feature (the \"Change\" Link) on the table structure page. "
 "</b>"
 msgstr ""
-"雖然 MySQL 在此操作會嘗試對應編碼與排序之間的資料值，但若字元集不完整可能會造"
-"成資料遺失，且因此遺失的資料將<b>無法</b>透過將欄位轉換回原編碼與排序來還原。"
-"<b>建議使用於資料表結構頁面的欄位編輯功能 (\"更改\" 連結) 來轉換現有的資料。"
-"</b>"
+"雖然 MySQL 在此操作會嘗試對應編碼與排序之間的資料值，但若字元集不完整可能會造成資料遺失，且因此遺失的資料將<b>無法</b>透過將欄位轉換回原編碼"
+"與排序來還原。<b>建議使用於資料表結構頁面的欄位編輯功能 (\"更改\" 連結) 來轉換現有的資料。</b>"
 
 #: js/messages.php:110
 msgid ""
@@ -2492,11 +2489,11 @@ msgstr "增加資料表字首"
 #: js/messages.php:716
 #| msgid "Replace table prefix"
 msgid "Replace table with prefix"
-msgstr "取代資料表字首"
+msgstr "含字首取代資料表"
 
 #: js/messages.php:717 templates/database/structure/check_all_tables.phtml:29
 msgid "Copy table with prefix"
-msgstr "複製資料表名稱的前綴文字"
+msgstr "含字首複製資料表"
 
 # 這應該是使用於選擇日期的月曆
 #: js/messages.php:746
@@ -2980,7 +2977,7 @@ msgstr "朝鮮語"
 
 #: libraries/Charsets.php:313
 msgid "Burmese"
-msgstr ""
+msgstr "緬甸語"
 
 #: libraries/Charsets.php:316
 msgid "Persian"
@@ -3918,7 +3915,7 @@ msgstr "查詢"
 #: libraries/Menu.php:479 libraries/Util.php:4299
 #: libraries/rte/rte_words.lib.php:36
 msgid "Routines"
-msgstr "預存程序"
+msgstr "程序"
 
 #: libraries/Menu.php:484 libraries/Util.php:4300
 #: libraries/navigation/nodes/NodeEventContainer.php:25
@@ -4553,7 +4550,7 @@ msgstr "任何類型幾何物件的集合"
 msgid ""
 "Stores and enables efficient access to data in JSON (JavaScript Object "
 "Notation) documents"
-msgstr ""
+msgstr "儲存並開啟對 JSON (JavaScript Object Notation) 文件資料的存取"
 
 #: libraries/TypesMySQL.php:479
 msgctxt "numeric types"
@@ -4620,7 +4617,6 @@ msgid "Without PHP code"
 msgstr "不含 PHP 程式碼"
 
 #: libraries/Util.php:1269
-#, fuzzy
 #| msgid "Submit Query"
 msgid "Submit query"
 msgstr "送出查詢"
@@ -6400,7 +6396,7 @@ msgstr "第二快速存取圖示的目標頁面"
 msgid ""
 "Defines the minimum number of items (tables, views, routines and events) to "
 "display a filter box."
-msgstr "設定顯示搜尋框的項目數量下限 (資料表、檢視表、預存程序和事件) 。"
+msgstr "設定顯示搜尋框的項目數量下限 (資料表、檢視表、程序和事件) 。"
 
 #: libraries/config/messages.inc.php:502
 msgid "Minimum number of items to display the filter box"
@@ -8777,7 +8773,7 @@ msgstr "至"
 
 #: libraries/mult_submits.lib.php:410
 msgid "Add prefix"
-msgstr "新增前綴文字"
+msgstr "增加字首"
 
 #: libraries/mult_submits.lib.php:443
 msgid "Do you really want to execute the following query?"
@@ -9909,7 +9905,7 @@ msgstr ""
 #: libraries/plugins/export/ExportSql.php:516
 #| msgid "It appears your database uses functions;"
 msgid "It appears your database uses routines;"
-msgstr "您的資料庫使用了 Routine；"
+msgstr "您的資料庫使用了程序(Routine)；"
 
 #: libraries/plugins/export/ExportSql.php:519
 #: libraries/plugins/export/ExportSql.php:1531
@@ -10404,8 +10400,8 @@ msgid ""
 "option is a URL prefix like \"http://www.example.com/\". The second and "
 "third options are the width and the height in pixels."
 msgstr ""
-"顯示圖片和連結，欄位內包含檔案名稱。第一個選項是類似  \"http://www.example."
-"com/ \" 這樣的 URL 前綴。第二和第三個選項是以像素爲單位的寬度和高度。"
+"顯示圖片和連結，欄位內包含檔案名稱。第一個選項是類似  \"http://www.example.com/ \" 這樣的 URL "
+"字首。第二和第三個選項是以像素爲單位的寬度和高度。"
 
 #: libraries/plugins/transformations/abs/TextLinkTransformationsPlugin.php:35
 msgid ""
@@ -10413,8 +10409,7 @@ msgid ""
 "prefix like \"http://www.example.com/\". The second option is a title for "
 "the link."
 msgstr ""
-"顯示連結，欄位內包含檔案名稱。第一個選項是類似 \"http://www.example.com/ \" "
-"這樣的 URL 前綴。第二個選項是連結的標題。"
+"顯示連結，欄位內包含檔案名稱。第一個選項是類似 \"http://www.example.com/ \" 這樣的 URL 字首。第二個選項是連結的標題。"
 
 #: libraries/plugins/transformations/input/Text_Plain_Iptobinary.php:29
 msgid "Converts an Internet network address in (IPv4/IPv6) format to binary"
@@ -11103,36 +11098,36 @@ msgstr ""
 
 #: libraries/rte/rte_routines.lib.php:128
 msgid "Edit routine"
-msgstr "編輯預存程序"
+msgstr "編輯程序"
 
 #: libraries/rte/rte_routines.lib.php:207
 #: libraries/rte/rte_routines.lib.php:1097
 #, php-format
 msgid "Invalid routine type: \"%s\""
-msgstr "無效的預存程序類型: \"%s\""
+msgstr "無效的程序類型: \"%s\""
 
 #: libraries/rte/rte_routines.lib.php:260
 #, php-format
 msgid "Routine %1$s has been created."
-msgstr "預存程序 %1$s 已建立。"
+msgstr "程序 %1$s 已建立。"
 
 #: libraries/rte/rte_routines.lib.php:379
 msgid "Sorry, we failed to restore the dropped routine."
-msgstr "很抱歉，還原的被刪除的預存程序失敗。"
+msgstr "很抱歉，還原的被刪除的程序失敗。"
 
 #: libraries/rte/rte_routines.lib.php:435
 #, php-format
 msgid "Routine %1$s has been modified. Privileges have been adjusted."
-msgstr "已修改預存程序 %1$s 。已調整權限。"
+msgstr "已修改程序 %1$s 。已調整權限。"
 
 #: libraries/rte/rte_routines.lib.php:440
 #, php-format
 msgid "Routine %1$s has been modified."
-msgstr "預存程序 %1$s 已被修改。"
+msgstr "程序 %1$s 已被修改。"
 
 #: libraries/rte/rte_routines.lib.php:886
 msgid "Routine name"
-msgstr "預存程序名稱"
+msgstr "程序名稱"
 
 #: libraries/rte/rte_routines.lib.php:912
 msgid "Parameters"
@@ -11182,7 +11177,7 @@ msgstr "SQL 資料存取"
 
 #: libraries/rte/rte_routines.lib.php:1104
 msgid "You must provide a routine name!"
-msgstr "您必須填寫預存程序名稱！"
+msgstr "您必須填寫程序名稱！"
 
 #: libraries/rte/rte_routines.lib.php:1138
 #, php-format
@@ -11194,25 +11189,24 @@ msgstr "給予的參數方向 \"%s\" 無效。"
 msgid ""
 "You must provide length/values for routine parameters of type ENUM, SET, "
 "VARCHAR and VARBINARY."
-msgstr ""
-"您必須為預存程序提供長度/數值的參數型別為列舉、集合、VARCHAR 和 VARBINARY。"
+msgstr "您必須為程序提供長度/數值的參數型別為列舉、集合、VARCHAR 和 VARBINARY。"
 
 #: libraries/rte/rte_routines.lib.php:1186
 msgid "You must provide a name and a type for each routine parameter."
-msgstr "你必須提供每個預存程序的參數名稱和類型。"
+msgstr "你必須提供每個程序的參數名稱和類型。"
 
 #: libraries/rte/rte_routines.lib.php:1205
 msgid "You must provide a valid return type for the routine."
-msgstr "您必須提供一個有效的返回類型的預存程序。"
+msgstr "您必須提供一個有效的返回類型的程序。"
 
 #: libraries/rte/rte_routines.lib.php:1265
 msgid "You must provide a routine definition."
-msgstr "您必須提供一個預存程序的定義。"
+msgstr "您必須提供一個程序的定義。"
 
 #: libraries/rte/rte_routines.lib.php:1376
 #, php-format
 msgid "Execution results of routine %s"
-msgstr "執行預存程序 %s 的結果"
+msgstr "執行程序 %s 的結果"
 
 #: libraries/rte/rte_routines.lib.php:1431
 #, php-format
@@ -11223,12 +11217,12 @@ msgstr[0] "最後一筆查詢敘述句共影響 %d 筆資料列。"
 #: libraries/rte/rte_routines.lib.php:1489
 #: libraries/rte/rte_routines.lib.php:1497
 msgid "Execute routine"
-msgstr "執行預存程序"
+msgstr "執行程序"
 
 #: libraries/rte/rte_routines.lib.php:1576
 #: libraries/rte/rte_routines.lib.php:1579
 msgid "Routine parameters"
-msgstr "預存程序的參數"
+msgstr "程序的參數"
 
 #: libraries/rte/rte_triggers.lib.php:106
 msgid "Sorry, we failed to restore the dropped trigger."
@@ -11279,25 +11273,25 @@ msgstr "您必須提供一個觸發器的定義。"
 
 #: libraries/rte/rte_words.lib.php:27
 msgid "Add routine"
-msgstr "新增預存程序"
+msgstr "新增程序"
 
 #: libraries/rte/rte_words.lib.php:29
 #, php-format
 msgid "Export of routine %s"
-msgstr "匯出預存程序 %s"
+msgstr "匯出程序 %s"
 
 #: libraries/rte/rte_words.lib.php:30
 msgid "routine"
-msgstr "預存程序"
+msgstr "程序"
 
 #: libraries/rte/rte_words.lib.php:32
 msgid "You do not have the necessary privileges to create a routine"
-msgstr "您無建立預存程序的權限"
+msgstr "您無建立程序的權限"
 
 #: libraries/rte/rte_words.lib.php:34
 #, php-format
 msgid "No routine with name %1$s found in database %2$s"
-msgstr "在資料庫 %2$s 中無此預存程序名稱 %1$s"
+msgstr "在資料庫 %2$s 中無此程序名稱 %1$s"
 
 #: libraries/rte/rte_words.lib.php:35
 msgid "There are no routines to display."
@@ -11608,7 +11602,7 @@ msgstr "使用者可同時連線的數量限制。"
 #: templates/privileges/edit_routine_privileges.phtml:11
 #| msgid "Routines"
 msgid "Routine"
-msgstr ""
+msgstr "程序"
 
 #: libraries/server_privileges.lib.php:1036
 #: libraries/server_privileges.lib.php:1410 server_privileges.php:72
@@ -11617,16 +11611,14 @@ msgid ""
 msgstr "允許新增使用者和權限，但不允許重新載入權限表。"
 
 #: libraries/server_privileges.lib.php:1043
-#, fuzzy
 #| msgid "Allows altering and dropping stored routines."
 msgid "Allows altering and dropping this routine."
-msgstr "允許修改或刪除已預存程序(Stored routine)。"
+msgstr "允許修改或刪除此程序。"
 
 #: libraries/server_privileges.lib.php:1048
-#, fuzzy
 #| msgid "Allows executing stored routines."
 msgid "Allows executing this routine."
-msgstr "允許執行預存程序(Stored routine)。"
+msgstr "允許執行此程序。"
 
 #: libraries/server_privileges.lib.php:1098
 #: libraries/server_privileges.lib.php:1267
@@ -11844,7 +11836,7 @@ msgstr "建立具有相同權限的新使用者帳號並且 …"
 #: templates/privileges/edit_routine_privileges.phtml:12
 #| msgid "Column-specific privileges"
 msgid "Routine-specific privileges"
-msgstr "指定 Routine 權限"
+msgstr "指定程序權限"
 
 #: libraries/server_privileges.lib.php:3746
 msgid "Remove selected user accounts"
@@ -13789,7 +13781,6 @@ msgid "Partition"
 msgstr "分區"
 
 #: templates/columns_definitions/partitions.phtml:73
-#, fuzzy
 #| msgid "Value"
 msgid "Values"
 msgstr "值"
@@ -13797,49 +13788,42 @@ msgstr "值"
 #: templates/columns_definitions/partitions.phtml:76
 #| msgid "partitioned"
 msgid "Subpartition"
-msgstr "于分區"
+msgstr "子分區"
 
 #: templates/columns_definitions/partitions.phtml:78
-#, fuzzy
 #| msgid "Engines"
 msgid "Engine"
 msgstr "引擎"
 
 #: templates/columns_definitions/partitions.phtml:80
-#, fuzzy
 #| msgid "Data home directory"
 msgid "Data directory"
-msgstr "資料主資料夾"
+msgstr "資料目錄"
 
 #: templates/columns_definitions/partitions.phtml:81
-#, fuzzy
 #| msgid "Save directory"
 msgid "Index directory"
-msgstr "儲存資料夾"
+msgstr "索引目錄"
 
 #: templates/columns_definitions/partitions.phtml:82
-#, fuzzy
 #| msgid "Matched rows:"
 msgid "Max rows"
-msgstr "符合條件的列數："
+msgstr "最大列數"
 
 #: templates/columns_definitions/partitions.phtml:83
-#, fuzzy
 #| msgid "rows"
 msgid "Min rows"
-msgstr "瀏覽"
+msgstr "最小列數"
 
 #: templates/columns_definitions/partitions.phtml:84
-#, fuzzy
 #| msgid "Table search"
 msgid "Table space"
-msgstr "資料表搜尋"
+msgstr "資料表空間"
 
 #: templates/columns_definitions/partitions.phtml:85
-#, fuzzy
 #| msgid "User group"
 msgid "Node group"
-msgstr "使用者群組"
+msgstr "節點群組"
 
 #: templates/columns_definitions/table_fields_definitions.phtml:16
 msgid ""
@@ -14035,10 +14019,9 @@ msgid "Show query history at start"
 msgstr "顯示查詢記錄於一開始"
 
 #: templates/console/display.phtml:189
-#, fuzzy
 #| msgid "Show current browsing query"
 msgid "Show current browsing query"
-msgstr "顯示目前畫面使用的查詢"
+msgstr "顯示目前瀏覽的查詢"
 
 #: templates/console/display.phtml:194
 msgid ""
@@ -14268,10 +14251,9 @@ msgid "Check tables having overhead"
 msgstr "僅選擇資料分散的資料表"
 
 #: templates/database/structure/check_all_tables.phtml:10
-#, fuzzy
 #| msgid "Copy"
 msgid "Copy table"
-msgstr "複製"
+msgstr "複製資料表"
 
 #: templates/database/structure/check_all_tables.phtml:11
 msgid "Show create"
@@ -14283,11 +14265,11 @@ msgstr "字首"
 
 #: templates/database/structure/check_all_tables.phtml:27
 msgid "Add prefix to table"
-msgstr "資料表名稱增加前綴文字"
+msgstr "增加字首到資料表"
 
 #: templates/database/structure/check_all_tables.phtml:28
 msgid "Replace table prefix"
-msgstr "覆蓋資料表名稱的前綴文字"
+msgstr "取代資料表字首"
 
 #: templates/database/structure/check_all_tables.phtml:35
 msgid "Add columns to central list"
@@ -14355,7 +14337,6 @@ msgid "Tracking is not active."
 msgstr "追蹤已停用。"
 
 #: templates/error/report_form.phtml:7
-#, fuzzy
 #| msgid ""
 #| "phpMyAdmin has encountered an error. We have collected data about this "
 #| "error as well as information about relevant configuration settings to "
@@ -14364,9 +14345,7 @@ msgid ""
 "This report automatically includes data about the error and information "
 "about relevant configuration settings. It will be sent to the phpMyAdmin "
 "team for debugging the error."
-msgstr ""
-"phpMyAdmin 已發生錯誤，系統已收集錯誤資訊與相關的系統設定並傳送給 phpMyAdmin "
-"開發團隊以協助問題的解決。"
+msgstr "回報功能會自動取得錯誤相關的資料及設定檔設定相關資訊。這些資料將會被回報至 phpMyAdmin 開發團隊以協助問題的解決。"
 
 #: templates/error/report_form.phtml:14
 msgid ""
@@ -14394,10 +14373,9 @@ msgid "Wildcards % and _ should be escaped with a \\ to use them literally."
 msgstr "要使用萬用字元 _ 和 % 本身，應使用用 \\ 轉義。"
 
 #: templates/privileges/add_privileges_routine.phtml:3
-#, fuzzy
 #| msgid "Add privileges on the following table:"
 msgid "Add privileges on the following routine:"
-msgstr "在下列資料表新增權限："
+msgstr "在下列程序新增權限："
 
 #: templates/privileges/add_privileges_table.phtml:3
 msgid "Add privileges on the following table:"
@@ -14503,10 +14481,9 @@ msgid "Stacked"
 msgstr "堆疊圖"
 
 #: templates/table/chart/tbl_chart.phtml:52
-#, fuzzy
 #| msgid "Chart title"
 msgid "Chart title:"
-msgstr "圖表標題"
+msgstr "圖表標題："
 
 #: templates/table/chart/tbl_chart.phtml:57
 msgid "X-Axis:"
@@ -14768,10 +14745,9 @@ msgid "Partitions"
 msgstr "分區"
 
 #: templates/table/structure/display_partitions.phtml:10
-#, fuzzy
 #| msgid "No index defined!"
 msgid "No partitioning defined!"
-msgstr "沒有已定義的索引！"
+msgstr "沒有已定義的分區！"
 
 #: templates/table/structure/display_partitions.phtml:13
 msgid "Partitioned by:"
@@ -14790,27 +14766,24 @@ msgid "Index length"
 msgstr "索引長度"
 
 #: templates/table/structure/display_partitions.phtml:136
-#, fuzzy
 #| msgid "Partitioned by:"
 msgid "Partition table"
-msgstr "已做分區依："
+msgstr "分區資料表"
 
 #: templates/table/structure/display_partitions.phtml:139
 #: templates/table/structure/partition_definition_form.phtml:7
-#, fuzzy
 #| msgid "Remove partitioning"
 msgid "Edit partitioning"
-msgstr "刪除分區"
+msgstr "編輯分區"
 
 #: templates/table/structure/display_structure.phtml:130 view_create.php:187
 msgid "Edit view"
 msgstr "編輯檢視表"
 
 #: templates/table/structure/display_table_stats.phtml:5
-#, fuzzy
 #| msgid "Table comments:"
 msgid "Table comments: "
-msgstr "資料表備註："
+msgstr "資料表備註： "
 
 #: templates/table/structure/display_table_stats.phtml:12
 msgid "Space usage"
@@ -14916,19 +14889,18 @@ msgid "The profile has been updated."
 msgstr "設定檔案己更新。"
 
 #: vendor/phpmyadmin/motranslator/tests/MoFilesTest.php:24
-#, fuzzy
 #| msgid "Column names"
 msgid "Column parser"
-msgstr "欄位名稱"
+msgstr "欄位分析器"
 
 #: vendor/phpmyadmin/motranslator/tests/MoFilesTest.php:83
 #: vendor/phpmyadmin/motranslator/tests/MoFilesTest.php:127
-#, fuzzy, php-format
+#, php-format
 #| msgid "%d second"
 #| msgid_plural "%d seconds"
 msgid "\"%d\" second"
 msgid_plural "\"%d\" seconds"
-msgstr[0] "%d 秒"
+msgstr[0] "\"%d\" 秒"
 
 #: vendor/phpmyadmin/sql-parser/src/Component.php:48
 #: vendor/phpmyadmin/sql-parser/src/Component.php:68
@@ -14954,10 +14926,9 @@ msgid "An opening bracket was expected."
 msgstr "預期要有開始括號。"
 
 #: vendor/phpmyadmin/sql-parser/src/Components/CreateDefinition.php:225
-#, fuzzy
 #| msgid "Variable name was expected."
 msgid "A symbol name was expected!"
-msgstr "預期要有變數名稱。"
+msgstr "預期要有符號名稱！"
 
 #: vendor/phpmyadmin/sql-parser/src/Components/CreateDefinition.php:257
 msgid "A comma or a closing bracket was expected."
@@ -15081,23 +15052,21 @@ msgstr "預期要使用 \"RETURNS\" 關鍵字。"
 
 #: vendor/phpmyadmin/sql-parser/tests/Lexer/LexerTest.php:21
 #: vendor/phpmyadmin/sql-parser/tests/Parser/ParserTest.php:58
-#, fuzzy
 #| msgid "errors."
 msgid "error #1"
-msgstr "個錯誤。"
+msgstr "錯誤 #1"
 
 #: vendor/phpmyadmin/sql-parser/tests/Lexer/LexerTest.php:23
 #: vendor/phpmyadmin/sql-parser/tests/Parser/ParserTest.php:59
 #, php-format
 msgid "%2$s #%1$d"
-msgstr ""
+msgstr "%2$s #%1$d"
 
 #: vendor/phpmyadmin/sql-parser/tests/Lexer/LexerTest.php:48
 #: vendor/phpmyadmin/sql-parser/tests/Parser/ParserTest.php:80
-#, fuzzy
 #| msgid "Gather errors"
 msgid "strict error"
-msgstr "收集錯誤"
+msgstr "嚴謹錯誤"
 
 #: view_create.php:234
 msgid "VIEW name"
@@ -15286,10 +15255,9 @@ msgid "Version less than 5.5.8 (the first GA release of 5.5)."
 msgstr "版本低於 5.5.8 (5.5 第一個釋出的正式版本)。"
 
 #: libraries/advisory_rules.txt:118
-#, fuzzy
 #| msgid "You should upgrade, to a stable version of MySQL 5.5"
 msgid "You should upgrade, to a stable version of MySQL 5.5."
-msgstr "您應升級到 MySQL 5.5 的一個穩定版本"
+msgstr "您應升級到 MySQL 5.5 的穩定版本。"
 
 #: libraries/advisory_rules.txt:121 libraries/advisory_rules.txt:128
 msgid "Distribution"
@@ -15567,15 +15535,13 @@ msgid "Too many sorts are causing temporary tables."
 msgstr "太多排序產生的暫存表。"
 
 #: libraries/advisory_rules.txt:208 libraries/advisory_rules.txt:215
-#, fuzzy
 #| msgid ""
 #| "Consider increasing {sort_buffer_size} and/or {read_rnd_buffer_size}, "
 #| "depending on your system memory limits"
 msgid ""
 "Consider increasing {sort_buffer_size} and/or {read_rnd_buffer_size}, "
 "depending on your system memory limits."
-msgstr ""
-"根據您的系統記憶體多寡，考慮增加 {sort_buffer_size} 和 {read_rnd_buffer_size}"
+msgstr "根據您的系統記憶體多寡，考慮增加 {sort_buffer_size} 和 {read_rnd_buffer_size}。"
 
 #: libraries/advisory_rules.txt:209
 #, php-format
@@ -15603,7 +15569,6 @@ msgid "There are lots of rows being sorted."
 msgstr "有大量的資料列被排序。"
 
 #: libraries/advisory_rules.txt:222
-#, fuzzy
 #| msgid ""
 #| "While there is nothing wrong with a high amount of row sorting, you might "
 #| "want to make sure that the queries which require a lot of sorting use "
@@ -15614,9 +15579,7 @@ msgid ""
 "want to make sure that the queries which require a lot of sorting use "
 "indexed columns in the ORDER BY clause, as this will result in much faster "
 "sorting."
-msgstr ""
-"大量的排序不是什麼嚴重的問題，但請您確保在 ORDER BY 子句中使用索引欄位來排"
-"序，以加速排序的執行速度"
+msgstr "大量的排序不是什麼嚴重的問題，但請您確保在 ORDER BY 子句中使用索引欄位來排序，以加速排序的執行速度。"
 
 #: libraries/advisory_rules.txt:223
 #, php-format
@@ -15632,7 +15595,6 @@ msgid "There are too many joins without indexes."
 msgstr "有太多的資料表合併(Join)未使用索引。"
 
 #: libraries/advisory_rules.txt:230
-#, fuzzy
 #| msgid ""
 #| "This means that joins are doing full table scans. Adding indexes for the "
 #| "columns being used in the join conditions will greatly speed up table "
@@ -15640,9 +15602,7 @@ msgstr "有太多的資料表合併(Join)未使用索引。"
 msgid ""
 "This means that joins are doing full table scans. Adding indexes for the "
 "columns being used in the join conditions will greatly speed up table joins."
-msgstr ""
-"這代表資料表合併(Join)時會掃描完整的資料表內容，,將合併條件中所使用的欄位設定"
-"為索引欄位可大幅加快資料表合併時的速度"
+msgstr "這代表資料表合併(Join)時會掃描完整的資料表內容，,將合併條件中所使用的欄位設定為索引欄位可大幅加快資料表合併時的速度。"
 
 #: libraries/advisory_rules.txt:231
 #, php-format
@@ -16021,20 +15981,18 @@ msgid "Slow launch time"
 msgstr "緩慢啟動時間"
 
 #: libraries/advisory_rules.txt:379
-#, fuzzy
 #| msgid "Slow_launch_threads is above 2s"
 msgid "Slow_launch_threads is above 2s."
-msgstr "Slow_launch_threads 已超過 2"
+msgstr "Slow_launch_threads 已超過 2 秒。"
 
 #: libraries/advisory_rules.txt:380
-#, fuzzy
 #| msgid ""
 #| "Set {slow_launch_time} to 1s or 2s to correctly count threads that are "
 #| "slow to launch"
 msgid ""
 "Set {slow_launch_time} to 1s or 2s to correctly count threads that are slow "
 "to launch."
-msgstr "設定 {slow_launch_time} 為 1 或 2， 以校正緩慢啟動的執行緒數量"
+msgstr "設定 {slow_launch_time} 為 1 或 2 秒， 以校正緩慢啟動的執行緒數量。"
 
 #: libraries/advisory_rules.txt:381
 #, php-format
