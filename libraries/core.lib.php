@@ -769,6 +769,8 @@ function PMA_isAllowedDomain($url)
         'mariadb.org',
         /* php.net domains */
         'php.net',
+        /* sourceforge.net domain */
+        'sourceforge.net',
         /* Github domains*/
         'github.com','www.github.com',
         /* Following are doubtful ones. */
