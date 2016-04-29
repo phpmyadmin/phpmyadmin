@@ -238,7 +238,7 @@ function PMA_countLines($filename)
     foreach (explode('/', $filename) as $part) {
         if ($part == '..') {
             $depath--;
-        } elseif ($part != '.') {
+        } elseif ($part != '.' || $part === '') {
             $depath++;
         }
         if ($depath < 0) {
