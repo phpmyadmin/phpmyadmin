@@ -152,7 +152,7 @@ if ($server > 0 || count($cfg['Servers']) > 1
                 . 'please do not change root, debian-sys-maint and pma users. '
                 . 'More information is available at %s.'
             ),
-            '<a href="url.php?url=http://demo.phpmyadmin.net/">demo.phpmyadmin.net</a>'
+            '<a href="url.php?url=https://demo.phpmyadmin.net/">demo.phpmyadmin.net</a>'
         );
         echo '</p>';
         echo '</div>';
@@ -398,7 +398,7 @@ PMA_printListItem(
 PMA_printListItem(
     __('Official Homepage'),
     'li_pma_homepage',
-    PMA_linkURL('http://www.phpMyAdmin.net/'),
+    PMA_linkURL('https://www.phpMyAdmin.net/'),
     null,
     '_blank'
 );

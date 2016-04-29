@@ -55,7 +55,7 @@ $github_url = 'https://github.com/phpmyadmin/phpmyadmin/';
 $faq_url = 'http://docs.phpmyadmin.net/en/latest/faq.html';
 
 $replaces = array(
-    '@(http://[./a-zA-Z0-9.-_-]*[/a-zA-Z0-9_])@'
+    '@(https?://[./a-zA-Z0-9.-_-]*[/a-zA-Z0-9_])@'
     => '<a href="url.php?url=\\1">\\1</a>',
 
     // sourceforge users
@@ -111,7 +111,7 @@ $replaces = array(
 
     // CVE/CAN entries
     '/((CAN|CVE)-[0-9]+-[0-9]+)/'
-    => '<a href="url.php?url=http://cve.mitre.org/cgi-bin/cvename.cgi?name=\\1">\\1</a>',
+    => '<a href="url.php?url=https://cve.mitre.org/cgi-bin/cvename.cgi?name=\\1">\\1</a>',
 
     // PMASAentries
     '/(PMASA-[0-9]+-[0-9]+)/'
