@@ -3072,6 +3072,13 @@ $cfg['DBG'] = array();
 $cfg['DBG']['sql'] = false;
 
 /**
+ * Log executed queries and their execution times to syslog
+ *
+ * @global boolean $cfg['DBG']['sql']
+ */
+$cfg['DBG']['sqllog'] = false;
+
+/**
  * Enable to let server present itself as demo server.
  *
  * @global boolean $cfg['DBG']['demo']

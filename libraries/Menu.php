@@ -127,6 +127,10 @@ class Menu
      */
     private function _getAllowedTabs($level)
     {
+        $cache_key = 'menu-levels-' . $level;
+        if (Util::cacheExists($cache_key)) {
+            return Util::cacheGet($cache_key);
+        }
         $allowedTabs = Util::getMenuTabList($level);
         $cfgRelation = PMA_getRelationsParam();
         if ($cfgRelation['menuswork']) {
@@ -154,6 +158,7 @@ class Menu
                 }
             }
         }
+        Util::cacheSet($cache_key, $allowedTabs);
         return $allowedTabs;
     }
 

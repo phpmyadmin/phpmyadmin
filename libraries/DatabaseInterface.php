@@ -235,7 +235,7 @@ class DatabaseInterface
     public function tryQuery($query, $link = null, $options = 0,
         $cache_affected_rows = true
     ) {
-        $debug = isset($GLOBALS['cfg']['DBG']['sql']) && $GLOBALS['cfg']['DBG']['sql'];
+        $debug = $GLOBALS['cfg']['DBG']['sql'];
         $link = $this->getLink($link);
         if ($link === false) {
             return false;
@@ -254,7 +254,14 @@ class DatabaseInterface
         if ($debug) {
             $time = microtime(true) - $time;
             $this->_dbgQuery($query, $link, $result, $time);
-            syslog(LOG_WARNING, 'SQL: ' . sprintf('%0.3f', $time) . ' > ' . $query);
+            if ($GLOBALS['cfg']['DBG']['sqllog']) {
+                openlog('phpMyAdmin', LOG_NDELAY | LOG_PID, LOG_USER);
+                syslog(
+                    LOG_INFO,
+                    'SQL[' . basename($_SERVER['SCRIPT_NAME']) . ']: '
+                    . sprintf('%0.3f', $time) . ' > ' . $query
+                );
+            }
         }
 
         if ((!empty($result)) && (Tracker::isActive())) {

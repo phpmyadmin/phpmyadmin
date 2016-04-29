@@ -2962,6 +2962,14 @@ Developer
     Enable logging queries and execution times to be
     displayed in the console's Debug SQL tab.
 
+.. config:option:: $cfg['DBG']['sqllog']
+
+    :type: boolean
+    :default: false
+
+    Enable logging of queries and execution times to the syslog.
+    Requires :config:option:`$cfg['DBG']['sql']` to be enabled.
+
 .. config:option:: $cfg['DBG']['demo']
 
     :type: boolean
