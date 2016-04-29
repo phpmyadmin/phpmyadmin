@@ -762,6 +762,7 @@ function PMA_isAllowedDomain($url)
         $_SERVER['SERVER_NAME'],
         /* phpMyAdmin domains */
         'wiki.phpmyadmin.net', 'www.phpmyadmin.net', 'phpmyadmin.net',
+        'demo.phpmyadmin.net',
         'docs.phpmyadmin.net',
         /* mysql.com domains */
         'dev.mysql.com','bugs.mysql.com',
