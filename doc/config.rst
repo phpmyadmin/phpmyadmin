@@ -2976,13 +2976,13 @@ Developer
 Examples
 --------
 
-See following configuration snippets for usual setups of phpMyAdmin.
+See following configuration snippets for typical setups of phpMyAdmin.
 
 Basic example
 +++++++++++++
 
 Example configuration file, which can be copied to :file:`config.inc.php` to
-get some core configuration layout, it is distributed with phpMyAdmin as
+get some core configuration layout; it is distributed with phpMyAdmin as
 :file:`config.sample.inc.php`. Please note that it does not contain all
 configuration options, only the most frequently used ones.
 
@@ -2991,7 +2991,7 @@ configuration options, only the most frequently used ones.
 
 .. warning::
 
-    Don't use the controluser 'pma' if not existing yet and don't use 'pmapass'
+    Don't use the controluser 'pma' if it does not yet exist and don't use 'pmapass'
     as password.
 
 
@@ -3000,7 +3000,7 @@ configuration options, only the most frequently used ones.
 Example for signon authentication
 +++++++++++++++++++++++++++++++++
 
-This example uses :file:`examples/signon.php` to demostrate usage of :ref:`auth_signon`:
+This example uses :file:`examples/signon.php` to demonstrate usage of :ref:`auth_signon`:
 
 .. code-block:: php
 
@@ -3016,8 +3016,8 @@ This example uses :file:`examples/signon.php` to demostrate usage of :ref:`auth_
 Example for IP address limited autologin
 ++++++++++++++++++++++++++++++++++++++++
 
-If you want to automatically login when accessing phpMyAdmin locally while ask
-for password when remotely, you can achieve it using following snippet:
+If you want to automatically login when accessing phpMyAdmin locally while asking
+for a password when accessing remotely, you can achieve it using following snippet:
 
 .. code-block:: php
 

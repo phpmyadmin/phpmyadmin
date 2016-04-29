@@ -136,7 +136,7 @@ CSV for Microsoft Excel
 -----------------------
 
 This is just preconfigured version of CSV export which can be imported into
-most english versions of Microsoft Excel. Some localised versions (like
+most English versions of Microsoft Excel. Some localised versions (like
 "Danish") are expecting ";" instead of "," as field separator.
 
 Microsoft Word 2000
