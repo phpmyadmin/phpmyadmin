@@ -393,13 +393,6 @@ PMA_printListItem(
     null,
     '_blank'
 );
-PMA_printListItem(
-    __('Wiki'),
-    'li_pma_wiki',
-    PMA_linkURL('http://wiki.phpmyadmin.net/'),
-    null,
-    '_blank'
-);
 
 // does not work if no target specified, don't know why
 PMA_printListItem(
