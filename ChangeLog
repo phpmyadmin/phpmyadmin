@@ -39,6 +39,7 @@ phpMyAdmin - ChangeLog
 - issue #12144 Fixed parsing of some AS clauses
 - issue #12205 Fixed parsing of FULL OUTER JOIN queries
 - issue #12171 Fixed editing of VIEW structure
+- issue #12208 Avoid printing executed queries on import
 
 4.6.0.0 (2016-03-22)
 + issue #11456 Disabled storage engines
