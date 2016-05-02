@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-04-26 14:40+0200\n"
-"PO-Revision-Date: 2016-03-17 08:31+0000\n"
-"Last-Translator: Jozef Pistej <pistej2@gmail.com>\n"
-"Language-Team: Slovak <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"sk/>\n"
+"PO-Revision-Date: 2016-05-02 13:22+0000\n"
+"Last-Translator: Martin Lacina <martin@whistler.sk>\n"
+"Language-Team: Slovak "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/sk/>\n"
 "Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Weblate 2.5\n"
+"X-Generator: Weblate 2.7-dev\n"
 
 #: changelog.php:37 license.php:33
 #, php-format
@@ -569,12 +569,12 @@ msgid "Bookmark %s has been created."
 msgstr "Príkaz %s bol zaradený medzi obľúbené."
 
 #: import.php:576
-#, fuzzy, php-format
+#, php-format
 #| msgid "Import has been successfully finished, %d queries executed."
 msgid "Import has been successfully finished, %d query executed."
 msgid_plural "Import has been successfully finished, %d queries executed."
-msgstr[0] "Import bol úspešne ukončený, bolo vykonaných %d dopytov."
-msgstr[1] "Import bol úspešne ukončený, bolo vykonaných %d dopytov."
+msgstr[0] "Import bol úspešne ukončený, bol vykonaný %d dopyt."
+msgstr[1] "Import bol úspešne ukončený, boli vykonané %d dopyty."
 msgstr[2] "Import bol úspešne ukončený, bolo vykonaných %d dopytov."
 
 #: import.php:607
@@ -917,16 +917,17 @@ msgid ""
 "Do you really want to DROP the selected partition(s)? This will also DELETE "
 "the data related to the selected partition(s)!"
 msgstr ""
+"Skutočne chcete ODSTRÁNIŤ zvolené oddiely? To VYMAŽE aj všetky dáta na "
+"daných oddieloch!"
 
 #: js/messages.php:86
 msgid "Do you really want to TRUNCATE the selected partition(s)?"
 msgstr "Naozaj chcete SKRÁTIŤ vybrané oddiely?"
 
 #: js/messages.php:88
-#, fuzzy
 #| msgid "Do you really want to TRUNCATE the selected partition(s)?"
 msgid "Do you really want to remove partitioning?"
-msgstr "Naozaj chcete SKRÁTIŤ vybrané oddiely?"
+msgstr "Naozaj chcete zrušiiť použitie oddielov?"
 
 #: js/messages.php:89
 msgid "Do you really want to RESET SLAVE?"
@@ -947,7 +948,7 @@ msgstr "Skomolené údaje"
 
 #: js/messages.php:99
 msgid "Are you sure you wish to change the collation and convert the data?"
-msgstr ""
+msgstr "Ste si istý, že chcete zmeniť zoradenie a konvertovať údaje?"
 
 #: js/messages.php:101
 msgid ""
@@ -964,6 +965,7 @@ msgid ""
 "Are you sure you wish to change all the column collations and convert the "
 "data?"
 msgstr ""
+"Naozaj chcete zmeniť zoradenie vo všetkých stĺpcoch a konvertovať údaje?"
 
 #: js/messages.php:114
 msgid "Save & close"
@@ -2523,7 +2525,6 @@ msgid "Add table prefix"
 msgstr "Pridať prefix tabuľky"
 
 #: js/messages.php:716
-#, fuzzy
 #| msgid "Replace table prefix"
 msgid "Replace table with prefix"
 msgstr "Nahradiť predponu tabuľky"
