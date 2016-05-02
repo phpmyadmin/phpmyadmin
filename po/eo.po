@@ -7,16 +7,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-04-26 14:40+0200\n"
-"PO-Revision-Date: 2015-12-29 15:34+0000\n"
+"PO-Revision-Date: 2016-05-03 00:36+0000\n"
 "Last-Translator: Robin van der Vliet <info@robinvandervliet.nl>\n"
-"Language-Team: Esperanto <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/eo/>\n"
+"Language-Team: Esperanto "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/eo/>\n"
 "Language: eo\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.5-dev\n"
+"X-Generator: Weblate 2.7-dev\n"
 
 #: changelog.php:37 license.php:33
 #, php-format
@@ -13761,11 +13761,10 @@ msgid "Check tables having overhead"
 msgstr ""
 
 #: templates/database/structure/check_all_tables.phtml:10
-#, fuzzy
 #| msgid "%s table"
 #| msgid_plural "%s tables"
 msgid "Copy table"
-msgstr "%s tabelo"
+msgstr "Kopii tabelon"
 
 #: templates/database/structure/check_all_tables.phtml:11
 msgid "Show create"
@@ -14395,13 +14394,13 @@ msgstr "Kolumnoj"
 
 #: vendor/phpmyadmin/motranslator/tests/MoFilesTest.php:83
 #: vendor/phpmyadmin/motranslator/tests/MoFilesTest.php:127
-#, fuzzy, php-format
+#, php-format
 #| msgid "%d second"
 #| msgid_plural "%d seconds"
 msgid "\"%d\" second"
 msgid_plural "\"%d\" seconds"
-msgstr[0] "%d sekundo"
-msgstr[1] "%d sekundoj"
+msgstr[0] "\"%d\" sekundo"
+msgstr[1] "\"%d\" sekundoj"
 
 #: vendor/phpmyadmin/sql-parser/src/Component.php:48
 #: vendor/phpmyadmin/sql-parser/src/Component.php:68
@@ -14552,10 +14551,9 @@ msgstr ""
 
 #: vendor/phpmyadmin/sql-parser/tests/Lexer/LexerTest.php:21
 #: vendor/phpmyadmin/sql-parser/tests/Parser/ParserTest.php:58
-#, fuzzy
 #| msgid "Error"
 msgid "error #1"
-msgstr "Eraro"
+msgstr "eraro #1"
 
 #: vendor/phpmyadmin/sql-parser/tests/Lexer/LexerTest.php:23
 #: vendor/phpmyadmin/sql-parser/tests/Parser/ParserTest.php:59
