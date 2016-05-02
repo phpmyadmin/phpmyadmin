@@ -62,26 +62,40 @@ class DatabaseStructureController extends DatabaseController
     /**
      * DatabaseStructureController constructor
      *
-     * @param string $url_query           URL query
-     * @param int    $num_tables          Number of tables
-     * @param int    $pos                 Current position in the list
-     * @param bool   $db_is_system_schema DB is information_schema
-     * @param int    $total_num_tables    Number of tables
-     * @param array  $tables              Tables in the DB
-     * @param bool   $is_show_stats       Whether stats show or not
+     * @param string $url_query URL query
      */
-    public function __construct(
-        $url_query, $num_tables, $pos, $db_is_system_schema,
-        $total_num_tables, $tables, $is_show_stats
-    ) {
+    public function __construct($url_query) {
         parent::__construct();
 
         $this->_url_query = $url_query;
+    }
+
+    /**
+     * Retrieves databse information for further use
+     *
+     * @param string $sub_part Page part name
+     *
+     * @return void
+     */
+    private function _getDbInfo($sub_part)
+    {
+        list(
+            $tables,
+            $num_tables,
+            $total_num_tables,
+            ,
+            $is_show_stats,
+            $db_is_system_schema,
+            ,
+            ,
+            $pos
+        ) = Util::getDbInfo($this->db, $sub_part);
+
+        $this->_tables = $tables;
         $this->_num_tables = $num_tables;
         $this->_pos = $pos;
         $this->_db_is_system_schema = $db_is_system_schema;
         $this->_total_num_tables = $total_num_tables;
-        $this->_tables = $tables;
         $this->_is_show_stats = $is_show_stats;
     }
 
@@ -125,28 +139,7 @@ class DatabaseStructureController extends DatabaseController
         $this->_url_query .= '&amp;goto=db_structure.php';
 
         // Gets the database structure
-        $sub_part = '_structure';
-
-        list(
-            $tables,
-            $num_tables,
-            $total_num_tables,
-            ,
-            $is_show_stats,
-            $db_is_system_schema,
-            ,
-            ,
-            $pos
-        ) = Util::getDbInfo($GLOBALS['db'], $sub_part);
-
-        $this->_tables = $tables;
-        // updating $tables seems enough for #11376, but updating other
-        // variables too in case they may cause some other problem.
-        $this->_num_tables = $num_tables;
-        $this->_pos = $pos;
-        $this->_db_is_system_schema = $db_is_system_schema;
-        $this->_total_num_tables = $total_num_tables;
-        $this->_is_show_stats = $is_show_stats;
+        $this->_getDbInfo('_structure');
 
         include_once 'libraries/replication.inc.php';
 
@@ -157,7 +150,7 @@ class DatabaseStructureController extends DatabaseController
             $this->response->addHTML(
                 Message::notice(__('No tables found in database.'))
             );
-            if (empty($db_is_system_schema)) {
+            if (empty($this->_db_is_system_schema)) {
                 $this->response->addHTML(PMA_getHtmlForCreateTable($this->db));
             }
             return;
@@ -319,7 +312,7 @@ class DatabaseStructureController extends DatabaseController
         // Array to store the results.
         $real_row_count_all = array();
         // Iterate over each table and fetch real row count.
-        foreach ($GLOBALS['tables'] as $table) {
+        foreach ($this->_tables as $table) {
             $row_count = $this->dbi
                 ->getTable($this->db, $table['TABLE_NAME'])
                 ->getRealRowCountTable();
@@ -704,9 +697,9 @@ class DatabaseStructureController extends DatabaseController
     {
         $tracking_icon = '';
         if (Tracker::isActive()) {
-            $is_tracked = Tracker::isTracked($GLOBALS["db"], $table);
+            $is_tracked = Tracker::isTracked($this->db, $table);
             if ($is_tracked
-                || Tracker::getVersion($GLOBALS["db"], $table) > 0
+                || Tracker::getVersion($this->db, $table) > 0
             ) {
                 $tracking_icon = Template::get(
                     'database/structure/tracking_icon'

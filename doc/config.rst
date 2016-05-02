@@ -254,6 +254,8 @@ Server connection settings
 
     We strongly recommend the ``'mysqli'`` extension when using this option.
 
+    .. seealso:: :ref:`example-google-ssl`
+
 .. config:option:: $cfg['Servers'][$i]['ssl_key']
 
     :type: string
@@ -267,6 +269,8 @@ Server connection settings
 
         $cfg['Servers'][$i]['ssl_key'] = '/etc/mysql/server-key.pem';
 
+    .. seealso:: :ref:`example-google-ssl`
+
 .. config:option:: $cfg['Servers'][$i]['ssl_cert']
 
     :type: string
@@ -274,12 +278,16 @@ Server connection settings
 
     Path to the cert file when using SSL for connecting to the MySQL server.
 
+    .. seealso:: :ref:`example-google-ssl`
+
 .. config:option:: $cfg['Servers'][$i]['ssl_ca']
 
     :type: string
     :default: NULL
 
     Path to the CA file when using SSL for connecting to the MySQL server.
+
+    .. seealso:: :ref:`example-google-ssl`
 
 .. config:option:: $cfg['Servers'][$i]['ssl_ca_path']
 
@@ -300,14 +308,24 @@ Server connection settings
     :type: boolean
     :default: true
 
+    .. versionadded:: 4.6.0
+
+        This is supported since phpMyAdmin 4.6.0.
+
     If your PHP install uses the MySQL Native Driver (mysqlnd), your
     MySQL server is 5.6 or later, and your SSL certificate is self-signed,
     there is a chance your SSL connection will fail due to validation.
     Setting this to ``false`` will disable the validation check.
 
+    Since PHP 5.6.0 it also verifies whether server name matches CN of it's
+    certificate. There is currently no way to disable just this check without
+    disabling complete SSL verification.
+
     .. note::
 
-        This flag only works with PHP 5.6.16 or later
+        This flag only works with PHP 5.6.16 or later.
+
+    .. seealso:: :ref:`example-google-ssl`
 
 .. config:option:: $cfg['Servers'][$i]['connect_type']
 
@@ -2885,3 +2903,52 @@ Developer
 
     Enable to let server present itself as demo server.
     This is used for <http://demo.phpmyadmin.net/>.
+
+
+Examples
+--------
+
+See following configuration snippets for usual setups of phpMyAdmin.
+
+.. _example-google-ssl:
+
+Google Cloud SQL with SSL
++++++++++++++++++++++++++
+
+To connect to Google Could SQL, you currently need to disable certificate
+verification. This is caused by the certficate being issued for CN matching
+your instance name, but you connect to an IP address and PHP tries to match
+these two. With verfication you end up with error message like::
+
+    Peer certificate CN=`api-project-851612429544:pmatest' did not match expected CN=`8.8.8.8'
+
+.. warning::
+
+    With disabled verification your traffic is encrypted, but you're open to
+    man in the middle attacks.
+
+To connect phpMyAdmin to Google Cloud SQL using SSL download the client and
+server certificates and tell phpMyAdmin to use them:
+
+.. code-block:: php
+
+    // IP address of your instance
+    $cfg['Servers'][2]['host'] = '8.8.8.8';
+    // Use SSL for connection
+    $cfg['Servers'][$i]['ssl'] = true;
+    // Client secret key
+    $cfg['Servers'][$i]['ssl_key'] = '../client-key.pem';
+    // Client certificate
+    $cfg['Servers'][$i]['ssl_cert'] = '../client-cert.pem';
+    // Server certification authority
+    $cfg['Servers'][$i]['ssl_ca'] = '../server-ca.pem';
+    // Disable SSL verification (see above note)
+    $cfg['Servers'][$i]['ssl_verify'] = false;
+
+.. seealso::
+
+    :config:option:`$cfg['Servers'][$i]['ssl']`,
+    :config:option:`$cfg['Servers'][$i]['ssl_key']`,
+    :config:option:`$cfg['Servers'][$i]['ssl_cert']`,
+    :config:option:`$cfg['Servers'][$i]['ssl_ca']`,
+    :config:option:`$cfg['Servers'][$i]['ssl_verify']`

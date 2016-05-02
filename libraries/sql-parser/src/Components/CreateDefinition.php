@@ -215,11 +215,17 @@ class CreateDefinition extends Component
                 } elseif (($token->type === Token::TYPE_KEYWORD) && ($token->flags & Token::FLAG_KEYWORD_KEY)) {
                     $expr->key = Key::parse($parser, $list);
                     $state = 4;
-                } else {
+                } elseif ($token->type === Token::TYPE_SYMBOL || $token->type === Token::TYPE_NONE) {
                     $expr->name = $token->value;
                     if (!$expr->isConstraint) {
                         $state = 2;
                     }
+                } else {
+                    $parser->error(
+                        __('A symbol name was expected!'),
+                        $token
+                    );
+                    return $ret;
                 }
             } elseif ($state === 2) {
                 $expr->type = DataType::parse($parser, $list);

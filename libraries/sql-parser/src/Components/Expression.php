@@ -227,7 +227,8 @@ class Expression extends Component
                     // beginning of a statement, so this is a subquery.
                     $ret->subquery = $token->value;
                 } elseif (($token->flags & Token::FLAG_KEYWORD_FUNCTION)
-                    && (empty($options['parseField']))
+                    && (empty($options['parseField'])
+                    && ! $alias)
                 ) {
                     $isExpr = true;
                 } elseif (($token->flags & Token::FLAG_KEYWORD_RESERVED)
@@ -254,7 +255,7 @@ class Expression extends Component
                         continue;
                     }
                     $isExpr = true;
-                } elseif ($brackets === 0 && count($ret->expr) > 0) {
+                } elseif ($brackets === 0 && count($ret->expr) > 0 && ! $alias) {
                     /* End of expression */
                     break;
                 }
@@ -293,6 +294,9 @@ class Expression extends Component
                     ) {
                         $ret->function = $prev[1]->value;
                     }
+                } elseif ($token->value === ')' && $brackets == 0) {
+                    // Not our bracket
+                    break;
                 } elseif ($token->value === ')') {
                     --$brackets;
                     if ($brackets === 0) {
@@ -393,7 +397,7 @@ class Expression extends Component
         // White-spaces might be added at the end.
         $ret->expr = trim($ret->expr);
 
-        if (empty($ret->expr)) {
+        if ($ret->expr === '') {
             return null;
         }
 
@@ -412,7 +416,7 @@ class Expression extends Component
         if (is_array($component)) {
             return implode($component, ', ');
         } else {
-            if (!empty($component->expr)) {
+            if ($component->expr !== '' && !is_null($component->expr)) {
                 $ret = $component->expr;
             } else {
                 $fields = array();

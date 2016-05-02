@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-02-17 11:55+0100\n"
-"PO-Revision-Date: 2016-02-18 12:28+0000\n"
-"Last-Translator: Adam Magnier <adam@magnier.io>\n"
+"PO-Revision-Date: 2016-04-27 09:45+0000\n"
+"Last-Translator: Julien ITARD <julienitard@gmail.com>\n"
 "Language-Team: French "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-6/fr/>\n"
 "Language: fr\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 2.5-dev\n"
+"X-Generator: Weblate 2.6-dev\n"
 
 #: changelog.php:37 license.php:33
 #, php-format
@@ -3039,11 +3039,11 @@ msgid "Database"
 msgstr "Base de données"
 
 #: libraries/Console.php:100
-#, php-format
+#, fuzzy, php-format
 msgid "Showing %1$d bookmark (both private and shared)"
 msgid_plural "Showing %1$d bookmarks (both private and shared)"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Montre %1$d favori (privés et partagés compris)"
+msgstr[1] "Montre %1$d favoris (privés et partagés compris)"
 
 #: libraries/Console.php:107
 msgid "No bookmarks"

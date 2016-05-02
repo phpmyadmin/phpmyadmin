@@ -860,6 +860,10 @@ $GLOBALS['dummy_queries'] = array(
             . "CONCAT(SCHEMA_NAME, '_')) ORDER BY SCHEMA_NAME ASC",
         'result' => array(),
     ),
+    array(
+        'query' => 'SELECT @@ndb_version_string',
+        'result' => array(array('ndb-7.4.10')),
+    ),
 );
 /**
  * Current database.

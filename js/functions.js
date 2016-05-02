@@ -3039,6 +3039,65 @@ AJAX.registerTeardown('functions.js', function () {
  */
 AJAX.registerOnload('functions.js', function () {
 
+    /* Handler for hostname type */
+    $(document).on('change', '#select_pred_hostname', function () {
+        var hostname = $('#pma_hostname');
+        if (this.value == 'any') {
+            hostname.val('%');
+        } else if (this.value == 'localhost') {
+            hostname.val('localhost');
+        } else if (this.value == 'thishost' && $(this).data('thishost')) {
+            hostname.val($(this).data('thishost'));
+        } else if (this.value == 'hosttable') {
+            hostname.val('').prop('required', false);
+        } else if (this.value == 'userdefined') {
+            hostname.focus().select().prop('required', true);
+        }
+    });
+
+    /* Handler for editing hostname */
+    $(document).on('change', '#pma_hostname', function () {
+        $('#select_pred_hostname').val('userdefined');
+        $('#pma_hostname').prop('required', true);
+    });
+
+    /* Handler for username type */
+    $(document).on('change', '#select_pred_username', function () {
+        if (this.value == 'any') {
+            $('#pma_username').val('').prop('required', false);
+            $('#user_exists_warning').css('display', 'none');
+        } else if (this.value == 'userdefined') {
+            $('#pma_username').focus().select().prop('required', true);
+        }
+    });
+
+    /* Handler for editing username */
+    $(document).on('change', '#pma_username', function () {
+        $('#select_pred_username').val('userdefined');
+        $('#pma_username').prop('required', true);
+    });
+
+    /* Handler for password type */
+    $(document).on('change', '#select_pred_password', function () {
+        if (this.value == 'none') {
+            $('#text_pma_pw2').prop('required', false).val('');
+            $('#text_pma_pw').prop('required', false).val('');
+        } else if (this.value == 'userdefined') {
+            $('#text_pma_pw2').prop('required', true);
+            $('#text_pma_pw').prop('required', true).focus().select();
+        } else {
+            $('#text_pma_pw2').prop('required', false);
+            $('#text_pma_pw').prop('required', false);
+        }
+    });
+
+    /* Handler for editing password */
+    $(document).on('change', '#text_pma_pw,#text_pma_pw2', function () {
+        $('#select_pred_password').val('userdefined');
+        $('#text_pma_pw2').prop('required', true);
+        $('#text_pma_pw').prop('required', true);
+    });
+
     /**
      * Attach Ajax event handler on the change password anchor
      */

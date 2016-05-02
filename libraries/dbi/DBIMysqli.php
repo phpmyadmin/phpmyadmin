@@ -43,7 +43,9 @@ if (! defined('MYSQLI_TYPE_NEWDECIMAL')) {
 if (! defined('MYSQLI_TYPE_BIT')) {
     define('MYSQLI_TYPE_BIT', 16);
 }
-
+if (! defined('MYSQLI_TYPE_JSON')) {
+    define('MYSQLI_TYPE_JSON', 245);
+}
 
 
 /* vim: set expandtab sw=4 ts=4 sts=4: */
@@ -82,7 +84,7 @@ class DBIMysqli implements DBIExtension
         }
 
         if ($client_flags === null) {
-            return @mysqli_real_connect(
+            return mysqli_real_connect(
                 $link,
                 $host,
                 $user,
@@ -92,7 +94,7 @@ class DBIMysqli implements DBIExtension
                 $server_socket
             );
         } else {
-            return @mysqli_real_connect(
+            return mysqli_real_connect(
                 $link,
                 $host,
                 $user,
@@ -149,7 +151,7 @@ class DBIMysqli implements DBIExtension
         }
 
         /* Optionally enable SSL */
-        if ($cfg['Server']['ssl'] && defined('MYSQLI_CLIENT_SSL')) {
+        if ($cfg['Server']['ssl']) {
             mysqli_ssl_set(
                 $link,
                 $cfg['Server']['ssl_key'],
@@ -158,20 +160,23 @@ class DBIMysqli implements DBIExtension
                 $cfg['Server']['ssl_ca_path'],
                 $cfg['Server']['ssl_ciphers']
             );
-            $ssl_flag = MYSQLI_CLIENT_SSL;
             /*
              * disables SSL certificate validation on mysqlnd for MySQL 5.6 or later
              * @link https://bugs.php.net/bug.php?id=68344
              * @link https://github.com/phpmyadmin/phpmyadmin/pull/11838
              */
-            if(!$cfg['Server']['ssl_verify'] && defined('MYSQLI_CLIENT_SSL_DONT_VERIFY_SERVER_CERT')) {
-                $ssl_flag = MYSQLI_CLIENT_SSL_DONT_VERIFY_SERVER_CERT;
+            if (! $cfg['Server']['ssl_verify']) {
+                mysqli_options(
+                    $link,
+                    MYSQLI_OPT_SSL_VERIFY_SERVER_CERT,
+                    $cfg['Server']['ssl_verify']
+                );
+                $client_flags |= MYSQLI_CLIENT_SSL_DONT_VERIFY_SERVER_CERT;
             }
-            $client_flags |= $ssl_flag;
         }
 
         if (! $server) {
-            $return_value = @$this->_realConnect(
+            $return_value = $this->_realConnect(
                 $link,
                 $cfg['Server']['host'],
                 $user,
@@ -187,7 +192,7 @@ class DBIMysqli implements DBIExtension
                 && $cfg['Server']['nopassword']
                 && ! $is_controluser
             ) {
-                $return_value = @$this->_realConnect(
+                $return_value = $this->_realConnect(
                     $link,
                     $cfg['Server']['host'],
                     $user,
@@ -199,7 +204,7 @@ class DBIMysqli implements DBIExtension
                 );
             }
         } else {
-            $return_value = @$this->_realConnect(
+            $return_value = $this->_realConnect(
                 $link,
                 $server['host'],
                 $user,
@@ -499,9 +504,7 @@ class DBIMysqli implements DBIExtension
         //$typeAr[MYSQLI_TYPE_CHAR]        = 'string';
         $typeAr[MYSQLI_TYPE_GEOMETRY]    = 'geometry';
         $typeAr[MYSQLI_TYPE_BIT]         = 'bit';
-        if (defined('MYSQLI_TYPE_JSON')) {
-            $typeAr[MYSQLI_TYPE_JSON]        = 'json';
-        }
+        $typeAr[MYSQLI_TYPE_JSON]        = 'json';
 
         $fields = mysqli_fetch_fields($result);
 

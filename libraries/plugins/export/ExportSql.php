@@ -1556,7 +1556,7 @@ class ExportSql extends ExportPlugin
                 if (empty($sql_backquotes)) {
                     // Option "Enclose table and column names with backquotes"
                     // was checked.
-                    SqlParser\Context::$MODE |= SqlParser\Context::NO_ENCLOSING_QUOTES;
+                    Context::$MODE |= Context::NO_ENCLOSING_QUOTES;
                 }
 
                 // Using appropriate quotes.

@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.0-alpha1\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-02-17 11:55+0100\n"
-"PO-Revision-Date: 2016-01-06 03:53+0000\n"
-"Last-Translator: Isuru Abeywardana <vpisabeywardana@gmail.com>\n"
-"Language-Team: Sinhala <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/si/>\n"
+"PO-Revision-Date: 2016-03-24 04:14+0000\n"
+"Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
+"Language-Team: Sinhala "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-6/si/>\n"
 "Language: si\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.5-dev\n"
+"X-Generator: Weblate 2.6-dev\n"
 
 #: changelog.php:37 license.php:33
 #, php-format
@@ -282,7 +282,6 @@ msgstr "දත්ත"
 
 #: db_export.php:70 libraries/DbSearch.php:442
 #: libraries/display_export.lib.php:42 libraries/replication_gui.lib.php:377
-#, fuzzy
 #| msgid "Select All"
 msgid "Select all"
 msgstr "සියල්ල තෝරන්න"
@@ -330,17 +329,16 @@ msgid "Tracking data deleted successfully."
 msgstr "අනුරූ කරණයේ තත්වය"
 
 #: db_tracking.php:61
-#, fuzzy, php-format
+#, php-format
 #| msgid "Version %1$s was created, tracking for %2$s is active."
 msgid ""
 "Version %1$s was created for selected tables, tracking is active for them."
-msgstr "%1$s වන අනුවාදය සාදන ලදි. %2$s සඳහා අවධානය සක්‍රීයයි."
+msgstr "තේරු වගු සඳහා %1$s වන අනුවාදය සාදන ලදි. එම වගු සඳහා අවධානය සක්‍රීයයි."
 
 #: db_tracking.php:92
-#, fuzzy
 #| msgid "No databases selected."
 msgid "No tables selected."
-msgstr "දත්තගබඩාවක් තෝරාගෙන නොමැත."
+msgstr "වගුවක් තෝරාගෙන නොමැත."
 
 #: db_tracking.php:149
 msgid "Database Log"
@@ -513,20 +511,18 @@ msgstr ""
 "\"ශ්‍රිතය\" තීරුවෙන් \"GeomFromText\" තෝරා පහත ඇති දේ \"අගය\" ක්ෂේත්‍රයට පිටපත් කරන්න."
 
 #: import.php:54
-#, fuzzy
 #| msgid "Access denied!"
 msgid "Succeeded"
-msgstr "පිවිසුම වලක්වා ඇත"
+msgstr "සාර්ථකයි"
 
 #: import.php:58 js/messages.php:592
 msgid "Failed"
 msgstr ""
 
 #: import.php:62
-#, fuzzy
 #| msgid "complete inserts"
 msgid "Incomplete params"
-msgstr "සම්පූර්ණ ඇතුළු කිරීම්"
+msgstr "අසම්පූර්ණ පරාමිති"
 
 #: import.php:186
 #, php-format
@@ -584,15 +580,15 @@ msgid "Bookmark %s has been created."
 msgstr "%s පොත් සලකුණ සාදන ලදි."
 
 #: import.php:680
-#, fuzzy, php-format
+#, php-format
 #| msgid "Import has been successfully finished, %d queries executed."
 msgid "Import has been successfully finished, %d query executed."
 msgid_plural "Import has been successfully finished, %d queries executed."
-msgstr[0] "ආනයනය සාර්ථකව අවසන් කරන ලදි, විමසුම්%d ක්‍රියාත්මක කරන ලදි."
-msgstr[1] "ආනයනය සාර්ථකව අවසන් කරන ලදි, විමසුම්%d ක්‍රියාත්මක කරන ලදි."
+msgstr[0] "ආනයනය සාර්ථකව අවසන් කරන ලදි, එක් විමසුමක් ක්‍රියාත්මක කරන ලදි."
+msgstr[1] "ආනයනය සාර්ථකව අවසන් කරන ලදි, විමසුම් %dක් ක්‍රියාත්මක කරන ලදි."
 
 #: import.php:711
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "Script timeout passed, if you want to finish import, please resubmit same "
 #| "file and import will resume."
@@ -600,8 +596,8 @@ msgid ""
 "Script timeout passed, if you want to finish import, please %sresubmit the "
 "same file%s and import will resume."
 msgstr ""
-"විධානාවලිය ක්‍රියාත්මක වීමට ලබා දුන් කාලය අවසන් විය. ඔබට ආනයනය සම්පූර්ණ කිරීමට අවශ්‍ය නම් එම "
-"ආනයන ගොනුවම නැවත ආනයනය සඳහා යොමු කරන්න."
+"විධානාවලිය ක්‍රියාත්මක වීමට ලබා දුන් කාලය අවසන් විය. ඔබට ආනයනය සම්පූර්ණ කිරී"
+"මට අවශ්‍ය නම් %sඑම ආනයන ගොනුවම නැවත ආනයනය සඳහා යොමු කරන්න%s."
 
 #: import.php:721
 msgid ""
@@ -636,7 +632,6 @@ msgid ""
 msgstr ""
 
 #: index.php:161
-#, fuzzy
 #| msgid "General Settings"
 msgid "General settings"
 msgstr "සාමාන්‍ය සිටුවම්"
@@ -652,7 +647,6 @@ msgid "Server connection collation"
 msgstr "සේවාදායක සමඟ සම්බන්ධතාවේ පරිතුලනය"
 
 #: index.php:230
-#, fuzzy
 #| msgid "Appearance Settings"
 msgid "Appearance settings"
 msgstr "මුහුණුවර සම්බන්ධ සිටුවම්"
@@ -705,7 +699,6 @@ msgid "PHP extension:"
 msgstr "PHP දිගුව:"
 
 #: index.php:351
-#, fuzzy
 #| msgid "PHP Version:"
 msgid "PHP version:"
 msgstr "PHP අනුවාදය:"
@@ -777,7 +770,6 @@ msgid ""
 msgstr ""
 
 #: index.php:499
-#, fuzzy
 #| msgid ""
 #| "Your PHP parameter [a@http://php.net/manual/en/session.configuration."
 #| "php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
@@ -790,9 +782,9 @@ msgid ""
 "expire sooner than configured in phpMyAdmin."
 msgstr ""
 "ඔබගේ [a@http://php.net/manual/en/session.configuration.php#ini.session.gc-"
-"maxlifetime@_blank]session.gc_maxlifetime[/a] PHP පරාමිතිය phpMyAdmin හි සිටුවා "
-"ඇති කුකී වලංගු කාලය ට වඩා අඩු අගයක් ගනී. මේ හේතුවෙන් ඔබගේ සැසිය phpMyAdmin හි සිටුවා ඇති "
-"කාලයට පෙර කල් ඉකුත් විය හැක."
+"maxlifetime@_blank]session.gc_maxlifetime[/a] PHP පරාමිතිය phpMyAdmin හි "
+"සිටුවා ඇති කුකී වලංගු කාලය ට වඩා අඩු අගයක් ගනී. මේ හේතුවෙන් ඔබගේ සැසිය "
+"phpMyAdmin හි සිටුවා ඇති කාලයට පෙර කල් ඉකුත් විය හැක."
 
 #: index.php:518
 msgid ""
@@ -807,7 +799,6 @@ msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
 msgstr "වින්‍යාස ගොනුවට දැන් රහස්‍ය වාක්‍ය ඛණ්ඩයක් (blowfish_secret) අවශ්‍යය."
 
 #: index.php:547
-#, fuzzy
 #| msgid ""
 #| "Directory [code]config[/code], which is used by the setup script, still "
 #| "exists in your phpMyAdmin directory. You should remove it once phpMyAdmin "
@@ -818,11 +809,13 @@ msgid ""
 "once phpMyAdmin has been configured. Otherwise the security of your server "
 "may be compromised by unauthorized people downloading your configuration."
 msgstr ""
-"පිහිටුවීමේ විධානාවලිය විසින් භාවිතා කරන [code]config[/code] ඩිරෙක්ටරිය තවමත් ඔබගේ "
-"phpMyAdmin ඩිරෙක්ටරිය තුල ඇත. phpMyAdmin වින්‍යාස සකසා අවසන් වූ පසු ඔබ එය ඉවත් කල යුතුය."
+"පිහිටුවීමේ විධානාවලිය විසින් භාවිතා කරන [code]config[/code] ඩිරෙක්ටරිය තවමත් "
+"ඔබගේ phpMyAdmin ඩිරෙක්ටරිය තුල ඇත. phpMyAdmin වින්‍යාස සකසා අවසන් වූ පසු ඔබ "
+"එය ඉවත් කිරීම නිර්දේශිතයි. නැතහොත් ඔබගේ සේවාදායකයේ ආරක්ෂාව මෙම වින්‍යස "
+"අනවසරයෙන් බාගත කරගන්නන් විසින් තර්ජනයට ලක්කල  හැකිය."
 
 #: index.php:563
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "The phpMyAdmin configuration storage is not completely configured, some "
 #| "extended features have been deactivated. To find out why click %shere%s."
@@ -830,8 +823,8 @@ msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
 "extended features have been deactivated. %sFind out why%s. "
 msgstr ""
-"phpMyAdmin හි configuration storage සම්පූර්ණයෙන් සකසා නැති බැවින් යම් විස්තෘත විශේෂාංග "
-"අක්‍රිය වී ඇත. ඇයිදැයි සොයා බැලීමට %sමෙතන%s ක්ලික් කරන්න."
+"phpMyAdmin හි configuration storage සම්පූර්ණයෙන් සකසා නැති බැවින් යම් විස්තෘ"
+"ත විශේෂාංග අක්‍රිය වී ඇත. %sඇයිදැයි සොයා බලන්න%s. "
 
 #: index.php:570
 msgid ""
@@ -882,28 +875,24 @@ msgid "You are about to TRUNCATE a complete table!"
 msgstr "ඔබ සූදානම් වන්නේ සම්පූර්ණ වගුවක් ලොප් කිරීමටයි!"
 
 #: js/messages.php:53
-#, fuzzy
 #| msgid "Delete tracking data for this table"
 msgid "Delete tracking data for this table?"
-msgstr "මෙම වගුවේ අවධානය පිළිබඳ දත්ත ඉවත් කරන්න"
+msgstr "මෙම වගුවේ අවධානය පිළිබඳ දත්ත ඉවත් කරන්නද?"
 
 #: js/messages.php:55
-#, fuzzy
 #| msgid "Delete tracking data for this table"
 msgid "Delete tracking data for these tables?"
-msgstr "මෙම වගුවේ අවධානය පිළිබඳ දත්ත ඉවත් කරන්න"
+msgstr "මෙම වගු වල අවධානය පිළිබඳ දත්ත ඉවත් කරන්නද?"
 
 #: js/messages.php:57
-#, fuzzy
 #| msgid "Delete tracking data for this table"
 msgid "Delete tracking data for this version?"
-msgstr "මෙම වගුවේ අවධානය පිළිබඳ දත්ත ඉවත් කරන්න"
+msgstr "මෙම අනුවාදය සඳහා අවධානය පිළිබඳ දත්ත ඉවත් කරන්නද?"
 
 #: js/messages.php:59
-#, fuzzy
 #| msgid "Delete tracking data for this table"
 msgid "Delete tracking data for these versions?"
-msgstr "මෙම වගුවේ අවධානය පිළිබඳ දත්ත ඉවත් කරන්න"
+msgstr "මෙම අනුවාද සඳහා අවධානය පිළිබඳ දත්ත ඉවත් කරන්නද?"
 
 #: js/messages.php:60
 #, fuzzy
@@ -922,26 +911,25 @@ msgstr "ප්‍රාථමික මූලය/සුචිය ඉවත් �
 # ප්‍රාථමික මූලය = Primary key. Source: Glossary of Information Technology
 # Terms - ICTA
 #: js/messages.php:63
-#, fuzzy
 #| msgid "Select Foreign Key"
 msgid "Dropping Foreign key."
-msgstr "අන්‍ය මූලය තෝරන්න"
+msgstr "අන්‍ය මූලය හලමින්."
 
 #: js/messages.php:65
 msgid "This operation could take a long time. Proceed anyway?"
 msgstr "මෙම ක්‍රියාදාමය සඳහා දීර්ඝ වේලාවක් ගත වනු ඇත. කෙසේ වුවත් ඉදිරියට යන්න?"
 
 #: js/messages.php:67
-#, fuzzy, php-format
+#, php-format
 #| msgid "Do you really want to execute \"%s\"?"
 msgid "Do you really want to delete user group \"%s\"?"
-msgstr "\"%s\" ක්‍රියාත්මක කිරීමට ඔබට ඇත්තෙන්ම අවශ්‍යද?"
+msgstr "\"%s\" භාවිතා කරන්නන් සමූහය ඉවත් කිරීමට ඔබට ඇත්තෙන්ම අවශ්‍යද?"
 
 #: js/messages.php:69
-#, fuzzy, php-format
+#, php-format
 #| msgid "Do you really want to execute \"%s\"?"
 msgid "Do you really want to delete the search \"%s\"?"
-msgstr "\"%s\" ක්‍රියාත්මක කිරීමට ඔබට ඇත්තෙන්ම අවශ්‍යද?"
+msgstr "\"%s\" සෙවුම ඉවත් කිරීමට ඔබට ඇත්තෙන්ම අවශ්‍යද?"
 
 #: js/messages.php:71
 #, fuzzy
@@ -952,22 +940,19 @@ msgid "You have unsaved changes; are you sure you want to leave this page?"
 msgstr "ඔබ සංස්කරණය කල දත්ත සුරැකී නැත. දත්ත සුරැකීමෙන් තොරව මෙම පිටුවෙන් ඉවත් වීමට අවශ්‍යද?"
 
 #: js/messages.php:73
-#, fuzzy
 #| msgid "Do you really want to execute \"%s\"?"
 msgid "Do you really want to revoke the selected user(s) ?"
-msgstr "\"%s\" ක්‍රියාත්මක කිරීමට ඔබට ඇත්තෙන්ම අවශ්‍යද?"
+msgstr "තේරු භාවිතා කරන්නන් අවලංගු කිරීමට ඔබට ඇත්තෙන්ම අවශ්‍යද?"
 
 #: js/messages.php:75
-#, fuzzy
 #| msgid "Do you really want to execute \"%s\"?"
 msgid "Do you really want to delete this central column?"
-msgstr "\"%s\" ක්‍රියාත්මක කිරීමට ඔබට ඇත්තෙන්ම අවශ්‍යද?"
+msgstr "මෙම මධ්‍යම තීරය ඉවත් කිරීමට ඔබට ඇත්තෙන්ම අවශ්‍යද?"
 
 #: js/messages.php:77
-#, fuzzy
 #| msgid "Do you really want to execute \"%s\"?"
 msgid "Do you really want to delete the selected items?"
-msgstr "\"%s\" ක්‍රියාත්මක කිරීමට ඔබට ඇත්තෙන්ම අවශ්‍යද?"
+msgstr "තේරූ අයිතම ඉවත් කිරීමට ඔබට ඇත්තෙන්ම අවශ්‍යද?"
 
 #: js/messages.php:79
 msgid ""
@@ -976,16 +961,14 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:83
-#, fuzzy
 #| msgid "Do you really want to execute \"%s\"?"
 msgid "Do you really want to TRUNCATE the selected partition(s)?"
-msgstr "\"%s\" ක්‍රියාත්මක කිරීමට ඔබට ඇත්තෙන්ම අවශ්‍යද?"
+msgstr "තේරූ කොටස් හිස් කිරීමට ඔබට ඇත්තෙන්ම අවශ්‍යද?"
 
 #: js/messages.php:85
-#, fuzzy
 #| msgid "Do you really want to execute \"%s\"?"
 msgid "Do you really want to remove partitioning?"
-msgstr "\"%s\" ක්‍රියාත්මක කිරීමට ඔබට ඇත්තෙන්ම අවශ්‍යද?"
+msgstr "කොටස් කිරීම ඉවත් කිරීමට ඔබට ඇත්තෙන්ම අවශ්‍යද?"
 
 #: js/messages.php:86
 #, fuzzy

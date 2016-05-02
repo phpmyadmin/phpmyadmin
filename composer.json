@@ -28,7 +28,8 @@
         "phpunit/phpunit": "~4.1",
         "codacy/coverage": "dev-master",
         "phpunit/phpunit-selenium": "~1.2",
-        "squizlabs/php_codesniffer": "2.*"
+        "squizlabs/php_codesniffer": "2.*",
+        "phpmyadmin/coding-standard": ">=0.1.0"
     },
     "repositories": [
         {

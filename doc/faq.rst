@@ -2168,6 +2168,13 @@ logs. Currently there are two variables available:
 You can then use any log analyzing tools to detect possible break-in
 attempts.
 
+.. _faq8_3:
+
+8.3 Why are there path disclosures when directly loading certain files?
+-----------------------------------------------------------------------
+
+This is a server configuration problem. Never enable ``display_errors`` on a production site.
+
 .. _faqsynchronization:
 
 Synchronization

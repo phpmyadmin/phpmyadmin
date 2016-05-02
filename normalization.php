@@ -59,7 +59,7 @@ if (isset($_REQUEST['getNewTables3NF'])) {
     $dependencies = json_decode($_REQUEST['pd']);
     $tables = json_decode($_REQUEST['tables']);
     $newTables = PMA_getHtmlForNewTables3NF($dependencies, $tables, $db);
-    PMA_Response::getInstance()->disable();
+    PMA\libraries\Response::getInstance()->disable();
     PMA_headerJSON();
     echo json_encode($newTables);
     exit;

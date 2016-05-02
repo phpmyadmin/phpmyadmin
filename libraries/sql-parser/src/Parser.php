@@ -120,6 +120,10 @@ class Parser
             'class'             => 'SqlParser\\Components\\UnionKeyword',
             'field'             => 'union',
         ),
+        'UNION DISTINCT'        => array(
+            'class'             => 'SqlParser\\Components\\UnionKeyword',
+            'field'             => 'union',
+        ),
 
         // Actual clause parsers.
         'ALTER'                 => array(
@@ -203,6 +207,10 @@ class Parser
             'field'             => 'join',
         ),
         'FULL JOIN'             => array(
+            'class'             => 'SqlParser\\Components\\JoinKeyword',
+            'field'             => 'join',
+        ),
+        'FULL OUTER JOIN'       => array(
             'class'             => 'SqlParser\\Components\\JoinKeyword',
             'field'             => 'join',
         ),
@@ -427,7 +435,7 @@ class Parser
                 continue;
             }
 
-            if (($token->value === 'UNION') || ($token->value === 'UNION ALL')) {
+            if (($token->value === 'UNION') || ($token->value === 'UNION ALL') || ($token->value === 'UNION DISTINCT')) {
                 $unionType = $token->value;
                 continue;
             }

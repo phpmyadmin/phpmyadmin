@@ -716,21 +716,13 @@ function PMA_getHtmlForReplicationMasterAddSlaveuser()
                 (mb_strrpos($_current_user, '@') + 1)
             )
         );
-        if ($thishost == 'localhost' || $thishost == '127.0.0.1') {
+        if ($thishost != 'localhost' && $thishost != '127.0.0.1') {
+            $html .= ' data-thishost="' . htmlspecialchars($thishost) . '" ';
+        } else {
             unset($thishost);
         }
     }
-    $html .= '    onchange="if (this.value == \'any\') { hostname.value = \'%\'; } '
-        .                  'else if (this.value == \'localhost\') '
-        .                  '{ hostname.value = \'localhost\'; } '
-        . (empty($thishost)
-          ? ''
-          : 'else if (this.value == \'thishost\') { hostname.value = \''
-        . addslashes(htmlspecialchars($thishost)) . '\'; } ')
-        .   'else if (this.value == \'hosttable\') { hostname.value = \'\'; } '
-        .   'else if (this.value == \'userdefined\') '
-        .   '{ hostname.focus(); hostname.select(); }">'
-        . "\n";
+    $html .= '>' . "\n";
     unset($_current_user);
 
     // when we start editing a user, $GLOBALS['pred_hostname'] is not defined
@@ -797,10 +789,7 @@ function PMA_getHtmlForAddUserLoginForm($username_length)
         . '</label>'
         . '<span class="options">'
         . '    <select name="pred_username" id="select_pred_username" '
-        .         'title="' . __('User name') . '"'
-        . '        onchange="if (this.value == \'any\') { username.value = \'\'; } '
-        .                   'else if (this.value == \'userdefined\') { '
-        .                       ' username.focus(); username.select(); }">'
+        .         'title="' . __('User name') . '">'
         . '        <option value="any"'
         . ((isset($GLOBALS['pred_username'])
             && $GLOBALS['pred_username'] == 'any') ? ' selected="selected"' : '')
@@ -812,13 +801,13 @@ function PMA_getHtmlForAddUserLoginForm($username_length)
         . '>' . __('Use text field:') . '</option>'
         . '    </select>'
         . '</span>'
-        . '<input type="text" name="username" maxlength="'
+        . '<input type="text" name="username" id="pma_username" maxlength="'
         . $username_length . '" title="' . __('User name') . '"'
         . (empty($_REQUEST['username']) ? '' : ' value="'
         . (isset($GLOBALS['new_username'])
             ? $GLOBALS['new_username']
             : $_REQUEST['username']) . '"')
-        . ' onchange="pred_username.value = \'userdefined\';" />'
+        . ' />'
         . '</div>';
 
     return $html;
@@ -845,11 +834,11 @@ function PMA_getHtmlForTableInfoForm($hostname_length)
         . '>' . __('Use text field:') . '</option>'
         . '    </select>'
         . '</span>'
-        . '<input type="text" name="hostname" maxlength="'
+        . '<input type="text" name="hostname" id="pma_hostname" maxlength="'
         . $hostname_length . '" value="'
         . (isset($_REQUEST['hostname']) ? $_REQUEST['hostname'] : '')
         . '" title="' . __('Host')
-        . '" onchange="pred_hostname.value = \'userdefined\';" />'
+        . '" />'
         . PMA\libraries\Util::showHint(
             __(
                 'When Host table is used, this field is ignored '
@@ -863,11 +852,7 @@ function PMA_getHtmlForTableInfoForm($hostname_length)
         . '</label>'
         . '<span class="options">'
         . '    <select name="pred_password" id="select_pred_password" title="'
-        . __('Password') . '"'
-        . '            onchange="if (this.value == \'none\') '
-        .                       '{ pma_pw.value = \'\'; pma_pw2.value = \'\'; } '
-        .                       'else if (this.value == \'userdefined\') '
-        .                       '{ pma_pw.focus(); pma_pw.select(); }">'
+        . __('Password') . '">'
         . '        <option value="none"';
     if (isset($_REQUEST['username'])) {
         $html .= '  selected="selected"';
@@ -879,7 +864,7 @@ function PMA_getHtmlForTableInfoForm($hostname_length)
         . '    </select>'
         . '</span>'
         . '<input type="password" id="text_pma_pw" name="pma_pw" title="'
-        . __('Password') . '" onchange="pred_password.value = \'userdefined\';" />'
+        . __('Password') . '" />'
         . '</div>'
         . '<div class="item">'
         . '<label for="text_pma_pw2">'
@@ -887,7 +872,7 @@ function PMA_getHtmlForTableInfoForm($hostname_length)
         . '</label>'
         . '<span class="options">&nbsp;</span>'
         . '<input type="password" name="pma_pw2" id="text_pma_pw2" title="'
-        . __('Re-type') . '" onchange="pred_password.value = \'userdefined\';" />'
+        . __('Re-type') . '" />'
         . '</div>'
         . '<div class="item">'
         . '<label for="button_generate_password">'

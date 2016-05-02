@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.0-alpha1\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-02-17 11:55+0100\n"
-"PO-Revision-Date: 2016-02-17 19:14+0000\n"
+"PO-Revision-Date: 2016-04-13 17:48+0000\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-6/tr/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 2.5-dev\n"
+"X-Generator: Weblate 2.6-dev\n"
 
 #: changelog.php:37 license.php:33
 #, php-format
@@ -39,12 +39,12 @@ msgstr "Gösterilen satır %1$s - %2$s."
 
 #: db_datadict.php:57 libraries/operations.lib.php:34
 msgid "Database comment"
-msgstr "Veritabanı yorumu"
+msgstr "Veritabanı açıklaması"
 
 #: db_datadict.php:104 libraries/plugins/schema/pdf/PdfRelationSchema.php:596
 #: templates/columns_definitions/column_definitions_form.phtml:88
 msgid "Table comments:"
-msgstr "Tablo yorumları:"
+msgstr "Tablo açıklamaları:"
 
 #: db_datadict.php:113 libraries/Index.php:697
 #: libraries/insert_edit.lib.php:1577
@@ -160,7 +160,7 @@ msgstr "Bağlantı verilen"
 #: templates/columns_definitions/table_fields_definitions.phtml:65
 #: templates/table/structure/table_structure_header.phtml:14
 msgid "Comments"
-msgstr "Yorumlar"
+msgstr "Açıklamalar"
 
 #: db_datadict.php:155
 #: libraries/controllers/table/TableStructureController.php:1181
@@ -3201,7 +3201,7 @@ msgstr "Başlangıçta sorgu geçmişini göster"
 
 #: libraries/Console.php:367
 msgid "Show current browsing query"
-msgstr "Şu anki gözatılan sorguyu göster"
+msgstr "Şu an gözatılan sorguyu göster"
 
 #: libraries/Console.php:370
 msgid ""
@@ -3783,7 +3783,7 @@ msgstr "Karşılaştırma"
 #: templates/database/structure/table_header.phtml:84
 #: templates/table/structure/display_partitions.phtml:32
 msgid "Comment"
-msgstr "Yorum"
+msgstr "Açıklama"
 
 #: libraries/Index.php:729
 msgid "The primary key has been dropped."
@@ -5596,12 +5596,12 @@ msgstr "Tablo yapısı eylemlerinin gizlenip gizlenmeyeceği."
 
 #: libraries/config/messages.inc.php:117
 msgid "Show column comments"
-msgstr "Sütun yorumlarını göster"
+msgstr "Sütun açıklamalarını göster"
 
 #: libraries/config/messages.inc.php:119
 msgid "Whether column comments should be shown in table structure view"
 msgstr ""
-"Sütun yorumlarının tablo yapısı görünümünde gösterilip gösterilmeyeceği"
+"Sütun açıklamalarının tablo yapısı görünümünde gösterilip gösterilmeyeceği"
 
 #: libraries/config/messages.inc.php:120
 msgid "Hide table structure actions"
@@ -6946,7 +6946,7 @@ msgid ""
 "Leave blank for no column comments/mime types, suggested: "
 "[kbd]pma__column_info[/kbd]."
 msgstr ""
-"Sütun yorumları/mime türleri istenmiyorsa boş bırakın, önerilen: "
+"Sütun açıklamaları/mime türleri istenmiyorsa boş bırakın, önerilen: "
 "[kbd]pma__column_info[/kbd]."
 
 #: libraries/config/messages.inc.php:652
@@ -7445,11 +7445,11 @@ msgstr "Veritabanı oluşturma formu göster"
 #: libraries/config/messages.inc.php:848
 msgid "Show or hide a column displaying the comments for all tables."
 msgstr ""
-"Tüm tablolar için yorumları görüntüleyen sütunu gösterin veya gizleyin."
+"Tüm tablolar için açıklamaları görüntüleyen sütunu gösterin veya gizleyin."
 
 #: libraries/config/messages.inc.php:850
 msgid "Show table comments"
-msgstr "Tablo yorumlarını göster"
+msgstr "Tablo açıklamalarını göster"
 
 #: libraries/config/messages.inc.php:852
 msgid "Show or hide a column displaying the Creation timestamp for all tables."
@@ -9354,7 +9354,7 @@ msgid ""
 "There are large item groups in navigation panel which may affect the "
 "performance. Consider disabling item grouping in the navigation panel."
 msgstr ""
-"Gezinti panelinde performansı etkileyebilen büyük öğe grupları var. Gezinme "
+"Gezinti panelinde performansı etkileyebilen büyük öğe grupları var. Gezinti "
 "panelindeki öğe gruplandırmayı etkisizleştirmeyi düşünün."
 
 #: libraries/navigation/NavigationTree.php:942
@@ -9842,7 +9842,7 @@ msgstr "Tabloyu yeniden şuna adlandır"
 
 #: libraries/operations.lib.php:970
 msgid "Table comments"
-msgstr "Tablo yorumları"
+msgstr "Tablo açıklamaları"
 
 #: libraries/operations.lib.php:1043
 msgid "Table options"
@@ -10270,7 +10270,7 @@ msgstr "Dış anahtar ilişkilerini göster"
 #: libraries/plugins/export/ExportLatex.php:143
 #: libraries/plugins/export/ExportOdt.php:104
 msgid "Display comments"
-msgstr "Yorumları göster"
+msgstr "Açıklamaları göster"
 
 #: libraries/plugins/export/ExportLatex.php:149
 #: libraries/plugins/export/ExportOdt.php:110
@@ -10346,12 +10346,14 @@ msgid ""
 "Display comments <i>(includes info such as export timestamp, PHP version, "
 "and server version)</i>"
 msgstr ""
-"Yorumları göster <i>(dışa aktarma zaman damgası, PHP sürümü ve sunucu sürümü "
-"gibi bilgileri dahil et)</i>"
+"Açıklamaları göster <i>(dışa aktarma zaman damgası, PHP sürümü ve sunucu "
+"sürümü gibi bilgileri dahil et)</i>"
 
 #: libraries/plugins/export/ExportSql.php:99
 msgid "Additional custom header comment (\\n splits lines):"
-msgstr "İlave özel başlık yorumu (\\n satırları böler):"
+msgstr ""
+"İlave özel başlık açıklaması (\\n"
+" satırları böler):"
 
 #: libraries/plugins/export/ExportSql.php:105
 msgid ""
@@ -11121,7 +11123,7 @@ msgstr "PDF'lerin tasarımcısı ve oluşturulması"
 
 #: libraries/relation.lib.php:180
 msgid "Displaying Column Comments"
-msgstr "Sütun Yorumlarını görüntüleme"
+msgstr "Sütun Açıklamalarını görüntüleme"
 
 #: libraries/relation.lib.php:186
 msgid "Browser transformation"
@@ -15289,7 +15291,7 @@ msgstr "Ayrıştırıcı:"
 
 #: templates/table/index_form.phtml:102
 msgid "Comment:"
-msgstr "Yorum:"
+msgstr "Açıklama:"
 
 #: templates/table/index_form.phtml:149 templates/table/index_form.phtml:195
 msgid "Drag to reorder"
@@ -15504,7 +15506,7 @@ msgstr "Düzenleme görünümü"
 
 #: templates/table/structure/display_table_stats.phtml:5
 msgid "Table comments: "
-msgstr "Tablo yorumları: "
+msgstr "Tablo açıklamaları: "
 
 #: templates/table/structure/display_table_stats.phtml:12
 msgid "Space usage"

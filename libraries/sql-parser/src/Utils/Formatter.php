@@ -208,6 +208,13 @@ class Formatter
         $lineEnded = false;
 
         /**
+         * Whether current group is short (no linebreaks)
+         *
+         * @var bool $shortGroup
+         */
+        $shortGroup = false;
+
+        /**
          * The name of the last clause.
          *
          * @var string $lastClause
@@ -339,6 +346,7 @@ class Formatter
                     // pieces only if the clause is not inlined or this fragment
                     // is between brackets that are on new line.
                     if (((empty(self::$INLINE_CLAUSES[$lastClause]))
+                        && ! $shortGroup
                         && ($this->options['parts_newline']))
                         || (end($blocksLineEndings) === true)
                     ) {
@@ -351,14 +359,17 @@ class Formatter
                 // them is longer than 30 characters.
                 if (($prev->type === Token::TYPE_OPERATOR) && ($prev->value === '(')) {
                     array_push($blocksIndentation, $indent);
+                    $shortGroup = true;
                     if (static::getGroupLength($list) > 30) {
                         ++$indent;
                         $lineEnded = true;
+                        $shortGroup = false;
                     }
                     array_push($blocksLineEndings, $lineEnded);
                 } elseif (($curr->type === Token::TYPE_OPERATOR) && ($curr->value === ')')) {
                     $indent = array_pop($blocksIndentation);
                     $lineEnded |= array_pop($blocksLineEndings);
+                    $shortGroup = false;
                 }
 
                 // Delimiter must be placed on the same line with the last

@@ -1616,17 +1616,7 @@ function PMA_getHtmlForLoginInformationFields(
         . '<span class="options">' . "\n";
 
     $html_output .= '<select name="pred_username" id="select_pred_username" '
-        . 'title="' . __('User name') . '"' . "\n";
-
-    $html_output .= '        onchange="'
-        . 'if (this.value == \'any\') {'
-        . '    username.value = \'\'; '
-        . '    user_exists_warning.style.display = \'none\'; '
-        . '    username.required = false; '
-        . '} else if (this.value == \'userdefined\') {'
-        . '    username.focus(); username.select(); '
-        . '    username.required = true; '
-        . '}">' . "\n";
+        . 'title="' . __('User name') . '">' . "\n";
 
     $html_output .= '<option value="any"'
         . ((isset($GLOBALS['pred_username']) && $GLOBALS['pred_username'] == 'any')
@@ -1647,7 +1637,7 @@ function PMA_getHtmlForLoginInformationFields(
     $html_output .= '</select>' . "\n"
         . '</span>' . "\n";
 
-    $html_output .= '<input type="text" name="username" class="autofocus"'
+    $html_output .= '<input type="text" name="username" id="pma_username" class="autofocus"'
         . ' maxlength="' . $username_length . '" title="' . __('User name') . '"'
         . (empty($GLOBALS['username'])
            ? ''
@@ -1657,7 +1647,6 @@ function PMA_getHtmlForLoginInformationFields(
                : $GLOBALS['username']
            ) . '"'
         )
-        . ' onchange="pred_username.value = \'userdefined\'; this.required = true;" '
         . ((! isset($GLOBALS['pred_username'])
                 || $GLOBALS['pred_username'] == 'userdefined'
             )
@@ -1693,30 +1682,13 @@ function PMA_getHtmlForLoginInformationFields(
                 (mb_strrpos($_current_user, '@') + 1)
             )
         );
-        if ($thishost == 'localhost' || $thishost == '127.0.0.1') {
+        if ($thishost != 'localhost' && $thishost != '127.0.0.1') {
+            $html_output .= ' data-thishost="' . htmlspecialchars($thishost) . '" ';
+        } else {
             unset($thishost);
         }
     }
-    $html_output .= '    onchange="'
-        . 'if (this.value == \'any\') { '
-        . '     hostname.value = \'%\'; '
-        . '} else if (this.value == \'localhost\') { '
-        . '    hostname.value = \'localhost\'; '
-        . '} '
-        . (empty($thishost)
-            ? ''
-            : 'else if (this.value == \'thishost\') { '
-            . '    hostname.value = \'' . addslashes(htmlspecialchars($thishost))
-            . '\'; '
-            . '} '
-        )
-        . 'else if (this.value == \'hosttable\') { '
-        . '    hostname.value = \'\'; '
-        . '    hostname.required = false; '
-        . '} else if (this.value == \'userdefined\') {'
-        . '    hostname.focus(); hostname.select(); '
-        . '    hostname.required = true; '
-        . '}">' . "\n";
+    $html_output .= '>' . "\n";
     unset($_current_user);
 
     // when we start editing a user, $GLOBALS['pred_hostname'] is not defined
@@ -1780,13 +1752,11 @@ function PMA_getHtmlForLoginInformationFields(
         . '</select>' . "\n"
         . '</span>' . "\n";
 
-    $html_output .= '<input type="text" name="hostname" maxlength="'
+    $html_output .= '<input type="text" name="hostname" id="pma_hostname" maxlength="'
         . $hostname_length . '" value="'
         // use default value of '%' to match with the default 'Any host'
         . htmlspecialchars(isset($GLOBALS['hostname']) ? $GLOBALS['hostname'] : '%')
         . '" title="' . __('Host name')
-        . '" onchange="pred_hostname.value = \'userdefined\'; '
-        . 'this.required = true;" '
         . ((isset($GLOBALS['pred_hostname'])
                 && $GLOBALS['pred_hostname'] == 'userdefined'
             )
@@ -1807,18 +1777,7 @@ function PMA_getHtmlForLoginInformationFields(
         . '</label>' . "\n"
         . '<span class="options">' . "\n"
         . '<select name="pred_password" id="select_pred_password" title="'
-        . __('Password') . '"' . "\n";
-
-    $html_output .= '            onchange="'
-        . 'if (this.value == \'none\') { '
-        . '    pma_pw.value = \'\'; pma_pw2.value = \'\'; '
-        . '    pma_pw.required = false; pma_pw2.required = false; '
-        . '} else if (this.value == \'userdefined\') { '
-        . '    pma_pw.focus(); pma_pw.select(); '
-        . '    pma_pw.required = true; pma_pw2.required = true; '
-        . '} else { '
-        . '    pma_pw.required = false; pma_pw2.required = false; '
-        . '}">' . "\n"
+        . __('Password') . '">' . "\n"
         . ($mode == 'change' ? '<option value="keep" selected="selected">'
             . __('Do not change the password')
             . '</option>' . "\n" : '')
@@ -1836,8 +1795,6 @@ function PMA_getHtmlForLoginInformationFields(
         . '</span>' . "\n"
         . '<input type="password" id="text_pma_pw" name="pma_pw" '
         . 'title="' . __('Password') . '" '
-        . 'onchange="pred_password.value = \'userdefined\'; this.required = true; '
-        . 'pma_pw2.required = true;" '
         . (isset($GLOBALS['username']) ? '' : 'required="required"')
         . '/>' . "\n"
         . '</div>' . "\n";
@@ -1850,8 +1807,6 @@ function PMA_getHtmlForLoginInformationFields(
         . '<span class="options">&nbsp;</span>' . "\n"
         . '<input type="password" name="pma_pw2" id="text_pma_pw2" '
         . 'title="' . __('Re-type') . '" '
-        . 'onchange="pred_password.value = \'userdefined\'; this.required = true; '
-        . 'pma_pw.required = true;" '
         . (isset($GLOBALS['username']) ? '' : 'required="required"')
         . '/>' . "\n"
         . '</div>' . "\n"
@@ -3822,7 +3777,8 @@ function PMA_getHtmlForInitials($array_initials)
     }
 
     $initials = $GLOBALS['dbi']->tryQuery(
-        'SELECT DISTINCT UPPER(LEFT(`User`,1)) FROM `user` ORDER BY `User` ASC',
+        'SELECT DISTINCT UPPER(LEFT(`User`,1)) FROM `user`'
+        . ' ORDER BY UPPER(LEFT(`User`,1)) ASC',
         null,
         PMA\libraries\DatabaseInterface::QUERY_STORE
     );

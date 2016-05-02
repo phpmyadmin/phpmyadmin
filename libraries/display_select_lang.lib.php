@@ -59,7 +59,7 @@ function PMA_getLanguageSelectorHtml($use_fieldset = false, $show_doc = true)
             } else {
                 $selected = '';
             }
-            $retval .= '<option value="' . $language->getCode() . '"' . $selected . '>';
+            $retval .= '<option value="' . strtolower($language->getCode()) . '"' . $selected . '>';
             $retval .= $language->getName();
             $retval .= '</option>';
         }

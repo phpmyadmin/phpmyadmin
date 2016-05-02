@@ -6,8 +6,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.0-alpha1\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-02-17 11:55+0100\n"
-"PO-Revision-Date: 2016-02-17 12:16+0000\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2016-04-19 01:00+0000\n"
+"Last-Translator: Liška <nicefox1@gmail.com>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/phpmyadmin/4-6/cs/>"
 "\n"
 "Language: cs\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Weblate 2.5-dev\n"
+"X-Generator: Weblate 2.6-dev\n"
 
 #: changelog.php:37 license.php:33
 #, php-format
@@ -586,12 +586,12 @@ msgid "Bookmark %s has been created."
 msgstr "Byl vytvořen oblíbený dotaz %s."
 
 #: import.php:680
-#, fuzzy, php-format
+#, php-format
 #| msgid "Import has been successfully finished, %d queries executed."
 msgid "Import has been successfully finished, %d query executed."
 msgid_plural "Import has been successfully finished, %d queries executed."
-msgstr[0] "Import byl úspěšně dokončen, bylo provedeno %d dotazů."
-msgstr[1] "Import byl úspěšně dokončen, bylo provedeno %d dotazů."
+msgstr[0] "Import byl úspěšně dokončen, byl proveden %d dotaz."
+msgstr[1] "Import byl úspěšně dokončen, byly provedeny %d dotazy."
 msgstr[2] "Import byl úspěšně dokončen, bylo provedeno %d dotazů."
 
 #: import.php:711
@@ -769,6 +769,8 @@ msgid ""
 "The curl extension was not found and allow_url_fopen is disabled. Due to "
 "this some features such as error reporting or version check are disabled."
 msgstr ""
+"Rozšíření curl nebylo nalezeno a allow_url_fopen je vypnuto. Kvůli tomuto "
+"jsou některé funkce, jako hlášení chyb a kontrola verze, vypnuty."
 
 #: index.php:499
 msgid ""

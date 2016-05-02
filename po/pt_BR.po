@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.0-alpha1\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-02-17 11:55+0100\n"
-"PO-Revision-Date: 2016-02-29 19:37+0000\n"
-"Last-Translator: Kenzo Martins Matuzawa <kenzo.matuzawa@gmail.com>\n"
+"PO-Revision-Date: 2016-04-18 12:46+0000\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Portuguese (Brazil) "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-6/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 2.5-dev\n"
+"X-Generator: Weblate 2.6-dev\n"
 
 #: changelog.php:37 license.php:33
 #, php-format
@@ -1772,10 +1772,9 @@ msgid "No databases selected."
 msgstr "Nenhum banco de dados selecionado."
 
 #: js/messages.php:365
-#, fuzzy
 #| msgid "Dropping Column"
 msgid "Dropping column"
-msgstr "Excluindo coluna"
+msgstr "Excluíndo coluna"
 
 #: js/messages.php:366
 msgid "Adding primary key"
@@ -2580,7 +2579,7 @@ msgstr ""
 "Ocorreram alguns erros enquanto informações de debug do SQL eram gerados."
 
 #: js/messages.php:704
-#, fuzzy, php-format
+#, php-format
 #| msgid "Executed queries"
 msgid "%s queries executed %s times in %s seconds."
 msgstr "%s consultas executadas %s vezes em %s segundos"
@@ -4743,10 +4742,9 @@ msgstr "Pular demonstração do SQL"
 #: libraries/Util.php:1225
 #, php-format
 msgid "Analyze Explain at %s"
-msgstr ""
+msgstr "Explicação da analise em %s"
 
 #: libraries/Util.php:1256
-#, fuzzy
 #| msgid "Without PHP Code"
 msgid "Without PHP code"
 msgstr "Sem código PHP"
@@ -7952,6 +7950,8 @@ msgid ""
 "Queries are executed by pressing Enter (instead of Ctrl+Enter). New lines "
 "will be inserted with Shift+Enter."
 msgstr ""
+"Queries são executadas pressionando Enter (no lugar de Ctrl + enter). Nova "
+"linhas serão inseridas com Shift + Enter."
 
 #: libraries/config/messages.inc.php:1000
 #, fuzzy
@@ -10192,7 +10192,7 @@ msgstr "Reparar"
 #: libraries/operations.lib.php:1584
 #: templates/table/structure/display_structure.phtml:176
 msgid "Truncate"
-msgstr ""
+msgstr "Truncar"
 
 #: libraries/operations.lib.php:1594
 #, fuzzy
@@ -10839,7 +10839,7 @@ msgstr "Estrutura da view %s exportado como tabela"
 
 #: libraries/plugins/export/ExportSql.php:2094
 msgid "(See below for the actual view)"
-msgstr ""
+msgstr "(Veja abaixo para a visão atual)"
 
 #: libraries/plugins/export/ExportSql.php:2180
 msgid "Error reading data:"

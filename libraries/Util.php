@@ -208,8 +208,10 @@ class Util
         if (array_key_exists($class, $sprites)) {
             $is_sprite = true;
             $url = (defined('PMA_TEST_THEME') ? '../' : '') . 'themes/dot.gif';
-        } else {
+        } elseif (isset($GLOBALS['pmaThemeImage'])) {
             $url = $GLOBALS['pmaThemeImage'] . $image;
+        } else {
+            $url = './themes/pmahomme/' . $image;
         }
 
         // set class attribute
@@ -3254,8 +3256,13 @@ class Util
         if (($engine == 'INNODB') || ($engine == 'PBXT')) {
             return true;
         } elseif ($engine == 'NDBCLUSTER' || $engine == 'NDB') {
-            $ndbver = $GLOBALS['dbi']->fetchValue("SELECT @@ndb_version_string");
-            return ($ndbver >= 7.3);
+            $ndbver = strtolower(
+                $GLOBALS['dbi']->fetchValue("SELECT @@ndb_version_string")
+            );
+            if (substr($ndbver, 0, 4) == 'ndb-') {
+                $ndbver = substr($ndbver, 4);
+            }
+            return version_compare($ndbver, 7.3, '>=');
         } else {
             return false;
         }

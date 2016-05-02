@@ -96,4 +96,24 @@ class UtilTest extends PMATestCase
         );
     }
 
+    /**
+     * Test for isForeignKeySupported
+     *
+     * @return void
+     */
+    public function testIsForeignKeySupported()
+    {
+        $GLOBALS['server'] = 1;
+
+        $this->assertTrue(
+            PMA\libraries\Util::isForeignKeySupported('innodb')
+        );
+        $this->assertFalse(
+            PMA\libraries\Util::isForeignKeySupported('myisam')
+        );
+        $this->assertTrue(
+            PMA\libraries\Util::isForeignKeySupported('ndb')
+        );
+    }
+
 }

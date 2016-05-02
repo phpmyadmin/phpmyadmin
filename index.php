@@ -152,7 +152,7 @@ if ($server > 0 || count($cfg['Servers']) > 1
                 . 'please do not change root, debian-sys-maint and pma users. '
                 . 'More information is available at %s.'
             ),
-            '<a href="http://demo.phpmyadmin.net/">demo.phpmyadmin.net</a>'
+            '<a href="url.php?url=https://demo.phpmyadmin.net/">demo.phpmyadmin.net</a>'
         );
         echo '</p>';
         echo '</div>';
@@ -393,19 +393,12 @@ PMA_printListItem(
     null,
     '_blank'
 );
-PMA_printListItem(
-    __('Wiki'),
-    'li_pma_wiki',
-    PMA_linkURL('http://wiki.phpmyadmin.net/'),
-    null,
-    '_blank'
-);
 
 // does not work if no target specified, don't know why
 PMA_printListItem(
     __('Official Homepage'),
     'li_pma_homepage',
-    PMA_linkURL('http://www.phpMyAdmin.net/'),
+    PMA_linkURL('https://www.phpMyAdmin.net/'),
     null,
     '_blank'
 );

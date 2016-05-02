@@ -53,6 +53,8 @@ class Condition extends Component
         'NOT'                           => 1,
         'NULL'                          => 1,
         'OR'                            => 1,
+        'REGEXP'                        => 1,
+        'RLIKE'                         => 1,
         'XOR'                           => 1,
     );
 
