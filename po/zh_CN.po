@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.0-alpha1\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-02-17 11:55+0100\n"
-"PO-Revision-Date: 2016-03-21 08:37+0000\n"
-"Last-Translator: YF <yfdyh000@gmail.com>\n"
+"PO-Revision-Date: 2016-05-07 11:57+0000\n"
+"Last-Translator: Lasm Gratel <lasm_gratel@gmail.com>\n"
 "Language-Team: Chinese (China) "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-6/zh_CN/>\n"
 "Language: zh_CN\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 2.6-dev\n"
+"X-Generator: Weblate 2.7-dev\n"
 
 #: changelog.php:37 license.php:33
 #, php-format
@@ -3500,7 +3500,7 @@ msgstr "全选"
 
 #: libraries/DisplayResults.php:5006
 msgid "Copy to clipboard"
-msgstr ""
+msgstr "复制到剪贴板"
 
 #: libraries/DisplayResults.php:5062
 msgid "Query results operations"
@@ -3713,7 +3713,7 @@ msgstr "页码："
 
 #: libraries/LanguageManager.php:778
 msgid "Ignoring unsupported language code."
-msgstr ""
+msgstr "省略不支持的语言代码。"
 
 #: libraries/Linter.php:99
 msgid ""
@@ -4449,7 +4449,7 @@ msgstr "任意类型几何体对象的集合"
 msgid ""
 "Stores and enables efficient access to data in JSON (JavaScript Object "
 "Notation) documents"
-msgstr ""
+msgstr "存储并可高效访问 JSON （JavaScript 对象） 文档中的数据"
 
 #: libraries/TypesMySQL.php:479
 msgctxt "numeric types"
@@ -5387,14 +5387,13 @@ msgid "Whether the table structure actions should be hidden."
 msgstr "是否隐藏对表结构的相关操作。"
 
 #: libraries/config/messages.inc.php:117
-#, fuzzy
 #| msgid "Show table comments"
 msgid "Show column comments"
-msgstr "显示表备注"
+msgstr "显示列备注"
 
 #: libraries/config/messages.inc.php:119
 msgid "Whether column comments should be shown in table structure view"
-msgstr ""
+msgstr "是否在表结构视图中显示列备注"
 
 #: libraries/config/messages.inc.php:120
 msgid "Hide table structure actions"
