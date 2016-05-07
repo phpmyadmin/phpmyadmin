@@ -827,7 +827,7 @@ class LanguageManager
         if ($accepted_languages && false === mb_strpos($accepted_languages, '<')) {
             foreach (explode(',', $accepted_languages) as $header) {
                 foreach ($langs as $language) {
-                    if ($language->matchesAcceptLanguage($header)) {
+                    if ($language->matchesAcceptLanguage(strtolower($header))) {
                         return $language;
                     }
                 }
@@ -838,7 +838,7 @@ class LanguageManager
         $user_agent = PMA_getenv('HTTP_USER_AGENT');
         if (! empty($user_agent)) {
             foreach ($langs as $language) {
-                if ($language->matchesUserAgent($user_agent)) {
+                if ($language->matchesUserAgent(strtolower($user_agent))) {
                     return $language;
                 }
             }
