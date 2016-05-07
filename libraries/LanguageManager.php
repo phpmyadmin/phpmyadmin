@@ -790,8 +790,8 @@ class LanguageManager
 
         // check forced language
         if (! empty($GLOBALS['cfg']['Lang'])) {
-            if (isset($langs[$GLOBALS['cfg']['Lang']])) {
-                return $langs[$GLOBALS['cfg']['Lang']];
+            if (isset($langs[strtolower($GLOBALS['cfg']['Lang'])])) {
+                return $langs[strtolower($GLOBALS['cfg']['Lang'])];
             }
             $this->_lang_failed_cfg = true;
         }
@@ -799,24 +799,24 @@ class LanguageManager
         // Don't use REQUEST in following code as it might be confused by cookies
         // with same name. Check user requested language (POST)
         if (! empty($_POST['lang'])) {
-            if (isset($langs[$_POST['lang']])) {
-                return $langs[$_POST['lang']];
+            if (isset($langs[strtolower($_POST['lang'])])) {
+                return $langs[strtolower($_POST['lang'])];
             }
             $this->_lang_failed_request = true;
         }
 
         // check user requested language (GET)
         if (! empty($_GET['lang'])) {
-            if (isset($langs[$_GET['lang']])) {
-                return $langs[$_GET['lang']];
+            if (isset($langs[strtolower($_GET['lang'])])) {
+                return $langs[strtolower($_GET['lang'])];
             }
             $this->_lang_failed_request = true;
         }
 
         // check previous set language
         if (! empty($_COOKIE['pma_lang'])) {
-            if (isset($langs[$_COOKIE['pma_lang']])) {
-                return $langs[$_COOKIE['pma_lang']];
+            if (isset($langs[strtolower($_COOKIE['pma_lang'])])) {
+                return $langs[strtolower($_COOKIE['pma_lang'])];
             }
             $this->_lang_failed_cookie = true;
         }
