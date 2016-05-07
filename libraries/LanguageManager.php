@@ -845,8 +845,8 @@ class LanguageManager
         }
 
         // Didn't catch any valid lang : we use the default settings
-        if (isset($langs[$GLOBALS['cfg']['DefaultLang']])) {
-            return $langs[$GLOBALS['cfg']['DefaultLang']];
+        if (isset($langs[strtolower($GLOBALS['cfg']['DefaultLang'])])) {
+            return $langs[strtolower($GLOBALS['cfg']['DefaultLang'])];
         }
 
         // Fallback to English
