@@ -539,7 +539,7 @@ class Util
         /* Check if we have built local documentation */
         if (defined('TESTSUITE')) {
             /* Provide consistent URL for testsuite */
-            return PMA_linkURL('http://docs.phpmyadmin.net/en/latest/' . $url);
+            return PMA_linkURL('https://docs.phpmyadmin.net/en/latest/' . $url);
         } elseif (@file_exists('doc/html/index.html')) {
             if (defined('PMA_SETUP')) {
                 return '../doc/html/' . $url;
@@ -548,7 +548,7 @@ class Util
             }
         } else {
             /* TODO: Should link to correct branch for released versions */
-            return PMA_linkURL('http://docs.phpmyadmin.net/en/latest/' . $url);
+            return PMA_linkURL('https://docs.phpmyadmin.net/en/latest/' . $url);
         }
     }
 
