@@ -3,6 +3,8 @@ phpMyAdmin - ChangeLog
 
 4.6.2 (not yet released)
 
+- issue #12225 Use https for documentation links
+
 4.6.1 (2016-05-02)
 - issue #12120 PMA_Util not found in insert_edit.lib.php
 - issue #12118 Fixed activation of some languages

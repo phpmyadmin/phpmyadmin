@@ -361,7 +361,7 @@ class MessageTest extends PMATestCase
             ),
             array(
                 '[doc@foo]link[/doc]',
-                '<a href="./url.php?url=http%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2F'
+                '<a href="./url.php?url=https%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2F'
                 . 'latest%2Fsetup.html%23foo" '
                 . 'target="documentation">link</a>'
             ),
@@ -486,7 +486,7 @@ class MessageTest extends PMATestCase
     {
         $this->object->setMessage('[kbd]test[/kbd] [doc@cfg_Example]test[/doc]');
         $this->assertEquals(
-            '<kbd>test</kbd> <a href="./url.php?url=http%3A%2F%2Fdocs.phpmyadmin.'
+            '<kbd>test</kbd> <a href="./url.php?url=https%3A%2F%2Fdocs.phpmyadmin.'
             . 'net%2Fen%2Flatest%2Fcfg.html%23cfg_Example"'
             . ' target="documentation">test</a>',
             $this->object->getMessage()
