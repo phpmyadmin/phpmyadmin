@@ -191,7 +191,10 @@ var PMA_console = {
                 PMA_consoleMessages.showInstructions(PMA_console.config.enterExecutes);
             });
 
-            $(document).ajaxComplete(function (event, xhr) {
+            $(document).ajaxComplete(function (event, xhr, ajaxOptions) {
+                if (ajaxOptions.dataType != 'json') {
+                    return;
+                }
                 try {
                     var data = $.parseJSON(xhr.responseText);
                     PMA_console.ajaxCallback(data);
