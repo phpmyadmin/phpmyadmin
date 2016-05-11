@@ -9,6 +9,7 @@ use PMA\libraries\RecentFavoriteTable;
 use PMA\libraries\URL;
 use PMA\libraries\Sanitize;
 use PMA\libraries\Charsets;
+use PMA\libraries\ThemeManager;
 
 /**
  * Gets some core libraries and displays a top message if required
@@ -246,7 +247,7 @@ if (empty($cfg['Lang'])) {
 if ($GLOBALS['cfg']['ThemeManager']) {
     echo '<li id="li_select_theme" class="no_bullets">';
     echo PMA\libraries\Util::getImage('s_theme.png') , " "
-            ,  $_SESSION['PMA_Theme_Manager']->getHtmlSelectBox();
+            ,  ThemeManager::getInstance()->getHtmlSelectBox();
     echo '</li>';
 }
 echo '<li id="li_select_fontsize">';

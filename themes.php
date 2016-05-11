@@ -5,11 +5,13 @@
  *
  * @package PhpMyAdmin
  */
+use PMA\libraries\ThemeManager;
 
 /**
  * get some globals
  */
 require './libraries/common.inc.php';
+
 $response = PMA\libraries\Response::getInstance();
 $response->getFooter()->setMinimal();
 $header = $response->getHeader();
@@ -25,6 +27,6 @@ $output .= '<a href="' . $url . '" class="_blank">';
 $output .= __('Get more themes!');
 $output .= '</a>';
 $output .= '</p>';
-$output .= $_SESSION['PMA_Theme_Manager']->getPrintPreviews();
+$output .= ThemeManager::getInstance()->getPrintPreviews();
 
 $response->addHTML($output);

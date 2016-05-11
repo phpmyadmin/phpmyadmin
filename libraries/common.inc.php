@@ -624,7 +624,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         );
     }
 
-    $_SESSION['PMA_Theme_Manager']->setThemeCookie();
+    ThemeManager::getInstance()->setThemeCookie();
 
     if (! empty($cfg['Server'])) {
 

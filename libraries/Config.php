@@ -9,6 +9,7 @@ namespace PMA\libraries;
 
 use DirectoryIterator;
 use PMA\libraries\URL;
+use PMA\libraries\ThemeManager;
 
 /**
  * Indication for error handler (see end of this file).
@@ -985,7 +986,7 @@ class Config
 
         // save theme
         /** @var ThemeManager $tmanager */
-        $tmanager = $_SESSION['PMA_Theme_Manager'];
+        $tmanager = ThemeManager::getInstance();
         if ($tmanager->getThemeCookie() || isset($_REQUEST['set_theme'])) {
             if ((! isset($config_data['ThemeDefault'])
                 && $tmanager->theme->getId() != 'original')
