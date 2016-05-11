@@ -203,11 +203,20 @@ class DatabaseInterface
         }
         $dbgInfo['query'] = htmlspecialchars($query);
         $dbgInfo['time'] = $time;
-        // Get and slightly format backtrace
+        // Get and slightly format backtrace, this is used
+        // in the javascript console
         $dbgInfo['trace'] = debug_backtrace();
         foreach ($dbgInfo['trace'] as $key => $step) {
             if (isset($step['file'])) {
                 $dbgInfo['trace'][$key]['file'] = Error::relPath($step['file']);
+            }
+            // We don't need object value in console and it's too big
+            if (isset($step['object'])) {
+                unset($dbgInfo['trace'][$key]['object']);
+            }
+            // Convert args to string as that's what the client would do anyway
+            if (isset($step['args'])) {
+                $dbgInfo['trace'][$key]['args'] = var_export($step['args'], true);
             }
         }
         $dbgInfo['hash'] = md5($query);
