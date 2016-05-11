@@ -5,6 +5,7 @@ phpMyAdmin - ChangeLog
 - issue #12225 Use https for documentation links
 - issue #12234 Fix schema export with too many tables
 - issue #12240 Avoid parsing non JSON responses as JSON
+- issue #12244 Avoid using too log URLs when getting javascripts
 
 4.6.1 (2016-05-02)
 - issue #12120 PMA_Util not found in insert_edit.lib.php
