@@ -852,7 +852,7 @@ function offerPrefsAutoimport()
             $.post('index.php', {
                 token: $cnt.find('input[name=token]').val(),
                 prefs_autoload: 'hide'
-            });
+            }, null, 'html');
             return;
         }
         $cnt.find('input[name=json]').val(window.localStorage.config);
