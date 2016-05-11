@@ -217,7 +217,17 @@ class DatabaseInterface
             }
             // Convert args to string as that's what the client would do anyway
             if (isset($step['args'])) {
-                $dbgInfo['trace'][$key]['args'] = var_export($step['args'], true);
+                $simplified = array();
+                foreach ($step['args'] as $akey => $aval) {
+                    if (is_object($aval)) {
+                        $simplified[$akey] = '<Class:' . get_class($aval) . '>';
+                    } elseif (is_array($aval)) {
+                        $simplified[$akey] = var_export($aval, true);
+                    } else {
+                        $simplified[$akey] = $aval;
+                    }
+                }
+                $dbgInfo['trace'][$key]['args'] = $simplified;
             }
         }
         $dbgInfo['hash'] = md5($query);
