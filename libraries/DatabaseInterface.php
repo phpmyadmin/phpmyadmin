@@ -204,8 +204,9 @@ class DatabaseInterface
         $dbgInfo['query'] = htmlspecialchars($query);
         $dbgInfo['time'] = $time;
         // Get and slightly format backtrace, this is used
-        // in the javascript console
-        $dbgInfo['trace'] = debug_backtrace();
+        // in the javascript console.
+        // Strip call to _dbgQuery
+        $dbgInfo['trace'] = array_slice(debug_backtrace(), 1);
         foreach ($dbgInfo['trace'] as $key => $step) {
             if (isset($step['file'])) {
                 $dbgInfo['trace'][$key]['file'] = Error::relPath($step['file']);
