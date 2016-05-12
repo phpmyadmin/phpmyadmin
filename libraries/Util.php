@@ -3282,23 +3282,6 @@ class Util
     }
 
     /**
-     * Replaces some characters by a displayable equivalent
-     *
-     * @param string $content content
-     *
-     * @return string the content with characters replaced
-     */
-    public static function replaceBinaryContents($content)
-    {
-        $result = str_replace("\x00", '\0', $content);
-        $result = str_replace("\x08", '\b', $result);
-        $result = str_replace("\x0a", '\n', $result);
-        $result = str_replace("\x0d", '\r', $result);
-        $result = str_replace("\x1a", '\Z', $result);
-        return $result;
-    }
-
-    /**
      * Converts GIS data to Well Known Text format
      *
      * @param string $data        GIS data
