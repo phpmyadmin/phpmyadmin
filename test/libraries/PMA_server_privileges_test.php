@@ -2086,8 +2086,11 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
             $actual
         );
         $this->assertContains(
-            '<legend data-submenu-label="Table">'
-            . 'Table-specific privileges',
+            '<legend data-submenu-label="Table">',
+            $actual
+        );
+        $this->assertContains(
+            'Table-specific privileges',
             $actual
         );
 
@@ -2096,8 +2099,11 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['dblist']->databases = array('x', 'y', 'z');
         $actual = PMA_getHtmlForAllTableSpecificRights('pma2', 'host2', 'database', '');
         $this->assertContains(
-            '<legend data-submenu-label="Database">'
-            . 'Database-specific privileges',
+            '<legend data-submenu-label="Database">',
+            $actual
+        );
+        $this->assertContains(
+            'Database-specific privileges',
             $actual
         );
     }

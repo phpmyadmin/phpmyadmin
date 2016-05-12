@@ -111,7 +111,7 @@ class ServerPluginsControllerTest extends PMATestCase
 
         //validate 2: one Item HTML
         $this->assertContains(
-            '<th>plugin_name1</th>',
+            'plugin_name1',
             $html
         );
         $this->assertContains(
