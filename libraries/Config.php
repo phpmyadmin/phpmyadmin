@@ -1399,7 +1399,7 @@ class Config
             $parsed_url = parse_url(PMA_getenv('REQUEST_URI'));
         }
 
-        $cookie_path = $parsed_url['path'];
+        $cookie_path = str_replace('\\', '/', $parsed_url['path']);
 
         /* Remove filename */
         if (substr($cookie_path, -4) == '.php') {
