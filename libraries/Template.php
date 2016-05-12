@@ -62,20 +62,6 @@ class Template
     }
 
     /**
-     * Remove whitespaces between tags and innerHTML
-     *
-     * @param string $content HTML to perform the trim method
-     *
-     * @return string
-     */
-    public static function trim($content)
-    {
-        $regexp = '/(<[^\/][^>]+>)\s+|\s+(<\/)/';
-
-        return preg_replace($regexp, "$1$2", $content);
-    }
-
-    /**
      * Adds more entries to the data for this template
      *
      * @param array|string $data containing data array or data key
@@ -147,7 +133,7 @@ class Template
      * Render template
      *
      * @param array $data Variables to be provided to the template
-     * @param bool  $trim Trim content
+     * @param bool  $trim Trim content (does nothing, removed in future)
      * @param array $helperFunctions Helper functions to be used by template
      *
      * @return string
@@ -170,11 +156,7 @@ class Template
                     'The template "' . $template . '" not found.'
                 );
             }
-            if ($trim) {
-                $content = Template::trim(ob_get_clean());
-            } else {
-                $content = ob_get_clean();
-            }
+            $content = ob_get_clean();
 
             return $content;
         } catch (\LogicException $e) {

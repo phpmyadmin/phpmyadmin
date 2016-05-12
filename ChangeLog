@@ -9,6 +9,7 @@ phpMyAdmin - ChangeLog
 - issue #12118 Fixed setting mixed case languages
 - issue #12229 Avoid storing objects in session when debugging SQL
 - issue #12249 Fix cookie path on IIS
+- issue #11705 Fix occassional 200 errors on Windows
 
 4.6.1 (2016-05-02)
 - issue #12120 PMA_Util not found in insert_edit.lib.php
