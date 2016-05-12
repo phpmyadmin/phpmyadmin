@@ -136,8 +136,10 @@ class PMA_DesignerTest extends PHPUnit_Framework_TestCase
             $result
         );
         $this->assertContains('<option value="0">', $result);
-        $this->assertContains('<option value="1">page1</option>', $result);
-        $this->assertContains('<option value="2">page2</option>', $result);
+        $this->assertContains('<option value="1">', $result);
+        $this->assertContains('page1', $result);
+        $this->assertContains('<option value="2">', $result);
+        $this->assertContains('page2', $result);
     }
 
     /**
@@ -160,8 +162,10 @@ class PMA_DesignerTest extends PHPUnit_Framework_TestCase
             $result
         );
         $this->assertContains('<option value="0">', $result);
-        $this->assertContains('<option value="1">page1</option>', $result);
-        $this->assertContains('<option value="2">page2</option>', $result);
+        $this->assertContains('<option value="1">', $result);
+        $this->assertContains('page1', $result);
+        $this->assertContains('<option value="2">', $result);
+        $this->assertContains('page2', $result);
 
         $this->assertContains(
             '<input type="radio" name="save_page" id="save_page_same" value="same"'

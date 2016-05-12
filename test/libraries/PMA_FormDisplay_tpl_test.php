@@ -546,7 +546,7 @@ class PMA_FormDisplay_Tpl_Test extends PHPUnit_Framework_TestCase
         $result = PMA_displayJavascript(array('var i = 1', 'i++'));
 
         $this->assertEquals(
-            '<script type="text/javascript">'
+            '<script type="text/javascript">' . "\n"
             . 'if (typeof configInlineParams === "undefined"'
             . ' || !Array.isArray(configInlineParams)) '
             . 'configInlineParams = [];' . "\n"
@@ -555,7 +555,8 @@ class PMA_FormDisplay_Tpl_Test extends PHPUnit_Framework_TestCase
             . 'i++;' . "\n"
             . '});' . "\n"
             . 'if (typeof configScriptLoaded !== "undefined"'
-            . ' && configInlineParams) loadInlineConfig();</script>',
+            . ' && configInlineParams) loadInlineConfig();'
+            . "\n" . '</script>',
             $result
         );
     }
