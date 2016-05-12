@@ -133,12 +133,11 @@ class Template
      * Render template
      *
      * @param array $data            Variables to be provided to the template
-     * @param bool  $trim            Trim content (does nothing, removed in future)
      * @param array $helperFunctions Helper functions to be used by template
      *
      * @return string
      */
-    public function render($data = array(), $trim = true, $helperFunctions = array())
+    public function render($data = array(), $helperFunctions = array())
     {
         $template = static::BASE_PATH . $this->name . '.phtml';
         try {
