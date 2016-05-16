@@ -5,7 +5,8 @@
  *
  * @package PhpMyAdmin
  */
- use PMA\libraries\OutputBuffering;
+use PMA\libraries\OutputBuffering;
+use PMA\libraries\ThemeManager;
 
 /**
  *
@@ -30,4 +31,4 @@ header('Content-Type: text/css; charset=UTF-8');
 // file is reloaded when config changes
 header('Expires: ' . gmdate('D, d M Y H:i:s', time() + 3600) . ' GMT');
 
-$_SESSION['PMA_Theme_Manager']->printCss();
+ThemeManager::getInstance()->printCss();

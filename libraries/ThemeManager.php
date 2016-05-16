@@ -17,6 +17,15 @@ use PMA\libraries\URL;
 class ThemeManager
 {
     /**
+     * ThemeManager instance
+     *
+     * @access private
+     * @static
+     * @var ThemeManager
+     */
+    private static $_instance;
+
+    /**
      * @var string path to theme folder
      * @access protected
      */
@@ -65,6 +74,19 @@ class ThemeManager
     public function __construct()
     {
         $this->init();
+    }
+
+    /**
+     * Returns the singleton Response object
+     *
+     * @return Response object
+     */
+    public static function getInstance()
+    {
+        if (empty(self::$_instance)) {
+            self::$_instance = new ThemeManager();
+        }
+        return self::$_instance;
     }
 
     /**
@@ -453,41 +475,31 @@ class ThemeManager
      */
     public static function initializeTheme()
     {
-        /**
-         * @global ThemeManager $_SESSION['ThemeManager']
-         */
-        if (! isset($_SESSION['PMA_Theme_Manager'])) {
-            $_SESSION['PMA_Theme_Manager'] = new ThemeManager;
-        } else {
-            /**
-             * @todo move all __wakeup() functionality into session.inc.php
-             */
-            $_SESSION['PMA_Theme_Manager']->checkConfig();
-        }
+        $tmanager = self::getInstance();
 
         // for the theme per server feature
         if (isset($_REQUEST['server']) && ! isset($_REQUEST['set_theme'])) {
             $GLOBALS['server'] = $_REQUEST['server'];
-            $tmp = $_SESSION['PMA_Theme_Manager']->getThemeCookie();
+            $tmp = $tmanager->getThemeCookie();
             if (empty($tmp)) {
-                $tmp = $_SESSION['PMA_Theme_Manager']->theme_default;
+                $tmp = $tmanager->theme_default;
             }
-            $_SESSION['PMA_Theme_Manager']->setActiveTheme($tmp);
+            $tmanager->setActiveTheme($tmp);
         }
         /**
          * @todo move into ThemeManager::__wakeup()
          */
         if (isset($_REQUEST['set_theme'])) {
             // if user selected a theme
-            $_SESSION['PMA_Theme_Manager']->setActiveTheme($_REQUEST['set_theme']);
+            $tmanager->setActiveTheme($_REQUEST['set_theme']);
         }
 
         /**
          * the theme object
          *
-        *@global Theme $_SESSION['PMA_Theme']
+         * @global Theme $_SESSION['PMA_Theme']
          */
-        $_SESSION['PMA_Theme'] = $_SESSION['PMA_Theme_Manager']->theme;
+        $_SESSION['PMA_Theme'] = $tmanager->theme;
 
         // BC
         /**

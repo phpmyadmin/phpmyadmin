@@ -12,6 +12,7 @@ use PMA\libraries\Response;
 use PMA\libraries\Util;
 use PMA\libraries\URL;
 use PMA\libraries\Sanitize;
+use PMA\libraries\ThemeManager;
 
 /**
  * Gets some core libraries and displays a top message if required
@@ -148,12 +149,13 @@ if (isset($_POST['submit_export'])
 
         // check for ThemeDefault and fontsize
         $params = array();
+        $tmanager = ThemeManager::getInstance();
         if (isset($config['ThemeDefault'])
-            && $_SESSION['PMA_Theme_Manager']->theme->getId() != $config['ThemeDefault']
-            && $_SESSION['PMA_Theme_Manager']->checkTheme($config['ThemeDefault'])
+            && $tmanager->theme->getId() != $config['ThemeDefault']
+            && $tmanager->checkTheme($config['ThemeDefault'])
         ) {
-            $_SESSION['PMA_Theme_Manager']->setActiveTheme($config['ThemeDefault']);
-            $_SESSION['PMA_Theme_Manager']->setThemeCookie();
+            $tmanager->setActiveTheme($config['ThemeDefault']);
+            $tmanager->setThemeCookie();
         }
         if (isset($config['fontsize'])
             && $config['fontsize'] != $GLOBALS['PMA_Config']->get('fontsize')
