@@ -23,13 +23,23 @@ phpMyAdmin is included in most Linux distributions. It is recommended to use
 distribution packages when possible - they usually provide integration to your
 distribution and you will automatically get security updates from your distribution.
 
+.. _debian-package:
 
 Debian
 ------
 
 Debian's package repositories include a phpMyAdmin package, but be aware that
 the configuration file is maintained in ``/etc/phpmyadmin`` and may differ in
-some ways from the official phpMyAdmin documentation.
+some ways from the official phpMyAdmin documentation. Specifically it does:
+
+* Configuration of web server (works for Apache and lighttpd).
+* Creating of :ref:`linked-tables` using dbconfig-common.
+* Securing setup script, see :ref:`debian-setup`.
+
+.. seealso::
+
+    More information can be found in `README.Debian <http://anonscm.debian.org/cgit/collab-maint/phpmyadmin.git/tree/debian/README.Debian>`_
+    (it is installed as :file:`/usr/share/doc/phmyadmin/README.Debian` with the package).
 
 OpenSUSE
 --------
@@ -42,7 +52,12 @@ Ubuntu
 
 Ubuntu ships phpMyAdmin package, however if you want to use recent version, you
 can use packages from
-`PPA for Michal Čihař <https://launchpad.net/~nijel/+archive/ubuntu/phpmyadmin>`_.
+`phpMyAdmin PPA <https://launchpad.net/~nijel/+archive/ubuntu/phpmyadmin>`_.
+
+.. seealso::
+
+    The packages are same as in :ref:`debian-package` please check the documetation
+    there for more details.
 
 Gentoo
 ------
@@ -366,6 +381,8 @@ options which the setup script does not provide.
    phpMyAdmin should now display a welcome screen and your databases, or
    a login dialog if using :term:`HTTP` or
    cookie authentication mode.
+
+.. _debian-setup:
 
 Setup script on Debian, Ubuntu and derivatives
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
