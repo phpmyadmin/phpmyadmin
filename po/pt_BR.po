@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.0-alpha1\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-02-17 11:55+0100\n"
-"PO-Revision-Date: 2016-04-18 12:46+0000\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2016-05-16 09:01+0000\n"
+"Last-Translator: Tiago França EJessica <tiago_pvo@hotmail.com>\n"
 "Language-Team: Portuguese (Brazil) "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-6/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 2.6-dev\n"
+"X-Generator: Weblate 2.7-dev\n"
 
 #: changelog.php:37 license.php:33
 #, php-format
@@ -21,8 +21,8 @@ msgid ""
 "The %s file is not available on this system, please visit www.phpmyadmin.net "
 "for more information."
 msgstr ""
-"O arquivo %s não está disponível no sistema, por favor visite www.phpmyadmin."
-"net para mais informações."
+"O arquivo %s não está disponível neste sistema, por favor, visite "
+"www.phpmyadmin.net para maiores informações."
 
 #: db_central_columns.php:105
 msgid "The central list of columns for the current database is empty."
@@ -961,10 +961,9 @@ msgid "Do you really want to remove partitioning?"
 msgstr "Você realmente deseja remover a(s) partição(ões) seleciona(s)?"
 
 #: js/messages.php:86
-#, fuzzy
 #| msgid "Do you really want to execute \"%s\"?"
 msgid "Do you really want to RESET SLAVE?"
-msgstr "Você realmente deseja REINICIAR O SLAVE?"
+msgstr "Você realmente deseja dar um RESET SLAVE?"
 
 #: js/messages.php:88
 msgid ""
@@ -1237,19 +1236,17 @@ msgstr "Total swap"
 #: js/messages.php:192
 #| msgid "Cached Swap"
 msgid "Cached swap"
-msgstr "Cached swap"
+msgstr "Swap em cache"
 
 #: js/messages.php:193
-#, fuzzy
 #| msgid "Used Swap"
 msgid "Used swap"
-msgstr "Swap utilizado"
+msgstr "Swap utilizada"
 
 #: js/messages.php:194
-#, fuzzy
 #| msgid "Free Swap"
 msgid "Free swap"
-msgstr "Swap livre"
+msgstr "Swap disponível"
 
 #: js/messages.php:196
 msgid "Bytes sent"
@@ -1742,10 +1739,9 @@ msgid "Request aborted!!"
 msgstr "Requisição abortada!!"
 
 #: js/messages.php:359
-#, fuzzy
 #| msgid "Processing Request"
 msgid "Processing request"
-msgstr "Processando a requisição"
+msgstr "Processando o pedido"
 
 #: js/messages.php:360
 msgid "Request failed!!"
@@ -2194,10 +2190,9 @@ msgid "Geometry"
 msgstr "Geometria"
 
 #: js/messages.php:515
-#, fuzzy
 #| msgid "Inner Ring"
 msgid "Inner ring"
-msgstr "Anel interno"
+msgstr "Aro interno"
 
 #: js/messages.php:516
 msgid "Outer ring"
@@ -2456,7 +2451,6 @@ msgid "More"
 msgstr "Mais"
 
 #: js/messages.php:631
-#, fuzzy
 #| msgid "Show Panel"
 msgid "Show panel"
 msgstr "Mostrar painel"
@@ -2582,7 +2576,7 @@ msgstr ""
 #, php-format
 #| msgid "Executed queries"
 msgid "%s queries executed %s times in %s seconds."
-msgstr "%s consultas executadas %s vezes em %s segundos"
+msgstr "%s consultas executadas %s vezes em %s segundos."
 
 #: js/messages.php:705
 #, php-format
@@ -2594,10 +2588,9 @@ msgid "Show arguments"
 msgstr "Mostrar comentários"
 
 #: js/messages.php:707
-#, fuzzy
 #| msgid "Hide search results"
 msgid "Hide arguments"
-msgstr "Ocultar resultados da pesquisa"
+msgstr "Ocultar resultados"
 
 #: js/messages.php:708 libraries/Console.php:306
 msgid "Time taken:"
@@ -2627,10 +2620,9 @@ msgid "Add table prefix"
 msgstr "Adicionar prefixo de tabela"
 
 #: js/messages.php:713
-#, fuzzy
 #| msgid "Replace table prefix"
 msgid "Replace table with prefix"
-msgstr "Substituir tabela com o prefixo"
+msgstr "Substituir a tabela com o prefixo"
 
 #: js/messages.php:714 templates/database/structure/check_all_tables.phtml:29
 msgid "Copy table with prefix"
@@ -3270,10 +3262,9 @@ msgid "Switch to dark theme"
 msgstr "Mudar para o tema escuro"
 
 #: libraries/DatabaseInterface.php:1528
-#, fuzzy
 #| msgid "Failed to read configuration file!"
 msgid "Failed to set configured collation connection!"
-msgstr "Falhou ao ler o arquivo de configuração!"
+msgstr "Falha ao definir conexão do agrupamento configurado!"
 
 #: libraries/DatabaseInterface.php:2139
 msgid ""
@@ -3337,10 +3328,9 @@ msgid "Sort:"
 msgstr "Ordenar:"
 
 #: libraries/DbQbe.php:628
-#, fuzzy
 #| msgid "Sort:"
 msgid "Sort order:"
-msgstr "Ordenar:"
+msgstr "Ordenar por:"
 
 #: libraries/DbQbe.php:677
 msgid "Show:"
@@ -3494,7 +3484,6 @@ msgstr "Dentro da(s) tabela(s):"
 
 #: libraries/DbSearch.php:446 libraries/display_export.lib.php:48
 #: libraries/replication_gui.lib.php:379
-#, fuzzy
 #| msgid "Unselect All"
 msgid "Unselect all"
 msgstr "Desmarcar todos"
@@ -3573,10 +3562,9 @@ msgid "Relational key"
 msgstr "Chave de relação"
 
 #: libraries/DisplayResults.php:1735
-#, fuzzy
 #| msgid "Display foreign key relationships"
 msgid "Display column for relations"
-msgstr "Exibir relacionamentos de chave estrangeira"
+msgstr "Exibir coluna por relações"
 
 #: libraries/DisplayResults.php:1748
 msgid "Show binary contents"
@@ -3665,7 +3653,6 @@ msgstr "Com marcados:"
 #: libraries/server_user_groups.lib.php:231
 #: templates/database/structure/check_all_tables.phtml:3
 #: templates/database/structure/check_all_tables.phtml:4
-#, fuzzy
 #| msgid "Check All"
 msgid "Check all"
 msgstr "Marcar todos"
@@ -3749,10 +3736,9 @@ msgid "Error while moving uploaded file."
 msgstr "Erro ao mover o arquivo enviado."
 
 #: libraries/File.php:492
-#, fuzzy
 #| msgid "Cannot read (moved) upload file."
 msgid "Cannot read uploaded file."
-msgstr "Não pode ler (mover) arquivo carregado."
+msgstr "Não foi possível ler arquivo enviado."
 
 #: libraries/Footer.php:72
 #, php-format
@@ -3896,12 +3882,11 @@ msgid "Ignoring unsupported language code."
 msgstr "Ignorando o código de linguagem não suportado."
 
 #: libraries/Linter.php:99
-#, fuzzy
 msgid ""
 "Linting is disabled for this query because it exceeds the maximum length."
 msgstr ""
-"A análise está desabilitada para esta query porque ela excede o tamanho "
-"máximo."
+"A análise está desativada para esta consulta porque excede o comprimento "
+"máximo.."
 
 #: libraries/Linter.php:165
 #, php-format
@@ -4035,10 +4020,9 @@ msgid "Databases"
 msgstr "Bancos de dados"
 
 #: libraries/Menu.php:567
-#, fuzzy
 #| msgid "User groups"
 msgid "User accounts"
-msgstr "Grupos de usuários"
+msgstr "Contas de usuário"
 
 #: libraries/Menu.php:594 libraries/ServerStatusData.php:119
 #: libraries/Util.php:4334 libraries/server_common.lib.php:33
@@ -4710,10 +4694,9 @@ msgid "Max: %s%s"
 msgstr "Tamanho máximo: %s%s"
 
 #: libraries/Util.php:686
-#, fuzzy
 #| msgid "Static data"
 msgid "Static analysis:"
-msgstr "Dados estáticos"
+msgstr "Análise estática:"
 
 #: libraries/Util.php:689
 #, php-format
@@ -4750,13 +4733,11 @@ msgid "Without PHP code"
 msgstr "Sem código PHP"
 
 #: libraries/Util.php:1268
-#, fuzzy
 #| msgid "Submit Query"
 msgid "Submit query"
-msgstr "Enviar query"
+msgstr "Pesquisar"
 
 #: libraries/Util.php:1279 libraries/config/messages.inc.php:899
-#, fuzzy
 #| msgid "Create PHP Code"
 msgid "Create PHP code"
 msgstr "Criar código PHP"
@@ -4935,7 +4916,7 @@ msgstr "Atributos"
 
 #: libraries/central_columns.lib.php:707 libraries/central_columns.lib.php:1381
 msgid "A_I"
-msgstr ""
+msgstr "Tamanho"
 
 #: libraries/central_columns.lib.php:747
 msgid "Select a table"
@@ -5082,10 +5063,9 @@ msgid "display column"
 msgstr "Exibir coluna"
 
 #: libraries/config.values.php:103
-#, fuzzy
 #| msgid "Welcome to %s"
 msgid "Welcome"
-msgstr "Bem-vindo ao %s"
+msgstr "Bem-vindo"
 
 #: libraries/config.values.php:123
 msgid "Open"
@@ -5255,11 +5235,9 @@ msgid "Allow users to customize this value"
 msgstr "Permitir usuários customizar esse valor"
 
 #: libraries/config/PageSettings.php:141
-#, fuzzy
 #| msgid "Cannot save settings, submitted form contains errors!"
 msgid "Cannot save settings, submitted configuration form contains errors!"
-msgstr ""
-"As configurações não podem salvas, o formulário submetido contém erros!"
+msgstr "As configurações não podem salvas, a configuração enviada contém erros!"
 
 #: libraries/config/ServerConfigChecks.php:157
 msgid "You should use SSL connections if your database server supports it."
@@ -5563,19 +5541,17 @@ msgid "Enable CodeMirror"
 msgstr "Habilitar CodeMirror"
 
 #: libraries/config/messages.inc.php:64
-#, fuzzy
 msgid ""
 "Find any errors in the query before executing it. Requires CodeMirror to be "
 "enabled."
 msgstr ""
-"Encontrar algum erro na consulta antes de executá-la. Requer CodeMirror para "
-"ser ativado."
+"Procurar algum erro na consulta antes de executar. Requer CodeMirror "
+"habilitado."
 
 #: libraries/config/messages.inc.php:67
-#, fuzzy
 #| msgid "Enable SQL Validator"
 msgid "Enable linter"
-msgstr "Habilitar Validador SQL"
+msgstr "Habilitar Verificador"
 
 #: libraries/config/messages.inc.php:69
 msgid ""
@@ -5651,10 +5627,9 @@ msgid "Confirm DROP queries"
 msgstr "Confirma queries DROP"
 
 #: libraries/config/messages.inc.php:97
-#, fuzzy
 msgid ""
 "Log SQL queries and their execution time, to be displayed in the console"
-msgstr "Log consultas SQL e seu tempo de execução, para ser exibido no console"
+msgstr "Mostra no console, log consultas SQL e seu tempo de execução"
 
 #: libraries/config/messages.inc.php:101
 msgid "Tab that is displayed when entering a database."
@@ -5681,33 +5656,29 @@ msgid "Default table tab"
 msgstr "Aba de tabela padrão"
 
 #: libraries/config/messages.inc.php:110
-#, fuzzy
 #| msgid "Enclose table and column names with backquotes"
 msgid "Autocomplete of the table and column names in the SQL queries."
-msgstr "Usar crases nos nomes de tabelas e campos"
+msgstr "Autocomplete os nomes de tabelas e colunas nas consultas SQL."
 
 #: libraries/config/messages.inc.php:113
-#, fuzzy
 #| msgid "Enclose table and column names with backquotes"
 msgid "Enable autocomplete for table and column names"
-msgstr "Usar crases nos nomes de tabelas e campos"
+msgstr "Habilitar o preenchimento automático de nomes de tabelas e colunas"
 
 #: libraries/config/messages.inc.php:116
 msgid "Whether the table structure actions should be hidden."
 msgstr "As ações de estrutura de tabelas devem estar ocultas."
 
 #: libraries/config/messages.inc.php:117
-#, fuzzy
 #| msgid "Show table comments"
 msgid "Show column comments"
-msgstr "Mostrar comentários da tabela"
+msgstr "Mostrar comentários de coluna"
 
 #: libraries/config/messages.inc.php:119
-#, fuzzy
 msgid "Whether column comments should be shown in table structure view"
 msgstr ""
-"Se os comentários das colunas devem ser mostrados na estrutura de "
-"visualização de tabelas"
+"Se os comentários das colunas devem ser mostrados em visão de tabela "
+"estrutada"
 
 #: libraries/config/messages.inc.php:120
 msgid "Hide table structure actions"
@@ -5747,10 +5718,10 @@ msgid "Maximum execution time"
 msgstr "Tempo máximo de execução"
 
 #: libraries/config/messages.inc.php:135 libraries/display_export.lib.php:796
-#, fuzzy, php-format
+#, php-format
 #| msgid "Add %s statement"
 msgid "Use %s statement"
-msgstr "Adicionar comando %s"
+msgstr "Use a declaração %s"
 
 #: libraries/config/messages.inc.php:137 prefs_manage.php:317
 msgid "Save as file"
@@ -9432,7 +9403,7 @@ msgstr "Romeno"
 
 #: libraries/mysql_charsets.lib.php:235
 msgid "Sinhalese"
-msgstr ""
+msgstr "Cingalês"
 
 #: libraries/mysql_charsets.lib.php:238
 msgid "Slovak"
@@ -9477,10 +9448,9 @@ msgid "multilingual"
 msgstr "multi-linguagem"
 
 #: libraries/mysql_charsets.lib.php:265
-#, fuzzy
 #| msgid "File name"
 msgid "Vietnamese"
-msgstr "Nome do arquivo"
+msgstr "Vietnamita"
 
 #: libraries/mysql_charsets.lib.php:293
 msgid "Central European"
@@ -16008,7 +15978,7 @@ msgstr "Melhorar a estrutura da tabela"
 
 #: templates/table/structure/optional_action_links.phtml:34
 msgid "Track view"
-msgstr "Ver Rastrear"
+msgstr "Modo de visão"
 
 #: templates/table/structure/row_stats_table.phtml:3
 msgid "Row statistics"
