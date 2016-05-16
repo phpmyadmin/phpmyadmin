@@ -3042,6 +3042,41 @@ for a password when accessing remotely, you can achieve it using following snipp
     Filtering based on IP addresses isn't reliable over the internet, use it
     only for local address.
 
+Example for using multiple MySQL servers
+++++++++++++++++++++++++++++++++++++++++
+
+You can configure any number of servers using :config:option:`$cfg['Servers']`,
+following example shows two of them:
+
+.. code-block:: php
+
+    <?php 
+    $cfg['blowfish_secret']='multiServerExample70518';
+    //any string of your choice
+    $i = 0;  
+     
+    $i++; // server 1 :
+    $cfg['Servers'][$i]['auth_type'] = 'cookie';
+    $cfg['Servers'][$i]['verbose']   = 'no1'; 
+    $cfg['Servers'][$i]['host']      = 'localhost';
+    $cfg['Servers'][$i]['extension'] = 'mysqli';
+    // more options for #1 ...
+     
+    $i++; // server 2 :
+    $cfg['Servers'][$i]['auth_type'] = 'cookie';
+    $cfg['Servers'][$i]['verbose']   = 'no2'; 
+    $cfg['Servers'][$i]['host']      = 'remote.host.addr';//or ip:'10.9.8.1'
+    // this server must allow remote clients, e.g., host 10.9.8.%
+    // not only in mysql.host but also in the startup configuration
+    $cfg['Servers'][$i]['extension'] = 'mysqli';
+    // more options for #2 ... 
+     
+    // end of server sections
+    $cfg['ServerDefault'] = 0; // to choose the server on startup
+     
+    // further general options ...
+    ?>
+
 .. _example-google-ssl:
 
 Google Cloud SQL with SSL
