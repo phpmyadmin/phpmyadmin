@@ -774,8 +774,9 @@ function PMA_isAllowedDomain($url)
         'sourceforge.net',
         /* Github domains*/
         'github.com','www.github.com',
-        /* Following are doubtful ones. */
+        /* Percona domains */
         'www.percona.com',
+        /* Following are doubtful ones. */
         'mysqldatabaseadministration.blogspot.com',
     );
     if (in_array(mb_strtolower($domain), $domainWhiteList)) {
