@@ -767,7 +767,7 @@ function PMA_isAllowedDomain($url)
         /* mysql.com domains */
         'dev.mysql.com','bugs.mysql.com',
         /* mariadb domains */
-        'mariadb.org',
+        'mariadb.org', 'mariadb.com',
         /* php.net domains */
         'php.net',
         /* sourceforge.net domain */
