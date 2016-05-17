@@ -255,7 +255,7 @@ class PbxtTest extends PMATestCase
                 . '" target="_blank">',
                 '</a>'
             )
-            . '</p>' . "\n
+            . '</p>' . "\n"
         );
 
         $this->assertEquals(

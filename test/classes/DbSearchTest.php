@@ -222,7 +222,7 @@ class DbSearchTest extends PMATestCase
             . "\n" . '<input type="radio" name="criteriaSearchType" id="criteria'
             . 'SearchType_4" value="4" />' . "\n"
             . '<label for="criteriaSearchType_4">as regular expression <a href='
-            . '"./url.php?url=http%3A%2F%2Fdev.mysql.com%2Fdoc%2Frefman%2F5.7%2Fen'
+            . '"./url.php?url=https%3A%2F%2Fdev.mysql.com%2Fdoc%2Frefman%2F5.7%2Fen'
             . '%2Fregexp.html" target='
             . '"mysql_doc"><img src="themes/dot.gif" title="Documentation"'
             . ' alt="Documentation" class="icon ic_b_help" /></a></label><br />' . "\n"
