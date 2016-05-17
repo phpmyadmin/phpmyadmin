@@ -641,7 +641,7 @@ $strConfigServers_auth_swekey_config_name = __('SweKey config file');
 $strConfigServers_auth_type_desc = __('Authentication method to use.');
 $strConfigServers_auth_type_name = __('Authentication type');
 $strConfigServers_bookmarktable_desc = __(
-    'Leave blank for no [a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/a] '
+    'Leave blank for no [doc@bookmarks@]bookmark[/doc] '
     . 'support, suggested: [kbd]pma__bookmark[/kbd]'
 );
 $strConfigServers_bookmarktable_name = __('Bookmark table');
@@ -658,7 +658,7 @@ $strConfigServers_connect_type_name = __('Connection type');
 $strConfigServers_controlpass_name = __('Control user password');
 $strConfigServers_controluser_desc = __(
     'A special MySQL user configured with limited permissions, more information '
-    . 'available on [a@http://wiki.phpmyadmin.net/pma/controluser]wiki[/a].'
+    . 'available on [doc@linked-tables]documentation[/doc].'
 );
 $strConfigServers_controluser_name = __('Control user');
 $strConfigServers_controlhost_desc = __(
@@ -725,7 +725,7 @@ $strConfigServers_pdf_pages_desc = __(
 $strConfigServers_pdf_pages_name = __('PDF schema: pages table');
 $strConfigServers_pmadb_desc = __(
     'Database used for relations, bookmarks, and PDF features. See '
-    . '[a@http://wiki.phpmyadmin.net/pma/pmadb]pmadb[/a] for complete information. '
+    . '[doc@linked-tables]pmadb[/doc] for complete information. '
     . 'Leave blank for no support. Suggested: [kbd]phpmyadmin[/kbd].'
 );
 $strConfigServers_pmadb_name = __('Database name');
@@ -744,13 +744,13 @@ $strConfigServers_favorite_desc = __(
 $strConfigServers_favorite_name = __('Favorites table');
 $strConfigServers_relation_desc = __(
     'Leave blank for no '
-    . '[a@http://wiki.phpmyadmin.net/pma/relation]relation-links[/a] support, '
+    . '[doc@relations@]relation-links[/doc] support, '
     . 'suggested: [kbd]pma__relation[/kbd].'
 );
 $strConfigServers_relation_name = __('Relation table');
 $strConfigServers_SignonSession_desc = __(
-    'See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication '
-    . 'types[/a] for an example.'
+    'See [doc@authentication-modes]authentication '
+    . 'types[/doc] for an example.'
 );
 $strConfigServers_SignonSession_name = __('Signon session name');
 $strConfigServers_SignonURL_name = __('Signon URL');
