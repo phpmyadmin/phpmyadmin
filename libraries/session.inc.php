@@ -6,7 +6,7 @@
  * @todo    add an option to use mm-module for session handler
  *
  * @package PhpMyAdmin
- * @see     http://php.net/session
+ * @see     https://php.net/session
  */
 if (! defined('PHPMYADMIN')) {
     exit;

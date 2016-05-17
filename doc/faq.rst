@@ -207,7 +207,7 @@ your server - as mentioned in :ref:`faq1_17`. This problem is
 generally caused by using MySQL version 4.1 or newer. MySQL changed
 the authentication hash and your PHP is trying to use the old method.
 The proper solution is to use the `mysqli extension
-<http://php.net/mysqli>`_ with the proper client library to match
+<https://php.net/mysqli>`_ with the proper client library to match
 your MySQL installation. More
 information (and several workarounds) are located in the `MySQL
 Documentation <http://dev.mysql.com/doc/refman/5.7/en/old-client.html>`_.

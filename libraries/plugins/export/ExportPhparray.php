@@ -182,7 +182,7 @@ class ExportPhparray extends ExportPlugin
         }
 
         // fix variable names (based on
-        // http://php.net/manual/language.variables.basics.php)
+        // https://php.net/manual/language.variables.basics.php)
         if (!preg_match(
             '/^[a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*$/',
             $table_alias

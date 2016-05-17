@@ -5295,7 +5295,7 @@ msgctxt "Short week day name"
 msgid "Sun"
 msgstr "Yaksh"
 
-#. l10n: See http://php.net/manual/en/function.strftime.php
+#. l10n: See https://php.net/manual/en/function.strftime.php
 #: libraries/Util.php:1709
 #: libraries/plugins/transformations/abs/DateFormatTransformationsPlugin.php:67
 msgid "%B %d, %Y at %I:%M %p"
