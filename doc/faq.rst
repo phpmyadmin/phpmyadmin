@@ -129,7 +129,7 @@ and after execution of your :term:`SQL` commands, removed.
 -------------------------------------------------------
 
 The MySQL manual explains how to `reset the permissions
-<http://dev.mysql.com/doc/refman/5.7/en/resetting-permissions.html>`_.
+<https://dev.mysql.com/doc/refman/5.7/en/resetting-permissions.html>`_.
 
 .. _faq1_13:
 
@@ -210,7 +210,7 @@ The proper solution is to use the `mysqli extension
 <https://php.net/mysqli>`_ with the proper client library to match
 your MySQL installation. More
 information (and several workarounds) are located in the `MySQL
-Documentation <http://dev.mysql.com/doc/refman/5.7/en/old-client.html>`_.
+Documentation <https://dev.mysql.com/doc/refman/5.7/en/old-client.html>`_.
 
 .. _faq1_18:
 
@@ -732,7 +732,7 @@ change it to
 Then restart apache and it will work.
 
 Have also a look at the `corresponding section of the MySQL
-documentation <http://dev.mysql.com/doc/refman/5.7/en/can-not-connect-to-server.html>`_.
+documentation <https://dev.mysql.com/doc/refman/5.7/en/can-not-connect-to-server.html>`_.
 
 .. _faq2_4:
 
@@ -959,7 +959,7 @@ official phpMyAdmin-homepage.
 
 When MySQL is running in ANSI-compatibility mode, there are some major
 differences in how :term:`SQL` is structured (see
-<http://dev.mysql.com/doc/refman/5.7/en/sql-mode.html>). Most important of all, the
+<https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html>). Most important of all, the
 quote-character (") is interpreted as an identifier quote character and not as
 a string quote character, which makes many internal phpMyAdmin operations into
 invalid :term:`SQL` statements. There is no
@@ -1548,7 +1548,7 @@ schema layout. Which tables will go on which pages?
 ---------------------------------------------------------
 
 No, it's MySQL that is doing `silent column type changing
-<http://dev.mysql.com/doc/refman/5.7/en/silent-column-changes.html>`_.
+<https://dev.mysql.com/doc/refman/5.7/en/silent-column-changes.html>`_.
 
 .. _underscore:
 
@@ -1576,7 +1576,7 @@ It means "average".
 **Structure:**
 
 * "Add DROP TABLE" will add a line telling MySQL to `drop the table
-  <http://dev.mysql.com/doc/refman/5.7/en/drop-table.html>`_, if it already
+  <https://dev.mysql.com/doc/refman/5.7/en/drop-table.html>`_, if it already
   exists during the import. It does NOT drop the table after your
   export, it only affects the import file.
 * "If Not Exists" will only create the table if it doesn't exist.
@@ -1597,10 +1597,10 @@ It means "average".
 * "Extended inserts" provides a shorter dump file by using only once the
   INSERT verb and the table name.
 * "Delayed inserts" are best explained in the `MySQL manual - INSERT DELAYED Syntax
-  <http://dev.mysql.com/doc/refman/5.7/en/insert-delayed.html>`_.
+  <https://dev.mysql.com/doc/refman/5.7/en/insert-delayed.html>`_.
 * "Ignore inserts" treats errors as a warning instead. Again, more info
   is provided in the `MySQL manual - INSERT Syntax
-  <http://dev.mysql.com/doc/refman/5.7/en/insert.html>`_, but basically with
+  <https://dev.mysql.com/doc/refman/5.7/en/insert.html>`_, but basically with
   this selected, invalid values are adjusted and inserted rather than
   causing the entire statement to fail.
 

@@ -764,7 +764,7 @@ Server connection settings
         For auto-upgrade functionality to work, your
         ``$cfg['Servers'][$i]['controluser']`` must have ALTER privilege on
         ``phpmyadmin`` database. See the `MySQL documentation for GRANT
-        <http://dev.mysql.com/doc/refman/5.7/en/grant.html>`_ on how to
+        <https://dev.mysql.com/doc/refman/5.7/en/grant.html>`_ on how to
         ``GRANT`` privileges to a user.
 
 .. _history:
@@ -1108,7 +1108,7 @@ Server connection settings
 
     Sets the time zone used by phpMyAdmin. Leave blank to use the time zone of your
     database server. Possible values are explained at
-    http://dev.mysql.com/doc/refman/5.7/en/time-zone-support.html
+    https://dev.mysql.com/doc/refman/5.7/en/time-zone-support.html
 
     This is useful when your database server uses a time zone which is different from the
     time zone you want to use in phpMyAdmin.
@@ -2291,7 +2291,7 @@ Languages
 
     Defines the default connection collation to use, if not user-defined.
     See the `MySQL documentation for charsets
-    <http://dev.mysql.com/doc/refman/5.7/en/charset-charsets.html>`_
+    <https://dev.mysql.com/doc/refman/5.7/en/charset-charsets.html>`_
     for list of possible values.
 
 .. config:option:: $cfg['Lang']

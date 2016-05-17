@@ -16113,13 +16113,13 @@ msgstr "Ημί βέλτιστη μέθοδος λανθάνουσας μνήμη
 #: libraries/advisory_rules.txt:157
 msgid ""
 "You are using the MySQL Query cache with a fairly high traffic database. It "
-"might be worth considering to use <a href=\"http://dev.mysql.com/doc/"
+"might be worth considering to use <a href=\"https://dev.mysql.com/doc/"
 "refman/5.5/en/ha-memcached.html\">memcached</a> instead of the MySQL Query "
 "cache, especially if you have multiple slaves."
 msgstr ""
 "Χρησιμοποιείτε τη λανθάνουσα μνήμη Ερωτήματος της MySQL σε μια βάση "
 "δεδομένων με μεγάλη κυκλοφορία. Ίσως πρέπει να σκεφτείτε να χρησιμοποιήσετε "
-"το <a href=\"http://dev.mysql.com/doc/refman/5.5/en/ha-memcached.html"
+"το <a href=\"https://dev.mysql.com/doc/refman/5.5/en/ha-memcached.html"
 "\">memcached</a> αντί της λανθάνουσας μνήμης Ερωτήματος της MySQL, ειδικά αν "
 "έχετε πολλούς δευτερεύοντες."
 
@@ -16564,7 +16564,7 @@ msgid ""
 "value of these variables. To eliminate these you will have to rewrite your "
 "queries to avoid those conditions (Within a temporary table: Presence of a "
 "BLOB or TEXT column or presence of a column bigger than 512 bytes) as "
-"mentioned in the <a href=\"http://dev.mysql.com/doc/refman/5.5/en/internal-"
+"mentioned in the <a href=\"https://dev.mysql.com/doc/refman/5.5/en/internal-"
 "temporary-tables.html\">MySQL Documentation</a>"
 msgstr ""
 "Η αύξηση του {max_heap_table_size} και του {tmp_table_size} ίσως βοηθήσει. "
@@ -17116,11 +17116,11 @@ msgstr "Ενεργοποιήστε το {concurrent_insert} ορίζοντας �
 #: libraries/advisory_rules.txt:456
 msgid ""
 "Setting {concurrent_insert} to 1 reduces contention between readers and "
-"writers for a given table. See also <a href=\"http://dev.mysql.com/doc/"
+"writers for a given table. See also <a href=\"https://dev.mysql.com/doc/"
 "refman/5.5/en/concurrent-inserts.html\">MySQL Documentation</a>"
 msgstr ""
 "Ο ορισμός του {concurrent_insert} σε 1 μειώνει τη διαμάχη μεταξύ αναγνώσεων "
-"και εγγραφών για ένα πίνακα. Δείτε επίσης την <a href=\"http://dev.mysql.com/"
+"και εγγραφών για ένα πίνακα. Δείτε επίσης την <a href=\"https://dev.mysql.com/"
 "doc/refman/5.5/en/concurrent-inserts.html\">τεκμηρίωση της MySQL</a>"
 
 #: libraries/advisory_rules.txt:457

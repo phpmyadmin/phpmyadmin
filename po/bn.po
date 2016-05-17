@@ -16579,12 +16579,12 @@ msgstr "সহযোগী ক্যাশ করার পদ্ধতি।"
 #: libraries/advisory_rules.txt:157
 msgid ""
 "You are using the MySQL Query cache with a fairly high traffic database. It "
-"might be worth considering to use <a href=\"http://dev.mysql.com/doc/"
+"might be worth considering to use <a href=\"https://dev.mysql.com/doc/"
 "refman/5.5/en/ha-memcached.html\">memcached</a> instead of the MySQL Query "
 "cache, especially if you have multiple slaves."
 msgstr ""
 "আপনি অনেক ব্যবহৃত একটি ডাটাবেইজে MySQL অনুসন্ধান ক্যাশ ব্যবহার করছেন। এটি অনেক "
-"মুল্যবান হতে পারে, MySQL অনুসন্ধান ক্যাশের পরিবর্তে <a href=\"http://dev.mysql.com/"
+"মুল্যবান হতে পারে, MySQL অনুসন্ধান ক্যাশের পরিবর্তে <a href=\"https://dev.mysql.com/"
 "doc/refman/5.5/en/ha-memcached.html\">memcached</a> ব্যবহার করতে পারেন, "
 "বিশেষত আপনার যদি অনেকগুলো slave থাকে।"
 
@@ -16961,7 +16961,7 @@ msgstr ""
 "সাহায্যের জন্য {max_heap_table_size} এবং {tmp_table_size} বাড়িয়ে দেখতে পারেন। "
 "কিছু সাময়িক টেবল সবসময়ই ডিস্কে লেখা হয়। এটি এড়ানোর জন্য এই শর্তগুলো(একটি সাময়িক "
 "টেবলে BLOB বা TEXT স্তম্ভ বা ৫১২ বাইটের চাইতে বড় স্তম্ভ) বাদে আপনার অনুসন্ধান গুলো "
-"পুনরায় লেখতে পারেন। এতে যেমন বলা হয়েছে <a href=\"http://dev.mysql.com/doc/"
+"পুনরায় লেখতে পারেন। এতে যেমন বলা হয়েছে <a href=\"https://dev.mysql.com/doc/"
 "refman/5.5/en/internal-temporary-tables.html\">MySQL Documentation</a>"
 
 #: libraries/advisory_rules.txt:267
@@ -16982,13 +16982,13 @@ msgid ""
 "value of these variables. To eliminate these you will have to rewrite your "
 "queries to avoid those conditions (Within a temporary table: Presence of a "
 "BLOB or TEXT column or presence of a column bigger than 512 bytes) as "
-"mentioned in the <a href=\"http://dev.mysql.com/doc/refman/5.5/en/internal-"
+"mentioned in the <a href=\"https://dev.mysql.com/doc/refman/5.5/en/internal-"
 "temporary-tables.html\">MySQL Documentation</a>"
 msgstr ""
 "সাহায্যের জন্য {max_heap_table_size} এবং {tmp_table_size} বাড়িয়ে দেখতে পারেন। "
 "কিছু সাময়িক টেবল সবসময়ই ডিস্কে লেখা হয়। এটি এড়ানোর জন্য এই শর্তগুলো(একটি সাময়িক "
 "টেবলে BLOB বা TEXT স্তম্ভ বা ৫১২ বাইটের চাইতে বড় স্তম্ভ) বাদে আপনার অনুসন্ধান গুলো "
-"পুনরায় লেখতে পারেন। এতে যেমন বলা হয়েছে <a href=\"http://dev.mysql.com/doc/"
+"পুনরায় লেখতে পারেন। এতে যেমন বলা হয়েছে <a href=\"https://dev.mysql.com/doc/"
 "refman/5.5/en/internal-temporary-tables.html\">MySQL Documentation</a>"
 
 #: libraries/advisory_rules.txt:274
@@ -17506,11 +17506,11 @@ msgstr "কার্যকর করুন {concurrent_insert} ১ এ সেট
 #: libraries/advisory_rules.txt:456
 msgid ""
 "Setting {concurrent_insert} to 1 reduces contention between readers and "
-"writers for a given table. See also <a href=\"http://dev.mysql.com/doc/"
+"writers for a given table. See also <a href=\"https://dev.mysql.com/doc/"
 "refman/5.5/en/concurrent-inserts.html\">MySQL Documentation</a>"
 msgstr ""
 "একটি নির্দিষ্ট টেবলের জন্য {concurrent_insert} ১ সেট করলে লেখা এবং পড়ার মাঝের "
-"সমস্যা কমাবে। <a href=\"http://dev.mysql.com/doc/refman/5.5/en/concurrent-"
+"সমস্যা কমাবে। <a href=\"https://dev.mysql.com/doc/refman/5.5/en/concurrent-"
 "inserts.html\">MySQL Documentation</a> দেখুন"
 
 #: libraries/advisory_rules.txt:457

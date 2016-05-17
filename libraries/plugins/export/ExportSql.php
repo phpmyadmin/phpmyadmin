@@ -595,7 +595,7 @@ class ExportSql extends ExportPlugin
         if (isset($GLOBALS['sql_include_comments'])
             && $GLOBALS['sql_include_comments']
         ) {
-            // see http://dev.mysql.com/doc/refman/5.0/en/ansi-diff-comments.html
+            // see https://dev.mysql.com/doc/refman/5.0/en/ansi-diff-comments.html
             return '--' . (empty($text) ? '' : ' ') . $text . $GLOBALS['crlf'];
         } else {
             return '';
