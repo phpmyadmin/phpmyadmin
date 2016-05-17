@@ -773,12 +773,12 @@ msgstr ""
 
 #: index.php:499
 msgid ""
-"Your PHP parameter [a@http://php.net/manual/en/session.configuration.php#ini."
+"Your PHP parameter [a@https://php.net/manual/en/session.configuration.php#ini."
 "session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower than "
 "cookie validity configured in phpMyAdmin, because of this, your login might "
 "expire sooner than configured in phpMyAdmin."
 msgstr ""
-"PHP-parameteret [a@http://php.net/manual/en/session.configuration.php#ini."
+"PHP-parameteret [a@https://php.net/manual/en/session.configuration.php#ini."
 "session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] er lavere enn "
 "cookie gyldighet konfigurert i phpMyAdmin. På grunn av dette så kan "
 "innlogging utløpe raskere enn det som er satt i phpMyAdmin."
@@ -8038,13 +8038,13 @@ msgstr "Vis hint"
 #: libraries/config/messages.inc.php:875
 #, fuzzy
 #| msgid ""
-#| "Shows link to [a@http://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
+#| "Shows link to [a@https://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
 #| "output"
 msgid ""
-"Shows link to [a@http://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
+"Shows link to [a@https://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
 "output."
 msgstr ""
-"Vis link til [a@http://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
+"Vis link til [a@https://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
 "resultat"
 
 #: libraries/config/messages.inc.php:878

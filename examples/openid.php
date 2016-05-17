@@ -7,7 +7,7 @@
  * not intended to be perfect code and look, only shows how you can
  * integrate this functionality in your application.
  *
- * It uses OpenID pear package, see http://pear.php.net/package/OpenID
+ * It uses OpenID pear package, see https://pear.php.net/package/OpenID
  *
  * User first authenticates using OpenID and based on content of $AUTH_MAP
  * the login information is passed to phpMyAdmin in session data.
@@ -24,7 +24,7 @@ if (false === @include_once 'OpenID/RelyingParty.php') {
  * Map of authenticated users to MySQL user/password pairs.
  */
 $AUTH_MAP = array(
-    'http://launchpad.net/~username' => array(
+    'https://launchpad.net/~username' => array(
         'user' => 'root',
         'password' => '',
         ),

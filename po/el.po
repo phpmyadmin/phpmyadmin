@@ -784,12 +784,12 @@ msgstr ""
 
 #: index.php:499
 msgid ""
-"Your PHP parameter [a@http://php.net/manual/en/session.configuration.php#ini."
+"Your PHP parameter [a@https://php.net/manual/en/session.configuration.php#ini."
 "session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower than "
 "cookie validity configured in phpMyAdmin, because of this, your login might "
 "expire sooner than configured in phpMyAdmin."
 msgstr ""
-"Η παράμετρος PHP [a@http://php.net/manual/en/session.configuration.php#ini."
+"Η παράμετρος PHP [a@https://php.net/manual/en/session.configuration.php#ini."
 "session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] είναι μικρότερη από "
 "την ρυθμισμένη εγκυρότητα cookie στο phpMyAdmin. Εξαιτίας αυτού, η σύνδεσή "
 "σας ίσως λήξει νωρίτερα από ό,τι ρυθμίστηκε στο phpMyAdmin."
@@ -7575,10 +7575,10 @@ msgstr "Εμφάνιση επεξήγησης"
 
 #: libraries/config/messages.inc.php:875
 msgid ""
-"Shows link to [a@http://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
+"Shows link to [a@https://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
 "output."
 msgstr ""
-"Εμφανίζει σύνδεσμο για την τεκμηρίωση της συνάρτησης [a@http://php.net/"
+"Εμφανίζει σύνδεσμο για την τεκμηρίωση της συνάρτησης [a@https://php.net/"
 "manual/function.phpinfo.php]phpinfo()[/a]."
 
 #: libraries/config/messages.inc.php:878

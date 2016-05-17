@@ -829,7 +829,7 @@ msgstr ""
 
 #: index.php:499
 msgid ""
-"Your PHP parameter [a@http://php.net/manual/en/session.configuration.php#ini."
+"Your PHP parameter [a@https://php.net/manual/en/session.configuration.php#ini."
 "session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower than "
 "cookie validity configured in phpMyAdmin, because of this, your login might "
 "expire sooner than configured in phpMyAdmin."
@@ -8002,7 +8002,7 @@ msgstr "Паказаць сетку"
 
 #: libraries/config/messages.inc.php:875
 msgid ""
-"Shows link to [a@http://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
+"Shows link to [a@https://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
 "output."
 msgstr ""
 
@@ -19228,7 +19228,7 @@ msgstr "максымум адначасовых злучэньняў"
 #~ msgstr "Адключана"
 
 #~ msgid ""
-#~ "Cannot load [a@http://php.net/%1$s@Documentation][em]%1$s[/em][/a] "
+#~ "Cannot load [a@https://php.net/%1$s@Documentation][em]%1$s[/em][/a] "
 #~ "extension. Please check your PHP configuration."
 #~ msgstr ""
 #~ "немагчыма загрузіць пашырэньне %s;<br />калі ласка, праверце канфігурацыю "
@@ -19374,7 +19374,7 @@ msgstr "максымум адначасовых злучэньняў"
 #~ msgstr "Памылка перайменаваньня табліцы %1$s у %2$s"
 
 #~ msgid ""
-#~ "Cannot load [a@http://php.net/%1@Documentation][em]%1[/em][/a] extension. "
+#~ "Cannot load [a@https://php.net/%1@Documentation][em]%1[/em][/a] extension. "
 #~ "Please check your PHP configuration."
 #~ msgstr ""
 #~ "немагчыма загрузіць пашырэньне %s;<br />калі ласка, праверце канфігурацыю "

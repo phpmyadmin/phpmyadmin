@@ -780,12 +780,12 @@ msgstr ""
 
 #: index.php:499
 msgid ""
-"Your PHP parameter [a@http://php.net/manual/en/session.configuration.php#ini."
+"Your PHP parameter [a@https://php.net/manual/en/session.configuration.php#ini."
 "session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower than "
 "cookie validity configured in phpMyAdmin, because of this, your login might "
 "expire sooner than configured in phpMyAdmin."
 msgstr ""
-"A [a@http://php.net/manual/en/session.configuration.php#ini.session.gc-"
+"A [a@https://php.net/manual/en/session.configuration.php#ini.session.gc-"
 "maxlifetime@_blank]session.gc_maxlifetime[/a] paraméter alacsonyabb a "
 "phpMyAdminban beállított cookie érvényességénél. Emiatt a bejelentkezése a "
 "phpMyAdminban beállítottnál előbb járhat le."
@@ -7634,10 +7634,10 @@ msgstr "Segítség megjelenítése"
 
 #: libraries/config/messages.inc.php:875
 msgid ""
-"Shows link to [a@http://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
+"Shows link to [a@https://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
 "output."
 msgstr ""
-"Megjeleníti a [a@http://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
+"Megjeleníti a [a@https://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
 "kimenetre mutató hivatkozást."
 
 #: libraries/config/messages.inc.php:878

@@ -777,12 +777,12 @@ msgstr ""
 
 #: index.php:499
 msgid ""
-"Your PHP parameter [a@http://php.net/manual/en/session.configuration.php#ini."
+"Your PHP parameter [a@https://php.net/manual/en/session.configuration.php#ini."
 "session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower than "
 "cookie validity configured in phpMyAdmin, because of this, your login might "
 "expire sooner than configured in phpMyAdmin."
 msgstr ""
-"Parameter PHP [a@http://php.net/manual/en/session.configuration.php#ini."
+"Parameter PHP [a@https://php.net/manual/en/session.configuration.php#ini."
 "session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] anda lebih kecil "
 "daripada konfigurasi lama validitas cookie di  phpMyAdmin, oleh karena itu "
 "login anda mungkin dapat berakhir lebih cepat daripada konfigurasi "
@@ -7848,13 +7848,13 @@ msgstr "Tampilkan petunjuk"
 #: libraries/config/messages.inc.php:875
 #, fuzzy
 #| msgid ""
-#| "Shows link to [a@http://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
+#| "Shows link to [a@https://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
 #| "output"
 msgid ""
-"Shows link to [a@http://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
+"Shows link to [a@https://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
 "output."
 msgstr ""
-"Tampilkan tautan untuk melihat hasil [a@http://php.net/manual/function."
+"Tampilkan tautan untuk melihat hasil [a@https://php.net/manual/function."
 "phpinfo.php]phpinfo()[/a]"
 
 #: libraries/config/messages.inc.php:878

@@ -754,12 +754,12 @@ msgstr "curl 扩展未找到并且 allow_url_fopen 已禁用。因此一些功�
 
 #: index.php:499
 msgid ""
-"Your PHP parameter [a@http://php.net/manual/en/session.configuration.php#ini."
+"Your PHP parameter [a@https://php.net/manual/en/session.configuration.php#ini."
 "session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower than "
 "cookie validity configured in phpMyAdmin, because of this, your login might "
 "expire sooner than configured in phpMyAdmin."
 msgstr ""
-"您的 PHP 参数 [a@http://php.net/manual/zh/session.configuration.php#ini."
+"您的 PHP 参数 [a@https://php.net/manual/zh/session.configuration.php#ini."
 "session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] 短于您在 phpMyAdmin "
 "中设置的 Cookies 有效期，因此您的登录会话有效期可能会比您在 phpMyAdmin 中设置"
 "的时间要更短。"
@@ -7185,10 +7185,10 @@ msgstr "显示提示"
 
 #: libraries/config/messages.inc.php:875
 msgid ""
-"Shows link to [a@http://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
+"Shows link to [a@https://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
 "output."
 msgstr ""
-"显示 [a@http://php.net/manual/function.phpinfo.php]phpinfo()[/a] 的链接。"
+"显示 [a@https://php.net/manual/function.phpinfo.php]phpinfo()[/a] 的链接。"
 
 #: libraries/config/messages.inc.php:878
 msgid "Show phpinfo() link"

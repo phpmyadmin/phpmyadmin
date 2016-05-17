@@ -787,12 +787,12 @@ msgstr ""
 #: index.php:499
 #, fuzzy
 msgid ""
-"Your PHP parameter [a@http://php.net/manual/en/session.configuration.php#ini."
+"Your PHP parameter [a@https://php.net/manual/en/session.configuration.php#ini."
 "session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower than "
 "cookie validity configured in phpMyAdmin, because of this, your login might "
 "expire sooner than configured in phpMyAdmin."
 msgstr ""
-"פרמטר PHP שלך [a@http://php.net/manual/en/session.configuration.php#ini."
+"פרמטר PHP שלך [a@https://php.net/manual/en/session.configuration.php#ini."
 "session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] הוא נמוך יותר מאשר "
 "עוגיה תוקפו נקבעה ב phpMyAdmin, בגלל זה, הכניסה שלך יפוג מוקדם יותר מאשר "
 "נקבעה ב phpMyAdmin."
@@ -7833,7 +7833,7 @@ msgstr "הראה רשת"
 
 #: libraries/config/messages.inc.php:875
 msgid ""
-"Shows link to [a@http://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
+"Shows link to [a@https://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
 "output."
 msgstr ""
 
@@ -18314,7 +18314,7 @@ msgstr ""
 #~ msgstr "מבוטל"
 
 #~ msgid ""
-#~ "Cannot load [a@http://php.net/%1$s@Documentation][em]%1$s[/em][/a] "
+#~ "Cannot load [a@https://php.net/%1$s@Documentation][em]%1$s[/em][/a] "
 #~ "extension. Please check your PHP configuration."
 #~ msgstr "התוספת %s לא נטענה בהצלחה,<br />אנא בדוק את הגדרות ה- PHP שלך."
 
@@ -18418,7 +18418,7 @@ msgstr ""
 #~ msgstr "הטבלה \"%s\" לא קיימת!"
 
 #~ msgid ""
-#~ "Cannot load [a@http://php.net/%1@Documentation][em]%1[/em][/a] extension. "
+#~ "Cannot load [a@https://php.net/%1@Documentation][em]%1[/em][/a] extension. "
 #~ "Please check your PHP configuration."
 #~ msgstr "התוספת %s לא נטענה בהצלחה,<br />אנא בדוק את הגדרות ה- PHP שלך."
 

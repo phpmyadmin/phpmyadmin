@@ -785,12 +785,12 @@ msgstr ""
 
 #: index.php:499
 msgid ""
-"Your PHP parameter [a@http://php.net/manual/en/session.configuration.php#ini."
+"Your PHP parameter [a@https://php.net/manual/en/session.configuration.php#ini."
 "session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower than "
 "cookie validity configured in phpMyAdmin, because of this, your login might "
 "expire sooner than configured in phpMyAdmin."
 msgstr ""
-"Il parametro [a@http://php.net/manual/en/session.configuration.php#ini."
+"Il parametro [a@https://php.net/manual/en/session.configuration.php#ini."
 "session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] di PHP (configurato "
 "in php.ini) ha un valore inferiore al periodo di validitá del cookie di "
 "sessione configurato da phpMyAdmin; per questo motivo, questa sessione "
@@ -7593,10 +7593,10 @@ msgstr "Mostra suggerimento"
 
 #: libraries/config/messages.inc.php:875
 msgid ""
-"Shows link to [a@http://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
+"Shows link to [a@https://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
 "output."
 msgstr ""
-"Mostra un collegamento all'output di [a@http://php.net/manual/function."
+"Mostra un collegamento all'output di [a@https://php.net/manual/function."
 "phpinfo.php]phpinfo()[/a]."
 
 #: libraries/config/messages.inc.php:878

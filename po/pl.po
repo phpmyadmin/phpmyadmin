@@ -779,12 +779,12 @@ msgstr ""
 
 #: index.php:499
 msgid ""
-"Your PHP parameter [a@http://php.net/manual/en/session.configuration.php#ini."
+"Your PHP parameter [a@https://php.net/manual/en/session.configuration.php#ini."
 "session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower than "
 "cookie validity configured in phpMyAdmin, because of this, your login might "
 "expire sooner than configured in phpMyAdmin."
 msgstr ""
-"Parametr PHP [a@http://php.net/manual/en/session.configuration.php#ini."
+"Parametr PHP [a@https://php.net/manual/en/session.configuration.php#ini."
 "session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] ma mniejszą wartość "
 "niż czas przechowywania ciasteczka skonfigurowany w phpMyAdmin. Z tego "
 "powodu sesja wygaśnie wcześniej niż jest to skonfigurowane w phpMyAdmin."
@@ -7804,13 +7804,13 @@ msgstr "Pokaż podpowiedź"
 #: libraries/config/messages.inc.php:875
 #, fuzzy
 #| msgid ""
-#| "Shows link to [a@http://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
+#| "Shows link to [a@https://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
 #| "output"
 msgid ""
-"Shows link to [a@http://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
+"Shows link to [a@https://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
 "output."
 msgstr ""
-"Pokazuje odnośnik do [a@http://php.net/manual/function.phpinfo.php]phpinfo()"
+"Pokazuje odnośnik do [a@https://php.net/manual/function.phpinfo.php]phpinfo()"
 "[/a]"
 
 #: libraries/config/messages.inc.php:878
