@@ -777,8 +777,6 @@ function PMA_isAllowedDomain($url)
         /* Following are doubtful ones. */
         'www.percona.com',
         'mysqldatabaseadministration.blogspot.com',
-        'ronaldbradford.com',
-        'xaprb.com',
     );
     if (in_array(mb_strtolower($domain), $domainWhiteList)) {
         return true;
