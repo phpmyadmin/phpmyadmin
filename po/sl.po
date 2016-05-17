@@ -7017,7 +7017,7 @@ msgstr "Skrije zbirke podatkov, ki se ujemajo z običajnim izrazom (PCRE)."
 #: libraries/config/messages.inc.php:678
 msgid ""
 "More information on [a@https://sourceforge.net/p/phpmyadmin/bugs/2606/]PMA "
-"bug tracker[/a] and [a@http://bugs.mysql.com/19588]MySQL Bugs[/a]"
+"bug tracker[/a] and [a@https://bugs.mysql.com/19588]MySQL Bugs[/a]"
 msgstr ""
 "Več informacij na [a@https://sourceforge.net/p/phpmyadmin/"
 "bugs/2606/]sledilniku hroščev PMA[/a] in[a@http://bugs.mysql."

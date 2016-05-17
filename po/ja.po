@@ -7608,10 +7608,10 @@ msgstr "正規表現 (PCRE) で一致するデータベースを非表示にし�
 #: libraries/config/messages.inc.php:678
 msgid ""
 "More information on [a@https://sourceforge.net/p/phpmyadmin/bugs/2606/]PMA "
-"bug tracker[/a] and [a@http://bugs.mysql.com/19588]MySQL Bugs[/a]"
+"bug tracker[/a] and [a@https://bugs.mysql.com/19588]MySQL Bugs[/a]"
 msgstr ""
 "詳細は [a@https://sourceforge.net/p/phpmyadmin/bugs/2606/]PMA bug tracker[/"
-"a] と [a@http://bugs.mysql.com/19588]MySQL Bugs[/a]を"
+"a] と [a@https://bugs.mysql.com/19588]MySQL Bugs[/a]を"
 
 #: libraries/config/messages.inc.php:681
 msgid "Disable use of INFORMATION_SCHEMA"

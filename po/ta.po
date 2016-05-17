@@ -6943,7 +6943,7 @@ msgstr "சுருங்குறிக்கு பொருந்தும�
 #: libraries/config/messages.inc.php:678
 msgid ""
 "More information on [a@https://sourceforge.net/p/phpmyadmin/bugs/2606/]PMA "
-"bug tracker[/a] and [a@http://bugs.mysql.com/19588]MySQL Bugs[/a]"
+"bug tracker[/a] and [a@https://bugs.mysql.com/19588]MySQL Bugs[/a]"
 msgstr ""
 
 #: libraries/config/messages.inc.php:681

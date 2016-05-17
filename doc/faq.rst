@@ -847,7 +847,7 @@ dump, you have to use another way.
 3.3 With InnoDB tables, I lose foreign key relationships when I rename a table or a column.
 -------------------------------------------------------------------------------------------
 
-This is an InnoDB bug, see <http://bugs.mysql.com/bug.php?id=21704>.
+This is an InnoDB bug, see <https://bugs.mysql.com/bug.php?id=21704>.
 
 .. _faq3_4:
 
@@ -1695,7 +1695,7 @@ DATABASES, LOCK TABLES. Those privileges also enable users to see all the
 database names. So if your users do not need those privileges, you can remove
 them and their databases list will shorten.
 
-.. seealso:: <http://bugs.mysql.com/179>
+.. seealso:: <https://bugs.mysql.com/179>
 
 .. _faq6_21:
 

@@ -2747,7 +2747,7 @@ class Util
                 sprintf(
                     __('The %s functionality is affected by a known bug, see %s'),
                     $functionality,
-                    PMA_linkURL('http://bugs.mysql.com/') . $bugref
+                    PMA_linkURL('https://bugs.mysql.com/') . $bugref
                 )
             );
         }

@@ -7370,10 +7370,10 @@ msgstr "ডাটাবেইজের regular expression (PCRE) মিলকর
 #: libraries/config/messages.inc.php:678
 msgid ""
 "More information on [a@https://sourceforge.net/p/phpmyadmin/bugs/2606/]PMA "
-"bug tracker[/a] and [a@http://bugs.mysql.com/19588]MySQL Bugs[/a]"
+"bug tracker[/a] and [a@https://bugs.mysql.com/19588]MySQL Bugs[/a]"
 msgstr ""
 "আরো তথ্যের জন্য [a@http://sf.net/support/tracker.php?aid=1849494]PMA bug "
-"tracker[/a] এবং [a@http://bugs.mysql.com/19588]MySQL Bugs[/a]"
+"tracker[/a] এবং [a@https://bugs.mysql.com/19588]MySQL Bugs[/a]"
 
 #: libraries/config/messages.inc.php:681
 msgid "Disable use of INFORMATION_SCHEMA"

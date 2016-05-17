@@ -6771,10 +6771,10 @@ msgstr "隱藏資料庫名稱符合此正規表示法(PCRE)的項目。"
 #: libraries/config/messages.inc.php:678
 msgid ""
 "More information on [a@https://sourceforge.net/p/phpmyadmin/bugs/2606/]PMA "
-"bug tracker[/a] and [a@http://bugs.mysql.com/19588]MySQL Bugs[/a]"
+"bug tracker[/a] and [a@https://bugs.mysql.com/19588]MySQL Bugs[/a]"
 msgstr ""
 "詳情請參考  [a@https://sourceforge.net/p/phpmyadmin/bugs/2606/]PMA 問題追蹤系"
-"統[/a] 與 [a@http://bugs.mysql.com/19588]MySQL 問題回報[/a]"
+"統[/a] 與 [a@https://bugs.mysql.com/19588]MySQL 問題回報[/a]"
 
 #: libraries/config/messages.inc.php:681
 msgid "Disable use of INFORMATION_SCHEMA"

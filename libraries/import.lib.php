@@ -1036,7 +1036,7 @@ function PMA_buildSQL($db_name, &$tables, &$analyses = null,
          * syntax is lacking or nonexisting for views, triggers,
          * functions, and procedures.
          *
-         * See: http://bugs.mysql.com/bug.php?id=15287
+         * See: https://bugs.mysql.com/bug.php?id=15287
          *
          * To the best of my knowledge this is still an issue.
          *
