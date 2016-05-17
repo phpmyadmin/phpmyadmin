@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.0-alpha1\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-02-17 11:55+0100\n"
-"PO-Revision-Date: 2016-04-12 11:56+0000\n"
+"PO-Revision-Date: 2016-05-17 23:03+0000\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-6/ia/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.6-dev\n"
+"X-Generator: Weblate 2.7-dev\n"
 
 #: changelog.php:37 license.php:33
 #, php-format
@@ -3051,8 +3051,8 @@ msgstr "Base de datos"
 #, php-format
 msgid "Showing %1$d bookmark (both private and shared)"
 msgid_plural "Showing %1$d bookmarks (both private and shared)"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Monstrante %1$d marcator de libro (ambe private e compartite)"
+msgstr[1] "Monstrante %1$d marcatores de libro (ambes private e compartite)"
 
 #: libraries/Console.php:107
 msgid "No bookmarks"
@@ -10160,6 +10160,10 @@ msgid ""
 "configuration and make sure that they correspond to the information given by "
 "the administrator of the MySQL server."
 msgstr ""
+"phpMyAdmin essayava connecter al servitor MySQL, e le servitor refusava le "
+"connexion. On deberea controlar le nomine del hospite, le nomine de usator e "
+"le contrasigno in le file de configuration assecura que illos corresponde al "
+"information date per le administrator del servitor MySQL."
 
 #: libraries/plugins/auth/AuthenticationConfig.php:162
 msgid "Retry to connect"
@@ -10317,7 +10321,7 @@ msgstr "Structura per le vista"
 #: libraries/plugins/export/ExportSql.php:2091
 #: libraries/plugins/export/ExportTexytext.php:554
 msgid "Stand-in structure for view"
-msgstr ""
+msgstr "Structura stand-in per le vista"
 
 #: libraries/plugins/export/ExportJson.php:65
 msgid "Output pretty-printed JSON (Use human-readable formatting)"
@@ -10325,15 +10329,15 @@ msgstr ""
 
 #: libraries/plugins/export/ExportLatex.php:48
 msgid "Content of table @TABLE@"
-msgstr ""
+msgstr "Contento de tabella @TABLE@"
 
 #: libraries/plugins/export/ExportLatex.php:49
 msgid "(continued)"
-msgstr ""
+msgstr "(continua)"
 
 #: libraries/plugins/export/ExportLatex.php:50
 msgid "Structure of table @TABLE@"
-msgstr ""
+msgstr "Structura de tabella @TABLE@"
 
 #: libraries/plugins/export/ExportLatex.php:112
 #: libraries/plugins/export/ExportOdt.php:91
