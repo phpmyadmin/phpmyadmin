@@ -2588,7 +2588,7 @@ class ServerVariablesController extends Controller
     /**
      * Returns array of static(i.e. non-editable/ read-only) global system variables
      *
-     * See http://dev.mysql.com/doc/refman/5.6/en/server-system-variables.html
+     * See https://dev.mysql.com/doc/refman/5.6/en/server-system-variables.html
      *
      * @return array
      */

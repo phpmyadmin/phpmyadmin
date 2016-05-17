@@ -234,7 +234,7 @@ file, for large tables you avoid the error "Got a packet bigger than
 
 .. seealso:: 
    
-    http://dev.mysql.com/doc/refman/5.7/en/packet-too-large.html
+    https://dev.mysql.com/doc/refman/5.7/en/packet-too-large.html
 
 Data Options
 ~~~~~~~~~~~~

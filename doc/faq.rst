@@ -320,7 +320,7 @@ check the value of this directive using the query
 
     SHOW VARIABLES LIKE 'lower_case_table_names';
 
-.. seealso:: `Identifier Case Sensitivity in the MySQL Reference Manual <http://dev.mysql.com/doc/refman/5.7/en/identifier-case-sensitivity.html>`_
+.. seealso:: `Identifier Case Sensitivity in the MySQL Reference Manual <https://dev.mysql.com/doc/refman/5.7/en/identifier-case-sensitivity.html>`_
 
 .. _faq1_24:
 
