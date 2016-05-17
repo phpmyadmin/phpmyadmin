@@ -883,7 +883,7 @@ dump, you have to use another way.
 3.3 With InnoDB tables, I lose foreign key relationships when I rename a table or a column.
 -------------------------------------------------------------------------------------------
 
-This is an InnoDB bug, see <http://bugs.mysql.com/bug.php?id=21704>.
+This is an InnoDB bug, see <https://bugs.mysql.com/bug.php?id=21704>.
 
 .. _faq3_4:
 

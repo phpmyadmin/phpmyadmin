@@ -6873,10 +6873,10 @@ msgstr "Ẩn các cơ sở dữ liệu khớp mẫu biểu thức chính quy (PC
 #: libraries/config/messages.inc.php:674
 msgid ""
 "More information on [a@https://sourceforge.net/p/phpmyadmin/bugs/2606/]PMA "
-"bug tracker[/a] and [a@http://bugs.mysql.com/19588]MySQL Bugs[/a]"
+"bug tracker[/a] and [a@https://bugs.mysql.com/19588]MySQL Bugs[/a]"
 msgstr ""
 "Thông tin thêm trên [a@https://sourceforge.net/p/phpmyadmin/bugs/2606/]PMA "
-"bug tracker[/a] và [a@http://bugs.mysql.com/19588]MySQL Bugs[/a]"
+"bug tracker[/a] và [a@https://bugs.mysql.com/19588]MySQL Bugs[/a]"
 
 #: libraries/config/messages.inc.php:677
 msgid "Disable use of INFORMATION_SCHEMA"

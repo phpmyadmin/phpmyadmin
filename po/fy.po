@@ -6747,10 +6747,10 @@ msgstr ""
 #: libraries/config/messages.inc.php:674
 msgid ""
 "More information on [a@https://sourceforge.net/p/phpmyadmin/bugs/2606/]PMA "
-"bug tracker[/a] and [a@http://bugs.mysql.com/19588]MySQL Bugs[/a]"
+"bug tracker[/a] and [a@https://bugs.mysql.com/19588]MySQL Bugs[/a]"
 msgstr ""
 "Mear ynformaasje op [a@https://sourceforge.net/p/phpmyadmin/bugs/2606/]PMA-"
-"bugtracker[/a] en [a@http://bugs.mysql.com/19588]MySQL Bugs[/a]"
+"bugtracker[/a] en [a@https://bugs.mysql.com/19588]MySQL Bugs[/a]"
 
 #: libraries/config/messages.inc.php:677
 msgid "Disable use of INFORMATION_SCHEMA"

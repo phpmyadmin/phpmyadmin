@@ -743,20 +743,17 @@ function PMA_isAllowedDomain($url)
         /* mysql.com domains */
         'dev.mysql.com','bugs.mysql.com',
         /* mariadb domains */
-        'mariadb.org',
+        'mariadb.org', 'mariadb.com',
         /* php.net domains */
         'php.net',
         /* sourceforge.net domain */
         'sourceforge.net',
         /* Github domains*/
         'github.com','www.github.com',
-        /* Following are doubtful ones. */
-        'www.primebase.com',
-        'pbxt.blogspot.com',
+        /* Percona domains */
         'www.percona.com',
+        /* Following are doubtful ones. */
         'mysqldatabaseadministration.blogspot.com',
-        'ronaldbradford.com',
-        'xaprb.com',
     );
     if (in_array(mb_strtolower($domain), $domainWhiteList)) {
         return true;

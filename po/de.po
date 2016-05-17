@@ -7159,10 +7159,10 @@ msgstr "Verberge Datenbanken, die auf regular expressions (PCRE) passen."
 #: libraries/config/messages.inc.php:674
 msgid ""
 "More information on [a@https://sourceforge.net/p/phpmyadmin/bugs/2606/]PMA "
-"bug tracker[/a] and [a@http://bugs.mysql.com/19588]MySQL Bugs[/a]"
+"bug tracker[/a] and [a@https://bugs.mysql.com/19588]MySQL Bugs[/a]"
 msgstr ""
 "Mehr Informationen auf [a@https://sourceforge.net/p/phpmyadmin/"
-"bugs/2606/]PMA bug tracker[/a] and [a@http://bugs.mysql.com/19588]MySQL "
+"bugs/2606/]PMA bug tracker[/a] and [a@https://bugs.mysql.com/19588]MySQL "
 "Bugs[/a]"
 
 #: libraries/config/messages.inc.php:677

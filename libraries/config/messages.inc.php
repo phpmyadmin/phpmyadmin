@@ -672,7 +672,7 @@ $strConfigServers_hide_db_desc
     = __('Hide databases matching regular expression (PCRE).');
 $strConfigServers_DisableIS_desc = __(
     'More information on [a@https://sourceforge.net/p/phpmyadmin/bugs/2606/]PMA ' .
-    'bug tracker[/a] and [a@http://bugs.mysql.com/19588]MySQL Bugs[/a]'
+    'bug tracker[/a] and [a@https://bugs.mysql.com/19588]MySQL Bugs[/a]'
 );
 $strConfigServers_DisableIS_name = __('Disable use of INFORMATION_SCHEMA');
 $strConfigServers_hide_db_name = __('Hide databases');

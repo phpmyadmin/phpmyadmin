@@ -7378,7 +7378,7 @@ msgstr "Скриване БД, съответстващи на регуляре�
 #: libraries/config/messages.inc.php:674
 msgid ""
 "More information on [a@https://sourceforge.net/p/phpmyadmin/bugs/2606/]PMA "
-"bug tracker[/a] and [a@http://bugs.mysql.com/19588]MySQL Bugs[/a]"
+"bug tracker[/a] and [a@https://bugs.mysql.com/19588]MySQL Bugs[/a]"
 msgstr ""
 "Допълнителна информация в [a@https://sourceforge.net/p/phpmyadmin/"
 "bugs/2606/]системата за проследяване на дефекти на PMA[/a] и [a@http://bugs."

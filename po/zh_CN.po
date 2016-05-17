@@ -6801,10 +6801,10 @@ msgstr "该正则表达式 (PCRE，Perl 兼容) 所匹配的数据库将被隐�
 #: libraries/config/messages.inc.php:674
 msgid ""
 "More information on [a@https://sourceforge.net/p/phpmyadmin/bugs/2606/]PMA "
-"bug tracker[/a] and [a@http://bugs.mysql.com/19588]MySQL Bugs[/a]"
+"bug tracker[/a] and [a@https://bugs.mysql.com/19588]MySQL Bugs[/a]"
 msgstr ""
 "参见 [a@https://sourceforge.net/p/phpmyadmin/bugs/2606/]PMA 缺陷 (bug) 跟踪系"
-"统 (外链，英文)[/a] 和 [a@http://bugs.mysql.com/19588]MySQL 缺陷 (Bugs) (外"
+"统 (外链，英文)[/a] 和 [a@https://bugs.mysql.com/19588]MySQL 缺陷 (Bugs) (外"
 "链，英文)[/a]"
 
 #: libraries/config/messages.inc.php:677
