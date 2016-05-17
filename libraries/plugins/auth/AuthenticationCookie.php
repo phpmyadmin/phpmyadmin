@@ -285,8 +285,8 @@ class AuthenticationCookie extends AuthenticationPlugin
             // The user wants to be logged out
             // -> delete his choices that were stored in session
 
-            // according to the PHP manual we should do this before the destroy:
-            //$_SESSION = array();
+            // according to the PHP manual we should clear data before destroy
+            $_SESSION = array();
 
             if (! defined('TESTSUITE')) {
                 session_destroy();
