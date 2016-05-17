@@ -84,6 +84,7 @@ class PMA_Sanitize_Test extends PHPUnit_Framework_TestCase
             array('foo', 'setup.html%23foo'),
             array('cfg_TitleTable', 'config.html%23cfg_TitleTable'),
             array('faq3-11', 'faq.html%23faq3-11'),
+            array('bookmarks@', 'bookmarks.html'),
         );
     }
 
