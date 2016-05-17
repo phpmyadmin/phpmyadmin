@@ -44,7 +44,7 @@ $strConfigBrowsePointerEnable_desc = __(
 );
 $strConfigBrowsePointerEnable_name = __('Highlight pointer');
 $strConfigBZipDump_desc = __(
-    'Enable [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] compression for'
+    'Enable bzip2 compression for'
     . ' import operations.'
 );
 $strConfigBZipDump_name = __('Bzip2');
@@ -56,7 +56,7 @@ $strConfigCharEditing_desc = __(
 $strConfigCharEditing_name = __('CHAR columns editing');
 $strConfigCodemirrorEnable_desc = __(
     'Use user-friendly editor for editing SQL queries '
-    . '([a@http://codemirror.net/]CodeMirror[/a]) with syntax highlighting and '
+    . '(CodeMirror) with syntax highlighting and '
     . 'line numbers.'
 );
 $strConfigCodemirrorEnable_name = __('Enable CodeMirror');
@@ -350,7 +350,7 @@ $strConfigForm_Warnings = __('Warnings');
 $strConfigForm_Warnings_desc
     = __('Disable some of the warnings shown by phpMyAdmin.');
 $strConfigGZipDump_desc = __(
-    'Enable [a@http://en.wikipedia.org/wiki/Gzip]gzip[/a] compression for import '
+    'Enable gzip compression for import '
     . 'and export operations.'
 );
 $strConfigGZipDump_name = __('GZip');
@@ -633,8 +633,8 @@ $strConfigServers_auth_http_realm_desc
     = __('HTTP Basic Auth Realm name to display when doing HTTP Auth.');
 $strConfigServers_auth_http_realm_name = __('HTTP Realm');
 $strConfigServers_auth_swekey_config_desc = __(
-    'The path for the config file for [a@http://swekey.com]SweKey hardware '
-    . 'authentication[/a] (not located in your document root; suggested: '
+    'The path for the config file for SweKey hardware '
+    . 'authentication (not located in your document root; suggested: '
     . '/etc/swekey.conf).'
 );
 $strConfigServers_auth_swekey_config_name = __('SweKey config file');
@@ -975,7 +975,7 @@ $strConfigProxyPass_desc = __('The password for authenticating with the proxy.')
 $strConfigProxyPass_name = __('Proxy password');
 
 $strConfigZipDump_desc = __(
-    'Enable [a@http://en.wikipedia.org/wiki/ZIP_(file_format)]ZIP[/a] ' .
+    'Enable ZIP ' .
     'compression for import and export operations.'
 );
 $strConfigZipDump_name = __('ZIP');
