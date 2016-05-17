@@ -775,7 +775,6 @@ function PMA_isAllowedDomain($url)
         /* Github domains*/
         'github.com','www.github.com',
         /* Following are doubtful ones. */
-        'www.primebase.com',
         'pbxt.blogspot.com',
         'www.percona.com',
         'mysqldatabaseadministration.blogspot.com',

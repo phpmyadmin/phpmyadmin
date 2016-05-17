@@ -251,7 +251,7 @@ class PbxtTest extends PMATestCase
                     'Documentation and further information about PBXT'
                     . ' can be found on the %sPrimeBase XT Home Page%s.'
                 ),
-                '<a href="' . PMA_linkURL('http://www.primebase.com/xt/')
+                '<a href="' . PMA_linkURL('https://mariadb.com/kb/en/mariadb/about-pbxt/')
                 . '" target="_blank">',
                 '</a>'
             )
