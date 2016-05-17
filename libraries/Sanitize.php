@@ -87,14 +87,19 @@ class Sanitize
      */
     public static function replaceDocLink($found)
     {
-        $anchor = $found[1];
-        if (strncmp('faq', $anchor, 3) == 0) {
-            $page = 'faq';
-        } else if (strncmp('cfg', $anchor, 3) == 0) {
-            $page = 'cfg';
+        if (count($found) >= 4) {
+            $page = $found[1];
+            $anchor = $found[3];
         } else {
-            /* Guess */
-            $page = 'setup';
+            $anchor = $found[1];
+            if (strncmp('faq', $anchor, 3) == 0) {
+                $page = 'faq';
+            } else if (strncmp('cfg', $anchor, 3) == 0) {
+                $page = 'config';
+            } else {
+                /* Guess */
+                $page = 'setup';
+            }
         }
         $link = Util::getDocuLink($page, $anchor);
         return '<a href="' . $link . '" target="documentation">';
@@ -157,7 +162,7 @@ class Sanitize
 
         /* Replace documentation links */
         $message = preg_replace_callback(
-            '/\[doc@([a-zA-Z0-9_-]+)\]/',
+            '/\[doc@([a-zA-Z0-9_-]+)(@([a-zA-Z0-9_-]*))?\]/',
             function($match){
                 return Sanitize::replaceDocLink($match);
             },
