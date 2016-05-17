@@ -208,7 +208,7 @@ class ExportLatex extends ExportPlugin
 
         $head = '% phpMyAdmin LaTeX Dump' . $crlf
             . '% version ' . PMA_VERSION . $crlf
-            . '% http://www.phpmyadmin.net' . $crlf
+            . '% https://www.phpmyadmin.net/' . $crlf
             . '%' . $crlf
             . '% ' . __('Host:') . ' ' . $cfg['Server']['host'];
         if (!empty($cfg['Server']['port'])) {
