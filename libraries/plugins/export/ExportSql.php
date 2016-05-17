@@ -677,7 +677,7 @@ class ExportSql extends ExportPlugin
         }
         $head = $this->_exportComment('phpMyAdmin SQL Dump')
             . $this->_exportComment('version ' . PMA_VERSION)
-            . $this->_exportComment('http://www.phpmyadmin.net')
+            . $this->_exportComment('https://www.phpmyadmin.net/')
             . $this->_exportComment();
         $host_string = __('Host:') . ' ' . $cfg['Server']['host'];
         if (!empty($cfg['Server']['port'])) {
