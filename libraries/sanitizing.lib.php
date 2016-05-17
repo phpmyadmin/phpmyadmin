@@ -81,7 +81,7 @@ function PMA_replaceDocLink($found)
     if (strncmp('faq', $anchor, 3) == 0) {
         $page = 'faq';
     } else if (strncmp('cfg', $anchor, 3) == 0) {
-        $page = 'cfg';
+        $page = 'config';
     } else {
         /* Guess */
         $page = 'setup';
