@@ -123,7 +123,7 @@ class AuthenticationConfigTest extends PMATestCase
         );
 
         $this->assertContains(
-            '<strong>MySQL said: </strong><a href="./url.php?url=http%3A%2F%2F' .
+            '<strong>MySQL said: </strong><a href="./url.php?url=https%3A%2F%2F' .
             'dev.mysql.com%2Fdoc%2Frefman%2F5.7%2Fen%2Ferror-messages-server.html"' .
             ' target="mysql_doc">' .
             '<img src="themes/dot.gif" title="Documentation" alt="Documentation" ' .
