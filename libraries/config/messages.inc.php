@@ -868,7 +868,7 @@ $strConfigShowFunctionFields_name = __('Show function fields');
 $strConfigShowHint_desc = __('Whether to show hint or not.');
 $strConfigShowHint_name = __('Show hint');
 $strConfigShowPhpInfo_desc = __(
-    'Shows link to [a@http://php.net/manual/function.phpinfo.php]phpinfo()[/a] ' .
+    'Shows link to [a@https://php.net/manual/function.phpinfo.php]phpinfo()[/a] ' .
     'output.'
 );
 $strConfigShowPhpInfo_name = __('Show phpinfo() link');

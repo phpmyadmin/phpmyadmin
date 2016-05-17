@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2016-04-26 14:40+0200\n"
+"POT-Creation-Date: 2016-02-17 11:55+0100\n"
 "PO-Revision-Date: 2015-10-15 11:22+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Tatar <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -795,7 +795,7 @@ msgstr ""
 
 #: index.php:502
 msgid ""
-"Your PHP parameter [a@http://php.net/manual/en/session.configuration.php#ini."
+"Your PHP parameter [a@https://php.net/manual/en/session.configuration.php#ini."
 "session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower than "
 "cookie validity configured in phpMyAdmin, because of this, your login might "
 "expire sooner than configured in phpMyAdmin."
@@ -7949,7 +7949,7 @@ msgstr "Sırlı kürsät"
 
 #: libraries/config/messages.inc.php:871
 msgid ""
-"Shows link to [a@http://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
+"Shows link to [a@https://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
 "output."
 msgstr ""
 
@@ -18686,7 +18686,7 @@ msgstr ""
 #~ msgstr "Sünek"
 
 #~ msgid ""
-#~ "Cannot load [a@http://php.net/%1$s@Documentation][em]%1$s[/em][/a] "
+#~ "Cannot load [a@https://php.net/%1$s@Documentation][em]%1$s[/em][/a] "
 #~ "extension. Please check your PHP configuration."
 #~ msgstr "\"%s\" yöklämäsen cibärep bulmadı,<br />PHP Caylawın tikşerçe"
 
