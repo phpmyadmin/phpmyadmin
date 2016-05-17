@@ -16510,7 +16510,7 @@ msgstr "Неоптимален метод за буфериране."
 #: libraries/advisory_rules.txt:157
 msgid ""
 "You are using the MySQL Query cache with a fairly high traffic database. It "
-"might be worth considering to use <a href=\"http://dev.mysql.com/doc/"
+"might be worth considering to use <a href=\"https://dev.mysql.com/doc/"
 "refman/5.5/en/ha-memcached.html\">memcached</a> instead of the MySQL Query "
 "cache, especially if you have multiple slaves."
 msgstr ""
@@ -16871,7 +16871,7 @@ msgid ""
 "value of these variables. To eliminate these you will have to rewrite your "
 "queries to avoid those conditions (Within a temporary table: Presence of a "
 "BLOB or TEXT column or presence of a column bigger than 512 bytes) as "
-"mentioned in the <a href=\"http://dev.mysql.com/doc/refman/5.5/en/internal-"
+"mentioned in the <a href=\"https://dev.mysql.com/doc/refman/5.5/en/internal-"
 "temporary-tables.html\">MySQL Documentation</a>"
 msgstr ""
 
@@ -17365,11 +17365,11 @@ msgstr "Включване на concurrent_insert като го настроит
 #, fuzzy
 msgid ""
 "Setting {concurrent_insert} to 1 reduces contention between readers and "
-"writers for a given table. See also <a href=\"http://dev.mysql.com/doc/"
+"writers for a given table. See also <a href=\"https://dev.mysql.com/doc/"
 "refman/5.5/en/concurrent-inserts.html\">MySQL Documentation</a>"
 msgstr ""
 "Установяването на {concurrent_insert} на 1 намалява contention между readers "
-"and writers за дадена таблица. Вижте също и <a href=\"http://dev.mysql.com/"
+"and writers за дадена таблица. Вижте също и <a href=\"https://dev.mysql.com/"
 "doc/refman/5.5/en/concurrent-inserts.html\">Документацията на MySQL</a>"
 
 #: libraries/advisory_rules.txt:457

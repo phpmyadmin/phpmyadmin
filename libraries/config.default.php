@@ -506,7 +506,7 @@ $cfg['Servers'][$i]['MaxTableUiprefs'] = 100;
 
 /**
  * Sets the time zone used by phpMyAdmin. Possible values are explained at
- * http://dev.mysql.com/doc/refman/5.7/en/time-zone-support.html
+ * https://dev.mysql.com/doc/refman/5.7/en/time-zone-support.html
  *
  * @global string $cfg['Servers'][$i]['SessionTimeZone'] = ''
  */

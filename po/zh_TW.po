@@ -1525,7 +1525,7 @@ msgstr "搜尋"
 #: js/messages.php:302
 msgid "Filter queries by word/regexp:"
 msgstr ""
-"使用純文字或 <a href=\"http://dev.mysql.com/doc/refman/5.1/en/regexp.html\" "
+"使用純文字或 <a href=\"https://dev.mysql.com/doc/refman/5.1/en/regexp.html\" "
 "target=\"_blank\">正規表式法(REGEXP)</a> 進行搜尋:"
 
 #: js/messages.php:304
@@ -15319,7 +15319,7 @@ msgstr "次佳的查詢快取方法。"
 #: libraries/advisory_rules.txt:157
 msgid ""
 "You are using the MySQL Query cache with a fairly high traffic database. It "
-"might be worth considering to use <a href=\"http://dev.mysql.com/doc/"
+"might be worth considering to use <a href=\"https://dev.mysql.com/doc/"
 "refman/5.5/en/ha-memcached.html\">memcached</a> instead of the MySQL Query "
 "cache, especially if you have multiple slaves."
 msgstr ""
@@ -15713,13 +15713,13 @@ msgid ""
 "value of these variables. To eliminate these you will have to rewrite your "
 "queries to avoid those conditions (Within a temporary table: Presence of a "
 "BLOB or TEXT column or presence of a column bigger than 512 bytes) as "
-"mentioned in the <a href=\"http://dev.mysql.com/doc/refman/5.5/en/internal-"
+"mentioned in the <a href=\"https://dev.mysql.com/doc/refman/5.5/en/internal-"
 "temporary-tables.html\">MySQL Documentation</a>"
 msgstr ""
 "增加 {max_heap_table_size} 和 {tmp_table_size} 可能有所幫助，但某些暫存資料表"
 "仍然會寫到磁碟與這些變數無關。要解決這個問題您必須重寫查詢條件避免在暫存資料"
 "表中儲存 BLOB 或 TEXT 型態的欄位或者使用長度大於 512 位元組的欄位，如 <a "
-"href=\"http://dev.mysql.com/doc/refman/5.5/en/internal-temporary-tables.html"
+"href=\"https://dev.mysql.com/doc/refman/5.5/en/internal-temporary-tables.html"
 "\">MySQL 說明文件</a> 中所提到的狀況"
 
 #: libraries/advisory_rules.txt:274
@@ -16196,11 +16196,11 @@ msgstr "啟用 {concurrent_insert} 設定為 1"
 #: libraries/advisory_rules.txt:456
 msgid ""
 "Setting {concurrent_insert} to 1 reduces contention between readers and "
-"writers for a given table. See also <a href=\"http://dev.mysql.com/doc/"
+"writers for a given table. See also <a href=\"https://dev.mysql.com/doc/"
 "refman/5.5/en/concurrent-inserts.html\">MySQL Documentation</a>"
 msgstr ""
 "將 {concurrent_insert} 設為 1 可以減少在相同表上的讀取和寫入衝突，請參考 <a "
-"href=\"http://dev.mysql.com/doc/refman/5.5/en/concurrent-inserts.html"
+"href=\"https://dev.mysql.com/doc/refman/5.5/en/concurrent-inserts.html"
 "\">MySQL 文件</a>"
 
 #: libraries/advisory_rules.txt:457

@@ -2171,7 +2171,7 @@ class DatabaseInterface
                     );
             } else {
                 /* InnoDB constraints, see
-                 * http://dev.mysql.com/doc/refman/5.0/en/
+                 * https://dev.mysql.com/doc/refman/5.0/en/
                  *  innodb-foreign-key-constraints.html
                  */
                 $error .= ' - ' . $error_message .

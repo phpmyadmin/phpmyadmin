@@ -600,7 +600,7 @@ class DBIMysqli implements DBIExtension
                 $flags[] = $name;
             }
         }
-        // See http://dev.mysql.com/doc/refman/6.0/en/c-api-datatypes.html:
+        // See https://dev.mysql.com/doc/refman/6.0/en/c-api-datatypes.html:
         // to determine if a string is binary, we should not use MYSQLI_BINARY_FLAG
         // but instead the charsetnr member of the MYSQL_FIELD
         // structure. Watch out: some types like DATE returns 63 in charsetnr

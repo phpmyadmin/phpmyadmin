@@ -125,7 +125,7 @@ function PMA_checkRequiredPrivilegesForAdjust(
  * detection
  *
  * @todo fix to get really all privileges, not only explicitly defined for this user
- * from MySQL manual: (http://dev.mysql.com/doc/refman/5.0/en/show-grants.html)
+ * from MySQL manual: (https://dev.mysql.com/doc/refman/5.0/en/show-grants.html)
  * SHOW GRANTS displays only the privileges granted explicitly to the named
  * account. Other privileges might be available to the account, but they are not
  * displayed. For example, if an anonymous account exists, the named account

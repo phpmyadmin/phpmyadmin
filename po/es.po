@@ -10884,7 +10884,7 @@ msgstr "¡El archivo importado no contiene datos!"
 msgid "SQL compatibility mode:"
 msgstr "Modalidad SQL compatible:"
 
-# Activates use of compatibility mode http://dev.mysql.com/doc/refman/5.0/en
+# Activates use of compatibility mode https://dev.mysql.com/doc/refman/5.0/en
 # /server-sql-mode.html#sqlmode_no_auto_value_on_zero
 #: libraries/plugins/import/ImportSql.php:80
 msgid "Do not use <code>AUTO_INCREMENT</code> for zero values"
@@ -16230,7 +16230,7 @@ msgstr "Método de caché sub-óptimo."
 #: libraries/advisory_rules.txt:157
 msgid ""
 "You are using the MySQL Query cache with a fairly high traffic database. It "
-"might be worth considering to use <a href=\"http://dev.mysql.com/doc/"
+"might be worth considering to use <a href=\"https://dev.mysql.com/doc/"
 "refman/5.5/en/ha-memcached.html\">memcached</a> instead of the MySQL Query "
 "cache, especially if you have multiple slaves."
 msgstr ""
@@ -16689,7 +16689,7 @@ msgid ""
 "value of these variables. To eliminate these you will have to rewrite your "
 "queries to avoid those conditions (Within a temporary table: Presence of a "
 "BLOB or TEXT column or presence of a column bigger than 512 bytes) as "
-"mentioned in the <a href=\"http://dev.mysql.com/doc/refman/5.5/en/internal-"
+"mentioned in the <a href=\"https://dev.mysql.com/doc/refman/5.5/en/internal-"
 "temporary-tables.html\">MySQL Documentation</a>"
 msgstr ""
 "Aumentar «max_heap_table_size» y «tmp_table_size» podría ayudar. Sin "
@@ -16697,7 +16697,7 @@ msgstr ""
 "independientemente del valor de estas variables. Para eliminarlas deberá re-"
 "escribir las consultas para evitar estas condiciones (en una tabla temporal: "
 "la presencia de una columna «BLOB» o «TEXT» o la presencia de una columna "
-"mayor a 512 bytes) como se menciona en la <a href=\"http://dev.mysql.com/doc/"
+"mayor a 512 bytes) como se menciona en la <a href=\"https://dev.mysql.com/doc/"
 "refman/5.5/en/internal-temporary-tables.html\">documentación de MySQL</a>"
 
 #: libraries/advisory_rules.txt:274
@@ -17238,7 +17238,7 @@ msgstr "Active {concurrent_insert} definiéndolo como 1"
 #: libraries/advisory_rules.txt:456
 msgid ""
 "Setting {concurrent_insert} to 1 reduces contention between readers and "
-"writers for a given table. See also <a href=\"http://dev.mysql.com/doc/"
+"writers for a given table. See also <a href=\"https://dev.mysql.com/doc/"
 "refman/5.5/en/concurrent-inserts.html\">MySQL Documentation</a>"
 msgstr ""
 "Definir «concurrent_insert» a 1 reduce la competencia entre lectores y "
