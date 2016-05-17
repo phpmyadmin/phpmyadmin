@@ -487,7 +487,7 @@ class MessageTest extends PMATestCase
         $this->object->setMessage('[kbd]test[/kbd] [doc@cfg_Example]test[/doc]');
         $this->assertEquals(
             '<kbd>test</kbd> <a href="./url.php?url=https%3A%2F%2Fdocs.phpmyadmin.'
-            . 'net%2Fen%2Flatest%2Fcfg.html%23cfg_Example"'
+            . 'net%2Fen%2Flatest%2Fconfig.html%23cfg_Example"'
             . ' target="documentation">test</a>',
             $this->object->getMessage()
         );
