@@ -174,7 +174,7 @@ function loadChildNodes(isNode, $expandElem, callback) {
                         margin: '0em',
                         padding : '0em'
                     })
-                    .slideDown('slow');
+                    .slideDown('fast');
             }
             if (data._errors) {
                 var $errors = $(data._errors);
