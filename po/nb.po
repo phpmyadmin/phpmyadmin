@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-02-17 11:55+0100\n"
-"PO-Revision-Date: 2016-05-19 09:31+0000\n"
+"PO-Revision-Date: 2016-05-19 17:17+0000\n"
 "Last-Translator: Axel Magnus Gaasø <axel.gaaso@gmail.com>\n"
 "Language-Team: Norwegian Bokmål "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/nb/>\n"
@@ -2473,8 +2473,8 @@ msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
 "upgrading. The newest version is %s, released on %s."
 msgstr ""
-"Ny versjon av phpMyAdmin er tilgjengelig, du bør vurdere å oppgradere. Ny "
-"versjon er %s, utgitt den %s."
+"En ny versjon av phpMyAdmin er tilgjengelig og du bør vurdere å oppgradere. "
+"Den nye versjonen har nummer %s og er utgitt den %s."
 
 #. l10n: Latest available phpMyAdmin version
 #: js/messages.php:650
@@ -3842,7 +3842,7 @@ msgstr "Åpne nytt phpMyAdmin vindu"
 
 #: libraries/Header.php:380
 msgid "Print view"
-msgstr "Utskriftsvennlig forhåndsvisning"
+msgstr "Utskriftsvisning"
 
 #: libraries/Header.php:466
 msgid "Click on the bar to scroll to top of page"
@@ -4076,7 +4076,7 @@ msgstr "Databasen ser ut til å være tom!"
 
 #: libraries/Menu.php:446 libraries/Util.php:4294
 msgid "Query"
-msgstr "Spørring ved eksempel (Query by Example)"
+msgstr "Spørring"
 
 #: libraries/Menu.php:479 libraries/Util.php:4299
 #: libraries/rte/rte_words.lib.php:36
@@ -16625,10 +16625,9 @@ msgid "Edit partitioning"
 msgstr "Fjern partisjonering"
 
 #: templates/table/structure/display_structure.phtml:130 view_create.php:187
-#, fuzzy
 #| msgid "Print view"
 msgid "Edit view"
-msgstr "Utskriftsvennlig forhåndsvisning"
+msgstr "Rediger visning"
 
 #: templates/table/structure/display_table_stats.phtml:5
 #, fuzzy
