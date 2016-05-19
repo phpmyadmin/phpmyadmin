@@ -838,7 +838,7 @@ Here are a few points to check:
 ---------------------------------
 
 To be able to see a progress bar during your uploads, your server must
-have the `APC <http://pecl.php.net/package/APC>`_ extension, the
+have the `APC <http://php.net/manual/en/book.apc.php>`_ extension, the
 `uploadprogress <http://pecl.php.net/package/uploadprogress>`_ one, or
 you must be running PHP 5.4.0 or higher. Moreover, the JSON extension
 has to be enabled in your PHP.
