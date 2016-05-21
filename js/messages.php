@@ -49,6 +49,8 @@ $js_messages['strConfirm'] = __('Confirm');
 $js_messages['strDoYouReally'] = __('Do you really want to execute "%s"?');
 $js_messages['strDropDatabaseStrongWarning']
     = __('You are about to DESTROY a complete database!');
+$js_messages['strDatabaseRenameToSameName']
+    = __('Cannot rename database to the same name. Change the name and try again');
 $js_messages['strDropTableStrongWarning']
     = __('You are about to DESTROY a complete table!');
 $js_messages['strTruncateTableStrongWarning']

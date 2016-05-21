@@ -41,7 +41,7 @@ AJAX.registerOnload('db_operations.js', function () {
         var new_db_name = $('#new_db_name').val();
 
         if (new_db_name == old_db_name) {
-            PMA_ajaxShowMessage(PMA_messages.strDropDatabaseStrongWarning);
+            PMA_ajaxShowMessage(PMA_messages.strDatabaseRenameToSameName, false, "error");
             return false;
         }
 
