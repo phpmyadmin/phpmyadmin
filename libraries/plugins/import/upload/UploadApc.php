@@ -5,7 +5,7 @@
  *
  * @package PhpMyAdmin
  */
-namespace PMA\libraries\import\upload;
+namespace PMA\libraries\plugins\import\upload;
 
 use PMA\libraries\plugins\UploadInterface;
 
