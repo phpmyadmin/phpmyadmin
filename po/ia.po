@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-05-23 14:30+0200\n"
-"PO-Revision-Date: 2016-05-17 23:03+0000\n"
+"PO-Revision-Date: 2016-05-23 13:00+0000\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
-"Language-Team: Interlingua <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/ia/>\n"
+"Language-Team: Interlingua "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/ia/>\n"
 "Language: ia\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -5541,14 +5541,11 @@ msgid "Highlight pointer"
 msgstr "Evidentia le punctator"
 
 #: libraries/config/messages.inc.php:47
-#, fuzzy
 #| msgid ""
 #| "Enable [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] compression for "
 #| "import operations."
 msgid "Enable bzip2 compression for import operations."
-msgstr ""
-"Il habilita le compression [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] "
-"per operationes de importation."
+msgstr "Il habilita le compression per operationes de importation."
 
 #: libraries/config/messages.inc.php:50
 msgid "Bzip2"
@@ -5570,7 +5567,6 @@ msgid "CHAR columns editing"
 msgstr "Modifica columnas de CHAR"
 
 #: libraries/config/messages.inc.php:58
-#, fuzzy
 #| msgid ""
 #| "Use user-friendly editor for editing SQL queries ([a@http://codemirror."
 #| "net/]CodeMirror[/a]) with syntax highlighting and line numbers."
@@ -5578,8 +5574,8 @@ msgid ""
 "Use user-friendly editor for editing SQL queries (CodeMirror) with syntax "
 "highlighting and line numbers."
 msgstr ""
-"Usa editor facile pro usatores per modificar queries SQL ([a@http://"
-"codemirror.net/]CodeMirror[/a]) con evidentia de syntaxe e numeros de rango."
+"Usa editor facile pro usatores per modificar queries SQL (CodeMirror) con "
+"evidentia de syntaxe e numeros de rango."
 
 #: libraries/config/messages.inc.php:62
 msgid "Enable CodeMirror"
@@ -6343,14 +6339,12 @@ msgid "Disable some of the warnings shown by phpMyAdmin."
 msgstr "Dishabilita alcun avisos monstrate per phpMyAdmin."
 
 #: libraries/config/messages.inc.php:353
-#, fuzzy
 #| msgid ""
 #| "Enable [a@http://en.wikipedia.org/wiki/Gzip]gzip[/a] compression for "
 #| "import and export operations."
 msgid "Enable gzip compression for import and export operations."
 msgstr ""
-"Il habilita le compression [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] "
-"per operationes de importation e exportation."
+"Il habilita le compression gzip per operationes de importation e exportation."
 
 #: libraries/config/messages.inc.php:356
 msgid "GZip"
@@ -7059,7 +7053,6 @@ msgid "Authentication type"
 msgstr "Typo de authentication"
 
 #: libraries/config/messages.inc.php:640
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/"
 #| "a] support, suggested: [kbd]pma__bookmark[/kbd]"
@@ -7067,8 +7060,8 @@ msgid ""
 "Leave blank for no [doc@bookmarks@]bookmark[/doc] support, suggested: "
 "[kbd]pma__bookmark[/kbd]"
 msgstr ""
-"Lassa vacue pro nulle [a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/"
-"a] supporto, suggerite: [kbd]pma__bookmark[/kbd]"
+"Lassa vacue pro necun supporto de [doc@bookmarks@] bookmark[/doc] 2 , "
+"suggerite: [kbd] 3 pma__bookmark[/kbd] 4"
 
 #: libraries/config/messages.inc.php:643
 msgid "Bookmark table"
@@ -7107,7 +7100,6 @@ msgid "Control user password"
 msgstr "Contrasigno de usator de controlo"
 
 #: libraries/config/messages.inc.php:656
-#, fuzzy
 #| msgid ""
 #| "A special MySQL user configured with limited permissions, more "
 #| "information available on [a@http://wiki.phpmyadmin.net/pma/"
@@ -7117,8 +7109,7 @@ msgid ""
 "available on [doc@linked-tables]documentation[/doc]."
 msgstr ""
 "Un usator special de MySQL configurate con permissiones limitate, ulterior "
-"information disponibile sur [a@http://wiki.phpmyadmin.net/pma/"
-"controluser]wiki[/a]."
+"information disponibile sur [doc@linked-tables] documentation[/doc]."
 
 #: libraries/config/messages.inc.php:659
 msgid "Control user"
@@ -7284,7 +7275,6 @@ msgid "PDF schema: pages table"
 msgstr "Schema PDF: tabella de paginas"
 
 #: libraries/config/messages.inc.php:723
-#, fuzzy
 #| msgid ""
 #| "Database used for relations, bookmarks, and PDF features. See [a@http://"
 #| "wiki.phpmyadmin.net/pma/pmadb]pmadb[/a] for complete information. Leave "
@@ -7295,9 +7285,8 @@ msgid ""
 "Suggested: [kbd]phpmyadmin[/kbd]."
 msgstr ""
 "Base de datos usate pro relationes, marcatores de libro, e characteristicas "
-"de PDF. Vide [a@http://wiki.phpmyadmin.net/pma/pmadb]pmadb[/a] pro le "
-"information complete. Lassa vacue pro nulle supporto. Suggerite: "
-"[kbd]phpmyadmin[/kbd]."
+"de PDF. Vide [doc@linked-tables]pmadb[/doc]pro le information complete. "
+"Lassa vacue pro nulle supporto. Suggerite: [kbd]phpmyadmin[/kbd]."
 
 #: libraries/config/messages.inc.php:727
 #: templates/server/databases/create.phtml:20
@@ -7339,7 +7328,6 @@ msgid "Favorites table"
 msgstr "Tabellas favorite"
 
 #: libraries/config/messages.inc.php:742
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
 #| "links[/a] support, suggested: [kbd]pma__relation[/kbd]."
@@ -7347,23 +7335,21 @@ msgid ""
 "Leave blank for no [doc@relations@]relation-links[/doc] support, suggested: "
 "[kbd]pma__relation[/kbd]."
 msgstr ""
-"Lassa vacue pro nulle [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
-"links[/a] supporto, suggerite: [kbd]pma__relation[/kbd]."
+"Lassa vacue pro nulle[doc@relations@]relation-links[/doc] supporto, "
+"suggerite: [kbd]pma__relation[/kbd]."
 
 #: libraries/config/messages.inc.php:746
 msgid "Relation table"
 msgstr "Tabella de relation"
 
 #: libraries/config/messages.inc.php:748
-#, fuzzy
 #| msgid ""
 #| "See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
 #| "types[/a] for an example."
 msgid ""
 "See [doc@authentication-modes]authentication types[/doc] for an example."
 msgstr ""
-"Vide [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]typos de "
-"authentication[/a] pro un exemplo."
+"Vide [doc@authentication-modes] typos de authentication[/doc] pro un exemplo."
 
 #: libraries/config/messages.inc.php:751
 msgid "Signon session name"
@@ -7893,14 +7879,12 @@ msgid "Proxy password"
 msgstr "Contrasigno de proxy"
 
 #: libraries/config/messages.inc.php:974
-#, fuzzy
 #| msgid ""
 #| "Enable [a@http://en.wikipedia.org/wiki/Gzip]gzip[/a] compression for "
 #| "import and export operations."
 msgid "Enable ZIP compression for import and export operations."
 msgstr ""
-"Il habilita le compression [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] "
-"per operationes de importation e exportation."
+"Il habilita le compressionZIP per operationes de importation e exportation."
 
 #: libraries/config/messages.inc.php:977
 msgid "ZIP"
