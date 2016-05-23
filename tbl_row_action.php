@@ -77,7 +77,7 @@ if (!empty($submit_mult)) {
             && is_array($_REQUEST['rows_to_delete'])
         ) {
             foreach ($_REQUEST['rows_to_delete'] as $i => $i_where_clause) {
-                $where_clause[] = urldecode($i_where_clause);
+                $where_clause[] = $i_where_clause;
             }
         }
         $active_page = 'tbl_change.php';
@@ -97,7 +97,7 @@ if (!empty($submit_mult)) {
             && is_array($_REQUEST['rows_to_delete'])
         ) {
             foreach ($_REQUEST['rows_to_delete'] as $i => $i_where_clause) {
-                $where_clause[] = urldecode($i_where_clause);
+                $where_clause[] = $i_where_clause;
             }
         }
         $active_page = 'tbl_export.php';

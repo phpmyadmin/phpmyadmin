@@ -2645,7 +2645,7 @@ class PMA_DisplayResults
                     $this->__get('fields_meta'),
                     $row
                 );
-            $where_clause_html = urlencode($where_clause);
+            $where_clause_html = htmlspecialchars($where_clause);
 
             // In print view these variable needs to be initialized
             $del_url = $del_str = $edit_anchor_class
