@@ -244,7 +244,7 @@ class Bookmark
         $bookmark = new Bookmark();
         $bookmark->_database = $bkm_fields['bkm_database'];
         $bookmark->_label = $bkm_fields['bkm_label'];
-        $bookmark->_query = urldecode($bkm_fields['bkm_sql_query']);
+        $bookmark->_query = $bkm_fields['bkm_sql_query'];
         $bookmark->_user = $all_users ? '' : $bkm_fields['bkm_user'];
 
         return $bookmark;
