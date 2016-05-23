@@ -6,16 +6,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-05-23 14:30+0200\n"
-"PO-Revision-Date: 2016-04-12 11:46+0000\n"
+"PO-Revision-Date: 2016-05-23 12:58+0000\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
-"Language-Team: Estonian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/et/>\n"
+"Language-Team: Estonian "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/et/>\n"
 "Language: et\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.6-dev\n"
+"X-Generator: Weblate 2.7-dev\n"
 
 #: changelog.php:37 license.php:33
 #, php-format
@@ -5441,14 +5441,11 @@ msgid "Highlight pointer"
 msgstr "Kursor tõstab esile"
 
 #: libraries/config/messages.inc.php:47
-#, fuzzy
 #| msgid ""
 #| "Enable [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] compression for "
 #| "import operations."
 msgid "Enable bzip2 compression for import operations."
-msgstr ""
-"Luba [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] tihendamine "
-"importimistel."
+msgstr "Luba importimistel bzip2 tihendamine."
 
 #: libraries/config/messages.inc.php:50
 msgid "Bzip2"
@@ -5469,7 +5466,6 @@ msgid "CHAR columns editing"
 msgstr "CHAR veergude muutmine"
 
 #: libraries/config/messages.inc.php:58
-#, fuzzy
 #| msgid ""
 #| "Use user-friendly editor for editing SQL queries ([a@http://codemirror."
 #| "net/]CodeMirror[/a]) with syntax highlighting and line numbers."
@@ -5477,9 +5473,8 @@ msgid ""
 "Use user-friendly editor for editing SQL queries (CodeMirror) with syntax "
 "highlighting and line numbers."
 msgstr ""
-"Kasuta SQL päringute ([a@http://codemirror.net/]CodeMirror[/a]) muutmiseks "
-"kasutajasõbralikku redigeerijat, millel on süntaksi esiletõstmise ja ridade "
-"loendamise võimalused."
+"Kasuta SQL päringute muutmiseks kasutajasõbralikku toimetit (CodeMirror), "
+"mis toetab süntaksi esiletõstu ja ridade nummerdamist."
 
 #: libraries/config/messages.inc.php:62
 msgid "Enable CodeMirror"
@@ -6232,14 +6227,11 @@ msgid "Disable some of the warnings shown by phpMyAdmin."
 msgstr "Keela mõned phpMyAdmini poolt näidatavad hoiatused."
 
 #: libraries/config/messages.inc.php:353
-#, fuzzy
 #| msgid ""
 #| "Enable [a@http://en.wikipedia.org/wiki/Gzip]gzip[/a] compression for "
 #| "import and export operations."
 msgid "Enable gzip compression for import and export operations."
-msgstr ""
-"Luba [a@http://en.wikipedia.org/wiki/Gzip]gzip[/a] tihendamine importimistel "
-"ja eksportimistel."
+msgstr "Luba importimistel ja eksportimistel gzip tihendamine."
 
 #: libraries/config/messages.inc.php:356
 msgid "GZip"
@@ -6921,7 +6913,6 @@ msgid "Authentication type"
 msgstr "Autentimise tüüp"
 
 #: libraries/config/messages.inc.php:640
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/"
 #| "a] support, suggested: [kbd]pma__bookmark[/kbd]"
@@ -6929,8 +6920,9 @@ msgid ""
 "Leave blank for no [doc@bookmarks@]bookmark[/doc] support, suggested: "
 "[kbd]pma__bookmark[/kbd]"
 msgstr ""
-"Jäta tühjaks, kui puudub [a@http://wiki.phpmyadmin.net/pma/"
-"bookmark]järjehoidja[/a] tugi, soovitatav: [kbd]pma__bookmark[/kbd]"
+"Jäta tühjaks, et keelata "
+"[doc@http://wiki.phpmyadmin.net/pma/bookmark]järjehoidjate[/doc] tugi, "
+"soovitatav: [kbd]pma__bookmark[/kbd]"
 
 #: libraries/config/messages.inc.php:643
 msgid "Bookmark table"
@@ -6970,7 +6962,6 @@ msgid "Control user password"
 msgstr "Kontrollkasutaja parool"
 
 #: libraries/config/messages.inc.php:656
-#, fuzzy
 #| msgid ""
 #| "A special MySQL user configured with limited permissions, more "
 #| "information available on [a@http://wiki.phpmyadmin.net/pma/"
@@ -6979,8 +6970,8 @@ msgid ""
 "A special MySQL user configured with limited permissions, more information "
 "available on [doc@linked-tables]documentation[/doc]."
 msgstr ""
-"Eriline MySQL kasutaja, mis on piiratud õigustega. Lisainfot saab [a@http://"
-"wiki.phpmyadmin.net/pma/controluser]vikist[/a]."
+"Eriline, piiratud õigustega MySQL kasutaja. Lisainfot saab [doc@linked-"
+"tables]dokumentatsioonist[/doc]."
 
 #: libraries/config/messages.inc.php:659
 msgid "Control user"
@@ -7147,7 +7138,6 @@ msgid "PDF schema: pages table"
 msgstr "PDF skeem: lehtede tabel"
 
 #: libraries/config/messages.inc.php:723
-#, fuzzy
 #| msgid ""
 #| "Database used for relations, bookmarks, and PDF features. See [a@http://"
 #| "wiki.phpmyadmin.net/pma/pmadb]pmadb[/a] for complete information. Leave "
@@ -7157,9 +7147,9 @@ msgid ""
 "tables]pmadb[/doc] for complete information. Leave blank for no support. "
 "Suggested: [kbd]phpmyadmin[/kbd]."
 msgstr ""
-"Andmebaas, mida kasutada seoste, järjehoidjate ja PDF funktsionaalsusega. "
-"Lisateavet leiad aadressilt [a@http://wiki.phpmyadmin.net/pma/pmadb]pmadb[/"
-"a]. Kui tugi puudub, siis jäta tühjaks, soovitatav: [kbd]phpmyadmin[/kbd]."
+"Andmebaas, mida kasutatakse seoste, järjehoidjate ja PDF funktsionaalsuse "
+"võimaldamiseks. Lisateavet leiad aadressilt [doc@linked-tables]pmadb[/doc]. "
+"Nende keelamiseks jäta see valik tühjaks, soovitatav: [kbd]phpmyadmin[/kbd]."
 
 #: libraries/config/messages.inc.php:727
 #: templates/server/databases/create.phtml:20
@@ -7201,7 +7191,6 @@ msgid "Favorites table"
 msgstr "Lemmikute tabel"
 
 #: libraries/config/messages.inc.php:742
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
 #| "links[/a] support, suggested: [kbd]pma__relation[/kbd]."
@@ -7209,23 +7198,20 @@ msgid ""
 "Leave blank for no [doc@relations@]relation-links[/doc] support, suggested: "
 "[kbd]pma__relation[/kbd]."
 msgstr ""
-"Jäta tühjaks, kui puudub [a@http://wiki.phpmyadmin.net/pma/relation]seoste "
-"linkide[/a] tugi, soovitatav: [kbd]pma__relation[/kbd]."
+"Jäta tühjaks, et keelata [doc@relations@]seoste linkide[/doc] tugi, "
+"soovitatav: [kbd]pma__relation[/kbd]."
 
 #: libraries/config/messages.inc.php:746
 msgid "Relation table"
 msgstr "Seose tabel"
 
 #: libraries/config/messages.inc.php:748
-#, fuzzy
 #| msgid ""
 #| "See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
 #| "types[/a] for an example."
 msgid ""
 "See [doc@authentication-modes]authentication types[/doc] for an example."
-msgstr ""
-"Vaata näiteks [a@http://wiki.phpmyadmin.net/pma/"
-"auth_types#signon]autentimise tüüpe[/a]."
+msgstr "Vaata näiteks [doc@authentication-modes]autentimise tüüpe[/doc]."
 
 #: libraries/config/messages.inc.php:751
 msgid "Signon session name"
@@ -7729,14 +7715,11 @@ msgid "Proxy password"
 msgstr "Proksi parool"
 
 #: libraries/config/messages.inc.php:974
-#, fuzzy
 #| msgid ""
 #| "Enable [a@http://en.wikipedia.org/wiki/Gzip]gzip[/a] compression for "
 #| "import and export operations."
 msgid "Enable ZIP compression for import and export operations."
-msgstr ""
-"Luba [a@http://en.wikipedia.org/wiki/Gzip]gzip[/a] tihendamine importimistel "
-"ja eksportimistel."
+msgstr "Luba importimistel ja eksportimistel ZIP tihendamine."
 
 #: libraries/config/messages.inc.php:977
 msgid "ZIP"
