@@ -27,6 +27,7 @@ phpMyAdmin - ChangeLog
 - issue #12219 Fix locking issues when importing SQL
 - issue #12231 Avoid confusing warning when mysql extension is missing
 - issue        Improve handling of logout
+- issue        Safer handling of sessions during authentication
 
 4.6.1 (2016-05-02)
 - issue #12120 PMA_Util not found in insert_edit.lib.php
