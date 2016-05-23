@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-05-23 14:30+0200\n"
-"PO-Revision-Date: 2016-05-23 17:27+0000\n"
+"PO-Revision-Date: 2016-05-23 17:30+0000\n"
 "Last-Translator: dingo thirteen <dingo13@gmail.com>\n"
 "Language-Team: Dutch "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/nl/>\n"
@@ -15031,7 +15031,7 @@ msgid ""
 "team for debugging the error."
 msgstr ""
 "Dit rapport automatisch bevat data over deze fout en ook informatie over "
-"relevante configuratie-instellingen. Het zal verzonden wordeb naar het "
+"relevante configuratie-instellingen. Het zal verzonden worden naar het "
 "phpMyAdmin team om te helpen bij het debuggen van het probleem."
 
 #: templates/error/report_form.phtml:14
@@ -15039,8 +15039,8 @@ msgid ""
 "Can you tell us the steps leading to this error? It decisively helps in "
 "debugging:"
 msgstr ""
-"Kunt u vertellen welke opeen volgende stappen leiden tot deze fout? Dit "
-"helpt beslist bij het debuggen:"
+"Kun je ons de genomen stappen vertellen die tot deze fout leiden? Dat helpt "
+"beslist bij het debuggen:"
 
 #: templates/error/report_form.phtml:21
 msgid "You may examine the data in the error report:"
@@ -15621,7 +15621,7 @@ msgstr "Een openingshaakje werd verwacht."
 
 #: vendor/phpmyadmin/sql-parser/src/Components/CreateDefinition.php:225
 msgid "A symbol name was expected!"
-msgstr "Naam van een symbool werd verwacht."
+msgstr "Naam van een symbool werd verwacht!"
 
 #: vendor/phpmyadmin/sql-parser/src/Components/CreateDefinition.php:257
 msgid "A comma or a closing bracket was expected."
