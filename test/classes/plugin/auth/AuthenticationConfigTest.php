@@ -92,6 +92,7 @@ class AuthenticationConfigTest extends PMATestCase
         $GLOBALS['error_handler'] = new PMA\libraries\ErrorHandler;
         $GLOBALS['cfg']['Servers'] = array(1);
         $GLOBALS['allowDeny_forbidden'] = false;
+        $GLOBALS['collation_connection'] = 'utf-8';
         if (!defined('PMA_USR_BROWSER_AGENT')) {
             define('PMA_USR_BROWSER_AGENT', 'chrome');
 

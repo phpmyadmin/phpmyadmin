@@ -60,10 +60,9 @@ class AuthenticationCookieTest extends PMATestCase
      * @return void
      * @group medium
      */
-    public function testAuth()
+    public function testAuthErrorAJAX()
     {
         $restoreInstance = PMA\libraries\Response::getInstance();
-        // Case 1
 
         $mockResponse = $this->getMockBuilder('PMA\libraries\Response')
             ->disableOriginalConstructor()
@@ -94,8 +93,18 @@ class AuthenticationCookieTest extends PMATestCase
             $this->object->auth()
         );
 
-        // Case 2
+        $attrInstance->setValue($restoreInstance);
+    }
 
+    /**
+     * Test for PMA\libraries\plugins\auth\AuthenticationConfig::auth
+     *
+     * @return void
+     * @group medium
+     */
+    public function testAuthError()
+    {
+        $restoreInstance = PMA\libraries\Response::getInstance();
         $mockResponse = $this->getMockBuilder('PMA\libraries\Response')
             ->disableOriginalConstructor()
             ->setMethods(array('isAjax', 'getFooter', 'getHeader'))
@@ -262,9 +271,18 @@ class AuthenticationCookieTest extends PMATestCase
         );
 
         @unlink('testlogo_right.png');
+        $attrInstance->setValue($restoreInstance);
+    }
 
-        // case 3
-
+    /**
+     * Test for PMA\libraries\plugins\auth\AuthenticationConfig::auth
+     *
+     * @return void
+     * @group medium
+     */
+    public function testAuthCaptcha()
+    {
+        $restoreInstance = PMA\libraries\Response::getInstance();
         $mockResponse = $this->getMockBuilder('PMA\libraries\Response')
             ->disableOriginalConstructor()
             ->setMethods(array('isAjax', 'getFooter', 'getHeader'))
@@ -351,17 +369,15 @@ class AuthenticationCookieTest extends PMATestCase
      */
     public function testAuthHeader()
     {
+        $GLOBALS['cfg']['LoginCookieDeleteAll'] = false;
+        $GLOBALS['cfg']['Servers'] = array(1);
+
         $restoreInstance = PMA\libraries\Response::getInstance();
 
         $mockResponse = $this->getMockBuilder('PMA\libraries\Response')
             ->disableOriginalConstructor()
             ->setMethods(array('isAjax', 'headersSent', 'header'))
             ->getMock();
-
-        $mockResponse->expects($this->once())
-            ->method('isAjax')
-            ->with()
-            ->will($this->returnValue(false));
 
         $mockResponse->expects($this->any())
             ->method('headersSent')
@@ -376,12 +392,9 @@ class AuthenticationCookieTest extends PMATestCase
         $attrInstance->setAccessible(true);
         $attrInstance->setValue($mockResponse);
 
-        $_REQUEST['old_usr'] = 'user1';
         $GLOBALS['cfg']['Server']['LogoutURL'] = 'http://www.phpmyadmin.net/logout';
 
-        $this->assertTrue(
-            $this->object->auth()
-        );
+        $this->object->logOut();
 
         $attrInstance->setValue($restoreInstance);
     }
@@ -391,12 +404,8 @@ class AuthenticationCookieTest extends PMATestCase
      *
      * @return void
      */
-    public function testAuthCheck()
+    public function testAuthCheckCaptcha()
     {
-        $defineAgain = 'PMA_TEST_NO_DEFINE';
-
-        // case 2
-
         $GLOBALS['cfg']['CaptchaLoginPrivateKey'] = 'testprivkey';
         $GLOBALS['cfg']['CaptchaLoginPublicKey'] = 'testpubkey';
         $_POST["g-recaptcha-response"] = '';
@@ -410,42 +419,99 @@ class AuthenticationCookieTest extends PMATestCase
             'Please enter correct captcha!',
             $GLOBALS['conn_error']
         );
+    }
 
-        // case 4
+    /**
+     * Test for PMA\libraries\plugins\auth\AuthenticationConfig::authCheck
+     *
+     * @return void
+     */
+    public function testLogoutDelete()
+    {
+        $restoreInstance = PMA\libraries\Response::getInstance();
+
+        $mockResponse = $this->getMockBuilder('PMA\libraries\Response')
+            ->disableOriginalConstructor()
+            ->setMethods(array('isAjax', 'headersSent', 'header'))
+            ->getMock();
+
+        $mockResponse->expects($this->any())
+            ->method('headersSent')
+            ->with()
+            ->will($this->returnValue(false));
+
+        $mockResponse->expects($this->once())
+            ->method('header')
+            ->with('Location: ./index.php' . ((SID) ? '?' . SID : ''));
+
+        $attrInstance = new ReflectionProperty('PMA\libraries\Response', '_instance');
+        $attrInstance->setAccessible(true);
+        $attrInstance->setValue($mockResponse);
 
         $GLOBALS['cfg']['CaptchaLoginPrivateKey'] = '';
         $GLOBALS['cfg']['CaptchaLoginPublicKey'] = '';
-        $_REQUEST['old_usr'] = 'pmaolduser';
         $GLOBALS['cfg']['LoginCookieDeleteAll'] = true;
         $GLOBALS['cfg']['Servers'] = array(1);
 
         $_COOKIE['pmaPass-0'] = 'test';
 
-        $this->object->authCheck();
+        $this->object->logOut();
 
         $this->assertFalse(
             isset($_COOKIE['pmaPass-0'])
         );
+        $attrInstance->setValue($restoreInstance);
+    }
 
-        // case 5
+    /**
+     * Test for PMA\libraries\plugins\auth\AuthenticationConfig::authCheck
+     *
+     * @return void
+     */
+    public function testLogout()
+    {
+        $restoreInstance = PMA\libraries\Response::getInstance();
 
+        $mockResponse = $this->getMockBuilder('PMA\libraries\Response')
+            ->disableOriginalConstructor()
+            ->setMethods(array('isAjax', 'headersSent', 'header'))
+            ->getMock();
+
+        $mockResponse->expects($this->any())
+            ->method('headersSent')
+            ->with()
+            ->will($this->returnValue(false));
+
+        $mockResponse->expects($this->once())
+            ->method('header')
+            ->with('Location: ./index.php' . ((SID) ? '?' . SID : ''));
+
+        $attrInstance = new ReflectionProperty('PMA\libraries\Response', '_instance');
+        $attrInstance->setAccessible(true);
+        $attrInstance->setValue($mockResponse);
         $GLOBALS['cfg']['CaptchaLoginPrivateKey'] = '';
         $GLOBALS['cfg']['CaptchaLoginPublicKey'] = '';
-        $_REQUEST['old_usr'] = 'pmaolduser';
         $GLOBALS['cfg']['LoginCookieDeleteAll'] = false;
         $GLOBALS['cfg']['Servers'] = array(1);
         $GLOBALS['server'] = 1;
 
         $_COOKIE['pmaPass-1'] = 'test';
 
-        $this->object->authCheck();
+        $this->object->logOut();
 
         $this->assertFalse(
             isset($_COOKIE['pmaPass-1'])
         );
+        $attrInstance->setValue($restoreInstance);
+    }
 
-        // case 6
-
+    /**
+     * Test for PMA\libraries\plugins\auth\AuthenticationConfig::authCheck
+     *
+     * @return void
+     */
+    public function testAuthCheckArbitrary()
+    {
         $GLOBALS['cfg']['CaptchaLoginPrivateKey'] = '';
         $GLOBALS['cfg']['CaptchaLoginPublicKey'] = '';
         $_REQUEST['old_usr'] = '';
@@ -476,9 +542,18 @@ class AuthenticationCookieTest extends PMATestCase
         $this->assertFalse(
             isset($_COOKIE['pmaPass-1'])
         );
+    }
 
-        // case 7
-
+    /**
+     * Test for PMA\libraries\plugins\auth\AuthenticationConfig::authCheck
+     *
+     * @return void
+     */
+    public function testAuthCheckIV()
+    {
+        $GLOBALS['cfg']['AllowArbitraryServer'] = true;
+        $_REQUEST['pma_servername'] = 'testPMAServer';
+        $_REQUEST['pma_password'] = 'testPMAPSWD';
         $_REQUEST['pma_username'] = '';
         $GLOBALS['server'] = 1;
         $_COOKIE['pmaServer-1'] = 'pmaServ1';
@@ -493,9 +568,15 @@ class AuthenticationCookieTest extends PMATestCase
             'pmaServ1',
             $GLOBALS['pma_auth_server']
         );
+    }
 
-        // case 8
-
+    /**
+     * Test for PMA\libraries\plugins\auth\AuthenticationConfig::authCheck
+     *
+     * @return void
+     */
+    public function testAuthCheckExpires()
+    {
         $GLOBALS['server'] = 1;
         $_COOKIE['pmaServer-1'] = 'pmaServ1';
         $_COOKIE['pmaUser-1'] = 'pmaUser1';
@@ -799,8 +880,6 @@ class AuthenticationCookieTest extends PMATestCase
         $GLOBALS['server'] = 2;
         $_COOKIE['pmaPass-2'] = 'pass';
 
-        // case 1
-
         $GLOBALS['login_without_password_is_forbidden'] = '1';
 
         $this->doMockResponse(
@@ -818,7 +897,6 @@ class AuthenticationCookieTest extends PMATestCase
 
     public function testAuthFailsDeny()
     {
-        // case 2
         $this->object = $this->getMockBuilder('PMA\libraries\plugins\auth\AuthenticationCookie')
             ->disableOriginalConstructor()
             ->setMethods(array('auth'))
@@ -843,7 +921,6 @@ class AuthenticationCookieTest extends PMATestCase
 
     public function testAuthFailsActivity()
     {
-        // case 3
         $this->object = $this->getMockBuilder('PMA\libraries\plugins\auth\AuthenticationCookie')
             ->disableOriginalConstructor()
             ->setMethods(array('auth'))
@@ -869,7 +946,6 @@ class AuthenticationCookieTest extends PMATestCase
 
     public function testAuthFailsDBI()
     {
-        // case 4
         $this->object = $this->getMockBuilder('PMA\libraries\plugins\auth\AuthenticationCookie')
             ->disableOriginalConstructor()
             ->setMethods(array('auth'))
@@ -903,7 +979,6 @@ class AuthenticationCookieTest extends PMATestCase
 
     public function testAuthFailsErrno()
     {
-        // case 5
         $this->object = $this->getMockBuilder('PMA\libraries\plugins\auth\AuthenticationCookie')
             ->disableOriginalConstructor()
             ->setMethods(array('auth'))
@@ -939,15 +1014,13 @@ class AuthenticationCookieTest extends PMATestCase
      *
      * @return void
      */
-    public function testGetEncryptionSecret()
+    public function testGetEncryptionSecretEmpty()
     {
         $method = new \ReflectionMethod(
             'PMA\libraries\plugins\auth\AuthenticationCookie',
             '_getEncryptionSecret'
         );
         $method->setAccessible(true);
-
-        // case 1
 
         $GLOBALS['cfg']['blowfish_secret'] = '';
         $_SESSION['encryption_key'] = '';
@@ -963,8 +1036,20 @@ class AuthenticationCookieTest extends PMATestCase
             256,
             strlen($result)
         );
+    }
 
-        // case 2
+    /**
+     * Test for PMA\libraries\plugins\auth\AuthenticationConfig::_getEncryptionSecret
+     *
+     * @return void
+     */
+    public function testGetEncryptionSecretConfigured()
+    {
+        $method = new \ReflectionMethod(
+            'PMA\libraries\plugins\auth\AuthenticationCookie',
+            '_getEncryptionSecret'
+        );
+        $method->setAccessible(true);
 
         $GLOBALS['cfg']['blowfish_secret'] = 'notEmpty';
 

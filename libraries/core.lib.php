@@ -505,7 +505,7 @@ function PMA_sendHeaderLocation($uri, $use_refresh = false)
     if ($response->headersSent()) {
         if (function_exists('debug_print_backtrace')) {
             echo '<pre>';
-            debug_print_backtrace();
+            debug_print_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS);
             echo '</pre>';
         }
         trigger_error(
