@@ -46,7 +46,7 @@ if (isset($_REQUEST['console_bookmark_add'])) {
         $bookmarkFields = array(
             'bkm_database' => $_REQUEST['db'],
             'bkm_user'  => $cfgBookmark['user'],
-            'bkm_sql_query' => urlencode($_REQUEST['bookmark_query']),
+            'bkm_sql_query' => $_REQUEST['bookmark_query'],
             'bkm_label' => $_REQUEST['label']
         );
         $isShared = ($_REQUEST['shared'] == 'true' ? true : false);

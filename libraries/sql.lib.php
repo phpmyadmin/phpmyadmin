@@ -544,9 +544,7 @@ function PMA_getHtmlForBookmark($displayParts, $cfgBookmark, $sql_query, $db,
                     'id_bookmark'=> 1,
                 )
             );
-        $bkm_sql_query = urlencode(
-            isset($complete_query) ? $complete_query : $sql_query
-        );
+        $bkm_sql_query = isset($complete_query) ? $complete_query : $sql_query;
         $html = '<form action="sql.php" method="post"'
             . ' onsubmit="return ! emptyCheckTheField(this,'
             . '\'bkm_fields[bkm_label]\');"'
@@ -561,7 +559,7 @@ function PMA_getHtmlForBookmark($displayParts, $cfgBookmark, $sql_query, $db,
             . ' value="' . $bkm_user . '" />';
         $html .= '<input type="hidden" name="bkm_fields[bkm_sql_query]"'
             . ' value="'
-            . $bkm_sql_query
+            . htmlspecialchars($bkm_sql_query)
             . '" />';
         $html .= '<fieldset>';
         $html .= '<legend>';
@@ -978,7 +976,7 @@ function PMA_storeTheQueryAsBookmark($db, $bkm_user, $sql_query_for_bookmark,
     $bfields = array(
                  'bkm_database' => $db,
                  'bkm_user'  => $bkm_user,
-                 'bkm_sql_query' => urlencode($sql_query_for_bookmark),
+                 'bkm_sql_query' => $sql_query_for_bookmark,
                  'bkm_label' => $bkm_label
     );
 
