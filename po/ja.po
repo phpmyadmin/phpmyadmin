@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2016-02-17 11:55+0100\n"
+"POT-Creation-Date: 2016-05-23 14:30+0200\n"
 "PO-Revision-Date: 2016-03-30 03:00+0000\n"
 "Last-Translator: Eshin Kunishima <ek@esh.ink>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -105,7 +105,7 @@ msgstr "カラム"
 msgid "Type"
 msgstr "データ型"
 
-#: db_datadict.php:116 libraries/Index.php:707
+#: db_datadict.php:116 libraries/Index.php:703
 #: libraries/central_columns.lib.php:707 libraries/central_columns.lib.php:1387
 #: libraries/insert_edit.lib.php:1588
 #: libraries/plugins/export/ExportHtmlword.php:296
@@ -194,7 +194,7 @@ msgstr "主"
 #: libraries/server_privileges.lib.php:3673
 #: libraries/server_privileges.lib.php:3696 libraries/tracking.lib.php:951
 #: libraries/tracking.lib.php:1030 libraries/tracking.lib.php:1035
-#: prefs_manage.php:144 templates/prefs_autoload.phtml:13
+#: prefs_manage.php:145 templates/prefs_autoload.phtml:13
 #: templates/privileges/privileges_summary_row.phtml:4
 #: templates/privileges/privileges_summary_row.phtml:7
 #: templates/privileges/privileges_summary_row.phtml:9
@@ -228,7 +228,7 @@ msgstr "いいえ"
 #: libraries/server_privileges.lib.php:3670
 #: libraries/server_privileges.lib.php:3696 libraries/tracking.lib.php:951
 #: libraries/tracking.lib.php:1028 libraries/tracking.lib.php:1033
-#: prefs_manage.php:142 templates/prefs_autoload.phtml:12
+#: prefs_manage.php:143 templates/prefs_autoload.phtml:12
 #: templates/privileges/privileges_summary_row.phtml:4
 #: templates/privileges/privileges_summary_row.phtml:7
 #: templates/privileges/privileges_summary_row.phtml:9
@@ -256,9 +256,9 @@ msgstr "このデータベースにはテーブルがありません。"
 msgid "Tables"
 msgstr "テーブル"
 
-#: db_export.php:66 libraries/Menu.php:325 libraries/Menu.php:432
-#: libraries/Util.php:3362 libraries/Util.php:3372 libraries/Util.php:3378
-#: libraries/Util.php:3658 libraries/Util.php:4291 libraries/Util.php:4308
+#: db_export.php:66 libraries/Menu.php:330 libraries/Menu.php:437
+#: libraries/Util.php:3345 libraries/Util.php:3355 libraries/Util.php:3361
+#: libraries/Util.php:3641 libraries/Util.php:4274 libraries/Util.php:4291
 #: libraries/central_columns.lib.php:727 libraries/config.values.php:39
 #: libraries/config.values.php:47 libraries/config.values.php:110
 #: libraries/config.values.php:116 libraries/config/setup.forms.php:318
@@ -324,10 +324,10 @@ msgstr "最低 1 つは表示するカラムを選択してください！"
 msgid "Switch to %svisual builder%s"
 msgstr "%sビジュアル・クエリ・ビルダ%sに切り替える"
 
-#: db_search.php:31 libraries/plugins/AuthenticationPlugin.php:70
+#: db_search.php:31 libraries/plugins/AuthenticationPlugin.php:110
 #: libraries/plugins/auth/AuthenticationConfig.php:94
 #: libraries/plugins/auth/AuthenticationConfig.php:109
-#: libraries/plugins/auth/AuthenticationHttp.php:89
+#: libraries/plugins/auth/AuthenticationHttp.php:77
 msgid "Access denied!"
 msgstr "アクセスが拒否されました!"
 
@@ -475,7 +475,7 @@ msgstr "幾何データを追加する"
 #: libraries/operations.lib.php:797 libraries/operations.lib.php:867
 #: libraries/operations.lib.php:916 libraries/operations.lib.php:1326
 #: libraries/operations.lib.php:1643
-#: libraries/plugins/auth/AuthenticationCookie.php:221
+#: libraries/plugins/auth/AuthenticationCookie.php:211
 #: libraries/replication_gui.lib.php:121 libraries/replication_gui.lib.php:160
 #: libraries/replication_gui.lib.php:325 libraries/replication_gui.lib.php:462
 #: libraries/replication_gui.lib.php:892 libraries/rte/rte_events.lib.php:513
@@ -489,7 +489,7 @@ msgstr "幾何データを追加する"
 #: libraries/server_user_groups.lib.php:287
 #: libraries/sql_query_form.lib.php:373 libraries/sql_query_form.lib.php:435
 #: libraries/tracking.lib.php:551 libraries/tracking.lib.php:671
-#: prefs_manage.php:278 prefs_manage.php:356
+#: prefs_manage.php:280 prefs_manage.php:358
 #: templates/columns_definitions/column_definitions_form.phtml:69
 #: templates/database/create_table.phtml:21 templates/header_location.phtml:28
 #: templates/privileges/privileges_summary.phtml:66
@@ -559,7 +559,7 @@ msgstr ""
 "インポートプラグインが読み込めません。正しくインストールされているか確認して"
 "ください！"
 
-#: import.php:566 libraries/sql.lib.php:784 libraries/sql.lib.php:1561
+#: import.php:566 libraries/sql.lib.php:782 libraries/sql.lib.php:1559
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "ブックマーク %s を作成しました。"
@@ -600,11 +600,11 @@ msgstr "インポートの進行状況を読み込めませんでした。"
 msgid "Back"
 msgstr "戻る"
 
-#: index.php:150 libraries/Footer.php:70
+#: index.php:151 libraries/Footer.php:70
 msgid "phpMyAdmin Demo Server"
 msgstr "phpMyAdmin デモ サーバー"
 
-#: index.php:154
+#: index.php:155
 #, php-format
 msgid ""
 "You are using the demo server. You can do anything here, but please do not "
@@ -615,115 +615,111 @@ msgstr ""
 "root、debian-sys-maintとpmaは変更しないで下さい。詳しい情報は、%sを参照くださ"
 "い。"
 
-#: index.php:164
+#: index.php:165
 msgid "General settings"
 msgstr "一般設定"
 
-#: index.php:194 js/messages.php:628
+#: index.php:195 js/messages.php:628
 #: libraries/display_change_password.lib.php:47
 #: libraries/display_change_password.lib.php:50 user_password.php:286
 msgid "Change password"
 msgstr "パスワードを変更する"
 
-#: index.php:211
+#: index.php:212
 msgid "Server connection collation"
 msgstr "サーバ接続の照合順序"
 
-#: index.php:232
+#: index.php:233
 msgid "Appearance settings"
 msgstr "外観の設定"
 
-#: index.php:264 prefs_manage.php:286
+#: index.php:265 prefs_manage.php:288
 msgid "More settings"
 msgstr "詳細設定"
 
-#: index.php:286
+#: index.php:287
 msgid "Database server"
 msgstr "データベースサーバ"
 
-#: index.php:289 libraries/plugins/auth/AuthenticationCookie.php:167
+#: index.php:290 libraries/plugins/auth/AuthenticationCookie.php:157
 msgid "Server:"
 msgstr "サーバ："
 
-#: index.php:293
+#: index.php:294
 msgid "Server type:"
 msgstr "サーバの種類："
 
-#: index.php:297 libraries/plugins/export/ExportLatex.php:220
+#: index.php:298 libraries/plugins/export/ExportLatex.php:220
 #: libraries/plugins/export/ExportSql.php:692
 #: libraries/plugins/export/ExportXml.php:242
 msgid "Server version:"
 msgstr "サーバのバージョン："
 
-#: index.php:303
+#: index.php:304
 msgid "Protocol version:"
 msgstr "プロトコル バージョン:"
 
-#: index.php:307
+#: index.php:308
 msgid "User:"
 msgstr "ユーザ："
 
-#: index.php:312
+#: index.php:313
 msgid "Server charset:"
 msgstr "サーバの文字セット:"
 
-#: index.php:325
+#: index.php:326
 msgid "Web server"
 msgstr "ウェブサーバ"
 
-#: index.php:336
+#: index.php:337
 msgid "Database client version:"
 msgstr "データベースクライアントのバージョン："
 
-#: index.php:340
+#: index.php:341
 msgid "PHP extension:"
 msgstr "PHP 拡張:"
 
-#: index.php:354
+#: index.php:355
 msgid "PHP version:"
 msgstr "PHP のバージョン:"
 
-#: index.php:365
+#: index.php:366
 msgid "Show PHP information"
 msgstr "PHP情報を表示する"
 
-#: index.php:384
+#: index.php:385
 msgid "Version information:"
 msgstr "バージョン情報："
 
-#: index.php:393 libraries/Sanitize.php:145 libraries/Util.php:450
+#: index.php:394 libraries/Sanitize.php:150 libraries/Util.php:450
 #: libraries/Util.php:517 libraries/config/FormDisplay.tpl.php:165
 #: libraries/display_export.lib.php:576 libraries/engines/Pbxt.php:166
-#: libraries/navigation/NavigationHeader.php:197
+#: libraries/navigation/NavigationHeader.php:196
 #: templates/server/variables/link_template.phtml:9
 msgid "Documentation"
 msgstr "ドキュメント"
 
-#: index.php:400
-msgid "Wiki"
-msgstr "Wiki"
-
-#: index.php:409
+#: index.php:403
 msgid "Official Homepage"
 msgstr "phpMyAdmin オフィシャルサイト"
 
-#: index.php:416
+#: index.php:410
 msgid "Contribute"
 msgstr "phpMyAdmin に協力するには"
 
-#: index.php:423
+#: index.php:417
 msgid "Get support"
 msgstr "サポート"
 
-#: index.php:430
+#: index.php:424
 msgid "List of changes"
 msgstr "更新履歴"
 
-#: index.php:437 templates/server/plugins/section.phtml:12
+#: index.php:431 templates/server/plugins/section.phtml:12
 msgid "License"
 msgstr "ライセンス"
 
-#: index.php:457
+#: index.php:451
 msgid ""
 "You have enabled mbstring.func_overload in your PHP configuration. This "
 "option is incompatible with phpMyAdmin and might cause some data to be "
@@ -732,7 +728,7 @@ msgstr ""
 "PHP の設定で mbstring.func_overload が有効になっています。phpMyAdmin はこのオ"
 "プションに対応していないため、データが破壊されることがあります!"
 
-#: index.php:472
+#: index.php:466
 msgid ""
 "The mbstring PHP extension was not found and you seem to be using a "
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
@@ -742,7 +738,7 @@ msgstr ""
 "いるようですが、mbstring 拡張がないと phpMyAdmin は文字列を正しく分割できない"
 "ため予期しない結果になることがあります。"
 
-#: index.php:487
+#: index.php:481
 msgid ""
 "The curl extension was not found and allow_url_fopen is disabled. Due to "
 "this some features such as error reporting or version check are disabled."
@@ -751,19 +747,19 @@ msgstr ""
 "す。このためエラーを報告またはバージョン チェックなどいくつかの機能が無効にな"
 "ります。"
 
-#: index.php:502
+#: index.php:496
 msgid ""
-"Your PHP parameter [a@https://php.net/manual/en/session.configuration.php#ini."
-"session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower than "
-"cookie validity configured in phpMyAdmin, because of this, your login might "
-"expire sooner than configured in phpMyAdmin."
+"Your PHP parameter [a@https://php.net/manual/en/session.configuration."
+"php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
+"than cookie validity configured in phpMyAdmin, because of this, your login "
+"might expire sooner than configured in phpMyAdmin."
 msgstr ""
 "お使いの PHP のパラメータ [a@https://php.net/manual/ja/session.configuration."
 "php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] が、"
 "phpMyAdmin に設定されているクッキーの有効期間より短くなっています。このため、"
 "phpMyAdmin に設定されているよりも早くログインの期限が切れるかもしれません。"
 
-#: index.php:521
+#: index.php:515
 msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
@@ -772,13 +768,13 @@ msgstr ""
 "りも短くなっています。このため、phpMyAdmin に設定されているよりも早くログイン"
 "の期限が切れます。"
 
-#: index.php:537
+#: index.php:531
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
 msgstr ""
 "設定ファイルに、暗号化 (blowfish_secret) 用の非公開パスフレーズの設定を必要と"
 "するようになりました。"
 
-#: index.php:550
+#: index.php:544
 msgid ""
 "Directory [code]config[/code], which is used by the setup script, still "
 "exists in your phpMyAdmin directory. It is strongly recommended to remove it "
@@ -790,7 +786,7 @@ msgstr ""
 "ことを強くお勧めします。削除しない場合、誰でも認証なしでサーバの設定をダウン"
 "ロードすることができるため、サーバのセキュリティが低下します。"
 
-#: index.php:566
+#: index.php:560
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
@@ -799,12 +795,12 @@ msgstr ""
 "phpMyAdmin 環境保管領域が完全に設定されていないため、いくつかの拡張機能が無効"
 "になっています。理由については%sこちら%sをご覧ください。 "
 
-#: index.php:573
+#: index.php:567
 msgid ""
 "Or alternately go to 'Operations' tab of any database to set it up there."
 msgstr "代わりにデータベースの操作タブを使って設定することもできます。"
 
-#: index.php:616
+#: index.php:610
 #, php-format
 msgid ""
 "Your PHP MySQL library version %s differs from your MySQL server version %s. "
@@ -813,7 +809,7 @@ msgstr ""
 "お使いになっている PHP の MySQL ライブラリのバージョン %s が MySQL サーバの"
 "バージョン %s と異なります。これは予期しない不具合を起こす可能性があります。"
 
-#: index.php:644
+#: index.php:638
 #, php-format
 msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
@@ -971,7 +967,7 @@ msgid "Save & close"
 msgstr "保存して閉じる"
 
 #: js/messages.php:115 libraries/config/FormDisplay.tpl.php:426
-#: libraries/insert_edit.lib.php:1562 prefs_manage.php:362 prefs_manage.php:373
+#: libraries/insert_edit.lib.php:1562 prefs_manage.php:364 prefs_manage.php:375
 msgid "Reset"
 msgstr "リセット"
 
@@ -1269,7 +1265,7 @@ msgstr "問い合わせ"
 msgid "Traffic"
 msgstr "トラフィック"
 
-#: js/messages.php:217 libraries/Menu.php:587 libraries/Util.php:4282
+#: js/messages.php:217 libraries/Menu.php:592 libraries/Util.php:4265
 #: libraries/server_status_monitor.lib.php:253
 msgid "Settings"
 msgstr "設定"
@@ -1488,7 +1484,7 @@ msgstr "解析しています…"
 msgid "Explain output"
 msgstr "EXPLAIN の結果"
 
-#: js/messages.php:294 libraries/Menu.php:553 libraries/Util.php:4278
+#: js/messages.php:294 libraries/Menu.php:558 libraries/Util.php:4261
 #: libraries/config.values.php:105 libraries/rte/rte_events.lib.php:397
 #: libraries/rte/rte_list.lib.php:107
 #: libraries/server_status_processes.lib.php:92 libraries/tracking.lib.php:286
@@ -1588,11 +1584,11 @@ msgid ""
 msgstr ""
 "インポートした設定でのグラフの配置に失敗しました。設定をデフォルトに戻します…"
 
-#: js/messages.php:328 libraries/Menu.php:360 libraries/Menu.php:462
-#: libraries/Menu.php:583 libraries/Util.php:4281 libraries/Util.php:4296
-#: libraries/Util.php:4313 libraries/config/messages.inc.php:261
+#: js/messages.php:328 libraries/Menu.php:365 libraries/Menu.php:467
+#: libraries/Menu.php:588 libraries/Util.php:4264 libraries/Util.php:4279
+#: libraries/Util.php:4296 libraries/config/messages.inc.php:261
 #: libraries/display_import.lib.php:107
-#: libraries/server_status_monitor.lib.php:313 prefs_manage.php:239
+#: libraries/server_status_monitor.lib.php:313 prefs_manage.php:241
 #: setup/frames/menu.inc.php:27
 msgid "Import"
 msgstr "インポート"
@@ -1787,16 +1783,16 @@ msgid "The definition of a stored function must contain a RETURN statement!"
 msgstr "ストアドファンクションの定義には、RETURN 文を含めなければなりません！"
 
 #: js/messages.php:395 libraries/DisplayResults.php:4878
-#: libraries/DisplayResults.php:5161 libraries/Menu.php:352
-#: libraries/Menu.php:453 libraries/Menu.php:579 libraries/Util.php:3665
-#: libraries/Util.php:3666 libraries/Util.php:4280 libraries/Util.php:4295
-#: libraries/Util.php:4312 libraries/config/messages.inc.php:255
+#: libraries/DisplayResults.php:5161 libraries/Menu.php:357
+#: libraries/Menu.php:458 libraries/Menu.php:584 libraries/Util.php:3648
+#: libraries/Util.php:3649 libraries/Util.php:4263 libraries/Util.php:4278
+#: libraries/Util.php:4295 libraries/config/messages.inc.php:255
 #: libraries/display_export.lib.php:170 libraries/rte/rte_list.lib.php:157
 #: libraries/server_privileges.lib.php:2479
 #: libraries/server_privileges.lib.php:2563
 #: libraries/server_privileges.lib.php:2912
 #: libraries/server_privileges.lib.php:3585
-#: libraries/server_status_monitor.lib.php:317 prefs_manage.php:304
+#: libraries/server_status_monitor.lib.php:317 prefs_manage.php:306
 #: setup/frames/menu.inc.php:28
 #: templates/database/structure/check_all_tables.phtml:12
 msgid "Export"
@@ -1840,9 +1836,9 @@ msgid "Show query box"
 msgstr "クエリボックスを表示"
 
 #: js/messages.php:412 libraries/DisplayResults.php:3496
-#: libraries/DisplayResults.php:4862 libraries/Index.php:728
-#: libraries/Util.php:733 libraries/Util.php:1243 libraries/Util.php:3663
-#: libraries/Util.php:3664 libraries/central_columns.lib.php:850
+#: libraries/DisplayResults.php:4862 libraries/Index.php:724
+#: libraries/Util.php:733 libraries/Util.php:1243 libraries/Util.php:3646
+#: libraries/Util.php:3647 libraries/central_columns.lib.php:850
 #: libraries/central_columns.lib.php:1198 libraries/config/messages.inc.php:892
 #: libraries/server_user_groups.lib.php:118 setup/frames/index.inc.php:184
 #: templates/console/bookmark_content.phtml:17
@@ -2399,7 +2395,7 @@ msgid "Select database first"
 msgstr "最初にデータベースを選択してください"
 
 #: js/messages.php:602 libraries/DisplayResults.php:5053
-#: libraries/Util.php:4173
+#: libraries/Util.php:4156
 #: templates/database/structure/print_view_data_dictionary_link.phtml:3
 #: templates/table/structure/optional_action_links.phtml:6
 msgid "Print"
@@ -3041,7 +3037,7 @@ msgstr ""
 msgid "Charset"
 msgstr "文字セット"
 
-#: libraries/Charsets.php:207 libraries/Index.php:706
+#: libraries/Charsets.php:207 libraries/Index.php:702
 #: libraries/central_columns.lib.php:702 libraries/central_columns.lib.php:1387
 #: libraries/controllers/server/ServerDatabasesController.php:335
 #: libraries/operations.lib.php:288 libraries/operations.lib.php:1062
@@ -3274,29 +3270,29 @@ msgstr "大文字小文字を区別しない"
 msgid "case-sensitive collation"
 msgstr "大文字小文字を区別する"
 
-#: libraries/Config.php:1154
+#: libraries/Config.php:1155
 #, php-format
 msgid "Existing configuration file (%s) is not readable."
 msgstr "設定ファイル (%s) は存在しますが、読み込むことができません。"
 
-#: libraries/Config.php:1184
+#: libraries/Config.php:1185
 msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr ""
 "設定ファイルのパーミッションが正しくありません。誰でも書き込み可能になってい"
 "ます！"
 
-#: libraries/Config.php:1204
+#: libraries/Config.php:1205
 #, php-format
 msgid "Could not load default configuration from: %1$s"
 msgstr "デフォルトの設定を読み込めませんでした: %1$s"
 
-#: libraries/Config.php:1211
+#: libraries/Config.php:1212
 #, fuzzy
 #| msgid "Failed to read configuration file"
 msgid "Failed to read configuration file!"
 msgstr "設定ファイルの読み込みに失敗しました"
 
-#: libraries/Config.php:1214
+#: libraries/Config.php:1215
 msgid ""
 "This usually means there is a syntax error in it, please check any errors "
 "shown below."
@@ -3304,7 +3300,7 @@ msgstr ""
 "通常、これは構文エラーがあることを意味します。以下に示す全てのエラーを確認し"
 "てください。"
 
-#: libraries/Config.php:1575
+#: libraries/Config.php:1576
 msgid "Font size"
 msgstr "フォントサイズ"
 
@@ -3326,13 +3322,13 @@ msgstr "リレーションを削除"
 msgid "SQL Query Console"
 msgstr "SQL クエリボックス"
 
-#: libraries/DatabaseInterface.php:1387
+#: libraries/DatabaseInterface.php:1414
 #, fuzzy
 #| msgid "Failed to read configuration file"
 msgid "Failed to set configured collation connection!"
 msgstr "設定ファイルの読み込みに失敗しました"
 
-#: libraries/DatabaseInterface.php:1998
+#: libraries/DatabaseInterface.php:2025
 msgid ""
 "The server is not responding (or the local server's socket is not correctly "
 "configured)."
@@ -3340,20 +3336,20 @@ msgstr ""
 "サーバが応答しません (あるいはローカルサーバのソケットが正しく設定されていま"
 "せん)。"
 
-#: libraries/DatabaseInterface.php:2003
+#: libraries/DatabaseInterface.php:2030
 msgid "The server is not responding."
 msgstr "サーバが応答しません。"
 
-#: libraries/DatabaseInterface.php:2009
+#: libraries/DatabaseInterface.php:2036
 msgid "Please check privileges of directory containing database."
 msgstr ""
 "データベースを含んでいるディレクトリのパーミッションを確認してください。"
 
-#: libraries/DatabaseInterface.php:2020
+#: libraries/DatabaseInterface.php:2047
 msgid "Details…"
 msgstr "詳細…"
 
-#: libraries/DatabaseInterface.php:2242
+#: libraries/DatabaseInterface.php:2269
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr ""
 "設定ファイルに定義されている管理ユーザ(controluser)での接続に失敗しました。"
@@ -3536,9 +3532,9 @@ msgid "%1$s match in <strong>%2$s</strong>"
 msgid_plural "%1$s matches in <strong>%2$s</strong>"
 msgstr[0] "%1$s 件 (テーブル <i>%2$s</i>)"
 
-#: libraries/DbSearch.php:353 libraries/Menu.php:319 libraries/Util.php:3366
-#: libraries/Util.php:3376 libraries/Util.php:3652 libraries/Util.php:3653
-#: libraries/Util.php:4307 libraries/config.values.php:43
+#: libraries/DbSearch.php:353 libraries/Menu.php:324 libraries/Util.php:3349
+#: libraries/Util.php:3359 libraries/Util.php:3635 libraries/Util.php:3636
+#: libraries/Util.php:4290 libraries/config.values.php:43
 #: libraries/config.values.php:51 libraries/config.values.php:120
 #: libraries/navigation/nodes/NodeTable.php:313
 #: templates/table/structure/check_all_table_column.phtml:12
@@ -3762,7 +3758,7 @@ msgstr ""
 msgid "%d total"
 msgstr "合計"
 
-#: libraries/DisplayResults.php:4749 libraries/sql.lib.php:1376
+#: libraries/DisplayResults.php:4749 libraries/sql.lib.php:1374
 #, fuzzy, php-format
 #| msgid "Query took %01.4f sec"
 msgid "Query took %01.4f seconds."
@@ -3930,7 +3926,7 @@ msgstr "印刷用画面"
 msgid "Click on the bar to scroll to top of page"
 msgstr ""
 
-#: libraries/Header.php:763 libraries/plugins/auth/AuthenticationCookie.php:138
+#: libraries/Header.php:763 libraries/plugins/auth/AuthenticationCookie.php:128
 #, fuzzy
 #| msgid "Javascript must be enabled past this point"
 msgid "Javascript must be enabled past this point!"
@@ -3982,11 +3978,11 @@ msgstr "ユニーク"
 msgid "Packed"
 msgstr "圧縮"
 
-#: libraries/Index.php:705 libraries/tracking.lib.php:996
+#: libraries/Index.php:701 libraries/tracking.lib.php:996
 msgid "Cardinality"
 msgstr "一意な値の数"
 
-#: libraries/Index.php:708 libraries/rte/rte_events.lib.php:500
+#: libraries/Index.php:704 libraries/rte/rte_events.lib.php:500
 #: libraries/rte/rte_routines.lib.php:1047 libraries/tracking.lib.php:903
 #: libraries/tracking.lib.php:999
 #: templates/columns_definitions/partitions.phtml:79
@@ -3995,16 +3991,16 @@ msgstr "一意な値の数"
 msgid "Comment"
 msgstr "コメント"
 
-#: libraries/Index.php:736
+#: libraries/Index.php:732
 msgid "The primary key has been dropped."
 msgstr "主キーを削除しました。"
 
-#: libraries/Index.php:745
+#: libraries/Index.php:741
 #, php-format
 msgid "Index %s has been dropped."
 msgstr "インデックス %s を削除しました。"
 
-#: libraries/Index.php:762 libraries/Util.php:3659 libraries/Util.php:3660
+#: libraries/Index.php:758 libraries/Util.php:3642 libraries/Util.php:3643
 #: libraries/controllers/server/ServerDatabasesController.php:397
 #: libraries/controllers/table/TableStructureController.php:1178
 #: libraries/controllers/table/TableStructureController.php:1179
@@ -4016,7 +4012,7 @@ msgstr "インデックス %s を削除しました。"
 msgid "Drop"
 msgstr "削除"
 
-#: libraries/Index.php:879
+#: libraries/Index.php:875
 #, php-format
 msgid ""
 "The indexes %1$s and %2$s seem to be equal and one of them could possibly be "
@@ -4032,7 +4028,7 @@ msgstr ""
 msgid "Page number:"
 msgstr "ページ番号:"
 
-#: libraries/LanguageManager.php:870
+#: libraries/LanguageManager.php:874
 msgid "Ignoring unsupported language code."
 msgstr ""
 
@@ -4046,12 +4042,12 @@ msgstr ""
 msgid "%1$s (near <code>%2$s</code>)"
 msgstr ""
 
-#: libraries/Menu.php:203 libraries/ServerStatusData.php:424
+#: libraries/Menu.php:208 libraries/ServerStatusData.php:424
 #: libraries/config/messages.inc.php:930
 msgid "Server"
 msgstr "サーバ"
 
-#: libraries/Menu.php:222 libraries/config/messages.inc.php:922
+#: libraries/Menu.php:227 libraries/config/messages.inc.php:922
 #: libraries/mult_submits.lib.php:335
 #: libraries/plugins/export/ExportHtmlword.php:149
 #: libraries/plugins/export/ExportOdt.php:197
@@ -4071,14 +4067,14 @@ msgstr "サーバ"
 msgid "Database"
 msgstr "データベース"
 
-#: libraries/Menu.php:251 libraries/navigation/nodes/NodeView.php:30
+#: libraries/Menu.php:256 libraries/navigation/nodes/NodeView.php:30
 #: libraries/tbl_info.inc.php:61
 #: templates/database/structure/structure_table_row.phtml:97
 #: templates/database/structure/structure_table_row.phtml:159
 msgid "View"
 msgstr "ビュー"
 
-#: libraries/Menu.php:251 libraries/config/messages.inc.php:932
+#: libraries/Menu.php:256 libraries/config/messages.inc.php:932
 #: libraries/plugins/export/ExportXml.php:493 libraries/rte/rte_list.lib.php:93
 #: libraries/rte/rte_triggers.lib.php:334
 #: libraries/server_privileges.lib.php:1268
@@ -4094,9 +4090,9 @@ msgstr "ビュー"
 msgid "Table"
 msgstr "テーブル"
 
-#: libraries/Menu.php:333 libraries/Menu.php:436 libraries/Menu.php:549
-#: libraries/Util.php:3363 libraries/Util.php:3373 libraries/Util.php:3379
-#: libraries/Util.php:4277 libraries/Util.php:4292 libraries/Util.php:4309
+#: libraries/Menu.php:338 libraries/Menu.php:441 libraries/Menu.php:554
+#: libraries/Util.php:3346 libraries/Util.php:3356 libraries/Util.php:3362
+#: libraries/Util.php:4260 libraries/Util.php:4275 libraries/Util.php:4292
 #: libraries/config.values.php:40 libraries/config.values.php:48
 #: libraries/config.values.php:111 libraries/config.values.php:117
 #: libraries/config/messages.inc.php:324
@@ -4104,45 +4100,45 @@ msgstr "テーブル"
 msgid "SQL"
 msgstr "SQL"
 
-#: libraries/Menu.php:336 libraries/Menu.php:439 libraries/Util.php:3364
-#: libraries/Util.php:3374 libraries/Util.php:3380 libraries/Util.php:3654
-#: libraries/Util.php:3655 libraries/Util.php:4293 libraries/Util.php:4310
+#: libraries/Menu.php:341 libraries/Menu.php:444 libraries/Util.php:3347
+#: libraries/Util.php:3357 libraries/Util.php:3363 libraries/Util.php:3637
+#: libraries/Util.php:3638 libraries/Util.php:4276 libraries/Util.php:4293
 #: libraries/config.values.php:41 libraries/config.values.php:49
 #: libraries/config.values.php:112 libraries/config.values.php:118
 #: libraries/navigation/nodes/NodeTable.php:298
 msgid "Search"
 msgstr "検索"
 
-#: libraries/Menu.php:346 libraries/Util.php:3365 libraries/Util.php:3375
-#: libraries/Util.php:3656 libraries/Util.php:3657 libraries/Util.php:4311
+#: libraries/Menu.php:351 libraries/Util.php:3348 libraries/Util.php:3358
+#: libraries/Util.php:3639 libraries/Util.php:3640 libraries/Util.php:4294
 #: libraries/config.values.php:42 libraries/config.values.php:50
 #: libraries/config.values.php:119 libraries/navigation/nodes/NodeTable.php:304
 #: libraries/sql_query_form.lib.php:289 libraries/sql_query_form.lib.php:292
 msgid "Insert"
 msgstr "挿入"
 
-#: libraries/Menu.php:370 libraries/Menu.php:474 libraries/Util.php:4298
-#: libraries/Util.php:4314 libraries/config.values.php:107
+#: libraries/Menu.php:375 libraries/Menu.php:479 libraries/Util.php:4281
+#: libraries/Util.php:4297 libraries/config.values.php:107
 #: libraries/server_common.lib.php:48 libraries/server_privileges.lib.php:2643
 #: libraries/server_privileges.lib.php:4501
 #: templates/privileges/privileges_summary.phtml:16
 msgid "Privileges"
 msgstr "特権"
 
-#: libraries/Menu.php:379 libraries/Menu.php:387 libraries/Menu.php:466
-#: libraries/Util.php:3367 libraries/Util.php:3381 libraries/Util.php:4297
-#: libraries/Util.php:4315 libraries/config.values.php:113
+#: libraries/Menu.php:384 libraries/Menu.php:392 libraries/Menu.php:471
+#: libraries/Util.php:3350 libraries/Util.php:3364 libraries/Util.php:4280
+#: libraries/Util.php:4298 libraries/config.values.php:113
 #: view_operations.php:103
 msgid "Operations"
 msgstr "操作"
 
-#: libraries/Menu.php:392 libraries/Menu.php:496 libraries/Util.php:4302
-#: libraries/Util.php:4316 libraries/relation.lib.php:265
+#: libraries/Menu.php:397 libraries/Menu.php:501 libraries/Util.php:4285
+#: libraries/Util.php:4299 libraries/relation.lib.php:265
 msgid "Tracking"
 msgstr "SQL コマンドの追跡"
 
-#: libraries/Menu.php:404 libraries/Menu.php:490 libraries/Util.php:4301
-#: libraries/Util.php:4317
+#: libraries/Menu.php:409 libraries/Menu.php:495 libraries/Util.php:4284
+#: libraries/Util.php:4300
 #: libraries/navigation/nodes/NodeTriggerContainer.php:25
 #: libraries/plugins/export/ExportHtmlword.php:578
 #: libraries/plugins/export/ExportOdt.php:713
@@ -4154,20 +4150,20 @@ msgstr "SQL コマンドの追跡"
 msgid "Triggers"
 msgstr "トリガ"
 
-#: libraries/Menu.php:443 libraries/Menu.php:450 libraries/Menu.php:457
+#: libraries/Menu.php:448 libraries/Menu.php:455 libraries/Menu.php:462
 msgid "Database seems to be empty!"
 msgstr "データベースが空のようです!"
 
-#: libraries/Menu.php:446 libraries/Util.php:4294
+#: libraries/Menu.php:451 libraries/Util.php:4277
 msgid "Query"
 msgstr "クエリ"
 
-#: libraries/Menu.php:479 libraries/Util.php:4299
+#: libraries/Menu.php:484 libraries/Util.php:4282
 #: libraries/rte/rte_words.lib.php:36
 msgid "Routines"
 msgstr "ルーチン"
 
-#: libraries/Menu.php:484 libraries/Util.php:4300
+#: libraries/Menu.php:489 libraries/Util.php:4283
 #: libraries/navigation/nodes/NodeEventContainer.php:25
 #: libraries/plugins/export/ExportSql.php:952
 #: libraries/plugins/export/ExportXml.php:103
@@ -4175,18 +4171,18 @@ msgstr "ルーチン"
 msgid "Events"
 msgstr "イベント"
 
-#: libraries/Menu.php:502 libraries/Util.php:4303
+#: libraries/Menu.php:507 libraries/Util.php:4286
 msgid "Designer"
 msgstr "デザイナ"
 
-#: libraries/Menu.php:511 libraries/Util.php:4304
+#: libraries/Menu.php:516 libraries/Util.php:4287
 #: templates/database/structure/check_all_tables.phtml:34
 #, fuzzy
 #| msgid "Textarea columns"
 msgid "Central columns"
 msgstr "textarea の 1 行の文字数"
 
-#: libraries/Menu.php:545 libraries/Util.php:4276
+#: libraries/Menu.php:550 libraries/Util.php:4259
 #: libraries/config.values.php:104 libraries/config/messages.inc.php:269
 #: libraries/config/messages.inc.php:344
 #: libraries/navigation/NavigationTree.php:1269
@@ -4194,41 +4190,41 @@ msgstr "textarea の 1 行の文字数"
 msgid "Databases"
 msgstr "データベース"
 
-#: libraries/Menu.php:569
+#: libraries/Menu.php:574
 #, fuzzy
 #| msgid "Users"
 msgid "User accounts"
 msgstr "ユーザグループ"
 
-#: libraries/Menu.php:596 libraries/ServerStatusData.php:121
-#: libraries/Util.php:4283 libraries/server_common.lib.php:33
+#: libraries/Menu.php:601 libraries/ServerStatusData.php:121
+#: libraries/Util.php:4266 libraries/server_common.lib.php:33
 msgid "Binary log"
 msgstr "バイナリログ"
 
-#: libraries/Menu.php:602 libraries/ServerStatusData.php:126
-#: libraries/Util.php:4284 libraries/server_common.lib.php:39
+#: libraries/Menu.php:607 libraries/ServerStatusData.php:126
+#: libraries/Util.php:4267 libraries/server_common.lib.php:39
 #: templates/database/structure/body_for_table_summary.phtml:10
 #: templates/database/structure/table_header.phtml:27
 msgid "Replication"
 msgstr "レプリケーション"
 
-#: libraries/Menu.php:607 libraries/ServerStatusData.php:193
-#: libraries/Util.php:4285 libraries/config.values.php:106
+#: libraries/Menu.php:612 libraries/ServerStatusData.php:193
+#: libraries/Util.php:4268 libraries/config.values.php:106
 #: libraries/sql_query_form.lib.php:427
 #: templates/server/engines/engine.phtml:15
 #: templates/server/engines/engine.phtml:18
 msgid "Variables"
 msgstr "変数"
 
-#: libraries/Menu.php:611 libraries/Util.php:4286
+#: libraries/Menu.php:616 libraries/Util.php:4269
 msgid "Charsets"
 msgstr "文字セット"
 
-#: libraries/Menu.php:615 libraries/Util.php:4288
+#: libraries/Menu.php:620 libraries/Util.php:4271
 msgid "Engines"
 msgstr "エンジン"
 
-#: libraries/Menu.php:619 libraries/Util.php:4287
+#: libraries/Menu.php:624 libraries/Util.php:4270
 #: libraries/server_common.lib.php:30
 msgid "Plugins"
 msgstr "プラグイン"
@@ -4570,22 +4566,22 @@ msgstr "プレビューは利用できません。"
 msgid "take it"
 msgstr "これにする"
 
-#: libraries/ThemeManager.php:126
+#: libraries/ThemeManager.php:148
 #, php-format
 msgid "Default theme %s not found!"
 msgstr "デフォルトテーマ %s が見つかりません!"
 
-#: libraries/ThemeManager.php:182
+#: libraries/ThemeManager.php:204
 #, php-format
 msgid "Theme %s not found!"
 msgstr "テーマ %s が見つかりません!"
 
-#: libraries/ThemeManager.php:262
+#: libraries/ThemeManager.php:284
 #, php-format
 msgid "Theme path not found for theme %s!"
 msgstr "テーマ %s のテーマパスが見つかりません!"
 
-#: libraries/ThemeManager.php:356
+#: libraries/ThemeManager.php:378
 #, fuzzy
 #| msgid "Theme"
 msgid "Theme:"
@@ -4984,35 +4980,35 @@ msgstr "データベース「%s」に移動します。"
 msgid "The %s functionality is affected by a known bug, see %s"
 msgstr "%s の機能には既知のバグがあります。%s をご覧ください"
 
-#: libraries/Util.php:3571 prefs_manage.php:249
+#: libraries/Util.php:3554 prefs_manage.php:251
 msgid "Browse your computer:"
 msgstr "アップロードファイル:"
 
-#: libraries/Util.php:3596
+#: libraries/Util.php:3579
 #, php-format
 msgid "Select from the web server upload directory <b>%s</b>:"
 msgstr "ウェブサーバ上のアップロードディレクトリ <b>%s</b> から選択する："
 
-#: libraries/Util.php:3625 libraries/insert_edit.lib.php:1178
+#: libraries/Util.php:3608 libraries/insert_edit.lib.php:1178
 msgid "The directory you set for upload work cannot be reached."
 msgstr "指定したアップロードディレクトリが利用できません。"
 
-#: libraries/Util.php:3636
+#: libraries/Util.php:3619
 #, fuzzy
 #| msgid "There are no files to upload"
 msgid "There are no files to upload!"
 msgstr "アップロードファイルがありません"
 
-#: libraries/Util.php:3661 libraries/Util.php:3662
+#: libraries/Util.php:3644 libraries/Util.php:3645
 #: templates/database/structure/check_all_tables.phtml:16
 msgid "Empty"
 msgstr "空にする"
 
-#: libraries/Util.php:3667 libraries/Util.php:3668
+#: libraries/Util.php:3650 libraries/Util.php:3651
 msgid "Execute"
 msgstr "実行"
 
-#: libraries/Util.php:4279
+#: libraries/Util.php:4262
 msgid "Users"
 msgstr "ユーザ"
 
@@ -5170,7 +5166,7 @@ msgstr "サーバ"
 msgid "Invalid authentication method set in configuration:"
 msgstr "設定ファイルに無効な認証方法が指定されています:"
 
-#: libraries/common.inc.php:810
+#: libraries/common.inc.php:808
 #, php-format
 msgid ""
 "Unable to use timezone %1$s for server %2$d. Please check your configuration "
@@ -5178,20 +5174,20 @@ msgid ""
 "currently using the default time zone of the database server."
 msgstr ""
 
-#: libraries/common.inc.php:842
+#: libraries/common.inc.php:848
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "%s を %s 以降にアップグレードしてください。"
 
-#: libraries/common.inc.php:928
+#: libraries/common.inc.php:934
 msgid "Error: Token mismatch"
 msgstr ""
 
-#: libraries/common.inc.php:946
+#: libraries/common.inc.php:952
 msgid "GLOBALS overwrite attempt"
 msgstr "GLOBALS 変数が書き換えられている可能性があります"
 
-#: libraries/common.inc.php:953
+#: libraries/common.inc.php:959
 msgid "possible exploit"
 msgstr "なんらかの攻撃をされている可能性があります"
 
@@ -5752,9 +5748,7 @@ msgstr "ポインタを目立たせる"
 #| msgid ""
 #| "Enable [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] compression for "
 #| "import and export operations"
-msgid ""
-"Enable [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] compression for "
-"import operations."
+msgid "Enable bzip2 compression for import operations."
 msgstr ""
 "インポートおよびエクスポートの操作に対して [a@http://ja.wikipedia.org/wiki/"
 "Bzip2]bzip2[/a] 圧縮を有効にします。"
@@ -5788,8 +5782,8 @@ msgstr "CHAR 系カラムの編集"
 #| "Use user-friendly editor for editing SQL queries ([a@http://codemirror."
 #| "net/]CodeMirror[/a]) with syntax highlighting and line numbers"
 msgid ""
-"Use user-friendly editor for editing SQL queries ([a@http://codemirror."
-"net/]CodeMirror[/a]) with syntax highlighting and line numbers."
+"Use user-friendly editor for editing SQL queries (CodeMirror) with syntax "
+"highlighting and line numbers."
 msgstr ""
 "構文の色分けや行番号の付加といった分かりやすいエディタ ([a@http://codemirror."
 "net/]CodeMirror[/a]) を、SQL クエリの編集の際に使用します。"
@@ -6014,7 +6008,7 @@ msgstr "最大実行時間"
 msgid "Use %s statement"
 msgstr "%s コマンドを追加する"
 
-#: libraries/config/messages.inc.php:137 prefs_manage.php:319
+#: libraries/config/messages.inc.php:137 prefs_manage.php:321
 msgid "Save as file"
 msgstr "ファイルに保存する"
 
@@ -6669,9 +6663,7 @@ msgstr "phpMyAdmin で表示される警告の抑制"
 #| msgid ""
 #| "Enable [a@http://en.wikipedia.org/wiki/Gzip]gzip[/a] compression for "
 #| "import and export operations"
-msgid ""
-"Enable [a@http://en.wikipedia.org/wiki/Gzip]gzip[/a] compression for import "
-"and export operations."
+msgid "Enable gzip compression for import and export operations."
 msgstr ""
 "インポートおよびエクスポートの操作に対して [a@http://ja.wikipedia.org/wiki/"
 "Gzip]gzip[/a] 圧縮を有効にします。"
@@ -7497,8 +7489,8 @@ msgstr "認証タイプ"
 #| "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/"
 #| "a] support, suggested: [kbd]pma_bookmark[/kbd]"
 msgid ""
-"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/a] "
-"support, suggested: [kbd]pma__bookmark[/kbd]"
+"Leave blank for no [doc@bookmarks@]bookmark[/doc] support, suggested: "
+"[kbd]pma__bookmark[/kbd]"
 msgstr ""
 "[a@http://wiki.phpmyadmin.net/pma/bookmark]ブックマーク[/a]機能を使わない場合"
 "は空欄にします。[kbd]pma_bookmark[/kbd] としておくのがいいでしょう。"
@@ -7556,7 +7548,7 @@ msgstr "phpMyAdmin ユーザのパスワード"
 #| "controluser]wiki[/a]"
 msgid ""
 "A special MySQL user configured with limited permissions, more information "
-"available on [a@http://wiki.phpmyadmin.net/pma/controluser]wiki[/a]."
+"available on [doc@linked-tables]documentation[/doc]."
 msgstr ""
 "権限を制限して設定しておいた特別な MySQL ユーザを使います。詳細は [a@http://"
 "wiki.phpmyadmin.net/pma/controluser]wiki[/a] を参照してください。"
@@ -7785,9 +7777,9 @@ msgstr "PDF スキーマ：ページテーブル"
 #| "wiki.phpmyadmin.net/pma/pmadb]pmadb[/a] for complete information. Leave "
 #| "blank for no support. Suggested: [kbd]phpmyadmin[/kbd]"
 msgid ""
-"Database used for relations, bookmarks, and PDF features. See [a@http://wiki."
-"phpmyadmin.net/pma/pmadb]pmadb[/a] for complete information. Leave blank for "
-"no support. Suggested: [kbd]phpmyadmin[/kbd]."
+"Database used for relations, bookmarks, and PDF features. See [doc@linked-"
+"tables]pmadb[/doc] for complete information. Leave blank for no support. "
+"Suggested: [kbd]phpmyadmin[/kbd]."
 msgstr ""
 "リレーション、ブックマーク、PDF機能に使用されるデータベース。詳細な情報につい"
 "ては [a@http://wiki.phpmyadmin.net/pma/pmadb]pmadb[/a] を参照してください。こ"
@@ -7850,8 +7842,8 @@ msgstr "変数"
 #| "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
 #| "links[/a] support, suggested: [kbd]pma_relation[/kbd]"
 msgid ""
-"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
-"links[/a] support, suggested: [kbd]pma__relation[/kbd]."
+"Leave blank for no [doc@relations@]relation-links[/doc] support, suggested: "
+"[kbd]pma__relation[/kbd]."
 msgstr ""
 "[a@http://wiki.phpmyadmin.net/pma/relation]リレーションリンク[/a]機能を使わな"
 "い場合は空欄にします。[kbd]pma_relation[/kbd] としておくのがいいでしょう。"
@@ -7866,8 +7858,7 @@ msgstr "リレーションテーブル"
 #| "See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
 #| "types[/a] for an example"
 msgid ""
-"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
-"types[/a] for an example."
+"See [doc@authentication-modes]authentication types[/doc] for an example."
 msgstr ""
 "設定例は[a@http://wiki.phpmyadmin.net/pma/auth_types#signon]認証モード[/a]を"
 "参照してください。"
@@ -8224,8 +8215,8 @@ msgstr "操作ヒントを表示する"
 #: libraries/config/messages.inc.php:871
 #, fuzzy
 #| msgid ""
-#| "Shows link to [a@https://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
-#| "output"
+#| "Shows link to [a@https://php.net/manual/function.phpinfo.php]phpinfo()[/"
+#| "a] output"
 msgid ""
 "Shows link to [a@https://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
 "output."
@@ -8497,15 +8488,12 @@ msgstr "パスワード"
 #: libraries/config/messages.inc.php:974
 #, fuzzy
 #| msgid ""
-#| "Enable [a@http://en.wikipedia.org/wiki/ZIP_(file_format)]ZIP[/a] "
-#| "compression for import and export operations"
-msgid ""
-"Enable [a@http://en.wikipedia.org/wiki/ZIP_(file_format)]ZIP[/a] compression "
-"for import and export operations."
+#| "Enable [a@http://en.wikipedia.org/wiki/Gzip]gzip[/a] compression for "
+#| "import and export operations"
+msgid "Enable ZIP compression for import and export operations."
 msgstr ""
 "インポートおよびエクスポートの操作に対して [a@http://ja.wikipedia.org/wiki/"
-"ZIP_%28%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%83%95%E3%82%A9%E3%83%BC"
-"%E3%83%9E%E3%83%83%E3%83%88%29]ZIP[/a] 圧縮を有効にします。"
+"Gzip]gzip[/a] 圧縮を有効にします。"
 
 #: libraries/config/messages.inc.php:977
 msgid "ZIP"
@@ -8860,7 +8848,7 @@ msgstr "件数集計"
 msgid "The %s extension is missing. Please check your PHP configuration."
 msgstr "%s 拡張がありません。PHP の設定をチェックしてみてください。"
 
-#: libraries/core.lib.php:825 libraries/mult_submits.inc.php:331
+#: libraries/core.lib.php:830 libraries/mult_submits.inc.php:331
 #: tbl_operations.php:205 tbl_replace.php:313 templates/preview_sql.phtml:3
 msgid "No change"
 msgstr "変更なし"
@@ -8891,7 +8879,7 @@ msgid "No Password"
 msgstr "パスワード無し"
 
 #: libraries/display_change_password.lib.php:65
-#: libraries/plugins/auth/AuthenticationCookie.php:185
+#: libraries/plugins/auth/AuthenticationCookie.php:175
 #: libraries/replication_gui.lib.php:423 libraries/replication_gui.lib.php:852
 #: libraries/server_privileges.lib.php:1777
 msgid "Password:"
@@ -9666,14 +9654,6 @@ msgstr ""
 "PBXT に関するドキュメントおよび詳細な情報は、%sPrimeBase XT オフィシャルサイ"
 "ト%sにあります。"
 
-#: libraries/engines/Pbxt.php:189
-msgid "Related Links"
-msgstr "関連リンク"
-
-#: libraries/engines/Pbxt.php:192
-msgid "The PrimeBase XT Blog by Paul McCullagh"
-msgstr "Paul McCullagh 氏による PrimeBase XT ブログ"
-
 #: libraries/export.lib.php:124 libraries/export.lib.php:159
 #: libraries/export.lib.php:383
 #, php-format
@@ -9699,12 +9679,12 @@ msgid "Dump has been saved to file %s."
 msgstr "ダンプをファイル %s に保存しました。"
 
 #: libraries/import.lib.php:102 libraries/insert_edit.lib.php:124
-#: libraries/rte/rte_routines.lib.php:1444 libraries/sql.lib.php:1370
+#: libraries/rte/rte_routines.lib.php:1444 libraries/sql.lib.php:1368
 #: tbl_get_field.php:45
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "返り値が空でした (行数 0)。"
 
-#: libraries/import.lib.php:273 libraries/sql.lib.php:1384
+#: libraries/import.lib.php:273 libraries/sql.lib.php:1382
 msgid "[ROLLBACK occurred.]"
 msgstr ""
 
@@ -9872,11 +9852,11 @@ msgstr ""
 msgid "Value"
 msgstr "値"
 
-#: libraries/insert_edit.lib.php:1953 libraries/sql.lib.php:1367
+#: libraries/insert_edit.lib.php:1953 libraries/sql.lib.php:1365
 msgid "Showing SQL query"
 msgstr "SQL クエリを表示"
 
-#: libraries/insert_edit.lib.php:1978 libraries/sql.lib.php:1345
+#: libraries/insert_edit.lib.php:1978 libraries/sql.lib.php:1343
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "id %1$d の行を挿入しました"
@@ -9980,21 +9960,21 @@ msgstr "表示"
 msgid "Home"
 msgstr "メインページ"
 
-#: libraries/navigation/NavigationHeader.php:176
+#: libraries/navigation/NavigationHeader.php:175
 msgid "Log out"
 msgstr "ログアウト"
 
-#: libraries/navigation/NavigationHeader.php:187
+#: libraries/navigation/NavigationHeader.php:186
 msgid "phpMyAdmin documentation"
 msgstr "phpMyAdmin のドキュメント"
 
-#: libraries/navigation/NavigationHeader.php:207
+#: libraries/navigation/NavigationHeader.php:206
 #, fuzzy
 #| msgid "Navigation panel"
 msgid "Navigation panel settings"
 msgstr "ナビゲーションパネル"
 
-#: libraries/navigation/NavigationHeader.php:218
+#: libraries/navigation/NavigationHeader.php:217
 #, fuzzy
 #| msgid "Reload navigation frame"
 msgid "Reload navigation panel"
@@ -10674,19 +10654,19 @@ msgstr "テーブル名が空です!"
 msgid "This format has no options"
 msgstr "この書式にはオプションはありません"
 
-#: libraries/plugins/AuthenticationPlugin.php:66
+#: libraries/plugins/AuthenticationPlugin.php:106
 msgid ""
 "Login without a password is forbidden by configuration (see AllowNoPassword)"
 msgstr ""
 "パスワードなしログインは設定 (AllowNoPassword 参照) によって禁止されています"
 
-#: libraries/plugins/AuthenticationPlugin.php:73
+#: libraries/plugins/AuthenticationPlugin.php:113
 #, php-format
 msgid "No activity within %s seconds; please log in again."
 msgstr "%s 秒以上操作をしませんでした。ログインし直してください。"
 
-#: libraries/plugins/AuthenticationPlugin.php:82
-#: libraries/plugins/AuthenticationPlugin.php:84
+#: libraries/plugins/AuthenticationPlugin.php:122
+#: libraries/plugins/AuthenticationPlugin.php:124
 msgid "Cannot log in to the MySQL server"
 msgstr "MySQL サーバにログインできません"
 
@@ -10703,8 +10683,8 @@ msgid "Cannot connect: invalid settings."
 msgstr "接続できません。設定が無効です。"
 
 #: libraries/plugins/auth/AuthenticationConfig.php:99
-#: libraries/plugins/auth/AuthenticationCookie.php:120
-#: libraries/plugins/auth/AuthenticationHttp.php:94
+#: libraries/plugins/auth/AuthenticationCookie.php:110
+#: libraries/plugins/auth/AuthenticationHttp.php:82
 #, php-format
 msgid "Welcome to %s"
 msgstr "%s へようこそ"
@@ -10733,50 +10713,50 @@ msgstr ""
 msgid "Retry to connect"
 msgstr ""
 
-#: libraries/plugins/auth/AuthenticationCookie.php:132
+#: libraries/plugins/auth/AuthenticationCookie.php:122
 msgid "Your session has expired. Please log in again."
 msgstr ""
 
-#: libraries/plugins/auth/AuthenticationCookie.php:156
+#: libraries/plugins/auth/AuthenticationCookie.php:146
 msgid "Log in"
 msgstr "ログイン"
 
+#: libraries/plugins/auth/AuthenticationCookie.php:154
 #: libraries/plugins/auth/AuthenticationCookie.php:164
-#: libraries/plugins/auth/AuthenticationCookie.php:174
 msgid "You can enter hostname/IP address and port separated by space."
 msgstr ""
 "「ホスト名／IP アドレス」と「ポート」を空白で区切って入力することができます。"
 
-#: libraries/plugins/auth/AuthenticationCookie.php:179
+#: libraries/plugins/auth/AuthenticationCookie.php:169
 msgid "Username:"
 msgstr "ユーザ名:"
 
-#: libraries/plugins/auth/AuthenticationCookie.php:191
+#: libraries/plugins/auth/AuthenticationCookie.php:181
 #, fuzzy
 #| msgid "Server Choice"
 msgid "Server Choice:"
 msgstr "サーバの選択"
 
-#: libraries/plugins/auth/AuthenticationCookie.php:332
+#: libraries/plugins/auth/AuthenticationCookie.php:294
 msgid "Entered captcha is wrong, try again!"
 msgstr ""
 
-#: libraries/plugins/auth/AuthenticationCookie.php:336
+#: libraries/plugins/auth/AuthenticationCookie.php:298
 msgid "Please enter correct captcha!"
 msgstr ""
 
-#: libraries/plugins/auth/AuthenticationCookie.php:360
+#: libraries/plugins/auth/AuthenticationCookie.php:322
 #, fuzzy
 #| msgid "Cannot log in to the MySQL server"
 msgid "You are not allowed to log in to this MySQL server!"
 msgstr "MySQL サーバにログインできません"
 
-#: libraries/plugins/auth/AuthenticationHttp.php:99
+#: libraries/plugins/auth/AuthenticationHttp.php:87
 msgid "Wrong username/password. Access denied."
 msgstr ""
 "ユーザ名ないしパスワードが間違っています。<br />アクセスは拒否されました。"
 
-#: libraries/plugins/auth/AuthenticationSignon.php:92
+#: libraries/plugins/auth/AuthenticationSignon.php:84
 msgid "Can not find signon authentication script:"
 msgstr "サインオン認証スクリプトが見つかりません："
 
@@ -14619,36 +14599,36 @@ msgstr "閉じる"
 msgid "ø Time"
 msgstr "時間"
 
-#: libraries/sql.lib.php:571 libraries/sql.lib.php:589
+#: libraries/sql.lib.php:569 libraries/sql.lib.php:587
 msgid "Bookmark this SQL query"
 msgstr "この SQL をブックマークする"
 
-#: libraries/sql.lib.php:575
+#: libraries/sql.lib.php:573
 #, fuzzy
 #| msgid "Label"
 msgid "Label:"
 msgstr "ラベル"
 
-#: libraries/sql.lib.php:582 libraries/sql_query_form.lib.php:315
+#: libraries/sql.lib.php:580 libraries/sql_query_form.lib.php:315
 msgid "Let every user access this bookmark"
 msgstr "すべてのユーザがこのブックマークを利用できるようにする"
 
-#: libraries/sql.lib.php:788
+#: libraries/sql.lib.php:786
 #, fuzzy
 #| msgid "Bookmark %s created"
 msgid "Bookmark not created!"
 msgstr "ブックマーク %s を作成しました"
 
-#: libraries/sql.lib.php:896
+#: libraries/sql.lib.php:894
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr "デフォルトの表示クエリとしてブックマーク \"%s\" を使用する。"
 
-#: libraries/sql.lib.php:1364
+#: libraries/sql.lib.php:1362
 msgid "Showing as PHP code"
 msgstr "PHP コードとして表示"
 
-#: libraries/sql.lib.php:1736
+#: libraries/sql.lib.php:1734
 #, fuzzy, php-format
 #| msgid ""
 #| "This table does not contain a unique column. Features related to the grid "
@@ -14661,7 +14641,7 @@ msgstr ""
 "ボックス、編集、コピー、削除のリンクに関連する機能は、保存後に動作しない場合"
 "があります。"
 
-#: libraries/sql.lib.php:1750
+#: libraries/sql.lib.php:1748
 #, fuzzy, php-format
 #| msgid ""
 #| "This table does not contain a unique column. Features related to the grid "
@@ -14674,7 +14654,7 @@ msgstr ""
 "ボックス、編集、コピー、削除のリンクに関連する機能は、保存後に動作しない場合"
 "があります。"
 
-#: libraries/sql.lib.php:1792
+#: libraries/sql.lib.php:1790
 #, php-format
 msgid "Problems with indexes of table `%s`"
 msgstr "テーブル `%s` のインデックスに問題があります"
@@ -14968,7 +14948,7 @@ msgstr "世代"
 msgid "Manage your settings"
 msgstr "ユーザ環境設定の管理"
 
-#: libraries/user_preferences.inc.php:57 prefs_manage.php:308
+#: libraries/user_preferences.inc.php:57 prefs_manage.php:310
 msgid "Configuration has been saved."
 msgstr "設定を保存しました。"
 
@@ -15005,49 +14985,49 @@ msgid "Cannot save settings, submitted form contains errors!"
 msgstr ""
 "設定を保存することはできません。送信された内容にエラーが含まれています。"
 
-#: prefs_manage.php:88
+#: prefs_manage.php:89
 msgid "Could not import configuration"
 msgstr "設定がインポートできませんでした"
 
-#: prefs_manage.php:120
+#: prefs_manage.php:121
 msgid "Configuration contains incorrect data for some fields."
 msgstr "設定の一部に不正なデータが含まれています。"
 
-#: prefs_manage.php:139
+#: prefs_manage.php:140
 msgid "Do you want to import remaining settings?"
 msgstr "残っている設定を読み込みますか?"
 
-#: prefs_manage.php:232 prefs_manage.php:261
+#: prefs_manage.php:234 prefs_manage.php:263
 msgid "Saved on: @DATE@"
 msgstr "保存日時：@DATE@"
 
-#: prefs_manage.php:247
+#: prefs_manage.php:249
 msgid "Import from file"
 msgstr "ファイルから読み込む"
 
-#: prefs_manage.php:255
+#: prefs_manage.php:257
 msgid "Import from browser's storage"
 msgstr "ブラウザ (Web Storage) から設定を読み込む"
 
-#: prefs_manage.php:258
+#: prefs_manage.php:260
 msgid "Settings will be imported from your browser's local storage."
 msgstr ""
 "設定をブラウザ (Web Storage) から読み込みます。ローカルの保存場所ですがクッ"
 "キーではありません。"
 
-#: prefs_manage.php:264
+#: prefs_manage.php:266
 msgid "You have no saved settings!"
 msgstr "保存されている設定はありません！"
 
-#: prefs_manage.php:269 prefs_manage.php:348
+#: prefs_manage.php:271 prefs_manage.php:350
 msgid "This feature is not supported by your web browser"
 msgstr "この機能はブラウザよってサポートされていません"
 
-#: prefs_manage.php:275
+#: prefs_manage.php:277
 msgid "Merge with current configuration"
 msgstr "現在の設定とマージする"
 
-#: prefs_manage.php:291
+#: prefs_manage.php:293
 #, php-format
 msgid ""
 "You can set more settings by modifying config.inc.php, eg. by using %sSetup "
@@ -15056,21 +15036,21 @@ msgstr ""
 "%sセットアップスクリプト%sを使用するなどして config.inc.php を変更することに"
 "より、より多くの設定を行うことができます。"
 
-#: prefs_manage.php:324
+#: prefs_manage.php:326
 msgid "Save to browser's storage"
 msgstr "ブラウザ (Web Storage) に保存する"
 
-#: prefs_manage.php:331
+#: prefs_manage.php:333
 msgid "Settings will be saved in your browser's local storage."
 msgstr ""
 "設定がブラウザ (Web Storage) に保存されます。ローカルの保存場所ですがクッキー"
 "ではありません。"
 
-#: prefs_manage.php:339
+#: prefs_manage.php:341
 msgid "Existing settings will be overwritten!"
 msgstr "既に保存してある設定に上書きします！"
 
-#: prefs_manage.php:367
+#: prefs_manage.php:369
 msgid "You can reset all your settings and restore them to default values."
 msgstr "すべての設定をリセットして、デフォルト値に復元します。"
 
@@ -16716,11 +16696,11 @@ msgstr "カラム %s を削除しました。"
 msgid "Click to toggle"
 msgstr "クリックでオン／オフ切り替え"
 
-#: themes.php:17 themes.php:22
+#: themes.php:19 themes.php:24
 msgid "Theme"
 msgstr "テーマ"
 
-#: themes.php:25
+#: themes.php:27
 msgid "Get more themes!"
 msgstr "他のテーマを入手する！"
 
@@ -17767,17 +17747,17 @@ msgstr ""
 "ディスク書き込みを伴う一時テーブル割合：%s。この値は、1 時間当たり 1 未満がい"
 "いと言われています"
 
-#: libraries/advisory_rules.txt:289
+#: libraries/advisory_rules.txt:278
 msgid "MyISAM key buffer size"
 msgstr "MyISAM キーバッファのサイズ"
 
-#: libraries/advisory_rules.txt:292
+#: libraries/advisory_rules.txt:281
 msgid "Key buffer is not initialized. No MyISAM indexes will be cached."
 msgstr ""
 "キーバッファが初期化されていません。おそらく、MyISAM インデックスはキャッシュ"
 "されていません。"
 
-#: libraries/advisory_rules.txt:293
+#: libraries/advisory_rules.txt:282
 msgid ""
 "Set {key_buffer_size} depending on the size of your MyISAM indexes. 64M is a "
 "good start."
@@ -17785,21 +17765,21 @@ msgstr ""
 "お使いの MyISAM インデックスのサイズに合わせた {key_buffer_size} を設定してく"
 "ださい。最初の設定としては、64M からがいいでしょう。"
 
-#: libraries/advisory_rules.txt:294
+#: libraries/advisory_rules.txt:283
 msgid "key_buffer_size is 0"
 msgstr "key_buffer_size は 0 です"
 
-#: libraries/advisory_rules.txt:296
+#: libraries/advisory_rules.txt:285
 #, php-format
 msgid "Max %% MyISAM key buffer ever used"
 msgstr "使われていた MyISAM キーバッファの最大比率"
 
-#: libraries/advisory_rules.txt:299 libraries/advisory_rules.txt:307
+#: libraries/advisory_rules.txt:288 libraries/advisory_rules.txt:296
 #, php-format
 msgid "MyISAM key buffer (index cache) %% used is low."
 msgstr "MyISAM キーバッファ（インデックスキャッシュ）の使用率が低いです。"
 
-#: libraries/advisory_rules.txt:300 libraries/advisory_rules.txt:308
+#: libraries/advisory_rules.txt:289 libraries/advisory_rules.txt:297
 msgid ""
 "You may need to decrease the size of {key_buffer_size}, re-examine your "
 "tables to see if indexes have been removed, or examine queries and "
@@ -17809,7 +17789,7 @@ msgstr ""
 "でインデックスが削除されていないかよく確認してください。また、クエリあるいは"
 "インデックスの使用が想定されるものがないか確認してみてください。"
 
-#: libraries/advisory_rules.txt:301
+#: libraries/advisory_rules.txt:290
 #, php-format
 msgid ""
 "max %% MyISAM key buffer ever used: %s%%, this value should be above 95%%"
@@ -17817,46 +17797,46 @@ msgstr ""
 "使われていた MyISAM キーバッファの最大比率: %s%%。この値は、95%% 以上がいいと"
 "言われています"
 
-#: libraries/advisory_rules.txt:304
+#: libraries/advisory_rules.txt:293
 msgid "Percentage of MyISAM key buffer used"
 msgstr "MyISAM キーバッファの使用比率"
 
-#: libraries/advisory_rules.txt:309
+#: libraries/advisory_rules.txt:298
 #, php-format
 msgid "%% MyISAM key buffer used: %s%%, this value should be above 95%%"
 msgstr ""
 "MyISAM キーバッファの使用比率: %s%%。この値は、95%% 以上がいいと言われていま"
 "す"
 
-#: libraries/advisory_rules.txt:311
+#: libraries/advisory_rules.txt:300
 msgid "Percentage of index reads from memory"
 msgstr "メモリから読み込まれるインデックスの比率"
 
-#: libraries/advisory_rules.txt:314
+#: libraries/advisory_rules.txt:303
 #, php-format
 msgid "The %% of indexes that use the MyISAM key buffer is low."
 msgstr "MyISAM キーバッファを使用するインデックスの比率が低いです。"
 
-#: libraries/advisory_rules.txt:315
+#: libraries/advisory_rules.txt:304
 msgid "You may need to increase {key_buffer_size}."
 msgstr "{key_buffer_size} を増やす必要があるかもしれません。"
 
-#: libraries/advisory_rules.txt:316
+#: libraries/advisory_rules.txt:305
 #, php-format
 msgid "Index reads from memory: %s%%, this value should be above 95%%"
 msgstr ""
 "メモリから読み込まれるインデックスの比率: %s%%。この値は、95%% 以上がいいと言"
 "われています"
 
-#: libraries/advisory_rules.txt:320
+#: libraries/advisory_rules.txt:309
 msgid "Rate of table open"
 msgstr "テーブルを開く割合"
 
-#: libraries/advisory_rules.txt:323
+#: libraries/advisory_rules.txt:312
 msgid "The rate of opening tables is high."
 msgstr "テーブルを開く割合が高いです。"
 
-#: libraries/advisory_rules.txt:324
+#: libraries/advisory_rules.txt:313
 msgid ""
 "Opening tables requires disk I/O which is costly. Increasing "
 "{table_open_cache} might avoid this."
@@ -17864,17 +17844,17 @@ msgstr ""
 "テーブルを開くというのは、負荷がかかるディスクへの入出力を行うということで"
 "す。{table_open_cache} を大きくすることで、これを緩和できることがあります。"
 
-#: libraries/advisory_rules.txt:325
+#: libraries/advisory_rules.txt:314
 #, php-format
 msgid "Opened table rate: %s, this value should be less than 10 per hour"
 msgstr ""
 "テーブルを開く割合：%s。この値は、1 時間当たり 10 未満がいいと言われています"
 
-#: libraries/advisory_rules.txt:327
+#: libraries/advisory_rules.txt:316
 msgid "Percentage of used open files limit"
 msgstr "開いているファイルの上限に対する比率"
 
-#: libraries/advisory_rules.txt:330
+#: libraries/advisory_rules.txt:319
 msgid ""
 "The number of open files is approaching the max number of open files.  You "
 "may get a \"Too many open files\" error."
@@ -17882,7 +17862,7 @@ msgstr ""
 "開いているファイルの数が最大になりつつあります。エラー「開いているファイルが"
 "多すぎます」になるかもしれません。"
 
-#: libraries/advisory_rules.txt:331 libraries/advisory_rules.txt:338
+#: libraries/advisory_rules.txt:320 libraries/advisory_rules.txt:327
 #, fuzzy
 #| msgid ""
 #| "Consider increasing {open_files_limit}, and check the error log when "
@@ -17894,7 +17874,7 @@ msgstr ""
 "{open_files_limit} 増やすことを検討してください。open_files_limit を変更して"
 "再起動した場合は、エラーログを確認するようにしてください。"
 
-#: libraries/advisory_rules.txt:332
+#: libraries/advisory_rules.txt:321
 #, php-format
 msgid ""
 "The number of opened files is at %s%% of the limit. It should be below 85%%"
@@ -17902,59 +17882,59 @@ msgstr ""
 "開いているファイルの数は上限に対して %s%% です。この値は、85%% 未満がいいと言"
 "われています"
 
-#: libraries/advisory_rules.txt:334
+#: libraries/advisory_rules.txt:323
 msgid "Rate of open files"
 msgstr "開いているファイルの割合"
 
-#: libraries/advisory_rules.txt:337
+#: libraries/advisory_rules.txt:326
 msgid "The rate of opening files is high."
 msgstr "開いているファイルの割合が高いです。"
 
-#: libraries/advisory_rules.txt:339
+#: libraries/advisory_rules.txt:328
 #, php-format
 msgid "Opened files rate: %s, this value should be less than 5 per hour"
 msgstr ""
 "開いているファイルの割合：%s。この値は、1 時間当たり 5 未満がいいと言われてい"
 "ます"
 
-#: libraries/advisory_rules.txt:341
+#: libraries/advisory_rules.txt:330
 #, php-format
 msgid "Immediate table locks %%"
 msgstr "速やかに行われたテーブルロックの比率"
 
-#: libraries/advisory_rules.txt:344 libraries/advisory_rules.txt:351
+#: libraries/advisory_rules.txt:333 libraries/advisory_rules.txt:340
 msgid "Too many table locks were not granted immediately."
 msgstr "テーブルロック要求に対して速やかに取得できないことが多いです。"
 
-#: libraries/advisory_rules.txt:345 libraries/advisory_rules.txt:352
+#: libraries/advisory_rules.txt:334 libraries/advisory_rules.txt:341
 msgid "Optimize queries and/or use InnoDB to reduce lock wait."
 msgstr ""
 "テーブルの最適化もしくは InnoDB のロック待ち時間の減少、のいずれかもしくは両"
 "方を行ってください。"
 
-#: libraries/advisory_rules.txt:346
+#: libraries/advisory_rules.txt:335
 #, php-format
 msgid "Immediate table locks: %s%%, this value should be above 95%%"
 msgstr ""
 "速やかに行われたテーブルロック: %s%%。この値は、95%% 以上がいいと言われていま"
 "す"
 
-#: libraries/advisory_rules.txt:348
+#: libraries/advisory_rules.txt:337
 msgid "Table lock wait rate"
 msgstr "テーブルロックの待つ割合"
 
-#: libraries/advisory_rules.txt:353
+#: libraries/advisory_rules.txt:342
 #, php-format
 msgid "Table lock wait rate: %s, this value should be less than 1 per hour"
 msgstr ""
 "テーブルロックの待つ割合: %s。この値は、1 時間当たり 1 未満がいいと言われてい"
 "ます"
 
-#: libraries/advisory_rules.txt:355
+#: libraries/advisory_rules.txt:344
 msgid "Thread cache"
 msgstr "スレッドキャッシュ"
 
-#: libraries/advisory_rules.txt:358
+#: libraries/advisory_rules.txt:347
 msgid ""
 "Thread cache is disabled, resulting in more overhead from new connections to "
 "MySQL."
@@ -17962,44 +17942,44 @@ msgstr ""
 "スレッドキャッシュが無効になっているため、MySQL への新たな接続に対してのオー"
 "バヘッドが大きくなります。"
 
-#: libraries/advisory_rules.txt:359
+#: libraries/advisory_rules.txt:348
 msgid "Enable the thread cache by setting {thread_cache_size} > 0."
 msgstr ""
 "{thread_cache_size} に 0 より大きな値を設定して、スレッドキャッシュを有効にし"
 "てください。"
 
-#: libraries/advisory_rules.txt:360
+#: libraries/advisory_rules.txt:349
 msgid "The thread cache is set to 0"
 msgstr "スレッドキャッシュは 0 に設定されています"
 
-#: libraries/advisory_rules.txt:362
+#: libraries/advisory_rules.txt:351
 #, php-format
 msgid "Thread cache hit rate %%"
 msgstr "スレッドキャッシュのヒット率"
 
-#: libraries/advisory_rules.txt:365
+#: libraries/advisory_rules.txt:354
 msgid "Thread cache is not efficient."
 msgstr "スレッドキャッシュが効果的に機能していません。"
 
-#: libraries/advisory_rules.txt:366
+#: libraries/advisory_rules.txt:355
 msgid "Increase {thread_cache_size}."
 msgstr "{thread_cache_size} を増やしてください。"
 
-#: libraries/advisory_rules.txt:367
+#: libraries/advisory_rules.txt:356
 #, php-format
 msgid "Thread cache hitrate: %s%%, this value should be above 80%%"
 msgstr ""
 "スレッドキャッシュのヒット率: %s%%。この値は、80%% 以上がいいと言われています"
 
-#: libraries/advisory_rules.txt:369
+#: libraries/advisory_rules.txt:358
 msgid "Threads that are slow to launch"
 msgstr "起動が遅いスレッド"
 
-#: libraries/advisory_rules.txt:372
+#: libraries/advisory_rules.txt:361
 msgid "There are too many threads that are slow to launch."
 msgstr "起動が遅いスレッドが多く存在します。"
 
-#: libraries/advisory_rules.txt:373
+#: libraries/advisory_rules.txt:362
 msgid ""
 "This generally happens in case of general system overload as it is pretty "
 "simple operations. You might want to monitor your system load carefully."
@@ -18007,24 +17987,24 @@ msgstr ""
 "一般的に、比較的単純な操作なわりには、システム全体に負荷がかかっている状態で"
 "す。お使いのシステムの負荷を入念にモニタしてみてください。"
 
-#: libraries/advisory_rules.txt:374
+#: libraries/advisory_rules.txt:363
 #, php-format
 msgid "%s thread(s) took longer than %s seconds to start, it should be 0"
 msgstr ""
 "%s スレッドの開始に %s 秒以上かかっています。この値は、0 がいいと言われていま"
 "す"
 
-#: libraries/advisory_rules.txt:376
+#: libraries/advisory_rules.txt:365
 msgid "Slow launch time"
 msgstr "遅い起動時間"
 
-#: libraries/advisory_rules.txt:379
+#: libraries/advisory_rules.txt:368
 #, fuzzy
 #| msgid "Slow_launch_threads is above 2s"
 msgid "Slow_launch_threads is above 2s."
 msgstr "Slow_launch_threads が 2 秒を超えています"
 
-#: libraries/advisory_rules.txt:380
+#: libraries/advisory_rules.txt:369
 #, fuzzy
 #| msgid ""
 #| "Set slow_launch_time to 1s or 2s to correctly count threads that are slow "
@@ -18036,16 +18016,16 @@ msgstr ""
 "起動が遅いスレッドなくなるように、slow_launch_time を 1 秒か 2 秒に設定してく"
 "ださい。"
 
-#: libraries/advisory_rules.txt:381
+#: libraries/advisory_rules.txt:370
 #, php-format
 msgid "slow_launch_time is set to %s"
 msgstr "slow_launch_time は %s に設定されています"
 
-#: libraries/advisory_rules.txt:385
+#: libraries/advisory_rules.txt:374
 msgid "Percentage of used connections"
 msgstr "使用されている接続の比率"
 
-#: libraries/advisory_rules.txt:388
+#: libraries/advisory_rules.txt:377
 #, fuzzy
 #| msgid ""
 #| "The maximum amount of used connections is getting close to the value of "
@@ -18057,7 +18037,7 @@ msgstr ""
 "使用されている接続数が max_connections の値に達すると、閉じられてしまう接続が"
 "発生します。"
 
-#: libraries/advisory_rules.txt:389
+#: libraries/advisory_rules.txt:378
 #, fuzzy
 #| msgid ""
 #| "Increase max_connections, or decrease wait_timeout so that connections "
@@ -18073,7 +18053,7 @@ msgstr ""
 "コード上において、データベースが適切に閉じられているかも確認してみてくださ"
 "い。"
 
-#: libraries/advisory_rules.txt:390
+#: libraries/advisory_rules.txt:379
 #, php-format
 msgid ""
 "Max_used_connections is at %s%% of max_connections, it should be below 80%%"
@@ -18081,15 +18061,15 @@ msgstr ""
 "Max_used_connections は max_connections の %s%% になっています。この値は、"
 "80%% 未満がいいと言われています"
 
-#: libraries/advisory_rules.txt:392
+#: libraries/advisory_rules.txt:381
 msgid "Percentage of aborted connections"
 msgstr "中断された接続の比率"
 
-#: libraries/advisory_rules.txt:395 libraries/advisory_rules.txt:402
+#: libraries/advisory_rules.txt:384 libraries/advisory_rules.txt:391
 msgid "Too many connections are aborted."
 msgstr "中断された接続が多いです。"
 
-#: libraries/advisory_rules.txt:396 libraries/advisory_rules.txt:403
+#: libraries/advisory_rules.txt:385 libraries/advisory_rules.txt:392
 #, fuzzy
 #| msgid ""
 #| "Connections are usually aborted when they cannot be authorized. <a href="
@@ -18106,18 +18086,18 @@ msgstr ""
 "source-of-aborted_connects/\">この記事 (英語)</a> は、原因を突き止めるのに参"
 "考になるかもしれません。"
 
-#: libraries/advisory_rules.txt:397
+#: libraries/advisory_rules.txt:386
 #, php-format
 msgid "%s%% of all connections are aborted. This value should be below 1%%"
 msgstr ""
 "全接続のうち %s%% が中断されています。この値は、1%% 未満がいいと言われていま"
 "す"
 
-#: libraries/advisory_rules.txt:399
+#: libraries/advisory_rules.txt:388
 msgid "Rate of aborted connections"
 msgstr "中断された接続の割合"
 
-#: libraries/advisory_rules.txt:404
+#: libraries/advisory_rules.txt:393
 #, php-format
 msgid ""
 "Aborted connections rate is at %s, this value should be less than 1 per hour"
@@ -18125,15 +18105,15 @@ msgstr ""
 "中断された接続の割合は %s です。この値は、1 時間当たり 1 未満がいいと言われて"
 "います"
 
-#: libraries/advisory_rules.txt:406
+#: libraries/advisory_rules.txt:395
 msgid "Percentage of aborted clients"
 msgstr "クライアントによって中断された比率"
 
-#: libraries/advisory_rules.txt:409 libraries/advisory_rules.txt:416
+#: libraries/advisory_rules.txt:398 libraries/advisory_rules.txt:405
 msgid "Too many clients are aborted."
 msgstr "中断されたクライアントが多いです。"
 
-#: libraries/advisory_rules.txt:410 libraries/advisory_rules.txt:417
+#: libraries/advisory_rules.txt:399 libraries/advisory_rules.txt:406
 msgid ""
 "Clients are usually aborted when they did not close their connection to "
 "MySQL properly. This can be due to network issues or code not closing a "
@@ -18144,45 +18124,45 @@ msgstr ""
 "を適切に閉じていないコードが原因と考えられます。ネットワークとコードを確認し"
 "てください。"
 
-#: libraries/advisory_rules.txt:411
+#: libraries/advisory_rules.txt:400
 #, php-format
 msgid "%s%% of all clients are aborted. This value should be below 2%%"
 msgstr ""
 "全クライアントの内 %s%% が中断されています。この値は、2%% 未満がいいと言われ"
 "ています"
 
-#: libraries/advisory_rules.txt:413
+#: libraries/advisory_rules.txt:402
 msgid "Rate of aborted clients"
 msgstr "中断されたクライアントの割合"
 
-#: libraries/advisory_rules.txt:418
+#: libraries/advisory_rules.txt:407
 #, php-format
 msgid "Aborted client rate is at %s, this value should be less than 1 per hour"
 msgstr ""
 "中断されたクライアントの割合: %s。この値は、1 時間当たり 1 未満がいいと言われ"
 "ています"
 
-#: libraries/advisory_rules.txt:422
+#: libraries/advisory_rules.txt:411
 msgid "Is InnoDB disabled?"
 msgstr "InnoDB が無効?"
 
-#: libraries/advisory_rules.txt:425
+#: libraries/advisory_rules.txt:414
 msgid "You do not have InnoDB enabled."
 msgstr "InnoDB を有効にできていません。"
 
-#: libraries/advisory_rules.txt:426
+#: libraries/advisory_rules.txt:415
 msgid "InnoDB is usually the better choice for table engines."
 msgstr "一般的に、InnoDB はテーブル用のエンジンとして適切な選択となりえます。"
 
-#: libraries/advisory_rules.txt:427
+#: libraries/advisory_rules.txt:416
 msgid "have_innodb is set to 'value'"
 msgstr "have_innodb は 'value' に設定されています"
 
-#: libraries/advisory_rules.txt:429
+#: libraries/advisory_rules.txt:418
 msgid "InnoDB log size"
 msgstr "InnoDB のログサイズ"
 
-#: libraries/advisory_rules.txt:432
+#: libraries/advisory_rules.txt:421
 msgid ""
 "The InnoDB log file size is not an appropriate size, in relation to the "
 "InnoDB buffer pool."
@@ -18190,7 +18170,7 @@ msgstr ""
 "InnoDB のログサイズが適切ではありません。この値は InnoDB バッファプールと関連"
 "があります。"
 
-#: libraries/advisory_rules.txt:433
+#: libraries/advisory_rules.txt:422
 #, php-format
 msgid ""
 "Especially on a system with a lot of writes to InnoDB tables you should set "
@@ -18214,7 +18194,7 @@ msgstr ""
 "mysqldatabaseadministration.blogspot.com/2007/01/increase-innodblogfilesize-"
 "proper-way.html\">こちらのブログ記事 (英語)</a> もご覧になってください"
 
-#: libraries/advisory_rules.txt:434
+#: libraries/advisory_rules.txt:423
 #, php-format
 msgid ""
 "Your InnoDB log size is at %s%% in relation to the InnoDB buffer pool size, "
@@ -18223,15 +18203,15 @@ msgstr ""
 "ご使用されている InnoDB のログサイズは、関連のある InnoDB バッファプールの大"
 "きさに対して %s%% です。この値は、20%% 未満にしないほうがいいと言われています"
 
-#: libraries/advisory_rules.txt:436
+#: libraries/advisory_rules.txt:425
 msgid "Max InnoDB log size"
 msgstr "InnoDB の最大ログサイズ"
 
-#: libraries/advisory_rules.txt:439
+#: libraries/advisory_rules.txt:428
 msgid "The InnoDB log file size is inadequately large."
 msgstr "InnoDB ログファイルの大きさが、十分にありません。"
 
-#: libraries/advisory_rules.txt:440
+#: libraries/advisory_rules.txt:429
 #, fuzzy, php-format
 #| msgid ""
 #| "It is usually sufficient to set {innodb_log_file_size} to 25%% of the "
@@ -18266,20 +18246,20 @@ msgstr ""
 "innodblogfilesize-proper-way.html\">こちらのブログ記事 (英語)</a> もご覧くだ"
 "さい"
 
-#: libraries/advisory_rules.txt:441
+#: libraries/advisory_rules.txt:430
 #, php-format
 msgid "Your absolute InnoDB log size is %s MiB"
 msgstr "使用されている InnoDB のログサイズの総計は、%s MiB です"
 
-#: libraries/advisory_rules.txt:443
+#: libraries/advisory_rules.txt:432
 msgid "InnoDB buffer pool size"
 msgstr "InnoDB のバッファプールの大きさ"
 
-#: libraries/advisory_rules.txt:446
+#: libraries/advisory_rules.txt:435
 msgid "Your InnoDB buffer pool is fairly small."
 msgstr "ご使用されている InnoDB のバッファプールはかなり小さいです。"
 
-#: libraries/advisory_rules.txt:447
+#: libraries/advisory_rules.txt:436
 #, fuzzy, php-format
 #| msgid ""
 #| "The InnoDB buffer pool has a profound impact on performance for InnoDB "
@@ -18316,7 +18296,7 @@ msgstr ""
 "mysqlperformanceblog.com/2007/11/03/choosing-innodb_buffer_pool_size/\">こち"
 "らの記事 (英語)</a> も参考にしてください"
 
-#: libraries/advisory_rules.txt:448
+#: libraries/advisory_rules.txt:437
 #, php-format
 msgid ""
 "You are currently using %s%% of your memory for the InnoDB buffer pool. This "
@@ -18329,15 +18309,15 @@ msgstr ""
 "使用していない、もしくは同マシン上で他のサービスを稼動させていないのであれ"
 "ば、ご使用のシステムではこの設定で十分かもしれません。"
 
-#: libraries/advisory_rules.txt:452
+#: libraries/advisory_rules.txt:441
 msgid "MyISAM concurrent inserts"
 msgstr "MyISAM における同時挿入"
 
-#: libraries/advisory_rules.txt:455
+#: libraries/advisory_rules.txt:444
 msgid "Enable {concurrent_insert} by setting it to 1"
 msgstr "{concurrent_insert} に 1 を設定して、同時挿入を有効にしてください"
 
-#: libraries/advisory_rules.txt:456
+#: libraries/advisory_rules.txt:445
 msgid ""
 "Setting {concurrent_insert} to 1 reduces contention between readers and "
 "writers for a given table. See also <a href=\"https://dev.mysql.com/doc/"
@@ -18347,9 +18327,31 @@ msgstr ""
 "を減らすことができます。<a href=\"https://dev.mysql.com/doc/refman/5.1/ja/"
 "concurrent-inserts.html\">MySQL ドキュメント</a>もご覧になってください"
 
-#: libraries/advisory_rules.txt:457
+#: libraries/advisory_rules.txt:446
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert は 0 に設定されています"
+
+#~ msgid "Wiki"
+#~ msgstr "Wiki"
+
+#, fuzzy
+#~| msgid ""
+#~| "Enable [a@http://en.wikipedia.org/wiki/ZIP_(file_format)]ZIP[/a] "
+#~| "compression for import and export operations"
+#~ msgid ""
+#~ "Enable [a@http://en.wikipedia.org/wiki/ZIP_(file_format)]ZIP[/a] "
+#~ "compression for import and export operations."
+#~ msgstr ""
+#~ "インポートおよびエクスポートの操作に対して [a@http://ja.wikipedia.org/"
+#~ "wiki/ZIP_%28%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB"
+#~ "%E3%83%95%E3%82%A9%E3%83%BC%E3%83%9E%E3%83%83%E3%83%88%29]ZIP[/a] 圧縮を有"
+#~ "効にします。"
+
+#~ msgid "Related Links"
+#~ msgstr "関連リンク"
+
+#~ msgid "The PrimeBase XT Blog by Paul McCullagh"
+#~ msgstr "Paul McCullagh 氏による PrimeBase XT ブログ"
 
 #~ msgid ""
 #~ "Uploaded file cannot be moved, because the server has open_basedir "
@@ -20399,8 +20401,8 @@ msgstr "concurrent_insert は 0 に設定されています"
 #~ msgstr "テーブルを %1$s から %2$s にリネームするときにエラーが発生しました"
 
 #~ msgid ""
-#~ "Cannot load [a@https://php.net/%1@Documentation][em]%1[/em][/a] extension. "
-#~ "Please check your PHP configuration."
+#~ "Cannot load [a@https://php.net/%1@Documentation][em]%1[/em][/a] "
+#~ "extension. Please check your PHP configuration."
 #~ msgstr ""
 #~ "[a@https://php.net/%1$s@Documentation][em]%1$s[/em][/a] 拡張をロードできま"
 #~ "せん。PHP の設定を確認してください"

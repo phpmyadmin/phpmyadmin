@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2016-02-17 11:55+0100\n"
+"POT-Creation-Date: 2016-05-23 14:30+0200\n"
 "PO-Revision-Date: 2016-04-19 01:00+0000\n"
 "Last-Translator: Liška <nicefox1@gmail.com>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -107,7 +107,7 @@ msgstr "Pole"
 msgid "Type"
 msgstr "Typ"
 
-#: db_datadict.php:116 libraries/Index.php:707
+#: db_datadict.php:116 libraries/Index.php:703
 #: libraries/central_columns.lib.php:707 libraries/central_columns.lib.php:1387
 #: libraries/insert_edit.lib.php:1588
 #: libraries/plugins/export/ExportHtmlword.php:296
@@ -196,7 +196,7 @@ msgstr "Primární"
 #: libraries/server_privileges.lib.php:3673
 #: libraries/server_privileges.lib.php:3696 libraries/tracking.lib.php:951
 #: libraries/tracking.lib.php:1030 libraries/tracking.lib.php:1035
-#: prefs_manage.php:144 templates/prefs_autoload.phtml:13
+#: prefs_manage.php:145 templates/prefs_autoload.phtml:13
 #: templates/privileges/privileges_summary_row.phtml:4
 #: templates/privileges/privileges_summary_row.phtml:7
 #: templates/privileges/privileges_summary_row.phtml:9
@@ -230,7 +230,7 @@ msgstr "Ne"
 #: libraries/server_privileges.lib.php:3670
 #: libraries/server_privileges.lib.php:3696 libraries/tracking.lib.php:951
 #: libraries/tracking.lib.php:1028 libraries/tracking.lib.php:1033
-#: prefs_manage.php:142 templates/prefs_autoload.phtml:12
+#: prefs_manage.php:143 templates/prefs_autoload.phtml:12
 #: templates/privileges/privileges_summary_row.phtml:4
 #: templates/privileges/privileges_summary_row.phtml:7
 #: templates/privileges/privileges_summary_row.phtml:9
@@ -258,9 +258,9 @@ msgstr "V databázi nebyly nalezeny žádné tabulky."
 msgid "Tables"
 msgstr "Tabulky"
 
-#: db_export.php:66 libraries/Menu.php:325 libraries/Menu.php:432
-#: libraries/Util.php:3362 libraries/Util.php:3372 libraries/Util.php:3378
-#: libraries/Util.php:3658 libraries/Util.php:4291 libraries/Util.php:4308
+#: db_export.php:66 libraries/Menu.php:330 libraries/Menu.php:437
+#: libraries/Util.php:3345 libraries/Util.php:3355 libraries/Util.php:3361
+#: libraries/Util.php:3641 libraries/Util.php:4274 libraries/Util.php:4291
 #: libraries/central_columns.lib.php:727 libraries/config.values.php:39
 #: libraries/config.values.php:47 libraries/config.values.php:110
 #: libraries/config.values.php:116 libraries/config/setup.forms.php:318
@@ -325,10 +325,10 @@ msgstr "Musíte zvolit alespoň jedno pole, které si přejete zobrazit!"
 msgid "Switch to %svisual builder%s"
 msgstr "Přepnout na %svizuálního návrháře%s"
 
-#: db_search.php:31 libraries/plugins/AuthenticationPlugin.php:70
+#: db_search.php:31 libraries/plugins/AuthenticationPlugin.php:110
 #: libraries/plugins/auth/AuthenticationConfig.php:94
 #: libraries/plugins/auth/AuthenticationConfig.php:109
-#: libraries/plugins/auth/AuthenticationHttp.php:89
+#: libraries/plugins/auth/AuthenticationHttp.php:77
 msgid "Access denied!"
 msgstr "Přístup odepřen!"
 
@@ -477,7 +477,7 @@ msgstr "Přidat geometrii"
 #: libraries/operations.lib.php:797 libraries/operations.lib.php:867
 #: libraries/operations.lib.php:916 libraries/operations.lib.php:1326
 #: libraries/operations.lib.php:1643
-#: libraries/plugins/auth/AuthenticationCookie.php:221
+#: libraries/plugins/auth/AuthenticationCookie.php:211
 #: libraries/replication_gui.lib.php:121 libraries/replication_gui.lib.php:160
 #: libraries/replication_gui.lib.php:325 libraries/replication_gui.lib.php:462
 #: libraries/replication_gui.lib.php:892 libraries/rte/rte_events.lib.php:513
@@ -491,7 +491,7 @@ msgstr "Přidat geometrii"
 #: libraries/server_user_groups.lib.php:287
 #: libraries/sql_query_form.lib.php:373 libraries/sql_query_form.lib.php:435
 #: libraries/tracking.lib.php:551 libraries/tracking.lib.php:671
-#: prefs_manage.php:278 prefs_manage.php:356
+#: prefs_manage.php:280 prefs_manage.php:358
 #: templates/columns_definitions/column_definitions_form.phtml:69
 #: templates/database/create_table.phtml:21 templates/header_location.phtml:28
 #: templates/privileges/privileges_summary.phtml:66
@@ -559,7 +559,7 @@ msgid "Could not load import plugins, please check your installation!"
 msgstr ""
 "Nepodařilo se nahrát pluginy pro import, zkontrolujte prosím vaší instalaci!"
 
-#: import.php:566 libraries/sql.lib.php:784 libraries/sql.lib.php:1561
+#: import.php:566 libraries/sql.lib.php:782 libraries/sql.lib.php:1559
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "Byl vytvořen oblíbený dotaz %s."
@@ -600,11 +600,11 @@ msgstr "Nelze zjistit průběh importu."
 msgid "Back"
 msgstr "Zpět"
 
-#: index.php:150 libraries/Footer.php:70
+#: index.php:151 libraries/Footer.php:70
 msgid "phpMyAdmin Demo Server"
 msgstr "Demo server phpMyAdmina"
 
-#: index.php:154
+#: index.php:155
 #, php-format
 msgid ""
 "You are using the demo server. You can do anything here, but please do not "
@@ -614,115 +614,111 @@ msgstr ""
 "Používáte demo server. Můžete zde provádět cokoliv, ale prosím neměňtě "
 "uživatele root, debian-sys-maint a pma. Více informací naleznete na %s."
 
-#: index.php:164
+#: index.php:165
 msgid "General settings"
 msgstr "Obecná nastavení"
 
-#: index.php:194 js/messages.php:628
+#: index.php:195 js/messages.php:628
 #: libraries/display_change_password.lib.php:47
 #: libraries/display_change_password.lib.php:50 user_password.php:286
 msgid "Change password"
 msgstr "Změnit heslo"
 
-#: index.php:211
+#: index.php:212
 msgid "Server connection collation"
 msgstr "Porovnávání pro toto připojení k serveru"
 
-#: index.php:232
+#: index.php:233
 msgid "Appearance settings"
 msgstr "Nastavení vzhledu"
 
-#: index.php:264 prefs_manage.php:286
+#: index.php:265 prefs_manage.php:288
 msgid "More settings"
 msgstr "Více nastavení"
 
-#: index.php:286
+#: index.php:287
 msgid "Database server"
 msgstr "Databázový server"
 
-#: index.php:289 libraries/plugins/auth/AuthenticationCookie.php:167
+#: index.php:290 libraries/plugins/auth/AuthenticationCookie.php:157
 msgid "Server:"
 msgstr "Server:"
 
-#: index.php:293
+#: index.php:294
 msgid "Server type:"
 msgstr "Typ serveru:"
 
-#: index.php:297 libraries/plugins/export/ExportLatex.php:220
+#: index.php:298 libraries/plugins/export/ExportLatex.php:220
 #: libraries/plugins/export/ExportSql.php:692
 #: libraries/plugins/export/ExportXml.php:242
 msgid "Server version:"
 msgstr "Verze serveru:"
 
-#: index.php:303
+#: index.php:304
 msgid "Protocol version:"
 msgstr "Verze protokolu:"
 
-#: index.php:307
+#: index.php:308
 msgid "User:"
 msgstr "Uživatel:"
 
-#: index.php:312
+#: index.php:313
 msgid "Server charset:"
 msgstr "Znaková sada:"
 
-#: index.php:325
+#: index.php:326
 msgid "Web server"
 msgstr "Webový server"
 
-#: index.php:336
+#: index.php:337
 msgid "Database client version:"
 msgstr "Verze databázového klienta:"
 
-#: index.php:340
+#: index.php:341
 msgid "PHP extension:"
 msgstr "Rozšíření PHP:"
 
-#: index.php:354
+#: index.php:355
 msgid "PHP version:"
 msgstr "Verze PHP:"
 
-#: index.php:365
+#: index.php:366
 msgid "Show PHP information"
 msgstr "Zobrazit informace o PHP"
 
-#: index.php:384
+#: index.php:385
 msgid "Version information:"
 msgstr "Informace o verzi:"
 
-#: index.php:393 libraries/Sanitize.php:145 libraries/Util.php:450
+#: index.php:394 libraries/Sanitize.php:150 libraries/Util.php:450
 #: libraries/Util.php:517 libraries/config/FormDisplay.tpl.php:165
 #: libraries/display_export.lib.php:576 libraries/engines/Pbxt.php:166
-#: libraries/navigation/NavigationHeader.php:197
+#: libraries/navigation/NavigationHeader.php:196
 #: templates/server/variables/link_template.phtml:9
 msgid "Documentation"
 msgstr "Dokumentace"
 
-#: index.php:400
-msgid "Wiki"
-msgstr "Wiki"
-
-#: index.php:409
+#: index.php:403
 msgid "Official Homepage"
 msgstr "Oficiální stránka phpMyAdmina"
 
-#: index.php:416
+#: index.php:410
 msgid "Contribute"
 msgstr "Přispějte"
 
-#: index.php:423
+#: index.php:417
 msgid "Get support"
 msgstr "Získejte podporu"
 
-#: index.php:430
+#: index.php:424
 msgid "List of changes"
 msgstr "Seznam změn"
 
-#: index.php:437 templates/server/plugins/section.phtml:12
+#: index.php:431 templates/server/plugins/section.phtml:12
 msgid "License"
 msgstr "Licence"
 
-#: index.php:457
+#: index.php:451
 msgid ""
 "You have enabled mbstring.func_overload in your PHP configuration. This "
 "option is incompatible with phpMyAdmin and might cause some data to be "
@@ -731,7 +727,7 @@ msgstr ""
 "V nastavení PHP máte zapnuto mbstring.func_overload. Toto nastavení není "
 "kompatibilní s phpMyAdminem a může způsobit poškození dat!"
 
-#: index.php:472
+#: index.php:466
 msgid ""
 "The mbstring PHP extension was not found and you seem to be using a "
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
@@ -741,7 +737,7 @@ msgstr ""
 "bajtovou znakovou sadu. Bez rozšíření mbstring neumí phpMyAdmin správně "
 "rozdělovat řetězce a proto to může mít nečekané následky."
 
-#: index.php:487
+#: index.php:481
 msgid ""
 "The curl extension was not found and allow_url_fopen is disabled. Due to "
 "this some features such as error reporting or version check are disabled."
@@ -749,19 +745,19 @@ msgstr ""
 "Rozšíření curl nebylo nalezeno a allow_url_fopen je vypnuto. Kvůli tomuto "
 "jsou některé funkce, jako hlášení chyb a kontrola verze, vypnuty."
 
-#: index.php:502
+#: index.php:496
 msgid ""
-"Your PHP parameter [a@https://php.net/manual/en/session.configuration.php#ini."
-"session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower than "
-"cookie validity configured in phpMyAdmin, because of this, your login might "
-"expire sooner than configured in phpMyAdmin."
+"Your PHP parameter [a@https://php.net/manual/en/session.configuration."
+"php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
+"than cookie validity configured in phpMyAdmin, because of this, your login "
+"might expire sooner than configured in phpMyAdmin."
 msgstr ""
 "Nastavení PHP parametru ([a@https://php.net/manual/en/session.configuration."
 "php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a]) je menší "
 "než platnost cookie nastavená v phpMyAdminovi. Z tohoto důvodu bude vaše "
 "přilášení neplatné dříve, než jak je nastaveno v phpMyAdminovi."
 
-#: index.php:521
+#: index.php:515
 msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
@@ -770,13 +766,13 @@ msgstr ""
 "phpMyAdminovi. Z tohoto důvodu vaše přihlášení vyprší dříve než je nastavené "
 "v phpMyAdminovi."
 
-#: index.php:537
+#: index.php:531
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
 msgstr ""
 "Nastavte klíč pro šifrování cookies (blowfish_secret) v konfiguračním "
 "souboru (config.inc.php)."
 
-#: index.php:550
+#: index.php:544
 msgid ""
 "Directory [code]config[/code], which is used by the setup script, still "
 "exists in your phpMyAdmin directory. It is strongly recommended to remove it "
@@ -788,7 +784,7 @@ msgstr ""
 "phpMyAdmin nastaven. Pokud tak neučiníte, může být váš server ohrožen cizími "
 "lidmi přistupujícími k vašemu nastavení."
 
-#: index.php:566
+#: index.php:560
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
@@ -797,14 +793,14 @@ msgstr ""
 "Úložiště nastavení phpMyAdmina není plně dostupné, některé z rozšířených "
 "funkcí phpMyAdmina nelze používat. %sZjistěte proč%s. "
 
-#: index.php:573
+#: index.php:567
 msgid ""
 "Or alternately go to 'Operations' tab of any database to set it up there."
 msgstr ""
 "Nebo alternativně jděte do oddílu 'Operace' u jakékoli databáze, kde je "
 "možné rovněž toto nastavit."
 
-#: index.php:616
+#: index.php:610
 #, php-format
 msgid ""
 "Your PHP MySQL library version %s differs from your MySQL server version %s. "
@@ -813,7 +809,7 @@ msgstr ""
 "Používaný MySQL modul v PHP je kompilován pro MySQL %s a server používá "
 "verzi %s. Používání různých verzí může způsobit problémy."
 
-#: index.php:644
+#: index.php:638
 #, php-format
 msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
@@ -972,7 +968,7 @@ msgid "Save & close"
 msgstr "Uložit a zavřít"
 
 #: js/messages.php:115 libraries/config/FormDisplay.tpl.php:426
-#: libraries/insert_edit.lib.php:1562 prefs_manage.php:362 prefs_manage.php:373
+#: libraries/insert_edit.lib.php:1562 prefs_manage.php:364 prefs_manage.php:375
 msgid "Reset"
 msgstr "Původní"
 
@@ -1264,7 +1260,7 @@ msgstr "Dotazy"
 msgid "Traffic"
 msgstr "Provoz"
 
-#: js/messages.php:217 libraries/Menu.php:587 libraries/Util.php:4282
+#: js/messages.php:217 libraries/Menu.php:592 libraries/Util.php:4265
 #: libraries/server_status_monitor.lib.php:253
 msgid "Settings"
 msgstr "Nastavení"
@@ -1483,7 +1479,7 @@ msgstr "Analyzuji…"
 msgid "Explain output"
 msgstr "Vysvětlení dotazu"
 
-#: js/messages.php:294 libraries/Menu.php:553 libraries/Util.php:4278
+#: js/messages.php:294 libraries/Menu.php:558 libraries/Util.php:4261
 #: libraries/config.values.php:105 libraries/rte/rte_events.lib.php:397
 #: libraries/rte/rte_list.lib.php:107
 #: libraries/server_status_processes.lib.php:92 libraries/tracking.lib.php:286
@@ -1583,11 +1579,11 @@ msgstr ""
 "Selhalo vytvoření grafu z importovaného nastavení. Používám výchozí "
 "nastavení…"
 
-#: js/messages.php:328 libraries/Menu.php:360 libraries/Menu.php:462
-#: libraries/Menu.php:583 libraries/Util.php:4281 libraries/Util.php:4296
-#: libraries/Util.php:4313 libraries/config/messages.inc.php:261
+#: js/messages.php:328 libraries/Menu.php:365 libraries/Menu.php:467
+#: libraries/Menu.php:588 libraries/Util.php:4264 libraries/Util.php:4279
+#: libraries/Util.php:4296 libraries/config/messages.inc.php:261
 #: libraries/display_import.lib.php:107
-#: libraries/server_status_monitor.lib.php:313 prefs_manage.php:239
+#: libraries/server_status_monitor.lib.php:313 prefs_manage.php:241
 #: setup/frames/menu.inc.php:27
 msgid "Import"
 msgstr "Import"
@@ -1772,16 +1768,16 @@ msgid "The definition of a stored function must contain a RETURN statement!"
 msgstr "Definice uložené funkce musí obsahovat příkaz RETURN!"
 
 #: js/messages.php:395 libraries/DisplayResults.php:4878
-#: libraries/DisplayResults.php:5161 libraries/Menu.php:352
-#: libraries/Menu.php:453 libraries/Menu.php:579 libraries/Util.php:3665
-#: libraries/Util.php:3666 libraries/Util.php:4280 libraries/Util.php:4295
-#: libraries/Util.php:4312 libraries/config/messages.inc.php:255
+#: libraries/DisplayResults.php:5161 libraries/Menu.php:357
+#: libraries/Menu.php:458 libraries/Menu.php:584 libraries/Util.php:3648
+#: libraries/Util.php:3649 libraries/Util.php:4263 libraries/Util.php:4278
+#: libraries/Util.php:4295 libraries/config/messages.inc.php:255
 #: libraries/display_export.lib.php:170 libraries/rte/rte_list.lib.php:157
 #: libraries/server_privileges.lib.php:2479
 #: libraries/server_privileges.lib.php:2563
 #: libraries/server_privileges.lib.php:2912
 #: libraries/server_privileges.lib.php:3585
-#: libraries/server_status_monitor.lib.php:317 prefs_manage.php:304
+#: libraries/server_status_monitor.lib.php:317 prefs_manage.php:306
 #: setup/frames/menu.inc.php:28
 #: templates/database/structure/check_all_tables.phtml:12
 msgid "Export"
@@ -1823,9 +1819,9 @@ msgid "Show query box"
 msgstr "Zobrazit pole pro dotaz"
 
 #: js/messages.php:412 libraries/DisplayResults.php:3496
-#: libraries/DisplayResults.php:4862 libraries/Index.php:728
-#: libraries/Util.php:733 libraries/Util.php:1243 libraries/Util.php:3663
-#: libraries/Util.php:3664 libraries/central_columns.lib.php:850
+#: libraries/DisplayResults.php:4862 libraries/Index.php:724
+#: libraries/Util.php:733 libraries/Util.php:1243 libraries/Util.php:3646
+#: libraries/Util.php:3647 libraries/central_columns.lib.php:850
 #: libraries/central_columns.lib.php:1198 libraries/config/messages.inc.php:892
 #: libraries/server_user_groups.lib.php:118 setup/frames/index.inc.php:184
 #: templates/console/bookmark_content.phtml:17
@@ -2333,7 +2329,7 @@ msgid "Select database first"
 msgstr "Nejdříve zvolte databázi"
 
 #: js/messages.php:602 libraries/DisplayResults.php:5053
-#: libraries/Util.php:4173
+#: libraries/Util.php:4156
 #: templates/database/structure/print_view_data_dictionary_link.phtml:3
 #: templates/table/structure/optional_action_links.phtml:6
 msgid "Print"
@@ -2917,7 +2913,7 @@ msgstr ""
 msgid "Charset"
 msgstr "Znaková sada"
 
-#: libraries/Charsets.php:207 libraries/Index.php:706
+#: libraries/Charsets.php:207 libraries/Index.php:702
 #: libraries/central_columns.lib.php:702 libraries/central_columns.lib.php:1387
 #: libraries/controllers/server/ServerDatabasesController.php:335
 #: libraries/operations.lib.php:288 libraries/operations.lib.php:1062
@@ -3149,27 +3145,27 @@ msgstr "nerozlišovat velká a malá písmena"
 msgid "case-sensitive collation"
 msgstr "rozlišovat velká a malá písmena"
 
-#: libraries/Config.php:1154
+#: libraries/Config.php:1155
 #, php-format
 msgid "Existing configuration file (%s) is not readable."
 msgstr "Nepodařilo se přečíst existující konfigurační soubor (%s)."
 
-#: libraries/Config.php:1184
+#: libraries/Config.php:1185
 msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr ""
 "Chybná přístupová práva konfiguračního souboru, neměl by být zapisovatelný "
 "pro všechny!"
 
-#: libraries/Config.php:1204
+#: libraries/Config.php:1205
 #, php-format
 msgid "Could not load default configuration from: %1$s"
 msgstr "Nepodařilo se nahrát výchozí nastavení ze souboru: %1$s"
 
-#: libraries/Config.php:1211
+#: libraries/Config.php:1212
 msgid "Failed to read configuration file!"
 msgstr "Nepodařilo se načíst konfigurační soubor!"
 
-#: libraries/Config.php:1214
+#: libraries/Config.php:1215
 msgid ""
 "This usually means there is a syntax error in it, please check any errors "
 "shown below."
@@ -3177,7 +3173,7 @@ msgstr ""
 "Obvykle to je způsobenou chybou v tomto souboru, prosím opravte jakékoliv "
 "chyby vypsané níže."
 
-#: libraries/Config.php:1575
+#: libraries/Config.php:1576
 msgid "Font size"
 msgstr "Velikost písma"
 
@@ -3197,33 +3193,33 @@ msgstr "Žádné záložky"
 msgid "SQL Query Console"
 msgstr "Konzole pro SQL dotazy"
 
-#: libraries/DatabaseInterface.php:1387
+#: libraries/DatabaseInterface.php:1414
 #, fuzzy
 #| msgid "Failed to read configuration file!"
 msgid "Failed to set configured collation connection!"
 msgstr "Nepodařilo se načíst konfigurační soubor!"
 
-#: libraries/DatabaseInterface.php:1998
+#: libraries/DatabaseInterface.php:2025
 msgid ""
 "The server is not responding (or the local server's socket is not correctly "
 "configured)."
 msgstr ""
 "Server neodpovídá (nebo není správně nastaven lokální socket MySQL serveru)."
 
-#: libraries/DatabaseInterface.php:2003
+#: libraries/DatabaseInterface.php:2030
 msgid "The server is not responding."
 msgstr "Server neodpovídá."
 
-#: libraries/DatabaseInterface.php:2009
+#: libraries/DatabaseInterface.php:2036
 msgid "Please check privileges of directory containing database."
 msgstr ""
 "Prosím zkontrolujte přístupová práva u adresáře obsahujícího tuto databázi."
 
-#: libraries/DatabaseInterface.php:2020
+#: libraries/DatabaseInterface.php:2047
 msgid "Details…"
 msgstr "Podrobnosti…"
 
-#: libraries/DatabaseInterface.php:2242
+#: libraries/DatabaseInterface.php:2269
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr ""
 "Nepodařilo se připojit jako controluser, který je nadefinován v nastaveních."
@@ -3384,9 +3380,9 @@ msgstr[0] "%1$s odpovídající záznam v <strong>%2$s</strong>"
 msgstr[1] "%1$s odpovídající záznamy v <strong>%2$s</strong>"
 msgstr[2] "%1$s odpovídajících záznamů v <strong>%2$s</strong>"
 
-#: libraries/DbSearch.php:353 libraries/Menu.php:319 libraries/Util.php:3366
-#: libraries/Util.php:3376 libraries/Util.php:3652 libraries/Util.php:3653
-#: libraries/Util.php:4307 libraries/config.values.php:43
+#: libraries/DbSearch.php:353 libraries/Menu.php:324 libraries/Util.php:3349
+#: libraries/Util.php:3359 libraries/Util.php:3635 libraries/Util.php:3636
+#: libraries/Util.php:4290 libraries/config.values.php:43
 #: libraries/config.values.php:51 libraries/config.values.php:120
 #: libraries/navigation/nodes/NodeTable.php:313
 #: templates/table/structure/check_all_table_column.phtml:12
@@ -3595,7 +3591,7 @@ msgstr "%1$d celkem, %2$d v dotazu"
 msgid "%d total"
 msgstr "%d celkem"
 
-#: libraries/DisplayResults.php:4749 libraries/sql.lib.php:1376
+#: libraries/DisplayResults.php:4749 libraries/sql.lib.php:1374
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "Dotaz trval %01.4f sekund."
@@ -3746,7 +3742,7 @@ msgstr "Náhled pro tisk"
 msgid "Click on the bar to scroll to top of page"
 msgstr "Klikněte na pruh pro posunutí stránky nahoru"
 
-#: libraries/Header.php:763 libraries/plugins/auth/AuthenticationCookie.php:138
+#: libraries/Header.php:763 libraries/plugins/auth/AuthenticationCookie.php:128
 msgid "Javascript must be enabled past this point!"
 msgstr "Pro použití phpMyAdmina musíte mít zapnutý Javascript!"
 
@@ -3796,11 +3792,11 @@ msgstr "Unikátní"
 msgid "Packed"
 msgstr "Zabaleno"
 
-#: libraries/Index.php:705 libraries/tracking.lib.php:996
+#: libraries/Index.php:701 libraries/tracking.lib.php:996
 msgid "Cardinality"
 msgstr "Mohutnost"
 
-#: libraries/Index.php:708 libraries/rte/rte_events.lib.php:500
+#: libraries/Index.php:704 libraries/rte/rte_events.lib.php:500
 #: libraries/rte/rte_routines.lib.php:1047 libraries/tracking.lib.php:903
 #: libraries/tracking.lib.php:999
 #: templates/columns_definitions/partitions.phtml:79
@@ -3809,16 +3805,16 @@ msgstr "Mohutnost"
 msgid "Comment"
 msgstr "Komentář"
 
-#: libraries/Index.php:736
+#: libraries/Index.php:732
 msgid "The primary key has been dropped."
 msgstr "Primární klíč byl odstraněn."
 
-#: libraries/Index.php:745
+#: libraries/Index.php:741
 #, php-format
 msgid "Index %s has been dropped."
 msgstr "Klíč %s byl odstraněn."
 
-#: libraries/Index.php:762 libraries/Util.php:3659 libraries/Util.php:3660
+#: libraries/Index.php:758 libraries/Util.php:3642 libraries/Util.php:3643
 #: libraries/controllers/server/ServerDatabasesController.php:397
 #: libraries/controllers/table/TableStructureController.php:1178
 #: libraries/controllers/table/TableStructureController.php:1179
@@ -3830,7 +3826,7 @@ msgstr "Klíč %s byl odstraněn."
 msgid "Drop"
 msgstr "Odstranit"
 
-#: libraries/Index.php:879
+#: libraries/Index.php:875
 #, php-format
 msgid ""
 "The indexes %1$s and %2$s seem to be equal and one of them could possibly be "
@@ -3846,7 +3842,7 @@ msgstr ""
 msgid "Page number:"
 msgstr "Strana číslo:"
 
-#: libraries/LanguageManager.php:870
+#: libraries/LanguageManager.php:874
 msgid "Ignoring unsupported language code."
 msgstr ""
 
@@ -3862,12 +3858,12 @@ msgstr ""
 msgid "%1$s (near <code>%2$s</code>)"
 msgstr "%1$s (poblíž <code>%2$s</code>)"
 
-#: libraries/Menu.php:203 libraries/ServerStatusData.php:424
+#: libraries/Menu.php:208 libraries/ServerStatusData.php:424
 #: libraries/config/messages.inc.php:930
 msgid "Server"
 msgstr "Server"
 
-#: libraries/Menu.php:222 libraries/config/messages.inc.php:922
+#: libraries/Menu.php:227 libraries/config/messages.inc.php:922
 #: libraries/mult_submits.lib.php:335
 #: libraries/plugins/export/ExportHtmlword.php:149
 #: libraries/plugins/export/ExportOdt.php:197
@@ -3887,14 +3883,14 @@ msgstr "Server"
 msgid "Database"
 msgstr "Databáze"
 
-#: libraries/Menu.php:251 libraries/navigation/nodes/NodeView.php:30
+#: libraries/Menu.php:256 libraries/navigation/nodes/NodeView.php:30
 #: libraries/tbl_info.inc.php:61
 #: templates/database/structure/structure_table_row.phtml:97
 #: templates/database/structure/structure_table_row.phtml:159
 msgid "View"
 msgstr "Pohled"
 
-#: libraries/Menu.php:251 libraries/config/messages.inc.php:932
+#: libraries/Menu.php:256 libraries/config/messages.inc.php:932
 #: libraries/plugins/export/ExportXml.php:493 libraries/rte/rte_list.lib.php:93
 #: libraries/rte/rte_triggers.lib.php:334
 #: libraries/server_privileges.lib.php:1268
@@ -3910,9 +3906,9 @@ msgstr "Pohled"
 msgid "Table"
 msgstr "Tabulka"
 
-#: libraries/Menu.php:333 libraries/Menu.php:436 libraries/Menu.php:549
-#: libraries/Util.php:3363 libraries/Util.php:3373 libraries/Util.php:3379
-#: libraries/Util.php:4277 libraries/Util.php:4292 libraries/Util.php:4309
+#: libraries/Menu.php:338 libraries/Menu.php:441 libraries/Menu.php:554
+#: libraries/Util.php:3346 libraries/Util.php:3356 libraries/Util.php:3362
+#: libraries/Util.php:4260 libraries/Util.php:4275 libraries/Util.php:4292
 #: libraries/config.values.php:40 libraries/config.values.php:48
 #: libraries/config.values.php:111 libraries/config.values.php:117
 #: libraries/config/messages.inc.php:324
@@ -3920,45 +3916,45 @@ msgstr "Tabulka"
 msgid "SQL"
 msgstr "SQL"
 
-#: libraries/Menu.php:336 libraries/Menu.php:439 libraries/Util.php:3364
-#: libraries/Util.php:3374 libraries/Util.php:3380 libraries/Util.php:3654
-#: libraries/Util.php:3655 libraries/Util.php:4293 libraries/Util.php:4310
+#: libraries/Menu.php:341 libraries/Menu.php:444 libraries/Util.php:3347
+#: libraries/Util.php:3357 libraries/Util.php:3363 libraries/Util.php:3637
+#: libraries/Util.php:3638 libraries/Util.php:4276 libraries/Util.php:4293
 #: libraries/config.values.php:41 libraries/config.values.php:49
 #: libraries/config.values.php:112 libraries/config.values.php:118
 #: libraries/navigation/nodes/NodeTable.php:298
 msgid "Search"
 msgstr "Vyhledávání"
 
-#: libraries/Menu.php:346 libraries/Util.php:3365 libraries/Util.php:3375
-#: libraries/Util.php:3656 libraries/Util.php:3657 libraries/Util.php:4311
+#: libraries/Menu.php:351 libraries/Util.php:3348 libraries/Util.php:3358
+#: libraries/Util.php:3639 libraries/Util.php:3640 libraries/Util.php:4294
 #: libraries/config.values.php:42 libraries/config.values.php:50
 #: libraries/config.values.php:119 libraries/navigation/nodes/NodeTable.php:304
 #: libraries/sql_query_form.lib.php:289 libraries/sql_query_form.lib.php:292
 msgid "Insert"
 msgstr "Vložit"
 
-#: libraries/Menu.php:370 libraries/Menu.php:474 libraries/Util.php:4298
-#: libraries/Util.php:4314 libraries/config.values.php:107
+#: libraries/Menu.php:375 libraries/Menu.php:479 libraries/Util.php:4281
+#: libraries/Util.php:4297 libraries/config.values.php:107
 #: libraries/server_common.lib.php:48 libraries/server_privileges.lib.php:2643
 #: libraries/server_privileges.lib.php:4501
 #: templates/privileges/privileges_summary.phtml:16
 msgid "Privileges"
 msgstr "Oprávnění"
 
-#: libraries/Menu.php:379 libraries/Menu.php:387 libraries/Menu.php:466
-#: libraries/Util.php:3367 libraries/Util.php:3381 libraries/Util.php:4297
-#: libraries/Util.php:4315 libraries/config.values.php:113
+#: libraries/Menu.php:384 libraries/Menu.php:392 libraries/Menu.php:471
+#: libraries/Util.php:3350 libraries/Util.php:3364 libraries/Util.php:4280
+#: libraries/Util.php:4298 libraries/config.values.php:113
 #: view_operations.php:103
 msgid "Operations"
 msgstr "Úpravy"
 
-#: libraries/Menu.php:392 libraries/Menu.php:496 libraries/Util.php:4302
-#: libraries/Util.php:4316 libraries/relation.lib.php:265
+#: libraries/Menu.php:397 libraries/Menu.php:501 libraries/Util.php:4285
+#: libraries/Util.php:4299 libraries/relation.lib.php:265
 msgid "Tracking"
 msgstr "Sledování"
 
-#: libraries/Menu.php:404 libraries/Menu.php:490 libraries/Util.php:4301
-#: libraries/Util.php:4317
+#: libraries/Menu.php:409 libraries/Menu.php:495 libraries/Util.php:4284
+#: libraries/Util.php:4300
 #: libraries/navigation/nodes/NodeTriggerContainer.php:25
 #: libraries/plugins/export/ExportHtmlword.php:578
 #: libraries/plugins/export/ExportOdt.php:713
@@ -3970,20 +3966,20 @@ msgstr "Sledování"
 msgid "Triggers"
 msgstr "Spouště"
 
-#: libraries/Menu.php:443 libraries/Menu.php:450 libraries/Menu.php:457
+#: libraries/Menu.php:448 libraries/Menu.php:455 libraries/Menu.php:462
 msgid "Database seems to be empty!"
 msgstr "Databáze se zdá být prázdná!"
 
-#: libraries/Menu.php:446 libraries/Util.php:4294
+#: libraries/Menu.php:451 libraries/Util.php:4277
 msgid "Query"
 msgstr "Dotaz"
 
-#: libraries/Menu.php:479 libraries/Util.php:4299
+#: libraries/Menu.php:484 libraries/Util.php:4282
 #: libraries/rte/rte_words.lib.php:36
 msgid "Routines"
 msgstr "Rutiny"
 
-#: libraries/Menu.php:484 libraries/Util.php:4300
+#: libraries/Menu.php:489 libraries/Util.php:4283
 #: libraries/navigation/nodes/NodeEventContainer.php:25
 #: libraries/plugins/export/ExportSql.php:952
 #: libraries/plugins/export/ExportXml.php:103
@@ -3991,16 +3987,16 @@ msgstr "Rutiny"
 msgid "Events"
 msgstr "Události"
 
-#: libraries/Menu.php:502 libraries/Util.php:4303
+#: libraries/Menu.php:507 libraries/Util.php:4286
 msgid "Designer"
 msgstr "Návrhář"
 
-#: libraries/Menu.php:511 libraries/Util.php:4304
+#: libraries/Menu.php:516 libraries/Util.php:4287
 #: templates/database/structure/check_all_tables.phtml:34
 msgid "Central columns"
 msgstr "Centrální sloupce"
 
-#: libraries/Menu.php:545 libraries/Util.php:4276
+#: libraries/Menu.php:550 libraries/Util.php:4259
 #: libraries/config.values.php:104 libraries/config/messages.inc.php:269
 #: libraries/config/messages.inc.php:344
 #: libraries/navigation/NavigationTree.php:1269
@@ -4008,39 +4004,39 @@ msgstr "Centrální sloupce"
 msgid "Databases"
 msgstr "Databáze"
 
-#: libraries/Menu.php:569
+#: libraries/Menu.php:574
 msgid "User accounts"
 msgstr "Uživatelské účty"
 
-#: libraries/Menu.php:596 libraries/ServerStatusData.php:121
-#: libraries/Util.php:4283 libraries/server_common.lib.php:33
+#: libraries/Menu.php:601 libraries/ServerStatusData.php:121
+#: libraries/Util.php:4266 libraries/server_common.lib.php:33
 msgid "Binary log"
 msgstr "Binární log"
 
-#: libraries/Menu.php:602 libraries/ServerStatusData.php:126
-#: libraries/Util.php:4284 libraries/server_common.lib.php:39
+#: libraries/Menu.php:607 libraries/ServerStatusData.php:126
+#: libraries/Util.php:4267 libraries/server_common.lib.php:39
 #: templates/database/structure/body_for_table_summary.phtml:10
 #: templates/database/structure/table_header.phtml:27
 msgid "Replication"
 msgstr "Replikace"
 
-#: libraries/Menu.php:607 libraries/ServerStatusData.php:193
-#: libraries/Util.php:4285 libraries/config.values.php:106
+#: libraries/Menu.php:612 libraries/ServerStatusData.php:193
+#: libraries/Util.php:4268 libraries/config.values.php:106
 #: libraries/sql_query_form.lib.php:427
 #: templates/server/engines/engine.phtml:15
 #: templates/server/engines/engine.phtml:18
 msgid "Variables"
 msgstr "Proměnné"
 
-#: libraries/Menu.php:611 libraries/Util.php:4286
+#: libraries/Menu.php:616 libraries/Util.php:4269
 msgid "Charsets"
 msgstr "Znakové sady"
 
-#: libraries/Menu.php:615 libraries/Util.php:4288
+#: libraries/Menu.php:620 libraries/Util.php:4271
 msgid "Engines"
 msgstr "Úložiště"
 
-#: libraries/Menu.php:619 libraries/Util.php:4287
+#: libraries/Menu.php:624 libraries/Util.php:4270
 #: libraries/server_common.lib.php:30
 msgid "Plugins"
 msgstr "Rozšíření"
@@ -4359,22 +4355,22 @@ msgstr "Náhled není k dispozici."
 msgid "take it"
 msgstr "zvolit"
 
-#: libraries/ThemeManager.php:126
+#: libraries/ThemeManager.php:148
 #, php-format
 msgid "Default theme %s not found!"
 msgstr "Výchozí vzhled %s nebyl nalezen!"
 
-#: libraries/ThemeManager.php:182
+#: libraries/ThemeManager.php:204
 #, php-format
 msgid "Theme %s not found!"
 msgstr "Vzhled %s nebyl nalezen!"
 
-#: libraries/ThemeManager.php:262
+#: libraries/ThemeManager.php:284
 #, php-format
 msgid "Theme path not found for theme %s!"
 msgstr "Nebyla nalezena platná cesta k vzhledu %s!"
 
-#: libraries/ThemeManager.php:356
+#: libraries/ThemeManager.php:378
 msgid "Theme:"
 msgstr "Vzhled:"
 
@@ -4761,33 +4757,33 @@ msgstr "Přejít na databázi „%s“."
 msgid "The %s functionality is affected by a known bug, see %s"
 msgstr "Funkčnost %s je omezena známou chybou, viz %s"
 
-#: libraries/Util.php:3571 prefs_manage.php:249
+#: libraries/Util.php:3554 prefs_manage.php:251
 msgid "Browse your computer:"
 msgstr "Procházet váš počítač:"
 
-#: libraries/Util.php:3596
+#: libraries/Util.php:3579
 #, php-format
 msgid "Select from the web server upload directory <b>%s</b>:"
 msgstr "Zvolte soubor z adresáře pro upload na serveru <b>%s</b>:"
 
-#: libraries/Util.php:3625 libraries/insert_edit.lib.php:1178
+#: libraries/Util.php:3608 libraries/insert_edit.lib.php:1178
 msgid "The directory you set for upload work cannot be reached."
 msgstr "Adresář určený pro upload souborů nemohl být otevřen."
 
-#: libraries/Util.php:3636
+#: libraries/Util.php:3619
 msgid "There are no files to upload!"
 msgstr "Nebyl zvolen žádný soubor pro nahrání!"
 
-#: libraries/Util.php:3661 libraries/Util.php:3662
+#: libraries/Util.php:3644 libraries/Util.php:3645
 #: templates/database/structure/check_all_tables.phtml:16
 msgid "Empty"
 msgstr "Vyprázdnit"
 
-#: libraries/Util.php:3667 libraries/Util.php:3668
+#: libraries/Util.php:3650 libraries/Util.php:3651
 msgid "Execute"
 msgstr "Spustit"
 
-#: libraries/Util.php:4279
+#: libraries/Util.php:4262
 msgid "Users"
 msgstr "Uživatelé"
 
@@ -4934,7 +4930,7 @@ msgstr "Server %d"
 msgid "Invalid authentication method set in configuration:"
 msgstr "V nastavení máte špatnou přihlašovací metodu:"
 
-#: libraries/common.inc.php:810
+#: libraries/common.inc.php:808
 #, php-format
 msgid ""
 "Unable to use timezone %1$s for server %2$d. Please check your configuration "
@@ -4945,20 +4941,20 @@ msgstr ""
 "nastavení pro [em]$cfg['Servers'][%3$d]['SessionTimeZone'][/em]. phpMyAdmin "
 "momentálně používá výchozí časové pásmo databázového serveru."
 
-#: libraries/common.inc.php:842
+#: libraries/common.inc.php:848
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "Měli byste aktualizovat %s na verzi %s nebo vyšší."
 
-#: libraries/common.inc.php:928
+#: libraries/common.inc.php:934
 msgid "Error: Token mismatch"
 msgstr "Chyba: neplatný token"
 
-#: libraries/common.inc.php:946
+#: libraries/common.inc.php:952
 msgid "GLOBALS overwrite attempt"
 msgstr "Pokus o přepsání GLOBALS"
 
-#: libraries/common.inc.php:953
+#: libraries/common.inc.php:959
 msgid "possible exploit"
 msgstr "možný pokus o exploit"
 
@@ -5445,9 +5441,11 @@ msgid "Highlight pointer"
 msgstr "Zvýrazňovač řádků při ukázání"
 
 #: libraries/config/messages.inc.php:47
-msgid ""
-"Enable [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] compression for "
-"import operations."
+#, fuzzy
+#| msgid ""
+#| "Enable [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] compression for "
+#| "import operations."
+msgid "Enable bzip2 compression for import operations."
 msgstr ""
 "Povolit [a@http://cs.wikipedia.org/wiki/Bzip2]bzip2[/a] kompresi pro "
 "importování."
@@ -5471,9 +5469,13 @@ msgid "CHAR columns editing"
 msgstr "Úprava polí typu CHAR"
 
 #: libraries/config/messages.inc.php:58
+#, fuzzy
+#| msgid ""
+#| "Use user-friendly editor for editing SQL queries ([a@http://codemirror."
+#| "net/]CodeMirror[/a]) with syntax highlighting and line numbers."
 msgid ""
-"Use user-friendly editor for editing SQL queries ([a@http://codemirror."
-"net/]CodeMirror[/a]) with syntax highlighting and line numbers."
+"Use user-friendly editor for editing SQL queries (CodeMirror) with syntax "
+"highlighting and line numbers."
 msgstr ""
 "Použít uživatelsky přívětivý editor pro úpravu SQL dotazů ([a@http://"
 "codemirror.net/]CodeMirror[/a]) se zvýrazněním syntaxe a čísly řádek."
@@ -5659,7 +5661,7 @@ msgstr "Časový limit běhu skriptu"
 msgid "Use %s statement"
 msgstr "Použi %s příkaz"
 
-#: libraries/config/messages.inc.php:137 prefs_manage.php:319
+#: libraries/config/messages.inc.php:137 prefs_manage.php:321
 msgid "Save as file"
 msgstr "Uložit jako soubor"
 
@@ -6230,9 +6232,11 @@ msgid "Disable some of the warnings shown by phpMyAdmin."
 msgstr "Vypnout některá varování zobrazovaná phpMyAdminem."
 
 #: libraries/config/messages.inc.php:353
-msgid ""
-"Enable [a@http://en.wikipedia.org/wiki/Gzip]gzip[/a] compression for import "
-"and export operations."
+#, fuzzy
+#| msgid ""
+#| "Enable [a@http://en.wikipedia.org/wiki/Gzip]gzip[/a] compression for "
+#| "import and export operations."
+msgid "Enable gzip compression for import and export operations."
 msgstr ""
 "Povolí [a@http://cs.wikipedia.org/wiki/Gzip]gzip[/a] kompresi pro "
 "importování a exportování."
@@ -6936,9 +6940,13 @@ msgid "Authentication type"
 msgstr "Typ přihlašování"
 
 #: libraries/config/messages.inc.php:640
+#, fuzzy
+#| msgid ""
+#| "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/"
+#| "a] support, suggested: [kbd]pma__bookmark[/kbd]"
 msgid ""
-"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/a] "
-"support, suggested: [kbd]pma__bookmark[/kbd]"
+"Leave blank for no [doc@bookmarks@]bookmark[/doc] support, suggested: "
+"[kbd]pma__bookmark[/kbd]"
 msgstr ""
 "Nechte prázdné pro vypnutí podpory [a@http://wiki.phpmyadmin.net/pma/"
 "bookmark]záložek[/a], doporučené nastavení: [kbd]pma__bookmarks[/kbd]"
@@ -6981,9 +6989,14 @@ msgid "Control user password"
 msgstr "Heslo kontrolního uživatele"
 
 #: libraries/config/messages.inc.php:656
+#, fuzzy
+#| msgid ""
+#| "A special MySQL user configured with limited permissions, more "
+#| "information available on [a@http://wiki.phpmyadmin.net/pma/"
+#| "controluser]wiki[/a]."
 msgid ""
 "A special MySQL user configured with limited permissions, more information "
-"available on [a@http://wiki.phpmyadmin.net/pma/controluser]wiki[/a]."
+"available on [doc@linked-tables]documentation[/doc]."
 msgstr ""
 "Zvláštní MySQL uživatel s omezenými právy, více informací na [a@http://wiki."
 "phpmyadmin.net/pma/controluser]wiki[/a]."
@@ -7149,10 +7162,15 @@ msgid "PDF schema: pages table"
 msgstr "PDF schémata: tabulka stránek"
 
 #: libraries/config/messages.inc.php:723
+#, fuzzy
+#| msgid ""
+#| "Database used for relations, bookmarks, and PDF features. See [a@http://"
+#| "wiki.phpmyadmin.net/pma/pmadb]pmadb[/a] for complete information. Leave "
+#| "blank for no support. Suggested: [kbd]phpmyadmin[/kbd]."
 msgid ""
-"Database used for relations, bookmarks, and PDF features. See [a@http://wiki."
-"phpmyadmin.net/pma/pmadb]pmadb[/a] for complete information. Leave blank for "
-"no support. Suggested: [kbd]phpmyadmin[/kbd]."
+"Database used for relations, bookmarks, and PDF features. See [doc@linked-"
+"tables]pmadb[/doc] for complete information. Leave blank for no support. "
+"Suggested: [kbd]phpmyadmin[/kbd]."
 msgstr ""
 "Databáze používaná pro relace, záložky a PDF stránky. Více informací "
 "naleznete na [a@http://wiki.phpmyadmin.net/pma/pmadb]pmadb[/a]. Pokud "
@@ -7198,9 +7216,13 @@ msgid "Favorites table"
 msgstr "Oblíbené tabulky"
 
 #: libraries/config/messages.inc.php:742
+#, fuzzy
+#| msgid ""
+#| "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
+#| "links[/a] support, suggested: [kbd]pma__relation[/kbd]."
 msgid ""
-"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
-"links[/a] support, suggested: [kbd]pma__relation[/kbd]."
+"Leave blank for no [doc@relations@]relation-links[/doc] support, suggested: "
+"[kbd]pma__relation[/kbd]."
 msgstr ""
 "Nechte prázdné pro vypnutí podpory pro [a@http://wiki.phpmyadmin.net/pma/"
 "relation]relace[/a], doporučené nastavení: [kbd]pma__relation[/kbd]."
@@ -7210,9 +7232,12 @@ msgid "Relation table"
 msgstr "Tabulka s relacemi"
 
 #: libraries/config/messages.inc.php:748
+#, fuzzy
+#| msgid ""
+#| "See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
+#| "types[/a] for an example."
 msgid ""
-"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
-"types[/a] for an example."
+"See [doc@authentication-modes]authentication types[/doc] for an example."
 msgstr ""
 "Příklad můžete nalézt na [a@http://wiki.phpmyadmin.net/pma/"
 "auth_types#signon]authentication types[/a]."
@@ -7734,12 +7759,14 @@ msgid "Proxy password"
 msgstr "Heslo proxy"
 
 #: libraries/config/messages.inc.php:974
-msgid ""
-"Enable [a@http://en.wikipedia.org/wiki/ZIP_(file_format)]ZIP[/a] compression "
-"for import and export operations."
+#, fuzzy
+#| msgid ""
+#| "Enable [a@http://en.wikipedia.org/wiki/Gzip]gzip[/a] compression for "
+#| "import and export operations."
+msgid "Enable ZIP compression for import and export operations."
 msgstr ""
-"Povolí [a@http://cs.wikipedia.org/wiki/ZIP_(souborový_formát)]ZIP[/a] "
-"kompresi pro import a export."
+"Povolí [a@http://cs.wikipedia.org/wiki/Gzip]gzip[/a] kompresi pro "
+"importování a exportování."
 
 #: libraries/config/messages.inc.php:977
 msgid "ZIP"
@@ -8075,7 +8102,7 @@ msgstr "Odlišné hodnoty"
 msgid "The %s extension is missing. Please check your PHP configuration."
 msgstr "Chybí rozšíření %s. Prosím zkontrolujte nastavení PHP."
 
-#: libraries/core.lib.php:825 libraries/mult_submits.inc.php:331
+#: libraries/core.lib.php:830 libraries/mult_submits.inc.php:331
 #: tbl_operations.php:205 tbl_replace.php:313 templates/preview_sql.phtml:3
 msgid "No change"
 msgstr "Žádná změna"
@@ -8105,7 +8132,7 @@ msgid "No Password"
 msgstr "Žádné heslo"
 
 #: libraries/display_change_password.lib.php:65
-#: libraries/plugins/auth/AuthenticationCookie.php:185
+#: libraries/plugins/auth/AuthenticationCookie.php:175
 #: libraries/replication_gui.lib.php:423 libraries/replication_gui.lib.php:852
 #: libraries/server_privileges.lib.php:1777
 msgid "Password:"
@@ -8819,14 +8846,6 @@ msgstr ""
 "Dokumentace a další informace o PBXT můžete nalézt na %sstránkách PrimeBase "
 "XT%s."
 
-#: libraries/engines/Pbxt.php:189
-msgid "Related Links"
-msgstr "Související odkazy"
-
-#: libraries/engines/Pbxt.php:192
-msgid "The PrimeBase XT Blog by Paul McCullagh"
-msgstr "Blog PrimeBase XT, který píše Paul McCullagh"
-
 #: libraries/export.lib.php:124 libraries/export.lib.php:159
 #: libraries/export.lib.php:383
 #, php-format
@@ -8852,12 +8871,12 @@ msgid "Dump has been saved to file %s."
 msgstr "Výpis byl uložen do souboru %s."
 
 #: libraries/import.lib.php:102 libraries/insert_edit.lib.php:124
-#: libraries/rte/rte_routines.lib.php:1444 libraries/sql.lib.php:1370
+#: libraries/rte/rte_routines.lib.php:1444 libraries/sql.lib.php:1368
 #: tbl_get_field.php:45
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL vrátil prázdný výsledek (tj. nulový počet řádků)."
 
-#: libraries/import.lib.php:273 libraries/sql.lib.php:1384
+#: libraries/import.lib.php:273 libraries/sql.lib.php:1382
 msgid "[ROLLBACK occurred.]"
 msgstr "[ROLLBACK nastal]"
 
@@ -9014,11 +9033,11 @@ msgstr ""
 msgid "Value"
 msgstr "Hodnota"
 
-#: libraries/insert_edit.lib.php:1953 libraries/sql.lib.php:1367
+#: libraries/insert_edit.lib.php:1953 libraries/sql.lib.php:1365
 msgid "Showing SQL query"
 msgstr "Zobrazuji SQL dotaz"
 
-#: libraries/insert_edit.lib.php:1978 libraries/sql.lib.php:1345
+#: libraries/insert_edit.lib.php:1978 libraries/sql.lib.php:1343
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "ID vloženého řádku: %1$d"
@@ -9110,19 +9129,19 @@ msgstr "Zobrazit"
 msgid "Home"
 msgstr "Hlavní strana"
 
-#: libraries/navigation/NavigationHeader.php:176
+#: libraries/navigation/NavigationHeader.php:175
 msgid "Log out"
 msgstr "Odhlásit se"
 
-#: libraries/navigation/NavigationHeader.php:187
+#: libraries/navigation/NavigationHeader.php:186
 msgid "phpMyAdmin documentation"
 msgstr "Dokumentace phpMyAdmina"
 
-#: libraries/navigation/NavigationHeader.php:207
+#: libraries/navigation/NavigationHeader.php:206
 msgid "Navigation panel settings"
 msgstr "Nastavení navigačního panelu"
 
-#: libraries/navigation/NavigationHeader.php:218
+#: libraries/navigation/NavigationHeader.php:217
 msgid "Reload navigation panel"
 msgstr "Znovu nahrát navigační panel"
 
@@ -9780,20 +9799,20 @@ msgstr "Jméno tabulky je prázdné!"
 msgid "This format has no options"
 msgstr "Tento formát nemá žádná nastavení"
 
-#: libraries/plugins/AuthenticationPlugin.php:66
+#: libraries/plugins/AuthenticationPlugin.php:106
 msgid ""
 "Login without a password is forbidden by configuration (see AllowNoPassword)"
 msgstr "Přihlášení bez hesla je zakázáno v nastavení (viz AllowNoPassword)"
 
-#: libraries/plugins/AuthenticationPlugin.php:73
+#: libraries/plugins/AuthenticationPlugin.php:113
 #, php-format
 msgid "No activity within %s seconds; please log in again."
 msgstr ""
 "Nebyla zaznamenána žádná aktivita po dobu %s sekund, prosím přihlaste se "
 "znovu."
 
-#: libraries/plugins/AuthenticationPlugin.php:82
-#: libraries/plugins/AuthenticationPlugin.php:84
+#: libraries/plugins/AuthenticationPlugin.php:122
+#: libraries/plugins/AuthenticationPlugin.php:124
 msgid "Cannot log in to the MySQL server"
 msgstr "Nepodařilo se přihlášení k MySQL serveru"
 
@@ -9810,8 +9829,8 @@ msgid "Cannot connect: invalid settings."
 msgstr "Nepodařilo se připojit: chybné nastavení."
 
 #: libraries/plugins/auth/AuthenticationConfig.php:99
-#: libraries/plugins/auth/AuthenticationCookie.php:120
-#: libraries/plugins/auth/AuthenticationHttp.php:94
+#: libraries/plugins/auth/AuthenticationCookie.php:110
+#: libraries/plugins/auth/AuthenticationHttp.php:82
 #, php-format
 msgid "Welcome to %s"
 msgstr "Vítejte v %s"
@@ -9841,44 +9860,44 @@ msgstr ""
 msgid "Retry to connect"
 msgstr "Zkusit se připojit znovu"
 
-#: libraries/plugins/auth/AuthenticationCookie.php:132
+#: libraries/plugins/auth/AuthenticationCookie.php:122
 msgid "Your session has expired. Please log in again."
 msgstr "Vaše sezení vypršelo, prosím přihlaste se znovu."
 
-#: libraries/plugins/auth/AuthenticationCookie.php:156
+#: libraries/plugins/auth/AuthenticationCookie.php:146
 msgid "Log in"
 msgstr "Přihlášení"
 
+#: libraries/plugins/auth/AuthenticationCookie.php:154
 #: libraries/plugins/auth/AuthenticationCookie.php:164
-#: libraries/plugins/auth/AuthenticationCookie.php:174
 msgid "You can enter hostname/IP address and port separated by space."
 msgstr "Můžete zadat jméno počítače nebo IP adresu a port oddělené mezerou."
 
-#: libraries/plugins/auth/AuthenticationCookie.php:179
+#: libraries/plugins/auth/AuthenticationCookie.php:169
 msgid "Username:"
 msgstr "Jméno:"
 
-#: libraries/plugins/auth/AuthenticationCookie.php:191
+#: libraries/plugins/auth/AuthenticationCookie.php:181
 msgid "Server Choice:"
 msgstr "Volba serveru:"
 
-#: libraries/plugins/auth/AuthenticationCookie.php:332
+#: libraries/plugins/auth/AuthenticationCookie.php:294
 msgid "Entered captcha is wrong, try again!"
 msgstr "Zadaný kód nebyl správný, zkuste to znovu!"
 
-#: libraries/plugins/auth/AuthenticationCookie.php:336
+#: libraries/plugins/auth/AuthenticationCookie.php:298
 msgid "Please enter correct captcha!"
 msgstr "Zadejte, prosím, správný kód!"
 
-#: libraries/plugins/auth/AuthenticationCookie.php:360
+#: libraries/plugins/auth/AuthenticationCookie.php:322
 msgid "You are not allowed to log in to this MySQL server!"
 msgstr "Nemáte povolení se přihlásit k tomuto MySQL serveru!"
 
-#: libraries/plugins/auth/AuthenticationHttp.php:99
+#: libraries/plugins/auth/AuthenticationHttp.php:87
 msgid "Wrong username/password. Access denied."
 msgstr "Špatné uživatelské jméno nebo heslo. Přístup odepřen."
 
-#: libraries/plugins/auth/AuthenticationSignon.php:92
+#: libraries/plugins/auth/AuthenticationSignon.php:84
 msgid "Can not find signon authentication script:"
 msgstr "Nepodařilo se nalézt přihlašovací skript pro signon:"
 
@@ -13485,32 +13504,32 @@ msgstr "Volání"
 msgid "ø Time"
 msgstr "ø čas"
 
-#: libraries/sql.lib.php:571 libraries/sql.lib.php:589
+#: libraries/sql.lib.php:569 libraries/sql.lib.php:587
 msgid "Bookmark this SQL query"
 msgstr "Přidat tento SQL dotaz do oblíbených"
 
-#: libraries/sql.lib.php:575
+#: libraries/sql.lib.php:573
 msgid "Label:"
 msgstr "Název:"
 
-#: libraries/sql.lib.php:582 libraries/sql_query_form.lib.php:315
+#: libraries/sql.lib.php:580 libraries/sql_query_form.lib.php:315
 msgid "Let every user access this bookmark"
 msgstr "Umožnit všem uživatelům používat tuto oblíbenou položku"
 
-#: libraries/sql.lib.php:788
+#: libraries/sql.lib.php:786
 msgid "Bookmark not created!"
 msgstr "Nepodařilo se uložit oblíbený dotaz!"
 
-#: libraries/sql.lib.php:896
+#: libraries/sql.lib.php:894
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr "Pro procházení databáze je použit oblíbený dotaz „%s\"."
 
-#: libraries/sql.lib.php:1364
+#: libraries/sql.lib.php:1362
 msgid "Showing as PHP code"
 msgstr "Zobrazuji jako PHP kód"
 
-#: libraries/sql.lib.php:1736
+#: libraries/sql.lib.php:1734
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
@@ -13519,7 +13538,7 @@ msgstr ""
 "Aktuální výběr neobsahuje unikátní klíč. Editování v mřížce, zaškrtávací "
 "políčka nebo odkazy na editaci a mazání proto nejsou k dispozici. %s"
 
-#: libraries/sql.lib.php:1750
+#: libraries/sql.lib.php:1748
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, Edit, Copy "
@@ -13528,7 +13547,7 @@ msgstr ""
 "Aktuální výběr neobsahuje unikátní klíč. Editování v mřížce může vést na "
 "nežádoucí chování. %s"
 
-#: libraries/sql.lib.php:1792
+#: libraries/sql.lib.php:1790
 #, php-format
 msgid "Problems with indexes of table `%s`"
 msgstr "Problémy s klíči v tabulce „%s\""
@@ -13810,7 +13829,7 @@ msgstr "Verze"
 msgid "Manage your settings"
 msgstr "Spravujte svoje nastavení"
 
-#: libraries/user_preferences.inc.php:57 prefs_manage.php:308
+#: libraries/user_preferences.inc.php:57 prefs_manage.php:310
 msgid "Configuration has been saved."
 msgstr "Nastavení bylo uloženo."
 
@@ -13844,47 +13863,47 @@ msgstr "Chyba: Navigace je přístupná jen přes AJAX"
 msgid "Cannot save settings, submitted form contains errors!"
 msgstr "Nepodařilo se uložit nastavení, odeslaný formulář obsahuje chyby!"
 
-#: prefs_manage.php:88
+#: prefs_manage.php:89
 msgid "Could not import configuration"
 msgstr "Nepodařilo se nahrát konfiguraci"
 
-#: prefs_manage.php:120
+#: prefs_manage.php:121
 msgid "Configuration contains incorrect data for some fields."
 msgstr "Nastavení obsahuje neplatná data pro některé položky."
 
-#: prefs_manage.php:139
+#: prefs_manage.php:140
 msgid "Do you want to import remaining settings?"
 msgstr "Přejete si načíst zbývající nastavení?"
 
-#: prefs_manage.php:232 prefs_manage.php:261
+#: prefs_manage.php:234 prefs_manage.php:263
 msgid "Saved on: @DATE@"
 msgstr "Uloženo: @DATE@"
 
-#: prefs_manage.php:247
+#: prefs_manage.php:249
 msgid "Import from file"
 msgstr "Importovat ze souboru"
 
-#: prefs_manage.php:255
+#: prefs_manage.php:257
 msgid "Import from browser's storage"
 msgstr "Načíst z úložiště v prohlížeči"
 
-#: prefs_manage.php:258
+#: prefs_manage.php:260
 msgid "Settings will be imported from your browser's local storage."
 msgstr "Nastavení bude načteno z lokálního úložiště ve vašem prohlížeči."
 
-#: prefs_manage.php:264
+#: prefs_manage.php:266
 msgid "You have no saved settings!"
 msgstr "Nemáte žádná uložená nastavení!"
 
-#: prefs_manage.php:269 prefs_manage.php:348
+#: prefs_manage.php:271 prefs_manage.php:350
 msgid "This feature is not supported by your web browser"
 msgstr "Tato funkce není vaším prohlížečem podporována"
 
-#: prefs_manage.php:275
+#: prefs_manage.php:277
 msgid "Merge with current configuration"
 msgstr "Sloučit se současným nastavením"
 
-#: prefs_manage.php:291
+#: prefs_manage.php:293
 #, php-format
 msgid ""
 "You can set more settings by modifying config.inc.php, eg. by using %sSetup "
@@ -13893,19 +13912,19 @@ msgstr ""
 "Více věcí můžete nastavit úpravou config.inc.php, např. použitím "
 "%sNastavovacího skriptu%s."
 
-#: prefs_manage.php:324
+#: prefs_manage.php:326
 msgid "Save to browser's storage"
 msgstr "Uložit do úložiště prohlížeče"
 
-#: prefs_manage.php:331
+#: prefs_manage.php:333
 msgid "Settings will be saved in your browser's local storage."
 msgstr "Nastavení bude uloženo do lokálního úložiště prohlížeče."
 
-#: prefs_manage.php:339
+#: prefs_manage.php:341
 msgid "Existing settings will be overwritten!"
 msgstr "Již uložené nastavení bude přepsáno!"
 
-#: prefs_manage.php:367
+#: prefs_manage.php:369
 msgid "You can reset all your settings and restore them to default values."
 msgstr "Můžete vymazat vaše nastavení a vrátit se k výchozím hodnotám."
 
@@ -15403,11 +15422,11 @@ msgstr "Pole %s bylo odstraněno."
 msgid "Click to toggle"
 msgstr "Klikněte pro přepnutí"
 
-#: themes.php:17 themes.php:22
+#: themes.php:19 themes.php:24
 msgid "Theme"
 msgstr "Vzhled"
 
-#: themes.php:25
+#: themes.php:27
 msgid "Get more themes!"
 msgstr "Získejte další témata vzhledu!"
 
@@ -16412,16 +16431,16 @@ msgstr ""
 "Četnost dočasného ukládání na disk: %s, tato hodnota by měla být menší než 1 "
 "za hodinu"
 
-#: libraries/advisory_rules.txt:289
+#: libraries/advisory_rules.txt:278
 msgid "MyISAM key buffer size"
 msgstr "Velikost vyrovnávací paměti klíčů MyISAM"
 
-#: libraries/advisory_rules.txt:292
+#: libraries/advisory_rules.txt:281
 msgid "Key buffer is not initialized. No MyISAM indexes will be cached."
 msgstr ""
 "Vyrovnávací paměť klíčů není nastavena. Žádné klíče MyISAM nebudou cachovány."
 
-#: libraries/advisory_rules.txt:293
+#: libraries/advisory_rules.txt:282
 msgid ""
 "Set {key_buffer_size} depending on the size of your MyISAM indexes. 64M is a "
 "good start."
@@ -16429,21 +16448,21 @@ msgstr ""
 "Nastavte {key_buffer_size} podle velikosti vašich klíčů v MyISAM tabulkách. "
 "Pro začátek může být třeba 64M dobrá hodnota."
 
-#: libraries/advisory_rules.txt:294
+#: libraries/advisory_rules.txt:283
 msgid "key_buffer_size is 0"
 msgstr "key_buffer_size je 0"
 
-#: libraries/advisory_rules.txt:296
+#: libraries/advisory_rules.txt:285
 #, php-format
 msgid "Max %% MyISAM key buffer ever used"
 msgstr "Nejvyšší využití (%%) vyrovnávací paměti MyISAM pro klíče"
 
-#: libraries/advisory_rules.txt:299 libraries/advisory_rules.txt:307
+#: libraries/advisory_rules.txt:288 libraries/advisory_rules.txt:296
 #, php-format
 msgid "MyISAM key buffer (index cache) %% used is low."
 msgstr "Využití mezipaměti klíčů MyISAM je příliš nízké %%."
 
-#: libraries/advisory_rules.txt:300 libraries/advisory_rules.txt:308
+#: libraries/advisory_rules.txt:289 libraries/advisory_rules.txt:297
 msgid ""
 "You may need to decrease the size of {key_buffer_size}, re-examine your "
 "tables to see if indexes have been removed, or examine queries and "
@@ -16453,7 +16472,7 @@ msgstr ""
 "nebyly odstraněny nějaké klíče, případně prozkoumat jestli dotazy klíče "
 "správně využívají."
 
-#: libraries/advisory_rules.txt:301
+#: libraries/advisory_rules.txt:290
 #, php-format
 msgid ""
 "max %% MyISAM key buffer ever used: %s%%, this value should be above 95%%"
@@ -16461,46 +16480,46 @@ msgstr ""
 "Nejvyšší využití (%%) vyrovnávací paměti MyISAM pro klíče je %s%%, tato "
 "hodnota by měla být nad 95%%"
 
-#: libraries/advisory_rules.txt:304
+#: libraries/advisory_rules.txt:293
 msgid "Percentage of MyISAM key buffer used"
 msgstr "Procento využití vyrovnávací paměti MyISAM pro klíče"
 
-#: libraries/advisory_rules.txt:309
+#: libraries/advisory_rules.txt:298
 #, php-format
 msgid "%% MyISAM key buffer used: %s%%, this value should be above 95%%"
 msgstr ""
 "Využití vyrovnávací paměti klíčů MyISAM: %s%%, tato hodnota by měla být nad "
 "95%%"
 
-#: libraries/advisory_rules.txt:311
+#: libraries/advisory_rules.txt:300
 msgid "Percentage of index reads from memory"
 msgstr "Procento čtení klíčů z paměti"
 
-#: libraries/advisory_rules.txt:314
+#: libraries/advisory_rules.txt:303
 #, php-format
 msgid "The %% of indexes that use the MyISAM key buffer is low."
 msgstr ""
 "Procento klíčů, které používají vyrovnávací paměť klíčů MyISAM, je příliš "
 "nízké."
 
-#: libraries/advisory_rules.txt:315
+#: libraries/advisory_rules.txt:304
 msgid "You may need to increase {key_buffer_size}."
 msgstr "Mohlo by být potřeba zvýšit {key_buffer_size}."
 
-#: libraries/advisory_rules.txt:316
+#: libraries/advisory_rules.txt:305
 #, php-format
 msgid "Index reads from memory: %s%%, this value should be above 95%%"
 msgstr "Čtení klíčů z paměti: %s%%, tato hodnota by měla být pod 95%%"
 
-#: libraries/advisory_rules.txt:320
+#: libraries/advisory_rules.txt:309
 msgid "Rate of table open"
 msgstr "Četnost otevírání tabulek"
 
-#: libraries/advisory_rules.txt:323
+#: libraries/advisory_rules.txt:312
 msgid "The rate of opening tables is high."
 msgstr "Tabulky jsou otevírány příliš často."
 
-#: libraries/advisory_rules.txt:324
+#: libraries/advisory_rules.txt:313
 msgid ""
 "Opening tables requires disk I/O which is costly. Increasing "
 "{table_open_cache} might avoid this."
@@ -16508,18 +16527,18 @@ msgstr ""
 "Otevírání tabulek vede k přístupům na disk, které jsou obvykle pomalé. "
 "Zvýšením {table_open_cache} můžete toto omezit."
 
-#: libraries/advisory_rules.txt:325
+#: libraries/advisory_rules.txt:314
 #, php-format
 msgid "Opened table rate: %s, this value should be less than 10 per hour"
 msgstr ""
 "Četnost otevírání tabulek: %s, tato hodnota by měla být menší než 10 za "
 "hodinu"
 
-#: libraries/advisory_rules.txt:327
+#: libraries/advisory_rules.txt:316
 msgid "Percentage of used open files limit"
 msgstr "Využití limitu na otevřené soubory v procentech"
 
-#: libraries/advisory_rules.txt:330
+#: libraries/advisory_rules.txt:319
 msgid ""
 "The number of open files is approaching the max number of open files.  You "
 "may get a \"Too many open files\" error."
@@ -16527,7 +16546,7 @@ msgstr ""
 "Počet otevřených souborů se blíží maximu možného. V případě jeho dosažení "
 "dostanete chybu „Příliš mnoho otevřených souborů“."
 
-#: libraries/advisory_rules.txt:331 libraries/advisory_rules.txt:338
+#: libraries/advisory_rules.txt:320 libraries/advisory_rules.txt:327
 msgid ""
 "Consider increasing {open_files_limit}, and check the error log when "
 "restarting after changing {open_files_limit}."
@@ -16535,7 +16554,7 @@ msgstr ""
 "Zvažte zvýšení {open_files_limit}, restartujte a poté zkontrolujte chybové "
 "záznamy."
 
-#: libraries/advisory_rules.txt:332
+#: libraries/advisory_rules.txt:321
 #, php-format
 msgid ""
 "The number of opened files is at %s%% of the limit. It should be below 85%%"
@@ -16543,54 +16562,54 @@ msgstr ""
 "Počet otevřených souborů je na %s%% maximálně povolených. Mělo by to být pod "
 "85%%"
 
-#: libraries/advisory_rules.txt:334
+#: libraries/advisory_rules.txt:323
 msgid "Rate of open files"
 msgstr "Četnost otevírání souborů"
 
-#: libraries/advisory_rules.txt:337
+#: libraries/advisory_rules.txt:326
 msgid "The rate of opening files is high."
 msgstr "Četnost otevírání souborů je příliš velká."
 
-#: libraries/advisory_rules.txt:339
+#: libraries/advisory_rules.txt:328
 #, php-format
 msgid "Opened files rate: %s, this value should be less than 5 per hour"
 msgstr ""
 "Četnost otevírání souborů: %s, tato hodnota by měla být menší než 5 za hodinu"
 
-#: libraries/advisory_rules.txt:341
+#: libraries/advisory_rules.txt:330
 #, php-format
 msgid "Immediate table locks %%"
 msgstr "Procento okamžitého získání zámku tabulky"
 
-#: libraries/advisory_rules.txt:344 libraries/advisory_rules.txt:351
+#: libraries/advisory_rules.txt:333 libraries/advisory_rules.txt:340
 msgid "Too many table locks were not granted immediately."
 msgstr "Příliš mnoho zamykání tabulek čekalo na přidělení zámku."
 
-#: libraries/advisory_rules.txt:345 libraries/advisory_rules.txt:352
+#: libraries/advisory_rules.txt:334 libraries/advisory_rules.txt:341
 msgid "Optimize queries and/or use InnoDB to reduce lock wait."
 msgstr "Pro omezení čekání na zámky optimalizujte dotazy nebo použijte InnoDB."
 
-#: libraries/advisory_rules.txt:346
+#: libraries/advisory_rules.txt:335
 #, php-format
 msgid "Immediate table locks: %s%%, this value should be above 95%%"
 msgstr "Okamžitých zamčení tabulky: %s%%, tato hodnota by měla být nad 95%%"
 
-#: libraries/advisory_rules.txt:348
+#: libraries/advisory_rules.txt:337
 msgid "Table lock wait rate"
 msgstr "Četnost čekání na zámek tabulky"
 
-#: libraries/advisory_rules.txt:353
+#: libraries/advisory_rules.txt:342
 #, php-format
 msgid "Table lock wait rate: %s, this value should be less than 1 per hour"
 msgstr ""
 "Četnost čekání na zámek tabulky: %s, tato hodnota by měla být menší než 1 za "
 "hodinu"
 
-#: libraries/advisory_rules.txt:355
+#: libraries/advisory_rules.txt:344
 msgid "Thread cache"
 msgstr "Mezipaměť vláken"
 
-#: libraries/advisory_rules.txt:358
+#: libraries/advisory_rules.txt:347
 msgid ""
 "Thread cache is disabled, resulting in more overhead from new connections to "
 "MySQL."
@@ -16598,41 +16617,41 @@ msgstr ""
 "Mezipaměť vláken je vypnutá, což způsobuje větší zátěž při nových "
 "připojeních k MySQL."
 
-#: libraries/advisory_rules.txt:359
+#: libraries/advisory_rules.txt:348
 msgid "Enable the thread cache by setting {thread_cache_size} > 0."
 msgstr "Povolte mezipaměť vláken nastavením {thread_cache_size} > 0."
 
-#: libraries/advisory_rules.txt:360
+#: libraries/advisory_rules.txt:349
 msgid "The thread cache is set to 0"
 msgstr "Velikost mezipaměti vláken je nastavena na 0"
 
-#: libraries/advisory_rules.txt:362
+#: libraries/advisory_rules.txt:351
 #, php-format
 msgid "Thread cache hit rate %%"
 msgstr "Úspěšnost mezipaměti vláken %%"
 
-#: libraries/advisory_rules.txt:365
+#: libraries/advisory_rules.txt:354
 msgid "Thread cache is not efficient."
 msgstr "Mezipaměť vláken není efektivní."
 
-#: libraries/advisory_rules.txt:366
+#: libraries/advisory_rules.txt:355
 msgid "Increase {thread_cache_size}."
 msgstr "Zvyšte {thread_cache_size}."
 
-#: libraries/advisory_rules.txt:367
+#: libraries/advisory_rules.txt:356
 #, php-format
 msgid "Thread cache hitrate: %s%%, this value should be above 80%%"
 msgstr "Úspěšnost mezipaměti vláken: %s%%, tato hodnota by měla být nad 80%%"
 
-#: libraries/advisory_rules.txt:369
+#: libraries/advisory_rules.txt:358
 msgid "Threads that are slow to launch"
 msgstr "Vlákna se spouštějí příliš dlouho"
 
-#: libraries/advisory_rules.txt:372
+#: libraries/advisory_rules.txt:361
 msgid "There are too many threads that are slow to launch."
 msgstr "Je příliš mnoho vláken, která se spouštějí dlouho."
 
-#: libraries/advisory_rules.txt:373
+#: libraries/advisory_rules.txt:362
 msgid ""
 "This generally happens in case of general system overload as it is pretty "
 "simple operations. You might want to monitor your system load carefully."
@@ -16640,22 +16659,22 @@ msgstr ""
 "K tomuto obvykle dochází v případě přetížení systému, protože se jedná o "
 "velmi jednoduchou operaci. Je vhodné podrobně sledovat zatížení systému."
 
-#: libraries/advisory_rules.txt:374
+#: libraries/advisory_rules.txt:363
 #, php-format
 msgid "%s thread(s) took longer than %s seconds to start, it should be 0"
 msgstr "%s vláknům trvalo spuštění déle než %s sekund, mělo by to trvat 0"
 
-#: libraries/advisory_rules.txt:376
+#: libraries/advisory_rules.txt:365
 msgid "Slow launch time"
 msgstr "Dlouhá doba spuštění"
 
-#: libraries/advisory_rules.txt:379
+#: libraries/advisory_rules.txt:368
 #, fuzzy
 #| msgid "Slow_launch_threads is above 2s"
 msgid "Slow_launch_threads is above 2s."
 msgstr "Slow_launch_threads je nad 2s"
 
-#: libraries/advisory_rules.txt:380
+#: libraries/advisory_rules.txt:369
 #, fuzzy
 #| msgid ""
 #| "Set {slow_launch_time} to 1s or 2s to correctly count threads that are "
@@ -16667,22 +16686,22 @@ msgstr ""
 "Nastavte {slow_launch_time} na 1s nebo 2s pro správné počítání vláken, která "
 "pomalu nabíhají"
 
-#: libraries/advisory_rules.txt:381
+#: libraries/advisory_rules.txt:370
 #, php-format
 msgid "slow_launch_time is set to %s"
 msgstr "slow_launch_time je nastaven na %s"
 
-#: libraries/advisory_rules.txt:385
+#: libraries/advisory_rules.txt:374
 msgid "Percentage of used connections"
 msgstr "Procenta použitých připojení"
 
-#: libraries/advisory_rules.txt:388
+#: libraries/advisory_rules.txt:377
 msgid ""
 "The maximum amount of used connections is getting close to the value of "
 "{max_connections}."
 msgstr "Nejvýše využitý počet připojení se blíží {max_connections}."
 
-#: libraries/advisory_rules.txt:389
+#: libraries/advisory_rules.txt:378
 msgid ""
 "Increase {max_connections}, or decrease {wait_timeout} so that connections "
 "that do not close database handlers properly get killed sooner. Make sure "
@@ -16692,21 +16711,21 @@ msgstr ""
 "uzavřena připojení, která nebyla správně ukončena. Ujistěte se, že klienti "
 "správně ukončují připojení k databázi."
 
-#: libraries/advisory_rules.txt:390
+#: libraries/advisory_rules.txt:379
 #, php-format
 msgid ""
 "Max_used_connections is at %s%% of max_connections, it should be below 80%%"
 msgstr "Nejvyšší počet připojení je na %s%% maxima, mělo by to být pod 80%%"
 
-#: libraries/advisory_rules.txt:392
+#: libraries/advisory_rules.txt:381
 msgid "Percentage of aborted connections"
 msgstr "Procenta přerušených spojení"
 
-#: libraries/advisory_rules.txt:395 libraries/advisory_rules.txt:402
+#: libraries/advisory_rules.txt:384 libraries/advisory_rules.txt:391
 msgid "Too many connections are aborted."
 msgstr "Je příliš mnoho přerušených spojení."
 
-#: libraries/advisory_rules.txt:396 libraries/advisory_rules.txt:403
+#: libraries/advisory_rules.txt:385 libraries/advisory_rules.txt:392
 msgid ""
 "Connections are usually aborted when they cannot be authorized. <a href="
 "\"http://www.percona.com/blog/2008/08/23/how-to-track-down-the-source-of-"
@@ -16716,16 +16735,16 @@ msgstr ""
 "www.percona.com/blog/2008/08/23/how-to-track-down-the-source-of-"
 "aborted_connects/\">Tento článek</a> vám může pomoc najít příčinu."
 
-#: libraries/advisory_rules.txt:397
+#: libraries/advisory_rules.txt:386
 #, php-format
 msgid "%s%% of all connections are aborted. This value should be below 1%%"
 msgstr "%s%% všech připojení bylo přerušeno. Tato hodnota by měla být pod 1%%"
 
-#: libraries/advisory_rules.txt:399
+#: libraries/advisory_rules.txt:388
 msgid "Rate of aborted connections"
 msgstr "Četnost přerušených spojení"
 
-#: libraries/advisory_rules.txt:404
+#: libraries/advisory_rules.txt:393
 #, php-format
 msgid ""
 "Aborted connections rate is at %s, this value should be less than 1 per hour"
@@ -16733,15 +16752,15 @@ msgstr ""
 "Četnost přerušených spojení je %s, tato hodnota by měla být menší než 1 za "
 "hodinu"
 
-#: libraries/advisory_rules.txt:406
+#: libraries/advisory_rules.txt:395
 msgid "Percentage of aborted clients"
 msgstr "Procento přerušených klientů"
 
-#: libraries/advisory_rules.txt:409 libraries/advisory_rules.txt:416
+#: libraries/advisory_rules.txt:398 libraries/advisory_rules.txt:405
 msgid "Too many clients are aborted."
 msgstr "Příliš mnoho přerušených klientů."
 
-#: libraries/advisory_rules.txt:410 libraries/advisory_rules.txt:417
+#: libraries/advisory_rules.txt:399 libraries/advisory_rules.txt:406
 msgid ""
 "Clients are usually aborted when they did not close their connection to "
 "MySQL properly. This can be due to network issues or code not closing a "
@@ -16751,50 +16770,50 @@ msgstr ""
 "Toto může být způsobeno problémy na síti nebo chybným kódem klienta, který "
 "spojení neukončí. Prosím zkontrolujte obě tyto možnosti."
 
-#: libraries/advisory_rules.txt:411
+#: libraries/advisory_rules.txt:400
 #, php-format
 msgid "%s%% of all clients are aborted. This value should be below 2%%"
 msgstr "%s%% všech klientů bylo přerušeno. Tato hodnota by měla být pod 2%%"
 
-#: libraries/advisory_rules.txt:413
+#: libraries/advisory_rules.txt:402
 msgid "Rate of aborted clients"
 msgstr "Četnost přerušení klientů"
 
-#: libraries/advisory_rules.txt:418
+#: libraries/advisory_rules.txt:407
 #, php-format
 msgid "Aborted client rate is at %s, this value should be less than 1 per hour"
 msgstr ""
 "Četnost přerušených klientů: %s, tato hodnota by měla být menší než 1 za "
 "hodinu"
 
-#: libraries/advisory_rules.txt:422
+#: libraries/advisory_rules.txt:411
 msgid "Is InnoDB disabled?"
 msgstr "InnoDB je vypnuto?"
 
-#: libraries/advisory_rules.txt:425
+#: libraries/advisory_rules.txt:414
 msgid "You do not have InnoDB enabled."
 msgstr "Máte zakázané InnoDB."
 
-#: libraries/advisory_rules.txt:426
+#: libraries/advisory_rules.txt:415
 msgid "InnoDB is usually the better choice for table engines."
 msgstr "InnoDB je obvykle nejlepší volba úložiště tabulky."
 
-#: libraries/advisory_rules.txt:427
+#: libraries/advisory_rules.txt:416
 msgid "have_innodb is set to 'value'"
 msgstr "have_innodb je nastaveno na 'value'"
 
-#: libraries/advisory_rules.txt:429
+#: libraries/advisory_rules.txt:418
 msgid "InnoDB log size"
 msgstr "Velikost záznamu InnoDB"
 
-#: libraries/advisory_rules.txt:432
+#: libraries/advisory_rules.txt:421
 msgid ""
 "The InnoDB log file size is not an appropriate size, in relation to the "
 "InnoDB buffer pool."
 msgstr ""
 "Velikost záznamu InnoDB neodpovídá velikosti vyrovnávací paměti InnoDB."
 
-#: libraries/advisory_rules.txt:433
+#: libraries/advisory_rules.txt:422
 #, php-format
 msgid ""
 "Especially on a system with a lot of writes to InnoDB tables you should set "
@@ -16818,7 +16837,7 @@ msgstr ""
 "mysqldatabaseadministration.blogspot.com/2007/01/increase-innodblogfilesize-"
 "proper-way.html\">zápisek v blogu</a>"
 
-#: libraries/advisory_rules.txt:434
+#: libraries/advisory_rules.txt:423
 #, php-format
 msgid ""
 "Your InnoDB log size is at %s%% in relation to the InnoDB buffer pool size, "
@@ -16827,15 +16846,15 @@ msgstr ""
 "Poměr velikosti záznamu a rezervy vyrovnávací paměti InnoDB je %s%%, ale "
 "neměla by být pod 20%%"
 
-#: libraries/advisory_rules.txt:436
+#: libraries/advisory_rules.txt:425
 msgid "Max InnoDB log size"
 msgstr "Maximální velikost záznamu InnoDB"
 
-#: libraries/advisory_rules.txt:439
+#: libraries/advisory_rules.txt:428
 msgid "The InnoDB log file size is inadequately large."
 msgstr "Velikost záznamového souboru je příliš velká."
 
-#: libraries/advisory_rules.txt:440
+#: libraries/advisory_rules.txt:429
 #, php-format
 msgid ""
 "It is usually sufficient to set {innodb_log_file_size} to 25%% of the size "
@@ -16859,20 +16878,20 @@ msgstr ""
 "pořádku. Více viz <a href=\"http://mysqldatabaseadministration.blogspot."
 "com/2007/01/increase-innodblogfilesize-proper-way.html\">zápisek v blogu</a>"
 
-#: libraries/advisory_rules.txt:441
+#: libraries/advisory_rules.txt:430
 #, php-format
 msgid "Your absolute InnoDB log size is %s MiB"
 msgstr "Velikost záznamu InnoDB je %s MiB"
 
-#: libraries/advisory_rules.txt:443
+#: libraries/advisory_rules.txt:432
 msgid "InnoDB buffer pool size"
 msgstr "Velikost vyrovnávací paměti InnoDB"
 
-#: libraries/advisory_rules.txt:446
+#: libraries/advisory_rules.txt:435
 msgid "Your InnoDB buffer pool is fairly small."
 msgstr "Nastavená vyrovnávací paměť InnoDB je poměrně malá."
 
-#: libraries/advisory_rules.txt:447
+#: libraries/advisory_rules.txt:436
 #, php-format
 msgid ""
 "The InnoDB buffer pool has a profound impact on performance for InnoDB "
@@ -16896,7 +16915,7 @@ msgstr ""
 "naleznete v <a href=\"http://www.percona.com/blog/2007/11/03/choosing-"
 "innodb_buffer_pool_size/\">tomto článku</a>"
 
-#: libraries/advisory_rules.txt:448
+#: libraries/advisory_rules.txt:437
 #, php-format
 msgid ""
 "You are currently using %s%% of your memory for the InnoDB buffer pool. This "
@@ -16909,15 +16928,15 @@ msgstr ""
 "být přesto správné, pokud nemáte mnoho InnoDB tabulek nebo na tomto počítači "
 "běží i další služby."
 
-#: libraries/advisory_rules.txt:452
+#: libraries/advisory_rules.txt:441
 msgid "MyISAM concurrent inserts"
 msgstr "Současné vkládání do MyISAM"
 
-#: libraries/advisory_rules.txt:455
+#: libraries/advisory_rules.txt:444
 msgid "Enable {concurrent_insert} by setting it to 1"
 msgstr "Povolte {concurrent_insert} nastavením na 1"
 
-#: libraries/advisory_rules.txt:456
+#: libraries/advisory_rules.txt:445
 msgid ""
 "Setting {concurrent_insert} to 1 reduces contention between readers and "
 "writers for a given table. See also <a href=\"https://dev.mysql.com/doc/"
@@ -16927,9 +16946,25 @@ msgstr ""
 "pro jednotlivé tabulky. Podrobněji je toto popsáno v <a href=\"http://dev."
 "mysql.com/doc/refman/5.5/en/concurrent-inserts.html\">dokumentaci MySQL</a>"
 
-#: libraries/advisory_rules.txt:457
+#: libraries/advisory_rules.txt:446
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert je nastaveno na 0"
+
+#~ msgid "Wiki"
+#~ msgstr "Wiki"
+
+#~ msgid ""
+#~ "Enable [a@http://en.wikipedia.org/wiki/ZIP_(file_format)]ZIP[/a] "
+#~ "compression for import and export operations."
+#~ msgstr ""
+#~ "Povolí [a@http://cs.wikipedia.org/wiki/ZIP_(souborový_formát)]ZIP[/a] "
+#~ "kompresi pro import a export."
+
+#~ msgid "Related Links"
+#~ msgstr "Související odkazy"
+
+#~ msgid "The PrimeBase XT Blog by Paul McCullagh"
+#~ msgstr "Blog PrimeBase XT, který píše Paul McCullagh"
 
 #~ msgid ""
 #~ "Uploaded file cannot be moved, because the server has open_basedir "

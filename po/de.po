@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2016-02-17 11:55+0100\n"
+"POT-Creation-Date: 2016-05-23 14:30+0200\n"
 "PO-Revision-Date: 2016-03-21 22:00+0000\n"
 "Last-Translator: Tobias Bannert <tobannert@gmail.com>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -105,7 +105,7 @@ msgstr "Spalte"
 msgid "Type"
 msgstr "Typ"
 
-#: db_datadict.php:116 libraries/Index.php:707
+#: db_datadict.php:116 libraries/Index.php:703
 #: libraries/central_columns.lib.php:707 libraries/central_columns.lib.php:1387
 #: libraries/insert_edit.lib.php:1588
 #: libraries/plugins/export/ExportHtmlword.php:296
@@ -194,7 +194,7 @@ msgstr "Primärschlüssel"
 #: libraries/server_privileges.lib.php:3673
 #: libraries/server_privileges.lib.php:3696 libraries/tracking.lib.php:951
 #: libraries/tracking.lib.php:1030 libraries/tracking.lib.php:1035
-#: prefs_manage.php:144 templates/prefs_autoload.phtml:13
+#: prefs_manage.php:145 templates/prefs_autoload.phtml:13
 #: templates/privileges/privileges_summary_row.phtml:4
 #: templates/privileges/privileges_summary_row.phtml:7
 #: templates/privileges/privileges_summary_row.phtml:9
@@ -228,7 +228,7 @@ msgstr "Nein"
 #: libraries/server_privileges.lib.php:3670
 #: libraries/server_privileges.lib.php:3696 libraries/tracking.lib.php:951
 #: libraries/tracking.lib.php:1028 libraries/tracking.lib.php:1033
-#: prefs_manage.php:142 templates/prefs_autoload.phtml:12
+#: prefs_manage.php:143 templates/prefs_autoload.phtml:12
 #: templates/privileges/privileges_summary_row.phtml:4
 #: templates/privileges/privileges_summary_row.phtml:7
 #: templates/privileges/privileges_summary_row.phtml:9
@@ -256,9 +256,9 @@ msgstr "Es wurden keine Tabellen in der Datenbank gefunden."
 msgid "Tables"
 msgstr "Tabellen"
 
-#: db_export.php:66 libraries/Menu.php:325 libraries/Menu.php:432
-#: libraries/Util.php:3362 libraries/Util.php:3372 libraries/Util.php:3378
-#: libraries/Util.php:3658 libraries/Util.php:4291 libraries/Util.php:4308
+#: db_export.php:66 libraries/Menu.php:330 libraries/Menu.php:437
+#: libraries/Util.php:3345 libraries/Util.php:3355 libraries/Util.php:3361
+#: libraries/Util.php:3641 libraries/Util.php:4274 libraries/Util.php:4291
 #: libraries/central_columns.lib.php:727 libraries/config.values.php:39
 #: libraries/config.values.php:47 libraries/config.values.php:110
 #: libraries/config.values.php:116 libraries/config/setup.forms.php:318
@@ -324,10 +324,10 @@ msgstr "Bitte wählen Sie mindestens eine anzuzeigende Spalte!"
 msgid "Switch to %svisual builder%s"
 msgstr "Zum %sDesigner%s wechseln"
 
-#: db_search.php:31 libraries/plugins/AuthenticationPlugin.php:70
+#: db_search.php:31 libraries/plugins/AuthenticationPlugin.php:110
 #: libraries/plugins/auth/AuthenticationConfig.php:94
 #: libraries/plugins/auth/AuthenticationConfig.php:109
-#: libraries/plugins/auth/AuthenticationHttp.php:89
+#: libraries/plugins/auth/AuthenticationHttp.php:77
 msgid "Access denied!"
 msgstr "Zugriff verweigert!"
 
@@ -481,7 +481,7 @@ msgstr "Geometrie hinzufügen"
 #: libraries/operations.lib.php:797 libraries/operations.lib.php:867
 #: libraries/operations.lib.php:916 libraries/operations.lib.php:1326
 #: libraries/operations.lib.php:1643
-#: libraries/plugins/auth/AuthenticationCookie.php:221
+#: libraries/plugins/auth/AuthenticationCookie.php:211
 #: libraries/replication_gui.lib.php:121 libraries/replication_gui.lib.php:160
 #: libraries/replication_gui.lib.php:325 libraries/replication_gui.lib.php:462
 #: libraries/replication_gui.lib.php:892 libraries/rte/rte_events.lib.php:513
@@ -495,7 +495,7 @@ msgstr "Geometrie hinzufügen"
 #: libraries/server_user_groups.lib.php:287
 #: libraries/sql_query_form.lib.php:373 libraries/sql_query_form.lib.php:435
 #: libraries/tracking.lib.php:551 libraries/tracking.lib.php:671
-#: prefs_manage.php:278 prefs_manage.php:356
+#: prefs_manage.php:280 prefs_manage.php:358
 #: templates/columns_definitions/column_definitions_form.phtml:69
 #: templates/database/create_table.phtml:21 templates/header_location.phtml:28
 #: templates/privileges/privileges_summary.phtml:66
@@ -565,7 +565,7 @@ msgstr ""
 "Die Import-Plugins konnten nicht geladen werden, bitte überprüfen Sie Ihre "
 "phpMyAdmin-Installation!"
 
-#: import.php:566 libraries/sql.lib.php:784 libraries/sql.lib.php:1561
+#: import.php:566 libraries/sql.lib.php:782 libraries/sql.lib.php:1559
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "Lesezeichen %s wurde erstellt."
@@ -607,11 +607,11 @@ msgstr "Der Fortschritt des Imports konnte nicht geladen werden."
 msgid "Back"
 msgstr "Zurück"
 
-#: index.php:150 libraries/Footer.php:70
+#: index.php:151 libraries/Footer.php:70
 msgid "phpMyAdmin Demo Server"
 msgstr "phpMyAdmin Demo Server"
 
-#: index.php:154
+#: index.php:155
 #, php-format
 msgid ""
 "You are using the demo server. You can do anything here, but please do not "
@@ -622,115 +622,111 @@ msgstr ""
 "nicht die Benutzer root, debian-sys-maint und pma. Mehr Informationen ist "
 "unter %s verfügbar."
 
-#: index.php:164
+#: index.php:165
 msgid "General settings"
 msgstr "Allgemeine Einstellungen"
 
-#: index.php:194 js/messages.php:628
+#: index.php:195 js/messages.php:628
 #: libraries/display_change_password.lib.php:47
 #: libraries/display_change_password.lib.php:50 user_password.php:286
 msgid "Change password"
 msgstr "Passwort ändern"
 
-#: index.php:211
+#: index.php:212
 msgid "Server connection collation"
 msgstr "Zeichensatz/Kollation der MySQL-Verbindung"
 
-#: index.php:232
+#: index.php:233
 msgid "Appearance settings"
 msgstr "Anzeige-Einstellungen"
 
-#: index.php:264 prefs_manage.php:286
+#: index.php:265 prefs_manage.php:288
 msgid "More settings"
 msgstr "Weitere Einstellungen"
 
-#: index.php:286
+#: index.php:287
 msgid "Database server"
 msgstr "Datenbank-Server"
 
-#: index.php:289 libraries/plugins/auth/AuthenticationCookie.php:167
+#: index.php:290 libraries/plugins/auth/AuthenticationCookie.php:157
 msgid "Server:"
 msgstr "Server:"
 
-#: index.php:293
+#: index.php:294
 msgid "Server type:"
 msgstr "Server-Typ:"
 
-#: index.php:297 libraries/plugins/export/ExportLatex.php:220
+#: index.php:298 libraries/plugins/export/ExportLatex.php:220
 #: libraries/plugins/export/ExportSql.php:692
 #: libraries/plugins/export/ExportXml.php:242
 msgid "Server version:"
 msgstr "Server-Version:"
 
-#: index.php:303
+#: index.php:304
 msgid "Protocol version:"
 msgstr "Protokoll-Version:"
 
-#: index.php:307
+#: index.php:308
 msgid "User:"
 msgstr "Benutzer:"
 
-#: index.php:312
+#: index.php:313
 msgid "Server charset:"
 msgstr "Server-Zeichensatz:"
 
-#: index.php:325
+#: index.php:326
 msgid "Web server"
 msgstr "Webserver"
 
-#: index.php:336
+#: index.php:337
 msgid "Database client version:"
 msgstr "Datenbank-Client Version:"
 
-#: index.php:340
+#: index.php:341
 msgid "PHP extension:"
 msgstr "PHP-Erweiterung:"
 
-#: index.php:354
+#: index.php:355
 msgid "PHP version:"
 msgstr "PHP-Version:"
 
-#: index.php:365
+#: index.php:366
 msgid "Show PHP information"
 msgstr "PHP-Informationen anzeigen"
 
-#: index.php:384
+#: index.php:385
 msgid "Version information:"
 msgstr "Versionsinformationen:"
 
-#: index.php:393 libraries/Sanitize.php:145 libraries/Util.php:450
+#: index.php:394 libraries/Sanitize.php:150 libraries/Util.php:450
 #: libraries/Util.php:517 libraries/config/FormDisplay.tpl.php:165
 #: libraries/display_export.lib.php:576 libraries/engines/Pbxt.php:166
-#: libraries/navigation/NavigationHeader.php:197
+#: libraries/navigation/NavigationHeader.php:196
 #: templates/server/variables/link_template.phtml:9
 msgid "Documentation"
 msgstr "Dokumentation"
 
-#: index.php:400
-msgid "Wiki"
-msgstr "Wiki"
-
-#: index.php:409
+#: index.php:403
 msgid "Official Homepage"
 msgstr "Offizielle Homepage"
 
-#: index.php:416
+#: index.php:410
 msgid "Contribute"
 msgstr "Mitmachen"
 
-#: index.php:423
+#: index.php:417
 msgid "Get support"
 msgstr "Unterstützung erhalten"
 
-#: index.php:430
+#: index.php:424
 msgid "List of changes"
 msgstr "Liste der Änderungen"
 
-#: index.php:437 templates/server/plugins/section.phtml:12
+#: index.php:431 templates/server/plugins/section.phtml:12
 msgid "License"
 msgstr "Lizenz"
 
-#: index.php:457
+#: index.php:451
 msgid ""
 "You have enabled mbstring.func_overload in your PHP configuration. This "
 "option is incompatible with phpMyAdmin and might cause some data to be "
@@ -740,7 +736,7 @@ msgstr ""
 "aktiviert. Diese ist nicht kompatibel zu phpMyAdmin, weshalb es zu Problemen "
 "und Datenverlust kommen kann!"
 
-#: index.php:472
+#: index.php:466
 msgid ""
 "The mbstring PHP extension was not found and you seem to be using a "
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
@@ -751,7 +747,7 @@ msgstr ""
 "phpMyAdmin nicht in der Lage Zeichenketten zu trennen, was zu unerwarteten "
 "Ergebnissen führen kann."
 
-#: index.php:487
+#: index.php:481
 msgid ""
 "The curl extension was not found and allow_url_fopen is disabled. Due to "
 "this some features such as error reporting or version check are disabled."
@@ -760,19 +756,19 @@ msgstr ""
 "deaktiviert. Aus diesem Grund sind einige Funktionen wie das Melden von "
 "Fehlern oder die Versionsüberprüfung deaktiviert."
 
-#: index.php:502
+#: index.php:496
 msgid ""
-"Your PHP parameter [a@https://php.net/manual/en/session.configuration.php#ini."
-"session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower than "
-"cookie validity configured in phpMyAdmin, because of this, your login might "
-"expire sooner than configured in phpMyAdmin."
+"Your PHP parameter [a@https://php.net/manual/en/session.configuration."
+"php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
+"than cookie validity configured in phpMyAdmin, because of this, your login "
+"might expire sooner than configured in phpMyAdmin."
 msgstr ""
 "Ihre PHP Einstellung [a@https://php.net/manual/en/session.configuration."
 "php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] ist "
 "niedriger als die in phpMyAdmin konfigurierte Cookiegültigkeit, deshalb kann "
 "Ihre Anmeldung eher ablaufen als in phpMyAdmin konfiguriert."
 
-#: index.php:521
+#: index.php:515
 msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
@@ -781,13 +777,13 @@ msgstr ""
 "phpMyAdmin eingestellt ist, daher wird Ihre Anmeldung eher ablaufen als in "
 "phpMyAdmin konfiguriert."
 
-#: index.php:537
+#: index.php:531
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
 msgstr ""
 "Ab sofort muss ein geheimes Passwort zur Verschlüsselung in der "
 "Konfigurationsdatei gesetzt werden (blowfish_secret)."
 
-#: index.php:550
+#: index.php:544
 msgid ""
 "Directory [code]config[/code], which is used by the setup script, still "
 "exists in your phpMyAdmin directory. It is strongly recommended to remove it "
@@ -799,7 +795,7 @@ msgstr ""
 "löschen. Andernfalls könnte die Sicherheit Ihres Servers gefährdet sein und "
 "unautorisierte Personen könnten die Konfiguration herunterladen."
 
-#: index.php:566
+#: index.php:560
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
@@ -809,14 +805,14 @@ msgstr ""
 "einige erweiterte Funktionen wurden deaktiviert. %sFinden Sie heraus warum"
 "%s. "
 
-#: index.php:573
+#: index.php:567
 msgid ""
 "Or alternately go to 'Operations' tab of any database to set it up there."
 msgstr ""
 "Oder wechseln Sie in einer beliebigen Datenbank zum Tab „Operationen“, um "
 "die Einstellung dort vorzunehmen."
 
-#: index.php:616
+#: index.php:610
 #, php-format
 msgid ""
 "Your PHP MySQL library version %s differs from your MySQL server version %s. "
@@ -825,7 +821,7 @@ msgstr ""
 "Die Version der verwendeten PHP-MySQL-Bibliothek %s unterscheidet sich von "
 "der Version des MySQL-Servers %s. Dies kann zu unerwartetem Verhalten führen."
 
-#: index.php:644
+#: index.php:638
 #, php-format
 msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
@@ -998,7 +994,7 @@ msgid "Save & close"
 msgstr "Speichern & Schließen"
 
 #: js/messages.php:115 libraries/config/FormDisplay.tpl.php:426
-#: libraries/insert_edit.lib.php:1562 prefs_manage.php:362 prefs_manage.php:373
+#: libraries/insert_edit.lib.php:1562 prefs_manage.php:364 prefs_manage.php:375
 msgid "Reset"
 msgstr "Zurücksetzen"
 
@@ -1292,7 +1288,7 @@ msgstr "Anfragen"
 msgid "Traffic"
 msgstr "Netzwerkverkehr"
 
-#: js/messages.php:217 libraries/Menu.php:587 libraries/Util.php:4282
+#: js/messages.php:217 libraries/Menu.php:592 libraries/Util.php:4265
 #: libraries/server_status_monitor.lib.php:253
 msgid "Settings"
 msgstr "Einstellungen"
@@ -1514,7 +1510,7 @@ msgstr "Analysieren…"
 msgid "Explain output"
 msgstr "Ausgabe erklären"
 
-#: js/messages.php:294 libraries/Menu.php:553 libraries/Util.php:4278
+#: js/messages.php:294 libraries/Menu.php:558 libraries/Util.php:4261
 #: libraries/config.values.php:105 libraries/rte/rte_events.lib.php:397
 #: libraries/rte/rte_list.lib.php:107
 #: libraries/server_status_processes.lib.php:92 libraries/tracking.lib.php:286
@@ -1615,11 +1611,11 @@ msgstr ""
 "Aufbau der Diagramme mit der importierten Konfiguration ist fehlgeschlagen. "
 "Setze auf Standardeinstellungen zurück…"
 
-#: js/messages.php:328 libraries/Menu.php:360 libraries/Menu.php:462
-#: libraries/Menu.php:583 libraries/Util.php:4281 libraries/Util.php:4296
-#: libraries/Util.php:4313 libraries/config/messages.inc.php:261
+#: js/messages.php:328 libraries/Menu.php:365 libraries/Menu.php:467
+#: libraries/Menu.php:588 libraries/Util.php:4264 libraries/Util.php:4279
+#: libraries/Util.php:4296 libraries/config/messages.inc.php:261
 #: libraries/display_import.lib.php:107
-#: libraries/server_status_monitor.lib.php:313 prefs_manage.php:239
+#: libraries/server_status_monitor.lib.php:313 prefs_manage.php:241
 #: setup/frames/menu.inc.php:27
 msgid "Import"
 msgstr "Importieren"
@@ -1806,16 +1802,16 @@ msgstr ""
 "beinhalten!"
 
 #: js/messages.php:395 libraries/DisplayResults.php:4878
-#: libraries/DisplayResults.php:5161 libraries/Menu.php:352
-#: libraries/Menu.php:453 libraries/Menu.php:579 libraries/Util.php:3665
-#: libraries/Util.php:3666 libraries/Util.php:4280 libraries/Util.php:4295
-#: libraries/Util.php:4312 libraries/config/messages.inc.php:255
+#: libraries/DisplayResults.php:5161 libraries/Menu.php:357
+#: libraries/Menu.php:458 libraries/Menu.php:584 libraries/Util.php:3648
+#: libraries/Util.php:3649 libraries/Util.php:4263 libraries/Util.php:4278
+#: libraries/Util.php:4295 libraries/config/messages.inc.php:255
 #: libraries/display_export.lib.php:170 libraries/rte/rte_list.lib.php:157
 #: libraries/server_privileges.lib.php:2479
 #: libraries/server_privileges.lib.php:2563
 #: libraries/server_privileges.lib.php:2912
 #: libraries/server_privileges.lib.php:3585
-#: libraries/server_status_monitor.lib.php:317 prefs_manage.php:304
+#: libraries/server_status_monitor.lib.php:317 prefs_manage.php:306
 #: setup/frames/menu.inc.php:28
 #: templates/database/structure/check_all_tables.phtml:12
 msgid "Export"
@@ -1859,9 +1855,9 @@ msgid "Show query box"
 msgstr "SQL-Querybox anzeigen"
 
 #: js/messages.php:412 libraries/DisplayResults.php:3496
-#: libraries/DisplayResults.php:4862 libraries/Index.php:728
-#: libraries/Util.php:733 libraries/Util.php:1243 libraries/Util.php:3663
-#: libraries/Util.php:3664 libraries/central_columns.lib.php:850
+#: libraries/DisplayResults.php:4862 libraries/Index.php:724
+#: libraries/Util.php:733 libraries/Util.php:1243 libraries/Util.php:3646
+#: libraries/Util.php:3647 libraries/central_columns.lib.php:850
 #: libraries/central_columns.lib.php:1198 libraries/config/messages.inc.php:892
 #: libraries/server_user_groups.lib.php:118 setup/frames/index.inc.php:184
 #: templates/console/bookmark_content.phtml:17
@@ -2387,7 +2383,7 @@ msgid "Select database first"
 msgstr "Zuerst Datenbank auswählen"
 
 #: js/messages.php:602 libraries/DisplayResults.php:5053
-#: libraries/Util.php:4173
+#: libraries/Util.php:4156
 #: templates/database/structure/print_view_data_dictionary_link.phtml:3
 #: templates/table/structure/optional_action_links.phtml:6
 msgid "Print"
@@ -2988,7 +2984,7 @@ msgstr ""
 msgid "Charset"
 msgstr "Zeichensatz"
 
-#: libraries/Charsets.php:207 libraries/Index.php:706
+#: libraries/Charsets.php:207 libraries/Index.php:702
 #: libraries/central_columns.lib.php:702 libraries/central_columns.lib.php:1387
 #: libraries/controllers/server/ServerDatabasesController.php:335
 #: libraries/operations.lib.php:288 libraries/operations.lib.php:1062
@@ -3219,27 +3215,27 @@ msgstr "Beachtet nicht Groß- und Kleinschreibung"
 msgid "case-sensitive collation"
 msgstr "Beachtet Groß- und Kleinschreibung"
 
-#: libraries/Config.php:1154
+#: libraries/Config.php:1155
 #, php-format
 msgid "Existing configuration file (%s) is not readable."
 msgstr "Bestehende Konfigurationsdatei (%s) kann nicht gelesen werden."
 
-#: libraries/Config.php:1184
+#: libraries/Config.php:1185
 msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr ""
 "Falsche Zugriffsrechte auf die Konfigurationsdatei. Schreibzugriff sollte "
 "nicht für alle möglich sein!"
 
-#: libraries/Config.php:1204
+#: libraries/Config.php:1205
 #, php-format
 msgid "Could not load default configuration from: %1$s"
 msgstr "Fehler beim Laden der Standard-Konfiguration von: %1$s"
 
-#: libraries/Config.php:1211
+#: libraries/Config.php:1212
 msgid "Failed to read configuration file!"
 msgstr "Fehler beim Lesen der Konfigurationsdatei!"
 
-#: libraries/Config.php:1214
+#: libraries/Config.php:1215
 msgid ""
 "This usually means there is a syntax error in it, please check any errors "
 "shown below."
@@ -3247,7 +3243,7 @@ msgstr ""
 "Dies bedeutet im Allgemeinen, dass sich ein Syntax-Fehler eingeschlichen "
 "hat. Bitte überprüfen Sie die unten angezeigten Fehler."
 
-#: libraries/Config.php:1575
+#: libraries/Config.php:1576
 msgid "Font size"
 msgstr "Schriftgröße"
 
@@ -3266,13 +3262,13 @@ msgstr "Keine Lesezeichen"
 msgid "SQL Query Console"
 msgstr "SQL-Abfragekonsole"
 
-#: libraries/DatabaseInterface.php:1387
+#: libraries/DatabaseInterface.php:1414
 msgid "Failed to set configured collation connection!"
 msgstr ""
 "Fehler beim Einstellen des konfigurierten Zeichensatzes/der konfigurierten "
 "Kollation für die Verbindung!"
 
-#: libraries/DatabaseInterface.php:1998
+#: libraries/DatabaseInterface.php:2025
 msgid ""
 "The server is not responding (or the local server's socket is not correctly "
 "configured)."
@@ -3280,21 +3276,21 @@ msgstr ""
 "Der Server antwortet nicht (evtl. ist der Socket des lokalen MySQL-Servers "
 "nicht korrekt konfiguriert)."
 
-#: libraries/DatabaseInterface.php:2003
+#: libraries/DatabaseInterface.php:2030
 msgid "The server is not responding."
 msgstr "Der Server antwortet nicht."
 
-#: libraries/DatabaseInterface.php:2009
+#: libraries/DatabaseInterface.php:2036
 msgid "Please check privileges of directory containing database."
 msgstr ""
 "Bitte prüfen Sie die Rechte des Verzeichnisses, in dem sich die Datenbank "
 "befindet."
 
-#: libraries/DatabaseInterface.php:2020
+#: libraries/DatabaseInterface.php:2047
 msgid "Details…"
 msgstr "Details…"
 
-#: libraries/DatabaseInterface.php:2242
+#: libraries/DatabaseInterface.php:2269
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr ""
 "Verbindung für den controluser, wie er in Ihrer Konfiguration angegeben ist, "
@@ -3454,9 +3450,9 @@ msgid_plural "%1$s matches in <strong>%2$s</strong>"
 msgstr[0] "%1$s Treffer in <strong>%2$s</strong>"
 msgstr[1] "%1$s Treffer in <strong>%2$s</strong>"
 
-#: libraries/DbSearch.php:353 libraries/Menu.php:319 libraries/Util.php:3366
-#: libraries/Util.php:3376 libraries/Util.php:3652 libraries/Util.php:3653
-#: libraries/Util.php:4307 libraries/config.values.php:43
+#: libraries/DbSearch.php:353 libraries/Menu.php:324 libraries/Util.php:3349
+#: libraries/Util.php:3359 libraries/Util.php:3635 libraries/Util.php:3636
+#: libraries/Util.php:4290 libraries/config.values.php:43
 #: libraries/config.values.php:51 libraries/config.values.php:120
 #: libraries/navigation/nodes/NodeTable.php:313
 #: templates/table/structure/check_all_table_column.phtml:12
@@ -3670,7 +3666,7 @@ msgstr "%d insgesamt"
 
 # (s is the abbreviation of "Sekunde", sec is it not (according to
 # International System of Units), so we wrote the complete one.)
-#: libraries/DisplayResults.php:4749 libraries/sql.lib.php:1376
+#: libraries/DisplayResults.php:4749 libraries/sql.lib.php:1374
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "Die Abfrage dauerte %01.4f Sekunden."
@@ -3824,7 +3820,7 @@ msgstr "Druckansicht"
 msgid "Click on the bar to scroll to top of page"
 msgstr "Klicken Sie auf die Leiste, um zum Anfang der Seite zu scrollen"
 
-#: libraries/Header.php:763 libraries/plugins/auth/AuthenticationCookie.php:138
+#: libraries/Header.php:763 libraries/plugins/auth/AuthenticationCookie.php:128
 msgid "Javascript must be enabled past this point!"
 msgstr "Javascript muss ab hier aktiviert sein!"
 
@@ -3874,11 +3870,11 @@ msgstr "Unique"
 msgid "Packed"
 msgstr "Gepackt"
 
-#: libraries/Index.php:705 libraries/tracking.lib.php:996
+#: libraries/Index.php:701 libraries/tracking.lib.php:996
 msgid "Cardinality"
 msgstr "Kardinalität"
 
-#: libraries/Index.php:708 libraries/rte/rte_events.lib.php:500
+#: libraries/Index.php:704 libraries/rte/rte_events.lib.php:500
 #: libraries/rte/rte_routines.lib.php:1047 libraries/tracking.lib.php:903
 #: libraries/tracking.lib.php:999
 #: templates/columns_definitions/partitions.phtml:79
@@ -3887,16 +3883,16 @@ msgstr "Kardinalität"
 msgid "Comment"
 msgstr "Kommentar"
 
-#: libraries/Index.php:736
+#: libraries/Index.php:732
 msgid "The primary key has been dropped."
 msgstr "Der Primärschlüssel wurde gelöscht."
 
-#: libraries/Index.php:745
+#: libraries/Index.php:741
 #, php-format
 msgid "Index %s has been dropped."
 msgstr "Index %s wurde entfernt."
 
-#: libraries/Index.php:762 libraries/Util.php:3659 libraries/Util.php:3660
+#: libraries/Index.php:758 libraries/Util.php:3642 libraries/Util.php:3643
 #: libraries/controllers/server/ServerDatabasesController.php:397
 #: libraries/controllers/table/TableStructureController.php:1178
 #: libraries/controllers/table/TableStructureController.php:1179
@@ -3908,7 +3904,7 @@ msgstr "Index %s wurde entfernt."
 msgid "Drop"
 msgstr "Löschen"
 
-#: libraries/Index.php:879
+#: libraries/Index.php:875
 #, php-format
 msgid ""
 "The indexes %1$s and %2$s seem to be equal and one of them could possibly be "
@@ -3924,7 +3920,7 @@ msgstr ""
 msgid "Page number:"
 msgstr "Seite:"
 
-#: libraries/LanguageManager.php:870
+#: libraries/LanguageManager.php:874
 msgid "Ignoring unsupported language code."
 msgstr "Ignoriere nicht unterstützten Sprach-Code."
 
@@ -3940,12 +3936,12 @@ msgstr ""
 msgid "%1$s (near <code>%2$s</code>)"
 msgstr "%1$s (bei <code>%2$s</code>)"
 
-#: libraries/Menu.php:203 libraries/ServerStatusData.php:424
+#: libraries/Menu.php:208 libraries/ServerStatusData.php:424
 #: libraries/config/messages.inc.php:930
 msgid "Server"
 msgstr "Server"
 
-#: libraries/Menu.php:222 libraries/config/messages.inc.php:922
+#: libraries/Menu.php:227 libraries/config/messages.inc.php:922
 #: libraries/mult_submits.lib.php:335
 #: libraries/plugins/export/ExportHtmlword.php:149
 #: libraries/plugins/export/ExportOdt.php:197
@@ -3965,14 +3961,14 @@ msgstr "Server"
 msgid "Database"
 msgstr "Datenbank"
 
-#: libraries/Menu.php:251 libraries/navigation/nodes/NodeView.php:30
+#: libraries/Menu.php:256 libraries/navigation/nodes/NodeView.php:30
 #: libraries/tbl_info.inc.php:61
 #: templates/database/structure/structure_table_row.phtml:97
 #: templates/database/structure/structure_table_row.phtml:159
 msgid "View"
 msgstr "Ansicht"
 
-#: libraries/Menu.php:251 libraries/config/messages.inc.php:932
+#: libraries/Menu.php:256 libraries/config/messages.inc.php:932
 #: libraries/plugins/export/ExportXml.php:493 libraries/rte/rte_list.lib.php:93
 #: libraries/rte/rte_triggers.lib.php:334
 #: libraries/server_privileges.lib.php:1268
@@ -3988,9 +3984,9 @@ msgstr "Ansicht"
 msgid "Table"
 msgstr "Tabelle"
 
-#: libraries/Menu.php:333 libraries/Menu.php:436 libraries/Menu.php:549
-#: libraries/Util.php:3363 libraries/Util.php:3373 libraries/Util.php:3379
-#: libraries/Util.php:4277 libraries/Util.php:4292 libraries/Util.php:4309
+#: libraries/Menu.php:338 libraries/Menu.php:441 libraries/Menu.php:554
+#: libraries/Util.php:3346 libraries/Util.php:3356 libraries/Util.php:3362
+#: libraries/Util.php:4260 libraries/Util.php:4275 libraries/Util.php:4292
 #: libraries/config.values.php:40 libraries/config.values.php:48
 #: libraries/config.values.php:111 libraries/config.values.php:117
 #: libraries/config/messages.inc.php:324
@@ -3998,45 +3994,45 @@ msgstr "Tabelle"
 msgid "SQL"
 msgstr "SQL"
 
-#: libraries/Menu.php:336 libraries/Menu.php:439 libraries/Util.php:3364
-#: libraries/Util.php:3374 libraries/Util.php:3380 libraries/Util.php:3654
-#: libraries/Util.php:3655 libraries/Util.php:4293 libraries/Util.php:4310
+#: libraries/Menu.php:341 libraries/Menu.php:444 libraries/Util.php:3347
+#: libraries/Util.php:3357 libraries/Util.php:3363 libraries/Util.php:3637
+#: libraries/Util.php:3638 libraries/Util.php:4276 libraries/Util.php:4293
 #: libraries/config.values.php:41 libraries/config.values.php:49
 #: libraries/config.values.php:112 libraries/config.values.php:118
 #: libraries/navigation/nodes/NodeTable.php:298
 msgid "Search"
 msgstr "Suche"
 
-#: libraries/Menu.php:346 libraries/Util.php:3365 libraries/Util.php:3375
-#: libraries/Util.php:3656 libraries/Util.php:3657 libraries/Util.php:4311
+#: libraries/Menu.php:351 libraries/Util.php:3348 libraries/Util.php:3358
+#: libraries/Util.php:3639 libraries/Util.php:3640 libraries/Util.php:4294
 #: libraries/config.values.php:42 libraries/config.values.php:50
 #: libraries/config.values.php:119 libraries/navigation/nodes/NodeTable.php:304
 #: libraries/sql_query_form.lib.php:289 libraries/sql_query_form.lib.php:292
 msgid "Insert"
 msgstr "Einfügen"
 
-#: libraries/Menu.php:370 libraries/Menu.php:474 libraries/Util.php:4298
-#: libraries/Util.php:4314 libraries/config.values.php:107
+#: libraries/Menu.php:375 libraries/Menu.php:479 libraries/Util.php:4281
+#: libraries/Util.php:4297 libraries/config.values.php:107
 #: libraries/server_common.lib.php:48 libraries/server_privileges.lib.php:2643
 #: libraries/server_privileges.lib.php:4501
 #: templates/privileges/privileges_summary.phtml:16
 msgid "Privileges"
 msgstr "Rechte"
 
-#: libraries/Menu.php:379 libraries/Menu.php:387 libraries/Menu.php:466
-#: libraries/Util.php:3367 libraries/Util.php:3381 libraries/Util.php:4297
-#: libraries/Util.php:4315 libraries/config.values.php:113
+#: libraries/Menu.php:384 libraries/Menu.php:392 libraries/Menu.php:471
+#: libraries/Util.php:3350 libraries/Util.php:3364 libraries/Util.php:4280
+#: libraries/Util.php:4298 libraries/config.values.php:113
 #: view_operations.php:103
 msgid "Operations"
 msgstr "Operationen"
 
-#: libraries/Menu.php:392 libraries/Menu.php:496 libraries/Util.php:4302
-#: libraries/Util.php:4316 libraries/relation.lib.php:265
+#: libraries/Menu.php:397 libraries/Menu.php:501 libraries/Util.php:4285
+#: libraries/Util.php:4299 libraries/relation.lib.php:265
 msgid "Tracking"
 msgstr "Nachverfolgung"
 
-#: libraries/Menu.php:404 libraries/Menu.php:490 libraries/Util.php:4301
-#: libraries/Util.php:4317
+#: libraries/Menu.php:409 libraries/Menu.php:495 libraries/Util.php:4284
+#: libraries/Util.php:4300
 #: libraries/navigation/nodes/NodeTriggerContainer.php:25
 #: libraries/plugins/export/ExportHtmlword.php:578
 #: libraries/plugins/export/ExportOdt.php:713
@@ -4048,20 +4044,20 @@ msgstr "Nachverfolgung"
 msgid "Triggers"
 msgstr "Trigger"
 
-#: libraries/Menu.php:443 libraries/Menu.php:450 libraries/Menu.php:457
+#: libraries/Menu.php:448 libraries/Menu.php:455 libraries/Menu.php:462
 msgid "Database seems to be empty!"
 msgstr "Die Datenbank scheint leer zu sein!"
 
-#: libraries/Menu.php:446 libraries/Util.php:4294
+#: libraries/Menu.php:451 libraries/Util.php:4277
 msgid "Query"
 msgstr "Abfrage"
 
-#: libraries/Menu.php:479 libraries/Util.php:4299
+#: libraries/Menu.php:484 libraries/Util.php:4282
 #: libraries/rte/rte_words.lib.php:36
 msgid "Routines"
 msgstr "Routinen"
 
-#: libraries/Menu.php:484 libraries/Util.php:4300
+#: libraries/Menu.php:489 libraries/Util.php:4283
 #: libraries/navigation/nodes/NodeEventContainer.php:25
 #: libraries/plugins/export/ExportSql.php:952
 #: libraries/plugins/export/ExportXml.php:103
@@ -4069,16 +4065,16 @@ msgstr "Routinen"
 msgid "Events"
 msgstr "Ereignisse"
 
-#: libraries/Menu.php:502 libraries/Util.php:4303
+#: libraries/Menu.php:507 libraries/Util.php:4286
 msgid "Designer"
 msgstr "Designer"
 
-#: libraries/Menu.php:511 libraries/Util.php:4304
+#: libraries/Menu.php:516 libraries/Util.php:4287
 #: templates/database/structure/check_all_tables.phtml:34
 msgid "Central columns"
 msgstr "Zentrale Spalten"
 
-#: libraries/Menu.php:545 libraries/Util.php:4276
+#: libraries/Menu.php:550 libraries/Util.php:4259
 #: libraries/config.values.php:104 libraries/config/messages.inc.php:269
 #: libraries/config/messages.inc.php:344
 #: libraries/navigation/NavigationTree.php:1269
@@ -4086,39 +4082,39 @@ msgstr "Zentrale Spalten"
 msgid "Databases"
 msgstr "Datenbanken"
 
-#: libraries/Menu.php:569
+#: libraries/Menu.php:574
 msgid "User accounts"
 msgstr "Benutzerkonten"
 
-#: libraries/Menu.php:596 libraries/ServerStatusData.php:121
-#: libraries/Util.php:4283 libraries/server_common.lib.php:33
+#: libraries/Menu.php:601 libraries/ServerStatusData.php:121
+#: libraries/Util.php:4266 libraries/server_common.lib.php:33
 msgid "Binary log"
 msgstr "Binäres Protokoll"
 
-#: libraries/Menu.php:602 libraries/ServerStatusData.php:126
-#: libraries/Util.php:4284 libraries/server_common.lib.php:39
+#: libraries/Menu.php:607 libraries/ServerStatusData.php:126
+#: libraries/Util.php:4267 libraries/server_common.lib.php:39
 #: templates/database/structure/body_for_table_summary.phtml:10
 #: templates/database/structure/table_header.phtml:27
 msgid "Replication"
 msgstr "Replikation"
 
-#: libraries/Menu.php:607 libraries/ServerStatusData.php:193
-#: libraries/Util.php:4285 libraries/config.values.php:106
+#: libraries/Menu.php:612 libraries/ServerStatusData.php:193
+#: libraries/Util.php:4268 libraries/config.values.php:106
 #: libraries/sql_query_form.lib.php:427
 #: templates/server/engines/engine.phtml:15
 #: templates/server/engines/engine.phtml:18
 msgid "Variables"
 msgstr "Variablen"
 
-#: libraries/Menu.php:611 libraries/Util.php:4286
+#: libraries/Menu.php:616 libraries/Util.php:4269
 msgid "Charsets"
 msgstr "Zeichensätze"
 
-#: libraries/Menu.php:615 libraries/Util.php:4288
+#: libraries/Menu.php:620 libraries/Util.php:4271
 msgid "Engines"
 msgstr "Formate"
 
-#: libraries/Menu.php:619 libraries/Util.php:4287
+#: libraries/Menu.php:624 libraries/Util.php:4270
 #: libraries/server_common.lib.php:30
 msgid "Plugins"
 msgstr "Erweiterungen"
@@ -4436,22 +4432,22 @@ msgstr "Keine Vorschau verfügbar."
 msgid "take it"
 msgstr "auswählen"
 
-#: libraries/ThemeManager.php:126
+#: libraries/ThemeManager.php:148
 #, php-format
 msgid "Default theme %s not found!"
 msgstr "Standard-Oberflächendesign %s nicht gefunden!"
 
-#: libraries/ThemeManager.php:182
+#: libraries/ThemeManager.php:204
 #, php-format
 msgid "Theme %s not found!"
 msgstr "Oberflächendesign %s nicht gefunden!"
 
-#: libraries/ThemeManager.php:262
+#: libraries/ThemeManager.php:284
 #, php-format
 msgid "Theme path not found for theme %s!"
 msgstr "Pfad für das Oberflächendesign %s nicht gefunden!"
 
-#: libraries/ThemeManager.php:356
+#: libraries/ThemeManager.php:378
 msgid "Theme:"
 msgstr "Design:"
 
@@ -4858,33 +4854,33 @@ msgid "The %s functionality is affected by a known bug, see %s"
 msgstr ""
 "Die Funktion %s wird durch einen bekannten Fehler beeinträchtigt, siehe %s"
 
-#: libraries/Util.php:3571 prefs_manage.php:249
+#: libraries/Util.php:3554 prefs_manage.php:251
 msgid "Browse your computer:"
 msgstr "Durchsuchen Sie Ihren Computer:"
 
-#: libraries/Util.php:3596
+#: libraries/Util.php:3579
 #, php-format
 msgid "Select from the web server upload directory <b>%s</b>:"
 msgstr "Wählen Sie vom Webserver-Uploadverzeichnis <b>%s</b>:"
 
-#: libraries/Util.php:3625 libraries/insert_edit.lib.php:1178
+#: libraries/Util.php:3608 libraries/insert_edit.lib.php:1178
 msgid "The directory you set for upload work cannot be reached."
 msgstr "Auf das festgelegte Upload-Verzeichnis kann nicht zugegriffen werden."
 
-#: libraries/Util.php:3636
+#: libraries/Util.php:3619
 msgid "There are no files to upload!"
 msgstr "Es sind keine Dateien zum Hochladen vorhanden!"
 
-#: libraries/Util.php:3661 libraries/Util.php:3662
+#: libraries/Util.php:3644 libraries/Util.php:3645
 #: templates/database/structure/check_all_tables.phtml:16
 msgid "Empty"
 msgstr "Leeren"
 
-#: libraries/Util.php:3667 libraries/Util.php:3668
+#: libraries/Util.php:3650 libraries/Util.php:3651
 msgid "Execute"
 msgstr "Ausführen"
 
-#: libraries/Util.php:4279
+#: libraries/Util.php:4262
 msgid "Users"
 msgstr "Benutzer"
 
@@ -5037,7 +5033,7 @@ msgstr "Server %d"
 msgid "Invalid authentication method set in configuration:"
 msgstr "Ungültige Authentifikationsmethode:"
 
-#: libraries/common.inc.php:810
+#: libraries/common.inc.php:808
 #, php-format
 msgid ""
 "Unable to use timezone %1$s for server %2$d. Please check your configuration "
@@ -5049,20 +5045,20 @@ msgstr ""
 "[%3$d]['SessionTimeZone'][/em]. phpMyAdmin verwendet aktuell die Standard-"
 "Zeitzone des Datenbankservers."
 
-#: libraries/common.inc.php:842
+#: libraries/common.inc.php:848
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "Sie sollten auf %s %s oder neuer aktualisieren."
 
-#: libraries/common.inc.php:928
+#: libraries/common.inc.php:934
 msgid "Error: Token mismatch"
 msgstr "Fehler: Token stimmen nicht überein"
 
-#: libraries/common.inc.php:946
+#: libraries/common.inc.php:952
 msgid "GLOBALS overwrite attempt"
 msgstr "GLOBALS Überschreibversuch"
 
-#: libraries/common.inc.php:953
+#: libraries/common.inc.php:959
 msgid "possible exploit"
 msgstr "Mögliche Ausnutzung"
 
@@ -5566,9 +5562,11 @@ msgstr "Cursor hervorheben"
 # Maybe the wikipedia link should point to the german version of the article
 # (http://de.wikipedia.org/wiki/Bzip2 )
 #: libraries/config/messages.inc.php:47
-msgid ""
-"Enable [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] compression for "
-"import operations."
+#, fuzzy
+#| msgid ""
+#| "Enable [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] compression for "
+#| "import operations."
+msgid "Enable bzip2 compression for import operations."
 msgstr ""
 "[a@http://de.wikipedia.org/wiki/Bzip2]bzip2[/a]-Kompression für Import "
 "aktivieren."
@@ -5592,9 +5590,13 @@ msgid "CHAR columns editing"
 msgstr "Bearbeitung von CHAR-Felder"
 
 #: libraries/config/messages.inc.php:58
+#, fuzzy
+#| msgid ""
+#| "Use user-friendly editor for editing SQL queries ([a@http://codemirror."
+#| "net/]CodeMirror[/a]) with syntax highlighting and line numbers."
 msgid ""
-"Use user-friendly editor for editing SQL queries ([a@http://codemirror."
-"net/]CodeMirror[/a]) with syntax highlighting and line numbers."
+"Use user-friendly editor for editing SQL queries (CodeMirror) with syntax "
+"highlighting and line numbers."
 msgstr ""
 "Benutzerfreundlichen Editor ([a@http://codemirror.net/]CodeMirror[/a]) mit "
 "Syntaxhervorhebung und Zeilennummern zum Bearbeiten von SQL-Abfragen "
@@ -5787,7 +5789,7 @@ msgstr "Maximale Ausführungszeit"
 msgid "Use %s statement"
 msgstr "%s-Befehl verwenden"
 
-#: libraries/config/messages.inc.php:137 prefs_manage.php:319
+#: libraries/config/messages.inc.php:137 prefs_manage.php:321
 msgid "Save as file"
 msgstr "Senden"
 
@@ -6359,9 +6361,11 @@ msgid "Disable some of the warnings shown by phpMyAdmin."
 msgstr "Unterdrücken einiger phpMyAdmin-Warnhinweise."
 
 #: libraries/config/messages.inc.php:353
-msgid ""
-"Enable [a@http://en.wikipedia.org/wiki/Gzip]gzip[/a] compression for import "
-"and export operations."
+#, fuzzy
+#| msgid ""
+#| "Enable [a@http://en.wikipedia.org/wiki/Gzip]gzip[/a] compression for "
+#| "import and export operations."
+msgid "Enable gzip compression for import and export operations."
 msgstr ""
 "[a@http://de.wikipedia.org/wiki/Gzip]GZip[/a]-Kompression für Import- und "
 "Exportoperationen aktiviren."
@@ -7070,9 +7074,13 @@ msgid "Authentication type"
 msgstr "Authentifikationstyp"
 
 #: libraries/config/messages.inc.php:640
+#, fuzzy
+#| msgid ""
+#| "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/"
+#| "a] support, suggested: [kbd]pma__bookmark[/kbd]"
 msgid ""
-"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/a] "
-"support, suggested: [kbd]pma__bookmark[/kbd]"
+"Leave blank for no [doc@bookmarks@]bookmark[/doc] support, suggested: "
+"[kbd]pma__bookmark[/kbd]"
 msgstr ""
 "Leer lassen für keine [a@http://wiki.phpmyadmin.net/pma/"
 "bookmark]Lesezeichen[/a]-Unterstützung, Vorschlag: [kbd]pma_bookmark[/kbd]"
@@ -7115,9 +7123,14 @@ msgid "Control user password"
 msgstr "pmadb Benutzer Passwort"
 
 #: libraries/config/messages.inc.php:656
+#, fuzzy
+#| msgid ""
+#| "A special MySQL user configured with limited permissions, more "
+#| "information available on [a@http://wiki.phpmyadmin.net/pma/"
+#| "controluser]wiki[/a]."
 msgid ""
 "A special MySQL user configured with limited permissions, more information "
-"available on [a@http://wiki.phpmyadmin.net/pma/controluser]wiki[/a]."
+"available on [doc@linked-tables]documentation[/doc]."
 msgstr ""
 "Ein besonderer MySQL Nutzer mit eingeschränkten Rechten, nähere "
 "Informationen auf [a@http://wiki.phpmyadmin.net/pma/controluser]wiki[/a]."
@@ -7287,10 +7300,15 @@ msgid "PDF schema: pages table"
 msgstr "PDF-Schema: Seiten-Tabelle"
 
 #: libraries/config/messages.inc.php:723
+#, fuzzy
+#| msgid ""
+#| "Database used for relations, bookmarks, and PDF features. See [a@http://"
+#| "wiki.phpmyadmin.net/pma/pmadb]pmadb[/a] for complete information. Leave "
+#| "blank for no support. Suggested: [kbd]phpmyadmin[/kbd]."
 msgid ""
-"Database used for relations, bookmarks, and PDF features. See [a@http://wiki."
-"phpmyadmin.net/pma/pmadb]pmadb[/a] for complete information. Leave blank for "
-"no support. Suggested: [kbd]phpmyadmin[/kbd]."
+"Database used for relations, bookmarks, and PDF features. See [doc@linked-"
+"tables]pmadb[/doc] for complete information. Leave blank for no support. "
+"Suggested: [kbd]phpmyadmin[/kbd]."
 msgstr ""
 "Datenbank für Relationen, Bookmarks, and PDF Features. Siehe [a@http://wiki."
 "phpmyadmin.net/pma/pmadb]pmadb[/a] für komplette Information. Leer lassen "
@@ -7334,9 +7352,13 @@ msgid "Favorites table"
 msgstr "Favoriten-Tabelle"
 
 #: libraries/config/messages.inc.php:742
+#, fuzzy
+#| msgid ""
+#| "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
+#| "links[/a] support, suggested: [kbd]pma__relation[/kbd]."
 msgid ""
-"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
-"links[/a] support, suggested: [kbd]pma__relation[/kbd]."
+"Leave blank for no [doc@relations@]relation-links[/doc] support, suggested: "
+"[kbd]pma__relation[/kbd]."
 msgstr ""
 "Leer lassen für keine [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
 "link[/a] Unterstützung, Vorschlag: [kbd]pma__relation[/kbd]."
@@ -7346,9 +7368,12 @@ msgid "Relation table"
 msgstr "Relation Tabelle"
 
 #: libraries/config/messages.inc.php:748
+#, fuzzy
+#| msgid ""
+#| "See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
+#| "types[/a] for an example."
 msgid ""
-"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
-"types[/a] for an example."
+"See [doc@authentication-modes]authentication types[/doc] for an example."
 msgstr ""
 "Siehe [a@http://wiki.phpmyadmin.net/pma/"
 "auth_types#signon]Authentifizierungsarten[/a] für ein Beispiel."
@@ -7876,15 +7901,15 @@ msgstr "Das Kennwort für die Authentifizierung mit dem Proxy."
 msgid "Proxy password"
 msgstr "Proxy-Passwort"
 
-# Maybe wikipedia links should point to $lang.wikipedia.org, eg
-# http://de.wikipedia.org/wiki/ZIP-Dateiformat
 #: libraries/config/messages.inc.php:974
-msgid ""
-"Enable [a@http://en.wikipedia.org/wiki/ZIP_(file_format)]ZIP[/a] compression "
-"for import and export operations."
+#, fuzzy
+#| msgid ""
+#| "Enable [a@http://en.wikipedia.org/wiki/Gzip]gzip[/a] compression for "
+#| "import and export operations."
+msgid "Enable ZIP compression for import and export operations."
 msgstr ""
-"[a@http://de.wikipedia.org/wiki/ZIP-Dateiformat]ZIP[/a]-Kompression für "
-"Import- und Exportoperationen aktivieren."
+"[a@http://de.wikipedia.org/wiki/Gzip]GZip[/a]-Kompression für Import- und "
+"Exportoperationen aktiviren."
 
 #: libraries/config/messages.inc.php:977
 msgid "ZIP"
@@ -8225,7 +8250,7 @@ msgstr "Unterschiedliche Werte"
 msgid "The %s extension is missing. Please check your PHP configuration."
 msgstr "Die Erweiterung %s fehlt. Bitte die PHP-Konfiguration überprüfen."
 
-#: libraries/core.lib.php:825 libraries/mult_submits.inc.php:331
+#: libraries/core.lib.php:830 libraries/mult_submits.inc.php:331
 #: tbl_operations.php:205 tbl_replace.php:313 templates/preview_sql.phtml:3
 msgid "No change"
 msgstr "Keine Änderung"
@@ -8256,7 +8281,7 @@ msgid "No Password"
 msgstr "Kein Passwort"
 
 #: libraries/display_change_password.lib.php:65
-#: libraries/plugins/auth/AuthenticationCookie.php:185
+#: libraries/plugins/auth/AuthenticationCookie.php:175
 #: libraries/replication_gui.lib.php:423 libraries/replication_gui.lib.php:852
 #: libraries/server_privileges.lib.php:1777
 msgid "Password:"
@@ -8984,14 +9009,6 @@ msgstr ""
 "Dokumentation und weitere Informationen über PBXT sind auf der %sPrimeBase "
 "XT-Website%s verfügbar."
 
-#: libraries/engines/Pbxt.php:189
-msgid "Related Links"
-msgstr "Verwandte Links"
-
-#: libraries/engines/Pbxt.php:192
-msgid "The PrimeBase XT Blog by Paul McCullagh"
-msgstr "The PrimeBase XT-Blog von Paul McCullagh"
-
 #: libraries/export.lib.php:124 libraries/export.lib.php:159
 #: libraries/export.lib.php:383
 #, php-format
@@ -9019,12 +9036,12 @@ msgid "Dump has been saved to file %s."
 msgstr "Auflistung wurde in Datei %s gespeichert."
 
 #: libraries/import.lib.php:102 libraries/insert_edit.lib.php:124
-#: libraries/rte/rte_routines.lib.php:1444 libraries/sql.lib.php:1370
+#: libraries/rte/rte_routines.lib.php:1444 libraries/sql.lib.php:1368
 #: tbl_get_field.php:45
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL lieferte ein leeres Resultat zurück (d.h. null Datensätze)."
 
-#: libraries/import.lib.php:273 libraries/sql.lib.php:1384
+#: libraries/import.lib.php:273 libraries/sql.lib.php:1382
 msgid "[ROLLBACK occurred.]"
 msgstr "[ROLLBACK aufgetreten.]"
 
@@ -9184,11 +9201,11 @@ msgstr ""
 msgid "Value"
 msgstr "Wert"
 
-#: libraries/insert_edit.lib.php:1953 libraries/sql.lib.php:1367
+#: libraries/insert_edit.lib.php:1953 libraries/sql.lib.php:1365
 msgid "Showing SQL query"
 msgstr "Ansicht als SQL Abfrage"
 
-#: libraries/insert_edit.lib.php:1978 libraries/sql.lib.php:1345
+#: libraries/insert_edit.lib.php:1978 libraries/sql.lib.php:1343
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "ID der eingefügten Zeile: %1$d"
@@ -9278,19 +9295,19 @@ msgstr "Zeige"
 msgid "Home"
 msgstr "Startseite"
 
-#: libraries/navigation/NavigationHeader.php:176
+#: libraries/navigation/NavigationHeader.php:175
 msgid "Log out"
 msgstr "Neu anmelden"
 
-#: libraries/navigation/NavigationHeader.php:187
+#: libraries/navigation/NavigationHeader.php:186
 msgid "phpMyAdmin documentation"
 msgstr "phpMyAdmin-Dokumentation"
 
-#: libraries/navigation/NavigationHeader.php:207
+#: libraries/navigation/NavigationHeader.php:206
 msgid "Navigation panel settings"
 msgstr "Navigationspanel-Einstellungen"
 
-#: libraries/navigation/NavigationHeader.php:218
+#: libraries/navigation/NavigationHeader.php:217
 msgid "Reload navigation panel"
 msgstr "Navigations-Panel aktualisieren"
 
@@ -9967,21 +9984,21 @@ msgstr "Der Tabellenname ist leer!"
 msgid "This format has no options"
 msgstr "Für dieses Format sind keine Optionen vorhanden"
 
-#: libraries/plugins/AuthenticationPlugin.php:66
+#: libraries/plugins/AuthenticationPlugin.php:106
 msgid ""
 "Login without a password is forbidden by configuration (see AllowNoPassword)"
 msgstr ""
 "Login ohne Passwort ist verboten (siehe AllowNoPassword) in der Konfiguration"
 
-#: libraries/plugins/AuthenticationPlugin.php:73
+#: libraries/plugins/AuthenticationPlugin.php:113
 #, php-format
 msgid "No activity within %s seconds; please log in again."
 msgstr ""
 "Da Sie seit mindestens %s Sekunden inaktiv waren, wurden Sie automatisch "
 "abgemeldet. Bitte melden Sie sich erneut an."
 
-#: libraries/plugins/AuthenticationPlugin.php:82
-#: libraries/plugins/AuthenticationPlugin.php:84
+#: libraries/plugins/AuthenticationPlugin.php:122
+#: libraries/plugins/AuthenticationPlugin.php:124
 msgid "Cannot log in to the MySQL server"
 msgstr "Die Anmeldung am MySQL-Server ist fehlgeschlagen"
 
@@ -10000,8 +10017,8 @@ msgstr ""
 "hergestellt werden."
 
 #: libraries/plugins/auth/AuthenticationConfig.php:99
-#: libraries/plugins/auth/AuthenticationCookie.php:120
-#: libraries/plugins/auth/AuthenticationHttp.php:94
+#: libraries/plugins/auth/AuthenticationCookie.php:110
+#: libraries/plugins/auth/AuthenticationHttp.php:82
 #, php-format
 msgid "Welcome to %s"
 msgstr "Willkommen bei %s"
@@ -10032,46 +10049,46 @@ msgstr ""
 msgid "Retry to connect"
 msgstr "Versuche einen neuen Verbindungsaufbau"
 
-#: libraries/plugins/auth/AuthenticationCookie.php:132
+#: libraries/plugins/auth/AuthenticationCookie.php:122
 msgid "Your session has expired. Please log in again."
 msgstr "Ihre Sitzung ist abgelaufen. Bitte melden Sie sich erneut an."
 
-#: libraries/plugins/auth/AuthenticationCookie.php:156
+#: libraries/plugins/auth/AuthenticationCookie.php:146
 msgid "Log in"
 msgstr "Anmeldung"
 
+#: libraries/plugins/auth/AuthenticationCookie.php:154
 #: libraries/plugins/auth/AuthenticationCookie.php:164
-#: libraries/plugins/auth/AuthenticationCookie.php:174
 msgid "You can enter hostname/IP address and port separated by space."
 msgstr ""
 "Sie können einen Rechnernamen oder eine IP Adresse und einen Port durch "
 "Leerzeichen getrennt eingeben."
 
-#: libraries/plugins/auth/AuthenticationCookie.php:179
+#: libraries/plugins/auth/AuthenticationCookie.php:169
 msgid "Username:"
 msgstr "Benutzername:"
 
-#: libraries/plugins/auth/AuthenticationCookie.php:191
+#: libraries/plugins/auth/AuthenticationCookie.php:181
 msgid "Server Choice:"
 msgstr "Server auswählen:"
 
-#: libraries/plugins/auth/AuthenticationCookie.php:332
+#: libraries/plugins/auth/AuthenticationCookie.php:294
 msgid "Entered captcha is wrong, try again!"
 msgstr "Das eingegebene Captcha ist falsch, bitte erneut versuchen!"
 
-#: libraries/plugins/auth/AuthenticationCookie.php:336
+#: libraries/plugins/auth/AuthenticationCookie.php:298
 msgid "Please enter correct captcha!"
 msgstr "Bitte korrektes Captcha eingeben!"
 
-#: libraries/plugins/auth/AuthenticationCookie.php:360
+#: libraries/plugins/auth/AuthenticationCookie.php:322
 msgid "You are not allowed to log in to this MySQL server!"
 msgstr "Sie sind nicht berechtigt, sich an diesem MySQL-Server anzumelden!"
 
-#: libraries/plugins/auth/AuthenticationHttp.php:99
+#: libraries/plugins/auth/AuthenticationHttp.php:87
 msgid "Wrong username/password. Access denied."
 msgstr "Falscher Benutzername/Passwort. Zugriff verweigert."
 
-#: libraries/plugins/auth/AuthenticationSignon.php:92
+#: libraries/plugins/auth/AuthenticationSignon.php:84
 msgid "Can not find signon authentication script:"
 msgstr "Konnte Anmelde-Authentifizierungs-Script nicht finden:"
 
@@ -13774,32 +13791,32 @@ msgstr "Aufrufe"
 msgid "ø Time"
 msgstr "ø Zeit"
 
-#: libraries/sql.lib.php:571 libraries/sql.lib.php:589
+#: libraries/sql.lib.php:569 libraries/sql.lib.php:587
 msgid "Bookmark this SQL query"
 msgstr "SQL-Abfrage speichern"
 
-#: libraries/sql.lib.php:575
+#: libraries/sql.lib.php:573
 msgid "Label:"
 msgstr "Titel:"
 
-#: libraries/sql.lib.php:582 libraries/sql_query_form.lib.php:315
+#: libraries/sql.lib.php:580 libraries/sql_query_form.lib.php:315
 msgid "Let every user access this bookmark"
 msgstr "Diese gespeicherte SQL-Abfrage für jeden Benutzer verfügbar machen"
 
-#: libraries/sql.lib.php:788
+#: libraries/sql.lib.php:786
 msgid "Bookmark not created!"
 msgstr "Bookmark nicht erstellt!"
 
-#: libraries/sql.lib.php:896
+#: libraries/sql.lib.php:894
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr "Lesezeichen \"%s\" wird als Standard-Anzeigeabfrage verwendet."
 
-#: libraries/sql.lib.php:1364
+#: libraries/sql.lib.php:1362
 msgid "Showing as PHP code"
 msgstr "Ansicht als PHP-Code"
 
-#: libraries/sql.lib.php:1736
+#: libraries/sql.lib.php:1734
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
@@ -13809,7 +13826,7 @@ msgstr ""
 "Bearbeitungsfunktion, Kontrollkästchen, Bearbeiten, Kopieren und Löschen von "
 "Links sind nicht verfügbar. %s"
 
-#: libraries/sql.lib.php:1750
+#: libraries/sql.lib.php:1748
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, Edit, Copy "
@@ -13819,7 +13836,7 @@ msgstr ""
 "Bearbeitungsfunktion, Bearbeiten, Kopieren und Löschen können zu ungewollten "
 "Ergebnissen führen. %s"
 
-#: libraries/sql.lib.php:1792
+#: libraries/sql.lib.php:1790
 #, php-format
 msgid "Problems with indexes of table `%s`"
 msgstr "Warnungen bei den Indizes der Tabelle `%s`"
@@ -14101,7 +14118,7 @@ msgstr "Versionen"
 msgid "Manage your settings"
 msgstr "Einstellungen verwalten"
 
-#: libraries/user_preferences.inc.php:57 prefs_manage.php:308
+#: libraries/user_preferences.inc.php:57 prefs_manage.php:310
 msgid "Configuration has been saved."
 msgstr "Die Konfiguration wurde gespeichert."
 
@@ -14138,47 +14155,47 @@ msgstr ""
 "Einstellungen können nicht gespeichert werden, ausgefülltes Formular enthält "
 "Fehler!"
 
-#: prefs_manage.php:88
+#: prefs_manage.php:89
 msgid "Could not import configuration"
 msgstr "Fehler beim Importieren der Konfiguration"
 
-#: prefs_manage.php:120
+#: prefs_manage.php:121
 msgid "Configuration contains incorrect data for some fields."
 msgstr "Konfiguration enthält inkorrekte Daten für einige Felder."
 
-#: prefs_manage.php:139
+#: prefs_manage.php:140
 msgid "Do you want to import remaining settings?"
 msgstr "Sollen die restlichen Einstellungen importiert werden?"
 
-#: prefs_manage.php:232 prefs_manage.php:261
+#: prefs_manage.php:234 prefs_manage.php:263
 msgid "Saved on: @DATE@"
 msgstr "Gespeichert am: @DATE@"
 
-#: prefs_manage.php:247
+#: prefs_manage.php:249
 msgid "Import from file"
 msgstr "Import aus Datei"
 
-#: prefs_manage.php:255
+#: prefs_manage.php:257
 msgid "Import from browser's storage"
 msgstr "Import aus Browserspeicher"
 
-#: prefs_manage.php:258
+#: prefs_manage.php:260
 msgid "Settings will be imported from your browser's local storage."
 msgstr "Einstellungen werden aus Ihrem lokalen Browserspeicher importiert."
 
-#: prefs_manage.php:264
+#: prefs_manage.php:266
 msgid "You have no saved settings!"
 msgstr "Sie haben keine gespeicherten Einstellungen!"
 
-#: prefs_manage.php:269 prefs_manage.php:348
+#: prefs_manage.php:271 prefs_manage.php:350
 msgid "This feature is not supported by your web browser"
 msgstr "Dieses Feature wird von ihrem Webbrowser nicht unterstützt"
 
-#: prefs_manage.php:275
+#: prefs_manage.php:277
 msgid "Merge with current configuration"
 msgstr "Mit aktueller Konfiguration zusammenführen"
 
-#: prefs_manage.php:291
+#: prefs_manage.php:293
 #, php-format
 msgid ""
 "You can set more settings by modifying config.inc.php, eg. by using %sSetup "
@@ -14187,19 +14204,19 @@ msgstr ""
 "Weitere Einstellungen können durch das Anpassen der Datei config.inc.php "
 "verändert werden, z.B. durch die Verwendung von %sSetup Script%s."
 
-#: prefs_manage.php:324
+#: prefs_manage.php:326
 msgid "Save to browser's storage"
 msgstr "Im Browserspeicher speichern"
 
-#: prefs_manage.php:331
+#: prefs_manage.php:333
 msgid "Settings will be saved in your browser's local storage."
 msgstr "Einstellungen werden in Ihrem lokalen Browserspeicher gespeichert."
 
-#: prefs_manage.php:339
+#: prefs_manage.php:341
 msgid "Existing settings will be overwritten!"
 msgstr "Vorhandene Einstellungen werden überschrieben!"
 
-#: prefs_manage.php:367
+#: prefs_manage.php:369
 msgid "You can reset all your settings and restore them to default values."
 msgstr "Sie können alle Einstellungen auf die Standardwerte zurücksetzen."
 
@@ -15628,11 +15645,11 @@ msgstr "Spalte %s wurde gelöscht."
 msgid "Click to toggle"
 msgstr "Zum Umschalten anklicken"
 
-#: themes.php:17 themes.php:22
+#: themes.php:19 themes.php:24
 msgid "Theme"
 msgstr "Oberflächendesign"
 
-#: themes.php:25
+#: themes.php:27
 msgid "Get more themes!"
 msgstr "Mehr Designs herunterladen!"
 
@@ -16626,16 +16643,16 @@ msgstr ""
 "Rate auf Festplatte geschriebener temporärer Tabellen: %s, dieser Wert "
 "sollte kleiner als 1 pro Stunde sein"
 
-#: libraries/advisory_rules.txt:289
+#: libraries/advisory_rules.txt:278
 msgid "MyISAM key buffer size"
 msgstr "Größe des MyISAM Schlüssel-Cache"
 
-#: libraries/advisory_rules.txt:292
+#: libraries/advisory_rules.txt:281
 msgid "Key buffer is not initialized. No MyISAM indexes will be cached."
 msgstr ""
 "Schlüssel-Cache nicht initialisiert. Es werden keine MyISAM Indizes gecached."
 
-#: libraries/advisory_rules.txt:293
+#: libraries/advisory_rules.txt:282
 msgid ""
 "Set {key_buffer_size} depending on the size of your MyISAM indexes. 64M is a "
 "good start."
@@ -16643,21 +16660,21 @@ msgstr ""
 "Setze {key_buffer_size} auf einen Wert, abhängig von Deinen MyISAM Indizes. "
 "64M ist ein guter Anfang."
 
-#: libraries/advisory_rules.txt:294
+#: libraries/advisory_rules.txt:283
 msgid "key_buffer_size is 0"
 msgstr "key_buffer_size ist 0"
 
-#: libraries/advisory_rules.txt:296
+#: libraries/advisory_rules.txt:285
 #, php-format
 msgid "Max %% MyISAM key buffer ever used"
 msgstr "Max %% des MyISAM Schlüssel-Cache jemals benutzt"
 
-#: libraries/advisory_rules.txt:299 libraries/advisory_rules.txt:307
+#: libraries/advisory_rules.txt:288 libraries/advisory_rules.txt:296
 #, php-format
 msgid "MyISAM key buffer (index cache) %% used is low."
 msgstr "MyISAM Schlüssel-Cache (Indize Cache) %% benutz ist niedrig."
 
-#: libraries/advisory_rules.txt:300 libraries/advisory_rules.txt:308
+#: libraries/advisory_rules.txt:289 libraries/advisory_rules.txt:297
 msgid ""
 "You may need to decrease the size of {key_buffer_size}, re-examine your "
 "tables to see if indexes have been removed, or examine queries and "
@@ -16667,7 +16684,7 @@ msgstr ""
 "Sie Ihre Tabellen um zu sehen ob Indizes entfernt wurden oder Überprüfen Sie "
 "Abfragen und Erwartungen um zu sehen welche Indizes verwendet werden."
 
-#: libraries/advisory_rules.txt:301
+#: libraries/advisory_rules.txt:290
 #, php-format
 msgid ""
 "max %% MyISAM key buffer ever used: %s%%, this value should be above 95%%"
@@ -16675,47 +16692,47 @@ msgstr ""
 "maximal wurden %% des MyISAM Sortierungspuffers benutzt: %s%%, dieser Wert "
 "sollte über 95%% liegen"
 
-#: libraries/advisory_rules.txt:304
+#: libraries/advisory_rules.txt:293
 msgid "Percentage of MyISAM key buffer used"
 msgstr "Prozentwert des verwendeten MyISAM-Schlüsselpuffers"
 
-#: libraries/advisory_rules.txt:309
+#: libraries/advisory_rules.txt:298
 #, php-format
 msgid "%% MyISAM key buffer used: %s%%, this value should be above 95%%"
 msgstr ""
 "%% verwendeter MyISAM-Schlüsselpuffer: %s%%, dieser Wert sollte größer als "
 "95%% sein"
 
-#: libraries/advisory_rules.txt:311
+#: libraries/advisory_rules.txt:300
 msgid "Percentage of index reads from memory"
 msgstr "Prozentsatz der aus dem Speicher gelesenen Indize"
 
-#: libraries/advisory_rules.txt:314
+#: libraries/advisory_rules.txt:303
 #, php-format
 msgid "The %% of indexes that use the MyISAM key buffer is low."
 msgstr ""
 "Der %% von Indizes, die den MyISAM Schlüsselpuffer verwenden ist gering."
 
-#: libraries/advisory_rules.txt:315
+#: libraries/advisory_rules.txt:304
 msgid "You may need to increase {key_buffer_size}."
 msgstr "Sie müssen möglicherweise {Key_buffer_size} erhöhen."
 
-#: libraries/advisory_rules.txt:316
+#: libraries/advisory_rules.txt:305
 #, php-format
 msgid "Index reads from memory: %s%%, this value should be above 95%%"
 msgstr ""
 "Prozentsatz der aus dem Speicher gelesenen Indize: %s%%, dieser Wert sollte "
 "größer als 95%% sein"
 
-#: libraries/advisory_rules.txt:320
+#: libraries/advisory_rules.txt:309
 msgid "Rate of table open"
 msgstr "Häufigkeit von Tabellenöffnungen"
 
-#: libraries/advisory_rules.txt:323
+#: libraries/advisory_rules.txt:312
 msgid "The rate of opening tables is high."
 msgstr "Hohe Anzahl an Tabellen-Öffnungen."
 
-#: libraries/advisory_rules.txt:324
+#: libraries/advisory_rules.txt:313
 msgid ""
 "Opening tables requires disk I/O which is costly. Increasing "
 "{table_open_cache} might avoid this."
@@ -16723,18 +16740,18 @@ msgstr ""
 "Öffnen von Tabellen erfordert Festplatten I/O, welches langsam ist. Erhöhung "
 "von {Table_open_cache} könnte dies vermeiden."
 
-#: libraries/advisory_rules.txt:325
+#: libraries/advisory_rules.txt:314
 #, php-format
 msgid "Opened table rate: %s, this value should be less than 10 per hour"
 msgstr ""
 "Häufigkeit von Tabellenöffnungen: %s, dieser Wert sollte weniger als 10 pro "
 "Stunde sein"
 
-#: libraries/advisory_rules.txt:327
+#: libraries/advisory_rules.txt:316
 msgid "Percentage of used open files limit"
 msgstr "Prozentsatz der verwendeten offene Dateien Grenze"
 
-#: libraries/advisory_rules.txt:330
+#: libraries/advisory_rules.txt:319
 msgid ""
 "The number of open files is approaching the max number of open files.  You "
 "may get a \"Too many open files\" error."
@@ -16742,7 +16759,7 @@ msgstr ""
 "Die Anzahl der offene Dateien nähert sich die maximale Anzahl von geöffneten "
 "Dateien.  Möglicherweise erhalten Sie \"Too many open files\"-Fehler."
 
-#: libraries/advisory_rules.txt:331 libraries/advisory_rules.txt:338
+#: libraries/advisory_rules.txt:320 libraries/advisory_rules.txt:327
 msgid ""
 "Consider increasing {open_files_limit}, and check the error log when "
 "restarting after changing {open_files_limit}."
@@ -16750,7 +16767,7 @@ msgstr ""
 "Sie sollten {open_files_limit} erhöhen, und überprüfen Sie das "
 "Fehlerprotokoll beim Neustart nach der Änderung von {open_files_limit}."
 
-#: libraries/advisory_rules.txt:332
+#: libraries/advisory_rules.txt:321
 #, php-format
 msgid ""
 "The number of opened files is at %s%% of the limit. It should be below 85%%"
@@ -16758,56 +16775,56 @@ msgstr ""
 "Die Anzahl der geöffneten Dateien ist %s%% des Maximalwerts. Dieser Wert "
 "sollte unter 85%% liegen"
 
-#: libraries/advisory_rules.txt:334
+#: libraries/advisory_rules.txt:323
 msgid "Rate of open files"
 msgstr "Anzahl der Datei-Öffnungen"
 
-#: libraries/advisory_rules.txt:337
+#: libraries/advisory_rules.txt:326
 msgid "The rate of opening files is high."
 msgstr "Die Anzahl der Datei-Zugriffe ist hoch."
 
-#: libraries/advisory_rules.txt:339
+#: libraries/advisory_rules.txt:328
 #, php-format
 msgid "Opened files rate: %s, this value should be less than 5 per hour"
 msgstr ""
 "Geöffnete Dateien Rate: %s, dieser Wert sollte kleiner als 5 pro Stunde sein"
 
-#: libraries/advisory_rules.txt:341
+#: libraries/advisory_rules.txt:330
 #, php-format
 msgid "Immediate table locks %%"
 msgstr "Sofortige Tabellensperren %%"
 
-#: libraries/advisory_rules.txt:344 libraries/advisory_rules.txt:351
+#: libraries/advisory_rules.txt:333 libraries/advisory_rules.txt:340
 msgid "Too many table locks were not granted immediately."
 msgstr "Zu viele Tabellensperren wurden nicht sofort gewährt."
 
-#: libraries/advisory_rules.txt:345 libraries/advisory_rules.txt:352
+#: libraries/advisory_rules.txt:334 libraries/advisory_rules.txt:341
 msgid "Optimize queries and/or use InnoDB to reduce lock wait."
 msgstr ""
 "Optimieren Sie die Abfragen und/oder verwenden InnoDB, um Wartezeit aufgrund "
 "von Sperren zu reduzieren."
 
-#: libraries/advisory_rules.txt:346
+#: libraries/advisory_rules.txt:335
 #, php-format
 msgid "Immediate table locks: %s%%, this value should be above 95%%"
 msgstr "Sofortige Tabellensperren: %s%%, dieser Wert sollte über 95%% liegen"
 
-#: libraries/advisory_rules.txt:348
+#: libraries/advisory_rules.txt:337
 msgid "Table lock wait rate"
 msgstr "Tabellen Sperre Warte Rate"
 
-#: libraries/advisory_rules.txt:353
+#: libraries/advisory_rules.txt:342
 #, php-format
 msgid "Table lock wait rate: %s, this value should be less than 1 per hour"
 msgstr ""
 "Tabellen Sperre Warte Rate: %s, dieser Wert sollte weniger als 1 pro Stunde "
 "sein"
 
-#: libraries/advisory_rules.txt:355
+#: libraries/advisory_rules.txt:344
 msgid "Thread cache"
 msgstr "Prozess-Zwischenspeicher"
 
-#: libraries/advisory_rules.txt:358
+#: libraries/advisory_rules.txt:347
 msgid ""
 "Thread cache is disabled, resulting in more overhead from new connections to "
 "MySQL."
@@ -16815,45 +16832,45 @@ msgstr ""
 "Prozess-Zwischenspeicher ist deaktiviert, dieses führt zu mehr Overhead bei "
 "neuen Verbindungen zu MySQL."
 
-#: libraries/advisory_rules.txt:359
+#: libraries/advisory_rules.txt:348
 msgid "Enable the thread cache by setting {thread_cache_size} > 0."
 msgstr ""
 "Aktivieren Sie den Prozess-Zwischenspeicher, indem Sie {thread_cache_size} > "
 "0 setzen."
 
-#: libraries/advisory_rules.txt:360
+#: libraries/advisory_rules.txt:349
 msgid "The thread cache is set to 0"
 msgstr "Der Prozess-Zwischenspeicher ist auf 0 gesetzt"
 
-#: libraries/advisory_rules.txt:362
+#: libraries/advisory_rules.txt:351
 #, php-format
 msgid "Thread cache hit rate %%"
 msgstr "Prozess-Zwischenspeicher Trefferrate %%"
 
-#: libraries/advisory_rules.txt:365
+#: libraries/advisory_rules.txt:354
 msgid "Thread cache is not efficient."
 msgstr "Ineffizienter Prozess-Zwischenspeicher."
 
-#: libraries/advisory_rules.txt:366
+#: libraries/advisory_rules.txt:355
 msgid "Increase {thread_cache_size}."
 msgstr "{thread_cache_size} erhöhen."
 
-#: libraries/advisory_rules.txt:367
+#: libraries/advisory_rules.txt:356
 #, php-format
 msgid "Thread cache hitrate: %s%%, this value should be above 80%%"
 msgstr ""
 "Prozess-Zwischenspeicher Trefferrate: %s%%, dieser Wert sollte über 80%% "
 "liegen"
 
-#: libraries/advisory_rules.txt:369
+#: libraries/advisory_rules.txt:358
 msgid "Threads that are slow to launch"
 msgstr "Prozesse die langsam zu starten"
 
-#: libraries/advisory_rules.txt:372
+#: libraries/advisory_rules.txt:361
 msgid "There are too many threads that are slow to launch."
 msgstr "Es gibt zu viele Prozesse die langsam starten."
 
-#: libraries/advisory_rules.txt:373
+#: libraries/advisory_rules.txt:362
 msgid ""
 "This generally happens in case of general system overload as it is pretty "
 "simple operations. You might want to monitor your system load carefully."
@@ -16862,22 +16879,22 @@ msgstr ""
 "ziemlich einfache Operation ist. Sie sollten Ihre Systemauslastung "
 "sorgfältig überwachen."
 
-#: libraries/advisory_rules.txt:374
+#: libraries/advisory_rules.txt:363
 #, php-format
 msgid "%s thread(s) took longer than %s seconds to start, it should be 0"
 msgstr ""
 "%s Pozes(se) brauchten länger als %s Sekunden um zu starten, es sollten 0 "
 "sein"
 
-#: libraries/advisory_rules.txt:376
+#: libraries/advisory_rules.txt:365
 msgid "Slow launch time"
 msgstr "Langsame Startzeit"
 
-#: libraries/advisory_rules.txt:379
+#: libraries/advisory_rules.txt:368
 msgid "Slow_launch_threads is above 2s."
 msgstr "slow_launch_time ist höher als 2 Sekunden."
 
-#: libraries/advisory_rules.txt:380
+#: libraries/advisory_rules.txt:369
 msgid ""
 "Set {slow_launch_time} to 1s or 2s to correctly count threads that are slow "
 "to launch."
@@ -16885,16 +16902,16 @@ msgstr ""
 "Setzen Sie {slow_launch_time} auf 1 oder 2 Sekunden, um korrekt Prozesse zu "
 "zählen, die langsam starten."
 
-#: libraries/advisory_rules.txt:381
+#: libraries/advisory_rules.txt:370
 #, php-format
 msgid "slow_launch_time is set to %s"
 msgstr "slow_launch_time ist auf %s eingestellt"
 
-#: libraries/advisory_rules.txt:385
+#: libraries/advisory_rules.txt:374
 msgid "Percentage of used connections"
 msgstr "Prozentsatz der benutzten Verbindungen"
 
-#: libraries/advisory_rules.txt:388
+#: libraries/advisory_rules.txt:377
 msgid ""
 "The maximum amount of used connections is getting close to the value of "
 "{max_connections}."
@@ -16902,7 +16919,7 @@ msgstr ""
 "Die maximale Menge der verwendeten Verbindungen nähert sich dem Wert von "
 "{max_connections}."
 
-#: libraries/advisory_rules.txt:389
+#: libraries/advisory_rules.txt:378
 msgid ""
 "Increase {max_connections}, or decrease {wait_timeout} so that connections "
 "that do not close database handlers properly get killed sooner. Make sure "
@@ -16913,7 +16930,7 @@ msgstr ""
 "werden. Stellen Sie sicher, dass der Code Datenbank-Handler ordnungsgemäß "
 "schließt."
 
-#: libraries/advisory_rules.txt:390
+#: libraries/advisory_rules.txt:379
 #, php-format
 msgid ""
 "Max_used_connections is at %s%% of max_connections, it should be below 80%%"
@@ -16921,15 +16938,15 @@ msgstr ""
 "Max_used_connections ist %s%% von max_connections, es sollte unter 80%% "
 "liegen"
 
-#: libraries/advisory_rules.txt:392
+#: libraries/advisory_rules.txt:381
 msgid "Percentage of aborted connections"
 msgstr "Prozentsatz der abgebrochenen Verbindungen"
 
-#: libraries/advisory_rules.txt:395 libraries/advisory_rules.txt:402
+#: libraries/advisory_rules.txt:384 libraries/advisory_rules.txt:391
 msgid "Too many connections are aborted."
 msgstr "Zu viele Verbindungen werden abgebrochen."
 
-#: libraries/advisory_rules.txt:396 libraries/advisory_rules.txt:403
+#: libraries/advisory_rules.txt:385 libraries/advisory_rules.txt:392
 msgid ""
 "Connections are usually aborted when they cannot be authorized. <a href="
 "\"http://www.percona.com/blog/2008/08/23/how-to-track-down-the-source-of-"
@@ -16940,18 +16957,18 @@ msgstr ""
 "down-the-source-of-aborted_connects/\">Dieser Artikel</a> könnte Ihnen "
 "helfen der Quelle auf die Spur zu kommen."
 
-#: libraries/advisory_rules.txt:397
+#: libraries/advisory_rules.txt:386
 #, php-format
 msgid "%s%% of all connections are aborted. This value should be below 1%%"
 msgstr ""
 "%s%% aller Verbindungen werden abgebrochen. Dieser Wert sollte unter 1%% "
 "liegen"
 
-#: libraries/advisory_rules.txt:399
+#: libraries/advisory_rules.txt:388
 msgid "Rate of aborted connections"
 msgstr "Rate der abgebrochenen Verbindungen"
 
-#: libraries/advisory_rules.txt:404
+#: libraries/advisory_rules.txt:393
 #, php-format
 msgid ""
 "Aborted connections rate is at %s, this value should be less than 1 per hour"
@@ -16959,15 +16976,15 @@ msgstr ""
 "Die Rate der abgebrochenen Verbindungen ist %s, dieser Wert sollte weniger "
 "als 1 pro Stunde sein"
 
-#: libraries/advisory_rules.txt:406
+#: libraries/advisory_rules.txt:395
 msgid "Percentage of aborted clients"
 msgstr "Prozentualen Anteil der abgebrochenen Clienten"
 
-#: libraries/advisory_rules.txt:409 libraries/advisory_rules.txt:416
+#: libraries/advisory_rules.txt:398 libraries/advisory_rules.txt:405
 msgid "Too many clients are aborted."
 msgstr "Zu viele Clienten werden abgebrochen."
 
-#: libraries/advisory_rules.txt:410 libraries/advisory_rules.txt:417
+#: libraries/advisory_rules.txt:399 libraries/advisory_rules.txt:406
 msgid ""
 "Clients are usually aborted when they did not close their connection to "
 "MySQL properly. This can be due to network issues or code not closing a "
@@ -16978,44 +16995,44 @@ msgstr ""
 "Quellcode der Datenbank-Handler nicht ordnungsgemäß schließen passieren. "
 "Überprüfen Sie Ihre Netzwerk und Quellcode."
 
-#: libraries/advisory_rules.txt:411
+#: libraries/advisory_rules.txt:400
 #, php-format
 msgid "%s%% of all clients are aborted. This value should be below 2%%"
 msgstr ""
 "%s%% aller Clienten werden abgebrochen. Dieser Wert sollte unter 2%% liegen"
 
-#: libraries/advisory_rules.txt:413
+#: libraries/advisory_rules.txt:402
 msgid "Rate of aborted clients"
 msgstr "Rate der abgebrochenen Clienten"
 
-#: libraries/advisory_rules.txt:418
+#: libraries/advisory_rules.txt:407
 #, php-format
 msgid "Aborted client rate is at %s, this value should be less than 1 per hour"
 msgstr ""
 "Die Rate der abgebrochene Clienten ist %s, dieser Wert sollte kleiner als 1 "
 "pro Stunde sein"
 
-#: libraries/advisory_rules.txt:422
+#: libraries/advisory_rules.txt:411
 msgid "Is InnoDB disabled?"
 msgstr "Ist InnoDB deaktiviert?"
 
-#: libraries/advisory_rules.txt:425
+#: libraries/advisory_rules.txt:414
 msgid "You do not have InnoDB enabled."
 msgstr "InnoDB ist nicht aktiviert."
 
-#: libraries/advisory_rules.txt:426
+#: libraries/advisory_rules.txt:415
 msgid "InnoDB is usually the better choice for table engines."
 msgstr "InnoDB ist in der Regel die bessere Wahl für Tabelle Designer."
 
-#: libraries/advisory_rules.txt:427
+#: libraries/advisory_rules.txt:416
 msgid "have_innodb is set to 'value'"
 msgstr "have_innodb ist auf 'value' eingestellt"
 
-#: libraries/advisory_rules.txt:429
+#: libraries/advisory_rules.txt:418
 msgid "InnoDB log size"
 msgstr "InnoDB Protokollgröße"
 
-#: libraries/advisory_rules.txt:432
+#: libraries/advisory_rules.txt:421
 msgid ""
 "The InnoDB log file size is not an appropriate size, in relation to the "
 "InnoDB buffer pool."
@@ -17023,7 +17040,7 @@ msgstr ""
 "Die InnoDB Protokollgröße ist nicht angemessen in Bezug zu der InnoDB "
 "Pufferpoolgröße."
 
-#: libraries/advisory_rules.txt:433
+#: libraries/advisory_rules.txt:422
 #, php-format
 msgid ""
 "Especially on a system with a lot of writes to InnoDB tables you should set "
@@ -17048,7 +17065,7 @@ msgstr ""
 "mysqldatabaseadministration.blogspot.com/2007/01/increase-innodblogfilesize-"
 "proper-way.html\">diesen Blog-Eintrag</a>"
 
-#: libraries/advisory_rules.txt:434
+#: libraries/advisory_rules.txt:423
 #, php-format
 msgid ""
 "Your InnoDB log size is at %s%% in relation to the InnoDB buffer pool size, "
@@ -17057,15 +17074,15 @@ msgstr ""
 "Ihre InnoDB-Protokollgröße ist %s%% in Bezug auf die InnoDB Pufferpoolgröße, "
 "es sollte nicht unter 20%% liegen"
 
-#: libraries/advisory_rules.txt:436
+#: libraries/advisory_rules.txt:425
 msgid "Max InnoDB log size"
 msgstr "Max InnoDB Protokollgröße"
 
-#: libraries/advisory_rules.txt:439
+#: libraries/advisory_rules.txt:428
 msgid "The InnoDB log file size is inadequately large."
 msgstr "Die InnoDB Protokollgröße ist nicht ausreichend groß."
 
-#: libraries/advisory_rules.txt:440
+#: libraries/advisory_rules.txt:429
 #, php-format
 msgid ""
 "It is usually sufficient to set {innodb_log_file_size} to 25%% of the size "
@@ -17089,20 +17106,20 @@ msgstr ""
 "mysqldatabaseadministration.blogspot.com/2007/01/increase-innodblogfilesize-"
 "proper-way.html\">diesen Blog-Eintrag</a>"
 
-#: libraries/advisory_rules.txt:441
+#: libraries/advisory_rules.txt:430
 #, php-format
 msgid "Your absolute InnoDB log size is %s MiB"
 msgstr "Ihre absolute InnoDB Protokollgröße ist %s MiB"
 
-#: libraries/advisory_rules.txt:443
+#: libraries/advisory_rules.txt:432
 msgid "InnoDB buffer pool size"
 msgstr "Größe des InnoDB Puffer-Pools"
 
-#: libraries/advisory_rules.txt:446
+#: libraries/advisory_rules.txt:435
 msgid "Your InnoDB buffer pool is fairly small."
 msgstr "Ihr InnoDB Pufferpool ist recht klein."
 
-#: libraries/advisory_rules.txt:447
+#: libraries/advisory_rules.txt:436
 #, php-format
 msgid ""
 "The InnoDB buffer pool has a profound impact on performance for InnoDB "
@@ -17128,7 +17145,7 @@ msgstr ""
 "Leistung erheblich senkt. Siehe auch <a href=\"http://www.percona.com/"
 "blog/2007/11/03/choosing-innodb_buffer_pool_size/\">diesen Artikel</a>"
 
-#: libraries/advisory_rules.txt:448
+#: libraries/advisory_rules.txt:437
 #, php-format
 msgid ""
 "You are currently using %s%% of your memory for the InnoDB buffer pool. This "
@@ -17141,27 +17158,45 @@ msgstr ""
 "völlig ausreichend für Ihr System sein, wenn Sie nicht viel InnoDB Tabellen "
 "haben oder anderen Diensten auf demselben Computer ausgeführt werden."
 
-#: libraries/advisory_rules.txt:452
+#: libraries/advisory_rules.txt:441
 msgid "MyISAM concurrent inserts"
 msgstr "MyISAM gleichzeitige Einfügeoperationen"
 
-#: libraries/advisory_rules.txt:455
+#: libraries/advisory_rules.txt:444
 msgid "Enable {concurrent_insert} by setting it to 1"
 msgstr "Aktivieren Sie {concurrent_insert}, indem Sie es auf 1 setzen"
 
-#: libraries/advisory_rules.txt:456
+#: libraries/advisory_rules.txt:445
 msgid ""
 "Setting {concurrent_insert} to 1 reduces contention between readers and "
 "writers for a given table. See also <a href=\"https://dev.mysql.com/doc/"
 "refman/5.5/en/concurrent-inserts.html\">MySQL Documentation</a>"
 msgstr ""
 "{Concurrent_insert} auf 1 setzen verringert Konflikte zwischen Lese- und "
-"Schreibzugriffen auf Tabellen. Siehe auch <a href=\"https://dev.mysql.com/doc/"
-"refman/5.5/en/concurrent-inserts.html\">MySQL Dokumentation</a>"
+"Schreibzugriffen auf Tabellen. Siehe auch <a href=\"https://dev.mysql.com/"
+"doc/refman/5.5/en/concurrent-inserts.html\">MySQL Dokumentation</a>"
 
-#: libraries/advisory_rules.txt:457
+#: libraries/advisory_rules.txt:446
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert ist auf 0 gesetzt"
+
+#~ msgid "Wiki"
+#~ msgstr "Wiki"
+
+# Maybe wikipedia links should point to $lang.wikipedia.org, eg
+# http://de.wikipedia.org/wiki/ZIP-Dateiformat
+#~ msgid ""
+#~ "Enable [a@http://en.wikipedia.org/wiki/ZIP_(file_format)]ZIP[/a] "
+#~ "compression for import and export operations."
+#~ msgstr ""
+#~ "[a@http://de.wikipedia.org/wiki/ZIP-Dateiformat]ZIP[/a]-Kompression für "
+#~ "Import- und Exportoperationen aktivieren."
+
+#~ msgid "Related Links"
+#~ msgstr "Verwandte Links"
+
+#~ msgid "The PrimeBase XT Blog by Paul McCullagh"
+#~ msgstr "The PrimeBase XT-Blog von Paul McCullagh"
 
 #~ msgid ""
 #~ "Uploaded file cannot be moved, because the server has open_basedir "
