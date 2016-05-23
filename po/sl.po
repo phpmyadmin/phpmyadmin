@@ -4,17 +4,17 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-05-23 14:29+0200\n"
-"PO-Revision-Date: 2016-02-17 17:14+0000\n"
+"PO-Revision-Date: 2016-05-23 17:45+0000\n"
 "Last-Translator: Domen <mitenem@outlook.com>\n"
-"Language-Team: Slovenian <https://hosted.weblate.org/projects/phpmyadmin/4-6/"
-"sl/>\n"
+"Language-Team: Slovenian "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-6/sl/>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
-"%100==4 ? 2 : 3;\n"
-"X-Generator: Weblate 2.5-dev\n"
+"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
+"n%100==4 ? 2 : 3;\n"
+"X-Generator: Weblate 2.7-dev\n"
 
 #: changelog.php:37 license.php:33
 #, php-format
@@ -5431,14 +5431,11 @@ msgid "Highlight pointer"
 msgstr "Poudari kazalec"
 
 #: libraries/config/messages.inc.php:47
-#, fuzzy
 #| msgid ""
 #| "Enable [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] compression for "
 #| "import operations."
 msgid "Enable bzip2 compression for import operations."
-msgstr ""
-"Omogoči stiskanje [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] za posege "
-"uvoza."
+msgstr "Omogoči stiskanje bzip2 za posege uvoza."
 
 #: libraries/config/messages.inc.php:50
 msgid "Bzip2"
@@ -5459,7 +5456,6 @@ msgid "CHAR columns editing"
 msgstr "Urejanje stolpcev CHAR"
 
 #: libraries/config/messages.inc.php:58
-#, fuzzy
 #| msgid ""
 #| "Use user-friendly editor for editing SQL queries ([a@http://codemirror."
 #| "net/]CodeMirror[/a]) with syntax highlighting and line numbers."
@@ -5467,8 +5463,8 @@ msgid ""
 "Use user-friendly editor for editing SQL queries (CodeMirror) with syntax "
 "highlighting and line numbers."
 msgstr ""
-"Uporabi uporabniku prijazen urejevalnik za urejanje poizvedb SQL ([a@http://"
-"codemirror.net/]CodeMirror[/a]) z obarvanjem skladnje in številkami vrstic."
+"Uporabi uporabniku prijazen urejevalnik za urejanje poizvedb SQL (CodeMirror)"
+" z obarvanjem skladnje in številkami vrstic."
 
 #: libraries/config/messages.inc.php:62
 msgid "Enable CodeMirror"
@@ -6219,14 +6215,11 @@ msgid "Disable some of the warnings shown by phpMyAdmin."
 msgstr "Onemogoči nekatera opozorila, ki jih prikazuje phpMyAdmin."
 
 #: libraries/config/messages.inc.php:353
-#, fuzzy
 #| msgid ""
 #| "Enable [a@http://en.wikipedia.org/wiki/Gzip]gzip[/a] compression for "
 #| "import and export operations."
 msgid "Enable gzip compression for import and export operations."
-msgstr ""
-"Omogoči stiskanje [a@http://en.wikipedia.org/wiki/Gzip]gzip[/a] za posege "
-"uvoza in izvoza."
+msgstr "Omogoči stiskanje gzip za posege uvoza in izvoza."
 
 #: libraries/config/messages.inc.php:356
 msgid "GZip"
@@ -6909,7 +6902,6 @@ msgid "HTTP Realm"
 msgstr "Področje HTTP"
 
 #: libraries/config/messages.inc.php:636
-#, fuzzy
 #| msgid ""
 #| "The path for the config file for [a@http://swekey.com]SweKey hardware "
 #| "authentication[/a] (not located in your document root; suggested: /etc/"
@@ -6918,9 +6910,8 @@ msgid ""
 "The path for the config file for SweKey hardware authentication (not located "
 "in your document root; suggested: /etc/swekey.conf)."
 msgstr ""
-"Pot konfiguracijske datoteke za [a@http://swekey.com]strojno overovitev "
-"SweKey[/a] (se ne nahaja v korenski mapi dokumentov; predlagano: /etc/swekey."
-"conf)."
+"Pot konfiguracijske datoteke za strojno overovitev SweKey (se ne nahaja v "
+"korenski mapi dokumentov; predlagano: /etc/swekey.conf)."
 
 #: libraries/config/messages.inc.php:640
 msgid "SweKey config file"
@@ -6935,7 +6926,6 @@ msgid "Authentication type"
 msgstr "Vrsta overovitve"
 
 #: libraries/config/messages.inc.php:644
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/"
 #| "a] support, suggested: [kbd]pma__bookmark[/kbd]"
@@ -6943,8 +6933,8 @@ msgid ""
 "Leave blank for no [doc@bookmarks@]bookmark[/doc] support, suggested: "
 "[kbd]pma__bookmark[/kbd]"
 msgstr ""
-"Pustite prazno, če ne želite podpore [a@http://wiki.phpmyadmin.net/pma/"
-"bookmark]zaznamkov[/a]; predlagano: [kbd]pma__bookmark[/kbd]"
+"Pustite prazno, če ne želite podpore [doc@bookmarks@]zaznamkov[/doc]; "
+"predlagano: [kbd]pma__bookmark[/kbd]"
 
 #: libraries/config/messages.inc.php:647
 msgid "Bookmark table"
@@ -6984,7 +6974,6 @@ msgid "Control user password"
 msgstr "Geslo krmilnega uporabnika"
 
 #: libraries/config/messages.inc.php:660
-#, fuzzy
 #| msgid ""
 #| "A special MySQL user configured with limited permissions, more "
 #| "information available on [a@http://wiki.phpmyadmin.net/pma/"
@@ -6994,7 +6983,7 @@ msgid ""
 "available on [doc@linked-tables]documentation[/doc]."
 msgstr ""
 "Posebni uporabnik MySQL, konfiguriran z omejenimi dovoljenji; več informacij "
-"je na voljo na [a@http://wiki.phpmyadmin.net/pma/controluser]wikiji[/a]."
+"je na voljo na [doc@linked-tables]wikiji[/doc]."
 
 #: libraries/config/messages.inc.php:663
 msgid "Control user"
@@ -7161,7 +7150,6 @@ msgid "PDF schema: pages table"
 msgstr "PDF-shema: tabele strani"
 
 #: libraries/config/messages.inc.php:727
-#, fuzzy
 #| msgid ""
 #| "Database used for relations, bookmarks, and PDF features. See [a@http://"
 #| "wiki.phpmyadmin.net/pma/pmadb]pmadb[/a] for complete information. Leave "
@@ -7172,8 +7160,8 @@ msgid ""
 "Suggested: [kbd]phpmyadmin[/kbd]."
 msgstr ""
 "Zbirka podatkov uporabljena za relacije, zaznamke in funkcije PDF. Oglejte "
-"si [a@http://wiki.phpmyadmin.net/pma/pmadb]pmadb[/a] za vse informacije. "
-"Pustite prazno, če ne želite podpore. Predlagano: [kbd]phpmyadmin[/kbd]."
+"si [doc@linked-tables]pmadb[/doc] za vse informacije. Pustite prazno, če ne "
+"želite podpore. Predlagano: [kbd]phpmyadmin[/kbd]."
 
 #: libraries/config/messages.inc.php:731
 #: templates/server/databases/create.phtml:20
@@ -7215,7 +7203,6 @@ msgid "Favorites table"
 msgstr "Tabela priljubljenih"
 
 #: libraries/config/messages.inc.php:746
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
 #| "links[/a] support, suggested: [kbd]pma__relation[/kbd]."
@@ -7223,23 +7210,20 @@ msgid ""
 "Leave blank for no [doc@relations@]relation-links[/doc] support, suggested: "
 "[kbd]pma__relation[/kbd]."
 msgstr ""
-"Pustite prazno, če ne želite podpore [a@http://wiki.phpmyadmin.net/pma/"
-"relation]relacijskih povezav[/a]; priporočeno: [kbd]pma__relation[/kbd]."
+"Pustite prazno, če ne želite podpore [doc@relations@]relacijskih "
+"povezav[/doc]; priporočeno: [kbd]pma__relation[/kbd]."
 
 #: libraries/config/messages.inc.php:750
 msgid "Relation table"
 msgstr "Relacijska tabela"
 
 #: libraries/config/messages.inc.php:752
-#, fuzzy
 #| msgid ""
 #| "See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
 #| "types[/a] for an example."
 msgid ""
 "See [doc@authentication-modes]authentication types[/doc] for an example."
-msgstr ""
-"Oglejte si [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]vrste "
-"overovitev[/a] za primer."
+msgstr "Oglejte si [doc@authentication-modes]vrste overovitev[/doc] za primer."
 
 #: libraries/config/messages.inc.php:755
 msgid "Signon session name"
@@ -7753,14 +7737,11 @@ msgid "Proxy password"
 msgstr "Geslo proxyja"
 
 #: libraries/config/messages.inc.php:978
-#, fuzzy
 #| msgid ""
 #| "Enable [a@http://en.wikipedia.org/wiki/Gzip]gzip[/a] compression for "
 #| "import and export operations."
 msgid "Enable ZIP compression for import and export operations."
-msgstr ""
-"Omogoči stiskanje [a@http://en.wikipedia.org/wiki/Gzip]gzip[/a] za posege "
-"uvoza in izvoza."
+msgstr "Omogoči stiskanje ZIP za posege uvoza in izvoza."
 
 #: libraries/config/messages.inc.php:981
 msgid "ZIP"
@@ -13740,10 +13721,9 @@ msgid "An opening bracket was expected."
 msgstr "Pričakovali smo začetni oklepaj."
 
 #: libraries/sql-parser/src/Components/CreateDefinition.php:225
-#, fuzzy
 #| msgid "Variable name was expected."
 msgid "A symbol name was expected!"
-msgstr "Pričakovali smo ime spremenljivke."
+msgstr "Pričakovali smo ime znaka!"
 
 #: libraries/sql-parser/src/Components/CreateDefinition.php:257
 msgid "A comma or a closing bracket was expected."
@@ -15069,7 +15049,6 @@ msgid "Tracking is not active."
 msgstr "Sledenje ni aktivno."
 
 #: templates/error/report_form.phtml:7
-#, fuzzy
 #| msgid ""
 #| "phpMyAdmin has encountered an error. We have collected data about this "
 #| "error as well as information about relevant configuration settings to "
@@ -15079,15 +15058,17 @@ msgid ""
 "about relevant configuration settings. It will be sent to the phpMyAdmin "
 "team for debugging the error."
 msgstr ""
-"phpMyAdmin je naletel na napako. Zbrali smo podatke o napaki, kakor tudi "
-"informacije o bistvenih konfiguracijskih nastavitvah, za pošiljanje "
-"administratorski skupini, ki nam bo pomagala pri odpravljanju težave."
+"Poročilo samodejno vključuje podatke o napaki in informacije o bistvenih "
+"konfiguracijskih nastavitvah. Poslali ga bomo skupini phpMyAdmin za "
+"odpravljanje napak."
 
 #: templates/error/report_form.phtml:14
 msgid ""
 "Can you tell us the steps leading to this error? It decisively helps in "
 "debugging:"
 msgstr ""
+"Nam lahko zaupate korake, ki so vodili v to napako? To lahko bistveno pomaga "
+"pri odpravljanju težave:"
 
 #: templates/error/report_form.phtml:21
 msgid "You may examine the data in the error report:"
