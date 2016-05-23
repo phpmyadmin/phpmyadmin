@@ -1662,8 +1662,10 @@ class Config
             // set cookie with new value
             /* Calculate cookie validity */
             if ($validity === null) {
+                /* Valid for one month */
                 $validity = time() + 2592000;
             } elseif ($validity == 0) {
+                /* Valid for session */
                 $validity = 0;
             } else {
                 $validity = time() + $validity;
