@@ -295,15 +295,6 @@ class AuthenticationCookie extends AuthenticationPlugin
         }
         // END Swekey Integration
 
-        if (defined('PMA_CLEAR_COOKIES')) {
-            foreach ($GLOBALS['cfg']['Servers'] as $key => $val) {
-                $GLOBALS['PMA_Config']->removeCookie('pmaPass-' . $key);
-                $GLOBALS['PMA_Config']->removeCookie('pmaServer-' . $key);
-                $GLOBALS['PMA_Config']->removeCookie('pmaUser-' . $key);
-            }
-            return false;
-        }
-
         if (! empty($_REQUEST['old_usr'])) {
             // The user wants to be logged out
             // -> delete his choices that were stored in session
