@@ -703,7 +703,7 @@ function PMA_arrayRemove($path, &$array)
  */
 function PMA_linkURL($url)
 {
-    if (!preg_match('#^https?://#', $url) || defined('PMA_SETUP')) {
+    if (!preg_match('#^https?://#', $url)) {
         return $url;
     }
 
@@ -715,7 +715,12 @@ function PMA_linkURL($url)
     $arr = parse_url($url);
     parse_str($arr["query"], $vars);
     $query = http_build_query(array("url" => $vars["url"]));
-    $url = './url.php?' . $query;
+
+    if (defined('PMA_SETUP')) {
+        $url = '../url.php?' . $query;
+    } else {
+        $url = './url.php?' . $query;
+    }
 
     return $url;
 }
