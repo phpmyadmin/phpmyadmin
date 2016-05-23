@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-05-23 14:30+0200\n"
-"PO-Revision-Date: 2015-06-28 13:36+0200\n"
-"Last-Translator: Valter Georgiev <blagynchy@gmail.com>\n"
-"Language-Team: Bulgarian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/bg/>\n"
+"PO-Revision-Date: 2016-05-23 17:44+0000\n"
+"Last-Translator: Yordan Nedelchev <yordan.nedelchev@hotmail.com>\n"
+"Language-Team: Bulgarian "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/bg/>\n"
 "Language: bg\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.4-dev\n"
+"X-Generator: Weblate 2.7-dev\n"
 
 #: changelog.php:37 license.php:33
 #, php-format
@@ -21,7 +21,7 @@ msgid ""
 "The %s file is not available on this system, please visit www.phpmyadmin.net "
 "for more information."
 msgstr ""
-"Файлът %s не е наличен на тази система, моля посети www.phpmyadmin.net за "
+"Файлът %s не е наличен на тази система, моля посетете www.phpmyadmin.net за "
 "повече информация."
 
 #: db_central_columns.php:107
@@ -595,7 +595,7 @@ msgstr ""
 
 #: import_status.php:105
 msgid "Could not load the progress of the import."
-msgstr ""
+msgstr "Невъзможност да се зареди прогрес (ход) на импорта."
 
 #: import_status.php:114 js/messages.php:451 js/messages.php:603
 #: libraries/Util.php:803 libraries/export.lib.php:520
@@ -750,6 +750,9 @@ msgid ""
 "The curl extension was not found and allow_url_fopen is disabled. Due to "
 "this some features such as error reporting or version check are disabled."
 msgstr ""
+"Добавката curl не е намерена и allow_url_fopen е деактивирано. Заради това "
+"някои дейности като сигнализиране за грешки или проверка на версия са също "
+"деактивирани."
 
 #: index.php:496
 msgid ""
@@ -916,24 +919,25 @@ msgid ""
 "Do you really want to DROP the selected partition(s)? This will also DELETE "
 "the data related to the selected partition(s)!"
 msgstr ""
+"Наистина ли искате да ПРЕМАХНЕТЕ избраните дялове? Това ще ИЗТРИЕ също и "
+"данните към избраните дялове!"
 
 #: js/messages.php:86
 msgid "Do you really want to TRUNCATE the selected partition(s)?"
 msgstr "Наистина ли искате да отрежете избрания дял?"
 
 #: js/messages.php:88
-#, fuzzy
 #| msgid "Do you really want to TRUNCATE the selected partition(s)?"
 msgid "Do you really want to remove partitioning?"
-msgstr "Наистина ли искате да отрежете избрания дял?"
+msgstr "Наистина ли искате да премахнете избрания дял?"
 
 #: js/messages.php:89
-#, fuzzy
 #| msgid "Do you really want to execute \"%s\"?"
 msgid "Do you really want to RESET SLAVE?"
-msgstr "Наистина ли искате да изпълните \"%s\"?"
+msgstr "Наистина ли искате да ПРЕУСТАНОВИТЕ ПОДЧИНЕНИЯ СЪРВЪР?"
 
 #: js/messages.php:91
+#, fuzzy
 msgid ""
 "This operation will attempt to convert your data to the new collation. In "
 "rare cases, especially where a character doesn't exist in the new collation, "
@@ -941,14 +945,21 @@ msgid ""
 "collation; in this case we suggest you revert to the original collation and "
 "refer to the tips at "
 msgstr ""
+"Операцията ще опита да превърне Вашите данни в нова сверка. В редки случаи, "
+"особено когато даден знак не съществува, процесът може да доведе до "
+"неправилно изобразяване на данните в новата сверка; в този случай, "
+"препоръчваме да се върнете към първоначалната сверка и да се обърнете към "
+"съветите на "
 
 #: js/messages.php:97
 msgid "Garbled Data"
-msgstr ""
+msgstr "Размесени данни"
 
 #: js/messages.php:99
+#, fuzzy
 msgid "Are you sure you wish to change the collation and convert the data?"
 msgstr ""
+"Сигурни ли сте, че искате да смените сверката и да преобразувате данните?"
 
 #: js/messages.php:101
 msgid ""
@@ -959,18 +970,26 @@ msgid ""
 "column(s) editing feature (the \"Change\" Link) on the table structure page. "
 "</b>"
 msgstr ""
+"Чрез тази операция, MySQL опитва да съпостави стойностите на данните между "
+"различните параметри за сравнение. Ако наборът от символи е несъвместим, "
+"това може да доведе до загуба на данни и загубените дани може да "
+"<b>НЕМОГАТ</b> да се възстановят с проста обратна смяна на сравнението на "
+"колоната. <b>За да преобразувате съществуващите данни, се препоръчва да "
+"използвате възможността за редактиране на колона/колони (връзка «Промяна») "
+"на страницата за структура на таблицата.</b>"
 
 #: js/messages.php:110
 msgid ""
 "Are you sure you wish to change all the column collations and convert the "
 "data?"
 msgstr ""
+"Сигурни ли сте че желаете да смените всички сверки на колони и да "
+"преобразувате данните?"
 
 #: js/messages.php:114
-#, fuzzy
 #| msgid "Save & Close"
 msgid "Save & close"
-msgstr "Запис & затварянре"
+msgstr "Запис & Затваряне"
 
 #: js/messages.php:115 libraries/config/FormDisplay.tpl.php:426
 #: libraries/insert_edit.lib.php:1562 prefs_manage.php:364 prefs_manage.php:375
@@ -1028,7 +1047,7 @@ msgstr "Комбинация от:"
 
 #: js/messages.php:129
 msgid "Please select column(s) for the index."
-msgstr "Моля, изберете колони за индекса."
+msgstr "Моля, изберете колона(и) за индекса."
 
 #: js/messages.php:132 templates/table/structure/add_column.phtml:1
 msgid "You have to add at least one column."
@@ -1088,26 +1107,23 @@ msgid "Close"
 msgstr "Затваряне"
 
 #: js/messages.php:155
-#, fuzzy
 #| msgid "Page has been created."
 msgid "Template was created."
-msgstr "Страница беше създадена."
+msgstr "Шаблонът беше създаден."
 
 #: js/messages.php:156
 msgid "Template was loaded."
-msgstr ""
+msgstr "Шаблонът бе зареден."
 
 #: js/messages.php:157
-#, fuzzy
 #| msgid "The profile has been updated."
 msgid "Template was updated."
-msgstr "Профилът беше обновен."
+msgstr "Шаблонът бе обновен."
 
 #: js/messages.php:158
-#, fuzzy
 #| msgid "The row has been deleted."
 msgid "Template was deleted."
-msgstr "Редът беше изтрит"
+msgstr "Шаблонът бе изтрит."
 
 #. l10n: Other, small valued, queries
 #: js/messages.php:161 libraries/ServerStatusData.php:132
@@ -17331,15 +17347,25 @@ msgid ""
 "mysqldatabaseadministration.blogspot.com/2007/01/increase-innodblogfilesize-"
 "proper-way.html\">this blog entry</a>"
 msgstr ""
+"Обикновено е достатъчно да се сложи {innodb_log_file_size} на 25%% от "
+"размера на {innodb_buffer_pool_size}. Много голямо {innodb_log_file_size} "
+"забавя значително времето за възстановяване след срив в базата данни. Вижте "
+"също <a href=\"http://www.percona.com/blog/2006/07/03/choosing-proper-"
+"innodb_log_file_size/\"> тази статия </a>. Необходимо е да спрете сървъра, "
+"да премахнете InnoDB журналните файлове, да сложите нова стойновт във "
+"my.cnf, да стартирате сървъра, след това да проверите за грешки в журналните "
+"файлове и дали всичко е минало добре. Вижте също и<a href=\""
+"http://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
+"innodblogfilesize-proper-way.html\"> тази блог статия</a>"
 
 #: libraries/advisory_rules.txt:430
 #, php-format
 msgid "Your absolute InnoDB log size is %s MiB"
-msgstr ""
+msgstr "Абсолютният размер на InnoDB журналa е %s MiB"
 
 #: libraries/advisory_rules.txt:432
 msgid "InnoDB buffer pool size"
-msgstr ""
+msgstr "Размер на InnoDB буфер"
 
 #: libraries/advisory_rules.txt:435
 msgid "Your InnoDB buffer pool is fairly small."
@@ -17359,6 +17385,17 @@ msgid ""
 "\"http://www.percona.com/blog/2007/11/03/choosing-innodb_buffer_pool_size/"
 "\">this article</a>"
 msgstr ""
+"Буферът на InnoDB има значително влияние на бързодействието на InnoDB "
+"таблиците. Сложете цялата останала ви памет на този буфер. За сървъри "
+"използващи изключително InnoDB като услуга за съхранение и които не "
+"предоставят други услуги (например уеб сървър), може сложите тази стоуйност "
+"до например 80%% от наличната памет. В противен случай трябва внимателно да "
+"прецените употребата на памет от другите услуги и от не-InnoDV-таблиците и "
+"да сложите подобаваща стойност. Ако стойността е прекалено висока, системата "
+"ще започне да използва суоп файл (swap file), което доста занижава "
+"производителността. Вижте също <a href=\""
+"http://www.percona.com/blog/2007/11/03/choosing-innodb_buffer_pool_size/\">"
+"тази статия</a>"
 
 #: libraries/advisory_rules.txt:437
 #, php-format
