@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-05-23 14:30+0200\n"
-"PO-Revision-Date: 2016-04-12 12:03+0000\n"
+"PO-Revision-Date: 2016-05-23 14:33+0000\n"
 "Last-Translator: Stefano Martinelli <stefano.ste.martinelli@gmail.com>\n"
-"Language-Team: Italian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/it/>\n"
+"Language-Team: Italian "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/it/>\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.6-dev\n"
+"X-Generator: Weblate 2.7-dev\n"
 
 #: changelog.php:37 license.php:33
 #, php-format
@@ -3782,7 +3782,7 @@ msgid ""
 msgstr ""
 "Stai cercando di importare un file con un tipo di compressione (%s) non "
 "supportato. Il supporto per questo tipo di compressione potrebbe non essere "
-"ancora stato implementato oppure è disabilitato nella tua configurazioni."
+"ancora stato implementato oppure è disabilitato nella tua configurazione."
 
 #: libraries/Footer.php:74
 #, php-format
@@ -5319,8 +5319,8 @@ msgid ""
 "%sBzip2 compression and decompression%s requires functions (%s) which are "
 "unavailable on this system."
 msgstr ""
-"%sla compressione e decompressione Bzip2%s richiede le funzioni (%s) che non "
-"sono disponibili sul tuo sistema."
+"%sLa compressione e decompressione Bzip2%s richiedono funzioni (%s) che non "
+"sono disponibili su questo sistema."
 
 #: libraries/config/ServerConfigChecks.php:408
 msgid ""
@@ -5337,8 +5337,8 @@ msgid ""
 "%sGZip compression and decompression%s requires functions (%s) which are "
 "unavailable on this system."
 msgstr ""
-"%sla compressione e decompressione GZip%s richiedono le funzioni (%s) che "
-"non sono disponibili sul tuo sistema."
+"%sLa compressione e decompressione GZip%s richiedono funzioni (%s) che non "
+"sono disponibili su questo sistema."
 
 #: libraries/config/ServerConfigChecks.php:424
 #, php-format
@@ -5405,8 +5405,8 @@ msgid ""
 "%sZip compression%s requires functions (%s) which are unavailable on this "
 "system."
 msgstr ""
-"%sLa compressione Zip%s richiede la funzioni (%s) che non sono disponibili "
-"su questo sistema."
+"%sLa compressione Zip%s richiede funzioni (%s) che non sono disponibili su "
+"questo sistema."
 
 #: libraries/config/ServerConfigChecks.php:504
 #, php-format
@@ -5414,8 +5414,8 @@ msgid ""
 "%sZip decompression%s requires functions (%s) which are unavailable on this "
 "system."
 msgstr ""
-"%sLa decompressione Zip%s richiede la funzioni (%s) che non sono disponibili "
-"su questo sistema."
+"%sLa decompressione Zip%s richiede funzioni (%s) che non sono disponibili su "
+"questo sistema."
 
 #: libraries/config/Validator.php:245 libraries/config/Validator.php:252
 msgid "Could not connect to the database server!"
@@ -5538,14 +5538,11 @@ msgid "Highlight pointer"
 msgstr "Evidenzia il puntatore"
 
 #: libraries/config/messages.inc.php:47
-#, fuzzy
 #| msgid ""
 #| "Enable [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] compression for "
 #| "import operations."
 msgid "Enable bzip2 compression for import operations."
-msgstr ""
-"Abilita la compressione [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] per "
-"operazioni di importazione."
+msgstr "Abilita la compressione bzip2 per le operazioni di importazione."
 
 #: libraries/config/messages.inc.php:50
 msgid "Bzip2"
@@ -5566,7 +5563,6 @@ msgid "CHAR columns editing"
 msgstr "Modifica dei campi CHAR"
 
 #: libraries/config/messages.inc.php:58
-#, fuzzy
 #| msgid ""
 #| "Use user-friendly editor for editing SQL queries ([a@http://codemirror."
 #| "net/]CodeMirror[/a]) with syntax highlighting and line numbers."
@@ -5574,8 +5570,8 @@ msgid ""
 "Use user-friendly editor for editing SQL queries (CodeMirror) with syntax "
 "highlighting and line numbers."
 msgstr ""
-"Usa un editor user-friendly per editare le query SQL ([a@http://codemirror."
-"net/]CodeMirror[/a]) con evidenziazione della sintassi e numeri di riga."
+"Usa un editor user-friendly per modificare le query SQL (CodeMirror) con "
+"evidenziazione della sintassi e numeri di riga."
 
 #: libraries/config/messages.inc.php:62
 msgid "Enable CodeMirror"
@@ -6343,14 +6339,13 @@ msgid "Disable some of the warnings shown by phpMyAdmin."
 msgstr "Disabilita alcuni degli avvisi mostrati da phpMyAdmin."
 
 #: libraries/config/messages.inc.php:353
-#, fuzzy
 #| msgid ""
 #| "Enable [a@http://en.wikipedia.org/wiki/Gzip]gzip[/a] compression for "
 #| "import and export operations."
 msgid "Enable gzip compression for import and export operations."
 msgstr ""
-"Abilita compressione [a@http://en.wikipedia.org/wiki/Gzip]gzip[/a] per le "
-"operazioni di importazione ed esportazione."
+"Abilita la compressione gzip per le operazioni di importazione ed "
+"esportazione."
 
 #: libraries/config/messages.inc.php:356
 msgid "GZip"
@@ -7063,7 +7058,6 @@ msgid "Authentication type"
 msgstr "Tipo di autenticazione"
 
 #: libraries/config/messages.inc.php:640
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/"
 #| "a] support, suggested: [kbd]pma__bookmark[/kbd]"
@@ -7071,8 +7065,8 @@ msgid ""
 "Leave blank for no [doc@bookmarks@]bookmark[/doc] support, suggested: "
 "[kbd]pma__bookmark[/kbd]"
 msgstr ""
-"Lascia vuoto per disattivare il supporto per i [a@http://wiki.phpmyadmin.net/"
-"pma/bookmark]segnalibri[/a], consigliato: [kbd]pma__bookmark[/kbd]"
+"Lascia vuoto per disattivare il supporto per i "
+"[doc@bookmarks@]segnalibri[/doc], consigliato: [kbd]pma__bookmark[/kbd]"
 
 #: libraries/config/messages.inc.php:643
 msgid "Bookmark table"
@@ -7111,7 +7105,6 @@ msgid "Control user password"
 msgstr "Parola chiave per l'utente di controllo"
 
 #: libraries/config/messages.inc.php:656
-#, fuzzy
 #| msgid ""
 #| "A special MySQL user configured with limited permissions, more "
 #| "information available on [a@http://wiki.phpmyadmin.net/pma/"
@@ -7121,8 +7114,8 @@ msgid ""
 "available on [doc@linked-tables]documentation[/doc]."
 msgstr ""
 "Un utente speciale di MySQL configurato con autorizzazioni limitate, "
-"ulteriori informazioni disponibili nella [a@http://wiki.phpmyadmin.net/pma/"
-"controluser]wiki[/a]."
+"ulteriori informazioni disponibili nella [doc@linked-"
+"tables]documentazione[/doc]."
 
 #: libraries/config/messages.inc.php:659
 msgid "Control user"
@@ -7289,7 +7282,6 @@ msgid "PDF schema: pages table"
 msgstr "Schema PDF: tabella delle pagine"
 
 #: libraries/config/messages.inc.php:723
-#, fuzzy
 #| msgid ""
 #| "Database used for relations, bookmarks, and PDF features. See [a@http://"
 #| "wiki.phpmyadmin.net/pma/pmadb]pmadb[/a] for complete information. Leave "
@@ -7299,9 +7291,9 @@ msgid ""
 "tables]pmadb[/doc] for complete information. Leave blank for no support. "
 "Suggested: [kbd]phpmyadmin[/kbd]."
 msgstr ""
-"Database utilizzato per relazioni, segnalibri and funzionalitá PDF. Vedi "
-"[a@http://wiki.phpmyadmin.net/pma/pmadb]pmadb[/a] per tutti dettagli. Lascia "
-"vuoto per disabilitarne il supporto. Consigliato: [kbd]phpmyadmin[/kbd]."
+"Database utilizzato per relazioni, segnalibri e funzionalitá PDF. Vedi [doc"
+"@linked-tables]pmadb[/doc] per tutti dettagli. Lascia vuoto per "
+"disabilitarne il supporto. Consigliato: [kbd]phpmyadmin[/kbd]."
 
 #: libraries/config/messages.inc.php:727
 #: templates/server/databases/create.phtml:20
@@ -7344,7 +7336,6 @@ msgid "Favorites table"
 msgstr "Tabelle preferite"
 
 #: libraries/config/messages.inc.php:742
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
 #| "links[/a] support, suggested: [kbd]pma__relation[/kbd]."
@@ -7352,23 +7343,21 @@ msgid ""
 "Leave blank for no [doc@relations@]relation-links[/doc] support, suggested: "
 "[kbd]pma__relation[/kbd]."
 msgstr ""
-"Lascia vuoto per disabilitare il supporto per [a@http://wiki.phpmyadmin.net/"
-"pma/relation]relation-links[/a], consigliato: [kbd]pma__relation[/kbd]."
+"Lascia vuoto per disabilitare il supporto per [doc@relations@]relation-"
+"links[/doc], consigliato: [kbd]pma__relation[/kbd]."
 
 #: libraries/config/messages.inc.php:746
 msgid "Relation table"
 msgstr "Tabella relazionale"
 
 #: libraries/config/messages.inc.php:748
-#, fuzzy
 #| msgid ""
 #| "See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
 #| "types[/a] for an example."
 msgid ""
 "See [doc@authentication-modes]authentication types[/doc] for an example."
 msgstr ""
-"Vedi [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]tipi di "
-"autenticazione[/a] per un esempio."
+"Vedi [doc@authentication-modes]tipi di autenticazione[/doc] per un esempio."
 
 #: libraries/config/messages.inc.php:751
 msgid "Signon session name"
@@ -7899,14 +7888,13 @@ msgid "Proxy password"
 msgstr "Password Proxy"
 
 #: libraries/config/messages.inc.php:974
-#, fuzzy
 #| msgid ""
 #| "Enable [a@http://en.wikipedia.org/wiki/Gzip]gzip[/a] compression for "
 #| "import and export operations."
 msgid "Enable ZIP compression for import and export operations."
 msgstr ""
-"Abilita compressione [a@http://en.wikipedia.org/wiki/Gzip]gzip[/a] per le "
-"operazioni di importazione ed esportazione."
+"Abilita la compressione ZIP per le operazioni di importazione ed "
+"esportazione."
 
 #: libraries/config/messages.inc.php:977
 msgid "ZIP"
@@ -15088,8 +15076,8 @@ msgid ""
 "about relevant configuration settings. It will be sent to the phpMyAdmin "
 "team for debugging the error."
 msgstr ""
-"Questo report include automaticamente dati sull'errore e informazioni sui "
-"settaggi di configurazione più importanti. Verrà inviato al team di "
+"Questo report include automaticamente dati sull'errore e informazioni sulle "
+"impostazioni di configurazione più importanti. Verrà inviato al team di "
 "phpMyAdmin per la risoluzione dell'errore."
 
 #: templates/error/report_form.phtml:14
