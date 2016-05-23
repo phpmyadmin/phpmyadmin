@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-05-23 14:29+0200\n"
-"PO-Revision-Date: 2016-02-17 12:54+0000\n"
+"PO-Revision-Date: 2016-05-23 21:06+0000\n"
 "Last-Translator: Παναγιώτης Παπάζογλου <papaz_p@yahoo.com>\n"
-"Language-Team: Greek <https://hosted.weblate.org/projects/phpmyadmin/4-6/el/"
-">\n"
+"Language-Team: Greek <https://hosted.weblate.org/projects/phpmyadmin/4-6/el/>"
+"\n"
 "Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.5-dev\n"
+"X-Generator: Weblate 2.7-dev\n"
 
 #: changelog.php:37 license.php:33
 #, php-format
@@ -5464,14 +5464,11 @@ msgid "Highlight pointer"
 msgstr "Δείκτης επισήμανσης"
 
 #: libraries/config/messages.inc.php:47
-#, fuzzy
 #| msgid ""
 #| "Enable [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] compression for "
 #| "import operations."
 msgid "Enable bzip2 compression for import operations."
-msgstr ""
-"Ενεργοποίηση της συμπίεσης [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] "
-"για λειτουργίες εισαγωγής."
+msgstr "Ενεργοποίηση της συμπίεσης bzip2 για λειτουργίες εισαγωγής."
 
 #: libraries/config/messages.inc.php:50
 msgid "Bzip2"
@@ -5492,7 +5489,6 @@ msgid "CHAR columns editing"
 msgstr "Επεξεργασία στηλών CHAR"
 
 #: libraries/config/messages.inc.php:58
-#, fuzzy
 #| msgid ""
 #| "Use user-friendly editor for editing SQL queries ([a@http://codemirror."
 #| "net/]CodeMirror[/a]) with syntax highlighting and line numbers."
@@ -5501,8 +5497,8 @@ msgid ""
 "highlighting and line numbers."
 msgstr ""
 "Χρησιμοποιήστε το φιλικό προς το χρήστη πρόγραμμα επεξεργασίας για την "
-"επεξεργασία ερωτημάτων SQL ([a@http://codemirror.net/]CodeMirror[/a]) με "
-"επισήμανση σύνταξης και αρίθμηση γραμμών."
+"επεξεργασία ερωτημάτων SQL (CodeMirror) με επισήμανση σύνταξης και αρίθμηση "
+"γραμμών."
 
 #: libraries/config/messages.inc.php:62
 msgid "Enable CodeMirror"
@@ -6255,14 +6251,12 @@ msgstr ""
 "Απενεργοποίηση ορισμένων προειδοποιήσεων που εμφανίζονται στο phpMyAdmin."
 
 #: libraries/config/messages.inc.php:353
-#, fuzzy
 #| msgid ""
 #| "Enable [a@http://en.wikipedia.org/wiki/Gzip]gzip[/a] compression for "
 #| "import and export operations."
 msgid "Enable gzip compression for import and export operations."
 msgstr ""
-"Ενεργοποιήστε τη συμπίεση [a@http://en.wikipedia.org/wiki/Gzip]gzip[/a] για "
-"τις λειτουργίες εισαγωγής και εξαγωγής."
+"Ενεργοποιήστε τη συμπίεση gzip για τις λειτουργίες εισαγωγής και εξαγωγής."
 
 #: libraries/config/messages.inc.php:356
 msgid "GZip"
@@ -6966,7 +6960,6 @@ msgid "HTTP Realm"
 msgstr "Βασίλειο HTTP"
 
 #: libraries/config/messages.inc.php:636
-#, fuzzy
 #| msgid ""
 #| "The path for the config file for [a@http://swekey.com]SweKey hardware "
 #| "authentication[/a] (not located in your document root; suggested: /etc/"
@@ -6975,9 +6968,8 @@ msgid ""
 "The path for the config file for SweKey hardware authentication (not located "
 "in your document root; suggested: /etc/swekey.conf)."
 msgstr ""
-"Η διαδρομή για το αρχείο ρυθμίσεων για την [a@http://swekey.com]επικύρωση "
-"υλικού SweKey[/a] (δεν βρίσκεται στο ριζικό φάκελο του εγγράφου; "
-"προτείνεται: /etc/swekey.conf)."
+"Η διαδρομή για το αρχείο ρυθμίσεων για την επικύρωση υλικού SweKey (δεν "
+"βρίσκεται στο ριζικό φάκελο του εγγράφου; προτείνεται: /etc/swekey.conf)."
 
 #: libraries/config/messages.inc.php:640
 msgid "SweKey config file"
@@ -6992,7 +6984,6 @@ msgid "Authentication type"
 msgstr "Τύπος επικύρωσης"
 
 #: libraries/config/messages.inc.php:644
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/"
 #| "a] support, suggested: [kbd]pma__bookmark[/kbd]"
@@ -7000,8 +6991,8 @@ msgid ""
 "Leave blank for no [doc@bookmarks@]bookmark[/doc] support, suggested: "
 "[kbd]pma__bookmark[/kbd]"
 msgstr ""
-"Αφήστε κενό αν δεν υπάρχει υποστήριξη [a@http://wiki.phpmyadmin.net/pma/"
-"bookmark]σελιδοδείκτη[/a], προτείνεται: [kbd]pma_bookmark[/kbd]"
+"Αφήστε κενό αν δεν υπάρχει υποστήριξη[doc@bookmarks@]σελιδοδείκτη[/doc], "
+"προτείνεται: [kbd]pma__bookmark[/kbd]"
 
 #: libraries/config/messages.inc.php:647
 msgid "Bookmark table"
@@ -7042,7 +7033,6 @@ msgid "Control user password"
 msgstr "Έλεγχος κωδικού πρόσβασης χρήστη"
 
 #: libraries/config/messages.inc.php:660
-#, fuzzy
 #| msgid ""
 #| "A special MySQL user configured with limited permissions, more "
 #| "information available on [a@http://wiki.phpmyadmin.net/pma/"
@@ -7052,8 +7042,8 @@ msgid ""
 "available on [doc@linked-tables]documentation[/doc]."
 msgstr ""
 "Ρυθμίστηκε ένας ειδικός χρήστης MySQL με περιορισμένα δικαιώματα. "
-"Περισσότερες πληροφορίες είναι διαθέσιμες στο [a@http://wiki.phpmyadmin.net/"
-"pma/controluser]wiki[/a]."
+"Περισσότερες πληροφορίες είναι διαθέσιμες στην [doc@linked-"
+"tables]τεκμηρίωση[/doc]."
 
 #: libraries/config/messages.inc.php:663
 msgid "Control user"
@@ -7220,7 +7210,6 @@ msgid "PDF schema: pages table"
 msgstr "Σχέδιο PDF: πίνακας σελίδων"
 
 #: libraries/config/messages.inc.php:727
-#, fuzzy
 #| msgid ""
 #| "Database used for relations, bookmarks, and PDF features. See [a@http://"
 #| "wiki.phpmyadmin.net/pma/pmadb]pmadb[/a] for complete information. Leave "
@@ -7231,8 +7220,8 @@ msgid ""
 "Suggested: [kbd]phpmyadmin[/kbd]."
 msgstr ""
 "Η βάση δεδομένων που χρησιμοποιείται για συσχετίσεις, σελιδοδείκτες και "
-"χαρακτηριστικά PDF. Δείτε το [a@http://wiki.phpmyadmin.net/pma/pmadb]pmadb[/"
-"a] για λεπτομέρειες. Αφήστε κενό για να μην υπάρχει υποστήριξη. Προτείνεται: "
+"χαρακτηριστικά PDF. Δείτε το [doc@linked-tables]pmadb[/doc] για "
+"λεπτομέρειες. Αφήστε κενό για να μην υπάρχει υποστήριξη. Προτείνεται: "
 "[kbd]phpmyadmin[/kbd]."
 
 #: libraries/config/messages.inc.php:731
@@ -7274,7 +7263,6 @@ msgid "Favorites table"
 msgstr "Πίνακας αγαπημένων"
 
 #: libraries/config/messages.inc.php:746
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
 #| "links[/a] support, suggested: [kbd]pma__relation[/kbd]."
@@ -7282,24 +7270,23 @@ msgid ""
 "Leave blank for no [doc@relations@]relation-links[/doc] support, suggested: "
 "[kbd]pma__relation[/kbd]."
 msgstr ""
-"Αφήστε το κενό για να μην υπάρχει υποστήριξη [a@http://wiki.phpmyadmin.net/"
-"pma/relation]συνδέσμων-συσχετίσεων[/a], προτείνεται: [kbd]pma__relation[/"
-"kbd]."
+"Αφήστε το κενό για να μην υπάρχει υποστήριξη "
+"[doc@relations@]συνδέσμων-συσχετίσεων[/doc], προτείνεται: "
+"[kbd]pma__relation[/kbd]."
 
 #: libraries/config/messages.inc.php:750
 msgid "Relation table"
 msgstr "Πίνακας συσχετίσεων"
 
 #: libraries/config/messages.inc.php:752
-#, fuzzy
 #| msgid ""
 #| "See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
 #| "types[/a] for an example."
 msgid ""
 "See [doc@authentication-modes]authentication types[/doc] for an example."
 msgstr ""
-"Δείτε τους [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]τύπους "
-"επικύρωσης[/a] για ένα παράδειγμα."
+"Δείτε τους [doc@authentication-modes]τύπους επικύρωσης[/doc] για ένα "
+"παράδειγμα."
 
 #: libraries/config/messages.inc.php:755
 msgid "Signon session name"
@@ -7834,14 +7821,12 @@ msgid "Proxy password"
 msgstr "Κωδικός πρόσβασης διακομιστή"
 
 #: libraries/config/messages.inc.php:978
-#, fuzzy
 #| msgid ""
 #| "Enable [a@http://en.wikipedia.org/wiki/Gzip]gzip[/a] compression for "
 #| "import and export operations."
 msgid "Enable ZIP compression for import and export operations."
 msgstr ""
-"Ενεργοποιήστε τη συμπίεση [a@http://en.wikipedia.org/wiki/Gzip]gzip[/a] για "
-"τις λειτουργίες εισαγωγής και εξαγωγής."
+"Ενεργοποιήστε τη συμπίεση ZIP για τις λειτουργίες εισαγωγής και εξαγωγής."
 
 #: libraries/config/messages.inc.php:981
 msgid "ZIP"
@@ -13921,10 +13906,9 @@ msgid "An opening bracket was expected."
 msgstr "Αναμενόταν μια ανοιχτή αγκύλη."
 
 #: libraries/sql-parser/src/Components/CreateDefinition.php:225
-#, fuzzy
 #| msgid "Variable name was expected."
 msgid "A symbol name was expected!"
-msgstr "Αναμενόταν όνομα μεταβλητής."
+msgstr "Αναμενόταν όνομα συμβόλου!"
 
 #: libraries/sql-parser/src/Components/CreateDefinition.php:257
 msgid "A comma or a closing bracket was expected."
@@ -15256,7 +15240,6 @@ msgid "Tracking is not active."
 msgstr "Η παρακολούθηση δεν είναι ενεργοποιημένη."
 
 #: templates/error/report_form.phtml:7
-#, fuzzy
 #| msgid ""
 #| "phpMyAdmin has encountered an error. We have collected data about this "
 #| "error as well as information about relevant configuration settings to "
@@ -15266,15 +15249,17 @@ msgid ""
 "about relevant configuration settings. It will be sent to the phpMyAdmin "
 "team for debugging the error."
 msgstr ""
-"Το Phpmyadmin παρουσίασε ένα σφάλμα. Συλλέξαμε δεδομένα για αυτό το σφάλμα "
-"καθώς και πληροφορίες για τις σχετικές ρυθμίσεις για να τα στείλουμε στη "
-"ομάδα του phpmyadmin για να μας βοηθήσει να διορθώσουμε το πρόβλημα."
+"Αυτή η αναφορά περιλαμβάνει αυτόματα δεδομένα σχετικά με το σφάλμα και "
+"πληροφορίες σχετικά με επιλογές ρυθμίσεων. Θα αποσταλεί στην ομάδα του "
+"phpMyAdmin για την αντιμετώπιση του σφάλματος."
 
 #: templates/error/report_form.phtml:14
 msgid ""
 "Can you tell us the steps leading to this error? It decisively helps in "
 "debugging:"
 msgstr ""
+"Μπορείτε να μας πείτε τα βήματα που οδηγούν σε αυτό το σφάλμα; Βοηθάει "
+"αποτελεσματικά στην αντιμετώπιση των σφαλμάτων:"
 
 #: templates/error/report_form.phtml:21
 msgid "You may examine the data in the error report:"
