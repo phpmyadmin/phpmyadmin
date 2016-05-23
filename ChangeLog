@@ -33,6 +33,7 @@ phpMyAdmin - ChangeLog
 - issue #12192 Avoid storing full error data in session
 - issue #12082 Fixed export of ARCHIVE tables with keys
 - issue #11565 Add session reload for config authentication
+- issue #12229 Do not fail on errors stored in session
 
 4.6.1 (2016-05-02)
 - issue #12120 PMA_Util not found in insert_edit.lib.php

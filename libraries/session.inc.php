@@ -101,12 +101,12 @@ $session_name = 'phpMyAdmin';
 
 // on first start of session we check for errors
 // f.e. session dir cannot be accessed - session file not created
-$orig_error_count = $GLOBALS['error_handler']->countErrors();
+$orig_error_count = $GLOBALS['error_handler']->countErrors(false);
 
 $session_result = session_start();
 
 if ($session_result !== true
-    || $orig_error_count != $GLOBALS['error_handler']->countErrors()
+    || $orig_error_count != $GLOBALS['error_handler']->countErrors(false)
 ) {
     setcookie($session_name, '', 1);
     $errors = $GLOBALS['error_handler']->sliceErrors($orig_error_count);
