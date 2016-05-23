@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-05-23 14:30+0200\n"
-"PO-Revision-Date: 2016-04-13 17:48+0000\n"
+"PO-Revision-Date: 2016-05-23 13:20+0000\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
-"Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/tr/>\n"
+"Language-Team: Turkish "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/tr/>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 2.6-dev\n"
+"X-Generator: Weblate 2.7-dev\n"
 
 #: changelog.php:37 license.php:33
 #, php-format
@@ -5483,14 +5483,11 @@ msgid "Highlight pointer"
 msgstr "Vurgulama işaretçisi"
 
 #: libraries/config/messages.inc.php:47
-#, fuzzy
 #| msgid ""
 #| "Enable [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] compression for "
 #| "import operations."
 msgid "Enable bzip2 compression for import operations."
-msgstr ""
-"İçe aktarma işlemleri için [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] "
-"sıkıştırmasını etkinleştirin."
+msgstr "İçe aktarma işlemleri için bzip2 sıkıştırmasını etkinleştirin."
 
 #: libraries/config/messages.inc.php:50
 msgid "Bzip2"
@@ -5511,7 +5508,6 @@ msgid "CHAR columns editing"
 msgstr "CHAR sütununu düzenleme"
 
 #: libraries/config/messages.inc.php:58
-#, fuzzy
 #| msgid ""
 #| "Use user-friendly editor for editing SQL queries ([a@http://codemirror."
 #| "net/]CodeMirror[/a]) with syntax highlighting and line numbers."
@@ -5519,9 +5515,8 @@ msgid ""
 "Use user-friendly editor for editing SQL queries (CodeMirror) with syntax "
 "highlighting and line numbers."
 msgstr ""
-"Sözdizimi vurgulama ve satır numaraları ile SQL sorgularını ([a@http://"
-"codemirror.net/]CodeMirror[/a]) düzenlemek için kullanımı kolay düzenleyici "
-"kullanın."
+"Sözdizimi vurgulama ve satır numaraları ile SQL sorgularını (CodeMirror) "
+"düzenlemek için kullanımı kolay düzenleyici kullanın."
 
 #: libraries/config/messages.inc.php:62
 msgid "Enable CodeMirror"
@@ -6279,14 +6274,11 @@ msgid "Disable some of the warnings shown by phpMyAdmin."
 msgstr "phpMyAdmin tarafından gösterilen bazı uyarıları etkisizleştirir."
 
 #: libraries/config/messages.inc.php:353
-#, fuzzy
 #| msgid ""
 #| "Enable [a@http://en.wikipedia.org/wiki/Gzip]gzip[/a] compression for "
 #| "import and export operations."
 msgid "Enable gzip compression for import and export operations."
-msgstr ""
-"İçe ve dışa aktarma işlemleri için [a@http://en.wikipedia.org/wiki/"
-"Gzip]gzip[/a] sıkıştırmayı etkinleştirin."
+msgstr "İçe ve dışa aktarma işlemleri için gzip sıkıştırmayı etkinleştirin."
 
 #: libraries/config/messages.inc.php:356
 msgid "GZip"
@@ -6987,7 +6979,6 @@ msgid "Authentication type"
 msgstr "Kimlik doğrulaması türü"
 
 #: libraries/config/messages.inc.php:640
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/"
 #| "a] support, suggested: [kbd]pma__bookmark[/kbd]"
@@ -6995,8 +6986,8 @@ msgid ""
 "Leave blank for no [doc@bookmarks@]bookmark[/doc] support, suggested: "
 "[kbd]pma__bookmark[/kbd]"
 msgstr ""
-"[a@http://wiki.phpmyadmin.net/pma/bookmark]Yer imi[/a] desteği olmaması için "
-"boş bırakın, önerilen: [kbd]pma__bookmark[/kbd]"
+"[doc@bookmarks@]Yer imi[/doc] desteği olmaması için boş bırakın, önerilen: "
+"[kbd]pma__bookmark[/kbd]"
 
 #: libraries/config/messages.inc.php:643
 msgid "Bookmark table"
@@ -7037,7 +7028,6 @@ msgid "Control user password"
 msgstr "Denetim kullanıcısı parolası"
 
 #: libraries/config/messages.inc.php:656
-#, fuzzy
 #| msgid ""
 #| "A special MySQL user configured with limited permissions, more "
 #| "information available on [a@http://wiki.phpmyadmin.net/pma/"
@@ -7047,7 +7037,7 @@ msgid ""
 "available on [doc@linked-tables]documentation[/doc]."
 msgstr ""
 "Sınırlı izinlerle yapılandırılmış özel MySQL kullanıcısıdır, daha fazla "
-"bilgi [a@http://wiki.phpmyadmin.net/pma/controluser]wiki[/a]'de mevcuttur."
+"bilgi [doc@linked-tables]belgelerde[/doc] mevcuttur."
 
 #: libraries/config/messages.inc.php:659
 msgid "Control user"
@@ -7214,7 +7204,6 @@ msgid "PDF schema: pages table"
 msgstr "PDF şeması: sayfalar tablosu"
 
 #: libraries/config/messages.inc.php:723
-#, fuzzy
 #| msgid ""
 #| "Database used for relations, bookmarks, and PDF features. See [a@http://"
 #| "wiki.phpmyadmin.net/pma/pmadb]pmadb[/a] for complete information. Leave "
@@ -7225,8 +7214,8 @@ msgid ""
 "Suggested: [kbd]phpmyadmin[/kbd]."
 msgstr ""
 "Bağlantılar, yer imleri ve PDF özellikleri için kullanılan veritabanı. Tam "
-"bilgi için [a@http://wiki.phpmyadmin.net/pma/pmadb]pmadb[/a]'ye bakın. "
-"Destek istenmiyorsa boş bırakın. Önerilen: [kbd]phpmyadmin[/kbd]."
+"bilgi için [doc@linked-tables]pmadb[/doc]'ye bakın. Destek istenmiyorsa boş "
+"bırakın. Önerilen: [kbd]phpmyadmin[/kbd]."
 
 #: libraries/config/messages.inc.php:727
 #: templates/server/databases/create.phtml:20
@@ -7268,7 +7257,6 @@ msgid "Favorites table"
 msgstr "Sık kullanılanlar tablosu"
 
 #: libraries/config/messages.inc.php:742
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
 #| "links[/a] support, suggested: [kbd]pma__relation[/kbd]."
@@ -7276,23 +7264,22 @@ msgid ""
 "Leave blank for no [doc@relations@]relation-links[/doc] support, suggested: "
 "[kbd]pma__relation[/kbd]."
 msgstr ""
-"[a@http://wiki.phpmyadmin.net/pma/relation]İlişki bağlantıları[/a] desteği "
-"istenmiyorsa boş bırakın, önerilen: [kbd]pma__relation[/kbd]."
+"[doc@relations@]İlişki bağlantıları[/doc] desteği istenmiyorsa boş bırakın, "
+"önerilen: [kbd]pma__relation[/kbd]."
 
 #: libraries/config/messages.inc.php:746
 msgid "Relation table"
 msgstr "Bağlantı tablosu"
 
 #: libraries/config/messages.inc.php:748
-#, fuzzy
 #| msgid ""
 #| "See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
 #| "types[/a] for an example."
 msgid ""
 "See [doc@authentication-modes]authentication types[/doc] for an example."
 msgstr ""
-"Örnek için [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]kimlik "
-"doğrulaması türlerine[/a] bakın."
+"Örnek için [doc@authentication-modes]kimlik doğrulaması türlerine[/doc] "
+"bakın."
 
 #: libraries/config/messages.inc.php:751
 msgid "Signon session name"
@@ -7815,14 +7802,11 @@ msgid "Proxy password"
 msgstr "Proksi parolası"
 
 #: libraries/config/messages.inc.php:974
-#, fuzzy
 #| msgid ""
 #| "Enable [a@http://en.wikipedia.org/wiki/Gzip]gzip[/a] compression for "
 #| "import and export operations."
 msgid "Enable ZIP compression for import and export operations."
-msgstr ""
-"İçe ve dışa aktarma işlemleri için [a@http://en.wikipedia.org/wiki/"
-"Gzip]gzip[/a] sıkıştırmayı etkinleştirin."
+msgstr "İçe ve dışa aktarma işlemleri için ZIP sıkıştırmayı etkinleştirin."
 
 #: libraries/config/messages.inc.php:977
 msgid "ZIP"
