@@ -29,6 +29,7 @@ phpMyAdmin - ChangeLog
 - issue        Improve handling of logout
 - issue        Safer handling of sessions during authentication
 - issue #12209 Fix server selection on main page
+- issue #12192 Avoid storing full error data in session
 
 4.6.1 (2016-05-02)
 - issue #12120 PMA_Util not found in insert_edit.lib.php

@@ -195,21 +195,6 @@ class ErrorHandler
         }
     }
 
-
-    /**
-     * log error to configured log facility
-     *
-     * @param Error $error the error
-     *
-     * @return bool
-     *
-     * @todo finish!
-     */
-    protected function logError($error)
-    {
-        return error_log($error->getMessage());
-    }
-
     /**
      * trigger a custom error
      *
