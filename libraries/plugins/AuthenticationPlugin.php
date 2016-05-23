@@ -53,6 +53,46 @@ abstract class AuthenticationPlugin
     abstract public function authFails();
 
     /**
+     * Perform logout
+     *
+     * @return void
+     */
+    public function logOut()
+    {
+        global $PHP_AUTH_USER, $PHP_AUTH_PW;
+
+        /* Obtain redirect URL (before doing logout) */
+        if (! empty($GLOBALS['cfg']['Server']['LogoutURL'])) {
+            $redirect_url = $GLOBALS['cfg']['Server']['LogoutURL'];
+        } else {
+            $redirect_url = $this->getLoginFormURL();
+        }
+
+        /* Clear credentials */
+        $PHP_AUTH_USER = '';
+        $PHP_AUTH_PW = '';
+
+        /* delete user's choices that were stored in session */
+        $_SESSION = array();
+        if (!defined('TESTSUITE')) {
+            session_destroy();
+        }
+
+        /* Redirect to login form (or configured URL) */
+        PMA_sendHeaderLocation($redirect_url);
+    }
+
+    /**
+     * Returns URL for login form.
+     *
+     * @return string
+     */
+    public function getLoginFormURL()
+    {
+        return './index.php';
+    }
+
+    /**
      * Returns error message for failed authentication.
      *
      * @return string

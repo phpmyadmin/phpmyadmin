@@ -73,10 +73,9 @@ class AuthenticationSignonTest extends PMATestCase
         // case 2
 
         $GLOBALS['cfg']['Server']['SignonURL'] = 'http://phpmyadmin.net/SignonURL';
-        $_REQUEST['old_usr'] = 'oldUser';
         $GLOBALS['cfg']['Server']['LogoutURL'] = 'http://phpmyadmin.net/logoutURL';
 
-        $this->object->auth();
+        $this->object->logOut();
 
         $this->assertContains(
             'Location: http://phpmyadmin.net/logoutURL?PHPSESSID=',
@@ -87,10 +86,9 @@ class AuthenticationSignonTest extends PMATestCase
 
         $GLOBALS['header'] = array();
         $GLOBALS['cfg']['Server']['SignonURL'] = 'http://phpmyadmin.net/SignonURL';
-        $_REQUEST['old_usr'] = '';
         $GLOBALS['cfg']['Server']['LogoutURL'] = '';
 
-        $this->object->auth();
+        $this->object->logOut();
 
         $this->assertContains(
             'Location: http://phpmyadmin.net/SignonURL?PHPSESSID=',
@@ -155,6 +153,26 @@ class AuthenticationSignonTest extends PMATestCase
      */
     public function testAuthCheckToken()
     {
+        $restoreInstance = PMA\libraries\Response::getInstance();
+
+        $mockResponse = $this->getMockBuilder('PMA\libraries\Response')
+            ->disableOriginalConstructor()
+            ->setMethods(array('isAjax', 'headersSent', 'header'))
+            ->getMock();
+
+        $mockResponse->expects($this->any())
+            ->method('headersSent')
+            ->with()
+            ->will($this->returnValue(false));
+
+        $mockResponse->expects($this->once())
+            ->method('header')
+            ->with('Location: ./index.php' . ((SID) ? '?' . SID : ''));
+
+        $attrInstance = new ReflectionProperty('PMA\libraries\Response', '_instance');
+        $attrInstance->setAccessible(true);
+        $attrInstance->setValue($mockResponse);
+
         $GLOBALS['cfg']['Server']['SignonURL'] = 'http://phpmyadmin.net/SignonURL';
         $GLOBALS['cfg']['Server']['SignonSession'] = 'session123';
         $GLOBALS['cfg']['Server']['host'] = 'localhost';
@@ -162,7 +180,6 @@ class AuthenticationSignonTest extends PMATestCase
         $GLOBALS['cfg']['Server']['user'] = 'user';
         $GLOBALS['cfg']['Server']['SignonScript'] = '';
         $_COOKIE['session123'] = true;
-        $_REQUEST['old_usr'] = 'oldUser';
         $_SESSION['PMA_single_signon_user'] = 'user123';
         $_SESSION['PMA_single_signon_password'] = 'pass123';
         $_SESSION['PMA_single_signon_host'] = 'local';
@@ -172,26 +189,18 @@ class AuthenticationSignonTest extends PMATestCase
         $sessionName = session_name();
         $sessionID = session_id();
 
-        $this->assertFalse(
-            $this->object->authCheck()
-        );
+        $this->object->logOut();
 
         $this->assertEquals(
             array(
                 'SignonURL' => 'http://phpmyadmin.net/SignonURL',
                 'SignonScript' => '',
                 'SignonSession' => 'session123',
-                'host' => 'local',
-                'port' => '12',
+                'host' => 'localhost',
+                'port' => '80',
                 'user' => 'user',
-                'foo' => 'bar'
             ),
             $GLOBALS['cfg']['Server']
-        );
-
-        $this->assertEquals(
-            'pmaToken',
-            $_SESSION[' PMA_token ']
         );
 
         $this->assertEquals(
@@ -207,6 +216,7 @@ class AuthenticationSignonTest extends PMATestCase
         $this->assertFalse(
             isset($_SESSION['LAST_SIGNON_URL'])
         );
+        $attrInstance->setValue($restoreInstance);
     }
 
     /**

@@ -123,9 +123,13 @@ class AuthenticationHttpTest extends PMATestCase
         call_user_func_array(array($header_method, 'withConsecutive'), $headers);
 
         try {
-            $this->assertFalse(
-                $this->object->auth()
-            );
+            if (!empty($_REQUEST['old_usr'])) {
+                $this->object->logOut();
+            } else {
+                $this->assertFalse(
+                    $this->object->auth()
+                );
+            }
         } finally {
             $attrInstance->setValue($restoreInstance);
         }

@@ -67,18 +67,6 @@ class AuthenticationCookie extends AuthenticationPlugin
             }
         }
 
-        /* Perform logout to custom URL */
-        if (! empty($_REQUEST['old_usr'])
-            && ! empty($GLOBALS['cfg']['Server']['LogoutURL'])
-        ) {
-            PMA_sendHeaderLocation($GLOBALS['cfg']['Server']['LogoutURL']);
-            if (defined('TESTSUITE')) {
-                return true;
-            } else {
-                exit;
-            }
-        }
-
         // No recall if blowfish secret is not configured as it would produce
         // garbage
         if ($GLOBALS['cfg']['LoginCookieRecall']
@@ -294,34 +282,6 @@ class AuthenticationCookie extends AuthenticationPlugin
             return false;
         }
         // END Swekey Integration
-
-        if (! empty($_REQUEST['old_usr'])) {
-            // The user wants to be logged out
-            // -> delete his choices that were stored in session
-
-            // according to the PHP manual we should do this before the destroy:
-            //$_SESSION = array();
-
-            if (! defined('TESTSUITE')) {
-                session_destroy();
-            }
-            // -> delete password cookie(s)
-            if ($GLOBALS['cfg']['LoginCookieDeleteAll']) {
-                foreach ($GLOBALS['cfg']['Servers'] as $key => $val) {
-                    $GLOBALS['PMA_Config']->removeCookie('pmaPass-' . $key);
-                    if (isset($_COOKIE['pmaPass-' . $key])) {
-                        unset($_COOKIE['pmaPass-' . $key]);
-                    }
-                }
-            } else {
-                $GLOBALS['PMA_Config']->removeCookie(
-                    'pmaPass-' . $GLOBALS['server']
-                );
-                if (isset($_COOKIE['pmaPass-' . $GLOBALS['server']])) {
-                    unset($_COOKIE['pmaPass-' . $GLOBALS['server']]);
-                }
-            }
-        }
 
         if (! empty($_REQUEST['pma_username'])) {
 
@@ -830,5 +790,31 @@ class AuthenticationCookie extends AuthenticationPlugin
     public function handlePasswordChange($password)
     {
         $this->storePasswordCookie($password);
+    }
+
+    /**
+     * Perform logout
+     *
+     * @return void
+     */
+    public function logOut()
+    {
+        // -> delete password cookie(s)
+        if ($GLOBALS['cfg']['LoginCookieDeleteAll']) {
+            foreach ($GLOBALS['cfg']['Servers'] as $key => $val) {
+                $GLOBALS['PMA_Config']->removeCookie('pmaPass-' . $key);
+                if (isset($_COOKIE['pmaPass-' . $key])) {
+                    unset($_COOKIE['pmaPass-' . $key]);
+                }
+            }
+        } else {
+            $GLOBALS['PMA_Config']->removeCookie(
+                'pmaPass-' . $GLOBALS['server']
+            );
+            if (isset($_COOKIE['pmaPass-' . $GLOBALS['server']])) {
+                unset($_COOKIE['pmaPass-' . $GLOBALS['server']]);
+            }
+        }
+        parent::logOut();
     }
 }

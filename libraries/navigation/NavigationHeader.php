@@ -167,8 +167,7 @@ class NavigationHeader
         if ($GLOBALS['server'] != 0) {
             // Logout for advanced authentication
             if ($GLOBALS['cfg']['Server']['auth_type'] != 'config') {
-                $link = 'index.php' . $GLOBALS['url_query'];
-                $link .= '&amp;old_usr=' . urlencode($GLOBALS['PHP_AUTH_USER']);
+                $link = 'logout.php' . $GLOBALS['url_query'];
                 $retval .= PMA\libraries\Util::getNavigationLink(
                     $link,
                     $showText,
