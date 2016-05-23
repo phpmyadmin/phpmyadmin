@@ -51,14 +51,6 @@ class AuthenticationSignonTest extends PMATestCase
      */
     public function testAuth()
     {
-        if (! defined('PMA_TEST_HEADERS')) {
-            $this->markTestSkipped(
-                'Cannot redefine constant/function - missing runkit extension'
-            );
-        }
-
-        // case 1
-
         $GLOBALS['cfg']['Server']['SignonURL'] = '';
 
         ob_start();
@@ -69,31 +61,75 @@ class AuthenticationSignonTest extends PMATestCase
             'You must set SignonURL!',
             $result
         );
+    }
 
-        // case 2
+    /**
+     * Test for PMA\libraries\plugins\auth\AuthenticationSignon::auth
+     *
+     * @return void
+     */
+    public function testAuthLogoutURL()
+    {
+        $restoreInstance = PMA\libraries\Response::getInstance();
 
+        $mockResponse = $this->getMockBuilder('PMA\libraries\Response')
+            ->disableOriginalConstructor()
+            ->setMethods(array('isAjax', 'headersSent', 'header'))
+            ->getMock();
+
+        $mockResponse->expects($this->any())
+            ->method('headersSent')
+            ->with()
+            ->will($this->returnValue(false));
+
+        $mockResponse->expects($this->once())
+            ->method('header')
+            ->with('Location: http://phpmyadmin.net/logoutURL' . ((SID) ? '?' . SID : ''));
+
+        $attrInstance = new ReflectionProperty('PMA\libraries\Response', '_instance');
+        $attrInstance->setAccessible(true);
+        $attrInstance->setValue($mockResponse);
         $GLOBALS['cfg']['Server']['SignonURL'] = 'http://phpmyadmin.net/SignonURL';
         $GLOBALS['cfg']['Server']['LogoutURL'] = 'http://phpmyadmin.net/logoutURL';
 
         $this->object->logOut();
 
-        $this->assertContains(
-            'Location: http://phpmyadmin.net/logoutURL?PHPSESSID=',
-            $GLOBALS['header'][0]
-        );
+        $attrInstance->setValue($restoreInstance);
+    }
 
-        // case 3
+    /**
+     * Test for PMA\libraries\plugins\auth\AuthenticationSignon::auth
+     *
+     * @return void
+     */
+    public function testAuthLogout()
+    {
+        $restoreInstance = PMA\libraries\Response::getInstance();
 
+        $mockResponse = $this->getMockBuilder('PMA\libraries\Response')
+            ->disableOriginalConstructor()
+            ->setMethods(array('isAjax', 'headersSent', 'header'))
+            ->getMock();
+
+        $mockResponse->expects($this->any())
+            ->method('headersSent')
+            ->with()
+            ->will($this->returnValue(false));
+
+        $mockResponse->expects($this->once())
+            ->method('header')
+            ->with('Location: http://phpmyadmin.net/SignonURL' . ((SID) ? '?' . SID : ''));
+
+        $attrInstance = new ReflectionProperty('PMA\libraries\Response', '_instance');
+        $attrInstance->setAccessible(true);
+        $attrInstance->setValue($mockResponse);
         $GLOBALS['header'] = array();
         $GLOBALS['cfg']['Server']['SignonURL'] = 'http://phpmyadmin.net/SignonURL';
         $GLOBALS['cfg']['Server']['LogoutURL'] = '';
 
         $this->object->logOut();
 
-        $this->assertContains(
-            'Location: http://phpmyadmin.net/SignonURL?PHPSESSID=',
-            $GLOBALS['header'][0]
-        );
+        $attrInstance->setValue($restoreInstance);
     }
 
     /**
@@ -167,7 +203,7 @@ class AuthenticationSignonTest extends PMATestCase
 
         $mockResponse->expects($this->once())
             ->method('header')
-            ->with('Location: ./index.php' . ((SID) ? '?' . SID : ''));
+            ->with('Location: http://phpmyadmin.net/SignonURL' . ((SID) ? '?' . SID : ''));
 
         $attrInstance = new ReflectionProperty('PMA\libraries\Response', '_instance');
         $attrInstance->setAccessible(true);
