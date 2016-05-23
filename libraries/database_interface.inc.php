@@ -43,7 +43,7 @@ if (defined('TESTSUITE')) {
             if (! PMA\libraries\DatabaseInterface::checkDbExtension($extension)) {
                 // warn about both extensions missing and exit
                 PMA_warnMissingExtension(
-                    'mysqli|mysql',
+                    'mysqli',
                     true,
                     $doclink
                 );

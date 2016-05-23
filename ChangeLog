@@ -11,6 +11,7 @@ phpMyAdmin - ChangeLog
 - issue #12249 Fix cookie path on IIS
 - issue #11705 Fix occassional 200 errors on Windows
 - issue #12219 Fix locking issues when importing SQL
+- issue #12231 Avoid confusing warning when mysql extension is missing
 
 4.6.1 (2016-05-02)
 - issue #12120 PMA_Util not found in insert_edit.lib.php
