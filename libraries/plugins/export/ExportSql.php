@@ -1476,7 +1476,10 @@ class ExportSql extends ExportPlugin
         // an error can happen, for example the table is crashed
         $tmp_error = $GLOBALS['dbi']->getError();
         if ($tmp_error) {
-            return $this->_exportComment(__('in use') . '(' . $tmp_error . ')');
+            $message = sprintf(__('Error reading structure for table %s:'), "$db.$table");
+            $message .= ' ' . $tmp_error;
+            trigger_error($message, E_USER_ERROR);
+            return $this->_exportComment($message);
         }
 
         // Old mode is stored so it can be restored once exporting is done.
@@ -2183,10 +2186,11 @@ class ExportSql extends ExportPlugin
         // a possible error: the table has crashed
         $tmp_error = $GLOBALS['dbi']->getError();
         if ($tmp_error) {
+            $message = sprintf(__('Error reading data for table %s:'), "$db.$table");
+            $message .= ' ' . $tmp_error;
+            trigger_error($message, E_USER_ERROR);
             return PMA_exportOutputHandler(
-                $this->_exportComment(
-                    __('Error reading data:') . ' (' . $tmp_error . ')'
-                )
+                $this->_exportComment($message)
             );
         }
 

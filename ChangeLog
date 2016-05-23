@@ -15,6 +15,7 @@ phpMyAdmin - ChangeLog
 - issue        Improve performance of zip file import
 - issue #12196 Removed $cfg['ThemePath']
 - issue #6274  Add support for export user settings as config.inc.php snippet
+- issue #5555  Better report query errors while generating SQL exports
 
 4.6.2 (not yet released)
 - issue #12225 Use https for documentation links
