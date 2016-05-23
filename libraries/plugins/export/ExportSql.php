@@ -1572,14 +1572,17 @@ class ExportSql extends ExportPlugin
                 $parser = new Parser($create_query);
             }
 
-            if (!empty($parser->statements[0]->fields)) {
+            /**
+             * `CREATE TABLE` statement.
+             *
+             * @var SelectStatement
+             */
+            $statement = $parser->statements[0];
 
-                /**
-                 * `CREATE TABLE` statement.
-                 *
-                 * @var SelectStatement
-                 */
-                $statement = $parser->statements[0];
+            $engine = $statement->entityOptions->has('ENGINE');
+
+            /* Avoid operation on ARCHIVE tables as those can not be altered */
+            if (!empty($statement->fields) && (empty($engine) || strtoupper($engine) != 'ARCHIVE')) {
 
                 /**
                  * Fragments containining definition of each constraint.
