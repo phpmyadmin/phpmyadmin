@@ -15,6 +15,8 @@ use PMA\libraries\Response;
 use PMA\libraries\Util;
 use ReCaptcha\ReCaptcha;
 
+require_once './libraries/session.lib.php';
+
 /**
  * Remember where to redirect the user
  * in case of an expired session.
