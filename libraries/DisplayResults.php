@@ -2788,7 +2788,7 @@ class DisplayResults
                 $whereClauseMap[$row_no][$this->__get('table')] = $where_clause;
                 $this->__set('whereClauseMap', $whereClauseMap);
 
-                $where_clause_html = urlencode($where_clause);
+                $where_clause_html = htmlspecialchars($where_clause);
 
                 // 1.2.1 Modify link(s) - update row case
                 if ($displayParts['edit_lnk'] == self::UPDATE_ROW) {

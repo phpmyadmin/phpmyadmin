@@ -44,7 +44,7 @@ function PMA_getUrlParams(
         if ($what == 'row_delete') {
             $_url_params['selected'][] = 'DELETE FROM '
                 . PMA\libraries\Util::backquote($table)
-                . ' WHERE ' . urldecode($sval) . ' LIMIT 1;';
+                . ' WHERE ' . $sval . ' LIMIT 1;';
         } else {
             $_url_params['selected'][] = $sval;
         }
@@ -495,7 +495,7 @@ function PMA_getQueryFromSelected($what, $table, $selected, $views)
                 // (it's not binlog friendly).
                 // We don't need the clause because the calling panel permits
                 // this feature only when there is a unique index.
-                . ' WHERE ' . urldecode(htmlspecialchars($sval))
+                . ' WHERE ' . htmlspecialchars($sval)
                 . ';<br />';
             break;
         case 'drop_db':
