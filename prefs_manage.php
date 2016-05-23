@@ -38,6 +38,22 @@ if (isset($_POST['submit_export'])
     $settings = PMA_loadUserprefs();
     echo json_encode($settings['config_data'], JSON_PRETTY_PRINT);
     exit;
+} elseif (isset($_POST['submit_export'])
+    && isset($_POST['export_type'])
+    && $_POST['export_type'] == 'php_file'
+) {
+    // export to JSON file
+    PMA\libraries\Response::getInstance()->disable();
+    $filename = 'phpMyAdmin-config-' . urlencode(PMA_getenv('HTTP_HOST')) . '.php';
+    PMA_downloadHeader($filename, 'application/php');
+    $settings = PMA_loadUserprefs();
+    echo '/* ' . _('phpMyAdmin configuration snippet') . " */\n\n";
+    echo '/* ' . _('Paste it to your config.inc.php') . " */\n\n";
+    foreach ($settings['config_data'] as $key => $val) {
+        echo '$cfg[\'' . str_replace('/', '\'][\'', $key) . '\'] = ';
+        echo var_export($val, true) . ";\n";
+    }
+    exit;
 } else if (isset($_POST['submit_get_json'])) {
     $settings = PMA_loadUserprefs();
     $response = PMA\libraries\Response::getInstance();
@@ -319,6 +335,11 @@ if (file_exists('setup/index.php')) {
                            value="text_file" checked="checked" />
                     <label for="export_text_file">
                         <?php echo __('Save as file'); ?>
+                    </label><br />
+                    <input type="radio" id="export_php_file" name="export_type"
+                           value="php_file" />
+                    <label for="export_php_file">
+                        <?php echo __('Save as PHP file'); ?>
                     </label><br />
                     <input type="radio" id="export_local_storage" name="export_type"
                            value="local_storage" disabled="disabled" />

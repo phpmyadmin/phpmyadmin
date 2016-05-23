@@ -14,6 +14,7 @@ phpMyAdmin - ChangeLog
 - issue #12173 Do not hide indexes under a slider
 - issue        Improve performance of zip file import
 - issue #12196 Removed $cfg['ThemePath']
+- issue #6274  Add support for export user settings as config.inc.php snippet
 
 4.6.2 (not yet released)
 - issue #12225 Use https for documentation links
