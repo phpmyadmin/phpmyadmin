@@ -1175,7 +1175,7 @@ class ExportSqlTest extends PMATestCase
         );
 
         $this->assertContains(
-            '-- in use(error occurred)',
+            '-- Error reading structure for table db.table: error occurred',
             $result
         );
     }
@@ -1767,7 +1767,7 @@ class ExportSqlTest extends PMATestCase
         $result = ob_get_clean();
 
         $this->assertContains(
-            "-- Error reading data: (err)\n",
+            '-- Error reading data for table db.table: err',
             $result
         );
     }
