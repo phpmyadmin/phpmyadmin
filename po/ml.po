@@ -6,16 +6,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-05-23 14:30+0200\n"
-"PO-Revision-Date: 2015-10-15 11:05+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Malayalam <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/ml/>\n"
+"PO-Revision-Date: 2016-05-24 05:48+0000\n"
+"Last-Translator: GIMMY <thozhalay@gmail.com>\n"
+"Language-Team: Malayalam "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/ml/>\n"
 "Language: ml\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.5-dev\n"
+"X-Generator: Weblate 2.7-dev\n"
 
 #: changelog.php:37 license.php:33
 #, php-format
@@ -275,7 +275,7 @@ msgstr ""
 #: templates/columns_definitions/table_fields_definitions.phtml:3
 #: templates/database/designer/table_list.phtml:28
 msgid "Structure"
-msgstr ""
+msgstr "ഘടന"
 
 #: db_export.php:67 libraries/config/setup.forms.php:331
 #: libraries/config/setup.forms.php:367 libraries/config/setup.forms.php:390
@@ -320,8 +320,9 @@ msgid ""
 msgstr ""
 
 #: db_qbe.php:125
+#, fuzzy
 msgid "You have to choose at least one column to display!"
-msgstr ""
+msgstr "ഒരു കോളം എങ്കിലും തിരഞ്ഞെടുക്കണം"
 
 #: db_qbe.php:143
 #, php-format
@@ -332,8 +333,9 @@ msgstr ""
 #: libraries/plugins/auth/AuthenticationConfig.php:94
 #: libraries/plugins/auth/AuthenticationConfig.php:109
 #: libraries/plugins/auth/AuthenticationHttp.php:77
+#, fuzzy
 msgid "Access denied!"
-msgstr ""
+msgstr "പ്രവേശനം നിഷേധിച്ചിരിക്കുന്നു!"
 
 #: db_tracking.php:52 db_tracking.php:77
 #, fuzzy
@@ -364,8 +366,9 @@ msgid ""
 msgstr ""
 
 #: error_report.php:72
+#, fuzzy
 msgid "Thank you for submitting this report."
-msgstr ""
+msgstr "ഈ റിപ്പോർട്ട് സമർപ്പിച്ചതിൽ താങ്കൾക്കു നന്ദി"
 
 #: error_report.php:76
 msgid ""
@@ -416,12 +419,13 @@ msgstr ""
 #: gis_data_editor.php:217 gis_data_editor.php:244 gis_data_editor.php:300
 #: gis_data_editor.php:373 js/messages.php:511
 msgid "X"
-msgstr ""
+msgstr "എക്സ്"
 
 #: gis_data_editor.php:220 gis_data_editor.php:248 gis_data_editor.php:304
 #: gis_data_editor.php:379 js/messages.php:512
+#, fuzzy
 msgid "Y"
-msgstr ""
+msgstr "വൈ"
 
 #: gis_data_editor.php:242 gis_data_editor.php:298 gis_data_editor.php:371
 #: js/messages.php:514
@@ -589,8 +593,9 @@ msgstr ""
 #: import_status.php:114 js/messages.php:451 js/messages.php:603
 #: libraries/Util.php:803 libraries/export.lib.php:520
 #: libraries/plugins/schema/ExportRelationSchema.php:298 user_password.php:292
+#, fuzzy
 msgid "Back"
-msgstr ""
+msgstr "പിറകോട്ട്"
 
 #: index.php:151 libraries/Footer.php:70
 msgid "phpMyAdmin Demo Server"
@@ -612,7 +617,7 @@ msgstr ""
 #: libraries/display_change_password.lib.php:47
 #: libraries/display_change_password.lib.php:50 user_password.php:286
 msgid "Change password"
-msgstr ""
+msgstr "പാസ് വേഡ് മാറ്റുക"
 
 #: index.php:212
 msgid "Server connection collation"
@@ -623,8 +628,9 @@ msgid "Appearance settings"
 msgstr ""
 
 #: index.php:265 prefs_manage.php:288
+#, fuzzy
 msgid "More settings"
-msgstr ""
+msgstr "കൂടുതൽ സെറ്റിംഗുകൾ"
 
 #: index.php:287
 msgid "Database server"
