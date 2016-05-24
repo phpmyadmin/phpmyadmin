@@ -2938,7 +2938,7 @@ function PMA_getHtmlForInsertEditRow($url_params, $table_columns,
     }
     for ($column_number = 0; $column_number < $columns_cnt; $column_number++) {
         $table_column = $table_columns[$column_number];
-        // skip this column if the user does not have necessary databse or column privileges
+        // skip this column if the user does not have necessary database or column privileges
         if (! PMA_userHasDatabasePrivileges($db, $insert_mode) && ! PMA_userHasColumnPrivileges($table_column, $insert_mode)) {
             continue;
         }
