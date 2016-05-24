@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-05-23 14:30+0200\n"
-"PO-Revision-Date: 2016-04-13 17:41+0000\n"
+"PO-Revision-Date: 2016-05-23 17:27+0000\n"
 "Last-Translator: dingo thirteen <dingo13@gmail.com>\n"
-"Language-Team: Dutch <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"nl/>\n"
+"Language-Team: Dutch "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/nl/>\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.6-dev\n"
+"X-Generator: Weblate 2.7-dev\n"
 
 #: changelog.php:37 license.php:33
 #, php-format
@@ -5517,14 +5517,11 @@ msgid "Highlight pointer"
 msgstr "Muispijl markeren"
 
 #: libraries/config/messages.inc.php:47
-#, fuzzy
 #| msgid ""
 #| "Enable [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] compression for "
 #| "import operations."
 msgid "Enable bzip2 compression for import operations."
-msgstr ""
-"[a@http://nl.wikipedia.org/wiki/Bzip2]bzip2[/a]-compressie inschakelen voor "
-"importbewerkingen."
+msgstr "Schakel bzip2 compressie in voor importbewerkingen."
 
 #: libraries/config/messages.inc.php:50
 msgid "Bzip2"
@@ -5546,7 +5543,6 @@ msgid "CHAR columns editing"
 msgstr "CHAR-kolommen bewerken"
 
 #: libraries/config/messages.inc.php:58
-#, fuzzy
 #| msgid ""
 #| "Use user-friendly editor for editing SQL queries ([a@http://codemirror."
 #| "net/]CodeMirror[/a]) with syntax highlighting and line numbers."
@@ -5554,8 +5550,8 @@ msgid ""
 "Use user-friendly editor for editing SQL queries (CodeMirror) with syntax "
 "highlighting and line numbers."
 msgstr ""
-"Gebruik de gebruiksvriendelijk editor voor SQL-query's ([a@http://codemirror."
-"net/]CodeMirror[/a]) met syntaxmarkering en regelnummers."
+"Gebruik de gebruiksvriendelijk editor voor SQL-query's (CodeMirror) met "
+"syntaxis markering en regelnummers."
 
 #: libraries/config/messages.inc.php:62
 msgid "Enable CodeMirror"
@@ -6317,14 +6313,11 @@ msgid "Disable some of the warnings shown by phpMyAdmin."
 msgstr "Schakel enkele waarschuwingen uit die getoond worden door phpMyAdmin."
 
 #: libraries/config/messages.inc.php:353
-#, fuzzy
 #| msgid ""
 #| "Enable [a@http://en.wikipedia.org/wiki/Gzip]gzip[/a] compression for "
 #| "import and export operations."
 msgid "Enable gzip compression for import and export operations."
-msgstr ""
-"Gebruik [a@http://nl.wikipedia.org/wiki/Gzip]gzip[/a] compressie voor "
-"import- en exportbewerkingen."
+msgstr "Schakel gzip compressie in voor import- en exportbewerkingen."
 
 #: libraries/config/messages.inc.php:356
 msgid "GZip"
@@ -7030,7 +7023,6 @@ msgid "Authentication type"
 msgstr "Authenticatietype"
 
 #: libraries/config/messages.inc.php:640
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/"
 #| "a] support, suggested: [kbd]pma__bookmark[/kbd]"
@@ -7038,8 +7030,8 @@ msgid ""
 "Leave blank for no [doc@bookmarks@]bookmark[/doc] support, suggested: "
 "[kbd]pma__bookmark[/kbd]"
 msgstr ""
-"Laat dit veld leeg om geen [a@http://wiki.phpmyadmin.net/pma/"
-"bookmark]bladwijzers[/a] te gebruiken, suggestie: [kbd]pma__bookmark[/kbd]"
+"Laat dit veld leeg om geen  [doc@bookmarks@] 1bookmark[/doc] 2 support, "
+"suggested: [kbd] 3pma__bookmark[/kbd] 4 te gebruiken"
 
 #: libraries/config/messages.inc.php:643
 msgid "Bookmark table"
@@ -7078,7 +7070,6 @@ msgid "Control user password"
 msgstr "Controle gebruikerswachtwoord"
 
 #: libraries/config/messages.inc.php:656
-#, fuzzy
 #| msgid ""
 #| "A special MySQL user configured with limited permissions, more "
 #| "information available on [a@http://wiki.phpmyadmin.net/pma/"
@@ -7087,8 +7078,8 @@ msgid ""
 "A special MySQL user configured with limited permissions, more information "
 "available on [doc@linked-tables]documentation[/doc]."
 msgstr ""
-"Een speciale MySQL-gebruiker met beperkte rechten, zie de [a@http://wiki."
-"phpmyadmin.net/pma/controluser]wiki[/a] voor meer informatie."
+"Een speciale MySQL-gebruiker met beperkte rechten, zie [doc@linked-tables] "
+"1documentation[/doc] 2 voor meer informatie."
 
 #: libraries/config/messages.inc.php:659
 msgid "Control user"
@@ -7258,7 +7249,6 @@ msgid "PDF schema: pages table"
 msgstr "PDF-schema: pagina's tabel"
 
 #: libraries/config/messages.inc.php:723
-#, fuzzy
 #| msgid ""
 #| "Database used for relations, bookmarks, and PDF features. See [a@http://"
 #| "wiki.phpmyadmin.net/pma/pmadb]pmadb[/a] for complete information. Leave "
@@ -7269,9 +7259,9 @@ msgid ""
 "Suggested: [kbd]phpmyadmin[/kbd]."
 msgstr ""
 "Database die wordt gebruikt om relaties, bladwijzers en PDF-eigenschappen op "
-"te slaan. Zie [a@http://wiki.phpmyadmin.net/pma/pmadb]pmadb[/a] voor meer "
-"informatie. Laat dit veld leeg om dit uit te schakelen, suggestie: "
-"[kbd]phpmyadmin[/kbd]."
+"te slaan. Zie  [doc@linked-tables] 1pmadb[/doc] 2  voor meer informatie. "
+"Laat dit veld leeg om dit uit te schakelen. Suggestie: : [kbd] "
+"3phpmyadmin[/kbd] 4."
 
 #: libraries/config/messages.inc.php:727
 #: templates/server/databases/create.phtml:20
@@ -7313,7 +7303,6 @@ msgid "Favorites table"
 msgstr "Favorieten tabel"
 
 #: libraries/config/messages.inc.php:742
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
 #| "links[/a] support, suggested: [kbd]pma__relation[/kbd]."
@@ -7321,24 +7310,22 @@ msgid ""
 "Leave blank for no [doc@relations@]relation-links[/doc] support, suggested: "
 "[kbd]pma__relation[/kbd]."
 msgstr ""
-"Laat dit veld leeg om geen [a@http://wiki.phpmyadmin.net/pma/"
-"relation]relation-links[/a] te ondersteunen, suggestie: [kbd]pma__relation[/"
-"kbd]."
+"Laat dit veld leeg om geen [doc@relations@] 1relation-links[/doc] 2 te "
+"ondersteunen, suggestie:  [kbd] 3pma__relation[/kbd] 4."
 
 #: libraries/config/messages.inc.php:746
 msgid "Relation table"
 msgstr "Relatietabel"
 
 #: libraries/config/messages.inc.php:748
-#, fuzzy
 #| msgid ""
 #| "See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
 #| "types[/a] for an example."
 msgid ""
 "See [doc@authentication-modes]authentication types[/doc] for an example."
 msgstr ""
-"Zie [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authenticatietypes[/"
-"a] voor een voorbeeld."
+"Zie  [doc@authentication-modes] 1authentication types[/doc] 2  voor een "
+"voorbeeld."
 
 #: libraries/config/messages.inc.php:751
 msgid "Signon session name"
@@ -7865,14 +7852,11 @@ msgid "Proxy password"
 msgstr "Proxy wachtwoord"
 
 #: libraries/config/messages.inc.php:974
-#, fuzzy
 #| msgid ""
 #| "Enable [a@http://en.wikipedia.org/wiki/Gzip]gzip[/a] compression for "
 #| "import and export operations."
 msgid "Enable ZIP compression for import and export operations."
-msgstr ""
-"Gebruik [a@http://nl.wikipedia.org/wiki/Gzip]gzip[/a] compressie voor "
-"import- en exportbewerkingen."
+msgstr "Schakel ZIP compressie in voor import- en exportbewerkingen."
 
 #: libraries/config/messages.inc.php:977
 msgid "ZIP"
@@ -15046,9 +15030,9 @@ msgid ""
 "about relevant configuration settings. It will be sent to the phpMyAdmin "
 "team for debugging the error."
 msgstr ""
-"Dit rapport bevat automatisch verzamelde gegevens over deze fout en ook "
-"informatie over relevante configuratie-instellingen. Het zal automatisch "
-"verzenden worden naar het phpMyAdmin team voor het debuggen van het probleem."
+"Dit rapport automatisch bevat data over deze fout en ook informatie over "
+"relevante configuratie-instellingen. Het zal verzonden wordeb naar het "
+"phpMyAdmin team om te helpen bij het debuggen van het probleem."
 
 #: templates/error/report_form.phtml:14
 msgid ""
@@ -15637,7 +15621,7 @@ msgstr "Een openingshaakje werd verwacht."
 
 #: vendor/phpmyadmin/sql-parser/src/Components/CreateDefinition.php:225
 msgid "A symbol name was expected!"
-msgstr "Naam van een symbool  werd verwacht!"
+msgstr "Naam van een symbool werd verwacht."
 
 #: vendor/phpmyadmin/sql-parser/src/Components/CreateDefinition.php:257
 msgid "A comma or a closing bracket was expected."
