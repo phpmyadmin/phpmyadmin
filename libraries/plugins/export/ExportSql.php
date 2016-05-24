@@ -1478,7 +1478,9 @@ class ExportSql extends ExportPlugin
         if ($tmp_error) {
             $message = sprintf(__('Error reading structure for table %s:'), "$db.$table");
             $message .= ' ' . $tmp_error;
-            trigger_error($message, E_USER_ERROR);
+            if (! defined('TESTSUITE')) {
+                trigger_error($message, E_USER_ERROR);
+            }
             return $this->_exportComment($message);
         }
 
@@ -2188,7 +2190,9 @@ class ExportSql extends ExportPlugin
         if ($tmp_error) {
             $message = sprintf(__('Error reading data for table %s:'), "$db.$table");
             $message .= ' ' . $tmp_error;
-            trigger_error($message, E_USER_ERROR);
+            if (! defined('TESTSUITE')) {
+                trigger_error($message, E_USER_ERROR);
+            }
             return PMA_exportOutputHandler(
                 $this->_exportComment($message)
             );
