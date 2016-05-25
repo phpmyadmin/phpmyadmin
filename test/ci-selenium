@@ -4,4 +4,4 @@ ant locales
 
 export PHPUNIT_ARGS="--group selenium --debug"
 
-ant phpunit
+ant phpunit-nocoverate
