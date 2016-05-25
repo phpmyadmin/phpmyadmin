@@ -17,7 +17,11 @@ phpMyAdmin - ChangeLog
 - issue #6274  Add support for export user settings as config.inc.php snippet
 - issue #5555  Better report query errors while generating SQL exports
 
-4.6.2 (not yet released)
+4.6.3 (not yet released)
+
+4.6.2 (2016-05-25)
+- issue        [security] User SQL queries can be revealed through URL GET parameters, see PMASA-2016-14
+- issue        [security] Self XSS vulneratbility, see PMASA-2016-16
 - issue #12225 Use https for documentation links
 - issue #12234 Fix schema export with too many tables
 - issue #12240 Avoid parsing non JSON responses as JSON
