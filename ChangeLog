@@ -1,6 +1,26 @@
 phpMyAdmin - ChangeLog
 ======================
 
+4.6.2 (2016-05-25)
+- issue #12225 Use https for documentation links
+- issue #12234 Fix schema export with too many tables
+- issue #12240 Avoid parsing non JSON responses as JSON
+- issue #12244 Avoid using too log URLs when getting javascripts
+- issue #12118 Fixed setting mixed case languages
+- issue #12229 Avoid storing objects in session when debugging SQL
+- issue #12249 Fix cookie path on IIS
+- issue #11705 Fix occassional 200 errors on Windows
+- issue #12219 Fix locking issues when importing SQL
+- issue #12231 Avoid confusing warning when mysql extension is missing
+- issue        Improve handling of logout
+- issue        Safer handling of sessions during authentication
+- issue #12209 Fix server selection on main page
+- issue #12192 Avoid storing full error data in session
+- issue #12082 Fixed export of ARCHIVE tables with keys
+- issue #11565 Add session reload for config authentication
+- issue #12229 Do not fail on errors stored in session
+- issue #12248 Fix loading of APC based upload progress bar
+
 4.6.1 (2016-05-02)
 - issue #12120 PMA_Util not found in insert_edit.lib.php
 - issue #12118 Fixed activation of some languages
@@ -184,7 +204,7 @@ phpMyAdmin - ChangeLog
 - issue        [security] XSS vulnerability in SQL editor, see PMASA-2016-9
 
          --- Older ChangeLogs can be found on our project website ---
-                     http://www.phpmyadmin.net/old-stuff/ChangeLogs/
+                     https://www.phpmyadmin.net/old-stuff/ChangeLogs/
 
 # vim: et ts=4 sw=4 sts=4
 # vim: ft=changelog fenc=utf-8

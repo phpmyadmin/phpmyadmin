@@ -85,8 +85,9 @@ class Scripts
         }
         $separator = PMA_URL_getArgSeparator();
         $static_scripts = '';
-        // Using chunks of 20 files to avoid too long URLs
-        $script_chunks = array_chunk($scripts, 20);
+        // Using chunks of 10 files to avoid too long URLs
+        // as some servers are set to 512 bytes URL limit
+        $script_chunks = array_chunk($scripts, 10);
         foreach ($script_chunks as $script_chunk) {
             $url = 'js/get_scripts.js.php?'
                 . implode($separator, $script_chunk)

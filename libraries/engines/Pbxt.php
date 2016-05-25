@@ -181,17 +181,11 @@ class Pbxt extends StorageEngine
                 'Documentation and further information about PBXT'
                 . ' can be found on the %sPrimeBase XT Home Page%s.'
             ),
-            '<a href="' . PMA_linkURL('http://www.primebase.com/xt/')
+            '<a href="' . PMA_linkURL('https://mariadb.com/kb/en/mariadb/about-pbxt/')
             . '" target="_blank">',
             '</a>'
         )
-        . '</p>' . "\n"
-        . '<h3>' . __('Related Links') . '</h3>' . "\n"
-        . '<ul>' . "\n"
-        . '<li><a href="' . PMA_linkURL('http://pbxt.blogspot.com/')
-        . '" target="_blank">' . __('The PrimeBase XT Blog by Paul McCullagh')
-        . '</a></li>' . "\n"
-        . '</ul>' . "\n";
+        . '</p>' . "\n";
 
         return $output;
     }

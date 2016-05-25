@@ -204,7 +204,7 @@ function PMA_Bookmark_save($bkm_fields, $all_users = false)
             ))
         . '\', '
         . '\''
-        . PMA\libraries\Util::sqlAddSlashes(urldecode($bkm_fields['bkm_sql_query']))
+        . PMA\libraries\Util::sqlAddSlashes($bkm_fields['bkm_sql_query'])
         . '\', '
         . '\'' . PMA\libraries\Util::sqlAddSlashes($bkm_fields['bkm_label']) . '\')';
     return $GLOBALS['dbi']->query($query, $controllink);

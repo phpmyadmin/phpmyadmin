@@ -49,18 +49,6 @@ class AuthenticationHttp extends AuthenticationPlugin
      */
     public function authForm()
     {
-        /* Perform logout to custom URL */
-        if (!empty($_REQUEST['old_usr'])
-            && !empty($GLOBALS['cfg']['Server']['LogoutURL'])
-        ) {
-            PMA_sendHeaderLocation($GLOBALS['cfg']['Server']['LogoutURL']);
-            if (!defined('TESTSUITE')) {
-                exit;
-            } else {
-                return false;
-            }
-        }
-
         if (empty($GLOBALS['cfg']['Server']['auth_http_realm'])) {
             if (empty($GLOBALS['cfg']['Server']['verbose'])) {
                 $server_message = $GLOBALS['cfg']['Server']['host'];
@@ -261,5 +249,15 @@ class AuthenticationHttp extends AuthenticationPlugin
         $this->authForm();
 
         return true;
+    }
+
+    /**
+     * Returns URL for login form.
+     *
+     * @return string
+     */
+    public function getLoginFormURL()
+    {
+        return './index.php?old_usr=' . $GLOBALS['PHP_AUTH_USER'];
     }
 }

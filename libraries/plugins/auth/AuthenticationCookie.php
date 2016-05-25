@@ -15,6 +15,8 @@ use PMA\libraries\Response;
 use PMA\libraries\Util;
 use ReCaptcha\ReCaptcha;
 
+require_once './libraries/session.lib.php';
+
 /**
  * Remember where to redirect the user
  * in case of an expired session.
@@ -60,18 +62,6 @@ class AuthenticationCookie extends AuthenticationPlugin
             $response->setRequestStatus(false);
             // redirect_flag redirects to the login page
             $response->addJSON('redirect_flag', '1');
-            if (defined('TESTSUITE')) {
-                return true;
-            } else {
-                exit;
-            }
-        }
-
-        /* Perform logout to custom URL */
-        if (! empty($_REQUEST['old_usr'])
-            && ! empty($GLOBALS['cfg']['Server']['LogoutURL'])
-        ) {
-            PMA_sendHeaderLocation($GLOBALS['cfg']['Server']['LogoutURL']);
             if (defined('TESTSUITE')) {
                 return true;
             } else {
@@ -295,43 +285,6 @@ class AuthenticationCookie extends AuthenticationPlugin
         }
         // END Swekey Integration
 
-        if (defined('PMA_CLEAR_COOKIES')) {
-            foreach ($GLOBALS['cfg']['Servers'] as $key => $val) {
-                $GLOBALS['PMA_Config']->removeCookie('pmaPass-' . $key);
-                $GLOBALS['PMA_Config']->removeCookie('pmaServer-' . $key);
-                $GLOBALS['PMA_Config']->removeCookie('pmaUser-' . $key);
-            }
-            return false;
-        }
-
-        if (! empty($_REQUEST['old_usr'])) {
-            // The user wants to be logged out
-            // -> delete his choices that were stored in session
-
-            // according to the PHP manual we should do this before the destroy:
-            //$_SESSION = array();
-
-            if (! defined('TESTSUITE')) {
-                session_destroy();
-            }
-            // -> delete password cookie(s)
-            if ($GLOBALS['cfg']['LoginCookieDeleteAll']) {
-                foreach ($GLOBALS['cfg']['Servers'] as $key => $val) {
-                    $GLOBALS['PMA_Config']->removeCookie('pmaPass-' . $key);
-                    if (isset($_COOKIE['pmaPass-' . $key])) {
-                        unset($_COOKIE['pmaPass-' . $key]);
-                    }
-                }
-            } else {
-                $GLOBALS['PMA_Config']->removeCookie(
-                    'pmaPass-' . $GLOBALS['server']
-                );
-                if (isset($_COOKIE['pmaPass-' . $GLOBALS['server']])) {
-                    unset($_COOKIE['pmaPass-' . $GLOBALS['server']]);
-                }
-            }
-        }
-
         if (! empty($_REQUEST['pma_username'])) {
 
             // Verify Captcha if it is required.
@@ -390,6 +343,7 @@ class AuthenticationCookie extends AuthenticationPlugin
                 }
                 $GLOBALS['pma_auth_server'] = $_REQUEST['pma_servername'];
             }
+            PMA_secureSession();
             return true;
         }
 
@@ -839,5 +793,31 @@ class AuthenticationCookie extends AuthenticationPlugin
     public function handlePasswordChange($password)
     {
         $this->storePasswordCookie($password);
+    }
+
+    /**
+     * Perform logout
+     *
+     * @return void
+     */
+    public function logOut()
+    {
+        // -> delete password cookie(s)
+        if ($GLOBALS['cfg']['LoginCookieDeleteAll']) {
+            foreach ($GLOBALS['cfg']['Servers'] as $key => $val) {
+                $GLOBALS['PMA_Config']->removeCookie('pmaPass-' . $key);
+                if (isset($_COOKIE['pmaPass-' . $key])) {
+                    unset($_COOKIE['pmaPass-' . $key]);
+                }
+            }
+        } else {
+            $GLOBALS['PMA_Config']->removeCookie(
+                'pmaPass-' . $GLOBALS['server']
+            );
+            if (isset($_COOKIE['pmaPass-' . $GLOBALS['server']])) {
+                unset($_COOKIE['pmaPass-' . $GLOBALS['server']]);
+            }
+        }
+        parent::logOut();
     }
 }

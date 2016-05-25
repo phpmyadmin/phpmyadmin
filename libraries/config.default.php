@@ -506,7 +506,7 @@ $cfg['Servers'][$i]['MaxTableUiprefs'] = 100;
 
 /**
  * Sets the time zone used by phpMyAdmin. Possible values are explained at
- * http://dev.mysql.com/doc/refman/5.7/en/time-zone-support.html
+ * https://dev.mysql.com/doc/refman/5.7/en/time-zone-support.html
  *
  * @global string $cfg['Servers'][$i]['SessionTimeZone'] = ''
  */
@@ -544,7 +544,7 @@ $cfg['Servers'][$i]['AllowDeny']['rules'] = array();
  * Disable use of INFORMATION_SCHEMA.
  *
  * @see https://sourceforge.net/p/phpmyadmin/bugs/2606/
- * @see http://bugs.mysql.com/19588
+ * @see https://bugs.mysql.com/19588
  * @global boolean $cfg['Servers'][$i]['DisableIS']
  */
 $cfg['Servers'][$i]['DisableIS'] = false;

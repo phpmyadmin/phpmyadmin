@@ -25,7 +25,7 @@ function PMA_removeRequestVars(&$whitelist)
 
     foreach ($keys as $key) {
         if (! in_array($key, $whitelist)) {
-            unset($_REQUEST[$key], $_GET[$key], $_POST[$key], $GLOBALS[$key]);
+            unset($_REQUEST[$key], $_GET[$key], $_POST[$key]);
             continue;
         }
 

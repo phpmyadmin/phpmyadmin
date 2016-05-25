@@ -482,7 +482,7 @@ class Util
                 $mysql = '5.5';
             }
         }
-        $url = 'http://dev.mysql.com/doc/refman/'
+        $url = 'https://dev.mysql.com/doc/refman/'
             . $mysql . '/' . $lang . '/' . $link . '.html';
         if (! empty($anchor)) {
             $url .= '#' . $anchor;
@@ -540,7 +540,7 @@ class Util
         /* Check if we have built local documentation */
         if (defined('TESTSUITE')) {
             /* Provide consistent URL for testsuite */
-            return PMA_linkURL('http://docs.phpmyadmin.net/en/latest/' . $url);
+            return PMA_linkURL('https://docs.phpmyadmin.net/en/latest/' . $url);
         } elseif (@file_exists('doc/html/index.html')) {
             if (defined('PMA_SETUP')) {
                 return '../doc/html/' . $url;
@@ -549,7 +549,7 @@ class Util
             }
         } else {
             /* TODO: Should link to correct branch for released versions */
-            return PMA_linkURL('http://docs.phpmyadmin.net/en/latest/' . $url);
+            return PMA_linkURL('https://docs.phpmyadmin.net/en/latest/' . $url);
         }
     }
 
@@ -2747,7 +2747,7 @@ class Util
                 sprintf(
                     __('The %s functionality is affected by a known bug, see %s'),
                     $functionality,
-                    PMA_linkURL('http://bugs.mysql.com/') . $bugref
+                    PMA_linkURL('https://bugs.mysql.com/') . $bugref
                 )
             );
         }

@@ -109,18 +109,21 @@ class Error extends Message
     /**
      * sets PMA\libraries\Error::$_backtrace
      *
+     * We don't store full arguments to avoid wakeup or memory problems.
+     *
      * @param array $backtrace backtrace
      *
      * @return void
-     *
-     * @todo This function should store only processed backtrace as full
-     *       backtrace requires too much memory (especially with Response
-     *       object included). It could probably store only printable
-     *       representation as created by getBacktraceDisplay or some
-     *       intermediate form.
      */
     public function setBacktrace($backtrace)
     {
+        foreach ($backtrace as $idx => $step) {
+            if (isset($step['args'])) {
+                foreach ($step['args'] as $key => $arg) {
+                    $backtrace[$idx]['args'][$key] = Error::getArg($arg, $step['function']);
+                }
+            }
+        }
         $this->backtrace = $backtrace;
     }
 
@@ -311,12 +314,12 @@ class Error extends Message
                 $retval .= $separator;
                 foreach ($step['args'] as $arg) {
                     $retval .= "\t";
-                    $retval .= Error::getArg($arg, $step['function']);
+                    $retval .= $arg;
                     $retval .= ',' . $separator;
                 }
             } elseif (count($step['args']) > 0) {
                 foreach ($step['args'] as $arg) {
-                    $retval .= Error::getArg($arg, $step['function']);
+                    $retval .= $arg;
                 }
             }
         }

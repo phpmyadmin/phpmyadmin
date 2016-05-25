@@ -695,11 +695,7 @@ class Index
         $r .= '<th>' . __('Unique') . '</th>';
         $r .= '<th>' . __('Packed') . '</th>';
         $r .= '<th>' . __('Column') . '</th>';
-        /**
-         * The htmlentities is there to workaround PHP bug on Windows
-         * see https://github.com/phpmyadmin/phpmyadmin/issues/11705
-         */
-        $r .= '<th>' . htmlentities(__('Cardinality')) . '</th>';
+        $r .= '<th>' . __('Cardinality') . '</th>';
         $r .= '<th>' . __('Collation') . '</th>';
         $r .= '<th>' . __('Null') . '</th>';
         $r .= '<th>' . __('Comment') . '</th>';

@@ -52,7 +52,7 @@ $tracker_url_bug = 'https://sourceforge.net/p/phpmyadmin/bugs/\\1/';
 $tracker_url_rfe = 'https://sourceforge.net/p/phpmyadmin/feature-requests/\\1/';
 $tracker_url_patch = 'https://sourceforge.net/p/phpmyadmin/patches/\\1/';
 $github_url = 'https://github.com/phpmyadmin/phpmyadmin/';
-$faq_url = 'http://docs.phpmyadmin.net/en/latest/faq.html';
+$faq_url = 'https://docs.phpmyadmin.net/en/latest/faq.html';
 
 $replaces = array(
     '@(https?://[./a-zA-Z0-9.-_-]*[/a-zA-Z0-9_])@'

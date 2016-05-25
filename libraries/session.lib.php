@@ -16,7 +16,7 @@
 function PMA_secureSession()
 {
     // prevent session fixation and XSS
-    if (session_status() === PHP_SESSION_ACTIVE) {
+    if (session_status() === PHP_SESSION_ACTIVE && ! defined('TESTSUITE')) {
         session_regenerate_id(true);
     }
     if (! function_exists('openssl_random_pseudo_bytes')) {

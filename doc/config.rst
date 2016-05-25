@@ -504,7 +504,7 @@ Server connection settings
 
     More information on regular expressions can be found in the `PCRE
     pattern syntax
-    <http://php.net/manual/en/reference.pcre.pattern.syntax.php>`_ portion
+    <https://php.net/manual/en/reference.pcre.pattern.syntax.php>`_ portion
     of the PHP reference manual.
 
 .. config:option:: $cfg['Servers'][$i]['verbose']
@@ -702,7 +702,7 @@ Server connection settings
         For auto-upgrade functionality to work, your
         ``$cfg['Servers'][$i]['controluser']`` must have ALTER privilege on
         ``phpmyadmin`` database. See the `MySQL documentation for GRANT
-        <http://dev.mysql.com/doc/mysql/en/grant.html>`_ on how to
+        <https://dev.mysql.com/doc/mysql/en/grant.html>`_ on how to
         ``GRANT`` privileges to a user.
 
 .. _history:
@@ -1046,7 +1046,7 @@ Server connection settings
 
     Sets the time zone used by phpMyAdmin. Leave blank to use the time zone of your
     database server. Possible values are explained at
-    http://dev.mysql.com/doc/refman/5.7/en/time-zone-support.html
+    https://dev.mysql.com/doc/refman/5.7/en/time-zone-support.html
 
     This is useful when your database server uses a time zone which is different from the
     time zone you want to use in phpMyAdmin.
@@ -1310,14 +1310,14 @@ Generic settings
     :type: boolean
     :default: false
 
-    Whether `persistent connections <http://php.net/manual/en/features
+    Whether `persistent connections <https://php.net/manual/en/features
     .persistent-connections.php>`_ should be used or not. Works with
     following extensions:
 
-    * mysql (`mysql\_pconnect <http://php.net/manual/en/function.mysql-
+    * mysql (`mysql\_pconnect <https://php.net/manual/en/function.mysql-
       pconnect.php>`_),
     * mysqli (requires PHP 5.3.0 or newer, `more information
-      <http://php.net/manual/en/mysqli.persistconns.php>`_).
+      <https://php.net/manual/en/mysqli.persistconns.php>`_).
 
 .. config:option:: $cfg['ForceSSL']
 
@@ -1354,7 +1354,7 @@ Generic settings
     :default: ``''``
 
     Path for storing session data (`session\_save\_path PHP parameter
-    <http://php.net/session_save_path>`_).
+    <https://php.net/session_save_path>`_).
 
 .. config:option:: $cfg['MemoryLimit']
 
@@ -1500,7 +1500,7 @@ Cookie authentication options
 
     Define how long a login cookie is valid. Please note that php
     configuration option `session.gc\_maxlifetime
-    <http://php.net/manual/en/session.configuration.php#ini.session.gc-
+    <https://php.net/manual/en/session.configuration.php#ini.session.gc-
     maxlifetime>`_ might limit session validity and if the session is lost,
     the login cookie is also invalidated. So it is a good idea to set
     ``session.gc_maxlifetime`` at least to the same value of
@@ -2219,7 +2219,7 @@ Languages
 
     Defines the default connection collation to use, if not user-defined.
     See the `MySQL documentation for charsets
-    <http://dev.mysql.com/doc/mysql/en/charset-charsets.html>`_
+    <https://dev.mysql.com/doc/mysql/en/charset-charsets.html>`_
     for list of possible values.
 
 .. config:option:: $cfg['Lang']

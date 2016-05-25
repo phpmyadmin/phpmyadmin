@@ -202,7 +202,7 @@ class TableIndexesControllerTest extends PMATestCase
 
         // generateIndexSelector
         $this->assertContains(
-            PMA\libraries\Template::trim($index->generateIndexChoiceSelector(false)),
+            $index->generateIndexChoiceSelector(false),
             $html
         );
 

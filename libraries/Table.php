@@ -395,7 +395,7 @@ class Table
         // (will work on MySQL >= 5.6.4)
         //
         // MySQL permits a non-standard syntax for FLOAT and DOUBLE,
-        // see http://dev.mysql.com/doc/refman/5.5/en/floating-point-types.html
+        // see https://dev.mysql.com/doc/refman/5.5/en/floating-point-types.html
         //
         $pattern = '@^(DATE|TINYBLOB|TINYTEXT|BLOB|TEXT|'
             . 'MEDIUMBLOB|MEDIUMTEXT|LONGBLOB|LONGTEXT|SERIAL|BOOLEAN|UUID)$@i';
@@ -1228,7 +1228,7 @@ class Table
      * @param string $table_name name to check
      *
      * @todo add check for valid chars in filename on current system/os
-     * @see  http://dev.mysql.com/doc/refman/5.0/en/legal-names.html
+     * @see  https://dev.mysql.com/doc/refman/5.0/en/legal-names.html
      *
      * @return boolean whether the string is valid or not
      */

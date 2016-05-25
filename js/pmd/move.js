@@ -1039,10 +1039,16 @@ function Export_pages()
             PMA_ajaxRemoveMessage($msgbox);
 
             var $form = $(data.message);
-            $form.attr('action', $form.attr('action') + '?' + (Get_url_pos(true).substring(1)));
             if (!pmd_tables_enabled) {
                 $form.append('<input type="hidden" name="offline_export" value="true" />');
             }
+            $.each(Get_url_pos(true).substring(1).split('&'), function() {
+                var pair = this.split('=');
+                var input = $('<input type="hidden" />');
+                input.attr('name', pair[0]);
+                input.attr('value', pair[1]);
+                $form.append(input);
+            });
             var $formatDropDown = $form.find('#plugins');
             $formatDropDown.change(function() {
                 var format = $formatDropDown.val();

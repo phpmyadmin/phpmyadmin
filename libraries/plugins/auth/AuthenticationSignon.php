@@ -28,11 +28,6 @@ class AuthenticationSignon extends AuthenticationPlugin
         unset($_SESSION['LAST_SIGNON_URL']);
         if (empty($GLOBALS['cfg']['Server']['SignonURL'])) {
             PMA_fatalError('You must set SignonURL!');
-        } elseif (!empty($_REQUEST['old_usr'])
-            && !empty($GLOBALS['cfg']['Server']['LogoutURL'])
-        ) {
-            /* Perform logout to custom URL */
-            PMA_sendHeaderLocation($GLOBALS['cfg']['Server']['LogoutURL']);
         } else {
             PMA_sendHeaderLocation($GLOBALS['cfg']['Server']['SignonURL']);
         }
@@ -82,9 +77,6 @@ class AuthenticationSignon extends AuthenticationPlugin
         /* No configuration updates */
         $single_signon_cfgupdate = array();
 
-        /* Are we requested to do logout? */
-        $do_logout = !empty($_REQUEST['old_usr']);
-
         /* Handle script based auth */
         if (!empty($script_name)) {
             if (!file_exists($script_name)) {
@@ -117,18 +109,10 @@ class AuthenticationSignon extends AuthenticationPlugin
 
             /* Grab credentials if they exist */
             if (isset($_SESSION['PMA_single_signon_user'])) {
-                if ($do_logout) {
-                    $PHP_AUTH_USER = '';
-                } else {
-                    $PHP_AUTH_USER = $_SESSION['PMA_single_signon_user'];
-                }
+                $PHP_AUTH_USER = $_SESSION['PMA_single_signon_user'];
             }
             if (isset($_SESSION['PMA_single_signon_password'])) {
-                if ($do_logout) {
-                    $PHP_AUTH_PW = '';
-                } else {
-                    $PHP_AUTH_PW = $_SESSION['PMA_single_signon_password'];
-                }
+                $PHP_AUTH_PW = $_SESSION['PMA_single_signon_password'];
             }
             if (isset($_SESSION['PMA_single_signon_host'])) {
                 $single_signon_host = $_SESSION['PMA_single_signon_host'];
@@ -245,5 +229,15 @@ class AuthenticationSignon extends AuthenticationPlugin
             $_SESSION['PMA_single_signon_error_message'] = $this->getErrorMessage();
         }
         $this->auth();
+    }
+
+    /**
+     * Returns URL for login form.
+     *
+     * @return string
+     */
+    public function getLoginFormURL()
+    {
+        return $GLOBALS['cfg']['Server']['SignonURL'];
     }
 }

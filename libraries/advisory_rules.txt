@@ -154,7 +154,7 @@ rule 'Query caching method' [!fired('Query cache disabled')]
 	Questions / Uptime
 	value > 100
 	Suboptimal caching method.
-	You are using the MySQL Query cache with a fairly high traffic database. It might be worth considering to use <a href="http://dev.mysql.com/doc/refman/5.5/en/ha-memcached.html">memcached</a> instead of the MySQL Query cache, especially if you have multiple slaves.
+	You are using the MySQL Query cache with a fairly high traffic database. It might be worth considering to use <a href="https://dev.mysql.com/doc/refman/5.5/en/ha-memcached.html">memcached</a> instead of the MySQL Query cache, especially if you have multiple slaves.
 	The query cache is enabled and the server receives %d queries per second. This rule fires if there is more than 100 queries per second. | round(value,1)
 
 rule 'Query cache efficiency (%)' [Com_select + Qcache_hits > 0 && !fired('Query cache disabled')]
@@ -270,19 +270,8 @@ rule 'Temp disk rate' [!fired('Percentage of temp tables on disk')]
 	Created_tmp_disk_tables / Uptime
 	value * 60 * 60 > 1
 	Many temporary tables are being written to disk instead of being kept in memory.
-	Increasing {max_heap_table_size} and {tmp_table_size} might help. However some temporary tables are always being written to disk, independent of the value of these variables. To eliminate these you will have to rewrite your queries to avoid those conditions (Within a temporary table: Presence of a BLOB or TEXT column or presence of a column bigger than 512 bytes) as mentioned in the <a href="http://dev.mysql.com/doc/refman/5.5/en/internal-temporary-tables.html">MySQL Documentation</a>
+	Increasing {max_heap_table_size} and {tmp_table_size} might help. However some temporary tables are always being written to disk, independent of the value of these variables. To eliminate these you will have to rewrite your queries to avoid those conditions (Within a temporary table: Presence of a BLOB or TEXT column or presence of a column bigger than 512 bytes) as mentioned in the <a href="https://dev.mysql.com/doc/refman/5.5/en/internal-temporary-tables.html">MySQL Documentation</a>
 	Rate of temporary tables being written to disk: %s, this value should be less than 1 per hour | ADVISOR_bytime(value,2)
-
-# I couldn't find any source on the internet that suggests a direct relation between high counts of temporary tables and any of these variables.
-# Several independent Blog entries suggest (http://ronaldbradford.com/blog/more-on-understanding-sort_buffer_size-2010-05-10/ and http://www.xaprb.com/blog/2010/05/09/how-to-tune-mysqls-sort_buffer_size/)
-# that sort_buffer_size should be left as it is. And increasing read_buffer_size is only suggested when there are a lot of
-# table scans (http://dev.mysql.com/doc/refman/5.5/en/server-system-variables.html#sysvar_read_buffer_size and other sources) though
-# setting it too high is bad too (http://www.percona.com/blog/2007/09/17/mysql-what-read_buffer_size-value-is-optimal/).
-#rule 'Temp table rate'
-#	Created_tmp_tables / Uptime
-#	value * 60 * 60 > 1
-#	Many intermediate temporary tables are being created.
-#	This may be caused by queries under certain conditions as mentioned in the <a href="http://dev.mysql.com/doc/refman/5.5/en/internal-temporary-tables.html">MySQL Documentation</a>. Consider increasing {sort_buffer_size} (sorting), {read_rnd_buffer_size} (random read buffer, ie, post-sort), {read_buffer_size} (sequential scan).
 
 #
 # MyISAM index cache
@@ -453,7 +442,7 @@ rule 'MyISAM concurrent inserts'
 	concurrent_insert
 	value === 0 || value === 'NEVER'
 	Enable {concurrent_insert} by setting it to 1
-	Setting {concurrent_insert} to 1 reduces contention between readers and writers for a given table. See also <a href="http://dev.mysql.com/doc/refman/5.5/en/concurrent-inserts.html">MySQL Documentation</a>
+	Setting {concurrent_insert} to 1 reduces contention between readers and writers for a given table. See also <a href="https://dev.mysql.com/doc/refman/5.5/en/concurrent-inserts.html">MySQL Documentation</a>
 	concurrent_insert is set to 0
 
 # INSERT DELAYED USAGE

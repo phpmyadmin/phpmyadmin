@@ -93,6 +93,7 @@ class AuthenticationConfigTest extends PMATestCase
         $GLOBALS['error_handler'] = new PMA\libraries\ErrorHandler;
         $GLOBALS['cfg']['Servers'] = array(1);
         $GLOBALS['allowDeny_forbidden'] = false;
+        $GLOBALS['collation_connection'] = 'utf-8';
         if (!defined('PMA_USR_BROWSER_AGENT')) {
             define('PMA_USR_BROWSER_AGENT', 'chrome');
 
@@ -123,7 +124,7 @@ class AuthenticationConfigTest extends PMATestCase
         );
 
         $this->assertContains(
-            '<strong>MySQL said: </strong><a href="./url.php?url=http%3A%2F%2F' .
+            '<strong>MySQL said: </strong><a href="./url.php?url=https%3A%2F%2F' .
             'dev.mysql.com%2Fdoc%2Frefman%2F5.7%2Fen%2Ferror-messages-server.html"' .
             ' target="mysql_doc">' .
             '<img src="themes/dot.gif" title="Documentation" alt="Documentation" ' .

@@ -82,19 +82,4 @@ class TemplateTest extends PMATestCase
             )
         );
     }
-
-    /**
-     * Test for trim
-     *
-     * @return void
-     */
-    public function testTrim()
-    {
-        $html = file_get_contents(PMA\libraries\Template::BASE_PATH . 'test/trim.phtml');
-
-        $this->assertEquals(
-            'outer <element>value</element> value',
-            PMA\libraries\Template::trim($html)
-        );
-    }
 }

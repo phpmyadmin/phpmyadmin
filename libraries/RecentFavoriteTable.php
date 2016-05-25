@@ -341,6 +341,9 @@ class RecentFavoriteTable
     {
         $retval = '';
         $server_id = $GLOBALS['server'];
+        if ($server_id == 0) {
+            return '';
+        }
         // Not to show this once list is synchronized.
         $is_synced = isset($_SESSION['tmpval']['favorites_synced'][$server_id]) ?
             true : false;
