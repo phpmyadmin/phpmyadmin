@@ -734,8 +734,8 @@ Cookie authentication mode
 * If you want to allow users to enter any hostname to connect (rather than only
   servers that are configured in :file:`config.inc.php`),
   see the :config:option:`$cfg['AllowArbitraryServer']` directive.
-* As mentioned in the :ref:`require` section, having the ``mcrypt`` or
-  ``openssl`` extension will speed up access considerably, but is not required.
+* As mentioned in the :ref:`require` section, having the ``openssl`` extension
+  will speed up access considerably, but is not required.
 
 .. index:: pair: Signon; Authentication mode
 
