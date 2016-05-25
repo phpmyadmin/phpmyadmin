@@ -2,6 +2,8 @@ phpMyAdmin - ChangeLog
 ======================
 
 4.6.2 (2016-05-25)
+- issue        [security] User SQL queries can be revealed through URL GET parameters, see PMASA-2016-14
+- issue        [security] Self XSS vulneratbility, see PMASA-2016-16
 - issue #12225 Use https for documentation links
 - issue #12234 Fix schema export with too many tables
 - issue #12240 Avoid parsing non JSON responses as JSON
