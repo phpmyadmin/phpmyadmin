@@ -620,6 +620,15 @@ You should **not** copy :file:`libraries/config.default.php` over
 :file:`config.inc.php` because the default configuration file is version-
 specific.
 
+The complete upgrade can be performed in few simple steps:
+
+1. Download the latest phpMyAdmin version from <https://www.phpmyadmin.net/downloads/>.
+2. Rename existing phpMyAdmin folder (for example to ``phpmyadmin-old``).
+3. Unpack freshly donwloaded phpMyAdmin to desired location (for example ``phpmyadmin``).
+4. Copy :file:`config.inc.php`` from old location (``phpmyadmin-old``) to new one (``phpmyadmin``).
+5. Test that everything works properly.
+6. Remove backup of previous version (``phpmyadmin-old``).
+
 If you have upgraded your MySQL server from a version previous to 4.1.2 to
 version 5.x or newer and if you use the phpMyAdmin configuration storage, you
 should run the :term:`SQL` script found in
