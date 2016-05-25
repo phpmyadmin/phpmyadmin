@@ -312,7 +312,13 @@ From Wikipedia, the free encyclopedia
       .. seealso:: <https://en.wikipedia.org/wiki/Server_(computing)>
 
     Storage Engines
-      handlers for different table types	
+      MySQL can use several different formats for storing data on disk, these
+      are called storage engines or table types. phpMyAdmin allows a user to
+      change their storage engine for a particular table through the operations
+      tab.
+
+      Common table types are InnoDB and MyISAM, though many others exist and
+      may be desirable in some situations.
 
       .. seealso:: <https://dev.mysql.com/doc/refman/5.7/en/storage-engines.html>
 
