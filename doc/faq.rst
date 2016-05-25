@@ -520,7 +520,7 @@ extension which works fine in this case.
 
 Yes but the default configuration values of Suhosin are known to cause
 problems with some operations, for example editing a table with many
-columns and no primary key or with textual primary key.
+columns and no :term:`primary key` or with textual :term:`primary key`.
 
 Suhosin configuration might lead to malfunction in some cases and it
 can not be fully avoided as phpMyAdmin is kind of application which
@@ -931,10 +931,10 @@ TableSeparator or disabling that feature.
 3.7 I have table with many (100+) columns and when I try to browse table I get series of errors like "Warning: unable to parse url". How can this be fixed?
 -----------------------------------------------------------------------------------------------------------------------------------------------------------
 
-Your table neither have a primary key nor an unique one, so we must
+Your table neither have a :term:`primary key` nor an :term:`unique key`, so we must
 use a long expression to identify this row. This causes problems to
-parse\_url function. The workaround is to create a primary or unique
-key.
+parse\_url function. The workaround is to create a :term:`primary key` 
+or :term:`unique key`.
 
 .. _faq3_8:
 
@@ -971,7 +971,7 @@ workaround to this behaviour.  News to this item will be posted in `Bug report
 3.10 Homonyms and no primary key: When the results of a SELECT display more that one column with the same value (for example ``SELECT lastname from employees where firstname like 'A%'`` and two "Smith" values are displayed), if I click Edit I cannot be sure that I am editing the intended row.
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-Please make sure that your table has a primary key, so that phpMyAdmin
+Please make sure that your table has a :term:`primary key`, so that phpMyAdmin
 can use it for the Edit and Delete links.
 
 .. _faq3_11:
@@ -2005,8 +2005,8 @@ Third Normal Form.
      `ownerEmail` varchar(64) NOT NULL,
     );
 
-The above table is not in First normal Form as no primary key exists. Primary key
-is supposed to be (`petName`,`ownerLastName`,`ownerFirstName`) . If the primary key
+The above table is not in First normal Form as no :term:`primary key` exists. Primary key
+is supposed to be (`petName`,`ownerLastName`,`ownerFirstName`) . If the :term:`primary key`
 is chosen as suggested the resultant table won't be in Second as well as Third Normal
 form as the following dependencies exists.
 
@@ -2033,7 +2033,7 @@ involve a manual verification at one point.
 
 * Ensure that you have exclusive access to the table to rearrange
 
-* On your primary key column (i.e. id), remove the AUTO_INCREMENT setting
+* On your :term:`primary key` column (i.e. id), remove the AUTO_INCREMENT setting
 
 * Delete your primary key in Structure > indexes
 

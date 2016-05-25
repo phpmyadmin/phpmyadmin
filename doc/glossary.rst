@@ -289,6 +289,23 @@ From Wikipedia, the free encyclopedia
 
       .. seealso:: <https://en.wikipedia.org/wiki/Port_(computing)>
 
+    primary key
+      A primary key is an index over one or more fields in a table with
+      unique values for each single row in this table. Every table should have
+      a primary key for easier accessing/identifying data in this table.  There
+      can only be one primary key per table and it is named always **PRIMARY**.
+      In fact a primary key is just an :term:`unique key` with the name
+      **PRIMARY**.  If no primary key is defined MySQL will use first *unique
+      key* as primary key if there is one.
+
+      You can create the primary key when creating the table (in phpMyAdmin
+      just check the primary key radio buttons for each field you wish to be
+      part of the primary key).
+
+      You can also add a primary key to an existing table with `ALTER` `TABLE`
+      or `CREATE` `INDEX` (in phpMyAdmin you can just click on 'add index' on
+      the table structure page below the listed fields).
+
     RFC
       Request for Comments (RFC) documents are a series of memoranda
       encompassing new research, innovations, and methodologies applicable to
@@ -372,6 +389,11 @@ From Wikipedia, the free encyclopedia
 
       .. seealso:: <https://en.wikipedia.org/wiki/Database_trigger>
 
+    unique key
+      An unique key is an index over one or more fields in a table which has a
+      unique value for each row.  The first unique key will be treated as
+      :term:`primary key` if there is no *primary key* defined.
+      
     UFPDF
       Unicode/UTF-8 extension for :term:`FPDF`
 

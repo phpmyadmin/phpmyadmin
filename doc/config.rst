@@ -2507,7 +2507,7 @@ Design customization
     :default: false
 
     Defines whether to show row links (Edit, Copy, Delete) and checkboxes
-    for multiple row operations even when the selection does not have a unique key.
+    for multiple row operations even when the selection does not have a :term:`unique key`.
     Using row actions in the absence of a unique key may result in different/more
     rows being affected since there is no guaranteed way to select the exact row(s).
 
@@ -2523,7 +2523,7 @@ Design customization
     :type: string
     :default: ``'NONE'``
 
-    This defines the default sort order for the tables, having a primary key,
+    This defines the default sort order for the tables, having a :term:`primary key`,
     when there is no sort order defines externally.
     Acceptable values : ['NONE', 'ASC', 'DESC']
 
