@@ -208,6 +208,13 @@ From Wikipedia, the free encyclopedia
 
       .. seealso:: <https://en.wikipedia.org/wiki/Mac_OS_X>
 
+    mbstring
+       The PHP `mbstring` functions provide support for languages represented by multi-byte character sets, most notably UTF-8.
+
+       If you have troubles installing this extension, please follow :ref:`faqmysql`, it provides useful hints.
+       
+       ..seealso:: <https://php.net/manual/en/book.mbstring.php>
+
     MCrypt
       a cryptographic library.	
 

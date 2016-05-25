@@ -13,7 +13,7 @@ PHP
 ---
 
 * You need PHP 5.5.0 or newer, with ``session`` support, the Standard PHP Library
-  (SPL) extension, JSON support, and the ``mbstring`` extension.
+  (SPL) extension, JSON support, and the ``mbstring`` extension (see :term:`mbstring`).
 
 * To support uploading of ZIP files, you need the PHP ``zip`` extension.
 
