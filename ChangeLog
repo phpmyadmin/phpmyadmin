@@ -1,7 +1,7 @@
 phpMyAdmin - ChangeLog
 ======================
 
-4.6.2 (not yet released)
+4.6.2 (2016-05-25)
 - issue #12225 Use https for documentation links
 - issue #12234 Fix schema export with too many tables
 - issue #12240 Avoid parsing non JSON responses as JSON
