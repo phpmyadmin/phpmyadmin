@@ -213,13 +213,19 @@ Server connection settings
 
     * hostname, e.g., ``'localhost'`` or ``'mydb.example.org'``
     * IP address, e.g., ``'127.0.0.1'`` or ``'192.168.10.1'``
+    * IPv6 address, e.g. ``2001:cdba:0000:0000:0000:0000:3257:9652``
     * dot - ``'.'``, i.e., use named pipes on windows systems
     * empty - ``''``, disables this server
 
     .. note::
 
-        phpMyAdmin supports connecting to MySQL servers reachable via IPv6 only.
-		To connect to an IPv6 MySQL server, enter its IPv6 address in this field.
+        The hostname ``localhost`` is handled specially by MySQL and it
+        ignores :config:option:`$cfg['Servers'][$i]['port']` in this case.
+
+    .. seealso::
+
+        :config:option:`$cfg['Servers'][$i]['port']`,
+        <https://dev.mysql.com/doc/refman/5.7/en/connecting.html>
 
 .. config:option:: $cfg['Servers'][$i]['port']
 
@@ -236,6 +242,11 @@ Server connection settings
        different from the default port, use ``127.0.0.1`` or the real hostname
        in :config:option:`$cfg['Servers'][$i]['host']`.
 
+    .. seealso::
+
+        :config:option:`$cfg['Servers'][$i]['host']`,
+        <https://dev.mysql.com/doc/refman/5.7/en/connecting.html>
+
 .. config:option:: $cfg['Servers'][$i]['socket']
 
     :type: string
@@ -245,6 +256,11 @@ Server connection settings
     the correct socket, check your MySQL configuration or, using the
     :command:`mysql` command–line client, issue the ``status`` command. Among the
     resulting information displayed will be the socket used.
+
+    .. seealso::
+
+        :config:option:`$cfg['Servers'][$i]['host']`,
+        <https://dev.mysql.com/doc/refman/5.7/en/connecting.html>
 
 .. config:option:: $cfg['Servers'][$i]['ssl']
 
@@ -446,8 +462,8 @@ Server connection settings
     :type: string
     :default: ``''``
 
-    This special account is used for 2 distinct purposes: to make possible all
-    relational features (see :config:option:`$cfg['Servers'][$i]['pmadb']`).
+    This special account is used to make possible all relational features (see
+    :config:option:`$cfg['Servers'][$i]['pmadb']`).
 
     .. versionchanged:: 2.2.5
         those were called ``stduser`` and ``stdpass``
@@ -579,6 +595,15 @@ Server connection settings
     pull-down menu on the main page. This can be useful if you want to
     show only certain databases on your system, for example. For HTTP
     auth, all non-US-ASCII characters will be stripped.
+
+.. config:option:: $cfg['Servers'][$i]['extension']
+
+    :type: string
+    :default: ``'mysqli'``
+
+    The PHP MySQL extension to use (``mysql`` or ``mysqli``).
+
+    It is recommended to use ``mysqli`` in all installations.
 
 .. config:option:: $cfg['Servers'][$i]['pmadb']
 
@@ -1224,8 +1249,12 @@ Server connection settings
 
     Disable using ``INFORMATION_SCHEMA`` to retrieve information (use
     ``SHOW`` commands instead), because of speed issues when many
-    databases are present. Currently used in some parts of the code, more
-    to come.
+    databases are present. 
+
+    .. note::
+
+        Enabling this option might give you big performance boost on older
+        MySQL servers.
 
 .. config:option:: $cfg['Servers'][$i]['SignonScript']
 
