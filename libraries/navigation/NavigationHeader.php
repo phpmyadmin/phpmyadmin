@@ -182,6 +182,18 @@ class NavigationHeader
                 '',
                 true
             );
+
+            $link  = 'querywindow.php?';
+            $link .= '&amp;no_js=true';
+            $retval .= PMA\libraries\Util::getNavigationLink(
+                $link,
+                $showText,
+                __('Query window'),
+                $showIcon,
+                'b_selboard.png',
+                'pma_open_querywindow',
+                true
+            );
         }
         $retval .= PMA\libraries\Util::getNavigationLink(
             PMA\libraries\Util::getDocuLink('index'),
