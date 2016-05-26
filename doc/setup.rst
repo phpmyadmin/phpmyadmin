@@ -56,7 +56,7 @@ can use packages from
 
 .. seealso::
 
-    The packages are same as in :ref:`debian-package` please check the documetation
+    The packages are same as in :ref:`debian-package` please check the documentation
     there for more details.
 
 Gentoo
