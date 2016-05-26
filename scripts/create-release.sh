@@ -383,12 +383,10 @@ Todo now:
 
  7. on https://github.com/phpmyadmin/phpmyadmin/milestones close the milestone corresponding to the released version (if this is a stable release) and open a new one for the next minor release
 
- 8. if a maintenance version (z in x.y.z) was released, delete the branch corresponding to the previous one; for example git push origin --delete MAINT_4_4_12
+ 8. for a stable version, update demo/php/versions.ini in the scripts repository so that the demo server shows current versions
 
- 9. for a stable version, update demo/php/versions.ini in the scripts repository so that the demo server shows current versions
+ 9. in case of a new major release ('y' in x.y.0), update the pmaweb/settings.py in website repository to include the new major releases
 
-10. in case of a new major release ('y' in x.y.0), update the pmaweb/settings.py in website repository to include the new major releases
-
-11. the end :-)
+10. the end :-)
 
 END
