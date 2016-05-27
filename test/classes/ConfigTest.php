@@ -665,6 +665,10 @@ class ConfigTest extends PMATestCase
     {
         return array(
             array(
+                '',
+                '/',
+            ),
+            array(
                 '/',
                 '/',
             ),

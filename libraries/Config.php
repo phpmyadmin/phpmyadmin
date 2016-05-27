@@ -1399,23 +1399,24 @@ class Config
             $parsed_url = parse_url(PMA_getenv('REQUEST_URI'));
         }
 
-        $cookie_path = str_replace('\\', '/', $parsed_url['path']);
+        $parts = explode(
+            '/',
+            rtrim(str_replace('\\', '/', $parsed_url['path']), '/')
+        );
 
         /* Remove filename */
-        if (substr($cookie_path, -4) == '.php') {
-            $cookie_path = dirname($cookie_path);
+        if (substr($parts[count($parts) - 1], -4) == '.php') {
+            $parts = array_slice($parts, 0, count($parts) - 1);
         }
 
         /* Remove extra path from javascript calls */
         if (defined('PMA_PATH_TO_BASEDIR')) {
-            $cookie_path = dirname($cookie_path);
+            $parts = array_slice($parts, 0, count($parts) - 1);
         }
 
-        if (substr($cookie_path, -1) != '/') {
-            $cookie_path = $cookie_path . '/';
-        }
+        $parts[] = '';
 
-        return $cookie_path;
+        return implode('/', $parts);
     }
 
     /**
