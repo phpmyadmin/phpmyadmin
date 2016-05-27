@@ -41,7 +41,7 @@ function PMA_getHtmlForFilter($ServerStatusData)
     $retval .= '<div class="formelement">';
     $retval .= '<label for="filterText">' . __('Containing the word:') . '</label>';
     $retval .= '<input name="filterText" type="text" id="filterText" '
-        . 'style="vertical-align: baseline;" value="' . $filterText . '" />';
+        . 'value="' . $filterText . '" />';
     $retval .= '</div>';
     $retval .= '<div class="formelement">';
     $retval .= '<input' . $filterAlert . ' type="checkbox" '

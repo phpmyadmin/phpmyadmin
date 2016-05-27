@@ -1627,6 +1627,10 @@ input#input_import_file {
     margin: 5px 0 5px 0;
 }
 
+#filterText {
+    vertical-align: baseline;
+}
+
 #popup_background {
     display: none;
     position: fixed;
