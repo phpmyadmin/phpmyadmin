@@ -32,6 +32,7 @@ web.config
 /js/line_counts.php
 # API documentation
 /apidoc/
+/doc/linkcheck/
 # Demo server
 revision-info.php
 # PHPUnit
