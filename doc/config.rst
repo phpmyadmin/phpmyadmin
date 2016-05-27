@@ -462,13 +462,25 @@ Server connection settings
     :type: string
     :default: ``''``
 
-    This special account is used to make possible all relational features (see
-    :config:option:`$cfg['Servers'][$i]['pmadb']`).
+        This special account is used to access :ref:`linked-tables`. 
+        You don't need it in single user case, but if phpMyAdmin is shared it
+        is recommended to give access to :ref:`linked-tables` only to this user
+        and configure phpMyAdmin to use it. All users will then be able to use 
+        the features without need to have direct access to :ref:`linked-tables`.
+
+    (see
+
+    You can use 
 
     .. versionchanged:: 2.2.5
         those were called ``stduser`` and ``stdpass``
 
-    .. seealso:: :ref:`setup`, :ref:`authentication_modes`, :ref:`linked-tables`
+    .. seealso:: 
+        
+        :ref:`setup`, 
+        :ref:`authentication_modes`, 
+        :ref:`linked-tables`,
+        :config:option:`$cfg['Servers'][$i]['pmadb']`
 
 .. config:option:: $cfg['Servers'][$i]['auth_type']
 

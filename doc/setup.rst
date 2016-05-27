@@ -532,7 +532,7 @@ For a whole set of additional features (:ref:`bookmarks`, comments, :term:`SQL`-
 tracking mechanism, :term:`PDF`-generation, :ref:`transformations`, :ref:`relations`
 etc.) you need to create a set of special tables.  Those tables can be located
 in your own database, or in a central database for a multi-user installation
-(this database would then be accessed by the controluser, so no other user
+(this database would then be accessed by the :ref:`controluser`, so no other user
 should have rights to it).
 
 Zero configuration
