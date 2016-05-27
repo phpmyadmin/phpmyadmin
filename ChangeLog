@@ -18,6 +18,7 @@ phpMyAdmin - ChangeLog
 - issue #5555  Better report query errors while generating SQL exports
 
 4.6.3 (not yet released)
+- issue #12249 Fixed cookie path on Windows
 
 4.6.2 (2016-05-25)
 - issue        [security] User SQL queries can be revealed through URL GET parameters, see PMASA-2016-14
