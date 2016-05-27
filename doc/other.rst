@@ -13,6 +13,21 @@ book and other officially endorsed `books at the phpMyAdmin site`_.
 Tutorials
 ---------
 
-Third party tutorials and articles are listed on our `wiki page`_.
+Third party tutorials and articles which you might find interesting:
 
-.. _wiki page: http://wiki.phpmyadmin.net/pma/Articles
+Česky (Czech)
++++++++++++++
+
+- `Seriál o phpMyAdminovi <https://cihar.com/publications/linuxsoft/>`_
+
+English
++++++++
+
+- `Having fun with phpMyAdmin's MIME-transformations & PDF-features <http://garv.in/tops/texte/mimetutorial>`_
+- `Learning SQL Using phpMyAdmin (old tutorial) <http://www.php-editors.com/articles/sql_phpmyadmin.php>`_
+- `Install and configure phpMyAdmin on IIS <http://www.iis-aid.com/articles/how_to_guides/install_and_configure_phpmyadmin_iis>`_
+
+Русский (Russian)
++++++++++++++++++
+
+* `Russian server about phpMyAdmin <http://php-myadmin.ru/>`_

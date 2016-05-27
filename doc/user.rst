@@ -9,5 +9,5 @@ User Guide
     privileges
     relations
     charts
-    other
     import_export
+    other
