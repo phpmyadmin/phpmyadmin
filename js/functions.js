@@ -2209,7 +2209,7 @@ function PMA_updateCode($base, htmlValue, rawValue)
  * @param mixed   timeout     number of milliseconds for the message to be visible
  *                              optional, defaults to 5000. If set to 'false', the
  *                              notification will never disappear
- * @return string type        string to dictate the type of message shown.
+ * @param string  type        string to dictate the type of message shown.
  *                              optional, defaults to normal notification.
  *                              If set to 'error', the notification will show message
  *                              with red background.
