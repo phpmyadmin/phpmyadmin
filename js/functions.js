@@ -2209,11 +2209,17 @@ function PMA_updateCode($base, htmlValue, rawValue)
  * @param mixed   timeout     number of milliseconds for the message to be visible
  *                              optional, defaults to 5000. If set to 'false', the
  *                              notification will never disappear
+ * @return string type        string to dictate the type of message shown.
+ *                              optional, defaults to normal notification.
+ *                              If set to 'error', the notification will show message
+ *                              with red background.
+ *                              If set to 'success', the notification will show with
+ *                              a green background.
  * @return jQuery object       jQuery Element that holds the message div
  *                              this object can be passed to PMA_ajaxRemoveMessage()
  *                              to remove the notification
  */
-function PMA_ajaxShowMessage(message, timeout)
+function PMA_ajaxShowMessage(message, timeout, type)
 {
     /**
      * @var self_closing Whether the notification will automatically disappear
@@ -2243,6 +2249,12 @@ function PMA_ajaxShowMessage(message, timeout)
         timeout = 5000;
     } else if (timeout === false) {
         self_closing = false;
+    }
+    // Determine type of message, add styling as required
+    if (type === "error") {
+      message = "<div class=\"error\">" + message + "</div>";
+    } else if (type === "success") {
+      message = "<div class=\"success\">" + message + "</div>";
     }
     // Create a parent element for the AJAX messages, if necessary
     if ($('#loading_parent').length === 0) {
