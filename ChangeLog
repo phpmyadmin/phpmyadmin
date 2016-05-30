@@ -1,6 +1,10 @@
 phpMyAdmin - ChangeLog
 ======================
 
+4.0.10.16 (not yet released)
+- issue        [security] User SQL queries can be revealed through URL GET parameters, see PMASA-2016-14
+- issue        [security] Limit list of sites which can be passwd through url.php.
+
 4.0.10.15 (2016-02-29)
 - issue        [security] Multiple XSS vulnerabilities, see PMASA-2016-11.
 
