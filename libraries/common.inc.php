@@ -504,7 +504,9 @@ if ($token_mismatch) {
         /* Needed to send the correct reply */
         'ajax_request',
         /* Permit to log out even if there is a token mismatch */
-        'old_usr'
+        'old_usr',
+        /* url.php */
+        'url',
     );
     /**
      * Allow changing themes in test/theme.php
