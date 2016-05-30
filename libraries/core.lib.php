@@ -830,14 +830,22 @@ function PMA_isAllowedDomain($url)
         /* phpMyAdmin domains */
         'wiki.phpmyadmin.net', 'www.phpmyadmin.net', 'phpmyadmin.net',
         'docs.phpmyadmin.net',
+        'demo.phpmyadmin.net',
         /* mysql.com domains */
         'dev.mysql.com','bugs.mysql.com',
+        /* mariadb domains */
+        'mariadb.org', 'mariadb.com',
         /* php.net domains */
         'php.net',
+        /* sourceforge.net domain */
+        'sourceforge.net',
         /* Github domains*/
         'github.com','www.github.com',
+        /* Percona domains */
+        'www.percona.com',
         /* Following are doubtful ones. */
-        'www.primebase.com','pbxt.blogspot.com'
+        'www.primebase.com','pbxt.blogspot.com',
+        'mysqldatabaseadministration.blogspot.com',
     );
     if (in_array(strtolower($domain), $domainWhiteList)) {
         return true;
