@@ -720,6 +720,12 @@ Server connection settings
     :type: string or false
     :default: ``''``
 
+    The designer feature can save your page layout; by pressing the "Save page" or "Save page as"
+    button in the expanding designer menu, you can customize the layout and have it loaded the next
+    time you use the designer. That layout is stored in this table. Furthermore, this table is also
+    required for using the PDF relation export feature, see
+    :config:option:`$cfg['Servers'][$i]['pdf\_pages']` for additional details.
+
 .. config:option:: $cfg['Servers'][$i]['pdf_pages']
 
     :type: string or false
