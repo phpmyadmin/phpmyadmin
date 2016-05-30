@@ -267,8 +267,8 @@ PMA_displayFormBottom();
 ?>
 </fieldset>
 <div id="footer">
-    <a href="http://phpmyadmin.net"><?php echo __('phpMyAdmin homepage') ?></a>
-    <a href="http://sourceforge.net/donate/index.php?group_id=23067"><?php
+    <a href="../url.php?url=https://www.phpmyadmin.net/"><?php echo __('phpMyAdmin homepage') ?></a>
+    <a href="../url.php?url=https://www.phpmyadmin.net/donate/"><?php
     echo __('Donate') ?></a>
     <a href="?version_check=1<?php
     echo "{$separator}token="
