@@ -846,6 +846,8 @@ function PMA_isAllowedDomain($url)
         /* Following are doubtful ones. */
         'www.primebase.com','pbxt.blogspot.com',
         'mysqldatabaseadministration.blogspot.com',
+        /* CVE */
+        'cve.mitre.org',
     );
     if (in_array(strtolower($domain), $domainWhiteList)) {
         return true;
