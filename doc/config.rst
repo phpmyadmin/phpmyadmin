@@ -414,6 +414,160 @@ Server connection settings
         :config:option:`$cfg['Servers'][$i]['ssl_ciphers']`,
         :config:option:`$cfg['Servers'][$i]['ssl_verify']`
 
+.. config:option:: $cfg['Servers'][$i]['control_ssl']
+
+    :type: boolean
+    :default: false
+
+    Whether to enable SSL for the connection between phpMyAdmin and the MySQL
+    server to secure the connection for the controluser.
+
+    When using the ``'mysql'`` extension,
+    none of the remaining ``'ssl...'`` configuration options apply.
+
+    We strongly recommend the ``'mysqli'`` extension when using this option.
+
+    .. seealso::
+
+        :ref:`example-google-ssl`
+        :config:option:`$cfg['Servers'][$i]['control_ssl_key']`,
+        :config:option:`$cfg['Servers'][$i]['control_ssl_cert']`,
+        :config:option:`$cfg['Servers'][$i]['control_ssl_ca']`,
+        :config:option:`$cfg['Servers'][$i]['control_ssl_ca_path']`,
+        :config:option:`$cfg['Servers'][$i]['control_ssl_ciphers']`,
+        :config:option:`$cfg['Servers'][$i]['control_ssl_verify']`
+
+.. config:option:: $cfg['Servers'][$i]['control_ssl_key']
+
+    :type: string
+    :default: NULL
+
+    Path to the key file when using SSL for the controluser connecting to the MySQL server.
+
+    For example:
+
+    .. code-block:: php
+
+        $cfg['Servers'][$i]['control_ssl_key'] = '/etc/mysql/server-key.pem';
+
+    .. seealso::
+
+        :ref:`example-google-ssl`
+        :config:option:`$cfg['Servers'][$i]['control_ssl']`,
+        :config:option:`$cfg['Servers'][$i]['control_ssl_cert']`,
+        :config:option:`$cfg['Servers'][$i]['control_ssl_ca']`,
+        :config:option:`$cfg['Servers'][$i]['control_ssl_ca_path']`,
+        :config:option:`$cfg['Servers'][$i]['control_ssl_ciphers']`,
+        :config:option:`$cfg['Servers'][$i]['control_ssl_verify']`
+
+.. config:option:: $cfg['Servers'][$i]['control_ssl_cert']
+
+    :type: string
+    :default: NULL
+
+    Path to the cert file when using SSL for the controluser connecting to the MySQL server.
+
+    .. seealso::
+
+        :ref:`example-google-ssl`
+        :config:option:`$cfg['Servers'][$i]['control_ssl']`,
+        :config:option:`$cfg['Servers'][$i]['control_ssl_key']`,
+        :config:option:`$cfg['Servers'][$i]['control_ssl_ca']`,
+        :config:option:`$cfg['Servers'][$i]['control_ssl_ca_path']`,
+        :config:option:`$cfg['Servers'][$i]['control_ssl_ciphers']`,
+        :config:option:`$cfg['Servers'][$i]['control_ssl_verify']`
+
+.. config:option:: $cfg['Servers'][$i]['control_ssl_ca']
+
+    :type: string
+    :default: NULL
+
+    Path to the CA file when using SSL for the controluser connecting to the MySQL server.
+
+    .. seealso::
+
+        :ref:`example-google-ssl`
+        :config:option:`$cfg['Servers'][$i]['control_ssl']`,
+        :config:option:`$cfg['Servers'][$i]['control_ssl_key']`,
+        :config:option:`$cfg['Servers'][$i]['control_ssl_cert']`,
+        :config:option:`$cfg['Servers'][$i]['control_ssl_ca_path']`,
+        :config:option:`$cfg['Servers'][$i]['control_ssl_ciphers']`,
+        :config:option:`$cfg['Servers'][$i]['control_ssl_verify']`
+
+.. config:option:: $cfg['Servers'][$i]['control_ssl_ca_path']
+
+    :type: string
+    :default: NULL
+
+    Directory containing trusted SSL CA certificates in PEM format for the controluser.
+
+    .. seealso::
+
+        :ref:`example-google-ssl`
+        :config:option:`$cfg['Servers'][$i]['control_ssl']`,
+        :config:option:`$cfg['Servers'][$i]['control_ssl_key']`,
+        :config:option:`$cfg['Servers'][$i]['control_ssl_cert']`,
+        :config:option:`$cfg['Servers'][$i]['control_ssl_ca']`,
+        :config:option:`$cfg['Servers'][$i]['control_ssl_ciphers']`,
+        :config:option:`$cfg['Servers'][$i]['control_ssl_verify']`
+
+.. config:option:: $cfg['Servers'][$i]['control_ssl_ciphers']
+
+    :type: string
+    :default: NULL
+
+    List of allowable ciphers for SSL for controluser connections to the MySQL server.
+
+    .. seealso::
+
+        :config:option:`$cfg['Servers'][$i]['control_ssl']`,
+        :config:option:`$cfg['Servers'][$i]['control_ssl_key']`,
+        :config:option:`$cfg['Servers'][$i]['control_ssl_cert']`,
+        :config:option:`$cfg['Servers'][$i]['control_ssl_ca']`,
+        :config:option:`$cfg['Servers'][$i]['control_ssl_ca_path']`,
+        :config:option:`$cfg['Servers'][$i]['control_ssl_verify']`
+
+
+.. config:option:: $cfg['Servers'][$i]['control_ssl_verify']
+
+    :type: boolean
+    :default: true
+
+    .. versionadded:: 4.6.0
+
+        This is supported since phpMyAdmin 4.6.0.
+
+    If your PHP install uses the MySQL Native Driver (mysqlnd), your
+    MySQL server is 5.6 or later, and your SSL certificate is self-signed,
+    there is a chance your SSL connection will fail due to validation.
+    Setting this to ``false`` will disable the validation check.
+
+    Since PHP 5.6.0 it also verifies whether server name matches CN of it's
+    certificate. There is currently no way to disable just this check without
+    disabling complete SSL verification.
+
+    This setting controls that verification for the controluser.
+    
+    .. warning::
+
+        Disabling the certificate verification defeats purpose of using SSL.
+        This will make the connection vulnerable to man in the middle attacks.
+
+    .. note::
+
+        This flag only works with PHP 5.6.16 or later.
+
+    .. seealso::
+
+        :ref:`example-google-ssl`
+        :config:option:`$cfg['Servers'][$i]['control_ssl']`,
+        :config:option:`$cfg['Servers'][$i]['control_ssl_key']`,
+        :config:option:`$cfg['Servers'][$i]['control_ssl_cert']`,
+        :config:option:`$cfg['Servers'][$i]['control_ssl_ca']`,
+        :config:option:`$cfg['Servers'][$i]['control_ssl_ca_path']`,
+        :config:option:`$cfg['Servers'][$i]['control_ssl_ciphers']`,
+        :config:option:`$cfg['Servers'][$i]['control_ssl_verify']`
+
 .. config:option:: $cfg['Servers'][$i]['connect_type']
 
     :type: string

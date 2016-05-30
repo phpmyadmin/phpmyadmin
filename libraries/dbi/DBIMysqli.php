@@ -150,29 +150,57 @@ class DBIMysqli implements DBIExtension
             $client_flags |= MYSQLI_CLIENT_COMPRESS;
         }
 
-        /* Optionally enable SSL */
-        if ($cfg['Server']['ssl']) {
-            mysqli_ssl_set(
-                $link,
-                $cfg['Server']['ssl_key'],
-                $cfg['Server']['ssl_cert'],
-                $cfg['Server']['ssl_ca'],
-                $cfg['Server']['ssl_ca_path'],
-                $cfg['Server']['ssl_ciphers']
-            );
-            /*
-             * disables SSL certificate validation on mysqlnd for MySQL 5.6 or later
-             * @link https://bugs.php.net/bug.php?id=68344
-             * @link https://github.com/phpmyadmin/phpmyadmin/pull/11838
-             */
-            if (! $cfg['Server']['ssl_verify']) {
-                mysqli_options(
-                    $link,
-                    MYSQLI_OPT_SSL_VERIFY_SERVER_CERT,
-                    $cfg['Server']['ssl_verify']
-                );
-                $client_flags |= MYSQLI_CLIENT_SSL_DONT_VERIFY_SERVER_CERT;
-            }
+        if ($is_controluser) {
+          /* Optionally enable SSL for controluser */
+          if ($cfg['Server']['control_ssl']) {
+              mysqli_ssl_set(
+                  $link,
+                  $cfg['Server']['control_ssl_key'],
+                  $cfg['Server']['control_ssl_cert'],
+                  $cfg['Server']['control_ssl_ca'],
+                  $cfg['Server']['control_ssl_ca_path'],
+                  $cfg['Server']['control_ssl_ciphers']
+              );
+              /*
+               * disables SSL certificate validation on mysqlnd for MySQL 5.6 or later
+               * @link https://bugs.php.net/bug.php?id=68344
+               * @link https://github.com/phpmyadmin/phpmyadmin/pull/11838
+               */
+              if (! $cfg['Server']['control_ssl_verify']) {
+                  mysqli_options(
+                      $link,
+                      MYSQLI_OPT_SSL_VERIFY_SERVER_CERT,
+                      $cfg['Server']['control_ssl_verify']
+                  );
+                  $client_flags |= MYSQLI_CLIENT_SSL_DONT_VERIFY_SERVER_CERT;
+              }
+          }
+        }
+        else { // is not a control user
+          /* Optionally enable SSL */
+          if ($cfg['Server']['ssl']) {
+              mysqli_ssl_set(
+                  $link,
+                  $cfg['Server']['ssl_key'],
+                  $cfg['Server']['ssl_cert'],
+                  $cfg['Server']['ssl_ca'],
+                  $cfg['Server']['ssl_ca_path'],
+                  $cfg['Server']['ssl_ciphers']
+              );
+              /*
+               * disables SSL certificate validation on mysqlnd for MySQL 5.6 or later
+               * @link https://bugs.php.net/bug.php?id=68344
+               * @link https://github.com/phpmyadmin/phpmyadmin/pull/11838
+               */
+              if (! $cfg['Server']['ssl_verify']) {
+                  mysqli_options(
+                      $link,
+                      MYSQLI_OPT_SSL_VERIFY_SERVER_CERT,
+                      $cfg['Server']['ssl_verify']
+                  );
+                  $client_flags |= MYSQLI_CLIENT_SSL_DONT_VERIFY_SERVER_CERT;
+              }
+          }
         }
 
         if (! $server) {
