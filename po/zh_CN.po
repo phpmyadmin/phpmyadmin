@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-05-23 14:29+0200\n"
-"PO-Revision-Date: 2016-05-07 11:57+0000\n"
-"Last-Translator: Lasm Gratel <lasm_gratel@gmail.com>\n"
-"Language-Team: Chinese (China) <https://hosted.weblate.org/projects/"
-"phpmyadmin/4-6/zh_CN/>\n"
+"PO-Revision-Date: 2016-05-31 13:48+0000\n"
+"Last-Translator: Charles Kane <kaneawk@gmail.com>\n"
+"Language-Team: Chinese (China) "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-6/zh_CN/>\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -3845,7 +3845,7 @@ msgstr "数据库"
 
 #: libraries/Menu.php:567
 msgid "User accounts"
-msgstr "用户账户"
+msgstr "账户"
 
 #: libraries/Menu.php:594 libraries/ServerStatusData.php:119
 #: libraries/Util.php:4341 libraries/server_common.lib.php:33
