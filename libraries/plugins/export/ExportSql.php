@@ -1584,7 +1584,11 @@ class ExportSql extends ExportPlugin
              */
             $statement = $parser->statements[0];
 
-            $engine = $statement->entityOptions->has('ENGINE');
+            if (!empty($statement->entityOptions)) {
+                $engine = $statement->entityOptions->has('ENGINE');
+            } else {
+                $engine = '';
+            }
 
             /* Avoid operation on ARCHIVE tables as those can not be altered */
             if (!empty($statement->fields) && (empty($engine) || strtoupper($engine) != 'ARCHIVE')) {
