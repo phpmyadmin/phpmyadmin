@@ -215,7 +215,7 @@ class DBIMysqli implements DBIExtension
             );
         }
 
-        if ($return_value === false) {
+        if ($return_value === false || is_null($return_value)) {
             return false;
         }
 
