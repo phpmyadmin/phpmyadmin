@@ -4,6 +4,7 @@ phpMyAdmin - ChangeLog
 4.6.3 (not yet released)
 - issue #12249 Fixed cookie path on Windows
 - issue #12279 Fixed error reporting on connect problems
+- issue #12290 Fixed export of tables without explicitly set engine
 
 4.6.2 (2016-05-25)
 - issue        [security] User SQL queries can be revealed through URL GET parameters, see PMASA-2016-14
