@@ -2725,7 +2725,7 @@ class DatabaseInterface
      *
      * @param array|null $server host/port/socket/persistent
      *
-     * @return null|integer
+     * @return int
      */
     public function getServerPort($server = null)
     {
@@ -2733,11 +2733,7 @@ class DatabaseInterface
             $server = &$GLOBALS['cfg']['Server'];
         }
 
-        if (empty($server['port'])) {
-            return null;
-        } else {
-            return intval($server['port']);
-        }
+        return intval($server['port']);
     }
 
     /**
