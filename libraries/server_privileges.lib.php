@@ -787,7 +787,7 @@ function PMA_getHtmlForRequires($row)
     $specified = (isset($row['ssl_type']) && $row['ssl_type'] == 'SPECIFIED');
     $html_output .= '<div class="item">';
     $html_output .= '<input type="radio" name="ssl_type" id="ssl_type_specified"'
-        . ' value="specified"' . ($specified ? ' checked="checked"' : '') . '/>';
+        . ' value="SPECIFIED"' . ($specified ? ' checked="checked"' : '') . '/>';
 
     $html_output .= '<label for="ssl_type_specified"><code>'
         . 'SPECIFIED'
@@ -2175,28 +2175,29 @@ function PMA_getMessageAndSqlQueryForPrivilegesRevoke($dbname,
  */
 function PMA_getRequireClause()
 {
-    if (isset($_POST['ssl_type']) && $_POST['ssl_type'] == 'specified') {
+    $arr = isset($_POST['ssl_type']) ? $_POST : $GLOBALS;
+    if (isset($arr['ssl_type']) && $arr['ssl_type'] == 'SPECIFIED') {
         $require = array();
-        if (! empty($_POST['ssl_cipher'])) {
+        if (! empty($arr['ssl_cipher'])) {
             $require[] = "CIPHER '"
-                    . Util::sqlAddSlashes($_POST['ssl_cipher']) . "'";
+                    . Util::sqlAddSlashes($arr['ssl_cipher']) . "'";
         }
-        if (! empty($_POST['x509_issuer'])) {
+        if (! empty($arr['x509_issuer'])) {
             $require[] = "ISSUER '"
-                    . Util::sqlAddSlashes($_POST['x509_issuer']) . "'";
+                    . Util::sqlAddSlashes($arr['x509_issuer']) . "'";
         }
-        if (! empty($_POST['x509_subject'])) {
+        if (! empty($arr['x509_subject'])) {
             $require[] = "SUBJECT '"
-                    . Util::sqlAddSlashes($_POST['x509_subject']) . "'";
+                    . Util::sqlAddSlashes($arr['x509_subject']) . "'";
         }
         if (count($require)) {
             $require_clause = " REQUIRE " . implode(" AND ", $require);
         } else {
             $require_clause = " REQUIRE NONE";
         }
-    } elseif (isset($_POST['ssl_type']) && $_POST['ssl_type'] == 'X509') {
+    } elseif (isset($arr['ssl_type']) && $arr['ssl_type'] == 'X509') {
         $require_clause = " REQUIRE X509";
-    } elseif (isset($_POST['ssl_type']) && $_POST['ssl_type'] == 'ANY') {
+    } elseif (isset($arr['ssl_type']) && $arr['ssl_type'] == 'ANY') {
         $require_clause = " REQUIRE SSL";
     } else {
         $require_clause = " REQUIRE NONE";
@@ -2213,23 +2214,36 @@ function PMA_getRequireClause()
 function PMA_getWithClauseForAddUserAndUpdatePrivs()
 {
     $sql_query = '';
-    if (isset($_POST['Grant_priv']) && $_POST['Grant_priv'] == 'Y') {
+    if ((isset($_POST['Grant_priv']) && $_POST['Grant_priv'] == 'Y')
+        || (isset($GLOBALS['Grant_priv']) && $GLOBALS['Grant_priv'] == 'Y')
+    ) {
         $sql_query .= ' GRANT OPTION';
     }
-    if (isset($_POST['max_questions'])) {
-        $max_questions = max(0, (int)$_POST['max_questions']);
+    if (isset($_POST['max_questions']) || isset($GLOBALS['max_questions'])) {
+        $max_questions = isset($_POST['max_questions'])
+            ? (int)$_POST['max_questions'] : (int)$GLOBALS['max_questions'];
+        $max_questions = max(0, $max_questions);
         $sql_query .= ' MAX_QUERIES_PER_HOUR ' . $max_questions;
     }
-    if (isset($_POST['max_connections'])) {
-        $max_connections = max(0, (int)$_POST['max_connections']);
+    if (isset($_POST['max_connections']) || isset($GLOBALS['max_connections'])) {
+        $max_connections = isset($_POST['max_connections'])
+            ? (int)$_POST['max_connections'] : (int)$GLOBALS['max_connections'];
+        $max_connections = max(0, $max_connections);
         $sql_query .= ' MAX_CONNECTIONS_PER_HOUR ' . $max_connections;
     }
-    if (isset($_POST['max_updates'])) {
-        $max_updates = max(0, (int)$_POST['max_updates']);
+    if (isset($_POST['max_updates']) || isset($GLOBALS['max_updates'])) {
+        $max_updates = isset($_POST['max_updates'])
+            ? (int)$_POST['max_updates'] : (int)$GLOBALS['max_updates'];
+        $max_updates = max(0, $max_updates);
         $sql_query .= ' MAX_UPDATES_PER_HOUR ' . $max_updates;
     }
-    if (isset($_POST['max_user_connections'])) {
-        $max_user_connections = max(0, (int)$_POST['max_user_connections']);
+    if (isset($_POST['max_user_connections'])
+        || isset($GLOBALS['max_user_connections'])
+    ) {
+        $max_user_connections = isset($_POST['max_user_connections'])
+            ? (int)$_POST['max_user_connections']
+            : (int)$GLOBALS['max_user_connections'];
+        $max_user_connections = max(0, $max_user_connections);
         $sql_query .= ' MAX_USER_CONNECTIONS ' . $max_user_connections;
     }
     return ((!empty($sql_query)) ? ' WITH' . $sql_query : '');
@@ -4041,7 +4055,9 @@ function PMA_getDataForChangeOrCopyUser()
             );
             unset($_REQUEST['change_copy']);
         } else {
-            extract($row, EXTR_OVERWRITE);
+            foreach ($row as $key => $value) {
+                $GLOBALS[$key] = $value;
+            }
             // Recent MySQL versions have the field "Password" in mysql.user,
             // so the previous extract creates $Password but this script
             // uses $password
@@ -5327,14 +5343,9 @@ function PMA_getSqlQueriesForDisplayAndAddUser($username, $hostname, $password)
     $real_sql_query .= $require_clause;
     $sql_query .= $require_clause;
 
-    if ((isset($_POST['Grant_priv']) && $_POST['Grant_priv'] == 'Y')
-        || (isset($_POST['max_questions']) || isset($_POST['max_connections'])
-        || isset($_POST['max_updates']) || isset($_POST['max_user_connections']))
-    ) {
-        $with_clause = PMA_getWithClauseForAddUserAndUpdatePrivs();
-        $real_sql_query .= $with_clause;
-        $sql_query .= $with_clause;
-    }
+    $with_clause = PMA_getWithClauseForAddUserAndUpdatePrivs();
+    $real_sql_query .= $with_clause;
+    $sql_query .= $with_clause;
 
     if (isset($create_user_real)) {
         $create_user_real .= ';';
