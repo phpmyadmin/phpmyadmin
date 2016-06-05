@@ -1065,9 +1065,9 @@ This can happen if MySQL server is not configured to use utf-8 as default
 charset. This is a limitation of how PHP and the MySQL server interact; there
 is no way for PHP to set the charset before authenticating.
 
-.. seealso:: 
-   
-    `phpMyAdmin issue <https://github.com/phpmyadmin/phpmyadmin/issues/12232>`_,
+.. seealso::
+
+    `phpMyAdmin issue 12232 <https://github.com/phpmyadmin/phpmyadmin/issues/12232>`_,
     `MySQL documentation note <http://php.net/manual/en/mysqli.real-connect.php#refsect1-mysqli.real-connect-notes>`_
 
 .. _faqmultiuser:
