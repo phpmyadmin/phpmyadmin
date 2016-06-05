@@ -1260,7 +1260,7 @@ function Start_tab_upd(table)
 
 function Small_tab_all(id_this) // max/min all tables
 {
-    var icon = id_this.childNodes[0];
+    var icon = id_this.children[0];
     var key;
     var value_sent = '';
     if (icon.alt == "v") {
@@ -1596,7 +1596,7 @@ function General_scroll_end()
 
 function Show_left_menu(id_this) // max/min all tables
 {
-    var icon = id_this.childNodes[0];
+    var icon = id_this.children[0];
     $('#key_Show_left_menu').toggleClass('M_butt_Selected_down');
     if (icon.alt == "v") {
         document.getElementById("layer_menu").style.top = '0px';
