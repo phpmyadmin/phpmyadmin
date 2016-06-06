@@ -303,4 +303,6 @@ from pygments.lexers.web import PhpLexer
 
 lexers['php'] = PhpLexer(startinline=True)
 
-linkcheck_retries = 5
+# Number of retries and timeout for linkcheck
+linkcheck_retries = 10
+linkcheck_timeout = 10
