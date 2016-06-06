@@ -173,6 +173,60 @@ $cfg['Servers'][$i]['ssl_ciphers'] = null;
 $cfg['Servers'][$i]['ssl_verify'] = true;
 
 /**
+ * For the controluser only: use SSL for connecting to MySQL server?
+ *
+ * @global boolean $cfg['Servers'][$i]['ssl']
+ */
+$cfg['Servers'][$i]['control_ssl'] = false;
+
+/**
+ * For the controluser only: path to the key file when using SSL for connecting to the MySQL server
+ *
+ * @global string $cfg['Servers'][$i]['ssl_key']
+ */
+$cfg['Servers'][$i]['control_ssl_key'] = null;
+
+/**
+ * For the controluser only: path to the cert file when using SSL for connecting to the MySQL server
+ *
+ * @global string $cfg['Servers'][$i]['ssl_cert']
+ */
+$cfg['Servers'][$i]['control_ssl_cert'] = null;
+
+/**
+ * For the controluser only: path to the CA file when using SSL for connecting to the MySQL server
+ *
+ * @global string $cfg['Servers'][$i]['ssl_ca']
+ */
+$cfg['Servers'][$i]['control_ssl_ca'] = null;
+
+/**
+ * For the controluser only: directory containing trusted SSL CA certificates in PEM format
+ *
+ * @global string $cfg['Servers'][$i]['ssl_ca_path']
+ */
+$cfg['Servers'][$i]['control_ssl_ca_path'] = null;
+
+/**
+ * For the controluser only: list of allowable ciphers for SSL connections to the MySQL server
+ *
+ * @global string $cfg['Servers'][$i]['ssl_ciphers']
+ */
+$cfg['Servers'][$i]['control_ssl_ciphers'] = null;
+
+/**
+ * For the controluser only:
+ * MySQL 5.6 or later triggers the mysqlnd driver in PHP to validate the
+ * peer_name of the SSL certifcate
+ * For most self-signed certificates this is a problem. Setting this to false
+ * will disable the check and allow the connection (PHP 5.6.16 or later)
+ *
+ * @link http://bugs.php.net/68344
+ * @global string $cfg['Servers'][$i]['ssl_verify']
+ */
+$cfg['Servers'][$i]['control_ssl_verify'] = true;
+
+/**
  * How to connect to MySQL server ('tcp' or 'socket')
  *
  * @global string $cfg['Servers'][$i]['connect_type']
