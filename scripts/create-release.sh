@@ -208,7 +208,6 @@ if [ ! -d libraries/tcpdf ] ; then
         vendor/phpseclib/phpseclib/phpseclib/Math/ \
         vendor/phpseclib/phpseclib/phpseclib/Net/ \
         vendor/phpseclib/phpseclib/phpseclib/System/ \
-        vendor/phpseclib/phpseclib/phpseclib/*.* \
         vendor/tecnickcom/tcpdf/examples/ \
         vendor/tecnickcom/tcpdf/tools/ \
         vendor/tecnickcom/tcpdf/fonts/ae_fonts_*/ \
