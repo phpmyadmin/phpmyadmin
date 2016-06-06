@@ -6,6 +6,8 @@ phpMyAdmin - ChangeLog
 - issue #12279 Fixed error reporting on connect problems
 - issue #12290 Fixed export of tables without explicitly set engine
 - issue #12285 Designer JavaScript error: Show/Hide tables list
+- issue #12293 Fix MySQL SSL connection with some PHP versions
+- issue #12279 Fix MySQL connection error on version mismatch
 - issue #12281 Keep user attributes (privileges, authentication mode, etc) when copying a user
 
 4.6.2 (2016-05-25)

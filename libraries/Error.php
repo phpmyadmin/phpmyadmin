@@ -117,14 +117,28 @@ class Error extends Message
      */
     public function setBacktrace($backtrace)
     {
+        $this->backtrace = array();
+
+        $members = array('file', 'line', 'function', 'class', 'type');
+
         foreach ($backtrace as $idx => $step) {
+            /* Create new backtrace entry */
+            $this->backtrace[$idx] = array();
+
+            /* Store members we want */
+            foreach ($members as $name) {
+                if (isset($step[$name])) {
+                    $this->backtrace[$idx][$name] = $step[$name];
+                }
+            }
+
+            /* Store simplified args */
             if (isset($step['args'])) {
                 foreach ($step['args'] as $key => $arg) {
-                    $backtrace[$idx]['args'][$key] = Error::getArg($arg, $step['function']);
+                    $this->backtrace[$idx]['args'][$key] = Error::getArg($arg, $step['function']);
                 }
             }
         }
-        $this->backtrace = $backtrace;
     }
 
     /**

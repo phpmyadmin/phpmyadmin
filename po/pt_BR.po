@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-05-23 14:29+0200\n"
-"PO-Revision-Date: 2016-05-28 22:14+0000\n"
-"Last-Translator: Renan Souza do Nascimento <renan.sn@icloud.com>\n"
+"PO-Revision-Date: 2016-06-05 16:19+0000\n"
+"Last-Translator: Guilherme Rocha <guilherme@candiba.net>\n"
 "Language-Team: Portuguese (Brazil) "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-6/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -5491,7 +5491,6 @@ msgid "CHAR columns editing"
 msgstr "Edição de colunas CHAR"
 
 #: libraries/config/messages.inc.php:58
-#, fuzzy
 #| msgid ""
 #| "Use user-friendly editor for editing SQL queries ([a@http://codemirror."
 #| "net/]CodeMirror[/a]) with syntax highlighting and line numbers."
@@ -5499,8 +5498,9 @@ msgid ""
 "Use user-friendly editor for editing SQL queries (CodeMirror) with syntax "
 "highlighting and line numbers."
 msgstr ""
-"Um editor amigável para editar consultas SQL ([a@http://codemirror."
-"net/]CodeMirror[/a]) com destaque de sintaxe e número de linhas."
+"Use um editor amigável para editar consultas SQL "
+"([a@http://codemirror.net/]CodeMirror[/a]) com destaque de sintaxe e número "
+"de linhas."
 
 #: libraries/config/messages.inc.php:62
 msgid "Enable CodeMirror"
@@ -5824,10 +5824,9 @@ msgid "Overwrite existing file(s)"
 msgstr "Sobrescrever arquivo(s) existente(s)"
 
 #: libraries/config/messages.inc.php:184
-#, fuzzy
 #| msgid "Export table headers"
 msgid "Export as separate files"
-msgstr "Exportar cabeçalhos das tabelas"
+msgstr "Exportar como arquivos separados"
 
 #: libraries/config/messages.inc.php:188
 msgid "Remember file name template"
@@ -5948,10 +5947,9 @@ msgid "Default value for foreign key checks checkbox for some queries."
 msgstr "valor padrão para foreign key checa checkbox por qualquer consultas."
 
 #: libraries/config/messages.inc.php:244
-#, fuzzy
 #| msgid "Foreign key check:"
 msgid "Foreign key checks"
-msgstr "Verificação de chave estrangeira:"
+msgstr "Verificação de chave estrangeira"
 
 #: libraries/config/messages.inc.php:245
 msgid "Browse mode"
@@ -6611,7 +6609,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:502
 msgid "Minimum number of items to display the filter box"
-msgstr "O número mínimo de itens para mostrar a caixa de filtro"
+msgstr "Número mínimo de itens para mostrar na caixa de filtro"
 
 #: libraries/config/messages.inc.php:504
 msgid "Minimum number of databases to display the database filter box"

@@ -149,14 +149,17 @@ class DBIMysqli implements DBIExtension
 
         /* Optionally enable SSL */
         if ($cfg['Server']['ssl']) {
-            mysqli_ssl_set(
-                $link,
-                $cfg['Server']['ssl_key'],
-                $cfg['Server']['ssl_cert'],
-                $cfg['Server']['ssl_ca'],
-                $cfg['Server']['ssl_ca_path'],
-                $cfg['Server']['ssl_ciphers']
-            );
+            $client_flags |= MYSQLI_CLIENT_SSL;
+            if (!empty($cfg['Server']['ssl_key'])) {
+                mysqli_ssl_set(
+                    $link,
+                    $cfg['Server']['ssl_key'],
+                    $cfg['Server']['ssl_cert'],
+                    $cfg['Server']['ssl_ca'],
+                    $cfg['Server']['ssl_ca_path'],
+                    $cfg['Server']['ssl_ciphers']
+                );
+            }
             /*
              * disables SSL certificate validation on mysqlnd for MySQL 5.6 or later
              * @link https://bugs.php.net/bug.php?id=68344
