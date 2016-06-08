@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-05-23 14:30+0200\n"
-"PO-Revision-Date: 2016-04-15 16:48+0000\n"
-"Last-Translator: Szász Attila <undernetangel@gmail.com>\n"
-"Language-Team: Hungarian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/hu/>\n"
+"PO-Revision-Date: 2016-06-08 14:42+0000\n"
+"Last-Translator: Gergő Felföldi <gergo314@gmail.com>\n"
+"Language-Team: Hungarian "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/hu/>\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.6-dev\n"
+"X-Generator: Weblate 2.7-dev\n"
 
 #: changelog.php:37 license.php:33
 #, php-format
@@ -565,7 +565,7 @@ msgid "Bookmark %s has been created."
 msgstr "A(z) %s könyvjelző létrejött."
 
 #: import.php:576
-#, fuzzy, php-format
+#, php-format
 #| msgid "Import has been successfully finished, %d queries executed."
 msgid "Import has been successfully finished, %d query executed."
 msgid_plural "Import has been successfully finished, %d queries executed."
@@ -922,16 +922,14 @@ msgid "Do you really want to TRUNCATE the selected partition(s)?"
 msgstr "Valóban ki szeretné ÜRÍTENI a kijelölt partíciókat?"
 
 #: js/messages.php:88
-#, fuzzy
 #| msgid "Do you really want to TRUNCATE the selected partition(s)?"
 msgid "Do you really want to remove partitioning?"
-msgstr "Valóban ki szeretné ÜRÍTENI a kijelölt partíciókat?"
+msgstr "Valóban el szeretné távolítani a partíciókat?"
 
 #: js/messages.php:89
-#, fuzzy
 #| msgid "Do you really want to execute \"%s\"?"
 msgid "Do you really want to RESET SLAVE?"
-msgstr "Valóban végre szeretné hajtani: „%s”?"
+msgstr "Valóban végre szeretné hajtani a \"RESET SLAVE\" parancsot?"
 
 #: js/messages.php:91
 msgid ""
@@ -1023,7 +1021,6 @@ msgid "Add index"
 msgstr "Index hozzáadása"
 
 #: js/messages.php:124
-#, fuzzy
 #| msgid "Edit Index"
 msgid "Edit index"
 msgstr "Index szerkesztése"
@@ -1074,7 +1071,6 @@ msgstr "SQL lekérdezés:"
 
 #. l10n: Default label for the y-Axis of Charts
 #: js/messages.php:144
-#, fuzzy
 #| msgid "Y Values"
 msgid "Y values"
 msgstr "Y érték"
@@ -1171,7 +1167,6 @@ msgid "Query cache used"
 msgstr "Lekérdezési gyorsítótárat használatban"
 
 #: js/messages.php:183
-#, fuzzy
 #| msgid "System CPU Usage"
 msgid "System CPU usage"
 msgstr "Rendszer CPU használat"
@@ -1209,7 +1204,6 @@ msgid "Used memory"
 msgstr "Használt memória"
 
 #: js/messages.php:194
-#, fuzzy
 #| msgid "Total Swap"
 msgid "Total swap"
 msgstr "Teljes lapozófájl"
@@ -1687,10 +1681,9 @@ msgid "Formatting SQL…"
 msgstr "SQL formázása…"
 
 #: js/messages.php:349
-#, fuzzy
 #| msgid "Bad parameters!"
 msgid "No parameters found!"
-msgstr "Rossz paraméterek!"
+msgstr "Nincs paraméter megadva!"
 
 #: js/messages.php:353
 #: templates/database/designer/aggregate_query_panel.phtml:63
@@ -1736,10 +1729,9 @@ msgid "Request failed!!"
 msgstr "A kérés sikertelen!"
 
 #: js/messages.php:364
-#, fuzzy
 #| msgid "Error in processing request:"
 msgid "Error in processing request"
-msgstr "Hiba a kérés feldolgozásában:"
+msgstr "Hiba a kérés feldolgozásában"
 
 #: js/messages.php:365
 #, php-format
@@ -2199,10 +2191,9 @@ msgid "Inner ring"
 msgstr "Belső gyűrű"
 
 #: js/messages.php:519
-#, fuzzy
 #| msgid "Outer ring:"
 msgid "Outer ring"
-msgstr "Külső gyűrű:"
+msgstr "Külső gyűrű"
 
 #: js/messages.php:523
 msgid "Do you want to copy encryption key?"
