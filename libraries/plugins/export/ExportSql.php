@@ -1568,14 +1568,14 @@ class ExportSql extends ExportPlugin
                 if (($compat === 'MSSQL') || ($sql_backquotes === '"')) {
                     Context::$MODE |= Context::ANSI_QUOTES;
                 }
-
-                /**
-                 * Parser used for analysis.
-                 *
-                 * @var Parser
-                 */
-                $parser = new Parser($create_query);
             }
+
+            /**
+             * Parser used for analysis.
+             *
+             * @var Parser
+             */
+            $parser = new Parser($create_query);
 
             /**
              * `CREATE TABLE` statement.
