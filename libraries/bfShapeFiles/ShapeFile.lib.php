@@ -61,6 +61,7 @@
 
     return $result;
   }
+
 /**
  * ShapeFile class
  *
@@ -87,7 +88,7 @@
       $this->shapeType = $shapeType;
       $this->boundingBox = $boundingBox;
       $this->FileName = $FileName;
-      $this->fileLength = 50;
+      $this->fileLength = 50; // The value for file length is the total length of the file in 16-bit words (including the fifty 16-bit words that make up the header).
     }
 
     function loadFromFile($FileName) {
@@ -131,6 +132,16 @@
 
       if ($this->boundingBox["ymin"]==0.0 || ($this->boundingBox["ymin"]>$record->SHPData["ymin"])) $this->boundingBox["ymin"] = $record->SHPData["ymin"];
       if ($this->boundingBox["ymax"]==0.0 || ($this->boundingBox["ymax"]<$record->SHPData["ymax"])) $this->boundingBox["ymax"] = $record->SHPData["ymax"];
+
+      if (in_array($this->shapeType,array(11,13,15,18,21,23,25,28))) {
+        if (!isset($this->boundingBox["mmin"]) || $this->boundingBox["mmin"]==0.0 || ($this->boundingBox["mmin"]>$record->SHPData["mmin"])) $this->boundingBox["mmin"] = $record->SHPData["mmin"];
+        if (!isset($this->boundingBox["mmax"]) || $this->boundingBox["mmax"]==0.0 || ($this->boundingBox["mmax"]<$record->SHPData["mmax"])) $this->boundingBox["mmax"] = $record->SHPData["mmax"];
+      }
+
+      if (in_array($this->shapeType,array(11,13,15,18))) {
+        if (!isset($this->boundingBox["zmin"]) || $this->boundingBox["zmin"]==0.0 || ($this->boundingBox["zmin"]>$record->SHPData["zmin"])) $this->boundingBox["zmin"] = $record->SHPData["zmin"];
+        if (!isset($this->boundingBox["zmax"]) || $this->boundingBox["zmax"]==0.0 || ($this->boundingBox["zmax"]<$record->SHPData["zmax"])) $this->boundingBox["zmax"] = $record->SHPData["zmax"];
+      }
 
       return (count($this->records) - 1);
     }
@@ -223,6 +234,10 @@
       $this->boundingBox["ymin"] = loadData("d", fread($this->SHPFile, 8));
       $this->boundingBox["xmax"] = loadData("d", fread($this->SHPFile, 8));
       $this->boundingBox["ymax"] = loadData("d", fread($this->SHPFile, 8));
+      $this->boundingBox["zmin"] = loadData("d", fread($this->SHPFile, 8));
+      $this->boundingBox["zmax"] = loadData("d", fread($this->SHPFile, 8));
+      $this->boundingBox["mmin"] = loadData("d", fread($this->SHPFile, 8));
+      $this->boundingBox["mmax"] = loadData("d", fread($this->SHPFile, 8));
 
       $this->DBFHeader = $this->_loadDBFHeader();
     }
@@ -236,7 +251,10 @@
       fwrite($this->SHPFile, packDouble($this->boundingBox['ymin']));
       fwrite($this->SHPFile, packDouble($this->boundingBox['xmax']));
       fwrite($this->SHPFile, packDouble($this->boundingBox['ymax']));
-      fwrite($this->SHPFile, pack("dddd", 0, 0, 0, 0));
+      fwrite($this->SHPFile, packDouble(isset($this->boundingBox['zmin'])?$this->boundingBox['zmin']:0));
+      fwrite($this->SHPFile, packDouble(isset($this->boundingBox['zmax'])?$this->boundingBox['zmax']:0));
+      fwrite($this->SHPFile, packDouble(isset($this->boundingBox['mmin'])?$this->boundingBox['mmin']:0));
+      fwrite($this->SHPFile, packDouble(isset($this->boundingBox['mmax'])?$this->boundingBox['mmax']:0));
 
       fwrite($this->SHXFile, pack("NNNNNN", 9994, 0, 0, 0, 0, 0));
       fwrite($this->SHXFile, pack("N", 50 + 4*count($this->records)));
@@ -246,7 +264,10 @@
       fwrite($this->SHXFile, packDouble($this->boundingBox['ymin']));
       fwrite($this->SHXFile, packDouble($this->boundingBox['xmax']));
       fwrite($this->SHXFile, packDouble($this->boundingBox['ymax']));
-      fwrite($this->SHXFile, pack("dddd", 0, 0, 0, 0));
+      fwrite($this->SHXFile, packDouble(isset($this->boundingBox['zmin'])?$this->boundingBox['zmin']:0));
+      fwrite($this->SHXFile, packDouble(isset($this->boundingBox['zmax'])?$this->boundingBox['zmax']:0));
+      fwrite($this->SHXFile, packDouble(isset($this->boundingBox['mmin'])?$this->boundingBox['mmin']:0));
+      fwrite($this->SHXFile, packDouble(isset($this->boundingBox['mmax'])?$this->boundingBox['mmax']:0));
     }
 
     function _loadRecords() {
@@ -379,14 +400,38 @@
         case 1:
           $this->_loadPointRecord();
         break;
+        case 21:
+          $this->_loadPointMRecord();
+        break;
+        case 11:
+          $this->_loadPointZRecord();
+        break;
         case 3:
           $this->_loadPolyLineRecord();
+        break;
+        case 23:
+          $this->_loadPolyLineMRecord();
+        break;
+        case 13:
+          $this->_loadPolyLineZRecord();
         break;
         case 5:
           $this->_loadPolygonRecord();
         break;
+        case 25:
+          $this->_loadPolygonMRecord();
+        break;
+        case 15:
+          $this->_loadPolygonZRecord();
+        break;
         case 8:
           $this->_loadMultiPointRecord();
+        break;
+        case 28:
+          $this->_loadMultiPointMRecord();
+        break;
+        case 18:
+          $this->_loadMultiPointZRecord();
         break;
         default:
           $this->setError(sprintf("The Shape Type '%s' is not supported.", $this->shapeType));
@@ -408,14 +453,38 @@
         case 1:
           $this->_savePointRecord();
         break;
+        case 21:
+          $this->_savePointMRecord();
+        break;
+        case 11:
+          $this->_savePointZRecord();
+        break;
         case 3:
           $this->_savePolyLineRecord();
+        break;
+        case 23:
+          $this->_savePolyLineMRecord();
+        break;
+        case 13:
+          $this->_savePolyLineZRecord();
         break;
         case 5:
           $this->_savePolygonRecord();
         break;
+        case 25:
+          $this->_savePolygonMRecord();
+        break;
+        case 15:
+          $this->_savePolygonZRecord();
+        break;
         case 8:
           $this->_saveMultiPointRecord();
+        break;
+        case 28:
+          $this->_saveMultiPointMRecord();
+        break;
+        case 18:
+          $this->_saveMultiPointZRecord();
         break;
         default:
           $this->setError(sprintf("The Shape Type '%s' is not supported.", $this->shapeType));
@@ -455,9 +524,51 @@
       return $data;
     }
 
+    function _loadPointM() {
+      $data = array();
+
+      $data["x"] = loadData("d", fread($this->SHPFile, 8));
+      $data["y"] = loadData("d", fread($this->SHPFile, 8));
+      $data["m"] = loadData("d", fread($this->SHPFile, 8));
+
+      return $data;
+    }
+
+    function _loadPointZ() {
+      $data = array();
+
+      $data["x"] = loadData("d", fread($this->SHPFile, 8));
+      $data["y"] = loadData("d", fread($this->SHPFile, 8));
+      $data["z"] = loadData("d", fread($this->SHPFile, 8));
+      $data["m"] = loadData("d", fread($this->SHPFile, 8));
+
+      return $data;
+    }
+
     function _savePoint($data) {
       fwrite($this->SHPFile, packDouble($data["x"]));
       fwrite($this->SHPFile, packDouble($data["y"]));
+    }
+
+    function _savePointM($data) {
+      fwrite($this->SHPFile, packDouble($data["x"]));
+      fwrite($this->SHPFile, packDouble($data["y"]));
+      fwrite($this->SHPFile, packDouble($data["m"]));
+    }
+
+    function _savePointZ($data) {
+      fwrite($this->SHPFile, packDouble($data["x"]));
+      fwrite($this->SHPFile, packDouble($data["y"]));
+      fwrite($this->SHPFile, packDouble($data["z"]));
+      fwrite($this->SHPFile, packDouble($data["m"]));
+    }
+
+    function _saveMeasure($data) {
+      fwrite($this->SHPFile, packDouble($data["m"]));
+    }
+
+    function _saveZCoordinate($data) {
+      fwrite($this->SHPFile, packDouble($data["z"]));
     }
 
     function _loadNullRecord() {
@@ -472,8 +583,24 @@
       $this->SHPData = $this->_loadPoint();
     }
 
+    function _loadPointMRecord() {
+      $this->SHPData = $this->_loadPointM();
+    }
+
+    function _loadPointZRecord() {
+      $this->SHPData = $this->_loadPointZ();
+    }
+
     function _savePointRecord() {
       $this->_savePoint($this->SHPData);
+    }
+
+    function _savePointMRecord() {
+      $this->_savePointM($this->SHPData);
+    }
+
+    function _savePointZRecord() {
+      $this->_savePointZ($this->SHPData);
     }
 
     function _loadMultiPointRecord() {
@@ -490,6 +617,29 @@
       }
     }
 
+    function _loadMultiPointMZRecord( $type ) {
+
+      $this->SHPData[$type."min"] = loadData("d", fread($this->SHPFile, 8));
+      $this->SHPData[$type."max"] = loadData("d", fread($this->SHPFile, 8));
+
+      for ($i = 0; $i <= $this->SHPData["numpoints"]; $i++) {
+        $this->SHPData["points"][$i][$type] = loadData("d", fread($this->SHPFile, 8));
+      }
+    }
+
+    function _loadMultiPointMRecord() {
+      $this->_loadMultiPointRecord();
+
+      $this->_loadMultiPointMZRecord("m");
+    }
+
+    function _loadMultiPointZRecord() {
+      $this->_loadMultiPointRecord();
+
+      $this->_loadMultiPointMZRecord("z");
+      $this->_loadMultiPointMZRecord("m");
+    }
+
     function _saveMultiPointRecord() {
       fwrite($this->SHPFile, pack("dddd", $this->SHPData["xmin"], $this->SHPData["ymin"], $this->SHPData["xmax"], $this->SHPData["ymax"]));
 
@@ -498,6 +648,28 @@
       for ($i = 0; $i <= $this->SHPData["numpoints"]; $i++) {
         $this->_savePoint($this->SHPData["points"][$i]);
       }
+    }
+
+    function _saveMultiPointMZRecord( $type ) {
+
+      fwrite($this->SHPFile, pack("dd", $this->SHPData[$type."min"], $this->SHPData[$type."max"]));
+
+      for ($i = 0; $i <= $this->SHPData["numpoints"]; $i++) {
+        fwrite($this->SHPFile, packDouble($this->SHPData["points"][$type]));
+      }
+    }
+
+    function _saveMultiPointMRecord() {
+      $this->_saveMultiPointRecord();
+
+      $this->_saveMultiPointMZRecord("m");
+    }
+
+    function _saveMultiPointZRecord() {
+      $this->_saveMultiPointRecord();
+
+      $this->_saveMultiPointMZRecord("z");
+      $this->_saveMultiPointMZRecord("m");
     }
 
     function _loadPolyLineRecord() {
@@ -531,6 +703,37 @@
       fseek($this->SHPFile, $firstIndex + ($readPoints*16));
     }
 
+    function _loadPolyLineMZRecord( $type ) {
+
+      $this->SHPData[$type."min"] = loadData("d", fread($this->SHPFile, 8));
+      $this->SHPData[$type."max"] = loadData("d", fread($this->SHPFile, 8));
+
+      $firstIndex = ftell($this->SHPFile);
+      $readPoints = 0;
+      reset($this->SHPData["parts"]);
+      while (list($partIndex, $partData) = each($this->SHPData["parts"])) {
+        while (!in_array($readPoints, $this->SHPData["parts"]) && ($readPoints < ($this->SHPData["numpoints"])) && !feof($this->SHPFile)) {
+          $this->SHPData["parts"][$partIndex]["points"][$readPoints][$type] = loadData("d", fread($this->SHPFile, 8));
+          $readPoints++;
+        }
+      }
+
+      fseek($this->SHPFile, $firstIndex + ($readPoints*24));
+    }
+
+    function _loadPolyLineMRecord() {
+      $this->_loadPolyLineRecord();
+
+      $this->_loadPolyLineMZRecord("m");
+    }
+
+    function _loadPolyLineZRecord() {
+      $this->_loadPolyLineRecord();
+
+      $this->_loadPolyLineMZRecord("z");
+      $this->_loadPolyLineMZRecord("m");
+    }
+
     function _savePolyLineRecord() {
       fwrite($this->SHPFile, pack("dddd", $this->SHPData["xmin"], $this->SHPData["ymin"], $this->SHPData["xmax"], $this->SHPData["ymax"]));
 
@@ -548,12 +751,52 @@
       }
     }
 
+    function _savePolyLineMZRecord( $type ) {
+      fwrite($this->SHPFile, pack("dd", $this->SHPData[$type."min"], $this->SHPData[$type."max"]));
+
+      foreach ($this->SHPData["parts"] as $partData){
+        reset($partData["points"]);
+        while (list($pointIndex, $pointData) = each($partData["points"])) {
+          fwrite($this->SHPFile, packDouble($pointData[$type]));
+        }
+      }
+    }
+
+    function _savePolyLineMRecord() {
+      $this->_savePolyLineRecord();
+
+      $this->_savePolyLineMZRecord("m");
+    }
+
+    function _savePolyLineZRecord() {
+      $this->_savePolyLineRecord();
+
+      $this->_savePolyLineMZRecord("z");
+      $this->_savePolyLineMZRecord("m");
+    }
+
     function _loadPolygonRecord() {
       $this->_loadPolyLineRecord();
     }
 
+    function _loadPolygonMRecord() {
+      $this->_loadPolyLineMRecord();
+    }
+
+    function _loadPolygonZRecord() {
+      $this->_loadPolyLineZRecord();
+    }
+
     function _savePolygonRecord() {
       $this->_savePolyLineRecord();
+    }
+
+    function _savePolygonMRecord() {
+      $this->_savePolyLineMRecord();
+    }
+
+    function _savePolygonZRecord() {
+      $this->_savePolyLineZRecord();
     }
 
     function addPoint($point, $partIndex = 0) {
@@ -562,31 +805,55 @@
           //Don't add anything
         break;
         case 1:
+        case 11:
+        case 21:
+          if (in_array($this->shapeType,array(11,21)) && !isset($point["m"])) $point["m"] = 0.0; // no_value
+          if (in_array($this->shapeType,array(11)) && !isset($point["z"])) $point["z"] = 0.0; // no_value
           //Substitutes the value of the current point
           $this->SHPData = $point;
         break;
         case 3:
         case 5:
+        case 13:
+        case 15:
+        case 23:
+        case 25:
+          if (in_array($this->shapeType,array(13,15,23,25)) && !isset($point["m"])) $point["m"] = 0.0; // no_value
+          if (in_array($this->shapeType,array(13,15)) && !isset($point["z"])) $point["z"] = 0.0; // no_value
+
           //Adds a new point to the selected part
           if (!isset($this->SHPData["xmin"]) || ($this->SHPData["xmin"] > $point["x"])) $this->SHPData["xmin"] = $point["x"];
           if (!isset($this->SHPData["ymin"]) || ($this->SHPData["ymin"] > $point["y"])) $this->SHPData["ymin"] = $point["y"];
+          if (isset($point["m"]) && (!isset($this->SHPData["mmin"]) || ($this->SHPData["mmin"] > $point["m"]))) $this->SHPData["mmin"] = $point["m"];
+          if (isset($point["z"]) && (!isset($this->SHPData["zmin"]) || ($this->SHPData["zmin"] > $point["z"]))) $this->SHPData["zmin"] = $point["z"];
           if (!isset($this->SHPData["xmax"]) || ($this->SHPData["xmax"] < $point["x"])) $this->SHPData["xmax"] = $point["x"];
           if (!isset($this->SHPData["ymax"]) || ($this->SHPData["ymax"] < $point["y"])) $this->SHPData["ymax"] = $point["y"];
+          if (isset($point["m"]) && (!isset($this->SHPData["mmax"]) || ($this->SHPData["mmax"] < $point["m"]))) $this->SHPData["mmax"] = $point["m"];
+          if (isset($point["z"]) && (!isset($this->SHPData["zmax"]) || ($this->SHPData["zmax"] < $point["z"]))) $this->SHPData["zmax"] = $point["z"];
 
           $this->SHPData["parts"][$partIndex]["points"][] = $point;
 
           $this->SHPData["numparts"] = count($this->SHPData["parts"]);
-          $this->SHPData["numpoints"]++;
+          $this->SHPData["numpoints"] = 1 + (isset($this->SHPData["numpoints"])?$this->SHPData["numpoints"]:0);
         break;
         case 8:
+        case 18:
+        case 28:
+          if (in_array($this->shapeType,array(18,28)) && !isset($point["m"])) $point["m"] = 0.0; // no_value
+          if (in_array($this->shapeType,array(18)) && !isset($point["z"])) $point["z"] = 0.0; // no_value
+
           //Adds a new point
           if (!isset($this->SHPData["xmin"]) || ($this->SHPData["xmin"] > $point["x"])) $this->SHPData["xmin"] = $point["x"];
           if (!isset($this->SHPData["ymin"]) || ($this->SHPData["ymin"] > $point["y"])) $this->SHPData["ymin"] = $point["y"];
+          if (isset($point["m"]) && (!isset($this->SHPData["mmin"]) || ($this->SHPData["mmin"] > $point["m"]))) $this->SHPData["mmin"] = $point["m"];
+          if (isset($point["z"]) && (!isset($this->SHPData["zmin"]) || ($this->SHPData["zmin"] > $point["z"]))) $this->SHPData["zmin"] = $point["z"];
           if (!isset($this->SHPData["xmax"]) || ($this->SHPData["xmax"] < $point["x"])) $this->SHPData["xmax"] = $point["x"];
           if (!isset($this->SHPData["ymax"]) || ($this->SHPData["ymax"] < $point["y"])) $this->SHPData["ymax"] = $point["y"];
+          if (isset($point["m"]) && (!isset($this->SHPData["mmax"]) || ($this->SHPData["mmax"] < $point["m"]))) $this->SHPData["mmax"] = $point["m"];
+          if (isset($point["z"]) && (!isset($this->SHPData["zmax"]) || ($this->SHPData["zmax"] < $point["z"]))) $this->SHPData["zmax"] = $point["z"];
 
           $this->SHPData["points"][] = $point;
-          $this->SHPData["numpoints"]++;
+          $this->SHPData["numpoints"] = 1 + (isset($this->SHPData["numpoints"])?$this->SHPData["numpoints"]:0);
         break;
         default:
           $this->setError(sprintf("The Shape Type '%s' is not supported.", $this->shapeType));
@@ -600,12 +867,20 @@
           //Don't delete anything
         break;
         case 1:
+        case 11:
+        case 21:
           //Sets the value of the point to zero
           $this->SHPData["x"] = 0.0;
           $this->SHPData["y"] = 0.0;
+          if (in_array($this->shapeType,array(11,21))) $this->SHPData["m"] = 0.0;
+          if (in_array($this->shapeType,array(11))) $this->SHPData["z"] = 0.0;
         break;
         case 3:
         case 5:
+        case 13:
+        case 15:
+        case 23:
+        case 25:
           //Deletes the point from the selected part, if exists
           if (isset($this->SHPData["parts"][$partIndex]) && isset($this->SHPData["parts"][$partIndex]["points"][$pointIndex])) {
             for ($i = $pointIndex; $i < (count($this->SHPData["parts"][$partIndex]["points"]) - 1); $i++) {
@@ -618,6 +893,8 @@
           }
         break;
         case 8:
+        case 18:
+        case 28:
           //Deletes the point, if exists
           if (isset($this->SHPData["points"][$pointIndex])) {
             for ($i = $pointIndex; $i < (count($this->SHPData["points"]) - 1); $i++) {
@@ -635,12 +912,20 @@
     }
 
     function getContentLength() {
+      // The content length for a record is the length of the record contents section measured in 16-bit words.
+      // one coordinate makes 4 16-bit words (64 bit double)
       switch ($this->shapeType) {
         case 0:
           $result = 0;
         break;
         case 1:
           $result = 10;
+        break;
+        case 21:
+          $result = 10 + 4;
+        break;
+        case 11:
+          $result = 10 + 8;
         break;
         case 3:
         case 5:
@@ -649,8 +934,28 @@
             $result += 8*count($this->SHPData["parts"][$i]["points"]);
           }
         break;
+        case 23:
+        case 25:
+          $result = 22 + (2*4) + 2*count($this->SHPData["parts"]);
+          for ($i = 0; $i < count($this->SHPData["parts"]); $i++) {
+            $result += (8+4)*count($this->SHPData["parts"][$i]["points"]);
+          }
+        break;
+        case 13:
+        case 15:
+          $result = 22 + (4*4) + 2*count($this->SHPData["parts"]);
+          for ($i = 0; $i < count($this->SHPData["parts"]); $i++) {
+            $result += (8+8)*count($this->SHPData["parts"][$i]["points"]);
+          }
+        break;
         case 8:
           $result = 20 + 8*count($this->SHPData["points"]);
+        break;
+        case 28:
+          $result = 20 + (2*4) + (8+4)*count($this->SHPData["points"]);
+        break;
+        case 18:
+          $result = 20 + (4*4) + (8+8)*count($this->SHPData["points"]);
         break;
         default:
           $result = false;
@@ -683,4 +988,3 @@
       return false;
     }
   }
-
