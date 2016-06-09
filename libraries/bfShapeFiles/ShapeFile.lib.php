@@ -126,6 +126,12 @@
       $this->records[] = $record;
       $this->records[count($this->records) - 1]->recordNumber = count($this->records);
 
+      if ($this->boundingBox["xmin"]==0.0 || ($this->boundingBox["xmin"]>$record->SHPData["xmin"])) $this->boundingBox["xmin"] = $record->SHPData["xmin"];
+      if ($this->boundingBox["xmax"]==0.0 || ($this->boundingBox["xmax"]<$record->SHPData["xmax"])) $this->boundingBox["xmax"] = $record->SHPData["xmax"];
+
+      if ($this->boundingBox["ymin"]==0.0 || ($this->boundingBox["ymin"]>$record->SHPData["ymin"])) $this->boundingBox["ymin"] = $record->SHPData["ymin"];
+      if ($this->boundingBox["ymax"]==0.0 || ($this->boundingBox["ymax"]<$record->SHPData["ymax"])) $this->boundingBox["ymax"] = $record->SHPData["ymax"];
+
       return (count($this->records) - 1);
     }
 
