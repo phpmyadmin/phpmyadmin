@@ -455,7 +455,6 @@ if (! empty($return_to_sql_query)) {
 }
 
 $scripts->addFile('tbl_change.js');
-$scripts->addFile('big_ints.js');
 
 $active_page = $goto_include;
 
