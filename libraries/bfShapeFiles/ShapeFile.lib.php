@@ -531,7 +531,7 @@
       fwrite($this->SHPFile, pack("VV", $this->SHPData["numparts"], $this->SHPData["numpoints"]));
 
       for ($i = 0; $i < $this->SHPData["numparts"]; $i++) {
-        fwrite($this->SHPFile, pack("V", count($this->SHPData["parts"][$i])));
+        fwrite($this->SHPFile, pack("V", count($this->SHPData["parts"][$i])-1));
       }
 
       foreach ($this->SHPData["parts"] as $partData){
