@@ -85,7 +85,7 @@ class ExportJson extends ExportPlugin
         PMA_exportOutputHandler(
             '/**' . $GLOBALS['crlf']
             . ' Export to JSON plugin for PHPMyAdmin' . $GLOBALS['crlf']
-            . ' @version 0.1' . $GLOBALS['crlf']
+            . ' @version ' . PMA_VERSION . $GLOBALS['crlf']
             . ' */' . $GLOBALS['crlf'] . $GLOBALS['crlf']
         );
 
