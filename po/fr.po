@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-05-23 14:30+0200\n"
-"PO-Revision-Date: 2016-04-27 09:45+0000\n"
-"Last-Translator: Julien ITARD <julienitard@gmail.com>\n"
-"Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"fr/>\n"
+"PO-Revision-Date: 2016-06-10 14:50+0000\n"
+"Last-Translator: Jocelyn Flament <jocelyn.flament@gmail.com>\n"
+"Language-Team: French "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/fr/>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 2.6-dev\n"
+"X-Generator: Weblate 2.7-dev\n"
 
 #: changelog.php:37 license.php:33
 #, php-format
@@ -3236,11 +3236,11 @@ msgid "Font size"
 msgstr "Taille du texte"
 
 #: libraries/Console.php:88
-#, fuzzy, php-format
+#, php-format
 msgid "Showing %1$d bookmark (both private and shared)"
 msgid_plural "Showing %1$d bookmarks (both private and shared)"
-msgstr[0] "Montre %1$d favori (privés et partagés compris)"
-msgstr[1] "Montre %1$d favoris (privés et partagés compris)"
+msgstr[0] "Affichage d'%1$d favori (privés et partagés compris)"
+msgstr[1] "Affichage de %1$d favoris (privés et partagés compris)"
 
 #: libraries/Console.php:95
 msgid "No bookmarks"
@@ -3251,10 +3251,9 @@ msgid "SQL Query Console"
 msgstr "Console de requête SQL"
 
 #: libraries/DatabaseInterface.php:1414
-#, fuzzy
 #| msgid "Failed to read configuration file!"
 msgid "Failed to set configured collation connection!"
-msgstr "Impossible de lire le fichier de configuration !"
+msgstr "Impossible de modifier l'interclassement configuré pour la connexion !"
 
 #: libraries/DatabaseInterface.php:2025
 msgid ""
@@ -5530,13 +5529,12 @@ msgid "Highlight pointer"
 msgstr "Activer le pointeur de surbrillance"
 
 #: libraries/config/messages.inc.php:47
-#, fuzzy
 #| msgid ""
 #| "Enable [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] compression for "
 #| "import operations."
 msgid "Enable bzip2 compression for import operations."
 msgstr ""
-"Active la compression [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] pour "
+"Activer la compression [a@http://fr.wikipedia.org/wiki/Bzip2]bzip2[/a] pour "
 "les opérations d'importation."
 
 #: libraries/config/messages.inc.php:50
@@ -5558,7 +5556,6 @@ msgid "CHAR columns editing"
 msgstr "Édition des colonnes CHAR"
 
 #: libraries/config/messages.inc.php:58
-#, fuzzy
 #| msgid ""
 #| "Use user-friendly editor for editing SQL queries ([a@http://codemirror."
 #| "net/]CodeMirror[/a]) with syntax highlighting and line numbers."
@@ -5566,8 +5563,8 @@ msgid ""
 "Use user-friendly editor for editing SQL queries (CodeMirror) with syntax "
 "highlighting and line numbers."
 msgstr ""
-"Utiliser un éditeur convivial pour les requêtes SQL ([a@http://codemirror."
-"net/]CodeMirror[/a]) avec coloration syntaxique et numérotation des lignes."
+"Utiliser un éditeur convivial avec coloration syntaxique et numérotation des "
+"lignes pour rédiger les requêtes SQL. (CodeMirror)"
 
 #: libraries/config/messages.inc.php:62
 msgid "Enable CodeMirror"
@@ -6335,14 +6332,13 @@ msgid "Disable some of the warnings shown by phpMyAdmin."
 msgstr "Désactiver certains avertissements affichés."
 
 #: libraries/config/messages.inc.php:353
-#, fuzzy
 #| msgid ""
 #| "Enable [a@http://en.wikipedia.org/wiki/Gzip]gzip[/a] compression for "
 #| "import and export operations."
 msgid "Enable gzip compression for import and export operations."
 msgstr ""
-"Active la compression [a@http://en.wikipedia.org/wiki/Gzip]gzip[/a] pour les "
-"opérations d'importation et d'exportation."
+"Activer la compression [a@http://fr.wikipedia.org/wiki/Gzip]gzip[/a] pour "
+"les opérations d'importation et d'exportation."
 
 #: libraries/config/messages.inc.php:356
 msgid "GZip"
@@ -7882,13 +7878,13 @@ msgid "Proxy password"
 msgstr "Mot de passe du serveur mandataire"
 
 #: libraries/config/messages.inc.php:974
-#, fuzzy
 #| msgid ""
 #| "Enable [a@http://en.wikipedia.org/wiki/Gzip]gzip[/a] compression for "
 #| "import and export operations."
 msgid "Enable ZIP compression for import and export operations."
 msgstr ""
-"Active la compression [a@http://en.wikipedia.org/wiki/Gzip]gzip[/a] pour les "
+"Activer la compression "
+"[a@http://fr.wikipedia.org/wiki/ZIP_(format_de_fichier)]gzip[/a] pour les "
 "opérations d'importation et d'exportation."
 
 #: libraries/config/messages.inc.php:977
@@ -9835,7 +9831,7 @@ msgstr "Vérifier la table"
 #: libraries/operations.lib.php:1416
 #: templates/database/structure/check_all_tables.phtml:22
 msgid "Checksum table"
-msgstr "Table de somme de contrôle"
+msgstr "Somme de contrôle de la table"
 
 #: libraries/operations.lib.php:1430
 msgid "Defragment table"
@@ -15061,7 +15057,6 @@ msgid "Tracking is not active."
 msgstr "Le suivi n'est pas activé."
 
 #: templates/error/report_form.phtml:7
-#, fuzzy
 #| msgid ""
 #| "phpMyAdmin has encountered an error. We have collected data about this "
 #| "error as well as information about relevant configuration settings to "
@@ -15071,16 +15066,17 @@ msgid ""
 "about relevant configuration settings. It will be sent to the phpMyAdmin "
 "team for debugging the error."
 msgstr ""
-"phpMyAdmin a rencontré une erreur. Nous avons recueilli des données sur "
-"cette erreur, ainsi que des informations sur les paramètres de configuration "
-"pertinents pour les transmettre à l'équipe phpMyAdmin, pour nous aider à "
-"déboguer le problème."
+"Ce rapport inclut des données sur l'erreur, ainsi que des informations sur "
+"les paramètres de configuration pertinents. Il va être transmis à l'équipe "
+"phpMyAdmin pour nous aider à déboguer le problème."
 
 #: templates/error/report_form.phtml:14
 msgid ""
 "Can you tell us the steps leading to this error? It decisively helps in "
 "debugging:"
 msgstr ""
+"Pouvez-vous décrire les étapes permettant de reproduire cette erreur ? C'est "
+"une aide précieuse pour le débogage :"
 
 #: templates/error/report_form.phtml:21
 msgid "You may examine the data in the error report:"
