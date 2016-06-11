@@ -10,6 +10,7 @@ phpMyAdmin - ChangeLog
 - issue #12279 Fix MySQL connection error on version mismatch
 - issue #12281 Keep user attributes (privileges, authentication mode, etc) when copying a user
 - issue #12308 Fix division by zero in case of misconfigured MySQL server
+- issue #12277 ENUM editor adds extra blank values
 
 4.6.2 (2016-05-25)
 - issue        [security] User SQL queries can be revealed through URL GET parameters, see PMASA-2016-14
