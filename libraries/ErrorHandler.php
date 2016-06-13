@@ -94,7 +94,7 @@ class ErrorHandler
 
     /**
     * returns the errors occurred in the current run only.
-    * Does not include the errors save din the SESSION
+    * Does not include the errors saved in the SESSION
     *
     * @return Error[]
     */
@@ -104,7 +104,7 @@ class ErrorHandler
     }
 
     /**
-     * Pops recent erros from the storage
+     * Pops recent errors from the storage
      *
      * @param int $count Old error count
      *
