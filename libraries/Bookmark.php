@@ -165,7 +165,7 @@ class Bookmark
     /**
      * Replace the placeholders in the bookmark query with variables
      *
-     * @param $variables array of variables
+     * @param  array $variables array of variables
      *
      * @return string query with variables applied
      */
@@ -275,7 +275,7 @@ class Bookmark
             . " WHERE `user` = ''"
             . " OR `user` = '" . Util::sqlAddSlashes($cfgBookmark['user']) . "'";
         if ($db !== false) {
-            $query .= " AND dbase = '" . Util::sqlAddSlashes($db) ."'";
+            $query .= " AND dbase = '" . Util::sqlAddSlashes($db) . "'";
         }
         $query .= " ORDER BY label";
 
@@ -286,7 +286,6 @@ class Bookmark
             $controllink,
             DatabaseInterface::QUERY_STORE
         );
-
 
         if (! empty($result)) {
             $bookmarks = array();

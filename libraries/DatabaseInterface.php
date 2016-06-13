@@ -331,9 +331,9 @@ class DatabaseInterface
     /**
      * returns a segment of the SQL WHERE clause regarding table name and type
      *
-     * @param array|string  $table        table(s)
-     * @param boolean       $tbl_is_group $table is a table group
-     * @param string        $table_type   whether table or view
+     * @param array|string $table        table(s)
+     * @param boolean      $tbl_is_group $table is a table group
+     * @param string       $table_type   whether table or view
      *
      * @return string a segment of the WHERE clause
      */

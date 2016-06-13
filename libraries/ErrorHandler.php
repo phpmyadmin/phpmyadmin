@@ -80,7 +80,7 @@ class ErrorHandler
     /**
      * returns array with all errors
      *
-     * @param $check bool Whether to check for session errors
+     * @param bool $check Whether to check for session errors
      *
      * @return Error[]
      */
@@ -389,7 +389,7 @@ class ErrorHandler
     /**
      * return count of errors
      *
-     * @param $check bool Whether to check for session errors
+     * @param bool $check Whether to check for session errors
      *
      * @return integer number of errors occurred
      */
