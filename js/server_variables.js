@@ -75,9 +75,10 @@ AJAX.registerOnload('server_variables.js', function () {
 
     /* Allows the user to edit a server variable */
     function editVariable(link) {
-        var $cell = $(link).parent();
-        var $valueCell = $(link).parents('.var-row').find('.var-value');
-        var varName = $cell.parent().find('.var-name').text().replace(/ /g, '_');
+        var $link = $(link);
+        var $cell = $link.parent();
+        var $valueCell = $link.parents('.var-row').find('.var-value');
+        var varName = $link.data('variable');
         var $mySaveLink = $saveLink.clone().show();
         var $myCancelLink = $cancelLink.clone().show();
         var $msgbox = PMA_ajaxShowMessage();
