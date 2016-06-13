@@ -100,7 +100,11 @@ AJAX.registerOnload('server_variables.js', function () {
                             .data('content', data.variable);
                         PMA_ajaxRemoveMessage($msgbox);
                     } else {
-                        PMA_ajaxShowMessage(data.error, false);
+                        if (data.error == '') {
+                            PMA_ajaxShowMessage(PMA_messages.strRequestFailed, false);
+                        } else {
+                            PMA_ajaxShowMessage(data.error, false);
+                        }
                         $valueCell.html($valueCell.data('content'));
                     }
                     $cell.removeClass('edit').html($myEditLink);
