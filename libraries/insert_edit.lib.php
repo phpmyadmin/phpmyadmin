@@ -2983,8 +2983,8 @@ function PMA_userHasColumnPrivileges($table_column, $insert_mode)
 /**
  * Returns whether the user has necessary insert/update privileges for the database
  *
- * @param string $database database name
- * @param bool  $insert_mode  whether on insert mode
+ * @param string $database    database name
+ * @param bool   $insert_mode whether on insert mode
  *
  * @return boolean whether user has necessary privileges
  */

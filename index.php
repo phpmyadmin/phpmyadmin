@@ -314,7 +314,7 @@ if ($server > 0 && $GLOBALS['cfg']['ShowServerInfo']) {
        . '        <span lang="en" dir="ltr">';
     $unicode = Charsets::$mysql_charset_map['utf-8'];
     $charsets = Charsets::getMySQLCharsetsDescriptions();
-    echo '           ' , $charsets[$unicode], ' ('. $unicode, ')';
+    echo '           ' , $charsets[$unicode], ' (' . $unicode, ')';
     echo '        </span>'
        . '    </li>'
        . '  </ul>'
