@@ -152,6 +152,88 @@ JSON (JavaScript Object Notation) is a lightweight data-interchange format. It
 is easy for humans to read and write and it is easy for machines to parse and
 generate.
 
+.. versionchanged:: 4.7.0
+
+    The generated JSON structure has been changed in phpMyAdmin 4.7.0 to
+    produce valid JSON data.
+
+The generated JSON is list of objects with following attributes:
+
+.. js:data:: type
+
+    Type of given object, can be one of:
+
+    ``header``
+        Export header containing comment and phpMyAdmin version.
+    ``database``
+        Start of a database marker, containing name of database.
+    ``table``
+        Table data export.
+
+.. js:data:: version
+
+    Used in ``header`` :js:data:`type` and indicates phpMyAdmin version.
+
+.. js:data:: comment
+
+    Optional textual comment.
+
+.. js:data:: name
+
+    Object name - either table or database based on :js:data:`type`.
+
+.. js:data:: database
+
+    Database name for ``table`` :js:data:`type`.
+
+.. js:data:: data
+
+    Table content for ``table`` :js:data:`type`.
+
+Sample output:
+
+.. code-block:: json
+
+    [
+        {
+            "comment": "Export to JSON plugin for PHPMyAdmin",
+            "type": "header",
+            "version": "4.7.0-dev"
+        },
+        {
+            "name": "cars",
+            "type": "database"
+        },
+        {
+            "data": [
+                {
+                    "car_id": "1",
+                    "description": "Green Chrysler 300",
+                    "make_id": "5",
+                    "mileage": "113688",
+                    "price": "13545.00",
+                    "transmission": "automatic",
+                    "yearmade": "2007"
+                }
+            ],
+            "database": "cars",
+            "name": "cars",
+            "type": "table"
+        },
+        {
+            "data": [
+                {
+                    "make": "Chrysler",
+                    "make_id": "5"
+                }
+            ],
+            "database": "cars",
+            "name": "makes",
+            "type": "table"
+        }
+    ]            
+
+
 LaTeX
 -----
 
