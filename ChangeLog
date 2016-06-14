@@ -28,6 +28,7 @@ phpMyAdmin - ChangeLog
 - issue #12281 Keep user attributes (privileges, authentication mode, etc) when copying a user
 - issue #12308 Fix division by zero in case of misconfigured MySQL server
 - issue #12317 Fix editing server variables
+- issue #12303 Fix table size calculation in some circumstances
 
 4.6.2 (2016-05-25)
 - issue        [security] User SQL queries can be revealed through URL GET parameters, see PMASA-2016-14
