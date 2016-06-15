@@ -20,7 +20,7 @@ if (! PMA_isValid($_REQUEST['url'])
     || ! preg_match('/^https?:\/\/[^\n\r]*$/', $_REQUEST['url'])
     || ! PMA_isAllowedDomain($_REQUEST['url'])
 ) {
-    header('Location: ./');
+    PMA_sendHeaderLocation('./');
 } else {
     // JavaScript redirection is necessary. Because if header() is used
     //  then web browser sometimes does not change the HTTP_REFERER
