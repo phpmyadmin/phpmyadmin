@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-05-23 14:30+0200\n"
-"PO-Revision-Date: 2016-06-10 14:50+0000\n"
+"PO-Revision-Date: 2016-06-15 17:37+0000\n"
 "Last-Translator: Jocelyn Flament <jocelyn.flament@gmail.com>\n"
 "Language-Team: French "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/fr/>\n"
@@ -7044,7 +7044,6 @@ msgid "Authentication type"
 msgstr "Type d'authentification"
 
 #: libraries/config/messages.inc.php:640
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/"
 #| "a] support, suggested: [kbd]pma__bookmark[/kbd]"
@@ -7052,8 +7051,8 @@ msgid ""
 "Leave blank for no [doc@bookmarks@]bookmark[/doc] support, suggested: "
 "[kbd]pma__bookmark[/kbd]"
 msgstr ""
-"Laisser vide pour désactiver le support des [a@http://wiki.phpmyadmin.net/"
-"pma/bookmark]signets[/a], suggestion : [kbd]pma__bookmark[/kbd]"
+"Laisser vide pour désactiver le support des [doc@bookmarks@]signets[/doc], "
+"suggestion : [kbd]pma__bookmark[/kbd]"
 
 #: libraries/config/messages.inc.php:643
 msgid "Bookmark table"
@@ -7094,7 +7093,6 @@ msgid "Control user password"
 msgstr "Mot de passe de l'utilisateur de contrôle"
 
 #: libraries/config/messages.inc.php:656
-#, fuzzy
 #| msgid ""
 #| "A special MySQL user configured with limited permissions, more "
 #| "information available on [a@http://wiki.phpmyadmin.net/pma/"
@@ -7103,8 +7101,8 @@ msgid ""
 "A special MySQL user configured with limited permissions, more information "
 "available on [doc@linked-tables]documentation[/doc]."
 msgstr ""
-"Un compte MySQL spécial avec des permissions limitées, voir [a@http://wiki."
-"phpmyadmin.net/pma/controluser] notre wiki[/a]."
+"Un compte MySQL spécial avec des permissions limitées, plus d'informations "
+"disponibles dans la [doc@linked-tables]documentation[/doc]."
 
 #: libraries/config/messages.inc.php:659
 msgid "Control user"
@@ -7271,7 +7269,6 @@ msgid "PDF schema: pages table"
 msgstr "Table pour décrire les schémas en PDF"
 
 #: libraries/config/messages.inc.php:723
-#, fuzzy
 #| msgid ""
 #| "Database used for relations, bookmarks, and PDF features. See [a@http://"
 #| "wiki.phpmyadmin.net/pma/pmadb]pmadb[/a] for complete information. Leave "
@@ -7282,8 +7279,8 @@ msgid ""
 "Suggested: [kbd]phpmyadmin[/kbd]."
 msgstr ""
 "La base utilisée pour les fonctionnalités relationnelles, signets et PDF. "
-"Voir [a@http://wiki.phpmyadmin.net/pma/pmadb]pmadb[/a]. Laisser vider pour "
-"désactiver. Suggestion : [kbd]phpmyadmin[/kbd]."
+"Voir [doc@linked-tables]pmadb[/doc] pour des informations complètes. Laisser "
+"vider pour désactiver. Suggestion : [kbd]phpmyadmin[/kbd]."
 
 #: libraries/config/messages.inc.php:727
 #: templates/server/databases/create.phtml:20
@@ -7325,7 +7322,6 @@ msgid "Favorites table"
 msgstr "Table pour les tables préférées"
 
 #: libraries/config/messages.inc.php:742
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
 #| "links[/a] support, suggested: [kbd]pma__relation[/kbd]."
@@ -7333,23 +7329,22 @@ msgid ""
 "Leave blank for no [doc@relations@]relation-links[/doc] support, suggested: "
 "[kbd]pma__relation[/kbd]."
 msgstr ""
-"Laisser vider pour désactiver le support [a@http://wiki.phpmyadmin.net/pma/"
-"relation]relationnel[/a], suggestion : [kbd]pma__relation[/kbd]."
+"Laisser vide pour désactiver le support [doc@relations@]relationnel[/doc], "
+"suggestion : [kbd]pma__relation[/kbd]."
 
 #: libraries/config/messages.inc.php:746
 msgid "Relation table"
 msgstr "Table relationnelle"
 
 #: libraries/config/messages.inc.php:748
-#, fuzzy
 #| msgid ""
 #| "See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
 #| "types[/a] for an example."
 msgid ""
 "See [doc@authentication-modes]authentication types[/doc] for an example."
 msgstr ""
-"Voir [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
-"types[/a] pour un exemple."
+"Voir [doc@authentication-modes]les types authentification[/doc] pour un "
+"exemple."
 
 #: libraries/config/messages.inc.php:751
 msgid "Signon session name"
@@ -15655,10 +15650,9 @@ msgid "An opening bracket was expected."
 msgstr "Une parenthèse gauche était attendue."
 
 #: vendor/phpmyadmin/sql-parser/src/Components/CreateDefinition.php:225
-#, fuzzy
 #| msgid "Variable name was expected."
 msgid "A symbol name was expected!"
-msgstr "Un nom de variable était attendu."
+msgstr "Un nom de variable était attendu !"
 
 #: vendor/phpmyadmin/sql-parser/src/Components/CreateDefinition.php:257
 msgid "A comma or a closing bracket was expected."
