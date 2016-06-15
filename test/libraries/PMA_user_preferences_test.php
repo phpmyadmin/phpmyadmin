@@ -33,6 +33,7 @@ class PMA_User_Preferences_Test extends PHPUnit_Framework_TestCase
     function setUp()
     {
         $GLOBALS['server'] = 0;
+        $GLOBALS['PMA_PHP_SELF'] = '/phpmyadmin/';
     }
 
     /**
@@ -378,7 +379,7 @@ class PMA_User_Preferences_Test extends PHPUnit_Framework_TestCase
         );
 
         $this->assertContains(
-            'Location: ./file.html?a=b&saved=1&server=0&' .
+            'Location: /phpmyadmin/file.html?a=b&saved=1&server=0&' .
             'token=token#h+ash',
             $GLOBALS['header'][0]
         );
