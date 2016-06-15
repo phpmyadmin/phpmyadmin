@@ -46,6 +46,7 @@ class AuthenticationCookieTest extends PMATestCase
 
         $_SESSION['PMA_Theme'] = Theme::load('./themes/pmahomme');
         $_SESSION['PMA_Theme'] = new Theme();
+        $GLOBALS['PMA_PHP_SELF'] = '/phpmyadmin/';
     }
 
     /**
@@ -463,7 +464,7 @@ class AuthenticationCookieTest extends PMATestCase
 
         $mockResponse->expects($this->once())
             ->method('header')
-            ->with('Location: ./index.php' . ((SID) ? '?' . SID : ''));
+            ->with('Location: /phpmyadmin/index.php' . ((SID) ? '?' . SID : ''));
 
         $attrInstance = new ReflectionProperty('PMA\libraries\Response', '_instance');
         $attrInstance->setAccessible(true);
@@ -506,7 +507,7 @@ class AuthenticationCookieTest extends PMATestCase
 
         $mockResponse->expects($this->once())
             ->method('header')
-            ->with('Location: ./index.php' . ((SID) ? '?' . SID : ''));
+            ->with('Location: /phpmyadmin/index.php' . ((SID) ? '?' . SID : ''));
 
         $attrInstance = new ReflectionProperty('PMA\libraries\Response', '_instance');
         $attrInstance->setAccessible(true);
