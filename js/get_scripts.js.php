@@ -14,7 +14,8 @@ header('Content-Type: text/javascript; charset=UTF-8');
 header('Expires: ' . gmdate('D, d M Y H:i:s', time() + 3600) . ' GMT');
 
 if (! empty($_GET['scripts']) && is_array($_GET['scripts'])) {
-    foreach ($_GET['scripts'] as $script) {
+    // Only up to 10 scripts as this is what we generate
+    foreach (array_slice($_GET['scripts'], 0, 10) as $script) {
         // Sanitise filename
         $script_name = 'js';
         $path = explode("/", $script);
