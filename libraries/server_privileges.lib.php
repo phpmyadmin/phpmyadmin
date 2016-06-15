@@ -762,7 +762,7 @@ function PMA_getHtmlForRequires($row)
         . 'REQUIRE CIPHER'
         . '</dfn></code></label>';
     $html_output .= '<input type="text" name="ssl_cipher" id="text_ssl_cipher" '
-        . 'value="' . (isset($row['ssl_cipher']) ? $row['ssl_cipher'] : '') . '" '
+        . 'value="' . (isset($row['ssl_cipher']) ? htmlspecialchars($row['ssl_cipher']) : '') . '" '
         . 'size=80" title="'
         . __(
             'Requires that a specific cipher method be used for a connection.'
@@ -781,7 +781,7 @@ function PMA_getHtmlForRequires($row)
         . 'REQUIRE ISSUER'
         . '</dfn></code></label>';
     $html_output .= '<input type="text" name="x509_issuer" id="text_x509_issuer" '
-        . 'value="' . (isset($row['x509_issuer']) ? $row['x509_issuer'] : '') . '" '
+        . 'value="' . (isset($row['x509_issuer']) ? htmlspecialchars($row['x509_issuer']) : '') . '" '
         . 'size=80" title="'
         . __(
             'Requires that a valid X509 certificate issued by this CA be presented.'
@@ -800,7 +800,7 @@ function PMA_getHtmlForRequires($row)
         . 'REQUIRE SUBJECT'
         . '</dfn></code></label>';
     $html_output .= '<input type="text" name="x509_subject" id="text_x509_subject" '
-        . 'value="' . (isset($row['x509_subject']) ? $row['x509_subject'] : '') . '" '
+        . 'value="' . (isset($row['x509_subject']) ? htmlspecialchars($row['x509_subject']) : '') . '" '
         . 'size=80" title="'
         . __(
             'Requires that a valid X509 certificate with this subject be presented.'
