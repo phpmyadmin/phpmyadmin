@@ -59,12 +59,15 @@ $is_https = !empty($_SERVER['HTTPS']) && strtolower($_SERVER['HTTPS']) == 'on';
 if (!$is_https) {
     $text = __('You are not using a secure connection; all data (including potentially sensitive information, like passwords) is transferred unencrypted!');
 
-    if (!empty($_SERVER['REQUEST_URI']) && !empty($_SERVER['HTTP_HOST'])) {
-        $link = 'https://' . htmlspecialchars($_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']);
-        $strInsecureConnectionMsg2 = __('If your server is also configured to accept HTTPS requests follow [a@%s]this link[/a] to use a secure connection.');
-        $strInsecureConnectionMsg2 = sprintf($strInsecureConnectionMsg2, $link);
-        $text .= ' ' . PMA_lang($strInsecureConnectionMsg2);
-    }
+    $text .= ' <a href="#" onclick="window.location.href = \'https:\' + window.location.href.substring(window.location.protocol.length);">';
+
+    // Temporary workaround to use tranlated message in older releases
+    $text .= str_replace(
+        array('[a@%s]', '[/a]'),
+        array('', ''),
+        __('If your server is also configured to accept HTTPS requests follow [a@%s]this link[/a] to use a secure connection.')
+    );
+    $text .= '</a>';
     messages_set('notice', 'no_https', __('Insecure connection'), $text);
 }
 ?>
