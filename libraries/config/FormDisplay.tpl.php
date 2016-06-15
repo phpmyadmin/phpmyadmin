@@ -178,7 +178,7 @@ function PMA_displayInput($path, $name, $type, $value, $description = '',
                 $icons[$k] = sprintf(
                     '<img alt="%s" src="%s"%s />',
                     $v[1],
-                    "./themes/original/img/{$v[0]}",
+                    "../themes/original/img/{$v[0]}",
                     $title
                 );
             }
