@@ -437,7 +437,9 @@ class FormDisplay
 
         // detect password fields
         if ($type === 'text'
-            && mb_substr($translated_path, -9) === '-password'
+            && (mb_substr($translated_path, -9) === '-password'
+               || mb_substr($translated_path, -4) === 'pass'
+               || mb_substr($translated_path, -4) === 'Pass')
         ) {
             $type = 'password';
         }
