@@ -63,10 +63,10 @@ function PMA_getColumnsList($db, $from=0, $num=25)
     //get current values of $db from central column list
     if ($num == 0) {
         $query = 'SELECT * FROM ' . PMA_Util::backquote($central_list_table) . ' '
-            . 'WHERE db_name = \'' . $db . '\';';
+            . 'WHERE db_name = \'' . PMA_Util::sqlAddSlashes($db) . '\';';
     } else {
         $query = 'SELECT * FROM ' . PMA_Util::backquote($central_list_table) . ' '
-            . 'WHERE db_name = \'' . $db . '\' '
+            . 'WHERE db_name = \'' . PMA_Util::sqlAddSlashes($db) . '\' '
             . 'LIMIT ' . $from . ', ' . $num . ';';
     }
     $has_list = (array) $GLOBALS['dbi']->fetchResult(
@@ -94,7 +94,7 @@ function PMA_getCentralColumnsCount($db)
     $central_list_table = $cfgCentralColumns['table'];
     $query = 'SELECT count(db_name) FROM ' .
                PMA_Util::backquote($central_list_table) . ' '
-            . 'WHERE db_name = \'' . $db . '\';';
+            . 'WHERE db_name = \'' . PMA_Util::sqlAddSlashes($db) . '\';';
     $res = $GLOBALS['dbi']->fetchResult(
         $query, null, null, $GLOBALS['controllink']
     );
@@ -125,7 +125,7 @@ function PMA_findExistingColNames($db, $cols, $allFields=false)
     $central_list_table = $cfgCentralColumns['table'];
     if ($allFields) {
         $query = 'SELECT * FROM ' . PMA_Util::backquote($central_list_table) . ' '
-            . 'WHERE db_name = \'' . $db . '\' AND col_name IN (' . $cols . ');';
+            . 'WHERE db_name = \'' . PMA_Util::sqlAddSlashes($db) . '\' AND col_name IN (' . $cols . ');';
         $has_list = (array) $GLOBALS['dbi']->fetchResult(
             $query, null, null, $GLOBALS['controllink']
         );
@@ -133,7 +133,7 @@ function PMA_findExistingColNames($db, $cols, $allFields=false)
     } else {
         $query = 'SELECT col_name FROM '
             . PMA_Util::backquote($central_list_table) . ' '
-            . 'WHERE db_name = \'' . $db . '\' AND col_name IN (' . $cols . ');';
+            . 'WHERE db_name = \'' . PMA_Util::sqlAddSlashes($db) . '\' AND col_name IN (' . $cols . ');';
         $has_list = (array) $GLOBALS['dbi']->fetchResult(
             $query, null, null, $GLOBALS['controllink']
         );
@@ -379,7 +379,7 @@ function PMA_deleteColumnsFromList($field_select, $isTable=true)
     $GLOBALS['dbi']->selectDb($pmadb, $GLOBALS['controllink']);
 
     $query = 'DELETE FROM ' . PMA_Util::backquote($central_list_table) . ' '
-                . 'WHERE db_name = \'' . $db . '\' AND col_name IN (' . $cols . ');';
+                . 'WHERE db_name = \'' . PMA_Util::sqlAddSlashes($db) . '\' AND col_name IN (' . $cols . ');';
 
     if (!$GLOBALS['dbi']->tryQuery($query, $GLOBALS['controllink'])) {
         $message = PMA_Message::error(__('Could not remove columns!'));
@@ -885,7 +885,7 @@ function PMA_getCentralColumnsListRaw($db, $table)
     $centralTable = $cfgCentralColumns['table'];
     if (empty($table) || $table == '') {
         $query = 'SELECT * FROM ' . PMA_Util::backquote($centralTable) . ' '
-                . 'WHERE db_name = \'' . $db . '\';';
+                . 'WHERE db_name = \'' . PMA_Util::sqlAddSlashes($db) . '\';';
     } else {
         $GLOBALS['dbi']->selectDb($db, $GLOBALS['userlink']);
         $columns = (array) $GLOBALS['dbi']->getColumnNames(
@@ -897,7 +897,7 @@ function PMA_getCentralColumnsListRaw($db, $table)
         }
         $cols = trim($cols, ',');
         $query = 'SELECT * FROM ' . PMA_Util::backquote($centralTable) . ' '
-            . 'WHERE db_name = \'' . $db . '\'';
+            . 'WHERE db_name = \'' . PMA_Util::sqlAddSlashes($db) . '\'';
         if ($cols) {
             $query .= ' AND col_name NOT IN (' . $cols . ')';
         }
