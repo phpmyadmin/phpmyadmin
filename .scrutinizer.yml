@@ -8,3 +8,15 @@ tools:
     php_code_sniffer:
         config:
             standard: "PMAStandard"
+build:
+    dependencies:
+        before:
+            - composer require --dev "squizlabs/php_codesniffer:2.*"
+            - composer require --dev "phpmyadmin/coding-standard:>=0.1.0"
+    tests:
+        override:
+            -
+                command: './vendor/bin/phpcs  --standard=PMAStandard ./ --report=checkstyle --report-file=cs-data'
+                analysis:
+                    file: 'cs-data'                 # The reporter filename
+                    format: 'php-cs-checkstyle'     # The supported format by Scrutinizer
