@@ -457,20 +457,6 @@ class Message
     }
 
     /**
-     * add another string to be concatenated on displaying
-     *
-     * @param string $string    to be added
-     * @param string $separator to use between this and previous string/message
-     *
-     * @return void
-     */
-    public function addString($string, $separator = ' ')
-    {
-        $this->addedMessages[] = $separator;
-        $this->addedMessages[] = Message::notice($string);
-    }
-
-    /**
      * add a bunch of messages at once
      *
      * @param Message[] $messages  to be added

@@ -246,17 +246,16 @@ class MessageTest extends PMATestCase
      */
     public function testAddString()
     {
-        $this->object->addString('test', '*');
+        $this->object->addMessageString('test', '*');
         $this->assertEquals(
             array('*', PMA\libraries\Message::notice('test')),
             $this->object->getAddedMessages()
         );
-        $this->object->addString('test', '');
+        $this->object->addMessageString('test', '');
         $this->assertEquals(
             array(
                 '*',
                 PMA\libraries\Message::notice('test'),
-                '',
                 PMA\libraries\Message::notice('test')
             ),
             $this->object->getAddedMessages()
