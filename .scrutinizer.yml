@@ -4,10 +4,6 @@ imports:
     - php
 filter:
     excluded_paths: [libraries/bfShapeFiles/*, js/jquery/*, js/jqplot/*, js/openlayers/*, js/codemirror/*, js/canvg/*, js/tracekit/*, js/sprintf.js]
-tools:
-    php_code_sniffer:
-        config:
-            standard: "PMAStandard"
 build:
     dependencies:
         before:
