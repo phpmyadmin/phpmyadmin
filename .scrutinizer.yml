@@ -12,7 +12,7 @@ build:
     dependencies:
         before:
             - composer install
-            - ./vendor/bin/phpcs --config-set installed_paths ./vendor/phpmyadmin/coding-standard
+            - ./vendor/bin/phpcs --config-set installed_paths `pwd`/vendor/phpmyadmin/coding-standard
     tests:
         override:
             -
