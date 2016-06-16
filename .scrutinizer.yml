@@ -11,8 +11,8 @@ tools:
 build:
     dependencies:
         before:
-            - composer require --dev "squizlabs/php_codesniffer:2.*"
-            - composer require --dev "phpmyadmin/coding-standard:>=0.1.0"
+            - composer install
+            - ./vendor/bin/phpcs --config-set installed_paths ./vendor/phpmyadmin/coding-standard
     tests:
         override:
             -
