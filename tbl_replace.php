@@ -349,11 +349,11 @@ if ($row_skipped) {
 $message->addMessages($last_messages, '<br />');
 
 if (! empty($warning_messages)) {
-    $message->addMessages($warning_messages, '<br />');
+    $message->addMessagesString($warning_messages, '<br />');
     $message->isError(true);
 }
 if (! empty($error_messages)) {
-    $message->addMessages($error_messages);
+    $message->addMessagesString($error_messages);
     $message->isError(true);
 }
 unset(

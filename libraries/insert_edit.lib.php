@@ -1959,7 +1959,7 @@ function PMA_executeSqlQuery($url_params, $query)
             $result = $GLOBALS['dbi']->query($single_query);
         }
         if (! $result) {
-            $error_messages[] = Message::sanitize($GLOBALS['dbi']->getError());
+            $error_messages[] = $GLOBALS['dbi']->getError();
         } else {
             // The next line contains a real assignment, it's not a typo
             if ($tmp = @$GLOBALS['dbi']->affectedRows()) {

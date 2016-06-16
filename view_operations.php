@@ -78,7 +78,7 @@ if (isset($result)) {
     }
     if (! empty($warning_messages)) {
         $_message = new PMA\libraries\Message;
-        $_message->addMessages($warning_messages);
+        $_message->addMessagesString($warning_messages);
         $_message->isError(true);
         unset($warning_messages);
     }

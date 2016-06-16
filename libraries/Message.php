@@ -473,15 +473,32 @@ class Message
     /**
      * add a bunch of messages at once
      *
-     * @param array  $messages  to be added
-     * @param string $separator to use between this and previous string/message
+     * @param Message[] $messages  to be added
+     * @param string    $separator to use between this and previous string/message
      *
      * @return void
      */
     public function addMessages($messages, $separator = ' ')
     {
         foreach ($messages as $message) {
-            $this->addMessage($message, $separator);
+            $this->addedMessages[] = $separator;
+            $this->addedMessages[] = $message;
+        }
+    }
+
+    /**
+     * add a bunch of messages at once
+     *
+     * @param string[] $messages  to be added
+     * @param string   $separator to use between this and previous string/message
+     *
+     * @return void
+     */
+    public function addMessagesString($messages, $separator = ' ')
+    {
+        foreach ($messages as $message) {
+            $this->addedMessages[] = $separator;
+            $this->addedMessages[] = Message::notice(Message::sanitize($message));
         }
     }
 

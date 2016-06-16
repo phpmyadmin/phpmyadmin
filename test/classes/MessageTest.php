@@ -298,18 +298,49 @@ class MessageTest extends PMATestCase
     public function testAddMessages()
     {
         $messages = array();
-        $messages[] = "Test1";
+        $messages[] = new PMA\libraries\Message("Test1");
         $messages[] = new PMA\libraries\Message("PMA_Test2", PMA\libraries\Message::ERROR);
-        $messages[] = "Test3";
+        $messages[] = new PMA\libraries\Message("Test3");
         $this->object->addMessages($messages, '');
 
         $this->assertEquals(
             array(
+                '',
                 PMA\libraries\Message::notice('Test1'),
+                '',
                 PMA\libraries\Message::error("PMA_Test2"),
+                '',
                 PMA\libraries\Message::notice('Test3')
             ),
             $this->object->getAddedMessages()
+        );
+    }
+
+    /**
+     * testing add messages method
+     *
+     * @return void
+     */
+    public function testAddMessagesString()
+    {
+        $messages = array('test1', 'test<b>', 'test2');
+        $this->object->addMessagesString($messages, '');
+
+        $this->assertEquals(
+            array(
+                '',
+                PMA\libraries\Message::notice('test1'),
+                '',
+                PMA\libraries\Message::notice('test&lt;b&gt;'),
+                '',
+                PMA\libraries\Message::notice('test2')
+            ),
+            $this->object->getAddedMessages()
+        );
+
+        $this->assertEquals(
+            'test1test&lt;b&gt;test2',
+            $this->object->getMessage()
         );
     }
 
