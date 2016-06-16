@@ -4739,7 +4739,7 @@ class DisplayResults
             }
 
             if (!empty($after_count)) {
-                $message_total->addMessage($after_count);
+                $message_total->addMessageHtml($after_count);
             }
             $message->addMessage($message_total, '');
 

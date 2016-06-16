@@ -1532,11 +1532,11 @@ class Table
             $message = Message::error(
                 __('Could not save table UI preferences!')
             );
-            $message->addMessage('<br /><br />');
             $message->addMessage(
                 Message::rawError(
                     $this->_dbi->getError($GLOBALS['controllink'])
-                )
+                ),
+                '<br /><br />'
             );
             return $message;
         }
@@ -1566,11 +1566,11 @@ class Table
                         Util::showDocu('config', 'cfg_Servers_MaxTableUiprefs')
                     )
                 );
-                $message->addMessage('<br /><br />');
                 $message->addMessage(
                     Message::rawError(
                         $this->_dbi->getError($GLOBALS['controllink'])
-                    )
+                    ),
+                    '<br /><br />'
                 );
                 return $message;
             }

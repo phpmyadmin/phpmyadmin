@@ -506,6 +506,27 @@ class Message
         if ($message instanceof Message) {
             $this->addedMessages[] = $message;
         } else {
+            $this->addedMessages[] = Message::notice(htmlspecialchars($message));
+        }
+    }
+
+    /**
+     * add another html message to be concatenated on displaying
+     *
+     * @param mixed  $message   to be added
+     * @param string $separator to use between this and previous string/message
+     *
+     * @return void
+     */
+    public function addMessageHtml($message, $separator = ' ')
+    {
+        if (mb_strlen($separator)) {
+            $this->addedMessages[] = $separator;
+        }
+
+        if ($message instanceof Message) {
+            $this->addedMessages[] = $message;
+        } else {
             $this->addedMessages[] = Message::rawNotice($message);
         }
     }

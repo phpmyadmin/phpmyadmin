@@ -382,7 +382,7 @@ function PMA_deleteColumnsFromList($field_select, $isTable=true)
 
     if (!$GLOBALS['dbi']->tryQuery($query, $GLOBALS['controllink'])) {
         $message = Message::error(__('Could not remove columns!'));
-        $message->addMessage('<br />' . htmlspecialchars($cols) . '<br />');
+        $message->addMessageHtml('<br />' . htmlspecialchars($cols) . '<br />');
         $message->addMessage(
             Message::rawError(
                 $GLOBALS['dbi']->getError($GLOBALS['controllink'])
@@ -450,9 +450,9 @@ function PMA_makeConsistentWithList($db, $selected_tables)
                     $GLOBALS['dbi']->getError($GLOBALS['userlink'])
                 );
             } else {
-                $message->addMessage('<br />');
                 $message->addMessage(
-                    $GLOBALS['dbi']->getError($GLOBALS['userlink'])
+                    $GLOBALS['dbi']->getError($GLOBALS['userlink']),
+                    '<br />'
                 );
             }
         }

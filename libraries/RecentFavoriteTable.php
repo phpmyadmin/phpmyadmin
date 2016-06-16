@@ -140,11 +140,11 @@ class RecentFavoriteTable
                 break;
             }
             $message = Message::error($error_msg);
-            $message->addMessage('<br /><br />');
             $message->addMessage(
                 Message::rawError(
                     $GLOBALS['dbi']->getError($GLOBALS['controllink'])
-                )
+                ),
+                '<br /><br />'
             );
             return $message;
         }

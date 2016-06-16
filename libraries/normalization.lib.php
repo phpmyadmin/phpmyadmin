@@ -483,11 +483,11 @@ function PMA_createNewTablesFor2NF($partialDependencies, $tablesName, $table, $d
     foreach ($queries as $query) {
         if (!$GLOBALS['dbi']->tryQuery($query, $GLOBALS['userlink'])) {
             $message = Message::error(__('Error in processing!'));
-            $message->addMessage('<br /><br />');
             $message->addMessage(
                 Message::rawError(
                     $GLOBALS['dbi']->getError($GLOBALS['userlink'])
-                )
+                ),
+                '<br /><br />'
             );
             $error = true;
             break;
@@ -628,11 +628,11 @@ function PMA_createNewTablesFor3NF($newTables, $db)
     foreach ($queries as $query) {
         if (!$GLOBALS['dbi']->tryQuery($query, $GLOBALS['userlink'])) {
             $message = Message::error(__('Error in processing!'));
-            $message->addMessage('<br /><br />');
             $message->addMessage(
                 Message::rawError(
                     $GLOBALS['dbi']->getError($GLOBALS['userlink'])
-                )
+                ),
+                '<br /><br />'
             );
             $error = true;
             break;
@@ -693,11 +693,11 @@ function PMA_moveRepeatingGroup(
     foreach ($queries as $query) {
         if (!$GLOBALS['dbi']->tryQuery($query, $GLOBALS['userlink'])) {
             $message = Message::error(__('Error in processing!'));
-            $message->addMessage('<br /><br />');
             $message->addMessage(
                 Message::rawError(
                     $GLOBALS['dbi']->getError($GLOBALS['userlink'])
-                )
+                ),
+                '<br /><br />'
             );
             $error = true;
             break;

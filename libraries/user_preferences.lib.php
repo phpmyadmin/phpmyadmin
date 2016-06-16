@@ -132,11 +132,11 @@ function PMA_saveUserprefs(array $config_array)
     }
     if (!$GLOBALS['dbi']->tryQuery($query, $GLOBALS['controllink'])) {
         $message = Message::error(__('Could not save configuration'));
-        $message->addMessage('<br /><br />');
         $message->addMessage(
             Message::rawError(
                 $GLOBALS['dbi']->getError($GLOBALS['controllink'])
-            )
+            ),
+            '<br /><br />'
         );
         return $message;
     }

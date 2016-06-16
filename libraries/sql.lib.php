@@ -894,7 +894,7 @@ function PMA_getDefaultSqlQueryForBrowse($db, $table)
             __('Using bookmark "%s" as default browse query.')
         );
         $GLOBALS['using_bookmark_message']->addParam($table);
-        $GLOBALS['using_bookmark_message']->addMessage(
+        $GLOBALS['using_bookmark_message']->addMessageHtml(
             PMA\libraries\Util::showDocu('faq', 'faq6-22')
         );
         $sql_query = $bookmark->getQuery();
