@@ -335,7 +335,7 @@ for ($a = 0; $a < $geom_count; $a++) {
             echo '<br/>';
             printf(__('Polygon %d:'), $k + 1);
             $no_of_lines = isset($gis_data[$a][$type][$k]['no_of_lines'])
-                ? intval($gis_data[$a][$type][$k]['no_of_lines')] : 1;
+                ? intval($gis_data[$a][$type][$k]['no_of_lines']) : 1;
             if ($no_of_lines < 1) {
                 $no_of_lines = 1;
             }
