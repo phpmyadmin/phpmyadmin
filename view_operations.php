@@ -48,7 +48,6 @@ $reread_info = false;
  */
 if (isset($_REQUEST['submitoptions'])) {
     $_message = '';
-    $warning_messages = array();
 
     if (isset($_REQUEST['new_name'])) {
         if ($pma_table->rename($_REQUEST['new_name'])) {
@@ -62,6 +61,8 @@ if (isset($_REQUEST['submitoptions'])) {
             $result = false;
         }
     }
+
+    $warning_messages = PMA_getWarningMessagesArray();
 }
 
 if (isset($result)) {
