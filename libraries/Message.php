@@ -447,17 +447,13 @@ class Message
      * $message->addParamHtml('<img src="img" />');
      * </code>
      *
-     * @param mixed $param parameter to add
+     * @param string $param parameter to add
      *
      * @return void
      */
     public function addParamHtml($param)
     {
-        if ($param instanceof Message) {
-            $this->params[] = $param;
-        } else {
-            $this->params[] = Message::notice($param);
-        }
+        $this->params[] = Message::notice($param);
     }
 
     /**
@@ -513,7 +509,7 @@ class Message
     /**
      * add another html message to be concatenated on displaying
      *
-     * @param mixed  $message   to be added
+     * @param string $message   to be added
      * @param string $separator to use between this and previous string/message
      *
      * @return void
@@ -524,11 +520,7 @@ class Message
             $this->addedMessages[] = $separator;
         }
 
-        if ($message instanceof Message) {
-            $this->addedMessages[] = $message;
-        } else {
-            $this->addedMessages[] = Message::rawNotice($message);
-        }
+        $this->addedMessages[] = Message::rawNotice($message);
     }
 
     /**
