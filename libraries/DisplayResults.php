@@ -1161,7 +1161,7 @@ class DisplayResults
      * @param array   $sort_expression             sort expression
      * @param array   $sort_expression_nodirection sort expression
      *                                             without direction
-     * @param arra    $sort_direction              sort direction
+     * @param array   $sort_direction              sort direction
      * @param boolean $is_limited_display          with limited operations
      *                                             or not
      * @param string  $unsorted_sql_query          query without the sort part
@@ -4530,9 +4530,9 @@ class DisplayResults
      * Prepare sorted column message
      *
      * @param integer &$dt_result                  the link id associated to the
-     *                                              query which results have to
-     *                                              be displayed
-     * @param string  $sort_expression_nodirection sort expression without direction
+     *                                             query which results have to
+     *                                             be displayed
+     * @param array   $sort_expression_nodirection sort expression without direction
      *
      * @return  string                              html content
      *          null                                if not found sorted column
