@@ -26,12 +26,8 @@ use PMA\libraries\Sanitize;
  *
  * more advanced usage example:
  * <code>
- * // create a localized success message
- * $message = Message::success('strSomeLocaleMessage');
- *
  * // create another message, a hint, with a localized string which expects
- * // two parameters: $strSomeTooltip = 'Read the %smanual%s'
- * $hint = Message::notice('strSomeTooltip');
+ * $hint = Message::notice('Read the %smanual%s');
  * // replace placeholders with the following params
  * $hint->addParam('[doc@cfg_Example]');
  * $hint->addParam('[/doc]');
@@ -40,22 +36,6 @@ use PMA\libraries\Sanitize;
  *
  * // add the retrieved tooltip reference to the original message
  * $message->addMessage($hint);
- *
- * // create another message ...
- * $more = Message::notice('strSomeMoreLocale');
- * $more->addString('strSomeEvenMoreLocale', '<br />');
- * $more->addParam('parameter for strSomeMoreLocale');
- * $more->addParam('more parameter for strSomeMoreLocale');
- *
- * // and add it also to the original message
- * $message->addMessage($more);
- * // finally add another raw message
- * $message->addMessage('some final words', ' - ');
- *
- * // display() will now print all messages in the same order as they are added
- * $message->display();
- * // strSomeLocaleMessage <sup>1</sup> strSomeMoreLocale<br />
- * // strSomeEvenMoreLocale - some final words
  * </code>
  *
  * @package PhpMyAdmin
@@ -443,7 +423,6 @@ class Message
      *
      * usage
      * <code>
-     * $message->addParam('strLocale', false);
      * $message->addParam('[em]some string[/em]');
      * $message->addParam('<img src="img" />', false);
      * </code>
