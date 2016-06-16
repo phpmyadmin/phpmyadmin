@@ -4532,7 +4532,7 @@ class DisplayResults
      * @param integer &$dt_result                  the link id associated to the
      *                                             query which results have to
      *                                             be displayed
-     * @param array   $sort_expression_nodirection sort expression without direction
+     * @param string  $sort_expression_nodirection sort expression without direction
      *
      * @return  string                              html content
      *          null                                if not found sorted column
