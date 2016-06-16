@@ -608,8 +608,8 @@ if ($timeout_passed) {
             . ' please %sresubmit the same file%s and import will resume.'
         )
     );
-    $message->addParam('<a href="' . $importUrl . '">', false);
-    $message->addParam('</a>', false);
+    $message->addParamHtml('<a href="' . $importUrl . '">');
+    $message->addParamHtml('</a>');
 
     if ($offset == 0 || (isset($original_skip) && $original_skip == $offset)) {
         $message->addString(

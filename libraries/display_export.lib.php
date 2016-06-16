@@ -571,19 +571,17 @@ function PMA_getHtmlForExportOptionsOutputFormat($export_type)
             . 'Other text will be kept as is. See the %4$sFAQ%5$s for details.'
         )
     );
-    $msg->addParam(
+    $msg->addParamHtml(
         '<a href="' . PMA_linkURL(PMA_getPHPDocLink('function.strftime.php'))
-        . '" target="documentation" title="' . __('Documentation') . '">',
-        false
+        . '" target="documentation" title="' . __('Documentation') . '">'
     );
-    $msg->addParam('</a>', false);
+    $msg->addParamHtml('</a>');
     $msg->addParam($trans);
     $doc_url = PMA\libraries\Util::getDocuLink('faq', 'faq6-27');
-    $msg->addParam(
-        '<a href="' . $doc_url . '" target="documentation">',
-        false
+    $msg->addParamHtml(
+        '<a href="' . $doc_url . '" target="documentation">'
     );
-    $msg->addParam('</a>', false);
+    $msg->addParamHtml('</a>');
 
     $html .= PMA\libraries\Util::showHint($msg);
     $html .= '</label>';

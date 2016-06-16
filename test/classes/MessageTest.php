@@ -210,15 +210,32 @@ class MessageTest extends PMATestCase
             array(PMA\libraries\Message::notice('test')),
             $this->object->getParams()
         );
-        $this->object->addParam('test', true);
+        $this->object->addParam('test');
         $this->assertEquals(
             array(PMA\libraries\Message::notice('test'), 'test'),
             $this->object->getParams()
         );
-        $this->object->addParam('test', false);
+        $this->object->addParam('test');
         $this->assertEquals(
             array(PMA\libraries\Message::notice('test'), 'test', PMA\libraries\Message::notice('test')),
             $this->object->getParams()
+        );
+    }
+
+    /**
+     * Test adding html markup
+     *
+     * @return void
+     */
+    public function testAddParamHtml()
+    {
+        $this->object->setMessage('Hello %s%s%s');
+        $this->object->addParamHtml('<a href="">');
+        $this->object->addParam('user<>');
+        $this->object->addParamHtml('</a>');
+        $this->assertEquals(
+            'Hello <a href="">user&lt;&gt;</a>',
+            $this->object->getMessage()
         );
     }
 

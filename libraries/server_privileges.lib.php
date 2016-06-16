@@ -2113,10 +2113,7 @@ function PMA_updatePassword($err_url, $username, $hostname)
         $message = Message::success(
             __('The password for %s was changed successfully.')
         );
-        $message->addParam(
-            '\'' . htmlspecialchars($username)
-            . '\'@\'' . htmlspecialchars($hostname) . '\''
-        );
+        $message->addParam('\'' . $username . '\'@\'' . $hostname . '\'');
         if (isset($orig_value)) {
             $GLOBALS['dbi']->tryQuery(
                 'SET `old_passwords` = ' . $orig_value . ';'
@@ -2160,10 +2157,7 @@ function PMA_getMessageAndSqlQueryForPrivilegesRevoke($dbname,
     $message = Message::success(
         __('You have revoked the privileges for %s.')
     );
-    $message->addParam(
-        '\'' . htmlspecialchars($username)
-        . '\'@\'' . htmlspecialchars($hostname) . '\''
-    );
+    $message->addParam('\'' . $username . '\'@\'' . $hostname . '\'');
 
     return array($message, $sql_query);
 }
@@ -4022,10 +4016,7 @@ function PMA_updatePrivileges($username, $hostname, $tablename, $dbname, $itemTy
     }
     $sql_query = $sql_query0 . ' ' . $sql_query1 . ' ' . $sql_query2;
     $message = Message::success(__('You have updated the privileges for %s.'));
-    $message->addParam(
-        '\'' . htmlspecialchars($username)
-        . '\'@\'' . htmlspecialchars($hostname) . '\''
-    );
+    $message->addParam('\'' . $username . '\'@\'' . $hostname . '\'');
 
     return array($sql_query, $message);
 }
@@ -4260,9 +4251,7 @@ function PMA_addUser(
         . " AND `Host` = '" . Util::sqlAddSlashes($hostname) . "';";
     if ($GLOBALS['dbi']->fetchValue($sql) == 1) {
         $message = Message::error(__('The user %s already exists!'));
-        $message->addParam(
-            '[em]\'' . $username . '\'@\'' . $hostname . '\'[/em]'
-        );
+        $message->addParam('[em]\'' . $username . '\'@\'' . $hostname . '\'[/em]');
         $_REQUEST['adduser'] = true;
         $_add_user_error = true;
 
@@ -4821,14 +4810,12 @@ function PMA_getHtmlForUserOverview($pmaThemeImage, $text_dir)
                     ),
                     Message::NOTICE
                 );
-                $flushLink = '<a href="server_privileges.php'
+                $flushnote->addParamHtml(
+                    '<a href="server_privileges.php'
                     . URL::getCommon(array('flush_privileges' => 1))
-                    . '" id="reload_privileges_anchor">';
-                $flushnote->addParam(
-                    $flushLink,
-                    false
+                    . '" id="reload_privileges_anchor">'
                 );
-                $flushnote->addParam('</a>', false);
+                $flushnote->addParamHtml('</a>');
             } else {
                 $flushnote = new Message(
                     __(

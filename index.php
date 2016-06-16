@@ -569,12 +569,8 @@ if ($server > 0) {
                 );
         }
         $msg = PMA\libraries\Message::notice($msg_text);
-        $msg->addParam(
-            '<a href="./chk_rel.php'
-            . $common_url_query . '">',
-            false
-        );
-        $msg->addParam('</a>', false);
+        $msg->addParamHtml('<a href="./chk_rel.php' . $common_url_query . '">');
+        $msg->addParamHtml('</a>');
         /* Show error if user has configured something, notice elsewhere */
         if (!empty($cfg['Servers'][$server]['pmadb'])) {
             $msg->isError(true);

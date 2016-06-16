@@ -419,26 +419,42 @@ class Message
     }
 
     /**
-     * add parameter, usually in conjunction with strings
+     * add string or Message parameter
      *
      * usage
      * <code>
      * $message->addParam('[em]some string[/em]');
-     * $message->addParam('<img src="img" />', false);
      * </code>
      *
-     * @param mixed   $param parameter to add
-     * @param boolean $raw   whether parameter should be passed as is
-     *                       without html escaping
+     * @param mixed $param parameter to add
      *
      * @return void
      */
-    public function addParam($param, $raw = true)
+    public function addParam($param)
     {
         if ($param instanceof Message) {
             $this->params[] = $param;
-        } elseif ($raw) {
+        } else {
             $this->params[] = htmlspecialchars($param);
+        }
+    }
+
+    /**
+     * add parameter as raw HTML, usually in conjunction with strings
+     *
+     * usage
+     * <code>
+     * $message->addParamHtml('<img src="img" />');
+     * </code>
+     *
+     * @param mixed $param parameter to add
+     *
+     * @return void
+     */
+    public function addParamHtml($param)
+    {
+        if ($param instanceof Message) {
+            $this->params[] = $param;
         } else {
             $this->params[] = Message::notice($param);
         }

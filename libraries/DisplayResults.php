@@ -4718,7 +4718,7 @@ class DisplayResults
         $message->addParam($first_shown_rec);
 
         if ($message_view_warning !== false) {
-            $message->addParam('... ' . $message_view_warning, false);
+            $message->addParamHtml('... ' . $message_view_warning);
         } else {
             $message->addParam($last_shown_rec);
         }
