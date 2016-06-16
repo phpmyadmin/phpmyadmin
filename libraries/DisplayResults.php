@@ -1159,9 +1159,9 @@ class DisplayResults
      * @param array   $displayParts                which elements to display
      * @param array   $analyzed_sql_results        analyzed sql results
      * @param array   $sort_expression             sort expression
-     * @param string  $sort_expression_nodirection sort expression
+     * @param array   $sort_expression_nodirection sort expression
      *                                             without direction
-     * @param string  $sort_direction              sort direction
+     * @param arra    $sort_direction              sort direction
      * @param boolean $is_limited_display          with limited operations
      *                                             or not
      * @param string  $unsorted_sql_query          query without the sort part
@@ -1267,9 +1267,9 @@ class DisplayResults
      * @param array   $analyzed_sql_results        analyzed sql results
      * @param string  $unsorted_sql_query          the unsorted sql query
      * @param array   $sort_expression             sort expression
-     * @param string  $sort_expression_nodirection sort expression
+     * @param array   $sort_expression_nodirection sort expression
      *                                             without direction
-     * @param string  $sort_direction              sort direction
+     * @param array   $sort_direction              sort direction
      * @param boolean $is_limited_display          with limited operations
      *                                             or not
      *
@@ -1282,7 +1282,7 @@ class DisplayResults
     private function _getTableHeaders(
         &$displayParts, $analyzed_sql_results, $unsorted_sql_query,
         $sort_expression = array(), $sort_expression_nodirection = '',
-        $sort_direction = '', $is_limited_display = false
+        $sort_direction = array(), $is_limited_display = false
     ) {
 
         $table_headers_html = '';
@@ -1945,12 +1945,12 @@ class DisplayResults
      *
      * @param array   $fields_meta                 set of field properties
      * @param array   $sort_expression             sort expression
-     * @param string  $sort_expression_nodirection sort expression without direction
+     * @param array   $sort_expression_nodirection sort expression without direction
      * @param integer $column_index                the index of the column
      * @param string  $unsorted_sql_query          the unsorted sql query
      * @param integer $session_max_rows            maximum rows resulted by sql
      * @param string  $comments                    comment for row
-     * @param string  $sort_direction              sort direction
+     * @param array   $sort_direction              sort direction
      * @param boolean $col_visib                   column is visible(false)
      *        array                                column isn't visible(string array)
      * @param string  $col_visib_j                 element of $col_visib array
@@ -2043,12 +2043,12 @@ class DisplayResults
      * Prepare parameters and html for sorted table header fields
      *
      * @param array   $sort_expression             sort expression
-     * @param string  $sort_expression_nodirection sort expression without direction
+     * @param array   $sort_expression_nodirection sort expression without direction
      * @param string  $sort_tbl                    The name of the table to which
      *                                             the current column belongs to
      * @param string  $name_to_use_in_sort         The current column under
      *                                             consideration
-     * @param string  $sort_direction              sort direction
+     * @param array   $sort_direction              sort direction
      * @param array   $fields_meta                 set of field properties
      * @param integer $column_index                The index number to current column
      *
