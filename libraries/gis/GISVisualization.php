@@ -294,8 +294,8 @@ class GISVisualization
             . "\n"
             . '<svg version="1.1" xmlns:svg="http://www.w3.org/2000/svg"'
             . ' xmlns="http://www.w3.org/2000/svg"'
-            . ' width="' . $this->_settings['width'] . '"'
-            . ' height="' . $this->_settings['height'] . '">'
+            . ' width="' . intval($this->_settings['width']) . '"'
+            . ' height="' . intval($this->_settings['height']) . '">'
             . '<g id="groupPanel">';
 
         $scale_data = $this->_scaleDataSet($this->_data);
