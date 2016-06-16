@@ -454,26 +454,6 @@ class MessageTest extends PMATestCase
     }
 
     /**
-     * getMessage test - with empty message and with string, which is key to GLOBALS
-     * additional messages are defined
-     *
-     * @return void
-     */
-    public function testGetMessageWithoutMessageWithGlobalStringWithAddMessages()
-    {
-        $GLOBALS['key'] = 'test message';
-        $this->object->setMessage('');
-        $this->object->setString('key');
-        $this->object->addMessage('test message 2', ' - ');
-        $this->object->addMessage('test message 3', '&');
-        $this->assertEquals(
-            'test message - test message 2&test message 3',
-            $this->object->getMessage()
-        );
-        unset($GLOBALS['key']);
-    }
-
-    /**
      * getMessage test - message is defined
      * message with BBCode defined
      *

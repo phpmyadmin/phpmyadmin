@@ -633,9 +633,7 @@ class Message
 
         if (0 === mb_strlen($message)) {
             $string = $this->getString();
-            if (isset($GLOBALS[$string])) {
-                $message = $GLOBALS[$string];
-            } elseif (0 === mb_strlen($string)) {
+            if (0 === mb_strlen($string)) {
                 $message = '';
             } else {
                 $message = $string;
