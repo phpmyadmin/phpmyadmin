@@ -342,7 +342,7 @@ if ($is_insert && (count($value_sets) > 0 || $row_skipped)) {
 }
 if ($row_skipped) {
     $goto_include = 'tbl_change.php';
-    $message->addMessages($insert_errors, '<br />');
+    $message->addMessagesString($insert_errors, '<br />');
     $message->isError(true);
 }
 
