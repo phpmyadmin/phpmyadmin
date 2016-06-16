@@ -193,7 +193,7 @@ for ($a = 0; $a < $geom_count; $a++) {
         printf(__('Geometry %d:'), $a + 1);
         echo '<br/>';
         if (isset($gis_data[$a]['gis_type'])) {
-            $type = $gis_data[$a]['gis_type'];
+            $type = htmlspecialchars($gis_data[$a]['gis_type']);
         } else {
             $type = $gis_types[0];
         }
