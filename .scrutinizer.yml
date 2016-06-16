@@ -16,7 +16,7 @@ build:
     tests:
         override:
             -
-                command: './vendor/bin/phpcs  --standard=PMAStandard ./ --report=checkstyle --report-file=cs-data'
+                command: './vendor/bin/phpcs  --standard=PMAStandard ./ --report=checkstyle --report-file=cs-data --ignore=*/vendor/*,*/canvg/*,*/codemirror/*,*/openlayers/*,*/jquery/*,*/jqplot/*,*/build/*,*/bfShapeFiles/*'
                 analysis:
                     file: 'cs-data'                 # The reporter filename
                     format: 'php-cs-checkstyle'     # The supported format by Scrutinizer
