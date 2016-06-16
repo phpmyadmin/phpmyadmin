@@ -531,7 +531,7 @@ class Message
         if (!is_string($message)) {
             trigger_error('Invalid parameter passed to addMessage');
         }
-        $this->_addMessage(Message::notice(Message::sanitize($message)), $separator);
+        $this->_addMessage(Message::notice(htmlspecialchars($message)), $separator);
     }
 
     /**
