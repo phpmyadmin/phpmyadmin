@@ -252,7 +252,7 @@ class PMA_User_Preferences_Test extends PHPUnit_Framework_TestCase
         $result = PMA_saveUserprefs(array(1));
 
         $this->assertEquals(
-            'Could not save configuration <br /><br /> err1',
+            'Could not save configuration<br /><br />err1',
             $result->getMessage()
         );
     }
