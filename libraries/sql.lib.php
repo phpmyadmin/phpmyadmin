@@ -1589,7 +1589,7 @@ function PMA_getHtmlForSqlQueryResultsTable($displayResultsObject,
     $editable, $unlim_num_rows, $num_rows, $showtable, $result,
     $analyzed_sql_results, $is_limited_display = false
 ) {
-    $printview = isset($_REQUEST['printview']) ? $_REQUEST['printview'] : null;
+    $printview = isset($_REQUEST['printview']) && $_REQUEST['printview'] == '1' ? '1' : null;
     $table_html = '';
     $browse_dist = ! empty($_REQUEST['is_browse_distinct']);
 
