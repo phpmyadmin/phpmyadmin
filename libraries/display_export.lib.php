@@ -555,11 +555,11 @@ function PMA_getHtmlForExportOptionsOutputFormat($export_type)
     $html .= '<label for="filename_template" class="desc">';
     $html .= __('File name template:');
     $trans = new Message;
-    $trans->addMessageString(__('@SERVER@ will become the server name'));
+    $trans->addText(__('@SERVER@ will become the server name'));
     if ($export_type == 'database' || $export_type == 'table') {
-        $trans->addMessageString(__(', @DATABASE@ will become the database name'));
+        $trans->addText(__(', @DATABASE@ will become the database name'));
         if ($export_type == 'table') {
-            $trans->addMessageString(__(', @TABLE@ will become the table name'));
+            $trans->addText(__(', @TABLE@ will become the table name'));
         }
     }
 

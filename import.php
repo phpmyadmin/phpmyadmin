@@ -582,12 +582,12 @@ if (! empty($id_bookmark) && $_REQUEST['action_bookmark'] == 2) {
         $message->addParam($executed_queries);
 
         if ($import_notice) {
-            $message->addMessageHtml($import_notice);
+            $message->addHtml($import_notice);
         }
         if (! empty($local_import_file)) {
-            $message->addMessageString('(' . $local_import_file . ')');
+            $message->addText('(' . $local_import_file . ')');
         } else {
-            $message->addMessageString('(' . $_FILES['import_file']['name'] . ')');
+            $message->addText('(' . $_FILES['import_file']['name'] . ')');
         }
     }
 }
@@ -610,7 +610,7 @@ if ($timeout_passed) {
     $message->addParamHtml('</a>');
 
     if ($offset == 0 || (isset($original_skip) && $original_skip == $offset)) {
-        $message->addMessageString(
+        $message->addText(
             __(
                 'However on last run no data has been parsed,'
                 . ' this usually means phpMyAdmin won\'t be able to'

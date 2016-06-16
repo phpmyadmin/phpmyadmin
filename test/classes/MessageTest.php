@@ -246,12 +246,12 @@ class MessageTest extends PMATestCase
      */
     public function testAddString()
     {
-        $this->object->addMessageString('test', '*');
+        $this->object->addText('test', '*');
         $this->assertEquals(
             array('*', PMA\libraries\Message::notice('test')),
             $this->object->getAddedMessages()
         );
-        $this->object->addMessageString('test', '');
+        $this->object->addText('test', '');
         $this->assertEquals(
             array(
                 '*',
@@ -269,12 +269,12 @@ class MessageTest extends PMATestCase
      */
     public function testAddMessage()
     {
-        $this->object->addMessageString('test<>', '');
+        $this->object->addText('test<>', '');
         $this->assertEquals(
             array(PMA\libraries\Message::notice('test&lt;&gt;')),
             $this->object->getAddedMessages()
         );
-        $this->object->addMessageHtml('<b>test</b>');
+        $this->object->addHtml('<b>test</b>');
         $this->assertEquals(
             array(
                 PMA\libraries\Message::notice('test&lt;&gt;'),

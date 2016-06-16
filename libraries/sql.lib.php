@@ -894,7 +894,7 @@ function PMA_getDefaultSqlQueryForBrowse($db, $table)
             __('Using bookmark "%s" as default browse query.')
         );
         $GLOBALS['using_bookmark_message']->addParam($table);
-        $GLOBALS['using_bookmark_message']->addMessageHtml(
+        $GLOBALS['using_bookmark_message']->addHtml(
             PMA\libraries\Util::showDocu('faq', 'faq6-22')
         );
         $sql_query = $bookmark->getQuery();
@@ -1336,7 +1336,7 @@ function PMA_getMessageForNoRowsReturned($message_to_show,
         if ($insert_id != 0) {
             // insert_id is id of FIRST record inserted in one insert,
             // so if we inserted multiple rows, we had to increment this
-            $message->addMessageString('[br]');
+            $message->addText('[br]');
             // need to use a temporary because the Message class
             // currently supports adding parameters only to the first
             // message
@@ -1379,7 +1379,7 @@ function PMA_getMessageForNoRowsReturned($message_to_show,
 
     // In case of ROLLBACK, notify the user.
     if (isset($_REQUEST['rollback_query'])) {
-        $message->addMessageString(__('[ROLLBACK occurred.]'));
+        $message->addText(__('[ROLLBACK occurred.]'));
     }
 
     return $message;

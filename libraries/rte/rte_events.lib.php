@@ -172,11 +172,11 @@ function PMA_EVN_handleEditor()
                 )
                 . '</b>'
             );
-            $message->addMessageHtml('<ul>');
+            $message->addHtml('<ul>');
             foreach ($errors as $string) {
-                $message->addMessageHtml('<li>' . $string . '</li>');
+                $message->addHtml('<li>' . $string . '</li>');
             }
-            $message->addMessageHtml('</ul>');
+            $message->addHtml('</ul>');
         }
 
         $output = PMA\libraries\Util::getMessage($message, $sql_query);

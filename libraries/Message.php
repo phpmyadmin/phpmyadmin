@@ -482,7 +482,7 @@ class Message
     public function addMessagesString($messages, $separator = ' ')
     {
         foreach ($messages as $message) {
-            $this->addMessageString($message, $separator);
+            $this->addText($message, $separator);
         }
     }
 
@@ -526,7 +526,7 @@ class Message
      *
      * @return void
      */
-    public function addMessageString($message, $separator = ' ')
+    public function addText($message, $separator = ' ')
     {
         if (!is_string($message)) {
             trigger_error('Invalid parameter passed to addMessage');
@@ -542,7 +542,7 @@ class Message
      *
      * @return void
      */
-    public function addMessageHtml($message, $separator = ' ')
+    public function addHtml($message, $separator = ' ')
     {
         if (!is_string($message)) {
             trigger_error('Invalid parameter passed to addMessage');

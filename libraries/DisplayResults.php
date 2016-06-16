@@ -4723,7 +4723,7 @@ class DisplayResults
             $message->addParam($last_shown_rec);
         }
 
-        $message->addMessageString('(');
+        $message->addText('(');
 
         if ($message_view_warning === false) {
 
@@ -4739,11 +4739,11 @@ class DisplayResults
             }
 
             if (!empty($after_count)) {
-                $message_total->addMessageHtml($after_count);
+                $message_total->addHtml($after_count);
             }
             $message->addMessage($message_total, '');
 
-            $message->addMessageString(', ', '');
+            $message->addText(', ', '');
         }
 
         $message_qt = Message::notice(__('Query took %01.4f seconds.') . ')');
@@ -4751,7 +4751,7 @@ class DisplayResults
 
         $message->addMessage($message_qt, '');
         if (! is_null($sorted_column_message)) {
-            $message->addMessageHtml($sorted_column_message, '');
+            $message->addHtml($sorted_column_message, '');
         }
 
         return $message;
