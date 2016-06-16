@@ -481,8 +481,7 @@ class Message
     public function addMessages($messages, $separator = ' ')
     {
         foreach ($messages as $message) {
-            $this->addedMessages[] = $separator;
-            $this->addedMessages[] = $message;
+            $this->addMessage($message, $separator);
         }
     }
 
@@ -497,30 +496,56 @@ class Message
     public function addMessagesString($messages, $separator = ' ')
     {
         foreach ($messages as $message) {
-            $this->addedMessages[] = $separator;
-            $this->addedMessages[] = Message::notice(Message::sanitize($message));
+            $this->addMessageString($message, $separator);
         }
     }
 
     /**
-     * add another raw message to be concatenated on displaying
+     * Real implementation of adding message
      *
      * @param mixed  $message   to be added
      * @param string $separator to use between this and previous string/message
      *
      * @return void
      */
-    public function addMessage($message, $separator = ' ')
+    private function _addMessage($message, $separator)
     {
-        if (mb_strlen($separator)) {
+        if (!empty($separator)) {
             $this->addedMessages[] = $separator;
         }
+        $this->addedMessages[] = $message;
+    }
 
-        if ($message instanceof Message) {
-            $this->addedMessages[] = $message;
-        } else {
-            $this->addedMessages[] = Message::notice(htmlspecialchars($message));
+    /**
+     * add another raw message to be concatenated on displaying
+     *
+     * @param Message $message   to be added
+     * @param string  $separator to use between this and previous string/message
+     *
+     * @return void
+     */
+    public function addMessage($message, $separator = ' ')
+    {
+        if (!($message instanceof Message)) {
+            trigger_error('Invalid parameter passed to addMessage');
         }
+        $this->_addMessage($message, $separator);
+    }
+
+    /**
+     * add another raw message to be concatenated on displaying
+     *
+     * @param string $message   to be added
+     * @param string $separator to use between this and previous string/message
+     *
+     * @return void
+     */
+    public function addMessageString($message, $separator = ' ')
+    {
+        if (!is_string($message)) {
+            trigger_error('Invalid parameter passed to addMessage');
+        }
+        $this->_addMessage(Message::notice(Message::sanitize($message)), $separator);
     }
 
     /**
@@ -533,11 +558,10 @@ class Message
      */
     public function addMessageHtml($message, $separator = ' ')
     {
-        if (mb_strlen($separator)) {
-            $this->addedMessages[] = $separator;
+        if (!is_string($message)) {
+            trigger_error('Invalid parameter passed to addMessage');
         }
-
-        $this->addedMessages[] = Message::rawNotice($message);
+        $this->_addMessage(Message::rawNotice($message), $separator);
     }
 
     /**

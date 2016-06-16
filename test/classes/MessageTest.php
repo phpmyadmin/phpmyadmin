@@ -270,7 +270,7 @@ class MessageTest extends PMATestCase
      */
     public function testAddMessage()
     {
-        $this->object->addMessage('test<>', '');
+        $this->object->addMessageString('test<>', '');
         $this->assertEquals(
             array(PMA\libraries\Message::notice('test&lt;&gt;')),
             $this->object->getAddedMessages()
@@ -284,8 +284,9 @@ class MessageTest extends PMATestCase
             ),
             $this->object->getAddedMessages()
         );
+        $this->object->addMessage(PMA\libraries\Message::notice('test<>'));
         $this->assertEquals(
-            'test&lt;&gt; <b>test</b>',
+            'test&lt;&gt; <b>test</b> test<>',
             $this->object->getMessage()
         );
     }
@@ -305,11 +306,8 @@ class MessageTest extends PMATestCase
 
         $this->assertEquals(
             array(
-                '',
                 PMA\libraries\Message::notice('Test1'),
-                '',
                 PMA\libraries\Message::error("PMA_Test2"),
-                '',
                 PMA\libraries\Message::notice('Test3')
             ),
             $this->object->getAddedMessages()
@@ -328,11 +326,8 @@ class MessageTest extends PMATestCase
 
         $this->assertEquals(
             array(
-                '',
                 PMA\libraries\Message::notice('test1'),
-                '',
                 PMA\libraries\Message::notice('test&lt;b&gt;'),
-                '',
                 PMA\libraries\Message::notice('test2')
             ),
             $this->object->getAddedMessages()

@@ -4723,7 +4723,7 @@ class DisplayResults
             $message->addParam($last_shown_rec);
         }
 
-        $message->addMessage('(');
+        $message->addMessageString('(');
 
         if ($message_view_warning === false) {
 
@@ -4743,7 +4743,7 @@ class DisplayResults
             }
             $message->addMessage($message_total, '');
 
-            $message->addMessage(', ', '');
+            $message->addMessageString(', ', '');
         }
 
         $message_qt = Message::notice(__('Query took %01.4f seconds.') . ')');
@@ -4751,7 +4751,7 @@ class DisplayResults
 
         $message->addMessage($message_qt, '');
         if (! is_null($sorted_column_message)) {
-            $message->addMessage($sorted_column_message, '');
+            $message->addMessageHtml($sorted_column_message, '');
         }
 
         return $message;

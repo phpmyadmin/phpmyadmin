@@ -1115,7 +1115,7 @@ class Util
 
         if ($message instanceof Message) {
             if (isset($GLOBALS['special_message'])) {
-                $message->addMessage($GLOBALS['special_message']);
+                $message->addMessageString($GLOBALS['special_message']);
                 unset($GLOBALS['special_message']);
             }
             $retval .= $message->getDisplay();

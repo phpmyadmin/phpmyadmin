@@ -1336,7 +1336,7 @@ function PMA_getMessageForNoRowsReturned($message_to_show,
         if ($insert_id != 0) {
             // insert_id is id of FIRST record inserted in one insert,
             // so if we inserted multiple rows, we had to increment this
-            $message->addMessage('[br]');
+            $message->addMessageString('[br]');
             // need to use a temporary because the Message class
             // currently supports adding parameters only to the first
             // message
@@ -1379,7 +1379,7 @@ function PMA_getMessageForNoRowsReturned($message_to_show,
 
     // In case of ROLLBACK, notify the user.
     if (isset($_REQUEST['rollback_query'])) {
-        $message->addMessage(__('[ROLLBACK occurred.]'));
+        $message->addMessageString(__('[ROLLBACK occurred.]'));
     }
 
     return $message;

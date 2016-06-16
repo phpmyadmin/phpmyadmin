@@ -450,7 +450,7 @@ function PMA_makeConsistentWithList($db, $selected_tables)
                     $GLOBALS['dbi']->getError($GLOBALS['userlink'])
                 );
             } else {
-                $message->addMessage(
+                $message->addMessageString(
                     $GLOBALS['dbi']->getError($GLOBALS['userlink']),
                     '<br />'
                 );
