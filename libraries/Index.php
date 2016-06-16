@@ -554,32 +554,18 @@ class Index
     }
 
     /**
-     * Returns 'No'/false if the index is not packed,
+     * Returns 'No' if the index is not packed,
      * how the index is packed if packed
      *
-     * @param boolean $as_text whether to output should be in text
-     *
-     * @return mixed how index is packed
+     * @return string
      */
-    public function isPacked($as_text = false)
+    public function isPacked()
     {
-        if ($as_text) {
-            $r = array(
-                '0' => __('No'),
-                '1' => __('Yes'),
-            );
-        } else {
-            $r = array(
-                '0' => false,
-                '1' => true,
-            );
-        }
-
         if (null === $this->_packed) {
-            return $r[0];
+            return __('No');
         }
 
-        return $this->_packed;
+        return htmlspecialchars($this->_packed);
     }
 
     /**
@@ -777,7 +763,7 @@ class Index
             }
             $r .= '</td>';
             $r .= '<td ' . $row_span . '>' . $index->isUnique(true) . '</td>';
-            $r .= '<td ' . $row_span . '>' . $index->isPacked(true) . '</td>';
+            $r .= '<td ' . $row_span . '>' . $index->isPacked() . '</td>';
 
             foreach ($index->getColumns() as $column) {
                 if ($column->getSeqInIndex() > 1) {
