@@ -3759,7 +3759,7 @@ class DisplayResults
      * @param object|string $transformation_plugin the name of transformation plugin
      * @param string        $default_function      the default transformation
      *                                             function
-     * @param string        $transform_options     the transformation parameters
+     * @param array         $transform_options     the transformation parameters
      *
      * @return  string  $cell the prepared cell, html content
      *
