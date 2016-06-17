@@ -170,10 +170,10 @@ function PMA_buildHtmlForDb(
                . '&amp;db=' . urlencode($current['SCHEMA_NAME'])
                . '&amp;checkprivsdb=' . urlencode($current['SCHEMA_NAME'])
                . '" title="'
-               . sprintf(
+               . htmlspecialchars(sprintf(
                    __('Check privileges for database "%s".'),
-                   htmlspecialchars($current['SCHEMA_NAME'])
-               )
+                   $current['SCHEMA_NAME']
+               ))
                . '">'
                . ' '
                . PMA_Util::getIcon('s_rights.png', __('Check Privileges'))
