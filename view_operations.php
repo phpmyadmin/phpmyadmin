@@ -46,18 +46,19 @@ $reread_info = false;
 /**
  * Updates if required
  */
+$_message = new PMA\libraries\Message;
+$_type = 'success';
 if (isset($_REQUEST['submitoptions'])) {
-    $_message = '';
 
     if (isset($_REQUEST['new_name'])) {
         if ($pma_table->rename($_REQUEST['new_name'])) {
-            $_message .= $pma_table->getLastMessage();
+            $_message->addText($pma_table->getLastMessage());
             $result = true;
             $GLOBALS['table'] = $pma_table->getName();
             $reread_info = true;
             $reload = true;
         } else {
-            $_message .= $pma_table->getLastError();
+            $_message->addText($pma_table->getLastError());
             $result = false;
         }
     }
@@ -68,16 +69,18 @@ if (isset($_REQUEST['submitoptions'])) {
 if (isset($result)) {
     // set to success by default, because result set could be empty
     // (for example, a table rename)
-    $_type = 'success';
-    if (empty($_message)) {
-        $_message = $result
-            ? __('Your SQL query has been executed successfully.')
-            : __('Error');
+    if (empty($_message->getString())) {
+        if ($result) {
+            $_message->addText(
+                __('Your SQL query has been executed successfully.')
+            );
+        } else {
+            $_message->addText(__('Error'));
+        }
         // $result should exist, regardless of $_message
         $_type = $result ? 'success' : 'error';
     }
     if (! empty($warning_messages)) {
-        $_message = new PMA\libraries\Message;
         $_message->addMessagesString($warning_messages);
         $_message->isError(true);
         unset($warning_messages);
@@ -85,8 +88,8 @@ if (isset($result)) {
     echo PMA\libraries\Util::getMessage(
         $_message, $sql_query, $_type
     );
-    unset($_message, $_type);
 }
+unset($_message, $_type);
 
 $url_params['goto'] = 'view_operations.php';
 $url_params['back'] = 'view_operations.php';
