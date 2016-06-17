@@ -191,8 +191,7 @@ class ServerStatusData
         $links['Slow_queries']['doc'] = 'slow_query_log';
 
         $links['innodb'][__('Variables')]
-            = 'server_engines.php?engine=InnoDB&amp;'
-            . URL::getCommon(array(), 'html', '');
+            = 'server_engines.php?' . URL::getCommon(array('engine' => 'InnoDB'));
         $links['innodb'][__('InnoDB Status')]
             = 'server_engines.php'
             . URL::getCommon(
