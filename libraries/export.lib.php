@@ -655,8 +655,8 @@ function PMA_exportDatabase(
                     // This obtains the current table's size
                     $query = 'SELECT data_length + index_length
                           from information_schema.TABLES
-                          WHERE table_schema = "' . $db . '"
-                          AND table_name = "' . $table . '"';
+                          WHERE table_schema = "' . PMA\libraries\Util::sqlAddSlashes($db) . '"
+                          AND table_name = "' . PMA\libraries\Util::sqlAddSlashes($table) . '"';
 
                     $size = $GLOBALS['dbi']->fetchValue($query);
                     //Converting the size to MB
