@@ -570,7 +570,7 @@ function validate_non_negative_number($path, $values)
  */
 function validate_by_regex($path, $values, $regex)
 {
-    if (empty($values[$path)) {
+    if (empty($values[$path])) {
         return '';
     }
 
