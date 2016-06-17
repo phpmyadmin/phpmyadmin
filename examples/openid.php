@@ -61,6 +61,16 @@ echo $contents;
 <?php
 }
 
+function die_error($e)
+{
+    $contents = "<div class='relyingparty_results'>\n";
+    $contents .= "<pre>" . htmlspecialchars($e->getMessage()) . "</pre>\n";
+    $contents .= "</div class='relyingparty_results'>";
+    show_page($contents);
+    exit;
+}
+
+
 /* Need to have cookie visible from parent directory */
 session_set_cookie_params(0, '/', '', 0);
 /* Create signon session */
@@ -108,11 +118,7 @@ if (isset($_POST['identifier']) && is_string($_POST['identifier'])) {
 try {
     $o = new OpenID_RelyingParty($returnTo, $realm, $identifier);
 } catch (Exception $e) {
-    $contents = "<div class='relyingparty_results'>\n";
-    $contents .= "<pre>" . htmlspecialchars($e->getMessage()) . "</pre>\n";
-    $contents .= "</div class='relyingparty_results'>";
-    show_page($contents);
-    exit;
+    die_error($e);
 }
 
 /* Redirect to OpenID provider */
@@ -120,11 +126,7 @@ if (isset($_POST['start'])) {
     try {
         $authRequest = $o->prepare();
     } catch (Exception $e) {
-        $contents = "<div class='relyingparty_results'>\n";
-        $contents .= "<pre>" . htmlspecialchars($e->getMessage()) . "</pre>\n";
-        $contents .= "</div class='relyingparty_results'>";
-        show_page($contents);
-        exit;
+        die_error($e);
     }
 
     $url = $authRequest->getAuthorizeURL();
@@ -141,7 +143,11 @@ if (isset($_POST['start'])) {
     }
 
     /* Check reply */
-    $message = new OpenID_Message($queryString, OpenID_Message::FORMAT_HTTP);
+    try {
+        $message = new OpenID_Message($queryString, OpenID_Message::FORMAT_HTTP);
+    } catch (Exception $e) {
+        die_error($e);
+    }
 
     $id = $message->get('openid.claimed_id');
 
