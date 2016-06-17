@@ -13,6 +13,7 @@ phpMyAdmin - ChangeLog
 - issue #12317 Fix editing server variables
 - issue #12303 Fix table size calculation in some circumstances
 - issue #12310 Fix listing routines for non privileged user
+- issue        Escape generated query in exporting a database
 
 4.6.2 (2016-05-25)
 - issue        [security] User SQL queries can be revealed through URL GET parameters, see PMASA-2016-14
