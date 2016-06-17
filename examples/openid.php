@@ -109,7 +109,7 @@ try {
     $o = new OpenID_RelyingParty($returnTo, $realm, $identifier);
 } catch (Exception $e) {
     $contents = "<div class='relyingparty_results'>\n";
-    $contents .= "<pre>" . $e->getMessage() . "</pre>\n";
+    $contents .= "<pre>" . htmlspecialchars($e->getMessage()) . "</pre>\n";
     $contents .= "</div class='relyingparty_results'>";
     show_page($contents);
     exit;
@@ -119,9 +119,9 @@ try {
 if (isset($_POST['start'])) {
     try {
         $authRequest = $o->prepare();
-    } catch (OpenID_Exception $e) {
+    } catch (Exception $e) {
         $contents = "<div class='relyingparty_results'>\n";
-        $contents .= "<pre>" . $e->getMessage() . "</pre>\n";
+        $contents .= "<pre>" . htmlspecialchars($e->getMessage()) . "</pre>\n";
         $contents .= "</div class='relyingparty_results'>";
         show_page($contents);
         exit;
