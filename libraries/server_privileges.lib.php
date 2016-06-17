@@ -4200,16 +4200,6 @@ function PMA_addUser(
         );
     }
 
-    if (!isset($_REQUEST['adduser_submit']) && !isset($_REQUEST['change_copy'])) {
-        return array(
-            $message,
-            $queries,
-            $queries_for_display,
-            $sql_query,
-            $_add_user_error
-        );
-    }
-
     $sql_query = '';
     if ($_POST['pred_username'] == 'any') {
         $username = '';
