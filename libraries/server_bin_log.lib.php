@@ -31,11 +31,11 @@ function PMA_getLogSelector($binary_logs, $url_params)
         $html .= '</legend><select name="log">';
         $full_size = 0;
         foreach ($binary_logs as $each_log) {
-            $html .= '<option value="' . $each_log['Log_name'] . '"';
+            $html .= '<option value="' . htmlspecialchars($each_log['Log_name']) . '"';
             if ($each_log['Log_name'] == $_REQUEST['log']) {
                 $html .= ' selected="selected"';
             }
-            $html .= '>' . $each_log['Log_name'];
+            $html .= '>' . htmlspecialchars($each_log['Log_name']);
             if (isset($each_log['File_size'])) {
                 $full_size += $each_log['File_size'];
                 $html .= ' ('
