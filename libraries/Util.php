@@ -4997,5 +4997,20 @@ class Util
 
         return $result;
     }
+
+    /**
+     * Converts given (request) paramter to string
+     *
+     * @param mixed $value Value to convert
+     *
+     * @return string
+     */
+    public static function requestString($value)
+    {
+        while (is_array($value) || is_object($value)) {
+            $value = reset($value);
+        }
+        return trim((string)$value);
+    }
 }
 
