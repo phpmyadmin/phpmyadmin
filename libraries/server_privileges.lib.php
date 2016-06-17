@@ -640,6 +640,7 @@ function PMA_getHtmlToDisplayPrivilegesTable($db = '*',
     }
     if (empty($row)) {
         if ($table == '*' && $GLOBALS['is_superuser']) {
+            $row = array();
             if ($db == '*') {
                 $sql_query = 'SHOW COLUMNS FROM `mysql`.`user`;';
             } elseif ($table == '*') {
