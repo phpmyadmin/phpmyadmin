@@ -594,12 +594,12 @@ class FormDisplay
                 // cast variables to correct type
                 switch ($type) {
                 case 'double':
-                    settype($_POST[$key], 'float');
+                    settype($this->_trimString($_POST[$key]), 'float');
                     break;
                 case 'boolean':
                 case 'integer':
                     if ($_POST[$key] !== '') {
-                        settype($_POST[$key], $type);
+                        settype($this->_trimString($_POST[$key]), $type);
                     }
                     break;
                 case 'select':
@@ -615,7 +615,7 @@ class FormDisplay
                     break;
                 case 'string':
                 case 'short_string':
-                    $_POST[$key] = trim($_POST[$key]);
+                    $_POST[$key] = $this->_trimString($_POST[$key]);
                     break;
                 case 'array':
                     // eliminate empty values and ensure we have an array
@@ -829,11 +829,26 @@ class FormDisplay
     private function _fillPostArrayParameters($post_values, $key)
     {
         foreach ($post_values as $v) {
-            $v = trim($v);
+            $v = $this->_trimString($v);
             if ($v !== '') {
                 $_POST[$key][] = $v;
             }
         }
+    }
+
+    /*
+     * Converts given (request) paramter to string
+     *
+     * @param mixed $value Value to convert
+     *
+     * @return string
+     */
+    private function _trimString($value)
+    {
+        while (is_array($value)) {
+            $value = reset($value);
+        }
+        return trim((string)$value);
     }
 }
 ?>
