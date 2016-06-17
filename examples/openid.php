@@ -96,9 +96,9 @@ OpenID: <input type="text" name="identifier" /><br />
 }
 
 /* Grab identifier */
-if (isset($_POST['identifier'])) {
+if (isset($_POST['identifier']) && is_string($_POST['identifier'])) {
     $identifier = $_POST['identifier'];
-} else if (isset($_SESSION['identifier'])) {
+} else if (isset($_SESSION['identifier']) && is_string($_SESSION['identifier'])) {
     $identifier = $_SESSION['identifier'];
 } else {
     $identifier = null;
@@ -107,7 +107,7 @@ if (isset($_POST['identifier'])) {
 /* Create OpenID object */
 try {
     $o = new OpenID_RelyingParty($returnTo, $realm, $identifier);
-} catch (OpenID_Exception $e) {
+} catch (Exception $e) {
     $contents = "<div class='relyingparty_results'>\n";
     $contents .= "<pre>" . $e->getMessage() . "</pre>\n";
     $contents .= "</div class='relyingparty_results'>";
