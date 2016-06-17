@@ -60,7 +60,7 @@ class ErrorTest extends PMATestCase
     {
         $bt = array(array('file'=>'bt1','line'=>2, 'function'=>'bar', 'args'=>array('foo'=>$this)));
         $this->object->setBacktrace($bt);
-        $bt[0]['args']['foo'] = 'object';
+        $bt[0]['args']['foo'] = '<Class:ErrorTest>';
         $this->assertEquals($bt, $this->object->getBacktrace());
     }
 
@@ -123,7 +123,7 @@ class ErrorTest extends PMATestCase
     public function testGetBacktraceDisplay()
     {
         $this->assertContains(
-            'PHPUnit_Framework_TestResult->run(object)<br />',
+            'PHPUnit_Framework_TestResult->run(<Class:ErrorTest>)<br />',
             $this->object->getBacktraceDisplay()
         );
     }
