@@ -1262,9 +1262,13 @@ class Config
     public function checkCollationConnection()
     {
         if (! empty($_REQUEST['collation_connection'])) {
-            $collation = strip_tags($_REQUEST['collation_connection']);
+            $collation = htmlspecialchars(
+                strip_tags($_REQUEST['collation_connection'])
+            );
         } elseif (! empty($_COOKIE['pma_collation_connection'])) {
-            $collation = strip_tags($_COOKIE['pma_collation_connection']);
+            $collation = htmlspecialchars(
+                strip_tags($_COOKIE['pma_collation_connection'])
+            );
         } else {
             $collation = $this->get('DefaultConnectionCollation');
         }
