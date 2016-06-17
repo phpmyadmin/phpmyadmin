@@ -10,6 +10,7 @@ namespace PMA\libraries\plugins\transformations\abs;
 
 use PMA;
 use PMA\libraries\plugins\TransformationsPlugin;
+use PMA\libraries\Sanitize;
 
 /**
  * Provides common methods for all of the date format transformations plugins.
@@ -145,11 +146,11 @@ abstract class DateFormatTransformationsPlugin extends TransformationsPlugin
             } else {
                 $text = 'INVALID DATE TYPE';
             }
-            $buffer = '<dfn onclick="alert(\'' . $source . '\');" title="'
-                . $source . '">' . $text . '</dfn>';
+            return '<dfn onclick="alert(\'' . Sanitize::jsFormat($source, false) . '\');" title="'
+                . htmlspecialchars($source) . '">' . htmlspecialchars($text) . '</dfn>';
+        } else {
+            return htmlspecialchars($buffer);
         }
-
-        return $buffer;
     }
 
     /* ~~~~~~~~~~~~~~~~~~~~ Getters and Setters ~~~~~~~~~~~~~~~~~~~~ */

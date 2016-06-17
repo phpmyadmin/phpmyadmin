@@ -49,16 +49,8 @@ abstract class ImageLinkTransformationsPlugin extends TransformationsPlugin
     {
         // must disable the page loader, see
         // https://wiki.phpmyadmin.net/pma/Page_loader#Bypassing_the_page_loader
-        $transform_options = array(
-            'string' => '<a class="disableAjax"'
-                . ' target="_new" href="transformation_wrapper.php'
-                . $options['wrapper_link'] . '" alt="[__BUFFER__]">[BLOB]</a>',
-        );
-
-        return PMA_Transformation_globalHtmlReplace(
-            $buffer,
-            $transform_options
-        );
+        return '<a class="disableAjax" target="_new" href="transformation_wrapper.php'
+            . $options['wrapper_link'] . '" alt="[' . htmlspecialchars($buffer) . ']">[BLOB]</a>';
     }
 
     /* ~~~~~~~~~~~~~~~~~~~~ Getters and Setters ~~~~~~~~~~~~~~~~~~~~ */

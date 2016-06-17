@@ -71,7 +71,7 @@ abstract class SubstringTransformationsPlugin extends TransformationsPlugin
             }
         }
 
-        return $newtext;
+        return htmlspecialchars($newtext);
     }
 
 
