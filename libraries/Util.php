@@ -1220,7 +1220,7 @@ class Util
                         ) . ']';
                     $url = 'https://mariadb.org/explain_analyzer/analyze/'
                         . '?client=phpMyAdmin&raw_explain='
-                        . self::_generateRowQueryOutput($sql_query);
+                        . urlencode(self::_generateRowQueryOutput($sql_query));
                     $explain_link .= ' ['
                         . self::linkOrButton(
                             htmlspecialchars('url.php?url=' . urlencode($url)),
