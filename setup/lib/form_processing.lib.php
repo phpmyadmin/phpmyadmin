@@ -36,8 +36,8 @@ function PMA_Process_formset(FormDisplay $form_display)
 
     // form has errors, show warning
     $separator = PMA_URL_getArgSeparator('html');
-    $page = isset($_GET['page']) ? $_GET['page'] : null;
-    $formset = isset($_GET['formset']) ? $_GET['formset'] : null;
+    $page = isset($_GET['page']) ? htmlspecialchars($_GET['page']) : null;
+    $formset = isset($_GET['formset']) ? htmlspecialchars($_GET['formset']) : null;
     $formset = $formset ? "{$separator}formset=$formset" : '';
     $formId = PMA_isValid($_GET['id'], 'numeric') ? $_GET['id'] : null;
     if ($formId === null && $page == 'servers') {
