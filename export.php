@@ -41,6 +41,8 @@ if (isset($_GET['check_time_out'])) {
  * - Please keep the parameters in order of their appearance in the form
  * - Some of these parameters are not used, as the code below directly
  *   verifies from the superglobal $_POST or $_REQUEST
+ * TODO: this should be removed to avoid passing user input to GLOBALS
+ * without checking
  */
 $post_params = array(
         'db',
