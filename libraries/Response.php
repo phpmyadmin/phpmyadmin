@@ -315,7 +315,7 @@ class Response
             }
 
             $this->addJSON('_scripts', $this->getHeader()->getScripts()->getFiles());
-            $this->addJSON('_selflink', $this->getFooter()->getSelfUrl('unencoded'));
+            $this->addJSON('_selflink', $this->getFooter()->getSelfUrl());
             $this->addJSON('_displayMessage', $this->getHeader()->getMessage());
 
             $debug = $this->_footer->getDebugMessage();

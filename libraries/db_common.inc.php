@@ -55,7 +55,7 @@ if (! isset($is_db) || ! $is_db) {
     }
     // Not a valid db name -> back to the welcome page
     $uri = './index.php'
-        . URL::getCommon(array(), 'text')
+        . URL::getCommonRaw(array())
         . (isset($message) ? '&message=' . urlencode($message) : '') . '&reload=1';
     if (!mb_strlen($db) || ! $is_db) {
         $response = PMA\libraries\Response::getInstance();

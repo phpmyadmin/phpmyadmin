@@ -3176,8 +3176,7 @@ class DisplayResults
                 $_url_params['sql_query'] = $url_sql_query;
             }
 
-            $transform_options['wrapper_link']
-                = URL::getCommon($_url_params);
+            $transform_options['wrapper_link'] = URL::getCommon($_url_params);
 
             $display_params = $this->__get('display_params');
 
@@ -3294,7 +3293,7 @@ class DisplayResults
         $divider = strpos($link_relations['default_page'], '?') ? '&' : '?';
         if (empty($link_relations['link_dependancy_params'])) {
             return $link_relations['default_page']
-                . URL::getCommon($linking_url_params, 'html', $divider);
+                . URL::getCommon($linking_url_params, $divider);
         }
 
         foreach ($link_relations['link_dependancy_params'] as $new_param) {
@@ -3318,7 +3317,7 @@ class DisplayResults
         }
 
         return $link_relations['default_page']
-            . URL::getCommon($linking_url_params, 'html', $divider);
+            . URL::getCommon($linking_url_params, $divider);
     }
 
 
@@ -3542,7 +3541,7 @@ class DisplayResults
                 'goto'      => (empty($goto) ? 'tbl_sql.php' : $goto),
             );
 
-            $lnk_goto = 'sql.php' . URL::getCommon($_url_params, 'text');
+            $lnk_goto = 'sql.php' . URL::getCommonRaw($_url_params);
 
             $del_query = 'DELETE FROM '
                 . Util::backquote($this->__get('table'))
@@ -3573,10 +3572,7 @@ class DisplayResults
                     'goto'      => 'index.php',
                 );
 
-            $lnk_goto = 'sql.php'
-                . URL::getCommon(
-                    $_url_params, 'text'
-                );
+            $lnk_goto = 'sql.php' . URL::getCommonRaw($_url_params);
 
             $kill = $GLOBALS['dbi']->getKillQuery($row[0]);
 

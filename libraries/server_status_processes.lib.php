@@ -53,7 +53,7 @@ function PMA_getHtmlForServerProcesslist()
     if ($show_full_sql) {
         $url_params['full'] = 1;
         $full_text_link = 'server_status_processes.php' . URL::getCommon(
-            array(), 'html', '?'
+            array(), '?'
         );
     } else {
         $full_text_link = 'server_status_processes.php' . URL::getCommon(

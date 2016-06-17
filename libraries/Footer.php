@@ -136,11 +136,9 @@ class Footer
     /**
      * Returns the url of the current page
      *
-     * @param string|null $encode See URL::getCommon()
-     *
      * @return string
      */
-    public function getSelfUrl($encode = 'html')
+    public function getSelfUrl()
     {
         $db = ! empty($GLOBALS['db']) ? $GLOBALS['db'] : '';
         $table = ! empty($GLOBALS['table']) ? $GLOBALS['table'] : '';
@@ -180,10 +178,7 @@ class Footer
         ) {
             $params['single_table'] = $_REQUEST['single_table'];
         }
-        return basename(PMA_getenv('SCRIPT_NAME')) . URL::getCommon(
-            $params,
-            $encode
-        );
+        return basename(PMA_getenv('SCRIPT_NAME')) . URL::getCommonRaw($params);
     }
 
     /**
@@ -197,7 +192,7 @@ class Footer
     {
         $retval  = '';
         $retval .= '<div id="selflink" class="print_ignore">';
-        $retval .= '<a href="' . $url . '"'
+        $retval .= '<a href="' . htmlspecialchars($url) . '"'
             . ' title="' . __('Open new phpMyAdmin window') . '" target="_blank">';
         if (Util::showIcons('TabsMode')) {
             $retval .= Util::getImage(
@@ -315,7 +310,7 @@ class Footer
                     && empty($GLOBALS['checked_special'])
                     && ! $this->_isAjax
                 ) {
-                    $url = $this->getSelfUrl('unencoded');
+                    $url = $this->getSelfUrl();
                     $header = Response::getInstance()->getHeader();
                     $scripts = $header->getScripts()->getFiles();
                     $menuHash = $header->getMenu()->getHash();

@@ -34,7 +34,7 @@ if ($mode == 'edit' && $server_exists) {
         . ' <small>(' . htmlspecialchars($cf->getServerDSN($id)) . ')</small>';
 } elseif ($mode == 'remove' && $server_exists) {
     $cf->removeServer($id);
-    header('Location: index.php' . URL::getCommon());
+    header('Location: index.php' . URL::getCommonRaw());
     exit;
 } elseif ($mode == 'revert' && $server_exists) {
     // handled by process_formset()

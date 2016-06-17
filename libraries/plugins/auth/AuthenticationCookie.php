@@ -518,7 +518,7 @@ class AuthenticationCookie extends AuthenticationPlugin
                 ->disable();
 
             PMA_sendHeaderLocation(
-                $redirect_url . URL::getCommon($url_params, 'text'),
+                $redirect_url . URL::getCommonRaw($url_params),
                 true
             );
             if (! defined('TESTSUITE')) {

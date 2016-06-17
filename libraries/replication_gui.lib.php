@@ -948,7 +948,7 @@ function PMA_handleControlRequest()
             } else {
                 PMA_sendHeaderLocation(
                     './server_replication.php'
-                    . URL::getCommon($GLOBALS['url_params'], 'text')
+                    . URL::getCommonRaw($GLOBALS['url_params'])
                 );
             }
         }

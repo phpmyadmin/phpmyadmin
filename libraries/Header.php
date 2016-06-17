@@ -227,7 +227,7 @@ class Header
         }
 
         $params = array(
-            'common_query' => URL::getCommon(array(), 'text'),
+            'common_query' => URL::getCommonRaw(),
             'opendb_url' => Util::getScriptNameForOption(
                 $GLOBALS['cfg']['DefaultTabDatabase'], 'database'
             ),

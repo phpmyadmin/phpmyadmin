@@ -101,8 +101,8 @@ class URLTest extends PHPUnit_Framework_TestCase
             . $expected;
         $this->assertEquals(
             $expected,
-            URL::getCommon(
-                array('db' => 'db', 'table' => 'table'), 'text', '#ABC#'
+            URL::getCommonRaw(
+                array('db' => 'db', 'table' => 'table'), '#ABC#'
             )
         );
     }

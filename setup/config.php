@@ -32,7 +32,7 @@ if (PMA_ifSetOr($_POST['submit_clear'], '')) {
     $GLOBALS['ConfigFile']->resetConfigData();
     // drop post data
     header('HTTP/1.1 303 See Other');
-    header('Location: index.php' . URL::getCommon());
+    header('Location: index.php' . URL::getCommonRaw());
     exit;
 } elseif (PMA_ifSetOr($_POST['submit_download'], '')) {
     //
@@ -50,7 +50,7 @@ if (PMA_ifSetOr($_POST['submit_clear'], '')) {
         ConfigGenerator::getConfigFile($GLOBALS['ConfigFile'])
     );
     header('HTTP/1.1 303 See Other');
-    header('Location: index.php' . URL::getCommon() . '&action_done=config_saved');
+    header('Location: index.php' . URL::getCommonRaw() . '&action_done=config_saved');
     exit;
 } elseif (PMA_ifSetOr($_POST['submit_load'], '')) {
     //
@@ -60,7 +60,7 @@ if (PMA_ifSetOr($_POST['submit_clear'], '')) {
     include $config_file_path;
     $GLOBALS['ConfigFile']->setConfigData($cfg);
     header('HTTP/1.1 303 See Other');
-    header('Location: index.php' . URL::getCommon());
+    header('Location: index.php' . URL::getCommonRaw());
     exit;
 } elseif (PMA_ifSetOr($_POST['submit_delete'], '')) {
     //
@@ -68,13 +68,13 @@ if (PMA_ifSetOr($_POST['submit_clear'], '')) {
     //
     @unlink($config_file_path);
     header('HTTP/1.1 303 See Other');
-    header('Location: index.php' . URL::getCommon());
+    header('Location: index.php' . URL::getCommonRaw());
     exit;
 } else {
     //
     // Show generated config file in a <textarea>
     //
     header('HTTP/1.1 303 See Other');
-    header('Location: index.php' . URL::getCommon() . '&page=config');
+    header('Location: index.php' . URL::getCommonRaw() . '&page=config');
     exit;
 }

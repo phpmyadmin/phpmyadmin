@@ -46,7 +46,7 @@ if (isset($_POST['revert'])) {
     $url_params = array('form' => $form_param);
     PMA_sendHeaderLocation(
         './prefs_forms.php'
-        . URL::getCommon($url_params, 'text')
+        . URL::getCommonRaw($url_params)
     );
     exit;
 }
