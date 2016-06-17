@@ -46,10 +46,8 @@ abstract class PreApPendTransformationsPlugin extends TransformationsPlugin
         $options = $this->getOptions($options, array('', ''));
 
         //just prepend and/or append the options to the original text
-        $newtext = htmlspecialchars($options[0]) . $buffer
+        return htmlspecialchars($options[0]) . htmlspecialchars($buffer)
             . htmlspecialchars($options[1]);
-
-        return $newtext;
     }
 
     /* ~~~~~~~~~~~~~~~~~~~~ Getters and Setters ~~~~~~~~~~~~~~~~~~~~ */

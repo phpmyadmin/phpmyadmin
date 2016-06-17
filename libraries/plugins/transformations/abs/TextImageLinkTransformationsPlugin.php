@@ -14,9 +14,6 @@ if (!defined('PHPMYADMIN')) {
     exit;
 }
 
-/* For PMA_Transformation_globalHtmlReplace */
-require_once 'libraries/transformations.lib.php';
-
 /**
  * Provides common methods for all of the image link transformations plugins.
  *
@@ -49,21 +46,12 @@ abstract class TextImageLinkTransformationsPlugin extends TransformationsPlugin
      */
     public function applyTransformation($buffer, $options = array(), $meta = '')
     {
-        $transform_options = array(
-            'string' => '<a href="' . (isset($options[0]) ? $options[0] : '')
-                . $buffer . '" target="_blank"><img src="'
-                . (isset($options[0]) ? $options[0] : '') . $buffer
-                . '" border="0" width="' . (isset($options[1]) ? $options[1] : 100)
-                . '" height="' . (isset($options[2]) ? $options[2] : 50) . '" />'
-                . $buffer . '</a>',
-        );
-
-        $buffer = PMA_Transformation_globalHtmlReplace(
-            $buffer,
-            $transform_options
-        );
-
-        return $buffer;
+        return '<a href="' . htmlspecialchars(isset($options[0]) ? $options[0] : '')
+            . htmlspecialchars($buffer) . '" target="_blank"><img src="'
+            . htmlspecialchars(isset($options[0]) ? $options[0] : '') . htmlspecialchars($buffer)
+            . '" border="0" width="' . (isset($options[1]) ? $options[1] : 100)
+            . '" height="' . (isset($options[2]) ? $options[2] : 50) . '" />'
+            . htmlspecialchars($buffer) . '</a>';
     }
 
 

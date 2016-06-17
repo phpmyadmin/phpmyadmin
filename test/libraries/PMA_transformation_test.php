@@ -209,34 +209,6 @@ class PMA_Transformation_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_Transformation_globalHtmlReplace
-     *
-     * @return void
-     */
-    public function testTransformationGlobalHtmlReplace()
-    {
-        // Case 1
-        $actual = PMA_Transformation_globalHtmlReplace('', array());
-        $this->assertEquals(
-            '',
-            $actual
-        );
-
-        // Case 2
-        $buffer = 'foobar';
-        $options = array(
-            'regex' => 'foo',
-            'regex_replace' => 'bar',
-            'string' => 'x[__BUFFER__]x'
-        );
-        $actual = PMA_Transformation_globalHtmlReplace($buffer, $options);
-        $this->assertEquals(
-            'xbarbarx',
-            $actual
-        );
-    }
-
-    /**
      * Test for PMA_clearTransformations
      *
      * @return void
