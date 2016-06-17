@@ -256,7 +256,7 @@ function PMA_userprefsRedirect($file_name,
     if ($hash) {
         $hash = '#' . urlencode($hash);
     }
-    PMA_sendHeaderLocation('./' . $file_name
+    PMA_sendHeaderLocation('./' . $file_name . '?'
         . URL::getCommonRaw($url_params, '&') . $hash
     );
 }
