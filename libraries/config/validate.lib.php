@@ -15,6 +15,8 @@
  * @package PhpMyAdmin
  */
 
+require_once './libraries/Util.class.php';
+
 /**
  * Returns validator list
  *
@@ -275,6 +277,11 @@ function validate_server($path, $values)
         'Servers/1/SignonURL' => ''
     );
     $error = false;
+    if (empty($values['Servers/1/auth_type'])) {
+        $values['Servers/1/auth_type'] = '';
+        $result['Servers/1/auth_type'] = __('Invalid authentication type!');
+        $error = true;
+    }
     if ($values['Servers/1/auth_type'] == 'config'
         && empty($values['Servers/1/user'])
     ) {
@@ -300,15 +307,15 @@ function validate_server($path, $values)
     }
 
     if (!$error && $values['Servers/1/auth_type'] == 'config') {
-        $password = $values['Servers/1/nopassword'] ? null
-            : $values['Servers/1/password'];
+        $password = !empty($values['Servers/1/nopassword']) && $values['Servers/1/nopassword'] ? null
+            : (empty($values['Servers/1/password']) ? '' : $values['Servers/1/password']);
         $test = test_db_connection(
-            $values['Servers/1/extension'],
-            $values['Servers/1/connect_type'],
-            $values['Servers/1/host'],
-            $values['Servers/1/port'],
-            $values['Servers/1/socket'],
-            $values['Servers/1/user'],
+            empty($values['Servers/1/extension']) ? '' : $values['Servers/1/extension'],
+            empty($values['Servers/1/connect_type']) ? '' : $values['Servers/1/connect_type'],
+            empty($values['Servers/1/host']) ? '' : $values['Servers/1/host'],
+            empty($values['Servers/1/port']) ? '' : $values['Servers/1/port'],
+            empty($values['Servers/1/socket']) ? '' : $values['Servers/1/socket'],
+            empty($values['Servers/1/user']) ? '' : $values['Servers/1/user'],
             $password,
             'Server'
         );
@@ -336,17 +343,17 @@ function validate_pmadb($path, $values)
     );
     $error = false;
 
-    if ($values['Servers/1/pmadb'] == '') {
+    if (empty($values['Servers/1/pmadb'])) {
         return $result;
     }
 
     $result = array();
-    if ($values['Servers/1/controluser'] == '') {
+    if (empty($values['Servers/1/controluser'])) {
         $result['Servers/1/controluser']
             = __('Empty phpMyAdmin control user while using pmadb');
         $error = true;
     }
-    if ($values['Servers/1/controlpass'] == '') {
+    if (empty($values['Servers/1/controlpass'])) {
         $result['Servers/1/controlpass']
             = __('Empty phpMyAdmin control user password while using pmadb');
         $error = true;
@@ -378,7 +385,7 @@ function validate_regex($path, $values)
 {
     $result = array($path => '');
 
-    if ($values[$path] == '') {
+    if (empty($values[$path])) {
         return $result;
     }
 
@@ -415,10 +422,11 @@ function validate_trusted_proxies($path, $values)
         return $result;
     }
 
-    if (is_array($values[$path])) {
+    if (is_array($values[$path]) || is_object($values[$path])) {
         // value already processed by FormDisplay::save
         $lines = array();
         foreach ($values[$path] as $ip => $v) {
+            $v = PMA_Util::requestString($v);
             $lines[] = preg_match('/^-\d+$/', $ip)
                 ? $v
                 : $ip . ': ' . $v;
@@ -469,7 +477,7 @@ function test_number(
     $max_value,
     $error_string
 ) {
-    if ($values[$path] === '') {
+    if (empty($values[$path])) {
         return '';
     }
 
@@ -562,7 +570,11 @@ function validate_non_negative_number($path, $values)
  */
 function validate_by_regex($path, $values, $regex)
 {
-    $result = preg_match($regex, $values[$path]);
+    if (empty($values[$path)) {
+        return '';
+    }
+
+    $result = preg_match($regex, PMA_Util::requestString($values[$path]));
     return array($path => ($result ? '' : __('Incorrect value')));
 }
 
