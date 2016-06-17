@@ -126,6 +126,20 @@ case 'config_saved':
         )
     );
     break;
+case 'config_not_saved':
+    /* Use uniqid to display this message every time configuration is saved */
+    PMA_messagesSet(
+        'notice', uniqid('config_not_saved'), __('Configuration not saved!'),
+        PMA_sanitize(
+            __(
+                'Please create web server writable folder [em]config[/em] in '
+                . 'phpMyAdmin top level directory as described in '
+                . '[doc@setup_script]documentation[/doc]. Otherwise you will be '
+                . 'only able to download or display it.'
+            )
+        )
+    );
+    break;
 default:
     break;
 }
