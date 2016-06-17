@@ -3547,7 +3547,7 @@ function PMA_getUsersOverview($result, $db_rights, $pmaThemeImage, $text_dir)
         $row['privs'] = PMA_extractPrivInfo($row, true);
         $db_rights[$row['User']][$row['Host']] = $row;
     }
-    @$GLOBALS['dbi']->freeResult($result);
+    $GLOBALS['dbi']->freeResult($result);
     $user_group_count = 0;
     if ($GLOBALS['cfgRelation']['menuswork']) {
         $user_group_count = PMA_getUserGroupCount();
