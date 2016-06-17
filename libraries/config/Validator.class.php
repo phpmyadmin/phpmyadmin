@@ -10,6 +10,7 @@
  * Core libraries.
  */
 require_once './libraries/DatabaseInterface.class.php';
+require_once 'libraries/Util.class.php';
 
 /**
  * Validation class for various validation functions
@@ -312,6 +313,11 @@ class PMA_Validator
             'Servers/1/SignonURL' => ''
         );
         $error = false;
+        if (empty($values['Servers/1/auth_type'])) {
+            $values['Servers/1/auth_type'] = '';
+            $result['Servers/1/auth_type'] = __('Invalid authentication type!');
+            $error = true;
+        }
         if ($values['Servers/1/auth_type'] == 'config'
             && empty($values['Servers/1/user'])
         ) {
@@ -337,14 +343,14 @@ class PMA_Validator
         }
 
         if (! $error && $values['Servers/1/auth_type'] == 'config') {
-            $password = $values['Servers/1/nopassword'] ? null
-                : $values['Servers/1/password'];
+            $password = !empty($values['Servers/1/nopassword']) && $values['Servers/1/nopassword'] ? null
+                : (empty($values['Servers/1/password']) ? '' : $values['Servers/1/password']);
             $test = static::testDBConnection(
-                $values['Servers/1/connect_type'],
-                $values['Servers/1/host'],
-                $values['Servers/1/port'],
-                $values['Servers/1/socket'],
-                $values['Servers/1/user'],
+                empty($values['Servers/1/connect_type']) ? '' : $values['Servers/1/connect_type'],
+                empty($values['Servers/1/host']) ? '' : $values['Servers/1/host'],
+                empty($values['Servers/1/port']) ? '' : $values['Servers/1/port'],
+                empty($values['Servers/1/socket']) ? '' : $values['Servers/1/socket'],
+                empty($values['Servers/1/user']) ? '' : $values['Servers/1/user'],
                 $password,
                 'Server'
             );
@@ -374,27 +380,30 @@ class PMA_Validator
         );
         $error = false;
 
-        if ($values['Servers/1/pmadb'] == '') {
+        if (empty($values['Servers/1/pmadb'])) {
             return $result;
         }
 
         $result = array();
-        if ($values['Servers/1/controluser'] == '') {
+        if (empty($values['Servers/1/controluser'])) {
             $result['Servers/1/controluser']
                 = __('Empty phpMyAdmin control user while using phpMyAdmin configuration storage!');
             $error = true;
         }
-        if ($values['Servers/1/controlpass'] == '') {
+        if (empty($values['Servers/1/controlpass'])) {
             $result['Servers/1/controlpass']
                 = __('Empty phpMyAdmin control user password while using phpMyAdmin configuration storage!');
             $error = true;
         }
         if (! $error) {
             $test = static::testDBConnection(
-                $values['Servers/1/connect_type'],
-                $values['Servers/1/host'], $values['Servers/1/port'],
-                $values['Servers/1/socket'], $values['Servers/1/controluser'],
-                $values['Servers/1/controlpass'], 'Server_pmadb'
+                empty($values['Servers/1/connect_type']) ? '' : $values['Servers/1/connect_type'],
+                empty($values['Servers/1/host']) ? '' : $values['Servers/1/host'],
+                empty($values['Servers/1/port']) ? '' : $values['Servers/1/port'],
+                empty($values['Servers/1/socket']) ? '' : $values['Servers/1/socket'],
+                empty($values['Servers/1/controluser']) ? '' : $values['Servers/1/controluser'],
+                empty($values['Servers/1/controlpass']) ? '' : $values['Servers/1/controlpass'],
+                'Server_pmadb'
             );
             if ($test !== true) {
                 $result = array_merge($result, $test);
@@ -416,7 +425,7 @@ class PMA_Validator
     {
         $result = array($path => '');
 
-        if ($values[$path] == '') {
+        if (empty($values[$path])) {
             return $result;
         }
 
@@ -425,7 +434,7 @@ class PMA_Validator
         $matches = array();
         // in libraries/List_Database.class.php _checkHideDatabase(),
         // a '/' is used as the delimiter for hide_db
-        preg_match('/' . $values[$path] . '/', '', $matches);
+        preg_match('/' . PMA_Util::requestString($values[$path]) . '/', '', $matches);
 
         static::testPHPErrorMsg(false);
 
@@ -453,10 +462,11 @@ class PMA_Validator
             return $result;
         }
 
-        if (is_array($values[$path])) {
+        if (is_array($values[$path]) || is_object($values[$path])) {
             // value already processed by FormDisplay::save
             $lines = array();
             foreach ($values[$path] as $ip => $v) {
+                $v = PMA_Util::requestString($v);
                 $lines[] = preg_match('/^-\d+$/', $ip)
                     ? $v
                     : $ip . ': ' . $v;
@@ -508,14 +518,16 @@ class PMA_Validator
         $max_value,
         $error_string
     ) {
-        if ($values[$path] === '') {
+        if (empty($values[$path])) {
             return '';
         }
 
-        if (intval($values[$path]) != $values[$path]
-            || (! $allow_neg && $values[$path] < 0)
-            || (! $allow_zero && $values[$path] == 0)
-            || $values[$path] > $max_value
+        $value = PMA_Util::requestString($values[$path]);
+
+        if (intval($value) != $value
+            || (! $allow_neg && $value < 0)
+            || (! $allow_zero && $value == 0)
+            || $value > $max_value
         ) {
             return $error_string;
         }
@@ -601,7 +613,10 @@ class PMA_Validator
      */
     public static function validateByRegex($path, $values, $regex)
     {
-        $result = preg_match($regex, $values[$path]);
+        if (!isset($values[$path])) {
+            return '';
+        }
+        $result = preg_match($regex, PMA_Util::requestString($values[$path]));
         return array($path => ($result ? '' : __('Incorrect value!')));
     }
 
