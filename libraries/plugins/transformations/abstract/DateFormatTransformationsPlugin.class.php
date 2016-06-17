@@ -12,6 +12,7 @@ if (! defined('PHPMYADMIN')) {
 
 /* Get the transformations interface */
 require_once 'libraries/plugins/TransformationsPlugin.class.php';
+require_once 'libraries/js_escape.lib.php';
 
 /**
  * Provides common methods for all of the date format transformations plugins.
@@ -139,11 +140,11 @@ abstract class DateFormatTransformationsPlugin extends TransformationsPlugin
             } else {
                 $text = 'INVALID DATE TYPE';
             }
-            $buffer = '<dfn onclick="alert(\'' . $source . '\');" title="'
-                . $source . '">' . $text . '</dfn>';
+            return '<dfn onclick="alert(\'' . PMA_jsFormat($source, false) . '\');" title="'
+                . htmlspecialchars($source) . '">' . htmlspecialchars($text) . '</dfn>';
+        } else {
+            return htmlspecialchars($buffer);
         }
-
-        return $buffer;
     }
 
     /**

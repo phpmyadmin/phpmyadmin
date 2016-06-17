@@ -47,28 +47,18 @@ abstract class InlineTransformationsPlugin extends TransformationsPlugin
     public function applyTransformation($buffer, $options = array(), $meta = '')
     {
         if (PMA_IS_GD2) {
-            $transform_options = array (
-                'string' => '<a href="transformation_wrapper.php'
-                    . $options['wrapper_link']
-                    . '" target="_blank"><img src="transformation_wrapper.php'
-                    . $options['wrapper_link'] . '&amp;resize=jpeg&amp;newWidth='
-                    . (isset($options[0]) ? $options[0] : '100') . '&amp;newHeight='
-                    . (isset($options[1]) ? $options[1] : 100)
-                    . '" alt="[__BUFFER__]" border="0" /></a>'
-            );
-        } else {
-            $transform_options = array (
-                'string' => '<img src="transformation_wrapper.php'
+            return '<a href="transformation_wrapper.php'
                 . $options['wrapper_link']
-                . '" alt="[__BUFFER__]" width="320" height="240" />'
-            );
+                . '" target="_blank"><img src="transformation_wrapper.php'
+                . $options['wrapper_link'] . '&amp;resize=jpeg&amp;newWidth='
+                . (isset($options[0]) ? $options[0] : '100') . '&amp;newHeight='
+                . (isset($options[1]) ? $options[1] : 100)
+                . '" alt="' . htmlspecialchars($buffer) . '" border="0" /></a>';
+        } else {
+            return '<img src="transformation_wrapper.php'
+                . $options['wrapper_link']
+                . '" alt="' . htmlspecialchars($buffer) . '" width="320" height="240" />';
         }
-        $buffer = PMA_transformation_global_html_replace(
-            $buffer,
-            $transform_options
-        );
-
-        return $buffer;
     }
 
     /**

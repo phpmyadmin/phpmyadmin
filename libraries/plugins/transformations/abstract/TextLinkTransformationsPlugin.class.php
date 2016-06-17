@@ -12,8 +12,6 @@ if (! defined('PHPMYADMIN')) {
 
 /* Get the transformations interface */
 require_once 'libraries/plugins/TransformationsPlugin.class.php';
-/* For PMA_transformation_global_html_replace */
-require_once 'libraries/transformations.lib.php';
 
 /**
  * Provides common methods for all of the link transformations plugins.
@@ -50,22 +48,14 @@ abstract class TextLinkTransformationsPlugin extends TransformationsPlugin
 
         $append_part = (isset($options[2]) && $options[2]) ? '' : $buffer;
 
-        $transform_options = array (
-            'string' => '<a href="'
-                . PMA_linkURL((isset($options[0]) ? $options[0] : '') . $append_part)
-                . '" title="'
-                . htmlspecialchars(isset($options[1]) ? $options[1] : '')
-                . '" target="_new">'
-                . htmlspecialchars(isset($options[1]) ? $options[1] : $buffer)
-                . '</a>'
-        );
-
-        $buffer = PMA_transformation_global_html_replace(
-            $buffer,
-            $transform_options
-        );
-
-        return $buffer;
+        return '<a href="'
+            . PMA_linkURL(htmlspecialchars(isset($options[0]) ? $options[0] : '')
+            . htmlspecialchars($append_part))
+            . '" title="'
+            . htmlspecialchars(isset($options[1]) ? $options[1] : '')
+            . '" target="_new">'
+            . htmlspecialchars(isset($options[1]) ? $options[1] : $buffer)
+            . '</a>';
     }
 
     /**
