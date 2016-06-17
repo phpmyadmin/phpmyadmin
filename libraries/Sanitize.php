@@ -221,13 +221,11 @@ class Sanitize
      */
     public static function jsFormat($a_string = '', $add_backquotes = true)
     {
-        if (is_string($a_string)) {
-            $a_string = htmlspecialchars($a_string);
-            $a_string = Sanitize::escapeJsString($a_string);
-            // Needed for inline javascript to prevent some browsers
-            // treating it as a anchor
-            $a_string = str_replace('#', '\\#', $a_string);
-        }
+        $a_string = htmlspecialchars($a_string);
+        $a_string = Sanitize::escapeJsString($a_string);
+        // Needed for inline javascript to prevent some browsers
+        // treating it as a anchor
+        $a_string = str_replace('#', '\\#', $a_string);
 
         return $add_backquotes
             ? Util::backquote($a_string)
