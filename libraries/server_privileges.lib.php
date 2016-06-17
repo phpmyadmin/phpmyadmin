@@ -988,18 +988,7 @@ function PMA_getHtmlForRoutineSpecificPrivilges(
         . " AND `Routine_name` LIKE '" . Util::sqlAddSlashes($routine) . "';";
     $res = $GLOBALS['dbi']->fetchValue($sql);
 
-    $privs = array(
-        'Alter_routine_priv' => 'N',
-        'Execute_priv'       => 'N',
-        'Grant_priv'         => 'N',
-    );
-    foreach (explode(',', $res) as $priv) {
-        if ($priv == 'Alter Routine') {
-            $privs['Alter_routine_priv'] = 'Y';
-        } else {
-            $privs[$priv . '_priv'] = 'Y';
-        }
-    }
+    $privs = PMA_parseProcPriv($res);
 
     $routineArray   = array(PMA_getTriggerPrivilegeTable());
     $privTableNames = array(__('Routine'));
@@ -3333,6 +3322,30 @@ function PMA_getUserSpecificRights($username, $hostname, $type, $dbname = '')
 }
 
 /**
+ * Parses Proc_priv data
+ *
+ * @param string $prins Proc_priv
+ *
+ * @return array
+ */
+function PMA_parseProcPriv($privs)
+{
+    $result = array(
+        'Alter_routine_priv' => 'N',
+        'Execute_priv'       => 'N',
+        'Grant_priv'         => 'N',
+    );
+    foreach (explode(',', $privs) as $priv) {
+        if ($priv == 'Alter Routine') {
+            $result['Alter_routine_priv'] = 'Y';
+        } else {
+            $result[$priv . '_priv'] = 'Y';
+        }
+    }
+    return $result;
+}
+
+/**
  * Get a HTML table for display user's tabel specific or database specific rights
  *
  * @param string $username username
@@ -3409,18 +3422,7 @@ function PMA_getHtmlForAllTableSpecificRights(
                 explode(',', $row['Proc_priv'])
             );
 
-            $privs = array(
-                'Alter_routine_priv' => 'N',
-                'Execute_priv'       => 'N',
-                'Grant_priv'         => 'N',
-            );
-            foreach (explode(',', $row['Proc_priv']) as $priv) {
-                if ($priv == 'Alter Routine') {
-                    $privs['Alter_routine_priv'] = 'Y';
-                } else {
-                    $privs[$priv . '_priv'] = 'Y';
-                }
-            }
+            $privs = PMA_parseProcPriv($row['Proc_priv']);
             $onePrivilege['privileges'] = join(
                 ',',
                 PMA_extractPrivInfo($privs, true)
