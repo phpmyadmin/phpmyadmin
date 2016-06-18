@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-05-23 14:30+0200\n"
-"PO-Revision-Date: 2016-05-31 13:48+0000\n"
-"Last-Translator: Charles Kane <kaneawk@gmail.com>\n"
+"PO-Revision-Date: 2016-06-18 09:31+0000\n"
+"Last-Translator: uncle_cat <jdhao@hotmail.com>\n"
 "Language-Team: Chinese (China) "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/zh_CN/>\n"
 "Language: zh_CN\n"
@@ -2445,6 +2445,7 @@ msgid "Time taken:"
 msgstr "用时："
 
 #: js/messages.php:712
+#, fuzzy
 msgid ""
 "There was a problem accessing your browser storage, some features may not "
 "work properly for you. It is likely that the browser doesn't support storage "
@@ -2452,6 +2453,9 @@ msgid ""
 "cause such a problem, clearing your \"Offline Website Data\" might help. In "
 "Safari, such problem is commonly caused by \"Private Mode Browsing\"."
 msgstr ""
+"查看你的浏览器保存数据时出现错误，因此一些功能可能不能正常工作。造成这个问题的原因可能是你的浏览器不支持保存数据或者浏览器能够保存的数据达到极限。另外对于"
+"Firefox浏览器，这个问题可能是由于浏览器存储数据被损坏导致，清理浏览器的“离线网站数据”可能会解决这个问题。对于Safari浏览器，这个问题通常是由"
+"于“隐私浏览模式”导致的。"
 
 #: js/messages.php:714
 msgid "Copy tables to"
@@ -2949,7 +2953,7 @@ msgstr "朝鲜语"
 
 #: libraries/Charsets.php:313
 msgid "Burmese"
-msgstr ""
+msgstr "缅甸语"
 
 #: libraries/Charsets.php:316
 msgid "Persian"
@@ -3069,16 +3073,14 @@ msgid "binary collation"
 msgstr "排序规则"
 
 #: libraries/Charsets.php:467
-#, fuzzy
 #| msgid "case-insensitive"
 msgid "case-insensitive collation"
-msgstr "不区分大小写"
+msgstr "不区分大小写的排序"
 
 #: libraries/Charsets.php:469
-#, fuzzy
 #| msgid "case-sensitive"
 msgid "case-sensitive collation"
-msgstr "区分大小写"
+msgstr "区分大小写的排序"
 
 #: libraries/Config.php:1155
 #, php-format
@@ -5297,8 +5299,7 @@ msgstr "高亮指针"
 #| "Enable [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] compression for "
 #| "import operations."
 msgid "Enable bzip2 compression for import operations."
-msgstr ""
-"允许在导入和导出时使用 [a@http://zh.wikipedia.org/wiki/Bzip2]bzip2[/a] 压缩。"
+msgstr "允许在导入的时候使用bzip2进行压缩"
 
 #: libraries/config/messages.inc.php:50
 msgid "Bzip2"
@@ -6496,10 +6497,9 @@ msgid "Show row links anyway"
 msgstr "始终显示行链接"
 
 #: libraries/config/messages.inc.php:552 libraries/config/messages.inc.php:553
-#, fuzzy
 #| msgid "Disable foreign key checks"
 msgid "Disable shortcut keys"
-msgstr "禁止外键约束"
+msgstr "禁止快捷键"
 
 #: libraries/config/messages.inc.php:555
 msgid "Use natural order for sorting table and database names."
