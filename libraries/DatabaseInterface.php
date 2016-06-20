@@ -1409,14 +1409,16 @@ class DatabaseInterface
             );
         }
 
-        /* Locale for messages */
-        $locale = LanguageManager::getInstance()->getCurrentLanguage()->getMySQLLocale();
-        if (! empty($locale)) {
-            $this->query(
-                "SET lc_messages = '" . $locale . "';",
-                $link,
-                self::QUERY_STORE
-            );
+        if (PMA_MYSQL_INT_VERSION >  50503) {
+            /* Locale for messages */
+            $locale = LanguageManager::getInstance()->getCurrentLanguage()->getMySQLLocale();
+            if (! empty($locale)) {
+                $this->query(
+                    "SET lc_messages = '" . $locale . "';",
+                    $link,
+                    self::QUERY_STORE
+                );
+            }
         }
     }
 
