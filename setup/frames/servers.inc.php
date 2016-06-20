@@ -21,7 +21,7 @@ require_once './setup/lib/form_processing.lib.php';
 require './libraries/config/setup.forms.php';
 
 $mode = isset($_GET['mode']) ? $_GET['mode'] : null;
-$id = PMA_isValid($_GET['id'], 'numeric') ? $_GET['id'] : null;
+$id = PMA_isValid($_GET['id'], 'numeric') ? intval($_GET['id']) : null;
 
 /** @var ConfigFile $cf */
 $cf = $GLOBALS['ConfigFile'];

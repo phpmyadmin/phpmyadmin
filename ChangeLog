@@ -13,6 +13,7 @@ phpMyAdmin - ChangeLog
 - issue #12317 Fix editing server variables
 - issue #12303 Fix table size calculation in some circumstances
 - issue #12310 Fix listing routines for non privileged user
+- issue        Escape generated query in exporting a database
 - issue        Setup script did not properly use input type password for some input types
 
 4.6.2 (2016-05-25)
