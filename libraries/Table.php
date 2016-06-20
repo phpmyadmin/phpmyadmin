@@ -218,52 +218,6 @@ class Table
     }
 
     /**
-     * Returns the analysis of 'SHOW CREATE TABLE' query for the table.
-     * In case of a view, the values are taken from the information_schema.
-     *
-     * @return array analysis of 'SHOW CREATE TABLE' query for the table
-     */
-    public function analyzeStructure()
-    {
-        if (empty($this->_db_name) || empty($this->_name)) {
-            return false;
-        }
-
-        $analyzed_sql = array();
-        if ($this->isView()) {
-            // For a view, 'SHOW CREATE TABLE' returns the definition,
-            // but the structure of the view. So, we try to mock
-            // the result of analyzing 'SHOW CREATE TABLE' query.
-            $analyzed_sql[0] = array();
-            $analyzed_sql[0]['create_table_fields'] = array();
-
-            $results = $this->_dbi->fetchResult(
-                "SELECT COLUMN_NAME, DATA_TYPE
-                FROM information_schema.COLUMNS
-                WHERE TABLE_SCHEMA = '" . Util::sqlAddSlashes($this->_db_name)
-                . " AND TABLE_NAME = '" . Util::sqlAddSlashes($this->_name) . "'"
-            );
-
-            foreach ($results as $result) {
-                $analyzed_sql[0]['create_table_fields'][$result['COLUMN_NAME']]
-                    = array(
-                        'type' => mb_strtoupper($result['DATA_TYPE'])
-                    );
-            }
-        } else {
-            $show_create_table = $this->_dbi->fetchValue(
-                'SHOW CREATE TABLE '
-                . Util::backquote($this->_db_name)
-                . '.' . Util::backquote($this->_name),
-                0,
-                1
-            );
-            $analyzed_sql = PMA_SQP_analyze(PMA_SQP_parse($show_create_table));
-        }
-        return $analyzed_sql;
-    }
-
-    /**
      * Checks if this is a merge table
      *
      * If the ENGINE of the table is MERGE or MRG_MYISAM (alias),
