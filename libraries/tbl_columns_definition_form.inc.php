@@ -692,7 +692,7 @@ for ($i = 0; $i < $num_fields; $i++) {
                     && isset($mime_map[$row['Field']]['transformation'])
                     && preg_match(
                         '@' . preg_quote(
-                            $available_mime['transformation_file'][$mimekey]
+                            $available_mime['transformation_file'][$mimekey], '@'
                         ) . '3?@i',
                         $mime_map[$row['Field']]['transformation']
                     )
