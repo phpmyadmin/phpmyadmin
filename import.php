@@ -115,7 +115,7 @@ if (! empty($sql_query)) {
     ) {
         $parameters = $_REQUEST['parameters'];
         foreach ($parameters as $parameter => $replacement) {
-            $quoted = preg_quote($parameter);
+            $quoted = preg_quote($parameter, '/');
             // making sure that :param does not apply values to :param1
             $sql_query = preg_replace(
                 '/' . $quoted . '([^a-zA-Z0-9_])/',
