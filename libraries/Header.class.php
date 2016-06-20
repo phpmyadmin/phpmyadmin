@@ -548,7 +548,7 @@ class PMA_Header
     private function _getMetaTags()
     {
         $retval  = '<meta charset="utf-8" />';
-        $retval .= '<meta name="referrer" content="none" />';
+        $retval .= '<meta name="referrer" content="no-referrer" />';
         $retval .= '<meta name="robots" content="noindex,nofollow" />';
         $retval .= '<meta http-equiv="X-UA-Compatible" content="IE=Edge">';
         if (! $GLOBALS['cfg']['AllowThirdPartyFraming']) {
