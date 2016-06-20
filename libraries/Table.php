@@ -76,7 +76,7 @@ class Table
      * @param string            $db_name    database name
      * @param DatabaseInterface $dbi        database interface for the table
      */
-    function __construct($table_name, $db_name, DatabaseInterface $dbi = null)
+    public function __construct($table_name, $db_name, DatabaseInterface $dbi = null)
     {
         if (empty($dbi)) {
             $dbi = $GLOBALS['dbi'];
@@ -92,7 +92,7 @@ class Table
      * @see Table::getName()
      * @return string  table name
      */
-    function __toString()
+    public function __toString()
     {
         return $this->getName();
     }
@@ -102,7 +102,7 @@ class Table
      *
      * @return string the last error
      */
-    function getLastError()
+    public function getLastError()
     {
         return end($this->errors);
     }
@@ -112,7 +112,7 @@ class Table
      *
      * @return string the last message
      */
-    function getLastMessage()
+    public function getLastMessage()
     {
         return end($this->messages);
     }
@@ -124,7 +124,7 @@ class Table
      *
      * @return string  table name
      */
-    function getName($backquoted = false)
+    public function getName($backquoted = false)
     {
         if ($backquoted) {
             return Util::backquote($this->_name);
@@ -139,7 +139,7 @@ class Table
      *
      * @return string  database name for this table
      */
-    function getDbName($backquoted = false)
+    public function getDbName($backquoted = false)
     {
         if ($backquoted) {
             return Util::backquote($this->_db_name);
@@ -154,7 +154,7 @@ class Table
      *
      * @return string
      */
-    function getFullName($backquoted = false)
+    public function getFullName($backquoted = false)
     {
         return $this->getDbName($backquoted) . '.'
         . $this->getName($backquoted);
@@ -215,52 +215,6 @@ class Table
                 AND IS_UPDATABLE = 'YES'"
         );
         return $result ? true : false;
-    }
-
-    /**
-     * Returns the analysis of 'SHOW CREATE TABLE' query for the table.
-     * In case of a view, the values are taken from the information_schema.
-     *
-     * @return array analysis of 'SHOW CREATE TABLE' query for the table
-     */
-    public function analyzeStructure()
-    {
-        if (empty($this->_db_name) || empty($this->_name)) {
-            return false;
-        }
-
-        $analyzed_sql = array();
-        if ($this->isView()) {
-            // For a view, 'SHOW CREATE TABLE' returns the definition,
-            // but the structure of the view. So, we try to mock
-            // the result of analyzing 'SHOW CREATE TABLE' query.
-            $analyzed_sql[0] = array();
-            $analyzed_sql[0]['create_table_fields'] = array();
-
-            $results = $this->_dbi->fetchResult(
-                "SELECT COLUMN_NAME, DATA_TYPE
-                FROM information_schema.COLUMNS
-                WHERE TABLE_SCHEMA = '" . Util::sqlAddSlashes($this->_db_name)
-                . " AND TABLE_NAME = '" . Util::sqlAddSlashes($this->_name) . "'"
-            );
-
-            foreach ($results as $result) {
-                $analyzed_sql[0]['create_table_fields'][$result['COLUMN_NAME']]
-                    = array(
-                        'type' => mb_strtoupper($result['DATA_TYPE'])
-                    );
-            }
-        } else {
-            $show_create_table = $this->_dbi->fetchValue(
-                'SHOW CREATE TABLE '
-                . Util::backquote($this->_db_name)
-                . '.' . Util::backquote($this->_name),
-                0,
-                1
-            );
-            $analyzed_sql = PMA_SQP_analyze(PMA_SQP_parse($show_create_table));
-        }
-        return $analyzed_sql;
     }
 
     /**
@@ -627,7 +581,7 @@ class Table
      *
      * @global relation variable
      *
-     * @return int|true
+     * @return int|boolean
      */
     static public function duplicateInfo($work, $pma_table, $get_fields,
         $where_fields, $new_fields
@@ -1260,7 +1214,7 @@ class Table
      *
      * @return bool success
      */
-    function rename($new_name, $new_db = null)
+    public function rename($new_name, $new_db = null)
     {
         $lowerCaseTableNames = Util::cacheGet(
             'lower_case_table_names',
@@ -1407,6 +1361,30 @@ class Table
     }
 
     /**
+     * Formats lists of columns
+     *
+     * returns an array with all columns that make use of an index
+     *
+     * e.g. index(col1, col2) would return col1, col2
+     *
+     * @param array $indexed    column data
+     * @param bool  $backquoted whether to quote name with backticks ``
+     * @param bool  $fullName   whether to include full name of the table as a prefix
+     *
+     * @return array
+     */
+    private function _formatColumns($indexed, $backquoted, $fullName)
+    {
+        $return = array();
+        foreach ($indexed as $column) {
+            $return[] = ($fullName ? $this->getFullName($backquoted) . '.' : '')
+                . ($backquoted ? Util::backquote($column) : $column);
+        }
+
+        return $return;
+    }
+
+    /**
      * Get all indexed columns
      *
      * returns an array with all columns that make use of an index
@@ -1427,13 +1405,7 @@ class Table
         );
         $indexed = $this->_dbi->fetchResult($sql, 'Column_name', 'Column_name');
 
-        $return = array();
-        foreach ($indexed as $column) {
-            $return[] = ($fullName ? $this->getFullName($backquoted) . '.' : '')
-                . ($backquoted ? Util::backquote($column) : $column);
-        }
-
-        return $return;
+        return $this->_formatColumns($indexed, $backquoted, $fullName);
     }
 
     /**
@@ -1451,13 +1423,7 @@ class Table
         $sql = 'SHOW COLUMNS FROM ' . $this->getFullName(true);
         $indexed = $this->_dbi->fetchResult($sql, 'Field', 'Field');
 
-        $return = array();
-        foreach ($indexed as $column) {
-            $return[] = ($fullName ? $this->getFullName($backquoted) . '.' : '')
-                . ($backquoted ? Util::backquote($column) : $column);
-        }
-
-        return $return;
+        return $this->_formatColumns($indexed, $backquoted, $fullName);
     }
 
     /**
@@ -2383,7 +2349,7 @@ class Table
      *
      * @return number
      */
-    function getRealRowCountTable()
+    public function getRealRowCountTable()
     {
         // SQL query to get row count for a table.
         $result = $this->_dbi->fetchSingleRow(
@@ -2404,7 +2370,7 @@ class Table
      *
      * @return array an array of columns
      */
-    function getColumnsWithIndex($types)
+    public function getColumnsWithIndex($types)
     {
         $columns_with_index = array();
         foreach (
