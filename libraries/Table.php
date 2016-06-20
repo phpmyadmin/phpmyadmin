@@ -581,7 +581,7 @@ class Table
      *
      * @global relation variable
      *
-     * @return int|true
+     * @return int|boolean
      */
     static public function duplicateInfo($work, $pma_table, $get_fields,
         $where_fields, $new_fields
