@@ -1252,7 +1252,7 @@ class ExportSql extends ExportPlugin
              */
             if ($view) {
                 $create_query = preg_replace(
-                    '/' . preg_quote(PMA_Util::backquote($db)) . '\./',
+                    '/' . preg_quote(PMA_Util::backquote($db), '/') . '\./',
                     '',
                     $create_query
                 );

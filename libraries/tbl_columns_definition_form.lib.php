@@ -792,7 +792,7 @@ function PMA_getHtmlForTransformation($columnNumber, $ci, $ci_offset,
                 && isset($mime_map[$columnMeta['Field']][$type])
                 && preg_match(
                     '@' . preg_quote(
-                        $available_mime[$type . '_file'][$mimekey]
+                        $available_mime[$type . '_file'][$mimekey], '@'
                     ) . '3?@i',
                     $mime_map[$columnMeta['Field']][$type]
                 )
