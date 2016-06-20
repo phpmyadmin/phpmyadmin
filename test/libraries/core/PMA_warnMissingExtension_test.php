@@ -59,7 +59,7 @@ class PMA_WarnMissingExtension_Test extends PHPUnit_Framework_TestCase
             . '" target="Documentation"><em>' . $ext
             . '</em></a> extension is missing. Please check your PHP configuration.';
 
-        $this->expectOutputRegex('@' . preg_quote($warn) . '@');
+        $this->expectOutputRegex('@' . preg_quote($warn, '@') . '@');
 
         PMA_warnMissingExtension($ext, true);
     }

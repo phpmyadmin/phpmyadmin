@@ -903,7 +903,7 @@ class Tracker
 
                 // Cut off `dbname`. from query
                 $query = preg_replace(
-                    '/`' . preg_quote($dbname) . '`\s?\./',
+                    '/`' . preg_quote($dbname, '/') . '`\s?\./',
                     '',
                     $query
                 );
