@@ -1470,17 +1470,21 @@ class DbQbe
         // Of course we only want to check each table once
         $checked_tables = $candidate_columns;
         $tsize = array();
-        $csize = array();
+        $maxsize = -1;
+        $result = '';
         foreach ($candidate_columns as $table) {
             if ($checked_tables[$table] != 1) {
                 $_table = new Table($table, $this->_db);
                 $tsize[$table] = $_table->countRecords();
                 $checked_tables[$table] = 1;
             }
-            $csize[$table] = $tsize[$table];
+            if ($tsize[$table] > $maxsize) {
+                $maxsize = $tsize[$table];
+                $result = $table;
+            }
         }
         // Return largest table
-        return array_search(max($csize), $csize);
+        return $result;
     }
 
     /**
