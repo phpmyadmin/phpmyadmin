@@ -553,6 +553,7 @@ class Header
             . $captcha_url
             . $GLOBALS['cfg']['CSPAllow']
             . ";"
+            . "referrer no-referrer;"
             . "img-src 'self' data: "
             . $GLOBALS['cfg']['CSPAllow']
             . $map_tile_urls
@@ -564,6 +565,7 @@ class Header
             . $captcha_url
             . $GLOBALS['cfg']['CSPAllow'] . ';'
             . "options inline-script eval-script;"
+            . "referrer no-referrer;"
             . "img-src 'self' data: "
             . $GLOBALS['cfg']['CSPAllow']
             . $map_tile_urls
@@ -578,6 +580,7 @@ class Header
             . $captcha_url
             . $GLOBALS['cfg']['CSPAllow']
             . " 'unsafe-inline' 'unsafe-eval';"
+            . "referrer no-referrer;"
             . "style-src 'self' 'unsafe-inline' "
             . $captcha_url
             . ';'
