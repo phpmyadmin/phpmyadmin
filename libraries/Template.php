@@ -143,11 +143,11 @@ class Template
         $template = static::BASE_PATH . $this->name . '.phtml';
         try {
             $this->set($data);
-            extract($this->data);
             $this->helperFunctions = array_merge(
                 $this->helperFunctions,
                 $helperFunctions
             );
+            extract($this->data);
             ob_start();
             if (file_exists($template)) {
                 include $template;
