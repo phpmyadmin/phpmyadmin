@@ -469,6 +469,7 @@ class PMA_Header
                 "X-Content-Security-Policy: default-src 'self' "
                 . $GLOBALS['cfg']['CSPAllow'] . ';'
                 . "options inline-script eval-script;"
+                . "referrer no-referrer;"
                 . "img-src 'self' data: "
                 . $GLOBALS['cfg']['CSPAllow']
                 . ($https ? "" : $mapTilesUrls)
@@ -494,6 +495,7 @@ class PMA_Header
                     . $GLOBALS['cfg']['CSPAllow']
                     . " 'unsafe-inline' 'unsafe-eval';"
                     . "style-src 'self' 'unsafe-inline';"
+                    . "referrer no-referrer;"
                     . "img-src 'self' data: "
                     . $GLOBALS['cfg']['CSPAllow']
                     . ($https ? "" : $mapTilesUrls)
@@ -533,6 +535,7 @@ class PMA_Header
     private function _getMetaTags()
     {
         $retval  = '<meta charset="utf-8" />';
+        $retval .= '<meta name="referrer" content="none" />';
         $retval .= '<meta name="robots" content="noindex,nofollow" />';
         $retval .= '<meta http-equiv="X-UA-Compatible" content="IE=Edge">';
         if (! $GLOBALS['cfg']['AllowThirdPartyFraming']) {
