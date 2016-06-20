@@ -1361,6 +1361,30 @@ class Table
     }
 
     /**
+     * Formats lists of columns
+     *
+     * returns an array with all columns that make use of an index
+     *
+     * e.g. index(col1, col2) would return col1, col2
+     *
+     * @param array $indexed    column data
+     * @param bool  $backquoted whether to quote name with backticks ``
+     * @param bool  $fullName   whether to include full name of the table as a prefix
+     *
+     * @return array
+     */
+    private function _formatColumns($indexed, $backquoted, $fullName)
+    {
+        $return = array();
+        foreach ($indexed as $column) {
+            $return[] = ($fullName ? $this->getFullName($backquoted) . '.' : '')
+                . ($backquoted ? Util::backquote($column) : $column);
+        }
+
+        return $return;
+    }
+
+    /**
      * Get all indexed columns
      *
      * returns an array with all columns that make use of an index
@@ -1381,13 +1405,7 @@ class Table
         );
         $indexed = $this->_dbi->fetchResult($sql, 'Column_name', 'Column_name');
 
-        $return = array();
-        foreach ($indexed as $column) {
-            $return[] = ($fullName ? $this->getFullName($backquoted) . '.' : '')
-                . ($backquoted ? Util::backquote($column) : $column);
-        }
-
-        return $return;
+        return $this->_formatColumns($indexed, $backquoted, $fullName);
     }
 
     /**
@@ -1405,13 +1423,7 @@ class Table
         $sql = 'SHOW COLUMNS FROM ' . $this->getFullName(true);
         $indexed = $this->_dbi->fetchResult($sql, 'Field', 'Field');
 
-        $return = array();
-        foreach ($indexed as $column) {
-            $return[] = ($fullName ? $this->getFullName($backquoted) . '.' : '')
-                . ($backquoted ? Util::backquote($column) : $column);
-        }
-
-        return $return;
+        return $this->_formatColumns($indexed, $backquoted, $fullName);
     }
 
     /**
