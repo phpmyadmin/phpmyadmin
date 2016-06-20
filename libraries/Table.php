@@ -76,7 +76,7 @@ class Table
      * @param string            $db_name    database name
      * @param DatabaseInterface $dbi        database interface for the table
      */
-    function __construct($table_name, $db_name, DatabaseInterface $dbi = null)
+    public function __construct($table_name, $db_name, DatabaseInterface $dbi = null)
     {
         if (empty($dbi)) {
             $dbi = $GLOBALS['dbi'];
@@ -92,7 +92,7 @@ class Table
      * @see Table::getName()
      * @return string  table name
      */
-    function __toString()
+    public function __toString()
     {
         return $this->getName();
     }
@@ -102,7 +102,7 @@ class Table
      *
      * @return string the last error
      */
-    function getLastError()
+    public function getLastError()
     {
         return end($this->errors);
     }
@@ -112,7 +112,7 @@ class Table
      *
      * @return string the last message
      */
-    function getLastMessage()
+    public function getLastMessage()
     {
         return end($this->messages);
     }
@@ -124,7 +124,7 @@ class Table
      *
      * @return string  table name
      */
-    function getName($backquoted = false)
+    public function getName($backquoted = false)
     {
         if ($backquoted) {
             return Util::backquote($this->_name);
@@ -139,7 +139,7 @@ class Table
      *
      * @return string  database name for this table
      */
-    function getDbName($backquoted = false)
+    public function getDbName($backquoted = false)
     {
         if ($backquoted) {
             return Util::backquote($this->_db_name);
@@ -154,7 +154,7 @@ class Table
      *
      * @return string
      */
-    function getFullName($backquoted = false)
+    public function getFullName($backquoted = false)
     {
         return $this->getDbName($backquoted) . '.'
         . $this->getName($backquoted);
@@ -1260,7 +1260,7 @@ class Table
      *
      * @return bool success
      */
-    function rename($new_name, $new_db = null)
+    public function rename($new_name, $new_db = null)
     {
         $lowerCaseTableNames = Util::cacheGet(
             'lower_case_table_names',
@@ -2383,7 +2383,7 @@ class Table
      *
      * @return number
      */
-    function getRealRowCountTable()
+    public function getRealRowCountTable()
     {
         // SQL query to get row count for a table.
         $result = $this->_dbi->fetchSingleRow(
@@ -2404,7 +2404,7 @@ class Table
      *
      * @return array an array of columns
      */
-    function getColumnsWithIndex($types)
+    public function getColumnsWithIndex($types)
     {
         $columns_with_index = array();
         foreach (
