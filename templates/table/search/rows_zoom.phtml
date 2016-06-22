@@ -78,7 +78,7 @@ for ($i = 0; $i < 4; $i++): ?>
                    name="criteriaColumnTypes[<?= $i; ?>]"
                    id="types_<?= $i; ?>"
                 <?php if (isset($_POST['criteriaColumnTypes'][$i])): ?>
-                    value="<?= $_POST['criteriaColumnTypes'][$i]; ?>"
+                    value="<?= htmlspecialchars($_POST['criteriaColumnTypes'][$i]); ?>"
                 <?php endif; ?> />
             <input type="hidden"
                    name="criteriaColumnCollations[<?= $i; ?>]"
