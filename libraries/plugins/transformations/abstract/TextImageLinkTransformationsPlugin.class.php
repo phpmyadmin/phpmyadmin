@@ -45,9 +45,14 @@ abstract class TextImageLinkTransformationsPlugin extends TransformationsPlugin
      */
     public function applyTransformation($buffer, $options = array(), $meta = '')
     {
-        return '<a href="' . htmlspecialchars(isset($options[0]) ? $options[0] : '')
-            . htmlspecialchars($buffer) . '" target="_blank"><img src="'
-            . htmlspecialchars(isset($options[0]) ? $options[0] : '') . htmlspecialchars($buffer)
+        $url = (isset($options[0]) ? $options[0] : '') . $buffer;
+        $parsed = parse_url($url);
+        /* Do not allow javascript links */
+        if (isset($parsed['scheme']) && $parsed['scheme'] == 'javascript') {
+            return htmlspecialchars($url);
+        }
+        return '<a href="' . htmlspecialchars($url)
+            . '" target="_blank"><img src="' . htmlspecialchars($url)
             . '" border="0" width="' . (isset($options[1]) ? $options[1] : 100)
             . '" height="' . (isset($options[2]) ? $options[2] : 50) . '" />'
             . htmlspecialchars($buffer) . '</a>';
