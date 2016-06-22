@@ -3534,7 +3534,7 @@ AJAX.registerOnload('functions.js', function () {
         var result_pointer = i;
         var search_in = '<input type="text" class="filter_rows" placeholder="' + PMA_messages.searchList + '">';
         if (fields === '') {
-            fields = PMA_sprintf(PMA_messages.strEmptyCentralList, "'" + db + "'");
+            fields = PMA_sprintf(PMA_messages.strEmptyCentralList, "'" + escapeHtml(db) + "'");
             search_in = '';
         }
         var seeMore = '';
