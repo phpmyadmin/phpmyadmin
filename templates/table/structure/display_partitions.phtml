@@ -75,7 +75,7 @@ use PMA\libraries\URL; ?>
                             <span><?= $value; ?></span>
                             <span class="unit"><?= $unit; ?></span>
                         </td>
-                        <td><?= $partition->getComment(); ?></td>
+                        <td><?= htmlspecialchars($partition->getComment()); ?></td>
                         <?php foreach ($actionIcons as $action => $icon): ?>
                             <td>
                                 <a  href="tbl_structure.php<?= $url_query; ?>&amp;partition_maintenance=1&amp;sql_query=<?= urlencode(
