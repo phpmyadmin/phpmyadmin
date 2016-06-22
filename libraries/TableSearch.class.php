@@ -1089,7 +1089,7 @@ class PMA_TableSearch
                 .= '<input type="hidden" name="criteriaColumnTypes[' . $i . ']"'
                 . ' id="types_' . $i . '" ';
             if (isset($_POST['criteriaColumnTypes'][$i])) {
-                $html_output .= 'value="' . $_POST['criteriaColumnTypes'][$i] . '" ';
+                $html_output .= 'value="' . htmlspecialchars($_POST['criteriaColumnTypes'][$i]) . '" ';
             }
             $html_output .= '/>';
             $html_output .= '<input type="hidden" name="criteriaColumnCollations['
