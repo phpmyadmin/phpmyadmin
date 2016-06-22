@@ -546,6 +546,20 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
             $sql,
             $ret
         );
+
+        // SQL escaping
+        $db = "db' AND";
+        $table = "pma_table";
+        $ret = PMA_getSqlQueryForDisplayPrivTable(
+            $db, $table, $username, $hostname
+        );
+        $this->assertEquals(
+            "SELECT `Table_priv` FROM `mysql`.`tables_priv` "
+            . "WHERE `User` = 'pma_username' AND "
+            . "`Host` = 'pma_hostname' AND `Db` = 'db\' AND' AND "
+            . "`Table_name` = 'pma_table';",
+            $ret
+        );
     }
 
     /**
