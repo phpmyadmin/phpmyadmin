@@ -155,7 +155,9 @@ class SavedSearches
         $data['criteriaColumnCount'] = count($criterias['criteriaColumn']);
 
         foreach ($aListFieldsToGet as $field) {
-            $data[$field] = $criterias[$field];
+            if (isset($criterias[$field])) {
+                $data[$field] = $criterias[$field];
+            }
         }
 
         for ($i = 0; $i <= $data['rows']; $i++) {
