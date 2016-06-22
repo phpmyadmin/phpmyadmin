@@ -4,6 +4,12 @@ phpMyAdmin - ChangeLog
 4.0.10.16 (not yet released)
 - issue        [security] User SQL queries can be revealed through URL GET parameters, see PMASA-2016-14
 - issue        [security] Limit list of sites which can be passwd through url.php.
+- issue        [security] BBCode injection in setup script, see PMASA-2016-17
+- issue        [security] DOS attack vulnerability, see PMASA-2016-22
+- issue        [security] Multiple full path disclosure vulnerabilities, see PMASA-2016-26
+- issue        [security] XSS attack when checking database privileges, see PMASA-2016-21
+- issue        [security] XSS attack when MySQL server is using a specific payload log_bin directive, see PMASA-2016-26
+- issue        [security] XSS vulnerabilities in Transformation feature, PMASA-2016-28
 
 4.0.10.15 (2016-02-29)
 - issue        [security] Multiple XSS vulnerabilities, see PMASA-2016-11.
