@@ -499,14 +499,14 @@ function PMA_getSqlQueryForDisplayPrivTable($db, $table, $username, $hostname)
         return "SELECT * FROM `mysql`.`db`"
             . " WHERE `User` = '" . Util::sqlAddSlashes($username) . "'"
             . " AND `Host` = '" . Util::sqlAddSlashes($hostname) . "'"
-            . " AND '" . Util::unescapeMysqlWildcards($db) . "'"
+            . " AND '" . Util::sqlAddSlashes(Util::unescapeMysqlWildcards($db)) . "'"
             . " LIKE `Db`;";
     }
     return "SELECT `Table_priv`"
         . " FROM `mysql`.`tables_priv`"
         . " WHERE `User` = '" . Util::sqlAddSlashes($username) . "'"
         . " AND `Host` = '" . Util::sqlAddSlashes($hostname) . "'"
-        . " AND `Db` = '" . Util::unescapeMysqlWildcards($db) . "'"
+        . " AND `Db` = '" . Util::sqlAddSlashes(Util::unescapeMysqlWildcards($db)) . "'"
         . " AND `Table_name` = '" . Util::sqlAddSlashes($table) . "';";
 }
 
