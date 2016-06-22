@@ -46,11 +46,14 @@ abstract class TextLinkTransformationsPlugin extends TransformationsPlugin
      */
     public function applyTransformation($buffer, $options = array(), $meta = '')
     {
-        $append_part = (isset($options[2]) && $options[2]) ? '' : $buffer;
-
+        $url = (isset($options[0]) ? $options[0] : '') . ((isset($options[2]) && $options[2]) ? '' : $buffer);
+        $parsed = parse_url($url);
+        /* Do not allow javascript links */
+        if (isset($parsed['scheme']) && $parsed['scheme'] == 'javascript') {
+            return htmlspecialchars($url);
+        }
         return '<a href="'
-            . htmlspecialchars(isset($options[0]) ? $options[0] : '')
-            . htmlspecialchars($append_part)
+            . htmlspecialchars($url)
             . '" title="'
             . htmlspecialchars(isset($options[1]) ? $options[1] : '')
             . '" target="_new">'
