@@ -3679,7 +3679,7 @@ function PMA_getHtmlTableBodyForUserRights($db_rights)
             if ($cfgRelation['menuswork']) {
                 $html_output .= '<td class="usrGroup">' . "\n"
                     . (isset($group_assignment[$host['User']])
-                        ? $group_assignment[$host['User']]
+                        ? htmlspecialchars($group_assignment[$host['User']])
                         : ''
                     )
                     . '</td>' . "\n";
