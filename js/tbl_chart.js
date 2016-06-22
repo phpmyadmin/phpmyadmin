@@ -201,7 +201,7 @@ function drawChart() {
 
     var columnNames = [];
     $('select[name="chartXAxis"] option').each(function() {
-        columnNames.push($(this).text());
+        columnNames.push(escapeHtml($(this).text()));
     });
     try {
         currentChart = PMA_queryChart(chart_data, columnNames, currentSettings);
@@ -223,7 +223,7 @@ function extractDate(dateString) {
     var matches, match;
     var dateTimeRegExp = /[0-9]{4}-[0-9]{2}-[0-9]{2} [0-9]{2}:[0-9]{2}:[0-9]{2}/;
     var dateRegExp = /[0-9]{4}-[0-9]{2}-[0-9]{2}/;
-    
+
     matches = dateTimeRegExp.exec(dateString);
     if (matches != null && matches.length > 0) {
         match = matches[0];
