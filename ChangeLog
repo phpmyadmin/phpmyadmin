@@ -20,7 +20,9 @@ phpMyAdmin - ChangeLog
 - issue #12307 Produce valid JSON on export
 - issue #12325 Setup script icons broken
 
-4.6.3 (not yet released)
+4.6.4 (not yet released)
+
+4.6.3 (2016-06-23)
 - issue #12249 Fixed cookie path on Windows
 - issue #12279 Fixed error reporting on connect problems
 - issue #12290 Fixed export of tables without explicitly set engine
@@ -33,7 +35,20 @@ phpMyAdmin - ChangeLog
 - issue #12303 Fix table size calculation in some circumstances
 - issue #12310 Fix listing routines for non privileged user
 - issue        Escape generated query in exporting a database
-- issue        Setup script did not properly use input type password for some input types
+- issue        Setup script doesn't use input type 'password' in all relevant locations
+- issue        [security] BBCode injection in setup script, see PMASA-2016-17
+- issue        [security] Cookie attribute injection attack, see PMASA-2016-18
+- issue        Redirect loop when directly calling url.php
+- issue        [security] SQL injection attack, see PMASA-2016-19
+- issue        [security] XSS attack in Table Structure page, see PMASA-2016-20
+- issue        [security] XSS attack in Server Privileges page, see PMASA-2016-21
+- issue        [security] DOS attack vulnerability, see PMASA-2016-22
+- issue        [security] Multiple full path disclosure vulnerabilities, see PMASA-2016-23
+- issue        [security] Full path disclosure when running in debug mode
+- issue        [security] XSS attack with partition range and table structure, see PMASA-2016-25
+- issue        [security] XSS attack when checking database privileges, see PMASA-2016-26
+- issue        [security] XSS attack when MySQL server is using a specific payload log_bin directive, see PMASA-2016-26
+- issue        [security] XSS vulnerabilities in Transformation feature, see PMASA-2016-26
 
 4.6.2 (2016-05-25)
 - issue        [security] User SQL queries can be revealed through URL GET parameters, see PMASA-2016-14
