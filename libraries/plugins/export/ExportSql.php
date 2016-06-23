@@ -1506,7 +1506,7 @@ class ExportSql extends ExportPlugin
              */
             if ($view) {
                 $create_query = preg_replace(
-                    '/' . preg_quote(Util::backquote($db)) . '\./',
+                    '/' . preg_quote(Util::backquote($db), '/') . '\./',
                     '',
                     $create_query
                 );

@@ -787,8 +787,8 @@ $(document).ajaxError(function (event, request, settings) {
         PMA_ajaxShowMessage(
             '<div class="error">' +
             PMA_messages.strErrorProcessingRequest +
-            '<div>' + errorCode + '</div>' +
-            '<div>' + errorText + '</div>' +
+            '<div>' + escapeHtml(errorCode) + '</div>' +
+            '<div>' + escapeHtml(errorText) + '</div>' +
             '</div>',
             false
         );

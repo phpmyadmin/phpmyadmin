@@ -1397,11 +1397,7 @@ class Config
             return $cookie_path;
         }
 
-        if (isset($GLOBALS['PMA_PHP_SELF'])) {
-            $parsed_url = parse_url($GLOBALS['PMA_PHP_SELF']);
-        } else {
-            $parsed_url = parse_url(PMA_getenv('REQUEST_URI'));
-        }
+        $parsed_url = parse_url($GLOBALS['PMA_PHP_SELF']);
 
         $parts = explode(
             '/',

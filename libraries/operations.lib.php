@@ -585,26 +585,26 @@ function PMA_AdjustPrivileges_moveDB($oldDb, $newname)
 
         // For Db specific privileges
         $query_db_specific = 'UPDATE ' . Util::backquote('db')
-            . 'SET Db = "' . $newname
-            . '" where Db = "' . $oldDb . '";';
+            . 'SET Db = \'' . Util::sqlAddSlashes($newname)
+            . '\' where Db = \'' . Util::sqlAddSlashes($oldDb) . '\';';
         $GLOBALS['dbi']->query($query_db_specific);
 
         // For table specific privileges
         $query_table_specific = 'UPDATE ' . Util::backquote('tables_priv')
-            . 'SET Db = "' . $newname
-            . '" where Db = "' . $oldDb . '";';
+            . 'SET Db = \'' . Util::sqlAddSlashes($newname)
+            . '\' where Db = \'' . Util::sqlAddSlashes($oldDb) . '\';';
         $GLOBALS['dbi']->query($query_table_specific);
 
         // For column specific privileges
         $query_col_specific = 'UPDATE ' . Util::backquote('columns_priv')
-            . 'SET Db = "' . $newname
-            . '" where Db = "' . $oldDb . '";';
+            . 'SET Db = \'' . Util::sqlAddSlashes($newname)
+            . '\' where Db = \'' . Util::sqlAddSlashes($oldDb) . '\';';
         $GLOBALS['dbi']->query($query_col_specific);
 
         // For procedures specific privileges
         $query_proc_specific = 'UPDATE ' . Util::backquote('procs_priv')
-            . 'SET Db = "' . $newname
-            . '" where Db = "' . $oldDb . '";';
+            . 'SET Db = \'' . Util::sqlAddSlashes($newname)
+            . '\' where Db = \'' . Util::sqlAddSlashes($oldDb) . '\';';
         $GLOBALS['dbi']->query($query_proc_specific);
 
         // Finally FLUSH the new privileges
@@ -1941,16 +1941,16 @@ function PMA_AdjustPrivileges_renameOrMoveTable($oldDb, $oldTable, $newDb, $newT
 
         // For table specific privileges
         $query_table_specific = 'UPDATE ' . Util::backquote('tables_priv')
-            . 'SET Db = "' . $newDb . '", Table_name = "' . $newTable
-            . '" where Db = "' . $oldDb . '" AND Table_name = "' . $oldTable
-            . '";';
+            . 'SET Db = \'' . Util::sqlAddSlashes($newDb) . '\', Table_name = \'' . Util::sqlAddSlashes($newTable)
+            . '\' where Db = \'' . Util::sqlAddSlashes($oldDb) . '\' AND Table_name = \'' . Util::sqlAddSlashes($oldTable)
+            . '\';';
         $GLOBALS['dbi']->query($query_table_specific);
 
         // For column specific privileges
         $query_col_specific = 'UPDATE ' . Util::backquote('columns_priv')
-            . 'SET Db = "' . $newDb . '", Table_name = "' . $newTable
-            . '" where Db = "' . $oldDb . '" AND Table_name = "' . $oldTable
-            . '";';
+            . 'SET Db = \'' . Util::sqlAddSlashes($newDb) . '\', Table_name = \'' . Util::sqlAddSlashes($newTable)
+            . '\' where Db = \'' . Util::sqlAddSlashes($oldDb) . '\' AND Table_name = \'' . Util::sqlAddSlashes($oldTable)
+            . '\';';
         $GLOBALS['dbi']->query($query_col_specific);
 
         // Finally FLUSH the new privileges

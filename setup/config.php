@@ -15,6 +15,24 @@ require './lib/common.inc.php';
 
 require './libraries/config/setup.forms.php';
 
+/**
+ * Loads configuration file path
+ *
+ * Do this in a function to avoid messing up with global $cfg
+ *
+ * @param string $config_file_path
+ *
+ * @return array
+ */
+function loadConfig($config_file_path)
+{
+    $cfg = array();
+    if (file_exists($config_file_path)) {
+        include $config_file_path;
+    }
+    return $cfg;
+}
+
 $form_display = new FormDisplay($GLOBALS['ConfigFile']);
 $form_display->registerForm('_config.php', $forms['_config.php']);
 $form_display->save('_config.php');
@@ -44,20 +62,25 @@ if (PMA_ifSetOr($_POST['submit_clear'], '')) {
     //
     // Save generated config file on the server
     //
-    file_put_contents(
+    $result = @file_put_contents(
         $config_file_path,
         ConfigGenerator::getConfigFile($GLOBALS['ConfigFile'])
     );
+    if ($result === false) {
+        $state = 'config_not_saved';
+    } else {
+        $state = 'config_saved';
+    }
     header('HTTP/1.1 303 See Other');
-    header('Location: index.php' . PMA_URL_getCommon() . '&action_done=config_saved');
+    header('Location: index.php' . PMA_URL_getCommon() . '&action_done=' . $state);
     exit;
 } elseif (PMA_ifSetOr($_POST['submit_load'], '')) {
     //
     // Load config file from the server
     //
-    $cfg = array();
-    include $config_file_path;
-    $GLOBALS['ConfigFile']->setConfigData($cfg);
+    $GLOBALS['ConfigFile']->setConfigData(
+        loadConfig($config_file_path)
+    );
     header('HTTP/1.1 303 See Other');
     header('Location: index.php' . PMA_URL_getCommon());
     exit;

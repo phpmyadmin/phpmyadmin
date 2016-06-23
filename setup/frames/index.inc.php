@@ -76,21 +76,18 @@ if (!$is_https) {
         . 'sensitive information, like passwords) is transferred unencrypted!'
     );
 
-    if (!empty($_SERVER['REQUEST_URI']) && !empty($_SERVER['HTTP_HOST'])) {
-        $link = htmlspecialchars(
-            'https://' .  $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']
-        );
-        $text .= ' ';
-        $text .= PMA_sanitize(
-            sprintf(
-                __(
-                    'If your server is also configured to accept HTTPS requests '
-                    . 'follow [a@%s]this link[/a] to use a secure connection.'
-                ),
-                $link
-            )
-        );
-    }
+    $text .= ' <a href="#" onclick="window.location.href = \'https:\' + window.location.href.substring(window.location.protocol.length);">';
+
+    // Temporary workaround to use tranlated message in older releases
+    $text .= str_replace(
+        array('[a@%s]', '[/a]'),
+        array('', ''),
+        __(
+            'If your server is also configured to accept HTTPS requests '
+            . 'follow [a@%s]this link[/a] to use a secure connection.'
+        )
+    );
+    $text .= '</a>';
     PMA_messagesSet('notice', 'no_https', __('Insecure connection'), $text);
 }
 
@@ -125,6 +122,20 @@ case 'config_saved':
                 'Configuration saved to file config/config.inc.php in phpMyAdmin '
                 . 'top level directory, copy it to top level one and delete '
                 . 'directory config to use it.'
+            )
+        )
+    );
+    break;
+case 'config_not_saved':
+    /* Use uniqid to display this message every time configuration is saved */
+    PMA_messagesSet(
+        'notice', uniqid('config_not_saved'), __('Configuration not saved!'),
+        PMA_sanitize(
+            __(
+                'Please create web server writable folder [em]config[/em] in '
+                . 'phpMyAdmin top level directory as described in '
+                . '[doc@setup_script]documentation[/doc]. Otherwise you will be '
+                . 'only able to download or display it.'
             )
         )
     );
