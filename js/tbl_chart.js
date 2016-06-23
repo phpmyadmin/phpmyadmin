@@ -156,7 +156,7 @@ function drawChart() {
 
     var columnNames = [];
     $('select[name="chartXAxis"] option').each(function () {
-        columnNames.push($(this).text());
+        columnNames.push(escapeHtml($(this).text()));
     });
     try {
         currentChart = PMA_queryChart(chart_data, columnNames, currentSettings);

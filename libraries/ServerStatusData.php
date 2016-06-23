@@ -218,6 +218,7 @@ class ServerStatusData
         if (isset($server_status['Key_blocks_unused'])
             && isset($server_variables['key_cache_block_size'])
             && isset($server_variables['key_buffer_size'])
+            && $server_variables['key_buffer_size'] != 0
         ) {
             $server_status['Key_buffer_fraction_%']
                 = 100
@@ -227,6 +228,7 @@ class ServerStatusData
                 * 100;
         } elseif (isset($server_status['Key_blocks_used'])
             && isset($server_variables['key_buffer_size'])
+            && $server_variables['key_buffer_size'] != 0
         ) {
             $server_status['Key_buffer_fraction_%']
                 = $server_status['Key_blocks_used']

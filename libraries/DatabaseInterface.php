@@ -206,30 +206,9 @@ class DatabaseInterface
         // Get and slightly format backtrace, this is used
         // in the javascript console.
         // Strip call to _dbgQuery
-        $dbgInfo['trace'] = array_slice(debug_backtrace(), 1);
-        foreach ($dbgInfo['trace'] as $key => $step) {
-            if (isset($step['file'])) {
-                $dbgInfo['trace'][$key]['file'] = Error::relPath($step['file']);
-            }
-            // We don't need object value in console and it's too big
-            if (isset($step['object'])) {
-                unset($dbgInfo['trace'][$key]['object']);
-            }
-            // Convert args to string as that's what the client would do anyway
-            if (isset($step['args'])) {
-                $simplified = array();
-                foreach ($step['args'] as $akey => $aval) {
-                    if (is_object($aval)) {
-                        $simplified[$akey] = '<Class:' . get_class($aval) . '>';
-                    } elseif (is_array($aval)) {
-                        $simplified[$akey] = var_export($aval, true);
-                    } else {
-                        $simplified[$akey] = $aval;
-                    }
-                }
-                $dbgInfo['trace'][$key]['args'] = $simplified;
-            }
-        }
+        $dbgInfo['trace'] = Error::processBacktrace(
+            array_slice(debug_backtrace(), 1)
+        );
         $dbgInfo['hash'] = md5($query);
 
         $_SESSION['debug']['queries'][] = $dbgInfo;
@@ -2725,7 +2704,7 @@ class DatabaseInterface
      *
      * @param array|null $server host/port/socket/persistent
      *
-     * @return null|integer
+     * @return int
      */
     public function getServerPort($server = null)
     {
@@ -2733,11 +2712,7 @@ class DatabaseInterface
             $server = &$GLOBALS['cfg']['Server'];
         }
 
-        if (empty($server['port'])) {
-            return null;
-        } else {
-            return intval($server['port']);
-        }
+        return intval($server['port']);
     }
 
     /**

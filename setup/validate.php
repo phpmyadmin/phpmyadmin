@@ -26,6 +26,9 @@ if (!($values instanceof stdClass)) {
 $values = (array)$values;
 $result = PMA\libraries\config\Validator::validate($GLOBALS['ConfigFile'], $vids, $values, true);
 if ($result === false) {
-    $result = 'Wrong data or no validation for ' . $vids;
+    $result = sprintf(
+        __('Wrong data or no validation for %s'),
+        implode(',', $vids)
+    );
 }
 echo $result !== true ? json_encode($result) : '';

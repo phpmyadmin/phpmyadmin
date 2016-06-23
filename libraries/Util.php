@@ -1223,7 +1223,7 @@ class Util
                         . urlencode(self::_generateRowQueryOutput($sql_query));
                     $explain_link .= ' ['
                         . self::linkOrButton(
-                            'url.php?url=' . urlencode($url),
+                            htmlspecialchars('url.php?url=' . urlencode($url)),
                             sprintf(__('Analyze Explain at %s'), 'mariadb.org'),
                             array(),
                             true,
@@ -4996,6 +4996,21 @@ class Util
         }
 
         return $result;
+    }
+
+    /**
+     * Converts given (request) paramter to string
+     *
+     * @param mixed $value Value to convert
+     *
+     * @return string
+     */
+    public static function requestString($value)
+    {
+        while (is_array($value) || is_object($value)) {
+            $value = reset($value);
+        }
+        return trim((string)$value);
     }
 }
 

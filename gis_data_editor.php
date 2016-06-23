@@ -63,7 +63,7 @@ if (! isset($gis_data['gis_type'])) {
         $gis_data['gis_type'] = $gis_types[0];
     }
 }
-$geom_type = $gis_data['gis_type'];
+$geom_type = htmlspecialchars($gis_data['gis_type']);
 
 // Generate parameters from value passed.
 $gis_obj = GISFactory::factory($geom_type);
@@ -175,7 +175,7 @@ echo '<div id="gis_data">';
 $geom_count = 1;
 if ($geom_type == 'GEOMETRYCOLLECTION') {
     $geom_count = (isset($gis_data[$geom_type]['geom_count']))
-        ? $gis_data[$geom_type]['geom_count'] : 1;
+        ? intval($gis_data[$geom_type]['geom_count']) : 1;
     if (isset($gis_data[$geom_type]['add_geom'])) {
         $geom_count++;
     }
@@ -193,7 +193,7 @@ for ($a = 0; $a < $geom_count; $a++) {
         printf(__('Geometry %d:'), $a + 1);
         echo '<br/>';
         if (isset($gis_data[$a]['gis_type'])) {
-            $type = $gis_data[$a]['gis_type'];
+            $type = htmlspecialchars($gis_data[$a]['gis_type']);
         } else {
             $type = $gis_types[0];
         }
@@ -222,7 +222,7 @@ for ($a = 0; $a < $geom_count; $a++) {
 
     } elseif ($type == 'MULTIPOINT' || $type == 'LINESTRING') {
         $no_of_points = isset($gis_data[$a][$type]['no_of_points'])
-            ? $gis_data[$a][$type]['no_of_points'] : 1;
+            ? intval($gis_data[$a][$type]['no_of_points']) : 1;
         if ($type == 'LINESTRING' && $no_of_points < 2) {
             $no_of_points = 2;
         }
@@ -255,7 +255,7 @@ for ($a = 0; $a < $geom_count; $a++) {
 
     } elseif ($type == 'MULTILINESTRING' || $type == 'POLYGON') {
         $no_of_lines = isset($gis_data[$a][$type]['no_of_lines'])
-            ? $gis_data[$a][$type]['no_of_lines'] : 1;
+            ? intval($gis_data[$a][$type]['no_of_lines']) : 1;
         if ($no_of_lines < 1) {
             $no_of_lines = 1;
         }
@@ -278,7 +278,7 @@ for ($a = 0; $a < $geom_count; $a++) {
             }
 
             $no_of_points = isset($gis_data[$a][$type][$i]['no_of_points'])
-                ? $gis_data[$a][$type][$i]['no_of_points'] : 2;
+                ? intval($gis_data[$a][$type][$i]['no_of_points']) : 2;
             if ($type == 'MULTILINESTRING' && $no_of_points < 2) {
                 $no_of_points = 2;
             }
@@ -319,7 +319,7 @@ for ($a = 0; $a < $geom_count; $a++) {
 
     } elseif ($type == 'MULTIPOLYGON') {
         $no_of_polygons = isset($gis_data[$a][$type]['no_of_polygons'])
-            ? $gis_data[$a][$type]['no_of_polygons'] : 1;
+            ? intval($gis_data[$a][$type]['no_of_polygons']) : 1;
         if ($no_of_polygons < 1) {
             $no_of_polygons = 1;
         }
@@ -334,7 +334,7 @@ for ($a = 0; $a < $geom_count; $a++) {
             echo '<br/>';
             printf(__('Polygon %d:'), $k + 1);
             $no_of_lines = isset($gis_data[$a][$type][$k]['no_of_lines'])
-                ? $gis_data[$a][$type][$k]['no_of_lines'] : 1;
+                ? intval($gis_data[$a][$type][$k]['no_of_lines']) : 1;
             if ($no_of_lines < 1) {
                 $no_of_lines = 1;
             }
@@ -354,7 +354,7 @@ for ($a = 0; $a < $geom_count; $a++) {
                 }
 
                 $no_of_points = isset($gis_data[$a][$type][$k][$i]['no_of_points'])
-                    ? $gis_data[$a][$type][$k][$i]['no_of_points'] : 4;
+                    ? intval($gis_data[$a][$type][$k][$i]['no_of_points']) : 4;
                 if ($no_of_points < 4) {
                     $no_of_points = 4;
                 }
@@ -419,7 +419,7 @@ echo __(
 );
 echo '</p>';
 echo '<textarea id="gis_data_textarea" cols="95" rows="5">';
-echo $result;
+echo htmlspecialchars($result);
 echo '</textarea>';
 echo '</div>';
 

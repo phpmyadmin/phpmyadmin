@@ -972,7 +972,7 @@ class NavigationTree
             $retval .= $paths['aPath_clean'][2];
             $retval .= "</span>";
             $retval .= "<span class='hide pos2_value'>";
-            $retval .= $node->pos2;
+            $retval .= htmlspecialchars($node->pos2);
             $retval .= "</span>";
         }
         if (isset($paths['aPath_clean'][4])) {
@@ -980,7 +980,7 @@ class NavigationTree
             $retval .= $paths['aPath_clean'][4];
             $retval .= "</span>";
             $retval .= "<span class='hide pos3_value'>";
-            $retval .= $node->pos3;
+            $retval .= htmlspecialchars($node->pos3);
             $retval .= "</span>";
         }
 

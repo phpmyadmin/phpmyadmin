@@ -10,12 +10,12 @@ use PMA\libraries\Util; ?>
         <?php else: ?>
             <p>
                 <?= __('Partitioned by:');?>
-                <code><?= $partitionMethod , '(' , $partitionExpression , ' )'; ?></code>
+                <code><?= htmlspecialchars($partitionMethod) , '(' , htmlspecialchars($partitionExpression) , ' )'; ?></code>
             </p>
             <?php if ($hasSubPartitions): ?>
                 <p>
                     <?= __('Sub partitioned by:'); ?>
-                    <code><?= $subPartitionMethod , '(' , $subPartitionExpression , ' )'; ?></code>
+                    <code><?= htmlspecialchars($subPartitionMethod) , '(' , htmlspecialchars($subPartitionExpression) , ' )'; ?></code>
                 <p>
             <?php endif; ?>
             <table>
@@ -74,7 +74,7 @@ use PMA\libraries\Util; ?>
                             <span><?= $value; ?></span>
                             <span class="unit"><?= $unit; ?></span>
                         </td>
-                        <td><?= $partition->getComment(); ?></td>
+                        <td><?= htmlspecialchars($partition->getComment()); ?></td>
                         <?php foreach ($actionIcons as $action => $icon): ?>
                             <td>
                                 <a  href="tbl_structure.php<?= $url_query; ?>&amp;partition_maintenance=1&amp;sql_query=<?= urlencode(

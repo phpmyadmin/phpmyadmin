@@ -224,21 +224,19 @@ function PMA_RTN_getRowForList($routine, $rowclass = '')
     // we will show a dialog to get values for these parameters,
     // otherwise we can execute it directly.
 
-    $parser = new SqlParser\Parser(
-        $GLOBALS['dbi']->getDefinition(
-            $db,
-            $routine['type'],
-            $routine['name']
-        )
+    $definition = $GLOBALS['dbi']->getDefinition(
+        $db, $routine['type'], $routine['name']
     );
+    if ($definition !== false) {
+        $parser = new SqlParser\Parser($definition);
 
-    /**
-     * @var CreateStatement $stmt
-     */
-    $stmt = $parser->statements[0];
+        /**
+         * @var CreateStatement $stmt
+         */
+        $stmt = $parser->statements[0];
 
-    $params = SqlParser\Utils\Routine::getParameters($stmt);
-    if ($routine !== false) {
+        $params = SqlParser\Utils\Routine::getParameters($stmt);
+
         if (PMA\libraries\Util::currentUserHasPrivilege('EXECUTE', $db)) {
             $execute_action = 'execute_routine';
             for ($i = 0; $i < $params['num']; $i++) {

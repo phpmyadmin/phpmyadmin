@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-05-23 14:29+0200\n"
-"PO-Revision-Date: 2016-05-16 09:01+0000\n"
-"Last-Translator: Tiago França EJessica <tiago_pvo@hotmail.com>\n"
-"Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
-"phpmyadmin/4-6/pt_BR/>\n"
+"PO-Revision-Date: 2016-06-10 21:00+0000\n"
+"Last-Translator: Bruno Henrique <bruno.henrique@ceepcascavel.com.br>\n"
+"Language-Team: Portuguese (Brazil) "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-6/pt_BR/>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -3032,11 +3032,11 @@ msgid "Database"
 msgstr "Banco de dados"
 
 #: libraries/Console.php:100
-#, fuzzy, php-format
+#, php-format
 msgid "Showing %1$d bookmark (both private and shared)"
 msgid_plural "Showing %1$d bookmarks (both private and shared)"
-msgstr[0] "Mostrando% 1 $ d 1 marcador (tanto privados e partilhados)"
-msgstr[1] "Mostrando% 1 $ d 1 marcador (tanto privados e partilhados)"
+msgstr[0] "Mostrando %1$d marcador (tanto privados e compartilhados)"
+msgstr[1] "Mostrando %1$d marcadores (tanto privados e compartilhados)"
 
 #: libraries/Console.php:107
 msgid "No bookmarks"
@@ -3159,7 +3159,6 @@ msgid "Order by:"
 msgstr "Ordenar por:"
 
 #: libraries/Console.php:286
-#, fuzzy
 #| msgid "SQL queries"
 msgid "Group queries"
 msgstr "Agrupar consultas"
@@ -3169,13 +3168,11 @@ msgid "Ungroup queries"
 msgstr "Desagrupar consultas"
 
 #: libraries/Console.php:300
-#, fuzzy
 #| msgid "Show create"
 msgid "Show trace"
 msgstr "Mostrar rastro"
 
 #: libraries/Console.php:302
-#, fuzzy
 #| msgid "Hide Panel"
 msgid "Hide trace"
 msgstr "Ocultar rastro"
@@ -5469,14 +5466,11 @@ msgid "Highlight pointer"
 msgstr "Destacar apontador"
 
 #: libraries/config/messages.inc.php:47
-#, fuzzy
 #| msgid ""
 #| "Enable [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] compression for "
 #| "import operations."
 msgid "Enable bzip2 compression for import operations."
-msgstr ""
-"Habilitar compressão [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] para "
-"operações de importar."
+msgstr "Habilitar compressão bzip2 para operações de importação."
 
 #: libraries/config/messages.inc.php:50
 msgid "Bzip2"
@@ -5497,7 +5491,6 @@ msgid "CHAR columns editing"
 msgstr "Edição de colunas CHAR"
 
 #: libraries/config/messages.inc.php:58
-#, fuzzy
 #| msgid ""
 #| "Use user-friendly editor for editing SQL queries ([a@http://codemirror."
 #| "net/]CodeMirror[/a]) with syntax highlighting and line numbers."
@@ -5505,8 +5498,9 @@ msgid ""
 "Use user-friendly editor for editing SQL queries (CodeMirror) with syntax "
 "highlighting and line numbers."
 msgstr ""
-"Um editor amigável para editar consultas SQL ([a@http://codemirror."
-"net/]CodeMirror[/a]) com destaque de sintaxe e número de linhas."
+"Use um editor amigável para editar consultas SQL "
+"([a@http://codemirror.net/]CodeMirror[/a]) com destaque de sintaxe e número "
+"de linhas."
 
 #: libraries/config/messages.inc.php:62
 msgid "Enable CodeMirror"
@@ -5830,10 +5824,9 @@ msgid "Overwrite existing file(s)"
 msgstr "Sobrescrever arquivo(s) existente(s)"
 
 #: libraries/config/messages.inc.php:184
-#, fuzzy
 #| msgid "Export table headers"
 msgid "Export as separate files"
-msgstr "Exportar cabeçalhos das tabelas"
+msgstr "Exportar como arquivos separados"
 
 #: libraries/config/messages.inc.php:188
 msgid "Remember file name template"
@@ -5954,10 +5947,9 @@ msgid "Default value for foreign key checks checkbox for some queries."
 msgstr "valor padrão para foreign key checa checkbox por qualquer consultas."
 
 #: libraries/config/messages.inc.php:244
-#, fuzzy
 #| msgid "Foreign key check:"
 msgid "Foreign key checks"
-msgstr "Verificação de chave estrangeira:"
+msgstr "Verificação de chave estrangeira"
 
 #: libraries/config/messages.inc.php:245
 msgid "Browse mode"
@@ -6617,7 +6609,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:502
 msgid "Minimum number of items to display the filter box"
-msgstr "O número mínimo de itens para mostrar a caixa de filtro"
+msgstr "Número mínimo de itens para mostrar na caixa de filtro"
 
 #: libraries/config/messages.inc.php:504
 msgid "Minimum number of databases to display the database filter box"
@@ -6724,10 +6716,9 @@ msgid "Whether to show procedures under database in the navigation tree"
 msgstr ""
 
 #: libraries/config/messages.inc.php:537
-#, fuzzy
 #| msgid "Show versions"
 msgid "Show events in tree"
-msgstr "Exibir versões"
+msgstr "Mostrar eventos"
 
 #: libraries/config/messages.inc.php:539
 #, fuzzy

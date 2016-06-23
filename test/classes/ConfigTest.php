@@ -665,6 +665,30 @@ class ConfigTest extends PMATestCase
     {
         return array(
             array(
+                '',
+                '/',
+            ),
+            array(
+                '/',
+                '/',
+            ),
+            array(
+                '/index.php',
+                '/',
+            ),
+            array(
+                '\\index.php',
+                '/',
+            ),
+            array(
+                '\\',
+                '/',
+            ),
+            array(
+                '\\path\\to\\index.php',
+                '/path/to/',
+            ),
+            array(
                 '/foo/bar/phpmyadmin/index.php',
                 '/foo/bar/phpmyadmin/',
             ),

@@ -109,15 +109,15 @@ function PMA_getImage(image, alternate, attributes) {
     }
     // set alt
     if (attributes.alt != undefined) {
-        retval.attr('alt', attributes.alt);
+        retval.attr('alt', escapeHtml(attributes.alt));
     } else {
-        retval.attr('alt', alternate);
+        retval.attr('alt', escapeHtml(alternate));
     }
     // set title
     if (attributes.title != undefined) {
-        retval.attr('title', attributes.title);
+        retval.attr('title', escapeHtml(attributes.title));
     } else {
-        retval.attr('title', alternate);
+        retval.attr('title', escapeHtml(alternate));
     }
     // set src
     var klass = image.replace('.gif', '').replace('.png', '');

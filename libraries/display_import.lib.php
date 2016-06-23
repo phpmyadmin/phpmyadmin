@@ -666,7 +666,7 @@ function PMA_getImportDisplay($import_type, $db, $table, $max_upload_size)
     }
 
     if (PMA_isValid($_REQUEST['offset'], 'numeric')) {
-        $offset = $_REQUEST['offset'];
+        $offset = intval($_REQUEST['offset']);
     }
     if (isset($_REQUEST['timeout_passed'])) {
         $timeout_passed = $_REQUEST['timeout_passed'];

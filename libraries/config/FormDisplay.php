@@ -437,7 +437,9 @@ class FormDisplay
 
         // detect password fields
         if ($type === 'text'
-            && mb_substr($translated_path, -9) === '-password'
+            && (mb_substr($translated_path, -9) === '-password'
+               || mb_substr($translated_path, -4) === 'pass'
+               || mb_substr($translated_path, -4) === 'Pass')
         ) {
             $type = 'password';
         }
@@ -637,12 +639,12 @@ class FormDisplay
                 // cast variables to correct type
                 switch ($type) {
                 case 'double':
-                    settype($_POST[$key], 'float');
+                    settype(Util::requestString($_POST[$key]), 'float');
                     break;
                 case 'boolean':
                 case 'integer':
                     if ($_POST[$key] !== '') {
-                        settype($_POST[$key], $type);
+                        settype(Util::requestString($_POST[$key]), $type);
                     }
                     break;
                 case 'select':
@@ -658,7 +660,7 @@ class FormDisplay
                     break;
                 case 'string':
                 case 'short_string':
-                    $_POST[$key] = trim($_POST[$key]);
+                    $_POST[$key] = Util::requestString($_POST[$key]);
                     break;
                 case 'array':
                     // eliminate empty values and ensure we have an array
@@ -874,7 +876,7 @@ class FormDisplay
     private function _fillPostArrayParameters($post_values, $key)
     {
         foreach ($post_values as $v) {
-            $v = trim($v);
+            $v = Util::requestString($v);
             if ($v !== '') {
                 $_POST[$key][] = $v;
             }

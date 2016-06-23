@@ -141,7 +141,7 @@ class ExportJsonTest extends PMATestCase
         $this->expectOutputString(
             '/**' . "\n"
             . ' Export to JSON plugin for PHPMyAdmin' . "\n"
-            . ' @version 0.1' . "\n"
+            . ' @version ' . PMA_VERSION . "\n"
             . ' */' . "\n" . "\n"
         );
 

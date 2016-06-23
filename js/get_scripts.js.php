@@ -36,7 +36,8 @@ register_shutdown_function(
 
 $_GET['scripts'] = json_decode($_GET['scripts']);
 if (! empty($_GET['scripts']) && is_array($_GET['scripts'])) {
-    foreach ($_GET['scripts'] as $script) {
+    // Only up to 10 scripts as this is what we generate
+    foreach (array_slice($_GET['scripts'], 0, 10) as $script) {
         // Sanitise filename
         $script_name = 'js';
 

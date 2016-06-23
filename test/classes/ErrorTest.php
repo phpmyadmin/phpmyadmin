@@ -62,8 +62,10 @@ class ErrorTest extends PMATestCase
      */
     public function testSetBacktrace()
     {
-        $this->object->setBacktrace(array('bt1','bt2'));
-        $this->assertEquals(array('bt1','bt2'), $this->object->getBacktrace());
+        $bt = array(array('file'=>'bt1','line'=>2, 'function'=>'bar', 'args'=>array('foo'=>$this)));
+        $this->object->setBacktrace($bt);
+        $bt[0]['args']['foo'] = '<Class:ErrorTest>';
+        $this->assertEquals($bt, $this->object->getBacktrace());
     }
 
     /**
@@ -125,7 +127,7 @@ class ErrorTest extends PMATestCase
     public function testGetBacktraceDisplay()
     {
         $this->assertContains(
-            'PHPUnit_Framework_TestResult->run(object)<br />',
+            'PHPUnit_Framework_TestResult->run(<Class:ErrorTest>)<br />',
             $this->object->getBacktraceDisplay()
         );
     }
@@ -170,14 +172,19 @@ class ErrorTest extends PMATestCase
      */
     public function testGetBacktrace()
     {
-        $this->object->setBacktrace(array('bt1','bt2','bt3','bt4'));
-        // case: full backtrace
-        $this->assertEquals(
-            array('bt1','bt2','bt3','bt4'),
-            $this->object->getBacktrace()
+        $bt = array(
+            array('file'=>'bt1','line'=>2, 'function'=>'bar', 'args'=>array('foo'=>1)),
+            array('file'=>'bt2','line'=>2, 'function'=>'bar', 'args'=>array('foo'=>2)),
+            array('file'=>'bt3','line'=>2, 'function'=>'bar', 'args'=>array('foo'=>3)),
+            array('file'=>'bt4','line'=>2, 'function'=>'bar', 'args'=>array('foo'=>4)),
         );
 
+        $this->object->setBacktrace($bt);
+
+        // case: full backtrace
+        $this->assertEquals(4, count($this->object->getBacktrace()));
+
         // case: first 2 frames
-        $this->assertEquals(array('bt1','bt2'), $this->object->getBacktrace(2));
+        $this->assertEquals(2, count($this->object->getBacktrace(2)));
     }
 }

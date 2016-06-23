@@ -58,7 +58,7 @@
     <td class="tool">
         <a onclick="PMA_commonActions.setDb('<?= PMA_jsFormat($current['SCHEMA_NAME']) ?>');"
            href="server_privileges.php<?= $url_query; ?>&amp;db=<?= urlencode($current['SCHEMA_NAME']); ?>&amp;checkprivsdb=<?= urlencode($current['SCHEMA_NAME']); ?>"
-           title="<?= sprintf(__('Check privileges for database "%s".'), htmlspecialchars($current['SCHEMA_NAME'])); ?>">
+           title="<?= htmlspecialchars(sprintf(__('Check privileges for database "%s".'), $current['SCHEMA_NAME'])); ?>">
            <?= \PMA\libraries\Util::getIcon('s_rights.png', __('Check privileges')); ?>
         </a>
     </td>

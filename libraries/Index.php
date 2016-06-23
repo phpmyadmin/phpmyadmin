@@ -735,7 +735,7 @@ class Index
                         . Util::backquote($table) . ' DROP INDEX '
                         . Util::backquote($index->getName()) . ';';
                     $this_params['message_to_show'] = sprintf(
-                        __('Index %s has been dropped.'), $index->getName()
+                        __('Index %s has been dropped.'), htmlspecialchars($index->getName())
                     );
 
                     $js_msg = PMA_jsFormat(
@@ -782,7 +782,7 @@ class Index
                 }
                 $r .= '<td>' . htmlspecialchars($column->getName());
                 if ($column->getSubPart()) {
-                    $r .= ' (' . $column->getSubPart() . ')';
+                    $r .= ' (' . htmlspecialchars($column->getSubPart()) . ')';
                 }
                 $r .= '</td>';
                 $r .= '<td>'

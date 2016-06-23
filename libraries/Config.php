@@ -101,7 +101,7 @@ class Config
      */
     public function checkSystem()
     {
-        $this->set('PMA_VERSION', '4.6.2');
+        $this->set('PMA_VERSION', '4.6.3');
         /**
          * @deprecated
          */
@@ -1262,9 +1262,13 @@ class Config
     public function checkCollationConnection()
     {
         if (! empty($_REQUEST['collation_connection'])) {
-            $collation = strip_tags($_REQUEST['collation_connection']);
+            $collation = htmlspecialchars(
+                strip_tags($_REQUEST['collation_connection'])
+            );
         } elseif (! empty($_COOKIE['pma_collation_connection'])) {
-            $collation = strip_tags($_COOKIE['pma_collation_connection']);
+            $collation = htmlspecialchars(
+                strip_tags($_COOKIE['pma_collation_connection'])
+            );
         } else {
             $collation = $this->get('DefaultConnectionCollation');
         }
@@ -1393,29 +1397,26 @@ class Config
             return $cookie_path;
         }
 
-        if (isset($GLOBALS['PMA_PHP_SELF'])) {
-            $parsed_url = parse_url($GLOBALS['PMA_PHP_SELF']);
-        } else {
-            $parsed_url = parse_url(PMA_getenv('REQUEST_URI'));
-        }
+        $parsed_url = parse_url($GLOBALS['PMA_PHP_SELF']);
 
-        $cookie_path = str_replace('\\', '/', $parsed_url['path']);
+        $parts = explode(
+            '/',
+            rtrim(str_replace('\\', '/', $parsed_url['path']), '/')
+        );
 
         /* Remove filename */
-        if (substr($cookie_path, -4) == '.php') {
-            $cookie_path = dirname($cookie_path);
+        if (substr($parts[count($parts) - 1], -4) == '.php') {
+            $parts = array_slice($parts, 0, count($parts) - 1);
         }
 
         /* Remove extra path from javascript calls */
         if (defined('PMA_PATH_TO_BASEDIR')) {
-            $cookie_path = dirname($cookie_path);
+            $parts = array_slice($parts, 0, count($parts) - 1);
         }
 
-        if (substr($cookie_path, -1) != '/') {
-            $cookie_path = $cookie_path . '/';
-        }
+        $parts[] = '';
 
-        return $cookie_path;
+        return implode('/', $parts);
     }
 
     /**
