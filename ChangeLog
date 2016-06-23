@@ -1,6 +1,8 @@
 phpMyAdmin - ChangeLog
 ======================
 
+4.6.4 (not yet released)
+
 4.6.3 (2016-06-23)
 - issue #12249 Fixed cookie path on Windows
 - issue #12279 Fixed error reporting on connect problems
