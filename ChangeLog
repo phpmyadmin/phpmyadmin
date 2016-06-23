@@ -1,7 +1,7 @@
 phpMyAdmin - ChangeLog
 ======================
 
-4.0.10.16 (not yet released)
+4.0.10.16 (2016-06-23)
 - issue        [security] User SQL queries can be revealed through URL GET parameters, see PMASA-2016-14
 - issue        [security] Limit list of sites which can be passwd through url.php.
 - issue        [security] BBCode injection in setup script, see PMASA-2016-17
