@@ -2,5 +2,6 @@
 
 pip install --user codecov
 ./test/install-runkit
+./test/install-dbase
 composer install --dev --no-interaction
 

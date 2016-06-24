@@ -1,0 +1,17 @@
+#!/bin/sh
+# Installs dbase extension for current version of PHP
+set -x
+set -e
+
+if [ "$TRAVIS_PHP_VERSION" = "7.0" ] ; then
+    git clone --depth 1 git://github.com/mote0230/dbase-pecl-php7.git php7-dbase
+    cd php7-dbase/
+    phpize
+    ./configure
+    make
+    make install
+    cd ..
+    echo 'extension = dbase.so' >> ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/travis.ini
+elif [ "$TRAVIS_PHP_VERSION" != "hhmv" ] ; then
+    pecl install dbase
+fi
