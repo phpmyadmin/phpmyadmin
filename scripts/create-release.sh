@@ -204,6 +204,9 @@ if [ ! -d libraries/tcpdf ] ; then
         vendor/phpmyadmin/sql-parser/tests/ \
         vendor/phpmyadmin/sql-parser/tools/ \
         vendor/phpmyadmin/motranslator/tests/ \
+        vendor/phpmyadmin/shapefile/tests/ \
+        vendor/phpmyadmin/shapefile/examples/ \
+        vendor/phpmyadmin/shapefile/data/ \
         vendor/phpseclib/phpseclib/phpseclib/File/ \
         vendor/phpseclib/phpseclib/phpseclib/Math/ \
         vendor/phpseclib/phpseclib/phpseclib/Net/ \

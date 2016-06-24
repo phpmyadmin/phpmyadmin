@@ -16,10 +16,6 @@ use PMA\libraries\gis\GISMultilinestring;
 use PMA\libraries\gis\GISMultipoint;
 use PMA\libraries\gis\GISPoint;
 use PMA\libraries\gis\GISPolygon;
-use PMA\libraries\plugins\import\ShapeFile;
-
-/* Get the ShapeFile class */
-require_once 'libraries/bfShapeFiles/ShapeFile.lib.php';
 
 /**
  * Handles the import for ESRI Shape files
@@ -70,7 +66,7 @@ class ImportShp extends ImportPlugin
 
         $compression = $GLOBALS['import_handle']->getCompression();
 
-        $shp = new ShapeFile(1);
+        $shp = new ShapeFileImport(1);
         // If the zip archive has more than one file,
         // get the correct content to the buffer from .shp file.
         if ($compression == 'application/zip'

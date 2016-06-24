@@ -9,9 +9,6 @@
 // Let PHP complain about all errors
 error_reporting(E_ALL);
 
-ini_set('assert.exception', '1');
-ini_set('zend.assertions', '1');
-
 // Ensure PHP has set timezone
 date_default_timezone_set('UTC');
 
