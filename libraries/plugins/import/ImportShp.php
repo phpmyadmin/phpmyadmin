@@ -154,23 +154,6 @@ class ImportShp extends ImportPlugin
             unlink($dbf_file_path);
         }
 
-        $esri_types = array(
-            0 => 'Null Shape',
-            1 => 'Point',
-            3 => 'PolyLine',
-            5 => 'Polygon',
-            8 => 'MultiPoint',
-            11 => 'PointZ',
-            13 => 'PolyLineZ',
-            15 => 'PolygonZ',
-            18 => 'MultiPointZ',
-            21 => 'PointM',
-            23 => 'PolyLineM',
-            25 => 'PolygonM',
-            28 => 'MultiPointM',
-            31 => 'MultiPatch',
-        );
-
         switch ($shp->shapeType) {
             // ESRI Null Shape
         case 0:
@@ -193,20 +176,10 @@ class ImportShp extends ImportPlugin
             break;
         default:
             $error = true;
-            if (!isset($esri_types[$shp->shapeType])) {
-                $message = PMA\libraries\Message::error(
-                    __(
-                        'You tried to import an invalid file or the imported file'
-                        . ' contains invalid data!'
-                    )
-                );
-            } else {
-                $message = PMA\libraries\Message::error(
-                    __('MySQL Spatial Extension does not support ESRI type "%s".')
-                );
-                $message->addParam($esri_types[$shp->shapeType]);
-            }
-
+            $message = PMA\libraries\Message::error(
+                __('MySQL Spatial Extension does not support ESRI type "%s".')
+            );
+            $message->addParam($shp->getShapeName());
             return;
         }
 
