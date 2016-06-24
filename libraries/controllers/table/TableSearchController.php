@@ -729,7 +729,7 @@ class TableSearchController extends TableController
             /* Iterate over possible delimiters to get one */
             $delimiters = array('/', '@', '#', '~', '!', '$', '%', '^', '&', '_');
             $found = false;
-            for ($i = 0; $i < count($delimiters); $i++) {
+            for ($i = 0, $l = count($delimiters); $i < $l; $i++) {
                 if (strpos($find, $delimiters[$i]) === false) {
                     $found = true;
                     break;
