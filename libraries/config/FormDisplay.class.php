@@ -594,12 +594,14 @@ class FormDisplay
                 // cast variables to correct type
                 switch ($type) {
                 case 'double':
-                    settype(PMA_Util::requestString($_POST[$key]), 'float');
+                    $_POST[$key] = PMA_Util::requestString($_POST[$key]);
+                    settype($_POST[$key], 'float');
                     break;
                 case 'boolean':
                 case 'integer':
                     if ($_POST[$key] !== '') {
-                        settype(PMA_Util::requestString($_POST[$key]), $type);
+                        $_POST[$key] = PMA_Util::requestString($_POST[$key]);
+                        settype($_POST[$key], $type);
                     }
                     break;
                 case 'select':
