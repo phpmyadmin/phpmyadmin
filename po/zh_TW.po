@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-05-23 14:29+0200\n"
-"PO-Revision-Date: 2016-04-28 05:13+0000\n"
-"Last-Translator: Chien Wei Lin <cwlin0416@gmail.com>\n"
-"Language-Team: Chinese (Taiwan) <https://hosted.weblate.org/projects/"
-"phpmyadmin/4-6/zh_TW/>\n"
+"PO-Revision-Date: 2016-06-24 00:59+0000\n"
+"Last-Translator: Peter Chen <petercpg@gmail.com>\n"
+"Language-Team: Chinese (Taiwan) "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-6/zh_TW/>\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 2.6-dev\n"
+"X-Generator: Weblate 2.7-dev\n"
 
 #: changelog.php:37 license.php:33
 #, php-format
@@ -5247,13 +5247,11 @@ msgid "Highlight pointer"
 msgstr "加強顯示滑鼠指標"
 
 #: libraries/config/messages.inc.php:47
-#, fuzzy
 #| msgid ""
 #| "Enable [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] compression for "
 #| "import operations."
 msgid "Enable bzip2 compression for import operations."
-msgstr ""
-"允許在匯入時使用 [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] 壓縮。"
+msgstr "允許在匯入時使用 bzip2 壓縮。"
 
 #: libraries/config/messages.inc.php:50
 msgid "Bzip2"
@@ -5273,16 +5271,13 @@ msgid "CHAR columns editing"
 msgstr "CHAR 欄位編輯方式"
 
 #: libraries/config/messages.inc.php:58
-#, fuzzy
 #| msgid ""
 #| "Use user-friendly editor for editing SQL queries ([a@http://codemirror."
 #| "net/]CodeMirror[/a]) with syntax highlighting and line numbers."
 msgid ""
 "Use user-friendly editor for editing SQL queries (CodeMirror) with syntax "
 "highlighting and line numbers."
-msgstr ""
-"使用 [a@http://codemirror.net/]CodeMirror[/a] 編輯器來編輯 SQL 查詢語法 (具語"
-"法加強顯示和行號功能)。"
+msgstr "使用介面較友善的 CodeMirror 編輯器來編輯 SQL 查詢語法（具語法強調和行號顯示功能）。"
 
 #: libraries/config/messages.inc.php:62
 msgid "Enable CodeMirror"
@@ -6009,13 +6004,11 @@ msgid "Disable some of the warnings shown by phpMyAdmin."
 msgstr "停用部分 phpMyAdmin 發出的警告訊息。"
 
 #: libraries/config/messages.inc.php:353
-#, fuzzy
 #| msgid ""
 #| "Enable [a@http://en.wikipedia.org/wiki/Gzip]gzip[/a] compression for "
 #| "import and export operations."
 msgid "Enable gzip compression for import and export operations."
-msgstr ""
-"允許在匯入和匯出時使用 [a@http://en.wikipedia.org/wiki/Gzip]gzip [/a] 壓縮。"
+msgstr "允許在匯入和匯出時使用 gzip 壓縮。"
 
 #: libraries/config/messages.inc.php:356
 msgid "GZip"
@@ -6662,7 +6655,6 @@ msgid "HTTP Realm"
 msgstr "HTTP 提示資訊"
 
 #: libraries/config/messages.inc.php:636
-#, fuzzy
 #| msgid ""
 #| "The path for the config file for [a@http://swekey.com]SweKey hardware "
 #| "authentication[/a] (not located in your document root; suggested: /etc/"
@@ -6670,9 +6662,7 @@ msgstr "HTTP 提示資訊"
 msgid ""
 "The path for the config file for SweKey hardware authentication (not located "
 "in your document root; suggested: /etc/swekey.conf)."
-msgstr ""
-"[a@http://swekey.com]SweKey 硬件認證 [/a]的設定檔案路徑 (請勿置於您的檔案根資"
-"料夾，推薦使用: /etc/swekey.conf)。"
+msgstr "SweKey 硬體認證的設定檔路徑（請勿置於您的根資料夾，建議使用: /etc/swekey.conf）。"
 
 #: libraries/config/messages.inc.php:640
 msgid "SweKey config file"
@@ -6687,16 +6677,13 @@ msgid "Authentication type"
 msgstr "認證方式"
 
 #: libraries/config/messages.inc.php:644
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/"
 #| "a] support, suggested: [kbd]pma__bookmark[/kbd]"
 msgid ""
 "Leave blank for no [doc@bookmarks@]bookmark[/doc] support, suggested: "
 "[kbd]pma__bookmark[/kbd]"
-msgstr ""
-"在不支援[a@http://wiki.phpmyadmin.net/pma/bookmark]書籤[/a]功能時請留空，建議"
-"用: [kbd]pma__bookmark[/kbd]"
+msgstr "不需支援 [doc@bookmarks@]書籤[/doc] 功能時請留空，建議用: [kbd]pma__bookmark[/kbd]"
 
 #: libraries/config/messages.inc.php:647
 msgid "Bookmark table"
@@ -6733,7 +6720,6 @@ msgid "Control user password"
 msgstr "控制使用者的密碼"
 
 #: libraries/config/messages.inc.php:660
-#, fuzzy
 #| msgid ""
 #| "A special MySQL user configured with limited permissions, more "
 #| "information available on [a@http://wiki.phpmyadmin.net/pma/"
@@ -6741,9 +6727,7 @@ msgstr "控制使用者的密碼"
 msgid ""
 "A special MySQL user configured with limited permissions, more information "
 "available on [doc@linked-tables]documentation[/doc]."
-msgstr ""
-"只擁有部份權限的 MySQL 特殊使用者，詳情請參考 [a@http://wiki.phpmyadmin.net/"
-"pma/controluser]wiki[/a]。"
+msgstr "只擁有部份權限的 MySQL 特殊使用者，詳情請參考 [doc@linked-tables]文件[/doc]。"
 
 #: libraries/config/messages.inc.php:663
 msgid "Control user"
@@ -6891,7 +6875,6 @@ msgid "PDF schema: pages table"
 msgstr "PDF 大綱: 資料表頁"
 
 #: libraries/config/messages.inc.php:727
-#, fuzzy
 #| msgid ""
 #| "Database used for relations, bookmarks, and PDF features. See [a@http://"
 #| "wiki.phpmyadmin.net/pma/pmadb]pmadb[/a] for complete information. Leave "
@@ -6901,8 +6884,7 @@ msgid ""
 "tables]pmadb[/doc] for complete information. Leave blank for no support. "
 "Suggested: [kbd]phpmyadmin[/kbd]."
 msgstr ""
-"關聯、書籤與 PDF 功能所使用的資料庫，請參考  [a@http://wiki.phpmyadmin.net/"
-"pma/pmadb]pmadb [/a] 取得更多資訊。留空則關閉此功能，建議為:  "
+"關聯、書籤與 PDF 功能所使用的資料庫，請參考 [doc@linked-tables]pmadb[/doc] 取得更多資訊。留空則關閉此功能，建議為: "
 "[kbd]phpmyadmin[/kbd]。"
 
 #: libraries/config/messages.inc.php:731
@@ -6942,31 +6924,25 @@ msgid "Favorites table"
 msgstr "最愛的資料表"
 
 #: libraries/config/messages.inc.php:746
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
 #| "links[/a] support, suggested: [kbd]pma__relation[/kbd]."
 msgid ""
 "Leave blank for no [doc@relations@]relation-links[/doc] support, suggested: "
 "[kbd]pma__relation[/kbd]."
-msgstr ""
-"不使用 [a@http://wiki.phpmyadmin.net/pma/relation]關聯連結[/a] 功能請留空，建"
-"議值: [kbd]pma__relation[/kbd]。"
+msgstr "不使用 [doc@relations@]關聯連結[/doc] 功能請留空，建議值: [kbd]pma__relation[/kbd]。"
 
 #: libraries/config/messages.inc.php:750
 msgid "Relation table"
 msgstr "關係表"
 
 #: libraries/config/messages.inc.php:752
-#, fuzzy
 #| msgid ""
 #| "See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
 #| "types[/a] for an example."
 msgid ""
 "See [doc@authentication-modes]authentication types[/doc] for an example."
-msgstr ""
-"請參考 [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]認證模式[/a] 中的"
-"範例。"
+msgstr "請參考 [doc@authentication-modes]認證模式[/doc] 中的範例。"
 
 #: libraries/config/messages.inc.php:755
 msgid "Signon session name"
@@ -7437,13 +7413,11 @@ msgid "Proxy password"
 msgstr "代理伺服器密碼"
 
 #: libraries/config/messages.inc.php:978
-#, fuzzy
 #| msgid ""
 #| "Enable [a@http://en.wikipedia.org/wiki/Gzip]gzip[/a] compression for "
 #| "import and export operations."
 msgid "Enable ZIP compression for import and export operations."
-msgstr ""
-"允許在匯入和匯出時使用 [a@http://en.wikipedia.org/wiki/Gzip]gzip [/a] 壓縮。"
+msgstr "允許在匯入和匯出時使用 ZIP 壓縮。"
 
 #: libraries/config/messages.inc.php:981
 msgid "ZIP"
@@ -13169,10 +13143,9 @@ msgid "An opening bracket was expected."
 msgstr "預期要有開始括號。"
 
 #: libraries/sql-parser/src/Components/CreateDefinition.php:225
-#, fuzzy
 #| msgid "Variable name was expected."
 msgid "A symbol name was expected!"
-msgstr "預期要有變數名稱。"
+msgstr "預期要有符號名稱！"
 
 #: libraries/sql-parser/src/Components/CreateDefinition.php:257
 msgid "A comma or a closing bracket was expected."
@@ -14472,7 +14445,6 @@ msgid "Tracking is not active."
 msgstr "追蹤已停用。"
 
 #: templates/error/report_form.phtml:7
-#, fuzzy
 #| msgid ""
 #| "phpMyAdmin has encountered an error. We have collected data about this "
 #| "error as well as information about relevant configuration settings to "
@@ -14481,15 +14453,13 @@ msgid ""
 "This report automatically includes data about the error and information "
 "about relevant configuration settings. It will be sent to the phpMyAdmin "
 "team for debugging the error."
-msgstr ""
-"phpMyAdmin 已發生錯誤，系統已收集錯誤資訊與相關的系統設定並傳送給 phpMyAdmin "
-"開發團隊以協助問題的解決。"
+msgstr "回報功能會自動取得相關的錯誤資料與及設定檔資訊。將會回報這些資料給 phpMyAdmin 開發團隊以協助解決問題。"
 
 #: templates/error/report_form.phtml:14
 msgid ""
 "Can you tell us the steps leading to this error? It decisively helps in "
 "debugging:"
-msgstr ""
+msgstr "您可以告訴我們您做了什麼步驟導致問題發生嗎？這將能幫助我們找出問題:"
 
 #: templates/error/report_form.phtml:21
 msgid "You may examine the data in the error report:"
