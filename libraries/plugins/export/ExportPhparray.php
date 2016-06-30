@@ -66,6 +66,19 @@ class ExportPhparray extends ExportPlugin
     }
 
     /**
+     * Removes end of comment from a string
+     *
+     * @param string $string String to replace
+     *
+     * @return string
+     */
+    public function commentString($string)
+    {
+        return strtr($string, '*/', '-');
+    }
+
+
+    /**
      * Outputs export header
      *
      * @return bool Whether it succeeded
@@ -107,9 +120,9 @@ class ExportPhparray extends ExportPlugin
             $db_alias = $db;
         }
         PMA_exportOutputHandler(
-            '//' . $GLOBALS['crlf']
-            . '// Database ' . PMA\libraries\Util::backquote($db_alias)
-            . $GLOBALS['crlf'] . '//' . $GLOBALS['crlf']
+            '/**' . $GLOBALS['crlf']
+            . ' * Database ' . $this->commentString(PMA\libraries\Util::backquote($db_alias))
+            . $GLOBALS['crlf'] . ' */' . $GLOBALS['crlf']
         );
 
         return true;
@@ -207,9 +220,9 @@ class ExportPhparray extends ExportPlugin
         $buffer = '';
         $record_cnt = 0;
         // Output table name as comment
-        $buffer .= $crlf . '// '
-            . PMA\libraries\Util::backquote($db_alias) . '.'
-            . PMA\libraries\Util::backquote($table_alias) . $crlf;
+        $buffer .= $crlf . '/* '
+            . $this->commentString(PMA\libraries\Util::backquote($db_alias)) . '.'
+            . $this->commentString(PMA\libraries\Util::backquote($table_alias)) . ' */' . $crlf;
         $buffer .= '$' . $tablefixed . ' = array(';
 
         while ($record = $GLOBALS['dbi']->fetchRow($result)) {
