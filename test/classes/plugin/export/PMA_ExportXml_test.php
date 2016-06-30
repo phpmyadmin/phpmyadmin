@@ -683,7 +683,7 @@ class PMA_ExportXml_Test extends PHPUnit_Framework_TestCase
         $result = ob_get_clean();
 
         $this->assertContains(
-            "&lt;!-- Table ta&lt;ble --&gt;",
+            "&lt;!-- Table ta&amp;lt;ble --&gt;",
             $result
         );
 
