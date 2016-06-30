@@ -89,7 +89,7 @@ class ExportPhparray extends ExportPlugin
             '<?php' . $GLOBALS['crlf']
             . '/**' . $GLOBALS['crlf']
             . ' * Export to PHP Array plugin for PHPMyAdmin' . $GLOBALS['crlf']
-            . ' * @version 0.2b' . $GLOBALS['crlf']
+            . ' * @version ' . PMA_VERSION . $GLOBALS['crlf']
             . ' */' . $GLOBALS['crlf'] . $GLOBALS['crlf']
         );
 
