@@ -10,7 +10,9 @@
  * Gets core libraries and defines some variables
  */
 require_once 'libraries/common.inc.php';
-PMA_Response::getInstance()->disable();
+$response = PMA_Response::getInstance();
+$response->disable();
+$response->getHeader()->sendHttpHeaders();
 
 /**
  * Displays PHP information
