@@ -589,7 +589,7 @@ class ExportXmlTest extends PMATestCase
         $result = ob_get_clean();
 
         $this->assertContains(
-            "<!-- Table ta<ble -->",
+            "<!-- Table ta&lt;ble -->",
             $result
         );
 
