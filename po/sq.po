@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-05-23 14:29+0200\n"
-"PO-Revision-Date: 2015-09-05 23:03+0200\n"
+"PO-Revision-Date: 2016-06-30 22:53+0000\n"
 "Last-Translator: Arben Çokaj <acokaj@shkoder.net>\n"
-"Language-Team: Albanian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/sq/>\n"
+"Language-Team: Albanian "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-6/sq/>\n"
 "Language: sq\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.4-dev\n"
+"X-Generator: Weblate 2.7-dev\n"
 
 #: changelog.php:37 license.php:33
 #, php-format
@@ -520,7 +520,7 @@ msgstr ""
 
 #: import.php:54
 msgid "Succeeded"
-msgstr "Ka sukses"
+msgstr "Me sukses"
 
 #: import.php:58 js/messages.php:592
 msgid "Failed"
@@ -591,11 +591,11 @@ msgid "Bookmark %s has been created."
 msgstr "Faqerojtësi %s është krijuar."
 
 #: import.php:680
-#, fuzzy, php-format
+#, php-format
 #| msgid "Import has been successfully finished, %d queries executed."
 msgid "Import has been successfully finished, %d query executed."
 msgid_plural "Import has been successfully finished, %d queries executed."
-msgstr[0] "Importi ka përfunduar me sukses, %d pyetsorë u ekzekutuan."
+msgstr[0] "Importi ka përfunduar me sukses, %d pyetsor u ekzekutua."
 msgstr[1] "Importi ka përfunduar me sukses, %d pyetsorë u ekzekutuan."
 
 #: import.php:711
@@ -772,6 +772,9 @@ msgid ""
 "The curl extension was not found and allow_url_fopen is disabled. Due to "
 "this some features such as error reporting or version check are disabled."
 msgstr ""
+"Zgjerimi curl nuk gjendet dhe allow_url_fopen është pasifizuar. Për shkak të "
+"kësaj, disa tipare të tilla si raportimi gabim ose kontrolli i versionit "
+"janë pasifizuar."
 
 #: index.php:492
 msgid ""
@@ -950,16 +953,14 @@ msgid "Do you really want to TRUNCATE the selected partition(s)?"
 msgstr "Doni me të vërtetë të cungoni (TRUNCATE) pjesët e zgjedura?"
 
 #: js/messages.php:85
-#, fuzzy
 #| msgid "Do you really want to TRUNCATE the selected partition(s)?"
 msgid "Do you really want to remove partitioning?"
-msgstr "Doni me të vërtetë të cungoni (TRUNCATE) pjesët e zgjedura?"
+msgstr "Doni me të vërtetë ta largoni copëzimin?"
 
 #: js/messages.php:86
-#, fuzzy
 #| msgid "Do you really want to execute \"%s\"?"
 msgid "Do you really want to RESET SLAVE?"
-msgstr "Doni me të vërtetë të ekzekutoni \"%s\"?"
+msgstr "Doni me të vërtetë të RIVENDOSNI SLAVE?"
 
 #: js/messages.php:88
 msgid ""
@@ -984,7 +985,6 @@ msgid "Are you sure you wish to change the collation and convert the data?"
 msgstr "Jeni i sigurt se doni të ndryshoni sistemim dhe konvertoni të dhënat?"
 
 #: js/messages.php:98
-#, fuzzy
 #| msgid ""
 #| "Through this operation, MySQL attempts to map the data values between "
 #| "collations. If the character sets are incompatible, there may be data "
@@ -1002,10 +1002,11 @@ msgid ""
 msgstr ""
 "Përmes këtij veprimi, MySQL përpiqet të ndajë vlerat e të dhënave ndërmjet "
 "krahasimeve. Nëse setet e karaktereve janë të papajtueshme, mund të ketë "
-"humbje për të dhënat dhe kjo humbje e të dhënave <b>NUK</b> mund të jetë e "
-"rikuperueshme, thjesht duke ndryshuar përsëri sistemim e kolonave. <b>Për të "
-"kthyer të dhënat ekzistuese, sugjerohet që të përdorni tiparin e korrigjimit "
-"të kolonave (lidhjen \"Ndrysho\") në faqen e strukturës së tabelës.</b>"
+"humbje për të dhënat dhe kjo humbje e të dhënave <b>NUK</b> është e "
+"rikuperueshme, thjesht duke ndryshuar përsëri krahasimin e kolonave. <b>Për "
+"të kthyer të dhënat ekzistuese, sugjerohet që të përdorni tiparin e "
+"korrigjimit të kolonave (lidhjen \"Ndrysho\") në faqen e strukturës së "
+"tabelës.</b>"
 
 #: js/messages.php:107
 msgid ""
@@ -1700,10 +1701,9 @@ msgid "Formatting SQL…"
 msgstr "Formaton SQL…"
 
 #: js/messages.php:346
-#, fuzzy
 #| msgid "Bad parameters!"
 msgid "No parameters found!"
-msgstr "Parametra të këqinj!"
+msgstr "Nuk gjenden parametra!"
 
 #: js/messages.php:350
 #: templates/database/designer/aggregate_query_panel.phtml:63
@@ -2595,24 +2595,27 @@ msgid ""
 "cause such a problem, clearing your \"Offline Website Data\" might help. In "
 "Safari, such problem is commonly caused by \"Private Mode Browsing\"."
 msgstr ""
+"Ka pasur një problem për të hyrë në depozitën e shfletuesit tuaj, disa "
+"tipare mund të mos punojnë si duhet për ju. Është e mundshme që shfletuesi "
+"nuk ka mbështetjen e magazinimit ose është arritur kuota e kufirit. Në "
+"Firefox, magazinimi i korruptuar mund të shkaktojë gjithashtu një problem të "
+"tillë, pastrimi i \"Offline Website Data\" mund të ndihmojë. Në Safari, "
+"probleme të tilla zakonisht shkaktohen nga \"Private Mode Browsing\"."
 
 #: js/messages.php:711
-#, fuzzy
 #| msgid "Copy database to"
 msgid "Copy tables to"
-msgstr "Kopjo databazën në"
+msgstr "Kopjo tabelat në"
 
 #: js/messages.php:712
-#, fuzzy
 #| msgid "Add table prefix:"
 msgid "Add table prefix"
-msgstr "Shto prefiks tabele:"
+msgstr "Shto prefiks tabele"
 
 #: js/messages.php:713
-#, fuzzy
 #| msgid "Replace table prefix"
 msgid "Replace table with prefix"
-msgstr "Zëvendëso prefiksin e tabelës"
+msgstr "Zëvendëso tabelën me prefiksin"
 
 #: js/messages.php:714 templates/database/structure/check_all_tables.phtml:29
 msgid "Copy table with prefix"
@@ -3046,12 +3049,12 @@ msgstr "Databaza"
 #, php-format
 msgid "Showing %1$d bookmark (both private and shared)"
 msgid_plural "Showing %1$d bookmarks (both private and shared)"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Shfaq %1$d faqeruajtës (të dyja, private dhe të ndara)"
+msgstr[1] "Shfaq %1$d faqeruajtës (të dyja, private dhe të ndara)"
 
 #: libraries/Console.php:107
 msgid "No bookmarks"
-msgstr "Nuk ka faqeruajtës"
+msgstr "Jo faqeruajtës"
 
 #: libraries/Console.php:168
 msgid "During current session"
@@ -3245,10 +3248,9 @@ msgid "Switch to dark theme"
 msgstr "Kalo tek modeli i errët"
 
 #: libraries/DatabaseInterface.php:1548
-#, fuzzy
 #| msgid "Failed to read configuration file!"
 msgid "Failed to set configured collation connection!"
-msgstr "Dështoi në leximin e filit të konfigurimit!"
+msgstr "Dështoi në vendosjen e lidhjes së konfigurimit të krahasuar!"
 
 #: libraries/DatabaseInterface.php:2159
 msgid ""
@@ -3638,7 +3640,7 @@ msgstr "Shënjo të gjitha"
 
 #: libraries/DisplayResults.php:5013
 msgid "Copy to clipboard"
-msgstr ""
+msgstr "Kopjo në clipboard"
 
 #: libraries/DisplayResults.php:5069
 msgid "Query results operations"
@@ -4630,6 +4632,8 @@ msgid ""
 "Stores and enables efficient access to data in JSON (JavaScript Object "
 "Notation) documents"
 msgstr ""
+"Ruan dhe aftëson hyrjen efiçiente në të dhënat në dokumentet JSON ("
+"JavaScript Object Notation)"
 
 #: libraries/TypesMySQL.php:479
 msgctxt "numeric types"
@@ -4691,13 +4695,11 @@ msgid "Analyze Explain at %s"
 msgstr "Analizo sqarimin në %s"
 
 #: libraries/Util.php:1258
-#, fuzzy
 #| msgid "Without PHP Code"
 msgid "Without PHP code"
 msgstr "Pa kod PHP"
 
 #: libraries/Util.php:1270
-#, fuzzy
 #| msgid "Submit Query"
 msgid "Submit query"
 msgstr "Dërgo pyetsor"
@@ -5472,14 +5474,11 @@ msgid "Highlight pointer"
 msgstr "Treguesi i theksuar"
 
 #: libraries/config/messages.inc.php:47
-#, fuzzy
 #| msgid ""
 #| "Enable [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] compression for "
 #| "import operations."
 msgid "Enable bzip2 compression for import operations."
-msgstr ""
-"Aftëso kompresimin [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] për "
-"veprimet e importit."
+msgstr "Aftëso kompresimin bzip2 për veprimet e importit."
 
 #: libraries/config/messages.inc.php:50
 msgid "Bzip2"
@@ -5501,7 +5500,6 @@ msgid "CHAR columns editing"
 msgstr "CHAR korrigjim i kolonave"
 
 #: libraries/config/messages.inc.php:58
-#, fuzzy
 #| msgid ""
 #| "Use user-friendly editor for editing SQL queries ([a@http://codemirror."
 #| "net/]CodeMirror[/a]) with syntax highlighting and line numbers."
@@ -5509,8 +5507,8 @@ msgid ""
 "Use user-friendly editor for editing SQL queries (CodeMirror) with syntax "
 "highlighting and line numbers."
 msgstr ""
-"Përdor editor miqësor për korrigjimin e pyetsorëve SQL ([a@http://codemirror."
-"net/]CodeMirror[/a]) me theksim të sintaksës dhe numra të rreshtave."
+"Përdor editor miqësor për korrigjimin e pyetsorëve SQL CodeMirror, me "
+"theksim të sintaksës dhe numrat e rreshtave."
 
 #: libraries/config/messages.inc.php:62
 msgid "Enable CodeMirror"
@@ -5645,14 +5643,14 @@ msgid "Whether the table structure actions should be hidden."
 msgstr "Nëse veprimet e strukturës së tabelës duhet të fshihen."
 
 #: libraries/config/messages.inc.php:117
-#, fuzzy
 #| msgid "Show table comments"
 msgid "Show column comments"
-msgstr "Shfaq komentet e tabelës"
+msgstr "Shfaq komentet e kolonës"
 
 #: libraries/config/messages.inc.php:119
 msgid "Whether column comments should be shown in table structure view"
 msgstr ""
+"Nëse komentet e kolonës duhet të shfaqen në pamjen e strukturës së tabelës"
 
 #: libraries/config/messages.inc.php:120
 msgid "Hide table structure actions"
@@ -6268,14 +6266,11 @@ msgid "Disable some of the warnings shown by phpMyAdmin."
 msgstr "Pasivizo disa nga paralajmërimet e shfaqura nga phpMyAdmin."
 
 #: libraries/config/messages.inc.php:353
-#, fuzzy
 #| msgid ""
 #| "Enable [a@http://en.wikipedia.org/wiki/Gzip]gzip[/a] compression for "
 #| "import and export operations."
 msgid "Enable gzip compression for import and export operations."
-msgstr ""
-"Aftëso kompresimin [a@http://en.wikipedia.org/wiki/Gzip]gzip[/a] për "
-"veprimet e importit dhe eksportit."
+msgstr "Aftëso kompresimin gzip për veprimet e importit dhe eksportit."
 
 #: libraries/config/messages.inc.php:356
 msgid "GZip"
@@ -6956,7 +6951,6 @@ msgid "HTTP Realm"
 msgstr "Fusha HTTP"
 
 #: libraries/config/messages.inc.php:636
-#, fuzzy
 #| msgid ""
 #| "The path for the config file for [a@http://swekey.com]SweKey hardware "
 #| "authentication[/a] (not located in your document root; suggested: /etc/"
@@ -6965,9 +6959,8 @@ msgid ""
 "The path for the config file for SweKey hardware authentication (not located "
 "in your document root; suggested: /etc/swekey.conf)."
 msgstr ""
-"Rruga për filin e konfig për [a@http://swekey.com]SweKey autentifikimi i "
-"pajisjeve[/a] (nuk është lokalizuar në rrënjën e dokumentit; sugjerohet: /"
-"etc/swekey.conf)."
+"Rruga për filin e konfig për autentifikimin e pajisjeve SweKey (nuk është "
+"lokalizuar në rrënjën e dokumentit; sugjerohet: /etc/swekey.conf)."
 
 #: libraries/config/messages.inc.php:640
 msgid "SweKey config file"
@@ -6982,7 +6975,6 @@ msgid "Authentication type"
 msgstr "Tipi i autentifikimit"
 
 #: libraries/config/messages.inc.php:644
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/"
 #| "a] support, suggested: [kbd]pma__bookmark[/kbd]"
@@ -6990,8 +6982,8 @@ msgid ""
 "Leave blank for no [doc@bookmarks@]bookmark[/doc] support, suggested: "
 "[kbd]pma__bookmark[/kbd]"
 msgstr ""
-"Lëre të zbrazët për asnjë mbështetje [a@http://wiki.phpmyadmin.net/pma/"
-"bookmark]faqeruajtësi[/a], sugjerohet: [kbd]pma__bookmark[/kbd]"
+"Lëre të zbrazët për asnjë mbështetje  [doc@bookmarks@]të faqeruajtësit[/doc]"
+", sugjerohet: [kbd] 3pma__bookmark[/kbd]"
 
 #: libraries/config/messages.inc.php:647
 msgid "Bookmark table"
@@ -7030,7 +7022,6 @@ msgid "Control user password"
 msgstr "Fjalëkalimi i përdoruesit të kontrollit"
 
 #: libraries/config/messages.inc.php:660
-#, fuzzy
 #| msgid ""
 #| "A special MySQL user configured with limited permissions, more "
 #| "information available on [a@http://wiki.phpmyadmin.net/pma/"
@@ -7040,8 +7031,7 @@ msgid ""
 "available on [doc@linked-tables]documentation[/doc]."
 msgstr ""
 "Një përdorues i veçantë MySQL, i konfiguruar me lejime të kufizuara, më "
-"tepër informacion të vlefshëm në [a@http://wiki.phpmyadmin.net/pma/"
-"controluser]wiki[/a]."
+"tepër informacion të vlefshëm në [doc@linked-tables]dokumentacioni[/doc]."
 
 #: libraries/config/messages.inc.php:663
 msgid "Control user"
@@ -7209,7 +7199,6 @@ msgid "PDF schema: pages table"
 msgstr "PDF skema: tabela e faqeve"
 
 #: libraries/config/messages.inc.php:727
-#, fuzzy
 #| msgid ""
 #| "Database used for relations, bookmarks, and PDF features. See [a@http://"
 #| "wiki.phpmyadmin.net/pma/pmadb]pmadb[/a] for complete information. Leave "
@@ -7219,9 +7208,9 @@ msgid ""
 "tables]pmadb[/doc] for complete information. Leave blank for no support. "
 "Suggested: [kbd]phpmyadmin[/kbd]."
 msgstr ""
-"Databaza e përdorur për relacione, faqruajtës dhe tipare PDF. Shiko "
-"[a@http://wiki.phpmyadmin.net/pma/pmadb]pmadb[/a] për informacion më të "
-"plotë. Lëre të zbrazët për mos mbështetje. Sugjerohet: [kbd]phpmyadmin[/kbd]."
+"Databaza e përdorur për relacione, faqeruajtës dhe tiparet PDF. Shiko [doc"
+"@linked-tables][/doc][/doc]pmadb[/doc] për informacion më të plotë. Lëre të "
+"zbrazët për mos mbështetje. Sugjerohet: [kbd]phpmyadmin[/kbd]."
 
 #: libraries/config/messages.inc.php:731
 #: templates/server/databases/create.phtml:20
@@ -7263,7 +7252,6 @@ msgid "Favorites table"
 msgstr "Tabela e preferuar"
 
 #: libraries/config/messages.inc.php:746
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
 #| "links[/a] support, suggested: [kbd]pma__relation[/kbd]."
@@ -7271,24 +7259,22 @@ msgid ""
 "Leave blank for no [doc@relations@]relation-links[/doc] support, suggested: "
 "[kbd]pma__relation[/kbd]."
 msgstr ""
-"Lëre të zbrazët për jo mbështetje [a@http://wiki.phpmyadmin.net/pma/"
-"relation]relation-links[/a] (lidhje-relacioni), sugjerohet: "
-"[kbd]pma__relation[/kbd] (relacion_pma)."
+"Lëre të zbrazët për jo mbështetje [doc@relations@]relation-links[/doc] "
+"(lidhje-relacioni), sugjerohet: [kbd]pma__relation[/kbd] (relacion_pma)."
 
 #: libraries/config/messages.inc.php:750
 msgid "Relation table"
 msgstr "Tabela e relacionit"
 
 #: libraries/config/messages.inc.php:752
-#, fuzzy
 #| msgid ""
 #| "See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
 #| "types[/a] for an example."
 msgid ""
 "See [doc@authentication-modes]authentication types[/doc] for an example."
 msgstr ""
-"Shiko [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]tipet e "
-"autentifikimit[/a] për një shembull."
+"Shiko  [doc@authentication-modes]tipet e autentifikimit[/doc] për një "
+"shembull."
 
 #: libraries/config/messages.inc.php:755
 msgid "Signon session name"
@@ -7814,14 +7800,11 @@ msgid "Proxy password"
 msgstr "Fjalëkalimi proksi"
 
 #: libraries/config/messages.inc.php:978
-#, fuzzy
 #| msgid ""
 #| "Enable [a@http://en.wikipedia.org/wiki/Gzip]gzip[/a] compression for "
 #| "import and export operations."
 msgid "Enable ZIP compression for import and export operations."
-msgstr ""
-"Aftëso kompresimin [a@http://en.wikipedia.org/wiki/Gzip]gzip[/a] për "
-"veprimet e importit dhe eksportit."
+msgstr "Aftëso kompresimin ZIP për veprimet e importit dhe eksportit."
 
 #: libraries/config/messages.inc.php:981
 msgid "ZIP"
@@ -8532,14 +8515,11 @@ msgstr ""
 "importuar file të mëdha, por mund të thyejë transaksionet.)</i>"
 
 #: libraries/display_import.lib.php:312
-#, fuzzy
 #| msgid ""
 #| "Skip this number of queries (for SQL) or lines (for other formats), "
 #| "starting from the first one:"
 msgid "Skip this number of queries (for SQL) starting from the first one:"
-msgstr ""
-"Shmang këtë numër pyetësorësh (për SQL) ose linjat (për formate të tjera), "
-"duke filluar nga i pari:"
+msgstr "Shmang këtë numër të pyetësorëve (për SQL), duke filluar nga i pari:"
 
 #: libraries/display_import.lib.php:342
 msgid "Other options:"
@@ -9106,14 +9086,13 @@ msgid "Edit next row"
 msgstr "Korrigjo radhën tjetër"
 
 #: libraries/insert_edit.lib.php:1550
-#, fuzzy
 #| msgid ""
 #| "Use TAB key to move from value to value, or CTRL+arrows to move anywhere"
 msgid ""
 "Use TAB key to move from value to value, or CTRL+arrows to move anywhere."
 msgstr ""
-"Përdor tastin TAB (tabelor) për të lëvizur nga një vlerë te tjetra, ose CTRL"
-"+shigjeta për të lëvizur kudo"
+"Përdor tastin TAB (tabelor) për të lëvizur nga një vlerë te tjetra, ose CTRL+"
+"shigjeta për të lëvizur kudo."
 
 #: libraries/insert_edit.lib.php:1587 libraries/replication_gui.lib.php:542
 #: libraries/rte/rte_routines.lib.php:1588
@@ -9167,10 +9146,9 @@ msgid "Data only"
 msgstr "Vetëm të dhënat"
 
 #: libraries/mult_submits.lib.php:349
-#, fuzzy
 #| msgid "Add AUTO_INCREMENT value"
 msgid "Add AUTO INCREMENT value"
-msgstr "Shto vlerën AUTO_INCREMENT"
+msgstr "Shto vlerën AUTO INCREMENT"
 
 #: libraries/mult_submits.lib.php:351 libraries/operations.lib.php:225
 #: libraries/operations.lib.php:1288
@@ -9459,7 +9437,7 @@ msgstr[1] "%s rezultate janë gjetur"
 #: libraries/navigation/NavigationTree.php:1364
 #: libraries/navigation/NavigationTree.php:1401
 msgid "Type to filter these, Enter to search all"
-msgstr ""
+msgstr "Shtyp për të filtruar këto, Enter për të kërkuar të gjitha"
 
 #: libraries/navigation/NavigationTree.php:1366
 #: libraries/navigation/NavigationTree.php:1402
@@ -9477,10 +9455,10 @@ msgid "Invalid class name \"%1$s\", using default of \"Node\""
 msgstr "Emër i pavlefshëm klase \"%1$s\", përdor standardin e \"Node\""
 
 #: libraries/navigation/NodeFactory.php:63
-#, fuzzy, php-format
+#, php-format
 #| msgid "Could not add columns!"
 msgid "Could not load class \"%1$s\""
-msgstr "Nuk mund të shtojë kolona!"
+msgstr "Nuk mund të ngarkojë class \"%1$s 1\""
 
 #: libraries/navigation/nodes/Node.php:799
 msgid "Expand/Collapse"
@@ -9597,7 +9575,6 @@ msgid "Show me the central list of columns that are not already in this table"
 msgstr "Shfaq listën qendrore të kolonave, që nuk janë tashmë në këtë tabelë"
 
 #: libraries/normalization.lib.php:145
-#, fuzzy
 #| msgid ""
 #| "Select a column which can be split into more than one. (on select of 'no "
 #| "such column', it'll move to next step)"
@@ -9605,8 +9582,8 @@ msgid ""
 "Select a column which can be split into more than one (on select of 'no such "
 "column', it'll move to next step)."
 msgstr ""
-"Zgjedh një kolonë që mund të ndahet në më shumë se një. (me zgjedhjen e 'nuk "
-"ka kolonë të tillë', kjo do të lëvizë në hapin tjetër)"
+"Zgjedh një kolonë, që mund të ndahet në më shumë se një (me zgjedhjen e 'nuk "
+"ka kolonë të tillë', kjo do të lëvizë në hapin tjetër)."
 
 #: libraries/normalization.lib.php:152 normalization.php:17
 msgid "Select one…"
@@ -10590,10 +10567,9 @@ msgstr ""
 "dhe ri-ngarkohen ndërmjet serverave në zona kohore të ndryshme)</i>"
 
 #: libraries/plugins/export/ExportSql.php:515
-#, fuzzy
 #| msgid "It appears your database uses functions;"
 msgid "It appears your database uses routines;"
-msgstr "Duket se databaza juaj përdor funksionet;"
+msgstr "Duket se databaza juaj përdor rutinat;"
 
 #: libraries/plugins/export/ExportSql.php:518
 #: libraries/plugins/export/ExportSql.php:1531
@@ -10608,16 +10584,16 @@ msgid "Metadata"
 msgstr "Metadata"
 
 #: libraries/plugins/export/ExportSql.php:1067
-#, fuzzy, php-format
+#, php-format
 #| msgid "Metadata for %s"
 msgid "Metadata for table %s"
-msgstr "Metadata për %s"
+msgstr "Metadata për tabelën %s"
 
 #: libraries/plugins/export/ExportSql.php:1074
-#, fuzzy, php-format
+#, php-format
 #| msgid "Metadata for %s"
 msgid "Metadata for database %s"
-msgstr "Metadata për %s"
+msgstr "Metadata për databazën %s"
 
 #: libraries/plugins/export/ExportSql.php:1406
 #: libraries/plugins/schema/pdf/PdfRelationSchema.php:603
@@ -10686,7 +10662,7 @@ msgstr "Struktura për pamjen %s eksportuar si një tabelë"
 
 #: libraries/plugins/export/ExportSql.php:2099
 msgid "(See below for the actual view)"
-msgstr ""
+msgstr "(Shiko më poshtë pamjen aktuale)"
 
 #: libraries/plugins/export/ExportSql.php:2185
 msgid "Error reading data:"
@@ -10980,7 +10956,6 @@ msgstr ""
 "vargun e zbrazët."
 
 #: libraries/plugins/transformations/abs/ExternalTransformationsPlugin.php:28
-#, fuzzy
 #| msgid ""
 #| "LINUX ONLY: Launches an external application and feeds it the column data "
 #| "via standard input. Returns the standard output of the application. The "
@@ -11005,16 +10980,16 @@ msgid ""
 "appears all on one line (Default 1)."
 msgstr ""
 "VETËM LINUX: Lëshon një aplikacion të jashtëm dhe e ushqen atë me të dhënat "
-"e kolonës, përmes të dhënave standarde. Kthimin e prodhimit standard të "
-"aplikimit.Default është Tidy, për të goxha-shtypura Kodi HTML. Për arsye "
-"sigurie, duhet ta korrigjoni manualisht filin libraries/plugins/"
-"transformations/output/Text_Plain_External.class.php dhe listën e mjeteve, "
-"që doni të bëni të vlefshme. Mundësia e parë është atëherë numri i programit "
-"që doni të përdorni dhe opsioni i dytë janë parametrat e programit. Mundësia "
-"e tretë, nëse është e vendosur në 1, do të konvertojë rezultatin, duke "
-"përdorur htmlspecialchars() (Standardi 1). Opsioni i katërt, nëse është "
-"vendosur në 1, do të parandalojë mbërthimin dhe do të sigurojë që, rezultati "
-"të paraqitet i gjithi në një linjë (Standardi 1)."
+"e kolonës, përmes të dhënave standarde. Kthimin e rezultatit standard të "
+"aplikimit. Default është Tidy, për kodin e mirë-printuar HTML. Për arsye "
+"sigurie, duhet të korrigjoni manualisht filin "
+"libraries/plugins/transformations/output/Text_Plain_External.php dhe listën "
+"e mjeteve që doni të bëni të vlefshme. Opsioni i parë është pra numri i "
+"programit që doni të përdorni dhe opsioni i dytë janë parametrat e "
+"programit. Opsioni i tretë, nëse është e vendosur në 1, do të konvertojë "
+"rezultatin, duke përdorur htmlspecialchars() (Standardi 1). Opsioni i "
+"katërt, nëse është vendosur në 1, do të parandalojë mbërthimin dhe sigurojë "
+"që, rezultati të paraqitet i gjithi në një linjë (Standardi 1)."
 
 #: libraries/plugins/transformations/abs/FormattedTransformationsPlugin.php:28
 msgid ""
@@ -11227,7 +11202,7 @@ msgstr "Aftëso"
 
 #: libraries/relation.lib.php:101
 msgid "Configuration of pmadb…"
-msgstr "Konfigurimi i pmadb… "
+msgstr "Konfigurimi i pmadb…"
 
 #: libraries/relation.lib.php:105 libraries/relation.lib.php:141
 msgid "General relation features"
@@ -12289,10 +12264,9 @@ msgid "User group"
 msgstr "Grup përdoruesi"
 
 #: libraries/server_privileges.lib.php:730
-#, fuzzy
 #| msgid "Requires SSL-encrypted connections."
 msgid "Does not require SSL-encrypted connections."
-msgstr "Kërkon lidhje SSL-të kriptuara."
+msgstr "Nuk kërkon lidhje SSL-të kriptuara."
 
 #: libraries/server_privileges.lib.php:751
 msgid "Requires SSL-encrypted connections."
@@ -12356,10 +12330,9 @@ msgstr "Kufizon numrin e lidhjeve të njëkohëshme, që përdoruesi mund të ke
 #: libraries/server_privileges.lib.php:3340
 #: libraries/server_privileges.lib.php:4622
 #: templates/privileges/edit_routine_privileges.phtml:11
-#, fuzzy
 #| msgid "Routines"
 msgid "Routine"
-msgstr "Rutinat"
+msgstr "Rutina"
 
 #: libraries/server_privileges.lib.php:1035
 #: libraries/server_privileges.lib.php:1409 server_privileges.php:72
@@ -12370,16 +12343,14 @@ msgstr ""
 "privilegjeve."
 
 #: libraries/server_privileges.lib.php:1042
-#, fuzzy
 #| msgid "Allows altering and dropping stored routines."
 msgid "Allows altering and dropping this routine."
-msgstr "Lejon ndryshimin dhe fshirjen e rutinave të ruajtura."
+msgstr "Lejon ndryshimin dhe fshirjen e kësaj rutine."
 
 #: libraries/server_privileges.lib.php:1047
-#, fuzzy
 #| msgid "Allows executing stored routines."
 msgid "Allows executing this routine."
-msgstr "Lejon ekzekutimin e rutinave të ruajtura."
+msgstr "Lejon ekzekutimin e kësaj rutine."
 
 #: libraries/server_privileges.lib.php:1097
 #: libraries/server_privileges.lib.php:1266
@@ -12422,22 +12393,19 @@ msgid "Allows dropping tables."
 msgstr "Lejon fshirjen e tabelave."
 
 #: libraries/server_privileges.lib.php:1541
-#, fuzzy
 #| msgid "Cookie authentication"
 msgid "Native MySQL authentication"
-msgstr "Autentifikimi i gatimeve"
+msgstr "Autentifikimi autokton MySQL"
 
 #: libraries/server_privileges.lib.php:1543
-#, fuzzy
 #| msgid "Signon authentication"
 msgid "SHA256 password authentication"
-msgstr "Autentifikimi i hyrjes"
+msgstr "Autentifikimi i fjalëkalimit SHA256"
 
 #: libraries/server_privileges.lib.php:1557
-#, fuzzy
 #| msgid "Cookie authentication"
 msgid "Native MySQL Authentication"
-msgstr "Autentifikimi i gatimeve"
+msgstr "Autentifikimi autokton MySQL"
 
 #: libraries/server_privileges.lib.php:1611
 #: libraries/server_privileges.lib.php:3119
@@ -12479,10 +12447,9 @@ msgid "Authentication Plugin"
 msgstr "Shtojca e autentifikimit"
 
 #: libraries/server_privileges.lib.php:1835
-#, fuzzy
 #| msgid "Password Hashing:"
 msgid "Password Hashing Method"
-msgstr "Ngatërrimi i fjalëkalimit:"
+msgstr "Metoda e ngatërrimit të fjalëkalimit"
 
 #: libraries/server_privileges.lib.php:2118
 #, php-format
@@ -12609,10 +12576,9 @@ msgstr "Krijo një llogari të re përdoruesi me të njëjtat privilegje dhe …
 
 #: libraries/server_privileges.lib.php:3339
 #: templates/privileges/edit_routine_privileges.phtml:12
-#, fuzzy
 #| msgid "Column-specific privileges"
 msgid "Routine-specific privileges"
-msgstr "Privilegjet specifike të kolonës"
+msgstr "Privilegjet specifike të rutinës"
 
 #: libraries/server_privileges.lib.php:3724
 msgid "Remove selected user accounts"
@@ -13888,10 +13854,9 @@ msgid "An opening bracket was expected."
 msgstr "Pritet një kllapë e hapur."
 
 #: libraries/sql-parser/src/Components/CreateDefinition.php:225
-#, fuzzy
 #| msgid "Variable name was expected."
 msgid "A symbol name was expected!"
-msgstr "Pritet emri i variablit."
+msgstr "Pritet emri i një simboli!"
 
 #: libraries/sql-parser/src/Components/CreateDefinition.php:257
 msgid "A comma or a closing bracket was expected."
@@ -14477,6 +14442,9 @@ msgid ""
 "Username and hostname didn't change. If you only want to change the "
 "password, 'Change password' tab should be used."
 msgstr ""
+"Emri i përdoruesit dhe emri i pritësit (hostname) nuk kanë ndryshuar. Nëse "
+"doni vetëm të ndryshoni fjalëkalimin, duhet të përdoret tabelori 'Ndrysho "
+"fjalëkalimin'."
 
 #: server_status.php:35
 msgid "Not enough privilege to view server status."
@@ -14791,95 +14759,80 @@ msgid "after %s"
 msgstr "pas %s"
 
 #: templates/columns_definitions/partitions.phtml:9
-#, fuzzy
 #| msgid "Partitioned by:"
 msgid "Partition by:"
-msgstr "Ndarë nga:"
+msgstr "Copëzuar nga:"
 
 #: templates/columns_definitions/partitions.phtml:25
 #: templates/columns_definitions/partitions.phtml:54
-#, fuzzy
 #| msgid "Values for column %s"
 msgid "Expression or column list"
-msgstr "Vlerat për kolonat %s"
+msgstr "Lista e shprehjes ose kolona"
 
 #: templates/columns_definitions/partitions.phtml:30
-#, fuzzy
 #| msgid "Partitions"
 msgid "Partitions:"
-msgstr "Pjesët"
+msgstr "Copëzimet:"
 
 #: templates/columns_definitions/partitions.phtml:38
-#, fuzzy
 #| msgid "Sub partitioned by:"
 msgid "Subpartition by:"
-msgstr "Nën-ndarë nga:"
+msgstr "Nën-copëzimet nga:"
 
 #: templates/columns_definitions/partitions.phtml:59
-#, fuzzy
 #| msgid "Sub partitioned by:"
 msgid "Subpartitions:"
-msgstr "Nën-ndarë nga:"
+msgstr "Nën-copëzimet:"
 
 #: templates/columns_definitions/partitions.phtml:71
-#, fuzzy
 #| msgid "Partitions"
 msgid "Partition"
-msgstr "Pjesët"
+msgstr "Copëzimi"
 
 #: templates/columns_definitions/partitions.phtml:73
-#, fuzzy
 #| msgid "Value"
 msgid "Values"
-msgstr "Vlera"
+msgstr "Vlerat"
 
 #: templates/columns_definitions/partitions.phtml:76
-#, fuzzy
 #| msgid "partitioned"
 msgid "Subpartition"
-msgstr "copëzuar"
+msgstr "Nën-copëzimi"
 
 #: templates/columns_definitions/partitions.phtml:78
-#, fuzzy
 #| msgid "Engines"
 msgid "Engine"
-msgstr "Makinat"
+msgstr "Makina"
 
 #: templates/columns_definitions/partitions.phtml:80
-#, fuzzy
 #| msgid "Data home directory"
 msgid "Data directory"
-msgstr "Dosja e hyrjes së të dhënave"
+msgstr "Dosja e të dhënave"
 
 #: templates/columns_definitions/partitions.phtml:81
-#, fuzzy
 #| msgid "Save directory"
 msgid "Index directory"
-msgstr "Drejtoria e ruajtjes"
+msgstr "Drejtoria e indeksit"
 
 #: templates/columns_definitions/partitions.phtml:82
-#, fuzzy
 #| msgid "Matched rows:"
 msgid "Max rows"
-msgstr "Radhët që përkojnë:"
+msgstr "Maks i radhëve"
 
 #: templates/columns_definitions/partitions.phtml:83
-#, fuzzy
 #| msgid "rows"
 msgid "Min rows"
-msgstr "Shfleto"
+msgstr "Min i radhëve"
 
 #: templates/columns_definitions/partitions.phtml:84
-#, fuzzy
 #| msgid "Table search"
 msgid "Table space"
-msgstr "Kërko tabelën"
+msgstr "Hapësira e tabelës"
 
 #: templates/columns_definitions/partitions.phtml:85
-#, fuzzy
 #| msgid "User group"
 msgid "Node group"
-msgstr "Grup përdoruesi"
+msgstr "Grup nyjë"
 
 #: templates/columns_definitions/table_fields_definitions.phtml:16
 msgid ""
@@ -14972,10 +14925,9 @@ msgid "Operator"
 msgstr "Operator"
 
 #: templates/database/designer/database_tables.phtml:29
-#, fuzzy
 #| msgid "Move columns"
 msgid "Show/hide columns"
-msgstr "Lëviz kolonat"
+msgstr "Shfaq/fsheh kolonat"
 
 #: templates/database/designer/database_tables.phtml:40
 msgid "See table structure"
@@ -15165,10 +15117,9 @@ msgid "Check tables having overhead"
 msgstr "Kontrollo tabelat që kanë ngarkesë"
 
 #: templates/database/structure/check_all_tables.phtml:10
-#, fuzzy
 #| msgid "No tables"
 msgid "Copy table"
-msgstr "Asnjë tabelë"
+msgstr "Kopjo tabelën"
 
 #: templates/database/structure/check_all_tables.phtml:11
 msgid "Show create"
@@ -15252,7 +15203,6 @@ msgid "Tracking is not active."
 msgstr "Gjurmimi nuk është aktiv."
 
 #: templates/error/report_form.phtml:7
-#, fuzzy
 #| msgid ""
 #| "phpMyAdmin has encountered an error. We have collected data about this "
 #| "error as well as information about relevant configuration settings to "
@@ -15262,16 +15212,17 @@ msgid ""
 "about relevant configuration settings. It will be sent to the phpMyAdmin "
 "team for debugging the error."
 msgstr ""
-"phpMyAdmin ka ndeshur në një gabim. Kemi mbledhur të dhëna në lidhje me këtë "
-"gabim, si dhe informacion relevant në lidhje me rregullimet e konfigurimit, "
-"për ta dërguar tek ekipi i phpMyAdmin, që të na ndihmojë në zgjidhjen "
-"(debugging) e problemit."
+"Ky raport përfshin të automatikisht të dhënat në lidhje me gabimin dhe "
+"informacionin në lidhje me rregullimet relevante të konfigurimit. Kjo do të "
+"dërgohet për ekipin phpMyAdmin për gjetjen e gabimit."
 
 #: templates/error/report_form.phtml:14
 msgid ""
 "Can you tell us the steps leading to this error? It decisively helps in "
 "debugging:"
 msgstr ""
+"A mund të na tregoni hapat që çojnë në këtë gabim? Kjo ndihmon kryesisht në "
+"gjetjen e defektit:"
 
 #: templates/error/report_form.phtml:21
 msgid "You may examine the data in the error report:"
@@ -15296,10 +15247,9 @@ msgstr ""
 "përdorur ato fjalë për fjalë."
 
 #: templates/privileges/add_privileges_routine.phtml:3
-#, fuzzy
 #| msgid "Add privileges on the following table:"
 msgid "Add privileges on the following routine:"
-msgstr "Shto privilegje në tabelën që vijon:"
+msgstr "Shto privilegje në rutinën që vijon:"
 
 #: templates/privileges/add_privileges_table.phtml:3
 msgid "Add privileges on the following table:"
@@ -15405,10 +15355,9 @@ msgid "Stacked"
 msgstr "Grumbulluar"
 
 #: templates/table/chart/tbl_chart.phtml:53
-#, fuzzy
 #| msgid "Chart title"
 msgid "Chart title:"
-msgstr "Titull grafiku"
+msgstr "Titull grafiku:"
 
 #: templates/table/chart/tbl_chart.phtml:58
 msgid "X-Axis:"
@@ -15677,10 +15626,9 @@ msgid "Partitions"
 msgstr "Pjesët"
 
 #: templates/table/structure/display_partitions.phtml:9
-#, fuzzy
 #| msgid "No index defined!"
 msgid "No partitioning defined!"
-msgstr "Nuk është përcaktuar indeksi!"
+msgstr "Nuk është përcaktuar copëzimi!"
 
 #: templates/table/structure/display_partitions.phtml:12
 msgid "Partitioned by:"
@@ -15699,27 +15647,24 @@ msgid "Index length"
 msgstr "Gjatësia e indeksit"
 
 #: templates/table/structure/display_partitions.phtml:135
-#, fuzzy
 #| msgid "Partitioned by:"
 msgid "Partition table"
-msgstr "Ndarë nga:"
+msgstr "Tabela e copëzimit"
 
 #: templates/table/structure/display_partitions.phtml:138
 #: templates/table/structure/partition_definition_form.phtml:7
-#, fuzzy
 #| msgid "Remove partitioning"
 msgid "Edit partitioning"
-msgstr "Largo particionimin"
+msgstr "Korrigjo copëzimin"
 
 #: templates/table/structure/display_structure.phtml:129 view_create.php:186
 msgid "Edit view"
 msgstr "Korrigjo pamjen"
 
 #: templates/table/structure/display_table_stats.phtml:5
-#, fuzzy
 #| msgid "Table comments:"
 msgid "Table comments: "
-msgstr "Komentet e tabelës:"
+msgstr "Komentet e tabelës: "
 
 #: templates/table/structure/display_table_stats.phtml:12
 msgid "Space usage"
@@ -15809,10 +15754,9 @@ msgid "Description"
 msgstr "Përshkrim"
 
 #: url.php:36
-#, fuzzy
 #| msgid "Taking you to next step…"
 msgid "Taking you to the target site."
-msgstr "Po kalon në hapin tjetër…"
+msgstr "Po kalon në faqen e objektivit."
 
 #: user_password.php:34
 msgid "You don't have sufficient privileges to be here right now!"
@@ -16034,10 +15978,9 @@ msgid "Version less than 5.5.8 (the first GA release of 5.5)."
 msgstr "Versioni më i vogël se 5.5.8 (GA e parë lëshuar nga 5.5)."
 
 #: libraries/advisory_rules.txt:118
-#, fuzzy
 #| msgid "You should upgrade, to a stable version of MySQL 5.5"
 msgid "You should upgrade, to a stable version of MySQL 5.5."
-msgstr "Duhet të aktualizoni, tek një version stabil i MySQL 5.5"
+msgstr "Duhet të aktualizoni, tek një version stabil i MySQL 5.5."
 
 #: libraries/advisory_rules.txt:121 libraries/advisory_rules.txt:128
 msgid "Distribution"
@@ -16347,7 +16290,6 @@ msgid "Too many sorts are causing temporary tables."
 msgstr "Shumë klasifikime po shkaktojnë tabela të përkohëshme."
 
 #: libraries/advisory_rules.txt:208 libraries/advisory_rules.txt:215
-#, fuzzy
 #| msgid ""
 #| "Consider increasing {sort_buffer_size} and/or {read_rnd_buffer_size}, "
 #| "depending on your system memory limits"
@@ -16356,7 +16298,7 @@ msgid ""
 "depending on your system memory limits."
 msgstr ""
 "Konsidero rritjen e {sort_buffer_size} dhe/ose {read_rnd_buffer_size}, në "
-"varësi të kufizimeve të kujtesës së sistemit"
+"varësi të kufizimeve të kujtesës së sistemit."
 
 #: libraries/advisory_rules.txt:209
 #, php-format
@@ -16388,7 +16330,6 @@ msgid "There are lots of rows being sorted."
 msgstr "Ka shumë radhë që janë klasifikuar."
 
 #: libraries/advisory_rules.txt:222
-#, fuzzy
 #| msgid ""
 #| "While there is nothing wrong with a high amount of row sorting, you might "
 #| "want to make sure that the queries which require a lot of sorting use "
@@ -16401,9 +16342,9 @@ msgid ""
 "sorting."
 msgstr ""
 "Ndërsa nuk ka asgjë të keqe me një sasi të lartë të klasifikimit të radhës, "
-"mund të doni të siguroheni që pyetsorët, të cilat kërkojnë shumë klasifikim, "
-"të përdorin kolonat e indeksuara në klauzolën ORDER BY, pasi kjo do të "
-"rezultojë në klasifikim shumë më të shpejtë"
+"mund të doni të siguroheni që pyetsorët, të cilët kërkojnë shumë klasifikim, "
+"të përdorin kolonat e indeksuara në klauzolën ORDER BY (renditur sipas), "
+"pasi kjo do të rezultojë në një klasifikim shumë më të shpejtë."
 
 #: libraries/advisory_rules.txt:223
 #, php-format
@@ -16419,7 +16360,6 @@ msgid "There are too many joins without indexes."
 msgstr "Ka shumë bashkime pa indekse."
 
 #: libraries/advisory_rules.txt:230
-#, fuzzy
 #| msgid ""
 #| "This means that joins are doing full table scans. Adding indexes for the "
 #| "columns being used in the join conditions will greatly speed up table "
@@ -16429,8 +16369,8 @@ msgid ""
 "columns being used in the join conditions will greatly speed up table joins."
 msgstr ""
 "Kjo do të thotë se bashkimet po bëjnë skanim të plotë të tabelave. Shtimi i "
-"indekseve për kolonat, duke u përdorur në kushtet e bashkimit, do të "
-"përshpejtojë shumë bashkimin e tabelave"
+"indekseve për kolonat, duke përdorur në kushtet e bashkimit, do të "
+"përshpejtojë shumë bashkimin e tabelave."
 
 #: libraries/advisory_rules.txt:231
 #, php-format
@@ -16858,13 +16798,11 @@ msgid "Slow launch time"
 msgstr "Koha e lëshimit e ngadaltë"
 
 #: libraries/advisory_rules.txt:368
-#, fuzzy
 #| msgid "Slow_launch_threads is above 2s"
 msgid "Slow_launch_threads is above 2s."
-msgstr "Slow_launch_threads është mbi 2s"
+msgstr "Slow_launch_threads është mbi 2s."
 
 #: libraries/advisory_rules.txt:369
-#, fuzzy
 #| msgid ""
 #| "Set {slow_launch_time} to 1s or 2s to correctly count threads that are "
 #| "slow to launch"
@@ -16873,7 +16811,7 @@ msgid ""
 "to launch."
 msgstr ""
 "Vendos {slow_launch_time} në 1s ose 2s për të numëruar saktë rrjedhat që "
-"janë të ngadalta në nisje"
+"janë të ngadalta në nisje."
 
 #: libraries/advisory_rules.txt:370
 #, php-format
