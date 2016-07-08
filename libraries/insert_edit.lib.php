@@ -386,7 +386,7 @@ function PMA_getEnumSetAndTimestampColumns($column, $timestamp_seen)
  */
 function PMA_getFunctionColumn($column, $is_upload, $column_name_appendix,
     $onChangeClause, $no_support_types, $tabindex_for_function,
-    $tabindex, $idindex, $insert_mode
+    $tabindex, $idindex, $insert_mode, $foreignData
 ) {
     $html_output = '';
     if (($GLOBALS['cfg']['ProtectBinary'] === 'blob'
@@ -411,7 +411,8 @@ function PMA_getFunctionColumn($column, $is_upload, $column_name_appendix,
             . ' id="field_' . $idindex . '_1">';
         $html_output .= PMA\libraries\Util::getFunctionsForField(
             $column,
-            $insert_mode
+            $insert_mode,
+            $foreignData
         ) . "\n";
 
         $html_output .= '</select>' .  "\n";
@@ -2792,19 +2793,19 @@ function PMA_getHtmlForInsertEditFormColumn($table_columns, $column_number,
 
     // The function column
     // -------------------
+    $foreignData = PMA_getForeignData(
+        $foreigners, $column['Field'], false, '', ''
+    );
     if ($GLOBALS['cfg']['ShowFunctionFields']) {
         $html_output .= PMA_getFunctionColumn(
             $column, $is_upload, $column_name_appendix,
             $onChangeClause, $no_support_types, $tabindex_for_function,
-            $tabindex, $idindex, $insert_mode
+            $tabindex, $idindex, $insert_mode, $foreignData
         );
     }
 
     // The null column
     // ---------------
-    $foreignData = PMA_getForeignData(
-        $foreigners, $column['Field'], false, '', ''
-    );
     $html_output .= PMA_getNullColumn(
         $column, $column_name_appendix, $real_null_value,
         $tabindex, $tabindex_for_null, $idindex, $vkey, $foreigners,
