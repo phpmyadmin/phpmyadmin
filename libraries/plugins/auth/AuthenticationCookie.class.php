@@ -77,8 +77,8 @@ class AuthenticationCookie extends AuthenticationPlugin
 
             $login_link = '<br /><br />[ ' .
                 sprintf(
-                    '<a href="%s" class="ajax login-link">%s</a>', 
-                    $GLOBALS['cfg']['PmaAbsoluteUri'], 
+                    '<a href="%s" class="ajax login-link">%s</a>',
+                    $GLOBALS['cfg']['PmaAbsoluteUri'],
                     __('Log in')
                 )
                 . ' ]';
@@ -636,7 +636,7 @@ class AuthenticationCookie extends AuthenticationPlugin
      */
     public function blowfishEncrypt($data, $secret)
     {
-        global $iv;
+        $iv = $this->createIV();
         if (! function_exists('mcrypt_encrypt')) {
             /**
              * This library uses mcrypt when available, so
@@ -647,9 +647,9 @@ class AuthenticationCookie extends AuthenticationPlugin
             include_once "./libraries/phpseclib/Crypt/AES.php";
             $cipher = new Crypt_AES(CRYPT_AES_MODE_ECB);
             $cipher->setKey($secret);
-            return base64_encode($cipher->encrypt($data));
+            $result = base64_encode($cipher->encrypt($data));
         } else {
-            return base64_encode(
+            $result = base64_encode(
                 mcrypt_encrypt(
                     MCRYPT_BLOWFISH,
                     $secret,
@@ -659,6 +659,13 @@ class AuthenticationCookie extends AuthenticationPlugin
                 )
             );
         }
+        return json_encode(
+            array(
+                'iv' => base64_encode($iv),
+                'mac' => sha1($result . $secret),
+                'payload' => $result,
+            )
+        );
     }
 
     /**
@@ -668,26 +675,74 @@ class AuthenticationCookie extends AuthenticationPlugin
      * @param string $encdata encrypted data
      * @param string $secret  the secret
      *
-     * @return string original data
+     * @return string|bool original data, false on error
      */
     public function blowfishDecrypt($encdata, $secret)
     {
-        global $iv;
+        $data = json_decode($encdata, true);
+
+        if (! is_array($data) || ! isset($data['mac']) || ! isset($data['iv']) || ! isset($data['payload'])) {
+            return false;
+        }
+
+        $newmac = sha1($data['payload'] . $secret);
+
+        if (! hash_equals($data['mac'], $newmac)) {
+            return false;
+        }
+
         if (! function_exists('mcrypt_encrypt')) {
             include_once "./libraries/phpseclib/Crypt/AES.php";
             $cipher = new Crypt_AES(CRYPT_AES_MODE_ECB);
+            $cipher->setIV(base64_decode($data['iv']));
             $cipher->setKey($secret);
-            return $cipher->decrypt(base64_decode($encdata));
+            return $cipher->decrypt(base64_decode($data['payload']));
         } else {
-            $data = base64_decode($encdata);
             $decrypted = mcrypt_decrypt(
                 MCRYPT_BLOWFISH,
                 $secret,
-                $data,
+                base64_decode($data['payload']),
                 MCRYPT_MODE_CBC,
-                $iv
+                base64_decode($data['iv'])
             );
             return trim($decrypted);
+        }
+    }
+
+    /**
+     * Returns size of IV for encryption.
+     *
+     * @return int
+     */
+    public function getIVSize()
+    {
+        include_once "./libraries/phpseclib/Crypt/AES.php";
+        $cipher = new Crypt_AES(CRYPT_AES_MODE_ECB);
+        return $cipher->block_size;
+    }
+
+    /**
+     * Initialization
+     * Store the initialization vector because it will be needed for
+     * further decryption. I don't think necessary to have one iv
+     * per server so I don't put the server number in the cookie name.
+     *
+     * @return void
+     */
+    public function createIV()
+    {
+        if (function_exists('mcrypt_create_iv')) {
+            srand((double) microtime() * 1000000);
+            $td = mcrypt_module_open(MCRYPT_BLOWFISH, '', MCRYPT_MODE_CBC, '');
+            if ($td === false) {
+                PMA_fatalError(__('Failed to use Blowfish from mcrypt!'));
+            }
+            return mcrypt_create_iv(mcrypt_enc_get_iv_size($td), MCRYPT_RAND);
+        } else {
+            include_once "./libraries/phpseclib/Crypt/Random.php";
+            return crypt_random_string(
+                $this->getIVSize()
+            );
         }
     }
 
