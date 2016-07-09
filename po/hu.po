@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2016-05-23 14:30+0200\n"
+"POT-Creation-Date: 2016-05-23 14:29+0200\n"
 "PO-Revision-Date: 2016-06-08 14:42+0000\n"
 "Last-Translator: Gergő Felföldi <gergo314@gmail.com>\n"
 "Language-Team: Hungarian "
@@ -7094,13 +7094,13 @@ msgstr "Hitelesítés típusa"
 #: libraries/config/messages.inc.php:640
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/"
+#| "Leave blank for no [a@https://wiki.phpmyadmin.net/pma/bookmark]bookmark[/"
 #| "a] support, suggested: [kbd]pma__bookmark[/kbd]"
 msgid ""
 "Leave blank for no [doc@bookmarks@]bookmark[/doc] support, suggested: "
 "[kbd]pma__bookmark[/kbd]"
 msgstr ""
-"Hagyja üresen, ha nincs [a@http://wiki.phpmyadmin.net/pma/"
+"Hagyja üresen, ha nincs [a@https://wiki.phpmyadmin.net/pma/"
 "bookmark]könyvjelző[/a] támogatás, alapértelmezés: [kbd]pma_bookmark[/kbd]"
 
 #: libraries/config/messages.inc.php:643
@@ -7145,14 +7145,14 @@ msgstr "A kontrollfelhasználó jelszava"
 #, fuzzy
 #| msgid ""
 #| "A special MySQL user configured with limited permissions, more "
-#| "information available on [a@http://wiki.phpmyadmin.net/pma/"
+#| "information available on [a@https://wiki.phpmyadmin.net/pma/"
 #| "controluser]wiki[/a]."
 msgid ""
 "A special MySQL user configured with limited permissions, more information "
 "available on [doc@linked-tables]documentation[/doc]."
 msgstr ""
 "Korlátozott jogokkal rendelkező, speciális MySQL felhasználó, további "
-"információk érhetők el a [a@http://wiki.phpmyadmin.net/pma/controluser]wiki[/"
+"információk érhetők el a [a@https://wiki.phpmyadmin.net/pma/controluser]wiki[/"
 "a] oldalon."
 
 #: libraries/config/messages.inc.php:659
@@ -7331,7 +7331,7 @@ msgid ""
 "Suggested: [kbd]phpmyadmin[/kbd]."
 msgstr ""
 "A kapcsolatokhoz, könyvjelzőkhöz és PDF-funkciókhoz használt adatbázis. A "
-"teljes információt lásd a [a@http://wiki.phpmyadmin.net/pma/pmadb]pmadb[/a] "
+"teljes információt lásd a [a@https://wiki.phpmyadmin.net/pma/pmadb]pmadb[/a] "
 "oldalon. Hagyja üresen, ha nincs szükség a támogatására. Ajánlott: "
 "[kbd]phpmyadmin[/kbd]."
 
@@ -7377,13 +7377,13 @@ msgstr "Kedvencek tábla"
 #: libraries/config/messages.inc.php:742
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
+#| "Leave blank for no [a@https://wiki.phpmyadmin.net/pma/relation]relation-"
 #| "links[/a] support, suggested: [kbd]pma__relation[/kbd]."
 msgid ""
 "Leave blank for no [doc@relations@]relation-links[/doc] support, suggested: "
 "[kbd]pma__relation[/kbd]."
 msgstr ""
-"Hagyja üresen, ha nincs [a@http://wiki.phpmyadmin.net/pma/relation]relációs "
+"Hagyja üresen, ha nincs [a@https://wiki.phpmyadmin.net/pma/relation]relációs "
 "hivatkozás[/a] támogatás, ajánlott: [kbd]pma__relation[/kbd]."
 
 #: libraries/config/messages.inc.php:746
@@ -7393,12 +7393,12 @@ msgstr "Kapcsolat tábla"
 #: libraries/config/messages.inc.php:748
 #, fuzzy
 #| msgid ""
-#| "See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
+#| "See [a@https://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
 #| "types[/a] for an example."
 msgid ""
 "See [doc@authentication-modes]authentication types[/doc] for an example."
 msgstr ""
-"Lásd a [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]hitelesítési "
+"Lásd a [a@https://wiki.phpmyadmin.net/pma/auth_types#signon]hitelesítési "
 "típusok[/a] példáját."
 
 #: libraries/config/messages.inc.php:751

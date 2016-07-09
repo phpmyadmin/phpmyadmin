@@ -342,9 +342,7 @@ class AuthenticationCookie extends AuthenticationPlugin
         }
 
         // check cookies
-        if (empty($_COOKIE['pmaUser-' . $GLOBALS['server']])
-            || empty($_COOKIE['pma_iv-' . $GLOBALS['server']])
-        ) {
+        if (empty($_COOKIE['pmaUser-' . $GLOBALS['server']])) {
             return false;
         }
 
@@ -463,8 +461,6 @@ class AuthenticationCookie extends AuthenticationPlugin
     public function storeUserCredentials()
     {
         global $cfg;
-
-        $this->createIV();
 
         // Name and password cookies need to be refreshed each time
         // Duration = one month for username
@@ -654,20 +650,28 @@ class AuthenticationCookie extends AuthenticationPlugin
      */
     public function cookieEncrypt($data, $secret)
     {
+        $iv = $this->createIV();
         if (self::useOpenSSL()) {
-            return openssl_encrypt(
+            $result = openssl_encrypt(
                 $data,
                 'AES-128-CBC',
                 $secret,
                 0,
-                $this->_cookie_iv
+                $iv
             );
         } else {
             $cipher = new Crypt\AES(Crypt\Base::MODE_CBC);
-            $cipher->setIV($this->_cookie_iv);
+            $cipher->setIV($iv);
             $cipher->setKey($secret);
-            return base64_encode($cipher->encrypt($data));
+            $result = base64_encode($cipher->encrypt($data));
         }
+        return json_encode(
+            array(
+                'iv' => base64_encode($iv),
+                'mac' => sha1($result . $secret),
+                'payload' => $result,
+            )
+        );
     }
 
     /**
@@ -677,33 +681,35 @@ class AuthenticationCookie extends AuthenticationPlugin
      * @param string $encdata encrypted data
      * @param string $secret  the secret
      *
-     * @return string original data
+     * @return string|bool original data, false on error
      */
     public function cookieDecrypt($encdata, $secret)
     {
-        if (is_null($this->_cookie_iv)) {
-            $this->_cookie_iv = base64_decode(
-                $_COOKIE['pma_iv-' . $GLOBALS['server']],
-                true
-            );
+        $data = json_decode($encdata, true);
+
+        if (! is_array($data) || ! isset($data['mac']) || ! isset($data['iv']) || ! isset($data['payload'])) {
+            return false;
         }
-        if (mb_strlen($this->_cookie_iv, '8bit') < $this->getIVSize()) {
-                $this->createIV();
+
+        $newmac = sha1($data['payload'] . $secret);
+
+        if (! hash_equals($data['mac'], $newmac)) {
+            return false;
         }
 
         if (self::useOpenSSL()) {
             return openssl_decrypt(
-                $encdata,
+                $data['payload'],
                 'AES-128-CBC',
                 $secret,
                 0,
-                $this->_cookie_iv
+                base64_decode($data['iv'])
             );
         } else {
             $cipher = new Crypt\AES(Crypt\Base::MODE_CBC);
-            $cipher->setIV($this->_cookie_iv);
+            $cipher->setIV(base64_decode($data['iv']));
             $cipher->setKey($secret);
-            return $cipher->decrypt(base64_decode($encdata));
+            return $cipher->decrypt(base64_decode($data['payload']));
         }
     }
 
@@ -731,23 +737,25 @@ class AuthenticationCookie extends AuthenticationPlugin
      */
     public function createIV()
     {
+        /* Testsuite shortcut only to allow predictable IV */
+        if (! is_null($this->_cookie_iv)) {
+            return $this->_cookie_iv;
+        }
         if (self::useOpenSSL()) {
-            $this->_cookie_iv = openssl_random_pseudo_bytes(
+            return openssl_random_pseudo_bytes(
                 $this->getIVSize()
             );
         } else {
-            $this->_cookie_iv = Crypt\Random::string(
+            return Crypt\Random::string(
                 $this->getIVSize()
             );
         }
-        $GLOBALS['PMA_Config']->setCookie(
-            'pma_iv-' . $GLOBALS['server'],
-            base64_encode($this->_cookie_iv)
-        );
     }
 
     /**
      * Sets encryption IV to use
+     *
+     * This is for testing only!
      *
      * @param string $vector The IV
      *
