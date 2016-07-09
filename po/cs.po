@@ -6883,13 +6883,13 @@ msgstr "Typ přihlašování"
 #: libraries/config/messages.inc.php:644
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/"
+#| "Leave blank for no [a@https://wiki.phpmyadmin.net/pma/bookmark]bookmark[/"
 #| "a] support, suggested: [kbd]pma__bookmark[/kbd]"
 msgid ""
 "Leave blank for no [doc@bookmarks@]bookmark[/doc] support, suggested: "
 "[kbd]pma__bookmark[/kbd]"
 msgstr ""
-"Nechte prázdné pro vypnutí podpory [a@http://wiki.phpmyadmin.net/pma/"
+"Nechte prázdné pro vypnutí podpory [a@https://wiki.phpmyadmin.net/pma/"
 "bookmark]záložek[/a], doporučené nastavení: [kbd]pma__bookmarks[/kbd]"
 
 #: libraries/config/messages.inc.php:647
@@ -6933,7 +6933,7 @@ msgstr "Heslo kontrolního uživatele"
 #, fuzzy
 #| msgid ""
 #| "A special MySQL user configured with limited permissions, more "
-#| "information available on [a@http://wiki.phpmyadmin.net/pma/"
+#| "information available on [a@https://wiki.phpmyadmin.net/pma/"
 #| "controluser]wiki[/a]."
 msgid ""
 "A special MySQL user configured with limited permissions, more information "
@@ -7114,7 +7114,7 @@ msgid ""
 "Suggested: [kbd]phpmyadmin[/kbd]."
 msgstr ""
 "Databáze používaná pro relace, záložky a PDF stránky. Více informací "
-"naleznete na [a@http://wiki.phpmyadmin.net/pma/pmadb]pmadb[/a]. Pokud "
+"naleznete na [a@https://wiki.phpmyadmin.net/pma/pmadb]pmadb[/a]. Pokud "
 "ponecháte prázdné, budou tyto funkce vypnuté. Doporučená hodnota: "
 "[kbd]phpmyadmin[/kbd]."
 
@@ -7159,13 +7159,13 @@ msgstr "Oblíbené tabulky"
 #: libraries/config/messages.inc.php:746
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
+#| "Leave blank for no [a@https://wiki.phpmyadmin.net/pma/relation]relation-"
 #| "links[/a] support, suggested: [kbd]pma__relation[/kbd]."
 msgid ""
 "Leave blank for no [doc@relations@]relation-links[/doc] support, suggested: "
 "[kbd]pma__relation[/kbd]."
 msgstr ""
-"Nechte prázdné pro vypnutí podpory pro [a@http://wiki.phpmyadmin.net/pma/"
+"Nechte prázdné pro vypnutí podpory pro [a@https://wiki.phpmyadmin.net/pma/"
 "relation]relace[/a], doporučené nastavení: [kbd]pma__relation[/kbd]."
 
 #: libraries/config/messages.inc.php:750
@@ -7175,12 +7175,12 @@ msgstr "Tabulka s relacemi"
 #: libraries/config/messages.inc.php:752
 #, fuzzy
 #| msgid ""
-#| "See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
+#| "See [a@https://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
 #| "types[/a] for an example."
 msgid ""
 "See [doc@authentication-modes]authentication types[/doc] for an example."
 msgstr ""
-"Příklad můžete nalézt na [a@http://wiki.phpmyadmin.net/pma/"
+"Příklad můžete nalézt na [a@https://wiki.phpmyadmin.net/pma/"
 "auth_types#signon]authentication types[/a]."
 
 #: libraries/config/messages.inc.php:755

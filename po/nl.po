@@ -6973,7 +6973,7 @@ msgstr "Authenticatietype"
 
 #: libraries/config/messages.inc.php:644
 #| msgid ""
-#| "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/"
+#| "Leave blank for no [a@https://wiki.phpmyadmin.net/pma/bookmark]bookmark[/"
 #| "a] support, suggested: [kbd]pma__bookmark[/kbd]"
 msgid ""
 "Leave blank for no [doc@bookmarks@]bookmark[/doc] support, suggested: "
@@ -7021,7 +7021,7 @@ msgstr "Controle gebruikerswachtwoord"
 #: libraries/config/messages.inc.php:660
 #| msgid ""
 #| "A special MySQL user configured with limited permissions, more "
-#| "information available on [a@http://wiki.phpmyadmin.net/pma/"
+#| "information available on [a@https://wiki.phpmyadmin.net/pma/"
 #| "controluser]wiki[/a]."
 msgid ""
 "A special MySQL user configured with limited permissions, more information "
@@ -7253,7 +7253,7 @@ msgstr "Favorieten tabel"
 
 #: libraries/config/messages.inc.php:746
 #| msgid ""
-#| "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
+#| "Leave blank for no [a@https://wiki.phpmyadmin.net/pma/relation]relation-"
 #| "links[/a] support, suggested: [kbd]pma__relation[/kbd]."
 msgid ""
 "Leave blank for no [doc@relations@]relation-links[/doc] support, suggested: "
@@ -7268,7 +7268,7 @@ msgstr "Relatietabel"
 
 #: libraries/config/messages.inc.php:752
 #| msgid ""
-#| "See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
+#| "See [a@https://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
 #| "types[/a] for an example."
 msgid ""
 "See [doc@authentication-modes]authentication types[/doc] for an example."

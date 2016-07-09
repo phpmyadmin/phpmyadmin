@@ -7073,7 +7073,7 @@ msgid ""
 "Suggested: [kbd]phpmyadmin[/kbd]."
 msgstr ""
 "Əlaqələr, əlfəcinlər və PDF özəllikləri üçün istifadə olunan Verilənlər "
-"Bazası. Tam İnformasiya üçün  [a@http://wiki.phpmyadmin.net/pma/pmadb]pmadb[/"
+"Bazası. Tam İnformasiya üçün  [a@https://wiki.phpmyadmin.net/pma/pmadb]pmadb[/"
 "a]-a baxın. Dəstək istəmirsinizsə boş buraxın. Təklif olunan: "
 "[kbd]phpmyadmin[/kbd]."
 
