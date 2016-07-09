@@ -5398,7 +5398,7 @@ msgstr "인증 형식"
 
 #: libraries/config/messages.inc.php:380
 msgid ""
-"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/a] "
+"Leave blank for no [a@https://wiki.phpmyadmin.net/pma/bookmark]bookmark[/a] "
 "support, suggested: [kbd]pma__bookmark[/kbd]"
 msgstr ""
 
@@ -5439,7 +5439,7 @@ msgstr "유저 비밀번호 제어"
 #: libraries/config/messages.inc.php:389
 msgid ""
 "A special MySQL user configured with limited permissions, more information "
-"available on [a@http://wiki.phpmyadmin.net/pma/controluser]wiki[/a]"
+"available on [a@https://wiki.phpmyadmin.net/pma/controluser]wiki[/a]"
 msgstr ""
 
 #: libraries/config/messages.inc.php:390
@@ -5570,7 +5570,7 @@ msgid ""
 "no support. Suggested: [kbd]phpmyadmin[/kbd]"
 msgstr ""
 "관계(릴레이션), 북마크, PDF 기능을 위한 데이터베이스. 자세한 정보는 "
-"[a@http://wiki.phpmyadmin.net/pma/pmadb]pmadb[/a]를 참고하세요. 이 기능들을 "
+"[a@https://wiki.phpmyadmin.net/pma/pmadb]pmadb[/a]를 참고하세요. 이 기능들을 "
 "제공하지 않으려면 비워두세요. 권장값: [kbd]phpmyadmin[/kbd]"
 
 #: libraries/config/messages.inc.php:417
@@ -5597,7 +5597,7 @@ msgstr "최근에 사용한 테이블"
 
 #: libraries/config/messages.inc.php:422
 msgid ""
-"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
+"Leave blank for no [a@https://wiki.phpmyadmin.net/pma/relation]relation-"
 "links[/a] support, suggested: [kbd]pma__relation[/kbd]"
 msgstr ""
 
@@ -5615,7 +5615,7 @@ msgstr "SHOW DATABASES 명령"
 
 #: libraries/config/messages.inc.php:426
 msgid ""
-"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
+"See [a@https://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
 "types[/a] for an example"
 msgstr ""
 

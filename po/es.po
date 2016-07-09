@@ -5571,10 +5571,10 @@ msgstr "Tipo de autenticación"
 
 #: libraries/config/messages.inc.php:380
 msgid ""
-"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/a] "
+"Leave blank for no [a@https://wiki.phpmyadmin.net/pma/bookmark]bookmark[/a] "
 "support, suggested: [kbd]pma__bookmark[/kbd]"
 msgstr ""
-"Deje en blanco para no dar soporte [a@http://wiki.phpmyadmin.net/pma/"
+"Deje en blanco para no dar soporte [a@https://wiki.phpmyadmin.net/pma/"
 "bookmark]bookmark[/a], de manera predeterminada: [kbd]pma_bookmark[/kbd]"
 
 #: libraries/config/messages.inc.php:381
@@ -5618,7 +5618,7 @@ msgstr "Controlar la contraseña del usuario"
 #: libraries/config/messages.inc.php:389
 msgid ""
 "A special MySQL user configured with limited permissions, more information "
-"available on [a@http://wiki.phpmyadmin.net/pma/controluser]wiki[/a]"
+"available on [a@https://wiki.phpmyadmin.net/pma/controluser]wiki[/a]"
 msgstr ""
 "Un usuario MySQL especial configurado con permisos limitados, más "
 "información disponible en [a@http://wiki.cihar.com/pma/controluser]wiki[/a]"
@@ -5798,10 +5798,10 @@ msgstr "Tabla recientemente utilizada"
 
 #: libraries/config/messages.inc.php:422
 msgid ""
-"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
+"Leave blank for no [a@https://wiki.phpmyadmin.net/pma/relation]relation-"
 "links[/a] support, suggested: [kbd]pma__relation[/kbd]"
 msgstr ""
-"Deje en blanco para no dar soporte [a@http://wiki.phpmyadmin.net/pma/"
+"Deje en blanco para no dar soporte [a@https://wiki.phpmyadmin.net/pma/"
 "relation]relation-links[/a], de manera predeterminada: [kbd]pma__relation[/"
 "kbd]"
 
@@ -5819,7 +5819,7 @@ msgstr "Comando SHOW DATABASES"
 
 #: libraries/config/messages.inc.php:426
 msgid ""
-"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
+"See [a@https://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
 "types[/a] for an example"
 msgstr ""
 "Ver [a@http://wiki.cihar.com/pma/auth_types#signon]tipos de autenticación[/"

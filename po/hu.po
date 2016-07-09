@@ -5507,10 +5507,10 @@ msgstr "Hitelesítés típusa"
 
 #: libraries/config/messages.inc.php:380
 msgid ""
-"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/a] "
+"Leave blank for no [a@https://wiki.phpmyadmin.net/pma/bookmark]bookmark[/a] "
 "support, suggested: [kbd]pma__bookmark[/kbd]"
 msgstr ""
-"Hagyja üresen, ha nincs [a@http://wiki.phpmyadmin.net/pma/"
+"Hagyja üresen, ha nincs [a@https://wiki.phpmyadmin.net/pma/"
 "bookmark]könyvjelző[/a] támogatás, alapértelmezés: [kbd]pma_bookmark[/kbd]"
 
 #: libraries/config/messages.inc.php:381
@@ -5554,10 +5554,10 @@ msgstr "A kontrollfelhasználó jelszava"
 #: libraries/config/messages.inc.php:389
 msgid ""
 "A special MySQL user configured with limited permissions, more information "
-"available on [a@http://wiki.phpmyadmin.net/pma/controluser]wiki[/a]"
+"available on [a@https://wiki.phpmyadmin.net/pma/controluser]wiki[/a]"
 msgstr ""
 "Korlátozott jogokkal rendelkező, speciális MySQL felhasználó, bővebben a "
-"[a@http://wiki.phpmyadmin.net/pma/controluser]wiki[/a] címen olvashat róla"
+"[a@https://wiki.phpmyadmin.net/pma/controluser]wiki[/a] címen olvashat róla"
 
 #: libraries/config/messages.inc.php:390
 msgid "Control user"
@@ -5702,7 +5702,7 @@ msgid ""
 "no support. Suggested: [kbd]phpmyadmin[/kbd]"
 msgstr ""
 "A kapcsolatokhoz, könyvjelzőkhöz és PDF-funkciókhoz használt adatbázis. A "
-"teljes információt lásd a [a@http://wiki.phpmyadmin.net/pma/pmadb]pmadb[/a] "
+"teljes információt lásd a [a@https://wiki.phpmyadmin.net/pma/pmadb]pmadb[/a] "
 "oldalon. Hagyja üresen, ha nincs szükség a támogatására. Alapértelmezés: "
 "[kbd]phpmyadmin[/kbd]"
 
@@ -5733,10 +5733,10 @@ msgstr "Utoljára használt tábla"
 
 #: libraries/config/messages.inc.php:422
 msgid ""
-"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
+"Leave blank for no [a@https://wiki.phpmyadmin.net/pma/relation]relation-"
 "links[/a] support, suggested: [kbd]pma__relation[/kbd]"
 msgstr ""
-"Hagyja üresen, ha nincs [a@http://wiki.phpmyadmin.net/pma/relation]relációs "
+"Hagyja üresen, ha nincs [a@https://wiki.phpmyadmin.net/pma/relation]relációs "
 "hivatkozás[/a] támogatás, ajánlott: [kbd]pma_relation[/kbd]"
 
 #: libraries/config/messages.inc.php:423
@@ -5753,10 +5753,10 @@ msgstr "SHOW DATABASES parancs"
 
 #: libraries/config/messages.inc.php:426
 msgid ""
-"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
+"See [a@https://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
 "types[/a] for an example"
 msgstr ""
-"Lásd a [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]hitelesítési "
+"Lásd a [a@https://wiki.phpmyadmin.net/pma/auth_types#signon]hitelesítési "
 "típusok[/a] példáját"
 
 #: libraries/config/messages.inc.php:427

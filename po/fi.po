@@ -5464,10 +5464,10 @@ msgstr "Todennustyyppi"
 
 #: libraries/config/messages.inc.php:380
 msgid ""
-"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/a] "
+"Leave blank for no [a@https://wiki.phpmyadmin.net/pma/bookmark]bookmark[/a] "
 "support, suggested: [kbd]pma__bookmark[/kbd]"
 msgstr ""
-"Jätä tyhjäksi, jos et halua [a@http://wiki.phpmyadmin.net/pma/"
+"Jätä tyhjäksi, jos et halua [a@https://wiki.phpmyadmin.net/pma/"
 "bookmark]kirjanmerkki[/a]tukea, oletusarvo: [kbd]pma__bookmark[/kbd]"
 
 #: libraries/config/messages.inc.php:381
@@ -5510,10 +5510,10 @@ msgstr "Hallintakäyttäjän salasana"
 #: libraries/config/messages.inc.php:389
 msgid ""
 "A special MySQL user configured with limited permissions, more information "
-"available on [a@http://wiki.phpmyadmin.net/pma/controluser]wiki[/a]"
+"available on [a@https://wiki.phpmyadmin.net/pma/controluser]wiki[/a]"
 msgstr ""
 "Erityinen MySQL-käyttäjä, jolle on määritetty rajatut käyttöoikeudet; "
-"lisätietoja saatavilla [a@http://wiki.phpmyadmin.net/pma/"
+"lisätietoja saatavilla [a@https://wiki.phpmyadmin.net/pma/"
 "controluser]wikissä[/a]"
 
 #: libraries/config/messages.inc.php:390
@@ -5654,7 +5654,7 @@ msgid ""
 "no support. Suggested: [kbd]phpmyadmin[/kbd]"
 msgstr ""
 "Relaatioihin, kirjanmerkkeihin ja PDF-ominaisuuksiin käytettävä tietokanta. "
-"Katso täydet tiedot aiheesta [a@http://wiki.phpmyadmin.net/pma/pmadb]pmadb[/"
+"Katso täydet tiedot aiheesta [a@https://wiki.phpmyadmin.net/pma/pmadb]pmadb[/"
 "a]. Jätä tyhjäksi, jos et halua tukea. Oletusarvo: [kbd]phpmyadmin[/kbd]"
 
 #: libraries/config/messages.inc.php:417
@@ -5684,10 +5684,10 @@ msgstr "Viimeisimmäksi käytetty taulu"
 
 #: libraries/config/messages.inc.php:422
 msgid ""
-"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
+"Leave blank for no [a@https://wiki.phpmyadmin.net/pma/relation]relation-"
 "links[/a] support, suggested: [kbd]pma__relation[/kbd]"
 msgstr ""
-"Jätä tyhjäksi, jos et halua [a@http://wiki.phpmyadmin.net/pma/"
+"Jätä tyhjäksi, jos et halua [a@https://wiki.phpmyadmin.net/pma/"
 "relation]relaatiolinkki[/a]tukea, oletusarvo: [kbd]pma__relation[/kbd]"
 
 #: libraries/config/messages.inc.php:423
@@ -5704,10 +5704,10 @@ msgstr "SHOW DATABASES -käsky"
 
 #: libraries/config/messages.inc.php:426
 msgid ""
-"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
+"See [a@https://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
 "types[/a] for an example"
 msgstr ""
-"Katso [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]todennustyyppien[/"
+"Katso [a@https://wiki.phpmyadmin.net/pma/auth_types#signon]todennustyyppien[/"
 "a] esimerkit"
 
 #: libraries/config/messages.inc.php:427

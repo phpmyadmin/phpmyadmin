@@ -5529,10 +5529,10 @@ msgstr "Authenticatietype"
 
 #: libraries/config/messages.inc.php:380
 msgid ""
-"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/a] "
+"Leave blank for no [a@https://wiki.phpmyadmin.net/pma/bookmark]bookmark[/a] "
 "support, suggested: [kbd]pma__bookmark[/kbd]"
 msgstr ""
-"Laat dit veld leeg om geen [a@http://wiki.phpmyadmin.net/pma/"
+"Laat dit veld leeg om geen [a@https://wiki.phpmyadmin.net/pma/"
 "bookmark]bladwijzers[/a] te gebruiken, suggestie: [kbd]pma__bookmark[/kbd]"
 
 #: libraries/config/messages.inc.php:381
@@ -5574,7 +5574,7 @@ msgstr "Controle gebruikerswachtwoord"
 #: libraries/config/messages.inc.php:389
 msgid ""
 "A special MySQL user configured with limited permissions, more information "
-"available on [a@http://wiki.phpmyadmin.net/pma/controluser]wiki[/a]"
+"available on [a@https://wiki.phpmyadmin.net/pma/controluser]wiki[/a]"
 msgstr ""
 "Een speciale MySQL-gebruiker met beperkte rechten, zie de [a@http://wiki."
 "phpmyadmin.net/pma/controluser]wiki[/a] voor meer informatie"
@@ -5724,7 +5724,7 @@ msgid ""
 "no support. Suggested: [kbd]phpmyadmin[/kbd]"
 msgstr ""
 "Databank die wordt gebruikt om relaties, bladwijzers en PDF-eigenschappen op "
-"te slaan. Zie [a@http://wiki.phpmyadmin.net/pma/pmadb]pmadb[/a] voor meer "
+"te slaan. Zie [a@https://wiki.phpmyadmin.net/pma/pmadb]pmadb[/a] voor meer "
 "informatie. Laat dit veld leeg om dit uit te schakelen, suggestie: "
 "[kbd]phpmyadmin[/kbd]"
 
@@ -5756,10 +5756,10 @@ msgstr "Recent gebruikte tabel"
 
 #: libraries/config/messages.inc.php:422
 msgid ""
-"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
+"Leave blank for no [a@https://wiki.phpmyadmin.net/pma/relation]relation-"
 "links[/a] support, suggested: [kbd]pma__relation[/kbd]"
 msgstr ""
-"Laat dit veld leeg om geen [a@http://wiki.phpmyadmin.net/pma/"
+"Laat dit veld leeg om geen [a@https://wiki.phpmyadmin.net/pma/"
 "relation]relation-links[/a] te ondersteunen, suggestie: [kbd]pma__relation[/"
 "kbd]"
 
@@ -5777,10 +5777,10 @@ msgstr "Opdracht SHOW DATABASES"
 
 #: libraries/config/messages.inc.php:426
 msgid ""
-"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
+"See [a@https://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
 "types[/a] for an example"
 msgstr ""
-"Zie [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authenticatietypes[/"
+"Zie [a@https://wiki.phpmyadmin.net/pma/auth_types#signon]authenticatietypes[/"
 "a] voor een voorbeeld"
 
 #: libraries/config/messages.inc.php:427

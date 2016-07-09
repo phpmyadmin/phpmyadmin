@@ -15,4 +15,4 @@ Tutorials
 
 Third party tutorials and articles are listed on our `wiki page`_.
 
-.. _wiki page: http://wiki.phpmyadmin.net/pma/Articles
+.. _wiki page: https://wiki.phpmyadmin.net/pma/Articles

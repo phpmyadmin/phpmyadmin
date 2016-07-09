@@ -5258,10 +5258,10 @@ msgstr "認證方式"
 
 #: libraries/config/messages.inc.php:380
 msgid ""
-"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/a] "
+"Leave blank for no [a@https://wiki.phpmyadmin.net/pma/bookmark]bookmark[/a] "
 "support, suggested: [kbd]pma__bookmark[/kbd]"
 msgstr ""
-"在不支援[a@http://wiki.phpmyadmin.net/pma/bookmark]書籤[/a]功能時請留空，建議用: "
+"在不支援[a@https://wiki.phpmyadmin.net/pma/bookmark]書籤[/a]功能時請留空，建議用: "
 "[kbd]pma__bookmark[/kbd]"
 
 #: libraries/config/messages.inc.php:381
@@ -5301,10 +5301,10 @@ msgstr "控制使用者的密碼"
 #: libraries/config/messages.inc.php:389
 msgid ""
 "A special MySQL user configured with limited permissions, more information "
-"available on [a@http://wiki.phpmyadmin.net/pma/controluser]wiki[/a]"
+"available on [a@https://wiki.phpmyadmin.net/pma/controluser]wiki[/a]"
 msgstr ""
 "只擁有部份權限的 MySQL 特殊使用者，詳情請參考 "
-"[a@http://wiki.phpmyadmin.net/pma/controluser]wiki [/a]"
+"[a@https://wiki.phpmyadmin.net/pma/controluser]wiki [/a]"
 
 #: libraries/config/messages.inc.php:390
 msgid "Control user"
@@ -5434,7 +5434,7 @@ msgid ""
 "phpmyadmin.net/pma/pmadb]pmadb[/a] for complete information. Leave blank for "
 "no support. Suggested: [kbd]phpmyadmin[/kbd]"
 msgstr ""
-"關聯、書籤與 PDF 功能所使用的資料庫，請參考  [a@http://wiki.phpmyadmin.net/pma/pmadb]pmadb [/a] "
+"關聯、書籤與 PDF 功能所使用的資料庫，請參考  [a@https://wiki.phpmyadmin.net/pma/pmadb]pmadb [/a] "
 "取得更多資訊。留空則關閉此功能，建議為:  [kbd]phpmyadmin[/kbd]"
 
 #: libraries/config/messages.inc.php:417
@@ -5461,10 +5461,10 @@ msgstr "最近使用的資料表"
 
 #: libraries/config/messages.inc.php:422
 msgid ""
-"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
+"Leave blank for no [a@https://wiki.phpmyadmin.net/pma/relation]relation-"
 "links[/a] support, suggested: [kbd]pma__relation[/kbd]"
 msgstr ""
-"不使用[a@http://wiki.phpmyadmin.net/pma/relation]關聯連結 [/a]功能請留空，建議值: "
+"不使用[a@https://wiki.phpmyadmin.net/pma/relation]關聯連結 [/a]功能請留空，建議值: "
 "[kbd]pma__relation[/kbd]"
 
 #: libraries/config/messages.inc.php:423
@@ -5481,9 +5481,9 @@ msgstr "顯示資料庫(SHOW DATABASES)指令"
 
 #: libraries/config/messages.inc.php:426
 msgid ""
-"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
+"See [a@https://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
 "types[/a] for an example"
-msgstr "請參考 [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]認證模式[/a] 中的範例"
+msgstr "請參考 [a@https://wiki.phpmyadmin.net/pma/auth_types#signon]認證模式[/a] 中的範例"
 
 #: libraries/config/messages.inc.php:427
 msgid "Signon session name"
