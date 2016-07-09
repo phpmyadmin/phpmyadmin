@@ -6958,13 +6958,13 @@ msgstr "Tipul autentificării"
 #: libraries/config/messages.inc.php:570
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/"
+#| "Leave blank for no [a@https://wiki.phpmyadmin.net/pma/bookmark]bookmark[/"
 #| "a] support, suggested: [kbd]pma_bookmark[/kbd]"
 msgid ""
-"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/a] "
+"Leave blank for no [a@https://wiki.phpmyadmin.net/pma/bookmark]bookmark[/a] "
 "support, suggested: [kbd]pma__bookmark[/kbd]"
 msgstr ""
-"Lăsați necompletat dacă nu doriți suport pentru [a@http://wiki.phpmyadmin."
+"Lăsați necompletat dacă nu doriți suport pentru [a@https://wiki.phpmyadmin."
 "net/pma/bookmark]bookmark-uri[/a], sugestie: [kbd]pma_bookmark[/kbd]"
 
 #: libraries/config/messages.inc.php:573
@@ -7018,14 +7018,14 @@ msgstr "Parola pentru control user"
 #, fuzzy
 #| msgid ""
 #| "A special MySQL user configured with limited permissions, more "
-#| "information available on [a@http://wiki.phpmyadmin.net/pma/"
+#| "information available on [a@https://wiki.phpmyadmin.net/pma/"
 #| "controluser]wiki[/a]"
 msgid ""
 "A special MySQL user configured with limited permissions, more information "
-"available on [a@http://wiki.phpmyadmin.net/pma/controluser]wiki[/a]."
+"available on [a@https://wiki.phpmyadmin.net/pma/controluser]wiki[/a]."
 msgstr ""
 "Un user MySQL special configurat cu permisiuni limitate, mai multe "
-"informații găsiți pe [a@http://wiki.phpmyadmin.net/pma/controluser]wiki[/a]"
+"informații găsiți pe [a@https://wiki.phpmyadmin.net/pma/controluser]wiki[/a]"
 
 # Utilizator de control
 #: libraries/config/messages.inc.php:589
@@ -7238,7 +7238,7 @@ msgid ""
 "no support. Suggested: [kbd]phpmyadmin[/kbd]."
 msgstr ""
 "Bază de date folosită pentru relații, bookmarks și proprietăți PDF. Vedeți "
-"[a@http://wiki.phpmyadmin.net/pma/pmadb]pmadb[/a] pentru informații "
+"[a@https://wiki.phpmyadmin.net/pma/pmadb]pmadb[/a] pentru informații "
 "complete. Lăsați necompletat dacă nu doriți suport. Sugestie: "
 "[kbd]phpmyadmin[/kbd]"
 
@@ -7296,13 +7296,13 @@ msgstr "Tabele favorite"
 #: libraries/config/messages.inc.php:664
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
+#| "Leave blank for no [a@https://wiki.phpmyadmin.net/pma/relation]relation-"
 #| "links[/a] support, suggested: [kbd]pma_relation[/kbd]"
 msgid ""
-"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
+"Leave blank for no [a@https://wiki.phpmyadmin.net/pma/relation]relation-"
 "links[/a] support, suggested: [kbd]pma__relation[/kbd]."
 msgstr ""
-"Lăsați necompletat dacă nu doriți suport [a@http://wiki.phpmyadmin.net/pma/"
+"Lăsați necompletat dacă nu doriți suport [a@https://wiki.phpmyadmin.net/pma/"
 "relation]relation-links[/a], sugestie: [kbd]pma_relation[/kbd]"
 
 #: libraries/config/messages.inc.php:668
@@ -7313,13 +7313,13 @@ msgstr "Tabel relațional"
 #: libraries/config/messages.inc.php:670
 #, fuzzy
 #| msgid ""
-#| "See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
+#| "See [a@https://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
 #| "types[/a] for an example"
 msgid ""
-"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
+"See [a@https://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
 "types[/a] for an example."
 msgstr ""
-"Vezi [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
+"Vezi [a@https://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
 "types[/a] pentru un exemplu"
 
 #: libraries/config/messages.inc.php:673

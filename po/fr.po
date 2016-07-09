@@ -6808,10 +6808,10 @@ msgstr "Type d'authentification"
 
 #: libraries/config/messages.inc.php:570
 msgid ""
-"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/a] "
+"Leave blank for no [a@https://wiki.phpmyadmin.net/pma/bookmark]bookmark[/a] "
 "support, suggested: [kbd]pma__bookmark[/kbd]"
 msgstr ""
-"Laisser vide pour désactiver le support des [a@http://wiki.phpmyadmin.net/"
+"Laisser vide pour désactiver le support des [a@https://wiki.phpmyadmin.net/"
 "pma/bookmark]signets[/a], suggestion : [kbd]pma__bookmark[/kbd]"
 
 #: libraries/config/messages.inc.php:573
@@ -6855,7 +6855,7 @@ msgstr "Mot de passe de l'utilisateur de contrôle"
 #: libraries/config/messages.inc.php:586
 msgid ""
 "A special MySQL user configured with limited permissions, more information "
-"available on [a@http://wiki.phpmyadmin.net/pma/controluser]wiki[/a]."
+"available on [a@https://wiki.phpmyadmin.net/pma/controluser]wiki[/a]."
 msgstr ""
 "Un compte MySQL spécial avec des permissions limitées, voir [a@http://wiki."
 "phpmyadmin.net/pma/controluser] notre wiki[/a]."
@@ -7019,7 +7019,7 @@ msgid ""
 "no support. Suggested: [kbd]phpmyadmin[/kbd]."
 msgstr ""
 "La base utilisée pour les fonctionnalités relationnelles, signets et PDF. "
-"Voir [a@http://wiki.phpmyadmin.net/pma/pmadb]pmadb[/a]. Laisser vider pour "
+"Voir [a@https://wiki.phpmyadmin.net/pma/pmadb]pmadb[/a]. Laisser vider pour "
 "désactiver. Suggestion : [kbd]phpmyadmin[/kbd]."
 
 #: libraries/config/messages.inc.php:649
@@ -7063,10 +7063,10 @@ msgstr "Table pour les tables préférées"
 
 #: libraries/config/messages.inc.php:664
 msgid ""
-"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
+"Leave blank for no [a@https://wiki.phpmyadmin.net/pma/relation]relation-"
 "links[/a] support, suggested: [kbd]pma__relation[/kbd]."
 msgstr ""
-"Laisser vider pour désactiver le support [a@http://wiki.phpmyadmin.net/pma/"
+"Laisser vider pour désactiver le support [a@https://wiki.phpmyadmin.net/pma/"
 "relation]relationnel[/a], suggestion : [kbd]pma__relation[/kbd]."
 
 #: libraries/config/messages.inc.php:668
@@ -7075,10 +7075,10 @@ msgstr "Table relationnelle"
 
 #: libraries/config/messages.inc.php:670
 msgid ""
-"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
+"See [a@https://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
 "types[/a] for an example."
 msgstr ""
-"Voir [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
+"Voir [a@https://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
 "types[/a] pour un exemple."
 
 #: libraries/config/messages.inc.php:673

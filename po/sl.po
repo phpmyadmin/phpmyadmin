@@ -6768,10 +6768,10 @@ msgstr "Vrsta overovitve"
 
 #: libraries/config/messages.inc.php:570
 msgid ""
-"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/a] "
+"Leave blank for no [a@https://wiki.phpmyadmin.net/pma/bookmark]bookmark[/a] "
 "support, suggested: [kbd]pma__bookmark[/kbd]"
 msgstr ""
-"Pustite prazno, če ne želite podpore [a@http://wiki.phpmyadmin.net/pma/"
+"Pustite prazno, če ne želite podpore [a@https://wiki.phpmyadmin.net/pma/"
 "bookmark]zaznamkov[/a]; predlagano: [kbd]pma__bookmark[/kbd]"
 
 #: libraries/config/messages.inc.php:573
@@ -6814,10 +6814,10 @@ msgstr "Geslo krmilnega uporabnika"
 #: libraries/config/messages.inc.php:586
 msgid ""
 "A special MySQL user configured with limited permissions, more information "
-"available on [a@http://wiki.phpmyadmin.net/pma/controluser]wiki[/a]."
+"available on [a@https://wiki.phpmyadmin.net/pma/controluser]wiki[/a]."
 msgstr ""
 "Posebni uporabnik MySQL, konfiguriran z omejenimi dovoljenji; več informacij "
-"je na voljo na [a@http://wiki.phpmyadmin.net/pma/controluser]wikiji[/a]."
+"je na voljo na [a@https://wiki.phpmyadmin.net/pma/controluser]wikiji[/a]."
 
 #: libraries/config/messages.inc.php:589
 msgid "Control user"
@@ -6978,7 +6978,7 @@ msgid ""
 "no support. Suggested: [kbd]phpmyadmin[/kbd]."
 msgstr ""
 "Zbirka podatkov uporabljena za relacije, zaznamke in funkcije PDF. Oglejte "
-"si [a@http://wiki.phpmyadmin.net/pma/pmadb]pmadb[/a] za vse informacije. "
+"si [a@https://wiki.phpmyadmin.net/pma/pmadb]pmadb[/a] za vse informacije. "
 "Pustite prazno, če ne želite podpore. Predlagano: [kbd]phpmyadmin[/kbd]."
 
 #: libraries/config/messages.inc.php:649
@@ -7022,10 +7022,10 @@ msgstr "Tabela priljubljenih"
 
 #: libraries/config/messages.inc.php:664
 msgid ""
-"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
+"Leave blank for no [a@https://wiki.phpmyadmin.net/pma/relation]relation-"
 "links[/a] support, suggested: [kbd]pma__relation[/kbd]."
 msgstr ""
-"Pustite prazno, če ne želite podpore [a@http://wiki.phpmyadmin.net/pma/"
+"Pustite prazno, če ne želite podpore [a@https://wiki.phpmyadmin.net/pma/"
 "relation]relacijskih povezav[/a]; priporočeno: [kbd]pma__relation[/kbd]."
 
 #: libraries/config/messages.inc.php:668
@@ -7034,10 +7034,10 @@ msgstr "Relacijska tabela"
 
 #: libraries/config/messages.inc.php:670
 msgid ""
-"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
+"See [a@https://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
 "types[/a] for an example."
 msgstr ""
-"Oglejte si [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]vrste "
+"Oglejte si [a@https://wiki.phpmyadmin.net/pma/auth_types#signon]vrste "
 "overovitev[/a] za primer."
 
 #: libraries/config/messages.inc.php:673

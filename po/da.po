@@ -6754,10 +6754,10 @@ msgstr "Autentifikationstype"
 
 #: libraries/config/messages.inc.php:570
 msgid ""
-"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/a] "
+"Leave blank for no [a@https://wiki.phpmyadmin.net/pma/bookmark]bookmark[/a] "
 "support, suggested: [kbd]pma__bookmark[/kbd]"
 msgstr ""
-"Efterlades tom for at undlade understøttelse af [a@http://wiki.phpmyadmin."
+"Efterlades tom for at undlade understøttelse af [a@https://wiki.phpmyadmin."
 "net/pma/bookmark]bogmærkeer[/a], forslag: [kbd]pma_bookmark[/kbd]"
 
 #: libraries/config/messages.inc.php:573
@@ -6799,10 +6799,10 @@ msgstr "Adgangskode for kontrolbruger"
 #: libraries/config/messages.inc.php:586
 msgid ""
 "A special MySQL user configured with limited permissions, more information "
-"available on [a@http://wiki.phpmyadmin.net/pma/controluser]wiki[/a]."
+"available on [a@https://wiki.phpmyadmin.net/pma/controluser]wiki[/a]."
 msgstr ""
 "En speciel MySQL bruger med begrænsede tilladelser. Mere information på "
-"[a@http://wiki.phpmyadmin.net/pma/controluser]wiki[/a]."
+"[a@https://wiki.phpmyadmin.net/pma/controluser]wiki[/a]."
 
 #: libraries/config/messages.inc.php:589
 msgid "Control user"
@@ -7004,10 +7004,10 @@ msgstr "Favorit tabeller"
 
 #: libraries/config/messages.inc.php:664
 msgid ""
-"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
+"Leave blank for no [a@https://wiki.phpmyadmin.net/pma/relation]relation-"
 "links[/a] support, suggested: [kbd]pma__relation[/kbd]."
 msgstr ""
-"Efterlades tom for at undlade understøttelse af [a@http://wiki.phpmyadmin."
+"Efterlades tom for at undlade understøttelse af [a@https://wiki.phpmyadmin."
 "net/pma/relation]relation-links[/a], forslag: [kbd]pma_relation[/kbd]."
 
 #: libraries/config/messages.inc.php:668
@@ -7016,10 +7016,10 @@ msgstr "Relationstabel"
 
 #: libraries/config/messages.inc.php:670
 msgid ""
-"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
+"See [a@https://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
 "types[/a] for an example."
 msgstr ""
-"Se [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication types[/"
+"Se [a@https://wiki.phpmyadmin.net/pma/auth_types#signon]authentication types[/"
 "a] for et eksempel."
 
 #: libraries/config/messages.inc.php:673

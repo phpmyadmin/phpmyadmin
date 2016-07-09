@@ -6818,10 +6818,10 @@ msgstr "Τύπος επικύρωσης"
 
 #: libraries/config/messages.inc.php:570
 msgid ""
-"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/a] "
+"Leave blank for no [a@https://wiki.phpmyadmin.net/pma/bookmark]bookmark[/a] "
 "support, suggested: [kbd]pma__bookmark[/kbd]"
 msgstr ""
-"Αφήστε κενό αν δεν υπάρχει υποστήριξη [a@http://wiki.phpmyadmin.net/pma/"
+"Αφήστε κενό αν δεν υπάρχει υποστήριξη [a@https://wiki.phpmyadmin.net/pma/"
 "bookmark]σελιδοδείκτη[/a], προτείνεται: [kbd]pma_bookmark[/kbd]"
 
 #: libraries/config/messages.inc.php:573
@@ -6865,10 +6865,10 @@ msgstr "Έλεγχος κωδικού πρόσβασης χρήστη"
 #: libraries/config/messages.inc.php:586
 msgid ""
 "A special MySQL user configured with limited permissions, more information "
-"available on [a@http://wiki.phpmyadmin.net/pma/controluser]wiki[/a]."
+"available on [a@https://wiki.phpmyadmin.net/pma/controluser]wiki[/a]."
 msgstr ""
 "Ρυθμίστηκε ένας ειδικός χρήστης MySQL με περιορισμένα δικαιώματα. "
-"Περισσότερες πληροφορίες είναι διαθέσιμες στο [a@http://wiki.phpmyadmin.net/"
+"Περισσότερες πληροφορίες είναι διαθέσιμες στο [a@https://wiki.phpmyadmin.net/"
 "pma/controluser]wiki[/a]."
 
 #: libraries/config/messages.inc.php:589
@@ -7030,7 +7030,7 @@ msgid ""
 "no support. Suggested: [kbd]phpmyadmin[/kbd]."
 msgstr ""
 "Η βάση δεδομένων που χρησιμοποιείται για συσχετίσεις, σελιδοδείκτες και "
-"χαρακτηριστικά PDF. Δείτε το [a@http://wiki.phpmyadmin.net/pma/pmadb]pmadb[/"
+"χαρακτηριστικά PDF. Δείτε το [a@https://wiki.phpmyadmin.net/pma/pmadb]pmadb[/"
 "a] για λεπτομέρειες. Αφήστε κενό για να μην υπάρχει υποστήριξη. Προτείνεται: "
 "[kbd]phpmyadmin[/kbd]."
 
@@ -7074,10 +7074,10 @@ msgstr "Πίνακας αγαπημένων"
 
 #: libraries/config/messages.inc.php:664
 msgid ""
-"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
+"Leave blank for no [a@https://wiki.phpmyadmin.net/pma/relation]relation-"
 "links[/a] support, suggested: [kbd]pma__relation[/kbd]."
 msgstr ""
-"Αφήστε το κενό για να μην υπάρχει υποστήριξη [a@http://wiki.phpmyadmin.net/"
+"Αφήστε το κενό για να μην υπάρχει υποστήριξη [a@https://wiki.phpmyadmin.net/"
 "pma/relation]συνδέσμων-συσχετίσεων[/a], προτείνεται: [kbd]pma__relation[/"
 "kbd]."
 
@@ -7087,10 +7087,10 @@ msgstr "Πίνακας συσχετίσεων"
 
 #: libraries/config/messages.inc.php:670
 msgid ""
-"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
+"See [a@https://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
 "types[/a] for an example."
 msgstr ""
-"Δείτε τους [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]τύπους "
+"Δείτε τους [a@https://wiki.phpmyadmin.net/pma/auth_types#signon]τύπους "
 "επικύρωσης[/a] για ένα παράδειγμα."
 
 #: libraries/config/messages.inc.php:673

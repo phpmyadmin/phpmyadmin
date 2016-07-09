@@ -6536,7 +6536,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:570
 msgid ""
-"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/a] "
+"Leave blank for no [a@https://wiki.phpmyadmin.net/pma/bookmark]bookmark[/a] "
 "support, suggested: [kbd]pma__bookmark[/kbd]"
 msgstr ""
 
@@ -6578,7 +6578,7 @@ msgstr ""
 #: libraries/config/messages.inc.php:586
 msgid ""
 "A special MySQL user configured with limited permissions, more information "
-"available on [a@http://wiki.phpmyadmin.net/pma/controluser]wiki[/a]."
+"available on [a@https://wiki.phpmyadmin.net/pma/controluser]wiki[/a]."
 msgstr ""
 
 #: libraries/config/messages.inc.php:589
@@ -6727,7 +6727,7 @@ msgid ""
 "no support. Suggested: [kbd]phpmyadmin[/kbd]."
 msgstr ""
 "Əlaqələr, əlfəcinlər və PDF özəllikləri üçün istifadə olunan Verilənlər "
-"Bazası. Tam İnformasiya üçün  [a@http://wiki.phpmyadmin.net/pma/pmadb]pmadb[/"
+"Bazası. Tam İnformasiya üçün  [a@https://wiki.phpmyadmin.net/pma/pmadb]pmadb[/"
 "a]-a baxın. Dəstək istəmirsinizsə boş buraxın. Təklif olunan: "
 "[kbd]phpmyadmin[/kbd]."
 
@@ -6774,7 +6774,7 @@ msgstr "Favorit cədvəllər"
 
 #: libraries/config/messages.inc.php:664
 msgid ""
-"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
+"Leave blank for no [a@https://wiki.phpmyadmin.net/pma/relation]relation-"
 "links[/a] support, suggested: [kbd]pma__relation[/kbd]."
 msgstr ""
 
@@ -6784,7 +6784,7 @@ msgstr "Əlaqə cədvəli"
 
 #: libraries/config/messages.inc.php:670
 msgid ""
-"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
+"See [a@https://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
 "types[/a] for an example."
 msgstr ""
 

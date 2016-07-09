@@ -6905,10 +6905,10 @@ msgstr "සත්‍යාපන වර්ගය"
 
 #: libraries/config/messages.inc.php:570
 msgid ""
-"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/a] "
+"Leave blank for no [a@https://wiki.phpmyadmin.net/pma/bookmark]bookmark[/a] "
 "support, suggested: [kbd]pma__bookmark[/kbd]"
 msgstr ""
-"[a@http://wiki.phpmyadmin.net/pma/bookmark]පොත්සලකුණු[/a] විශේෂාංගය අනවශ්‍ය නම් හිස්ව "
+"[a@https://wiki.phpmyadmin.net/pma/bookmark]පොත්සලකුණු[/a] විශේෂාංගය අනවශ්‍ය නම් හිස්ව "
 "තබන්න. යෝජිත: [kbd]pma__bookmark[/kbd]"
 
 #: libraries/config/messages.inc.php:573
@@ -6959,11 +6959,11 @@ msgstr "පරිපාලක භාවිතා කරන්නාගේ මු
 #, fuzzy
 #| msgid ""
 #| "A special MySQL user configured with limited permissions, more "
-#| "information available on [a@http://wiki.phpmyadmin.net/pma/"
+#| "information available on [a@https://wiki.phpmyadmin.net/pma/"
 #| "controluser]wiki[/a]"
 msgid ""
 "A special MySQL user configured with limited permissions, more information "
-"available on [a@http://wiki.phpmyadmin.net/pma/controluser]wiki[/a]."
+"available on [a@https://wiki.phpmyadmin.net/pma/controluser]wiki[/a]."
 msgstr ""
 "සීමිත අවසර සහිතව වින්‍යාස කරන ලද විශේෂ MySQL භාවිතා කරන්නෙක්, වැඩි විස්තර සඳහා [a@http://"
 "wiki.phpmyadmin.net/pma/controluser]විකිය[/a] බලන්න"
@@ -7159,7 +7159,7 @@ msgid ""
 "no support. Suggested: [kbd]phpmyadmin[/kbd]."
 msgstr ""
 "වගු සබඳතා, පොත්සලකුණු, PDF අපනයන ආදී විශේෂාංග සඳහා භාවිතා කරන දත්තගබඩාව, පූර්ණ විස්තරයක් "
-"සඳහා [a@http://wiki.phpmyadmin.net/pma/pmadb]pmadb[/a] බලන්න. විශේෂාංග අනවශ්‍ය "
+"සඳහා [a@https://wiki.phpmyadmin.net/pma/pmadb]pmadb[/a] බලන්න. විශේෂාංග අනවශ්‍ය "
 "නම් හිස්ව තබන්න, යෝජිත: [kbd]phpmyadmin[/kbd]"
 
 #: libraries/config/messages.inc.php:649
@@ -7214,13 +7214,13 @@ msgstr "විචල්‍යනයන්"
 #: libraries/config/messages.inc.php:664
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
+#| "Leave blank for no [a@https://wiki.phpmyadmin.net/pma/relation]relation-"
 #| "links[/a] support, suggested: [kbd]pma__relation[/kbd]"
 msgid ""
-"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
+"Leave blank for no [a@https://wiki.phpmyadmin.net/pma/relation]relation-"
 "links[/a] support, suggested: [kbd]pma__relation[/kbd]."
 msgstr ""
-"[a@http://wiki.phpmyadmin.net/pma/relation]වගු අතර සම්බන්ධතා දැක්වෙන සබැඳි[/a] "
+"[a@https://wiki.phpmyadmin.net/pma/relation]වගු අතර සම්බන්ධතා දැක්වෙන සබැඳි[/a] "
 "විශේෂාංගය අනවශ්‍ය නම් හිස්ව තබන්න, යෝජිත: [kbd]pma__relation[/kbd]"
 
 #: libraries/config/messages.inc.php:668
@@ -7230,13 +7230,13 @@ msgstr "සබැඳුම් දත්ත ඇතුලත් වගුව"
 #: libraries/config/messages.inc.php:670
 #, fuzzy
 #| msgid ""
-#| "See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
+#| "See [a@https://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
 #| "types[/a] for an example"
 msgid ""
-"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
+"See [a@https://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
 "types[/a] for an example."
 msgstr ""
-"උදාහරණයක් ලෙස [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]සත්‍යාපන ක්‍රම[/"
+"උදාහරණයක් ලෙස [a@https://wiki.phpmyadmin.net/pma/auth_types#signon]සත්‍යාපන ක්‍රම[/"
 "a] බලන්න"
 
 #: libraries/config/messages.inc.php:673

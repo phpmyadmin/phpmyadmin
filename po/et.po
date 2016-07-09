@@ -6710,10 +6710,10 @@ msgstr "Autentimise tüüp"
 
 #: libraries/config/messages.inc.php:570
 msgid ""
-"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/a] "
+"Leave blank for no [a@https://wiki.phpmyadmin.net/pma/bookmark]bookmark[/a] "
 "support, suggested: [kbd]pma__bookmark[/kbd]"
 msgstr ""
-"Jäta tühjaks, kui puudub [a@http://wiki.phpmyadmin.net/pma/"
+"Jäta tühjaks, kui puudub [a@https://wiki.phpmyadmin.net/pma/"
 "bookmark]järjehoidja[/a] tugi, soovitatav: [kbd]pma__bookmark[/kbd]"
 
 #: libraries/config/messages.inc.php:573
@@ -6756,7 +6756,7 @@ msgstr "Kontrollkasutaja parool"
 #: libraries/config/messages.inc.php:586
 msgid ""
 "A special MySQL user configured with limited permissions, more information "
-"available on [a@http://wiki.phpmyadmin.net/pma/controluser]wiki[/a]."
+"available on [a@https://wiki.phpmyadmin.net/pma/controluser]wiki[/a]."
 msgstr ""
 "Eriline MySQL kasutaja, mis on piiratud õigustega. Lisainfot saab [a@http://"
 "wiki.phpmyadmin.net/pma/controluser]vikist[/a]."
@@ -6920,7 +6920,7 @@ msgid ""
 "no support. Suggested: [kbd]phpmyadmin[/kbd]."
 msgstr ""
 "Andmebaas, mida kasutada seoste, järjehoidjate ja PDF funktsionaalsusega. "
-"Lisateavet leiad aadressilt [a@http://wiki.phpmyadmin.net/pma/pmadb]pmadb[/"
+"Lisateavet leiad aadressilt [a@https://wiki.phpmyadmin.net/pma/pmadb]pmadb[/"
 "a]. Kui tugi puudub, siis jäta tühjaks, soovitatav: [kbd]phpmyadmin[/kbd]."
 
 #: libraries/config/messages.inc.php:649
@@ -6964,10 +6964,10 @@ msgstr "Lemmikute tabel"
 
 #: libraries/config/messages.inc.php:664
 msgid ""
-"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
+"Leave blank for no [a@https://wiki.phpmyadmin.net/pma/relation]relation-"
 "links[/a] support, suggested: [kbd]pma__relation[/kbd]."
 msgstr ""
-"Jäta tühjaks, kui puudub [a@http://wiki.phpmyadmin.net/pma/relation]seoste "
+"Jäta tühjaks, kui puudub [a@https://wiki.phpmyadmin.net/pma/relation]seoste "
 "linkide[/a] tugi, soovitatav: [kbd]pma__relation[/kbd]."
 
 #: libraries/config/messages.inc.php:668
@@ -6976,10 +6976,10 @@ msgstr "Seose tabel"
 
 #: libraries/config/messages.inc.php:670
 msgid ""
-"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
+"See [a@https://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
 "types[/a] for an example."
 msgstr ""
-"Vaata näiteks [a@http://wiki.phpmyadmin.net/pma/"
+"Vaata näiteks [a@https://wiki.phpmyadmin.net/pma/"
 "auth_types#signon]autentimise tüüpe[/a]."
 
 #: libraries/config/messages.inc.php:673

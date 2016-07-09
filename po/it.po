@@ -6830,10 +6830,10 @@ msgstr "Tipo di autenticazione"
 
 #: libraries/config/messages.inc.php:570
 msgid ""
-"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/a] "
+"Leave blank for no [a@https://wiki.phpmyadmin.net/pma/bookmark]bookmark[/a] "
 "support, suggested: [kbd]pma__bookmark[/kbd]"
 msgstr ""
-"Lascia vuoto per disattivare il supporto per i [a@http://wiki.phpmyadmin.net/"
+"Lascia vuoto per disattivare il supporto per i [a@https://wiki.phpmyadmin.net/"
 "pma/bookmark]segnalibri[/a], consigliato: [kbd]pma__bookmark[/kbd]"
 
 #: libraries/config/messages.inc.php:573
@@ -6875,10 +6875,10 @@ msgstr "Parola chiave per l'utente di controllo"
 #: libraries/config/messages.inc.php:586
 msgid ""
 "A special MySQL user configured with limited permissions, more information "
-"available on [a@http://wiki.phpmyadmin.net/pma/controluser]wiki[/a]."
+"available on [a@https://wiki.phpmyadmin.net/pma/controluser]wiki[/a]."
 msgstr ""
 "Un utente speciale di MySQL configurato con autorizzazioni limitate, "
-"ulteriori informazioni disponibili nella [a@http://wiki.phpmyadmin.net/pma/"
+"ulteriori informazioni disponibili nella [a@https://wiki.phpmyadmin.net/pma/"
 "controluser]wiki[/a]."
 
 #: libraries/config/messages.inc.php:589
@@ -7040,7 +7040,7 @@ msgid ""
 "no support. Suggested: [kbd]phpmyadmin[/kbd]."
 msgstr ""
 "Database utilizzato per relazioni, segnalibri and funzionalitá PDF. Vedi "
-"[a@http://wiki.phpmyadmin.net/pma/pmadb]pmadb[/a] per tutti dettagli. Lascia "
+"[a@https://wiki.phpmyadmin.net/pma/pmadb]pmadb[/a] per tutti dettagli. Lascia "
 "vuoto per disabilitarne il supporto. Consigliato: [kbd]phpmyadmin[/kbd]."
 
 #: libraries/config/messages.inc.php:649
@@ -7085,10 +7085,10 @@ msgstr "Tabelle preferite"
 
 #: libraries/config/messages.inc.php:664
 msgid ""
-"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
+"Leave blank for no [a@https://wiki.phpmyadmin.net/pma/relation]relation-"
 "links[/a] support, suggested: [kbd]pma__relation[/kbd]."
 msgstr ""
-"Lascia vuoto per disabilitare il supporto per [a@http://wiki.phpmyadmin.net/"
+"Lascia vuoto per disabilitare il supporto per [a@https://wiki.phpmyadmin.net/"
 "pma/relation]relation-links[/a], consigliato: [kbd]pma__relation[/kbd]."
 
 #: libraries/config/messages.inc.php:668
@@ -7097,10 +7097,10 @@ msgstr "Tabella relazionale"
 
 #: libraries/config/messages.inc.php:670
 msgid ""
-"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
+"See [a@https://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
 "types[/a] for an example."
 msgstr ""
-"Vedi [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]tipi di "
+"Vedi [a@https://wiki.phpmyadmin.net/pma/auth_types#signon]tipi di "
 "autenticazione[/a] per un esempio."
 
 #: libraries/config/messages.inc.php:673

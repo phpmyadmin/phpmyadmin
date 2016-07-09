@@ -6818,10 +6818,10 @@ msgstr "认证方式"
 
 #: libraries/config/messages.inc.php:570
 msgid ""
-"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/a] "
+"Leave blank for no [a@https://wiki.phpmyadmin.net/pma/bookmark]bookmark[/a] "
 "support, suggested: [kbd]pma__bookmark[/kbd]"
 msgstr ""
-"不使用[a@http://wiki.phpmyadmin.net/pma/bookmark]书签 (外链，英文)[/a]功能请"
+"不使用[a@https://wiki.phpmyadmin.net/pma/bookmark]书签 (外链，英文)[/a]功能请"
 "留空，推荐: [kbd]pma__bookmark[/kbd]"
 
 #: libraries/config/messages.inc.php:573
@@ -6870,13 +6870,13 @@ msgstr "控制用户的密码"
 #, fuzzy
 #| msgid ""
 #| "A special MySQL user configured with limited permissions, more "
-#| "information available on [a@http://wiki.phpmyadmin.net/pma/"
+#| "information available on [a@https://wiki.phpmyadmin.net/pma/"
 #| "controluser]wiki[/a]"
 msgid ""
 "A special MySQL user configured with limited permissions, more information "
-"available on [a@http://wiki.phpmyadmin.net/pma/controluser]wiki[/a]."
+"available on [a@https://wiki.phpmyadmin.net/pma/controluser]wiki[/a]."
 msgstr ""
-"一个特殊的被限制权限的 MySQL 用户，参见 [a@http://wiki.phpmyadmin.net/pma/"
+"一个特殊的被限制权限的 MySQL 用户，参见 [a@https://wiki.phpmyadmin.net/pma/"
 "controluser]wiki (外链，英文)[/a]"
 
 #: libraries/config/messages.inc.php:589
@@ -7066,7 +7066,7 @@ msgid ""
 "phpmyadmin.net/pma/pmadb]pmadb[/a] for complete information. Leave blank for "
 "no support. Suggested: [kbd]phpmyadmin[/kbd]."
 msgstr ""
-"关系、书签、PDF 功能所用的数据库。参见 [a@http://wiki.phpmyadmin.net/pma/"
+"关系、书签、PDF 功能所用的数据库。参见 [a@https://wiki.phpmyadmin.net/pma/"
 "pmadb]pmadb (外链，英文)[/a]。不使用请留空。推荐:  [kbd]phpmyadmin[/kbd]"
 
 #: libraries/config/messages.inc.php:649
@@ -7117,13 +7117,13 @@ msgstr "表收藏夹"
 #: libraries/config/messages.inc.php:664
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
+#| "Leave blank for no [a@https://wiki.phpmyadmin.net/pma/relation]relation-"
 #| "links[/a] support, suggested: [kbd]pma__relation[/kbd]"
 msgid ""
-"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
+"Leave blank for no [a@https://wiki.phpmyadmin.net/pma/relation]relation-"
 "links[/a] support, suggested: [kbd]pma__relation[/kbd]."
 msgstr ""
-"不使用[a@http://wiki.phpmyadmin.net/pma/relation]关系链接 (外链，英文)[/a]功"
+"不使用[a@https://wiki.phpmyadmin.net/pma/relation]关系链接 (外链，英文)[/a]功"
 "能请留空，推荐: [kbd]pma__relation[/kbd]"
 
 #: libraries/config/messages.inc.php:668
@@ -7133,13 +7133,13 @@ msgstr "关系表"
 #: libraries/config/messages.inc.php:670
 #, fuzzy
 #| msgid ""
-#| "See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
+#| "See [a@https://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
 #| "types[/a] for an example"
 msgid ""
-"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
+"See [a@https://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
 "types[/a] for an example."
 msgstr ""
-"参见[a@http://wiki.phpmyadmin.net/pma/auth_types#signon]认证方式 (外链，英文)"
+"参见[a@https://wiki.phpmyadmin.net/pma/auth_types#signon]认证方式 (外链，英文)"
 "[/a]中的例子"
 
 #: libraries/config/messages.inc.php:673

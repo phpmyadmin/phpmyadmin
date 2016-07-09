@@ -6766,10 +6766,10 @@ msgstr "Kimlik doğrulaması türü"
 
 #: libraries/config/messages.inc.php:570
 msgid ""
-"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/a] "
+"Leave blank for no [a@https://wiki.phpmyadmin.net/pma/bookmark]bookmark[/a] "
 "support, suggested: [kbd]pma__bookmark[/kbd]"
 msgstr ""
-"[a@http://wiki.phpmyadmin.net/pma/bookmark]Yer imi[/a] desteği olmaması için "
+"[a@https://wiki.phpmyadmin.net/pma/bookmark]Yer imi[/a] desteği olmaması için "
 "boş bırakın, önerilen: [kbd]pma__bookmark[/kbd]"
 
 #: libraries/config/messages.inc.php:573
@@ -6813,10 +6813,10 @@ msgstr "Denetim kullanıcısı parolası"
 #: libraries/config/messages.inc.php:586
 msgid ""
 "A special MySQL user configured with limited permissions, more information "
-"available on [a@http://wiki.phpmyadmin.net/pma/controluser]wiki[/a]."
+"available on [a@https://wiki.phpmyadmin.net/pma/controluser]wiki[/a]."
 msgstr ""
 "Sınırlı izinlerle yapılandırılmış özel MySQL kullanıcısıdır, daha fazla "
-"bilgi [a@http://wiki.phpmyadmin.net/pma/controluser]wiki[/a]'de mevcuttur."
+"bilgi [a@https://wiki.phpmyadmin.net/pma/controluser]wiki[/a]'de mevcuttur."
 
 #: libraries/config/messages.inc.php:589
 msgid "Control user"
@@ -6977,7 +6977,7 @@ msgid ""
 "no support. Suggested: [kbd]phpmyadmin[/kbd]."
 msgstr ""
 "Bağlantılar, yer imleri ve PDF özellikleri için kullanılan veritabanı. Tam "
-"bilgi için [a@http://wiki.phpmyadmin.net/pma/pmadb]pmadb[/a]'ye bakın. "
+"bilgi için [a@https://wiki.phpmyadmin.net/pma/pmadb]pmadb[/a]'ye bakın. "
 "Destek istenmiyorsa boş bırakın. Önerilen: [kbd]phpmyadmin[/kbd]."
 
 #: libraries/config/messages.inc.php:649
@@ -7021,10 +7021,10 @@ msgstr "Sık kullanılanlar tablosu"
 
 #: libraries/config/messages.inc.php:664
 msgid ""
-"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
+"Leave blank for no [a@https://wiki.phpmyadmin.net/pma/relation]relation-"
 "links[/a] support, suggested: [kbd]pma__relation[/kbd]."
 msgstr ""
-"[a@http://wiki.phpmyadmin.net/pma/relation]İlişki bağlantıları[/a] desteği "
+"[a@https://wiki.phpmyadmin.net/pma/relation]İlişki bağlantıları[/a] desteği "
 "istenmiyorsa boş bırakın, önerilen: [kbd]pma__relation[/kbd]."
 
 #: libraries/config/messages.inc.php:668
@@ -7033,10 +7033,10 @@ msgstr "Bağlantı tablosu"
 
 #: libraries/config/messages.inc.php:670
 msgid ""
-"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
+"See [a@https://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
 "types[/a] for an example."
 msgstr ""
-"Örnek için [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]kimlik "
+"Örnek için [a@https://wiki.phpmyadmin.net/pma/auth_types#signon]kimlik "
 "doğrulaması türlerine[/a] bakın."
 
 #: libraries/config/messages.inc.php:673

@@ -394,7 +394,7 @@ PMA_printListItem(
 PMA_printListItem(
     __('Wiki'),
     'li_pma_wiki',
-    PMA_linkURL('http://wiki.phpmyadmin.net/'),
+    PMA_linkURL('https://wiki.phpmyadmin.net/'),
     null,
     '_blank'
 );

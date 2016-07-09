@@ -6648,10 +6648,10 @@ msgstr "인증 형식"
 
 #: libraries/config/messages.inc.php:570
 msgid ""
-"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/a] "
+"Leave blank for no [a@https://wiki.phpmyadmin.net/pma/bookmark]bookmark[/a] "
 "support, suggested: [kbd]pma__bookmark[/kbd]"
 msgstr ""
-"[a@http://wiki.phpmyadmin.net/pma/bookmark]북마크[/a] 지원이 필요 없는 경우 "
+"[a@https://wiki.phpmyadmin.net/pma/bookmark]북마크[/a] 지원이 필요 없는 경우 "
 "비워두세요, 추천: [kbd]pma__bookmark[/kbd]"
 
 #: libraries/config/messages.inc.php:573
@@ -6693,7 +6693,7 @@ msgstr "유저 비밀번호 제어"
 #: libraries/config/messages.inc.php:586
 msgid ""
 "A special MySQL user configured with limited permissions, more information "
-"available on [a@http://wiki.phpmyadmin.net/pma/controluser]wiki[/a]."
+"available on [a@https://wiki.phpmyadmin.net/pma/controluser]wiki[/a]."
 msgstr ""
 "제한된 권한 설정을 위한 특별한 MySQL 사용자 설정. 추가 정보는 [a@http://wiki."
 "phpmyadmin.net/pma/controluser]위키[/a]에."
@@ -6913,7 +6913,7 @@ msgstr "즐겨찾기 테이블"
 #| "Leave blank for no SQL query tracking support, suggested: "
 #| "[kbd]pma__tracking[/kbd]"
 msgid ""
-"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
+"Leave blank for no [a@https://wiki.phpmyadmin.net/pma/relation]relation-"
 "links[/a] support, suggested: [kbd]pma__relation[/kbd]."
 msgstr ""
 "SQL 쿼리 추적 기능을 사용하지 않으려면 빈 칸으로 비워두세요. 권장: "
@@ -6925,10 +6925,10 @@ msgstr "연관된 테이블"
 
 #: libraries/config/messages.inc.php:670
 msgid ""
-"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
+"See [a@https://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
 "types[/a] for an example."
 msgstr ""
-"[a@http://wiki.phpmyadmin.net/pma/auth_types#signon]인증 타입[/a] 예제를 참조"
+"[a@https://wiki.phpmyadmin.net/pma/auth_types#signon]인증 타입[/a] 예제를 참조"
 "하세요."
 
 #: libraries/config/messages.inc.php:673
