@@ -1831,7 +1831,7 @@ other.
 Not every table can be put to the chart. Only tables with one, two or
 three columns can be visualised as a chart. Moreover the table must be
 in a special format for chart script to understand it. Currently
-supported formats can be found in the `wiki <http://wiki.phpmyadmin.net/pma/Charts>`_.
+supported formats can be found in the `wiki <https://wiki.phpmyadmin.net/pma/Charts>`_.
 
 .. _faq6_30:
 
