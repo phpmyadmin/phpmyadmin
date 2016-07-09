@@ -7293,13 +7293,13 @@ msgstr "প্রমাণীকরণের ধরন"
 #: libraries/config/messages.inc.php:644
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/"
+#| "Leave blank for no [a@https://wiki.phpmyadmin.net/pma/bookmark]bookmark[/"
 #| "a] support, suggested: [kbd]pma__bookmark[/kbd]"
 msgid ""
 "Leave blank for no [doc@bookmarks@]bookmark[/doc] support, suggested: "
 "[kbd]pma__bookmark[/kbd]"
 msgstr ""
-"না করার জন্য খালি রাখুন [a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/"
+"না করার জন্য খালি রাখুন [a@https://wiki.phpmyadmin.net/pma/bookmark]bookmark[/"
 "a] সাহায্যের জন্য, দেখুন:[kbd]pma_bookmark[/kbd]"
 
 #: libraries/config/messages.inc.php:647
@@ -7342,14 +7342,14 @@ msgstr "নিয়ন্ত্রক ব্যবহারকারীর পা�
 #, fuzzy
 #| msgid ""
 #| "A special MySQL user configured with limited permissions, more "
-#| "information available on [a@http://wiki.phpmyadmin.net/pma/"
+#| "information available on [a@https://wiki.phpmyadmin.net/pma/"
 #| "controluser]wiki[/a]."
 msgid ""
 "A special MySQL user configured with limited permissions, more information "
 "available on [doc@linked-tables]documentation[/doc]."
 msgstr ""
 "একটি বিশেষ MySQL ব্যবহারকারী সীমিত অধিকার সহ কনফিগার করা হয়েছে, আরো তথ্যের জন্য "
-"দেখুন [a@http://wiki.phpmyadmin.net/pma/controluser]wiki[/a]।"
+"দেখুন [a@https://wiki.phpmyadmin.net/pma/controluser]wiki[/a]।"
 
 #: libraries/config/messages.inc.php:663
 msgid "Control user"
@@ -7590,13 +7590,13 @@ msgstr "চলকসমূহ"
 #: libraries/config/messages.inc.php:746
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
+#| "Leave blank for no [a@https://wiki.phpmyadmin.net/pma/relation]relation-"
 #| "links[/a] support, suggested: [kbd]pma__relation[/kbd]."
 msgid ""
 "Leave blank for no [doc@relations@]relation-links[/doc] support, suggested: "
 "[kbd]pma__relation[/kbd]."
 msgstr ""
-"না করার জন্য খালি রাখুন [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
+"না করার জন্য খালি রাখুন [a@https://wiki.phpmyadmin.net/pma/relation]relation-"
 "links[/a]সাহায্যের জন্য, দেখুন:[kbd]pma__relation[/kbd]।"
 
 #: libraries/config/messages.inc.php:750
@@ -7606,12 +7606,12 @@ msgstr "আন্তসর্ম্পক টেবল"
 #: libraries/config/messages.inc.php:752
 #, fuzzy
 #| msgid ""
-#| "See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
+#| "See [a@https://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
 #| "types[/a] for an example."
 msgid ""
 "See [doc@authentication-modes]authentication types[/doc] for an example."
 msgstr ""
-"উদাহরণের জন্য [a@http://wiki.phpmyadmin.net/pma/"
+"উদাহরণের জন্য [a@https://wiki.phpmyadmin.net/pma/"
 "auth_types#signon]authentication types [/a] দেখুন।"
 
 #: libraries/config/messages.inc.php:755

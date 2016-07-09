@@ -6812,13 +6812,13 @@ msgstr "인증 형식"
 #: libraries/config/messages.inc.php:644
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/"
+#| "Leave blank for no [a@https://wiki.phpmyadmin.net/pma/bookmark]bookmark[/"
 #| "a] support, suggested: [kbd]pma__bookmark[/kbd]"
 msgid ""
 "Leave blank for no [doc@bookmarks@]bookmark[/doc] support, suggested: "
 "[kbd]pma__bookmark[/kbd]"
 msgstr ""
-"[a@http://wiki.phpmyadmin.net/pma/bookmark]북마크[/a] 지원이 필요 없는 경우 "
+"[a@https://wiki.phpmyadmin.net/pma/bookmark]북마크[/a] 지원이 필요 없는 경우 "
 "비워두세요, 추천: [kbd]pma__bookmark[/kbd]"
 
 #: libraries/config/messages.inc.php:647
@@ -6861,7 +6861,7 @@ msgstr "유저 비밀번호 제어"
 #, fuzzy
 #| msgid ""
 #| "A special MySQL user configured with limited permissions, more "
-#| "information available on [a@http://wiki.phpmyadmin.net/pma/"
+#| "information available on [a@https://wiki.phpmyadmin.net/pma/"
 #| "controluser]wiki[/a]."
 msgid ""
 "A special MySQL user configured with limited permissions, more information "
@@ -7120,12 +7120,12 @@ msgstr "연관된 테이블"
 #: libraries/config/messages.inc.php:752
 #, fuzzy
 #| msgid ""
-#| "See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
+#| "See [a@https://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
 #| "types[/a] for an example."
 msgid ""
 "See [doc@authentication-modes]authentication types[/doc] for an example."
 msgstr ""
-"[a@http://wiki.phpmyadmin.net/pma/auth_types#signon]인증 타입[/a] 예제를 참조"
+"[a@https://wiki.phpmyadmin.net/pma/auth_types#signon]인증 타입[/a] 예제를 참조"
 "하세요."
 
 #: libraries/config/messages.inc.php:755

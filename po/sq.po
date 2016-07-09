@@ -6984,13 +6984,13 @@ msgstr "Tipi i autentifikimit"
 #: libraries/config/messages.inc.php:644
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/"
+#| "Leave blank for no [a@https://wiki.phpmyadmin.net/pma/bookmark]bookmark[/"
 #| "a] support, suggested: [kbd]pma__bookmark[/kbd]"
 msgid ""
 "Leave blank for no [doc@bookmarks@]bookmark[/doc] support, suggested: "
 "[kbd]pma__bookmark[/kbd]"
 msgstr ""
-"Lëre të zbrazët për asnjë mbështetje [a@http://wiki.phpmyadmin.net/pma/"
+"Lëre të zbrazët për asnjë mbështetje [a@https://wiki.phpmyadmin.net/pma/"
 "bookmark]faqeruajtësi[/a], sugjerohet: [kbd]pma__bookmark[/kbd]"
 
 #: libraries/config/messages.inc.php:647
@@ -7033,14 +7033,14 @@ msgstr "Fjalëkalimi i përdoruesit të kontrollit"
 #, fuzzy
 #| msgid ""
 #| "A special MySQL user configured with limited permissions, more "
-#| "information available on [a@http://wiki.phpmyadmin.net/pma/"
+#| "information available on [a@https://wiki.phpmyadmin.net/pma/"
 #| "controluser]wiki[/a]."
 msgid ""
 "A special MySQL user configured with limited permissions, more information "
 "available on [doc@linked-tables]documentation[/doc]."
 msgstr ""
 "Një përdorues i veçantë MySQL, i konfiguruar me lejime të kufizuara, më "
-"tepër informacion të vlefshëm në [a@http://wiki.phpmyadmin.net/pma/"
+"tepër informacion të vlefshëm në [a@https://wiki.phpmyadmin.net/pma/"
 "controluser]wiki[/a]."
 
 #: libraries/config/messages.inc.php:663
@@ -7220,7 +7220,7 @@ msgid ""
 "Suggested: [kbd]phpmyadmin[/kbd]."
 msgstr ""
 "Databaza e përdorur për relacione, faqruajtës dhe tipare PDF. Shiko "
-"[a@http://wiki.phpmyadmin.net/pma/pmadb]pmadb[/a] për informacion më të "
+"[a@https://wiki.phpmyadmin.net/pma/pmadb]pmadb[/a] për informacion më të "
 "plotë. Lëre të zbrazët për mos mbështetje. Sugjerohet: [kbd]phpmyadmin[/kbd]."
 
 #: libraries/config/messages.inc.php:731
@@ -7265,13 +7265,13 @@ msgstr "Tabela e preferuar"
 #: libraries/config/messages.inc.php:746
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
+#| "Leave blank for no [a@https://wiki.phpmyadmin.net/pma/relation]relation-"
 #| "links[/a] support, suggested: [kbd]pma__relation[/kbd]."
 msgid ""
 "Leave blank for no [doc@relations@]relation-links[/doc] support, suggested: "
 "[kbd]pma__relation[/kbd]."
 msgstr ""
-"Lëre të zbrazët për jo mbështetje [a@http://wiki.phpmyadmin.net/pma/"
+"Lëre të zbrazët për jo mbështetje [a@https://wiki.phpmyadmin.net/pma/"
 "relation]relation-links[/a] (lidhje-relacioni), sugjerohet: "
 "[kbd]pma__relation[/kbd] (relacion_pma)."
 
@@ -7282,12 +7282,12 @@ msgstr "Tabela e relacionit"
 #: libraries/config/messages.inc.php:752
 #, fuzzy
 #| msgid ""
-#| "See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
+#| "See [a@https://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
 #| "types[/a] for an example."
 msgid ""
 "See [doc@authentication-modes]authentication types[/doc] for an example."
 msgstr ""
-"Shiko [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]tipet e "
+"Shiko [a@https://wiki.phpmyadmin.net/pma/auth_types#signon]tipet e "
 "autentifikimit[/a] për një shembull."
 
 #: libraries/config/messages.inc.php:755
