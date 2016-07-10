@@ -288,7 +288,7 @@ function getVariablesTableHtml($ServerStatusData)
         }
         $retval .= '</span>';
         $retval .= '<span style="display:none;" class="original">';
-        $retval .= $value;
+        $retval .= htmlspecialchars($value);
         $retval .= '</span>';
         $retval .= '</td>';
         $retval .= '<td class="descr">';
