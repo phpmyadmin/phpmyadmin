@@ -626,11 +626,6 @@ function PMA_sendHeaderLocation($uri, $use_refresh = false)
 
     session_write_close();
     if (headers_sent()) {
-        if (function_exists('debug_print_backtrace')) {
-            echo '<pre>';
-            debug_print_backtrace();
-            echo '</pre>';
-        }
         trigger_error(
             'PMA_sendHeaderLocation called when headers are already sent!',
             E_USER_ERROR
