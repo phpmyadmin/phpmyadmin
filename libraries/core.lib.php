@@ -963,6 +963,56 @@ function PMA_checkExtensions()
     }
 }
 
+/**
+ * Gets the "true" IP address of the current user
+ *
+ * @return string   the ip of the user
+ *
+ * @access  private
+ */
+function PMA_getIp()
+{
+    /* Get the address of user */
+    if (empty($_SERVER['REMOTE_ADDR'])) {
+        /* We do not know remote IP */
+        return false;
+    }
+
+    $direct_ip = $_SERVER['REMOTE_ADDR'];
+
+    /* Do we trust this IP as a proxy? If yes we will use it's header. */
+    if (!isset($GLOBALS['cfg']['TrustedProxies'][$direct_ip])) {
+        /* Return true IP */
+        return $direct_ip;
+    }
+
+    /**
+     * Parse header in form:
+     * X-Forwarded-For: client, proxy1, proxy2
+     */
+    // Get header content
+    $value = PMA_getenv($GLOBALS['cfg']['TrustedProxies'][$direct_ip]);
+    // Grab first element what is client adddress
+    $value = explode(',', $value)[0];
+    // Extract IP address
+    // the $ checks that the header contains only one IP address,
+    // ?: makes sure the () don't capture
+    $matches = array();
+    $is_ip = preg_match(
+        '|^(?:[0-9]{1,3}\.){3,3}[0-9]{1,3}$|',
+        $value, $matches
+    );
+
+    if ($is_ip && (count($matches) == 1)) {
+        // True IP behind a proxy
+        return $matches[0];
+    }
+
+    // We could not parse header
+    return false;
+} // end of the 'PMA_getIp()' function
+
+
 /* Compatibility with PHP < 5.6 */
 if(! function_exists('hash_equals')) {
 
