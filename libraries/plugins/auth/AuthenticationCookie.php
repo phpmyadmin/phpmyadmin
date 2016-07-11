@@ -286,7 +286,7 @@ class AuthenticationCookie extends AuthenticationPlugin
                     // verify captcha status.
                     $resp = $reCaptcha->verify(
                         $_POST["g-recaptcha-response"],
-                        $_SERVER["REMOTE_ADDR"]
+                        PMA_getIp()
                     );
 
                     // Check if the captcha entered is valid, if not stop the login.
