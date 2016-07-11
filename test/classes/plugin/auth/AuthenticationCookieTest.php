@@ -409,25 +409,8 @@ class AuthenticationCookieTest extends PMATestCase
      *
      * @return void
      */
-    public function testAuthCheckSwekey()
-    {
-        $GLOBALS['cfg']['Server']['auth_swekey_config'] = 'testConfigSwekey';
-
-        file_put_contents('testConfigSwekey', '');
-        $this->assertFalse(
-            $this->object->authCheck()
-        );
-        @unlink('testConfigSwekey');
-    }
-
-    /**
-     * Test for PMA\libraries\plugins\auth\AuthenticationConfig::authCheck
-     *
-     * @return void
-     */
     public function testAuthCheckCaptcha()
     {
-        $GLOBALS['cfg']['Server']['auth_swekey_config'] = '';
         $GLOBALS['cfg']['CaptchaLoginPrivateKey'] = 'testprivkey';
         $GLOBALS['cfg']['CaptchaLoginPublicKey'] = 'testpubkey';
         $_POST["g-recaptcha-response"] = '';
@@ -470,7 +453,6 @@ class AuthenticationCookieTest extends PMATestCase
         $attrInstance->setAccessible(true);
         $attrInstance->setValue($mockResponse);
 
-        $GLOBALS['cfg']['Server']['auth_swekey_config'] = '';
         $GLOBALS['cfg']['CaptchaLoginPrivateKey'] = '';
         $GLOBALS['cfg']['CaptchaLoginPublicKey'] = '';
         $GLOBALS['cfg']['LoginCookieDeleteAll'] = true;
@@ -512,7 +494,6 @@ class AuthenticationCookieTest extends PMATestCase
         $attrInstance = new ReflectionProperty('PMA\libraries\Response', '_instance');
         $attrInstance->setAccessible(true);
         $attrInstance->setValue($mockResponse);
-        $GLOBALS['cfg']['Server']['auth_swekey_config'] = '';
         $GLOBALS['cfg']['CaptchaLoginPrivateKey'] = '';
         $GLOBALS['cfg']['CaptchaLoginPublicKey'] = '';
         $GLOBALS['cfg']['LoginCookieDeleteAll'] = false;
@@ -536,7 +517,6 @@ class AuthenticationCookieTest extends PMATestCase
      */
     public function testAuthCheckArbitrary()
     {
-        $GLOBALS['cfg']['Server']['auth_swekey_config'] = '';
         $GLOBALS['cfg']['CaptchaLoginPrivateKey'] = '';
         $GLOBALS['cfg']['CaptchaLoginPublicKey'] = '';
         $_REQUEST['old_usr'] = '';
@@ -577,7 +557,6 @@ class AuthenticationCookieTest extends PMATestCase
     public function testAuthCheckIV()
     {
         $GLOBALS['cfg']['AllowArbitraryServer'] = true;
-        $GLOBALS['cfg']['Server']['auth_swekey_config'] = '';
         $_REQUEST['pma_servername'] = 'testPMAServer';
         $_REQUEST['pma_password'] = 'testPMAPSWD';
         $_REQUEST['pma_username'] = '';
@@ -603,7 +582,6 @@ class AuthenticationCookieTest extends PMATestCase
      */
     public function testAuthCheckExpires()
     {
-        $GLOBALS['cfg']['Server']['auth_swekey_config'] = '';
         $GLOBALS['server'] = 1;
         $_COOKIE['pmaServer-1'] = 'pmaServ1';
         $_COOKIE['pmaUser-1'] = 'pmaUser1';
@@ -625,7 +603,6 @@ class AuthenticationCookieTest extends PMATestCase
      */
     public function testAuthCheckDecryptUser()
     {
-        $GLOBALS['cfg']['Server']['auth_swekey_config'] = 'testConfigSwekey';
         $GLOBALS['server'] = 1;
         $_REQUEST['old_usr'] = '';
         $_REQUEST['pma_username'] = '';
@@ -664,7 +641,6 @@ class AuthenticationCookieTest extends PMATestCase
      */
     public function testAuthCheckDecryptPassword()
     {
-        $GLOBALS['cfg']['Server']['auth_swekey_config'] = 'testConfigSwekey';
         $GLOBALS['server'] = 1;
         $_REQUEST['old_usr'] = '';
         $_REQUEST['pma_username'] = '';
@@ -710,7 +686,6 @@ class AuthenticationCookieTest extends PMATestCase
      */
     public function testAuthCheckAuthFails()
     {
-        $GLOBALS['cfg']['Server']['auth_swekey_config'] = 'testConfigSwekey';
         $GLOBALS['server'] = 1;
         $_REQUEST['old_usr'] = '';
         $_REQUEST['pma_username'] = '';
