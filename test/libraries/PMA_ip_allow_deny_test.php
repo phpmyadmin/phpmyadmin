@@ -44,7 +44,6 @@ class PMA_Ip_Allow_Deny_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['Server']['AllowDeny']['rules'][] = "deny % 255.255.0.0/8";
         $GLOBALS['cfg']['Server']['AllowDeny']['rules'][]
             = "deny % from 255.255.0.0/8";
-        include_once 'libraries/ip_allow_deny.lib.php';
     }
 
     /**
