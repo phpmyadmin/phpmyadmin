@@ -40,7 +40,8 @@ function PMA_getIp()
     // Get header content
     $value = PMA_getenv($GLOBALS['cfg']['TrustedProxies'][$direct_ip]);
     // Grab first element what is client adddress
-    $value = explode(',', $value)[0];
+    $values = explode(',', $value);
+    $value = $values[0];
     // Extract IP address
     // the $ checks that the header contains only one IP address,
     // ?: makes sure the () don't capture
