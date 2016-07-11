@@ -29,19 +29,28 @@ function PMA_getIp()
 
     /* Do we trust this IP as a proxy? If yes we will use it's header. */
     if (isset($GLOBALS['cfg']['TrustedProxies'][$direct_ip])) {
-        $trusted_header_value
-            = PMA_getenv($GLOBALS['cfg']['TrustedProxies'][$direct_ip]);
-        $matches = array();
+        /**
+         * Parse header in form:
+         * X-Forwarded-For: client, proxy1, proxy2
+         */
+        // Get header content
+        $value = PMA_getenv($GLOBALS['cfg']['TrustedProxies'][$direct_ip]);
+        // Grab first element what is client adddress
+        $value = explode(',', $value)[0];
+        // Extract IP address
         // the $ checks that the header contains only one IP address,
         // ?: makes sure the () don't capture
+        $matches = array();
         $is_ip = preg_match(
             '|^(?:[0-9]{1,3}\.){3,3}[0-9]{1,3}$|',
-            $trusted_header_value, $matches
+            $value, $matches
         );
         if ($is_ip && (count($matches) == 1)) {
             // True IP behind a proxy
             return $matches[0];
         }
+        // We could not parse header
+        return false;
     }
 
     /* Return true IP */
@@ -169,7 +178,7 @@ function PMA_ipv4MaskTest($testRange, $ipToTest)
 function PMA_ipv6MaskTest($test_range, $ip_to_test)
 {
     $result = true;
-    
+
     // convert to lowercase for easier comparison
     $test_range = strtolower($test_range);
     $ip_to_test = strtolower($ip_to_test);
