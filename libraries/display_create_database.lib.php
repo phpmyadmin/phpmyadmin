@@ -26,7 +26,7 @@ if ($is_create_db_priv) {
     $html .= '</strong><br />';
     $html .= PMA_URL_getHiddenInputs('', '', 5);
     $html .= '<input type="hidden" name="reload" value="1" />';
-    $html .= '<input type="text" name="new_db" value="' . $db_to_create
+    $html .= '<input type="text" name="new_db" value="' . htmlspecialchars($db_to_create)
         . '" maxlength="64" class="textfield" id="text_create_db" '
         . 'required placeholder="' . __('Database name') . '"/>';
 
