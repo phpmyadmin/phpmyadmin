@@ -788,7 +788,7 @@ class Transformation_Plugins_Test extends PHPUnit_Framework_TestCase
                     'PMA_IMAGE_LINK',
                     array("./image/", "200", "wrapper_link"=>"PMA_wrapper_link")
                 ),
-                '<a class="disableAjax" target="_new"'
+                '<a class="disableAjax" target="_blank" rel="noopener noreferrer"'
                 . ' href="transformation_wrapper.phpPMA_wrapper_link"'
                 . ' alt="PMA_IMAGE_LINK">[BLOB]</a>'
             ),
@@ -919,7 +919,7 @@ class Transformation_Plugins_Test extends PHPUnit_Framework_TestCase
                     array(),
                 ),
                 '<a href="https://example.com/PMA_TXT_LINK" title=""'
-                . ' target="_new">https://example.com/PMA_TXT_LINK</a>'
+                . ' target="_blank" rel="noopener noreferrer">https://example.com/PMA_TXT_LINK</a>'
             ),
             array(
                 new Text_Plain_Link(),
