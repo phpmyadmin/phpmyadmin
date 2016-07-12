@@ -224,7 +224,7 @@ Documentation <https://dev.mysql.com/doc/refman/5.7/en/old-client.html>`_.
 
 The :term:`TCPDF` library we're using for this feature requires some special
 files to use font faces. Please refers to the `TCPDF manual
-<http://www.tcpdf.org/>`_ to build these files.
+<https://tcpdf.org/>`_ to build these files.
 
 .. _faqmysql:
 
