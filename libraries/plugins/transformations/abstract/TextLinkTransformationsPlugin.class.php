@@ -48,7 +48,7 @@ abstract class TextLinkTransformationsPlugin extends TransformationsPlugin
         $url = (isset($options[0]) ? $options[0] : '') . ((isset($options[2]) && $options[2]) ? '' : $buffer);
         $parsed = parse_url($url);
         /* Do not allow javascript links */
-        if (isset($parsed['scheme']) && $parsed['scheme'] == 'javascript') {
+        if (! isset($parsed['scheme']) || ! in_array(strtolower($parsed['scheme']), array('http', 'https', 'ftp', 'mailto'))) {
             return htmlspecialchars($url);
         }
         return '<a href="'
