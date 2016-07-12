@@ -188,7 +188,21 @@ function PMA_sanitizeUrl($url)
 function PMA_sendErrorReport($report)
 {
     $data_string = json_encode($report);
-    if (ini_get('allow_url_fopen')) {
+    if (function_exists('curl_init')) {
+        $curl_handle = curl_init(SUBMISSION_URL);
+        if ($curl_handle === false) {
+            return null;
+        }
+        $curl_handle = PMA_Util::configureCurl($curl_handle);
+        curl_setopt($curl_handle, CURLOPT_CUSTOMREQUEST, "POST");
+        curl_setopt($curl_handle, CURLOPT_HTTPHEADER, array('Expect:'));
+        curl_setopt($curl_handle, CURLOPT_POSTFIELDS, $data_string);
+        curl_setopt($curl_handle, CURLOPT_RETURNTRANSFER, 1);
+        $response = curl_exec($curl_handle);
+        curl_close($curl_handle);
+
+        return $response;
+    } else if (ini_get('allow_url_fopen')) {
         $context = array("http" =>
             array(
                 'method'  => 'POST',
@@ -204,24 +218,7 @@ function PMA_sendErrorReport($report)
         );
         return $response;
     }
-
-    if (!function_exists('curl_init')) {
-        return null;
-    }
-
-    $curl_handle = curl_init(SUBMISSION_URL);
-    if ($curl_handle === false) {
-        return null;
-    }
-    $curl_handle = PMA_Util::configureCurl($curl_handle);
-    curl_setopt($curl_handle, CURLOPT_CUSTOMREQUEST, "POST");
-    curl_setopt($curl_handle, CURLOPT_HTTPHEADER, array('Expect:'));
-    curl_setopt($curl_handle, CURLOPT_POSTFIELDS, $data_string);
-    curl_setopt($curl_handle, CURLOPT_RETURNTRANSFER, 1);
-    $response = curl_exec($curl_handle);
-    curl_close($curl_handle);
-
-    return $response;
+    return null;
 }
 
 /**
