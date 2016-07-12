@@ -678,6 +678,9 @@ function PMA_printListItem($name, $listId = null, $url = null,
         echo '<a href="' . $url . '"';
         if (null !== $target) {
             echo ' target="' . $target . '"';
+            if ($target == '_blank') {
+                echo ' rel="noopener noreferrer"';
+            }
         }
         if (null != $a_id) {
             echo ' id="' . $a_id . '"';

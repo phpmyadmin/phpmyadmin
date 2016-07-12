@@ -132,13 +132,13 @@ class PMA_StorageEngine_Pbxt extends PMA_StorageEngine
                 . ' can be found on the %sPrimeBase XT Home Page%s.'
             ),
             '<a href="' . PMA_linkURL('http://www.primebase.com/xt/')
-            . '" target="_blank">', '</a>'
+            . '" rel="noopener noreferrer" target="_blank">', '</a>'
         )
         . '</p>' . "\n"
         . '<h3>' . __('Related Links') . '</h3>' . "\n"
         . '<ul>' . "\n"
         . '<li><a href="' . PMA_linkURL('http://pbxt.blogspot.com/')
-        . '" target="_blank">' . __('The PrimeBase XT Blog by Paul McCullagh')
+        . '" rel="noopener noreferrer" target="_blank">' . __('The PrimeBase XT Blog by Paul McCullagh')
         . '</a></li>' . "\n"
         . '</ul>' . "\n";
 
