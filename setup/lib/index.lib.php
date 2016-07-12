@@ -330,7 +330,7 @@ function perform_config_checks()
         $server_name = htmlspecialchars($server_name);
 
         if ($cookie_auth_server && $blowfish_secret === null) {
-            $blowfish_secret = uniqid('', true);
+            $blowfish_secret = bin2hex(crypt_random_string(16));
             $blowfish_secret_set = true;
             $cf->set('blowfish_secret', $blowfish_secret);
         }

@@ -600,8 +600,8 @@ class AuthenticationCookie extends AuthenticationPlugin
     {
         if (empty($GLOBALS['cfg']['blowfish_secret'])) {
             if (empty($_SESSION['auto_blowfish_secret'])) {
-                // this returns 23 characters
-                $_SESSION['auto_blowfish_secret'] = uniqid('', true);
+                // this returns 32 characters
+                $_SESSION['auto_blowfish_secret'] = crypt_random_string(32);
             }
             return $_SESSION['auto_blowfish_secret'];
         } else {
