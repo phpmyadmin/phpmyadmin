@@ -866,7 +866,15 @@ class Transformation_Plugins_Test extends PHPUnit_Framework_TestCase
                     "<a ref='http://ci.phpmyadmin.net/'>PMA_BUFFER</a>",
                     array("option1", "option2")
                 ),
-                "<a ref='http://ci.phpmyadmin.net/'>PMA_BUFFER</a>"
+                "<iframe srcdoc=\"<a ref='http://ci.phpmyadmin.net/'>PMA_BUFFER</a>\" sandbox=\"\"></iframe>"
+            ),
+            array(
+                new Text_Plain_Formatted(),
+                array(
+                    "<a ref=\"http://ci.phpmyadmin.net/\">PMA_BUFFER</a>",
+                    array("option1", "option2")
+                ),
+                "<iframe srcdoc=\"<a ref='http://ci.phpmyadmin.net/'>PMA_BUFFER</a>\" sandbox=\"\"></iframe>"
             ),
             array(
                 new Text_Plain_Imagelink(),
