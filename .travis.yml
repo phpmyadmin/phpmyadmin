@@ -56,14 +56,6 @@ after_script:
   - codecov
   - if [ -f php.log ] ; then cat php.log ; fi
 
-matrix:
-  allow_failures:
-    - php: 5.6
-      env: PHPUNIT_ARGS="--group selenium" SELENIUM="yes"
-  fast_finish: true
-  include:
-    - php: 5.6
-      env: PHPUNIT_ARGS="--group selenium" SELENIUM="yes"
 cache:
   directories:
     - $HOME/.composer/cache/
