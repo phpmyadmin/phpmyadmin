@@ -7208,7 +7208,6 @@ msgid ""
 "tables]pmadb[/doc] for complete information. Leave blank for no support. "
 "Suggested: [kbd]phpmyadmin[/kbd]."
 msgstr ""
-<<<<<<< 
 "Databaza e përdorur për relacione, faqeruajtës dhe tiparet PDF. Shiko [doc"
 "@linked-tables][/doc][/doc]pmadb[/doc] për informacion më të plotë. Lëre të "
 "zbrazët për mos mbështetje. Sugjerohet: [kbd]phpmyadmin[/kbd]."
