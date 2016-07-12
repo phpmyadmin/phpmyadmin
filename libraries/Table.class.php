@@ -250,7 +250,7 @@ class PMA_Table
         $analyzed_sql = array();
         if (self::isView($db, $table)) {
             // For a view, 'SHOW CREATE TABLE' returns the definition,
-            // but the structure of the view. So, we try to mock 
+            // but the structure of the view. So, we try to mock
             // the result of analyzing 'SHOW CREATE TABLE' query.
             $analyzed_sql[0] = array();
             $analyzed_sql[0]['create_table_fields'] = array();
@@ -1411,7 +1411,7 @@ class PMA_Table
 
         // Read from phpMyAdmin database
         $sql_query = " SELECT `prefs` FROM " . $pma_table
-            . " WHERE `username` = '" . $GLOBALS['cfg']['Server']['user'] . "'"
+            . " WHERE `username` = '" . PMA_Util::sqlAddSlashes($GLOBALS['cfg']['Server']['user']) . "'"
             . " AND `db_name` = '" . PMA_Util::sqlAddSlashes($this->db_name) . "'"
             . " AND `table_name` = '" . PMA_Util::sqlAddSlashes($this->name) . "'";
 
@@ -1435,7 +1435,7 @@ class PMA_Table
 
         $username = $GLOBALS['cfg']['Server']['user'];
         $sql_query = " REPLACE INTO " . $pma_table
-            . " VALUES ('" . $username . "', '" . PMA_Util::sqlAddSlashes($this->db_name)
+            . " VALUES ('" . PMA_Util::sqlAddSlashes($username) . "', '" . PMA_Util::sqlAddSlashes($this->db_name)
             . "', '" . PMA_Util::sqlAddSlashes($this->name) . "', '"
             . PMA_Util::sqlAddSlashes(json_encode($this->uiprefs)) . "', NULL)";
 
@@ -1647,7 +1647,7 @@ class PMA_Table
 
     /**
      * Get all column names which are MySQL reserved words
-     * 
+     *
      * @return array
      * @access public
      */
@@ -1661,7 +1661,7 @@ class PMA_Table
             if (PMA_SQP_isKeyWord($column_name)) {
                 $return[] = $column_name;
             }
-        }       
+        }
         return $return;
     }
 }

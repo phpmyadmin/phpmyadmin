@@ -84,7 +84,7 @@ class PMA_RecentTable
         // Read from phpMyAdmin database, if recent tables is not in session
         $sql_query
             = " SELECT `tables` FROM " . $this->_pmaTable .
-            " WHERE `username` = '" . $GLOBALS['cfg']['Server']['user'] . "'";
+            " WHERE `username` = '" . PMA_Util::sqlAddSlashes($GLOBALS['cfg']['Server']['user']) . "'";
 
         $return = array();
         $result = PMA_queryAsControlUser($sql_query, false);
