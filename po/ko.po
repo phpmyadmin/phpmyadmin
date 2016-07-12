@@ -7118,7 +7118,6 @@ msgstr "연관된 테이블"
 #| "types[/a] for an example."
 msgid ""
 "See [doc@authentication-modes]authentication types[/doc] for an example."
-<<<<<<< 
 msgstr "[doc@authentication-modes]인증 타입[/doc] 예제를 참조하세요."
 
 #: libraries/config/messages.inc.php:755
