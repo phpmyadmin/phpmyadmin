@@ -312,7 +312,7 @@ function validate_server($path, $values)
         $test = test_db_connection(
             empty($values['Servers/1/extension']) ? '' : $values['Servers/1/extension'],
             empty($values['Servers/1/connect_type']) ? '' : $values['Servers/1/connect_type'],
-            empty($values['Servers/1/host']) ? '' : $values['Servers/1/host'],
+            empty($values['Servers/1/host']) ? '' : PMA_sanitizeMySQLHost($values['Servers/1/host']),
             empty($values['Servers/1/port']) ? '' : $values['Servers/1/port'],
             empty($values['Servers/1/socket']) ? '' : $values['Servers/1/socket'],
             empty($values['Servers/1/user']) ? '' : $values['Servers/1/user'],
@@ -361,7 +361,7 @@ function validate_pmadb($path, $values)
     if (!$error) {
         $test = test_db_connection(
             $values['Servers/1/extension'], $values['Servers/1/connect_type'],
-            $values['Servers/1/host'], $values['Servers/1/port'],
+            $values['Servers/1/host'], PMA_sanitizeMySQLHost($values['Servers/1/port']),
             $values['Servers/1/socket'], $values['Servers/1/controluser'],
             $values['Servers/1/controlpass'], 'Server_pmadb'
         );
