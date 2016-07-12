@@ -51,7 +51,7 @@ class PMA_Export_Relation_Schema
      */
     public function setPageNumber($value)
     {
-        $this->pageNumber = $value;
+        $this->pageNumber = intval($value);
     }
 
     /**

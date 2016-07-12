@@ -261,7 +261,7 @@ function PMA_getTablePositions($pg)
             1 AS `H`
         FROM " . PMA_Util::backquote($cfgRelation['db'])
             . "." . PMA_Util::backquote($cfgRelation['table_coords']) . "
-        WHERE pdf_page_number = " . $pg;
+        WHERE pdf_page_number = " . intval($pg);
 
     $tab_pos = $GLOBALS['dbi']->fetchResult(
         $query,
@@ -290,7 +290,7 @@ function PMA_getPageName($pg)
     $query = "SELECT `page_descr`"
         . " FROM " . PMA_Util::backquote($cfgRelation['db'])
         . "." . PMA_Util::backquote($cfgRelation['pdf_pages'])
-        . " WHERE " . PMA_Util::backquote('page_nr') . " = " . $pg;
+        . " WHERE " . PMA_Util::backquote('page_nr') . " = " . intval($pg);
     $page_name = $GLOBALS['dbi']->fetchResult(
         $query,
         null,
@@ -317,7 +317,7 @@ function PMA_deletePage($pg)
 
     $query = "DELETE FROM " . PMA_Util::backquote($cfgRelation['db'])
              . "." . PMA_Util::backquote($cfgRelation['table_coords'])
-             . " WHERE " . PMA_Util::backquote('pdf_page_number') . " = " . $pg;
+             . " WHERE " . PMA_Util::backquote('pdf_page_number') . " = " . intval($pg);
     $success = PMA_queryAsControlUser(
         $query, true, PMA_DatabaseInterface::QUERY_STORE
     );
@@ -325,7 +325,7 @@ function PMA_deletePage($pg)
     if ($success) {
         $query = "DELETE FROM " . PMA_Util::backquote($cfgRelation['db'])
                  . "." . PMA_Util::backquote($cfgRelation['pdf_pages'])
-                 . " WHERE " . PMA_Util::backquote('page_nr') . " = " . $pg;
+                 . " WHERE " . PMA_Util::backquote('page_nr') . " = " . intval($pg);
         $success = PMA_queryAsControlUser(
             $query, true, PMA_DatabaseInterface::QUERY_STORE
         );
@@ -360,7 +360,7 @@ function PMA_getFirstPage($db)
         $GLOBALS['controllink'],
         PMA_DatabaseInterface::QUERY_STORE
     );
-    return count($min_page_no[0]) ? $min_page_no[0] : -1;
+    return count($min_page_no[0]) ? intval($min_page_no[0]) : -1;
 }
 
 /**
