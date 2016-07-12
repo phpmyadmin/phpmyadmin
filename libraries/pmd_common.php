@@ -261,7 +261,7 @@ function PMA_getTablePositions($pg)
             1 AS `H`
         FROM " . PMA\libraries\Util::backquote($cfgRelation['db'])
             . "." . PMA\libraries\Util::backquote($cfgRelation['table_coords']) . "
-        WHERE pdf_page_number = " . $pg;
+        WHERE pdf_page_number = " . intval($pg);
 
     $tab_pos = $GLOBALS['dbi']->fetchResult(
         $query,
@@ -290,7 +290,7 @@ function PMA_getPageName($pg)
     $query = "SELECT `page_descr`"
         . " FROM " . PMA\libraries\Util::backquote($cfgRelation['db'])
         . "." . PMA\libraries\Util::backquote($cfgRelation['pdf_pages'])
-        . " WHERE " . PMA\libraries\Util::backquote('page_nr') . " = " . $pg;
+        . " WHERE " . PMA\libraries\Util::backquote('page_nr') . " = " . intval($pg);
     $page_name = $GLOBALS['dbi']->fetchResult(
         $query,
         null,
@@ -317,7 +317,7 @@ function PMA_deletePage($pg)
 
     $query = "DELETE FROM " . PMA\libraries\Util::backquote($cfgRelation['db'])
         . "." . PMA\libraries\Util::backquote($cfgRelation['table_coords'])
-        . " WHERE " . PMA\libraries\Util::backquote('pdf_page_number') . " = " . $pg;
+        . " WHERE " . PMA\libraries\Util::backquote('pdf_page_number') . " = " . intval($pg);
     $success = PMA_queryAsControlUser(
         $query, true, PMA\libraries\DatabaseInterface::QUERY_STORE
     );
@@ -325,7 +325,7 @@ function PMA_deletePage($pg)
     if ($success) {
         $query = "DELETE FROM " . PMA\libraries\Util::backquote($cfgRelation['db'])
             . "." . PMA\libraries\Util::backquote($cfgRelation['pdf_pages'])
-            . " WHERE " . PMA\libraries\Util::backquote('page_nr') . " = " . $pg;
+            . " WHERE " . PMA\libraries\Util::backquote('page_nr') . " = " . intval($pg);
         $success = PMA_queryAsControlUser(
             $query, true, PMA\libraries\DatabaseInterface::QUERY_STORE
         );
@@ -364,7 +364,7 @@ function PMA_getDefaultPage($db)
     );
 
     if (count($default_page_no)) {
-        return $default_page_no[0];
+        return intval($default_page_no[0]);
     }
     return -1;
 }
@@ -406,7 +406,7 @@ function PMA_getLoadingPage($db)
             $page_no = $min_page_no[0];
         }
     }
-    return $page_no;
+    return intval($page_no);
 }
 
 /**

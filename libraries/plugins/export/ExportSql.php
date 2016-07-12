@@ -1112,7 +1112,7 @@ class ExportSql extends ExportPlugin
                                 $dbNameColumn
                             )
                             . " = '" . Util::sqlAddSlashes($db) . "'"
-                            . " AND `page_nr` = '" . $page . "'";
+                            . " AND `page_nr` = '" . intval($page) . "'";
 
                         if (!$this->exportData(
                             $cfgRelation['db'],
