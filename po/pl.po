@@ -3,18 +3,18 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2016-05-23 14:29+0200\n"
-"PO-Revision-Date: 2016-04-18 19:35+0000\n"
-"Last-Translator: bladerunn3r <tkrzywonos@gmail.com>\n"
-"Language-Team: Polish <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"pl/>\n"
+"POT-Creation-Date: 2016-05-23 14:30+0200\n"
+"PO-Revision-Date: 2016-06-30 09:38+0000\n"
+"Last-Translator: Bartosz Pazoła <mmmalfc@gmail.com>\n"
+"Language-Team: Polish "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/pl/>\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 2.6-dev\n"
+"X-Generator: Weblate 2.7-dev\n"
 
 #: changelog.php:37 license.php:33
 #, php-format
@@ -569,11 +569,11 @@ msgid "Bookmark %s has been created."
 msgstr "Zakładka %s została utworzona."
 
 #: import.php:576
-#, fuzzy, php-format
+#, php-format
 #| msgid "Import has been successfully finished, %d queries executed."
 msgid "Import has been successfully finished, %d query executed."
 msgid_plural "Import has been successfully finished, %d queries executed."
-msgstr[0] "Import zakończony sukcesem, wykonano %d zapytań."
+msgstr[0] "Import zakończony sukcesem, wykonano %d zapytanie."
 msgstr[1] "Import zakończony sukcesem, wykonano %d zapytań."
 msgstr[2] "Import zakończony sukcesem, wykonano %d zapytań."
 
@@ -746,10 +746,14 @@ msgstr ""
 "skutkować niespodziewanymi rezultatami."
 
 #: index.php:481
+#, fuzzy
 msgid ""
 "The curl extension was not found and allow_url_fopen is disabled. Due to "
 "this some features such as error reporting or version check are disabled."
 msgstr ""
+"Rozszerzenie curl nie zostało znalezione, co spowodowało wyłączenie funkcji "
+"allow_url_fopen. Powoduje to zablokowanie niektórych funkcjonalności, takich "
+"jak raportowanie błędów czy sprawdzanie wersji."
 
 #: index.php:496
 msgid ""
@@ -924,10 +928,9 @@ msgid "Do you really want to TRUNCATE the selected partition(s)?"
 msgstr "Czy na pewno chcesz obciąć (TRUNCATE) wybraną(e) partycję(e)?"
 
 #: js/messages.php:88
-#, fuzzy
 #| msgid "Do you really want to delete the search \"%s\"?"
 msgid "Do you really want to remove partitioning?"
-msgstr "Czy na pewno chcesz usunąć wyszukiwanie \"%s\"?"
+msgstr "Czy na pewno chcesz usunąć podział?"
 
 #: js/messages.php:89
 msgid "Do you really want to RESET SLAVE?"
@@ -957,7 +960,6 @@ msgstr ""
 "Czy jesteś pewien, że chcesz zmienić sortowanie i przekonwertować dane?"
 
 #: js/messages.php:101
-#, fuzzy
 #| msgid ""
 #| "Through this operation, MySQL attempts to map the data values between "
 #| "collations. If the character sets are incompatible, there may be data "
@@ -976,7 +978,7 @@ msgstr ""
 "W trakcie tej operacji MySQL zmapuje wartości pomiędzy sortowaniami. Jeśli "
 "zestawy znaków są niekompatybilne, może nastąpić utrata danych i dane, które "
 "zostały utracone, mogą <b>NIE BYĆ ODZYSKIWALNE</b> przy pomocy zmiany "
-"sortowania kolumn(y). <b> By przekonwertować dane, sugerujemy użycia funkcji "
+"sortowania kolumn(y). <b>By przekonwertować dane, sugerujemy użycia funkcji "
 "edycji kolumn (link \"Zmień\") na stronie struktury tabeli.</b>"
 
 #: js/messages.php:110
@@ -1038,10 +1040,9 @@ msgid "Create composite index"
 msgstr "Utwórz złożony indeks"
 
 #: js/messages.php:128
-#, fuzzy
 #| msgid "Columns enclosed with:"
 msgid "Composite with:"
-msgstr "Kolumny dołączyć:"
+msgstr "Złożony z:"
 
 #: js/messages.php:129
 msgid "Please select column(s) for the index."
@@ -1669,10 +1670,9 @@ msgid "Formatting SQL…"
 msgstr "Formatowanie SQL…"
 
 #: js/messages.php:349
-#, fuzzy
 #| msgid "Bad parameters!"
 msgid "No parameters found!"
-msgstr "Złe parametry!"
+msgstr "Nie znaleziono parametrów!"
 
 #: js/messages.php:353
 #: templates/database/designer/aggregate_query_panel.phtml:63
@@ -1982,6 +1982,8 @@ msgid ""
 "Note: a, b -> d,f implies values of columns a and b combined together can "
 "determine values of column d and column f."
 msgstr ""
+"Uwaga: a, b -> d,f oznacza, że złączone wartości kolumn a i b mogą "
+"definiować wartości kolumn d i f."
 
 #: js/messages.php:450
 msgid "No partial dependencies selected!"
@@ -2295,7 +2297,7 @@ msgstr "Przeciągnij, aby uporządkować."
 
 #: js/messages.php:568
 msgid "Click to sort results by this column."
-msgstr "Kliknij, aby posegregować wyniki na podstawie tej kolumny"
+msgstr "Kliknij, aby posegregować wyniki na podstawie tej kolumny."
 
 #: js/messages.php:570
 msgid ""
@@ -5622,7 +5624,7 @@ msgid ""
 "Defines the minimum size for input fields generated for CHAR and VARCHAR "
 "columns."
 msgstr ""
-"Definiuje minimalny rozmiar dla pól generujących kolumny CHAR i VARCHAR"
+"Definiuje minimalny rozmiar dla pól generujących kolumny CHAR i VARCHAR."
 
 #: libraries/config/messages.inc.php:72
 msgid "Minimum size for input field"

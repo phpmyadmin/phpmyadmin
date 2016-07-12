@@ -3,33 +3,35 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2016-05-23 14:29+0200\n"
-"PO-Revision-Date: 2015-10-15 11:31+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Thai <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"th/>\n"
+"POT-Creation-Date: 2016-05-23 14:30+0200\n"
+"PO-Revision-Date: 2016-07-07 16:12+0000\n"
+"Last-Translator: Phongphan A Bunlom <phongphan117@hotmail.co.th>\n"
+"Language-Team: Thai "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/th/>\n"
 "Language: th\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 2.5-dev\n"
+"X-Generator: Weblate 2.7-dev\n"
 
 #: changelog.php:37 license.php:33
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "The %s file is not available on this system, please visit www.phpmyadmin.net "
 "for more information."
 msgstr ""
-"แฟ้ม %s ไม่สามารถใช้งานได้ในระบบนี้ สามารถศึกษาข้อมูลเพิ่มเติมได้ที่ www.phpmyadmin.net"
+"แฟ้ม %s ไม่สามารถใช้งานได้ในระบบนี้ สำหรับข้อมูลเพิ่มเติมโปรดเข้าไปที่ "
+"www.phpmyadmin.net"
 
 #: db_central_columns.php:107
 msgid "The central list of columns for the current database is empty."
 msgstr "ไม่พบรายการสดมภ์ของฐานข้อมูลปัจจุบัน"
 
 #: db_central_columns.php:132
+#, fuzzy
 msgid "Click to sort."
-msgstr "กดเพื่อเรียงลำดับ"
+msgstr "คลิกเพื่อเรียงลำดับ"
 
 #: db_central_columns.php:151
 #, php-format
@@ -72,7 +74,7 @@ msgstr "หมายเหตุของตาราง:"
 #: vendor/phpmyadmin/motranslator/benchmark.php:12
 #: vendor/phpmyadmin/motranslator/tests/MoFilesTest.php:19
 msgid "Column"
-msgstr "สดมภ์"
+msgstr "คอลัมน์"
 
 #: db_datadict.php:115 libraries/Index.php:697
 #: libraries/central_columns.lib.php:696 libraries/central_columns.lib.php:1386
@@ -122,7 +124,7 @@ msgstr "ชนิด"
 #: templates/table/search/zoom_result_form.phtml:34
 #: templates/table/structure/table_structure_header.phtml:11
 msgid "Null"
-msgstr "ว่างเปล่า (null)"
+msgstr "ค่าว่าง"
 
 #: db_datadict.php:117 libraries/central_columns.lib.php:700
 #: libraries/central_columns.lib.php:1386
@@ -140,8 +142,9 @@ msgstr "ว่างเปล่า (null)"
 #: templates/columns_definitions/table_fields_definitions.phtml:25
 #: templates/database/structure/body_for_table_summary.phtml:55
 #: templates/table/structure/table_structure_header.phtml:12
+#, fuzzy
 msgid "Default"
-msgstr "ค่าปริยาย"
+msgstr "ค่าเริ่มต้น"
 
 #: db_datadict.php:119 libraries/plugins/export/ExportHtmlword.php:399
 #: libraries/plugins/export/ExportLatex.php:528
@@ -175,7 +178,7 @@ msgstr "หมายเหตุ"
 #: templates/table/structure/check_all_table_column.phtml:28
 #: templates/table/structure/display_structure.phtml:62
 msgid "Primary"
-msgstr "ไพรมารี"
+msgstr "คีย์หลัก"
 
 #: db_datadict.php:166 js/messages.php:377 libraries/Index.php:568
 #: libraries/Index.php:607 libraries/IndexColumn.php:141
@@ -198,8 +201,9 @@ msgstr "ไพรมารี"
 #: templates/privileges/privileges_summary_row.phtml:7
 #: templates/privileges/privileges_summary_row.phtml:9
 #: templates/table/structure/table_structure_row.phtml:24
+#, fuzzy
 msgid "No"
-msgstr "ไม่"
+msgstr "ไม่ใช่"
 
 #: db_datadict.php:166 js/messages.php:522 libraries/Index.php:569
 #: libraries/Index.php:606 libraries/IndexColumn.php:143
@@ -296,17 +300,17 @@ msgstr "เลือกทั้งหมด"
 
 #: db_operations.php:51 tbl_create.php:22
 msgid "The database name is empty!"
-msgstr "ไม่มีชื่อฐานข้อมูล!"
+msgstr "ชื่อฐานข้อมูลว่างเปล่า!"
 
 #: db_operations.php:139
-#, php-format
+#, fuzzy, php-format
 msgid "Database %1$s has been renamed to %2$s."
-msgstr "ฐานข้อมูล %1$s ได้ถูกเปลี่ยนชื่อเป็น %2$s."
+msgstr "ฐานข้อมูล %1$s ได้ถูกเปลี่ยนชื่อเป็น %2$s แล้ว"
 
 #: db_operations.php:151
 #, php-format
 msgid "Database %1$s has been copied to %2$s."
-msgstr "ทำสำเนาฐานข้อมูล %1$s ในชื่อ %2$s เรียบร้อยแล้ว"
+msgstr "ฐานข้อมูล %1$s ได้ทำสำเนาในชื่อ %2$s แล้ว"
 
 #: db_operations.php:281
 #, php-format

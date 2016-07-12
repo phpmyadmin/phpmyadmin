@@ -3,9 +3,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2016-05-23 14:29+0200\n"
-"PO-Revision-Date: 2016-06-10 21:00+0000\n"
-"Last-Translator: Bruno Henrique <bruno.henrique@ceepcascavel.com.br>\n"
+"POT-Creation-Date: 2016-05-23 14:30+0200\n"
+"PO-Revision-Date: 2016-07-09 15:21+0000\n"
+"Last-Translator: Saulo Castro <saulocastrolp@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -5948,13 +5948,12 @@ msgid "Use hexadecimal for BINARY & BLOB"
 msgstr "Usar hexadecimal para BINARY e BLOB"
 
 #: libraries/config/messages.inc.php:211
-#, fuzzy
 msgid ""
 "Add IF NOT EXISTS (less efficient as indexes will be generated during table "
 "creation)"
 msgstr ""
-"Adicionar IF NOT EXISTS (menos eficiente como índices serão gerados durante "
-"a criação da tabela)"
+"Adicionar IF NOT EXISTS (menos eficiente como os índices serão gerados "
+"durante a criação da tabela)"
 
 #: libraries/config/messages.inc.php:214
 msgid "Use ignore inserts"

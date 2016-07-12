@@ -3,17 +3,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2016-05-23 14:29+0200\n"
-"PO-Revision-Date: 2016-03-10 11:25+0000\n"
-"Last-Translator: Pedro Ribeiro <p.m42.ribeiro@gmail.com>\n"
-"Language-Team: Portuguese <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/pt/>\n"
+"POT-Creation-Date: 2016-05-23 14:30+0200\n"
+"PO-Revision-Date: 2016-07-11 18:05+0000\n"
+"Last-Translator: José Camilo Fernandes Coelho <camilocoelho93@gmail.com>\n"
+"Language-Team: Portuguese "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/pt/>\n"
 "Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.5-dev\n"
+"X-Generator: Weblate 2.8-dev\n"
 
 #: changelog.php:37 license.php:33
 #, php-format
@@ -965,7 +965,7 @@ msgstr ""
 
 #: js/messages.php:97
 msgid "Garbled Data"
-msgstr ""
+msgstr "Informação Distorcida"
 
 #: js/messages.php:99
 msgid "Are you sure you wish to change the collation and convert the data?"
@@ -1118,7 +1118,7 @@ msgstr "A página foi criada."
 
 #: js/messages.php:156
 msgid "Template was loaded."
-msgstr ""
+msgstr "O modelo foi carregado."
 
 #: js/messages.php:157
 #, fuzzy
@@ -2337,6 +2337,9 @@ msgid ""
 ">- Ctrl+Click or Alt+Click (Mac: Shift+Option+Click) to remove column from "
 "ORDER BY clause"
 msgstr ""
+"Shift+Click para adicionar esta coluna à cláusula ORDER BY ou para alternar "
+"entre ASC/DESC.<br />-Ctrl+Click ou Alt+Click (Mac: Shift+Option+Click) para "
+"remover a coluna da cláusula ORDER BY"
 
 #: js/messages.php:574
 msgid "Click to mark/unmark."
@@ -2579,12 +2582,12 @@ msgstr "Deseja realmente eliminar este marcador?"
 
 #: js/messages.php:705
 msgid "Some error occurred while getting SQL debug info."
-msgstr ""
+msgstr "Algum erro ocorreu ao carregar a informação de debug do SQL."
 
 #: js/messages.php:707
 #, php-format
 msgid "%s queries executed %s times in %s seconds."
-msgstr ""
+msgstr "%s querys executadas %s vezes em %s segundos."
 
 #: js/messages.php:708
 #, php-format

@@ -3,11 +3,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2016-05-23 14:29+0200\n"
-"PO-Revision-Date: 2016-05-20 18:50+0000\n"
+"POT-Creation-Date: 2016-05-23 14:30+0200\n"
+"PO-Revision-Date: 2016-07-03 16:17+0000\n"
 "Last-Translator: Franco <fulanodetal.github1@openaliasbox.org>\n"
-"Language-Team: Spanish <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/es/>\n"
+"Language-Team: Spanish "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/es/>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2558,6 +2558,13 @@ msgid ""
 "cause such a problem, clearing your \"Offline Website Data\" might help. In "
 "Safari, such problem is commonly caused by \"Private Mode Browsing\"."
 msgstr ""
+"Hubo un problema accediendo al almacenamiento del navegador, algunas "
+"características no funcionan adecuadamente para usted. Es probable que el "
+"navegador no soporte el almacenamiento de información o se alcanzó el límite "
+"de cuota. En Firefox, el almacenamiento corrupto también puede causar "
+"problemas, limpiar sus \"Datos offline de sitios web\"  puede ayudar. En "
+"Safari, este problema es causado comúnmente por la \"Navegación en modo "
+"privado\"."
 
 #: js/messages.php:714
 msgid "Copy tables to"
@@ -5539,14 +5546,11 @@ msgid "Highlight pointer"
 msgstr "Resaltar puntero"
 
 #: libraries/config/messages.inc.php:47
-#, fuzzy
 #| msgid ""
 #| "Enable [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] compression for "
 #| "import operations."
 msgid "Enable bzip2 compression for import operations."
-msgstr ""
-"Habilitar la compresión [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] para "
-"las operaciones de importación."
+msgstr "Habilitar compresión bzip2, para las operaciones de importación."
 
 #: libraries/config/messages.inc.php:50
 msgid "Bzip2"
@@ -5567,7 +5571,6 @@ msgid "CHAR columns editing"
 msgstr "Edición de columnas CHAR"
 
 #: libraries/config/messages.inc.php:58
-#, fuzzy
 #| msgid ""
 #| "Use user-friendly editor for editing SQL queries ([a@http://codemirror."
 #| "net/]CodeMirror[/a]) with syntax highlighting and line numbers."
@@ -5575,8 +5578,8 @@ msgid ""
 "Use user-friendly editor for editing SQL queries (CodeMirror) with syntax "
 "highlighting and line numbers."
 msgstr ""
-"Utilizar el editor SQL ([a@http://codemirror.net/]CodeMirror[/a]) con "
-"resaltado de sintáxis y números de línea."
+"Utilizar el editor SQL (CodeMirror) con resaltado de sintaxis y números de "
+"línea."
 
 #: libraries/config/messages.inc.php:62
 msgid "Enable CodeMirror"
@@ -6346,14 +6349,12 @@ msgid "Disable some of the warnings shown by phpMyAdmin."
 msgstr "Desactivar algunas de las advertencias mostradas por phpMyAdmin."
 
 #: libraries/config/messages.inc.php:353
-#, fuzzy
 #| msgid ""
 #| "Enable [a@http://en.wikipedia.org/wiki/Gzip]gzip[/a] compression for "
 #| "import and export operations."
 msgid "Enable gzip compression for import and export operations."
 msgstr ""
-"Habilite la compresión [a@http://en.wikipedia.org/wiki/Gzip]gzip[/a] para "
-"las operaciones de importación y exportación."
+"Habilitar compresión gzip para las operaciones de importación y exportación."
 
 #: libraries/config/messages.inc.php:356
 msgid "GZip"
@@ -7067,7 +7068,6 @@ msgid "Authentication type"
 msgstr "Tipo de autenticación"
 
 #: libraries/config/messages.inc.php:640
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no [a@https://wiki.phpmyadmin.net/pma/bookmark]bookmark[/"
 #| "a] support, suggested: [kbd]pma__bookmark[/kbd]"
@@ -7075,8 +7075,8 @@ msgid ""
 "Leave blank for no [doc@bookmarks@]bookmark[/doc] support, suggested: "
 "[kbd]pma__bookmark[/kbd]"
 msgstr ""
-"Deje en blanco para no dar soporte [a@https://wiki.phpmyadmin.net/pma/"
-"bookmark]bookmark[/a], de manera predeterminada: [kbd]pma_bookmark[/kbd]"
+"Deje en blanco para no dar soporte [doc@bookmarks@]bookmark[/doc], de manera "
+"predeterminada: [kbd]pma_bookmark[/kbd]"
 
 #: libraries/config/messages.inc.php:643
 msgid "Bookmark table"
@@ -7117,7 +7117,6 @@ msgid "Control user password"
 msgstr "Controlar la contraseña del usuario"
 
 #: libraries/config/messages.inc.php:656
-#, fuzzy
 #| msgid ""
 #| "A special MySQL user configured with limited permissions, more "
 #| "information available on [a@https://wiki.phpmyadmin.net/pma/"
@@ -7127,7 +7126,7 @@ msgid ""
 "available on [doc@linked-tables]documentation[/doc]."
 msgstr ""
 "Un usuario MySQL especial configurado con permisos limitados, más "
-"información disponible en [a@http://wiki.cihar.com/pma/controluser]wiki[/a]."
+"información disponible en la [doc@linked-tables]documentación[/doc]."
 
 #: libraries/config/messages.inc.php:659
 msgid "Control user"
@@ -7295,7 +7294,6 @@ msgid "PDF schema: pages table"
 msgstr "Esquema de PDF: tabla de páginas"
 
 #: libraries/config/messages.inc.php:723
-#, fuzzy
 #| msgid ""
 #| "Database used for relations, bookmarks, and PDF features. See [a@http://"
 #| "wiki.phpmyadmin.net/pma/pmadb]pmadb[/a] for complete information. Leave "
@@ -7306,9 +7304,8 @@ msgid ""
 "Suggested: [kbd]phpmyadmin[/kbd]."
 msgstr ""
 "Base de datos usada para relaciones, favoritos, y características de los "
-"PDF. Ver [a@http://wiki.cihar.com/pma/pmadb]pmadb[/a] para información "
-"completa. Deje en blanco para que no exita soporte. Predeterminado: "
-"[kbd]phpmyadmin[/kbd]."
+"PDF. Ver [doc@linked-tables]pmadb[/doc] para información completa. Deje en "
+"blanco para que no exista soporte. Predeterminado: [kbd]phpmyadmin[/kbd]."
 
 #: libraries/config/messages.inc.php:727
 #: templates/server/databases/create.phtml:20
@@ -7350,7 +7347,6 @@ msgid "Favorites table"
 msgstr "Tablas favoritas"
 
 #: libraries/config/messages.inc.php:742
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no [a@https://wiki.phpmyadmin.net/pma/relation]relation-"
 #| "links[/a] support, suggested: [kbd]pma__relation[/kbd]."
@@ -7358,24 +7354,22 @@ msgid ""
 "Leave blank for no [doc@relations@]relation-links[/doc] support, suggested: "
 "[kbd]pma__relation[/kbd]."
 msgstr ""
-"Deje en blanco para no dar soporte [a@https://wiki.phpmyadmin.net/pma/"
-"relation]relation-links[/a], de manera predeterminada: [kbd]pma__relation[/"
-"kbd]."
+"Deje en blanco para no dar soporte a [doc@relations@]relation-links[/doc], "
+"sugerida: [kbd]pma__relation[/kbd]."
 
 #: libraries/config/messages.inc.php:746
 msgid "Relation table"
 msgstr "Tabla de relaciones"
 
 #: libraries/config/messages.inc.php:748
-#, fuzzy
 #| msgid ""
 #| "See [a@https://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
 #| "types[/a] for an example."
 msgid ""
 "See [doc@authentication-modes]authentication types[/doc] for an example."
 msgstr ""
-"Ver [a@http://wiki.cihar.com/pma/auth_types#signon]tipos de autenticación[/"
-"a] para conocer un ejemplo."
+"Ver [doc@authentication-modes]tipos de autenticación[/doc] para conocer un "
+"ejemplo."
 
 #: libraries/config/messages.inc.php:751
 msgid "Signon session name"
@@ -7901,14 +7895,12 @@ msgid "Proxy password"
 msgstr "Contraseña del proxy"
 
 #: libraries/config/messages.inc.php:974
-#, fuzzy
 #| msgid ""
 #| "Enable [a@http://en.wikipedia.org/wiki/Gzip]gzip[/a] compression for "
 #| "import and export operations."
 msgid "Enable ZIP compression for import and export operations."
 msgstr ""
-"Habilite la compresión [a@http://en.wikipedia.org/wiki/Gzip]gzip[/a] para "
-"las operaciones de importación y exportación."
+"Habilitar compresión ZIP para las operaciones de importación y exportación."
 
 #: libraries/config/messages.inc.php:977
 msgid "ZIP"
@@ -9501,7 +9493,7 @@ msgid ""
 "(or combination of columns) that uniquely identify all rows."
 msgstr ""
 "No existe una clave primaria; agregue una.<br />Sugerencia: una clave "
-"primaria es una columan (o combinación de columnas) que identifiquen "
+"primaria es una columna (o combinación de columnas) que identifiquen "
 "unívocamente a todas las filas."
 
 #: libraries/normalization.lib.php:200
@@ -12340,7 +12332,6 @@ msgid "Authentication Plugin"
 msgstr "Complemento de autenticación"
 
 #: libraries/server_privileges.lib.php:1836
-#, fuzzy
 #| msgid "Password Hashing:"
 msgid "Password Hashing Method"
 msgstr "Método hash de contraseña"
@@ -14561,7 +14552,6 @@ msgid "Partition"
 msgstr "Partición"
 
 #: templates/columns_definitions/partitions.phtml:73
-#, fuzzy
 #| msgid "Value"
 msgid "Values"
 msgstr "Valores"
@@ -14583,7 +14573,6 @@ msgid "Index directory"
 msgstr "Directorio índice"
 
 #: templates/columns_definitions/partitions.phtml:82
-#, fuzzy
 #| msgid "Matched rows:"
 msgid "Max rows"
 msgstr "Filas máximas"
@@ -14593,10 +14582,9 @@ msgid "Min rows"
 msgstr "Filas mínimas"
 
 #: templates/columns_definitions/partitions.phtml:84
-#, fuzzy
 #| msgid "Table search"
 msgid "Table space"
-msgstr "Búsqueda de tablas"
+msgstr "Espacio de tabla"
 
 #: templates/columns_definitions/partitions.phtml:85
 msgid "Node group"
@@ -15144,6 +15132,8 @@ msgid ""
 "Can you tell us the steps leading to this error? It decisively helps in "
 "debugging:"
 msgstr ""
+"¿Nos puede decir los pasos a este error? Es decisiva la ayuda en la "
+"depuración de:"
 
 #: templates/error/report_form.phtml:21
 msgid "You may examine the data in the error report:"
@@ -15729,10 +15719,9 @@ msgid "An opening bracket was expected."
 msgstr "Se esperaba un corchete de apertura."
 
 #: vendor/phpmyadmin/sql-parser/src/Components/CreateDefinition.php:225
-#, fuzzy
 #| msgid "Variable name was expected."
 msgid "A symbol name was expected!"
-msgstr "Se esperaba el nombre de la variable."
+msgstr "¡Se esperaba un nombre de símbolo!"
 
 #: vendor/phpmyadmin/sql-parser/src/Components/CreateDefinition.php:257
 msgid "A comma or a closing bracket was expected."
