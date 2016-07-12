@@ -223,7 +223,12 @@ class ServerConfigChecks
         $blowfishSecret, $cookieAuthServer, $blowfishSecretSet
     ) {
         if ($cookieAuthServer && $blowfishSecret === null) {
-            $blowfishSecret = uniqid('', true);
+            if (! function_exists('openssl_random_pseudo_bytes')) {
+                $blowfishSecret = bin2hex(phpseclib\Crypt\Random::string(16));
+            } else {
+                $blowfishSecret = bin2hex(openssl_random_pseudo_bytes(16));
+            }
+
             $blowfishSecretSet = true;
             $this->cfg->set('blowfish_secret', $blowfishSecret);
             return array($blowfishSecret, $blowfishSecretSet);
