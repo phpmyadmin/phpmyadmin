@@ -137,7 +137,8 @@ function PMA_getHtmlForSelect($column, $columnCandidates, $visualizationSettings
     }
 
     $html .= PMA_getHtmlForOptionsList(
-        $columnCandidates, array($visualizationSettings[$column])
+        array_map("htmlspecialchars", $columnCandidates),
+        array(htmlspecialchars($visualizationSettings[$column]))
     );
 
     $html .= '</select>';
