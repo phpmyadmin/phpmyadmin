@@ -42,7 +42,9 @@ abstract class FormattedTransformationsPlugin extends TransformationsPlugin
      */
     public function applyTransformation($buffer, $options = array(), $meta = '')
     {
-        return $buffer;
+        return '<iframe srcdoc="'
+            . strtr($buffer, '"', '\'')
+            . '" sandbox=""></iframe>';
     }
 
 
