@@ -326,7 +326,7 @@ class AuthenticationCookie extends AuthenticationPlugin
                         return false;
                     }
                 }
-                $GLOBALS['pma_auth_server'] = $_REQUEST['pma_servername'];
+                $GLOBALS['pma_auth_server'] = PMA_sanitizeMySQLHost($_REQUEST['pma_servername']);
             }
             PMA_secureSession();
             return true;
