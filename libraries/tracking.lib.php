@@ -375,9 +375,7 @@ function PMA_getHtmlForTableVersionDetails(
 function PMA_getTableLastVersionNumber($sql_result)
 {
     $maxversion = $GLOBALS['dbi']->fetchArray($sql_result);
-    $last_version = $maxversion['version'];
-
-    return $last_version;
+    return intval($maxversion['version']);
 }
 
 /**
