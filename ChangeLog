@@ -21,6 +21,7 @@ phpMyAdmin - ChangeLog
 - issue #12325 Setup script icons broken
 
 4.6.4 (not yet released)
+- issue        Include X-Robots-Tag header in responses
 
 4.6.3 (2016-06-23)
 - issue #12249 Fixed cookie path on Windows
