@@ -285,7 +285,7 @@ function PMA_replication_gui_master_addslaveuser()
         ? ''
         : ' value="' . (isset($GLOBALS['new_username'])
         ? $GLOBALS['new_username']
-        : $GLOBALS['username']) . '"')
+        : htmlspecialchars($GLOBALS['username'])) . '"')
         . ' onchange="pred_username.value = \'userdefined\';" />'
         . '</div>'
         . '<div class="item">'
@@ -349,7 +349,7 @@ function PMA_replication_gui_master_addslaveuser()
         . '</span>'
         . '<input type="text" name="hostname" maxlength="'
         . $hostname_length . '" value="'
-        . (isset($GLOBALS['hostname']) ? $GLOBALS['hostname'] : '')
+        . (isset($GLOBALS['hostname']) ? htmlspecialchars($GLOBALS['hostname']) : '')
         . '" title="' . __('Host')
         . '" onchange="pred_hostname.value = \'userdefined\';" />'
         . PMA_Util::showHint(
