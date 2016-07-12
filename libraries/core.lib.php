@@ -1016,4 +1016,22 @@ if(! function_exists('hash_equals')) {
         return ! $ret;
     }
 }
+
+/**
+ * Sanitizes MySQL hostname
+ *
+ * * strips p: prefix
+ *
+ * @param string $name User given hostname
+ *
+ * @return string
+ */
+function PMA_sanitizeMySQLHost($name)
+{
+    if (strtolower(substr($name, 0, 2)) == 'p:') {
+        return substr($name, 2);
+    }
+
+    return $name;
+}
 ?>
