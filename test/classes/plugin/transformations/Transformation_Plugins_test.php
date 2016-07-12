@@ -778,7 +778,7 @@ class Transformation_Plugins_Test extends PHPUnit_Framework_TestCase
                     array("./image/", "200", "wrapper_link"=>"PMA_wrapper_link")
                 ),
                 '<a href="transformation_wrapper.phpPMA_wrapper_link" '
-                . 'target="_blank"><img src="transformation_wrapper.php'
+                . 'rel="noopener noreferrer" target="_blank"><img src="transformation_wrapper.php'
                 . 'PMA_wrapper_link&amp;resize=jpeg&amp;newWidth=./image/&amp;'
                 . 'newHeight=200" alt="PMA_JPEG_Inline" border="0" /></a>'
             ),
@@ -799,7 +799,7 @@ class Transformation_Plugins_Test extends PHPUnit_Framework_TestCase
                     array("./image/", "200", "wrapper_link"=>"PMA_wrapper_link")
                 ),
                 '<a href="transformation_wrapper.phpPMA_wrapper_link"'
-                . ' target="_blank"><img src="transformation_wrapper.php'
+                . ' rel="noopener noreferrer" target="_blank"><img src="transformation_wrapper.php'
                 . 'PMA_wrapper_link&amp;'
                 . 'resize=jpeg&amp;newWidth=./image/&amp;newHeight=200" '
                 . 'alt="PMA_PNG_Inline" border="0" /></a>'
@@ -872,11 +872,19 @@ class Transformation_Plugins_Test extends PHPUnit_Framework_TestCase
                 new Text_Plain_Imagelink(),
                 array(
                     'PMA_IMAGE',
+                    array("http://image/", "200")
+                ),
+                '<a href="http://image/PMA_IMAGE" rel="noopener noreferrer" target="_blank">'
+                . '<img src="http://image/PMA_IMAGE" border="0" width="200" '
+                . 'height="50" />PMA_IMAGE</a>'
+            ),
+            array(
+                new Text_Plain_Imagelink(),
+                array(
+                    'PMA_IMAGE',
                     array("./image/", "200")
                 ),
-                '<a href="./image/PMA_IMAGE" target="_blank">'
-                . '<img src="./image/PMA_IMAGE" border="0" width="200" '
-                . 'height="50" />PMA_IMAGE</a>'
+                './image/PMA_IMAGE'
             ),
             array(
                 new Text_Plain_Sql(),
@@ -894,8 +902,32 @@ class Transformation_Plugins_Test extends PHPUnit_Framework_TestCase
                     'PMA_TXT_LINK',
                     array("./php/", "text_name")
                 ),
-                '<a href="./php/PMA_TXT_LINK"'
-                . ' title="text_name" target="_new">text_name</a>'
+                './php/PMA_TXT_LINK'
+            ),
+            array(
+                new Text_Plain_Link(),
+                array(
+                    'PMA_TXT_LINK',
+                    array(),
+                ),
+                'PMA_TXT_LINK'
+            ),
+            array(
+                new Text_Plain_Link(),
+                array(
+                    'https://example.com/PMA_TXT_LINK',
+                    array(),
+                ),
+                '<a href="https://example.com/PMA_TXT_LINK" title=""'
+                . ' target="_new">https://example.com/PMA_TXT_LINK</a>'
+            ),
+            array(
+                new Text_Plain_Link(),
+                array(
+                    'PMA_TXT_LINK',
+                    array("./php/", "text_name")
+                ),
+                './php/PMA_TXT_LINK'
             ),
             array(
                 new Text_Plain_Longtoipv4(),

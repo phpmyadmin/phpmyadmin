@@ -47,6 +47,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['PMA_Config'] = new PMA_Config();
         $GLOBALS['PMA_Config']->enableBc();
         $GLOBALS['text_dir'] = 'ltr';
+        $GLOBALS['collation_connection'] = 'utf-8';
         include_once 'libraries/Response.class.php';
 
         $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
@@ -1512,7 +1513,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
                 $meta,
                 $url_params,
                 null,
-                '<a href="1001" title="" target="_new">1001</a>'
+                '1001'
             ),
             array(
                 false,
@@ -1641,7 +1642,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
                 0,
                 'binary',
                 '<td class="left grid_edit  transformed hex">'
-                . '<a href="1001" title="" target="_new">1001</a></td>'
+                . '1001</td>'
             ),
             array(
                 'noblob',
