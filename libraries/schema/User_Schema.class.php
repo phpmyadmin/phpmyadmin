@@ -198,14 +198,13 @@ class PMA_User_Schema
             <option value="0"><?php echo __('Select page'); ?></option>
             <?php
             while ($curr_page = PMA_DBI_fetch_assoc($page_rs)) {
+                $page_nr = intval($curr_page['page_nr']);
                 echo "\n" . '        '
-                    . '<option value="' . $curr_page['page_nr'] . '"';
-                if (isset($this->chosenPage)
-                    && $this->chosenPage == $curr_page['page_nr']
-                ) {
+                    . '<option value="' . $page_nr . '"';
+                if (isset($this->chosenPage) && $this->chosenPage == page_nr) {
                     echo ' selected="selected"';
                 }
-                echo '>' . $curr_page['page_nr'] . ': '
+                echo '>' . $page_nr . ': '
                     . htmlspecialchars($curr_page['page_descr']) . '</option>';
             } // end while
             echo "\n";
@@ -431,8 +430,9 @@ class PMA_User_Schema
             <select name="pdf_page_number" id="pdf_page_number_opt">
                 <?php
                 while ($pages = @PMA_DBI_fetch_assoc($test_rs)) {
-                    echo '                <option value="' . $pages['page_nr'] . '">'
-                        . $pages['page_nr'] . ': ' . htmlspecialchars($pages['page_descr']) . '</option>' . "\n";
+                    $page_nr = intval($pages['page_nr']);
+                    echo '                <option value="' . $page_nr . '">'
+                        . $page_nr . ': ' . htmlspecialchars($pages['page_descr']) . '</option>' . "\n";
                 } // end while
                 PMA_DBI_free_result($test_rs);
                 unset($test_rs);
