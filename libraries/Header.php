@@ -603,6 +603,11 @@ class Header
         header(
             'X-Permitted-Cross-Domain-Policies: none'
         );
+        // Robots meta tag
+        // see https://developers.google.com/webmasters/control-crawl-index/docs/robots_meta_tag
+        header(
+            'X-Robots-Tag: noindex, nofollow'
+        );
         PMA_noCacheHeader();
         if (! defined('IS_TRANSFORMATION_WRAPPER')) {
             // Define the charset to be used
