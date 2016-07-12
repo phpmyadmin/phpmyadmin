@@ -20,7 +20,7 @@ $hash    = '#pma_' . preg_replace('/([0-9]*)\.([0-9]*)\..*/', '\1_\2', PMA_VERSI
 $url     = PMA_linkURL('http://www.phpmyadmin.net/home_page/themes.php') . $hash;
 $output  = '<h1>phpMyAdmin - ' . __('Theme') . '</h1>';
 $output .= '<p>';
-$output .= '<a href="' . $url . '" class="_blank">';
+$output .= '<a href="' . $url . '" rel="noopener noreferrer" class="_blank">';
 $output .= __('Get more themes!');
 $output .= '</a>';
 $output .= '</p>';

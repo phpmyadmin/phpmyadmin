@@ -52,7 +52,7 @@ abstract class TextImageLinkTransformationsPlugin extends TransformationsPlugin
             return htmlspecialchars($url);
         }
         return '<a href="' . htmlspecialchars($url)
-            . '" target="_blank"><img src="' . htmlspecialchars($url)
+            . '" rel="noopener noreferrer" target="_blank"><img src="' . htmlspecialchars($url)
             . '" border="0" width="' . (isset($options[1]) ? $options[1] : 100)
             . '" height="' . (isset($options[2]) ? $options[2] : 50) . '" />'
             . htmlspecialchars($buffer) . '</a>';

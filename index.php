@@ -116,9 +116,9 @@ if ($server > 0 || count($cfg['Servers']) > 1
     /**
      * Displays the MySQL servers choice form
      */
-    if ($cfg['ServerDefault'] == 0 
+    if ($cfg['ServerDefault'] == 0
         || (! $cfg['NavigationDisplayServers']
-            && (count($cfg['Servers']) > 1 
+            && (count($cfg['Servers']) > 1
                 || ($server == 0 && count($cfg['Servers']) == 1)
             )
         )
@@ -155,7 +155,7 @@ if ($server > 0 || count($cfg['Servers']) > 1
         echo '        <form method="post" action="index.php">' . "\n"
            . PMA_generate_common_hidden_inputs(null, null, 4, 'collation_connection')
            . '            <label for="select_collation_connection">' . "\n"
-           . '                '. PMA_Util::getImage('s_asci.png') . " " 
+           . '                '. PMA_Util::getImage('s_asci.png') . " "
                                . __('Server connection collation') . "\n"
            // put the doc link in the form so that it appears on the same line
            . PMA_Util::showMySQLDocu(
@@ -598,6 +598,9 @@ function PMA_printListItem($name, $id = null, $url = null, $mysql_help_page = nu
         echo '<a href="' . $url . '"';
         if (null !== $target) {
             echo ' target="' . $target . '"';
+            if ($target == '_blank') {
+                echo ' rel="noopener noreferrer"';
+            }
         }
         if (null != $a_id) {
             echo ' id="' . $a_id .'"';
