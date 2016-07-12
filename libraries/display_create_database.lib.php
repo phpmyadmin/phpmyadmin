@@ -18,14 +18,14 @@ if ($is_create_db_priv) {
     // The user is allowed to create a db
     ?>
         <form method="post" action="db_create.php" id="create_database_form" class="ajax"><strong>
-            <?php echo '<label for="text_create_db">' 
+            <?php echo '<label for="text_create_db">'
                        . PMA_Util::getImage('b_newdb.png')
                        . " " . __('Create database')
                        . '</label>&nbsp;'
                        . PMA_Util::showMySQLDocu('SQL-Syntax', 'CREATE_DATABASE'); ?></strong><br />
             <?php echo PMA_generate_common_hidden_inputs('', '', 5); ?>
             <input type="hidden" name="reload" value="1" />
-            <input type="text" name="new_db" value="<?php echo $db_to_create; ?>" maxlength="64" class="textfield" id="text_create_db"/>
+            <input type="text" name="new_db" value="<?php echo htmlspecialchars($db_to_create); ?>" maxlength="64" class="textfield" id="text_create_db"/>
     <?php
     include_once './libraries/mysql_charsets.lib.php';
     echo PMA_generateCharsetDropdownBox(PMA_CSDROPDOWN_COLLATION, 'db_collation', null, null, true, 5);
