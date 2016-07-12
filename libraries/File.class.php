@@ -428,6 +428,11 @@ class PMA_File
         $this->setName(
             PMA_Util::userDir($GLOBALS['cfg']['UploadDir']) . PMA_securePath($name)
         );
+        if (is_link($this->getName())) {
+            $this->_error_message = __('File is a symbolic link');
+            $this->setName(null);
+            return false;
+        }
         if (! $this->isReadable()) {
             $this->_error_message = __('File could not be read');
             $this->setName(null);

@@ -123,7 +123,7 @@ if ($_POST == array() && $_GET == array()) {
  */
 
 if (! in_array(
-    $format, 
+    $format,
     array(
         'csv',
         'ldi',
@@ -337,6 +337,15 @@ if (! empty($local_import_file) && ! empty($cfg['UploadDir'])) {
 
     $import_file = PMA_Util::userDir($cfg['UploadDir'])
         . $local_import_file;
+
+    /*
+     * Do not allow symlinks to avoid security issues
+     * (user can create symlink to file he can not access,
+     * but phpMyAdmin can).
+     */
+    if (is_link($import_file)) {
+        $import_file  = 'none';
+    }
 
 } elseif (empty($import_file) || ! is_uploaded_file($import_file)) {
     $import_file  = 'none';
