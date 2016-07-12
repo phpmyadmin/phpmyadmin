@@ -860,7 +860,10 @@ function PMA_getHtmlForSchemaSnapshot($url_query)
     );
 
     // Unserialize snapshot
-    $temp = unserialize($data['schema_snapshot']);
+    $temp = PMA_safeUnserialize($data['schema_snapshot']);
+    if ($temp === null) {
+        $temp = array('COLUMNS' => array(), 'INDEXES' => array());
+    }
     $columns = $temp['COLUMNS'];
     $indexes = $temp['INDEXES'];
     $html .= PMA_getHtmlForColumns($columns);
