@@ -56,7 +56,7 @@ abstract class TextLinkTransformationsPlugin extends TransformationsPlugin
             . htmlspecialchars($url)
             . '" title="'
             . htmlspecialchars(isset($options[1]) ? $options[1] : '')
-            . '" target="_new">'
+            . '" target="_blank" rel="noopener noreferrer">'
             . htmlspecialchars(isset($options[1]) ? $options[1] : $buffer)
             . '</a>';
     }
