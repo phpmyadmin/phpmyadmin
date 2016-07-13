@@ -82,8 +82,8 @@ abstract class ImageUploadTransformationsPlugin extends IOTransformationsPlugin
             $src = 'transformation_wrapper.php' . $options['wrapper_link'];
         }
         $html .= '<img src="' . $src . '" width="'
-            . (isset($options[0]) ? $options[0] : '100') . '" height="'
-            . (isset($options[1]) ? $options[1] : '100') . '" alt="'
+            . (isset($options[0]) ? intval($options[0]) : '100') . '" height="'
+            . (isset($options[1]) ? intval($options[1]) : '100') . '" alt="'
             . __('Image preview here') . '"/>';
         $html .= '<br/><input type="file" name="fields_upload'
             . $column_name_appendix . '" accept="image/*" class="image-upload"/>';
