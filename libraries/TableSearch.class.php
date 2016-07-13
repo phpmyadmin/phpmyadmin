@@ -1180,7 +1180,7 @@ EOT;
             $html_output .= '<center><a href="#" onclick="displayHelp();">'
                 . __('How to use') . '</a></center>';
             $html_output .= '<div id="querydata" style="display:none">'
-                . json_encode($data) . '</div>';
+                . htmlspecialchars(json_encode($data)) . '</div>';
             $html_output .= '<div id="querychart"></div>';
             $html_output .= '<button class="button-reset">'
                 . __('Reset zoom') . '</button>';
