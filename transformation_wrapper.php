@@ -36,9 +36,20 @@ $request_params = array(
     'transform_key',
     'where_clause'
 );
+$size_params = array(
+    'newHeight',
+    'newWidth',
+);
 foreach ($request_params as $one_request_param) {
     if (isset($_REQUEST[$one_request_param])) {
-        $GLOBALS[$one_request_param] = $_REQUEST[$one_request_param];
+        if (in_array($one_request_param, $size_params)) {
+            $GLOBALS[$one_request_param] = intval($_REQUEST[$one_request_param]);
+            if ($GLOBALS[$one_request_param] > 2000) {
+                $GLOBALS[$one_request_param] = 2000;
+            }
+        } else {
+            $GLOBALS[$one_request_param] = $_REQUEST[$one_request_param];
+        }
     }
 }
 
