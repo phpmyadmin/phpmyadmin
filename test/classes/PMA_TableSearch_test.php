@@ -223,7 +223,7 @@ class PMA_TableSearch_Test extends PHPUnit_Framework_TestCase
             $html
         );
         $this->assertContains(
-            json_encode($data),
+            htmlspecialchars(json_encode($data)),
             $html
         );
 
