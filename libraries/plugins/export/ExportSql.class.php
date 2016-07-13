@@ -579,7 +579,14 @@ class ExportSql extends ExportPlugin
             && $GLOBALS['sql_include_comments']
         ) {
             // see http://dev.mysql.com/doc/refman/5.0/en/ansi-diff-comments.html
-            return '--' . (empty($text) ? '' : ' ') . $text . $GLOBALS['crlf'];
+            if (empty($text)) {
+                return '--' . $GLOBALS['crlf'];
+            } else {
+                $lines = preg_split("/\\r\\n|\\r|\\n/", $text);
+                foreach ($lines as $line) {
+                    return '-- ' . $line . $GLOBALS['crlf'];
+                }
+            }
         } else {
             return '';
         }
