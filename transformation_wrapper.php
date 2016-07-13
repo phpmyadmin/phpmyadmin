@@ -112,7 +112,11 @@ if (isset($ct) && ! empty($ct)) {
 PMA_downloadHeader($cn, $mime_type);
 
 if (! isset($resize)) {
-    echo $row[$transform_key];
+    if (stripos($mime_type, 'html') === false) {
+        echo $row[$transform_key];
+    } else {
+        echo htmlspecialchars($row[$transform_key]);
+    }
 } else {
     // if image_*__inline.inc.php finds that we can resize,
     // it sets $resize to jpeg or png
