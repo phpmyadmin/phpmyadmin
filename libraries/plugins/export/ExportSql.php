@@ -599,9 +599,11 @@ class ExportSql extends ExportPlugin
                 return '--' . $GLOBALS['crlf'];
             } else {
                 $lines = preg_split("/\\r\\n|\\r|\\n/", $text);
+                $result = array();
                 foreach ($lines as $line) {
-                    return '-- ' . $line . $GLOBALS['crlf'];
+                    $result[] = '-- ' . $line . $GLOBALS['crlf'];
                 }
+                return implode('', $result);
             }
         } else {
             return '';
