@@ -31,7 +31,9 @@ function PMA_getPlugin(
     $file = $class_name . ".class.php";
     if (is_file($plugins_dir . $file)) {
         include_once $plugins_dir . $file;
-        return new $class_name;
+        if (class_exists($class_name)) {
+            return new $class_name;
+        }
     }
 
     return null;
