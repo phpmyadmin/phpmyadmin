@@ -250,7 +250,7 @@ function PMA_getOptionsForExportTemplates($export_type)
        . PMA\libraries\Util::backquote($cfgRelation['export_templates'])
        . " WHERE `username` = "
        . "'" . PMA\libraries\Util::sqlAddSlashes($GLOBALS['cfg']['Server']['user'])
-        . "' AND `export_type` = '" . $export_type . "'"
+        . "' AND `export_type` = '" . PMA\libraries\Util::sqlAddSlashes($export_type) . "'"
        . " ORDER BY `template_name`;";
 
     $result = PMA_queryAsControlUser($query);
