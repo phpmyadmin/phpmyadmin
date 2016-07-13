@@ -102,7 +102,7 @@ $response->getHeader()->sendHttpHeaders();
 if (isset($ct) && ! empty($ct)) {
     $mime_type = $ct;
 } else {
-    $mime_type = (isset($mime_map[$transform_key]['mimetype'])
+    $mime_type = (!empty($mime_map[$transform_key]['mimetype'])
         ? str_replace('_', '/', $mime_map[$transform_key]['mimetype'])
         : $default_ct)
     . (isset($mime_options['charset']) ? $mime_options['charset'] : '');
@@ -111,7 +111,11 @@ if (isset($ct) && ! empty($ct)) {
 PMA_downloadHeader($cn, $mime_type);
 
 if (! isset($_REQUEST['resize'])) {
-    echo $row[$transform_key];
+    if (stripos($mime_type, 'html') === false) {
+        echo $row[$transform_key];
+    } else {
+        echo htmlspecialchars($row[$transform_key]);
+    }
 } else {
     // if image_*__inline.inc.php finds that we can resize,
     // it sets the resize parameter to jpeg or png
