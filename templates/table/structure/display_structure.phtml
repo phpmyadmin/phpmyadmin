@@ -186,7 +186,7 @@ $rownum = 0; $odd_row = true; ?>
         $tmp_partition_description = $firstPartition->getDescription();
 
         $removeSQL = "ALTER TABLE " . Util::backquote($table) . " REMOVE PARTITIONING";
-        $removeUrl = 'sql.php' . $url_query . '&sql_query=' . urldecode($removeSQL);
+        $removeUrl = 'sql.php' . $url_query . '&sql_query=' . urlencode($removeSQL);
 
         echo Template::get('table/structure/display_partitions')->render(
             array(
