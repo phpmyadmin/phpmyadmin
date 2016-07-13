@@ -779,7 +779,7 @@ class TransformationPluginsTest extends PMATestCase
                 ),
                 '<a href="transformation_wrapper.phpPMA_wrapper_link" '
                 . 'rel="noopener noreferrer" target="_blank"><img src="transformation_wrapper.php'
-                . 'PMA_wrapper_link&amp;resize=jpeg&amp;newWidth=./image/&amp;'
+                . 'PMA_wrapper_link&amp;resize=jpeg&amp;newWidth=0&amp;'
                 . 'newHeight=200" alt="[PMA_JPEG_Inline]" border="0" /></a>'
             ),
             array(
@@ -801,7 +801,7 @@ class TransformationPluginsTest extends PMATestCase
                 '<a href="transformation_wrapper.phpPMA_wrapper_link"'
                 . ' rel="noopener noreferrer" target="_blank"><img src="transformation_wrapper.php'
                 . 'PMA_wrapper_link&amp;'
-                . 'resize=jpeg&amp;newWidth=./image/&amp;newHeight=200" '
+                . 'resize=jpeg&amp;newWidth=0&amp;newHeight=200" '
                 . 'alt="[PMA_PNG_Inline]" border="0" /></a>'
             ),
             array(
