@@ -35,14 +35,11 @@ function PMA_getIp()
     $matches = array();
     // the $ checks that the header contains only one IP address,
     // ?: makes sure the () don't capture
-    $is_ip = preg_match(
-        '|^(?:[0-9]{1,3}\.){3,3}[0-9]{1,3}$|',
-        $trusted_header_value, $matches
-    );
+    $is_ip = (filter_var($trusted_header_value, FILTER_VALIDATE_IP, FILTER_FLAG_IPV6) || filter_var($trusted_header_value, FILTER_VALIDATE_IP, FILTER_FLAG_IPV4));
 
-    if ($is_ip && (count($matches) == 1)) {
+    if ($is_ip) {
         // True IP behind a proxy
-        return $matches[0];
+        return $trusted_header_value;
     }
 
     /* Return true IP */
