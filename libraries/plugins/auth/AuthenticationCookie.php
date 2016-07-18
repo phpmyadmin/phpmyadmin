@@ -678,7 +678,7 @@ class AuthenticationCookie extends AuthenticationPlugin
         return json_encode(
             array(
                 'iv' => base64_encode($iv),
-                'mac' => sha1($result . $secret),
+                'mac' => hash_hmac('sha1', $result, $secret),
                 'payload' => $result,
             )
         );
@@ -701,7 +701,7 @@ class AuthenticationCookie extends AuthenticationPlugin
             return false;
         }
 
-        $newmac = sha1($data['payload'] . $secret);
+        $newmac = hash_hmac('sha1', $data['payload'], $secret);
 
         if (! hash_equals($data['mac'], $newmac)) {
             return false;

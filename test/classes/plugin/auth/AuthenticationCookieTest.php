@@ -1078,7 +1078,7 @@ class AuthenticationCookieTest extends PMATestCase
         $this->object->setIV('testiv09testiv09');
         // works with the openssl extension active or inactive
         $this->assertEquals(
-            '{"iv":"dGVzdGl2MDl0ZXN0aXYwOQ==","mac":"a2749d5b5b8857adfb2dd0b28582a0c0388cb709","payload":"+coP\/up\/ZBTBwbiEpCUVXQ=="}',
+            '{"iv":"dGVzdGl2MDl0ZXN0aXYwOQ==","mac":"94091950456e4ff578ff4a27293b935b15c3dd4e","payload":"+coP\/up\/ZBTBwbiEpCUVXQ=="}',
             $this->object->cookieEncrypt('data123', 'sec321')
         );
     }
@@ -1094,7 +1094,7 @@ class AuthenticationCookieTest extends PMATestCase
         $this->assertEquals(
             'data123',
             $this->object->cookieDecrypt(
-                '{"iv":"dGVzdGl2MDl0ZXN0aXYwOQ==","mac":"a2749d5b5b8857adfb2dd0b28582a0c0388cb709","payload":"+coP\/up\/ZBTBwbiEpCUVXQ=="}',
+                '{"iv":"dGVzdGl2MDl0ZXN0aXYwOQ==","mac":"94091950456e4ff578ff4a27293b935b15c3dd4e","payload":"+coP\/up\/ZBTBwbiEpCUVXQ=="}',
                 'sec321'
             )
         );
