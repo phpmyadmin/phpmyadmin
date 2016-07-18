@@ -131,7 +131,8 @@ simple configuration may look like this:
 
 
     <?php
-    $cfg['blowfish_secret'] = 'ba17c1ec07d65003';  // use here a value of your choice
+    // use here a value of your choice at least 32 chars long
+    $cfg['blowfish_secret'] = '1{dd0`<Q),5XP_:R9UK%%8\"EEcyH#{o';
 
     $i=0;
     $i++;

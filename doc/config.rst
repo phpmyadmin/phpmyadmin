@@ -1309,7 +1309,10 @@ Cookie authentication options
     The "cookie" auth\_type uses AES algorithm to encrypt the password. If you
     are using the "cookie" auth\_type, enter here a random passphrase of your
     choice. It will be used internally by the AES algorithm: you won’t be
-    prompted for this passphrase. There is no maximum length for this secret.
+    prompted for this passphrase. 
+    
+    The secret should be 32 characters long. Using shorter will lead to weaker security
+    of encrypted cookies, using longer will cause no harm.
 
     .. note::
 

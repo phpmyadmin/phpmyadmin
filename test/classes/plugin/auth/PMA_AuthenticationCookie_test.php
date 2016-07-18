@@ -446,12 +446,12 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['LoginCookieDeleteAll'] = true;
         $GLOBALS['cfg']['Servers'] = array(1);
 
-        $_COOKIE['pmaPass-0'] = 'test';
+        $_COOKIE['pmaAuth-0'] = 'test';
 
         $this->object->authCheck();
 
         $this->assertFalse(
-            isset($_COOKIE['pmaPass-0'])
+            isset($_COOKIE['pmaAuth-0'])
         );
 
         // case 5
@@ -463,12 +463,12 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['Servers'] = array(1);
         $GLOBALS['server'] = 1;
 
-        $_COOKIE['pmaPass-1'] = 'test';
+        $_COOKIE['pmaAuth-1'] = 'test';
 
         $this->object->authCheck();
 
         $this->assertFalse(
-            isset($_COOKIE['pmaPass-1'])
+            isset($_COOKIE['pmaAuth-1'])
         );
 
         // case 6
@@ -501,24 +501,18 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
         );
 
         $this->assertFalse(
-            isset($_COOKIE['pmaPass-1'])
+            isset($_COOKIE['pmaAuth-1'])
         );
 
         // case 7
 
         $_REQUEST['pma_username'] = '';
         $GLOBALS['server'] = 1;
-        $_COOKIE['pmaServer-1'] = 'pmaServ1';
         $_COOKIE['pmaUser-1'] = '';
         $_COOKIE['pma_iv-1'] = base64_encode('testiv09testiv09');
 
         $this->assertFalse(
             $this->object->authCheck()
-        );
-
-        $this->assertEquals(
-            'pmaServ1',
-            $GLOBALS['pma_auth_server']
         );
 
         // case 8
@@ -527,7 +521,7 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
         $_COOKIE['pmaServer-1'] = 'pmaServ1';
         $_COOKIE['pmaUser-1'] = 'pmaUser1';
         $_COOKIE['pma_iv-1'] = base64_encode('testiv09testiv09');
-        $_COOKIE['pmaPass-1'] = '';
+        $_COOKIE['pmaAuth-1'] = '';
         $GLOBALS['cfg']['blowfish_secret'] = 'secret';
         $_SESSION['last_access_time'] = time() - 1000;
         $GLOBALS['cfg']['LoginCookieValidity'] = 1440;
@@ -637,7 +631,7 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
         $_REQUEST['pma_username'] = '';
         $_COOKIE['pmaServer-1'] = 'pmaServ1';
         $_COOKIE['pmaUser-1'] = 'pmaUser1';
-        $_COOKIE['pmaPass-1'] = 'pmaPass1';
+        $_COOKIE['pmaAuth-1'] = 'pmaAuth1';
         $_COOKIE['pma_iv-1'] = base64_encode('testiv09testiv09');
         $GLOBALS['cfg']['blowfish_secret'] = 'secret';
         $GLOBALS['cfg']['CaptchaLoginPrivateKey'] = '';
@@ -653,7 +647,7 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
 
         $this->object->expects($this->at(1))
             ->method('cookieDecrypt')
-            ->will($this->returnValue("\xff(blank)"));
+            ->will($this->returnValue('{"password":""}'));
 
         $this->assertTrue(
             $this->object->authCheck()
@@ -751,7 +745,7 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
         );
 
         $this->assertTrue(
-            isset($_COOKIE['pmaPass-1'])
+            isset($_COOKIE['pmaAuth-1'])
         );
 
         $arr['password'] = 'testPW';
@@ -861,7 +855,7 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
             ->method('auth');
 
         $GLOBALS['server'] = 2;
-        $_COOKIE['pmaPass-2'] = 'pass';
+        $_COOKIE['pmaAuth-2'] = 'pass';
 
         // case 1
 
@@ -932,7 +926,6 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
             $GLOBALS['conn_error'],
             '#42 Cannot log in to the MySQL server'
         );
-
         // case 5
         unset($GLOBALS['errno']);
 
@@ -970,7 +963,7 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
         );
 
         $this->assertEquals(
-            256,
+            32,
             strlen($result)
         );
 
@@ -981,7 +974,7 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
         $result = $method->invoke($this->object, null);
 
         $this->assertEquals(
-            md5('notEmpty'),
+            'notEmpty',
             $result
         );
     }
@@ -996,7 +989,7 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
         $this->object->setIV('testiv09testiv09');
         // works with the openssl extension active or inactive
         $this->assertEquals(
-            '{"iv":"dGVzdGl2MDl0ZXN0aXYwOQ==","mac":"a2749d5b5b8857adfb2dd0b28582a0c0388cb709","payload":"+coP\/up\/ZBTBwbiEpCUVXQ=="}',
+            '{"iv":"dGVzdGl2MDl0ZXN0aXYwOQ==","mac":"34367a80e4276906637b5eaecf8c3931547aae68","payload":"+coP\/up\/ZBTBwbiEpCUVXQ=="}',
             $this->object->cookieEncrypt('data123', 'sec321')
         );
     }
@@ -1012,12 +1005,98 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
         $this->assertEquals(
             'data123',
             $this->object->cookieDecrypt(
-                '{"iv":"dGVzdGl2MDl0ZXN0aXYwOQ==","mac":"a2749d5b5b8857adfb2dd0b28582a0c0388cb709","payload":"+coP\/up\/ZBTBwbiEpCUVXQ=="}',
+                '{"iv":"dGVzdGl2MDl0ZXN0aXYwOQ==","mac":"34367a80e4276906637b5eaecf8c3931547aae68","payload":"+coP\/up\/ZBTBwbiEpCUVXQ=="}',
                 'sec321'
             )
         );
     }
 
+    /**
+     * Test for PMA\libraries\plugins\auth\AuthenticationConfig::cookieDecrypt
+     *
+     * @return void
+     */
+    public function testCookieDecryptInvalid()
+    {
+        // works with the openssl extension active or inactive
+        $this->assertEquals(
+            false,
+            $this->object->cookieDecrypt(
+                '{"iv":0,"mac":0,"payload":0}',
+                'sec321'
+            )
+        );
+    }
 
+    /**
+     * Test for secret splitting using getAESSecret
+     *
+     * @return void
+     *
+     * @dataProvider secretsProvider
+     */
+    public function testMACSecretSplit($secret, $mac, $aes)
+    {
+        $this->assertEquals(
+            $mac,
+            $this->object->getMACSecret($secret)
+        );
+    }
+
+    /**
+     * Test for secret splitting using getMACSecret and getAESSecret
+     *
+     * @return void
+     *
+     * @dataProvider secretsProvider
+     */
+    public function testAESSecretSplit($secret, $mac, $aes)
+    {
+        $this->assertEquals(
+            $aes,
+            $this->object->getAESSecret($secret)
+        );
+    }
+
+    /**
+     * Data provider for secrets splitting.
+     *
+     * @return array
+     */
+    public function secretsProvider()
+    {
+        return array(
+            // Optimal case
+            array(
+                '1234567890123456abcdefghijklmnop',
+                '1234567890123456',
+                'abcdefghijklmnop',
+            ),
+            // Overlapping secret
+            array(
+                '12345678901234567',
+                '1234567890123456',
+                '2345678901234567',
+            ),
+            // Short secret
+            array(
+                '1234567890123456',
+                '1234567890123451',
+                '2345678901234562',
+            ),
+            // Really short secret
+            array(
+                '12',
+                '1111111111111111',
+                '2222222222222222',
+            ),
+            // Too short secret
+            array(
+                '1',
+                '1111111111111111',
+                '1111111111111111',
+            ),
+        );
+    }
 }
 ?>
