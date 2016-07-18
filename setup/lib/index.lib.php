@@ -330,7 +330,7 @@ function perform_config_checks()
         $server_name = htmlspecialchars($server_name);
 
         if ($cookie_auth_server && $blowfish_secret === null) {
-            $blowfish_secret = bin2hex(crypt_random_string(16));
+            $blowfish_secret = bin2hex(crypt_random_string(32));
             $blowfish_secret_set = true;
             $cf->set('blowfish_secret', $blowfish_secret);
         }
@@ -419,9 +419,9 @@ function perform_config_checks()
         } else {
             $blowfish_warnings = array();
             // check length
-            if (strlen($blowfish_secret) < 8) {
+            if (strlen($blowfish_secret) < 32) {
                 // too short key
-                $blowfish_warnings[] = __('Key is too short, it should have at least 8 characters.');
+                $blowfish_warnings[] = __('Key is too short, it should have at least 32 characters.');
             }
             // check used characters
             $has_digits = (bool) preg_match('/\d/', $blowfish_secret);
