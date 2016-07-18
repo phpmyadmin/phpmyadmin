@@ -3025,7 +3025,6 @@ Developer
     Enable to let server present itself as demo server.
     This is used for `phpMyAdmin demo server <https://www.phpmyadmin.net/try>`_.
 
-
 .. _config-examples:
 
 Examples
