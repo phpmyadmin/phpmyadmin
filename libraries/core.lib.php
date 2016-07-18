@@ -818,6 +818,10 @@ if(! function_exists('hash_equals')) {
 function PMA_isAllowedDomain($url)
 {
     $arr = parse_url($url);
+    // Avoid URLs without hostname or with credentials
+    if (empty($arr['host']) || ! empty($arr['user']) || ! empty($arr['pass'])) {
+        return false;
+    }
     $domain = $arr["host"];
     $domainWhiteList = array(
         /* Include current domain */
