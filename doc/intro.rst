@@ -45,7 +45,7 @@ Currently phpMyAdmin can:
 * create, edit, call, export and drop stored procedures and functions
 * create, edit, export and drop events and triggers
 * communicate in `62 different languages
-  <http://www.phpmyadmin.net/home_page/translations.php>`_
+  <https://www.phpmyadmin.net/home_page/translations.php>`_
 
 
 A word about users

@@ -17,7 +17,7 @@ $header->setTitle('phpMyAdmin - ' . __('Theme'));
 $header->disableMenu();
 
 $hash    = '#pma_' . preg_replace('/([0-9]*)\.([0-9]*)\..*/', '\1_\2', PMA_VERSION);
-$url     = PMA_linkURL('http://www.phpmyadmin.net/home_page/themes.php') . $hash;
+$url     = PMA_linkURL('https://www.phpmyadmin.net/home_page/themes.php') . $hash;
 $output  = '<h1>phpMyAdmin - ' . __('Theme') . '</h1>';
 $output .= '<p>';
 $output .= '<a href="' . $url . '" rel="noopener noreferrer" class="_blank">';

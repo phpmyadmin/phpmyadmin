@@ -4,7 +4,7 @@ FAQ - Frequently Asked Questions
 ================================
 
 Please have a look at our `Link section
-<http://www.phpmyadmin.net/home_page/docs.php>`_ on the official
+<https://www.phpmyadmin.net/home_page/docs.php>`_ on the official
 phpMyAdmin homepage for in-depth coverage of phpMyAdmin's features and
 or interface.
 
@@ -904,7 +904,7 @@ just put your own input-elements inside. If you use a custom submit
 input field, the form will submit itself to the displaying page again,
 where you can validate the $HTTP\_POST\_VARS in a transformation. For
 a tutorial on how to effectively use transformations, see our `Link
-section <http://www.phpmyadmin.net/home_page/docs.php>`_ on the
+section <https://www.phpmyadmin.net/home_page/docs.php>`_ on the
 official phpMyAdmin-homepage.
 
 .. _faq3_9:
@@ -1931,7 +1931,7 @@ Translations are very welcome and all you need to have are the
 language skills. The easiest way is to use our `online translation
 service <https://l10n.cihar.com/projects/phpmyadmin/>`_. You can check
 out all the possibilities to translate in the `translate section on
-our website <http://www.phpmyadmin.net/home_page/translate.php>`_.
+our website <https://www.phpmyadmin.net/home_page/translate.php>`_.
 
 .. _faq7_3:
 
@@ -1941,7 +1941,7 @@ our website <http://www.phpmyadmin.net/home_page/translate.php>`_.
 We welcome every contribution to the development of phpMyAdmin. You
 can check out all the possibilities to contribute in the `contribute
 section on our website
-<http://www.phpmyadmin.net/home_page/improve.php>`_.
+<https://www.phpmyadmin.net/home_page/improve.php>`_.
 
 .. seealso:: :ref:`developers`
 
@@ -1955,7 +1955,7 @@ Security
 8.1 Where can I get information about the security alerts issued for phpMyAdmin?
 --------------------------------------------------------------------------------
 
-Please refer to <http://www.phpmyadmin.net/home_page/security.php>.
+Please refer to <https://www.phpmyadmin.net/home_page/security.php>.
 
 .. _faq8_2:
 

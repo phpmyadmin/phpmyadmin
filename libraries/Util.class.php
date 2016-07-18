@@ -89,7 +89,7 @@ class PMA_Util
     /**
      * Returns an HTML IMG tag for a particular icon from a theme,
      * which may be an actual file or an icon from a sprite.
-     * This function takes into account the ActionLinksMode 
+     * This function takes into account the ActionLinksMode
      * configuration setting and wraps the image tag in a span tag.
      *
      * @param string  $icon          name of icon file
@@ -106,19 +106,19 @@ class PMA_Util
     ) {
         $include_icon = $include_text = false;
         if (in_array(
-                $GLOBALS['cfg'][$control_param], 
+                $GLOBALS['cfg'][$control_param],
                 array('icons', 'both')
             )
-        ) { 
+        ) {
             $include_icon = true;
-        } 
+        }
         if ($force_text
             || in_array(
-                $GLOBALS['cfg'][$control_param], 
+                $GLOBALS['cfg'][$control_param],
                 array('text', 'both')
             )
         ) {
-            $include_text = true; 
+            $include_text = true;
         }
         // Sometimes use a span (we rely on this in js/sql.js). But for menu bar
         // we don't need a span
@@ -552,7 +552,7 @@ class PMA_Util
         /* Check if we have built local documentation */
         if (defined('TESTSUITE')) {
             /* Provide consistent URL for testsuite */
-            return PMA_linkURL('http://docs.phpmyadmin.net/en/latest/' . $url);
+            return PMA_linkURL('https://docs.phpmyadmin.net/en/latest/' . $url);
         } else if (file_exists('doc/html/index.html')) {
             if (defined('PMA_SETUP')) {
                 return '../doc/html/' . $url;
@@ -561,7 +561,7 @@ class PMA_Util
             }
         } else {
             /* TODO: Should link to correct branch for released versions */
-            return PMA_linkURL('http://docs.phpmyadmin.net/en/latest/' . $url);
+            return PMA_linkURL('https://docs.phpmyadmin.net/en/latest/' . $url);
         }
     }
 
@@ -1812,10 +1812,10 @@ class PMA_Util
             // the text that follows and if browser does not display
             // images, the text is duplicated
             $tab['text'] = self::getIcon(
-                $tab['icon'], 
-                $tab['text'], 
-                false, 
-                true, 
+                $tab['icon'],
+                $tab['text'],
+                false,
+                true,
                 'TabsMode'
             );
 

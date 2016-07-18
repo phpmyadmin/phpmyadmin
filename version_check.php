@@ -20,7 +20,7 @@ if (isset($_SESSION['cache']['version_check'])
     $response = $_SESSION['cache']['version_check']['response'];
 } else {
     $save = true;
-    $file = 'http://www.phpmyadmin.net/home_page/version.json';
+    $file = 'https://www.phpmyadmin.net/home_page/version.json';
     if (function_exists('curl_init')) {
         $curl_handle = curl_init($file);
         curl_setopt($curl_handle, CURLOPT_RETURNTRANSFER, 1);

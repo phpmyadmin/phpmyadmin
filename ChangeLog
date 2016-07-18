@@ -402,7 +402,7 @@ underscore
 - bug #3776 [cookies] Login without auth on second server
 
          --- Older ChangeLogs can be found on our project website ---
-                     http://www.phpmyadmin.net/old-stuff/ChangeLogs/
+                     https://www.phpmyadmin.net/old-stuff/ChangeLogs/
 
 # vim: et ts=4 sw=4 sts=4
 # vim: ft=changelog fenc=utf-8

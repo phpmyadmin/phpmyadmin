@@ -186,7 +186,7 @@ class ExportXml extends ExportPlugin
                .  '<!--' . $crlf
                .  '- phpMyAdmin XML Dump' . $crlf
                .  '- version ' . PMA_VERSION . $crlf
-               .  '- http://www.phpmyadmin.net' . $crlf
+               .  '- https://www.phpmyadmin.net' . $crlf
                .  '-' . $crlf
                .  '- ' . __('Host') . ': ' . htmlspecialchars($cfg['Server']['host']);
         if (! empty($cfg['Server']['port'])) {
@@ -201,7 +201,7 @@ class ExportXml extends ExportPlugin
 
         $head .= '<pma_xml_export version="1.0"'
             . (($export_struct)
-            ? ' xmlns:pma="http://www.phpmyadmin.net/some_doc_url/"'
+            ? ' xmlns:pma="https://www.phpmyadmin.net/some_doc_url/"'
             : '')
             . '>' . $crlf;
 

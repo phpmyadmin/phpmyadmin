@@ -29,7 +29,7 @@ options, you can consult your *<www.your-host.com>/<your-install-
 dir>/transformation\_overview.php* installation.
 
 For a tutorial on how to effectively use transformations, see our
-`Link section <http://www.phpmyadmin.net/home_page/docs.php>`_ on the
+`Link section <https://www.phpmyadmin.net/home_page/docs.php>`_ on the
 official phpMyAdmin homepage.
 
 .. _transformationshowto:
