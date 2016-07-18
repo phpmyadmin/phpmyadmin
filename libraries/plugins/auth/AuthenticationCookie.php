@@ -335,14 +335,6 @@ class AuthenticationCookie extends AuthenticationPlugin
         // At the end, try to set the $GLOBALS['PHP_AUTH_USER']
         // and $GLOBALS['PHP_AUTH_PW'] variables from cookies
 
-        // servername
-        if ($GLOBALS['cfg']['AllowArbitraryServer']
-            && ! empty($_COOKIE['pmaServer-' . $GLOBALS['server']])
-        ) {
-            $GLOBALS['pma_auth_server']
-                = $_COOKIE['pmaServer-' . $GLOBALS['server']];
-        }
-
         // check cookies
         if (empty($_COOKIE['pmaUser-' . $GLOBALS['server']])) {
             return false;
@@ -381,17 +373,23 @@ class AuthenticationCookie extends AuthenticationPlugin
         }
 
         // check password cookie
-        if (empty($_COOKIE['pmaPass-' . $GLOBALS['server']])) {
+        if (empty($_COOKIE['pmaAuth-' . $GLOBALS['server']])) {
             return false;
         }
 
-        $GLOBALS['PHP_AUTH_PW'] = $this->cookieDecrypt(
-            $_COOKIE['pmaPass-' . $GLOBALS['server']],
-            $this->_getSessionEncryptionSecret()
+        $auth_data = json_decode(
+            $this->cookieDecrypt(
+                $_COOKIE['pmaAuth-' . $GLOBALS['server']],
+                $this->_getSessionEncryptionSecret()
+            ),
+            true
         );
-
-        if ($GLOBALS['PHP_AUTH_PW'] == "\xff(blank)") {
-            $GLOBALS['PHP_AUTH_PW'] = '';
+        if (! is_array($auth_data) || ! isset($auth_data['password'])) {
+            return false;
+        }
+        $GLOBALS['PHP_AUTH_PW'] = $auth_data['password'];
+        if ($GLOBALS['cfg']['AllowArbitraryServer'] && ! empty($auth_data['server'])) {
+            $GLOBALS['pma_auth_server'] = $auth_data['server'];
         }
 
         $GLOBALS['from_cookie'] = true;
@@ -478,21 +476,6 @@ class AuthenticationCookie extends AuthenticationPlugin
         // Set server cookies if required (once per session) and, in this case,
         // force reload to ensure the client accepts cookies
         if (! $GLOBALS['from_cookie']) {
-            if ($GLOBALS['cfg']['AllowArbitraryServer']) {
-                if (! empty($GLOBALS['pma_auth_server'])) {
-                    // Duration = one month for servername
-                    $GLOBALS['PMA_Config']->setCookie(
-                        'pmaServer-' . $GLOBALS['server'],
-                        $cfg['Server']['host']
-                    );
-                } else {
-                    // Delete servername cookie
-                    $GLOBALS['PMA_Config']->removeCookie(
-                        'pmaServer-' . $GLOBALS['server']
-                    );
-                }
-            }
-
             // URL where to go:
             $redirect_url = './index.php';
 
@@ -562,11 +545,15 @@ class AuthenticationCookie extends AuthenticationPlugin
      */
     public function storePasswordCookie($password)
     {
+        $payload = array('password' => $password);
+        if ($GLOBALS['cfg']['AllowArbitraryServer'] && ! empty($GLOBALS['pma_auth_server'])) {
+            $payload['server'] = $GLOBALS['pma_auth_server'];
+        }
         // Duration = as configured
         $GLOBALS['PMA_Config']->setCookie(
-            'pmaPass-' . $GLOBALS['server'],
+            'pmaAuth-' . $GLOBALS['server'],
             $this->cookieEncrypt(
-                ! empty($password) ? $password : "\xff(blank)",
+                json_encode($payload),
                 $this->_getSessionEncryptionSecret()
             ),
             null,
@@ -590,7 +577,7 @@ class AuthenticationCookie extends AuthenticationPlugin
         global $conn_error;
 
         // Deletes password cookie and displays the login form
-        $GLOBALS['PMA_Config']->removeCookie('pmaPass-' . $GLOBALS['server']);
+        $GLOBALS['PMA_Config']->removeCookie('pmaAuth-' . $GLOBALS['server']);
 
         $conn_error = $this->getErrorMessage();
 
@@ -834,17 +821,17 @@ class AuthenticationCookie extends AuthenticationPlugin
         // -> delete password cookie(s)
         if ($GLOBALS['cfg']['LoginCookieDeleteAll']) {
             foreach ($GLOBALS['cfg']['Servers'] as $key => $val) {
-                $GLOBALS['PMA_Config']->removeCookie('pmaPass-' . $key);
-                if (isset($_COOKIE['pmaPass-' . $key])) {
-                    unset($_COOKIE['pmaPass-' . $key]);
+                $GLOBALS['PMA_Config']->removeCookie('pmaAuth-' . $key);
+                if (isset($_COOKIE['pmaAuth-' . $key])) {
+                    unset($_COOKIE['pmaAuth-' . $key]);
                 }
             }
         } else {
             $GLOBALS['PMA_Config']->removeCookie(
-                'pmaPass-' . $GLOBALS['server']
+                'pmaAuth-' . $GLOBALS['server']
             );
-            if (isset($_COOKIE['pmaPass-' . $GLOBALS['server']])) {
-                unset($_COOKIE['pmaPass-' . $GLOBALS['server']]);
+            if (isset($_COOKIE['pmaAuth-' . $GLOBALS['server']])) {
+                unset($_COOKIE['pmaAuth-' . $GLOBALS['server']]);
             }
         }
         parent::logOut();
