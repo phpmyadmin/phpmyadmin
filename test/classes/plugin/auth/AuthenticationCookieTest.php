@@ -1100,5 +1100,22 @@ class AuthenticationCookieTest extends PMATestCase
         );
     }
 
+    /**
+     * Test for PMA\libraries\plugins\auth\AuthenticationConfig::cookieDecrypt
+     *
+     * @return void
+     */
+    public function testCookieDecryptInvalid()
+    {
+        // works with the openssl extension active or inactive
+        $this->assertEquals(
+            false,
+            $this->object->cookieDecrypt(
+                '{"iv":0,"mac":0,"payload":0}',
+                'sec321'
+            )
+        );
+    }
+
 
 }
