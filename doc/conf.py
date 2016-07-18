@@ -306,3 +306,4 @@ lexers['php'] = PhpLexer(startinline=True)
 # Number of retries and timeout for linkcheck
 linkcheck_retries = 10
 linkcheck_timeout = 10
+linkcheck_anchors = False

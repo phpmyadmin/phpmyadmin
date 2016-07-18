@@ -4,17 +4,17 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-05-23 14:30+0200\n"
-"PO-Revision-Date: 2015-10-15 11:24+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Arabic <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"ar/>\n"
+"PO-Revision-Date: 2016-07-14 13:56+0000\n"
+"Last-Translator: ‫حمودي الجيلاني‬‎ <darhost56@gmail.com>\n"
+"Language-Team: Arabic "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/ar/>\n"
 "Language: ar\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
-"X-Generator: Weblate 2.5-dev\n"
+"X-Generator: Weblate 2.8-dev\n"
 
 #: changelog.php:37 license.php:33
 #, php-format
@@ -543,11 +543,15 @@ msgid "The bookmark has been deleted."
 msgstr "لقد حذفت العلامة المرجعية."
 
 #: import.php:472
+#, fuzzy
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
 "[doc@faq1-16]FAQ 1.16[/doc]."
 msgstr ""
+"لم يتلقئ اي بيانات لاستيراد. أما قدم لا اسم الملف أو حجم الملف يتجاوز الحد "
+"الأقصى لحجم يسمح بتكوين PHP الخاص بك. انظر[doc@faq1-16] أسئلة وأجوبة "
+"1.16[/doc]"
 
 #: import.php:524 libraries/display_import.lib.php:665
 msgid "Could not load import plugins, please check your installation!"
@@ -559,7 +563,7 @@ msgid "Bookmark %s has been created."
 msgstr "تم إنشاء العلامة المرجعية %s."
 
 #: import.php:576
-#, fuzzy, php-format
+#, php-format
 #| msgid "Import has been successfully finished, %d queries executed."
 msgid "Import has been successfully finished, %d query executed."
 msgid_plural "Import has been successfully finished, %d queries executed."
@@ -576,6 +580,8 @@ msgid ""
 "Script timeout passed, if you want to finish import, please %sresubmit the "
 "same file%s and import will resume."
 msgstr ""
+"انتهت مهلة البرنامج النصي، إذا كنت ترغب في إنهاء الاستيراد، الرجاء %s إعادة "
+"إرسال نفس الملف%s وسوف تستأنف الاستيراد."
 
 #: import.php:617
 msgid ""
