@@ -650,6 +650,36 @@ class AuthenticationCookie extends AuthenticationPlugin
     }
 
     /**
+     * Derives MAC secret from encryption secret.
+     *
+     * @param string $secret the secret
+     *
+     * @return string the MAC secret
+     */
+    public function getMACSecret($secret)
+    {
+        // Grab first part, up to 16 chars
+        // The MAC and AES secrets can overlap if original secret is short
+        $length = max(strlen($secret) - 1, 16);
+        return substr($secret, 0, $length);
+    }
+
+    /**
+     * Derives AES secret from encryption secret.
+     *
+     * @param string $secret the secret
+     *
+     * @return string the AES secret
+     */
+    public function getAESSecret($secret)
+    {
+        // Grab second part, up to 16 chars
+        // The MAC and AES secrets can overlap if original secret is short
+        $length = max(strlen($secret) - 1, 16);
+        return substr($secret, -$length);
+    }
+
+    /**
      * Encryption using openssl's AES or phpseclib's AES
      * (phpseclib uses mcrypt when it is available)
      *
@@ -660,6 +690,8 @@ class AuthenticationCookie extends AuthenticationPlugin
      */
     public function cookieEncrypt($data, $secret)
     {
+        $mac_secret = $this->getMACSecret($secret);
+        $aes_secret = $this->getAESSecret($secret);
         $iv = $this->createIV();
         if (self::useOpenSSL()) {
             $result = openssl_encrypt(
@@ -672,13 +704,13 @@ class AuthenticationCookie extends AuthenticationPlugin
         } else {
             $cipher = new Crypt\AES(Crypt\Base::MODE_CBC);
             $cipher->setIV($iv);
-            $cipher->setKey($secret);
+            $cipher->setKey($aes_secret);
             $result = base64_encode($cipher->encrypt($data));
         }
         return json_encode(
             array(
                 'iv' => base64_encode($iv),
-                'mac' => hash_hmac('sha1', $result, $secret),
+                'mac' => hash_hmac('sha1', $result, $mac_secret),
                 'payload' => $result,
             )
         );
@@ -701,7 +733,9 @@ class AuthenticationCookie extends AuthenticationPlugin
             return false;
         }
 
-        $newmac = hash_hmac('sha1', $data['payload'], $secret);
+        $mac_secret = $this->getMACSecret($secret);
+        $aes_secret = $this->getAESSecret($secret);
+        $newmac = hash_hmac('sha1', $data['payload'], $mac_secret);
 
         if (! hash_equals($data['mac'], $newmac)) {
             return false;
@@ -718,7 +752,7 @@ class AuthenticationCookie extends AuthenticationPlugin
         } else {
             $cipher = new Crypt\AES(Crypt\Base::MODE_CBC);
             $cipher->setIV(base64_decode($data['iv']));
-            $cipher->setKey($secret);
+            $cipher->setKey($aes_secret);
             return $cipher->decrypt(base64_decode($data['payload']));
         }
     }
