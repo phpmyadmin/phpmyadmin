@@ -3331,7 +3331,7 @@ msgid "Relational key"
 msgstr "Clave relacional"
 
 # Display option apparently related to
-# http://www.phpmyadmin.net/documentation/#relation
+# https://www.phpmyadmin.net/documentation/#relation
 #: libraries/DisplayResults.class.php:1623
 msgid "Relational display column"
 msgstr "Mostrar columna de relación"
@@ -4954,7 +4954,7 @@ msgid "Text"
 msgstr "Texto"
 
 # Used for
-# http://www.phpmyadmin.net/documentation/Documentation.html#cfg_NavigationBarIconic
+# https://www.phpmyadmin.net/documentation/Documentation.html#cfg_NavigationBarIconic
 #: libraries/config.values.php:58 libraries/config.values.php:66
 #: libraries/config.values.php:78 libraries/config.values.php:90
 msgid "Both"
@@ -4995,12 +4995,12 @@ msgid "display column"
 msgstr "Mostrar tabla de columnas"
 
 # Used for
-# http://www.phpmyadmin.net/documentation/Documentation.html#cfg_InitialSlidersState
+# https://www.phpmyadmin.net/documentation/Documentation.html#cfg_InitialSlidersState
 #: libraries/config.values.php:122
 msgid "Open"
 msgstr "Desplegados"
 
-# http://www.phpmyadmin.net/documentation/Documentation.html#cfg_InitialSlidersState
+# https://www.phpmyadmin.net/documentation/Documentation.html#cfg_InitialSlidersState
 #: libraries/config.values.php:123
 msgid "Closed"
 msgstr "Ocultos"
@@ -6761,7 +6761,7 @@ msgid "Grid editing: trigger action"
 msgstr "Edición de grilla: disparador de acción"
 
 # Display option apparently related to
-# http://www.phpmyadmin.net/documentation/#relation
+# https://www.phpmyadmin.net/documentation/#relation
 #: libraries/config/messages.inc.php:545
 msgid "Relational display"
 msgstr "Mostrar columna de relación"
@@ -7702,7 +7702,7 @@ msgid "HTTP authentication"
 msgstr "Autenticación por HTTP"
 
 # Description of signon value for configuration described at
-# http://www.phpmyadmin.net/documentation/Documentation.html#cfg_Servers_auth_type
+# https://www.phpmyadmin.net/documentation/Documentation.html#cfg_Servers_auth_type
 #: libraries/config/setup.forms.php:50
 msgid "Signon authentication"
 msgstr "Autenticación por sesión"

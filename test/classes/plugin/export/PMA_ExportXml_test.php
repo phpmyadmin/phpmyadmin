@@ -358,7 +358,7 @@ class PMA_ExportXml_Test extends PHPUnit_Framework_TestCase
 
         $this->assertContains(
             '&lt;pma_xml_export version=&quot;1.0&quot; xmlns:pma=&quot;' .
-            'http://www.phpmyadmin.net/some_doc_url/&quot;&gt;',
+            'https://www.phpmyadmin.net/some_doc_url/&quot;&gt;',
             $result
         );
 

@@ -387,14 +387,14 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
         $attrInstance->setValue($mockResponse);
 
         $_REQUEST['old_usr'] = 'user1';
-        $GLOBALS['cfg']['Server']['LogoutURL'] = 'http://www.phpmyadmin.net/logout';
+        $GLOBALS['cfg']['Server']['LogoutURL'] = 'https://www.phpmyadmin.net/logout';
 
         $this->assertTrue(
             $this->object->auth()
         );
 
         $this->assertContains(
-            'Location: http://www.phpmyadmin.net/logout?PHPSESSID=',
+            'Location: https://www.phpmyadmin.net/logout?PHPSESSID=',
             $GLOBALS['header'][0]
         );
 

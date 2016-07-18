@@ -149,7 +149,7 @@ if ($server > 0 || count($cfg['Servers']) > 1
                 . 'please do not change root, debian-sys-maint and pma users. '
                 . 'More information is available at %s.'
             ),
-            '<a href="http://demo.phpmyadmin.net/">demo.phpmyadmin.net</a>'
+            '<a href="https://demo.phpmyadmin.net/">demo.phpmyadmin.net</a>'
         );
         echo '</p>';
         echo '</div>';
@@ -368,7 +368,7 @@ echo '<div class="group pmagroup">';
 echo '<h2>phpMyAdmin</h2>';
 echo '<ul>';
 $class = null;
-// We rely on CSP to allow access to http://www.phpmyadmin.net, but IE lacks
+// We rely on CSP to allow access to https://www.phpmyadmin.net, but IE lacks
 // support here and does not allow request to http once using https.
 if ($GLOBALS['cfg']['VersionCheck']
     && (! $GLOBALS['PMA_Config']->get('is_https') || PMA_USR_BROWSER_AGENT != 'IE')

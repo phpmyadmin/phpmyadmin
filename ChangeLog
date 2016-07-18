@@ -421,7 +421,7 @@ explanation
 - bug #4416 New lines are removed when grid editing (part two: TEXT)
 
          --- Older ChangeLogs can be found on our project website ---
-                     http://www.phpmyadmin.net/old-stuff/ChangeLogs/
+                     https://www.phpmyadmin.net/old-stuff/ChangeLogs/
 
 # vim: et ts=4 sw=4 sts=4
 # vim: ft=changelog fenc=utf-8

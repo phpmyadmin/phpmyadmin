@@ -1038,14 +1038,14 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
             $this->markTestSkipped('Missing curl extension!');
         }
         $this->assertTrue(
-            $this->object->checkHTTP("http://www.phpmyadmin.net/test/data")
+            $this->object->checkHTTP("https://www.phpmyadmin.net/test/data")
         );
         $this->assertContains(
             "TEST DATA",
-            $this->object->checkHTTP("http://www.phpmyadmin.net/test/data", true)
+            $this->object->checkHTTP("https://www.phpmyadmin.net/test/data", true)
         );
         $this->assertFalse(
-            $this->object->checkHTTP("http://www.phpmyadmin.net/test/nothing")
+            $this->object->checkHTTP("https://www.phpmyadmin.net/test/nothing")
         );
     }
     */

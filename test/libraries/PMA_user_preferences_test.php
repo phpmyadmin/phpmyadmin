@@ -359,7 +359,7 @@ class PMA_User_Preferences_Test extends PHPUnit_Framework_TestCase
             );
         }
 
-        $GLOBALS['cfg']['PmaAbsoluteUri'] = 'http://www.phpmyadmin.net';
+        $GLOBALS['cfg']['PmaAbsoluteUri'] = 'https://www.phpmyadmin.net';
         $GLOBALS['cfg']['ServerDefault'] = 1;
         $GLOBALS['lang'] = '';
 
@@ -378,7 +378,7 @@ class PMA_User_Preferences_Test extends PHPUnit_Framework_TestCase
         );
 
         $this->assertContains(
-            'Location: http://www.phpmyadmin.netfile.html?a=b&saved=1&server=0&' .
+            'Location: https://www.phpmyadmin.netfile.html?a=b&saved=1&server=0&' .
             'token=token#h+ash',
             $GLOBALS['header'][0]
         );
