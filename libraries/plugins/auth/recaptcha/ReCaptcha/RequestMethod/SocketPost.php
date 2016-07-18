@@ -30,15 +30,15 @@ use ReCaptcha\RequestMethod;
 use ReCaptcha\RequestParameters;
 
 /**
- * Sends a POST request to the reCAPTCHA service, but makes use of fsockopen() 
- * instead of get_file_contents(). This is to account for people who may be on 
+ * Sends a POST request to the reCAPTCHA service, but makes use of fsockopen()
+ * instead of get_file_contents(). This is to account for people who may be on
  * servers where allow_furl_open is disabled.
  */
 class SocketPost implements RequestMethod
 {
     /**
      * reCAPTCHA service host.
-     * @const string 
+     * @const string
      */
     const RECAPTCHA_HOST = 'www.google.com';
 
@@ -65,7 +65,7 @@ class SocketPost implements RequestMethod
 
     /**
      * Constructor
-     * 
+     *
      * @param \ReCaptcha\RequestMethod\Socket $socket optional socket, injectable for testing
      */
     public function __construct(Socket $socket = null)
@@ -88,33 +88,34 @@ class SocketPost implements RequestMethod
         $errno = 0;
         $errstr = '';
 
-        if ($this->socket->fsockopen('ssl://' . self::RECAPTCHA_HOST, 443, $errno, $errstr, 30) !== false) {
-            $content = $params->toQueryString();
+        if (false === $this->socket->fsockopen('ssl://' . self::RECAPTCHA_HOST, 443, $errno, $errstr, 30)) {
+            return self::BAD_REQUEST;
+        }
 
-            $request = "POST " . self::SITE_VERIFY_PATH . " HTTP/1.1\r\n";
-            $request .= "Host: " . self::RECAPTCHA_HOST . "\r\n";
-            $request .= "Content-Type: application/x-www-form-urlencoded\r\n";
-            $request .= "Content-length: " . strlen($content) . "\r\n";
-            $request .= "Connection: close\r\n\r\n";
-            $request .= $content . "\r\n\r\n";
+        $content = $params->toQueryString();
 
-            $this->socket->fwrite($request);
-            $response = '';
+        $request = "POST " . self::SITE_VERIFY_PATH . " HTTP/1.1\r\n";
+        $request .= "Host: " . self::RECAPTCHA_HOST . "\r\n";
+        $request .= "Content-Type: application/x-www-form-urlencoded\r\n";
+        $request .= "Content-length: " . strlen($content) . "\r\n";
+        $request .= "Connection: close\r\n\r\n";
+        $request .= $content . "\r\n\r\n";
 
-            while (!$this->socket->feof()) {
-                $response .= $this->socket->fgets(4096);
-            }
+        $this->socket->fwrite($request);
+        $response = '';
 
-            $this->socket->fclose();
+        while (!$this->socket->feof()) {
+            $response .= $this->socket->fgets(4096);
+        }
 
-            if (0 === strpos($response, 'HTTP/1.1 200 OK')) {
-                $parts = preg_split("#\n\s*\n#Uis", $response);
-                return $parts[1];
-            }
+        $this->socket->fclose();
 
+        if (0 !== strpos($response, 'HTTP/1.1 200 OK')) {
             return self::BAD_RESPONSE;
         }
 
-        return self::BAD_REQUEST;
+        $parts = preg_split("#\n\s*\n#Uis", $response);
+
+        return $parts[1];
     }
 }
