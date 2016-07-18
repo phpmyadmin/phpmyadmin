@@ -2902,7 +2902,7 @@ Developer
     :default: false
 
     Enable to let server present itself as demo server.
-    This is used for <http://demo.phpmyadmin.net/>.
+    This is used for <https://demo.phpmyadmin.net/>.
 
 
 Examples
