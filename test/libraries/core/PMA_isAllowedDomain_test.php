@@ -41,9 +41,10 @@ class PMA_isAllowedDomain_test extends PHPUnit_Framework_TestCase
     {
         return array(
             array('https://www.phpmyadmin.net/', true),
-            array('http://duckduckgo.com\\@github.com', true),
+            array('http://duckduckgo.com\\@github.com', false),
             array('https://github.com/', true),
             array('https://server.local/', true),
+            array('./relative/', false),
         );
     }
 
