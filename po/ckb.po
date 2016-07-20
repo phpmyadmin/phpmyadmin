@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-05-23 14:29+0200\n"
-"PO-Revision-Date: 2015-11-20 15:47+0000\n"
-"Last-Translator: Dana Akram <dana@kurdish.one>\n"
-"Language-Team: Kurdish Sorani <https://hosted.weblate.org/projects/"
-"phpmyadmin/master/ckb/>\n"
+"PO-Revision-Date: 2016-07-20 07:25+0000\n"
+"Last-Translator: Kamyar Sec <kamofanar@gmail.com>\n"
+"Language-Team: Kurdish Sorani "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-6/ckb/>\n"
 "Language: ckb\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.5-dev\n"
+"X-Generator: Weblate 2.8-dev\n"
 
 #: changelog.php:37 license.php:33
 #, php-format
@@ -34,7 +34,7 @@ msgstr "لیستەی بنەڕەتیی خانەکانی بنکەی دراوە ب�
 
 #: db_central_columns.php:130
 msgid "Click to sort."
-msgstr "ڕیزکردن."
+msgstr "کلیک بکه‌ بۆ پۆڵێن کردن."
 
 #: db_central_columns.php:149
 #, php-format
@@ -43,7 +43,7 @@ msgstr "پیشاندانی خانەکان %1$s - %2$s."
 
 #: db_datadict.php:57 libraries/operations.lib.php:34
 msgid "Database comment"
-msgstr "تێبینی بنکەی دراوە"
+msgstr "تێبینی بنکەی دراو"
 
 #: db_datadict.php:104 libraries/plugins/schema/pdf/PdfRelationSchema.php:596
 #: templates/columns_definitions/column_definitions_form.phtml:88
@@ -150,7 +150,7 @@ msgstr "بنەڕەت"
 #: libraries/plugins/schema/pdf/PdfRelationSchema.php:635
 #: libraries/plugins/schema/pdf/PdfRelationSchema.php:658
 msgid "Links to"
-msgstr "بەستەر دەکات بۆ"
+msgstr "بەستەر بۆ"
 
 #: db_datadict.php:120 libraries/config/messages.inc.php:161
 #: libraries/config/messages.inc.php:177 libraries/config/messages.inc.php:215
