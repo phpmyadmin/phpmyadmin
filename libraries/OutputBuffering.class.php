@@ -9,6 +9,8 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
+require_once './libraries/Util.class.php';
+
 /**
  * Output buffering wrapper class
  *
