@@ -15,6 +15,12 @@ require_once './libraries/common.inc.php';
  * JavaScript escaping.
  */
 require_once './libraries/js_escape.lib.php';
+require_once './libraries/Response.class.php';
+
+// Only output the http headers
+$response = PMA_Response::getInstance();
+$response->getHeader()->sendHttpHeaders();
+$response->disable();
 
 if (! PMA_isValid($_GET['url'])
     || ! preg_match('/^https?:\/\/[^\n\r]*$/', $_GET['url'])
