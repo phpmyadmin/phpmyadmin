@@ -712,7 +712,7 @@ class AuthenticationCookie extends AuthenticationPlugin
                 true
             );
         }
-        if (mb_strlen($this->_cookie_iv, '8bit') < $this->getIVSize()) {
+        if (strlen($this->_cookie_iv) < $this->getIVSize()) {
                 $this->createIV();
         }
 

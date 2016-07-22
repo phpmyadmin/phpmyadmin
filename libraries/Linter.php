@@ -38,7 +38,7 @@ class Linter
             $str = new UtfString($str);
         }
 
-        // The reason for using the '8bit' parameter is that the length
+        // The reason for using the strlen is that the length
         // required is the length in bytes, not characters.
         //
         // Given the following string: `????+`, where `?` represents a
@@ -51,7 +51,7 @@ class Linter
         // (which is actually a new line) aren't going to be processed at
         // all.
         $len = ($str instanceof UtfString) ?
-            $str->length() : mb_strlen($len, '8bit');
+            $str->length() : strlen($len);
 
         $lines = array(0);
         for ($i = 0; $i < $len; ++$i) {
