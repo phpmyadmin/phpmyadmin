@@ -239,8 +239,8 @@ class ServerConfigChecks
 
             $blowfishSecretSet = true;
             $this->cfg->set('blowfish_secret', $blowfishSecret);
-            return array($blowfishSecret, $blowfishSecretSet);
         }
+        return array($blowfishSecret, $blowfishSecretSet);
     }
 
     /**
