@@ -214,10 +214,18 @@ class ServerConfigChecks
         $blowfishSecret, $cookieAuthServer, $blowfishSecretSet
     ) {
         if ($cookieAuthServer && $blowfishSecret === null) {
+            $blowfishSecret = '';
             if (! function_exists('openssl_random_pseudo_bytes')) {
-                $blowfishSecret = bin2hex(phpseclib\Crypt\Random::string(32));
+                $random_func = 'phpseclib\\Crypt\\Random::string';
             } else {
-                $blowfishSecret = bin2hex(openssl_random_pseudo_bytes(32));
+                $random_func = 'openssl_random_pseudo_bytes';
+            }
+            while (strlen($blowfishSecret) < 32) {
+                $byte = $random_func(1);
+                // We want only ASCII chars
+                if (ord($byte) > 32 && ord($byte) < 127) {
+                    $blowfishSecret .= $byte;
+                }
             }
 
             $blowfishSecretSet = true;
