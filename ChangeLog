@@ -22,6 +22,7 @@ phpMyAdmin - ChangeLog
 
 4.6.4 (not yet released)
 - issue        Include X-Robots-Tag header in responses
+- issue        Enfornce numeric field length when creating table
 
 4.6.3 (2016-06-23)
 - issue #12249 Fixed cookie path on Windows
