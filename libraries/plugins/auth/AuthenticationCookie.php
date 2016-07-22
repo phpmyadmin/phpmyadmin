@@ -631,6 +631,24 @@ class AuthenticationCookie extends AuthenticationPlugin
     }
 
     /**
+     * Concatenates secret in order to make it 16 bytes log
+     *
+     * This doesn't add any security, just ensures the secret
+     * is long enough by copying it.
+     *
+     * @param string $secret Original secret
+     *
+     * @return string
+     */
+    public function enlargeSecret($secret)
+    {
+        while (strlen($secret) < 16) {
+            $secret .= $secret;
+        }
+        return substr($secret, 0, 16);
+    }
+
+    /**
      * Derives MAC secret from encryption secret.
      *
      * @param string $secret the secret
@@ -641,8 +659,13 @@ class AuthenticationCookie extends AuthenticationPlugin
     {
         // Grab first part, up to 16 chars
         // The MAC and AES secrets can overlap if original secret is short
-        $length = max(strlen($secret) - 1, 16);
-        return substr($secret, 0, $length);
+        $length = strlen($secret);
+        if ($length > 16) {
+            return substr($secret, 0, 16);
+        }
+        return $this->enlargeSecret(
+            $length == 1 ? $secret : substr($secret, 0, -1)
+        );
     }
 
     /**
@@ -656,8 +679,13 @@ class AuthenticationCookie extends AuthenticationPlugin
     {
         // Grab second part, up to 16 chars
         // The MAC and AES secrets can overlap if original secret is short
-        $length = max(strlen($secret) - 1, 16);
-        return substr($secret, -$length);
+        $length = strlen($secret);
+        if ($length > 16) {
+            return substr($secret, -16);
+        }
+        return $this->enlargeSecret(
+            $length == 1 ? $secret : substr($secret, 1)
+        );
     }
 
     /**
@@ -692,7 +720,7 @@ class AuthenticationCookie extends AuthenticationPlugin
         return json_encode(
             array(
                 'iv' => $iv,
-                'mac' => hash_hmac('sha1', $result . $iv, $mac_secret),
+                'mac' => hash_hmac('sha1', $iv . $result, $mac_secret),
                 'payload' => $result,
             )
         );
@@ -719,7 +747,7 @@ class AuthenticationCookie extends AuthenticationPlugin
 
         $mac_secret = $this->getMACSecret($secret);
         $aes_secret = $this->getAESSecret($secret);
-        $newmac = hash_hmac('sha1', $data['payload'] . $data['iv'], $mac_secret);
+        $newmac = hash_hmac('sha1', $data['iv'] . $data['payload'], $mac_secret);
 
         if (! hash_equals($data['mac'], $newmac)) {
             return false;
