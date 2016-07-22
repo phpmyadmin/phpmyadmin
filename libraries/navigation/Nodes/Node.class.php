@@ -437,7 +437,7 @@ class Node
             $query .= "SELECT DB_first_level ";
             $query .= "FROM ( ";
             $query .= "SELECT DISTINCT SUBSTRING_INDEX(SCHEMA_NAME, ";
-            $query .= "'$dbSeparator', 1) ";
+            $query .= "'" . PMA_Util::sqlAddSlashes($dbSeparator) . "', 1) ";
             $query .= "DB_first_level ";
             $query .= "FROM INFORMATION_SCHEMA.SCHEMATA ";
             $query .= $this->_getWhereClause('SCHEMA_NAME', $searchClause);
@@ -446,9 +446,9 @@ class Node
             $query .= "LIMIT $pos, $maxItems";
             $query .= ") t2 ";
             $query .= "WHERE 1 = LOCATE(CONCAT(DB_first_level, ";
-            $query .= "'$dbSeparator'), ";
+            $query .= "'" . PMA_Util::sqlAddSlashes($dbSeparator) . "'), ";
             $query .= "CONCAT(SCHEMA_NAME, ";
-            $query .= "'$dbSeparator')) ";
+            $query .= "'" . PMA_Util::sqlAddSlashes($dbSeparator) . "')) ";
             $query .= "ORDER BY SCHEMA_NAME ASC";
             $retval = $GLOBALS['dbi']->fetchResult($query);
             return $retval;

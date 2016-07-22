@@ -173,7 +173,7 @@ class PMA_NavigationTree
             $query  = "SELECT (COUNT(DB_first_level) DIV %d) * %d ";
             $query .= "from ( ";
             $query .= " SELECT distinct SUBSTRING_INDEX(SCHEMA_NAME, ";
-            $query .= " '{$GLOBALS['cfg']['NavigationTreeDbSeparator']}', 1) ";
+            $query .= " '" . PMA_Util::sqlAddSlashes($GLOBALS['cfg']['NavigationTreeDbSeparator']) . "', 1) ";
             $query .= " DB_first_level ";
             $query .= " FROM INFORMATION_SCHEMA.SCHEMATA ";
             $query .= " WHERE `SCHEMA_NAME` < '%s' ";
