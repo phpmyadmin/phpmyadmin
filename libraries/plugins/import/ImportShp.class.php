@@ -132,6 +132,14 @@ class ImportShp extends ImportPlugin
             }
         }
 
+        // Delete the .dbf file extracted to 'TempDir'
+        if ($temp_dbf_file
+            && isset($dbf_file_path)
+            && file_exists($dbf_file_path)
+        ) {
+            unlink($dbf_file_path);
+        }
+
         // Load data
         $shp->loadFromFile('');
         if ($shp->lastError != "") {
@@ -141,14 +149,6 @@ class ImportShp extends ImportPlugin
             );
             $message->addParam($shp->lastError);
             return;
-        }
-
-        // Delete the .dbf file extracted to 'TempDir'
-        if ($temp_dbf_file
-            && isset($dbf_file_path)
-            && file_exists($dbf_file_path)
-        ) {
-            unlink($dbf_file_path);
         }
 
         $esri_types = array(
