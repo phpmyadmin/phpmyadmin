@@ -446,21 +446,19 @@ function PMA_getTableCreationQuery($db, $table)
 function PMA_getNumberOfFieldsFromRequest()
 {
     if (isset($_REQUEST['submit_num_fields'])) { // adding new fields
-        $num_fields = min(
-            4096,
-            intval($_REQUEST['orig_num_fields']) + intval($_REQUEST['added_fields'])
-        );
+        $num_fields = intval($_REQUEST['orig_num_fields']) + intval($_REQUEST['added_fields']);
     } elseif (isset($_REQUEST['orig_num_fields'])) { // retaining existing fields
-        $num_fields = min(4096, intval($_REQUEST['orig_num_fields']));
+        $num_fields = intval($_REQUEST['orig_num_fields']);
     } elseif (isset($_REQUEST['num_fields'])
         && intval($_REQUEST['num_fields']) > 0
     ) { // new table with specified number of fields
-        $num_fields = min(4096, intval($_REQUEST['num_fields']));
+        $num_fields = intval($_REQUEST['num_fields']);
     } else { // new table with unspecified number of fields
         $num_fields = 4;
     }
 
-    return $num_fields;
+    // Limit to 4096 fields (MySQL maximal value)
+    return min($num_fields, 4096);
 }
 
 /**
