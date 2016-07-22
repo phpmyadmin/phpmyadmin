@@ -1053,7 +1053,7 @@ class AuthenticationCookieTest extends PMATestCase
         $result = $method->invoke($this->object, null);
 
         $this->assertEquals(
-            md5('notEmpty'),
+            'notEmpty',
             $result
         );
     }

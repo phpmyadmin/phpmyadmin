@@ -600,8 +600,7 @@ class AuthenticationCookie extends AuthenticationPlugin
         if (empty($GLOBALS['cfg']['blowfish_secret'])) {
             return $this->_getSessionEncryptionSecret();
         } else {
-            // apply md5() to work around too long secrets (returns 32 characters)
-            return md5($GLOBALS['cfg']['blowfish_secret']);
+            return $GLOBALS['cfg']['blowfish_secret'];
         }
     }
 
