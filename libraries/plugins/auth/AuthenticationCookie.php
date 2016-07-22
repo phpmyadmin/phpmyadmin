@@ -636,6 +636,24 @@ class AuthenticationCookie extends AuthenticationPlugin
     }
 
     /**
+     * Concatenates secret in order to make it 16 bytes log
+     *
+     * This doesn't add any security, just ensures the secret
+     * is long enough by copying it.
+     *
+     * @param string $secret Original secret
+     *
+     * @return string
+     */
+    public function enlargeSecret($secret)
+    {
+        while (strlen($secret) < 16) {
+            $secret .= $secret;
+        }
+        return substr($secret, 0, 16);
+    }
+
+    /**
      * Derives MAC secret from encryption secret.
      *
      * @param string $secret the secret
@@ -646,8 +664,12 @@ class AuthenticationCookie extends AuthenticationPlugin
     {
         // Grab first part, up to 16 chars
         // The MAC and AES secrets can overlap if original secret is short
-        $length = max(strlen($secret) - 1, 16);
-        return substr($secret, 0, $length);
+        if (strlen($secret) > 16) {
+            return substr($secret, 0, 16);
+        }
+        return $this->enlargeSecret(
+            strlen($secret) == 1 ? $secret : substr($secret, 0, -1)
+        );
     }
 
     /**
@@ -661,8 +683,12 @@ class AuthenticationCookie extends AuthenticationPlugin
     {
         // Grab second part, up to 16 chars
         // The MAC and AES secrets can overlap if original secret is short
-        $length = max(strlen($secret) - 1, 16);
-        return substr($secret, -$length);
+        if (strlen($secret) > 16) {
+            return substr($secret, -16);
+        }
+        return $this->enlargeSecret(
+            strlen($secret) == 1 ? $secret : substr($secret, 1)
+        );
     }
 
     /**

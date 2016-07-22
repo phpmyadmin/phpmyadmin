@@ -1068,7 +1068,7 @@ class AuthenticationCookieTest extends PMATestCase
         $this->object->setIV('testiv09testiv09');
         // works with the openssl extension active or inactive
         $this->assertEquals(
-            '{"iv":"dGVzdGl2MDl0ZXN0aXYwOQ==","mac":"365462272f3d86a01e31b03a920efec5433111cd","payload":"+coP\/up\/ZBTBwbiEpCUVXQ=="}',
+            '{"iv":"dGVzdGl2MDl0ZXN0aXYwOQ==","mac":"34367a80e4276906637b5eaecf8c3931547aae68","payload":"+coP\/up\/ZBTBwbiEpCUVXQ=="}',
             $this->object->cookieEncrypt('data123', 'sec321')
         );
     }
@@ -1084,7 +1084,7 @@ class AuthenticationCookieTest extends PMATestCase
         $this->assertEquals(
             'data123',
             $this->object->cookieDecrypt(
-                '{"iv":"dGVzdGl2MDl0ZXN0aXYwOQ==","mac":"365462272f3d86a01e31b03a920efec5433111cd","payload":"+coP\/up\/ZBTBwbiEpCUVXQ=="}',
+                '{"iv":"dGVzdGl2MDl0ZXN0aXYwOQ==","mac":"34367a80e4276906637b5eaecf8c3931547aae68","payload":"+coP\/up\/ZBTBwbiEpCUVXQ=="}',
                 'sec321'
             )
         );
@@ -1107,5 +1107,74 @@ class AuthenticationCookieTest extends PMATestCase
         );
     }
 
+    /**
+     * Test for secret splitting using getAESSecret
+     *
+     * @return void
+     *
+     * @dataProvider secretsProvider
+     */
+    public function testMACSecretSplit($secret, $mac, $aes)
+    {
+        $this->assertEquals(
+            $mac,
+            $this->object->getMACSecret($secret)
+        );
+    }
 
+    /**
+     * Test for secret splitting using getMACSecret and getAESSecret
+     *
+     * @return void
+     *
+     * @dataProvider secretsProvider
+     */
+    public function testAESSecretSplit($secret, $mac, $aes)
+    {
+        $this->assertEquals(
+            $aes,
+            $this->object->getAESSecret($secret)
+        );
+    }
+
+    /**
+     * Data provider for secrets splitting.
+     *
+     * @return array
+     */
+    public function secretsProvider()
+    {
+        return array(
+            // Optimal case
+            array(
+                '1234567890123456abcdefghijklmnop',
+                '1234567890123456',
+                'abcdefghijklmnop',
+            ),
+            // Overlapping secret
+            array(
+                '12345678901234567',
+                '1234567890123456',
+                '2345678901234567',
+            ),
+            // Short secret
+            array(
+                '1234567890123456',
+                '1234567890123451',
+                '2345678901234562',
+            ),
+            // Really short secret
+            array(
+                '12',
+                '1111111111111111',
+                '2222222222222222',
+            ),
+            // Too short secret
+            array(
+                '1',
+                '1111111111111111',
+                '1111111111111111',
+            ),
+        );
+    }
 }
