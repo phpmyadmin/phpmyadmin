@@ -614,9 +614,9 @@ class AuthenticationCookie extends AuthenticationPlugin
     {
         if (empty($_SESSION['encryption_key'])) {
             if (self::useOpenSSL()) {
-                $_SESSION['encryption_key'] = openssl_random_pseudo_bytes(256);
+                $_SESSION['encryption_key'] = openssl_random_pseudo_bytes(32);
             } else {
-                $_SESSION['encryption_key'] = Crypt\Random::string(256);
+                $_SESSION['encryption_key'] = Crypt\Random::string(32);
             }
         }
         return $_SESSION['encryption_key'];

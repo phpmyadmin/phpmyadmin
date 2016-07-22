@@ -1030,7 +1030,7 @@ class AuthenticationCookieTest extends PMATestCase
         );
 
         $this->assertEquals(
-            256,
+            32,
             strlen($result)
         );
     }
