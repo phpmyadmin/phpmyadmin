@@ -114,10 +114,16 @@ class PMA_zip_extension_test extends PHPUnit_Framework_TestCase
     public function testZipExtract()
     {
         $this->assertEquals(
+            false,
             PMA_zipExtract(
-                './test/test_data/test.zip', './test/test_data/', 'wrongName'
-            ),
-            true
+                './test/test_data/test.zip', 'wrongName'
+            )
+        );
+        $this->assertEquals(
+            "TEST FILE\n",
+            PMA_zipExtract(
+                './test/test_data/test.zip', 'test.file'
+            )
         );
     }
 
