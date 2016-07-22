@@ -5250,7 +5250,7 @@ class DisplayResults
 
         if (isset($content)) {
 
-            $size = mb_strlen($content, '8bit');
+            $size = strlen($content);
             $display_size = Util::formatByteDown($size, 3, 1);
             $result .= ' - ' . $display_size[0] . ' ' . $display_size[1];
 

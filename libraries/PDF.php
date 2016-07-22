@@ -143,7 +143,7 @@ class PDF extends TCPDF
         PMA_downloadHeader(
             $filename,
             'application/pdf',
-            mb_strlen($pdfData)
+            strlen($pdfData)
         );
         echo $pdfData;
     }
