@@ -17,7 +17,7 @@ require_once './libraries/common.inc.php';
 require_once './libraries/js_escape.lib.php';
 
 if (! PMA_isValid($_REQUEST['url'])
-    || ! preg_match('/^https?:\/\/[^\n\r]*$/', $_REQUEST['url'])
+    || ! preg_match('/^https:\/\/[^\n\r]*$/', $_REQUEST['url'])
     || ! PMA_isAllowedDomain($_REQUEST['url'])
 ) {
     PMA_sendHeaderLocation('./');
