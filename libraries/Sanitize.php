@@ -26,9 +26,7 @@ class Sanitize
     public static function checkLink($url)
     {
         $valid_starts = array(
-            'http://',
             'https://',
-            './url.php?url=http%3A%2F%2F',
             './url.php?url=https%3A%2F%2F',
             './doc/html/',
         );
