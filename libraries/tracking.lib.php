@@ -1203,7 +1203,7 @@ function PMA_exportAsFileDownload($entries)
     PMA_downloadHeader(
         $filename,
         'text/x-sql',
-        mb_strlen($dump)
+        strlen($dump)
     );
     echo $dump;
 
