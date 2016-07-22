@@ -664,11 +664,12 @@ class AuthenticationCookie extends AuthenticationPlugin
     {
         // Grab first part, up to 16 chars
         // The MAC and AES secrets can overlap if original secret is short
-        if (strlen($secret) > 16) {
+        $length = strlen($secret);
+        if ($length > 16) {
             return substr($secret, 0, 16);
         }
         return $this->enlargeSecret(
-            strlen($secret) == 1 ? $secret : substr($secret, 0, -1)
+            $length == 1 ? $secret : substr($secret, 0, -1)
         );
     }
 
@@ -683,11 +684,12 @@ class AuthenticationCookie extends AuthenticationPlugin
     {
         // Grab second part, up to 16 chars
         // The MAC and AES secrets can overlap if original secret is short
-        if (strlen($secret) > 16) {
+        $length = strlen($secret);
+        if ($length > 16) {
             return substr($secret, -16);
         }
         return $this->enlargeSecret(
-            strlen($secret) == 1 ? $secret : substr($secret, 1)
+            $length == 1 ? $secret : substr($secret, 1)
         );
     }
 
