@@ -400,7 +400,7 @@ class Table
         $pattern = '@^(DATE|TINYBLOB|TINYTEXT|BLOB|TEXT|'
             . 'MEDIUMBLOB|MEDIUMTEXT|LONGBLOB|LONGTEXT|SERIAL|BOOLEAN|UUID)$@i';
         if ($length != '' && ! preg_match($pattern, $type)) {
-            $query .= '(' . $length . ')';
+            $query .= '(' . intval($length) . ')';
         }
 
         if ($virtuality) {
