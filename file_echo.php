@@ -56,7 +56,7 @@ if (isset($_REQUEST['filename']) && isset($_REQUEST['image'])) {
     PMA_downloadHeader(
         $filename,
         $_REQUEST['type'],
-        mb_strlen($data)
+        strlen($data)
     );
 
     /* Send data */
