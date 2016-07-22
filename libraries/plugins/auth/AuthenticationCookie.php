@@ -693,10 +693,11 @@ class AuthenticationCookie extends AuthenticationPlugin
             $cipher->setKey($aes_secret);
             $result = base64_encode($cipher->encrypt($data));
         }
+        $iv = base64_encode($iv);
         return json_encode(
             array(
-                'iv' => base64_encode($iv),
-                'mac' => hash_hmac('sha1', $result, $mac_secret),
+                'iv' => $iv,
+                'mac' => hash_hmac('sha1', $result . $iv, $mac_secret),
                 'payload' => $result,
             )
         );
@@ -723,7 +724,7 @@ class AuthenticationCookie extends AuthenticationPlugin
 
         $mac_secret = $this->getMACSecret($secret);
         $aes_secret = $this->getAESSecret($secret);
-        $newmac = hash_hmac('sha1', $data['payload'], $mac_secret);
+        $newmac = hash_hmac('sha1', $data['payload'] . $data['iv'], $mac_secret);
 
         if (! hash_equals($data['mac'], $newmac)) {
             return false;
