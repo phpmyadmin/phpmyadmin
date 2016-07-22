@@ -14,7 +14,7 @@ define('PMA_MINIMUM_COMMON', true);
 require_once './libraries/common.inc.php';
 
 if (! PMA_isValid($_REQUEST['url'])
-    || ! preg_match('/^https?:\/\/[^\n\r]*$/', $_REQUEST['url'])
+    || ! preg_match('/^https:\/\/[^\n\r]*$/', $_REQUEST['url'])
     || ! PMA_isAllowedDomain($_REQUEST['url'])
 ) {
     PMA_sendHeaderLocation('./');
