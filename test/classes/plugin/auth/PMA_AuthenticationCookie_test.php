@@ -518,7 +518,6 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
         // case 8
 
         $GLOBALS['server'] = 1;
-        $_COOKIE['pmaServer-1'] = 'pmaServ1';
         $_COOKIE['pmaUser-1'] = 'pmaUser1';
         $_COOKIE['pma_iv-1'] = base64_encode('testiv09testiv09');
         $_COOKIE['pmaAuth-1'] = '';
@@ -556,8 +555,7 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
         }
 
         $GLOBALS['cfg']['Servers'] = array(1);
-        $_COOKIE['pmaPass-0'] = 1;
-        $_COOKIE['pmaServer-0'] = 1;
+        $_COOKIE['pmaAuth-0'] = 1;
         $_COOKIE['pmaUser-0'] = 1;
 
         $this->assertFalse(
@@ -565,11 +563,7 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
         );
 
         $this->assertFalse(
-            isset($_COOKIE['pmaPass-0'])
-        );
-
-        $this->assertFalse(
-            isset($_COOKIE['pmaServer-0'])
+            isset($_COOKIE['pmaAuth-0'])
         );
 
         $this->assertFalse(
@@ -591,7 +585,6 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['server'] = 1;
         $_REQUEST['old_usr'] = '';
         $_REQUEST['pma_username'] = '';
-        $_COOKIE['pmaServer-1'] = 'pmaServ1';
         $_COOKIE['pmaUser-1'] = 'pmaUser1';
         $_COOKIE['pma_iv-1'] = base64_encode('testiv09testiv09');
         $GLOBALS['cfg']['blowfish_secret'] = 'secret';
@@ -629,7 +622,6 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['server'] = 1;
         $_REQUEST['old_usr'] = '';
         $_REQUEST['pma_username'] = '';
-        $_COOKIE['pmaServer-1'] = 'pmaServ1';
         $_COOKIE['pmaUser-1'] = 'pmaUser1';
         $_COOKIE['pmaAuth-1'] = 'pmaAuth1';
         $_COOKIE['pma_iv-1'] = base64_encode('testiv09testiv09');
@@ -674,7 +666,6 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['server'] = 1;
         $_REQUEST['old_usr'] = '';
         $_REQUEST['pma_username'] = '';
-        $_COOKIE['pmaServer-1'] = 'pmaServ1';
         $_COOKIE['pmaUser-1'] = 'pmaUser1';
         $_COOKIE['pma_iv-1'] = base64_encode('testiv09testiv09');
         $GLOBALS['cfg']['blowfish_secret'] = 'secret';
@@ -812,7 +803,7 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
         $this->object->storeUserCredentials();
 
         $this->assertTrue(
-            isset($_COOKIE['pmaServer-2'])
+            isset($_COOKIE['pmaAuth-2'])
         );
 
         // target can be "phpunit" or "ide-phpunit.php",
