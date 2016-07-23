@@ -154,7 +154,11 @@ class PMA_DBI_Mysqli implements PMA_DBI_Extension
 
         $link = mysqli_init();
 
-        mysqli_options($link, MYSQLI_OPT_LOCAL_INFILE, true);
+        if (defined('PMA_ENABLE_LDI')) {
+            mysqli_options($link, MYSQLI_OPT_LOCAL_INFILE, true);
+        } else {
+            mysqli_options($link, MYSQLI_OPT_LOCAL_INFILE, false);
+        }
 
         $client_flags = 0;
 
