@@ -11,6 +11,11 @@ use PMA\libraries\File;
 use PMA\libraries\URL;
 use PMA\libraries\Bookmark;
 
+/* Enable LOAD DATA LOCAL INFILE for LDI plugin */
+if (isset($_POST['format']) && $_POST['format'] == 'ldi') {
+    define('PMA_ENABLE_LDI', 1);
+}
+
 /**
  * Get the variables sent or posted to this script and a core script
  */
