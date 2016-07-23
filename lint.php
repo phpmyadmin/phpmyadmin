@@ -7,6 +7,8 @@
  */
 use PMA\libraries\Linter;
 
+$_GET['ajax_request'] = 'true';
+
 /**
  * Loading common files. Used to check for authorization, localization and to
  * load the parsing library.
