@@ -256,8 +256,6 @@ function PMA_changePassUrlParamsAndSubmitQuery(
             . " `plugin` = '" . $orig_auth_plugin . "'"
             . " WHERE `User` = '" . $username . "' AND Host = '"
             . $hostname . "';";
-
-        $GLOBALS['dbi']->tryQuery("FLUSH PRIVILEGES;");
     } else {
         $local_query = 'SET password = ' . (($password == '')
             ? '\'\''
@@ -272,6 +270,9 @@ function PMA_changePassUrlParamsAndSubmitQuery(
             $err_url
         );
     }
+
+    // Flush privileges after successful password change
+    $GLOBALS['dbi']->tryQuery("FLUSH PRIVILEGES;");
 }
 
 /**

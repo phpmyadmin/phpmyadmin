@@ -2061,8 +2061,6 @@ function PMA_updatePassword($err_url, $username, $hostname)
                 . " `plugin` = '" . $authentication_plugin . "'"
                 . " WHERE `User` = '" . $username . "' AND Host = '"
                 . $hostname . "';";
-
-            $GLOBALS['dbi']->tryQuery("FLUSH PRIVILEGES;");
         } else {
             // USE 'SET PASSWORD ...' syntax for rest of the versions
             // Backup the old value, to be reset later
@@ -2083,8 +2081,8 @@ function PMA_updatePassword($err_url, $username, $hostname)
                     false, $err_url
                 );
             }
-
             $GLOBALS['dbi']->tryQuery("FLUSH PRIVILEGES;");
+
             if ($authentication_plugin == 'mysql_native_password') {
                 // Set the hashing method used by PASSWORD()
                 // to be 'mysql_native_password' type
@@ -2114,6 +2112,9 @@ function PMA_updatePassword($err_url, $username, $hostname)
                 $GLOBALS['dbi']->getError(), $sql_query, false, $err_url
             );
         }
+        // Flush privileges after successful password change
+        $GLOBALS['dbi']->tryQuery("FLUSH PRIVILEGES;");
+
         $message = Message::success(
             __('The password for %s was changed successfully.')
         );
