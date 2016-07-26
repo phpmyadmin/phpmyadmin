@@ -317,7 +317,7 @@ if ($server > 0 && $GLOBALS['cfg']['ShowServerInfo']) {
        . ' </div>';
 }
 
-if ($GLOBALS['cfg']['ShowServerInfo'] || $GLOBALS['cfg']['ShowPhpInfo']) {
+if ($GLOBALS['cfg']['ShowServerInfo']) {
     echo '<div class="group">';
     echo '<h2>' , __('Web server') , '</h2>';
     echo '<ul>';
@@ -357,15 +357,6 @@ if ($GLOBALS['cfg']['ShowServerInfo'] || $GLOBALS['cfg']['ShowPhpInfo']) {
         }
     }
 
-    if ($cfg['ShowPhpInfo']) {
-        PMA_printListItem(
-            __('Show PHP information'),
-            'li_phpinfo',
-            'phpinfo.php' . $common_url_query,
-            null,
-            '_blank'
-        );
-    }
     echo '  </ul>';
     echo ' </div>';
 }
