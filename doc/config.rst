@@ -3165,4 +3165,5 @@ server certificates and tell phpMyAdmin to use them:
     :config:option:`$cfg['Servers'][$i]['ssl_key']`,
     :config:option:`$cfg['Servers'][$i]['ssl_cert']`,
     :config:option:`$cfg['Servers'][$i]['ssl_ca']`,
-    :config:option:`$cfg['Servers'][$i]['ssl_verify']`
+    :config:option:`$cfg['Servers'][$i]['ssl_verify']`,
+    <https://bugs.php.net/bug.php?id=72048>
