@@ -36,7 +36,6 @@ use PMA\libraries\Sanitize;
 class PMA_HeaderLocation_Test extends PHPUnit_Framework_TestCase
 {
 
-    protected $oldIISvalue;
     protected $runkitExt;
     protected $apdExt;
 
@@ -49,14 +48,6 @@ class PMA_HeaderLocation_Test extends PHPUnit_Framework_TestCase
     {
         //session_start();
 
-        // cleaning constants
-        if (PMA_HAS_RUNKIT) {
-
-            $this->oldIISvalue = 'non-defined';
-
-            $defined_constants = get_defined_constants(true);
-            $user_defined_constants = $defined_constants['user'];
-        }
         $GLOBALS['server'] = 0;
         $GLOBALS['PMA_Config'] = new PMA\libraries\Config();
         $GLOBALS['PMA_Config']->enableBc();

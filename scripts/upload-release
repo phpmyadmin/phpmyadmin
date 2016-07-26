@@ -43,6 +43,16 @@ put phpMyAdmin-$REL-all-languages.zip.asc
 put phpMyAdmin-$REL-english.zip.asc
 put phpMyAdmin-$REL-all-languages.7z.asc
 put phpMyAdmin-$REL-english.7z.asc
+put phpMyAdmin-$REL-all-languages.tar.bz2.sha256
+put phpMyAdmin-$REL-english.tar.bz2.sha256
+put phpMyAdmin-$REL-all-languages.tar.xz.sha256
+put phpMyAdmin-$REL-english.tar.xz.sha256
+put phpMyAdmin-$REL-all-languages.tar.gz.sha256
+put phpMyAdmin-$REL-english.tar.gz.sha256
+put phpMyAdmin-$REL-all-languages.zip.sha256
+put phpMyAdmin-$REL-english.zip.sha256
+put phpMyAdmin-$REL-all-languages.7z.sha256
+put phpMyAdmin-$REL-english.7z.sha256
 put phpMyAdmin-$REL-all-languages.tar.bz2.sha1
 put phpMyAdmin-$REL-english.tar.bz2.sha1
 put phpMyAdmin-$REL-all-languages.tar.xz.sha1
