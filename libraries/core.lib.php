@@ -508,16 +508,6 @@ function PMA_sendHeaderLocation($uri, $use_refresh = false)
 
     $response = PMA\libraries\Response::getInstance();
 
-    if (SID) {
-        if (mb_strpos($uri, '?') === false) {
-            $response->header('Location: ' . $uri . '?' . SID);
-        } else {
-            $separator = PMA_URL_getArgSeparator();
-            $response->header('Location: ' . $uri . $separator . SID);
-        }
-        return;
-    }
-
     session_write_close();
     if ($response->headersSent()) {
         trigger_error(

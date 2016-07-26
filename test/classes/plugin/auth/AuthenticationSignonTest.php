@@ -84,7 +84,7 @@ class AuthenticationSignonTest extends PMATestCase
 
         $mockResponse->expects($this->once())
             ->method('header')
-            ->with('Location: http://phpmyadmin.net/logoutURL' . ((SID) ? '?' . SID : ''));
+            ->with('Location: http://phpmyadmin.net/logoutURL');
 
         $attrInstance = new ReflectionProperty('PMA\libraries\Response', '_instance');
         $attrInstance->setAccessible(true);
@@ -118,7 +118,7 @@ class AuthenticationSignonTest extends PMATestCase
 
         $mockResponse->expects($this->once())
             ->method('header')
-            ->with('Location: http://phpmyadmin.net/SignonURL' . ((SID) ? '?' . SID : ''));
+            ->with('Location: http://phpmyadmin.net/SignonURL');
 
         $attrInstance = new ReflectionProperty('PMA\libraries\Response', '_instance');
         $attrInstance->setAccessible(true);
@@ -203,7 +203,7 @@ class AuthenticationSignonTest extends PMATestCase
 
         $mockResponse->expects($this->once())
             ->method('header')
-            ->with('Location: http://phpmyadmin.net/SignonURL' . ((SID) ? '?' . SID : ''));
+            ->with('Location: http://phpmyadmin.net/SignonURL');
 
         $attrInstance = new ReflectionProperty('PMA\libraries\Response', '_instance');
         $attrInstance->setAccessible(true);

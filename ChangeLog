@@ -7,6 +7,7 @@ phpMyAdmin - ChangeLog
 - issue        Fixed invalid Content-Length in some HTTP responses
 - issue #12394 Create view should require a view name
 - issue #12391 Message with 'Change password successfully' displayed, but does not take effect
+- issue        Tighthen control on PHP sessions and session cookies
 
 4.6.3 (2016-06-23)
 - issue #12249 Fixed cookie path on Windows
