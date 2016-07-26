@@ -37,7 +37,7 @@ if (empty($title)) {
 ): ?>
     <p style="font-size:80%;margin:5px 2px"
        id="central_columns_<?= $columnNumber; ?>_<?= ($ci - $ci_offset); ?>">
-        <a data-maxrows="<?= $GLOBALS['cfg']['MaxRows']; ?>"
+        <a data-maxrows="<?= intval($GLOBALS['cfg']['MaxRows']); ?>"
            href="#"
            class="central_columns_dialog">
             <?= __('Pick from Central Columns'); ?>

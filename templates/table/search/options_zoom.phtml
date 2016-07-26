@@ -41,8 +41,8 @@
                    id="maxRowPlotLimit"
                    required="required"
                    value="<?= ((! empty($_POST['maxPlotLimit']))
-                       ? htmlspecialchars($_POST['maxPlotLimit'])
-                       : $GLOBALS['cfg']['maxRowPlotLimit']); ?>" />
+                       ? intval($_POST['maxPlotLimit'])
+                       : intval($GLOBALS['cfg']['maxRowPlotLimit'])); ?>" />
         </td>
     </tr>
 </table>
