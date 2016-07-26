@@ -112,6 +112,9 @@ function PMA_setChangePasswordMsg()
         } elseif ($_REQUEST['pma_pw'] != $_REQUEST['pma_pw2']) {
             $message = PMA_Message::error(__('The passwords aren\'t the same!'));
             $error = true;
+        } elseif (strlen($_REQUEST['pma_pw']) > 256) {
+            $message = PMA_Message::error(__('Password is too long!'));
+            $error = true;
         }
     }
     return array('error' => $error, 'msg' => $message);
