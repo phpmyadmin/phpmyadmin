@@ -43,15 +43,14 @@ if (!empty($path)) {
     session_save_path($path);
 }
 
-// but not all user allow cookies
-@ini_set('session.use_only_cookies', 'false');
-// do not force transparent session ids, see bug #3398788
-//@ini_set('session.use_trans_sid', 'true');
-@ini_set(
-    'url_rewriter.tags',
-    'a=href,frame=src,input=src,form=fakeentry,fieldset='
-);
-//ini_set('arg_separator.output', '&amp;');
+// use cookies only
+@ini_set('session.use_only_cookies', '1');
+// strict session mode (do not accept random string as session ID)
+@ini_set('session.use_strict_mode', '1');
+// make the session cookie HttpOnly
+@ini_set('session.cookie_httponly', '1');
+// do not force transparent session ids
+@ini_set('session.use_trans_sid', '0');
 
 // delete session/cookies when browser is closed
 @ini_set('session.cookie_lifetime', '0');
