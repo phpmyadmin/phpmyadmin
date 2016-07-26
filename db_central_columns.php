@@ -64,7 +64,7 @@ $scripts->addFile('db_central_columns.js');
 $cfgCentralColumns = PMA_centralColumnsGetParams();
 $pmadb = $cfgCentralColumns['db'];
 $pmatable = $cfgCentralColumns['table'];
-$max_rows = $GLOBALS['cfg']['MaxRows'];
+$max_rows = intval($GLOBALS['cfg']['MaxRows']);
 
 if (isset($_REQUEST['edit_central_columns_page'])) {
     $selected_fld = $_REQUEST['selected_fld'];

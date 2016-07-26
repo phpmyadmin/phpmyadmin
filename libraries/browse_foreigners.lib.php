@@ -341,5 +341,5 @@ function PMA_getForeignLimit($foreign_showAll)
         return null;
     }
     isset($_REQUEST['pos']) ? $pos = $_REQUEST['pos'] : $pos = 0;
-    return 'LIMIT ' . $pos . ', ' . $GLOBALS['cfg']['MaxRows'] . ' ';
+    return 'LIMIT ' . $pos . ', ' . intval($GLOBALS['cfg']['MaxRows']) . ' ';
 }
