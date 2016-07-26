@@ -391,7 +391,7 @@ class AuthenticationCookieTest extends PMATestCase
 
         $mockResponse->expects($this->once())
             ->method('header')
-            ->with('Location: http://www.phpmyadmin.net/logout' . ((SID) ? '?' . SID : ''));
+            ->with('Location: http://www.phpmyadmin.net/logout');
 
         $attrInstance = new ReflectionProperty('PMA\libraries\Response', '_instance');
         $attrInstance->setAccessible(true);
@@ -464,7 +464,7 @@ class AuthenticationCookieTest extends PMATestCase
 
         $mockResponse->expects($this->once())
             ->method('header')
-            ->with('Location: /phpmyadmin/index.php' . ((SID) ? '?' . SID : ''));
+            ->with('Location: /phpmyadmin/index.php');
 
         $attrInstance = new ReflectionProperty('PMA\libraries\Response', '_instance');
         $attrInstance->setAccessible(true);
@@ -507,7 +507,7 @@ class AuthenticationCookieTest extends PMATestCase
 
         $mockResponse->expects($this->once())
             ->method('header')
-            ->with('Location: /phpmyadmin/index.php' . ((SID) ? '?' . SID : ''));
+            ->with('Location: /phpmyadmin/index.php');
 
         $attrInstance = new ReflectionProperty('PMA\libraries\Response', '_instance');
         $attrInstance->setAccessible(true);
