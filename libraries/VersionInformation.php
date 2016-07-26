@@ -47,6 +47,9 @@ class VersionInformation
             $response = $_SESSION['cache']['version_check']['response'];
         } else {
             $save = true;
+            if (! defined('TESTSUITE')) {
+                session_write_close();
+            }
             $file = 'https://www.phpmyadmin.net/home_page/version.json';
             if (function_exists('curl_init')) {
                 $curl_handle = curl_init($file);
@@ -69,9 +72,6 @@ class VersionInformation
                     CURLOPT_TIMEOUT,
                     $connection_timeout
                 );
-                if (! defined('TESTSUITE')) {
-                    session_write_close();
-                }
                 $response = curl_exec($curl_handle);
             } else if (ini_get('allow_url_fopen')) {
                 $context = array(
@@ -81,9 +81,6 @@ class VersionInformation
                     )
                 );
                 $context = Util::handleContext($context);
-                if (! defined('TESTSUITE')) {
-                    session_write_close();
-                }
                 $response = file_get_contents(
                     $file,
                     false,
@@ -106,10 +103,6 @@ class VersionInformation
 
         if ($save) {
             if (! isset($_SESSION) && ! defined('TESTSUITE')) {
-                ini_set('session.use_only_cookies', 'false');
-                ini_set('session.use_cookies', 'false');
-                ini_set('session.use_trans_sid', 'false');
-                ini_set('session.cache_limiter', 'nocache');
                 session_start();
             }
             $_SESSION['cache']['version_check'] = array(
