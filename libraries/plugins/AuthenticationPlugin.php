@@ -109,7 +109,7 @@ abstract class AuthenticationPlugin
         } elseif (!empty($GLOBALS['no_activity'])) {
             return sprintf(
                 __('No activity within %s seconds; please log in again.'),
-                $GLOBALS['cfg']['LoginCookieValidity']
+                intval($GLOBALS['cfg']['LoginCookieValidity'])
             );
         } else {
             $dbi_error = $GLOBALS['dbi']->getError();

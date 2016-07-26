@@ -112,7 +112,7 @@ class ServerBinlogController extends Controller
         if (! empty($_REQUEST['log'])) {
             $sql_query .= ' IN \'' . $_REQUEST['log'] . '\'';
         }
-        $sql_query .= ' LIMIT ' . $pos . ', ' . (int) $GLOBALS['cfg']['MaxRows'];
+        $sql_query .= ' LIMIT ' . $pos . ', ' . intval($GLOBALS['cfg']['MaxRows']);
 
         /**
          * Sends the query
