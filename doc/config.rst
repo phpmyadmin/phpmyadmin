@@ -804,7 +804,6 @@ Server connection settings
 
     This feature can be disabled by setting the configuration to ``false``.
 
-.. _configurablemenus:
 .. config:option:: $cfg['Servers'][$i]['users']
 
     :type: string or false
@@ -829,6 +828,8 @@ Server connection settings
       :config:option:`$cfg['Servers'][$i]['usergroups']` (e.g. ``pma__usergroups``)
 
     This feature can be disabled by setting either of the configurations to ``false``.
+
+    .. seealso:: :ref:`configurablemenus`
 
 .. _navigationhiding:
 .. config:option:: $cfg['Servers'][$i]['navigationhiding']
