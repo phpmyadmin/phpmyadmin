@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-05-23 14:29+0200\n"
-"PO-Revision-Date: 2016-07-03 16:17+0000\n"
-"Last-Translator: Franco <fulanodetal.github1@openaliasbox.org>\n"
+"PO-Revision-Date: 2016-07-27 00:30+0000\n"
+"Last-Translator: jorge jansen abreu <condecalifornia@hotmail.com>\n"
 "Language-Team: Spanish "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-6/es/>\n"
 "Language: es\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.7-dev\n"
+"X-Generator: Weblate 2.8-dev\n"
 
 #: changelog.php:37 license.php:33
 #, php-format
@@ -3232,10 +3232,9 @@ msgid "Switch to dark theme"
 msgstr "Cambiar al tema oscuro"
 
 #: libraries/DatabaseInterface.php:1548
-#, fuzzy
 #| msgid "Failed to read configuration file!"
 msgid "Failed to set configured collation connection!"
-msgstr "¡Fallo al definir el archivo de configuración de cotejamiento!"
+msgstr "¡Fallo al definir la conexión de colacion configurada!"
 
 #: libraries/DatabaseInterface.php:2159
 msgid ""
@@ -15278,7 +15277,6 @@ msgid "Tracking is not active."
 msgstr "El seguimiento no está activo."
 
 #: templates/error/report_form.phtml:7
-#, fuzzy
 #| msgid ""
 #| "phpMyAdmin has encountered an error. We have collected data about this "
 #| "error as well as information about relevant configuration settings to "
@@ -15288,9 +15286,9 @@ msgid ""
 "about relevant configuration settings. It will be sent to the phpMyAdmin "
 "team for debugging the error."
 msgstr ""
-"phpMyAdmin encontró un error. Hemos recolectado datos sobre este error así "
-"como información relevante de configuración para enviar al equipo de "
-"phpMyAdmin y ayudarnos a investigar el problema."
+"Este reporte automaticamente incluye datos acerca del error e información "
+"acerca de ajustes de configuración relevantes. Será enviado al equipo "
+"phpMyAdmin para depurar el error."
 
 #: templates/error/report_form.phtml:14
 msgid ""
@@ -16049,10 +16047,9 @@ msgstr ""
 "Versión menor a 5.5.8 (la primer versión de 5.5 disponible públicamente)."
 
 #: libraries/advisory_rules.txt:118
-#, fuzzy
 #| msgid "You should upgrade, to a stable version of MySQL 5.5"
 msgid "You should upgrade, to a stable version of MySQL 5.5."
-msgstr "Debería actualizar a una versión estable de MySQL 5.5"
+msgstr "Usted debería actualizar a una versión estable de MySQL 5.5."
 
 #: libraries/advisory_rules.txt:121 libraries/advisory_rules.txt:128
 msgid "Distribution"
@@ -16364,7 +16361,6 @@ msgid "Too many sorts are causing temporary tables."
 msgstr "Demasiadas ordenaciones causan tablas temporales."
 
 #: libraries/advisory_rules.txt:208 libraries/advisory_rules.txt:215
-#, fuzzy
 #| msgid ""
 #| "Consider increasing {sort_buffer_size} and/or {read_rnd_buffer_size}, "
 #| "depending on your system memory limits"
@@ -16373,7 +16369,7 @@ msgid ""
 "depending on your system memory limits."
 msgstr ""
 "Considere aumentar {sort_buffer_size} y/o {read_rnd_buffer_size} dependiendo "
-"de los límites de memoria del sistema"
+"de los límites de memoria de su sistema."
 
 #: libraries/advisory_rules.txt:209
 #, php-format
