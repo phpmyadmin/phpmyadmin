@@ -1422,18 +1422,21 @@ Generic settings
     :type: boolean
     :default: false
 
+    .. warning::
+
+        This is not a security measure as there will be always ways to
+        circumvent this. If you want to prohibit users from dropping databases,
+        revoke them corresponding DROP privilege.
+
     Defines whether normal users (non-administrator) are allowed to delete
     their own database or not. If set as false, the link :guilabel:`Drop
     Database` will not be shown, and even a ``DROP DATABASE mydatabase`` will
     be rejected. Quite practical for :term:`ISP` 's with many customers.
 
-    .. note::
-
-        This limitation of :term:`SQL` queries is not
-        as strict as when using MySQL privileges. This is due to nature of
-        :term:`SQL` queries which might be quite
-        complicated.  So this choice should be viewed as help to avoid accidental
-        dropping rather than strict privilege limitation.
+    This limitation of :term:`SQL` queries is not as strict as when using MySQL
+    privileges. This is due to nature of :term:`SQL` queries which might be
+    quite complicated.  So this choice should be viewed as help to avoid
+    accidental dropping rather than strict privilege limitation.
 
 .. config:option:: $cfg['Confirm']
 
