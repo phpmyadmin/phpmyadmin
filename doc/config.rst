@@ -2701,8 +2701,25 @@ SQL query box settings
 
     Whether to display a link to refresh a query in any SQL Query box.
 
+.. _web-dirs:
+
 Web server upload/save/import directories
 -----------------------------------------
+
+If PHP is running in safe mode, all directories must be owned by the same user
+as the owner of the phpMyAdmin scripts.
+
+If the directory where phpMyAdmin is installed is subject to an
+``open_basedir`` restriction, you need to create a temporary directory in some
+directory accessible by the PHP interpreter.
+
+For security reasons, all directories should be outside the tree published by
+webserver. If you cannot avoid having this directory published by webserver,
+limit access to it either by web server configuration (for example using
+.htaccess or web.config files) or place at least an empty :file:`index.html`
+file there, so that directory listing is not possible. However as long as the
+directory is accessible by web server, attacker can guess filenames to download
+the files.
 
 .. config:option:: $cfg['UploadDir']
 
@@ -2726,11 +2743,14 @@ Web server upload/save/import directories
     uploaded via :term:`HTTP`, or when file
     uploads are disabled in PHP.
 
-    .. note::
+    .. warning::
 
-        If PHP is running in safe mode, this directory must be owned by the same
-        user as the owner of the phpMyAdmin scripts.  See also :ref:`faq1_16` for
-        alternatives.
+        Please see top of this chapter (:ref:`web-dirs`) for instructions how
+        to setup this directory and how to make it's usage secure.
+
+    .. seealso::
+
+        See :ref:`faq1_16` for alternatives.
 
 .. config:option:: $cfg['SaveDir']
 
@@ -2745,10 +2765,10 @@ Web server upload/save/import directories
     Please note that the directory must exist and has to be writable for
     the user running webserver.
 
-    .. note::
+    .. warning::
 
-        If PHP is running in safe mode, this directory must be owned by the same
-        user as the owner of the phpMyAdmin scripts.
+        Please see top of this chapter (:ref:`web-dirs`) for instructions how
+        to setup this directory and how to make it's usage secure.
 
 .. config:option:: $cfg['TempDir']
 
@@ -2761,21 +2781,12 @@ Web server upload/save/import directories
     work around limitations of ``open_basedir`` for uploaded files, see
     :ref:`faq1_11`.
 
-    If the directory where phpMyAdmin is installed is
-    subject to an ``open_basedir`` restriction, you need to create a
-    temporary directory in some directory accessible by the web server.
-    However for security reasons, this directory should be outside the
-    tree published by webserver. If you cannot avoid having this directory
-    published by webserver, place at least an empty :file:`index.html` file
-    there, so that directory listing is not possible.
-
     This directory should have as strict permissions as possible as the only
     user required to access this directory is the one who runs the webserver.
     If you have root privileges, simply make this user owner of this directory
     and make it accessible only by it:
 
     .. code-block:: sh
-
 
         chown www-data:www-data tmp
         chmod 700 tmp
@@ -2792,6 +2803,11 @@ Web server upload/save/import directories
     If neither of above works for you, you can still make the directory
     :command:`chmod 777`, but it might impose risk of other users on system
     reading and writing data in this directory.
+
+    .. warning::
+
+        Please see top of this chapter (:ref:`web-dirs`) for instructions how
+        to setup this directory and how to make it's usage secure.
 
 Various display setting
 -----------------------
