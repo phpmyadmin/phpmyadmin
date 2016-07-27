@@ -7549,12 +7549,12 @@ msgstr "ซ่อมแซมตาราง"
 #: libraries/config/messages.inc.php:752
 #, fuzzy
 #| msgid ""
-#| "See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
+#| "See [a@https://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
 #| "types[/a] for an example"
 msgid ""
 "See [doc@authentication-modes]authentication types[/doc] for an example."
 msgstr ""
-"ดูตัวอย่าง [a@http://wiki.phpmyadmin.net/pma/"
+"ดูตัวอย่าง [a@https://wiki.phpmyadmin.net/pma/"
 "auth_types#signon]ประเภทของการรับรองความถูกต้อง[/a]"
 
 #: libraries/config/messages.inc.php:755

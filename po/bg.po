@@ -7136,13 +7136,13 @@ msgstr "Парола на контролен потребител"
 #, fuzzy
 #| msgid ""
 #| "A special MySQL user configured with limited permissions, more "
-#| "information available on [a@http://wiki.phpmyadmin.net/pma/"
+#| "information available on [a@https://wiki.phpmyadmin.net/pma/"
 #| "controluser]wiki[/a]"
 msgid ""
 "A special MySQL user configured with limited permissions, more information "
 "available on [doc@linked-tables]documentation[/doc]."
 msgstr ""
-"Специален MySQL потребител с ограничени права, [a@http://wiki.phpmyadmin.net/"
+"Специален MySQL потребител с ограничени права, [a@https://wiki.phpmyadmin.net/"
 "pma/controluser]още информация[/a]"
 
 #: libraries/config/messages.inc.php:663
@@ -7373,12 +7373,12 @@ msgstr "Таблица за връзка"
 #: libraries/config/messages.inc.php:752
 #, fuzzy
 #| msgid ""
-#| "See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
+#| "See [a@https://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
 #| "types[/a] for an example"
 msgid ""
 "See [doc@authentication-modes]authentication types[/doc] for an example."
 msgstr ""
-"За примери посетете [a@http://wiki.phpmyadmin.net/pma/"
+"За примери посетете [a@https://wiki.phpmyadmin.net/pma/"
 "auth_types#signon]видове удостоверяване[/a]"
 
 #: libraries/config/messages.inc.php:755

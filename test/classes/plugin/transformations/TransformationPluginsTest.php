@@ -863,10 +863,10 @@ class TransformationPluginsTest extends PMATestCase
             array(
                 new Text_Plain_Formatted(),
                 array(
-                    "<a ref='http://ci.phpmyadmin.net/'>PMA_BUFFER</a>",
+                    "<a ref='https://ci.phpmyadmin.net/'>PMA_BUFFER</a>",
                     array("option1", "option2")
                 ),
-                "<a ref='http://ci.phpmyadmin.net/'>PMA_BUFFER</a>"
+                "<a ref='https://ci.phpmyadmin.net/'>PMA_BUFFER</a>"
             ),
             array(
                 new Text_Plain_Imagelink(),

@@ -173,7 +173,7 @@ AJAX.registerOnload('tbl_structure.js', function () {
                 // If Collation is changed, Warn and Confirm
                 if (checkIfConfirmRequired($form, field_cnt)){
                     var question = sprintf(
-                        PMA_messages.strChangeColumnCollation, 'http://wiki.phpmyadmin.net/pma/Garbled_data'
+                        PMA_messages.strChangeColumnCollation, 'https://wiki.phpmyadmin.net/pma/Garbled_data'
                     );
                     $form.PMA_confirm(question, $form.attr('action'), function (url) {
                         submitForm();

@@ -7899,13 +7899,13 @@ msgstr "Аутентификация усули"
 #: libraries/config/messages.inc.php:644
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/"
+#| "Leave blank for no [a@https://wiki.phpmyadmin.net/pma/bookmark]bookmark[/"
 #| "a] support, suggested: [kbd]pma_bookmark[/kbd]"
 msgid ""
 "Leave blank for no [doc@bookmarks@]bookmark[/doc] support, suggested: "
 "[kbd]pma__bookmark[/kbd]"
 msgstr ""
-"[a@http://wiki.phpmyadmin.net/pma/bookmark]Хатчўп[/a] ишлатмаслик учун бўш "
+"[a@https://wiki.phpmyadmin.net/pma/bookmark]Хатчўп[/a] ишлатмаслик учун бўш "
 "қолдиринг, асли: [kbd]pma_bookmark[/kbd]"
 
 #: libraries/config/messages.inc.php:647
@@ -7956,14 +7956,14 @@ msgstr "Назорат фойдаланувчиси пароли"
 #, fuzzy
 #| msgid ""
 #| "A special MySQL user configured with limited permissions, more "
-#| "information available on [a@http://wiki.phpmyadmin.net/pma/"
+#| "information available on [a@https://wiki.phpmyadmin.net/pma/"
 #| "controluser]wiki[/a]"
 msgid ""
 "A special MySQL user configured with limited permissions, more information "
 "available on [doc@linked-tables]documentation[/doc]."
 msgstr ""
 "Чекланган ҳуқуқларга эга бўлган махсус \"MySQL\" фойдаланувчиси тузилган, "
-"батафсил маълумот [a@http://wiki.phpmyadmin.net/pma/controluser]\"wiki\"[/"
+"батафсил маълумот [a@https://wiki.phpmyadmin.net/pma/controluser]\"wiki\"[/"
 "a]да мавжуд"
 
 #: libraries/config/messages.inc.php:663
@@ -8178,7 +8178,7 @@ msgid ""
 "Suggested: [kbd]phpmyadmin[/kbd]."
 msgstr ""
 "Алоқалар, хатчўплар ва PDF имкониятлари учун ишлатиладиган база.  Батафсил "
-"маълумот учун [a@http://wiki.phpmyadmin.net/pma/pmadb]\"pmadb\"[/a]га "
+"маълумот учун [a@https://wiki.phpmyadmin.net/pma/pmadb]\"pmadb\"[/a]га "
 "қаранг. Агар фойдаланмасангиз, бўшқолдиринг. Асл қиймати: [kbd]\"phpmyadmin"
 "\"[/kbd]"
 
@@ -8237,13 +8237,13 @@ msgstr "Ўзгарувчилар"
 #: libraries/config/messages.inc.php:746
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
+#| "Leave blank for no [a@https://wiki.phpmyadmin.net/pma/relation]relation-"
 #| "links[/a] support, suggested: [kbd]pma_relation[/kbd]"
 msgid ""
 "Leave blank for no [doc@relations@]relation-links[/doc] support, suggested: "
 "[kbd]pma__relation[/kbd]."
 msgstr ""
-"[a@http://wiki.phpmyadmin.net/pma/relation]Алоқа боғланишлари[/a]ни "
+"[a@https://wiki.phpmyadmin.net/pma/relation]Алоқа боғланишлари[/a]ни "
 "ишлатмаслик учун, бўш қолдиринг, асл қиймати: [kbd]\"pma_relation\"[/kbd]"
 
 #: libraries/config/messages.inc.php:750
@@ -8253,12 +8253,12 @@ msgstr "Алоқалар жадвали"
 #: libraries/config/messages.inc.php:752
 #, fuzzy
 #| msgid ""
-#| "See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
+#| "See [a@https://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
 #| "types[/a] for an example"
 msgid ""
 "See [doc@authentication-modes]authentication types[/doc] for an example."
 msgstr ""
-"Намуна  учун [a@http://wiki.phpmyadmin.net/pma/"
+"Намуна  учун [a@https://wiki.phpmyadmin.net/pma/"
 "auth_types#signon]аутентификация усуллари[/a]га қаранг"
 
 #: libraries/config/messages.inc.php:755

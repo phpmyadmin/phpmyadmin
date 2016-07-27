@@ -6946,13 +6946,13 @@ msgstr "Тип идентификации"
 #: libraries/config/messages.inc.php:644
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/"
+#| "Leave blank for no [a@https://wiki.phpmyadmin.net/pma/bookmark]bookmark[/"
 #| "a] support, suggested: [kbd]pma__bookmark[/kbd]"
 msgid ""
 "Leave blank for no [doc@bookmarks@]bookmark[/doc] support, suggested: "
 "[kbd]pma__bookmark[/kbd]"
 msgstr ""
-"Для отключения поддержки [a@http://wiki.phpmyadmin.net/pma/"
+"Для отключения поддержки [a@https://wiki.phpmyadmin.net/pma/"
 "bookmark]закладок[/a] оставьте поле пустым, рекомендуется: "
 "[kbd]pma__bookmark[/kbd]"
 
@@ -6996,14 +6996,14 @@ msgstr "Пароль выделенного пользователя"
 #, fuzzy
 #| msgid ""
 #| "A special MySQL user configured with limited permissions, more "
-#| "information available on [a@http://wiki.phpmyadmin.net/pma/"
+#| "information available on [a@https://wiki.phpmyadmin.net/pma/"
 #| "controluser]wiki[/a]."
 msgid ""
 "A special MySQL user configured with limited permissions, more information "
 "available on [doc@linked-tables]documentation[/doc]."
 msgstr ""
 "Специальный пользователь MySQL с ограниченными привилегиями. Подробнее: "
-"[a@http://wiki.phpmyadmin.net/pma/controluser]wiki[/a]."
+"[a@https://wiki.phpmyadmin.net/pma/controluser]wiki[/a]."
 
 #: libraries/config/messages.inc.php:663
 msgid "Control user"
@@ -7190,7 +7190,7 @@ msgid ""
 "Suggested: [kbd]phpmyadmin[/kbd]."
 msgstr ""
 "База данных, используемая для расширенных функций: связей, закладок и PDF. "
-"Для более полной информации смотрите [a@http://wiki.phpmyadmin.net/pma/"
+"Для более полной информации смотрите [a@https://wiki.phpmyadmin.net/pma/"
 "pmadb]pmadb[/a]. Для отключения поддержки оставьте поле пустым. "
 "Рекомендуется: [kbd]phpmyadmin[/kbd]."
 
@@ -7238,13 +7238,13 @@ msgstr "Таблица избранных"
 #: libraries/config/messages.inc.php:746
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
+#| "Leave blank for no [a@https://wiki.phpmyadmin.net/pma/relation]relation-"
 #| "links[/a] support, suggested: [kbd]pma__relation[/kbd]."
 msgid ""
 "Leave blank for no [doc@relations@]relation-links[/doc] support, suggested: "
 "[kbd]pma__relation[/kbd]."
 msgstr ""
-"Для отключения поддержки [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
+"Для отключения поддержки [a@https://wiki.phpmyadmin.net/pma/relation]relation-"
 "links[/a] оставьте поле пустым, рекомендуется: [kbd]pma__relation[/kbd]."
 
 #: libraries/config/messages.inc.php:750
@@ -7254,12 +7254,12 @@ msgstr "Таблица связей"
 #: libraries/config/messages.inc.php:752
 #, fuzzy
 #| msgid ""
-#| "See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
+#| "See [a@https://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
 #| "types[/a] for an example."
 msgid ""
 "See [doc@authentication-modes]authentication types[/doc] for an example."
 msgstr ""
-"Для примера смотрите раздел [a@http://wiki.phpmyadmin.net/pma/"
+"Для примера смотрите раздел [a@https://wiki.phpmyadmin.net/pma/"
 "auth_types#signon]authentication types[/a]."
 
 #: libraries/config/messages.inc.php:755
