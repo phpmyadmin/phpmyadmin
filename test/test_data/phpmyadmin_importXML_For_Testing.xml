@@ -2,7 +2,7 @@
 <!--
 - phpMyAdmin XML Dump FOR testing
 - version 4.1-dev
-- http://www.phpmyadmin.net
+- https://www.phpmyadmin.net
 -
 - Host: 127.0.0.1
 - Generation Time: Jun 15, 2013 at 02:59 PM
@@ -10,7 +10,7 @@
 - PHP Version: 5.4.7
 -->
 
-<pma_xml_export version="1.0" xmlns:pma="http://www.phpmyadmin.net/some_doc_url/">
+<pma_xml_export version="1.0" xmlns:pma="https://www.phpmyadmin.net/some_doc_url/">
     <!--
     - Structure schemas
     -->

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2016-05-23 14:30+0200\n"
+"POT-Creation-Date: 2016-05-23 14:29+0200\n"
 "PO-Revision-Date: 2016-05-19 19:28+0000\n"
 "Last-Translator: Daniel Linjama <daniel@linjama.com>\n"
 "Language-Team: Finnish <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -6972,13 +6972,13 @@ msgstr "Todennustyyppi"
 #: libraries/config/messages.inc.php:640
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/"
+#| "Leave blank for no [a@https://wiki.phpmyadmin.net/pma/bookmark]bookmark[/"
 #| "a] support, suggested: [kbd]pma__bookmark[/kbd]"
 msgid ""
 "Leave blank for no [doc@bookmarks@]bookmark[/doc] support, suggested: "
 "[kbd]pma__bookmark[/kbd]"
 msgstr ""
-"Jätä tyhjäksi, jos et halua [a@http://wiki.phpmyadmin.net/pma/"
+"Jätä tyhjäksi, jos et halua [a@https://wiki.phpmyadmin.net/pma/"
 "bookmark]kirjanmerkki[/a]tukea, oletusarvo: [kbd]pma__bookmark[/kbd]"
 
 #: libraries/config/messages.inc.php:643
@@ -7022,14 +7022,14 @@ msgstr "Hallintakäyttäjän salasana"
 #, fuzzy
 #| msgid ""
 #| "A special MySQL user configured with limited permissions, more "
-#| "information available on [a@http://wiki.phpmyadmin.net/pma/"
+#| "information available on [a@https://wiki.phpmyadmin.net/pma/"
 #| "controluser]wiki[/a]."
 msgid ""
 "A special MySQL user configured with limited permissions, more information "
 "available on [doc@linked-tables]documentation[/doc]."
 msgstr ""
 "Erityinen MySQL-käyttäjä, jolle on määritetty rajatut käyttöoikeudet, "
-"lisätietoja saatavilla [a@http://wiki.phpmyadmin.net/pma/"
+"lisätietoja saatavilla [a@https://wiki.phpmyadmin.net/pma/"
 "controluser]wikissä[/a]."
 
 #: libraries/config/messages.inc.php:659
@@ -7208,7 +7208,7 @@ msgid ""
 "Suggested: [kbd]phpmyadmin[/kbd]."
 msgstr ""
 "Relaatioihin, kirjanmerkkeihin ja PDF-ominaisuuksiin käytettävä tietokanta. "
-"Katso täydet tiedot aiheesta [a@http://wiki.phpmyadmin.net/pma/pmadb]pmadb[/"
+"Katso täydet tiedot aiheesta [a@https://wiki.phpmyadmin.net/pma/pmadb]pmadb[/"
 "a]. Jätä tyhjäksi jos et halua tukea. Oletusarvo: [kbd]phpmyadmin[/kbd]."
 
 #: libraries/config/messages.inc.php:727
@@ -7252,13 +7252,13 @@ msgstr "Suosikkitaulut"
 #: libraries/config/messages.inc.php:742
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
+#| "Leave blank for no [a@https://wiki.phpmyadmin.net/pma/relation]relation-"
 #| "links[/a] support, suggested: [kbd]pma__relation[/kbd]."
 msgid ""
 "Leave blank for no [doc@relations@]relation-links[/doc] support, suggested: "
 "[kbd]pma__relation[/kbd]."
 msgstr ""
-"Jätä tyhjäksi jos et halua [a@http://wiki.phpmyadmin.net/pma/"
+"Jätä tyhjäksi jos et halua [a@https://wiki.phpmyadmin.net/pma/"
 "relation]relaatiolinkkien[/a]tukea, oletusarvo: [kbd]pma__relation[/kbd]."
 
 #: libraries/config/messages.inc.php:746
@@ -7268,12 +7268,12 @@ msgstr "Relaatiotaulu"
 #: libraries/config/messages.inc.php:748
 #, fuzzy
 #| msgid ""
-#| "See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
+#| "See [a@https://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
 #| "types[/a] for an example."
 msgid ""
 "See [doc@authentication-modes]authentication types[/doc] for an example."
 msgstr ""
-"Katso [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]todennustyypit[/a] "
+"Katso [a@https://wiki.phpmyadmin.net/pma/auth_types#signon]todennustyypit[/a] "
 "esimerkkinä."
 
 #: libraries/config/messages.inc.php:751

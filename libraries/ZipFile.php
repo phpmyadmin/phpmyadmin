@@ -17,7 +17,7 @@ if (!defined('PHPMYADMIN')) {
  *
  * @access  public
  * @package PhpMyAdmin
- * @see     Official ZIP file format: http://www.pkware.com/support/zip-app-note
+ * @see     Official ZIP file format: https://www.pkware.com/support/zip-app-note
  */
 class ZipFile
 {

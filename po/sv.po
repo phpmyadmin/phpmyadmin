@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2016-05-23 14:30+0200\n"
+"POT-Creation-Date: 2016-05-23 14:29+0200\n"
 "PO-Revision-Date: 2016-04-04 22:23+0000\n"
 "Last-Translator: Anders Jonsson <anders.jonsson@norsjovallen.se>\n"
 "Language-Team: Swedish <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -6946,13 +6946,13 @@ msgstr "Autentiseringstyp"
 #: libraries/config/messages.inc.php:640
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/"
+#| "Leave blank for no [a@https://wiki.phpmyadmin.net/pma/bookmark]bookmark[/"
 #| "a] support, suggested: [kbd]pma__bookmark[/kbd]"
 msgid ""
 "Leave blank for no [doc@bookmarks@]bookmark[/doc] support, suggested: "
 "[kbd]pma__bookmark[/kbd]"
 msgstr ""
-"Lämna tomt för att stänga av [a@http://wiki.phpmyadmin.net/pma/"
+"Lämna tomt för att stänga av [a@https://wiki.phpmyadmin.net/pma/"
 "bookmark]bokmärken[/a], förslag: [kbd]pma_bookmark[/kbd]"
 
 #: libraries/config/messages.inc.php:643
@@ -6995,14 +6995,14 @@ msgstr "Lösenord för kontrollanvändare"
 #, fuzzy
 #| msgid ""
 #| "A special MySQL user configured with limited permissions, more "
-#| "information available on [a@http://wiki.phpmyadmin.net/pma/"
+#| "information available on [a@https://wiki.phpmyadmin.net/pma/"
 #| "controluser]wiki[/a]."
 msgid ""
 "A special MySQL user configured with limited permissions, more information "
 "available on [doc@linked-tables]documentation[/doc]."
 msgstr ""
 "En speciell MySQL-användare konfigurerad med begränsade rättigheter, mer "
-"information tillgänglig på [a@http://wiki.phpmyadmin.net/pma/"
+"information tillgänglig på [a@https://wiki.phpmyadmin.net/pma/"
 "controluser]wiki[/a]."
 
 #: libraries/config/messages.inc.php:659
@@ -7180,7 +7180,7 @@ msgid ""
 "Suggested: [kbd]phpmyadmin[/kbd]."
 msgstr ""
 "Databas som används för relationer, bokmärken och PDF-funktioner. Se "
-"[a@http://wiki.phpmyadmin.net/pma/pmadb]pmadb[/a] för komplett information. "
+"[a@https://wiki.phpmyadmin.net/pma/pmadb]pmadb[/a] för komplett information. "
 "Lämna tomt för inget stöd. Förslag: [kbd]phpmyadmin[/kbd]."
 
 #: libraries/config/messages.inc.php:727
@@ -7223,13 +7223,13 @@ msgstr "Favorittabeller"
 #: libraries/config/messages.inc.php:742
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
+#| "Leave blank for no [a@https://wiki.phpmyadmin.net/pma/relation]relation-"
 #| "links[/a] support, suggested: [kbd]pma__relation[/kbd]."
 msgid ""
 "Leave blank for no [doc@relations@]relation-links[/doc] support, suggested: "
 "[kbd]pma__relation[/kbd]."
 msgstr ""
-"Lämna tomt för avstängt stöd för [a@http://wiki.phpmyadmin.net/pma/"
+"Lämna tomt för avstängt stöd för [a@https://wiki.phpmyadmin.net/pma/"
 "relation]relationslänkar[/a], förslag: [kbd]pma__relation[/kbd]."
 
 #: libraries/config/messages.inc.php:746
@@ -7239,12 +7239,12 @@ msgstr "Relationstabell"
 #: libraries/config/messages.inc.php:748
 #, fuzzy
 #| msgid ""
-#| "See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
+#| "See [a@https://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
 #| "types[/a] for an example."
 msgid ""
 "See [doc@authentication-modes]authentication types[/doc] for an example."
 msgstr ""
-"Se [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]autentiseringstyper[/"
+"Se [a@https://wiki.phpmyadmin.net/pma/auth_types#signon]autentiseringstyper[/"
 "a] för ett exempel."
 
 #: libraries/config/messages.inc.php:751

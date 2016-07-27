@@ -25,12 +25,12 @@ class PMA_FormDisplay_Tpl_Test extends PHPUnit_Framework_TestCase
      */
     public function testDisplayFormTop()
     {
-        $_SERVER['REQUEST_URI'] = 'http://www.phpmyadmin.net';
+        $_SERVER['REQUEST_URI'] = 'https://www.phpmyadmin.net';
         $GLOBALS['cfg']['ServerDefault'] = '';
         $result = PMA_displayFormTop(null, 'posted', array(1));
 
         $this->assertContains(
-            '<form method="get" action="http://www.phpmyadmin.net" ' .
+            '<form method="get" action="https://www.phpmyadmin.net" ' .
             'class="config-form disableAjax">',
             $result
         );
