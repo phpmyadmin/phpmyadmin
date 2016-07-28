@@ -391,13 +391,13 @@ class AuthenticationCookieTest extends PMATestCase
 
         $mockResponse->expects($this->once())
             ->method('header')
-            ->with('Location: https://www.phpmyadmin.net/logout');
+            ->with('Location: https://example.com/logout');
 
         $attrInstance = new ReflectionProperty('PMA\libraries\Response', '_instance');
         $attrInstance->setAccessible(true);
         $attrInstance->setValue($mockResponse);
 
-        $GLOBALS['cfg']['Server']['LogoutURL'] = 'https://www.phpmyadmin.net/logout';
+        $GLOBALS['cfg']['Server']['LogoutURL'] = 'https://example.com/logout';
 
         $this->object->logOut();
 
