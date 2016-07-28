@@ -350,10 +350,10 @@ class PMA_DbSearch
             $html_output .= '<td><a name="delete_search" href="'
                 . $delete_result_path . '" onclick="deleteResult(\''
                 . $delete_result_path . '\' , \''
-                . sprintf(
+                . PMA_escapeJsString(sprintf(
                     __('Delete the matches for the %s table?'),
                     htmlspecialchars($each_table)
-                )
+                ))
                 . '\');return false;">'
                 . __('Delete') . '</a></td>';
         } else {
