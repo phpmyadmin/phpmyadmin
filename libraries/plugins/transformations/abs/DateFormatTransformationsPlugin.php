@@ -117,7 +117,7 @@ abstract class DateFormatTransformationsPlugin extends TransformationsPlugin
                     );
                 }
                 // If all fails, assume one of the dozens of valid strtime() syntaxes
-                // (http://www.gnu.org/manual/tar-1.12/html_chapter/tar_7.html)
+                // (https://www.gnu.org/manual/tar-1.12/html_chapter/tar_7.html)
             } else {
                 if (preg_match('/^[0-9]\d{1,9}$/', $buffer)) {
                     $timestamp = (int)$buffer;

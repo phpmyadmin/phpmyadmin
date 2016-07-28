@@ -1364,7 +1364,7 @@ class Config
 
     /**
      * Maximum upload size as limited by PHP
-     * Used with permission from Moodle (http://moodle.org) by Martin Dougiamas
+     * Used with permission from Moodle (https://moodle.org/) by Martin Dougiamas
      *
      * this section generates $max_upload_size in bytes
      *

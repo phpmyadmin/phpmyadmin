@@ -463,7 +463,7 @@ For ``server`` you use the server number
 which refers to the order of the server paragraph in
 :file:`config.inc.php`. Table and script parts are optional. If you want
 ``http://server/phpMyAdmin/database[/table][/script]`` :term:`URL`, you need to do some configuration. Following
-lines apply only for `Apache <http://httpd.apache.org>`_ web server.
+lines apply only for `Apache <https://httpd.apache.org>`_ web server.
 First make sure, that you have enabled some features within global
 configuration. You need ``Options FollowSymLinks`` and ``AllowOverride
 FileInfo`` enabled for directory where phpMyAdmin is installed and you
@@ -570,7 +570,7 @@ know about URL and scheme used to access it.
 For example in Apache ensure that you have enabled ``SSLOptions`` and
 ``StdEnvVars`` in the configuration.
 
-.. seealso:: <http://httpd.apache.org/docs/2.4/mod/mod_ssl.html>
+.. seealso:: <https://httpd.apache.org/docs/2.4/mod/mod_ssl.html>
 
 .. _faq1_40:
 
@@ -1068,7 +1068,7 @@ is no way for PHP to set the charset before authenticating.
 .. seealso::
 
     `phpMyAdmin issue 12232 <https://github.com/phpmyadmin/phpmyadmin/issues/12232>`_,
-    `MySQL documentation note <http://php.net/manual/en/mysqli.real-connect.php#refsect1-mysqli.real-connect-notes>`_
+    `MySQL documentation note <https://php.net/manual/en/mysqli.real-connect.php#refsect1-mysqli.real-connect-notes>`_
 
 .. _faqmultiuser:
 
