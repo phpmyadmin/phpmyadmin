@@ -6,8 +6,9 @@
  * @package PhpMyAdmin
  */
 
+$_GET['ajax_request'] = 'true';
+
 // Sets up the session
-define('PMA_MINIMUM_COMMON', true);
 require_once 'libraries/common.inc.php';
 require_once 'libraries/Util.class.php';
 
@@ -29,6 +30,11 @@ if (isset($_SESSION['cache']['version_check'])
         $response = file_get_contents($file);
     }
 }
+
+require_once 'libraries/common.inc.php';
+
+// Disabling standard response.
+PMA_Response::getInstance()->disable();
 
 // Always send the correct headers
 header('Content-type: application/json; charset=UTF-8');
