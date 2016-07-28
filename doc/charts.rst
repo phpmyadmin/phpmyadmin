@@ -1,3 +1,5 @@
+.. _charts:
+
 Charts
 ======
 

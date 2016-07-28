@@ -65,7 +65,7 @@ class PMA_HeaderLocation_Test extends PHPUnit_Framework_TestCase
 
             $GLOBALS['PMA_Config']->set('PMA_IS_IIS', true);
 
-            $testUri = 'http://testurl.com/test.php';
+            $testUri = 'https://example.com/test.php';
 
             $header = array('Location: ' . $testUri);
             PMA_sendHeaderLocation($testUri); // sets $GLOBALS['header']
@@ -95,7 +95,7 @@ class PMA_HeaderLocation_Test extends PHPUnit_Framework_TestCase
     {
         if (defined('PMA_TEST_HEADERS')) {
 
-            $testUri = 'http://testurl.com/test.php';
+            $testUri = 'https://example.com/test.php';
             $header = array('Location: ' . $testUri);
 
             PMA_sendHeaderLocation($testUri);            // sets $GLOBALS['header']
@@ -119,7 +119,7 @@ class PMA_HeaderLocation_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['PMA_Config']->set('PMA_IS_IIS', true);
 
         // over 600 chars
-        $testUri = 'http://testurl.com/test.php?testlonguri=over600chars&test=test'
+        $testUri = 'https://example.com/test.php?testlonguri=over600chars&test=test'
             . '&test=test&test=test&test=test&test=test&test=test&test=test'
             . '&test=test&test=test&test=test&test=test&test=test&test=test'
             . '&test=test&test=test&test=test&test=test&test=test&test=test'

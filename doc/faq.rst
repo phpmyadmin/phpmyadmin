@@ -189,11 +189,11 @@ hosting provider is unwilling to change the settings:
 1.17 Which Database versions does phpMyAdmin support?
 -----------------------------------------------------
 
-For `MySQL <http://www.mysql.com/>`_, versions 5.5 and newer are supported. 
+For `MySQL <https://www.mysql.com/>`_, versions 5.5 and newer are supported. 
 For older MySQL versions, our `Downloads <https://www.phpmyadmin.net/downloads/>`_ page offers older phpMyAdmin versions 
 (which may have become unsupported).
 
-For `MariaDB <http://mariadb.org/>`_, versions 5.5 and newer are supported.
+For `MariaDB <https://mariadb.org/>`_, versions 5.5 and newer are supported.
 
 .. _faq1_17a:
 
@@ -463,7 +463,7 @@ For ``server`` you use the server number
 which refers to the order of the server paragraph in
 :file:`config.inc.php`. Table and script parts are optional. If you want
 ``http://server/phpMyAdmin/database[/table][/script]`` :term:`URL`, you need to do some configuration. Following
-lines apply only for `Apache <http://httpd.apache.org>`_ web server.
+lines apply only for `Apache <https://httpd.apache.org>`_ web server.
 First make sure, that you have enabled some features within global
 configuration. You need ``Options FollowSymLinks`` and ``AllowOverride
 FileInfo`` enabled for directory where phpMyAdmin is installed and you
@@ -570,7 +570,7 @@ know about URL and scheme used to access it.
 For example in Apache ensure that you have enabled ``SSLOptions`` and
 ``StdEnvVars`` in the configuration.
 
-.. seealso:: <http://httpd.apache.org/docs/2.4/mod/mod_ssl.html>
+.. seealso:: <https://httpd.apache.org/docs/2.4/mod/mod_ssl.html>
 
 .. _faq1_40:
 
@@ -588,7 +588,7 @@ the set-cookie headers. Example from the Apache 2.2 documentation:
     ProxyPassReverseCookieDomain backend.example.com public.example.com
     ProxyPassReverseCookiePath / /mirror/foo/
 
-Note: if the backend url looks like ``http://host/~user/phpmyadmin``, the
+Note: if the backend url looks like ``http://server/~user/phpmyadmin``, the
 tilde (~) must be url encoded as %7E in the ProxyPassReverse\* lines.
 This is not specific to phpmyadmin, it's just the behavior of Apache.
 
@@ -599,7 +599,7 @@ This is not specific to phpmyadmin, it's just the behavior of Apache.
     ProxyPassReverse /mirror/foo/ http://backend.example.com/%7Euser/phpmyadmin
     ProxyPassReverseCookiePath /%7Euser/phpmyadmin /mirror/foo
 
-.. seealso:: <http://httpd.apache.org/docs/2.2/mod/mod_proxy.html>
+.. seealso:: <https://httpd.apache.org/docs/2.2/mod/mod_proxy.html>
 
 .. _faq1_41:
 
@@ -838,8 +838,8 @@ Here are a few points to check:
 ---------------------------------
 
 To be able to see a progress bar during your uploads, your server must
-have the `APC <http://php.net/manual/en/book.apc.php>`_ extension, the
-`uploadprogress <http://pecl.php.net/package/uploadprogress>`_ one, or
+have the `APC <https://php.net/manual/en/book.apc.php>`_ extension, the
+`uploadprogress <https://pecl.php.net/package/uploadprogress>`_ one, or
 you must be running PHP 5.4.0 or higher. Moreover, the JSON extension
 has to be enabled in your PHP.
 
@@ -1068,7 +1068,7 @@ is no way for PHP to set the charset before authenticating.
 .. seealso::
 
     `phpMyAdmin issue 12232 <https://github.com/phpmyadmin/phpmyadmin/issues/12232>`_,
-    `MySQL documentation note <http://php.net/manual/en/mysqli.real-connect.php#refsect1-mysqli.real-connect-notes>`_
+    `MySQL documentation note <https://php.net/manual/en/mysqli.real-connect.php#refsect1-mysqli.real-connect-notes>`_
 
 .. _faqmultiuser:
 
@@ -1831,7 +1831,7 @@ other.
 Not every table can be put to the chart. Only tables with one, two or
 three columns can be visualised as a chart. Moreover the table must be
 in a special format for chart script to understand it. Currently
-supported formats can be found in the `wiki <https://wiki.phpmyadmin.net/pma/Charts>`_.
+supported formats can be found in :ref:`charts`.
 
 .. _faq6_30:
 

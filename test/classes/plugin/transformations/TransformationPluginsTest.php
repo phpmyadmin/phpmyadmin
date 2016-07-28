@@ -499,7 +499,7 @@ class TransformationPluginsTest extends PMATestCase
                 'getInfo',
                 'Displays an image and a link; '
                 . 'the column contains the filename. The first option'
-                . ' is a URL prefix like "http://www.example.com/". '
+                . ' is a URL prefix like "https://www.example.com/". '
                 . 'The second and third options'
                 . ' are the width and the height in pixels.'
             ),
@@ -544,7 +544,7 @@ class TransformationPluginsTest extends PMATestCase
                 new Text_Plain_Link(),
                 'getInfo',
                 'Displays a link; the column contains the filename. The first option'
-                . ' is a URL prefix like "http://www.example.com/".'
+                . ' is a URL prefix like "https://www.example.com/".'
                 . ' The second option is a title for the link.'
             ),
             array(
@@ -863,18 +863,18 @@ class TransformationPluginsTest extends PMATestCase
             array(
                 new Text_Plain_Formatted(),
                 array(
-                    "<a ref='https://ci.phpmyadmin.net/'>PMA_BUFFER</a>",
+                    "<a ref='https://www.example.com/'>PMA_BUFFER</a>",
                     array("option1", "option2")
                 ),
-                "<iframe srcdoc=\"<a ref='https://ci.phpmyadmin.net/'>PMA_BUFFER</a>\" sandbox=\"\"></iframe>"
+                "<iframe srcdoc=\"<a ref='https://www.example.com/'>PMA_BUFFER</a>\" sandbox=\"\"></iframe>"
             ),
             array(
                 new Text_Plain_Formatted(),
                 array(
-                    "<a ref=\"https://ci.phpmyadmin.net/\">PMA_BUFFER</a>",
+                    "<a ref=\"https://www.example.com/\">PMA_BUFFER</a>",
                     array("option1", "option2")
                 ),
-                "<iframe srcdoc=\"<a ref='https://ci.phpmyadmin.net/'>PMA_BUFFER</a>\" sandbox=\"\"></iframe>"
+                "<iframe srcdoc=\"<a ref='https://www.example.com/'>PMA_BUFFER</a>\" sandbox=\"\"></iframe>"
             ),
             array(
                 new Text_Plain_Imagelink(),

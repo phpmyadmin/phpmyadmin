@@ -205,7 +205,7 @@ Credits, in chronological order
 
 * Nicola Asuni (Tecnick.com)
 
-  * TCPDF library (`https://tcpdf.org/ <https://tcpdf.org/>`_)
+  * TCPDF library (<https://tcpdf.org>)
 
 * Michael Keck <mkkeck\_at\_users.sourceforge.net>
 

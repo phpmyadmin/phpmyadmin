@@ -275,7 +275,7 @@ From Wikipedia, the free encyclopedia
     PEAR
       the PHP Extension and Application Repository.	
 
-      .. seealso:: <http://pear.php.net/>
+      .. seealso:: <https://pear.php.net/>
 
     PCRE
       Perl Compatible Regular Expressions is the perl-compatible regular
