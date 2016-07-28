@@ -53,7 +53,7 @@ Basic settings
 
     Sets here the complete :term:`URL` (with full path) to your phpMyAdmin
     installation's directory. E.g.
-    ``http://www.example.net/path_to_your_phpMyAdmin_directory/``.  Note also
+    ``https://www.example.net/path_to_your_phpMyAdmin_directory/``.  Note also
     that the :term:`URL` on most of web servers are case sensitive (even on
     Windows). Don’t forget the trailing slash at the end.
 
@@ -1676,7 +1676,7 @@ Cookie authentication options
     :default: ``''``
 
     The public key for the reCaptcha service that can be obtained from
-    http://www.google.com/recaptcha/intro/.
+    https://www.google.com/recaptcha.
 
     reCaptcha will be then used in :ref:`cookie`.
 
@@ -1686,7 +1686,7 @@ Cookie authentication options
     :default: ``''``
 
     The private key for the reCaptcha service that can be obtain from
-    http://www.google.com/recaptcha/intro/.
+    https://www.google.com/recaptcha.
 
     reCaptcha will be then used in :ref:`cookie`.
 
@@ -2388,7 +2388,7 @@ Languages
     :default: ``'//TRANSLIT'``
 
     Specify some parameters for iconv used in charset conversion. See
-    `iconv documentation <http://www.gnu.org/software/libiconv/documentati
+    `iconv documentation <https://www.gnu.org/software/libiconv/documentati
     on/libiconv/iconv_open.3.html>`_ for details. By default
     ``//TRANSLIT`` is used, so that invalid characters will be
     transliterated.

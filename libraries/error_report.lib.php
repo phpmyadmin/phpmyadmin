@@ -141,7 +141,7 @@ function PMA_sanitizeUrl($url)
         && preg_match("<PMAURL-\d+:>", $components["fragment"], $matches)
     ) {
         $uri = str_replace($matches[0], "", $components["fragment"]);
-        $url = "http://dummy_host/" . $uri;
+        $url = "https://example.com/" . $uri;
         $components = parse_url($url);
     }
 

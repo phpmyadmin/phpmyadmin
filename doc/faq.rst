@@ -189,11 +189,11 @@ hosting provider is unwilling to change the settings:
 1.17 Which Database versions does phpMyAdmin support?
 -----------------------------------------------------
 
-For `MySQL <http://www.mysql.com/>`_, versions 5.5 and newer are supported. 
+For `MySQL <https://www.mysql.com/>`_, versions 5.5 and newer are supported. 
 For older MySQL versions, our `Downloads <https://www.phpmyadmin.net/downloads/>`_ page offers older phpMyAdmin versions 
 (which may have become unsupported).
 
-For `MariaDB <http://mariadb.org/>`_, versions 5.5 and newer are supported.
+For `MariaDB <https://mariadb.org/>`_, versions 5.5 and newer are supported.
 
 .. _faq1_17a:
 
@@ -588,7 +588,7 @@ the set-cookie headers. Example from the Apache 2.2 documentation:
     ProxyPassReverseCookieDomain backend.example.com public.example.com
     ProxyPassReverseCookiePath / /mirror/foo/
 
-Note: if the backend url looks like ``http://host/~user/phpmyadmin``, the
+Note: if the backend url looks like ``http://server/~user/phpmyadmin``, the
 tilde (~) must be url encoded as %7E in the ProxyPassReverse\* lines.
 This is not specific to phpmyadmin, it's just the behavior of Apache.
 
@@ -599,7 +599,7 @@ This is not specific to phpmyadmin, it's just the behavior of Apache.
     ProxyPassReverse /mirror/foo/ http://backend.example.com/%7Euser/phpmyadmin
     ProxyPassReverseCookiePath /%7Euser/phpmyadmin /mirror/foo
 
-.. seealso:: <http://httpd.apache.org/docs/2.2/mod/mod_proxy.html>
+.. seealso:: <https://httpd.apache.org/docs/2.2/mod/mod_proxy.html>
 
 .. _faq1_41:
 
@@ -838,8 +838,8 @@ Here are a few points to check:
 ---------------------------------
 
 To be able to see a progress bar during your uploads, your server must
-have the `APC <http://php.net/manual/en/book.apc.php>`_ extension, the
-`uploadprogress <http://pecl.php.net/package/uploadprogress>`_ one, or
+have the `APC <https://php.net/manual/en/book.apc.php>`_ extension, the
+`uploadprogress <https://pecl.php.net/package/uploadprogress>`_ one, or
 you must be running PHP 5.4.0 or higher. Moreover, the JSON extension
 has to be enabled in your PHP.
 
@@ -1831,7 +1831,7 @@ other.
 Not every table can be put to the chart. Only tables with one, two or
 three columns can be visualised as a chart. Moreover the table must be
 in a special format for chart script to understand it. Currently
-supported formats can be found in the `wiki <http://wiki.phpmyadmin.net/pma/Charts>`_.
+supported formats can be found in :ref:`charts`.
 
 .. _faq6_30:
 

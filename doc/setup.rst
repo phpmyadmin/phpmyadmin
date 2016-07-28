@@ -45,7 +45,7 @@ OpenSUSE
 --------
 
 OpenSUSE already comes with phpMyAdmin package, just install packages from
-the `openSUSE Build Service <http://software.opensuse.org/package/phpMyAdmin>`_.
+the `openSUSE Build Service <https://software.opensuse.org/package/phpMyAdmin>`_.
 
 Ubuntu
 ------
@@ -84,9 +84,9 @@ Red Hat Enterprise Linux
 
 Red Hat Enterprise Linux itself and thus derivatives like CentOS don't
 ship phpMyAdmin, but the Fedora-driven repository
-`Extra Packages for Enterprise Linux (EPEL) <http://fedoraproject.org/wiki/EPEL>`_
+`Extra Packages for Enterprise Linux (EPEL) <https://fedoraproject.org/wiki/EPEL>`_
 is doing so, if it's
-`enabled <http://fedoraproject.org/wiki/EPEL/FAQ#howtouse>`_.
+`enabled <https://fedoraproject.org/wiki/EPEL/FAQ#howtouse>`_.
 But be aware that the configuration file is maintained in
 ``/etc/phpMyAdmin/`` and may differ in some ways from the
 official phpMyAdmin documentation.
@@ -97,7 +97,7 @@ Installing on Windows
 
 The easiest way to get phpMyAdmin on Windows is using third party products
 which include phpMyAdmin together with a database and web server such as
-`XAMPP <https://www.apachefriends.org/index.html>`_.
+`XAMPP <https://www.apachefriends.org/>`_.
 
 You can find more of such options at `Wikipedia <https://en.wikipedia.org/wiki/List_of_AMP_packages>`_.
 
@@ -505,7 +505,7 @@ clear error regardless of the fact that the key is trusted or not:
 
 .. _Validating other keys on your public keyring: https://www.gnupg.org/gph/en/manual.html#AEN335
 
-.. _Isaac's key links to Linus's key: http://pgp.cs.uu.nl/mk_path.cgi?FROM=00411886&TO=8259BD92
+.. _Isaac's key links to Linus's key: https://pgp.cs.uu.nl/mk_path.cgi?FROM=00411886&TO=8259BD92
 
 
 .. index::

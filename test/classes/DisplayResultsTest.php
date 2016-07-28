@@ -1485,7 +1485,7 @@ class DisplayResultsTest extends PMATestCase
                 false,
                 'PMA_mimeDefaultFunction',
                 'PMA_mimeDefaultFunction',
-                array('http://www.github.com/'),
+                array('https://www.example.com/'),
                 false,
                 array(),
                 0,
