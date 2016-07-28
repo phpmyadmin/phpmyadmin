@@ -415,7 +415,7 @@ function PMA_importGetNextChunk($size = 32768)
     /**
      * Skip possible byte order marks (I do not think we need more
      * charsets, but feel free to add more, you can use wikipedia for
-     * reference: <http://en.wikipedia.org/wiki/Byte_Order_Mark>)
+     * reference: <https://en.wikipedia.org/wiki/Byte_Order_Mark>)
      *
      * @todo BOM could be used for charset autodetection
      */

@@ -149,7 +149,7 @@ class PMA_FormDisplay_Tpl_Test extends PHPUnit_Framework_TestCase
         $opts['errors'] = array('e1');
         $opts['userprefs_allow'] = false;
         $opts['setvalue'] = ':group';
-        $opts['doc'] = "http://doclink";
+        $opts['doc'] = "https://example.com/";
         $opts['comment'] = "testComment";
         $opts['comment_warning'] = true;
         $opts['show_restore_default'] = true;
@@ -169,7 +169,7 @@ class PMA_FormDisplay_Tpl_Test extends PHPUnit_Framework_TestCase
         );
 
         $this->assertContains(
-            '<a href="http://doclink" target="documentation"',
+            '<a href="https://example.com/" target="documentation"',
             $result
         );
 

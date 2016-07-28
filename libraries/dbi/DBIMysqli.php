@@ -35,7 +35,7 @@ if (! defined('MYSQLI_BINARY_FLAG')) {
 }
 
 /**
- * @see http://bugs.php.net/36007
+ * @see https://bugs.php.net/36007
  */
 if (! defined('MYSQLI_TYPE_NEWDECIMAL')) {
     define('MYSQLI_TYPE_NEWDECIMAL', 246);

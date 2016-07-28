@@ -20,8 +20,8 @@ elif echo "$remote_url" | grep -q "git://github.com/" ; then
     repobranchbase=`echo $remote_url | sed 's@git://github.com/\(.*\)/\(.*\).git@https://github.com/\1/\2/tree/@'`
     reponame=`echo $remote_url | sed 's@git://github.com/\(.*\)/\(.*\).git@\1@'`
 else
-    repobase=`echo $remote_url | sed 's@git://repo.or.cz@http://repo.or.cz/w@'`/commitdiff/
-    repobranchbase=`echo $remote_url | sed 's@git://repo.or.cz@http://repo.or.cz/w@'`/shortlog/refs/heads/
+    repobase=`echo $remote_url | sed 's@git://repo.or.cz@https://repo.or.cz/w@'`/commitdiff/
+    repobranchbase=`echo $remote_url | sed 's@git://repo.or.cz@https://repo.or.cz/w@'`/shortlog/refs/heads/
     reponame=''
 fi
 cat > revision-info.php.tmp <<EOT

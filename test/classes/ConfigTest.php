@@ -697,6 +697,10 @@ class ConfigTest extends PMATestCase
                 '/foo/bar/phpmyadmin/',
             ),
             array(
+                'https://example.net/baz/phpmyadmin/',
+                '/baz/phpmyadmin/',
+            ),
+            array(
                 'http://example.net/baz/phpmyadmin/',
                 '/baz/phpmyadmin/',
             ),
