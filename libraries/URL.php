@@ -220,10 +220,6 @@ class URL
             $params['collation_connection'] = $GLOBALS['collation_connection'];
         }
 
-        if (isset($_SESSION[' PMA_token '])) {
-            $params['token'] = $_SESSION[' PMA_token '];
-        }
-
         if (empty($params)) {
             return '';
         }
