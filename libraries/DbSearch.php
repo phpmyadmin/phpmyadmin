@@ -356,7 +356,7 @@ class DbSearch
             $html_output .= '<td><a name="delete_search" class="ajax" href="'
                 . $delete_result_path . '" onclick="deleteResult(\''
                 . $delete_result_path . '\' , \''
-                . PMA_escapeJsString(sprintf(
+                . Sanitize::escapeJsString(sprintf(
                     __('Delete the matches for the %s table?'),
                     htmlspecialchars($each_table)
                 ))
