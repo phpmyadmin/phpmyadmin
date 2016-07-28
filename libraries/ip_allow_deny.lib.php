@@ -78,7 +78,7 @@ function PMA_ipMaskTest($testRange, $ipToTest)
 /**
  * Based on IP Pattern Matcher
  * Originally by J.Adams <jna@retina.net>
- * Found on <http://www.php.net/manual/en/function.ip2long.php>
+ * Found on <https://www.php.net/manual/en/function.ip2long.php>
  * Modified for phpMyAdmin
  *
  * Matches:
@@ -149,7 +149,7 @@ function PMA_ipv4MaskTest($testRange, $ipToTest)
 
 /**
  * IPv6 matcher
- * CIDR section taken from http://stackoverflow.com/a/10086404
+ * CIDR section taken from https://stackoverflow.com/a/10086404
  * Modified for phpMyAdmin
  *
  * Matches:
