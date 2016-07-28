@@ -19,7 +19,7 @@ if [ $# -gt 1 ] ; then
 fi
 
 # Upload to our file server
-sftp -P 11022 files@klutz.phpmyadmin.net -b - <<EOT
+sftp -P 11022 files@klutz.phpmyadmin.net -f -b - <<EOT
 cd /mnt/storage/files/phpMyAdmin
 mkdir $REL
 cd $REL
