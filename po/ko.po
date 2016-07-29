@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-05-23 14:29+0200\n"
-"PO-Revision-Date: 2016-06-28 19:49+0000\n"
-"Last-Translator: Kyeong Su Shin <cdac1234@gmail.com>\n"
+"PO-Revision-Date: 2016-07-29 21:07+0000\n"
+"Last-Translator: 서준원 <junwon1994@gmail.com>\n"
 "Language-Team: Korean "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/ko/>\n"
 "Language: ko\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 2.7-dev\n"
+"X-Generator: Weblate 2.8-dev\n"
 
 #: changelog.php:37 license.php:33
 #, php-format
@@ -2491,10 +2491,9 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:714
-#, fuzzy
 #| msgid "Copy database to"
 msgid "Copy tables to"
-msgstr "데이터베이스를 복사합니다"
+msgstr "테이블을 복사합니다"
 
 #: js/messages.php:715
 #, fuzzy
@@ -3591,7 +3590,7 @@ msgstr "모두 체크"
 
 #: libraries/DisplayResults.php:5030
 msgid "Copy to clipboard"
-msgstr ""
+msgstr "클립보드에 복사하기"
 
 #: libraries/DisplayResults.php:5086
 msgid "Query results operations"
@@ -3816,7 +3815,7 @@ msgstr "페이지 번호:"
 
 #: libraries/LanguageManager.php:874
 msgid "Ignoring unsupported language code."
-msgstr ""
+msgstr "지원되지 않는 언어의 코드는 무시합니다."
 
 #: libraries/Linter.php:99
 msgid ""
@@ -3909,7 +3908,7 @@ msgstr "삽입"
 #: libraries/server_privileges.lib.php:4501
 #: templates/privileges/privileges_summary.phtml:16
 msgid "Privileges"
-msgstr "사용권한"
+msgstr "권한"
 
 #: libraries/Menu.php:384 libraries/Menu.php:392 libraries/Menu.php:471
 #: libraries/Util.php:3350 libraries/Util.php:3364 libraries/Util.php:4280
@@ -4255,7 +4254,7 @@ msgstr "잘못된 테이블 이름:"
 #: libraries/Table.php:1329
 #, php-format
 msgid "Failed to rename table %1$s to %2$s!"
-msgstr "테이블 %1$s의 이름을 %2$s(으)로 바꾸는데 실패했습니다!"
+msgstr "테이블 이름 %1$s를 %2$s(으)로 바꾸는데 실패했습니다!"
 
 #: libraries/Table.php:1348
 #, php-format
@@ -4282,9 +4281,7 @@ msgid ""
 "after you refresh this page. Please check if the table structure has been "
 "changed."
 msgstr ""
-"UI설정 %s를 저장할 수 없습니다. 페이지를 리프레시를 해도 이 변경은 반영되지 "
-"않을것입니다.\n"
-"테이블 구조가 변경되었는지 확인 바랍니다."
+"UI 특성 %s을(를) 저장할 수 없습니다. 새로고침후에도 이 변경은 반영되지 않을것입니다. 테이블 구조가 변경되었는지 확인 바랍니다."
 
 #: libraries/Table.php:1852
 msgid "The name of the primary key must be \"PRIMARY\"!"
@@ -4292,7 +4289,7 @@ msgstr "기본 키의 이름은 반드시 PRIMARY여야 합니다!"
 
 #: libraries/Table.php:1863
 msgid "Can't rename index to PRIMARY!"
-msgstr "인덱스 이름을 기본 키로 바꿀 수 없습니다!"
+msgstr "인덱스 이름을 PRIMARY 로 바꿀 수 없습니다!"
 
 #: libraries/Table.php:1885
 msgid "No index parts defined!"
@@ -4310,7 +4307,7 @@ msgstr "%s 테마를 위한 올바른 이미지 경로를 찾을 수 없습니�
 
 #: libraries/Theme.php:422
 msgid "No preview available."
-msgstr "미리보기가 불가능합니다."
+msgstr "가능한 미리보기가 없습니다."
 
 #: libraries/Theme.php:424
 msgid "take it"
@@ -4319,7 +4316,7 @@ msgstr "사용하기"
 #: libraries/ThemeManager.php:148
 #, php-format
 msgid "Default theme %s not found!"
-msgstr "기본테마 %s를 찾을 수 없음!"
+msgstr "기본 테마 %s (을)를 찾을 수 없음!"
 
 #: libraries/ThemeManager.php:204
 #, php-format
