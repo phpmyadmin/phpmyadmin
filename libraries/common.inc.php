@@ -777,14 +777,14 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                 $controllink = $GLOBALS['dbi']->connect(
                     $cfg['Server']['controluser'],
                     $cfg['Server']['controlpass'],
-                    true,
+                    DatabaseInterface::CONNECT_CONTROL,
                     $server_details
                 );
             } else {
                 $controllink = $GLOBALS['dbi']->connect(
                     $cfg['Server']['controluser'],
                     $cfg['Server']['controlpass'],
-                    true
+                    DatabaseInterface::CONNECT_CONTROL
                 );
             }
         }
@@ -792,7 +792,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         // Connects to the server (validates user's login)
         /** @var DatabaseInterface $userlink */
         $userlink = $GLOBALS['dbi']->connect(
-            $cfg['Server']['user'], $cfg['Server']['password'], false
+            $cfg['Server']['user'], $cfg['Server']['password'], DatabaseInterface::CONNECT_USER
         );
 
         // Set timestamp for the session, if required.
@@ -834,7 +834,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
              * is not locked by that time.
              */
             $controllink = $GLOBALS['dbi']->connect(
-                $cfg['Server']['user'], $cfg['Server']['password'], false
+                $cfg['Server']['user'], $cfg['Server']['password'], DatabaseInterface::CONNECT_USER
             );
         }
 

@@ -39,6 +39,21 @@ class DatabaseInterface
     const GETVAR_GLOBAL = 2;
 
     /**
+     * User connection.
+     */
+    const CONNECT_USER = 0x100;
+    /**
+     * Control user connection.
+     */
+    const CONNECT_CONTROL = 0x101;
+    /**
+     * Auxiliary connection.
+     *
+     * Used for example for replication setup.
+     */
+    const CONNECT_AUXILIARY = 0x102;
+
+    /**
      * @var DBIExtension
      */
     private $_extension;
@@ -2207,19 +2222,16 @@ class DatabaseInterface
     /**
      * connects to the database server
      *
-     * @param string $user                 user name
-     * @param string $password             user password
-     * @param bool   $is_controluser       whether this is a control user connection
-     * @param array  $server               host/port/socket/persistent
-     * @param bool   $auxiliary_connection (when true, don't go back to login if
-     *                                     connection fails)
+     * @param string $user     user name
+     * @param string $password user password
+     * @param integer $mode    Connection mode on of CONNECT_USER, CONNECT_CONTROL
+     *                         or CONNECT_AUXILIARY.
+     * @param array   $server  Server information like host/port/socket/persistent
      *
      * @return mixed false on error or a connection object on success
      */
-    public function connect(
-        $user, $password, $is_controluser = false, $server = null,
-        $auxiliary_connection = false
-    ) {
+    public function connect($user, $password, $mode, $server = null) {
+
         $error_count = $GLOBALS['error_handler']->countErrors();
         $result = $this->_extension->connect(
             $user, $password, $server
@@ -2237,13 +2249,14 @@ class DatabaseInterface
         }
 
         if ($result) {
-            if (! $auxiliary_connection && ! $is_controluser) {
+            /* Run post connect for user connections */
+            if ($mode == DatabaseInterface::CONNECT_USER) {
                 $this->postConnect($result);
             }
             return $result;
         }
 
-        if ($is_controluser) {
+        if ($mode == DatabaseInterface::CONNECT_CONTROL) {
             trigger_error(
                 __(
                     'Connection for controluser as defined in your '
@@ -2252,11 +2265,9 @@ class DatabaseInterface
                 E_USER_WARNING
             );
             return false;
-        }
-
-        // Do not go back to main login if connection failed
-        // (currently used only in unit testing)
-        if ($auxiliary_connection) {
+        } else if ($mode == DatabaseInterface::CONNECT_AUXILIARY) {
+            // Do not go back to main login if connection failed
+            // (currently used only in unit testing)
             return false;
         }
 
