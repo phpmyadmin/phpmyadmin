@@ -19,6 +19,7 @@ phpMyAdmin - ChangeLog
 - issue #5555  Better report query errors while generating SQL exports
 - issue #12307 Produce valid JSON on export
 - issue #12325 Setup script icons broken
+- issue #12378 Support IPv6 proxies
 
 4.6.4 (not yet released)
 - issue        Include X-Robots-Tag header in responses
