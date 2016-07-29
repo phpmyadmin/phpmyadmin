@@ -2232,6 +2232,27 @@ class DatabaseInterface
         } elseif ($mode == DatabaseInterface::CONNECT_CONTROL) {
             $user = $cfg['Server']['controluser'];
             $password = $cfg['Server']['controlpass'];
+
+            $server = array();
+            if (! empty($cfg['Server']['controlhost'])
+                || ! empty($cfg['Server']['controlport'])
+            ) {
+                if (! empty($cfg['Server']['controlhost'])) {
+                    $server['host'] = $cfg['Server']['controlhost'];
+                } else {
+                    $server['host'] = $cfg['Server']['host'];
+                }
+                if (! empty($cfg['Server']['controlport'])) {
+                    $server['port'] = $cfg['Server']['controlport'];
+                } elseif ($server['host'] == $cfg['Server']['host']) {
+                    // Evaluates to true when controlhost == host
+                    // or controlhost is not defined (hence it defaults to host)
+                    // In such case we can use the value of port.
+                    $server['port'] = $cfg['Server']['port'];
+                }
+                // otherwise we leave the $server['port'] unset,
+                // allowing it to take default mysql port
+            }
         } else {
             if (isset($server['user'])) {
                 $user = $server['user'];

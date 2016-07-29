@@ -754,35 +754,9 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         // scripts)
         $controllink = false;
         if ($cfg['Server']['controluser'] != '') {
-            if (! empty($cfg['Server']['controlhost'])
-                || ! empty($cfg['Server']['controlport'])
-            ) {
-                $server_details = array();
-                if (! empty($cfg['Server']['controlhost'])) {
-                    $server_details['host'] = $cfg['Server']['controlhost'];
-                } else {
-                    $server_details['host'] = $cfg['Server']['host'];
-                }
-                if (! empty($cfg['Server']['controlport'])) {
-                    $server_details['port'] = $cfg['Server']['controlport'];
-                } elseif ($server_details['host'] == $cfg['Server']['host']) {
-                    // Evaluates to true when controlhost == host
-                    // or controlhost is not defined (hence it defaults to host)
-                    // In such case we can use the value of port.
-                    $server_details['port'] = $cfg['Server']['port'];
-                }
-                // otherwise we leave the $server_details['port'] unset,
-                // allowing it to take default mysql port
-
-                $controllink = $GLOBALS['dbi']->connect(
-                    DatabaseInterface::CONNECT_CONTROL,
-                    $server_details
-                );
-            } else {
-                $controllink = $GLOBALS['dbi']->connect(
-                    DatabaseInterface::CONNECT_CONTROL
-                );
-            }
+            $controllink = $GLOBALS['dbi']->connect(
+                DatabaseInterface::CONNECT_CONTROL
+            );
         }
 
         // Connects to the server (validates user's login)
