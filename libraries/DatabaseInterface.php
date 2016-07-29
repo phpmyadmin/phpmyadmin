@@ -2222,15 +2222,39 @@ class DatabaseInterface
     /**
      * connects to the database server
      *
-     * @param string $user     user name
-     * @param string $password user password
      * @param integer $mode    Connection mode on of CONNECT_USER, CONNECT_CONTROL
      *                         or CONNECT_AUXILIARY.
      * @param array   $server  Server information like host/port/socket/persistent
      *
      * @return mixed false on error or a connection object on success
      */
-    public function connect($user, $password, $mode, $server = null) {
+    public function connect($mode, $server = null) {
+        global $cfg;
+
+        $user = null;
+        $password = null;
+
+        if ($mode == DatabaseInterface::CONNECT_USER) {
+            $user = $cfg['Server']['user'];
+            $password = $cfg['Server']['password'];
+        } elseif ($mode == DatabaseInterface::CONNECT_CONTROL) {
+            $user = $cfg['Server']['controluser'];
+            $user = $cfg['Server']['controlpass'];
+        } else {
+            if (isset($server['user'])) {
+                $user = $server['user'];
+            }
+            if (isset($server['password'])) {
+                $password = $server['password'];
+            }
+        }
+        if (is_null($user) || is_null($password)) {
+            trigger_error(
+                __('Missing connection parameters!'),
+                E_USER_WARNING
+            );
+            return false;
+        }
 
         $error_count = $GLOBALS['error_handler']->countErrors();
         $result = $this->_extension->connect(

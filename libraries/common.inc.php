@@ -775,15 +775,11 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                 // allowing it to take default mysql port
 
                 $controllink = $GLOBALS['dbi']->connect(
-                    $cfg['Server']['controluser'],
-                    $cfg['Server']['controlpass'],
                     DatabaseInterface::CONNECT_CONTROL,
                     $server_details
                 );
             } else {
                 $controllink = $GLOBALS['dbi']->connect(
-                    $cfg['Server']['controluser'],
-                    $cfg['Server']['controlpass'],
                     DatabaseInterface::CONNECT_CONTROL
                 );
             }
@@ -791,9 +787,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
 
         // Connects to the server (validates user's login)
         /** @var DatabaseInterface $userlink */
-        $userlink = $GLOBALS['dbi']->connect(
-            $cfg['Server']['user'], $cfg['Server']['password'], DatabaseInterface::CONNECT_USER
-        );
+        $userlink = $GLOBALS['dbi']->connect(DatabaseInterface::CONNECT_USER);
 
         // Set timestamp for the session, if required.
         if ($cfg['Server']['SessionTimeZone'] != '') {
@@ -833,9 +827,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
              * and phpMyAdmin issuing queries to configuration storage, which
              * is not locked by that time.
              */
-            $controllink = $GLOBALS['dbi']->connect(
-                $cfg['Server']['user'], $cfg['Server']['password'], DatabaseInterface::CONNECT_USER
-            );
+            $controllink = $GLOBALS['dbi']->connect(DatabaseInterface::CONNECT_USER);
         }
 
         $auth_plugin->storeUserCredentials();
