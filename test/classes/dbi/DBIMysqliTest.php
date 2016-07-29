@@ -106,6 +106,8 @@ class DBIMysqliTest extends PMATestCase
             'port' => 8080,
             'socket' => 123,
             'host' => 'locahost',
+            'compress' => false,
+            'ssl' => false,
         );
 
         //test for connect
