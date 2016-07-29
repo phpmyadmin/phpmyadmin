@@ -9,6 +9,7 @@ phpMyAdmin - ChangeLog
 - issue #12391 Message with 'Change password successfully' displayed, but does not take effect
 - issue        Tighten control on PHP sessions and session cookies
 - issue #12409 Re-enable overhead on server databases view
+- issue #12414 Fixed rendering of Original theme
 
 4.6.3 (2016-06-23)
 - issue #12249 Fixed cookie path on Windows
