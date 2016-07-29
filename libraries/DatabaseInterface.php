@@ -2244,36 +2244,33 @@ class DatabaseInterface
             $password = $cfg['Server']['controlpass'];
 
             $server = array();
-            if (! empty($cfg['Server']['controlhost'])
-                || ! empty($cfg['Server']['controlport'])
-            ) {
-                if (! empty($cfg['Server']['controlhost'])) {
-                    $server['host'] = $cfg['Server']['controlhost'];
-                } else {
-                    $server['host'] = $cfg['Server']['host'];
-                }
-                // Share the settings if the host is same
-                if ($server['host'] == $cfg['Server']['host']) {
-                    $shared = array(
-                        'port', 'socket', 'connect_type', 'compress',
-                        'ssl', 'ssl_key', 'ssl_cert', 'ssl_ca',
-                        'ssl_ca_path',  'ssl_ciphers', 'ssl_verify',
-                    );
-                    foreach ($shared as $item) {
-                        if (isset($cfg['Server'][$item])) {
-                            $server[$item] = $cfg['Server'][$item];
-                        }
+
+            if (! empty($cfg['Server']['controlhost'])) {
+                $server['host'] = $cfg['Server']['controlhost'];
+            } else {
+                $server['host'] = $cfg['Server']['host'];
+            }
+            // Share the settings if the host is same
+            if ($server['host'] == $cfg['Server']['host']) {
+                $shared = array(
+                    'port', 'socket', 'connect_type', 'compress',
+                    'ssl', 'ssl_key', 'ssl_cert', 'ssl_ca',
+                    'ssl_ca_path',  'ssl_ciphers', 'ssl_verify',
+                );
+                foreach ($shared as $item) {
+                    if (isset($cfg['Server'][$item])) {
+                        $server[$item] = $cfg['Server'][$item];
                     }
                 }
-                // Set configured port
-                if (! empty($cfg['Server']['controlport'])) {
-                    $server['port'] = $cfg['Server']['controlport'];
-                }
-                // Set any configuration with control_ prefix
-                foreach ($cfg['Server'] as $key => $val) {
-                    if (substr($key, 0, 8) === 'control_') {
-                        $server[substr($key, 8)] = $val;
-                    }
+            }
+            // Set configured port
+            if (! empty($cfg['Server']['controlport'])) {
+                $server['port'] = $cfg['Server']['controlport'];
+            }
+            // Set any configuration with control_ prefix
+            foreach ($cfg['Server'] as $key => $val) {
+                if (substr($key, 0, 8) === 'control_') {
+                    $server[substr($key, 8)] = $val;
                 }
             }
         } else {
