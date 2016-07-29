@@ -2222,7 +2222,7 @@ class DatabaseInterface
     ) {
         $error_count = $GLOBALS['error_handler']->countErrors();
         $result = $this->_extension->connect(
-            $user, $password, $is_controluser, $server, $auxiliary_connection
+            $user, $password, $is_controluser, $server
         );
 
         /* Any errors from connection? */

@@ -114,14 +114,11 @@ class DBIMysqli implements DBIExtension
      * @param string $password             mysql user password
      * @param bool   $is_controluser       whether this is a control user connection
      * @param array  $server               host/port/socket/persistent
-     * @param bool   $auxiliary_connection (when true, don't go back to login if
-     *                                     connection fails)
      *
      * @return mixed false on error or a mysqli object on success
      */
     public function connect(
-        $user, $password, $is_controluser = false, $server = null,
-        $auxiliary_connection = false
+        $user, $password, $is_controluser = false, $server = null
     ) {
         global $cfg;
 

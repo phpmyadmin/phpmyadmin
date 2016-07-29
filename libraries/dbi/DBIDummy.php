@@ -899,8 +899,6 @@ class DBIDummy implements DBIExtension
      * @param string $password             mysql user password
      * @param bool   $is_controluser       whether this is a control user connection
      * @param array  $server               host/port/socket/persistent
-     * @param bool   $auxiliary_connection (when true, don't go back to login if
-     *                                     connection fails)
      *
      * @return mixed false on error or a mysqli object on success
      */
@@ -908,8 +906,7 @@ class DBIDummy implements DBIExtension
         $user,
         $password,
         $is_controluser = false,
-        $server = null,
-        $auxiliary_connection = false
+        $server = null
     ) {
         return true;
     }
