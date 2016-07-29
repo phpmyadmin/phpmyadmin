@@ -484,9 +484,7 @@ class ServerDatabasesController extends Controller
                     );
 
                     if (mb_strlen($key) > 0
-                        || (isset($replication_info[$type]['Do_DB'][0])
-                        && $replication_info[$type]['Do_DB'][0] == ""
-                        && count($replication_info[$type]['Do_DB']) == 1)
+                        || count($replication_info[$type]['Do_DB']) == 0
                     ) {
                         // if ($key != null) did not work for index "0"
                         $out = Util::getIcon(
