@@ -2262,6 +2262,9 @@ class DatabaseInterface
                 }
             }
         } else {
+            if (is_null($server)) {
+                return array(null, null, null);
+            }
             if (isset($server['user'])) {
                 $user = $server['user'];
             }
