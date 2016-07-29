@@ -2251,7 +2251,7 @@ class DatabaseInterface
                         'ssl_ca_path',  'ssl_ciphers', 'ssl_verify',
                     );
                     foreach ($shared as $item) {
-                        if (! empty($cfg['Server'][$item])) {
+                        if (isset($cfg['Server'][$item])) {
                             $server[$item] = $cfg['Server'][$item];
                         }
                     }
