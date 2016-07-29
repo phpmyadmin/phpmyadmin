@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-05-23 14:29+0200\n"
-"PO-Revision-Date: 2016-07-29 11:47+0000\n"
-"Last-Translator: Juha <jremes@outlook.com>\n"
+"PO-Revision-Date: 2016-07-29 12:53+0000\n"
+"Last-Translator: Juha Remes <jremes@outlook.com>\n"
 "Language-Team: Finnish "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/fi/>\n"
 "Language: fi\n"
@@ -7005,7 +7005,6 @@ msgid "Control user password"
 msgstr "Hallintakäyttäjän salasana"
 
 #: libraries/config/messages.inc.php:656
-#, fuzzy
 #| msgid ""
 #| "A special MySQL user configured with limited permissions, more "
 #| "information available on [a@https://wiki.phpmyadmin.net/pma/"
@@ -7015,8 +7014,7 @@ msgid ""
 "available on [doc@linked-tables]documentation[/doc]."
 msgstr ""
 "Erityinen MySQL-käyttäjä, jolle on määritetty rajatut käyttöoikeudet, "
-"lisätietoja saatavilla [a@https://wiki.phpmyadmin.net/pma/"
-"controluser]wikissä[/a]."
+"lisätietoja saatavilla [doc@linked-tables]dokumentaatiossa[/doc]."
 
 #: libraries/config/messages.inc.php:659
 msgid "Control user"
@@ -7183,7 +7181,6 @@ msgid "PDF schema: pages table"
 msgstr "PDF-kaavio: sivujen taulu"
 
 #: libraries/config/messages.inc.php:723
-#, fuzzy
 #| msgid ""
 #| "Database used for relations, bookmarks, and PDF features. See [a@http://"
 #| "wiki.phpmyadmin.net/pma/pmadb]pmadb[/a] for complete information. Leave "
@@ -7194,8 +7191,8 @@ msgid ""
 "Suggested: [kbd]phpmyadmin[/kbd]."
 msgstr ""
 "Relaatioihin, kirjanmerkkeihin ja PDF-ominaisuuksiin käytettävä tietokanta. "
-"Katso täydet tiedot aiheesta [a@https://wiki.phpmyadmin.net/pma/pmadb]pmadb[/"
-"a]. Jätä tyhjäksi jos et halua tukea. Oletusarvo: [kbd]phpmyadmin[/kbd]."
+"Katso täydet tiedot aiheesta [doc@linked-tables]pmadb[/doc]. Jätä tyhjäksi "
+"jos et halua tukea. Oletusarvo: [kbd]phpmyadmin[/kbd]."
 
 #: libraries/config/messages.inc.php:727
 #: templates/server/databases/create.phtml:20
@@ -7236,7 +7233,6 @@ msgid "Favorites table"
 msgstr "Suosikkitaulut"
 
 #: libraries/config/messages.inc.php:742
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no [a@https://wiki.phpmyadmin.net/pma/relation]relation-"
 #| "links[/a] support, suggested: [kbd]pma__relation[/kbd]."
@@ -7244,23 +7240,20 @@ msgid ""
 "Leave blank for no [doc@relations@]relation-links[/doc] support, suggested: "
 "[kbd]pma__relation[/kbd]."
 msgstr ""
-"Jätä tyhjäksi jos et halua [a@https://wiki.phpmyadmin.net/pma/"
-"relation]relaatiolinkkien[/a]tukea, oletusarvo: [kbd]pma__relation[/kbd]."
+"Jätä tyhjäksi jos et halua [doc@relations@]relaatiolinkkien[/doc]tukea, "
+"oletusarvo: [kbd]pma__relation[/kbd]."
 
 #: libraries/config/messages.inc.php:746
 msgid "Relation table"
 msgstr "Relaatiotaulu"
 
 #: libraries/config/messages.inc.php:748
-#, fuzzy
 #| msgid ""
 #| "See [a@https://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
 #| "types[/a] for an example."
 msgid ""
 "See [doc@authentication-modes]authentication types[/doc] for an example."
-msgstr ""
-"Katso [a@https://wiki.phpmyadmin.net/pma/auth_types#signon]todennustyypit[/a] "
-"esimerkkinä."
+msgstr "Katso [doc@authentication-modes]todennustyypit[/doc] esimerkkinä."
 
 #: libraries/config/messages.inc.php:751
 msgid "Signon session name"
@@ -7517,6 +7510,8 @@ msgstr "Näytä viime päivityksen ajankohta"
 msgid ""
 "Show or hide a column displaying the Last check timestamp for all tables."
 msgstr ""
+"Näytä tai piilota sarake joka näyttää viimeisen aikaleiman kaikille "
+"tauluille."
 
 #: libraries/config/messages.inc.php:858
 msgid "Show last check timestamp"
@@ -7526,7 +7521,7 @@ msgstr "Näytä viime tarkistuksen ajankohta"
 msgid ""
 "Defines whether or not type fields should be initially displayed in edit/"
 "insert mode."
-msgstr ""
+msgstr "Määrittelee tuleeko tyyppikentät näyttää muokkaus/lisäys-tilassa."
 
 #: libraries/config/messages.inc.php:863
 msgid "Show field types"
@@ -7577,6 +7572,8 @@ msgstr "Näytä SQL-kyselyt"
 msgid ""
 "Defines whether the query box should stay on-screen after its submission."
 msgstr ""
+"Määrittelee mikäli kyselylaatikon tulisi pysyä ruudulla kyselyn lähettämisen "
+"jälkeen."
 
 #: libraries/config/messages.inc.php:883 libraries/sql_query_form.lib.php:355
 msgid "Retain query box"
@@ -7602,7 +7599,6 @@ msgid "Skip locked tables"
 msgstr "Ohita lukitut taulut"
 
 #: libraries/config/messages.inc.php:897
-#, fuzzy
 #| msgid ""
 #| "Disable the default warning that is displayed if mcrypt is missing for "
 #| "cookie authentication"
@@ -7610,15 +7606,14 @@ msgid ""
 "Disable the default warning that is displayed on the main page if Suhosin is "
 "detected."
 msgstr ""
-"Poistaa oletus varoituksen, joka näytetään jos mcrypt puuttuu eväste "
-"todennuksesta"
+"Poistaa oletus varoituksen, joka näytetään mikäli Suhosin-laajennus "
+"havaitaan."
 
 #: libraries/config/messages.inc.php:900
 msgid "Suhosin warning"
-msgstr ""
+msgstr "Suhosin-varoitus"
 
 #: libraries/config/messages.inc.php:902
-#, fuzzy
 #| msgid ""
 #| "Disable the default warning that is displayed if mcrypt is missing for "
 #| "cookie authentication"
@@ -7627,20 +7622,21 @@ msgid ""
 "of the PHP setting session.gc_maxlifetime is less than the value of "
 "`LoginCookieValidity`."
 msgstr ""
-"Poistaa oletus varoituksen, joka näytetään jos mcrypt puuttuu eväste "
-"todennuksesta"
+"Poistaa oletus varoituksen, joka näytetään pääsivulla mikäli PHP-asetus "
+"session.gc_maxlifetime alittaa `LoginCookieValidity` - parametrin arvon."
 
 #: libraries/config/messages.inc.php:907
-#, fuzzy
 #| msgid "Login cookie validity"
 msgid "Login cookie validity warning"
-msgstr "Kirjautumisevästeen kelpoisuus"
+msgstr "Kirjautumisevästeen kelpoisuusvaroitus"
 
 #: libraries/config/messages.inc.php:910
 msgid ""
 "Textarea size (columns) in edit mode, this value will be emphasized for SQL "
 "query textareas (*2)."
 msgstr ""
+"Tekstialueen koko (sarakkeita) muokkaustilassa, tälle arvolle annetaan "
+"erityinen paino SQL-hakukyselyiden tekstialueilla (*2)."
 
 #: libraries/config/messages.inc.php:913
 msgid "Textarea columns"
@@ -7651,6 +7647,8 @@ msgid ""
 "Textarea size (rows) in edit mode, this value will be emphasized for SQL "
 "query textareas (*2)."
 msgstr ""
+"Tekstialueen koko (rivejä) muokkaustilassa, tälle arvolle annetaan erityinen "
+"paino SQL-hakukyselyiden tekstialueilla (*2)."
 
 #: libraries/config/messages.inc.php:918
 msgid "Textarea rows"
@@ -7658,11 +7656,11 @@ msgstr "Tekstikenttä rivit"
 
 #: libraries/config/messages.inc.php:920
 msgid "Title of browser window when a database is selected."
-msgstr ""
+msgstr "Selainikkunan otsikko mikäli tietokanta on valittu."
 
 #: libraries/config/messages.inc.php:924
 msgid "Title of browser window when nothing is selected."
-msgstr ""
+msgstr "Selainikkunan otsikko kun mitään ei olla valittu."
 
 #: libraries/config/messages.inc.php:926
 msgid "Default title"
@@ -7670,11 +7668,11 @@ msgstr "Oletusotsikko"
 
 #: libraries/config/messages.inc.php:928
 msgid "Title of browser window when a server is selected."
-msgstr ""
+msgstr "Selainikkunan otsikko kun palvelin on valittu."
 
 #: libraries/config/messages.inc.php:931
 msgid "Title of browser window when a table is selected."
-msgstr ""
+msgstr "Selainikkunan otsikko kun taulu on valittu."
 
 #: libraries/config/messages.inc.php:934
 msgid ""
@@ -7715,10 +7713,12 @@ msgid ""
 "When disabled, users cannot set any of the options below, regardless of the "
 "checkbox on the right."
 msgstr ""
+"Kun tämä on poistettu käytöstä, käyttäjät eivät voi asettaa mitään "
+"allaolevista valinnoista, riippumatta oikealla olevan valintaruudun arvosta."
 
 #: libraries/config/messages.inc.php:950
 msgid "Enable the Developer tab in settings"
-msgstr ""
+msgstr "Aktivoi kehittäjä-välilehti asetuksissa"
 
 #: libraries/config/messages.inc.php:951 setup/frames/index.inc.php:316
 msgid "Check for latest version"
@@ -7726,7 +7726,7 @@ msgstr "Tarkista uusin versio"
 
 #: libraries/config/messages.inc.php:953
 msgid "Enables check for latest version on main phpMyAdmin page."
-msgstr ""
+msgstr "Aktivoi uusimman version tarkistuksen phpMyAdmin-pääsivulla."
 
 #: libraries/config/messages.inc.php:955 setup/lib/index.lib.php:121
 #: setup/lib/index.lib.php:144 setup/lib/index.lib.php:157
@@ -7742,10 +7742,14 @@ msgid ""
 "if the server where phpMyAdmin is installed does not have direct access to "
 "the internet. The format is: \"hostname:portnumber\"."
 msgstr ""
+"Välityspalvelimen URL jota käytetään tiedonhakuun uusimmasta phpMyAdminin "
+"versiosta tai lähetettäessä virheraportteja. Tarvitset tätä mikäli "
+"palvelimella johon phpMyAdmin on asennettu ei ole suoraa pääsyä internetiin. "
+"Muoto on: \"isäntänimi:porttinumero\"."
 
 #: libraries/config/messages.inc.php:962
 msgid "Proxy url"
-msgstr ""
+msgstr "Välityspalvelimen URL"
 
 #: libraries/config/messages.inc.php:964
 msgid ""
@@ -7753,32 +7757,31 @@ msgid ""
 "authentication is performed. If a username is supplied, Basic Authentication "
 "will be performed. No other types of authentication are currently supported."
 msgstr ""
+"Välityspalvelimelle kirjautumiseen käytettävä käyttäjänimi. Oletusarvoisesti "
+"tunnistautumista ei suoriteta. Mikäli käyttäjänimi annetaan, "
+"peruskirjautuminen suoritetaan. Muita kirjautumistyyppejä ei tällä hetkellä "
+"tueta."
 
 #: libraries/config/messages.inc.php:969
-#, fuzzy
 #| msgid "Username"
 msgid "Proxy username"
-msgstr "Käyttäjänimi"
+msgstr "Välityspalvelimen käyttäjänimi"
 
 #: libraries/config/messages.inc.php:970
 msgid "The password for authenticating with the proxy."
-msgstr ""
+msgstr "Välityspalvelimelle kirjautumiseen käytettävä salasana."
 
 #: libraries/config/messages.inc.php:971
-#, fuzzy
 #| msgid "Password"
 msgid "Proxy password"
-msgstr "Salasana"
+msgstr "Välityspalvelimen salasana"
 
 #: libraries/config/messages.inc.php:974
-#, fuzzy
 #| msgid ""
 #| "Enable [a@http://en.wikipedia.org/wiki/Gzip]gzip[/a] compression for "
 #| "import and export operations."
 msgid "Enable ZIP compression for import and export operations."
-msgstr ""
-"Käytä tuonti- ja vientitoiminnoissa [a@http://en.wikipedia.org/wiki/"
-"Gzip]gzip[/a]-pakkausta."
+msgstr "Käytä tuonti- ja vientitoiminnoissa ZIP-pakkausta."
 
 #: libraries/config/messages.inc.php:977
 msgid "ZIP"
@@ -7786,40 +7789,40 @@ msgstr "ZIP"
 
 #: libraries/config/messages.inc.php:979
 msgid "Enter your public key for your domain reCaptcha service."
-msgstr ""
+msgstr "Anna julkinen avain verkkotunnuksesi reCaptcha-palvelulle."
 
 #: libraries/config/messages.inc.php:981
 msgid "Public key for reCaptcha"
-msgstr ""
+msgstr "Julkinen avain reCaptchalle"
 
 #: libraries/config/messages.inc.php:983
 msgid "Enter your private key for your domain reCaptcha service."
-msgstr ""
+msgstr "Anna yksityinen avain verkkotunnuksesi reCaptcha-palvelulle."
 
 #: libraries/config/messages.inc.php:985
 msgid "Private key for reCaptcha"
-msgstr ""
+msgstr "Yksityinen avain reCaptchalle"
 
 #: libraries/config/messages.inc.php:988
 msgid "Choose the default action when sending error reports."
-msgstr ""
+msgstr "Valitse oletustoiminto virheraportteja lähetettäessä."
 
 #: libraries/config/messages.inc.php:990
-#, fuzzy
 #| msgid "Server port"
 msgid "Send error reports"
-msgstr "Palvelinportti"
+msgstr "Lähetä virheraportteja"
 
 #: libraries/config/messages.inc.php:993
 msgid ""
 "Queries are executed by pressing Enter (instead of Ctrl+Enter). New lines "
 "will be inserted with Shift+Enter."
 msgstr ""
+"Hakykyselyt suoritetaan painamalla Enter (Ctrl+Enter - yhdistelmän sijaan). "
+"Uudet rivit asetetaan painamalla Shift+Enter."
 
 #: libraries/config/messages.inc.php:996
-#, fuzzy
 msgid "Enter executes queries in console"
-msgstr "SQL-kyselyt"
+msgstr "Syötä hakukyselyt komentokehoitteelle"
 
 #: libraries/config/messages.inc.php:999
 msgid ""
