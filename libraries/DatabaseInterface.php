@@ -2219,16 +2219,8 @@ class DatabaseInterface
             || $schema_name == 'sys';
     }
 
-    /**
-     * connects to the database server
-     *
-     * @param integer $mode    Connection mode on of CONNECT_USER, CONNECT_CONTROL
-     *                         or CONNECT_AUXILIARY.
-     * @param array   $server  Server information like host/port/socket/persistent
-     *
-     * @return mixed false on error or a connection object on success
-     */
-    public function connect($mode, $server = null) {
+    public function getConnectionParams($mode, $server = null)
+    {
         global $cfg;
 
         $user = null;
@@ -2239,7 +2231,7 @@ class DatabaseInterface
             $password = $cfg['Server']['password'];
         } elseif ($mode == DatabaseInterface::CONNECT_CONTROL) {
             $user = $cfg['Server']['controluser'];
-            $user = $cfg['Server']['controlpass'];
+            $password = $cfg['Server']['controlpass'];
         } else {
             if (isset($server['user'])) {
                 $user = $server['user'];
@@ -2248,6 +2240,23 @@ class DatabaseInterface
                 $password = $server['password'];
             }
         }
+
+        return array($user, $password, $server);
+    }
+
+    /**
+     * connects to the database server
+     *
+     * @param integer $mode    Connection mode on of CONNECT_USER, CONNECT_CONTROL
+     *                         or CONNECT_AUXILIARY.
+     * @param array   $server  Server information like host/port/socket/persistent
+     *
+     * @return mixed false on error or a connection object on success
+     */
+    public function connect($mode, $server = null)
+    {
+        list($user, $password, $server) = $this->getConnectionParams($mode, $server);
+
         if (is_null($user) || is_null($password)) {
             trigger_error(
                 __('Missing connection parameters!'),
