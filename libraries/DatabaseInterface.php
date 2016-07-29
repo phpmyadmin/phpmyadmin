@@ -2275,9 +2275,9 @@ class DatabaseInterface
 
         // Perform sanity checks on host, socket and port
         if (empty($server['port'])) {
-            $server['port'] = intval($server['port']);
+            $server['port'] = 0;
         } else {
-            $server['port'] = '';
+            $server['port'] = intval($server['port']);
         }
         if (empty($server['socket'])) {
             $server['socket'] = null;
