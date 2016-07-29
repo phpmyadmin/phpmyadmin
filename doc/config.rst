@@ -442,6 +442,10 @@ Server connection settings
     Permits to use an alternate host to hold the configuration storage
     data.
 
+    .. seealso::
+
+        :config:option:`$cfg['Servers'][$i]['control_*']`
+
 .. _controlport:
 .. config:option:: $cfg['Servers'][$i]['controlport']
 
@@ -450,6 +454,10 @@ Server connection settings
 
     Permits to use an alternate port to connect to the host that
     holds the configuration storage.
+
+    .. seealso::
+
+        :config:option:`$cfg['Servers'][$i]['control_*']`
 
 .. _controluser:
 .. config:option:: $cfg['Servers'][$i]['controluser']
@@ -476,7 +484,45 @@ Server connection settings
         :ref:`setup`, 
         :ref:`authentication_modes`, 
         :ref:`linked-tables`,
-        :config:option:`$cfg['Servers'][$i]['pmadb']`
+        :config:option:`$cfg['Servers'][$i]['pmadb']`,
+        :config:option:`$cfg['Servers'][$i]['controlhost']`,
+        :config:option:`$cfg['Servers'][$i]['controlport']`,
+        :config:option:`$cfg['Servers'][$i]['control_*']`
+
+.. config:option:: $cfg['Servers'][$i]['control_*']
+
+    :type: mixed
+
+    .. versionadded:: 4.7.0
+
+    You can change any MySQL connection setting for control link (used to
+    access :ref:`linked-tables`) using configuration prefixed with ``control_``.
+
+    This can be used to change any aspect of the control connection, which by
+    default uses same parameters as the user one.
+
+    For example you can configure SSL for the control connection:
+
+    .. code-block:: php
+
+        // Enable SSL
+        $cfg['Servers'][$i]['control_ssl'] = true;
+        // Client secret key
+        $cfg['Servers'][$i]['control_ssl_key'] = '../client-key.pem';
+        // Client certificate
+        $cfg['Servers'][$i]['control_ssl_cert'] = '../client-cert.pem';
+        // Server certification authority
+        $cfg['Servers'][$i]['control_ssl_ca'] = '../server-ca.pem';
+
+    .. seealso::
+
+        :config:option:`$cfg['Servers'][$i]['ssl']`,
+        :config:option:`$cfg['Servers'][$i]['ssl_key']`,
+        :config:option:`$cfg['Servers'][$i]['ssl_cert']`,
+        :config:option:`$cfg['Servers'][$i]['ssl_ca']`,
+        :config:option:`$cfg['Servers'][$i]['ssl_ca_path']`,
+        :config:option:`$cfg['Servers'][$i]['ssl_ciphers']`,
+        :config:option:`$cfg['Servers'][$i]['ssl_verify']`
 
 .. config:option:: $cfg['Servers'][$i]['auth_type']
 

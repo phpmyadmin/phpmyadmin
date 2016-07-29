@@ -2260,6 +2260,12 @@ class DatabaseInterface
                 if (! empty($cfg['Server']['controlport'])) {
                     $server['port'] = $cfg['Server']['controlport'];
                 }
+                // Set any configuration with control_ prefix
+                foreach ($cfg['Server'] as $key => $val) {
+                    if (substr($key, 0, 8) === 'control_') {
+                        $server[substr($key, 8)] = $val;
+                    }
+                }
             }
         } else {
             if (is_null($server)) {

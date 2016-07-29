@@ -21,6 +21,7 @@ phpMyAdmin - ChangeLog
 - issue #12325 Setup script icons broken
 - issue #12378 Support IPv6 proxies
 - issue        Removed MySQL connection retry without password
+- issue #12218 Allow to specify further parameters for control connection
 
 4.6.4 (not yet released)
 - issue        Include X-Robots-Tag header in responses
