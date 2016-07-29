@@ -94,13 +94,12 @@ class DBIMysql implements DBIExtension
      *
      * @param string $user                 mysql user name
      * @param string $password             mysql user password
-     * @param bool   $is_controluser       whether this is a control user connection
      * @param array  $server               host/port/socket/persistent
      *
      * @return mixed false on error or a mysqli object on success
      */
     public function connect(
-        $user, $password, $is_controluser = false, $server = null
+        $user, $password, $server = null
     ) {
         global $cfg;
 
