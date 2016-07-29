@@ -20,6 +20,7 @@ phpMyAdmin - ChangeLog
 - issue #12307 Produce valid JSON on export
 - issue #12325 Setup script icons broken
 - issue #12378 Support IPv6 proxies
+- issue        Removed MySQL connection retry without password
 
 4.6.4 (not yet released)
 - issue        Include X-Robots-Tag header in responses

@@ -183,23 +183,6 @@ class DBIMysqli implements DBIExtension
                 $server_socket,
                 $client_flags
             );
-            // Retry with empty password if we're allowed to
-            if ($return_value == false
-                && isset($cfg['Server']['nopassword'])
-                && $cfg['Server']['nopassword']
-                && ! $is_controluser
-            ) {
-                $return_value = $this->_realConnect(
-                    $link,
-                    $cfg['Server']['host'],
-                    $user,
-                    '',
-                    false,
-                    $server_port,
-                    $server_socket,
-                    $client_flags
-                );
-            }
         } else {
             $return_value = $this->_realConnect(
                 $link,
