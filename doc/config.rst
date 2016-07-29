@@ -462,15 +462,11 @@ Server connection settings
     :type: string
     :default: ``''``
 
-        This special account is used to access :ref:`linked-tables`. 
-        You don't need it in single user case, but if phpMyAdmin is shared it
-        is recommended to give access to :ref:`linked-tables` only to this user
-        and configure phpMyAdmin to use it. All users will then be able to use 
-        the features without need to have direct access to :ref:`linked-tables`.
-
-    (see
-
-    You can use 
+    This special account is used to access :ref:`linked-tables`. 
+    You don't need it in single user case, but if phpMyAdmin is shared it
+    is recommended to give access to :ref:`linked-tables` only to this user
+    and configure phpMyAdmin to use it. All users will then be able to use 
+    the features without need to have direct access to :ref:`linked-tables`.
 
     .. versionchanged:: 2.2.5
         those were called ``stduser`` and ``stdpass``
