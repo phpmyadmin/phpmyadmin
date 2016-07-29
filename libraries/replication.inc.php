@@ -233,13 +233,13 @@ function PMA_replication_slave_change_master($user, $password, $host, $port,
 function PMA_replication_connect_to_master($user, $password, $host = null, $port = null, $socket = null)
 {
     $server = array();
-    $server["host"] = $host;
+    $server["host"] = PMA_sanitizeMySQLHost($host);
     $server["port"] = $port;
     $server["socket"] = $socket;
 
     // 5th parameter set to true means that it's an auxiliary connection
     // and we must not go back to login page if it fails
-    return PMA_DBI_connect($user, $password, false, PMA_sanitizeMySQLHost($server), true);
+    return PMA_DBI_connect($user, $password, false, $server, true);
 }
 /**
  * Fetches position and file of current binary log on master
