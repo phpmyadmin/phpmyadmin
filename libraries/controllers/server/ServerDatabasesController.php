@@ -357,9 +357,11 @@ class ServerDatabasesController extends Controller
             'format'    => 'byte',
             'footer'    => 0,
         );
-        // At this point we were preparing the display of Overhead using DATA_FREE
-        // but its content does not represent the real overhead in the case
-        // of InnoDB
+        $column_order['SCHEMA_DATA_FREE'] = array(
+            'disp_name' => __('Overhead'),
+            'format'    => 'byte',
+            'footer'    => 0,
+        );
 
         return $column_order;
     }
@@ -482,9 +484,7 @@ class ServerDatabasesController extends Controller
                     );
 
                     if (mb_strlen($key) > 0
-                        || (isset($replication_info[$type]['Do_DB'][0])
-                        && $replication_info[$type]['Do_DB'][0] == ""
-                        && count($replication_info[$type]['Do_DB']) == 1)
+                        || count($replication_info[$type]['Do_DB']) == 0
                     ) {
                         // if ($key != null) did not work for index "0"
                         $out = Util::getIcon(
