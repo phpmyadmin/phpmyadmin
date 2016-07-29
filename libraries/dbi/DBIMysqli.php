@@ -119,8 +119,6 @@ class DBIMysqli implements DBIExtension
     public function connect(
         $user, $password, $server = null
     ) {
-        global $cfg;
-
         if ($server) {
             $server['host'] = (empty($server['host']))
                 ? 'localhost'
@@ -136,21 +134,21 @@ class DBIMysqli implements DBIExtension
         $client_flags = 0;
 
         /* Optionally compress connection */
-        if ($cfg['Server']['compress'] && defined('MYSQLI_CLIENT_COMPRESS')) {
+        if ($server['compress'] && defined('MYSQLI_CLIENT_COMPRESS')) {
             $client_flags |= MYSQLI_CLIENT_COMPRESS;
         }
 
         /* Optionally enable SSL */
-        if ($cfg['Server']['ssl']) {
+        if ($server['ssl']) {
             $client_flags |= MYSQLI_CLIENT_SSL;
-            if (!empty($cfg['Server']['ssl_key'])) {
+            if (!empty($server['ssl_key'])) {
                 mysqli_ssl_set(
                     $link,
-                    $cfg['Server']['ssl_key'],
-                    $cfg['Server']['ssl_cert'],
-                    $cfg['Server']['ssl_ca'],
-                    $cfg['Server']['ssl_ca_path'],
-                    $cfg['Server']['ssl_ciphers']
+                    $server['ssl_key'],
+                    $server['ssl_cert'],
+                    $server['ssl_ca'],
+                    $server['ssl_ca_path'],
+                    $server['ssl_ciphers']
                 );
             }
             /*
@@ -158,11 +156,11 @@ class DBIMysqli implements DBIExtension
              * @link https://bugs.php.net/bug.php?id=68344
              * @link https://github.com/phpmyadmin/phpmyadmin/pull/11838
              */
-            if (! $cfg['Server']['ssl_verify']) {
+            if (! $server['ssl_verify']) {
                 mysqli_options(
                     $link,
                     MYSQLI_OPT_SSL_VERIFY_SERVER_CERT,
-                    $cfg['Server']['ssl_verify']
+                    $server['ssl_verify']
                 );
                 $client_flags |= MYSQLI_CLIENT_SSL_DONT_VERIFY_SERVER_CERT;
             }
@@ -171,7 +169,7 @@ class DBIMysqli implements DBIExtension
         if (! $server) {
             $return_value = $this->_realConnect(
                 $link,
-                $cfg['Server']['host'],
+                $server['host'],
                 $user,
                 $password,
                 false,

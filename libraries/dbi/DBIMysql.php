@@ -101,8 +101,6 @@ class DBIMysql implements DBIExtension
     public function connect(
         $user, $password, $server = null
     ) {
-        global $cfg;
-
         if ($server['port'] === 0) {
             $server_port = '';
         } else {
@@ -123,18 +121,18 @@ class DBIMysql implements DBIExtension
         $client_flags |= 128;
 
         /* Optionally compress connection */
-        if (defined('MYSQL_CLIENT_COMPRESS') && $cfg['Server']['compress']) {
+        if (defined('MYSQL_CLIENT_COMPRESS') && $server['compress']) {
             $client_flags |= MYSQL_CLIENT_COMPRESS;
         }
 
         /* Optionally enable SSL */
-        if (defined('MYSQL_CLIENT_SSL') && $cfg['Server']['ssl']) {
+        if (defined('MYSQL_CLIENT_SSL') && $server['ssl']) {
             $client_flags |= MYSQL_CLIENT_SSL;
         }
 
         if (! $server) {
             $link = $this->_realConnect(
-                $cfg['Server']['host'] . $server_port . $server_socket,
+                $server['host'] . $server_port . $server_socket,
                 $user, $password, empty($client_flags) ? null : $client_flags
             );
         } else {

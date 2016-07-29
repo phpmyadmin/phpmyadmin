@@ -2243,16 +2243,23 @@ class DatabaseInterface
                 } else {
                     $server['host'] = $cfg['Server']['host'];
                 }
+                // Share the settings if the host is same
+                if ($server['host'] == $cfg['Server']['host']) {
+                    $shared = array(
+                        'port', 'socket', 'connect_type', 'compress',
+                        'ssl', 'ssl_key', 'ssl_cert', 'ssl_ca',
+                        'ssl_ca_path',  'ssl_ciphers', 'ssl_verify',
+                    );
+                    foreach ($shared as $item) {
+                        if (! empty($cfg['Server'][$item])) {
+                            $server[$item] = $cfg['Server'][$item];
+                        }
+                    }
+                }
+                // Set configured port
                 if (! empty($cfg['Server']['controlport'])) {
                     $server['port'] = $cfg['Server']['controlport'];
-                } elseif ($server['host'] == $cfg['Server']['host']) {
-                    // Evaluates to true when controlhost == host
-                    // or controlhost is not defined (hence it defaults to host)
-                    // In such case we can use the value of port.
-                    $server['port'] = $cfg['Server']['port'];
                 }
-                // otherwise we leave the $server['port'] unset,
-                // allowing it to take default mysql port
             }
         } else {
             if (isset($server['user'])) {
