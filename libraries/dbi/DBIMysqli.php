@@ -117,7 +117,7 @@ class DBIMysqli implements DBIExtension
      * @return mixed false on error or a mysqli object on success
      */
     public function connect(
-        $user, $password, $server = null
+        $user, $password, $server
     ) {
         if ($server) {
             $server['host'] = (empty($server['host']))
@@ -166,28 +166,15 @@ class DBIMysqli implements DBIExtension
             }
         }
 
-        if (! $server) {
-            $return_value = $this->_realConnect(
-                $link,
-                $server['host'],
-                $user,
-                $password,
-                false,
-                $server['port'],
-                $server['socket'],
-                $client_flags
-            );
-        } else {
-            $return_value = $this->_realConnect(
-                $link,
-                $server['host'],
-                $user,
-                $password,
-                false,
-                $server['port'],
-                $server['socket']
-            );
-        }
+        $return_value = $this->_realConnect(
+            $link,
+            $server['host'],
+            $user,
+            $password,
+            false,
+            $server['port'],
+            $server['socket']
+        );
 
         if ($return_value === false || is_null($return_value)) {
             return false;

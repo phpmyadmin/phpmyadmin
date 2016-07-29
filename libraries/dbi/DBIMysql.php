@@ -99,7 +99,7 @@ class DBIMysql implements DBIExtension
      * @return mixed false on error or a mysqli object on success
      */
     public function connect(
-        $user, $password, $server = null
+        $user, $password, $server
     ) {
         if ($server['port'] === 0) {
             $server_port = '';
@@ -130,20 +130,13 @@ class DBIMysql implements DBIExtension
             $client_flags |= MYSQL_CLIENT_SSL;
         }
 
-        if (! $server) {
+        if (!isset($server['host'])) {
+            $link = $this->_realConnect($server_socket, $user, $password, null);
+        } else {
             $link = $this->_realConnect(
                 $server['host'] . $server_port . $server_socket,
-                $user, $password, empty($client_flags) ? null : $client_flags
+                $user, $password, null
             );
-        } else {
-            if (!isset($server['host'])) {
-                $link = $this->_realConnect($server_socket, $user, $password, null);
-            } else {
-                $link = $this->_realConnect(
-                    $server['host'] . $server_port . $server_socket,
-                    $user, $password, null
-                );
-            }
         }
         return $link;
     }
