@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-05-23 14:29+0200\n"
-"PO-Revision-Date: 2016-05-19 19:28+0000\n"
-"Last-Translator: Daniel Linjama <daniel@linjama.com>\n"
-"Language-Team: Finnish <https://hosted.weblate.org/projects/phpmyadmin/4-6/"
-"fi/>\n"
+"PO-Revision-Date: 2016-07-29 11:47+0000\n"
+"Last-Translator: Juha <jremes@outlook.com>\n"
+"Language-Team: Finnish "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-6/fi/>\n"
 "Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.7-dev\n"
+"X-Generator: Weblate 2.8-dev\n"
 
 #: changelog.php:37 license.php:33
 #, php-format
@@ -3008,8 +3008,8 @@ msgstr "Tietokanta"
 #, php-format
 msgid "Showing %1$d bookmark (both private and shared)"
 msgid_plural "Showing %1$d bookmarks (both private and shared)"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Näytetään %1$d kirjanmerkki (sekä yksityinen että jaettu)"
+msgstr[1] "Näytetään %1$d kirjanmerkkiä (sekä yksityiset että jaetut)"
 
 #: libraries/Console.php:107
 msgid "No bookmarks"
@@ -5413,14 +5413,11 @@ msgid "Highlight pointer"
 msgstr "Korosta osoitin"
 
 #: libraries/config/messages.inc.php:47
-#, fuzzy
 #| msgid ""
 #| "Enable [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] compression for "
 #| "import operations."
 msgid "Enable bzip2 compression for import operations."
-msgstr ""
-"Käytä tuontitoiminnoissa [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a]-"
-"pakkausta."
+msgstr "Käytä tuontitoiminnoissa bzip2-pakkausta."
 
 #: libraries/config/messages.inc.php:50
 msgid "Bzip2"
@@ -5441,7 +5438,6 @@ msgid "CHAR columns editing"
 msgstr "CHAR-sarakkeiden muokkaus"
 
 #: libraries/config/messages.inc.php:58
-#, fuzzy
 #| msgid ""
 #| "Use user-friendly editor for editing SQL queries ([a@http://codemirror."
 #| "net/]CodeMirror[/a]) with syntax highlighting and line numbers."
@@ -5449,8 +5445,8 @@ msgid ""
 "Use user-friendly editor for editing SQL queries (CodeMirror) with syntax "
 "highlighting and line numbers."
 msgstr ""
-"Käytä käyttäjäystävällistä editoria SQL-kyselyiden muokkaamiseen ([a@http://"
-"codemirror.net/]CodeMirror[/a]) syntaksin korostuksella ja rivinumeroilla."
+"Käytä käyttäjäystävällistä editoria SQL-kyselyiden (CodeMirror) "
+"muokkaamiseen syntaksin korostuksella ja rivinumeroilla."
 
 #: libraries/config/messages.inc.php:62
 msgid "Enable CodeMirror"
@@ -6200,14 +6196,11 @@ msgid "Disable some of the warnings shown by phpMyAdmin."
 msgstr "Kytke osa phpMyAdminin näyttämistä varoituksista pois päältä."
 
 #: libraries/config/messages.inc.php:353
-#, fuzzy
 #| msgid ""
 #| "Enable [a@http://en.wikipedia.org/wiki/Gzip]gzip[/a] compression for "
 #| "import and export operations."
 msgid "Enable gzip compression for import and export operations."
-msgstr ""
-"Käytä tuonti- ja vientitoiminnoissa [a@http://en.wikipedia.org/wiki/"
-"Gzip]gzip[/a]-pakkausta."
+msgstr "Käytä tuonti- ja vientitoiminnoissa gzip-pakkausta."
 
 #: libraries/config/messages.inc.php:356
 msgid "GZip"
@@ -6907,7 +6900,6 @@ msgid "Authentication type"
 msgstr "Todennustyyppi"
 
 #: libraries/config/messages.inc.php:644
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no [a@https://wiki.phpmyadmin.net/pma/bookmark]bookmark[/"
 #| "a] support, suggested: [kbd]pma__bookmark[/kbd]"
@@ -6915,8 +6907,8 @@ msgid ""
 "Leave blank for no [doc@bookmarks@]bookmark[/doc] support, suggested: "
 "[kbd]pma__bookmark[/kbd]"
 msgstr ""
-"Jätä tyhjäksi, jos et halua [a@https://wiki.phpmyadmin.net/pma/"
-"bookmark]kirjanmerkki[/a]tukea, oletusarvo: [kbd]pma__bookmark[/kbd]"
+"Jätä tyhjäksi, jos et halua [doc@bookmarks@]kirjanmerkki[/doc]tukea, "
+"oletusarvo: [kbd]pma__bookmark[/kbd]"
 
 #: libraries/config/messages.inc.php:647
 msgid "Bookmark table"
@@ -9097,7 +9089,6 @@ msgstr "Lisätyn rivin tunnus: %1$d"
 
 #. l10n: This is currently used only in Japanese locales
 #: libraries/kanji-encoding.lib.php:150
-#, fuzzy
 #| msgid "None"
 msgctxt "None encoding conversion"
 msgid "None"
@@ -9106,7 +9097,7 @@ msgstr "Ei mitään"
 #. l10n: This is currently used only in Japanese locales
 #: libraries/kanji-encoding.lib.php:161
 msgid "Convert to Kana"
-msgstr ""
+msgstr "Käännä Kana-merkeiksi"
 
 #: libraries/mult_submits.inc.php:329
 msgid "Success!"
@@ -9272,7 +9263,7 @@ msgstr "Romanialainen"
 
 #: libraries/mysql_charsets.lib.php:235
 msgid "Sinhalese"
-msgstr ""
+msgstr "Sinhali"
 
 #: libraries/mysql_charsets.lib.php:238
 msgid "Slovak"
@@ -9317,10 +9308,9 @@ msgid "multilingual"
 msgstr "monikielinen"
 
 #: libraries/mysql_charsets.lib.php:265
-#, fuzzy
 #| msgid "Table name"
 msgid "Vietnamese"
-msgstr "Taulun nimi"
+msgstr "Vietnam"
 
 #: libraries/mysql_charsets.lib.php:293
 msgid "Central European"
