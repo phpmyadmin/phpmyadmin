@@ -102,18 +102,17 @@ class DBIMysqliTest extends PMATestCase
 
         $user = 'PMA_user';
         $password = 'PMA_password';
-        $is_controluser = false;
         $server = array(
             'port' => 8080,
             'socket' => 123,
             'host' => 'locahost',
+            'compress' => false,
+            'ssl' => false,
         );
-        $auxiliary_connection = true;
 
         //test for connect
         $ret = $this->object->connect(
-            $user, $password, $is_controluser,
-            $server, $auxiliary_connection
+            $user, $password, $server
         );
         $this->assertEquals(
             'mysqli_init',

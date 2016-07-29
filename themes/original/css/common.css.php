@@ -418,6 +418,7 @@ div.error {
     margin:             0.3em 0 0 0;
     border:             2px solid;
     background-repeat:  no-repeat;
+    clear:              both;
     <?php
     if ($GLOBALS['text_dir'] === 'ltr') { ?>
         background-position: 10px 50%;
@@ -878,7 +879,7 @@ div#tablestatistics table {
 #fieldset_add_user_login label {
     float:              <?php echo $left; ?>;
     display:            block;
-    width:              10em;
+    width:              15em;
     max-width:          100%;
     text-align:         <?php echo $right; ?>;
     padding-<?php echo $right; ?>:      0.5em;

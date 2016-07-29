@@ -675,7 +675,7 @@ function PMA_getJsonForLogDataTypeGeneral($start, $end)
                     $temp = $return['rows'][$insertTablesFirst]['argument'];
                     $return['rows'][$insertTablesFirst]['argument']
                         .= PMA_getSuspensionPoints(
-                            $temp[mb_strlen($temp) - 1]
+                            $temp[strlen($temp) - 1]
                         );
 
                     // Group this value, thus do not add to the result list

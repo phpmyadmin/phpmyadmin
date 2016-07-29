@@ -983,18 +983,12 @@ function PMA_getIp()
     $value = PMA_getenv($GLOBALS['cfg']['TrustedProxies'][$direct_ip]);
     // Grab first element what is client adddress
     $value = explode(',', $value)[0];
-    // Extract IP address
-    // the $ checks that the header contains only one IP address,
-    // ?: makes sure the () don't capture
-    $matches = array();
-    $is_ip = preg_match(
-        '|^(?:[0-9]{1,3}\.){3,3}[0-9]{1,3}$|',
-        $value, $matches
-    );
+    // checks that the header contains only one IP address,
+    $is_ip = filter_var($value, FILTER_VALIDATE_IP);
 
-    if ($is_ip && (count($matches) == 1)) {
+    if ($is_ip !== false) {
         // True IP behind a proxy
-        return $matches[0];
+        return $value;
     }
 
     // We could not parse header

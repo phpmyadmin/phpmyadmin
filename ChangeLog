@@ -19,6 +19,9 @@ phpMyAdmin - ChangeLog
 - issue #5555  Better report query errors while generating SQL exports
 - issue #12307 Produce valid JSON on export
 - issue #12325 Setup script icons broken
+- issue #12378 Support IPv6 proxies
+- issue        Removed MySQL connection retry without password
+- issue #12218 Allow to specify further parameters for control connection
 
 4.6.4 (not yet released)
 - issue        Include X-Robots-Tag header in responses
@@ -27,6 +30,11 @@ phpMyAdmin - ChangeLog
 - issue #12394 Create view should require a view name
 - issue #12391 Message with 'Change password successfully' displayed, but does not take effect
 - issue        Tighten control on PHP sessions and session cookies
+- issue #12409 Re-enable overhead on server databases view
+- issue #12414 Fixed rendering of Original theme
+- issue #12413 Fixed deleting users in non English locales
+- issue #12416 Fixed replication status output in Databases listing
+- issue #12303 Avoid typecasting to float when not needed
 
 4.6.3 (2016-06-23)
 - issue #12249 Fixed cookie path on Windows

@@ -51,7 +51,7 @@ function PMA_Transformation_getOptions($option_string)
         $trimmed = trim($option);
         if (mb_strlen($trimmed) > 1
             && $trimmed[0] == "'"
-            && $trimmed[mb_strlen($trimmed) - 1] == "'"
+            && $trimmed[strlen($trimmed) - 1] == "'"
         ) {
             // '...'
             $option = mb_substr($trimmed, 1, -1);
@@ -62,7 +62,7 @@ function PMA_Transformation_getOptions($option_string)
                 // ...,
                 $trimmed .= ',' . $option;
                 $rtrimmed = rtrim($trimmed);
-                if ($rtrimmed[mb_strlen($rtrimmed) - 1] == "'") {
+                if ($rtrimmed[strlen($rtrimmed) - 1] == "'") {
                     // ,...'
                     break;
                 }
