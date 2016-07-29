@@ -103,19 +103,16 @@ class DBIMysql implements DBIExtension
     ) {
         global $cfg;
 
-        $server_port = $GLOBALS['dbi']->getServerPort($server);
-        $server_socket = $GLOBALS['dbi']->getServerSocket($server);
-
-        if ($server_port === 0) {
+        if ($server['port'] === 0) {
             $server_port = '';
         } else {
-            $server_port = ':' . $server_port;
+            $server_port = ':' . $server['port'];
         }
 
-        if (is_null($server_socket)) {
+        if (is_null($server['socket'])) {
             $server_socket = '';
         } else {
-            $server_socket = ':' . $server_socket;
+            $server_socket = ':' . $server['socket'];
         }
 
         $client_flags = 0;

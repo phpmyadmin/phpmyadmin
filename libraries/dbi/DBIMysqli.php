@@ -121,9 +121,6 @@ class DBIMysqli implements DBIExtension
     ) {
         global $cfg;
 
-        $server_port = $GLOBALS['dbi']->getServerPort($server);
-        $server_socket = $GLOBALS['dbi']->getServerSocket($server);
-
         if ($server) {
             $server['host'] = (empty($server['host']))
                 ? 'localhost'
@@ -178,8 +175,8 @@ class DBIMysqli implements DBIExtension
                 $user,
                 $password,
                 false,
-                $server_port,
-                $server_socket,
+                $server['port'],
+                $server['socket'],
                 $client_flags
             );
         } else {
@@ -189,8 +186,8 @@ class DBIMysqli implements DBIExtension
                 $user,
                 $password,
                 false,
-                $server_port,
-                $server_socket
+                $server['port'],
+                $server['socket']
             );
         }
 

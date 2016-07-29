@@ -2263,6 +2263,19 @@ class DatabaseInterface
             }
         }
 
+        // Perform sanity checks on host, socket and port
+        if (empty($server['port'])) {
+            $server['port'] = intval($server['port']);
+        } else {
+            $server['port'] = '';
+        }
+        if (empty($server['socket'])) {
+            $server['socket'] = null;
+        }
+        if (empty($server['host'])) {
+            $server['host'] = 'localhost';
+        }
+
         return array($user, $password, $server);
     }
 
@@ -2633,42 +2646,6 @@ class DatabaseInterface
     public function fieldFlags($result, $i)
     {
         return $this->_extension->fieldFlags($result, $i);
-    }
-
-    /**
-     * Gets server connection port
-     *
-     * @param array|null $server host/port/socket/persistent
-     *
-     * @return int
-     */
-    public function getServerPort($server = null)
-    {
-        if (is_null($server)) {
-            $server = &$GLOBALS['cfg']['Server'];
-        }
-
-        return intval($server['port']);
-    }
-
-    /**
-     * Gets server connection socket
-     *
-     * @param array|null $server host/port/socket/persistent
-     *
-     * @return null|string
-     */
-    public function getServerSocket($server = null)
-    {
-        if (is_null($server)) {
-            $server = &$GLOBALS['cfg']['Server'];
-        }
-
-        if (empty($server['socket'])) {
-            return null;
-        } else {
-            return $server['socket'];
-        }
     }
 
     /**
