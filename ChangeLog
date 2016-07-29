@@ -11,6 +11,7 @@ phpMyAdmin - ChangeLog
 - issue #12409 Re-enable overhead on server databases view
 - issue #12414 Fixed rendering of Original theme
 - issue #12413 Fixed deleting users in non English locales
+- issue #12416 Fixed replication status output in Databases listing
 
 4.6.3 (2016-06-23)
 - issue #12249 Fixed cookie path on Windows
