@@ -2273,7 +2273,7 @@ class DatabaseInterface
             }
         }
 
-        // Perform sanity checks on host, socket and port
+        // Perform sanity checks on some variables
         if (empty($server['port'])) {
             $server['port'] = 0;
         } else {
@@ -2284,6 +2284,12 @@ class DatabaseInterface
         }
         if (empty($server['host'])) {
             $server['host'] = 'localhost';
+        }
+        if (!isset($server['ssl'])) {
+            $server['ssl'] = false;
+        }
+        if (!isset($server['compress'])) {
+            $server['compress'] = false;
         }
 
         return array($user, $password, $server);
