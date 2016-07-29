@@ -2219,6 +2219,15 @@ class DatabaseInterface
             || $schema_name == 'sys';
     }
 
+    /**
+     * Return connection parameters for the database server
+     *
+     * @param integer $mode    Connection mode on of CONNECT_USER, CONNECT_CONTROL
+     *                         or CONNECT_AUXILIARY.
+     * @param array   $server  Server information like host/port/socket/persistent
+     *
+     * @return array user, host and server settings array
+     */
     public function getConnectionParams($mode, $server = null)
     {
         global $cfg;
