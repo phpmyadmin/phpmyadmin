@@ -2138,13 +2138,13 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
         $this->assertContains(
             '<td><a class="ajax" href="server_privileges.php?initial=-&amp;'
             . 'server=1&amp;lang=en&amp;collation_connection='
-            . 'collation_connection&amp;token=token">-</a></td>',
+            . 'collation_connection">-</a></td>',
             $actual
         );
         $this->assertContains(
             '<td><a class="ajax" href="server_privileges.php?initial=%22&amp;'
             . 'server=1&amp;lang=en&amp;collation_connection='
-            . 'collation_connection&amp;token=token">"</a>',
+            . 'collation_connection">"</a>',
             $actual
         );
         $this->assertContains('Show all', $actual);
