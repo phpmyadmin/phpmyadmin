@@ -16863,9 +16863,9 @@ msgstr "Время медленного запуска"
 
 #: libraries/advisory_rules.txt:368
 #, fuzzy
-#| msgid "Slow_launch_threads is above 2s"
-msgid "Slow_launch_threads is above 2s."
-msgstr "Slow_launch_threads больше 2 сек."
+#| msgid "Slow_launch_time is above 2s"
+msgid "Slow_launch_time is above 2s."
+msgstr "Slow_launch_time больше 2 сек."
 
 #: libraries/advisory_rules.txt:369
 #, fuzzy
