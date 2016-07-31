@@ -300,7 +300,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
 
         $this->assertEquals(
             ' : <a href="tbl_change.php?ShowFunctionFields=1&amp;ShowFieldTypesIn'
-            . 'DataEditView=1&amp;goto=sql.php&amp;lang=en&amp;token=token">'
+            . 'DataEditView=1&amp;goto=sql.php&amp;lang=en">'
             . 'Function</a>',
             $result
         );
@@ -310,7 +310,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
 
         $this->assertEquals(
             '<th><a href="tbl_change.php?ShowFunctionFields=0&amp;ShowFieldTypesIn'
-            . 'DataEditView=1&amp;goto=sql.php&amp;lang=en&amp;token=token" title='
+            . 'DataEditView=1&amp;goto=sql.php&amp;lang=en" title='
             . '"Hide">Function</a></th>',
             $result
         );
@@ -320,7 +320,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
 
         $this->assertEquals(
             ' : <a href="tbl_change.php?ShowFunctionFields=1&amp;ShowFieldTypesIn'
-            . 'DataEditView=1&amp;goto=sql.php&amp;lang=en&amp;token=token">'
+            . 'DataEditView=1&amp;goto=sql.php&amp;lang=en">'
             . 'Type</a>',
             $result
         );
@@ -330,7 +330,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
 
         $this->assertEquals(
             '<th><a href="tbl_change.php?ShowFunctionFields=1&amp;ShowFieldTypesIn'
-            . 'DataEditView=0&amp;goto=sql.php&amp;lang=en&amp;token=token" title='
+            . 'DataEditView=0&amp;goto=sql.php&amp;lang=en" title='
             . '"Hide">Type</a></th>',
             $result
         );
@@ -731,7 +731,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         $this->assertContains(
             '<a class="ajax browse_foreign" href="browse_'
             . 'foreigners.php?db=db&amp;table=tbl&amp;field=f&amp;rownumber=8'
-            . '&amp;data=abc&amp;server=1&amp;lang=en&amp;token=token">',
+            . '&amp;data=abc&amp;server=1&amp;lang=en">',
             $result
         );
 
@@ -1954,7 +1954,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
     {
         $GLOBALS['cfg']['ServerDefault'] = 1;
         $this->assertEquals(
-            'tbl_change.php?lang=en&amp;token=token',
+            'tbl_change.php?lang=en',
             PMA_getErrorUrl(array())
         );
 
@@ -2255,7 +2255,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         $this->assertEquals(
             '<a href="sql.php?db=information_schema&amp;table=TABLES&amp;pos=0&amp;'
             . 'sql_query=SELECT+%2A+FROM+%60information_schema%60.%60TABLES%60+WHERE'
-            . '+%60f%60%3D1&amp;lang=en&amp;token=token" title="a&gt;">b&lt;</a>',
+            . '+%60f%60%3D1&amp;lang=en" title="a&gt;">b&lt;</a>',
             $result
         );
 
@@ -2265,7 +2265,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         $this->assertEquals(
             '<a href="sql.php?db=information_schema&amp;table=TABLES&amp;pos=0&amp;'
             . 'sql_query=SELECT+%2A+FROM+%60information_schema%60.%60TABLES%60+WHERE'
-            . '+%60f%60%3D1&amp;lang=en&amp;token=token" title="b&lt;">a&gt;</a>',
+            . '+%60f%60%3D1&amp;lang=en" title="b&lt;">a&gt;</a>',
             $result
         );
     }

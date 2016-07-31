@@ -813,7 +813,7 @@ class AuthenticationCookieTest extends PMATestCase
         $mockResponse->expects($this->once())
             ->method('header')
             ->with(
-                $this->stringContains('&server=2&lang=en&collation_connection=utf-8&token=token')
+                $this->stringContains('&server=2&lang=en&collation_connection=utf-8')
             );
 
         $mockResponse->expects($this->any())
