@@ -1427,7 +1427,7 @@ Generic settings
 
         This is not a security measure as there will be always ways to
         circumvent this. If you want to prohibit users from dropping databases,
-        revoke them corresponding DROP privilege.
+        revoke their corresponding DROP privilege.
 
     Defines whether normal users (non-administrator) are allowed to delete
     their own database or not. If set as false, the link :guilabel:`Drop
@@ -2612,7 +2612,7 @@ webserver. If you cannot avoid having this directory published by webserver,
 limit access to it either by web server configuration (for example using
 .htaccess or web.config files) or place at least an empty :file:`index.html`
 file there, so that directory listing is not possible. However as long as the
-directory is accessible by web server, attacker can guess filenames to download
+directory is accessible by web server, an attacker can guess filenames to download
 the files.
 
 .. config:option:: $cfg['UploadDir']
@@ -2640,7 +2640,7 @@ the files.
     .. warning::
 
         Please see top of this chapter (:ref:`web-dirs`) for instructions how
-        to setup this directory and how to make it's usage secure.
+        to setup this directory and how to make its usage secure.
 
     .. seealso::
 
@@ -2662,7 +2662,7 @@ the files.
     .. warning::
 
         Please see top of this chapter (:ref:`web-dirs`) for instructions how
-        to setup this directory and how to make it's usage secure.
+        to setup this directory and how to make its usage secure.
 
 .. config:option:: $cfg['TempDir']
 
@@ -2701,7 +2701,7 @@ the files.
     .. warning::
 
         Please see top of this chapter (:ref:`web-dirs`) for instructions how
-        to setup this directory and how to make it's usage secure.
+        to setup this directory and how to make its usage secure.
 
 Various display setting
 -----------------------
