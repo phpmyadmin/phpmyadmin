@@ -699,8 +699,8 @@ $strConfigServers_savedsearches_desc = __(
     'Leave blank for no QBE saved searches support, suggested: '
     . '[kbd]pma__savedsearches[/kbd].'
 );
-$strConfigServers_savedsearches_name = __('Export templates table');
-$strConfigServers_savedsearches_desc = __(
+$strConfigServers_export_templates_name = __('Export templates table');
+$strConfigServers_export_templates_desc = __(
     'Leave blank for no export template support, suggested: '
     . '[kbd]pma__export_templates[/kbd].'
 );
