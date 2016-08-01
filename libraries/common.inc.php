@@ -400,7 +400,9 @@ if ($token_mismatch) {
         /* Permit session expiry flag */
         'session_expired',
         /* JS loading */
-        'scripts', 'call_done'
+        'scripts', 'call_done',
+        /* Navigation panel */
+        'aPath', 'vPath', 'pos', 'pos2_name', 'pos2_value', 'searchClause', 'searchClause2'
     );
     /**
      * Allow changing themes in test/theme.php
@@ -892,7 +894,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
      * There is no point in even attempting to process
      * an ajax request if there is a token mismatch
      */
-    if (isset($response) && $response->isAjax() && $token_mismatch) {
+    if (isset($response) && $response->isAjax() && $_SERVER['REQUEST_METHOD'] == 'POST' && $token_mismatch) {
         $response->setRequestStatus(false);
         $response->addJSON(
             'message',
