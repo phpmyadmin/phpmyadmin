@@ -4,17 +4,17 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-08-01 11:05+0200\n"
-"PO-Revision-Date: 2016-05-23 17:43+0000\n"
+"PO-Revision-Date: 2016-08-01 12:55+0000\n"
 "Last-Translator: Domen <mitenem@outlook.com>\n"
-"Language-Team: Slovenian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/sl/>\n"
+"Language-Team: Slovenian "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/sl/>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
-"%100==4 ? 2 : 3;\n"
-"X-Generator: Weblate 2.7-dev\n"
+"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
+"n%100==4 ? 2 : 3;\n"
+"X-Generator: Weblate 2.8-dev\n"
 
 #: changelog.php:37 license.php:33
 #, php-format
@@ -843,6 +843,8 @@ msgstr "S tem dejanjem boste UNIČILI celotno zbirko podatkov!"
 #: js/messages.php:53
 msgid "Cannot rename database to the same name. Change the name and try again"
 msgstr ""
+"Zbirke podatkov ne moremo preimenovati na isto ime. Spremenite ime in "
+"poskusite znova"
 
 #: js/messages.php:55
 msgid "You are about to DESTROY a complete table!"
@@ -3248,10 +3250,9 @@ msgid "Details…"
 msgstr "Podrobnosti …"
 
 #: libraries/DatabaseInterface.php:2325
-#, fuzzy
 #| msgid "Missing parameter:"
 msgid "Missing connection parameters!"
-msgstr "Manjkajoč parameter:"
+msgstr "Manjkajo parametri povezave!"
 
 #: libraries/DatabaseInterface.php:2358
 msgid "Connection for controluser as defined in your configuration failed."
@@ -5386,10 +5387,9 @@ msgid "Could not connect to the database server!"
 msgstr "Ne morem se povezati s strežnikom zbirke podatkov!"
 
 #: libraries/config/Validator.php:286
-#, fuzzy
 #| msgid "Authentication type"
 msgid "Invalid authentication type!"
-msgstr "Vrsta overovitve"
+msgstr "Neveljavna vrsta overovitve!"
 
 #: libraries/config/Validator.php:293
 msgid "Empty username while using [kbd]config[/kbd] authentication method!"
@@ -9162,10 +9162,9 @@ msgid "Log out"
 msgstr "Odjava"
 
 #: libraries/navigation/NavigationHeader.php:173
-#, fuzzy
 #| msgid "Dumping data"
 msgid "Empty session data"
-msgstr "Odloži podatke"
+msgstr "Izprazni podatke seje"
 
 #: libraries/navigation/NavigationHeader.php:189
 msgid "phpMyAdmin documentation"
@@ -10334,10 +10333,10 @@ msgid "Last check:"
 msgstr "Zadnjič pregledano:"
 
 #: libraries/plugins/export/ExportSql.php:1479
-#, fuzzy, php-format
+#, php-format
 #| msgid "Table structure for table"
 msgid "Error reading structure for table %s:"
-msgstr "Struktura tabele"
+msgstr "Napaka pri branju strukture tabele %s:"
 
 #: libraries/plugins/export/ExportSql.php:1533
 msgid "It appears your database uses views;"
@@ -10389,10 +10388,10 @@ msgid "(See below for the actual view)"
 msgstr "(Oglejte si spodaj za resnični pogled)"
 
 #: libraries/plugins/export/ExportSql.php:2195
-#, fuzzy, php-format
+#, php-format
 #| msgid "Error reading data:"
 msgid "Error reading data for table %s:"
-msgstr "Napaka med branjem podatkov:"
+msgstr "Napaka pri branju podatkov tabele %s:"
 
 #: libraries/plugins/export/ExportXml.php:97
 msgid "Object creation options (all are recommended)"
@@ -13895,14 +13894,13 @@ msgid "Cannot save settings, submitted form contains errors!"
 msgstr "Ne morem shraniti nastavitev, saj poslani obrazec vsebuje napake!"
 
 #: prefs_manage.php:50
-#, fuzzy
 #| msgid "Missing phpMyAdmin configuration storage tables"
 msgid "phpMyAdmin configuration snippet"
-msgstr "Manjkajoče tabele hrambe konfiguracije phpMyAdmin"
+msgstr "Izsek konfiguracije phpMyAdmin"
 
 #: prefs_manage.php:51
 msgid "Paste it to your config.inc.php"
-msgstr ""
+msgstr "Prilepite ga v svoj config.inc.php"
 
 #: prefs_manage.php:105
 msgid "Could not import configuration"
@@ -13954,10 +13952,9 @@ msgstr ""
 "uporabo %sNastavitvenega skripta%s."
 
 #: prefs_manage.php:342
-#, fuzzy
 #| msgid "Save as file"
 msgid "Save as PHP file"
-msgstr "Shrani kot datoteko"
+msgstr "Shrani kot datoteko PHP"
 
 #: prefs_manage.php:347
 msgid "Save to browser's storage"
@@ -14068,22 +14065,21 @@ msgstr "Nezavarovana povezava"
 
 #: setup/frames/index.inc.php:121
 msgid "Configuration saved."
-msgstr "Konfiguracija je shranjena."
+msgstr "Konfiguracijo smo shranili."
 
 #: setup/frames/index.inc.php:124
 msgid ""
 "Configuration saved to file config/config.inc.php in phpMyAdmin top level "
 "directory, copy it to top level one and delete directory config to use it."
 msgstr ""
-"Konfiguracija je shranjena v datoteko config/config.inc.php v vrhnji mapi "
+"Konfiguracijo smo shranili v datoteko config/config.inc.php v vrhnji mapi "
 "phpMyAdmin; skopirajte jo v vrhnjo mapo in izbrišite mapo config, če jo "
 "želite uporabiti."
 
 #: setup/frames/index.inc.php:134
-#, fuzzy
 #| msgid "Configuration saved."
 msgid "Configuration not saved!"
-msgstr "Konfiguracija je shranjena."
+msgstr "Konfiguracije nismo shranili!"
 
 #: setup/frames/index.inc.php:149 setup/frames/menu.inc.php:20
 msgid "Overview"
@@ -14205,7 +14201,7 @@ msgstr "Napačni podatki"
 #: setup/validate.php:30
 #, php-format
 msgid "Wrong data or no validation for %s"
-msgstr ""
+msgstr "Napačni podatki ali pa ni preverjanja za %s"
 
 #: tbl_create.php:31 tbl_get_field.php:26
 #, php-format
@@ -15622,7 +15618,7 @@ msgstr "stroga napaka"
 
 #: view_create.php:45
 msgid "View name can not be empty"
-msgstr ""
+msgstr "Ime pogleda ne more biti prazno"
 
 #: view_create.php:248
 msgid "VIEW name"
