@@ -636,10 +636,14 @@ if ($sqlLength <= $GLOBALS['cfg']['MaxCharactersInDisplayedSQL']) {
     list(
         $analyzed_sql_results,
         $db,
-        $table
+        $table_from_sql
     ) = PMA_parseAnalyze($sql_query, $db);
     // @todo: possibly refactor
     extract($analyzed_sql_results);
+
+    if ($table != $table_from_sql && !empty($table_from_sql)) {
+        $table = $table_from_sql;
+    }
 }
 
 // There was an error?
@@ -668,10 +672,14 @@ if ($go_sql) {
         list(
             $analyzed_sql_results,
             $db,
-            $table
+            $table_from_sql
         ) = PMA_parseAnalyze($sql_query, $db);
         // @todo: possibly refactor
         extract($analyzed_sql_results);
+
+        if ($table != $table_from_sql && !empty($table_from_sql)) {
+            $table = $table_from_sql;
+        }
 
         $html_output .= PMA_executeQueryAndGetQueryResponse(
             $analyzed_sql_results, // analyzed_sql_results
