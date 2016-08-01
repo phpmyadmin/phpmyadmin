@@ -16010,12 +16010,6 @@ msgstr "කොටස් කිරීම ඉවත් කරන්න"
 msgid "Edit view"
 msgstr "දසුන සංස්කරණය කරන්න"
 
-#: templates/table/structure/display_table_stats.phtml:5
-#, fuzzy
-#| msgid "Table comments:"
-msgid "Table comments: "
-msgstr "වගු විස්තර:"
-
 #: templates/table/structure/display_table_stats.phtml:12
 msgid "Space usage"
 msgstr "අවකාශ භාවිතය"

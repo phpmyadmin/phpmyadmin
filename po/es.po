@@ -7434,8 +7434,8 @@ msgstr "Tabla de almacenamiento de preferencias de usuario"
 #: libraries/config/messages.inc.php:813
 msgid ""
 "Both this table and the user groups table are required to enable the "
-"configurable menus feature; leaving either one of them blank will disable\n"
-"    this feature, suggested: [kbd]pma__users[/kbd]."
+"configurable menus feature; leaving either one of them blank will disable "
+"this feature, suggested: [kbd]pma__users[/kbd]."
 msgstr ""
 "Esta tabla y la tabla de grupos de usuario son necesarias para activar la "
 "característica de menús configurables; dejar en blanco cada uno de ellos, "
@@ -15710,12 +15710,6 @@ msgstr "Editar partición"
 #: templates/table/structure/display_structure.phtml:129 view_create.php:200
 msgid "Edit view"
 msgstr "Editar vista"
-
-#: templates/table/structure/display_table_stats.phtml:5
-#, fuzzy
-#| msgid "Table comments:"
-msgid "Table comments: "
-msgstr "Comentarios de la tabla:"
 
 #: templates/table/structure/display_table_stats.phtml:12
 msgid "Space usage"

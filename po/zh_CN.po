@@ -7083,8 +7083,8 @@ msgstr "用户偏好表"
 #: libraries/config/messages.inc.php:813
 msgid ""
 "Both this table and the user groups table are required to enable the "
-"configurable menus feature; leaving either one of them blank will disable\n"
-"    this feature, suggested: [kbd]pma__users[/kbd]."
+"configurable menus feature; leaving either one of them blank will disable "
+"this feature, suggested: [kbd]pma__users[/kbd]."
 msgstr ""
 "启用配置菜单功能需要此表与用户组(user groups)表；缺少其中任何一个表都会造成这"
 "一功能被关闭，建议： [kbd]pma__users[/kbd]。"
@@ -15368,12 +15368,6 @@ msgstr "删除分区"
 #: templates/table/structure/display_structure.phtml:129 view_create.php:200
 msgid "Edit view"
 msgstr "编辑视图"
-
-#: templates/table/structure/display_table_stats.phtml:5
-#, fuzzy
-#| msgid "Table comments:"
-msgid "Table comments: "
-msgstr "表注释："
 
 #: templates/table/structure/display_table_stats.phtml:12
 msgid "Space usage"

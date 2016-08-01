@@ -7253,15 +7253,10 @@ msgid "User preferences storage table"
 msgstr "사용자 설정 스토리지 테이블"
 
 #: libraries/config/messages.inc.php:813
-#, fuzzy
-#| msgid ""
-#| "Both this table and the user groups table are required to enable the "
-#| "configurable menus feature; leaving either one of them blank will disable "
-#| "this feature, suggested: [kbd]pma__users[/kbd]."
 msgid ""
 "Both this table and the user groups table are required to enable the "
-"configurable menus feature; leaving either one of them blank will disable\n"
-"    this feature, suggested: [kbd]pma__users[/kbd]."
+"configurable menus feature; leaving either one of them blank will disable "
+"this feature, suggested: [kbd]pma__users[/kbd]."
 msgstr ""
 "설정 메뉴 기능을 사용하기 위해 이 테이블과 사용자 그룹 테이블이 필요합니다. "
 "하나라도 값을 비워두면 해당 기능을 사용할 수 없음. 권장: [kbd]pma__users[/"
@@ -15398,12 +15393,6 @@ msgstr "파티셔닝 삭제"
 #: templates/table/structure/display_structure.phtml:129 view_create.php:200
 msgid "Edit view"
 msgstr "뷰 편집"
-
-#: templates/table/structure/display_table_stats.phtml:5
-#, fuzzy
-#| msgid "Table comments:"
-msgid "Table comments: "
-msgstr "테이블 설명:"
 
 #: templates/table/structure/display_table_stats.phtml:12
 msgid "Space usage"

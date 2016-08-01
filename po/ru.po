@@ -307,7 +307,7 @@ msgstr "База данных %1$s скопирована в %2$s."
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. %sFind out why%s."
 msgstr ""
-"Хранилище конфигурации phpMyAdmin неактивно. %sДля определения причины%s."
+"Хранилище конфигурации phpMyAdmin неактивно. %sУзнайте причину%s."
 
 #: db_qbe.php:125
 msgid "You have to choose at least one column to display!"
@@ -584,12 +584,11 @@ msgid "Bookmark %s has been created."
 msgstr "Закладка %s создана."
 
 #: import.php:680
-#, fuzzy, php-format
-#| msgid "Import has been successfully finished, %d queries executed."
+#, php-format
 msgid "Import has been successfully finished, %d query executed."
 msgid_plural "Import has been successfully finished, %d queries executed."
-msgstr[0] "Импорт успешно завершён, выполнено %d запросов."
-msgstr[1] "Импорт успешно завершён, выполнено %d запросов."
+msgstr[0] "Импорт успешно завершён, выполнен %d запрос."
+msgstr[1] "Импорт успешно завершён, выполнено %d запроса."
 msgstr[2] "Импорт успешно завершён, выполнено %d запросов."
 
 #: import.php:711
@@ -811,13 +810,14 @@ msgid ""
 "extended features have been deactivated. %sFind out why%s. "
 msgstr ""
 "Хранилище конфигурации phpMyAdmin не полностью настроено, некоторые "
-"расширенные функции были отключены. %sДля определения причины%s. "
+"расширенные функции были отключены. %sУзнайте причину%s. "
 
 #: index.php:563
 msgid ""
 "Or alternately go to 'Operations' tab of any database to set it up there."
 msgstr ""
-"Или перейдите на вкладку 'Операции' любой базы данных, чтобы настроить там."
+"Или перейдите на вкладку 'Операции' любой базы данных, чтобы настроить "
+"хранилище в ней."
 
 #: index.php:606
 #, php-format
@@ -2090,7 +2090,7 @@ msgstr "Каждая точка представляет строку данны
 
 #: js/messages.php:488
 msgid "Hovering over a point will show its label."
-msgstr "Задержание курсора над точкой отобразит ее название."
+msgstr "Удержание курсора над точкой отобразит ее название."
 
 #: js/messages.php:490
 msgid "To zoom in, select a section of the plot with the mouse."
@@ -2557,16 +2557,12 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:711
-#, fuzzy
-#| msgid "Copy database to"
 msgid "Copy tables to"
-msgstr "Скопировать базу данных в"
+msgstr "Скопировать таблицы в"
 
 #: js/messages.php:712
-#, fuzzy
-#| msgid "Add table prefix:"
 msgid "Add table prefix"
-msgstr "Добавить префикс таблицы:"
+msgstr "Добавить префикс таблицы"
 
 #: js/messages.php:713
 #, fuzzy
@@ -3144,10 +3140,8 @@ msgid "Show trace"
 msgstr "Показать трассировку"
 
 #: libraries/Console.php:302
-#, fuzzy
-#| msgid "Hide Panel"
 msgid "Hide trace"
-msgstr "Скрыть панель"
+msgstr "Скрыть трассировку"
 
 #: libraries/Console.php:304
 msgid "Count:"
@@ -3285,7 +3279,7 @@ msgstr "Критерий:"
 
 #: libraries/DbQbe.php:795
 msgid "Add/Delete criteria rows"
-msgstr "Добавить/удалить строки критериея"
+msgstr "Добавить/удалить критерий"
 
 #: libraries/DbQbe.php:795
 msgid "Add/Delete columns"
@@ -3338,7 +3332,7 @@ msgstr "Выполнить запрос"
 
 #: libraries/DbQbe.php:1878
 msgid "Saved bookmarked search:"
-msgstr "Поиск в сохранённых закладках:"
+msgstr "Закладка поиска:"
 
 #: libraries/DbQbe.php:1880
 msgid "New bookmark"
@@ -3603,7 +3597,7 @@ msgstr "Отметить все"
 
 #: libraries/DisplayResults.php:5013
 msgid "Copy to clipboard"
-msgstr ""
+msgstr "В буфер обмена"
 
 #: libraries/DisplayResults.php:5069
 msgid "Query results operations"
@@ -4030,11 +4024,11 @@ msgstr "Ошибка при создании PDF:"
 
 #: libraries/RecentFavoriteTable.php:133
 msgid "Could not save recent table!"
-msgstr "Не удалось сохранить последнюю таблицу!"
+msgstr "Не удалось сохранить таблицу недавно использованного!"
 
 #: libraries/RecentFavoriteTable.php:137
 msgid "Could not save favorite table!"
-msgstr "Невозможно записать избранную таблицу!"
+msgstr "Невозможно записать таблицу избранного!"
 
 #: libraries/RecentFavoriteTable.php:207
 #: templates/database/structure/favorite_anchor.phtml:12
@@ -4067,15 +4061,15 @@ msgstr "Избранное"
 
 #: libraries/SavedSearches.php:246
 msgid "Please provide a name for this bookmarked search."
-msgstr "Для сохранения поиска в закладках, пожалуйста, введите имя."
+msgstr "Для сохранения закладки поиска, пожалуйста, введите имя."
 
 #: libraries/SavedSearches.php:261
 msgid "Missing information to save the bookmarked search."
-msgstr "Отсутствует информация для записи поиска в закладках."
+msgstr "Отсутствует информация для записи закладки поиска."
 
 #: libraries/SavedSearches.php:283 libraries/SavedSearches.php:320
 msgid "An entry with this name already exists."
-msgstr "Параметр с таким именем уже существует."
+msgstr "Запись с таким именем уже существует."
 
 #: libraries/SavedSearches.php:347
 msgid "Missing information to delete the search."
@@ -4256,7 +4250,7 @@ msgstr "Таблица %1$s была переименована в %2$s."
 
 #: libraries/Table.php:1533
 msgid "Could not save table UI preferences!"
-msgstr "Не удалось сохранить настройки интерфейса таблицы!"
+msgstr "Не удалось сохранить настройки пользовательского интерфейса!"
 
 #: libraries/Table.php:1563
 #, php-format
@@ -4372,9 +4366,9 @@ msgid ""
 "A fixed-point number (M, D) - the maximum number of digits (M) is 65 "
 "(default 10), the maximum number of decimals (D) is 30 (default 0)"
 msgstr ""
-"Число с плавающей точкой (M, D) - максимальное количество целых чисел (M) не "
+"Число с фиксированной точкой (M, D) - максимальное количество цифр (M) не "
 "должно превышать 65 (по умолчанию 10), максимальное количество десятичных "
-"(D) не должно превышать 30 (по умолчанию 0)"
+"знаков после запятой (D) не должно превышать 30 (по умолчанию 0)"
 
 #: libraries/TypesMySQL.php:64
 msgid ""
@@ -4587,7 +4581,7 @@ msgstr "Набор точек"
 
 #: libraries/TypesMySQL.php:204
 msgid "A collection of curves with linear interpolation between points"
-msgstr "Набор кривых с линейной интерполяцией между точек"
+msgstr "Набор кривых с линейной интерполяцией между точками"
 
 #: libraries/TypesMySQL.php:207
 msgid "A collection of polygons"
@@ -4602,6 +4596,8 @@ msgid ""
 "Stores and enables efficient access to data in JSON (JavaScript Object "
 "Notation) documents"
 msgstr ""
+"Тип данных для эффективного хранения и использования данных в "
+"JSON (JavaScript Object Notation)"
 
 #: libraries/TypesMySQL.php:479
 msgctxt "numeric types"
@@ -5438,14 +5434,8 @@ msgid "Highlight pointer"
 msgstr "Подсветить наведение"
 
 #: libraries/config/messages.inc.php:47
-#, fuzzy
-#| msgid ""
-#| "Enable [a@https://en.wikipedia.org/wiki/Bzip2]bzip2[/a] compression for "
-#| "import operations."
 msgid "Enable bzip2 compression for import operations."
-msgstr ""
-"Включить [a@https://ru.wikipedia.org/wiki/Bzip2]bzip2[/a] сжатие для "
-"операций импорта."
+msgstr "Включить bzip2 сжатие для операций импорта."
 
 #: libraries/config/messages.inc.php:50
 msgid "Bzip2"
@@ -5466,16 +5456,12 @@ msgid "CHAR columns editing"
 msgstr "Редактирование полей типа CHAR"
 
 #: libraries/config/messages.inc.php:58
-#, fuzzy
-#| msgid ""
-#| "Use user-friendly editor for editing SQL queries ([a@https://codemirror."
-#| "net/]CodeMirror[/a]) with syntax highlighting and line numbers."
 msgid ""
 "Use user-friendly editor for editing SQL queries (CodeMirror) with syntax "
 "highlighting and line numbers."
 msgstr ""
-"Использовать визуальный редактор SQL запросов ([a@https://codemirror."
-"net/]CodeMirror[/a]) с подсветкой синтаксиса и нумерацией строк."
+"Использовать визуальный редактор SQL запросов (CodeMirror) с подсветкой "
+"синтаксиса и нумерацией строк."
 
 #: libraries/config/messages.inc.php:62
 msgid "Enable CodeMirror"
@@ -5550,7 +5536,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:89
 msgid "Compress on the fly"
-msgstr "Архивирование на лету"
+msgstr "Сжатие на лету"
 
 #: libraries/config/messages.inc.php:90 setup/frames/config.inc.php:25
 #: setup/frames/index.inc.php:226
@@ -5612,14 +5598,12 @@ msgid "Whether the table structure actions should be hidden."
 msgstr "Скрывать/отображать действия, производимые над структурой таблицы."
 
 #: libraries/config/messages.inc.php:117
-#, fuzzy
-#| msgid "Show table comments"
 msgid "Show column comments"
-msgstr "Показать комментарии к таблице"
+msgstr "Показать комментарии к столбцам"
 
 #: libraries/config/messages.inc.php:119
 msgid "Whether column comments should be shown in table structure view"
-msgstr ""
+msgstr "Отображать столбец \"Комментарии\" при отображении структуры таблицы"
 
 #: libraries/config/messages.inc.php:120
 msgid "Hide table structure actions"
@@ -5841,7 +5825,7 @@ msgstr "Отключить проверку внешних ключей"
 #: libraries/config/messages.inc.php:196
 #: libraries/plugins/export/ExportSql.php:164
 msgid "Export views as tables"
-msgstr "Экспортировать виды как таблицы"
+msgstr "Экспортировать представления как таблицы"
 
 #: libraries/config/messages.inc.php:198
 msgid "Export related metadata from phpMyAdmin configuration storage"
@@ -6231,14 +6215,8 @@ msgid "Disable some of the warnings shown by phpMyAdmin."
 msgstr "Отключить некоторые предупреждения, выводимые phpMyAdmin."
 
 #: libraries/config/messages.inc.php:353
-#, fuzzy
-#| msgid ""
-#| "Enable [a@https://en.wikipedia.org/wiki/Gzip]gzip[/a] compression for "
-#| "import and export operations."
 msgid "Enable gzip compression for import and export operations."
-msgstr ""
-"Включить [a@https://ru.wikipedia.org/wiki/Gzip]gzip[/a] сжатие для операций "
-"импорта и экспорта."
+msgstr "Включить gzip сжатие для операций импорта и экспорта."
 
 #: libraries/config/messages.inc.php:356
 msgid "GZip"
@@ -6644,21 +6622,19 @@ msgstr "Стоит ли отображать представления под �
 
 #: libraries/config/messages.inc.php:531
 msgid "Show functions in tree"
-msgstr "Отображать фунцкии в дереве"
+msgstr "Отображать функции в дереве"
 
 #: libraries/config/messages.inc.php:533
 msgid "Whether to show functions under database in the navigation tree"
-msgstr "Стоит ли отображать фунцкии под базой данный в навигационном дереве"
+msgstr "Стоит ли отображать функции под базой данный в навигационном дереве"
 
 #: libraries/config/messages.inc.php:534
-#, fuzzy
-#| msgid "Show processes"
 msgid "Show procedures in tree"
-msgstr "Список процессов"
+msgstr "Отображать процедуры в дереве"
 
 #: libraries/config/messages.inc.php:536
 msgid "Whether to show procedures under database in the navigation tree"
-msgstr ""
+msgstr "Стоит ли отображать процедуры под базой данный в навигационном дереве"
 
 #: libraries/config/messages.inc.php:537
 msgid "Show events in tree"
@@ -6915,6 +6891,8 @@ msgid ""
 "Sets the effective timezone; possibly different than the one from your "
 "database server"
 msgstr ""
+"Укажите, какую временную зону следует использовать. Временная "
+"зона может отличаться от зоны на сервере."
 
 #: libraries/config/messages.inc.php:633
 msgid "HTTP Basic Auth Realm name to display when doing HTTP Auth."
@@ -6950,17 +6928,12 @@ msgid "Authentication type"
 msgstr "Тип идентификации"
 
 #: libraries/config/messages.inc.php:644
-#, fuzzy
-#| msgid ""
-#| "Leave blank for no [a@https://wiki.phpmyadmin.net/pma/bookmark]bookmark[/"
-#| "a] support, suggested: [kbd]pma__bookmark[/kbd]"
 msgid ""
 "Leave blank for no [doc@bookmarks@]bookmark[/doc] support, suggested: "
 "[kbd]pma__bookmark[/kbd]"
 msgstr ""
-"Для отключения поддержки [a@https://wiki.phpmyadmin.net/pma/"
-"bookmark]закладок[/a] оставьте поле пустым, рекомендуется: "
-"[kbd]pma__bookmark[/kbd]"
+"Для отключения поддержки [doc@bookmarks@]закладок[/doc] оставьте поле пустым, "
+"рекомендуется: [kbd]pma__bookmark[/kbd]"
 
 #: libraries/config/messages.inc.php:647
 msgid "Bookmark table"
@@ -6999,17 +6972,12 @@ msgid "Control user password"
 msgstr "Пароль выделенного пользователя"
 
 #: libraries/config/messages.inc.php:660
-#, fuzzy
-#| msgid ""
-#| "A special MySQL user configured with limited permissions, more "
-#| "information available on [a@https://wiki.phpmyadmin.net/pma/"
-#| "controluser]wiki[/a]."
 msgid ""
 "A special MySQL user configured with limited permissions, more information "
 "available on [doc@linked-tables]documentation[/doc]."
 msgstr ""
-"Специальный пользователь MySQL с ограниченными привилегиями. Подробнее: "
-"[a@https://wiki.phpmyadmin.net/pma/controluser]wiki[/a]."
+"Специальный пользователь MySQL с ограниченными привилегиями. Подробнее "
+"в [doc@linked-tables]документации[/doc]."
 
 #: libraries/config/messages.inc.php:663
 msgid "Control user"
@@ -7099,31 +7067,27 @@ msgstr "Максимальное количество хранимых свой�
 
 #: libraries/config/messages.inc.php:697
 msgid "QBE saved searches table"
-msgstr "таблица сохраненных запросов QBE"
+msgstr "Таблица сохраненных запросов по шаблону"
 
 #: libraries/config/messages.inc.php:699
 msgid ""
 "Leave blank for no QBE saved searches support, suggested: "
 "[kbd]pma__savedsearches[/kbd]."
 msgstr ""
-"Для отключения поддержки QBE оставьте поле пустым, рекомендуется: "
-"[kbd]pma__savedsearches[/kbd]."
+"Для отключения поддержки сохранения запросов по шаблону оставьте поле пустым, "
+"рекомендуется: [kbd]pma__savedsearches[/kbd]."
 
 #: libraries/config/messages.inc.php:702
 msgid "Export templates table"
-msgstr "Экспортировать таблицу шаблонов"
+msgstr "Таблица шаблонов экспорта"
 
 #: libraries/config/messages.inc.php:704
-#, fuzzy
-#| msgid ""
-#| "Leave blank for no PDF schema support, suggested: [kbd]pma__pdf_pages[/"
-#| "kbd]."
 msgid ""
 "Leave blank for no export template support, suggested: "
 "[kbd]pma__export_templates[/kbd]."
 msgstr ""
-"Для отключения поддержки PDF схемы оставьте поле пустым, рекомендуется: "
-"[kbd]pma__pdf_pages[/kbd]."
+"Для отключения поддержки шаблонов экспорта оставьте поле пустым, рекомендуется: "
+"[kbd]pma__export_templates[/kbd]."
 
 #: libraries/config/messages.inc.php:707
 #, fuzzy
@@ -7182,22 +7146,17 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:725
 msgid "PDF schema: pages table"
-msgstr "PDF схема: страницы таблицы"
+msgstr "PDF схема: таблица страниц"
 
 #: libraries/config/messages.inc.php:727
-#, fuzzy
-#| msgid ""
-#| "Database used for relations, bookmarks, and PDF features. See [a@https://"
-#| "wiki.phpmyadmin.net/pma/pmadb]pmadb[/a] for complete information. Leave "
-#| "blank for no support. Suggested: [kbd]phpmyadmin[/kbd]."
 msgid ""
 "Database used for relations, bookmarks, and PDF features. See [doc@linked-"
 "tables]pmadb[/doc] for complete information. Leave blank for no support. "
 "Suggested: [kbd]phpmyadmin[/kbd]."
 msgstr ""
 "База данных, используемая для расширенных функций: связей, закладок и PDF. "
-"Для более полной информации смотрите [a@https://wiki.phpmyadmin.net/pma/"
-"pmadb]pmadb[/a]. Для отключения поддержки оставьте поле пустым. "
+"Для более полной информации смотрите [doc@linked-tables]pmadb[/doc]. "
+"Для отключения поддержки оставьте поле пустым. "
 "Рекомендуется: [kbd]phpmyadmin[/kbd]."
 
 #: libraries/config/messages.inc.php:731
@@ -7218,56 +7177,43 @@ msgid ""
 "Leave blank for no \"persistent\" recently used tables across sessions, "
 "suggested: [kbd]pma__recent[/kbd]."
 msgstr ""
-"Для отключения возможности просмотра недавно использованных таблиц оставьте "
+"Для отключения сохранения списка недавно использованных таблиц оставьте "
 "поле пустым, рекомендуется: [kbd]pma__recent[/kbd]."
 
 #: libraries/config/messages.inc.php:739
 msgid "Recently used table"
-msgstr "Недавно использованная таблица"
+msgstr "Таблица недавно использованного"
 
 #: libraries/config/messages.inc.php:741
-#, fuzzy
-#| msgid ""
-#| "Leave blank for no \"persistent\" recently used tables across sessions, "
-#| "suggested: [kbd]pma__recent[/kbd]."
 msgid ""
 "Leave blank for no \"persistent\" favorite tables across sessions, "
 "suggested: [kbd]pma__favorite[/kbd]."
 msgstr ""
-"Для отключения возможности просмотра недавно использованных таблиц оставьте "
-"поле пустым, рекомендуется: [kbd]pma__recent[/kbd]."
+"Для отключения сохранения списка избранных таблиц оставьте "
+"поле пустым, рекомендуется: [kbd]pma__favorite[/kbd]."
 
 #: libraries/config/messages.inc.php:744
 msgid "Favorites table"
-msgstr "Таблица избранных"
+msgstr "Таблица избранного"
 
 #: libraries/config/messages.inc.php:746
-#, fuzzy
-#| msgid ""
-#| "Leave blank for no [a@https://wiki.phpmyadmin.net/pma/relation]relation-"
-#| "links[/a] support, suggested: [kbd]pma__relation[/kbd]."
 msgid ""
 "Leave blank for no [doc@relations@]relation-links[/doc] support, suggested: "
 "[kbd]pma__relation[/kbd]."
 msgstr ""
-"Для отключения поддержки [a@https://wiki.phpmyadmin.net/pma/"
-"relation]relation-links[/a] оставьте поле пустым, рекомендуется: "
-"[kbd]pma__relation[/kbd]."
+"Для отключения поддержки [doc@relations@]relation-links[/doc] оставьте поле "
+"пустым, рекомендуется: [kbd]pma__relation[/kbd]."
 
 #: libraries/config/messages.inc.php:750
 msgid "Relation table"
 msgstr "Таблица связей"
 
 #: libraries/config/messages.inc.php:752
-#, fuzzy
-#| msgid ""
-#| "See [a@https://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
-#| "types[/a] for an example."
 msgid ""
 "See [doc@authentication-modes]authentication types[/doc] for an example."
 msgstr ""
-"Для примера смотрите раздел [a@https://wiki.phpmyadmin.net/pma/"
-"auth_types#signon]authentication types[/a]."
+"Для примера смотрите раздел "
+"[doc@authentication-modes]authentication types[/doc]."
 
 #: libraries/config/messages.inc.php:755
 msgid "Signon session name"
@@ -7303,7 +7249,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:766
 msgid "Designer and PDF schema: table coordinates"
-msgstr "Дизайнер и PDF схема: координаты таблиц"
+msgstr "Дизайнер и PDF схема: таблица координат"
 
 #: libraries/config/messages.inc.php:769
 msgid ""
@@ -7412,19 +7358,14 @@ msgid "User preferences storage table"
 msgstr "Таблица хранения настроек пользователя"
 
 #: libraries/config/messages.inc.php:813
-#, fuzzy
-#| msgid ""
-#| "Both this table and the user groups table are required to enable the "
-#| "configurable menus feature; leaving either one of them blank will disable "
-#| "this feature, suggested: [kbd]pma__users[/kbd]."
 msgid ""
 "Both this table and the user groups table are required to enable the "
-"configurable menus feature; leaving either one of them blank will disable\n"
-"    this feature, suggested: [kbd]pma__users[/kbd]."
+"configurable menus feature; leaving either one of them blank will disable "
+"this feature, suggested: [kbd]pma__users[/kbd]."
 msgstr ""
 "Эта таблица и таблица групп пользователей требуются для включения "
 "возможности настраиваемых меню; если хотя бы одна из них пустая, то эта "
-"возможность будет отключена, предложил: [kbd]pma__users[/kbd]."
+"возможность будет отключена, рекомендуется: [kbd]pma__users[/kbd]."
 
 #: libraries/config/messages.inc.php:817
 msgid "Users table"
@@ -7631,17 +7572,14 @@ msgid "Suhosin warning"
 msgstr "Предупреждение о Suhosin"
 
 #: libraries/config/messages.inc.php:906
-#, fuzzy
-#| msgid ""
-#| "Disable the default warning that is displayed on the Structure page if "
-#| "column names in a table are reserved MySQL words."
 msgid ""
 "Disable the default warning that is displayed on the main page if the value "
 "of the PHP setting session.gc_maxlifetime is less than the value of "
 "`LoginCookieValidity`."
 msgstr ""
-"Отключить предупреждение, отображаемое на странице структуры при наличии "
-"столбцов таблицы с именами, являющимися зарезервированными словами MySQL."
+"Отключить предупреждение, отображаемое на главной странице когда значение "
+"параметра session.gc_maxlifetime конфигурации PHP меньше чем значение "
+"`LoginCookieValidity`."
 
 #: libraries/config/messages.inc.php:911
 msgid "Login cookie validity warning"
@@ -7792,14 +7730,8 @@ msgid "Proxy password"
 msgstr "Пароль прокси"
 
 #: libraries/config/messages.inc.php:978
-#, fuzzy
-#| msgid ""
-#| "Enable [a@https://en.wikipedia.org/wiki/Gzip]gzip[/a] compression for "
-#| "import and export operations."
 msgid "Enable ZIP compression for import and export operations."
-msgstr ""
-"Включить [a@https://ru.wikipedia.org/wiki/Gzip]gzip[/a] сжатие для операций "
-"импорта и экспорта."
+msgstr "Включить ZIP сжатие для операций импорта и экспорта."
 
 #: libraries/config/messages.inc.php:981
 msgid "ZIP"
@@ -7827,7 +7759,7 @@ msgstr "Выберите действие по-умолчанию при отп�
 
 #: libraries/config/messages.inc.php:994
 msgid "Send error reports"
-msgstr "Отправить отчёты об ошибках"
+msgstr "Отправка отчётов об ошибках"
 
 #: libraries/config/messages.inc.php:997
 msgid ""
@@ -8033,10 +7965,11 @@ msgid "Enable statistics"
 msgstr "Включить статистику"
 
 #: libraries/controllers/server/ServerVariablesController.php:110
-#, fuzzy, php-format
-#| msgid "Not enough privilege to view users."
+#, php-format
 msgid "Not enough privilege to view server variables and settings. %s"
-msgstr "Недостаточно прав для просмотра пользователей."
+msgstr ""
+"Недостаточно прав для просмотра настроек и значений переменных "
+"сервера. %s"
 
 #: libraries/controllers/server/ServerVariablesController.php:220
 msgid "Setting variable failed"
@@ -8517,14 +8450,8 @@ msgstr ""
 "однако при этом вероятны проблемы с транзакциями.)</i>"
 
 #: libraries/display_import.lib.php:312
-#, fuzzy
-#| msgid ""
-#| "Skip this number of queries (for SQL) or lines (for other formats), "
-#| "starting from the first one:"
 msgid "Skip this number of queries (for SQL) starting from the first one:"
-msgstr ""
-"Пропустить указанное число запросов (для SQL) или строк (для других "
-"форматов), начиная со следующего:"
+msgstr "Пропустить указанное число запросов (для SQL), начиная со следующего:"
 
 #: libraries/display_import.lib.php:342
 msgid "Other options:"
@@ -9085,14 +9012,11 @@ msgid "Edit next row"
 msgstr "Редактировать следующую строку"
 
 #: libraries/insert_edit.lib.php:1550
-#, fuzzy
-#| msgid ""
-#| "Use TAB key to move from value to value, or CTRL+arrows to move anywhere"
 msgid ""
 "Use TAB key to move from value to value, or CTRL+arrows to move anywhere."
 msgstr ""
 "Для перемещения между полями значения, используйте клавишу TAB, либо CTRL"
-"+клавиши со стрелками - для свободного перемещения"
+"+клавиши со стрелками - для свободного перемещения."
 
 #: libraries/insert_edit.lib.php:1587 libraries/replication_gui.lib.php:542
 #: libraries/rte/rte_routines.lib.php:1588
@@ -9146,10 +9070,8 @@ msgid "Data only"
 msgstr "Только данные"
 
 #: libraries/mult_submits.lib.php:349
-#, fuzzy
-#| msgid "Add AUTO_INCREMENT value"
 msgid "Add AUTO INCREMENT value"
-msgstr "Добавить AUTO_INCREMENT"
+msgstr "Добавить AUTO INCREMENT"
 
 #: libraries/mult_submits.lib.php:351 libraries/operations.lib.php:225
 #: libraries/operations.lib.php:1288
@@ -9460,10 +9382,8 @@ msgid "Invalid class name \"%1$s\", using default of \"Node\""
 msgstr "Неверное имя класса \"%1$s\", использовано изначальное \"Node\""
 
 #: libraries/navigation/NodeFactory.php:63
-#, fuzzy, php-format
-#| msgid "Could not add columns!"
 msgid "Could not load class \"%1$s\""
-msgstr "Не удалось добавить столбцы!"
+msgstr "Не удалось загрузить класс \"%1$s\""
 
 #: libraries/navigation/nodes/Node.php:799
 msgid "Expand/Collapse"
@@ -9582,16 +9502,12 @@ msgstr ""
 "Покажите мне центральный список столбцов, которые ещё не в этой таблице"
 
 #: libraries/normalization.lib.php:145
-#, fuzzy
-#| msgid ""
-#| "Select a column which can be split into more than one. (on select of 'no "
-#| "such column', it'll move to next step)"
 msgid ""
 "Select a column which can be split into more than one (on select of 'no such "
 "column', it'll move to next step)."
 msgstr ""
-"Выберите столбец, который может быть разбит на более чем один. (или выберите "
-"'нет такого столбца' для перехода к следующему шагу)"
+"Выберите столбец, который может быть разбит на более чем один (или выберите "
+"'нет такого столбца' для перехода к следующему шагу)."
 
 #: libraries/normalization.lib.php:152 normalization.php:17
 msgid "Select one…"
@@ -10052,7 +9968,7 @@ msgstr "Раздел %s"
 #: libraries/operations.lib.php:1638
 #: templates/table/structure/display_partitions.phtml:137
 msgid "Remove partitioning"
-msgstr "Удалить разделение"
+msgstr "Удалить разбиение"
 
 #: libraries/operations.lib.php:1664
 msgid "Check referential integrity:"
@@ -10962,18 +10878,6 @@ msgstr ""
 "строки."
 
 #: libraries/plugins/transformations/abs/ExternalTransformationsPlugin.php:28
-#, fuzzy
-#| msgid ""
-#| "LINUX ONLY: Launches an external application and feeds it the column data "
-#| "via standard input. Returns the standard output of the application. The "
-#| "default is Tidy, to pretty-print HTML code. For security reasons, you "
-#| "have to manually edit the file libraries/plugins/transformations/output/"
-#| "Text_Plain_External.class.php and list the tools you want to make "
-#| "available. The first option is then the number of the program you want to "
-#| "use and the second option is the parameters for the program. The third "
-#| "option, if set to 1, will convert the output using htmlspecialchars() "
-#| "(Default 1). The fourth option, if set to 1, will prevent wrapping and "
-#| "ensure that the output appears all on one line (Default 1)."
 msgid ""
 "LINUX ONLY: Launches an external application and feeds it the column data "
 "via standard input. Returns the standard output of the application. The "
@@ -10989,10 +10893,10 @@ msgstr ""
 "ТОЛЬКО LINUX: Запускает внешнее приложение и подает ему на ввод данные поля. "
 "Возвращает обычный вывод приложения. По-умолчанию используется Tidy "
 "(форматирование HTML-кода). По соображениям безопасности необходимо вручную "
-"отредактировать файл libraries/plugins/transformations/Text_Plain_External."
-"class.php, вписав доступные программы. Первый параметр задает номер "
-"используемой программы, во втором параметре передаются параметры собственно "
-"программы. При установке третьего параметра в 1 данные вывода будут "
+"отредактировать файл libraries/plugins/transformations/output/"
+"Text_Plain_External.php, вписав доступные программы. Первый параметр задает "
+"номер используемой программы, во втором параметре передаются параметры "
+"собственно программы. При установке третьего параметра в 1 данные вывода будут "
 "преобразованы функцией htmlspecialchars() (по-умолчанию, 1). При установке "
 "четвёртого параметра в 1 будут предотвращены переносы строк и данные будут "
 "выведены в одну строку (по-умолчанию, 1)."
@@ -12340,10 +12244,8 @@ msgstr "Максимальное количество одновременных
 #: libraries/server_privileges.lib.php:3355
 #: libraries/server_privileges.lib.php:4630
 #: templates/privileges/edit_routine_privileges.phtml:11
-#, fuzzy
-#| msgid "Routines"
 msgid "Routine"
-msgstr "Процедуры"
+msgstr "Процедура"
 
 #: libraries/server_privileges.lib.php:1035
 #: libraries/server_privileges.lib.php:1409 server_privileges.php:72
@@ -12354,16 +12256,12 @@ msgstr ""
 "привилегий."
 
 #: libraries/server_privileges.lib.php:1042
-#, fuzzy
-#| msgid "Allows altering and dropping stored routines."
 msgid "Allows altering and dropping this routine."
-msgstr "Разрешает изменение и удаление хранимых процедур."
+msgstr "Разрешает изменение и удаление этой процедуры."
 
 #: libraries/server_privileges.lib.php:1047
-#, fuzzy
-#| msgid "Allows executing stored routines."
 msgid "Allows executing this routine."
-msgstr "Разрешает выполнение хранимых процедур."
+msgstr "Разрешает выполнение этой процедуры."
 
 #: libraries/server_privileges.lib.php:1097
 #: libraries/server_privileges.lib.php:1266
@@ -12390,7 +12288,7 @@ msgstr "Глобальные привилегии"
 
 #: libraries/server_privileges.lib.php:1261
 msgid "Global"
-msgstr "Глобальный"
+msgstr "Глобальные"
 
 #: libraries/server_privileges.lib.php:1263
 #: libraries/server_privileges.lib.php:3342
@@ -12463,10 +12361,8 @@ msgid "Authentication Plugin"
 msgstr "Модуль аутентификации"
 
 #: libraries/server_privileges.lib.php:1835
-#, fuzzy
-#| msgid "Password Hashing:"
 msgid "Password Hashing Method"
-msgstr "Хеширование пароля:"
+msgstr "Метод хеширования пароля:"
 
 #: libraries/server_privileges.lib.php:2119
 #, php-format
@@ -12517,7 +12413,7 @@ msgstr "Пользователь был добавлен."
 #: libraries/server_privileges.lib.php:3562
 #: templates/privileges/privileges_summary.phtml:17
 msgid "Grant"
-msgstr "Предоставить"
+msgstr "Grant"
 
 #: libraries/server_privileges.lib.php:2658
 msgid "Not enough privilege to view users."
@@ -12593,10 +12489,8 @@ msgstr "Создать новую учетную запись пользоват
 
 #: libraries/server_privileges.lib.php:3354
 #: templates/privileges/edit_routine_privileges.phtml:12
-#, fuzzy
-#| msgid "Column-specific privileges"
 msgid "Routine-specific privileges"
-msgstr "Привилегии уровня столбца"
+msgstr "Привилегии процедур"
 
 #: libraries/server_privileges.lib.php:3739
 msgid "Remove selected user accounts"
@@ -12700,12 +12594,6 @@ msgstr ""
 "вручную. В этом случае необходимо %sперезагрузить привилегии%s."
 
 #: libraries/server_privileges.lib.php:4804
-#, fuzzy
-#| msgid ""
-#| "Note: phpMyAdmin gets the users' privileges directly from MySQL's "
-#| "privilege tables. The content of these tables may differ from the "
-#| "privileges the server uses, if they have been changed manually. In this "
-#| "case, you should %sreload the privileges%s before you continue."
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
@@ -12716,7 +12604,8 @@ msgstr ""
 "Примечание: phpMyAdmin получает информацию о пользовательских привилегиях "
 "непосредственно из таблиц привилегий MySQL. Содержимое этих таблиц может "
 "отличаться от привилегий, используемых сервером, если они были изменены "
-"вручную. В этом случае необходимо %sперезагрузить привилегии%s."
+"вручную. В этом случае требуется перезагрузка привилегий, но привилегия "
+"RELOAD Вам не предоставлена."
 
 #: libraries/server_privileges.lib.php:4854
 msgid "The selected user was not found in the privilege table."
@@ -14029,7 +13918,7 @@ msgstr "ø время"
 
 #: libraries/sql.lib.php:567 libraries/sql.lib.php:585
 msgid "Bookmark this SQL query"
-msgstr "Создание закладки"
+msgstr "Создать закладку"
 
 #: libraries/sql.lib.php:571
 msgid "Label:"
@@ -14135,11 +14024,11 @@ msgstr "Создать версию %1$s"
 
 #: libraries/tracking.lib.php:82
 msgid "Track these data definition statements:"
-msgstr "Отслеживать выражения определяющие структуру:"
+msgstr "Отслеживать выражения, изменяющие структуру:"
 
 #: libraries/tracking.lib.php:148
 msgid "Track these data manipulation statements:"
-msgstr "Отслеживать выражения изменяющие данные:"
+msgstr "Отслеживать выражения, изменяющие данные:"
 
 #: libraries/tracking.lib.php:177
 msgid "Create version"
@@ -14487,10 +14376,8 @@ msgid "Not enough privilege to view query statistics."
 msgstr "Недостаточно прав для просмотра статистики запроса."
 
 #: server_status_variables.php:52
-#, fuzzy
-#| msgid "Not enough privilege to view users."
 msgid "Not enough privilege to view status variables."
-msgstr "Недостаточно прав для просмотра пользователей."
+msgstr "Недостаточно прав для просмотра переменных состояния."
 
 #: setup/frames/config.inc.php:42 setup/frames/index.inc.php:289
 msgid "Download"
@@ -14788,47 +14675,33 @@ msgid "after %s"
 msgstr "после %s"
 
 #: templates/columns_definitions/partitions.phtml:9
-#, fuzzy
-#| msgid "partitioned"
 msgid "Partition by:"
-msgstr "разделён"
+msgstr "Критерий:"
 
 #: templates/columns_definitions/partitions.phtml:25
 #: templates/columns_definitions/partitions.phtml:54
-#, fuzzy
-#| msgid "Values for column %s"
 msgid "Expression or column list"
-msgstr "Значения для столбца %s"
+msgstr "Выражение или перечень столбцов"
 
 #: templates/columns_definitions/partitions.phtml:30
-#, fuzzy
-#| msgid "Partitions"
 msgid "Partitions:"
-msgstr "Разделы"
+msgstr "Разделы:"
 
 #: templates/columns_definitions/partitions.phtml:38
-#, fuzzy
-#| msgid "partitioned"
 msgid "Subpartition by:"
-msgstr "разделён"
+msgstr "Подкритерий:"
 
 #: templates/columns_definitions/partitions.phtml:59
-#, fuzzy
-#| msgid "partitioned"
 msgid "Subpartitions:"
-msgstr "разделён"
+msgstr "Подразделы:"
 
 #: templates/columns_definitions/partitions.phtml:71
-#, fuzzy
-#| msgid "Partitions"
 msgid "Partition"
-msgstr "Разделы"
+msgstr "Раздел"
 
 #: templates/columns_definitions/partitions.phtml:73
-#, fuzzy
-#| msgid "Value"
 msgid "Values"
-msgstr "Значение"
+msgstr "Значения"
 
 #: templates/columns_definitions/partitions.phtml:76
 #, fuzzy
@@ -15244,24 +15117,21 @@ msgid "Tracking is not active."
 msgstr "Слежение выключено."
 
 #: templates/error/report_form.phtml:7
-#, fuzzy
-#| msgid ""
-#| "phpMyAdmin has encountered an error. We have collected data about this "
-#| "error as well as information about relevant configuration settings to "
-#| "send to the phpMyAdmin team to help us in debugging the problem."
 msgid ""
 "This report automatically includes data about the error and information "
 "about relevant configuration settings. It will be sent to the phpMyAdmin "
 "team for debugging the error."
 msgstr ""
-"Произошла ошибка в phpMyAdmin. Собираются данные о ней и информация о "
-"соответствующей конфигурации для отправки команде разработчиков phpMyAdmin."
+"Отчет содержит сообщение об ошибке и информацию о соответствующих настройках. "
+"Они будут отправлены команде разработчиков phpMyAdmin для исправления ошибки."
 
 #: templates/error/report_form.phtml:14
 msgid ""
 "Can you tell us the steps leading to this error? It decisively helps in "
 "debugging:"
 msgstr ""
+"Вы можете указать шаги, приведшие к этой ошибке? Это существенно "
+"поможет при выяснении причин проблемы."
 
 #: templates/error/report_form.phtml:21
 msgid "You may examine the data in the error report:"
@@ -15286,10 +15156,8 @@ msgstr ""
 "экранировать их символом обратной косой черты \\."
 
 #: templates/privileges/add_privileges_routine.phtml:3
-#, fuzzy
-#| msgid "Add privileges on the following table:"
 msgid "Add privileges on the following routine:"
-msgstr "Добавить привилегии на следующую таблицу:"
+msgstr "Добавить привилегии на следующую процедуру:"
 
 #: templates/privileges/add_privileges_table.phtml:3
 msgid "Add privileges on the following table:"
@@ -15395,10 +15263,8 @@ msgid "Stacked"
 msgstr "Уложенный"
 
 #: templates/table/chart/tbl_chart.phtml:53
-#, fuzzy
-#| msgid "Chart title"
 msgid "Chart title:"
-msgstr "Заголовок графика"
+msgstr "Заголовок графика:"
 
 #: templates/table/chart/tbl_chart.phtml:58
 msgid "X-Axis:"
@@ -15666,22 +15532,16 @@ msgid "Partitions"
 msgstr "Разделы"
 
 #: templates/table/structure/display_partitions.phtml:9
-#, fuzzy
-#| msgid "No index defined!"
 msgid "No partitioning defined!"
-msgstr "Индекс не определен!"
+msgstr "Разбиение отсутствует!"
 
 #: templates/table/structure/display_partitions.phtml:12
-#, fuzzy
-#| msgid "partitioned"
 msgid "Partitioned by:"
-msgstr "разделён"
+msgstr "Критерий:"
 
 #: templates/table/structure/display_partitions.phtml:17
-#, fuzzy
-#| msgid "partitioned"
 msgid "Sub partitioned by:"
-msgstr "разделён"
+msgstr "Подкритерий:"
 
 #: templates/table/structure/display_partitions.phtml:30
 msgid "Data length"
@@ -15692,27 +15552,17 @@ msgid "Index length"
 msgstr "Длина индекса"
 
 #: templates/table/structure/display_partitions.phtml:135
-#, fuzzy
-#| msgid "partitioned"
 msgid "Partition table"
-msgstr "разделён"
+msgstr "Разбить таблицу"
 
 #: templates/table/structure/display_partitions.phtml:138
 #: templates/table/structure/partition_definition_form.phtml:7
-#, fuzzy
-#| msgid "Remove partitioning"
 msgid "Edit partitioning"
-msgstr "Удалить разделение"
+msgstr "Редактировать разбиение"
 
 #: templates/table/structure/display_structure.phtml:129 view_create.php:200
 msgid "Edit view"
 msgstr "Редактировать представление"
-
-#: templates/table/structure/display_table_stats.phtml:5
-#, fuzzy
-#| msgid "Table comments:"
-msgid "Table comments: "
-msgstr "Комментарии к таблице:"
 
 #: templates/table/structure/display_table_stats.phtml:12
 msgid "Space usage"
@@ -15833,7 +15683,7 @@ msgstr "Переименовать представление в"
 
 #: view_operations.php:145
 msgid "Delete the view (DROP)"
-msgstr "Удалить вид (DROP)"
+msgstr "Удалить представление (DROP)"
 
 #: libraries/advisory_rules.txt:49
 msgid "Uptime below one day"
@@ -16033,10 +15883,8 @@ msgid "Version less than 5.5.8 (the first GA release of 5.5)."
 msgstr "Версия менее 5.5.8 (первый стабильный выпуск 5.5)."
 
 #: libraries/advisory_rules.txt:118
-#, fuzzy
-#| msgid "You should upgrade, to a stable version of MySQL 5.5"
 msgid "You should upgrade, to a stable version of MySQL 5.5."
-msgstr "Необходимо обновить MySQL до стабильной версии 5.5"
+msgstr "Необходимо обновить MySQL до стабильной версии 5.5."
 
 #: libraries/advisory_rules.txt:121 libraries/advisory_rules.txt:128
 msgid "Distribution"
@@ -16347,16 +16195,12 @@ msgstr ""
 "Слишком большое количество сортировок вызывают создание временных таблиц."
 
 #: libraries/advisory_rules.txt:208 libraries/advisory_rules.txt:215
-#, fuzzy
-#| msgid ""
-#| "Consider increasing {sort_buffer_size} and/or {read_rnd_buffer_size}, "
-#| "depending on your system memory limits"
 msgid ""
 "Consider increasing {sort_buffer_size} and/or {read_rnd_buffer_size}, "
 "depending on your system memory limits."
 msgstr ""
 "Рассмотрите возможность увеличения {sort_buffer_size} и/или "
-"{read_rnd_buffer_size}, в зависимости от ограничения памяти вашей системы"
+"{read_rnd_buffer_size}, в зависимости от ограничения памяти вашей системы."
 
 #: libraries/advisory_rules.txt:209
 #, php-format
@@ -16388,12 +16232,6 @@ msgid "There are lots of rows being sorted."
 msgstr "Было отсортировано большое количество строк."
 
 #: libraries/advisory_rules.txt:222
-#, fuzzy
-#| msgid ""
-#| "While there is nothing wrong with a high amount of row sorting, you might "
-#| "want to make sure that the queries which require a lot of sorting use "
-#| "indexed columns in the ORDER BY clause, as this will result in much "
-#| "faster sorting"
 msgid ""
 "While there is nothing wrong with a high amount of row sorting, you might "
 "want to make sure that the queries which require a lot of sorting use "
@@ -16403,7 +16241,7 @@ msgstr ""
 "Несмотря на то, что большое количество сортировок само по себе не является "
 "плохим показателем, вы должны убедиться, что запросы требующие сортировки "
 "используют поля индексов в выражении ORDER BY, так как это приведет к "
-"значительно более быстрой сортировке"
+"значительно более быстрой сортировке."
 
 #: libraries/advisory_rules.txt:223
 #, php-format
@@ -16419,17 +16257,12 @@ msgid "There are too many joins without indexes."
 msgstr "Слишком большое количество объединения не использующих индексы."
 
 #: libraries/advisory_rules.txt:230
-#, fuzzy
-#| msgid ""
-#| "This means that joins are doing full table scans. Adding indexes for the "
-#| "columns being used in the join conditions will greatly speed up table "
-#| "joins"
 msgid ""
 "This means that joins are doing full table scans. Adding indexes for the "
 "columns being used in the join conditions will greatly speed up table joins."
 msgstr ""
 "Это означает сканирование всей таблицы при объединении. Добавление индексов "
-"для полей используемых в условии, значительно увеличит скорость объединения"
+"для полей используемых в условии, значительно увеличит скорость объединения."
 
 #: libraries/advisory_rules.txt:231
 #, php-format
@@ -16862,22 +16695,16 @@ msgid "Slow launch time"
 msgstr "Время медленного запуска"
 
 #: libraries/advisory_rules.txt:368
-#, fuzzy
-#| msgid "Slow_launch_threads is above 2s"
 msgid "Slow_launch_threads is above 2s."
-msgstr "Slow_launch_threads больше 2 сек."
+msgstr "Slow_launch_time больше 2 сек."
 
 #: libraries/advisory_rules.txt:369
-#, fuzzy
-#| msgid ""
-#| "Set {slow_launch_time} to 1s or 2s to correctly count threads that are "
-#| "slow to launch"
 msgid ""
 "Set {slow_launch_time} to 1s or 2s to correctly count threads that are slow "
 "to launch."
 msgstr ""
 "Установите переменную {slow_launch_time} на 1 или 2 сек., чтобы корректно "
-"считать медленно запускаемые потоки"
+"считать медленно запускаемые потоки."
 
 #: libraries/advisory_rules.txt:370
 #, php-format
@@ -17159,15 +16986,6 @@ msgstr "concurrent_insert установлен в 0"
 #~| msgid "Column names"
 #~ msgid "Column parser"
 #~ msgstr "Названия столбцов"
-
-#, fuzzy
-#~| msgid "%d second"
-#~| msgid_plural "%d seconds"
-#~ msgid "\"%d\" second"
-#~ msgid_plural "\"%d\" seconds"
-#~ msgstr[0] "%d секунда"
-#~ msgstr[1] "%d секунды"
-#~ msgstr[2] "%d секунд"
 
 #, fuzzy
 #~| msgid "errors."

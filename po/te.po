@@ -15790,12 +15790,6 @@ msgstr "క్రొత్త వాడుకరిని చేర్చు"
 msgid "Edit view"
 msgstr "క్రొత్త వాడుకరిని చేర్చు"
 
-#: templates/table/structure/display_table_stats.phtml:5
-#, fuzzy
-#| msgid "Table comments:"
-msgid "Table comments: "
-msgstr "పట్టిక వ్యాఖ్యలు:"
-
 #: templates/table/structure/display_table_stats.phtml:12
 msgid "Space usage"
 msgstr ""

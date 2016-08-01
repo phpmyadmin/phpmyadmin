@@ -14693,12 +14693,6 @@ msgstr "Routine bewurkje"
 msgid "Edit view"
 msgstr ""
 
-#: templates/table/structure/display_table_stats.phtml:5
-#, fuzzy
-#| msgid "Table comments:"
-msgid "Table comments: "
-msgstr "Tabelopmerkings:"
-
 #: templates/table/structure/display_table_stats.phtml:12
 msgid "Space usage"
 msgstr ""

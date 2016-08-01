@@ -16285,12 +16285,6 @@ msgstr "إزالة التقسيم"
 msgid "Edit view"
 msgstr "عرض نسخة للطباعة"
 
-#: templates/table/structure/display_table_stats.phtml:5
-#, fuzzy
-#| msgid "Table comments:"
-msgid "Table comments: "
-msgstr "تعليقات الجدول:"
-
 #: templates/table/structure/display_table_stats.phtml:12
 msgid "Space usage"
 msgstr "المساحة المستخدمة"

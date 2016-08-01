@@ -7649,15 +7649,10 @@ msgid "User preferences storage table"
 msgstr "Tabela de armazenamento das preferências do utilizador"
 
 #: libraries/config/messages.inc.php:813
-#, fuzzy
-#| msgid ""
-#| "Both this table and the user groups table are required to enable the "
-#| "configurable menus feature; leaving either one of them blank will disable "
-#| "this feature, suggested: [kbd]pma__users[/kbd]."
 msgid ""
 "Both this table and the user groups table are required to enable the "
-"configurable menus feature; leaving either one of them blank will disable\n"
-"    this feature, suggested: [kbd]pma__users[/kbd]."
+"configurable menus feature; leaving either one of them blank will disable "
+"this feature, suggested: [kbd]pma__users[/kbd]."
 msgstr ""
 "Tanto esta tabela como a tabela de grupos de utilizadores são necessárias "
 "para ativar a funcionalidade de menus configuráveis; Deixando uma delas em "
@@ -16198,12 +16193,6 @@ msgstr "Vista de impressão"
 #| msgid "Print view"
 msgid "Edit view"
 msgstr "Vista de impressão"
-
-#: templates/table/structure/display_table_stats.phtml:5
-#, fuzzy
-#| msgid "Table comments:"
-msgid "Table comments: "
-msgstr "Comentários da tabela:"
 
 #: templates/table/structure/display_table_stats.phtml:12
 msgid "Space usage"
