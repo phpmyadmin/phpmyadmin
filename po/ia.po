@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-08-01 11:05+0200\n"
-"PO-Revision-Date: 2016-05-23 13:14+0000\n"
+"PO-Revision-Date: 2016-08-01 13:13+0000\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
-"Language-Team: Interlingua <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/ia/>\n"
+"Language-Team: Interlingua "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/ia/>\n"
 "Language: ia\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.7-dev\n"
+"X-Generator: Weblate 2.8-dev\n"
 
 #: changelog.php:37 license.php:33
 #, php-format
@@ -5435,10 +5435,9 @@ msgid "Could not connect to the database server!"
 msgstr "Il non pote connecter a servitor de base de datos!"
 
 #: libraries/config/Validator.php:286
-#, fuzzy
 #| msgid "Authentication type"
 msgid "Invalid authentication type!"
-msgstr "Typo de authentication"
+msgstr "Typo de authentication invalide!"
 
 #: libraries/config/Validator.php:293
 msgid "Empty username while using [kbd]config[/kbd] authentication method!"
@@ -7063,8 +7062,8 @@ msgid ""
 "Leave blank for no [doc@bookmarks@]bookmark[/doc] support, suggested: "
 "[kbd]pma__bookmark[/kbd]"
 msgstr ""
-"Lassa vacue pro necun supporto de [doc@bookmarks@] bookmark[/doc] 2 , "
-"suggerite: [kbd] 3 pma__bookmark[/kbd] 4"
+"Lassa vacue pro nulle [doc@bookmarks@]bookmark[/doc] supporto, suggerite: "
+"[kbd]pma__bookmark[/kbd]"
 
 #: libraries/config/messages.inc.php:643
 msgid "Bookmark table"
@@ -7108,7 +7107,7 @@ msgid ""
 "available on [doc@linked-tables]documentation[/doc]."
 msgstr ""
 "Un usator special de MySQL configurate con permissiones limitate, ulterior "
-"information disponibile sur [doc@linked-tables] documentation[/doc]."
+"information disponibile sur [doc@linked-tables] 1documentation[/doc] 2."
 
 #: libraries/config/messages.inc.php:659
 msgid "Control user"
@@ -7280,8 +7279,8 @@ msgid ""
 "Suggested: [kbd]phpmyadmin[/kbd]."
 msgstr ""
 "Base de datos usate pro relationes, marcatores de libro, e characteristicas "
-"de PDF. Vide [doc@linked-tables]pmadb[/doc]pro le information complete. "
-"Lassa vacue pro nulle supporto. Suggerite: [kbd]phpmyadmin[/kbd]."
+"de PDF. Vide [doc@linked-tables] 1pmadb[/doc] 2 pro le information complete. "
+"Lassa vacue pro nulle supporto. Suggerite:  [kbd] 3phpmyadmin[/kbd] 4."
 
 #: libraries/config/messages.inc.php:727
 #: templates/server/databases/create.phtml:20
@@ -7327,8 +7326,8 @@ msgid ""
 "Leave blank for no [doc@relations@]relation-links[/doc] support, suggested: "
 "[kbd]pma__relation[/kbd]."
 msgstr ""
-"Lassa vacue pro nulle[doc@relations@]relation-links[/doc] supporto, "
-"suggerite: [kbd]pma__relation[/kbd]."
+"Lassa vacue pro nulle supporto  [doc@relations@] 1relation-links[/doc] 2 , "
+"suggerite: [kbd] 3pma__relation[/kbd] 4."
 
 #: libraries/config/messages.inc.php:746
 msgid "Relation table"
@@ -7338,7 +7337,8 @@ msgstr "Tabella de relation"
 msgid ""
 "See [doc@authentication-modes]authentication types[/doc] for an example."
 msgstr ""
-"Vide [doc@authentication-modes] typos de authentication[/doc] pro un exemplo."
+"Vide [doc@authentication-modes] typos de authentication [/doc] pro un "
+"exemplo."
 
 #: libraries/config/messages.inc.php:751
 msgid "Signon session name"
@@ -7870,7 +7870,7 @@ msgstr "Contrasigno de proxy"
 #: libraries/config/messages.inc.php:974
 msgid "Enable ZIP compression for import and export operations."
 msgstr ""
-"Il habilita le compressionZIP per operationes de importation e exportation."
+"Il habilita le compression ZIP per operationes de importation e exportation."
 
 #: libraries/config/messages.inc.php:977
 msgid "ZIP"
@@ -9257,10 +9257,9 @@ msgid "Log out"
 msgstr "Claude session"
 
 #: libraries/navigation/NavigationHeader.php:173
-#, fuzzy
 #| msgid "Dumping data"
 msgid "Empty session data"
-msgstr "Dump (discargamento) de datos"
+msgstr "Datos de session vacue"
 
 #: libraries/navigation/NavigationHeader.php:189
 msgid "phpMyAdmin documentation"
@@ -13877,10 +13876,9 @@ msgid ""
 msgstr ""
 
 #: setup/frames/index.inc.php:134
-#, fuzzy
 #| msgid "Configuration saved."
 msgid "Configuration not saved!"
-msgstr "Configuration salveguardate."
+msgstr "Configuration non salveguardate!"
 
 #: setup/frames/index.inc.php:149 setup/frames/menu.inc.php:20
 msgid "Overview"
@@ -14676,9 +14674,9 @@ msgid ""
 "about relevant configuration settings. It will be sent to the phpMyAdmin "
 "team for debugging the error."
 msgstr ""
-"Iste reporto automaticamente include datos re le error e informationes re "
-"preferentias de configuration relevante. Illo essera inviate al equipa de "
-"phpMyAdmin pro analysar le error."
+"Iste reporto includeva automaticamente datos re le error e re le information "
+"super fixationes de configuration relevante. Illo essera inviata al equipa "
+"de phpMtAdmin pro analysar le error."
 
 #: templates/error/report_form.phtml:14
 msgid ""
