@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-08-01 11:05+0200\n"
-"PO-Revision-Date: 2016-05-23 17:30+0000\n"
+"PO-Revision-Date: 2016-08-01 13:30+0000\n"
 "Last-Translator: dingo thirteen <dingo13@gmail.com>\n"
-"Language-Team: Dutch <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"nl/>\n"
+"Language-Team: Dutch "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/nl/>\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.7-dev\n"
+"X-Generator: Weblate 2.8-dev\n"
 
 #: changelog.php:37 license.php:33
 #, php-format
@@ -843,6 +843,8 @@ msgstr "U staat op het punt een volledige database te VERWIJDEREN!"
 #: js/messages.php:53
 msgid "Cannot rename database to the same name. Change the name and try again"
 msgstr ""
+"Kan de database niet hernoemen naar dezelfde naam. Wijzig de naam en probeer "
+"het opnieuw"
 
 #: js/messages.php:55
 msgid "You are about to DESTROY a complete table!"
@@ -3264,10 +3266,9 @@ msgid "Details…"
 msgstr "Details…"
 
 #: libraries/DatabaseInterface.php:2325
-#, fuzzy
 #| msgid "Missing parameter:"
 msgid "Missing connection parameters!"
-msgstr "Ontbrekende parameter:"
+msgstr "Ontbrekende connectie parameters!"
 
 #: libraries/DatabaseInterface.php:2358
 msgid "Connection for controluser as defined in your configuration failed."
@@ -5411,10 +5412,9 @@ msgid "Could not connect to the database server!"
 msgstr "Kan geen verbinding maken met de databaseserver!"
 
 #: libraries/config/Validator.php:286
-#, fuzzy
 #| msgid "Authentication type"
 msgid "Invalid authentication type!"
-msgstr "Authenticatietype"
+msgstr "Onjuist authenticatietype!"
 
 #: libraries/config/Validator.php:293
 msgid "Empty username while using [kbd]config[/kbd] authentication method!"
@@ -9232,10 +9232,9 @@ msgid "Log out"
 msgstr "Aanmelden"
 
 #: libraries/navigation/NavigationHeader.php:173
-#, fuzzy
 #| msgid "Dumping data"
 msgid "Empty session data"
-msgstr "Dumpen data"
+msgstr "Sessiedata is leeg"
 
 #: libraries/navigation/NavigationHeader.php:189
 msgid "phpMyAdmin documentation"
@@ -10423,10 +10422,10 @@ msgid "Last check:"
 msgstr "Laatst gecontroleerd:"
 
 #: libraries/plugins/export/ExportSql.php:1479
-#, fuzzy, php-format
+#, php-format
 #| msgid "Table structure for table"
 msgid "Error reading structure for table %s:"
-msgstr "Tabelstructuur voor tabel"
+msgstr "Fout bij lezen van tabelstructuur van tabel %s:"
 
 #: libraries/plugins/export/ExportSql.php:1533
 msgid "It appears your database uses views;"
@@ -10478,10 +10477,10 @@ msgid "(See below for the actual view)"
 msgstr "(Zie onder voor de actuele view)"
 
 #: libraries/plugins/export/ExportSql.php:2195
-#, fuzzy, php-format
+#, php-format
 #| msgid "Error reading data:"
 msgid "Error reading data for table %s:"
-msgstr "Fout bij het lezen van gegevens:"
+msgstr "Fout bij het lezen van gegevens voor tabel %s:"
 
 #: libraries/plugins/export/ExportXml.php:97
 msgid "Object creation options (all are recommended)"
@@ -14039,14 +14038,13 @@ msgstr ""
 "Instellingen werden niet opgeslagen, het verstuurde formulier bevat fouten!"
 
 #: prefs_manage.php:50
-#, fuzzy
 #| msgid "Missing phpMyAdmin configuration storage tables"
 msgid "phpMyAdmin configuration snippet"
-msgstr "Tabellen voor de configuratie-opslag van phpMyAdmin ontbreken"
+msgstr "phpMyAdmin configuratie fragment"
 
 #: prefs_manage.php:51
 msgid "Paste it to your config.inc.php"
-msgstr ""
+msgstr "Plak het in uw config.inc.php"
 
 #: prefs_manage.php:105
 msgid "Could not import configuration"
@@ -14100,10 +14098,9 @@ msgstr ""
 "door het %ssetup-script%s te gebruiken."
 
 #: prefs_manage.php:342
-#, fuzzy
 #| msgid "Save as file"
 msgid "Save as PHP file"
-msgstr "Opslaan als bestand"
+msgstr "Opslaan als PHP bestand"
 
 #: prefs_manage.php:347
 msgid "Save to browser's storage"
@@ -14229,10 +14226,9 @@ msgstr ""
 "verwijder de config-map."
 
 #: setup/frames/index.inc.php:134
-#, fuzzy
 #| msgid "Configuration saved."
 msgid "Configuration not saved!"
-msgstr "Configuratie opgeslagen."
+msgstr "Configuratie niet bewaard!"
 
 #: setup/frames/index.inc.php:149 setup/frames/menu.inc.php:20
 msgid "Overview"
@@ -14355,7 +14351,7 @@ msgstr "Verkeerde gegevens"
 #: setup/validate.php:30
 #, php-format
 msgid "Wrong data or no validation for %s"
-msgstr ""
+msgstr "Verkeerde gegevens of geen validatie voor %s"
 
 #: tbl_create.php:31 tbl_get_field.php:26
 #, php-format
@@ -15777,7 +15773,7 @@ msgstr "strikte fout"
 
 #: view_create.php:45
 msgid "View name can not be empty"
-msgstr ""
+msgstr "View naam kan niet leeg zijn"
 
 #: view_create.php:248
 msgid "VIEW name"
