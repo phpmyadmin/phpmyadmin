@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-05-23 14:29+0200\n"
-"PO-Revision-Date: 2016-03-19 07:52+0000\n"
+"PO-Revision-Date: 2016-07-29 19:10+0000\n"
 "Last-Translator: Sevdimali İsa <sevdimaliisayev@mail.ru>\n"
-"Language-Team: Azerbaijani <https://hosted.weblate.org/projects/"
-"phpmyadmin/4-6/az/>\n"
+"Language-Team: Azerbaijani "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-6/az/>\n"
 "Language: az\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.5\n"
+"X-Generator: Weblate 2.8-dev\n"
 
 #: changelog.php:37 license.php:33
 #, php-format
@@ -609,7 +609,7 @@ msgstr ""
 
 #: import_status.php:107
 msgid "Could not load the progress of the import."
-msgstr ""
+msgstr "İmport prosesinin iləriləmə vəziyyəti yüklənə bilmədi."
 
 #: import_status.php:116 js/messages.php:448 js/messages.php:600
 #: libraries/Util.php:804 libraries/export.lib.php:516
@@ -741,7 +741,7 @@ msgstr "Dəyişikliklərin siyahısı"
 
 #: index.php:427 templates/server/plugins/section.phtml:12
 msgid "License"
-msgstr ""
+msgstr "Lisenziya"
 
 #: index.php:447
 msgid ""
@@ -764,6 +764,9 @@ msgid ""
 "The curl extension was not found and allow_url_fopen is disabled. Due to "
 "this some features such as error reporting or version check are disabled."
 msgstr ""
+"Curl genişlənməsi tapılmadı və ya allow_url_fopen deaktiv edildi. Buna görə "
+"xəta göndərmə(error reporting) və ya versiya yoxlama kimi bəzi özəlliklər "
+"deaktiv edildi."
 
 #: index.php:492
 msgid ""
@@ -956,7 +959,7 @@ msgstr ""
 
 #: js/messages.php:94
 msgid "Garbled Data"
-msgstr ""
+msgstr "Qarışıq Verilən"
 
 #: js/messages.php:96
 msgid "Are you sure you wish to change the collation and convert the data?"
