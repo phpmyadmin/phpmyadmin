@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-08-01 11:05+0200\n"
-"PO-Revision-Date: 2016-08-01 12:21+0000\n"
+"PO-Revision-Date: 2016-08-01 15:58+0000\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/tr/>\n"
@@ -13914,14 +13914,13 @@ msgid "Cannot save settings, submitted form contains errors!"
 msgstr "Ayarlar kaydedilemiyor, gönderilmiş form hatalar içeriyor!"
 
 #: prefs_manage.php:50
-#, fuzzy
 #| msgid "Missing phpMyAdmin configuration storage tables"
 msgid "phpMyAdmin configuration snippet"
-msgstr "Eksik phpMyAdmin yapılandırma depolama tabloları"
+msgstr "phpMyAdmin yapılandırma parçacığı"
 
 #: prefs_manage.php:51
 msgid "Paste it to your config.inc.php"
-msgstr ""
+msgstr "config.inc.php dosyanıza yapıştırın"
 
 #: prefs_manage.php:105
 msgid "Could not import configuration"
@@ -13973,10 +13972,9 @@ msgstr ""
 "%sKur programcığı%s kullanarak."
 
 #: prefs_manage.php:342
-#, fuzzy
 #| msgid "Save as file"
 msgid "Save as PHP file"
-msgstr "Dosya olarak kaydet"
+msgstr "PHP dosyası olarak kaydet"
 
 #: prefs_manage.php:347
 msgid "Save to browser's storage"
@@ -14101,10 +14099,9 @@ msgstr ""
 "config dizinini silin."
 
 #: setup/frames/index.inc.php:134
-#, fuzzy
 #| msgid "Configuration saved."
 msgid "Configuration not saved!"
-msgstr "Yapılandırma kaydedildi."
+msgstr "Yapılandırma kaydedilmedi!"
 
 #: setup/frames/index.inc.php:149 setup/frames/menu.inc.php:20
 msgid "Overview"
@@ -14226,7 +14223,7 @@ msgstr "Yanlış veri"
 #: setup/validate.php:30
 #, php-format
 msgid "Wrong data or no validation for %s"
-msgstr ""
+msgstr "Yanlış veri veya %s için doğrulama yok"
 
 #: tbl_create.php:31 tbl_get_field.php:26
 #, php-format
@@ -15640,7 +15637,7 @@ msgstr "kesin hata"
 
 #: view_create.php:45
 msgid "View name can not be empty"
-msgstr ""
+msgstr "Görünüm adı boş olamaz"
 
 #: view_create.php:248
 msgid "VIEW name"
