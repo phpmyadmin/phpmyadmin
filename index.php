@@ -558,7 +558,7 @@ if ($server > 0) {
             . '%sFind out why%s. '
         );
         if ($cfg['ZeroConf'] == true) {
-            $msg_text .= '<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' .
+            $msg_text .= '<br>' .
                 __(
                     'Or alternately go to \'Operations\' tab of any database '
                     . 'to set it up there.'

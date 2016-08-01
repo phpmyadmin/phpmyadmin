@@ -217,11 +217,10 @@ class Footer
      */
     public function getErrorMessages()
     {
-        $retval = '<div class="clearfloat" id="pma_errors">';
+        $retval = '';
         if ($GLOBALS['error_handler']->hasDisplayErrors()) {
             $retval .= $GLOBALS['error_handler']->getDispErrors();
         }
-        $retval .= '</div>';
 
         /**
          * Report php errors
@@ -341,7 +340,9 @@ class Footer
                 $this->_scripts->addCode(
                     'var debugSQLInfo = ' . $this->getDebugMessage() . ';'
                 );
+                $retval .= '<div class="clearfloat" id="pma_errors">';
                 $retval .= $this->getErrorMessages();
+                $retval .= '</div>';
                 $retval .= $this->_scripts->getDisplay();
                 if ($GLOBALS['cfg']['DBG']['demo']) {
                     $retval .= '<div id="pma_demo">';
