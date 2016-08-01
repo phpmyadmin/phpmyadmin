@@ -6,16 +6,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-08-01 11:05+0200\n"
-"PO-Revision-Date: 2016-05-23 12:58+0000\n"
+"PO-Revision-Date: 2016-08-01 11:04+0000\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
-"Language-Team: Estonian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/et/>\n"
+"Language-Team: Estonian "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/et/>\n"
 "Language: et\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.7-dev\n"
+"X-Generator: Weblate 2.8-dev\n"
 
 #: changelog.php:37 license.php:33
 #, php-format
@@ -837,6 +837,7 @@ msgstr "Oled KUSTUTAMAS kogu andmebaasi!"
 #: js/messages.php:53
 msgid "Cannot rename database to the same name. Change the name and try again"
 msgstr ""
+"Andmebaasi uus nimi ei saa olla ta vana nimi. Muuda uut nime ja proovi uuesti"
 
 #: js/messages.php:55
 msgid "You are about to DESTROY a complete table!"
@@ -3229,10 +3230,9 @@ msgid "Details…"
 msgstr "Detailid…"
 
 #: libraries/DatabaseInterface.php:2325
-#, fuzzy
 #| msgid "Missing parameter:"
 msgid "Missing connection parameters!"
-msgstr "Puudulik parameeter:"
+msgstr "Puuduvad ühenduse parameetrid!"
 
 #: libraries/DatabaseInterface.php:2358
 msgid "Connection for controluser as defined in your configuration failed."
@@ -5339,10 +5339,9 @@ msgid "Could not connect to the database server!"
 msgstr "Ei saa ühenduda andmebaasi serveriga!"
 
 #: libraries/config/Validator.php:286
-#, fuzzy
 #| msgid "Authentication type"
 msgid "Invalid authentication type!"
-msgstr "Autentimise tüüp"
+msgstr "Vigane autentimise tüüp!"
 
 #: libraries/config/Validator.php:293
 msgid "Empty username while using [kbd]config[/kbd] authentication method!"
@@ -9070,10 +9069,9 @@ msgid "Log out"
 msgstr "Logi välja"
 
 #: libraries/navigation/NavigationHeader.php:173
-#, fuzzy
 #| msgid "Dumping data"
 msgid "Empty session data"
-msgstr "Andmete tõmmistamine"
+msgstr "Seansiandmed puuduvad"
 
 #: libraries/navigation/NavigationHeader.php:189
 msgid "phpMyAdmin documentation"
@@ -10247,10 +10245,10 @@ msgid "Last check:"
 msgstr "Viimane kontroll:"
 
 #: libraries/plugins/export/ExportSql.php:1479
-#, fuzzy, php-format
+#, php-format
 #| msgid "Table structure for table"
 msgid "Error reading structure for table %s:"
-msgstr "Tabeli struktuur tabelile"
+msgstr "Viga tabeli %s struktuuri lugemisel:"
 
 #: libraries/plugins/export/ExportSql.php:1533
 msgid "It appears your database uses views;"
@@ -10302,10 +10300,10 @@ msgid "(See below for the actual view)"
 msgstr "(Tegelik vaade on allpool)"
 
 #: libraries/plugins/export/ExportSql.php:2195
-#, fuzzy, php-format
+#, php-format
 #| msgid "Error reading data:"
 msgid "Error reading data for table %s:"
-msgstr "Andmete lugemisel esines viga:"
+msgstr "Viga tabeli %s andmete lugemisel:"
 
 #: libraries/plugins/export/ExportXml.php:97
 msgid "Object creation options (all are recommended)"
@@ -13781,14 +13779,13 @@ msgid "Cannot save settings, submitted form contains errors!"
 msgstr "Sätteid ei salvestatud; saadetud vorm sisaldab vigu!"
 
 #: prefs_manage.php:50
-#, fuzzy
 #| msgid "Missing phpMyAdmin configuration storage tables"
 msgid "phpMyAdmin configuration snippet"
-msgstr "Puudulikud phpMyAdmini seadistuse salvestuse tabelid"
+msgstr "phpMyAdmini seadistuse jupp"
 
 #: prefs_manage.php:51
 msgid "Paste it to your config.inc.php"
-msgstr ""
+msgstr "Kleebi see oma config.inc.php"
 
 #: prefs_manage.php:105
 msgid "Could not import configuration"
@@ -13840,10 +13837,9 @@ msgstr ""
 "näiteks %sPaigaldaja skripti%s."
 
 #: prefs_manage.php:342
-#, fuzzy
 #| msgid "Save as file"
 msgid "Save as PHP file"
-msgstr "Salvesta failina"
+msgstr "Salvesta PHP failina"
 
 #: prefs_manage.php:347
 msgid "Save to browser's storage"
@@ -13965,10 +13961,9 @@ msgstr ""
 "'config' kataloog."
 
 #: setup/frames/index.inc.php:134
-#, fuzzy
 #| msgid "Configuration saved."
 msgid "Configuration not saved!"
-msgstr "Seadistus on salvestatud."
+msgstr "Seadistust ei salvestatud!"
 
 #: setup/frames/index.inc.php:149 setup/frames/menu.inc.php:20
 msgid "Overview"
@@ -14090,7 +14085,7 @@ msgstr "Valed andmed"
 #: setup/validate.php:30
 #, php-format
 msgid "Wrong data or no validation for %s"
-msgstr ""
+msgstr "Valed andmed või puudub %s valideerimine"
 
 #: tbl_create.php:31 tbl_get_field.php:26
 #, php-format
@@ -15501,7 +15496,7 @@ msgstr "otsene viga"
 
 #: view_create.php:45
 msgid "View name can not be empty"
-msgstr ""
+msgstr "Vaate nimi ei saa olla tühi"
 
 #: view_create.php:248
 msgid "VIEW name"
