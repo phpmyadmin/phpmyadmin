@@ -108,6 +108,14 @@ function PMA_getAvailableMIMEtypes()
 
         $filestack = array();
         while ($file = readdir($handle)) {
+            // Ignore hidden files
+            if ($file[0] == '.') {
+                continue;
+            }
+            // Ignore old plugins (.class in filename)
+            if (strpos($file, '.class') !== false) {
+                continue;
+            }
             $filestack[] = $file;
         }
 
