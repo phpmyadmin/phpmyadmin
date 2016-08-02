@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2016-08-01 11:05+0200\n"
+"POT-Creation-Date: 2016-08-01 11:04+0200\n"
 "PO-Revision-Date: 2016-07-07 16:12+0000\n"
 "Last-Translator: Phongphan A Bunlom <phongphan117@hotmail.co.th>\n"
 "Language-Team: Thai <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -15986,12 +15986,6 @@ msgstr "เพิ่มฟิลด์ใหม่"
 msgid "Edit view"
 msgstr "แสดง"
 
-#: templates/table/structure/display_table_stats.phtml:5
-#, fuzzy
-#| msgid "Table comments:"
-msgid "Table comments: "
-msgstr "หมายเหตุของตาราง:"
-
 #: templates/table/structure/display_table_stats.phtml:12
 msgid "Space usage"
 msgstr "เนื้อที่ที่ใช้"
@@ -17225,7 +17219,7 @@ msgstr ""
 #: libraries/advisory_rules.txt:368
 #, fuzzy
 #| msgid "long_query_time is set to %d second(s)."
-msgid "Slow_launch_threads is above 2s."
+msgid "Slow_launch_time is above 2s."
 msgstr "long_query_time ถูกตั้งไว้ที่ %d วินาที"
 
 #: libraries/advisory_rules.txt:369

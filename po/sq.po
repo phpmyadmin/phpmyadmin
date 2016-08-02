@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2016-08-01 11:05+0200\n"
+"POT-Creation-Date: 2016-08-01 11:04+0200\n"
 "PO-Revision-Date: 2016-06-30 22:53+0000\n"
 "Last-Translator: Arben Çokaj <acokaj@shkoder.net>\n"
 "Language-Team: Albanian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -7453,13 +7453,12 @@ msgstr "Tabela e ruajtjes së preferencave të përdoruesit"
 #: libraries/config/messages.inc.php:809
 msgid ""
 "Both this table and the user groups table are required to enable the "
-"configurable menus feature; leaving either one of them blank will disable\n"
-"    this feature, suggested: [kbd]pma__users[/kbd]."
+"configurable menus feature; leaving either one of them blank will disable "
+"this feature, suggested: [kbd]pma__users[/kbd]."
 msgstr ""
 "Të dyja, kjo tabelë dhe grupet e përdoruesve kërkohen për të aftësuar "
 "tiparin e menyve të konfigurueshme; duke lënë njërën prej tyre të zbrazët, "
-"do të pasivizoni \n"
-"     këtë tipar, sugjerohet: [kbd]pma__users[/kbd]."
+"do të pasivizoni këtë tipar, sugjerohet: [kbd]pma__users[/kbd]."
 
 #: libraries/config/messages.inc.php:813
 msgid "Users table"
@@ -15436,10 +15435,6 @@ msgstr "Korrigjo copëzimin"
 msgid "Edit view"
 msgstr "Korrigjo pamjen"
 
-#: templates/table/structure/display_table_stats.phtml:5
-msgid "Table comments: "
-msgstr "Komentet e tabelës: "
-
 #: templates/table/structure/display_table_stats.phtml:12
 msgid "Space usage"
 msgstr "Përdorimi i hapësirës"
@@ -16751,8 +16746,8 @@ msgid "Slow launch time"
 msgstr "Koha e lëshimit e ngadaltë"
 
 #: libraries/advisory_rules.txt:368
-msgid "Slow_launch_threads is above 2s."
-msgstr "Slow_launch_threads është mbi 2s."
+msgid "Slow_launch_time is above 2s."
+msgstr "Slow_launch_time është mbi 2s."
 
 #: libraries/advisory_rules.txt:369
 msgid ""

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2016-08-01 11:05+0200\n"
+"POT-Creation-Date: 2016-08-01 11:04+0200\n"
 "PO-Revision-Date: 2015-10-15 11:24+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Serbian (latin) <https://hosted.weblate.org/projects/"
@@ -17497,9 +17497,9 @@ msgstr "Predugo vreme pokretanja"
 
 #: libraries/advisory_rules.txt:368
 #, fuzzy
-#| msgid "Slow_launch_threads is above 2s"
-msgid "Slow_launch_threads is above 2s."
-msgstr "Slow_launch_threads je iznad 2s"
+#| msgid "Slow_launch_time is above 2s"
+msgid "Slow_launch_time is above 2s."
+msgstr "Slow_launch_time je iznad 2s"
 
 #: libraries/advisory_rules.txt:369
 #, fuzzy

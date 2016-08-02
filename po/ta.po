@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2016-08-01 11:05+0200\n"
+"POT-Creation-Date: 2016-08-01 11:04+0200\n"
 "PO-Revision-Date: 2015-10-15 11:17+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Tamil <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -14901,12 +14901,6 @@ msgstr "தொகுப்பு பார்வை"
 msgid "Edit view"
 msgstr "தொகுப்பு பார்வை"
 
-#: templates/table/structure/display_table_stats.phtml:5
-#, fuzzy
-#| msgid "Table comments:"
-msgid "Table comments: "
-msgstr "அட்டவணைக் கருத்துரைகள்:"
-
 #: templates/table/structure/display_table_stats.phtml:12
 msgid "Space usage"
 msgstr ""
@@ -16049,7 +16043,7 @@ msgid "Slow launch time"
 msgstr ""
 
 #: libraries/advisory_rules.txt:368
-msgid "Slow_launch_threads is above 2s."
+msgid "Slow_launch_time is above 2s."
 msgstr ""
 
 #: libraries/advisory_rules.txt:369

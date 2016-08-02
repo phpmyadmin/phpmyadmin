@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2016-08-01 11:05+0200\n"
+"POT-Creation-Date: 2016-08-01 11:04+0200\n"
 "PO-Revision-Date: 2016-07-11 18:05+0000\n"
 "Last-Translator: José Camilo Fernandes Coelho <camilocoelho93@gmail.com>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -7696,16 +7696,11 @@ msgstr ""
 msgid "User preferences storage table"
 msgstr "Tabela de armazenamento das preferências do utilizador"
 
-#: libraries/config/messages.inc.php:809
-#, fuzzy
-#| msgid ""
-#| "Both this table and the user groups table are required to enable the "
-#| "configurable menus feature; leaving either one of them blank will disable "
-#| "this feature, suggested: [kbd]pma__users[/kbd]."
+#: libraries/config/messages.inc.php:813
 msgid ""
 "Both this table and the user groups table are required to enable the "
-"configurable menus feature; leaving either one of them blank will disable\n"
-"    this feature, suggested: [kbd]pma__users[/kbd]."
+"configurable menus feature; leaving either one of them blank will disable "
+"this feature, suggested: [kbd]pma__users[/kbd]."
 msgstr ""
 "Tanto esta tabela como a tabela de grupos de utilizadores são necessárias "
 "para ativar a funcionalidade de menus configuráveis; Deixando uma delas em "
@@ -16028,12 +16023,6 @@ msgstr "Vista de impressão"
 msgid "Edit view"
 msgstr "Vista de impressão"
 
-#: templates/table/structure/display_table_stats.phtml:5
-#, fuzzy
-#| msgid "Table comments:"
-msgid "Table comments: "
-msgstr "Comentários da tabela:"
-
 #: templates/table/structure/display_table_stats.phtml:12
 msgid "Space usage"
 msgstr "Espaço ocupado"
@@ -17281,9 +17270,9 @@ msgstr "Tempo de inícios lentos"
 
 #: libraries/advisory_rules.txt:368
 #, fuzzy
-#| msgid "Slow_launch_threads is above 2s"
-msgid "Slow_launch_threads is above 2s."
-msgstr "Slow_launch_threads está acima de 2s"
+#| msgid "Slow_launch_time is above 2s"
+msgid "Slow_launch_time is above 2s."
+msgstr "Slow_launch_time está acima de 2s"
 
 #: libraries/advisory_rules.txt:369
 #, fuzzy

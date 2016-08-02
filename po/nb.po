@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2016-08-01 11:05+0200\n"
+"POT-Creation-Date: 2016-08-01 11:04+0200\n"
 "PO-Revision-Date: 2016-05-19 17:17+0000\n"
 "Last-Translator: Axel Magnus Gaasø <axel.gaaso@gmail.com>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/"
@@ -16654,12 +16654,6 @@ msgstr "Fjern partisjonering"
 msgid "Edit view"
 msgstr "Rediger visning"
 
-#: templates/table/structure/display_table_stats.phtml:5
-#, fuzzy
-#| msgid "Table comments:"
-msgid "Table comments: "
-msgstr "Tabellkommentarer:"
-
 #: templates/table/structure/display_table_stats.phtml:12
 msgid "Space usage"
 msgstr "Plassbruk"
@@ -17956,7 +17950,7 @@ msgstr ""
 #: libraries/advisory_rules.txt:368
 #, fuzzy
 #| msgid "long_query_time is set to %d second(s)."
-msgid "Slow_launch_threads is above 2s."
+msgid "Slow_launch_time is above 2s."
 msgstr "long_query_time er satt til %d sekund(er)."
 
 #: libraries/advisory_rules.txt:369
