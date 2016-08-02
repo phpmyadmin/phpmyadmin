@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-08-01 11:04+0200\n"
-"PO-Revision-Date: 2016-08-01 19:03+0000\n"
-"Last-Translator: Marco Pozzato <ironpotts@gmail.com>\n"
+"PO-Revision-Date: 2016-08-02 08:17+0000\n"
+"Last-Translator: Stefano Martinelli <stefano.ste.martinelli@gmail.com>\n"
 "Language-Team: Italian "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-6/it/>\n"
 "Language: it\n"
@@ -33,7 +33,7 @@ msgid "Click to sort."
 msgstr "Clicca per ordinare."
 
 #: db_central_columns.php:149
-#, fuzzy, php-format
+#, php-format
 msgid "Showing rows %1$s - %2$s."
 msgstr "Mostro le righe %1$s - %2$s."
 
@@ -3865,8 +3865,8 @@ msgstr "Il codice in linguaggio non supportato viene ignorato."
 msgid ""
 "Linting is disabled for this query because it exceeds the maximum length."
 msgstr ""
-"Il Linting (controllo errori) è disabilitato per questa query perché eccede "
-"la lunghezza massima."
+"Il Linting (controllo sintattico) è disabilitato per questa query perché il "
+"testo eccede la lunghezza massima."
 
 #: libraries/Linter.php:165
 #, php-format
@@ -5363,10 +5363,9 @@ msgid "Could not connect to the database server!"
 msgstr "Impossibile connettersi al server del database!"
 
 #: libraries/config/Validator.php:286
-#, fuzzy
 #| msgid "Authentication type"
 msgid "Invalid authentication type!"
-msgstr "Tipo di autenticazione"
+msgstr "Tipo di autenticazione non valido!"
 
 #: libraries/config/Validator.php:293
 msgid "Empty username while using [kbd]config[/kbd] authentication method!"
@@ -9424,10 +9423,9 @@ msgid "Log out"
 msgstr "Disconnetti"
 
 #: libraries/navigation/NavigationHeader.php:172
-#, fuzzy
 #| msgid "Dumping data"
 msgid "Empty session data"
-msgstr "Dump dei dati"
+msgstr "Sessione vuota"
 
 #: libraries/navigation/NavigationHeader.php:188
 msgid "phpMyAdmin documentation"
@@ -14581,10 +14579,9 @@ msgstr ""
 "cartella config per utilizzarlo."
 
 #: setup/frames/index.inc.php:132
-#, fuzzy
 #| msgid "Configuration saved."
 msgid "Configuration not saved!"
-msgstr "Configurazione salvata."
+msgstr "Configurazione non salvata!"
 
 #: setup/frames/index.inc.php:147 setup/frames/menu.inc.php:19
 msgid "Overview"
@@ -14706,7 +14703,7 @@ msgstr "Dati errati"
 #: setup/validate.php:30
 #, php-format
 msgid "Wrong data or no validation for %s"
-msgstr ""
+msgstr "Dati errati o non convalidati per %s"
 
 #: tbl_create.php:30 tbl_get_field.php:26
 #, php-format
@@ -15788,7 +15785,7 @@ msgstr "Il profilo è stato aggiornato."
 
 #: view_create.php:44
 msgid "View name can not be empty"
-msgstr ""
+msgstr "Il nome vista non può essere vuoto"
 
 #: view_create.php:247
 msgid "VIEW name"
