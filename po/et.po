@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-08-01 11:04+0200\n"
-"PO-Revision-Date: 2016-08-01 11:04+0000\n"
+"PO-Revision-Date: 2016-08-02 12:55+0000\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
 "Language-Team: Estonian "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/et/>\n"
@@ -15504,7 +15504,7 @@ msgstr "VIEW nimi"
 
 #: view_create.php:259
 msgid "Column names"
-msgstr "Veeru nimed"
+msgstr "Veergude nimed"
 
 #: view_operations.php:111
 msgid "Rename view to"
