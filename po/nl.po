@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-08-01 11:04+0200\n"
-"PO-Revision-Date: 2016-05-23 17:30+0000\n"
+"PO-Revision-Date: 2016-08-02 10:27+0000\n"
 "Last-Translator: dingo thirteen <dingo13@gmail.com>\n"
-"Language-Team: Dutch <https://hosted.weblate.org/projects/phpmyadmin/4-6/nl/"
-">\n"
+"Language-Team: Dutch <https://hosted.weblate.org/projects/phpmyadmin/4-6/nl/>"
+"\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.7-dev\n"
+"X-Generator: Weblate 2.8-dev\n"
 
 #: changelog.php:37 license.php:33
 #, php-format
@@ -5343,10 +5343,9 @@ msgid "Could not connect to the database server!"
 msgstr "Kan geen verbinding maken met de databaseserver!"
 
 #: libraries/config/Validator.php:286
-#, fuzzy
 #| msgid "Authentication type"
 msgid "Invalid authentication type!"
-msgstr "Authenticatietype"
+msgstr "Onjuist authenticatietype!"
 
 #: libraries/config/Validator.php:293
 msgid "Empty username while using [kbd]config[/kbd] authentication method!"
@@ -9384,10 +9383,9 @@ msgid "Log out"
 msgstr "Aanmelden"
 
 #: libraries/navigation/NavigationHeader.php:172
-#, fuzzy
 #| msgid "Dumping data"
 msgid "Empty session data"
-msgstr "Dumpen data"
+msgstr "Sessiedata is leeg"
 
 #: libraries/navigation/NavigationHeader.php:188
 msgid "phpMyAdmin documentation"
@@ -14534,10 +14532,9 @@ msgstr ""
 "verwijder de config-map."
 
 #: setup/frames/index.inc.php:132
-#, fuzzy
 #| msgid "Configuration saved."
 msgid "Configuration not saved!"
-msgstr "Configuratie opgeslagen."
+msgstr "Configuratie niet bewaard!"
 
 #: setup/frames/index.inc.php:147 setup/frames/menu.inc.php:19
 msgid "Overview"
@@ -14660,7 +14657,7 @@ msgstr "Verkeerde gegevens"
 #: setup/validate.php:30
 #, php-format
 msgid "Wrong data or no validation for %s"
-msgstr ""
+msgstr "Verkeerde gegevens of geen validatie voor %s"
 
 #: tbl_create.php:30 tbl_get_field.php:26
 #, php-format
@@ -15747,7 +15744,7 @@ msgstr "Het profiel is aangepast."
 
 #: view_create.php:44
 msgid "View name can not be empty"
-msgstr ""
+msgstr "View naam kan niet leeg zijn"
 
 #: view_create.php:247
 msgid "VIEW name"
