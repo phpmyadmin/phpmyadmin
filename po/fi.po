@@ -7317,8 +7317,8 @@ msgstr "Taulu käyttäjän asetuksille"
 #: libraries/config/messages.inc.php:813
 msgid ""
 "Both this table and the user groups table are required to enable the "
-"configurable menus feature; leaving either one of them blank will disable\n"
-"    this feature, suggested: [kbd]pma__users[/kbd]."
+"configurable menus feature; leaving either one of them blank will disable "
+"this feature, suggested: [kbd]pma__users[/kbd]."
 msgstr ""
 "Sekä tämän taulun että käyttäjäryhmien osalta tulee kytkeä päälle "
 "konfiguroitavien valikoiden ominaisuus; jättämällä jompi kumpi tyhjäksi "
@@ -16232,12 +16232,6 @@ msgstr "Poista ositus"
 #| msgid "Print view"
 msgid "Edit view"
 msgstr "Tulostusversio"
-
-#: templates/table/structure/display_table_stats.phtml:5
-#, fuzzy
-#| msgid "Table comments:"
-msgid "Table comments: "
-msgstr "Taulun kommentit:"
 
 #: templates/table/structure/display_table_stats.phtml:12
 msgid "Space usage"

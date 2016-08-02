@@ -15851,12 +15851,6 @@ msgstr "Редактиране"
 msgid "Edit view"
 msgstr "Изглед за редакция"
 
-#: templates/table/structure/display_table_stats.phtml:5
-#, fuzzy
-#| msgid "Table comments:"
-msgid "Table comments: "
-msgstr "Коментари към таблицата:"
-
 #: templates/table/structure/display_table_stats.phtml:12
 msgid "Space usage"
 msgstr "Използвано място"

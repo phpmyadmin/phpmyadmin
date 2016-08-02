@@ -16298,12 +16298,6 @@ msgstr "Usuń partycjonowanie"
 msgid "Edit view"
 msgstr "Edycja widoku"
 
-#: templates/table/structure/display_table_stats.phtml:5
-#, fuzzy
-#| msgid "Table comments:"
-msgid "Table comments: "
-msgstr "Komentarze tabeli:"
-
 #: templates/table/structure/display_table_stats.phtml:12
 msgid "Space usage"
 msgstr "Wykorzystanie przestrzeni"

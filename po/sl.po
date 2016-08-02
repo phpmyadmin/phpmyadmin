@@ -7346,8 +7346,8 @@ msgstr "Tabela za hranjenje uporabnikovih nastavitev"
 #: libraries/config/messages.inc.php:813
 msgid ""
 "Both this table and the user groups table are required to enable the "
-"configurable menus feature; leaving either one of them blank will disable\n"
-"    this feature, suggested: [kbd]pma__users[/kbd]."
+"configurable menus feature; leaving either one of them blank will disable "
+"this feature, suggested: [kbd]pma__users[/kbd]."
 msgstr ""
 "Tako ta tabela kot tabela uporabniških skupin sta zahtevani za omogočitev "
 "funkcionalnosti nastavljivih menijev; če eno od njiju pustite prazno, boste "
@@ -15482,10 +15482,6 @@ msgstr "Uredi razdelitev"
 #: templates/table/structure/display_structure.phtml:129 view_create.php:200
 msgid "Edit view"
 msgstr "Urejevalni pogled"
-
-#: templates/table/structure/display_table_stats.phtml:5
-msgid "Table comments: "
-msgstr "Pripombe tabele: "
 
 #: templates/table/structure/display_table_stats.phtml:12
 msgid "Space usage"

@@ -7410,8 +7410,8 @@ msgstr "Πίνακας αποθήκευσης προτιμήσεων χρήστ�
 #: libraries/config/messages.inc.php:813
 msgid ""
 "Both this table and the user groups table are required to enable the "
-"configurable menus feature; leaving either one of them blank will disable\n"
-"    this feature, suggested: [kbd]pma__users[/kbd]."
+"configurable menus feature; leaving either one of them blank will disable "
+"this feature, suggested: [kbd]pma__users[/kbd]."
 msgstr ""
 "Τόσο αυτός ο πίνακας όσο και ο πίνακας ομάδων χρηστών απαιτούνται για "
 "ενεργοποίηση του χαρακτηριστικού μενού ρυθμίσεων. Αφήνοντας ένα από τα δύο "
