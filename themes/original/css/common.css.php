@@ -422,14 +422,21 @@ div.error {
     <?php
     if ($GLOBALS['text_dir'] === 'ltr') { ?>
         background-position: 10px 50%;
-        padding:            0.1em 0.1em 0.1em 36px;
+        padding:            0.1em 0.1em 0.1em 42px;
     <?php
     } else { ?>
         background-position: 99% 50%;
-        padding:            0.1em 46px 0.1em 0.1em;
+        padding:            0.1em 40px 0.1em 0.1em;
         <?php
     }
 ?>
+}
+div.success img.icon,
+div.notice img.icon,
+div.error img.icon {
+    display: block;
+    float:              <?php echo $left; ?>;
+    margin-<?php echo $left; ?>: -22px;
 }
 
 .success {
@@ -1249,7 +1256,7 @@ div#queryboxcontainer div#bookmarkoptions {
 
 li.no_bullets {
     list-style-type:none !important;
-    margin-left: -25px !important;      //align with other list items which have bullets
+    margin-<?php echo $left; ?>: -25px !important;      //align with other list items which have bullets
 }
 
 /* end iconic view for ul items */
