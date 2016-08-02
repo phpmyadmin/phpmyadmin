@@ -192,10 +192,6 @@ rm -f .travis.yml .coveralls.yml .scrutinizer.yml .jshintrc .weblate
 # Remove readme for github
 rm -f README.rst
 
-# Remove git metadata
-rm .git
-find . -name .gitignore -print0 | xargs -0 -r rm -f
-
 if [ ! -d libraries/tcpdf ] ; then
     echo "* Running composer"
     composer update --no-dev
@@ -220,7 +216,18 @@ if [ ! -d libraries/tcpdf ] ; then
         vendor/google/recaptcha/tests/
     find vendor/phpseclib/phpseclib/phpseclib/Crypt/ -maxdepth 1 -type f -not -name AES.php -not -name Base.php -not -name Random.php -not -name Rijndael.php -print0 | xargs -0 rm
     find vendor/tecnickcom/tcpdf/fonts/ -maxdepth 1 -type f -not -name 'dejavusans.*' -not -name 'dejavusansb.*' -not -name 'helvetica.php' -print0 | xargs -0 rm
+    if [ $do_tag -eq 1 ] ; then
+        echo "* Commiting composer.lock"
+        sed -i '/composer.lock/D' .gitignore
+        git add .gitignore
+        git add composer.lock
+        git commit -s -m "Adding composer lock for $version"
+    fi
 fi
+
+# Remove git metadata
+rm .git
+find . -name .gitignore -print0 | xargs -0 -r rm -f
 
 if [ $do_test -eq 1 ] ; then
     composer update
