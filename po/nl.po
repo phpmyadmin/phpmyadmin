@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-08-01 11:04+0200\n"
-"PO-Revision-Date: 2016-08-02 10:27+0000\n"
+"PO-Revision-Date: 2016-08-02 10:31+0000\n"
 "Last-Translator: dingo thirteen <dingo13@gmail.com>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/phpmyadmin/4-6/nl/>"
 "\n"
@@ -7856,7 +7856,7 @@ msgstr "CSV met behulp van LOAD DATA"
 #: libraries/config/user_preferences.forms.php:183
 #: libraries/config/user_preferences.forms.php:280
 msgid "OpenDocument Spreadsheet"
-msgstr "OpenDocument-rekenblad"
+msgstr "OpenDocument rekenblad"
 
 #: libraries/config/setup.forms.php:290
 #: libraries/config/user_preferences.forms.php:190
@@ -10765,7 +10765,7 @@ msgstr "Kon OpenDocument-rekenblad niet inlezen!"
 
 #: libraries/plugins/import/ImportShp.php:49
 msgid "ESRI Shape File"
-msgstr "ESRI-vormbestand"
+msgstr "ESRI vormbestand"
 
 #: libraries/plugins/import/ImportShp.php:138
 #, php-format
