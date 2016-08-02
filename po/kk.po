@@ -16282,7 +16282,7 @@ msgstr ""
 #: libraries/advisory_rules.txt:368
 #, fuzzy
 #| msgid "Set long_query_time to %ds"
-msgid "Slow_launch_threads is above 2s."
+msgid "Slow_launch_time is above 2s."
 msgstr "long_query_time орнату %d сек"
 
 #: libraries/advisory_rules.txt:369

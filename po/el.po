@@ -16829,8 +16829,8 @@ msgid "Slow launch time"
 msgstr "Αργός χρόνος προσπέλασης"
 
 #: libraries/advisory_rules.txt:368
-msgid "Slow_launch_threads is above 2s."
-msgstr "Το Slow_launch_threads είναι πάνω από 2δ."
+msgid "Slow_launch_time is above 2s."
+msgstr "Το Slow_launch_time είναι πάνω από 2δ."
 
 #: libraries/advisory_rules.txt:369
 msgid ""

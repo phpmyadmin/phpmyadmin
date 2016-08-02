@@ -16682,8 +16682,8 @@ msgid "Slow launch time"
 msgstr "Temps d'inici lent"
 
 #: libraries/advisory_rules.txt:368
-msgid "Slow_launch_threads is above 2s."
-msgstr "{slow_launch_threads} està per sobre de 2s."
+msgid "Slow_launch_time is above 2s."
+msgstr "{slow_launch_time} està per sobre de 2s."
 
 #: libraries/advisory_rules.txt:369
 msgid ""

@@ -15892,8 +15892,8 @@ msgid "Slow launch time"
 msgstr "緩慢啟動時間"
 
 #: libraries/advisory_rules.txt:368
-msgid "Slow_launch_threads is above 2s."
-msgstr "Slow_launch_threads 已超過 2 秒。"
+msgid "Slow_launch_time is above 2s."
+msgstr "Slow_launch_time 已超過 2 秒。"
 
 #: libraries/advisory_rules.txt:369
 msgid ""

@@ -17004,9 +17004,9 @@ msgstr "Lassú indítási idő"
 
 #: libraries/advisory_rules.txt:368
 #, fuzzy
-#| msgid "Slow_launch_threads is above 2s"
-msgid "Slow_launch_threads is above 2s."
-msgstr "Slow_launch_threads 2s felett van"
+#| msgid "Slow_launch_time is above 2s"
+msgid "Slow_launch_time is above 2s."
+msgstr "Slow_launch_time 2s felett van"
 
 #: libraries/advisory_rules.txt:369
 #, fuzzy

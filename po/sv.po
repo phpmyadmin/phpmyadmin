@@ -16633,9 +16633,9 @@ msgstr "Långsam uppstartstid"
 
 #: libraries/advisory_rules.txt:368
 #, fuzzy
-#| msgid "Slow_launch_threads is above 2s"
-msgid "Slow_launch_threads is above 2s."
-msgstr "Slow_launch_threads är över 2s"
+#| msgid "Slow_launch_time is above 2s"
+msgid "Slow_launch_time is above 2s."
+msgstr "Slow_launch_time är över 2s"
 
 #: libraries/advisory_rules.txt:369
 #, fuzzy

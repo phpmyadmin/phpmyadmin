@@ -18001,9 +18001,9 @@ msgstr "遅い起動時間"
 
 #: libraries/advisory_rules.txt:368
 #, fuzzy
-#| msgid "Slow_launch_threads is above 2s"
-msgid "Slow_launch_threads is above 2s."
-msgstr "Slow_launch_threads が 2 秒を超えています"
+#| msgid "Slow_launch_time is above 2s"
+msgid "Slow_launch_time is above 2s."
+msgstr "Slow_launch_time が 2 秒を超えています"
 
 #: libraries/advisory_rules.txt:369
 #, fuzzy
