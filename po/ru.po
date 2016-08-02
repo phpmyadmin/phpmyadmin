@@ -15553,7 +15553,7 @@ msgstr "Длина индекса"
 
 #: templates/table/structure/display_partitions.phtml:135
 msgid "Partition table"
-msgstr "Разбить таблицу"
+msgstr "Создать разбиение"
 
 #: templates/table/structure/display_partitions.phtml:138
 #: templates/table/structure/partition_definition_form.phtml:7
