@@ -17,6 +17,7 @@ phpMyAdmin - ChangeLog
 - issue #12399 Adding index to table shows wrong top navigation
 - issue #12424 Fixed password change on MariaDB without auth plugin
 - issue #12339 Do not error on unset server port
+- issue #12422 Improvements to the original theme
 
 4.6.3 (2016-06-23)
 - issue #12249 Fixed cookie path on Windows
