@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-08-01 11:05+0200\n"
-"PO-Revision-Date: 2016-08-01 18:24+0000\n"
+"PO-Revision-Date: 2016-08-02 17:22+0000\n"
 "Last-Translator: Belkacem Mohammed <belkacem77@gmail.com>\n"
 "Language-Team: Kabyle "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/kab/>\n"
@@ -29,25 +29,25 @@ msgstr ""
 
 #: db_central_columns.php:107
 msgid "The central list of columns for the current database is empty."
-msgstr ""
+msgstr "Tabdart talemmast n tgejda n taffa n isefka tamirant d tilemt."
 
 #: db_central_columns.php:132
 msgid "Click to sort."
-msgstr ""
+msgstr "Sit i wusmizzwer."
 
 #: db_central_columns.php:151
 #, php-format
 msgid "Showing rows %1$s - %2$s."
-msgstr ""
+msgstr "Askan n izirigen %1$s - %2$s."
 
 #: db_datadict.php:58 libraries/operations.lib.php:36
 msgid "Database comment"
-msgstr ""
+msgstr "Awennit n taffa n isefka"
 
 #: db_datadict.php:105 libraries/plugins/schema/pdf/PdfRelationSchema.php:596
 #: templates/columns_definitions/column_definitions_form.phtml:89
 msgid "Table comments:"
-msgstr ""
+msgstr "Iwenniten n tfelwiyin:"
 
 #: db_datadict.php:114 libraries/Index.php:686
 #: libraries/insert_edit.lib.php:1579
@@ -76,7 +76,7 @@ msgstr ""
 #: vendor/phpmyadmin/motranslator/benchmark.php:12
 #: vendor/phpmyadmin/motranslator/tests/MoFilesTest.php:19
 msgid "Column"
-msgstr ""
+msgstr "Tigejdit"
 
 #: db_datadict.php:115 libraries/Index.php:683
 #: libraries/central_columns.lib.php:696 libraries/central_columns.lib.php:1386
@@ -106,7 +106,7 @@ msgstr ""
 #: vendor/phpmyadmin/motranslator/tests/LoaderTest.php:174
 #: vendor/phpmyadmin/motranslator/tests/LoaderTest.php:182
 msgid "Type"
-msgstr ""
+msgstr "Anaw"
 
 #: db_datadict.php:116 libraries/Index.php:689
 #: libraries/central_columns.lib.php:707 libraries/central_columns.lib.php:1387
@@ -126,7 +126,7 @@ msgstr ""
 #: templates/table/search/zoom_result_form.phtml:34
 #: templates/table/structure/table_structure_header.phtml:11
 msgid "Null"
-msgstr ""
+msgstr "Null"
 
 #: db_datadict.php:117 libraries/central_columns.lib.php:700
 #: libraries/central_columns.lib.php:1386
@@ -145,7 +145,7 @@ msgstr ""
 #: templates/database/structure/body_for_table_summary.phtml:55
 #: templates/table/structure/table_structure_header.phtml:12
 msgid "Default"
-msgstr ""
+msgstr "Amezwer"
 
 #: db_datadict.php:119 libraries/plugins/export/ExportHtmlword.php:399
 #: libraries/plugins/export/ExportLatex.php:528
