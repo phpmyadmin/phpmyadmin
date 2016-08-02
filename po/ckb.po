@@ -15316,12 +15316,6 @@ msgstr "چاکردنی نیشاندەر"
 msgid "Edit view"
 msgstr ""
 
-#: templates/table/structure/display_table_stats.phtml:5
-#, fuzzy
-#| msgid "Table comments:"
-msgid "Table comments: "
-msgstr "تێبینیەکانی خشتە:"
-
 #: templates/table/structure/display_table_stats.phtml:12
 msgid "Space usage"
 msgstr ""
@@ -16283,7 +16277,7 @@ msgid "Slow launch time"
 msgstr ""
 
 #: libraries/advisory_rules.txt:368
-msgid "Slow_launch_threads is above 2s."
+msgid "Slow_launch_time is above 2s."
 msgstr ""
 
 #: libraries/advisory_rules.txt:369

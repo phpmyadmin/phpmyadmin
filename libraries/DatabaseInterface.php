@@ -2713,6 +2713,9 @@ class DatabaseInterface
             $server = &$GLOBALS['cfg']['Server'];
         }
 
+        if (empty($server['port'])) {
+            return 0;
+        }
         return intval($server['port']);
     }
 

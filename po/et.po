@@ -7279,12 +7279,12 @@ msgstr "Kasutaja eelistusi säilitav tabel"
 #: libraries/config/messages.inc.php:813
 msgid ""
 "Both this table and the user groups table are required to enable the "
-"configurable menus feature; leaving either one of them blank will disable\n"
-"    this feature, suggested: [kbd]pma__users[/kbd]."
+"configurable menus feature; leaving either one of them blank will disable "
+"this feature, suggested: [kbd]pma__users[/kbd]."
 msgstr ""
 "Kohandatavate menüüde funktsionaalsuse kasutamiseks on vajalikud nii see "
-"tabel kui ka kasutajate gruppide tabel. Jättes neist ühe tühjaks,\n"
-"    keelad menüüde kohandamise; soovitatav: [kbd]pma__users[/kbd].."
+"tabel kui ka kasutajate gruppide tabel. Jättes neist ühe tühjaks, "
+"keelad menüüde kohandamise; soovitatav: [kbd]pma__users[/kbd].."
 
 #: libraries/config/messages.inc.php:817
 msgid "Users table"
@@ -16461,8 +16461,8 @@ msgid "Slow launch time"
 msgstr "Aeglane käivitumise aeg"
 
 #: libraries/advisory_rules.txt:368
-msgid "Slow_launch_threads is above 2s."
-msgstr "Slow_launch_threads on üle 2s."
+msgid "Slow_launch_time is above 2s."
+msgstr "Slow_launch_time on üle 2s."
 
 #: libraries/advisory_rules.txt:369
 msgid ""

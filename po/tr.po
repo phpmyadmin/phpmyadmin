@@ -7349,11 +7349,11 @@ msgstr "Kullanıcı tercihleri depolama tablosu"
 #: libraries/config/messages.inc.php:813
 msgid ""
 "Both this table and the user groups table are required to enable the "
-"configurable menus feature; leaving either one of them blank will disable\n"
-"    this feature, suggested: [kbd]pma__users[/kbd]."
+"configurable menus feature; leaving either one of them blank will disable"
+"this feature, suggested: [kbd]pma__users[/kbd]."
 msgstr ""
 "Hem bu tablo hem de kullanıcı grupları tablosu, yapılandırılabilir menüler "
-"özelliğini etkinleştirmek için gereklidir; ikisinden birini boş bırakmak bu\n"
+"özelliğini etkinleştirmek için gereklidir; ikisinden birini boş bırakmak bu "
 "özelliği etkisizleştirecek, önerilen: [kbd]pma__usergroups[/kbd]."
 
 #: libraries/config/messages.inc.php:817
@@ -16595,8 +16595,8 @@ msgid "Slow launch time"
 msgstr "Yavaş çalıştırma zamanı"
 
 #: libraries/advisory_rules.txt:368
-msgid "Slow_launch_threads is above 2s."
-msgstr "Slow_launch_threads 2s üzerindedir."
+msgid "Slow_launch_time is above 2s."
+msgstr "Slow_launch_time 2s üzerindedir."
 
 #: libraries/advisory_rules.txt:369
 msgid ""
