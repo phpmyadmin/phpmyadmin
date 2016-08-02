@@ -314,6 +314,13 @@ class LanguageManager
             'ka|georgian',
             '',
         ),
+        'kab' => array(
+            'kab',
+            'Kabylian',
+            'Taqbaylit',
+            'kab|kabylian',
+            '',
+        ),
         'kk' => array(
             'kk',
             'Kazakh',
