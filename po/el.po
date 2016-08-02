@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2016-08-01 11:05+0200\n"
+"POT-Creation-Date: 2016-08-01 11:04+0200\n"
 "PO-Revision-Date: 2016-05-23 21:06+0000\n"
 "Last-Translator: Παναγιώτης Παπάζογλου <papaz_p@yahoo.com>\n"
 "Language-Team: Greek <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -7474,8 +7474,8 @@ msgstr "Πίνακας αποθήκευσης προτιμήσεων χρήστ�
 #: libraries/config/messages.inc.php:809
 msgid ""
 "Both this table and the user groups table are required to enable the "
-"configurable menus feature; leaving either one of them blank will disable\n"
-"    this feature, suggested: [kbd]pma__users[/kbd]."
+"configurable menus feature; leaving either one of them blank will disable "
+"this feature, suggested: [kbd]pma__users[/kbd]."
 msgstr ""
 "Τόσο αυτός ο πίνακας όσο και ο πίνακας ομάδων χρηστών απαιτούνται για "
 "ενεργοποίηση του χαρακτηριστικού μενού ρυθμίσεων. Αφήνοντας ένα από τα δύο "
@@ -16860,8 +16860,8 @@ msgid "Slow launch time"
 msgstr "Αργός χρόνος προσπέλασης"
 
 #: libraries/advisory_rules.txt:368
-msgid "Slow_launch_threads is above 2s."
-msgstr "Το Slow_launch_threads είναι πάνω από 2δ."
+msgid "Slow_launch_time is above 2s."
+msgstr "Το Slow_launch_time είναι πάνω από 2δ."
 
 #: libraries/advisory_rules.txt:369
 msgid ""

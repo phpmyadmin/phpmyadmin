@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2016-08-01 11:05+0200\n"
+"POT-Creation-Date: 2016-08-01 11:04+0200\n"
 "PO-Revision-Date: 2016-06-10 22:08+0000\n"
 "Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
 "Language-Team: Catalan <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -7439,8 +7439,8 @@ msgstr "Taula de preferències de l'usuari"
 #: libraries/config/messages.inc.php:809
 msgid ""
 "Both this table and the user groups table are required to enable the "
-"configurable menus feature; leaving either one of them blank will disable\n"
-"    this feature, suggested: [kbd]pma__users[/kbd]."
+"configurable menus feature; leaving either one of them blank will disable "
+"this feature, suggested: [kbd]pma__users[/kbd]."
 msgstr ""
 "Tant aquesta taula com la taula de grups d'usuari es necessiten per activar "
 "la funcionalitat de menús configurables; deixant una d'ambdues en blanc "
@@ -15408,10 +15408,6 @@ msgstr "Edita particionament"
 msgid "Edit view"
 msgstr "Editar vista"
 
-#: templates/table/structure/display_table_stats.phtml:5
-msgid "Table comments: "
-msgstr "Comentaris de la taula: "
-
 #: templates/table/structure/display_table_stats.phtml:12
 msgid "Space usage"
 msgstr "Utilització d'espai"
@@ -16720,8 +16716,8 @@ msgid "Slow launch time"
 msgstr "Temps d'inici lent"
 
 #: libraries/advisory_rules.txt:368
-msgid "Slow_launch_threads is above 2s."
-msgstr "{slow_launch_threads} està per sobre de 2s."
+msgid "Slow_launch_time is above 2s."
+msgstr "{slow_launch_time} està per sobre de 2s."
 
 #: libraries/advisory_rules.txt:369
 msgid ""

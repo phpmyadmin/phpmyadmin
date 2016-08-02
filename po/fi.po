@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2016-08-01 11:05+0200\n"
+"POT-Creation-Date: 2016-08-01 11:04+0200\n"
 "PO-Revision-Date: 2016-07-29 12:53+0000\n"
 "Last-Translator: Juha Remes <jremes@outlook.com>\n"
 "Language-Team: Finnish <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -7382,8 +7382,8 @@ msgstr "Taulu käyttäjän asetuksille"
 #: libraries/config/messages.inc.php:809
 msgid ""
 "Both this table and the user groups table are required to enable the "
-"configurable menus feature; leaving either one of them blank will disable\n"
-"    this feature, suggested: [kbd]pma__users[/kbd]."
+"configurable menus feature; leaving either one of them blank will disable "
+"this feature, suggested: [kbd]pma__users[/kbd]."
 msgstr ""
 "Sekä tämän taulun että käyttäjäryhmien osalta tulee kytkeä päälle "
 "konfiguroitavien valikoiden ominaisuus; jättämällä jompi kumpi tyhjäksi "
@@ -16060,12 +16060,6 @@ msgstr "Poista ositus"
 msgid "Edit view"
 msgstr "Tulostusversio"
 
-#: templates/table/structure/display_table_stats.phtml:5
-#, fuzzy
-#| msgid "Table comments:"
-msgid "Table comments: "
-msgstr "Taulun kommentit:"
-
 #: templates/table/structure/display_table_stats.phtml:12
 msgid "Space usage"
 msgstr "Levytilan käyttö"
@@ -17368,7 +17362,7 @@ msgstr ""
 #: libraries/advisory_rules.txt:368
 #, fuzzy
 #| msgid "long_query_time is set to %d second(s)."
-msgid "Slow_launch_threads is above 2s."
+msgid "Slow_launch_time is above 2s."
 msgstr "long_query_time on asetettu %d sekuntiin."
 
 #: libraries/advisory_rules.txt:369

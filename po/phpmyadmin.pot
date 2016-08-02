@@ -6947,8 +6947,8 @@ msgstr ""
 #: libraries/config/messages.inc.php:809
 msgid ""
 "Both this table and the user groups table are required to enable the "
-"configurable menus feature; leaving either one of them blank will disable\n"
-"    this feature, suggested: [kbd]pma__users[/kbd]."
+"configurable menus feature; leaving either one of them blank will disable "
+"this feature, suggested: [kbd]pma__users[/kbd]."
 msgstr ""
 
 #: libraries/config/messages.inc.php:813
@@ -15258,7 +15258,7 @@ msgid "Slow launch time"
 msgstr ""
 
 #: libraries/advisory_rules.txt:368
-msgid "Slow_launch_threads is above 2s."
+msgid "Slow_launch_time is above 2s."
 msgstr ""
 
 #: libraries/advisory_rules.txt:369

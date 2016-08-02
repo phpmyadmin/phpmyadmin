@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2016-08-01 11:05+0200\n"
+"POT-Creation-Date: 2016-08-01 11:04+0200\n"
 "PO-Revision-Date: 2016-01-08 17:45+0000\n"
 "Last-Translator: Nijraj Gelani <gelaninijraj@gmail.com>\n"
 "Language-Team: Gujarati <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -15405,7 +15405,7 @@ msgid "Slow launch time"
 msgstr ""
 
 #: libraries/advisory_rules.txt:368
-msgid "Slow_launch_threads is above 2s."
+msgid "Slow_launch_time is above 2s."
 msgstr ""
 
 #: libraries/advisory_rules.txt:369

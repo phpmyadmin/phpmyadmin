@@ -442,7 +442,7 @@ var AJAX = {
                     msg = data._errSubmitMsg;
                 }
                 if (data._errors) {
-                    $('<div/>', {id : 'pma_errors'})
+                    $('<div/>', {id : 'pma_errors', class : 'clearfloat'})
                         .insertAfter('#selflink')
                         .append(data._errors);
                     // bind for php error reporting forms (bottom)
