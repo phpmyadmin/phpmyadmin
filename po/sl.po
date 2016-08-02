@@ -4,17 +4,17 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-08-01 11:04+0200\n"
-"PO-Revision-Date: 2016-05-23 17:45+0000\n"
+"PO-Revision-Date: 2016-08-01 12:56+0000\n"
 "Last-Translator: Domen <mitenem@outlook.com>\n"
-"Language-Team: Slovenian <https://hosted.weblate.org/projects/phpmyadmin/4-6/"
-"sl/>\n"
+"Language-Team: Slovenian "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-6/sl/>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
-"%100==4 ? 2 : 3;\n"
-"X-Generator: Weblate 2.7-dev\n"
+"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
+"n%100==4 ? 2 : 3;\n"
+"X-Generator: Weblate 2.8-dev\n"
 
 #: changelog.php:37 license.php:33
 #, php-format
@@ -7010,9 +7010,9 @@ msgid ""
 "More information on [a@https://sourceforge.net/p/phpmyadmin/bugs/2606/]PMA "
 "bug tracker[/a] and [a@https://bugs.mysql.com/19588]MySQL Bugs[/a]"
 msgstr ""
-"Več informacij na [a@https://sourceforge.net/p/phpmyadmin/"
-"bugs/2606/]sledilniku hroščev PMA[/a] in[a@https://bugs.mysql."
-"com/19588]hroščih MySQL[/a]"
+"Več informacij na [a@https://sourceforge.net/p/phpmyadmin/bugs/2606/]"
+"sledilniku hroščev PMA[/a] in [a@https://bugs.mysql.com/19588]hroščih "
+"MySQL[/a]"
 
 #: libraries/config/messages.inc.php:681
 msgid "Disable use of INFORMATION_SCHEMA"
@@ -14371,14 +14371,14 @@ msgstr "Nezavarovana povezava"
 
 #: setup/frames/index.inc.php:119
 msgid "Configuration saved."
-msgstr "Konfiguracija je shranjena."
+msgstr "Konfiguracijo smo shranili."
 
 #: setup/frames/index.inc.php:122
 msgid ""
 "Configuration saved to file config/config.inc.php in phpMyAdmin top level "
 "directory, copy it to top level one and delete directory config to use it."
 msgstr ""
-"Konfiguracija je shranjena v datoteko config/config.inc.php v vrhnji mapi "
+"Konfiguracijo smo shranili v datoteko config/config.inc.php v vrhnji mapi "
 "phpMyAdmin; skopirajte jo v vrhnjo mapo in izbrišite mapo config, če jo "
 "želite uporabiti."
 

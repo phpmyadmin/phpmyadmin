@@ -15,6 +15,7 @@ phpMyAdmin - ChangeLog
 - issue #12303 Avoid typecasting to float when not needed
 - issue #12425 Duplicate message variable names in messages.inc.php
 - issue #12399 Adding index to table shows wrong top navigation
+- issue #12424 Fixed password change on MariaDB without auth plugin
 
 4.6.3 (2016-06-23)
 - issue #12249 Fixed cookie path on Windows
