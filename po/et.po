@@ -6,16 +6,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-08-01 11:04+0200\n"
-"PO-Revision-Date: 2016-05-26 14:14+0000\n"
+"PO-Revision-Date: 2016-08-02 13:01+0000\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
-"Language-Team: Estonian <https://hosted.weblate.org/projects/phpmyadmin/4-6/"
-"et/>\n"
+"Language-Team: Estonian "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-6/et/>\n"
 "Language: et\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.7-dev\n"
+"X-Generator: Weblate 2.8-dev\n"
 
 #: changelog.php:37 license.php:33
 #, php-format
@@ -5271,10 +5271,9 @@ msgid "Could not connect to the database server!"
 msgstr "Ei saa ühenduda andmebaasi serveriga!"
 
 #: libraries/config/Validator.php:286
-#, fuzzy
 #| msgid "Authentication type"
 msgid "Invalid authentication type!"
-msgstr "Autentimise tüüp"
+msgstr "Vigane autentimise tüüp!"
 
 #: libraries/config/Validator.php:293
 msgid "Empty username while using [kbd]config[/kbd] authentication method!"
@@ -9220,10 +9219,9 @@ msgid "Log out"
 msgstr "Logi välja"
 
 #: libraries/navigation/NavigationHeader.php:172
-#, fuzzy
 #| msgid "Dumping data"
 msgid "Empty session data"
-msgstr "Andmete tõmmistamine"
+msgstr "Seansiandmed puuduvad"
 
 #: libraries/navigation/NavigationHeader.php:188
 msgid "phpMyAdmin documentation"
@@ -14266,10 +14264,9 @@ msgstr ""
 "'config' kataloog."
 
 #: setup/frames/index.inc.php:132
-#, fuzzy
 #| msgid "Configuration saved."
 msgid "Configuration not saved!"
-msgstr "Seadistus on salvestatud."
+msgstr "Seadistust ei salvestatud!"
 
 #: setup/frames/index.inc.php:147 setup/frames/menu.inc.php:19
 msgid "Overview"
@@ -14391,7 +14388,7 @@ msgstr "Valed andmed"
 #: setup/validate.php:30
 #, php-format
 msgid "Wrong data or no validation for %s"
-msgstr ""
+msgstr "Valed andmed või puudub %s valideerimine"
 
 #: tbl_create.php:30 tbl_get_field.php:26
 #, php-format
@@ -15469,7 +15466,7 @@ msgstr "Profiil on uuendatud."
 
 #: view_create.php:44
 msgid "View name can not be empty"
-msgstr ""
+msgstr "Vaate nimi ei saa olla tühi"
 
 #: view_create.php:247
 msgid "VIEW name"
@@ -15477,7 +15474,7 @@ msgstr "VIEW nimi"
 
 #: view_create.php:258
 msgid "Column names"
-msgstr "Veeru nimed"
+msgstr "Veergude nimed"
 
 #: view_operations.php:106
 msgid "Rename view to"
