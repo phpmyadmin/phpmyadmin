@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-08-01 11:04+0200\n"
-"PO-Revision-Date: 2016-03-30 03:00+0000\n"
-"Last-Translator: Eshin Kunishima <ek@esh.ink>\n"
-"Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/4-6/"
-"ja/>\n"
+"PO-Revision-Date: 2016-08-02 16:59+0000\n"
+"Last-Translator: Masahiro Nishi <grooversmail@gmail.com>\n"
+"Language-Team: Japanese "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-6/ja/>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 2.6-dev\n"
+"X-Generator: Weblate 2.8-dev\n"
 
 #: changelog.php:37 license.php:33
 #, php-format
@@ -1061,10 +1061,9 @@ msgid "Simulate query"
 msgstr "クエリを検証"
 
 #: js/messages.php:136
-#, fuzzy
 #| msgid "Affected rows:"
 msgid "Matched rows:"
-msgstr "一致する行:"
+msgstr "一致した行:"
 
 #: js/messages.php:137 libraries/Util.php:705
 #, fuzzy
@@ -1684,10 +1683,9 @@ msgid "Cancel"
 msgstr "キャンセル"
 
 #: js/messages.php:353 libraries/Header.php:456
-#, fuzzy
 #| msgid "Change settings"
 msgid "Page-related settings"
-msgstr "設定の変更"
+msgstr ""
 
 #: js/messages.php:354 libraries/config/FormDisplay.tpl.php:422
 msgid "Apply"
@@ -1960,7 +1958,7 @@ msgstr "追跡レポート"
 #: js/messages.php:437
 #, php-format
 msgid "The first step of normalization is complete for table '%s'."
-msgstr ""
+msgstr "テーブル '%s' の第一正規化が完了しました。"
 
 #: js/messages.php:438 libraries/normalization.lib.php:449
 #: libraries/normalization.lib.php:496 libraries/normalization.lib.php:581
@@ -2011,7 +2009,7 @@ msgstr ""
 msgid ""
 "Sit tight! It may take few seconds depending on data size and column count "
 "of the table."
-msgstr ""
+msgstr "テーブルのデータサイズと列数に応じて数秒かかる場合があります。"
 
 #: js/messages.php:456
 msgid "Step"
@@ -2026,17 +2024,16 @@ msgstr "次のクエリが実行されます："
 #: js/messages.php:459
 #, php-format
 msgid "DROP columns %s from the table %s"
-msgstr ""
+msgstr "カラム '%s' をテーブル '%s' から削除"
 
 #: js/messages.php:460
-#, fuzzy
 #| msgid "Add privileges on the following table"
 msgid "Create the following table"
-msgstr "テーブルに特権を追加"
+msgstr "以下のテーブルを作成します"
 
 #: js/messages.php:463
 msgid "Third step of normalization (3NF)"
-msgstr ""
+msgstr "第三正規化(3NF)"
 
 #: js/messages.php:464
 msgid "Confirm transitive dependencies"
@@ -2047,10 +2044,9 @@ msgid "Selected dependencies are as follows:"
 msgstr ""
 
 #: js/messages.php:466
-#, fuzzy
 #| msgid "No databases selected."
 msgid "No dependencies selected!"
-msgstr "データベースが選択されていません。"
+msgstr "依存関係が選択されていません！"
 
 #: js/messages.php:469 libraries/central_columns.lib.php:1212
 #: libraries/insert_edit.lib.php:1468 setup/frames/config.inc.php:43
@@ -2072,34 +2068,29 @@ msgid "Show search criteria"
 msgstr "検索条件を表示する"
 
 #: js/messages.php:474
-#, fuzzy
 #| msgid "Table Search"
 msgid "Range search"
-msgstr "テーブル検索"
+msgstr "範囲検索"
 
 #: js/messages.php:475
-#, fuzzy
 #| msgid "Column names: "
 msgid "Column maximum:"
-msgstr "カラム名: "
+msgstr "最大カラム:"
 
 #: js/messages.php:476
-#, fuzzy
 #| msgid "Column names: "
 msgid "Column minimum:"
-msgstr "カラム名: "
+msgstr "最小カラム:"
 
 #: js/messages.php:477
-#, fuzzy
 #| msgid "Maximum tables"
 msgid "Minimum value:"
-msgstr "テーブルの最大数"
+msgstr "最小値:"
 
 #: js/messages.php:478
-#, fuzzy
 #| msgid "Maximum tables"
 msgid "Maximum value:"
-msgstr "テーブルの最大数"
+msgstr "最大値:"
 
 #: js/messages.php:481
 msgid "Hide find and replace criteria"
@@ -2173,16 +2164,14 @@ msgid "Geometry"
 msgstr "幾何データ"
 
 #: js/messages.php:515
-#, fuzzy
 #| msgid "Inner Ring"
 msgid "Inner ring"
-msgstr "内輪"
+msgstr "インナーリング"
 
 #: js/messages.php:516
-#, fuzzy
 #| msgid "Outer ring:"
 msgid "Outer ring"
-msgstr "外枠:"
+msgstr "アウターリング"
 
 #: js/messages.php:520
 #, fuzzy
@@ -2231,36 +2220,31 @@ msgstr "ページ名"
 
 #: js/messages.php:540 templates/database/designer/side_menu.phtml:56
 #: templates/database/designer/side_menu.phtml:59
-#, fuzzy
 #| msgid "Select page"
 msgid "Save page"
-msgstr "ページを選択してください"
+msgstr "ページの保存"
 
 #: js/messages.php:541 templates/database/designer/side_menu.phtml:63
 #: templates/database/designer/side_menu.phtml:66
-#, fuzzy
 #| msgid "Select page"
 msgid "Save page as"
-msgstr "ページを選択してください"
+msgstr "名前を付けてページを保存"
 
 #: js/messages.php:542 templates/database/designer/side_menu.phtml:49
 #: templates/database/designer/side_menu.phtml:52
-#, fuzzy
 #| msgid "Free pages"
 msgid "Open page"
-msgstr "フリーページ数"
+msgstr "ページを開く"
 
 #: js/messages.php:543
-#, fuzzy
 #| msgid "Select page"
 msgid "Delete page"
-msgstr "ページを選択してください"
+msgstr "ページの削除"
 
 #: js/messages.php:544 templates/database/designer/side_menu.phtml:10
-#, fuzzy
 #| msgid "Unit"
 msgid "Untitled"
-msgstr "単位"
+msgstr "無題"
 
 #: js/messages.php:545
 #, fuzzy
@@ -2269,14 +2253,13 @@ msgid "Please select a page to continue"
 msgstr "編集するページを選択してください"
 
 #: js/messages.php:546
-#, fuzzy
 #| msgid "Not a valid port number"
 msgid "Please enter a valid page name"
-msgstr "有効なポート番号ではありません"
+msgstr "有効なページ名を入力してください"
 
 #: js/messages.php:548
 msgid "Do you want to save the changes to the current page?"
-msgstr ""
+msgstr "現在のページに対する変更を保存しますか？"
 
 #: js/messages.php:549
 msgid "Successfully deleted the page"
@@ -2296,20 +2279,19 @@ msgid "Add an option for column \"%s\"."
 msgstr "カラム「\"%s\"」に対するオプションを追加する。"
 
 #: js/messages.php:555
-#, fuzzy, php-format
+#, php-format
 #| msgid "%1$d row(s) affected."
 msgid "%d object(s) created."
-msgstr "%1$d 行変更しました。"
+msgstr "%d 個のオブジェクトを作成しました。"
 
 #: js/messages.php:556 libraries/sql_query_form.lib.php:409
 msgid "Submit"
 msgstr "実行する"
 
 #: js/messages.php:559
-#, fuzzy
 #| msgid "Press escape to cancel editing"
 msgid "Press escape to cancel editing."
-msgstr "ESC キーで編集キャンセル"
+msgstr "ESC キーで編集をキャンセルします。"
 
 #: js/messages.php:561
 msgid ""
@@ -2327,7 +2309,7 @@ msgstr "ドラッグでカラムの入れ替え"
 
 #: js/messages.php:565
 msgid "Click to sort results by this column."
-msgstr ""
+msgstr "クリックすると、結果をこのカラムを使ってソートします。"
 
 #: js/messages.php:567
 msgid ""
@@ -2335,6 +2317,8 @@ msgid ""
 ">- Ctrl+Click or Alt+Click (Mac: Shift+Option+Click) to remove column from "
 "ORDER BY clause"
 msgstr ""
+"Shift+クリックでこの列を ORDER BY句に追加するか、または ASC/DESCを切り替えます<br /> "
+"Ctrl+クリック（またはAlt+クリック、（Macの場合はShift+Option+クリック）すると、この列をORDER BY句から削除します"
 
 #: js/messages.php:571
 #, fuzzy
@@ -2372,19 +2356,18 @@ msgstr ""
 
 #: js/messages.php:582
 msgid "Please enter a valid hexadecimal string. Valid characters are 0-9, A-F."
-msgstr ""
+msgstr "有効な 16 進数の文字列を入力してください。有効な文字は 0-9、A-F です。"
 
 #: js/messages.php:584
 msgid ""
 "Do you really want to see all of the rows? For a big table this could crash "
 "the browser."
-msgstr ""
+msgstr "本当にすべての行を表示しますか？ 大きなテーブルはブラウザをクラッシュさせることがあります。"
 
 #: js/messages.php:587
-#, fuzzy
 #| msgid "Original position"
 msgid "Original length"
-msgstr "元の位置"
+msgstr "元の長さ"
 
 #: js/messages.php:590
 msgid "cancel"
@@ -2399,16 +2382,14 @@ msgid "Success"
 msgstr "成功"
 
 #: js/messages.php:594
-#, fuzzy
 #| msgid "Import defaults"
 msgid "Import status"
-msgstr "インポートのデフォルト"
+msgstr "インポートの状態"
 
 #: js/messages.php:595 libraries/navigation/Navigation.php:111
-#, fuzzy
 #| msgid "Log file threshold"
 msgid "Drop files here"
-msgstr "ログファイルの閾値"
+msgstr "ここにファイルをドロップします"
 
 #: js/messages.php:596
 msgid "Select database first"
@@ -2462,7 +2443,6 @@ msgid "Show panel"
 msgstr "パネルを表示"
 
 #: js/messages.php:632
-#, fuzzy
 #| msgid "Hide Panel"
 msgid "Hide panel"
 msgstr "パネルを隠す"
@@ -2513,16 +2493,14 @@ msgid "Create view"
 msgstr "ビューを作成する"
 
 #: js/messages.php:653
-#, fuzzy
 #| msgid "Server port"
 msgid "Send error report"
-msgstr "サーバのポート"
+msgstr "エラーレポートの送信"
 
 #: js/messages.php:654
-#, fuzzy
 #| msgid "Submit Error Report"
 msgid "Submit error report"
-msgstr "エラー報告を送信"
+msgstr "エラーレポートを送信"
 
 #: js/messages.php:656
 msgid ""
@@ -2531,22 +2509,20 @@ msgid ""
 msgstr "JavaScript の致命的なエラーが発生しました。エラー報告を送信しますか?"
 
 #: js/messages.php:658
-#, fuzzy
 #| msgid "Change Report Settings"
 msgid "Change report settings"
-msgstr "報告の設定の変更"
+msgstr "レポート設定の変更"
 
 #: js/messages.php:659
-#, fuzzy
 #| msgid "Show Report Details"
 msgid "Show report details"
-msgstr "報告の詳細を表示"
+msgstr "エラーレポートの詳細を表示"
 
 #: js/messages.php:662
 msgid ""
 "Your export is incomplete, due to a low execution time limit at the PHP "
 "level!"
-msgstr ""
+msgstr "PHPで設定された低い実行時間制限のため、エクスポートは完了しませんでした！"
 
 #: js/messages.php:666
 #, php-format
@@ -2554,14 +2530,16 @@ msgid ""
 "Warning: a form on this page has more than %d fields. On submission, some of "
 "the fields might be ignored, due to PHP's max_input_vars configuration."
 msgstr ""
+"警告: このページのフォームは %d個以上のフィールドがあります。 "
+"このまま送信すると、PHPのmax_input_vars設定の制限により、いくつかのフィールドは無視されることがあります。"
 
 #: js/messages.php:672 js/messages.php:685
 msgid "Some errors have been detected on the server!"
-msgstr ""
+msgstr "サーバー上でいくつかのエラーが検出されました！"
 
 #: js/messages.php:674
 msgid "Please look at the bottom of this window."
-msgstr ""
+msgstr "このウィンドウの一番下を見てください。"
 
 #: js/messages.php:680 libraries/ErrorHandler.php:349
 #, fuzzy
@@ -2575,7 +2553,6 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:698
-#, fuzzy
 #| msgid "Show this query here again"
 msgid "Execute this query again?"
 msgstr "このクエリをもう一度実行しますか？"
@@ -2586,34 +2563,32 @@ msgstr "このブックマークを本当に削除しますか？"
 
 #: js/messages.php:702
 msgid "Some error occurred while getting SQL debug info."
-msgstr ""
+msgstr "SQL デバッグ情報を取得中にいくつかのエラーが発生しました。"
 
 #: js/messages.php:704
-#, fuzzy, php-format
+#, php-format
 #| msgid "Executed queries"
 msgid "%s queries executed %s times in %s seconds."
-msgstr "実行されたクエリ"
+msgstr "%s クエリは、%s 回を%s 秒で実行しました。"
 
 #: js/messages.php:705
 #, php-format
 msgid "%s argument(s) passed"
-msgstr ""
+msgstr "%s個の引数が渡されました"
 
 #: js/messages.php:706
-#, fuzzy
 #| msgid "Table comments"
 msgid "Show arguments"
-msgstr "テーブルのコメント"
+msgstr "引数の表示"
 
 #: js/messages.php:707
-#, fuzzy
 #| msgid "Hide search results"
 msgid "Hide arguments"
-msgstr "検索結果を隠す"
+msgstr "引数を非表示"
 
 #: js/messages.php:708 libraries/Console.php:306
 msgid "Time taken:"
-msgstr ""
+msgstr "所要時間:"
 
 #: js/messages.php:709
 msgid ""
@@ -2623,12 +2598,15 @@ msgid ""
 "cause such a problem, clearing your \"Offline Website Data\" might help. In "
 "Safari, such problem is commonly caused by \"Private Mode Browsing\"."
 msgstr ""
+"ブラウザのストレージにアクセスする際に問題が発生したため、いくつかの機能は動作しない可能性があります。この問題はストレージをサポートしていないブラウザであ"
+"る場合や、ストレージの使用量が制限値に達していることで発生することがあります。 "
+"そのほかに、特にFirefoxではストレージが破損している可能性があるため、「オフラインウェブサイトデータ」の削除で改善する可能性があります。 "
+"Safariの場合は一般的に「プライベートモード」の利用がこの問題を引き起こすことがあります。"
 
 #: js/messages.php:711
-#, fuzzy
 #| msgid "Copy database to"
 msgid "Copy tables to"
-msgstr "データベースのコピー先"
+msgstr "テーブルのコピー先"
 
 #: js/messages.php:712
 #, fuzzy
@@ -2903,102 +2881,87 @@ msgid "This field is required"
 msgstr "このフィールドは必須です"
 
 #: js/messages.php:885
-#, fuzzy
 #| msgid "Use text field"
 msgid "Please fix this field"
-msgstr "テキスト入力項目の値を利用する"
+msgstr "この項目を修正してください"
 
 #: js/messages.php:886
-#, fuzzy
 #| msgid "Not a valid port number"
 msgid "Please enter a valid email address"
-msgstr "有効なポート番号ではありません"
+msgstr "有効なメールアドレスを入力してください"
 
 #: js/messages.php:887
-#, fuzzy
 #| msgid "Please enter a valid number!"
 msgid "Please enter a valid URL"
-msgstr "有効なポート番号を入力してください！"
+msgstr "有効なURLを入力してください"
 
 #: js/messages.php:888
-#, fuzzy
 #| msgid "Not a valid port number"
 msgid "Please enter a valid date"
-msgstr "有効なポート番号ではありません"
+msgstr "有効な日付を入力してください"
 
 #: js/messages.php:891
-#, fuzzy
 #| msgid "Not a valid port number"
 msgid "Please enter a valid date ( ISO )"
-msgstr "有効なポート番号ではありません"
+msgstr "有効な日付(ISO準拠)を入力してください"
 
 #: js/messages.php:893
-#, fuzzy
 #| msgid "Please enter a valid number!"
 msgid "Please enter a valid number"
-msgstr "有効なポート番号を入力してください！"
+msgstr "有効な数値を入力してください"
 
 #: js/messages.php:896
-#, fuzzy
 #| msgid "Please enter a valid number!"
 msgid "Please enter a valid credit card number"
-msgstr "有効なポート番号を入力してください！"
+msgstr "有効なクレジットカード番号を入力してください"
 
 #: js/messages.php:898
-#, fuzzy
 #| msgid "Please enter a valid length!"
 msgid "Please enter only digits"
-msgstr "正しい長さを入力してください！"
+msgstr "数字のみを入力してください"
 
 #: js/messages.php:901
-#, fuzzy
 #| msgid "Not a valid port number"
 msgid "Please enter the same value again"
-msgstr "有効なポート番号ではありません"
+msgstr "同じ値をもう一度入力してください"
 
 #: js/messages.php:905
 msgid "Please enter no more than {0} characters"
-msgstr ""
+msgstr "{0}文字以上を入力してください"
 
 #: js/messages.php:910
-#, fuzzy
 #| msgid "Not a valid port number"
 msgid "Please enter at least {0} characters"
-msgstr "有効なポート番号ではありません"
+msgstr "少なくとも {0}文字以上を入力してください"
 
 #: js/messages.php:915
 msgid "Please enter a value between {0} and {1} characters long"
-msgstr ""
+msgstr "{0} から {1} の間の値を入力してください"
 
 #: js/messages.php:920
-#, fuzzy
 #| msgid "Not a valid port number"
 msgid "Please enter a value between {0} and {1}"
-msgstr "有効なポート番号ではありません"
+msgstr "{0} から {1} の間の値を入力してください"
 
 #: js/messages.php:925
-#, fuzzy
 #| msgid "Please enter a valid length!"
 msgid "Please enter a value less than or equal to {0}"
-msgstr "正しい長さを入力してください！"
+msgstr "{0} 以下の値を入力してください"
 
 #: js/messages.php:930
-#, fuzzy
 #| msgid "Not a valid port number"
 msgid "Please enter a value greater than or equal to {0}"
-msgstr "有効なポート番号ではありません"
+msgstr "{0} 以上の値を入力してください"
 
 #: js/messages.php:936
-#, fuzzy
 #| msgid "Not a valid port number"
 msgid "Please enter a valid date or time"
-msgstr "有効なポート番号ではありません"
+msgstr "有効な日付または時刻を入力してください"
 
 #: js/messages.php:941
-#, fuzzy
 #| msgid "Please enter a valid number!"
 msgid "Please enter a valid HEX input"
-msgstr "有効なポート番号を入力してください！"
+msgstr "有効な 16 進数の値を入力してください"
 
 #: js/messages.php:946 libraries/Message.php:200 libraries/Util.php:681
 #: libraries/core.lib.php:245 libraries/import.lib.php:99
@@ -3107,10 +3070,9 @@ msgid_plural "Showing %1$d bookmarks (both private and shared)"
 msgstr[0] ""
 
 #: libraries/Console.php:107
-#, fuzzy
 #| msgid "Delete relation"
 msgid "No bookmarks"
-msgstr "リレーションを削除"
+msgstr "ブックマークはありません"
 
 #: libraries/Console.php:168
 #, fuzzy
@@ -3467,7 +3429,7 @@ msgstr "または"
 
 #: libraries/DbQbe.php:879 libraries/DbQbe.php:971
 msgid "And:"
-msgstr ""
+msgstr "および:"
 
 #: libraries/DbQbe.php:884
 msgid "Ins"
@@ -3485,11 +3447,11 @@ msgstr "修正"
 
 #: libraries/DbQbe.php:966
 msgid "Ins:"
-msgstr ""
+msgstr "挿入:"
 
 #: libraries/DbQbe.php:981
 msgid "Del:"
-msgstr ""
+msgstr "削除:"
 
 #: libraries/DbQbe.php:1845
 #, php-format
@@ -3501,34 +3463,29 @@ msgid "Submit Query"
 msgstr "クエリを実行する"
 
 #: libraries/DbQbe.php:1878
-#, fuzzy
 #| msgid "Search"
 msgid "Saved bookmarked search:"
-msgstr "検索"
+msgstr "保存された条件での検索:"
 
 #: libraries/DbQbe.php:1880
-#, fuzzy
 #| msgid "Delete relation"
 msgid "New bookmark"
-msgstr "リレーションを削除"
+msgstr "新しいブックマーク"
 
 #: libraries/DbQbe.php:1906
-#, fuzzy
 #| msgid "Delete relation"
 msgid "Create bookmark"
-msgstr "リレーションを削除"
+msgstr "ブックマークの作成"
 
 #: libraries/DbQbe.php:1909
-#, fuzzy
 #| msgid "Showing bookmark"
 msgid "Update bookmark"
-msgstr "表示中のブックマーク"
+msgstr "ブックマークの編集"
 
 #: libraries/DbQbe.php:1911
-#, fuzzy
 #| msgid "Delete relation"
 msgid "Delete bookmark"
-msgstr "リレーションを削除"
+msgstr "ブックマークの削除"
 
 #: libraries/DbSearch.php:96 libraries/DbSearch.php:400
 msgid "at least one of the words"
@@ -3558,12 +3515,12 @@ msgid_plural "<b>Total:</b> <i>%s</i> matches"
 msgstr[0] "<b>合計:</b> <i>%s</i> 件"
 
 #: libraries/DbSearch.php:330
-#, fuzzy, php-format
+#, php-format
 #| msgid "%1$s match inside table <i>%2$s</i>"
 #| msgid_plural "%1$s matches inside table <i>%2$s</i>"
 msgid "%1$s match in <strong>%2$s</strong>"
 msgid_plural "%1$s matches in <strong>%2$s</strong>"
-msgstr[0] "%1$s 件 (テーブル <i>%2$s</i>)"
+msgstr[0] "%1$s 件の一致 (テーブル <strong>%2$s</strong>)"
 
 #: libraries/DbSearch.php:350 libraries/Menu.php:317 libraries/Util.php:3419
 #: libraries/Util.php:3429 libraries/Util.php:3705 libraries/Util.php:3706
@@ -3619,16 +3576,14 @@ msgid "Restore column order"
 msgstr "カラムの順番を元に戻す"
 
 #: libraries/DisplayResults.php:957 libraries/central_columns.lib.php:659
-#, fuzzy
 #| msgid "Filters"
 msgid "Filter rows"
-msgstr "フィルタ"
+msgstr "行フィルタ"
 
 #: libraries/DisplayResults.php:959 libraries/central_columns.lib.php:661
-#, fuzzy
 #| msgid "Search in database"
 msgid "Search this table"
-msgstr "データベース内検索"
+msgstr "このテーブルを検索"
 
 #: libraries/DisplayResults.php:990 libraries/Util.php:2609
 #: libraries/Util.php:2612
@@ -3731,10 +3686,9 @@ msgstr "正確な数字とは限りません。[doc@faq3-11]FAQ 3.11[/doc] を�
 #: libraries/controllers/table/TableSearchController.php:639
 #: libraries/rte/rte_routines.lib.php:1423 libraries/sql_query_form.lib.php:89
 #: tbl_row_action.php:140 view_operations.php:72
-#, fuzzy
 #| msgid "Your SQL query has been executed successfully."
 msgid "Your SQL query has been executed successfully."
-msgstr "SQL は正常に実行されました"
+msgstr "SQL は正常に実行されました。"
 
 #: libraries/DisplayResults.php:4687
 #: libraries/controllers/database/DatabaseStructureController.php:753
@@ -3745,10 +3699,10 @@ msgid ""
 msgstr "このビューの最低行数。詳しくは%sドキュメント%sをご覧ください。"
 
 #: libraries/DisplayResults.php:4700
-#, fuzzy, php-format
+#, php-format
 #| msgid "Showing rows"
 msgid "Showing rows %1s - %2s"
-msgstr "行の表示"
+msgstr "行 %1s - %2s の表示"
 
 #: libraries/DisplayResults.php:4715
 #, php-format
@@ -3756,10 +3710,10 @@ msgid "%1$d total, %2$d in query"
 msgstr ""
 
 #: libraries/DisplayResults.php:4720
-#, fuzzy, php-format
+#, php-format
 #| msgid "total"
 msgid "%d total"
-msgstr "合計"
+msgstr "合計 %d"
 
 #: libraries/DisplayResults.php:4732 libraries/sql.lib.php:1374
 #, fuzzy, php-format
@@ -3790,7 +3744,7 @@ msgstr "すべてチェックする"
 
 #: libraries/DisplayResults.php:5013
 msgid "Copy to clipboard"
-msgstr ""
+msgstr "クリップボードにコピー"
 
 #: libraries/DisplayResults.php:5069
 msgid "Query results operations"
@@ -3805,26 +3759,23 @@ msgid "Visualize GIS data"
 msgstr "空間情報のデータを視覚化する"
 
 #: libraries/DisplayResults.php:5368
-#, fuzzy
 #| msgid "Link not found"
 msgid "Link not found!"
-msgstr "リンク先が見つかりません"
+msgstr "リンクが見つかりません！"
 
 #: libraries/ErrorHandler.php:65
 msgid "Too many error messages, some are not displayed."
 msgstr "エラーメッセージが多すぎます。いくつかは表示されません。"
 
 #: libraries/ErrorHandler.php:334
-#, fuzzy
 #| msgid "Import"
 msgid "Report"
-msgstr "インポート"
+msgstr "レポート"
 
 #: libraries/ErrorHandler.php:339 templates/error/report_form.phtml:27
-#, fuzzy
 #| msgid "Automatically create versions"
 msgid "Automatically send report next time"
-msgstr "世代の自動作成"
+msgstr "次回、レポートを自動的に送信します"
 
 #: libraries/File.php:223
 msgid "File was not an uploaded file."
@@ -3877,21 +3828,19 @@ msgid "Error while moving uploaded file."
 msgstr "アップロードされたファイルを移動中にエラーが発生しました。"
 
 #: libraries/File.php:492
-#, fuzzy
 #| msgid "Cannot read (moved) upload file."
 msgid "Cannot read uploaded file."
-msgstr "アップロードされ（移動し）たファイルが読み込めません。"
+msgstr "アップロードされたファイルが読み込めません。"
 
 #: libraries/Footer.php:72
 #, php-format
 msgid "Currently running Git revision %1$s from the %2$s branch."
-msgstr ""
+msgstr "Git %2$sブランチの リビジョン%1$s  を実行しています。"
 
 #: libraries/Footer.php:79
-#, fuzzy
 #| msgid "Version information"
 msgid "Git information missing!"
-msgstr "バージョン情報"
+msgstr "Gitの情報が不足しています！"
 
 #: libraries/Footer.php:199 libraries/Footer.php:203 libraries/Footer.php:206
 msgid "Open new phpMyAdmin window"
@@ -3903,13 +3852,12 @@ msgstr "印刷用画面"
 
 #: libraries/Header.php:463
 msgid "Click on the bar to scroll to top of page"
-msgstr ""
+msgstr "バーをクリックしてページ上部にスクロール"
 
 #: libraries/Header.php:768 libraries/plugins/auth/AuthenticationCookie.php:132
-#, fuzzy
 #| msgid "Javascript must be enabled past this point"
 msgid "Javascript must be enabled past this point!"
-msgstr "Javascript を有効にしてください"
+msgstr "Javascript を有効にしてください！"
 
 #: libraries/Index.php:665
 msgid "No index defined!"
@@ -4025,7 +3973,7 @@ msgstr "ページ番号:"
 
 #: libraries/LanguageManager.php:867
 msgid "Ignoring unsupported language code."
-msgstr ""
+msgstr "サポートされていない言語のコードを無視します。"
 
 #: libraries/Linter.php:99
 msgid ""
@@ -4148,7 +4096,7 @@ msgstr "イベント"
 
 #: libraries/Menu.php:500 libraries/Util.php:4360
 msgid "Designer"
-msgstr "デザイナ"
+msgstr ""
 
 #: libraries/Menu.php:509 libraries/Util.php:4361
 #: templates/database/structure/check_all_tables.phtml:34
@@ -5075,8 +5023,9 @@ msgid "Attribute"
 msgstr "属性"
 
 #: libraries/central_columns.lib.php:707 libraries/central_columns.lib.php:1381
+#, fuzzy
 msgid "A_I"
-msgstr ""
+msgstr "オート・インクリメント"
 
 #: libraries/central_columns.lib.php:747
 #, fuzzy
