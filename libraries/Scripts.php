@@ -30,14 +30,6 @@ class Scripts
      * @var array of strings
      */
     private $_code;
-    /**
-     * An array of event names to bind and javascript code
-     * snippets to fire for the corresponding events
-     *
-     * @access private
-     * @var array
-     */
-    private $_events;
 
     /**
      * Returns HTML code to include javascript file.
@@ -110,7 +102,6 @@ class Scripts
     {
         $this->_files  = array();
         $this->_code   = '';
-        $this->_events = array();
 
     }
 
@@ -196,24 +187,6 @@ class Scripts
     }
 
     /**
-     * Adds a new event to the list of events
-     *
-     * @param string $event    The name of the event to register
-     * @param string $function The code to execute when the event fires
-     *                         E.g: 'function () { doSomething(); }'
-     *                         or 'doSomething'
-     *
-     * @return void
-     */
-    public function addEvent($event, $function)
-    {
-        $this->_events[] = array(
-            'event' => $event,
-            'function' => $function
-        );
-    }
-
-    /**
      * Returns a list with filenames and a flag to indicate
      * whether to register onload events for this file
      *
@@ -278,13 +251,6 @@ class Scripts
         $retval .= '<script data-cfasync="false" type="text/javascript">';
         $retval .= "// <![CDATA[\n";
         $retval .= $this->_code;
-        foreach ($this->_events as $js_event) {
-            $retval .= sprintf(
-                "$(window).bind('%s', %s);\n",
-                $js_event['event'],
-                $js_event['function']
-            );
-        }
         $retval .= '// ]]>';
         $retval .= '</script>';
 
