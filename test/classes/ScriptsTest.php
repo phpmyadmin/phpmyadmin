@@ -105,7 +105,6 @@ class ScriptsTest extends PMATestCase
     {
 
         $this->object->addFile('common.js');
-        $this->object->addEvent('onClick', 'doSomething');
 
         $this->assertRegExp(
             '@<script data-cfasync="false" type="text/javascript" '
@@ -115,7 +114,7 @@ class ScriptsTest extends PMATestCase
             . 'javascript">// <!\\[CDATA\\[' . "\n"
             . 'AJAX.scriptHandler.add\\("common.js",1\\);' . "\n"
             . '\\$\\(function\\(\\) \\{AJAX.fireOnload\\("common.js"\\);\\}\\);'
-            . "\n" . '\\$\\(window\\).bind\\(\'onClick\', doSomething\\);' . "\n"
+            . "\n"
             . '// ]]></script>@',
             $this->object->getDisplay()
         );
