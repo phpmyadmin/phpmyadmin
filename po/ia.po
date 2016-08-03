@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-08-01 11:04+0200\n"
-"PO-Revision-Date: 2016-08-01 13:13+0000\n"
+"PO-Revision-Date: 2016-08-02 07:56+0000\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/ia/>\n"
@@ -3283,10 +3283,9 @@ msgid "Details…"
 msgstr "Detalios…"
 
 #: libraries/DatabaseInterface.php:2325
-#, fuzzy
 #| msgid "Missing parameter:"
 msgid "Missing connection parameters!"
-msgstr "Parametro mancante:"
+msgstr "Parametros de connexion mancante!"
 
 #: libraries/DatabaseInterface.php:2358
 msgid "Connection for controluser as defined in your configuration failed."
@@ -10442,10 +10441,10 @@ msgid "Last check:"
 msgstr "Ultime controlo:"
 
 #: libraries/plugins/export/ExportSql.php:1479
-#, fuzzy, php-format
+#, php-format
 #| msgid "Table structure for table"
 msgid "Error reading structure for table %s:"
-msgstr "Structura de tabella"
+msgstr "Error quando on lege le structura pro tabella %s:"
 
 #: libraries/plugins/export/ExportSql.php:1533
 msgid "It appears your database uses views;"
@@ -10497,10 +10496,10 @@ msgid "(See below for the actual view)"
 msgstr ""
 
 #: libraries/plugins/export/ExportSql.php:2195
-#, fuzzy, php-format
+#, php-format
 #| msgid "Error reading data:"
 msgid "Error reading data for table %s:"
-msgstr "Il habeva un error quando on legeva datos:"
+msgstr "Error quando on lege datos per tabella %s:"
 
 #: libraries/plugins/export/ExportXml.php:97
 msgid "Object creation options (all are recommended)"
@@ -13709,10 +13708,9 @@ msgstr ""
 "Il non pote salveguardar preferentias, le forma submittite contine errores!"
 
 #: prefs_manage.php:50
-#, fuzzy
 #| msgid "Missing phpMyAdmin configuration storage tables"
 msgid "phpMyAdmin configuration snippet"
-msgstr "Tabellas de immagazinage de configuration de phpMyAdmin es mancante"
+msgstr "Pecietta  de configuration de phpMyAdmin"
 
 #: prefs_manage.php:51
 msgid "Paste it to your config.inc.php"
@@ -13766,10 +13764,9 @@ msgid ""
 msgstr ""
 
 #: prefs_manage.php:342
-#, fuzzy
 #| msgid "Save as file"
 msgid "Save as PHP file"
-msgstr "Salveguarda como file"
+msgstr "Salveguarda como file PHP"
 
 #: prefs_manage.php:347
 msgid "Save to browser's storage"
