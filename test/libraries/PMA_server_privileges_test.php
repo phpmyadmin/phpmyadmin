@@ -1962,7 +1962,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
 
         $html = PMA_getHtmlHeaderForUserProperties(
             $dbname_is_wildcard, $url_dbname, $dbname,
-            $username, $hostname, $tablename
+            $username, $hostname, $tablename, '' /* Routinename */
         );
 
         //title

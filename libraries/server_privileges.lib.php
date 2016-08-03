@@ -974,7 +974,9 @@ function PMA_getHtmlForRoutineSpecificPrivilges(
     $username, $hostname, $db, $routine, $url_dbname
 ) {
     $header = PMA_getHtmlHeaderForUserProperties(
-        false, $url_dbname, $db, $username, $hostname, $routine
+        false, $url_dbname, $db, $username, $hostname,
+        '', /* Tablename */
+        $routine
     );
 
     $sql = "SELECT `Proc_priv`"
@@ -1094,7 +1096,7 @@ function PMA_getHtmlForTableSpecificPrivileges(
         . '<input type="hidden" name="column_count" '
         . 'value="' . count($columns) . '" />' . "\n"
         . '<fieldset id="fieldset_user_priv">' . "\n"
-        . '<legend data-submenu-label="Table">' . __('Table-specific privileges')
+        . '<legend data-submenu-label="' . __('Table') . '">' . __('Table-specific privileges')
         . '</legend>'
         . '<p><small><i>'
         . __('Note: MySQL privilege names are expressed in English.')
@@ -4573,7 +4575,8 @@ function PMA_getAddUserHtmlFieldset($db = '', $table = '')
  * @return string $html_output
  */
 function PMA_getHtmlHeaderForUserProperties(
-    $dbname_is_wildcard, $url_dbname, $dbname, $username, $hostname, $tablename
+    $dbname_is_wildcard, $url_dbname, $dbname, $username, $hostname, $tablename,
+    $routinename
 ) {
     $html_output = '<h2>' . "\n"
        . Util::getIcon('b_usredit.png')
@@ -4599,7 +4602,7 @@ function PMA_getHtmlHeaderForUserProperties(
         $html_output .= ($dbname_is_wildcard
             || is_array($dbname) && count($dbname) > 1)
             ? __('Databases') : __('Database');
-        if (! empty($_REQUEST['tablename'])) {
+        if (! empty($tablename)) {
             $html_output .= ' <i><a href="server_privileges.php'
                 . PMA_URL_getCommon(
                     array(
@@ -4614,7 +4617,7 @@ function PMA_getHtmlHeaderForUserProperties(
 
             $html_output .= ' - ' . __('Table')
                 . ' <i>' . htmlspecialchars($tablename) . '</i>';
-        } elseif (! empty($_REQUEST['routinename'])) {
+        } elseif (! empty($routinename)) {
             $html_output .= ' <i><a href="server_privileges.php'
                 . PMA_URL_getCommon(
                     array(
@@ -4628,7 +4631,7 @@ function PMA_getHtmlHeaderForUserProperties(
                 . '</a></i>';
 
             $html_output .= ' - ' . __('Routine')
-                . ' <i>' . htmlspecialchars($tablename) . '</i>';
+                . ' <i>' . htmlspecialchars($routinename) . '</i>';
         } else {
             if (! is_array($dbname)) {
                 $dbname = array($dbname);
@@ -4840,7 +4843,9 @@ function PMA_getHtmlForUserProperties($dbname_is_wildcard,$url_dbname,
 ) {
     $html_output  = '<div id="edit_user_dialog">';
     $html_output .= PMA_getHtmlHeaderForUserProperties(
-        $dbname_is_wildcard, $url_dbname, $dbname, $username, $hostname, $tablename
+        $dbname_is_wildcard, $url_dbname, $dbname, $username, $hostname,
+        $tablename,
+        '' /* Routinename */
     );
 
     $sql = "SELECT '1' FROM `mysql`.`user`"
