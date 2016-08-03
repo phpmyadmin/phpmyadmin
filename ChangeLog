@@ -41,6 +41,7 @@ phpMyAdmin - ChangeLog
 - issue #12339 Do not error on unset server port
 - issue #12422 Improvements to the original theme
 - issue #12395 Do not try to load old transformation plugins
+- issue #12423 Fixed replication status in database listing
 
 4.6.3 (2016-06-23)
 - issue #12249 Fixed cookie path on Windows
