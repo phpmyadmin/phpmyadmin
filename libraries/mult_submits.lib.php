@@ -259,15 +259,18 @@ function PMA_buildOrExecuteQueryForMulti(
             break;
 
         case 'copy_tbl_change_prefix':
+            $run_parts = true;
+            $copy_tbl = true;
+
             $current = $selected[$i];
             $newtablename = $to_prefix .
                 mb_substr($current, mb_strlen($from_prefix));
+
             // COPY TABLE AND CHANGE PREFIX PATTERN
-            $a_query = 'CREATE TABLE '
-                . PMA\libraries\Util::backquote($newtablename)
-                . ' SELECT * FROM '
-                . PMA\libraries\Util::backquote($selected[$i]);
-            $run_parts = true;
+            Table::moveCopy(
+                $db, $current, $db, $newtablename,
+                'data', false, 'one_table'
+            );
             break;
 
         case 'copy_tbl':
