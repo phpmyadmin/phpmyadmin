@@ -77,4 +77,4 @@ put phpMyAdmin-$REL-notes.html
 EOT
 
 # Sync files to CDN
-ssh -p 11022 files@klutz.phpmyadmin.net ./bin/sync-files-cdn
+ssh -xka2 -p 11022 files@klutz.phpmyadmin.net ./bin/sync-files-cdn
