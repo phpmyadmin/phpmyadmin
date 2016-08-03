@@ -7346,8 +7346,8 @@ msgstr "Tabela za hranjenje uporabnikovih nastavitev"
 #: libraries/config/messages.inc.php:813
 msgid ""
 "Both this table and the user groups table are required to enable the "
-"configurable menus feature; leaving either one of them blank will disable\n"
-"    this feature, suggested: [kbd]pma__users[/kbd]."
+"configurable menus feature; leaving either one of them blank will disable "
+"this feature, suggested: [kbd]pma__users[/kbd]."
 msgstr ""
 "Tako ta tabela kot tabela uporabniških skupin sta zahtevani za omogočitev "
 "funkcionalnosti nastavljivih menijev; če eno od njiju pustite prazno, boste "
@@ -15483,10 +15483,6 @@ msgstr "Uredi razdelitev"
 msgid "Edit view"
 msgstr "Urejevalni pogled"
 
-#: templates/table/structure/display_table_stats.phtml:5
-msgid "Table comments: "
-msgstr "Pripombe tabele: "
-
 #: templates/table/structure/display_table_stats.phtml:12
 msgid "Space usage"
 msgstr "Poraba prostora"
@@ -16589,8 +16585,8 @@ msgid "Slow launch time"
 msgstr "Čas počasnega zagona"
 
 #: libraries/advisory_rules.txt:368
-msgid "Slow_launch_threads is above 2s."
-msgstr "Slow_launch_threads je nad 2 s."
+msgid "Slow_launch_time is above 2s."
+msgstr "Slow_launch_time je nad 2 s."
 
 #: libraries/advisory_rules.txt:369
 msgid ""

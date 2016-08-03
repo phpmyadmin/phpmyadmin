@@ -7057,8 +7057,8 @@ msgstr "使用者偏好表"
 #: libraries/config/messages.inc.php:813
 msgid ""
 "Both this table and the user groups table are required to enable the "
-"configurable menus feature; leaving either one of them blank will disable\n"
-"    this feature, suggested: [kbd]pma__users[/kbd]."
+"configurable menus feature; leaving either one of them blank will disable "
+"this feature, suggested: [kbd]pma__users[/kbd]."
 msgstr ""
 "開啟可設定選單功能必須使用此資料表與使用者群組資料表，其中一個欄位留空則會關"
 "閉此功能，建議值： [kbd]pma__users[/kbd]。"
@@ -15892,8 +15892,8 @@ msgid "Slow launch time"
 msgstr "緩慢啟動時間"
 
 #: libraries/advisory_rules.txt:368
-msgid "Slow_launch_threads is above 2s."
-msgstr "Slow_launch_threads 已超過 2 秒。"
+msgid "Slow_launch_time is above 2s."
+msgstr "Slow_launch_time 已超過 2 秒。"
 
 #: libraries/advisory_rules.txt:369
 msgid ""

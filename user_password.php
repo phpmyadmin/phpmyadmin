@@ -237,6 +237,7 @@ function PMA_changePassUrlParamsAndSubmitQuery(
     } else if ($serverType == 'MariaDB'
         && PMA_MYSQL_INT_VERSION >= 50200
         && PMA_MYSQL_INT_VERSION < 100100
+        && $orig_auth_plugin !== ''
     ) {
         if ($orig_auth_plugin == 'mysql_native_password') {
             // Set the hashing method used by PASSWORD()

@@ -365,7 +365,7 @@ rule 'Threads that are slow to launch' [slow_launch_time > 0]
 rule 'Slow launch time'
 	slow_launch_time
 	value > 2
-	Slow_launch_threads is above 2s.
+	Slow_launch_time is above 2s.
 	Set {slow_launch_time} to 1s or 2s to correctly count threads that are slow to launch.
 	slow_launch_time is set to %s | value
 

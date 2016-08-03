@@ -492,7 +492,11 @@ class AuthenticationCookie extends AuthenticationPlugin
         $this->storeUsernameCookie($cfg['Server']['user']);
 
         // Duration = as configured
-        $this->storePasswordCookie($cfg['Server']['password']);
+        // Do not store password cookie on password change as we will
+        // set the cookie again after password has been changed
+        if (! isset($_POST['change_pw'])) {
+            $this->storePasswordCookie($cfg['Server']['password']);
+        }
 
         // Set server cookies if required (once per session) and, in this case,
         // force reload to ensure the client accepts cookies
