@@ -51,7 +51,7 @@ class Linter
         // (which is actually a new line) aren't going to be processed at
         // all.
         $len = ($str instanceof UtfString) ?
-            $str->length() : mb_strlen($len, '8bit');
+            $str->length() : mb_strlen($str, '8bit');
 
         $lines = array(0);
         for ($i = 0; $i < $len; ++$i) {
