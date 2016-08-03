@@ -293,7 +293,7 @@ class ErrorHandler
      */
     public function getDispErrors()
     {
-        // Not sure why but seen in reports.phpmyadmin.net
+        // Not sure why but seen in https://reports.phpmyadmin.net/
         if (empty($GLOBALS['cfg']['SendErrorReports'])) {
             $GLOBALS['cfg']['SendErrorReports'] = 'ask';
         }
