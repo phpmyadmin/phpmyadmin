@@ -422,7 +422,7 @@ which refers to the order of the server paragraph in
 https://example.com/phpMyAdmin/database[/table][/script] :term:`URL`, you need to do some configuration. Following
 lines apply only for `Apache <https://httpd.apache.org/>`_ web server.
 First make sure, that you have enabled some features within global
-configuration. You need ``Options FollowSymLinks`` and ``AllowOverride
+configuration. You need ``Options SymLinksIfOwnerMatch`` and ``AllowOverride
 FileInfo`` enabled for directory where phpMyAdmin is installed and you
 need mod\_rewrite to be enabled. Then you just need to create
 following :term:`.htaccess` file in root folder of phpMyAdmin installation (don't
