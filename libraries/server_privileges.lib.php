@@ -499,14 +499,14 @@ function PMA_getSqlQueryForDisplayPrivTable($db, $table, $username, $hostname)
         return "SELECT * FROM `mysql`.`db`"
             . " WHERE `User` = '" . Util::sqlAddSlashes($username) . "'"
             . " AND `Host` = '" . Util::sqlAddSlashes($hostname) . "'"
-            . " AND '" . Util::unescapeMysqlWildcards($db) . "'"
+            . " AND '" . Util::sqlAddSlashes(Util::unescapeMysqlWildcards($db)) . "'"
             . " LIKE `Db`;";
     }
     return "SELECT `Table_priv`"
         . " FROM `mysql`.`tables_priv`"
         . " WHERE `User` = '" . Util::sqlAddSlashes($username) . "'"
         . " AND `Host` = '" . Util::sqlAddSlashes($hostname) . "'"
-        . " AND `Db` = '" . Util::unescapeMysqlWildcards($db) . "'"
+        . " AND `Db` = '" . Util::sqlAddSlashes(Util::unescapeMysqlWildcards($db)) . "'"
         . " AND `Table_name` = '" . Util::sqlAddSlashes($table) . "';";
 }
 
@@ -640,6 +640,7 @@ function PMA_getHtmlToDisplayPrivilegesTable($db = '*',
     }
     if (empty($row)) {
         if ($table == '*' && $GLOBALS['is_superuser']) {
+            $row = array();
             if ($db == '*') {
                 $sql_query = 'SHOW COLUMNS FROM `mysql`.`user`;';
             } elseif ($table == '*') {
@@ -787,7 +788,7 @@ function PMA_getHtmlForRequires($row)
     $specified = (isset($row['ssl_type']) && $row['ssl_type'] == 'SPECIFIED');
     $html_output .= '<div class="item">';
     $html_output .= '<input type="radio" name="ssl_type" id="ssl_type_specified"'
-        . ' value="specified"' . ($specified ? ' checked="checked"' : '') . '/>';
+        . ' value="SPECIFIED"' . ($specified ? ' checked="checked"' : '') . '/>';
 
     $html_output .= '<label for="ssl_type_specified"><code>'
         . 'SPECIFIED'
@@ -807,7 +808,7 @@ function PMA_getHtmlForRequires($row)
         . 'REQUIRE CIPHER'
         . '</dfn></code></label>';
     $html_output .= '<input type="text" name="ssl_cipher" id="text_ssl_cipher" '
-        . 'value="' . (isset($row['ssl_cipher']) ? $row['ssl_cipher'] : '') . '" '
+        . 'value="' . (isset($row['ssl_cipher']) ? htmlspecialchars($row['ssl_cipher']) : '') . '" '
         . 'size=80" title="'
         . __(
             'Requires that a specific cipher method be used for a connection.'
@@ -827,7 +828,7 @@ function PMA_getHtmlForRequires($row)
         . 'REQUIRE ISSUER'
         . '</dfn></code></label>';
     $html_output .= '<input type="text" name="x509_issuer" id="text_x509_issuer" '
-        . 'value="' . (isset($row['x509_issuer']) ? $row['x509_issuer'] : '') . '" '
+        . 'value="' . (isset($row['x509_issuer']) ? htmlspecialchars($row['x509_issuer']) : '') . '" '
         . 'size=80" title="'
         . __(
             'Requires that a valid X509 certificate issued by this CA be presented.'
@@ -847,7 +848,7 @@ function PMA_getHtmlForRequires($row)
         . 'REQUIRE SUBJECT'
         . '</dfn></code></label>';
     $html_output .= '<input type="text" name="x509_subject" id="text_x509_subject" '
-        . 'value="' . (isset($row['x509_subject']) ? $row['x509_subject'] : '')
+        . 'value="' . (isset($row['x509_subject']) ? htmlspecialchars($row['x509_subject']) : '')
         . '" size=80" title="'
         . __(
             'Requires that a valid X509 certificate with this subject be presented.'
@@ -987,18 +988,7 @@ function PMA_getHtmlForRoutineSpecificPrivilges(
         . " AND `Routine_name` LIKE '" . Util::sqlAddSlashes($routine) . "';";
     $res = $GLOBALS['dbi']->fetchValue($sql);
 
-    $privs = array(
-        'Alter_routine_priv' => 'N',
-        'Execute_priv'       => 'N',
-        'Grant_priv'         => 'N',
-    );
-    foreach (explode(',', $res) as $priv) {
-        if ($priv == 'Alter Routine') {
-            $privs['Alter_routine_priv'] = 'Y';
-        } else {
-            $privs[$priv . '_priv'] = 'Y';
-        }
-    }
+    $privs = PMA_parseProcPriv($res);
 
     $routineArray   = array(PMA_getTriggerPrivilegeTable());
     $privTableNames = array(__('Routine'));
@@ -2057,8 +2047,6 @@ function PMA_updatePassword($err_url, $username, $hostname)
                 . " `plugin` = '" . $authentication_plugin . "'"
                 . " WHERE `User` = '" . $username . "' AND Host = '"
                 . $hostname . "';";
-
-            $GLOBALS['dbi']->tryQuery("FLUSH PRIVILEGES;");
         } else {
             // USE 'SET PASSWORD ...' syntax for rest of the versions
             // Backup the old value, to be reset later
@@ -2079,8 +2067,8 @@ function PMA_updatePassword($err_url, $username, $hostname)
                     false, $err_url
                 );
             }
-
             $GLOBALS['dbi']->tryQuery("FLUSH PRIVILEGES;");
+
             if ($authentication_plugin == 'mysql_native_password') {
                 // Set the hashing method used by PASSWORD()
                 // to be 'mysql_native_password' type
@@ -2110,13 +2098,13 @@ function PMA_updatePassword($err_url, $username, $hostname)
                 $GLOBALS['dbi']->getError(), $sql_query, false, $err_url
             );
         }
+        // Flush privileges after successful password change
+        $GLOBALS['dbi']->tryQuery("FLUSH PRIVILEGES;");
+
         $message = Message::success(
             __('The password for %s was changed successfully.')
         );
-        $message->addParam(
-            '\'' . htmlspecialchars($username)
-            . '\'@\'' . htmlspecialchars($hostname) . '\''
-        );
+        $message->addParam('\'' . $username . '\'@\'' . $hostname . '\'');
         if (isset($orig_value)) {
             $GLOBALS['dbi']->tryQuery(
                 'SET `old_passwords` = ' . $orig_value . ';'
@@ -2160,10 +2148,7 @@ function PMA_getMessageAndSqlQueryForPrivilegesRevoke($dbname,
     $message = Message::success(
         __('You have revoked the privileges for %s.')
     );
-    $message->addParam(
-        '\'' . htmlspecialchars($username)
-        . '\'@\'' . htmlspecialchars($hostname) . '\''
-    );
+    $message->addParam('\'' . $username . '\'@\'' . $hostname . '\'');
 
     return array($message, $sql_query);
 }
@@ -2175,28 +2160,29 @@ function PMA_getMessageAndSqlQueryForPrivilegesRevoke($dbname,
  */
 function PMA_getRequireClause()
 {
-    if (isset($_POST['ssl_type']) && $_POST['ssl_type'] == 'specified') {
+    $arr = isset($_POST['ssl_type']) ? $_POST : $GLOBALS;
+    if (isset($arr['ssl_type']) && $arr['ssl_type'] == 'SPECIFIED') {
         $require = array();
-        if (! empty($_POST['ssl_cipher'])) {
+        if (! empty($arr['ssl_cipher'])) {
             $require[] = "CIPHER '"
-                    . Util::sqlAddSlashes($_POST['ssl_cipher']) . "'";
+                    . Util::sqlAddSlashes($arr['ssl_cipher']) . "'";
         }
-        if (! empty($_POST['x509_issuer'])) {
+        if (! empty($arr['x509_issuer'])) {
             $require[] = "ISSUER '"
-                    . Util::sqlAddSlashes($_POST['x509_issuer']) . "'";
+                    . Util::sqlAddSlashes($arr['x509_issuer']) . "'";
         }
-        if (! empty($_POST['x509_subject'])) {
+        if (! empty($arr['x509_subject'])) {
             $require[] = "SUBJECT '"
-                    . Util::sqlAddSlashes($_POST['x509_subject']) . "'";
+                    . Util::sqlAddSlashes($arr['x509_subject']) . "'";
         }
         if (count($require)) {
             $require_clause = " REQUIRE " . implode(" AND ", $require);
         } else {
             $require_clause = " REQUIRE NONE";
         }
-    } elseif (isset($_POST['ssl_type']) && $_POST['ssl_type'] == 'X509') {
+    } elseif (isset($arr['ssl_type']) && $arr['ssl_type'] == 'X509') {
         $require_clause = " REQUIRE X509";
-    } elseif (isset($_POST['ssl_type']) && $_POST['ssl_type'] == 'ANY') {
+    } elseif (isset($arr['ssl_type']) && $arr['ssl_type'] == 'ANY') {
         $require_clause = " REQUIRE SSL";
     } else {
         $require_clause = " REQUIRE NONE";
@@ -2213,23 +2199,36 @@ function PMA_getRequireClause()
 function PMA_getWithClauseForAddUserAndUpdatePrivs()
 {
     $sql_query = '';
-    if (isset($_POST['Grant_priv']) && $_POST['Grant_priv'] == 'Y') {
+    if ((isset($_POST['Grant_priv']) && $_POST['Grant_priv'] == 'Y')
+        || (isset($GLOBALS['Grant_priv']) && $GLOBALS['Grant_priv'] == 'Y')
+    ) {
         $sql_query .= ' GRANT OPTION';
     }
-    if (isset($_POST['max_questions'])) {
-        $max_questions = max(0, (int)$_POST['max_questions']);
+    if (isset($_POST['max_questions']) || isset($GLOBALS['max_questions'])) {
+        $max_questions = isset($_POST['max_questions'])
+            ? (int)$_POST['max_questions'] : (int)$GLOBALS['max_questions'];
+        $max_questions = max(0, $max_questions);
         $sql_query .= ' MAX_QUERIES_PER_HOUR ' . $max_questions;
     }
-    if (isset($_POST['max_connections'])) {
-        $max_connections = max(0, (int)$_POST['max_connections']);
+    if (isset($_POST['max_connections']) || isset($GLOBALS['max_connections'])) {
+        $max_connections = isset($_POST['max_connections'])
+            ? (int)$_POST['max_connections'] : (int)$GLOBALS['max_connections'];
+        $max_connections = max(0, $max_connections);
         $sql_query .= ' MAX_CONNECTIONS_PER_HOUR ' . $max_connections;
     }
-    if (isset($_POST['max_updates'])) {
-        $max_updates = max(0, (int)$_POST['max_updates']);
+    if (isset($_POST['max_updates']) || isset($GLOBALS['max_updates'])) {
+        $max_updates = isset($_POST['max_updates'])
+            ? (int)$_POST['max_updates'] : (int)$GLOBALS['max_updates'];
+        $max_updates = max(0, $max_updates);
         $sql_query .= ' MAX_UPDATES_PER_HOUR ' . $max_updates;
     }
-    if (isset($_POST['max_user_connections'])) {
-        $max_user_connections = max(0, (int)$_POST['max_user_connections']);
+    if (isset($_POST['max_user_connections'])
+        || isset($GLOBALS['max_user_connections'])
+    ) {
+        $max_user_connections = isset($_POST['max_user_connections'])
+            ? (int)$_POST['max_user_connections']
+            : (int)$GLOBALS['max_user_connections'];
+        $max_user_connections = max(0, $max_user_connections);
         $sql_query .= ' MAX_USER_CONNECTIONS ' . $max_user_connections;
     }
     return ((!empty($sql_query)) ? ' WITH' . $sql_query : '');
@@ -2376,7 +2375,7 @@ function PMA_getListOfPrivilegesAndComparedPrivileges()
  */
 function PMA_getHtmlTableBodyForSpecificDbRoutinePrivs($db, $odd_row, $index_checkbox)
 {
-    $sql_query = 'SELECT * FROM `mysql`.`procs_priv` WHERE Db = "' . $db . '";';
+    $sql_query = 'SELECT * FROM `mysql`.`procs_priv` WHERE Db = \'' . Util::sqlAddSlashes($db) . '\';';
     $res = $GLOBALS['dbi']->query($sql_query);
     $html_output = '';
     while ($row = $GLOBALS['dbi']->fetchAssoc($res)) {
@@ -3324,6 +3323,30 @@ function PMA_getUserSpecificRights($username, $hostname, $type, $dbname = '')
 }
 
 /**
+ * Parses Proc_priv data
+ *
+ * @param string $prins Proc_priv
+ *
+ * @return array
+ */
+function PMA_parseProcPriv($privs)
+{
+    $result = array(
+        'Alter_routine_priv' => 'N',
+        'Execute_priv'       => 'N',
+        'Grant_priv'         => 'N',
+    );
+    foreach (explode(',', $privs) as $priv) {
+        if ($priv == 'Alter Routine') {
+            $result['Alter_routine_priv'] = 'Y';
+        } else {
+            $result[$priv . '_priv'] = 'Y';
+        }
+    }
+    return $result;
+}
+
+/**
  * Get a HTML table for display user's tabel specific or database specific rights
  *
  * @param string $username username
@@ -3400,18 +3423,7 @@ function PMA_getHtmlForAllTableSpecificRights(
                 explode(',', $row['Proc_priv'])
             );
 
-            $privs = array(
-                'Alter_routine_priv' => 'N',
-                'Execute_priv'       => 'N',
-                'Grant_priv'         => 'N',
-            );
-            foreach (explode(',', $row['Proc_priv']) as $priv) {
-                if ($priv == 'Alter Routine') {
-                    $privs['Alter_routine_priv'] = 'Y';
-                } else {
-                    $privs[$priv . '_priv'] = 'Y';
-                }
-            }
+            $privs = PMA_parseProcPriv($row['Proc_priv']);
             $onePrivilege['privileges'] = join(
                 ',',
                 PMA_extractPrivInfo($privs, true)
@@ -3536,7 +3548,7 @@ function PMA_getUsersOverview($result, $db_rights, $pmaThemeImage, $text_dir)
         $row['privs'] = PMA_extractPrivInfo($row, true);
         $db_rights[$row['User']][$row['Host']] = $row;
     }
-    @$GLOBALS['dbi']->freeResult($result);
+    $GLOBALS['dbi']->freeResult($result);
     $user_group_count = 0;
     if ($GLOBALS['cfgRelation']['menuswork']) {
         $user_group_count = PMA_getUserGroupCount();
@@ -3687,7 +3699,7 @@ function PMA_getHtmlTableBodyForUserRights($db_rights)
             if ($cfgRelation['menuswork']) {
                 $html_output .= '<td class="usrGroup">' . "\n"
                     . (isset($group_assignment[$host['User']])
-                        ? $group_assignment[$host['User']]
+                        ? htmlspecialchars($group_assignment[$host['User']])
                         : ''
                     )
                     . '</td>' . "\n";
@@ -4008,10 +4020,7 @@ function PMA_updatePrivileges($username, $hostname, $tablename, $dbname, $itemTy
     }
     $sql_query = $sql_query0 . ' ' . $sql_query1 . ' ' . $sql_query2;
     $message = Message::success(__('You have updated the privileges for %s.'));
-    $message->addParam(
-        '\'' . htmlspecialchars($username)
-        . '\'@\'' . htmlspecialchars($hostname) . '\''
-    );
+    $message->addParam('\'' . $username . '\'@\'' . $hostname . '\'');
 
     return array($sql_query, $message);
 }
@@ -4042,6 +4051,9 @@ function PMA_getDataForChangeOrCopyUser()
             unset($_REQUEST['change_copy']);
         } else {
             extract($row, EXTR_OVERWRITE);
+            foreach ($row as $key => $value) {
+                $GLOBALS[$key] = $value;
+            }
             // Recent MySQL versions have the field "Password" in mysql.user,
             // so the previous extract creates $Password but this script
             // uses $password
@@ -4205,16 +4217,6 @@ function PMA_addUser(
         );
     }
 
-    if (!isset($_REQUEST['adduser_submit']) && !isset($_REQUEST['change_copy'])) {
-        return array(
-            $message,
-            $queries,
-            $queries_for_display,
-            $sql_query,
-            $_add_user_error
-        );
-    }
-
     $sql_query = '';
     if ($_POST['pred_username'] == 'any') {
         $username = '';
@@ -4243,9 +4245,7 @@ function PMA_addUser(
         . " AND `Host` = '" . Util::sqlAddSlashes($hostname) . "';";
     if ($GLOBALS['dbi']->fetchValue($sql) == 1) {
         $message = Message::error(__('The user %s already exists!'));
-        $message->addParam(
-            '[em]\'' . $username . '\'@\'' . $hostname . '\'[/em]'
-        );
+        $message->addParam('[em]\'' . $username . '\'@\'' . $hostname . '\'[/em]');
         $_REQUEST['adduser'] = true;
         $_add_user_error = true;
 
@@ -4804,14 +4804,12 @@ function PMA_getHtmlForUserOverview($pmaThemeImage, $text_dir)
                     ),
                     Message::NOTICE
                 );
-                $flushLink = '<a href="server_privileges.php'
+                $flushnote->addParamHtml(
+                    '<a href="server_privileges.php'
                     . URL::getCommon(array('flush_privileges' => 1))
-                    . '" id="reload_privileges_anchor">';
-                $flushnote->addParam(
-                    $flushLink,
-                    false
+                    . '" id="reload_privileges_anchor">'
                 );
-                $flushnote->addParam('</a>', false);
+                $flushnote->addParamHtml('</a>');
             } else {
                 $flushnote = new Message(
                     __(
@@ -5327,14 +5325,9 @@ function PMA_getSqlQueriesForDisplayAndAddUser($username, $hostname, $password)
     $real_sql_query .= $require_clause;
     $sql_query .= $require_clause;
 
-    if ((isset($_POST['Grant_priv']) && $_POST['Grant_priv'] == 'Y')
-        || (isset($_POST['max_questions']) || isset($_POST['max_connections'])
-        || isset($_POST['max_updates']) || isset($_POST['max_user_connections']))
-    ) {
-        $with_clause = PMA_getWithClauseForAddUserAndUpdatePrivs();
-        $real_sql_query .= $with_clause;
-        $sql_query .= $with_clause;
-    }
+    $with_clause = PMA_getWithClauseForAddUserAndUpdatePrivs();
+    $real_sql_query .= $with_clause;
+    $sql_query .= $with_clause;
 
     if (isset($create_user_real)) {
         $create_user_real .= ';';

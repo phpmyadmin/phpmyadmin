@@ -32,7 +32,7 @@
         ?>>
     <?php endif; ?>
         <?= $content ?>
-    <?php if (!empty($url) && is_array($url)): ?>
+    <?php if (isset($url) && is_array($url) && array_filter($url)) : ?>
         </a>
     <?php endif; ?>
     <?php if (!empty($mysql_help_page)): ?>

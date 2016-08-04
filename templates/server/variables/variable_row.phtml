@@ -1,7 +1,7 @@
 <tr class="var-row <?= $rowClass; ?>">
     <td class="var-action">
     <?php if ($editable): ?>
-        <a href="#" class="editLink"><?= \PMA\libraries\Util::getIcon('b_edit.png', __('Edit')) ?></a>
+        <a href="#" data-variable="<?= htmlspecialchars($name) ?>" class="editLink"><?= \PMA\libraries\Util::getIcon('b_edit.png', __('Edit')) ?></a>
     <?php else: ?>
         <span title="<?= __('This is a read-only variable and can not be edited') ?>" class="read_only_var">
             <?= \PMA\libraries\Util::getIcon('bd_edit.png', __('Edit')) ?>

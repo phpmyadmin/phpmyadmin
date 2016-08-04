@@ -33,16 +33,12 @@ function PMA_getIp()
     $trusted_header_value
         = PMA_getenv($GLOBALS['cfg']['TrustedProxies'][$direct_ip]);
     $matches = array();
-    // the $ checks that the header contains only one IP address,
-    // ?: makes sure the () don't capture
-    $is_ip = preg_match(
-        '|^(?:[0-9]{1,3}\.){3,3}[0-9]{1,3}$|',
-        $trusted_header_value, $matches
-    );
+    // checks that the header contains only one IP address,
+    $is_ip = filter_var($trusted_header_value, FILTER_VALIDATE_IP);
 
-    if ($is_ip && (count($matches) == 1)) {
+    if ($is_ip !== false) {
         // True IP behind a proxy
-        return $matches[0];
+        return $trusted_header_value;
     }
 
     /* Return true IP */
@@ -149,7 +145,7 @@ function PMA_ipv4MaskTest($testRange, $ipToTest)
 
 /**
  * IPv6 matcher
- * CIDR section taken from http://stackoverflow.com/a/10086404
+ * CIDR section taken from https://stackoverflow.com/a/10086404
  * Modified for phpMyAdmin
  *
  * Matches:

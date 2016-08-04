@@ -183,7 +183,7 @@ Credits, in chronological order
   * :term:`PDF` schema output, thanks also to
     Olivier Plathey for the "FPDF" library (see <http://www.fpdf.org/>), Steven
     Wittens for the "UFPDF" library (see <https://acko.net/blog/ufpdf-unicode-utf-8-extension-for-fpdf/>) and
-    Nicola Asuni for the "TCPDF" library (see <http://www.tcpdf.org/>).
+    Nicola Asuni for the "TCPDF" library (see <https://tcpdf.org/>).
 
 * Olof Edlund <olof.edlund\_at\_upright.se>
 
@@ -205,7 +205,7 @@ Credits, in chronological order
 
 * Nicola Asuni (Tecnick.com)
 
-  * TCPDF library (`http://www.tcpdf.org <http://www.tcpdf.org>`_)
+  * TCPDF library (<https://tcpdf.org>)
 
 * Michael Keck <mkkeck\_at\_users.sourceforge.net>
 
@@ -563,7 +563,7 @@ Following people have contributed to translation of phpMyAdmin:
 
 * Finnish
 
-    * Juha <jremes\_at\_outlook.com>
+    * Juha Remes <jremes\_at\_outlook.com>
     * Lari Oesch <lari\_at\_oesch.me>
 
 

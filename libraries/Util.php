@@ -88,7 +88,7 @@ class Util
              $pow = gmp_strval(gmp_pow($base, $exp));
             break;
         case 'pow' :
-            $base = (float) $base;
+            $base = $base;
             $exp = (int) $exp;
             $pow = pow($base, $exp);
             break;
@@ -1115,7 +1115,7 @@ class Util
 
         if ($message instanceof Message) {
             if (isset($GLOBALS['special_message'])) {
-                $message->addMessage($GLOBALS['special_message']);
+                $message->addText($GLOBALS['special_message']);
                 unset($GLOBALS['special_message']);
             }
             $retval .= $message->getDisplay();
@@ -1130,44 +1130,38 @@ class Util
         }
 
         if ($render_sql) {
+            $query_too_big = false;
+
+            $queryLength = mb_strlen($sql_query);
+            if ($queryLength > $cfg['MaxCharactersInDisplayedSQL']) {
+                // when the query is large (for example an INSERT of binary
+                // data), the parser chokes; so avoid parsing the query
+                $query_too_big = true;
+                $query_base = mb_substr(
+                    $sql_query,
+                    0,
+                    $cfg['MaxCharactersInDisplayedSQL']
+                ) . '[...]';
+            } else {
+                $query_base = $sql_query;
+            }
+
             // Html format the query to be displayed
             // If we want to show some sql code it is easiest to create it here
             /* SQL-Parser-Analyzer */
 
             if (! empty($GLOBALS['show_as_php'])) {
-                $new_line = '\\n"<br />' . "\n"
-                    . '&nbsp;&nbsp;&nbsp;&nbsp;. "';
-                $query_base = htmlspecialchars(addslashes($sql_query));
+                $new_line = '\\n"<br />' . "\n" . '&nbsp;&nbsp;&nbsp;&nbsp;. "';
+                $query_base = htmlspecialchars(addslashes($query_base));
                 $query_base = preg_replace(
                     '/((\015\012)|(\015)|(\012))/',
                     $new_line,
                     $query_base
                 );
+                $query_base = '$sql  = "' . $query_base . '"';
+            } elseif ($query_too_big) {
+                $query_base = htmlspecialchars($query_base);
             } else {
-                $query_base = $sql_query;
-            }
-
-            $query_too_big = false;
-
-            $queryLength = mb_strlen($query_base);
-            if ($queryLength > $cfg['MaxCharactersInDisplayedSQL']) {
-                // when the query is large (for example an INSERT of binary
-                // data), the parser chokes; so avoid parsing the query
-                $query_too_big = true;
-                $shortened_query_base = nl2br(
-                    htmlspecialchars(
-                        mb_substr(
-                            $sql_query,
-                            0,
-                            $cfg['MaxCharactersInDisplayedSQL']
-                        ) . '[...]'
-                    )
-                );
-            }
-
-            if (! empty($GLOBALS['show_as_php'])) {
-                $query_base = '$sql  = "' . $query_base;
-            } elseif (isset($query_base)) {
                 $query_base = self::formatSql($query_base);
             }
 
@@ -1222,7 +1216,7 @@ class Util
                         . urlencode(self::_generateRowQueryOutput($sql_query));
                     $explain_link .= ' ['
                         . self::linkOrButton(
-                            'url.php?url=' . urlencode($url),
+                            htmlspecialchars('url.php?url=' . urlencode($url)),
                             sprintf(__('Analyze Explain at %s'), 'mariadb.org'),
                             array(),
                             true,
@@ -1302,11 +1296,7 @@ class Util
             } //refresh
 
             $retval .= '<div class="sqlOuter">';
-            if ($query_too_big) {
-                $retval .= $shortened_query_base;
-            } else {
-                $retval .= $query_base;
-            }
+            $retval .= $query_base;
 
             //Clean up the end of the PHP
             if (! empty($GLOBALS['show_as_php'])) {
@@ -1463,8 +1453,7 @@ class Util
         $unit = $byteUnits[0];
 
         for ($d = 6, $ex = 15; $d >= 1; $d--, $ex-=3) {
-            // cast to float to avoid overflow
-            $unitSize = (float) $li * self::pow(10, $ex);
+            $unitSize = $li * self::pow(10, $ex);
             if (isset($byteUnits[$d]) && $value >= $unitSize) {
                 // use 1024.0 to avoid integer overflow on 64-bit machines
                 $value = round($value / (self::pow(1024, $d) / $dh)) /$dh;
@@ -4888,5 +4877,20 @@ class Util
         }
 
         return $result;
+    }
+
+    /**
+     * Converts given (request) paramter to string
+     *
+     * @param mixed $value Value to convert
+     *
+     * @return string
+     */
+    public static function requestString($value)
+    {
+        while (is_array($value) || is_object($value)) {
+            $value = reset($value);
+        }
+        return trim((string)$value);
     }
 }

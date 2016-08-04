@@ -156,7 +156,7 @@ if ($server > 0 || count($cfg['Servers']) > 1
                 . 'please do not change root, debian-sys-maint and pma users. '
                 . 'More information is available at %s.'
             ),
-            '<a href="url.php?url=https://demo.phpmyadmin.net/">demo.phpmyadmin.net</a>'
+            '<a href="url.php?url=https://demo.phpmyadmin.net/" target="_blank">demo.phpmyadmin.net</a>'
         );
         echo '</p>';
         echo '</div>';
@@ -314,7 +314,7 @@ if ($server > 0 && $GLOBALS['cfg']['ShowServerInfo']) {
        . '        <span lang="en" dir="ltr">';
     $unicode = Charsets::$mysql_charset_map['utf-8'];
     $charsets = Charsets::getMySQLCharsetsDescriptions();
-    echo '           ' , $charsets[$unicode], ' ('. $unicode, ')';
+    echo '           ' , $charsets[$unicode], ' (' . $unicode, ')';
     echo '        </span>'
        . '    </li>'
        . '  </ul>'
@@ -562,19 +562,15 @@ if ($server > 0) {
             . '%sFind out why%s. '
         );
         if ($cfg['ZeroConf'] == true) {
-            $msg_text .= '<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' .
+            $msg_text .= '<br>' .
                 __(
                     'Or alternately go to \'Operations\' tab of any database '
                     . 'to set it up there.'
                 );
         }
         $msg = PMA\libraries\Message::notice($msg_text);
-        $msg->addParam(
-            '<a href="./chk_rel.php'
-            . $common_url_query . '">',
-            false
-        );
-        $msg->addParam('</a>', false);
+        $msg->addParamHtml('<a href="./chk_rel.php' . $common_url_query . '">');
+        $msg->addParamHtml('</a>');
         /* Show error if user has configured something, notice elsewhere */
         if (!empty($cfg['Servers'][$server]['pmadb'])) {
             $msg->isError(true);

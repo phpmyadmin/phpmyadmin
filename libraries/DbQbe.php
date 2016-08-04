@@ -1470,17 +1470,21 @@ class DbQbe
         // Of course we only want to check each table once
         $checked_tables = $candidate_columns;
         $tsize = array();
-        $csize = array();
+        $maxsize = -1;
+        $result = '';
         foreach ($candidate_columns as $table) {
             if ($checked_tables[$table] != 1) {
                 $_table = new Table($table, $this->_db);
                 $tsize[$table] = $_table->countRecords();
                 $checked_tables[$table] = 1;
             }
-            $csize[$table] = $tsize[$table];
+            if ($tsize[$table] > $maxsize) {
+                $maxsize = $tsize[$table];
+                $result = $table;
+            }
         }
         // Return largest table
-        return array_search(max($csize), $csize);
+        return $result;
     }
 
     /**
@@ -1902,7 +1906,7 @@ class DbQbe
         }
         $html_output .= '</select>';
         $html_output .= '<input type="text" name="searchName" id="searchName" '
-            . 'value="' . $currentSearchName . '" />';
+            . 'value="' . htmlspecialchars($currentSearchName) . '" />';
         $html_output .= '<input type="hidden" name="action" id="action" value="" />';
         $html_output .= '<input type="submit" name="saveSearch" id="saveSearch" '
             . 'value="' . __('Create bookmark') . '" />';

@@ -7,7 +7,7 @@
             <?php
                 $checked = isset($columnMeta['Field'])
                          && isset($mime_map[$columnMeta['Field']][$type])
-                         && preg_match('@' . preg_quote($available_mime[$type . '_file'][$mimekey]) . '3?@i',
+                         && preg_match('@' . preg_quote($available_mime[$type . '_file'][$mimekey], '@') . '3?@i',
                                         $mime_map[$columnMeta['Field']][$type]) ? 'selected ' : '';
                 $tooltip = PMA_getTransformationDescription(
                     $available_mime[$type . '_file'][$mimekey]

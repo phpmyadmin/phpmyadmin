@@ -1025,7 +1025,7 @@ class DisplayResults
             . '<input type="hidden" name="is_browse_distinct" value="'
             . $this->__get('is_browse_distinct') . '" />'
             . '<input type="hidden" name="session_max_rows" value="'
-            . (! $showing_all ? 'all' : $GLOBALS['cfg']['MaxRows']) . '" />'
+            . (! $showing_all ? 'all' : intval($GLOBALS['cfg']['MaxRows'])) . '" />'
             . '<input type="hidden" name="goto" value="' . $this->__get('goto')
             . '" />'
             . '<input type="checkbox" name="navig"'
@@ -1159,9 +1159,9 @@ class DisplayResults
      * @param array   $displayParts                which elements to display
      * @param array   $analyzed_sql_results        analyzed sql results
      * @param array   $sort_expression             sort expression
-     * @param string  $sort_expression_nodirection sort expression
+     * @param array   $sort_expression_nodirection sort expression
      *                                             without direction
-     * @param string  $sort_direction              sort direction
+     * @param array   $sort_direction              sort direction
      * @param boolean $is_limited_display          with limited operations
      *                                             or not
      * @param string  $unsorted_sql_query          query without the sort part
@@ -1267,9 +1267,9 @@ class DisplayResults
      * @param array   $analyzed_sql_results        analyzed sql results
      * @param string  $unsorted_sql_query          the unsorted sql query
      * @param array   $sort_expression             sort expression
-     * @param string  $sort_expression_nodirection sort expression
+     * @param array   $sort_expression_nodirection sort expression
      *                                             without direction
-     * @param string  $sort_direction              sort direction
+     * @param array   $sort_direction              sort direction
      * @param boolean $is_limited_display          with limited operations
      *                                             or not
      *
@@ -1282,7 +1282,7 @@ class DisplayResults
     private function _getTableHeaders(
         &$displayParts, $analyzed_sql_results, $unsorted_sql_query,
         $sort_expression = array(), $sort_expression_nodirection = '',
-        $sort_direction = '', $is_limited_display = false
+        $sort_direction = array(), $is_limited_display = false
     ) {
 
         $table_headers_html = '';
@@ -1945,12 +1945,12 @@ class DisplayResults
      *
      * @param array   $fields_meta                 set of field properties
      * @param array   $sort_expression             sort expression
-     * @param string  $sort_expression_nodirection sort expression without direction
+     * @param array   $sort_expression_nodirection sort expression without direction
      * @param integer $column_index                the index of the column
      * @param string  $unsorted_sql_query          the unsorted sql query
      * @param integer $session_max_rows            maximum rows resulted by sql
      * @param string  $comments                    comment for row
-     * @param string  $sort_direction              sort direction
+     * @param array   $sort_direction              sort direction
      * @param boolean $col_visib                   column is visible(false)
      *        array                                column isn't visible(string array)
      * @param string  $col_visib_j                 element of $col_visib array
@@ -2043,12 +2043,12 @@ class DisplayResults
      * Prepare parameters and html for sorted table header fields
      *
      * @param array   $sort_expression             sort expression
-     * @param string  $sort_expression_nodirection sort expression without direction
+     * @param array   $sort_expression_nodirection sort expression without direction
      * @param string  $sort_tbl                    The name of the table to which
      *                                             the current column belongs to
      * @param string  $name_to_use_in_sort         The current column under
      *                                             consideration
-     * @param string  $sort_direction              sort direction
+     * @param array   $sort_direction              sort direction
      * @param array   $fields_meta                 set of field properties
      * @param integer $column_index                The index number to current column
      *
@@ -3176,8 +3176,7 @@ class DisplayResults
                 $_url_params['sql_query'] = $url_sql_query;
             }
 
-            $transform_options['wrapper_link']
-                = URL::getCommon($_url_params);
+            $transform_options['wrapper_link'] = URL::getCommon($_url_params);
 
             $display_params = $this->__get('display_params');
 
@@ -3294,7 +3293,7 @@ class DisplayResults
         $divider = strpos($link_relations['default_page'], '?') ? '&' : '?';
         if (empty($link_relations['link_dependancy_params'])) {
             return $link_relations['default_page']
-                . URL::getCommon($linking_url_params, 'html', $divider);
+                . URL::getCommon($linking_url_params, $divider);
         }
 
         foreach ($link_relations['link_dependancy_params'] as $new_param) {
@@ -3318,7 +3317,7 @@ class DisplayResults
         }
 
         return $link_relations['default_page']
-            . URL::getCommon($linking_url_params, 'html', $divider);
+            . URL::getCommon($linking_url_params, $divider);
     }
 
 
@@ -3542,7 +3541,7 @@ class DisplayResults
                 'goto'      => (empty($goto) ? 'tbl_sql.php' : $goto),
             );
 
-            $lnk_goto = 'sql.php' . URL::getCommon($_url_params, 'text');
+            $lnk_goto = 'sql.php' . URL::getCommonRaw($_url_params);
 
             $del_query = 'DELETE FROM '
                 . Util::backquote($this->__get('table'))
@@ -3573,10 +3572,7 @@ class DisplayResults
                     'goto'      => 'index.php',
                 );
 
-            $lnk_goto = 'sql.php'
-                . URL::getCommon(
-                    $_url_params, 'text'
-                );
+            $lnk_goto = 'sql.php' . URL::getCommonRaw($_url_params);
 
             $kill = $GLOBALS['dbi']->getKillQuery($row[0]);
 
@@ -3763,7 +3759,7 @@ class DisplayResults
      * @param object|string $transformation_plugin the name of transformation plugin
      * @param string        $default_function      the default transformation
      *                                             function
-     * @param string        $transform_options     the transformation parameters
+     * @param array         $transform_options     the transformation parameters
      *
      * @return  string  $cell the prepared cell, html content
      *
@@ -4111,7 +4107,7 @@ class DisplayResults
             $query['max_rows'] = self::ALL_ROWS;
             unset($_REQUEST['session_max_rows']);
         } elseif (empty($query['max_rows'])) {
-            $query['max_rows'] = $GLOBALS['cfg']['MaxRows'];
+            $query['max_rows'] = intval($GLOBALS['cfg']['MaxRows']);
         }
 
         if (PMA_isValid($_REQUEST['pos'], 'numeric')) {
@@ -4530,8 +4526,8 @@ class DisplayResults
      * Prepare sorted column message
      *
      * @param integer &$dt_result                  the link id associated to the
-     *                                              query which results have to
-     *                                              be displayed
+     *                                             query which results have to
+     *                                             be displayed
      * @param string  $sort_expression_nodirection sort expression without direction
      *
      * @return  string                              html content
@@ -4718,12 +4714,12 @@ class DisplayResults
         $message->addParam($first_shown_rec);
 
         if ($message_view_warning !== false) {
-            $message->addParam('... ' . $message_view_warning, false);
+            $message->addParamHtml('... ' . $message_view_warning);
         } else {
             $message->addParam($last_shown_rec);
         }
 
-        $message->addMessage('(');
+        $message->addText('(');
 
         if ($message_view_warning === false) {
 
@@ -4739,11 +4735,11 @@ class DisplayResults
             }
 
             if (!empty($after_count)) {
-                $message_total->addMessage($after_count);
+                $message_total->addHtml($after_count);
             }
             $message->addMessage($message_total, '');
 
-            $message->addMessage(', ', '');
+            $message->addText(', ', '');
         }
 
         $message_qt = Message::notice(__('Query took %01.4f seconds.') . ')');
@@ -4751,7 +4747,7 @@ class DisplayResults
 
         $message->addMessage($message_qt, '');
         if (! is_null($sorted_column_message)) {
-            $message->addMessage($sorted_column_message, '');
+            $message->addHtml($sorted_column_message, '');
         }
 
         return $message;
@@ -5267,7 +5263,7 @@ class DisplayResults
 
         if (isset($content)) {
 
-            $size = mb_strlen($content, '8bit');
+            $size = strlen($content);
             $display_size = Util::formatByteDown($size, 3, 1);
             $result .= ' - ' . $display_size[0] . ' ' . $display_size[1];
 

@@ -141,10 +141,14 @@ require_once 'libraries/parse_analyze.lib.php';
 list(
     $analyzed_sql_results,
     $db,
-    $table
+    $table_from_sql
 ) = PMA_parseAnalyze($sql_query, $db);
 // @todo: possibly refactor
 extract($analyzed_sql_results);
+
+if ($table != $table_from_sql && !empty($table_from_sql)) {
+    $table = $table_from_sql;
+}
 
 
 /**

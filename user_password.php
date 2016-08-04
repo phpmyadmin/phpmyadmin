@@ -236,6 +236,7 @@ function PMA_changePassUrlParamsAndSubmitQuery(
     } else if ($serverType == 'MariaDB'
         && PMA_MYSQL_INT_VERSION >= 50200
         && PMA_MYSQL_INT_VERSION < 100100
+        && $orig_auth_plugin !== ''
     ) {
         if ($orig_auth_plugin == 'mysql_native_password') {
             // Set the hashing method used by PASSWORD()
@@ -255,8 +256,6 @@ function PMA_changePassUrlParamsAndSubmitQuery(
             . " `plugin` = '" . $orig_auth_plugin . "'"
             . " WHERE `User` = '" . $username . "' AND Host = '"
             . $hostname . "';";
-
-        $GLOBALS['dbi']->tryQuery("FLUSH PRIVILEGES;");
     } else {
         $local_query = 'SET password = ' . (($password == '')
             ? '\'\''
@@ -271,6 +270,9 @@ function PMA_changePassUrlParamsAndSubmitQuery(
             $err_url
         );
     }
+
+    // Flush privileges after successful password change
+    $GLOBALS['dbi']->tryQuery("FLUSH PRIVILEGES;");
 }
 
 /**

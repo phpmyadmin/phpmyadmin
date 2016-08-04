@@ -176,7 +176,7 @@ class ServerVariablesControllerTest extends PMATestCase
 
         //Call the test function
         $html = $method->invoke($ctrl);
-        $url = 'server_variables.php' . URL::getCommon(array());
+        $url = 'server_variables.php' . URL::getCommon();
 
         //validate 1: URL
         $this->assertContains(

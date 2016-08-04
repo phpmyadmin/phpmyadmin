@@ -894,7 +894,7 @@ function PMA_getDefaultSqlQueryForBrowse($db, $table)
             __('Using bookmark "%s" as default browse query.')
         );
         $GLOBALS['using_bookmark_message']->addParam($table);
-        $GLOBALS['using_bookmark_message']->addMessage(
+        $GLOBALS['using_bookmark_message']->addHtml(
             PMA\libraries\Util::showDocu('faq', 'faq6-22')
         );
         $sql_query = $bookmark->getQuery();
@@ -1336,7 +1336,7 @@ function PMA_getMessageForNoRowsReturned($message_to_show,
         if ($insert_id != 0) {
             // insert_id is id of FIRST record inserted in one insert,
             // so if we inserted multiple rows, we had to increment this
-            $message->addMessage('[br]');
+            $message->addText('[br]');
             // need to use a temporary because the Message class
             // currently supports adding parameters only to the first
             // message
@@ -1379,7 +1379,7 @@ function PMA_getMessageForNoRowsReturned($message_to_show,
 
     // In case of ROLLBACK, notify the user.
     if (isset($_REQUEST['rollback_query'])) {
-        $message->addMessage(__('[ROLLBACK occurred.]'));
+        $message->addText(__('[ROLLBACK occurred.]'));
     }
 
     return $message;
@@ -1589,7 +1589,7 @@ function PMA_getHtmlForSqlQueryResultsTable($displayResultsObject,
     $editable, $unlim_num_rows, $num_rows, $showtable, $result,
     $analyzed_sql_results, $is_limited_display = false
 ) {
-    $printview = isset($_REQUEST['printview']) ? $_REQUEST['printview'] : null;
+    $printview = isset($_REQUEST['printview']) && $_REQUEST['printview'] == '1' ? '1' : null;
     $table_html = '';
     $browse_dist = ! empty($_REQUEST['is_browse_distinct']);
 
@@ -2035,10 +2035,14 @@ function PMA_executeQueryAndSendQueryResponse($analyzed_sql_results,
         list(
             $analyzed_sql_results,
             $db,
-            $table
+            $table_from_sql
         ) = PMA_parseAnalyze($sql_query, $db);
         // @todo: possibly refactor
         extract($analyzed_sql_results);
+
+        if ($table != $table_from_sql && !empty($table_from_sql)) {
+            $table = $table_from_sql;
+        }
     }
 
     $html_output = PMA_executeQueryAndGetQueryResponse(

@@ -1998,11 +1998,8 @@ function PMA_getHtmlFixPMATables($allTables, $createDb = false)
             __('%sCreate%s missing phpMyAdmin configuration storage tables.')
         );
     }
-    $message->addParam(
-        '<a href="./chk_rel.php' . $url_query . '">',
-        false
-    );
-    $message->addParam('</a>', false);
+    $message->addParamHtml('<a href="./chk_rel.php' . $url_query . '">');
+    $message->addParamHtml('</a>');
 
     $retval .= $message->getDisplay();
 

@@ -80,7 +80,7 @@ class ErrorHandler
     /**
      * returns array with all errors
      *
-     * @param $check bool Whether to check for session errors
+     * @param bool $check Whether to check for session errors
      *
      * @return Error[]
      */
@@ -94,7 +94,7 @@ class ErrorHandler
 
     /**
     * returns the errors occurred in the current run only.
-    * Does not include the errors save din the SESSION
+    * Does not include the errors saved in the SESSION
     *
     * @return Error[]
     */
@@ -104,7 +104,7 @@ class ErrorHandler
     }
 
     /**
-     * Pops recent erros from the storage
+     * Pops recent errors from the storage
      *
      * @param int $count Old error count
      *
@@ -293,7 +293,7 @@ class ErrorHandler
      */
     public function getDispErrors()
     {
-        // Not sure why but seen in reports.phpmyadmin.net
+        // Not sure why but seen in https://reports.phpmyadmin.net/
         if (empty($GLOBALS['cfg']['SendErrorReports'])) {
             $GLOBALS['cfg']['SendErrorReports'] = 'ask';
         }
@@ -389,7 +389,7 @@ class ErrorHandler
     /**
      * return count of errors
      *
-     * @param $check bool Whether to check for session errors
+     * @param bool $check Whether to check for session errors
      *
      * @return integer number of errors occurred
      */

@@ -53,7 +53,7 @@ Basic settings
 
     Sets here the complete :term:`URL` (with full path) to your phpMyAdmin
     installation's directory. E.g.
-    ``http://www.example.net/path_to_your_phpMyAdmin_directory/``.  Note also
+    ``https://www.example.net/path_to_your_phpMyAdmin_directory/``.  Note also
     that the :term:`URL` on most of web servers are case sensitive (even on
     Windows). Don’t forget the trailing slash at the end.
 
@@ -442,6 +442,10 @@ Server connection settings
     Permits to use an alternate host to hold the configuration storage
     data.
 
+    .. seealso::
+
+        :config:option:`$cfg['Servers'][$i]['control_*']`
+
 .. _controlport:
 .. config:option:: $cfg['Servers'][$i]['controlport']
 
@@ -450,6 +454,10 @@ Server connection settings
 
     Permits to use an alternate port to connect to the host that
     holds the configuration storage.
+
+    .. seealso::
+
+        :config:option:`$cfg['Servers'][$i]['control_*']`
 
 .. _controluser:
 .. config:option:: $cfg['Servers'][$i]['controluser']
@@ -462,15 +470,11 @@ Server connection settings
     :type: string
     :default: ``''``
 
-        This special account is used to access :ref:`linked-tables`. 
-        You don't need it in single user case, but if phpMyAdmin is shared it
-        is recommended to give access to :ref:`linked-tables` only to this user
-        and configure phpMyAdmin to use it. All users will then be able to use 
-        the features without need to have direct access to :ref:`linked-tables`.
-
-    (see
-
-    You can use 
+    This special account is used to access :ref:`linked-tables`. 
+    You don't need it in single user case, but if phpMyAdmin is shared it
+    is recommended to give access to :ref:`linked-tables` only to this user
+    and configure phpMyAdmin to use it. All users will then be able to use 
+    the features without need to have direct access to :ref:`linked-tables`.
 
     .. versionchanged:: 2.2.5
         those were called ``stduser`` and ``stdpass``
@@ -480,7 +484,45 @@ Server connection settings
         :ref:`setup`, 
         :ref:`authentication_modes`, 
         :ref:`linked-tables`,
-        :config:option:`$cfg['Servers'][$i]['pmadb']`
+        :config:option:`$cfg['Servers'][$i]['pmadb']`,
+        :config:option:`$cfg['Servers'][$i]['controlhost']`,
+        :config:option:`$cfg['Servers'][$i]['controlport']`,
+        :config:option:`$cfg['Servers'][$i]['control_*']`
+
+.. config:option:: $cfg['Servers'][$i]['control_*']
+
+    :type: mixed
+
+    .. versionadded:: 4.7.0
+
+    You can change any MySQL connection setting for control link (used to
+    access :ref:`linked-tables`) using configuration prefixed with ``control_``.
+
+    This can be used to change any aspect of the control connection, which by
+    default uses same parameters as the user one.
+
+    For example you can configure SSL for the control connection:
+
+    .. code-block:: php
+
+        // Enable SSL
+        $cfg['Servers'][$i]['control_ssl'] = true;
+        // Client secret key
+        $cfg['Servers'][$i]['control_ssl_key'] = '../client-key.pem';
+        // Client certificate
+        $cfg['Servers'][$i]['control_ssl_cert'] = '../client-cert.pem';
+        // Server certification authority
+        $cfg['Servers'][$i]['control_ssl_ca'] = '../server-ca.pem';
+
+    .. seealso::
+
+        :config:option:`$cfg['Servers'][$i]['ssl']`,
+        :config:option:`$cfg['Servers'][$i]['ssl_key']`,
+        :config:option:`$cfg['Servers'][$i]['ssl_cert']`,
+        :config:option:`$cfg['Servers'][$i]['ssl_ca']`,
+        :config:option:`$cfg['Servers'][$i]['ssl_ca_path']`,
+        :config:option:`$cfg['Servers'][$i]['ssl_ciphers']`,
+        :config:option:`$cfg['Servers'][$i]['ssl_verify']`
 
 .. config:option:: $cfg['Servers'][$i]['auth_type']
 
@@ -909,7 +951,6 @@ Server connection settings
 
     This feature can be disabled by setting the configuration to ``false``.
 
-.. _configurablemenus:
 .. config:option:: $cfg['Servers'][$i]['users']
 
     :type: string or false
@@ -934,6 +975,8 @@ Server connection settings
       :config:option:`$cfg['Servers'][$i]['usergroups']` (e.g. ``pma__usergroups``)
 
     This feature can be disabled by setting either of the configurations to ``false``.
+
+    .. seealso:: :ref:`configurablemenus`
 
 .. _navigationhiding:
 .. config:option:: $cfg['Servers'][$i]['navigationhiding']
@@ -1538,18 +1581,21 @@ Generic settings
     :type: boolean
     :default: false
 
+    .. warning::
+
+        This is not a security measure as there will be always ways to
+        circumvent this. If you want to prohibit users from dropping databases,
+        revoke their corresponding DROP privilege.
+
     Defines whether normal users (non-administrator) are allowed to delete
     their own database or not. If set as false, the link :guilabel:`Drop
     Database` will not be shown, and even a ``DROP DATABASE mydatabase`` will
     be rejected. Quite practical for :term:`ISP` 's with many customers.
 
-    .. note::
-
-        This limitation of :term:`SQL` queries is not
-        as strict as when using MySQL privileges. This is due to nature of
-        :term:`SQL` queries which might be quite
-        complicated.  So this choice should be viewed as help to avoid accidental
-        dropping rather than strict privilege limitation.
+    This limitation of :term:`SQL` queries is not as strict as when using MySQL
+    privileges. This is due to nature of :term:`SQL` queries which might be
+    quite complicated.  So this choice should be viewed as help to avoid
+    accidental dropping rather than strict privilege limitation.
 
 .. config:option:: $cfg['Confirm']
 
@@ -1672,7 +1718,7 @@ Cookie authentication options
     :default: ``''``
 
     The public key for the reCaptcha service that can be obtained from
-    http://www.google.com/recaptcha/intro/.
+    https://www.google.com/recaptcha.
 
     reCaptcha will be then used in :ref:`cookie`.
 
@@ -1682,7 +1728,7 @@ Cookie authentication options
     :default: ``''``
 
     The private key for the reCaptcha service that can be obtain from
-    http://www.google.com/recaptcha/intro/.
+    https://www.google.com/recaptcha.
 
     reCaptcha will be then used in :ref:`cookie`.
 
@@ -2384,7 +2430,7 @@ Languages
     :default: ``'//TRANSLIT'``
 
     Specify some parameters for iconv used in charset conversion. See
-    `iconv documentation <http://www.gnu.org/software/libiconv/documentati
+    `iconv documentation <https://www.gnu.org/software/libiconv/documentati
     on/libiconv/iconv_open.3.html>`_ for details. By default
     ``//TRANSLIT`` is used, so that invalid characters will be
     transliterated.
@@ -2710,8 +2756,25 @@ SQL query box settings
 
     Whether to display a link to refresh a query in any SQL Query box.
 
+.. _web-dirs:
+
 Web server upload/save/import directories
 -----------------------------------------
+
+If PHP is running in safe mode, all directories must be owned by the same user
+as the owner of the phpMyAdmin scripts.
+
+If the directory where phpMyAdmin is installed is subject to an
+``open_basedir`` restriction, you need to create a temporary directory in some
+directory accessible by the PHP interpreter.
+
+For security reasons, all directories should be outside the tree published by
+webserver. If you cannot avoid having this directory published by webserver,
+limit access to it either by web server configuration (for example using
+.htaccess or web.config files) or place at least an empty :file:`index.html`
+file there, so that directory listing is not possible. However as long as the
+directory is accessible by web server, an attacker can guess filenames to download
+the files.
 
 .. config:option:: $cfg['UploadDir']
 
@@ -2735,11 +2798,14 @@ Web server upload/save/import directories
     uploaded via :term:`HTTP`, or when file
     uploads are disabled in PHP.
 
-    .. note::
+    .. warning::
 
-        If PHP is running in safe mode, this directory must be owned by the same
-        user as the owner of the phpMyAdmin scripts.  See also :ref:`faq1_16` for
-        alternatives.
+        Please see top of this chapter (:ref:`web-dirs`) for instructions how
+        to setup this directory and how to make its usage secure.
+
+    .. seealso::
+
+        See :ref:`faq1_16` for alternatives.
 
 .. config:option:: $cfg['SaveDir']
 
@@ -2754,10 +2820,10 @@ Web server upload/save/import directories
     Please note that the directory must exist and has to be writable for
     the user running webserver.
 
-    .. note::
+    .. warning::
 
-        If PHP is running in safe mode, this directory must be owned by the same
-        user as the owner of the phpMyAdmin scripts.
+        Please see top of this chapter (:ref:`web-dirs`) for instructions how
+        to setup this directory and how to make its usage secure.
 
 .. config:option:: $cfg['TempDir']
 
@@ -2770,21 +2836,12 @@ Web server upload/save/import directories
     work around limitations of ``open_basedir`` for uploaded files, see
     :ref:`faq1_11`.
 
-    If the directory where phpMyAdmin is installed is
-    subject to an ``open_basedir`` restriction, you need to create a
-    temporary directory in some directory accessible by the web server.
-    However for security reasons, this directory should be outside the
-    tree published by webserver. If you cannot avoid having this directory
-    published by webserver, place at least an empty :file:`index.html` file
-    there, so that directory listing is not possible.
-
     This directory should have as strict permissions as possible as the only
     user required to access this directory is the one who runs the webserver.
     If you have root privileges, simply make this user owner of this directory
     and make it accessible only by it:
 
     .. code-block:: sh
-
 
         chown www-data:www-data tmp
         chmod 700 tmp
@@ -2801,6 +2858,11 @@ Web server upload/save/import directories
     If neither of above works for you, you can still make the directory
     :command:`chmod 777`, but it might impose risk of other users on system
     reading and writing data in this directory.
+
+    .. warning::
+
+        Please see top of this chapter (:ref:`web-dirs`) for instructions how
+        to setup this directory and how to make its usage secure.
 
 Various display setting
 -----------------------
@@ -3165,4 +3227,5 @@ server certificates and tell phpMyAdmin to use them:
     :config:option:`$cfg['Servers'][$i]['ssl_key']`,
     :config:option:`$cfg['Servers'][$i]['ssl_cert']`,
     :config:option:`$cfg['Servers'][$i]['ssl_ca']`,
-    :config:option:`$cfg['Servers'][$i]['ssl_verify']`
+    :config:option:`$cfg['Servers'][$i]['ssl_verify']`,
+    <https://bugs.php.net/bug.php?id=72048>

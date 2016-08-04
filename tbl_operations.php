@@ -225,7 +225,7 @@ if (isset($result) && empty($message_to_show)) {
     }
     if (! empty($warning_messages)) {
         $_message = new PMA\libraries\Message;
-        $_message->addMessages($warning_messages);
+        $_message->addMessagesString($warning_messages);
         $_message->isError(true);
         if (isset($GLOBALS['ajax_request'])
             && $GLOBALS['ajax_request'] == true

@@ -382,8 +382,8 @@ class DatabaseStructureController extends DatabaseController
             ? ceil($this->_num_tables / $GLOBALS['cfg']['PropertiesNumColumns']) + 1
             : 0;
         $row_count      = 0;
-        $sum_size       = (double) 0;
-        $overhead_size  = (double) 0;
+        $sum_size       = 0;
+        $overhead_size  = 0;
 
         $hidden_fields = array();
         $odd_row       = true;
@@ -792,7 +792,7 @@ class DatabaseStructureController extends DatabaseController
 
             $do = strlen($searchDoDBInTruename) > 0
                 || strlen($searchDoDBInDB) > 0
-                || ($nbServSlaveDoDb == 1 && $nbServSlaveIgnoreDb == 1)
+                || ($nbServSlaveDoDb == 0 && $nbServSlaveIgnoreDb == 0)
                 || $this->hasTable(
                     $GLOBALS['replication_info']['slave']['Wild_Do_Table'],
                     $table
@@ -902,9 +902,9 @@ class DatabaseStructureController extends DatabaseController
     /**
      * Get the value set for ENGINE table,
      *
-     * @param array  $current_table current table
-     * @param double $sum_size      total table size
-     * @param double $overhead_size overhead size
+     * @param array   $current_table current table
+     * @param integer $sum_size      total table size
+     * @param integer $overhead_size overhead size
      *
      * @return array
      * @internal param bool $table_is_view whether table is view or not
@@ -992,8 +992,8 @@ class DatabaseStructureController extends DatabaseController
      * Get values for ARIA/MARIA tables
      *
      * @param array   $current_table      current table
-     * @param double  $sum_size           sum size
-     * @param double  $overhead_size      overhead size
+     * @param integer $sum_size           sum size
+     * @param integer $overhead_size      overhead size
      * @param integer $formatted_size     formatted size
      * @param string  $unit               unit
      * @param integer $formatted_overhead overhead formatted
@@ -1012,8 +1012,8 @@ class DatabaseStructureController extends DatabaseController
         }
 
         if ($this->_is_show_stats) {
-            $tblsize = doubleval($current_table['Data_length'])
-                + doubleval($current_table['Index_length']);
+            $tblsize = $current_table['Data_length']
+                + $current_table['Index_length'];
             $sum_size += $tblsize;
             list($formatted_size, $unit) = Util::formatByteDown(
                 $tblsize, 3, ($tblsize > 0) ? 1 : 0
@@ -1039,8 +1039,8 @@ class DatabaseStructureController extends DatabaseController
     /**
      * Get values for InnoDB table
      *
-     * @param array  $current_table current table
-     * @param double $sum_size      sum size
+     * @param array   $current_table current table
+     * @param integer $sum_size      sum size
      *
      * @return array
      */

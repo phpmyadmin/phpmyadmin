@@ -275,7 +275,7 @@ From Wikipedia, the free encyclopedia
     PEAR
       the PHP Extension and Application Repository.	
 
-      .. seealso:: <http://pear.php.net/>
+      .. seealso:: <https://pear.php.net/>
 
     PCRE
       Perl Compatible Regular Expressions is the perl-compatible regular
@@ -389,7 +389,7 @@ From Wikipedia, the free encyclopedia
     TCPDF
       Rewrite of :term:`UFPDF` with various improvements.
 
-      .. seealso:: <http://www.tcpdf.org/>
+      .. seealso:: <https://tcpdf.org/>
 
     trigger
       a procedural code that is automatically executed in response to certain events on a particular table or view in a database	

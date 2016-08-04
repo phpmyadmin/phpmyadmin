@@ -107,6 +107,41 @@ class Error extends Message
     }
 
     /**
+     * Process backtrace to avoid path disclossures, objects and so on
+     *
+     * @param array $backtrace backtrace
+     *
+     * @return array
+     */
+    public static function processBacktrace($backtrace)
+    {
+        $result = array();
+
+        $members = array('file', 'line', 'function', 'class', 'type');
+
+        foreach ($backtrace as $idx => $step) {
+            /* Create new backtrace entry */
+            $result[$idx] = array();
+
+            /* Store members we want */
+            foreach ($members as $name) {
+                if (isset($step[$name])) {
+                    $result[$idx][$name] = $step[$name];
+                }
+            }
+
+            /* Store simplified args */
+            if (isset($step['args'])) {
+                foreach ($step['args'] as $key => $arg) {
+                    $result[$idx]['args'][$key] = Error::getArg($arg, $step['function']);
+                }
+            }
+        }
+
+        return $result;
+    }
+
+    /**
      * sets PMA\libraries\Error::$_backtrace
      *
      * We don't store full arguments to avoid wakeup or memory problems.
@@ -117,14 +152,7 @@ class Error extends Message
      */
     public function setBacktrace($backtrace)
     {
-        foreach ($backtrace as $idx => $step) {
-            if (isset($step['args'])) {
-                foreach ($step['args'] as $key => $arg) {
-                    $backtrace[$idx]['args'][$key] = Error::getArg($arg, $step['function']);
-                }
-            }
-        }
-        $this->backtrace = $backtrace;
+        $this->backtrace = Error::processBacktrace($backtrace);
     }
 
     /**
@@ -365,6 +393,8 @@ class Error extends Message
         } elseif (is_scalar($arg)) {
             $retval .= getType($arg) . ' '
                 . htmlspecialchars(var_export($arg, true));
+        } elseif (is_object($arg)) {
+            $retval .= '<Class:' . get_class($arg) . '>';
         } else {
             $retval .= getType($arg);
         }

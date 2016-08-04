@@ -30,6 +30,11 @@ Code status
     :alt: todofy badge
     :target: https://todofy.org/r/phpmyadmin/phpmyadmin
 
+.. image:: https://bestpractices.coreinfrastructure.org/projects/213/badge
+    :alt: CII Best Practices
+    :target: https://bestpractices.coreinfrastructure.org/projects/213
+
+
 Download
 --------
 

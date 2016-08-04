@@ -8,14 +8,18 @@ if [ $# -lt 2 ] ; then
     echo 'Must be called in directory with binaries or with path'
     exit 1
 fi
-REL=$1
+REL=`echo $1 | tr -d -c '0-9a-z.-'`
+if [ "x$REL" != "x$1" ] ; then
+    echo "Invalid version: $1"
+    exit 1
+fi
 
 if [ $# -gt 1 ] ; then
     cd "$2"
 fi
 
 # Upload to our file server
-sftp -P 11022 files@klutz.phpmyadmin.net <<EOT
+sftp -P 11022 files@klutz.phpmyadmin.net -f -b - <<EOT
 cd /mnt/storage/files/phpMyAdmin
 mkdir $REL
 cd $REL
@@ -39,6 +43,16 @@ put phpMyAdmin-$REL-all-languages.zip.asc
 put phpMyAdmin-$REL-english.zip.asc
 put phpMyAdmin-$REL-all-languages.7z.asc
 put phpMyAdmin-$REL-english.7z.asc
+put phpMyAdmin-$REL-all-languages.tar.bz2.sha256
+put phpMyAdmin-$REL-english.tar.bz2.sha256
+put phpMyAdmin-$REL-all-languages.tar.xz.sha256
+put phpMyAdmin-$REL-english.tar.xz.sha256
+put phpMyAdmin-$REL-all-languages.tar.gz.sha256
+put phpMyAdmin-$REL-english.tar.gz.sha256
+put phpMyAdmin-$REL-all-languages.zip.sha256
+put phpMyAdmin-$REL-english.zip.sha256
+put phpMyAdmin-$REL-all-languages.7z.sha256
+put phpMyAdmin-$REL-english.7z.sha256
 put phpMyAdmin-$REL-all-languages.tar.bz2.sha1
 put phpMyAdmin-$REL-english.tar.bz2.sha1
 put phpMyAdmin-$REL-all-languages.tar.xz.sha1
@@ -63,4 +77,4 @@ put phpMyAdmin-$REL-notes.html
 EOT
 
 # Sync files to CDN
-ssh -p 11022 files@klutz.phpmyadmin.net ./bin/sync-files-cdn
+ssh -xka2 -p 11022 files@klutz.phpmyadmin.net ./bin/sync-files-cdn

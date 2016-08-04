@@ -83,13 +83,13 @@ class AuthenticationSignonTest extends PMATestCase
 
         $mockResponse->expects($this->once())
             ->method('header')
-            ->with('Location: http://phpmyadmin.net/logoutURL' . ((SID) ? '?' . SID : ''));
+            ->with('Location: https://example.com/logoutURL');
 
         $attrInstance = new ReflectionProperty('PMA\libraries\Response', '_instance');
         $attrInstance->setAccessible(true);
         $attrInstance->setValue($mockResponse);
-        $GLOBALS['cfg']['Server']['SignonURL'] = 'http://phpmyadmin.net/SignonURL';
-        $GLOBALS['cfg']['Server']['LogoutURL'] = 'http://phpmyadmin.net/logoutURL';
+        $GLOBALS['cfg']['Server']['SignonURL'] = 'https://example.com/SignonURL';
+        $GLOBALS['cfg']['Server']['LogoutURL'] = 'https://example.com/logoutURL';
 
         $this->object->logOut();
 
@@ -117,13 +117,13 @@ class AuthenticationSignonTest extends PMATestCase
 
         $mockResponse->expects($this->once())
             ->method('header')
-            ->with('Location: http://phpmyadmin.net/SignonURL' . ((SID) ? '?' . SID : ''));
+            ->with('Location: https://example.com/SignonURL');
 
         $attrInstance = new ReflectionProperty('PMA\libraries\Response', '_instance');
         $attrInstance->setAccessible(true);
         $attrInstance->setValue($mockResponse);
         $GLOBALS['header'] = array();
-        $GLOBALS['cfg']['Server']['SignonURL'] = 'http://phpmyadmin.net/SignonURL';
+        $GLOBALS['cfg']['Server']['SignonURL'] = 'https://example.com/SignonURL';
         $GLOBALS['cfg']['Server']['LogoutURL'] = '';
 
         $this->object->logOut();
@@ -138,8 +138,8 @@ class AuthenticationSignonTest extends PMATestCase
      */
     public function testAuthCheckEmpty()
     {
-        $GLOBALS['cfg']['Server']['SignonURL'] = 'http://phpmyadmin.net/SignonURL';
-        $_SESSION['LAST_SIGNON_URL'] = 'http://phpmyadmin.net/SignonDiffURL';
+        $GLOBALS['cfg']['Server']['SignonURL'] = 'https://example.com/SignonURL';
+        $_SESSION['LAST_SIGNON_URL'] = 'https://example.com/SignonDiffURL';
 
         $this->assertFalse(
             $this->object->authCheck()
@@ -153,8 +153,8 @@ class AuthenticationSignonTest extends PMATestCase
      */
     public function testAuthCheckSession()
     {
-        $GLOBALS['cfg']['Server']['SignonURL'] = 'http://phpmyadmin.net/SignonURL';
-        $_SESSION['LAST_SIGNON_URL'] = 'http://phpmyadmin.net/SignonURL';
+        $GLOBALS['cfg']['Server']['SignonURL'] = 'https://example.com/SignonURL';
+        $_SESSION['LAST_SIGNON_URL'] = 'https://example.com/SignonURL';
         $GLOBALS['cfg']['Server']['SignonScript'] = './examples/signon-script.php';
         $GLOBALS['cfg']['Server']['SignonSession'] = 'session123';
         $GLOBALS['cfg']['Server']['host'] = 'localhost';
@@ -176,7 +176,7 @@ class AuthenticationSignonTest extends PMATestCase
         );
 
         $this->assertEquals(
-            'http://phpmyadmin.net/SignonURL',
+            'https://example.com/SignonURL',
             $_SESSION['LAST_SIGNON_URL']
         );
     }
@@ -202,13 +202,13 @@ class AuthenticationSignonTest extends PMATestCase
 
         $mockResponse->expects($this->once())
             ->method('header')
-            ->with('Location: http://phpmyadmin.net/SignonURL' . ((SID) ? '?' . SID : ''));
+            ->with('Location: https://example.com/SignonURL');
 
         $attrInstance = new ReflectionProperty('PMA\libraries\Response', '_instance');
         $attrInstance->setAccessible(true);
         $attrInstance->setValue($mockResponse);
 
-        $GLOBALS['cfg']['Server']['SignonURL'] = 'http://phpmyadmin.net/SignonURL';
+        $GLOBALS['cfg']['Server']['SignonURL'] = 'https://example.com/SignonURL';
         $GLOBALS['cfg']['Server']['SignonSession'] = 'session123';
         $GLOBALS['cfg']['Server']['host'] = 'localhost';
         $GLOBALS['cfg']['Server']['port'] = '80';
@@ -228,7 +228,7 @@ class AuthenticationSignonTest extends PMATestCase
 
         $this->assertEquals(
             array(
-                'SignonURL' => 'http://phpmyadmin.net/SignonURL',
+                'SignonURL' => 'https://example.com/SignonURL',
                 'SignonScript' => '',
                 'SignonSession' => 'session123',
                 'host' => 'localhost',
@@ -261,7 +261,7 @@ class AuthenticationSignonTest extends PMATestCase
      */
     public function testAuthCheckKeep()
     {
-        $GLOBALS['cfg']['Server']['SignonURL'] = 'http://phpmyadmin.net/SignonURL';
+        $GLOBALS['cfg']['Server']['SignonURL'] = 'https://example.com/SignonURL';
         $GLOBALS['cfg']['Server']['SignonSession'] = 'session123';
         $GLOBALS['cfg']['Server']['host'] = 'localhost';
         $GLOBALS['cfg']['Server']['port'] = '80';

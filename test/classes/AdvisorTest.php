@@ -171,7 +171,7 @@ class AdvisorTest extends PMATestCase
                     'name' => 'Variable',
                     'issue' => 'issue',
                     'recommendation' => 'Recommend <a href="server_variables.php?' .
-                    'lang=en&amp;token=token&filter=status_var">status_var</a>'
+                    'lang=en&filter=status_var">status_var</a>'
                 ),
                 null,
             ),
@@ -256,14 +256,14 @@ class AdvisorTest extends PMATestCase
                     'justification' => 'Version string (%s) | value',
                     'name' => 'Distribution',
                     'issue' => 'official MySQL binaries.',
-                    'recommendation' => 'See <a href="http://phpma.org/">web</a>',
+                    'recommendation' => 'See <a href="https://example.com/">web</a>',
                 ),
                 array(
                     'justification' => 'Version string (0)',
                     'name' => 'Distribution',
                     'issue' => 'official MySQL binaries.',
-                    'recommendation' => 'See <a href="./url.php?url=http%3A%2F%2F' .
-                        'phpma.org%2F" target="_blank">web</a>',
+                    'recommendation' => 'See <a href="./url.php?url=https%3A%2F%2F' .
+                        'example.com%2F" target="_blank">web</a>',
                     'id' => 'Distribution'
                 ),
                 null,

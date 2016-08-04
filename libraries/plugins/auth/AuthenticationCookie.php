@@ -203,7 +203,7 @@ class AuthenticationCookie extends AuthenticationPlugin
             echo '<script src="https://www.google.com/recaptcha/api.js?hl='
                 , $GLOBALS['lang'] , '" async defer></script>';
             echo '<div class="g-recaptcha" data-sitekey="'
-                , $GLOBALS['cfg']['CaptchaLoginPublicKey'] , '"></div>';
+                , htmlspecialchars($GLOBALS['cfg']['CaptchaLoginPublicKey']) , '"></div>';
         }
 
         echo '</fieldset>
@@ -471,7 +471,11 @@ class AuthenticationCookie extends AuthenticationPlugin
         $this->storeUsernameCookie($cfg['Server']['user']);
 
         // Duration = as configured
-        $this->storePasswordCookie($cfg['Server']['password']);
+        // Do not store password cookie on password change as we will
+        // set the cookie again after password has been changed
+        if (! isset($_POST['change_pw'])) {
+            $this->storePasswordCookie($cfg['Server']['password']);
+        }
 
         // Set server cookies if required (once per session) and, in this case,
         // force reload to ensure the client accepts cookies
@@ -518,7 +522,7 @@ class AuthenticationCookie extends AuthenticationPlugin
                 ->disable();
 
             PMA_sendHeaderLocation(
-                $redirect_url . URL::getCommon($url_params, 'text'),
+                $redirect_url . URL::getCommonRaw($url_params),
                 true
             );
             if (! defined('TESTSUITE')) {
@@ -687,7 +691,7 @@ class AuthenticationCookie extends AuthenticationPlugin
                 true
             );
         }
-        if (mb_strlen($this->_cookie_iv, '8bit') < $this->getIVSize()) {
+        if (strlen($this->_cookie_iv) < $this->getIVSize()) {
                 $this->createIV();
         }
 

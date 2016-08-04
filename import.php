@@ -115,7 +115,7 @@ if (! empty($sql_query)) {
     ) {
         $parameters = $_REQUEST['parameters'];
         foreach ($parameters as $parameter => $replacement) {
-            $quoted = preg_quote($parameter);
+            $quoted = preg_quote($parameter, '/');
             // making sure that :param does not apply values to :param1
             $sql_query = preg_replace(
                 '/' . $quoted . '([^a-zA-Z0-9_])/',
@@ -582,14 +582,12 @@ if (! empty($id_bookmark) && $_REQUEST['action_bookmark'] == 2) {
         $message->addParam($executed_queries);
 
         if ($import_notice) {
-            $message->addString($import_notice);
+            $message->addHtml($import_notice);
         }
         if (! empty($local_import_file)) {
-            $message->addString('(' . htmlspecialchars($local_import_file) . ')');
+            $message->addText('(' . $local_import_file . ')');
         } else {
-            $message->addString(
-                '(' . htmlspecialchars($_FILES['import_file']['name']) . ')'
-            );
+            $message->addText('(' . $_FILES['import_file']['name'] . ')');
         }
     }
 }
@@ -608,11 +606,11 @@ if ($timeout_passed) {
             . ' please %sresubmit the same file%s and import will resume.'
         )
     );
-    $message->addParam('<a href="' . $importUrl . '">', false);
-    $message->addParam('</a>', false);
+    $message->addParamHtml('<a href="' . $importUrl . '">');
+    $message->addParamHtml('</a>');
 
     if ($offset == 0 || (isset($original_skip) && $original_skip == $offset)) {
-        $message->addString(
+        $message->addText(
             __(
                 'However on last run no data has been parsed,'
                 . ' this usually means phpMyAdmin won\'t be able to'
@@ -638,10 +636,14 @@ if ($sqlLength <= $GLOBALS['cfg']['MaxCharactersInDisplayedSQL']) {
     list(
         $analyzed_sql_results,
         $db,
-        $table
+        $table_from_sql
     ) = PMA_parseAnalyze($sql_query, $db);
     // @todo: possibly refactor
     extract($analyzed_sql_results);
+
+    if ($table != $table_from_sql && !empty($table_from_sql)) {
+        $table = $table_from_sql;
+    }
 }
 
 // There was an error?
@@ -670,10 +672,14 @@ if ($go_sql) {
         list(
             $analyzed_sql_results,
             $db,
-            $table
+            $table_from_sql
         ) = PMA_parseAnalyze($sql_query, $db);
         // @todo: possibly refactor
         extract($analyzed_sql_results);
+
+        if ($table != $table_from_sql && !empty($table_from_sql)) {
+            $table = $table_from_sql;
+        }
 
         $html_output .= PMA_executeQueryAndGetQueryResponse(
             $analyzed_sql_results, // analyzed_sql_results

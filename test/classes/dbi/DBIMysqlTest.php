@@ -153,18 +153,17 @@ class DBIMysqlTest extends PMATestCase
         //test for connect
         $user = 'PMA_user';
         $password = 'PMA_password';
-        $is_controluser = false;
         $server = array(
             'port' => 8080,
             'socket' => 123,
             'host' => 'locahost',
+            'compress' => false,
+            'ssl' => false,
         );
-        $auxiliary_connection = true;
 
         //test for connect
         $ret = $this->object->connect(
-            $user, $password, $is_controluser,
-            $server, $auxiliary_connection
+            $user, $password, $server
         );
         $this->assertEquals(
             'mysql_connect',
@@ -173,8 +172,7 @@ class DBIMysqlTest extends PMATestCase
 
         $GLOBALS['cfg']['PersistentConnections'] = true;
         $ret = $this->object->connect(
-            $user, $password, $is_controluser,
-            $server, $auxiliary_connection
+            $user, $password, $server
         );
         $this->assertEquals(
             'mysql_pconnect',

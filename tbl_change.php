@@ -80,7 +80,6 @@ $header   = $response->getHeader();
 $scripts  = $header->getScripts();
 $scripts->addFile('sql.js');
 $scripts->addFile('tbl_change.js');
-$scripts->addFile('big_ints.js');
 $scripts->addFile('jquery/jquery-ui-timepicker-addon.js');
 $scripts->addFile('jquery/jquery.validate.js');
 $scripts->addFile('jquery/additional-methods.js');

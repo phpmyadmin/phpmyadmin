@@ -44,7 +44,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'phpMyAdmin'
-copyright = u'2012 - 2014, The phpMyAdmin devel team'
+copyright = u'2012 - 2016, The phpMyAdmin devel team'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -303,4 +303,7 @@ from pygments.lexers.web import PhpLexer
 
 lexers['php'] = PhpLexer(startinline=True)
 
-linkcheck_retries = 5
+# Number of retries and timeout for linkcheck
+linkcheck_retries = 10
+linkcheck_timeout = 10
+linkcheck_anchors = False

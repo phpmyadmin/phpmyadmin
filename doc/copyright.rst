@@ -26,8 +26,7 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
 General Public License for more details.
 
 You should have received a copy of the GNU General Public License
-along with this program. If not, see `http://www.gnu.org/licenses/
-<http://www.gnu.org/licenses/>`_.
+along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 Third party licenses
 ++++++++++++++++++++

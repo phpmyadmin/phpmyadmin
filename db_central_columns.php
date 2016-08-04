@@ -66,7 +66,7 @@ $scripts->addFile('db_central_columns.js');
 $cfgCentralColumns = PMA_centralColumnsGetParams();
 $pmadb = $cfgCentralColumns['db'];
 $pmatable = $cfgCentralColumns['table'];
-$max_rows = $GLOBALS['cfg']['MaxRows'];
+$max_rows = intval($GLOBALS['cfg']['MaxRows']);
 
 if (isset($_REQUEST['edit_central_columns_page'])) {
     $selected_fld = $_REQUEST['selected_fld'];
@@ -95,7 +95,7 @@ if (isset($_REQUEST['total_rows']) && $_REQUEST['total_rows']) {
     $total_rows = PMA_getCentralColumnsCount($db);
 }
 if (PMA_isValid($_REQUEST['pos'], 'integer')) {
-    $pos = $_REQUEST['pos'];
+    $pos = intval($_REQUEST['pos']);
 } else {
     $pos = 0;
 }

@@ -43,7 +43,7 @@ if (empty($is_db)) {
                 }
                 PMA_sendHeaderLocation(
                     './index.php'
-                    . URL::getCommon($url_params, 'text')
+                    . URL::getCommonRaw($url_params)
                 );
             }
             exit;

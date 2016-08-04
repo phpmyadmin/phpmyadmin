@@ -42,6 +42,7 @@ class AuthenticationCookieTest extends PMATestCase
         $GLOBALS['table'] = 'table';
         $_REQUEST['pma_password'] = '';
         $this->object = new AuthenticationCookie();
+        $GLOBALS['PMA_PHP_SELF'] = '/phpmyadmin/';
     }
 
     /**
@@ -386,13 +387,13 @@ class AuthenticationCookieTest extends PMATestCase
 
         $mockResponse->expects($this->once())
             ->method('header')
-            ->with('Location: http://www.phpmyadmin.net/logout' . ((SID) ? '?' . SID : ''));
+            ->with('Location: https://example.com/logout');
 
         $attrInstance = new ReflectionProperty('PMA\libraries\Response', '_instance');
         $attrInstance->setAccessible(true);
         $attrInstance->setValue($mockResponse);
 
-        $GLOBALS['cfg']['Server']['LogoutURL'] = 'http://www.phpmyadmin.net/logout';
+        $GLOBALS['cfg']['Server']['LogoutURL'] = 'https://example.com/logout';
 
         $this->object->logOut();
 
@@ -442,7 +443,7 @@ class AuthenticationCookieTest extends PMATestCase
 
         $mockResponse->expects($this->once())
             ->method('header')
-            ->with('Location: ./index.php' . ((SID) ? '?' . SID : ''));
+            ->with('Location: /phpmyadmin/index.php');
 
         $attrInstance = new ReflectionProperty('PMA\libraries\Response', '_instance');
         $attrInstance->setAccessible(true);
@@ -484,7 +485,7 @@ class AuthenticationCookieTest extends PMATestCase
 
         $mockResponse->expects($this->once())
             ->method('header')
-            ->with('Location: ./index.php' . ((SID) ? '?' . SID : ''));
+            ->with('Location: /phpmyadmin/index.php');
 
         $attrInstance = new ReflectionProperty('PMA\libraries\Response', '_instance');
         $attrInstance->setAccessible(true);
@@ -812,7 +813,7 @@ class AuthenticationCookieTest extends PMATestCase
         $mockResponse->expects($this->once())
             ->method('header')
             ->with(
-                $this->stringContains('&server=2&lang=en&collation_connection=utf-8&token=token')
+                $this->stringContains('&server=2&lang=en&collation_connection=utf-8')
             );
 
         $mockResponse->expects($this->any())

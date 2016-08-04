@@ -736,10 +736,6 @@ class Config
         }
         $data = @curl_exec($handle);
         if (! defined('TESTSUITE')) {
-            ini_set('session.use_only_cookies', '0');
-            ini_set('session.use_cookies', '0');
-            ini_set('session.use_trans_sid', '0');
-            ini_set('session.cache_limiter', 'nocache');
             session_start();
         }
         if ($data === false) {
@@ -1305,9 +1301,13 @@ class Config
     public function checkCollationConnection()
     {
         if (! empty($_REQUEST['collation_connection'])) {
-            $collation = strip_tags($_REQUEST['collation_connection']);
+            $collation = htmlspecialchars(
+                strip_tags($_REQUEST['collation_connection'])
+            );
         } elseif (! empty($_COOKIE['pma_collation_connection'])) {
-            $collation = strip_tags($_COOKIE['pma_collation_connection']);
+            $collation = htmlspecialchars(
+                strip_tags($_COOKIE['pma_collation_connection'])
+            );
         } else {
             $collation = $this->get('DefaultConnectionCollation');
         }
@@ -1364,7 +1364,7 @@ class Config
 
     /**
      * Maximum upload size as limited by PHP
-     * Used with permission from Moodle (http://moodle.org) by Martin Dougiamas
+     * Used with permission from Moodle (https://moodle.org/) by Martin Dougiamas
      *
      * this section generates $max_upload_size in bytes
      *
@@ -1436,11 +1436,7 @@ class Config
             return $cookie_path;
         }
 
-        if (isset($GLOBALS['PMA_PHP_SELF'])) {
-            $parsed_url = parse_url($GLOBALS['PMA_PHP_SELF']);
-        } else {
-            $parsed_url = parse_url(PMA_getenv('REQUEST_URI'));
-        }
+        $parsed_url = parse_url($GLOBALS['PMA_PHP_SELF']);
 
         $parts = explode(
             '/',

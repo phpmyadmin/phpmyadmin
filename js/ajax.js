@@ -442,7 +442,7 @@ var AJAX = {
                     msg = data._errSubmitMsg;
                 }
                 if (data._errors) {
-                    $('<div/>', {id : 'pma_errors'})
+                    $('<div/>', {id : 'pma_errors', class : 'clearfloat'})
                         .insertAfter('#selflink')
                         .append(data._errors);
                     // bind for php error reporting forms (bottom)
@@ -787,8 +787,8 @@ $(document).ajaxError(function (event, request, settings) {
         PMA_ajaxShowMessage(
             '<div class="error">' +
             PMA_messages.strErrorProcessingRequest +
-            '<div>' + errorCode + '</div>' +
-            '<div>' + errorText + '</div>' +
+            '<div>' + escapeHtml(errorCode) + '</div>' +
+            '<div>' + escapeHtml(errorText) + '</div>' +
             '</div>',
             false
         );

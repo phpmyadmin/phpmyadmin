@@ -141,7 +141,7 @@ function PMA_sanitizeUrl($url)
         && preg_match("<PMAURL-\d+:>", $components["fragment"], $matches)
     ) {
         $uri = str_replace($matches[0], "", $components["fragment"]);
-        $url = "http://dummy_host/" . $uri;
+        $url = "https://example.com/" . $uri;
         $components = parse_url($url);
     }
 
@@ -349,17 +349,4 @@ function PMA_getErrorReportForm()
 
     return PMA\libraries\Template::get('error/report_form')
         ->render($datas);
-}
-
-/**
- * generates the error report form to collect user description and preview the
- * report before being sent
- *
- * @return String the form
- */
-function PMA_hasLatestLineCounts()
-{
-    $line_counts_time = filemtime("js/line_counts.php");
-    $js_time = filemtime("js");
-    return $line_counts_time >= $js_time;
 }

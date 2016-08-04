@@ -48,3 +48,27 @@ link under the table. If you are creating a user specifically for a given table
 you will have to create the user first (with no global privileges) and then go
 back and edit that user to add the table and privileges for the individual
 table.
+
+.. _configurablemenus:
+
+Configurable menus and user groups
+----------------------------------
+
+By enabling :config:option:`$cfg['Servers'][$i]['usergroups']` and
+:config:option:`$cfg['Servers'][$i]['usergroups']` you can customize what users
+will see in the phpMyAdmin navigation.
+
+.. warning::
+
+    This feature only limits what a user sees, he is still able to use all the
+    functions. So this can not be considered as a security limitation. Should
+    you want to limit what users can do, use MySQL privileges to achieve that.
+
+With this feature enabled, the :guilabel:`User accounts` management interface gains 
+a second tab for managing :guilabel:`User groups`, where you can define what each
+group will view (see image below) and you can then assign each user to one of
+these groups. Users will be presented with a simplified user interface, which might be
+useful for inexperienced users who could be overwhelmed by all the features
+phpMyAdmin provides.
+
+.. image:: images/usergroups.png

@@ -39,6 +39,21 @@ class DatabaseInterface
     const GETVAR_GLOBAL = 2;
 
     /**
+     * User connection.
+     */
+    const CONNECT_USER = 0x100;
+    /**
+     * Control user connection.
+     */
+    const CONNECT_CONTROL = 0x101;
+    /**
+     * Auxiliary connection.
+     *
+     * Used for example for replication setup.
+     */
+    const CONNECT_AUXILIARY = 0x102;
+
+    /**
      * @var DBIExtension
      */
     private $_extension;
@@ -213,30 +228,9 @@ class DatabaseInterface
         // Get and slightly format backtrace, this is used
         // in the javascript console.
         // Strip call to _dbgQuery
-        $dbgInfo['trace'] = array_slice(debug_backtrace(), 1);
-        foreach ($dbgInfo['trace'] as $key => $step) {
-            if (isset($step['file'])) {
-                $dbgInfo['trace'][$key]['file'] = Error::relPath($step['file']);
-            }
-            // We don't need object value in console and it's too big
-            if (isset($step['object'])) {
-                unset($dbgInfo['trace'][$key]['object']);
-            }
-            // Convert args to string as that's what the client would do anyway
-            if (isset($step['args'])) {
-                $simplified = array();
-                foreach ($step['args'] as $akey => $aval) {
-                    if (is_object($aval)) {
-                        $simplified[$akey] = '<Class:' . get_class($aval) . '>';
-                    } elseif (is_array($aval)) {
-                        $simplified[$akey] = var_export($aval, true);
-                    } else {
-                        $simplified[$akey] = $aval;
-                    }
-                }
-                $dbgInfo['trace'][$key]['args'] = $simplified;
-            }
-        }
+        $dbgInfo['trace'] = Error::processBacktrace(
+            array_slice(debug_backtrace(), 1)
+        );
         $dbgInfo['hash'] = md5($query);
 
         $_SESSION['debug']['queries'][] = $dbgInfo;
@@ -331,9 +325,9 @@ class DatabaseInterface
     /**
      * returns a segment of the SQL WHERE clause regarding table name and type
      *
-     * @param array|string  $table        table(s)
-     * @param boolean       $tbl_is_group $table is a table group
-     * @param string        $table_type   whether table or view
+     * @param array|string $table        table(s)
+     * @param boolean      $tbl_is_group $table is a table group
+     * @param string       $table_type   whether table or view
      *
      * @return string a segment of the WHERE clause
      */
@@ -808,7 +802,8 @@ class DatabaseInterface
                     SUM(t.INDEX_LENGTH)    AS SCHEMA_INDEX_LENGTH,
                     SUM(t.DATA_LENGTH + t.INDEX_LENGTH)
                                            AS SCHEMA_LENGTH,
-                    SUM(t.DATA_FREE)       AS SCHEMA_DATA_FREE';
+                    SUM(IF(t.ENGINE <> \'InnoDB\', t.DATA_FREE, 0))
+                                           AS SCHEMA_DATA_FREE';
             }
             $sql .= '
                    FROM `information_schema`.SCHEMATA s';
@@ -2225,24 +2220,117 @@ class DatabaseInterface
     }
 
     /**
+     * Return connection parameters for the database server
+     *
+     * @param integer $mode    Connection mode on of CONNECT_USER, CONNECT_CONTROL
+     *                         or CONNECT_AUXILIARY.
+     * @param array   $server  Server information like host/port/socket/persistent
+     *
+     * @return array user, host and server settings array
+     */
+    public function getConnectionParams($mode, $server = null)
+    {
+        global $cfg;
+
+        $user = null;
+        $password = null;
+
+        if ($mode == DatabaseInterface::CONNECT_USER) {
+            $user = $cfg['Server']['user'];
+            $password = $cfg['Server']['password'];
+            $server = $cfg['Server'];
+        } elseif ($mode == DatabaseInterface::CONNECT_CONTROL) {
+            $user = $cfg['Server']['controluser'];
+            $password = $cfg['Server']['controlpass'];
+
+            $server = array();
+
+            if (! empty($cfg['Server']['controlhost'])) {
+                $server['host'] = $cfg['Server']['controlhost'];
+            } else {
+                $server['host'] = $cfg['Server']['host'];
+            }
+            // Share the settings if the host is same
+            if ($server['host'] == $cfg['Server']['host']) {
+                $shared = array(
+                    'port', 'socket', 'connect_type', 'compress',
+                    'ssl', 'ssl_key', 'ssl_cert', 'ssl_ca',
+                    'ssl_ca_path',  'ssl_ciphers', 'ssl_verify',
+                );
+                foreach ($shared as $item) {
+                    if (isset($cfg['Server'][$item])) {
+                        $server[$item] = $cfg['Server'][$item];
+                    }
+                }
+            }
+            // Set configured port
+            if (! empty($cfg['Server']['controlport'])) {
+                $server['port'] = $cfg['Server']['controlport'];
+            }
+            // Set any configuration with control_ prefix
+            foreach ($cfg['Server'] as $key => $val) {
+                if (substr($key, 0, 8) === 'control_') {
+                    $server[substr($key, 8)] = $val;
+                }
+            }
+        } else {
+            if (is_null($server)) {
+                return array(null, null, null);
+            }
+            if (isset($server['user'])) {
+                $user = $server['user'];
+            }
+            if (isset($server['password'])) {
+                $password = $server['password'];
+            }
+        }
+
+        // Perform sanity checks on some variables
+        if (empty($server['port'])) {
+            $server['port'] = 0;
+        } else {
+            $server['port'] = intval($server['port']);
+        }
+        if (empty($server['socket'])) {
+            $server['socket'] = null;
+        }
+        if (empty($server['host'])) {
+            $server['host'] = 'localhost';
+        }
+        if (!isset($server['ssl'])) {
+            $server['ssl'] = false;
+        }
+        if (!isset($server['compress'])) {
+            $server['compress'] = false;
+        }
+
+        return array($user, $password, $server);
+    }
+
+    /**
      * connects to the database server
      *
-     * @param string $user                 user name
-     * @param string $password             user password
-     * @param bool   $is_controluser       whether this is a control user connection
-     * @param array  $server               host/port/socket/persistent
-     * @param bool   $auxiliary_connection (when true, don't go back to login if
-     *                                     connection fails)
+     * @param integer $mode    Connection mode on of CONNECT_USER, CONNECT_CONTROL
+     *                         or CONNECT_AUXILIARY.
+     * @param array   $server  Server information like host/port/socket/persistent
      *
      * @return mixed false on error or a connection object on success
      */
-    public function connect(
-        $user, $password, $is_controluser = false, $server = null,
-        $auxiliary_connection = false
-    ) {
+    public function connect($mode, $server = null)
+    {
+        list($user, $password, $server) = $this->getConnectionParams($mode, $server);
+
+        if (is_null($user) || is_null($password)) {
+            trigger_error(
+                __('Missing connection parameters!'),
+                E_USER_WARNING
+            );
+            return false;
+        }
+
         $error_count = $GLOBALS['error_handler']->countErrors();
         $result = $this->_extension->connect(
-            $user, $password, $is_controluser, $server, $auxiliary_connection
+            $user, $password, $server
         );
 
         /* Any errors from connection? */
@@ -2257,13 +2345,14 @@ class DatabaseInterface
         }
 
         if ($result) {
-            if (! $auxiliary_connection && ! $is_controluser) {
+            /* Run post connect for user connections */
+            if ($mode == DatabaseInterface::CONNECT_USER) {
                 $this->postConnect($result);
             }
             return $result;
         }
 
-        if ($is_controluser) {
+        if ($mode == DatabaseInterface::CONNECT_CONTROL) {
             trigger_error(
                 __(
                     'Connection for controluser as defined in your '
@@ -2272,11 +2361,9 @@ class DatabaseInterface
                 E_USER_WARNING
             );
             return false;
-        }
-
-        // Do not go back to main login if connection failed
-        // (currently used only in unit testing)
-        if ($auxiliary_connection) {
+        } else if ($mode == DatabaseInterface::CONNECT_AUXILIARY) {
+            // Do not go back to main login if connection failed
+            // (currently used only in unit testing)
             return false;
         }
 
@@ -2587,46 +2674,6 @@ class DatabaseInterface
     public function fieldFlags($result, $i)
     {
         return $this->_extension->fieldFlags($result, $i);
-    }
-
-    /**
-     * Gets server connection port
-     *
-     * @param array|null $server host/port/socket/persistent
-     *
-     * @return null|integer
-     */
-    public function getServerPort($server = null)
-    {
-        if (is_null($server)) {
-            $server = &$GLOBALS['cfg']['Server'];
-        }
-
-        if (empty($server['port'])) {
-            return null;
-        } else {
-            return intval($server['port']);
-        }
-    }
-
-    /**
-     * Gets server connection socket
-     *
-     * @param array|null $server host/port/socket/persistent
-     *
-     * @return null|string
-     */
-    public function getServerSocket($server = null)
-    {
-        if (is_null($server)) {
-            $server = &$GLOBALS['cfg']['Server'];
-        }
-
-        if (empty($server['socket'])) {
-            return null;
-        } else {
-            return $server['socket'];
-        }
     }
 
     /**

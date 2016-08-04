@@ -17,9 +17,60 @@ phpMyAdmin - ChangeLog
 - issue #12196 Removed $cfg['ThemePath']
 - issue #6274  Add support for export user settings as config.inc.php snippet
 - issue #5555  Better report query errors while generating SQL exports
+- issue #12307 Produce valid JSON on export
+- issue #12325 Setup script icons broken
+- issue #12378 Support IPv6 proxies
+- issue        Removed MySQL connection retry without password
+- issue #12218 Allow to specify further parameters for control connection
 
-4.6.3 (not yet released)
+4.6.4 (not yet released)
+- issue        Include X-Robots-Tag header in responses
+- issue        Enforce numeric field length when creating table
+- issue        Fixed invalid Content-Length in some HTTP responses
+- issue #12394 Create view should require a view name
+- issue #12391 Message with 'Change password successfully' displayed, but does not take effect
+- issue        Tighten control on PHP sessions and session cookies
+- issue #12409 Re-enable overhead on server databases view
+- issue #12414 Fixed rendering of Original theme
+- issue #12413 Fixed deleting users in non English locales
+- issue #12416 Fixed replication status output in Databases listing
+- issue #12303 Avoid typecasting to float when not needed
+- issue #12425 Duplicate message variable names in messages.inc.php
+- issue #12399 Adding index to table shows wrong top navigation
+- issue #12424 Fixed password change on MariaDB without auth plugin
+- issue #12339 Do not error on unset server port
+- issue #12422 Improvements to the original theme
+- issue #12395 Do not try to load old transformation plugins
+- issue #12423 Fixed replication status in database listing
+- issue #12433 Copy table with prefix does not copy the indexes
+
+4.6.3 (2016-06-23)
 - issue #12249 Fixed cookie path on Windows
+- issue #12279 Fixed error reporting on connect problems
+- issue #12290 Fixed export of tables without explicitly set engine
+- issue #12285 Designer JavaScript error: Show/Hide tables list
+- issue #12293 Fix MySQL SSL connection with some PHP versions
+- issue #12279 Fix MySQL connection error on version mismatch
+- issue #12281 Keep user attributes (privileges, authentication mode, etc) when copying a user
+- issue #12308 Fix division by zero in case of misconfigured MySQL server
+- issue #12317 Fix editing server variables
+- issue #12303 Fix table size calculation in some circumstances
+- issue #12310 Fix listing routines for non privileged user
+- issue        Escape generated query in exporting a database
+- issue        Setup script doesn't use input type 'password' in all relevant locations
+- issue        [security] BBCode injection in setup script, see PMASA-2016-17
+- issue        [security] Cookie attribute injection attack, see PMASA-2016-18
+- issue        Redirect loop when directly calling url.php
+- issue        [security] SQL injection attack, see PMASA-2016-19
+- issue        [security] XSS attack in Table Structure page, see PMASA-2016-20
+- issue        [security] XSS attack in Server Privileges page, see PMASA-2016-21
+- issue        [security] DOS attack vulnerability, see PMASA-2016-22
+- issue        [security] Multiple full path disclosure vulnerabilities, see PMASA-2016-23
+- issue        [security] Full path disclosure when running in debug mode
+- issue        [security] XSS attack with partition range and table structure, see PMASA-2016-25
+- issue        [security] XSS attack when checking database privileges, see PMASA-2016-26
+- issue        [security] XSS attack when MySQL server is using a specific payload log_bin directive, see PMASA-2016-26
+- issue        [security] XSS vulnerabilities in Transformation feature, see PMASA-2016-26
 
 4.6.2 (2016-05-25)
 - issue        [security] User SQL queries can be revealed through URL GET parameters, see PMASA-2016-14

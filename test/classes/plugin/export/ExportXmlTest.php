@@ -12,7 +12,6 @@ $GLOBALS['db'] = 'db';
 
 require_once 'libraries/export.lib.php';
 require_once 'libraries/config.default.php';
-require_once 'export.php';
 require_once 'test/PMATestCase.php';
 
 /**
@@ -327,7 +326,7 @@ class ExportXmlTest extends PMATestCase
 
         $this->assertContains(
             '&lt;pma_xml_export version=&quot;1.0&quot; xmlns:pma=&quot;' .
-            'http://www.phpmyadmin.net/some_doc_url/&quot;&gt;',
+            'https://www.phpmyadmin.net/some_doc_url/&quot;&gt;',
             $result
         );
 

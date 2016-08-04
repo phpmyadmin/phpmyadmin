@@ -401,7 +401,9 @@ if ($token_mismatch) {
         /* Permit session expiry flag */
         'session_expired',
         /* JS loading */
-        'scripts', 'call_done'
+        'scripts', 'call_done',
+        /* Navigation panel */
+        'aPath', 'vPath', 'pos', 'pos2_name', 'pos2_value', 'searchClause', 'searchClause2'
     );
     /**
      * Allow changing themes in test/theme.php
@@ -754,46 +756,14 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         // scripts)
         $controllink = false;
         if ($cfg['Server']['controluser'] != '') {
-            if (! empty($cfg['Server']['controlhost'])
-                || ! empty($cfg['Server']['controlport'])
-            ) {
-                $server_details = array();
-                if (! empty($cfg['Server']['controlhost'])) {
-                    $server_details['host'] = $cfg['Server']['controlhost'];
-                } else {
-                    $server_details['host'] = $cfg['Server']['host'];
-                }
-                if (! empty($cfg['Server']['controlport'])) {
-                    $server_details['port'] = $cfg['Server']['controlport'];
-                } elseif ($server_details['host'] == $cfg['Server']['host']) {
-                    // Evaluates to true when controlhost == host
-                    // or controlhost is not defined (hence it defaults to host)
-                    // In such case we can use the value of port.
-                    $server_details['port'] = $cfg['Server']['port'];
-                }
-                // otherwise we leave the $server_details['port'] unset,
-                // allowing it to take default mysql port
-
-                $controllink = $GLOBALS['dbi']->connect(
-                    $cfg['Server']['controluser'],
-                    $cfg['Server']['controlpass'],
-                    true,
-                    $server_details
-                );
-            } else {
-                $controllink = $GLOBALS['dbi']->connect(
-                    $cfg['Server']['controluser'],
-                    $cfg['Server']['controlpass'],
-                    true
-                );
-            }
+            $controllink = $GLOBALS['dbi']->connect(
+                DatabaseInterface::CONNECT_CONTROL
+            );
         }
 
         // Connects to the server (validates user's login)
         /** @var DatabaseInterface $userlink */
-        $userlink = $GLOBALS['dbi']->connect(
-            $cfg['Server']['user'], $cfg['Server']['password'], false
-        );
+        $userlink = $GLOBALS['dbi']->connect(DatabaseInterface::CONNECT_USER);
 
         // Set timestamp for the session, if required.
         if ($cfg['Server']['SessionTimeZone'] != '') {
@@ -833,9 +803,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
              * and phpMyAdmin issuing queries to configuration storage, which
              * is not locked by that time.
              */
-            $controllink = $GLOBALS['dbi']->connect(
-                $cfg['Server']['user'], $cfg['Server']['password'], false
-            );
+            $controllink = $GLOBALS['dbi']->connect(DatabaseInterface::CONNECT_USER);
         }
 
         $auth_plugin->storeUserCredentials();
@@ -927,7 +895,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
      * There is no point in even attempting to process
      * an ajax request if there is a token mismatch
      */
-    if (isset($response) && $response->isAjax() && $token_mismatch) {
+    if (isset($response) && $response->isAjax() && $_SERVER['REQUEST_METHOD'] == 'POST' && $token_mismatch) {
         $response->setRequestStatus(false);
         $response->addJSON(
             'message',

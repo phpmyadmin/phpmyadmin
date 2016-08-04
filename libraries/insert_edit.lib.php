@@ -1959,7 +1959,7 @@ function PMA_executeSqlQuery($url_params, $query)
             $result = $GLOBALS['dbi']->query($single_query);
         }
         if (! $result) {
-            $error_messages[] = Message::sanitize($GLOBALS['dbi']->getError());
+            $error_messages[] = $GLOBALS['dbi']->getError();
         } else {
             // The next line contains a real assignment, it's not a typo
             if ($tmp = @$GLOBALS['dbi']->affectedRows()) {
@@ -2983,8 +2983,8 @@ function PMA_userHasColumnPrivileges($table_column, $insert_mode)
 /**
  * Returns whether the user has necessary insert/update privileges for the database
  *
- * @param string $database database name
- * @param bool  $insert_mode  whether on insert mode
+ * @param string $database    database name
+ * @param bool   $insert_mode whether on insert mode
  *
  * @return boolean whether user has necessary privileges
  */

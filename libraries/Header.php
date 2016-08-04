@@ -227,7 +227,7 @@ class Header
         }
 
         $params = array(
-            'common_query' => URL::getCommon(array(), 'text'),
+            'common_query' => URL::getCommonRaw(),
             'opendb_url' => Util::getScriptNameForOption(
                 $GLOBALS['cfg']['DefaultTabDatabase'], 'database'
             ),
@@ -553,6 +553,7 @@ class Header
             . $captcha_url
             . $GLOBALS['cfg']['CSPAllow']
             . ";"
+            . "referrer no-referrer;"
             . "img-src 'self' data: "
             . $GLOBALS['cfg']['CSPAllow']
             . $map_tile_urls
@@ -564,6 +565,7 @@ class Header
             . $captcha_url
             . $GLOBALS['cfg']['CSPAllow'] . ';'
             . "options inline-script eval-script;"
+            . "referrer no-referrer;"
             . "img-src 'self' data: "
             . $GLOBALS['cfg']['CSPAllow']
             . $map_tile_urls
@@ -578,6 +580,7 @@ class Header
             . $captcha_url
             . $GLOBALS['cfg']['CSPAllow']
             . " 'unsafe-inline' 'unsafe-eval';"
+            . "referrer no-referrer;"
             . "style-src 'self' 'unsafe-inline' "
             . $captcha_url
             . ';'
@@ -602,6 +605,11 @@ class Header
         // see http://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html
         header(
             'X-Permitted-Cross-Domain-Policies: none'
+        );
+        // Robots meta tag
+        // see https://developers.google.com/webmasters/control-crawl-index/docs/robots_meta_tag
+        header(
+            'X-Robots-Tag: noindex, nofollow'
         );
         PMA_noCacheHeader();
         if (! defined('IS_TRANSFORMATION_WRAPPER')) {

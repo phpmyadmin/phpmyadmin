@@ -489,17 +489,15 @@ function PMA_sendHeaderLocation($uri, $use_refresh = false)
         return;
     }
 
-    $response = PMA\libraries\Response::getInstance();
-
-    if (SID) {
-        if (mb_strpos($uri, '?') === false) {
-            $response->header('Location: ' . $uri . '?' . SID);
-        } else {
-            $separator = URL::getArgSeparator();
-            $response->header('Location: ' . $uri . $separator . SID);
-        }
-        return;
+    /*
+     * Avoid relative path redirect problems in case user entered URL
+     * like /phpmyadmin/index.php/ which some web servers happily accept.
+     */
+    if ($uri[0] == '.') {
+        $uri = $GLOBALS['PMA_Config']->getCookiePath() . substr($uri, 2);
     }
+
+    $response = PMA\libraries\Response::getInstance();
 
     session_write_close();
     if ($response->headersSent()) {
@@ -908,15 +906,20 @@ function PMA_setGlobalDbOrTable($param)
  */
 function PMA_cleanupPathInfo()
 {
-    global $PMA_PHP_SELF, $_PATH_INFO;
+    global $PMA_PHP_SELF;
 
     $PMA_PHP_SELF = PMA_getenv('PHP_SELF');
+    if (empty($PMA_PHP_SELF)) {
+        $PMA_PHP_SELF = urldecode(PMA_getenv('REQUEST_URI'));
+    }
     $_PATH_INFO = PMA_getenv('PATH_INFO');
     if (! empty($_PATH_INFO) && ! empty($PMA_PHP_SELF)) {
         $path_info_pos = mb_strrpos($PMA_PHP_SELF, $_PATH_INFO);
-        $pathLength = $path_info_pos + mb_strlen($_PATH_INFO);
-        if ($pathLength === mb_strlen($PMA_PHP_SELF)) {
-            $PMA_PHP_SELF = mb_substr($PMA_PHP_SELF, 0, $path_info_pos);
+        if ($path_info_pos !== false) {
+            $path_info_part = mb_substr($PMA_PHP_SELF, $path_info_pos, mb_strlen($_PATH_INFO));
+            if ($path_info_part == $_PATH_INFO) {
+                $PMA_PHP_SELF = mb_substr($PMA_PHP_SELF, 0, $path_info_pos);
+            }
         }
     }
     $PMA_PHP_SELF = htmlspecialchars($PMA_PHP_SELF);

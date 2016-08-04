@@ -499,7 +499,7 @@ class TransformationPluginsTest extends PMATestCase
                 'getInfo',
                 'Displays an image and a link; '
                 . 'the column contains the filename. The first option'
-                . ' is a URL prefix like "http://www.example.com/". '
+                . ' is a URL prefix like "https://www.example.com/". '
                 . 'The second and third options'
                 . ' are the width and the height in pixels.'
             ),
@@ -544,7 +544,7 @@ class TransformationPluginsTest extends PMATestCase
                 new Text_Plain_Link(),
                 'getInfo',
                 'Displays a link; the column contains the filename. The first option'
-                . ' is a URL prefix like "http://www.example.com/".'
+                . ' is a URL prefix like "https://www.example.com/".'
                 . ' The second option is a title for the link.'
             ),
             array(
@@ -780,7 +780,7 @@ class TransformationPluginsTest extends PMATestCase
                 '<a href="transformation_wrapper.phpPMA_wrapper_link" '
                 . 'target="_blank"><img src="transformation_wrapper.php'
                 . 'PMA_wrapper_link&amp;resize=jpeg&amp;newWidth=./image/&amp;'
-                . 'newHeight=200" alt="PMA_JPEG_Inline" border="0" /></a>'
+                . 'newHeight=200" alt="[PMA_JPEG_Inline]" border="0" /></a>'
             ),
             array(
                 new Image_JPEG_Link(),
@@ -790,7 +790,7 @@ class TransformationPluginsTest extends PMATestCase
                 ),
                 '<a class="disableAjax" target="_new"'
                 . ' href="transformation_wrapper.phpPMA_wrapper_link"'
-                . ' alt="PMA_IMAGE_LINK">[BLOB]</a>'
+                . ' alt="[PMA_IMAGE_LINK]">[BLOB]</a>'
             ),
             array(
                 new Image_PNG_Inline(),
@@ -802,7 +802,7 @@ class TransformationPluginsTest extends PMATestCase
                 . ' target="_blank"><img src="transformation_wrapper.php'
                 . 'PMA_wrapper_link&amp;'
                 . 'resize=jpeg&amp;newWidth=./image/&amp;newHeight=200" '
-                . 'alt="PMA_PNG_Inline" border="0" /></a>'
+                . 'alt="[PMA_PNG_Inline]" border="0" /></a>'
             ),
             array(
                 new Text_Plain_Dateformat(),
@@ -863,10 +863,10 @@ class TransformationPluginsTest extends PMATestCase
             array(
                 new Text_Plain_Formatted(),
                 array(
-                    "<a ref='http://ci.phpmyadmin.net/'>PMA_BUFFER</a>",
+                    "<a ref='https://www.example.com/'>PMA_BUFFER</a>",
                     array("option1", "option2")
                 ),
-                "<a ref='http://ci.phpmyadmin.net/'>PMA_BUFFER</a>"
+                "<a ref='https://www.example.com/'>PMA_BUFFER</a>"
             ),
             array(
                 new Text_Plain_Imagelink(),

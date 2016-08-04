@@ -86,17 +86,17 @@ class PMA_Form_Processing_Test extends PHPUnit_Framework_TestCase
         );
 
         $this->assertContains(
-            '<a href="?lang=en&amp;token=token&amp;page=&amp;mode=revert">',
+            '<a href="?lang=en&amp;page=&amp;mode=revert">',
             $result
         );
 
         $this->assertContains(
-            '<a class="btn" href="index.php?lang=en&amp;token=token">',
+            '<a class="btn" href="index.php?lang=en">',
             $result
         );
 
         $this->assertContains(
-            '<a class="btn" href="?lang=en&amp;token=token&amp;page=&amp;mode=edit">',
+            '<a class="btn" href="?lang=en&amp;page=&amp;mode=edit">',
             $result
         );
 
@@ -119,7 +119,7 @@ class PMA_Form_Processing_Test extends PHPUnit_Framework_TestCase
         PMA_Process_formset($formDisplay);
 
         $this->assertEquals(
-            array('HTTP/1.1 303 See Other', 'Location: index.php?lang=en&amp;token=token'),
+            array('HTTP/1.1 303 See Other', 'Location: index.php?lang=en'),
             $GLOBALS['header']
         );
 

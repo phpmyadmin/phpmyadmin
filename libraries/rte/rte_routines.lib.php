@@ -274,11 +274,11 @@ function PMA_RTN_handleRequestCreateOrEdit($errors, $db)
                 . ' processing your request:'
             )
         );
-        $message->addString('<ul>');
+        $message->addHtml('<ul>');
         foreach ($errors as $string) {
-            $message->addString('<li>' . $string . '</li>');
+            $message->addHtml('<li>' . $string . '</li>');
         }
-        $message->addString('</ul>');
+        $message->addHtml('</ul>');
     }
 
     $output = PMA\libraries\Util::getMessage($message, $sql_query);

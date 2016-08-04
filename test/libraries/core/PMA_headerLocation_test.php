@@ -36,8 +36,6 @@ use PMA\libraries\Sanitize;
 class PMA_HeaderLocation_Test extends PHPUnit_Framework_TestCase
 {
 
-    protected $oldIISvalue;
-    protected $oldSIDvalue;
     protected $runkitExt;
     protected $apdExt;
 
@@ -50,103 +48,10 @@ class PMA_HeaderLocation_Test extends PHPUnit_Framework_TestCase
     {
         //session_start();
 
-        // cleaning constants
-        if (PMA_HAS_RUNKIT) {
-
-            $this->oldIISvalue = 'non-defined';
-
-            $defined_constants = get_defined_constants(true);
-            $user_defined_constants = $defined_constants['user'];
-
-            $this->oldSIDvalue = 'non-defined';
-
-            if (array_key_exists('SID', $user_defined_constants)) {
-                $this->oldSIDvalue = SID;
-                runkit_constant_redefine('SID', null);
-            } else {
-                runkit_constant_add('SID', null);
-            }
-
-        }
         $GLOBALS['server'] = 0;
         $GLOBALS['PMA_Config'] = new PMA\libraries\Config();
         $GLOBALS['PMA_Config']->enableBc();
         $GLOBALS['PMA_Config']->set('PMA_IS_IIS', null);
-    }
-
-    /**
-     * Tear down
-     *
-     * @return void
-     */
-    public function tearDown()
-    {
-        //session_destroy();
-
-        // cleaning constants
-        if (PMA_HAS_RUNKIT) {
-
-            if ($this->oldSIDvalue != 'non-defined') {
-                runkit_constant_redefine('SID', $this->oldSIDvalue);
-            } elseif (defined('SID')) {
-                runkit_constant_remove('SID');
-            }
-        }
-    }
-
-    /**
-     * Test for PMA_sendHeaderLocation
-     *
-     * @return void
-     */
-    public function testSendHeaderLocationWithSidUrlWithQuestionMark()
-    {
-        if (defined('PMA_TEST_HEADERS')) {
-
-            runkit_constant_redefine('SID', md5('test_hash'));
-
-            $testUri = 'http://testurl.com/test.php?test=test';
-            $separator = URL::getArgSeparator();
-
-            $header = array('Location: ' . $testUri . $separator . SID);
-
-            /* sets $GLOBALS['header'] */
-            PMA_sendHeaderLocation($testUri);
-
-            $this->assertEquals($header, $GLOBALS['header']);
-
-        } else {
-            $this->markTestSkipped(
-                'Cannot redefine constant/function - missing runkit extension'
-            );
-        }
-
-    }
-
-    /**
-     * Test for PMA_sendHeaderLocation
-     *
-     * @return void
-     */
-    public function testSendHeaderLocationWithSidUrlWithoutQuestionMark()
-    {
-        if (defined('PMA_TEST_HEADERS')) {
-
-            runkit_constant_redefine('SID', md5('test_hash'));
-
-            $testUri = 'http://testurl.com/test.php';
-
-            $header = array('Location: ' . $testUri . '?' . SID);
-
-            PMA_sendHeaderLocation($testUri);            // sets $GLOBALS['header']
-            $this->assertEquals($header, $GLOBALS['header']);
-
-        } else {
-            $this->markTestSkipped(
-                'Cannot redefine constant/function - missing runkit extension'
-            );
-        }
-
     }
 
     /**
@@ -160,7 +65,7 @@ class PMA_HeaderLocation_Test extends PHPUnit_Framework_TestCase
 
             $GLOBALS['PMA_Config']->set('PMA_IS_IIS', true);
 
-            $testUri = 'http://testurl.com/test.php';
+            $testUri = 'https://example.com/test.php';
 
             $header = array('Location: ' . $testUri);
             PMA_sendHeaderLocation($testUri); // sets $GLOBALS['header']
@@ -190,7 +95,7 @@ class PMA_HeaderLocation_Test extends PHPUnit_Framework_TestCase
     {
         if (defined('PMA_TEST_HEADERS')) {
 
-            $testUri = 'http://testurl.com/test.php';
+            $testUri = 'https://example.com/test.php';
             $header = array('Location: ' . $testUri);
 
             PMA_sendHeaderLocation($testUri);            // sets $GLOBALS['header']
@@ -214,7 +119,7 @@ class PMA_HeaderLocation_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['PMA_Config']->set('PMA_IS_IIS', true);
 
         // over 600 chars
-        $testUri = 'http://testurl.com/test.php?testlonguri=over600chars&test=test'
+        $testUri = 'https://example.com/test.php?testlonguri=over600chars&test=test'
             . '&test=test&test=test&test=test&test=test&test=test&test=test'
             . '&test=test&test=test&test=test&test=test&test=test&test=test'
             . '&test=test&test=test&test=test&test=test&test=test&test=test'

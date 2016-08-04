@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * A caching proxy for retrieving version information from phpmyadmin.net
+ * A caching proxy for retrieving version information from https://www.phpmyadmin.net/
  *
  * @package PhpMyAdmin
  */

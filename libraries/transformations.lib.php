@@ -51,7 +51,7 @@ function PMA_Transformation_getOptions($option_string)
         $trimmed = trim($option);
         if (mb_strlen($trimmed) > 1
             && $trimmed[0] == "'"
-            && $trimmed[mb_strlen($trimmed) - 1] == "'"
+            && $trimmed[strlen($trimmed) - 1] == "'"
         ) {
             // '...'
             $option = mb_substr($trimmed, 1, -1);
@@ -62,7 +62,7 @@ function PMA_Transformation_getOptions($option_string)
                 // ...,
                 $trimmed .= ',' . $option;
                 $rtrimmed = rtrim($trimmed);
-                if ($rtrimmed[mb_strlen($rtrimmed) - 1] == "'") {
+                if ($rtrimmed[strlen($rtrimmed) - 1] == "'") {
                     // ,...'
                     break;
                 }
@@ -108,6 +108,14 @@ function PMA_getAvailableMIMEtypes()
 
         $filestack = array();
         while ($file = readdir($handle)) {
+            // Ignore hidden files
+            if ($file[0] == '.') {
+                continue;
+            }
+            // Ignore old plugins (.class in filename)
+            if (strpos($file, '.class') !== false) {
+                continue;
+            }
             $filestack[] = $file;
         }
 
@@ -399,44 +407,6 @@ function PMA_setMIME($db, $table, $key, $mimetype, $transformation,
 /**
  * GLOBAL Plugin functions
  */
-
-
-/**
- * Replaces "[__BUFFER__]" occurrences found in $options['string'] with the text
- * in $buffer, after performing a regular expression search and replace on
- * $buffer using $options['regex'] and $options['regex_replace'].
- *
- * @param string $buffer  text that will be replaced in $options['string'],
- *                        after being formatted
- * @param array  $options the options required to format $buffer
- *     = array (
- *         'string'        => 'string', // text containing "[__BUFFER__]"
- *         'regex'         => 'mixed',  // the pattern to search for
- *         'regex_replace' => 'mixed',  // string or array of strings to replace
- *                                      // with
- *     );
- *
- * @return string containing the text with all the replacements
- */
-function PMA_Transformation_globalHtmlReplace($buffer, $options = array())
-{
-    if (! isset($options['string'])) {
-        $options['string'] = '';
-    }
-
-    if (isset($options['regex']) && isset($options['regex_replace'])) {
-        $buffer = preg_replace(
-            '@' . str_replace('@', '\@', $options['regex']) . '@si',
-            $options['regex_replace'],
-            $buffer
-        );
-    }
-
-    // Replace occurrences of [__BUFFER__] with actual text
-    $return = str_replace("[__BUFFER__]", $buffer, $options['string']);
-    return $return;
-}
-
 
 /**
  * Delete related transformation details

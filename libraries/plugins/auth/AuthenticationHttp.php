@@ -169,10 +169,6 @@ class AuthenticationHttp extends AuthenticationPlugin
             && (isset($PHP_AUTH_USER) && $old_usr == $PHP_AUTH_USER)
         ) {
             $PHP_AUTH_USER = '';
-            // -> delete user's choices that were stored in session
-            if (!defined('TESTSUITE')) {
-                session_destroy();
-            }
         }
 
         // Returns whether we get authentication settings or not

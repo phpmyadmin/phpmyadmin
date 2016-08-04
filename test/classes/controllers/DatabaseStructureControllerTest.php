@@ -213,7 +213,7 @@ class DatabaseStructureControllerTest extends PMATestCase
             $current_table['Rows']
         );
         $this->assertEquals(
-            doubleval(16384),
+            16384,
             $sum_size
         );
         $this->assertEquals(

@@ -1511,7 +1511,7 @@ class ExportSql extends ExportPlugin
              */
             if ($view) {
                 $create_query = preg_replace(
-                    '/' . preg_quote(Util::backquote($db)) . '\./',
+                    '/' . preg_quote(Util::backquote($db), '/') . '\./',
                     '',
                     $create_query
                 );
@@ -1568,14 +1568,14 @@ class ExportSql extends ExportPlugin
                 if (($compat === 'MSSQL') || ($sql_backquotes === '"')) {
                     Context::$MODE |= Context::ANSI_QUOTES;
                 }
-
-                /**
-                 * Parser used for analysis.
-                 *
-                 * @var Parser
-                 */
-                $parser = new Parser($create_query);
             }
+
+            /**
+             * Parser used for analysis.
+             *
+             * @var Parser
+             */
+            $parser = new Parser($create_query);
 
             /**
              * `CREATE TABLE` statement.
@@ -1584,7 +1584,11 @@ class ExportSql extends ExportPlugin
              */
             $statement = $parser->statements[0];
 
-            $engine = $statement->entityOptions->has('ENGINE');
+            if (!empty($statement->entityOptions)) {
+                $engine = $statement->entityOptions->has('ENGINE');
+            } else {
+                $engine = '';
+            }
 
             /* Avoid operation on ARCHIVE tables as those can not be altered */
             if (!empty($statement->fields) && (empty($engine) || strtoupper($engine) != 'ARCHIVE')) {

@@ -7,8 +7,8 @@
         <?php $full_size = 0; ?>
         <select name="log">
             <?php foreach ($binary_logs as $each_log): ?>
-                <option value="<?= $each_log['Log_name']; ?>"<?= ($each_log['Log_name'] == $_REQUEST['log'] ? ' selected="selected"' : ''); ?>>
-                    <?= $each_log['Log_name']; ?>
+                <option value="<?= htmlspecialchars($each_log['Log_name']); ?>"<?= ($each_log['Log_name'] == $_REQUEST['log'] ? ' selected="selected"' : ''); ?>>
+                    <?= htmlspecialchars($each_log['Log_name']); ?>
                     <?php if (isset($each_log['File_size'])): ?>
                         (<?= implode(' ', \PMA\libraries\Util::formatByteDown($each_log['File_size'], 3, 2)); ?>)
                         <?php $full_size += $each_log['File_size']; ?>

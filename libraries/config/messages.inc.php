@@ -695,8 +695,8 @@ $strConfigServers_savedsearches_desc = __(
     'Leave blank for no QBE saved searches support, suggested: '
     . '[kbd]pma__savedsearches[/kbd].'
 );
-$strConfigServers_savedsearches_name = __('Export templates table');
-$strConfigServers_savedsearches_desc = __(
+$strConfigServers_export_templates_name = __('Export templates table');
+$strConfigServers_export_templates_desc = __(
     'Leave blank for no export template support, suggested: '
     . '[kbd]pma__export_templates[/kbd].'
 );
@@ -807,8 +807,8 @@ $strConfigServers_userconfig_desc = __(
 $strConfigServers_userconfig_name = __('User preferences storage table');
 $strConfigServers_users_desc = __(
     'Both this table and the user groups table are required to enable the ' .
-    'configurable menus feature; leaving either one of them blank will disable
-    this feature, suggested: [kbd]pma__users[/kbd].'
+    'configurable menus feature; leaving either one of them blank will disable ' .
+    'this feature, suggested: [kbd]pma__users[/kbd].'
 );
 $strConfigServers_users_name = __('Users table');
 $strConfigServers_usergroups_desc = __(

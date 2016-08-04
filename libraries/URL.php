@@ -157,19 +157,48 @@ class URL
      * </code>
      *
      * @param mixed  $params  optional, Contains an associative array with url params
-     *
-     * @param string $encode  'html' to use htmlspecialchars() on the resulting
-     *                        URL (for a normal URL displayed in HTML) or
-     *                        something else to avoid using htmlspecialchars()
-     *                        (for a URL sent via a header);
-     *                        if not set,'html' is assumed
-     *
      * @param string $divider optional character to use instead of '?'
      *
      * @return string   string with URL parameters
      * @access  public
      */
-    public static function getCommon($params = array(), $encode = 'html', $divider = '?')
+    public static function getCommon($params = array(), $divider = '?')
+    {
+        return htmlspecialchars(
+            URL::getCommonRaw($params, $divider)
+        );
+    }
+
+    /**
+     * Generates text with URL parameters.
+     *
+     * <code>
+     * $params['myparam'] = 'myvalue';
+     * $params['db']      = 'mysql';
+     * $params['table']   = 'rights';
+     * // note the missing ?
+     * echo 'script.php' . URL::getCommon($params);
+     * // produces with cookies enabled:
+     * // script.php?myparam=myvalue&amp;db=mysql&amp;table=rights
+     * // with cookies disabled:
+     * // script.php?server=1&amp;lang=en&amp;myparam=myvalue&amp;db=mysql
+     * // &amp;table=rights
+     *
+     * // note the missing ?
+     * echo 'script.php' . URL::getCommon();
+     * // produces with cookies enabled:
+     * // script.php
+     * // with cookies disabled:
+     * // script.php?server=1&amp;lang=en
+     * </code>
+     *
+     * @param mixed  $params  optional, Contains an associative array with url params
+     * @param string $divider optional character to use instead of '?'
+     *
+     * @return string   string with URL parameters
+     * @access  public
+     */
+    public static function getCommonRaw($params = array(), $divider = '?')
     {
         $separator = URL::getArgSeparator();
 
@@ -191,21 +220,11 @@ class URL
             $params['collation_connection'] = $GLOBALS['collation_connection'];
         }
 
-        if (isset($_SESSION[' PMA_token '])) {
-            $params['token'] = $_SESSION[' PMA_token '];
-        }
-
         if (empty($params)) {
             return '';
         }
 
-        $query = $divider . http_build_query($params, null, $separator);
-
-        if ($encode === 'html') {
-            $query = htmlspecialchars($query);
-        }
-
-        return $query;
+        return $divider . http_build_query($params, null, $separator);
     }
 
     /**
@@ -228,7 +247,7 @@ class URL
         if (null === $separator) {
             // use separators defined by php, but prefer ';'
             // as recommended by W3C
-            // (see http://www.w3.org/TR/1999/REC-html401-19991224/appendix
+            // (see https://www.w3.org/TR/1999/REC-html401-19991224/appendix
             // /notes.html#h-B.2.2)
             $arg_separator = ini_get('arg_separator.input');
             if (mb_strpos($arg_separator, ';') !== false) {

@@ -539,6 +539,20 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
             $sql,
             $ret
         );
+
+        // SQL escaping
+        $db = "db' AND";
+        $table = "pma_table";
+        $ret = PMA_getSqlQueryForDisplayPrivTable(
+            $db, $table, $username, $hostname
+        );
+        $this->assertEquals(
+            "SELECT `Table_priv` FROM `mysql`.`tables_priv` "
+            . "WHERE `User` = 'pma_username' AND "
+            . "`Host` = 'pma_hostname' AND `Db` = 'db\' AND' AND "
+            . "`Table_name` = 'pma_table';",
+            $ret
+        );
     }
 
     /**
@@ -2124,13 +2138,13 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
         $this->assertContains(
             '<td><a class="ajax" href="server_privileges.php?initial=-&amp;'
             . 'server=1&amp;lang=en&amp;collation_connection='
-            . 'collation_connection&amp;token=token">-</a></td>',
+            . 'collation_connection">-</a></td>',
             $actual
         );
         $this->assertContains(
             '<td><a class="ajax" href="server_privileges.php?initial=%22&amp;'
             . 'server=1&amp;lang=en&amp;collation_connection='
-            . 'collation_connection&amp;token=token">"</a>',
+            . 'collation_connection">"</a>',
             $actual
         );
         $this->assertContains('Show all', $actual);
