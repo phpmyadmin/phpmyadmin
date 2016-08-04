@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-08-01 11:04+0200\n"
-"PO-Revision-Date: 2016-07-29 12:53+0000\n"
-"Last-Translator: Juha Remes <jremes@outlook.com>\n"
-"Language-Team: Finnish <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/fi/>\n"
+"PO-Revision-Date: 2016-08-04 19:13+0000\n"
+"Last-Translator: Juha <jremes@outlook.com>\n"
+"Language-Team: Finnish "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/fi/>\n"
 "Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -5370,10 +5370,9 @@ msgid "Could not connect to the database server!"
 msgstr "Ei voida yhdistää tietokantapalvelimeen!"
 
 #: libraries/config/Validator.php:286
-#, fuzzy
 #| msgid "Authentication type"
 msgid "Invalid authentication type!"
-msgstr "Todennustyyppi"
+msgstr "Virheellinen todennustyyppi!"
 
 #: libraries/config/Validator.php:293
 msgid "Empty username while using [kbd]config[/kbd] authentication method!"
@@ -7799,12 +7798,13 @@ msgid ""
 "Enable Zero Configuration mode which lets you setup phpMyAdmin configuration "
 "storage tables automatically."
 msgstr ""
+"Aktivoi nollakonfiguraatiotila joka mahdollistaa phpMyAdminin "
+"konfiguraatioasetustaulujen asentamisen automaattisesti."
 
 #: libraries/config/messages.inc.php:1002
-#, fuzzy
 #| msgid "Server configuration"
 msgid "Enable Zero Configuration mode"
-msgstr "Palvelimen määrittely"
+msgstr "Aktivoi nollakonfiguraatiotila"
 
 #: libraries/config/setup.forms.php:40
 msgid "Config authentication"
@@ -7832,7 +7832,7 @@ msgstr "OpenDocument laskentataulukko"
 #: libraries/config/setup.forms.php:288
 #: libraries/config/user_preferences.forms.php:190
 msgid "Quick"
-msgstr ""
+msgstr "Nopea"
 
 #: libraries/config/setup.forms.php:292
 #: libraries/config/user_preferences.forms.php:194
@@ -7866,17 +7866,17 @@ msgstr "Taulu %s on tyhjennetty."
 
 #: libraries/controllers/database/DatabaseStructureController.php:567
 #: tbl_operations.php:393 view_operations.php:136
-#, fuzzy, php-format
+#, php-format
 #| msgid "View %s has been dropped."
 msgid "View %s has been dropped."
-msgstr "Näkymä %s on poistettu"
+msgstr "Näkymä %s on poistettu."
 
 #: libraries/controllers/database/DatabaseStructureController.php:568
 #: tbl_operations.php:394
-#, fuzzy, php-format
+#, php-format
 #| msgid "Table %s has been dropped."
 msgid "Table %s has been dropped."
-msgstr "Taulu %s on poistettu"
+msgstr "Taulu %s on poistettu."
 
 #: libraries/controllers/server/ServerBinlogController.php:152
 msgid "Log name"
@@ -7925,12 +7925,12 @@ msgid "Database %1$s has been created."
 msgstr "Tietokanta %1$s on luotu."
 
 #: libraries/controllers/server/ServerDatabasesController.php:205
-#, fuzzy, php-format
+#, php-format
 #| msgid "%s databases have been dropped successfully."
 msgid "%1$d database has been dropped successfully."
 msgid_plural "%1$d databases have been dropped successfully."
-msgstr[0] "%s tietokantaa poistettiin onnistuneesti."
-msgstr[1] "%s tietokantaa poistettiin onnistuneesti."
+msgstr[0] "%1$d tietokanta poistettiin onnistuneesti."
+msgstr[1] "%1$d tietokantaa poistettiin onnistuneesti."
 
 #: libraries/controllers/server/ServerDatabasesController.php:346
 #: libraries/import.lib.php:94
@@ -7975,35 +7975,35 @@ msgstr ""
 
 #: libraries/controllers/server/ServerDatabasesController.php:582
 #: libraries/controllers/server/ServerDatabasesController.php:588
-#, fuzzy
 #| msgid "Enable Statistics"
 msgid "Enable statistics"
-msgstr "Näytä tilastot"
+msgstr "Aktivoi tilastot"
 
 #: libraries/controllers/server/ServerVariablesController.php:111
-#, fuzzy, php-format
+#, php-format
 #| msgid "Server variables and settings"
 msgid "Not enough privilege to view server variables and settings. %s"
-msgstr "Palvelimen muuttujat ja asetukset"
+msgstr ""
+"Sinulla ei ole tarpeeksi käyttöoikeuksia palvelimen muuttujien ja asetusten "
+"katselemiseksi. %s"
 
 #: libraries/controllers/server/ServerVariablesController.php:229
 msgid "Setting variable failed"
-msgstr ""
+msgstr "Muuttujan asettaminen epäonnistui"
 
 #: libraries/controllers/table/TableChartController.php:76
 #: libraries/controllers/table/TableGisVisualizationController.php:98
 msgid "No SQL query was set to fetch data."
-msgstr ""
+msgstr "SQL-hakukyselyä tietojen hakemiseksi ei olla asetettu."
 
 #: libraries/controllers/table/TableChartController.php:151
 msgid "No numeric columns present in the table to plot."
-msgstr ""
+msgstr "Ei numeerisia sarakkeita taulussa josta luodaan kaaviota."
 
 #: libraries/controllers/table/TableChartController.php:211
-#, fuzzy
 #| msgid "No data found"
 msgid "No data to display"
-msgstr "Tietoa ei löydy"
+msgstr "Ei näytettäviä tietoja"
 
 #: libraries/controllers/table/TableIndexesController.php:153
 #: libraries/controllers/table/TableStructureController.php:712
