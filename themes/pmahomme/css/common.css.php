@@ -539,13 +539,15 @@ button.mult_submit {
 }
 
 /* odd items 1,3,5,7,... */
-table tr:nth-child(odd) {
-        background: #fff;
+table tbody:first-of-type tr:nth-child(odd),
+table tbody:first-of-type tr:nth-child(odd) th {
+    background: #fff;
 } 
 
 /* even items 2,4,6,8,... */
-table tr:nth-child(even) {
-        background: #DFDFDF;
+table tbody:first-of-type tr:nth-child(even),
+table tbody:first-of-type tr:nth-child(even) th {
+    background: #DFDFDF;
 }
 
 table tr th,
@@ -556,14 +558,15 @@ table tr {
 /* marked table rows */
 td.marked:not(.nomarker),
 table tr.marked:not(.nomarker) td,
-table tr.marked:not(.nomarker) th,
+table tbody:first-of-type tr.marked:not(.nomarker) th,
 table tr.marked:not(.nomarker) {
     <?php echo $_SESSION['PMA_Theme']->getCssGradient('ced6df', 'b6c6d7'); ?>
     color: <?php echo $GLOBALS['cfg']['BrowseMarkerColor']; ?>;
 }
 
 /* hovered items */
-table tr:not(.nopointer):hover,
+table tbody:first-of-type tr:not(.nopointer):hover,
+table tbody:first-of-type tr:not(.nopointer):hover th,
 .hover:not(.nopointer) {
     <?php echo $_SESSION['PMA_Theme']->getCssGradient('ced6df', 'b6c6d7'); ?>
     color: <?php echo $GLOBALS['cfg']['BrowsePointerColor']; ?>;
