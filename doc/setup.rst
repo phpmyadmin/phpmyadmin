@@ -387,6 +387,15 @@ Beginning in January 2016, the release manager is Isaac Bennetch. His key id is
 
 and you can get more identification information from `https://keybase.io/ibennetch <https://keybase.io/ibennetch>`_.
 
+Some additional downloads (for example themes) might be signed by Michal Čihař. His key id is
+0x9C27B31342B7511D, and his PGP fingerprint is:
+
+.. code-block:: console
+
+    63CB 1DF1 EF12 CF2A C0EE 5A32 9C27 B313 42B7 511D
+
+and you can get more identification information from <https://keybase.io/nijel>.
+
 You should verify that the signature matches
 the archive you have downloaded. This way you can be sure that you are using
 the same code that was released.
