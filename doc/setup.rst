@@ -376,7 +376,7 @@ releasing developer, who through January 2016 was Marc Delisle. His key id is
 
     436F F188 4B1A 0C3F DCBF 0D79 FEFC 65D1 81AF 644A
 
-and you can get more identification information from `https://keybase.io/lem9 <https://keybase.io/lem9>`_.
+and you can get more identification information from <https://keybase.io/lem9>.
 
 Beginning in January 2016, the release manager is Isaac Bennetch. His key id is
 0xCE752F178259BD92, and his PGP fingerprint is:
@@ -385,7 +385,7 @@ Beginning in January 2016, the release manager is Isaac Bennetch. His key id is
 
     3D06 A59E CE73 0EB7 1B51 1C17 CE75 2F17 8259 BD92
 
-and you can get more identification information from `https://keybase.io/ibennetch <https://keybase.io/ibennetch>`_.
+and you can get more identification information from <https://keybase.io/ibennetch>.
 
 Some additional downloads (for example themes) might be signed by Michal Čihař. His key id is
 0x9C27B31342B7511D, and his PGP fingerprint is:
