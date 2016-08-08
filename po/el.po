@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-08-01 11:04+0200\n"
-"PO-Revision-Date: 2016-05-23 21:06+0000\n"
+"PO-Revision-Date: 2016-08-08 11:32+0000\n"
 "Last-Translator: Παναγιώτης Παπάζογλου <papaz_p@yahoo.com>\n"
-"Language-Team: Greek <https://hosted.weblate.org/projects/phpmyadmin/4-6/el/"
-">\n"
+"Language-Team: Greek <https://hosted.weblate.org/projects/phpmyadmin/4-6/el/>"
+"\n"
 "Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.7-dev\n"
+"X-Generator: Weblate 2.8-dev\n"
 
 #: changelog.php:37 license.php:33
 #, php-format
@@ -5348,10 +5348,9 @@ msgid "Could not connect to the database server!"
 msgstr "Αδύνατη η σύνδεση με τον διακομιστή βάσης δεδομένων!"
 
 #: libraries/config/Validator.php:286
-#, fuzzy
 #| msgid "Authentication type"
 msgid "Invalid authentication type!"
-msgstr "Τύπος επικύρωσης"
+msgstr "Μη έγκυρος τύπος επικύρωσης!"
 
 #: libraries/config/Validator.php:293
 msgid "Empty username while using [kbd]config[/kbd] authentication method!"
@@ -9401,10 +9400,9 @@ msgid "Log out"
 msgstr "Αποσύνδεση"
 
 #: libraries/navigation/NavigationHeader.php:172
-#, fuzzy
 #| msgid "Dumping data"
 msgid "Empty session data"
-msgstr "Άδειασμα δεδομένων"
+msgstr "Άδειασμα δεδομένων συνεδρίας"
 
 #: libraries/navigation/NavigationHeader.php:188
 msgid "phpMyAdmin documentation"
@@ -14575,10 +14573,9 @@ msgstr ""
 "φάκελο config για να το χρησιμοποιήσετε."
 
 #: setup/frames/index.inc.php:132
-#, fuzzy
 #| msgid "Configuration saved."
 msgid "Configuration not saved!"
-msgstr "Οι ρυθμίσεις αποθηκεύτηκαν."
+msgstr "Οι ρυθμίσεις δεν αποθηκεύτηκαν!"
 
 #: setup/frames/index.inc.php:147 setup/frames/menu.inc.php:19
 msgid "Overview"
@@ -14700,7 +14697,7 @@ msgstr "Εσφαλμένα δεδομένα"
 #: setup/validate.php:30
 #, php-format
 msgid "Wrong data or no validation for %s"
-msgstr ""
+msgstr "Εσφαλμένα δεδομένα ή καμιά πιστοποίηση για %s"
 
 #: tbl_create.php:30 tbl_get_field.php:26
 #, php-format
@@ -14757,7 +14754,7 @@ msgstr "Όπως ορίστηκε:"
 
 #: templates/columns_definitions/column_definitions_form.phtml:48
 msgid "Table name"
-msgstr "Ονομασία πίνακας"
+msgstr "Ονομασία πίνακα"
 
 #: templates/columns_definitions/column_definitions_form.phtml:92
 msgid "Collation:"
@@ -15785,7 +15782,7 @@ msgstr "Τα στοιχεία ανανεώθηκαν."
 
 #: view_create.php:44
 msgid "View name can not be empty"
-msgstr ""
+msgstr "Όνομα προβολής δεν μπορεί να είναι άδειο"
 
 #: view_create.php:247
 msgid "VIEW name"
