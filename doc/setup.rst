@@ -149,6 +149,18 @@ environment variables:
 By default, :ref:`cookie` is used, but if :envvar:`PMA_USER` and
 :envvar:`PMA_PASSWORD` are set, it is switched to :ref:`auth_config`.
 
+Additionally configuration can be tweaked by :file:`/config.user.inc.php`. If
+this file exists, it will be loaded after configuration generated from above
+environment variables, so you can override any configuration variable. This
+configuraiton can be added as a volume when invoking docker using 
+`-v /some/local/directory/config.user.inc.php:/config.user.inc.php` parameters.
+
+.. seealso:: 
+   
+    See :ref:`config` for detailed description of configuration options.
+
+Docker Examples
+---------------
 
 To connect phpMyAdmin to given server use:
 
@@ -173,6 +185,12 @@ You can also link the database container using Docker:
 .. code-block:: sh
 
     docker run --name phpmyadmin -d --link mysql_db_server:db -p 8080:80 phpmyadmin/phpmyadmin
+
+Running with additional configration:
+
+.. code-block:: sh
+
+    docker run --name phpmyadmin -d --link mysql_db_server:db -p 8080:80 -v /some/local/directory/config.user.inc.php:/config.user.inc.php phpmyadmin/phpmyadmin
 
 Using docker-compose
 --------------------
