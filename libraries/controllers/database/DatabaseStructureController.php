@@ -435,7 +435,6 @@ class DatabaseStructureController extends DatabaseController
                 }
             } // end if
 
-            
             if ($GLOBALS['cfg']['ShowDbStructureCharset']) {
                 if (isset($current_table['Collation'])) {
                     $charset = mb_substr($collation, 0, mb_strpos($collation, "_"));
