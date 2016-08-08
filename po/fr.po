@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-08-01 11:04+0200\n"
-"PO-Revision-Date: 2016-07-03 14:08+0000\n"
-"Last-Translator: Adrien Bertrand <bertrand.adrien@gmail.com>\n"
-"Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"fr/>\n"
+"PO-Revision-Date: 2016-08-06 14:22+0000\n"
+"Last-Translator: Cédric Corazza <cedric.corazza@wanadoo.fr>\n"
+"Language-Team: French "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/fr/>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 2.7-dev\n"
+"X-Generator: Weblate 2.8-dev\n"
 
 #: changelog.php:37 license.php:33
 #, php-format
@@ -1618,7 +1618,7 @@ msgstr ""
 #: libraries/server_status_monitor.lib.php:313 prefs_manage.php:257
 #: setup/frames/menu.inc.php:27
 msgid "Import"
-msgstr "Importer"
+msgstr "Import"
 
 #: js/messages.php:331
 msgid "Import monitor configuration"
@@ -1813,7 +1813,7 @@ msgstr "La définition d'une fonction doit comporter un énoncé RETURN !"
 #: setup/frames/menu.inc.php:28
 #: templates/database/structure/check_all_tables.phtml:12
 msgid "Export"
-msgstr "Exporter"
+msgstr "Export"
 
 #: js/messages.php:400 libraries/rte/rte_routines.lib.php:742
 msgid "ENUM/SET editor"
@@ -7934,13 +7934,13 @@ msgstr "Mode d'authentification « signon »"
 #: libraries/config/setup.forms.php:272
 #: libraries/config/user_preferences.forms.php:175
 msgid "CSV using LOAD DATA"
-msgstr "CSV via LOAD DATA"
+msgstr "CSV en utilisant LOAD DATA"
 
 #: libraries/config/setup.forms.php:281 libraries/config/setup.forms.php:379
 #: libraries/config/user_preferences.forms.php:183
 #: libraries/config/user_preferences.forms.php:280
 msgid "OpenDocument Spreadsheet"
-msgstr "Tableur OpenDocument"
+msgstr "Feuilles de tableur OpenDocument"
 
 #: libraries/config/setup.forms.php:288
 #: libraries/config/user_preferences.forms.php:190
@@ -10634,7 +10634,7 @@ msgstr "La feuille de calcul OpenDocument n'a pas pu être parcourue !"
 
 #: libraries/plugins/import/ImportShp.php:45
 msgid "ESRI Shape File"
-msgstr "Fichier de formes ESRI"
+msgstr "Fichier Shape d'ESRI"
 
 #: libraries/plugins/import/ImportShp.php:77
 #: libraries/plugins/import/ImportShp.php:142
@@ -14437,7 +14437,7 @@ msgstr "Tel que défini : "
 
 #: templates/columns_definitions/column_definitions_form.phtml:49
 msgid "Table name"
-msgstr "Nom de la table"
+msgstr "Nom de table"
 
 #: templates/columns_definitions/column_definitions_form.phtml:93
 msgid "Collation:"
@@ -15812,7 +15812,7 @@ msgstr "Nom de la vue"
 
 #: view_create.php:259
 msgid "Column names"
-msgstr "Nom des colonnes"
+msgstr "Noms de colonnes"
 
 #: view_operations.php:111
 msgid "Rename view to"
