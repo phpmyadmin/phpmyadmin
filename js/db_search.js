@@ -48,16 +48,16 @@ function loadResult(result_path, table_name, link)
         $.get(url, {'ajax_request': true, 'is_js_confirmed': true}, function (data) {
             if (typeof data !== 'undefined' && data.success) {
                 $('#browse-results').html(data.message);
-                $('html, body')
-                    .animate({
-                        scrollTop: $("#browse-results").offset().top
-                    }, 1000);
                 PMA_ajaxRemoveMessage($msg);
                 $('.table_results').each(function () {
                     PMA_makegrid(this, true, true, true, true);
                 });
                 $('#browse-results').show();
                 PMA_highlightSQL($('#browse-results'));
+                $('html, body')
+                    .animate({
+                        scrollTop: $("#browse-results").offset().top
+                    }, 1000);
             } else {
                 PMA_ajaxShowMessage(data.error, false);
             }
