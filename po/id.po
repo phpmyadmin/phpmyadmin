@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-08-01 11:04+0200\n"
-"PO-Revision-Date: 2015-11-23 11:13+0000\n"
-"Last-Translator: CV. Gavitha Rantama <gavitha_rantama@yahoo.co.id>\n"
-"Language-Team: Indonesian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/id/>\n"
+"PO-Revision-Date: 2016-08-12 14:41+0000\n"
+"Last-Translator: Dadan Setia <da2n_s@yahoo.co.id>\n"
+"Language-Team: Indonesian "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/id/>\n"
 "Language: id\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 2.5-dev\n"
+"X-Generator: Weblate 2.8-dev\n"
 "X-Poedit-Basepath: ../../..\n"
 
 #: changelog.php:37 license.php:33
@@ -290,10 +290,9 @@ msgstr "Data"
 
 #: db_export.php:70 libraries/DbSearch.php:445
 #: libraries/display_export.lib.php:44 libraries/replication_gui.lib.php:378
-#, fuzzy
 #| msgid "Select All"
 msgid "Select all"
-msgstr "Pilih Semua"
+msgstr "Pilih semua"
 
 #: db_operations.php:51 tbl_create.php:22
 msgid "The database name is empty!"
@@ -568,11 +567,11 @@ msgid "Bookmark %s has been created."
 msgstr "Bookmark %s telah dibuat."
 
 #: import.php:576
-#, fuzzy, php-format
+#, php-format
 #| msgid "Import has been successfully finished, %d queries executed."
 msgid "Import has been successfully finished, %d query executed."
 msgid_plural "Import has been successfully finished, %d queries executed."
-msgstr[0] "Impor telah berhasil menyelesaikan,%d kueri dieksekusi."
+msgstr[0] "Impor sukses, %d kueri dieksekusi."
 
 #: import.php:605
 #, php-format
@@ -747,6 +746,9 @@ msgid ""
 "The curl extension was not found and allow_url_fopen is disabled. Due to "
 "this some features such as error reporting or version check are disabled."
 msgstr ""
+"ekstensi curl tidak ditemukan dan pengaturan allow_url_fopen tidak aktif. "
+"Sehingga menyebabkan beberapa fitur-fitur seperti laporan kesalahan atau "
+"pengecekan versi tidak aktif."
 
 #: index.php:496
 msgid ""
@@ -840,7 +842,7 @@ msgstr "Anda akan MENGHAPUS seluruh database!"
 
 #: js/messages.php:53
 msgid "Cannot rename database to the same name. Change the name and try again"
-msgstr ""
+msgstr "Nama basisdata tidak boleh sama. Gunakan nama lain dan coba lagi"
 
 #: js/messages.php:55
 msgid "You are about to DESTROY a complete table!"
@@ -911,22 +913,22 @@ msgid "Do you really want to delete this central column?"
 msgstr "Apakah anda yakin untuk menghapus kolom ini?"
 
 #: js/messages.php:82
-#, fuzzy
 #| msgid "Do you really want to delete the search \"%s\"?"
 msgid "Do you really want to delete the selected items?"
-msgstr "Apakah anda yakin ingin menghapus pencarian \"%s\"?"
+msgstr "Apakah anda yakin ingin menghapus item terpilih?"
 
 #: js/messages.php:84
 msgid ""
 "Do you really want to DROP the selected partition(s)? This will also DELETE "
 "the data related to the selected partition(s)!"
 msgstr ""
+"Anda yakin akan melakukan DROP partisi terpilih? Ini juga akan melakukan "
+"fungsi DELETE data yang berelasi pada partisi terpilih!"
 
 #: js/messages.php:88
-#, fuzzy
 #| msgid "Do you really want to delete the search \"%s\"?"
 msgid "Do you really want to TRUNCATE the selected partition(s)?"
-msgstr "Apakah anda yakin ingin menghapus pencarian \"%s\"?"
+msgstr "Apakah anda yakin melakukan TRUNCATE pada partisi terpilih?"
 
 #: js/messages.php:90
 #, fuzzy
@@ -941,6 +943,7 @@ msgid "Do you really want to RESET SLAVE?"
 msgstr "Anda yakin akan menjalankan \"%s\"?"
 
 #: js/messages.php:93
+#, fuzzy
 msgid ""
 "This operation will attempt to convert your data to the new collation. In "
 "rare cases, especially where a character doesn't exist in the new collation, "
@@ -948,16 +951,24 @@ msgid ""
 "collation; in this case we suggest you revert to the original collation and "
 "refer to the tips at "
 msgstr ""
+"Operasi ini akan mencoba untuk mengkonversi data Anda pada penyusunan baru. "
+"Dalam kasus yang jarang terjadi, terutama di mana karakter tidak ada dalam "
+"pemeriksaan baru, proses ini bisa menyebabkan data muncul salah di bawah "
+"pemeriksaan baru; dalam hal ini kami sarankan Anda kembali ke pemeriksaan "
+"asli dan simak tips di "
 
 #: js/messages.php:99
+#, fuzzy
 msgid "Garbled Data"
-msgstr ""
+msgstr "Data yang kacau"
 
 #: js/messages.php:101
 msgid "Are you sure you wish to change the collation and convert the data?"
 msgstr ""
+"Apakah Anda yakin Anda ingin mengubah pemeriksaan dan mengkonversi data?"
 
 #: js/messages.php:103
+#, fuzzy
 msgid ""
 "Through this operation, MySQL attempts to map the data values between "
 "collations. If the character sets are incompatible, there may be data loss "
@@ -966,12 +977,21 @@ msgid ""
 "column(s) editing feature (the \"Change\" Link) on the table structure page. "
 "</b>"
 msgstr ""
+"Melalui operasi ini, MySQL mencoba untuk memetakan nilai data antara "
+"collations. Jika set karakter tidak kompatibel, mungkin ada kehilangan data "
+"dan ini kehilangan data mungkin <b>TIDAK</b> dapat dipulihkan hanya dengan "
+"mengubah kembali kolom pemeriksaan. <b>Untuk mengkonversi data yang ada, "
+"disarankan untuk menggunakan kolom fitur editing (\"Ubah\" Link) di halaman "
+"struktur tabel. </b>"
 
 #: js/messages.php:112
+#, fuzzy
 msgid ""
 "Are you sure you wish to change all the column collations and convert the "
 "data?"
 msgstr ""
+"Apakah Anda yakin Anda ingin mengubah semua kolom pengumpulan dan "
+"mengkonversi data?"
 
 #: js/messages.php:116
 #, fuzzy
@@ -1100,8 +1120,9 @@ msgid "Template was created."
 msgstr "Jumlah halaman yang dibuat."
 
 #: js/messages.php:158
+#, fuzzy
 msgid "Template was loaded."
-msgstr ""
+msgstr "Template dimuat."
 
 #: js/messages.php:159
 #, fuzzy
@@ -2570,8 +2591,9 @@ msgid "Do you really want to delete this bookmark?"
 msgstr "Anda yakin akan menghapus penanda ini?"
 
 #: js/messages.php:707
+#, fuzzy
 msgid "Some error occurred while getting SQL debug info."
-msgstr ""
+msgstr "Terjadi beberapa kesalahan saat mendapatkan info SQL debug."
 
 #: js/messages.php:709
 #, fuzzy, php-format
@@ -2580,9 +2602,9 @@ msgid "%s queries executed %s times in %s seconds."
 msgstr "Kueri tereksekusi"
 
 #: js/messages.php:710
-#, php-format
+#, fuzzy, php-format
 msgid "%s argument(s) passed"
-msgstr ""
+msgstr "%s argumen lulus"
 
 #: js/messages.php:711
 #, fuzzy
@@ -2597,10 +2619,12 @@ msgid "Hide arguments"
 msgstr "Sembunyikan hasil pencarian"
 
 #: js/messages.php:713
+#, fuzzy
 msgid "Time taken:"
-msgstr ""
+msgstr "Waktu yang diperlukan:"
 
 #: js/messages.php:714
+#, fuzzy
 msgid ""
 "There was a problem accessing your browser storage, some features may not "
 "work properly for you. It is likely that the browser doesn't support storage "
@@ -2608,6 +2632,12 @@ msgid ""
 "cause such a problem, clearing your \"Offline Website Data\" might help. In "
 "Safari, such problem is commonly caused by \"Private Mode Browsing\"."
 msgstr ""
+"Ada masalah saat mengakses penyimpanan browser Anda, beberapa fitur mungkin "
+"tidak bekerja dengan baik untuk Anda. Sangat mungkin bahwa browser tidak "
+"mendukung penyimpanan atau batas kuota telah tercapai. Pada Firefox, "
+"penyimpanan rusak juga dapat menyebabkan masalah seperti itu, kliring Anda \""
+"Offline data Situs web\" mungkin bisa membantu. Dalam Safari, masalah "
+"tersebut umumnya disebabkan oleh \"Mode Private Browsing\"."
 
 #: js/messages.php:716
 #, fuzzy
@@ -2885,7 +2915,7 @@ msgstr "Detik"
 
 #: js/messages.php:889
 msgid "This field is required"
-msgstr ""
+msgstr "Wajib diisi"
 
 #: js/messages.php:890
 #, fuzzy
@@ -2953,7 +2983,7 @@ msgstr "Silakan masukkan captcha yang benar!"
 
 #: js/messages.php:920
 msgid "Please enter a value between {0} and {1} characters long"
-msgstr ""
+msgstr "Masukkan nilai panjang karakter antara {0} dan {1}"
 
 #: js/messages.php:925
 #, fuzzy
@@ -3144,8 +3174,9 @@ msgid "Korean"
 msgstr "Korea"
 
 #: libraries/Charsets.php:313
+#, fuzzy
 msgid "Burmese"
-msgstr ""
+msgstr "Birma"
 
 #: libraries/Charsets.php:316
 msgid "Persian"
@@ -3164,8 +3195,9 @@ msgid "Romanian"
 msgstr "Romania"
 
 #: libraries/Charsets.php:328
+#, fuzzy
 msgid "Sinhalese"
-msgstr ""
+msgstr "Sinhala"
 
 #: libraries/Charsets.php:331
 msgid "Slovak"
@@ -3312,10 +3344,10 @@ msgid "Font size"
 msgstr "Ukuran huruf"
 
 #: libraries/Console.php:88
-#, php-format
+#, fuzzy, php-format
 msgid "Showing %1$d bookmark (both private and shared)"
 msgid_plural "Showing %1$d bookmarks (both private and shared)"
-msgstr[0] ""
+msgstr[0] "Menampilkan %1$d penunjuk (baik privat maupun bersama)"
 
 #: libraries/Console.php:95
 msgid "No bookmarks"
@@ -3390,7 +3422,7 @@ msgstr "Kolom:"
 
 #: libraries/DbQbe.php:513
 msgid "Alias:"
-msgstr ""
+msgstr "Alias:"
 
 #: libraries/DbQbe.php:566
 msgid "Sort:"
@@ -3760,7 +3792,7 @@ msgstr "Pilih Semua"
 
 #: libraries/DisplayResults.php:5026
 msgid "Copy to clipboard"
-msgstr ""
+msgstr "Salin ke clipboard"
 
 #: libraries/DisplayResults.php:5082
 msgid "Query results operations"
@@ -3989,17 +4021,18 @@ msgstr "Nomor halaman:"
 
 #: libraries/LanguageManager.php:874
 msgid "Ignoring unsupported language code."
-msgstr ""
+msgstr "Mengabaikan kode bahasa yang tidak didukung."
 
 #: libraries/Linter.php:99
+#, fuzzy
 msgid ""
 "Linting is disabled for this query because it exceeds the maximum length."
-msgstr ""
+msgstr "Linting dinonaktifkan untuk query ini karena melebihi panjang maksimum."
 
 #: libraries/Linter.php:165
 #, php-format
 msgid "%1$s (near <code>%2$s</code>)"
-msgstr ""
+msgstr "%1$s (dekat <code>%2$s</code>)"
 
 #: libraries/Menu.php:208 libraries/ServerStatusData.php:425
 #: libraries/config/messages.inc.php:930
@@ -4786,10 +4819,13 @@ msgid "A collection of geometry objects of any type"
 msgstr "Sebuah koleksi objek geometri dari jenis apa pun"
 
 #: libraries/TypesMySQL.php:212
+#, fuzzy
 msgid ""
 "Stores and enables efficient access to data in JSON (JavaScript Object "
 "Notation) documents"
 msgstr ""
+"Toko dan memungkinkan akses efisien untuk data dalam JSON (JavaScript Object "
+"Notation) dokumen"
 
 #: libraries/TypesMySQL.php:479
 msgctxt "numeric types"
@@ -4826,7 +4862,7 @@ msgstr "Data statis"
 #: libraries/Util.php:690
 #, php-format
 msgid "%d errors were found during analysis."
-msgstr ""
+msgstr "%d kesalahan ditemukan dalam analisis."
 
 #: libraries/Util.php:753 libraries/rte/rte_events.lib.php:114
 #: libraries/rte/rte_events.lib.php:123 libraries/rte/rte_events.lib.php:154
@@ -4848,9 +4884,9 @@ msgid "Skip Explain SQL"
 msgstr "Lewati Penjelasan SQL"
 
 #: libraries/Util.php:1220
-#, php-format
+#, fuzzy, php-format
 msgid "Analyze Explain at %s"
-msgstr ""
+msgstr "Menganalisis Jelaskan di %s"
 
 #: libraries/Util.php:1251
 #, fuzzy
@@ -5050,8 +5086,9 @@ msgid "Attribute"
 msgstr "Atribut"
 
 #: libraries/central_columns.lib.php:709 libraries/central_columns.lib.php:1387
+#, fuzzy
 msgid "A_I"
-msgstr ""
+msgstr "A_I"
 
 #: libraries/central_columns.lib.php:749
 #, fuzzy
@@ -5105,12 +5142,16 @@ msgid "Invalid authentication method set in configuration:"
 msgstr "Metode autentikasi dalam konfigurasi tidak sah:"
 
 #: libraries/common.inc.php:778
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "Unable to use timezone %1$s for server %2$d. Please check your configuration "
 "setting for [em]$cfg['Servers'][%3$d]['SessionTimeZone'][/em]. phpMyAdmin is "
 "currently using the default time zone of the database server."
 msgstr ""
+"Tidak dapat menggunakan zona %1$s untuk server %2$d. Silakan periksa "
+"pengaturan konfigurasi untuk "
+"[em]$cfg['Servers'][%3$d]['SessionTimeZone'][/em]. phpMyAdmin saat ini "
+"menggunakan zona waktu default dari server database."
 
 #: libraries/common.inc.php:816
 #, php-format
@@ -5172,7 +5213,7 @@ msgstr "Tidak aktif"
 
 #: libraries/config.values.php:98
 msgid "key"
-msgstr ""
+msgstr "kunci"
 
 #: libraries/config.values.php:99
 #, fuzzy
@@ -5614,11 +5655,15 @@ msgid "Allow login to any MySQL server"
 msgstr "Izinkan masuk ke server MySQL mana pun"
 
 #: libraries/config/messages.inc.php:22
+#, fuzzy
 msgid ""
 "Restricts the MySQL servers the user can enter when a login to an arbitrary "
 "MySQL server is enabled by matching the IP or hostname of the MySQL server "
 "to the given regular expression."
 msgstr ""
+"Membatasi server MySQL pengguna dapat memasukkan ketika login ke server "
+"MySQL sewenang-wenang diaktifkan dengan mencocokkan IP atau nama host dari "
+"server MySQL untuk ekspresi reguler yang diberikan."
 
 #: libraries/config/messages.inc.php:26
 #, fuzzy
@@ -5718,10 +5763,13 @@ msgid "Enable CodeMirror"
 msgstr "Aktifkan CodeMirror"
 
 #: libraries/config/messages.inc.php:64
+#, fuzzy
 msgid ""
 "Find any errors in the query before executing it. Requires CodeMirror to be "
 "enabled."
 msgstr ""
+"Menemukan kesalahan dalam query sebelum dijalankan. Membutuhkan CodeMirror "
+"harus diaktifkan."
 
 #: libraries/config/messages.inc.php:67
 #, fuzzy
@@ -5799,9 +5847,11 @@ msgid "Confirm DROP queries"
 msgstr "Konfirmasi kueri DROP"
 
 #: libraries/config/messages.inc.php:97
+#, fuzzy
 msgid ""
 "Log SQL queries and their execution time, to be displayed in the console"
 msgstr ""
+"Log SQL query dan waktu eksekusi mereka, yang akan ditampilkan di konsol"
 
 #: libraries/config/messages.inc.php:99 templates/console/display.phtml:15
 #: templates/console/display.phtml:84
@@ -5855,8 +5905,9 @@ msgid "Show column comments"
 msgstr "Komentar tabel"
 
 #: libraries/config/messages.inc.php:119
+#, fuzzy
 msgid "Whether column comments should be shown in table structure view"
-msgstr ""
+msgstr "Kolom komentar seharusnya ditampilkan dalam tabel tampilan struktur"
 
 #: libraries/config/messages.inc.php:120
 msgid "Hide table structure actions"
@@ -6105,10 +6156,13 @@ msgid "Use hexadecimal for BINARY & BLOB"
 msgstr "Gunakan heksadesimal untuk BLOB"
 
 #: libraries/config/messages.inc.php:211
+#, fuzzy
 msgid ""
 "Add IF NOT EXISTS (less efficient as indexes will be generated during table "
 "creation)"
 msgstr ""
+"Add IF NOT EXISTS (kurang efisien sebagai indeks akan dihasilkan selama "
+"pembuatan tabel)"
 
 #: libraries/config/messages.inc.php:214
 msgid "Use ignore inserts"
@@ -6157,8 +6211,11 @@ msgid "Foreign key limit"
 msgstr "Batas foreign key"
 
 #: libraries/config/messages.inc.php:242
+#, fuzzy
 msgid "Default value for foreign key checks checkbox for some queries."
 msgstr ""
+"Nilai default untuk pemeriksaan kunci asing centang untuk beberapa "
+"permintaan."
 
 #: libraries/config/messages.inc.php:244
 #, fuzzy
@@ -6534,12 +6591,14 @@ msgid "Do not abort on INSERT error"
 msgstr "Jangan gugurkan sewaktu galat INSERT"
 
 #: libraries/config/messages.inc.php:374 libraries/config/messages.inc.php:388
+#, fuzzy
 msgid "Add ON DUPLICATE KEY UPDATE"
-msgstr ""
+msgstr "Add ON DUPLICATE KEY UPDATE"
 
 #: libraries/config/messages.inc.php:376 libraries/config/messages.inc.php:390
+#, fuzzy
 msgid "Update data when duplicate keys found on import"
-msgstr ""
+msgstr "Memperbarui data saat duplikat kunci ditemukan pada impor"
 
 #: libraries/config/messages.inc.php:380
 msgid ""
@@ -6766,8 +6825,9 @@ msgid "Memory limit"
 msgstr "Limit memori"
 
 #: libraries/config/messages.inc.php:471
+#, fuzzy
 msgid "In the navigation panel, replaces the database tree with a selector"
-msgstr ""
+msgstr "Di panel navigasi, diganti pohon database dengan pemilih"
 
 #: libraries/config/messages.inc.php:474
 #, fuzzy
@@ -6930,8 +6990,9 @@ msgid "Show functions in tree"
 msgstr "Tampilkan isian fungsi"
 
 #: libraries/config/messages.inc.php:533
+#, fuzzy
 msgid "Whether to show functions under database in the navigation tree"
-msgstr ""
+msgstr "Apakah akan menampilkan fungsi di bawah database di pohon navigasi"
 
 #: libraries/config/messages.inc.php:534
 #, fuzzy
@@ -6940,8 +7001,9 @@ msgid "Show procedures in tree"
 msgstr "Tampilkan Proses"
 
 #: libraries/config/messages.inc.php:536
+#, fuzzy
 msgid "Whether to show procedures under database in the navigation tree"
-msgstr ""
+msgstr "Apakah akan menampilkan prosedur di bawah database di navigasi"
 
 #: libraries/config/messages.inc.php:537
 #, fuzzy
@@ -6980,12 +7042,14 @@ msgid "Where to show the table row links"
 msgstr "Tempat menampilkan tautan baris tabel"
 
 #: libraries/config/messages.inc.php:549
+#, fuzzy
 msgid "Whether to show row links even in the absence of a unique key."
-msgstr ""
+msgstr "Apakah akan menampilkan link baris bahkan tanpa adanya unique key."
 
 #: libraries/config/messages.inc.php:551
+#, fuzzy
 msgid "Show row links anyway"
-msgstr ""
+msgstr "Tampilkan baris link juga"
 
 #: libraries/config/messages.inc.php:552 libraries/config/messages.inc.php:553
 #, fuzzy
@@ -7211,10 +7275,13 @@ msgid "Session timezone"
 msgstr "Nilai sesi"
 
 #: libraries/config/messages.inc.php:631
+#, fuzzy
 msgid ""
 "Sets the effective timezone; possibly different than the one from your "
 "database server"
 msgstr ""
+"Menetapkan zona waktu yang efektif; mungkin berbeda dari yang dari server "
+"database Anda"
 
 #: libraries/config/messages.inc.php:635
 #, fuzzy
@@ -8211,10 +8278,13 @@ msgid "Send error reports"
 msgstr "Kirim laporan kesalahan"
 
 #: libraries/config/messages.inc.php:993
+#, fuzzy
 msgid ""
 "Queries are executed by pressing Enter (instead of Ctrl+Enter). New lines "
 "will be inserted with Shift+Enter."
 msgstr ""
+"Query dijalankan dengan menekan Enter (bukan Ctrl + Enter). baris baru akan "
+"disisipkan dengan Shift + Enter."
 
 #: libraries/config/messages.inc.php:996
 #, fuzzy
@@ -8595,6 +8665,9 @@ msgid ""
 "connection that encrypts the password using RSA</i>'; while connecting to "
 "the server."
 msgstr ""
+"Metode ini membutuhkan menggunakan <i>koneksi SSL</i>' atau '<i>koneksi tak "
+"terenkripsi yang mengenkripsi password menggunakan RSA</i>'; saat menyambung "
+"ke server."
 
 #: libraries/display_export.lib.php:172
 msgid "Exporting databases from the current server"
@@ -9701,10 +9774,13 @@ msgid "Reload navigation panel"
 msgstr "Muat ulang bingkai navigasi"
 
 #: libraries/navigation/NavigationTree.php:749
+#, fuzzy
 msgid ""
 "There are large item groups in navigation panel which may affect the "
 "performance. Consider disabling item grouping in the navigation panel."
 msgstr ""
+"Ada kelompok barang besar di panel navigasi yang dapat mempengaruhi kinerja. "
+"Mempertimbangkan untuk menonaktifkan barang pengelompokan di panel navigasi."
 
 #: libraries/navigation/NavigationTree.php:943
 #, fuzzy, php-format
@@ -9716,8 +9792,9 @@ msgstr[0] "%s hasil lainnya ditemukan"
 
 #: libraries/navigation/NavigationTree.php:1365
 #: libraries/navigation/NavigationTree.php:1402
+#, fuzzy
 msgid "Type to filter these, Enter to search all"
-msgstr ""
+msgstr "Ketik untuk menyaring ini, Enter untuk mencari semua"
 
 #: libraries/navigation/NavigationTree.php:1367
 #: libraries/navigation/NavigationTree.php:1403
@@ -10380,8 +10457,9 @@ msgstr "Perbaiki"
 
 #: libraries/operations.lib.php:1584
 #: templates/table/structure/display_structure.phtml:177
+#, fuzzy
 msgid "Truncate"
-msgstr ""
+msgstr "Mengosongkan"
 
 #: libraries/operations.lib.php:1594
 #, fuzzy
@@ -10649,8 +10727,9 @@ msgid "Stand-in structure for view"
 msgstr "Stand-dalam struktur untuk tampilan"
 
 #: libraries/plugins/export/ExportJson.php:83
+#, fuzzy
 msgid "Output pretty-printed JSON (Use human-readable formatting)"
-msgstr ""
+msgstr "Keluaran JSON cukup-print (Gunakan format terbaca-manusia)"
 
 #: libraries/plugins/export/ExportLatex.php:48
 msgid "Content of table @TABLE@"
@@ -10848,7 +10927,7 @@ msgstr "Tambahkan statement %s"
 
 #: libraries/plugins/export/ExportSql.php:286
 msgid "(less efficient as indexes will be generated during table creation)"
-msgstr ""
+msgstr "(Kurang efisien sebagai indeks akan dihasilkan selama pembuatan tabel)"
 
 #: libraries/plugins/export/ExportSql.php:294
 #, fuzzy, php-format
@@ -11066,7 +11145,7 @@ msgstr "Struktur untuk view"
 
 #: libraries/plugins/export/ExportSql.php:2111
 msgid "(See below for the actual view)"
-msgstr ""
+msgstr "(Lihat di bawah untuk tampilan aktual)"
 
 #: libraries/plugins/export/ExportSql.php:2195
 #, fuzzy, php-format
@@ -11089,7 +11168,7 @@ msgstr "Tabel:"
 
 #: libraries/plugins/export/PMA_ExportPdf.php:120
 msgid "Purpose:"
-msgstr ""
+msgstr "Tujuan:"
 
 #: libraries/plugins/export/PMA_ExportPdf.php:501
 #, fuzzy
@@ -11101,6 +11180,8 @@ msgstr "Jenis MIME"
 msgid ""
 "Update data when duplicate keys found on import (add ON DUPLICATE KEY UPDATE)"
 msgstr ""
+"Memperbarui data ketika duplikat kunci ditemukan saat impor (add ON "
+"DUPLICATE KEY UPDATE)"
 
 #: libraries/plugins/import/ImportCsv.php:61
 #: libraries/plugins/import/ImportOds.php:63
@@ -11534,19 +11615,22 @@ msgstr ""
 
 #: libraries/plugins/transformations/input/Text_Plain_Iptobinary.php:29
 msgid "Converts an Internet network address in (IPv4/IPv6) format to binary"
-msgstr ""
+msgstr "Mengkonversi alamat jaringan internet di (IPv4/IPv6) ke format biner"
 
 #: libraries/plugins/transformations/input/Text_Plain_JsonEditor.php:29
+#, fuzzy
 msgid "Syntax highlighted CodeMirror editor for JSON."
-msgstr ""
+msgstr "Sintaks disorot CodeMirror editor untuk JSON."
 
 #: libraries/plugins/transformations/input/Text_Plain_SqlEditor.php:29
+#, fuzzy
 msgid "Syntax highlighted CodeMirror editor for SQL."
-msgstr ""
+msgstr "Sintaks disorot CodeMirror editor untuk SQL."
 
 #: libraries/plugins/transformations/input/Text_Plain_XmlEditor.php:29
+#, fuzzy
 msgid "Syntax highlighted CodeMirror editor for XML (and HTML)."
-msgstr ""
+msgstr "Sintaks disorot CodeMirror editor untuk XML (dan HTML)."
 
 #: libraries/plugins/transformations/output/Text_Plain_Binarytoip.php:29
 #, fuzzy
@@ -11628,7 +11712,7 @@ msgstr "Aktif"
 
 #: libraries/relation.lib.php:102
 msgid "Configuration of pmadb…"
-msgstr "Konfigurasi pmadb … "
+msgstr "Konfigurasi pmadb…"
 
 #: libraries/relation.lib.php:106 libraries/relation.lib.php:142
 msgid "General relation features"
@@ -11751,6 +11835,9 @@ msgid ""
 "'phpmyadmin'. You may go to 'Operations' tab of any database to set up the "
 "phpMyAdmin configuration storage there."
 msgstr ""
+"Anda tidak memiliki hak istimewa yang diperlukan untuk membuat sebuah "
+"database bernama 'phpmyadmin'. Anda bisa ke tab 'Operasi' database untuk "
+"mengatur penyimpanan konfigurasi phpMyAdmin disana."
 
 #: libraries/relation.lib.php:1982
 #, fuzzy, php-format
@@ -12009,10 +12096,13 @@ msgid "Host"
 msgstr "Inang"
 
 #: libraries/replication_gui.lib.php:640
+#, fuzzy
 msgid ""
 "Only slaves started with the --report-host=host_name option are visible in "
 "this list."
 msgstr ""
+"Hanya anak dimulai dengan pilihan --report-host=host_name yang terlihat "
+"dalam daftar ini."
 
 #: libraries/replication_gui.lib.php:746
 #: libraries/server_privileges.lib.php:1706
@@ -12106,7 +12196,7 @@ msgstr "Replikasi master"
 
 #: libraries/replication_gui.lib.php:930
 msgid "Success."
-msgstr ""
+msgstr "Sukses."
 
 #: libraries/replication_gui.lib.php:931
 #, fuzzy
@@ -12362,6 +12452,8 @@ msgid ""
 "You do not have sufficient privileges to perform this operation; Please "
 "refer to the documentation for more details"
 msgstr ""
+"Anda tidak memiliki cukup hak untuk melakukan operasi ini; Silakan lihat "
+"dokumentasi untuk lebih jelasnya"
 
 #: libraries/rte/rte_routines.lib.php:1026
 msgid "Security type"
@@ -12774,22 +12866,25 @@ msgstr "Koneksi persisten"
 
 #: libraries/server_privileges.lib.php:773
 msgid "Requires a valid X509 certificate."
-msgstr ""
+msgstr "Dibutuhkan sertifikat X509 yang valid."
 
 #: libraries/server_privileges.lib.php:805
 #: libraries/server_privileges.lib.php:814
+#, fuzzy
 msgid "Requires that a specific cipher method be used for a connection."
-msgstr ""
+msgstr "Mensyaratkan bahwa metode cipher spesifik digunakan untuk sambungan."
 
 #: libraries/server_privileges.lib.php:825
 #: libraries/server_privileges.lib.php:834
+#, fuzzy
 msgid "Requires that a valid X509 certificate issued by this CA be presented."
-msgstr ""
+msgstr "Mengharuskan sertifikat X509 yang dikeluarkan oleh ini BISA disajikan."
 
 #: libraries/server_privileges.lib.php:845
 #: libraries/server_privileges.lib.php:854
+#, fuzzy
 msgid "Requires that a valid X509 certificate with this subject be presented."
-msgstr ""
+msgstr "Mengharuskan sertifikat X509 yang dikeluarkan oleh ini BISA disajikan."
 
 #: libraries/server_privileges.lib.php:878
 msgid "Resource limits"
@@ -13209,11 +13304,16 @@ msgid "User accounts overview"
 msgstr "Ikhtisar pengguna"
 
 #: libraries/server_privileges.lib.php:4758
+#, fuzzy
 msgid ""
 "A user account allowing any user from localhost to connect is present. This "
 "will prevent other users from connecting if the host part of their account "
 "allows a connection from any (%) host."
 msgstr ""
+"Sebuah akun pengguna yang memungkinkan pengguna dari localhost untuk "
+"menghubungkan hadir. Hal ini akan mencegah pengguna lain dari menghubungkan "
+"jika bagian host dari account mereka memungkinkan koneksi dari setiap (%) "
+"host."
 
 #: libraries/server_privileges.lib.php:4799
 #, php-format
@@ -13590,7 +13690,7 @@ msgstr "Perintah"
 
 #: libraries/server_status_processes.lib.php:96
 msgid "Progress"
-msgstr ""
+msgstr "Proses"
 
 #: libraries/server_status_processes.lib.php:233
 #: libraries/server_status_variables.lib.php:37 templates/filter.phtml:2
@@ -14623,8 +14723,9 @@ msgid "Clear"
 msgstr "Bersihkan"
 
 #: libraries/sql_query_form.lib.php:253
+#, fuzzy
 msgid "Get auto-saved query"
-msgstr ""
+msgstr "Dapatkan auto-saved"
 
 #: libraries/sql_query_form.lib.php:259
 #, fuzzy
@@ -14940,7 +15041,7 @@ msgstr "Tabel penyimpanan konfigurasi phpMyAdmin tidak ditemukan"
 
 #: prefs_manage.php:51
 msgid "Paste it to your config.inc.php"
-msgstr ""
+msgstr "Pastel di config.inc.php anda"
 
 #: prefs_manage.php:105
 msgid "Could not import configuration"
@@ -15024,10 +15125,13 @@ msgid "No Privileges"
 msgstr "Tidak Ada Hak Akses"
 
 #: server_privileges.php:146
+#, fuzzy
 msgid ""
 "Username and hostname didn't change. If you only want to change the "
 "password, 'Change password' tab should be used."
 msgstr ""
+"Username dan hostname tidak berubah. Jika Anda hanya ingin mengubah "
+"password, tab 'Ganti password' harus digunakan."
 
 #: server_status.php:35
 #, fuzzy
@@ -15254,9 +15358,9 @@ msgid "Wrong data"
 msgstr "Data salah"
 
 #: setup/validate.php:30
-#, php-format
+#, fuzzy, php-format
 msgid "Wrong data or no validation for %s"
-msgstr ""
+msgstr "Salah data atau tidak ada validasi untuk %s"
 
 #: tbl_create.php:31 tbl_get_field.php:26
 #, php-format
@@ -15498,8 +15602,9 @@ msgstr ""
 "backslash, escaping atau quotes dan dengan menggunakan format sbb.: a"
 
 #: templates/columns_definitions/table_fields_definitions.phtml:70
+#, fuzzy
 msgid "Virtuality"
-msgstr ""
+msgstr "Virtualisasi"
 
 #: templates/columns_definitions/table_fields_definitions.phtml:76
 #, fuzzy
@@ -15642,8 +15747,9 @@ msgid "Execution order"
 msgstr "Dieksekusi setiap"
 
 #: templates/console/display.phtml:87 templates/console/display.phtml:110
+#, fuzzy
 msgid "Time taken"
-msgstr ""
+msgstr "Waktu tempuh"
 
 #: templates/console/display.phtml:88
 #, fuzzy
@@ -15714,10 +15820,13 @@ msgid "Show current browsing query"
 msgstr "Tampilkan kueri saat ini"
 
 #: templates/console/display.phtml:194
+#, fuzzy
 msgid ""
 "Execute queries on Enter and insert new line with Shift + Enter. To make "
 "this permanent, view settings."
 msgstr ""
+"Mengeksekusi query pada Masukkan dan memasukkan baris baru dengan Shift + "
+"Enter. Untuk membuat ini permanen, pengaturan tampilan."
 
 #: templates/console/display.phtml:198
 #, fuzzy
@@ -16082,10 +16191,13 @@ msgstr ""
 "untuk mengirim ke tim phpMyAdmin untuk membantu kami dalam debugging masalah."
 
 #: templates/error/report_form.phtml:14
+#, fuzzy
 msgid ""
 "Can you tell us the steps leading to this error? It decisively helps in "
 "debugging:"
 msgstr ""
+"Bisakah Anda ceritakan langkah-langkah yang mengarah ke kesalahan ini? Hal "
+"tegas membantu dalam debugging:"
 
 #: templates/error/report_form.phtml:21
 #, fuzzy
@@ -16171,8 +16283,9 @@ msgid "Session value"
 msgstr "Nilai sesi"
 
 #: templates/server/variables/variable_row.phtml:6
+#, fuzzy
 msgid "This is a read-only variable and can not be edited"
-msgstr ""
+msgstr "Ini adalah read-only variabel dan tidak dapat diedit"
 
 #: templates/server/variables/variable_table_head.phtml:5
 msgid "Global value"
@@ -16325,8 +16438,9 @@ msgid "Index choice:"
 msgstr "Besar singgahan indeks"
 
 #: templates/table/index_form.phtml:57
+#, fuzzy
 msgid "Key block size:"
-msgstr ""
+msgstr "Ukuran blok kunci:"
 
 #: templates/table/index_form.phtml:74
 msgid "Index type:"
@@ -16734,7 +16848,7 @@ msgstr[0] "%d detik"
 #: vendor/phpmyadmin/sql-parser/src/Component.php:48
 #: vendor/phpmyadmin/sql-parser/src/Component.php:68
 msgid "Not implemented yet."
-msgstr ""
+msgstr "Belum diimplementasikan."
 
 #: vendor/phpmyadmin/sql-parser/src/Components/AlterOperation.php:229
 #, fuzzy
@@ -16743,18 +16857,20 @@ msgid "Unrecognized alter operation."
 msgstr "Operasi tabel dengan ikon"
 
 #: vendor/phpmyadmin/sql-parser/src/Components/Array2d.php:92
-#, php-format
+#, fuzzy, php-format
 msgid "%1$d values were expected, but found %2$d."
-msgstr ""
+msgstr "%1$d nilai yang diharapkan, tapi ditemukan %2$d."
 
 #: vendor/phpmyadmin/sql-parser/src/Components/Array2d.php:115
+#, fuzzy
 msgid "An opening bracket followed by a set of values was expected."
-msgstr ""
+msgstr "Braket pembukaan diikuti oleh seperangkat nilai-nilai yang diharapkan."
 
 #: vendor/phpmyadmin/sql-parser/src/Components/ArrayObj.php:119
 #: vendor/phpmyadmin/sql-parser/src/Components/CreateDefinition.php:207
+#, fuzzy
 msgid "An opening bracket was expected."
-msgstr ""
+msgstr "Braket pembukaan diharapkan."
 
 #: vendor/phpmyadmin/sql-parser/src/Components/CreateDefinition.php:225
 #, fuzzy
@@ -16769,12 +16885,14 @@ msgid "A comma or a closing bracket was expected."
 msgstr "Tabel belum dipilih."
 
 #: vendor/phpmyadmin/sql-parser/src/Components/CreateDefinition.php:273
+#, fuzzy
 msgid "A closing bracket was expected."
-msgstr ""
+msgstr "Sebuah braket penutupan diharapkan."
 
 #: vendor/phpmyadmin/sql-parser/src/Components/DataType.php:128
+#, fuzzy
 msgid "Unrecognized data type."
-msgstr ""
+msgstr "tipe data yang belum diakui."
 
 #: vendor/phpmyadmin/sql-parser/src/Components/Expression.php:249
 #: vendor/phpmyadmin/sql-parser/src/Components/Expression.php:392
@@ -16787,11 +16905,11 @@ msgstr "Tabel belum dipilih."
 #: vendor/phpmyadmin/sql-parser/src/Components/Expression.php:349
 #: vendor/phpmyadmin/sql-parser/src/Components/Expression.php:381
 msgid "An alias was previously found."
-msgstr ""
+msgstr "Alias ditemukan sebelumnya."
 
 #: vendor/phpmyadmin/sql-parser/src/Components/Expression.php:362
 msgid "Unexpected dot."
-msgstr ""
+msgstr "dot tak terduga."
 
 #: vendor/phpmyadmin/sql-parser/src/Components/ExpressionArray.php:99
 #, fuzzy
@@ -16801,13 +16919,14 @@ msgstr "Tidak ada baris yang dipilih"
 
 #: vendor/phpmyadmin/sql-parser/src/Components/Limit.php:91
 #: vendor/phpmyadmin/sql-parser/src/Components/Limit.php:113
+#, fuzzy
 msgid "An offset was expected."
-msgstr ""
+msgstr "Offset diharapkan."
 
 #: vendor/phpmyadmin/sql-parser/src/Components/OptionsArray.php:147
 #, php-format
 msgid "This option conflicts with \"%1$s\"."
-msgstr ""
+msgstr "Pilihan ini konflik dengan \"%1$s\"."
 
 #: vendor/phpmyadmin/sql-parser/src/Components/RenameOperation.php:102
 #, fuzzy
@@ -16816,8 +16935,9 @@ msgid "The old name of the table was expected."
 msgstr "Jumlah tabel yang terbuka."
 
 #: vendor/phpmyadmin/sql-parser/src/Components/RenameOperation.php:112
+#, fuzzy
 msgid "Keyword \"TO\" was expected."
-msgstr ""
+msgstr "Kata kunci \"TO\" yang diharapkan."
 
 #: vendor/phpmyadmin/sql-parser/src/Components/RenameOperation.php:128
 #, fuzzy
@@ -16838,13 +16958,15 @@ msgid "Unexpected character."
 msgstr "Karakter tidak diharapkan pada baris %s."
 
 #: vendor/phpmyadmin/sql-parser/src/Lexer.php:304
+#, fuzzy
 msgid "Expected whitespace(s) before delimiter."
-msgstr ""
+msgstr "Diharapkan spasi sebelum pembatas."
 
 #: vendor/phpmyadmin/sql-parser/src/Lexer.php:322
 #: vendor/phpmyadmin/sql-parser/src/Lexer.php:338
+#, fuzzy
 msgid "Expected delimiter."
-msgstr ""
+msgstr "Diharapkan pembatas."
 
 #: vendor/phpmyadmin/sql-parser/src/Lexer.php:784
 #, fuzzy, php-format
@@ -16865,12 +16987,14 @@ msgid "Unexpected beginning of statement."
 msgstr "Pada Awal Tabel"
 
 #: vendor/phpmyadmin/sql-parser/src/Parser.php:450
+#, fuzzy
 msgid "Unrecognized statement type."
-msgstr ""
+msgstr "Belum diakui jenis pernyataan."
 
 #: vendor/phpmyadmin/sql-parser/src/Parser.php:532
+#, fuzzy
 msgid "No transaction was previously started."
-msgstr ""
+msgstr "Tidak ada transaksi sebelumnya dimulai."
 
 #: vendor/phpmyadmin/sql-parser/src/Statement.php:246
 #, fuzzy
@@ -16879,17 +17003,22 @@ msgid "Unexpected token."
 msgstr "Karakter tidak diharapkan pada baris %s."
 
 #: vendor/phpmyadmin/sql-parser/src/Statement.php:284
+#, fuzzy
 msgid "This type of clause was previously parsed."
-msgstr ""
+msgstr "Jenis klausa sebelumnya diurai."
 
 #: vendor/phpmyadmin/sql-parser/src/Statement.php:312
+#, fuzzy
 msgid ""
 "A new statement was found, but no delimiter between it and the previous one."
 msgstr ""
+"Sebuah pernyataan baru ditemukan, tetapi tidak ada pembatas antara itu dan "
+"sebelumnya."
 
 #: vendor/phpmyadmin/sql-parser/src/Statement.php:332
+#, fuzzy
 msgid "Unrecognized keyword."
-msgstr ""
+msgstr "kata kunci yang belum diakui."
 
 #: vendor/phpmyadmin/sql-parser/src/Statements/CreateStatement.php:368
 #, fuzzy
@@ -16904,8 +17033,9 @@ msgid "At least one column definition was expected."
 msgstr "Baris telah dihapus."
 
 #: vendor/phpmyadmin/sql-parser/src/Statements/CreateStatement.php:518
+#, fuzzy
 msgid "A \"RETURNS\" keyword was expected."
-msgstr ""
+msgstr "kunci \"RETURN\" yang Belum Diakui."
 
 #: vendor/phpmyadmin/sql-parser/tests/Lexer/LexerTest.php:21
 #: vendor/phpmyadmin/sql-parser/tests/Parser/ParserTest.php:58
@@ -16916,9 +17046,9 @@ msgstr "galat."
 
 #: vendor/phpmyadmin/sql-parser/tests/Lexer/LexerTest.php:23
 #: vendor/phpmyadmin/sql-parser/tests/Parser/ParserTest.php:59
-#, php-format
+#, fuzzy, php-format
 msgid "%2$s #%1$d"
-msgstr ""
+msgstr "%2$s #%1$d"
 
 #: vendor/phpmyadmin/sql-parser/tests/Lexer/LexerTest.php:48
 #: vendor/phpmyadmin/sql-parser/tests/Parser/ParserTest.php:80
@@ -16929,7 +17059,7 @@ msgstr "Kumpulkan galat"
 
 #: view_create.php:45
 msgid "View name can not be empty"
-msgstr ""
+msgstr "Lihat nama tidak boleh kosong"
 
 #: view_create.php:248
 msgid "VIEW name"
@@ -17202,6 +17332,9 @@ msgid ""
 "Percona documentation is at <a href=\"https://www.percona.com/software/"
 "documentation/\">https://www.percona.com/software/documentation/</a>"
 msgstr ""
+"Dokumentasi percona di <a href=\""
+"https://www.percona.com/software/documentation/\""
+">https://www.percona.com/software/documentation/</a>"
 
 #: libraries/advisory_rules.txt:133
 msgid "'percona' found in version_comment"
