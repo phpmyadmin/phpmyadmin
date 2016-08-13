@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-08-01 11:04+0200\n"
-"PO-Revision-Date: 2016-08-01 16:11+0000\n"
+"PO-Revision-Date: 2016-08-13 11:15+0000\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-6/tr/>\n"
@@ -2252,7 +2252,7 @@ msgstr "Sayfa başarılı olarak silindi"
 
 #: js/messages.php:550
 msgid "Export relational schema"
-msgstr "Bağlantılı şemayı dışa aktar"
+msgstr "İlişkisel şemayı dışa aktar"
 
 #: js/messages.php:551
 msgid "Modifications have been saved"
@@ -3503,11 +3503,11 @@ msgstr "Tam metinler"
 
 #: libraries/DisplayResults.php:1741
 msgid "Relational key"
-msgstr "Bağlantılı anahtar"
+msgstr "İlişkisel anahtar"
 
 #: libraries/DisplayResults.php:1742
 msgid "Display column for relations"
-msgstr "Bağlantılar için sütunu görüntüle"
+msgstr "İlişkiler için sütunu görüntüle"
 
 #: libraries/DisplayResults.php:1755
 msgid "Show binary contents"
@@ -5763,7 +5763,7 @@ msgstr "MIME türü"
 #: libraries/config/messages.inc.php:167 libraries/config/messages.inc.php:180
 #: libraries/config/messages.inc.php:221
 msgid "Relations"
-msgstr "Bağlantılar"
+msgstr "İlişkiler"
 
 #: libraries/config/messages.inc.php:173
 msgid "Export method"
@@ -6176,7 +6176,7 @@ msgstr "Sekmelerin nasıl çalışmasını istiyorsanız seçin."
 
 #: libraries/config/messages.inc.php:340
 msgid "Display relational schema"
-msgstr "Bağlantılı şemayı göster"
+msgstr "İlişkisel şemayı görüntüle"
 
 #: libraries/config/messages.inc.php:342
 #: libraries/plugins/schema/SchemaDia.php:72
@@ -6834,7 +6834,7 @@ msgstr "Kılavuz düzenleme: tetikleme eylemi"
 
 #: libraries/config/messages.inc.php:616
 msgid "Relational display"
-msgstr "Bağlantılı görüntüleme"
+msgstr "İlişkisel görüntüleme"
 
 #: libraries/config/messages.inc.php:617
 msgid "For display Options"
@@ -7142,7 +7142,7 @@ msgid ""
 "tables]pmadb[/doc] for complete information. Leave blank for no support. "
 "Suggested: [kbd]phpmyadmin[/kbd]."
 msgstr ""
-"Bağlantılar, yer imleri ve PDF özellikleri için kullanılan veritabanı. Tam "
+"İlişkiler, yer imleri ve PDF özellikleri için kullanılan veritabanı. Tam "
 "bilgi için [doc@linked-tables]pmadb[/doc]'ye bakın. Destek istenmiyorsa boş "
 "bırakın. Önerilen: [kbd]phpmyadmin[/kbd]."
 
@@ -7195,7 +7195,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:750
 msgid "Relation table"
-msgstr "Bağlantı tablosu"
+msgstr "İlişki tablosu"
 
 #: libraries/config/messages.inc.php:752
 msgid ""
@@ -7995,7 +7995,7 @@ msgstr "Sütun görüntüleme başarılı olarak güncellendi."
 
 #: libraries/controllers/table/TableRelationController.php:282
 msgid "Internal relations were successfully updated."
-msgstr "İç bağlantılar başarılı olarak güncellendi."
+msgstr "İç ilişkiler başarılı olarak güncellendi."
 
 #: libraries/controllers/table/TableSearchController.php:837
 msgid "Table search"
@@ -10253,7 +10253,7 @@ msgstr "Etiket anahtarı:"
 #: libraries/plugins/export/ExportOdt.php:98
 #: libraries/plugins/export/ExportSql.php:120
 msgid "Display foreign key relationships"
-msgstr "Dış anahtar ilişkilerini göster"
+msgstr "Dış anahtar ilişkilerini görüntüle"
 
 #: libraries/plugins/export/ExportLatex.php:143
 #: libraries/plugins/export/ExportOdt.php:104
@@ -10555,7 +10555,7 @@ msgstr "TABLO MIME TÜRLERİ"
 
 #: libraries/plugins/export/ExportSql.php:1864
 msgid "RELATIONS FOR TABLE"
-msgstr "TABLO BAĞLANTILARI"
+msgstr "TABLO İLİŞKİLERİ"
 
 #: libraries/plugins/export/ExportSql.php:2045
 msgid "It appears your table uses triggers;"
@@ -10806,7 +10806,7 @@ msgstr "%s veritabanının şeması"
 #: libraries/plugins/schema/pdf/PdfRelationSchema.php:130
 #: libraries/plugins/schema/pdf/PdfRelationSchema.php:525
 msgid "Relational schema"
-msgstr "Bağlantılı şema"
+msgstr "İlişkisel şema"
 
 #: libraries/plugins/schema/pdf/PdfRelationSchema.php:486
 msgid "Table of contents"
@@ -11036,15 +11036,15 @@ msgstr "Sözdizimi vurgulamalı XML gibi metni biçimlendirir."
 
 #: libraries/pmd_common.php:551
 msgid "Error: relation already exists."
-msgstr "Hata: bağlantı zaten var."
+msgstr "Hata: ilişki zaten var."
 
 #: libraries/pmd_common.php:597
 msgid "FOREIGN KEY relation has been added."
-msgstr "FOREIGN KEY bağlantısı eklendi."
+msgstr "FOREIGN KEY ilişkisi eklendi."
 
 #: libraries/pmd_common.php:603
 msgid "Error: FOREIGN KEY relation could not be added!"
-msgstr "Hata: FOREIGN KEY bağlantısı eklenemedi!"
+msgstr "Hata: FOREIGN KEY ilişkisi eklenemedi!"
 
 #: libraries/pmd_common.php:608
 msgid "Error: Missing index on column(s)."
@@ -11052,31 +11052,31 @@ msgstr "Hata: Sütun(lar)da indeks eksik."
 
 #: libraries/pmd_common.php:613
 msgid "Error: Relational features are disabled!"
-msgstr "Hata: Bağlantılı özellikler etkisizleştirildi!"
+msgstr "Hata: İlişkisel özellikler etkisizleştirildi!"
 
 #: libraries/pmd_common.php:635
 msgid "Internal relation has been added."
-msgstr "İç bağlantı eklendi."
+msgstr "İç ilişki eklendi."
 
 #: libraries/pmd_common.php:641
 msgid "Error: Internal relation could not be added!"
-msgstr "Hata: İç bağlantı eklenemedi!"
+msgstr "Hata: İç ilişki eklenemedi!"
 
 #: libraries/pmd_common.php:679
 msgid "FOREIGN KEY relation has been removed."
-msgstr "FOREIGN KEY bağlantısı kaldırıldı."
+msgstr "FOREIGN KEY ilişkisi kaldırıldı."
 
 #: libraries/pmd_common.php:685
 msgid "Error: FOREIGN KEY relation could not be removed!"
-msgstr "Hata: FOREIGN KEY bağlantısı kaldırılamadı!"
+msgstr "Hata: FOREIGN KEY ilişkisi kaldırılamadı!"
 
 #: libraries/pmd_common.php:712
 msgid "Error: Internal relation could not be removed!"
-msgstr "Hata: İç bağlantı kaldırılamadı!"
+msgstr "Hata: İç ilişki kaldırılamadı!"
 
 #: libraries/pmd_common.php:716
 msgid "Internal relation has been removed."
-msgstr "İç bağlantı kaldırıldı."
+msgstr "İç ilişki kaldırıldı."
 
 #: libraries/relation.lib.php:90
 msgid "not OK"
@@ -11097,7 +11097,7 @@ msgstr "pmadb yapılandırması…"
 
 #: libraries/relation.lib.php:105 libraries/relation.lib.php:141
 msgid "General relation features"
-msgstr "Genel bağlantı özellikleri"
+msgstr "Genel ilişki özellikleri"
 
 #: libraries/relation.lib.php:152
 msgid "Display Features"
@@ -14796,7 +14796,7 @@ msgstr "Tablo yapısına bak"
 
 #: templates/database/designer/delete_relation_panel.phtml:21
 msgid "Delete relation"
-msgstr "Bağlantıyı sil"
+msgstr "İlişkiyi sil"
 
 #: templates/database/designer/edit_delete_pages.phtml:7
 msgid "Page to open"
@@ -14824,12 +14824,12 @@ msgstr "alt sorgu"
 #: templates/database/designer/side_menu.phtml:84
 #: templates/database/designer/side_menu.phtml:87
 msgid "Create relation"
-msgstr "Bağlantı oluştur"
+msgstr "İlişki oluştur"
 
 #: templates/database/designer/options_panel.phtml:34
 #: templates/database/designer/options_panel.phtml:200
 msgid "Relation operator"
-msgstr "Bağlantı işletici"
+msgstr "İlişki işletici"
 
 #: templates/database/designer/options_panel.phtml:85
 #: templates/database/designer/rename_to_panel.phtml:23
@@ -14863,7 +14863,7 @@ msgstr "Aktif seçenekler"
 
 #: templates/database/designer/schema_export.phtml:4
 msgid "Select Export Relational Type"
-msgstr "Dışa Aktarma Bağlantılı Türü Seç"
+msgstr "Dışa Aktarma İlişkisel Türü Seç"
 
 #: templates/database/designer/side_menu.phtml:19
 #: templates/database/designer/side_menu.phtml:25
@@ -14928,7 +14928,7 @@ msgstr "Küçüğü/büyüğü değiştir"
 #: templates/database/designer/side_menu.phtml:145
 #: templates/database/designer/side_menu.phtml:148
 msgid "Toggle relation lines"
-msgstr "Bağlantılı satırları değiştir"
+msgstr "İlişki satırlarını değiştir"
 
 #: templates/database/designer/side_menu.phtml:153
 #: templates/database/designer/side_menu.phtml:156
@@ -14956,7 +14956,7 @@ msgstr "Tümünü gizle/göster"
 
 #: templates/database/designer/table_list.phtml:14
 msgid "Hide/Show Tables with no relation"
-msgstr "Bağlantılı olmayan Tabloları gizle/göster"
+msgstr "İlişkisi olmayan Tabloları gizle/göster"
 
 #: templates/database/designer/table_list.phtml:59
 msgid "Number of tables:"
@@ -15327,19 +15327,18 @@ msgstr "+ Kısıtlama ekle"
 #: templates/table/relation/common_form.phtml:69
 #: templates/table/relation/common_form.phtml:75
 msgid "Internal relations"
-msgstr "Dahili bağlantılar"
+msgstr "İç ilişkiler"
 
 #: templates/table/relation/common_form.phtml:79
 msgid "Internal relation"
-msgstr "Dahili bağlantı"
+msgstr "İç ilişki"
 
 #: templates/table/relation/common_form.phtml:82
 msgid ""
 "An internal relation is not necessary when a corresponding FOREIGN KEY "
 "relation exists."
 msgstr ""
-"FOREIGN KEY bağlantısının yerini tutan bir bağlantı varken dahili bağlantı "
-"mümkün değildir."
+"Karşılık gelen bir FOREIGN KEY ilişkisi varken iç ilişki mümkün değildir."
 
 #: templates/table/relation/common_form.phtml:110
 msgid "Choose column to display:"
@@ -15432,7 +15431,7 @@ msgstr "Odaklamayı sıfırla"
 
 #: templates/table/secondary_tabs.phtml:14
 msgid "Relation view"
-msgstr "Bağlantı görünümü"
+msgstr "İlişki görünümü"
 
 #: templates/table/structure/actions_in_table_structure.phtml:15
 #, php-format
