@@ -253,7 +253,7 @@ function PMA_getSQLEditor($textarea, options, resize, lintOptions) {
         }
         var handles = '';
         if (resize == 'vertical') {
-            handles = 'n, s';
+            handles = 's';
         }
         if (resize == 'both') {
             handles = 'all';
