@@ -2938,8 +2938,8 @@ function PMA_getHtmlForInsertEditRow($url_params, $table_columns,
     }
     for ($column_number = 0; $column_number < $columns_cnt; $column_number++) {
         $table_column = $table_columns[$column_number];
-        // skip this column if user does not have necessary database or column privileges
-        if (! PMA_userHasDatabasePrivileges($db, $insert_mode) && ! PMA_userHasColumnPrivileges($table_column, $insert_mode)) {
+        // skip this column if user does not have necessary column privilges
+        if (! PMA_userHasColumnPrivileges($table_column, $insert_mode)) {
             continue;
         }
         $column_mime = array();
@@ -2978,18 +2978,4 @@ function PMA_userHasColumnPrivileges($table_column, $insert_mode)
     $privileges = $table_column['Privileges'];
     return ($insert_mode && strstr($privileges, 'insert') !== false)
         || (! $insert_mode && strstr($privileges, 'update') !== false);
-}
-
-/**
- * Returns whether the user has necessary insert/update privileges for the database
- *
- * @param string $database    database name
- * @param bool   $insert_mode whether on insert mode
- *
- * @return boolean whether user has necessary privileges
- */
-function PMA_userHasDatabasePrivileges($database, $insert_mode)
-{
-    return ($insert_mode && PMA\libraries\Util::currentUserHasPrivilege('INSERT', $database) !== false)
-      || (! $insert_mode && PMA\libraries\Util::currentUserHasPrivilege('UPDATE', $database) !== false);
 }
