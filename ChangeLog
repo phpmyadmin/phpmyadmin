@@ -22,6 +22,7 @@ phpMyAdmin - ChangeLog
 - issue #12378 Support IPv6 proxies
 - issue        Removed MySQL connection retry without password
 - issue #12218 Allow to specify further parameters for control connection
+- issue #12162 Show charset for each table on Database structure page
 
 4.6.4 (not yet released)
 - issue        Include X-Robots-Tag header in responses
