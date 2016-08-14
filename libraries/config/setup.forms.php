@@ -207,6 +207,7 @@ $forms['Main_panel']['Startup'] = array(
     'ShowPhpInfo',
     'ShowChgPassword');
 $forms['Main_panel']['DbStructure'] = array(
+    'ShowDbStructureCharset',
     'ShowDbStructureComment',
     'ShowDbStructureCreation',
     'ShowDbStructureLastUpdate',
