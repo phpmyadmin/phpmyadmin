@@ -435,6 +435,14 @@ class DatabaseStructureController extends DatabaseController
                 }
             } // end if
 
+            if ($GLOBALS['cfg']['ShowDbStructureCharset']) {
+                if (isset($current_table['Collation'])) {
+                    $charset = mb_substr($collation, 0, mb_strpos($collation, "_"));
+                } else {
+                    $charset = '';
+                }
+            }
+
             if ($GLOBALS['cfg']['ShowDbStructureCreation']) {
                 $create_time = isset($current_table['Create_time'])
                     ? $current_table['Create_time'] : '';
@@ -631,6 +639,8 @@ class DatabaseStructureController extends DatabaseController
                                 ? $update_time : '',
                             'check_time'            => isset($check_time)
                                 ? $check_time : '',
+                            'charset'               => isset($charset)
+                                ? $charset : '',
                             'is_show_stats'         => $this->_is_show_stats,
                             'ignored'               => $ignored,
                             'do'                    => $do,
@@ -651,6 +661,7 @@ class DatabaseStructureController extends DatabaseController
         $this->response->addHTML('</tbody>');
 
         $db_collation = $this->dbi->getDbCollation($this->db);
+        $db_charset = mb_substr($db_collation, 0, mb_strpos($db_collation, "_"));
 
         // Show Summary
         $this->response->addHTML(
@@ -662,6 +673,7 @@ class DatabaseStructureController extends DatabaseController
                     'sum_entries' => $sum_entries,
                     'db_collation' => $db_collation,
                     'is_show_stats' => $this->_is_show_stats,
+                    'db_charset' => $db_charset,
                     'sum_size' => $sum_size,
                     'overhead_size' => $overhead_size,
                     'create_time_all' => $create_time_all,
