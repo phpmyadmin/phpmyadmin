@@ -121,7 +121,6 @@ class DbSearchTest extends PMATestCase
      *
      * @param string $each_table    Tables on which search is to be performed
      * @param array  $newsearchsqls Contains SQL queries
-     * @param bool   $odd_row       For displaying contrasting table rows
      * @param string $output        Expected HTML output
      *
      * @return void
@@ -129,14 +128,14 @@ class DbSearchTest extends PMATestCase
      * @dataProvider providerForTestGetResultsRow
      */
     public function testGetResultsRow(
-        $each_table, $newsearchsqls, $odd_row, $output
+        $each_table, $newsearchsqls, $output
     ) {
 
         $this->assertEquals(
             $output,
             $this->_callProtectedFunction(
                 '_getResultsRow',
-                array($each_table, $newsearchsqls, $odd_row, 2)
+                array($each_table, $newsearchsqls, 2)
             )
         );
     }
@@ -159,7 +158,7 @@ class DbSearchTest extends PMATestCase
                     'delete' => 'column2'
                 ),
                 true,
-                '<tr class="noclick odd"><td>2 matches in <strong>table1</strong>'
+                '<tr class="noclick"><td>2 matches in <strong>table1</strong>'
                 . '</td><td><a name="browse_search" class="ajax" '
                 . 'href="sql.php?db=pma&amp;table'
                 . '=table1&amp;goto=db_sql.php&amp;pos=0&amp;is_js_confirmed=0&amp;'

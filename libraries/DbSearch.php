@@ -273,7 +273,6 @@ class DbSearch
             . '</caption>';
 
         $num_search_result_total = 0;
-        $odd_row = true;
         // For each table selected as search criteria
         foreach ($this->_criteriaTables as $each_table) {
             // Gets the SQL statements
@@ -283,9 +282,8 @@ class DbSearch
             $num_search_result_total += $res_cnt;
             // Gets the result row's HTML for a table
             $html_output .= $this->_getResultsRow(
-                $each_table, $newsearchsqls, $odd_row, $res_cnt
+                $each_table, $newsearchsqls, $res_cnt
             );
-            $odd_row = ! $odd_row;
         } // end for
         $html_output .= '</table>';
         // Displays total number of matches
@@ -310,12 +308,11 @@ class DbSearch
      *
      * @param string  $each_table    One of the tables on which search was performed
      * @param array   $newsearchsqls Contains SQL queries
-     * @param bool    $odd_row       For displaying contrasting table rows
      * @param integer $res_cnt       Number of results found
      *
      * @return string HTML row
      */
-    private function _getResultsRow($each_table, $newsearchsqls, $odd_row, $res_cnt)
+    private function _getResultsRow($each_table, $newsearchsqls, $res_cnt)
     {
         $this_url_params = array(
             'db'    => $GLOBALS['db'],
@@ -325,7 +322,7 @@ class DbSearch
             'is_js_confirmed' => 0,
         );
         // Start forming search results row
-        $html_output = '<tr class="noclick ' . ($odd_row ? 'odd' : 'even') . '">';
+        $html_output = '<tr class="noclick">';
         // Displays results count for a table
         $html_output .= '<td>';
         $html_output .= sprintf(
