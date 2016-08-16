@@ -372,7 +372,7 @@ class DisplayResultsTest extends PMATestCase
                 array('`new`.`id`' => '= 1'),
                 '[%_PMA_CHECKBOX_DIR_%]',
                 'odd',
-                '<td class="odd" class="center print_ignore"><input type'
+                '<td class="center print_ignore"><input type'
                 . '="checkbox" id="id_rows_to_delete0[%_PMA_CHECKBOX_DIR_%]" name='
                 . '"rows_to_delete[0]" class="multi_checkbox checkall" value="%60'
                 . 'new%60.%60id%60+%3D+1"  /><input type="hidden" class="condition_'
@@ -433,7 +433,7 @@ class DisplayResultsTest extends PMATestCase
                 . '"Edit" class="icon ic_b_edit" /> Edit</span>',
                 '`customer`.`id` = 1',
                 '%60customer%60.%60id%60+%3D+1',
-                '<td class="odd edit_row_anchor center print_ignore"  >'
+                '<td class="edit_row_anchor center print_ignore"  >'
                 . '<span class="nowrap">' . "\n"
                 . '<a href="tbl_change.php?db=Data&amp;table=customer&amp;where_'
                 . 'clause=%60customer%60.%60id%60+%3D+1&amp;clause_is_unique=1&amp;'
@@ -496,7 +496,7 @@ class DisplayResultsTest extends PMATestCase
                 '`customer`.`id` = 1',
                 '%60customer%60.%60id%60+%3D+1',
                 'odd',
-                '<td class="odd center print_ignore"  ><span class='
+                '<td class="center print_ignore"  ><span class='
                 . '"nowrap">' . "\n"
                 . '<a href="tbl_change.php?db=Data&amp;table=customer&amp;where_'
                 . 'clause=%60customer%60.%60id%60+%3D+1&amp;clause_is_unique=1&amp;'
@@ -560,7 +560,7 @@ class DisplayResultsTest extends PMATestCase
                 . 'alt="Delete" class="icon ic_b_drop" /> Delete</span>',
                 'DELETE FROM `Data`.`customer` WHERE `customer`.`id` = 1',
                 'odd',
-                '<td class="odd center print_ignore"  >' . "\n"
+                '<td class="center print_ignore"  >' . "\n"
                 . '<a href="sql.php?db=Data&amp;table=customer&amp;sql_query=DELETE'
                 . '+FROM+%60Data%60.%60customer%60+WHERE+%60customer%60.%60id%60+%3D'
                 . '+1&amp;message_to_show=The+row+has+been+deleted&amp;goto=sql.php'
