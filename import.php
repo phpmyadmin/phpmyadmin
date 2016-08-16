@@ -7,6 +7,11 @@
  */
 use PMA\libraries\plugins\ImportPlugin;
 
+/* Enable LOAD DATA LOCAL INFILE for LDI plugin */
+if (isset($_POST['format']) && $_POST['format'] == 'ldi') {
+    define('PMA_ENABLE_LDI', 1);
+}
+
 /**
  * Get the variables sent or posted to this script and a core script
  */
@@ -435,6 +440,15 @@ if (! empty($local_import_file) && ! empty($cfg['UploadDir'])) {
     $import_file = PMA\libraries\Util::userDir($cfg['UploadDir'])
         . $local_import_file;
 
+    /*
+     * Do not allow symlinks to avoid security issues
+     * (user can create symlink to file he can not access,
+     * but phpMyAdmin can).
+     */
+    if (@is_link($import_file)) {
+        $import_file  = 'none';
+    }
+
 } elseif (empty($import_file) || ! is_uploaded_file($import_file)) {
     $import_file  = 'none';
 }
@@ -742,10 +756,14 @@ if ($sqlLength <= $GLOBALS['cfg']['MaxCharactersInDisplayedSQL']) {
     list(
         $analyzed_sql_results,
         $db,
-        $table
+        $table_from_sql
     ) = PMA_parseAnalyze($sql_query, $db);
     // @todo: possibly refactor
     extract($analyzed_sql_results);
+
+    if ($table != $table_from_sql && !empty($table_from_sql)) {
+        $table = $table_from_sql;
+    }
 }
 
 // There was an error?
@@ -774,10 +792,14 @@ if ($go_sql) {
         list(
             $analyzed_sql_results,
             $db,
-            $table
+            $table_from_sql
         ) = PMA_parseAnalyze($sql_query, $db);
         // @todo: possibly refactor
         extract($analyzed_sql_results);
+
+        if ($table != $table_from_sql && !empty($table_from_sql)) {
+            $table = $table_from_sql;
+        }
 
         $html_output .= PMA_executeQueryAndGetQueryResponse(
             $analyzed_sql_results, // analyzed_sql_results

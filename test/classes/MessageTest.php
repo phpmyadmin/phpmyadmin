@@ -351,8 +351,8 @@ class MessageTest extends PMATestCase
                 '<kbd>test</kbd><br /><sup>test</sup>'
             ),
             array(
-                '[a@http://foo.bar/@Documentation]link[/a]',
-                '<a href="./url.php?url=http%3A%2F%2Ffoo.bar%2F"'
+                '[a@https://example.com/@Documentation]link[/a]',
+                '<a href="./url.php?url=https%3A%2F%2Fexample.com%2F"'
                 . ' target="Documentation">link</a>'
             ),
             array(

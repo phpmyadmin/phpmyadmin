@@ -253,7 +253,7 @@ function PMA_getSQLEditor($textarea, options, resize, lintOptions) {
         }
         var handles = '';
         if (resize == 'vertical') {
-            handles = 'n, s';
+            handles = 's';
         }
         if (resize == 'both') {
             handles = 'all';
@@ -4105,7 +4105,16 @@ AJAX.registerOnload('functions.js', function () {
      * Load version information asynchronously.
      */
     if ($('li.jsversioncheck').length > 0) {
-        $.getJSON('version_check.php', {'server' : PMA_commonParams.get('server')}, PMA_current_version);
+        $.ajax({
+            dataType: "json",
+            url: 'version_check.php',
+            method: "POST",
+            data: {
+                "server": PMA_commonParams.get('server'),
+                "token": PMA_commonParams.get('token'),
+            },
+            success: PMA_current_version
+        });
     }
 
     if ($('#is_git_revision').length > 0) {

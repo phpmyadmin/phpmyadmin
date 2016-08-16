@@ -1665,7 +1665,7 @@ function PMA_REL_renameTable($source_db, $target_db, $source_table, $target_tabl
  * @param array  $cfgRelation Relation configuration
  * @param string $db          database name
  *
- * @return string   $pdf_page_number
+ * @return int $pdf_page_number
  */
 function PMA_REL_createPage($newpage, $cfgRelation, $db)
 {

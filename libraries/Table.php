@@ -400,7 +400,7 @@ class Table
         $pattern = '@^(DATE|TINYBLOB|TINYTEXT|BLOB|TEXT|'
             . 'MEDIUMBLOB|MEDIUMTEXT|LONGBLOB|LONGTEXT|SERIAL|BOOLEAN|UUID)$@i';
         if ($length != '' && ! preg_match($pattern, $type)) {
-            $query .= '(' . $length . ')';
+            $query .= '(' . intval($length) . ')';
         }
 
         if ($virtuality) {
@@ -1494,7 +1494,7 @@ class Table
 
         // Read from phpMyAdmin database
         $sql_query = " SELECT `prefs` FROM " . $pma_table
-            . " WHERE `username` = '" . $GLOBALS['cfg']['Server']['user'] . "'"
+            . " WHERE `username` = '" . Util::sqlAddSlashes($GLOBALS['cfg']['Server']['user']) . "'"
             . " AND `db_name` = '" . Util::sqlAddSlashes($this->_db_name) . "'"
             . " AND `table_name` = '" . Util::sqlAddSlashes($this->_name) . "'";
 
@@ -1522,7 +1522,7 @@ class Table
         $username = $GLOBALS['cfg']['Server']['user'];
         $sql_query = " REPLACE INTO " . $pma_table
             . " (username, db_name, table_name, prefs) VALUES ('"
-            . $username . "', '" . $secureDbName
+            . Util::sqlAddSlashes($username) . "', '" . $secureDbName
             . "', '" . Util::sqlAddSlashes($this->_name) . "', '"
             . Util::sqlAddSlashes(json_encode($this->uiprefs)) . "')";
 

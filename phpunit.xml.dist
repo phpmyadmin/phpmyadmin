@@ -48,7 +48,6 @@
                 <directory suffix=".php">libraries/bfShapeFiles</directory>
                 <directory suffix=".php">libraries/php-gettext</directory>
                 <directory suffix=".php">libraries/phpseclib</directory>
-                <directory suffix=".php">libraries/plugins/auth/swekey/</directory>
                 <directory suffix=".php">libraries/sql-parser</directory>
                 <directory suffix=".php">libraries/tcpdf</directory>
                 <!-- examples for users -->

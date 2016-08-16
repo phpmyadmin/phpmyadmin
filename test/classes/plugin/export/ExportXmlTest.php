@@ -327,7 +327,7 @@ class ExportXmlTest extends PMATestCase
 
         $this->assertContains(
             '&lt;pma_xml_export version=&quot;1.0&quot; xmlns:pma=&quot;' .
-            'http://www.phpmyadmin.net/some_doc_url/&quot;&gt;',
+            'https://www.phpmyadmin.net/some_doc_url/&quot;&gt;',
             $result
         );
 
@@ -529,6 +529,8 @@ class ExportXmlTest extends PMATestCase
     public function testExportData()
     {
         $GLOBALS['xml_export_contents'] = true;
+        $GLOBALS['asfile'] = true;
+        $GLOBALS['output_charset_conversion'] = false;
 
         $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
@@ -587,33 +589,33 @@ class ExportXmlTest extends PMATestCase
         $result = ob_get_clean();
 
         $this->assertContains(
-            "&lt;!-- Table ta&lt;ble --&gt;",
+            "<!-- Table ta&lt;ble -->",
             $result
         );
 
         $this->assertContains(
-            "&lt;table name=&quot;ta&amp;lt;ble&quot;&gt;",
+            "<table name=\"ta&lt;ble\">",
             $result
         );
 
         $this->assertContains(
-            "&lt;column name=&quot;fName1&quot;&gt;NULL&lt;/column&gt;",
+            "<column name=\"fName1\">NULL</column>",
             $result
         );
 
         $this->assertContains(
-            "&lt;column name=&quot;fNa&amp;quot;me2&quot;&gt;&amp;lt;a&amp;gt;" .
-            "&lt;/column&gt;",
+            "<column name=\"fNa&quot;me2\">&lt;a&gt;" .
+            "</column>",
             $result
         );
 
         $this->assertContains(
-            "&lt;column name=&quot;fName3&quot;&gt;NULL&lt;/column&gt;",
+            "<column name=\"fName3\">NULL</column>",
             $result
         );
 
         $this->assertContains(
-            "&lt;/table&gt;",
+            "</table>",
             $result
         );
     }

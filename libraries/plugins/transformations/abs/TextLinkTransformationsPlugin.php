@@ -30,7 +30,7 @@ abstract class TextLinkTransformationsPlugin extends TransformationsPlugin
     {
         return __(
             'Displays a link; the column contains the filename. The first option'
-            . ' is a URL prefix like "http://www.example.com/". The second option'
+            . ' is a URL prefix like "https://www.example.com/". The second option'
             . ' is a title for the link.'
         );
     }
@@ -49,14 +49,14 @@ abstract class TextLinkTransformationsPlugin extends TransformationsPlugin
         $url = (isset($options[0]) ? $options[0] : '') . ((isset($options[2]) && $options[2]) ? '' : $buffer);
         $parsed = parse_url($url);
         /* Do not allow javascript links */
-        if (isset($parsed['scheme']) && $parsed['scheme'] == 'javascript') {
+        if (! isset($parsed['scheme']) || ! in_array(strtolower($parsed['scheme']), array('http', 'https', 'ftp', 'mailto'))) {
             return htmlspecialchars($url);
         }
         return '<a href="'
             . htmlspecialchars($url)
             . '" title="'
             . htmlspecialchars(isset($options[1]) ? $options[1] : '')
-            . '" target="_new">'
+            . '" target="_blank" rel="noopener noreferrer">'
             . htmlspecialchars(isset($options[1]) ? $options[1] : $buffer)
             . '</a>';
     }

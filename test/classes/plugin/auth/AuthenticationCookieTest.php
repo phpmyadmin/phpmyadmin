@@ -391,13 +391,13 @@ class AuthenticationCookieTest extends PMATestCase
 
         $mockResponse->expects($this->once())
             ->method('header')
-            ->with('Location: http://www.phpmyadmin.net/logout' . ((SID) ? '?' . SID : ''));
+            ->with('Location: https://example.com/logout');
 
         $attrInstance = new ReflectionProperty('PMA\libraries\Response', '_instance');
         $attrInstance->setAccessible(true);
         $attrInstance->setValue($mockResponse);
 
-        $GLOBALS['cfg']['Server']['LogoutURL'] = 'http://www.phpmyadmin.net/logout';
+        $GLOBALS['cfg']['Server']['LogoutURL'] = 'https://example.com/logout';
 
         $this->object->logOut();
 
@@ -409,25 +409,8 @@ class AuthenticationCookieTest extends PMATestCase
      *
      * @return void
      */
-    public function testAuthCheckSwekey()
-    {
-        $GLOBALS['cfg']['Server']['auth_swekey_config'] = 'testConfigSwekey';
-
-        file_put_contents('testConfigSwekey', '');
-        $this->assertFalse(
-            $this->object->authCheck()
-        );
-        @unlink('testConfigSwekey');
-    }
-
-    /**
-     * Test for PMA\libraries\plugins\auth\AuthenticationConfig::authCheck
-     *
-     * @return void
-     */
     public function testAuthCheckCaptcha()
     {
-        $GLOBALS['cfg']['Server']['auth_swekey_config'] = '';
         $GLOBALS['cfg']['CaptchaLoginPrivateKey'] = 'testprivkey';
         $GLOBALS['cfg']['CaptchaLoginPublicKey'] = 'testpubkey';
         $_POST["g-recaptcha-response"] = '';
@@ -464,24 +447,23 @@ class AuthenticationCookieTest extends PMATestCase
 
         $mockResponse->expects($this->once())
             ->method('header')
-            ->with('Location: /phpmyadmin/index.php' . ((SID) ? '?' . SID : ''));
+            ->with('Location: /phpmyadmin/index.php');
 
         $attrInstance = new ReflectionProperty('PMA\libraries\Response', '_instance');
         $attrInstance->setAccessible(true);
         $attrInstance->setValue($mockResponse);
 
-        $GLOBALS['cfg']['Server']['auth_swekey_config'] = '';
         $GLOBALS['cfg']['CaptchaLoginPrivateKey'] = '';
         $GLOBALS['cfg']['CaptchaLoginPublicKey'] = '';
         $GLOBALS['cfg']['LoginCookieDeleteAll'] = true;
         $GLOBALS['cfg']['Servers'] = array(1);
 
-        $_COOKIE['pmaPass-0'] = 'test';
+        $_COOKIE['pmaAuth-0'] = 'test';
 
         $this->object->logOut();
 
         $this->assertFalse(
-            isset($_COOKIE['pmaPass-0'])
+            isset($_COOKIE['pmaAuth-0'])
         );
         $attrInstance->setValue($restoreInstance);
     }
@@ -507,24 +489,23 @@ class AuthenticationCookieTest extends PMATestCase
 
         $mockResponse->expects($this->once())
             ->method('header')
-            ->with('Location: /phpmyadmin/index.php' . ((SID) ? '?' . SID : ''));
+            ->with('Location: /phpmyadmin/index.php');
 
         $attrInstance = new ReflectionProperty('PMA\libraries\Response', '_instance');
         $attrInstance->setAccessible(true);
         $attrInstance->setValue($mockResponse);
-        $GLOBALS['cfg']['Server']['auth_swekey_config'] = '';
         $GLOBALS['cfg']['CaptchaLoginPrivateKey'] = '';
         $GLOBALS['cfg']['CaptchaLoginPublicKey'] = '';
         $GLOBALS['cfg']['LoginCookieDeleteAll'] = false;
         $GLOBALS['cfg']['Servers'] = array(1);
         $GLOBALS['server'] = 1;
 
-        $_COOKIE['pmaPass-1'] = 'test';
+        $_COOKIE['pmaAuth-1'] = 'test';
 
         $this->object->logOut();
 
         $this->assertFalse(
-            isset($_COOKIE['pmaPass-1'])
+            isset($_COOKIE['pmaAuth-1'])
         );
         $attrInstance->setValue($restoreInstance);
     }
@@ -536,7 +517,6 @@ class AuthenticationCookieTest extends PMATestCase
      */
     public function testAuthCheckArbitrary()
     {
-        $GLOBALS['cfg']['Server']['auth_swekey_config'] = '';
         $GLOBALS['cfg']['CaptchaLoginPrivateKey'] = '';
         $GLOBALS['cfg']['CaptchaLoginPublicKey'] = '';
         $_REQUEST['old_usr'] = '';
@@ -565,7 +545,7 @@ class AuthenticationCookieTest extends PMATestCase
         );
 
         $this->assertFalse(
-            isset($_COOKIE['pmaPass-1'])
+            isset($_COOKIE['pmaAuth-1'])
         );
     }
 
@@ -574,25 +554,18 @@ class AuthenticationCookieTest extends PMATestCase
      *
      * @return void
      */
-    public function testAuthCheckIV()
+    public function testAuthCheckInvalidCookie()
     {
         $GLOBALS['cfg']['AllowArbitraryServer'] = true;
-        $GLOBALS['cfg']['Server']['auth_swekey_config'] = '';
         $_REQUEST['pma_servername'] = 'testPMAServer';
         $_REQUEST['pma_password'] = 'testPMAPSWD';
         $_REQUEST['pma_username'] = '';
         $GLOBALS['server'] = 1;
-        $_COOKIE['pmaServer-1'] = 'pmaServ1';
         $_COOKIE['pmaUser-1'] = '';
         $_COOKIE['pma_iv-1'] = base64_encode('testiv09testiv09');
 
         $this->assertFalse(
             $this->object->authCheck()
-        );
-
-        $this->assertEquals(
-            'pmaServ1',
-            $GLOBALS['pma_auth_server']
         );
     }
 
@@ -603,12 +576,11 @@ class AuthenticationCookieTest extends PMATestCase
      */
     public function testAuthCheckExpires()
     {
-        $GLOBALS['cfg']['Server']['auth_swekey_config'] = '';
         $GLOBALS['server'] = 1;
         $_COOKIE['pmaServer-1'] = 'pmaServ1';
         $_COOKIE['pmaUser-1'] = 'pmaUser1';
         $_COOKIE['pma_iv-1'] = base64_encode('testiv09testiv09');
-        $_COOKIE['pmaPass-1'] = '';
+        $_COOKIE['pmaAuth-1'] = '';
         $GLOBALS['cfg']['blowfish_secret'] = 'secret';
         $_SESSION['last_access_time'] = time() - 1000;
         $GLOBALS['cfg']['LoginCookieValidity'] = 1440;
@@ -625,7 +597,6 @@ class AuthenticationCookieTest extends PMATestCase
      */
     public function testAuthCheckDecryptUser()
     {
-        $GLOBALS['cfg']['Server']['auth_swekey_config'] = 'testConfigSwekey';
         $GLOBALS['server'] = 1;
         $_REQUEST['old_usr'] = '';
         $_REQUEST['pma_username'] = '';
@@ -664,13 +635,12 @@ class AuthenticationCookieTest extends PMATestCase
      */
     public function testAuthCheckDecryptPassword()
     {
-        $GLOBALS['cfg']['Server']['auth_swekey_config'] = 'testConfigSwekey';
         $GLOBALS['server'] = 1;
         $_REQUEST['old_usr'] = '';
         $_REQUEST['pma_username'] = '';
         $_COOKIE['pmaServer-1'] = 'pmaServ1';
         $_COOKIE['pmaUser-1'] = 'pmaUser1';
-        $_COOKIE['pmaPass-1'] = 'pmaPass1';
+        $_COOKIE['pmaAuth-1'] = 'pmaAuth1';
         $_COOKIE['pma_iv-1'] = base64_encode('testiv09testiv09');
         $GLOBALS['cfg']['blowfish_secret'] = 'secret';
         $GLOBALS['cfg']['CaptchaLoginPrivateKey'] = '';
@@ -686,7 +656,7 @@ class AuthenticationCookieTest extends PMATestCase
 
         $this->object->expects($this->at(1))
             ->method('cookieDecrypt')
-            ->will($this->returnValue("\xff(blank)"));
+            ->will($this->returnValue('{"password":""}'));
 
         $this->assertTrue(
             $this->object->authCheck()
@@ -710,7 +680,6 @@ class AuthenticationCookieTest extends PMATestCase
      */
     public function testAuthCheckAuthFails()
     {
-        $GLOBALS['cfg']['Server']['auth_swekey_config'] = 'testConfigSwekey';
         $GLOBALS['server'] = 1;
         $_REQUEST['old_usr'] = '';
         $_REQUEST['pma_username'] = '';
@@ -785,7 +754,7 @@ class AuthenticationCookieTest extends PMATestCase
         );
 
         $this->assertTrue(
-            isset($_COOKIE['pmaPass-1'])
+            isset($_COOKIE['pmaAuth-1'])
         );
 
         $arr['password'] = 'testPW';
@@ -857,10 +826,6 @@ class AuthenticationCookieTest extends PMATestCase
         $this->object->authSetUser();
         $this->object->storeUserCredentials();
 
-        $this->assertTrue(
-            isset($_COOKIE['pmaServer-2'])
-        );
-
         $attrInstance->setValue($restoreInstance);
     }
 
@@ -908,7 +873,7 @@ class AuthenticationCookieTest extends PMATestCase
             ->getMock();
 
         $GLOBALS['server'] = 2;
-        $_COOKIE['pmaPass-2'] = 'pass';
+        $_COOKIE['pmaAuth-2'] = 'pass';
 
         $GLOBALS['login_without_password_is_forbidden'] = '1';
 
@@ -933,7 +898,7 @@ class AuthenticationCookieTest extends PMATestCase
             ->getMock();
 
         $GLOBALS['server'] = 2;
-        $_COOKIE['pmaPass-2'] = 'pass';
+        $_COOKIE['pmaAuth-2'] = 'pass';
 
         $GLOBALS['login_without_password_is_forbidden'] = '';
         $GLOBALS['allowDeny_forbidden'] = '1';
@@ -957,7 +922,7 @@ class AuthenticationCookieTest extends PMATestCase
             ->getMock();
 
         $GLOBALS['server'] = 2;
-        $_COOKIE['pmaPass-2'] = 'pass';
+        $_COOKIE['pmaAuth-2'] = 'pass';
 
 
         $GLOBALS['allowDeny_forbidden'] = '';
@@ -983,7 +948,7 @@ class AuthenticationCookieTest extends PMATestCase
             ->getMock();
 
         $GLOBALS['server'] = 2;
-        $_COOKIE['pmaPass-2'] = 'pass';
+        $_COOKIE['pmaAuth-2'] = 'pass';
 
 
         $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
@@ -1026,7 +991,7 @@ class AuthenticationCookieTest extends PMATestCase
 
         $GLOBALS['dbi'] = $dbi;
         $GLOBALS['server'] = 2;
-        $_COOKIE['pmaPass-2'] = 'pass';
+        $_COOKIE['pmaAuth-2'] = 'pass';
 
         unset($GLOBALS['errno']);
 
@@ -1065,7 +1030,7 @@ class AuthenticationCookieTest extends PMATestCase
         );
 
         $this->assertEquals(
-            256,
+            32,
             strlen($result)
         );
     }
@@ -1088,7 +1053,7 @@ class AuthenticationCookieTest extends PMATestCase
         $result = $method->invoke($this->object, null);
 
         $this->assertEquals(
-            md5('notEmpty'),
+            'notEmpty',
             $result
         );
     }
@@ -1103,7 +1068,7 @@ class AuthenticationCookieTest extends PMATestCase
         $this->object->setIV('testiv09testiv09');
         // works with the openssl extension active or inactive
         $this->assertEquals(
-            '+coP/up/ZBTBwbiEpCUVXQ==',
+            '{"iv":"dGVzdGl2MDl0ZXN0aXYwOQ==","mac":"34367a80e4276906637b5eaecf8c3931547aae68","payload":"+coP\/up\/ZBTBwbiEpCUVXQ=="}',
             $this->object->cookieEncrypt('data123', 'sec321')
         );
     }
@@ -1115,16 +1080,101 @@ class AuthenticationCookieTest extends PMATestCase
      */
     public function testCookieDecrypt()
     {
-        $this->object->setIV('testiv09testiv09');
         // works with the openssl extension active or inactive
         $this->assertEquals(
             'data123',
             $this->object->cookieDecrypt(
-                '+coP/up/ZBTBwbiEpCUVXQ==',
+                '{"iv":"dGVzdGl2MDl0ZXN0aXYwOQ==","mac":"34367a80e4276906637b5eaecf8c3931547aae68","payload":"+coP\/up\/ZBTBwbiEpCUVXQ=="}',
                 'sec321'
             )
         );
     }
 
+    /**
+     * Test for PMA\libraries\plugins\auth\AuthenticationConfig::cookieDecrypt
+     *
+     * @return void
+     */
+    public function testCookieDecryptInvalid()
+    {
+        // works with the openssl extension active or inactive
+        $this->assertEquals(
+            false,
+            $this->object->cookieDecrypt(
+                '{"iv":0,"mac":0,"payload":0}',
+                'sec321'
+            )
+        );
+    }
 
+    /**
+     * Test for secret splitting using getAESSecret
+     *
+     * @return void
+     *
+     * @dataProvider secretsProvider
+     */
+    public function testMACSecretSplit($secret, $mac, $aes)
+    {
+        $this->assertEquals(
+            $mac,
+            $this->object->getMACSecret($secret)
+        );
+    }
+
+    /**
+     * Test for secret splitting using getMACSecret and getAESSecret
+     *
+     * @return void
+     *
+     * @dataProvider secretsProvider
+     */
+    public function testAESSecretSplit($secret, $mac, $aes)
+    {
+        $this->assertEquals(
+            $aes,
+            $this->object->getAESSecret($secret)
+        );
+    }
+
+    /**
+     * Data provider for secrets splitting.
+     *
+     * @return array
+     */
+    public function secretsProvider()
+    {
+        return array(
+            // Optimal case
+            array(
+                '1234567890123456abcdefghijklmnop',
+                '1234567890123456',
+                'abcdefghijklmnop',
+            ),
+            // Overlapping secret
+            array(
+                '12345678901234567',
+                '1234567890123456',
+                '2345678901234567',
+            ),
+            // Short secret
+            array(
+                '1234567890123456',
+                '1234567890123451',
+                '2345678901234562',
+            ),
+            // Really short secret
+            array(
+                '12',
+                '1111111111111111',
+                '2222222222222222',
+            ),
+            // Too short secret
+            array(
+                '1',
+                '1111111111111111',
+                '1111111111111111',
+            ),
+        );
+    }
 }

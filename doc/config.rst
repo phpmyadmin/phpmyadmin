@@ -48,7 +48,7 @@ Basic settings
 
     Sets here the complete :term:`URL` (with full path) to your phpMyAdmin
     installation's directory. E.g.
-    ``http://www.example.net/path_to_your_phpMyAdmin_directory/``.  Note also
+    ``https://www.example.net/path_to_your_phpMyAdmin_directory/``.  Note also
     that the :term:`URL` on most of web servers are case–sensitive. Don’t
     forget the trailing slash at the end.
 
@@ -413,15 +413,6 @@ Server connection settings
     explicitly specified in your configuration, a string combined of
     "phpMyAdmin " and either :config:option:`$cfg['Servers'][$i]['verbose']` or
     :config:option:`$cfg['Servers'][$i]['host']` will be used.
-
-.. _servers_auth_swekey_config:
-.. config:option:: $cfg['Servers'][$i]['auth_swekey_config']
-
-    :type: string
-    :default: ``''``
-
-    The name of the file containing :ref:`swekey` ids and login names for hardware
-    authentication. Leave empty to deactivate this feature.
 
 .. _servers_user:
 .. config:option:: $cfg['Servers'][$i]['user']
@@ -804,7 +795,6 @@ Server connection settings
 
     This feature can be disabled by setting the configuration to ``false``.
 
-.. _configurablemenus:
 .. config:option:: $cfg['Servers'][$i]['users']
 
     :type: string or false
@@ -829,6 +819,8 @@ Server connection settings
       :config:option:`$cfg['Servers'][$i]['usergroups']` (e.g. ``pma__usergroups``)
 
     This feature can be disabled by setting either of the configurations to ``false``.
+
+    .. seealso:: :ref:`configurablemenus`
 
 .. _navigationhiding:
 .. config:option:: $cfg['Servers'][$i]['navigationhiding']
@@ -1422,18 +1414,21 @@ Generic settings
     :type: boolean
     :default: false
 
+    .. warning::
+
+        This is not a security measure as there will be always ways to
+        circumvent this. If you want to prohibit users from dropping databases,
+        revoke their corresponding DROP privilege.
+
     Defines whether normal users (non-administrator) are allowed to delete
     their own database or not. If set as false, the link :guilabel:`Drop
     Database` will not be shown, and even a ``DROP DATABASE mydatabase`` will
     be rejected. Quite practical for :term:`ISP` 's with many customers.
 
-    .. note::
-
-        This limitation of :term:`SQL` queries is not
-        as strict as when using MySQL privileges. This is due to nature of
-        :term:`SQL` queries which might be quite
-        complicated.  So this choice should be viewed as help to avoid accidental
-        dropping rather than strict privilege limitation.
+    This limitation of :term:`SQL` queries is not as strict as when using MySQL
+    privileges. This is due to nature of :term:`SQL` queries which might be
+    quite complicated.  So this choice should be viewed as help to avoid
+    accidental dropping rather than strict privilege limitation.
 
 .. config:option:: $cfg['Confirm']
 
@@ -1469,7 +1464,10 @@ Cookie authentication options
     The "cookie" auth\_type uses AES algorithm to encrypt the password. If you
     are using the "cookie" auth\_type, enter here a random passphrase of your
     choice. It will be used internally by the AES algorithm: you won’t be
-    prompted for this passphrase. There is no maximum length for this secret.
+    prompted for this passphrase. 
+    
+    The secret should be 32 characters long. Using shorter will lead to weaker security
+    of encrypted cookies, using longer will cause no harm.
 
     .. note::
 
@@ -1556,7 +1554,7 @@ Cookie authentication options
     :default: ``''``
 
     The public key for the reCaptcha service that can be obtained from
-    http://www.google.com/recaptcha.
+    https://www.google.com/recaptcha.
 
     reCaptcha will be then used in :ref:`cookie`.
 
@@ -1566,7 +1564,7 @@ Cookie authentication options
     :default: ``''``
 
     The private key for the reCaptcha service that can be obtain from
-    http://www.google.com/recaptcha.
+    https://www.google.com/recaptcha.
 
     reCaptcha will be then used in :ref:`cookie`.
 
@@ -1829,11 +1827,6 @@ Main panel
     You can additionally hide more information by using
     :config:option:`$cfg['Servers'][$i]['verbose']`.
 
-.. config:option:: $cfg['ShowPhpInfo']
-
-    :type: boolean
-    :default: false
-
 .. config:option:: $cfg['ShowChgPassword']
 
     :type: boolean
@@ -1844,17 +1837,10 @@ Main panel
     :type: boolean
     :default: true
 
-    Defines whether to display the :guilabel:`PHP information` and
+    Defines whether to display the 
     :guilabel:`Change password` links and form for creating database or not at
     the starting main (right) frame. This setting does not check MySQL commands
     entered directly.
-
-    Please note that to block the usage of ``phpinfo()`` in scripts, you have to
-    put this in your :file:`php.ini`:
-
-    .. code-block:: ini
-
-        disable_functions = phpinfo()
 
     Also note that enabling the :guilabel:`Change password` link has no effect
     with config authentication mode: because of the hard coded password value
@@ -2265,7 +2251,7 @@ Languages
     :default: ``'//TRANSLIT'``
 
     Specify some parameters for iconv used in charset conversion. See
-    `iconv documentation <http://www.gnu.org/software/libiconv/documentati
+    `iconv documentation <https://www.gnu.org/software/libiconv/documentati
     on/libiconv/iconv_open.3.html>`_ for details. By default
     ``//TRANSLIT`` is used, so that invalid characters will be
     transliterated.
@@ -2591,8 +2577,25 @@ SQL query box settings
 
     Whether to display a link to refresh a query in any SQL Query box.
 
+.. _web-dirs:
+
 Web server upload/save/import directories
 -----------------------------------------
+
+If PHP is running in safe mode, all directories must be owned by the same user
+as the owner of the phpMyAdmin scripts.
+
+If the directory where phpMyAdmin is installed is subject to an
+``open_basedir`` restriction, you need to create a temporary directory in some
+directory accessible by the PHP interpreter.
+
+For security reasons, all directories should be outside the tree published by
+webserver. If you cannot avoid having this directory published by webserver,
+limit access to it either by web server configuration (for example using
+.htaccess or web.config files) or place at least an empty :file:`index.html`
+file there, so that directory listing is not possible. However as long as the
+directory is accessible by web server, an attacker can guess filenames to download
+the files.
 
 .. config:option:: $cfg['UploadDir']
 
@@ -2616,11 +2619,14 @@ Web server upload/save/import directories
     uploaded via :term:`HTTP`, or when file
     uploads are disabled in PHP.
 
-    .. note::
+    .. warning::
 
-        If PHP is running in safe mode, this directory must be owned by the same
-        user as the owner of the phpMyAdmin scripts.  See also :ref:`faq1_16` for
-        alternatives.
+        Please see top of this chapter (:ref:`web-dirs`) for instructions how
+        to setup this directory and how to make its usage secure.
+
+    .. seealso::
+
+        See :ref:`faq1_16` for alternatives.
 
 .. config:option:: $cfg['SaveDir']
 
@@ -2635,10 +2641,10 @@ Web server upload/save/import directories
     Please note that the directory must exist and has to be writable for
     the user running webserver.
 
-    .. note::
+    .. warning::
 
-        If PHP is running in safe mode, this directory must be owned by the same
-        user as the owner of the phpMyAdmin scripts.
+        Please see top of this chapter (:ref:`web-dirs`) for instructions how
+        to setup this directory and how to make its usage secure.
 
 .. config:option:: $cfg['TempDir']
 
@@ -2651,21 +2657,12 @@ Web server upload/save/import directories
     work around limitations of ``open_basedir`` for uploaded files, see
     :ref:`faq1_11`.
 
-    If the directory where phpMyAdmin is installed is
-    subject to an ``open_basedir`` restriction, you need to create a
-    temporary directory in some directory accessible by the web server.
-    However for security reasons, this directory should be outside the
-    tree published by webserver. If you cannot avoid having this directory
-    published by webserver, place at least an empty :file:`index.html` file
-    there, so that directory listing is not possible.
-
     This directory should have as strict permissions as possible as the only
     user required to access this directory is the one who runs the webserver.
     If you have root privileges, simply make this user owner of this directory
     and make it accessible only by it:
 
     .. code-block:: sh
-
 
         chown www-data:www-data tmp
         chmod 700 tmp
@@ -2682,6 +2679,11 @@ Web server upload/save/import directories
     If neither of above works for you, you can still make the directory
     :command:`chmod 777`, but it might impose risk of other users on system
     reading and writing data in this directory.
+
+    .. warning::
+
+        Please see top of this chapter (:ref:`web-dirs`) for instructions how
+        to setup this directory and how to make its usage secure.
 
 Various display setting
 -----------------------
@@ -2902,7 +2904,7 @@ Developer
     :default: false
 
     Enable to let server present itself as demo server.
-    This is used for <http://demo.phpmyadmin.net/>.
+    This is used for <https://demo.phpmyadmin.net/>.
 
 
 Examples

@@ -1385,7 +1385,7 @@ class DisplayResultsTest extends PMATestCase
                 $meta,
                 $url_params,
                 null,
-                '<a href="1001" title="" target="_new">1001</a>'
+                '1001'
             ),
             array(
                 false,
@@ -1487,7 +1487,7 @@ class DisplayResultsTest extends PMATestCase
                 false,
                 'PMA_mimeDefaultFunction',
                 'PMA_mimeDefaultFunction',
-                array('http://www.github.com/'),
+                array('https://www.example.com/'),
                 false,
                 array(),
                 0,
@@ -1514,7 +1514,7 @@ class DisplayResultsTest extends PMATestCase
                 0,
                 'binary',
                 '<td class="left grid_edit  transformed hex">'
-                . '<a href="1001" title="" target="_new">1001</a></td>'
+                . '1001</td>'
             ),
             array(
                 'noblob',

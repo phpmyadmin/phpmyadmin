@@ -284,7 +284,7 @@ function PMA_getHtmlForRenderVariables($ServerStatusData, $alerts, $strShowStatu
                 $retval .= '<span class="allfine">';
             }
         }
-        $retval .= $value;
+        $retval .= htmlspecialchars($value);
         if (isset($alerts[$name])) {
             $retval .= '</span>';
         }

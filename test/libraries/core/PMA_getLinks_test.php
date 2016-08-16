@@ -50,8 +50,8 @@ class PMA_GetLinks_Test extends PHPUnit_Framework_TestCase
     public function providerLinkURL()
     {
         return array(
-            array('http://wiki.phpmyadmin.net',
-             './url.php?url=http%3A%2F%2Fwiki.phpmyadmin.net'),
+            array('https://wiki.phpmyadmin.net',
+             './url.php?url=https%3A%2F%2Fwiki.phpmyadmin.net'),
             array('https://wiki.phpmyadmin.net',
              './url.php?url=https%3A%2F%2Fwiki.phpmyadmin.net'),
             array('wiki.phpmyadmin.net', 'wiki.phpmyadmin.net'),

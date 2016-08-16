@@ -223,8 +223,7 @@ function PMA_URL_getArgSeparator($encode = 'none')
     if (null === $separator) {
         // use separators defined by php, but prefer ';'
         // as recommended by W3C
-        // (see http://www.w3.org/TR/1999/REC-html401-19991224/appendix
-        // /notes.html#h-B.2.2)
+        // (see https://www.w3.org/TR/1999/REC-html401-19991224/appendix/notes.html#h-B.2.2)
         $arg_separator = ini_get('arg_separator.input');
         if (mb_strpos($arg_separator, ';') !== false) {
             $separator = ';';

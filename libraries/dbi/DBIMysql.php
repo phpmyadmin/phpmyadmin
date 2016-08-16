@@ -124,10 +124,12 @@ class DBIMysql implements DBIExtension
 
         $client_flags = 0;
 
-        // always use CLIENT_LOCAL_FILES as defined in mysql_com.h
-        // for the case where the client library was not compiled
-        // with --enable-local-infile
-        $client_flags |= 128;
+        if (defined('PMA_ENABLE_LDI')) {
+            // use CLIENT_LOCAL_FILES as defined in mysql_com.h
+            // for the case where the client library was not compiled
+            // with --enable-local-infile
+            $client_flags |= 128;
+        }
 
         /* Optionally compress connection */
         if (defined('MYSQL_CLIENT_COMPRESS') && $cfg['Server']['compress']) {

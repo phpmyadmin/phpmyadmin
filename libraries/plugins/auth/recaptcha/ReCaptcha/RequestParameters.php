@@ -98,6 +98,6 @@ class RequestParameters
      */
     public function toQueryString()
     {
-        return http_build_query($this->toArray());
+        return http_build_query($this->toArray(), '', '&');
     }
 }

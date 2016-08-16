@@ -259,15 +259,18 @@ function PMA_buildOrExecuteQueryForMulti(
             break;
 
         case 'copy_tbl_change_prefix':
+            $run_parts = true;
+            $copy_tbl = true;
+
             $current = $selected[$i];
             $newtablename = $to_prefix .
                 mb_substr($current, mb_strlen($from_prefix));
+
             // COPY TABLE AND CHANGE PREFIX PATTERN
-            $a_query = 'CREATE TABLE '
-                . PMA\libraries\Util::backquote($newtablename)
-                . ' SELECT * FROM '
-                . PMA\libraries\Util::backquote($selected[$i]);
-            $run_parts = true;
+            Table::moveCopy(
+                $db, $current, $db, $newtablename,
+                'data', false, 'one_table'
+            );
             break;
 
         case 'copy_tbl':
@@ -346,7 +349,7 @@ function PMA_getHtmlForCopyMultipleTables($action, $_url_params)
     $html .= '<input type="checkbox" id="checkbox_drop" value="1" name="drop_if_exists"></input>';
     $html .= '<label for="checkbox_drop">' . __('Add DROP TABLE') . '</label><br>';
     $html .= '<input type="checkbox" id="checkbox_auto_increment_cp" value="1" name="sql_auto_increment"></input>';
-    $html .= '<label for="checkbox_auto_increment">' . __('Add AUTO INCREMENT value') . '</label><br>';
+    $html .= '<label for="checkbox_auto_increment_cp">' . __('Add AUTO INCREMENT value') . '</label><br>';
     $html .= '<input type="checkbox" id="checkbox_constraints" value="1" name="sql_auto_increment" checked="checked"></input>';
     $html .= '<label for="checkbox_constraints">' . __('Add constraints') . '</label><br><br>';
     $html .= '<input name="adjust_privileges" value="1" id="checkbox_adjust_privileges" checked="checked" type="checkbox"></input>';

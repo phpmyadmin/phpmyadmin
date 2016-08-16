@@ -185,7 +185,7 @@ class ExportXml extends ExportPlugin
         if ($names) {
             foreach ($names as $name) {
                 $head .= '            <pma:' . $type . ' name="'
-                    . $name . '">' . $crlf;
+                    . htmlspecialchars($name) . '">' . $crlf;
 
                 // Do some formatting
                 $sql = $GLOBALS['dbi']->getDefinition($db, $dbitype, $name);
@@ -232,7 +232,7 @@ class ExportXml extends ExportPlugin
             . '- version ' . PMA_VERSION . $crlf
             . '- https://www.phpmyadmin.net' . $crlf
             . '-' . $crlf
-            . '- ' . __('Host:') . ' ' . $cfg['Server']['host'];
+            . '- ' . __('Host:') . ' ' . htmlspecialchars($cfg['Server']['host']);
         if (!empty($cfg['Server']['port'])) {
             $head .= ':' . $cfg['Server']['port'];
         }
@@ -245,7 +245,7 @@ class ExportXml extends ExportPlugin
 
         $head .= '<pma_xml_export version="1.0"'
             . (($export_struct)
-                ? ' xmlns:pma="http://www.phpmyadmin.net/some_doc_url/"'
+                ? ' xmlns:pma="https://www.phpmyadmin.net/some_doc_url/"'
                 : '')
             . '>' . $crlf;
 
@@ -263,7 +263,7 @@ class ExportXml extends ExportPlugin
             $head .= '    -->' . $crlf;
             $head .= '    <pma:structure_schemas>' . $crlf;
             $head .= '        <pma:database name="' . htmlspecialchars($db)
-                . '" collation="' . $db_collation . '" charset="' . $db_charset
+                . '" collation="' . htmlspecialchars($db_collation) . '" charset="' . htmlspecialchars($db_charset)
                 . '">' . $crlf;
 
             if (count($tables) == 0) {
@@ -296,7 +296,7 @@ class ExportXml extends ExportPlugin
                     continue;
                 }
 
-                $head .= '            <pma:' . $type . ' name="' . $table . '">'
+                $head .= '            <pma:' . $type . ' name="' . htmlspecialchars($table) . '">'
                     . $crlf;
 
                 $tbl = "                " . htmlspecialchars($tbl);
@@ -314,7 +314,7 @@ class ExportXml extends ExportPlugin
                         foreach ($triggers as $trigger) {
                             $code = $trigger['create'];
                             $head .= '            <pma:trigger name="'
-                                . $trigger['name'] . '">' . $crlf;
+                                . htmlspecialchars($trigger['name']) . '">' . $crlf;
 
                             // Do some formatting
                             $code = mb_substr(rtrim($code), 0, -3);
@@ -402,7 +402,7 @@ class ExportXml extends ExportPlugin
         ) {
             $head = '    <!--' . $crlf
                 . '    - ' . __('Database:') . ' ' . '\''
-                . $db_alias . '\'' . $crlf
+                . htmlspecialchars($db_alias) . '\'' . $crlf
                 . '    -->' . $crlf . '    <database name="'
                 . htmlspecialchars($db_alias) . '">' . $crlf;
 
@@ -491,7 +491,7 @@ class ExportXml extends ExportPlugin
             unset($i);
 
             $buffer = '        <!-- ' . __('Table') . ' '
-                . $table_alias . ' -->' . $crlf;
+                . htmlspecialchars($table_alias) . ' -->' . $crlf;
             if (!PMA_exportOutputHandler($buffer)) {
                 return false;
             }

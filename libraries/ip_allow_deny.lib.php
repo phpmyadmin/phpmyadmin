@@ -30,14 +30,21 @@ function PMA_getIp()
         return $direct_ip;
     }
 
-    $trusted_header_value
-        = PMA_getenv($GLOBALS['cfg']['TrustedProxies'][$direct_ip]);
-    $matches = array();
+    /**
+     * Parse header in form:
+     * X-Forwarded-For: client, proxy1, proxy2
+     */
+    // Get header content
+    $value = PMA_getenv($GLOBALS['cfg']['TrustedProxies'][$direct_ip]);
+    // Grab first element what is client adddress
+    $value = explode(',', $value)[0];
+    // Extract IP address
     // the $ checks that the header contains only one IP address,
     // ?: makes sure the () don't capture
+    $matches = array();
     $is_ip = preg_match(
         '|^(?:[0-9]{1,3}\.){3,3}[0-9]{1,3}$|',
-        $trusted_header_value, $matches
+        $value, $matches
     );
 
     if ($is_ip && (count($matches) == 1)) {
@@ -45,8 +52,8 @@ function PMA_getIp()
         return $matches[0];
     }
 
-    /* Return true IP */
-    return $direct_ip;
+    // We could not parse header
+    return false;
 } // end of the 'PMA_getIp()' function
 
 
@@ -78,7 +85,7 @@ function PMA_ipMaskTest($testRange, $ipToTest)
 /**
  * Based on IP Pattern Matcher
  * Originally by J.Adams <jna@retina.net>
- * Found on <http://www.php.net/manual/en/function.ip2long.php>
+ * Found on <https://www.php.net/manual/en/function.ip2long.php>
  * Modified for phpMyAdmin
  *
  * Matches:
@@ -149,7 +156,7 @@ function PMA_ipv4MaskTest($testRange, $ipToTest)
 
 /**
  * IPv6 matcher
- * CIDR section taken from http://stackoverflow.com/a/10086404
+ * CIDR section taken from https://stackoverflow.com/a/10086404
  * Modified for phpMyAdmin
  *
  * Matches:

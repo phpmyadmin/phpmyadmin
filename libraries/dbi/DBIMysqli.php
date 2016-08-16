@@ -35,7 +35,7 @@ if (! defined('MYSQLI_BINARY_FLAG')) {
 }
 
 /**
- * @see http://bugs.php.net/36007
+ * @see https://bugs.php.net/36007
  */
 if (! defined('MYSQLI_TYPE_NEWDECIMAL')) {
     define('MYSQLI_TYPE_NEWDECIMAL', 246);
@@ -138,7 +138,11 @@ class DBIMysqli implements DBIExtension
 
         $link = mysqli_init();
 
-        mysqli_options($link, MYSQLI_OPT_LOCAL_INFILE, true);
+        if (defined('PMA_ENABLE_LDI')) {
+            mysqli_options($link, MYSQLI_OPT_LOCAL_INFILE, true);
+        } else {
+            mysqli_options($link, MYSQLI_OPT_LOCAL_INFILE, false);
+        }
 
         $client_flags = 0;
 

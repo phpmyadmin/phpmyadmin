@@ -167,7 +167,7 @@ $cfg['Servers'][$i]['ssl_ciphers'] = null;
  * For most self-signed certificates this is a problem. Setting this to false
  * will disable the check and allow the connection (PHP 5.6.16 or later)
  *
- * @link http://bugs.php.net/68344
+ * @link https://bugs.php.net/68344
  * @global string $cfg['Servers'][$i]['ssl_verify']
  */
 $cfg['Servers'][$i]['ssl_verify'] = true;
@@ -235,14 +235,6 @@ $cfg['Servers'][$i]['auth_type'] = 'cookie';
  * @global string $cfg['Servers'][$i]['auth_http_realm']
  */
 $cfg['Servers'][$i]['auth_http_realm'] = '';
-
-/**
- * File containing Swekey ids and login names (see /contrib);
- * leave empty to deactivate Swekey hardware authentication
- *
- * @global string $cfg['Servers'][$i]['auth_swekey_config']
- */
-$cfg['Servers'][$i]['auth_swekey_config'] = '';
 
 /**
  * MySQL user
@@ -1045,13 +1037,6 @@ $cfg['NavigationTreeShowEvents'] = true;
  * @global boolean $cfg['ShowStats']
  */
 $cfg['ShowStats'] = true;
-
-/**
- * show PHP info link
- *
- * @global boolean $cfg['ShowPhpInfo']
- */
-$cfg['ShowPhpInfo'] = false;
 
 /**
  * show MySQL server and web server information
@@ -2590,7 +2575,7 @@ $cfg['RecodingEngine'] = 'auto';
 /**
  * Specify some parameters for iconv used in character set conversion. See iconv
  * documentation for details:
- * http://www.gnu.org/software/libiconv/documentation/libiconv/iconv_open.3.html
+ * https://www.gnu.org/software/libiconv/documentation/libiconv/iconv_open.3.html
  *
  * @global string $cfg['IconvExtraParams']
  */
@@ -3030,7 +3015,7 @@ $cfg['CheckConfigurationPermissions'] = true;
  * is replaced by form with button.
  * This is required as some web servers (IIS) have problems with long URLs.
  * The recommended limit is 2000
- * (see http://www.boutell.com/newfaq/misc/urllength.html) but we put
+ * (see https://www.boutell.com/newfaq/misc/urllength.html) but we put
  * 1000 to accommodate Suhosin, see bug #3358750.
  */
 $cfg['LinkLengthLimit'] = 1000;

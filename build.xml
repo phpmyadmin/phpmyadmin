@@ -55,7 +55,7 @@
    <arg line="${source_comma_sep}
               xml
               codesize,design,naming,unusedcode
-              --exclude test,build,tcpdf,php-gettext,bfShapeFiles,phpseclib,recaptchalib.php,swekey.php,vendor,sql-parser
+              --exclude test,build,tcpdf,php-gettext,bfShapeFiles,phpseclib,recaptchalib.php,vendor,sql-parser
               --reportfile '${basedir}/build/logs/pmd.xml'" />
   </exec>
  </target>
@@ -71,7 +71,6 @@
               --exclude libraries/bfShapeFiles
               --exclude libraries/phpseclib
               --exclude libraries/plugins/auth/recaptcha/recaptchalib.php
-              --exclude libraries/plugins/auth/swekey/swekey.php
               --exclude libraries/sql-parser
               ${source}" />
   </exec>
@@ -88,7 +87,6 @@
               --exclude libraries/bfShapeFiles
               --exclude libraries/phpseclib
               --exclude libraries/plugins/auth/recaptcha/recaptchalib.php
-              --exclude libraries/plugins/auth/swekey/swekey.php
               --exclude libraries/sql-parser
               ${source}" />
   </exec>
@@ -103,7 +101,7 @@
  <target name="phpcs" description="Generate checkstyle.xml using PHP_CodeSniffer excluding third party libraries" depends="phpcs-config">
   <exec executable="phpcs">
    <arg line="
-              --ignore=*/php-gettext/*,*/vendor/*,*/tcpdf/*,*/canvg/*,*/codemirror/*,*/openlayers/*,*/jquery/*,*/jqplot/*,*/build/*,*/bfShapeFiles/*,*/phpseclib/*,*/recaptcha/*,*/swekey/*,*/sql-parser/*
+              --ignore=*/php-gettext/*,*/vendor/*,*/tcpdf/*,*/canvg/*,*/codemirror/*,*/openlayers/*,*/jquery/*,*/jqplot/*,*/build/*,*/bfShapeFiles/*,*/phpseclib/*,*/recaptcha/*,*/sql-parser/*
               --report=checkstyle
               --extensions=php
               --report-file='${basedir}/build/logs/checkstyle.xml'

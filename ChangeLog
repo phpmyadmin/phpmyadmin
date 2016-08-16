@@ -1,6 +1,66 @@
 phpMyAdmin - ChangeLog
 ======================
 
+4.6.4 (2016-08-16)
+- issue        [security] Weaknesses with cookie encryption, see PMASA-2016-29
+- issue        [security] Improve session cookie code for openid.php and signon.php example files
+- issue        [security] Full path disclosure in openid.php and signon.php example files
+- issue        [security] Multiple XSS vulnerabilities, see PMASA-2016-30
+- issue        [security] Multiple XSS vulnerabilities, see PMASA-2016-31
+- issue        [security] Unsafe generation of BlowfishSecret (when not supplied by the user)
+- issue        [security] Referrer leak when phpinfo is enabled
+- issue        [security] PHP code injection, see PMASA-2016-32
+- issue        [security] Full path disclosure, see PMASA-2016-33
+- issue        [security] SQL injection attack, see PMASA-2016-34
+- issue        [security] Local file exposure through LOAD DATA LOCAL INFILE, see PMASA-2016-35
+- issue        [security] Local file exposure through symlinks with UploadDir, see PMASA-2016-36
+- issue        [security] Path traversal with SaveDir and UploadDir, see PMASA-2016-37
+- issue        [security] Multiple XSS vulnerabilities, see PMASA-2016-38
+- issue        [security] SQL injection vulnerability as control user, see PMASA-2016-39
+- issue        [security] SQL injection vulnerability, see PMASA-2016-40
+- issue        [security] Denial-of-service attack through transformation feature, see PMASA-2016-41
+- issue        [security] SQL injection vulnerability as control user, see PMASA-2016-42
+- issue        [security] Verify data before unserializing, see PMASA-2016-43
+- issue        [security] Use HTTPS for wiki links
+- issue        Remove Swekey support
+- issue        [security] SSRF in setup script, see PMASA-2016-44
+- issue        [security] Denial-of-service attack with $cfg['AllowArbitraryServer'] = true and persistent connections, see PMASA-2016-45
+- issue        [security] Improve SSL certificate handling
+- issue        [security] Fix full path disclosure in debugging code
+- issue        [security] Possible circumvention of IP-based allow/deny rules with IPv6 and proxy server, see PMASA-2016-47
+- issue        [security] Detect if user is logged in, see PMASA-2016-48
+- issue        [security] Bypass URL redirection protection, see PMASA-2016-49
+- issue        [security] Referrer leak, see PMASA-2016-50
+- issue        [security] Reflected File Download, see PMASA-2016-51
+- issue        [security] ArbitraryServerRegexp bypass, see PMASA-2016-52
+- issue        [security] Denial-of-service attack by entering long password, see PMASA-2016-53
+- issue        [security] Remote code execution vulnerability when running as CGI, see PMASA-2016-054
+- issue        [security] Administrators could trigger SQL injection attack against users
+- issue        [security] Denial-of-service attack when PHP uses dbase extension, see PMASA-2016-55
+- issue        [security] Remove tode execution vulnerability when PHP uses dbase extension, see PMASA-2016-56
+- issue        [security] Denial-of-service attack by using for loops, see PMASA-2016-46
+- issue        Include X-Robots-Tag header in responses
+- issue        Enforce numeric field length when creating table
+- issue        Fixed invalid Content-Length in some HTTP responses
+- issue #12394 Create view should require a view name
+- issue #12391 Message with 'Change password successfully' displayed, but does not take effect
+- issue        Tighten control on PHP sessions and session cookies
+- issue #12409 Re-enable overhead on server databases view
+- issue #12414 Fixed rendering of Original theme
+- issue #12413 Fixed deleting users in non English locales
+- issue #12416 Fixed replication status output in Databases listing
+- issue #12303 Avoid typecasting to float when not needed
+- issue #12425 Duplicate message variable names in messages.inc.php
+- issue #12399 Adding index to table shows wrong top navigation
+- issue #12424 Fixed password change on MariaDB without auth plugin
+- issue #12339 Do not error on unset server port
+- issue #12422 Improvements to the original theme
+- issue #12395 Do not try to load old transformation plugins
+- issue #12423 Fixed replication status in database listing
+- issue #12433 Copy table with prefix does not copy the indexes
+- issue #12375 Search in database: Window content is not scrolling down when clicking first time on Browse link
+- issue #12346 SQL Editor textareas can have their size increased from the top, distorting the page view
+
 4.6.3 (2016-06-23)
 - issue #12249 Fixed cookie path on Windows
 - issue #12279 Fixed error reporting on connect problems

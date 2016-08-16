@@ -311,6 +311,11 @@ class ServerDatabasesControllerTest extends PMATestCase
                     'disp_name' => __('Total'),
                     'format'    => 'byte',
                     'footer'    => 0
+                ),
+                'SCHEMA_DATA_FREE' => array(
+                    'disp_name' => __('Overhead'),
+                    'format'    => 'byte',
+                    'footer'    => 0
                 )
             ),
             $method->invoke($ctrl)

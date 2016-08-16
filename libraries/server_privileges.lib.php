@@ -2061,8 +2061,6 @@ function PMA_updatePassword($err_url, $username, $hostname)
                 . " `plugin` = '" . $authentication_plugin . "'"
                 . " WHERE `User` = '" . $username . "' AND Host = '"
                 . $hostname . "';";
-
-            $GLOBALS['dbi']->tryQuery("FLUSH PRIVILEGES;");
         } else {
             // USE 'SET PASSWORD ...' syntax for rest of the versions
             // Backup the old value, to be reset later
@@ -2083,8 +2081,8 @@ function PMA_updatePassword($err_url, $username, $hostname)
                     false, $err_url
                 );
             }
-
             $GLOBALS['dbi']->tryQuery("FLUSH PRIVILEGES;");
+
             if ($authentication_plugin == 'mysql_native_password') {
                 // Set the hashing method used by PASSWORD()
                 // to be 'mysql_native_password' type
@@ -2114,6 +2112,9 @@ function PMA_updatePassword($err_url, $username, $hostname)
                 $GLOBALS['dbi']->getError(), $sql_query, false, $err_url
             );
         }
+        // Flush privileges after successful password change
+        $GLOBALS['dbi']->tryQuery("FLUSH PRIVILEGES;");
+
         $message = Message::success(
             __('The password for %s was changed successfully.')
         );
@@ -2384,7 +2385,7 @@ function PMA_getListOfPrivilegesAndComparedPrivileges()
  */
 function PMA_getHtmlTableBodyForSpecificDbRoutinePrivs($db, $odd_row, $index_checkbox)
 {
-    $sql_query = 'SELECT * FROM `mysql`.`procs_priv` WHERE Db = "' . $db . '";';
+    $sql_query = 'SELECT * FROM `mysql`.`procs_priv` WHERE Db = \'' . Util::sqlAddSlashes($db) . '\';';
     $res = $GLOBALS['dbi']->query($sql_query);
     $html_output = '';
     while ($row = $GLOBALS['dbi']->fetchAssoc($res)) {
@@ -2399,13 +2400,13 @@ function PMA_getHtmlTableBodyForSpecificDbRoutinePrivs($db, $odd_row, $index_che
             . 'id="checkbox_sel_users_' . ($index_checkbox++) . '" '
             . 'value="' . $value . '" /></td>';
 
-        $html_output .= '<td>' . $row['User']
+        $html_output .= '<td>' . htmlspecialchars($row['User'])
             . '</td>'
-            . '<td>' . $row['Host']
+            . '<td>' . htmlspecialchars($row['Host'])
             . '</td>'
             . '<td>' . 'routine'
             . '</td>'
-            . '<td>' . '<code>' . $row['Routine_name'] . '</code>'
+            . '<td>' . '<code>' . htmlspecialchars($row['Routine_name']) . '</code>'
             . '</td>'
             . '<td>' . 'Yes'
             . '</td>';

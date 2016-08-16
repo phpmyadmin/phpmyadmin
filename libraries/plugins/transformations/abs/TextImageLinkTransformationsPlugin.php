@@ -30,7 +30,7 @@ abstract class TextImageLinkTransformationsPlugin extends TransformationsPlugin
     {
         return __(
             'Displays an image and a link; the column contains the filename. The'
-            . ' first option is a URL prefix like "http://www.example.com/". The'
+            . ' first option is a URL prefix like "https://www.example.com/". The'
             . ' second and third options are the width and the height in pixels.'
         );
     }
@@ -49,13 +49,13 @@ abstract class TextImageLinkTransformationsPlugin extends TransformationsPlugin
         $url = (isset($options[0]) ? $options[0] : '') . $buffer;
         $parsed = parse_url($url);
         /* Do not allow javascript links */
-        if (isset($parsed['scheme']) && $parsed['scheme'] == 'javascript') {
+        if (! isset($parsed['scheme']) || ! in_array(strtolower($parsed['scheme']), array('http', 'https', 'ftp', 'mailto'))) {
             return htmlspecialchars($url);
         }
         return '<a href="' . htmlspecialchars($url)
-            . '" target="_blank"><img src="' . htmlspecialchars($url)
-            . '" border="0" width="' . (isset($options[1]) ? $options[1] : 100)
-            . '" height="' . (isset($options[2]) ? $options[2] : 50) . '" />'
+            . '" rel="noopener noreferrer" target="_blank"><img src="' . htmlspecialchars($url)
+            . '" border="0" width="' . (isset($options[1]) ? intval($options[1]) : 100)
+            . '" height="' . (isset($options[2]) ? intval($options[2]) : 50) . '" />'
             . htmlspecialchars($buffer) . '</a>';
     }
 

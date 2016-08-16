@@ -1023,7 +1023,7 @@ class DisplayResults
             . '<input type="hidden" name="is_browse_distinct" value="'
             . $this->__get('is_browse_distinct') . '" />'
             . '<input type="hidden" name="session_max_rows" value="'
-            . (! $showing_all ? 'all' : $GLOBALS['cfg']['MaxRows']) . '" />'
+            . (! $showing_all ? 'all' : intval($GLOBALS['cfg']['MaxRows'])) . '" />'
             . '<input type="hidden" name="goto" value="' . $this->__get('goto')
             . '" />'
             . '<input type="checkbox" name="navig"'
@@ -4094,7 +4094,7 @@ class DisplayResults
             $query['max_rows'] = self::ALL_ROWS;
             unset($_REQUEST['session_max_rows']);
         } elseif (empty($query['max_rows'])) {
-            $query['max_rows'] = $GLOBALS['cfg']['MaxRows'];
+            $query['max_rows'] = intval($GLOBALS['cfg']['MaxRows']);
         }
 
         if (PMA_isValid($_REQUEST['pos'], 'numeric')) {
@@ -5250,7 +5250,7 @@ class DisplayResults
 
         if (isset($content)) {
 
-            $size = mb_strlen($content, '8bit');
+            $size = strlen($content);
             $display_size = Util::formatByteDown($size, 3, 1);
             $result .= ' - ' . $display_size[0] . ' ' . $display_size[1];
 

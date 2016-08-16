@@ -351,9 +351,6 @@ class Innodb extends StorageEngine
     /**
      * Gets the InnoDB plugin version number
      *
-     * http://www.innodb.com/products/innodb_plugin
-     * (do not confuse this with phpMyAdmin's storage engine plugins!)
-     *
      * @return string the version number, or empty if not running as a plugin
      */
     public function getInnodbPluginVersion()
@@ -364,8 +361,6 @@ class Innodb extends StorageEngine
     /**
      * Gets the InnoDB file format
      *
-     * (works only for the InnoDB plugin)
-     * http://www.innodb.com/products/innodb_plugin
      * (do not confuse this with phpMyAdmin's storage engine plugins!)
      *
      * @return string the InnoDB file format
@@ -382,8 +377,6 @@ class Innodb extends StorageEngine
     /**
      * Verifies if this server supports the innodb_file_per_table feature
      *
-     * (works only for the InnoDB plugin)
-     * http://www.innodb.com/products/innodb_plugin
      * (do not confuse this with phpMyAdmin's storage engine plugins!)
      *
      * @return boolean whether this feature is supported or not

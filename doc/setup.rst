@@ -35,7 +35,7 @@ OpenSUSE
 --------
 
 OpenSUSE already comes with phpMyAdmin package, just install packages from
-the `openSUSE Build Service <http://software.opensuse.org/package/phpMyAdmin>`_.
+the `openSUSE Build Service <https://software.opensuse.org/package/phpMyAdmin>`_.
 
 Ubuntu
 ------
@@ -69,9 +69,9 @@ Red Hat Enterprise Linux
 
 Red Hat Enterprise Linux itself and thus derivatives like CentOS don't
 ship phpMyAdmin, but the Fedora-driven repository
-`Extra Packages for Enterprise Linux (EPEL) <http://fedoraproject.org/wiki/EPEL>`_
+`Extra Packages for Enterprise Linux (EPEL) <https://fedoraproject.org/wiki/EPEL>`_
 is doing so, if it's
-`enabled <http://fedoraproject.org/wiki/EPEL/FAQ#howtouse>`_.
+`enabled <https://fedoraproject.org/wiki/EPEL/FAQ#howtouse>`_.
 But be aware that the configuration file is maintained in
 ``/etc/phpMyAdmin/`` and may differ in some ways from the
 official phpMyAdmin documentation.
@@ -82,7 +82,7 @@ Installing on Windows
 
 The easiest way to get phpMyAdmin on Windows is using third party products
 which include phpMyAdmin together with a database and web server such as
-`XAMPP <http://www.apachefriends.org/en/xampp.html>`_.
+`XAMPP <https://www.apachefriends.org/>`_.
 
 You can find more of such options at `Wikipedia <https://en.wikipedia.org/wiki/List_of_AMP_packages>`_.
 
@@ -149,6 +149,18 @@ environment variables:
 By default, :ref:`cookie` is used, but if :envvar:`PMA_USER` and
 :envvar:`PMA_PASSWORD` are set, it is switched to :ref:`auth_config`.
 
+Additionally configuration can be tweaked by :file:`/config.user.inc.php`. If
+this file exists, it will be loaded after configuration generated from above
+environment variables, so you can override any configuration variable. This
+configuraiton can be added as a volume when invoking docker using 
+`-v /some/local/directory/config.user.inc.php:/config.user.inc.php` parameters.
+
+.. seealso:: 
+   
+    See :ref:`config` for detailed description of configuration options.
+
+Docker Examples
+---------------
 
 To connect phpMyAdmin to given server use:
 
@@ -173,6 +185,12 @@ You can also link the database container using Docker:
 .. code-block:: sh
 
     docker run --name phpmyadmin -d --link mysql_db_server:db -p 8080:80 phpmyadmin/phpmyadmin
+
+Running with additional configration:
+
+.. code-block:: sh
+
+    docker run --name phpmyadmin -d --link mysql_db_server:db -p 8080:80 -v /some/local/directory/config.user.inc.php:/config.user.inc.php phpmyadmin/phpmyadmin
 
 Using docker-compose
 --------------------
@@ -230,7 +248,8 @@ simple configuration may look like this:
 
 
     <?php
-    $cfg['blowfish_secret'] = 'ba17c1ec07d65003';  // use here a value of your choice
+    // use here a value of your choice at least 32 chars long
+    $cfg['blowfish_secret'] = '1{dd0`<Q),5XP_:R9UK%%8\"EEcyH#{o';
 
     $i=0;
     $i++;
@@ -352,22 +371,31 @@ Verifying phpMyAdmin releases
 
 Since July 2015 all phpMyAdmin releases are cryptographically signed by the
 releasing developer, who through January 2016 was Marc Delisle. His key id is
-0x81AF644A, his PGP fingerprint is:
+0xFEFC65D181AF644A, his PGP fingerprint is:
 
 .. code-block:: console
 
     436F F188 4B1A 0C3F DCBF 0D79 FEFC 65D1 81AF 644A
 
-and you can get more identification information from `https://keybase.io/lem9 <https://keybase.io/lem9>`_.
+and you can get more identification information from <https://keybase.io/lem9>.
 
 Beginning in January 2016, the release manager is Isaac Bennetch. His key id is
-0x8259BD92, and his PGP fingerprint is:
+0xCE752F178259BD92, and his PGP fingerprint is:
 
 .. code-block:: console
 
     3D06 A59E CE73 0EB7 1B51 1C17 CE75 2F17 8259 BD92
 
-and you can get more identification information from `https://keybase.io/ibennetch <https://keybase.io/ibennetch>`_.
+and you can get more identification information from <https://keybase.io/ibennetch>.
+
+Some additional downloads (for example themes) might be signed by Michal Čihař. His key id is
+0x9C27B31342B7511D, and his PGP fingerprint is:
+
+.. code-block:: console
+
+    63CB 1DF1 EF12 CF2A C0EE 5A32 9C27 B313 42B7 511D
+
+and you can get more identification information from <https://keybase.io/nijel>.
 
 You should verify that the signature matches
 the archive you have downloaded. This way you can be sure that you are using
@@ -395,7 +423,7 @@ point you should do one of the following steps:
 
 .. code-block:: console
 
-    $ gpg --keyserver hkp://pgp.mit.edu --recv-keys 8259BD92
+    $ gpg --keyserver hkp://pgp.mit.edu --recv-keys 3D06A59ECE730EB71B511C17CE752F178259BD92
     gpg: requesting key 8259BD92 from hkp server pgp.mit.edu
     gpg: key 8259BD92: public key "Isaac Bennetch <bennetch@gmail.com>" imported
     gpg: no ultimately trusted keys found
@@ -444,7 +472,7 @@ clear error regardless of the fact that the key is trusted or not:
 
 .. _Validating other keys on your public keyring: https://www.gnupg.org/gph/en/manual.html#AEN335
 
-.. _Isaac's key links to Linus's key: http://pgp.cs.uu.nl/mk_path.cgi?FROM=00411886&TO=8259BD92
+.. _Isaac's key links to Linus's key: https://pgp.cs.uu.nl/mk_path.cgi?FROM=ABAF11C65A2970B130ABE3C479BE3E4300411886&TO=3D06A59ECE730EB71B511C17CE752F178259BD92
 
 
 .. index::
@@ -710,40 +738,6 @@ Config authentication mode
   incoming HTTP requests at one’s router or firewall will suffice (both
   of which are beyond the scope of this manual but easily searchable
   with Google).
-
-.. index:: pair: Swekey; Authentication mode
-
-.. _swekey:
-
-Swekey authentication mode
---------------------------
-
-The Swekey is a low cost authentication USB key that can be used in
-web applications. When Swekey authentication is activated, phpMyAdmin
-requires the users's Swekey to be plugged before entering the login
-page (currently supported for cookie authentication mode only). Swekey
-Authentication is disabled by default. To enable it, add the following
-line to :file:`config.inc.php`:
-
-.. code-block:: php
-
-    $cfg['Servers'][$i]['auth_swekey_config'] = '/etc/swekey.conf';
-
-You then have to create the ``swekey.conf`` file that will associate
-each user with their Swekey Id. It is important to place this file
-outside of your web server's document root (in the example, it is
-located in ``/etc``). Feel free to use it with your own users'
-information. If you want to purchase a Swekey please visit
-`https://www.phpmyadmin.net/auth\_key/ <https://www.phpmyadmin.net/auth_key/>`_
-since this link provides funding for phpMyAdmin.
-
-A self documented sample file is provided in the
-file :file:`examples/swekey.sample.conf`:
-
-.. literalinclude:: ../examples/swekey.sample.conf
-    :language: sh
-
-.. seealso:: :config:option:`$cfg['Servers'][$i]['auth_swekey_config']`
 
 
 Securing your phpMyAdmin installation

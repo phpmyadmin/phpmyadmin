@@ -160,50 +160,6 @@ class Validator
     }
 
     /**
-     * Empty error handler, used to temporarily restore PHP internal error handler
-     *
-     * @return bool
-     */
-    public static function nullErrorHandler()
-    {
-        return false;
-    }
-
-    /**
-     * Ensures that $php_errormsg variable will be registered in case of an error
-     * and enables output buffering (when $start = true).
-     * Called with $start = false disables output buffering end restores
-     * html_errors and track_errors.
-     *
-     * @param boolean $start Whether to start buffering
-     *
-     * @return void
-     */
-    public static function testPHPErrorMsg($start = true)
-    {
-        static $old_html_errors, $old_track_errors, $old_error_reporting;
-        static $old_display_errors;
-        if ($start) {
-            $old_html_errors = ini_get('html_errors');
-            $old_track_errors = ini_get('track_errors');
-            $old_display_errors = ini_get('display_errors');
-            $old_error_reporting = error_reporting(E_ALL);
-            ini_set('html_errors', 'false');
-            ini_set('track_errors', 'true');
-            ini_set('display_errors', 'true');
-            set_error_handler(array('PMA\libraries\config\Validator', "nullErrorHandler"));
-            ob_start();
-        } else {
-            ob_end_clean();
-            restore_error_handler();
-            error_reporting($old_error_reporting);
-            ini_set('html_errors', $old_html_errors);
-            ini_set('track_errors', $old_track_errors);
-            ini_set('display_errors', $old_display_errors);
-        }
-    }
-
-    /**
      * Test database connection
      *
      * @param string $connect_type 'tcp' or 'socket'
@@ -227,6 +183,7 @@ class Validator
     ) {
         //    static::testPHPErrorMsg();
         $error = null;
+        $host = PMA_sanitizeMySQLHost($host);
 
         if (DatabaseInterface::checkDbExtension('mysqli')) {
             $socket = empty($socket) || $connect_type == 'tcp' ? null : $socket;
@@ -404,17 +361,26 @@ class Validator
             return $result;
         }
 
-        static::testPHPErrorMsg();
+        if (function_exists('error_clear_last')) {
+            /* PHP 7 only code */
+            error_clear_last();
+            $last_error = null;
+        } else {
+            // As fallback we trigger another error to ensure
+            // that preg error will be different
+            @strpos();
+            $last_error = error_get_last();
+        }
 
         $matches = array();
         // in libraries/ListDatabase.php _checkHideDatabase(),
         // a '/' is used as the delimiter for hide_db
-        preg_match('/' . Util::requestString($values[$path]) . '/', '', $matches);
+        @preg_match('/' . Util::requestString($values[$path]) . '/', '', $matches);
 
-        static::testPHPErrorMsg(false);
+        $current_error = error_get_last();
 
-        if (isset($php_errormsg)) {
-            $error = preg_replace('/^preg_match\(\): /', '', $php_errormsg);
+        if ($current_error !== $last_error) {
+            $error = preg_replace('/^preg_match\(\): /', '', $current_error['message']);
             return array($path => $error);
         }
 

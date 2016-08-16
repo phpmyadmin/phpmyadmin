@@ -51,32 +51,58 @@ class PMA_Ip_Allow_Deny_Test extends PHPUnit_Framework_TestCase
      * Test for PMA_getIp
      *
      * @return void
+     *
+     * @dataProvider proxyIPs
      */
-    public function testGetIp()
+    public function testGetIp($remote, $header, $expected, $proxyip = null)
     {
-        //$_SERVER['REMOTE_ADDR'] is empty
+        unset($_SERVER['REMOTE_ADDR']);
+        unset($_SERVER['TEST_FORWARDED_HEADER']);
+        $GLOBALS['cfg']['TrustedProxies'] = array();
+
+        if (!is_null($remote)) {
+            $_SERVER['REMOTE_ADDR'] = $remote;
+        }
+
+        if (!is_null($header)) {
+            if (is_null($proxyip)) {
+                $proxyip = $remote;
+            }
+            $GLOBALS['cfg']['TrustedProxies'][$proxyip] = 'TEST_FORWARDED_HEADER';
+            $_SERVER['TEST_FORWARDED_HEADER'] = $header;
+        }
+
         $this->assertEquals(
-            false,
+            $expected,
             PMA_getIp()
         );
 
-        $_SERVER['REMOTE_ADDR'] = "101.0.0.25";
-        $this->assertEquals(
-            "101.0.0.25",
-            PMA_getIp()
-        );
+        unset($_SERVER['REMOTE_ADDR']);
+        unset($_SERVER['TEST_FORWARDED_HEADER']);
+        $GLOBALS['cfg']['TrustedProxies'] = array();
+    }
 
-        //proxy
-        $var_name = "direct_ip";
-        $direct_ip = $_SERVER['REMOTE_ADDR'];
-        $GLOBALS['cfg']['TrustedProxies'][$direct_ip] = $var_name;
-        $_SERVER[$var_name] = "192.168.0.1";
-        $this->assertEquals(
-            "192.168.0.1",
-            PMA_getIp()
+    /**
+     * Data provider for PMA_getIp tests
+     *
+     * @return array
+     */
+    public function proxyIPs()
+    {
+        return array(
+            // Nothing set
+            array(null, null, false),
+            // Remote IP set
+            array('101.0.0.25', null, '101.0.0.25'),
+            // Proxy
+            array('101.0.0.25', '192.168.10.10', '192.168.10.10'),
+            // Several proxies
+            array('101.0.0.25', '192.168.10.1, 192.168.100.100', '192.168.10.1'),
+            // Invalid proxy
+            array('101.0.0.25', 'invalid', false),
+            // Direct IP with proxy enabled
+            array('101.0.0.25', '192.168.10.10', '101.0.0.25', '10.10.10.10'),
         );
-        unset($_SERVER[$var_name]);
-        unset($GLOBALS['cfg']['TrustedProxies'][$direct_ip]);
     }
 
     /**

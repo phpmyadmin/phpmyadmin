@@ -690,7 +690,7 @@ class NodeDatabase extends Node
                     . '<a href="navigation.php'
                     . PMA_URL_getCommon()
                     . '&showUnhideDialog=true'
-                    . '&dbName=' . urldecode($this->real_name) . '"'
+                    . '&dbName=' . urlencode($this->real_name) . '"'
                     . ' class="showUnhide ajax">'
                     . Util::getImage(
                         'lightbulb.png',

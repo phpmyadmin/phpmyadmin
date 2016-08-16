@@ -871,7 +871,8 @@ class DatabaseInterface
                     SUM(t.INDEX_LENGTH)    AS SCHEMA_INDEX_LENGTH,
                     SUM(t.DATA_LENGTH + t.INDEX_LENGTH)
                                            AS SCHEMA_LENGTH,
-                    SUM(t.DATA_FREE)       AS SCHEMA_DATA_FREE';
+                    SUM(IF(t.ENGINE <> \'InnoDB\', t.DATA_FREE, 0))
+                                           AS SCHEMA_DATA_FREE';
             }
             $sql .= '
                    FROM `information_schema`.SCHEMATA s';
@@ -2712,6 +2713,9 @@ class DatabaseInterface
             $server = &$GLOBALS['cfg']['Server'];
         }
 
+        if (empty($server['port'])) {
+            return 0;
+        }
         return intval($server['port']);
     }
 

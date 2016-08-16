@@ -140,7 +140,7 @@ function PMA_sanitizeUrl($url)
         && preg_match("<PMAURL-\d+:>", $components["fragment"], $matches)
     ) {
         $uri = str_replace($matches[0], "", $components["fragment"]);
-        $url = "http://dummy_host/" . $uri;
+        $url = "https://example.com/" . $uri;
         $components = parse_url($url);
     }
 
@@ -178,7 +178,24 @@ function PMA_sanitizeUrl($url)
 function PMA_sendErrorReport($report)
 {
     $data_string = json_encode($report);
-    if (ini_get('allow_url_fopen')) {
+    if (function_exists('curl_init')) {
+        $curl_handle = curl_init(SUBMISSION_URL);
+        if ($curl_handle === false) {
+            return null;
+        }
+        $curl_handle = PMA\libraries\Util::configureCurl($curl_handle);
+        curl_setopt($curl_handle, CURLOPT_CUSTOMREQUEST, "POST");
+        curl_setopt(
+            $curl_handle, CURLOPT_HTTPHEADER,
+            array('Expect:', 'Content-Type: application/json')
+        );
+        curl_setopt($curl_handle, CURLOPT_POSTFIELDS, $data_string);
+        curl_setopt($curl_handle, CURLOPT_RETURNTRANSFER, 1);
+        $response = curl_exec($curl_handle);
+        curl_close($curl_handle);
+
+        return $response;
+    } else if (ini_get('allow_url_fopen')) {
         $context = array("http" =>
             array(
                 'method'  => 'POST',
@@ -195,26 +212,7 @@ function PMA_sendErrorReport($report)
         return $response;
     }
 
-    if (!function_exists('curl_init')) {
-        return null;
-    }
-
-    $curl_handle = curl_init(SUBMISSION_URL);
-    if ($curl_handle === false) {
-        return null;
-    }
-    $curl_handle = PMA\libraries\Util::configureCurl($curl_handle);
-    curl_setopt($curl_handle, CURLOPT_CUSTOMREQUEST, "POST");
-    curl_setopt(
-        $curl_handle, CURLOPT_HTTPHEADER,
-        array('Expect:', 'Content-Type: application/json')
-    );
-    curl_setopt($curl_handle, CURLOPT_POSTFIELDS, $data_string);
-    curl_setopt($curl_handle, CURLOPT_RETURNTRANSFER, 1);
-    $response = curl_exec($curl_handle);
-    curl_close($curl_handle);
-
-    return $response;
+    return null;
 }
 
 /**
@@ -348,17 +346,4 @@ function PMA_getErrorReportForm()
 
     return PMA\libraries\Template::get('error/report_form')
         ->render($datas);
-}
-
-/**
- * generates the error report form to collect user description and preview the
- * report before being sent
- *
- * @return String the form
- */
-function PMA_hasLatestLineCounts()
-{
-    $line_counts_time = filemtime("js/line_counts.php");
-    $js_time = filemtime("js");
-    return $line_counts_time >= $js_time;
 }

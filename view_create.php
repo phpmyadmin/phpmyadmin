@@ -37,6 +37,20 @@ if (empty($sql_query)) {
     $sql_query = '';
 }
 
+// View name is a compulsory field
+if (isset($_REQUEST['view']['name'])
+    && empty($_REQUEST['view']['name'])
+) {
+    $message = PMA\libraries\Message::error(__('View name can not be empty'));
+    $response = PMA\libraries\Response::getInstance();
+    $response->addJSON(
+        'message',
+        $message
+    );
+    $response->setRequestStatus(false);
+    exit;
+}
+
 if (isset($_REQUEST['createview']) || isset($_REQUEST['alterview'])) {
     /**
      * Creates the view

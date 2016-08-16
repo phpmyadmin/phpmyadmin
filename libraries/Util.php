@@ -85,7 +85,7 @@ class Util
              $pow = gmp_strval(gmp_pow($base, $exp));
             break;
         case 'pow' :
-            $base = (float) $base;
+            $base = $base;
             $exp = (int) $exp;
             $pow = pow($base, $exp);
             break;
@@ -1461,8 +1461,7 @@ class Util
         $unit = $byteUnits[0];
 
         for ($d = 6, $ex = 15; $d >= 1; $d--, $ex-=3) {
-            // cast to float to avoid overflow
-            $unitSize = (float) $li * self::pow(10, $ex);
+            $unitSize = $li * self::pow(10, $ex);
             if (isset($byteUnits[$d]) && $value >= $unitSize) {
                 // use 1024.0 to avoid integer overflow on 64-bit machines
                 $value = round($value / (self::pow(1024, $d) / $dh)) /$dh;
@@ -2692,7 +2691,7 @@ class Util
             $dir .= '/';
         }
 
-        return str_replace('%u', $GLOBALS['cfg']['Server']['user'], $dir);
+        return str_replace('%u', PMA_securePath($GLOBALS['cfg']['Server']['user']), $dir);
     }
 
     /**

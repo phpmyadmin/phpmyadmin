@@ -129,11 +129,11 @@ abstract class GISGeometry
         . 'bound.extend(new OpenLayers.LonLat('
         . $scale_data['minX'] . ', ' . $scale_data['minY']
         . ').transform(new OpenLayers.Projection("EPSG:'
-        . $srid . '"), map.getProjectionObject())); '
+        . intval($srid) . '"), map.getProjectionObject())); '
         . 'bound.extend(new OpenLayers.LonLat('
         . $scale_data['maxX'] . ', ' . $scale_data['maxY']
         . ').transform(new OpenLayers.Projection("EPSG:'
-        . $srid . '"), map.getProjectionObject()));';
+        . intval($srid) . '"), map.getProjectionObject()));';
     }
 
     /**
@@ -222,7 +222,7 @@ abstract class GISGeometry
             // Extract coordinates of the point
             $cordinates = explode(" ", $point);
 
-            if (isset($cordinates[0]) && trim($cordinates[0]) != ''
+            if (!empty($cordinates[0]) && trim($cordinates[0]) != ''
                 && isset($cordinates[1])
                 && trim($cordinates[1]) != ''
             ) {
@@ -231,8 +231,8 @@ abstract class GISGeometry
                     $y = $scale_data['height']
                         - ($cordinates[1] - $scale_data['y']) * $scale_data['scale'];
                 } else {
-                    $x = trim($cordinates[0]);
-                    $y = trim($cordinates[1]);
+                    $x = floatval(trim($cordinates[0]));
+                    $y = floatval(trim($cordinates[1]));
                 }
             } else {
                 $x = '';
@@ -394,6 +394,6 @@ abstract class GISGeometry
     {
         return '(new OpenLayers.Geometry.Point(' . $point[0] . ',' . $point[1] . '))'
         . '.transform(new OpenLayers.Projection("EPSG:'
-        . $srid . '"), map.getProjectionObject())';
+        . intval($srid) . '"), map.getProjectionObject())';
     }
 }

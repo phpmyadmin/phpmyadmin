@@ -415,7 +415,7 @@ function PMA_importGetNextChunk($size = 32768)
     /**
      * Skip possible byte order marks (I do not think we need more
      * charsets, but feel free to add more, you can use wikipedia for
-     * reference: <http://en.wikipedia.org/wiki/Byte_Order_Mark>)
+     * reference: <https://en.wikipedia.org/wiki/Byte_Order_Mark>)
      *
      * @todo BOM could be used for charset autodetection
      */
@@ -870,7 +870,7 @@ function PMA_detectType($last_cumulative_type, $cell)
  * @return array    array(array $types, array $sizes)
  * @access  public
  *
- * @link http://wiki.phpmyadmin.net/pma/Import
+ * @link https://wiki.phpmyadmin.net/pma/Import
  *
  * @todo    Handle the error case more elegantly
  */
@@ -977,7 +977,7 @@ $import_notice = null;
  * @return void
  * @access  public
  *
- * @link http://wiki.phpmyadmin.net/pma/Import
+ * @link https://wiki.phpmyadmin.net/pma/Import
  */
 function PMA_buildSQL($db_name, &$tables, &$analyses = null,
     &$additional_sql = null, $options = null, &$sql_data

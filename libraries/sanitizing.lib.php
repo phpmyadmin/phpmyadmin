@@ -16,9 +16,7 @@
 function PMA_checkLink($url)
 {
     $valid_starts = array(
-        'http://',
         'https://',
-        './url.php?url=http%3A%2F%2F',
         './url.php?url=https%3A%2F%2F',
         './doc/html/',
     );
@@ -56,6 +54,9 @@ function PMA_replaceBBLink($found)
     $target = '';
     if (! empty($found[3])) {
         $target = ' target="' . $found[3] . '"';
+        if ($found[3] == '_blank') {
+            $target .= ' rel="noopener noreferrer"';
+        }
     }
 
     /* Construct url */

@@ -16,8 +16,7 @@ if (! defined('PHPMYADMIN')) {
  */
 $gnu_iconv_to_aix_iconv_codepage_map = array (
     // "iso-8859-[1-9]" --> "ISO8859-[1-9]" according to
-    // http://publibn.boulder.ibm.com/doc_link/en_US/
-    //     a_doc_lib/libs/basetrf2/setlocale.htm
+    // http://publibn.boulder.ibm.com/doc_link/en_US/a_doc_lib/libs/basetrf2/setlocale.htm
     'iso-8859-1' => 'ISO8859-1',
     'iso-8859-2' => 'ISO8859-2',
     'iso-8859-3' => 'ISO8859-3',

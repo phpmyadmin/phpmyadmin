@@ -45,7 +45,7 @@ groups.
 
 You just forgot to read the *install.txt* file from the PHP
 distribution. Have a look at the last message in this `PHP bug report #12061
-<http://bugs.php.net/bug.php?id=12061>`_ from the official PHP bug
+<https://bugs.php.net/bug.php?id=12061>`_ from the official PHP bug
 database.
 
 .. _faq1_5:
@@ -173,7 +173,7 @@ hosting provider is unwilling to change the settings:
   then able to import the files from the temporary directory. More
   information is available in the :ref:`config`  of this document.
 * Using a utility (such as `BigDump
-  <http://www.ozerov.de/bigdump.php>`_) to split the files before
+  <http://www.ozerov.de/bigdump/>`_) to split the files before
   uploading. We cannot support this or any third party applications, but
   are aware of users having success with it.
 * If you have shell (command line) access, use MySQL to import the files
@@ -189,11 +189,11 @@ hosting provider is unwilling to change the settings:
 1.17 Which Database versions does phpMyAdmin support?
 -----------------------------------------------------
 
-For `MySQL <http://www.mysql.com/>`_, versions 5.5 and newer are supported. 
+For `MySQL <https://www.mysql.com/>`_, versions 5.5 and newer are supported. 
 For older MySQL versions, our `Downloads <https://www.phpmyadmin.net/downloads/>`_ page offers older phpMyAdmin versions 
 (which may have become unsupported).
 
-For `MariaDB <http://mariadb.org/>`_, versions 5.5 and newer are supported.
+For `MariaDB <https://mariadb.org/>`_, versions 5.5 and newer are supported.
 
 .. _faq1_17a:
 
@@ -207,7 +207,7 @@ your server - as mentioned in :ref:`faq1_17`. This problem is
 generally caused by using MySQL version 4.1 or newer. MySQL changed
 the authentication hash and your PHP is trying to use the old method.
 The proper solution is to use the `mysqli extension
-<http://www.php.net/mysqli>`_ with the proper client library to match
+<https://www.php.net/mysqli>`_ with the proper client library to match
 your MySQL installation. More
 information (and several workarounds) are located in the `MySQL
 Documentation <https://dev.mysql.com/doc/mysql/en/old-client.html>`_.
@@ -224,7 +224,7 @@ Documentation <https://dev.mysql.com/doc/mysql/en/old-client.html>`_.
 
 The :term:`TCPDF` library we're using for this feature requires some special
 files to use font faces. Please refers to the `TCPDF manual
-<http://www.tcpdf.org/>`_ to build these files.
+<https://tcpdf.org/>`_ to build these files.
 
 .. _faqmysql:
 
@@ -316,7 +316,7 @@ should work.
 1.27 I get empty page when I want to view huge page (eg. db\_structure.php with plenty of tables).
 --------------------------------------------------------------------------------------------------
 
-This was caused by a `PHP bug <http://bugs.php.net/21079>`_ that occur when
+This was caused by a `PHP bug <https://bugs.php.net/21079>`_ that occur when
 GZIP output buffering is enabled. If you turn off it (by
 :config:option:`$cfg['OBGzip']` in :file:`config.inc.php`), it should work.
 This bug will has been fixed in PHP 5.0.0.
@@ -415,14 +415,14 @@ Yes. This procedure was tested with phpMyAdmin 2.6.1, PHP 4.3.9 in
 ------------------------------------------------------
 
 Yes. Out of the box, you can use :term:`URL` like
-http://server/phpMyAdmin/index.php?server=X&db=database&table=table&target=script.
+https://example.com/phpMyAdmin/index.php?server=X&db=database&table=table&target=script.
 For ``server`` you use the server number
 which refers to the order of the server paragraph in
 :file:`config.inc.php`. Table and script parts are optional. If you want
-http://server/phpMyAdmin/database[/table][/script] :term:`URL`, you need to do some configuration. Following
-lines apply only for `Apache <http://httpd.apache.org>`_ web server.
+https://example.com/phpMyAdmin/database[/table][/script] :term:`URL`, you need to do some configuration. Following
+lines apply only for `Apache <https://httpd.apache.org/>`_ web server.
 First make sure, that you have enabled some features within global
-configuration. You need ``Options FollowSymLinks`` and ``AllowOverride
+configuration. You need ``Options SymLinksIfOwnerMatch`` and ``AllowOverride
 FileInfo`` enabled for directory where phpMyAdmin is installed and you
 need mod\_rewrite to be enabled. Then you just need to create
 following :term:`.htaccess` file in root folder of phpMyAdmin installation (don't
@@ -550,7 +550,7 @@ the set-cookie headers. Example from the Apache 2.2 documentation:
     ProxyPassReverseCookieDomain backend.example.com public.example.com
     ProxyPassReverseCookiePath / /mirror/foo/
 
-Note: if the backend url looks like http://host/~user/phpmyadmin, the
+Note: if the backend url looks like https://example.com/~user/phpmyadmin, the
 tilde (~) must be url encoded as %7E in the ProxyPassReverse\* lines.
 This is not specific to phpmyadmin, it's just the behavior of Apache.
 
@@ -561,7 +561,7 @@ This is not specific to phpmyadmin, it's just the behavior of Apache.
     ProxyPassReverse /mirror/foo/ http://backend.example.com/%7Euser/phpmyadmin
     ProxyPassReverseCookiePath /%7Euser/phpmyadmin /mirror/foo
 
-.. seealso:: <http://httpd.apache.org/docs/2.2/mod/mod_proxy.html>
+.. seealso:: <https://httpd.apache.org/docs/2.2/mod/mod_proxy.html>
 
 .. _faq1_41:
 
@@ -782,7 +782,7 @@ Here are a few points to check:
 * In :file:`config.inc.php`, try to leave the :config:option:`$cfg['PmaAbsoluteUri']` directive empty. See also
   :ref:`faq4_7`.
 * Maybe you have a broken PHP installation or you need to upgrade your
-  Zend Optimizer. See <http://bugs.php.net/bug.php?id=31134>.
+  Zend Optimizer. See <https://bugs.php.net/bug.php?id=31134>.
 * If you are using Hardened PHP with the ini directive
   ``varfilter.max_request_variables`` set to the default (200) or
   another low value, you could get this error if your table has a high
@@ -802,8 +802,8 @@ Here are a few points to check:
 ---------------------------------
 
 To be able to see a progress bar during your uploads, your server must
-have the `APC <http://php.net/manual/en/book.apc.php>`_ extension, the
-`uploadprogress <http://pecl.php.net/package/uploadprogress>`_ one, or
+have the `APC <https://php.net/manual/en/book.apc.php>`_ extension, the
+`uploadprogress <https://pecl.php.net/package/uploadprogress>`_ one, or
 you must be running PHP 5.4.0 or higher. Moreover, the JSON extension
 has to be enabled in your PHP.
 
@@ -923,7 +923,7 @@ official phpMyAdmin-homepage.
 
 When MySQL is running in ANSI-compatibility mode, there are some major
 differences in how :term:`SQL` is structured (see
-<https://dev.mysql.com/doc/mysql/en/ansi-mode.html>). Most important of all, the
+<https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_ansi>). Most important of all, the
 quote-character (") is interpreted as an identifier quote character and not as
 a string quote character, which makes many internal phpMyAdmin operations into
 invalid :term:`SQL` statements. There is no
@@ -1223,7 +1223,7 @@ Mozilla versions.
 -------------------------------------------------------------------------------------------------------------------------------
 
 This is a Mozilla bug (see bug #26882 at `BugZilla
-<http://bugzilla.mozilla.org/>`_).
+<https://bugzilla.mozilla.org/>`_).
 
 .. _faq5_10:
 
@@ -1818,7 +1818,7 @@ other.
 Not every table can be put to the chart. Only tables with one, two or
 three columns can be visualised as a chart. Moreover the table must be
 in a special format for chart script to understand it. Currently
-supported formats can be found in the `wiki <http://wiki.phpmyadmin.ne
+supported formats can be found in the `wiki <https://wiki.phpmyadmin.ne
 t/pma/Charts#Data_formats_for_query_results_chart>`_.
 
 .. _faq6_30:

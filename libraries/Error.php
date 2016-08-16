@@ -117,11 +117,16 @@ class Error extends Message
     {
         $result = array();
 
-        $members = array('file', 'line', 'function', 'class', 'type');
+        $members = array('line', 'function', 'class', 'type');
 
         foreach ($backtrace as $idx => $step) {
             /* Create new backtrace entry */
             $result[$idx] = array();
+
+            /* Make path relative */
+            if (isset($step['file'])) {
+                $result[$idx]['file'] = Error::relPath($step['file']);
+            }
 
             /* Store members we want */
             foreach ($members as $name) {

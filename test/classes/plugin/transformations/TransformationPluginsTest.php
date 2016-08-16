@@ -499,7 +499,7 @@ class TransformationPluginsTest extends PMATestCase
                 'getInfo',
                 'Displays an image and a link; '
                 . 'the column contains the filename. The first option'
-                . ' is a URL prefix like "http://www.example.com/". '
+                . ' is a URL prefix like "https://www.example.com/". '
                 . 'The second and third options'
                 . ' are the width and the height in pixels.'
             ),
@@ -544,7 +544,7 @@ class TransformationPluginsTest extends PMATestCase
                 new Text_Plain_Link(),
                 'getInfo',
                 'Displays a link; the column contains the filename. The first option'
-                . ' is a URL prefix like "http://www.example.com/".'
+                . ' is a URL prefix like "https://www.example.com/".'
                 . ' The second option is a title for the link.'
             ),
             array(
@@ -778,8 +778,8 @@ class TransformationPluginsTest extends PMATestCase
                     array("./image/", "200", "wrapper_link"=>"PMA_wrapper_link")
                 ),
                 '<a href="transformation_wrapper.phpPMA_wrapper_link" '
-                . 'target="_blank"><img src="transformation_wrapper.php'
-                . 'PMA_wrapper_link&amp;resize=jpeg&amp;newWidth=./image/&amp;'
+                . 'rel="noopener noreferrer" target="_blank"><img src="transformation_wrapper.php'
+                . 'PMA_wrapper_link&amp;resize=jpeg&amp;newWidth=0&amp;'
                 . 'newHeight=200" alt="[PMA_JPEG_Inline]" border="0" /></a>'
             ),
             array(
@@ -788,7 +788,7 @@ class TransformationPluginsTest extends PMATestCase
                     'PMA_IMAGE_LINK',
                     array("./image/", "200", "wrapper_link"=>"PMA_wrapper_link")
                 ),
-                '<a class="disableAjax" target="_new"'
+                '<a class="disableAjax" target="_blank" rel="noopener noreferrer"'
                 . ' href="transformation_wrapper.phpPMA_wrapper_link"'
                 . ' alt="[PMA_IMAGE_LINK]">[BLOB]</a>'
             ),
@@ -799,9 +799,9 @@ class TransformationPluginsTest extends PMATestCase
                     array("./image/", "200", "wrapper_link"=>"PMA_wrapper_link")
                 ),
                 '<a href="transformation_wrapper.phpPMA_wrapper_link"'
-                . ' target="_blank"><img src="transformation_wrapper.php'
+                . ' rel="noopener noreferrer" target="_blank"><img src="transformation_wrapper.php'
                 . 'PMA_wrapper_link&amp;'
-                . 'resize=jpeg&amp;newWidth=./image/&amp;newHeight=200" '
+                . 'resize=jpeg&amp;newWidth=0&amp;newHeight=200" '
                 . 'alt="[PMA_PNG_Inline]" border="0" /></a>'
             ),
             array(
@@ -863,10 +863,28 @@ class TransformationPluginsTest extends PMATestCase
             array(
                 new Text_Plain_Formatted(),
                 array(
-                    "<a ref='http://ci.phpmyadmin.net/'>PMA_BUFFER</a>",
+                    "<a ref='https://www.example.com/'>PMA_BUFFER</a>",
                     array("option1", "option2")
                 ),
-                "<a ref='http://ci.phpmyadmin.net/'>PMA_BUFFER</a>"
+                "<iframe srcdoc=\"<a ref='https://www.example.com/'>PMA_BUFFER</a>\" sandbox=\"\"></iframe>"
+            ),
+            array(
+                new Text_Plain_Formatted(),
+                array(
+                    "<a ref=\"https://www.example.com/\">PMA_BUFFER</a>",
+                    array("option1", "option2")
+                ),
+                "<iframe srcdoc=\"<a ref='https://www.example.com/'>PMA_BUFFER</a>\" sandbox=\"\"></iframe>"
+            ),
+            array(
+                new Text_Plain_Imagelink(),
+                array(
+                    'PMA_IMAGE',
+                    array("http://image/", "200")
+                ),
+                '<a href="http://image/PMA_IMAGE" rel="noopener noreferrer" target="_blank">'
+                . '<img src="http://image/PMA_IMAGE" border="0" width="200" '
+                . 'height="50" />PMA_IMAGE</a>'
             ),
             array(
                 new Text_Plain_Imagelink(),
@@ -874,9 +892,7 @@ class TransformationPluginsTest extends PMATestCase
                     'PMA_IMAGE',
                     array("./image/", "200")
                 ),
-                '<a href="./image/PMA_IMAGE" target="_blank">'
-                . '<img src="./image/PMA_IMAGE" border="0" width="200" '
-                . 'height="50" />PMA_IMAGE</a>'
+                './image/PMA_IMAGE'
             ),
             array(
                 new Text_Plain_Sql(),
@@ -894,8 +910,32 @@ class TransformationPluginsTest extends PMATestCase
                     'PMA_TXT_LINK',
                     array("./php/", "text_name")
                 ),
-                '<a href="./php/PMA_TXT_LINK"'
-                . ' title="text_name" target="_new">text_name</a>'
+                './php/PMA_TXT_LINK'
+            ),
+            array(
+                new Text_Plain_Link(),
+                array(
+                    'PMA_TXT_LINK',
+                    array(),
+                ),
+                'PMA_TXT_LINK'
+            ),
+            array(
+                new Text_Plain_Link(),
+                array(
+                    'https://example.com/PMA_TXT_LINK',
+                    array(),
+                ),
+                '<a href="https://example.com/PMA_TXT_LINK" title=""'
+                . ' target="_blank" rel="noopener noreferrer">https://example.com/PMA_TXT_LINK</a>'
+            ),
+            array(
+                new Text_Plain_Link(),
+                array(
+                    'PMA_TXT_LINK',
+                    array("./php/", "text_name")
+                ),
+                './php/PMA_TXT_LINK'
             ),
             array(
                 new Text_Plain_Longtoipv4(),

@@ -101,7 +101,7 @@ class Config
      */
     public function checkSystem()
     {
-        $this->set('PMA_VERSION', '4.6.3');
+        $this->set('PMA_VERSION', '4.6.4');
         /**
          * @deprecated
          */
@@ -734,10 +734,6 @@ class Config
         }
         $data = @curl_exec($handle);
         if (! defined('TESTSUITE')) {
-            ini_set('session.use_only_cookies', '0');
-            ini_set('session.use_cookies', '0');
-            ini_set('session.use_trans_sid', '0');
-            ini_set('session.cache_limiter', 'nocache');
             session_start();
         }
         if ($data === false) {

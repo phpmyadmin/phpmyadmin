@@ -44,7 +44,6 @@ class PMA_HeaderLocation_Test extends PHPUnit_Framework_TestCase
 {
 
     protected $oldIISvalue;
-    protected $oldSIDvalue;
     protected $runkitExt;
     protected $apdExt;
 
@@ -70,16 +69,6 @@ class PMA_HeaderLocation_Test extends PHPUnit_Framework_TestCase
             } else {
                 runkit_constant_add('PMA_IS_IIS', null);
             }
-
-            $this->oldSIDvalue = 'non-defined';
-
-            if (array_key_exists('SID', $user_defined_constants)) {
-                $this->oldSIDvalue = SID;
-                runkit_constant_redefine('SID', null);
-            } else {
-                runkit_constant_add('SID', null);
-            }
-
         }
         $_SESSION['PMA_Theme'] = Theme::load('./themes/pmahomme');
         $GLOBALS['server'] = 0;
@@ -104,68 +93,7 @@ class PMA_HeaderLocation_Test extends PHPUnit_Framework_TestCase
             } elseif (defined('PMA_IS_IIS')) {
                 runkit_constant_remove('PMA_IS_IIS');
             }
-
-            if ($this->oldSIDvalue != 'non-defined') {
-                runkit_constant_redefine('SID', $this->oldSIDvalue);
-            } elseif (defined('SID')) {
-                runkit_constant_remove('SID');
-            }
         }
-    }
-
-    /**
-     * Test for PMA_sendHeaderLocation
-     *
-     * @return void
-     */
-    public function testSendHeaderLocationWithSidUrlWithQuestionMark()
-    {
-        if (defined('PMA_TEST_HEADERS')) {
-
-            runkit_constant_redefine('SID', md5('test_hash'));
-
-            $testUri = 'http://testurl.com/test.php?test=test';
-            $separator = PMA_URL_getArgSeparator();
-
-            $header = array('Location: ' . $testUri . $separator . SID);
-
-            /* sets $GLOBALS['header'] */
-            PMA_sendHeaderLocation($testUri);
-
-            $this->assertEquals($header, $GLOBALS['header']);
-
-        } else {
-            $this->markTestSkipped(
-                'Cannot redefine constant/function - missing runkit extension'
-            );
-        }
-
-    }
-
-    /**
-     * Test for PMA_sendHeaderLocation
-     *
-     * @return void
-     */
-    public function testSendHeaderLocationWithSidUrlWithoutQuestionMark()
-    {
-        if (defined('PMA_TEST_HEADERS')) {
-
-            runkit_constant_redefine('SID', md5('test_hash'));
-
-            $testUri = 'http://testurl.com/test.php';
-
-            $header = array('Location: ' . $testUri . '?' . SID);
-
-            PMA_sendHeaderLocation($testUri);            // sets $GLOBALS['header']
-            $this->assertEquals($header, $GLOBALS['header']);
-
-        } else {
-            $this->markTestSkipped(
-                'Cannot redefine constant/function - missing runkit extension'
-            );
-        }
-
     }
 
     /**
@@ -179,7 +107,7 @@ class PMA_HeaderLocation_Test extends PHPUnit_Framework_TestCase
 
             runkit_constant_redefine('PMA_IS_IIS', true);
 
-            $testUri = 'http://testurl.com/test.php';
+            $testUri = 'https://example.com/test.php';
 
             $header = array('Location: ' . $testUri);
             PMA_sendHeaderLocation($testUri); // sets $GLOBALS['header']
@@ -209,7 +137,7 @@ class PMA_HeaderLocation_Test extends PHPUnit_Framework_TestCase
     {
         if (defined('PMA_TEST_HEADERS')) {
 
-            $testUri = 'http://testurl.com/test.php';
+            $testUri = 'https://example.com/test.php';
             $header = array('Location: ' . $testUri);
 
             PMA_sendHeaderLocation($testUri);            // sets $GLOBALS['header']
@@ -241,7 +169,7 @@ class PMA_HeaderLocation_Test extends PHPUnit_Framework_TestCase
         }
 
         // over 600 chars
-        $testUri = 'http://testurl.com/test.php?testlonguri=over600chars&test=test'
+        $testUri = 'https://example.com/test.php?testlonguri=over600chars&test=test'
             . '&test=test&test=test&test=test&test=test&test=test&test=test'
             . '&test=test&test=test&test=test&test=test&test=test&test=test'
             . '&test=test&test=test&test=test&test=test&test=test&test=test'

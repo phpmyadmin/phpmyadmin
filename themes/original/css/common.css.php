@@ -418,17 +418,25 @@ div.error {
     margin:             0.3em 0 0 0;
     border:             2px solid;
     background-repeat:  no-repeat;
+    clear:              both;
     <?php
     if ($GLOBALS['text_dir'] === 'ltr') { ?>
         background-position: 10px 50%;
-        padding:            0.1em 0.1em 0.1em 36px;
+        padding:            0.1em 0.1em 0.1em 42px;
     <?php
     } else { ?>
         background-position: 99% 50%;
-        padding:            0.1em 46px 0.1em 0.1em;
+        padding:            0.1em 40px 0.1em 0.1em;
         <?php
     }
 ?>
+}
+div.success img.icon,
+div.notice img.icon,
+div.error img.icon {
+    display: block;
+    float:              <?php echo $left; ?>;
+    margin-<?php echo $left; ?>: -22px;
 }
 
 .success {
@@ -878,7 +886,7 @@ div#tablestatistics table {
 #fieldset_add_user_login label {
     float:              <?php echo $left; ?>;
     display:            block;
-    width:              10em;
+    width:              15em;
     max-width:          100%;
     text-align:         <?php echo $right; ?>;
     padding-<?php echo $right; ?>:      0.5em;
@@ -1248,7 +1256,7 @@ div#queryboxcontainer div#bookmarkoptions {
 
 li.no_bullets {
     list-style-type:none !important;
-    margin-left: -25px !important;      //align with other list items which have bullets
+    margin-<?php echo $left; ?>: -25px !important;      //align with other list items which have bullets
 }
 
 /* end iconic view for ul items */

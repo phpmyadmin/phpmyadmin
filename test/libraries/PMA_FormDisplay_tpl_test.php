@@ -27,12 +27,12 @@ class PMA_FormDisplay_Tpl_Test extends PHPUnit_Framework_TestCase
      */
     public function testDisplayFormTop()
     {
-        $_SERVER['REQUEST_URI'] = 'http://www.phpmyadmin.net';
+        $_SERVER['REQUEST_URI'] = 'https://www.phpmyadmin.net';
         $GLOBALS['cfg']['ServerDefault'] = '';
         $result = PMA_displayFormTop(null, 'posted', array(1));
 
         $this->assertContains(
-            '<form method="get" action="http://www.phpmyadmin.net" ' .
+            '<form method="get" action="https://www.phpmyadmin.net" ' .
             'class="config-form disableAjax">',
             $result
         );
@@ -149,7 +149,7 @@ class PMA_FormDisplay_Tpl_Test extends PHPUnit_Framework_TestCase
         $opts['errors'] = array('e1');
         $opts['userprefs_allow'] = false;
         $opts['setvalue'] = ':group';
-        $opts['doc'] = "http://doclink";
+        $opts['doc'] = "https://example.com/";
         $opts['comment'] = "testComment";
         $opts['comment_warning'] = true;
         $opts['show_restore_default'] = true;
@@ -169,7 +169,7 @@ class PMA_FormDisplay_Tpl_Test extends PHPUnit_Framework_TestCase
         );
 
         $this->assertContains(
-            '<a href="http://doclink" target="documentation"',
+            '<a href="https://example.com/" target="documentation"',
             $result
         );
 

@@ -16,8 +16,13 @@ require_once './libraries/common.inc.php';
  */
 require_once './libraries/js_escape.lib.php';
 
+// Only output the http headers
+$response = PMA\libraries\Response::getInstance();
+$response->getHeader()->sendHttpHeaders();
+$response->disable();
+
 if (! PMA_isValid($_REQUEST['url'])
-    || ! preg_match('/^https?:\/\/[^\n\r]*$/', $_REQUEST['url'])
+    || ! preg_match('/^https:\/\/[^\n\r]*$/', $_REQUEST['url'])
     || ! PMA_isAllowedDomain($_REQUEST['url'])
 ) {
     PMA_sendHeaderLocation('./');
