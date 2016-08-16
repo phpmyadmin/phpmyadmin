@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-08-01 11:04+0200\n"
-"PO-Revision-Date: 2016-05-23 21:06+0000\n"
+"PO-Revision-Date: 2016-08-08 11:37+0000\n"
 "Last-Translator: Παναγιώτης Παπάζογλου <papaz_p@yahoo.com>\n"
-"Language-Team: Greek <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"el/>\n"
+"Language-Team: Greek "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/el/>\n"
 "Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.7-dev\n"
+"X-Generator: Weblate 2.8-dev\n"
 
 #: changelog.php:37 license.php:33
 #, php-format
@@ -846,6 +846,8 @@ msgstr "Πρόκειται να DESTROY μια ολόκληρη βάση δεδ�
 #: js/messages.php:53
 msgid "Cannot rename database to the same name. Change the name and try again"
 msgstr ""
+"Αδύνατη η μετονομασία βάσης δεδομένων με το ίδιο όνομα. Αλλάξτε το όνομα και "
+"δοκιμάστε ξανά"
 
 #: js/messages.php:55
 msgid "You are about to DESTROY a complete table!"
@@ -3263,10 +3265,9 @@ msgid "Details…"
 msgstr "Λεπτομέρειες…"
 
 #: libraries/DatabaseInterface.php:2325
-#, fuzzy
 #| msgid "Missing parameter:"
 msgid "Missing connection parameters!"
-msgstr "Απολεσθείσα παράμετρος:"
+msgstr "Παράμετροι χαμένης σύνδεσης!"
 
 #: libraries/DatabaseInterface.php:2358
 msgid "Connection for controluser as defined in your configuration failed."
@@ -5415,10 +5416,9 @@ msgid "Could not connect to the database server!"
 msgstr "Αδύνατη η σύνδεση με τον διακομιστή βάσης δεδομένων!"
 
 #: libraries/config/Validator.php:286
-#, fuzzy
 #| msgid "Authentication type"
 msgid "Invalid authentication type!"
-msgstr "Τύπος επικύρωσης"
+msgstr "Μη έγκυρος τύπος επικύρωσης!"
 
 #: libraries/config/Validator.php:293
 msgid "Empty username while using [kbd]config[/kbd] authentication method!"
@@ -9250,10 +9250,9 @@ msgid "Log out"
 msgstr "Αποσύνδεση"
 
 #: libraries/navigation/NavigationHeader.php:173
-#, fuzzy
 #| msgid "Dumping data"
 msgid "Empty session data"
-msgstr "Άδειασμα δεδομένων"
+msgstr "Άδειασμα δεδομένων συνεδρίας"
 
 #: libraries/navigation/NavigationHeader.php:189
 msgid "phpMyAdmin documentation"
@@ -10442,10 +10441,10 @@ msgid "Last check:"
 msgstr "Tελευταίος έλεγχος:"
 
 #: libraries/plugins/export/ExportSql.php:1479
-#, fuzzy, php-format
+#, php-format
 #| msgid "Table structure for table"
 msgid "Error reading structure for table %s:"
-msgstr "Δομή πίνακα για τον πίνακα"
+msgstr "Σφάλμα ανάγνωσης για τον πίνακα %s:"
 
 #: libraries/plugins/export/ExportSql.php:1533
 msgid "It appears your database uses views;"
@@ -10497,10 +10496,10 @@ msgid "(See below for the actual view)"
 msgstr "(Δείτε παρακάτω για την πραγματική προβολή)"
 
 #: libraries/plugins/export/ExportSql.php:2195
-#, fuzzy, php-format
+#, php-format
 #| msgid "Error reading data:"
 msgid "Error reading data for table %s:"
-msgstr "Σφάλμα ανάγνωσης δεδομένων:"
+msgstr "Σφάλμα ανάγνωσης δεδομένων για τον πίνακα %s:"
 
 #: libraries/plugins/export/ExportXml.php:97
 msgid "Object creation options (all are recommended)"
@@ -14080,14 +14079,13 @@ msgstr ""
 "Αδύνατη η αποθήκευση ρυθμίσεων γιατί η υποβλειθείσα φόρμα περιέχει σφάλματα!"
 
 #: prefs_manage.php:50
-#, fuzzy
 #| msgid "Missing phpMyAdmin configuration storage tables"
 msgid "phpMyAdmin configuration snippet"
-msgstr "Λείπουν πίνακες αποθήκευσης ρυθμίσεων του phpMyAdmin"
+msgstr "Απόσπασμα ρυθμίσεων του phpMyAdmin"
 
 #: prefs_manage.php:51
 msgid "Paste it to your config.inc.php"
-msgstr ""
+msgstr "Επικολλήστε το στο config.inc.php"
 
 #: prefs_manage.php:105
 msgid "Could not import configuration"
@@ -14140,10 +14138,9 @@ msgstr ""
 "php, π.χ. χρησιμοποιώντας τον %sκώδικα Εγκατάστασης%s."
 
 #: prefs_manage.php:342
-#, fuzzy
 #| msgid "Save as file"
 msgid "Save as PHP file"
-msgstr "Αποστολή"
+msgstr "Αποθήκευση στο αρχείο PHP"
 
 #: prefs_manage.php:347
 msgid "Save to browser's storage"
@@ -14271,10 +14268,9 @@ msgstr ""
 "φάκελο config για να το χρησιμοποιήσετε."
 
 #: setup/frames/index.inc.php:134
-#, fuzzy
 #| msgid "Configuration saved."
 msgid "Configuration not saved!"
-msgstr "Οι ρυθμίσεις αποθηκεύτηκαν."
+msgstr "Οι ρυθμίσεις δεν αποθηκεύτηκαν!"
 
 #: setup/frames/index.inc.php:149 setup/frames/menu.inc.php:20
 msgid "Overview"
@@ -14396,7 +14392,7 @@ msgstr "Εσφαλμένα δεδομένα"
 #: setup/validate.php:30
 #, php-format
 msgid "Wrong data or no validation for %s"
-msgstr ""
+msgstr "Εσφαλμένα δεδομένα ή καμιά πιστοποίηση για %s"
 
 #: tbl_create.php:31 tbl_get_field.php:26
 #, php-format
@@ -14453,7 +14449,7 @@ msgstr "Όπως ορίστηκε:"
 
 #: templates/columns_definitions/column_definitions_form.phtml:49
 msgid "Table name"
-msgstr "Ονομασία πίνακας"
+msgstr "Ονομασία πίνακα"
 
 #: templates/columns_definitions/column_definitions_form.phtml:93
 msgid "Collation:"
@@ -15816,7 +15812,7 @@ msgstr "περιορισμένο σφάλμα"
 
 #: view_create.php:45
 msgid "View name can not be empty"
-msgstr ""
+msgstr "Όνομα προβολής δεν μπορεί να είναι άδειο"
 
 #: view_create.php:248
 msgid "VIEW name"

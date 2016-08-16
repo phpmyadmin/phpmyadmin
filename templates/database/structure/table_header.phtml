@@ -78,6 +78,16 @@ if ($GLOBALS['cfg']['NumFavoriteTables'] > 0) {
                     ); $cnt++; ?></th>
             <?php endif; ?>
 
+            <?php if ($GLOBALS['cfg']['ShowDbStructureCharset']): ?>
+                <th><?= PMA\libraries\Template::get('database/structure/sortable_header')->render(
+                        array(
+                            'title' => __('Charset'),
+                            'sort' => 'charset',
+                            'initial_sort_order' => 'ASC'
+                        )
+                    ); $cnt++; ?></th>
+            <?php endif; ?>
+
             <?php if ($GLOBALS['cfg']['ShowDbStructureComment']): ?>
                 <th><?= PMA\libraries\Template::get('database/structure/sortable_header')->render(
                         array(

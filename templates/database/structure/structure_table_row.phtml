@@ -116,6 +116,14 @@
             </td>
         <?php endif; ?>
 
+        <?php if (!($GLOBALS['cfg']['ShowDbStructureCharset'] > 1)): ?>
+            <?php if (strlen($charset)): ?>
+                <td class="nowrap">
+                    <?= $charset; ?>
+                </td>
+            <?php endif; ?>
+        <?php endif; ?>
+
         <?php if ($GLOBALS['cfg']['ShowDbStructureComment']): ?>
             <?php $comment = $current_table['Comment']; ?>
             <td>
@@ -162,6 +170,9 @@
         <?php if ($is_show_stats): ?>
             <td class="value tbl_size">-</td>
             <td class="value tbl_overhead">-</td>
+        <?php endif; ?>
+        <?php if ($GLOBALS['cfg']['ShowDbStructureCharset']): ?>
+            <td></td>
         <?php endif; ?>
         <?php if ($GLOBALS['cfg']['ShowDbStructureComment']): ?>
             <td></td>

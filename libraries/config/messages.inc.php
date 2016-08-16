@@ -856,6 +856,10 @@ $strConfigShowDbStructureLastCheck_desc = __(
     'Show or hide a column displaying the Last check timestamp for all tables.'
 );
 $strConfigShowDbStructureLastCheck_name = __('Show last check timestamp');
+$strConfigShowDbStructureCharset_desc = __(
+    'Show or hide a column displaying the charset for all tables.'
+);
+$strConfigShowDbStructureCharset_name = __('Show table charset');
 $strConfigShowFieldTypesInDataEditView_desc = __(
     'Defines whether or not type fields should be initially displayed in ' .
     'edit/insert mode.'

@@ -22,6 +22,7 @@ phpMyAdmin - ChangeLog
 - issue #12378 Support IPv6 proxies
 - issue        Removed MySQL connection retry without password
 - issue #12218 Allow to specify further parameters for control connection
+- issue #12162 Show charset for each table on Database structure page
 
 4.6.4 (not yet released)
 - issue        Include X-Robots-Tag header in responses
@@ -43,6 +44,8 @@ phpMyAdmin - ChangeLog
 - issue #12395 Do not try to load old transformation plugins
 - issue #12423 Fixed replication status in database listing
 - issue #12433 Copy table with prefix does not copy the indexes
+- issue #12375 Search in database: Window content is not scrolling down when clicking first time on Browse link
+- issue #12346 SQL Editor textareas can have their size increased from the top, distorting the page view
 
 4.6.3 (2016-06-23)
 - issue #12249 Fixed cookie path on Windows
