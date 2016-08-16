@@ -2857,7 +2857,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         // Test w/ input transformation
         $actual = PMA_getHtmlForInsertEditFormColumn(
             $table_columns, 0, array(), false, array(), '', '',
-            '', false, array(), false, $o_rows, $tabindex, 0, false, 0,
+            '', false, array(), $o_rows, $tabindex, 0, false, 0,
             array(), 0, 0, 'table', 'db', 0, array(), 0, '', '',
             $repopulate, $column_mime, ''
         );
@@ -2875,7 +2875,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
             $actual
         );
         $this->assertContains(
-            '<tr class="noclick even">',
+            '<tr class="noclick">',
             $actual
         );
         $this->assertContains(
@@ -2912,7 +2912,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         );
         $actual = PMA_getHtmlForInsertEditFormColumn(
             $table_columns, 0, array(), false, array(), '', '',
-            '', true, array(), false, $o_rows, $tabindex, 0, false, 0,
+            '', true, array(), $o_rows, $tabindex, 0, false, 0,
             array(), 0, 0, 'table', 'db', 0, array(), 0, '', '',
             $repopulate, array(), ''
         );
