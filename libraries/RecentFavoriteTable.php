@@ -96,7 +96,7 @@ class RecentFavoriteTable
         // Read from phpMyAdmin database, if recent tables is not in session
         $sql_query
             = " SELECT `tables` FROM " . $this->_getPmaTable() .
-            " WHERE `username` = '" . $GLOBALS['cfg']['Server']['user'] . "'";
+            " WHERE `username` = '" . Util::sqlAddSlashes($GLOBALS['cfg']['Server']['user']) . "'";
 
         $return = array();
         $result = PMA_queryAsControlUser($sql_query, false);
@@ -119,7 +119,7 @@ class RecentFavoriteTable
         $username = $GLOBALS['cfg']['Server']['user'];
         $sql_query
             = " REPLACE INTO " . $this->_getPmaTable() . " (`username`, `tables`)" .
-                " VALUES ('" . $username . "', '"
+                " VALUES ('" . Util::sqlAddSlashes($username) . "', '"
                 . Util::sqlAddSlashes(
                     json_encode($this->_tables)
                 ) . "')";

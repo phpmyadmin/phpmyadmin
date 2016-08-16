@@ -248,7 +248,8 @@ simple configuration may look like this:
 
 
     <?php
-    $cfg['blowfish_secret'] = 'ba17c1ec07d65003';  // use here a value of your choice
+    // use here a value of your choice at least 32 chars long
+    $cfg['blowfish_secret'] = '1{dd0`<Q),5XP_:R9UK%%8\"EEcyH#{o';
 
     $i=0;
     $i++;
@@ -737,40 +738,6 @@ Config authentication mode
   incoming HTTP requests at one’s router or firewall will suffice (both
   of which are beyond the scope of this manual but easily searchable
   with Google).
-
-.. index:: pair: Swekey; Authentication mode
-
-.. _swekey:
-
-Swekey authentication mode
---------------------------
-
-The Swekey is a low cost authentication USB key that can be used in
-web applications. When Swekey authentication is activated, phpMyAdmin
-requires the users's Swekey to be plugged before entering the login
-page (currently supported for cookie authentication mode only). Swekey
-Authentication is disabled by default. To enable it, add the following
-line to :file:`config.inc.php`:
-
-.. code-block:: php
-
-    $cfg['Servers'][$i]['auth_swekey_config'] = '/etc/swekey.conf';
-
-You then have to create the ``swekey.conf`` file that will associate
-each user with their Swekey Id. It is important to place this file
-outside of your web server's document root (in the example, it is
-located in ``/etc``). Feel free to use it with your own users'
-information. If you want to purchase a Swekey please visit
-`https://www.phpmyadmin.net/auth\_key/ <https://www.phpmyadmin.net/auth_key/>`_
-since this link provides funding for phpMyAdmin.
-
-A self documented sample file is provided in the
-file :file:`examples/swekey.sample.conf`:
-
-.. literalinclude:: ../examples/swekey.sample.conf
-    :language: sh
-
-.. seealso:: :config:option:`$cfg['Servers'][$i]['auth_swekey_config']`
 
 
 Securing your phpMyAdmin installation

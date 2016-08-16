@@ -309,7 +309,6 @@ $goto_whitelist = array(
     'index.php',
     'pdf_pages.php',
     'pdf_schema.php',
-    //'phpinfo.php',
     'server_binlog.php',
     'server_collations.php',
     'server_databases.php',

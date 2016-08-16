@@ -595,7 +595,16 @@ class ExportSql extends ExportPlugin
             && $GLOBALS['sql_include_comments']
         ) {
             // see https://dev.mysql.com/doc/refman/5.0/en/ansi-diff-comments.html
-            return '--' . (empty($text) ? '' : ' ') . $text . $GLOBALS['crlf'];
+            if (empty($text)) {
+                return '--' . $GLOBALS['crlf'];
+            } else {
+                $lines = preg_split("/\\r\\n|\\r|\\n/", $text);
+                $result = array();
+                foreach ($lines as $line) {
+                    $result[] = '-- ' . $line . $GLOBALS['crlf'];
+                }
+                return implode('', $result);
+            }
         } else {
             return '';
         }
@@ -1112,7 +1121,7 @@ class ExportSql extends ExportPlugin
                                 $dbNameColumn
                             )
                             . " = '" . Util::sqlAddSlashes($db) . "'"
-                            . " AND `page_nr` = '" . $page . "'";
+                            . " AND `page_nr` = '" . intval($page) . "'";
 
                         if (!$this->exportData(
                             $cfgRelation['db'],

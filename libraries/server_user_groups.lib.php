@@ -351,7 +351,7 @@ function PMA_editUserGroup($userGroup, $new = false)
             }
             $tabName = $tabGroupName . '_' . $tab;
             $allowed = isset($_REQUEST[$tabName]) && $_REQUEST[$tabName] == 'Y';
-            $sql_query .= "('" . $userGroup . "', '" . $tabName . "', '"
+            $sql_query .= "('" . PMA_Util::sqlAddSlashes($userGroup) . "', '" . $tabName . "', '"
                 . ($allowed ? "Y" : "N") . "')";
             $first = false;
         }

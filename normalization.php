@@ -26,7 +26,7 @@ if (isset($_REQUEST['getColumns'])) {
     exit;
 }
 if (isset($_REQUEST['splitColumn'])) {
-    $num_fields = $_REQUEST['numFields'];
+    $num_fields = min(4096, intval($_REQUEST['numFields']));
     $html = PMA_getHtmlForCreateNewColumn($num_fields, $db, $table);
     $html .= PMA_URL_getHiddenInputs($db, $table);
     echo $html;

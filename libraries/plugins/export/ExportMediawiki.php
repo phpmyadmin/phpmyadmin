@@ -360,7 +360,7 @@ class ExportMediawiki extends ExportPlugin
         // see http://www.mediawiki.org/wiki/Help:Formatting
         $comment = $this->_exportCRLF();
         $comment .= '<!--' . $this->_exportCRLF();
-        $comment .= $text . $this->_exportCRLF();
+        $comment .= htmlspecialchars($text) . $this->_exportCRLF();
         $comment .= '-->' . str_repeat($this->_exportCRLF(), 2);
 
         return $comment;

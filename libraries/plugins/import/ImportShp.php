@@ -96,21 +96,24 @@ class ImportShp extends ImportPlugin
                     // Extract the .dbf file and point to it.
                     $extracted = PMA_zipExtract(
                         $import_file,
-                        realpath($GLOBALS['cfg']['TempDir']),
-                        array($dbf_file_name)
+                        $dbf_file_name
                     );
-                    if ($extracted) {
+                    if ($extracted !== false) {
                         $dbf_file_path = realpath($GLOBALS['cfg']['TempDir'])
-                            . (PMA_IS_WINDOWS ? '\\' : '/') . $dbf_file_name;
-                        $temp_dbf_file = true;
-                        // Replace the .dbf with .*, as required
-                        // by the bsShapeFiles library.
-                        $file_name = mb_substr(
-                            $dbf_file_path,
-                            0,
-                            mb_strlen($dbf_file_path) - 4
-                        ) . '.*';
-                        $shp->FileName = $file_name;
+                            . (PMA_IS_WINDOWS ? '\\' : '/')
+                            . PMA_sanitizeFilename($dbf_file_name, true);
+                        $handle = fopen($dbf_file_path, 'wb');
+                        if ($handle !== false) {
+                            fwrite($handle, $extracted);
+                            fclose($handle);
+                            $temp_dbf_file = true;
+                            // Replace the .dbf with .*, as required
+                            // by the bsShapeFiles library.
+                            $file_name = substr(
+                                $dbf_file_path, 0, strlen($dbf_file_path) - 4
+                            ) . '.*';
+                            $shp->FileName = $file_name;
+                        }
                     }
                 }
             } elseif (!empty($local_import_file)
@@ -130,6 +133,14 @@ class ImportShp extends ImportPlugin
             }
         }
 
+        // Delete the .dbf file extracted to 'TempDir'
+        if ($temp_dbf_file
+            && isset($dbf_file_path)
+            && file_exists($dbf_file_path)
+        ) {
+            unlink($dbf_file_path);
+        }
+
         // Load data
         $shp->loadFromFile('');
         if ($shp->lastError != "") {
@@ -140,14 +151,6 @@ class ImportShp extends ImportPlugin
             $message->addParam($shp->lastError);
 
             return;
-        }
-
-        // Delete the .dbf file extracted to 'TempDir'
-        if ($temp_dbf_file
-            && isset($dbf_file_path)
-            && file_exists($dbf_file_path)
-        ) {
-            unlink($dbf_file_path);
         }
 
         $esri_types = array(

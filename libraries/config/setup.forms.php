@@ -41,9 +41,6 @@ $forms['Servers']['Server_auth'] = array('Servers' => array(1 => array(
         'user',
         'password',
         ':group:end',
-    ':group:' . __('Cookie authentication'),
-        'auth_swekey_config' => './swekey.conf',
-        ':group:end',
     ':group:' . __('HTTP authentication'),
         'auth_http_realm',
         ':group:end',
@@ -206,7 +203,6 @@ $forms['Main_panel']['Startup'] = array(
     'ShowCreateDb',
     'ShowStats',
     'ShowServerInfo',
-    'ShowPhpInfo',
     'ShowChgPassword');
 $forms['Main_panel']['DbStructure'] = array(
     'ShowDbStructureComment',

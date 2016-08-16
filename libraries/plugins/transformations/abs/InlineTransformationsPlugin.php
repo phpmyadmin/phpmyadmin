@@ -51,10 +51,10 @@ abstract class InlineTransformationsPlugin extends TransformationsPlugin
         if (PMA_IS_GD2) {
             return '<a href="transformation_wrapper.php'
                 . $options['wrapper_link']
-                . '" target="_blank"><img src="transformation_wrapper.php'
+                . '" rel="noopener noreferrer" target="_blank"><img src="transformation_wrapper.php'
                 . $options['wrapper_link'] . '&amp;resize=jpeg&amp;newWidth='
-                . (isset($options[0]) ? $options[0] : '100') . '&amp;newHeight='
-                . (isset($options[1]) ? $options[1] : 100)
+                . (isset($options[0]) ? intval($options[0]) : '100') . '&amp;newHeight='
+                . (isset($options[1]) ? intval($options[1]) : 100)
                 . '" alt="[' . htmlspecialchars($buffer) . ']" border="0" /></a>';
         } else {
             return '<img src="transformation_wrapper.php'

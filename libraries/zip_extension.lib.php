@@ -143,19 +143,18 @@ function PMA_getNoOfFilesInZip($file)
 /**
  * Extracts a set of files from the given zip archive to a given destinations.
  *
- * @param string $zip_path    path to the zip archive
- * @param string $destination destination to extract files
- * @param array  $entries     files in archive that should be extracted
+ * @param string $zip_path path to the zip archive
+ * @param string $entry    file in the archive that should be extracted
  *
- * @return bool true on success, false otherwise
+ * @return string|bool data on sucess, false otherwise
  */
-function PMA_zipExtract($zip_path, $destination, $entries)
+function PMA_zipExtract($zip_path, $entry)
 {
     $zip = new ZipArchive;
     if ($zip->open($zip_path) === true) {
-        $zip->extractTo($destination, $entries);
+        $result = $zip->getFromName($entry);
         $zip->close();
-        return true;
+        return $result;
     }
     return false;
 }
