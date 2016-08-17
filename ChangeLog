@@ -3,6 +3,8 @@ phpMyAdmin - ChangeLog
 
 4.6.5 (not yet released)
 - issue        Remove potentionally license problematic sRGB profile
+- issue #12459 Display read only fields as read only when editing
+- issue #12384 Fix expanding of navigation pane when clicking on database
 
 4.6.4 (2016-08-16)
 - issue        [security] Weaknesses with cookie encryption, see PMASA-2016-29
