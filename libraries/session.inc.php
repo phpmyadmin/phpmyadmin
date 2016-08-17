@@ -28,7 +28,7 @@ if (!@function_exists('session_name')) {
 
 // session cookie settings
 session_set_cookie_params(
-    0, $GLOBALS['PMA_Config']->getCookiePath(),
+    0, $GLOBALS['PMA_Config']->getRootPath(),
     '', $GLOBALS['PMA_Config']->isHttps(), true
 );
 

@@ -299,7 +299,7 @@ function PMA_clearSelection() {
  *
  * @param $elements     jQuery object representing the elements
  * @param item          the item
- *                      (see http://api.jqueryui.com/tooltip/#option-items)
+ *                      (see https://api.jqueryui.com/tooltip/#option-items)
  * @param myContent     content of the tooltip
  * @param additionalOptions to override the default options
  *
