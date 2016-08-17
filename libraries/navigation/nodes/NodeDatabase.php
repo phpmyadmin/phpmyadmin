@@ -691,7 +691,7 @@ class NodeDatabase extends Node
                     . '<a href="navigation.php'
                     . URL::getCommon()
                     . '&showUnhideDialog=true'
-                    . '&dbName=' . urldecode($this->real_name) . '"'
+                    . '&dbName=' . urlencode($this->real_name) . '"'
                     . ' class="showUnhide ajax">'
                     . Util::getImage(
                         'show.png',

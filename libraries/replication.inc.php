@@ -295,7 +295,7 @@ function PMA_Replication_connectToMaster(
     $server = array();
     $server['user'] = $user;
     $server['password'] = $password;
-    $server["host"] = $host;
+    $server["host"] = PMA_sanitizeMySQLHost($host);
     $server["port"] = $port;
     $server["socket"] = $socket;
 

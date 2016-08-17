@@ -50,7 +50,7 @@ abstract class RegexValidationTransformationsPlugin extends IOTransformationsPlu
             $this->success = false;
             $this->error = sprintf(
                 __('Validation failed for the input string %s.'),
-                $buffer
+                htmlspecialchars($buffer)
             );
         }
 

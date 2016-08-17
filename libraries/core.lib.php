@@ -501,11 +501,6 @@ function PMA_sendHeaderLocation($uri, $use_refresh = false)
 
     session_write_close();
     if ($response->headersSent()) {
-        if (function_exists('debug_print_backtrace')) {
-            echo '<pre>';
-            debug_print_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS);
-            echo '</pre>';
-        }
         trigger_error(
             'PMA_sendHeaderLocation called when headers are already sent!',
             E_USER_ERROR
@@ -735,6 +730,10 @@ function PMA_linkURL($url)
 function PMA_isAllowedDomain($url)
 {
     $arr = parse_url($url);
+    // Avoid URLs without hostname or with credentials
+    if (empty($arr['host']) || ! empty($arr['user']) || ! empty($arr['pass'])) {
+        return false;
+    }
     $domain = $arr["host"];
     $domainWhiteList = array(
         /* Include current domain */
@@ -953,6 +952,50 @@ function PMA_checkExtensions()
     }
 }
 
+/**
+ * Gets the "true" IP address of the current user
+ *
+ * @return string   the ip of the user
+ *
+ * @access  private
+ */
+function PMA_getIp()
+{
+    /* Get the address of user */
+    if (empty($_SERVER['REMOTE_ADDR'])) {
+        /* We do not know remote IP */
+        return false;
+    }
+
+    $direct_ip = $_SERVER['REMOTE_ADDR'];
+
+    /* Do we trust this IP as a proxy? If yes we will use it's header. */
+    if (!isset($GLOBALS['cfg']['TrustedProxies'][$direct_ip])) {
+        /* Return true IP */
+        return $direct_ip;
+    }
+
+    /**
+     * Parse header in form:
+     * X-Forwarded-For: client, proxy1, proxy2
+     */
+    // Get header content
+    $value = PMA_getenv($GLOBALS['cfg']['TrustedProxies'][$direct_ip]);
+    // Grab first element what is client adddress
+    $value = explode(',', $value)[0];
+    // checks that the header contains only one IP address,
+    $is_ip = filter_var($value, FILTER_VALIDATE_IP);
+
+    if ($is_ip !== false) {
+        // True IP behind a proxy
+        return $value;
+    }
+
+    // We could not parse header
+    return false;
+} // end of the 'PMA_getIp()' function
+
+
 /* Compatibility with PHP < 5.6 */
 if(! function_exists('hash_equals')) {
 
@@ -969,4 +1012,136 @@ if(! function_exists('hash_equals')) {
         $ret |= array_sum(unpack("C*", $a ^ $b));
         return ! $ret;
     }
+}
+/* Compatibility with PHP < 5.1 or PHP without hash extension */
+if (! function_exists('hash_hmac')) {
+    function hash_hmac($algo, $data, $key, $raw_output = false)
+    {
+        $algo = strtolower($algo);
+        $pack = 'H'.strlen($algo('test'));
+        $size = 64;
+        $opad = str_repeat(chr(0x5C), $size);
+        $ipad = str_repeat(chr(0x36), $size);
+
+        if (strlen($key) > $size) {
+            $key = str_pad(pack($pack, $algo($key)), $size, chr(0x00));
+        } else {
+            $key = str_pad($key, $size, chr(0x00));
+        }
+
+        for ($i = 0; $i < strlen($key) - 1; $i++) {
+            $opad[$i] = $opad[$i] ^ $key[$i];
+            $ipad[$i] = $ipad[$i] ^ $key[$i];
+        }
+
+        $output = $algo($opad.pack($pack, $algo($ipad.$data)));
+
+        return ($raw_output) ? pack($pack, $output) : $output;
+    }
+}
+
+/**
+ * Sanitizes MySQL hostname
+ *
+ * * strips p: prefix
+ *
+ * @param string $name User given hostname
+ *
+ * @return string
+ */
+function PMA_sanitizeMySQLHost($name)
+{
+    if (strtolower(substr($name, 0, 2)) == 'p:') {
+        return substr($name, 2);
+    }
+
+    return $name;
+}
+
+/**
+ * Safe unserializer wrapper
+ *
+ * It does not unserialize data containing objects
+ *
+ * @param string $data Data to unserialize
+ *
+ * @return mixed
+ */
+function PMA_safeUnserialize($data)
+{
+    if (! is_string($data)) {
+        return null;
+    }
+
+    /* validate serialized data */
+    $length = strlen($data);
+    $depth = 0;
+    for ($i = 0; $i < $length; $i++) {
+        $value = $data[$i];
+
+        switch ($value)
+        {
+            case '}':
+                /* end of array */
+                if ($depth <= 0) {
+                    return null;
+                }
+                $depth--;
+                break;
+            case 's':
+                /* string */
+                // parse sting length
+                $strlen = intval($data[$i + 2]);
+                // string start
+                $i = strpos($data, ':', $i + 2);
+                if ($i === false) {
+                    return null;
+                }
+                // skip string, quotes and ;
+                $i += 2 + $strlen + 1;
+                if ($data[$i] != ';') {
+                    return null;
+                }
+                break;
+
+            case 'b':
+            case 'i':
+            case 'd':
+                /* bool, integer or double */
+                // skip value to sepearator
+                $i = strpos($data, ';', $i);
+                if ($i === false) {
+                    return null;
+                }
+                break;
+            case 'a':
+                /* array */
+                // find array start
+                $i = strpos($data, '{', $i);
+                if ($i === false) {
+                    return null;
+                }
+                // remember nesting
+                $depth++;
+                break;
+            case 'N':
+                /* null */
+                // skip to end
+                $i = strpos($data, ';', $i);
+                if ($i === false) {
+                    return null;
+                }
+                break;
+            default:
+                /* any other elements are not wanted */
+                return null;
+        }
+    }
+
+    // check unterminated arrays
+    if ($depth > 0) {
+        return null;
+    }
+
+    return unserialize($data);
 }

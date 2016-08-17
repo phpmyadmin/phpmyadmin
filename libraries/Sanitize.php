@@ -64,6 +64,9 @@ class Sanitize
         $target = '';
         if (! empty($found[3])) {
             $target = ' target="' . $found[3] . '"';
+            if ($found[3] == '_blank') {
+                $target .= ' rel="noopener noreferrer"';
+            }
         }
 
         /* Construct url */

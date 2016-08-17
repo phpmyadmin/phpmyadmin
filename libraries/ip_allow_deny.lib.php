@@ -8,45 +8,6 @@
  */
 
 /**
- * Gets the "true" IP address of the current user
- *
- * @return string   the ip of the user
- *
- * @access  private
- */
-function PMA_getIp()
-{
-    /* Get the address of user */
-    if (empty($_SERVER['REMOTE_ADDR'])) {
-        /* We do not know remote IP */
-        return false;
-    }
-
-    $direct_ip = $_SERVER['REMOTE_ADDR'];
-
-    /* Do we trust this IP as a proxy? If yes we will use it's header. */
-    if (!isset($GLOBALS['cfg']['TrustedProxies'][$direct_ip])) {
-        /* Return true IP */
-        return $direct_ip;
-    }
-
-    $trusted_header_value
-        = PMA_getenv($GLOBALS['cfg']['TrustedProxies'][$direct_ip]);
-    $matches = array();
-    // checks that the header contains only one IP address,
-    $is_ip = filter_var($trusted_header_value, FILTER_VALIDATE_IP);
-
-    if ($is_ip !== false) {
-        // True IP behind a proxy
-        return $trusted_header_value;
-    }
-
-    /* Return true IP */
-    return $direct_ip;
-} // end of the 'PMA_getIp()' function
-
-
-/**
  * Matches for IPv4 or IPv6 addresses
  *
  * @param string $testRange string of IP range to match
