@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2016-08-01 11:05+0200\n"
+"POT-Creation-Date: 2016-08-01 11:04+0200\n"
 "PO-Revision-Date: 2016-08-12 00:17+0000\n"
 "Last-Translator: Alex Vega <semtiko@gmail.com>\n"
 "Language-Team: Russian "
@@ -5383,9 +5383,8 @@ msgid "Could not connect to the database server!"
 msgstr "Не удалось соединиться с сервером базы данных!"
 
 #: libraries/config/Validator.php:286
-#, fuzzy
 msgid "Invalid authentication type!"
-msgstr "Тип идентификации"
+msgstr "Неверный тип идентификации!"
 
 #: libraries/config/Validator.php:293
 msgid "Empty username while using [kbd]config[/kbd] authentication method!"
@@ -5919,6 +5918,8 @@ msgid ""
 "Add IF NOT EXISTS (less efficient as indexes will be generated during table "
 "creation)"
 msgstr ""
+"Добавить IF NOT EXISTS (менее эффективно, т.к. индексы будут созданы во время "
+"создания таблицы)"
 
 #: libraries/config/messages.inc.php:214
 msgid "Use ignore inserts"
@@ -6536,13 +6537,12 @@ msgid "Maximum tables"
 msgstr "Максимальное количество таблиц"
 
 #: libraries/config/messages.inc.php:466
-#, fuzzy
 msgid ""
 "The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd] "
 "([kbd]-1[/kbd] for no limit and [kbd]0[/kbd] for no change)."
 msgstr ""
 "Максимальное количество байт, которые могут быть выделены скрипту. Пример: "
-"[kbd]32M[/kbd] ([kbd]0[/kbd] - без ограничений)."
+"[kbd]32M[/kbd] ([kbd]-1[/kbd] - без ограничений, [kbd]0[/kbd] - без изменения)."
 
 #: libraries/config/messages.inc.php:469
 msgid "Memory limit"
@@ -8078,10 +8078,9 @@ msgid "Query error"
 msgstr "Ошибка запроса"
 
 #: libraries/controllers/table/TableStructureController.php:955
-#, fuzzy, php-format
 msgid ""
 "Table %1$s has been altered successfully. Privileges have been adjusted."
-msgstr "Таблица %1$s была успешно изменена."
+msgstr "Таблица %1$s была успешно изменена. Привилегии обновлены."
 
 #: libraries/controllers/table/TableStructureController.php:1177
 #: templates/table/structure/check_all_table_column.phtml:18
@@ -9812,14 +9811,12 @@ msgid "Can't copy table to same one!"
 msgstr "Невозможно скопировать таблицу саму в себя!"
 
 #: libraries/operations.lib.php:2105
-#, fuzzy, php-format
 msgid "Table %s has been moved to %s. Privileges have been adjusted."
-msgstr "Таблица %s была перемещена в %s."
+msgstr "Таблица %s была перемещена в %s. Привилегии обновлены."
 
 #: libraries/operations.lib.php:2112
-#, fuzzy, php-format
 msgid "Table %s has been copied to %s. Privileges have been adjusted."
-msgstr "Таблица %s была скопирована в %s."
+msgstr "Таблица %s была скопирована в %s. Привилегии обновлены."
 
 #: libraries/operations.lib.php:2121
 #, php-format
@@ -10199,7 +10196,7 @@ msgstr "Добавить выражение %s"
 
 #: libraries/plugins/export/ExportSql.php:286
 msgid "(less efficient as indexes will be generated during table creation)"
-msgstr ""
+msgstr "(менее эффективно, т.к. индексы будут созданы во время создания таблицы)"
 
 #: libraries/plugins/export/ExportSql.php:294
 #, fuzzy, php-format
@@ -10314,14 +10311,12 @@ msgid "Metadata"
 msgstr "Метаданные"
 
 #: libraries/plugins/export/ExportSql.php:1067
-#, fuzzy, php-format
 msgid "Metadata for table %s"
-msgstr "Метаданные для %s"
+msgstr "Метаданные для таблицы %s"
 
 #: libraries/plugins/export/ExportSql.php:1074
-#, fuzzy, php-format
 msgid "Metadata for database %s"
-msgstr "Метаданные для %s"
+msgstr "Метаданные для базы данных %s"
 
 #: libraries/plugins/export/ExportSql.php:1406
 #: libraries/plugins/schema/pdf/PdfRelationSchema.php:603
@@ -11536,9 +11531,8 @@ msgid "Sorry, we failed to restore the dropped routine."
 msgstr "Невозможно восстановить удаленную процедуру."
 
 #: libraries/rte/rte_routines.lib.php:435
-#, fuzzy, php-format
 msgid "Routine %1$s has been modified. Privileges have been adjusted."
-msgstr "Была изменена процедура %1$s."
+msgstr "Была изменена процедура %1$s. Привилегии обновлены."
 
 #: libraries/rte/rte_routines.lib.php:440
 #, php-format
@@ -12343,7 +12337,7 @@ msgstr "Новый"
 
 #: libraries/server_privileges.lib.php:4594
 msgid "Edit privileges:"
-msgstr "Редактировать привилегии:"
+msgstr "Редактирование привилегий:"
 
 #: libraries/server_privileges.lib.php:4595
 msgid "User account"
@@ -13452,70 +13446,70 @@ msgstr ""
 "thread_cache_size. (Это не даст существенного выигрыша в производительности, "
 "при хорошей реализации потоков.)"
 
-#: libraries/server_status_variables.lib.php:759
+#: libraries/server_status_variables.lib.php:758
 msgid "Thread cache hit rate (calculated value)"
 msgstr "Соотношение обращений в кеш потока (подсчитанное значение)"
 
-#: libraries/server_status_variables.lib.php:762
+#: libraries/server_status_variables.lib.php:761
 msgid "The number of threads that are not sleeping."
 msgstr "Количество процессов, находящихся в активном состоянии."
 
-#: libraries/server_user_groups.lib.php:20
+#: libraries/server_user_groups.lib.php:19
 #, php-format
 msgid "Users of '%s' user group"
 msgstr "Пользователи группы пользователей '%s'"
 
-#: libraries/server_user_groups.lib.php:33
+#: libraries/server_user_groups.lib.php:32
 msgid "No users were found belonging to this user group."
 msgstr "Не найдены пользователи, принадлежащие этой группе."
 
-#: libraries/server_user_groups.lib.php:62 libraries/server_users.lib.php:30
+#: libraries/server_user_groups.lib.php:61 libraries/server_users.lib.php:29
 msgid "User groups"
 msgstr "Группы пользователей"
 
-#: libraries/server_user_groups.lib.php:77
+#: libraries/server_user_groups.lib.php:76
 msgid "Server level tabs"
 msgstr "Вкладки уровня сервера"
 
-#: libraries/server_user_groups.lib.php:78
+#: libraries/server_user_groups.lib.php:77
 msgid "Database level tabs"
 msgstr "Вкладки уровня базы данных"
 
-#: libraries/server_user_groups.lib.php:79
+#: libraries/server_user_groups.lib.php:78
 msgid "Table level tabs"
 msgstr "Вкладки уровня таблицы"
 
-#: libraries/server_user_groups.lib.php:108
+#: libraries/server_user_groups.lib.php:107
 msgid "View users"
 msgstr "Просмотреть пользователей"
 
-#: libraries/server_user_groups.lib.php:146
-#: libraries/server_user_groups.lib.php:210
+#: libraries/server_user_groups.lib.php:145
+#: libraries/server_user_groups.lib.php:209
 msgid "Add user group"
 msgstr "Добавить группу пользователей"
 
-#: libraries/server_user_groups.lib.php:213
+#: libraries/server_user_groups.lib.php:212
 #, php-format
 msgid "Edit user group: '%s'"
 msgstr "Редактировать группу пользователей: '%s'"
 
-#: libraries/server_user_groups.lib.php:229
+#: libraries/server_user_groups.lib.php:228
 msgid "User group menu assignments"
 msgstr "Назначения меню группы пользователей"
 
-#: libraries/server_user_groups.lib.php:236
+#: libraries/server_user_groups.lib.php:235
 msgid "Group name:"
 msgstr "Имя группы:"
 
-#: libraries/server_user_groups.lib.php:274
+#: libraries/server_user_groups.lib.php:273
 msgid "Server-level tabs"
 msgstr "Вкладки уровня сервера"
 
-#: libraries/server_user_groups.lib.php:277
+#: libraries/server_user_groups.lib.php:276
 msgid "Database-level tabs"
 msgstr "Вкладки уровня базы данных"
 
-#: libraries/server_user_groups.lib.php:280
+#: libraries/server_user_groups.lib.php:279
 msgid "Table-level tabs"
 msgstr "Вкладки уровня таблицы"
 
@@ -14098,9 +14092,8 @@ msgstr ""
 "директорию config."
 
 #: setup/frames/index.inc.php:134
-#, fuzzy
 msgid "Configuration not saved!"
-msgstr "Конфигурация сохранена."
+msgstr "Конфигурация не сохранена!"
 
 #: setup/frames/index.inc.php:149 setup/frames/menu.inc.php:20
 msgid "Overview"
@@ -14361,9 +14354,8 @@ msgid "Values"
 msgstr "Значения"
 
 #: templates/columns_definitions/partitions.phtml:76
-#, fuzzy
 msgid "Subpartition"
-msgstr "разделён"
+msgstr "Подраздел"
 
 #: templates/columns_definitions/partitions.phtml:78
 #, fuzzy
@@ -15356,7 +15348,7 @@ msgstr "Длина индекса"
 
 #: templates/table/structure/display_partitions.phtml:136
 msgid "Partition table"
-msgstr "Разбить таблицу"
+msgstr "Создать разбиение"
 
 #: templates/table/structure/display_partitions.phtml:139
 #: templates/table/structure/partition_definition_form.phtml:7
