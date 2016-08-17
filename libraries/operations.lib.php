@@ -1588,7 +1588,11 @@ function PMA_getHtmlForPartitionMaintenance($partition_names, $url_params)
         $GLOBALS['db'], $GLOBALS['table']
     );
     // add COALESCE or DROP option to choices array depeding on Partition method
-    if ($partition_method == 'RANGE' || $partition_method == 'LIST') {
+    if ($partition_method == 'RANGE'
+        || $partition_method == 'RANGE COLUMNS'
+        || $partition_method == 'LIST'
+        || $partition_method == 'LIST COLUMNS'
+    ) {
         $choices['DROP'] = __('Drop');
     } else {
         $choices['COALESCE'] = __('Coalesce');
