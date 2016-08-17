@@ -4893,4 +4893,89 @@ class Util
         }
         return trim((string)$value);
     }
+
+
+    /**
+     * Creates HTTP request
+     *
+     * @param string $url Url to send the request
+     * @param string $method HTTP request method (GET, POST, PUT, DELETE, etc)
+     * @param int $connection_timeout Timeout seconds for the HTTP request
+     * @param bool $return_only_status If set to true, the method would only return response status
+     * @param mixed $content Content to be sent with HTTP request
+     * @param string $header Header to be set for the HTTP request
+     *
+     * @return mixed
+     */
+    public static function httpRequest($url, $method, $connection_timeout, $return_only_status = false, $content = null, $header = "")
+    {
+        if (function_exists('curl_init')) {
+            $curl_handle = curl_init($url);
+            if ($curl_handle === false) {
+                return null;
+            }
+            $curl_handle = Util::configureCurl($curl_handle);
+
+            if($method != "GET")
+                curl_setopt($curl_handle, CURLOPT_CUSTOMREQUEST, $method);
+            if($header)
+            {
+                curl_setopt($curl_handle, CURLOPT_HTTPHEADER,array('Expect:', $header));
+                curl_setopt($curl_handle, CURLOPT_HEADER, true);
+            }
+
+
+            if($method == "POST")
+                curl_setopt($curl_handle, CURLOPT_POSTFIELDS, $content);
+
+            curl_setopt($curl_handle, CURLOPT_SSL_VERIFYHOST, '2');
+            curl_setopt($curl_handle, CURLOPT_SSL_VERIFYPEER, '1');
+
+            curl_setopt($curl_handle, CURLOPT_RETURNTRANSFER,true);
+            curl_setopt($curl_handle, CURLOPT_FOLLOWLOCATION, 0);
+            curl_setopt($curl_handle, CURLOPT_IPRESOLVE, CURL_IPRESOLVE_V4);
+            curl_setopt($curl_handle, CURLOPT_TIMEOUT,$connection_timeout);
+            curl_setopt($curl_handle, CURLOPT_CONNECTTIMEOUT, $connection_timeout);
+            $response = curl_exec($curl_handle);
+            if($return_only_status)
+            {
+                if ($response === false) {
+                    return null;
+                }
+                $http_status = curl_getinfo($curl_handle, CURLINFO_HTTP_CODE);
+                if ($http_status == 200) {
+                    return true;
+                }
+
+                if ($http_status == 404) {
+                    return false;
+                }
+                return null;
+            }
+        } else if (ini_get('allow_url_fopen')) {
+            $context = array(
+                'http' => array(
+                    'method'  => $method,
+                    'content' => $content,
+                    'header' => $header,
+                    'request_fulluri' => true,
+                    'timeout' => $connection_timeout
+                )
+            );
+            $context = Util::handleContext($context);
+            $response = @file_get_contents(
+                $url,
+                false,
+                stream_context_create($context)
+            );
+            if($return_only_status)
+            {
+                preg_match( "#HTTP/[0-9\.]+\s+([0-9]+)#",$http_response_header[0], $out );
+                return ((intval($out[1]) == 200) ? true : ((intval($out[1]) == 404) ? false : null));
+            }
+        }
+        else
+            $response = null;
+        return $response;
+    }
 }
