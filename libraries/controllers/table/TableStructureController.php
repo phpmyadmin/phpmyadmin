@@ -601,12 +601,16 @@ class TableStructureController extends TableController
         $partitionDetails['can_have_subpartitions']
             = $partitionDetails['partition_count'] > 1
                 && ($partitionDetails['partition_by'] == 'RANGE'
-                || $partitionDetails['partition_by'] == 'LIST');
+                || $partitionDetails['partition_by'] == 'RANGE COLUMNS'
+                || $partitionDetails['partition_by'] == 'LIST'
+                || $partitionDetails['partition_by'] == 'LIST COLUMNS');
 
         // Values are specified only for LIST and RANGE type partitions
         $partitionDetails['value_enabled'] = isset($partitionDetails['partition_by'])
             && ($partitionDetails['partition_by'] == 'RANGE'
-            || $partitionDetails['partition_by'] == 'LIST');
+            || $partitionDetails['partition_by'] == 'RANGE COLUMNS'
+            || $partitionDetails['partition_by'] == 'LIST'
+            || $partitionDetails['partition_by'] == 'LIST COLUMNS');
 
         $partitionDetails['partitions'] = array();
 
@@ -614,6 +618,7 @@ class TableStructureController extends TableController
 
             if (! isset($stmt->partitions[$i])) {
                 $partitionDetails['partitions'][$i] = array(
+                    'name' => 'p' . $i,
                     'value_type' => '',
                     'value' => '',
                     'engine' => '',
@@ -634,6 +639,7 @@ class TableStructureController extends TableController
                     $expr = '';
                 }
                 $partitionDetails['partitions'][$i] = array(
+                    'name' => $p->name,
                     'value_type' => $type,
                     'value' => $expr,
                     'engine' => $p->options->has('ENGINE', true),
@@ -648,7 +654,6 @@ class TableStructureController extends TableController
             }
 
             $partition =& $partitionDetails['partitions'][$i];
-            $partition['name'] = 'p' . $i;
             $partition['prefix'] = 'partitions[' . $i . ']';
 
             if ($partitionDetails['subpartition_count'] > 1) {
@@ -658,6 +663,7 @@ class TableStructureController extends TableController
                 for ($j = 0; $j < intval($partitionDetails['subpartition_count']); $j++) {
                     if (! isset($stmt->partitions[$i]->subpartitions[$j])) {
                         $partition['subpartitions'][$j] = array(
+                            'name' => $partition['name'] . '_s' . $j,
                             'engine' => '',
                             'comment' => '',
                             'data_directory' => '',
@@ -670,6 +676,7 @@ class TableStructureController extends TableController
                     } else {
                         $sp = $stmt->partitions[$i]->subpartitions[$j];
                         $partition['subpartitions'][$j] = array(
+                            'name' => $sp->name,
                             'engine' => $sp->options->has('ENGINE', true),
                             'comment' => trim($sp->options->has('COMMENT', true), "'"),
                             'data_directory' => trim($sp->options->has('DATA DIRECTORY', true), "'"),
@@ -682,7 +689,6 @@ class TableStructureController extends TableController
                     }
 
                     $subpartition =& $partition['subpartitions'][$j];
-                    $subpartition['name'] = 'p' . $i . 's' . $j;
                     $subpartition['prefix'] = 'partitions[' . $i . ']'
                         . '[subpartitions][' . $j . ']';
                 }

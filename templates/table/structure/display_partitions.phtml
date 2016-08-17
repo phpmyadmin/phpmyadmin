@@ -23,7 +23,7 @@ use PMA\libraries\URL; ?>
                 <thead>
                     <tr>
                         <th colspan="2">#</th>
-                        <th><?= __('Name'); ?></th>
+                        <th><?= __('Partition'); ?></th>
                         <?php if ($hasDescription): ?>
                             <th><?= __('Expression'); ?></th>
                         <?php endif; ?>
@@ -116,7 +116,7 @@ use PMA\libraries\URL; ?>
                                         <span><?= $value; ?></span>
                                         <span class="unit"><?= $unit; ?></span>
                                     </td>
-                                    <td><?= $subParition->getComment(); ?></td>
+                                    <td><?= htmlspecialchars($subParition->getComment()); ?></td>
                                     <td colspan="<?= $rangeOrList ? '7' : '6'; ?>"></td>
                                 </tr>
                             <?php endforeach; ?>
