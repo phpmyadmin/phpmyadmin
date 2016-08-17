@@ -503,7 +503,7 @@ function PMA_sendHeaderLocation($uri, $use_refresh = false)
      * like /phpmyadmin/index.php/ which some web servers happily accept.
      */
     if ($uri[0] == '.') {
-        $uri = $GLOBALS['PMA_Config']->getCookiePath() . substr($uri, 2);
+        $uri = $GLOBALS['PMA_Config']->getRootPath() . substr($uri, 2);
     }
 
     $response = PMA\libraries\Response::getInstance();

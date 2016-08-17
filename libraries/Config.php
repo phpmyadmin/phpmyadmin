@@ -1381,11 +1381,11 @@ class Config
     }
 
     /**
-     * Get cookie path
+     * Get phpMyAdmin root path
      *
      * @return string
      */
-    public function getCookiePath()
+    public function getRootPath()
     {
         static $cookie_path = null;
 
@@ -1586,7 +1586,7 @@ class Config
             $cookie,
             '',
             time() - 3600,
-            $this->getCookiePath(),
+            $this->getRootPath(),
             '',
             $this->isHttps()
         );
@@ -1640,7 +1640,7 @@ class Config
                 $cookie,
                 $value,
                 $validity,
-                $this->getCookiePath(),
+                $this->getRootPath(),
                 '',
                 $this->isHttps(),
                 $httponly
