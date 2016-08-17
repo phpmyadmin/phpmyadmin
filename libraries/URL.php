@@ -220,10 +220,6 @@ class URL
             $params['collation_connection'] = $GLOBALS['collation_connection'];
         }
 
-        if (empty($params)) {
-            return '';
-        }
-
         return $divider . http_build_query($params, null, $separator);
     }
 

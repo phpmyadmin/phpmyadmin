@@ -687,11 +687,13 @@ class NodeDatabase extends Node
         $cfgRelation = PMA_getRelationsParam();
         if ($cfgRelation['navwork']) {
             if ($this->hiddenCount > 0) {
+                $params = array(
+                    'showUnhideDialog' => true,
+                    'dbName' => $this->real_name,
+                );
                 $ret = '<span class="dbItemControls">'
                     . '<a href="navigation.php'
-                    . URL::getCommon()
-                    . '&showUnhideDialog=true'
-                    . '&dbName=' . urlencode($this->real_name) . '"'
+                    . URL::getCommon($params) . '"'
                     . ' class="showUnhide ajax">'
                     . Util::getImage(
                         'show.png',
