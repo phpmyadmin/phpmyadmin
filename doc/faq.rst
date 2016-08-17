@@ -714,9 +714,9 @@ revision.
 
 Check your webserver setup if it correctly fills in either PHP_SELF or REQUEST_URI variables.
 
-If you are running phpMyAdmin older than 4.6.0, you can also check the value
-you set for the :config:option:`$cfg['PmaAbsoluteUri']` directive in the
-phpMyAdmin configuration file.
+If you are running phpMyAdmin behind reverse proxy, please set the
+:config:option:`$cfg['PmaAbsoluteUri']` directive in the phpMyAdmin
+configuration file to match your setup.
 
 .. _faq2_6:
 

@@ -41,10 +41,9 @@ Basic settings
     :type: string
     :default: ``''``
 
-    .. deprecated:: 4.6.0
+    .. versionchanged:: 4.6.5
         
-        This setting is no longer available since phpMyAdmin 4.6.0. Please
-        adjust your webserver instead.
+        This setting was not available in phpMyAdmin 4.6.0 - 4.6.4.
 
     Sets here the complete :term:`URL` (with full path) to your phpMyAdmin
     installation's directory. E.g.
