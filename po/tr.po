@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.5-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-08-17 11:29+0200\n"
-"PO-Revision-Date: 2016-08-13 11:15+0000\n"
+"PO-Revision-Date: 2016-08-17 10:18+0000\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
-"Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/4-6/"
-"tr/>\n"
+"Language-Team: Turkish "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-6/tr/>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -793,7 +793,7 @@ msgstr ""
 
 #: index.php:525
 msgid "The secret passphrase in configuration (blowfish_secret) is too short."
-msgstr ""
+msgstr "Yapılandırma (blowfish_secret) içindeki gizli parola çok kısa."
 
 #: index.php:539
 msgid ""
@@ -3668,7 +3668,7 @@ msgstr "Dosya göndermede bilinmeyen hata oldu."
 
 #: libraries/File.php:424
 msgid "File is a symbolic link"
-msgstr ""
+msgstr "Dosya bir sembolik bağlantıdır"
 
 #: libraries/File.php:470
 msgid "Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc]."
@@ -5169,10 +5169,9 @@ msgid "You allow for connecting to the server without a password."
 msgstr "Sunucuya parolasız bağlanmaya izin verdiniz."
 
 #: libraries/config/ServerConfigChecks.php:347
-#, fuzzy
 #| msgid "Key is too short, it should have at least 8 characters."
 msgid "Key is too short, it should have at least 32 characters."
-msgstr "Anahtar çok kısa, en az 8 karakter olmalıdır."
+msgstr "Anahtar çok kısa, en az 32 karakter olmalıdır."
 
 #: libraries/config/ServerConfigChecks.php:357
 msgid "Key should contain letters, numbers [em]and[/em] special characters."
@@ -5313,10 +5312,9 @@ msgid "Could not connect to the database server!"
 msgstr "Veritabanı sunucusuna bağlanamadı!"
 
 #: libraries/config/Validator.php:243
-#, fuzzy
 #| msgid "Authentication type"
 msgid "Invalid authentication type!"
-msgstr "Kimlik doğrulaması türü"
+msgstr "Geçersiz kimlik doğrulaması türü!"
 
 #: libraries/config/Validator.php:250
 msgid "Empty username while using [kbd]config[/kbd] authentication method!"
@@ -7340,7 +7338,6 @@ msgid "User preferences storage table"
 msgstr "Kullanıcı tercihleri depolama tablosu"
 
 #: libraries/config/messages.inc.php:807
-#, fuzzy
 #| msgid ""
 #| "Both this table and the user groups table are required to enable the "
 #| "configurable menus feature; leaving either one of them blank will "
@@ -9302,10 +9299,9 @@ msgid "Log out"
 msgstr "Oturumu kapat"
 
 #: libraries/navigation/NavigationHeader.php:172
-#, fuzzy
 #| msgid "Dumping data"
 msgid "Empty session data"
-msgstr "Veri dökümleniyor"
+msgstr "Boş oturum verisi"
 
 #: libraries/navigation/NavigationHeader.php:188
 msgid "phpMyAdmin documentation"
@@ -14368,10 +14364,9 @@ msgstr ""
 "config dizinini silin."
 
 #: setup/frames/index.inc.php:132
-#, fuzzy
 #| msgid "Configuration saved."
 msgid "Configuration not saved!"
-msgstr "Yapılandırma kaydedildi."
+msgstr "Yapılandırma kaydedilmedi!"
 
 #: setup/frames/index.inc.php:147 setup/frames/menu.inc.php:19
 msgid "Overview"
@@ -14493,7 +14488,7 @@ msgstr "Yanlış veri"
 #: setup/validate.php:30
 #, php-format
 msgid "Wrong data or no validation for %s"
-msgstr ""
+msgstr "Yanlış veri veya %s için doğrulama yok"
 
 #: tbl_create.php:30 tbl_get_field.php:26
 #, php-format
@@ -14553,10 +14548,9 @@ msgid "Table name"
 msgstr "Tablo adı"
 
 #: templates/columns_definitions/column_definitions_form.phtml:65
-#, fuzzy
 #| msgid "Add column(s)"
 msgid "column(s)"
-msgstr "Sekme(leri) ekle"
+msgstr "sütun(lar)"
 
 #: templates/columns_definitions/column_definitions_form.phtml:92
 msgid "Collation:"
@@ -15573,14 +15567,13 @@ msgid "The profile has been updated."
 msgstr "Profil güncellendi."
 
 #: user_password.php:124
-#, fuzzy
 #| msgid "Password Hashing:"
 msgid "Password is too long!"
-msgstr "Parola Adreslemesi:"
+msgstr "Parola çok uzun!"
 
 #: view_create.php:44
 msgid "View name can not be empty"
-msgstr ""
+msgstr "Görünüm adı boş olamaz"
 
 #: view_create.php:247
 msgid "VIEW name"
