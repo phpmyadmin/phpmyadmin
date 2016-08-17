@@ -49,7 +49,7 @@ abstract class ImageLinkTransformationsPlugin extends TransformationsPlugin
     {
         // must disable the page loader, see
         // https://wiki.phpmyadmin.net/pma/Page_loader#Bypassing_the_page_loader
-        return '<a class="disableAjax" target="_new" href="transformation_wrapper.php'
+        return '<a class="disableAjax" target="_blank" rel="noopener noreferrer" href="transformation_wrapper.php'
             . $options['wrapper_link'] . '" alt="[' . htmlspecialchars($buffer) . ']">[BLOB]</a>';
     }
 

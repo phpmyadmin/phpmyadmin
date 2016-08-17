@@ -75,7 +75,23 @@ function PMA_sessionFailed($errors)
 {
     $messages = array();
     foreach ($errors as $error) {
-        $messages[] = $error->getMessage();
+        /*
+         * Remove path from open() in error message to avoid path disclossure
+         *
+         * This can happen with PHP 5 when nonexisting session ID is provided,
+         * since PHP 7, session existence is checked first.
+         *
+         * This error can also happen in case of session backed error (eg.
+         * read only filesystem) on any PHP version.
+         *
+         * The message string is currently hardcoded in PHP, so hopefully it
+         * will not change in future.
+         */
+        $messages[] = preg_replace(
+            '/open(.*, O_RDWR)/',
+            'open(SESSION_FILE, O_RDWR)',
+            $error->getMessage()
+        );
     }
 
     /*

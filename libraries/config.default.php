@@ -1039,13 +1039,6 @@ $cfg['NavigationTreeShowEvents'] = true;
 $cfg['ShowStats'] = true;
 
 /**
- * show PHP info link
- *
- * @global boolean $cfg['ShowPhpInfo']
- */
-$cfg['ShowPhpInfo'] = false;
-
-/**
  * show MySQL server and web server information
  *
  * @global boolean $cfg['ShowServerInfo']
