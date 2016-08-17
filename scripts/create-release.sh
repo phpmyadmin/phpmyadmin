@@ -212,6 +212,7 @@ if [ ! -d libraries/tcpdf ] ; then
         vendor/tecnickcom/tcpdf/fonts/ae_fonts_*/ \
         vendor/tecnickcom/tcpdf/fonts/dejavu-fonts-ttf-2.33/ \
         vendor/tecnickcom/tcpdf/fonts/freefont-*/ \
+        vendor/tecnickcom/tcpdf/include/sRGB.icc \
         vendor/google/recaptcha/examples/ \
         vendor/google/recaptcha/tests/
     find vendor/phpseclib/phpseclib/phpseclib/Crypt/ -maxdepth 1 -type f -not -name AES.php -not -name Base.php -not -name Random.php -not -name Rijndael.php -print0 | xargs -0 rm
