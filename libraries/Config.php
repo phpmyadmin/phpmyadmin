@@ -1393,6 +1393,15 @@ class Config
             return $cookie_path;
         }
 
+        $url = $this->get('PmaAbsoluteUri');
+
+        if (! empty($url)) {
+            $path = parse_url($url, PHP_URL_PATH);
+            if (! empty($path)) {
+                return $path;
+            }
+        }
+
         $parsed_url = parse_url($GLOBALS['PMA_PHP_SELF']);
 
         $parts = explode(
