@@ -1357,8 +1357,12 @@ class Config
             return $this->get('is_https');
         }
 
+        $url = $this->get('PmaAbsoluteUri');
+
         $is_https = false;
-        if (strtolower(PMA_getenv('HTTP_SCHEME')) == 'https') {
+        if (! empty($url) && parse_url($url, PHP_URL_SCHEME) === 'https') {
+            $is_https = true;
+        } elseif (strtolower(PMA_getenv('HTTP_SCHEME')) == 'https') {
             $is_https = true;
         } elseif (strtolower(PMA_getenv('HTTPS')) == 'on') {
             $is_https = true;
