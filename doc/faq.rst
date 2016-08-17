@@ -599,7 +599,7 @@ This is not specific to phpmyadmin, it's just the behavior of Apache.
     ProxyPassReverse /mirror/foo/ http://backend.example.com/%7Euser/phpmyadmin
     ProxyPassReverseCookiePath /%7Euser/phpmyadmin /mirror/foo
 
-.. seealso:: <https://httpd.apache.org/docs/2.2/mod/mod_proxy.html>
+.. seealso:: <https://httpd.apache.org/docs/2.2/mod/mod_proxy.html>, :config:option:`$cfg['PmaAbsoluteUri']`
 
 .. _faq1_41:
 
@@ -752,9 +752,9 @@ revision.
 
 Check your webserver setup if it correctly fills in either PHP_SELF or REQUEST_URI variables.
 
-If you are running phpMyAdmin older than 4.6.0, you can also check the value
-you set for the :config:option:`$cfg['PmaAbsoluteUri']` directive in the
-phpMyAdmin configuration file.
+If you are running phpMyAdmin behind reverse proxy, please set the
+:config:option:`$cfg['PmaAbsoluteUri']` directive in the phpMyAdmin
+configuration file to match your setup.
 
 .. _faq2_6:
 

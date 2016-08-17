@@ -348,7 +348,7 @@ function PMA_getTableCount($db)
 
 /**
  * Converts numbers like 10M into bytes
- * Used with permission from Moodle (http://moodle.org) by Martin Dougiamas
+ * Used with permission from Moodle (https://moodle.org) by Martin Dougiamas
  * (renamed with PMA prefix to avoid double definition when embedded
  * in Moodle)
  *
@@ -494,7 +494,7 @@ function PMA_sendHeaderLocation($uri, $use_refresh = false)
      * like /phpmyadmin/index.php/ which some web servers happily accept.
      */
     if ($uri[0] == '.') {
-        $uri = $GLOBALS['PMA_Config']->getCookiePath() . substr($uri, 2);
+        $uri = $GLOBALS['PMA_Config']->getRootPath() . substr($uri, 2);
     }
 
     $response = PMA\libraries\Response::getInstance();
