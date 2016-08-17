@@ -6,10 +6,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-08-17 11:28+0200\n"
-"PO-Revision-Date: 2016-08-02 12:55+0000\n"
+"PO-Revision-Date: 2016-08-17 10:25+0000\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
-"Language-Team: Estonian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/et/>\n"
+"Language-Team: Estonian "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/et/>\n"
 "Language: et\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,7 +18,7 @@ msgstr ""
 "X-Generator: Weblate 2.8-dev\n"
 
 #: changelog.php:38 license.php:33
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "The %s file is not available on this system, please visit www.phpmyadmin."
 #| "net for more information."
@@ -26,8 +26,8 @@ msgid ""
 "The %s file is not available on this system, please visit %s for more "
 "information."
 msgstr ""
-"Fail %s ei ole selles süsteemis saadaval; aadressilt www.phpmyadmin.net "
-"leiad täiendavat informatsiooni."
+"Fail %s ei ole selles süsteemis saadaval; täiendavat informatsiooni leiad "
+"aadressilt %s."
 
 #: db_central_columns.php:107
 msgid "The central list of columns for the current database is empty."
@@ -774,7 +774,7 @@ msgstr "Seadistusfail vajab nüüd turvasõna (blowfish_secret)."
 
 #: index.php:529
 msgid "The secret passphrase in configuration (blowfish_secret) is too short."
-msgstr ""
+msgstr "Konfiguratsioonis (blowfish_secret) on salastatud fraas liiga lühike."
 
 #: index.php:543
 msgid ""
@@ -3712,7 +3712,7 @@ msgstr "Faili üleslaadimises on tundmatu viga."
 
 #: libraries/File.php:424
 msgid "File is a symbolic link"
-msgstr ""
+msgstr "Fail on nimeviit"
 
 #: libraries/File.php:429 libraries/File.php:532
 msgid "File could not be read!"
@@ -5212,10 +5212,9 @@ msgid "You allow for connecting to the server without a password."
 msgstr "Sa lubad serveriga ühendada ilma paroolita."
 
 #: libraries/config/ServerConfigChecks.php:349
-#, fuzzy
 #| msgid "Key is too short, it should have at least 8 characters."
 msgid "Key is too short, it should have at least 32 characters."
-msgstr "Võti on liiga lühike, see peaks olema vähemalt 8 sümbolit."
+msgstr "Võti on liiga lühike, see peaks olema vähemalt 32 sümbolit."
 
 #: libraries/config/ServerConfigChecks.php:359
 msgid "Key should contain letters, numbers [em]and[/em] special characters."
@@ -7468,16 +7467,14 @@ msgid "Show last check timestamp"
 msgstr "Kuva viimase kontrolli ajatempel"
 
 #: libraries/config/messages.inc.php:860
-#, fuzzy
 #| msgid "Show or hide a column displaying the comments for all tables."
 msgid "Show or hide a column displaying the charset for all tables."
-msgstr "Näita või peida kõigi tabelite kommentaaride veerg."
+msgstr "Näita või peida märgistiku veerg kõikidel tabelitel."
 
 #: libraries/config/messages.inc.php:862
-#, fuzzy
 #| msgid "Show table comments"
 msgid "Show table charset"
-msgstr "Kuva tabeli kommentaarid"
+msgstr "Kuva tabeli märgistik"
 
 #: libraries/config/messages.inc.php:864
 msgid ""
@@ -14154,10 +14151,9 @@ msgid "Add"
 msgstr "Lisa"
 
 #: templates/columns_definitions/column_definitions_form.phtml:66
-#, fuzzy
 #| msgid "Add column(s)"
 msgid "column(s)"
-msgstr "Lisa veerg(usid)"
+msgstr "veerg(ud)"
 
 #: templates/columns_definitions/column_definitions_form.phtml:93
 msgid "Collation:"
@@ -15327,10 +15323,9 @@ msgid "The profile has been updated."
 msgstr "Profiil on uuendatud."
 
 #: user_password.php:125
-#, fuzzy
 #| msgid "Password Hashing:"
 msgid "Password is too long!"
-msgstr "Parooli räsimine:"
+msgstr "Salasõna on liiga pikk!"
 
 #: vendor/phpmyadmin/motranslator/tests/MoFilesTest.php:24
 msgid "Column parser"
