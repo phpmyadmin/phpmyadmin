@@ -157,7 +157,6 @@ class DbSearchTest extends PMATestCase
                     'select_columns' => 'column1',
                     'delete' => 'column2'
                 ),
-                true,
                 '<tr class="noclick"><td>2 matches in <strong>table1</strong>'
                 . '</td><td><a name="browse_search" class="ajax" '
                 . 'href="sql.php?db=pma&amp;table'
