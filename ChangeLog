@@ -2,6 +2,7 @@ phpMyAdmin - ChangeLog
 ======================
 
 4.6.5 (not yet released)
+- issue        Remove potentionally license problematic sRGB profile
 
 4.6.4 (2016-08-16)
 - issue        [security] Weaknesses with cookie encryption, see PMASA-2016-29
