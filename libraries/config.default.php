@@ -237,14 +237,6 @@ $cfg['Servers'][$i]['auth_type'] = 'cookie';
 $cfg['Servers'][$i]['auth_http_realm'] = '';
 
 /**
- * File containing Swekey ids and login names (see /contrib);
- * leave empty to deactivate Swekey hardware authentication
- *
- * @global string $cfg['Servers'][$i]['auth_swekey_config']
- */
-$cfg['Servers'][$i]['auth_swekey_config'] = '';
-
-/**
  * MySQL user
  *
  * @global string $cfg['Servers'][$i]['user']
@@ -1045,13 +1037,6 @@ $cfg['NavigationTreeShowEvents'] = true;
  * @global boolean $cfg['ShowStats']
  */
 $cfg['ShowStats'] = true;
-
-/**
- * show PHP info link
- *
- * @global boolean $cfg['ShowPhpInfo']
- */
-$cfg['ShowPhpInfo'] = false;
 
 /**
  * show MySQL server and web server information

@@ -13,6 +13,7 @@ require 'libraries/common.inc.php';
 
 $response = PMA\libraries\Response::getInstance();
 $response->disable();
+$response->getHeader()->sendHttpHeaders();
 
 $filename = CHANGELOG_FILE;
 
@@ -154,6 +155,7 @@ echo '</pre>';
 var links = document.getElementsByTagName("a");
 for(var i = 0; i < links.length; i++) {
     links[i].target = "_blank";
+    links[i].rel = "noopener noreferrer";
 }
 </script>
 </body>

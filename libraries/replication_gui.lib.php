@@ -548,7 +548,7 @@ function PMA_getHtmlForReplicationStatusTable($type, $hidden = false, $title = t
     foreach (${"{$type}_variables"} as $variable) {
         $html .= '   <tr class="' . ($odd_row ? 'odd' : 'even') . '">';
         $html .= '     <td class="name">';
-        $html .=        $variable;
+        $html .= htmlspecialchars($variable);
         $html .= '     </td>';
         $html .= '     <td class="value">';
 
@@ -571,13 +571,13 @@ function PMA_getHtmlForReplicationStatusTable($type, $hidden = false, $title = t
             'Replicate_Do_Table', 'Replicate_Ignore_Table',
             'Replicate_Wild_Do_Table', 'Replicate_Wild_Ignore_Table');
         if (in_array($variable, $variables_wrap)) {
-            $html .= str_replace(
+            $html .= htmlspecialchars(str_replace(
                 ',',
                 ', ',
                 ${"server_{$type}_replication"}[0][$variable]
-            );
+            ));
         } else {
-            $html .= ${"server_{$type}_replication"}[0][$variable];
+            $html .= htmlspecialchars(${"server_{$type}_replication"}[0][$variable]);
         }
         $html .= '</span>';
 
@@ -806,7 +806,7 @@ function PMA_getHtmlForAddUserLoginForm($username_length)
         . (empty($_REQUEST['username']) ? '' : ' value="'
         . (isset($GLOBALS['new_username'])
             ? $GLOBALS['new_username']
-            : $_REQUEST['username']) . '"')
+            : htmlspecialchars($_REQUEST['username'])) . '"')
         . ' />'
         . '</div>';
 
@@ -836,7 +836,7 @@ function PMA_getHtmlForTableInfoForm($hostname_length)
         . '</span>'
         . '<input type="text" name="hostname" id="pma_hostname" maxlength="'
         . $hostname_length . '" value="'
-        . (isset($_REQUEST['hostname']) ? $_REQUEST['hostname'] : '')
+        . (isset($_REQUEST['hostname']) ? htmlspecialchars($_REQUEST['hostname']) : '')
         . '" title="' . __('Host')
         . '" />'
         . PMA\libraries\Util::showHint(

@@ -214,10 +214,22 @@ class ServerConfigChecks
         $blowfishSecret, $cookieAuthServer, $blowfishSecretSet
     ) {
         if ($cookieAuthServer && $blowfishSecret === null) {
-            $blowfishSecret = uniqid('', true);
+            $blowfishSecret = '';
+            if (! function_exists('openssl_random_pseudo_bytes')) {
+                $random_func = 'phpseclib\\Crypt\\Random::string';
+            } else {
+                $random_func = 'openssl_random_pseudo_bytes';
+            }
+            while (strlen($blowfishSecret) < 32) {
+                $byte = $random_func(1);
+                // We want only ASCII chars
+                if (ord($byte) > 32 && ord($byte) < 127) {
+                    $blowfishSecret .= $byte;
+                }
+            }
+
             $blowfishSecretSet = true;
             $this->cfg->set('blowfish_secret', $blowfishSecret);
-            return array($blowfishSecret, $blowfishSecretSet);
         }
         return array($blowfishSecret, $blowfishSecretSet);
     }
@@ -329,10 +341,10 @@ class ServerConfigChecks
             } else {
                 $blowfishWarnings = array();
                 // check length
-                if (mb_strlen($blowfishSecret) < 8) {
+                if (strlen($blowfishSecret) < 32) {
                     // too short key
                     $blowfishWarnings[] = __(
-                        'Key is too short, it should have at least 8 characters.'
+                        'Key is too short, it should have at least 32 characters.'
                     );
                 }
                 // check used characters
