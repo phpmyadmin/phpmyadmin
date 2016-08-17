@@ -322,7 +322,7 @@ function PMA_getPartitionsDefinition()
         $i = 0;
         $partitions = array();
         foreach ($_REQUEST['partitions'] as $partition) {
-            $partitions[] = PMA_getPartitionDefinition('p' . $i, $partition);
+            $partitions[] = PMA_getPartitionDefinition($partition);
             $i++;
         }
         $sql_query .= " (" . implode(", ", $partitions) . ")";
@@ -334,15 +334,15 @@ function PMA_getPartitionsDefinition()
 /**
  * Returns the definition of a partition/subpartition
  *
- * @param string  $name           name of the partition/subpartition
  * @param array   $partition      array of partition/subpartition detiails
  * @param boolean $isSubPartition whether a subpartition
  *
  * @return string partition/subpartition definition
  */
-function PMA_getPartitionDefinition($name, $partition, $isSubPartition = false)
+function PMA_getPartitionDefinition($partition, $isSubPartition = false)
 {
-    $sql_query = " " . ($isSubPartition ? "SUB" : "") . "PARTITION " . $name;
+    $sql_query = " " . ($isSubPartition ? "SUB" : "") . "PARTITION ";
+    $sql_query .= $partition['name'];
 
     if (! empty($partition['value_type'])) {
         $sql_query .= " VALUES " . $partition['value_type'];
@@ -382,7 +382,6 @@ function PMA_getPartitionDefinition($name, $partition, $isSubPartition = false)
         $subpartitions = array();
         foreach ($partition['subpartitions'] as $subpartition) {
             $subpartitions[] = PMA_getPartitionDefinition(
-                $name . 's' . $j,
                 $subpartition,
                 true
             );
