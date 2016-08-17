@@ -23,6 +23,7 @@ phpMyAdmin - ChangeLog
 - issue        Removed MySQL connection retry without password
 - issue #12218 Allow to specify further parameters for control connection
 - issue #12162 Show charset for each table on Database structure page
+- issue #12330 Shortcut for closing console
 
 4.6.5 (not yet released)
 - issue        Remove potentionally license problematic sRGB profile
