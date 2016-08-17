@@ -731,6 +731,21 @@ class ConfigTest extends PMATestCase
                 'http://example.net/phpmyadmin/',
                 '/phpmyadmin/',
             ),
+            array(
+                'http://example.net/',
+                'http://example.net/phpmyadmin',
+                '/phpmyadmin/',
+            ),
+            array(
+                'http://example.net/',
+                '/phpmyadmin2',
+                '/phpmyadmin2/',
+            ),
+            array(
+                'http://example.net/',
+                '/phpmyadmin3/',
+                '/phpmyadmin3/',
+            ),
         );
     }
 

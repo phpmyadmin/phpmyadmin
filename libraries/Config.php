@@ -1402,6 +1402,9 @@ class Config
         if (! empty($url)) {
             $path = parse_url($url, PHP_URL_PATH);
             if (! empty($path)) {
+                if (substr($path, -1) != '/') {
+                    return $path . '/';
+                }
                 return $path;
             }
         }
