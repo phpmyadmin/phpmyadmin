@@ -207,14 +207,17 @@ class Navigation
                     $html .= '<table width="100%"><tbody>';
                     $odd = true;
                     foreach ($hidden[$t] as $hiddenItem) {
+                        $params = array(
+                            'unhideNavItem' => true,
+                            'itemType' => $t,
+                            'itemName' => $hiddenItem,
+                            'dbName' => $dbName
+                        );
+
                         $html .= '<tr class="' . ($odd ? 'odd' : 'even') . '">';
                         $html .= '<td>' . htmlspecialchars($hiddenItem) . '</td>';
                         $html .= '<td style="width:80px"><a href="navigation.php'
-                            . URL::getCommon()
-                            . '&unhideNavItem=true'
-                            . '&itemType=' . urlencode($t)
-                            . '&itemName=' . urlencode($hiddenItem)
-                            . '&dbName=' . urlencode($dbName) . '"'
+                            . URL::getCommon($params) . '"'
                             . ' class="unhideNavItem ajax">'
                             . Util::getIcon('show.png', __('Show'))
                             .  '</a></td>';
