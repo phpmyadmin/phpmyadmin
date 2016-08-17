@@ -24,6 +24,8 @@ phpMyAdmin - ChangeLog
 - issue #12218 Allow to specify further parameters for control connection
 - issue #12162 Show charset for each table on Database structure page
 
+4.6.5 (not yet released)
+
 4.6.4 (2016-08-16)
 - issue        [security] Weaknesses with cookie encryption, see PMASA-2016-29
 - issue        [security] Improve session cookie code for openid.php and signon.php example files
