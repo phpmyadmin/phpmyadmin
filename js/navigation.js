@@ -964,7 +964,8 @@ function PMA_ensureNaviSettings(selflink) {
 function PMA_reloadNavigation(callback, paths) {
     var params = {
         reload: true,
-        no_debug: true
+        no_debug: true,
+        token: PMA_commonParams.get('token')
     };
     paths = paths || traverseNavigationForPaths();
     $.extend(params, paths);
