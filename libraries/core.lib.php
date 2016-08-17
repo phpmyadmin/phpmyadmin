@@ -356,7 +356,7 @@ function PMA_getTableCount($db)
 
 /**
  * Converts numbers like 10M into bytes
- * Used with permission from Moodle (http://moodle.org) by Martin Dougiamas
+ * Used with permission from Moodle (https://moodle.org) by Martin Dougiamas
  * (renamed with PMA prefix to avoid double definition when embedded
  * in Moodle)
  *
