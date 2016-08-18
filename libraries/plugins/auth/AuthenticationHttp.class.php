@@ -158,6 +158,9 @@ class AuthenticationHttp extends AuthenticationPlugin
             unset($usr_pass);
         }
 
+        // sanitize username
+        $PHP_AUTH_USER = PMA_sanitizeMySQLUser($PHP_AUTH_USER);
+
         // User logged out -> ensure the new username is not the same
         $old_usr = isset($_REQUEST['old_usr']) ? $_REQUEST['old_usr'] : '';
         if (! empty($old_usr)
