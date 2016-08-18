@@ -1059,6 +1059,24 @@ function PMA_sanitizeMySQLHost($name)
 }
 
 /**
+ * Sanitizes MySQL username
+ *
+ * * strips part behind null byte
+ *
+ * @param string $name User given username
+ *
+ * @return string
+ */
+function PMA_sanitizeMySQLUser($name)
+{
+    $position = strpos($name, chr(0));
+    if ($position !== false) {
+        return substr($name, 0, $position);
+    }
+    return $name;
+}
+
+/**
  * Safe unserializer wrapper
  *
  * It does not unserialize data containing objects
