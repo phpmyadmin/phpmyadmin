@@ -67,7 +67,7 @@ class VersionInformation
                 if (! defined('TESTSUITE')) {
                     session_write_close();
                 }
-                $response = curl_exec($curl_handle);
+                $response = @curl_exec($curl_handle);
             } else if (ini_get('allow_url_fopen')) {
                 $context = array(
                     'http' => array(
@@ -79,11 +79,15 @@ class VersionInformation
                 if (! defined('TESTSUITE')) {
                     session_write_close();
                 }
-                $response = file_get_contents(
+                $response = @file_get_contents(
                     $file,
                     false,
                     stream_context_create($context)
                 );
+            }
+            // Check possible failure of getting data
+            if ($response === false) {
+                $response = '{}';
             }
         }
 
