@@ -163,7 +163,7 @@ class FooterTest extends PMATestCase
             '<div id="selflink" class="print_ignore"><a href="index.php?db=&amp;'
             . 'table=&amp;server=1&amp;target=&amp;lang=en&amp;collation_connection='
             . 'utf8_general_ci&amp;token=token" title="Open new phpMyAdmin window" '
-            . 'target="_blank">Open new phpMyAdmin window</a></div>',
+            . 'target="_blank" rel="noopener noreferrer">Open new phpMyAdmin window</a></div>',
             $this->_callPrivateFunction(
                 '_getSelfLink',
                 array(
@@ -190,7 +190,7 @@ class FooterTest extends PMATestCase
             '<div id="selflink" class="print_ignore"><a href="index.php?db=&amp;'
             . 'table=&amp;server=1&amp;target=&amp;lang=en&amp;collation_connection='
             . 'utf8_general_ci&amp;token=token" title="Open new phpMyAdmin window" '
-            . 'target="_blank"><img src="imagewindow-new.png" title="Open new '
+            . 'target="_blank" rel="noopener noreferrer"><img src="imagewindow-new.png" title="Open new '
             . 'phpMyAdmin window" alt="Open new phpMyAdmin window" /></a></div>',
             $this->_callPrivateFunction(
                 '_getSelfLink',
