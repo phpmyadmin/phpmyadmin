@@ -98,7 +98,7 @@ class ErrorTest extends PMATestCase
         return array(
             array('./ChangeLog', './ChangeLog'),
             array(__FILE__, './test/classes/ErrorTest.php'),
-            array('./NONEXISTING', './NONEXISTING'),
+            array('./NONEXISTING', 'NONEXISTING'),
         );
     }
 
