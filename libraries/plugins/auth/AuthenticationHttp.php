@@ -168,8 +168,8 @@ class AuthenticationHttp extends AuthenticationPlugin
 
         // User logged out -> ensure the new username is not the same
         $old_usr = isset($_REQUEST['old_usr']) ? $_REQUEST['old_usr'] : '';
-        if (!empty($old_usr)
-            && (isset($PHP_AUTH_USER) && $old_usr == $PHP_AUTH_USER)
+        if (! empty($old_usr)
+            && (isset($PHP_AUTH_USER) && hash_equals($old_usr, $PHP_AUTH_USER))
         ) {
             $PHP_AUTH_USER = '';
         }
@@ -199,12 +199,12 @@ class AuthenticationHttp extends AuthenticationPlugin
 
         // Ensures valid authentication mode, 'only_db', bookmark database and
         // table names and relation table name are used
-        if ($cfg['Server']['user'] != $PHP_AUTH_USER) {
+        if (! hash_equals($cfg['Server']['user'], $PHP_AUTH_USER)) {
             $servers_cnt = count($cfg['Servers']);
             for ($i = 1; $i <= $servers_cnt; $i++) {
                 if (isset($cfg['Servers'][$i])
                     && ($cfg['Servers'][$i]['host'] == $cfg['Server']['host']
-                    && $cfg['Servers'][$i]['user'] == $PHP_AUTH_USER)
+                    && hash_equals($cfg['Servers'][$i]['user'], $PHP_AUTH_USER))
                 ) {
                     $server = $i;
                     $cfg['Server'] = $cfg['Servers'][$i];

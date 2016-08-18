@@ -407,14 +407,14 @@ class AuthenticationCookie extends AuthenticationPlugin
 
         // Ensures valid authentication mode, 'only_db', bookmark database and
         // table names and relation table name are used
-        if ($cfg['Server']['user'] != $GLOBALS['PHP_AUTH_USER']) {
+        if (! hash_equals($cfg['Server']['user'], $GLOBALS['PHP_AUTH_USER'])) {
             foreach ($cfg['Servers'] as $idx => $current) {
                 if ($current['host'] == $cfg['Server']['host']
                     && $current['port'] == $cfg['Server']['port']
                     && $current['socket'] == $cfg['Server']['socket']
                     && $current['ssl'] == $cfg['Server']['ssl']
                     && $current['connect_type'] == $cfg['Server']['connect_type']
-                    && $current['user'] == $GLOBALS['PHP_AUTH_USER']
+                    && hash_equals($current['user'], $GLOBALS['PHP_AUTH_USER'])
                 ) {
                     $GLOBALS['server'] = $idx;
                     $cfg['Server']     = $current;
