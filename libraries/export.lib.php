@@ -18,14 +18,12 @@ if (! defined('PHPMYADMIN')) {
  */
 function PMA_shutdownDuringExport()
 {
-    $a = error_get_last();
-    if ($a != null
-        && /*overload*/mb_strpos($a['message'], "execution time")
+    $error = error_get_last();
+    if ($error != null
+        && /*overload*/mb_strpos($error['message'], "execution time")
     ) {
-        //write in partially downloaded file for future reference of user
-        print_r($a);
         //set session variable to check if there was error while exporting
-        $_SESSION['pma_export_error'] = $a['message'];
+        $_SESSION['pma_export_error'] = $error['message'];
     }
 }
 
