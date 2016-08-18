@@ -318,7 +318,7 @@ function PMA_allowDeny($type)
 
         // check for username
         if (($rule_data[1] != '%') //wildcarded first
-            && ($rule_data[1] != $username)
+            && (! hash_equals($rule_data[1], $username))
         ) {
             continue;
         }
