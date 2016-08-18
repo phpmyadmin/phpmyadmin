@@ -94,7 +94,7 @@ class AuthenticationCookie extends AuthenticationPlugin
     <div class="container">
     <a href="';
         echo PMA_linkURL('https://www.phpmyadmin.net/');
-        echo '" target="_blank" class="logo">';
+        echo '" target="_blank" rel="noopener noreferrer" class="logo">';
         $logo_image = $GLOBALS['pmaThemeImage'] . 'logo_right.png';
         if (@file_exists($logo_image)) {
             echo '<img src="' , $logo_image
