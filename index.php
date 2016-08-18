@@ -156,7 +156,7 @@ if ($server > 0 || count($cfg['Servers']) > 1
                 . 'please do not change root, debian-sys-maint and pma users. '
                 . 'More information is available at %s.'
             ),
-            '<a href="url.php?url=https://demo.phpmyadmin.net/" target="_blank">demo.phpmyadmin.net</a>'
+            '<a href="url.php?url=https://demo.phpmyadmin.net/" target="_blank" rel="noopener noreferrer">demo.phpmyadmin.net</a>'
         );
         echo '</p>';
         echo '</div>';

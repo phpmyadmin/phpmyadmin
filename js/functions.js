@@ -4835,11 +4835,6 @@ function formatBytes(bytes, subdecimals, pointchar) {
 
 AJAX.registerOnload('functions.js', function () {
     /**
-     * Opens pma more themes link in themes browser, in new window instead of popup
-     * This way, we don't break HTML validity
-     */
-    $("a._blank").prop("target", "_blank");
-    /**
      * Reveal the login form to users with JS enabled
      * and focus the appropriate input field
      */

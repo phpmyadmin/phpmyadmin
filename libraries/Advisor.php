@@ -353,7 +353,7 @@ class Advisor
      */
     private function replaceLinkURL($matches)
     {
-        return 'href="' . PMA_linkURL($matches[2]) . '" target="_blank"';
+        return 'href="' . PMA_linkURL($matches[2]) . '" target="_blank" rel="noopener noreferrer"';
     }
 
     /**
