@@ -106,11 +106,9 @@ class NavigationHeader
         $logoLink = trim(
             htmlspecialchars($GLOBALS['cfg']['NavigationLogoLink'])
         );
-        // prevent XSS, see PMASA-2013-9
-        // if link has protocol, allow only http and https
-        if (preg_match('/^[a-z]+:/i', $logoLink)
-            && !preg_match('/^https?:/i', $logoLink)
-        ) {
+        $parsed = parse_url($logoLink);
+        /* Allow only links with http/https */
+        if (! isset($parsed['scheme']) || ! in_array(strtolower($parsed['scheme']), array('http', 'https'))) {
             $logoLink = 'index.php';
         }
         switch ($GLOBALS['cfg']['NavigationLogoLinkWindow']) {
