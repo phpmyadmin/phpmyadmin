@@ -160,6 +160,16 @@ class PMA_SavedSearches
             $data[$field] = $criterias[$field];
         }
 
+        /* Limit amount of rows */
+        if (!isset($data['rows'])) {
+            $data['rows'] = 0;
+        } else {
+            $data['rows'] = min(
+                max(0, intval($data['rows'])),
+                100
+            );
+        }
+
         for ($i = 0; $i <= $data['rows']; $i++) {
             $data['Or' . $i] = $criterias['Or' . $i];
         }
