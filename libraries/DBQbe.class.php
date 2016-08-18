@@ -203,7 +203,10 @@ class PMA_DbQbe
         // sets row count
         $rows = PMA_ifSetOr($_REQUEST['rows'],    0, 'numeric');
         $criteriaRowAdd = PMA_ifSetOr($_REQUEST['criteriaRowAdd'], 0, 'numeric');
-        $this->_criteria_row_count = max($rows + $criteriaRowAdd, 0);
+        $this->_criteria_row_count = min(
+            max($rows + $criteriaRowAdd, 0),
+            100
+        );
 
         $this->_criteriaColumnInsert = PMA_ifSetOr(
             $_REQUEST['criteriaColumnInsert'],
