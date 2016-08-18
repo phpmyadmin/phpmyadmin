@@ -556,7 +556,7 @@ function PMA_noCacheHeader()
         return;
     }
     // rfc2616 - Section 14.21
-    header('Expires: ' . date(DATE_RFC1123));
+    header('Expires: ' . gmdate(DATE_RFC1123));
     // HTTP/1.1
     header(
         'Cache-Control: no-store, no-cache, must-revalidate,'
@@ -579,7 +579,7 @@ function PMA_noCacheHeader()
     // test case: exporting a database into a .gz file with Safari
     // would produce files not having the current time
     // (added this header for Safari but should not harm other browsers)
-    header('Last-Modified: ' . date(DATE_RFC1123));
+    header('Last-Modified: ' . gmdate(DATE_RFC1123));
 }
 
 
