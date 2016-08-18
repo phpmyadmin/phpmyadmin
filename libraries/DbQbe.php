@@ -1940,7 +1940,10 @@ class DbQbe
         // sets row count
         $rows = PMA_ifSetOr($_REQUEST['rows'], 0, 'numeric');
         $criteriaRowAdd = PMA_ifSetOr($_REQUEST['criteriaRowAdd'], 0, 'numeric');
-        $this->_criteria_row_count = max($rows + $criteriaRowAdd, 0);
+        $this->_criteria_row_count = min(
+            100,
+            max($rows + $criteriaRowAdd, 0)
+        );
 
         return $criteriaColumnCount;
     }
