@@ -299,7 +299,7 @@ function PMA_clearSelection() {
  *
  * @param $elements     jQuery object representing the elements
  * @param item          the item
- *                      (see http://api.jqueryui.com/tooltip/#option-items)
+ *                      (see https://api.jqueryui.com/tooltip/#option-items)
  * @param myContent     content of the tooltip
  * @param additionalOptions to override the default options
  *
@@ -4117,7 +4117,16 @@ AJAX.registerOnload('functions.js', function () {
      * Load version information asynchronously.
      */
     if ($('li.jsversioncheck').length > 0) {
-        $.getJSON('version_check.php', {'server' : PMA_commonParams.get('server')}, PMA_current_version);
+        $.ajax({
+            dataType: "json",
+            url: 'version_check.php',
+            method: "POST",
+            data: {
+                "server": PMA_commonParams.get('server'),
+                "token": PMA_commonParams.get('token'),
+            },
+            success: PMA_current_version
+        });
     }
 
     if ($('#is_git_revision').length > 0) {
@@ -4825,11 +4834,6 @@ function formatBytes(bytes, subdecimals, pointchar) {
 }
 
 AJAX.registerOnload('functions.js', function () {
-    /**
-     * Opens pma more themes link in themes browser, in new window instead of popup
-     * This way, we don't break HTML validity
-     */
-    $("a._blank").prop("target", "_blank");
     /**
      * Reveal the login form to users with JS enabled
      * and focus the appropriate input field

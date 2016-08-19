@@ -21,6 +21,10 @@
             ? ' target="' . $url['target'] . '"'
             : null;
         ?>
+        <?= !empty($url['target']) && $url['target'] == '_blank'
+            ? ' rel="noopener noreferrer"'
+            : null;
+        ?>
         <?= !empty($url['id']) ? ' id="' . $url['id'] . '"' : null; ?>
         <?= !empty($url['class'])
             ? ' class="' . $url['class'] . '"'

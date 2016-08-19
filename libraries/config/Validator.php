@@ -183,6 +183,7 @@ class Validator
     ) {
         //    static::testPHPErrorMsg();
         $error = null;
+        $host = PMA_sanitizeMySQLHost($host);
 
         if (DatabaseInterface::checkDbExtension('mysqli')) {
             $socket = empty($socket) || $connect_type == 'tcp' ? null : $socket;

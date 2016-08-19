@@ -113,13 +113,16 @@ function PMA_setChangePasswordMsg()
     $message = PMA\libraries\Message::success(__('The profile has been updated.'));
 
     if (($_REQUEST['nopass'] != '1')) {
-        if (empty($_REQUEST['pma_pw']) || empty($_REQUEST['pma_pw2'])) {
+        if (strlen($_REQUEST['pma_pw']) === 0 || strlen($_REQUEST['pma_pw2']) === 0) {
             $message = PMA\libraries\Message::error(__('The password is empty!'));
             $error = true;
-        } elseif ($_REQUEST['pma_pw'] != $_REQUEST['pma_pw2']) {
+        } elseif ($_REQUEST['pma_pw'] !== $_REQUEST['pma_pw2']) {
             $message = PMA\libraries\Message::error(
                 __('The passwords aren\'t the same!')
             );
+            $error = true;
+        } elseif (strlen($_REQUEST['pma_pw']) > 256) {
+            $message = PMA_Message::error(__('Password is too long!'));
             $error = true;
         }
     }

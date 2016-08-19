@@ -35,7 +35,7 @@ class Logging
             @syslog(
                 LOG_WARNING,
                 'user denied: ' . $user . ' (' . $status . ') from ' .
-                $_SERVER['REMOTE_ADDR']
+                PMA_getIp()
             );
         }
     }

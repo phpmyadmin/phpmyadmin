@@ -46,10 +46,9 @@ Basic settings
     :type: string
     :default: ``''``
 
-    .. deprecated:: 4.6.0
+    .. versionchanged:: 4.6.5
         
-        This setting is no longer available since phpMyAdmin 4.6.0. Please
-        adjust your webserver instead.
+        This setting was not available in phpMyAdmin 4.6.0 - 4.6.4.
 
     Sets here the complete :term:`URL` (with full path) to your phpMyAdmin
     installation's directory. E.g.
@@ -67,7 +66,7 @@ Basic settings
     fails to detect your path, please post a bug report on our bug tracker so
     we can improve the code.
 
-    .. seealso:: :ref:`faq1_40`
+    .. seealso:: :ref:`faq1_40`, :ref:`faq2_5`, :ref:`faq4_7`, :ref:`faq5_16`
 
 .. config:option:: $cfg['PmaNoRelation_DisableWarning']
 
@@ -1631,7 +1630,10 @@ Cookie authentication options
     The "cookie" auth\_type uses AES algorithm to encrypt the password. If you
     are using the "cookie" auth\_type, enter here a random passphrase of your
     choice. It will be used internally by the AES algorithm: you won’t be
-    prompted for this passphrase. There is no maximum length for this secret.
+    prompted for this passphrase. 
+    
+    The secret should be 32 characters long. Using shorter will lead to weaker security
+    of encrypted cookies, using longer will cause no harm.
 
     .. note::
 
@@ -1991,11 +1993,6 @@ Main panel
     You can additionally hide more information by using
     :config:option:`$cfg['Servers'][$i]['verbose']`.
 
-.. config:option:: $cfg['ShowPhpInfo']
-
-    :type: boolean
-    :default: false
-
 .. config:option:: $cfg['ShowChgPassword']
 
     :type: boolean
@@ -2006,17 +2003,10 @@ Main panel
     :type: boolean
     :default: true
 
-    Defines whether to display the :guilabel:`PHP information` and
+    Defines whether to display the 
     :guilabel:`Change password` links and form for creating database or not at
     the starting main (right) frame. This setting does not check MySQL commands
     entered directly.
-
-    Please note that to block the usage of ``phpinfo()`` in scripts, you have to
-    put this in your :file:`php.ini`:
-
-    .. code-block:: ini
-
-        disable_functions = phpinfo()
 
     Also note that enabling the :guilabel:`Change password` link has no effect
     with config authentication mode: because of the hard coded password value
@@ -3086,7 +3076,6 @@ Developer
 
     Enable to let server present itself as demo server.
     This is used for `phpMyAdmin demo server <https://www.phpmyadmin.net/try>`_.
-
 
 .. _config-examples:
 

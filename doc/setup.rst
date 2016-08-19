@@ -189,6 +189,14 @@ environment variables:
 By default, :ref:`cookie` is used, but if :envvar:`PMA_USER` and
 :envvar:`PMA_PASSWORD` are set, it is switched to :ref:`auth_config`.
 
+.. note::
+
+    The credentials you need to login are stored in the MySQL server, in case
+    of Docker image there are various ways to set it (for example
+    :envvar:`MYSQL_ROOT_PASSWORD` when starting MySQL container). Please check 
+    documentation for `MariaDB container <https://hub.docker.com/r/_/mariadb/>`_
+    or `MySQL container <https://hub.docker.com/r/_/mysql/>`_.
+
 Additionally configuration can be tweaked by :file:`/config.user.inc.php`. If
 this file exists, it will be loaded after configuration generated from above
 environment variables, so you can override any configuration variable. This
@@ -288,7 +296,8 @@ simple configuration may look like this:
 
 
     <?php
-    $cfg['blowfish_secret'] = 'ba17c1ec07d65003';  // use here a value of your choice
+    // use here a value of your choice at least 32 chars long
+    $cfg['blowfish_secret'] = '1{dd0`<Q),5XP_:R9UK%%8\"EEcyH#{o';
 
     $i=0;
     $i++;

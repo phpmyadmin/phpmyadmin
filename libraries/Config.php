@@ -1400,8 +1400,12 @@ class Config
             return $this->get('is_https');
         }
 
+        $url = $this->get('PmaAbsoluteUri');
+
         $is_https = false;
-        if (strtolower(PMA_getenv('HTTP_SCHEME')) == 'https') {
+        if (! empty($url) && parse_url($url, PHP_URL_SCHEME) === 'https') {
+            $is_https = true;
+        } elseif (strtolower(PMA_getenv('HTTP_SCHEME')) == 'https') {
             $is_https = true;
         } elseif (strtolower(PMA_getenv('HTTPS')) == 'on') {
             $is_https = true;
@@ -1424,16 +1428,28 @@ class Config
     }
 
     /**
-     * Get cookie path
+     * Get phpMyAdmin root path
      *
      * @return string
      */
-    public function getCookiePath()
+    public function getRootPath()
     {
         static $cookie_path = null;
 
         if (null !== $cookie_path && !defined('TESTSUITE')) {
             return $cookie_path;
+        }
+
+        $url = $this->get('PmaAbsoluteUri');
+
+        if (! empty($url)) {
+            $path = parse_url($url, PHP_URL_PATH);
+            if (! empty($path)) {
+                if (substr($path, -1) != '/') {
+                    return $path . '/';
+                }
+                return $path;
+            }
         }
 
         $parsed_url = parse_url($GLOBALS['PMA_PHP_SELF']);
@@ -1619,7 +1635,7 @@ class Config
             $cookie,
             '',
             time() - 3600,
-            $this->getCookiePath(),
+            $this->getRootPath(),
             '',
             $this->isHttps()
         );
@@ -1675,7 +1691,7 @@ class Config
                 $cookie,
                 $value,
                 $validity,
-                $this->getCookiePath(),
+                $this->getRootPath(),
                 '',
                 $this->isHttps(),
                 $httponly

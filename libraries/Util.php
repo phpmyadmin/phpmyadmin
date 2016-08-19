@@ -1908,6 +1908,9 @@ class Util
         }
         if (! empty($target)) {
             $tag_params['target'] = htmlentities($target);
+            if ($target === '_blank' && strncmp($url, 'url.php?', 8) == 0) {
+                $tag_params['rel'] = 'noopener noreferrer';
+            }
         }
 
         $displayed_message = '';
@@ -2687,7 +2690,7 @@ class Util
             $dir .= '/';
         }
 
-        return str_replace('%u', $GLOBALS['cfg']['Server']['user'], $dir);
+        return str_replace('%u', PMA_securePath($GLOBALS['cfg']['Server']['user']), $dir);
     }
 
     /**

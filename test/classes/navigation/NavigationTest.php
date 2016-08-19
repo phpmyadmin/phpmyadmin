@@ -145,8 +145,9 @@ class NavigationTest extends PMATestCase
             $html
         );
         $this->assertContains(
-            '<a href="navigation.php' . URL::getCommon()
-            . '&unhideNavItem=true&itemType=table&itemName=tableName&dbName=db"'
+            '<a href="navigation.php?'
+            . 'unhideNavItem=1&amp;itemType=table&amp;'
+            . 'itemName=tableName&amp;dbName=db&amp;lang=en"'
             . ' class="unhideNavItem ajax">',
             $html
         );

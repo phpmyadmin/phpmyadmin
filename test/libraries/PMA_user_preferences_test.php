@@ -358,6 +358,7 @@ class PMA_User_Preferences_Test extends PHPUnit_Framework_TestCase
                 'Cannot redefine constant/function - missing runkit extension'
             );
         }
+        $GLOBALS['PMA_Config']->set('PmaAbsoluteUri', '');
 
         $GLOBALS['cfg']['ServerDefault'] = 1;
         $GLOBALS['lang'] = '';

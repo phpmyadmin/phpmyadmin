@@ -2390,13 +2390,13 @@ function PMA_getHtmlTableBodyForSpecificDbRoutinePrivs($db, $odd_row, $index_che
             . 'id="checkbox_sel_users_' . ($index_checkbox++) . '" '
             . 'value="' . $value . '" /></td>';
 
-        $html_output .= '<td>' . $row['User']
+        $html_output .= '<td>' . htmlspecialchars($row['User'])
             . '</td>'
-            . '<td>' . $row['Host']
+            . '<td>' . htmlspecialchars($row['Host'])
             . '</td>'
             . '<td>' . 'routine'
             . '</td>'
-            . '<td>' . '<code>' . $row['Routine_name'] . '</code>'
+            . '<td>' . '<code>' . htmlspecialchars($row['Routine_name']) . '</code>'
             . '</td>'
             . '<td>' . 'Yes'
             . '</td>';

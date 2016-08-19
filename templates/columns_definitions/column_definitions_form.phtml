@@ -55,7 +55,7 @@ use PMA\libraries\URL;
                            class="textfield" autofocus required />
                     </td>
                     <td>
-                        Add
+                        <?= __('Add'); ?>
                         <input type="number"
                                id="added_fields"
                                name="added_fields"
@@ -63,7 +63,7 @@ use PMA\libraries\URL;
                                value="1"
                                min="1"
                                onfocus="this.select()" />
-                        column(s)
+                        <?= __('column(s)'); ?>
                         <input type="button"
                                name="submit_num_fields"
                                value="<?= __('Go'); ?>" />

@@ -522,6 +522,9 @@ $(function () {
         event.preventDefault();
         $.ajax({
             type: 'POST',
+            data: {
+                token: PMA_commonParams.get('token')
+            },
             url: $(this).attr('href') + '&ajax_request=true',
             success: function (data) {
                 if (typeof data !== 'undefined' && data.success === true) {
@@ -570,6 +573,9 @@ $(function () {
         var $msg = PMA_ajaxShowMessage();
         $.ajax({
             type: 'POST',
+            data: {
+                token: PMA_commonParams.get('token')
+            },
             url: $(this).attr('href') + '&ajax_request=true',
             success: function (data) {
                 PMA_ajaxRemoveMessage($msg);
@@ -635,12 +641,15 @@ $(function () {
         if ($('#pma_navigation_tree_content').length &&
             typeof storage.navTreePaths === 'undefined'
         ) {
-            navTreeStateUpdate();
+            PMA_reloadNavigation();
         } else if (PMA_commonParams.get('server') === storage.server &&
             PMA_commonParams.get('token') === storage.token
         ) {
             // Reload the tree to the state before page refresh
             PMA_reloadNavigation(navFilterStateRestore, JSON.parse(storage.navTreePaths));
+        } else {
+            // If the user is different
+            navTreeStateUpdate();
         }
     }
 });
@@ -961,7 +970,8 @@ function PMA_ensureNaviSettings(selflink) {
 function PMA_reloadNavigation(callback, paths) {
     var params = {
         reload: true,
-        no_debug: true
+        no_debug: true,
+        token: PMA_commonParams.get('token')
     };
     paths = paths || traverseNavigationForPaths();
     $.extend(params, paths);

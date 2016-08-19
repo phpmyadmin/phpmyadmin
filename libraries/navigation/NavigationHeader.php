@@ -116,7 +116,7 @@ class NavigationHeader
         }
         switch ($GLOBALS['cfg']['NavigationLogoLinkWindow']) {
         case 'new':
-            $linkAttriks = 'target="_blank"';
+            $linkAttriks = 'target="_blank" rel="noopener noreferrer"';
             break;
         case 'main':
             // do not add our parameters for an external link
@@ -127,7 +127,7 @@ class NavigationHeader
             if (empty($host)) {
                 $logoLink .= URL::getCommon();
             } else {
-                $linkAttriks = 'target="_blank"';
+                $linkAttriks = 'target="_blank" rel="noopener noreferrer"';
             }
         }
 

@@ -43,6 +43,11 @@ $(document).ready(function() {
             PMA_console.toggle();
         }
 
+        if( e.ctrlKey && e.keyCode == keyK ) {
+            e.preventDefault();
+            PMA_console.toggle();
+        }
+
         if( e.target.nodeName === 'INPUT' || e.target.nodeName === 'TEXTAREA' || e.target.nodeName === 'SELECT' ) {
             return;
         }
@@ -53,6 +58,7 @@ $(document).ready(function() {
             databaseOp = true;
         }
         else if(e.keyCode === keyK) {
+            e.preventDefault();
             PMA_console.toggle();
         }
         else if(e.keyCode === keyS) {

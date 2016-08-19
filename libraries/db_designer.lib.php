@@ -90,7 +90,7 @@ function PMA_getPageIdsAndNames($db)
 
     $result = array();
     while ($curr_page = $GLOBALS['dbi']->fetchAssoc($page_rs)) {
-        $result[$curr_page['page_nr']] = $curr_page['page_descr'];
+        $result[intval($curr_page['page_nr'])] = $curr_page['page_descr'];
     }
     return $result;
 }

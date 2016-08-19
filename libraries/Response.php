@@ -61,6 +61,13 @@ class Response
      */
     private $_isAjax;
     /**
+     * Whether response object is disabled
+     *
+     * @access private
+     * @var bool
+     */
+    private $_isDisabled;
+    /**
      * Whether we are servicing an ajax request for a page
      * that was fired using the generic page handler in JS.
      *
@@ -102,6 +109,7 @@ class Response
         $this->_isSuccess  = true;
         $this->_isAjax     = false;
         $this->_isAjaxPage = false;
+        $this->_isDisabled = false;
         if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
             $this->_isAjax = true;
         }
@@ -174,6 +182,7 @@ class Response
     {
         $this->_header->disable();
         $this->_footer->disable();
+        $this->_isDisabled = true;
     }
 
     /**
@@ -277,6 +286,12 @@ class Response
      */
     private function _ajaxResponse()
     {
+        /* Avoid wrapping in case we're disabled */
+        if ($this->_isDisabled) {
+            echo $this->_getDisplay();
+            return;
+        }
+
         if (! isset($this->_JSON['message'])) {
             $this->_JSON['message'] = $this->_getDisplay();
         } else if ($this->_JSON['message'] instanceof Message) {

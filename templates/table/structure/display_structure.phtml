@@ -161,7 +161,9 @@ $rownum = 0; $odd_row = true; ?>
         $partitions = Partition::getPartitions($db, $table);
         $firstPartition = $partitions[0];
         $rangeOrList = $firstPartition->getMethod() == 'RANGE'
-            || $firstPartition->getMethod() == 'LIST';
+            || $firstPartition->getMethod() == 'RANGE COLUMNS'
+            || $firstPartition->getMethod() == 'LIST'
+            || $firstPartition->getMethod() == 'LIST COLUMNS';
         $subParitions = $firstPartition->getSubPartitions();
         $hasSubPartitions = $firstPartition->hasSubPartitions();
         if ($hasSubPartitions) {
@@ -187,7 +189,7 @@ $rownum = 0; $odd_row = true; ?>
         $tmp_partition_description = $firstPartition->getDescription();
 
         $removeSQL = "ALTER TABLE " . Util::backquote($table) . " REMOVE PARTITIONING";
-        $removeUrl = 'sql.php' . $url_query . '&sql_query=' . urldecode($removeSQL);
+        $removeUrl = 'sql.php' . $url_query . '&sql_query=' . urlencode($removeSQL);
 
         echo Template::get('table/structure/display_partitions')->render(
             array(

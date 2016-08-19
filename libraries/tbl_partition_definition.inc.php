@@ -27,12 +27,16 @@ if (!isset($partitionDetails)) {
         && $_REQUEST['partition_count'] > 1
         && isset($_REQUEST['partition_by'])
         && ($_REQUEST['partition_by'] == 'RANGE'
-        || $_REQUEST['partition_by'] == 'LIST');
+        || $_REQUEST['partition_by'] == 'RANGE COLUMNS'
+        || $_REQUEST['partition_by'] == 'LIST'
+        || $_REQUEST['partition_by'] == 'LIST COLUMNS');
 
     // Values are specified only for LIST and RANGE type partitions
     $partitionDetails['value_enabled'] = isset($_REQUEST['partition_by'])
         && ($_REQUEST['partition_by'] == 'RANGE'
-        || $_REQUEST['partition_by'] == 'LIST');
+        || $_REQUEST['partition_by'] == 'RANGE COLUMNS'
+        || $_REQUEST['partition_by'] == 'LIST'
+        || $_REQUEST['partition_by'] == 'LIST COLUMNS');
 
     if (PMA_isValid($_REQUEST['partition_count'], 'numeric')
         && $_REQUEST['partition_count'] > 1
@@ -48,6 +52,7 @@ if (!isset($partitionDetails)) {
         for ($i = 0; $i < $_REQUEST['partition_count']; $i++) {
             if (! isset($partitions[$i])) { // Newly added partition
                 $partitions[$i] = array(
+                    'name' => 'p' . $i,
                     'value_type' => '',
                     'value' => '',
                     'engine' => '',
@@ -62,7 +67,6 @@ if (!isset($partitionDetails)) {
             }
 
             $partition =& $partitions[$i];
-            $partition['name'] = 'p' . $i;
             $partition['prefix'] = 'partitions[' . $i . ']';
 
             // Changing from HASH/KEY to RANGE/LIST
@@ -99,6 +103,7 @@ if (!isset($partitionDetails)) {
                 for ($j = 0; $j < $_REQUEST['subpartition_count']; $j++) {
                     if (! isset($subpartitions[$j])) { // Newly added subpartition
                         $subpartitions[$j] = array(
+                            'name' => $partition['name'] . '_s' . $j,
                             'engine' => '',
                             'comment' => '',
                             'data_directory' => '',
@@ -111,7 +116,6 @@ if (!isset($partitionDetails)) {
                     }
 
                     $subpartition =& $subpartitions[$j];
-                    $subpartition['name'] = 'p' . $i . 's' . $j;
                     $subpartition['prefix'] = 'partitions[' . $i . ']'
                         . '[subpartitions][' . $j . ']';
                 }

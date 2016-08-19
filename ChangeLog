@@ -23,8 +23,55 @@ phpMyAdmin - ChangeLog
 - issue        Removed MySQL connection retry without password
 - issue #12218 Allow to specify further parameters for control connection
 - issue #12162 Show charset for each table on Database structure page
+- issue #12463 Incorrect link in the href of icon at Hide/Show unhide links
+- issue #12330 Shortcut for closing console
 
-4.6.4 (not yet released)
+4.6.5 (not yet released)
+- issue        Remove potentionally license problematic sRGB profile
+- issue #12459 Display read only fields as read only when editing
+- issue #12384 Fix expanding of navigation pane when clicking on database
+- issue #12430 Impove partitioning support
+- issue #12374 Reintroduced simplified PmaAbsoluteUri configuration directive
+- issue        Always use UTC time in HTTP headers
+
+4.6.4 (2016-08-16)
+- issue        [security] Weaknesses with cookie encryption, see PMASA-2016-29
+- issue        [security] Improve session cookie code for openid.php and signon.php example files
+- issue        [security] Full path disclosure in openid.php and signon.php example files
+- issue        [security] Multiple XSS vulnerabilities, see PMASA-2016-30
+- issue        [security] Multiple XSS vulnerabilities, see PMASA-2016-31
+- issue        [security] Unsafe generation of BlowfishSecret (when not supplied by the user)
+- issue        [security] Referrer leak when phpinfo is enabled
+- issue        [security] PHP code injection, see PMASA-2016-32
+- issue        [security] Full path disclosure, see PMASA-2016-33
+- issue        [security] SQL injection attack, see PMASA-2016-34
+- issue        [security] Local file exposure through LOAD DATA LOCAL INFILE, see PMASA-2016-35
+- issue        [security] Local file exposure through symlinks with UploadDir, see PMASA-2016-36
+- issue        [security] Path traversal with SaveDir and UploadDir, see PMASA-2016-37
+- issue        [security] Multiple XSS vulnerabilities, see PMASA-2016-38
+- issue        [security] SQL injection vulnerability as control user, see PMASA-2016-39
+- issue        [security] SQL injection vulnerability, see PMASA-2016-40
+- issue        [security] Denial-of-service attack through transformation feature, see PMASA-2016-41
+- issue        [security] SQL injection vulnerability as control user, see PMASA-2016-42
+- issue        [security] Verify data before unserializing, see PMASA-2016-43
+- issue        [security] Use HTTPS for wiki links
+- issue        Remove Swekey support
+- issue        [security] SSRF in setup script, see PMASA-2016-44
+- issue        [security] Denial-of-service attack with $cfg['AllowArbitraryServer'] = true and persistent connections, see PMASA-2016-45
+- issue        [security] Improve SSL certificate handling
+- issue        [security] Fix full path disclosure in debugging code
+- issue        [security] Possible circumvention of IP-based allow/deny rules with IPv6 and proxy server, see PMASA-2016-47
+- issue        [security] Detect if user is logged in, see PMASA-2016-48
+- issue        [security] Bypass URL redirection protection, see PMASA-2016-49
+- issue        [security] Referrer leak, see PMASA-2016-50
+- issue        [security] Reflected File Download, see PMASA-2016-51
+- issue        [security] ArbitraryServerRegexp bypass, see PMASA-2016-52
+- issue        [security] Denial-of-service attack by entering long password, see PMASA-2016-53
+- issue        [security] Remote code execution vulnerability when running as CGI, see PMASA-2016-054
+- issue        [security] Administrators could trigger SQL injection attack against users
+- issue        [security] Denial-of-service attack when PHP uses dbase extension, see PMASA-2016-55
+- issue        [security] Remove tode execution vulnerability when PHP uses dbase extension, see PMASA-2016-56
+- issue        [security] Denial-of-service attack by using for loops, see PMASA-2016-46
 - issue        Include X-Robots-Tag header in responses
 - issue        Enforce numeric field length when creating table
 - issue        Fixed invalid Content-Length in some HTTP responses

@@ -2,5 +2,5 @@
 # In most cases the tests included here will be run from a command line interface.
 
 # (the following directive denies access by default)
-# For more information see: http://httpd.apache.org/docs/current/mod/mod_authz_host.html#allow
+# For more information see: https://httpd.apache.org/docs/current/mod/mod_authz_host.html#allow
 Order allow,deny

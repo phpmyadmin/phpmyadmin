@@ -34,9 +34,20 @@ $request_params = array(
     'transform_key',
     'where_clause'
 );
+$size_params = array(
+    'newHeight',
+    'newWidth',
+);
 foreach ($request_params as $one_request_param) {
     if (isset($_REQUEST[$one_request_param])) {
-        $GLOBALS[$one_request_param] = $_REQUEST[$one_request_param];
+        if (in_array($one_request_param, $size_params)) {
+            $GLOBALS[$one_request_param] = intval($_REQUEST[$one_request_param]);
+            if ($GLOBALS[$one_request_param] > 2000) {
+                $GLOBALS[$one_request_param] = 2000;
+            }
+        } else {
+            $GLOBALS[$one_request_param] = $_REQUEST[$one_request_param];
+        }
     }
 }
 
@@ -91,7 +102,7 @@ $response->getHeader()->sendHttpHeaders();
 if (isset($ct) && ! empty($ct)) {
     $mime_type = $ct;
 } else {
-    $mime_type = (isset($mime_map[$transform_key]['mimetype'])
+    $mime_type = (!empty($mime_map[$transform_key]['mimetype'])
         ? str_replace('_', '/', $mime_map[$transform_key]['mimetype'])
         : $default_ct)
     . (isset($mime_options['charset']) ? $mime_options['charset'] : '');
@@ -100,7 +111,11 @@ if (isset($ct) && ! empty($ct)) {
 PMA_downloadHeader($cn, $mime_type);
 
 if (! isset($_REQUEST['resize'])) {
-    echo $row[$transform_key];
+    if (stripos($mime_type, 'html') === false) {
+        echo $row[$transform_key];
+    } else {
+        echo htmlspecialchars($row[$transform_key]);
+    }
 } else {
     // if image_*__inline.inc.php finds that we can resize,
     // it sets the resize parameter to jpeg or png
