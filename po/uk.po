@@ -4,20 +4,20 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-08-17 11:28+0200\n"
-"PO-Revision-Date: 2015-10-15 11:19+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Ukrainian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/uk/>\n"
+"PO-Revision-Date: 2016-08-19 13:18+0000\n"
+"Last-Translator: Bohdan S <tpsolodkov@gmail.com>\n"
+"Language-Team: Ukrainian "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/uk/>\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 2.5-dev\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
+"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 2.8-dev\n"
 
 #: changelog.php:38 license.php:33
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "The %s file is not available on this system, please visit www.phpmyadmin."
 #| "net for more information."
@@ -602,7 +602,7 @@ msgstr ""
 
 #: import_status.php:105
 msgid "Could not load the progress of the import."
-msgstr ""
+msgstr "Неможливо загрузити прогресс iмпорту."
 
 #: import_status.php:114 js/messages.php:453 js/messages.php:605
 #: libraries/Util.php:803 libraries/export.lib.php:520
@@ -755,6 +755,8 @@ msgid ""
 "The curl extension was not found and allow_url_fopen is disabled. Due to "
 "this some features such as error reporting or version check are disabled."
 msgstr ""
+"Розширення curl не знайдено i allow_url_fopen вимкнено. Тому деякi функцiї "
+"такi як звiт про помилку або перевiрка версiї вимкнено."
 
 #: index.php:487
 #, fuzzy
@@ -789,7 +791,7 @@ msgstr "Конфігураційний файл потребує секретн�
 
 #: index.php:529
 msgid "The secret passphrase in configuration (blowfish_secret) is too short."
-msgstr ""
+msgstr "Секретна ключова фраза в налаштуваннях (blowfish_secret) дуже коротка"
 
 #: index.php:543
 msgid ""
@@ -856,6 +858,8 @@ msgstr "Ви збираєтесь ЗНИЩИТИ базу даних!"
 #: js/messages.php:53
 msgid "Cannot rename database to the same name. Change the name and try again"
 msgstr ""
+"Неможливо переiменувати базу данних з одинаковою назвою. Помiняйте назву та "
+"попробуйте ще раз."
 
 #: js/messages.php:55
 msgid "You are about to DESTROY a complete table!"
@@ -923,13 +927,11 @@ msgid "Do you really want to revoke the selected user(s) ?"
 msgstr "Ви дійсно бажаєте відкликати обраного(их) користувача(ів)?"
 
 #: js/messages.php:80
-#, fuzzy
 #| msgid "Do you really want to delete this bookmark?"
 msgid "Do you really want to delete this central column?"
-msgstr "Ви дійсно бажаєте видалити цю закладку?"
+msgstr "Ви дійсно бажаєте видалити цю середню колонку?"
 
 #: js/messages.php:82
-#, fuzzy
 #| msgid "Do you really want to delete the search \"%s\"?"
 msgid "Do you really want to delete the selected items?"
 msgstr "Ви дійсно бажаєте видалити пошук \"%s\"?"
@@ -939,21 +941,20 @@ msgid ""
 "Do you really want to DROP the selected partition(s)? This will also DELETE "
 "the data related to the selected partition(s)!"
 msgstr ""
+"Ви дiйсно бажаєте СКИНУТИ выбраний(нi) роздiл(и)? Це також ВИДАЛИТЬ даннi "
+"якi вiдносятся до вибраного (их) роздiлу(iв)!"
 
 #: js/messages.php:88
-#, fuzzy
 #| msgid "Do you really want to delete the search \"%s\"?"
 msgid "Do you really want to TRUNCATE the selected partition(s)?"
-msgstr "Ви дійсно бажаєте видалити пошук \"%s\"?"
+msgstr "Ви дійсно бажаєте ОБМЕЖИТИ пошук \"%s\"?"
 
 #: js/messages.php:90
-#, fuzzy
 #| msgid "Do you really want to delete the search \"%s\"?"
 msgid "Do you really want to remove partitioning?"
-msgstr "Ви дійсно бажаєте видалити пошук \"%s\"?"
+msgstr "Ви дійсно бажаєте видалити вибраний(i) роздiл(и)\"%s\"?"
 
 #: js/messages.php:91
-#, fuzzy
 #| msgid "Do you really want to execute \"%s\"?"
 msgid "Do you really want to RESET SLAVE?"
 msgstr "Ви дійсно бажаєте виконати \"%s\"?"
