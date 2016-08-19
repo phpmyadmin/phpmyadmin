@@ -622,14 +622,11 @@ function PMA_getHtmlForReplicationSlavesTable($hidden = false)
     $html .= '    </thead>';
     $html .= '    <tbody>';
 
-    $odd_row = true;
     foreach ($data as $slave) {
-        $html .= '    <tr class="' . ($odd_row ? 'odd' : 'even') . '">';
+        $html .= '    <tr>';
         $html .= '      <td class="value">' . $slave['Server_id'] . '</td>';
         $html .= '      <td class="value">' . $slave['Host'] . '</td>';
         $html .= '    </tr>';
-
-        $odd_row = ! $odd_row;
     }
 
     $html .= '    </tbody>';
