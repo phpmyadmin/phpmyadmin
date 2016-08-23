@@ -88,21 +88,12 @@ AJAX.registerOnload('server_status_variables.js', function () {
             $('#linkSuggestions').css('display', 'none');
         }
 
-        odd_row = false;
         $('#serverstatusvariables').find('th.name').each(function () {
             if ((textFilter === null || textFilter.exec($(this).text())) &&
                 (! alertFilter || $(this).next().find('span.attention').length > 0) &&
                 (categoryFilter.length === 0 || $(this).parent().hasClass('s_' + categoryFilter))
             ) {
-                odd_row = ! odd_row;
                 $(this).parent().css('display', '');
-                if (odd_row) {
-                    $(this).parent().addClass('odd');
-                    $(this).parent().removeClass('even');
-                } else {
-                    $(this).parent().addClass('even');
-                    $(this).parent().removeClass('odd');
-                }
             } else {
                 $(this).parent().css('display', 'none');
             }
