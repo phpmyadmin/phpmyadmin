@@ -22,6 +22,26 @@ function PMA_checkLink($url, $http=false, $other=false)
         'https://',
         './url.php?url=https%3a%2f%2f',
         './doc/html/',
+        # possible return values from Util::getScriptNameForOption
+        './index.php?',
+        './server_databases.php?',
+        './server_status.php?',
+        './server_variables.php?',
+        './server_privileges.php?',
+        './db_structure.php?',
+        './db_sql.php?',
+        './db_search.php?',
+        './db_operations.php?',
+        './tbl_structure.php?',
+        './tbl_sql.php?',
+        './tbl_select.php?',
+        './tbl_change.php?',
+        './sql.php?',
+        # Hardcoded options in libraries/special_schema_links.lib.php
+        './db_events.php?',
+        './db_routines.php?',
+        './server_privileges.php?',
+        './tbl_structure.php?',
     );
     if ($other) {
         $valid_starts[] = 'mailto:';
