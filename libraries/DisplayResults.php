@@ -3277,7 +3277,7 @@ class DisplayResults
         $divider = strpos($link_relations['default_page'], '?') ? '&' : '?';
         if (empty($link_relations['link_dependancy_params'])) {
             return $link_relations['default_page']
-                . PMA_URL_getCommon($linking_url_params, 'html', $divider);
+                . PMA_URL_getCommon($linking_url_params, 'raw', $divider);
         }
 
         foreach ($link_relations['link_dependancy_params'] as $new_param) {
@@ -3301,7 +3301,7 @@ class DisplayResults
         }
 
         return $link_relations['default_page']
-            . PMA_URL_getCommon($linking_url_params, 'html', $divider);
+            . PMA_URL_getCommon($linking_url_params, 'raw', $divider);
     }
 
 
