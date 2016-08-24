@@ -518,8 +518,7 @@ if (! empty($_SESSION['encryption_key'])) {
             ),
             E_USER_WARNING
         );
-    }
-    if (strlen($GLOBALS['cfg']['blowfish_secret']) < 32) {
+    } elseif (strlen($GLOBALS['cfg']['blowfish_secret']) < 32) {
         trigger_error(
             __(
                 'The secret passphrase in configuration (blowfish_secret) is too short.'
