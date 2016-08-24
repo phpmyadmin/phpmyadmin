@@ -349,7 +349,7 @@ if [ $do_tag -eq 1 ] ; then
     echo "Additional tasks:"
     tagname=RELEASE_`echo $version | tr . _ | tr '[:lower:]' '[:upper:]' | tr -d -`
     echo "* Tagging release as $tagname"
-    git tag -a -m "Released $version" $tagname $branch
+    git tag -s -a -m "Released $version" $tagname $branch
     echo "   Dont forget to push tags using: git push --tags"
 fi
 
