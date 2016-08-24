@@ -433,16 +433,13 @@ class ServerDatabasesController extends Controller
      */
     private function _getHtmlForTableBody($column_order, $replication_types)
     {
-        $odd_row = true;
         $html = '<tbody>' . "\n";
 
         foreach ($this->_databases as $current) {
-            $tr_class = $odd_row ? 'odd' : 'even';
-            $tr_class .= ' db-row';
+            $tr_class = ' db-row';
             if ($this->dbi->isSystemSchema($current['SCHEMA_NAME'], true)) {
                 $tr_class .= ' noclick';
             }
-            $odd_row = ! $odd_row;
 
             $generated_html = $this->_buildHtmlForDb(
                 $current,
