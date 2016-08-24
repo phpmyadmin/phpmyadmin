@@ -1,6 +1,9 @@
 phpMyAdmin - ChangeLog
 ======================
 
+4.0.10.18 (not yet released)
+- issue #12485 Do not show warning about short blowfish_secret if none is set
+
 4.0.10.17 (2016-08-16)
 - issue        [security] Weaknesses with cookie encryption, see PMASA-2016-29
 - issue        [security] Improve session cookie code for openid.php and signon.php example files
