@@ -8,6 +8,7 @@ phpMyAdmin - ChangeLog
 - issue #12430 Impove partitioning support
 - issue #12374 Reintroduced simplified PmaAbsoluteUri configuration directive
 - issue        Always use UTC time in HTTP headers
+- issue #12479 Simplified validation of external links
 
 4.6.4 (2016-08-16)
 - issue        [security] Weaknesses with cookie encryption, see PMASA-2016-29

@@ -108,9 +108,7 @@ class NavigationHeader
         );
         // prevent XSS, see PMASA-2013-9
         // if link has protocol, allow only http and https
-        if (preg_match('/^[a-z]+:/i', $logoLink)
-            && !preg_match('/^https?:/i', $logoLink)
-        ) {
+        if (! PMA_checkLink($logoLink, true)) {
             $logoLink = 'index.php';
         }
         switch ($GLOBALS['cfg']['NavigationLogoLinkWindow']) {
