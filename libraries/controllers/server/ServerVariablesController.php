@@ -323,12 +323,10 @@ class ServerVariablesController extends Controller
         $static_variables = $this->_getStaticSystemVariables();
 
         $output = '';
-        $odd_row = true;
         foreach ($serverVars as $name => $value) {
             $has_session_value = isset($serverVarsSession[$name])
                 && $serverVarsSession[$name] != $value;
-            $row_class = ($odd_row ? ' odd' : ' even')
-                . ($has_session_value ? ' diffSession' : '');
+            $row_class = ($has_session_value ? ' diffSession' : '');
             $docLink = isset($this->variable_doc_links[$name])
                 ? $this->variable_doc_links[$name] : null;
 
@@ -364,7 +362,6 @@ class ServerVariablesController extends Controller
                     );
             }
 
-            $odd_row = ! $odd_row;
         }
 
         return $output;
