@@ -35,6 +35,7 @@ phpMyAdmin - ChangeLog
 - issue        Always use UTC time in HTTP headers
 - issue #12479 Simplified validation of external links
 - issue #12483 Fix browsing tables with built in transformations
+- issue #12485 Do not show warning about short blowfish_secret if none is set
 
 4.6.4 (2016-08-16)
 - issue        [security] Weaknesses with cookie encryption, see PMASA-2016-29
