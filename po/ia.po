@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.5-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-08-17 11:29+0200\n"
-"PO-Revision-Date: 2016-08-01 13:13+0000\n"
+"PO-Revision-Date: 2016-08-22 11:15+0000\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
-"Language-Team: Interlingua <https://hosted.weblate.org/projects/"
-"phpmyadmin/4-6/ia/>\n"
+"Language-Team: Interlingua "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-6/ia/>\n"
 "Language: ia\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -5226,10 +5226,9 @@ msgid "You allow for connecting to the server without a password."
 msgstr "Tu permitte connexiones al servitor sin un contrasigno."
 
 #: libraries/config/ServerConfigChecks.php:347
-#, fuzzy
 #| msgid "Key is too short, it should have at least 8 characters."
 msgid "Key is too short, it should have at least 32 characters."
-msgstr "Le clave es troppo curte, illo deberea haber al minus 8 characteres."
+msgstr "Le clave es troppo curte, illo deberea haber al minus 32 characteres."
 
 #: libraries/config/ServerConfigChecks.php:357
 msgid "Key should contain letters, numbers [em]and[/em] special characters."
@@ -14311,10 +14310,9 @@ msgid "Table name"
 msgstr "Nomine de tabella"
 
 #: templates/columns_definitions/column_definitions_form.phtml:65
-#, fuzzy
 #| msgid "Columns"
 msgid "column(s)"
-msgstr "Columnas"
+msgstr "columna(s)"
 
 #: templates/columns_definitions/column_definitions_form.phtml:92
 msgid "Collation:"
@@ -15314,10 +15312,9 @@ msgid "The profile has been updated."
 msgstr ""
 
 #: user_password.php:124
-#, fuzzy
 #| msgid "Password Hashing:"
 msgid "Password is too long!"
-msgstr "Hachage de contrasigno:"
+msgstr "Contrasigno es troppo longe!"
 
 #: view_create.php:44
 msgid "View name can not be empty"
