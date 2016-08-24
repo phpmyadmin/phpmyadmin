@@ -3293,7 +3293,7 @@ class DisplayResults
         $divider = strpos($link_relations['default_page'], '?') ? '&' : '?';
         if (empty($link_relations['link_dependancy_params'])) {
             return $link_relations['default_page']
-                . URL::getCommon($linking_url_params, $divider);
+                . URL::getCommonRaw($linking_url_params, $divider);
         }
 
         foreach ($link_relations['link_dependancy_params'] as $new_param) {
@@ -3317,7 +3317,7 @@ class DisplayResults
         }
 
         return $link_relations['default_page']
-            . URL::getCommon($linking_url_params, $divider);
+            . URL::getCommonRaw($linking_url_params, $divider);
     }
 
 
