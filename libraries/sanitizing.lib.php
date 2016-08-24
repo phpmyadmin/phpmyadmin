@@ -9,23 +9,33 @@
 /**
  * Checks whether given link is valid
  *
- * @param string $url URL to check
+ * @param string  $url   URL to check
+ * @param boolean $http  Whether to allow http links
+ * @param boolean $other Whether to allow ftp and mailto links
  *
  * @return boolean True if string can be used as link
  */
-function PMA_checkLink($url)
+function PMA_checkLink($url, $http=false, $other=false)
 {
+    $url = strtolower($url);
     $valid_starts = array(
         'https://',
-        './url.php?url=https%3A%2F%2F',
+        './url.php?url=https%3a%2f%2f',
         './doc/html/',
     );
+    if ($other) {
+        $valid_starts[] = 'mailto:';
+        $valid_starts[] = 'ftp://';
+    }
+    if ($http) {
+        $valid_starts[] = 'http://';
+    }
     if (defined('PMA_SETUP')) {
         $valid_starts[] = '?page=form&';
         $valid_starts[] = '?page=servers&';
     }
     foreach ($valid_starts as $val) {
-        if (mb_substr($url, 0, mb_strlen($val)) == $val) {
+        if (substr($url, 0, strlen($val)) == $val) {
             return true;
         }
     }
