@@ -10,6 +10,7 @@ namespace PMA\libraries\navigation;
 use PMA;
 use PMA\libraries\Template;
 use PMA\libraries\URL;
+use PMA\libraries\Sanitize;
 
 /**
  * This class renders the logo, links, server selection,
@@ -109,9 +110,7 @@ class NavigationHeader
         );
         // prevent XSS, see PMASA-2013-9
         // if link has protocol, allow only http and https
-        if (preg_match('/^[a-z]+:/i', $logoLink)
-            && !preg_match('/^https?:/i', $logoLink)
-        ) {
+        if (! Sanitize::checkLink($logoLink, true)) {
             $logoLink = 'index.php';
         }
         switch ($GLOBALS['cfg']['NavigationLogoLinkWindow']) {
