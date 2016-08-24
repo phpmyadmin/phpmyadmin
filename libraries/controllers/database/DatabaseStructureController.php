@@ -386,7 +386,6 @@ class DatabaseStructureController extends DatabaseController
         $overhead_size  = 0;
 
         $hidden_fields = array();
-        $odd_row       = true;
         $overall_approx_rows = false;
         foreach ($this->_tables as $keyname => $current_table) {
             // Get valid statistics whatever is the table type
@@ -586,7 +585,6 @@ class DatabaseStructureController extends DatabaseController
                 && ($row_count % $num_columns) == 0
             ) {
                 $row_count = 1;
-                $odd_row = true;
 
                 $this->response->addHTML(
                     '</tr></tbody></table></form>'
@@ -615,7 +613,6 @@ class DatabaseStructureController extends DatabaseController
                         array(
                             'db'                    => $this->db,
                             'curr'                  => $i,
-                            'odd_row'               => $odd_row,
                             'table_is_view'         => $table_is_view,
                             'current_table'         => $current_table,
                             'browse_table_label'    => $browse_table_label,
@@ -654,7 +651,6 @@ class DatabaseStructureController extends DatabaseController
                     )
             );
 
-            $odd_row = ! $odd_row;
             $overall_approx_rows = $overall_approx_rows || $approx_rows;
         } // end foreach
 
