@@ -12,6 +12,7 @@ phpMyAdmin - ChangeLog
 - issue #12483 Fix browsing tables with built in transformations
 - issue #12485 Do not show warning about short blowfish_secret if none is set
 - issue #12251 Fixed random logouts due to wrong cookie path
+- issue #12480 Fixed editing of ENUM/SET/DECIMAL fields structure
 
 4.6.4 (2016-08-16)
 - issue        [security] Weaknesses with cookie encryption, see PMASA-2016-29
