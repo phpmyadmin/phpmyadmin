@@ -399,7 +399,7 @@ class Table
         //
         $pattern = '@^(DATE|TINYBLOB|TINYTEXT|BLOB|TEXT|'
             . 'MEDIUMBLOB|MEDIUMTEXT|LONGBLOB|LONGTEXT|SERIAL|BOOLEAN|UUID)$@i';
-        if ($length != '' && ! preg_match($pattern, $type)) {
+        if (strlen($length) !== 0 && ! preg_match($pattern, $type)) {
             $query .= '(' . intval($length) . ')';
         }
 
