@@ -402,10 +402,11 @@ class Config
 
         $branch = false;
         // are we on any branch?
-        if (mb_strstr($ref_head, '/')) {
-            $ref_head = mb_substr(trim($ref_head), 5);
+        if (strstr($ref_head, '/')) {
+            // remove ref: prefix
+            $ref_head = substr(trim($ref_head), 5);
             if (substr($ref_head, 0, 11) === 'refs/heads/') {
-                $branch = mb_substr($ref_head, 11);
+                $branch = substr($ref_head, 11);
             } else {
                 $branch = basename($ref_head);
             }
@@ -452,7 +453,9 @@ class Config
         }
 
         $commit = false;
-        if (isset($_SESSION['PMA_VERSION_COMMITDATA_' . $hash])) {
+        if (! preg_match('/^[0-9a-f]{40}$/i', $hash)) {
+            $commit = false;
+        } elseif (isset($_SESSION['PMA_VERSION_COMMITDATA_' . $hash])) {
             $commit = $_SESSION['PMA_VERSION_COMMITDATA_' . $hash];
         } elseif (function_exists('gzuncompress')) {
             $git_file_name = $git_folder . '/objects/'
