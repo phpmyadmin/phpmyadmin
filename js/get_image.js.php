@@ -15,6 +15,7 @@ header('Expires: ' . gmdate('D, d M Y H:i:s', time() + 3600) . ' GMT');
 // Avoid loading the full common.inc.php because this would add many
 // non-js-compatible stuff like DOCTYPE
 define('PMA_MINIMUM_COMMON', true);
+define('PMA_PATH_TO_BASEDIR', '../');
 require_once './libraries/common.inc.php';
 
 $buffer = PMA\libraries\OutputBuffering::getInstance();
