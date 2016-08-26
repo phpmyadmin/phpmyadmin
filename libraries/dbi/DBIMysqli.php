@@ -185,7 +185,7 @@ class DBIMysqli implements DBIExtension
                 $cfg['Server']['host'],
                 $user,
                 $password,
-                false,
+                '',
                 $server_port,
                 $server_socket,
                 $client_flags
@@ -201,7 +201,7 @@ class DBIMysqli implements DBIExtension
                     $cfg['Server']['host'],
                     $user,
                     '',
-                    false,
+                    '',
                     $server_port,
                     $server_socket,
                     $client_flags
