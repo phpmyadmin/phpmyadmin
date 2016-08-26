@@ -614,7 +614,14 @@ function confirmLink(theLink, theSqlQuery)
         if ($(theLink).hasClass('formLinkSubmit')) {
             var name = 'is_js_confirmed';
             if ($(theLink).attr('href').indexOf('usesubform') != -1) {
-                name = 'subform[' + $(theLink).attr('href').substr('#').match(/usesubform\[(\d+)\]/i)[1] + '][is_js_confirmed]';
+                try{
+                    name = 'subform[' + $(theLink).attr('href').substr('#').match(/usesubform\[(\d+)\]/i)[1] + '][is_js_confirmed]';
+                }
+                catch(err){
+                    message.innerHTML = "Error : " + err + ".";
+                }
+
+
             }
 
             $(theLink).parents('form').append('<input type="hidden" name="' + name + '" value="1" />');
