@@ -601,7 +601,10 @@ function selectContent(element, lock, only_once)
  *
  * @return boolean  whether to run the query or not
  */
-function confirmLink(theLink, theSqlQuery)
+
+Obj = function() {};
+
+Obj.prototype.confirmLink = function (theLink, theSqlQuery)
 {
     // Confirmation is not required in the configuration file
     // or browser is Opera (crappy js implementation)
@@ -634,6 +637,15 @@ function confirmLink(theLink, theSqlQuery)
 
     return is_confirmed;
 } // end of the 'confirmLink()' function
+
+
+function test(link,sql,expected) {
+    var m1 = new Obj();
+    if(m1.confirmLink(link,sql) != expected) {
+        alert("Test Failed\n");
+    }
+
+}
 
 /**
  * Displays an error message if a "DROP DATABASE" statement is submitted
