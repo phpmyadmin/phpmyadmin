@@ -42,6 +42,7 @@ phpMyAdmin - ChangeLog
 - issue #12476 Add error checking in reading advisory rules file
 - issue #12477 Add checking missing elements and confirming element types from json_decode
 - issue #12251 Automatically save SQL query in browser local storage rather than in cookie
+- issue #12292 Unable to edit transformations
 
 4.6.4 (2016-08-16)
 - issue        [security] Weaknesses with cookie encryption, see PMASA-2016-29
