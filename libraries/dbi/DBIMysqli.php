@@ -64,7 +64,6 @@ class DBIMysqli implements DBIExtension
      * @param string $host          mysql hostname
      * @param string $user          mysql user name
      * @param string $password      mysql user password
-     * @param string $dbname        database name
      * @param int    $server_port   server port
      * @param string $server_socket server socket
      * @param int    $client_flags  client flags of connection
@@ -73,7 +72,7 @@ class DBIMysqli implements DBIExtension
      * @return bool
      */
     private function _realConnect(
-        $link, $host, $user, $password, $dbname, $server_port,
+        $link, $host, $user, $password, $server_port,
         $server_socket, $client_flags = null, $persistent = false
     ) {
         global $cfg;
@@ -89,7 +88,7 @@ class DBIMysqli implements DBIExtension
                 $host,
                 $user,
                 $password,
-                $dbname,
+                '',
                 $server_port,
                 $server_socket
             );
@@ -99,7 +98,7 @@ class DBIMysqli implements DBIExtension
                 $host,
                 $user,
                 $password,
-                $dbname,
+                '',
                 $server_port,
                 $server_socket,
                 $client_flags
@@ -175,7 +174,6 @@ class DBIMysqli implements DBIExtension
             $server['host'],
             $user,
             $password,
-            false,
             $server['port'],
             $server['socket']
         );
