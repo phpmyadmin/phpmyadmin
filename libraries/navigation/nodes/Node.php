@@ -721,7 +721,9 @@ class Node
 
         if (!empty($GLOBALS['cfg']['Server']['hide_db'])) {
             $whereClause .= "AND " . Util::backquote($columnName)
-                . " NOT REGEXP '" . $GLOBALS['cfg']['Server']['hide_db'] . "' ";
+                . " NOT REGEXP '"
+                . Util::sqlAddSlashes($GLOBALS['cfg']['Server']['hide_db'], true)
+                . "' ";
         }
 
         if (!empty($GLOBALS['cfg']['Server']['only_db'])) {
@@ -735,7 +737,7 @@ class Node
             foreach ($GLOBALS['cfg']['Server']['only_db'] as $each_only_db) {
                 $subClauses[] = " " . Util::backquote($columnName)
                     . " LIKE '"
-                    . $each_only_db . "' ";
+                    . Util::sqlAddSlashes($each_only_db, true) . "' ";
             }
             $whereClause .= implode("OR", $subClauses) . ") ";
         }

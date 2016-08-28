@@ -353,8 +353,11 @@ class Table
         //
         $pattern = '@^(DATE|TINYBLOB|TINYTEXT|BLOB|TEXT|'
             . 'MEDIUMBLOB|MEDIUMTEXT|LONGBLOB|LONGTEXT|SERIAL|BOOLEAN|UUID)$@i';
-        if ($length != '' && ! preg_match($pattern, $type)) {
-            $query .= '(' . intval($length) . ')';
+        if (strlen($length) !== 0 && ! preg_match($pattern, $type)) {
+            // Note: The variable $length here can contain several other things
+            // besides length - ENUM/SET value or length of DECIMAL (eg. 12,3)
+            // so we can't just convert it to integer
+            $query .= '(' . $length . ')';
         }
 
         if ($virtuality) {
