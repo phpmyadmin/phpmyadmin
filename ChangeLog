@@ -18,6 +18,7 @@ phpMyAdmin - ChangeLog
 - issue #12477 Add checking missing elements and confirming element types from json_decode
 - issue #12251 Automatically save SQL query in browser local storage rather than in cookie
 - issue #12292 Unable to edit transformations
+- issue #12502 Remove unused paramenter when connecting to MySQLi
 
 4.6.4 (2016-08-16)
 - issue        [security] Weaknesses with cookie encryption, see PMASA-2016-29
