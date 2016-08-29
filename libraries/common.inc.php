@@ -411,13 +411,9 @@ if ($token_mismatch) {
         $allow_list[] = 'set_theme';
     }
     /**
-     * Require cleanup functions
-     */
-    include './libraries/cleanup.lib.php';
-    /**
      * Do actual cleanup
      */
-    PMA_removeRequestVars($allow_list);
+    Sanitize::removeRequestVars($allow_list);
 
 }
 
