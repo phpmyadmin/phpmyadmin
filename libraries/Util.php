@@ -4903,14 +4903,13 @@ class Util
      *
      * @param string $url                Url to send the request
      * @param string $method             HTTP request method (GET, POST, PUT, DELETE, etc)
-     * @param int    $connection_timeout Timeout seconds for the HTTP request
      * @param bool   $return_only_status If set to true, the method would only return response status
      * @param mixed  $content            Content to be sent with HTTP request
      * @param string $header             Header to be set for the HTTP request
      *
      * @return mixed
      */
-    public static function httpRequest($url, $method, $connection_timeout, $return_only_status = false, $content = null, $header = "")
+    public static function httpRequest($url, $method, $return_only_status = false, $content = null, $header = "")
     {
         if (function_exists('curl_init')) {
             $curl_handle = curl_init($url);
@@ -4938,8 +4937,8 @@ class Util
             curl_setopt($curl_handle, CURLOPT_RETURNTRANSFER,true);
             curl_setopt($curl_handle, CURLOPT_FOLLOWLOCATION, 0);
             curl_setopt($curl_handle, CURLOPT_IPRESOLVE, CURL_IPRESOLVE_V4);
-            curl_setopt($curl_handle, CURLOPT_TIMEOUT,$connection_timeout);
-            curl_setopt($curl_handle, CURLOPT_CONNECTTIMEOUT, $connection_timeout);
+            curl_setopt($curl_handle, CURLOPT_TIMEOUT, 10);
+            curl_setopt($curl_handle, CURLOPT_CONNECTTIMEOUT, 10);
             $response = curl_exec($curl_handle);
             if($return_only_status) {
                 if ($response === false) {
@@ -4960,7 +4959,7 @@ class Util
                 'http' => array(
                     'method'  => $method,
                     'request_fulluri' => true,
-                    'timeout' => $connection_timeout,
+                    'timeout' => 10,
                     'user_agent' => 'phpMyAdmin',
                     'header' => "Accept: */*",
                 )

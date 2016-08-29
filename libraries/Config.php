@@ -615,7 +615,7 @@ class Config
         } else {
             $link = 'https://api.github.com/repos/phpmyadmin/phpmyadmin/git/commits/'
                 . $hash;
-            $is_found = Util::httpRequest($link, "GET", 5);
+            $is_found = Util::httpRequest($link, "GET");
             switch($is_found) {
             case false:
                 $is_remote_commit = false;
@@ -644,7 +644,7 @@ class Config
             } else {
                 $link = 'https://api.github.com/repos/phpmyadmin/phpmyadmin'
                     . '/git/trees/' . $branch;
-                $is_found = Util::httpRequest($link, "GET", 5,true);
+                $is_found = Util::httpRequest($link, "GET", true);
                 switch($is_found) {
                 case true:
                     $is_remote_branch = true;

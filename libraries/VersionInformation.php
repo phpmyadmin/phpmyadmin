@@ -43,7 +43,7 @@ class VersionInformation
         } else {
             $save = true;
             $file = 'https://www.phpmyadmin.net/home_page/version.json';
-            $response = Util::httpRequest($file,"GET",3);
+            $response = Util::httpRequest($file, "GET");
         }
         $response = $response ? $response : '{}';
         /* Parse response */

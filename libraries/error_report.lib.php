@@ -179,7 +179,7 @@ function PMA_sanitizeUrl($url)
 function PMA_sendErrorReport($report)
 {
     $data_string = json_encode($report);
-    $response = PMA\libraries\Util::httpRequest(SUBMISSION_URL,"POST", 3,false, $data_string,"Content-Type: application/json\r\n");
+    $response = PMA\libraries\Util::httpRequest(SUBMISSION_URL, "POST", false, $data_string, "Content-Type: application/json\r\n");
     return $response;
 }
 

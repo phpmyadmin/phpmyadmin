@@ -158,22 +158,22 @@ class UtilTest extends PMATestCase
     public function testHttpRequest()
     {
         $this->assertTrue(
-            PMA\libraries\Util::httpRequest("https://www.phpmyadmin.net/test/data", "GET", 5, true)
+            PMA\libraries\Util::httpRequest("https://www.phpmyadmin.net/test/data", "GET", true)
         );
         $this->assertNull(
-            PMA\libraries\Util::httpRequest("https://www.phpmyadmin.net/test/data", "POST", 5, true)
+            PMA\libraries\Util::httpRequest("https://www.phpmyadmin.net/test/data", "POST", true)
         );
         $this->assertContains(
             "TEST DATA",
-            PMA\libraries\Util::httpRequest("https://www.phpmyadmin.net/test/data","GET", 5)
+            PMA\libraries\Util::httpRequest("https://www.phpmyadmin.net/test/data","GET")
         );
         $this->assertFalse(
-            PMA\libraries\Util::httpRequest("https://www.phpmyadmin.net/test/nothing","GET", 5, true)
+            PMA\libraries\Util::httpRequest("https://www.phpmyadmin.net/test/nothing","GET", true)
         );
         // Use rate limit API as it's not subject to rate limiting
         $this->assertContains(
             '"resources"',
-            PMA\libraries\Util::httpRequest("https://api.github.com/rate_limit","GET", 5)
+            PMA\libraries\Util::httpRequest("https://api.github.com/rate_limit","GET")
         );
     }
 }
