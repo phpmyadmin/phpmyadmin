@@ -4919,17 +4919,18 @@ class Util
             }
             $curl_handle = Util::configureCurl($curl_handle);
 
-            if($method != "GET")
+            if ($method != "GET") {
                 curl_setopt($curl_handle, CURLOPT_CUSTOMREQUEST, $method);
-            if($header)
-            {
+            }
+            if ($header) {
                 curl_setopt($curl_handle, CURLOPT_HTTPHEADER,array('Expect:', $header));
                 curl_setopt($curl_handle, CURLOPT_HEADER, true);
             }
 
 
-            if($method == "POST")
+            if ($method == "POST") {
                 curl_setopt($curl_handle, CURLOPT_POSTFIELDS, $content);
+            }
 
             curl_setopt($curl_handle, CURLOPT_SSL_VERIFYHOST, '2');
             curl_setopt($curl_handle, CURLOPT_SSL_VERIFYPEER, '1');
@@ -4940,8 +4941,7 @@ class Util
             curl_setopt($curl_handle, CURLOPT_TIMEOUT,$connection_timeout);
             curl_setopt($curl_handle, CURLOPT_CONNECTTIMEOUT, $connection_timeout);
             $response = curl_exec($curl_handle);
-            if($return_only_status)
-            {
+            if($return_only_status) {
                 if ($response === false) {
                     return null;
                 }
@@ -4971,14 +4971,13 @@ class Util
                 false,
                 stream_context_create($context)
             );
-            if($return_only_status)
-            {
-                preg_match( "#HTTP/[0-9\.]+\s+([0-9]+)#",$http_response_header[0], $out );
+            if ($return_only_status) {
+                preg_match("#HTTP/[0-9\.]+\s+([0-9]+)#", $http_response_header[0], $out );
                 return ((intval($out[1]) == 200) ? true : ((intval($out[1]) == 404) ? false : null));
             }
-        }
-        else
+        } else {
             $response = null;
+        }
         return $response;
     }
 }
