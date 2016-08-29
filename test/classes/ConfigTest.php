@@ -935,33 +935,4 @@ class ConfigTest extends PMATestCase
             $this->object->isGitRevision()
         );
     }
-
-    /**
-     * Test for Check HTTP
-     *
-     * @group medium
-     *
-     * @return void
-     */
-    public function testCheckHTTP()
-    {
-        if (! function_exists('curl_init')) {
-            $this->markTestSkipped('Missing curl extension!');
-        }
-        $this->assertTrue(
-            $this->object->checkHTTP("https://www.phpmyadmin.net/test/data")
-        );
-        $this->assertContains(
-            "TEST DATA",
-            $this->object->checkHTTP("https://www.phpmyadmin.net/test/data", true)
-        );
-        $this->assertFalse(
-            $this->object->checkHTTP("https://www.phpmyadmin.net/test/nothing")
-        );
-        // Use rate limit API as it's not subject to rate limiting
-        $this->assertContains(
-            '"resources"',
-            $this->object->checkHTTP("https://api.github.com/rate_limit", true)
-        );
-    }
 }
