@@ -25,13 +25,12 @@
                     <th><?= __('Table'); ?></th>
                     <th><?= __('Column'); ?></th>
                 </tr>
-                <?php $odd_row = true; $i = 0; ?>
+                <?php $i = 0; ?>
                 <?php if (! empty($existrel_foreign)): ?>
                     <?php foreach ($existrel_foreign as $key => $one_key): ?>
                         <?= PMA\libraries\Template::get('table/relation/foreign_key_row')->render(
                             array(
                                 'one_key' => $one_key,
-                                'odd_row' => $odd_row,
                                 'columns' => $columns,
                                 'i' => $i++,
                                 'options_array' => $options_array,
@@ -39,13 +38,12 @@
                                 'db' => $db
                             )
                         );
-                        $odd_row = ! $odd_row;?>
+                        ?>
                     <?php endforeach; ?>
                 <?php endif; ?>
                 <?= PMA\libraries\Template::get('table/relation/foreign_key_row')->render(
                     array(
                         'one_key' => array(),
-                        'odd_row' => $odd_row,
                         'columns' => $columns,
                         'i' => $i++,
                         'options_array' => $options_array,
@@ -83,18 +81,16 @@
                                 . ' FOREIGN KEY relation exists.')); ?>
                         <?php endif; ?>
                     </th>
-                    <?php $odd_row = true; ?>
                     <?php for ($i = 0; $i < $saved_row_cnt; $i++): ?>
                         <?= PMA\libraries\Template::get('table/relation/internal_relational_row')->render(
                             array(
                                 'save_row' => $save_row,
                                 'i' => $i,
-                                'odd_row' => $odd_row,
                                 'existrel' => $existrel,
                                 'db' => $db
                             )
                         );
-                        $odd_row = ! $odd_row; ?>
+                        ?>
                     <?php endfor; ?>
             </table>
         </fieldset>
