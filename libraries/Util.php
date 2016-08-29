@@ -4961,7 +4961,8 @@ class Util
                     'method'  => $method,
                     'request_fulluri' => true,
                     'timeout' => $connection_timeout,
-                    'header' => "Accept: */*\nUser-Agent: phpMyAdmin",
+                    'user_agent' => 'phpMyAdmin',
+                    'header' => "Accept: */*",
                 )
             );
             if ($header) {
