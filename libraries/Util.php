@@ -4991,6 +4991,10 @@ class Util
             stream_context_create($context)
         );
         if ($return_only_status) {
+            // Failed request without connecting to remote
+            if (! isset($http_response_header)) {
+                return null;
+            }
             preg_match("#HTTP/[0-9\.]+\s+([0-9]+)#", $http_response_header[0], $out );
             return ((intval($out[1]) == 200) ? true : ((intval($out[1]) == 404) ? false : null));
         }

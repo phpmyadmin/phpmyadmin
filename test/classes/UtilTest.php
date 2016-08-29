@@ -234,6 +234,7 @@ class UtilTest extends PMATestCase
         return array(
             array("https://www.phpmyadmin.net/test/data", "GET", true, true),
             array("https://www.phpmyadmin.net/test/data", "POST", true, null),
+            array("https://nonexisting.phpmyadmin.net/test/data", "GET", true, null),
             array("https://www.phpmyadmin.net/test/data","GET", false, "TEST DATA"),
             array("https://www.phpmyadmin.net/test/nothing","GET", true, false),
         // Use rate limit API as it's not subject to rate limiting
