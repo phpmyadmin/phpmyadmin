@@ -615,7 +615,7 @@ class Config
         } else {
             $link = 'https://api.github.com/repos/phpmyadmin/phpmyadmin/git/commits/'
                 . $hash;
-            $is_found = $this->checkHTTP($link, ! $commit);
+            $is_found = Util::httpRequest($link, "GET", 5);
             switch($is_found) {
             case false:
                 $is_remote_commit = false;
@@ -644,7 +644,7 @@ class Config
             } else {
                 $link = 'https://api.github.com/repos/phpmyadmin/phpmyadmin'
                     . '/git/trees/' . $branch;
-                $is_found = $this->checkHTTP($link);
+                $is_found = Util::httpRequest($link, "GET", 5,true);
                 switch($is_found) {
                 case true:
                     $is_remote_branch = true;
@@ -707,53 +707,6 @@ class Config
         $this->set('PMA_VERSION_GIT_COMMITTER', $committer);
         $this->set('PMA_VERSION_GIT_ISREMOTECOMMIT', $is_remote_commit);
         $this->set('PMA_VERSION_GIT_ISREMOTEBRANCH', $is_remote_branch);
-    }
-
-    /**
-     * Checks if given URL is 200 or 404, optionally returns data
-     *
-     * @param string  $link     the URL to check
-     * @param boolean $get_body whether to retrieve body of document
-     *
-     * @return string|boolean test result or data
-     */
-    public function checkHTTP($link, $get_body = false)
-    {
-        if (! function_exists('curl_init')) {
-            return null;
-        }
-        $handle = curl_init($link);
-        if ($handle === false) {
-            return null;
-        }
-        Util::configureCurl($handle);
-        curl_setopt($handle, CURLOPT_FOLLOWLOCATION, 0);
-        curl_setopt($handle, CURLOPT_RETURNTRANSFER, 1);
-        curl_setopt($handle, CURLOPT_SSL_VERIFYHOST, '2');
-        curl_setopt($handle, CURLOPT_SSL_VERIFYPEER, '1');
-        curl_setopt($handle, CURLOPT_CONNECTTIMEOUT, 5);
-        curl_setopt($handle, CURLOPT_TIMEOUT, 5);
-        curl_setopt($handle, CURLOPT_IPRESOLVE, CURL_IPRESOLVE_V4);
-        if (! defined('TESTSUITE')) {
-            session_write_close();
-        }
-        $data = @curl_exec($handle);
-        if (! defined('TESTSUITE')) {
-            session_start();
-        }
-        if ($data === false) {
-            return null;
-        }
-        $http_status = curl_getinfo($handle, CURLINFO_HTTP_CODE);
-
-        if ($http_status == 200) {
-            return $get_body ? $data : true;
-        }
-
-        if ($http_status == 404) {
-            return false;
-        }
-        return null;
     }
 
     /**

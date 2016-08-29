@@ -14,6 +14,7 @@ use PMA\libraries\Theme;
 
 require_once 'libraries/relation.lib.php';
 require_once 'test/PMATestCase.php';
+require_once 'libraries/Util.php';
 
 /**
  * Tests behaviour of PMA\libraries\Config class
@@ -937,31 +938,29 @@ class ConfigTest extends PMATestCase
     }
 
     /**
-     * Test for Check HTTP
-     *
-     * @group medium
-     *
-     * @return void
-     */
-    public function testCheckHTTP()
+         * Test for http request
+         *
+         * @group medium
+         *
+         * @return void
+         */
+    public function testHttpRequest()
     {
-        if (! function_exists('curl_init')) {
-            $this->markTestSkipped('Missing curl extension!');
-        }
         $this->assertTrue(
-            $this->object->checkHTTP("https://www.phpmyadmin.net/test/data")
-        );
-        $this->assertContains(
-            "TEST DATA",
-            $this->object->checkHTTP("https://www.phpmyadmin.net/test/data", true)
-        );
-        $this->assertFalse(
-            $this->object->checkHTTP("https://www.phpmyadmin.net/test/nothing")
-        );
-        // Use rate limit API as it's not subject to rate limiting
-        $this->assertContains(
-            '"resources"',
-            $this->object->checkHTTP("https://api.github.com/rate_limit", true)
-        );
-    }
+                PMA\libraries\Util::httpRequest("https://www.phpmyadmin.net/test/data", "GET", 5,true)
+            );
+            $this->assertContains(
+                    "TEST DATA",
+                PMA\libraries\Util::httpRequest("https://www.phpmyadmin.net/test/data","GET", 5)
+            );
+         $this->assertFalse(
+                 PMA\libraries\Util::httpRequest("https://www.phpmyadmin.net/test/nothing","GET", 5,true)
+             );
+         // Use rate limit API as it's not subject to rate limiting
+         $this->assertContains(
+                 '"resources"',
+                 PMA\libraries\Util::httpRequest("https://api.github.com/rate_limit","GET", 5)
+         );
+     }
+
 }
