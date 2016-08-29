@@ -4901,12 +4901,12 @@ class Util
     /**
      * Creates HTTP request
      *
-     * @param string $url Url to send the request
-     * @param string $method HTTP request method (GET, POST, PUT, DELETE, etc)
-     * @param int $connection_timeout Timeout seconds for the HTTP request
-     * @param bool $return_only_status If set to true, the method would only return response status
-     * @param mixed $content Content to be sent with HTTP request
-     * @param string $header Header to be set for the HTTP request
+     * @param string $url                Url to send the request
+     * @param string $method             HTTP request method (GET, POST, PUT, DELETE, etc)
+     * @param int    $connection_timeout Timeout seconds for the HTTP request
+     * @param bool   $return_only_status If set to true, the method would only return response status
+     * @param mixed  $content            Content to be sent with HTTP request
+     * @param string $header             Header to be set for the HTTP request
      *
      * @return mixed
      */
@@ -4923,7 +4923,7 @@ class Util
                 curl_setopt($curl_handle, CURLOPT_CUSTOMREQUEST, $method);
             }
             if ($header) {
-                curl_setopt($curl_handle, CURLOPT_HTTPHEADER,array('Expect:', $header));
+                curl_setopt($curl_handle, CURLOPT_HTTPHEADER, array($header));
                 curl_setopt($curl_handle, CURLOPT_HEADER, true);
             }
 
@@ -4965,7 +4965,7 @@ class Util
                 )
             );
             if ($header) {
-                $context['http']['header'] .= "\nExpect: ". $header;
+                $context['http']['header'] .= "\n" . $header;
             }
             if ($method == "POST") {
                 $context['http']['content'] = $content;
