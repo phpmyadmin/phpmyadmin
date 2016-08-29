@@ -186,14 +186,6 @@ environment variables:
 
     .. seealso:: :config:option:`$cfg['PmaAbsoluteUri']`
 
-.. envvar:: PHP_UPLOAD_MAX_FILESIZE
-   
-    Define upload_max_filesize and post_max_size PHP settings.
-
-.. envvar:: PHP_MAX_INPUT_VARS
-   
-    Define max_input_vars PHP setting.
-
 By default, :ref:`cookie` is used, but if :envvar:`PMA_USER` and
 :envvar:`PMA_PASSWORD` are set, it is switched to :ref:`auth_config`.
 
