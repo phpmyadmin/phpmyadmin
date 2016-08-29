@@ -178,6 +178,11 @@ environment variables:
     
     Port of the databse server to use.
 
+.. envvar:: PMA_ABSOLUTE_URI
+   
+    The fully-qualified path (``https://pma.example.net/``) where the reverse
+    proxy makes phpMyAdmin available.
+
 .. envvar:: PHP_UPLOAD_MAX_FILESIZE
    
     Define upload_max_filesize and post_max_size PHP settings.
