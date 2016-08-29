@@ -14,7 +14,6 @@ use PMA\libraries\Theme;
 
 require_once 'libraries/relation.lib.php';
 require_once 'test/PMATestCase.php';
-require_once 'libraries/Util.php';
 
 /**
  * Tests behaviour of PMA\libraries\Config class
@@ -936,31 +935,4 @@ class ConfigTest extends PMATestCase
             $this->object->isGitRevision()
         );
     }
-
-    /**
-         * Test for http request
-         *
-         * @group medium
-         *
-         * @return void
-         */
-    public function testHttpRequest()
-    {
-        $this->assertTrue(
-                PMA\libraries\Util::httpRequest("https://www.phpmyadmin.net/test/data", "GET", 5,true)
-            );
-            $this->assertContains(
-                    "TEST DATA",
-                PMA\libraries\Util::httpRequest("https://www.phpmyadmin.net/test/data","GET", 5)
-            );
-         $this->assertFalse(
-                 PMA\libraries\Util::httpRequest("https://www.phpmyadmin.net/test/nothing","GET", 5,true)
-             );
-         // Use rate limit API as it's not subject to rate limiting
-         $this->assertContains(
-                 '"resources"',
-                 PMA\libraries\Util::httpRequest("https://api.github.com/rate_limit","GET", 5)
-         );
-     }
-
 }
