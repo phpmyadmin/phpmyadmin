@@ -413,7 +413,7 @@ if ($token_mismatch) {
     /**
      * Do actual cleanup
      */
-    Sanitize::removeRequestVars($allow_list);
+    PMA\libraries\Sanitize::removeRequestVars($allow_list);
 
 }
 
