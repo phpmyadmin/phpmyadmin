@@ -160,6 +160,9 @@ class UtilTest extends PMATestCase
         $this->assertTrue(
             PMA\libraries\Util::httpRequest("https://www.phpmyadmin.net/test/data", "GET", 5, true)
         );
+        $this->assertNull(
+            PMA\libraries\Util::httpRequest("https://www.phpmyadmin.net/test/data", "POST", 5, true)
+        );
         $this->assertContains(
             "TEST DATA",
             PMA\libraries\Util::httpRequest("https://www.phpmyadmin.net/test/data","GET", 5)
