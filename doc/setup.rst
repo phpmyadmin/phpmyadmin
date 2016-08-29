@@ -155,8 +155,9 @@ environment variables:
 
 .. envvar:: PMA_ARBITRARY
 
-    Allows you to enter database server hostname on login form (see
-    :config:option:`$cfg['AllowArbitraryServer']`).
+    Allows you to enter database server hostname on login form.
+    
+    .. seealso:: :config:option:`$cfg['AllowArbitraryServer']`
 
 .. envvar:: PMA_HOST
     
@@ -182,6 +183,8 @@ environment variables:
    
     The fully-qualified path (``https://pma.example.net/``) where the reverse
     proxy makes phpMyAdmin available.
+
+    .. seealso:: :config:option:`$cfg['PmaAbsoluteUri']`
 
 .. envvar:: PHP_UPLOAD_MAX_FILESIZE
    
