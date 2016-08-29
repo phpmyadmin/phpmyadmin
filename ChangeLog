@@ -25,6 +25,7 @@ phpMyAdmin - ChangeLog
 - issue #12162 Show charset for each table on Database structure page
 - issue #12463 Incorrect link in the href of icon at Hide/Show unhide links
 - issue #12330 Shortcut for closing console
+- issue #12465 Improved handling of http requests
 
 4.6.5 (not yet released)
 - issue        Remove potentionally license problematic sRGB profile
