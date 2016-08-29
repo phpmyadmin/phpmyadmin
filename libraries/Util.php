@@ -4959,12 +4959,18 @@ class Util
             $context = array(
                 'http' => array(
                     'method'  => $method,
-                    'content' => $content,
-                    'header' => $header,
                     'request_fulluri' => true,
-                    'timeout' => $connection_timeout
+                    'timeout' => $connection_timeout,
+                    'header' => "Accept: */*\nUser-Agent: phpMyAdmin",
                 )
             );
+            if ($header) {
+                $context['http']['header'] .= "\nExpect: ". $header;
+            }
+            if ($method == "POST") {
+                $context['http']['content'] = $content;
+            }
+
             $context = Util::handleContext($context);
             $response = @file_get_contents(
                 $url,
