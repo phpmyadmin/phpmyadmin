@@ -155,8 +155,9 @@ environment variables:
 
 .. envvar:: PMA_ARBITRARY
 
-    Allows you to enter database server hostname on login form (see
-    :config:option:`$cfg['AllowArbitraryServer']`).
+    Allows you to enter database server hostname on login form.
+    
+    .. seealso:: :config:option:`$cfg['AllowArbitraryServer']`
 
 .. envvar:: PMA_HOST
     
@@ -178,13 +179,12 @@ environment variables:
     
     Port of the databse server to use.
 
-.. envvar:: PHP_UPLOAD_MAX_FILESIZE
+.. envvar:: PMA_ABSOLUTE_URI
    
-    Define upload_max_filesize and post_max_size PHP settings.
+    The fully-qualified path (``https://pma.example.net/``) where the reverse
+    proxy makes phpMyAdmin available.
 
-.. envvar:: PHP_MAX_INPUT_VARS
-   
-    Define max_input_vars PHP setting.
+    .. seealso:: :config:option:`$cfg['PmaAbsoluteUri']`
 
 By default, :ref:`cookie` is used, but if :envvar:`PMA_USER` and
 :envvar:`PMA_PASSWORD` are set, it is switched to :ref:`auth_config`.
