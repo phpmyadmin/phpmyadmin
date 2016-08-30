@@ -4672,7 +4672,7 @@ class Util
             ->render(
                 array(
                     'pos' => $pos,
-                    'unlim_num_rows' => $_REQUEST['unlim_num_rows'],
+                    'unlim_num_rows' => intval($_REQUEST['unlim_num_rows']),
                     'rows' => $rows,
                     'sql_query' => $sql_query,
                 )
