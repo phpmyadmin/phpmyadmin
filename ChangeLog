@@ -19,6 +19,7 @@ phpMyAdmin - ChangeLog
 - issue #12251 Automatically save SQL query in browser local storage rather than in cookie
 - issue #12292 Unable to edit transformations
 - issue #12502 Remove unused paramenter when connecting to MySQLi
+- issue #12303 Fix number formatting with different settings of precision in PHP
 
 4.6.4 (2016-08-16)
 - issue        [security] Weaknesses with cookie encryption, see PMASA-2016-29

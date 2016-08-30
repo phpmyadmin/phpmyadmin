@@ -108,6 +108,13 @@ ini_set('default_charset', 'utf-8');
 mb_internal_encoding('utf-8');
 
 /**
+ * Set precision to sane value, with higher values
+ * things behave slightly unexpectedly, for example
+ * round(1.2, 2) returns 1.199999999999999956.
+ */
+ini_set('precision', 14);
+
+/**
  * the relation lib, tracker needs it
  */
 require './libraries/relation.lib.php';

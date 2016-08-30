@@ -6,6 +6,13 @@
  * @package PhpMyAdmin-test
  */
 
+/**
+ * Set precision to sane value, with higher values
+ * things behave slightly unexpectedly, for example
+ * round(1.2, 2) returns 1.199999999999999956.
+ */
+ini_set('precision', 14);
+
 // Let PHP complain about all errors
 error_reporting(E_ALL);
 
