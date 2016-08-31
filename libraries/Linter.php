@@ -51,7 +51,7 @@ class Linter
         // (which is actually a new line) aren't going to be processed at
         // all.
         $len = ($str instanceof UtfString) ?
-            $str->length() : strlen($len);
+            $str->length() : strlen($str);
 
         $lines = array(0);
         for ($i = 0; $i < $len; ++$i) {

@@ -70,6 +70,30 @@ class PMA_FormatNumberByteDown_Test extends PHPUnit_Framework_TestCase
             array(0.003, 3, 3, '3 m'),
             array(-0.003, 6, 0, '-3,000 &micro;'),
             array(100.98, 0, 2, '100.98'),
+            array(21010101, 0, 2, '21,010,101.00'),
+            array(20000, 2, 2, '20 k'),
+            array(20011, 2, 2, '20.01 k'),
+        );
+    }
+
+    /**
+     * Core test for formatNumber
+     *
+     *
+     * @param float $a Value to format
+     * @param int   $b Sensitiveness
+     * @param int   $c Number of decimals to retain
+     * @param array $d Expected value
+     *
+     * @return void
+     */
+    private function assertFormatNumber($a, $b, $c, $d)
+    {
+        $this->assertEquals(
+            $d,
+            (string) PMA\libraries\Util::formatNumber(
+                $a, $b, $c, false
+            )
         );
     }
 
@@ -87,12 +111,21 @@ class PMA_FormatNumberByteDown_Test extends PHPUnit_Framework_TestCase
      */
     public function testFormatNumber($a, $b, $c, $d)
     {
-        $this->assertEquals(
-            $d,
-            (string) PMA\libraries\Util::formatNumber(
-                $a, $b, $c, false
-            )
-        );
+        $this->assertFormatNumber($a, $b, $c, $d);
+
+        // Test with various precisions
+        $old_precision = ini_get('precision');
+        ini_set('precision', 20);
+        $this->assertFormatNumber($a, $b, $c, $d);
+        ini_set('precision', 14);
+        $this->assertFormatNumber($a, $b, $c, $d);
+        ini_set('precision', 10);
+        $this->assertFormatNumber($a, $b, $c, $d);
+        ini_set('precision', 5);
+        $this->assertFormatNumber($a, $b, $c, $d);
+        ini_set('precision', -1);
+        $this->assertFormatNumber($a, $b, $c, $d);
+        ini_set('precision', $old_precision);
     }
 
     /**

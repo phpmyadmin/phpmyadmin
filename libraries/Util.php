@@ -1596,17 +1596,13 @@ class Util
         $value = round($value / (self::pow(1000, $d, 'pow') / $dh)) /$dh;
         $unit = $units[$d];
 
-        // If we don't want any zeros after the comma just add the thousand separator
-        if ($noTrailingZero) {
-            $localizedValue = self::localizeNumber(
-                preg_replace('/(?<=\d)(?=(\d{3})+(?!\d))/', ',', $value)
-            );
-        } else {
-            //number_format is not multibyte safe, str_replace is safe
-            $localizedValue = self::localizeNumber(
-                number_format($value, $digits_right)
-            );
+        // number_format is not multibyte safe, str_replace is safe
+        $formattedValue = number_format($value, $digits_right);
+        // If we don't want any zeros, remove them now
+        if ($noTrailingZero && strpos($formattedValue, '.') !== false) {
+            $formattedValue = preg_replace('/\.?0+$/', '', $formattedValue);
         }
+        $localizedValue = self::localizeNumber($formattedValue);
 
         if ($originalValue != 0 && floatval($value) == 0) {
             return ' <' . self::localizeNumber((1 / self::pow(10, $digits_right)))
@@ -4562,7 +4558,7 @@ class Util
             ->render(
                 array(
                     'pos' => $pos,
-                    'unlim_num_rows' => $_REQUEST['unlim_num_rows'],
+                    'unlim_num_rows' => intval($_REQUEST['unlim_num_rows']),
                     'rows' => $rows,
                     'sql_query' => $sql_query,
                 )

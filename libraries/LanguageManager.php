@@ -286,6 +286,13 @@ class LanguageManager
             'id|indonesian',
             'id_ID',
         ),
+        'ig' => array(
+            'ig',
+            'Igbo',
+            'Asụsụ Igbo',
+            'ig|igbo',
+            '',
+        ),
         'it' => array(
             'it',
             'Italian',

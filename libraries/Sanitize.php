@@ -176,7 +176,7 @@ class Sanitize
             '[sup]'     => '<sup>',
             '[/sup]'    => '</sup>',
             // used in common.inc.php:
-            '[conferr]' => '<iframe src="show_config_errors.php" />',
+            '[conferr]' => '<iframe src="show_config_errors.php"><a href="show_config_errors.php">show_config_errors.php</a></iframe>',
             // used in libraries/Util.php
             '[dochelpicon]' => Util::getImage('b_help.png', __('Documentation')),
         );
