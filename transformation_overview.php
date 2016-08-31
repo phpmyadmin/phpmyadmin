@@ -55,16 +55,14 @@ $th = array(
     </thead>
     <tbody>
     <?php
-    $odd_row = true;
     foreach ($types[$ttype] as $key => $transform) {
         $desc = PMA_getTransformationDescription($types[$ttype . '_file'][$key]);
         ?>
-        <tr class="<?php echo $odd_row ? 'odd' : 'even'; ?>">
+        <tr>
             <td><?php echo $transform; ?></td>
             <td><?php echo $desc; ?></td>
         </tr>
         <?php
-        $odd_row = !$odd_row;
     }
     ?>
     </tbody>
