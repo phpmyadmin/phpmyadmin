@@ -83,12 +83,12 @@ AJAX.registerOnload('db_tracking.js', function () {
         $anchor.PMA_confirm(question, $anchor.attr('href'), function (url) {
             PMA_ajaxShowMessage(PMA_messages.strDeletingTrackingData);
             AJAX.source = $anchor;
-            var data = {
+            var params = {
                 'ajax_page_request': true,
                 'ajax_request': true,
                 'token': PMA_commonParams.get('token')
             };
-            $.post(url, data, AJAX.responseHandler);
+            $.post(url, params, AJAX.responseHandler);
         });
     });
 });
