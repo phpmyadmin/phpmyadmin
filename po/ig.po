@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-08-17 11:28+0200\n"
-"PO-Revision-Date: 2016-08-30 14:02+0000\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2016-09-01 17:09+0000\n"
+"Last-Translator: CHINONSO <chinonso_patrick@yahoo.com>\n"
 "Language-Team: Igbo "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/ig/>\n"
 "Language: ig\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.8-dev\n"
+"X-Generator: Weblate 2.8\n"
 
 #: changelog.php:38 license.php:33
 #, php-format
@@ -247,7 +247,7 @@ msgstr "View dump (schema) nke nchekwa data"
 #: libraries/controllers/database/DatabaseStructureController.php:153
 #: libraries/navigation/NavigationTree.php:918
 msgid "No tables found in database."
-msgstr ""
+msgstr "Ọ dịghị tebụl dị na nchekwa data."
 
 #: db_export.php:65 libraries/ServerStatusData.php:128
 #: libraries/config/messages.inc.php:277
@@ -257,7 +257,7 @@ msgstr ""
 #: libraries/plugins/export/ExportXml.php:118
 #: templates/database/structure/show_create.phtml:18
 msgid "Tables"
-msgstr ""
+msgstr "tebụl"
 
 #: db_export.php:66 libraries/Menu.php:330 libraries/Menu.php:437
 #: libraries/Util.php:3334 libraries/Util.php:3344 libraries/Util.php:3350
@@ -276,7 +276,7 @@ msgstr ""
 #: templates/columns_definitions/table_fields_definitions.phtml:3
 #: templates/database/designer/table_list.phtml:28
 msgid "Structure"
-msgstr ""
+msgstr "Ọdịdị"
 
 #: db_export.php:67 libraries/config/setup.forms.php:331
 #: libraries/config/setup.forms.php:367 libraries/config/setup.forms.php:390
@@ -289,108 +289,110 @@ msgstr ""
 #: libraries/server_privileges.lib.php:1229
 #: templates/table/structure/display_table_stats.phtml:15
 msgid "Data"
-msgstr ""
+msgstr "mgwa mmuta"
 
 #: db_export.php:70 libraries/DbSearch.php:445
 #: libraries/display_export.lib.php:44 libraries/replication_gui.lib.php:378
 msgid "Select all"
-msgstr ""
+msgstr "Họrọ niile"
 
 #: db_operations.php:51 tbl_create.php:22
 msgid "The database name is empty!"
-msgstr ""
+msgstr "The database aha ahụ tọgbọ nkịtị!"
 
 #: db_operations.php:139
 #, php-format
 msgid "Database %1$s has been renamed to %2$s."
-msgstr ""
+msgstr "Database %1$s1 e renamed ka %2$s2."
 
 #: db_operations.php:151
 #, php-format
 msgid "Database %1$s has been copied to %2$s."
-msgstr ""
+msgstr "Database %1$s1 e depụtaghachiri ka %2$s2."
 
 #: db_operations.php:281
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. %sFind out why%s."
-msgstr ""
+msgstr "Phpmyadmin nhazi nchekwa agbanyụọla. %S1 Chọpụta ihe mere o %s2."
 
 #: db_qbe.php:125
 msgid "You have to choose at least one column to display!"
-msgstr ""
+msgstr "Ị ga-ekpebi dịkarịa ala otu kọlụm na-egosipụta!"
 
 #: db_qbe.php:143
 #, php-format
 msgid "Switch to %svisual builder%s"
-msgstr ""
+msgstr "Gbanwee na %S1 visual na-ewu %S2"
 
 #: db_search.php:31 libraries/plugins/AuthenticationPlugin.php:110
 #: libraries/plugins/auth/AuthenticationConfig.php:94
 #: libraries/plugins/auth/AuthenticationConfig.php:109
 #: libraries/plugins/auth/AuthenticationHttp.php:77
 msgid "Access denied!"
-msgstr ""
+msgstr "ajụrụ nnweta!"
 
 #: db_tracking.php:52 db_tracking.php:77
 msgid "Tracking data deleted successfully."
-msgstr ""
+msgstr "Ndepụta data ehichapụ ihe ịga nke ọma."
 
 #: db_tracking.php:61
 #, php-format
 msgid ""
 "Version %1$s was created for selected tables, tracking is active for them."
-msgstr ""
+msgstr "Version %1$s1 E kere họrọ tebụl, nsuso bụ ọrụ n'ihi na ha."
 
 #: db_tracking.php:92
 msgid "No tables selected."
-msgstr ""
+msgstr "Ọ dịghị tebụl họrọ."
 
 #: db_tracking.php:149
 msgid "Database Log"
-msgstr ""
+msgstr "database Log"
 
 #: error_report.php:68
 msgid ""
 "An error has been detected and an error report has been automatically "
 "submitted based on your settings."
 msgstr ""
+"Njehie e achọpụtara na njehie akụkọ e na-akpaghị aka rubere dabere na mwube "
+"gị."
 
 #: error_report.php:72
 msgid "Thank you for submitting this report."
-msgstr ""
+msgstr "Daalụ maka n'ido a akụkọ."
 
 #: error_report.php:76
 msgid ""
 "An error has been detected and an error report has been generated but failed "
 "to be sent."
-msgstr ""
+msgstr "Njehie e achọpụtara na njehie akụkọ e eme ma dara na--eziga."
 
 #: error_report.php:81
 msgid "If you experience any problems please submit a bug report manually."
-msgstr ""
+msgstr "Ọ bụrụ na ị na-enwe nsogbu ọ bụla biko nyefee a ahụhụ na akụkọ aka."
 
 #: error_report.php:85
 msgid "You may want to refresh the page."
-msgstr ""
+msgstr "Nwere ike ị chọrọ ka ume na peeji nke."
 
 #: export.php:194 schema_export.php:64
 msgid "Bad type!"
-msgstr ""
+msgstr "Ajo ụdị!"
 
 #: export.php:281
 msgid "Bad parameters!"
-msgstr ""
+msgstr "Ajo parameters!"
 
 #: gis_data_editor.php:118
 #, php-format
 msgid "Value for the column \"%s\""
-msgstr ""
+msgstr "Uru maka na kọlụm \"%s1\""
 
 #: gis_data_editor.php:146
 #: templates/table/gis_visualization/gis_visualization.phtml:38
 msgid "Use OpenStreetMaps as Base Layer"
-msgstr ""
+msgstr "Jiri Open Street Maps dị ka Base Layer"
 
 #. l10n: Spatial Reference System Identifier
 #: gis_data_editor.php:168
