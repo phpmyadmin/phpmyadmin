@@ -135,14 +135,14 @@ AJAX.registerOnload('db_operations.js', function () {
             PMA_messages.strDoYouReally,
             'DROP DATABASE `' + escapeHtml(PMA_commonParams.get('db') + '`')
         );
-        var data = {
+        var params = {
             'is_js_confirmed': '1',
             'ajax_request': true,
             'token': PMA_commonParams.get('token')
         };
         $(this).PMA_confirm(question, $(this).attr('href'), function (url) {
             PMA_ajaxShowMessage(PMA_messages.strProcessingRequest);
-            $.post(url, data, function (data) {
+            $.post(url, params, function (data) {
                 if (typeof data !== 'undefined' && data.success) {
                     //Database deleted successfully, refresh both the frames
                     PMA_reloadNavigation();
