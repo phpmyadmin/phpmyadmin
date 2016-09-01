@@ -85,7 +85,12 @@ function deleteResult(result_path, msg)
             var $msg = PMA_ajaxShowMessage(PMA_messages.strDeleting, false);
             /** Load the deleted option to the page*/
             $('#sqlqueryform').html('');
-            $.post(result_path, {'ajax_request': true, 'is_js_confirmed': true},
+            var data = {
+                'ajax_request': true,
+                'is_js_confirmed': true,
+                'token' : PMA_commonParams.get('token')
+            };
+            $.post(result_path, data,
                 function (data) {
                     if (typeof data === 'undefined' || !data.success) {
                         PMA_ajaxShowMessage(data.error, false);
