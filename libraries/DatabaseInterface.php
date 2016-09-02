@@ -2329,11 +2329,11 @@ class DatabaseInterface
         }
 
         // Do not show location and backtrace for connection errors
-        $error_count = $GLOBALS['error_handler']->setHideLocation(true);
+        $GLOBALS['error_handler']->setHideLocation(true);
         $result = $this->_extension->connect(
             $user, $password, $server
         );
-        $error_count = $GLOBALS['error_handler']->setHideLocation(false);
+        $GLOBALS['error_handler']->setHideLocation(false);
 
         if ($result) {
             /* Run post connect for user connections */
