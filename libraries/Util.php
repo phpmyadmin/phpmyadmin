@@ -1158,7 +1158,7 @@ class Util
                     $new_line,
                     $query_base
                 );
-                $query_base = '$sql  = "' . $query_base . '"';
+                $query_base = '$sql  = \'' . $query_base . '"';
             } elseif ($query_too_big) {
                 $query_base = htmlspecialchars($query_base);
             } else {
@@ -1300,7 +1300,7 @@ class Util
 
             //Clean up the end of the PHP
             if (! empty($GLOBALS['show_as_php'])) {
-                $retval .= '";';
+                $retval .= '\';';
             }
             $retval .= '</div>';
 
