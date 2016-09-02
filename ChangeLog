@@ -26,6 +26,8 @@ phpMyAdmin - ChangeLog
 - issue #12463 Incorrect link in the href of icon at Hide/Show unhide links
 - issue #12330 Shortcut for closing console
 - issue #12465 Improved handling of http requests
+- issue #12474 Broken links in Setup forms Navigation
+- issue #12494 Can't add a new User
 
 4.6.5 (not yet released)
 - issue        Remove potentionally license problematic sRGB profile
