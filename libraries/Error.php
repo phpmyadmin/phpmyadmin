@@ -84,6 +84,11 @@ class Error extends Message
     protected $backtrace = array();
 
     /**
+     * Hide location of errors
+     */
+    protected $hide_location = false;
+
+    /**
      * Constructor
      *
      * @param integer $errno   error number
@@ -144,6 +149,18 @@ class Error extends Message
         }
 
         return $result;
+    }
+
+    /**
+     * Toggles location hiding
+     *
+     * @param boolean $hide Whether to hide
+     *
+     * @return void
+     */
+    public function setHideLocation($hide)
+    {
+        $this->hide_location = $hide;
     }
 
     /**
@@ -416,13 +433,13 @@ class Error extends Message
     {
         $this->isDisplayed(true);
         $retval = '<div class="' . $this->getLevel() . '">';
-        if (! $this->isUserError()) {
+        if (! $this->isUserError() && ! $this->hide_location) {
             $retval .= '<strong>' . $this->getType() . '</strong>';
             $retval .= ' in ' . $this->getFile() . '#' . $this->getLine();
             $retval .= "<br />\n";
         }
         $retval .= $this->getMessage();
-        if (! $this->isUserError()) {
+        if (! $this->isUserError() && ! $this->hide_location) {
             $retval .= "<br />\n";
             $retval .= "<br />\n";
             $retval .= "<strong>Backtrace</strong><br />\n";
