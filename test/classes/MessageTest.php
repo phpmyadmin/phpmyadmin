@@ -107,6 +107,7 @@ class MessageTest extends PMATestCase
     {
         $this->object = new PMA\libraries\Message('', PMA\libraries\Message::ERROR);
         $this->object->setMessage('test<&>');
+        $this->object->setBBCode(false);
 
         $this->assertEquals($this->object, PMA\libraries\Message::rawError('test<&>'));
     }
@@ -120,6 +121,7 @@ class MessageTest extends PMATestCase
     {
         $this->object = new PMA\libraries\Message('', PMA\libraries\Message::NOTICE);
         $this->object->setMessage('test<&>');
+        $this->object->setBBCode(false);
 
         $this->assertEquals($this->object, PMA\libraries\Message::rawNotice('test<&>'));
     }
@@ -133,6 +135,7 @@ class MessageTest extends PMATestCase
     {
         $this->object = new PMA\libraries\Message('', PMA\libraries\Message::SUCCESS);
         $this->object->setMessage('test<&>');
+        $this->object->setBBCode(false);
 
         $this->assertEquals($this->object, PMA\libraries\Message::rawSuccess('test<&>'));
     }
