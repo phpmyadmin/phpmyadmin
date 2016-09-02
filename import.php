@@ -488,8 +488,9 @@ if ($GLOBALS['PMA_recoding_engine'] != PMA_CHARSET_NONE && isset($charset_of_fil
 
 // Something to skip?
 if (! $error && isset($skip)) {
+    $skip = intval($skip);
     $original_skip = $skip;
-    while ($skip > 0) {
+    while ($skip > 0 && ! $finished) {
         PMA_importGetNextChunk($skip < $read_limit ? $skip : $read_limit);
         // Disable read progresivity, otherwise we eat all memory!
         $read_multiply = 1;
