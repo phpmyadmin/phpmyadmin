@@ -88,7 +88,7 @@ function PMA_sessionFailed($errors)
         $messages[] = preg_replace(
             '/open(.*, O_RDWR)/',
             'open(SESSION_FILE, O_RDWR)',
-            $error->getMessage()
+            htmlspecialchars($error->getMessage())
         );
     }
 
