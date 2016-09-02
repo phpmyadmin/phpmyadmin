@@ -509,8 +509,8 @@ if (Encoding::isSupported() && isset($charset_of_file)) {
 
 // Something to skip? (because timeout has passed)
 if (! $error && isset($_POST['skip'])) {
-    $original_skip = $skip = $_POST['skip'];
-    while ($skip > 0) {
+    $original_skip = $skip = intval($_POST['skip']);
+    while ($skip > 0 && ! $finished) {
         PMA_importGetNextChunk($skip < $read_limit ? $skip : $read_limit);
         // Disable read progressivity, otherwise we eat all memory!
         $read_multiply = 1;
