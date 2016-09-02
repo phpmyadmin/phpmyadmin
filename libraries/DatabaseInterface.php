@@ -2352,11 +2352,11 @@ class DatabaseInterface
         $auxiliary_connection = false
     ) {
         // Do not show location and backtrace for connection errors
-        $error_count = $GLOBALS['error_handler']->setHideLocation(true);
+        $GLOBALS['error_handler']->setHideLocation(true);
         $result = $this->_extension->connect(
             $user, $password, $is_controluser, $server, $auxiliary_connection
         );
-        $error_count = $GLOBALS['error_handler']->setHideLocation(false);
+        $GLOBALS['error_handler']->setHideLocation(false);
 
         if ($result) {
             if (! $auxiliary_connection && ! $is_controluser) {
