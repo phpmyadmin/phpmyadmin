@@ -5,5 +5,5 @@
        size="16"
        class="textfield"
        value="<?= (isset($columnMeta['Field']) && isset($mime_map[$columnMeta['Field']][$options_key])) ?
-                htmlspecialchars($mime_map[$columnMeta['Field']], [$options_key])
+                htmlspecialchars($mime_map[$columnMeta['Field']][$options_key])
                 : '' ?>" />

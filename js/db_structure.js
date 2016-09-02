@@ -217,9 +217,11 @@ AJAX.registerOnload('db_structure.js', function () {
         if ($(this).val() === 'make_consistent_with_central_list') {
             event.preventDefault();
             event.stopPropagation();
-            jqConfirm(PMA_messages.makeConsistentMessage, function(){
-                        $('#tablesForm').submit();
-                    });
+            jqConfirm(
+                PMA_messages.makeConsistentMessage, function(){
+                    $('#tablesForm').submit();
+                }
+            );
             return false;
         }
         else if ($(this).val() === 'copy_tbl' || $(this).val() === 'add_prefix_tbl' || $(this).val() === 'replace_prefix_tbl' || $(this).val() === 'copy_tbl_change_prefix') {
@@ -303,6 +305,7 @@ AJAX.registerOnload('db_structure.js', function () {
             PMA_ajaxShowMessage(PMA_messages.strProcessingRequest);
 
             var params = getJSConfirmCommonParam(this);
+            params.token = PMA_commonParams.get('token');
 
             $.post(url, params, function (data) {
                 if (typeof data !== 'undefined' && data.success === true) {
@@ -366,6 +369,7 @@ AJAX.registerOnload('db_structure.js', function () {
             var $msg = PMA_ajaxShowMessage(PMA_messages.strProcessingRequest);
 
             var params = getJSConfirmCommonParam(this);
+            params.token = PMA_commonParams.get('token');
 
             $.post(url, params, function (data) {
                 if (typeof data !== 'undefined' && data.success === true) {

@@ -132,7 +132,6 @@ AJAX.registerOnload('db_central_columns.js', function () {
         $('#tableslistcontainer').find('.checkall').show();
     });
     $('.edit_save_form').click(function(event) {
-        //alert(1);
         event.preventDefault();
         event.stopPropagation();
         var rownum = $(this).data('rownum');
@@ -142,14 +141,14 @@ AJAX.registerOnload('db_central_columns.js', function () {
                        .attr('name', $(this).attr('name'));
             }
         });
+
         if($('#f_' + rownum + ' .default_type').val() === 'USER_DEFINED') {
             $('#f_' + rownum + ' .default_type').attr('name','col_default_sel');
         } else {
             $('#f_' + rownum + ' .default_value').attr('name','col_default_val');
         }
-       // alert(rownum);
+
         var datastring = $('#f_' + rownum + ' :input').serialize();
-        //console.log(datastring);
         $.ajax({
             type: "POST",
             url: "db_central_columns.php",

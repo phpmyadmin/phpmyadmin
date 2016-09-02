@@ -1596,17 +1596,13 @@ class Util
         $value = round($value / (self::pow(1000, $d, 'pow') / $dh)) /$dh;
         $unit = $units[$d];
 
-        // If we don't want any zeros after the comma just add the thousand separator
-        if ($noTrailingZero) {
-            $localizedValue = self::localizeNumber(
-                preg_replace('/(?<=\d)(?=(\d{3})+(?!\d))/', ',', $value)
-            );
-        } else {
-            //number_format is not multibyte safe, str_replace is safe
-            $localizedValue = self::localizeNumber(
-                number_format($value, $digits_right)
-            );
+        // number_format is not multibyte safe, str_replace is safe
+        $formattedValue = number_format($value, $digits_right);
+        // If we don't want any zeros, remove them now
+        if ($noTrailingZero && strpos($formattedValue, '.') !== false) {
+            $formattedValue = preg_replace('/\.?0+$/', '', $formattedValue);
         }
+        $localizedValue = self::localizeNumber($formattedValue);
 
         if ($originalValue != 0 && floatval($value) == 0) {
             return ' <' . self::localizeNumber((1 / self::pow(10, $digits_right)))
@@ -4562,7 +4558,7 @@ class Util
             ->render(
                 array(
                     'pos' => $pos,
-                    'unlim_num_rows' => $_REQUEST['unlim_num_rows'],
+                    'unlim_num_rows' => intval($_REQUEST['unlim_num_rows']),
                     'rows' => $rows,
                     'sql_query' => $sql_query,
                 )
@@ -4895,5 +4891,130 @@ class Util
             $value = reset($value);
         }
         return trim((string)$value);
+    }
+
+    /**
+     * Creates HTTP request using curl
+     *
+     * @param string $url                Url to send the request
+     * @param string $method             HTTP request method (GET, POST, PUT, DELETE, etc)
+     * @param bool   $return_only_status If set to true, the method would only return response status
+     * @param mixed  $content            Content to be sent with HTTP request
+     * @param string $header             Header to be set for the HTTP request
+     *
+     * @return mixed
+     */
+    public static function httpRequestCurl($url, $method, $return_only_status = false, $content = null, $header = "")
+    {
+        $curl_handle = curl_init($url);
+        if ($curl_handle === false) {
+            return null;
+        }
+        $curl_handle = Util::configureCurl($curl_handle);
+
+        if ($method != "GET") {
+            curl_setopt($curl_handle, CURLOPT_CUSTOMREQUEST, $method);
+        }
+        if ($header) {
+            curl_setopt($curl_handle, CURLOPT_HTTPHEADER, array($header));
+            curl_setopt($curl_handle, CURLOPT_HEADER, true);
+        }
+
+
+        if ($method == "POST") {
+            curl_setopt($curl_handle, CURLOPT_POSTFIELDS, $content);
+        }
+
+        curl_setopt($curl_handle, CURLOPT_SSL_VERIFYHOST, '2');
+        curl_setopt($curl_handle, CURLOPT_SSL_VERIFYPEER, '1');
+
+        curl_setopt($curl_handle, CURLOPT_RETURNTRANSFER,true);
+        curl_setopt($curl_handle, CURLOPT_FOLLOWLOCATION, 0);
+        curl_setopt($curl_handle, CURLOPT_IPRESOLVE, CURL_IPRESOLVE_V4);
+        curl_setopt($curl_handle, CURLOPT_TIMEOUT, 10);
+        curl_setopt($curl_handle, CURLOPT_CONNECTTIMEOUT, 10);
+        $response = curl_exec($curl_handle);
+        if ($return_only_status) {
+            if ($response === false) {
+                return null;
+            }
+            $http_status = curl_getinfo($curl_handle, CURLINFO_HTTP_CODE);
+            if ($http_status == 200) {
+                return true;
+            }
+
+            if ($http_status == 404) {
+                return false;
+            }
+            return null;
+        }
+        return $response;
+    }
+
+    /**
+     * Creates HTTP request using curl
+     *
+     * @param string $url                Url to send the request
+     * @param string $method             HTTP request method (GET, POST, PUT, DELETE, etc)
+     * @param bool   $return_only_status If set to true, the method would only return response status
+     * @param mixed  $content            Content to be sent with HTTP request
+     * @param string $header             Header to be set for the HTTP request
+     *
+     * @return mixed
+     */
+    public static function httpRequestFopen($url, $method, $return_only_status = false, $content = null, $header = "")
+    {
+        $context = array(
+            'http' => array(
+                'method'  => $method,
+                'request_fulluri' => true,
+                'timeout' => 10,
+                'user_agent' => 'phpMyAdmin',
+                'header' => "Accept: */*",
+            )
+        );
+        if ($header) {
+            $context['http']['header'] .= "\n" . $header;
+        }
+        if ($method == "POST") {
+            $context['http']['content'] = $content;
+        }
+
+        $context = Util::handleContext($context);
+        $response = @file_get_contents(
+            $url,
+            false,
+            stream_context_create($context)
+        );
+        if ($return_only_status) {
+            // Failed request without connecting to remote
+            if (! isset($http_response_header)) {
+                return null;
+            }
+            preg_match("#HTTP/[0-9\.]+\s+([0-9]+)#", $http_response_header[0], $out );
+            return ((intval($out[1]) == 200) ? true : ((intval($out[1]) == 404) ? false : null));
+        }
+        return $response;
+    }
+
+    /**
+     * Creates HTTP request
+     *
+     * @param string $url                Url to send the request
+     * @param string $method             HTTP request method (GET, POST, PUT, DELETE, etc)
+     * @param bool   $return_only_status If set to true, the method would only return response status
+     * @param mixed  $content            Content to be sent with HTTP request
+     * @param string $header             Header to be set for the HTTP request
+     *
+     * @return mixed
+     */
+    public static function httpRequest($url, $method, $return_only_status = false, $content = null, $header = "")
+    {
+        if (function_exists('curl_init')) {
+            return Util::httpRequestCurl($url, $method, $return_only_status, $content, $header);
+        } else if (ini_get('allow_url_fopen')) {
+            return Util::httpRequestFopen($url, $method, $return_only_status, $content, $header);
+        }
+        return null;
     }
 }

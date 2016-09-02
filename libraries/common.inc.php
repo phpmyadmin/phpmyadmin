@@ -104,6 +104,13 @@ ini_set('default_charset', 'utf-8');
 mb_internal_encoding('utf-8');
 
 /**
+ * Set precision to sane value, with higher values
+ * things behave slightly unexpectedly, for example
+ * round(1.2, 2) returns 1.199999999999999956.
+ */
+ini_set('precision', 14);
+
+/**
  * the relation lib, tracker needs it
  */
 require './libraries/relation.lib.php';
@@ -365,60 +372,31 @@ if (PMA_checkPageValidity($_REQUEST['back'], $goto_whitelist)) {
  * could access this variables before we reach this point
  * f.e. PMA\libraries\Config: fontsize
  *
+ * Check for token mismatch only if the Request method is POST
+ * GET Requests would never have token and therefore checking
+ * mis-match does not make sense
+ *
  * @todo variables should be handled by their respective owners (objects)
  * f.e. lang, server, collation_connection in PMA\libraries\Config
  */
-$token_mismatch = true;
-$token_provided = false;
-if (PMA_isValid($_REQUEST['token'])) {
-    $token_provided = true;
-    $token_mismatch = ! hash_equals($_SESSION[' PMA_token '], $_REQUEST['token']);
-}
 
-if ($token_mismatch) {
-    /**
-     *  List of parameters which are allowed from unsafe source
-     */
-    $allow_list = array(
-        /* needed for direct access, see FAQ 1.34
-         * also, server needed for cookie login screen (multi-server)
-         */
-        'server', 'db', 'table', 'target', 'lang',
-        /* Session ID */
-        'phpMyAdmin',
-        /* Cookie preferences */
-        'pma_lang', 'pma_collation_connection',
-        /* Possible login form */
-        'pma_servername', 'pma_username', 'pma_password',
-        'g-recaptcha-response',
-        /* Needed to send the correct reply */
-        'ajax_request',
-        /* Permit to log out even if there is a token mismatch */
-        'old_usr',
-        /* Permit redirection with token-mismatch in url.php */
-        'url',
-        /* Permit session expiry flag */
-        'session_expired',
-        /* JS loading */
-        'scripts', 'call_done',
-        /* Navigation panel */
-        'aPath', 'vPath', 'pos', 'pos2_name', 'pos2_value', 'searchClause', 'searchClause2'
-    );
-    /**
-     * Allow changing themes in test/theme.php
-     */
-    if (defined('PMA_TEST_THEME')) {
-        $allow_list[] = 'set_theme';
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $token_mismatch = true;
+    $token_provided = false;
+
+    if (PMA_isValid($_POST['token'])) {
+        $token_provided = true;
+        $token_mismatch = ! hash_equals($_SESSION[' PMA_token '], $_POST['token']);
     }
-    /**
-     * Require cleanup functions
-     */
-    include './libraries/cleanup.lib.php';
-    /**
-     * Do actual cleanup
-     */
-    PMA_removeRequestVars($allow_list);
 
+    if ($token_mismatch) {
+        /**
+         * We don't allow any POST operation parameters if the token is mismatched
+         * or is not provided
+         *
+         */
+        PMA\libraries\Sanitize::removeRequestVars(array());
+    }
 }
 
 
@@ -440,9 +418,15 @@ PMA_setGlobalDbOrTable('table');
  */
 if (PMA_isValid($_REQUEST['selected_recent_table'])) {
     $recent_table = json_decode($_REQUEST['selected_recent_table'], true);
-    $GLOBALS['db'] = $recent_table['db'];
+
+    $GLOBALS['db']
+        = (array_key_exists('db', $recent_table) && is_string($recent_table['db'])) ?
+            $recent_table['db'] : '';
     $GLOBALS['url_params']['db'] = $GLOBALS['db'];
-    $GLOBALS['table'] = $recent_table['table'];
+
+    $GLOBALS['table']
+        = (array_key_exists('table', $recent_table) && is_string($recent_table['table'])) ?
+            $recent_table['table'] : '';
     $GLOBALS['url_params']['table'] = $GLOBALS['table'];
 }
 
