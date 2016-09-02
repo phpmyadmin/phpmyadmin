@@ -1167,7 +1167,7 @@ class Util
             }
 
             if (! empty($GLOBALS['show_as_php'])) {
-                $query_base = '$sql  = "' . $query_base;
+                $query_base = '$sql  = \'' . $query_base;
             } elseif (isset($query_base)) {
                 $query_base = self::formatSql($query_base);
             }
@@ -1311,7 +1311,7 @@ class Util
 
             //Clean up the end of the PHP
             if (! empty($GLOBALS['show_as_php'])) {
-                $retval .= '";';
+                $retval .= '\';';
             }
             $retval .= '</div>';
 
