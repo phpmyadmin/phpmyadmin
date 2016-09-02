@@ -1365,7 +1365,8 @@ AJAX.registerOnload('server_status_monitor.js', function () {
             ajax_request: true,
             chart_data: 1,
             type: 'chartgrid',
-            requiredData: JSON.stringify(runtime.dataList)
+            requiredData: JSON.stringify(runtime.dataList),
+            token: PMA_commonParams.get('token')
         }, function (data) {
             var chartData;
             if (typeof data !== 'undefined' && data.success === true) {
@@ -2006,7 +2007,8 @@ AJAX.registerOnload('server_status_monitor.js', function () {
             ajax_request: true,
             query_analyzer: true,
             query: codemirror_editor ? codemirror_editor.getValue() : $('#sqlquery').val(),
-            database: db
+            database: db,
+            token: PMA_commonParams.get('token')
         }, function (data) {
             var i, l;
             if (typeof data !== 'undefined' && data.success === true) {
