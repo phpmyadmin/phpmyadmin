@@ -13,6 +13,13 @@ phpMyAdmin - ChangeLog
 - issue #12485 Do not show warning about short blowfish_secret if none is set
 - issue #12251 Fixed random logouts due to wrong cookie path
 - issue #12480 Fixed editing of ENUM/SET/DECIMAL fields structure
+- issue #12497 Missing escaping of configuration used in SQL (hide_db and only_db)
+- issue #12476 Add error checking in reading advisory rules file
+- issue #12477 Add checking missing elements and confirming element types from json_decode
+- issue #12251 Automatically save SQL query in browser local storage rather than in cookie
+- issue #12292 Unable to edit transformations
+- issue #12502 Remove unused paramenter when connecting to MySQLi
+- issue #12303 Fix number formatting with different settings of precision in PHP
 
 4.6.4 (2016-08-16)
 - issue        [security] Weaknesses with cookie encryption, see PMASA-2016-29

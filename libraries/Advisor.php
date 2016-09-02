@@ -455,10 +455,20 @@ class Advisor
      */
     public static function parseRulesFile()
     {
-        $file = file('libraries/advisory_rules.txt', FILE_IGNORE_NEW_LINES);
+        $filename = 'libraries/advisory_rules.txt';
+        $file = file($filename, FILE_IGNORE_NEW_LINES);
+
         $errors = array();
         $rules = array();
         $lines = array();
+
+        if ($file === FALSE) {
+            $errors[] = __(
+                'Error in reading file: The file \'' . $filename .'\' does not exist or is not readable'
+            );
+            return array('rules' => $rules, 'lines' => $lines, 'errors' => $errors);
+        }
+
         $ruleSyntax = array(
             'name', 'formula', 'test', 'issue', 'recommendation', 'justification'
         );
