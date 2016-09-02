@@ -782,22 +782,6 @@ function PMA_addJSCode($str)
 }
 
 /**
- * Adds JS code snippet for variable assignment
- * to be displayed by the PMA\libraries\Response class.
- *
- * @param string $key    Name of value to set
- * @param mixed  $value  Value to set, can be either string or array of strings
- * @param bool   $escape Whether to escape value or keep it as it is
- *                       (for inclusion of js code)
- *
- * @return void
- */
-function PMA_addJSVar($key, $value, $escape = true)
-{
-    PMA_addJSCode(Sanitize::getJsValue($key, $value, $escape));
-}
-
-/**
  * Replace some html-unfriendly stuff
  *
  * @param string $buffer String to process
