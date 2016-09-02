@@ -72,9 +72,14 @@ if (isset($_REQUEST['createview']) || isset($_REQUEST['alterview'])) {
     }
 
     if (! empty($_REQUEST['view']['definer'])) {
-        $arr = explode('@', $_REQUEST['view']['definer']);
-        $sql_query .= $sep . 'DEFINER=' . PMA\libraries\Util::backquote($arr[0]);
-        $sql_query .= '@' . PMA\libraries\Util::backquote($arr[1]) . ' ';
+        if (strpos($_REQUEST['view']['definer'], '@') === FALSE) {
+            $sql_query .= $sep . 'DEFINER='
+                . PMA\libraries\Util::backquote($_REQUEST['view']['definer']);
+        } else {
+            $arr = explode('@', $_REQUEST['view']['definer']);
+            $sql_query .= $sep . 'DEFINER=' . PMA\libraries\Util::backquote($arr[0]);
+            $sql_query .= '@' . PMA\libraries\Util::backquote($arr[1]) . ' ';
+        }
     }
 
     if (isset($_REQUEST['view']['sql_security'])) {
