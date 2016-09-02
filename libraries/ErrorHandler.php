@@ -24,6 +24,11 @@ class ErrorHandler
     protected $errors = array();
 
     /**
+     * Hide location of errors
+     */
+    protected $hide_location = false;
+
+    /**
      * Constructor - set PHP error handler
      *
      */
@@ -75,6 +80,18 @@ class ErrorHandler
                 }
             }
         }
+    }
+
+    /**
+     * Toggles location hiding
+     *
+     * @param boolean $hide Whether to hide
+     *
+     * @return void
+     */
+    public function setHideLocation($hide)
+    {
+        $this->hide_location = $hide;
     }
 
     /**
@@ -170,6 +187,7 @@ class ErrorHandler
             $errfile,
             $errline
         );
+        $error->setHideLocation($this->hide_location);
 
         // do not repeat errors
         $this->errors[$error->getHash()] = $error;
