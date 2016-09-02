@@ -845,9 +845,16 @@ function PMA_linkURL($url)
 function PMA_isAllowedDomain($url)
 {
     $arr = parse_url($url);
-    // Avoid URLs without hostname or with credentials
-    if (empty($arr['host']) || ! empty($arr['user']) || ! empty($arr['pass'])) {
+    // We need host to be set
+    if (! isset($arr['host']) || strlen($arr['host']) == 0) {
         return false;
+    }
+    // We do not want these to be present
+    $blocked = array('user', 'pass', 'port');
+    foreach ($blocked as $part) {
+        if (isset($arr[$part]) && strlen($arr[$part]) != 0) {
+            return false;
+        }
     }
     $domain = $arr["host"];
     $domainWhiteList = array(
@@ -856,23 +863,32 @@ function PMA_isAllowedDomain($url)
         /* phpMyAdmin domains */
         'wiki.phpmyadmin.net', 'www.phpmyadmin.net', 'phpmyadmin.net',
         'docs.phpmyadmin.net',
+        'demo.phpmyadmin.net',
         /* mysql.com domains */
         'dev.mysql.com','bugs.mysql.com',
         /* drizzle.com domains */
         'www.drizzle.org',
+        /* mariadb domains */
+        'mariadb.org', 'mariadb.com',
         /* php.net domains */
         'php.net',
+        /* sourceforge.net domain */
+        'sourceforge.net',
         /* Github domains*/
         'github.com','www.github.com',
         /* Following are doubtful ones. */
         'www.primebase.com',
         'pbxt.blogspot.com',
+        /* Percona domains */
         'www.percona.com',
+        /* Following are doubtful ones. */
         'mysqldatabaseadministration.blogspot.com',
         'ronaldbradford.com',
         'xaprb.com',
+        /* CVE */
+        'cve.mitre.org',
     );
-    if (in_array(/*overload*/mb_strtolower($domain), $domainWhiteList)) {
+    if (in_array($domain, $domainWhiteList)) {
         return true;
     }
 
