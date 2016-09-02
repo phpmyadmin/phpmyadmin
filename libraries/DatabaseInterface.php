@@ -2328,21 +2328,12 @@ class DatabaseInterface
             return false;
         }
 
-        $error_count = $GLOBALS['error_handler']->countErrors();
+        // Do not show location and backtrace for connection errors
+        $GLOBALS['error_handler']->setHideLocation(true);
         $result = $this->_extension->connect(
             $user, $password, $server
         );
-
-        /* Any errors from connection? */
-        if ($GLOBALS['error_handler']->countErrors() > $error_count) {
-            $errors = $GLOBALS['error_handler']->sliceErrors($error_count);
-            foreach ($errors as $error) {
-                trigger_error(
-                    $error->getMessage(),
-                    E_USER_ERROR
-                );
-            }
-        }
+        $GLOBALS['error_handler']->setHideLocation(false);
 
         if ($result) {
             /* Run post connect for user connections */
