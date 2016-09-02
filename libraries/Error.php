@@ -433,13 +433,13 @@ class Error extends Message
     {
         $this->isDisplayed(true);
         $retval = '<div class="' . $this->getLevel() . '">';
-        if (! $this->isUserError() && ! $this->hide_location) {
+        if (! $this->isUserError()) {
             $retval .= '<strong>' . $this->getType() . '</strong>';
             $retval .= ' in ' . $this->getFile() . '#' . $this->getLine();
             $retval .= "<br />\n";
         }
         $retval .= $this->getMessage();
-        if (! $this->isUserError() && ! $this->hide_location) {
+        if (! $this->isUserError()) {
             $retval .= "<br />\n";
             $retval .= "<br />\n";
             $retval .= "<strong>Backtrace</strong><br />\n";
@@ -458,7 +458,8 @@ class Error extends Message
      */
     public function isUserError()
     {
-        return $this->getNumber() & (E_USER_WARNING | E_USER_ERROR | E_USER_NOTICE);
+        return $this->hide_location ||
+            ($this->getNumber() & (E_USER_WARNING | E_USER_ERROR | E_USER_NOTICE));
     }
 
     /**
