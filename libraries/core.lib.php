@@ -818,9 +818,16 @@ if(! function_exists('hash_equals')) {
 function PMA_isAllowedDomain($url)
 {
     $arr = parse_url($url);
-    // Avoid URLs without hostname or with credentials
-    if (empty($arr['host']) || ! empty($arr['user']) || ! empty($arr['pass'])) {
+    // We need host to be set
+    if (! isset($arr['host']) || strlen($arr['host']) == 0) {
         return false;
+    }
+    // We do not want these to be present
+    $blocked = array('user', 'pass', 'port');
+    foreach ($blocked as $part) {
+        if (isset($arr[$part]) && strlen($arr[$part]) != 0) {
+            return false;
+        }
     }
     $domain = $arr["host"];
     $domainWhiteList = array(
@@ -848,7 +855,7 @@ function PMA_isAllowedDomain($url)
         /* CVE */
         'cve.mitre.org',
     );
-    if (in_array(strtolower($domain), $domainWhiteList)) {
+    if (in_array($domain, $domainWhiteList)) {
         return true;
     }
 
