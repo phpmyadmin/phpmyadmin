@@ -194,7 +194,7 @@ function PMA_ipv6MaskTest($test_range, $ip_to_test)
 
     if ($is_single) {
         $range_hex = bin2hex(inet_pton($test_range));
-        $result = $ip_hex === $range_hex;
+        $result = hash_equals($ip_hex, $range_hex);
         return $result;
     }
 
