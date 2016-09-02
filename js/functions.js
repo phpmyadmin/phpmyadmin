@@ -4624,6 +4624,16 @@ AJAX.registerTeardown('functions.js', function () {
 
 AJAX.registerOnload('functions.js', function () {
     $('input#print').click(printPage);
+    $('.logout').click(function() {
+        var form = $(
+            '<form method="POST" action="' + $(this).attr('href') + '" class="disableAjax">' +
+            '<input type="hidden" name="token" value="' + PMA_commonParams.get('token') + '"/>' +
+            '</form>'
+        );
+        $('body').append(form);
+        form.submit();
+        return false;
+    });
     /**
      * Ajaxification for the "Create View" action
      */

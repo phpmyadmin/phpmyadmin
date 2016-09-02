@@ -179,7 +179,9 @@ class NavigationHeader
                 $showIcon,
                 's_loggoff.png',
                 '',
-                true
+                true,
+                '',
+                array('logout')
             );
         }
         $retval .= PMA\libraries\Util::getNavigationLink(

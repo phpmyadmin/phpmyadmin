@@ -395,7 +395,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
          * or is not provided
          *
          */
-        PMA\libraries\Sanitize::removeRequestVars(array());
+        $whitelist = array();
+        PMA\libraries\Sanitize::removeRequestVars($whitelist);
     }
 }
 
