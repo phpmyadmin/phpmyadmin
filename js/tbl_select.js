@@ -149,6 +149,7 @@ AJAX.registerOnload('tbl_select.js', function () {
         } else {
             values.displayAllColumns = true;
         }
+        values.token = PMA_commonParams.get('token');
 
         $.post($search_form.attr('action'), values, function (data) {
             PMA_ajaxRemoveMessage($msgbox);

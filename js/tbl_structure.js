@@ -453,10 +453,14 @@ AJAX.registerOnload('tbl_structure.js', function () {
         var $link = $(this);
 
         function submitPartitionAction(url) {
-            var submitData = '&ajax_request=true&ajax_page_request=true';
+            var params = {
+                'ajax_request' : true,
+                'ajax_page_request' : true,
+                'token': PMA_commonParams.get('token')
+            };
             PMA_ajaxShowMessage();
             AJAX.source = $link;
-            $.post(url, submitData, AJAX.responseHandler);
+            $.post(url, params, AJAX.responseHandler);
         }
 
         if ($link.is('#partition_action_DROP')) {
@@ -482,10 +486,14 @@ AJAX.registerOnload('tbl_structure.js', function () {
         var $link = $(this);
         var question = PMA_messages.strRemovePartitioningWarning;
         $link.PMA_confirm(question, $link.attr('href'), function (url) {
-            var submitData = '&ajax_request=true&ajax_page_request=true';
+            var params = {
+                'ajax_request' : true,
+                'ajax_page_request' : true,
+                'token': PMA_commonParams.get('token')
+            };
             PMA_ajaxShowMessage();
             AJAX.source = $link;
-            $.post(url, submitData, AJAX.responseHandler);
+            $.post(url, params, AJAX.responseHandler);
         });
     });
 });
