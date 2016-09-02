@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.5-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-08-17 11:29+0200\n"
-"PO-Revision-Date: 2016-05-02 13:22+0000\n"
-"Last-Translator: Martin Lacina <martin@whistler.sk>\n"
-"Language-Team: Slovak <https://hosted.weblate.org/projects/phpmyadmin/4-6/sk/"
-">\n"
+"PO-Revision-Date: 2016-08-31 15:54+0000\n"
+"Last-Translator: Jozef Pistej <pistej2@gmail.com>\n"
+"Language-Team: Slovak "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-6/sk/>\n"
 "Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Weblate 2.7-dev\n"
+"X-Generator: Weblate 2.8\n"
 
 #: changelog.php:38 license.php:33
 #, php-format
@@ -3227,7 +3227,7 @@ msgstr "Stĺpec:"
 
 #: libraries/DbQbe.php:511
 msgid "Alias:"
-msgstr ""
+msgstr "Alias:"
 
 #: libraries/DbQbe.php:564
 msgid "Sort:"
@@ -5121,10 +5121,9 @@ msgid "You allow for connecting to the server without a password."
 msgstr "Dovoľujete pripojiť sa k serveru bez hesla."
 
 #: libraries/config/ServerConfigChecks.php:347
-#, fuzzy
 #| msgid "Key is too short, it should have at least 8 characters."
 msgid "Key is too short, it should have at least 32 characters."
-msgstr "Kľúč je príliš krátky, mal by mať aspoň 8 znakov."
+msgstr "Kľúč je príliš krátky, mal by mať aspoň 32 znakov."
 
 #: libraries/config/ServerConfigChecks.php:357
 msgid "Key should contain letters, numbers [em]and[/em] special characters."
@@ -8374,7 +8373,7 @@ msgstr ""
 
 #: libraries/display_import.lib.php:490
 msgid "About %SEC sec. remaining."
-msgstr ""
+msgstr "Zostáva približne %SEC sekúnd."
 
 #: libraries/display_import.lib.php:492
 msgid "The file is being processed, please be patient."
@@ -9467,7 +9466,7 @@ msgstr ""
 
 #: libraries/normalization.lib.php:342 libraries/normalization.lib.php:384
 msgid "Table is already in second normal form."
-msgstr ""
+msgstr "Tabuľka už je v druhej normalizačnej norme."
 
 #: libraries/normalization.lib.php:347
 #, php-format
@@ -9531,7 +9530,7 @@ msgstr ""
 
 #: libraries/normalization.lib.php:577
 msgid "The third step of normalization is complete."
-msgstr ""
+msgstr "Tretí krok normalizácie je kompletný."
 
 #: libraries/normalization.lib.php:673
 #, php-format
@@ -9562,7 +9561,7 @@ msgstr ""
 
 #: libraries/normalization.lib.php:778
 msgid "Table is already in Third normal form!"
-msgstr ""
+msgstr "Tabuľka už je v tretej normalizačnej forme!"
 
 #: libraries/normalization.lib.php:803
 msgid "Improve table structure (Normalization):"
@@ -9574,11 +9573,11 @@ msgstr ""
 
 #: libraries/normalization.lib.php:808
 msgid "Second step of normalization (1NF+2NF)"
-msgstr ""
+msgstr "Druhý krok normalizácie (1NF+2NF)"
 
 #: libraries/normalization.lib.php:809
 msgid "Third step of normalization (1NF+2NF+3NF)"
-msgstr ""
+msgstr "Tretí krok normalizácie (1NF+2NF+3NF)"
 
 #: libraries/normalization.lib.php:816
 msgid ""
@@ -9594,7 +9593,7 @@ msgstr ""
 
 #: libraries/normalization.lib.php:893
 msgid "No partial dependencies found!"
-msgstr ""
+msgstr "Neboli nájdené žiadne čiastočné závislosti!"
 
 #: libraries/operations.lib.php:77
 msgid "Rename database to"
@@ -10374,7 +10373,7 @@ msgstr "Tabuľka:"
 
 #: libraries/plugins/export/PMA_ExportPdf.php:120
 msgid "Purpose:"
-msgstr ""
+msgstr "Účel:"
 
 #: libraries/plugins/export/PMA_ExportPdf.php:501
 msgid "MIME"
@@ -10436,7 +10435,7 @@ msgstr "Tento plug-in nepodporuje import komprimovaných súborov!"
 
 #: libraries/plugins/import/ImportMediawiki.php:52
 msgid "MediaWiki Table"
-msgstr ""
+msgstr "MediaWiki tabuľka"
 
 #: libraries/plugins/import/ImportMediawiki.php:275
 #, php-format
@@ -10532,7 +10531,7 @@ msgstr "Na výšku"
 #: libraries/plugins/schema/SchemaPdf.php:62
 #: libraries/plugins/schema/SchemaSvg.php:61
 msgid "Same width for all tables"
-msgstr ""
+msgstr "Rovnaká šírka pre všetky tabuľky"
 
 #: libraries/plugins/schema/SchemaPdf.php:87
 msgid "Show grid"
@@ -11269,7 +11268,7 @@ msgstr "Chyba."
 
 #: libraries/replication_gui.lib.php:975
 msgid "Unknown error"
-msgstr ""
+msgstr "Neznáma chyba"
 
 #: libraries/replication_gui.lib.php:985
 #, php-format
@@ -11399,11 +11398,11 @@ msgstr "Chyba pri spracovaní požiadavky:"
 
 #: libraries/rte/rte_footer.lib.php:94
 msgid "OFF"
-msgstr ""
+msgstr "OFF"
 
 #: libraries/rte/rte_footer.lib.php:99
 msgid "ON"
-msgstr ""
+msgstr "ON"
 
 #: libraries/rte/rte_footer.lib.php:111
 msgid "Event scheduler status"
@@ -11464,7 +11463,7 @@ msgstr "Meno rutiny"
 
 #: libraries/rte/rte_routines.lib.php:911
 msgid "Parameters"
-msgstr ""
+msgstr "Parametre"
 
 #: libraries/rte/rte_routines.lib.php:919
 msgid "Direction"
@@ -12307,7 +12306,7 @@ msgstr "Používateľ bol pridaný."
 #: libraries/server_status.lib.php:57
 #, php-format
 msgid "Network traffic since startup: %s"
-msgstr ""
+msgstr "Sieťová prevádzka od štartu: %s"
 
 #: libraries/server_status.lib.php:70
 #, php-format
@@ -12574,7 +12573,7 @@ msgstr "Príkaz"
 
 #: libraries/server_status_processes.lib.php:95
 msgid "Progress"
-msgstr ""
+msgstr "Progres"
 
 #: libraries/server_status_processes.lib.php:232
 #: libraries/server_status_variables.lib.php:36
@@ -14877,7 +14876,7 @@ msgstr "Spojité čiary"
 #: templates/table/chart/tbl_chart.phtml:33
 msgctxt "Chart type"
 msgid "Area"
-msgstr ""
+msgstr "Oblasť"
 
 #: templates/table/chart/tbl_chart.phtml:37
 msgctxt "Chart type"
@@ -15344,7 +15343,7 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:52
 msgid "Uptime is less than 1 day, performance tuning may not be accurate."
-msgstr ""
+msgstr "Doba prevádzky je menšia ako 1 deň, ladenie výkonu nemusí byť presné."
 
 #: libraries/advisory_rules.txt:53
 msgid ""
@@ -15355,7 +15354,7 @@ msgstr ""
 #: libraries/advisory_rules.txt:54
 #, php-format
 msgid "The uptime is only %s"
-msgstr ""
+msgstr "Doba prevádzky je iba %s"
 
 #: libraries/advisory_rules.txt:56
 msgid "Questions below 1,000"
