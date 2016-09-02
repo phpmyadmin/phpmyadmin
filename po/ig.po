@@ -303,18 +303,18 @@ msgstr "The database aha ahụ tọgbọ nkịtị!"
 #: db_operations.php:139
 #, php-format
 msgid "Database %1$s has been renamed to %2$s."
-msgstr "Database %1$s1 e renamed ka %2$s2."
+msgstr "Database %1$s e renamed ka %2$s."
 
 #: db_operations.php:151
 #, php-format
 msgid "Database %1$s has been copied to %2$s."
-msgstr "Database %1$s1 e depụtaghachiri ka %2$s2."
+msgstr "Database %1$s e depụtaghachiri ka %2$s."
 
 #: db_operations.php:281
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. %sFind out why%s."
-msgstr "Phpmyadmin nhazi nchekwa agbanyụọla. %s1 Chọpụta ihe mere o%s2."
+msgstr "Phpmyadmin nhazi nchekwa agbanyụọla. %s Chọpụta ihe mere o%s."
 
 #: db_qbe.php:125
 msgid "You have to choose at least one column to display!"
@@ -323,7 +323,7 @@ msgstr "Ị ga-ekpebi dịkarịa ala otu kọlụm na-egosipụta!"
 #: db_qbe.php:143
 #, php-format
 msgid "Switch to %svisual builder%s"
-msgstr "Gbanwee na %s1 visual na-ewu %s2"
+msgstr "Gbanwee na %s visual na-ewu %s"
 
 #: db_search.php:31 libraries/plugins/AuthenticationPlugin.php:110
 #: libraries/plugins/auth/AuthenticationConfig.php:94
@@ -340,7 +340,7 @@ msgstr "Ndepụta data ehichapụ ihe ịga nke ọma."
 #, php-format
 msgid ""
 "Version %1$s was created for selected tables, tracking is active for them."
-msgstr "Version %1$s1 E kere họrọ tebụl, nsuso bụ ọrụ n'ihi na ha."
+msgstr "Version %1$s E kere họrọ tebụl, nsuso bụ ọrụ n'ihi na ha."
 
 #: db_tracking.php:92
 msgid "No tables selected."
@@ -387,7 +387,7 @@ msgstr "Ajo parameters!"
 #: gis_data_editor.php:118
 #, php-format
 msgid "Value for the column \"%s\""
-msgstr "Uru maka na kọlụm \"%s1\""
+msgstr "Uru maka na kọlụm \"%s\""
 
 #: gis_data_editor.php:146
 #: templates/table/gis_visualization/gis_visualization.phtml:38
@@ -534,8 +534,8 @@ msgid ""
 "You probably tried to upload a file that is too large. Please refer to "
 "%sdocumentation%s for a workaround for this limit."
 msgstr ""
-"Eleghị anya ị gbalịrị bulite faịlụ na bụ oke buru ibu. Biko rụtụ aka %s1 "
-"akwụkwọ %s2 maka a workaround ka a ịgba."
+"Eleghị anya ị gbalịrị bulite faịlụ na bụ oke buru ibu. Biko rụtụ aka %s "
+"akwụkwọ %s maka a workaround ka a ịgba."
 
 #: import.php:374 import.php:577
 msgid "Showing bookmark"
@@ -562,7 +562,7 @@ msgstr "Enweghị ike ibu ihe plugins, biko elele gị echichi!"
 #: import.php:580 libraries/sql.lib.php:782 libraries/sql.lib.php:1559
 #, php-format
 msgid "Bookmark %s has been created."
-msgstr "Bookmark %s1 e kere."
+msgstr "Bookmark %s e kere."
 
 #: import.php:590
 #, php-format
@@ -581,8 +581,8 @@ msgid ""
 "Script timeout passed, if you want to finish import, please %sresubmit the "
 "same file%s and import will resume."
 msgstr ""
-"Edemede timeout gafere, ma ọ bụrụ na ị chọrọ iji gwụ mbubata, biko %s1 "
-"n'okpuru otu faịlụ %s2 na mbubata ga-maliteghachi."
+"Edemede timeout gafere, ma ọ bụrụ na ị chọrọ iji gwụ mbubata, biko %s "
+"n'okpuru otu faịlụ %s na mbubata ga-maliteghachi."
 
 #: import.php:629
 msgid ""
