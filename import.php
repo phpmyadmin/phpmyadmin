@@ -797,6 +797,19 @@ if ($go_sql) {
         // @todo: possibly refactor
         extract($analyzed_sql_results);
 
+        // Check if User is allowed to issue a 'DROP DATABASE' Statement
+        if (PMA_hasNoRightsToDropDatabase(
+            $analyzed_sql_results, $cfg['AllowUserDropDatabase'], $GLOBALS['is_superuser']
+        )) {
+            PMA\libraries\Util::mysqlDie(
+                __('"DROP DATABASE" statements are disabled.'),
+                '',
+                false,
+                $_SESSION['Import_message']['go_back_url']
+            );
+            return;
+        } // end if
+
         if ($table != $table_from_sql && !empty($table_from_sql)) {
             $table = $table_from_sql;
         }
