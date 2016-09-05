@@ -1475,26 +1475,6 @@ class Util
         return array(trim($return_value), $unit);
     } // end of the 'formatByteDown' function
 
-    /**
-     * Changes thousands and decimal separators to locale specific values.
-     *
-     * @param string $value the value
-     *
-     * @return string
-     */
-    public static function localizeNumber($value)
-    {
-        return str_replace(
-            array(',', '.'),
-            array(
-                /* l10n: Thousands separator */
-                __(','),
-                /* l10n: Decimal separator */
-                __('.'),
-            ),
-            $value
-        );
-    }
 
     /**
      * Formats $value to the given length and appends SI prefixes
@@ -1536,11 +1516,18 @@ class Util
         $originalValue = $value;
         //number_format is not multibyte safe, str_replace is safe
         if ($digits_left === 0) {
-            $value = number_format($value, $digits_right);
+            $value = number_format(
+                $value,
+                $digits_right,
+                /* l10n: Decimal separator */
+                __('.'),
+                /* l10n: Thousands separator */
+                __(',')
+            );
             if (($originalValue != 0) && (floatval($value) == 0)) {
                 $value = ' <' . (1 / self::pow(10, $digits_right));
             }
-            return self::localizeNumber($value);
+            return $value;
         }
 
         // this units needs no translation, ISO
@@ -1597,19 +1584,32 @@ class Util
         $unit = $units[$d];
 
         // number_format is not multibyte safe, str_replace is safe
-        $formattedValue = number_format($value, $digits_right);
+        $formattedValue = number_format(
+            $value,
+            $digits_right,
+            /* l10n: Decimal separator */
+            __('.'),
+            /* l10n: Thousands separator */
+            __(',')
+        );
         // If we don't want any zeros, remove them now
         if ($noTrailingZero && strpos($formattedValue, '.') !== false) {
             $formattedValue = preg_replace('/\.?0+$/', '', $formattedValue);
         }
-        $localizedValue = self::localizeNumber($formattedValue);
 
         if ($originalValue != 0 && floatval($value) == 0) {
-            return ' <' . self::localizeNumber((1 / self::pow(10, $digits_right)))
+            return ' <' . number_format(
+                (1 / self::pow(10, $digits_right)),
+                $digits_right,
+                /* l10n: Decimal separator */
+                __('.'),
+                /* l10n: Thousands separator */
+                __(',')
+            )
             . ' ' . $unit;
         }
 
-        return $sign . $localizedValue . ' ' . $unit;
+        return $sign . $formattedValue . ' ' . $unit;
     } // end of the 'formatNumber' function
 
     /**
