@@ -629,8 +629,7 @@ function confirmLink(theLink, theSqlQuery)
 } // end of the 'confirmLink()' function
 
 /**
- * Displays an error message if a "DROP DATABASE" statement is submitted
- * while it isn't allowed, else confirms a "DROP/DELETE/ALTER" query before
+ * Confirms a "DROP/DELETE/ALTER" query before
  * submitting it if required.
  * This function is called by the 'checkSqlQuery()' js function.
  *
@@ -648,17 +647,6 @@ function confirmQuery(theForm1, sqlQuery1)
         return true;
     }
 
-    // "DROP DATABASE" statement isn't allowed
-    if (PMA_messages.strNoDropDatabases !== '') {
-        var drop_re = new RegExp('(^|;)\\s*DROP\\s+(IF EXISTS\\s+)?DATABASE\\s', 'i');
-        if (drop_re.test(sqlQuery1.value)) {
-            alert(PMA_messages.strNoDropDatabases);
-            theForm1.reset();
-            sqlQuery1.focus();
-            return false;
-        } // end if
-    } // end if
-
     // Confirms a "DROP/DELETE/ALTER/TRUNCATE" statement
     //
     // TODO: find a way (if possible) to use the parser-analyser
@@ -666,7 +654,7 @@ function confirmQuery(theForm1, sqlQuery1)
     // For now, I just added a ^ to check for the statement at
     // beginning of expression
 
-    var do_confirm_re_0 = new RegExp('^\\s*DROP\\s+(IF EXISTS\\s+)?(TABLE|DATABASE|PROCEDURE)\\s', 'i');
+    var do_confirm_re_0 = new RegExp('^\\s*DROP\\s+(IF EXISTS\\s+)?(TABLE|PROCEDURE)\\s', 'i');
     var do_confirm_re_1 = new RegExp('^\\s*ALTER\\s+TABLE\\s+((`[^`]+`)|([A-Za-z0-9_$]+))\\s+DROP\\s', 'i');
     var do_confirm_re_2 = new RegExp('^\\s*DELETE\\s+FROM\\s', 'i');
     var do_confirm_re_3 = new RegExp('^\\s*TRUNCATE\\s', 'i');
