@@ -177,7 +177,7 @@ class PMA_ServerStatus_Test extends PHPUnit_Framework_TestCase
         );
         //updatetime
         $upTime_html = 'This MySQL server has been running for '
-            . '0 days, 0 hours, 0 minutes and 10h seconds';
+            . '0 days, 10 hours, 0 minutes and 0 seconds';
         $this->assertContains(
             $upTime_html,
             $html
