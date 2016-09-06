@@ -335,6 +335,9 @@ class ServerStatusData
         // cleanup of some deprecated values
         $server_status = self::cleanDeprecated($server_status);
 
+        $server_status = self::changeNumericValues($server_status);
+        $server_variables = self::changeNumericValues($server_variables);
+
         // calculate some values
         $server_status = $this->_calculateValues(
             $server_status, $server_variables
@@ -407,6 +410,23 @@ class ServerStatusData
         foreach ($deprecated as $old => $new) {
             if (isset($server_status[$old]) && isset($server_status[$new])) {
                 unset($server_status[$old]);
+            }
+        }
+        return $server_status;
+    }
+
+    /**
+     * Change numeric strings to actual numbers
+     *
+     * @param array $server_status status array to process
+     *
+     * @return array
+     */
+    public static function changeNumericValues($server_status)
+    {
+        foreach ($server_status as $key => $value) {
+            if (is_numeric($value)) {
+                $server_status[$key] = intval($value);
             }
         }
         return $server_status;

@@ -602,7 +602,7 @@ function PMA_getJsonForLogDataTypeSlow($start, $end)
         if (! isset($return['sum'][$type])) {
             $return['sum'][$type] = 0;
         }
-        $return['sum'][$type] += $row['#'];
+        $return['sum'][$type] += intval($row['#']);
         $return['rows'][] = $row;
     }
 
@@ -653,7 +653,7 @@ function PMA_getJsonForLogDataTypeGeneral($start, $end)
         if (! isset($return['sum'][$type])) {
             $return['sum'][$type] = 0;
         }
-        $return['sum'][$type] += $row['#'];
+        $return['sum'][$type] += intval($row['#']);
 
         switch($type) {
         /** @noinspection PhpMissingBreakStatementInspection */

@@ -20,7 +20,7 @@ function PMA_getHtmlForQueryStatistics($ServerStatusData)
 {
     $retval = '';
 
-    $hour_factor   = 3600 / $ServerStatusData->status['Uptime'];
+    $hour_factor   = 3600 / intval($ServerStatusData->status['Uptime']);
     $used_queries = $ServerStatusData->used_queries;
     $total_queries = array_sum($used_queries);
 
@@ -43,14 +43,14 @@ function PMA_getHtmlForQueryStatistics($ServerStatusData)
     $retval .= '<br />';
     $retval .= '&oslash; ' . __('per minute:') . ' ';
     $retval .= PMA\libraries\Util::formatNumber(
-        $total_queries * 60 / $ServerStatusData->status['Uptime'],
+        $total_queries * 60 / intval($ServerStatusData->status['Uptime']),
         0
     );
     $retval .= '<br />';
-    if ($total_queries / $ServerStatusData->status['Uptime'] >= 1) {
+    if ($total_queries / intval($ServerStatusData->status['Uptime']) >= 1) {
         $retval .= '&oslash; ' . __('per second:') . ' ';
         $retval .= PMA\libraries\Util::formatNumber(
-            $total_queries / $ServerStatusData->status['Uptime'],
+            $total_queries / intval($ServerStatusData->status['Uptime']),
             0
         );
     }
@@ -71,7 +71,7 @@ function PMA_getHtmlForQueryStatistics($ServerStatusData)
  */
 function PMA_getHtmlForServerStatusQueriesDetails($ServerStatusData)
 {
-    $hour_factor   = 3600 / $ServerStatusData->status['Uptime'];
+    $hour_factor   = 3600 / intval($ServerStatusData->status['Uptime']);
     $used_queries = $ServerStatusData->used_queries;
     $total_queries = array_sum($used_queries);
     // reverse sort by value to show most used statements first

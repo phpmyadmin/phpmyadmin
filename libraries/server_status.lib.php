@@ -47,7 +47,7 @@ function PMA_getHtmlForServerStatus($ServerStatusData)
 function PMA_getHtmlForServerStateGeneralInfo($ServerStatusData)
 {
     $start_time = $GLOBALS['dbi']->fetchValue(
-        'SELECT UNIX_TIMESTAMP() - ' . $ServerStatusData->status['Uptime']
+        'SELECT UNIX_TIMESTAMP() - ' . intval($ServerStatusData->status['Uptime'])
     );
 
     $retval  = '<h3>';
@@ -68,7 +68,7 @@ function PMA_getHtmlForServerStateGeneralInfo($ServerStatusData)
     $retval .= '<p>';
     $retval .= sprintf(
         __('This MySQL server has been running for %1$s. It started up on %2$s.'),
-        PMA\libraries\Util::timespanFormat($ServerStatusData->status['Uptime']),
+        PMA\libraries\Util::timespanFormat(intval($ServerStatusData->status['Uptime'])),
         PMA\libraries\Util::localisedDate($start_time)
     ) . "\n";
     $retval .= '</p>';
@@ -132,7 +132,7 @@ function PMA_getHtmlForReplicationInfo()
  */
 function PMA_getHtmlForServerStateTraffic($ServerStatusData)
 {
-    $hour_factor    = 3600 / $ServerStatusData->status['Uptime'];
+    $hour_factor    = 3600 / intval($ServerStatusData->status['Uptime']);
     $retval  = '<table id="serverstatustraffic" class="data noclick">';
     $retval .= '<thead>';
     $retval .= '<tr>';
@@ -225,7 +225,7 @@ function PMA_getHtmlForServerStateTraffic($ServerStatusData)
  */
 function PMA_getHtmlForServerStateConnections($ServerStatusData)
 {
-    $hour_factor    = 3600 / $ServerStatusData->status['Uptime'];
+    $hour_factor    = 3600 / intval($ServerStatusData->status['Uptime']);
     $retval  = '<table id="serverstatusconnections" class="data noclick">';
     $retval .= '<thead>';
     $retval .= '<tr>';
