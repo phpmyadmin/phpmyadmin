@@ -114,8 +114,7 @@ class PMA_ServerStatusQueries_Test extends PHPUnit_Framework_TestCase
 
         $GLOBALS['dbi'] = $dbi;
         $this->ServerStatusData = new ServerStatusData();
-        $upTime = "10h";
-        $this->ServerStatusData->status['Uptime'] = $upTime;
+        $this->ServerStatusData->status['Uptime'] = 36000;
         $this->ServerStatusData->used_queries = array(
             "Com_change_db" => "15",
             "Com_select" => "12",
