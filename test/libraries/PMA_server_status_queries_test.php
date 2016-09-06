@@ -128,7 +128,7 @@ class PMA_ServerStatusQueries_Test extends PHPUnit_Framework_TestCase
         //Call the test function
         $html = PMA_getHtmlForQueryStatistics($this->ServerStatusData);
 
-        $hour_factor   = 3600 / $this->ServerStatusData->status['Uptime'];
+        $hour_factor   = 3600 / intval($this->ServerStatusData->status['Uptime']);
         $used_queries = $this->ServerStatusData->used_queries;
         $total_queries = array_sum($used_queries);
 
@@ -159,7 +159,7 @@ class PMA_ServerStatusQueries_Test extends PHPUnit_Framework_TestCase
 
         //validate 3:per minute
         $value_per_minute = PMA\libraries\Util::formatNumber(
-            $total_queries * 60 / $this->ServerStatusData->status['Uptime'],
+            $total_queries * 60 / intval($this->ServerStatusData->status['Uptime']),
             0
         );
         $this->assertContains(

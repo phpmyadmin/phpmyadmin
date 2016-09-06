@@ -2065,17 +2065,17 @@ class Util
      */
     public static function timespanFormat($seconds)
     {
-        $days = floor($seconds / 86400);
+        $days = floor(intval($seconds) / 86400);
         if ($days > 0) {
             $seconds -= $days * 86400;
         }
 
-        $hours = floor($seconds / 3600);
+        $hours = floor(intval($seconds) / 3600);
         if ($days > 0 || $hours > 0) {
             $seconds -= $hours * 3600;
         }
 
-        $minutes = floor($seconds / 60);
+        $minutes = floor(intval($seconds) / 60);
         if ($days > 0 || $hours > 0 || $minutes > 0) {
             $seconds -= $minutes * 60;
         }
