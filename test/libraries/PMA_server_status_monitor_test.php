@@ -303,13 +303,13 @@ class PMA_ServerStatusMonitor_Test extends PHPUnit_Framework_TestCase
 
         $value = array(
             'sql_text' => 'insert sql_text',
-            '#' => 'types',
+            '#' => 10,
             'argument' => 'argument argument2',
         );
 
         $value2 = array(
             'sql_text' => 'update sql_text',
-            '#' => 'types2',
+            '#' => 11,
             'argument' => 'argument3 argument4',
         );
 
@@ -331,7 +331,7 @@ class PMA_ServerStatusMonitor_Test extends PHPUnit_Framework_TestCase
             $value,
             $value2,
         );
-        $result_sum = array('argument' =>0, 'TOTAL' =>0, 'argument3' => 0);
+        $result_sum = array('argument' =>10, 'TOTAL' =>21, 'argument3' => 11);
 
         $this->assertEquals(
             2,
@@ -363,7 +363,7 @@ class PMA_ServerStatusMonitor_Test extends PHPUnit_Framework_TestCase
 
         $value = array(
             'sql_text' => 'insert sql_text',
-            '#' => 'types',
+            '#' => 22,
             'argument' => 'argument argument2',
         );
 
@@ -402,7 +402,7 @@ class PMA_ServerStatusMonitor_Test extends PHPUnit_Framework_TestCase
 
         $value = array(
             'sql_text' => 'insert sql_text',
-            '#' => 'types',
+            '#' => 33,
             'argument' => 'argument argument2',
         );
 
