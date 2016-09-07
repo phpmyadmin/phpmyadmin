@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-08-17 11:28+0200\n"
-"PO-Revision-Date: 2016-08-31 15:54+0000\n"
-"Last-Translator: Jozef Pistej <pistej2@gmail.com>\n"
+"PO-Revision-Date: 2016-09-07 11:45+0000\n"
+"Last-Translator: Martin Lacina <martin@whistler.sk>\n"
 "Language-Team: Slovak "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/sk/>\n"
 "Language: sk\n"
@@ -5319,10 +5319,9 @@ msgid "Could not connect to the database server!"
 msgstr "Nepodarilo sa pripojiť k databázovému serveru!"
 
 #: libraries/config/Validator.php:243
-#, fuzzy
 #| msgid "Authentication type"
 msgid "Invalid authentication type!"
-msgstr "Typ overovania"
+msgstr "Neplatný typ overenia!"
 
 #: libraries/config/Validator.php:250
 msgid "Empty username while using [kbd]config[/kbd] authentication method!"
@@ -5437,14 +5436,11 @@ msgid "Highlight pointer"
 msgstr "Zvýrazňovač"
 
 #: libraries/config/messages.inc.php:47
-#, fuzzy
 #| msgid ""
 #| "Enable [a@https://en.wikipedia.org/wiki/Bzip2]bzip2[/a] compression for "
 #| "import operations."
 msgid "Enable bzip2 compression for import operations."
-msgstr ""
-"Povoliť [a@https://en.wikipedia.org/wiki/Bzip2]bzip2[/a] kompresiu pre "
-"importovanie."
+msgstr "Povoliť bzip2 kompresiu pre operácie importu."
 
 #: libraries/config/messages.inc.php:50
 msgid "Bzip2"
@@ -5465,7 +5461,6 @@ msgid "CHAR columns editing"
 msgstr "Úprava polí typu CHAR"
 
 #: libraries/config/messages.inc.php:58
-#, fuzzy
 #| msgid ""
 #| "Use user-friendly editor for editing SQL queries ([a@https://codemirror."
 #| "net/]CodeMirror[/a]) with syntax highlighting and line numbers."
@@ -5473,8 +5468,8 @@ msgid ""
 "Use user-friendly editor for editing SQL queries (CodeMirror) with syntax "
 "highlighting and line numbers."
 msgstr ""
-"Použiť užívateľsky príjemný editor na úpravu SQL dozatazov ([a@https://"
-"codemirror.net/]CodeMirror[/a]) s číslovaním riadkov a zvýrazňovaním syntaxe."
+"Použiť užívateľsky príjemný editor na úpravu SQL dozatazov CodeMirror) s "
+"číslovaním riadkov a zvýrazňovaním syntaxe."
 
 #: libraries/config/messages.inc.php:62
 msgid "Enable CodeMirror"
@@ -6225,14 +6220,11 @@ msgid "Disable some of the warnings shown by phpMyAdmin."
 msgstr "Vypnúť niektoré varovania zobrazované phpMyAdminom."
 
 #: libraries/config/messages.inc.php:353
-#, fuzzy
 #| msgid ""
 #| "Enable [a@https://en.wikipedia.org/wiki/Gzip]gzip[/a] compression for "
 #| "import and export operations."
 msgid "Enable gzip compression for import and export operations."
-msgstr ""
-"Povolí [a@https://sk.wikipedia.org/wiki/GZ_(súborový_formát)]gzip[/a] "
-"kompresiu pre importovanie a exportovanie."
+msgstr "Povolí gzip kompresiu pre importovanie a exportovanie."
 
 #: libraries/config/messages.inc.php:356
 msgid "GZip"
@@ -6922,7 +6914,6 @@ msgid "Authentication type"
 msgstr "Typ overovania"
 
 #: libraries/config/messages.inc.php:640
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no [a@https://wiki.phpmyadmin.net/pma/bookmark]bookmark[/"
 #| "a] support, suggested: [kbd]pma__bookmark[/kbd]"
@@ -6930,8 +6921,8 @@ msgid ""
 "Leave blank for no [doc@bookmarks@]bookmark[/doc] support, suggested: "
 "[kbd]pma__bookmark[/kbd]"
 msgstr ""
-"Nechajte prázdne pre žiadnu podporu [a@https://wiki.phpmyadmin.net/pma/"
-"bookmark]záložiek[/a], navrhované: [kbd]pma__bookmark[/kbd]"
+"Nechajte prázdne pre žiadnu podporu [doc@bookmarks@]záložiek[/doc], "
+"navrhované: [kbd]pma__bookmark[/kbd]"
 
 #: libraries/config/messages.inc.php:643
 msgid "Bookmark table"
@@ -10727,7 +10718,7 @@ msgstr "Zapnuté"
 
 #: libraries/relation.lib.php:102
 msgid "Configuration of pmadb…"
-msgstr "Konfigurácia pmadb... "
+msgstr "Konfigurácia pmadb…"
 
 #: libraries/relation.lib.php:106 libraries/relation.lib.php:142
 msgid "General relation features"
