@@ -24,6 +24,7 @@ phpMyAdmin - ChangeLog
 - issue #12534 Option for the dropped column is not removed from 'after_field' select, after the column is dropped
 - issue #12531 Properly detect DROP DATABASE queries
 - issue #12470 Fix possible race condition in setting URL hash
+- issue #11924 Remove caching of server information
 
 4.6.4 (2016-08-16)
 - issue        [security] Weaknesses with cookie encryption, see PMASA-2016-29
