@@ -3,7 +3,6 @@ phpMyAdmin - ChangeLog
 
 4.7.0.0 (not yet released)
 - patch #12233 [Display] Improve message when renaming database to same name
-- issue #11924 Remove caching of server information
 - issue #6146  Log authentication attempts to syslog
 - issue #11981 Remove support for Swekey authentication
 - issue #11987 Remove code for no longer supported MSIE versions
@@ -53,6 +52,7 @@ phpMyAdmin - ChangeLog
 - issue #12534 Option for the dropped column is not removed from 'after_field' select, after the column is dropped
 - issue #12531 Properly detect DROP DATABASE queries
 - issue #12470 Fix possible race condition in setting URL hash
+- issue #11924 Remove caching of server information
 
 4.6.4 (2016-08-16)
 - issue        [security] Weaknesses with cookie encryption, see PMASA-2016-29
