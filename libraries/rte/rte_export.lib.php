@@ -44,8 +44,7 @@ function PMA_RTE_handleExport($export_data)
     } else {
         $_db = htmlspecialchars(PMA\libraries\Util::backquote($db));
         $message  = __('Error in processing request:') . ' '
-                  . sprintf(PMA_RTE_getWord('not_found'), $item_name, $_db)
-                  . ' OR ' . PMA_RTE_getWord('no_view');
+                  . sprintf(PMA_RTE_getWord('no_view'), $item_name, $_db);
         $message = Message::error($message);
 
         if ($GLOBALS['is_ajax_request'] == true) {

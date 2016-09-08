@@ -155,13 +155,12 @@ function PMA_RTN_handleEditor()
         } else {
             $message  = __('Error in processing request:') . ' ';
             $message .= sprintf(
-                PMA_RTE_getWord('not_found'),
+                PMA_RTE_getWord('no_edit'),
                 htmlspecialchars(
                     PMA\libraries\Util::backquote($_REQUEST['item_name'])
                 ),
                 htmlspecialchars(PMA\libraries\Util::backquote($db))
             );
-            $message .= ' OR ' . PMA_RTE_getWord('no_edit');
 
             $message = Message::error($message);
             if ($GLOBALS['is_ajax_request']) {

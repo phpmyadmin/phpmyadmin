@@ -32,10 +32,12 @@ function PMA_RTE_getWord($index)
                 'You do not have the necessary privileges to create a routine'
             ),
             'no_edit'   => __(
-                'You do not have the necessary privileges to edit this routine'
+                'No routine with name %1$s found in database %2$s. '
+                . 'You might be lacking the necessary privileges to edit this routine'
             ),
             'no_view'   => __(
-                'You do not have the necessary privileges to view/export this routine'
+                'No routine with name %1$s found in database %2$s. '
+                . 'You might be lacking the necessary privileges to view/export this routine'
             ),
             'not_found' => __('No routine with name %1$s found in database %2$s'),
             'nothing'   => __('There are no routines to display.'),
