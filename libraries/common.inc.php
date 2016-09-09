@@ -380,10 +380,10 @@ if (PMA_checkPageValidity($_REQUEST['back'], $goto_whitelist)) {
  * f.e. lang, server, collation_connection in PMA\libraries\Config
  */
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $token_mismatch = true;
-    $token_provided = false;
+$token_mismatch = true;
+$token_provided = false;
 
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (PMA_isValid($_POST['token'])) {
         $token_provided = true;
         $token_mismatch = ! hash_equals($_SESSION[' PMA_token '], $_POST['token']);
