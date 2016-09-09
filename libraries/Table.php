@@ -1500,15 +1500,16 @@ class Table
      */
     public function getNonGeneratedColumns($backquoted = true)
     {
-        $columns_meta_query = sprintf(
-            'SHOW COLUMNS FROM %s.%s',
-            Util::backquote($this->_db_name),
-            Util::backquote($this->_name)
-        );
+        $columns_meta_query = 'SHOW COLUMNS FROM ' . $this->getFullName(true);
         $ret = array();
 
-        $columns_meta_query_result = $this->_dbi->tryQuery($columns_meta_query);
-        if ($columns_meta_query_result !== false) {
+        $columns_meta_query_result = $this->_dbi->fetchResult(
+            $columns_meta_query
+        );
+
+        if ($columns_meta_query_result
+            && $columns_meta_query_result !== false
+        ) {
             foreach ($columns_meta_query_result as $column) {
                 if (strpos($column['Extra'], 'GENERATED') === false) {
                     array_push($ret, Util::backquote($column['Field']));
