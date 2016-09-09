@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.5-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-08-17 11:29+0200\n"
-"PO-Revision-Date: 2016-06-18 09:30+0000\n"
-"Last-Translator: uncle_cat <jdhao@hotmail.com>\n"
-"Language-Team: Chinese (China) <https://hosted.weblate.org/projects/"
-"phpmyadmin/4-6/zh_CN/>\n"
+"PO-Revision-Date: 2016-09-09 03:15+0000\n"
+"Last-Translator: jin123456bat <326550324@qq.com>\n"
+"Language-Team: Chinese (China) "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-6/zh_CN/>\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 2.7-dev\n"
+"X-Generator: Weblate 2.8\n"
 
 #: changelog.php:38 license.php:33
 #, php-format
@@ -769,7 +769,7 @@ msgstr "配置文件现在需要一个短语密码。"
 
 #: index.php:525
 msgid "The secret passphrase in configuration (blowfish_secret) is too short."
-msgstr ""
+msgstr "配置文件中的密文(blowfish_secret)太短。"
 
 #: index.php:539
 msgid ""
@@ -2462,7 +2462,6 @@ msgid "Time taken:"
 msgstr "用时："
 
 #: js/messages.php:709
-#, fuzzy
 msgid ""
 "There was a problem accessing your browser storage, some features may not "
 "work properly for you. It is likely that the browser doesn't support storage "
@@ -2470,11 +2469,9 @@ msgid ""
 "cause such a problem, clearing your \"Offline Website Data\" might help. In "
 "Safari, such problem is commonly caused by \"Private Mode Browsing\"."
 msgstr ""
-"查看你的浏览器保存数据时出现错误，因此一些功能可能不能正常工作。造成这个问题"
-"的原因可能是你的浏览器不支持保存数据或者浏览器能够保存的数据达到极限。另外对"
-"于Firefox浏览器，这个问题可能是由于浏览器存储数据被损坏导致，清理浏览器的“离"
-"线网站数据”可能会解决这个问题。对于Safari浏览器，这个问题通常是由于“隐私浏览"
-"模式”导致的。"
+"查看你的浏览器保存数据时出现错误，因此一些功能可能不能正常工作。造成这个问题的原因可能是你的浏览器不支持保存数据或者浏览器能够保存的数据达到极限。另外对于"
+"Firefox浏览器，这个问题可能是由于浏览器存储数据被损坏导致，清理浏览器的“离线网站数据”可能会解决这个问题。对于Safari浏览器，这个问题通常是由"
+"于“隐私浏览模式”导致的。"
 
 #: js/messages.php:711
 msgid "Copy tables to"
@@ -3563,7 +3560,7 @@ msgstr "上传文件时发生未知错误。"
 
 #: libraries/File.php:424
 msgid "File is a symbolic link"
-msgstr ""
+msgstr "文件是一个符号链接"
 
 #: libraries/File.php:470
 msgid "Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc]."
@@ -5014,10 +5011,9 @@ msgid "You allow for connecting to the server without a password."
 msgstr "该服务器现在允许空密码登录。"
 
 #: libraries/config/ServerConfigChecks.php:347
-#, fuzzy
 #| msgid "Key is too short, it should have at least 8 characters."
 msgid "Key is too short, it should have at least 32 characters."
-msgstr "短语密码太短，至少应有 8 个字符。"
+msgstr "短语密码太短，至少应有 32 个字符。"
 
 #: libraries/config/ServerConfigChecks.php:357
 msgid "Key should contain letters, numbers [em]and[/em] special characters."
@@ -5138,10 +5134,9 @@ msgid "Could not connect to the database server!"
 msgstr "无法连接到数据库！"
 
 #: libraries/config/Validator.php:243
-#, fuzzy
 #| msgid "Authentication type"
 msgid "Invalid authentication type!"
-msgstr "认证方式"
+msgstr "无效的认证方式！"
 
 #: libraries/config/Validator.php:250
 msgid "Empty username while using [kbd]config[/kbd] authentication method!"
@@ -5242,12 +5237,11 @@ msgid "Highlight pointer"
 msgstr "高亮指针"
 
 #: libraries/config/messages.inc.php:47
-#, fuzzy
 #| msgid ""
 #| "Enable [a@https://en.wikipedia.org/wiki/Bzip2]bzip2[/a] compression for "
 #| "import operations."
 msgid "Enable bzip2 compression for import operations."
-msgstr "允许在导入的时候使用bzip2进行压缩"
+msgstr "导入的时候使用bzip2进行压缩。"
 
 #: libraries/config/messages.inc.php:50
 msgid "Bzip2"
