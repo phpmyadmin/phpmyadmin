@@ -1638,6 +1638,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
     {
         $username = "pma_username";
         $hostname = "pma_hostname";
+        $GLOBALS['cfgRelation']['menuswork'] = true;
 
         $dbi_old = $GLOBALS['dbi'];
         $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
@@ -1649,6 +1650,11 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
         );
         $dbi->expects($this->any())->method('fetchResult')
             ->will($this->returnValue($fields_info));
+
+        $expected_userGroup = "pma_usergroup";
+
+        $dbi->expects($this->any())->method('fetchValue')
+            ->will($this->returnValue($expected_userGroup));
 
         $GLOBALS['dbi'] = $dbi;
 
@@ -1677,10 +1683,48 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
             $html
         );
 
+        $this->assertContains(
+            '<input type="hidden" name="old_usergroup" value="'
+                . $expected_userGroup . '" />',
+            $html
+        );
+
         //Create a new user with the same privileges
         $this->assertContains(
             "Create a new user account with the same privileges",
             $html
+        );
+
+        $GLOBALS['dbi'] = $dbi_old;
+    }
+
+    /**
+     * Test for PMA_getUserGroupForUser
+     *
+     * @return void
+     */
+    public function testPMAGetUserGroupForUser()
+    {
+        $username = "pma_username";
+        $hostname = "pma_hostname";
+        $GLOBALS['cfgRelation']['menuswork'] = true;
+
+        $dbi_old = $GLOBALS['dbi'];
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+            ->disableOriginalConstructor()
+            ->getMock();
+        $expected_userGroup = "pma_usergroup";
+
+        $dbi->expects($this->any())->method('fetchValue')
+            ->will($this->returnValue($expected_userGroup));
+
+        $GLOBALS['dbi'] = $dbi;
+
+        $returned_userGroup = PMA_getUserGroupForUser($username);
+
+        $this->assertEquals(
+            $expected_userGroup,
+            $returned_userGroup
         );
 
         $GLOBALS['dbi'] = $dbi_old;
