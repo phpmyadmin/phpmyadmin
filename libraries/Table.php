@@ -1511,8 +1511,13 @@ class Table
             && $columns_meta_query_result !== false
         ) {
             foreach ($columns_meta_query_result as $column) {
+                $value = $column['Field'];
+                if ($backquoted === true) {
+                    $value = Util::backquote($value);
+                }
+
                 if (strpos($column['Extra'], 'GENERATED') === false) {
-                    array_push($ret, Util::backquote($column['Field']));
+                    array_push($ret, $value);
                 }
             }
         }
