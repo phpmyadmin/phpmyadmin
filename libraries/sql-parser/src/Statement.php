@@ -254,6 +254,32 @@ abstract class Statement
                 break;
             }
 
+            $lastIdx = $list->idx;
+
+            // ON DUPLICATE KEY UPDATE ...
+            // has to be parsed in parent statement (INSERT or REPLACE)
+            // so look for it and break
+            if (get_class($this) === 'SqlParser\Statements\SelectStatement'
+                && $token->value === 'ON'
+            ) {
+                ++$list->idx; // Skip ON
+
+                // look for ON DUPLICATE KEY UPDATE
+                $first = $list->getNextOfType(Token::TYPE_KEYWORD);
+                $second = $list->getNextOfType(Token::TYPE_KEYWORD);
+                $third = $list->getNextOfType(Token::TYPE_KEYWORD);
+
+                if ($first && $second && $third
+                    && $first->value === 'DUPLICATE'
+                    && $second->value === 'KEY'
+                    && $third->value === 'UPDATE'
+                ) {
+                    $list->idx = $lastIdx;
+                    break;
+                }
+            }
+            $list->idx = $lastIdx;
+
             /**
              * The name of the class that is used for parsing.
              *

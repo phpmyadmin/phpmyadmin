@@ -122,49 +122,49 @@ class Formatter
                         'type'      => Token::TYPE_KEYWORD,
                         'flags'     => Token::FLAG_KEYWORD_RESERVED,
                         'html'      => 'class="sql-reserved"',
-                        'cli'       => "\e[35m",
+                        'cli'       => "\x1b[35m",
                         'function'  => 'strtoupper',
                     ),
                     array(
                         'type'      => Token::TYPE_KEYWORD,
                         'flags'     => 0,
                         'html'      => 'class="sql-keyword"',
-                        'cli'       => "\e[95m",
+                        'cli'       => "\x1b[95m",
                         'function'  => 'strtoupper',
                     ),
                     array(
                         'type'      => Token::TYPE_COMMENT,
                         'flags'     => 0,
                         'html'      => 'class="sql-comment"',
-                        'cli'       => "\e[37m",
+                        'cli'       => "\x1b[37m",
                         'function'  => '',
                     ),
                     array(
                         'type'      => Token::TYPE_BOOL,
                         'flags'     => 0,
                         'html'      => 'class="sql-atom"',
-                        'cli'       => "\e[36m",
+                        'cli'       => "\x1b[36m",
                         'function'  => 'strtoupper',
                     ),
                     array(
                         'type'      => Token::TYPE_NUMBER,
                         'flags'     => 0,
                         'html'      => 'class="sql-number"',
-                        'cli'       => "\e[92m",
+                        'cli'       => "\x1b[92m",
                         'function'  => 'strtolower',
                     ),
                     array(
                         'type'      => Token::TYPE_STRING,
                         'flags'     => 0,
                         'html'      => 'class="sql-string"',
-                        'cli'       => "\e[91m",
+                        'cli'       => "\x1b[91m",
                         'function'  => '',
                     ),
                     array(
                         'type'      => Token::TYPE_SYMBOL,
                         'flags'     => 0,
                         'html'      => 'class="sql-variable"',
-                        'cli'       => "\e[36m",
+                        'cli'       => "\x1b[36m",
                         'function'  => '',
                     ),
                 )
@@ -420,7 +420,7 @@ class Formatter
         }
 
         if ($this->options['type'] === 'cli') {
-            return $ret . "\e[0m";
+            return $ret . "\x1b[0m";
         }
 
         return $ret;
@@ -459,7 +459,7 @@ class Formatter
         }
 
         if ($this->options['type'] === 'cli') {
-            return "\e[39m" . $text;
+            return "\x1b[39m" . $text;
         }
         return $text;
     }
