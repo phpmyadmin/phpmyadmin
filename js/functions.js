@@ -601,7 +601,10 @@ function selectContent(element, lock, only_once)
  *
  * @return boolean  whether to run the query or not
  */
-function confirmLink(theLink, theSqlQuery)
+
+Obj = function() {};
+
+Obj.prototype.confirmLink = function (theLink, theSqlQuery)
 {
     // Confirmation is not required in the configuration file
     // or browser is Opera (crappy js implementation)
@@ -614,7 +617,14 @@ function confirmLink(theLink, theSqlQuery)
         if ($(theLink).hasClass('formLinkSubmit')) {
             var name = 'is_js_confirmed';
             if ($(theLink).attr('href').indexOf('usesubform') != -1) {
-                name = 'subform[' + $(theLink).attr('href').substr('#').match(/usesubform\[(\d+)\]/i)[1] + '][is_js_confirmed]';
+                try{
+                    name = 'subform[' + $(theLink).attr('href').substr('#').match(/usesubform\[(\d+)\]/i)[1] + '][is_js_confirmed]';
+                }
+                catch(err){
+                    message.innerHTML = "Error : " + err + ".";
+                }
+
+
             }
 
             $(theLink).parents('form').append('<input type="hidden" name="' + name + '" value="1" />');
@@ -627,6 +637,15 @@ function confirmLink(theLink, theSqlQuery)
 
     return is_confirmed;
 } // end of the 'confirmLink()' function
+
+
+function test(link,sql,expected) {
+    var m1 = new Obj();
+    if(m1.confirmLink(link,sql) != expected) {
+        alert("Test Failed\n");
+    }
+
+}
 
 /**
  * Confirms a "DROP/DELETE/ALTER" query before
