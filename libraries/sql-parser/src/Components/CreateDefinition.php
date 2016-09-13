@@ -220,6 +220,23 @@ class CreateDefinition extends Component
                     if (!$expr->isConstraint) {
                         $state = 2;
                     }
+                } else if ($token->type === Token::TYPE_KEYWORD) {
+                    if ($token->flags & Token::FLAG_KEYWORD_RESERVED) {
+                        // Reserved keywords can't be used
+                        // as field names without backquotes
+                        $parser->error(
+                            __('A symbol name was expected! '
+                                . 'A reserved keyword can not be used '
+                                . 'as a field name without backquotes.'
+                            ),
+                            $token
+                        );
+                        return $ret;
+                    } else {
+                        // Non-reserved keywords are allowed without backquotes
+                        $expr->name = $token->value;
+                        $state = 2;
+                    }
                 } else {
                     $parser->error(
                         __('A symbol name was expected!'),

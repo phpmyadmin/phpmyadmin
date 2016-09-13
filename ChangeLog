@@ -25,6 +25,8 @@ phpMyAdmin - ChangeLog
 - issue #12531 Properly detect DROP DATABASE queries
 - issue #12470 Fix possible race condition in setting URL hash
 - issue #11924 Remove caching of server information
+- issue #11628 Proper parsing of INSERT ... ON DUPLICATE KEY queries
+- issue #12545 Proper parsing of CREATE TABLE ... PARTITION queries
 
 4.6.4 (2016-08-16)
 - issue        [security] Weaknesses with cookie encryption, see PMASA-2016-29

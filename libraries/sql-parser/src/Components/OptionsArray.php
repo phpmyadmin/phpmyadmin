@@ -242,6 +242,25 @@ class OptionsArray extends Component
             }
         }
 
+        /*
+         * We reached the end of statement without getting a value
+         * for an option for which a value was required
+         */
+        if ($state === 1
+            && $lastOption
+            && ($lastOption[1] == 'expr'
+            || $lastOption[1] == 'var'
+            || $lastOption[1] == 'var=')
+        ) {
+            $parser->error(
+                sprintf(
+                    __('Value/Expression for the option %1$s was expected'),
+                    $ret->options[$lastOptionId]['name']
+                ),
+                $list->tokens[$list->idx - 1]
+            );
+        }
+
         if (empty($options['_UNSORTED'])) {
             ksort($ret->options);
         }
