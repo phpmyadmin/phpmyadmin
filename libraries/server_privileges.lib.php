@@ -188,8 +188,15 @@ function PMA_extractPrivInfo($row = null, $enableHTML = false, $tablePrivs = fal
                 && is_array($GLOBALS[$current_grant[0]])
                 && empty($GLOBALS[$current_grant[0] . '_none'])
             ) {
+                if (isset($GLOBALS[$current_grant[0]]) && is_array($GLOBALS[$current_grant[0]])) {
+                    $GLOBALS[$current_grant[0]] = array_map(
+                        function($val)
+                        {
+                            return Util::backquote($val);
+                        }, $GLOBALS[$current_grant[0]]);
+                }
                 $privs[] = PMA_formatPrivilege($current_grant, $enableHTML)
-                    . ' (`' . join('`, `', $GLOBALS[$current_grant[0]]) . '`)';
+                    . ' (' . join('`, `', $GLOBALS[$current_grant[0]]) . ')';
             } else {
                 $allPrivileges = false;
             }
@@ -3980,10 +3987,11 @@ function PMA_updatePrivileges($username, $hostname, $tablename, $dbname, $itemTy
 
     // Should not do a GRANT USAGE for a table-specific privilege, it
     // causes problems later (cannot revoke it)
+    $private_info = PMA_extractPrivInfo();
     if (! (mb_strlen($tablename)
-        && 'USAGE' == implode('', PMA_extractPrivInfo()))
+        && 'USAGE' == implode('', $private_info))
     ) {
-        $sql_query2 = 'GRANT ' . join(', ', PMA_extractPrivInfo())
+        $sql_query2 = 'GRANT ' . join(', ', $private_info)
             . ' ON ' . $itemType . ' ' . $db_and_table
             . ' TO \'' . Util::sqlAddSlashes($username) . '\'@\''
             . Util::sqlAddSlashes($hostname) . '\'';
