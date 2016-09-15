@@ -298,6 +298,11 @@ PMA_DROP_IMPORT = {
      * @return void
      */
     _dragenter : function (event) {
+
+        if ($(".noDragDrop").length !== 0) {
+            return;
+        }
+
         event.stopPropagation();
         event.preventDefault();
         if (!PMA_DROP_IMPORT._hasFiles(event)) {
@@ -333,6 +338,10 @@ PMA_DROP_IMPORT = {
      * @return void
      */
     _dragover: function (event) {
+        if ($(".noDragDrop").length !== 0) {
+            return;
+        }
+
         event.stopPropagation();
         event.preventDefault();
         if (!PMA_DROP_IMPORT._hasFiles(event)) {
@@ -348,6 +357,9 @@ PMA_DROP_IMPORT = {
      * @return void
      */
     _dragleave: function (event) {
+        if ($(".noDragDrop").length !== 0) {
+            return;
+        }
         event.stopPropagation();
         event.preventDefault();
         var $pma_drop_handler = $(".pma_drop_handler");
@@ -408,6 +420,10 @@ PMA_DROP_IMPORT = {
      * @return void
      */
     _drop: function (event) {
+        if ($(".noDragDrop").length !== 0) {
+            return;
+        }
+
         var dbname = PMA_commonParams.get('db');
         var server = PMA_commonParams.get('server');
 
