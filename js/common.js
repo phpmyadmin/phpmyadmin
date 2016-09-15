@@ -299,6 +299,8 @@ PMA_DROP_IMPORT = {
      */
     _dragenter : function (event) {
 
+        // We don't want to prevent users from using
+        // browser's default drag-drop feature on some page(s)
         if ($(".noDragDrop").length !== 0) {
             return;
         }
@@ -338,6 +340,8 @@ PMA_DROP_IMPORT = {
      * @return void
      */
     _dragover: function (event) {
+        // We don't want to prevent users from using
+        // browser's default drag-drop feature on some page(s)
         if ($(".noDragDrop").length !== 0) {
             return;
         }
@@ -357,6 +361,8 @@ PMA_DROP_IMPORT = {
      * @return void
      */
     _dragleave: function (event) {
+        // We don't want to prevent users from using
+        // browser's default drag-drop feature on some page(s)
         if ($(".noDragDrop").length !== 0) {
             return;
         }
@@ -420,6 +426,8 @@ PMA_DROP_IMPORT = {
      * @return void
      */
     _drop: function (event) {
+        // We don't want to prevent users from using
+        // browser's default drag-drop feature on some page(s)
         if ($(".noDragDrop").length !== 0) {
             return;
         }
