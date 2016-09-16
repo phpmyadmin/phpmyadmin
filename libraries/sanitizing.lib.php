@@ -43,6 +43,14 @@ function PMA_checkLink($url, $http=false, $other=false)
         './server_privileges.php?',
         './tbl_structure.php?',
     );
+    // Adjust path to setup script location
+    if (defined('PMA_SETUP')) {
+        foreach ($valid_starts as $key => $value) {
+            if (substr($value, 0, 2) === './') {
+                $valid_starts[$key] = '.' . $value;
+            }
+        }
+    }
     if ($other) {
         $valid_starts[] = 'mailto:';
         $valid_starts[] = 'ftp://';
