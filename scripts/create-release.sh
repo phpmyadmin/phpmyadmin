@@ -279,7 +279,7 @@ for kit in $KITS ; do
             tbz|tgz|txz)
                 if [ ! -f $name.tar ] ; then
                     echo "* Creating $name.tar"
-                    tar cf $name.tar $name
+                    tar --owner=root --group=root --numeric-owner -cf $name.tar $name
                 fi
                 if [ $comp = tbz ] ; then
                     echo "* Creating $name.tar.bz2"
