@@ -176,6 +176,31 @@ class TableTest extends PMATestCase
                     'ALL'
                 )
             ),
+            array(
+                'SHOW COLUMNS FROM `PMA`.`PMA_BookMark`',
+                null,
+                null,
+                null,
+                0,
+                array(
+                    array(
+                        'Field'=>'COLUMN_NAME1',
+                        'Type'=> 'INT(10)',
+                        'Null'=> 'NO',
+                        'Key'=> '',
+                        'Default'=> NULL,
+                        'Extra'=>''
+                    ),
+                    array(
+                        'Field'=>'COLUMN_NAME2',
+                        'Type'=> 'INT(10)',
+                        'Null'=> 'YES',
+                        'Key'=> '',
+                        'Default'=> NULL,
+                        'Extra'=>'STORED GENERATED'
+                    )
+                )
+            ),
         );
 
         $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
@@ -1043,7 +1068,8 @@ class TableTest extends PMATestCase
             $expect,
             $return
         );
-        $sql_query = "INSERT INTO `PMA_new`.`PMA_BookMark_new` SELECT * FROM "
+        $sql_query = "INSERT INTO `PMA_new`.`PMA_BookMark_new`(`COLUMN_NAME1`)"
+            . " SELECT `COLUMN_NAME1` FROM "
             . "`PMA`.`PMA_BookMark`";
         $this->assertContains(
             $sql_query,
@@ -1066,8 +1092,9 @@ class TableTest extends PMATestCase
             $expect,
             $return
         );
-        $sql_query = "INSERT INTO `PMA_new`.`PMA_BookMark_new` SELECT * FROM "
-            . "`PMA`.`PMA_BookMark`;";
+        $sql_query = "INSERT INTO `PMA_new`.`PMA_BookMark_new`(`COLUMN_NAME1`)"
+            . " SELECT `COLUMN_NAME1` FROM "
+            . "`PMA`.`PMA_BookMark`";
         $this->assertContains(
             $sql_query,
             $GLOBALS['sql_query']
