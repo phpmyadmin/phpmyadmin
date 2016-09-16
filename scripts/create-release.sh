@@ -59,9 +59,17 @@ while [ $# -gt 0 ] ; do
             ;;
         *)
             if [ -z "$version" ] ; then
-                version="$1"
+                version=`echo $1 | tr -d -c '0-9a-z.-'`
+                if [ "x$version" != "x$1" ] ; then
+                    echo "Invalid version: $1"
+                    exit 1
+                fi
             elif [ -z "$branch" ] ; then
-                branch="$1"
+                branch=`echo $1 | tr -d -c '0-9A-Za-z_-'`
+                if [ "x$branch" != "x$1" ] ; then
+                    echo "Invalid branch: $1"
+                    exit 1
+                fi
             else
                 echo "Unknown parameter: $1!"
                 exit 1
