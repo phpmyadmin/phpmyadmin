@@ -30,6 +30,7 @@ phpMyAdmin - ChangeLog
 - issue #12473 Code can throw unhandled exception
 - issue #12550 Do not try to keep alive session even after expiry
 - issue #12512 Fixed rendering BBCode links in setup
+- issue #12300 Export selective tables by-default dumps Events also
 
 4.6.4 (2016-08-16)
 - issue        [security] Weaknesses with cookie encryption, see PMASA-2016-29
