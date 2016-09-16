@@ -686,9 +686,7 @@ function PMA_getHtmlForReplicationMasterAddSlaveuser()
     list($username_length, $hostname_length)
         = PMA_replicationGetUsernameHostnameLength();
 
-    if (isset($_REQUEST['username'])
-        && mb_strlen($_REQUEST['username']) === 0
-    ) {
+    if (isset($_REQUEST['username']) && strlen($_REQUEST['username']) === 0) {
         $GLOBALS['pred_username'] = 'any';
     }
     $html .= '<div id="master_addslaveuser_gui">';

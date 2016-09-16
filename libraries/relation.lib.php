@@ -760,7 +760,7 @@ function PMA_getForeigners($db, $table, $column = '', $source = 'both')
             WHERE `master_db`    = \'' . PMA\libraries\Util::sqlAddSlashes($db) . '\'
                 AND `master_table` = \'' . PMA\libraries\Util::sqlAddSlashes($table)
             . '\' ';
-        if (mb_strlen($column)) {
+        if (strlen($column) > 0) {
             $rel_query .= ' AND `master_field` = '
                 . '\'' . PMA\libraries\Util::sqlAddSlashes($column) . '\'';
         }
@@ -769,8 +769,7 @@ function PMA_getForeigners($db, $table, $column = '', $source = 'both')
         );
     }
 
-    if (($source == 'both' || $source == 'foreign') && mb_strlen($table)
-    ) {
+    if (($source == 'both' || $source == 'foreign') && strlen($table) > 0) {
         $tableObj = new Table($table, $db);
         $show_create_table = $tableObj->showCreate();
         if ($show_create_table) {
@@ -802,9 +801,9 @@ function PMA_getForeigners($db, $table, $column = '', $source = 'both')
         }
         if (isset($GLOBALS[$relations_key][$table])) {
             foreach ($GLOBALS[$relations_key][$table] as $field => $relations) {
-                if ((! mb_strlen($column) || $column == $field)
+                if ((strlen($column) === 0 || $column == $field)
                     && (! isset($foreign[$field])
-                    || ! mb_strlen($foreign[$field]))
+                    || strlen($foreign[$field]) === 0)
                 ) {
                     $foreign[$field] = $relations;
                 }
@@ -990,7 +989,7 @@ function PMA_setDbComment($db, $comment = '')
         return false;
     }
 
-    if (mb_strlen($comment)) {
+    if (strlen($comment) > 0) {
         $upd_query = 'INSERT INTO '
             . PMA\libraries\Util::backquote($cfgRelation['db']) . '.'
             . PMA\libraries\Util::backquote($cfgRelation['column_info'])

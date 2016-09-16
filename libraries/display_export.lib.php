@@ -867,9 +867,8 @@ function PMA_getHtmlForExportOptions(
     $html .= PMA_getHtmlForExportOptionsFormatDropdown($export_list);
     $html .= PMA_getHtmlForExportOptionsSelection($export_type, $multi_values);
 
-    $tableLength = mb_strlen($table);
     $_table = new Table($table, $db);
-    if ($tableLength && empty($num_tables) && ! $_table->isMerge()) {
+    if (strlen($table) > 0 && empty($num_tables) && ! $_table->isMerge()) {
         $html .= PMA_getHtmlForExportOptionsRows($db, $table, $unlim_num_rows);
     }
 

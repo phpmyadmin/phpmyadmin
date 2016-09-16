@@ -41,10 +41,10 @@ class URL
             $skip    =& $_skip;
         } else {
             $params = array();
-            if (mb_strlen($db)) {
+            if (strlen($db) > 0) {
                 $params['db'] = $db;
             }
-            if (mb_strlen($table)) {
+            if (strlen($table) > 0) {
                 $params['table'] = $table;
             }
         }
@@ -248,7 +248,7 @@ class URL
             $arg_separator = ini_get('arg_separator.input');
             if (mb_strpos($arg_separator, ';') !== false) {
                 $separator = ';';
-            } elseif (mb_strlen($arg_separator) > 0) {
+            } elseif (strlen($arg_separator) > 0) {
                 $separator = $arg_separator{0};
             } else {
                 $separator = '&';

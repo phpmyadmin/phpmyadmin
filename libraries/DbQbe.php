@@ -1605,7 +1605,7 @@ class DbQbe
         // Will include master tables and all tables that can be combined into
         // a cluster by their relation
         $finalized = array();
-        if (mb_strlen($master) > 0) {
+        if (strlen($master) > 0) {
             // Add master tables
             $finalized[$master] = '';
         }

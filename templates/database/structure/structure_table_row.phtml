@@ -97,7 +97,7 @@
                     <?= __('View'); ?>
                 <?php endif; ?>
             </td>
-            <?php if (mb_strlen($collation)): ?>
+            <?php if (strlen($collation) > 0): ?>
                 <td class="nowrap">
                     <?= $collation; ?>
                 </td>

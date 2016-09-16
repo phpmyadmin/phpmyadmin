@@ -49,7 +49,7 @@ if ($GLOBALS['is_ajax_request'] != true) {
      * to manually select the required database and
      * create the missing $url_query variable
      */
-    if (mb_strlen($db)) {
+    if (strlen($db) > 0) {
         $GLOBALS['dbi']->selectDb($db);
         if (! isset($url_query)) {
             $url_query = URL::getCommon(

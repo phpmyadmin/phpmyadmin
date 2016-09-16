@@ -1612,7 +1612,7 @@ class Config
     public function setCookie($cookie, $value, $default = null,
         $validity = null, $httponly = true
     ) {
-        if (mb_strlen($value) && null !== $default && $value === $default
+        if (strlen($value) > 0 && null !== $default && $value === $default
         ) {
             // default value is used
             if (isset($_COOKIE[$cookie])) {
@@ -1622,7 +1622,7 @@ class Config
             return false;
         }
 
-        if (!mb_strlen($value) && isset($_COOKIE[$cookie])) {
+        if (strlen($value) === 0 && isset($_COOKIE[$cookie])) {
             // remove cookie, value is empty
             return $this->removeCookie($cookie);
         }

@@ -268,17 +268,17 @@ if ($import_type == 'table') {
     $goto = 'server_import.php';
 } else {
     if (empty($goto) || !preg_match('@^(server|db|tbl)(_[a-z]*)*\.php$@i', $goto)) {
-        if (mb_strlen($table) && mb_strlen($db)) {
+        if (strlen($table) > 0 && strlen($db) > 0) {
             $goto = 'tbl_structure.php';
-        } elseif (mb_strlen($db)) {
+        } elseif (strlen($db) > 0) {
             $goto = 'db_structure.php';
         } else {
             $goto = 'server_sql.php';
         }
     }
-    if (mb_strlen($table) && mb_strlen($db)) {
+    if (strlen($table) > 0 && strlen($db) > 0) {
         $common = URL::getCommon(array('db' => $db, 'table' => $table));
-    } elseif (mb_strlen($db)) {
+    } elseif (strlen($db) > 0) {
         $common = URL::getCommon(array('db' => $db));
     } else {
         $common = URL::getCommon();
@@ -296,7 +296,7 @@ if (basename($_SERVER['SCRIPT_NAME']) === 'import.php') {
 }
 
 
-if (mb_strlen($db)) {
+if (strlen($db) > 0) {
     $GLOBALS['dbi']->selectDb($db);
 }
 

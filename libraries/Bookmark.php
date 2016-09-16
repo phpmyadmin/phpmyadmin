@@ -234,9 +234,9 @@ class Bookmark
     public static function createBookmark($bkm_fields, $all_users = false)
     {
         if (!(isset($bkm_fields['bkm_sql_query'])
-            && mb_strlen($bkm_fields['bkm_sql_query']) > 0
+            && strlen($bkm_fields['bkm_sql_query']) > 0
             && isset($bkm_fields['bkm_label'])
-            && mb_strlen($bkm_fields['bkm_label']) > 0)
+            && strlen($bkm_fields['bkm_label']) > 0)
         ) {
             return false;
         }

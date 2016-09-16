@@ -1108,7 +1108,7 @@ function PMA_getTableOptionFieldset($comment, $tbl_collation,
         );
     } // end if (ARIA)
 
-    if (mb_strlen($auto_increment) > 0
+    if (strlen($auto_increment) > 0
         && ($is_myisam_or_aria || $is_innodb || $is_pbxt)
     ) {
         $html_output .= '<tr><td class="vmiddle">'
@@ -1837,7 +1837,7 @@ function PMA_getTableAltersArray($is_myisam_or_aria, $is_isam, $pack_keys,
         $newRowFormat = $_REQUEST['new_row_format'];
         $newRowFormatLower = mb_strtolower($newRowFormat);
         if (($is_myisam_or_aria || $is_innodb || $is_pbxt)
-            && (!mb_strlen($row_format)
+            && (strlen($row_format) === 0
             || $newRowFormatLower !== mb_strtolower($row_format))
         ) {
             $table_alters[] = 'ROW_FORMAT = '

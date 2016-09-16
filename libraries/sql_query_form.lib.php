@@ -62,11 +62,11 @@ function PMA_getHtmlForSqlQueryForm(
 
     $table  = '';
     $db     = '';
-    if (! mb_strlen($GLOBALS['db'])) {
+    if (strlen($GLOBALS['db']) === 0) {
         // prepare for server related
         $goto   = empty($GLOBALS['goto']) ?
                     'server_sql.php' : $GLOBALS['goto'];
-    } elseif (! mb_strlen($GLOBALS['table'])) {
+    } elseif (strlen($GLOBALS['table']) === 0) {
         // prepare for db related
         $db     = $GLOBALS['db'];
         $goto   = empty($GLOBALS['goto']) ?
@@ -133,7 +133,7 @@ function PMA_getHtmlForSqlQueryForm(
 function PMA_initQueryForm($query)
 {
     $columns_list    = array();
-    if (! mb_strlen($GLOBALS['db'])) {
+    if (strlen($GLOBALS['db']) === 0) {
         // prepare for server related
         $legend = sprintf(
             __('Run SQL query/queries on server %s'),
@@ -143,7 +143,7 @@ function PMA_initQueryForm($query)
                 : $GLOBALS['cfg']['Servers'][$GLOBALS['server']]['host']
             ) . '&quot;'
         );
-    } elseif (! mb_strlen($GLOBALS['table'])) {
+    } elseif (strlen($GLOBALS['table']) === 0) {
         // prepare for db related
         $db     = $GLOBALS['db'];
         // if you want navigation:
@@ -274,7 +274,7 @@ function PMA_getHtmlForSqlQueryFormInsert(
                 . PMA\libraries\Util::backquote(htmlspecialchars($field['Field']))
                 . '"';
             if (isset($field['Field'])
-                && mb_strlen($field['Field'])
+                && strlen($field['Field']) > 0
                 && isset($field['Comment'])
             ) {
                 $html .= ' title="' . htmlspecialchars($field['Comment']) . '"';

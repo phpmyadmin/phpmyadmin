@@ -775,7 +775,7 @@ function PMA_getJsonForQueryAnalyzer()
 {
     $return = array();
 
-    if (mb_strlen($_REQUEST['database'])) {
+    if (strlen($_REQUEST['database']) > 0) {
         $GLOBALS['dbi']->selectDb($_REQUEST['database']);
     }
 

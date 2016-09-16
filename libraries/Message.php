@@ -687,9 +687,9 @@ class Message
     {
         $message = $this->message;
 
-        if (0 === mb_strlen($message)) {
+        if (strlen($message) === 0) {
             $string = $this->getString();
-            if (0 === mb_strlen($string)) {
+            if (strlen($string) === 0) {
                 $message = '';
             } else {
                 $message = $string;

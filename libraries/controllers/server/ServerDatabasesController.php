@@ -484,7 +484,7 @@ class ServerDatabasesController extends Controller
                     $current["SCHEMA_NAME"],
                     $replication_info[$type]['Ignore_DB']
                 );
-                if (mb_strlen($key) > 0) {
+                if (strlen($key) > 0) {
                     $out = Util::getIcon(
                         's_cancel.png',
                         __('Not replicated')
@@ -494,7 +494,7 @@ class ServerDatabasesController extends Controller
                         $current["SCHEMA_NAME"], $replication_info[$type]['Do_DB']
                     );
 
-                    if (mb_strlen($key) > 0
+                    if (strlen($key) > 0
                         || count($replication_info[$type]['Do_DB']) == 0
                     ) {
                         // if ($key != null) did not work for index "0"

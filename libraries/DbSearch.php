@@ -217,14 +217,14 @@ class DbSearch
 
         foreach ($search_words as $search_word) {
             // Eliminates empty values
-            if (mb_strlen($search_word) === 0) {
+            if (strlen($search_word) === 0) {
                 continue;
             }
             $likeClausesPerColumn = array();
             // for each column in the table
             foreach ($allColumns as $column) {
                 if (! isset($this->_criteriaColumnName)
-                    || mb_strlen($this->_criteriaColumnName) == 0
+                    || strlen($this->_criteriaColumnName) === 0
                     || $column['Field'] == $this->_criteriaColumnName
                 ) {
                     $column = 'CONVERT(' . Util::backquote($column['Field'])

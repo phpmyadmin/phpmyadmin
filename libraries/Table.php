@@ -714,7 +714,7 @@ class Table
 
         // If the target database is not specified, the operation is taking
         // place in the same database.
-        if (! isset($target_db) || ! mb_strlen($target_db)) {
+        if (! isset($target_db) || strlen($target_db) === 0) {
             $target_db = $source_db;
         }
 
@@ -1196,7 +1196,7 @@ class Table
             return false;
         }
 
-        if (! mb_strlen($table_name)) {
+        if (strlen($table_name) === 0) {
             // zero length
             return false;
         }
