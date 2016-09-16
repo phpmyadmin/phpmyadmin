@@ -61,6 +61,7 @@ phpMyAdmin - ChangeLog
 - issue #12512 Fixed rendering BBCode links in setup
 - issue #12518 Fixed copy of table with generated columns
 - issue #12221 Fixed export of table with generated columns
+- issue #12320 Copying a user does not copy usergroup 
 
 4.6.4 (2016-08-16)
 - issue        [security] Weaknesses with cookie encryption, see PMASA-2016-29
