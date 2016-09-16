@@ -227,7 +227,8 @@ function PMA_getHtmlToEditUserGroup($userGroup = null)
     $html_output .= '<fieldset id="fieldset_user_group_rights">';
     $html_output .= '<legend>' . __('User group menu assignments')
         . '&nbsp;&nbsp;&nbsp;'
-        . '<input type="checkbox" class="checkall_box" title="Check all">'
+        . '<input type="checkbox" id="addUsersForm_checkall" '
+        . 'class="checkall_box" title="Check all">'
         . '<label for="addUsersForm_checkall">' . __('Check all') . '</label>'
         . '</legend>';
 
@@ -351,7 +352,7 @@ function PMA_editUserGroup($userGroup, $new = false)
             }
             $tabName = $tabGroupName . '_' . $tab;
             $allowed = isset($_REQUEST[$tabName]) && $_REQUEST[$tabName] == 'Y';
-            $sql_query .= "('" . PMA_Util::sqlAddSlashes($userGroup) . "', '" . $tabName . "', '"
+            $sql_query .= "('" . PMA\libraries\Util::sqlAddSlashes($userGroup) . "', '" . $tabName . "', '"
                 . ($allowed ? "Y" : "N") . "')";
             $first = false;
         }

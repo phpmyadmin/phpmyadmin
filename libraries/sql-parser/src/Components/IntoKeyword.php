@@ -139,7 +139,7 @@ class IntoKeyword extends Component
     {
         if ($component->dest instanceof Expression) {
             $columns = !empty($component->columns) ?
-                '(' . implode(', ', $component->columns) . ')' : '';
+                '(`' . implode('`, `', $component->columns) . '`)' : '';
             return $component->dest . $columns;
         } else {
             return 'OUTFILE "' . $component->dest . '"';

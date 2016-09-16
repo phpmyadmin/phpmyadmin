@@ -588,8 +588,9 @@ function setTab(tab_id)
         }
         $this.find('li').removeClass('active').find('a[href=#' + tab_id + ']').parent().addClass('active');
         $this.parent().find('div.tabs_contents fieldset').hide().filter('#' + tab_id).show();
-        location.hash = 'tab_' + tab_id;
-        $this.parent().find('input[name=tab_hash]').val(location.hash);
+        var hashValue = 'tab_' + tab_id;
+        location.hash = hashValue;
+        $this.parent().find('input[name=tab_hash]').val(hashValue);
     });
 }
 

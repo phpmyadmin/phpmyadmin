@@ -233,8 +233,16 @@ AJAX.registerOnload('tbl_structure.js', function () {
                     }
                     $after_field_item.remove();
                     $curr_row.hide("medium").remove();
-                    //by default select the last option to add new column (in case last column is dropped)
+
+                    // Remove the dropped column from select menu for 'after field'
+                    $("select[name=after_field]").find(
+                        '[value="' + curr_column_name.trim() + '"]'
+                    ).remove();
+
+                    // by default select the (new) last option to add new column
+                    // (in case last column is dropped)
                     $("select[name=after_field] option:last").attr("selected","selected");
+
                     //refresh table stats
                     if (data.tableStat) {
                         $('#tablestatistics').html(data.tableStat);
