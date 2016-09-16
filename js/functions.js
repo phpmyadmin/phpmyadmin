@@ -903,13 +903,13 @@ AJAX.registerOnload('functions.js', function () {
                 data: params,
                 success: function (data) {
                     if (data.success) {
-                        if (PMA_commonParams.get('LoginCookieValidity')-_idleSecondsCounter > 5) {
-                            var interval = (PMA_commonParams.get('LoginCookieValidity') - _idleSecondsCounter - 5) * 1000;
-                            if (interval > Math.pow(2, 31) - 1) { // max value for setInterval() function
-                                interval = Math.pow(2, 31) - 1;
-                            }
+                        var remaining = PMA_commonParams.get('LoginCookieValidity') - _idleSecondsCounter;
+                        if (remaining > 5) {
+                            // max value for setInterval() function
+                            var interval = min(remaining * 1000, Math.pow(2, 31) - 1);
                             updateTimeout = window.setTimeout(UpdateIdleTime, interval);
-                        } else {
+                        } else if (remaining > 0) {
+                            // We're close to session expiry
                             updateTimeout = window.setTimeout(UpdateIdleTime, 2000);
                         }
                     } else { //timeout occurred
