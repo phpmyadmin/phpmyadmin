@@ -58,6 +58,7 @@ phpMyAdmin - ChangeLog
 - issue #12545 Proper parsing of CREATE TABLE ... PARTITION queries
 - issue #12473 Code can throw unhandled exception
 - issue #12550 Do not try to keep alive session even after expiry
+- issue #12512 Fixed rendering BBCode links in setup
 
 4.6.4 (2016-08-16)
 - issue        [security] Weaknesses with cookie encryption, see PMASA-2016-29
