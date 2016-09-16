@@ -1017,10 +1017,17 @@ class Table
             $GLOBALS['dbi']->query($sql_set_mode);
             $GLOBALS['sql_query'] .= "\n\n" . $sql_set_mode . ';';
 
-            $sql_insert_data = 'INSERT INTO ' . $target
-                . ' SELECT * FROM ' . $source;
-            $GLOBALS['dbi']->query($sql_insert_data);
-            $GLOBALS['sql_query'] .= "\n\n" . $sql_insert_data . ';';
+            $_old_table = new Table($source_table, $source_db);
+            $nonGeneratedCols = $_old_table->getNonGeneratedColumns(true);
+            if (count($nonGeneratedCols) > 0) {
+                $sql_insert_data = 'INSERT INTO ' . $target . '('
+                    . implode(', ', $nonGeneratedCols)
+                    . ') SELECT ' . implode(', ', $nonGeneratedCols)
+                    . ' FROM ' . $source;
+
+                $GLOBALS['dbi']->query($sql_insert_data);
+                $GLOBALS['sql_query'] .= "\n\n" . $sql_insert_data . ';';
+            }
         }
 
         PMA_getRelationsParam();
@@ -1482,6 +1489,40 @@ class Table
             // unsure how to reproduce but it was seen on the reporting server
             return array();
         }
+    }
+
+    /**
+     * Get non-generated columns in table
+     *
+     * @param bool $backquoted whether to quote name with backticks ``
+     *
+     * @return array
+     */
+    public function getNonGeneratedColumns($backquoted = true)
+    {
+        $columns_meta_query = 'SHOW COLUMNS FROM ' . $this->getFullName(true);
+        $ret = array();
+
+        $columns_meta_query_result = $this->_dbi->fetchResult(
+            $columns_meta_query
+        );
+
+        if ($columns_meta_query_result
+            && $columns_meta_query_result !== false
+        ) {
+            foreach ($columns_meta_query_result as $column) {
+                $value = $column['Field'];
+                if ($backquoted === true) {
+                    $value = Util::backquote($value);
+                }
+
+                if (strpos($column['Extra'], 'GENERATED') === false) {
+                    array_push($ret, $value);
+                }
+            }
+        }
+
+        return $ret;
     }
 
     /**
