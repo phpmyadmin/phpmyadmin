@@ -53,10 +53,10 @@ function PMA_getHtmlForUserGroupDialog($username, $is_menuswork)
  */
 function PMA_wildcardEscapeForGrant($dbname, $tablename)
 {
-    if (!mb_strlen($dbname)) {
+    if (strlen($dbname) === 0) {
         $db_and_table = '*.*';
     } else {
-        if (mb_strlen($tablename)) {
+        if (strlen($tablename) > 0) {
             $db_and_table = Util::backquote(
                 Util::unescapeMysqlWildcards($dbname)
             )
@@ -1593,9 +1593,7 @@ function PMA_getHtmlForLoginInformationFields(
 ) {
     list($username_length, $hostname_length) = PMA_getUsernameAndHostnameLength();
 
-    if (isset($GLOBALS['username'])
-        && mb_strlen($GLOBALS['username']) === 0
-    ) {
+    if (isset($GLOBALS['username']) && strlen($GLOBALS['username']) === 0) {
         $GLOBALS['pred_username'] = 'any';
     }
     $html_output = '<fieldset id="fieldset_add_user_login">' . "\n"
@@ -2979,7 +2977,7 @@ function PMA_getExtraDataForAjaxBehavior(
     }
 
     $extra_data = array();
-    if (mb_strlen($sql_query)) {
+    if (strlen($sql_query) > 0) {
         $extra_data['sql_query'] = Util::getMessage(null, $sql_query);
     }
 
@@ -3184,7 +3182,7 @@ function PMA_getLinkToDbAndTable($url_dbname, $dbname, $tablename)
         )
         . "</a> ]\n";
 
-    if (mb_strlen($tablename)) {
+    if (strlen($tablename) > 0) {
         $html_output .= ' [ ' . __('Table') . ' <a href="'
             . Util::getScriptNameForOption(
                 $GLOBALS['cfg']['DefaultTabTable'], 'table'
@@ -3980,7 +3978,7 @@ function PMA_updatePrivileges($username, $hostname, $tablename, $dbname, $itemTy
 
     // Should not do a GRANT USAGE for a table-specific privilege, it
     // causes problems later (cannot revoke it)
-    if (! (mb_strlen($tablename)
+    if (! (strlen($tablename) > 0
         && 'USAGE' == implode('', PMA_extractPrivInfo()))
     ) {
         $sql_query2 = 'GRANT ' . join(', ', PMA_extractPrivInfo())
@@ -3988,13 +3986,13 @@ function PMA_updatePrivileges($username, $hostname, $tablename, $dbname, $itemTy
             . ' TO \'' . Util::sqlAddSlashes($username) . '\'@\''
             . Util::sqlAddSlashes($hostname) . '\'';
 
-        if (! mb_strlen($dbname)) {
+        if (strlen($dbname) === 0) {
             // add REQUIRE clause
             $sql_query2 .= PMA_getRequireClause();
         }
 
         if ((isset($_POST['Grant_priv']) && $_POST['Grant_priv'] == 'Y')
-            || (! mb_strlen($dbname)
+            || (strlen($dbname) === 0
             && (isset($_POST['max_questions']) || isset($_POST['max_connections'])
             || isset($_POST['max_updates'])
             || isset($_POST['max_user_connections'])))
@@ -4872,9 +4870,9 @@ function PMA_getHtmlForUserProperties($dbname_is_wildcard,$url_dbname,
         'username' => $username,
         'hostname' => $hostname,
     );
-    if (! is_array($dbname) && mb_strlen($dbname)) {
+    if (! is_array($dbname) && strlen($dbname) > 0) {
         $_params['dbname'] = $dbname;
-        if (mb_strlen($tablename)) {
+        if (strlen($tablename) > 0) {
             $_params['tablename'] = $tablename;
         }
     } else {
@@ -4892,12 +4890,12 @@ function PMA_getHtmlForUserProperties($dbname_is_wildcard,$url_dbname,
 
     $html_output .= '</form>' . "\n";
 
-    if (! is_array($dbname) && ! mb_strlen($tablename)
+    if (! is_array($dbname) && strlen($tablename) === 0
         && empty($dbname_is_wildcard)
     ) {
         // no table name was given, display all table specific rights
         // but only if $dbname contains no wildcards
-        if (! mb_strlen($dbname)) {
+        if (strlen($dbname) === 0) {
             $html_output .= PMA_getHtmlForAllTableSpecificRights(
                 $username, $hostname, 'database'
             );
@@ -4915,16 +4913,12 @@ function PMA_getHtmlForUserProperties($dbname_is_wildcard,$url_dbname,
     }
 
     // Provide a line with links to the relevant database and table
-    if (! is_array($dbname) && mb_strlen($dbname)
-        && empty($dbname_is_wildcard)
-    ) {
+    if (! is_array($dbname) && strlen($dbname) > 0 && empty($dbname_is_wildcard)) {
         $html_output .= PMA_getLinkToDbAndTable($url_dbname, $dbname, $tablename);
 
     }
 
-    if (! is_array($dbname) && ! mb_strlen($dbname)
-        && ! $user_does_not_exists
-    ) {
+    if (! is_array($dbname) && strlen($dbname) === 0 && ! $user_does_not_exists) {
         //change login information
         $html_output .= PMA_getHtmlForChangePassword(
             'edit_other',

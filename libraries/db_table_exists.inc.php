@@ -14,7 +14,7 @@ if (! defined('PHPMYADMIN')) {
 }
 
 if (empty($is_db)) {
-    if (mb_strlen($db)) {
+    if (strlen($db) > 0) {
         $is_db = @$GLOBALS['dbi']->selectDb($db);
     } else {
         $is_db = false;
@@ -57,7 +57,7 @@ if (empty($is_table)
 ) {
     // Not a valid table name -> back to the db_sql.php
 
-    if (mb_strlen($table)) {
+    if (strlen($table) > 0) {
         $is_table = $GLOBALS['dbi']->getCachedTableContent(array($db, $table), false);
 
         if (! $is_table) {
@@ -75,7 +75,7 @@ if (empty($is_table)
 
     if (! $is_table) {
         if (!defined('IS_TRANSFORMATION_WRAPPER')) {
-            if (mb_strlen($table)) {
+            if (strlen($table) > 0) {
                 // SHOW TABLES doesn't show temporary tables, so try select
                 // (as it can happen just in case temporary table, it should be
                 // fast):

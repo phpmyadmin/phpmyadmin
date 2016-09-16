@@ -335,13 +335,13 @@ class Response
 
             $debug = $this->_footer->getDebugMessage();
             if (empty($_REQUEST['no_debug'])
-                && mb_strlen($debug)
+                && strlen($debug) > 0
             ) {
                 $this->addJSON('_debug', $debug);
             }
 
             $errors = $this->_footer->getErrorMessages();
-            if (mb_strlen($errors)) {
+            if (strlen($errors) > 0) {
                 $this->addJSON('_errors', $errors);
             }
             $promptPhpErrors = $GLOBALS['error_handler']->hasErrorsForPrompt();

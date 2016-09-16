@@ -787,7 +787,7 @@ class Header
     {
         $retval = '';
         if ($this->_menuEnabled
-            && mb_strlen($table)
+            && strlen($table) > 0
             && $GLOBALS['cfg']['NumRecentTables'] > 0
         ) {
             $tmp_result = RecentFavoriteTable::getInstance('recent')

@@ -715,12 +715,12 @@ class Util
                     'sql_query' => $sql_query,
                     'show_query' => 1,
                 );
-                if (mb_strlen($table)) {
+                if (strlen($table) > 0) {
                     $_url_params['db'] = $db;
                     $_url_params['table'] = $table;
                     $doedit_goto = '<a href="tbl_sql.php'
                         . URL::getCommon($_url_params) . '">';
-                } elseif (mb_strlen($db)) {
+                } elseif (strlen($db) > 0) {
                     $_url_params['db'] = $db;
                     $doedit_goto = '<a href="db_sql.php'
                         . URL::getCommon($_url_params) . '">';
@@ -983,7 +983,7 @@ class Util
         }
 
         // '0' is also empty for php :-(
-        if (mb_strlen($a_name) && $a_name !== '*') {
+        if (strlen($a_name) > 0 && $a_name !== '*') {
             return '`' . str_replace('`', '``', $a_name) . '`';
         } else {
             return $a_name;
@@ -1040,7 +1040,7 @@ class Util
         }
 
         // '0' is also empty for php :-(
-        if (mb_strlen($a_name) && $a_name !== '*') {
+        if (strlen($a_name) > 0 && $a_name !== '*') {
             return $quote . $a_name . $quote;
         } else {
             return $a_name;
@@ -1174,9 +1174,9 @@ class Util
             if (! isset($GLOBALS['db'])) {
                 $GLOBALS['db'] = '';
             }
-            if (mb_strlen($GLOBALS['db'])) {
+            if (strlen($GLOBALS['db']) > 0) {
                 $url_params['db'] = $GLOBALS['db'];
-                if (mb_strlen($GLOBALS['table'])) {
+                if (strlen($GLOBALS['table']) > 0) {
                     $url_params['table'] = $GLOBALS['table'];
                     $edit_link = 'tbl_sql.php';
                 } else {
@@ -2227,7 +2227,7 @@ class Util
             $meta        = $fields_meta[$i];
 
             // do not use a column alias in a condition
-            if (! isset($meta->orgname) || ! mb_strlen($meta->orgname)) {
+            if (! isset($meta->orgname) || strlen($meta->orgname) === 0) {
                 $meta->orgname = $meta->name;
 
                 if (!empty($analyzed_sql_results['statement']->expr)) {
@@ -2698,8 +2698,8 @@ class Util
      */
     public static function getDbLink($database = null)
     {
-        if (! mb_strlen($database)) {
-            if (! mb_strlen($GLOBALS['db'])) {
+        if (strlen($database) === 0) {
+            if (strlen($GLOBALS['db']) === 0) {
                 return '';
             }
             $database = $GLOBALS['db'];
@@ -4193,7 +4193,7 @@ class Util
 
         }
 
-        if (mb_strlen($buffer) > 0) {
+        if (strlen($buffer) > 0) {
             // The leftovers in the buffer are the last value (if any)
             $values[] = $buffer;
         }
@@ -4308,12 +4308,12 @@ class Util
      */
     public static function handleContext(array $context)
     {
-        if (mb_strlen($GLOBALS['cfg']['ProxyUrl'])) {
+        if (strlen($GLOBALS['cfg']['ProxyUrl']) > 0) {
             $context['http'] = array(
                 'proxy' => $GLOBALS['cfg']['ProxyUrl'],
                 'request_fulluri' => true
             );
-            if (mb_strlen($GLOBALS['cfg']['ProxyUser'])) {
+            if (strlen($GLOBALS['cfg']['ProxyUser']) > 0) {
                 $auth = base64_encode(
                     $GLOBALS['cfg']['ProxyUser'] . ':' . $GLOBALS['cfg']['ProxyPass']
                 );
@@ -4334,9 +4334,9 @@ class Util
      */
     public static function configureCurl($curl_handle)
     {
-        if (mb_strlen($GLOBALS['cfg']['ProxyUrl'])) {
+        if (strlen($GLOBALS['cfg']['ProxyUrl']) > 0) {
             curl_setopt($curl_handle, CURLOPT_PROXY, $GLOBALS['cfg']['ProxyUrl']);
-            if (mb_strlen($GLOBALS['cfg']['ProxyUser'])) {
+            if (strlen($GLOBALS['cfg']['ProxyUser']) > 0) {
                 curl_setopt(
                     $curl_handle,
                     CURLOPT_PROXYUSERPWD,

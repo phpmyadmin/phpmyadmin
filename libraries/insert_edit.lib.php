@@ -1918,14 +1918,12 @@ function PMA_getGotoInclude($goto_include)
         } else {
             $goto_include = $GLOBALS['goto'];
         }
-        if ($GLOBALS['goto'] == 'db_sql.php'
-            && mb_strlen($GLOBALS['table'])
-        ) {
+        if ($GLOBALS['goto'] == 'db_sql.php' && strlen($GLOBALS['table']) > 0) {
             $GLOBALS['table'] = '';
         }
     }
     if (! $goto_include) {
-        if (! mb_strlen($GLOBALS['table'])) {
+        if (strlen($GLOBALS['table']) === 0) {
             $goto_include = 'db_sql.php';
         } else {
             $goto_include = 'tbl_sql.php';
@@ -2082,7 +2080,7 @@ function PMA_getDisplayValueForForeignTableColumn($where_comparison,
         $foreigner['foreign_table']
     );
     // Field to display from the foreign table?
-    if (isset($display_field) && mb_strlen($display_field)) {
+    if (isset($display_field) && strlen($display_field) > 0) {
         $dispsql = 'SELECT ' . PMA\libraries\Util::backquote($display_field)
             . ' FROM ' . PMA\libraries\Util::backquote($foreigner['foreign_db'])
             . '.' . PMA\libraries\Util::backquote($foreigner['foreign_table'])
@@ -2291,7 +2289,7 @@ function PMA_getQueryValuesForInsertAndUpdateInMultipleEdit($multi_edit_columns_
     //  i n s e r t
     if ($is_insert) {
         // no need to add column into the valuelist
-        if (mb_strlen($current_value_as_an_array)) {
+        if (strlen($current_value_as_an_array) > 0) {
             $query_values[] = $current_value_as_an_array;
             // first inserted row so prepare the list of fields
             if (empty($value_sets)) {
@@ -2382,9 +2380,7 @@ function PMA_getCurrentValueForDifferentTypes($possibly_uploaded_val, $key,
             $type = '';
         }
 
-        if ($type != 'protected' && $type != 'set'
-            && 0 === mb_strlen($current_value)
-        ) {
+        if ($type != 'protected' && $type != 'set' && strlen($current_value) === 0) {
             // best way to avoid problems in strict mode
             // (works also in non-strict mode)
             if (isset($multi_edit_auto_increment)

@@ -182,7 +182,7 @@ class TableProperty
      */
     public function getIndexName()
     {
-        if (mb_strlen($this->key) > 0) {
+        if (strlen($this->key) > 0) {
             return "index=\""
                 . htmlspecialchars($this->name, ENT_COMPAT, 'UTF-8')
                 . "\"";

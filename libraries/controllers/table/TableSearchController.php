@@ -1027,7 +1027,7 @@ class TableSearchController extends TableController
             $gis_data = Util::createGISData($criteriaValues);
             $where = $geom_function_applied . " " . $func_type . " " . $gis_data;
 
-        } elseif (mb_strlen($criteriaValues) > 0) {
+        } elseif (strlen($criteriaValues) > 0) {
             $where = $geom_function_applied . " "
                 . $func_type . " '" . $criteriaValues . "'";
         }

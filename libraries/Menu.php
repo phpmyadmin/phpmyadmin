@@ -97,11 +97,11 @@ class Menu
     {
         $url_params = array('db' => $this->_db);
 
-        if (mb_strlen($this->_table)) {
+        if (strlen($this->_table) > 0) {
             $tabs = $this->_getTableTabs();
             $url_params['table'] = $this->_table;
             $level = 'table';
-        } else if (mb_strlen($this->_db)) {
+        } else if (strlen($this->_db) > 0) {
             $tabs = $this->_getDbTabs();
             $level = 'db';
         } else {
@@ -208,7 +208,7 @@ class Menu
             __('Server')
         );
 
-        if (mb_strlen($this->_db)) {
+        if (strlen($this->_db) > 0) {
             $retval .= $separator;
             if (Util::showIcons('TabsMode')) {
                 $retval .= Util::getImage(
@@ -228,7 +228,7 @@ class Menu
             );
             // if the table is being dropped, $_REQUEST['purge'] is set to '1'
             // so do not display the table name in upper div
-            if (mb_strlen($this->_table)
+            if (strlen($this->_table) > 0
                 && ! (isset($_REQUEST['purge']) && $_REQUEST['purge'] == '1')
             ) {
                 include './libraries/tbl_info.inc.php';
