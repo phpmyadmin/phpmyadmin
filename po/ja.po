@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-08-17 11:28+0200\n"
-"PO-Revision-Date: 2016-08-02 16:59+0000\n"
-"Last-Translator: Masahiro Nishi <grooversmail@gmail.com>\n"
-"Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/ja/>\n"
+"PO-Revision-Date: 2016-09-16 05:38+0000\n"
+"Last-Translator: yanagimoto <yanagimoto@klink.co.jp>\n"
+"Language-Team: Japanese "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/ja/>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 2.8-dev\n"
+"X-Generator: Weblate 2.9-dev\n"
 
 #: changelog.php:38 license.php:33
 #, fuzzy, php-format
@@ -776,7 +776,7 @@ msgstr ""
 
 #: index.php:529
 msgid "The secret passphrase in configuration (blowfish_secret) is too short."
-msgstr ""
+msgstr "設定ファイルの中に記述されているパスフレーズ（blowfish_secret）が短すぎます。"
 
 #: index.php:543
 msgid ""
@@ -1433,7 +1433,7 @@ msgstr "一般クエリログより"
 
 #: js/messages.php:270
 msgid "The database name is not known for this query in the server's logs."
-msgstr ""
+msgstr "サーバーログ内にあるこのクエリに記述されたデータベース名が認識できません。"
 
 #: js/messages.php:272
 msgid "Analysing logs"
@@ -2001,7 +2001,7 @@ msgstr "テーブルのデータサイズと列数に応じて数秒かかる場
 
 #: js/messages.php:461
 msgid "Step"
-msgstr ""
+msgstr "手順"
 
 #: js/messages.php:463
 #, fuzzy
@@ -2166,7 +2166,7 @@ msgstr "暗号化鍵"
 msgid ""
 "Indicates that you have made changes to this page; you will be prompted for "
 "confirmation before abandoning changes"
-msgstr ""
+msgstr "あなたがこのページに変更を加えた場合、変更を破棄する前に確認画面が表示されるでしょう。"
 
 #: js/messages.php:535
 msgid "Select referenced key"
@@ -2518,7 +2518,7 @@ msgstr "全て無視"
 #: js/messages.php:693
 msgid ""
 "As per your settings, they are being submitted currently, please be patient."
-msgstr ""
+msgstr "設定に従って現在これらを送信しています。気長にお待ちください。"
 
 #: js/messages.php:703
 msgid "Execute this query again?"
@@ -3092,7 +3092,7 @@ msgstr "ルーマニア語"
 
 #: libraries/Charsets.php:328
 msgid "Sinhalese"
-msgstr ""
+msgstr "シンハラ語"
 
 #: libraries/Charsets.php:331
 msgid "Slovak"
@@ -3787,7 +3787,7 @@ msgstr "ファイルのアップロード中に予期しないエラーが発生
 
 #: libraries/File.php:424
 msgid "File is a symbolic link"
-msgstr ""
+msgstr "このファイルはシンボリックリンクです"
 
 #: libraries/File.php:429 libraries/File.php:532
 msgid "File could not be read!"
@@ -3946,7 +3946,7 @@ msgstr "サポートされていない言語のコードを無視します。"
 #: libraries/Linter.php:99
 msgid ""
 "Linting is disabled for this query because it exceeds the maximum length."
-msgstr ""
+msgstr "文字列の長さが最大値を超えているため、このクエリに対する構文チェックは無効になっています。"
 
 #: libraries/Linter.php:165
 #, php-format
@@ -4084,7 +4084,7 @@ msgstr "イベント"
 
 #: libraries/Menu.php:507 libraries/Util.php:4275
 msgid "Designer"
-msgstr ""
+msgstr "デザイナ"
 
 #: libraries/Menu.php:516 libraries/Util.php:4276
 #: templates/database/structure/check_all_tables.phtml:34
@@ -4217,7 +4217,7 @@ msgstr "変数"
 
 #: libraries/SavedSearches.php:246
 msgid "Please provide a name for this bookmarked search."
-msgstr ""
+msgstr "このブックマークされた検索に名前を付けてください。"
 
 #: libraries/SavedSearches.php:261
 #, fuzzy
@@ -4237,7 +4237,7 @@ msgstr ""
 
 #: libraries/SavedSearches.php:375
 msgid "Missing information to load the search."
-msgstr ""
+msgstr "この検索を呼び出すための情報に誤りがあります。"
 
 #: libraries/SavedSearches.php:394
 #, fuzzy
@@ -4797,7 +4797,7 @@ msgstr "統計データ"
 #: libraries/Util.php:690
 #, php-format
 msgid "%d errors were found during analysis."
-msgstr ""
+msgstr "解析中に %d 個のエラーが見つかりました。"
 
 #: libraries/Util.php:753 libraries/rte/rte_events.lib.php:114
 #: libraries/rte/rte_events.lib.php:123 libraries/rte/rte_events.lib.php:154
@@ -5093,7 +5093,7 @@ msgstr "%s を %s 以降にアップグレードしてください。"
 
 #: libraries/common.inc.php:901
 msgid "Error: Token mismatch"
-msgstr ""
+msgstr "エラー: トークンが一致しません"
 
 #: libraries/common.inc.php:919
 msgid "GLOBALS overwrite attempt"
@@ -5174,15 +5174,15 @@ msgstr "閉じておく"
 
 #: libraries/config.values.php:128
 msgid "Ask before sending error reports"
-msgstr ""
+msgstr "エラーレポートを送信する前に確認する"
 
 #: libraries/config.values.php:129
 msgid "Always send error reports"
-msgstr ""
+msgstr "常にエラーレポートを送信する"
 
 #: libraries/config.values.php:130
 msgid "Never send error reports"
-msgstr ""
+msgstr "エラーレポートを送らない"
 
 #: libraries/config.values.php:133
 #, fuzzy
@@ -6638,7 +6638,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:376 libraries/config/messages.inc.php:390
 msgid "Update data when duplicate keys found on import"
-msgstr ""
+msgstr "インポート中に重複したキーが見つかった場合も更新する"
 
 #: libraries/config/messages.inc.php:380
 #, fuzzy
@@ -8434,7 +8434,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:987
 msgid "Choose the default action when sending error reports."
-msgstr ""
+msgstr "エラーレポートを送信する際の既定の動作を選択してください。"
 
 #: libraries/config/messages.inc.php:989
 #, fuzzy
@@ -8458,7 +8458,7 @@ msgstr "実行されたクエリ"
 msgid ""
 "Enable Zero Configuration mode which lets you setup phpMyAdmin configuration "
 "storage tables automatically."
-msgstr ""
+msgstr "ゼロコンフィギュレーションモードを有効にします。これによりphpMyAdminのコンフィギュレーションストレージテーブルは自動設定されます。"
 
 #: libraries/config/messages.inc.php:1001
 #, fuzzy
@@ -8520,7 +8520,7 @@ msgstr "Open Document テキスト"
 
 #: libraries/controllers/database/DatabaseStructureController.php:268
 msgid "Favorite List is full!"
-msgstr ""
+msgstr "お気に入りリストが一杯です！"
 
 #: libraries/controllers/database/DatabaseStructureController.php:554
 #: tbl_operations.php:375
@@ -8785,7 +8785,7 @@ msgstr ""
 msgid ""
 "You are using the mysql extension which is deprecated in phpMyAdmin. Please "
 "consider installing the mysqli extension."
-msgstr ""
+msgstr "phpMyAdminで非推奨のmysql拡張機能を使用しています。mysqli拡張機能の導入を検討してください。"
 
 #: libraries/db_designer.lib.php:119
 #, fuzzy
@@ -9223,15 +9223,15 @@ msgstr "インポートファイルをアップロードしています…"
 #: libraries/display_import.lib.php:491
 #, php-format
 msgid "%s/sec."
-msgstr ""
+msgstr "%s/秒"
 
 #: libraries/display_import.lib.php:492
 msgid "About %MIN min. %SEC sec. remaining."
-msgstr ""
+msgstr "残り時間 約 %MIN 分 %SEC 秒"
 
 #: libraries/display_import.lib.php:493
 msgid "About %SEC sec. remaining."
-msgstr ""
+msgstr "残り時間 約 %SEC 秒"
 
 #: libraries/display_import.lib.php:495
 msgid "The file is being processed, please be patient."
@@ -9609,7 +9609,7 @@ msgstr "返り値が空でした (行数 0)。"
 
 #: libraries/import.lib.php:273 libraries/sql.lib.php:1382
 msgid "[ROLLBACK occurred.]"
-msgstr ""
+msgstr "ロールバックが発生しました。"
 
 #: libraries/import.lib.php:1219
 msgid ""
@@ -9786,7 +9786,7 @@ msgstr "id %1$d の行を挿入しました"
 
 #: libraries/mult_submits.inc.php:328
 msgid "Success!"
-msgstr ""
+msgstr "成功！"
 
 #: libraries/mult_submits.lib.php:345 libraries/operations.lib.php:171
 #: libraries/operations.lib.php:1263 libraries/tracking.lib.php:534
@@ -9842,7 +9842,7 @@ msgstr "以下のクエリを本当に実行しますか?"
 
 #: libraries/navigation/Navigation.php:54
 msgid "An error has occurred while loading the navigation display"
-msgstr ""
+msgstr "ナビゲーション画面を読み込み中にエラーが発生しました。"
 
 #: libraries/navigation/Navigation.php:192
 #, fuzzy

@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-08-17 11:28+0200\n"
-"PO-Revision-Date: 2016-07-29 19:10+0000\n"
+"PO-Revision-Date: 2016-09-06 06:15+0000\n"
 "Last-Translator: Sevdimali İsa <sevdimaliisayev@mail.ru>\n"
-"Language-Team: Azerbaijani <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/az/>\n"
+"Language-Team: Azerbaijani "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/az/>\n"
 "Language: az\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.8-dev\n"
+"X-Generator: Weblate 2.8\n"
 
 #: changelog.php:38 license.php:33
 #, fuzzy, php-format
@@ -3822,6 +3822,8 @@ msgid ""
 "You attempted to load file with unsupported compression (%s). Either support "
 "for it is not implemented or disabled by your configuration."
 msgstr ""
+"Dəstəklənməyən sıxışdırmayla (%s) fayl yükləməyi sınadınız. Ya bunun üçün "
+"hələki dəstək tamamlanmadı ya da konfiqurasiyanız tərəfindən deaktiv edildi."
 
 #: libraries/Footer.php:74
 #, php-format

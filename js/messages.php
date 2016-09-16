@@ -39,11 +39,6 @@ if (!defined('TESTSUITE')) {
     );
 }
 
-$js_messages['strNoDropDatabases'] = __('"DROP DATABASE" statements are disabled.');
-if ($cfg['AllowUserDropDatabase']) {
-    $js_messages['strNoDropDatabases'] = '';
-}
-
 /* For confirmations */
 $js_messages['strConfirm'] = __('Confirm');
 $js_messages['strDoYouReally'] = __('Do you really want to execute "%s"?');

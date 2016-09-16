@@ -689,8 +689,7 @@ function PMA_isDeleteTransformationInfo($analyzed_sql_results)
 function PMA_hasNoRightsToDropDatabase($analyzed_sql_results,
     $allowUserDropDatabase, $is_superuser
 ) {
-    return ! defined('PMA_CHK_DROP')
-        && ! $allowUserDropDatabase
+    return ! $allowUserDropDatabase
         && isset($analyzed_sql_results['drop_database'])
         && $analyzed_sql_results['drop_database']
         && ! $is_superuser;

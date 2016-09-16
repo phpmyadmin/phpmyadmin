@@ -613,8 +613,12 @@ function confirmLink(theLink, theSqlQuery)
     if (is_confirmed) {
         if ($(theLink).hasClass('formLinkSubmit')) {
             var name = 'is_js_confirmed';
+
             if ($(theLink).attr('href').indexOf('usesubform') != -1) {
-                name = 'subform[' + $(theLink).attr('href').substr('#').match(/usesubform\[(\d+)\]/i)[1] + '][is_js_confirmed]';
+                var matches = $(theLink).attr('href').substr('#').match(/usesubform\[(\d+)\]/i);
+                if (matches != null) {
+                    name = 'subform[' + matches[1] + '][is_js_confirmed]';
+                }
             }
 
             $(theLink).parents('form').append('<input type="hidden" name="' + name + '" value="1" />');
@@ -629,8 +633,7 @@ function confirmLink(theLink, theSqlQuery)
 } // end of the 'confirmLink()' function
 
 /**
- * Displays an error message if a "DROP DATABASE" statement is submitted
- * while it isn't allowed, else confirms a "DROP/DELETE/ALTER" query before
+ * Confirms a "DROP/DELETE/ALTER" query before
  * submitting it if required.
  * This function is called by the 'checkSqlQuery()' js function.
  *
@@ -648,17 +651,6 @@ function confirmQuery(theForm1, sqlQuery1)
         return true;
     }
 
-    // "DROP DATABASE" statement isn't allowed
-    if (PMA_messages.strNoDropDatabases !== '') {
-        var drop_re = new RegExp('(^|;)\\s*DROP\\s+(IF EXISTS\\s+)?DATABASE\\s', 'i');
-        if (drop_re.test(sqlQuery1.value)) {
-            alert(PMA_messages.strNoDropDatabases);
-            theForm1.reset();
-            sqlQuery1.focus();
-            return false;
-        } // end if
-    } // end if
-
     // Confirms a "DROP/DELETE/ALTER/TRUNCATE" statement
     //
     // TODO: find a way (if possible) to use the parser-analyser
@@ -666,7 +658,7 @@ function confirmQuery(theForm1, sqlQuery1)
     // For now, I just added a ^ to check for the statement at
     // beginning of expression
 
-    var do_confirm_re_0 = new RegExp('^\\s*DROP\\s+(IF EXISTS\\s+)?(TABLE|DATABASE|PROCEDURE)\\s', 'i');
+    var do_confirm_re_0 = new RegExp('^\\s*DROP\\s+(IF EXISTS\\s+)?(TABLE|PROCEDURE)\\s', 'i');
     var do_confirm_re_1 = new RegExp('^\\s*ALTER\\s+TABLE\\s+((`[^`]+`)|([A-Za-z0-9_$]+))\\s+DROP\\s', 'i');
     var do_confirm_re_2 = new RegExp('^\\s*DELETE\\s+FROM\\s', 'i');
     var do_confirm_re_3 = new RegExp('^\\s*TRUNCATE\\s', 'i');
@@ -911,13 +903,13 @@ AJAX.registerOnload('functions.js', function () {
                 data: params,
                 success: function (data) {
                     if (data.success) {
-                        if (PMA_commonParams.get('LoginCookieValidity')-_idleSecondsCounter > 5) {
-                            var interval = (PMA_commonParams.get('LoginCookieValidity') - _idleSecondsCounter - 5) * 1000;
-                            if (interval > Math.pow(2, 31) - 1) { // max value for setInterval() function
-                                interval = Math.pow(2, 31) - 1;
-                            }
+                        var remaining = PMA_commonParams.get('LoginCookieValidity') - _idleSecondsCounter;
+                        if (remaining > 5) {
+                            // max value for setInterval() function
+                            var interval = min(remaining * 1000, Math.pow(2, 31) - 1);
                             updateTimeout = window.setTimeout(UpdateIdleTime, interval);
-                        } else {
+                        } else if (remaining > 0) {
+                            // We're close to session expiry
                             updateTimeout = window.setTimeout(UpdateIdleTime, 2000);
                         }
                     } else { //timeout occurred
