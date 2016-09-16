@@ -313,14 +313,16 @@ class ExportOdtTest extends PMATestCase
      */
     public function testExportHeader()
     {
-        $GLOBALS['OpenDocumentNS'] = "ODNS";
-
         $this->assertTrue(
             $this->object->exportHeader()
         );
 
         $this->assertContains(
-            "<office:document-content ODNSoffice:version",
+            "<office:document-content",
+            $GLOBALS['odt_buffer']
+        );
+        $this->assertContains(
+            "office:version",
             $GLOBALS['odt_buffer']
         );
     }
