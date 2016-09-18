@@ -1416,37 +1416,41 @@ function PMA_RTN_handleExecute()
 
                 $GLOBALS['dbi']->freeResult($result);
 
-            } while ($GLOBALS['dbi']->nextResult());
+            } while ($outcome = $GLOBALS['dbi']->nextResult());
 
-            $output .= "</fieldset>";
+            if ($outcome) {
+                $output .= "</fieldset>";
 
-            $message = __('Your SQL query has been executed successfully.');
-            if ($routine['item_type'] == 'PROCEDURE') {
-                $message .= '<br />';
+                $message = __('Your SQL query has been executed successfully.');
+                if ($routine['item_type'] == 'PROCEDURE') {
+                    $message .= '<br />';
 
-                // TODO : message need to be modified according to the
-                // output from the routine
-                $message .= sprintf(
-                    _ngettext(
-                        '%d row affected by the last statement inside the '
-                        . 'procedure.',
-                        '%d rows affected by the last statement inside the '
-                        . 'procedure.',
+                    // TODO : message need to be modified according to the
+                    // output from the routine
+                    $message .= sprintf(
+                        _ngettext(
+                            '%d row affected by the last statement inside the '
+                            . 'procedure.',
+                            '%d rows affected by the last statement inside the '
+                            . 'procedure.',
+                            $affected
+                        ),
                         $affected
-                    ),
-                    $affected
-                );
-            }
-            $message = Message::success($message);
+                    );
+                }
+                $message = Message::success($message);
 
-            if ($nbResultsetToDisplay == 0) {
-                $notice = __(
-                    'MySQL returned an empty result set (i.e. zero rows).'
-                );
-                $output .= Message::notice($notice)->getDisplay();
+                if ($nbResultsetToDisplay == 0) {
+                    $notice = __(
+                        'MySQL returned an empty result set (i.e. zero rows).'
+                    );
+                    $output .= Message::notice($notice)->getDisplay();
+                }
             }
 
-        } else {
+        } 
+        
+        if (! $outcome) {
             $output = '';
             $message = Message::error(
                 sprintf(
