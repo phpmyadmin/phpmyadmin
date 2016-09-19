@@ -30,11 +30,9 @@ class NodeIndex extends Node
         $this->icon = PMA\libraries\Util::getImage('b_index.png', __('Index'));
         $this->links = array(
             'text' => 'tbl_indexes.php?server=' . $GLOBALS['server']
-                . '&amp;db=%3$s&amp;table=%2$s&amp;index=%1$s'
-                . '&amp;token=' . $_SESSION[' PMA_token '],
+                . '&amp;db=%3$s&amp;table=%2$s&amp;index=%1$s',
             'icon' => 'tbl_indexes.php?server=' . $GLOBALS['server']
-                . '&amp;db=%3$s&amp;table=%2$s&amp;index=%1$s'
-                . '&amp;token=' . $_SESSION[' PMA_token '],
+                . '&amp;db=%3$s&amp;table=%2$s&amp;index=%1$s',
         );
         $this->classes = 'index';
     }
