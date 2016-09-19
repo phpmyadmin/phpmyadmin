@@ -34,6 +34,7 @@ phpMyAdmin - ChangeLog
 - issue #12221 Fixed export of table with generated columns
 - issue #12320 Copying a user does not copy usergroup
 - issue #12272 Adding a new row with default enum goes to no selection when you want to add more then 2 rows
+- issue #12487 Drag and drop import prevents file dropping to blob column file selector on the insert tab
 
 4.6.4 (2016-08-16)
 - issue        [security] Weaknesses with cookie encryption, see PMASA-2016-29

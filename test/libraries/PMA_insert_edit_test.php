@@ -1132,7 +1132,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
             . 'name="fieldsb" value="" /><input type="hidden" '
             . 'name="fields_typeb" value="protected" />'
             . '<br /><input type="file" name="fields_uploadfoo[123]" class="text'
-            . 'field" id="field_1_3" size="10" c/>&nbsp;(Max: 64KiB)' . "\n",
+            . 'field noDragDrop" id="field_1_3" size="10" c/>&nbsp;(Max: 64KiB)' . "\n",
             $result
         );
 
@@ -1190,7 +1190,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
             . 'cols="1" dir="/" id="field_1_3" c tabindex="3" data-type="HEX">'
             . '</textarea><input type="hidden" name="fields_typeb" value="hex" />'
             . '<br /><input type="file" name="fields_uploadfoo[123]" class="text'
-            . 'field" id="field_1_3" size="10" c/>&nbsp;(Max: 64KiB)' . "\n",
+            . 'field noDragDrop" id="field_1_3" size="10" c/>&nbsp;(Max: 64KiB)' . "\n",
             $result
         );
 
