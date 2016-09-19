@@ -91,10 +91,32 @@ abstract class AuthenticationPlugin
      *
      * @param string $password New password to set
      *
-     * @return void 
+     * @return void
      */
     public function handlePasswordChange($password)
     {
     }
+
+    /**
+     * Store session access time in session.
+     *
+     * Tries to workaround PHP 5 session garbage collection which
+     * looks at the session file's last modified time
+     *
+     * @return void
+     */
+     public function setSessionAccessTime()
+     {
+        if (isset($_REQUEST['access_time'])) {
+            // Ensure access_time is in range <0, LoginCookieValidity + 1>
+            // to avoid excessive extension of validity.
+            //
+            // Negative values can cause session expiry extension
+            // Too big values can cause overflow and lead to same
+            $_SESSION['last_access_time'] = time() - min(max(0, intval($_REQUEST['access_time'])), $GLOBALS['cfg']['LoginCookieValidity'] + 1);
+        } else {
+            $_SESSION['last_access_time'] = time();
+        }
+     }
 }
 ?>

@@ -256,9 +256,7 @@ class AuthenticationHttp extends AuthenticationPlugin
         unset($GLOBALS['PHP_AUTH_PW']);
         unset($_SERVER['PHP_AUTH_PW']);
 
-        // try to workaround PHP 5 session garbage collection which
-        // looks at the session file's last modified time
-        $_SESSION['last_access_time'] = time();
+        $this->setSessionAccessTime();
 
         return true;
     }
@@ -284,7 +282,7 @@ class AuthenticationHttp extends AuthenticationPlugin
      *
      * @param string $password New password to set
      *
-     * @return void 
+     * @return void
      */
     public function handlePasswordChange($password)
     {
