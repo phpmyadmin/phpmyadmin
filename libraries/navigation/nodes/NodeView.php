@@ -30,11 +30,9 @@ class NodeView extends NodeDatabaseChild
         $this->icon = PMA\libraries\Util::getImage('b_props.png', __('View'));
         $this->links = array(
             'text' => 'sql.php?server=' . $GLOBALS['server']
-                . '&amp;db=%2$s&amp;table=%1$s&amp;pos=0'
-                . '&amp;token=' . $_SESSION[' PMA_token '],
+                . '&amp;db=%2$s&amp;table=%1$s&amp;pos=0',
             'icon' => 'tbl_structure.php?server=' . $GLOBALS['server']
-                . '&amp;db=%2$s&amp;table=%1$s'
-                . '&amp;token=' . $_SESSION[' PMA_token '],
+                . '&amp;db=%2$s&amp;table=%1$s',
         );
         $this->classes = 'view';
     }
