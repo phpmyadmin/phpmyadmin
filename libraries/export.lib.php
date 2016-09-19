@@ -680,8 +680,13 @@ function PMA_exportDatabase(
             && in_array($table, $table_data)
             && ! ($is_view)
         ) {
-            $local_query  = 'SELECT * FROM ' . PMA\libraries\Util::backquote($db)
+            $tableObj = new PMA\libraries\Table($table, $db);
+            $nonGeneratedCols = $tableObj->getNonGeneratedColumns(true);
+
+            $local_query  = 'SELECT ' . implode(', ', $nonGeneratedCols)
+                .  ' FROM ' . PMA\libraries\Util::backquote($db)
                 . '.' . PMA\libraries\Util::backquote($table);
+
             if (! $export_plugin->exportData(
                 $db, $table, $crlf, $err_url, $local_query, $aliases
             )) {
@@ -860,7 +865,12 @@ function PMA_exportTable(
             $local_query = $sql_query . $add_query;
             $GLOBALS['dbi']->selectDb($db);
         } else {
-            $local_query  = 'SELECT * FROM ' . PMA\libraries\Util::backquote($db)
+            // Data is exported only for Non-generated columns
+            $tableObj = new PMA\libraries\Table($table, $db);
+            $nonGeneratedCols = $tableObj->getNonGeneratedColumns(true);
+
+            $local_query  = 'SELECT ' . implode(', ', $nonGeneratedCols)
+                .  ' FROM ' . PMA\libraries\Util::backquote($db)
                 . '.' . PMA\libraries\Util::backquote($table) . $add_query;
         }
         if (! $export_plugin->exportData(

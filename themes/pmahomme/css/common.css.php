@@ -2873,7 +2873,8 @@ fieldset .disabled-field td {
 }
 
 .cEdit .edit_box {
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: scroll;
     padding: 0;
     margin: 0;
 }

@@ -1824,10 +1824,11 @@ class DatabaseInterface
      * @param string $db    db name
      * @param string $which PROCEDURE | FUNCTION | EVENT | VIEW
      * @param string $name  the procedure|function|event|view name
+     * @param object $link  MySQL link
      *
      * @return string the definition
      */
-    public function getDefinition($db, $which, $name)
+    public function getDefinition($db, $which, $name, $link = null)
     {
         $returned_field = array(
             'PROCEDURE' => 'Create Procedure',
@@ -1838,7 +1839,7 @@ class DatabaseInterface
         $query = 'SHOW CREATE ' . $which . ' '
             . Util::backquote($db) . '.'
             . Util::backquote($name);
-        return($this->fetchValue($query, 0, $returned_field[$which]));
+        return($this->fetchValue($query, 0, $returned_field[$which], $link));
     }
 
     /**

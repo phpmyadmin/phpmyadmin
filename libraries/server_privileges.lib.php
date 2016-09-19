@@ -2952,6 +2952,33 @@ function PMA_getUserGroupCount()
 }
 
 /**
+ * Returns name of user group that user is part of
+ *
+ * @param string $username User name
+ *
+ * @return mixed usergroup if found or null if not found
+ */
+function PMA_getUserGroupForUser($username)
+{
+    $cfgRelation = PMA_getRelationsParam();
+    $user_table = Util::backquote($cfgRelation['db'])
+        . '.' . Util::backquote($cfgRelation['users']);
+    $sql_query = 'SELECT `usergroup` FROM ' . $user_table
+        . ' WHERE `username` = \'' . $username . '\''
+        . ' LIMIT 1';
+
+    $usergroup = $GLOBALS['dbi']->fetchValue(
+        $sql_query, 0, 0, $GLOBALS['controllink']
+    );
+
+    if ($usergroup === false) {
+        return null;
+    }
+
+    return $usergroup;
+}
+
+/**
  * This function return the extra data array for the ajax behavior
  *
  * @param string $password  password
@@ -3129,8 +3156,15 @@ function PMA_getChangeLoginInformationHtmlForm($username, $hostname)
         . '<input type="hidden" name="old_username" '
         . 'value="' . htmlspecialchars($username) . '" />' . "\n"
         . '<input type="hidden" name="old_hostname" '
-        . 'value="' . htmlspecialchars($hostname) . '" />' . "\n"
-        . '<fieldset id="fieldset_change_copy_user">' . "\n"
+        . 'value="' . htmlspecialchars($hostname) . '" />' . "\n";
+
+    $usergroup = PMA_getUserGroupForUser($username);
+    if ($usergroup !== null) {
+        $html_output .= '<input type="hidden" name="old_usergroup" '
+        . 'value="' . htmlspecialchars($usergroup) . '" />' . "\n";
+    }
+
+    $html_output .= '<fieldset id="fieldset_change_copy_user">' . "\n"
         . '<legend data-submenu-label="' . __('Login Information') . '">' . "\n"
         . __('Change login information / Copy user account')
         . '</legend>' . "\n"
@@ -4291,6 +4325,12 @@ function PMA_addUser(
             $_add_user_error
         );
     }
+
+    // Copy the user group while copying a user
+    $old_usergroup =
+        $_REQUEST['old_usergroup'] ? $_REQUEST['old_usergroup'] : null;
+    PMA_setUserGroup($_REQUEST['username'], $old_usergroup);
+
 
     if (isset($create_user_real)) {
         $queries[] = $create_user_real;
