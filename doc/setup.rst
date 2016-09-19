@@ -852,6 +852,7 @@ are always ways to make your installation more secure:
 * Ensure your PHP setup follows recommendations for production sites, for example
   `display_errors <https://php.net/manual/en/errorfunc.configuration.php#ini.display-errors>`_ 
   should be disabled.
+* Remove the ``test`` directory from phpMyAdmin, unless you are developing and need test suite.
 * Remove the ``setup`` directory from phpMyAdmin, you will probably not
   use it after the initial setup.
 * Properly choose an authentication method - :ref:`cookie`

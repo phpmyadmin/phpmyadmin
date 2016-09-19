@@ -1128,10 +1128,13 @@ function PMA_getBinaryAndBlobColumn(
     $html_output .= sprintf($fields_type_html, $fields_type_val);
 
     if ($is_upload && $column['is_blob'] && !$readOnly) {
+        // We don't want to prevent users from using
+        // browser's default drag-drop feature on some page(s),
+        // so we add noDragDrop class to the input
         $html_output .= '<br />'
             . '<input type="file"'
             . ' name="fields_upload' . $vkey . '[' . $column['Field_md5'] . ']"'
-            . ' class="textfield" id="field_' . $idindex . '_3" size="10"'
+            . ' class="textfield noDragDrop" id="field_' . $idindex . '_3" size="10"'
             . ' ' . $onChangeClause . '/>&nbsp;';
         list($html_out,) = PMA_getMaxUploadSize(
             $column, $biggest_max_file_size

@@ -128,6 +128,11 @@ RTE.COMMON = {
             var count = export_anchors.length;
             var returnCount = 0;
 
+            // No routine is exportable (due to privilege issues)
+            if (count === 0) {
+                PMA_ajaxShowMessage(PMA_messages.NoExportable);
+            }
+
             export_anchors.each(function () {
                 $.get($(this).attr('href'), {'ajax_request': true}, function (data) {
                     returnCount++;
@@ -149,6 +154,7 @@ RTE.COMMON = {
         } else {
             $.get($this.attr('href'), {'ajax_request': true}, showExport);
         }
+        PMA_ajaxRemoveMessage($msg);
 
         function showExport(data) {
             if (data.success === true) {
