@@ -390,6 +390,8 @@ $js_messages['strDeleting'] = __('Deleting');
 $js_messages['MissingReturn']
     = __('The definition of a stored function must contain a RETURN statement!');
 $js_messages['strExport'] = __('Export');
+$js_messages['NoExportable']
+    = __('No routine is exportable. Required privileges may be lacking.');
 
 /* For ENUM/SET editor*/
 $js_messages['enum_editor'] = __('ENUM/SET editor');

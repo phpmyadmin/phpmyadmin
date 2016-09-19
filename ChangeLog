@@ -64,6 +64,9 @@ phpMyAdmin - ChangeLog
 - issue #12320 Copying a user does not copy usergroup
 - issue #12272 Adding a new row with default enum goes to no selection when you want to add more then 2 rows
 - issue #12487 Drag and drop import prevents file dropping to blob column file selector on the insert tab
+- issue #12554 Absence of scrolling makes it impossible to read longer text values in grid editing
+- issue #12530 "Edit routine" crashes when the current user is not the definer, even if privileges are adequate
+- issue #12300 Export selective tables by-default dumps Events also
 
 4.6.4 (2016-08-16)
 - issue        [security] Weaknesses with cookie encryption, see PMASA-2016-29
