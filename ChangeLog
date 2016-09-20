@@ -68,6 +68,7 @@ phpMyAdmin - ChangeLog
 - issue #12530 "Edit routine" crashes when the current user is not the definer, even if privileges are adequate
 - issue #12300 Export selective tables by-default dumps Events also
 - issue #12298 Fixed export of view definitions
+- issue #12242 Edit routine detail dialog does not fill "Return length" field in mysql functions
 
 4.6.4 (2016-08-16)
 - issue        [security] Weaknesses with cookie encryption, see PMASA-2016-29
