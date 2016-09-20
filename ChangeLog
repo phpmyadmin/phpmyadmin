@@ -38,6 +38,7 @@ phpMyAdmin - ChangeLog
 - issue #12554 Absence of scrolling makes it impossible to read longer text values in grid editing
 - issue #12530 "Edit routine" crashes when the current user is not the definer, even if privileges are adequate
 - issue #12300 Export selective tables by-default dumps Events also
+- issue #12298 Fixed export of view definitions
 
 4.6.4 (2016-08-16)
 - issue        [security] Weaknesses with cookie encryption, see PMASA-2016-29
