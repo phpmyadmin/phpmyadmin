@@ -654,7 +654,7 @@ function PMA_RTN_getDataFromName($name, $type, $all = true, $control = false)
         }
 
         $retval['item_returntype']      = $stmt->return->name;
-        $retval['item_returnlength']    = implode(',', $stmt->return->size);
+        $retval['item_returnlength']    = implode(',', $stmt->return->parameters);
         $retval['item_returnopts_num']  = implode(' ', $options);
         $retval['item_returnopts_text'] = implode(' ', $options);
     }
