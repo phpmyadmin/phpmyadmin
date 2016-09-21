@@ -461,7 +461,7 @@ class TableSearchController extends TableController
         }
         $key = array_search($field, $this->_columnNames);
         $search_index = 0;
-        if (PMA_isValid($_REQUEST['it'], 'integer')) {
+        if (PMA_isValid(intval($_REQUEST['it']), 'numeric')) {
             $search_index = $_REQUEST['it'];
         }
         $properties = $this->getColumnProperties($search_index, $key);
