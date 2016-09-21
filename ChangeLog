@@ -41,6 +41,7 @@ phpMyAdmin - ChangeLog
 - issue #12298 Fixed export of view definitions
 - issue #12242 Edit routine detail dialog does not fill "Return length" field in mysql functions
 - issue #12575 New index Confirm adds whitespace around the field name
+- issue #12382 Bug in zoom search
 
 4.6.4 (2016-08-16)
 - issue        [security] Weaknesses with cookie encryption, see PMASA-2016-29
