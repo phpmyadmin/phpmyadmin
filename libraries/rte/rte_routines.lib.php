@@ -1096,8 +1096,22 @@ function PMA_RTN_getQueryFromRequest()
     if (! empty($_REQUEST['item_definer'])) {
         if (mb_strpos($_REQUEST['item_definer'], '@') !== false) {
             $arr = explode('@', $_REQUEST['item_definer']);
-            $query .= 'DEFINER=' . PMA\libraries\Util::backquote($arr[0]);
-            $query .= '@' . PMA\libraries\Util::backquote($arr[1]) . ' ';
+
+            $do_backquote = true;
+            if (substr($arr[0], 0, 1) === "`"
+                && substr($arr[0], -1) === "`"
+            ) {
+                $do_backquote = false;
+            }
+            $query .= 'DEFINER=' . PMA\libraries\Util::backquote($arr[0], $do_backquote);
+
+            $do_backquote = true;
+            if (substr($arr[1], 0, 1) === "`"
+                && substr($arr[1], -1) === "`"
+            ) {
+                $do_backquote = false;
+            }
+            $query .= '@' . PMA\libraries\Util::backquote($arr[1], $do_backquote) . ' ';
         } else {
             $errors[] = __('The definer must be in the "username@hostname" format!');
         }
