@@ -163,9 +163,25 @@ environment variables:
     
     Host name or IP address of the database server to use.
 
+    .. seealso:: :config:option:`$cfg['Servers'][$i]['host']`
+
 .. envvar:: PMA_HOSTS
     
     Comma separated host names or IP addresses of the database servers to use.
+
+    .. note:: Used only if :envvar:`PMA_HOST` is empty.
+
+.. envvar:: PMA_VERBOSE
+    
+    Verbose name the database server.
+
+    .. seealso:: :config:option:`$cfg['Servers'][$i]['verbose']`
+
+.. envvar:: PMA_VERBOSES
+    
+    Comma separated verbose name the database servers.
+
+    .. note:: Used only if :envvar:`PMA_VERBOSE` is empty.
 
 .. envvar:: PMA_USER
     
