@@ -466,9 +466,10 @@ Some additional downloads (for example themes) might be signed by Michal Čihař
 
 and you can get more identification information from <https://keybase.io/nijel>.
 
-You should verify that the signature matches
-the archive you have downloaded. This way you can be sure that you are using
-the same code that was released.
+You should verify that the signature matches the archive you have downloaded.
+This way you can be sure that you are using the same code that was released.
+You should also verify the date of the signature to make sure that you
+downloaded the latest version.
 
 Each archive is accompanied with ``.asc`` files which contains the PGP signature
 for it. Once you have both of them in the same folder, you can verify the signature:
