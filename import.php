@@ -199,7 +199,10 @@ if ($_POST == array() && $_GET == array()) {
     $_SESSION['Import_message']['message'] = $message->getDisplay();
     $_SESSION['Import_message']['go_back_url'] = $GLOBALS['goto'];
 
-    $message->display();
+    $response = PMA\libraries\Response::getInstance();
+    $response->setRequestStatus(false);
+    $response->addJSON('message', $message);
+
     exit; // the footer is displayed automatically
 }
 
