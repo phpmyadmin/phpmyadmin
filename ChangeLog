@@ -43,6 +43,7 @@ phpMyAdmin - ChangeLog
 - issue #12575 New index Confirm adds whitespace around the field name
 - issue #12382 Bug in zoom search
 - issue #12321 Assign LIMIT clause only to syntactically correct queries
+- issue #12461 Can't Execute SQL With Sub-Query Due To "LIMIT 0,25" Inserted At Wrong Place
 
 4.6.4 (2016-08-16)
 - issue        [security] Weaknesses with cookie encryption, see PMASA-2016-29
