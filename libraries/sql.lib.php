@@ -627,7 +627,13 @@ function PMA_isRememberSortingOrder($analyzed_sql_results)
  */
 function PMA_isAppendLimitClause($analyzed_sql_results)
 {
-    return ($_SESSION['tmpval']['max_rows'] != 'all')
+    // Assigning LIMIT clause to an syntactically-wrong query
+    // is not needed. Also we would want to show the true query
+    // and the true error message to the query executor
+
+    return (isset($analyzed_sql_results['parser'])
+        && count($analyzed_sql_results['parser']->errors) === 0)
+        && ($_SESSION['tmpval']['max_rows'] != 'all')
         && ! ($analyzed_sql_results['is_export']
         || $analyzed_sql_results['is_analyse'])
         && ($analyzed_sql_results['select_from']
@@ -2131,16 +2137,9 @@ function PMA_executeQueryAndGetQueryResponse($analyzed_sql_results,
     // assign default full_sql_query
     $full_sql_query = $sql_query;
 
-    // Assigning LIMIT clause to an syntactically-wrong query
-    // is not needed. Also we would want to show the true query
-    // and the true error message to the query executor
-    if (isset($analyzed_sql_results['parser'])
-        && count($analyzed_sql_results['parser']->errors) === 0
-    ) {
-        // Do append a "LIMIT" clause?
-        if (PMA_isAppendLimitClause($analyzed_sql_results)) {
-            $full_sql_query = PMA_getSqlWithLimitClause($analyzed_sql_results);
-        }
+    // Do append a "LIMIT" clause?
+    if (PMA_isAppendLimitClause($analyzed_sql_results)) {
+        $full_sql_query = PMA_getSqlWithLimitClause($analyzed_sql_results);
     }
 
     $GLOBALS['reload'] = PMA_hasCurrentDbChanged($db);
