@@ -3357,7 +3357,7 @@ function PMA_getUserSpecificRights($username, $hostname, $type, $dbname = '')
 /**
  * Parses Proc_priv data
  *
- * @param string $prins Proc_priv
+ * @param string $privs Proc_priv
  *
  * @return array
  */
@@ -4342,7 +4342,6 @@ function PMA_addUser(
     $old_usergroup =
         $_REQUEST['old_usergroup'] ? $_REQUEST['old_usergroup'] : null;
     PMA_setUserGroup($_REQUEST['username'], $old_usergroup);
-
 
     if (isset($create_user_real)) {
         $queries[] = $create_user_real;
