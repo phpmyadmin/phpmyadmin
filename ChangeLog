@@ -74,6 +74,7 @@ phpMyAdmin - ChangeLog
 - issue #12321 Assign LIMIT clause only to syntactically correct queries
 - issue #12461 Can't Execute SQL With Sub-Query Due To "LIMIT 0,25" Inserted At Wrong Place
 - issue #12511 Clarify documentation on ArbitraryServerRegexp
+- issue #12508 Remove duplicate code in SQL escaping
 
 4.6.4 (2016-08-16)
 - issue        [security] Weaknesses with cookie encryption, see PMASA-2016-29
