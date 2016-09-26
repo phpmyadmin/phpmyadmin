@@ -105,7 +105,7 @@ class ImportShp extends ImportPlugin
                     if ($extracted !== false) {
                         $dbf_file_path = realpath($GLOBALS['cfg']['TempDir'])
                             . (PMA_IS_WINDOWS ? '\\' : '/')
-                            . PMA_sanitizeFilename($dbf_file_name, true);
+                            . Sanitize::sanitizeFilename($dbf_file_name, true);
                         $handle = fopen($dbf_file_path, 'wb');
                         if ($handle !== false) {
                             fwrite($handle, $extracted);
