@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-08-17 11:29+0200\n"
-"PO-Revision-Date: 2016-09-18 15:45+0000\n"
-"Last-Translator: Deven Bansod <devenbansod.bits@gmail.com>\n"
+"PO-Revision-Date: 2016-09-20 20:22+0000\n"
+"Last-Translator: Niemand Jedermann <predatorix@web.de>\n"
 "Language-Team: German "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-6/de/>\n"
 "Language: de\n"
@@ -804,6 +804,7 @@ msgstr ""
 #: index.php:525
 msgid "The secret passphrase in configuration (blowfish_secret) is too short."
 msgstr ""
+"Die geheime Passphrase in der Konfiguration (blowfish_secret) ist zu kurz."
 
 #: index.php:539
 msgid ""
@@ -3717,7 +3718,7 @@ msgstr "Unbekannter Fehler beim hochladen der Datei."
 
 #: libraries/File.php:424
 msgid "File is a symbolic link"
-msgstr ""
+msgstr "Die Datei ist eine symbolische Verknüpfung"
 
 #: libraries/File.php:470
 msgid "Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc]."
@@ -5237,10 +5238,9 @@ msgid "You allow for connecting to the server without a password."
 msgstr "Sie erlauben Verbindungen mit dem Server ohne Passwort."
 
 #: libraries/config/ServerConfigChecks.php:347
-#, fuzzy
 #| msgid "Key is too short, it should have at least 8 characters."
 msgid "Key is too short, it should have at least 32 characters."
-msgstr "Schlüssel ist zu kurz, er muss mindestens 8 Zeichen lang sein."
+msgstr "Der Schlüssel ist zu kurz, er sollte mindestens 32 Zeichen lang sein."
 
 #: libraries/config/ServerConfigChecks.php:357
 msgid "Key should contain letters, numbers [em]and[/em] special characters."
@@ -5844,7 +5844,7 @@ msgstr "MIME-Typ"
 #: libraries/config/messages.inc.php:167 libraries/config/messages.inc.php:180
 #: libraries/config/messages.inc.php:221
 msgid "Relations"
-msgstr "Beziehungen"
+msgstr "Tabellenverknüpfungen"
 
 #: libraries/config/messages.inc.php:173
 msgid "Export method"
@@ -14751,10 +14751,9 @@ msgid "Table name"
 msgstr "Tabellenname"
 
 #: templates/columns_definitions/column_definitions_form.phtml:65
-#, fuzzy
 #| msgid "Add column(s)"
 msgid "column(s)"
-msgstr "Spalte(n) hinzufügen"
+msgstr "Spalte(n)"
 
 #: templates/columns_definitions/column_definitions_form.phtml:92
 msgid "Collation:"
@@ -15777,10 +15776,9 @@ msgid "The profile has been updated."
 msgstr "Benutzer wurde geändert."
 
 #: user_password.php:124
-#, fuzzy
 #| msgid "Password Hashing:"
 msgid "Password is too long!"
-msgstr "Passwortverschlüsselung:"
+msgstr "Das Kennwort ist zu lang!"
 
 #: view_create.php:44
 msgid "View name can not be empty"

@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.5-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-08-17 11:29+0200\n"
-"PO-Revision-Date: 2016-09-16 05:38+0000\n"
+"PO-Revision-Date: 2016-09-21 06:46+0000\n"
 "Last-Translator: yanagimoto <yanagimoto@klink.co.jp>\n"
 "Language-Team: Japanese "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-6/ja/>\n"
@@ -14641,7 +14641,7 @@ msgstr "テーブル名"
 #: libraries/sql-parser/src/Component.php:48
 #: libraries/sql-parser/src/Component.php:68
 msgid "Not implemented yet."
-msgstr ""
+msgstr "実装されていません。"
 
 #: libraries/sql-parser/src/Components/AlterOperation.php:229
 #, fuzzy
@@ -14714,7 +14714,7 @@ msgstr ""
 #: libraries/sql-parser/src/Components/OptionsArray.php:147
 #, php-format
 msgid "This option conflicts with \"%1$s\"."
-msgstr ""
+msgstr "このオプションは \"%1$s\" と競合しています。"
 
 #: libraries/sql-parser/src/Components/RenameOperation.php:102
 #, fuzzy
@@ -14777,7 +14777,7 @@ msgstr ""
 
 #: libraries/sql-parser/src/Parser.php:532
 msgid "No transaction was previously started."
-msgstr ""
+msgstr "開始されているトランザクションはありません。"
 
 #: libraries/sql-parser/src/Statement.php:246
 #, fuzzy
@@ -14796,7 +14796,7 @@ msgstr ""
 
 #: libraries/sql-parser/src/Statement.php:332
 msgid "Unrecognized keyword."
-msgstr ""
+msgstr "認識できないキーワードです。"
 
 #: libraries/sql-parser/src/Statements/CreateStatement.php:368
 #, fuzzy
@@ -15962,11 +15962,11 @@ msgstr "テーブルを表示しています"
 #: templates/database/designer/side_menu.phtml:35
 #: templates/database/designer/side_menu.phtml:36
 msgid "View in fullscreen"
-msgstr ""
+msgstr "全画面表示"
 
 #: templates/database/designer/side_menu.phtml:34
 msgid "Exit fullscreen"
-msgstr ""
+msgstr "全画面表示を解除"
 
 #: templates/database/designer/side_menu.phtml:41
 #: templates/database/designer/side_menu.phtml:45
@@ -16265,7 +16265,7 @@ msgstr "セッション値"
 
 #: templates/server/variables/variable_row.phtml:6
 msgid "This is a read-only variable and can not be edited"
-msgstr ""
+msgstr "読み取り専用の値のため編集できません"
 
 #: templates/server/variables/variable_table_head.phtml:5
 msgid "Global value"
@@ -16802,7 +16802,7 @@ msgstr "パスワードハッシュ"
 
 #: view_create.php:44
 msgid "View name can not be empty"
-msgstr ""
+msgstr "ビュー名を空にすることはできません"
 
 #: view_create.php:247
 msgid "VIEW name"

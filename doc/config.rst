@@ -1547,6 +1547,30 @@ Cookie authentication options
     to the given regular expression. The regular expression must be enclosed
     with a delimiter character.
 
+    It is recommended to include start and end symbols in the regullar
+    expression, so that you can avoid partial matches on the string.
+
+    **Examples:**
+
+    .. code-block:: php
+
+        // Allow connection to three listed servers:
+        $cfg['ArbitraryServerRegexp'] = '/^(server|another|yetdifferent)$/'; 
+
+        // Allow connection to range of IP addresses:
+        $cfg['ArbitraryServerRegexp'] = '@^192.168.0.[0-9]{1,}$@';
+
+        // Allow connection to server name ending with -mysql:
+        $cfg['ArbitraryServerRegexp'] = '@^[^:]\-mysql$@';
+
+    .. note::
+
+        The whole server name is matched, it can include port as well. Due to
+        way MySQL is permissive in connection parameters, it is possible to use
+        connection strings as ```server:3306-mysql```. This can be used to
+        bypass regullar expression by the suffix, while connecting to another
+        server.
+
 .. config:option:: $cfg['CaptchaLoginPublicKey']
 
     :type: string

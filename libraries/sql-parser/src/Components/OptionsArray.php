@@ -183,7 +183,7 @@ class OptionsArray extends Component
                         'value' => '',
                     );
                     $state = 1;
-                } elseif ($lastOption[1] === 'expr') {
+                } elseif ($lastOption[1] === 'expr'  || $lastOption[1] === 'expr=') {
                     // This is a keyword that is followed by an expression.
                     // The expression is used by the specialized parser.
 
@@ -192,8 +192,11 @@ class OptionsArray extends Component
                     $ret->options[$lastOptionId] = array(
                         // @var string The name of the option.
                         'name' => $token->value,
+                        // @var bool Whether it contains an equal sign.
+                        //           This is used by the builder to rebuild it.
+                        'equals' => $lastOption[1] === 'expr=',
                         // @var Expression The parsed expression.
-                        'expr' => null,
+                        'expr' => '',
                     );
                     $state = 1;
                 }
@@ -208,7 +211,7 @@ class OptionsArray extends Component
             // This is outside the `elseif` group above because the change might
             // change this iteration.
             if ($state === 2) {
-                if ($lastOption[1] === 'expr') {
+                if ($lastOption[1] === 'expr' || $lastOption[1] === 'expr=') {
                     $ret->options[$lastOptionId]['expr'] = Expression::parse(
                         $parser,
                         $list,
@@ -250,7 +253,8 @@ class OptionsArray extends Component
             && $lastOption
             && ($lastOption[1] == 'expr'
             || $lastOption[1] == 'var'
-            || $lastOption[1] == 'var=')
+            || $lastOption[1] == 'var='
+            || $lastOption[1] == 'expr=')
         ) {
             $parser->error(
                 sprintf(
@@ -287,7 +291,7 @@ class OptionsArray extends Component
                 $options[] = $option;
             } else {
                 $options[] = $option['name']
-                    . (!empty($option['equals']) ? '=' : ' ')
+                    . ((!empty($option['equals']) && $option['equals']) ? '=' : ' ')
                     . (!empty($option['expr']) ? $option['expr'] : $option['value']);
             }
         }
