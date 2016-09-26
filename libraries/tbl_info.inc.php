@@ -33,16 +33,15 @@ $GLOBALS['dbi']->selectDb($GLOBALS['db']);
 /**
  * Holds information about the current table
  *
+ * Table::getStatusInfo() does caching by default, but here
+ * we force reading of the current table status
+ * if $reread_info is true (for example, coming from tbl_operations.php
+ * and we just changed the table's storage engine)
+ *
  * @todo replace this by Table
  * @global array $GLOBALS['showtable']
  * @name $showtable
  */
-$GLOBALS['showtable'] = array();
-
-// Table::getStatusInfo() does caching by default, but here
-// we force reading of the current table status
-// if $reread_info is true (for example, coming from tbl_operations.php
-// and we just changed the table's storage engine)
 $GLOBALS['showtable'] = $GLOBALS['dbi']->getTable(
     $GLOBALS['db'],
     $GLOBALS['table']
