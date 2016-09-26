@@ -163,9 +163,25 @@ environment variables:
     
     Host name or IP address of the database server to use.
 
+    .. seealso:: :config:option:`$cfg['Servers'][$i]['host']`
+
 .. envvar:: PMA_HOSTS
     
     Comma separated host names or IP addresses of the database servers to use.
+
+    .. note:: Used only if :envvar:`PMA_HOST` is empty.
+
+.. envvar:: PMA_VERBOSE
+    
+    Verbose name the database server.
+
+    .. seealso:: :config:option:`$cfg['Servers'][$i]['verbose']`
+
+.. envvar:: PMA_VERBOSES
+    
+    Comma separated verbose name the database servers.
+
+    .. note:: Used only if :envvar:`PMA_VERBOSE` is empty.
 
 .. envvar:: PMA_USER
     
@@ -466,9 +482,10 @@ Some additional downloads (for example themes) might be signed by Michal Čihař
 
 and you can get more identification information from <https://keybase.io/nijel>.
 
-You should verify that the signature matches
-the archive you have downloaded. This way you can be sure that you are using
-the same code that was released.
+You should verify that the signature matches the archive you have downloaded.
+This way you can be sure that you are using the same code that was released.
+You should also verify the date of the signature to make sure that you
+downloaded the latest version.
 
 Each archive is accompanied with ``.asc`` files which contains the PGP signature
 for it. Once you have both of them in the same folder, you can verify the signature:

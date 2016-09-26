@@ -391,10 +391,10 @@ class TableSearchController extends TableController
             return;
         }
         $key = array_search($field, $this->_columnNames);
-        $search_index = 0;
-        if (PMA_isValid($_REQUEST['it'], 'integer')) {
-            $search_index = $_REQUEST['it'];
-        }
+        $search_index
+            = ((isset($_REQUEST['it']) && is_numeric($_REQUEST['it']))
+                ? intval($_REQUEST['it']) : 0);
+
         $properties = $this->getColumnProperties($search_index, $key);
         $this->response->addJSON(
             'field_type', htmlspecialchars($properties['type'])

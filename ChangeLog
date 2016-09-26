@@ -67,6 +67,15 @@ phpMyAdmin - ChangeLog
 - issue #12554 Absence of scrolling makes it impossible to read longer text values in grid editing
 - issue #12530 "Edit routine" crashes when the current user is not the definer, even if privileges are adequate
 - issue #12300 Export selective tables by-default dumps Events also
+- issue #12298 Fixed export of view definitions
+- issue #12242 Edit routine detail dialog does not fill "Return length" field in mysql functions
+- issue #12575 New index Confirm adds whitespace around the field name
+- issue #12382 Bug in zoom search
+- issue #12321 Assign LIMIT clause only to syntactically correct queries
+- issue #12461 Can't Execute SQL With Sub-Query Due To "LIMIT 0,25" Inserted At Wrong Place
+- issue #12511 Clarify documentation on ArbitraryServerRegexp
+- issue #12508 Remove duplicate code in SQL escaping
+- issue #12475 Cleanup code for getting table information
 
 4.6.4 (2016-08-16)
 - issue        [security] Weaknesses with cookie encryption, see PMASA-2016-29

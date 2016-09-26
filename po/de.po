@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-08-17 11:28+0200\n"
-"PO-Revision-Date: 2016-09-18 15:45+0000\n"
-"Last-Translator: Deven Bansod <devenbansod.bits@gmail.com>\n"
+"PO-Revision-Date: 2016-09-20 20:34+0000\n"
+"Last-Translator: Niemand Jedermann <predatorix@web.de>\n"
 "Language-Team: German "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/de/>\n"
 "Language: de\n"
@@ -16,7 +16,7 @@ msgstr ""
 "X-Generator: Weblate 2.9-dev\n"
 
 #: changelog.php:38 license.php:33
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "The %s file is not available on this system, please visit www.phpmyadmin."
 #| "net for more information."
@@ -25,7 +25,7 @@ msgid ""
 "information."
 msgstr ""
 "Die %s Datei steht auf diesem System nicht zur Verfügung. Bitte besuchen Sie "
-"www.phpmyadmin.net um nach weiteren Informationen zu suchen."
+"%s um nach weiteren Informationen zu suchen."
 
 #: db_central_columns.php:107
 msgid "The central list of columns for the current database is empty."
@@ -786,6 +786,7 @@ msgstr ""
 #: index.php:529
 msgid "The secret passphrase in configuration (blowfish_secret) is too short."
 msgstr ""
+"Die geheime Passphrase in der Konfiguration (blowfish_secret) ist zu kurz."
 
 #: index.php:543
 msgid ""
@@ -854,6 +855,8 @@ msgstr "Sie sind dabei eine komplette Datenbank zu LÖSCHEN!"
 #: js/messages.php:53
 msgid "Cannot rename database to the same name. Change the name and try again"
 msgstr ""
+"Kann die Datenbank nicht auf den selben Namen umbenennen. Ändern Sie den "
+"Namen und versuchen Sie es erneut"
 
 #: js/messages.php:55
 msgid "You are about to DESTROY a complete table!"
@@ -3093,7 +3096,7 @@ msgstr "Koreanisch"
 
 #: libraries/Charsets.php:313
 msgid "Burmese"
-msgstr ""
+msgstr "Birmanisch"
 
 #: libraries/Charsets.php:316
 msgid "Persian"
@@ -3207,22 +3210,19 @@ msgid "unknown"
 msgstr "unbekannt"
 
 #: libraries/Charsets.php:460
-#, fuzzy
 #| msgid "Collation"
 msgid "binary collation"
-msgstr "Kollation"
+msgstr "binäre Kollation"
 
 #: libraries/Charsets.php:467
-#, fuzzy
 #| msgid "case-insensitive"
 msgid "case-insensitive collation"
-msgstr "Beachtet nicht Groß- und Kleinschreibung"
+msgstr "Kollation ohne Beachtung der Groß- und Kleinschreibung"
 
 #: libraries/Charsets.php:469
-#, fuzzy
 #| msgid "case-sensitive"
 msgid "case-sensitive collation"
-msgstr "Beachtet Groß- und Kleinschreibung"
+msgstr "Kollation mit Beachtung der Groß- und Kleinschreibung"
 
 #: libraries/Config.php:1151
 #, php-format
@@ -3300,10 +3300,9 @@ msgid "Details…"
 msgstr "Details…"
 
 #: libraries/DatabaseInterface.php:2325
-#, fuzzy
 #| msgid "Missing parameter:"
 msgid "Missing connection parameters!"
-msgstr "Fehlende(r) Parameter:"
+msgstr "Fehlende Verbindungs-Parameter!"
 
 #: libraries/DatabaseInterface.php:2358
 msgid "Connection for controluser as defined in your configuration failed."
@@ -3788,7 +3787,7 @@ msgstr "Unbekannter Fehler beim hochladen der Datei."
 
 #: libraries/File.php:424
 msgid "File is a symbolic link"
-msgstr ""
+msgstr "Die Datei ist eine symbolische Verknüpfung"
 
 #: libraries/File.php:429 libraries/File.php:532
 msgid "File could not be read!"
@@ -5317,10 +5316,9 @@ msgid "You allow for connecting to the server without a password."
 msgstr "Sie erlauben Verbindungen mit dem Server ohne Passwort."
 
 #: libraries/config/ServerConfigChecks.php:349
-#, fuzzy
 #| msgid "Key is too short, it should have at least 8 characters."
 msgid "Key is too short, it should have at least 32 characters."
-msgstr "Schlüssel ist zu kurz, er muss mindestens 8 Zeichen lang sein."
+msgstr "Der Schlüssel ist zu kurz, er sollte mindestens 32 Zeichen lang sein."
 
 #: libraries/config/ServerConfigChecks.php:359
 msgid "Key should contain letters, numbers [em]and[/em] special characters."
@@ -5929,7 +5927,7 @@ msgstr "MIME-Typ"
 #: libraries/config/messages.inc.php:167 libraries/config/messages.inc.php:180
 #: libraries/config/messages.inc.php:221
 msgid "Relations"
-msgstr "Beziehungen"
+msgstr "Tabellenverknüpfungen"
 
 #: libraries/config/messages.inc.php:173
 msgid "Export method"
@@ -7636,16 +7634,14 @@ msgid "Show last check timestamp"
 msgstr "Zeitstempel der letzten Überprüfung einblenden"
 
 #: libraries/config/messages.inc.php:860
-#, fuzzy
 #| msgid "Show or hide a column displaying the comments for all tables."
 msgid "Show or hide a column displaying the charset for all tables."
-msgstr "Eine Spalte mit den Kommentaren für alle Tabellen ein-/ausblenden."
+msgstr "Eine Spalte mit dem Zeichensatz für alle Tabellen ein-/ausblenden."
 
 #: libraries/config/messages.inc.php:862
-#, fuzzy
 #| msgid "Show table comments"
 msgid "Show table charset"
-msgstr "Tabellen-Kommentare einblenden"
+msgstr "Tabellen-Zeichensatz einblenden"
 
 #: libraries/config/messages.inc.php:864
 msgid ""
@@ -10487,10 +10483,10 @@ msgid "Last check:"
 msgstr "Letzte Prüfung:"
 
 #: libraries/plugins/export/ExportSql.php:1488
-#, fuzzy, php-format
+#, php-format
 #| msgid "Table structure for table"
 msgid "Error reading structure for table %s:"
-msgstr "Tabellenstruktur für Tabelle"
+msgstr "Fehler beim Lesen der Struktur von Tabelle %s:"
 
 #: libraries/plugins/export/ExportSql.php:1542
 msgid "It appears your database uses views;"
@@ -10542,10 +10538,10 @@ msgid "(See below for the actual view)"
 msgstr "(Siehe unten für die tatsächliche Ansicht)"
 
 #: libraries/plugins/export/ExportSql.php:2204
-#, fuzzy, php-format
+#, php-format
 #| msgid "Error reading data:"
 msgid "Error reading data for table %s:"
-msgstr "Fehler beim Lesen der Daten:"
+msgstr "Fehler beim Lesen der Daten von Tabelle %s:"
 
 #: libraries/plugins/export/ExportXml.php:97
 msgid "Object creation options (all are recommended)"
@@ -12371,10 +12367,10 @@ msgstr ""
 "(username\\_%)."
 
 #: libraries/server_privileges.lib.php:2286
-#, fuzzy, php-format
+#, php-format
 #| msgid "Grant all privileges on database \"%s\"."
 msgid "Grant all privileges on database %s."
-msgstr "Gewähre alle Rechte auf die Datenbank \"%s\"."
+msgstr "Gewähre alle Rechte auf die Datenbank %s."
 
 #: libraries/server_privileges.lib.php:2450
 #: libraries/server_privileges.lib.php:2521
@@ -14139,14 +14135,13 @@ msgstr ""
 "Fehler!"
 
 #: prefs_manage.php:50
-#, fuzzy
 #| msgid "Missing phpMyAdmin configuration storage tables"
 msgid "phpMyAdmin configuration snippet"
-msgstr "Fehlende phpMyAdmin-Konfigurationsspeicher-Tabellen"
+msgstr "phpMyAdmin-Konfigurationsschnipsel"
 
 #: prefs_manage.php:51
 msgid "Paste it to your config.inc.php"
-msgstr ""
+msgstr "Fügen Sie dies in Ihre config.inc.php ein"
 
 #: prefs_manage.php:105
 msgid "Could not import configuration"
@@ -14198,10 +14193,9 @@ msgstr ""
 "verändert werden, z.B. durch die Verwendung von %sSetup Script%s."
 
 #: prefs_manage.php:342
-#, fuzzy
 #| msgid "Save as file"
 msgid "Save as PHP file"
-msgstr "Senden"
+msgstr "Als PHP-Datei speichern"
 
 #: prefs_manage.php:347
 msgid "Save to browser's storage"
@@ -14511,10 +14505,9 @@ msgid "Add"
 msgstr "Hinzufügen"
 
 #: templates/columns_definitions/column_definitions_form.phtml:66
-#, fuzzy
 #| msgid "Add column(s)"
 msgid "column(s)"
-msgstr "Spalte(n) hinzufügen"
+msgstr "Spalte(n)"
 
 #: templates/columns_definitions/column_definitions_form.phtml:93
 msgid "Collation:"
@@ -15693,26 +15686,24 @@ msgid "The profile has been updated."
 msgstr "Benutzer wurde geändert."
 
 #: user_password.php:125
-#, fuzzy
 #| msgid "Password Hashing:"
 msgid "Password is too long!"
-msgstr "Passwortverschlüsselung:"
+msgstr "Das Kennwort ist zu lang!"
 
 #: vendor/phpmyadmin/motranslator/tests/MoFilesTest.php:24
-#, fuzzy
 #| msgid "Column names"
 msgid "Column parser"
-msgstr "Spaltennamen"
+msgstr "Spaltenparser"
 
 #: vendor/phpmyadmin/motranslator/tests/MoFilesTest.php:83
 #: vendor/phpmyadmin/motranslator/tests/MoFilesTest.php:127
-#, fuzzy, php-format
+#, php-format
 #| msgid "%d second"
 #| msgid_plural "%d seconds"
 msgid "\"%d\" second"
 msgid_plural "\"%d\" seconds"
-msgstr[0] "%d Sekunde"
-msgstr[1] "%d Sekunden"
+msgstr[0] "\"%d\" Sekunde"
+msgstr[1] "\"%d\" Sekunden"
 
 #: vendor/phpmyadmin/sql-parser/src/Component.php:48
 #: vendor/phpmyadmin/sql-parser/src/Component.php:68

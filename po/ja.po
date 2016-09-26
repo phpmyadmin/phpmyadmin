@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-08-17 11:28+0200\n"
-"PO-Revision-Date: 2016-09-16 05:38+0000\n"
+"PO-Revision-Date: 2016-09-21 06:48+0000\n"
 "Last-Translator: yanagimoto <yanagimoto@klink.co.jp>\n"
 "Language-Team: Japanese "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/ja/>\n"
@@ -14908,7 +14908,7 @@ msgstr "phpMyAdmin 環境保管領域用のテーブルが不明"
 
 #: prefs_manage.php:51
 msgid "Paste it to your config.inc.php"
-msgstr ""
+msgstr "これをconfig.inc.phpに貼り付けてください"
 
 #: prefs_manage.php:105
 msgid "Could not import configuration"
@@ -15841,11 +15841,11 @@ msgstr "テーブルを表示しています"
 #: templates/database/designer/side_menu.phtml:35
 #: templates/database/designer/side_menu.phtml:36
 msgid "View in fullscreen"
-msgstr ""
+msgstr "全画面表示"
 
 #: templates/database/designer/side_menu.phtml:34
 msgid "Exit fullscreen"
-msgstr ""
+msgstr "全画面表示を解除"
 
 #: templates/database/designer/side_menu.phtml:41
 #: templates/database/designer/side_menu.phtml:45
@@ -16148,7 +16148,7 @@ msgstr "セッション値"
 
 #: templates/server/variables/variable_row.phtml:6
 msgid "This is a read-only variable and can not be edited"
-msgstr ""
+msgstr "読み取り専用の値のため編集できません"
 
 #: templates/server/variables/variable_table_head.phtml:5
 msgid "Global value"
@@ -16705,7 +16705,7 @@ msgstr[0] "%d 秒"
 #: vendor/phpmyadmin/sql-parser/src/Component.php:48
 #: vendor/phpmyadmin/sql-parser/src/Component.php:68
 msgid "Not implemented yet."
-msgstr ""
+msgstr "実装されていません。"
 
 #: vendor/phpmyadmin/sql-parser/src/Components/AlterOperation.php:229
 #, fuzzy
@@ -16778,7 +16778,7 @@ msgstr ""
 #: vendor/phpmyadmin/sql-parser/src/Components/OptionsArray.php:147
 #, php-format
 msgid "This option conflicts with \"%1$s\"."
-msgstr ""
+msgstr "このオプションは \"%1$s\" と競合しています。"
 
 #: vendor/phpmyadmin/sql-parser/src/Components/RenameOperation.php:102
 #, fuzzy
@@ -16841,7 +16841,7 @@ msgstr ""
 
 #: vendor/phpmyadmin/sql-parser/src/Parser.php:532
 msgid "No transaction was previously started."
-msgstr ""
+msgstr "開始されているトランザクションはありません。"
 
 #: vendor/phpmyadmin/sql-parser/src/Statement.php:246
 #, fuzzy
@@ -16860,7 +16860,7 @@ msgstr ""
 
 #: vendor/phpmyadmin/sql-parser/src/Statement.php:332
 msgid "Unrecognized keyword."
-msgstr ""
+msgstr "認識できないキーワードです。"
 
 #: vendor/phpmyadmin/sql-parser/src/Statements/CreateStatement.php:368
 #, fuzzy
@@ -16900,7 +16900,7 @@ msgstr "エラーを収集する"
 
 #: view_create.php:45
 msgid "View name can not be empty"
-msgstr ""
+msgstr "ビュー名を空にすることはできません"
 
 #: view_create.php:248
 msgid "VIEW name"

@@ -26,11 +26,9 @@ class NodeIndexContainer extends Node
         $this->icon = PMA\libraries\Util::getImage('b_index.png', __('Indexes'));
         $this->links = array(
             'text' => 'tbl_structure.php?server=' . $GLOBALS['server']
-                . '&amp;db=%2$s&amp;table=%1$s'
-                . '&amp;token=' . $_SESSION[' PMA_token '],
+                . '&amp;db=%2$s&amp;table=%1$s',
             'icon' => 'tbl_structure.php?server=' . $GLOBALS['server']
-                . '&amp;db=%2$s&amp;table=%1$s'
-                . '&amp;token=' . $_SESSION[' PMA_token '],
+                . '&amp;db=%2$s&amp;table=%1$s',
         );
         $this->real_name = 'indexes';
 
@@ -44,12 +42,10 @@ class NodeIndexContainer extends Node
         $new->links = array(
             'text' => 'tbl_indexes.php?server=' . $GLOBALS['server']
                 . '&amp;create_index=1&amp;added_fields=2'
-                . '&amp;db=%3$s&amp;table=%2$s&amp;token='
-                . $_SESSION[' PMA_token '],
+                . '&amp;db=%3$s&amp;table=%2$s',
             'icon' => 'tbl_indexes.php?server=' . $GLOBALS['server']
                 . '&amp;create_index=1&amp;added_fields=2'
-                . '&amp;db=%3$s&amp;table=%2$s&amp;token='
-                . $_SESSION[' PMA_token '],
+                . '&amp;db=%3$s&amp;table=%2$s',
         );
         $new->classes = 'new_index italics';
         $this->addChild($new);
