@@ -4916,7 +4916,6 @@ class Util
             curl_setopt($curl_handle, CURLOPT_HEADER, true);
         }
 
-
         if ($method == "POST") {
             curl_setopt($curl_handle, CURLOPT_POSTFIELDS, $content);
         }
