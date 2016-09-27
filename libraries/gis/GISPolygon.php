@@ -563,7 +563,7 @@ class GISPolygon extends GISGeometry
 
             //If both are outside the polygon reduce the epsilon and
             //recalculate the points(reduce exponentially for faster convergence)
-            $epsilon = Util::pow($epsilon, 2);
+            $epsilon = pow($epsilon, 2);
             if ($epsilon == 0) {
                 return false;
             }
