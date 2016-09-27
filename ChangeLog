@@ -47,6 +47,7 @@ phpMyAdmin - ChangeLog
 - issue #12511 Clarify documentation on ArbitraryServerRegexp
 - issue #12508 Remove duplicate code in SQL escaping
 - issue #12475 Cleanup code for getting table information
+- issue #12327 Create PHP code no longer works
 
 4.6.4 (2016-08-16)
 - issue        [security] Weaknesses with cookie encryption, see PMASA-2016-29
