@@ -1497,7 +1497,7 @@ class Util
          * So if we have 3,6,9,12.. free digits ($digits_left - $cur_digits)
          * to use, then lower the SI prefix
          */
-        $cur_digits = floor(log10($value / self::pow(1000, $d, 'pow'))+1);
+        $cur_digits = floor(log10($value / pow(1000, $d))+1);
         if ($digits_left > $cur_digits) {
             $d -= floor(($digits_left - $cur_digits)/3);
         }
@@ -1506,7 +1506,7 @@ class Util
             $d = 0;
         }
 
-        $value = round($value / (self::pow(1000, $d, 'pow') / $dh)) /$dh;
+        $value = round($value / (pow(1000, $d) / $dh)) /$dh;
         $unit = $units[$d];
 
         // number_format is not multibyte safe, str_replace is safe
