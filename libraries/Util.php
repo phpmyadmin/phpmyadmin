@@ -1374,15 +1374,15 @@ class Util
             __('EiB')
         );
 
-        $dh   = self::pow(10, $comma);
-        $li   = self::pow(10, $limes);
+        $dh   = pow(10, $comma);
+        $li   = pow(10, $limes);
         $unit = $byteUnits[0];
 
         for ($d = 6, $ex = 15; $d >= 1; $d--, $ex-=3) {
-            $unitSize = $li * self::pow(10, $ex);
+            $unitSize = $li * pow(10, $ex);
             if (isset($byteUnits[$d]) && $value >= $unitSize) {
                 // use 1024.0 to avoid integer overflow on 64-bit machines
-                $value = round($value / (self::pow(1024, $d) / $dh)) /$dh;
+                $value = round($value / (pow(1024, $d) / $dh)) /$dh;
                 $unit = $byteUnits[$d];
                 break 1;
             } // end if
@@ -1451,7 +1451,7 @@ class Util
                 __(',')
             );
             if (($originalValue != 0) && (floatval($value) == 0)) {
-                $value = ' <' . (1 / self::pow(10, $digits_right));
+                $value = ' <' . (1 / pow(10, $digits_right));
             }
             return $value;
         }
@@ -1485,7 +1485,7 @@ class Util
             $sign = '';
         }
 
-        $dh = self::pow(10, $digits_right);
+        $dh = pow(10, $digits_right);
 
         /*
          * This gives us the right SI prefix already,
@@ -1525,7 +1525,7 @@ class Util
 
         if ($originalValue != 0 && floatval($value) == 0) {
             return ' <' . number_format(
-                (1 / self::pow(10, $digits_right)),
+                (1 / pow(10, $digits_right)),
                 $digits_right,
                 /* l10n: Decimal separator */
                 __('.'),
@@ -1551,13 +1551,13 @@ class Util
 
         if (preg_match('/^[0-9]+GB$/', $formatted_size)) {
             $return_value = mb_substr($formatted_size, 0, -2)
-                * self::pow(1024, 3);
+                * pow(1024, 3);
         } elseif (preg_match('/^[0-9]+MB$/', $formatted_size)) {
             $return_value = mb_substr($formatted_size, 0, -2)
-                * self::pow(1024, 2);
+                * pow(1024, 2);
         } elseif (preg_match('/^[0-9]+K$/', $formatted_size)) {
             $return_value = mb_substr($formatted_size, 0, -1)
-                * self::pow(1024, 1);
+                * pow(1024, 1);
         }
         return $return_value;
     }// end of the 'extractValueFromFormattedSize' function
