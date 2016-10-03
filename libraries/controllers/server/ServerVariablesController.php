@@ -182,7 +182,7 @@ class ServerVariablesController extends Controller
                 'gb' => 3,
                 'gib' => 3
             );
-            $value = floatval($matches[1]) * Util::pow(
+            $value = floatval($matches[1]) * pow(
                 1024,
                 $exp[mb_strtolower($matches[3])]
             );

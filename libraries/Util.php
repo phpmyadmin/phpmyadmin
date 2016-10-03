@@ -29,76 +29,6 @@ if (! defined('PHPMYADMIN')) {
  */
 class Util
 {
-
-    /**
-     * Detects which function to use for pow.
-     *
-     * @return string Function name.
-     */
-    public static function detectPow()
-    {
-        if (function_exists('bcpow')) {
-            // BCMath Arbitrary Precision Mathematics Function
-            return 'bcpow';
-        } elseif (function_exists('gmp_pow')) {
-            // GMP Function
-            return 'gmp_pow';
-        } else {
-            // PHP function
-            return 'pow';
-        }
-    }
-
-    /**
-     * Exponential expression / raise number into power
-     *
-     * @param string $base         base to raise
-     * @param string $exp          exponent to use
-     * @param string $use_function pow function to use, or false for auto-detect
-     *
-     * @return mixed string or float
-     */
-    public static function pow($base, $exp, $use_function = '')
-    {
-        static $pow_function = null;
-
-        if ($pow_function == null) {
-            $pow_function = self::detectPow();
-        }
-
-        if (! $use_function) {
-            if ($exp < 0) {
-                $use_function = 'pow';
-            } else {
-                $use_function = $pow_function;
-            }
-        }
-
-        if (($exp < 0) && ($use_function != 'pow')) {
-            return false;
-        }
-
-        switch ($use_function) {
-        case 'bcpow' :
-            // bcscale() needed for testing pow() with base values < 1
-            bcscale(10);
-            $pow = bcpow($base, $exp);
-            break;
-        case 'gmp_pow' :
-             $pow = gmp_strval(gmp_pow($base, $exp));
-            break;
-        case 'pow' :
-            $base = $base;
-            $exp = (int) $exp;
-            $pow = pow($base, $exp);
-            break;
-        default:
-            $pow = $use_function($base, $exp);
-        }
-
-        return $pow;
-    }
-
     /**
      * Checks whether configuration value tells to show icons.
      *
@@ -1444,15 +1374,15 @@ class Util
             __('EiB')
         );
 
-        $dh   = self::pow(10, $comma);
-        $li   = self::pow(10, $limes);
+        $dh   = pow(10, $comma);
+        $li   = pow(10, $limes);
         $unit = $byteUnits[0];
 
         for ($d = 6, $ex = 15; $d >= 1; $d--, $ex-=3) {
-            $unitSize = $li * self::pow(10, $ex);
+            $unitSize = $li * pow(10, $ex);
             if (isset($byteUnits[$d]) && $value >= $unitSize) {
                 // use 1024.0 to avoid integer overflow on 64-bit machines
-                $value = round($value / (self::pow(1024, $d) / $dh)) /$dh;
+                $value = round($value / (pow(1024, $d) / $dh)) /$dh;
                 $unit = $byteUnits[$d];
                 break 1;
             } // end if
@@ -1521,7 +1451,7 @@ class Util
                 __(',')
             );
             if (($originalValue != 0) && (floatval($value) == 0)) {
-                $value = ' <' . (1 / self::pow(10, $digits_right));
+                $value = ' <' . (1 / pow(10, $digits_right));
             }
             return $value;
         }
@@ -1555,7 +1485,7 @@ class Util
             $sign = '';
         }
 
-        $dh = self::pow(10, $digits_right);
+        $dh = pow(10, $digits_right);
 
         /*
          * This gives us the right SI prefix already,
@@ -1567,7 +1497,7 @@ class Util
          * So if we have 3,6,9,12.. free digits ($digits_left - $cur_digits)
          * to use, then lower the SI prefix
          */
-        $cur_digits = floor(log10($value / self::pow(1000, $d, 'pow'))+1);
+        $cur_digits = floor(log10($value / pow(1000, $d))+1);
         if ($digits_left > $cur_digits) {
             $d -= floor(($digits_left - $cur_digits)/3);
         }
@@ -1576,7 +1506,7 @@ class Util
             $d = 0;
         }
 
-        $value = round($value / (self::pow(1000, $d, 'pow') / $dh)) /$dh;
+        $value = round($value / (pow(1000, $d) / $dh)) /$dh;
         $unit = $units[$d];
 
         // number_format is not multibyte safe, str_replace is safe
@@ -1595,7 +1525,7 @@ class Util
 
         if ($originalValue != 0 && floatval($value) == 0) {
             return ' <' . number_format(
-                (1 / self::pow(10, $digits_right)),
+                (1 / pow(10, $digits_right)),
                 $digits_right,
                 /* l10n: Decimal separator */
                 __('.'),
@@ -1621,13 +1551,13 @@ class Util
 
         if (preg_match('/^[0-9]+GB$/', $formatted_size)) {
             $return_value = mb_substr($formatted_size, 0, -2)
-                * self::pow(1024, 3);
+                * pow(1024, 3);
         } elseif (preg_match('/^[0-9]+MB$/', $formatted_size)) {
             $return_value = mb_substr($formatted_size, 0, -2)
-                * self::pow(1024, 2);
+                * pow(1024, 2);
         } elseif (preg_match('/^[0-9]+K$/', $formatted_size)) {
             $return_value = mb_substr($formatted_size, 0, -1)
-                * self::pow(1024, 1);
+                * pow(1024, 1);
         }
         return $return_value;
     }// end of the 'extractValueFromFormattedSize' function
