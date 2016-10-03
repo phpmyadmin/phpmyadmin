@@ -77,6 +77,10 @@ phpMyAdmin - ChangeLog
 - issue #12508 Remove duplicate code in SQL escaping
 - issue #12475 Cleanup code for getting table information
 - issue #12579 phpMyAdmin's export of a Select statment without a FROM clause generates Wrong SQL
+- issue #12316 Correct export of complex SELECT statements
+- issue #12080 Fixed parsing of subselect queries
+- issue #11740 Fixed handling DELETE ... USING queries
+- issue #12100 Fixed handling of CASE operator
 
 4.6.4 (2016-08-16)
 - issue        [security] Weaknesses with cookie encryption, see PMASA-2016-29
