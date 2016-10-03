@@ -19,8 +19,7 @@ use SqlParser\TokensList;
  * @category   Keywords
  * @package    SqlParser
  * @subpackage Components
- * @author     Dan Ungureanu <udan1107@gmail.com>
- * @license    http://opensource.org/licenses/GPL-2.0 GNU Public License
+ * @license    https://www.gnu.org/licenses/gpl-2.0.txt GPL-2.0+
  */
 class JoinKeyword extends Component
 {
@@ -147,6 +146,9 @@ class JoinKeyword extends Component
                         $state = 3;
                     } elseif ($token->value === 'USING') {
                         $state = 4;
+                    } else {
+                        /* Next clause is starting */
+                        break;
                     }
                 }
             } elseif ($state === 3) {
@@ -183,8 +185,9 @@ class JoinKeyword extends Component
         foreach ($component as $c) {
             $ret[] = array_search($c->type, static::$JOINS) . ' ' . $c->expr
                 . (!empty($c->on)
-                    ? ' ON ' . Condition::build($c->on)
-                    : ' USING ' . ArrayObj::build($c->using));
+                    ? ' ON ' . Condition::build($c->on) : '')
+                . (!empty($c->using)
+                    ? ' USING ' . ArrayObj::build($c->using) : '');
         }
         return implode(' ', $ret);
     }

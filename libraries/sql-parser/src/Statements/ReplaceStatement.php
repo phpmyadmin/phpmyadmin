@@ -42,8 +42,7 @@ use SqlParser\Components\SetOperation;
  * @category   Statements
  * @package    SqlParser
  * @subpackage Statements
- * @author     Dan Ungureanu <udan1107@gmail.com>
- * @license    http://opensource.org/licenses/GPL-2.0 GNU Public License
+ * @license    https://www.gnu.org/licenses/gpl-2.0.txt GPL-2.0+
  */
 class ReplaceStatement extends Statement
 {
@@ -167,7 +166,11 @@ class ReplaceStatement extends Statement
                     break;
                 } else {
                     ++$list->idx;
-                    $this->into = IntoKeyword::parse($parser, $list);
+                    $this->into = IntoKeyword::parse(
+                        $parser,
+                        $list,
+                        array('fromReplace' => true)
+                    );
                 }
 
                 $state = 1;
