@@ -52,6 +52,7 @@ phpMyAdmin - ChangeLog
 - issue #12080 Fixed parsing of subselect queries
 - issue #11740 Fixed handling DELETE ... USING queries
 - issue #12100 Fixed handling of CASE operator
+- issue #12455 Query history stores separate entry for every letter typed
 
 4.6.4 (2016-08-16)
 - issue        [security] Weaknesses with cookie encryption, see PMASA-2016-29
