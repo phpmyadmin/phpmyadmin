@@ -64,6 +64,25 @@ class DeleteStatement extends Statement
     );
 
     /**
+     * The clauses of this statement, in order.
+     *
+     * @see Statement::$CLAUSES
+     *
+     * @var array
+     */
+    public static $CLAUSES = array(
+        'DELETE'                        => array('DELETE',      2),
+        // Used for options.
+        '_OPTIONS'                      => array('_OPTIONS',    1),
+        'FROM'                          => array('FROM',        3),
+        'PARTITION'                     => array('PARTITION',   3),
+        'USING'                         => array('USING',       3),
+        'WHERE'                         => array('WHERE',       3),
+        'ORDER BY'                      => array('ORDER BY',    3),
+        'LIMIT'                         => array('LIMIT',       3),
+    );
+
+    /**
      * Table(s) used as sources for this statement.
      *
      * @var Expression[]
