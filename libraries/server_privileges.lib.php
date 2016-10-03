@@ -5153,7 +5153,9 @@ function PMA_addUserAndCreateDatabase($_error, $real_sql_query, $sql_query,
         // Grant all privileges on wildcard name (username\_%)
         $q = 'GRANT ALL PRIVILEGES ON '
             . Util::backquote(
-                Util::sqlAddSlashes($username) . '\_%'
+                Util::escapeMysqlWildcards(
+                    Util::sqlAddSlashes($username)
+                ) . '\_%'
             ) . '.* TO \''
             . Util::sqlAddSlashes($username)
             . '\'@\'' . Util::sqlAddSlashes($hostname) . '\';';
