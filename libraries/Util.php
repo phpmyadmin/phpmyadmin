@@ -1164,6 +1164,8 @@ class Util
 
             if (! empty($GLOBALS['show_as_php'])) {
                 $query_base = '$sql  = \'' . $query_base;
+                $query_base = '<code class="php"><pre>' . "\n"
+                    . $query_base;
             } elseif (isset($query_base)) {
                 $query_base = self::formatSql($query_base);
             }
@@ -1234,7 +1236,9 @@ class Util
 
             // even if the query is big and was truncated, offer the chance
             // to edit it (unless it's enormous, see linkOrButton() )
-            if (! empty($cfg['SQLQuery']['Edit'])) {
+            if (! empty($cfg['SQLQuery']['Edit'])
+                && empty($GLOBALS['show_as_php'])
+            ) {
                 $edit_link .= PMA_URL_getCommon($url_params) . '#querybox';
                 $edit_link = ' ['
                     . self::linkOrButton($edit_link, __('Edit'))
@@ -1307,7 +1311,8 @@ class Util
 
             //Clean up the end of the PHP
             if (! empty($GLOBALS['show_as_php'])) {
-                $retval .= '\';';
+                $retval .= '\';' . "\n"
+                    . '</pre></code>';
             }
             $retval .= '</div>';
 
@@ -1333,7 +1338,10 @@ class Util
             /**
              * TODO: Should we have $cfg['SQLQuery']['InlineEdit']?
              */
-            if (! empty($cfg['SQLQuery']['Edit']) && ! $query_too_big) {
+            if (! empty($cfg['SQLQuery']['Edit'])
+                && ! $query_too_big
+                && empty($GLOBALS['show_as_php'])
+            ) {
                 $inline_edit_link = ' ['
                     . self::linkOrButton(
                         '#',

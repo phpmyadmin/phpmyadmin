@@ -53,6 +53,7 @@ phpMyAdmin - ChangeLog
 - issue #11740 Fixed handling DELETE ... USING queries
 - issue #12100 Fixed handling of CASE operator
 - issue #12455 Query history stores separate entry for every letter typed
+- issue #12327 Create PHP code no longer works
 
 4.6.4 (2016-08-16)
 - issue        [security] Weaknesses with cookie encryption, see PMASA-2016-29
