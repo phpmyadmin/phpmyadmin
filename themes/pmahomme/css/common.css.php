@@ -1784,6 +1784,16 @@ label.desc sup {
     position: absolute;
 }
 
+code.php {
+    display: block;
+    padding-left: 1em;
+    margin-top: 0;
+    margin-bottom: 0;
+    max-height: 10em;
+    overflow: auto;
+    direction: ltr;
+}
+
 code.sql,
 div.sqlvalidate {
     display: block;
