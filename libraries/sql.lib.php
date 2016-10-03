@@ -664,6 +664,7 @@ function PMA_isJustBrowsing($analyzed_sql_results, $find_real_end)
         && empty($analyzed_sql_results['group'])
         && ! isset($find_real_end)
         && ! $analyzed_sql_results['is_subquery']
+        && ! $analyzed_sql_results['join']
         && empty($analyzed_sql_results['having']);
 }
 
@@ -1122,7 +1123,7 @@ function PMA_countQueryResults(
     ) {
         //    c o u n t    q u e r y
 
-        // If we are "just browsing", there is only one table,
+        // If we are "just browsing", there is only one table (and no join),
         // and no WHERE clause (or just 'WHERE 1 '),
         // we do a quick count (which uses MaxExactCount) because
         // SQL_CALC_FOUND_ROWS is not quick on large InnoDB tables
