@@ -630,10 +630,7 @@ class Header
         $dir  = $GLOBALS['text_dir'];
 
         $retval  = "<!DOCTYPE HTML>";
-        $retval .= "<html lang='$lang' dir='$dir' class='";
-        $retval .= mb_strtolower(PMA_USR_BROWSER_AGENT) . " ";
-        $retval .= mb_strtolower(PMA_USR_BROWSER_AGENT)
-            . intval(PMA_USR_BROWSER_VER) . "'>";
+        $retval .= "<html lang='$lang' dir='$dir'>";
         $retval .= '<head>';
 
         return $retval;

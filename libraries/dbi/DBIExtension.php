@@ -18,9 +18,9 @@ interface DBIExtension
     /**
      * connects to the database server
      *
-     * @param string $user                 user name
-     * @param string $password             user password
-     * @param array  $server               host/port/socket/persistent
+     * @param string $user     user name
+     * @param string $password user password
+     * @param array  $server   host/port/socket/persistent
      *
      * @return mixed false on error or a connection object on success
      */

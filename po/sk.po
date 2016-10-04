@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-08-17 11:28+0200\n"
-"PO-Revision-Date: 2016-09-07 11:45+0000\n"
-"Last-Translator: Martin Lacina <martin@whistler.sk>\n"
+"PO-Revision-Date: 2016-09-26 18:21+0000\n"
+"Last-Translator: Jozef Pistej <pistej2@gmail.com>\n"
 "Language-Team: Slovak "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/sk/>\n"
 "Language: sk\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Weblate 2.8\n"
+"X-Generator: Weblate 2.9-dev\n"
 
 #: changelog.php:38 license.php:33
 #, fuzzy, php-format
@@ -3707,7 +3707,7 @@ msgstr "Neznáma chyba pri nahrávaní súboru."
 
 #: libraries/File.php:424
 msgid "File is a symbolic link"
-msgstr ""
+msgstr "Súbor je symbolická linka"
 
 #: libraries/File.php:429 libraries/File.php:532
 msgid "File could not be read!"
@@ -4689,7 +4689,7 @@ msgstr "Statická analýza:"
 #: libraries/Util.php:690
 #, php-format
 msgid "%d errors were found during analysis."
-msgstr ""
+msgstr "Počas analýzy bolo nájdených %d chýb."
 
 #: libraries/Util.php:753 libraries/rte/rte_events.lib.php:114
 #: libraries/rte/rte_events.lib.php:123 libraries/rte/rte_events.lib.php:154

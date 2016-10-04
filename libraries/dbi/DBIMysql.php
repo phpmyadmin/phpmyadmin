@@ -92,9 +92,9 @@ class DBIMysql implements DBIExtension
     /**
      * connects to the database server
      *
-     * @param string $user                 mysql user name
-     * @param string $password             mysql user password
-     * @param array  $server               host/port/socket/persistent
+     * @param string $user     mysql user name
+     * @param string $password mysql user password
+     * @param array  $server   host/port/socket/persistent
      *
      * @return mixed false on error or a mysqli object on success
      */

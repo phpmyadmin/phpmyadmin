@@ -1353,14 +1353,7 @@ class NavigationTree
             $retval .= URL::getHiddenFields($url_params);
             $retval .= '<input class="searchClause" type="text"';
             $retval .= ' name="searchClause" accesskey="q"';
-            // allow html5 placeholder attribute
-            $placeholder_key = 'value';
-            if (PMA_USR_BROWSER_AGENT !== 'IE'
-                || PMA_USR_BROWSER_VER > 9
-            ) {
-                $placeholder_key = 'placeholder';
-            }
-            $retval .= " $placeholder_key='"
+            $retval .= " placeholder='"
                 . __("Type to filter these, Enter to search all");
             $retval .= "' />";
             $retval .= '<span title="' . __('Clear fast filter') . '">X</span>';
@@ -1392,12 +1385,7 @@ class NavigationTree
             $retval .= URL::getHiddenFields($url_params);
             $retval .= "<input class='searchClause' type='text'";
             $retval .= " name='searchClause2'";
-            // allow html5 placeholder attribute
-            $placeholder_key = 'value';
-            if (PMA_USR_BROWSER_AGENT !== 'IE' || PMA_USR_BROWSER_VER > 9) {
-                $placeholder_key = 'placeholder';
-            }
-            $retval .= " $placeholder_key='"
+            $retval .= " placeholder='"
                 . __("Type to filter these, Enter to search all") . "' />";
             $retval .= "<span title='" . __('Clear fast filter') . "'>X</span>";
             $retval .= "</form>";

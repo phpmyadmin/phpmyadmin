@@ -203,7 +203,10 @@ if ($_POST == array() && $_GET == array()) {
     $_SESSION['Import_message']['message'] = $message->getDisplay();
     $_SESSION['Import_message']['go_back_url'] = $GLOBALS['goto'];
 
-    $message->display();
+    $response = PMA\libraries\Response::getInstance();
+    $response->setRequestStatus(false);
+    $response->addJSON('message', $message);
+
     exit; // the footer is displayed automatically
 }
 
@@ -679,6 +682,7 @@ if ($go_sql) {
     }
 
     $html_output = '';
+
     foreach ($sql_queries as $sql_query) {
 
         // parse sql query
@@ -714,7 +718,7 @@ if ($go_sql) {
             $db, // db
             $table, // table
             null, // find_real_end
-            $_REQUEST['sql_query'], // sql_query_for_bookmark
+            null, // sql_query_for_bookmark - see below
             null, // extra_data
             null, // message_to_show
             null, // message
@@ -727,6 +731,18 @@ if ($go_sql) {
             $sql_query, // sql_query
             null, // selectedTables
             null // complete_query
+        );
+    }
+
+    // sql_query_for_bookmark is not included in PMA_executeQueryAndGetQueryResponse
+    // since only one bookmark has to be added for all the queries submitted through
+    // the SQL tab
+    if (! empty($_POST['bkm_label']) && ! empty($import_text)) {
+        $cfgBookmark = PMA_Bookmark_getParams();
+        PMA_storeTheQueryAsBookmark(
+            $db, $cfgBookmark['user'],
+            $_REQUEST['sql_query'], $_POST['bkm_label'],
+            isset($_POST['bkm_replace']) ? $_POST['bkm_replace'] : null
         );
     }
 

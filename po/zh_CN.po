@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-08-17 11:28+0200\n"
-"PO-Revision-Date: 2016-09-09 03:15+0000\n"
-"Last-Translator: jin123456bat <326550324@qq.com>\n"
+"PO-Revision-Date: 2016-10-02 09:16+0000\n"
+"Last-Translator: an wei <justregonly1@gmail.com>\n"
 "Language-Team: Chinese (China) "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/zh_CN/>\n"
 "Language: zh_CN\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 2.8\n"
+"X-Generator: Weblate 2.9-dev\n"
 
 #: changelog.php:38 license.php:33
 #, fuzzy, php-format
@@ -8866,7 +8866,7 @@ msgstr[0] "找到 %s 条结果"
 #: libraries/navigation/NavigationTree.php:1365
 #: libraries/navigation/NavigationTree.php:1402
 msgid "Type to filter these, Enter to search all"
-msgstr ""
+msgstr "过滤器"
 
 #: libraries/navigation/NavigationTree.php:1367
 #: libraries/navigation/NavigationTree.php:1403
@@ -9171,7 +9171,7 @@ msgstr ""
 #: libraries/normalization.lib.php:445
 #, php-format
 msgid "The second step of normalization is complete for table '%1$s'."
-msgstr ""
+msgstr "标准化第二步请完成表“%1$s”。"
 
 #: libraries/normalization.lib.php:485 libraries/normalization.lib.php:630
 #: libraries/normalization.lib.php:695
@@ -15319,10 +15319,8 @@ msgid "The profile has been updated."
 msgstr "配置文件己更新。"
 
 #: user_password.php:125
-#, fuzzy
-#| msgid "Password Hashing:"
 msgid "Password is too long!"
-msgstr "密码加密方式："
+msgstr "密码太长！"
 
 #: vendor/phpmyadmin/motranslator/tests/MoFilesTest.php:24
 #, fuzzy
@@ -15537,7 +15535,7 @@ msgstr "收集错误"
 
 #: view_create.php:45
 msgid "View name can not be empty"
-msgstr ""
+msgstr "请勿使用空白视图名"
 
 #: view_create.php:248
 msgid "VIEW name"
@@ -15757,6 +15755,8 @@ msgid ""
 "Percona documentation is at <a href=\"https://www.percona.com/software/"
 "documentation/\">https://www.percona.com/software/documentation/</a>"
 msgstr ""
+"有关Percona的文档，请访问访问<a href=\"https://www.percona.com/software/documentation/\""
+">https://www.percona.com/software/documentation/</a>"
 
 #: libraries/advisory_rules.txt:133
 msgid "'percona' found in version_comment"

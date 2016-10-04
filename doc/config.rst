@@ -1725,7 +1725,7 @@ Cookie authentication options
         $cfg['ArbitraryServerRegexp'] = '/^(server|another|yetdifferent)$/'; 
 
         // Allow connection to range of IP addresses:
-        $cfg['ArbitraryServerRegexp'] = '@^192.168.0.[0-9]{1,}$@';
+        $cfg['ArbitraryServerRegexp'] = '@^192\.168\.0\.[0-9]{1,}$@';
 
         // Allow connection to server name ending with -mysql:
         $cfg['ArbitraryServerRegexp'] = '@^[^:]\-mysql$@';

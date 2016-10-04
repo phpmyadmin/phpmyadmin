@@ -446,7 +446,7 @@ Setup script on openSUSE
 Some openSUSE releases do not include setup script in the package. In case you
 want to generate configuration on these you can either download original
 package from <https://www.phpmyadmin.net/> or use setup script on our demo
-server: <https://demo.phpmyadmin.net/master/setup/>.
+server: <https://demo.phpmyadmin.net/STABLE/setup/>.
 
 
 .. _verify:

@@ -162,7 +162,7 @@ class ConfigTest extends PMATestCase
         $this->object->set('PMA_USR_BROWSER_AGENT', 'IE');
         $this->object->set('PMA_USR_BROWSER_VER', 6);
         $this->object->checkOutputCompression();
-        $this->assertFalse($this->object->get("OBGzip"));
+        $this->assertTrue($this->object->get("OBGzip"));
 
         $this->object->set('OBGzip', 'auto');
         $this->object->set('PMA_USR_BROWSER_AGENT', 'MOZILLA');

@@ -2223,9 +2223,9 @@ class DatabaseInterface
     /**
      * Return connection parameters for the database server
      *
-     * @param integer $mode    Connection mode on of CONNECT_USER, CONNECT_CONTROL
-     *                         or CONNECT_AUXILIARY.
-     * @param array   $server  Server information like host/port/socket/persistent
+     * @param integer $mode   Connection mode on of CONNECT_USER, CONNECT_CONTROL
+     *                        or CONNECT_AUXILIARY.
+     * @param array   $server Server information like host/port/socket/persistent
      *
      * @return array user, host and server settings array
      */
@@ -2311,9 +2311,9 @@ class DatabaseInterface
     /**
      * connects to the database server
      *
-     * @param integer $mode    Connection mode on of CONNECT_USER, CONNECT_CONTROL
-     *                         or CONNECT_AUXILIARY.
-     * @param array   $server  Server information like host/port/socket/persistent
+     * @param integer $mode   Connection mode on of CONNECT_USER, CONNECT_CONTROL
+     *                        or CONNECT_AUXILIARY.
+     * @param array   $server Server information like host/port/socket/persistent
      *
      * @return mixed false on error or a connection object on success
      */

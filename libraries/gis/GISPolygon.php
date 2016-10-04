@@ -538,10 +538,7 @@ class GISPolygon extends GISGeometry
 
         // Always keep $epsilon < 1 to go with the reduction logic down here
         $epsilon = 0.1;
-        $denominator = sqrt(
-            Util::pow(($y1 - $y0), 2)
-            + Util::pow(($x0 - $x1), 2)
-        );
+        $denominator = sqrt(pow(($y1 - $y0), 2) + pow(($x0 - $x1), 2));
         $pointA = array();
         $pointB = array();
 
@@ -566,7 +563,7 @@ class GISPolygon extends GISGeometry
 
             //If both are outside the polygon reduce the epsilon and
             //recalculate the points(reduce exponentially for faster convergence)
-            $epsilon = Util::pow($epsilon, 2);
+            $epsilon = pow($epsilon, 2);
             if ($epsilon == 0) {
                 return false;
             }

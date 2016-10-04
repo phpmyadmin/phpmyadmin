@@ -1355,6 +1355,16 @@ label.desc sup {
     position: absolute;
 }
 
+code.php {
+    display: block;
+    padding-left: 0.3em;
+    margin-top: 0;
+    margin-bottom: 0;
+    max-height: 10em;
+    overflow: auto;
+    direction: ltr;
+}
+
 code.sql,
 div.sqlvalidate {
     display:            block;
@@ -3042,9 +3052,6 @@ html.ie7 #pma_console .query_input {
     width: 100%;
     min-height: initial;
     max-height: initial;
-}
-.firefox .cm-s-pma.CodeMirror {
-    font-size: 120%;
 }
 .cm-s-pma .CodeMirror-scroll {
     cursor: text;
