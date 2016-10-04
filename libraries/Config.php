@@ -135,16 +135,9 @@ class Config
             $this->set('OBGzip', false);
         }
 
-        // disable output-buffering (if set to 'auto') for IE6, else enable it.
+        // enable output-buffering (if set to 'auto')
         if (strtolower($this->get('OBGzip')) == 'auto') {
-            if ($this->get('PMA_USR_BROWSER_AGENT') == 'IE'
-                && $this->get('PMA_USR_BROWSER_VER') >= 6
-                && $this->get('PMA_USR_BROWSER_VER') < 7
-            ) {
-                $this->set('OBGzip', false);
-            } else {
-                $this->set('OBGzip', true);
-            }
+            $this->set('OBGzip', true);
         }
     }
 
