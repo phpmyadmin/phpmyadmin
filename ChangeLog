@@ -56,6 +56,7 @@ phpMyAdmin - ChangeLog
 - issue #12327 Create PHP code no longer works
 - issue #12179 Fixed bookmarking of query with multiple statements
 - issue #12419 Wrong description on GRANT OPTION
+- issue #12615 Fixed regexp for matching browser versions
 
 4.6.4 (2016-08-16)
 - issue        [security] Weaknesses with cookie encryption, see PMASA-2016-29
