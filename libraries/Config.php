@@ -220,7 +220,7 @@ class Config
             $this->set('PMA_USR_BROWSER_VER', intval($log_version[1]) + 4);
             $this->set('PMA_USR_BROWSER_AGENT', 'IE');
         } elseif (preg_match(
-            '@OmniWeb/([0-9]\.[0-9]{1,2})@',
+            '@OmniWeb/([0-9]{1,3})@',
             $HTTP_USER_AGENT,
             $log_version
         )) {
