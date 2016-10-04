@@ -163,7 +163,7 @@ if (isset($_POST['submit_export'])
         $result = PMA_saveUserprefs($cf->getConfigArray());
         if ($result === true) {
             if ($return_url) {
-                $query = explode('&', parse_url($return_url, PHP_URL_QUERY));
+                $query = PMA_Util::splitURLQuery($return_url);
                 $return_url = parse_url($return_url, PHP_URL_PATH);
                 foreach ($query as $q) {
                     $pos = strpos($q, '=');
