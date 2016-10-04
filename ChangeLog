@@ -58,6 +58,7 @@ phpMyAdmin - ChangeLog
 - issue #12419 Wrong description on GRANT OPTION
 - issue #12615 Fixed regexp for matching browser versions
 - issue #12569 Avoid showing import errors twice
+- issue #12616 Refuse to work with mbstring.func_overload enabled
 
 4.6.4 (2016-08-16)
 - issue        [security] Weaknesses with cookie encryption, see PMASA-2016-29
