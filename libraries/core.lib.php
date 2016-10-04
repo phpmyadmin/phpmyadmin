@@ -1088,7 +1088,7 @@ function PMA_safeUnserialize($data)
             case 's':
                 /* string */
                 // parse sting length
-                $strlen = intval($data[$i + 2]);
+                $strlen = intval(substr($data, $i + 2));
                 // string start
                 $i = strpos($data, ':', $i + 2);
                 if ($i === false) {
