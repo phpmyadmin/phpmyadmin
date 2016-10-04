@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.5-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-08-17 11:29+0200\n"
-"PO-Revision-Date: 2016-09-16 00:03+0000\n"
+"PO-Revision-Date: 2016-10-02 21:37+0000\n"
 "Last-Translator: Dadan Setia <da2n_s@yahoo.co.id>\n"
 "Language-Team: Indonesian "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-6/id/>\n"
@@ -689,7 +689,7 @@ msgstr "Kumpulan karakter server:"
 
 #: index.php:322
 msgid "Web server"
-msgstr "Server web"
+msgstr "web server"
 
 #: index.php:333
 msgid "Database client version:"
@@ -1870,7 +1870,7 @@ msgstr "Definisi fungsi disimpan harus mengandung pernyataan RETURN!"
 #: setup/frames/menu.inc.php:27
 #: templates/database/structure/check_all_tables.phtml:12
 msgid "Export"
-msgstr "Ekspor"
+msgstr ""
 
 #: js/messages.php:395 libraries/rte/rte_routines.lib.php:740
 msgid "ENUM/SET editor"

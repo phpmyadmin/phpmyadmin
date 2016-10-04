@@ -39,8 +39,7 @@ use SqlParser\Statements\UpdateStatement;
  * @category   Statement
  * @package    SqlParser
  * @subpackage Utils
- * @author     Dan Ungureanu <udan1107@gmail.com>
- * @license    http://opensource.org/licenses/GPL-2.0 GNU Public License
+ * @license    https://www.gnu.org/licenses/gpl-2.0.txt GPL-2.0+
  */
 class Query
 {

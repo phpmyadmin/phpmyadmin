@@ -662,6 +662,7 @@ function PMA_isJustBrowsing($analyzed_sql_results, $find_real_end)
         && empty($analyzed_sql_results['group'])
         && ! isset($find_real_end)
         && ! $analyzed_sql_results['is_subquery']
+        && ! $analyzed_sql_results['join']
         && empty($analyzed_sql_results['having']);
 }
 
@@ -1122,7 +1123,7 @@ function PMA_countQueryResults(
     ) {
         //    c o u n t    q u e r y
 
-        // If we are "just browsing", there is only one table,
+        // If we are "just browsing", there is only one table (and no join),
         // and no WHERE clause (or just 'WHERE 1 '),
         // we do a quick count (which uses MaxExactCount) because
         // SQL_CALC_FOUND_ROWS is not quick on large InnoDB tables
@@ -1433,17 +1434,16 @@ function PMA_getQueryResponseForNoResultsReturned($analyzed_sql_results, $db,
     }
 
     $html_output = '';
+    $html_message = PMA\libraries\Util::getMessage(
+        $message, $GLOBALS['sql_query'], 'success'
+    );
+    $html_output .= $html_message;
     if (!isset($GLOBALS['show_as_php'])) {
 
         if (! empty($GLOBALS['reload'])) {
             $extra_data['reload'] = 1;
             $extra_data['db'] = $GLOBALS['db'];
         }
-
-        $html_message = PMA\libraries\Util::getMessage(
-            $message, $GLOBALS['sql_query'], 'success'
-        );
-        $html_output .= $html_message;
 
         // For ajax requests add message and sql_query as JSON
         if (empty($_REQUEST['ajax_page_request'])) {

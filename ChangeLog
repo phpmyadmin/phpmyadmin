@@ -47,6 +47,17 @@ phpMyAdmin - ChangeLog
 - issue #12511 Clarify documentation on ArbitraryServerRegexp
 - issue #12508 Remove duplicate code in SQL escaping
 - issue #12475 Cleanup code for getting table information
+- issue #12579 phpMyAdmin's export of a Select statment without a FROM clause generates Wrong SQL
+- issue #12316 Correct export of complex SELECT statements
+- issue #12080 Fixed parsing of subselect queries
+- issue #11740 Fixed handling DELETE ... USING queries
+- issue #12100 Fixed handling of CASE operator
+- issue #12455 Query history stores separate entry for every letter typed
+- issue #12327 Create PHP code no longer works
+- issue #12179 Fixed bookmarking of query with multiple statements
+- issue #12419 Wrong description on GRANT OPTION
+- issue #12615 Fixed regexp for matching browser versions
+- issue #12569 Avoid showing import errors twice
 
 4.6.4 (2016-08-16)
 - issue        [security] Weaknesses with cookie encryption, see PMASA-2016-29
