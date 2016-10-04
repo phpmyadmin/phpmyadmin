@@ -1032,8 +1032,8 @@ function PMA_getTriggerPrivilegeTable()
             'Grant',
             'GRANT',
             __(
-                'Allows adding users and privileges '
-                . 'without reloading the privilege tables.'
+                'Allows user to give to other users or remove from other users '
+                . 'privileges that user possess on this routine.'
             )
         ),
         array(
@@ -1402,16 +1402,16 @@ function PMA_getStructurePrivilegeTable($table, $row)
  */
 function PMA_getAdministrationPrivilegeTable($db)
 {
-    $adminPrivTable = array(
-        array('Grant',
-            'GRANT',
-            __(
-                'Allows adding users and privileges '
-                . 'without reloading the privilege tables.'
-            )
-        ),
-    );
     if ($db == '*') {
+        $adminPrivTable = array(
+            array('Grant',
+                'GRANT',
+                __(
+                    'Allows adding users and privileges '
+                    . 'without reloading the privilege tables.'
+                )
+            ),
+        );
         $adminPrivTable[] = array('Super',
             'SUPER',
             __(
@@ -1436,6 +1436,17 @@ function PMA_getAdministrationPrivilegeTable($db)
         $adminPrivTable[] = array('Show_db',
             'SHOW DATABASES',
             __('Gives access to the complete list of databases.')
+        );
+    }
+    else {
+        $adminPrivTable = array(
+            array('Grant',
+                'GRANT',
+                __(
+                    'Allows user to give to other users or remove from other'
+                    . ' users the privileges that user possess yourself.'
+                )
+           ),
         );
     }
     $adminPrivTable[] = array('Lock_tables',
