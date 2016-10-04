@@ -3053,9 +3053,6 @@ html.ie7 #pma_console .query_input {
     min-height: initial;
     max-height: initial;
 }
-.firefox .cm-s-pma.CodeMirror {
-    font-size: 120%;
-}
 .cm-s-pma .CodeMirror-scroll {
     cursor: text;
 }
