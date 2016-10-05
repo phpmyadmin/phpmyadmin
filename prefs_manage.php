@@ -62,9 +62,9 @@ if (isset($_POST['submit_export'])
             $tmp_subdir = (PMA_IS_WINDOWS ? '.\\tmp\\' : 'tmp/');
             if (@is_writable($tmp_subdir)) {
                 $import_file_new = tempnam($tmp_subdir, 'prefs');
+                $file_to_unlink = $import_file_new;
                 if (move_uploaded_file($import_file, $import_file_new)) {
                     $import_file = $import_file_new;
-                    $file_to_unlink = $import_file_new;
                 }
             }
         }
