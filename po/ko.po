@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-08-17 11:28+0200\n"
-"PO-Revision-Date: 2016-09-21 01:35+0000\n"
-"Last-Translator: 조영민 <bayleys@naver.com>\n"
+"PO-Revision-Date: 2016-10-07 05:30+0000\n"
+"Last-Translator: SDSkyKlouD <koongchi135@gmail.com>\n"
 "Language-Team: Korean "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/ko/>\n"
 "Language: ko\n"
@@ -765,7 +765,7 @@ msgstr "설정 파일에 암호화 문자열(blowfish_secret)이 필요하게 �
 
 #: index.php:529
 msgid "The secret passphrase in configuration (blowfish_secret) is too short."
-msgstr ""
+msgstr "설정 파일의 암호 (blowfish_secret)가 너무 짧습니다."
 
 #: index.php:543
 msgid ""
@@ -915,8 +915,6 @@ msgid "Do you really want to TRUNCATE the selected partition(s)?"
 msgstr "선택된 파티션의 내용을 정말로 비우시겠습니까?"
 
 #: js/messages.php:90
-#, fuzzy
-#| msgid "Do you really want to TRUNCATE the selected partition(s)?"
 msgid "Do you really want to remove partitioning?"
 msgstr "선택된 파티션의 내용을 정말로 비우시겠습니까?"
 
@@ -1852,7 +1850,7 @@ msgstr "외래값 탐색"
 
 #: js/messages.php:418
 msgid "No auto-saved query"
-msgstr ""
+msgstr "자동 저장된 쿼리가 없습니다"
 
 #: js/messages.php:419
 #, php-format
@@ -1968,7 +1966,7 @@ msgstr "단계"
 
 #: js/messages.php:463
 msgid "The following actions will be performed:"
-msgstr "다음의 행동이 수행될 것이다:"
+msgstr "다음 행동이 실행됩니다 :"
 
 #: js/messages.php:464
 #, php-format
@@ -2465,12 +2463,12 @@ msgstr "정말 이 북마크를 삭제하겠습니까?"
 
 #: js/messages.php:707
 msgid "Some error occurred while getting SQL debug info."
-msgstr ""
+msgstr "SQL 디버그 정보를 얻는 중 오류가 발생했습니다."
 
 #: js/messages.php:709
 #, php-format
 msgid "%s queries executed %s times in %s seconds."
-msgstr ""
+msgstr "%s 쿼리를 %s 번 %s 초 안에 처리했습니다."
 
 #: js/messages.php:710
 #, php-format
@@ -2487,7 +2485,7 @@ msgstr "매개변수 숨기기"
 
 #: js/messages.php:713
 msgid "Time taken:"
-msgstr ""
+msgstr "소요 시간 :"
 
 #: js/messages.php:714
 msgid ""
@@ -3683,7 +3681,7 @@ msgstr "파일 업로드 중에 알 수 없는 오류가 발생했습니다."
 
 #: libraries/File.php:424
 msgid "File is a symbolic link"
-msgstr ""
+msgstr "파일은 심볼릭 링크입니다"
 
 #: libraries/File.php:429 libraries/File.php:532
 msgid "File could not be read!"
@@ -3841,9 +3839,9 @@ msgid ""
 msgstr ""
 
 #: libraries/Linter.php:165
-#, php-format
+#, fuzzy, php-format
 msgid "%1$s (near <code>%2$s</code>)"
-msgstr ""
+msgstr "%1$s (<code>%2$s</code> 근처에)"
 
 #: libraries/Menu.php:208 libraries/ServerStatusData.php:425
 #: libraries/config/messages.inc.php:929
@@ -4642,13 +4640,14 @@ msgid "Max: %s%s"
 msgstr "최대: %s%s"
 
 #: libraries/Util.php:687
+#, fuzzy
 msgid "Static analysis:"
-msgstr ""
+msgstr "정적 분석:"
 
 #: libraries/Util.php:690
 #, php-format
 msgid "%d errors were found during analysis."
-msgstr ""
+msgstr "분석 중에 %d개의 오류가 발생했습니다."
 
 #: libraries/Util.php:753 libraries/rte/rte_events.lib.php:114
 #: libraries/rte/rte_events.lib.php:123 libraries/rte/rte_events.lib.php:154
@@ -4863,7 +4862,7 @@ msgstr "속성"
 
 #: libraries/central_columns.lib.php:709 libraries/central_columns.lib.php:1387
 msgid "A_I"
-msgstr ""
+msgstr "자동 증분"
 
 #: libraries/central_columns.lib.php:749
 msgid "Select a table"
@@ -4976,8 +4975,9 @@ msgid "Disabled"
 msgstr "사용불가"
 
 #: libraries/config.values.php:98
+#, fuzzy
 msgid "key"
-msgstr ""
+msgstr "키"
 
 #: libraries/config.values.php:99
 msgid "display column"
@@ -5456,7 +5456,7 @@ msgstr "CodeMirror 활성화"
 msgid ""
 "Find any errors in the query before executing it. Requires CodeMirror to be "
 "enabled."
-msgstr ""
+msgstr "쿼리를 실행하기 전에 오류가 발견되었습니다. 활성화하려면 CodeMirror가 필요합니다."
 
 #: libraries/config/messages.inc.php:67
 msgid "Enable linter"
@@ -6231,11 +6231,11 @@ msgstr "INSERT 에러시 종료하지 않기"
 
 #: libraries/config/messages.inc.php:374 libraries/config/messages.inc.php:388
 msgid "Add ON DUPLICATE KEY UPDATE"
-msgstr ""
+msgstr "ON DUPLICATE KEY UPDATE 추가"
 
 #: libraries/config/messages.inc.php:376 libraries/config/messages.inc.php:390
 msgid "Update data when duplicate keys found on import"
-msgstr ""
+msgstr "가져오는 중 중복 키가 발견되어도 업데이트"
 
 #: libraries/config/messages.inc.php:380
 msgid ""
@@ -6286,7 +6286,7 @@ msgstr "값이 없는 경우(zero value) AUTO_INCREMENT 사용 금지"
 
 #: libraries/config/messages.inc.php:404
 msgid "Read as multibytes"
-msgstr ""
+msgstr "멀티바이트로 읽기"
 
 #: libraries/config/messages.inc.php:407
 msgid "Initial state for sliders"
@@ -6439,7 +6439,7 @@ msgstr "메모리 제한"
 
 #: libraries/config/messages.inc.php:471
 msgid "In the navigation panel, replaces the database tree with a selector"
-msgstr ""
+msgstr "내비게이션 패널에서, 데이터베이스 선택 방식을 트리 형태로 바꿉니다"
 
 #: libraries/config/messages.inc.php:474
 msgid "Show databases navigation as tree"
@@ -6592,8 +6592,9 @@ msgid "Show functions in tree"
 msgstr "함수 필드 보이기"
 
 #: libraries/config/messages.inc.php:533
+#, fuzzy
 msgid "Whether to show functions under database in the navigation tree"
-msgstr ""
+msgstr "내비게이션 트리의 데이터베이스 항목 아래에 기능을 표시할지 설정합니다"
 
 #: libraries/config/messages.inc.php:534
 #, fuzzy
@@ -6643,7 +6644,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:551
 msgid "Show row links anyway"
-msgstr ""
+msgstr "열 링크 보이기"
 
 #: libraries/config/messages.inc.php:552 libraries/config/messages.inc.php:553
 #, fuzzy
@@ -6865,7 +6866,7 @@ msgstr "세션 값"
 msgid ""
 "Sets the effective timezone; possibly different than the one from your "
 "database server"
-msgstr ""
+msgstr "데이터베이스 서버의 시간대와 다를 가능성이 있습니다. 유효한 시간대를 설정해주세요"
 
 #: libraries/config/messages.inc.php:635
 msgid "HTTP Basic Auth Realm name to display when doing HTTP Auth."
@@ -6976,6 +6977,8 @@ msgid ""
 "More information on [a@https://sourceforge.net/p/phpmyadmin/bugs/2606/]PMA "
 "bug tracker[/a] and [a@https://bugs.mysql.com/19588]MySQL Bugs[/a]"
 msgstr ""
+"더 많은 정보는 [a@https://sourceforge.net/p/phpmyadmin/bugs/2606/]PMA 버그 트래커[/a]와 "
+"[a@https://bugs.mysql.com/19588]MySQL Bugs[/a]를 참고하시기 바랍니다"
 
 #: libraries/config/messages.inc.php:677
 msgid "Disable use of INFORMATION_SCHEMA"
@@ -7225,8 +7228,9 @@ msgstr ""
 "kbd]."
 
 #: libraries/config/messages.inc.php:762
+#, fuzzy
 msgid "Designer and PDF schema: table coordinates"
-msgstr ""
+msgstr "디자이너와 PDF 스키마: 테이블 좌표"
 
 #: libraries/config/messages.inc.php:765
 #, fuzzy
@@ -14336,7 +14340,7 @@ msgstr "Enter를 눌러 쿼리를 실행"
 
 #: templates/console/display.phtml:39
 msgid "During current session"
-msgstr ""
+msgstr "현재 세션 동안"
 
 #: templates/console/display.phtml:52 templates/console/display.phtml:214
 msgid "Explain"
@@ -14429,13 +14433,15 @@ msgstr "시작할 때 질의 기록을 보여주기"
 
 #: templates/console/display.phtml:189
 msgid "Show current browsing query"
-msgstr ""
+msgstr "현재 탐색 중인 쿼리 보기"
 
 #: templates/console/display.phtml:194
 msgid ""
 "Execute queries on Enter and insert new line with Shift + Enter. To make "
 "this permanent, view settings."
 msgstr ""
+"Enter키로 쿼리를 실행하고 Shift + Enter키로 새로운 줄에 쿼리를 작성하세요. 이 설정을 영구적으로 적용하려면, 설정을 "
+"확인하시기 바랍니다."
 
 #: templates/console/display.phtml:198
 msgid "Switch to dark theme"
