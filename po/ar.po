@@ -4,17 +4,17 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.5-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-08-17 11:29+0200\n"
-"PO-Revision-Date: 2016-07-14 13:56+0000\n"
-"Last-Translator: ‫حمودي الجيلاني‬‎ <darhost56@gmail.com>\n"
-"Language-Team: Arabic <https://hosted.weblate.org/projects/phpmyadmin/4-6/ar/"
-">\n"
+"PO-Revision-Date: 2016-10-07 11:45+0000\n"
+"Last-Translator: Ihab Mardoud <ihab.mardoud@gmail.com>\n"
+"Language-Team: Arabic "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-6/ar/>\n"
 "Language: ar\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
-"X-Generator: Weblate 2.8-dev\n"
+"X-Generator: Weblate 2.9-dev\n"
 
 #: changelog.php:38 license.php:33
 #, php-format
@@ -22,12 +22,12 @@ msgid ""
 "The %s file is not available on this system, please visit www.phpmyadmin.net "
 "for more information."
 msgstr ""
-"الملف %s غير متوفر في هذا النظام، المرجو مراجعة www.phpmyadmin.net للمزيد من "
+"الملف %s غير متوفر في هذا النظام، الرجاء مراجعة www.phpmyadmin.net للمزيد من "
 "المعلومات."
 
 #: db_central_columns.php:105
 msgid "The central list of columns for the current database is empty."
-msgstr "القائمة المركزية للأعمدة قاعدة البيانات الحالية فارغة."
+msgstr "القائمة المركزية لأعمدة قاعدة البيانات الحالية فارغة."
 
 #: db_central_columns.php:130
 msgid "Click to sort."
@@ -36,7 +36,7 @@ msgstr "إضغط للترتيب."
 #: db_central_columns.php:149
 #, php-format
 msgid "Showing rows %1$s - %2$s."
-msgstr "%1$s - %2$s الصفوف الظاهرة."
+msgstr "عرض الصفوف %1$s - %2$s."
 
 #: db_datadict.php:57 libraries/operations.lib.php:34
 msgid "Database comment"
