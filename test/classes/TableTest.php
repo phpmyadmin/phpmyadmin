@@ -516,7 +516,24 @@ class TableTest extends PMATestCase
             $query
         );
 
+        // $type is 'TIMESTAMP(3), $default_type is CURRENT_TIMESTAMP(3)
+        $type = 'TIMESTAMP';
+        $length = '3';
+        $extra = '';
+        $default_type = 'CURRENT_TIMESTAMP';
+        $query = Table::generateFieldSpec(
+            $name, $type, $length, $attribute, $collation,
+            $null, $default_type,  $default_value, $extra, $comment,
+            $virtuality, $expression, $move_to
+        );
+        $this->assertEquals(
+            "`PMA_name` TIMESTAMP(3) PMA_attribute NULL DEFAULT CURRENT_TIMESTAMP(3) "
+            . "COMMENT 'PMA_comment' FIRST",
+            $query
+        );
+
         //$default_type is NONE
+        $type = 'BOOLEAN';
         $default_type = 'NONE';
         $extra = 'INCREMENT';
         $move_to = '-first';
