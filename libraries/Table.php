@@ -411,6 +411,13 @@ class Table
         } else {
             if ($attribute != '') {
                 $query .= ' ' . $attribute;
+
+                if ($is_timestamp
+                    && preg_match('/TIMESTAMP/i', $attribute)
+                    && $length !== 0
+                ) {
+                    $query .= '(' . $length . ')';
+                }
             }
 
             $matches = preg_match(
@@ -466,6 +473,9 @@ class Table
                 // else fall-through intended, no break here
             case 'CURRENT_TIMESTAMP' :
                 $query .= ' DEFAULT ' . $default_type;
+                if ($length !== 0 && $is_timestamp) {
+                    $query .= '(' . $length . ')';
+                }
                 break;
             case 'NONE' :
             default :
