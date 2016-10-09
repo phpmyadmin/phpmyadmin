@@ -2,7 +2,6 @@
 # Copyright (C) 2003 - 2012 phpMyAdmin devel team
 # This file is distributed under the same license as the phpMyAdmin package.
 # Automatically generated, 2012.
-#
 msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
@@ -10,8 +9,8 @@ msgstr ""
 "POT-Creation-Date: 2016-08-17 11:28+0200\n"
 "PO-Revision-Date: 2016-07-20 07:25+0000\n"
 "Last-Translator: Kamyar Sec <kamofanar@gmail.com>\n"
-"Language-Team: Kurdish Sorani <https://hosted.weblate.org/projects/"
-"phpmyadmin/master/ckb/>\n"
+"Language-Team: Kurdish Sorani "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/ckb/>\n"
 "Language: ckb\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,7 +19,7 @@ msgstr ""
 "X-Generator: Weblate 2.8-dev\n"
 
 #: changelog.php:38 license.php:33
-#, fuzzy, php-format
+#, php-format, php-format
 #| msgid ""
 #| "The %s file is not available on this system, please visit www.phpmyadmin."
 #| "net for more information."
@@ -517,8 +516,8 @@ msgid ""
 "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
 "below into the \"Value\" field."
 msgstr ""
-"\"GeomFromText\" لە ستوونی \"فرمان\" هەڵبژێرە و ڕیزبەندی خوارەوە لە خانەی "
-"\"نرخ\" داخڵ بکە."
+"\"GeomFromText\" لە ستوونی \"فرمان\" هەڵبژێرە و ڕیزبەندی خوارەوە لە خانەی \""
+"نرخ\" داخڵ بکە."
 
 #: import.php:63
 msgid "Succeeded"
@@ -568,14 +567,12 @@ msgid "Bookmark %s has been created."
 msgstr "شوێندۆز  %s دروستکرا."
 
 #: import.php:590
-#, fuzzy, php-format
+#, php-format, php-format
 #| msgid "Import has been successfully finished, %d queries executed."
 msgid "Import has been successfully finished, %d query executed."
 msgid_plural "Import has been successfully finished, %d queries executed."
-msgstr[0] ""
-"داخڵ کردنی زانیاریەکان بە سەرکەوتوویی بە کۆتا هات، %d پرسگە دامەزرا ."
-msgstr[1] ""
-"داخڵ کردنی زانیاریەکان بە سەرکەوتوویی بە کۆتا هات، %d پرسگە دامەزرا ."
+msgstr[0] "داخڵ کردنی زانیاریەکان بە سەرکەوتوویی بە کۆتا هات، %d پرسگە دامەزرا ."
+msgstr[1] "داخڵ کردنی زانیاریەکان بە سەرکەوتوویی بە کۆتا هات، %d پرسگە دامەزرا ."
 
 #: import.php:619
 #, php-format
@@ -583,8 +580,8 @@ msgid ""
 "Script timeout passed, if you want to finish import, please %sresubmit the "
 "same file%s and import will resume."
 msgstr ""
-"بەشە کاتیی ئەم هەنگاوە تێپەڕیی، ئەگەر دەتەوێت پرۆسەکە بەردەوام بێت، دووبارە "
-"%sهەمان پەڕگە%s باربکەوە و بەردەوام دەبێت."
+"بەشە کاتیی ئەم هەنگاوە تێپەڕیی، ئەگەر دەتەوێت پرۆسەکە بەردەوام بێت، دووبارە %"
+"sهەمان پەڕگە%s باربکەوە و بەردەوام دەبێت."
 
 #: import.php:629
 msgid ""
@@ -596,7 +593,6 @@ msgstr ""
 "زۆرتر بکرێت بۆ ئەوەی PhpMyAdmin بتوانێت بە سەرکەوتوویی پرۆسەکە جێبەجێ بکات."
 
 #: import_status.php:105
-#, fuzzy
 msgid "Could not load the progress of the import."
 msgstr "هەڵە لە بارکردنی ڕەوتی هاوردن"
 
@@ -622,7 +618,6 @@ msgstr ""
 "دەستدەکەوێت لە %s."
 
 #: index.php:165
-#, fuzzy
 #| msgid "General Settings"
 msgid "General settings"
 msgstr "ڕێکخستنە گشتیەکان"
@@ -638,7 +633,6 @@ msgid "Server connection collation"
 msgstr "ڕێکخستنی پەیوەندی ڕاژەکار"
 
 #: index.php:233
-#, fuzzy
 #| msgid "Appearance Settings"
 msgid "Appearance settings"
 msgstr "ڕێکخستنی دەرکەوتنەکان"
@@ -722,7 +716,6 @@ msgid "List of changes"
 msgstr "خشتەی گۆڕانکارییەکان"
 
 #: index.php:422 templates/server/plugins/section.phtml:12
-#, fuzzy
 msgid "License"
 msgstr "مۆڵەت"
 
@@ -786,7 +779,7 @@ msgstr ""
 "کۆتایی هاتووە."
 
 #: index.php:559
-#, fuzzy, php-format
+#, php-format, php-format
 #| msgid ""
 #| "The phpMyAdmin configuration storage has been deactivated. To find out "
 #| "why click %shere%s."
@@ -864,7 +857,6 @@ msgid "Delete tracking data for these versions?"
 msgstr "سڕینەوە داتا شوێنکەوتووەکانی ئەم وەشانانە؟"
 
 #: js/messages.php:65
-#, fuzzy
 #| msgid "Deleting tracking data"
 msgid "Delete entry from tracking report?"
 msgstr "سڕینەوەی شوێنپێی دراوەکان"
@@ -878,7 +870,6 @@ msgid "Dropping Primary Key/Index"
 msgstr "سڕینەوەی نرخی پێڕست"
 
 #: js/messages.php:68
-#, fuzzy
 #| msgid "Dropping Column"
 msgid "Dropping Foreign key."
 msgstr "ستونە سڕێنراوەکان"
@@ -903,7 +894,6 @@ msgstr ""
 "گۆڕانکارییەکانت پاشەکەوت نەکراون; دڵنیایت کە دەتەوێت ئەم پەڕە بەجێ بهێڵیت؟"
 
 #: js/messages.php:78
-#, fuzzy
 #| msgid "Do you really want to execute \"%s\"?"
 msgid "Do you really want to revoke the selected user(s) ?"
 msgstr "ئایا تۆ دڵنیایت لە جێبەجێکردنی \"%s\"؟"
@@ -913,7 +903,6 @@ msgid "Do you really want to delete this central column?"
 msgstr "ئایا دڵنیایت لە سڕینەوەی ئەو خانە ناوەندییە \"%s\"؟"
 
 #: js/messages.php:82
-#, fuzzy
 #| msgid "Do you really want to execute \"%s\"?"
 msgid "Do you really want to delete the selected items?"
 msgstr "ئایا تۆ دڵنیایت لە جێبەجێکردنی \"%s\"؟"
@@ -925,19 +914,16 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:88
-#, fuzzy
 #| msgid "Do you really want to execute \"%s\"?"
 msgid "Do you really want to TRUNCATE the selected partition(s)?"
 msgstr "ئایا تۆ دڵنیایت لە جێبەجێکردنی \"%s\"؟"
 
 #: js/messages.php:90
-#, fuzzy
 #| msgid "Do you really want to execute \"%s\"?"
 msgid "Do you really want to remove partitioning?"
 msgstr "ئایا تۆ دڵنیایت لە جێبەجێکردنی \"%s\"؟"
 
 #: js/messages.php:91
-#, fuzzy
 #| msgid "Do you really want to execute \"%s\"?"
 msgid "Do you really want to RESET SLAVE?"
 msgstr "ئایا تۆ دڵنیایت لە جێبەجێکردنی \"%s\"؟"
@@ -976,7 +962,6 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:116
-#, fuzzy
 #| msgid "Save & Close"
 msgid "Save & close"
 msgstr "پاشەکەوتکردن و داخستن"
@@ -987,7 +972,6 @@ msgid "Reset"
 msgstr "سەرلەنوێ"
 
 #: js/messages.php:118
-#, fuzzy
 #| msgid "Reset All"
 msgid "Reset all"
 msgstr "پەشیمانبوونەوە لە هەموو"
@@ -1009,13 +993,11 @@ msgid "Please enter a valid length!"
 msgstr "تکایە درێژییەکی درووست بنووسە!"
 
 #: js/messages.php:125
-#, fuzzy
 #| msgid "Add Index"
 msgid "Add index"
 msgstr "زیادکردنی نیشاندەر"
 
 #: js/messages.php:126
-#, fuzzy
 #| msgid "Edit Index"
 msgid "Edit index"
 msgstr "چاکردنی نیشاندەر"
@@ -1053,7 +1035,6 @@ msgid "Preview SQL"
 msgstr "پێشاندانی SQL"
 
 #: js/messages.php:140
-#, fuzzy
 #| msgid "in query"
 msgid "Simulate query"
 msgstr "لە داواکاری"
@@ -1063,14 +1044,12 @@ msgid "Matched rows:"
 msgstr "ریزە هاوتاکان:"
 
 #: js/messages.php:142 libraries/Util.php:704
-#, fuzzy
 #| msgid "SQL query"
 msgid "SQL query:"
 msgstr "داواکاری سیكوێڵ"
 
 #. l10n: Default label for the y-Axis of Charts
 #: js/messages.php:146
-#, fuzzy
 #| msgid "Y Values"
 msgid "Y values"
 msgstr "نرخەکانی Y"
@@ -1115,7 +1094,6 @@ msgid "Template was updated."
 msgstr ""
 
 #: js/messages.php:160
-#, fuzzy
 #| msgid "The row has been deleted."
 msgid "Template was deleted."
 msgstr "ڕیزەکە سڕایەوە"
@@ -1141,7 +1119,6 @@ msgid "Connections / Processes"
 msgstr "بەستنەکان / پڕۆسەکان"
 
 #: js/messages.php:173
-#, fuzzy
 #| msgid "Local monitor configuration incompatible"
 msgid "Local monitor configuration incompatible!"
 msgstr "چاودێری شێوه‌پێدانی ناوخۆیی نەگونجاوە"
@@ -1167,7 +1144,6 @@ msgid "Query cache used"
 msgstr "بیرگەی داواکاری بەکارهاتوو"
 
 #: js/messages.php:185
-#, fuzzy
 #| msgid "System CPU Usage"
 msgid "System CPU usage"
 msgstr "بەکارهێنانی سی‌ پی‌ یوو‌ی سیستەم"
@@ -1205,25 +1181,21 @@ msgid "Used memory"
 msgstr "یادی بەکارهاتوو"
 
 #: js/messages.php:196
-#, fuzzy
 #| msgid "Total Swap"
 msgid "Total swap"
 msgstr "سەرجەمی ئاڵوگۆڕ"
 
 #: js/messages.php:197
-#, fuzzy
 #| msgid "Cached Swap"
 msgid "Cached swap"
 msgstr "ئاڵوگۆڕی بارکراو"
 
 #: js/messages.php:198
-#, fuzzy
 #| msgid "Used Swap"
 msgid "Used swap"
 msgstr "ئاڵوگۆڕی بەکارهاتوو"
 
 #: js/messages.php:199
-#, fuzzy
 #| msgid "Free Swap"
 msgid "Free swap"
 msgstr "ئاڵوگۆڕی بەتاڵ"
@@ -1307,7 +1279,6 @@ msgid "Add chart to grid"
 msgstr "زیادکردنی هێلکاری بۆ تۆڕ"
 
 #: js/messages.php:223
-#, fuzzy
 #| msgid "Please add at least one variable to the series"
 msgid "Please add at least one variable to the series!"
 msgstr "تکایە لانی کەم یەک گۆڕاو بۆ زنجیرەکە زیاد بکە"
@@ -1373,9 +1344,9 @@ msgid ""
 "than %d seconds. It is advisable to set this long_query_time 0-2 seconds, "
 "depending on your system."
 msgstr ""
-"slow_query_log چالاکە, بەڵام تەنیا ئەو داوکارییانە تۆمار دەکات کە زۆرتر لە "
-"%d چرکە بخایەنن. باشترە کە کاتیی  long_query_time کەم بکرێتەوە بۆ 0 تا 2 "
-"چرکە، بەپێی تواناکانی ڕاژەکار."
+"slow_query_log چالاکە, بەڵام تەنیا ئەو داوکارییانە تۆمار دەکات کە زۆرتر لە %"
+"d چرکە بخایەنن. باشترە کە کاتیی  long_query_time کەم بکرێتەوە بۆ 0 تا 2 چرکە،"
+" بەپێی تواناکانی ڕاژەکار."
 
 #: js/messages.php:241
 #, php-format
@@ -1626,7 +1597,6 @@ msgid "No files available on server for import!"
 msgstr "هیچ پەڕگەیەک بوونی نییە لەسەر ڕاژەکار بۆ هێنان!"
 
 #: js/messages.php:336
-#, fuzzy
 #| msgid "Analyse Query"
 msgid "Analyse query"
 msgstr "لێکدانەوەی داواکاری"
@@ -1668,7 +1638,6 @@ msgid "Formatting SQL…"
 msgstr ""
 
 #: js/messages.php:351
-#, fuzzy
 #| msgid "Bad parameters!"
 msgid "No parameters found!"
 msgstr "ڕادە هەڵەکان!"
@@ -1686,7 +1655,6 @@ msgid "Cancel"
 msgstr "لابردن"
 
 #: js/messages.php:358 libraries/Header.php:459
-#, fuzzy
 #| msgid "Change settings"
 msgid "Page-related settings"
 msgstr "گۆڕینی ڕێکخستنەکان"
@@ -1701,25 +1669,21 @@ msgid "Loading…"
 msgstr "ئامادەکردن…"
 
 #: js/messages.php:363
-#, fuzzy
 #| msgid "Request Aborted!!"
 msgid "Request aborted!!"
 msgstr "داواکاریی پوچەڵ کرایەوە!!"
 
 #: js/messages.php:364
-#, fuzzy
 #| msgid "Processing Request"
 msgid "Processing request"
 msgstr "کردنەوەی داواکاری"
 
 #: js/messages.php:365
-#, fuzzy
 #| msgid "Request Failed!!"
 msgid "Request failed!!"
 msgstr "داواکاریی سەرکەوتوو نەبوو!!"
 
 #: js/messages.php:366
-#, fuzzy
 #| msgid "Error in Processing Request"
 msgid "Error in processing request"
 msgstr "هەڵە لە کردنەوەی داواکاری"
@@ -1741,13 +1705,11 @@ msgid "No databases selected."
 msgstr "هیچ بنکەیەکی زانیاری هەڵنەبژێراوە."
 
 #: js/messages.php:370
-#, fuzzy
 #| msgid "Dropping Column"
 msgid "Dropping column"
 msgstr "ستونە سڕێنراوەکان"
 
 #: js/messages.php:371
-#, fuzzy
 #| msgid "Add primary key"
 msgid "Adding primary key"
 msgstr "زۆرکردنی نرخی سەرەکیی"
@@ -1767,19 +1729,16 @@ msgid "Click to dismiss this notification"
 msgstr "کرتە بکە بۆ لابردنی ئەم ئاگادارکردنەوە"
 
 #: js/messages.php:376
-#, fuzzy
 #| msgid "Renaming Databases"
 msgid "Renaming databases"
 msgstr "ناونانەوەی بنکەی زانیاریەکان"
 
 #: js/messages.php:377
-#, fuzzy
 #| msgid "Copying Database"
 msgid "Copying database"
 msgstr "لەبەرگرتنەوەی بنکەی دراو"
 
 #: js/messages.php:378
-#, fuzzy
 #| msgid "Changing Charset"
 msgid "Changing charset"
 msgstr "گۆڕینی گورزەپیت"
@@ -1912,7 +1871,7 @@ msgid "No auto-saved query"
 msgstr ""
 
 #: js/messages.php:419
-#, fuzzy, php-format
+#, php-format, php-format
 #| msgid "Variables"
 msgid "Variable %d:"
 msgstr "گۆڕاوەکان"
@@ -2001,7 +1960,6 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:452
-#, fuzzy
 #| msgid "No databases selected."
 msgid "No partial dependencies selected!"
 msgstr "هیچ بنکەیەکی زانیاری هەڵنەبژێراوە."
@@ -2050,7 +2008,6 @@ msgid "Selected dependencies are as follows:"
 msgstr ""
 
 #: js/messages.php:471
-#, fuzzy
 #| msgid "No databases selected."
 msgid "No dependencies selected!"
 msgstr "هیچ بنکەیەکی زانیاری هەڵنەبژێراوە."
@@ -2075,19 +2032,16 @@ msgid "Show search criteria"
 msgstr "پێشاندانی پێوانەکانی گەڕان"
 
 #: js/messages.php:479
-#, fuzzy
 #| msgid "Table Search"
 msgid "Range search"
 msgstr "گەڕانی خشتە"
 
 #: js/messages.php:480
-#, fuzzy
 #| msgid "Column"
 msgid "Column maximum:"
 msgstr "ستون"
 
 #: js/messages.php:481
-#, fuzzy
 #| msgid "Column"
 msgid "Column minimum:"
 msgstr "ستون"
@@ -2101,13 +2055,11 @@ msgid "Maximum value:"
 msgstr ""
 
 #: js/messages.php:486
-#, fuzzy
 #| msgid "Hide search criteria"
 msgid "Hide find and replace criteria"
 msgstr "شاردنەوەی پێوانەکانی گەڕان"
 
 #: js/messages.php:487
-#, fuzzy
 #| msgid "Show search criteria"
 msgid "Show find and replace criteria"
 msgstr "پێشاندانی پێوانەکانی گەڕان"
@@ -2176,13 +2128,11 @@ msgid "Geometry"
 msgstr "ئەندازەزانی"
 
 #: js/messages.php:520
-#, fuzzy
 #| msgid "Inner Ring"
 msgid "Inner ring"
 msgstr "ئەڵقەی ناوەکی"
 
 #: js/messages.php:521
-#, fuzzy
 #| msgid "Outer ring:"
 msgid "Outer ring"
 msgstr "ئەڵقەی دەرەکی:"
@@ -2235,7 +2185,6 @@ msgstr "پاشەکەوتکردنی پەڕە"
 
 #: js/messages.php:546 templates/database/designer/side_menu.phtml:63
 #: templates/database/designer/side_menu.phtml:66
-#, fuzzy
 #| msgid "Save"
 msgid "Save page as"
 msgstr "پاشەکەوتکردن"
@@ -2270,7 +2219,6 @@ msgid "Successfully deleted the page"
 msgstr "پەڕە بە سەرکەوتوویی سڕایەوە"
 
 #: js/messages.php:555
-#, fuzzy
 #| msgid "Edit or export relational schema"
 msgid "Export relational schema"
 msgstr "دەستکاری کردن یان هەناردنی پەیوەندی نەخشە"
@@ -2356,7 +2304,6 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:592
-#, fuzzy
 #| msgid "Linestring"
 msgid "Original length"
 msgstr "ڕیزبه‌ندی هێڵی"
@@ -2425,32 +2372,27 @@ msgid "More"
 msgstr "زیاتر"
 
 #: js/messages.php:636
-#, fuzzy
 #| msgid "Show all"
 msgid "Show panel"
 msgstr "هەمووی پێشاندە"
 
 #: js/messages.php:637
-#, fuzzy
 #| msgid "Hide indexes"
 msgid "Hide panel"
 msgstr "شاردنەوەی نیشاندەرەکان"
 
 #: js/messages.php:638
-#, fuzzy
 #| msgid "Show indexes"
 msgid "Show hidden navigation tree items."
 msgstr "پێشاندانی نیشاندەرەکان"
 
 #: js/messages.php:639 libraries/config/messages.inc.php:479
 #: libraries/navigation/NavigationTree.php:1435
-#, fuzzy
 #| msgid "Hide indexes"
 msgid "Link with main panel"
 msgstr "شاردنەوەی نیشاندەرەکان"
 
 #: js/messages.php:640 libraries/navigation/NavigationTree.php:1438
-#, fuzzy
 #| msgid "Hide indexes"
 msgid "Unlink from main panel"
 msgstr "شاردنەوەی نیشاندەرەکان"
@@ -2480,13 +2422,11 @@ msgid "Create view"
 msgstr ""
 
 #: js/messages.php:658
-#, fuzzy
 #| msgid "Send Error Report"
 msgid "Send error report"
 msgstr "ناردنی ڕاپۆرتی هەڵە"
 
 #: js/messages.php:659
-#, fuzzy
 #| msgid "Submit Error Report"
 msgid "Submit error report"
 msgstr "ناردنی ڕاپۆرتی هەڵە"
@@ -2500,13 +2440,11 @@ msgstr ""
 "ئاگادارمان بکەیتەوە؟"
 
 #: js/messages.php:663
-#, fuzzy
 #| msgid "Change Report Settings"
 msgid "Change report settings"
 msgstr "گۆڕینی ڕێکخستنەکانی ڕاپۆرت"
 
 #: js/messages.php:664
-#, fuzzy
 #| msgid "Show Report Details"
 msgid "Show report details"
 msgstr "وردە زانیارییەکانی ڕاپۆرت"
@@ -2564,13 +2502,11 @@ msgid "%s argument(s) passed"
 msgstr ""
 
 #: js/messages.php:711
-#, fuzzy
 #| msgid "Table comments"
 msgid "Show arguments"
 msgstr "تێبینیەکانی خشتە"
 
 #: js/messages.php:712
-#, fuzzy
 #| msgid "Hide search results"
 msgid "Hide arguments"
 msgstr "شاردنەوەی ئەنجامەکانی گەڕان"
@@ -2589,19 +2525,16 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:716
-#, fuzzy
 #| msgid "Copy database to"
 msgid "Copy tables to"
 msgstr "لە ڕوونووسینەوەی بنکەی دراوە بۆ"
 
 #: js/messages.php:717
-#, fuzzy
 #| msgid "Replace table prefix"
 msgid "Add table prefix"
 msgstr "گۆڕینی پێشگری خشتە"
 
 #: js/messages.php:718
-#, fuzzy
 #| msgid "Replace table prefix"
 msgid "Replace table with prefix"
 msgstr "گۆڕینی پێشگری خشتە"
@@ -2871,49 +2804,41 @@ msgid "Please fix this field"
 msgstr ""
 
 #: js/messages.php:891
-#, fuzzy
 #| msgid "%d is not valid row number."
 msgid "Please enter a valid email address"
 msgstr "%d ژمارەی ڕیزی نادروستە."
 
 #: js/messages.php:892
-#, fuzzy
 #| msgid "%d is not valid row number."
 msgid "Please enter a valid URL"
 msgstr "%d ژمارەی ڕیزی نادروستە."
 
 #: js/messages.php:893
-#, fuzzy
 #| msgid "%d is not valid row number."
 msgid "Please enter a valid date"
 msgstr "%d ژمارەی ڕیزی نادروستە."
 
 #: js/messages.php:896
-#, fuzzy
 #| msgid "%d is not valid row number."
 msgid "Please enter a valid date ( ISO )"
 msgstr "%d ژمارەی ڕیزی نادروستە."
 
 #: js/messages.php:898
-#, fuzzy
 #| msgid "%d is not valid row number."
 msgid "Please enter a valid number"
 msgstr "%d ژمارەی ڕیزی نادروستە."
 
 #: js/messages.php:901
-#, fuzzy
 #| msgid "%d is not valid row number."
 msgid "Please enter a valid credit card number"
 msgstr "%d ژمارەی ڕیزی نادروستە."
 
 #: js/messages.php:903
-#, fuzzy
 #| msgid "%d is not valid row number."
 msgid "Please enter only digits"
 msgstr "%d ژمارەی ڕیزی نادروستە."
 
 #: js/messages.php:906
-#, fuzzy
 #| msgid "%d is not valid row number."
 msgid "Please enter the same value again"
 msgstr "%d ژمارەی ڕیزی نادروستە."
@@ -2923,7 +2848,6 @@ msgid "Please enter no more than {0} characters"
 msgstr ""
 
 #: js/messages.php:915
-#, fuzzy
 #| msgid "%d is not valid row number."
 msgid "Please enter at least {0} characters"
 msgstr "%d ژمارەی ڕیزی نادروستە."
@@ -2933,31 +2857,26 @@ msgid "Please enter a value between {0} and {1} characters long"
 msgstr ""
 
 #: js/messages.php:925
-#, fuzzy
 #| msgid "%d is not valid row number."
 msgid "Please enter a value between {0} and {1}"
 msgstr "%d ژمارەی ڕیزی نادروستە."
 
 #: js/messages.php:930
-#, fuzzy
 #| msgid "%d is not valid row number."
 msgid "Please enter a value less than or equal to {0}"
 msgstr "%d ژمارەی ڕیزی نادروستە."
 
 #: js/messages.php:935
-#, fuzzy
 #| msgid "%d is not valid row number."
 msgid "Please enter a value greater than or equal to {0}"
 msgstr "%d ژمارەی ڕیزی نادروستە."
 
 #: js/messages.php:941
-#, fuzzy
 #| msgid "%d is not valid row number."
 msgid "Please enter a valid date or time"
 msgstr "%d ژمارەی ڕیزی نادروستە."
 
 #: js/messages.php:946
-#, fuzzy
 #| msgid "%d is not valid row number."
 msgid "Please enter a valid HEX input"
 msgstr "%d ژمارەی ڕیزی نادروستە."
@@ -3233,7 +3152,6 @@ msgid "unknown"
 msgstr "نەناسراوە"
 
 #: libraries/Charsets.php:460
-#, fuzzy
 #| msgid "Collation"
 msgid "binary collation"
 msgstr "ڕێکخستن"
@@ -3261,7 +3179,6 @@ msgid "Could not load default configuration from: %1$s"
 msgstr ""
 
 #: libraries/Config.php:1208
-#, fuzzy
 #| msgid "Local monitor configuration incompatible"
 msgid "Failed to read configuration file!"
 msgstr "چاودێری شێوه‌پێدانی ناوخۆیی نەگونجاوە"
@@ -3284,19 +3201,16 @@ msgstr[0] ""
 msgstr[1] ""
 
 #: libraries/Console.php:95
-#, fuzzy
 #| msgid "Table Search"
 msgid "No bookmarks"
 msgstr "گەڕانی خشتە"
 
 #: libraries/Console.php:130
-#, fuzzy
 #| msgid "SQL query"
 msgid "SQL Query Console"
 msgstr "داواکاری سیكوێڵ"
 
 #: libraries/DatabaseInterface.php:1409
-#, fuzzy
 #| msgid "Local monitor configuration incompatible"
 msgid "Failed to set configured collation connection!"
 msgstr "چاودێری شێوه‌پێدانی ناوخۆیی نەگونجاوە"
@@ -3320,7 +3234,6 @@ msgid "Details…"
 msgstr ""
 
 #: libraries/DatabaseInterface.php:2325
-#, fuzzy
 #| msgid "Missing parameter:"
 msgid "Missing connection parameters!"
 msgstr "ڕادەی لەدەستچوو:"
@@ -3352,7 +3265,6 @@ msgid "Descending"
 msgstr "لە کۆتایی بۆ سەرەتا"
 
 #: libraries/DbQbe.php:467 templates/table/search/search_and_replace.phtml:6
-#, fuzzy
 #| msgid "Column"
 msgid "Column:"
 msgstr "ستون"
@@ -3362,25 +3274,21 @@ msgid "Alias:"
 msgstr ""
 
 #: libraries/DbQbe.php:566
-#, fuzzy
 #| msgid "Sort"
 msgid "Sort:"
 msgstr "ڕیزکردن"
 
 #: libraries/DbQbe.php:630
-#, fuzzy
 #| msgid "Sort"
 msgid "Sort order:"
 msgstr "ڕیزکردن"
 
 #: libraries/DbQbe.php:679
-#, fuzzy
 #| msgid "Show"
 msgid "Show:"
 msgstr "پیشاندان"
 
 #: libraries/DbQbe.php:728
-#, fuzzy
 #| msgid "Criteria"
 msgid "Criteria:"
 msgstr "مەرج"
@@ -3402,7 +3310,6 @@ msgid "Use Tables"
 msgstr "خشتە بەکار ببە"
 
 #: libraries/DbQbe.php:877 libraries/DbQbe.php:988
-#, fuzzy
 #| msgid "Or"
 msgid "Or:"
 msgstr "یان"
@@ -3420,7 +3327,6 @@ msgid "Del"
 msgstr "سڕینەوە"
 
 #: libraries/DbQbe.php:905
-#, fuzzy
 #| msgid "Modify"
 msgid "Modify:"
 msgstr "دەستکاری"
@@ -3443,31 +3349,26 @@ msgid "Submit Query"
 msgstr "ناردنی داواکاری"
 
 #: libraries/DbQbe.php:1884
-#, fuzzy
 #| msgid "Search"
 msgid "Saved bookmarked search:"
 msgstr "گەڕان"
 
 #: libraries/DbQbe.php:1886
-#, fuzzy
 #| msgid "Table Search"
 msgid "New bookmark"
 msgstr "گەڕانی خشتە"
 
 #: libraries/DbQbe.php:1912
-#, fuzzy
 #| msgid "Table Search"
 msgid "Create bookmark"
 msgstr "گەڕانی خشتە"
 
 #: libraries/DbQbe.php:1915
-#, fuzzy
 #| msgid "Showing bookmark"
 msgid "Update bookmark"
 msgstr "پیشاندانی شوێندۆز"
 
 #: libraries/DbQbe.php:1917
-#, fuzzy
 #| msgid "Table Search"
 msgid "Delete bookmark"
 msgstr "گەڕانی خشتە"
@@ -3538,13 +3439,11 @@ msgid "Words are separated by a space character (\" \")."
 msgstr "وشەکان بە هێمای بۆشایی جیا دەکرێنەوە (\" \")."
 
 #: libraries/DbSearch.php:424
-#, fuzzy
 msgid "Inside tables:"
 msgstr "لەناو خشتە:\n"
 
 #: libraries/DbSearch.php:449 libraries/display_export.lib.php:50
 #: libraries/replication_gui.lib.php:380
-#, fuzzy
 #| msgid "Unselect All"
 msgid "Unselect all"
 msgstr "هەلنەبژاردنی هەموو"
@@ -3562,13 +3461,11 @@ msgid "Restore column order"
 msgstr "گەڕانەوەی ڕێزبەندی ستون"
 
 #: libraries/DisplayResults.php:959 libraries/central_columns.lib.php:661
-#, fuzzy
 #| msgid "Filter"
 msgid "Filter rows"
 msgstr "پاڵێو"
 
 #: libraries/DisplayResults.php:961 libraries/central_columns.lib.php:663
-#, fuzzy
 #| msgid "Search in database"
 msgid "Search this table"
 msgstr "گەڕان لە بنکەی دراو"
@@ -3657,7 +3554,6 @@ msgid "Relational key"
 msgstr ""
 
 #: libraries/DisplayResults.php:1744
-#, fuzzy
 #| msgid "Inside column:"
 msgid "Display column for relations"
 msgstr "لە نێو خشتەی:"
@@ -3683,7 +3579,6 @@ msgid "Well Known Binary"
 msgstr ""
 
 #: libraries/DisplayResults.php:3540 libraries/DisplayResults.php:3555
-#, fuzzy
 #| msgid "The row has been deleted."
 msgid "The row has been deleted."
 msgstr "ڕیزەکە سڕایەوە"
@@ -3702,7 +3597,6 @@ msgstr ""
 #: libraries/controllers/table/TableSearchController.php:570
 #: libraries/rte/rte_routines.lib.php:1423 libraries/sql_query_form.lib.php:92
 #: tbl_row_action.php:140 view_operations.php:75
-#, fuzzy
 #| msgid "Your SQL query has been executed successfully."
 msgid "Your SQL query has been executed successfully."
 msgstr "سیكوێڵ کیوریەکەت بەسەرکەوتوویی ئەنجامدرا"
@@ -3718,7 +3612,7 @@ msgstr ""
 "%sبەڵگەسازی%s بکە ."
 
 #: libraries/DisplayResults.php:4713
-#, fuzzy, php-format
+#, php-format, php-format
 #| msgid "Showing rows"
 msgid "Showing rows %1s - %2s"
 msgstr "ڕیزە پێشاندراوەکان"
@@ -3729,13 +3623,13 @@ msgid "%1$d total, %2$d in query"
 msgstr ""
 
 #: libraries/DisplayResults.php:4733
-#, fuzzy, php-format
+#, php-format, php-format
 #| msgid "total"
 msgid "%d total"
 msgstr "سەرجەم"
 
 #: libraries/DisplayResults.php:4745 libraries/sql.lib.php:1374
-#, fuzzy, php-format
+#, php-format, php-format
 #| msgid "Query took %01.4f sec"
 msgid "Query took %01.4f seconds."
 msgstr "داواکاریەکە %01.4f چرکەی خایاند"
@@ -3756,7 +3650,6 @@ msgstr "لەگەڵ پەڕگەی دەستنیشانکراو:"
 #: templates/database/structure/check_all_tables.phtml:3
 #: templates/database/structure/check_all_tables.phtml:4
 #: templates/select_all.phtml:4 templates/select_all.phtml:5
-#, fuzzy
 #| msgid "Check All"
 msgid "Check all"
 msgstr "هەڵبژاردنی هەموو"
@@ -3778,7 +3671,6 @@ msgid "Visualize GIS data"
 msgstr ""
 
 #: libraries/DisplayResults.php:5381
-#, fuzzy
 #| msgid "Link not found"
 msgid "Link not found!"
 msgstr "بەستەر نەدۆزرایەوە"
@@ -3799,7 +3691,6 @@ msgid "Too many error messages, some are not displayed."
 msgstr "هەڵەنامەی زۆر، هەندێکیان پێشان نەدراون."
 
 #: libraries/ErrorHandler.php:334
-#, fuzzy
 #| msgid "Import"
 msgid "Report"
 msgstr "هێنان"
@@ -3859,7 +3750,6 @@ msgid "Error while moving uploaded file."
 msgstr "هەڵەیەک لەکاتی گواستنەوەی فایلی بارکراو."
 
 #: libraries/File.php:507
-#, fuzzy
 #| msgid "File was not an uploaded file."
 msgid "Cannot read uploaded file."
 msgstr "فایلەکە لە فایلی بارکراو نیە."
@@ -3879,7 +3769,6 @@ msgid "Currently running Git revision %1$s from the %2$s branch."
 msgstr ""
 
 #: libraries/Footer.php:81
-#, fuzzy
 #| msgid "Version information"
 msgid "Git information missing!"
 msgstr "زانیاری وەشان"
@@ -4143,7 +4032,6 @@ msgstr "شێوەساز"
 
 #: libraries/Menu.php:516 libraries/Util.php:4276
 #: templates/database/structure/check_all_tables.phtml:34
-#, fuzzy
 #| msgid "Add columns"
 msgid "Central columns"
 msgstr "ستونەکان زیادبکە"
@@ -4157,7 +4045,6 @@ msgid "Databases"
 msgstr "بنکە زانیاریەکان"
 
 #: libraries/Menu.php:574
-#, fuzzy
 #| msgid "Users"
 msgid "User accounts"
 msgstr "بەکارهێنەرەکان"
@@ -4221,32 +4108,27 @@ msgid "Error while creating PDF:"
 msgstr ""
 
 #: libraries/RecentFavoriteTable.php:135
-#, fuzzy
 #| msgid "Could not save recent table"
 msgid "Could not save recent table!"
 msgstr "نەتوانرا خشتە تازەکە پاشەکەوت بکرێت"
 
 #: libraries/RecentFavoriteTable.php:139
-#, fuzzy
 #| msgid "Could not save recent table"
 msgid "Could not save favorite table!"
 msgstr "نەتوانرا خشتە تازەکە پاشەکەوت بکرێت"
 
 #: libraries/RecentFavoriteTable.php:209
 #: templates/database/structure/favorite_anchor.phtml:12
-#, fuzzy
 #| msgid "Remove chart"
 msgid "Remove from Favorites"
 msgstr "سڕینەوەی هێلکاری"
 
 #: libraries/RecentFavoriteTable.php:231
-#, fuzzy
 #| msgid "There are no recent tables"
 msgid "There are no recent tables."
 msgstr "هیچ خشتەیەکی تازە نیە"
 
 #: libraries/RecentFavoriteTable.php:232
-#, fuzzy
 #| msgid "There are no recent tables"
 msgid "There are no favorite tables."
 msgstr "هیچ خشتەیەکی تازە نیە"
@@ -4256,19 +4138,16 @@ msgid "Recent tables"
 msgstr "خشتە تازەکان"
 
 #: libraries/RecentFavoriteTable.php:249
-#, fuzzy
 #| msgid "Recent tables"
 msgid "Recent"
 msgstr "خشتە تازەکان"
 
 #: libraries/RecentFavoriteTable.php:251 libraries/config/messages.inc.php:545
-#, fuzzy
 #| msgid "Variables"
 msgid "Favorite tables"
 msgstr "گۆڕاوەکان"
 
 #: libraries/RecentFavoriteTable.php:253
-#, fuzzy
 #| msgid "Variables"
 msgid "Favorites"
 msgstr "گۆڕاوەکان"
@@ -4294,7 +4173,6 @@ msgid "Missing information to load the search."
 msgstr ""
 
 #: libraries/SavedSearches.php:394
-#, fuzzy
 #| msgid "Error while moving uploaded file."
 msgid "Error while loading the search."
 msgstr "هەڵەیەک لەکاتی گواستنەوەی فایلی بارکراو."
@@ -4438,7 +4316,6 @@ msgid "This MySQL server does not support the %s storage engine."
 msgstr ""
 
 #: libraries/Table.php:301
-#, fuzzy
 #| msgid "unknown table status: "
 msgid "Unknown table status:"
 msgstr "دۆخی نەزانراوی خشتە: "
@@ -4454,19 +4331,17 @@ msgid "Target database `%s` was not found!"
 msgstr "بنکە زانیاری ئامانج '%s' نەدۆزرایەوە!"
 
 #: libraries/Table.php:1234
-#, fuzzy
 #| msgid "Invalid database"
 msgid "Invalid database:"
 msgstr "بنکە زانیاری نادروست"
 
 #: libraries/Table.php:1248
-#, fuzzy
 #| msgid "Invalid table name"
 msgid "Invalid table name:"
 msgstr "ناوی خشتەی نادروست"
 
 #: libraries/Table.php:1283
-#, fuzzy, php-format
+#, php-format, php-format
 #| msgid "Error renaming table %1$s to %2$s"
 msgid "Failed to rename table %1$s to %2$s!"
 msgstr "هەڵە لە ناونانەوەی خشتەی %1$s بۆ %2$s"
@@ -4477,7 +4352,6 @@ msgid "Table %1$s has been renamed to %2$s."
 msgstr ""
 
 #: libraries/Table.php:1499
-#, fuzzy
 #| msgid "Could not save recent table"
 msgid "Could not save table UI preferences!"
 msgstr "نەتوانرا خشتە تازەکە پاشەکەوت بکرێت"
@@ -4825,19 +4699,16 @@ msgid "Analyze Explain at %s"
 msgstr ""
 
 #: libraries/Util.php:1251
-#, fuzzy
 #| msgid "Without PHP Code"
 msgid "Without PHP code"
 msgstr "بەبێ پی ئێچ پی کۆد"
 
 #: libraries/Util.php:1263
-#, fuzzy
 #| msgid "Submit Query"
 msgid "Submit query"
 msgstr "ناردنی داواکاری"
 
 #: libraries/Util.php:1274 libraries/config/messages.inc.php:894
-#, fuzzy
 #| msgid "Create PHP Code"
 msgid "Create PHP code"
 msgstr "پی ئێچ پی کۆد دروست بکە"
@@ -4855,7 +4726,6 @@ msgid "Profiling"
 msgstr ""
 
 #: libraries/Util.php:1337
-#, fuzzy
 #| msgid "Edit Index"
 msgctxt "Inline edit query"
 msgid "Edit inline"
@@ -4906,7 +4776,6 @@ msgid "The directory you set for upload work cannot be reached."
 msgstr ""
 
 #: libraries/Util.php:3608
-#, fuzzy
 #| msgid "There are no recent tables"
 msgid "There are no files to upload!"
 msgstr "هیچ خشتەیەکی تازە نیە"
@@ -4971,7 +4840,6 @@ msgid "Could not add %1$s as they already exist in central list!"
 msgstr ""
 
 #: libraries/central_columns.lib.php:297
-#, fuzzy
 #| msgid "Add columns"
 msgid "Could not add columns!"
 msgstr "ستونەکان زیادبکە"
@@ -4983,7 +4851,6 @@ msgid ""
 msgstr ""
 
 #: libraries/central_columns.lib.php:384
-#, fuzzy
 #| msgid "Could not save recent table"
 msgid "Could not remove columns!"
 msgstr "نەتوانرا خشتە تازەکە پاشەکەوت بکرێت"
@@ -5018,7 +4885,6 @@ msgid "Length/Values"
 msgstr ""
 
 #: libraries/central_columns.lib.php:705
-#, fuzzy
 #| msgid "Contribute"
 msgid "Attribute"
 msgstr "بەشداری کردن"
@@ -5028,7 +4894,6 @@ msgid "A_I"
 msgstr ""
 
 #: libraries/central_columns.lib.php:749
-#, fuzzy
 #| msgid "Select All"
 msgid "Select a table"
 msgstr "هەڵبژاردنی هەموو"
@@ -5039,13 +4904,11 @@ msgid "Add column"
 msgstr ""
 
 #: libraries/central_columns.lib.php:815
-#, fuzzy
 #| msgid "Select two columns"
 msgid "Select a column."
 msgstr "دوو ستون هەڵبژێرە"
 
 #: libraries/central_columns.lib.php:1266
-#, fuzzy
 #| msgid "Add/Delete columns"
 msgid "Add new column"
 msgstr "زیادکردن/سڕینەوەی ستونەکان"
@@ -5069,7 +4932,7 @@ msgid "Invalid hostname for server %1$s. Please review your configuration."
 msgstr ""
 
 #: libraries/common.inc.php:544
-#, fuzzy, php-format
+#, php-format, php-format
 #| msgid "Server"
 msgid "Server %d"
 msgstr "سێرڤەر"
@@ -5105,14 +4968,12 @@ msgstr ""
 
 #: libraries/config.values.php:56 libraries/config.values.php:76
 #: libraries/config.values.php:88
-#, fuzzy
 #| msgid "Ins"
 msgid "Icons"
 msgstr "Ins"
 
 #: libraries/config.values.php:57 libraries/config.values.php:77
 #: libraries/config.values.php:89
-#, fuzzy
 #| msgid "Test"
 msgid "Text"
 msgstr "تاقیکرنەوە"
@@ -5153,7 +5014,6 @@ msgid "key"
 msgstr ""
 
 #: libraries/config.values.php:99
-#, fuzzy
 #| msgid "Inside column:"
 msgid "display column"
 msgstr "لە نێو خشتەی:"
@@ -5183,19 +5043,16 @@ msgid "Never send error reports"
 msgstr ""
 
 #: libraries/config.values.php:133
-#, fuzzy
 #| msgid "Default"
 msgid "Server default"
 msgstr "بنەڕەت"
 
 #: libraries/config.values.php:134
-#, fuzzy
 #| msgid "Enable %s"
 msgid "Enable"
 msgstr "چالاککردن %s"
 
 #: libraries/config.values.php:135
-#, fuzzy
 #| msgid "Disable %s"
 msgid "Disable"
 msgstr "ناچالاککردن %s"
@@ -5270,7 +5127,6 @@ msgid "Not a non-negative number!"
 msgstr ""
 
 #: libraries/config/FormDisplay.php:101 libraries/config/Validator.php:496
-#, fuzzy
 #| msgid "%d is not valid row number."
 msgid "Not a valid port number!"
 msgstr "%d ژمارەی ڕیزی نادروستە."
@@ -5450,7 +5306,6 @@ msgid "Could not connect to the database server!"
 msgstr "نەتوانرا پەیوەندی بکردرێت بە ڕاژەکاری بنکەی دراوە!"
 
 #: libraries/config/Validator.php:243
-#, fuzzy
 #| msgid "Invalid export type"
 msgid "Invalid authentication type!"
 msgstr "هەناردنی ئەم جۆرە ڕێگەپێدراو نییە"
@@ -5508,7 +5363,6 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:26
-#, fuzzy
 #| msgid "Allow login to any MySQL server"
 msgid "Restrict login to MySQL server"
 msgstr "ڕێگەدان بە چوونەژوورەوە بۆ هەر ڕاژەکارێکی MySQL"
@@ -5590,7 +5444,6 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:67
-#, fuzzy
 #| msgid "Enable %s"
 msgid "Enable linter"
 msgstr "چالاککردن %s"
@@ -5707,7 +5560,6 @@ msgid "Whether the table structure actions should be hidden."
 msgstr ""
 
 #: libraries/config/messages.inc.php:117
-#, fuzzy
 #| msgid "Table comments"
 msgid "Show column comments"
 msgstr "تێبینیەکانی خشتە"
@@ -5893,7 +5745,6 @@ msgid "Overwrite existing file(s)"
 msgstr ""
 
 #: libraries/config/messages.inc.php:184
-#, fuzzy
 #| msgid "Enter each value in a separate field."
 msgid "Export as separate files"
 msgstr "هەر نرخێک لە خانەی جیا بنووسە."
@@ -6006,7 +5857,6 @@ msgid "Default value for foreign key checks checkbox for some queries."
 msgstr ""
 
 #: libraries/config/messages.inc.php:244
-#, fuzzy
 #| msgid "Add constraints"
 msgid "Foreign key checks"
 msgstr "زیادکردنی مەرج"
@@ -6022,7 +5872,6 @@ msgstr ""
 #: libraries/config/messages.inc.php:248 libraries/config/messages.inc.php:250
 #: libraries/config/messages.inc.php:268 libraries/config/messages.inc.php:281
 #: libraries/config/messages.inc.php:283 libraries/config/messages.inc.php:327
-#, fuzzy
 #| msgid "Query results operations"
 msgid "Customize default options."
 msgstr "کردارەکانی ئەنجامی داواکاری"
@@ -6092,7 +5941,6 @@ msgid "LaTeX"
 msgstr ""
 
 #: libraries/config/messages.inc.php:270
-#, fuzzy
 #| msgid "Database client version"
 msgid "Databases display options."
 msgstr "وەشانی ڕاژەخوازی بنکەی دراوە"
@@ -6106,13 +5954,11 @@ msgid "Customize appearance of the navigation panel."
 msgstr ""
 
 #: libraries/config/messages.inc.php:273
-#, fuzzy
 #| msgid "Table comments"
 msgid "Navigation tree"
 msgstr "تێبینیەکانی خشتە"
 
 #: libraries/config/messages.inc.php:274
-#, fuzzy
 #| msgid "Show indexes"
 msgid "Customize the navigation tree."
 msgstr "پێشاندانی نیشاندەرەکان"
@@ -6127,13 +5973,11 @@ msgid "Servers display options."
 msgstr ""
 
 #: libraries/config/messages.inc.php:278
-#, fuzzy
 #| msgid "Table comments"
 msgid "Tables display options."
 msgstr "تێبینیەکانی خشتە"
 
 #: libraries/config/messages.inc.php:279 setup/frames/menu.inc.php:26
-#, fuzzy
 #| msgid "Hide indexes"
 msgid "Main panel"
 msgstr "شاردنەوەی نیشاندەرەکان"
@@ -6179,7 +6023,6 @@ msgid "Authentication"
 msgstr ""
 
 #: libraries/config/messages.inc.php:300
-#, fuzzy
 #| msgid "Current settings"
 msgid "Authentication settings."
 msgstr "ڕێکخستنەکانی هەنووکە"
@@ -6195,7 +6038,6 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:306
-#, fuzzy
 #| msgid "Server connection collation"
 msgid "Enter server connection parameters."
 msgstr "ڕێکخستنی پەیوەندی ڕاژەکار"
@@ -6251,7 +6093,6 @@ msgid "Customize links shown in SQL Query boxes."
 msgstr ""
 
 #: libraries/config/messages.inc.php:329
-#, fuzzy
 #| msgid "Current settings"
 msgid "SQL queries settings."
 msgstr "ڕێکخستنەکانی هەنووکە"
@@ -6565,7 +6406,6 @@ msgid "In the navigation panel, replaces the database tree with a selector"
 msgstr ""
 
 #: libraries/config/messages.inc.php:474
-#, fuzzy
 #| msgid "Show indexes"
 msgid "Show databases navigation as tree"
 msgstr "پێشاندانی نیشاندەرەکان"
@@ -6575,7 +6415,6 @@ msgid "Link with main panel by highlighting the current database or table."
 msgstr ""
 
 #: libraries/config/messages.inc.php:480
-#, fuzzy
 #| msgid "Table comments"
 msgid "Show logo in navigation panel."
 msgstr "تێبینیەکانی خشتە"
@@ -6676,37 +6515,31 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:524
-#, fuzzy
 #| msgid "Table comments"
 msgid "Enable navigation tree expansion"
 msgstr "تێبینیەکانی خشتە"
 
 #: libraries/config/messages.inc.php:525
-#, fuzzy
 #| msgid "Showing rows"
 msgid "Show tables in tree"
 msgstr "ڕیزە پێشاندراوەکان"
 
 #: libraries/config/messages.inc.php:527
-#, fuzzy
 #| msgid "Show indexes"
 msgid "Whether to show tables under database in the navigation tree"
 msgstr "پێشاندانی نیشاندەرەکان"
 
 #: libraries/config/messages.inc.php:528
-#, fuzzy
 #| msgid "Show indexes"
 msgid "Show views in tree"
 msgstr "پێشاندانی نیشاندەرەکان"
 
 #: libraries/config/messages.inc.php:530
-#, fuzzy
 #| msgid "Show indexes"
 msgid "Whether to show views under database in the navigation tree"
 msgstr "پێشاندانی نیشاندەرەکان"
 
 #: libraries/config/messages.inc.php:531
-#, fuzzy
 #| msgid "Connections since last refresh"
 msgid "Show functions in tree"
 msgstr "بەستنەکان لەدوای کۆتایین تازەکردنەوە"
@@ -6716,7 +6549,6 @@ msgid "Whether to show functions under database in the navigation tree"
 msgstr ""
 
 #: libraries/config/messages.inc.php:534
-#, fuzzy
 #| msgid "Processes"
 msgid "Show procedures in tree"
 msgstr "پڕۆسەکان"
@@ -6726,13 +6558,11 @@ msgid "Whether to show procedures under database in the navigation tree"
 msgstr ""
 
 #: libraries/config/messages.inc.php:537
-#, fuzzy
 #| msgid "Show indexes"
 msgid "Show events in tree"
 msgstr "پێشاندانی نیشاندەرەکان"
 
 #: libraries/config/messages.inc.php:539
-#, fuzzy
 #| msgid "Show indexes"
 msgid "Whether to show events under database in the navigation tree"
 msgstr "پێشاندانی نیشاندەرەکان"
@@ -6783,7 +6613,6 @@ msgid "Use only icons, only text or both."
 msgstr ""
 
 #: libraries/config/messages.inc.php:558
-#, fuzzy
 #| msgid "Table comments"
 msgid "Table navigation bar"
 msgstr "تێبینیەکانی خشتە"
@@ -6918,13 +6747,11 @@ msgid "Grid editing: trigger action"
 msgstr ""
 
 #: libraries/config/messages.inc.php:618
-#, fuzzy
 #| msgid "No data found"
 msgid "Relational display"
 msgstr "هیچ زانیاریەک نەدۆزراوە"
 
 #: libraries/config/messages.inc.php:619
-#, fuzzy
 #| msgid "Table comments"
 msgid "For display Options"
 msgstr "تێبینیەکانی خشتە"
@@ -7012,7 +6839,6 @@ msgid "Column information table"
 msgstr ""
 
 #: libraries/config/messages.inc.php:649
-#, fuzzy
 #| msgid "Compress connection"
 msgid "Compress connection to MySQL server."
 msgstr "پەستانی پەیوەندی"
@@ -7125,7 +6951,6 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:698
-#, fuzzy
 #| msgid "Edit or export relational schema"
 msgid "Export templates table"
 msgstr "دەستکاری کردن یان هەناردنی پەیوەندی نەخشە"
@@ -7137,7 +6962,6 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:703
-#, fuzzy
 #| msgid "Add columns"
 msgid "Central columns table"
 msgstr "ستونەکان زیادبکە"
@@ -7149,7 +6973,6 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:708
-#, fuzzy
 #| msgid "Connect without password"
 msgid "Try to connect without password."
 msgstr "پەیوەندی بەبێ وشەی نهێنی"
@@ -7223,7 +7046,6 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:740
-#, fuzzy
 #| msgid "Variables"
 msgid "Favorites table"
 msgstr "گۆڕاوەکان"
@@ -7373,7 +7195,6 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:813
-#, fuzzy
 #| msgid "Use Tables"
 msgid "Users table"
 msgstr "خشتە بەکار ببە"
@@ -7441,7 +7262,6 @@ msgid "Show or hide a column displaying the comments for all tables."
 msgstr ""
 
 #: libraries/config/messages.inc.php:846
-#, fuzzy
 #| msgid "Table comments"
 msgid "Show table comments"
 msgstr "تێبینیەکانی خشتە"
@@ -7451,7 +7271,6 @@ msgid "Show or hide a column displaying the Creation timestamp for all tables."
 msgstr ""
 
 #: libraries/config/messages.inc.php:850
-#, fuzzy
 #| msgid "Show all"
 msgid "Show creation timestamp"
 msgstr "هەمووی پێشاندە"
@@ -7479,7 +7298,6 @@ msgid "Show or hide a column displaying the charset for all tables."
 msgstr ""
 
 #: libraries/config/messages.inc.php:862
-#, fuzzy
 #| msgid "Table comments"
 msgid "Show table charset"
 msgstr "تێبینیەکانی خشتە"
@@ -7520,7 +7338,6 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:878
-#, fuzzy
 msgid "Show SQL queries"
 msgstr "نیشاندانی پرسگەی SQL"
 
@@ -7684,7 +7501,6 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:968
-#, fuzzy
 #| msgid "Username"
 msgid "Proxy username"
 msgstr "ناوی بەکارهێنەر"
@@ -7694,7 +7510,6 @@ msgid "The password for authenticating with the proxy."
 msgstr ""
 
 #: libraries/config/messages.inc.php:970
-#, fuzzy
 #| msgid "Password"
 msgid "Proxy password"
 msgstr "وشەی نهێنی"
@@ -7748,7 +7563,6 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:1001
-#, fuzzy
 #| msgid "Local monitor configuration incompatible"
 msgid "Enable Zero Configuration mode"
 msgstr "چاودێری شێوه‌پێدانی ناوخۆیی نەگونجاوە"
@@ -7798,7 +7612,6 @@ msgstr "Microsoft Word 2000"
 
 #: libraries/config/setup.forms.php:383
 #: libraries/config/user_preferences.forms.php:285
-#, fuzzy
 #| msgid "Documentation"
 msgid "OpenDocument Text"
 msgstr "به‌ڵگه‌سازی"
@@ -7815,14 +7628,14 @@ msgstr "خشتەی %s خاڵی کرا."
 
 #: libraries/controllers/database/DatabaseStructureController.php:575
 #: tbl_operations.php:393 view_operations.php:136
-#, fuzzy, php-format
+#, php-format, php-format
 #| msgid "View %s has been dropped."
 msgid "View %s has been dropped."
 msgstr "%s سڕایەوە"
 
 #: libraries/controllers/database/DatabaseStructureController.php:576
 #: tbl_operations.php:394
-#, fuzzy, php-format
+#, php-format, php-format
 #| msgid "Table %s has been dropped."
 msgid "Table %s has been dropped."
 msgstr "خشتەی %s سڕایەوە"
@@ -7921,7 +7734,6 @@ msgstr ""
 
 #: libraries/controllers/server/ServerDatabasesController.php:582
 #: libraries/controllers/server/ServerDatabasesController.php:588
-#, fuzzy
 #| msgid "Query statistics"
 msgid "Enable statistics"
 msgstr "ئامارەکانی داواکاری"
@@ -7945,7 +7757,6 @@ msgid "No numeric columns present in the table to plot."
 msgstr ""
 
 #: libraries/controllers/table/TableChartController.php:211
-#, fuzzy
 #| msgid "No data found"
 msgid "No data to display"
 msgstr "هیچ زانیاریەک نەدۆزراوە"
@@ -7963,26 +7774,22 @@ msgid "Display column was successfully updated."
 msgstr ""
 
 #: libraries/controllers/table/TableRelationController.php:282
-#, fuzzy
 #| msgid "The row has been deleted."
 msgid "Internal relations were successfully updated."
 msgstr "ڕیزەکە سڕایەوە"
 
 #: libraries/controllers/table/TableSearchController.php:768
-#, fuzzy
 #| msgid "Table Search"
 msgid "Table search"
 msgstr "گەڕانی خشتە"
 
 #: libraries/controllers/table/TableSearchController.php:775
-#, fuzzy
 #| msgid "Zoom Search"
 msgid "Zoom search"
 msgstr "زوومکردنی گەڕان"
 
 #: libraries/controllers/table/TableSearchController.php:780
 #: templates/table/search/selection_form.phtml:60
-#, fuzzy
 #| msgid "Hide search criteria"
 msgid "Find and replace"
 msgstr "شاردنەوەی پێوانەکانی گەڕان"
@@ -7995,7 +7802,6 @@ msgstr[0] ""
 msgstr[1] ""
 
 #: libraries/controllers/table/TableStructureController.php:250
-#, fuzzy
 #| msgid "No rows selected"
 msgid "No column selected."
 msgstr "هیچ ڕیزێک هەڵنەبژێراوە"
@@ -8071,7 +7877,6 @@ msgid ""
 msgstr ""
 
 #: libraries/db_designer.lib.php:119
-#, fuzzy
 #| msgid "Could not load import plugins, please check your installation!"
 msgid "Could not load schema plugins, please check your installation!"
 msgstr "هەڵە لە بارکردنی پێوەکراەکان, تکایە فۆناغەکانی دامەزراندن بپشکنن!"
@@ -8097,7 +7902,6 @@ msgstr ""
 
 #: libraries/display_change_password.lib.php:102
 #: libraries/display_change_password.lib.php:135
-#, fuzzy
 #| msgid "Password"
 msgid "Password Hashing:"
 msgstr "وشەی نهێنی"
@@ -8125,19 +7929,16 @@ msgid "Exporting rows from \"%s\" table"
 msgstr ""
 
 #: libraries/display_export.lib.php:200
-#, fuzzy
 #| msgid "Export"
 msgid "Export templates:"
 msgstr "هەناردن"
 
 #: libraries/display_export.lib.php:205
-#, fuzzy
 #| msgid "Reload page"
 msgid "New template:"
 msgstr "بارکردنەوەى پەڕە"
 
 #: libraries/display_export.lib.php:208
-#, fuzzy
 #| msgid "Database name"
 msgid "Template name"
 msgstr "ناوی بنکەی دراو"
@@ -8145,7 +7946,7 @@ msgstr "ناوی بنکەی دراو"
 #: libraries/display_export.lib.php:210
 #: templates/server/databases/create.phtml:22
 msgid "Create"
-msgstr ""
+msgstr "دروستكردن"
 
 #: libraries/display_export.lib.php:217
 msgid "Existing templates:"
@@ -8153,42 +7954,37 @@ msgstr ""
 
 #: libraries/display_export.lib.php:218
 msgid "Template:"
-msgstr ""
+msgstr "داڕێژه‌"
 
 #: libraries/display_export.lib.php:223
-#, fuzzy
 #| msgid "Updated"
 msgid "Update"
-msgstr "بارکراوە"
+msgstr "نوێكردنه‌وه‌"
 
 #: libraries/display_export.lib.php:245
-#, fuzzy
 #| msgid "Select All"
 msgid "Select a template"
 msgstr "هەڵبژاردنی هەموو"
 
 #: libraries/display_export.lib.php:294
-#, fuzzy
 #| msgid "Export"
 msgid "Export method:"
 msgstr "هەناردن"
 
 #: libraries/display_export.lib.php:304
 msgid "Quick - display only the minimal options"
-msgstr ""
+msgstr "خێرا پیشاندانی بژارده‌ی كه‌مترین"
 
 #: libraries/display_export.lib.php:316
 msgid "Custom - display all possible options"
 msgstr ""
 
 #: libraries/display_export.lib.php:338
-#, fuzzy
 #| msgid "Databases"
 msgid "Databases:"
-msgstr "بنکە زانیاریەکان"
+msgstr "بنكه‌ دراوی زانیاریه‌كان"
 
 #: libraries/display_export.lib.php:340 libraries/navigation/Navigation.php:196
-#, fuzzy
 #| msgid "Table"
 msgid "Tables:"
 msgstr "خشتە"
@@ -8196,7 +7992,7 @@ msgstr "خشتە"
 #: libraries/display_export.lib.php:360 libraries/display_import.lib.php:364
 #: libraries/plugins/export/ExportCodegen.php:100
 msgid "Format:"
-msgstr ""
+msgstr "فۆرمات"
 
 #: libraries/display_export.lib.php:376 libraries/display_import.lib.php:370
 msgid "Format-specific options:"
@@ -8214,7 +8010,7 @@ msgstr ""
 
 #: libraries/display_export.lib.php:425
 msgid "Rows:"
-msgstr ""
+msgstr "ڕیز"
 
 #: libraries/display_export.lib.php:433
 msgid "Dump some row(s)"
@@ -8222,7 +8018,7 @@ msgstr ""
 
 #: libraries/display_export.lib.php:449
 msgid "Row to begin at:"
-msgstr ""
+msgstr "ڕیزكردن به‌پێی"
 
 #: libraries/display_export.lib.php:466
 msgid "Dump all rows"
@@ -8230,7 +8026,7 @@ msgstr ""
 
 #: libraries/display_export.lib.php:482 libraries/display_export.lib.php:771
 msgid "Output:"
-msgstr ""
+msgstr "یه‌كه‌ی ده‌رخسته‌"
 
 #: libraries/display_export.lib.php:491 libraries/display_export.lib.php:526
 #, php-format
@@ -8239,7 +8035,7 @@ msgstr ""
 
 #: libraries/display_export.lib.php:556
 msgid "File name template:"
-msgstr ""
+msgstr "ناوی تێمپیله‌یته‌كه‌ت"
 
 #: libraries/display_export.lib.php:558
 msgid "@SERVER@ will become the server name"
@@ -8291,7 +8087,6 @@ msgid "Export databases as separate files"
 msgstr ""
 
 #: libraries/display_export.lib.php:752
-#, fuzzy
 #| msgid "Enter each value in a separate field."
 msgid "Export tables as separate files"
 msgstr "هەر نرخێک لە خانەی جیا بنووسە."
@@ -8309,37 +8104,31 @@ msgid "Skip tables larger than"
 msgstr ""
 
 #: libraries/display_export.lib.php:935
-#, fuzzy
 #| msgid "Select All"
 msgid "Select database"
 msgstr "هەڵبژاردنی هەموو"
 
 #: libraries/display_export.lib.php:937
-#, fuzzy
 #| msgid "Select All"
 msgid "Select table"
 msgstr "هەڵبژاردنی هەموو"
 
 #: libraries/display_export.lib.php:953
-#, fuzzy
 #| msgid "Database name"
 msgid "New database name"
 msgstr "ناوی بنکەی دراو"
 
 #: libraries/display_export.lib.php:977
-#, fuzzy
 #| msgid "Invalid table name"
 msgid "New table name"
 msgstr "ناوی خشتەی نادروست"
 
 #: libraries/display_export.lib.php:987
-#, fuzzy
 #| msgid "Copy column name"
 msgid "Old column name"
 msgstr "لەبەرگرتنەوەی ناوی ستون"
 
 #: libraries/display_export.lib.php:988
-#, fuzzy
 #| msgid "Copy column name"
 msgid "New column name"
 msgstr "لەبەرگرتنەوەی ناوی ستون"
@@ -8415,7 +8204,6 @@ msgid "File uploads are not allowed on this server."
 msgstr ""
 
 #: libraries/display_import.lib.php:284
-#, fuzzy
 #| msgid "Partial texts"
 msgid "Partial import:"
 msgstr "تێکستە لاوەکیەکان"
@@ -8438,7 +8226,6 @@ msgid "Skip this number of queries (for SQL) starting from the first one:"
 msgstr ""
 
 #: libraries/display_import.lib.php:345
-#, fuzzy
 #| msgid "Options"
 msgid "Other options:"
 msgstr "هەڵبژاردنەکان"
@@ -8981,7 +8768,6 @@ msgid "Data only"
 msgstr "تەنیا زانیاری"
 
 #: libraries/mult_submits.lib.php:353
-#, fuzzy
 #| msgid "Add AUTO_INCREMENT value"
 msgid "Add AUTO INCREMENT value"
 msgstr "زۆرکردنی نرخی زۆربوونی خۆکارانە"
@@ -8996,7 +8782,6 @@ msgstr "زیادکردنی مەرج"
 #: libraries/operations.lib.php:954 libraries/operations.lib.php:1307
 #: libraries/rte/rte_routines.lib.php:1000
 #: templates/columns_definitions/table_fields_definitions.phtml:47
-#, fuzzy
 #| msgid "Privileges"
 msgid "Adjust privileges"
 msgstr "تایبەتمەندێتیەکان"
@@ -9022,31 +8807,26 @@ msgid "An error has occurred while loading the navigation display"
 msgstr ""
 
 #: libraries/navigation/Navigation.php:192
-#, fuzzy
 #| msgid "Username"
 msgid "Groups:"
 msgstr "ناوی بەکارهێنەر"
 
 #: libraries/navigation/Navigation.php:193
-#, fuzzy
 #| msgid "Events"
 msgid "Events:"
 msgstr "چالاکیەکان"
 
 #: libraries/navigation/Navigation.php:194
-#, fuzzy
 #| msgid "Function"
 msgid "Functions:"
 msgstr "فرمان"
 
 #: libraries/navigation/Navigation.php:195
-#, fuzzy
 #| msgid "Processes"
 msgid "Procedures:"
 msgstr "پڕۆسەکان"
 
 #: libraries/navigation/Navigation.php:197
-#, fuzzy
 #| msgid "View"
 msgid "Views:"
 msgstr "نیشاندان"
@@ -9073,13 +8853,11 @@ msgid "phpMyAdmin documentation"
 msgstr ""
 
 #: libraries/navigation/NavigationHeader.php:209
-#, fuzzy
 #| msgid "Table comments"
 msgid "Navigation panel settings"
 msgstr "تێبینیەکانی خشتە"
 
 #: libraries/navigation/NavigationHeader.php:220
-#, fuzzy
 #| msgid "Table comments"
 msgid "Reload navigation panel"
 msgstr "تێبینیەکانی خشتە"
@@ -9118,7 +8896,7 @@ msgid "Invalid class name \"%1$s\", using default of \"Node\""
 msgstr ""
 
 #: libraries/navigation/NodeFactory.php:61
-#, fuzzy, php-format
+#, php-format, php-format
 #| msgid "Add columns"
 msgid "Could not load class \"%1$s\""
 msgstr "ستونەکان زیادبکە"
@@ -9139,13 +8917,11 @@ msgid "New"
 msgstr ""
 
 #: libraries/navigation/nodes/NodeDatabase.php:40
-#, fuzzy
 #| msgid "Database client version"
 msgid "Database operations"
 msgstr "وەشانی ڕاژەخوازی بنکەی دراوە"
 
 #: libraries/navigation/nodes/NodeDatabase.php:698
-#, fuzzy
 #| msgid "Show indexes"
 msgid "Show hidden items"
 msgstr "پێشاندانی نیشاندەرەکان"
@@ -9178,7 +8954,6 @@ msgid "New"
 msgstr ""
 
 #: libraries/navigation/nodes/NodeProcedure.php:32
-#, fuzzy
 #| msgid "Processes"
 msgid "Procedure"
 msgstr "پڕۆسەکان"
@@ -9248,7 +9023,6 @@ msgid ""
 msgstr ""
 
 #: libraries/normalization.lib.php:153 normalization.php:18
-#, fuzzy
 #| msgid "Select two columns"
 msgid "Select one…"
 msgstr "دوو ستون هەڵبژێرە"
@@ -9285,13 +9059,11 @@ msgid ""
 msgstr ""
 
 #: libraries/normalization.lib.php:209
-#, fuzzy
 #| msgid "Add/Delete columns"
 msgid "+ Add a new primary key column"
 msgstr "زیادکردن/سڕینەوەی ستونەکان"
 
 #: libraries/normalization.lib.php:232
-#, fuzzy
 #| msgid "Remove chart"
 msgid "Remove redundant columns"
 msgstr "سڕینەوەی هێلکاری"
@@ -9310,13 +9082,11 @@ msgid ""
 msgstr ""
 
 #: libraries/normalization.lib.php:246
-#, fuzzy
 #| msgid "Removing Selected Users"
 msgid "Remove selected"
 msgstr "سڕینەوەی بەکارهێنەرە دەست نیشانکراوەکان"
 
 #: libraries/normalization.lib.php:247
-#, fuzzy
 #| msgid "Add/Delete columns"
 msgid "No redundant column"
 msgstr "زیادکردن/سڕینەوەی ستونەکان"
@@ -9413,7 +9183,6 @@ msgstr ""
 
 #: libraries/normalization.lib.php:485 libraries/normalization.lib.php:630
 #: libraries/normalization.lib.php:695
-#, fuzzy
 #| msgid "Error in Processing Request"
 msgid "Error in processing!"
 msgstr "هەڵە لە کردنەوەی داواکاری"
@@ -9435,7 +9204,6 @@ msgid "Selected repeating group has been moved to the table '%s'"
 msgstr ""
 
 #: libraries/normalization.lib.php:721
-#, fuzzy
 #| msgid "Sep"
 msgid "Step 3."
 msgstr "ئەیلول"
@@ -9495,7 +9263,6 @@ msgid "No partial dependencies found!"
 msgstr ""
 
 #: libraries/operations.lib.php:79
-#, fuzzy
 #| msgid "Rename database to"
 msgid "Rename database to"
 msgstr "ناوی بنکەی دراوە بگۆڕە بۆ"
@@ -9523,7 +9290,6 @@ msgid "Drop the database (DROP)"
 msgstr "سڕینەوەی بنکەی دراوە (DROP)"
 
 #: libraries/operations.lib.php:201
-#, fuzzy
 #| msgid "Copy database to"
 msgid "Copy database to"
 msgstr "لە ڕوونووسینەوەی بنکەی دراوە بۆ"
@@ -9593,7 +9359,6 @@ msgstr "پشکنینی خشتە"
 
 #: libraries/operations.lib.php:1416
 #: templates/database/structure/check_all_tables.phtml:22
-#, fuzzy
 #| msgid "Check table"
 msgid "Checksum table"
 msgstr "پشکنینی خشتە"
@@ -9667,7 +9432,6 @@ msgid "Truncate"
 msgstr ""
 
 #: libraries/operations.lib.php:1594
-#, fuzzy
 #| msgid "Close"
 msgid "Coalesce"
 msgstr "داخستن"
@@ -9797,7 +9561,6 @@ msgid "Username:"
 msgstr ""
 
 #: libraries/plugins/auth/AuthenticationCookie.php:181
-#, fuzzy
 #| msgid "Server charset"
 msgid "Server Choice:"
 msgstr "پیتەکانی ڕاژەکار"
@@ -9811,7 +9574,6 @@ msgid "Please enter correct captcha!"
 msgstr ""
 
 #: libraries/plugins/auth/AuthenticationCookie.php:322
-#, fuzzy
 #| msgid "Allow login to any MySQL server"
 msgid "You are not allowed to log in to this MySQL server!"
 msgstr "ڕێگەدان بە چوونەژوورەوە بۆ هەر ڕاژەکارێکی MySQL"
@@ -9940,7 +9702,6 @@ msgstr ""
 
 #: libraries/plugins/export/ExportLatex.php:118
 #: libraries/plugins/export/ExportLatex.php:170
-#, fuzzy
 #| msgid "Table comments"
 msgid "Table caption:"
 msgstr "تێبینیەکانی خشتە"
@@ -9986,7 +9747,6 @@ msgstr ""
 #: libraries/plugins/export/ExportLatex.php:218
 #: libraries/plugins/export/ExportSql.php:697
 #: libraries/plugins/export/ExportXml.php:240
-#, fuzzy
 #| msgid "Generate"
 msgid "Generation Time:"
 msgstr "دروستکردن"
@@ -9994,7 +9754,6 @@ msgstr "دروستکردن"
 #: libraries/plugins/export/ExportLatex.php:221
 #: libraries/plugins/export/ExportSql.php:703
 #: libraries/plugins/export/ExportXml.php:243
-#, fuzzy
 #| msgid "PHP extension"
 msgid "PHP Version:"
 msgstr "پێوەکراوەکانی php"
@@ -10003,20 +9762,17 @@ msgstr "پێوەکراوەکانی php"
 #: libraries/plugins/export/ExportSql.php:892
 #: libraries/plugins/export/ExportXml.php:404
 #: libraries/plugins/export/PMA_ExportPdf.php:118
-#, fuzzy
 #| msgid "Database"
 msgid "Database:"
 msgstr "بنکەی دراو"
 
 #: libraries/plugins/export/ExportLatex.php:324
 #: libraries/plugins/export/ExportSql.php:2185
-#, fuzzy
 #| msgid "Database"
 msgid "Data:"
 msgstr "بنکەی دراو"
 
 #: libraries/plugins/export/ExportLatex.php:504
-#, fuzzy
 #| msgid "Structure"
 msgid "Structure:"
 msgstr "پێکهاتە"
@@ -10038,7 +9794,6 @@ msgid "Dumping data"
 msgstr ""
 
 #: libraries/plugins/export/ExportPdf.php:288
-#, fuzzy
 #| msgid "Structure"
 msgid "View structure"
 msgstr "پێکهاتە"
@@ -10064,7 +9819,6 @@ msgid ""
 msgstr ""
 
 #: libraries/plugins/export/ExportSql.php:172
-#, fuzzy
 #| msgid "Export"
 msgid "Export metadata"
 msgstr "هەناردن"
@@ -10094,7 +9848,7 @@ msgid "(less efficient as indexes will be generated during table creation)"
 msgstr ""
 
 #: libraries/plugins/export/ExportSql.php:294
-#, fuzzy, php-format
+#, php-format, php-format
 #| msgid "Use this value"
 msgid "%s value"
 msgstr "ئەم نرخە هەڵبژێرە"
@@ -10184,19 +9938,18 @@ msgid "alias export may not work reliably in all cases."
 msgstr ""
 
 #: libraries/plugins/export/ExportSql.php:1006
-#, fuzzy
 #| msgid "Static data"
 msgid "Metadata"
 msgstr "زانیاری نەجوڵاو"
 
 #: libraries/plugins/export/ExportSql.php:1076
-#, fuzzy, php-format
+#, php-format, php-format
 #| msgid "Delete tracking data for these tables?"
 msgid "Metadata for table %s"
 msgstr "سڕینەوە داتا شوێنکەوتووەکانی ئەم خشانە؟"
 
 #: libraries/plugins/export/ExportSql.php:1083
-#, fuzzy, php-format
+#, php-format, php-format
 #| msgid "Remove database"
 msgid "Metadata for database %s"
 msgstr "سڕینەوەی بنکەی دراوە"
@@ -10234,23 +9987,19 @@ msgid "Constraints for table"
 msgstr ""
 
 #: libraries/plugins/export/ExportSql.php:1750
-#, fuzzy
 msgid "Indexes for dumped tables"
 msgstr "لەناو خشتە:\n"
 
 #: libraries/plugins/export/ExportSql.php:1751
-#, fuzzy
 msgid "Indexes for table"
 msgstr "لەناو خشتە:\n"
 
 #: libraries/plugins/export/ExportSql.php:1779
-#, fuzzy
 #| msgid "Add AUTO_INCREMENT value"
 msgid "AUTO_INCREMENT for dumped tables"
 msgstr "زۆرکردنی نرخی زۆربوونی خۆکارانە"
 
 #: libraries/plugins/export/ExportSql.php:1780
-#, fuzzy
 #| msgid "Add AUTO_INCREMENT value"
 msgid "AUTO_INCREMENT for table"
 msgstr "زۆرکردنی نرخی زۆربوونی خۆکارانە"
@@ -10277,7 +10026,7 @@ msgid "(See below for the actual view)"
 msgstr ""
 
 #: libraries/plugins/export/ExportSql.php:2204
-#, fuzzy, php-format
+#, php-format, php-format
 #| msgid "Delete tracking data for these tables?"
 msgid "Error reading data for table %s:"
 msgstr "سڕینەوە داتا شوێنکەوتووەکانی ئەم خشانە؟"
@@ -10291,7 +10040,6 @@ msgid "Export contents"
 msgstr ""
 
 #: libraries/plugins/export/PMA_ExportPdf.php:119
-#, fuzzy
 #| msgid "Table"
 msgid "Table:"
 msgstr "خشتە"
@@ -10384,7 +10132,6 @@ msgid ""
 msgstr ""
 
 #: libraries/plugins/import/ImportOds.php:162
-#, fuzzy
 #| msgid "Could not save recent table"
 msgid "Could not parse OpenDocument Spreadsheet!"
 msgstr "نەتوانرا خشتە تازەکە پاشەکەوت بکرێت"
@@ -10439,7 +10186,6 @@ msgstr ""
 #: libraries/plugins/schema/SchemaDia.php:65
 #: libraries/plugins/schema/SchemaEps.php:73
 #: libraries/plugins/schema/SchemaPdf.php:73
-#, fuzzy
 #| msgid "Point"
 msgid "Portrait"
 msgstr "خاڵ"
@@ -10456,25 +10202,21 @@ msgstr ""
 
 #: libraries/plugins/schema/SchemaPdf.php:93
 #: templates/database/structure/print_view_data_dictionary_link.phtml:6
-#, fuzzy
 #| msgid "Data Dictionary"
 msgid "Data dictionary"
 msgstr "فەرهەنگی زانیاریەکان"
 
 #: libraries/plugins/schema/SchemaPdf.php:99
-#, fuzzy
 #| msgid "Number of rows"
 msgid "Order of the tables"
 msgstr "ژمارەی ڕیزەکان"
 
 #: libraries/plugins/schema/SchemaPdf.php:104
-#, fuzzy
 #| msgid "Ascending"
 msgid "Name (Ascending)"
 msgstr "لە سەرەتاوە بۆ کۆتایی"
 
 #: libraries/plugins/schema/SchemaPdf.php:105
-#, fuzzy
 #| msgid "Descending"
 msgid "Name (Descending)"
 msgstr "لە کۆتایی بۆ سەرەتا"
@@ -10494,13 +10236,12 @@ msgid "Schema of the %s database - Page %s"
 msgstr ""
 
 #: libraries/plugins/schema/pdf/Pdf.php:238
-#, fuzzy
 #| msgid "Invalid export type"
 msgid "PDF export page"
 msgstr "هەناردنی ئەم جۆرە ڕێگەپێدراو نییە"
 
 #: libraries/plugins/schema/pdf/PdfRelationSchema.php:102
-#, fuzzy, php-format
+#, php-format, php-format
 #| msgid "Search in database"
 msgid "Schema of the %s database"
 msgstr "گەڕان لە بنکەی دراو"
@@ -10689,7 +10430,6 @@ msgid "FOREIGN KEY relation has been added."
 msgstr ""
 
 #: libraries/pmd_common.php:603
-#, fuzzy
 #| msgid "File could not be read"
 msgid "Error: FOREIGN KEY relation could not be added!"
 msgstr "ناتوانیت پەڕگە بخوێنیتەوە"
@@ -10703,37 +10443,31 @@ msgid "Error: Relational features are disabled!"
 msgstr ""
 
 #: libraries/pmd_common.php:635
-#, fuzzy
 #| msgid "The row has been deleted."
 msgid "Internal relation has been added."
 msgstr "ڕیزەکە سڕایەوە"
 
 #: libraries/pmd_common.php:641
-#, fuzzy
 #| msgid "File could not be read"
 msgid "Error: Internal relation could not be added!"
 msgstr "ناتوانیت پەڕگە بخوێنیتەوە"
 
 #: libraries/pmd_common.php:679
-#, fuzzy
 #| msgid "The row has been deleted."
 msgid "FOREIGN KEY relation has been removed."
 msgstr "ڕیزەکە سڕایەوە"
 
 #: libraries/pmd_common.php:685
-#, fuzzy
 #| msgid "File could not be read"
 msgid "Error: FOREIGN KEY relation could not be removed!"
 msgstr "ناتوانیت پەڕگە بخوێنیتەوە"
 
 #: libraries/pmd_common.php:712
-#, fuzzy
 #| msgid "File could not be read"
 msgid "Error: Internal relation could not be removed!"
 msgstr "ناتوانیت پەڕگە بخوێنیتەوە"
 
 #: libraries/pmd_common.php:716
-#, fuzzy
 #| msgid "The row has been deleted."
 msgid "Internal relation has been removed."
 msgstr "ڕیزەکە سڕایەوە"
@@ -10792,7 +10526,6 @@ msgid "Persistent recently used tables"
 msgstr ""
 
 #: libraries/relation.lib.php:243
-#, fuzzy
 #| msgid "There are no recent tables"
 msgid "Persistent favorite tables"
 msgstr "هیچ خشتەیەکی تازە نیە"
@@ -10826,7 +10559,6 @@ msgid "Remembering Designer Settings"
 msgstr ""
 
 #: libraries/relation.lib.php:348
-#, fuzzy
 #| msgid "Invalid export type"
 msgid "Saving export templates"
 msgstr "هەناردنی ئەم جۆرە ڕێگەپێدراو نییە"
@@ -10944,7 +10676,6 @@ msgid "Slave replication"
 msgstr ""
 
 #: libraries/replication_gui.lib.php:148
-#, fuzzy
 #| msgid "Compress connection"
 msgid "Master connection:"
 msgstr "پەستانی پەیوەندی"
@@ -11045,7 +10776,6 @@ msgstr ""
 
 #: libraries/replication_gui.lib.php:411 libraries/replication_gui.lib.php:789
 #: libraries/server_privileges.lib.php:1605
-#, fuzzy
 #| msgid "Username"
 msgid "User name:"
 msgstr "ناوی بەکارهێنەر"
@@ -11141,7 +10871,6 @@ msgid "Re-type"
 msgstr ""
 
 #: libraries/replication_gui.lib.php:880
-#, fuzzy
 #| msgid "Generate password"
 msgid "Generate password:"
 msgstr "دروستکردنی تێپەڕە وشە"
@@ -11175,7 +10904,6 @@ msgid "Success."
 msgstr ""
 
 #: libraries/replication_gui.lib.php:931
-#, fuzzy
 #| msgid "Error"
 msgid "Error."
 msgstr "هەڵە"
@@ -11307,7 +11035,6 @@ msgstr ""
 #: libraries/rte/rte_routines.lib.php:158
 #: libraries/rte/rte_routines.lib.php:1289
 #: libraries/rte/rte_routines.lib.php:1502
-#, fuzzy
 #| msgid "Error in Processing Request"
 msgid "Error in processing request:"
 msgstr "هەڵە لە کردنەوەی داواکاری"
@@ -11595,7 +11322,6 @@ msgid "There are no events to display."
 msgstr ""
 
 #: libraries/select_server.lib.php:42 libraries/select_server.lib.php:47
-#, fuzzy
 #| msgid "Current settings"
 msgid "Current server:"
 msgstr "ڕێکخستنەکانی هەنووکە"
@@ -11783,13 +11509,11 @@ msgid "User group"
 msgstr ""
 
 #: libraries/server_privileges.lib.php:732
-#, fuzzy
 #| msgid "Compress connection"
 msgid "Does not require SSL-encrypted connections."
 msgstr "پەستانی پەیوەندی"
 
 #: libraries/server_privileges.lib.php:753
-#, fuzzy
 #| msgid "Compress connection"
 msgid "Requires SSL-encrypted connections."
 msgstr "پەستانی پەیوەندی"
@@ -11848,7 +11572,6 @@ msgstr ""
 #: libraries/server_privileges.lib.php:3379
 #: libraries/server_privileges.lib.php:4644
 #: templates/privileges/edit_routine_privileges.phtml:11
-#, fuzzy
 #| msgid "Routines"
 msgid "Routine"
 msgstr "ڕۆتینەکان"
@@ -11912,7 +11635,6 @@ msgid "Native MySQL authentication"
 msgstr ""
 
 #: libraries/server_privileges.lib.php:1534
-#, fuzzy
 #| msgid "Change password"
 msgid "SHA256 password authentication"
 msgstr "گۆڕینی وشەی نهێنی"
@@ -11940,7 +11662,6 @@ msgid ""
 msgstr ""
 
 #: libraries/server_privileges.lib.php:1660
-#, fuzzy
 #| msgid "Username"
 msgid "Host name:"
 msgstr "ناوی بەکارهێنەر"
@@ -11949,7 +11670,6 @@ msgstr "ناوی بەکارهێنەر"
 #: libraries/server_privileges.lib.php:1750
 #: libraries/server_privileges.lib.php:2640
 #: libraries/server_privileges.lib.php:3565
-#, fuzzy
 #| msgid "Contribute"
 msgid "Host name"
 msgstr "بەشداری کردن"
@@ -11959,13 +11679,11 @@ msgid "Do not change the password"
 msgstr ""
 
 #: libraries/server_privileges.lib.php:1819
-#, fuzzy
 #| msgid "Current settings"
 msgid "Authentication Plugin"
 msgstr "ڕێکخستنەکانی هەنووکە"
 
 #: libraries/server_privileges.lib.php:1826
-#, fuzzy
 #| msgid "Password"
 msgid "Password Hashing Method"
 msgstr "وشەی نهێنی"
@@ -11982,13 +11700,11 @@ msgstr ""
 
 #: libraries/server_privileges.lib.php:2247
 #: libraries/server_privileges.lib.php:4573
-#, fuzzy
 #| msgid "Add user"
 msgid "Add user account"
 msgstr "زیادکردنی بەکارهێنەر"
 
 #: libraries/server_privileges.lib.php:2256
-#, fuzzy
 #| msgid "Database client version"
 msgid "Database for user account"
 msgstr "وەشانی ڕاژەخوازی بنکەی دراوە"
@@ -12054,7 +11770,6 @@ msgid "table-specific"
 msgstr ""
 
 #: libraries/server_privileges.lib.php:2905
-#, fuzzy
 #| msgid "Privileges"
 msgid "Edit privileges"
 msgstr "تایبەتمەندێتیەکان"
@@ -12096,13 +11811,11 @@ msgstr ""
 
 #: libraries/server_privileges.lib.php:3378
 #: templates/privileges/edit_routine_privileges.phtml:12
-#, fuzzy
 #| msgid "Privileges"
 msgid "Routine-specific privileges"
 msgstr "تایبەتمەندێتیەکان"
 
 #: libraries/server_privileges.lib.php:3758
-#, fuzzy
 #| msgid "Removing Selected Users"
 msgid "Remove selected user accounts"
 msgstr "سڕینەوەی بەکارهێنەرە دەست نیشانکراوەکان"
@@ -12165,13 +11878,11 @@ msgid "New"
 msgstr ""
 
 #: libraries/server_privileges.lib.php:4594
-#, fuzzy
 #| msgid "Privileges"
 msgid "Edit privileges:"
 msgstr "تایبەتمەندێتیەکان"
 
 #: libraries/server_privileges.lib.php:4595
-#, fuzzy
 #| msgid "Users"
 msgid "User account"
 msgstr "بەکارهێنەرەکان"
@@ -12262,7 +11973,6 @@ msgid "Sent"
 msgstr ""
 
 #: libraries/server_status.lib.php:240
-#, fuzzy
 #| msgid "Compress connection"
 msgid "Max. concurrent connections"
 msgstr "پەستانی پەیوەندی"
@@ -12424,7 +12134,6 @@ msgid "Clear series"
 msgstr ""
 
 #: libraries/server_status_monitor.lib.php:229
-#, fuzzy
 #| msgid "Server charset:"
 msgid "Series in chart:"
 msgstr "پیتەکانی ڕاژەکار:"
@@ -12492,7 +12201,6 @@ msgid "Filters"
 msgstr ""
 
 #: libraries/server_status_processes.lib.php:241
-#, fuzzy
 #| msgid "Show only listed databases"
 msgid "Show only active"
 msgstr "تەنها نیشاندانی لیستی بنکەی دراو"
@@ -12503,19 +12211,16 @@ msgid "Questions since startup: %s"
 msgstr ""
 
 #: libraries/server_status_queries.lib.php:41
-#, fuzzy
 #| msgid "per hour"
 msgid "per hour:"
 msgstr "لە کاتژمێرێکدا"
 
 #: libraries/server_status_queries.lib.php:44
-#, fuzzy
 #| msgid "per minute"
 msgid "per minute:"
 msgstr "لە خولەکێک دا"
 
 #: libraries/server_status_queries.lib.php:51
-#, fuzzy
 #| msgid "per second"
 msgid "per second:"
 msgstr "لە چرکەیەک دا"
@@ -13128,38 +12833,32 @@ msgid "No users were found belonging to this user group."
 msgstr ""
 
 #: libraries/server_user_groups.lib.php:62 libraries/server_users.lib.php:30
-#, fuzzy
 #| msgid "Users"
 msgid "User groups"
 msgstr "بەکارهێنەرەکان"
 
 #: libraries/server_user_groups.lib.php:77
-#, fuzzy
 #| msgid "Server version"
 msgid "Server level tabs"
 msgstr "وەشانی ڕاژە"
 
 #: libraries/server_user_groups.lib.php:78
-#, fuzzy
 #| msgid "Database server"
 msgid "Database level tabs"
 msgstr "ڕاژەکاری بکنەی دراوە"
 
 #: libraries/server_user_groups.lib.php:79
-#, fuzzy
 #| msgid "Table comments"
 msgid "Table level tabs"
 msgstr "تێبینیەکانی خشتە"
 
 #: libraries/server_user_groups.lib.php:108
-#, fuzzy
 #| msgid "in use"
 msgid "View users"
 msgstr "بەکار دەبرێت"
 
 #: libraries/server_user_groups.lib.php:146
 #: libraries/server_user_groups.lib.php:210
-#, fuzzy
 #| msgid "Add user"
 msgid "Add user group"
 msgstr "زیادکردنی بەکارهێنەر"
@@ -13174,25 +12873,21 @@ msgid "User group menu assignments"
 msgstr ""
 
 #: libraries/server_user_groups.lib.php:236
-#, fuzzy
 #| msgid "Username"
 msgid "Group name:"
 msgstr "ناوی بەکارهێنەر"
 
 #: libraries/server_user_groups.lib.php:274
-#, fuzzy
 #| msgid "Server version"
 msgid "Server-level tabs"
 msgstr "وەشانی ڕاژە"
 
 #: libraries/server_user_groups.lib.php:277
-#, fuzzy
 #| msgid "Database server"
 msgid "Database-level tabs"
 msgstr "ڕاژەکاری بکنەی دراوە"
 
 #: libraries/server_user_groups.lib.php:280
-#, fuzzy
 #| msgid "Table comments"
 msgid "Table-level tabs"
 msgstr "تێبینیەکانی خشتە"
@@ -13202,13 +12897,11 @@ msgid "Detailed profile"
 msgstr ""
 
 #: libraries/sql.lib.php:236
-#, fuzzy
 #| msgid "Other"
 msgid "Order"
 msgstr "هیتر"
 
 #: libraries/sql.lib.php:238 libraries/sql.lib.php:254
-#, fuzzy
 #| msgid "Sat"
 msgid "State"
 msgstr "شەممە"
@@ -13218,25 +12911,21 @@ msgid "Summary by state"
 msgstr ""
 
 #: libraries/sql.lib.php:257
-#, fuzzy
 #| msgid "Total time:"
 msgid "Total Time"
 msgstr "هەموو کاتەکان:"
 
 #: libraries/sql.lib.php:259
-#, fuzzy
 #| msgid "Time"
 msgid "% Time"
 msgstr "کات"
 
 #: libraries/sql.lib.php:261
-#, fuzzy
 #| msgid "Close"
 msgid "Calls"
 msgstr "داخستن"
 
 #: libraries/sql.lib.php:263
-#, fuzzy
 #| msgid "Time"
 msgid "ø Time"
 msgstr "کات"
@@ -13254,7 +12943,6 @@ msgid "Let every user access this bookmark"
 msgstr ""
 
 #: libraries/sql.lib.php:786
-#, fuzzy
 #| msgid "Bookmark %s created"
 msgid "Bookmark not created!"
 msgstr "شوێندۆز  %s دروستکرا"
@@ -13298,7 +12986,7 @@ msgid "Run SQL query/queries on database %s"
 msgstr ""
 
 #: libraries/sql_query_form.lib.php:177
-#, fuzzy, php-format
+#, php-format, php-format
 #| msgid "SQL query on database <b>%s</b>:"
 msgid "Run SQL query/queries on table %s"
 msgstr "پرسی SQL لەسەر بنکەی دراوەی <b>%s</b>:"
@@ -13313,7 +13001,6 @@ msgid "Get auto-saved query"
 msgstr ""
 
 #: libraries/sql_query_form.lib.php:259
-#, fuzzy
 #| msgid "Bad parameters!"
 msgid "Bind parameters"
 msgstr "ڕادە هەڵەکان!"
@@ -13352,7 +13039,7 @@ msgid "Create version %1$s of %2$s"
 msgstr ""
 
 #: libraries/tracking.lib.php:79
-#, fuzzy, php-format
+#, php-format, php-format
 #| msgid "Current settings"
 msgid "Create version %1$s"
 msgstr "ڕێکخستنەکانی هەنووکە"
@@ -13400,7 +13087,6 @@ msgid "Updated"
 msgstr "بارکراوە"
 
 #: libraries/tracking.lib.php:295 libraries/tracking.lib.php:368
-#, fuzzy
 #| msgid "Last version"
 msgid "Delete version"
 msgstr "وەشانی کۆتا"
@@ -13762,7 +13448,6 @@ msgid ""
 msgstr ""
 
 #: setup/frames/index.inc.php:134
-#, fuzzy
 #| msgid "Modifications have been saved"
 msgid "Configuration not saved!"
 msgstr "گۆڕانکارییەکان پاشەکەوت کران"
@@ -13909,7 +13594,6 @@ msgid "Row: %1$s, Column: %2$s, Error: %3$s"
 msgstr ""
 
 #: tbl_row_action.php:71
-#, fuzzy
 #| msgid "No rows selected"
 msgid "No row selected."
 msgstr "هیچ ڕیزێک هەڵنەبژێراوە"
@@ -13920,13 +13604,11 @@ msgid "Tracking of %s is activated."
 msgstr ""
 
 #: tbl_tracking.php:104
-#, fuzzy
 #| msgid "Your SQL query has been executed successfully."
 msgid "Tracking versions deleted successfully."
 msgstr "سیكوێڵ کیوریەکەت بەسەرکەوتوویی ئەنجامدرا"
 
 #: tbl_tracking.php:109
-#, fuzzy
 #| msgid "No rows selected"
 msgid "No versions selected."
 msgstr "هیچ ڕیزێک هەڵنەبژێراوە"
@@ -13950,19 +13632,16 @@ msgstr ""
 
 #: templates/columns_definitions/column_definitions_form.phtml:58
 #: templates/console/display.phtml:126
-#, fuzzy
 #| msgid "And"
 msgid "Add"
 msgstr "و"
 
 #: templates/columns_definitions/column_definitions_form.phtml:66
-#, fuzzy
 #| msgid "Column"
 msgid "column(s)"
 msgstr "ستون"
 
 #: templates/columns_definitions/column_definitions_form.phtml:93
-#, fuzzy
 #| msgid "Collation"
 msgid "Collation:"
 msgstr "ڕێکخستن"
@@ -13972,7 +13651,6 @@ msgid "Storage Engine:"
 msgstr ""
 
 #: templates/columns_definitions/column_definitions_form.phtml:102
-#, fuzzy
 #| msgid "Connections"
 msgid "Connection:"
 msgstr "بەستنەکان"
@@ -13995,7 +13673,6 @@ msgid "Is a foreign key."
 msgstr ""
 
 #: templates/columns_definitions/column_name.phtml:43
-#, fuzzy
 #| msgid "Remove chart"
 msgid "Pick from Central Columns"
 msgstr "سڕینەوەی هێلکاری"
@@ -14016,62 +13693,52 @@ msgid "after %s"
 msgstr ""
 
 #: templates/columns_definitions/partitions.phtml:9
-#, fuzzy
 #| msgid "Partial texts"
 msgid "Partition by:"
 msgstr "تێکستە لاوەکیەکان"
 
 #: templates/columns_definitions/partitions.phtml:25
 #: templates/columns_definitions/partitions.phtml:54
-#, fuzzy
 #| msgid "Values for column %s"
 msgid "Expression or column list"
 msgstr "نرخەکانی ستونی %s"
 
 #: templates/columns_definitions/partitions.phtml:30
-#, fuzzy
 #| msgid "Partial texts"
 msgid "Partitions:"
 msgstr "تێکستە لاوەکیەکان"
 
 #: templates/columns_definitions/partitions.phtml:38
-#, fuzzy
 #| msgid "Partial texts"
 msgid "Subpartition by:"
 msgstr "تێکستە لاوەکیەکان"
 
 #: templates/columns_definitions/partitions.phtml:59
-#, fuzzy
 #| msgid "Partial texts"
 msgid "Subpartitions:"
 msgstr "تێکستە لاوەکیەکان"
 
 #: templates/columns_definitions/partitions.phtml:71
-#, fuzzy
 #| msgid "Partial texts"
 msgid "Partition"
 msgstr "تێکستە لاوەکیەکان"
 
 #: templates/columns_definitions/partitions.phtml:73
-#, fuzzy
 #| msgid "Value"
 msgid "Values"
 msgstr "نرخ"
 
 #: templates/columns_definitions/partitions.phtml:76
-#, fuzzy
 #| msgid "Partial texts"
 msgid "Subpartition"
 msgstr "تێکستە لاوەکیەکان"
 
 #: templates/columns_definitions/partitions.phtml:78
-#, fuzzy
 #| msgid "Engines"
 msgid "Engine"
 msgstr "بزوێنەرەکان"
 
 #: templates/columns_definitions/partitions.phtml:80
-#, fuzzy
 #| msgid "Data Dictionary"
 msgid "Data directory"
 msgstr "فەرهەنگی زانیاریەکان"
@@ -14081,25 +13748,21 @@ msgid "Index directory"
 msgstr ""
 
 #: templates/columns_definitions/partitions.phtml:82
-#, fuzzy
 #| msgid "Matched rows:"
 msgid "Max rows"
 msgstr "ریزە هاوتاکان:"
 
 #: templates/columns_definitions/partitions.phtml:83
-#, fuzzy
 #| msgid "Browse"
 msgid "Min rows"
 msgstr "گەڕۆک"
 
 #: templates/columns_definitions/partitions.phtml:84
-#, fuzzy
 #| msgid "Table Search"
 msgid "Table space"
 msgstr "گەڕانی خشتە"
 
 #: templates/columns_definitions/partitions.phtml:85
-#, fuzzy
 #| msgid "Users"
 msgid "Node group"
 msgstr "بەکارهێنەرەکان"
@@ -14151,7 +13814,6 @@ msgstr ""
 
 #: templates/columns_definitions/table_fields_definitions.phtml:107
 #: transformation_overview.php:42
-#, fuzzy
 #| msgid "Version information"
 msgid "Input transformation"
 msgstr "زانیاری وەشان"
@@ -14174,7 +13836,6 @@ msgstr ""
 
 #: templates/console/bookmark_content.phtml:16
 #: templates/console/display.phtml:50 templates/console/display.phtml:212
-#, fuzzy
 #| msgid "Query"
 msgid "Requery"
 msgstr "داواکاری"
@@ -14188,19 +13849,16 @@ msgid "History"
 msgstr ""
 
 #: templates/console/display.phtml:14 templates/console/display.phtml:124
-#, fuzzy
 #| msgid "Table Search"
 msgid "Bookmarks"
 msgstr "گەڕانی خشتە"
 
 #: templates/console/display.phtml:26
-#, fuzzy
 #| msgid "in query"
 msgid "Press Ctrl+Enter to execute query"
 msgstr "لە داواکاری"
 
 #: templates/console/display.phtml:29
-#, fuzzy
 #| msgid "in query"
 msgid "Press Enter to execute query"
 msgstr "لە داواکاری"
@@ -14210,50 +13868,42 @@ msgid "During current session"
 msgstr ""
 
 #: templates/console/display.phtml:52 templates/console/display.phtml:214
-#, fuzzy
 #| msgid "Explain SQL"
 msgid "Explain"
 msgstr "ڕوونکردنەوەی سیكوێڵ"
 
 #: templates/console/display.phtml:55 templates/console/display.phtml:217
-#, fuzzy
 #| msgid "Table Search"
 msgid "Bookmark"
 msgstr "گەڕانی خشتە"
 
 #: templates/console/display.phtml:56 templates/console/display.phtml:218
-#, fuzzy
 #| msgid "Query cache used"
 msgid "Query failed"
 msgstr "بیرگەی داواکاری بەکارهاتوو"
 
 #: templates/console/display.phtml:58 templates/console/display.phtml:220
-#, fuzzy
 #| msgid "Query execution time"
 msgid "Queried time"
 msgstr "ماوەی جێبەجێکردنی داواکاری"
 
 #: templates/console/display.phtml:81
-#, fuzzy
 #| msgid "Ascending"
 msgid "ascending"
 msgstr "لە سەرەتاوە بۆ کۆتایی"
 
 #: templates/console/display.phtml:82
-#, fuzzy
 #| msgid "Descending"
 msgid "descending"
 msgstr "لە کۆتایی بۆ سەرەتا"
 
 #: templates/console/display.phtml:83
-#, fuzzy
 #| msgid "Other"
 msgid "Order:"
 msgstr "هیتر"
 
 #: templates/console/display.phtml:85 templates/console/display.phtml:109
 #: templates/table/search/replace_preview.phtml:17
-#, fuzzy
 #| msgid "Column"
 msgid "Count"
 msgstr "ستون"
@@ -14267,13 +13917,11 @@ msgid "Time taken"
 msgstr ""
 
 #: templates/console/display.phtml:88
-#, fuzzy
 #| msgid "Other"
 msgid "Order by:"
 msgstr "هیتر"
 
 #: templates/console/display.phtml:89
-#, fuzzy
 msgid "Group queries"
 msgstr "نیشاندانی پرسگەی SQL"
 
@@ -14282,19 +13930,16 @@ msgid "Ungroup queries"
 msgstr ""
 
 #: templates/console/display.phtml:107
-#, fuzzy
 #| msgid "Show all"
 msgid "Show trace"
 msgstr "هەمووی پێشاندە"
 
 #: templates/console/display.phtml:108
-#, fuzzy
 #| msgid "Hide indexes"
 msgid "Hide trace"
 msgstr "شاردنەوەی نیشاندەرەکان"
 
 #: templates/console/display.phtml:141
-#, fuzzy
 #| msgid "Table Search"
 msgid "Add bookmark"
 msgstr "گەڕانی خشتە"
@@ -14304,19 +13949,16 @@ msgid "Label"
 msgstr ""
 
 #: templates/console/display.phtml:152
-#, fuzzy
 #| msgid "Remove database"
 msgid "Target database"
 msgstr "سڕینەوەی بنکەی دراوە"
 
 #: templates/console/display.phtml:155
-#, fuzzy
 #| msgid "Table Search"
 msgid "Share this bookmark"
 msgstr "گەڕانی خشتە"
 
 #: templates/console/display.phtml:174
-#, fuzzy
 #| msgid "Default"
 msgid "Set default"
 msgstr "بنەڕەت"
@@ -14340,7 +13982,6 @@ msgid ""
 msgstr ""
 
 #: templates/console/display.phtml:198
-#, fuzzy
 #| msgid "Switch to copied database"
 msgid "Switch to dark theme"
 msgstr "بڕۆ بۆ بنکەی دراوەی ڕوونووس کراو"
@@ -14371,13 +14012,11 @@ msgid "Operator"
 msgstr "كرده‌هێما"
 
 #: templates/database/designer/database_tables.phtml:29
-#, fuzzy
 #| msgid "Show indexes"
 msgid "Show/hide columns"
 msgstr "پێشاندانی نیشاندەرەکان"
 
 #: templates/database/designer/database_tables.phtml:40
-#, fuzzy
 #| msgid "Structure"
 msgid "See table structure"
 msgstr "پێکهاتە"
@@ -14387,7 +14026,6 @@ msgid "Delete relation"
 msgstr ""
 
 #: templates/database/designer/edit_delete_pages.phtml:7
-#, fuzzy
 #| msgid "Replace table prefix"
 msgid "Page to open"
 msgstr "گۆڕینی پێشگری خشتە"
@@ -14432,7 +14070,6 @@ msgid "New name"
 msgstr ""
 
 #: templates/database/designer/page_save_as.phtml:4
-#, fuzzy
 #| msgid "No rows selected"
 msgid "Save to selected page"
 msgstr "هیچ ڕیزێک هەڵنەبژێراوە"
@@ -14459,7 +14096,6 @@ msgstr ""
 
 #: templates/database/designer/side_menu.phtml:19
 #: templates/database/designer/side_menu.phtml:25
-#, fuzzy
 #| msgid "Showing rows"
 msgid "Show/Hide tables list"
 msgstr "ڕیزە پێشاندراوەکان"
@@ -14476,14 +14112,12 @@ msgstr ""
 
 #: templates/database/designer/side_menu.phtml:41
 #: templates/database/designer/side_menu.phtml:45
-#, fuzzy
 #| msgid "Reload page"
 msgid "New page"
 msgstr "بارکردنەوەى پەڕە"
 
 #: templates/database/designer/side_menu.phtml:70
 #: templates/database/designer/side_menu.phtml:73
-#, fuzzy
 #| msgid "Delete"
 msgid "Delete pages"
 msgstr "سڕینەوە"
@@ -14530,7 +14164,6 @@ msgstr ""
 
 #: templates/database/designer/side_menu.phtml:153
 #: templates/database/designer/side_menu.phtml:156
-#, fuzzy
 #| msgid "Export"
 msgid "Export schema"
 msgstr "هەناردن"
@@ -14547,7 +14180,6 @@ msgstr ""
 
 #: templates/database/designer/side_menu.phtml:181
 #: templates/database/designer/side_menu.phtml:186
-#, fuzzy
 #| msgid "Partial texts"
 msgid "Pin text"
 msgstr "تێکستە لاوەکیەکان"
@@ -14561,7 +14193,6 @@ msgid "Hide/Show Tables with no relation"
 msgstr ""
 
 #: templates/database/designer/table_list.phtml:59
-#, fuzzy
 #| msgid "Number of rows"
 msgid "Number of tables:"
 msgstr "ژمارەی ڕیزەکان"
@@ -14582,13 +14213,11 @@ msgid "Check tables having overhead"
 msgstr "پشکنین بۆ ئەو خشتانە بکە کە ژوورسەریان هەیە"
 
 #: templates/database/structure/check_all_tables.phtml:10
-#, fuzzy
 #| msgid "Copy"
 msgid "Copy table"
 msgstr "لەبەرگرتنەوە"
 
 #: templates/database/structure/check_all_tables.phtml:11
-#, fuzzy
 #| msgid "Show all"
 msgid "Show create"
 msgstr "هەمووی پێشاندە"
@@ -14606,7 +14235,6 @@ msgid "Replace table prefix"
 msgstr "گۆڕینی پێشگری خشتە"
 
 #: templates/database/structure/check_all_tables.phtml:35
-#, fuzzy
 #| msgid "Add columns"
 msgid "Add columns to central list"
 msgstr "ستونەکان زیادبکە"
@@ -14616,7 +14244,6 @@ msgid "Remove columns from central list"
 msgstr ""
 
 #: templates/database/structure/check_all_tables.phtml:37
-#, fuzzy
 #| msgid "Add columns"
 msgid "Make consistent with central list"
 msgstr "ستونەکان زیادبکە"
@@ -14626,7 +14253,6 @@ msgid "Add to Favorites"
 msgstr ""
 
 #: templates/database/structure/show_create.phtml:2
-#, fuzzy
 msgid "Showing create queries"
 msgstr "نیشاندانی پرسگەی SQL"
 
@@ -14704,7 +14330,6 @@ msgid "Wildcards % and _ should be escaped with a \\ to use them literally."
 msgstr ""
 
 #: templates/privileges/add_privileges_routine.phtml:3
-#, fuzzy
 #| msgid "Create the following table"
 msgid "Add privileges on the following routine:"
 msgstr "خشتەکانی خوارەوە درووست بکە"
@@ -14736,7 +14361,6 @@ msgid "Check privileges for database \"%s\"."
 msgstr ""
 
 #: templates/server/databases/table_row.phtml:62
-#, fuzzy
 #| msgid "Privileges"
 msgid "Check privileges"
 msgstr "تایبەتمەندێتیەکان"
@@ -14767,7 +14391,6 @@ msgid "Global value"
 msgstr ""
 
 #: templates/startAndNumberOfRowsPanel.phtml:3
-#, fuzzy
 #| msgid "Start row"
 msgid "Start row:"
 msgstr "ڕیزی سەرەتا"
@@ -14803,7 +14426,6 @@ msgid "Pie"
 msgstr ""
 
 #: templates/table/chart/tbl_chart.phtml:40
-#, fuzzy
 #| msgid "Time"
 msgctxt "Chart type"
 msgid "Timeline"
@@ -14819,7 +14441,6 @@ msgid "Stacked"
 msgstr ""
 
 #: templates/table/chart/tbl_chart.phtml:52
-#, fuzzy
 #| msgid "Chart Title"
 msgid "Chart title:"
 msgstr "ناونیشانی هێلکاری"
@@ -14853,13 +14474,11 @@ msgid "Series names are in a column"
 msgstr ""
 
 #: templates/table/chart/tbl_chart.phtml:119
-#, fuzzy
 #| msgid "Inside column:"
 msgid "Series column:"
 msgstr "لە نێو خشتەی:"
 
 #: templates/table/chart/tbl_chart.phtml:133
-#, fuzzy
 #| msgid "Values for column %s"
 msgid "Value Column:"
 msgstr "نرخەکانی ستونی %s"
@@ -14894,7 +14513,6 @@ msgid ""
 msgstr ""
 
 #: templates/table/index_form.phtml:40
-#, fuzzy
 #| msgid "Indexes"
 msgid "Index choice:"
 msgstr "نیشاندەرەکان"
@@ -14908,37 +14526,31 @@ msgid "Index type:"
 msgstr ""
 
 #: templates/table/index_form.phtml:86
-#, fuzzy
 #| msgid "User:"
 msgid "Parser:"
 msgstr "بەکارهێنەر:"
 
 #: templates/table/index_form.phtml:102
-#, fuzzy
 #| msgid "Comment"
 msgid "Comment:"
 msgstr "لێدوان"
 
 #: templates/table/index_form.phtml:149 templates/table/index_form.phtml:195
-#, fuzzy
 #| msgid "Drag to reorder"
 msgid "Drag to reorder"
 msgstr "ڕایکێشە بۆ ڕیزکردنەوە"
 
 #: templates/table/relation/common_form.phtml:6
-#, fuzzy
 #| msgid "Add constraints"
 msgid "Foreign key constraints"
 msgstr "زیادکردنی مەرج"
 
 #: templates/table/relation/common_form.phtml:9
-#, fuzzy
 #| msgid "Action"
 msgid "Actions"
 msgstr "کردار"
 
 #: templates/table/relation/common_form.phtml:10
-#, fuzzy
 #| msgid "Contribute"
 msgid "Constraint properties"
 msgstr "بەشداری کردن"
@@ -14953,14 +14565,12 @@ msgid "Foreign key constraint"
 msgstr ""
 
 #: templates/table/relation/common_form.phtml:59
-#, fuzzy
 #| msgid "Add constraints"
 msgid "+ Add constraint"
 msgstr "زیادکردنی مەرج"
 
 #: templates/table/relation/common_form.phtml:69
 #: templates/table/relation/common_form.phtml:75
-#, fuzzy
 #| msgid "The row has been deleted."
 msgid "Internal relations"
 msgstr "ڕیزەکە سڕایەوە"
@@ -14976,25 +14586,22 @@ msgid ""
 msgstr ""
 
 #: templates/table/relation/common_form.phtml:110
-#, fuzzy
 #| msgid "You have to choose at least one column to display"
 msgid "Choose column to display:"
 msgstr "دەبێت لانیکەم ١ خانە هەڵبژێریت بۆ پیشاندان"
 
 #: templates/table/relation/foreign_key_row.phtml:19
-#, fuzzy, php-format
+#, php-format, php-format
 #| msgid "Add constraints"
 msgid "Foreign key constraint %s has been dropped"
 msgstr "زیادکردنی مەرج"
 
 #: templates/table/relation/foreign_key_row.phtml:88
-#, fuzzy
 #| msgid "Contribute"
 msgid "Constraint name"
 msgstr "بەشداری کردن"
 
 #: templates/table/relation/foreign_key_row.phtml:143
-#, fuzzy
 #| msgid "Add/Delete columns"
 msgid "+ Add column"
 msgstr "زیادکردن/سڕینەوەی ستونەکان"
@@ -15028,13 +14635,11 @@ msgid "Find and replace - preview"
 msgstr ""
 
 #: templates/table/search/replace_preview.phtml:18
-#, fuzzy
 #| msgid "Linestring"
 msgid "Original string"
 msgstr "ڕیزبه‌ندی هێڵی"
 
 #: templates/table/search/replace_preview.phtml:19
-#, fuzzy
 #| msgid "Replace table prefix"
 msgid "Replaced string"
 msgstr "گۆڕینی پێشگری خشتە"
@@ -15048,7 +14653,6 @@ msgid "Additional search criteria"
 msgstr "مەرجی گەڕانی زیاتر"
 
 #: templates/table/search/search_and_replace.phtml:3
-#, fuzzy
 #| msgid "Replace table prefix"
 msgid "Replace with:"
 msgstr "گۆڕینی پێشگری خشتە"
@@ -15078,7 +14682,6 @@ msgid "Reset zoom"
 msgstr "ڕێکخستنەوەی زووم"
 
 #: templates/table/secondary_tabs.phtml:14
-#, fuzzy
 #| msgid "Replication"
 msgid "Relation view"
 msgstr "دووپاتکاری"
@@ -15098,14 +14701,12 @@ msgstr ""
 
 #: templates/table/structure/actions_in_table_structure.phtml:128
 #: templates/table/structure/check_all_table_column.phtml:57
-#, fuzzy
 #| msgid "Remove chart"
 msgid "Remove from central columns"
 msgstr "سڕینەوەی هێلکاری"
 
 #: templates/table/structure/actions_in_table_structure.phtml:136
 #: templates/table/structure/check_all_table_column.phtml:52
-#, fuzzy
 #| msgid "Add columns"
 msgid "Add to central columns"
 msgstr "ستونەکان زیادبکە"
@@ -15116,20 +14717,17 @@ msgid "Add %s column(s)"
 msgstr ""
 
 #: templates/table/structure/add_column.phtml:12
-#, fuzzy
 #| msgid "Number of rows"
 msgid "at beginning of table"
 msgstr "ژمارەی ڕیزەکان"
 
 #: templates/table/structure/display_partitions.phtml:6
 #: templates/table/structure/display_structure.phtml:184
-#, fuzzy
 #| msgid "Partial texts"
 msgid "Partitions"
 msgstr "تێکستە لاوەکیەکان"
 
 #: templates/table/structure/display_partitions.phtml:10
-#, fuzzy
 #| msgid "No index defined!"
 msgid "No partitioning defined!"
 msgstr "هیچ نیشاندەرێک پێناسە نەکراوە‌!"
@@ -15143,26 +14741,22 @@ msgid "Sub partitioned by:"
 msgstr ""
 
 #: templates/table/structure/display_partitions.phtml:31
-#, fuzzy
 #| msgid "Linestring"
 msgid "Data length"
 msgstr "ڕیزبه‌ندی هێڵی"
 
 #: templates/table/structure/display_partitions.phtml:32
-#, fuzzy
 #| msgid "Indexes"
 msgid "Index length"
 msgstr "نیشاندەرەکان"
 
 #: templates/table/structure/display_partitions.phtml:136
-#, fuzzy
 #| msgid "Partial texts"
 msgid "Partition table"
 msgstr "تێکستە لاوەکیەکان"
 
 #: templates/table/structure/display_partitions.phtml:139
 #: templates/table/structure/partition_definition_form.phtml:7
-#, fuzzy
 #| msgid "Edit Index"
 msgid "Edit partitioning"
 msgstr "چاکردنی نیشاندەر"
@@ -15197,13 +14791,11 @@ msgid "Improve table structure"
 msgstr ""
 
 #: templates/table/structure/optional_action_links.phtml:34
-#, fuzzy
 #| msgid "Track table"
 msgid "Track view"
 msgstr "شوێنکەوتنی خشتە"
 
 #: templates/table/structure/row_stats_table.phtml:3
-#, fuzzy
 #| msgid "Show statistics"
 msgid "Row statistics"
 msgstr "نیشاندانی سەرژمێری"
@@ -15254,7 +14846,6 @@ msgid "Available MIME types"
 msgstr ""
 
 #: transformation_overview.php:37
-#, fuzzy
 #| msgid "Table comments"
 msgid "Available browser display transformations"
 msgstr "تێبینیەکانی خشتە"
@@ -15269,7 +14860,6 @@ msgid "Description"
 msgstr ""
 
 #: url.php:38
-#, fuzzy
 #| msgid "Taking you to next step…"
 msgid "Taking you to the target site."
 msgstr "هەنگاوی داهاتووت…"
@@ -15283,20 +14873,18 @@ msgid "The profile has been updated."
 msgstr ""
 
 #: user_password.php:125
-#, fuzzy
 #| msgid "Password"
 msgid "Password is too long!"
 msgstr "وشەی نهێنی"
 
 #: vendor/phpmyadmin/motranslator/tests/MoFilesTest.php:24
-#, fuzzy
 #| msgid "Column selector"
 msgid "Column parser"
 msgstr "خانە دەستنیشانکەر"
 
 #: vendor/phpmyadmin/motranslator/tests/MoFilesTest.php:83
 #: vendor/phpmyadmin/motranslator/tests/MoFilesTest.php:127
-#, fuzzy, php-format
+#, php-format, php-format
 #| msgid "per second"
 msgid "\"%d\" second"
 msgid_plural "\"%d\" seconds"
@@ -15327,13 +14915,11 @@ msgid "An opening bracket was expected."
 msgstr ""
 
 #: vendor/phpmyadmin/sql-parser/src/Components/CreateDefinition.php:225
-#, fuzzy
 #| msgid "No tables selected."
 msgid "A symbol name was expected!"
 msgstr "هیچ خشتەیەک هەڵنەبژێردراوە."
 
 #: vendor/phpmyadmin/sql-parser/src/Components/CreateDefinition.php:257
-#, fuzzy
 #| msgid "No tables selected."
 msgid "A comma or a closing bracket was expected."
 msgstr "هیچ خشتەیەک هەڵنەبژێردراوە."
@@ -15348,7 +14934,6 @@ msgstr ""
 
 #: vendor/phpmyadmin/sql-parser/src/Components/Expression.php:249
 #: vendor/phpmyadmin/sql-parser/src/Components/Expression.php:392
-#, fuzzy
 #| msgid "No tables selected."
 msgid "An alias was expected."
 msgstr "هیچ خشتەیەک هەڵنەبژێردراوە."
@@ -15364,7 +14949,6 @@ msgid "Unexpected dot."
 msgstr ""
 
 #: vendor/phpmyadmin/sql-parser/src/Components/ExpressionArray.php:99
-#, fuzzy
 #| msgid "No rows selected"
 msgid "An expression was expected."
 msgstr "هیچ ڕیزێک هەڵنەبژێراوە"
@@ -15392,7 +14976,6 @@ msgid "The new name of the table was expected."
 msgstr ""
 
 #: vendor/phpmyadmin/sql-parser/src/Components/RenameOperation.php:146
-#, fuzzy
 #| msgid "The row has been deleted."
 msgid "A rename operation was expected."
 msgstr "ڕیزەکە سڕایەوە"
@@ -15420,7 +15003,6 @@ msgid "Variable name was expected."
 msgstr ""
 
 #: vendor/phpmyadmin/sql-parser/src/Parser.php:431
-#, fuzzy
 #| msgid "Number of rows"
 msgid "Unexpected beginning of statement."
 msgstr "ژمارەی ڕیزەکان"
@@ -15455,7 +15037,6 @@ msgid "The name of the entity was expected."
 msgstr ""
 
 #: vendor/phpmyadmin/sql-parser/src/Statements/CreateStatement.php:407
-#, fuzzy
 #| msgid "The row has been deleted."
 msgid "At least one column definition was expected."
 msgstr "ڕیزەکە سڕایەوە"
@@ -15466,7 +15047,6 @@ msgstr ""
 
 #: vendor/phpmyadmin/sql-parser/tests/Lexer/LexerTest.php:21
 #: vendor/phpmyadmin/sql-parser/tests/Parser/ParserTest.php:58
-#, fuzzy
 #| msgid "Error"
 msgid "error #1"
 msgstr "هەڵە"
@@ -15499,7 +15079,6 @@ msgid "Rename view to"
 msgstr ""
 
 #: view_operations.php:150
-#, fuzzy
 #| msgid "Drop the database (DROP)"
 msgid "Delete the view (DROP)"
 msgstr "سڕینەوەی بنکەی دراوە (DROP)"
@@ -15626,13 +15205,11 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:96
-#, fuzzy
 #| msgid "slow_query_log is enabled."
 msgid "slow_query_log is set to 'OFF'"
 msgstr "slow_query_log چالاککراوە."
 
 #: libraries/advisory_rules.txt:100
-#, fuzzy
 #| msgid "Series"
 msgid "Release Series"
 msgstr "زنجیرە"
@@ -15649,13 +15226,12 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:105 libraries/advisory_rules.txt:112
 #: libraries/advisory_rules.txt:119
-#, fuzzy, php-format
+#, php-format, php-format
 #| msgid "Current settings"
 msgid "Current version: %s"
 msgstr "ڕێکخستنەکانی هەنووکە"
 
 #: libraries/advisory_rules.txt:107 libraries/advisory_rules.txt:114
-#, fuzzy
 #| msgid "Versions"
 msgid "Minor Version"
 msgstr "وەشانەکان"
@@ -15679,7 +15255,6 @@ msgid "You should upgrade, to a stable version of MySQL 5.5."
 msgstr ""
 
 #: libraries/advisory_rules.txt:121 libraries/advisory_rules.txt:128
-#, fuzzy
 #| msgid "Description"
 msgid "Distribution"
 msgstr "پێناسە"
@@ -15946,7 +15521,6 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:218
-#, fuzzy
 #| msgid "Sort"
 msgid "Sort rows"
 msgstr "ڕیزکردن"
@@ -16192,7 +15766,6 @@ msgid "Index reads from memory: %s%%, this value should be above 95%%"
 msgstr ""
 
 #: libraries/advisory_rules.txt:309
-#, fuzzy
 #| msgid "Replace table prefix"
 msgid "Rate of table open"
 msgstr "گۆڕینی پێشگری خشتە"
@@ -16298,7 +15871,6 @@ msgid "Thread cache hit rate %%"
 msgstr ""
 
 #: libraries/advisory_rules.txt:354
-#, fuzzy
 #| msgid "Tracking is not active."
 msgid "Thread cache is not efficient."
 msgstr "بەدواچوونەوە ناچالاکە."
@@ -16394,7 +15966,6 @@ msgid "%s%% of all connections are aborted. This value should be below 1%%"
 msgstr ""
 
 #: libraries/advisory_rules.txt:388
-#, fuzzy
 #| msgid "Compress connection"
 msgid "Rate of aborted connections"
 msgstr "پەستانی پەیوەندی"
