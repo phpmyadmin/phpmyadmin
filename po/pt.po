@@ -11377,7 +11377,7 @@ msgstr "Transformação do navegador"
 #, fuzzy
 #| msgid ""
 #| "Please see the documentation on how to update your column_comments table."
-msgid "Please see the documentation on how to update your column_info table. "
+msgid "Please see the documentation on how to update your column_info table."
 msgstr ""
 "Consulte a Documentação sobre como actualizar a Tabela Column_comments Table."
 

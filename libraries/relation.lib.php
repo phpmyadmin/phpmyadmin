@@ -192,7 +192,7 @@ function PMA_getRelationsParamDiagnostic($cfgRelation)
             $retval .= '<tr><td colspan=2 class="left error">';
             $retval .=  __(
                 'Please see the documentation on how to'
-                . ' update your column_info table. '
+                . ' update your column_info table.'
             );
             $retval .= PMA\libraries\Util::showDocu(
                 'config',

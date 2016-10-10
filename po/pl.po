@@ -11435,7 +11435,7 @@ msgstr "Sposób prezentacji danych"
 #, fuzzy
 #| msgid ""
 #| "Please see the documentation on how to update your column_comments table."
-msgid "Please see the documentation on how to update your column_info table. "
+msgid "Please see the documentation on how to update your column_info table."
 msgstr ""
 "Informacje o tym, jak zaktualizować tabelę Column_comments znajdują się w "
 "dokumentacji."

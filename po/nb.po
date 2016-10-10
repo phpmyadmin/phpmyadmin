@@ -11726,7 +11726,7 @@ msgstr "Nettvisertransformasjon"
 #, fuzzy
 #| msgid ""
 #| "Please see the documentation on how to update your column_comments table."
-msgid "Please see the documentation on how to update your column_info table. "
+msgid "Please see the documentation on how to update your column_info table."
 msgstr ""
 "Les i dokumentasjonen hvordan du oppdaterer din Column_comments tabell."
 

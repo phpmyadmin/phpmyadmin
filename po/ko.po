@@ -10806,7 +10806,7 @@ msgstr "브라우저 변형"
 #, fuzzy
 #| msgid ""
 #| "Please see the documentation on how to update your column_comments table."
-msgid "Please see the documentation on how to update your column_info table. "
+msgid "Please see the documentation on how to update your column_info table."
 msgstr "도큐먼트에서 column_comments 테이블을 업데이트하는 방법을 참고하세요."
 
 #: libraries/relation.lib.php:210 libraries/sql_query_form.lib.php:396

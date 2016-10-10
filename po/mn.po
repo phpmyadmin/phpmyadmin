@@ -11544,7 +11544,7 @@ msgstr "Хөтчийн өөрчлөл"
 #, fuzzy
 #| msgid ""
 #| "Please see the documentation on how to update your column_comments table."
-msgid "Please see the documentation on how to update your column_info table. "
+msgid "Please see the documentation on how to update your column_info table."
 msgstr ""
 "Column_comments Хүснэгтийн хэрхэн шинэчлэх талаар баримтжууллаас харна уу."
 

@@ -10836,7 +10836,7 @@ msgid "Browser transformation"
 msgstr "Veebilehitseja transformatsioon"
 
 #: libraries/relation.lib.php:194
-msgid "Please see the documentation on how to update your column_info table. "
+msgid "Please see the documentation on how to update your column_info table."
 msgstr ""
 "Palun loe dokumentatsioonist, kuidas uuendada oma column_info tabelit. "
 

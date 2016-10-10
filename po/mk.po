@@ -11419,7 +11419,7 @@ msgstr "Транформации на веб прелистувачот"
 #, fuzzy
 #| msgid ""
 #| "Please see the documentation on how to update your column_comments table."
-msgid "Please see the documentation on how to update your column_info table. "
+msgid "Please see the documentation on how to update your column_info table."
 msgstr ""
 "Ве молиме погледнете во документацијата за тоа како се ажурира табелата "
 "Column_comments."

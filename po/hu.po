@@ -11104,7 +11104,7 @@ msgid "Browser transformation"
 msgstr "Böngésző átalakítása"
 
 #: libraries/relation.lib.php:194
-msgid "Please see the documentation on how to update your column_info table. "
+msgid "Please see the documentation on how to update your column_info table."
 msgstr ""
 "Nézze meg a dokumentációban, hogy hogyan kell frissíteni a column_info "
 "táblát. "

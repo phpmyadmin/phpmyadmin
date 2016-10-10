@@ -11763,7 +11763,7 @@ msgstr "ブラウザ変換機能"
 #, fuzzy
 #| msgid ""
 #| "Please see the documentation on how to update your column_comments table."
-msgid "Please see the documentation on how to update your column_info table. "
+msgid "Please see the documentation on how to update your column_info table."
 msgstr ""
 "column_comments テーブルの更新方法についてはドキュメントをご覧ください。"
 

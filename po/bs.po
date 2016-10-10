@@ -11321,7 +11321,7 @@ msgstr "Tranformacije čitača"
 #, fuzzy
 #| msgid ""
 #| "Please see the documentation on how to update your column_comments table."
-msgid "Please see the documentation on how to update your column_info table. "
+msgid "Please see the documentation on how to update your column_info table."
 msgstr ""
 "Molimo pogledajte u dokumentaciji kako se ažurira tabela Column_comments."
 

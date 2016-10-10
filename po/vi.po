@@ -10548,7 +10548,7 @@ msgid "Browser transformation"
 msgstr "Chuyển dạng phối cảnh"
 
 #: libraries/relation.lib.php:194
-msgid "Please see the documentation on how to update your column_info table. "
+msgid "Please see the documentation on how to update your column_info table."
 msgstr "Vui lòng xem tài liệu để biết cách cập nhật bảng column_info của bạn."
 
 #: libraries/relation.lib.php:210 libraries/sql_query_form.lib.php:396

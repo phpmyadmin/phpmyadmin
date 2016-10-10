@@ -11023,7 +11023,7 @@ msgid "Browser transformation"
 msgstr "Browsertransformaties"
 
 #: libraries/relation.lib.php:194
-msgid "Please see the documentation on how to update your column_info table. "
+msgid "Please see the documentation on how to update your column_info table."
 msgstr ""
 "Raadpleeg de documentatie over hoe u de tabel column_info kunt bijwerkt. "
 

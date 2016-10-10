@@ -11874,7 +11874,7 @@ msgstr "Naršyklės transformacija"
 #, fuzzy
 #| msgid ""
 #| "Please see the documentation on how to update your column_comments table."
-msgid "Please see the documentation on how to update your column_info table. "
+msgid "Please see the documentation on how to update your column_info table."
 msgstr ""
 "Informaciją, kaip atnaujinti column_comments lentelę, galite rasti "
 "dokumentacijoje."

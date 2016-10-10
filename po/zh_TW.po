@@ -10494,7 +10494,7 @@ msgid "Browser transformation"
 msgstr "瀏覽器轉換"
 
 #: libraries/relation.lib.php:194
-msgid "Please see the documentation on how to update your column_info table. "
+msgid "Please see the documentation on how to update your column_info table."
 msgstr "請參考說明文件中的如何更新您的 column_info 資料表。 "
 
 #: libraries/relation.lib.php:210 libraries/sql_query_form.lib.php:396

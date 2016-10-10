@@ -11739,7 +11739,7 @@ msgstr "Pieraŭtvareńnie MIME-typu braŭzeram"
 #, fuzzy
 #| msgid ""
 #| "Please see the documentation on how to update your column_comments table."
-msgid "Please see the documentation on how to update your column_info table. "
+msgid "Please see the documentation on how to update your column_info table."
 msgstr ""
 "Za infarmacyjaj jak abnavić tablicu column_comments źviarniciesia, kali "
 "łaska, da dakumentacyi."

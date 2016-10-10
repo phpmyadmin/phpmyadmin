@@ -11320,7 +11320,7 @@ msgstr "බ්‍රව්සර රූපාන්තරනය"
 #, fuzzy
 #| msgid ""
 #| "Please see the documentation on how to update your column_comments table."
-msgid "Please see the documentation on how to update your column_info table. "
+msgid "Please see the documentation on how to update your column_info table."
 msgstr "ඔබගේ column_comments වගුව යාවත්කාලීන කරන්නේ කෙසේද යන්න පිළිබඳව ලියකියවිලි බලන්න"
 
 #: libraries/relation.lib.php:210 libraries/sql_query_form.lib.php:396

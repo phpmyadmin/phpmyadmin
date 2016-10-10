@@ -11694,7 +11694,7 @@ msgstr "Pretvaranje preglednika"
 #, fuzzy
 #| msgid ""
 #| "Please see the documentation on how to update your column_comments table."
-msgid "Please see the documentation on how to update your column_info table. "
+msgid "Please see the documentation on how to update your column_info table."
 msgstr ""
 "Pogledajte dokumentaciju radi uputa o ažuriranju tablice column_comments."
 

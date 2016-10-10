@@ -11201,7 +11201,7 @@ msgid "Browser transformation"
 msgstr "Transformações do navegador"
 
 #: libraries/relation.lib.php:194
-msgid "Please see the documentation on how to update your column_info table. "
+msgid "Please see the documentation on how to update your column_info table."
 msgstr ""
 "Por favor, consulte a documentação sobre como atualizar a sua tabela "
 "column_info. "

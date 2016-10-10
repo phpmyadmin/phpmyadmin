@@ -10741,7 +10741,7 @@ msgid "Browser transformation"
 msgstr "Transformácia pri prehliadaní"
 
 #: libraries/relation.lib.php:194
-msgid "Please see the documentation on how to update your column_info table. "
+msgid "Please see the documentation on how to update your column_info table."
 msgstr ""
 "Prosím prečítajte si dokumentáciu ako aktualizovať tabuľku s informáciami o "
 "stĺpcoch (column_info tabuľka). "

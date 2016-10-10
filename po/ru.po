@@ -10952,7 +10952,7 @@ msgid "Browser transformation"
 msgstr "Преобразование"
 
 #: libraries/relation.lib.php:194
-msgid "Please see the documentation on how to update your column_info table. "
+msgid "Please see the documentation on how to update your column_info table."
 msgstr ""
 "Необходимо обновить таблицу column_info. Детали смотрите в документации. "
 

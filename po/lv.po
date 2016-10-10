@@ -11330,7 +11330,7 @@ msgstr "Pārlūkprogrammas transformācija"
 #, fuzzy
 #| msgid ""
 #| "Please see the documentation on how to update your column_comments table."
-msgid "Please see the documentation on how to update your column_info table. "
+msgid "Please see the documentation on how to update your column_info table."
 msgstr ""
 "Lūdzu skatieties dokumentāciju par to, kā atjaunot 'column_comments' tabulu."
 

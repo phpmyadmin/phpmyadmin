@@ -10631,7 +10631,7 @@ msgstr "浏览器转换"
 #, fuzzy
 #| msgid ""
 #| "Please see the documentation on how to update your column_comments table."
-msgid "Please see the documentation on how to update your column_info table. "
+msgid "Please see the documentation on how to update your column_info table."
 msgstr "请参见文档中关于如何更新您的 column_comments 表。"
 
 #: libraries/relation.lib.php:210 libraries/sql_query_form.lib.php:396

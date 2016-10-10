@@ -11342,7 +11342,7 @@ msgstr "Nabigatzailearen eraldaketa"
 #, fuzzy
 #| msgid ""
 #| "Please see the documentation on how to update your column_comments table."
-msgid "Please see the documentation on how to update your column_info table. "
+msgid "Please see the documentation on how to update your column_info table."
 msgstr ""
 "Mesedez, Dokumentazioa begiratu zure zutabeen iruzkinen Taula nola "
 "eguneratzeko."
