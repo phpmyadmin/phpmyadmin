@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-08-17 11:28+0200\n"
-"PO-Revision-Date: 2016-10-10 17:35+0000\n"
+"PO-Revision-Date: 2016-10-10 18:25+0000\n"
 "Last-Translator: Bogdan Ciobaca <ciobaca190@hotmail.com>\n"
 "Language-Team: Romanian "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/ro/>\n"
@@ -1144,7 +1144,7 @@ msgstr "Numărul de pagini create."
 
 #: js/messages.php:158
 msgid "Template was loaded."
-msgstr ""
+msgstr "Şablonul a fost încărcat."
 
 #: js/messages.php:159
 #, fuzzy
@@ -1747,7 +1747,7 @@ msgstr "Modificare configurări"
 
 #: js/messages.php:359 libraries/config/FormDisplay.tpl.php:424
 msgid "Apply"
-msgstr ""
+msgstr "Aplică"
 
 #: js/messages.php:362 libraries/navigation/NavigationHeader.php:59
 #: libraries/server_status_monitor.lib.php:119
@@ -1964,8 +1964,9 @@ msgid "Browse foreign values"
 msgstr "Caută printre valori necunoscute"
 
 #: js/messages.php:418
+#, fuzzy
 msgid "No auto-saved query"
-msgstr ""
+msgstr "Nicio interogare salvată"
 
 #: js/messages.php:419
 #, fuzzy, php-format
@@ -2250,10 +2251,13 @@ msgid "Encryption key"
 msgstr "Cheie de criptare"
 
 #: js/messages.php:530
+#, fuzzy
 msgid ""
 "Indicates that you have made changes to this page; you will be prompted for "
 "confirmation before abandoning changes"
 msgstr ""
+"Indică că aţi făcut schimbări acestei pagini; o să vi se solicite "
+"confirmarea înainte de a anula schimbările"
 
 #: js/messages.php:535
 msgid "Select referenced key"
@@ -2419,10 +2423,13 @@ msgstr ""
 "0-9, A-F."
 
 #: js/messages.php:589
+#, fuzzy
 msgid ""
 "Do you really want to see all of the rows? For a big table this could crash "
 "the browser."
 msgstr ""
+"Sigur doriţi să vedeţi toate rândurile? Pentru un tabel mare aceasta poate "
+"provoca crash-ul browser-ului."
 
 #: js/messages.php:592
 #, fuzzy
@@ -2626,8 +2633,9 @@ msgid "Do you really want to delete this bookmark?"
 msgstr "Sigur doriți să ştergeţi acest marcaj?"
 
 #: js/messages.php:707
+#, fuzzy
 msgid "Some error occurred while getting SQL debug info."
-msgstr ""
+msgstr "A avut loc o eroare la obţinerea informaţiilor SQL de debug."
 
 #: js/messages.php:709
 #, fuzzy, php-format
@@ -2635,9 +2643,9 @@ msgid "%s queries executed %s times in %s seconds."
 msgstr "Comanda SQL"
 
 #: js/messages.php:710
-#, php-format
+#, fuzzy, php-format
 msgid "%s argument(s) passed"
-msgstr ""
+msgstr "%s argument(e) trimise"
 
 #: js/messages.php:711
 #, fuzzy
@@ -2940,7 +2948,7 @@ msgstr "Secundă"
 
 #: js/messages.php:889
 msgid "This field is required"
-msgstr ""
+msgstr "Acest câmp este necesar"
 
 #: js/messages.php:890
 #, fuzzy
@@ -2998,7 +3006,7 @@ msgstr "Introduceţi un nume valid pentru pagină"
 
 #: js/messages.php:910
 msgid "Please enter no more than {0} characters"
-msgstr ""
+msgstr "Vă rugăm să nu introduceţi mai mult de {0} caractere"
 
 #: js/messages.php:915
 #, fuzzy
@@ -3007,8 +3015,9 @@ msgid "Please enter at least {0} characters"
 msgstr "Introduceţi un nume valid pentru pagină"
 
 #: js/messages.php:920
+#, fuzzy
 msgid "Please enter a value between {0} and {1} characters long"
-msgstr ""
+msgstr "Vă rugăm sa introduceţi o valoare între {0} şi {1} caractere de lungă"
 
 #: js/messages.php:925
 #, fuzzy
@@ -3354,10 +3363,13 @@ msgid "Failed to read configuration file!"
 msgstr "Fișierul de configurare nu poate fi citit!"
 
 #: libraries/Config.php:1211
+#, fuzzy
 msgid ""
 "This usually means there is a syntax error in it, please check any errors "
 "shown below."
 msgstr ""
+"Asta înseamnă, deobicei, ca există o eroare de sintaxă in el, vă rugăm să "
+"verificaţi erorile de mai jos."
 
 #: libraries/Config.php:1573
 msgid "Font size"
@@ -3367,9 +3379,9 @@ msgstr "Dimensiune font"
 #, php-format
 msgid "Showing %1$d bookmark (both private and shared)"
 msgid_plural "Showing %1$d bookmarks (both private and shared)"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Se afişează %1$d marcaj (atât privat cât şi partajat)"
+msgstr[1] "Se afişează %1$d marcaje (atât private cât şi partajate)"
+msgstr[2] "Se afişează %1$d marcaje (atât private cât şi partajate)"
 
 #: libraries/Console.php:95
 msgid "No bookmarks"
@@ -3445,7 +3457,7 @@ msgstr "Coloană:"
 
 #: libraries/DbQbe.php:513
 msgid "Alias:"
-msgstr ""
+msgstr "Alias:"
 
 #: libraries/DbQbe.php:566
 msgid "Sort:"
@@ -3819,7 +3831,7 @@ msgstr "Marchează toate"
 
 #: libraries/DisplayResults.php:5026
 msgid "Copy to clipboard"
-msgstr ""
+msgstr "Copiază în clipboard"
 
 #: libraries/DisplayResults.php:5082
 msgid "Query results operations"
@@ -3900,7 +3912,7 @@ msgstr "Eroare necunoscută la încărcarea fișierului."
 
 #: libraries/File.php:424
 msgid "File is a symbolic link"
-msgstr ""
+msgstr "Fişierul este o legătură simbolică"
 
 #: libraries/File.php:429 libraries/File.php:532
 msgid "File could not be read!"
@@ -4064,7 +4076,7 @@ msgstr ""
 #: libraries/Linter.php:165
 #, php-format
 msgid "%1$s (near <code>%2$s</code>)"
-msgstr ""
+msgstr "%1$s (lângă <code>%2$s</code>)"
 
 #: libraries/Menu.php:208 libraries/ServerStatusData.php:425
 #: libraries/config/messages.inc.php:929
@@ -4553,9 +4565,9 @@ msgid "No index parts defined!"
 msgstr "Nu sînt definite părți din index!"
 
 #: libraries/Table.php:2169
-#, php-format
+#, fuzzy, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
-msgstr ""
+msgstr "Eroare la crearea cheii străine pe %1$s (verifică tipurile datelor)"
 
 #: libraries/Theme.php:168
 #, php-format
@@ -4634,12 +4646,16 @@ msgid ""
 "A fixed-point number (M, D) - the maximum number of digits (M) is 65 "
 "(default 10), the maximum number of decimals (D) is 30 (default 0)"
 msgstr ""
+"Un număr cu punct fix (M, D) - numărul maxim de cifre (M) este 65 (implicit "
+"10), numărul maxim de zecimale(D) este 30 (implicit 0)"
 
 #: libraries/TypesMySQL.php:64
 msgid ""
 "A small floating-point number, allowable values are -3.402823466E+38 to "
 "-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
+"Un număr cu virgulă mobilă, valorile permise sunt -3.402823466E+38 până la "
+"-1.175494351E-38, 0, şi 1.175494351E-38 până la 3.402823466E+38"
 
 #: libraries/TypesMySQL.php:70
 msgid ""
@@ -4647,6 +4663,9 @@ msgid ""
 "-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
+"Un număr cu virgulă mobilă cu dublă precizie, valorile permise sunt "
+"-1.7976931348623157E+308 până la  -2.2250738585072014E-308, 0, şi "
+"2.2250738585072014E-308 până la 1.7976931348623157E+308"
 
 #: libraries/TypesMySQL.php:76
 msgid ""
@@ -4799,6 +4818,8 @@ msgid ""
 "An enumeration, chosen from the list of up to 65,535 values or the special "
 "'' error value"
 msgstr ""
+"O enumeraţie, aleasă din lista de până la 65,535 valori sau valoare de "
+"eroare ''"
 
 #: libraries/TypesMySQL.php:191
 msgid "A single value chosen from a set of up to 64 members"
@@ -4870,12 +4891,12 @@ msgstr "Mărime maximă: %s%s"
 
 #: libraries/Util.php:687
 msgid "Static analysis:"
-msgstr ""
+msgstr "Analiză statică:"
 
 #: libraries/Util.php:690
 #, php-format
 msgid "%d errors were found during analysis."
-msgstr ""
+msgstr "Au fost găsite %d erori în timpul analizei."
 
 #: libraries/Util.php:753 libraries/rte/rte_events.lib.php:114
 #: libraries/rte/rte_events.lib.php:123 libraries/rte/rte_events.lib.php:154
@@ -5043,7 +5064,7 @@ msgstr ""
 #: libraries/central_columns.lib.php:282
 #, php-format
 msgid "Could not add %1$s as they already exist in central list!"
-msgstr ""
+msgstr "Nu s-a putut adăuga %1$s, sunt deja existente în lista centrală!"
 
 #: libraries/central_columns.lib.php:297
 msgid "Could not add columns!"
@@ -5061,11 +5082,11 @@ msgstr "Nu s-au putut elimina coloanele!"
 
 #: libraries/central_columns.lib.php:529
 msgid "YES"
-msgstr ""
+msgstr "DA"
 
 #: libraries/central_columns.lib.php:529
 msgid "NO"
-msgstr ""
+msgstr "NU"
 
 #: libraries/central_columns.lib.php:694 libraries/central_columns.lib.php:1386
 #: libraries/plugins/export/ExportHtmlword.php:485
@@ -5095,8 +5116,9 @@ msgid "Attribute"
 msgstr "Proprietăți"
 
 #: libraries/central_columns.lib.php:709 libraries/central_columns.lib.php:1387
+#, fuzzy
 msgid "A_I"
-msgstr ""
+msgstr "I_A"
 
 #: libraries/central_columns.lib.php:749
 msgid "Select a table"
@@ -5212,7 +5234,7 @@ msgstr "Dezactivat"
 
 #: libraries/config.values.php:98
 msgid "key"
-msgstr ""
+msgstr "cheie"
 
 #: libraries/config.values.php:99
 #, fuzzy
@@ -5284,7 +5306,7 @@ msgstr "structură"
 #: libraries/plugins/export/ExportSql.php:211
 #: libraries/plugins/export/ExportTexytext.php:66
 msgid "data"
-msgstr ""
+msgstr "date"
 
 #: libraries/config.values.php:166
 #: libraries/plugins/export/ExportHtmlword.php:68
@@ -5407,20 +5429,23 @@ msgid "Cannot save settings, submitted configuration form contains errors!"
 msgstr "Nu se pot salva setările, formularul trimis conține erori"
 
 #: libraries/config/ServerConfigChecks.php:159
+#, fuzzy
 msgid "You should use SSL connections if your database server supports it."
 msgstr ""
+"Ar trebui sa utilizaţi conexiuni SSL dacă serverul bazei de date le suportă."
 
 #: libraries/config/ServerConfigChecks.php:198
 msgid "You allow for connecting to the server without a password."
-msgstr ""
+msgstr "Permiteţi conectarea la server fără o parolă."
 
 #: libraries/config/ServerConfigChecks.php:349
 msgid "Key is too short, it should have at least 32 characters."
-msgstr ""
+msgstr "Cheia este prea scurtă, ar trebui sa aibă cel puţin 32 de caractere."
 
 #: libraries/config/ServerConfigChecks.php:359
 msgid "Key should contain letters, numbers [em]and[/em] special characters."
 msgstr ""
+"Cheia ar trebui sa conţină litere, numere [em]si[/em] caractere speciale."
 
 #: libraries/config/ServerConfigChecks.php:384
 #, php-format
@@ -5445,6 +5470,8 @@ msgid ""
 "%sBzip2 compression and decompression%s requires functions (%s) which are "
 "unavailable on this system."
 msgstr ""
+"%sCompresia şi decompresia Bzip2%s necesită funcţiile (%s) care sunt "
+"indisponibile pe acest sistem."
 
 #: libraries/config/ServerConfigChecks.php:420
 msgid ""
@@ -5458,6 +5485,8 @@ msgid ""
 "%sGZip compression and decompression%s requires functions (%s) which are "
 "unavailable on this system."
 msgstr ""
+"%sCompresia si decompresia GZip%s necesită funcţiile (%s) care sunt "
+"indisponibile pe acest sistem."
 
 #: libraries/config/ServerConfigChecks.php:436
 #, php-format
@@ -15567,7 +15596,7 @@ msgstr "Descrescător"
 
 #: templates/console/display.phtml:83
 msgid "Order:"
-msgstr ""
+msgstr "Ordine:"
 
 #: templates/console/display.phtml:85 templates/console/display.phtml:109
 #: templates/table/search/replace_preview.phtml:17
@@ -15586,7 +15615,7 @@ msgstr ""
 
 #: templates/console/display.phtml:88
 msgid "Order by:"
-msgstr ""
+msgstr "Ordonează după:"
 
 #: templates/console/display.phtml:89
 #, fuzzy
@@ -15647,10 +15676,13 @@ msgid "Show current browsing query"
 msgstr "Arată interogarea curentă de navigare"
 
 #: templates/console/display.phtml:194
+#, fuzzy
 msgid ""
 "Execute queries on Enter and insert new line with Shift + Enter. To make "
 "this permanent, view settings."
 msgstr ""
+"Execută interogări pe Enter şi inserează o linie nouă cu Shift + Enter. "
+"Pentru a face asta permanent, vezi setări."
 
 #: templates/console/display.phtml:198
 #, fuzzy
