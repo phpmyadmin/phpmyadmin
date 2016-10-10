@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.5-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-08-17 11:29+0200\n"
-"PO-Revision-Date: 2016-10-02 21:37+0000\n"
-"Last-Translator: Dadan Setia <da2n_s@yahoo.co.id>\n"
+"PO-Revision-Date: 2016-10-10 04:59+0000\n"
+"Last-Translator: Arie Kurniawan <hubungi.aja@gmail.com>\n"
 "Language-Team: Indonesian "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-6/id/>\n"
 "Language: id\n"
@@ -793,9 +793,8 @@ msgstr ""
 "File konfigurasi membutuhkan susunan kata-kata rahasia (blowfish_secret)."
 
 #: index.php:525
-#, fuzzy
 msgid "The secret passphrase in configuration (blowfish_secret) is too short."
-msgstr "Konfigurasi Passphrase rahasia (blowfish_secret) terlalu pendek."
+msgstr "Passphrase rahasia (blowfish_secret) di konfigurasi terlalu pendek."
 
 #: index.php:539
 msgid ""
@@ -950,13 +949,10 @@ msgid "Do you really want to remove partitioning?"
 msgstr "Anda yakin ingin menghapus partisi?"
 
 #: js/messages.php:86
-#, fuzzy
-#| msgid "Do you really want to execute \"%s\"?"
 msgid "Do you really want to RESET SLAVE?"
-msgstr "Anda yakin akan melakukan RESET SLAVE?"
+msgstr "Apakah Anda yakin akan melakukan RESET SLAVE?"
 
 #: js/messages.php:88
-#, fuzzy
 msgid ""
 "This operation will attempt to convert your data to the new collation. In "
 "rare cases, especially where a character doesn't exist in the new collation, "
@@ -966,9 +962,9 @@ msgid ""
 msgstr ""
 "Operasi ini akan mencoba untuk mengkonversi data Anda pada penyusunan baru. "
 "Dalam kasus yang jarang terjadi, terutama di mana karakter tidak ada dalam "
-"pemeriksaan baru, proses ini bisa menyebabkan data muncul salah di bawah "
-"pemeriksaan baru; dalam hal ini kami sarankan Anda kembali ke pemeriksaan "
-"asli dan simak tips di "
+"pemeriksaan baru, proses ini dapat menyebabkan data akan muncul secara tidak "
+"benar di bawah pemeriksaan baru; dalam hal ini kami sarankan Anda kembali ke "
+"pemeriksaan asli dan simak tips di "
 
 #: js/messages.php:94
 msgid "Garbled Data"
@@ -1017,10 +1013,8 @@ msgid "Reset"
 msgstr "Reset"
 
 #: js/messages.php:113
-#, fuzzy
-#| msgid "Reset All"
 msgid "Reset all"
-msgstr "Ulang Semua"
+msgstr "Ulangi Semua"
 
 #: js/messages.php:116
 msgid "Missing value in the form!"
@@ -1043,10 +1037,8 @@ msgid "Add index"
 msgstr "Tambahkan indeks"
 
 #: js/messages.php:121
-#, fuzzy
-#| msgid "Edit Index"
 msgid "Edit index"
-msgstr "Mengedit Indeks"
+msgstr "ubah Indeks"
 
 #: js/messages.php:122 templates/table/index_form.phtml:237
 #, php-format
@@ -1094,8 +1086,6 @@ msgstr "Query SQL:"
 
 #. l10n: Default label for the y-Axis of Charts
 #: js/messages.php:141
-#, fuzzy
-#| msgid "Y Values"
 msgid "Y values"
 msgstr "Nilai Y"
 
@@ -1127,26 +1117,20 @@ msgid "Close"
 msgstr "Tutup"
 
 #: js/messages.php:152
-#, fuzzy
 msgid "Template was created."
-msgstr "Jumlah halaman yang dibuat."
+msgstr "Template telah dibuat."
 
 #: js/messages.php:153
-#, fuzzy
 msgid "Template was loaded."
-msgstr "Template dimuat."
+msgstr "Template telah dimuat."
 
 #: js/messages.php:154
-#, fuzzy
-#| msgid "The profile has been updated."
 msgid "Template was updated."
-msgstr "Profil telah diperbarui."
+msgstr "Template telah diperbarui."
 
 #: js/messages.php:155
-#, fuzzy
-#| msgid "The row has been deleted."
 msgid "Template was deleted."
-msgstr "Baris telah dihapus."
+msgstr "Template telah dihapus."
 
 #. l10n: Other, small valued, queries
 #: js/messages.php:158 libraries/ServerStatusData.php:130
@@ -1198,9 +1182,8 @@ msgstr "Singgahan kueri terpakai"
 
 #: js/messages.php:180
 #, fuzzy
-#| msgid "System CPU Usage"
 msgid "System CPU usage"
-msgstr "Penggunaan CPU Sistem"
+msgstr "Penggunaan Sistem CPU."
 
 #: js/messages.php:181
 msgid "System memory"
@@ -1235,16 +1218,14 @@ msgid "Used memory"
 msgstr "Memori terpakai"
 
 #: js/messages.php:191
-#, fuzzy
-#| msgid "Total Swap"
 msgid "Total swap"
-msgstr "Swap Total"
+msgstr "Total swap"
 
 #: js/messages.php:192
 #, fuzzy
 #| msgid "Cached Swap"
 msgid "Cached swap"
-msgstr "Swap Singgahan"
+msgstr "tercache swap"
 
 #: js/messages.php:193
 #, fuzzy
@@ -1253,8 +1234,6 @@ msgid "Used swap"
 msgstr "Swap Terpakai"
 
 #: js/messages.php:194
-#, fuzzy
-#| msgid "Free Swap"
 msgid "Free swap"
 msgstr "Swap Bebas"
 
@@ -1664,8 +1643,6 @@ msgid "No files available on server for import!"
 msgstr "Tidak ada berkas tersedia untuk diimport!"
 
 #: js/messages.php:331
-#, fuzzy
-#| msgid "Analyse Query"
 msgid "Analyse query"
 msgstr "Analisis Kueri"
 
@@ -1706,10 +1683,8 @@ msgid "Formatting SQL…"
 msgstr "Memformat SQL…"
 
 #: js/messages.php:346
-#, fuzzy
-#| msgid "Bad parameters!"
 msgid "No parameters found!"
-msgstr "Pembatasan yang buruk!"
+msgstr "Tidak ada parameter ditemukan!"
 
 #: js/messages.php:350
 #: templates/database/designer/aggregate_query_panel.phtml:63
@@ -1724,10 +1699,8 @@ msgid "Cancel"
 msgstr "Batal"
 
 #: js/messages.php:353 libraries/Header.php:456
-#, fuzzy
-#| msgid "Change settings"
 msgid "Page-related settings"
-msgstr "Ubah pengaturan"
+msgstr "Pengaturan Halaman-relasi"
 
 #: js/messages.php:354 libraries/config/FormDisplay.tpl.php:422
 msgid "Apply"
@@ -1739,14 +1712,10 @@ msgid "Loading…"
 msgstr "Memproses…"
 
 #: js/messages.php:358
-#, fuzzy
-#| msgid "Request Aborted!!"
 msgid "Request aborted!!"
 msgstr "Permintaan Dibatalkan!"
 
 #: js/messages.php:359
-#, fuzzy
-#| msgid "Processing Request"
 msgid "Processing request"
 msgstr "Memproses Permintaan"
 
@@ -1757,15 +1726,13 @@ msgid "Request failed!!"
 msgstr "Permintaan gagal!!"
 
 #: js/messages.php:361
-#, fuzzy
-#| msgid "Error in processing request"
 msgid "Error in processing request"
-msgstr "Galat sewaktu memproses permintaan."
+msgstr "Kesalahan dalam memproses permintaan"
 
 #: js/messages.php:362
 #, php-format
 msgid "Error code: %s"
-msgstr "Kode Kesalahan: %s"
+msgstr "Code Kesalahan: %s"
 
 #: js/messages.php:363
 #, php-format
@@ -1779,16 +1746,12 @@ msgid "No databases selected."
 msgstr "Basis data belum dipilih."
 
 #: js/messages.php:365
-#, fuzzy
-#| msgid "Dropping Column"
 msgid "Dropping column"
-msgstr "Menghapus Kolom"
+msgstr "Membuang Kolom"
 
 #: js/messages.php:366
-#, fuzzy
-#| msgid "Add primary key"
 msgid "Adding primary key"
-msgstr "Tambahkan kunci primer"
+msgstr "Menambahkan kunci primer"
 
 #: js/messages.php:367
 #: templates/database/designer/aggregate_query_panel.phtml:59
@@ -1805,28 +1768,20 @@ msgid "Click to dismiss this notification"
 msgstr "Klik untuk menyingkirkan pemberitahuan"
 
 #: js/messages.php:371
-#, fuzzy
-#| msgid "Renaming Databases"
 msgid "Renaming databases"
-msgstr "Ubah nama basis data"
+msgstr "Mengubah nama database"
 
 #: js/messages.php:372
-#, fuzzy
-#| msgid "Copying Database"
 msgid "Copying database"
-msgstr "Menyalin Basis Data"
+msgstr "Menyalin database"
 
 #: js/messages.php:373
-#, fuzzy
-#| msgid "Changing Charset"
 msgid "Changing charset"
 msgstr "Mengganti Set Karakter"
 
 #: js/messages.php:377 libraries/Util.php:3297
-#, fuzzy
-#| msgid "Disable foreign key checks"
 msgid "Enable foreign key checks"
-msgstr "Tanpa pemeriksaan kunci asing"
+msgstr "Perbolehkan cek forign key"
 
 #: js/messages.php:380
 msgid "Failed to get real row count."
