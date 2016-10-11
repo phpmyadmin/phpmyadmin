@@ -1077,12 +1077,12 @@ class DisplayResults
 
         $maxRows = $_SESSION['tmpval']['max_rows'];
         $onsubmit = 'onsubmit="return '
-            . ($_SESSION['tmpval']['pos']
+            . (($_SESSION['tmpval']['pos']
                 + $maxRows
                 < $this->__get('unlim_num_rows')
                 && $this->__get('num_rows') >= $maxRows)
             ? 'true'
-            : 'false' . '"';
+            : 'false') . '"';
 
         // display the End button
         $buttons_html .= $this->_getTableNavigationButton(
