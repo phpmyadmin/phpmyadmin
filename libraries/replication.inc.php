@@ -299,7 +299,7 @@ function PMA_Replication_connectToMaster(
 
     // 5th parameter set to true means that it's an auxiliary connection
     // and we must not go back to login page if it fails
-    return PMA_DBI_connect($user, $password, false, $server, true);
+    return $GLOBALS['dbi']->connect($user, $password, false, $server, true);
 }
 /**
  * Fetches position and file of current binary log on master
