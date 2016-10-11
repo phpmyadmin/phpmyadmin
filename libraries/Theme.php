@@ -368,7 +368,7 @@ class Theme
         /* Check if there is a valid data file for sprites */
         if (count($sprites) > 0) {
 
-            $bg = $theme->getImgPath() . 'sprites.png?v=' . urlencode(PMA_VERSION);
+            $bg = $this->getImgPath() . 'sprites.png?v=' . urlencode(PMA_VERSION);
             ?>
             /* Icon sprites */
             .icon {
