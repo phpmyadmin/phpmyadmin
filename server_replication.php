@@ -34,10 +34,12 @@ if (! $is_superuser) {
     exit;
 }
 
-//change $GLOBALS['url_params'] with $_REQUEST['url_params']
-if (isset($_REQUEST['url_params'])) {
+// change $GLOBALS['url_params'] with $_REQUEST['url_params']
+// only if it is an array
+if (isset($_REQUEST['url_params']) && is_array($_REQUEST['url_params'])) {
     $GLOBALS['url_params'] = $_REQUEST['url_params'];
 }
+
 /**
  * Handling control requests
  */
