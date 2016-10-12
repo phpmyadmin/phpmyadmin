@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.5-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-08-17 11:29+0200\n"
-"PO-Revision-Date: 2016-08-22 11:15+0000\n"
+"PO-Revision-Date: 2016-10-10 20:07+0000\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-6/ia/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.8-dev\n"
+"X-Generator: Weblate 2.9-dev\n"
 
 #: changelog.php:38 license.php:33
 #, php-format
@@ -803,7 +803,7 @@ msgstr ""
 
 #: index.php:525
 msgid "The secret passphrase in configuration (blowfish_secret) is too short."
-msgstr ""
+msgstr "Le passphrase in configuration (blowfish_secret) es troppo curte."
 
 #: index.php:539
 msgid ""
@@ -3706,7 +3706,7 @@ msgstr "Error incognite durante que il cargava un file."
 
 #: libraries/File.php:424
 msgid "File is a symbolic link"
-msgstr ""
+msgstr "File es un ligamine symbolic"
 
 #: libraries/File.php:470
 msgid "Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc]."
@@ -10270,6 +10270,8 @@ msgstr "Structura stand-in per le vista"
 #: libraries/plugins/export/ExportJson.php:65
 msgid "Output pretty-printed JSON (Use human-readable formatting)"
 msgstr ""
+"Exito JSON pretty-printed, i.e. de bon formato JSON (Il usa un forma pro "
+"facile lectura per  humanos)"
 
 #: libraries/plugins/export/ExportLatex.php:48
 msgid "Content of table @TABLE@"
@@ -10297,7 +10299,7 @@ msgstr "Legenda de tabella:"
 #: libraries/plugins/export/ExportLatex.php:124
 #: libraries/plugins/export/ExportLatex.php:176
 msgid "Table caption (continued):"
-msgstr ""
+msgstr "Subtitulo de tabella (continuate):"
 
 #: libraries/plugins/export/ExportLatex.php:130
 #: libraries/plugins/export/ExportLatex.php:182
@@ -10308,22 +10310,22 @@ msgstr "Clave de  etiquetta:"
 #: libraries/plugins/export/ExportOdt.php:98
 #: libraries/plugins/export/ExportSql.php:120
 msgid "Display foreign key relationships"
-msgstr ""
+msgstr "Monstra relationes de clave externe"
 
 #: libraries/plugins/export/ExportLatex.php:143
 #: libraries/plugins/export/ExportOdt.php:104
 msgid "Display comments"
-msgstr ""
+msgstr "Monstra commentos"
 
 #: libraries/plugins/export/ExportLatex.php:149
 #: libraries/plugins/export/ExportOdt.php:110
 #: libraries/plugins/export/ExportSql.php:127
 msgid "Display MIME types"
-msgstr ""
+msgstr "Monstra typos MIME"
 
 #: libraries/plugins/export/ExportLatex.php:165
 msgid "Put columns names in the first row:"
-msgstr ""
+msgstr "Pone nomines de columnas in le prime rango:"
 
 #: libraries/plugins/export/ExportLatex.php:213
 #: libraries/plugins/export/ExportSql.php:691
@@ -10336,7 +10338,7 @@ msgstr "Hospite:"
 #: libraries/plugins/export/ExportSql.php:697
 #: libraries/plugins/export/ExportXml.php:240
 msgid "Generation Time:"
-msgstr ""
+msgstr "Tempore del generation:"
 
 #: libraries/plugins/export/ExportLatex.php:221
 #: libraries/plugins/export/ExportSql.php:703
@@ -10362,11 +10364,11 @@ msgstr "Structura:"
 
 #: libraries/plugins/export/ExportMediawiki.php:79
 msgid "Export table names"
-msgstr ""
+msgstr "Exporta nomines de tabella"
 
 #: libraries/plugins/export/ExportMediawiki.php:86
 msgid "Export table headers"
-msgstr ""
+msgstr "Exporta capites de tabella"
 
 #: libraries/plugins/export/ExportPdf.php:100
 msgid "Report title:"
@@ -10395,6 +10397,8 @@ msgstr ""
 #: libraries/plugins/export/ExportSql.php:106
 msgid "Additional custom header comment (\\n splits lines):"
 msgstr ""
+"Commento de capite personalisate additional (\\n"
+" per divider lineas):"
 
 #: libraries/plugins/export/ExportSql.php:112
 msgid ""
@@ -10413,7 +10417,7 @@ msgstr ""
 
 #: libraries/plugins/export/ExportSql.php:231
 msgid "Add statements:"
-msgstr ""
+msgstr "Adde declarationes:"
 
 #: libraries/plugins/export/ExportSql.php:239
 #: libraries/plugins/export/ExportSql.php:248
@@ -10424,7 +10428,7 @@ msgstr ""
 #: libraries/plugins/export/ExportSql.php:318
 #, php-format
 msgid "Add %s statement"
-msgstr ""
+msgstr "Adde declaration %s"
 
 #: libraries/plugins/export/ExportSql.php:285
 msgid "(less efficient as indexes will be generated during table creation)"

@@ -7,16 +7,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-08-17 11:28+0200\n"
-"PO-Revision-Date: 2016-07-20 07:25+0000\n"
-"Last-Translator: Kamyar Sec <kamofanar@gmail.com>\n"
+"PO-Revision-Date: 2016-10-10 19:30+0000\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Kurdish Sorani "
-"<https://hosted.weblate.org/projects/phpmyadmin/master/ckb/>\n"
+"<https://hosted.weblate.org/projects/phpmyadmin/4-6/ckb/>\n"
 "Language: ckb\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.8-dev\n"
+"X-Generator: Weblate 2.9-dev\n"
 
 #: changelog.php:38 license.php:33
 #, php-format
@@ -1078,15 +1078,12 @@ msgstr ""
 #: index.php:555
 #: index.php:559
 #, php-format, php-format
-#| msgid ""
-#| "The phpMyAdmin configuration storage has been deactivated. To find out "
-#| "why click %shere%s."
 msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
 "extended features have been deactivated. %sFind out why%s. "
 msgstr ""
 "ڕێکخستنەکانی بیرگەی phpMyAdmin ناچالاک کراوە. بۆ دۆزینەوەی کلیک لەمە بکە "
-"%shere%s."
+"%shere%s. "
 
 #: index.php:562
 #: index.php:566
@@ -2457,7 +2454,7 @@ msgstr ""
 
 #: js/messages.php:414
 #: js/messages.php:419
-#, php-format, php-format
+#, fuzzy, php-format, php-format
 #| msgid "Variables"
 msgid "Variable %d:"
 msgstr "گۆڕاوەکان"
@@ -4340,7 +4337,7 @@ msgstr "وشەکان بە هێمای بۆشایی جیا دەکرێنەوە (\" 
 #: libraries/DbSearch.php:421
 #: libraries/DbSearch.php:424
 msgid "Inside tables:"
-msgstr "لەناو خشتە:\n"
+msgstr "لەناو خشتە:"
 
 #: libraries/DbSearch.php:446 libraries/display_export.lib.php:48
 #: libraries/replication_gui.lib.php:379
@@ -4527,7 +4524,7 @@ msgstr ""
 
 #: libraries/DisplayResults.php:4700
 #: libraries/DisplayResults.php:4713
-#, php-format, php-format
+#, fuzzy, php-format, php-format
 #| msgid "Showing rows"
 msgid "Showing rows %1s - %2s"
 msgstr "ڕیزە پێشاندراوەکان"
@@ -4539,7 +4536,7 @@ msgstr ""
 
 #: libraries/DisplayResults.php:4720
 #: libraries/DisplayResults.php:4733
-#, php-format, php-format
+#, fuzzy, php-format, php-format
 #| msgid "total"
 msgid "%d total"
 msgstr "سەرجەم"
@@ -5370,9 +5367,8 @@ msgstr ""
 
 #: libraries/Table.php:347
 #: libraries/Table.php:301
-#| msgid "unknown table status: "
 msgid "Unknown table status:"
-msgstr "دۆخی نەزانراوی خشتە: "
+msgstr "دۆخی نەزانراوی خشتە:"
 
 #: libraries/Table.php:735
 #: libraries/Table.php:689
@@ -6044,7 +6040,7 @@ msgstr ""
 
 #: libraries/common.inc.php:578
 #: libraries/common.inc.php:544
-#, php-format, php-format
+#, fuzzy, php-format, php-format
 #| msgid "Server"
 msgid "Server %d"
 msgstr "سێرڤەر"
@@ -10346,7 +10342,7 @@ msgstr ""
 
 #: libraries/navigation/NodeFactory.php:63
 #: libraries/navigation/NodeFactory.php:61
-#, php-format, php-format
+#, fuzzy, php-format, php-format
 #| msgid "Add columns"
 msgid "Could not load class \"%1$s\""
 msgstr "ستونەکان زیادبکە"
@@ -11323,7 +11319,7 @@ msgstr ""
 
 #: libraries/plugins/export/ExportSql.php:293
 #: libraries/plugins/export/ExportSql.php:294
-#, php-format, php-format
+#, fuzzy, php-format, php-format
 #| msgid "Use this value"
 msgid "%s value"
 msgstr "ئەم نرخە هەڵبژێرە"
@@ -11418,13 +11414,13 @@ msgid "Metadata"
 msgstr "زانیاری نەجوڵاو"
 
 #: libraries/plugins/export/ExportSql.php:1076
-#, php-format, php-format
+#, fuzzy, php-format, php-format
 #| msgid "Delete tracking data for these tables?"
 msgid "Metadata for table %s"
 msgstr "سڕینەوە داتا شوێنکەوتووەکانی ئەم خشانە؟"
 
 #: libraries/plugins/export/ExportSql.php:1083
-#, php-format, php-format
+#, fuzzy, php-format, php-format
 #| msgid "Remove database"
 msgid "Metadata for database %s"
 msgstr "سڕینەوەی بنکەی دراوە"
@@ -11465,12 +11461,12 @@ msgstr ""
 #: libraries/plugins/export/ExportSql.php:1745
 #: libraries/plugins/export/ExportSql.php:1750
 msgid "Indexes for dumped tables"
-msgstr "لەناو خشتە:\n"
+msgstr "لەناو خشتە:"
 
 #: libraries/plugins/export/ExportSql.php:1746
 #: libraries/plugins/export/ExportSql.php:1751
 msgid "Indexes for table"
-msgstr "لەناو خشتە:\n"
+msgstr "لەناو خشتە:"
 
 #: libraries/plugins/export/ExportSql.php:1774
 #: libraries/plugins/export/ExportSql.php:1779
@@ -11730,7 +11726,7 @@ msgid "PDF export page"
 msgstr "هەناردنی ئەم جۆرە ڕێگەپێدراو نییە"
 
 #: libraries/plugins/schema/pdf/PdfRelationSchema.php:102
-#, php-format, php-format
+#, fuzzy, php-format, php-format
 #| msgid "Search in database"
 msgid "Schema of the %s database"
 msgstr "گەڕان لە بنکەی دراو"
@@ -14747,7 +14743,7 @@ msgstr ""
 
 #: libraries/tracking.lib.php:77
 #: libraries/tracking.lib.php:79
-#, php-format, php-format
+#, fuzzy, php-format, php-format
 #| msgid "Current settings"
 msgid "Create version %1$s"
 msgstr "ڕێکخستنەکانی هەنووکە"
@@ -16153,7 +16149,7 @@ msgstr "دەبێت لانیکەم ١ خانە هەڵبژێریت بۆ پیشان
 
 #: templates/table/relation/foreign_key_row.phtml:17
 #: templates/table/relation/foreign_key_row.phtml:19
-#, php-format, php-format
+#, fuzzy, php-format, php-format
 #| msgid "Add constraints"
 msgid "Foreign key constraint %s has been dropped"
 msgstr "زیادکردنی مەرج"
@@ -16613,7 +16609,7 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:105 libraries/advisory_rules.txt:112
 #: libraries/advisory_rules.txt:119
-#, php-format, php-format
+#, fuzzy, php-format, php-format
 #| msgid "Current settings"
 msgid "Current version: %s"
 msgstr "ڕێکخستنەکانی هەنووکە"
