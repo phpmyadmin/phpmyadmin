@@ -2972,6 +2972,13 @@ function PMA_getUserGroupCount()
 function PMA_getUserGroupForUser($username)
 {
     $cfgRelation = PMA_getRelationsParam();
+
+    if (! isset($cfgRelation['db'])
+        || ! isset($cfgRelation['users'])
+    ) {
+        return null;
+    }
+
     $user_table = Util::backquote($cfgRelation['db'])
         . '.' . Util::backquote($cfgRelation['users']);
     $sql_query = 'SELECT `usergroup` FROM ' . $user_table
