@@ -1862,7 +1862,7 @@ function PMA_getQueryResponseForResultsReturned($result, $analyzed_sql_results,
     // - for information_schema
     // - if the result set does not contain all the columns of a unique key
     //   (unless this is an updatable view)
-    // - if the SELECT query contains a join
+    // - if the SELECT query contains a join or a subquery
 
     $updatableView = false;
 
@@ -1875,8 +1875,9 @@ function PMA_getQueryResponseForResultsReturned($result, $analyzed_sql_results,
             }
         }
 
-        if (isset($statement->join)
-            && ! empty($statement->join)
+        if ($analyzed_sql_results['join']
+            || $analyzed_sql_results['is_subquery']
+            || count($analyzed_sql_results['select_tables']) !== 1
         ) {
             $just_one_table = false;
         }
