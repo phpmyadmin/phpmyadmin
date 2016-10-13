@@ -429,6 +429,7 @@ class Advisor
         // Actually evaluate the code
         ob_start();
         try {
+            // TODO: replace by using symfony/expression-language
             eval('$value = ' . $expr . ';');
             $err = ob_get_contents();
         } catch (Exception $e) {
