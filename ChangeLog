@@ -89,6 +89,7 @@ phpMyAdmin - ChangeLog
 - issue #12569 Avoid showing import errors twice
 - issue #12362 prefs_manage.php can leave an orphaned temporary file
 - issue #12619 Unable to export csv when using union select
+- issue #12625 Broken Edit links in query results of JOIN query
 
 4.6.4 (2016-08-16)
 - issue        [security] Weaknesses with cookie encryption, see PMASA-2016-29

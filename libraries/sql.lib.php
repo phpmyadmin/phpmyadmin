@@ -1856,10 +1856,13 @@ function PMA_getQueryResponseForResultsReturned($result, $analyzed_sql_results,
     $header   = $response->getHeader();
     $scripts  = $header->getScripts();
 
+    $just_one_table = PMA_resultSetHasJustOneTable($fields_meta);
+
     // hide edit and delete links:
     // - for information_schema
     // - if the result set does not contain all the columns of a unique key
     //   (unless this is an updatable view)
+    // - if the SELECT query contains a join
 
     $updatableView = false;
 
@@ -1871,13 +1874,17 @@ function PMA_getQueryResponseForResultsReturned($result, $analyzed_sql_results,
                 $updatableView = $_table->isUpdatableView();
             }
         }
+
+        if (isset($statement->join)
+            && ! empty($statement->join)
+        ) {
+            $just_one_table = false;
+        }
     }
 
     $has_unique = PMA_resultSetContainsUniqueKey(
         $db, $table, $fields_meta
     );
-
-    $just_one_table = PMA_resultSetHasJustOneTable($fields_meta);
 
     $editable = ($has_unique
         || $GLOBALS['cfg']['RowActionLinksWithoutUnique']
