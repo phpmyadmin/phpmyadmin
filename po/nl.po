@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-08-17 11:28+0200\n"
-"PO-Revision-Date: 2016-09-18 17:57+0000\n"
+"PO-Revision-Date: 2016-10-13 15:21+0000\n"
 "Last-Translator: dingo thirteen <dingo13@gmail.com>\n"
 "Language-Team: Dutch "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/nl/>\n"
@@ -16,16 +16,13 @@ msgstr ""
 "X-Generator: Weblate 2.9-dev\n"
 
 #: changelog.php:38 license.php:33
-#, fuzzy, php-format
-#| msgid ""
-#| "The %s file is not available on this system, please visit www.phpmyadmin."
-#| "net for more information."
+#, php-format
 msgid ""
 "The %s file is not available on this system, please visit %s for more "
 "information."
 msgstr ""
-"Het %s bestand is niet beschikbaar op dit systeem, bezoek a.u.b. www."
-"phpmyadmin.net voor meer informatie."
+"Het %s bestand is niet beschikbaar op dit systeem, bezoek a.u.b. %s voor "
+"meer informatie."
 
 #: db_central_columns.php:107
 msgid "The central list of columns for the current database is empty."
@@ -7594,16 +7591,12 @@ msgid "Show last check timestamp"
 msgstr "Toon het tijdstip van laatste controle"
 
 #: libraries/config/messages.inc.php:860
-#, fuzzy
-#| msgid "Show or hide a column displaying the comments for all tables."
 msgid "Show or hide a column displaying the charset for all tables."
-msgstr "Toon of verberg een kolom met het commentaar voor alle tabellen."
+msgstr "Toon of verberg een kolom met de karaktersets voor alle tabellen."
 
 #: libraries/config/messages.inc.php:862
-#, fuzzy
-#| msgid "Show table comments"
 msgid "Show table charset"
-msgstr "Tabel opmerkingen"
+msgstr "Toon tabel karakterset"
 
 #: libraries/config/messages.inc.php:864
 msgid ""
