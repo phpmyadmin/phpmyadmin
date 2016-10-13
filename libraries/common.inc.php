@@ -80,7 +80,7 @@ require_once './vendor/autoload.php';
 /**
  * Load gettext functions.
  */
-MoTranslator\Loader::load_functions();
+MoTranslator\Loader::loadFunctions();
 
 /**
  * initialize the error handler
