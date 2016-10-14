@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.5-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-08-17 11:29+0200\n"
-"PO-Revision-Date: 2016-09-23 16:50+0000\n"
-"Last-Translator: Daniel Palmeira Huanca <daniel46758@hotmail.com>\n"
+"PO-Revision-Date: 2016-10-14 13:08+0000\n"
+"Last-Translator: Vinicius Moreira (Vm Creative) <vinnisao13@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-6/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -5212,10 +5212,8 @@ msgid "You allow for connecting to the server without a password."
 msgstr "Você permite a conexão com o servidor sem uma senha."
 
 #: libraries/config/ServerConfigChecks.php:347
-#, fuzzy
-#| msgid "Key is too short, it should have at least 8 characters."
 msgid "Key is too short, it should have at least 32 characters."
-msgstr "A chave é muito curta, deveria ter pelo menos 8 caracteres."
+msgstr "A chave é muito curta, deveria ter pelo menos 32 caracteres."
 
 #: libraries/config/ServerConfigChecks.php:357
 msgid "Key should contain letters, numbers [em]and[/em] special characters."
@@ -5869,8 +5867,8 @@ msgstr "Exportar vistas como tabelas"
 #| msgid "%sCreate%s missing phpMyAdmin configuration storage tables."
 msgid "Export related metadata from phpMyAdmin configuration storage"
 msgstr ""
-"%sCreate%s as tabelas de armazenamento de configuração do phpMyAdmin "
-"perdidas."
+"Exportar metadados relacionados ao armazenamento de configurações do "
+"phpMyAdmin"
 
 #: libraries/config/messages.inc.php:200 libraries/config/messages.inc.php:201
 #: libraries/config/messages.inc.php:203 libraries/config/messages.inc.php:205
@@ -5943,7 +5941,8 @@ msgstr "Limite de chave estrangeira"
 #: libraries/config/messages.inc.php:242
 #, fuzzy
 msgid "Default value for foreign key checks checkbox for some queries."
-msgstr "valor padrão para foreign key checa checkbox por qualquer consultas."
+msgstr ""
+"Valor padrão para chave estrangeira checa a checkbox por algumas consultas."
 
 #: libraries/config/messages.inc.php:244
 msgid "Foreign key checks"
@@ -6041,16 +6040,12 @@ msgid "Customize appearance of the navigation panel."
 msgstr "Personalizar a aparência do painel de navegação."
 
 #: libraries/config/messages.inc.php:273
-#, fuzzy
-#| msgid "Navigation panel"
 msgid "Navigation tree"
 msgstr "Painel de navegação"
 
 #: libraries/config/messages.inc.php:274
-#, fuzzy
-#| msgid "Customize navigation panel"
 msgid "Customize the navigation tree."
-msgstr "Personalizar painel de navegação"
+msgstr "Personalizar o painel de navegação."
 
 #: libraries/config/messages.inc.php:275 libraries/select_server.lib.php:43
 #: setup/frames/index.inc.php:158
@@ -6265,13 +6260,9 @@ msgid "Disable some of the warnings shown by phpMyAdmin."
 msgstr "Desativa alguns dos avisos mostrados pelo phpMyAdmin."
 
 #: libraries/config/messages.inc.php:353
-#, fuzzy
-#| msgid ""
-#| "Enable [a@https://en.wikipedia.org/wiki/Gzip]gzip[/a] compression for "
-#| "import and export operations."
 msgid "Enable gzip compression for import and export operations."
 msgstr ""
-"Habilitar a compressão [a@https://en.wikipedia.org/wiki/Gzip]gzip[/a] nas "
+"Habilitar a compressão [a@https://pt.wikipedia.org/wiki/Gzip[/a] nas "
 "operações de importação e exportação."
 
 #: libraries/config/messages.inc.php:356
@@ -6532,8 +6523,8 @@ msgid ""
 "The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd] "
 "([kbd]-1[/kbd] for no limit and [kbd]0[/kbd] for no change)."
 msgstr ""
-"O número de bytes permitidos que um script pode alocar, ex. [kbd]32MB[/kbd] "
-"ou ([kbd]0[/kbd] para não haver limite)."
+"O número de bytes que um script é permitido alocar, ex. [kbd]32MB[/kbd] "
+"([kbd]-1[/kbd] para não haver limite e [kbd]0[/kbd] para não haver mudança)."
 
 #: libraries/config/messages.inc.php:469
 msgid "Memory limit"
@@ -6667,10 +6658,8 @@ msgid "Enable navigation tree expansion"
 msgstr "Permitir a expansão da árvore de navegação"
 
 #: libraries/config/messages.inc.php:525
-#, fuzzy
-#| msgid "Show/Hide tables list"
 msgid "Show tables in tree"
-msgstr "Mostrar/ocultar lista de tabelas"
+msgstr "Mostrar tabelas na lista de tabelas"
 
 #: libraries/config/messages.inc.php:527
 #, fuzzy
