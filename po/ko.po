@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.5-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-08-17 11:29+0200\n"
-"PO-Revision-Date: 2016-10-07 05:30+0000\n"
+"PO-Revision-Date: 2016-10-14 13:28+0000\n"
 "Last-Translator: SDSkyKlouD <koongchi135@gmail.com>\n"
 "Language-Team: Korean "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-6/ko/>\n"
@@ -2482,7 +2482,7 @@ msgstr "%s 쿼리를 %s 번 %s 초 안에 처리했습니다."
 #: js/messages.php:705
 #, php-format
 msgid "%s argument(s) passed"
-msgstr ""
+msgstr "%s개의 인수가 전달됨"
 
 #: js/messages.php:706
 msgid "Show arguments"
