@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-08-17 11:28+0200\n"
-"PO-Revision-Date: 2016-10-07 05:30+0000\n"
+"PO-Revision-Date: 2016-10-14 13:28+0000\n"
 "Last-Translator: SDSkyKlouD <koongchi135@gmail.com>\n"
 "Language-Team: Korean "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/ko/>\n"
@@ -829,7 +829,7 @@ msgstr "이 데이터베이스 전체를 제거하려고 합니다!"
 
 #: js/messages.php:53
 msgid "Cannot rename database to the same name. Change the name and try again"
-msgstr ""
+msgstr "같은 이름으로 데이터베이스의 이름을 변경할 수 없습니다. 이름을 바꾸어 다시 시도해 주세요"
 
 #: js/messages.php:55
 msgid "You are about to DESTROY a complete table!"
@@ -2473,7 +2473,7 @@ msgstr "%s 쿼리를 %s 번 %s 초 안에 처리했습니다."
 #: js/messages.php:710
 #, php-format
 msgid "%s argument(s) passed"
-msgstr ""
+msgstr "%s개의 인수가 전달됨"
 
 #: js/messages.php:711
 msgid "Show arguments"
