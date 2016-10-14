@@ -587,7 +587,7 @@ class ExportSqlTest extends PMATestCase
         $result = ob_get_clean();
 
         $this->assertContains(
-            "DROP DATABASE `db`;\n",
+            "DROP DATABASE IF EXISTS `db`;\n",
             $result
         );
 
@@ -625,7 +625,7 @@ class ExportSqlTest extends PMATestCase
         $result = ob_get_clean();
 
         $this->assertContains(
-            "DROP DATABASE db;\n",
+            "DROP DATABASE IF EXISTS db;\n",
             $result
         );
 
