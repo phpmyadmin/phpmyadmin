@@ -236,7 +236,7 @@ class ExportSql extends ExportPlugin
                 if ($plugin_param['export_type'] == 'server') {
                     $leaf = new BoolPropertyItem(
                         "drop_database",
-                        sprintf(__('Add %s statement'), '<code>DROP DATABASE</code>')
+                        sprintf(__('Add %s statement'), '<code>DROP DATABASE IF EXISTS</code>')
                     );
                     $subgroup->addProperty($leaf);
                 }
@@ -796,7 +796,7 @@ class ExportSql extends ExportPlugin
         }
         if (isset($GLOBALS['sql_drop_database'])) {
             if (!PMA_exportOutputHandler(
-                'DROP DATABASE '
+                'DROP DATABASE IF EXISTS '
                 . Util::backquoteCompat(
                     $db_alias,
                     $compat,
