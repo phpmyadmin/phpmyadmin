@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.5-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-08-17 11:29+0200\n"
-"PO-Revision-Date: 2016-10-14 13:28+0000\n"
+"PO-Revision-Date: 2016-10-15 07:33+0000\n"
 "Last-Translator: SDSkyKlouD <koongchi135@gmail.com>\n"
 "Language-Team: Korean "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-6/ko/>\n"
@@ -1637,15 +1637,12 @@ msgid "Test"
 msgstr "테스트"
 
 #: js/messages.php:345
-#, fuzzy
 msgid "Formatting SQL…"
-msgstr "SQL을 정렬하고 있습니다."
+msgstr "SQL을 정렬하고 있습니다…"
 
 #: js/messages.php:346
-#, fuzzy
-#| msgid "Bad parameters!"
 msgid "No parameters found!"
-msgstr "잘못된 인자!"
+msgstr "파라미터를 찾을 수 없습니다!"
 
 #: js/messages.php:350
 #: templates/database/designer/aggregate_query_panel.phtml:63
@@ -2510,16 +2507,12 @@ msgid "Copy tables to"
 msgstr "테이블을 복사합니다"
 
 #: js/messages.php:712
-#, fuzzy
-#| msgid "Add table prefix:"
 msgid "Add table prefix"
-msgstr "테이블 접두사 추가:"
+msgstr "테이블 접두사 추가"
 
 #: js/messages.php:713
-#, fuzzy
-#| msgid "Replace table prefix"
 msgid "Replace table with prefix"
-msgstr "테이블의 접두사를 교체"
+msgstr "접두사로 테이블 교체"
 
 #: js/messages.php:714 templates/database/structure/check_all_tables.phtml:29
 msgid "Copy table with prefix"
@@ -3150,10 +3143,8 @@ msgid "Switch to dark theme"
 msgstr "어두운 테마로 변경"
 
 #: libraries/DatabaseInterface.php:1528
-#, fuzzy
-#| msgid "Failed to read configuration file!"
 msgid "Failed to set configured collation connection!"
-msgstr "설정 파일을 읽는데 실패했습니다!"
+msgstr "정렬 방식 연결을 구성하는데 실패했습니다!"
 
 #: libraries/DatabaseInterface.php:2139
 msgid ""
@@ -3444,10 +3435,8 @@ msgid "Relational key"
 msgstr "관계키"
 
 #: libraries/DisplayResults.php:1742
-#, fuzzy
-#| msgid "Displaying Column Comments"
 msgid "Display column for relations"
-msgstr "열(칼럼) 설명(코멘트) 출력하기"
+msgstr "관계에 대해 칼럼 표시"
 
 #: libraries/DisplayResults.php:1755
 msgid "Show binary contents"
@@ -3769,9 +3758,9 @@ msgid ""
 msgstr ""
 
 #: libraries/Linter.php:165
-#, fuzzy, php-format
+#, php-format
 msgid "%1$s (near <code>%2$s</code>)"
-msgstr "%1$s (<code>%2$s</code> 근처에)"
+msgstr "%1$s (<code>%2$s</code> 근처)"
 
 #: libraries/Menu.php:201 libraries/ServerStatusData.php:424
 #: libraries/config/messages.inc.php:923
@@ -16328,10 +16317,9 @@ msgid "Opened files rate: %s, this value should be less than 5 per hour"
 msgstr "열린 파일 비율: %s, 이 값은 시간당 5 미만이어야 합니다"
 
 #: libraries/advisory_rules.txt:330
-#, fuzzy, php-format
-#| msgid "Create table on database %s"
+#, php-format
 msgid "Immediate table locks %%"
-msgstr "데이터베이스 %s에 새로운 테이블을 만듭니다."
+msgstr "즉시 잠겨진 테이블 비율 %%"
 
 #: libraries/advisory_rules.txt:333 libraries/advisory_rules.txt:340
 msgid "Too many table locks were not granted immediately."
