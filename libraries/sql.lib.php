@@ -1902,7 +1902,7 @@ function PMA_getQueryResponseForResultsReturned($result, $analyzed_sql_results,
         'pview_lnk' => '1'
     );
 
-    if (!empty($table) && ($GLOBALS['dbi']->isSystemSchema($db) || !$editable)) {
+    if ($GLOBALS['dbi']->isSystemSchema($db) || !$editable) {
         $displayParts = array(
             'edit_lnk' => $displayResultsObject::NO_EDIT_OR_DELETE,
             'del_lnk' => $displayResultsObject::NO_EDIT_OR_DELETE,
