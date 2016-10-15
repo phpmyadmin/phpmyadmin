@@ -1237,8 +1237,7 @@ function New_relation()
             PMA_ajaxShowMessage(data.error, false);
         } else {
             PMA_ajaxRemoveMessage($msgbox);
-            // Load_page(selected_page);
-            $("#designer_tab").click();
+            Load_page(selected_page);
         }
     }); // end $.post()
 }
@@ -1469,8 +1468,7 @@ function Upd_relation()
             PMA_ajaxShowMessage(data.error, false);
         } else {
             PMA_ajaxRemoveMessage($msgbox);
-            // Load_page(selected_page);
-            $("#designer_tab").click();
+            Load_page(selected_page);
         }
     }); // end $.post()
 }
