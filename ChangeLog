@@ -62,6 +62,7 @@ phpMyAdmin - ChangeLog
 - issue #12619 Unable to export csv when using union select
 - issue #12625 Broken Edit links in query results of JOIN query
 - issue #12634 Drop DB error in import if DB doesn't exist
+- issue #12338 Designer reverts to first saved ER after EACH relation create or delete
 
 4.6.4 (2016-08-16)
 - issue        [security] Weaknesses with cookie encryption, see PMASA-2016-29
