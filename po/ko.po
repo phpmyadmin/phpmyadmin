@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-08-17 11:28+0200\n"
-"PO-Revision-Date: 2016-10-14 13:28+0000\n"
+"PO-Revision-Date: 2016-10-15 07:33+0000\n"
 "Last-Translator: SDSkyKlouD <koongchi135@gmail.com>\n"
 "Language-Team: Korean "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/ko/>\n"
@@ -16,16 +16,11 @@ msgstr ""
 "X-Generator: Weblate 2.9-dev\n"
 
 #: changelog.php:38 license.php:33
-#, fuzzy, php-format
-#| msgid ""
-#| "The %s file is not available on this system, please visit www.phpmyadmin."
-#| "net for more information."
+#, php-format
 msgid ""
 "The %s file is not available on this system, please visit %s for more "
 "information."
-msgstr ""
-"%s 파일은 이 시스템에서 이용할 수 없습니다. www.phpmyadmin.net에 방문하여 정"
-"보를 확인하시기 바랍니다."
+msgstr "%s 파일은 이 시스템에서 사용할 수 없습니다. %s에 방문하여 정보를 확인하시기 바랍니다."
 
 #: db_central_columns.php:107
 msgid "The central list of columns for the current database is empty."
@@ -1626,15 +1621,12 @@ msgid "Test"
 msgstr "테스트"
 
 #: js/messages.php:350
-#, fuzzy
 msgid "Formatting SQL…"
-msgstr "SQL을 정렬하고 있습니다."
+msgstr "SQL을 정렬하고 있습니다…"
 
 #: js/messages.php:351
-#, fuzzy
-#| msgid "Bad parameters!"
 msgid "No parameters found!"
-msgstr "잘못된 인자!"
+msgstr "파라미터를 찾을 수 없습니다!"
 
 #: js/messages.php:355
 #: templates/database/designer/aggregate_query_panel.phtml:63
@@ -2501,16 +2493,12 @@ msgid "Copy tables to"
 msgstr "테이블을 복사합니다"
 
 #: js/messages.php:717
-#, fuzzy
-#| msgid "Add table prefix:"
 msgid "Add table prefix"
-msgstr "테이블 접두사 추가:"
+msgstr "테이블 접두사 추가"
 
 #: js/messages.php:718
-#, fuzzy
-#| msgid "Replace table prefix"
 msgid "Replace table with prefix"
-msgstr "테이블의 접두사를 교체"
+msgstr "접두사로 테이블 교체"
 
 #: js/messages.php:719 templates/database/structure/check_all_tables.phtml:29
 msgid "Copy table with prefix"
@@ -3113,22 +3101,16 @@ msgid "unknown"
 msgstr "알수없음"
 
 #: libraries/Charsets.php:460
-#, fuzzy
-#| msgid "Collation"
 msgid "binary collation"
-msgstr "데이터정렬방식"
+msgstr "바이너리 정렬 방식"
 
 #: libraries/Charsets.php:467
-#, fuzzy
-#| msgid "case-insensitive"
 msgid "case-insensitive collation"
-msgstr "대소문자 구분안함"
+msgstr "대소문자 구분 없는 정렬 방식"
 
 #: libraries/Charsets.php:469
-#, fuzzy
-#| msgid "case-sensitive"
 msgid "case-sensitive collation"
-msgstr "대소문자 구분"
+msgstr "대소문자 구분 있는 정렬 방식"
 
 #: libraries/Config.php:1151
 #, php-format
@@ -3176,10 +3158,8 @@ msgid "SQL Query Console"
 msgstr "SQL 질의 콘솔"
 
 #: libraries/DatabaseInterface.php:1409
-#, fuzzy
-#| msgid "Failed to read configuration file!"
 msgid "Failed to set configured collation connection!"
-msgstr "설정 파일을 읽는데 실패했습니다!"
+msgstr "정렬 방식 연결을 구성하는데 실패했습니다!"
 
 #: libraries/DatabaseInterface.php:2020
 msgid ""
@@ -3202,10 +3182,8 @@ msgid "Details…"
 msgstr "자세히…"
 
 #: libraries/DatabaseInterface.php:2325
-#, fuzzy
-#| msgid "Missing parameter:"
 msgid "Missing connection parameters!"
-msgstr "매개 변수 누락:"
+msgstr "연결의 파라미터가 없습니다!"
 
 #: libraries/DatabaseInterface.php:2358
 msgid "Connection for controluser as defined in your configuration failed."
@@ -3506,10 +3484,8 @@ msgid "Relational key"
 msgstr "관계키"
 
 #: libraries/DisplayResults.php:1744
-#, fuzzy
-#| msgid "Displaying Column Comments"
 msgid "Display column for relations"
-msgstr "열(칼럼) 설명(코멘트) 출력하기"
+msgstr "관계에 대해 칼럼 표시"
 
 #: libraries/DisplayResults.php:1760
 msgid "Show binary contents"
@@ -3839,9 +3815,9 @@ msgid ""
 msgstr ""
 
 #: libraries/Linter.php:165
-#, fuzzy, php-format
+#, php-format
 msgid "%1$s (near <code>%2$s</code>)"
-msgstr "%1$s (<code>%2$s</code> 근처에)"
+msgstr "%1$s (<code>%2$s</code> 근처)"
 
 #: libraries/Menu.php:208 libraries/ServerStatusData.php:425
 #: libraries/config/messages.inc.php:929
@@ -16432,10 +16408,9 @@ msgid "Opened files rate: %s, this value should be less than 5 per hour"
 msgstr "열린 파일 비율: %s, 이 값은 시간당 5 미만이어야 합니다"
 
 #: libraries/advisory_rules.txt:330
-#, fuzzy, php-format
-#| msgid "Create table on database %s"
+#, php-format
 msgid "Immediate table locks %%"
-msgstr "데이터베이스 %s에 새로운 테이블을 만듭니다."
+msgstr "즉시 잠겨진 테이블 비율 %%"
 
 #: libraries/advisory_rules.txt:333 libraries/advisory_rules.txt:340
 msgid "Too many table locks were not granted immediately."
