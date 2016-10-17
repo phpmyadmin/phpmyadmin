@@ -271,8 +271,10 @@ class Validator
         }
 
         if (! $error && $values['Servers/1/auth_type'] == 'config') {
-            $password = !empty($values['Servers/1/nopassword']) && $values['Servers/1/nopassword'] ? null
-                : (empty($values['Servers/1/password']) ? '' : $values['Servers/1/password']);
+            $password = '';
+            if (! empty($values['Servers/1/password'])) {
+                $password = $values['Servers/1/password'];
+            }
             $test = static::testDBConnection(
                 empty($values['Servers/1/connect_type']) ? '' : $values['Servers/1/connect_type'],
                 empty($values['Servers/1/host']) ? '' : $values['Servers/1/host'],
@@ -282,6 +284,24 @@ class Validator
                 $password,
                 'Server'
             );
+
+            // If failed 'with' password, try 'without' password
+            if ($test !== true
+                && !empty($values['Servers/1/nopassword'])
+                && $values['Servers/1/nopassword']
+            ) {
+                $password = '';
+                $test = static::testDBConnection(
+                    empty($values['Servers/1/connect_type']) ? '' : $values['Servers/1/connect_type'],
+                    empty($values['Servers/1/host']) ? '' : $values['Servers/1/host'],
+                    empty($values['Servers/1/port']) ? '' : $values['Servers/1/port'],
+                    empty($values['Servers/1/socket']) ? '' : $values['Servers/1/socket'],
+                    empty($values['Servers/1/user']) ? '' : $values['Servers/1/user'],
+                    $password,
+                    'Server'
+                );
+            }
+
             if ($test !== true) {
                 $result = array_merge($result, $test);
             }
