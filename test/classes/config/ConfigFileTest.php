@@ -506,7 +506,7 @@ class ConfigFileTest extends PMATestCase
             )
         );
         $this->assertEquals(
-            "mysqli://testUser:***@example.com:21",
+            "mysqli://testUser@example.com:21",
             $this->object->getServerDSN(1)
         );
 
@@ -519,8 +519,8 @@ class ConfigFileTest extends PMATestCase
                         "connect_type" => "socket",
                         "host" => "example.com",
                         "port" => "21",
-                        "nopassword" => "yes",
-                        "socket" => "123"
+                        "socket" => "123",
+                        "password" => "",
                     )
                 )
             )
@@ -539,7 +539,6 @@ class ConfigFileTest extends PMATestCase
                         "connect_type" => "tcp",
                         "host" => "example.com",
                         "port" => "21",
-                        "nopassword" => "yes",
                         "password" => "testPass"
                     )
                 )

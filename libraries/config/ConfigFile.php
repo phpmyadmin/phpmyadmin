@@ -416,9 +416,7 @@ class ConfigFile
         $dsn = 'mysqli://';
         if ($this->getValue("$path/auth_type") == 'config') {
             $dsn .= $this->getValue("$path/user");
-            if (! $this->getValue("$path/nopassword")
-                || ! empty($this->getValue("$path/password"))
-            ) {
+            if (! empty($this->getValue("$path/password"))) {
                 $dsn .= ':***';
             }
             $dsn .= '@';

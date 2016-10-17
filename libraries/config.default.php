@@ -298,13 +298,6 @@ $cfg['Servers'][$i]['SignonURL'] = '';
 $cfg['Servers'][$i]['LogoutURL'] = '';
 
 /**
- * Whether to try to connect without password
- *
- * @global boolean $cfg['Servers'][$i]['nopassword']
- */
-$cfg['Servers'][$i]['nopassword'] = false;
-
-/**
  * If set to a db-name, only this db is displayed in navigation panel
  * It may also be an array of db-names
  *

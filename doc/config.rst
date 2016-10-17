@@ -577,6 +577,10 @@ Server connection settings
     :type: boolean
     :default: false
 
+    .. deprecated:: 4.7.0
+
+        This setting was removed as it can produce unexpected results.
+
     Allow attempt to log in without password when a login with password
     fails. This can be used together with http authentication, when
     authentication is done some other way and phpMyAdmin gets user name

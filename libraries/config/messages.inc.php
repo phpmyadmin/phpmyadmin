@@ -705,8 +705,6 @@ $strConfigServers_central_columns_desc = __(
     'Leave blank for no central columns support, suggested: '
     . '[kbd]pma__central_columns[/kbd].'
 );
-$strConfigServers_nopassword_desc = __('Try to connect without password.');
-$strConfigServers_nopassword_name = __('Connect without password');
 $strConfigServers_only_db_desc = __(
     'You can use MySQL wildcard characters (% and _), escape them if you want to '
     . 'use their literal instances, i.e. use [kbd]\'my\_db\'[/kbd] and not '
