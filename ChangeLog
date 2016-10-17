@@ -64,6 +64,7 @@ phpMyAdmin - ChangeLog
 - issue #12634 Drop DB error in import if DB doesn't exist
 - issue #12338 Designer reverts to first saved ER after EACH relation create or delete
 - issue #12639 'Show trace' in Console generates JS error for functions in query's trace called without any arguments
+- issue #12366 Fix user creation with certain MariaDB setups
 
 4.6.4 (2016-08-16)
 - issue        [security] Weaknesses with cookie encryption, see PMASA-2016-29
