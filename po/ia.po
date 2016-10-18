@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.5-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-08-17 11:29+0200\n"
-"PO-Revision-Date: 2016-10-18 11:18+0000\n"
+"PO-Revision-Date: 2016-10-18 11:37+0000\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-6/ia/>\n"
@@ -10455,7 +10455,7 @@ msgstr "Optiones de creation de datos"
 #: libraries/plugins/export/ExportSql.php:346
 #: libraries/plugins/export/ExportSql.php:2286
 msgid "Truncate table before insert"
-msgstr ""
+msgstr "Trunca le tabella ante insertar"
 
 #: libraries/plugins/export/ExportSql.php:353
 msgid "Instead of <code>INSERT</code> statements, use:"
@@ -10533,13 +10533,14 @@ msgstr ""
 
 #: libraries/plugins/export/ExportSql.php:515
 msgid "It appears your database uses routines;"
-msgstr ""
+msgstr "Il sembla que tu base de datos usa routines;"
 
 #: libraries/plugins/export/ExportSql.php:518
 #: libraries/plugins/export/ExportSql.php:1540
 #: libraries/plugins/export/ExportSql.php:2057
 msgid "alias export may not work reliably in all cases."
 msgstr ""
+"exportation de alias pote non functionar de modo correcte in omne casos."
 
 #: libraries/plugins/export/ExportSql.php:1006
 msgid "Metadata"
@@ -10577,7 +10578,7 @@ msgstr "in uso"
 
 #: libraries/plugins/export/ExportSql.php:1537
 msgid "It appears your database uses views;"
-msgstr ""
+msgstr "Il sembla que tu base de datos usa vistas;"
 
 #: libraries/plugins/export/ExportSql.php:1714
 msgid "Constraints for dumped tables"
@@ -10613,7 +10614,7 @@ msgstr "RELATIONS FOR TABLE"
 
 #: libraries/plugins/export/ExportSql.php:2054
 msgid "It appears your table uses triggers;"
-msgstr ""
+msgstr "Il sembla que tu tabella usa triggers;"
 
 #: libraries/plugins/export/ExportSql.php:2091
 #, php-format
@@ -10622,7 +10623,7 @@ msgstr "Structura pro vider %s exportate como un tabella"
 
 #: libraries/plugins/export/ExportSql.php:2115
 msgid "(See below for the actual view)"
-msgstr ""
+msgstr "(Vide a basso per le vista actual)"
 
 #: libraries/plugins/export/ExportSql.php:2201
 msgid "Error reading data:"
@@ -10642,7 +10643,7 @@ msgstr "Tabella:"
 
 #: libraries/plugins/export/PMA_ExportPdf.php:120
 msgid "Purpose:"
-msgstr ""
+msgstr "Intention:"
 
 #: libraries/plugins/export/PMA_ExportPdf.php:501
 msgid "MIME"
@@ -10696,20 +10697,20 @@ msgstr ""
 #: libraries/plugins/import/ImportCsv.php:661
 #, php-format
 msgid "Invalid format of CSV input on line %d."
-msgstr ""
+msgstr "Formato invalide de ingresso  CSV al rango %d."
 
 #: libraries/plugins/import/ImportCsv.php:531
 #, php-format
 msgid "Invalid column count in CSV input on line %d."
-msgstr ""
+msgstr "Conto de columna Invalide in ingresso de CSV al rango %d."
 
 #: libraries/plugins/import/ImportLdi.php:109
 msgid "This plugin does not support compressed imports!"
-msgstr ""
+msgstr "Iste plugin non supporta importation de datos comprimite!"
 
 #: libraries/plugins/import/ImportMediawiki.php:52
 msgid "MediaWiki Table"
-msgstr ""
+msgstr "Tabella MediaWiki"
 
 #: libraries/plugins/import/ImportMediawiki.php:275
 #, php-format
@@ -10738,12 +10739,13 @@ msgstr ""
 
 #: libraries/plugins/import/ImportShp.php:49
 msgid "ESRI Shape File"
-msgstr ""
+msgstr "Shape File ESRI"
 
 #: libraries/plugins/import/ImportShp.php:149
 #, php-format
 msgid "There was an error importing the ESRI shape file: \"%s\"."
 msgstr ""
+"Il habeva un error durante que on importava le shape file ESRI : \"%s\"."
 
 #: libraries/plugins/import/ImportShp.php:198
 msgid ""
@@ -10755,14 +10757,16 @@ msgstr ""
 #, php-format
 msgid "MySQL Spatial Extension does not support ESRI type \"%s\"."
 msgstr ""
+"Extension spatial de MySQL Spatial Extension non supporta le typo ESRI  \"%"
+"s\"."
 
 #: libraries/plugins/import/ImportShp.php:253
 msgid "The imported file does not contain any data!"
-msgstr ""
+msgstr "Le file importate non contine alcun dato!"
 
 #: libraries/plugins/import/ImportSql.php:68
 msgid "SQL compatibility mode:"
-msgstr ""
+msgstr "Modo de compatibilitate  SQL:"
 
 #: libraries/plugins/import/ImportSql.php:80
 msgid "Do not use <code>AUTO_INCREMENT</code> for zero values"
@@ -10779,7 +10783,7 @@ msgstr ""
 
 #: libraries/plugins/schema/ExportRelationSchema.php:288
 msgid "SCHEMA ERROR: "
-msgstr ""
+msgstr "SCHEMA ERROR: "
 
 #: libraries/plugins/schema/SchemaDia.php:60
 #: libraries/plugins/schema/SchemaEps.php:68
@@ -10832,7 +10836,7 @@ msgstr "Nomine (Descendente)"
 #: libraries/plugins/schema/svg/TableStatsSvg.php:92
 #, php-format
 msgid "The %s table doesn't exist!"
-msgstr ""
+msgstr "Le tabella %s non existe!"
 
 #: libraries/plugins/schema/eps/EpsRelationSchema.php:64
 #: libraries/plugins/schema/svg/SvgRelationSchema.php:68
