@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-10-18 13:44+0200\n"
-"PO-Revision-Date: 2016-08-17 10:20+0000\n"
+"PO-Revision-Date: 2016-10-18 19:33+0000\n"
 "Last-Translator: Stefano Martinelli <stefano.ste.martinelli@gmail.com>\n"
-"Language-Team: Italian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/it/>\n"
+"Language-Team: Italian "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/it/>\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.8-dev\n"
+"X-Generator: Weblate 2.9-dev\n"
 
 #: changelog.php:38 license.php:33
 #, php-format
@@ -1816,6 +1816,7 @@ msgstr "Esporta"
 #: js/messages.php:394
 msgid "No routine is exportable. Required privileges may be lacking."
 msgstr ""
+"Non ci sono routine esportabili. Potresti non avere i privilegi necessari."
 
 #: js/messages.php:397 libraries/rte/rte_routines.lib.php:756
 msgid "ENUM/SET editor"
@@ -2965,7 +2966,7 @@ msgstr "Formattazione della stringa non riuscita per regola '%s'."
 #: libraries/Advisor.php:469
 #, php-format
 msgid "Error in reading file: The file '%s' does not exist or is not readable!"
-msgstr ""
+msgstr "Errore in lettura file: il file %s non esiste oppure non è leggibile!"
 
 #: libraries/Advisor.php:494
 #, php-format
@@ -11881,6 +11882,8 @@ msgid ""
 "No routine with name %1$s found in database %2$s. You might be lacking the "
 "necessary privileges to edit this routine"
 msgstr ""
+"Non c'è alcuna routine di nome %1$s nel database %2$s. Potresti non avere le "
+"autorizzazioni necessarie per editare questa routine"
 
 #: libraries/rte/rte_words.lib.php:39
 #, php-format
@@ -11888,6 +11891,8 @@ msgid ""
 "No routine with name %1$s found in database %2$s. You might be lacking the "
 "necessary privileges to view/export this routine"
 msgstr ""
+"Non c'è alcuna routine di nome %1$s nel database %2$s. Potresti non avere le "
+"autorizzazioni necessarie per visualizzare/esportare questa routine"
 
 #: libraries/rte/rte_words.lib.php:42
 #, php-format
@@ -12222,6 +12227,8 @@ msgid ""
 "Allows user to give to other users or remove from other users privileges "
 "that user possess on this routine."
 msgstr ""
+"Consente all'utente di concedere o rimuovere ad altri utenti le "
+"autorizzazioni che l'utente possiede per questa routine."
 
 #: libraries/server_privileges.lib.php:1033
 msgid "Allows altering and dropping this routine."
@@ -12283,6 +12290,8 @@ msgid ""
 "Allows user to give to other users or remove from other users the privileges "
 "that user possess yourself."
 msgstr ""
+"Consente all'utente di concedere o rimuovere ad altri utenti le "
+"autorizzazioni che l'utente possiede per se stesso."
 
 #: libraries/server_privileges.lib.php:1543
 msgid "Native MySQL authentication"
@@ -15727,20 +15736,20 @@ msgstr "Era attesa una parentesi aperta."
 #: vendor/phpmyadmin/sql-parser/src/Statements/InsertStatement.php:227
 #: vendor/phpmyadmin/sql-parser/src/Statements/ReplaceStatement.php:165
 #: vendor/phpmyadmin/sql-parser/src/Statements/ReplaceStatement.php:193
-#, fuzzy
-#| msgid "Unexpected token."
 msgid "Unexpected keyword."
-msgstr "Token inatteso."
+msgstr "Keyworld inaspettata."
 
 #: vendor/phpmyadmin/sql-parser/src/Components/CaseExpression.php:202
 msgid "Unexpected end of CASE expression"
-msgstr ""
+msgstr "Inattesa fine dell'espressione CASE"
 
 #: vendor/phpmyadmin/sql-parser/src/Components/CreateDefinition.php:227
 msgid ""
 "A symbol name was expected! A reserved keyword can not be used as a field "
 "name without backquotes."
 msgstr ""
+"Era atteso un nome di simbolo! Un termine riservato non può essere usato "
+"come nome di un campo senza inserirlo tra backquotes ( ` )."
 
 #: vendor/phpmyadmin/sql-parser/src/Components/CreateDefinition.php:241
 msgid "A symbol name was expected!"
@@ -15788,10 +15797,9 @@ msgid "This option conflicts with \"%1$s\"."
 msgstr "Questa opzione è in conflitto con \"%1$s\"."
 
 #: vendor/phpmyadmin/sql-parser/src/Components/OptionsArray.php:260
-#, fuzzy, php-format
-#| msgid "Ending quote %1$s was expected."
+#, php-format
 msgid "Value/Expression for the option %1$s was expected"
-msgstr "Era atteso il fine quote %1$s."
+msgstr "Era atteso un valore/espressione per l'opzione %1$s"
 
 #: vendor/phpmyadmin/sql-parser/src/Components/RenameOperation.php:101
 msgid "The old name of the table was expected."
@@ -15865,10 +15873,8 @@ msgid "The name of the entity was expected."
 msgstr "Era atteso il nome dell'entity."
 
 #: vendor/phpmyadmin/sql-parser/src/Statements/CreateStatement.php:436
-#, fuzzy
-#| msgid "Variable name was expected."
 msgid "A table name was expected."
-msgstr "Era atteso un nome di variabile."
+msgstr "Era atteso un nome di tabella."
 
 #: vendor/phpmyadmin/sql-parser/src/Statements/CreateStatement.php:444
 msgid "At least one column definition was expected."
@@ -15879,10 +15885,8 @@ msgid "A \"RETURNS\" keyword was expected."
 msgstr "Era attesa una parola chiave \"RETURNS\"."
 
 #: vendor/phpmyadmin/sql-parser/src/Statements/DeleteStatement.php:303
-#, fuzzy
-#| msgid "This type of clause was previously parsed."
 msgid "This type of clause is not valid in Multi-table queries."
-msgstr "Questo tipo di clausola è stata esaminata in precedenza."
+msgstr "Questo tipo di clausola non è valida neele query Multi-tabella."
 
 #: vendor/phpmyadmin/sql-parser/tests/Lexer/LexerTest.php:21
 #: vendor/phpmyadmin/sql-parser/tests/Parser/ParserTest.php:58
