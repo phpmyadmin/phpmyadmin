@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2016-10-18 11:14+0200\n"
+"POT-Creation-Date: 2016-10-18 13:44+0200\n"
 "PO-Revision-Date: 2015-12-18 18:19+0000\n"
 "Last-Translator: Andrey Aleksanyants <aaleksanyants@yahoo.com>\n"
 "Language-Team: Armenian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -2934,10 +2934,11 @@ msgid "Failed formatting string for rule '%s'."
 msgstr "Չհաջողվեց ձևավորել տողը՝ '%s' կանոնի համար։"
 
 #: libraries/Advisor.php:469
-msgid "Error in reading file: The file '"
+#, php-format
+msgid "Error in reading file: The file '%s' does not exist or is not readable!"
 msgstr ""
 
-#: libraries/Advisor.php:493
+#: libraries/Advisor.php:494
 #, php-format
 msgid ""
 "Invalid rule declaration on line %1$s, expected line %2$s of previous rule."
@@ -2945,17 +2946,17 @@ msgstr ""
 "Կանոնի անվավեր հայտարարություն %1$s տողում, սպասվում էր նախորդ կանոնի %2$s "
 "տողը։"
 
-#: libraries/Advisor.php:512
+#: libraries/Advisor.php:513
 #, php-format
 msgid "Invalid rule declaration on line %s."
 msgstr "Կանոնի անվավեր հայտարարություն %s տողում։"
 
-#: libraries/Advisor.php:520
+#: libraries/Advisor.php:521
 #, php-format
 msgid "Unexpected characters on line %s."
 msgstr "Անսպասելի նշաններ %s տողում։"
 
-#: libraries/Advisor.php:535
+#: libraries/Advisor.php:536
 #, php-format
 msgid "Unexpected character on line %1$s. Expected tab, but found \"%2$s\"."
 msgstr ""

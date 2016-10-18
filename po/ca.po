@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2016-10-18 11:14+0200\n"
+"POT-Creation-Date: 2016-10-18 13:44+0200\n"
 "PO-Revision-Date: 2016-09-20 21:13+0000\n"
 "Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
 "Language-Team: Catalan <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -2939,10 +2939,11 @@ msgid "Failed formatting string for rule '%s'."
 msgstr "Error de format de cadena per a la regla '%s'."
 
 #: libraries/Advisor.php:469
-msgid "Error in reading file: The file '"
+#, php-format
+msgid "Error in reading file: The file '%s' does not exist or is not readable!"
 msgstr ""
 
-#: libraries/Advisor.php:493
+#: libraries/Advisor.php:494
 #, php-format
 msgid ""
 "Invalid rule declaration on line %1$s, expected line %2$s of previous rule."
@@ -2950,17 +2951,17 @@ msgstr ""
 "Declaració regla no vàlida a la línia %1$s, s'esperava la línia %2$s de la "
 "regla anterior."
 
-#: libraries/Advisor.php:512
+#: libraries/Advisor.php:513
 #, php-format
 msgid "Invalid rule declaration on line %s."
 msgstr "Declaració incorrecta de regla a la línia %s."
 
-#: libraries/Advisor.php:520
+#: libraries/Advisor.php:521
 #, php-format
 msgid "Unexpected characters on line %s."
 msgstr "Caràcters no esperats en la línia %s."
 
-#: libraries/Advisor.php:535
+#: libraries/Advisor.php:536
 #, php-format
 msgid "Unexpected character on line %1$s. Expected tab, but found \"%2$s\"."
 msgstr ""

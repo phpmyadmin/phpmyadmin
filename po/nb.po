@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2016-10-18 11:14+0200\n"
+"POT-Creation-Date: 2016-10-18 13:44+0200\n"
 "PO-Revision-Date: 2016-05-19 17:17+0000\n"
 "Last-Translator: Axel Magnus Gaasø <axel.gaaso@gmail.com>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/"
@@ -2983,10 +2983,11 @@ msgid "Failed formatting string for rule '%s'."
 msgstr "Feil ved formattering av streng for regel \"%s\"."
 
 #: libraries/Advisor.php:469
-msgid "Error in reading file: The file '"
+#, php-format
+msgid "Error in reading file: The file '%s' does not exist or is not readable!"
 msgstr ""
 
-#: libraries/Advisor.php:493
+#: libraries/Advisor.php:494
 #, php-format
 msgid ""
 "Invalid rule declaration on line %1$s, expected line %2$s of previous rule."
@@ -2994,17 +2995,17 @@ msgstr ""
 "Ugyldig regeldeklarasjon på linje %1$s, forventet linje %2$s av forrige "
 "regel."
 
-#: libraries/Advisor.php:512
+#: libraries/Advisor.php:513
 #, php-format
 msgid "Invalid rule declaration on line %s."
 msgstr "Ugyldig deklarasjon av regel på linje %s."
 
-#: libraries/Advisor.php:520
+#: libraries/Advisor.php:521
 #, php-format
 msgid "Unexpected characters on line %s."
 msgstr "Uventede karakterer på linje %s."
 
-#: libraries/Advisor.php:535
+#: libraries/Advisor.php:536
 #, php-format
 msgid "Unexpected character on line %1$s. Expected tab, but found \"%2$s\"."
 msgstr "Uventet tegn på linje %1$s. Ventet \"tab\", fant \"%2$s\"."
