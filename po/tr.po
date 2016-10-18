@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-10-18 11:14+0200\n"
-"PO-Revision-Date: 2016-10-18 11:17+0000\n"
+"PO-Revision-Date: 2016-10-18 11:34+0000\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/tr/>\n"
@@ -2925,7 +2925,7 @@ msgstr "'%s' kuralı için dizgi biçimlendirme başarısız."
 
 #: libraries/Advisor.php:469
 msgid "Error in reading file: The file '"
-msgstr ""
+msgstr "Dosya okunurken hata oldu: Dosya '"
 
 #: libraries/Advisor.php:493
 #, php-format
