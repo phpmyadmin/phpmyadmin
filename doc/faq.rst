@@ -1373,7 +1373,7 @@ Programs known to cause these kind of errors:
 
 .. _faq5_21:
 
-5.21 I get erros about potentnionally unsafe operation when browsing table or executing SQL query.
+5.21 I get errors about potentially unsafe operation when browsing table or executing SQL query.
 --------------------------------------------------------------------------------------------------
 
 If you see errors like::
