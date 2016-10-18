@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-10-18 11:14+0200\n"
-"PO-Revision-Date: 2016-10-18 11:18+0000\n"
+"PO-Revision-Date: 2016-10-18 11:37+0000\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/ia/>\n"
@@ -1818,6 +1818,7 @@ msgstr "Exporta"
 #: js/messages.php:394
 msgid "No routine is exportable. Required privileges may be lacking."
 msgstr ""
+"Necun routine es exportabile. Privilegios requirite pote esser mancante."
 
 #: js/messages.php:397 libraries/rte/rte_routines.lib.php:756
 msgid "ENUM/SET editor"
@@ -2958,7 +2959,7 @@ msgstr "Il falleva formattar catena pro regula '%s'."
 
 #: libraries/Advisor.php:469
 msgid "Error in reading file: The file '"
-msgstr ""
+msgstr "Error durante que on legeva le file: Le file '"
 
 #: libraries/Advisor.php:493
 #, php-format
@@ -10334,7 +10335,7 @@ msgstr "Optiones de creation de datos"
 #: libraries/plugins/export/ExportSql.php:347
 #: libraries/plugins/export/ExportSql.php:2294
 msgid "Truncate table before insert"
-msgstr ""
+msgstr "Trunca le tabella ante insertar"
 
 #: libraries/plugins/export/ExportSql.php:354
 msgid "Instead of <code>INSERT</code> statements, use:"
@@ -10412,13 +10413,14 @@ msgstr ""
 
 #: libraries/plugins/export/ExportSql.php:516
 msgid "It appears your database uses routines;"
-msgstr ""
+msgstr "Il sembla que tu base de datos usa routines;"
 
 #: libraries/plugins/export/ExportSql.php:519
 #: libraries/plugins/export/ExportSql.php:1545
 #: libraries/plugins/export/ExportSql.php:2062
 msgid "alias export may not work reliably in all cases."
 msgstr ""
+"exportation de alias pote non functionar de modo correcte in omne casos."
 
 #: libraries/plugins/export/ExportSql.php:1006
 msgid "Metadata"
@@ -10456,7 +10458,7 @@ msgstr "Error quando on lege le structura pro tabella %s:"
 
 #: libraries/plugins/export/ExportSql.php:1542
 msgid "It appears your database uses views;"
-msgstr ""
+msgstr "Il sembla que tu base de datos usa vistas;"
 
 #: libraries/plugins/export/ExportSql.php:1719
 msgid "Constraints for dumped tables"
@@ -10492,7 +10494,7 @@ msgstr "RELATIONS FOR TABLE"
 
 #: libraries/plugins/export/ExportSql.php:2059
 msgid "It appears your table uses triggers;"
-msgstr ""
+msgstr "Il sembla que tu tabella usa triggers;"
 
 #: libraries/plugins/export/ExportSql.php:2096
 #, php-format
@@ -10501,7 +10503,7 @@ msgstr "Structura pro vider %s exportate como un tabella"
 
 #: libraries/plugins/export/ExportSql.php:2120
 msgid "(See below for the actual view)"
-msgstr ""
+msgstr "(Vide a basso per le vista actual)"
 
 #: libraries/plugins/export/ExportSql.php:2204
 #, php-format
@@ -10522,7 +10524,7 @@ msgstr "Tabella:"
 
 #: libraries/plugins/export/PMA_ExportPdf.php:120
 msgid "Purpose:"
-msgstr ""
+msgstr "Intention:"
 
 #: libraries/plugins/export/PMA_ExportPdf.php:501
 msgid "MIME"
@@ -10576,20 +10578,20 @@ msgstr ""
 #: libraries/plugins/import/ImportCsv.php:661
 #, php-format
 msgid "Invalid format of CSV input on line %d."
-msgstr ""
+msgstr "Formato invalide de ingresso  CSV al rango %d."
 
 #: libraries/plugins/import/ImportCsv.php:531
 #, php-format
 msgid "Invalid column count in CSV input on line %d."
-msgstr ""
+msgstr "Conto de columna Invalide in ingresso de CSV al rango %d."
 
 #: libraries/plugins/import/ImportLdi.php:111
 msgid "This plugin does not support compressed imports!"
-msgstr ""
+msgstr "Iste plugin non supporta importation de datos comprimite!"
 
 #: libraries/plugins/import/ImportMediawiki.php:52
 msgid "MediaWiki Table"
-msgstr ""
+msgstr "Tabella MediaWiki"
 
 #: libraries/plugins/import/ImportMediawiki.php:275
 #, php-format
@@ -10618,26 +10620,29 @@ msgstr ""
 
 #: libraries/plugins/import/ImportShp.php:45
 msgid "ESRI Shape File"
-msgstr ""
+msgstr "Shape File ESRI"
 
 #: libraries/plugins/import/ImportShp.php:77
 #: libraries/plugins/import/ImportShp.php:153
 #, php-format
 msgid "There was an error importing the ESRI shape file: \"%s\"."
 msgstr ""
+"Il habeva un error durante que on importava le shape file ESRI : \"%s\"."
 
 #: libraries/plugins/import/ImportShp.php:183
 #, php-format
 msgid "MySQL Spatial Extension does not support ESRI type \"%s\"."
 msgstr ""
+"Extension spatial de MySQL Spatial Extension non supporta le typo ESRI  \"%"
+"s\"."
 
 #: libraries/plugins/import/ImportShp.php:230
 msgid "The imported file does not contain any data!"
-msgstr ""
+msgstr "Le file importate non contine alcun dato!"
 
 #: libraries/plugins/import/ImportSql.php:68
 msgid "SQL compatibility mode:"
-msgstr ""
+msgstr "Modo de compatibilitate  SQL:"
 
 #: libraries/plugins/import/ImportSql.php:80
 msgid "Do not use <code>AUTO_INCREMENT</code> for zero values"
@@ -10649,7 +10654,7 @@ msgstr "XML"
 
 #: libraries/plugins/schema/ExportRelationSchema.php:289
 msgid "SCHEMA ERROR: "
-msgstr ""
+msgstr "SCHEMA ERROR: "
 
 #: libraries/plugins/schema/SchemaDia.php:60
 #: libraries/plugins/schema/SchemaEps.php:68
@@ -10702,7 +10707,7 @@ msgstr "Nomine (Descendente)"
 #: libraries/plugins/schema/svg/TableStatsSvg.php:92
 #, php-format
 msgid "The %s table doesn't exist!"
-msgstr ""
+msgstr "Le tabella %s non existe!"
 
 #: libraries/plugins/schema/eps/EpsRelationSchema.php:64
 #: libraries/plugins/schema/svg/SvgRelationSchema.php:68
@@ -15301,10 +15306,8 @@ msgstr ""
 #: vendor/phpmyadmin/sql-parser/src/Statements/InsertStatement.php:227
 #: vendor/phpmyadmin/sql-parser/src/Statements/ReplaceStatement.php:165
 #: vendor/phpmyadmin/sql-parser/src/Statements/ReplaceStatement.php:193
-#, fuzzy
-#| msgid "Unexpected token."
 msgid "Unexpected keyword."
-msgstr "Un indicio non expectate."
+msgstr "Un parola clave non expectate."
 
 #: vendor/phpmyadmin/sql-parser/src/Components/CaseExpression.php:202
 msgid "Unexpected end of CASE expression"
@@ -15362,10 +15365,9 @@ msgid "This option conflicts with \"%1$s\"."
 msgstr ""
 
 #: vendor/phpmyadmin/sql-parser/src/Components/OptionsArray.php:260
-#, fuzzy, php-format
-#| msgid "An expression was expected."
+#, php-format
 msgid "Value/Expression for the option %1$s was expected"
-msgstr "On expectava un expression."
+msgstr "On expectava un valor/expression pro le option %1$s"
 
 #: vendor/phpmyadmin/sql-parser/src/Components/RenameOperation.php:101
 msgid "The old name of the table was expected."
@@ -15439,10 +15441,8 @@ msgid "The name of the entity was expected."
 msgstr ""
 
 #: vendor/phpmyadmin/sql-parser/src/Statements/CreateStatement.php:436
-#, fuzzy
-#| msgid "Variable name was expected."
 msgid "A table name was expected."
-msgstr "On expectava un nomine de variabile."
+msgstr "On expectava un nomine de tabella."
 
 #: vendor/phpmyadmin/sql-parser/src/Statements/CreateStatement.php:444
 msgid "At least one column definition was expected."
