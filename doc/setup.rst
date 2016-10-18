@@ -223,6 +223,20 @@ configuraiton can be added as a volume when invoking docker using
    
     See :ref:`config` for detailed description of configuration options.
 
+Docker Volumes
+--------------
+
+You can use following volumes to customise image behavior:
+
+:file:`/www/config.user.inc.php`
+
+    Can be used for additional settings, see previous chapter for more details.
+
+:file:`/sessions/`
+
+    Directory where PHP sessions are stored. You might want to share this 
+    for example when uswing :ref:`auth_signon`.
+
 Docker Examples
 ---------------
 
