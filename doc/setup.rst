@@ -209,7 +209,7 @@ By default, :ref:`cookie` is used, but if :envvar:`PMA_USER` and
 
     The credentials you need to login are stored in the MySQL server, in case
     of Docker image there are various ways to set it (for example
-    :envvar:`MYSQL_ROOT_PASSWORD` when starting MySQL container). Please check 
+    :samp:`MYSQL_ROOT_PASSWORD` when starting MySQL container). Please check 
     documentation for `MariaDB container <https://hub.docker.com/r/_/mariadb/>`_
     or `MySQL container <https://hub.docker.com/r/_/mysql/>`_.
 
@@ -318,8 +318,8 @@ simple configuration may look like this:
     $i=0;
     $i++;
     $cfg['Servers'][$i]['auth_type']     = 'cookie';
-    // if you insist on "root" having no password:
-    // $cfg['Servers'][$i]['AllowNoPasswordRoot'] = true; `
+    // if you insist on "root" having no password:
+    // $cfg['Servers'][$i]['AllowNoPasswordRoot'] = true; `
     ?>
 
 Or, if you prefer to not be prompted every time you log in:
