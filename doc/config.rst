@@ -833,7 +833,7 @@ Server connection settings
       ``pma__column_info``)
     * to update your PRE-2.5.0 Column\_comments table use this:  and
       remember that the Variable in :file:`config.inc.php` has been renamed from
-      :config:option:`$cfg['Servers'][$i]['column\_comments']` to
+      :samp:`$cfg['Servers'][$i]['column\_comments']` to
       :config:option:`$cfg['Servers'][$i]['column\_info']`
 
       .. code-block:: mysql
@@ -2291,7 +2291,13 @@ Export and import settings
     * ``custom-no-form`` same as ``custom`` but does not display the option
       of using quick export
 
+.. config:option:: $cfg['Export']['charset']
 
+    :type: string
+    :default: ``''``
+
+    Defines charset for generated export. By default no charset conversion is
+    done assuming UTF-8.
 
 .. config:option:: $cfg['Import']
 
@@ -2302,6 +2308,13 @@ Export and import settings
     items are similar to texts seen on import page, so you can easily
     identify what they mean.
 
+.. config:option:: $cfg['Import']['charset']
+
+    :type: string
+    :default: ``''``
+
+    Defines charset for import. By default no charset conversion is done
+    assuming UTF-8.
 
 Tabs display settings
 ---------------------

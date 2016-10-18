@@ -34,7 +34,7 @@ Pie chart
 
 Query results for a simple pie chart can be generated with:
 
-.. code-block:: sql
+.. code-block:: mysql
 
     SELECT 'Food' AS 'expense', 
        1250 AS 'amount' UNION
