@@ -1371,6 +1371,26 @@ Programs known to cause these kind of errors:
 
 * Kaspersky Internet Security
 
+.. _faq5_21:
+
+5.21 I get erros about potentnionally unsafe operation when browsing table or executing SQL query.
+--------------------------------------------------------------------------------------------------
+
+If you see errors like::
+
+    A potentially unsafe operation has been detected in your request to this site.
+
+This is usually caused by web application firewall doing requests filtering. It
+tries to prevent SQL injection, however phpMyAdmin is tool designed to execute 
+SQL queries, thus it makes it unusable.
+
+Please whitelist phpMyAdmin scripts from the web application firewall settings
+or disable it completely for phpMyAdmin path.
+
+Programs known to cause these kind of errors:
+
+* Wordfence Web Application Firewall
+
 .. _faqusing:
 
 Using phpMyAdmin
