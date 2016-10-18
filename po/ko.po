@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.5-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-10-18 13:42+0200\n"
-"PO-Revision-Date: 2016-10-18 11:57+0000\n"
+"PO-Revision-Date: 2016-10-18 12:02+0000\n"
 "Last-Translator: SDSkyKlouD <koongchi135@gmail.com>\n"
 "Language-Team: Korean "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-6/ko/>\n"
@@ -954,12 +954,6 @@ msgid ""
 "column(s) editing feature (the \"Change\" Link) on the table structure page. "
 "</b>"
 msgstr ""
-"Através desta operação, o MySQL tenta mapear os valores de dados entre "
-"agrupamentos. Se os conjuntos de caracteres são incompatíveis, pode haver "
-"perda de dados e esta perda de dados pode <b>Não </b> ser recuperável "
-"simplesmente mudando de volta o(s) agrupamento (s). \n"
-"<b>Para converter os dados existentes, sugere-se usar as colunas de  recurso "
-"de edição (o \"Mudar\" Link) na página de estrutura da tabela"
 
 #: js/messages.php:102
 msgid ""
@@ -1882,8 +1876,6 @@ msgid ""
 "No columns in the central list. Make sure the Central columns list for "
 "database %s has columns that are not present in the current table."
 msgstr ""
-"Não há colunas na lista central. Certifique-se a lista de colunas central do "
-"banco de dados %s tem colunas que não estão presentes na tabela atual."
 
 #: js/messages.php:421
 msgid "See more"
@@ -1948,8 +1940,6 @@ msgid ""
 "Note: a, b -> d,f implies values of columns a and b combined together can "
 "determine values of column d and column f."
 msgstr ""
-"Nota: a, b -> d, f implicar valores de colunas a e b em conjunto combinado "
-"pode determinar os valores das colunas d e f."
 
 #: js/messages.php:444
 msgid "No partial dependencies selected!"
@@ -1994,7 +1984,7 @@ msgstr "정규화의 세번째 단계 (3NF)"
 
 #: js/messages.php:461
 msgid "Confirm transitive dependencies"
-msgstr "Confirmar dependências transitivas"
+msgstr ""
 
 #: js/messages.php:462
 msgid "Selected dependencies are as follows:"
