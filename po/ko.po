@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-08-17 11:28+0200\n"
-"PO-Revision-Date: 2016-10-17 12:10+0000\n"
+"PO-Revision-Date: 2016-10-18 08:50+0000\n"
 "Last-Translator: SDSkyKlouD <koongchi135@gmail.com>\n"
 "Language-Team: Korean "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/ko/>\n"
@@ -4616,9 +4616,8 @@ msgid "Max: %s%s"
 msgstr "최대: %s%s"
 
 #: libraries/Util.php:687
-#, fuzzy
 msgid "Static analysis:"
-msgstr "정적 분석:"
+msgstr "정적 분석 :"
 
 #: libraries/Util.php:690
 #, php-format
@@ -4947,7 +4946,6 @@ msgid "Disabled"
 msgstr "사용불가"
 
 #: libraries/config.values.php:98
-#, fuzzy
 msgid "key"
 msgstr "키"
 
@@ -6740,10 +6738,8 @@ msgid "Grid editing: trigger action"
 msgstr "격자판 수정: 트리거 동작"
 
 #: libraries/config/messages.inc.php:618
-#, fuzzy
-#| msgid "Relational display column"
 msgid "Relational display"
-msgstr "연관된 행 표시"
+msgstr "연관 보기"
 
 #: libraries/config/messages.inc.php:619
 #, fuzzy
