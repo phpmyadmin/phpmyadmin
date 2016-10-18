@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-10-18 11:14+0200\n"
-"PO-Revision-Date: 2016-08-17 10:17+0000\n"
+"PO-Revision-Date: 2016-10-18 11:17+0000\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
-"Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/tr/>\n"
+"Language-Team: Turkish "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/tr/>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 2.8-dev\n"
+"X-Generator: Weblate 2.9-dev\n"
 
 #: changelog.php:38 license.php:33
 #, php-format
@@ -1797,7 +1797,7 @@ msgstr "Dışa aktar"
 
 #: js/messages.php:394
 msgid "No routine is exportable. Required privileges may be lacking."
-msgstr ""
+msgstr "Dışa aktarılabilir yordam yok. Gerekli yetkiler yetersiz olabilir."
 
 #: js/messages.php:397 libraries/rte/rte_routines.lib.php:756
 msgid "ENUM/SET editor"
