@@ -254,8 +254,8 @@ current setup):
 
     [PHP]
 
-    ; Directory in which the loadable extensions (modules) reside.
-    extension_dir = "C:/Apache2/modules/php/ext"
+    ; Directory in which the loadable extensions (modules) reside.
+    extension_dir = "C:/Apache2/modules/php/ext"
 
 The :file:`php.ini` can be loaded from several locations (especially on
 Windows), so please check you're updating the correct one. If using Apache, you
@@ -263,14 +263,14 @@ can tell it to use specific path for this file using ``PHPIniDir`` directive:
 
 .. code-block:: apache
 
-    LoadFile "C:/php/php5ts.dll"
-    LoadModule php5_module "C:/php/php5apache2_2.dll"
+    LoadFile "C:/php/php5ts.dll"
+    LoadModule php5_module "C:/php/php5apache2_2.dll"
     <IfModule php5_module>
-        PHPIniDir "C:/PHP"
-        <Location>
-           AddType text/html .php
-           AddHandler application/x-httpd-php .php
-        </Location>
+        PHPIniDir "C:/PHP"
+        <Location>
+           AddType text/html .php
+           AddHandler application/x-httpd-php .php
+        </Location>
     </IfModule>
 
 In some rare cases this problem can be also caused by other extensions loaded
@@ -373,7 +373,7 @@ This can happen due to a MySQL bug when having database / table names
 with upper case characters although ``lower_case_table_names`` is
 set to 1. To fix this, turn off this directive, convert all database
 and table names to lower case and turn it on again. Alternatively,
-there's a bug-fix available starting with MySQL 3.23.56 /
+there's a bug-fix available starting with MySQL 3.23.56 /
 4.0.11-gamma.
 
 .. _faq1_29:
@@ -1351,7 +1351,9 @@ browser cache to see if the problem goes away.
 5.20 I get errors about violating Content Security Policy.
 ----------------------------------------------------------
 
-If you see errors like::
+If you see errors like:
+
+.. code-block:: text
 
     Refused to apply inline style because it violates the following Content Security Policy directive
 
@@ -1376,7 +1378,9 @@ Programs known to cause these kind of errors:
 5.21 I get erros about potentnionally unsafe operation when browsing table or executing SQL query.
 --------------------------------------------------------------------------------------------------
 
-If you see errors like::
+If you see errors like:
+
+.. code-block:: text
 
     A potentially unsafe operation has been detected in your request to this site.
 
