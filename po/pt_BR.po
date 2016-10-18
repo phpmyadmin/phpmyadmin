@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-10-18 11:14+0200\n"
-"PO-Revision-Date: 2016-10-14 13:08+0000\n"
-"Last-Translator: Vinicius Moreira (Vm Creative) <vinnisao13@gmail.com>\n"
-"Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
-"phpmyadmin/master/pt_BR/>\n"
+"PO-Revision-Date: 2016-10-18 09:48+0000\n"
+"Last-Translator: Paul Polidoro <leedshs@gmail.com>\n"
+"Language-Team: Portuguese (Brazil) "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/pt_BR/>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -838,6 +838,8 @@ msgstr "Você está prestes à DESTRUIR um banco de dados completamente!"
 #: js/messages.php:48
 msgid "Cannot rename database to the same name. Change the name and try again"
 msgstr ""
+"Não é possível renomear o banco de dados para o mesmo nome. Escolha outro "
+"nome e tente novamente"
 
 #: js/messages.php:50
 msgid "You are about to DESTROY a complete table!"
@@ -6759,7 +6761,7 @@ msgstr ""
 #, fuzzy
 #| msgid "Show versions"
 msgid "Show views in tree"
-msgstr "Exibir versões"
+msgstr "Mostrar visualizações em árvore"
 
 #: libraries/config/messages.inc.php:530
 #, fuzzy
