@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-10-18 11:14+0200\n"
-"PO-Revision-Date: 2016-10-18 09:41+0000\n"
-"Last-Translator: Paul Polidoro <leedshs@gmail.com>\n"
+"PO-Revision-Date: 2016-10-18 11:30+0000\n"
+"Last-Translator: SDSkyKlouD <koongchi135@gmail.com>\n"
 "Language-Team: Korean "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/ko/>\n"
 "Language: ko\n"
@@ -667,7 +667,7 @@ msgstr "서버 문자셋:"
 
 #: index.php:326
 msgid "Web server"
-msgstr "웹서버"
+msgstr "웹 서버"
 
 #: index.php:337
 msgid "Database client version:"
