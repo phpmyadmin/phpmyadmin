@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-10-18 11:14+0200\n"
-"PO-Revision-Date: 2016-10-10 20:07+0000\n"
+"PO-Revision-Date: 2016-10-18 11:18+0000\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
-"Language-Team: Interlingua <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/ia/>\n"
+"Language-Team: Interlingua "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/ia/>\n"
 "Language: ia\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -3928,7 +3928,8 @@ msgstr "Ignorante codice de linguage non supportate."
 msgid ""
 "Linting is disabled for this query because it exceeds the maximum length."
 msgstr ""
-"Linting es dishabilitate pro iste query proque il excede le longitude maxime."
+"Linting, i.e. le controlo syntactic, es dishabilitate pro iste query proque "
+"il excede le longitude maxime."
 
 #: libraries/Linter.php:165
 #, php-format
@@ -14613,7 +14614,7 @@ msgstr "Summa"
 
 #: templates/database/structure/check_all_tables.phtml:6
 msgid "Check tables having overhead"
-msgstr ""
+msgstr "Marca tabellas que ha costos general"
 
 #: templates/database/structure/check_all_tables.phtml:10
 msgid "Copy table"
@@ -15165,7 +15166,7 @@ msgstr "Meliora structura de tabella"
 
 #: templates/table/structure/optional_action_links.phtml:34
 msgid "Track view"
-msgstr "Vista de traciar"
+msgstr "Traciar vista"
 
 #: templates/table/structure/row_stats_table.phtml:3
 msgid "Row statistics"
