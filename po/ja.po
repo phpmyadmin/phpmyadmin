@@ -749,12 +749,12 @@ msgstr ""
 
 #: index.php:487
 msgid ""
-"Your PHP parameter [a@https://php.net/manual/en/session.configuration."
+"Your PHP parameter [a@https://secure.php.net/manual/en/session.configuration."
 "php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
 "than cookie validity configured in phpMyAdmin, because of this, your login "
 "might expire sooner than configured in phpMyAdmin."
 msgstr ""
-"お使いの PHP のパラメータ [a@https://php.net/manual/ja/session.configuration."
+"お使いの PHP のパラメータ [a@https://secure.php.net/manual/ja/session.configuration."
 "php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] が、"
 "phpMyAdmin に設定されているクッキーの有効期間より短くなっています。このため、"
 "phpMyAdmin に設定されているよりも早くログインの期限が切れるかもしれません。"
@@ -4866,7 +4866,7 @@ msgctxt "Short week day name"
 msgid "Sun"
 msgstr "日"
 
-#. l10n: See https://php.net/manual/en/function.strftime.php
+#. l10n: See https://secure.php.net/manual/en/function.strftime.php
 #: libraries/Util.php:1698
 #: libraries/plugins/transformations/abs/DateFormatTransformationsPlugin.php:68
 msgid "%B %d, %Y at %I:%M %p"
@@ -18288,13 +18288,13 @@ msgstr "concurrent_insert は 0 に設定されています"
 
 #, fuzzy
 #~| msgid ""
-#~| "Shows link to [a@https://php.net/manual/function.phpinfo.php]phpinfo()[/"
+#~| "Shows link to [a@https://secure.php.net/manual/function.phpinfo.php]phpinfo()[/"
 #~| "a] output"
 #~ msgid ""
-#~ "Shows link to [a@https://php.net/manual/function.phpinfo.php]phpinfo()[/"
+#~ "Shows link to [a@https://secure.php.net/manual/function.phpinfo.php]phpinfo()[/"
 #~ "a] output."
 #~ msgstr ""
-#~ "[a@https://php.net/manual/function.phpinfo.php]phpinfo()[/a] の結果へのリ"
+#~ "[a@https://secure.php.net/manual/function.phpinfo.php]phpinfo()[/a] の結果へのリ"
 #~ "ンクを表示します。"
 
 #~ msgid "Show phpinfo() link"
@@ -20272,10 +20272,10 @@ msgstr "concurrent_insert は 0 に設定されています"
 #~ msgstr "無効"
 
 #~ msgid ""
-#~ "Cannot load [a@https://php.net/%1$s@Documentation][em]%1$s[/em][/a] "
+#~ "Cannot load [a@https://secure.php.net/%1$s@Documentation][em]%1$s[/em][/a] "
 #~ "extension. Please check your PHP configuration."
 #~ msgstr ""
-#~ "[a@https://php.net/%1$s@Documentation][em]%1$s[/em][/a] 拡張をロードできま"
+#~ "[a@https://secure.php.net/%1$s@Documentation][em]%1$s[/em][/a] 拡張をロードできま"
 #~ "せん。PHP の設定を確認してください"
 
 #~ msgid ""
@@ -20382,10 +20382,10 @@ msgstr "concurrent_insert は 0 に設定されています"
 #~ msgstr "テーブルを %1$s から %2$s にリネームするときにエラーが発生しました"
 
 #~ msgid ""
-#~ "Cannot load [a@https://php.net/%1@Documentation][em]%1[/em][/a] "
+#~ "Cannot load [a@https://secure.php.net/%1@Documentation][em]%1[/em][/a] "
 #~ "extension. Please check your PHP configuration."
 #~ msgstr ""
-#~ "[a@https://php.net/%1$s@Documentation][em]%1$s[/em][/a] 拡張をロードできま"
+#~ "[a@https://secure.php.net/%1$s@Documentation][em]%1$s[/em][/a] 拡張をロードできま"
 #~ "せん。PHP の設定を確認してください"
 
 #~ msgid "(or the local MySQL server"

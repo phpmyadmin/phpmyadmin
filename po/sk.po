@@ -750,12 +750,12 @@ msgstr ""
 
 #: index.php:487
 msgid ""
-"Your PHP parameter [a@https://php.net/manual/en/session.configuration."
+"Your PHP parameter [a@https://secure.php.net/manual/en/session.configuration."
 "php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
 "than cookie validity configured in phpMyAdmin, because of this, your login "
 "might expire sooner than configured in phpMyAdmin."
 msgstr ""
-"Nastavenie v php.ini [a@https://php.net/manual/en/session.configuration."
+"Nastavenie v php.ini [a@https://secure.php.net/manual/en/session.configuration."
 "php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] má nižšiu "
 "hodnotu ako nastavenie životnosti cookie v phpMyAdmin "
 "($cfg['LoginCookieValidity']). Kvôli tomu môže vaše prihlásenie vypršať skôr "
@@ -4750,7 +4750,7 @@ msgctxt "Short week day name"
 msgid "Sun"
 msgstr "Ne"
 
-#. l10n: See https://php.net/manual/en/function.strftime.php
+#. l10n: See https://secure.php.net/manual/en/function.strftime.php
 #: libraries/Util.php:1698
 #: libraries/plugins/transformations/abs/DateFormatTransformationsPlugin.php:68
 msgid "%B %d, %Y at %I:%M %p"
@@ -16522,10 +16522,10 @@ msgstr "concurrent_insert je nastavené na 0"
 #~ msgstr "Zobraziť informácie o PHP"
 
 #~ msgid ""
-#~ "Shows link to [a@https://php.net/manual/function.phpinfo.php]phpinfo()[/"
+#~ "Shows link to [a@https://secure.php.net/manual/function.phpinfo.php]phpinfo()[/"
 #~ "a] output."
 #~ msgstr ""
-#~ "Zobraziť odkaz na výstup funkcie [a@https://php.net/manual/function."
+#~ "Zobraziť odkaz na výstup funkcie [a@https://secure.php.net/manual/function."
 #~ "phpinfo.php]phpinfo()[/a]."
 
 #~ msgid "Show phpinfo() link"
@@ -18110,7 +18110,7 @@ msgstr "concurrent_insert je nastavené na 0"
 #~ msgstr "Vypnuté"
 
 #~ msgid ""
-#~ "Cannot load [a@https://php.net/%1$s@Documentation][em]%1$s[/em][/a] "
+#~ "Cannot load [a@https://secure.php.net/%1$s@Documentation][em]%1$s[/em][/a] "
 #~ "extension. Please check your PHP configuration."
 #~ msgstr "nedá sa nahrať rozšírenie %s, prosím skontrolujte konfiguráciu PHP"
 

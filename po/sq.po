@@ -755,12 +755,12 @@ msgstr ""
 
 #: index.php:487
 msgid ""
-"Your PHP parameter [a@https://php.net/manual/en/session.configuration."
+"Your PHP parameter [a@https://secure.php.net/manual/en/session.configuration."
 "php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
 "than cookie validity configured in phpMyAdmin, because of this, your login "
 "might expire sooner than configured in phpMyAdmin."
 msgstr ""
-"Parametri juaj PHP [a@https://php.net/manual/en/session.configuration."
+"Parametri juaj PHP [a@https://secure.php.net/manual/en/session.configuration."
 "php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] është më i "
 "vogël se vlefshmëria e gatimit (cookie) të konfiguruar në phpMyAdmin, për "
 "shkak të kësaj, hyrja juaj mund të përfundojë më shpejt se është konfiguruar "
@@ -4815,7 +4815,7 @@ msgctxt "Short week day name"
 msgid "Sun"
 msgstr "Die"
 
-#. l10n: See https://php.net/manual/en/function.strftime.php
+#. l10n: See https://secure.php.net/manual/en/function.strftime.php
 #: libraries/Util.php:1698
 #: libraries/plugins/transformations/abs/DateFormatTransformationsPlugin.php:68
 msgid "%B %d, %Y at %I:%M %p"
@@ -17062,10 +17062,10 @@ msgstr "concurrent_insert është vendosur në 0"
 #~ msgstr "Shfaq informacionin PHP"
 
 #~ msgid ""
-#~ "Shows link to [a@https://php.net/manual/function.phpinfo.php]phpinfo()[/"
+#~ "Shows link to [a@https://secure.php.net/manual/function.phpinfo.php]phpinfo()[/"
 #~ "a] output."
 #~ msgstr ""
-#~ "Shfaq lidhjen tek rezultati [a@https://php.net/manual/function.phpinfo."
+#~ "Shfaq lidhjen tek rezultati [a@https://secure.php.net/manual/function.phpinfo."
 #~ "php]phpinfo()[/a]."
 
 #~ msgid "Show phpinfo() link"
@@ -18301,7 +18301,7 @@ msgstr "concurrent_insert është vendosur në 0"
 #~ msgstr "Çaktivizuar"
 
 #~ msgid ""
-#~ "Cannot load [a@https://php.net/%1$s@Documentation][em]%1$s[/em][/a] "
+#~ "Cannot load [a@https://secure.php.net/%1$s@Documentation][em]%1$s[/em][/a] "
 #~ "extension. Please check your PHP configuration."
 #~ msgstr ""
 #~ "I pamundur ngarkimi i prapashtesës %s,<br />kontrollo konfigurimin e PHP"

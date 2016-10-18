@@ -750,12 +750,12 @@ msgstr ""
 
 #: index.php:487
 msgid ""
-"Your PHP parameter [a@https://php.net/manual/en/session.configuration."
+"Your PHP parameter [a@https://secure.php.net/manual/en/session.configuration."
 "php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
 "than cookie validity configured in phpMyAdmin, because of this, your login "
 "might expire sooner than configured in phpMyAdmin."
 msgstr ""
-"A [a@https://php.net/manual/en/session.configuration.php#ini.session.gc-"
+"A [a@https://secure.php.net/manual/en/session.configuration.php#ini.session.gc-"
 "maxlifetime@_blank]session.gc_maxlifetime[/a] paraméter alacsonyabb a "
 "phpMyAdminban beállított cookie érvényességénél. Emiatt a bejelentkezése a "
 "phpMyAdminban beállítottnál előbb járhat le."
@@ -4829,7 +4829,7 @@ msgctxt "Short week day name"
 msgid "Sun"
 msgstr "Vas"
 
-#. l10n: See https://php.net/manual/en/function.strftime.php
+#. l10n: See https://secure.php.net/manual/en/function.strftime.php
 #: libraries/Util.php:1698
 #: libraries/plugins/transformations/abs/DateFormatTransformationsPlugin.php:68
 msgid "%B %d, %Y at %I:%M %p"
@@ -17221,10 +17221,10 @@ msgstr "A concurrent_insert 0-ra van állítva"
 #~ msgstr "PHP információ megjelenítése"
 
 #~ msgid ""
-#~ "Shows link to [a@https://php.net/manual/function.phpinfo.php]phpinfo()[/"
+#~ "Shows link to [a@https://secure.php.net/manual/function.phpinfo.php]phpinfo()[/"
 #~ "a] output."
 #~ msgstr ""
-#~ "Megjeleníti a [a@https://php.net/manual/function.phpinfo.php]phpinfo()[/"
+#~ "Megjeleníti a [a@https://secure.php.net/manual/function.phpinfo.php]phpinfo()[/"
 #~ "a] kimenetre mutató hivatkozást."
 
 #~ msgid "Show phpinfo() link"

@@ -761,17 +761,17 @@ msgstr ""
 #: index.php:487
 #, fuzzy
 #| msgid ""
-#| "Your PHP parameter [a@https://php.net/manual/en/session.configuration."
+#| "Your PHP parameter [a@https://secure.php.net/manual/en/session.configuration."
 #| "php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
 #| "than cookie validity configured in phpMyAdmin, because of this, your "
 #| "login will expire sooner than configured in phpMyAdmin."
 msgid ""
-"Your PHP parameter [a@https://php.net/manual/en/session.configuration."
+"Your PHP parameter [a@https://secure.php.net/manual/en/session.configuration."
 "php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
 "than cookie validity configured in phpMyAdmin, because of this, your login "
 "might expire sooner than configured in phpMyAdmin."
 msgstr ""
-"Параметр PHP [a@https://php.net/manual/en/session.configuration.php#ini."
+"Параметр PHP [a@https://secure.php.net/manual/en/session.configuration.php#ini."
 "session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] менший, ніж термін "
 "придатності cookie в phpMyAdmin, через це термін дії вашої сесії закінчиться "
 "раніше, ніж налаштовано в phpMyAdmin."
@@ -4903,7 +4903,7 @@ msgctxt "Short week day name"
 msgid "Sun"
 msgstr "Нд"
 
-#. l10n: See https://php.net/manual/en/function.strftime.php
+#. l10n: See https://secure.php.net/manual/en/function.strftime.php
 #: libraries/Util.php:1698
 #: libraries/plugins/transformations/abs/DateFormatTransformationsPlugin.php:68
 msgid "%B %d, %Y at %I:%M %p"
@@ -17546,10 +17546,10 @@ msgstr "concurrent_insert встановлено у 0"
 #~ msgstr "Показати інформацію про PHP"
 
 #~ msgid ""
-#~ "Shows link to [a@https://php.net/manual/function.phpinfo.php]phpinfo()[/"
+#~ "Shows link to [a@https://secure.php.net/manual/function.phpinfo.php]phpinfo()[/"
 #~ "a] output."
 #~ msgstr ""
-#~ "Відображає посилання на [a@https://php.net/manual/function.phpinfo."
+#~ "Відображає посилання на [a@https://secure.php.net/manual/function.phpinfo."
 #~ "php]phpinfo()[/a]."
 
 #~ msgid "Show phpinfo() link"

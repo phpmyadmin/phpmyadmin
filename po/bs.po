@@ -776,7 +776,7 @@ msgstr ""
 
 #: index.php:487
 msgid ""
-"Your PHP parameter [a@https://php.net/manual/en/session.configuration."
+"Your PHP parameter [a@https://secure.php.net/manual/en/session.configuration."
 "php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
 "than cookie validity configured in phpMyAdmin, because of this, your login "
 "might expire sooner than configured in phpMyAdmin."
@@ -5090,7 +5090,7 @@ msgctxt "Short week day name"
 msgid "Sun"
 msgstr "Ned"
 
-#. l10n: See https://php.net/manual/en/function.strftime.php
+#. l10n: See https://secure.php.net/manual/en/function.strftime.php
 #: libraries/Util.php:1698
 #: libraries/plugins/transformations/abs/DateFormatTransformationsPlugin.php:68
 msgid "%B %d, %Y at %I:%M %p"
@@ -18391,7 +18391,7 @@ msgstr ""
 #~ msgstr "Onemogućeno"
 
 #~ msgid ""
-#~ "Cannot load [a@https://php.net/%1$s@Documentation][em]%1$s[/em][/a] "
+#~ "Cannot load [a@https://secure.php.net/%1$s@Documentation][em]%1$s[/em][/a] "
 #~ "extension. Please check your PHP configuration."
 #~ msgstr ""
 #~ "ne mogu da učitam ekstenziju %s,<br />molim provjerite PHP konfiguraciju"
@@ -18488,7 +18488,7 @@ msgstr ""
 #~ msgstr "Tabela \"%s\" ne postoji!"
 
 #~ msgid ""
-#~ "Cannot load [a@https://php.net/%1@Documentation][em]%1[/em][/a] "
+#~ "Cannot load [a@https://secure.php.net/%1@Documentation][em]%1[/em][/a] "
 #~ "extension. Please check your PHP configuration."
 #~ msgstr ""
 #~ "ne mogu da učitam ekstenziju %s,<br />molim provjerite PHP konfiguraciju"

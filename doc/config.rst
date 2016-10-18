@@ -639,7 +639,7 @@ Server connection settings
 
     More information on regular expressions can be found in the `PCRE
     pattern syntax
-    <https://php.net/manual/en/reference.pcre.pattern.syntax.php>`_ portion
+    <https://secure.php.net/manual/en/reference.pcre.pattern.syntax.php>`_ portion
     of the PHP reference manual.
 
 .. config:option:: $cfg['Servers'][$i]['verbose']
@@ -1472,14 +1472,14 @@ Generic settings
     :type: boolean
     :default: false
 
-    Whether `persistent connections <https://php.net/manual/en/features
+    Whether `persistent connections <https://secure.php.net/manual/en/features
     .persistent-connections.php>`_ should be used or not. Works with
     following extensions:
 
-    * mysql (`mysql\_pconnect <https://php.net/manual/en/function.mysql-
+    * mysql (`mysql\_pconnect <https://secure.php.net/manual/en/function.mysql-
       pconnect.php>`_),
     * mysqli (requires PHP 5.3.0 or newer, `more information
-      <https://php.net/manual/en/mysqli.persistconns.php>`_).
+      <https://secure.php.net/manual/en/mysqli.persistconns.php>`_).
 
 .. config:option:: $cfg['ForceSSL']
 
@@ -1516,7 +1516,7 @@ Generic settings
     :default: ``''``
 
     Path for storing session data (`session\_save\_path PHP parameter
-    <https://php.net/session_save_path>`_).
+    <https://secure.php.net/session_save_path>`_).
 
 .. config:option:: $cfg['MemoryLimit']
 
@@ -1668,7 +1668,7 @@ Cookie authentication options
 
     Define how long a login cookie is valid. Please note that php
     configuration option `session.gc\_maxlifetime
-    <https://php.net/manual/en/session.configuration.php#ini.session.gc-
+    <https://secure.php.net/manual/en/session.configuration.php#ini.session.gc-
     maxlifetime>`_ might limit session validity and if the session is lost,
     the login cookie is also invalidated. So it is a good idea to set
     ``session.gc_maxlifetime`` at least to the same value of

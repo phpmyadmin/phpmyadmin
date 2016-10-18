@@ -736,12 +736,12 @@ msgstr ""
 
 #: index.php:487
 msgid ""
-"Your PHP parameter [a@https://php.net/manual/en/session.configuration."
+"Your PHP parameter [a@https://secure.php.net/manual/en/session.configuration."
 "php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
 "than cookie validity configured in phpMyAdmin, because of this, your login "
 "might expire sooner than configured in phpMyAdmin."
 msgstr ""
-"PHP 매개변수 [a@https://php.net/manual/en/session.configuration.php#ini."
+"PHP 매개변수 [a@https://secure.php.net/manual/en/session.configuration.php#ini."
 "session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] 가 phpMyAdmin 의 "
 "cookie 유효기간보다 작게 설정되어 있어, 로그인이 phpMyAdmin 설정값보다 빨리 "
 "만료될 수 있습니다."
@@ -4684,7 +4684,7 @@ msgctxt "Short week day name"
 msgid "Sun"
 msgstr "일"
 
-#. l10n: See https://php.net/manual/en/function.strftime.php
+#. l10n: See https://secure.php.net/manual/en/function.strftime.php
 #: libraries/Util.php:1698
 #: libraries/plugins/transformations/abs/DateFormatTransformationsPlugin.php:68
 msgid "%B %d, %Y at %I:%M %p"
@@ -16706,10 +16706,10 @@ msgstr "concurrent_insert가 0으로 설정되었습니다"
 #~ msgstr "PHP 정보 보기"
 
 #~ msgid ""
-#~ "Shows link to [a@https://php.net/manual/function.phpinfo.php]phpinfo()[/"
+#~ "Shows link to [a@https://secure.php.net/manual/function.phpinfo.php]phpinfo()[/"
 #~ "a] output."
 #~ msgstr ""
-#~ "[a@https://php.net/manual/function.phpinfo.php]phpinfo()[/a] 출력 링크 표"
+#~ "[a@https://secure.php.net/manual/function.phpinfo.php]phpinfo()[/a] 출력 링크 표"
 #~ "시."
 
 #~ msgid "Show phpinfo() link"

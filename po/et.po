@@ -749,12 +749,12 @@ msgstr ""
 
 #: index.php:487
 msgid ""
-"Your PHP parameter [a@https://php.net/manual/en/session.configuration."
+"Your PHP parameter [a@https://secure.php.net/manual/en/session.configuration."
 "php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
 "than cookie validity configured in phpMyAdmin, because of this, your login "
 "might expire sooner than configured in phpMyAdmin."
 msgstr ""
-"PHP parameeter [a@https://php.net/manual/en/session.configuration.php#ini."
+"PHP parameeter [a@https://secure.php.net/manual/en/session.configuration.php#ini."
 "session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] väärtus on väiksem, "
 "kui phpMyAdminis seadistatud küpsise kehtivus. Seetõttu võib sessioon aeguda "
 "kiiremini, kui phpMyAdminis seadistatud."
@@ -4754,7 +4754,7 @@ msgctxt "Short week day name"
 msgid "Sun"
 msgstr "Päike"
 
-#. l10n: See https://php.net/manual/en/function.strftime.php
+#. l10n: See https://secure.php.net/manual/en/function.strftime.php
 #: libraries/Util.php:1698
 #: libraries/plugins/transformations/abs/DateFormatTransformationsPlugin.php:68
 msgid "%B %d, %Y at %I:%M %p"
@@ -16781,10 +16781,10 @@ msgstr "concurrent_insert väärtuseks on määratud 0"
 #~ msgstr "Näita PHP teavet"
 
 #~ msgid ""
-#~ "Shows link to [a@https://php.net/manual/function.phpinfo.php]phpinfo()[/"
+#~ "Shows link to [a@https://secure.php.net/manual/function.phpinfo.php]phpinfo()[/"
 #~ "a] output."
 #~ msgstr ""
-#~ "Näita linki [a@https://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
+#~ "Näita linki [a@https://secure.php.net/manual/function.phpinfo.php]phpinfo()[/a] "
 #~ "väljundisse."
 
 #~ msgid "Show phpinfo() link"

@@ -753,12 +753,12 @@ msgstr ""
 
 #: index.php:487
 msgid ""
-"Your PHP parameter [a@https://php.net/manual/en/session.configuration."
+"Your PHP parameter [a@https://secure.php.net/manual/en/session.configuration."
 "php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
 "than cookie validity configured in phpMyAdmin, because of this, your login "
 "might expire sooner than configured in phpMyAdmin."
 msgstr ""
-"Seu parâmetro PHP [a@https://php.net/manual/en/session.configuration.php#ini."
+"Seu parâmetro PHP [a@https://secure.php.net/manual/en/session.configuration.php#ini."
 "session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] está menor que a "
 "validade de cookies configurada no phpMyAdmin, por isso, o seu login poderá "
 "expirar mais cedo do que o configurado no phpMyAdmin."
@@ -4822,7 +4822,7 @@ msgctxt "Short week day name"
 msgid "Sun"
 msgstr "Dom"
 
-#. l10n: See https://php.net/manual/en/function.strftime.php
+#. l10n: See https://secure.php.net/manual/en/function.strftime.php
 #: libraries/Util.php:1698
 #: libraries/plugins/transformations/abs/DateFormatTransformationsPlugin.php:68
 msgid "%B %d, %Y at %I:%M %p"
@@ -17434,10 +17434,10 @@ msgstr "concurrent_insert está com valor 0"
 #~ msgstr "Mostrar informações do PHP"
 
 #~ msgid ""
-#~ "Shows link to [a@https://php.net/manual/function.phpinfo.php]phpinfo()[/"
+#~ "Shows link to [a@https://secure.php.net/manual/function.phpinfo.php]phpinfo()[/"
 #~ "a] output."
 #~ msgstr ""
-#~ "Exibe link para saída de [a@https://php.net/manual/function.phpinfo."
+#~ "Exibe link para saída de [a@https://secure.php.net/manual/function.phpinfo."
 #~ "php]phpinfo()[/a]."
 
 #~ msgid "Show phpinfo() link"

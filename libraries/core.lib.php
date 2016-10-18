@@ -99,7 +99,7 @@ function PMA_ifSetOr(&$var, $default = null, $type = 'similar')
  * @return boolean whether valid or not
  *
  * @todo add some more var types like hex, bin, ...?
- * @see     https://php.net/gettype
+ * @see     https://secure.php.net/gettype
  */
 function PMA_isValid(&$var, $type = 'length', $compare = null)
 {
@@ -278,7 +278,7 @@ function PMA_getPHPDocLink($target)
         $lang = $GLOBALS['lang'];
     }
 
-    return PMA_linkURL('https://php.net/manual/' . $lang . '/' . $target);
+    return PMA_linkURL('https://secure.php.net/manual/' . $lang . '/' . $target);
 }
 
 /**

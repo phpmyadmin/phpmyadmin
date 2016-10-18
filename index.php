@@ -469,7 +469,7 @@ if ($cfg['LoginCookieValidityDisableWarning'] == false) {
     if ($gc_time < $GLOBALS['cfg']['LoginCookieValidity'] ) {
         trigger_error(
             __(
-                'Your PHP parameter [a@https://php.net/manual/en/session.' .
+                'Your PHP parameter [a@https://secure.php.net/manual/en/session.' .
                 'configuration.php#ini.session.gc-maxlifetime@_blank]session.' .
                 'gc_maxlifetime[/a] is lower than cookie validity configured ' .
                 'in phpMyAdmin, because of this, your login might expire sooner ' .

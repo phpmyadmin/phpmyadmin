@@ -765,12 +765,12 @@ msgstr ""
 
 #: index.php:487
 msgid ""
-"Your PHP parameter [a@https://php.net/manual/en/session.configuration."
+"Your PHP parameter [a@https://secure.php.net/manual/en/session.configuration."
 "php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
 "than cookie validity configured in phpMyAdmin, because of this, your login "
 "might expire sooner than configured in phpMyAdmin."
 msgstr ""
-"Parametrul PHP [a@https://php.net/manual/ro/session.configuration.php#ini."
+"Parametrul PHP [a@https://secure.php.net/manual/ro/session.configuration.php#ini."
 "session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] este mai mic decât "
 "validitatea unui cookie configurat în phpMyAdmin, din această cauză sesiunea "
 "dumneavoastră ar putea expira mai devreme decât este configurat în "
@@ -4965,7 +4965,7 @@ msgctxt "Short week day name"
 msgid "Sun"
 msgstr "Dum"
 
-#. l10n: See https://php.net/manual/en/function.strftime.php
+#. l10n: See https://secure.php.net/manual/en/function.strftime.php
 #: libraries/Util.php:1698
 #: libraries/plugins/transformations/abs/DateFormatTransformationsPlugin.php:68
 msgid "%B %d, %Y at %I:%M %p"
@@ -18160,13 +18160,13 @@ msgstr "concurrent_insert este setat cu 0"
 
 #, fuzzy
 #~| msgid ""
-#~| "Shows link to [a@https://php.net/manual/function.phpinfo.php]phpinfo()[/"
+#~| "Shows link to [a@https://secure.php.net/manual/function.phpinfo.php]phpinfo()[/"
 #~| "a] output"
 #~ msgid ""
-#~ "Shows link to [a@https://php.net/manual/function.phpinfo.php]phpinfo()[/"
+#~ "Shows link to [a@https://secure.php.net/manual/function.phpinfo.php]phpinfo()[/"
 #~ "a] output."
 #~ msgstr ""
-#~ "Afișează link-ul către output-ul [a@https://php.net/manual/function."
+#~ "Afișează link-ul către output-ul [a@https://secure.php.net/manual/function."
 #~ "phpinfo.php]phpinfo()[/a]"
 
 #~ msgid "Show phpinfo() link"
@@ -19918,7 +19918,7 @@ msgstr "concurrent_insert este setat cu 0"
 #~ msgstr "Dezactivat"
 
 #~ msgid ""
-#~ "Cannot load [a@https://php.net/%1$s@Documentation][em]%1$s[/em][/a] "
+#~ "Cannot load [a@https://secure.php.net/%1$s@Documentation][em]%1$s[/em][/a] "
 #~ "extension. Please check your PHP configuration."
 #~ msgstr ""
 #~ "nu se poate încărca extensia %s,<br />vă rugăm să verificați configurația "
