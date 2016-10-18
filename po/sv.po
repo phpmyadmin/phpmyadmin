@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-10-18 13:44+0200\n"
-"PO-Revision-Date: 2016-04-04 22:23+0000\n"
-"Last-Translator: Anders Jonsson <anders.jonsson@norsjovallen.se>\n"
-"Language-Team: Swedish <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/sv/>\n"
+"PO-Revision-Date: 2016-10-18 20:28+0000\n"
+"Last-Translator: Erik Sundin <esundin@miman.biz>\n"
+"Language-Team: Swedish "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/sv/>\n"
 "Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.6-dev\n"
+"X-Generator: Weblate 2.9-dev\n"
 
 #: changelog.php:38 license.php:33
 #, fuzzy, php-format
@@ -314,8 +314,7 @@ msgstr "Databasen %1$s har kopierats till %2$s."
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. %sFind out why%s."
-msgstr ""
-"PhpMyAdmin konfiguration-lagring har inaktiverats. %sFind ut varför %s."
+msgstr "PhpMyAdmins konfigurationslagring har inaktiverats. %sSe varför%s."
 
 #: db_qbe.php:125
 msgid "You have to choose at least one column to display!"
@@ -568,12 +567,11 @@ msgid "Bookmark %s has been created."
 msgstr "Bokmärket %s har skapats."
 
 #: import.php:593
-#, fuzzy, php-format
-#| msgid "Import has been successfully finished, %d queries executed."
+#, php-format
 msgid "Import has been successfully finished, %d query executed."
 msgid_plural "Import has been successfully finished, %d queries executed."
-msgstr[0] "Importen har slutförts korrekt, %d frågor besvarade."
-msgstr[1] "Importen har slutförts korrekt, %d frågor besvarade."
+msgstr[0] "Importen har slutförts korrekt, %d förfrågan genomförd."
+msgstr[1] "Importen har slutförts korrekt, %d förfrågningar genomförda."
 
 #: import.php:622
 #, php-format
@@ -737,6 +735,9 @@ msgid ""
 "The curl extension was not found and allow_url_fopen is disabled. Due to "
 "this some features such as error reporting or version check are disabled."
 msgstr ""
+"Curl-tillägget kunde inte hittas och allow_url_fopen är avstängt. På grund "
+"av detta är vissa funktioner, som felrapportering och versionskontroll, "
+"avstängda."
 
 #: index.php:472
 msgid ""
@@ -766,6 +767,7 @@ msgstr "Konfigurationsfilen behöver nu ett hemligt lösenord (blowfish_secret).
 #: index.php:513
 msgid "The secret passphrase in configuration (blowfish_secret) is too short."
 msgstr ""
+"Den hemliga lösenordsfrasen i konfigurationen (blowfish_secret) är för kort."
 
 #: index.php:527
 msgid ""
@@ -913,10 +915,8 @@ msgid "Do you really want to TRUNCATE the selected partition(s)?"
 msgstr "Vill du verkligen att TRUNKERA den valda partitionen/partitionerna?"
 
 #: js/messages.php:85
-#, fuzzy
-#| msgid "Do you really want to delete the search \"%s\"?"
 msgid "Do you really want to remove partitioning?"
-msgstr "Vill du verkligen ta bort sökningen \"%s\"?"
+msgstr "Vill du verkligen ta bort partitionering?"
 
 #: js/messages.php:86
 msgid "Do you really want to RESET SLAVE?"
@@ -953,6 +953,12 @@ msgid ""
 "column(s) editing feature (the \"Change\" Link) on the table structure page. "
 "</b>"
 msgstr ""
+"Genom denna operation försöker MySQL kartlägga värden mellan sorteringar. Om "
+"teckenuppsättningarna är inkompatibla kan dataförlust ske och förlorad data "
+"kan vara <b>OMÖJLIG</b> att återställa genom att ändra tillbaks kolumnen/"
+"kolumnernas sortering. <b>För att konvertera existerande data föreslås "
+"användande av kolumnens/kolumnernas redigeringsverktyg (\"Ändra\") på "
+"tabellstruktur sidan.</b>"
 
 #: js/messages.php:107
 msgid ""
@@ -1640,10 +1646,8 @@ msgid "Formatting SQL…"
 msgstr "Formatering SQL…"
 
 #: js/messages.php:346
-#, fuzzy
-#| msgid "Bad parameters!"
 msgid "No parameters found!"
-msgstr "Felaktiga parametrar!"
+msgstr "Inga parametrar funna!"
 
 #: js/messages.php:350
 #: templates/database/designer/aggregate_query_panel.phtml:63
@@ -1787,7 +1791,7 @@ msgstr "Exportera"
 
 #: js/messages.php:394
 msgid "No routine is exportable. Required privileges may be lacking."
-msgstr ""
+msgstr "Ingen rutin är exporterbar. Nödvändiga privilegier kan saknas."
 
 #: js/messages.php:397 libraries/rte/rte_routines.lib.php:756
 msgid "ENUM/SET editor"
@@ -2523,24 +2527,24 @@ msgid ""
 "cause such a problem, clearing your \"Offline Website Data\" might help. In "
 "Safari, such problem is commonly caused by \"Private Mode Browsing\"."
 msgstr ""
+"Det gick inte att komma åt din webbläsares lokala lagring, vissa funktioner "
+"kanske inte fungerar som de ska för dig. Det är sannolikt att din webbläsare "
+"inte har stöd för lagring eller att kvoten för densamma är fylld. I Firefox "
+"kan korrupt lagring orsaka dylika problem, att rensa \"Nedkopplad lagring av "
+"webbinnehåll och användardata\" kan hjälpa. I Safari orsakas dylika problem "
+"oftast av \"Privat läge\"."
 
 #: js/messages.php:713
-#, fuzzy
-#| msgid "Copy database to"
 msgid "Copy tables to"
-msgstr "Kopiera databasen till"
+msgstr "Kopiera tabeller till"
 
 #: js/messages.php:714
-#, fuzzy
-#| msgid "Add table prefix:"
 msgid "Add table prefix"
-msgstr "Lägg till tabellprefix:"
+msgstr "Lägg till tabellprefix"
 
 #: js/messages.php:715
-#, fuzzy
-#| msgid "Replace table prefix"
 msgid "Replace table with prefix"
-msgstr "Ersätt tabellprefix"
+msgstr "Ersätt tabell med prefix"
 
 #: js/messages.php:716 templates/database/structure/check_all_tables.phtml:29
 msgid "Copy table with prefix"
@@ -2904,7 +2908,7 @@ msgstr "Misslyckades med formateringen av strängen för regel '%s'."
 #: libraries/Advisor.php:469
 #, php-format
 msgid "Error in reading file: The file '%s' does not exist or is not readable!"
-msgstr ""
+msgstr "Fel vid läsning av fil: Filen '%s' finns inte eller är inte läsbar!"
 
 #: libraries/Advisor.php:494
 #, php-format
@@ -3200,8 +3204,8 @@ msgstr "Teckenstorlek"
 #, php-format
 msgid "Showing %1$d bookmark (both private and shared)"
 msgid_plural "Showing %1$d bookmarks (both private and shared)"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Visar %1$d bokmärke (både privata och delade)"
+msgstr[1] "Visar %1$d bokmärken (både privata och delade)"
 
 #: libraries/Console.php:95
 msgid "No bookmarks"
@@ -3212,10 +3216,8 @@ msgid "SQL Query Console"
 msgstr "SQL-frågeruta"
 
 #: libraries/DatabaseInterface.php:1409
-#, fuzzy
-#| msgid "Failed to read configuration file!"
 msgid "Failed to set configured collation connection!"
-msgstr "Kunde inte läsa konfigurationsfilen!"
+msgstr "Kunde inte applicera den konfigurerade sorteringsanslutningen!"
 
 #: libraries/DatabaseInterface.php:2021
 msgid ""
@@ -3638,7 +3640,7 @@ msgstr "Markera alla"
 
 #: libraries/DisplayResults.php:5026
 msgid "Copy to clipboard"
-msgstr ""
+msgstr "Kopiera till urklipp"
 
 #: libraries/DisplayResults.php:5082
 msgid "Query results operations"
@@ -3718,7 +3720,7 @@ msgstr "Okänt fel i filuppladdning."
 
 #: libraries/File.php:424
 msgid "File is a symbolic link"
-msgstr ""
+msgstr "Filen är en symbolisk länk"
 
 #: libraries/File.php:429 libraries/File.php:532
 msgid "File could not be read!"
@@ -4666,6 +4668,8 @@ msgid ""
 "Stores and enables efficient access to data in JSON (JavaScript Object "
 "Notation) documents"
 msgstr ""
+"Lagrar och möjliggör effektiv åtkomst till data i JSON (JavaScript Object "
+"Notation) -dokument"
 
 #: libraries/TypesMySQL.php:479
 msgctxt "numeric types"
@@ -4727,14 +4731,10 @@ msgid "Analyze Explain at %s"
 msgstr "Analysförklaring Analysförklaringpå %s"
 
 #: libraries/Util.php:1181
-#, fuzzy
-#| msgid "Without PHP Code"
 msgid "Without PHP code"
 msgstr "Utan PHP-kod"
 
 #: libraries/Util.php:1193
-#, fuzzy
-#| msgid "Submit Query"
 msgid "Submit query"
 msgstr "Skicka fråga"
 
@@ -5237,10 +5237,8 @@ msgid "You allow for connecting to the server without a password."
 msgstr "Du tillåter anslutning till servern utan lösenord."
 
 #: libraries/config/ServerConfigChecks.php:349
-#, fuzzy
-#| msgid "Key is too short, it should have at least 8 characters."
 msgid "Key is too short, it should have at least 32 characters."
-msgstr "Nyckeln är för kort, den ska ha minst 8 tecken."
+msgstr "Nyckeln är för kort, den måste ha minst 32 tecken."
 
 #: libraries/config/ServerConfigChecks.php:359
 msgid "Key should contain letters, numbers [em]and[/em] special characters."
@@ -5378,10 +5376,8 @@ msgid "Could not connect to the database server!"
 msgstr "Kunde inte ansluta till databasservern!"
 
 #: libraries/config/Validator.php:243
-#, fuzzy
-#| msgid "Authentication type"
 msgid "Invalid authentication type!"
-msgstr "Autentiseringstyp"
+msgstr "Ogiltig autentiseringstyp!"
 
 #: libraries/config/Validator.php:250
 msgid "Empty username while using [kbd]config[/kbd] authentication method!"
@@ -5495,14 +5491,8 @@ msgid "Highlight pointer"
 msgstr "Markera pekaren"
 
 #: libraries/config/messages.inc.php:47
-#, fuzzy
-#| msgid ""
-#| "Enable [a@https://en.wikipedia.org/wiki/Bzip2]bzip2[/a] compression for "
-#| "import operations."
 msgid "Enable bzip2 compression for import operations."
-msgstr ""
-"Aktivera [a@https://en.wikipedia.org/wiki/Bzip2]bzip2[/a]-komprimering av "
-"importoperationer."
+msgstr "Aktivera bzip2-komprimering av importoperationer."
 
 #: libraries/config/messages.inc.php:50
 msgid "Bzip2"
@@ -5523,16 +5513,12 @@ msgid "CHAR columns editing"
 msgstr "Redigera CHAR-kolumn"
 
 #: libraries/config/messages.inc.php:58
-#, fuzzy
-#| msgid ""
-#| "Use user-friendly editor for editing SQL queries ([a@https://codemirror."
-#| "net/]CodeMirror[/a]) with syntax highlighting and line numbers."
 msgid ""
 "Use user-friendly editor for editing SQL queries (CodeMirror) with syntax "
 "highlighting and line numbers."
 msgstr ""
-"Använd användarvänlig editor för att redigera SQL-frågor ([a@https://"
-"codemirror.net/]CodeMirror[/a]) med syntaxmarkering och radnummer."
+"Använd användarvänlig editor för att redigera SQL-frågor (CodeMirror) med "
+"syntaxmarkering och radnummer."
 
 #: libraries/config/messages.inc.php:62
 msgid "Enable CodeMirror"
@@ -5669,14 +5655,12 @@ msgid "Whether the table structure actions should be hidden."
 msgstr "Om tabellstrukturåtgärderna ska döljas eller inte."
 
 #: libraries/config/messages.inc.php:117
-#, fuzzy
-#| msgid "Show table comments"
 msgid "Show column comments"
-msgstr "Visa tabellkommentarer"
+msgstr "Visa kolumnkommentarer"
 
 #: libraries/config/messages.inc.php:119
 msgid "Whether column comments should be shown in table structure view"
-msgstr ""
+msgstr "Om kolumnkommentarer skall visas i tabellstrukturvisningen"
 
 #: libraries/config/messages.inc.php:120
 msgid "Hide table structure actions"
@@ -6286,14 +6270,8 @@ msgid "Disable some of the warnings shown by phpMyAdmin."
 msgstr "Inaktivera några av de varningar som visas av phpMyAdmin."
 
 #: libraries/config/messages.inc.php:353
-#, fuzzy
-#| msgid ""
-#| "Enable [a@https://en.wikipedia.org/wiki/Gzip]gzip[/a] compression for "
-#| "import and export operations."
 msgid "Enable gzip compression for import and export operations."
-msgstr ""
-"Aktivera [a@https://en.wikipedia.org/wiki/Gzip]gzip[/a]-komprimering för "
-"import- och exportoperationer."
+msgstr "Aktivera gzip-komprimering för import- och exportoperationer."
 
 #: libraries/config/messages.inc.php:356
 msgid "GZip"
@@ -6981,16 +6959,12 @@ msgid "Authentication type"
 msgstr "Autentiseringstyp"
 
 #: libraries/config/messages.inc.php:640
-#, fuzzy
-#| msgid ""
-#| "Leave blank for no [a@https://wiki.phpmyadmin.net/pma/bookmark]bookmark[/"
-#| "a] support, suggested: [kbd]pma__bookmark[/kbd]"
 msgid ""
 "Leave blank for no [doc@bookmarks@]bookmark[/doc] support, suggested: "
 "[kbd]pma__bookmark[/kbd]"
 msgstr ""
-"Lämna tomt för att stänga av [a@https://wiki.phpmyadmin.net/pma/"
-"bookmark]bokmärken[/a], förslag: [kbd]pma_bookmark[/kbd]"
+"Lämna tomt för att stänga av [doc@bookmarks@]bokmärken[/doc], förslag: "
+"[kbd]pma_bookmark[/kbd]"
 
 #: libraries/config/messages.inc.php:643
 msgid "Bookmark table"
@@ -7029,18 +7003,12 @@ msgid "Control user password"
 msgstr "Lösenord för kontrollanvändare"
 
 #: libraries/config/messages.inc.php:656
-#, fuzzy
-#| msgid ""
-#| "A special MySQL user configured with limited permissions, more "
-#| "information available on [a@https://wiki.phpmyadmin.net/pma/"
-#| "controluser]wiki[/a]."
 msgid ""
 "A special MySQL user configured with limited permissions, more information "
 "available on [doc@linked-tables]documentation[/doc]."
 msgstr ""
 "En speciell MySQL-användare konfigurerad med begränsade rättigheter, mer "
-"information tillgänglig på [a@https://wiki.phpmyadmin.net/pma/"
-"controluser]wiki[/a]."
+"information tillgänglig i [doc@linked-tables]dokumentationen[/doc]."
 
 #: libraries/config/messages.inc.php:659
 msgid "Control user"
@@ -7198,19 +7166,14 @@ msgid "PDF schema: pages table"
 msgstr "PDF-schema: Tabell för sidor"
 
 #: libraries/config/messages.inc.php:721
-#, fuzzy
-#| msgid ""
-#| "Database used for relations, bookmarks, and PDF features. See [a@https://"
-#| "wiki.phpmyadmin.net/pma/pmadb]pmadb[/a] for complete information. Leave "
-#| "blank for no support. Suggested: [kbd]phpmyadmin[/kbd]."
 msgid ""
 "Database used for relations, bookmarks, and PDF features. See [doc@linked-"
 "tables]pmadb[/doc] for complete information. Leave blank for no support. "
 "Suggested: [kbd]phpmyadmin[/kbd]."
 msgstr ""
-"Databas som används för relationer, bokmärken och PDF-funktioner. Se "
-"[a@https://wiki.phpmyadmin.net/pma/pmadb]pmadb[/a] för komplett information. "
-"Lämna tomt för inget stöd. Förslag: [kbd]phpmyadmin[/kbd]."
+"Databas som används för relationer, bokmärken och PDF-funktioner. Se [doc"
+"@linked-tables]pmadb[/doc] för komplett information. Lämna tomt för inget "
+"stöd. Förslag: [kbd]phpmyadmin[/kbd]."
 
 #: libraries/config/messages.inc.php:725
 #: templates/server/databases/create.phtml:20
@@ -7250,31 +7213,21 @@ msgid "Favorites table"
 msgstr "Favorittabeller"
 
 #: libraries/config/messages.inc.php:740
-#, fuzzy
-#| msgid ""
-#| "Leave blank for no [a@https://wiki.phpmyadmin.net/pma/relation]relation-"
-#| "links[/a] support, suggested: [kbd]pma__relation[/kbd]."
 msgid ""
 "Leave blank for no [doc@relations@]relation-links[/doc] support, suggested: "
 "[kbd]pma__relation[/kbd]."
 msgstr ""
-"Lämna tomt för avstängt stöd för [a@https://wiki.phpmyadmin.net/pma/"
-"relation]relationslänkar[/a], förslag: [kbd]pma__relation[/kbd]."
+"Lämna tomt för avstängt stöd för [doc@relations@]relationslänkar[/doc], "
+"förslag: [kbd]pma__relation[/kbd]."
 
 #: libraries/config/messages.inc.php:744
 msgid "Relation table"
 msgstr "Relationstabell"
 
 #: libraries/config/messages.inc.php:746
-#, fuzzy
-#| msgid ""
-#| "See [a@https://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
-#| "types[/a] for an example."
 msgid ""
 "See [doc@authentication-modes]authentication types[/doc] for an example."
-msgstr ""
-"Se [a@https://wiki.phpmyadmin.net/pma/auth_types#signon]autentiseringstyper[/"
-"a] för ett exempel."
+msgstr "Se [doc@authentication-modes]autentiseringstyper[/doc] för ett exempel."
 
 #: libraries/config/messages.inc.php:749
 msgid "Signon session name"
@@ -7786,14 +7739,8 @@ msgid "Proxy password"
 msgstr "Proxylösenord"
 
 #: libraries/config/messages.inc.php:971
-#, fuzzy
-#| msgid ""
-#| "Enable [a@https://en.wikipedia.org/wiki/Gzip]gzip[/a] compression for "
-#| "import and export operations."
 msgid "Enable ZIP compression for import and export operations."
-msgstr ""
-"Aktivera [a@https://en.wikipedia.org/wiki/Gzip]gzip[/a]-komprimering för "
-"import- och exportoperationer."
+msgstr "Aktivera ZIP-komprimering för import- och exportoperationer."
 
 #: libraries/config/messages.inc.php:974
 msgid "ZIP"
@@ -8498,14 +8445,8 @@ msgstr ""
 "kan bryta transaktioner.)</i>"
 
 #: libraries/display_import.lib.php:315
-#, fuzzy
-#| msgid ""
-#| "Skip this number of queries (for SQL) or lines (for other formats), "
-#| "starting from the first one:"
 msgid "Skip this number of queries (for SQL) starting from the first one:"
-msgstr ""
-"Hoppa över detta antal frågor (för SQL) eller rader (för andra format), "
-"räknat från den första:"
+msgstr "Hoppa över detta antal frågor (för SQL) räknat från den första:"
 
 #: libraries/display_import.lib.php:345
 msgid "Other options:"
@@ -9056,14 +8997,11 @@ msgid "Edit next row"
 msgstr "Ändra nästa rad"
 
 #: libraries/insert_edit.lib.php:1611
-#, fuzzy
-#| msgid ""
-#| "Use TAB key to move from value to value, or CTRL+arrows to move anywhere"
 msgid ""
 "Use TAB key to move from value to value, or CTRL+arrows to move anywhere."
 msgstr ""
 "Använd TAB-tangenten för att flytta från värde till värde, eller CTRL+pil "
-"för att flytta vart som helst"
+"för att flytta vart som helst."
 
 #: libraries/insert_edit.lib.php:1648 libraries/replication_gui.lib.php:543
 #: libraries/rte/rte_routines.lib.php:1616
@@ -9106,10 +9044,8 @@ msgid "Data only"
 msgstr "Enbart data"
 
 #: libraries/mult_submits.lib.php:353
-#, fuzzy
-#| msgid "Add AUTO_INCREMENT value"
 msgid "Add AUTO INCREMENT value"
-msgstr "Lägg till AUTO_INCREMENT-värde"
+msgstr "Lägg till AUTO INCREMENT-värde"
 
 #: libraries/mult_submits.lib.php:355 libraries/operations.lib.php:227
 #: libraries/operations.lib.php:1288
@@ -9178,10 +9114,8 @@ msgid "Log out"
 msgstr "Logga ut"
 
 #: libraries/navigation/NavigationHeader.php:172
-#, fuzzy
-#| msgid "Dumping data"
 msgid "Empty session data"
-msgstr "Dumpning data"
+msgstr "Tom sessionsdata"
 
 #: libraries/navigation/NavigationHeader.php:190
 msgid "phpMyAdmin documentation"
@@ -9213,7 +9147,7 @@ msgstr[1] "%s resultat hittade"
 #: libraries/navigation/NavigationTree.php:1357
 #: libraries/navigation/NavigationTree.php:1389
 msgid "Type to filter these, Enter to search all"
-msgstr ""
+msgstr "Skriv för att filtrera, Retur för att söka i alla"
 
 #: libraries/navigation/NavigationTree.php:1359
 #: libraries/navigation/NavigationTree.php:1390
