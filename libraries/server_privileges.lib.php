@@ -5217,6 +5217,31 @@ function PMA_getHashedPassword($password)
     return $hashedPassword;
 }
 
+/**
+ * Check if MariaDB's 'simple_password_check'
+ * OR 'cracklib_password_check' is ACTIVE
+ *
+ * @return boolean if atleast one of the plugins is ACTIVE
+ */
+function PMA_checkIfMariaDBPwdCheckPluginActive()
+{
+    if (Util::getServerType() !== 'MariaDB') {
+        return false;
+    }
+
+    $result = $GLOBALS['dbi']->query(
+        'SHOW PLUGINS SONAME LIKE \'%_password_check%\''
+    );
+
+    while ($row = $GLOBALS['dbi']->fetchAssoc($result)) {
+        if ($row['Status'] === 'ACTIVE') {
+            return true;
+        }
+    }
+
+    return false;
+}
+
 
 /**
  * Get SQL queries for Display and Add user
@@ -5240,6 +5265,7 @@ function PMA_getSqlQueriesForDisplayAndAddUser($username, $hostname, $password)
         $slashedUsername,
         $slashedHostname
     );
+    $isMariaDBPwdPluginActive = PMA_checkIfMariaDBPwdCheckPluginActive();
 
     // See https://github.com/phpmyadmin/phpmyadmin/pull/11560#issuecomment-147158219
     // for details regarding details of syntax usage for various versions
@@ -5259,6 +5285,7 @@ function PMA_getSqlQueriesForDisplayAndAddUser($username, $hostname, $password)
     if ($serverType == 'MariaDB'
         && PMA_MYSQL_INT_VERSION >= 50200
         && isset($_REQUEST['authentication_plugin'])
+        && ! $isMariaDBPwdPluginActive
     ) {
         $create_user_stmt .= ' IDENTIFIED VIA '
             . $_REQUEST['authentication_plugin'];
@@ -5288,9 +5315,10 @@ function PMA_getSqlQueriesForDisplayAndAddUser($username, $hostname, $password)
             $_REQUEST['authentication_plugin']
         );
     }
+
     // Use 'CREATE USER ... WITH ... AS ..' syntax for
     // newer MySQL versions
-    // and 'CREATE USER ... USING .. VIA ..' syntax for
+    // and 'CREATE USER ... VIA .. USING ..' syntax for
     // newer MariaDB versions
     if ((($serverType == 'MySQL' || $serverType == 'Percona Server')
         && PMA_MYSQL_INT_VERSION >= 50706)
@@ -5305,8 +5333,13 @@ function PMA_getSqlQueriesForDisplayAndAddUser($username, $hostname, $password)
         );
 
         // MariaDB uses 'USING' whereas MySQL uses 'AS'
-        if ($serverType == 'MariaDB') {
+        // but MariaDB with validation plugin needs cleartext password
+        if ($serverType == 'MariaDB'
+            && ! $isMariaDBPwdPluginActive
+        ) {
             $create_user_stmt .= ' USING \'%s\'';
+        } elseif ($serverType == 'MariaDB') {
+            $create_user_stmt .= ' IDENTIFIED BY \'%s\'';
         } else {
             $create_user_stmt .= ' AS \'%s\'';
         }
@@ -5330,7 +5363,14 @@ function PMA_getSqlQueriesForDisplayAndAddUser($username, $hostname, $password)
                 '***'
             );
         } else {
-            $hashedPassword = PMA_getHashedPassword($_POST['pma_pw']);
+            if (! ($serverType == 'MariaDB'
+                && $isMariaDBPwdPluginActive)
+            ) {
+                $hashedPassword = PMA_getHashedPassword($_POST['pma_pw']);
+            } else {
+                // MariaDB with validation plugin needs cleartext password
+                $hashedPassword = $_POST['pma_pw'];
+            }
             $create_user_real = sprintf(
                 $create_user_stmt,
                 $hashedPassword

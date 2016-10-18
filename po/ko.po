@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.5-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-08-17 11:29+0200\n"
-"PO-Revision-Date: 2016-10-15 07:33+0000\n"
+"PO-Revision-Date: 2016-10-17 12:10+0000\n"
 "Last-Translator: SDSkyKlouD <koongchi135@gmail.com>\n"
 "Language-Team: Korean "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-6/ko/>\n"
@@ -4565,16 +4565,12 @@ msgid "Analyze Explain at %s"
 msgstr ""
 
 #: libraries/Util.php:1258
-#, fuzzy
-#| msgid "Without PHP Code"
 msgid "Without PHP code"
 msgstr "PHP 코드 없이 보기"
 
 #: libraries/Util.php:1270
-#, fuzzy
-#| msgid "Submit Query"
 msgid "Submit query"
-msgstr "질의 실행"
+msgstr "쿼리 실행"
 
 #: libraries/Util.php:1281 libraries/config/messages.inc.php:888
 msgid "Create PHP code"
@@ -5060,10 +5056,8 @@ msgid "Allow users to customize this value"
 msgstr "이 값을 사용자화하기 위한 사용자 허용"
 
 #: libraries/config/PageSettings.php:141
-#, fuzzy
-#| msgid "Cannot save settings, submitted form contains errors!"
 msgid "Cannot save settings, submitted configuration form contains errors!"
-msgstr "설정을 저장할 수 없음, 전송된 폼 값에 오류가 있음!"
+msgstr "설정을 저장할 수 없습니다. 제출하신 구성 폼에 오류가 있습니다!"
 
 #: libraries/config/ServerConfigChecks.php:157
 msgid "You should use SSL connections if your database server supports it."
@@ -5074,10 +5068,8 @@ msgid "You allow for connecting to the server without a password."
 msgstr "암호 없이 서버 접속을 허용합니다."
 
 #: libraries/config/ServerConfigChecks.php:347
-#, fuzzy
-#| msgid "Key is too short, it should have at least 8 characters."
 msgid "Key is too short, it should have at least 32 characters."
-msgstr "키가 너무 짧습니다. 최소 8글자 이상이어야 합니다."
+msgstr "키가 너무 짧습니다. 최소 32글자 이상이어야 합니다."
 
 #: libraries/config/ServerConfigChecks.php:357
 msgid "Key should contain letters, numbers [em]and[/em] special characters."
@@ -5208,10 +5200,8 @@ msgid "Could not connect to the database server!"
 msgstr "데이터베이스 서버에 접속할 수 없습니다!"
 
 #: libraries/config/Validator.php:243
-#, fuzzy
-#| msgid "Authentication type"
 msgid "Invalid authentication type!"
-msgstr "인증 형식"
+msgstr "잘못된 인증 방식!"
 
 #: libraries/config/Validator.php:250
 msgid "Empty username while using [kbd]config[/kbd] authentication method!"
@@ -5318,14 +5308,8 @@ msgid "Highlight pointer"
 msgstr "포인터 하이라이트"
 
 #: libraries/config/messages.inc.php:47
-#, fuzzy
-#| msgid ""
-#| "Enable [a@https://en.wikipedia.org/wiki/Bzip2]bzip2[/a] compression for "
-#| "import operations."
 msgid "Enable bzip2 compression for import operations."
-msgstr ""
-"가져오기 작업시 [a@https://en.wikipedia.org/wiki/Bzip2]bzip2[/a] 압축을 활성"
-"화합니다."
+msgstr "가져오기 작업 시 bzip2 압축을 활성화합니다."
 
 #: libraries/config/messages.inc.php:50
 msgid "Bzip2"
@@ -5345,16 +5329,10 @@ msgid "CHAR columns editing"
 msgstr "CHAR 컬럼 편집"
 
 #: libraries/config/messages.inc.php:58
-#, fuzzy
-#| msgid ""
-#| "Use user-friendly editor for editing SQL queries ([a@https://codemirror."
-#| "net/]CodeMirror[/a]) with syntax highlighting and line numbers."
 msgid ""
 "Use user-friendly editor for editing SQL queries (CodeMirror) with syntax "
 "highlighting and line numbers."
-msgstr ""
-"사용하기 쉬운 편집기([a@https://codemirror.net/]CodeMirror[/a], 문법 강조 및 "
-"줄 번호 지원)로 SQL 쿼리를 편집."
+msgstr "문법 강조와 줄 개수 등의 기능이 있는 SQL 쿼리 에디터 CodeMirror를 사용하세요."
 
 #: libraries/config/messages.inc.php:62
 msgid "Enable CodeMirror"
@@ -5480,10 +5458,8 @@ msgid "Whether the table structure actions should be hidden."
 msgstr "테이블 구조 관련 기능을 숨겨 놓을지 말지 여부."
 
 #: libraries/config/messages.inc.php:117
-#, fuzzy
-#| msgid "Table comments"
 msgid "Show column comments"
-msgstr "테이블 설명"
+msgstr "칼럼 설명 보이기"
 
 #: libraries/config/messages.inc.php:119
 msgid "Whether column comments should be shown in table structure view"
@@ -6452,74 +6428,53 @@ msgid "Enable highlighting"
 msgstr "﻿강조 표시 사용"
 
 #: libraries/config/messages.inc.php:521
-#, fuzzy
-#| msgid "Whether to disable the possibility of database expansion or not."
 msgid ""
 "Whether to offer the possibility of tree expansion in the navigation panel."
-msgstr "데이터베이스 확장 가능 여부를 비활성화할 것인지."
+msgstr "내비게이션 패널에서 트리 확장을 가능하게 할 지 설정합니다."
 
 #: libraries/config/messages.inc.php:524
-#, fuzzy
-#| msgid "Table navigation bar"
 msgid "Enable navigation tree expansion"
-msgstr "테이블 네비게이션 바"
+msgstr "내비게이션 트리 확장 사용"
 
 #: libraries/config/messages.inc.php:525
-#, fuzzy
-#| msgid "Show/Hide tables list"
 msgid "Show tables in tree"
-msgstr "테이블 목록 표시/숨김"
+msgstr "트리에 테이블 표시"
 
 #: libraries/config/messages.inc.php:527
-#, fuzzy
-#| msgid "Whether to disable the possibility of database expansion or not."
 msgid "Whether to show tables under database in the navigation tree"
-msgstr "데이터베이스 확장 가능 여부를 비활성화할 것인지."
+msgstr "내비게이션 트리에 테이블 안에 있는 데이터베이스를 표시할 지 설정합니다"
 
 #: libraries/config/messages.inc.php:528
-#, fuzzy
-#| msgid "Show versions"
 msgid "Show views in tree"
-msgstr "버전 보기"
+msgstr "트리에 뷰 보기"
 
 #: libraries/config/messages.inc.php:530
-#, fuzzy
-#| msgid "Show hidden navigation tree items."
 msgid "Whether to show views under database in the navigation tree"
-msgstr "숨겨진 탐색 트리의 항목보기."
+msgstr "내비게이션 트리에 데이터베이스 안의 뷰를 보일지 설정합니다"
 
 #: libraries/config/messages.inc.php:531
-#, fuzzy
-#| msgid "Show function fields"
 msgid "Show functions in tree"
-msgstr "함수 필드 보이기"
+msgstr "트리에 기능 보이기"
 
 #: libraries/config/messages.inc.php:533
-#, fuzzy
 msgid "Whether to show functions under database in the navigation tree"
-msgstr "내비게이션 트리의 데이터베이스 항목 아래에 기능을 표시할지 설정합니다"
+msgstr "내비게이션 트리에 데이터베이스에서 사용 가능한 기능을 보일지 설정합니다"
 
 #: libraries/config/messages.inc.php:534
-#, fuzzy
-#| msgid "procedures"
 msgid "Show procedures in tree"
-msgstr "프로시저"
+msgstr "트리에 프로시저 보이기"
 
 #: libraries/config/messages.inc.php:536
 msgid "Whether to show procedures under database in the navigation tree"
 msgstr ""
 
 #: libraries/config/messages.inc.php:537
-#, fuzzy
-#| msgid "Show versions"
 msgid "Show events in tree"
-msgstr "버전 보기"
+msgstr "트리에 이벤트 보이기"
 
 #: libraries/config/messages.inc.php:539
-#, fuzzy
-#| msgid "Show hidden navigation tree items."
 msgid "Whether to show events under database in the navigation tree"
-msgstr "숨겨진 탐색 트리의 항목보기."
+msgstr "내비게이션 트리에서 데이터베이스의 이벤트를 보일지 설정합니다"
 
 #: libraries/config/messages.inc.php:541
 msgid "Maximum number of recently used tables; set 0 to disable."
@@ -6754,10 +6709,8 @@ msgid "Allow root login"
 msgstr "루트 사용자 로그인 허용"
 
 #: libraries/config/messages.inc.php:627
-#, fuzzy
-#| msgid "Session value"
 msgid "Session timezone"
-msgstr "세션 값"
+msgstr "세션 시간대"
 
 #: libraries/config/messages.inc.php:629
 msgid ""
@@ -6826,17 +6779,12 @@ msgid "Control user password"
 msgstr "유저 비밀번호 제어"
 
 #: libraries/config/messages.inc.php:654
-#, fuzzy
-#| msgid ""
-#| "A special MySQL user configured with limited permissions, more "
-#| "information available on [a@https://wiki.phpmyadmin.net/pma/"
-#| "controluser]wiki[/a]."
 msgid ""
 "A special MySQL user configured with limited permissions, more information "
 "available on [doc@linked-tables]documentation[/doc]."
 msgstr ""
-"제한된 권한 설정을 위한 특별한 MySQL 사용자 설정. 추가 정보는 [a@https://"
-"wiki.phpmyadmin.net/pma/controluser]위키[/a]에."
+"특별한 MySQL 사용자가 제한된 권한으로 구성되었습니다. [doc@linked-tables]이 문서[/doc]에서 더 많은 정보를 "
+"찾아보실 수 있습니다."
 
 #: libraries/config/messages.inc.php:657
 msgid "Control user"
@@ -6925,50 +6873,30 @@ msgid "QBE saved searches table"
 msgstr "QBE가 검색 테이블에 저장되었습니다"
 
 #: libraries/config/messages.inc.php:693
-#, fuzzy
-#| msgid ""
-#| "Leave blank for no PDF schema support, suggested: [kbd]pma__pdf_pages[/"
-#| "kbd]"
 msgid ""
 "Leave blank for no QBE saved searches support, suggested: "
 "[kbd]pma__savedsearches[/kbd]."
-msgstr ""
-"PDF 스키마를 제공하지 않을 경우 비워두세요. 제안값: [kbd]pma__pdf_pages[/kbd]"
+msgstr "QBE 저장된 검색 지원을 사용하지 않으려면 비워두세요. 제안하는 값 : [kbd]pma__savedsearches[/kbd]."
 
 #: libraries/config/messages.inc.php:696
-#, fuzzy
-#| msgid "Export views as tables"
 msgid "Export templates table"
-msgstr "뷰를 테이블로 내보내기"
+msgstr "템플릿 테이블 내보내기"
 
 #: libraries/config/messages.inc.php:698
-#, fuzzy
-#| msgid ""
-#| "Leave blank for no PDF schema support, suggested: [kbd]pma__pdf_pages[/"
-#| "kbd]."
 msgid ""
 "Leave blank for no export template support, suggested: "
 "[kbd]pma__export_templates[/kbd]."
-msgstr ""
-"PDF 스키마를 제공하지 않을 경우 비워두세요. 권장: [kbd]pma__pdf_pages[/kbd]."
+msgstr "템플릿 내보내기를 활성화하지 않으려면 비워두세요. 제안하는 값 : [kbd]pma__export_templates[/kbd]."
 
 #: libraries/config/messages.inc.php:701
-#, fuzzy
-#| msgid "Central columns"
 msgid "Central columns table"
-msgstr "중심 열"
+msgstr "중심 열 테이블"
 
 #: libraries/config/messages.inc.php:703
-#, fuzzy
-#| msgid ""
-#| "Leave blank for no PDF schema support, suggested: [kbd]pma__table_coords[/"
-#| "kbd]."
 msgid ""
 "Leave blank for no central columns support, suggested: "
 "[kbd]pma__central_columns[/kbd]."
-msgstr ""
-"PDF 스키마를 제공하지 않을 경우 비워두세요. 제안값: [kbd]pma__table_coords[/"
-"kbd]."
+msgstr "중심 열 지원을 비활성화하려면 비워두세요. 제안하는 값 : [kbd]pma__central_columns[/kbd]."
 
 #: libraries/config/messages.inc.php:706
 msgid "Try to connect without password."
@@ -7010,19 +6938,14 @@ msgid "PDF schema: pages table"
 msgstr "PDF 스키마: 페이지 테이블"
 
 #: libraries/config/messages.inc.php:721
-#, fuzzy
-#| msgid ""
-#| "Database used for relations, bookmarks, and PDF features. See [a@https://"
-#| "wiki.phpmyadmin.net/pma/pmadb]pmadb[/a] for complete information. Leave "
-#| "blank for no support. Suggested: [kbd]phpmyadmin[/kbd]."
 msgid ""
 "Database used for relations, bookmarks, and PDF features. See [doc@linked-"
 "tables]pmadb[/doc] for complete information. Leave blank for no support. "
 "Suggested: [kbd]phpmyadmin[/kbd]."
 msgstr ""
-"릴레이션, 북마크, PDF 기능을 위한 데이터베이스. 자세한 정보는 [a@https://"
-"wiki.phpmyadmin.net/pma/pmadb]pmadb[/a]를 참고하세요. 이 기능들을 제공하지 않"
-"으려면 비워두세요. 권장: [kbd]phpmyadmin[/kbd]."
+"릴레이션, 북마크, PDF 기능 지원을 위해 필요한 데이터베이스입니다. 자세한 정보는 [doc@linked-"
+"tables]pmadb[/doc]를 참고해주세요. 이 기능들을 사용하지 않으려면 비워두세요. 제안하는 값 : "
+"[kbd]phpmyadmin[/kbd]."
 
 #: libraries/config/messages.inc.php:725
 #: templates/server/databases/create.phtml:20
@@ -7066,8 +6989,6 @@ msgstr ""
 "[kbd]pma__userconfig[/kbd]"
 
 #: libraries/config/messages.inc.php:738
-#, fuzzy
-#| msgid "Favorite tables"
 msgid "Favorites table"
 msgstr "즐겨찾기 테이블"
 
