@@ -56,6 +56,8 @@ matrix:
       env: CI_MODE=selenium
     - php: "7.0"
       env: CI_MODE=release
+    - php: "7.0"
+      env: CI_MODE=docs
 cache:
   directories:
     - $HOME/.composer/cache/
