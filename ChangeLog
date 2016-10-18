@@ -96,6 +96,8 @@ phpMyAdmin - ChangeLog
 - issue #12366 Fix user creation with certain MariaDB setups
 - issue #12616 Refuse to work with mbstring.func_overload enabled
 - issue #12472 Properly report connection without password in setup
+- issue #12365 Fix records count for large tables
+- issue #12533 Fix records count for complext queries
 
 4.6.4 (2016-08-16)
 - issue        [security] Weaknesses with cookie encryption, see PMASA-2016-29
