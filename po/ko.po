@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-10-18 13:44+0200\n"
-"PO-Revision-Date: 2016-10-18 11:46+0000\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2016-10-18 12:02+0000\n"
+"Last-Translator: SDSkyKlouD <koongchi135@gmail.com>\n"
 "Language-Team: Korean "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/ko/>\n"
 "Language: ko\n"
@@ -1868,8 +1868,6 @@ msgid ""
 "No columns in the central list. Make sure the Central columns list for "
 "database %s has columns that are not present in the current table."
 msgstr ""
-"Não há colunas na lista central. Certifique-se a lista de colunas central do "
-"banco de dados %s tem colunas que não estão presentes na tabela atual."
 
 #: js/messages.php:426
 msgid "See more"
@@ -1934,8 +1932,6 @@ msgid ""
 "Note: a, b -> d,f implies values of columns a and b combined together can "
 "determine values of column d and column f."
 msgstr ""
-"Nota: a, b -> d, f implicar valores de colunas a e b em conjunto combinado "
-"pode determinar os valores das colunas d e f."
 
 #: js/messages.php:449
 msgid "No partial dependencies selected!"
@@ -1980,7 +1976,7 @@ msgstr "정규화의 세번째 단계 (3NF)"
 
 #: js/messages.php:466
 msgid "Confirm transitive dependencies"
-msgstr "Confirmar dependências transitivas"
+msgstr ""
 
 #: js/messages.php:467
 msgid "Selected dependencies are as follows:"
