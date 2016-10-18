@@ -34,7 +34,7 @@ Pie chart
 
 Query results for a simple pie chart can be generated with:
 
-.. code-block:: sql
+.. code-block:: mysql
 
     SELECT 'Food' AS 'expense', 
        1250 AS 'amount' UNION
@@ -67,7 +67,7 @@ Both bar charts and column chats support stacking. Upon selecting one of these t
 
 Query results for a simple bar or column chart can be generated with:
 
-.. code-block:: sql
+.. code-block:: mysql
 
     SELECT 
        'ACADEMY DINOSAUR' AS 'title',
@@ -114,7 +114,7 @@ These charts can be used to illustrate trends in underlying data. Spline charts 
 
 Query results for a simple line, spline or timeline chart can be generated with:
 
-.. code-block:: sql
+.. code-block:: mysql
 
     SELECT 
        DATE('2006-01-08') AS 'date', 
