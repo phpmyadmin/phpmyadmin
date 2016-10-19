@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-10-18 13:44+0200\n"
-"PO-Revision-Date: 2016-10-18 19:34+0000\n"
+"PO-Revision-Date: 2016-10-19 11:08+0000\n"
 "Last-Translator: Stefano Martinelli <stefano.ste.martinelli@gmail.com>\n"
 "Language-Team: Italian "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/it/>\n"
@@ -15886,7 +15886,7 @@ msgstr "Era attesa una parola chiave \"RETURNS\"."
 
 #: vendor/phpmyadmin/sql-parser/src/Statements/DeleteStatement.php:303
 msgid "This type of clause is not valid in Multi-table queries."
-msgstr "Questo tipo di clausola non è valida neele query Multi-tabella."
+msgstr "Questo tipo di clausola non è valida nelle query Multi-tabella."
 
 #: vendor/phpmyadmin/sql-parser/tests/Lexer/LexerTest.php:21
 #: vendor/phpmyadmin/sql-parser/tests/Parser/ParserTest.php:58
