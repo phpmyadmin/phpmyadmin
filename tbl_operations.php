@@ -221,7 +221,12 @@ if (isset($result) && empty($message_to_show)) {
             }
             exit;
         }
+    } else {
+        $_message = $result
+            ? PMA\libraries\Message::success($_message)
+            : PMA\libraries\Message::error($_message);
     }
+
     if (! empty($warning_messages)) {
         $_message = new PMA\libraries\Message;
         $_message->addMessagesString($warning_messages);
