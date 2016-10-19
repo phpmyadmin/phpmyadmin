@@ -385,11 +385,11 @@ class TableTest extends PMATestCase
      *
      * @dataProvider dataValidateName
      */
-    public function testValidateName($name, $result)
+    public function testValidateName($name, $result, $is_backquoted=false)
     {
         $this->assertEquals(
             $result,
-            Table::isValidName($name)
+            Table::isValidName($name, $is_backquoted)
         );
     }
 
@@ -405,6 +405,10 @@ class TableTest extends PMATestCase
             array('te/st', false),
             array('te.st', false),
             array('te\\st', false),
+            array('te st', true),
+            array('  te st', true, true),
+            array('test ', false),
+            array('test ', false, true),
         );
     }
 
