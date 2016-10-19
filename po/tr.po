@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.5-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-10-18 13:42+0200\n"
-"PO-Revision-Date: 2016-08-17 10:18+0000\n"
+"PO-Revision-Date: 2016-10-19 10:42+0000\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
-"Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/4-6/"
-"tr/>\n"
+"Language-Team: Turkish "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-6/tr/>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 2.8-dev\n"
+"X-Generator: Weblate 2.9-dev\n"
 
 #: changelog.php:38 license.php:33
 #, php-format
@@ -1808,7 +1808,7 @@ msgstr "Dışa aktar"
 
 #: js/messages.php:389
 msgid "No routine is exportable. Required privileges may be lacking."
-msgstr ""
+msgstr "Dışa aktarılabilir yordam yok. Gerekli yetkiler yetersiz olabilir."
 
 #: js/messages.php:392 libraries/rte/rte_routines.lib.php:754
 msgid "ENUM/SET editor"
@@ -2935,7 +2935,7 @@ msgstr "'%s' kuralı için dizgi biçimlendirme başarısız."
 #: libraries/Advisor.php:467
 #, php-format
 msgid "Error in reading file: The file '%s' does not exist or is not readable!"
-msgstr ""
+msgstr "Dosya okunurken hata oldu: Dosya '%s' mevcut veya okunabilir değil!"
 
 #: libraries/Advisor.php:492
 #, php-format
@@ -11871,6 +11871,8 @@ msgid ""
 "No routine with name %1$s found in database %2$s. You might be lacking the "
 "necessary privileges to edit this routine"
 msgstr ""
+"%2$s veritabanında bulunan %1$s adında yordam yok. Bu yordamı düzenlemek "
+"için gerekli yetkiler yetersiz olabilir"
 
 #: libraries/rte/rte_words.lib.php:39
 #, php-format
@@ -11878,6 +11880,8 @@ msgid ""
 "No routine with name %1$s found in database %2$s. You might be lacking the "
 "necessary privileges to view/export this routine"
 msgstr ""
+"%2$s veritabanında bulunan %1$s adında yordam yok. Bu yordamı görüntülemek/"
+"dışa aktarmak için gerekli yetkiler yetersiz olabilir"
 
 #: libraries/rte/rte_words.lib.php:42
 #, php-format
@@ -12208,6 +12212,8 @@ msgid ""
 "Allows user to give to other users or remove from other users privileges "
 "that user possess on this routine."
 msgstr ""
+"Kullanıcının bu yordamda sahip olduğu yetkileri diğer kullanıcılara vermek "
+"ya da diğer kullanıcılardan kaldırmak için kullanıcılara izin verir."
 
 #: libraries/server_privileges.lib.php:1042
 msgid "Allows altering and dropping this routine."
@@ -12269,6 +12275,8 @@ msgid ""
 "Allows user to give to other users or remove from other users the privileges "
 "that user possess yourself."
 msgstr ""
+"Kullanıcının kendi kendine sahip olduğu yetkileri diğer kullanıcılara vermek "
+"ya da diğer kullanıcılardan kaldırmak için kullanıcılara izin verir."
 
 #: libraries/server_privileges.lib.php:1552
 msgid "Native MySQL authentication"
@@ -13731,20 +13739,20 @@ msgstr "Açık bir köşeli parantez beklenmekte."
 #: libraries/sql-parser/src/Statements/InsertStatement.php:227
 #: libraries/sql-parser/src/Statements/ReplaceStatement.php:165
 #: libraries/sql-parser/src/Statements/ReplaceStatement.php:193
-#, fuzzy
-#| msgid "Unexpected token."
 msgid "Unexpected keyword."
-msgstr "Beklenmedik belirteç."
+msgstr "Beklenmedik anahtar kelime."
 
 #: libraries/sql-parser/src/Components/CaseExpression.php:202
 msgid "Unexpected end of CASE expression"
-msgstr ""
+msgstr "Beklenmedik Büyük/Küçük harf ifadesi sonu"
 
 #: libraries/sql-parser/src/Components/CreateDefinition.php:227
 msgid ""
 "A symbol name was expected! A reserved keyword can not be used as a field "
 "name without backquotes."
 msgstr ""
+"Bir sembol adı beklenmekte! Ayrılmış bir anahtar kelime ters eğik tırnakları "
+"olmadan bir alan adı olarak kullanılamaz."
 
 #: libraries/sql-parser/src/Components/CreateDefinition.php:241
 msgid "A symbol name was expected!"
@@ -13792,10 +13800,9 @@ msgid "This option conflicts with \"%1$s\"."
 msgstr "Bu seçenek \"%1$s\" ile çakışıyor."
 
 #: libraries/sql-parser/src/Components/OptionsArray.php:260
-#, fuzzy, php-format
-#| msgid "Ending quote %1$s was expected."
+#, php-format
 msgid "Value/Expression for the option %1$s was expected"
-msgstr "Sonlandırma tırnak işareti %1$s beklenmekte."
+msgstr "%1$s seçeneği için değer/ifade beklenmekte"
 
 #: libraries/sql-parser/src/Components/RenameOperation.php:101
 msgid "The old name of the table was expected."
@@ -13869,10 +13876,8 @@ msgid "The name of the entity was expected."
 msgstr "Varlığın adı beklenmekte."
 
 #: libraries/sql-parser/src/Statements/CreateStatement.php:436
-#, fuzzy
-#| msgid "Variable name was expected."
 msgid "A table name was expected."
-msgstr "Değişken adı beklenmekte."
+msgstr "Tablo adı beklenmekte."
 
 #: libraries/sql-parser/src/Statements/CreateStatement.php:444
 msgid "At least one column definition was expected."
@@ -13883,10 +13888,8 @@ msgid "A \"RETURNS\" keyword was expected."
 msgstr "\"RETURNS\" anahtar kelimesi beklenmekte."
 
 #: libraries/sql-parser/src/Statements/DeleteStatement.php:303
-#, fuzzy
-#| msgid "This type of clause was previously parsed."
 msgid "This type of clause is not valid in Multi-table queries."
-msgstr "Bu tür yan tümce daha önce ayrıştırıldı."
+msgstr "Bu tür yan tümce Çoklu tablo sorgularında geçerli değil."
 
 #: libraries/sql.lib.php:231
 msgid "Detailed profile"
