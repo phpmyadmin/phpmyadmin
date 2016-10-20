@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.5-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-10-18 13:42+0200\n"
-"PO-Revision-Date: 2016-10-16 11:23+0000\n"
-"Last-Translator: Zulfikar <zulfikar97@gmail.com>\n"
-"Language-Team: Indonesian <https://hosted.weblate.org/projects/"
-"phpmyadmin/4-6/id/>\n"
+"PO-Revision-Date: 2016-10-20 12:33+0000\n"
+"Last-Translator: Reksa Suhud Tri Atmojo <reksasuhud@yahoo.co.id>\n"
+"Language-Team: Indonesian "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-6/id/>\n"
 "Language: id\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -975,21 +975,20 @@ msgid ""
 "column(s) editing feature (the \"Change\" Link) on the table structure page. "
 "</b>"
 msgstr ""
-"Melalui operasi ini, MySQL mencoba untuk memetakan nilai data antara "
-"collations. Jika set karakter tidak kompatibel, mungkin ada kehilangan data "
-"dan ini kehilangan data mungkin <b>TIDAK</b> dapat dipulihkan hanya dengan "
-"mengubah kembali kolom pemeriksaan. <b>Untuk mengkonversi data yang ada, "
-"disarankan untuk menggunakan kolom fitur editing (\"Ubah\" Link) di halaman "
-"struktur tabel. </b>"
+"Melalui operasi ini, MySQL mencoba memetakan nilai data dengan teliti. Jika "
+"set karakter tidak kompatibel, mungkin ada kehilangan data dan kehilangan "
+"data ini mungkin <b>TIDAK</b> dapat dipulihkan hanya dengan mengubah kembali "
+"kolom pemeriksaan. <b>Untuk mengkonversi data yang ada, disarankan untuk "
+"menggunakan kolom fitur editing (\"Ubah\" Link) di halaman struktur tabel. "
+"</b>"
 
 #: js/messages.php:102
-#, fuzzy
 msgid ""
 "Are you sure you wish to change all the column collations and convert the "
 "data?"
 msgstr ""
-"Apakah Anda yakin Anda ingin mengubah semua kolom pengumpulan dan "
-"mengkonversi data?"
+"Apakah Anda yakin ingin mengubah semua kolom pengumpulan dan mengkonversi "
+"data?"
 
 #: js/messages.php:106
 #, fuzzy
@@ -1215,13 +1214,13 @@ msgstr "Total swap"
 #, fuzzy
 #| msgid "Cached Swap"
 msgid "Cached swap"
-msgstr "tercache swap"
+msgstr "telah melakukan swap cache"
 
 #: js/messages.php:188
 #, fuzzy
 #| msgid "Used Swap"
 msgid "Used swap"
-msgstr "Swap Terpakai"
+msgstr "Swap yang terpakai"
 
 #: js/messages.php:189
 msgid "Free swap"
@@ -1818,8 +1817,10 @@ msgid "Export"
 msgstr "Ekspor"
 
 #: js/messages.php:389
+#, fuzzy
 msgid "No routine is exportable. Required privileges may be lacking."
 msgstr ""
+"Tidak ada rutin yang dapat diekspor. hak yang diperlukan mungkin kurang."
 
 #: js/messages.php:392 libraries/rte/rte_routines.lib.php:754
 msgid "ENUM/SET editor"
@@ -2225,7 +2226,7 @@ msgstr "Simpan halaman"
 #, fuzzy
 #| msgid "Select page"
 msgid "Save page as"
-msgstr "Pilih halaman"
+msgstr "simpan halaman sebagai"
 
 #: js/messages.php:539 templates/database/designer/side_menu.phtml:49
 #: templates/database/designer/side_menu.phtml:52
@@ -2483,7 +2484,7 @@ msgstr "Kirim laporan kesalahan"
 #, fuzzy
 #| msgid "Submit Error Report"
 msgid "Submit error report"
-msgstr "Kiri Laporan Kesalahan"
+msgstr "Kirim Laporan Kesalahan"
 
 #: js/messages.php:653
 msgid ""
@@ -2568,7 +2569,7 @@ msgstr "%s argumen lulus"
 #, fuzzy
 #| msgid "Table comments"
 msgid "Show arguments"
-msgstr "Komentar tabel"
+msgstr "Perlihatkan Komentar tabel"
 
 #: js/messages.php:704
 #, fuzzy
