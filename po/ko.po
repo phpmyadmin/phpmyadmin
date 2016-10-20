@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-10-18 13:44+0200\n"
-"PO-Revision-Date: 2016-10-20 10:46+0000\n"
-"Last-Translator: Kyeong Su Shin <cdac1234@gmail.com>\n"
+"PO-Revision-Date: 2016-10-20 10:55+0000\n"
+"Last-Translator: SDSkyKlouD <koongchi135@gmail.com>\n"
 "Language-Team: Korean "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/ko/>\n"
 "Language: ko\n"
@@ -6593,10 +6593,8 @@ msgid "Show row links anyway"
 msgstr "열 링크 보이기"
 
 #: libraries/config/messages.inc.php:552 libraries/config/messages.inc.php:553
-#, fuzzy
-#| msgid "Disable foreign key checks"
 msgid "Disable shortcut keys"
-msgstr "외래 키(foreign key) 체크 사용 안함"
+msgstr "바로가기 키 비활성화"
 
 #: libraries/config/messages.inc.php:555
 msgid "Use natural order for sorting table and database names."
@@ -7086,16 +7084,12 @@ msgid "Favorites table"
 msgstr "즐겨찾기 테이블"
 
 #: libraries/config/messages.inc.php:740
-#, fuzzy
-#| msgid ""
-#| "Leave blank for no SQL query tracking support, suggested: "
-#| "[kbd]pma__tracking[/kbd]"
 msgid ""
 "Leave blank for no [doc@relations@]relation-links[/doc] support, suggested: "
 "[kbd]pma__relation[/kbd]."
 msgstr ""
-"SQL 쿼리 추적 기능을 사용하지 않으려면 빈 칸으로 비워두세요. 권장: "
-"[kbd]pma__tracking[/kbd]"
+"[doc@relations@]relation-links[/doc] 지원을 비활성화하려면 비워두세요. 제안하는 값 : "
+"[kbd]pma__relation[/kbd]."
 
 #: libraries/config/messages.inc.php:744
 msgid "Relation table"
@@ -7139,20 +7133,14 @@ msgstr ""
 "kbd]."
 
 #: libraries/config/messages.inc.php:760
-#, fuzzy
 msgid "Designer and PDF schema: table coordinates"
-msgstr "디자이너와 PDF 스키마: 테이블 좌표"
+msgstr "디자이너와 PDF 스키마 : 테이블 좌표"
 
 #: libraries/config/messages.inc.php:763
-#, fuzzy
-#| msgid ""
-#| "Leave blank for no PDF schema support, suggested: [kbd]pma__pdf_pages[/"
-#| "kbd]"
 msgid ""
 "Table to describe the display columns, leave blank for no support; "
 "suggested: [kbd]pma__table_info[/kbd]."
-msgstr ""
-"PDF 스키마를 제공하지 않을 경우 비워두세요. 제안값: [kbd]pma__pdf_pages[/kbd]"
+msgstr "열 표시를 설명할 테이블입니다. 지원하지 않으려면 비워두세요. 제안하는 값 : [kbd]pma__table_info[/kbd]."
 
 #: libraries/config/messages.inc.php:766
 msgid "Display columns table"
@@ -14045,7 +14033,7 @@ msgstr "참고키 선택"
 
 #: templates/columns_definitions/column_name.phtml:14
 msgid "Is a foreign key."
-msgstr "은(/는) 외래키입니다."
+msgstr "은(는) 외래키입니다."
 
 #: templates/columns_definitions/column_name.phtml:43
 #, fuzzy
@@ -15714,7 +15702,7 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:96
 msgid "slow_query_log is set to 'OFF'"
-msgstr "slow_query_log가 OFF로 설정되었습니다"
+msgstr "slow_query_log가 'OFF'로 설정됨"
 
 #: libraries/advisory_rules.txt:100
 msgid "Release Series"
