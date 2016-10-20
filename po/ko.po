@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-10-18 13:44+0200\n"
-"PO-Revision-Date: 2016-10-18 13:03+0000\n"
-"Last-Translator: virusyoon <virusyoon@gmail.com>\n"
+"PO-Revision-Date: 2016-10-20 10:26+0000\n"
+"Last-Translator: SDSkyKlouD <koongchi135@gmail.com>\n"
 "Language-Team: Korean "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/ko/>\n"
 "Language: ko\n"
@@ -7882,10 +7882,8 @@ msgid "Table search"
 msgstr "테이블 검색"
 
 #: libraries/controllers/table/TableSearchController.php:775
-#, fuzzy
-#| msgid "Zoom Search"
 msgid "Zoom search"
-msgstr "추가 검색"
+msgstr "확대 검색"
 
 #: libraries/controllers/table/TableSearchController.php:780
 #: templates/table/search/selection_form.phtml:60
@@ -10223,8 +10221,6 @@ msgid "Purpose:"
 msgstr ""
 
 #: libraries/plugins/export/PMA_ExportPdf.php:501
-#, fuzzy
-#| msgid "MIME type"
 msgid "MIME"
 msgstr "MIME 형식"
 
@@ -14128,8 +14124,6 @@ msgid "Subpartition"
 msgstr "파티션 있음"
 
 #: templates/columns_definitions/partitions.phtml:78
-#, fuzzy
-#| msgid "Engines"
 msgid "Engine"
 msgstr "엔진"
 
@@ -15094,8 +15088,6 @@ msgid "Reset zoom"
 msgstr "줌 초기화"
 
 #: templates/table/secondary_tabs.phtml:14
-#, fuzzy
-#| msgid "Relation view"
 msgid "Relation view"
 msgstr "릴레이션 뷰"
 
@@ -16792,7 +16784,7 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:446
 msgid "concurrent_insert is set to 0"
-msgstr "concurrent_insert가 0으로 설정되었습니다."
+msgstr "concurrent_insert가 0으로 설정되었습니다"
 
 #~ msgid "Try to connect without password."
 #~ msgstr "암호없이 연결 시도."
