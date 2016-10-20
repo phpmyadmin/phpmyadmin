@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-10-18 13:44+0200\n"
 "PO-Revision-Date: 2016-10-20 10:46+0000\n"
-"Last-Translator: SDSkyKlouD <koongchi135@gmail.com>\n"
+"Last-Translator: Kyeong Su Shin <cdac1234@gmail.com>\n"
 "Language-Team: Korean "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/ko/>\n"
 "Language: ko\n"
@@ -14045,7 +14045,7 @@ msgstr "참고키 선택"
 
 #: templates/columns_definitions/column_name.phtml:14
 msgid "Is a foreign key."
-msgstr "외래키 입니까."
+msgstr "은(/는) 외래키입니다."
 
 #: templates/columns_definitions/column_name.phtml:43
 #, fuzzy
