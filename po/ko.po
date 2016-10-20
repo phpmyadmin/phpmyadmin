@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-10-18 13:44+0200\n"
-"PO-Revision-Date: 2016-10-20 10:29+0000\n"
-"Last-Translator: Bob <doodoori2@gmail.com>\n"
+"PO-Revision-Date: 2016-10-20 10:34+0000\n"
+"Last-Translator: SDSkyKlouD <koongchi135@gmail.com>\n"
 "Language-Team: Korean "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/ko/>\n"
 "Language: ko\n"
@@ -753,7 +753,7 @@ msgstr ""
 
 #: index.php:506
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
-msgstr "이제 설정 파일은 암호화 문자열(blowfish_secret) 을 필요로 합니다."
+msgstr "이제 설정 파일은 암호화 문자열(blowfish_secret)을 필요로 합니다."
 
 #: index.php:513
 msgid "The secret passphrase in configuration (blowfish_secret) is too short."
@@ -2322,7 +2322,7 @@ msgstr "값을 클릭하여 바로 수정할 수 있습니다.<br />(일부 제�
 
 #: js/messages.php:619
 msgid "Go to link:"
-msgstr "다음 링크로 이동:"
+msgstr "다음 링크로 이동 :"
 
 #: js/messages.php:620
 msgid "Copy column name."
