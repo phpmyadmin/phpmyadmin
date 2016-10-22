@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-10-18 13:44+0200\n"
-"PO-Revision-Date: 2016-10-02 09:16+0000\n"
-"Last-Translator: an wei <justregonly1@gmail.com>\n"
-"Language-Team: Chinese (China) <https://hosted.weblate.org/projects/"
-"phpmyadmin/master/zh_CN/>\n"
+"PO-Revision-Date: 2016-10-22 17:44+0000\n"
+"Last-Translator: Mingye Wang <arthur200126@gmail.com>\n"
+"Language-Team: Chinese (China) "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/zh_CN/>\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -16,14 +16,11 @@ msgstr ""
 "X-Generator: Weblate 2.9-dev\n"
 
 #: changelog.php:38 license.php:33
-#, fuzzy, php-format
-#| msgid ""
-#| "The %s file is not available on this system, please visit www.phpmyadmin."
-#| "net for more information."
+#, php-format
 msgid ""
 "The %s file is not available on this system, please visit %s for more "
 "information."
-msgstr "该系统上没有文件 %s，请访问 www.phpmyadmin.net 获取更多信息。"
+msgstr "该系统上没有文件 %s，请访问 %s 获取更多信息。"
 
 #: db_central_columns.php:107
 msgid "The central list of columns for the current database is empty."
@@ -3079,10 +3076,8 @@ msgid "unknown"
 msgstr "未知"
 
 #: libraries/Charsets.php:460
-#, fuzzy
-#| msgid "Collation"
 msgid "binary collation"
-msgstr "排序规则"
+msgstr "二进制排序规则"
 
 #: libraries/Charsets.php:467
 msgid "case-insensitive collation"
