@@ -875,15 +875,15 @@ msgstr ""
 
 #: js/messages.php:73
 msgid "Do you really want to revoke the selected user(s) ?"
-msgstr "ئایا تۆ دڵنیایت لە جێبەجێکردنی \"%s\"؟"
+msgstr "ئایا تۆ دڵنیایت لە جێبەجێکردنی \'%s\'؟"
 
 #: js/messages.php:75
 msgid "Do you really want to delete this central column?"
-msgstr "ئایا دڵنیایت لە سڕینەوەی ئەو خانە ناوەندییە \"%s\"؟"
+msgstr "ئایا دڵنیایت لە سڕینەوەی ئەو خانە ناوەندییە \'%s\'؟"
 
 #: js/messages.php:77
 msgid "Do you really want to delete the selected items?"
-msgstr "ئایا تۆ دڵنیایت لە جێبەجێکردنی \"%s\"؟"
+msgstr "ئایا تۆ دڵنیایت لە جێبەجێکردنی \'%s\'؟"
 
 #: js/messages.php:79
 msgid ""
@@ -893,15 +893,15 @@ msgstr ""
 
 #: js/messages.php:83
 msgid "Do you really want to TRUNCATE the selected partition(s)?"
-msgstr "ئایا تۆ دڵنیایت لە جێبەجێکردنی \"%s\"؟"
+msgstr "ئایا تۆ دڵنیایت لە جێبەجێکردنی \'%s\'؟"
 
 #: js/messages.php:85
 msgid "Do you really want to remove partitioning?"
-msgstr "ئایا تۆ دڵنیایت لە جێبەجێکردنی \"%s\"؟"
+msgstr "ئایا تۆ دڵنیایت لە جێبەجێکردنی \'%s\'؟"
 
 #: js/messages.php:86
 msgid "Do you really want to RESET SLAVE?"
-msgstr "ئایا تۆ دڵنیایت لە جێبەجێکردنی \"%s\"؟"
+msgstr "ئایا تۆ دڵنیایت لە جێبەجێکردنی \'%s\'؟"
 
 #: js/messages.php:88
 msgid ""
@@ -2849,7 +2849,7 @@ msgstr ""
 
 #: libraries/Advisor.php:536
 #, php-format
-msgid "Unexpected character on line %1$s. Expected tab, but found \"%2$s\"."
+msgid "Unexpected character on line %1$s. Expected tab, but found \%2$s\."
 msgstr ""
 
 #: libraries/Charsets.php:160
