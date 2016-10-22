@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-10-18 13:44+0200\n"
-"PO-Revision-Date: 2016-08-06 14:22+0000\n"
-"Last-Translator: Cédric Corazza <cedric.corazza@wanadoo.fr>\n"
-"Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"fr/>\n"
+"PO-Revision-Date: 2016-10-22 17:26+0000\n"
+"Last-Translator: Raphaël Barman <raphdu57@gmail.com>\n"
+"Language-Team: French "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/fr/>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 2.8-dev\n"
+"X-Generator: Weblate 2.9-dev\n"
 
 #: changelog.php:38 license.php:33
 #, fuzzy, php-format
@@ -5305,10 +5305,8 @@ msgid "You allow for connecting to the server without a password."
 msgstr "Vous permettez les connexions au serveur sans mot de passe."
 
 #: libraries/config/ServerConfigChecks.php:349
-#, fuzzy
-#| msgid "Key is too short, it should have at least 8 characters."
 msgid "Key is too short, it should have at least 32 characters."
-msgstr "La clé doit avoir un minimum de 8 caractères."
+msgstr "La clé doit avoir un minimum de 32 caractères."
 
 #: libraries/config/ServerConfigChecks.php:359
 msgid "Key should contain letters, numbers [em]and[/em] special characters."
@@ -5451,10 +5449,8 @@ msgid "Could not connect to the database server!"
 msgstr "Connexion au serveur de base de données impossible !"
 
 #: libraries/config/Validator.php:243
-#, fuzzy
-#| msgid "Authentication type"
 msgid "Invalid authentication type!"
-msgstr "Type d'authentification"
+msgstr "Type d'authentification invalide !"
 
 #: libraries/config/Validator.php:250
 msgid "Empty username while using [kbd]config[/kbd] authentication method!"
