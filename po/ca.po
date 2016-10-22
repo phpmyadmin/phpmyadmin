@@ -16814,7 +16814,7 @@ msgstr "Temps d'inici lent"
 
 #: libraries/advisory_rules.txt:368
 msgid "Slow_launch_time is above 2s."
-msgstr "{slow_launch_time} està per sobre de 2s."
+msgstr "{Slow_launch_time} està per sobre de 2s."
 
 #: libraries/advisory_rules.txt:369
 msgid ""
@@ -16826,8 +16826,8 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:370
 #, php-format
-msgid "slow_launch_time is set to %s"
-msgstr "{slow_launch_time} està establert a %s"
+msgid "Slow_launch_time is set to %s"
+msgstr "{Slow_launch_time} està establert a %s"
 
 #: libraries/advisory_rules.txt:374
 msgid "Percentage of used connections"
@@ -16855,9 +16855,9 @@ msgstr ""
 #: libraries/advisory_rules.txt:379
 #, php-format
 msgid ""
-"Max_used_connections is at %s%% of max_connections, it should be below 80%%"
+"Max_used_connections is at %s%% of Max_connections, it should be below 80%%"
 msgstr ""
-"{max_used_connections} és el %s%% de {max_connections}, hauria de ser "
+"{Max_used_connections} és el %s%% de {Max_connections}, hauria de ser "
 "inferior al 80%%"
 
 #: libraries/advisory_rules.txt:381
