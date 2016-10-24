@@ -69,6 +69,7 @@ phpMyAdmin - ChangeLog
 - issue #12472 Properly report connection without password in setup
 - issue #12365 Fix records count for large tables
 - issue #12533 Fix records count for complex queries
+- issue #12454 Query history not updated in console until page refresh
 
 4.6.4 (2016-08-16)
 - issue        [security] Weaknesses with cookie encryption, see PMASA-2016-29
