@@ -99,7 +99,7 @@ function PMA_ifSetOr(&$var, $default = null, $type = 'similar')
  * @return boolean whether valid or not
  *
  * @todo add some more var types like hex, bin, ...?
- * @see     https://php.net/gettype
+ * @see     https://secure.php.net/gettype
  */
 function PMA_isValid(&$var, $type = 'length', $compare = null)
 {
@@ -278,7 +278,7 @@ function PMA_getPHPDocLink($target)
         $lang = $GLOBALS['lang'];
     }
 
-    return PMA_linkURL('https://php.net/manual/' . $lang . '/' . $target);
+    return PMA_linkURL('https://secure.php.net/manual/' . $lang . '/' . $target);
 }
 
 /**
@@ -579,7 +579,7 @@ function PMA_downloadHeader($filename, $mimetype, $length = 0, $no_cache = true)
         PMA_noCacheHeader();
     }
     /* Replace all possibly dangerous chars in filename */
-    $filename = str_replace(array(';', '"', "\n", "\r"), '-', $filename);
+    $filename = Sanitize::sanitizeFilename($filename);
     if (!empty($filename)) {
         header('Content-Description: File Transfer');
         header('Content-Disposition: attachment; filename="' . $filename . '"');

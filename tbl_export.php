@@ -67,7 +67,9 @@ if (! empty($sql_query)) {
         }
 
         // Rebuilding the SELECT and FROM clauses.
-        if (count($parser->statements[0]->from) > 0) {
+        if (count($parser->statements[0]->from) > 0
+            && count($parser->statements[0]->union) === 0
+        ) {
             $replaces = array(
                 array(
                     'FROM', 'FROM ' . SqlParser\Components\ExpressionArray::build(

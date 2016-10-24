@@ -207,7 +207,7 @@ your server - as mentioned in :ref:`faq1_17`. This problem is
 generally caused by using MySQL version 4.1 or newer. MySQL changed
 the authentication hash and your PHP is trying to use the old method.
 The proper solution is to use the `mysqli extension
-<https://php.net/mysqli>`_ with the proper client library to match
+<https://secure.php.net/mysqli>`_ with the proper client library to match
 your MySQL installation. More
 information (and several workarounds) are located in the `MySQL
 Documentation <https://dev.mysql.com/doc/refman/5.7/en/old-client.html>`_.
@@ -254,8 +254,8 @@ current setup):
 
     [PHP]
 
-    ; Directory in which the loadable extensions (modules) reside.
-    extension_dir = "C:/Apache2/modules/php/ext"
+    ; Directory in which the loadable extensions (modules) reside.
+    extension_dir = "C:/Apache2/modules/php/ext"
 
 The :file:`php.ini` can be loaded from several locations (especially on
 Windows), so please check you're updating the correct one. If using Apache, you
@@ -263,14 +263,14 @@ can tell it to use specific path for this file using ``PHPIniDir`` directive:
 
 .. code-block:: apache
 
-    LoadFile "C:/php/php5ts.dll"
-    LoadModule php5_module "C:/php/php5apache2_2.dll"
+    LoadFile "C:/php/php5ts.dll"
+    LoadModule php5_module "C:/php/php5apache2_2.dll"
     <IfModule php5_module>
-        PHPIniDir "C:/PHP"
-        <Location>
-           AddType text/html .php
-           AddHandler application/x-httpd-php .php
-        </Location>
+        PHPIniDir "C:/PHP"
+        <Location>
+           AddType text/html .php
+           AddHandler application/x-httpd-php .php
+        </Location>
     </IfModule>
 
 In some rare cases this problem can be also caused by other extensions loaded
@@ -373,7 +373,7 @@ This can happen due to a MySQL bug when having database / table names
 with upper case characters although ``lower_case_table_names`` is
 set to 1. To fix this, turn off this directive, convert all database
 and table names to lower case and turn it on again. Alternatively,
-there's a bug-fix available starting with MySQL 3.23.56 /
+there's a bug-fix available starting with MySQL 3.23.56 /
 4.0.11-gamma.
 
 .. _faq1_29:
@@ -838,7 +838,7 @@ Here are a few points to check:
 ---------------------------------
 
 To be able to see a progress bar during your uploads, your server must
-have the `APC <https://php.net/manual/en/book.apc.php>`_ extension, the
+have the `APC <https://secure.php.net/manual/en/book.apc.php>`_ extension, the
 `uploadprogress <https://pecl.php.net/package/uploadprogress>`_ one, or
 you must be running PHP 5.4.0 or higher. Moreover, the JSON extension
 has to be enabled in your PHP.
@@ -1068,7 +1068,7 @@ is no way for PHP to set the charset before authenticating.
 .. seealso::
 
     `phpMyAdmin issue 12232 <https://github.com/phpmyadmin/phpmyadmin/issues/12232>`_,
-    `MySQL documentation note <https://php.net/manual/en/mysqli.real-connect.php#refsect1-mysqli.real-connect-notes>`_
+    `MySQL documentation note <https://secure.php.net/manual/en/mysqli.real-connect.php#refsect1-mysqli.real-connect-notes>`_
 
 .. _faqmultiuser:
 
@@ -1351,7 +1351,9 @@ browser cache to see if the problem goes away.
 5.20 I get errors about violating Content Security Policy.
 ----------------------------------------------------------
 
-If you see errors like::
+If you see errors like:
+
+.. code-block:: text
 
     Refused to apply inline style because it violates the following Content Security Policy directive
 
@@ -1370,6 +1372,28 @@ override the ones from phpMyAdmin).
 Programs known to cause these kind of errors:
 
 * Kaspersky Internet Security
+
+.. _faq5_21:
+
+5.21 I get errors about potentially unsafe operation when browsing table or executing SQL query.
+------------------------------------------------------------------------------------------------
+
+If you see errors like:
+
+.. code-block:: text
+
+    A potentially unsafe operation has been detected in your request to this site.
+
+This is usually caused by web application firewall doing requests filtering. It
+tries to prevent SQL injection, however phpMyAdmin is tool designed to execute 
+SQL queries, thus it makes it unusable.
+
+Please whitelist phpMyAdmin scripts from the web application firewall settings
+or disable it completely for phpMyAdmin path.
+
+Programs known to cause these kind of errors:
+
+* Wordfence Web Application Firewall
 
 .. _faqusing:
 
@@ -1775,7 +1799,7 @@ in Browse mode or on the Structure page.
 -----------------------------------
 
 In all places where phpMyAdmin accepts format strings, you can use
-``@VARIABLE@`` expansion and `strftime <https://php.net/strftime>`_
+``@VARIABLE@`` expansion and `strftime <https://secure.php.net/strftime>`_
 format strings. The expanded variables depend on a context (for
 example, if you haven't chosen a table, you can not get the table
 name), but the following variables can be used:

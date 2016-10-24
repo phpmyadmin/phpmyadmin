@@ -1624,7 +1624,7 @@ class Util
             __('Sat'));
 
         if ($format == '') {
-            /* l10n: See https://php.net/manual/en/function.strftime.php */
+            /* l10n: See https://secure.php.net/manual/en/function.strftime.php */
             $format = __('%B %d, %Y at %I:%M %p');
         }
 

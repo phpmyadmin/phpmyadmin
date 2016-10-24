@@ -433,21 +433,6 @@ echo '</div>';
 echo '</div>';
 
 /**
- * As we try to handle charsets by ourself, mbstring overloads just
- * break it, see bug 1063821.
- */
-if (@extension_loaded('mbstring') && @ini_get('mbstring.func_overload') > 1) {
-    trigger_error(
-        __(
-            'You have enabled mbstring.func_overload in your PHP '
-            . 'configuration. This option is incompatible with phpMyAdmin '
-            . 'and might cause some data to be corrupted!'
-        ),
-        E_USER_WARNING
-    );
-}
-
-/**
  * mbstring is used for handling multibytes inside parser, so it is good
  * to tell user something might be broken without it, see bug #1063149.
  */
@@ -484,7 +469,7 @@ if ($cfg['LoginCookieValidityDisableWarning'] == false) {
     if ($gc_time < $GLOBALS['cfg']['LoginCookieValidity'] ) {
         trigger_error(
             __(
-                'Your PHP parameter [a@https://php.net/manual/en/session.' .
+                'Your PHP parameter [a@https://secure.php.net/manual/en/session.' .
                 'configuration.php#ini.session.gc-maxlifetime@_blank]session.' .
                 'gc_maxlifetime[/a] is lower than cookie validity configured ' .
                 'in phpMyAdmin, because of this, your login might expire sooner ' .

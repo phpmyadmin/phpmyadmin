@@ -12,7 +12,7 @@ if (! defined('PHPMYADMIN')) {
 }
 
 if (! defined('TESTSUITE')) {
-    header('HTTP/1.1 500 Internal Server Error');
+    http_response_code(500);
     header('Content-Type: text/html; charset=utf-8');
 }
 ?>

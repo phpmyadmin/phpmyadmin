@@ -429,6 +429,7 @@ class Advisor
         // Actually evaluate the code
         ob_start();
         try {
+            // TODO: replace by using symfony/expression-language
             eval('$value = ' . $expr . ';');
             $err = ob_get_contents();
         } catch (Exception $e) {
@@ -464,8 +465,9 @@ class Advisor
         $lines = array();
 
         if ($file === FALSE) {
-            $errors[] = __(
-                'Error in reading file: The file \'' . $filename .'\' does not exist or is not readable'
+            $errors[] = sprintf(
+                __('Error in reading file: The file \'%s\' does not exist or is not readable!'),
+                $filename
             );
             return array('rules' => $rules, 'lines' => $lines, 'errors' => $errors);
         }

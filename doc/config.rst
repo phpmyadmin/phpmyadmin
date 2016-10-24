@@ -577,6 +577,10 @@ Server connection settings
     :type: boolean
     :default: false
 
+    .. deprecated:: 4.7.0
+
+        This setting was removed as it can produce unexpected results.
+
     Allow attempt to log in without password when a login with password
     fails. This can be used together with http authentication, when
     authentication is done some other way and phpMyAdmin gets user name
@@ -635,7 +639,7 @@ Server connection settings
 
     More information on regular expressions can be found in the `PCRE
     pattern syntax
-    <https://php.net/manual/en/reference.pcre.pattern.syntax.php>`_ portion
+    <https://secure.php.net/manual/en/reference.pcre.pattern.syntax.php>`_ portion
     of the PHP reference manual.
 
 .. config:option:: $cfg['Servers'][$i]['verbose']
@@ -829,7 +833,7 @@ Server connection settings
       ``pma__column_info``)
     * to update your PRE-2.5.0 Column\_comments table use this:  and
       remember that the Variable in :file:`config.inc.php` has been renamed from
-      :config:option:`$cfg['Servers'][$i]['column\_comments']` to
+      :samp:`$cfg['Servers'][$i]['column\_comments']` to
       :config:option:`$cfg['Servers'][$i]['column\_info']`
 
       .. code-block:: mysql
@@ -1468,14 +1472,14 @@ Generic settings
     :type: boolean
     :default: false
 
-    Whether `persistent connections <https://php.net/manual/en/features
+    Whether `persistent connections <https://secure.php.net/manual/en/features
     .persistent-connections.php>`_ should be used or not. Works with
     following extensions:
 
-    * mysql (`mysql\_pconnect <https://php.net/manual/en/function.mysql-
+    * mysql (`mysql\_pconnect <https://secure.php.net/manual/en/function.mysql-
       pconnect.php>`_),
     * mysqli (requires PHP 5.3.0 or newer, `more information
-      <https://php.net/manual/en/mysqli.persistconns.php>`_).
+      <https://secure.php.net/manual/en/mysqli.persistconns.php>`_).
 
 .. config:option:: $cfg['ForceSSL']
 
@@ -1512,7 +1516,7 @@ Generic settings
     :default: ``''``
 
     Path for storing session data (`session\_save\_path PHP parameter
-    <https://php.net/session_save_path>`_).
+    <https://secure.php.net/session_save_path>`_).
 
 .. config:option:: $cfg['MemoryLimit']
 
@@ -1664,7 +1668,7 @@ Cookie authentication options
 
     Define how long a login cookie is valid. Please note that php
     configuration option `session.gc\_maxlifetime
-    <https://php.net/manual/en/session.configuration.php#ini.session.gc-
+    <https://secure.php.net/manual/en/session.configuration.php#ini.session.gc-
     maxlifetime>`_ might limit session validity and if the session is lost,
     the login cookie is also invalidated. So it is a good idea to set
     ``session.gc_maxlifetime`` at least to the same value of
@@ -2287,7 +2291,13 @@ Export and import settings
     * ``custom-no-form`` same as ``custom`` but does not display the option
       of using quick export
 
+.. config:option:: $cfg['Export']['charset']
 
+    :type: string
+    :default: ``''``
+
+    Defines charset for generated export. By default no charset conversion is
+    done assuming UTF-8.
 
 .. config:option:: $cfg['Import']
 
@@ -2298,6 +2308,13 @@ Export and import settings
     items are similar to texts seen on import page, so you can easily
     identify what they mean.
 
+.. config:option:: $cfg['Import']['charset']
+
+    :type: string
+    :default: ``''``
+
+    Defines charset for import. By default no charset conversion is done
+    assuming UTF-8.
 
 Tabs display settings
 ---------------------
@@ -3207,7 +3224,9 @@ Google Cloud SQL with SSL
 To connect to Google Could SQL, you currently need to disable certificate
 verification. This is caused by the certficate being issued for CN matching
 your instance name, but you connect to an IP address and PHP tries to match
-these two. With verfication you end up with error message like::
+these two. With verfication you end up with error message like:
+
+.. code-block:: text
 
     Peer certificate CN=`api-project-851612429544:pmatest' did not match expected CN=`8.8.8.8'
 

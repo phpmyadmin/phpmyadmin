@@ -215,6 +215,8 @@ if [ ! -d libraries/tcpdf ] ; then
         vendor/phpseclib/phpseclib/phpseclib/Math/ \
         vendor/phpseclib/phpseclib/phpseclib/Net/ \
         vendor/phpseclib/phpseclib/phpseclib/System/ \
+        vendor/symfony/expression-language/Tests/ \
+        vendor/symfony/expression-language/Resources/ \
         vendor/tecnickcom/tcpdf/examples/ \
         vendor/tecnickcom/tcpdf/tools/ \
         vendor/tecnickcom/tcpdf/fonts/ae_fonts_*/ \
