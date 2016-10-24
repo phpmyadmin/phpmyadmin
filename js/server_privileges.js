@@ -31,14 +31,16 @@ function checkAddUser(the_form)
     return PMA_checkPassword($(the_form));
 } // end of the 'checkAddUser()' function
 
-
-function checkPasswordStrength(value, meter_obj, meter_object_label) {
-    var zxcvbn_obj = zxcvbn(value);
+function checkPasswordStrength(value, meter_obj, meter_object_label, username = null) {
+    customDict = ['phpmyadmin', 'mariadb', 'mysql', 'admin']; //This list may be modified.
+    if (username != null)
+        customDict.push(username)
+    var zxcvbn_obj = zxcvbn(value,customDict);
     var strength = zxcvbn_obj.score;
-    meter_obj.val(strength);
     strength = parseInt(strength);
+    meter_obj.val(strength);
     switch(strength){
-        case 0: meter_obj_label.html('Too short');
+        case 0: meter_obj_label.html('Extremely weak');
                 break;
         case 1: meter_obj_label.html('Very weak');
                 break;
@@ -117,12 +119,14 @@ AJAX.registerOnload('server_privileges.js', function () {
     $('#text_pma_pw').on('keyup', function () {
         meter_obj = $('#password_strength_meter');
         meter_obj_label = $('#password_strength');
-        checkPasswordStrength($(this).val(), meter_obj, meter_obj_label);
+        username = $('input[name="username"]');
+        username = username.val();
+        checkPasswordStrength($(this).val(), meter_obj, meter_obj_label, username);
     });
 
     $('#text_pma_change_pw').on('keyup', function () {
         meter_obj = $('#change_password_strength_meter');
-        meter_obj_label = $('#cahnge_password_strength');
+        meter_obj_label = $('#change_password_strength');
         checkPasswordStrength($(this).val(), meter_obj, meter_obj_label);
     });
 

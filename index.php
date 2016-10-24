@@ -21,6 +21,12 @@ require_once 'libraries/common.inc.php';
  */
 require_once 'libraries/display_git_revision.lib.php';
 
+$response = PMA\libraries\Response::getInstance();
+$header   = $response->getHeader();
+$scripts  = $header->getScripts();
+$scripts->addFile('server_privileges.js');
+$scripts->addFile('zxcvbn.js');
+
 /**
  * pass variables to child pages
  */
