@@ -29,6 +29,7 @@ phpMyAdmin - ChangeLog
 - issue #12494 Can't add a new User
 - issue #12523 Add 'token' Parameter in all POST requests (Fix 'Token mismatch' errors)
 - issue #12302 Improved usage of number_format
+- issue #12656 Server selection not working
 
 4.6.5 (not yet released)
 - issue        Remove potentionally license problematic sRGB profile
