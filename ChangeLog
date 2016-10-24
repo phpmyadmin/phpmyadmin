@@ -58,6 +58,17 @@ phpMyAdmin - ChangeLog
 - issue #12419 Wrong description on GRANT OPTION
 - issue #12615 Fixed regexp for matching browser versions
 - issue #12569 Avoid showing import errors twice
+- issue #12362 prefs_manage.php can leave an orphaned temporary file
+- issue #12619 Unable to export csv when using union select
+- issue #12625 Broken Edit links in query results of JOIN query
+- issue #12634 Drop DB error in import if DB doesn't exist
+- issue #12338 Designer reverts to first saved ER after EACH relation create or delete
+- issue #12639 'Show trace' in Console generates JS error for functions in query's trace called without any arguments
+- issue #12366 Fix user creation with certain MariaDB setups
+- issue #12616 Refuse to work with mbstring.func_overload enabled
+- issue #12472 Properly report connection without password in setup
+- issue #12365 Fix records count for large tables
+- issue #12533 Fix records count for complext queries
 
 4.6.4 (2016-08-16)
 - issue        [security] Weaknesses with cookie encryption, see PMASA-2016-29

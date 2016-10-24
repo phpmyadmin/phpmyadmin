@@ -655,7 +655,7 @@ function PMA_isJustBrowsing($analyzed_sql_results, $find_real_end)
         && empty($analyzed_sql_results['union'])
         && empty($analyzed_sql_results['distinct'])
         && $analyzed_sql_results['select_from']
-        && (count($analyzed_sql_results['select_tables']) <= 1)
+        && (count($analyzed_sql_results['select_tables']) === 1)
         && (empty($analyzed_sql_results['statement']->where)
             || (count($analyzed_sql_results['statement']->where) == 1
                 && $analyzed_sql_results['statement']->where[0]->expr ==='1'))
@@ -1856,10 +1856,13 @@ function PMA_getQueryResponseForResultsReturned($result, $analyzed_sql_results,
     $header   = $response->getHeader();
     $scripts  = $header->getScripts();
 
+    $just_one_table = PMA_resultSetHasJustOneTable($fields_meta);
+
     // hide edit and delete links:
     // - for information_schema
     // - if the result set does not contain all the columns of a unique key
     //   (unless this is an updatable view)
+    // - if the SELECT query contains a join or a subquery
 
     $updatableView = false;
 
@@ -1871,13 +1874,18 @@ function PMA_getQueryResponseForResultsReturned($result, $analyzed_sql_results,
                 $updatableView = $_table->isUpdatableView();
             }
         }
+
+        if ($analyzed_sql_results['join']
+            || $analyzed_sql_results['is_subquery']
+            || count($analyzed_sql_results['select_tables']) !== 1
+        ) {
+            $just_one_table = false;
+        }
     }
 
     $has_unique = PMA_resultSetContainsUniqueKey(
         $db, $table, $fields_meta
     );
-
-    $just_one_table = PMA_resultSetHasJustOneTable($fields_meta);
 
     $editable = ($has_unique
         || $GLOBALS['cfg']['RowActionLinksWithoutUnique']
@@ -1894,7 +1902,7 @@ function PMA_getQueryResponseForResultsReturned($result, $analyzed_sql_results,
         'pview_lnk' => '1'
     );
 
-    if (!empty($table) && ($GLOBALS['dbi']->isSystemSchema($db) || !$editable)) {
+    if ($GLOBALS['dbi']->isSystemSchema($db) || !$editable) {
         $displayParts = array(
             'edit_lnk' => $displayResultsObject::NO_EDIT_OR_DELETE,
             'del_lnk' => $displayResultsObject::NO_EDIT_OR_DELETE,

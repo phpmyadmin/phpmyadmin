@@ -1398,7 +1398,8 @@ function PMA_getForeignData(
             $f_query_order = ($foreign_display == false) ? '' :' ORDER BY '
                 . PMA\libraries\Util::backquote($foreign_table) . '.'
                 . PMA\libraries\Util::backquote($foreign_display);
-            $f_query_limit = isset($foreign_limit) ? $foreign_limit : '';
+
+            $f_query_limit = ! empty($foreign_limit) ? (' LIMIT ' . $foreign_limit) : '';
 
             if (!empty($foreign_filter)) {
                 $the_total = $GLOBALS['dbi']->fetchValue(

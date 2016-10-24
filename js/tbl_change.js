@@ -551,7 +551,7 @@ AJAX.registerOnload('tbl_change.js', function () {
                 }
 
                 // handle input text fields and textareas
-                if ($this_element.is('.textfield') || $this_element.is('.char')) {
+                if ($this_element.is('.textfield') || $this_element.is('.char') || $this_element.is('textarea')) {
                     // do not remove the 'value' attribute for ENUM columns
                     // special handling for radio fields after updating ids to unique - see below
                     if ($this_element.closest('tr').find('span.column_type').html() != 'enum') {

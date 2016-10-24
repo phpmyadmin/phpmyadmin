@@ -411,6 +411,13 @@ class Table
         } else {
             if ($attribute != '') {
                 $query .= ' ' . $attribute;
+
+                if ($is_timestamp
+                    && preg_match('/TIMESTAMP/i', $attribute)
+                    && $length !== 0
+                ) {
+                    $query .= '(' . $length . ')';
+                }
             }
 
             $matches = preg_match(
@@ -466,6 +473,9 @@ class Table
                 // else fall-through intended, no break here
             case 'CURRENT_TIMESTAMP' :
                 $query .= ' DEFAULT ' . $default_type;
+                if ($length !== 0 && $is_timestamp) {
+                    $query .= '(' . $length . ')';
+                }
                 break;
             case 'NONE' :
             default :
@@ -1235,17 +1245,22 @@ class Table
      * checks if given name is a valid table name,
      * currently if not empty, trailing spaces, '.', '/' and '\'
      *
-     * @param string $table_name name to check
+     * @param string  $table_name    name to check
+     * @param boolean $is_backquoted whether this name is used inside backquotes or not
      *
      * @todo add check for valid chars in filename on current system/os
      * @see  https://dev.mysql.com/doc/refman/5.0/en/legal-names.html
      *
      * @return boolean whether the string is valid or not
      */
-    static function isValidName($table_name)
+    static function isValidName($table_name, $is_backquoted = false)
     {
-        if ($table_name !== trim($table_name)) {
-            // trailing spaces
+        if ($table_name !== rtrim($table_name)) {
+            // trailing spaces not allowed even in backquotes
+            return false;
+        }
+        if (! $is_backquoted && $table_name !== trim($table_name)) {
+            // spaces at the start or in between
             return false;
         }
 
@@ -1300,7 +1315,10 @@ class Table
             return true;
         }
 
-        if (! Table::isValidName($new_name)) {
+        // Allow whitespaces (not trailing) in $new_name,
+        // since we are using $backquoted in getting the fullName of table
+        // below to be used in the query
+        if (! Table::isValidName($new_name, true)) {
             $this->errors[] = __('Invalid table name:') . ' '
                 . $new_table->getFullName();
             return false;
