@@ -186,7 +186,7 @@ var PMA_console = {
             });
 
             $(document).ajaxComplete(function (event, xhr, ajaxOptions) {
-                if (ajaxOptions.dataType != 'json') {
+                if (ajaxOptions.dataType && ajaxOptions.dataType.indexOf('json') != -1) {
                     return;
                 }
                 try {
