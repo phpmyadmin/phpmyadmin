@@ -105,6 +105,7 @@ phpMyAdmin - ChangeLog
 - issue #12228 Fixed parsing of BEGIN labels
 - issue #12637 Fixed editing some timestamp values
 - issue #12622 Fixed javascript error in designer
+- issue #12334 Missing page indicator or VIEWs
 
 4.6.4 (2016-08-16)
 - issue        [security] Weaknesses with cookie encryption, see PMASA-2016-29
