@@ -30,6 +30,16 @@ abstract class Context
     const KEYWORD_MAX_LENGTH = 30;
 
     /**
+     * The maximum length of a label.
+     *
+     * @see static::$TOKEN_LABEL
+     * Ref: https://dev.mysql.com/doc/refman/5.7/en/statement-labels.html
+     *
+     * @var int
+     */
+    const LABEL_MAX_LENGTH = 16;
+
+    /**
      * The maximum length of an operator.
      *
      * @see static::$TOKEN_OPERATOR

@@ -154,6 +154,10 @@ class Parser
             'field'             => 'tables',
             'options'           => array('parseField' => 'table'),
         ),
+        'CROSS JOIN'            => array(
+            'class'             => 'SqlParser\\Components\\JoinKeyword',
+            'field'             => 'join',
+        ),
         'DROP'                  => array(
             'class'             => 'SqlParser\\Components\\ExpressionArray',
             'field'             => 'fields',
@@ -213,7 +217,23 @@ class Parser
             'class'             => 'SqlParser\\Components\\JoinKeyword',
             'field'             => 'join',
         ),
-        'STRAIGHT_JOIN'         => array(
+        'NATURAL JOIN'         => array(
+            'class'             => 'SqlParser\\Components\\JoinKeyword',
+            'field'             => 'join',
+        ),
+        'NATURAL LEFT JOIN'         => array(
+            'class'             => 'SqlParser\\Components\\JoinKeyword',
+            'field'             => 'join',
+        ),
+        'NATURAL RIGHT JOIN'         => array(
+            'class'             => 'SqlParser\\Components\\JoinKeyword',
+            'field'             => 'join',
+        ),
+        'NATURAL LEFT OUTER JOIN'         => array(
+            'class'             => 'SqlParser\\Components\\JoinKeyword',
+            'field'             => 'join',
+        ),
+        'NATURAL RIGHT OUTER JOIN'         => array(
             'class'             => 'SqlParser\\Components\\JoinKeyword',
             'field'             => 'join',
         ),

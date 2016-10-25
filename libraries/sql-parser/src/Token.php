@@ -119,6 +119,18 @@ class Token
      */
     const TYPE_DELIMITER                =  9;
 
+    /**
+     * Labels in LOOP statement, ITERATE statement etc.
+     * For example (only for begin label):
+     *  begin_label: BEGIN [statement_list] END [end_label]
+     *  begin_label: LOOP [statement_list] END LOOP [end_label]
+     *  begin_label: REPEAT [statement_list] ... END REPEAT [end_label]
+     *  begin_label: WHILE ... DO [statement_list] END WHILE [end_label]
+     *
+     * @var int
+     */
+    const TYPE_LABEL                =  10;
+
     // Flags that describe the tokens in more detail.
     // All keywords must have flag 1 so `Context::isKeyword` method doesn't
     // require strict comparison.

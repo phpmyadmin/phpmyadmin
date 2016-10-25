@@ -30,6 +30,7 @@ class JoinKeyword extends Component
      * @var array
      */
     public static $JOINS = array(
+        'CROSS JOIN'                    => 'CROSS',
         'FULL JOIN'                     => 'FULL',
         'FULL OUTER JOIN'               => 'FULL',
         'INNER JOIN'                    => 'INNER',
@@ -38,6 +39,12 @@ class JoinKeyword extends Component
         'LEFT OUTER JOIN'               => 'LEFT',
         'RIGHT JOIN'                    => 'RIGHT',
         'RIGHT OUTER JOIN'              => 'RIGHT',
+        'NATURAL JOIN'                  => 'NATURAL',
+        'NATURAL LEFT JOIN'             => 'NATURAL LEFT',
+        'NATURAL LEFT JOIN'             => 'NATURAL LEFT',
+        'NATURAL RIGHT JOIN'            => 'NATURAL RIGHT',
+        'NATURAL LEFT OUTER JOIN'       => 'NATURAL LEFT OUTER',
+        'NATURAL RIGHT OUTER JOIN'      => 'NATURAL RIGHT OUTER',
         'STRAIGHT_JOIN'                 => 'STRAIGHT',
     );
 
@@ -147,8 +154,17 @@ class JoinKeyword extends Component
                     } elseif ($token->value === 'USING') {
                         $state = 4;
                     } else {
-                        /* Next clause is starting */
-                        break;
+                        if (($token->type === Token::TYPE_KEYWORD)
+                            && (!empty(static::$JOINS[$token->value]))
+                        ) {
+                            $ret[] = $expr;
+                            $expr = new JoinKeyword();
+                            $expr->type = static::$JOINS[$token->value];
+                            $state = 1;
+                        } else {
+                            /* Next clause is starting */
+                            break;
+                        }
                     }
                 }
             } elseif ($state === 3) {
