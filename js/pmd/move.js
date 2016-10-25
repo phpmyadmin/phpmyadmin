@@ -681,6 +681,49 @@ function Save2(callback)
     }
 }
 
+
+function submitSaveDialogAndClose(callback)
+{
+    var $form = $("#save_page");
+    var name = $form.find('input[name="selected_value"]').val().trim();
+    if (name === '') {
+        PMA_ajaxShowMessage(PMA_messages.strEnterValidPageName, false);
+        return;
+    }
+    $('#page_save_dialog').dialog('close');
+
+    if (pmd_tables_enabled) {
+        var $msgbox = PMA_ajaxShowMessage(PMA_messages.strProcessingRequest);
+        PMA_prepareForAjaxRequest($form);
+        $.post($form.attr('action'), $form.serialize() + Get_url_pos(), function (data) {
+            if (data.success === false) {
+                PMA_ajaxShowMessage(data.error, false);
+            } else {
+                PMA_ajaxRemoveMessage($msgbox);
+                MarkSaved();
+                if (data.id) {
+                    selected_page = data.id;
+                }
+                $('#page_name').text(name);
+                if (typeof callback !== 'undefined') {
+                    callback();
+                }
+            }
+        });
+    } else {
+        Save_to_new_page(db, name, Get_url_pos(), function (page) {
+            MarkSaved();
+            if (page.pg_nr) {
+                selected_page = page.pg_nr;
+            }
+            $('#page_name').text(page.page_descr);
+            if (typeof callback !== 'undefined') {
+                callback();
+            }
+        });
+    }
+}
+
 function Save3(callback)
 {
     if (parseInt(selected_page) !== -1) {
@@ -689,44 +732,8 @@ function Save3(callback)
         var button_options = {};
         button_options[PMA_messages.strGo] = function () {
             var $form = $("#save_page");
-            var name = $form.find('input[name="selected_value"]').val().trim();
-            if (name === '') {
-                PMA_ajaxShowMessage(PMA_messages.strEnterValidPageName, false);
-                return;
-            }
-            $(this).dialog('close');
-
-            if (pmd_tables_enabled) {
-                var $msgbox = PMA_ajaxShowMessage(PMA_messages.strProcessingRequest);
-                PMA_prepareForAjaxRequest($form);
-                $.post($form.attr('action'), $form.serialize() + Get_url_pos(), function (data) {
-                    if (data.success === false) {
-                        PMA_ajaxShowMessage(data.error, false);
-                    } else {
-                        PMA_ajaxRemoveMessage($msgbox);
-                        MarkSaved();
-                        if (data.id) {
-                            selected_page = data.id;
-                        }
-                        $('#page_name').text(name);
-                        if (typeof callback !== 'undefined') {
-                            callback();
-                        }
-                    }
-                });
-            } else {
-                Save_to_new_page(db, name, Get_url_pos(), function (page) {
-                    MarkSaved();
-                    if (page.pg_nr) {
-                        selected_page = page.pg_nr;
-                    }
-                    $('#page_name').text(page.page_descr);
-                    if (typeof callback !== 'undefined') {
-                        callback();
-                    }
-                });
-            }
-        };
+            $form.submit();
+        }
         button_options[PMA_messages.strCancel] = function () {
             $(this).dialog('close');
         };
@@ -739,6 +746,10 @@ function Save3(callback)
             .append('<input type="hidden" name="save_page" value="new" />')
             .append('<label for="selected_value">' + PMA_messages.strPageName +
                 '</label>:<input type="text" name="selected_value" />');
+        $form.on('submit', function(e){
+            e.preventDefault();
+            submitSaveDialogAndClose(callback);
+        });
         $('<div id="page_save_dialog"></div>')
             .append($form)
             .dialog({
@@ -1095,7 +1106,7 @@ function Load_page(page) {
 
 function Grid()
 {
-	var value_sent = '';
+    var value_sent = '';
     if (!ON_grid) {
         ON_grid = 1;
         value_sent = 'on';
