@@ -517,6 +517,12 @@ $js_messages['strYes'] = __('Yes');
 $js_messages['strCopyEncryptionKey'] = __('Do you want to copy encryption key?');
 $js_messages['strEncryptionKey'] = __('Encryption key');
 
+/* For Tip to be shown on Time field */
+$js_messages['strMysqlAllowedValuesTip'] = __(
+    'MySQL accepts additional values not selectable by the slider;'
+    . ' key in those values directly if desired'
+);
+
 /* For Lock symbol Tooltip */
 $js_messages['strLockToolTip'] = __(
     'Indicates that you have made changes to this page;'

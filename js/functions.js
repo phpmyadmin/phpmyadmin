@@ -152,6 +152,8 @@ function PMA_addDatepicker($this_element, type, options)
     }
     else if (type == "time") {
         $this_element.timepicker($.extend(defaultOptions, options));
+        // Add a tip regarding entering MySQL allowed-values for TIME data-type
+        PMA_tooltip($this_element, 'input', PMA_messages.strMysqlAllowedValuesTip);
     }
 }
 
@@ -185,6 +187,11 @@ function addDateTimePicker() {
                 showMicrosec: showMicrosec,
                 timeFormat: timeFormat
             });
+
+            // Add a tip regarding entering MySQL allowed-values for TIME data-type
+            if ($(this).hasClass('timefield')) {
+                PMA_tooltip($(this), 'input', PMA_messages.strMysqlAllowedValuesTip);
+            }
         });
     }
 }

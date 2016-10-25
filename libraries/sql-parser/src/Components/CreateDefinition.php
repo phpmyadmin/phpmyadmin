@@ -50,7 +50,7 @@ class CreateDefinition extends Component
         'UNIQUE KEY'                    => 4,
         'COMMENT'                       => array(5, 'var'),
         'COLUMN_FORMAT'                 => array(6, 'var'),
-        'ON UPDATE'                     => array(7, 'var'),
+        'ON UPDATE'                     => array(7, 'expr'),
 
         // Generated columns options.
         'GENERATED ALWAYS'              => 8,
