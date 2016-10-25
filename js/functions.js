@@ -4940,6 +4940,22 @@ function PMA_ignorePhpErrors(clearPrevErrors){
 }
 
 /**
+ * Toggle the Datetimepicker UI if the date value entered
+ * by the user in the 'text box' is not going to be accepted
+ * by the Datetimepicker plugin (but is accepted by MySQL)
+ */
+function toggleDatepickerIfInvalid($td, $input_field) {
+    var dtexp = new RegExp(['^([0-9]{4})',
+        '-(((01|03|05|07|08|10|12)-((0[1-9])|([1-2][0-9])|(3[0-1])))|((02|04|06|09|11)',
+        '-((0[1-9])|([1-2][0-9])|30)))$'].join(''));
+    if ($td.attr('data-type') === 'date' && ! dtexp.test($input_field.val())) {
+        $input_field.datepicker('hide');
+    } else {
+        $input_field.datepicker('show');
+    }
+}
+
+/**
  * Unbind all event handlers before tearing down a page
  */
 AJAX.registerTeardown('functions.js', function(){
