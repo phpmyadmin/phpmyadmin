@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.5-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2016-10-18 13:42+0200\n"
+"POT-Creation-Date: 2016-10-25 11:13+0200\n"
 "PO-Revision-Date: 2015-10-15 11:22+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Belarusian (latin) <https://hosted.weblate.org/projects/"
@@ -489,7 +489,7 @@ msgid "Add geometry"
 msgstr "Dadać novaha karystalnika"
 
 #: gis_data_editor.php:411 js/messages.php:344 libraries/DbSearch.php:463
-#: libraries/DisplayResults.php:1797 libraries/browse_foreigners.lib.php:139
+#: libraries/DisplayResults.php:1798 libraries/browse_foreigners.lib.php:139
 #: libraries/display_change_password.lib.php:147
 #: libraries/display_export.lib.php:400 libraries/display_export.lib.php:406
 #: libraries/display_import.lib.php:396 libraries/index.lib.php:41
@@ -544,7 +544,7 @@ msgstr ""
 msgid "Succeeded"
 msgstr "U dostupie admoŭlena!"
 
-#: import.php:63 js/messages.php:589
+#: import.php:63 js/messages.php:595
 msgid "Failed"
 msgstr ""
 
@@ -658,7 +658,7 @@ msgstr "Kamandy \"DROP DATABASE\" adklučanyja."
 msgid "Could not load the progress of the import."
 msgstr ""
 
-#: import_status.php:116 js/messages.php:445 js/messages.php:597
+#: import_status.php:116 js/messages.php:445 js/messages.php:603
 #: libraries/Util.php:800 libraries/export.lib.php:516
 #: libraries/plugins/schema/ExportRelationSchema.php:297 user_password.php:298
 msgid "Back"
@@ -682,7 +682,7 @@ msgstr ""
 msgid "General settings"
 msgstr "Mahčymaści asnoŭnych suviaziaŭ"
 
-#: index.php:191 js/messages.php:622
+#: index.php:191 js/messages.php:628
 #: libraries/display_change_password.lib.php:50
 #: libraries/display_change_password.lib.php:53 user_password.php:292
 msgid "Change password"
@@ -1437,7 +1437,7 @@ msgstr "Źviać ź sietkaj"
 msgid "Please add at least one variable to the series!"
 msgstr ""
 
-#: js/messages.php:214 libraries/DisplayResults.php:1491
+#: js/messages.php:214 libraries/DisplayResults.php:1492
 #: libraries/config.values.php:69 libraries/display_export.lib.php:691
 #: libraries/plugins/export/ExportSql.php:2180
 #: libraries/plugins/schema/SchemaPdf.php:103
@@ -1658,7 +1658,7 @@ msgstr "Tłumačyć SQL"
 msgid "Status"
 msgstr "Stan"
 
-#: js/messages.php:287 js/messages.php:867
+#: js/messages.php:287 js/messages.php:873
 #: libraries/plugins/export/ExportHtmlword.php:486
 #: libraries/plugins/export/ExportOdt.php:605
 #: libraries/plugins/export/ExportTexytext.php:447
@@ -1996,8 +1996,8 @@ msgstr "Vydaleńnie %s"
 msgid "The definition of a stored function must contain a RETURN statement!"
 msgstr ""
 
-#: js/messages.php:387 libraries/DisplayResults.php:4861
-#: libraries/DisplayResults.php:5144 libraries/Menu.php:350
+#: js/messages.php:387 libraries/DisplayResults.php:4862
+#: libraries/DisplayResults.php:5145 libraries/Menu.php:350
 #: libraries/Menu.php:451 libraries/Menu.php:577 libraries/Util.php:3721
 #: libraries/Util.php:3722 libraries/Util.php:4340 libraries/Util.php:4355
 #: libraries/Util.php:4372 libraries/config/messages.inc.php:255
@@ -2058,7 +2058,7 @@ msgid "Show query box"
 msgstr "U vyhladzie SQL-zapytu"
 
 #: js/messages.php:406 libraries/Console.php:88 libraries/Console.php:199
-#: libraries/DisplayResults.php:3479 libraries/DisplayResults.php:4845
+#: libraries/DisplayResults.php:3480 libraries/DisplayResults.php:4846
 #: libraries/Index.php:721 libraries/Util.php:730 libraries/Util.php:1244
 #: libraries/Util.php:3719 libraries/Util.php:3720
 #: libraries/central_columns.lib.php:848 libraries/central_columns.lib.php:1191
@@ -2070,7 +2070,7 @@ msgid "Edit"
 msgstr "Redagavać"
 
 #: js/messages.php:407 libraries/Console.php:89 libraries/DbSearch.php:361
-#: libraries/DisplayResults.php:3548 libraries/DisplayResults.php:4829
+#: libraries/DisplayResults.php:3549 libraries/DisplayResults.php:4830
 #: libraries/central_columns.lib.php:850 libraries/central_columns.lib.php:1196
 #: libraries/display_export.lib.php:223
 #: libraries/server_user_groups.lib.php:127
@@ -2080,8 +2080,8 @@ msgstr "Redagavać"
 msgid "Delete"
 msgstr "Vydalić"
 
-#: js/messages.php:408 libraries/DisplayResults.php:926
-#: libraries/DisplayResults.php:934
+#: js/messages.php:408 libraries/DisplayResults.php:927
+#: libraries/DisplayResults.php:935
 #, php-format
 msgid "%d is not valid row number."
 msgstr "%d nie źjaŭlajecca karektnym numaram radka."
@@ -2180,7 +2180,7 @@ msgid "Second step of normalization (2NF)"
 msgstr ""
 
 #. l10n: Display text for calendar close link
-#: js/messages.php:437 js/messages.php:736 libraries/normalization.lib.php:285
+#: js/messages.php:437 js/messages.php:742 libraries/normalization.lib.php:285
 #, fuzzy
 #| msgid "None"
 msgid "Done"
@@ -2358,14 +2358,14 @@ msgstr ""
 msgid "Data point content"
 msgstr "Pamier ukazalnika na dadzienyja"
 
-#: js/messages.php:503 js/messages.php:657 js/messages.php:674
+#: js/messages.php:503 js/messages.php:663 js/messages.php:680
 #: libraries/ErrorHandler.php:363 libraries/insert_edit.lib.php:2646
 #: templates/table/index_form.phtml:154 templates/table/index_form.phtml:199
 msgid "Ignore"
 msgstr "Ignaravać"
 
-#: js/messages.php:504 libraries/DisplayResults.php:3482
-#: libraries/DisplayResults.php:4850
+#: js/messages.php:504 libraries/DisplayResults.php:3483
+#: libraries/DisplayResults.php:4851
 msgid "Copy"
 msgstr "Skapijavać"
 
@@ -2383,7 +2383,7 @@ msgstr "Radki padzielenyja"
 msgid "Polygon"
 msgstr ""
 
-#: js/messages.php:511 libraries/DisplayResults.php:1781
+#: js/messages.php:511 libraries/DisplayResults.php:1782
 msgid "Geometry"
 msgstr ""
 
@@ -2409,305 +2409,311 @@ msgstr ""
 
 #: js/messages.php:522
 msgid ""
+"MySQL accepts additional values not selectable by the slider; key in those "
+"values directly if desired"
+msgstr ""
+
+#: js/messages.php:528
+msgid ""
 "Indicates that you have made changes to this page; you will be prompted for "
 "confirmation before abandoning changes"
 msgstr ""
 
-#: js/messages.php:527
+#: js/messages.php:533
 msgid "Select referenced key"
 msgstr "Vybierycie spasyłkavy kluč"
 
-#: js/messages.php:528
+#: js/messages.php:534
 msgid "Select Foreign Key"
 msgstr "Vybierycie źniešni kluč"
 
-#: js/messages.php:530
+#: js/messages.php:536
 #, fuzzy
 #| msgid "Please select the primary key or a unique key"
 msgid "Please select the primary key or a unique key!"
 msgstr "Kali łaska, vybierycie pieršasny (PRIMARY) albo ŭnikalny kluč (UNIQUE)"
 
-#: js/messages.php:531 templates/database/designer/side_menu.phtml:91
+#: js/messages.php:537 templates/database/designer/side_menu.phtml:91
 #: templates/database/designer/side_menu.phtml:94
 #, fuzzy
 #| msgid "Choose field to display"
 msgid "Choose column to display"
 msgstr "Vybierycie pole dla adlustravańnia"
 
-#: js/messages.php:533
+#: js/messages.php:539
 msgid ""
 "You haven't saved the changes in the layout. They will be lost if you don't "
 "save them. Do you want to continue?"
 msgstr ""
 
-#: js/messages.php:536
+#: js/messages.php:542
 #, fuzzy
 #| msgid "Page number:"
 msgid "Page name"
 msgstr "Staronka:"
 
-#: js/messages.php:537 templates/database/designer/side_menu.phtml:56
+#: js/messages.php:543 templates/database/designer/side_menu.phtml:56
 #: templates/database/designer/side_menu.phtml:59
 #, fuzzy
 #| msgid "Select All"
 msgid "Save page"
 msgstr "Vybrać usio"
 
-#: js/messages.php:538 templates/database/designer/side_menu.phtml:63
+#: js/messages.php:544 templates/database/designer/side_menu.phtml:63
 #: templates/database/designer/side_menu.phtml:66
 #, fuzzy
 #| msgid "Select All"
 msgid "Save page as"
 msgstr "Vybrać usio"
 
-#: js/messages.php:539 templates/database/designer/side_menu.phtml:49
+#: js/messages.php:545 templates/database/designer/side_menu.phtml:49
 #: templates/database/designer/side_menu.phtml:52
 #, fuzzy
 #| msgid "Free pages"
 msgid "Open page"
 msgstr "Volnych staronak"
 
-#: js/messages.php:540
+#: js/messages.php:546
 #, fuzzy
 #| msgid "Select All"
 msgid "Delete page"
 msgstr "Vybrać usio"
 
-#: js/messages.php:541 templates/database/designer/side_menu.phtml:10
+#: js/messages.php:547 templates/database/designer/side_menu.phtml:10
 msgid "Untitled"
 msgstr ""
 
-#: js/messages.php:542
+#: js/messages.php:548
 #, fuzzy
 #| msgid "Please choose a page to edit"
 msgid "Please select a page to continue"
 msgstr "Kali łaska, vybierycie staronku dla redagavańnia"
 
-#: js/messages.php:543
+#: js/messages.php:549
 #, fuzzy
 #| msgid "%d is not valid row number."
 msgid "Please enter a valid page name"
 msgstr "%d nie źjaŭlajecca karektnym numaram radka."
 
-#: js/messages.php:545
+#: js/messages.php:551
 msgid "Do you want to save the changes to the current page?"
 msgstr ""
 
-#: js/messages.php:546
+#: js/messages.php:552
 msgid "Successfully deleted the page"
 msgstr ""
 
-#: js/messages.php:547
+#: js/messages.php:553
 #, fuzzy
 #| msgid "Relational schema"
 msgid "Export relational schema"
 msgstr "Relacyjnaja schiema"
 
-#: js/messages.php:548
+#: js/messages.php:554
 msgid "Modifications have been saved"
 msgstr "Madyfikacyi byli zachavanyja"
 
-#: js/messages.php:551
+#: js/messages.php:557
 #, fuzzy, php-format
 #| msgid "Number of fields"
 msgid "Add an option for column \"%s\"."
 msgstr "Kolkaść paloŭ"
 
-#: js/messages.php:552
+#: js/messages.php:558
 #, fuzzy, php-format
 #| msgid "%1$d row(s) affected."
 msgid "%d object(s) created."
 msgstr "Źmieniena radkoŭ: %1$d."
 
-#: js/messages.php:553 libraries/sql_query_form.lib.php:409
+#: js/messages.php:559 libraries/sql_query_form.lib.php:409
 msgid "Submit"
 msgstr "Adpravić"
 
-#: js/messages.php:556
+#: js/messages.php:562
 msgid "Press escape to cancel editing."
 msgstr ""
 
-#: js/messages.php:558
+#: js/messages.php:564
 msgid ""
 "You have edited some data and they have not been saved. Are you sure you "
 "want to leave this page before saving the data?"
 msgstr ""
 
-#: js/messages.php:561
+#: js/messages.php:567
 msgid "Drag to reorder."
 msgstr ""
 
-#: js/messages.php:562
+#: js/messages.php:568
 msgid "Click to sort results by this column."
 msgstr ""
 
-#: js/messages.php:564
+#: js/messages.php:570
 msgid ""
 "Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC.<br /"
 ">- Ctrl+Click or Alt+Click (Mac: Shift+Option+Click) to remove column from "
 "ORDER BY clause"
 msgstr ""
 
-#: js/messages.php:568
+#: js/messages.php:574
 msgid "Click to mark/unmark."
 msgstr ""
 
-#: js/messages.php:569
+#: js/messages.php:575
 #, fuzzy
 #| msgid "Column names"
 msgid "Double-click to copy column name."
 msgstr "Nazvy kalonak"
 
-#: js/messages.php:571
+#: js/messages.php:577
 msgid "Click the drop-down arrow<br />to toggle column's visibility."
 msgstr ""
 
-#: js/messages.php:573 libraries/DisplayResults.php:1033
+#: js/messages.php:579 libraries/DisplayResults.php:1034
 #: libraries/browse_foreigners.lib.php:287
 #: libraries/browse_foreigners.lib.php:340
 #: libraries/server_privileges.lib.php:3890
 msgid "Show all"
 msgstr "Pakazać usie"
 
-#: js/messages.php:575
+#: js/messages.php:581
 msgid ""
 "This table does not contain a unique column. Features related to the grid "
 "edit, checkbox, Edit, Copy and Delete links may not work after saving."
 msgstr ""
 
-#: js/messages.php:579
+#: js/messages.php:585
 msgid "Please enter a valid hexadecimal string. Valid characters are 0-9, A-F."
 msgstr ""
 
-#: js/messages.php:581
+#: js/messages.php:587
 msgid ""
 "Do you really want to see all of the rows? For a big table this could crash "
 "the browser."
 msgstr ""
 
-#: js/messages.php:584
+#: js/messages.php:590
 #, fuzzy
 #| msgid "Original position"
 msgid "Original length"
 msgstr "Pieršapačatkovaja pazycyja"
 
-#: js/messages.php:587
+#: js/messages.php:593
 #, fuzzy
 #| msgid "Cancel"
 msgid "cancel"
 msgstr "Skasavać"
 
-#: js/messages.php:588 libraries/server_status.lib.php:277
+#: js/messages.php:594 libraries/server_status.lib.php:277
 msgid "Aborted"
 msgstr "Spyniena"
 
-#: js/messages.php:590
+#: js/messages.php:596
 msgid "Success"
 msgstr ""
 
-#: js/messages.php:591
+#: js/messages.php:597
 #, fuzzy
 #| msgid "Import files"
 msgid "Import status"
 msgstr "Impartavać fajły"
 
-#: js/messages.php:592 libraries/navigation/Navigation.php:111
+#: js/messages.php:598 libraries/navigation/Navigation.php:111
 #, fuzzy
 #| msgid "Log file threshold"
 msgid "Drop files here"
 msgstr "Paroh fajła łogu"
 
-#: js/messages.php:593
+#: js/messages.php:599
 #, fuzzy
 #| msgid "Select Tables"
 msgid "Select database first"
 msgstr "Vybierycie tablicu(y)"
 
-#: js/messages.php:596 libraries/DisplayResults.php:5036
+#: js/messages.php:602 libraries/DisplayResults.php:5037
 #: libraries/Util.php:4233
 #: templates/database/structure/print_view_data_dictionary_link.phtml:3
 #: templates/table/structure/optional_action_links.phtml:6
 msgid "Print"
 msgstr "Druk"
 
-#: js/messages.php:603
+#: js/messages.php:609
 msgid "You can also edit most values<br />by double-clicking directly on them."
 msgstr ""
 
-#: js/messages.php:608
+#: js/messages.php:614
 msgid "You can also edit most values<br />by clicking directly on them."
 msgstr ""
 
-#: js/messages.php:614
+#: js/messages.php:620
 #, fuzzy
 #| msgid "No tables"
 msgid "Go to link:"
 msgstr "Niama tablic"
 
-#: js/messages.php:615
+#: js/messages.php:621
 #, fuzzy
 #| msgid "Column names"
 msgid "Copy column name."
 msgstr "Nazvy kalonak"
 
-#: js/messages.php:617
+#: js/messages.php:623
 msgid "Right-click the column name to copy it to your clipboard."
 msgstr ""
 
-#: js/messages.php:620
+#: js/messages.php:626
 #, fuzzy
 #| msgid "Generate Password"
 msgid "Generate password"
 msgstr "Zgieneravać parol"
 
-#: js/messages.php:621 libraries/replication_gui.lib.php:883
+#: js/messages.php:627 libraries/replication_gui.lib.php:883
 msgid "Generate"
 msgstr "Zgieneravać"
 
-#: js/messages.php:625
+#: js/messages.php:631
 #, fuzzy
 #| msgid "Mon"
 msgid "More"
 msgstr "Pan"
 
-#: js/messages.php:628
+#: js/messages.php:634
 #, fuzzy
 #| msgid "Show all"
 msgid "Show panel"
 msgstr "Pakazać usie"
 
-#: js/messages.php:629
+#: js/messages.php:635
 #, fuzzy
 #| msgid "Add new field"
 msgid "Hide panel"
 msgstr "Dadać novaje pole"
 
-#: js/messages.php:630
+#: js/messages.php:636
 #, fuzzy
 #| msgid "Show grid"
 msgid "Show hidden navigation tree items."
 msgstr "Pakazać sietku"
 
-#: js/messages.php:631 libraries/config/messages.inc.php:479
+#: js/messages.php:637 libraries/config/messages.inc.php:479
 #: libraries/navigation/NavigationTree.php:1434
 #, fuzzy
 #| msgid "Use text field"
 msgid "Link with main panel"
 msgstr "Vykarystoŭvać tekstavaje pole"
 
-#: js/messages.php:632 libraries/navigation/NavigationTree.php:1437
+#: js/messages.php:638 libraries/navigation/NavigationTree.php:1437
 #, fuzzy
 #| msgid "Use text field"
 msgid "Unlink from main panel"
 msgstr "Vykarystoŭvać tekstavaje pole"
 
-#: js/messages.php:636
+#: js/messages.php:642
 #, fuzzy
 #| msgid "The selected user was not found in the privilege table."
 msgid "The requested page was not found in the history, it may have expired."
 msgstr "Vyłučany karystalnik nia znojdzieny ŭ tablicy pryvilejaŭ."
 
-#: js/messages.php:640 setup/lib/index.lib.php:169
+#: js/messages.php:646 setup/lib/index.lib.php:169
 #, php-format
 msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
@@ -2715,124 +2721,124 @@ msgid ""
 msgstr ""
 
 #. l10n: Latest available phpMyAdmin version
-#: js/messages.php:644
+#: js/messages.php:650
 msgid ", latest stable version:"
 msgstr ""
 
-#: js/messages.php:645
+#: js/messages.php:651
 #, fuzzy
 #| msgid "No databases"
 msgid "up to date"
 msgstr "Bazy dadzienych adsutničajuć"
 
-#: js/messages.php:647 libraries/DisplayResults.php:4967 view_create.php:200
+#: js/messages.php:653 libraries/DisplayResults.php:4968 view_create.php:200
 #, fuzzy
 #| msgid "Create"
 msgid "Create view"
 msgstr "Stvaryć"
 
-#: js/messages.php:650
+#: js/messages.php:656
 msgid "Send error report"
 msgstr ""
 
-#: js/messages.php:651
+#: js/messages.php:657
 msgid "Submit error report"
 msgstr ""
 
-#: js/messages.php:653
+#: js/messages.php:659
 msgid ""
 "A fatal JavaScript error has occurred. Would you like to send an error "
 "report?"
 msgstr ""
 
-#: js/messages.php:655
+#: js/messages.php:661
 #, fuzzy
 #| msgid "General relation features"
 msgid "Change report settings"
 msgstr "Mahčymaści asnoŭnych suviaziaŭ"
 
-#: js/messages.php:656
+#: js/messages.php:662
 #, fuzzy
 #| msgid "Show open tables"
 msgid "Show report details"
 msgstr "Pakazać adkrytyja tablicy"
 
-#: js/messages.php:659
+#: js/messages.php:665
 msgid ""
 "Your export is incomplete, due to a low execution time limit at the PHP "
 "level!"
 msgstr ""
 
-#: js/messages.php:663
+#: js/messages.php:669
 #, php-format
 msgid ""
 "Warning: a form on this page has more than %d fields. On submission, some of "
 "the fields might be ignored, due to PHP's max_input_vars configuration."
 msgstr ""
 
-#: js/messages.php:669 js/messages.php:682
+#: js/messages.php:675 js/messages.php:688
 msgid "Some errors have been detected on the server!"
 msgstr ""
 
-#: js/messages.php:671
+#: js/messages.php:677
 msgid "Please look at the bottom of this window."
 msgstr ""
 
-#: js/messages.php:677 libraries/ErrorHandler.php:367
+#: js/messages.php:683 libraries/ErrorHandler.php:367
 #, fuzzy
 #| msgid "Ignore"
 msgid "Ignore All"
 msgstr "Ignaravać"
 
-#: js/messages.php:685
+#: js/messages.php:691
 msgid ""
 "As per your settings, they are being submitted currently, please be patient."
 msgstr ""
 
-#: js/messages.php:695
+#: js/messages.php:701
 #, fuzzy
 #| msgid "Show this query here again"
 msgid "Execute this query again?"
 msgstr "Pakazać hety zapyt znoŭ"
 
-#: js/messages.php:697
+#: js/messages.php:703
 #, fuzzy
 #| msgid "Do you really want to "
 msgid "Do you really want to delete this bookmark?"
 msgstr "Ci sapraŭdy vy žadajecie "
 
-#: js/messages.php:699
+#: js/messages.php:705
 msgid "Some error occurred while getting SQL debug info."
 msgstr ""
 
-#: js/messages.php:701
+#: js/messages.php:707
 #, fuzzy, php-format
 #| msgid "Execute bookmarked query"
 msgid "%s queries executed %s times in %s seconds."
 msgstr "Vykanać zapyt z zakładak"
 
-#: js/messages.php:702
+#: js/messages.php:708
 #, php-format
 msgid "%s argument(s) passed"
 msgstr ""
 
-#: js/messages.php:703
+#: js/messages.php:709
 #, fuzzy
 #| msgid "Table comments"
 msgid "Show arguments"
 msgstr "Kamentar da tablicy"
 
-#: js/messages.php:704
+#: js/messages.php:710
 #, fuzzy
 #| msgid "in query"
 msgid "Hide arguments"
 msgstr "pa zapytu"
 
-#: js/messages.php:705 libraries/Console.php:306
+#: js/messages.php:711 libraries/Console.php:306
 msgid "Time taken:"
 msgstr ""
 
-#: js/messages.php:706
+#: js/messages.php:712
 msgid ""
 "There was a problem accessing your browser storage, some features may not "
 "work properly for you. It is likely that the browser doesn't support storage "
@@ -2841,38 +2847,38 @@ msgid ""
 "Safari, such problem is commonly caused by \"Private Mode Browsing\"."
 msgstr ""
 
-#: js/messages.php:708
+#: js/messages.php:714
 #, fuzzy
 #| msgid "Copy database to"
 msgid "Copy tables to"
 msgstr "Kapijavać bazu dadzienych u"
 
-#: js/messages.php:709
+#: js/messages.php:715
 #, fuzzy
 #| msgid "Add new field"
 msgid "Add table prefix"
 msgstr "Dadać novaje pole"
 
-#: js/messages.php:710
+#: js/messages.php:716
 #, fuzzy
 #| msgid "Replace table data with file"
 msgid "Replace table with prefix"
 msgstr "Zamianić dadzienyja tablicy dadzienymi z fajła"
 
-#: js/messages.php:711 templates/database/structure/check_all_tables.phtml:29
+#: js/messages.php:717 templates/database/structure/check_all_tables.phtml:29
 #, fuzzy
 #| msgid "Replace table data with file"
 msgid "Copy table with prefix"
 msgstr "Zamianić dadzienyja tablicy dadzienymi z fajła"
 
-#: js/messages.php:740
+#: js/messages.php:746
 #, fuzzy
 #| msgid "Previous"
 msgctxt "Previous month"
 msgid "Prev"
 msgstr "Papiaredniaja staronka"
 
-#: js/messages.php:745
+#: js/messages.php:751
 #, fuzzy
 #| msgid "Next"
 msgctxt "Next month"
@@ -2880,96 +2886,96 @@ msgid "Next"
 msgstr "Nastupnaja staronka"
 
 #. l10n: Display text for current month link in calendar
-#: js/messages.php:748
+#: js/messages.php:754
 #, fuzzy
 #| msgid "Total"
 msgid "Today"
 msgstr "Ahułam"
 
-#: js/messages.php:752
+#: js/messages.php:758
 #, fuzzy
 #| msgid "Binary"
 msgid "January"
 msgstr "Dvajkovy"
 
-#: js/messages.php:753
+#: js/messages.php:759
 msgid "February"
 msgstr ""
 
-#: js/messages.php:754
+#: js/messages.php:760
 #, fuzzy
 #| msgid "Mar"
 msgid "March"
 msgstr "Sak"
 
-#: js/messages.php:755
+#: js/messages.php:761
 #, fuzzy
 #| msgid "Apr"
 msgid "April"
 msgstr "Kra"
 
-#: js/messages.php:756
+#: js/messages.php:762
 msgid "May"
 msgstr "Tra"
 
-#: js/messages.php:757
+#: js/messages.php:763
 #, fuzzy
 #| msgid "Jun"
 msgid "June"
 msgstr "Čer"
 
-#: js/messages.php:758
+#: js/messages.php:764
 #, fuzzy
 #| msgid "Jul"
 msgid "July"
 msgstr "Lip"
 
-#: js/messages.php:759
+#: js/messages.php:765
 #, fuzzy
 #| msgid "Aug"
 msgid "August"
 msgstr "Žni"
 
-#: js/messages.php:760
+#: js/messages.php:766
 msgid "September"
 msgstr ""
 
-#: js/messages.php:761
+#: js/messages.php:767
 #, fuzzy
 #| msgid "Oct"
 msgid "October"
 msgstr "Kas"
 
-#: js/messages.php:762
+#: js/messages.php:768
 msgid "November"
 msgstr ""
 
-#: js/messages.php:763
+#: js/messages.php:769
 msgid "December"
 msgstr ""
 
 #. l10n: Short month name
-#: js/messages.php:770 libraries/Util.php:1665
+#: js/messages.php:776 libraries/Util.php:1665
 msgid "Jan"
 msgstr "Stu"
 
 #. l10n: Short month name
-#: js/messages.php:772 libraries/Util.php:1667
+#: js/messages.php:778 libraries/Util.php:1667
 msgid "Feb"
 msgstr "Lut"
 
 #. l10n: Short month name
-#: js/messages.php:774 libraries/Util.php:1669
+#: js/messages.php:780 libraries/Util.php:1669
 msgid "Mar"
 msgstr "Sak"
 
 #. l10n: Short month name
-#: js/messages.php:776 libraries/Util.php:1671
+#: js/messages.php:782 libraries/Util.php:1671
 msgid "Apr"
 msgstr "Kra"
 
 #. l10n: Short month name
-#: js/messages.php:778 libraries/Util.php:1673
+#: js/messages.php:784 libraries/Util.php:1673
 #, fuzzy
 #| msgid "May"
 msgctxt "Short month name"
@@ -2977,78 +2983,78 @@ msgid "May"
 msgstr "Tra"
 
 #. l10n: Short month name
-#: js/messages.php:780 libraries/Util.php:1675
+#: js/messages.php:786 libraries/Util.php:1675
 msgid "Jun"
 msgstr "Čer"
 
 #. l10n: Short month name
-#: js/messages.php:782 libraries/Util.php:1677
+#: js/messages.php:788 libraries/Util.php:1677
 msgid "Jul"
 msgstr "Lip"
 
 #. l10n: Short month name
-#: js/messages.php:784 libraries/Util.php:1679
+#: js/messages.php:790 libraries/Util.php:1679
 msgid "Aug"
 msgstr "Žni"
 
 #. l10n: Short month name
-#: js/messages.php:786 libraries/Util.php:1681
+#: js/messages.php:792 libraries/Util.php:1681
 msgid "Sep"
 msgstr "Vier"
 
 #. l10n: Short month name
-#: js/messages.php:788 libraries/Util.php:1683
+#: js/messages.php:794 libraries/Util.php:1683
 msgid "Oct"
 msgstr "Kas"
 
 #. l10n: Short month name
-#: js/messages.php:790 libraries/Util.php:1685
+#: js/messages.php:796 libraries/Util.php:1685
 msgid "Nov"
 msgstr "Lis"
 
 #. l10n: Short month name
-#: js/messages.php:792 libraries/Util.php:1687
+#: js/messages.php:798 libraries/Util.php:1687
 msgid "Dec"
 msgstr "Śn"
 
-#: js/messages.php:798
+#: js/messages.php:804
 #, fuzzy
 #| msgid "Sun"
 msgid "Sunday"
 msgstr "Ndz"
 
-#: js/messages.php:799
+#: js/messages.php:805
 #, fuzzy
 #| msgid "Mon"
 msgid "Monday"
 msgstr "Pan"
 
-#: js/messages.php:800
+#: js/messages.php:806
 #, fuzzy
 #| msgid "Tue"
 msgid "Tuesday"
 msgstr "Aŭt"
 
-#: js/messages.php:801
+#: js/messages.php:807
 msgid "Wednesday"
 msgstr ""
 
-#: js/messages.php:802
+#: js/messages.php:808
 msgid "Thursday"
 msgstr ""
 
-#: js/messages.php:803
+#: js/messages.php:809
 #, fuzzy
 #| msgid "Fri"
 msgid "Friday"
 msgstr "Piat"
 
-#: js/messages.php:804
+#: js/messages.php:810
 msgid "Saturday"
 msgstr ""
 
 #. l10n: Short week day name
-#: js/messages.php:811
+#: js/messages.php:817
 #, fuzzy
 #| msgctxt "Short week day name"
 #| msgid "Sun"
@@ -3056,86 +3062,86 @@ msgid "Sun"
 msgstr "Ndz"
 
 #. l10n: Short week day name
-#: js/messages.php:813 libraries/Util.php:1692
+#: js/messages.php:819 libraries/Util.php:1692
 msgid "Mon"
 msgstr "Pan"
 
 #. l10n: Short week day name
-#: js/messages.php:815 libraries/Util.php:1694
+#: js/messages.php:821 libraries/Util.php:1694
 msgid "Tue"
 msgstr "Aŭt"
 
 #. l10n: Short week day name
-#: js/messages.php:817 libraries/Util.php:1696
+#: js/messages.php:823 libraries/Util.php:1696
 msgid "Wed"
 msgstr "Sier"
 
 #. l10n: Short week day name
-#: js/messages.php:819 libraries/Util.php:1698
+#: js/messages.php:825 libraries/Util.php:1698
 msgid "Thu"
 msgstr "Cač"
 
 #. l10n: Short week day name
-#: js/messages.php:821 libraries/Util.php:1700
+#: js/messages.php:827 libraries/Util.php:1700
 msgid "Fri"
 msgstr "Piat"
 
 #. l10n: Short week day name
-#: js/messages.php:823 libraries/Util.php:1702
+#: js/messages.php:829 libraries/Util.php:1702
 msgid "Sat"
 msgstr "Sub"
 
 #. l10n: Minimal week day name
-#: js/messages.php:830
+#: js/messages.php:836
 #, fuzzy
 #| msgid "Sun"
 msgid "Su"
 msgstr "Ndz"
 
 #. l10n: Minimal week day name
-#: js/messages.php:832
+#: js/messages.php:838
 #, fuzzy
 #| msgid "Mon"
 msgid "Mo"
 msgstr "Pan"
 
 #. l10n: Minimal week day name
-#: js/messages.php:834
+#: js/messages.php:840
 #, fuzzy
 #| msgid "Tue"
 msgid "Tu"
 msgstr "Aŭt"
 
 #. l10n: Minimal week day name
-#: js/messages.php:836
+#: js/messages.php:842
 #, fuzzy
 #| msgid "Wed"
 msgid "We"
 msgstr "Sier"
 
 #. l10n: Minimal week day name
-#: js/messages.php:838
+#: js/messages.php:844
 #, fuzzy
 #| msgid "Thu"
 msgid "Th"
 msgstr "Cač"
 
 #. l10n: Minimal week day name
-#: js/messages.php:840
+#: js/messages.php:846
 #, fuzzy
 #| msgid "Fri"
 msgid "Fr"
 msgstr "Piat"
 
 #. l10n: Minimal week day name
-#: js/messages.php:842
+#: js/messages.php:848
 #, fuzzy
 #| msgid "Sat"
 msgid "Sa"
 msgstr "Sub"
 
 #. l10n: Column header for week of the year in calendar
-#: js/messages.php:846
+#: js/messages.php:852
 #, fuzzy
 #| msgid "Wiki"
 msgid "Wk"
@@ -3144,137 +3150,137 @@ msgstr "Wiki"
 #. l10n: Month-year order for calendar, use either "calendar-month-year"
 #. * or "calendar-year-month".
 #.
-#: js/messages.php:853
+#: js/messages.php:859
 msgid "calendar-month-year"
 msgstr ""
 
 #. l10n: Year suffix for calendar, "none" is empty.
-#: js/messages.php:856
+#: js/messages.php:862
 #, fuzzy
 #| msgid "None"
 msgctxt "Year suffix"
 msgid "none"
 msgstr "Nijakaja"
 
-#: js/messages.php:868
+#: js/messages.php:874
 msgid "Hour"
 msgstr ""
 
-#: js/messages.php:869
+#: js/messages.php:875
 #, fuzzy
 #| msgid "in use"
 msgid "Minute"
 msgstr "vykarystoŭvajecca"
 
-#: js/messages.php:870
+#: js/messages.php:876
 #, fuzzy
 #| msgid "per second"
 msgid "Second"
 msgstr "u sekundu"
 
-#: js/messages.php:881
+#: js/messages.php:887
 msgid "This field is required"
 msgstr ""
 
-#: js/messages.php:882
+#: js/messages.php:888
 #, fuzzy
 #| msgid "Use text field"
 msgid "Please fix this field"
 msgstr "Vykarystoŭvać tekstavaje pole"
 
-#: js/messages.php:883
+#: js/messages.php:889
 #, fuzzy
 #| msgid "%d is not valid row number."
 msgid "Please enter a valid email address"
 msgstr "%d nie źjaŭlajecca karektnym numaram radka."
 
-#: js/messages.php:884
+#: js/messages.php:890
 #, fuzzy
 #| msgid "%d is not valid row number."
 msgid "Please enter a valid URL"
 msgstr "%d nie źjaŭlajecca karektnym numaram radka."
 
-#: js/messages.php:885
+#: js/messages.php:891
 #, fuzzy
 #| msgid "%d is not valid row number."
 msgid "Please enter a valid date"
 msgstr "%d nie źjaŭlajecca karektnym numaram radka."
 
-#: js/messages.php:888
+#: js/messages.php:894
 #, fuzzy
 #| msgid "%d is not valid row number."
 msgid "Please enter a valid date ( ISO )"
 msgstr "%d nie źjaŭlajecca karektnym numaram radka."
 
-#: js/messages.php:890
+#: js/messages.php:896
 #, fuzzy
 #| msgid "%d is not valid row number."
 msgid "Please enter a valid number"
 msgstr "%d nie źjaŭlajecca karektnym numaram radka."
 
-#: js/messages.php:893
+#: js/messages.php:899
 #, fuzzy
 #| msgid "%d is not valid row number."
 msgid "Please enter a valid credit card number"
 msgstr "%d nie źjaŭlajecca karektnym numaram radka."
 
-#: js/messages.php:895
+#: js/messages.php:901
 #, fuzzy
 #| msgid "%d is not valid row number."
 msgid "Please enter only digits"
 msgstr "%d nie źjaŭlajecca karektnym numaram radka."
 
-#: js/messages.php:898
+#: js/messages.php:904
 #, fuzzy
 #| msgid "%d is not valid row number."
 msgid "Please enter the same value again"
 msgstr "%d nie źjaŭlajecca karektnym numaram radka."
 
-#: js/messages.php:902
+#: js/messages.php:908
 msgid "Please enter no more than {0} characters"
 msgstr ""
 
-#: js/messages.php:907
+#: js/messages.php:913
 #, fuzzy
 #| msgid "%d is not valid row number."
 msgid "Please enter at least {0} characters"
 msgstr "%d nie źjaŭlajecca karektnym numaram radka."
 
-#: js/messages.php:912
+#: js/messages.php:918
 msgid "Please enter a value between {0} and {1} characters long"
 msgstr ""
 
-#: js/messages.php:917
+#: js/messages.php:923
 #, fuzzy
 #| msgid "%d is not valid row number."
 msgid "Please enter a value between {0} and {1}"
 msgstr "%d nie źjaŭlajecca karektnym numaram radka."
 
-#: js/messages.php:922
+#: js/messages.php:928
 #, fuzzy
 #| msgid "%d is not valid row number."
 msgid "Please enter a value less than or equal to {0}"
 msgstr "%d nie źjaŭlajecca karektnym numaram radka."
 
-#: js/messages.php:927
+#: js/messages.php:933
 #, fuzzy
 #| msgid "%d is not valid row number."
 msgid "Please enter a value greater than or equal to {0}"
 msgstr "%d nie źjaŭlajecca karektnym numaram radka."
 
-#: js/messages.php:933
+#: js/messages.php:939
 #, fuzzy
 #| msgid "%d is not valid row number."
 msgid "Please enter a valid date or time"
 msgstr "%d nie źjaŭlajecca karektnym numaram radka."
 
-#: js/messages.php:938
+#: js/messages.php:944
 #, fuzzy
 #| msgid "%d is not valid row number."
 msgid "Please enter a valid HEX input"
 msgstr "%d nie źjaŭlajecca karektnym numaram radka."
 
-#: js/messages.php:943 libraries/Message.php:200 libraries/Util.php:677
+#: js/messages.php:949 libraries/Message.php:200 libraries/Util.php:677
 #: libraries/core.lib.php:245 libraries/import.lib.php:94
 #: libraries/insert_edit.lib.php:1230 view_operations.php:73
 msgid "Error"
@@ -3443,7 +3449,7 @@ msgid "History"
 msgstr "Historyja SQL"
 
 #: libraries/Console.php:225 libraries/Console.php:355
-#: libraries/DisplayResults.php:1718 libraries/import.lib.php:1250
+#: libraries/DisplayResults.php:1719 libraries/import.lib.php:1250
 #: libraries/import.lib.php:1285 libraries/mult_submits.lib.php:342
 #: libraries/plugins/export/ExportCodegen.php:84
 #: libraries/plugins/export/ExportCsv.php:48
@@ -3665,8 +3671,8 @@ msgstr ""
 "Nie atrymałasia ŭstalavać złučeńnie dla controluser, vyznačanaje ŭ vašym "
 "kanfihuracyjnym fajle."
 
-#: libraries/DbQbe.php:403 libraries/DisplayResults.php:2263
-#: libraries/DisplayResults.php:2269 libraries/config.values.php:70
+#: libraries/DbQbe.php:403 libraries/DisplayResults.php:2264
+#: libraries/DisplayResults.php:2270 libraries/config.values.php:70
 #: libraries/controllers/server/ServerDatabasesController.php:539
 #: libraries/operations.lib.php:789
 #: libraries/server_status_processes.lib.php:166
@@ -3676,8 +3682,8 @@ msgstr ""
 msgid "Ascending"
 msgstr "pramy"
 
-#: libraries/DbQbe.php:406 libraries/DisplayResults.php:2259
-#: libraries/DisplayResults.php:2273 libraries/config.values.php:71
+#: libraries/DbQbe.php:406 libraries/DisplayResults.php:2260
+#: libraries/DisplayResults.php:2274 libraries/config.values.php:71
 #: libraries/controllers/server/ServerDatabasesController.php:539
 #: libraries/operations.lib.php:792
 #: libraries/server_status_processes.lib.php:163
@@ -3903,29 +3909,29 @@ msgstr "Źniać usie adznaki"
 msgid "Inside column:"
 msgstr "Unutry pola:"
 
-#: libraries/DisplayResults.php:903
+#: libraries/DisplayResults.php:904
 msgid "Save edited data"
 msgstr ""
 
-#: libraries/DisplayResults.php:909
+#: libraries/DisplayResults.php:910
 #, fuzzy
 #| msgid "Add/Delete Field Columns"
 msgid "Restore column order"
 msgstr "Dadać/vydalić kalonku kryteru"
 
-#: libraries/DisplayResults.php:957 libraries/central_columns.lib.php:659
+#: libraries/DisplayResults.php:958 libraries/central_columns.lib.php:659
 #, fuzzy
 #| msgid "Files"
 msgid "Filter rows"
 msgstr "Fajły"
 
-#: libraries/DisplayResults.php:959 libraries/central_columns.lib.php:661
+#: libraries/DisplayResults.php:960 libraries/central_columns.lib.php:661
 #, fuzzy
 #| msgid "Search in database"
 msgid "Search this table"
 msgstr "Pošuk u bazie dadzienych"
 
-#: libraries/DisplayResults.php:990 libraries/Util.php:2612
+#: libraries/DisplayResults.php:991 libraries/Util.php:2612
 #: libraries/Util.php:2615
 #, fuzzy
 #| msgid "Begin"
@@ -3933,7 +3939,7 @@ msgctxt "First page"
 msgid "Begin"
 msgstr "Pieršaja staronka"
 
-#: libraries/DisplayResults.php:993 libraries/Util.php:2613
+#: libraries/DisplayResults.php:994 libraries/Util.php:2613
 #: libraries/Util.php:2616
 #: libraries/controllers/server/ServerBinlogController.php:193
 #: libraries/controllers/server/ServerBinlogController.php:195
@@ -3943,7 +3949,7 @@ msgctxt "Previous page"
 msgid "Previous"
 msgstr "Papiaredniaja staronka"
 
-#: libraries/DisplayResults.php:1059 libraries/Util.php:2644
+#: libraries/DisplayResults.php:1060 libraries/Util.php:2644
 #: libraries/Util.php:2654
 #: libraries/controllers/server/ServerBinlogController.php:227
 #: libraries/controllers/server/ServerBinlogController.php:229
@@ -3953,7 +3959,7 @@ msgctxt "Next page"
 msgid "Next"
 msgstr "Nastupnaja staronka"
 
-#: libraries/DisplayResults.php:1089 libraries/Util.php:2645
+#: libraries/DisplayResults.php:1090 libraries/Util.php:2645
 #: libraries/Util.php:2655
 #, fuzzy
 #| msgid "End"
@@ -3961,83 +3967,83 @@ msgctxt "Last page"
 msgid "End"
 msgstr "Apošniaja staronka"
 
-#: libraries/DisplayResults.php:1132
+#: libraries/DisplayResults.php:1133
 msgid "All"
 msgstr "Usie"
 
-#: libraries/DisplayResults.php:1142 libraries/display_export.lib.php:435
+#: libraries/DisplayResults.php:1143 libraries/display_export.lib.php:435
 #: templates/startAndNumberOfRowsPanel.phtml:10
 #, fuzzy
 #| msgid "Number of fields"
 msgid "Number of rows:"
 msgstr "Kolkaść paloŭ"
 
-#: libraries/DisplayResults.php:1435
+#: libraries/DisplayResults.php:1436
 msgid "Sort by key"
 msgstr "Sartavać pa klučy"
 
-#: libraries/DisplayResults.php:1724 libraries/DisplayResults.php:1830
+#: libraries/DisplayResults.php:1725 libraries/DisplayResults.php:1831
 #, fuzzy
 #| msgid "Partial Texts"
 msgid "Partial texts"
 msgstr "Častkovyja teksty"
 
-#: libraries/DisplayResults.php:1725 libraries/DisplayResults.php:1834
+#: libraries/DisplayResults.php:1726 libraries/DisplayResults.php:1835
 #, fuzzy
 #| msgid "Full Texts"
 msgid "Full texts"
 msgstr "Poŭnyja teksty"
 
-#: libraries/DisplayResults.php:1741
+#: libraries/DisplayResults.php:1742
 msgid "Relational key"
 msgstr "Kluč suviazi"
 
-#: libraries/DisplayResults.php:1742
+#: libraries/DisplayResults.php:1743
 #, fuzzy
 #| msgid "Disable foreign key checks"
 msgid "Display column for relations"
 msgstr "Adklučyć pravierku źniešnich klučoŭ"
 
-#: libraries/DisplayResults.php:1755
+#: libraries/DisplayResults.php:1756
 msgid "Show binary contents"
 msgstr ""
 
-#: libraries/DisplayResults.php:1761
+#: libraries/DisplayResults.php:1762
 msgid "Show BLOB contents"
 msgstr ""
 
-#: libraries/DisplayResults.php:1773
+#: libraries/DisplayResults.php:1774
 #, fuzzy
 #| msgid "Browser transformation"
 msgid "Hide browser transformation"
 msgstr "Pieraŭtvareńnie MIME-typu braŭzeram"
 
-#: libraries/DisplayResults.php:1782
+#: libraries/DisplayResults.php:1783
 msgid "Well Known Text"
 msgstr ""
 
-#: libraries/DisplayResults.php:1783
+#: libraries/DisplayResults.php:1784
 msgid "Well Known Binary"
 msgstr ""
 
-#: libraries/DisplayResults.php:3524 libraries/DisplayResults.php:3539
+#: libraries/DisplayResults.php:3525 libraries/DisplayResults.php:3540
 #, fuzzy
 #| msgid "The row has been deleted."
 msgid "The row has been deleted."
 msgstr "Radok byŭ vydaleny"
 
-#: libraries/DisplayResults.php:3575 libraries/DisplayResults.php:4829
+#: libraries/DisplayResults.php:3576 libraries/DisplayResults.php:4830
 #: libraries/server_status_processes.lib.php:282
 msgid "Kill"
 msgstr "Spynić"
 
-#: libraries/DisplayResults.php:4267
+#: libraries/DisplayResults.php:4268
 #, fuzzy
 #| msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]"
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
 msgstr "Značeńnie moža być prybliznym. Hł. [doc@faq3-11]FAQ 3.11[/doc]"
 
-#: libraries/DisplayResults.php:4340 libraries/Message.php:181
+#: libraries/DisplayResults.php:4341 libraries/Message.php:181
 #: libraries/controllers/table/TableRelationController.php:253
 #: libraries/controllers/table/TableSearchController.php:639
 #: libraries/rte/rte_routines.lib.php:1451 libraries/sql_query_form.lib.php:89
@@ -4047,7 +4053,7 @@ msgstr "Značeńnie moža być prybliznym. Hł. [doc@faq3-11]FAQ 3.11[/doc]"
 msgid "Your SQL query has been executed successfully."
 msgstr "Vaš SQL-zapyt byŭ paśpiachova vykanany"
 
-#: libraries/DisplayResults.php:4687
+#: libraries/DisplayResults.php:4688
 #: libraries/controllers/database/DatabaseStructureController.php:753
 #, php-format
 msgid ""
@@ -4057,30 +4063,30 @@ msgstr ""
 "Hety prahlad maje tolki takuju kolkaść radkoŭ. Kali łaska, źviarniciesia da "
 "%sdakumentacyi%s."
 
-#: libraries/DisplayResults.php:4700
+#: libraries/DisplayResults.php:4701
 #, fuzzy, php-format
 #| msgid "Showing rows"
 msgid "Showing rows %1s - %2s"
 msgstr "Pakazanyja zapisy"
 
-#: libraries/DisplayResults.php:4715
+#: libraries/DisplayResults.php:4716
 #, php-format
 msgid "%1$d total, %2$d in query"
 msgstr ""
 
-#: libraries/DisplayResults.php:4720
+#: libraries/DisplayResults.php:4721
 #, fuzzy, php-format
 #| msgid "total"
 msgid "%d total"
 msgstr "usiaho"
 
-#: libraries/DisplayResults.php:4732 libraries/sql.lib.php:1380
+#: libraries/DisplayResults.php:4733 libraries/sql.lib.php:1380
 #, fuzzy, php-format
 #| msgid "Query took %01.4f sec"
 msgid "Query took %01.4f seconds."
 msgstr "Zapyt vykonvaŭsia %01.4f sek"
 
-#: libraries/DisplayResults.php:4834 libraries/DisplayResults.php:4841
+#: libraries/DisplayResults.php:4835 libraries/DisplayResults.php:4842
 #: libraries/Util.php:4638 libraries/Util.php:4644
 #: libraries/mult_submits.inc.php:53
 #: templates/database/structure/check_all_tables.phtml:2
@@ -4088,7 +4094,7 @@ msgstr "Zapyt vykonvaŭsia %01.4f sek"
 msgid "With selected:"
 msgstr "Z adznačanymi:"
 
-#: libraries/DisplayResults.php:4838 libraries/DisplayResults.php:4840
+#: libraries/DisplayResults.php:4839 libraries/DisplayResults.php:4841
 #: libraries/Util.php:4640 libraries/Util.php:4641
 #: libraries/server_privileges.lib.php:1272
 #: libraries/server_privileges.lib.php:1273
@@ -4101,25 +4107,25 @@ msgstr "Z adznačanymi:"
 msgid "Check all"
 msgstr "Adznačyć usio"
 
-#: libraries/DisplayResults.php:5013
+#: libraries/DisplayResults.php:5014
 msgid "Copy to clipboard"
 msgstr ""
 
-#: libraries/DisplayResults.php:5069
+#: libraries/DisplayResults.php:5070
 msgid "Query results operations"
 msgstr "Dziejańni z vynikami zapytaŭ"
 
-#: libraries/DisplayResults.php:5157 templates/table/chart/tbl_chart.phtml:12
+#: libraries/DisplayResults.php:5158 templates/table/chart/tbl_chart.phtml:12
 #, fuzzy
 #| msgid "Display PDF schema"
 msgid "Display chart"
 msgstr "Pakazać PDF-schiemu"
 
-#: libraries/DisplayResults.php:5182
+#: libraries/DisplayResults.php:5183
 msgid "Visualize GIS data"
 msgstr ""
 
-#: libraries/DisplayResults.php:5368
+#: libraries/DisplayResults.php:5369
 #, fuzzy
 #| msgid "Link not found"
 msgid "Link not found!"
@@ -4790,44 +4796,44 @@ msgstr ""
 msgid "Target database `%s` was not found!"
 msgstr "Tema %s nia znojdzienaja!"
 
-#: libraries/Table.php:1300
+#: libraries/Table.php:1305
 #, fuzzy
 #| msgid "Invalid database"
 msgid "Invalid database:"
 msgstr "Niapravilnaja baza dadzienych"
 
-#: libraries/Table.php:1314
+#: libraries/Table.php:1322
 #, fuzzy
 #| msgid "Invalid table name"
 msgid "Invalid table name:"
 msgstr "Niekarektnaje imia tablicy"
 
-#: libraries/Table.php:1349
+#: libraries/Table.php:1357
 #, fuzzy, php-format
 #| msgid "Error renaming table %1$s to %2$s"
 msgid "Failed to rename table %1$s to %2$s!"
 msgstr "Pamyłka pierajmienavańnia tablicy %1$s u %2$s"
 
-#: libraries/Table.php:1368
+#: libraries/Table.php:1376
 #, fuzzy, php-format
 #| msgid "Table %s has been renamed to %s."
 msgid "Table %1$s has been renamed to %2$s."
 msgstr "Tablica %s była pierajmienavanaja ŭ %s"
 
-#: libraries/Table.php:1587
+#: libraries/Table.php:1595
 #, fuzzy
 #| msgid "Could not load default configuration from: \"%1$s\""
 msgid "Could not save table UI preferences!"
 msgstr "Niemahčyma zahruzić kanfihuracyju pa zmoŭčańni z: \"%1$s\""
 
-#: libraries/Table.php:1617
+#: libraries/Table.php:1625
 #, php-format
 msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
 "['MaxTableUiprefs'] %s)"
 msgstr ""
 
-#: libraries/Table.php:1770
+#: libraries/Table.php:1778
 #, php-format
 msgid ""
 "Cannot save UI property \"%s\". The changes made will not be persistent "
@@ -4835,19 +4841,19 @@ msgid ""
 "changed."
 msgstr ""
 
-#: libraries/Table.php:1906
+#: libraries/Table.php:1914
 msgid "The name of the primary key must be \"PRIMARY\"!"
 msgstr "Imia pieršasnaha kluča musić być PRIMARY!"
 
-#: libraries/Table.php:1917
+#: libraries/Table.php:1925
 msgid "Can't rename index to PRIMARY!"
 msgstr "Niemahčyma pierajmienavać indeks u PRIMARY!"
 
-#: libraries/Table.php:1939
+#: libraries/Table.php:1947
 msgid "No index parts defined!"
 msgstr "Častki indeksu nia vyznačanyja!"
 
-#: libraries/Table.php:2257
+#: libraries/Table.php:2265
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr "Pamyłka stvareńnia źniešniaha kluča na %1$s (praviercie typy kalonak)"
@@ -8351,20 +8357,20 @@ msgid "Favorite List is full!"
 msgstr ""
 
 #: libraries/controllers/database/DatabaseStructureController.php:544
-#: tbl_operations.php:379
+#: tbl_operations.php:384
 #, php-format
 msgid "Table %s has been emptied."
 msgstr "Tablica %s była ačyščanaja."
 
 #: libraries/controllers/database/DatabaseStructureController.php:565
-#: tbl_operations.php:397 view_operations.php:131
+#: tbl_operations.php:402 view_operations.php:131
 #, fuzzy, php-format
 #| msgid "View %s has been dropped."
 msgid "View %s has been dropped."
 msgstr "Vyhlad %s byŭ vydaleny"
 
 #: libraries/controllers/database/DatabaseStructureController.php:566
-#: tbl_operations.php:398
+#: tbl_operations.php:403
 #, fuzzy, php-format
 #| msgid "Table %s has been dropped."
 msgid "Table %s has been dropped."
@@ -14790,19 +14796,19 @@ msgid "Unrecognized data type."
 msgstr ""
 
 #: libraries/sql-parser/src/Components/Expression.php:248
-#: libraries/sql-parser/src/Components/Expression.php:391
+#: libraries/sql-parser/src/Components/Expression.php:398
 #, fuzzy
 #| msgid "No databases selected."
 msgid "An alias was expected."
 msgstr "Nia vybranaja baza dadzienych."
 
-#: libraries/sql-parser/src/Components/Expression.php:329
-#: libraries/sql-parser/src/Components/Expression.php:348
-#: libraries/sql-parser/src/Components/Expression.php:380
+#: libraries/sql-parser/src/Components/Expression.php:336
+#: libraries/sql-parser/src/Components/Expression.php:355
+#: libraries/sql-parser/src/Components/Expression.php:387
 msgid "An alias was previously found."
 msgstr ""
 
-#: libraries/sql-parser/src/Components/Expression.php:361
+#: libraries/sql-parser/src/Components/Expression.php:368
 msgid "Unexpected dot."
 msgstr ""
 
@@ -14863,27 +14869,27 @@ msgstr ""
 msgid "Expected delimiter."
 msgstr ""
 
-#: libraries/sql-parser/src/Lexer.php:783
+#: libraries/sql-parser/src/Lexer.php:838
 #, fuzzy, php-format
 #| msgid "Table %1$s has been created."
 msgid "Ending quote %1$s was expected."
 msgstr "Tablica %1$s stvoranaja."
 
-#: libraries/sql-parser/src/Lexer.php:823
+#: libraries/sql-parser/src/Lexer.php:878
 msgid "Variable name was expected."
 msgstr ""
 
-#: libraries/sql-parser/src/Parser.php:430
+#: libraries/sql-parser/src/Parser.php:450
 #, fuzzy
 #| msgid "At Beginning of Table"
 msgid "Unexpected beginning of statement."
 msgstr "U pačatku tablicy"
 
-#: libraries/sql-parser/src/Parser.php:449
+#: libraries/sql-parser/src/Parser.php:469
 msgid "Unrecognized statement type."
 msgstr ""
 
-#: libraries/sql-parser/src/Parser.php:531
+#: libraries/sql-parser/src/Parser.php:551
 msgid "No transaction was previously started."
 msgstr ""
 

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.5-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2016-10-18 13:42+0200\n"
+"POT-Creation-Date: 2016-10-25 11:13+0200\n"
 "PO-Revision-Date: 2015-10-15 11:30+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Afrikaans <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -479,7 +479,7 @@ msgid "Add geometry"
 msgstr "Voeg geometrie by"
 
 #: gis_data_editor.php:411 js/messages.php:344 libraries/DbSearch.php:463
-#: libraries/DisplayResults.php:1797 libraries/browse_foreigners.lib.php:139
+#: libraries/DisplayResults.php:1798 libraries/browse_foreigners.lib.php:139
 #: libraries/display_change_password.lib.php:147
 #: libraries/display_export.lib.php:400 libraries/display_export.lib.php:406
 #: libraries/display_import.lib.php:396 libraries/index.lib.php:41
@@ -540,7 +540,7 @@ msgstr ""
 msgid "Succeeded"
 msgstr "Toegang Geweier!"
 
-#: import.php:63 js/messages.php:589
+#: import.php:63 js/messages.php:595
 msgid "Failed"
 msgstr ""
 
@@ -635,7 +635,7 @@ msgstr "\"DROP DATABASE\" stellings word nie toegelaat nie."
 msgid "Could not load the progress of the import."
 msgstr ""
 
-#: import_status.php:116 js/messages.php:445 js/messages.php:597
+#: import_status.php:116 js/messages.php:445 js/messages.php:603
 #: libraries/Util.php:800 libraries/export.lib.php:516
 #: libraries/plugins/schema/ExportRelationSchema.php:297 user_password.php:298
 msgid "Back"
@@ -660,7 +660,7 @@ msgstr ""
 msgid "General settings"
 msgstr "Algemene verwantskap funksies"
 
-#: index.php:191 js/messages.php:622
+#: index.php:191 js/messages.php:628
 #: libraries/display_change_password.lib.php:50
 #: libraries/display_change_password.lib.php:53 user_password.php:292
 msgid "Change password"
@@ -1367,7 +1367,7 @@ msgstr ""
 msgid "Please add at least one variable to the series!"
 msgstr ""
 
-#: js/messages.php:214 libraries/DisplayResults.php:1491
+#: js/messages.php:214 libraries/DisplayResults.php:1492
 #: libraries/config.values.php:69 libraries/display_export.lib.php:691
 #: libraries/plugins/export/ExportSql.php:2180
 #: libraries/plugins/schema/SchemaPdf.php:103
@@ -1580,7 +1580,7 @@ msgstr "Verduidelik SQL"
 msgid "Status"
 msgstr "Status"
 
-#: js/messages.php:287 js/messages.php:867
+#: js/messages.php:287 js/messages.php:873
 #: libraries/plugins/export/ExportHtmlword.php:486
 #: libraries/plugins/export/ExportOdt.php:605
 #: libraries/plugins/export/ExportTexytext.php:447
@@ -1894,8 +1894,8 @@ msgstr "Verwyder"
 msgid "The definition of a stored function must contain a RETURN statement!"
 msgstr ""
 
-#: js/messages.php:387 libraries/DisplayResults.php:4861
-#: libraries/DisplayResults.php:5144 libraries/Menu.php:350
+#: js/messages.php:387 libraries/DisplayResults.php:4862
+#: libraries/DisplayResults.php:5145 libraries/Menu.php:350
 #: libraries/Menu.php:451 libraries/Menu.php:577 libraries/Util.php:3721
 #: libraries/Util.php:3722 libraries/Util.php:4340 libraries/Util.php:4355
 #: libraries/Util.php:4372 libraries/config/messages.inc.php:255
@@ -1953,7 +1953,7 @@ msgid "Show query box"
 msgstr "SQL-stelling"
 
 #: js/messages.php:406 libraries/Console.php:88 libraries/Console.php:199
-#: libraries/DisplayResults.php:3479 libraries/DisplayResults.php:4845
+#: libraries/DisplayResults.php:3480 libraries/DisplayResults.php:4846
 #: libraries/Index.php:721 libraries/Util.php:730 libraries/Util.php:1244
 #: libraries/Util.php:3719 libraries/Util.php:3720
 #: libraries/central_columns.lib.php:848 libraries/central_columns.lib.php:1191
@@ -1965,7 +1965,7 @@ msgid "Edit"
 msgstr "Verander"
 
 #: js/messages.php:407 libraries/Console.php:89 libraries/DbSearch.php:361
-#: libraries/DisplayResults.php:3548 libraries/DisplayResults.php:4829
+#: libraries/DisplayResults.php:3549 libraries/DisplayResults.php:4830
 #: libraries/central_columns.lib.php:850 libraries/central_columns.lib.php:1196
 #: libraries/display_export.lib.php:223
 #: libraries/server_user_groups.lib.php:127
@@ -1975,8 +1975,8 @@ msgstr "Verander"
 msgid "Delete"
 msgstr "Verwyder"
 
-#: js/messages.php:408 libraries/DisplayResults.php:926
-#: libraries/DisplayResults.php:934
+#: js/messages.php:408 libraries/DisplayResults.php:927
+#: libraries/DisplayResults.php:935
 #, php-format
 msgid "%d is not valid row number."
 msgstr ""
@@ -2075,7 +2075,7 @@ msgid "Second step of normalization (2NF)"
 msgstr ""
 
 #. l10n: Display text for calendar close link
-#: js/messages.php:437 js/messages.php:736 libraries/normalization.lib.php:285
+#: js/messages.php:437 js/messages.php:742 libraries/normalization.lib.php:285
 #, fuzzy
 #| msgid "None"
 msgid "Done"
@@ -2244,14 +2244,14 @@ msgstr ""
 msgid "Data point content"
 msgstr "Tabel kommentaar"
 
-#: js/messages.php:503 js/messages.php:657 js/messages.php:674
+#: js/messages.php:503 js/messages.php:663 js/messages.php:680
 #: libraries/ErrorHandler.php:363 libraries/insert_edit.lib.php:2646
 #: templates/table/index_form.phtml:154 templates/table/index_form.phtml:199
 msgid "Ignore"
 msgstr "Ignoreer"
 
-#: js/messages.php:504 libraries/DisplayResults.php:3482
-#: libraries/DisplayResults.php:4850
+#: js/messages.php:504 libraries/DisplayResults.php:3483
+#: libraries/DisplayResults.php:4851
 msgid "Copy"
 msgstr ""
 
@@ -2269,7 +2269,7 @@ msgstr "Lyne beeindig deur"
 msgid "Polygon"
 msgstr ""
 
-#: js/messages.php:511 libraries/DisplayResults.php:1781
+#: js/messages.php:511 libraries/DisplayResults.php:1782
 msgid "Geometry"
 msgstr ""
 
@@ -2295,56 +2295,62 @@ msgstr ""
 
 #: js/messages.php:522
 msgid ""
+"MySQL accepts additional values not selectable by the slider; key in those "
+"values directly if desired"
+msgstr ""
+
+#: js/messages.php:528
+msgid ""
 "Indicates that you have made changes to this page; you will be prompted for "
 "confirmation before abandoning changes"
 msgstr ""
 
-#: js/messages.php:527
+#: js/messages.php:533
 msgid "Select referenced key"
 msgstr ""
 
-#: js/messages.php:528
+#: js/messages.php:534
 msgid "Select Foreign Key"
 msgstr ""
 
-#: js/messages.php:530
+#: js/messages.php:536
 msgid "Please select the primary key or a unique key!"
 msgstr ""
 
-#: js/messages.php:531 templates/database/designer/side_menu.phtml:91
+#: js/messages.php:537 templates/database/designer/side_menu.phtml:91
 #: templates/database/designer/side_menu.phtml:94
 #, fuzzy
 #| msgid "Choose field to display"
 msgid "Choose column to display"
 msgstr "Kies 'n Veld om te vertoon"
 
-#: js/messages.php:533
+#: js/messages.php:539
 msgid ""
 "You haven't saved the changes in the layout. They will be lost if you don't "
 "save them. Do you want to continue?"
 msgstr ""
 
-#: js/messages.php:536
+#: js/messages.php:542
 #, fuzzy
 #| msgid "Page number:"
 msgid "Page name"
 msgstr "Bladsy nommer:"
 
-#: js/messages.php:537 templates/database/designer/side_menu.phtml:56
+#: js/messages.php:543 templates/database/designer/side_menu.phtml:56
 #: templates/database/designer/side_menu.phtml:59
 #, fuzzy
 #| msgid "Select All"
 msgid "Save page"
 msgstr "Kies Alles"
 
-#: js/messages.php:538 templates/database/designer/side_menu.phtml:63
+#: js/messages.php:544 templates/database/designer/side_menu.phtml:63
 #: templates/database/designer/side_menu.phtml:66
 #, fuzzy
 #| msgid "Select All"
 msgid "Save page as"
 msgstr "Kies Alles"
 
-#: js/messages.php:539 templates/database/designer/side_menu.phtml:49
+#: js/messages.php:545 templates/database/designer/side_menu.phtml:49
 #: templates/database/designer/side_menu.phtml:52
 #, fuzzy
 #| msgctxt "PDF"
@@ -2352,237 +2358,237 @@ msgstr "Kies Alles"
 msgid "Open page"
 msgstr "Gebruik"
 
-#: js/messages.php:540
+#: js/messages.php:546
 #, fuzzy
 #| msgid "Select All"
 msgid "Delete page"
 msgstr "Kies Alles"
 
-#: js/messages.php:541 templates/database/designer/side_menu.phtml:10
+#: js/messages.php:547 templates/database/designer/side_menu.phtml:10
 msgid "Untitled"
 msgstr ""
 
-#: js/messages.php:542
+#: js/messages.php:548
 #, fuzzy
 #| msgid "Please choose a page to edit"
 msgid "Please select a page to continue"
 msgstr "Kies asb. 'n bladsy om te verander"
 
-#: js/messages.php:543
+#: js/messages.php:549
 msgid "Please enter a valid page name"
 msgstr ""
 
-#: js/messages.php:545
+#: js/messages.php:551
 msgid "Do you want to save the changes to the current page?"
 msgstr ""
 
-#: js/messages.php:546
+#: js/messages.php:552
 msgid "Successfully deleted the page"
 msgstr ""
 
-#: js/messages.php:547
+#: js/messages.php:553
 #, fuzzy
 #| msgid "Display PDF schema"
 msgid "Export relational schema"
 msgstr "Vertoon PDF skema"
 
-#: js/messages.php:548
+#: js/messages.php:554
 msgid "Modifications have been saved"
 msgstr "Veranderinge is gestoor"
 
-#: js/messages.php:551
+#: js/messages.php:557
 #, fuzzy, php-format
 #| msgid "Value for the column \"%s\""
 msgid "Add an option for column \"%s\"."
 msgstr "Waarde vir die kolom \"%s\""
 
-#: js/messages.php:552
+#: js/messages.php:558
 #, php-format
 msgid "%d object(s) created."
 msgstr ""
 
-#: js/messages.php:553 libraries/sql_query_form.lib.php:409
+#: js/messages.php:559 libraries/sql_query_form.lib.php:409
 msgid "Submit"
 msgstr "Stuur"
 
-#: js/messages.php:556
+#: js/messages.php:562
 msgid "Press escape to cancel editing."
 msgstr ""
 
-#: js/messages.php:558
+#: js/messages.php:564
 msgid ""
 "You have edited some data and they have not been saved. Are you sure you "
 "want to leave this page before saving the data?"
 msgstr ""
 
-#: js/messages.php:561
+#: js/messages.php:567
 msgid "Drag to reorder."
 msgstr ""
 
-#: js/messages.php:562
+#: js/messages.php:568
 msgid "Click to sort results by this column."
 msgstr ""
 
-#: js/messages.php:564
+#: js/messages.php:570
 msgid ""
 "Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC.<br /"
 ">- Ctrl+Click or Alt+Click (Mac: Shift+Option+Click) to remove column from "
 "ORDER BY clause"
 msgstr ""
 
-#: js/messages.php:568
+#: js/messages.php:574
 msgid "Click to mark/unmark."
 msgstr ""
 
-#: js/messages.php:569
+#: js/messages.php:575
 #, fuzzy
 #| msgid "Column names"
 msgid "Double-click to copy column name."
 msgstr "Kolom name"
 
-#: js/messages.php:571
+#: js/messages.php:577
 msgid "Click the drop-down arrow<br />to toggle column's visibility."
 msgstr ""
 
-#: js/messages.php:573 libraries/DisplayResults.php:1033
+#: js/messages.php:579 libraries/DisplayResults.php:1034
 #: libraries/browse_foreigners.lib.php:287
 #: libraries/browse_foreigners.lib.php:340
 #: libraries/server_privileges.lib.php:3890
 msgid "Show all"
 msgstr "Wys alles"
 
-#: js/messages.php:575
+#: js/messages.php:581
 msgid ""
 "This table does not contain a unique column. Features related to the grid "
 "edit, checkbox, Edit, Copy and Delete links may not work after saving."
 msgstr ""
 
-#: js/messages.php:579
+#: js/messages.php:585
 msgid "Please enter a valid hexadecimal string. Valid characters are 0-9, A-F."
 msgstr ""
 
-#: js/messages.php:581
+#: js/messages.php:587
 msgid ""
 "Do you really want to see all of the rows? For a big table this could crash "
 "the browser."
 msgstr ""
 
-#: js/messages.php:584
+#: js/messages.php:590
 #, fuzzy
 #| msgid "Lines terminated by"
 msgid "Original length"
 msgstr "Lyne beeindig deur"
 
-#: js/messages.php:587
+#: js/messages.php:593
 msgid "cancel"
 msgstr ""
 
-#: js/messages.php:588 libraries/server_status.lib.php:277
+#: js/messages.php:594 libraries/server_status.lib.php:277
 msgid "Aborted"
 msgstr ""
 
-#: js/messages.php:590
+#: js/messages.php:596
 msgid "Success"
 msgstr ""
 
-#: js/messages.php:591
+#: js/messages.php:597
 #, fuzzy
 msgid "Import status"
 msgstr "Export"
 
-#: js/messages.php:592 libraries/navigation/Navigation.php:111
+#: js/messages.php:598 libraries/navigation/Navigation.php:111
 msgid "Drop files here"
 msgstr ""
 
-#: js/messages.php:593
+#: js/messages.php:599
 #, fuzzy
 #| msgid "Select Tables"
 msgid "Select database first"
 msgstr "Kies Tabelle"
 
-#: js/messages.php:596 libraries/DisplayResults.php:5036
+#: js/messages.php:602 libraries/DisplayResults.php:5037
 #: libraries/Util.php:4233
 #: templates/database/structure/print_view_data_dictionary_link.phtml:3
 #: templates/table/structure/optional_action_links.phtml:6
 msgid "Print"
 msgstr ""
 
-#: js/messages.php:603
+#: js/messages.php:609
 msgid "You can also edit most values<br />by double-clicking directly on them."
 msgstr ""
 
-#: js/messages.php:608
+#: js/messages.php:614
 msgid "You can also edit most values<br />by clicking directly on them."
 msgstr ""
 
-#: js/messages.php:614
+#: js/messages.php:620
 #, fuzzy
 msgid "Go to link:"
 msgstr "Geen databasisse"
 
-#: js/messages.php:615
+#: js/messages.php:621
 #, fuzzy
 #| msgid "Column names"
 msgid "Copy column name."
 msgstr "Kolom name"
 
-#: js/messages.php:617
+#: js/messages.php:623
 msgid "Right-click the column name to copy it to your clipboard."
 msgstr ""
 
-#: js/messages.php:620
+#: js/messages.php:626
 #, fuzzy
 #| msgid "Change password"
 msgid "Generate password"
 msgstr "Verander wagwoord"
 
-#: js/messages.php:621 libraries/replication_gui.lib.php:883
+#: js/messages.php:627 libraries/replication_gui.lib.php:883
 #, fuzzy
 msgid "Generate"
 msgstr "Voortgebring deur"
 
-#: js/messages.php:625
+#: js/messages.php:631
 #, fuzzy
 #| msgid "Mon"
 msgid "More"
 msgstr "Ma"
 
-#: js/messages.php:628
+#: js/messages.php:634
 #, fuzzy
 #| msgid "Show all"
 msgid "Show panel"
 msgstr "Wys alles"
 
-#: js/messages.php:629
+#: js/messages.php:635
 #, fuzzy
 #| msgid "Indexes"
 msgid "Hide panel"
 msgstr "Indekse"
 
-#: js/messages.php:630
+#: js/messages.php:636
 #, fuzzy
 #| msgid "Show grid"
 msgid "Show hidden navigation tree items."
 msgstr "Wys ruitgebied"
 
-#: js/messages.php:631 libraries/config/messages.inc.php:479
+#: js/messages.php:637 libraries/config/messages.inc.php:479
 #: libraries/navigation/NavigationTree.php:1434
 #, fuzzy
 #| msgid "Indexes"
 msgid "Link with main panel"
 msgstr "Indekse"
 
-#: js/messages.php:632 libraries/navigation/NavigationTree.php:1437
+#: js/messages.php:638 libraries/navigation/NavigationTree.php:1437
 #, fuzzy
 #| msgid "Indexes"
 msgid "Unlink from main panel"
 msgstr "Indekse"
 
-#: js/messages.php:636
+#: js/messages.php:642
 msgid "The requested page was not found in the history, it may have expired."
 msgstr ""
 
-#: js/messages.php:640 setup/lib/index.lib.php:169
+#: js/messages.php:646 setup/lib/index.lib.php:169
 #, php-format
 msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
@@ -2590,121 +2596,121 @@ msgid ""
 msgstr ""
 
 #. l10n: Latest available phpMyAdmin version
-#: js/messages.php:644
+#: js/messages.php:650
 msgid ", latest stable version:"
 msgstr ""
 
-#: js/messages.php:645
+#: js/messages.php:651
 #, fuzzy
 msgid "up to date"
 msgstr "Geen databasisse"
 
-#: js/messages.php:647 libraries/DisplayResults.php:4967 view_create.php:200
+#: js/messages.php:653 libraries/DisplayResults.php:4968 view_create.php:200
 #, fuzzy
 msgid "Create view"
 msgstr "Bediener weergawe"
 
-#: js/messages.php:650
+#: js/messages.php:656
 #, fuzzy
 msgid "Send error report"
 msgstr "Bediener Keuse"
 
-#: js/messages.php:651
+#: js/messages.php:657
 #, fuzzy
 msgid "Submit error report"
 msgstr "Bediener Keuse"
 
-#: js/messages.php:653
+#: js/messages.php:659
 msgid ""
 "A fatal JavaScript error has occurred. Would you like to send an error "
 "report?"
 msgstr ""
 
-#: js/messages.php:655
+#: js/messages.php:661
 #, fuzzy
 #| msgid "General relation features"
 msgid "Change report settings"
 msgstr "Algemene verwantskap funksies"
 
-#: js/messages.php:656
+#: js/messages.php:662
 #, fuzzy
 msgid "Show report details"
 msgstr "Wys tabelle"
 
-#: js/messages.php:659
+#: js/messages.php:665
 msgid ""
 "Your export is incomplete, due to a low execution time limit at the PHP "
 "level!"
 msgstr ""
 
-#: js/messages.php:663
+#: js/messages.php:669
 #, php-format
 msgid ""
 "Warning: a form on this page has more than %d fields. On submission, some of "
 "the fields might be ignored, due to PHP's max_input_vars configuration."
 msgstr ""
 
-#: js/messages.php:669 js/messages.php:682
+#: js/messages.php:675 js/messages.php:688
 msgid "Some errors have been detected on the server!"
 msgstr ""
 
-#: js/messages.php:671
+#: js/messages.php:677
 msgid "Please look at the bottom of this window."
 msgstr ""
 
-#: js/messages.php:677 libraries/ErrorHandler.php:367
+#: js/messages.php:683 libraries/ErrorHandler.php:367
 #, fuzzy
 #| msgid "Ignore"
 msgid "Ignore All"
 msgstr "Ignoreer"
 
-#: js/messages.php:685
+#: js/messages.php:691
 msgid ""
 "As per your settings, they are being submitted currently, please be patient."
 msgstr ""
 
-#: js/messages.php:695
+#: js/messages.php:701
 #, fuzzy
 #| msgid "Show this query here again"
 msgid "Execute this query again?"
 msgstr "Wys hierdie navraag weer hier"
 
-#: js/messages.php:697
+#: js/messages.php:703
 #, fuzzy
 #| msgid "Do you really want to "
 msgid "Do you really want to delete this bookmark?"
 msgstr "Wil jy regtig "
 
-#: js/messages.php:699
+#: js/messages.php:705
 msgid "Some error occurred while getting SQL debug info."
 msgstr ""
 
-#: js/messages.php:701
+#: js/messages.php:707
 #, php-format
 msgid "%s queries executed %s times in %s seconds."
 msgstr ""
 
-#: js/messages.php:702
+#: js/messages.php:708
 #, php-format
 msgid "%s argument(s) passed"
 msgstr ""
 
-#: js/messages.php:703
+#: js/messages.php:709
 #, fuzzy
 #| msgid "Table comments"
 msgid "Show arguments"
 msgstr "Tabel kommentaar"
 
-#: js/messages.php:704
+#: js/messages.php:710
 #, fuzzy
 msgid "Hide arguments"
 msgstr "SQL-stelling"
 
-#: js/messages.php:705 libraries/Console.php:306
+#: js/messages.php:711 libraries/Console.php:306
 msgid "Time taken:"
 msgstr ""
 
-#: js/messages.php:706
+#: js/messages.php:712
 msgid ""
 "There was a problem accessing your browser storage, some features may not "
 "work properly for you. It is likely that the browser doesn't support storage "
@@ -2713,37 +2719,37 @@ msgid ""
 "Safari, such problem is commonly caused by \"Private Mode Browsing\"."
 msgstr ""
 
-#: js/messages.php:708
+#: js/messages.php:714
 #, fuzzy
 msgid "Copy tables to"
 msgstr "Geen databasisse"
 
-#: js/messages.php:709
+#: js/messages.php:715
 #, fuzzy
 #| msgid "Replace table data with file"
 msgid "Add table prefix"
 msgstr "Vervang tabel data met leer (file)"
 
-#: js/messages.php:710
+#: js/messages.php:716
 #, fuzzy
 #| msgid "Replace table data with file"
 msgid "Replace table with prefix"
 msgstr "Vervang tabel data met leer (file)"
 
-#: js/messages.php:711 templates/database/structure/check_all_tables.phtml:29
+#: js/messages.php:717 templates/database/structure/check_all_tables.phtml:29
 #, fuzzy
 #| msgid "Replace table data with file"
 msgid "Copy table with prefix"
 msgstr "Vervang tabel data met leer (file)"
 
-#: js/messages.php:740
+#: js/messages.php:746
 #, fuzzy
 #| msgid "Previous"
 msgctxt "Previous month"
 msgid "Prev"
 msgstr "Vorige"
 
-#: js/messages.php:745
+#: js/messages.php:751
 #, fuzzy
 #| msgid "Next"
 msgctxt "Next month"
@@ -2751,95 +2757,95 @@ msgid "Next"
 msgstr "Volgende"
 
 #. l10n: Display text for current month link in calendar
-#: js/messages.php:748
+#: js/messages.php:754
 #, fuzzy
 msgid "Today"
 msgstr "totaal"
 
-#: js/messages.php:752
+#: js/messages.php:758
 #, fuzzy
 #| msgid "Binary"
 msgid "January"
 msgstr "Biner"
 
-#: js/messages.php:753
+#: js/messages.php:759
 msgid "February"
 msgstr ""
 
-#: js/messages.php:754
+#: js/messages.php:760
 #, fuzzy
 #| msgid "Mar"
 msgid "March"
 msgstr "Mar"
 
-#: js/messages.php:755
+#: js/messages.php:761
 #, fuzzy
 #| msgid "Apr"
 msgid "April"
 msgstr "Apr"
 
-#: js/messages.php:756
+#: js/messages.php:762
 msgid "May"
 msgstr "Mei"
 
-#: js/messages.php:757
+#: js/messages.php:763
 #, fuzzy
 #| msgid "Jun"
 msgid "June"
 msgstr "Jun"
 
-#: js/messages.php:758
+#: js/messages.php:764
 #, fuzzy
 #| msgid "Jul"
 msgid "July"
 msgstr "Jul"
 
-#: js/messages.php:759
+#: js/messages.php:765
 #, fuzzy
 #| msgid "Aug"
 msgid "August"
 msgstr "Aug"
 
-#: js/messages.php:760
+#: js/messages.php:766
 msgid "September"
 msgstr ""
 
-#: js/messages.php:761
+#: js/messages.php:767
 #, fuzzy
 #| msgid "Oct"
 msgid "October"
 msgstr "Okt"
 
-#: js/messages.php:762
+#: js/messages.php:768
 msgid "November"
 msgstr ""
 
-#: js/messages.php:763
+#: js/messages.php:769
 msgid "December"
 msgstr ""
 
 #. l10n: Short month name
-#: js/messages.php:770 libraries/Util.php:1665
+#: js/messages.php:776 libraries/Util.php:1665
 msgid "Jan"
 msgstr "Jan"
 
 #. l10n: Short month name
-#: js/messages.php:772 libraries/Util.php:1667
+#: js/messages.php:778 libraries/Util.php:1667
 msgid "Feb"
 msgstr "Feb"
 
 #. l10n: Short month name
-#: js/messages.php:774 libraries/Util.php:1669
+#: js/messages.php:780 libraries/Util.php:1669
 msgid "Mar"
 msgstr "Mar"
 
 #. l10n: Short month name
-#: js/messages.php:776 libraries/Util.php:1671
+#: js/messages.php:782 libraries/Util.php:1671
 msgid "Apr"
 msgstr "Apr"
 
 #. l10n: Short month name
-#: js/messages.php:778 libraries/Util.php:1673
+#: js/messages.php:784 libraries/Util.php:1673
 #, fuzzy
 #| msgid "May"
 msgctxt "Short month name"
@@ -2847,78 +2853,78 @@ msgid "May"
 msgstr "Mei"
 
 #. l10n: Short month name
-#: js/messages.php:780 libraries/Util.php:1675
+#: js/messages.php:786 libraries/Util.php:1675
 msgid "Jun"
 msgstr "Jun"
 
 #. l10n: Short month name
-#: js/messages.php:782 libraries/Util.php:1677
+#: js/messages.php:788 libraries/Util.php:1677
 msgid "Jul"
 msgstr "Jul"
 
 #. l10n: Short month name
-#: js/messages.php:784 libraries/Util.php:1679
+#: js/messages.php:790 libraries/Util.php:1679
 msgid "Aug"
 msgstr "Aug"
 
 #. l10n: Short month name
-#: js/messages.php:786 libraries/Util.php:1681
+#: js/messages.php:792 libraries/Util.php:1681
 msgid "Sep"
 msgstr "Sep"
 
 #. l10n: Short month name
-#: js/messages.php:788 libraries/Util.php:1683
+#: js/messages.php:794 libraries/Util.php:1683
 msgid "Oct"
 msgstr "Okt"
 
 #. l10n: Short month name
-#: js/messages.php:790 libraries/Util.php:1685
+#: js/messages.php:796 libraries/Util.php:1685
 msgid "Nov"
 msgstr "Nov"
 
 #. l10n: Short month name
-#: js/messages.php:792 libraries/Util.php:1687
+#: js/messages.php:798 libraries/Util.php:1687
 msgid "Dec"
 msgstr "Des"
 
-#: js/messages.php:798
+#: js/messages.php:804
 #, fuzzy
 #| msgid "Sun"
 msgid "Sunday"
 msgstr "So"
 
-#: js/messages.php:799
+#: js/messages.php:805
 #, fuzzy
 #| msgid "Mon"
 msgid "Monday"
 msgstr "Ma"
 
-#: js/messages.php:800
+#: js/messages.php:806
 #, fuzzy
 #| msgid "Tue"
 msgid "Tuesday"
 msgstr "Di"
 
-#: js/messages.php:801
+#: js/messages.php:807
 msgid "Wednesday"
 msgstr ""
 
-#: js/messages.php:802
+#: js/messages.php:808
 msgid "Thursday"
 msgstr ""
 
-#: js/messages.php:803
+#: js/messages.php:809
 #, fuzzy
 #| msgid "Fri"
 msgid "Friday"
 msgstr "Fr"
 
-#: js/messages.php:804
+#: js/messages.php:810
 msgid "Saturday"
 msgstr ""
 
 #. l10n: Short week day name
-#: js/messages.php:811
+#: js/messages.php:817
 #, fuzzy
 #| msgctxt "Short week day name"
 #| msgid "Sun"
@@ -2926,199 +2932,199 @@ msgid "Sun"
 msgstr "So"
 
 #. l10n: Short week day name
-#: js/messages.php:813 libraries/Util.php:1692
+#: js/messages.php:819 libraries/Util.php:1692
 msgid "Mon"
 msgstr "Ma"
 
 #. l10n: Short week day name
-#: js/messages.php:815 libraries/Util.php:1694
+#: js/messages.php:821 libraries/Util.php:1694
 msgid "Tue"
 msgstr "Di"
 
 #. l10n: Short week day name
-#: js/messages.php:817 libraries/Util.php:1696
+#: js/messages.php:823 libraries/Util.php:1696
 msgid "Wed"
 msgstr "Wo"
 
 #. l10n: Short week day name
-#: js/messages.php:819 libraries/Util.php:1698
+#: js/messages.php:825 libraries/Util.php:1698
 msgid "Thu"
 msgstr "Do"
 
 #. l10n: Short week day name
-#: js/messages.php:821 libraries/Util.php:1700
+#: js/messages.php:827 libraries/Util.php:1700
 msgid "Fri"
 msgstr "Fr"
 
 #. l10n: Short week day name
-#: js/messages.php:823 libraries/Util.php:1702
+#: js/messages.php:829 libraries/Util.php:1702
 msgid "Sat"
 msgstr "Sa"
 
 #. l10n: Minimal week day name
-#: js/messages.php:830
+#: js/messages.php:836
 #, fuzzy
 #| msgid "Sun"
 msgid "Su"
 msgstr "So"
 
 #. l10n: Minimal week day name
-#: js/messages.php:832
+#: js/messages.php:838
 #, fuzzy
 #| msgid "Mon"
 msgid "Mo"
 msgstr "Ma"
 
 #. l10n: Minimal week day name
-#: js/messages.php:834
+#: js/messages.php:840
 #, fuzzy
 #| msgid "Tue"
 msgid "Tu"
 msgstr "Di"
 
 #. l10n: Minimal week day name
-#: js/messages.php:836
+#: js/messages.php:842
 #, fuzzy
 #| msgid "Wed"
 msgid "We"
 msgstr "Wo"
 
 #. l10n: Minimal week day name
-#: js/messages.php:838
+#: js/messages.php:844
 #, fuzzy
 #| msgid "Thu"
 msgid "Th"
 msgstr "Do"
 
 #. l10n: Minimal week day name
-#: js/messages.php:840
+#: js/messages.php:846
 #, fuzzy
 #| msgid "Fri"
 msgid "Fr"
 msgstr "Fr"
 
 #. l10n: Minimal week day name
-#: js/messages.php:842
+#: js/messages.php:848
 #, fuzzy
 #| msgid "Sat"
 msgid "Sa"
 msgstr "Sa"
 
 #. l10n: Column header for week of the year in calendar
-#: js/messages.php:846
+#: js/messages.php:852
 msgid "Wk"
 msgstr ""
 
 #. l10n: Month-year order for calendar, use either "calendar-month-year"
 #. * or "calendar-year-month".
 #.
-#: js/messages.php:853
+#: js/messages.php:859
 msgid "calendar-month-year"
 msgstr ""
 
 #. l10n: Year suffix for calendar, "none" is empty.
-#: js/messages.php:856
+#: js/messages.php:862
 #, fuzzy
 #| msgid "None"
 msgctxt "Year suffix"
 msgid "none"
 msgstr "Geen"
 
-#: js/messages.php:868
+#: js/messages.php:874
 msgid "Hour"
 msgstr ""
 
-#: js/messages.php:869
+#: js/messages.php:875
 #, fuzzy
 #| msgid "in use"
 msgid "Minute"
 msgstr "in gebruik"
 
-#: js/messages.php:870
+#: js/messages.php:876
 #, fuzzy
 #| msgid "Records"
 msgid "Second"
 msgstr "Rekords"
 
-#: js/messages.php:881
+#: js/messages.php:887
 msgid "This field is required"
 msgstr ""
 
-#: js/messages.php:882
+#: js/messages.php:888
 #, fuzzy
 #| msgid "Add new field"
 msgid "Please fix this field"
 msgstr "Voeg 'n nuwe veld by"
 
-#: js/messages.php:883
+#: js/messages.php:889
 msgid "Please enter a valid email address"
 msgstr ""
 
-#: js/messages.php:884
+#: js/messages.php:890
 msgid "Please enter a valid URL"
 msgstr ""
 
-#: js/messages.php:885
+#: js/messages.php:891
 #, fuzzy
 #| msgid "Please select a database"
 msgid "Please enter a valid date"
 msgstr "Kies asb. 'n databasis"
 
-#: js/messages.php:888
+#: js/messages.php:894
 msgid "Please enter a valid date ( ISO )"
 msgstr ""
 
-#: js/messages.php:890
+#: js/messages.php:896
 msgid "Please enter a valid number"
 msgstr ""
 
-#: js/messages.php:893
+#: js/messages.php:899
 msgid "Please enter a valid credit card number"
 msgstr ""
 
-#: js/messages.php:895
+#: js/messages.php:901
 msgid "Please enter only digits"
 msgstr ""
 
-#: js/messages.php:898
+#: js/messages.php:904
 msgid "Please enter the same value again"
 msgstr ""
 
-#: js/messages.php:902
+#: js/messages.php:908
 msgid "Please enter no more than {0} characters"
 msgstr ""
 
-#: js/messages.php:907
+#: js/messages.php:913
 msgid "Please enter at least {0} characters"
 msgstr ""
 
-#: js/messages.php:912
+#: js/messages.php:918
 msgid "Please enter a value between {0} and {1} characters long"
 msgstr ""
 
-#: js/messages.php:917
+#: js/messages.php:923
 msgid "Please enter a value between {0} and {1}"
 msgstr ""
 
-#: js/messages.php:922
+#: js/messages.php:928
 msgid "Please enter a value less than or equal to {0}"
 msgstr ""
 
-#: js/messages.php:927
+#: js/messages.php:933
 msgid "Please enter a value greater than or equal to {0}"
 msgstr ""
 
-#: js/messages.php:933
+#: js/messages.php:939
 #, fuzzy
 #| msgid "Please choose a page to edit"
 msgid "Please enter a valid date or time"
 msgstr "Kies asb. 'n bladsy om te verander"
 
-#: js/messages.php:938
+#: js/messages.php:944
 msgid "Please enter a valid HEX input"
 msgstr ""
 
-#: js/messages.php:943 libraries/Message.php:200 libraries/Util.php:677
+#: js/messages.php:949 libraries/Message.php:200 libraries/Util.php:677
 #: libraries/core.lib.php:245 libraries/import.lib.php:94
 #: libraries/insert_edit.lib.php:1230 view_operations.php:73
 msgid "Error"
@@ -3284,7 +3290,7 @@ msgid "History"
 msgstr "Ignoreer SQL Validasie"
 
 #: libraries/Console.php:225 libraries/Console.php:355
-#: libraries/DisplayResults.php:1718 libraries/import.lib.php:1250
+#: libraries/DisplayResults.php:1719 libraries/import.lib.php:1250
 #: libraries/import.lib.php:1285 libraries/mult_submits.lib.php:342
 #: libraries/plugins/export/ExportCodegen.php:84
 #: libraries/plugins/export/ExportCsv.php:48
@@ -3489,8 +3495,8 @@ msgstr ""
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr ""
 
-#: libraries/DbQbe.php:403 libraries/DisplayResults.php:2263
-#: libraries/DisplayResults.php:2269 libraries/config.values.php:70
+#: libraries/DbQbe.php:403 libraries/DisplayResults.php:2264
+#: libraries/DisplayResults.php:2270 libraries/config.values.php:70
 #: libraries/controllers/server/ServerDatabasesController.php:539
 #: libraries/operations.lib.php:789
 #: libraries/server_status_processes.lib.php:166
@@ -3500,8 +3506,8 @@ msgstr ""
 msgid "Ascending"
 msgstr "Dalend"
 
-#: libraries/DbQbe.php:406 libraries/DisplayResults.php:2259
-#: libraries/DisplayResults.php:2273 libraries/config.values.php:71
+#: libraries/DbQbe.php:406 libraries/DisplayResults.php:2260
+#: libraries/DisplayResults.php:2274 libraries/config.values.php:71
 #: libraries/controllers/server/ServerDatabasesController.php:539
 #: libraries/operations.lib.php:792
 #: libraries/server_status_processes.lib.php:163
@@ -3725,28 +3731,28 @@ msgstr "Selekteer Niks"
 msgid "Inside column:"
 msgstr "Binne tabel(le):"
 
-#: libraries/DisplayResults.php:903
+#: libraries/DisplayResults.php:904
 msgid "Save edited data"
 msgstr ""
 
-#: libraries/DisplayResults.php:909
+#: libraries/DisplayResults.php:910
 #, fuzzy
 #| msgid "Add/Delete Field Columns"
 msgid "Restore column order"
 msgstr "Voeg By/Verwyder Veld Kolomme"
 
-#: libraries/DisplayResults.php:957 libraries/central_columns.lib.php:659
+#: libraries/DisplayResults.php:958 libraries/central_columns.lib.php:659
 #, fuzzy
 msgid "Filter rows"
 msgstr "Velde"
 
-#: libraries/DisplayResults.php:959 libraries/central_columns.lib.php:661
+#: libraries/DisplayResults.php:960 libraries/central_columns.lib.php:661
 #, fuzzy
 #| msgid "Search in database"
 msgid "Search this table"
 msgstr "Soek in databasis"
 
-#: libraries/DisplayResults.php:990 libraries/Util.php:2612
+#: libraries/DisplayResults.php:991 libraries/Util.php:2612
 #: libraries/Util.php:2615
 #, fuzzy
 #| msgid "Begin"
@@ -3754,7 +3760,7 @@ msgctxt "First page"
 msgid "Begin"
 msgstr "Begin"
 
-#: libraries/DisplayResults.php:993 libraries/Util.php:2613
+#: libraries/DisplayResults.php:994 libraries/Util.php:2613
 #: libraries/Util.php:2616
 #: libraries/controllers/server/ServerBinlogController.php:193
 #: libraries/controllers/server/ServerBinlogController.php:195
@@ -3764,7 +3770,7 @@ msgctxt "Previous page"
 msgid "Previous"
 msgstr "Vorige"
 
-#: libraries/DisplayResults.php:1059 libraries/Util.php:2644
+#: libraries/DisplayResults.php:1060 libraries/Util.php:2644
 #: libraries/Util.php:2654
 #: libraries/controllers/server/ServerBinlogController.php:227
 #: libraries/controllers/server/ServerBinlogController.php:229
@@ -3774,7 +3780,7 @@ msgctxt "Next page"
 msgid "Next"
 msgstr "Volgende"
 
-#: libraries/DisplayResults.php:1089 libraries/Util.php:2645
+#: libraries/DisplayResults.php:1090 libraries/Util.php:2645
 #: libraries/Util.php:2655
 #, fuzzy
 #| msgid "End"
@@ -3782,81 +3788,81 @@ msgctxt "Last page"
 msgid "End"
 msgstr "Einde"
 
-#: libraries/DisplayResults.php:1132
+#: libraries/DisplayResults.php:1133
 msgid "All"
 msgstr "Alle"
 
-#: libraries/DisplayResults.php:1142 libraries/display_export.lib.php:435
+#: libraries/DisplayResults.php:1143 libraries/display_export.lib.php:435
 #: templates/startAndNumberOfRowsPanel.phtml:10
 #, fuzzy
 #| msgid "Number of rows per page"
 msgid "Number of rows:"
 msgstr "Hoeveelheid rye per bladsy"
 
-#: libraries/DisplayResults.php:1435
+#: libraries/DisplayResults.php:1436
 msgid "Sort by key"
 msgstr ""
 
-#: libraries/DisplayResults.php:1724 libraries/DisplayResults.php:1830
+#: libraries/DisplayResults.php:1725 libraries/DisplayResults.php:1831
 #, fuzzy
 #| msgid "Partial Texts"
 msgid "Partial texts"
 msgstr "Gedeeltelike Tekste"
 
-#: libraries/DisplayResults.php:1725 libraries/DisplayResults.php:1834
+#: libraries/DisplayResults.php:1726 libraries/DisplayResults.php:1835
 #, fuzzy
 #| msgid "Full Texts"
 msgid "Full texts"
 msgstr "Volle Tekste"
 
-#: libraries/DisplayResults.php:1741
+#: libraries/DisplayResults.php:1742
 #, fuzzy
 msgid "Relational key"
 msgstr "Relasie uitsig"
 
-#: libraries/DisplayResults.php:1742
+#: libraries/DisplayResults.php:1743
 #, fuzzy
 #| msgid "Displaying Column Comments"
 msgid "Display column for relations"
 msgstr "Kolom Kommentaar word vertoon"
 
-#: libraries/DisplayResults.php:1755
+#: libraries/DisplayResults.php:1756
 msgid "Show binary contents"
 msgstr ""
 
-#: libraries/DisplayResults.php:1761
+#: libraries/DisplayResults.php:1762
 msgid "Show BLOB contents"
 msgstr ""
 
-#: libraries/DisplayResults.php:1773
+#: libraries/DisplayResults.php:1774
 #, fuzzy
 msgid "Hide browser transformation"
 msgstr "Wys PHP informasie"
 
-#: libraries/DisplayResults.php:1782
+#: libraries/DisplayResults.php:1783
 msgid "Well Known Text"
 msgstr ""
 
-#: libraries/DisplayResults.php:1783
+#: libraries/DisplayResults.php:1784
 msgid "Well Known Binary"
 msgstr ""
 
-#: libraries/DisplayResults.php:3524 libraries/DisplayResults.php:3539
+#: libraries/DisplayResults.php:3525 libraries/DisplayResults.php:3540
 #, fuzzy
 #| msgid "The row has been deleted."
 msgid "The row has been deleted."
 msgstr "Die ry is verwyder"
 
-#: libraries/DisplayResults.php:3575 libraries/DisplayResults.php:4829
+#: libraries/DisplayResults.php:3576 libraries/DisplayResults.php:4830
 #: libraries/server_status_processes.lib.php:282
 msgid "Kill"
 msgstr "Vermoor"
 
-#: libraries/DisplayResults.php:4267
+#: libraries/DisplayResults.php:4268
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
 msgstr ""
 
-#: libraries/DisplayResults.php:4340 libraries/Message.php:181
+#: libraries/DisplayResults.php:4341 libraries/Message.php:181
 #: libraries/controllers/table/TableRelationController.php:253
 #: libraries/controllers/table/TableSearchController.php:639
 #: libraries/rte/rte_routines.lib.php:1451 libraries/sql_query_form.lib.php:89
@@ -3864,7 +3870,7 @@ msgstr ""
 msgid "Your SQL query has been executed successfully."
 msgstr "Jou SQL-navraag is suksesvol uitgevoer."
 
-#: libraries/DisplayResults.php:4687
+#: libraries/DisplayResults.php:4688
 #: libraries/controllers/database/DatabaseStructureController.php:753
 #, php-format
 msgid ""
@@ -3872,29 +3878,29 @@ msgid ""
 "%s."
 msgstr ""
 
-#: libraries/DisplayResults.php:4700
+#: libraries/DisplayResults.php:4701
 #, fuzzy, php-format
 #| msgid "Showing rows"
 msgid "Showing rows %1s - %2s"
 msgstr "Vertoon rye"
 
-#: libraries/DisplayResults.php:4715
+#: libraries/DisplayResults.php:4716
 #, php-format
 msgid "%1$d total, %2$d in query"
 msgstr ""
 
-#: libraries/DisplayResults.php:4720
+#: libraries/DisplayResults.php:4721
 #, fuzzy, php-format
 #| msgid "total"
 msgid "%d total"
 msgstr "totaal"
 
-#: libraries/DisplayResults.php:4732 libraries/sql.lib.php:1380
+#: libraries/DisplayResults.php:4733 libraries/sql.lib.php:1380
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr ""
 
-#: libraries/DisplayResults.php:4834 libraries/DisplayResults.php:4841
+#: libraries/DisplayResults.php:4835 libraries/DisplayResults.php:4842
 #: libraries/Util.php:4638 libraries/Util.php:4644
 #: libraries/mult_submits.inc.php:53
 #: templates/database/structure/check_all_tables.phtml:2
@@ -3902,7 +3908,7 @@ msgstr ""
 msgid "With selected:"
 msgstr "Met gekose:"
 
-#: libraries/DisplayResults.php:4838 libraries/DisplayResults.php:4840
+#: libraries/DisplayResults.php:4839 libraries/DisplayResults.php:4841
 #: libraries/Util.php:4640 libraries/Util.php:4641
 #: libraries/server_privileges.lib.php:1272
 #: libraries/server_privileges.lib.php:1273
@@ -3915,25 +3921,25 @@ msgstr "Met gekose:"
 msgid "Check all"
 msgstr "Kies Alles"
 
-#: libraries/DisplayResults.php:5013
+#: libraries/DisplayResults.php:5014
 msgid "Copy to clipboard"
 msgstr ""
 
-#: libraries/DisplayResults.php:5069
+#: libraries/DisplayResults.php:5070
 msgid "Query results operations"
 msgstr ""
 
-#: libraries/DisplayResults.php:5157 templates/table/chart/tbl_chart.phtml:12
+#: libraries/DisplayResults.php:5158 templates/table/chart/tbl_chart.phtml:12
 #, fuzzy
 #| msgid "Displaying Column Comments"
 msgid "Display chart"
 msgstr "Kolom Kommentaar word vertoon"
 
-#: libraries/DisplayResults.php:5182
+#: libraries/DisplayResults.php:5183
 msgid "Visualize GIS data"
 msgstr ""
 
-#: libraries/DisplayResults.php:5368
+#: libraries/DisplayResults.php:5369
 #, fuzzy
 #| msgid "Link not found"
 msgid "Link not found!"
@@ -4576,40 +4582,40 @@ msgstr "Soek in databasis"
 msgid "Target database `%s` was not found!"
 msgstr "Soek in databasis"
 
-#: libraries/Table.php:1300
+#: libraries/Table.php:1305
 #, fuzzy
 msgid "Invalid database:"
 msgstr "Geen databasisse"
 
-#: libraries/Table.php:1314
+#: libraries/Table.php:1322
 #, fuzzy
 #| msgid "Inside table(s):"
 msgid "Invalid table name:"
 msgstr "Binne tabel(le):"
 
-#: libraries/Table.php:1349
+#: libraries/Table.php:1357
 #, fuzzy, php-format
 msgid "Failed to rename table %1$s to %2$s!"
 msgstr "Bediener weergawe"
 
-#: libraries/Table.php:1368
+#: libraries/Table.php:1376
 #, fuzzy, php-format
 #| msgid "Table %s has been renamed to %s."
 msgid "Table %1$s has been renamed to %2$s."
 msgstr "Tabel %s is vernoem na %s"
 
-#: libraries/Table.php:1587
+#: libraries/Table.php:1595
 msgid "Could not save table UI preferences!"
 msgstr ""
 
-#: libraries/Table.php:1617
+#: libraries/Table.php:1625
 #, php-format
 msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
 "['MaxTableUiprefs'] %s)"
 msgstr ""
 
-#: libraries/Table.php:1770
+#: libraries/Table.php:1778
 #, php-format
 msgid ""
 "Cannot save UI property \"%s\". The changes made will not be persistent "
@@ -4617,19 +4623,19 @@ msgid ""
 "changed."
 msgstr ""
 
-#: libraries/Table.php:1906
+#: libraries/Table.php:1914
 msgid "The name of the primary key must be \"PRIMARY\"!"
 msgstr "Die naam van die primere sleutel moet PRIMARY wees!"
 
-#: libraries/Table.php:1917
+#: libraries/Table.php:1925
 msgid "Can't rename index to PRIMARY!"
 msgstr "Kannie die indeks hernoem na PRIMARY!"
 
-#: libraries/Table.php:1939
+#: libraries/Table.php:1947
 msgid "No index parts defined!"
 msgstr "Geen indeks dele gedefinieer!"
 
-#: libraries/Table.php:2257
+#: libraries/Table.php:2265
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr ""
@@ -8023,19 +8029,19 @@ msgid "Favorite List is full!"
 msgstr ""
 
 #: libraries/controllers/database/DatabaseStructureController.php:544
-#: tbl_operations.php:379
+#: tbl_operations.php:384
 #, php-format
 msgid "Table %s has been emptied."
 msgstr "Tabel %s is leeg gemaak."
 
 #: libraries/controllers/database/DatabaseStructureController.php:565
-#: tbl_operations.php:397 view_operations.php:131
+#: tbl_operations.php:402 view_operations.php:131
 #, fuzzy, php-format
 msgid "View %s has been dropped."
 msgstr "Veld %s is verwyder"
 
 #: libraries/controllers/database/DatabaseStructureController.php:566
-#: tbl_operations.php:398
+#: tbl_operations.php:403
 #, fuzzy, php-format
 #| msgid "Table %s has been dropped."
 msgid "Table %s has been dropped."
@@ -13895,19 +13901,19 @@ msgid "Unrecognized data type."
 msgstr ""
 
 #: libraries/sql-parser/src/Components/Expression.php:248
-#: libraries/sql-parser/src/Components/Expression.php:391
+#: libraries/sql-parser/src/Components/Expression.php:398
 #, fuzzy
 #| msgid "With selected:"
 msgid "An alias was expected."
 msgstr "Met gekose:"
 
-#: libraries/sql-parser/src/Components/Expression.php:329
-#: libraries/sql-parser/src/Components/Expression.php:348
-#: libraries/sql-parser/src/Components/Expression.php:380
+#: libraries/sql-parser/src/Components/Expression.php:336
+#: libraries/sql-parser/src/Components/Expression.php:355
+#: libraries/sql-parser/src/Components/Expression.php:387
 msgid "An alias was previously found."
 msgstr ""
 
-#: libraries/sql-parser/src/Components/Expression.php:361
+#: libraries/sql-parser/src/Components/Expression.php:368
 msgid "Unexpected dot."
 msgstr ""
 
@@ -13963,26 +13969,26 @@ msgstr ""
 msgid "Expected delimiter."
 msgstr ""
 
-#: libraries/sql-parser/src/Lexer.php:783
+#: libraries/sql-parser/src/Lexer.php:838
 #, fuzzy, php-format
 msgid "Ending quote %1$s was expected."
 msgstr "Tabel %s is verwyder"
 
-#: libraries/sql-parser/src/Lexer.php:823
+#: libraries/sql-parser/src/Lexer.php:878
 msgid "Variable name was expected."
 msgstr ""
 
-#: libraries/sql-parser/src/Parser.php:430
+#: libraries/sql-parser/src/Parser.php:450
 #, fuzzy
 #| msgid "At Beginning of Table"
 msgid "Unexpected beginning of statement."
 msgstr "By Begin van Tabel"
 
-#: libraries/sql-parser/src/Parser.php:449
+#: libraries/sql-parser/src/Parser.php:469
 msgid "Unrecognized statement type."
 msgstr ""
 
-#: libraries/sql-parser/src/Parser.php:531
+#: libraries/sql-parser/src/Parser.php:551
 msgid "No transaction was previously started."
 msgstr ""
 
