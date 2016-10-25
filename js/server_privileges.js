@@ -40,15 +40,15 @@ function checkPasswordStrength(value, meter_obj, meter_object_label, username = 
     strength = parseInt(strength);
     meter_obj.val(strength);
     switch(strength){
-        case 0: meter_obj_label.html('Extremely weak');
+        case 0: meter_obj_label.html(PMA_messages.strExtrWeak);
                 break;
-        case 1: meter_obj_label.html('Very weak');
+        case 1: meter_obj_label.html(PMA_messages.strVeryWeak);
                 break;
-        case 2: meter_obj_label.html('Weak');
+        case 2: meter_obj_label.html(PMA_messages.strWeak);
                 break;
-        case 3: meter_obj_label.html('Good');
+        case 3: meter_obj_label.html(PMA_messages.strGood);
                 break;
-        case 4: meter_obj_label.html('Strong');
+        case 4: meter_obj_label.html(PMA_messages.strStrong);
     }
 }
 

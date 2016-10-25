@@ -718,6 +718,13 @@ $js_messages['strAddPrefix'] = __('Add table prefix');
 $js_messages['strReplacePrefix'] = __('Replace table with prefix');
 $js_messages['strCopyPrefix'] = __('Copy table with prefix');
 
+/* For password strength simulation */
+$js_messages['strExtrWeak'] = __('Extremely weak');
+$js_messages['strVeryWeak'] = __('Very weak');
+$js_messages['strWeak'] = __('Weak');
+$js_messages['strGood'] = __('Good');
+$js_messages['strStrong'] = __('Strong');
+
 echo "var PMA_messages = new Array();\n";
 foreach ($js_messages as $name => $js_message) {
     Sanitize::printJsValue("PMA_messages['" . $name . "']", $js_message);
