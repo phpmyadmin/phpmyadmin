@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.5-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-10-18 13:42+0200\n"
-"PO-Revision-Date: 2016-10-25 08:22+0000\n"
+"PO-Revision-Date: 2016-10-25 08:23+0000\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Slovenian "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-6/sl/>\n"
@@ -2934,6 +2934,7 @@ msgstr "Oblikovanje niza za pravilo '%s' je spodletelo."
 #, php-format
 msgid "Error in reading file: The file '%s' does not exist or is not readable!"
 msgstr ""
+"Napaka pri branju datoteke: Datoteka '%s' ne obstaja ali pa ni berljiva!"
 
 #: libraries/Advisor.php:492
 #, php-format
@@ -11855,6 +11856,8 @@ msgid ""
 "No routine with name %1$s found in database %2$s. You might be lacking the "
 "necessary privileges to edit this routine"
 msgstr ""
+"V zbirki podatkov %2$s nismo našli nobene rutine z imenom %1$s. Morda nimate "
+"zahtevanih privilegijev za urejanje rutine"
 
 #: libraries/rte/rte_words.lib.php:39
 #, php-format
@@ -11862,6 +11865,8 @@ msgid ""
 "No routine with name %1$s found in database %2$s. You might be lacking the "
 "necessary privileges to view/export this routine"
 msgstr ""
+"V zbirki podatkov %2$s nismo našli nobene rutine z imenom %1$s. Morda nimate "
+"zahtevanih privilegijev za ogled/izvoz rutine"
 
 #: libraries/rte/rte_words.lib.php:42
 #, php-format
@@ -12193,6 +12198,8 @@ msgid ""
 "Allows user to give to other users or remove from other users privileges "
 "that user possess on this routine."
 msgstr ""
+"Dovoli uporabniku dodeljevanje ali odvzemanje privilegijev drugim "
+"uporabnikom, ki jih ima ta uporabnik na rutini."
 
 #: libraries/server_privileges.lib.php:1042
 msgid "Allows altering and dropping this routine."
@@ -12253,6 +12260,8 @@ msgid ""
 "Allows user to give to other users or remove from other users the privileges "
 "that user possess yourself."
 msgstr ""
+"Dovoli uporabniku dodeljevanje ali odvzemanje privilegijev drugim "
+"uporabnikom, ki jih ima ta uporabnik."
 
 #: libraries/server_privileges.lib.php:1552
 msgid "Native MySQL authentication"
@@ -13713,20 +13722,20 @@ msgstr "Pričakovali smo začetni oklepaj."
 #: libraries/sql-parser/src/Statements/InsertStatement.php:227
 #: libraries/sql-parser/src/Statements/ReplaceStatement.php:165
 #: libraries/sql-parser/src/Statements/ReplaceStatement.php:193
-#, fuzzy
-#| msgid "Unexpected token."
 msgid "Unexpected keyword."
-msgstr "Nepričakovan žeton."
+msgstr "Nepričakovana ključna beseda."
 
 #: libraries/sql-parser/src/Components/CaseExpression.php:202
 msgid "Unexpected end of CASE expression"
-msgstr ""
+msgstr "Nepričakovan konec izraza CASE"
 
 #: libraries/sql-parser/src/Components/CreateDefinition.php:227
 msgid ""
 "A symbol name was expected! A reserved keyword can not be used as a field "
 "name without backquotes."
 msgstr ""
+"Pričakovali smo ime simbola! Rezervirane besede ne morete uporabiti kot ime "
+"polja brez ustreznih narekovajev."
 
 #: libraries/sql-parser/src/Components/CreateDefinition.php:241
 msgid "A symbol name was expected!"
@@ -13774,10 +13783,9 @@ msgid "This option conflicts with \"%1$s\"."
 msgstr "Izbira je v sporu z \"%1$s\"."
 
 #: libraries/sql-parser/src/Components/OptionsArray.php:260
-#, fuzzy, php-format
-#| msgid "Ending quote %1$s was expected."
+#, php-format
 msgid "Value/Expression for the option %1$s was expected"
-msgstr "Pričakovali smo končni narekovaj %1$s."
+msgstr "Pričakovali smo vrednost/izraz za možnost %1$s"
 
 #: libraries/sql-parser/src/Components/RenameOperation.php:101
 msgid "The old name of the table was expected."
@@ -13851,10 +13859,8 @@ msgid "The name of the entity was expected."
 msgstr "Pričakovali smo ime entitete."
 
 #: libraries/sql-parser/src/Statements/CreateStatement.php:436
-#, fuzzy
-#| msgid "Variable name was expected."
 msgid "A table name was expected."
-msgstr "Pričakovali smo ime spremenljivke."
+msgstr "Pričakovali smo ime tabele."
 
 #: libraries/sql-parser/src/Statements/CreateStatement.php:444
 msgid "At least one column definition was expected."
@@ -13865,10 +13871,8 @@ msgid "A \"RETURNS\" keyword was expected."
 msgstr "Pričakovali smo ključno besedo \"RETURNS\"."
 
 #: libraries/sql-parser/src/Statements/DeleteStatement.php:303
-#, fuzzy
-#| msgid "This type of clause was previously parsed."
 msgid "This type of clause is not valid in Multi-table queries."
-msgstr "To vrsto stavka smo prej razčlenili."
+msgstr "Ta vrsta stavka ni veljavna v večtabelnih poizvedbah."
 
 #: libraries/sql.lib.php:231
 msgid "Detailed profile"
