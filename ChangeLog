@@ -31,6 +31,7 @@ phpMyAdmin - ChangeLog
 - issue #12302 Improved usage of number_format
 - issue #12656 Server selection not working
 - issue #12543 NULL results in dataset are colored grey
+- issue #12664 Create Bookmark broken
 
 4.6.5 (not yet released)
 - issue        Remove potentionally license problematic sRGB profile
