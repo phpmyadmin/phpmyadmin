@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2016-10-18 13:44+0200\n"
+"POT-Creation-Date: 2016-10-25 11:15+0200\n"
 "PO-Revision-Date: 2015-10-15 11:03+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Kazakh <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -496,7 +496,7 @@ msgid "Add geometry"
 msgstr "Геометрияны қосу"
 
 #: gis_data_editor.php:412 js/messages.php:349 libraries/DbSearch.php:466
-#: libraries/DisplayResults.php:1814 libraries/browse_foreigners.lib.php:140
+#: libraries/DisplayResults.php:1815 libraries/browse_foreigners.lib.php:140
 #: libraries/display_change_password.lib.php:144
 #: libraries/display_export.lib.php:401 libraries/display_export.lib.php:407
 #: libraries/display_import.lib.php:399 libraries/index.lib.php:34
@@ -557,7 +557,7 @@ msgstr ""
 msgid "Succeeded"
 msgstr "Рұқсат жоқ!"
 
-#: import.php:67 js/messages.php:594
+#: import.php:67 js/messages.php:600
 msgid "Failed"
 msgstr ""
 
@@ -630,7 +630,7 @@ msgstr "\"DROP DATABASE\" (дерекқорды жою) командасы - ө�
 msgid "Could not load the progress of the import."
 msgstr ""
 
-#: import_status.php:114 js/messages.php:450 js/messages.php:602
+#: import_status.php:114 js/messages.php:450 js/messages.php:608
 #: libraries/Util.php:729 libraries/export.lib.php:520
 #: libraries/plugins/schema/ExportRelationSchema.php:298 user_password.php:297
 msgid "Back"
@@ -654,7 +654,7 @@ msgstr ""
 msgid "General settings"
 msgstr "Баптауын өзгерту"
 
-#: index.php:195 js/messages.php:627
+#: index.php:195 js/messages.php:633
 #: libraries/display_change_password.lib.php:47
 #: libraries/display_change_password.lib.php:50 user_password.php:291
 msgid "Change password"
@@ -1348,7 +1348,7 @@ msgstr "Торға график қосу"
 msgid "Please add at least one variable to the series!"
 msgstr "Тәңiр жарылқасын, ең болмаса топтамаға бiр айнымалы қосыңыз"
 
-#: js/messages.php:219 libraries/DisplayResults.php:1493
+#: js/messages.php:219 libraries/DisplayResults.php:1494
 #: libraries/config.values.php:69 libraries/display_export.lib.php:690
 #: libraries/plugins/export/ExportSql.php:2185
 #: libraries/plugins/schema/SchemaPdf.php:103
@@ -1548,7 +1548,7 @@ msgstr ""
 msgid "Status"
 msgstr "Күй"
 
-#: js/messages.php:292 js/messages.php:872
+#: js/messages.php:292 js/messages.php:878
 #: libraries/plugins/export/ExportHtmlword.php:486
 #: libraries/plugins/export/ExportOdt.php:605
 #: libraries/plugins/export/ExportTexytext.php:447
@@ -1842,8 +1842,8 @@ msgstr "Жою"
 msgid "The definition of a stored function must contain a RETURN statement!"
 msgstr ""
 
-#: js/messages.php:392 libraries/DisplayResults.php:4874
-#: libraries/DisplayResults.php:5157 libraries/Menu.php:357
+#: js/messages.php:392 libraries/DisplayResults.php:4875
+#: libraries/DisplayResults.php:5158 libraries/Menu.php:357
 #: libraries/Menu.php:458 libraries/Menu.php:584 libraries/Util.php:3570
 #: libraries/Util.php:3571 libraries/Util.php:4185 libraries/Util.php:4200
 #: libraries/Util.php:4217 libraries/config/messages.inc.php:255
@@ -1899,8 +1899,8 @@ msgstr "Сұраныс өрісін жасыру"
 msgid "Show query box"
 msgstr "Сұраныс өрісін көрсету"
 
-#: js/messages.php:411 libraries/DisplayResults.php:3495
-#: libraries/DisplayResults.php:4858 libraries/Index.php:710
+#: js/messages.php:411 libraries/DisplayResults.php:3496
+#: libraries/DisplayResults.php:4859 libraries/Index.php:710
 #: libraries/Util.php:659 libraries/Util.php:1167 libraries/Util.php:3568
 #: libraries/Util.php:3569 libraries/central_columns.lib.php:850
 #: libraries/central_columns.lib.php:1198 libraries/config/messages.inc.php:889
@@ -1913,7 +1913,7 @@ msgid "Edit"
 msgstr "Өзгерту"
 
 #: js/messages.php:412 libraries/DbSearch.php:364
-#: libraries/DisplayResults.php:3564 libraries/DisplayResults.php:4842
+#: libraries/DisplayResults.php:3565 libraries/DisplayResults.php:4843
 #: libraries/central_columns.lib.php:852 libraries/central_columns.lib.php:1202
 #: libraries/display_export.lib.php:225
 #: libraries/server_user_groups.lib.php:128
@@ -1924,8 +1924,8 @@ msgstr "Өзгерту"
 msgid "Delete"
 msgstr "Жою"
 
-#: js/messages.php:413 libraries/DisplayResults.php:928
-#: libraries/DisplayResults.php:936
+#: js/messages.php:413 libraries/DisplayResults.php:929
+#: libraries/DisplayResults.php:937
 #, php-format
 msgid "%d is not valid row number."
 msgstr ""
@@ -2022,7 +2022,7 @@ msgid "Second step of normalization (2NF)"
 msgstr ""
 
 #. l10n: Display text for calendar close link
-#: js/messages.php:442 js/messages.php:741 libraries/normalization.lib.php:286
+#: js/messages.php:442 js/messages.php:747 libraries/normalization.lib.php:286
 msgid "Done"
 msgstr "Дайын"
 
@@ -2184,14 +2184,14 @@ msgstr ""
 msgid "Data point content"
 msgstr ""
 
-#: js/messages.php:508 js/messages.php:662 js/messages.php:679
+#: js/messages.php:508 js/messages.php:668 js/messages.php:685
 #: libraries/ErrorHandler.php:363 libraries/insert_edit.lib.php:2646
 #: templates/table/index_form.phtml:154 templates/table/index_form.phtml:199
 msgid "Ignore"
 msgstr "Елемеу"
 
-#: js/messages.php:509 libraries/DisplayResults.php:3498
-#: libraries/DisplayResults.php:4863
+#: js/messages.php:509 libraries/DisplayResults.php:3499
+#: libraries/DisplayResults.php:4864
 msgid "Copy"
 msgstr "Көшіру"
 
@@ -2207,7 +2207,7 @@ msgstr "Сызық"
 msgid "Polygon"
 msgstr "Көпбұрыш"
 
-#: js/messages.php:516 libraries/DisplayResults.php:1798
+#: js/messages.php:516 libraries/DisplayResults.php:1799
 msgid "Geometry"
 msgstr "Геометрия"
 
@@ -2233,286 +2233,292 @@ msgstr ""
 
 #: js/messages.php:527
 msgid ""
+"MySQL accepts additional values not selectable by the slider; key in those "
+"values directly if desired"
+msgstr ""
+
+#: js/messages.php:533
+msgid ""
 "Indicates that you have made changes to this page; you will be prompted for "
 "confirmation before abandoning changes"
 msgstr ""
 
-#: js/messages.php:532
+#: js/messages.php:538
 msgid "Select referenced key"
 msgstr ""
 
-#: js/messages.php:533
+#: js/messages.php:539
 msgid "Select Foreign Key"
 msgstr "Сыртқы кілтті таңдаңыз"
 
-#: js/messages.php:535
+#: js/messages.php:541
 msgid "Please select the primary key or a unique key!"
 msgstr ""
 
-#: js/messages.php:536 templates/database/designer/side_menu.phtml:91
+#: js/messages.php:542 templates/database/designer/side_menu.phtml:91
 #: templates/database/designer/side_menu.phtml:94
 msgid "Choose column to display"
 msgstr ""
 
-#: js/messages.php:538
+#: js/messages.php:544
 msgid ""
 "You haven't saved the changes in the layout. They will be lost if you don't "
 "save them. Do you want to continue?"
 msgstr ""
 
-#: js/messages.php:541
+#: js/messages.php:547
 msgid "Page name"
 msgstr ""
 
-#: js/messages.php:542 templates/database/designer/side_menu.phtml:56
+#: js/messages.php:548 templates/database/designer/side_menu.phtml:56
 #: templates/database/designer/side_menu.phtml:59
 #, fuzzy
 #| msgid "Save"
 msgid "Save page"
 msgstr "Сақтау"
 
-#: js/messages.php:543 templates/database/designer/side_menu.phtml:63
+#: js/messages.php:549 templates/database/designer/side_menu.phtml:63
 #: templates/database/designer/side_menu.phtml:66
 #, fuzzy
 #| msgid "Save"
 msgid "Save page as"
 msgstr "Сақтау"
 
-#: js/messages.php:544 templates/database/designer/side_menu.phtml:49
+#: js/messages.php:550 templates/database/designer/side_menu.phtml:49
 #: templates/database/designer/side_menu.phtml:52
 msgid "Open page"
 msgstr ""
 
-#: js/messages.php:545
+#: js/messages.php:551
 #, fuzzy
 #| msgid "Delete"
 msgid "Delete page"
 msgstr "Жою"
 
-#: js/messages.php:546 templates/database/designer/side_menu.phtml:10
+#: js/messages.php:552 templates/database/designer/side_menu.phtml:10
 #, fuzzy
 #| msgid "Unit"
 msgid "Untitled"
 msgstr "Бiрлiк"
 
-#: js/messages.php:547
+#: js/messages.php:553
 msgid "Please select a page to continue"
 msgstr ""
 
-#: js/messages.php:548
+#: js/messages.php:554
 msgid "Please enter a valid page name"
 msgstr ""
 
-#: js/messages.php:550
+#: js/messages.php:556
 msgid "Do you want to save the changes to the current page?"
 msgstr ""
 
-#: js/messages.php:551
+#: js/messages.php:557
 msgid "Successfully deleted the page"
 msgstr ""
 
-#: js/messages.php:552
+#: js/messages.php:558
 #, fuzzy
 #| msgid "Edit or export relational schema"
 msgid "Export relational schema"
 msgstr "Байланыс схемасын түзету немесе экспорттау"
 
-#: js/messages.php:553
+#: js/messages.php:559
 msgid "Modifications have been saved"
 msgstr ""
 
-#: js/messages.php:556
+#: js/messages.php:562
 #, fuzzy, php-format
 #| msgid "Value for the column \"%s\""
 msgid "Add an option for column \"%s\"."
 msgstr "\"%s\" баған мәні"
 
-#: js/messages.php:557
+#: js/messages.php:563
 #, php-format
 msgid "%d object(s) created."
 msgstr ""
 
-#: js/messages.php:558 libraries/sql_query_form.lib.php:414
+#: js/messages.php:564 libraries/sql_query_form.lib.php:414
 msgid "Submit"
 msgstr ""
 
-#: js/messages.php:561
+#: js/messages.php:567
 msgid "Press escape to cancel editing."
 msgstr ""
 
-#: js/messages.php:563
+#: js/messages.php:569
 msgid ""
 "You have edited some data and they have not been saved. Are you sure you "
 "want to leave this page before saving the data?"
 msgstr ""
 
-#: js/messages.php:566
+#: js/messages.php:572
 msgid "Drag to reorder."
 msgstr ""
 
-#: js/messages.php:567
+#: js/messages.php:573
 msgid "Click to sort results by this column."
 msgstr ""
 
-#: js/messages.php:569
+#: js/messages.php:575
 msgid ""
 "Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC.<br /"
 ">- Ctrl+Click or Alt+Click (Mac: Shift+Option+Click) to remove column from "
 "ORDER BY clause"
 msgstr ""
 
-#: js/messages.php:573
+#: js/messages.php:579
 #, fuzzy
 #| msgid "Click to mark/unmark"
 msgid "Click to mark/unmark."
 msgstr "Белгіні алу/орнату үшін шертіңіз"
 
-#: js/messages.php:574
+#: js/messages.php:580
 #, fuzzy
 #| msgid "Double-click to copy column name"
 msgid "Double-click to copy column name."
 msgstr "Атын көшіру үшін өріске тышқанмен екі рет шерту жасаңыз"
 
-#: js/messages.php:576
+#: js/messages.php:582
 msgid "Click the drop-down arrow<br />to toggle column's visibility."
 msgstr ""
 
-#: js/messages.php:578 libraries/DisplayResults.php:1035
+#: js/messages.php:584 libraries/DisplayResults.php:1036
 #: libraries/browse_foreigners.lib.php:288
 #: libraries/browse_foreigners.lib.php:341
 #: libraries/server_privileges.lib.php:3907
 msgid "Show all"
 msgstr "Бәрін көрсету"
 
-#: js/messages.php:580
+#: js/messages.php:586
 msgid ""
 "This table does not contain a unique column. Features related to the grid "
 "edit, checkbox, Edit, Copy and Delete links may not work after saving."
 msgstr ""
 
-#: js/messages.php:584
+#: js/messages.php:590
 msgid "Please enter a valid hexadecimal string. Valid characters are 0-9, A-F."
 msgstr ""
 
-#: js/messages.php:586
+#: js/messages.php:592
 msgid ""
 "Do you really want to see all of the rows? For a big table this could crash "
 "the browser."
 msgstr ""
 
-#: js/messages.php:589
+#: js/messages.php:595
 #, fuzzy
 #| msgid "Linestring"
 msgid "Original length"
 msgstr "Сызық"
 
-#: js/messages.php:592
+#: js/messages.php:598
 msgid "cancel"
 msgstr ""
 
-#: js/messages.php:593 libraries/server_status.lib.php:277
+#: js/messages.php:599 libraries/server_status.lib.php:277
 msgid "Aborted"
 msgstr ""
 
-#: js/messages.php:595
+#: js/messages.php:601
 msgid "Success"
 msgstr ""
 
-#: js/messages.php:596
+#: js/messages.php:602
 #, fuzzy
 #| msgid "Import"
 msgid "Import status"
 msgstr "Импорт"
 
-#: js/messages.php:597 libraries/navigation/Navigation.php:112
+#: js/messages.php:603 libraries/navigation/Navigation.php:112
 msgid "Drop files here"
 msgstr ""
 
-#: js/messages.php:598
+#: js/messages.php:604
 #, fuzzy
 #| msgid "Select All"
 msgid "Select database first"
 msgstr "Барлығын ерекшелеу"
 
-#: js/messages.php:601 libraries/DisplayResults.php:5049
+#: js/messages.php:607 libraries/DisplayResults.php:5050
 #: libraries/Util.php:4078
 #: templates/database/structure/print_view_data_dictionary_link.phtml:3
 #: templates/table/structure/optional_action_links.phtml:6
 msgid "Print"
 msgstr ""
 
-#: js/messages.php:608
+#: js/messages.php:614
 msgid "You can also edit most values<br />by double-clicking directly on them."
 msgstr ""
 
-#: js/messages.php:613
+#: js/messages.php:619
 msgid "You can also edit most values<br />by clicking directly on them."
 msgstr ""
 
-#: js/messages.php:619
+#: js/messages.php:625
 #, fuzzy
 #| msgid "Go to link"
 msgid "Go to link:"
 msgstr "Сілтемеге өту"
 
-#: js/messages.php:620
+#: js/messages.php:626
 #, fuzzy
 #| msgid "Copy column name"
 msgid "Copy column name."
 msgstr "Баған атын көшіру"
 
-#: js/messages.php:622
+#: js/messages.php:628
 msgid "Right-click the column name to copy it to your clipboard."
 msgstr ""
 
-#: js/messages.php:625
+#: js/messages.php:631
 msgid "Generate password"
 msgstr ""
 
-#: js/messages.php:626 libraries/replication_gui.lib.php:882
+#: js/messages.php:632 libraries/replication_gui.lib.php:882
 msgid "Generate"
 msgstr "Шығару"
 
-#: js/messages.php:630
+#: js/messages.php:636
 msgid "More"
 msgstr "Тағы"
 
-#: js/messages.php:633
+#: js/messages.php:639
 #, fuzzy
 #| msgid "Show all"
 msgid "Show panel"
 msgstr "Бәрін көрсету"
 
-#: js/messages.php:634
+#: js/messages.php:640
 #, fuzzy
 #| msgid "Hide indexes"
 msgid "Hide panel"
 msgstr "Индекстерді жасыру"
 
-#: js/messages.php:635
+#: js/messages.php:641
 #, fuzzy
 #| msgid "Show indexes"
 msgid "Show hidden navigation tree items."
 msgstr "Индекстерді көрсету"
 
-#: js/messages.php:636 libraries/config/messages.inc.php:479
+#: js/messages.php:642 libraries/config/messages.inc.php:479
 #: libraries/navigation/NavigationTree.php:1422
 #, fuzzy
 #| msgid "Hide indexes"
 msgid "Link with main panel"
 msgstr "Индекстерді жасыру"
 
-#: js/messages.php:637 libraries/navigation/NavigationTree.php:1425
+#: js/messages.php:643 libraries/navigation/NavigationTree.php:1425
 #, fuzzy
 #| msgid "Hide indexes"
 msgid "Unlink from main panel"
 msgstr "Индекстерді жасыру"
 
-#: js/messages.php:641
+#: js/messages.php:647
 msgid "The requested page was not found in the history, it may have expired."
 msgstr ""
 
-#: js/messages.php:645 setup/lib/index.lib.php:170
+#: js/messages.php:651 setup/lib/index.lib.php:170
 #, php-format
 msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
@@ -2520,117 +2526,117 @@ msgid ""
 msgstr ""
 
 #. l10n: Latest available phpMyAdmin version
-#: js/messages.php:649
+#: js/messages.php:655
 msgid ", latest stable version:"
 msgstr "Соңғы тұрақты болжам:"
 
-#: js/messages.php:650
+#: js/messages.php:656
 msgid "up to date"
 msgstr ""
 
-#: js/messages.php:652 libraries/DisplayResults.php:4980 view_create.php:206
+#: js/messages.php:658 libraries/DisplayResults.php:4981 view_create.php:206
 msgid "Create view"
 msgstr ""
 
-#: js/messages.php:655
+#: js/messages.php:661
 msgid "Send error report"
 msgstr ""
 
-#: js/messages.php:656
+#: js/messages.php:662
 msgid "Submit error report"
 msgstr ""
 
-#: js/messages.php:658
+#: js/messages.php:664
 msgid ""
 "A fatal JavaScript error has occurred. Would you like to send an error "
 "report?"
 msgstr ""
 
-#: js/messages.php:660
+#: js/messages.php:666
 #, fuzzy
 #| msgid "Change settings"
 msgid "Change report settings"
 msgstr "Баптауын өзгерту"
 
-#: js/messages.php:661
+#: js/messages.php:667
 #, fuzzy
 #| msgid "Show all"
 msgid "Show report details"
 msgstr "Бәрін көрсету"
 
-#: js/messages.php:664
+#: js/messages.php:670
 msgid ""
 "Your export is incomplete, due to a low execution time limit at the PHP "
 "level!"
 msgstr ""
 
-#: js/messages.php:668
+#: js/messages.php:674
 #, php-format
 msgid ""
 "Warning: a form on this page has more than %d fields. On submission, some of "
 "the fields might be ignored, due to PHP's max_input_vars configuration."
 msgstr ""
 
-#: js/messages.php:674 js/messages.php:687
+#: js/messages.php:680 js/messages.php:693
 msgid "Some errors have been detected on the server!"
 msgstr ""
 
-#: js/messages.php:676
+#: js/messages.php:682
 msgid "Please look at the bottom of this window."
 msgstr ""
 
-#: js/messages.php:682 libraries/ErrorHandler.php:367
+#: js/messages.php:688 libraries/ErrorHandler.php:367
 #, fuzzy
 #| msgid "Ignore"
 msgid "Ignore All"
 msgstr "Елемеу"
 
-#: js/messages.php:690
+#: js/messages.php:696
 msgid ""
 "As per your settings, they are being submitted currently, please be patient."
 msgstr ""
 
-#: js/messages.php:700
+#: js/messages.php:706
 msgid "Execute this query again?"
 msgstr ""
 
-#: js/messages.php:702
+#: js/messages.php:708
 #, fuzzy
 #| msgid "Do you really want to execute \"%s\"?"
 msgid "Do you really want to delete this bookmark?"
 msgstr "Сіз шынымен де сұраныстың орындалуын қалайсыз бе \"%s\"?"
 
-#: js/messages.php:704
+#: js/messages.php:710
 msgid "Some error occurred while getting SQL debug info."
 msgstr ""
 
-#: js/messages.php:706
+#: js/messages.php:712
 #, php-format
 msgid "%s queries executed %s times in %s seconds."
 msgstr ""
 
-#: js/messages.php:707
+#: js/messages.php:713
 #, php-format
 msgid "%s argument(s) passed"
 msgstr ""
 
-#: js/messages.php:708
+#: js/messages.php:714
 #, fuzzy
 #| msgid "Table comments"
 msgid "Show arguments"
 msgstr "Кестеге түсініктеме"
 
-#: js/messages.php:709
+#: js/messages.php:715
 #, fuzzy
 #| msgid "Hide search results"
 msgid "Hide arguments"
 msgstr "Іздеу нәтижелерін жасыру"
 
-#: js/messages.php:710
+#: js/messages.php:716
 msgid "Time taken:"
 msgstr ""
 
-#: js/messages.php:711
+#: js/messages.php:717
 msgid ""
 "There was a problem accessing your browser storage, some features may not "
 "work properly for you. It is likely that the browser doesn't support storage "
@@ -2639,357 +2645,357 @@ msgid ""
 "Safari, such problem is commonly caused by \"Private Mode Browsing\"."
 msgstr ""
 
-#: js/messages.php:713
+#: js/messages.php:719
 #, fuzzy
 #| msgid "Copy database to"
 msgid "Copy tables to"
 msgstr "Дерекқорының көшірілуі"
 
-#: js/messages.php:714
+#: js/messages.php:720
 #, fuzzy
 #| msgid "Replace table prefix"
 msgid "Add table prefix"
 msgstr "Кестениң префиксін ауыстыру"
 
-#: js/messages.php:715
+#: js/messages.php:721
 #, fuzzy
 #| msgid "Replace table prefix"
 msgid "Replace table with prefix"
 msgstr "Кестениң префиксін ауыстыру"
 
-#: js/messages.php:716 templates/database/structure/check_all_tables.phtml:29
+#: js/messages.php:722 templates/database/structure/check_all_tables.phtml:29
 msgid "Copy table with prefix"
 msgstr "Кестені префикс пен бірге көшіру"
 
-#: js/messages.php:745
+#: js/messages.php:751
 msgctxt "Previous month"
 msgid "Prev"
 msgstr "Алдыңғы"
 
-#: js/messages.php:750
+#: js/messages.php:756
 msgctxt "Next month"
 msgid "Next"
 msgstr "Келесі"
 
 #. l10n: Display text for current month link in calendar
-#: js/messages.php:753
+#: js/messages.php:759
 msgid "Today"
 msgstr "Бүгін"
 
-#: js/messages.php:757
+#: js/messages.php:763
 msgid "January"
 msgstr "Қаңтар"
 
-#: js/messages.php:758
+#: js/messages.php:764
 msgid "February"
 msgstr "Ақпан"
 
-#: js/messages.php:759
+#: js/messages.php:765
 msgid "March"
 msgstr "Наурыз"
 
-#: js/messages.php:760
+#: js/messages.php:766
 msgid "April"
 msgstr "Сәуір"
 
-#: js/messages.php:761
+#: js/messages.php:767
 msgid "May"
 msgstr "Мамыр"
 
-#: js/messages.php:762
+#: js/messages.php:768
 msgid "June"
 msgstr "Маусым"
 
-#: js/messages.php:763
+#: js/messages.php:769
 msgid "July"
 msgstr "Шілде"
 
-#: js/messages.php:764
+#: js/messages.php:770
 msgid "August"
 msgstr "Тамыз"
 
-#: js/messages.php:765
+#: js/messages.php:771
 msgid "September"
 msgstr "Қыркүйек"
 
-#: js/messages.php:766
+#: js/messages.php:772
 msgid "October"
 msgstr "Қазан"
 
-#: js/messages.php:767
+#: js/messages.php:773
 msgid "November"
 msgstr "Қараша"
 
-#: js/messages.php:768
+#: js/messages.php:774
 msgid "December"
 msgstr "Желтоқсан"
 
 #. l10n: Short month name
-#: js/messages.php:775 libraries/Util.php:1587
+#: js/messages.php:781 libraries/Util.php:1587
 msgid "Jan"
 msgstr "Қаң"
 
 #. l10n: Short month name
-#: js/messages.php:777 libraries/Util.php:1589
+#: js/messages.php:783 libraries/Util.php:1589
 msgid "Feb"
 msgstr "Ақп"
 
 #. l10n: Short month name
-#: js/messages.php:779 libraries/Util.php:1591
+#: js/messages.php:785 libraries/Util.php:1591
 msgid "Mar"
 msgstr "Нау"
 
 #. l10n: Short month name
-#: js/messages.php:781 libraries/Util.php:1593
+#: js/messages.php:787 libraries/Util.php:1593
 msgid "Apr"
 msgstr "Сәу"
 
 #. l10n: Short month name
-#: js/messages.php:783 libraries/Util.php:1595
+#: js/messages.php:789 libraries/Util.php:1595
 msgctxt "Short month name"
 msgid "May"
 msgstr "Мам"
 
 #. l10n: Short month name
-#: js/messages.php:785 libraries/Util.php:1597
+#: js/messages.php:791 libraries/Util.php:1597
 msgid "Jun"
 msgstr "Мау"
 
 #. l10n: Short month name
-#: js/messages.php:787 libraries/Util.php:1599
+#: js/messages.php:793 libraries/Util.php:1599
 msgid "Jul"
 msgstr "Шіл"
 
 #. l10n: Short month name
-#: js/messages.php:789 libraries/Util.php:1601
+#: js/messages.php:795 libraries/Util.php:1601
 msgid "Aug"
 msgstr "Там"
 
 #. l10n: Short month name
-#: js/messages.php:791 libraries/Util.php:1603
+#: js/messages.php:797 libraries/Util.php:1603
 msgid "Sep"
 msgstr "Қыр"
 
 #. l10n: Short month name
-#: js/messages.php:793 libraries/Util.php:1605
+#: js/messages.php:799 libraries/Util.php:1605
 msgid "Oct"
 msgstr "Қаз"
 
 #. l10n: Short month name
-#: js/messages.php:795 libraries/Util.php:1607
+#: js/messages.php:801 libraries/Util.php:1607
 msgid "Nov"
 msgstr "Қар"
 
 #. l10n: Short month name
-#: js/messages.php:797 libraries/Util.php:1609
+#: js/messages.php:803 libraries/Util.php:1609
 msgid "Dec"
 msgstr "Жел"
 
-#: js/messages.php:803
+#: js/messages.php:809
 msgid "Sunday"
 msgstr "Жексенбі"
 
-#: js/messages.php:804
+#: js/messages.php:810
 msgid "Monday"
 msgstr "Дүйсенбі"
 
-#: js/messages.php:805
+#: js/messages.php:811
 msgid "Tuesday"
 msgstr "Сейсенбі"
 
-#: js/messages.php:806
+#: js/messages.php:812
 msgid "Wednesday"
 msgstr "Сәрсенбі"
 
-#: js/messages.php:807
+#: js/messages.php:813
 msgid "Thursday"
 msgstr "Бейсенбі"
 
-#: js/messages.php:808
+#: js/messages.php:814
 msgid "Friday"
 msgstr "Жұма"
 
-#: js/messages.php:809
+#: js/messages.php:815
 msgid "Saturday"
 msgstr "Сенбі"
 
 #. l10n: Short week day name
-#: js/messages.php:816
+#: js/messages.php:822
 msgid "Sun"
 msgstr "Жек"
 
 #. l10n: Short week day name
-#: js/messages.php:818 libraries/Util.php:1614
+#: js/messages.php:824 libraries/Util.php:1614
 msgid "Mon"
 msgstr "Дүй"
 
 #. l10n: Short week day name
-#: js/messages.php:820 libraries/Util.php:1616
+#: js/messages.php:826 libraries/Util.php:1616
 msgid "Tue"
 msgstr "Сей"
 
 #. l10n: Short week day name
-#: js/messages.php:822 libraries/Util.php:1618
+#: js/messages.php:828 libraries/Util.php:1618
 msgid "Wed"
 msgstr "Сәр"
 
 #. l10n: Short week day name
-#: js/messages.php:824 libraries/Util.php:1620
+#: js/messages.php:830 libraries/Util.php:1620
 msgid "Thu"
 msgstr "Бей"
 
 #. l10n: Short week day name
-#: js/messages.php:826 libraries/Util.php:1622
+#: js/messages.php:832 libraries/Util.php:1622
 msgid "Fri"
 msgstr "Жұм"
 
 #. l10n: Short week day name
-#: js/messages.php:828 libraries/Util.php:1624
+#: js/messages.php:834 libraries/Util.php:1624
 msgid "Sat"
 msgstr "Сен"
 
 #. l10n: Minimal week day name
-#: js/messages.php:835
+#: js/messages.php:841
 msgid "Su"
 msgstr "Жк"
 
 #. l10n: Minimal week day name
-#: js/messages.php:837
+#: js/messages.php:843
 msgid "Mo"
 msgstr "Дс"
 
 #. l10n: Minimal week day name
-#: js/messages.php:839
+#: js/messages.php:845
 msgid "Tu"
 msgstr "Сс"
 
 #. l10n: Minimal week day name
-#: js/messages.php:841
+#: js/messages.php:847
 msgid "We"
 msgstr "Ср"
 
 #. l10n: Minimal week day name
-#: js/messages.php:843
+#: js/messages.php:849
 msgid "Th"
 msgstr "Бс"
 
 #. l10n: Minimal week day name
-#: js/messages.php:845
+#: js/messages.php:851
 msgid "Fr"
 msgstr "Жм"
 
 #. l10n: Minimal week day name
-#: js/messages.php:847
+#: js/messages.php:853
 msgid "Sa"
 msgstr "Сн"
 
 #. l10n: Column header for week of the year in calendar
-#: js/messages.php:851
+#: js/messages.php:857
 msgid "Wk"
 msgstr "Апт"
 
 #. l10n: Month-year order for calendar, use either "calendar-month-year"
 #. * or "calendar-year-month".
 #.
-#: js/messages.php:858
+#: js/messages.php:864
 msgid "calendar-month-year"
 msgstr "calendar-month-year"
 
 #. l10n: Year suffix for calendar, "none" is empty.
-#: js/messages.php:861
+#: js/messages.php:867
 msgctxt "Year suffix"
 msgid "none"
 msgstr "none"
 
-#: js/messages.php:873
+#: js/messages.php:879
 msgid "Hour"
 msgstr "Сағат"
 
-#: js/messages.php:874
+#: js/messages.php:880
 msgid "Minute"
 msgstr "Минут"
 
-#: js/messages.php:875
+#: js/messages.php:881
 msgid "Second"
 msgstr "Секунд"
 
-#: js/messages.php:886
+#: js/messages.php:892
 msgid "This field is required"
 msgstr ""
 
-#: js/messages.php:887
+#: js/messages.php:893
 msgid "Please fix this field"
 msgstr ""
 
-#: js/messages.php:888
+#: js/messages.php:894
 msgid "Please enter a valid email address"
 msgstr ""
 
-#: js/messages.php:889
+#: js/messages.php:895
 msgid "Please enter a valid URL"
 msgstr ""
 
-#: js/messages.php:890
+#: js/messages.php:896
 #, fuzzy
 #| msgid "Select All"
 msgid "Please enter a valid date"
 msgstr "Барлығын ерекшелеу"
 
-#: js/messages.php:893
+#: js/messages.php:899
 msgid "Please enter a valid date ( ISO )"
 msgstr ""
 
-#: js/messages.php:895
+#: js/messages.php:901
 msgid "Please enter a valid number"
 msgstr ""
 
-#: js/messages.php:898
+#: js/messages.php:904
 msgid "Please enter a valid credit card number"
 msgstr ""
 
-#: js/messages.php:900
+#: js/messages.php:906
 msgid "Please enter only digits"
 msgstr ""
 
-#: js/messages.php:903
+#: js/messages.php:909
 msgid "Please enter the same value again"
 msgstr ""
 
-#: js/messages.php:907
+#: js/messages.php:913
 msgid "Please enter no more than {0} characters"
 msgstr ""
 
-#: js/messages.php:912
+#: js/messages.php:918
 #, fuzzy
 #| msgid "Please add at least one variable to the series"
 msgid "Please enter at least {0} characters"
 msgstr "Тәңiр жарылқасын, ең болмаса топтамаға бiр айнымалы қосыңыз"
 
-#: js/messages.php:917
+#: js/messages.php:923
 msgid "Please enter a value between {0} and {1} characters long"
 msgstr ""
 
-#: js/messages.php:922
+#: js/messages.php:928
 msgid "Please enter a value between {0} and {1}"
 msgstr ""
 
-#: js/messages.php:927
+#: js/messages.php:933
 msgid "Please enter a value less than or equal to {0}"
 msgstr ""
 
-#: js/messages.php:932
+#: js/messages.php:938
 msgid "Please enter a value greater than or equal to {0}"
 msgstr ""
 
-#: js/messages.php:938
+#: js/messages.php:944
 msgid "Please enter a valid date or time"
 msgstr ""
 
-#: js/messages.php:943
+#: js/messages.php:949
 msgid "Please enter a valid HEX input"
 msgstr ""
 
-#: js/messages.php:948 libraries/Message.php:182 libraries/Util.php:606
+#: js/messages.php:954 libraries/Message.php:182 libraries/Util.php:606
 #: libraries/core.lib.php:237 libraries/import.lib.php:79
 #: libraries/insert_edit.lib.php:1234 view_operations.php:78
 msgid "Error"
@@ -3358,8 +3364,8 @@ msgstr ""
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr ""
 
-#: libraries/DbQbe.php:405 libraries/DisplayResults.php:2280
-#: libraries/DisplayResults.php:2286 libraries/config.values.php:70
+#: libraries/DbQbe.php:405 libraries/DisplayResults.php:2281
+#: libraries/DisplayResults.php:2287 libraries/config.values.php:70
 #: libraries/controllers/server/ServerDatabasesController.php:550
 #: libraries/operations.lib.php:790
 #: libraries/server_status_processes.lib.php:167
@@ -3369,8 +3375,8 @@ msgstr ""
 msgid "Ascending"
 msgstr "Өсу бойынша"
 
-#: libraries/DbQbe.php:408 libraries/DisplayResults.php:2276
-#: libraries/DisplayResults.php:2290 libraries/config.values.php:71
+#: libraries/DbQbe.php:408 libraries/DisplayResults.php:2277
+#: libraries/DisplayResults.php:2291 libraries/config.values.php:71
 #: libraries/controllers/server/ServerDatabasesController.php:550
 #: libraries/operations.lib.php:793
 #: libraries/server_status_processes.lib.php:164
@@ -3583,33 +3589,33 @@ msgstr "Eрекшеленгендерді алып тастау"
 msgid "Inside column:"
 msgstr "Бағана бойынша:"
 
-#: libraries/DisplayResults.php:905
+#: libraries/DisplayResults.php:906
 msgid "Save edited data"
 msgstr ""
 
-#: libraries/DisplayResults.php:911
+#: libraries/DisplayResults.php:912
 msgid "Restore column order"
 msgstr ""
 
-#: libraries/DisplayResults.php:959 libraries/central_columns.lib.php:661
+#: libraries/DisplayResults.php:960 libraries/central_columns.lib.php:661
 #, fuzzy
 #| msgid "Filter"
 msgid "Filter rows"
 msgstr "Сүзгі"
 
-#: libraries/DisplayResults.php:961 libraries/central_columns.lib.php:663
+#: libraries/DisplayResults.php:962 libraries/central_columns.lib.php:663
 #, fuzzy
 #| msgid "Search in database"
 msgid "Search this table"
 msgstr "Дерекқорынан іздеу"
 
-#: libraries/DisplayResults.php:992 libraries/Util.php:2538
+#: libraries/DisplayResults.php:993 libraries/Util.php:2538
 #: libraries/Util.php:2541
 msgctxt "First page"
 msgid "Begin"
 msgstr ""
 
-#: libraries/DisplayResults.php:995 libraries/Util.php:2539
+#: libraries/DisplayResults.php:996 libraries/Util.php:2539
 #: libraries/Util.php:2542
 #: libraries/controllers/server/ServerBinlogController.php:194
 #: libraries/controllers/server/ServerBinlogController.php:196
@@ -3617,7 +3623,7 @@ msgctxt "Previous page"
 msgid "Previous"
 msgstr ""
 
-#: libraries/DisplayResults.php:1061 libraries/Util.php:2570
+#: libraries/DisplayResults.php:1062 libraries/Util.php:2570
 #: libraries/Util.php:2580
 #: libraries/controllers/server/ServerBinlogController.php:228
 #: libraries/controllers/server/ServerBinlogController.php:230
@@ -3625,26 +3631,26 @@ msgctxt "Next page"
 msgid "Next"
 msgstr ""
 
-#: libraries/DisplayResults.php:1091 libraries/Util.php:2571
+#: libraries/DisplayResults.php:1092 libraries/Util.php:2571
 #: libraries/Util.php:2581
 msgctxt "Last page"
 msgid "End"
 msgstr ""
 
-#: libraries/DisplayResults.php:1134
+#: libraries/DisplayResults.php:1135
 msgid "All"
 msgstr ""
 
-#: libraries/DisplayResults.php:1144 libraries/display_export.lib.php:436
+#: libraries/DisplayResults.php:1145 libraries/display_export.lib.php:436
 #: templates/startAndNumberOfRowsPanel.phtml:10
 msgid "Number of rows:"
 msgstr ""
 
-#: libraries/DisplayResults.php:1437
+#: libraries/DisplayResults.php:1438
 msgid "Sort by key"
 msgstr ""
 
-#: libraries/DisplayResults.php:1720 libraries/import.lib.php:1215
+#: libraries/DisplayResults.php:1721 libraries/import.lib.php:1215
 #: libraries/import.lib.php:1250 libraries/mult_submits.lib.php:343
 #: libraries/plugins/export/ExportCodegen.php:84
 #: libraries/plugins/export/ExportCsv.php:48
@@ -3674,60 +3680,60 @@ msgstr ""
 msgid "Options"
 msgstr ""
 
-#: libraries/DisplayResults.php:1726 libraries/DisplayResults.php:1847
+#: libraries/DisplayResults.php:1727 libraries/DisplayResults.php:1848
 msgid "Partial texts"
 msgstr ""
 
-#: libraries/DisplayResults.php:1727 libraries/DisplayResults.php:1851
+#: libraries/DisplayResults.php:1728 libraries/DisplayResults.php:1852
 msgid "Full texts"
 msgstr ""
 
-#: libraries/DisplayResults.php:1743
+#: libraries/DisplayResults.php:1744
 msgid "Relational key"
 msgstr ""
 
-#: libraries/DisplayResults.php:1744
+#: libraries/DisplayResults.php:1745
 #, fuzzy
 #| msgid "Inside column:"
 msgid "Display column for relations"
 msgstr "Бағана бойынша:"
 
-#: libraries/DisplayResults.php:1760
+#: libraries/DisplayResults.php:1761
 msgid "Show binary contents"
 msgstr ""
 
-#: libraries/DisplayResults.php:1771
+#: libraries/DisplayResults.php:1772
 msgid "Show BLOB contents"
 msgstr ""
 
-#: libraries/DisplayResults.php:1788
+#: libraries/DisplayResults.php:1789
 msgid "Hide browser transformation"
 msgstr ""
 
-#: libraries/DisplayResults.php:1799
+#: libraries/DisplayResults.php:1800
 msgid "Well Known Text"
 msgstr ""
 
-#: libraries/DisplayResults.php:1800
+#: libraries/DisplayResults.php:1801
 msgid "Well Known Binary"
 msgstr ""
 
-#: libraries/DisplayResults.php:3540 libraries/DisplayResults.php:3555
+#: libraries/DisplayResults.php:3541 libraries/DisplayResults.php:3556
 #, fuzzy
 #| msgid "Table %s has been emptied."
 msgid "The row has been deleted."
 msgstr "%s кестесі аластанды"
 
-#: libraries/DisplayResults.php:3588 libraries/DisplayResults.php:4842
+#: libraries/DisplayResults.php:3589 libraries/DisplayResults.php:4843
 #: libraries/server_status_processes.lib.php:283
 msgid "Kill"
 msgstr ""
 
-#: libraries/DisplayResults.php:4280
+#: libraries/DisplayResults.php:4281
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
 msgstr ""
 
-#: libraries/DisplayResults.php:4353 libraries/Message.php:163
+#: libraries/DisplayResults.php:4354 libraries/Message.php:163
 #: libraries/controllers/table/TableRelationController.php:253
 #: libraries/controllers/table/TableSearchController.php:570
 #: libraries/rte/rte_routines.lib.php:1451 libraries/sql_query_form.lib.php:92
@@ -3737,7 +3743,7 @@ msgstr ""
 msgid "Your SQL query has been executed successfully."
 msgstr "SQL-сұранысы сәтті орындалды"
 
-#: libraries/DisplayResults.php:4700
+#: libraries/DisplayResults.php:4701
 #: libraries/controllers/database/DatabaseStructureController.php:767
 #, php-format
 msgid ""
@@ -3745,28 +3751,28 @@ msgid ""
 "%s."
 msgstr ""
 
-#: libraries/DisplayResults.php:4713
+#: libraries/DisplayResults.php:4714
 #, php-format
 msgid "Showing rows %1s - %2s"
 msgstr ""
 
-#: libraries/DisplayResults.php:4728
+#: libraries/DisplayResults.php:4729
 #, php-format
 msgid "%1$d total, %2$d in query"
 msgstr ""
 
-#: libraries/DisplayResults.php:4733
+#: libraries/DisplayResults.php:4734
 #, fuzzy, php-format
 #| msgid "%d table(s)"
 msgid "%d total"
 msgstr "%d Кесте(лер)"
 
-#: libraries/DisplayResults.php:4745 libraries/sql.lib.php:1380
+#: libraries/DisplayResults.php:4746 libraries/sql.lib.php:1380
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr ""
 
-#: libraries/DisplayResults.php:4847 libraries/DisplayResults.php:4854
+#: libraries/DisplayResults.php:4848 libraries/DisplayResults.php:4855
 #: libraries/mult_submits.inc.php:52
 #: templates/database/structure/check_all_tables.phtml:2
 #: templates/database/structure/check_all_tables.phtml:9
@@ -3774,7 +3780,7 @@ msgstr ""
 msgid "With selected:"
 msgstr "Белгi соғылғандарды:"
 
-#: libraries/DisplayResults.php:4851 libraries/DisplayResults.php:4853
+#: libraries/DisplayResults.php:4852 libraries/DisplayResults.php:4854
 #: libraries/server_privileges.lib.php:1263
 #: libraries/server_privileges.lib.php:1264
 #: libraries/server_privileges.lib.php:1487
@@ -3787,23 +3793,23 @@ msgstr "Белгi соғылғандарды:"
 msgid "Check all"
 msgstr "Барлығын белгілеу"
 
-#: libraries/DisplayResults.php:5026
+#: libraries/DisplayResults.php:5027
 msgid "Copy to clipboard"
 msgstr ""
 
-#: libraries/DisplayResults.php:5082
+#: libraries/DisplayResults.php:5083
 msgid "Query results operations"
 msgstr ""
 
-#: libraries/DisplayResults.php:5170 templates/table/chart/tbl_chart.phtml:11
+#: libraries/DisplayResults.php:5171 templates/table/chart/tbl_chart.phtml:11
 msgid "Display chart"
 msgstr ""
 
-#: libraries/DisplayResults.php:5195
+#: libraries/DisplayResults.php:5196
 msgid "Visualize GIS data"
 msgstr ""
 
-#: libraries/DisplayResults.php:5381
+#: libraries/DisplayResults.php:5382
 #, fuzzy
 #| msgid "Links to"
 msgid "Link not found!"
@@ -4471,40 +4477,40 @@ msgstr ""
 msgid "Target database `%s` was not found!"
 msgstr ""
 
-#: libraries/Table.php:1254
+#: libraries/Table.php:1259
 #, fuzzy
 #| msgid "Search in database"
 msgid "Invalid database:"
 msgstr "Дерекқорынан іздеу"
 
-#: libraries/Table.php:1268
+#: libraries/Table.php:1276
 #, fuzzy
 #| msgid "Inside tables:"
 msgid "Invalid table name:"
 msgstr "Кесте бойынша:"
 
-#: libraries/Table.php:1303
+#: libraries/Table.php:1311
 #, php-format
 msgid "Failed to rename table %1$s to %2$s!"
 msgstr ""
 
-#: libraries/Table.php:1322
+#: libraries/Table.php:1330
 #, php-format
 msgid "Table %1$s has been renamed to %2$s."
 msgstr ""
 
-#: libraries/Table.php:1553
+#: libraries/Table.php:1561
 msgid "Could not save table UI preferences!"
 msgstr ""
 
-#: libraries/Table.php:1583
+#: libraries/Table.php:1591
 #, php-format
 msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
 "['MaxTableUiprefs'] %s)"
 msgstr ""
 
-#: libraries/Table.php:1736
+#: libraries/Table.php:1744
 #, php-format
 msgid ""
 "Cannot save UI property \"%s\". The changes made will not be persistent "
@@ -4512,19 +4518,19 @@ msgid ""
 "changed."
 msgstr ""
 
-#: libraries/Table.php:1872
+#: libraries/Table.php:1880
 msgid "The name of the primary key must be \"PRIMARY\"!"
 msgstr ""
 
-#: libraries/Table.php:1883
+#: libraries/Table.php:1891
 msgid "Can't rename index to PRIMARY!"
 msgstr ""
 
-#: libraries/Table.php:1905
+#: libraries/Table.php:1913
 msgid "No index parts defined!"
 msgstr ""
 
-#: libraries/Table.php:2223
+#: libraries/Table.php:2231
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr ""
@@ -6134,7 +6140,7 @@ msgstr "Кестеге түсініктеме:"
 msgid "Customize the navigation tree."
 msgstr "Индекстерді көрсету"
 
-#: libraries/config/messages.inc.php:275 libraries/select_server.lib.php:45
+#: libraries/config/messages.inc.php:275 libraries/select_server.lib.php:47
 #: setup/frames/index.inc.php:160
 msgid "Servers"
 msgstr ""
@@ -7811,19 +7817,19 @@ msgid "Favorite List is full!"
 msgstr ""
 
 #: libraries/controllers/database/DatabaseStructureController.php:554
-#: tbl_operations.php:374
+#: tbl_operations.php:379
 #, php-format
 msgid "Table %s has been emptied."
 msgstr "%s кестесі аластанды."
 
 #: libraries/controllers/database/DatabaseStructureController.php:575
-#: tbl_operations.php:392 view_operations.php:136
+#: tbl_operations.php:397 view_operations.php:136
 #, fuzzy, php-format
 msgid "View %s has been dropped."
 msgstr "%s көрсетілімі жойылған"
 
 #: libraries/controllers/database/DatabaseStructureController.php:576
-#: tbl_operations.php:393
+#: tbl_operations.php:398
 #, fuzzy, php-format
 #| msgid "Table %s has been dropped."
 msgid "Table %s has been dropped."
@@ -11602,7 +11608,7 @@ msgstr ""
 msgid "There are no events to display."
 msgstr ""
 
-#: libraries/select_server.lib.php:42 libraries/select_server.lib.php:47
+#: libraries/select_server.lib.php:44 libraries/select_server.lib.php:49
 #, fuzzy
 #| msgid "Current settings"
 msgid "Current server:"
