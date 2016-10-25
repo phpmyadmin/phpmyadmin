@@ -514,7 +514,7 @@ class Table
             // completely the record counting for views
 
             if ($GLOBALS['cfg']['MaxExactCountViews'] == 0) {
-                $row_count = 0;
+                $row_count = false;
             } else {
                 // Counting all rows of a VIEW could be too long,
                 // so use a LIMIT clause.
