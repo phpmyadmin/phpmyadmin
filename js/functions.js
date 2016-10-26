@@ -188,9 +188,12 @@ function addDateTimePicker() {
                 timeFormat: timeFormat
             });
 
-            // Add a tip regarding entering MySQL allowed-values for TIME data-type
+            // Add a tip regarding entering MySQL allowed-values
+            // for TIME and DATE data-type
             if ($(this).hasClass('timefield')) {
-                PMA_tooltip($(this), 'input', PMA_messages.strMysqlAllowedValuesTip);
+                PMA_tooltip($(this), 'input', PMA_messages.strMysqlAllowedValuesTipTime);
+            } else if ($(this).hasClass('datefield')) {
+                PMA_tooltip($(this), 'input', PMA_messages.strMysqlAllowedValuesTipDate);
             }
         });
     }
