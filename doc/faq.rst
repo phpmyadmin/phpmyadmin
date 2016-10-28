@@ -1387,6 +1387,9 @@ re–written, if possible it is suggested that you upgrade to take
 advantage of the new features.  For additional help on this subject,
 look for the word "upload" in this document.
 
+Note: For errors while importing of dumps exported from older MySQL versions to newer MySQL versions,
+please check :ref:`faq6_41`.
+
 .. _faq6_6:
 
 6.6 How can I use the relation table in Query-by-example?
@@ -2093,6 +2096,31 @@ From version 4.5, phpMyAdmin allows users to execute parameterized queries in th
 Parameters should be prefixed with a colon(:) and when the "Bind parameters" checkbox is checked
 these parameters will be identified and input fields for these parameters will be presented.
 Values entered in these field will be substituted in the query before being executed.
+
+.. _faq6_41:
+
+6.41 I get import errors while importing the dumps exported from older MySQL versions (pre-5.7.6) into newer MySQL versions (5.7.7+), but they work fine when imported back on same older versions ?
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+If you get errors like *#1031 - Table storage engine for 'table_name' doesn't have this option*
+while importing the dumps exported from pre-5.7.7 MySQL servers into new MySQL server versions 5.7.7+,
+it might be because ROW_FORMAT=FIXED is not supported with InnoDB tables. Moreover, the value of
+`innodb_strict_mode <http://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_strict_mode>`_ would define if this would be reported as a warning or as an error.
+
+Since MySQL version 5.7.9, the default value for `innodb_strict_mode` is `ON` and thus would generate
+an error when such a CREATE TABLE or ALTER TABLE statement is encountered.
+
+There are two ways of preventing such errors while importing:
+
+* Change the value of `innodb_strict_mode` to `OFF` before starting the import and turn it `ON` after
+  the import is successfully completed.
+* This can be achieved in two ways:
+
+  * Go to 'Variables' page and edit the value of `innodb_strict_mode`
+  * Run the query : `SET GLOBAL `innodb_strict_mode` = '[value]'`
+
+After the import is done, it is suggested that the value of `innodb_strict_mode` should be reset to the
+original value.
 
 .. _faqproject:
 
