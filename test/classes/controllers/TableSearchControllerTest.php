@@ -85,6 +85,8 @@ class TableSearchControllerTest extends PMATestCase
 
         $dbi->expects($this->any())->method('fetchValue')
             ->will($this->returnValue($show_create_table));
+        $dbi->expects($this->any())->method('escapeString')
+            ->will($this->returnArgument(0));
 
         $GLOBALS['dbi'] = $dbi;
 

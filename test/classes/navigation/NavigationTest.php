@@ -72,6 +72,9 @@ class NavigationTest extends PMATestCase
         $dbi->expects($this->once())
             ->method('tryQuery')
             ->with($expectedQuery);
+        $dbi->expects($this->any())->method('escapeString')
+            ->will($this->returnArgument(0));
+
         $GLOBALS['dbi'] = $dbi;
         $this->object->hideNavigationItem('itemName', 'itemType', 'db');
     }
@@ -93,6 +96,9 @@ class NavigationTest extends PMATestCase
         $dbi->expects($this->once())
             ->method('tryQuery')
             ->with($expectedQuery);
+
+        $dbi->expects($this->any())->method('escapeString')
+            ->will($this->returnArgument(0));
         $GLOBALS['dbi'] = $dbi;
         $this->object->unhideNavigationItem('itemName', 'itemType', 'db');
     }
@@ -111,6 +117,8 @@ class NavigationTest extends PMATestCase
         $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
+        $dbi->expects($this->any())->method('escapeString')
+            ->will($this->returnArgument(0));
         $dbi->expects($this->once())
             ->method('tryQuery')
             ->with($expectedQuery)
@@ -140,6 +148,7 @@ class NavigationTest extends PMATestCase
             ->will($this->returnValue(false));
         $dbi->expects($this->once())
             ->method('freeResult');
+
         $GLOBALS['dbi'] = $dbi;
 
         $html = $this->object->getItemUnhideDialog('db');
