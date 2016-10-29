@@ -47,6 +47,14 @@ class TrackerTest extends PMATestCase
             'db' => 'pmadb',
             'tracking' => 'tracking'
         );
+
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+            ->disableOriginalConstructor()
+            ->getMock();
+        $dbi->expects($this->any())->method('escapeString')
+            ->will($this->returnArgument(0));
+
+        $cfg['dbi'] = $dbi;
     }
     /**
      * Test for Tracker::enable
@@ -318,6 +326,9 @@ class TrackerTest extends PMATestCase
         $dbi->expects($this->any())->method('query')
             ->will($this->returnValueMap($queryResults));
 
+        $dbi->expects($this->any())->method('escapeString')
+            ->will($this->returnArgument(0));
+
         $GLOBALS['dbi'] = $dbi;
         $this->assertEquals(
             'executed',
@@ -348,6 +359,8 @@ class TrackerTest extends PMATestCase
             ->method('query')
             ->with($sql_query)
             ->will($this->returnValue('executed'));
+        $dbi->expects($this->any())->method('escapeString')
+            ->will($this->returnArgument(0));
 
         $GLOBALS['dbi'] = $dbi;
         $this->assertEquals(
@@ -400,6 +413,9 @@ class TrackerTest extends PMATestCase
             ->with($expectedMainQuery, null, 0, false)
             ->will($this->returnValue("executed"));
 
+        $dbi->expects($this->any())->method('escapeString')
+            ->will($this->returnArgument(0));
+
         $GLOBALS['dbi'] = $dbi;
         $this->assertEquals(
             'executed',
@@ -443,6 +459,9 @@ class TrackerTest extends PMATestCase
             ->method('query')
             ->with($sql_query, null, 0, false)
             ->will($this->returnValue("executed"));
+
+        $dbi->expects($this->any())->method('escapeString')
+            ->will($this->returnArgument(0));
 
         $GLOBALS['dbi'] = $dbi;
 
@@ -526,6 +545,9 @@ class TrackerTest extends PMATestCase
             ->with($sql_query_2, null, 0, false)
             ->will($this->returnValue("executed_2"));
 
+        $dbi->expects($this->any())->method('escapeString')
+            ->will($this->returnArgument(0));
+
         $GLOBALS['dbi'] = $dbi;
 
         $this->assertEquals(
@@ -608,6 +630,9 @@ class TrackerTest extends PMATestCase
             ->method('fetchAssoc')
             ->with("executed_1")
             ->will($this->returnValue($fetchArrayReturn));
+
+        $dbi->expects($this->any())->method('escapeString')
+            ->will($this->returnArgument(0));
 
         $GLOBALS['dbi'] = $dbi;
         $result = Tracker::getTrackedData("pma'db", "pma'table", "1.0");

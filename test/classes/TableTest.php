@@ -283,6 +283,9 @@ class TableTest extends PMATestCase
         $dbi->expects($this->any())->method('fetchRow')
             ->will($this->returnValue(false));
 
+        $dbi->expects($this->any())->method('escapeString')
+            ->will($this->returnArgument(0));
+
         $GLOBALS['dbi'] = $dbi;
     }
 
