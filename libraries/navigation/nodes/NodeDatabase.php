@@ -115,7 +115,7 @@ class NodeDatabase extends Node
         }
 
         if (! $GLOBALS['cfg']['Server']['DisableIS']) {
-            $db     = Util::sqlAddSlashes($db);
+            $db     = $GLOBALS['dbi']->escapeString($db);
             $query  = "SELECT COUNT(*) ";
             $query .= "FROM `INFORMATION_SCHEMA`.`TABLES` ";
             $query .= "WHERE `TABLE_SCHEMA`='$db' ";
@@ -199,7 +199,7 @@ class NodeDatabase extends Node
     {
         $db = $this->real_name;
         if (!$GLOBALS['cfg']['Server']['DisableIS']) {
-            $db = Util::sqlAddSlashes($db);
+            $db = $GLOBALS['dbi']->escapeString($db);
             $query = "SELECT COUNT(*) ";
             $query .= "FROM `INFORMATION_SCHEMA`.`ROUTINES` ";
             $query .= "WHERE `ROUTINE_SCHEMA` "
@@ -214,7 +214,7 @@ class NodeDatabase extends Node
             }
             $retval = (int)$GLOBALS['dbi']->fetchValue($query);
         } else {
-            $db = Util::sqlAddSlashes($db);
+            $db = $GLOBALS['dbi']->escapeString($db);
             $query = "SHOW PROCEDURE STATUS WHERE `Db`='$db' ";
             if (!empty($searchClause)) {
                 $query .= "AND " . $this->_getWhereClauseForSearch(
@@ -245,7 +245,7 @@ class NodeDatabase extends Node
     {
         $db = $this->real_name;
         if (!$GLOBALS['cfg']['Server']['DisableIS']) {
-            $db = Util::sqlAddSlashes($db);
+            $db = $GLOBALS['dbi']->escapeString($db);
             $query = "SELECT COUNT(*) ";
             $query .= "FROM `INFORMATION_SCHEMA`.`ROUTINES` ";
             $query .= "WHERE `ROUTINE_SCHEMA` "
@@ -260,7 +260,7 @@ class NodeDatabase extends Node
             }
             $retval = (int)$GLOBALS['dbi']->fetchValue($query);
         } else {
-            $db = Util::sqlAddSlashes($db);
+            $db = $GLOBALS['dbi']->escapeString($db);
             $query = "SHOW FUNCTION STATUS WHERE `Db`='$db' ";
             if (!empty($searchClause)) {
                 $query .= "AND " . $this->_getWhereClauseForSearch(
@@ -291,7 +291,7 @@ class NodeDatabase extends Node
     {
         $db = $this->real_name;
         if (!$GLOBALS['cfg']['Server']['DisableIS']) {
-            $db = Util::sqlAddSlashes($db);
+            $db = $GLOBALS['dbi']->escapeString($db);
             $query = "SELECT COUNT(*) ";
             $query .= "FROM `INFORMATION_SCHEMA`.`EVENTS` ";
             $query .= "WHERE `EVENT_SCHEMA` "
@@ -339,10 +339,10 @@ class NodeDatabase extends Node
         $query = '';
         if ($singleItem) {
             $query .= Util::backquote($columnName) . " = ";
-            $query .= "'" . Util::sqlAddSlashes($searchClause) . "'";
+            $query .= "'" . $GLOBALS['dbi']->escapeString($searchClause) . "'";
         } else {
             $query .= Util::backquote($columnName) . " LIKE ";
-            $query .= "'%" . Util::sqlAddSlashes($searchClause, true)
+            $query .= "'%" . $GLOBALS['dbi']->escapeString($searchClause, true)
                 . "%'";
         }
 
@@ -418,7 +418,7 @@ class NodeDatabase extends Node
         $sqlQuery = "SELECT `item_name` FROM " . $navTable
             . " WHERE `username`='" . $cfgRelation['user'] . "'"
             . " AND `item_type`='" . $type
-            . "'" . " AND `db_name`='" . Util::sqlAddSlashes($db)
+            . "'" . " AND `db_name`='" . $GLOBALS['dbi']->escapeString($db)
             . "'";
         $result = PMA_queryAsControlUser($sqlQuery, false);
         $hiddenItems = array();
@@ -452,14 +452,14 @@ class NodeDatabase extends Node
         $retval   = array();
         $db       = $this->real_name;
         if (! $GLOBALS['cfg']['Server']['DisableIS']) {
-            $escdDb = Util::sqlAddSlashes($db);
+            $escdDb = $GLOBALS['dbi']->escapeString($db);
             $query  = "SELECT `TABLE_NAME` AS `name` ";
             $query .= "FROM `INFORMATION_SCHEMA`.`TABLES` ";
             $query .= "WHERE `TABLE_SCHEMA`='$escdDb' ";
             $query .= "AND `TABLE_TYPE`" . $condition . "'BASE TABLE' ";
             if (! empty($searchClause)) {
                 $query .= "AND `TABLE_NAME` LIKE '%";
-                $query .= Util::sqlAddSlashes(
+                $query .= $GLOBALS['dbi']->escapeString(
                     $searchClause,
                     true
                 );
@@ -476,7 +476,7 @@ class NodeDatabase extends Node
                 $query .= "AND " . Util::backquote(
                     "Tables_in_" . $db
                 );
-                $query .= " LIKE '%" . Util::sqlAddSlashes(
+                $query .= " LIKE '%" . $GLOBALS['dbi']->escapeString(
                     $searchClause,
                     true
                 );
@@ -542,7 +542,7 @@ class NodeDatabase extends Node
         $retval = array();
         $db = $this->real_name;
         if (!$GLOBALS['cfg']['Server']['DisableIS']) {
-            $escdDb = Util::sqlAddSlashes($db);
+            $escdDb = $GLOBALS['dbi']->escapeString($db);
             $query = "SELECT `ROUTINE_NAME` AS `name` ";
             $query .= "FROM `INFORMATION_SCHEMA`.`ROUTINES` ";
             $query .= "WHERE `ROUTINE_SCHEMA` "
@@ -550,7 +550,7 @@ class NodeDatabase extends Node
             $query .= "AND `ROUTINE_TYPE`='" . $routineType . "' ";
             if (!empty($searchClause)) {
                 $query .= "AND `ROUTINE_NAME` LIKE '%";
-                $query .= Util::sqlAddSlashes(
+                $query .= $GLOBALS['dbi']->escapeString(
                     $searchClause,
                     true
                 );
@@ -560,11 +560,11 @@ class NodeDatabase extends Node
             $query .= "LIMIT " . intval($pos) . ", $maxItems";
             $retval = $GLOBALS['dbi']->fetchResult($query);
         } else {
-            $escdDb = Util::sqlAddSlashes($db);
+            $escdDb = $GLOBALS['dbi']->escapeString($db);
             $query = "SHOW " . $routineType . " STATUS WHERE `Db`='$escdDb' ";
             if (!empty($searchClause)) {
                 $query .= "AND `Name` LIKE '%";
-                $query .= Util::sqlAddSlashes(
+                $query .= $GLOBALS['dbi']->escapeString(
                     $searchClause,
                     true
                 );
@@ -629,14 +629,14 @@ class NodeDatabase extends Node
         $retval = array();
         $db = $this->real_name;
         if (!$GLOBALS['cfg']['Server']['DisableIS']) {
-            $escdDb = Util::sqlAddSlashes($db);
+            $escdDb = $GLOBALS['dbi']->escapeString($db);
             $query = "SELECT `EVENT_NAME` AS `name` ";
             $query .= "FROM `INFORMATION_SCHEMA`.`EVENTS` ";
             $query .= "WHERE `EVENT_SCHEMA` "
                 . Util::getCollateForIS() . "='$escdDb' ";
             if (!empty($searchClause)) {
                 $query .= "AND `EVENT_NAME` LIKE '%";
-                $query .= Util::sqlAddSlashes(
+                $query .= $GLOBALS['dbi']->escapeString(
                     $searchClause,
                     true
                 );
@@ -650,7 +650,7 @@ class NodeDatabase extends Node
             $query = "SHOW EVENTS FROM $escdDb ";
             if (!empty($searchClause)) {
                 $query .= "WHERE `Name` LIKE '%";
-                $query .= Util::sqlAddSlashes(
+                $query .= $GLOBALS['dbi']->escapeString(
                     $searchClause,
                     true
                 );

@@ -134,10 +134,14 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
         $dbi->expects($this->any())->method('tryQuery')
             ->will($this->returnValue(true));
 
+        $dbi->expects($this->any())->method('escapeString')
+            ->will($this->returnArgument(0));
+
         $GLOBALS['dbi'] = $dbi;
         $GLOBALS['is_superuser'] = true;
         $GLOBALS['is_grantuser'] = true;
         $GLOBALS['is_createuser'] = true;
+        $GLOBALS['is_reload_priv'] = true;
     }
 
     /**
@@ -507,8 +511,8 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
             $db, $table, $username, $hostname
         );
         $sql = "SELECT * FROM `mysql`.`user`"
-            . " WHERE `User` = '" . PMA\libraries\Util::sqlAddSlashes($username) . "'"
-            . " AND `Host` = '" . PMA\libraries\Util::sqlAddSlashes($hostname) . "';";
+            . " WHERE `User` = '" . $GLOBALS['dbi']->escapeString($username) . "'"
+            . " AND `Host` = '" . $GLOBALS['dbi']->escapeString($hostname) . "';";
         $this->assertEquals(
             $sql,
             $ret
@@ -521,8 +525,8 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
             $db, $table, $username, $hostname
         );
         $sql = "SELECT * FROM `mysql`.`db`"
-            . " WHERE `User` = '" . PMA\libraries\Util::sqlAddSlashes($username) . "'"
-            . " AND `Host` = '" . PMA\libraries\Util::sqlAddSlashes($hostname) . "'"
+            . " WHERE `User` = '" . $GLOBALS['dbi']->escapeString($username) . "'"
+            . " AND `Host` = '" . $GLOBALS['dbi']->escapeString($hostname) . "'"
             . " AND '" . PMA\libraries\Util::unescapeMysqlWildcards($db) . "'"
             . " LIKE `Db`;";
         $this->assertEquals(
@@ -538,10 +542,10 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
         );
         $sql = "SELECT `Table_priv`"
             . " FROM `mysql`.`tables_priv`"
-            . " WHERE `User` = '" . PMA\libraries\Util::sqlAddSlashes($username) . "'"
-            . " AND `Host` = '" . PMA\libraries\Util::sqlAddSlashes($hostname) . "'"
+            . " WHERE `User` = '" . $GLOBALS['dbi']->escapeString($username) . "'"
+            . " AND `Host` = '" . $GLOBALS['dbi']->escapeString($hostname) . "'"
             . " AND `Db` = '" . PMA\libraries\Util::unescapeMysqlWildcards($db) . "'"
-            . " AND `Table_name` = '" . PMA\libraries\Util::sqlAddSlashes($table) . "';";
+            . " AND `Table_name` = '" . $GLOBALS['dbi']->escapeString($table) . "';";
         $this->assertEquals(
             $sql,
             $ret
@@ -556,7 +560,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
         $this->assertEquals(
             "SELECT `Table_priv` FROM `mysql`.`tables_priv` "
             . "WHERE `User` = 'pma_username' AND "
-            . "`Host` = 'pma_hostname' AND `Db` = 'db\' AND' AND "
+            . "`Host` = 'pma_hostname' AND `Db` = 'db' AND' AND "
             . "`Table_name` = 'pma_table';",
             $ret
         );

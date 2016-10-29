@@ -235,4 +235,14 @@ interface DBIExtension
      * @return string field flags
      */
     public function fieldFlags($result, $i);
+
+    /**
+     * returns properly escaped string for use in MySQL queries
+     *
+     * @param mixed  $link database link
+     * @param string $str  string to be escaped
+     *
+     * @return string a MySQL escaped string
+     */
+    public function escapeString($link, $str);
 }

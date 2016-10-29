@@ -94,8 +94,8 @@ class NodeTable extends NodeDatabaseChild
         switch ($type) {
         case 'columns':
             if (!$GLOBALS['cfg']['Server']['DisableIS']) {
-                $db = Util::sqlAddSlashes($db);
-                $table = Util::sqlAddSlashes($table);
+                $db = $GLOBALS['dbi']->escapeString($db);
+                $table = $GLOBALS['dbi']->escapeString($table);
                 $query = "SELECT COUNT(*) ";
                 $query .= "FROM `INFORMATION_SCHEMA`.`COLUMNS` ";
                 $query .= "WHERE `TABLE_NAME`='$table' ";
@@ -120,8 +120,8 @@ class NodeTable extends NodeDatabaseChild
             break;
         case 'triggers':
             if (!$GLOBALS['cfg']['Server']['DisableIS']) {
-                $db = Util::sqlAddSlashes($db);
-                $table = Util::sqlAddSlashes($table);
+                $db = $GLOBALS['dbi']->escapeString($db);
+                $table = $GLOBALS['dbi']->escapeString($table);
                 $query = "SELECT COUNT(*) ";
                 $query .= "FROM `INFORMATION_SCHEMA`.`TRIGGERS` ";
                 $query .= "WHERE `EVENT_OBJECT_SCHEMA` "
@@ -131,7 +131,7 @@ class NodeTable extends NodeDatabaseChild
                 $retval = (int)$GLOBALS['dbi']->fetchValue($query);
             } else {
                 $db = Util::backquote($db);
-                $table = Util::sqlAddSlashes($table);
+                $table = $GLOBALS['dbi']->escapeString($table);
                 $query = "SHOW TRIGGERS FROM $db WHERE `Table` = '$table'";
                 $retval = (int)$GLOBALS['dbi']->numRows(
                     $GLOBALS['dbi']->tryQuery($query)
@@ -166,8 +166,8 @@ class NodeTable extends NodeDatabaseChild
         switch ($type) {
         case 'columns':
             if (!$GLOBALS['cfg']['Server']['DisableIS']) {
-                $db = Util::sqlAddSlashes($db);
-                $table = Util::sqlAddSlashes($table);
+                $db = $GLOBALS['dbi']->escapeString($db);
+                $table = $GLOBALS['dbi']->escapeString($table);
                 $query = "SELECT `COLUMN_NAME` AS `name` ";
                 $query .= "FROM `INFORMATION_SCHEMA`.`COLUMNS` ";
                 $query .= "WHERE `TABLE_NAME`='$table' ";
@@ -221,8 +221,8 @@ class NodeTable extends NodeDatabaseChild
             break;
         case 'triggers':
             if (!$GLOBALS['cfg']['Server']['DisableIS']) {
-                $db = Util::sqlAddSlashes($db);
-                $table = Util::sqlAddSlashes($table);
+                $db = $GLOBALS['dbi']->escapeString($db);
+                $table = $GLOBALS['dbi']->escapeString($table);
                 $query = "SELECT `TRIGGER_NAME` AS `name` ";
                 $query .= "FROM `INFORMATION_SCHEMA`.`TRIGGERS` ";
                 $query .= "WHERE `EVENT_OBJECT_SCHEMA` "
@@ -236,7 +236,7 @@ class NodeTable extends NodeDatabaseChild
             }
 
             $db = Util::backquote($db);
-            $table = Util::sqlAddSlashes($table);
+            $table = $GLOBALS['dbi']->escapeString($table);
             $query = "SHOW TRIGGERS FROM $db WHERE `Table` = '$table'";
             $handle = $GLOBALS['dbi']->tryQuery($query);
             if ($handle === false) {

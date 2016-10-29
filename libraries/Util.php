@@ -2337,7 +2337,7 @@ class Util
                         . self::printableBitValue($row[$i], $meta->length) . "'";
                 } else {
                     $con_val = '= \''
-                        . self::sqlAddSlashes($row[$i], false, true) . '\'';
+                        . $GLOBALS['dbi']->escapeString($row[$i]) . '\'';
                 }
             }
 
@@ -4161,7 +4161,7 @@ class Util
                     'SCHEMA_PRIVILEGES',
                     $username,
                     $priv,
-                    self::sqlAddSlashes($db)
+                    $GLOBALS['dbi']->escapeString($db)
                 )
             );
             if ($schema_privileges) {
@@ -4184,8 +4184,8 @@ class Util
                     'TABLE_PRIVILEGES',
                     $username,
                     $priv,
-                    self::sqlAddSlashes($db),
-                    self::sqlAddSlashes($tbl)
+                    $GLOBALS['dbi']->escapeString($db),
+                    $GLOBALS['dbi']->escapeString($tbl)
                 )
             );
             if ($table_privileges) {
@@ -4942,7 +4942,7 @@ class Util
                     if (! isset($sot_cache[$tmp[0]])) {
                         $sts_result = $GLOBALS['dbi']->query(
                             "SHOW TABLE STATUS FROM " . Util::backquote($db)
-                            . " LIKE '" . Util::sqlAddSlashes($tmp[0], true)
+                            . " LIKE '" . $GLOBALS['dbi']->escapeString($tmp[0])
                             . "';"
                         );
                         $sts_tmp = $GLOBALS['dbi']->fetchAssoc($sts_result);

@@ -139,7 +139,7 @@ class DbSearch
         ) {
             unset($this->_criteriaColumnName);
         } else {
-            $this->_criteriaColumnName = Util::sqlAddSlashes(
+            $this->_criteriaColumnName = $GLOBALS['dbi']->escapeString(
                 $_REQUEST['criteriaColumnName'], true
             );
         }
@@ -203,7 +203,7 @@ class DbSearch
         // For "as regular expression" (search option 4), LIKE won't be used
         // Usage example: If user is searching for a literal $ in a regexp search,
         // he should enter \$ as the value.
-        $criteriaSearchStringEscaped = Util::sqlAddSlashes(
+        $criteriaSearchStringEscaped = $GLOBALS['dbi']->escapeString(
             $this->_criteriaSearchString,
             ($this->_criteriaSearchType == 4 ? false : true)
         );
