@@ -1259,22 +1259,28 @@ class Table
             // trailing spaces not allowed even in backquotes
             return false;
         }
-        if (! $is_backquoted && $table_name !== trim($table_name)) {
-            // spaces at the start or in between
-            return false;
-        }
 
         if (! mb_strlen($table_name)) {
             // zero length
             return false;
         }
 
-        if (preg_match('/[.\/\\\\]+/i', $table_name)) {
-            // illegal char . / \
+        if (! $is_backquoted && $table_name !== trim($table_name)) {
+            // spaces at the start or in between only allowed inside backquotes
             return false;
         }
 
-        return true;
+        if (! $is_backquoted && preg_match('/^[a-zA-Z0-9_$]+$/', $table_name)) {
+            // only allow the above regex in unquoted identifiers
+            // see : http://dev.mysql.com/doc/refman/5.7/en/identifiers.html
+            return true;
+        } else if ($is_backquoted) {
+            // If backquoted, all characters should be allowed (except w/ trailing spaces)
+            return true;
+        }
+
+        // If not backquoted and doesn't follow the above regex
+        return false;
     }
 
     /**
