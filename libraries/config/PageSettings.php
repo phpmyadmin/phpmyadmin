@@ -169,7 +169,7 @@ class PageSettings
             true,
             true,
             false,
-            $response->getFooter()->getSelfUrl('unencoded'),
+            $response->getFooter()->getSelfUrl(),
             array(
                 'submit_save' => $this->_groupName
             )

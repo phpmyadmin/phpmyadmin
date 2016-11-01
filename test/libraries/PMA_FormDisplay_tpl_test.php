@@ -10,8 +10,6 @@ use PMA\libraries\Theme;
 
 require_once 'libraries/config/FormDisplay.tpl.php';
 require_once 'libraries/user_preferences.lib.php';
-require_once 'libraries/url_generating.lib.php';
-require_once 'libraries/js_escape.lib.php';
 
 /**
  * Tests for FromDisplay.tpl.php
@@ -142,8 +140,6 @@ class PMA_FormDisplay_Tpl_Test extends PHPUnit_Framework_TestCase
             $this->markTestSkipped('Cannot modify constant');
         }
 
-        $_SESSION['PMA_Theme'] = new Theme();
-        $GLOBALS['pmaThemeImage'] = 'testImage';
         $GLOBALS['_FormDislayGroup'] = 1;
         $opts = array();
         $opts['errors'] = array('e1');
@@ -174,8 +170,8 @@ class PMA_FormDisplay_Tpl_Test extends PHPUnit_Framework_TestCase
         );
 
         $this->assertContains(
-            '<img src="testImageb_help.png" title="Documentation" ' .
-            'alt="Documentation" /',
+            '<img src="themes/dot.gif" title="Documentation" ' .
+            'alt="Documentation" class="icon ic_b_help" /',
             $result
         );
 
@@ -215,7 +211,6 @@ class PMA_FormDisplay_Tpl_Test extends PHPUnit_Framework_TestCase
 
         define('PMA_SETUP', true);
         $GLOBALS['_FormDislayGroup'] = 0;
-        $GLOBALS['cfg']['ThemePath'] = 'themePath';
         $opts = array();
         $opts['errors'] = array();
         $opts['setvalue'] = 'setVal';
@@ -259,7 +254,6 @@ class PMA_FormDisplay_Tpl_Test extends PHPUnit_Framework_TestCase
 
         // short_text
         $GLOBALS['_FormDislayGroup'] = 0;
-        $GLOBALS['cfg']['ThemePath'] = 'themePath';
         $opts = array();
         $opts['errors'] = array();
 

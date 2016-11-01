@@ -1,8 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * "Echo" service to allow force downloading of exported charts (png or svg)
- * and server status monitor settings
+ * "Echo" service to allow force downloading server status monitor settings
  *
  * @package PhpMyAdmin
  */

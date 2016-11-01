@@ -6,6 +6,8 @@
  *
  * @package PhpMyAdmin
  */
+use PMA\libraries\URL;
+
 /**
  * Gets some core libraries
  */
@@ -114,7 +116,7 @@ $response->addHTML($table_navigation_html);
 $columnAdd = PMA_getHTMLforAddCentralColumn($total_rows, $pos, $db);
 $response->addHTML($columnAdd);
 $deleteRowForm = '<form method="post" id="del_form" action="db_central_columns.php">'
-        . PMA_URL_getHiddenInputs(
+        . URL::getHiddenInputs(
             $db
         )
         . '<input id="del_col_name" type="hidden" name="col_name" value="">'

@@ -31,7 +31,6 @@ class NodeTableContainerTest extends PMATestCase
         $GLOBALS['cfg']['NavigationTreeDbSeparator'] = '_';
         $GLOBALS['cfg']['NavigationTreeTableSeparator'] = '__';
         $GLOBALS['cfg']['NavigationTreeTableLevel'] = 1;
-        $_SESSION['PMA_Theme'] = Theme::load('./themes/pmahomme');
     }
 
 

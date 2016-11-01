@@ -8,6 +8,7 @@
 
 use PMA\libraries\config\ConfigFile;
 use PMA\libraries\config\FormDisplay;
+use PMA\libraries\URL;
 
 if (!defined('PHPMYADMIN')) {
     exit;
@@ -33,7 +34,7 @@ if ($mode == 'edit' && $server_exists) {
         . ' <small>(' . htmlspecialchars($cf->getServerDSN($id)) . ')</small>';
 } elseif ($mode == 'remove' && $server_exists) {
     $cf->removeServer($id);
-    header('Location: index.php' . PMA_URL_getCommon());
+    header('Location: index.php' . URL::getCommonRaw());
     exit;
 } elseif ($mode == 'revert' && $server_exists) {
     // handled by process_formset()

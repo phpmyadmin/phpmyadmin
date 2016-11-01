@@ -30,7 +30,7 @@
         <tr class="<?= (($odd_row = !$odd_row) ? 'odd' : 'even'); ?>">
         <th class="name"><?= __('Collation'); ?></th>
         <td class="value">
-            <dfn title="<?= PMA_getCollationDescr($tbl_collation); ?>">
+            <dfn title="<?= PMA\libraries\Charsets::getCollationDescr($tbl_collation); ?>">
                 <?= $tbl_collation; ?>
             </dfn>
         </td>

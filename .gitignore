@@ -7,6 +7,7 @@
 # Upload/save dirs
 /upload/
 /save/
+/tmp/
 # For setup script
 /config/
 # ctags
@@ -22,8 +23,9 @@ phpmyadmin.wpj
 .idea
 .netbeans
 *.sw[op]
-# IIS files
+# Web server files
 web.config
+.htaccess
 # Locales
 /locale/
 # Backups
@@ -32,6 +34,7 @@ web.config
 /js/line_counts.php
 # API documentation
 /apidoc/
+/doc/linkcheck/
 # Demo server
 revision-info.php
 # PHPUnit

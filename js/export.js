@@ -522,10 +522,13 @@ function check_table_selected(row) {
 
     if (data && structure) {
         table_select.prop({checked: true, indeterminate: false});
+        $row.addClass('marked');
     } else if (data || structure) {
         table_select.prop({checked: true, indeterminate: true});
+        $row.removeClass('marked');
     } else {
         table_select.prop({checked: false, indeterminate: false});
+        $row.removeClass('marked');
     }
 }
 
@@ -535,8 +538,20 @@ function toggle_table_select(row) {
 
     if (table_selected) {
         $row.find('input[type="checkbox"]:not(:disabled)').prop('checked', true);
+        $row.addClass('marked');
     } else {
         $row.find('input[type="checkbox"]:not(:disabled)').prop('checked', false);
+        $row.removeClass('marked');
+    }
+}
+
+function handleAddProcCheckbox() {
+    if ($('#table_structure_all').is(':checked') === true
+        && $('#table_data_all').is(':checked') === true
+    ) {
+        $('#checkbox_sql_procedure_function').prop('checked', true);
+    } else {
+        $('#checkbox_sql_procedure_function').prop('checked', false);
     }
 }
 
@@ -579,26 +594,31 @@ AJAX.registerOnload('export.js', function () {
     $('input[name="table_select[]"]').on('change', function() {
         toggle_table_select($(this).closest('tr'));
         check_table_select_all();
+        handleAddProcCheckbox();
     });
 
     $('input[name="table_structure[]"]').on('change', function() {
         check_table_selected($(this).closest('tr'));
         check_table_select_all();
+        handleAddProcCheckbox();
     });
 
     $('input[name="table_data[]"]').on('change', function() {
         check_table_selected($(this).closest('tr'));
         check_table_select_all();
+        handleAddProcCheckbox();
     });
 
     $('#table_structure_all').on('change', function() {
         toggle_table_select_all_str();
         check_selected_tables();
+        handleAddProcCheckbox();
     });
 
     $('#table_data_all').on('change', function() {
         toggle_table_select_all_data();
         check_selected_tables();
+        handleAddProcCheckbox();
     });
 
     if ($("input[name='export_type']").val() == 'database') {
@@ -805,6 +825,8 @@ AJAX.registerOnload('export.js', function () {
     toggle_quick_or_custom();
     toggle_structure_data_opts();
     toggle_sql_include_comments();
+    check_table_select_all();
+    handleAddProcCheckbox();
 
     /**
      * Initially disables the "Dump some row(s)" sub-options

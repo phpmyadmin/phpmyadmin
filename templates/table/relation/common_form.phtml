@@ -1,5 +1,5 @@
 <form method="post" action="tbl_relation.php">
-    <?= PMA_URL_getHiddenInputs($db, $table); ?>
+    <?= PMA\libraries\URL::getHiddenInputs($db, $table); ?>
     <!-- InnoDB  -->
     <?php if (PMA\libraries\Util::isForeignKeySupported($tbl_storage_engine)): ?>
         <fieldset>
@@ -8,11 +8,20 @@
                 <tr>
                     <th><?= __('Actions'); ?></th>
                     <th><?= __('Constraint properties'); ?></th>
-                    <th><?= __('Column') , PMA\libraries\Util::showHint(__(
-                            'Only columns with index will be displayed. You can define an'
-                            . ' index below.'
-                        )) ?>
-                    </th>
+                    <?php if (strtoupper($tbl_storage_engine) == 'INNODB'): ?>
+                        <th><?= __('Column') , PMA\libraries\Util::showHint(__(
+                                'Creating a foreign key over a non-indexed column would automatically create'
+                                . ' an index on it. Alternatively, you can define an index below, before creating'
+                                . ' the foreign key.'
+                            )) ?>
+                        </th>
+                    <?php else: ?>
+                        <th><?= __('Column') , PMA\libraries\Util::showHint(__(
+                                'Only columns with index will be displayed. You can define an'
+                                . ' index below.'
+                            )) ?>
+                        </th>
+                    <?php endif; ?>
                     <th colspan="3">
                         <?= __('Foreign key constraint'); ?> (<?= $tbl_storage_engine; ?>)
                     </th>

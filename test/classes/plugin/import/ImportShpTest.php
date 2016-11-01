@@ -10,10 +10,10 @@
  * since 'check_user_privileges.lib.php' will use it globally
  */
 use PMA\libraries\plugins\import\ImportShp;
+use PMA\libraries\File;
 
 $GLOBALS['server'] = 0;
 
-require_once 'libraries/url_generating.lib.php';
 require_once 'libraries/database_interface.inc.php';
 require_once 'libraries/import.lib.php';
 require_once 'test/PMATestCase.php';
@@ -71,9 +71,15 @@ class ImportShpTest extends PMATestCase
     protected function runImport($filename)
     {
         $GLOBALS['import_file'] = $filename;
-        $GLOBALS['import_handle'] = @fopen($filename, 'r');
+        $GLOBALS['import_handle'] = new File($filename);
+        $GLOBALS['import_handle']->setDecompressContent(true);
+        $GLOBALS['import_handle']->open();
 
+        $GLOBALS['message'] = '';
+        $GLOBALS['error'] = false;
         $this->object->doImport();
+        $this->assertEquals('', $GLOBALS['message']);
+        $this->assertFalse($GLOBALS['error']);
     }
 
     /**

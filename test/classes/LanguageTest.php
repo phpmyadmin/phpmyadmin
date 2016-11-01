@@ -104,7 +104,7 @@ class LanguageTest extends PMATestCase
         $czech = $this->manager->getLanguage('cs');
         $this->assertEquals('cs_CZ', $czech->getMySQLLocale());
 
-        $korani = $this->manager->getLanguage('ckb');
+        $korani = $this->manager->getLanguage('hy');
         $this->assertEquals('', $korani->getMySQLLocale());
     }
 
@@ -130,6 +130,8 @@ class LanguageTest extends PMATestCase
         $this->assertNotEquals(false, $lang);
         $this->assertEquals('Czech', $lang->getEnglishName());
         $this->assertEquals('Čeština', $lang->getNativeName());
+        $lang = $this->manager->getLanguage('nonexisting');
+        $this->assertEquals(false, $lang);
     }
 
     /**

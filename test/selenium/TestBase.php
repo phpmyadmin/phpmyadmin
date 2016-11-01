@@ -47,6 +47,9 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
      */
     public static function browsers()
     {
+        if (! empty($GLOBALS['CI_MODE'] && $GLOBALS['CI_MODE'] != 'selenium')) {
+            return;
+        }
         if (! empty($GLOBALS['TESTSUITE_BROWSERSTACK_USER'])
             && ! empty($GLOBALS['TESTSUITE_BROWSERSTACK_KEY'])
         ) {

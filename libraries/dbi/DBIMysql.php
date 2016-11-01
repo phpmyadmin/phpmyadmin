@@ -92,34 +92,25 @@ class DBIMysql implements DBIExtension
     /**
      * connects to the database server
      *
-     * @param string $user                 mysql user name
-     * @param string $password             mysql user password
-     * @param bool   $is_controluser       whether this is a control user connection
-     * @param array  $server               host/port/socket/persistent
-     * @param bool   $auxiliary_connection (when true, don't go back to login if
-     *                                     connection fails)
+     * @param string $user     mysql user name
+     * @param string $password mysql user password
+     * @param array  $server   host/port/socket/persistent
      *
      * @return mixed false on error or a mysqli object on success
      */
     public function connect(
-        $user, $password, $is_controluser = false, $server = null,
-        $auxiliary_connection = false
+        $user, $password, $server
     ) {
-        global $cfg;
-
-        $server_port = $GLOBALS['dbi']->getServerPort($server);
-        $server_socket = $GLOBALS['dbi']->getServerSocket($server);
-
-        if ($server_port === 0) {
+        if ($server['port'] === 0) {
             $server_port = '';
         } else {
-            $server_port = ':' . $server_port;
+            $server_port = ':' . $server['port'];
         }
 
-        if (is_null($server_socket)) {
+        if (is_null($server['socket'])) {
             $server_socket = '';
         } else {
-            $server_socket = ':' . $server_socket;
+            $server_socket = ':' . $server['socket'];
         }
 
         $client_flags = 0;
@@ -132,37 +123,22 @@ class DBIMysql implements DBIExtension
         }
 
         /* Optionally compress connection */
-        if (defined('MYSQL_CLIENT_COMPRESS') && $cfg['Server']['compress']) {
+        if (defined('MYSQL_CLIENT_COMPRESS') && $server['compress']) {
             $client_flags |= MYSQL_CLIENT_COMPRESS;
         }
 
         /* Optionally enable SSL */
-        if (defined('MYSQL_CLIENT_SSL') && $cfg['Server']['ssl']) {
+        if (defined('MYSQL_CLIENT_SSL') && $server['ssl']) {
             $client_flags |= MYSQL_CLIENT_SSL;
         }
 
-        if (! $server) {
-            $link = $this->_realConnect(
-                $cfg['Server']['host'] . $server_port . $server_socket,
-                $user, $password, empty($client_flags) ? null : $client_flags
-            );
-
-            // Retry with empty password if we're allowed to
-            if (empty($link) && $cfg['Server']['nopassword'] && ! $is_controluser) {
-                $link = $this->_realConnect(
-                    $cfg['Server']['host'] . $server_port . $server_socket,
-                    $user, '', empty($client_flags) ? null : $client_flags
-                );
-            }
+        if (!isset($server['host'])) {
+            $link = $this->_realConnect($server_socket, $user, $password, null);
         } else {
-            if (!isset($server['host'])) {
-                $link = $this->_realConnect($server_socket, $user, $password, null);
-            } else {
-                $link = $this->_realConnect(
-                    $server['host'] . $server_port . $server_socket,
-                    $user, $password, null
-                );
-            }
+            $link = $this->_realConnect(
+                $server['host'] . $server_port . $server_socket,
+                $user, $password, null
+            );
         }
         return $link;
     }

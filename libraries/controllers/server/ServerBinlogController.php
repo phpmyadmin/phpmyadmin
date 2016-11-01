@@ -14,6 +14,7 @@ use PMA\libraries\DatabaseInterface;
 use PMA\libraries\Message;
 use PMA\libraries\Util;
 use PMA\libraries\Template;
+use PMA\libraries\URL;
 
 /**
  * Handles viewing binary logs
@@ -188,7 +189,7 @@ class ServerBinlogController extends Controller
             }
 
             $html .= '<a href="server_binlog.php'
-                . PMA_URL_getCommon($this_url_params) . '"';
+                . URL::getCommon($this_url_params) . '"';
             if (Util::showIcons('TableNavigationLinksMode')) {
                 $html .= ' title="' . _pgettext('Previous page', 'Previous') . '">';
             } else {
@@ -210,7 +211,7 @@ class ServerBinlogController extends Controller
             $tempTitle = __('Show Full Queries');
             $tempImgMode = 'full';
         }
-        $html .= '<a href="server_binlog.php' . PMA_URL_getCommon($this_url_params)
+        $html .= '<a href="server_binlog.php' . URL::getCommon($this_url_params)
             . '" title="' . $tempTitle . '">'
             . '<img src="' . $GLOBALS['pmaThemeImage'] . 's_' . $tempImgMode
             . 'text.png" alt="' . $tempTitle . '" /></a>';
@@ -221,7 +222,7 @@ class ServerBinlogController extends Controller
             $this_url_params = $url_params;
             $this_url_params['pos'] = $pos + $GLOBALS['cfg']['MaxRows'];
             $html .= ' - <a href="server_binlog.php'
-                . PMA_URL_getCommon($this_url_params)
+                . URL::getCommon($this_url_params)
                 . '"';
             if (Util::showIcons('TableNavigationLinksMode')) {
                 $html .= ' title="' . _pgettext('Next page', 'Next') . '">';

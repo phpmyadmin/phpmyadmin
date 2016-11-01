@@ -1,0 +1,4 @@
+#!/bin/sh
+
+./test/install-runkit
+composer install --no-interaction

@@ -6,9 +6,11 @@
  *
  * @package PhpMyAdmin
  */
+use PMA\libraries\Encoding;
 use PMA\libraries\Message;
 use PMA\libraries\plugins\ExportPlugin;
 use PMA\libraries\Table;
+use PMA\libraries\URL;
 
 /**
  * Outputs appropriate checked statement for checkbox.
@@ -107,11 +109,11 @@ function PMA_getHtmlForHiddenInput(
     global $cfg;
     $html = "";
     if ($export_type == 'server') {
-        $html .= PMA_URL_getHiddenInputs('', '', 1);
+        $html .= URL::getHiddenInputs('', '', 1);
     } elseif ($export_type == 'database') {
-        $html .= PMA_URL_getHiddenInputs($db, '', 1);
+        $html .= URL::getHiddenInputs($db, '', 1);
     } else {
-        $html .= PMA_URL_getHiddenInputs($db, $table, 1);
+        $html .= URL::getHiddenInputs($db, $table, 1);
     }
 
     // just to keep this value for possible next display of this form after saving
@@ -381,12 +383,11 @@ function PMA_getHtmlForExportOptionsFormat($export_list)
     $html .= PMA_pluginGetOptions('Export', $export_list);
     $html .= '</div>';
 
-    if (function_exists('PMA_Kanji_encodingForm')) {
-        // Encoding setting form appended by Y.Kawada
+    if (Encoding::canConvertKanji()) {
         // Japanese encoding setting
         $html .= '<div class="exportoptions" id="kanji_encoding">';
         $html .= '<h3>' . __('Encoding Conversion:') . '</h3>';
-        $html .= PMA_Kanji_encodingForm();
+        $html .= Encoding::kanjiEncodingForm();
         $html .= '</div>';
     }
 
@@ -554,11 +555,11 @@ function PMA_getHtmlForExportOptionsOutputFormat($export_type)
     $html .= '<label for="filename_template" class="desc">';
     $html .= __('File name template:');
     $trans = new Message;
-    $trans->addMessage(__('@SERVER@ will become the server name'));
+    $trans->addText(__('@SERVER@ will become the server name'));
     if ($export_type == 'database' || $export_type == 'table') {
-        $trans->addMessage(__(', @DATABASE@ will become the database name'));
+        $trans->addText(__(', @DATABASE@ will become the database name'));
         if ($export_type == 'table') {
-            $trans->addMessage(__(', @TABLE@ will become the table name'));
+            $trans->addText(__(', @TABLE@ will become the table name'));
         }
     }
 
@@ -570,19 +571,17 @@ function PMA_getHtmlForExportOptionsOutputFormat($export_type)
             . 'Other text will be kept as is. See the %4$sFAQ%5$s for details.'
         )
     );
-    $msg->addParam(
+    $msg->addParamHtml(
         '<a href="' . PMA_linkURL(PMA_getPHPDocLink('function.strftime.php'))
-        . '" target="documentation" title="' . __('Documentation') . '">',
-        false
+        . '" target="documentation" title="' . __('Documentation') . '">'
     );
-    $msg->addParam('</a>', false);
+    $msg->addParamHtml('</a>');
     $msg->addParam($trans);
     $doc_url = PMA\libraries\Util::getDocuLink('faq', 'faq6-27');
-    $msg->addParam(
-        '<a href="' . $doc_url . '" target="documentation">',
-        false
+    $msg->addParamHtml(
+        '<a href="' . $doc_url . '" target="documentation">'
     );
-    $msg->addParam('</a>', false);
+    $msg->addParamHtml('</a>');
 
     $html .= PMA\libraries\Util::showHint($msg);
     $html .= '</label>';
@@ -814,7 +813,7 @@ function PMA_getHtmlForExportOptionsOutput($export_type)
     $html .= PMA_getHtmlForExportOptionsOutputFormat($export_type);
 
     // charset of file
-    if ($GLOBALS['PMA_recoding_engine'] != PMA_CHARSET_NONE) {
+    if (Encoding::isSupported()) {
         $html .= PMA_getHtmlForExportOptionsOutputCharset();
     } // end if
 
@@ -868,9 +867,8 @@ function PMA_getHtmlForExportOptions(
     $html .= PMA_getHtmlForExportOptionsFormatDropdown($export_list);
     $html .= PMA_getHtmlForExportOptionsSelection($export_type, $multi_values);
 
-    $tableLength = mb_strlen($table);
     $_table = new Table($table, $db);
-    if ($tableLength && empty($num_tables) && ! $_table->isMerge()) {
+    if (strlen($table) > 0 && empty($num_tables) && ! $_table->isMerge()) {
         $html .= PMA_getHtmlForExportOptionsRows($db, $table, $unlim_num_rows);
     }
 

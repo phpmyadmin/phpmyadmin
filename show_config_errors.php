@@ -7,7 +7,7 @@
  */
 
 // rfc2616 - Section 14.21
-header('Expires: ' . date(DATE_RFC1123));
+header('Expires: ' . gmdate(DATE_RFC1123));
 // HTTP/1.1
 header(
     'Cache-Control: no-store, no-cache, must-revalidate,'
@@ -24,7 +24,7 @@ if (isset($_SERVER['HTTP_USER_AGENT'])
     // test case: exporting a database into a .gz file with Safari
     // would produce files not having the current time
     // (added this header for Safari but should not harm other browsers)
-    header('Last-Modified: ' . date(DATE_RFC1123));
+    header('Last-Modified: ' . gmdate(DATE_RFC1123));
 }
 header('Content-Type: text/html; charset=utf-8');
 

@@ -266,10 +266,11 @@ foreach ($loop_array as $rownumber => $where_clause) {
         if (! isset($multi_edit_virtual) || ! isset($multi_edit_virtual[$key])) {
             list($query_values, $query_fields)
                 = PMA_getQueryValuesForInsertAndUpdateInMultipleEdit(
-                    $multi_edit_columns_name, $multi_edit_columns_null, $current_value,
-                    $multi_edit_columns_prev, $multi_edit_funcs, $is_insert,
-                    $query_values, $query_fields, $current_value_as_an_array,
-                    $value_sets, $key, $multi_edit_columns_null_prev
+                    $multi_edit_columns_name, $multi_edit_columns_null,
+                    $current_value, $multi_edit_columns_prev, $multi_edit_funcs,
+                    $is_insert, $query_values, $query_fields,
+                    $current_value_as_an_array, $value_sets, $key,
+                    $multi_edit_columns_null_prev
                 );
         }
         if (isset($multi_edit_columns_null[$key])) {
@@ -341,18 +342,18 @@ if ($is_insert && (count($value_sets) > 0 || $row_skipped)) {
 }
 if ($row_skipped) {
     $goto_include = 'tbl_change.php';
-    $message->addMessages($insert_errors, '<br />');
+    $message->addMessagesString($insert_errors, '<br />');
     $message->isError(true);
 }
 
 $message->addMessages($last_messages, '<br />');
 
 if (! empty($warning_messages)) {
-    $message->addMessages($warning_messages, '<br />');
+    $message->addMessagesString($warning_messages, '<br />');
     $message->isError(true);
 }
 if (! empty($error_messages)) {
-    $message->addMessages($error_messages);
+    $message->addMessagesString($error_messages);
     $message->isError(true);
 }
 unset(
@@ -454,7 +455,6 @@ if (! empty($return_to_sql_query)) {
 }
 
 $scripts->addFile('tbl_change.js');
-$scripts->addFile('big_ints.js');
 
 $active_page = $goto_include;
 

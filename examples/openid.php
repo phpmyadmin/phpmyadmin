@@ -89,7 +89,7 @@ $base .= '://' . $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'];
 
 $realm = $base . '/';
 $returnTo = $base . dirname($_SERVER['PHP_SELF']);
-if ($returnTo[mb_strlen($returnTo) - 1] != '/') {
+if ($returnTo[strlen($returnTo) - 1] != '/') {
     $returnTo .= '/';
 }
 $returnTo .= 'openid.php';

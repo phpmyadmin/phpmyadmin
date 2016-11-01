@@ -38,10 +38,8 @@ class NodeDatabaseContainer extends Node
             $new->isNew = true;
             $new->icon = PMA\libraries\Util::getImage('b_newdb.png', '');
             $new->links = array(
-                'text' => 'server_databases.php?server=' . $GLOBALS['server']
-                    . '&amp;token=' . $_SESSION[' PMA_token '],
-                'icon' => 'server_databases.php?server=' . $GLOBALS['server']
-                    . '&amp;token=' . $_SESSION[' PMA_token '],
+                'text' => 'server_databases.php?server=' . $GLOBALS['server'],
+                'icon' => 'server_databases.php?server=' . $GLOBALS['server'],
             );
             $new->classes = 'new_database italics';
             $this->addChild($new);

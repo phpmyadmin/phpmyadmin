@@ -30,6 +30,89 @@ function navTreeStateUpdate() {
     }
 }
 
+
+/**
+ * updates the filter state in sessionStorage
+ *
+ * @returns void
+ */
+function navFilterStateUpdate(filterName, filterValue) {
+    if (isStorageSupported('sessionStorage')) {
+        var storage = window.sessionStorage;
+        try {
+            var currentFilter = $.extend({}, JSON.parse(storage.getItem('navTreeSearchFilters')));
+            var filter = {};
+            filter[filterName] = filterValue;
+            currentFilter = $.extend(currentFilter, filter);
+            storage.setItem('navTreeSearchFilters', JSON.stringify(currentFilter));
+        } catch (error) {
+            storage.removeItem('navTreeSearchFilters');
+        }
+    }
+}
+
+
+/**
+ * restores the filter state on navigation reload
+ *
+ * @returns void
+ */
+function navFilterStateRestore() {
+    if (isStorageSupported('sessionStorage')
+        && typeof window.sessionStorage.navTreeSearchFilters !== 'undefined'
+    ) {
+        var searchClauses = JSON.parse(window.sessionStorage.navTreeSearchFilters);
+        if (Object.keys(searchClauses).length < 1) {
+            return;
+        }
+        // restore database filter if present and not empty
+        if (searchClauses.hasOwnProperty("dbFilter")
+            && searchClauses.dbFilter.length
+        ) {
+            $obj = $('#pma_navigation_tree');
+            if (! $obj.data('fastFilter')) {
+                $obj.data(
+                    'fastFilter',
+                    new PMA_fastFilter.filter($obj, "")
+                );
+            }
+            $obj.find('li.fast_filter.db_fast_filter input.searchClause')
+                .val(searchClauses.dbFilter)
+                .trigger('keyup');
+        }
+        // find all table filters present in the tree
+        $tableFilters = $('#pma_navigation_tree li.database')
+            .children('div.list_container')
+            .find('li.fast_filter input.searchClause');
+        // restore table filters
+        $tableFilters.each(function () {
+            $obj = $(this).closest('div.list_container');
+            // aPath associated with this filter
+            var filterName = $(this).siblings('input[name=aPath]').val();
+            // if this table's filter has a state stored in storage
+            if (searchClauses.hasOwnProperty(filterName)
+                && searchClauses[filterName].length
+            ) {
+                // clear state if item is not visible,
+                // happens when table filter becomes invisible
+                // as db filter has already been applied
+                if (! $obj.is(":visible")) {
+                    navFilterStateUpdate(filterName, "");
+                    return true;
+                }
+                if (! $obj.data('fastFilter')) {
+                    $obj.data(
+                        'fastFilter',
+                        new PMA_fastFilter.filter($obj, "")
+                    );
+                }
+                $(this).val(searchClauses[filterName])
+                    .trigger('keyup');
+            }
+        });
+    }
+}
+
 /**
  * Loads child items of a node and executes a given callback
  *
@@ -439,6 +522,9 @@ $(function () {
         event.preventDefault();
         $.ajax({
             type: 'POST',
+            data: {
+                token: PMA_commonParams.get('token')
+            },
             url: $(this).attr('href') + '&ajax_request=true',
             success: function (data) {
                 if (typeof data !== 'undefined' && data.success === true) {
@@ -487,6 +573,9 @@ $(function () {
         var $msg = PMA_ajaxShowMessage();
         $.ajax({
             type: 'POST',
+            data: {
+                token: PMA_commonParams.get('token')
+            },
             url: $(this).attr('href') + '&ajax_request=true',
             success: function (data) {
                 PMA_ajaxRemoveMessage($msg);
@@ -520,7 +609,8 @@ $(function () {
             data: {
                 favorite_tables: (isStorageSupported('localStorage') && typeof window.localStorage.favorite_tables !== 'undefined')
                     ? window.localStorage.favorite_tables
-                    : ''
+                    : '',
+                token: PMA_commonParams.get('token')
             },
             success: function (data) {
                 if (data.changes) {
@@ -552,12 +642,15 @@ $(function () {
         if ($('#pma_navigation_tree_content').length &&
             typeof storage.navTreePaths === 'undefined'
         ) {
-            navTreeStateUpdate();
+            PMA_reloadNavigation();
         } else if (PMA_commonParams.get('server') === storage.server &&
             PMA_commonParams.get('token') === storage.token
         ) {
             // Reload the tree to the state before page refresh
-            PMA_reloadNavigation(null, JSON.parse(storage.navTreePaths));
+            PMA_reloadNavigation(navFilterStateRestore, JSON.parse(storage.navTreePaths));
+        } else {
+            // If the user is different
+            navTreeStateUpdate();
         }
     }
 });
@@ -625,6 +718,7 @@ function expandTreeNode($expandElem, callback) {
  *
  */
 function scrollToView($element, $forceToTop) {
+    navFilterStateRestore();
     var $container = $('#pma_navigation_tree_content');
     var elemTop = $element.offset().top - $container.offset().top;
     var textHeight = 20;
@@ -847,7 +941,8 @@ function PMA_ensureNaviSettings(selflink) {
 
     if (!$('#pma_navigation_settings').length) {
         var params = {
-            getNaviSettings: true
+            getNaviSettings: true,
+            token: PMA_commonParams.get('token')
         };
         var url = $('#pma_navigation').find('a.navigation_url').attr('href');
         $.post(url, params, function (data) {
@@ -877,7 +972,8 @@ function PMA_ensureNaviSettings(selflink) {
 function PMA_reloadNavigation(callback, paths) {
     var params = {
         reload: true,
-        no_debug: true
+        no_debug: true,
+        token: PMA_commonParams.get('token')
     };
     paths = paths || traverseNavigationForPaths();
     $.extend(params, paths);
@@ -1386,6 +1482,14 @@ var PMA_fastFilter = {
             } else if ($obj.data('fastFilter')) {
                 $obj.data('fastFilter').restore(true);
             }
+            // update filter state
+            var filterName;
+            if ($(this).attr('name') == 'searchClause2') {
+                filterName = $(this).siblings('input[name=aPath]').val();
+            } else {
+                filterName = 'dbFilter';
+            }
+            navFilterStateUpdate(filterName, $(this).val());
         },
         clear: function (event) {
             event.stopPropagation();
@@ -1435,6 +1539,8 @@ PMA_fastFilter.filter.prototype.request = function () {
     }
     var url = $('#pma_navigation').find('a.navigation_url').attr('href');
     var params = self.$this.find('> ul > li > form.fast_filter').first().serialize();
+    params.token = PMA_commonParams.get('token');
+
     if (self.$this.find('> ul > li > form.fast_filter:first input[name=searchClause]').length === 0) {
         var $input = $('#pma_navigation_tree').find('li.fast_filter.db_fast_filter input.searchClause');
         if ($input.length && $input.val() != $input[0].defaultValue) {

@@ -8,6 +8,8 @@
 namespace PMA\libraries;
 
 use DirectoryIterator;
+use PMA\libraries\URL;
+use PMA\libraries\ThemeManager;
 
 /**
  * Indication for error handler (see end of this file).
@@ -101,7 +103,7 @@ class Config
      */
     public function checkSystem()
     {
-        $this->set('PMA_VERSION', '4.6.4');
+        $this->set('PMA_VERSION', '4.7.0-dev');
         /**
          * @deprecated
          */
@@ -133,16 +135,9 @@ class Config
             $this->set('OBGzip', false);
         }
 
-        // disable output-buffering (if set to 'auto') for IE6, else enable it.
+        // enable output-buffering (if set to 'auto')
         if (strtolower($this->get('OBGzip')) == 'auto') {
-            if ($this->get('PMA_USR_BROWSER_AGENT') == 'IE'
-                && $this->get('PMA_USR_BROWSER_VER') >= 6
-                && $this->get('PMA_USR_BROWSER_VER') < 7
-            ) {
-                $this->set('OBGzip', false);
-            } else {
-                $this->set('OBGzip', true);
-            }
+            $this->set('OBGzip', true);
         }
     }
 
@@ -193,20 +188,20 @@ class Config
         // (must check everything else before Mozilla)
 
         $is_mozilla = preg_match(
-            '@Mozilla/([0-9].[0-9]{1,2})@',
+            '@Mozilla/([0-9]\.[0-9]{1,2})@',
             $HTTP_USER_AGENT,
             $mozilla_version
         );
 
         if (preg_match(
-            '@Opera(/| )([0-9].[0-9]{1,2})@',
+            '@Opera(/| )([0-9]\.[0-9]{1,2})@',
             $HTTP_USER_AGENT,
             $log_version
         )) {
             $this->set('PMA_USR_BROWSER_VER', $log_version[2]);
             $this->set('PMA_USR_BROWSER_AGENT', 'OPERA');
         } elseif (preg_match(
-            '@(MS)?IE ([0-9]{1,2}.[0-9]{1,2})@',
+            '@(MS)?IE ([0-9]{1,2}\.[0-9]{1,2})@',
             $HTTP_USER_AGENT,
             $log_version
         )) {
@@ -220,7 +215,7 @@ class Config
             $this->set('PMA_USR_BROWSER_VER', intval($log_version[1]) + 4);
             $this->set('PMA_USR_BROWSER_AGENT', 'IE');
         } elseif (preg_match(
-            '@OmniWeb/([0-9].[0-9]{1,2})@',
+            '@OmniWeb/([0-9]{1,3})@',
             $HTTP_USER_AGENT,
             $log_version
         )) {
@@ -265,7 +260,7 @@ class Config
                 'PMA_USR_BROWSER_VER', $log_version[1]
             );
             $this->set('PMA_USR_BROWSER_AGENT', 'FIREFOX');
-        } elseif (preg_match('@rv:1.9(.*)Gecko@', $HTTP_USER_AGENT)) {
+        } elseif (preg_match('@rv:1\.9(.*)Gecko@', $HTTP_USER_AGENT)) {
             $this->set('PMA_USR_BROWSER_VER', '1.9');
             $this->set('PMA_USR_BROWSER_AGENT', 'GECKO');
         } elseif ($is_mozilla) {
@@ -400,10 +395,11 @@ class Config
 
         $branch = false;
         // are we on any branch?
-        if (mb_strstr($ref_head, '/')) {
-            $ref_head = mb_substr(trim($ref_head), 5);
+        if (strstr($ref_head, '/')) {
+            // remove ref: prefix
+            $ref_head = substr(trim($ref_head), 5);
             if (substr($ref_head, 0, 11) === 'refs/heads/') {
-                $branch = mb_substr($ref_head, 11);
+                $branch = substr($ref_head, 11);
             } else {
                 $branch = basename($ref_head);
             }
@@ -450,7 +446,9 @@ class Config
         }
 
         $commit = false;
-        if (isset($_SESSION['PMA_VERSION_COMMITDATA_' . $hash])) {
+        if (! preg_match('/^[0-9a-f]{40}$/i', $hash)) {
+            $commit = false;
+        } elseif (isset($_SESSION['PMA_VERSION_COMMITDATA_' . $hash])) {
             $commit = $_SESSION['PMA_VERSION_COMMITDATA_' . $hash];
         } elseif (function_exists('gzuncompress')) {
             $git_file_name = $git_folder . '/objects/'
@@ -610,7 +608,7 @@ class Config
         } else {
             $link = 'https://api.github.com/repos/phpmyadmin/phpmyadmin/git/commits/'
                 . $hash;
-            $is_found = $this->checkHTTP($link, ! $commit);
+            $is_found = Util::httpRequest($link, "GET");
             switch($is_found) {
             case false:
                 $is_remote_commit = false;
@@ -639,7 +637,7 @@ class Config
             } else {
                 $link = 'https://api.github.com/repos/phpmyadmin/phpmyadmin'
                     . '/git/trees/' . $branch;
-                $is_found = $this->checkHTTP($link);
+                $is_found = Util::httpRequest($link, "GET", true);
                 switch($is_found) {
                 case true:
                     $is_remote_branch = true;
@@ -705,53 +703,6 @@ class Config
     }
 
     /**
-     * Checks if given URL is 200 or 404, optionally returns data
-     *
-     * @param string  $link     the URL to check
-     * @param boolean $get_body whether to retrieve body of document
-     *
-     * @return string|boolean test result or data
-     */
-    public function checkHTTP($link, $get_body = false)
-    {
-        if (! function_exists('curl_init')) {
-            return null;
-        }
-        $handle = curl_init($link);
-        if ($handle === false) {
-            return null;
-        }
-        Util::configureCurl($handle);
-        curl_setopt($handle, CURLOPT_FOLLOWLOCATION, 0);
-        curl_setopt($handle, CURLOPT_RETURNTRANSFER, 1);
-        curl_setopt($handle, CURLOPT_SSL_VERIFYHOST, '2');
-        curl_setopt($handle, CURLOPT_SSL_VERIFYPEER, '1');
-        curl_setopt($handle, CURLOPT_CONNECTTIMEOUT, 5);
-        curl_setopt($handle, CURLOPT_TIMEOUT, 5);
-        curl_setopt($handle, CURLOPT_IPRESOLVE, CURL_IPRESOLVE_V4);
-        if (! defined('TESTSUITE')) {
-            session_write_close();
-        }
-        $data = @curl_exec($handle);
-        if (! defined('TESTSUITE')) {
-            session_start();
-        }
-        if ($data === false) {
-            return null;
-        }
-        $http_status = curl_getinfo($handle, CURLINFO_HTTP_CODE);
-
-        if ($http_status == 200) {
-            return $get_body ? $data : true;
-        }
-
-        if ($http_status == 404) {
-            return false;
-        }
-        return null;
-    }
-
-    /**
      * loads default values from default source
      *
      * @return boolean     success
@@ -763,7 +714,18 @@ class Config
             $this->error_config_default_file = true;
             return false;
         }
-        include $this->default_source;
+        $old_error_reporting = error_reporting(0);
+        ob_start();
+        $GLOBALS['pma_config_loading'] = true;
+        $eval_result = include $this->default_source;
+        $GLOBALS['pma_config_loading'] = false;
+        ob_end_clean();
+        error_reporting($old_error_reporting);
+
+        if ($eval_result === false) {
+            $this->error_config_default_file = true;
+            return false;
+        }
 
         $this->default_source_mtime = filemtime($this->default_source);
 
@@ -969,7 +931,7 @@ class Config
 
         // save theme
         /** @var ThemeManager $tmanager */
-        $tmanager = $_SESSION['PMA_Theme_Manager'];
+        $tmanager = ThemeManager::getInstance();
         if ($tmanager->getThemeCookie() || isset($_REQUEST['set_theme'])) {
             if ((! isset($config_data['ThemeDefault'])
                 && $tmanager->theme->getId() != 'original')
@@ -1175,6 +1137,36 @@ class Config
     }
 
     /**
+     * Checks for errors
+     * (must be called after config.inc.php has been merged)
+     *
+     * @return void
+     */
+    public function checkErrors()
+    {
+        if ($this->error_config_default_file) {
+            PMA_fatalError(
+                sprintf(
+                    __('Could not load default configuration from: %1$s'),
+                    $this->default_source
+                )
+            );
+        }
+
+        if ($this->error_config_file) {
+            $error = '[strong]' . __('Failed to read configuration file!') . '[/strong]'
+                . '[br][br]'
+                . __(
+                    'This usually means there is a syntax error in it, '
+                    . 'please check any errors shown below.'
+                )
+                . '[br][br]'
+                . '[conferr]';
+            trigger_error($error, E_USER_ERROR);
+        }
+    }
+
+    /**
      * returns specific config setting
      *
      * @param string $setting config setting
@@ -1321,7 +1313,7 @@ class Config
 
     /**
      * Maximum upload size as limited by PHP
-     * Used with permission from Moodle (http://moodle.org) by Martin Dougiamas
+     * Used with permission from Moodle (https://moodle.org/) by Martin Dougiamas
      *
      * this section generates $max_upload_size in bytes
      *
@@ -1357,8 +1349,12 @@ class Config
             return $this->get('is_https');
         }
 
+        $url = $this->get('PmaAbsoluteUri');
+
         $is_https = false;
-        if (strtolower(PMA_getenv('HTTP_SCHEME')) == 'https') {
+        if (! empty($url) && parse_url($url, PHP_URL_SCHEME) === 'https') {
+            $is_https = true;
+        } elseif (strtolower(PMA_getenv('HTTP_SCHEME')) == 'https') {
             $is_https = true;
         } elseif (strtolower(PMA_getenv('HTTPS')) == 'on') {
             $is_https = true;
@@ -1381,16 +1377,28 @@ class Config
     }
 
     /**
-     * Get cookie path
+     * Get phpMyAdmin root path
      *
      * @return string
      */
-    public function getCookiePath()
+    public function getRootPath()
     {
         static $cookie_path = null;
 
         if (null !== $cookie_path && !defined('TESTSUITE')) {
             return $cookie_path;
+        }
+
+        $url = $this->get('PmaAbsoluteUri');
+
+        if (! empty($url)) {
+            $path = parse_url($url, PHP_URL_PATH);
+            if (! empty($path)) {
+                if (substr($path, -1) != '/') {
+                    return $path . '/';
+                }
+                return $path;
+            }
         }
 
         $parsed_url = parse_url($GLOBALS['PMA_PHP_SELF']);
@@ -1435,7 +1443,6 @@ class Config
             'PMA_THEME_VERSION',
             'PMA_THEME_GENERATION',
             'PMA_IS_WINDOWS',
-            'PMA_IS_IIS',
             'PMA_IS_GD2',
             'PMA_USR_OS',
             'PMA_USR_BROWSER_VER',
@@ -1553,7 +1560,7 @@ class Config
     {
         return '<form name="form_fontsize_selection" id="form_fontsize_selection"'
             . ' method="get" action="index.php" class="disableAjax">' . "\n"
-            . PMA_URL_getHiddenInputs() . "\n"
+            . URL::getHiddenInputs() . "\n"
             . Config::getFontsizeSelection() . "\n"
             . '</form>';
     }
@@ -1577,7 +1584,7 @@ class Config
             $cookie,
             '',
             time() - 3600,
-            $this->getCookiePath(),
+            $this->getRootPath(),
             '',
             $this->isHttps()
         );
@@ -1598,7 +1605,7 @@ class Config
     public function setCookie($cookie, $value, $default = null,
         $validity = null, $httponly = true
     ) {
-        if (mb_strlen($value) && null !== $default && $value === $default
+        if (strlen($value) > 0 && null !== $default && $value === $default
         ) {
             // default value is used
             if (isset($_COOKIE[$cookie])) {
@@ -1608,7 +1615,7 @@ class Config
             return false;
         }
 
-        if (!mb_strlen($value) && isset($_COOKIE[$cookie])) {
+        if (strlen($value) === 0 && isset($_COOKIE[$cookie])) {
             // remove cookie, value is empty
             return $this->removeCookie($cookie);
         }
@@ -1617,8 +1624,10 @@ class Config
             // set cookie with new value
             /* Calculate cookie validity */
             if ($validity === null) {
+                /* Valid for one month */
                 $validity = time() + 2592000;
             } elseif ($validity == 0) {
+                /* Valid for session */
                 $validity = 0;
             } else {
                 $validity = time() + $validity;
@@ -1631,7 +1640,7 @@ class Config
                 $cookie,
                 $value,
                 $validity,
-                $this->getCookiePath(),
+                $this->getRootPath(),
                 '',
                 $this->isHttps(),
                 $httponly

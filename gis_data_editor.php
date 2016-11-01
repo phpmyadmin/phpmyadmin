@@ -7,6 +7,7 @@
  */
 use PMA\libraries\gis\GISFactory;
 use PMA\libraries\gis\GISVisualization;
+use PMA\libraries\URL;
 
 /**
  * Escapes special characters if the variable is set.
@@ -127,7 +128,7 @@ if (isset($_REQUEST['input_name'])) {
     echo '<input type="hidden" name="input_name" value="'
         , htmlspecialchars($_REQUEST['input_name']) , '" />';
 }
-echo PMA_URL_getHiddenInputs();
+echo URL::getHiddenInputs();
 
 echo '<!-- Visualization section -->';
 echo '<div id="placeholder" style="width:450px;height:300px;'

@@ -1,4 +1,3 @@
-<?php require_once 'libraries/url_generating.lib.php'; ?>
 <script type="text/javascript">
     pma_token = '<?= $_SESSION[' PMA_token ']; ?>';
     url_query = '<?= $url_query; ?>';
@@ -6,7 +5,7 @@
 <!-- Display Chart options -->
 <div id="div_view_options">
     <form method="post" id="tblchartform" action="tbl_chart.php" class="ajax">
-        <?= PMA_URL_getHiddenInputs($url_params); ?>
+        <?= \PMA\libraries\URL::getHiddenInputs($url_params); ?>
         <fieldset>
             <legend>
                 <?= __('Display chart'); ?>

@@ -20,9 +20,10 @@ Please report [bugs on GitHub][1].
 ## Patches submission
 
 Patches are welcome as [pull requests on GitHub][2].  Please include a
-Signed-off-by tag.  Note that by submitting patches with the Signed-off-by
-tag, you are giving permission to license the patch as GPLv2-or-later.  See
-[the DCO file][3] for details.
+Signed-off-by tag in the commit message (you can do this by passing `--signoff`
+parameter to Git).  Note that by submitting patches with the Signed-off-by tag,
+you are giving permission to license the patch as GPLv2-or-later.  See [the DCO
+file][3] for details.
 
 [2]: https://github.com/phpmyadmin/phpmyadmin/pulls
 [3]: https://github.com/phpmyadmin/phpmyadmin/blob/master/DCO

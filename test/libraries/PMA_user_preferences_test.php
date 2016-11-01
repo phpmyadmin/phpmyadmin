@@ -13,8 +13,6 @@ use PMA\libraries\config\ConfigFile;
 
 require_once 'libraries/user_preferences.lib.php';
 require_once 'libraries/relation.lib.php';
-require_once 'libraries/url_generating.lib.php';
-require_once 'libraries/sanitizing.lib.php';
 
 
 /**
@@ -254,7 +252,7 @@ class PMA_User_Preferences_Test extends PHPUnit_Framework_TestCase
         $result = PMA_saveUserprefs(array(1));
 
         $this->assertEquals(
-            'Could not save configuration <br /><br /> err1',
+            'Could not save configuration<br /><br />err1',
             $result->getMessage()
         );
     }
@@ -360,6 +358,7 @@ class PMA_User_Preferences_Test extends PHPUnit_Framework_TestCase
                 'Cannot redefine constant/function - missing runkit extension'
             );
         }
+        $GLOBALS['PMA_Config']->set('PmaAbsoluteUri', '');
 
         $GLOBALS['cfg']['ServerDefault'] = 1;
         $GLOBALS['lang'] = '';
@@ -379,8 +378,7 @@ class PMA_User_Preferences_Test extends PHPUnit_Framework_TestCase
         );
 
         $this->assertContains(
-            'Location: /phpmyadmin/file.html?a=b&saved=1&server=0&' .
-            'token=token#h+ash',
+            'Location: /phpmyadmin/file.html?a=b&saved=1&server=0#h+ash',
             $GLOBALS['header'][0]
         );
 

@@ -8,7 +8,7 @@ https://www.phpmyadmin.net/
 Code status
 -----------
 
-.. image:: https://secure.travis-ci.org/phpmyadmin/phpmyadmin.png?branch=master
+.. image:: https://travis-ci.org/phpmyadmin/phpmyadmin.svg?branch=master
     :alt: Build status
     :target: https://travis-ci.org/phpmyadmin/phpmyadmin
 
@@ -26,9 +26,10 @@ Code status
     :alt: Buildtime Trend badge
     :target: https://buildtimetrend.herokuapp.com/dashboard/phpmyadmin/phpmyadmin
 
-.. image:: https://todofy.org/b/phpmyadmin/phpmyadmin
-    :alt: todofy badge
-    :target: https://todofy.org/r/phpmyadmin/phpmyadmin
+.. image:: https://bestpractices.coreinfrastructure.org/projects/213/badge
+    :alt: CII Best Practices
+    :target: https://bestpractices.coreinfrastructure.org/projects/213
+
 
 Download
 --------

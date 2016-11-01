@@ -6,6 +6,7 @@
  * @package PhpMyAdmin
  */
 use PMA\libraries\LanguageManager;
+use PMA\libraries\URL;
 
 /**
  * Returns HTML code for the language selector
@@ -31,7 +32,7 @@ function PMA_getLanguageSelectorHtml($use_fieldset = false, $show_doc = true)
             'db' => $GLOBALS['db'],
             'table' => $GLOBALS['table'],
         );
-        $retval .= PMA_URL_getHiddenInputs($_form_params);
+        $retval .= URL::getHiddenInputs($_form_params);
 
         // For non-English, display "Language" with emphasis because it's
         // not a proper word in the current language; we show it to help

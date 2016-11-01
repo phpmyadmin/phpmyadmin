@@ -51,7 +51,7 @@ copyright = u'2012 - 2016, The phpMyAdmin devel team'
 # built documents.
 #
 # The short X.Y version.
-version = '4.6.4'
+version = '4.7.0-dev'
 # The full version, including alpha/beta/rc tags.
 release = version
 
@@ -302,3 +302,8 @@ from sphinx.highlighting import lexers
 from pygments.lexers.web import PhpLexer
 
 lexers['php'] = PhpLexer(startinline=True)
+
+# Number of retries and timeout for linkcheck
+linkcheck_retries = 10
+linkcheck_timeout = 10
+linkcheck_anchors = False

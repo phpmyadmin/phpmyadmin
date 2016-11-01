@@ -8,6 +8,8 @@
 use PMA\libraries\Message;
 use PMA\libraries\Response;
 use PMA\libraries\Tracker;
+use PMA\libraries\URL;
+use PMA\libraries\Sanitize;
 
 /**
  * Filters tracking entries
@@ -59,7 +61,7 @@ function PMA_getHtmlForDataDefinitionAndManipulationStatements($url_query,
 ) {
     $html  = '<div id="div_create_version">';
     $html .= '<form method="post" action="' . $url_query . '">';
-    $html .= PMA_URL_getHiddenInputs($db);
+    $html .= URL::getHiddenInputs($db);
     foreach ($selected as $selected_table) {
         $html .= '<input type="hidden" name="selected[]"'
             . ' value="' . htmlspecialchars($selected_table) . '" />';
@@ -273,7 +275,7 @@ function PMA_getHtmlForTableVersionDetails(
 
     $html  = '<form method="post" action="tbl_tracking.php" name="versionsForm"'
         . ' id="versionsForm" class="ajax">';
-    $html .= PMA_URL_getHiddenInputs($GLOBALS['db'], $GLOBALS['table']);
+    $html .= URL::getHiddenInputs($GLOBALS['db'], $GLOBALS['table']);
     $html .= '<table id="versions" class="data">';
     $html .= '<thead>';
     $html .= '<tr>';
@@ -326,7 +328,7 @@ function PMA_getHtmlForTableVersionDetails(
         $html .= '<td><a class="delete_version_anchor ajax"'
             . ' href="' . $delete_link . '" >' . $delete . '</a></td>';
         $html .= '<td><a href="tbl_tracking.php';
-        $html .= PMA_URL_getCommon(
+        $html .= URL::getCommon(
             $url_params + array(
                 'report' => 'true', 'version' => $version['version']
             )
@@ -334,7 +336,7 @@ function PMA_getHtmlForTableVersionDetails(
         $html .= '">' . $report . '</a>';
         $html .= '&nbsp;&nbsp;';
         $html .= '<a href="tbl_tracking.php';
-        $html .= PMA_URL_getCommon(
+        $html .= URL::getCommon(
             $url_params + array(
                 'snapshot' => 'true', 'version' => $version['version']
             )
@@ -353,13 +355,16 @@ function PMA_getHtmlForTableVersionDetails(
     $html .= '</tbody>';
     $html .= '</table>';
 
-    $html .= PMA\libraries\Util::getWithSelected(
-        $pmaThemeImage,
-        $text_dir,
-        "versionsForm"
-    );
+    $html .= PMA\libraries\Template::get('select_all')
+        ->render(
+            array(
+                'pmaThemeImage' => $pmaThemeImage,
+                'text_dir'      => $text_dir,
+                'formName'      => 'versionsForm',
+            )
+        );
     $html .= PMA\libraries\Util::getButtonOrImage(
-        'submit_mult', 'mult_submit', 'submit_mult_delete_version',
+        'submit_mult', 'mult_submit',
         __('Delete version'), 'b_drop.png', 'delete_version'
     );
 
@@ -573,7 +578,7 @@ function PMA_getHtmlForTrackingReportExportForm1(
     $ddlog_count = 0;
 
     $html = '<form method="post" action="tbl_tracking.php'
-        . PMA_URL_getCommon(
+        . URL::getCommon(
             $url_params + array(
                 'report' => 'true', 'version' => $_REQUEST['version']
             )
@@ -623,7 +628,7 @@ function PMA_getHtmlForTrackingReportExportForm2(
     $url_params, $str1, $str2, $str3, $str4, $str5
 ) {
     $html = '<form method="post" action="tbl_tracking.php'
-        . PMA_URL_getCommon(
+        . URL::getCommon(
             $url_params + array(
                 'report' => 'true', 'version' => $_REQUEST['version']
             )
@@ -636,7 +641,7 @@ function PMA_getHtmlForTrackingReportExportForm2(
     $html .= '</form>';
 
     $html .= '<form class="disableAjax" method="post" action="tbl_tracking.php'
-        . PMA_URL_getCommon(
+        . URL::getCommon(
             $url_params
             + array('report' => 'true', 'version' => $_REQUEST['version'])
         )
@@ -655,7 +660,7 @@ function PMA_getHtmlForTrackingReportExportForm2(
         . '</option>'
         . '<option value="sqldump">' . __('SQL dump') . '</option>'
         . '<option value="execution" onclick="alert(\''
-        . PMA_escapeJsString(
+        . Sanitize::escapeJsString(
             __('This option will replace your table and contained data.')
         )
         . '\')">' . __('SQL execution') . '</option>' . '</select>';
@@ -734,7 +739,7 @@ function PMA_getHtmlForOneStatement($entry, $filter_users,
         $html .= '<td>' . $statement . '</td>';
         $html .= '<td class="nowrap"><a  class="delete_entry_anchor ajax"'
             . ' href="tbl_tracking.php'
-            . PMA_URL_getCommon(
+            . URL::getCommon(
                 $url_params + array(
                     'report' => 'true',
                     'version' => $_REQUEST['version'],
@@ -1465,7 +1470,7 @@ function PMA_displayUntrackedTables(
     <form method="post" action="db_tracking.php" name="untrackedForm"
         id="untrackedForm" class="ajax">
     <?php
-    echo PMA_URL_getHiddenInputs($db)
+    echo URL::getHiddenInputs($db)
     ?>
     <table id="noversions" class="data">
     <thead>
@@ -1487,13 +1492,16 @@ function PMA_displayUntrackedTables(
     </tbody>
     </table>
     <?php
-    echo PMA\libraries\Util::getWithSelected(
-        $pmaThemeImage,
-        $text_dir,
-        "untrackedForm"
-    );
+    echo PMA\libraries\Template::get('select_all')
+        ->render(
+            array(
+                'pmaThemeImage' => $pmaThemeImage,
+                'text_dir'      => $text_dir,
+                'formName'      => 'untrackedForm',
+            )
+        );
     echo PMA\libraries\Util::getButtonOrImage(
-        'submit_mult', 'mult_submit', 'submit_mult_track',
+        'submit_mult', 'mult_submit',
         __('Track table'), 'eye.png', 'track'
     );
     ?>
@@ -1611,7 +1619,7 @@ function PMA_displayTrackedTables(
     <form method="post" action="db_tracking.php" name="trackedForm"
         id="trackedForm" class="ajax">
     <?php
-    echo PMA_URL_getHiddenInputs($db)
+    echo URL::getHiddenInputs($db)
     ?>
     <table id="versions" class="data">
     <thead>
@@ -1707,13 +1715,16 @@ function PMA_displayTrackedTables(
     </tbody>
     </table>
     <?php
-    echo PMA\libraries\Util::getWithSelected(
-        $pmaThemeImage,
-        $text_dir,
-        "trackedForm"
-    );
+    echo PMA\libraries\Template::get('select_all')
+        ->render(
+            array(
+                'pmaThemeImage' => $pmaThemeImage,
+                'text_dir'      => $text_dir,
+                'formName'      => 'trackedForm',
+            )
+        );
     echo PMA\libraries\Util::getButtonOrImage(
-        'submit_mult', 'mult_submit', 'submit_mult_delete_tracking',
+        'submit_mult', 'mult_submit',
         __('Delete tracking'), 'b_drop.png', 'delete_tracking'
     );
     ?>

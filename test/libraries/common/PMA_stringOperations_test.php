@@ -106,37 +106,6 @@ class PMA_StringOperations_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * data provider for replace binary content test
-     *
-     * @return array
-     */
-    public function replaceBinaryContentsDataProvider()
-    {
-        return array(
-            array("\x000", '\00'),
-            array("\x08\x0a\x0d\x1atest", '\b\n\r\Ztest'),
-            array("\ntest", '\ntest')
-        );
-    }
-
-    /**
-     * replace binary contents test
-     *
-     * @param string $a String
-     * @param string $e Expected output
-     *
-     * @return void
-     *
-     * @dataProvider replaceBinaryContentsDataProvider
-     */
-    public function testReplaceBinaryContents($a, $e)
-    {
-        $this->assertEquals(
-            $e, PMA\libraries\Util::replaceBinaryContents($a)
-        );
-    }
-
-    /**
      * data provider for duplicate first newline test
      *
      * @return array

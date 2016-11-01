@@ -15,6 +15,7 @@ use PMA\libraries\properties\options\items\NumberPropertyItem;
 use PMA\libraries\properties\options\groups\OptionsPropertyMainGroup;
 use PMA\libraries\properties\options\groups\OptionsPropertyRootGroup;
 use PMA\libraries\properties\options\groups\OptionsPropertySubgroup;
+use PMA\libraries\Charsets;
 use PMA\libraries\DatabaseInterface;
 use PMA\libraries\plugins\ExportPlugin;
 use PMA\libraries\Util;
@@ -236,7 +237,7 @@ class ExportSql extends ExportPlugin
                 if ($plugin_param['export_type'] == 'server') {
                     $leaf = new BoolPropertyItem(
                         "drop_database",
-                        sprintf(__('Add %s statement'), '<code>DROP DATABASE</code>')
+                        sprintf(__('Add %s statement'), '<code>DROP DATABASE IF EXISTS</code>')
                     );
                     $subgroup->addProperty($leaf);
                 }
@@ -633,7 +634,7 @@ class ExportSql extends ExportPlugin
      */
     public function exportFooter()
     {
-        global $crlf, $mysql_charset_map;
+        global $crlf;
 
         $foot = '';
 
@@ -674,7 +675,6 @@ class ExportSql extends ExportPlugin
     public function exportHeader()
     {
         global $crlf, $cfg;
-        global $mysql_charset_map;
 
         if (isset($GLOBALS['sql_compatibility'])) {
             $tmp_compat = $GLOBALS['sql_compatibility'];
@@ -748,13 +748,13 @@ class ExportSql extends ExportPlugin
             // so that a utility like the mysql client can interpret
             // the file correctly
             if (isset($GLOBALS['charset'])
-                && isset($mysql_charset_map[$GLOBALS['charset']])
+                && isset(Charsets::$mysql_charset_map[$GLOBALS['charset']])
             ) {
                 // we got a charset from the export dialog
-                $set_names = $mysql_charset_map[$GLOBALS['charset']];
+                $set_names = Charsets::$mysql_charset_map[$GLOBALS['charset']];
             } else {
                 // by default we use the connection charset
-                $set_names = $mysql_charset_map['utf-8'];
+                $set_names = Charsets::$mysql_charset_map['utf-8'];
             }
             if ($set_names == 'utf8' && PMA_MYSQL_INT_VERSION > 50503) {
                 $set_names = 'utf8mb4';
@@ -796,7 +796,7 @@ class ExportSql extends ExportPlugin
         }
         if (isset($GLOBALS['sql_drop_database'])) {
             if (!PMA_exportOutputHandler(
-                'DROP DATABASE '
+                'DROP DATABASE IF EXISTS '
                 . Util::backquoteCompat(
                     $db_alias,
                     $compat,
@@ -818,7 +818,7 @@ class ExportSql extends ExportPlugin
                 $compat,
                 isset($GLOBALS['sql_backquotes'])
             );
-        $collation = PMA_getDbCollation($db);
+        $collation = $GLOBALS['dbi']->getDbCollation($db);
         if (mb_strpos($collation, '_')) {
             $create_query .= ' DEFAULT CHARACTER SET '
                 . mb_substr(
@@ -1485,7 +1485,12 @@ class ExportSql extends ExportPlugin
         // an error can happen, for example the table is crashed
         $tmp_error = $GLOBALS['dbi']->getError();
         if ($tmp_error) {
-            return $this->_exportComment(__('in use') . '(' . $tmp_error . ')');
+            $message = sprintf(__('Error reading structure for table %s:'), "$db.$table");
+            $message .= ' ' . $tmp_error;
+            if (! defined('TESTSUITE')) {
+                trigger_error($message, E_USER_ERROR);
+            }
+            return $this->_exportComment($message);
         }
 
         // Old mode is stored so it can be restored once exporting is done.
@@ -2196,10 +2201,13 @@ class ExportSql extends ExportPlugin
         // a possible error: the table has crashed
         $tmp_error = $GLOBALS['dbi']->getError();
         if ($tmp_error) {
+            $message = sprintf(__('Error reading data for table %s:'), "$db.$table");
+            $message .= ' ' . $tmp_error;
+            if (! defined('TESTSUITE')) {
+                trigger_error($message, E_USER_ERROR);
+            }
             return PMA_exportOutputHandler(
-                $this->_exportComment(
-                    __('Error reading data:') . ' (' . $tmp_error . ')'
-                )
+                $this->_exportComment($message)
             );
         }
 

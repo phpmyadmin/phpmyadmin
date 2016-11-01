@@ -14,12 +14,13 @@
  */
 namespace PMA\libraries\config;
 
+use PMA\libraries\Sanitize;
+
 /**
  * Core libraries.
  */
 use PMA\libraries\Util;
 
-require_once './libraries/js_escape.lib.php';
 require_once './libraries/config/FormDisplay.tpl.php';
 
 /**
@@ -335,7 +336,7 @@ class FormDisplay
             $js_lang_sent = true;
             $js_lang = array();
             foreach ($this->_jsLangStrings as $strName => $strValue) {
-                $js_lang[] = "'$strName': '" . PMA_jsFormat($strValue, false) . '\'';
+                $js_lang[] = "'$strName': '" . Sanitize::jsFormat($strValue, false) . '\'';
             }
             $js[] = "$.extend(PMA_messages, {\n\t"
                 . implode(",\n\t", $js_lang) . '})';
@@ -461,7 +462,7 @@ class FormDisplay
         case 'short_text':
         case 'number_text':
         case 'password':
-            $js_line .= '\'' . PMA_escapeJsString($value_default) . '\'';
+            $js_line .= '\'' . Sanitize::escapeJsString($value_default) . '\'';
             break;
         case 'checkbox':
             $js_line .= $value_default ? 'true' : 'false';
@@ -470,10 +471,10 @@ class FormDisplay
             $value_default_js = is_bool($value_default)
                 ? (int) $value_default
                 : $value_default;
-            $js_line .= '[\'' . PMA_escapeJsString($value_default_js) . '\']';
+            $js_line .= '[\'' . Sanitize::escapeJsString($value_default_js) . '\']';
             break;
         case 'list':
-            $js_line .= '\'' . PMA_escapeJsString(implode("\n", $value_default))
+            $js_line .= '\'' . Sanitize::escapeJsString(implode("\n", $value_default))
                 . '\'';
             break;
         }

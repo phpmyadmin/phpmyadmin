@@ -30,7 +30,6 @@ class NodeTest extends PMATestCase
     {
         $GLOBALS['server'] = 0;
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
-        $_SESSION['PMA_Theme'] = Theme::load('./themes/pmahomme');
     }
 
     /**

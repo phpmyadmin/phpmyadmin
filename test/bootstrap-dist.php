@@ -6,6 +6,13 @@
  * @package PhpMyAdmin-test
  */
 
+/**
+ * Set precision to sane value, with higher values
+ * things behave slightly unexpectedly, for example
+ * round(1.2, 2) returns 1.199999999999999956.
+ */
+ini_set('precision', 14);
+
 // Let PHP complain about all errors
 error_reporting(E_ALL);
 
@@ -38,32 +45,34 @@ $test_defaults = array(
     'TESTSUITE_BROWSERSTACK_USER' => '',
     'TESTSUITE_BROWSERSTACK_KEY' => '',
     'TESTSUITE_FULL' => '',
+    'CI_MODE' => ''
 );
-foreach ($test_defaults as $varname => $defvalue) {
-    $envvar = getenv($varname);
-    if ($envvar) {
-        $GLOBALS[$varname] = $envvar;
-    } else {
-        $GLOBALS[$varname] = $defvalue;
+if (PHP_SAPI == 'cli') {
+    foreach ($test_defaults as $varname => $defvalue) {
+        $envvar = getenv($varname);
+        if ($envvar) {
+            $GLOBALS[$varname] = $envvar;
+        } else {
+            $GLOBALS[$varname] = $defvalue;
+        }
     }
 }
 
 require_once 'libraries/vendor_config.php';
-require_once 'libraries/autoloader.php';
+require_once 'vendor/autoload.php';
 require_once 'libraries/core.lib.php';
+MoTranslator\Loader::loadFunctions();
 $CFG = new PMA\libraries\Config();
 // Initialize PMA_VERSION variable
 define('PMA_VERSION', $CFG->get('PMA_VERSION'));
 unset($CFG);
-require_once 'libraries/sql-parser/autoload.php';
 
 /* Ensure default langauge is active */
-require_once 'libraries/php-gettext/gettext.inc';
 PMA\libraries\LanguageManager::getInstance()->getLanguage('en')->activate();
 
 // Set proxy information from env, if available
 $http_proxy = getenv('http_proxy');
-if ($http_proxy && ($url_info = parse_url($http_proxy))) {
+if (PHP_SAPI == 'cli' && $http_proxy && ($url_info = parse_url($http_proxy))) {
     define('PROXY_URL', $url_info['host'] . ':' . $url_info['port']);
     define('PROXY_USER', empty($url_info['user']) ? '' : $url_info['user']);
     define('PROXY_PASS', empty($url_info['pass']) ? '' : $url_info['pass']);
@@ -78,6 +87,7 @@ session_start();
 
 // Standard environment for tests
 $_SESSION[' PMA_token '] = 'token';
+$_SESSION['PMA_Theme'] = PMA\libraries\Theme::load('./themes/pmahomme');
 $_SESSION['tmpval']['pftext'] = 'F';
 $GLOBALS['lang'] = 'en';
 $GLOBALS['is_ajax_request'] = false;

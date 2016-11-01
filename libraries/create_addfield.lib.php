@@ -6,6 +6,7 @@
  * @package PhpMyAdmin
  */
 use PMA\libraries\Table;
+use PMA\libraries\Util;
 
 /**
  * Transforms the radio button field_key into 4 arrays
@@ -322,7 +323,7 @@ function PMA_getPartitionsDefinition()
         $i = 0;
         $partitions = array();
         foreach ($_REQUEST['partitions'] as $partition) {
-            $partitions[] = PMA_getPartitionDefinition('p' . $i, $partition);
+            $partitions[] = PMA_getPartitionDefinition($partition);
             $i++;
         }
         $sql_query .= " (" . implode(", ", $partitions) . ")";
@@ -334,15 +335,15 @@ function PMA_getPartitionsDefinition()
 /**
  * Returns the definition of a partition/subpartition
  *
- * @param string  $name           name of the partition/subpartition
  * @param array   $partition      array of partition/subpartition detiails
  * @param boolean $isSubPartition whether a subpartition
  *
  * @return string partition/subpartition definition
  */
-function PMA_getPartitionDefinition($name, $partition, $isSubPartition = false)
+function PMA_getPartitionDefinition($partition, $isSubPartition = false)
 {
-    $sql_query = " " . ($isSubPartition ? "SUB" : "") . "PARTITION " . $name;
+    $sql_query = " " . ($isSubPartition ? "SUB" : "") . "PARTITION ";
+    $sql_query .= $partition['name'];
 
     if (! empty($partition['value_type'])) {
         $sql_query .= " VALUES " . $partition['value_type'];
@@ -382,7 +383,6 @@ function PMA_getPartitionDefinition($name, $partition, $isSubPartition = false)
         $subpartitions = array();
         foreach ($partition['subpartitions'] as $subpartition) {
             $subpartitions[] = PMA_getPartitionDefinition(
-                $name . 's' . $j,
                 $subpartition,
                 true
             );
@@ -418,7 +418,7 @@ function PMA_getTableCreationQuery($db, $table)
         $sql_query .= ' ENGINE = ' . $_REQUEST['tbl_storage_engine'];
     }
     if (!empty($_REQUEST['tbl_collation'])) {
-        $sql_query .= PMA_generateCharsetQueryPart($_REQUEST['tbl_collation']);
+        $sql_query .= Util::getCharsetQueryPart($_REQUEST['tbl_collation']);
     }
     if (! empty($_REQUEST['connection'])
         && ! empty($_REQUEST['tbl_storage_engine'])
@@ -445,21 +445,19 @@ function PMA_getTableCreationQuery($db, $table)
 function PMA_getNumberOfFieldsFromRequest()
 {
     if (isset($_REQUEST['submit_num_fields'])) { // adding new fields
-        $num_fields = min(
-            4096,
-            intval($_REQUEST['orig_num_fields']) + intval($_REQUEST['added_fields'])
-        );
+        $num_fields = intval($_REQUEST['orig_num_fields']) + intval($_REQUEST['added_fields']);
     } elseif (isset($_REQUEST['orig_num_fields'])) { // retaining existing fields
-        $num_fields = min(4096, intval($_REQUEST['orig_num_fields']));
+        $num_fields = intval($_REQUEST['orig_num_fields']);
     } elseif (isset($_REQUEST['num_fields'])
         && intval($_REQUEST['num_fields']) > 0
     ) { // new table with specified number of fields
-        $num_fields = min(4096, intval($_REQUEST['num_fields']));
+        $num_fields = intval($_REQUEST['num_fields']);
     } else { // new table with unspecified number of fields
         $num_fields = 4;
     }
 
-    return $num_fields;
+    // Limit to 4096 fields (MySQL maximal value)
+    return min($num_fields, 4096);
 }
 
 /**

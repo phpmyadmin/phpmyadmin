@@ -241,6 +241,7 @@ $GLOBALS['dummy_queries'] = array(
         ),
         'result'  => array(
             array('utf8', 'utf8_general_ci', 'UTF-8 Unicode', 3),
+            array('latin1', 'latin1_swedish_ci', 'cp1252 West European', 1),
         ),
     ),
     array(
@@ -256,6 +257,7 @@ $GLOBALS['dummy_queries'] = array(
         'result'  => array(
             array('utf8_general_ci', 'utf8', 33, 'Yes', 'Yes', 1),
             array('utf8_bin', 'utf8', 83, '', 'Yes', 1),
+            array('latin1_swedish_ci', 'latin1', 8, 'Yes', 'Yes', 1),
         ),
     ),
     array(
@@ -605,7 +607,7 @@ $GLOBALS['dummy_queries'] = array(
         'query'   => "SELECT tracking_active FROM `pmadb`.`tracking`" .
             " WHERE db_name = 'pma_test_db'" .
             " AND table_name = 'pma_test_table'" .
-            " ORDER BY version DESC",
+            " ORDER BY version DESC LIMIT 1",
         'columns' => array('tracking_active'),
         'result'  => array(
             array(1),
@@ -615,7 +617,7 @@ $GLOBALS['dummy_queries'] = array(
         'query'  => "SELECT tracking_active FROM `pmadb`.`tracking`" .
             " WHERE db_name = 'pma_test_db'" .
             " AND table_name = 'pma_test_table2'" .
-            " ORDER BY version DESC",
+            " ORDER BY version DESC LIMIT 1",
         'result' => array(),
     ),
     array(
@@ -696,7 +698,7 @@ $GLOBALS['dummy_queries'] = array(
     array(
         'query'  => "SELECT `PARTITION_METHOD` "
             . "FROM `information_schema`.`PARTITIONS` "
-            . "WHERE `TABLE_SCHEMA` = 'db' AND `TABLE_NAME` = 'table'",
+            . "WHERE `TABLE_SCHEMA` = 'db' AND `TABLE_NAME` = 'table' LIMIT 1",
         'result' => array(),
     ),
     array(
@@ -893,21 +895,16 @@ class DBIDummy implements DBIExtension
     /**
      * connects to the database server
      *
-     * @param string $user                 mysql user name
-     * @param string $password             mysql user password
-     * @param bool   $is_controluser       whether this is a control user connection
-     * @param array  $server               host/port/socket/persistent
-     * @param bool   $auxiliary_connection (when true, don't go back to login if
-     *                                     connection fails)
+     * @param string $user     mysql user name
+     * @param string $password mysql user password
+     * @param array  $server   host/port/socket/persistent
      *
      * @return mixed false on error or a mysqli object on success
      */
     public function connect(
         $user,
         $password,
-        $is_controluser = false,
-        $server = null,
-        $auxiliary_connection = false
+        $server = null
     ) {
         return true;
     }

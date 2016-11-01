@@ -5,6 +5,7 @@
  *
  * @package PhpMyAdmin
  */
+use PMA\libraries\URL;
 
 /**
  *
@@ -28,7 +29,7 @@ if (isset($_REQUEST['getColumns'])) {
 if (isset($_REQUEST['splitColumn'])) {
     $num_fields = min(4096, intval($_REQUEST['numFields']));
     $html = PMA_getHtmlForCreateNewColumn($num_fields, $db, $table);
-    $html .= PMA_URL_getHiddenInputs($db, $table);
+    $html .= URL::getHiddenInputs($db, $table);
     echo $html;
     exit;
 }
@@ -38,7 +39,7 @@ if (isset($_REQUEST['addNewPrimary'])) {
     $html = PMA_getHtmlForCreateNewColumn(
         $num_fields, $db, $table, $columnMeta
     );
-    $html .= PMA_URL_getHiddenInputs($db, $table);
+    $html .= URL::getHiddenInputs($db, $table);
     echo $html;
     exit;
 }

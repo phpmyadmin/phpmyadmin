@@ -39,7 +39,8 @@ if (! empty($_POST['options'])) {
     if (! empty($options['routine_editor'])) {
         $sql_query = 'CREATE PROCEDURE `a`() ' . $sql_query;
     } elseif (! empty($options['trigger_editor'])) {
-        $sql_query = 'CREATE TRIGGER `a` AFTER INSERT ON `b` FOR EACH ROW ' . $sql_query;
+        $sql_query = 'CREATE TRIGGER `a` AFTER INSERT ON `b` FOR EACH ROW '
+            . $sql_query;
     } elseif (! empty($options['event_editor'])) {
         $sql_query = 'CREATE EVENT `a` ON SCHEDULE EVERY MINUTE DO ' . $sql_query;
     }

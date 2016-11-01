@@ -11,8 +11,6 @@ use PMA\libraries\plugins\export\ExportOds;
 require_once 'libraries/plugins/export/ExportOds.php';
 require_once 'libraries/export.lib.php';
 require_once 'libraries/config.default.php';
-require_once 'export.php';
-require_once 'libraries/opendocument.lib.php';
 require_once 'test/PMATestCase.php';
 
 /**

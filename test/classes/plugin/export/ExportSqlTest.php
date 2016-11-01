@@ -10,11 +10,8 @@ use PMA\libraries\Table;
 
 require_once 'libraries/export.lib.php';
 require_once 'libraries/config.default.php';
-require_once 'libraries/mysql_charsets.lib.php';
 require_once 'libraries/relation.lib.php';
 require_once 'libraries/transformations.lib.php';
-require_once 'libraries/charset_conversion.lib.php';
-require_once 'export.php';
 require_once 'test/PMATestCase.php';
 
 /**
@@ -452,7 +449,6 @@ class ExportSqlTest extends PMATestCase
         $GLOBALS['sql_disable_fk'] = true;
         $GLOBALS['sql_use_transaction'] = true;
         $GLOBALS['charset'] = 'utf-8';
-        $GLOBALS['mysql_charset_map']['utf-8'] = true;
         $GLOBALS['sql_utc_time'] = true;
         $GLOBALS['old_tz'] = 'GMT';
         $GLOBALS['asfile'] = 'yes';
@@ -502,7 +498,6 @@ class ExportSqlTest extends PMATestCase
         $GLOBALS['sql_use_transaction'] = true;
         $GLOBALS['sql_include_comments'] = true;
         $GLOBALS['charset'] = 'utf-8';
-        $GLOBALS['mysql_charset_map']['utf-8'] = true;
 
         $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
@@ -579,9 +574,9 @@ class ExportSqlTest extends PMATestCase
             ->getMock();
 
         $dbi->expects($this->once())
-            ->method('isSystemSchema')
+            ->method('getDbCollation')
             ->with('db')
-            ->will($this->returnValue(true));
+            ->will($this->returnValue('utf8_general_ci'));
 
         $GLOBALS['dbi'] = $dbi;
 
@@ -592,7 +587,7 @@ class ExportSqlTest extends PMATestCase
         $result = ob_get_clean();
 
         $this->assertContains(
-            "DROP DATABASE `db`;\n",
+            "DROP DATABASE IF EXISTS `db`;\n",
             $result
         );
 
@@ -617,8 +612,8 @@ class ExportSqlTest extends PMATestCase
             ->getMock();
 
         $dbi->expects($this->once())
-            ->method('fetchValue')
-            ->with('SELECT @@collation_database')
+            ->method('getDbCollation')
+            ->with('db')
             ->will($this->returnValue('testcollation'));
 
         $GLOBALS['dbi'] = $dbi;
@@ -630,7 +625,7 @@ class ExportSqlTest extends PMATestCase
         $result = ob_get_clean();
 
         $this->assertContains(
-            "DROP DATABASE db;\n",
+            "DROP DATABASE IF EXISTS db;\n",
             $result
         );
 
@@ -1179,7 +1174,7 @@ class ExportSqlTest extends PMATestCase
         );
 
         $this->assertContains(
-            '-- in use(error occurred)',
+            '-- Error reading structure for table db.table: error occurred',
             $result
         );
     }
@@ -1771,7 +1766,7 @@ class ExportSqlTest extends PMATestCase
         $result = ob_get_clean();
 
         $this->assertContains(
-            "-- Error reading data: (err)\n",
+            '-- Error reading data for table db.table: err',
             $result
         );
     }

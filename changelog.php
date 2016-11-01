@@ -35,10 +35,11 @@ if (@is_readable($filename)) {
 } else {
     printf(
         __(
-            'The %s file is not available on this system, please visit '
-            . 'www.phpmyadmin.net for more information.'
+            'The %s file is not available on this system, please visit ' .
+            '%s for more information.'
         ),
-        $filename
+        $filename,
+        '<a href="https://www.phpmyadmin.net/">phpmyadmin.net</a>'
     );
     exit;
 }

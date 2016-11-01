@@ -103,10 +103,8 @@ class AuthenticationHttp extends AuthenticationPlugin
     /**
      * Gets advanced authentication settings
      *
-     * @global  string $PHP_AUTH_USER          the username if register_globals is
-     *          on
-     * @global  string $PHP_AUTH_PW            the password if register_globals is
-     *          on
+     * @global string $PHP_AUTH_USER the username
+     * @global string $PHP_AUTH_PW   the password
      *
      * @return boolean   whether we get authentication settings or not
      */
@@ -114,8 +112,7 @@ class AuthenticationHttp extends AuthenticationPlugin
     {
         global $PHP_AUTH_USER, $PHP_AUTH_PW;
 
-        // Grabs the $PHP_AUTH_USER variable whatever are the values of the
-        // 'register_globals' and the 'variables_order' directives
+        // Grabs the $PHP_AUTH_USER variable
         if (empty($PHP_AUTH_USER)) {
             if (PMA_getenv('PHP_AUTH_USER')) {
                 $PHP_AUTH_USER = PMA_getenv('PHP_AUTH_USER');
@@ -138,8 +135,7 @@ class AuthenticationHttp extends AuthenticationPlugin
                 $PHP_AUTH_USER = PMA_getenv('Authorization');
             }
         }
-        // Grabs the $PHP_AUTH_PW variable whatever are the values of the
-        // 'register_globals' and the 'variables_order' directives
+        // Grabs the $PHP_AUTH_PW variable
         if (empty($PHP_AUTH_PW)) {
             if (PMA_getenv('PHP_AUTH_PW')) {
                 $PHP_AUTH_PW = PMA_getenv('PHP_AUTH_PW');
@@ -173,10 +169,6 @@ class AuthenticationHttp extends AuthenticationPlugin
             && (isset($PHP_AUTH_USER) && $old_usr == $PHP_AUTH_USER)
         ) {
             $PHP_AUTH_USER = '';
-            // -> delete user's choices that were stored in session
-            if (!defined('TESTSUITE')) {
-                session_destroy();
-            }
         }
 
         // Returns whether we get authentication settings or not

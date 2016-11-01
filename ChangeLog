@@ -1,6 +1,117 @@
 phpMyAdmin - ChangeLog
 ======================
 
+4.7.0.0 (not yet released)
+- patch #12233 [Display] Improve message when renaming database to same name
+- issue #6146  Log authentication attempts to syslog
+- issue #11981 Remove support for Swekey authentication
+- issue #11987 Remove code for no longer supported MSIE versions
++ issue #11962 Remove embedded PHP libraries, use composer to install them
++ issue #12017 Cannot easily select multiple tables when exporting
++ issue #12047 Add javascript filtering for databases
+- issue #12166 More compact rendering of navigation tree
++ issue #12129 Improve performance with SkipLockedTables
+- issue #12173 Do not hide indexes under a slider
+- issue        Improve performance of zip file import
+- issue #12196 Removed $cfg['ThemePath']
+- issue #6274  Add support for export user settings as config.inc.php snippet
+- issue #5555  Better report query errors while generating SQL exports
+- issue #12307 Produce valid JSON on export
+- issue #12325 Setup script icons broken
+- issue #12378 Support IPv6 proxies
+- issue        Removed MySQL connection retry without password
+- issue #12218 Allow to specify further parameters for control connection
+- issue #12162 Show charset for each table on Database structure page
+- issue #12463 Incorrect link in the href of icon at Hide/Show unhide links
+- issue #12330 Shortcut for closing console
+- issue #12465 Improved handling of http requests
+- issue #12474 Broken links in Setup forms Navigation
+- issue #12494 Can't add a new User
+- issue #12523 Add 'token' Parameter in all POST requests (Fix 'Token mismatch' errors)
+- issue #12302 Improved usage of number_format
+- issue #12656 Server selection not working
+- issue #12543 NULL results in dataset are colored grey
+- issue #12664 Create Bookmark broken
+
+4.6.5 (not yet released)
+- issue        Remove potentionally license problematic sRGB profile
+- issue #12459 Display read only fields as read only when editing
+- issue #12384 Fix expanding of navigation pane when clicking on database
+- issue #12430 Impove partitioning support
+- issue #12374 Reintroduced simplified PmaAbsoluteUri configuration directive
+- issue        Always use UTC time in HTTP headers
+- issue #12479 Simplified validation of external links
+- issue #12483 Fix browsing tables with built in transformations
+- issue #12485 Do not show warning about short blowfish_secret if none is set
+- issue #12251 Fixed random logouts due to wrong cookie path
+- issue #12480 Fixed editing of ENUM/SET/DECIMAL fields structure
+- issue #12497 Missing escaping of configuration used in SQL (hide_db and only_db)
+- issue #12476 Add error checking in reading advisory rules file
+- issue #12477 Add checking missing elements and confirming element types from json_decode
+- issue #12251 Automatically save SQL query in browser local storage rather than in cookie
+- issue #12292 Unable to edit transformations
+- issue #12502 Remove unused paramenter when connecting to MySQLi
+- issue #12303 Fix number formatting with different settings of precision in PHP
+- issue #12405 Use single quotes in PHP code
+- issue #12534 Option for the dropped column is not removed from 'after_field' select, after the column is dropped
+- issue #12531 Properly detect DROP DATABASE queries
+- issue #12470 Fix possible race condition in setting URL hash
+- issue #11924 Remove caching of server information
+- issue #11628 Proper parsing of INSERT ... ON DUPLICATE KEY queries
+- issue #12545 Proper parsing of CREATE TABLE ... PARTITION queries
+- issue #12473 Code can throw unhandled exception
+- issue #12550 Do not try to keep alive session even after expiry
+- issue #12512 Fixed rendering BBCode links in setup
+- issue #12518 Fixed copy of table with generated columns
+- issue #12221 Fixed export of table with generated columns
+- issue #12320 Copying a user does not copy usergroup
+- issue #12272 Adding a new row with default enum goes to no selection when you want to add more then 2 rows
+- issue #12487 Drag and drop import prevents file dropping to blob column file selector on the insert tab
+- issue #12554 Absence of scrolling makes it impossible to read longer text values in grid editing
+- issue #12530 "Edit routine" crashes when the current user is not the definer, even if privileges are adequate
+- issue #12300 Export selective tables by-default dumps Events also
+- issue #12298 Fixed export of view definitions
+- issue #12242 Edit routine detail dialog does not fill "Return length" field in mysql functions
+- issue #12575 New index Confirm adds whitespace around the field name
+- issue #12382 Bug in zoom search
+- issue #12321 Assign LIMIT clause only to syntactically correct queries
+- issue #12461 Can't Execute SQL With Sub-Query Due To "LIMIT 0,25" Inserted At Wrong Place
+- issue #12511 Clarify documentation on ArbitraryServerRegexp
+- issue #12508 Remove duplicate code in SQL escaping
+- issue #12475 Cleanup code for getting table information
+- issue #12579 phpMyAdmin's export of a Select statment without a FROM clause generates Wrong SQL
+- issue #12316 Correct export of complex SELECT statements
+- issue #12080 Fixed parsing of subselect queries
+- issue #11740 Fixed handling DELETE ... USING queries
+- issue #12100 Fixed handling of CASE operator
+- issue #12455 Query history stores separate entry for every letter typed
+- issue #12327 Create PHP code no longer works
+- issue #12179 Fixed bookmarking of query with multiple statements
+- issue #12419 Wrong description on GRANT OPTION
+- issue #12615 Fixed regexp for matching browser versions
+- issue #12569 Avoid showing import errors twice
+- issue #12362 prefs_manage.php can leave an orphaned temporary file
+- issue #12619 Unable to export csv when using union select
+- issue #12625 Broken Edit links in query results of JOIN query
+- issue #12634 Drop DB error in import if DB doesn't exist
+- issue #12338 Designer reverts to first saved ER after EACH relation create or delete
+- issue #12639 'Show trace' in Console generates JS error for functions in query's trace called without any arguments
+- issue #12366 Fix user creation with certain MariaDB setups
+- issue #12616 Refuse to work with mbstring.func_overload enabled
+- issue #12472 Properly report connection without password in setup
+- issue #12365 Fix records count for large tables
+- issue #12533 Fix records count for complex queries
+- issue #12454 Query history not updated in console until page refresh
+- issue #12344 Fixed parsing of labels in loop
+- issue #12228 Fixed parsing of BEGIN labels
+- issue #12637 Fixed editing some timestamp values
+- issue #12622 Fixed javascript error in designer
+- issue #12334 Missing page indicator or VIEWs
+- issue #12610 Export of tables with Timestamp/Datetime/Time columns defined with ON UPDATE clause with precision fails
+- issue #12661 Error inserting into pma__history after timeout
+- issue #12195 Row_format = fixed not visible
+- issue #12665 Cannot add a foreign key - non-indexed fields not listed in InnoDB tables
+
 4.6.4 (2016-08-16)
 - issue        [security] Weaknesses with cookie encryption, see PMASA-2016-29
 - issue        [security] Improve session cookie code for openid.php and signon.php example files

@@ -10,9 +10,11 @@
 namespace PMA\libraries\controllers\server;
 
 use PMA\libraries\controllers\Controller;
+use PMA\libraries\Charsets;
 use PMA\libraries\Message;
 use PMA\libraries\Template;
 use PMA\libraries\Util;
+use PMA\libraries\URL;
 
 /**
  * Handles viewing and creating and deleting databases
@@ -64,7 +66,6 @@ class ServerDatabasesController extends Controller
         }
 
         include_once 'libraries/replication.inc.php';
-        include_once 'libraries/mysql_charsets.inc.php';
 
         if (! empty($_POST['new_db'])
             && $GLOBALS['is_ajax_request']
@@ -96,6 +97,8 @@ class ServerDatabasesController extends Controller
         if ($GLOBALS['cfg']['ShowCreateDb']) {
             $html .= Template::get('server/databases/create')->render();
         }
+
+        $html .= Template::get('filter')->render(array('filterValue'=>''));
 
         /**
          * Gets the databases list
@@ -135,11 +138,13 @@ class ServerDatabasesController extends Controller
         $sql_query = 'CREATE DATABASE ' . Util::backquote($_POST['new_db']);
         if (! empty($_POST['db_collation'])) {
             list($db_charset) = explode('_', $_POST['db_collation']);
-            if (in_array($db_charset, $GLOBALS['mysql_charsets'])
-                && in_array($_POST['db_collation'], $GLOBALS['mysql_collations'][$db_charset])
+            $charsets = Charsets::getMySQLCharsets();
+            $collations = Charsets::getMySQLCollations();
+            if (in_array($db_charset, $charsets)
+                && in_array($_POST['db_collation'], $collations[$db_charset])
             ) {
                 $sql_query .= ' DEFAULT'
-                    . PMA_generateCharsetQueryPart($_POST['db_collation']);
+                    . Util::getCharsetQueryPart($_POST['db_collation']);
             }
         }
         $sql_query .= ';';
@@ -163,7 +168,7 @@ class ServerDatabasesController extends Controller
                 'sql_query', Util::getMessage(null, $sql_query, 'success')
             );
 
-            $url_query = PMA_URL_getCommon(array('db' => $_POST['new_db']));
+            $url_query = URL::getCommon(array('db' => $_POST['new_db']));
             $this->response->addJSON(
                 'url_query',
                 Util::getScriptNameForOption(
@@ -186,7 +191,7 @@ class ServerDatabasesController extends Controller
             $message = Message::error(__('No databases selected.'));
         } else {
             $action = 'server_databases.php';
-            $err_url = $action . PMA_URL_getCommon();
+            $err_url = $action . URL::getCommon();
 
             $GLOBALS['submit_mult'] = 'drop_db';
             $GLOBALS['mult_btn'] = __('Yes');
@@ -279,7 +284,7 @@ class ServerDatabasesController extends Controller
 
         $html .= '<form class="ajax" action="server_databases.php" ';
         $html .= 'method="post" name="dbStatsForm" id="dbStatsForm">' . "\n";
-        $html .= PMA_URL_getHiddenInputs($_url_params);
+        $html .= URL::getHiddenInputs($_url_params);
 
         $_url_params['sort_by'] = 'SCHEMA_NAME';
         $_url_params['sort_order']
@@ -328,9 +333,9 @@ class ServerDatabasesController extends Controller
         $column_order = array();
         $column_order['DEFAULT_COLLATION_NAME'] = array(
             'disp_name' => __('Collation'),
-            'description_function' => 'PMA_getCollationDescr',
+            'description_function' => array('\PMA\libraries\Charsets', 'getCollationDescr'),
             'format'    => 'string',
-            'footer'    => PMA_getServerCollation(),
+            'footer'    => $this->dbi->getServerCollation(),
         );
         $column_order['SCHEMA_TABLES'] = array(
             'disp_name' => __('Tables'),
@@ -379,13 +384,18 @@ class ServerDatabasesController extends Controller
             return '';
         }
 
-        $html = Util::getWithSelected(
-            $GLOBALS['pmaThemeImage'], $GLOBALS['text_dir'], "dbStatsForm"
-        );
+        $html = Template::get('select_all')
+            ->render(
+                array(
+                    'pmaThemeImage' => $GLOBALS['pmaThemeImage'],
+                    'text_dir'      => $GLOBALS['text_dir'],
+                    'formName'      => 'dbStatsForm',
+                )
+            );
+
         $html .= Util::getButtonOrImage(
             '',
             'mult_submit' . ' ajax',
-            'drop_selected_dbs',
             __('Drop'), 'b_deltbl.png'
         );
 
@@ -428,6 +438,7 @@ class ServerDatabasesController extends Controller
 
         foreach ($this->_databases as $current) {
             $tr_class = $odd_row ? 'odd' : 'even';
+            $tr_class .= ' db-row';
             if ($this->dbi->isSystemSchema($current['SCHEMA_NAME'], true)) {
                 $tr_class .= ' noclick';
             }
@@ -473,7 +484,7 @@ class ServerDatabasesController extends Controller
                     $current["SCHEMA_NAME"],
                     $replication_info[$type]['Ignore_DB']
                 );
-                if (mb_strlen($key) > 0) {
+                if (strlen($key) > 0) {
                     $out = Util::getIcon(
                         's_cancel.png',
                         __('Not replicated')
@@ -483,7 +494,7 @@ class ServerDatabasesController extends Controller
                         $current["SCHEMA_NAME"], $replication_info[$type]['Do_DB']
                     );
 
-                    if (mb_strlen($key) > 0
+                    if (strlen($key) > 0
                         || count($replication_info[$type]['Do_DB']) == 0
                     ) {
                         // if ($key != null) did not work for index "0"

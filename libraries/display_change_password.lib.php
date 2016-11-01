@@ -6,6 +6,7 @@
  * @package PhpMyAdmin
  */
 use PMA\libraries\Message;
+use PMA\libraries\URL;
 
 /**
   * Get HTML for the Change password dialog
@@ -23,11 +24,7 @@ function PMA_getHtmlForChangePassword($mode, $username, $hostname)
      * autocomplete feature of IE kills the "onchange" event handler and it
      * must be replaced by the "onpropertychange" one in this case
      */
-    $chg_evt_handler = (PMA_USR_BROWSER_AGENT == 'IE'
-        && PMA_USR_BROWSER_VER >= 5
-        && PMA_USR_BROWSER_VER < 7)
-                 ? 'onpropertychange'
-                 : 'onchange';
+    $chg_evt_handler = 'onchange';
 
     $is_privileges = basename($_SERVER['SCRIPT_NAME']) === 'server_privileges.php';
 
@@ -36,7 +33,7 @@ function PMA_getHtmlForChangePassword($mode, $username, $hostname)
         . 'name="chgPassword" '
         . 'class="' . ($is_privileges ? 'submenu-item' : '') . '">';
 
-    $html .= PMA_URL_getHiddenInputs();
+    $html .= URL::getHiddenInputs();
 
     if (strpos($GLOBALS['PMA_PHP_SELF'], 'server_privileges') !== false) {
         $html .= '<input type="hidden" name="username" '

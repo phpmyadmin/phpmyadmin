@@ -549,6 +549,8 @@ $strConfigRowActionLinksWithoutUnique_desc = __(
     'Whether to show row links even in the absence of a unique key.'
 );
 $strConfigRowActionLinksWithoutUnique_name = __('Show row links anyway');
+$strConfigDisableShortcutKeys_name = __('Disable shortcut keys');
+$strConfigDisableShortcutKeys_desc = __('Disable shortcut keys');
 $strConfigNaturalOrder_desc
     = __('Use natural order for sorting table and database names.');
 $strConfigNaturalOrder_name = __('Natural order');
@@ -703,8 +705,6 @@ $strConfigServers_central_columns_desc = __(
     'Leave blank for no central columns support, suggested: '
     . '[kbd]pma__central_columns[/kbd].'
 );
-$strConfigServers_nopassword_desc = __('Try to connect without password.');
-$strConfigServers_nopassword_name = __('Connect without password');
 $strConfigServers_only_db_desc = __(
     'You can use MySQL wildcard characters (% and _), escape them if you want to '
     . 'use their literal instances, i.e. use [kbd]\'my\_db\'[/kbd] and not '
@@ -854,6 +854,10 @@ $strConfigShowDbStructureLastCheck_desc = __(
     'Show or hide a column displaying the Last check timestamp for all tables.'
 );
 $strConfigShowDbStructureLastCheck_name = __('Show last check timestamp');
+$strConfigShowDbStructureCharset_desc = __(
+    'Show or hide a column displaying the charset for all tables.'
+);
+$strConfigShowDbStructureCharset_name = __('Show table charset');
 $strConfigShowFieldTypesInDataEditView_desc = __(
     'Defines whether or not type fields should be initially displayed in ' .
     'edit/insert mode.'

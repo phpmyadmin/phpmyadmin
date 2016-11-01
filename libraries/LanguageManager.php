@@ -202,6 +202,13 @@ class LanguageManager
             'fi|finnish',
             'fi_FI',
         ),
+        'fil' => array(
+            'fil',
+            'Filipino',
+            'Pilipino',
+            'fil|filipino',
+            '',
+        ),
         'fr' => array(
             'fr',
             'French',
@@ -279,6 +286,13 @@ class LanguageManager
             'id|indonesian',
             'id_ID',
         ),
+        'ig' => array(
+            'ig',
+            'Igbo',
+            'Asụsụ Igbo',
+            'ig|igbo',
+            '',
+        ),
         'it' => array(
             'it',
             'Italian',
@@ -305,6 +319,13 @@ class LanguageManager
             'Georgian',
             '&#4325;&#4304;&#4320;&#4311;&#4323;&#4314;&#4312;',
             'ka|georgian',
+            '',
+        ),
+        'kab' => array(
+            'kab',
+            'Kabylian',
+            'Taqbaylit',
+            'kab|kabylian',
             '',
         ),
         'kk' => array(

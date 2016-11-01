@@ -6,6 +6,7 @@
  *
  * @package PhpMyAdmin
  */
+use PMA\libraries\URL;
 
 /**
  * Gets some core libraries
@@ -112,10 +113,10 @@ function PMA_setChangePasswordMsg()
     $message = PMA\libraries\Message::success(__('The profile has been updated.'));
 
     if (($_REQUEST['nopass'] != '1')) {
-        if (empty($_REQUEST['pma_pw']) || empty($_REQUEST['pma_pw2'])) {
+        if (strlen($_REQUEST['pma_pw']) === 0 || strlen($_REQUEST['pma_pw2']) === 0) {
             $message = PMA\libraries\Message::error(__('The password is empty!'));
             $error = true;
-        } elseif ($_REQUEST['pma_pw'] != $_REQUEST['pma_pw2']) {
+        } elseif ($_REQUEST['pma_pw'] !== $_REQUEST['pma_pw2']) {
             $message = PMA\libraries\Message::error(
                 __('The passwords aren\'t the same!')
             );
@@ -143,9 +144,7 @@ function PMA_changePassword($password, $message, $change_password_message)
 
     $hashing_function = PMA_changePassHashingFunction();
 
-    $row = $GLOBALS['dbi']->fetchSingleRow('SELECT CURRENT_USER() as user');
-    $curr_user = $row['user'];
-    list($username, $hostname) = explode('@', $curr_user);
+    list($username, $hostname) = $GLOBALS['dbi']->getCurrentUserAndHost();
 
     $serverType = PMA\libraries\Util::getServerType();
 
@@ -227,7 +226,7 @@ function PMA_changePassHashingFunction()
 function PMA_changePassUrlParamsAndSubmitQuery(
     $username, $hostname, $password, $sql_query, $hashing_function, $orig_auth_plugin
 ) {
-    $err_url = 'user_password.php' . PMA_URL_getCommon();
+    $err_url = 'user_password.php' . URL::getCommon();
 
     $serverType = PMA\libraries\Util::getServerType();
 
@@ -293,7 +292,7 @@ function PMA_changePassDisplayPage($message, $sql_query)
     echo PMA\libraries\Util::getMessage(
         $message, $sql_query, 'success'
     );
-    echo '<a href="index.php' , PMA_URL_getCommon()
+    echo '<a href="index.php' , URL::getCommon()
         , ' target="_parent">' , "\n"
         , '<strong>' , __('Back') , '</strong></a>';
     exit;

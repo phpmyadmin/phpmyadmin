@@ -9,7 +9,7 @@
                 </strong>
                 <br />
 
-                <?= PMA_URL_getHiddenInputs('', '', 5); ?>
+                <?= \PMA\libraries\URL::getHiddenInputs('', '', 5); ?>
                 <input type="hidden" name="reload" value="1" />
                 <?php if (! empty($dbstats)): ?>
                     <input type="hidden" name="dbstats" value="1" />
@@ -18,7 +18,7 @@
                 <input type="text" name="new_db" value="<?= htmlspecialchars($GLOBALS['db_to_create']); ?>"
                        maxlength="64" class="textfield" id="text_create_db" required
                        placeholder="<?= __('Database name'); ?>" />
-                <?= PMA_generateCharsetDropdownBox(PMA_CSDROPDOWN_COLLATION, 'db_collation', null, null, true); ?>
+                <?= PMA\libraries\Charsets::getCollationDropdownBox('db_collation', null, null, true); ?>
                 <input type="submit" value="<?= __('Create'); ?>" id="buttonGo" />
             </form>
         <?php else: ?>

@@ -3,7 +3,7 @@
 set -e
 set -x
 
-if [ -z  "$SELENIUM" ] ; then
+if [ "$CI_MODE" != "selenium" ] ; then
     exit 0
 fi
 

@@ -152,6 +152,8 @@ function PMA_addDatepicker($this_element, type, options)
     }
     else if (type == "time") {
         $this_element.timepicker($.extend(defaultOptions, options));
+        // Add a tip regarding entering MySQL allowed-values for TIME data-type
+        PMA_tooltip($this_element, 'input', PMA_messages.strMysqlAllowedValuesTip);
     }
 }
 
@@ -185,6 +187,11 @@ function addDateTimePicker() {
                 showMicrosec: showMicrosec,
                 timeFormat: timeFormat
             });
+
+            // Add a tip regarding entering MySQL allowed-values for TIME data-type
+            if ($(this).hasClass('timefield')) {
+                PMA_tooltip($(this), 'input', PMA_messages.strMysqlAllowedValuesTip);
+            }
         });
     }
 }
@@ -299,7 +306,7 @@ function PMA_clearSelection() {
  *
  * @param $elements     jQuery object representing the elements
  * @param item          the item
- *                      (see http://api.jqueryui.com/tooltip/#option-items)
+ *                      (see https://api.jqueryui.com/tooltip/#option-items)
  * @param myContent     content of the tooltip
  * @param additionalOptions to override the default options
  *
@@ -613,8 +620,12 @@ function confirmLink(theLink, theSqlQuery)
     if (is_confirmed) {
         if ($(theLink).hasClass('formLinkSubmit')) {
             var name = 'is_js_confirmed';
+
             if ($(theLink).attr('href').indexOf('usesubform') != -1) {
-                name = 'subform[' + $(theLink).attr('href').substr('#').match(/usesubform\[(\d+)\]/i)[1] + '][is_js_confirmed]';
+                var matches = $(theLink).attr('href').substr('#').match(/usesubform\[(\d+)\]/i);
+                if (matches != null) {
+                    name = 'subform[' + matches[1] + '][is_js_confirmed]';
+                }
             }
 
             $(theLink).parents('form').append('<input type="hidden" name="' + name + '" value="1" />');
@@ -629,8 +640,7 @@ function confirmLink(theLink, theSqlQuery)
 } // end of the 'confirmLink()' function
 
 /**
- * Displays an error message if a "DROP DATABASE" statement is submitted
- * while it isn't allowed, else confirms a "DROP/DELETE/ALTER" query before
+ * Confirms a "DROP/DELETE/ALTER" query before
  * submitting it if required.
  * This function is called by the 'checkSqlQuery()' js function.
  *
@@ -648,17 +658,6 @@ function confirmQuery(theForm1, sqlQuery1)
         return true;
     }
 
-    // "DROP DATABASE" statement isn't allowed
-    if (PMA_messages.strNoDropDatabases !== '') {
-        var drop_re = new RegExp('(^|;)\\s*DROP\\s+(IF EXISTS\\s+)?DATABASE\\s', 'i');
-        if (drop_re.test(sqlQuery1.value)) {
-            alert(PMA_messages.strNoDropDatabases);
-            theForm1.reset();
-            sqlQuery1.focus();
-            return false;
-        } // end if
-    } // end if
-
     // Confirms a "DROP/DELETE/ALTER/TRUNCATE" statement
     //
     // TODO: find a way (if possible) to use the parser-analyser
@@ -666,7 +665,7 @@ function confirmQuery(theForm1, sqlQuery1)
     // For now, I just added a ^ to check for the statement at
     // beginning of expression
 
-    var do_confirm_re_0 = new RegExp('^\\s*DROP\\s+(IF EXISTS\\s+)?(TABLE|DATABASE|PROCEDURE)\\s', 'i');
+    var do_confirm_re_0 = new RegExp('^\\s*DROP\\s+(IF EXISTS\\s+)?(TABLE|PROCEDURE)\\s', 'i');
     var do_confirm_re_1 = new RegExp('^\\s*ALTER\\s+TABLE\\s+((`[^`]+`)|([A-Za-z0-9_$]+))\\s+DROP\\s', 'i');
     var do_confirm_re_2 = new RegExp('^\\s*DELETE\\s+FROM\\s', 'i');
     var do_confirm_re_3 = new RegExp('^\\s*TRUNCATE\\s', 'i');
@@ -911,13 +910,13 @@ AJAX.registerOnload('functions.js', function () {
                 data: params,
                 success: function (data) {
                     if (data.success) {
-                        if (PMA_commonParams.get('LoginCookieValidity')-_idleSecondsCounter > 5) {
-                            var interval = (PMA_commonParams.get('LoginCookieValidity') - _idleSecondsCounter - 5) * 1000;
-                            if (interval > Math.pow(2, 31) - 1) { // max value for setInterval() function
-                                interval = Math.pow(2, 31) - 1;
-                            }
+                        var remaining = PMA_commonParams.get('LoginCookieValidity') - _idleSecondsCounter;
+                        if (remaining > 5) {
+                            // max value for setInterval() function
+                            var interval = Math.min(remaining * 1000, Math.pow(2, 31) - 1);
                             updateTimeout = window.setTimeout(UpdateIdleTime, interval);
-                        } else {
+                        } else if (remaining > 0) {
+                            // We're close to session expiry
                             updateTimeout = window.setTimeout(UpdateIdleTime, 2000);
                         }
                     } else { //timeout occurred
@@ -1164,7 +1163,9 @@ function insertQuery(queryType)
         }
         return;
     } else if (queryType == "saved") {
-        if ($.cookie('auto_saved_sql')) {
+        if (isStorageSupported('localStorage') && typeof window.localStorage.auto_saved_sql != 'undefined') {
+            setQuery(window.localStorage.auto_saved_sql);
+        } else if ($.cookie('auto_saved_sql')) {
             setQuery($.cookie('auto_saved_sql'));
         } else {
             PMA_ajaxShowMessage(PMA_messages.strNoAutoSavedQuery);
@@ -2209,11 +2210,17 @@ function PMA_updateCode($base, htmlValue, rawValue)
  * @param mixed   timeout     number of milliseconds for the message to be visible
  *                              optional, defaults to 5000. If set to 'false', the
  *                              notification will never disappear
+ * @param string  type        string to dictate the type of message shown.
+ *                              optional, defaults to normal notification.
+ *                              If set to 'error', the notification will show message
+ *                              with red background.
+ *                              If set to 'success', the notification will show with
+ *                              a green background.
  * @return jQuery object       jQuery Element that holds the message div
  *                              this object can be passed to PMA_ajaxRemoveMessage()
  *                              to remove the notification
  */
-function PMA_ajaxShowMessage(message, timeout)
+function PMA_ajaxShowMessage(message, timeout, type)
 {
     /**
      * @var self_closing Whether the notification will automatically disappear
@@ -2243,6 +2250,12 @@ function PMA_ajaxShowMessage(message, timeout)
         timeout = 5000;
     } else if (timeout === false) {
         self_closing = false;
+    }
+    // Determine type of message, add styling as required
+    if (type === "error") {
+      message = "<div class=\"error\">" + message + "</div>";
+    } else if (type === "success") {
+      message = "<div class=\"success\">" + message + "</div>";
     }
     // Create a parent element for the AJAX messages, if necessary
     if ($('#loading_parent').length === 0) {
@@ -4610,6 +4623,16 @@ AJAX.registerTeardown('functions.js', function () {
 
 AJAX.registerOnload('functions.js', function () {
     $('input#print').click(printPage);
+    $('.logout').click(function() {
+        var form = $(
+            '<form method="POST" action="' + $(this).attr('href') + '" class="disableAjax">' +
+            '<input type="hidden" name="token" value="' + PMA_commonParams.get('token') + '"/>' +
+            '</form>'
+        );
+        $('body').append(form);
+        form.submit();
+        return false;
+    });
     /**
      * Ajaxification for the "Create View" action
      */
@@ -4822,11 +4845,6 @@ function formatBytes(bytes, subdecimals, pointchar) {
 }
 
 AJAX.registerOnload('functions.js', function () {
-    /**
-     * Opens pma more themes link in themes browser, in new window instead of popup
-     * This way, we don't break HTML validity
-     */
-    $("a._blank").prop("target", "_blank");
     /**
      * Reveal the login form to users with JS enabled
      * and focus the appropriate input field

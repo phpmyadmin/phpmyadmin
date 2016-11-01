@@ -11,13 +11,15 @@ namespace PMA\libraries\controllers\database;
 
 use PMA\libraries\config\PageSettings;
 use PMA\libraries\controllers\DatabaseController;
+use PMA\libraries\Charsets;
 use PMA\libraries\Message;
 use PMA\libraries\RecentFavoriteTable;
 use PMA\libraries\Template;
 use PMA\libraries\Tracker;
 use PMA\libraries\Util;
+use PMA\libraries\URL;
+use PMA\libraries\Sanitize;
 
-require_once 'libraries/mysql_charsets.inc.php';
 require_once 'libraries/display_create_table.lib.php';
 require_once 'libraries/config/messages.inc.php';
 require_once 'libraries/config/user_preferences.forms.php';
@@ -336,7 +338,7 @@ class DatabaseStructureController extends DatabaseController
     public function multiSubmitAction()
     {
         $action = 'db_structure.php';
-        $err_url = 'db_structure.php' . PMA_URL_getCommon(
+        $err_url = 'db_structure.php' . URL::getCommon(
             array('db' => $this->db)
         );
 
@@ -413,7 +415,7 @@ class DatabaseStructureController extends DatabaseController
 
             if (isset($current_table['Collation'])) {
                 $collation = '<dfn title="'
-                    . PMA_getCollationDescr($current_table['Collation']) . '">'
+                    . Charsets::getCollationDescr($current_table['Collation']) . '">'
                     . $current_table['Collation'] . '</dfn>';
             } else {
                 $collation = '---';
@@ -432,6 +434,14 @@ class DatabaseStructureController extends DatabaseController
                     $overhead = '-';
                 }
             } // end if
+
+            if ($GLOBALS['cfg']['ShowDbStructureCharset']) {
+                if (isset($current_table['Collation'])) {
+                    $charset = mb_substr($collation, 0, mb_strpos($collation, "_"));
+                } else {
+                    $charset = '';
+                }
+            }
 
             if ($GLOBALS['cfg']['ShowDbStructureCreation']) {
                 $create_time = isset($current_table['Create_time'])
@@ -629,6 +639,8 @@ class DatabaseStructureController extends DatabaseController
                                 ? $update_time : '',
                             'check_time'            => isset($check_time)
                                 ? $check_time : '',
+                            'charset'               => isset($charset)
+                                ? $charset : '',
                             'is_show_stats'         => $this->_is_show_stats,
                             'ignored'               => $ignored,
                             'do'                    => $do,
@@ -648,7 +660,8 @@ class DatabaseStructureController extends DatabaseController
 
         $this->response->addHTML('</tbody>');
 
-        $db_collation = PMA_getDbCollation($this->db);
+        $db_collation = $this->dbi->getDbCollation($this->db);
+        $db_charset = mb_substr($db_collation, 0, mb_strpos($db_collation, "_"));
 
         // Show Summary
         $this->response->addHTML(
@@ -660,6 +673,7 @@ class DatabaseStructureController extends DatabaseController
                     'sum_entries' => $sum_entries,
                     'db_collation' => $db_collation,
                     'is_show_stats' => $this->_is_show_stats,
+                    'db_charset' => $db_charset,
                     'sum_size' => $sum_size,
                     'overhead_size' => $overhead_size,
                     'create_time_all' => $create_time_all,
@@ -747,7 +761,7 @@ class DatabaseStructureController extends DatabaseController
             ) {
                 $approx_rows = true;
                 $show_superscript = Util::showHint(
-                    PMA_sanitize(
+                    Sanitize::sanitize(
                         sprintf(
                             __(
                                 'This view has at least this number of '

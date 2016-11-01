@@ -6,6 +6,10 @@
  * @package PhpMyAdmin
  */
 use PMA\libraries\RecentFavoriteTable;
+use PMA\libraries\URL;
+use PMA\libraries\Sanitize;
+use PMA\libraries\Charsets;
+use PMA\libraries\ThemeManager;
 
 /**
  * Gets some core libraries and displays a top message if required
@@ -105,7 +109,7 @@ if (! empty($message)) {
     unset($message);
 }
 
-$common_url_query =  PMA_URL_getCommon();
+$common_url_query =  URL::getCommon();
 $mysql_cur_user_and_host = '';
 
 // when $server > 0, a server has been chosen so we can display
@@ -152,7 +156,7 @@ if ($server > 0 || count($cfg['Servers']) > 1
                 . 'please do not change root, debian-sys-maint and pma users. '
                 . 'More information is available at %s.'
             ),
-            '<a href="url.php?url=https://demo.phpmyadmin.net/" target="_blank">demo.phpmyadmin.net</a>'
+            '<a href="url.php?url=https://demo.phpmyadmin.net/" target="_blank" rel="noopener noreferrer">demo.phpmyadmin.net</a>'
         );
         echo '</p>';
         echo '</div>';
@@ -202,7 +206,7 @@ if ($server > 0 || count($cfg['Servers']) > 1
         } // end if
         echo '    <li id="li_select_mysql_collation" class="no_bullets" >';
         echo '        <form method="post" action="index.php">' , "\n"
-           . PMA_URL_getHiddenInputs(null, null, 4, 'collation_connection')
+           . URL::getHiddenInputs(null, null, 4, 'collation_connection')
            . '            <label for="select_collation_connection">' . "\n"
            . '                ' . PMA\libraries\Util::getImage('s_asci.png')
             . "&nbsp;" . __('Server connection collation') . "\n"
@@ -211,8 +215,7 @@ if ($server > 0 || count($cfg['Servers']) > 1
            . ': ' .  "\n"
            . '            </label>' . "\n"
 
-           . PMA_generateCharsetDropdownBox(
-               PMA_CSDROPDOWN_COLLATION,
+           . Charsets::getCollationDropdownBox(
                'collation_connection',
                'select_collation_connection',
                $collation_connection,
@@ -244,7 +247,7 @@ if (empty($cfg['Lang'])) {
 if ($GLOBALS['cfg']['ThemeManager']) {
     echo '<li id="li_select_theme" class="no_bullets">';
     echo PMA\libraries\Util::getImage('s_theme.png') , " "
-            ,  $_SESSION['PMA_Theme_Manager']->getHtmlSelectBox();
+            ,  ThemeManager::getInstance()->getHtmlSelectBox();
     echo '</li>';
 }
 echo '<li id="li_select_fontsize">';
@@ -309,9 +312,10 @@ if ($server > 0 && $GLOBALS['cfg']['ShowServerInfo']) {
     echo '    <li id="li_select_mysql_charset">';
     echo '        ' , __('Server charset:') , ' '
        . '        <span lang="en" dir="ltr">';
-    echo '           ' , $mysql_charsets_descriptions[$mysql_charset_map['utf-8']];
-    echo '           (' , $mysql_charset_map['utf-8'] , ')'
-       . '        </span>'
+    $unicode = Charsets::$mysql_charset_map['utf-8'];
+    $charsets = Charsets::getMySQLCharsetsDescriptions();
+    echo '           ' , $charsets[$unicode], ' (' . $unicode, ')';
+    echo '        </span>'
        . '    </li>'
        . '  </ul>'
        . ' </div>';
@@ -410,14 +414,14 @@ PMA_printListItem(
 PMA_printListItem(
     __('List of changes'),
     'li_pma_changes',
-    'changelog.php' . PMA_URL_getCommon(),
+    'changelog.php' . URL::getCommon(),
     null,
     '_blank'
 );
 PMA_printListItem(
     __('License'),
     'li_pma_license',
-    'license.php' . PMA_URL_getCommon(),
+    'license.php' . URL::getCommon(),
     null,
     '_blank'
 );
@@ -427,21 +431,6 @@ echo ' </div>';
 echo '</div>';
 
 echo '</div>';
-
-/**
- * As we try to handle charsets by ourself, mbstring overloads just
- * break it, see bug 1063821.
- */
-if (@extension_loaded('mbstring') && @ini_get('mbstring.func_overload') > 1) {
-    trigger_error(
-        __(
-            'You have enabled mbstring.func_overload in your PHP '
-            . 'configuration. This option is incompatible with phpMyAdmin '
-            . 'and might cause some data to be corrupted!'
-        ),
-        E_USER_WARNING
-    );
-}
 
 /**
  * mbstring is used for handling multibytes inside parser, so it is good
@@ -480,7 +469,7 @@ if ($cfg['LoginCookieValidityDisableWarning'] == false) {
     if ($gc_time < $GLOBALS['cfg']['LoginCookieValidity'] ) {
         trigger_error(
             __(
-                'Your PHP parameter [a@https://php.net/manual/en/session.' .
+                'Your PHP parameter [a@https://secure.php.net/manual/en/session.' .
                 'configuration.php#ini.session.gc-maxlifetime@_blank]session.' .
                 'gc_maxlifetime[/a] is lower than cookie validity configured ' .
                 'in phpMyAdmin, because of this, your login might expire sooner ' .
@@ -518,8 +507,7 @@ if (! empty($_SESSION['encryption_key'])) {
             ),
             E_USER_WARNING
         );
-    }
-    if (strlen($GLOBALS['cfg']['blowfish_secret']) < 32) {
+    } elseif (strlen($GLOBALS['cfg']['blowfish_secret']) < 32) {
         trigger_error(
             __(
                 'The secret passphrase in configuration (blowfish_secret) is too short.'
@@ -564,12 +552,8 @@ if ($server > 0) {
                 );
         }
         $msg = PMA\libraries\Message::notice($msg_text);
-        $msg->addParam(
-            '<a href="./chk_rel.php'
-            . $common_url_query . '">',
-            false
-        );
-        $msg->addParam('</a>', false);
+        $msg->addParamHtml('<a href="./chk_rel.php' . $common_url_query . '">');
+        $msg->addParamHtml('</a>');
         /* Show error if user has configured something, notice elsewhere */
         if (!empty($cfg['Servers'][$server]['pmadb'])) {
             $msg->isError(true);
@@ -599,7 +583,7 @@ if (isset($GLOBALS['dbi'])
         )
     ) {
         trigger_error(
-            PMA_sanitize(
+            Sanitize::sanitize(
                 sprintf(
                     __(
                         'Your PHP MySQL library version %s differs from your ' .

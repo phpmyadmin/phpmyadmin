@@ -14,8 +14,6 @@ use PMA\libraries\Response;
 
 require_once 'libraries/common.inc.php';
 require_once 'libraries/tbl_info.inc.php';
-require_once 'libraries/mysql_charsets.inc.php';
-require_once 'libraries/bookmark.lib.php';
 require_once 'libraries/config/messages.inc.php';
 require_once 'libraries/config/user_preferences.forms.php';
 require_once 'libraries/config/page_settings.forms.php';

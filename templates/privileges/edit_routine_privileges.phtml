@@ -1,7 +1,7 @@
 <div id="edit_user_dialog">
     <?= $header; ?>
     <form class="submenu-item" name="usersForm" id="addUsersForm" action="server_privileges.php" method="post">
-        <?= PMA_URL_getHiddenInputs(); ?>
+        <?= PMA\libraries\URL::getHiddenInputs(); ?>
         <input type="hidden" name="username" value="<?= htmlspecialchars($username); ?>">
         <input type="hidden" name="hostname" value="<?= htmlspecialchars($hostname); ?>">
         <input type="hidden" name="dbname" value="<?= htmlspecialchars($database); ?>">

@@ -9,6 +9,7 @@
 use PMA\libraries\controllers\table\TableIndexesController;
 use PMA\libraries\di\Container;
 use PMA\libraries\Theme;
+use PMA\libraries\URL;
 
 /*
  * Include to test.
@@ -20,9 +21,7 @@ use PMA\libraries\Theme;
 
 require_once 'libraries/database_interface.inc.php';
 require_once 'libraries/relation.lib.php';
-require_once 'libraries/url_generating.lib.php';
 
-require_once 'libraries/sanitizing.lib.php';
 require_once 'test/libraries/stubs/ResponseStub.php';
 require_once 'test/PMATestCase.php';
 
@@ -46,7 +45,6 @@ class TableIndexesControllerTest extends PMATestCase
          */
         $GLOBALS['server'] = 1;
         $GLOBALS['cfg']['Server']['pmadb'] = '';
-        $GLOBALS['pmaThemeImage'] = 'theme/';
         $GLOBALS['url_params'] = array(
             'db' => 'db',
             'server' => 1
@@ -80,8 +78,6 @@ class TableIndexesControllerTest extends PMATestCase
         $GLOBALS['dbi'] = $dbi;
 
         //$_SESSION
-        $_SESSION['PMA_Theme'] = Theme::load('./themes/pmahomme');
-        $_SESSION['PMA_Theme'] = new Theme();
     }
 
     /**
@@ -170,9 +166,9 @@ class TableIndexesControllerTest extends PMATestCase
         $ctrl->displayFormAction();
         $html = $response->getHTMLResult();
 
-        //PMA_URL_getHiddenInputs
+        //URL::getHiddenInputs
         $this->assertContains(
-            PMA_URL_getHiddenInputs(
+            URL::getHiddenInputs(
                 array(
                     'db' => 'db',
                     'table' => 'table',

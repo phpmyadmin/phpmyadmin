@@ -8,7 +8,7 @@ $fav_params = array('db' => $db,
 ?>
 <a id="<?= md5($current_table['TABLE_NAME']); ?>_favorite_anchor"
    class="ajax favorite_table_anchor"
-   href="<?= 'db_structure.php' , PMA_URL_getCommon($fav_params); ?>"
+   href="<?= 'db_structure.php' , PMA\libraries\URL::getCommon($fav_params); ?>"
    title="<?= $already_favorite ? __("Remove from Favorites") : __("Add to Favorites"); ?>"
    data-favtargets="<?= md5($db . "." . $current_table['TABLE_NAME']); ?>" >
     <?= !$already_favorite ? $titles['NoFavorite'] : $titles['Favorite']; ?>

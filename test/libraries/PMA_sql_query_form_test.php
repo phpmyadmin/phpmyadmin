@@ -6,25 +6,20 @@
  * @package PhpMyAdmin-test
  */
 
-//the following definition should be used globally
+use PMA\libraries\Encoding;
 use PMA\libraries\Theme;
+use PMA\libraries\URL;
 
+//the following definition should be used globally
 $GLOBALS['server'] = 0;
 
 /*
  * Include to test.
 */
 
-require_once 'libraries/url_generating.lib.php';
 require_once 'libraries/relation.lib.php';
-
-
-require_once 'libraries/sanitizing.lib.php';
-require_once 'libraries/js_escape.lib.php';
 require_once 'libraries/database_interface.inc.php';
 require_once 'libraries/sql_query_form.lib.php';
-require_once 'libraries/kanji-encoding.lib.php';
-require_once 'libraries/mysql_charsets.inc.php';
 
 /**
  * class PMA_SqlQueryForm_Test
@@ -47,7 +42,6 @@ class PMA_SqlQueryForm_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['PMA_PHP_SELF'] = PMA_getenv('PHP_SELF');
         $GLOBALS['db'] = "PMA_db";
         $GLOBALS['table'] = "PMA_table";
-        $GLOBALS['pmaThemeImage'] = 'image';
         $GLOBALS['text_dir'] = "text_dir";
 
         $GLOBALS['cfg']['GZipDump'] = false;
@@ -73,7 +67,7 @@ class PMA_SqlQueryForm_Test extends PHPUnit_Framework_TestCase
             'table_info' => 'table_info',
             'relwork' => 'relwork',
             'relation' => 'relation',
-            'bookmarkwork' => 'bookmarkwork',
+            'bookmarkwork' => false,
         );
         //$GLOBALS
         $GLOBALS['cfg']['Server']['user'] = "user";
@@ -81,8 +75,6 @@ class PMA_SqlQueryForm_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['Server']['bookmarktable'] = "bookmarktable";
 
         //$_SESSION
-        $_SESSION['PMA_Theme'] = Theme::load('./themes/pmahomme');
-        $_SESSION['PMA_Theme'] = new Theme();
 
         //Mock DBI
         $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
@@ -179,6 +171,7 @@ class PMA_SqlQueryForm_Test extends PHPUnit_Framework_TestCase
     {
         //Call the test function
         $GLOBALS['is_upload'] = true;
+        $GLOBALS['lang'] = 'ja';
         $query = "select * from PMA";
         $html = PMA_getHtmlForSqlQueryForm($query);
 
@@ -205,7 +198,7 @@ class PMA_SqlQueryForm_Test extends PHPUnit_Framework_TestCase
         $table  = $GLOBALS['table'];
         $db     = $GLOBALS['db'];
         $this->assertContains(
-            PMA_URL_getHiddenInputs($db, $table),
+            URL::getHiddenInputs($db, $table),
             $html
         );
 
@@ -216,10 +209,11 @@ class PMA_SqlQueryForm_Test extends PHPUnit_Framework_TestCase
             $html
         );
 
-        //validate 6: PMA_Kanji_encodingForm
+        //validate 6: Kanji encoding form
         $this->assertContains(
-            PMA_Kanji_encodingForm(),
+            Encoding::kanjiEncodingForm(),
             $html
         );
+        $GLOBALS['lang'] = 'en';
     }
 }

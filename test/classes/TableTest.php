@@ -13,9 +13,7 @@ use PMA\libraries\Table;
 use PMA\libraries\Theme;
 use PMA\libraries\Util;
 
-require_once 'libraries/mysql_charsets.lib.php';
 require_once 'libraries/database_interface.inc.php';
-require_once 'libraries/url_generating.lib.php';
 require_once 'libraries/relation.lib.php';
 require_once 'test/PMATestCase.php';
 
@@ -46,8 +44,6 @@ class TableTest extends PMATestCase
         $GLOBALS['sql_drop_table'] = true;
         $GLOBALS['cfg']['Server']['table_uiprefs'] = "pma__table_uiprefs";
 
-        $_SESSION['PMA_Theme'] = new Theme();
-        $GLOBALS['pmaThemeImage'] = 'themes/dot.gif';
         $GLOBALS['is_ajax_request'] = false;
         $GLOBALS['cfgRelation'] = PMA_getRelationsParam();
         $GLOBALS['dblist'] = new DataBasePMAMock();
@@ -178,6 +174,31 @@ class TableTest extends PMATestCase
                     'ACCESSIBLE',
                     'ADD',
                     'ALL'
+                )
+            ),
+            array(
+                'SHOW COLUMNS FROM `PMA`.`PMA_BookMark`',
+                null,
+                null,
+                null,
+                0,
+                array(
+                    array(
+                        'Field'=>'COLUMN_NAME1',
+                        'Type'=> 'INT(10)',
+                        'Null'=> 'NO',
+                        'Key'=> '',
+                        'Default'=> NULL,
+                        'Extra'=>''
+                    ),
+                    array(
+                        'Field'=>'COLUMN_NAME2',
+                        'Type'=> 'INT(10)',
+                        'Null'=> 'YES',
+                        'Key'=> '',
+                        'Default'=> NULL,
+                        'Extra'=>'STORED GENERATED'
+                    )
                 )
             ),
         );
@@ -360,11 +381,11 @@ class TableTest extends PMATestCase
      *
      * @dataProvider dataValidateName
      */
-    public function testValidateName($name, $result)
+    public function testValidateName($name, $result, $is_backquoted=false)
     {
         $this->assertEquals(
             $result,
-            Table::isValidName($name)
+            Table::isValidName($name, $is_backquoted)
         );
     }
 
@@ -380,6 +401,10 @@ class TableTest extends PMATestCase
             array('te/st', false),
             array('te.st', false),
             array('te\\st', false),
+            array('te st', true),
+            array('  te st', true, true),
+            array('test ', false),
+            array('test ', false, true),
         );
     }
 
@@ -495,7 +520,24 @@ class TableTest extends PMATestCase
             $query
         );
 
+        // $type is 'TIMESTAMP(3), $default_type is CURRENT_TIMESTAMP(3)
+        $type = 'TIMESTAMP';
+        $length = '3';
+        $extra = '';
+        $default_type = 'CURRENT_TIMESTAMP';
+        $query = Table::generateFieldSpec(
+            $name, $type, $length, $attribute, $collation,
+            $null, $default_type,  $default_value, $extra, $comment,
+            $virtuality, $expression, $move_to
+        );
+        $this->assertEquals(
+            "`PMA_name` TIMESTAMP(3) PMA_attribute NULL DEFAULT CURRENT_TIMESTAMP(3) "
+            . "COMMENT 'PMA_comment' FIRST",
+            $query
+        );
+
         //$default_type is NONE
+        $type = 'BOOLEAN';
         $default_type = 'NONE';
         $extra = 'INCREMENT';
         $move_to = '-first';
@@ -1047,7 +1089,8 @@ class TableTest extends PMATestCase
             $expect,
             $return
         );
-        $sql_query = "INSERT INTO `PMA_new`.`PMA_BookMark_new` SELECT * FROM "
+        $sql_query = "INSERT INTO `PMA_new`.`PMA_BookMark_new`(`COLUMN_NAME1`)"
+            . " SELECT `COLUMN_NAME1` FROM "
             . "`PMA`.`PMA_BookMark`";
         $this->assertContains(
             $sql_query,
@@ -1070,8 +1113,9 @@ class TableTest extends PMATestCase
             $expect,
             $return
         );
-        $sql_query = "INSERT INTO `PMA_new`.`PMA_BookMark_new` SELECT * FROM "
-            . "`PMA`.`PMA_BookMark`;";
+        $sql_query = "INSERT INTO `PMA_new`.`PMA_BookMark_new`(`COLUMN_NAME1`)"
+            . " SELECT `COLUMN_NAME1` FROM "
+            . "`PMA`.`PMA_BookMark`";
         $this->assertContains(
             $sql_query,
             $GLOBALS['sql_query']

@@ -9,6 +9,7 @@
 namespace PMA\libraries;
 
 use \Exception;
+use PMA\libraries\URL;
 
 require_once 'libraries/advisor.lib.php';
 
@@ -326,7 +327,7 @@ class Advisor
             // linking to server_variables.php
             $rule['recommendation'] = preg_replace(
                 '/\{([a-z_0-9]+)\}/Ui',
-                '<a href="server_variables.php' . PMA_URL_getCommon()
+                '<a href="server_variables.php' . URL::getCommon()
                 . '&filter=\1">\1</a>',
                 $this->translate($rule['recommendation'])
             );
@@ -352,7 +353,7 @@ class Advisor
      */
     private function replaceLinkURL($matches)
     {
-        return 'href="' . PMA_linkURL($matches[2]) . '" target="_blank"';
+        return 'href="' . PMA_linkURL($matches[2]) . '" target="_blank" rel="noopener noreferrer"';
     }
 
     /**
@@ -428,6 +429,7 @@ class Advisor
         // Actually evaluate the code
         ob_start();
         try {
+            // TODO: replace by using symfony/expression-language
             eval('$value = ' . $expr . ';');
             $err = ob_get_contents();
         } catch (Exception $e) {
@@ -455,10 +457,21 @@ class Advisor
      */
     public static function parseRulesFile()
     {
-        $file = file('libraries/advisory_rules.txt', FILE_IGNORE_NEW_LINES);
+        $filename = 'libraries/advisory_rules.txt';
+        $file = file($filename, FILE_IGNORE_NEW_LINES);
+
         $errors = array();
         $rules = array();
         $lines = array();
+
+        if ($file === FALSE) {
+            $errors[] = sprintf(
+                __('Error in reading file: The file \'%s\' does not exist or is not readable!'),
+                $filename
+            );
+            return array('rules' => $rules, 'lines' => $lines, 'errors' => $errors);
+        }
+
         $ruleSyntax = array(
             'name', 'formula', 'test', 'issue', 'recommendation', 'justification'
         );

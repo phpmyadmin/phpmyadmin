@@ -7,6 +7,9 @@
  */
 namespace PMA\libraries;
 
+use PMA\libraries\URL;
+use PMA\libraries\Sanitize;
+
 /**
  * Class to handle database search
  *
@@ -214,14 +217,14 @@ class DbSearch
 
         foreach ($search_words as $search_word) {
             // Eliminates empty values
-            if (mb_strlen($search_word) === 0) {
+            if (strlen($search_word) === 0) {
                 continue;
             }
             $likeClausesPerColumn = array();
             // for each column in the table
             foreach ($allColumns as $column) {
                 if (! isset($this->_criteriaColumnName)
-                    || mb_strlen($this->_criteriaColumnName) == 0
+                    || strlen($this->_criteriaColumnName) === 0
                     || $column['Field'] == $this->_criteriaColumnName
                 ) {
                     $column = 'CONVERT(' . Util::backquote($column['Field'])
@@ -336,12 +339,12 @@ class DbSearch
         // Displays browse/delete link if result count > 0
         if ($res_cnt > 0) {
             $this_url_params['sql_query'] = $newsearchsqls['select_columns'];
-            $browse_result_path = 'sql.php' . PMA_URL_getCommon($this_url_params);
+            $browse_result_path = 'sql.php' . URL::getCommon($this_url_params);
             $html_output .= '<td><a name="browse_search" class="ajax" href="'
                 . $browse_result_path . '" onclick="loadResult(\''
                 . $browse_result_path . '\',\''
-                . PMA_escapeJsString(htmlspecialchars($each_table)) . '\',\''
-                . PMA_URL_getCommon(
+                . Sanitize::escapeJsString(htmlspecialchars($each_table)) . '\',\''
+                . URL::getCommon(
                     array(
                         'db' => $GLOBALS['db'], 'table' => $each_table
                     )
@@ -349,11 +352,11 @@ class DbSearch
                 . ');return false;" >'
                 . __('Browse') . '</a></td>';
             $this_url_params['sql_query'] = $newsearchsqls['delete'];
-            $delete_result_path = 'sql.php' . PMA_URL_getCommon($this_url_params);
+            $delete_result_path = 'sql.php' . URL::getCommon($this_url_params);
             $html_output .= '<td><a name="delete_search" class="ajax" href="'
                 . $delete_result_path . '" onclick="deleteResult(\''
                 . $delete_result_path . '\' , \''
-                . PMA_escapeJsString(sprintf(
+                . Sanitize::escapeJsString(sprintf(
                     __('Delete the matches for the %s table?'),
                     htmlspecialchars($each_table)
                 ))
@@ -378,7 +381,7 @@ class DbSearch
         $html_output .= '<form id="db_search_form"'
             . ' class="ajax lock-page"'
             . ' method="post" action="db_search.php" name="db_search">';
-        $html_output .= PMA_URL_getHiddenInputs($GLOBALS['db']);
+        $html_output .= URL::getHiddenInputs($GLOBALS['db']);
         $html_output .= '<fieldset>';
         // set legend caption
         $html_output .= '<legend>' . __('Search in database') . '</legend>';

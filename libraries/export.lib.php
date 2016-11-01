@@ -6,10 +6,14 @@
  *
  * @package PhpMyAdmin
  */
+use PMA\libraries\Encoding;
 use PMA\libraries\Message;
 use PMA\libraries\plugins\ExportPlugin;
 use PMA\libraries\Table;
 use PMA\libraries\ZipFile;
+use PMA\libraries\URL;
+use PMA\libraries\Sanitize;
+
 
 /**
  * Sets a session variable upon a possible fatal error during export
@@ -81,7 +85,7 @@ function PMA_exportOutputHandler($line)
 
     // Kanji encoding convert feature
     if ($GLOBALS['output_kanji_conversion']) {
-        $line = PMA_Kanji_strConv(
+        $line = Encoding::kanjiStrConv(
             $line,
             $GLOBALS['knjenc'],
             isset($GLOBALS['xkana']) ? $GLOBALS['xkana'] : ''
@@ -94,11 +98,11 @@ function PMA_exportOutputHandler($line)
         $dump_buffer .= $line;
         if ($GLOBALS['onfly_compression']) {
 
-            $dump_buffer_len += mb_strlen($line);
+            $dump_buffer_len += strlen($line);
 
             if ($dump_buffer_len > $GLOBALS['memory_limit']) {
                 if ($GLOBALS['output_charset_conversion']) {
-                    $dump_buffer = PMA_convertString(
+                    $dump_buffer = Encoding::convertString(
                         'utf-8',
                         $GLOBALS['charset'],
                         $dump_buffer
@@ -138,7 +142,7 @@ function PMA_exportOutputHandler($line)
     } else {
         if ($GLOBALS['asfile']) {
             if ($GLOBALS['output_charset_conversion']) {
-                $line = PMA_convertString(
+                $line = Encoding::convertString(
                     'utf-8',
                     $GLOBALS['charset'],
                     $line
@@ -280,7 +284,7 @@ function PMA_getExportFilenameAndMimetype(
     $filename = PMA\libraries\Util::expandUserString($filename_template);
     // remove dots in filename (coming from either the template or already
     // part of the filename) to avoid a remote code execution vulnerability
-    $filename = PMA_sanitizeFilename($filename, $replaceDots = true);
+    $filename = Sanitize::sanitizeFilename($filename, $replaceDots = true);
 
     // Grab basic dump extension and mime type
     // Check if the user already added extension;
@@ -372,7 +376,7 @@ function PMA_closeExportFile($file_handle, $dump_buffer, $save_filename)
     fclose($file_handle);
     // Here, use strlen rather than mb_strlen to get the length
     // in bytes to compare against the number of bytes written.
-    if (mb_strlen($dump_buffer) > 0
+    if (strlen($dump_buffer) > 0
         && (! $write_result || $write_result != strlen($dump_buffer))
     ) {
         $message = new Message(
@@ -475,11 +479,11 @@ function PMA_getHtmlForDisplayedExportHeader($export_type, $db, $table)
      */
     $back_button = '<p>[ <a href="';
     if ($export_type == 'server') {
-        $back_button .= 'server_export.php' . PMA_URL_getCommon();
+        $back_button .= 'server_export.php' . URL::getCommon();
     } elseif ($export_type == 'database') {
-        $back_button .= 'db_export.php' . PMA_URL_getCommon(array('db' => $db));
+        $back_button .= 'db_export.php' . URL::getCommon(array('db' => $db));
     } else {
-        $back_button .= 'tbl_export.php' . PMA_URL_getCommon(
+        $back_button .= 'tbl_export.php' . URL::getCommon(
             array(
                 'db' => $db, 'table' => $table
             )
@@ -682,8 +686,13 @@ function PMA_exportDatabase(
             && in_array($table, $table_data)
             && ! ($is_view)
         ) {
-            $local_query  = 'SELECT * FROM ' . PMA\libraries\Util::backquote($db)
+            $tableObj = new PMA\libraries\Table($table, $db);
+            $nonGeneratedCols = $tableObj->getNonGeneratedColumns(true);
+
+            $local_query  = 'SELECT ' . implode(', ', $nonGeneratedCols)
+                .  ' FROM ' . PMA\libraries\Util::backquote($db)
                 . '.' . PMA\libraries\Util::backquote($table);
+
             if (! $export_plugin->exportData(
                 $db, $table, $crlf, $err_url, $local_query, $aliases
             )) {
@@ -862,7 +871,12 @@ function PMA_exportTable(
             $local_query = $sql_query . $add_query;
             $GLOBALS['dbi']->selectDb($db);
         } else {
-            $local_query  = 'SELECT * FROM ' . PMA\libraries\Util::backquote($db)
+            // Data is exported only for Non-generated columns
+            $tableObj = new PMA\libraries\Table($table, $db);
+            $nonGeneratedCols = $tableObj->getNonGeneratedColumns(true);
+
+            $local_query  = 'SELECT ' . implode(', ', $nonGeneratedCols)
+                .  ' FROM ' . PMA\libraries\Util::backquote($db)
                 . '.' . PMA\libraries\Util::backquote($table) . $add_query;
         }
         if (! $export_plugin->exportData(

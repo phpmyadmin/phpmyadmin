@@ -12,8 +12,6 @@ use PMA\libraries\Theme;
 $GLOBALS['PMA_Config'] = new PMA\libraries\Config();
 
 require_once 'libraries/config.default.php';
-require_once 'libraries/js_escape.lib.php';
-require_once 'libraries/sanitizing.lib.php';
 require_once 'libraries/database_interface.inc.php';
 require_once 'libraries/plugins/auth/AuthenticationCookie.php';
 require_once 'test/PMATestCase.php';
@@ -42,10 +40,8 @@ class AuthenticationCookieTest extends PMATestCase
         $GLOBALS['text_dir'] = 'ltr';
         $GLOBALS['db'] = 'db';
         $GLOBALS['table'] = 'table';
+        $_REQUEST['pma_password'] = '';
         $this->object = new AuthenticationCookie();
-
-        $_SESSION['PMA_Theme'] = Theme::load('./themes/pmahomme');
-        $_SESSION['PMA_Theme'] = new Theme();
         $GLOBALS['PMA_PHP_SELF'] = '/phpmyadmin/';
     }
 
@@ -456,6 +452,7 @@ class AuthenticationCookieTest extends PMATestCase
         $GLOBALS['cfg']['CaptchaLoginPrivateKey'] = '';
         $GLOBALS['cfg']['CaptchaLoginPublicKey'] = '';
         $GLOBALS['cfg']['LoginCookieDeleteAll'] = true;
+        $GLOBALS['PMA_Config']->set('PmaAbsoluteUri', '');
         $GLOBALS['cfg']['Servers'] = array(1);
 
         $_COOKIE['pmaAuth-0'] = 'test';
@@ -497,6 +494,7 @@ class AuthenticationCookieTest extends PMATestCase
         $GLOBALS['cfg']['CaptchaLoginPrivateKey'] = '';
         $GLOBALS['cfg']['CaptchaLoginPublicKey'] = '';
         $GLOBALS['cfg']['LoginCookieDeleteAll'] = false;
+        $GLOBALS['PMA_Config']->set('PmaAbsoluteUri', '');
         $GLOBALS['cfg']['Servers'] = array(1);
         $GLOBALS['server'] = 1;
 
@@ -811,7 +809,7 @@ class AuthenticationCookieTest extends PMATestCase
         $mockResponse->expects($this->once())
             ->method('header')
             ->with(
-                $this->stringContains('&server=2&lang=en&collation_connection=utf-8&token=token')
+                $this->stringContains('&server=2&lang=en&collation_connection=utf-8')
             );
 
         $mockResponse->expects($this->any())
@@ -924,7 +922,6 @@ class AuthenticationCookieTest extends PMATestCase
         $GLOBALS['server'] = 2;
         $_COOKIE['pmaAuth-2'] = 'pass';
 
-
         $GLOBALS['allowDeny_forbidden'] = '';
         $GLOBALS['no_activity'] = '1';
         $GLOBALS['cfg']['LoginCookieValidity'] = 10;
@@ -949,7 +946,6 @@ class AuthenticationCookieTest extends PMATestCase
 
         $GLOBALS['server'] = 2;
         $_COOKIE['pmaAuth-2'] = 'pass';
-
 
         $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
@@ -1068,7 +1064,7 @@ class AuthenticationCookieTest extends PMATestCase
         $this->object->setIV('testiv09testiv09');
         // works with the openssl extension active or inactive
         $this->assertEquals(
-            '{"iv":"dGVzdGl2MDl0ZXN0aXYwOQ==","mac":"34367a80e4276906637b5eaecf8c3931547aae68","payload":"+coP\/up\/ZBTBwbiEpCUVXQ=="}',
+            '{"iv":"dGVzdGl2MDl0ZXN0aXYwOQ==","mac":"347aa45ae1ade00c980f31129ec2defef18b2bfd","payload":"YDEaxOfP9nD9q\/2pC6hjfQ=="}',
             $this->object->cookieEncrypt('data123', 'sec321')
         );
     }
@@ -1084,7 +1080,7 @@ class AuthenticationCookieTest extends PMATestCase
         $this->assertEquals(
             'data123',
             $this->object->cookieDecrypt(
-                '{"iv":"dGVzdGl2MDl0ZXN0aXYwOQ==","mac":"34367a80e4276906637b5eaecf8c3931547aae68","payload":"+coP\/up\/ZBTBwbiEpCUVXQ=="}',
+                '{"iv":"dGVzdGl2MDl0ZXN0aXYwOQ==","mac":"347aa45ae1ade00c980f31129ec2defef18b2bfd","payload":"YDEaxOfP9nD9q\/2pC6hjfQ=="}',
                 'sec321'
             )
         );

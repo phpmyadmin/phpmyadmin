@@ -6,6 +6,7 @@
  * @package PhpMyAdmin
  */
 use PMA\libraries\Response;
+use PMA\libraries\URL;
 
 if (! defined('PHPMYADMIN')) {
     exit;
@@ -171,11 +172,11 @@ function PMA_EVN_handleEditor()
                 )
                 . '</b>'
             );
-            $message->addString('<ul>');
+            $message->addHtml('<ul>');
             foreach ($errors as $string) {
-                $message->addString('<li>' . $string . '</li>');
+                $message->addHtml('<li>' . $string . '</li>');
             }
-            $message->addString('</ul>');
+            $message->addHtml('</ul>');
         }
 
         $output = PMA\libraries\Util::getMessage($message, $sql_query);
@@ -382,7 +383,7 @@ function PMA_EVN_getEditorForm($mode, $operation, $item)
     $retval .= "<form class='rte_form' action='db_events.php' method='post'>\n";
     $retval .= "<input name='{$mode}_item' type='hidden' value='1' />\n";
     $retval .= $original_data;
-    $retval .= PMA_URL_getHiddenInputs($db, $table) . "\n";
+    $retval .= URL::getHiddenInputs($db, $table) . "\n";
     $retval .= "<fieldset>\n";
     $retval .= "<legend>" . __('Details') . "</legend>\n";
     $retval .= "<table class='rte_table' style='width: 100%'>\n";

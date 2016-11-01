@@ -10,8 +10,6 @@
  */
 use PMA\libraries\plugins\transformations\Text_Plain_Link;
 
-require_once 'libraries/url_generating.lib.php';
-require_once 'libraries/js_escape.lib.php';
 require_once 'libraries/relation.lib.php';
 require_once 'libraries/string.lib.php';
 require_once 'test/PMATestCase.php';
@@ -359,8 +357,7 @@ class DisplayResultsTest extends PMATestCase
                 . 'The+row+has+been+deleted&amp;goto=sql.php%3Fdb%3Ddata%26table%3D'
                 . 'new%26sql_query%3DSELECT%2B%252A%2BFROM%2B%2560new%2560%26message'
                 . '_to_show%3DThe%2Brow%2Bhas%2Bbeen%2Bdeleted%26goto%3Dtbl_'
-                . 'structure.php%26token%3Dd1aecb47ef7c081e068e7008b38a5d76&amp;'
-                . 'token=d1aecb47ef7c081e068e7008b38a5d76',
+                . 'structure.php',
                 array(
                     'edit_lnk' => 'ur',
                     'del_lnk' => 'dr',
@@ -430,7 +427,7 @@ class DisplayResultsTest extends PMATestCase
                 'tbl_change.php?db=Data&amp;table=customer&amp;where_clause=%60'
                 . 'customer%60.%60id%60+%3D+1&amp;clause_is_unique=1&amp;sql_query='
                 . 'SELECT+%2A+FROM+%60customer%60&amp;goto=sql.php&amp;default_'
-                . 'action=update&amp;token=bbd5003198a3bd856b21d9607d6c6a1e',
+                . 'action=update',
                 'odd edit_row_anchor',
                 '<span class="nowrap"><img src="themes/dot.gif" title="Edit" alt='
                 . '"Edit" class="icon ic_b_edit" /> Edit</span>',
@@ -441,7 +438,7 @@ class DisplayResultsTest extends PMATestCase
                 . '<a href="tbl_change.php?db=Data&amp;table=customer&amp;where_'
                 . 'clause=%60customer%60.%60id%60+%3D+1&amp;clause_is_unique=1&amp;'
                 . 'sql_query=SELECT+%2A+FROM+%60customer%60&amp;goto=sql.php&amp;'
-                . 'default_action=update&amp;token=bbd5003198a3bd856b21d9607d6c6a1e"'
+                . 'default_action=update"'
                 . ' ><span class="nowrap"><img src="themes/dot.gif" title="Edit" '
                 . 'alt="Edit" class="icon ic_b_edit" /> Edit</span></a>' . "\n"
                 . '<input type="hidden" class="where_clause" value ="%60customer'
@@ -493,7 +490,7 @@ class DisplayResultsTest extends PMATestCase
                 'tbl_change.php?db=Data&amp;table=customer&amp;where_clause=%60cust'
                 . 'omer%60.%60id%60+%3D+1&amp;clause_is_unique=1&amp;sql_query='
                 . 'SELECT+%2A+FROM+%60customer%60&amp;goto=sql.php&amp;default_'
-                . 'action=insert&amp;token=f597309d3a066c3c81a6cb015a79636d',
+                . 'action=insert',
                 '<span class="nowrap"><img src="themes/dot.gif" title="Copy" alt'
                 . '="Copy" class="icon ic_b_insrow" /> Copy</span>',
                 '`customer`.`id` = 1',
@@ -504,7 +501,7 @@ class DisplayResultsTest extends PMATestCase
                 . '<a href="tbl_change.php?db=Data&amp;table=customer&amp;where_'
                 . 'clause=%60customer%60.%60id%60+%3D+1&amp;clause_is_unique=1&amp;'
                 . 'sql_query=SELECT+%2A+FROM+%60customer%60&amp;goto=sql.php&amp;'
-                . 'default_action=insert&amp;token=f597309d3a066c3c81a6cb015a79636d"'
+                . 'default_action=insert"'
                 . ' ><span class="nowrap"><img src="themes/dot.gif" title="Copy" '
                 . 'alt="Copy" class="icon ic_b_insrow" /> Copy</span></a>' . "\n"
                 . '<input type="hidden" class="where_clause" value="%60customer%60'
@@ -558,8 +555,7 @@ class DisplayResultsTest extends PMATestCase
                 . 'message_to_show=The+row+has+been+deleted&amp;goto=sql.php%3Fdb'
                 . '%3DData%26table%3Dcustomer%26sql_query%3DSELECT%2B%252A%2BFROM'
                 . '%2B%2560customer%2560%26message_to_show%3DThe%2Brow%2Bhas%2Bbeen'
-                . '%2Bdeleted%26goto%3Dtbl_structure.php%26token%3Df597309d3a066c3'
-                . 'c81a6cb015a79636d&amp;token=f597309d3a066c3c81a6cb015a79636d',
+                . '%2Bdeleted%26goto%3Dtbl_structure.php',
                 '<span class="nowrap"><img src="themes/dot.gif" title="Delete" '
                 . 'alt="Delete" class="icon ic_b_drop" /> Delete</span>',
                 'DELETE FROM `Data`.`customer` WHERE `customer`.`id` = 1',
@@ -570,8 +566,7 @@ class DisplayResultsTest extends PMATestCase
                 . '+1&amp;message_to_show=The+row+has+been+deleted&amp;goto=sql.php'
                 . '%3Fdb%3DData%26table%3Dcustomer%26sql_query%3DSELECT%2B%252A%2B'
                 . 'FROM%2B%2560customer%2560%26message_to_show%3DThe%2Brow%2Bhas%2B'
-                . 'been%2Bdeleted%26goto%3Dtbl_structure.php%26token%3Df597309d3a06'
-                . '6c3c81a6cb015a79636d&amp;token=f597309d3a066c3c81a6cb015a79636d" '
+                . 'been%2Bdeleted%26goto%3Dtbl_structure.php" '
                 . 'class="delete_row requireConfirm"><span class="nowrap"><img src="themes/dot.'
                 . 'gif" title="Delete" alt="Delete" class="icon ic_b_drop" /> '
                 . 'Delete</span></a>' . "\n"
@@ -626,8 +621,7 @@ class DisplayResultsTest extends PMATestCase
                 . 'The+row+has+been+deleted&amp;goto=sql.php%3Fdb%3Ddata%26table%3D'
                 . 'new%26sql_query%3DSELECT%2B%252A%2BFROM%2B%2560new%2560%26'
                 . 'message_to_show%3DThe%2Brow%2Bhas%2Bbeen%2Bdeleted%26goto%3D'
-                . 'tbl_structure.php%26token%3Dae4c6d18375f446dfa068420c1f6a4e8'
-                . '&amp;token=ae4c6d18375f446dfa068420c1f6a4e8',
+                . 'tbl_structure.php',
                 array(
                     'edit_lnk' => 'ur',
                     'del_lnk' => 'dr',
@@ -645,12 +639,10 @@ class DisplayResultsTest extends PMATestCase
                 ),
                 'tbl_change.php?db=data&amp;table=new&amp;where_clause=%60new%60.'
                 . '%60id%60+%3D+1&amp;clause_is_unique=1&amp;sql_query=SELECT+%2A+'
-                . 'FROM+%60new%60&amp;goto=sql.php&amp;default_action=update&amp;'
-                . 'token=ae4c6d18375f446dfa068420c1f6a4e8',
+                . 'FROM+%60new%60&amp;goto=sql.php&amp;default_action=update',
                 'tbl_change.php?db=data&amp;table=new&amp;where_clause=%60new%60.'
                 . '%60id%60+%3D+1&amp;clause_is_unique=1&amp;sql_query=SELECT+%2A+'
-                . 'FROM+%60new%60&amp;goto=sql.php&amp;default_action=insert&amp;'
-                . 'token=ae4c6d18375f446dfa068420c1f6a4e8',
+                . 'FROM+%60new%60&amp;goto=sql.php&amp;default_action=insert',
                 'edit_row_anchor',
                 '<span class="nowrap"><img src="themes/dot.gif" title="Edit" '
                 . 'alt="Edit" class="icon ic_b_edit" /> Edit</span>',
@@ -668,7 +660,7 @@ class DisplayResultsTest extends PMATestCase
                 . '<a href="tbl_change.php?db=data&amp;table=new&amp;where_'
                 . 'clause=%60new%60.%60id%60+%3D+1&amp;clause_is_unique=1&amp;'
                 . 'sql_query=SELECT+%2A+FROM+%60new%60&amp;goto=sql.php&amp;default'
-                . '_action=update&amp;token=ae4c6d18375f446dfa068420c1f6a4e8" >'
+                . '_action=update" >'
                 . '<span class="nowrap"><img src="themes/dot.gif" title="Edit" '
                 . 'alt="Edit" class="icon ic_b_edit" /> Edit</span></a>' . "\n"
                 . '<input type="hidden" class="where_clause" value ="%60new%60.%60'
@@ -677,7 +669,7 @@ class DisplayResultsTest extends PMATestCase
                 . '<a href="tbl_change.php?db=data&amp;table=new&amp;where_clause'
                 . '=%60new%60.%60id%60+%3D+1&amp;clause_is_unique=1&amp;sql_query='
                 . 'SELECT+%2A+FROM+%60new%60&amp;goto=sql.php&amp;default_action='
-                . 'insert&amp;token=ae4c6d18375f446dfa068420c1f6a4e8" ><span class'
+                . 'insert" ><span class'
                 . '="nowrap"><img src="themes/dot.gif" title="Copy" alt="Copy" '
                 . 'class="icon ic_b_insrow" /> Copy</span></a>' . "\n"
                 . '<input type="hidden" class="where_clause" value="%60new%60.%60id'
@@ -687,8 +679,7 @@ class DisplayResultsTest extends PMATestCase
                 . 'message_to_show=The+row+has+been+deleted&amp;goto=sql.php%3F'
                 . 'db%3Ddata%26table%3Dnew%26sql_query%3DSELECT%2B%252A%2BFROM%2B'
                 . '%2560new%2560%26message_to_show%3DThe%2Brow%2Bhas%2Bbeen%2B'
-                . 'deleted%26goto%3Dtbl_structure.php%26token%3Dae4c6d18375f446d'
-                . 'fa068420c1f6a4e8&amp;token=ae4c6d18375f446dfa068420c1f6a4e8" '
+                . 'deleted%26goto%3Dtbl_structure.php" '
                 . 'class="delete_row requireConfirm"><span class="nowrap"><img src="themes/dot.'
                 . 'gif" title="Delete" alt="Delete" class="icon ic_b_drop" /> '
                 . 'Delete</span></a>' . "\n"
@@ -702,8 +693,7 @@ class DisplayResultsTest extends PMATestCase
                 . 'The+row+has+been+deleted&amp;goto=sql.php%3Fdb%3Ddata%26table%3D'
                 . 'new%26sql_query%3DSELECT%2B%252A%2BFROM%2B%2560new%2560%26message'
                 . '_to_show%3DThe%2Brow%2Bhas%2Bbeen%2Bdeleted%26goto%3Dtbl_'
-                . 'structure.php%26token%3Dae4c6d18375f446dfa068420c1f6a4e8&amp;'
-                . 'token=ae4c6d18375f446dfa068420c1f6a4e8',
+                . 'structure.php',
                 array(
                     'edit_lnk' => 'ur',
                     'del_lnk' => 'dr',
@@ -721,12 +711,10 @@ class DisplayResultsTest extends PMATestCase
                 ),
                 'tbl_change.php?db=data&amp;table=new&amp;where_clause=%60new%60.'
                 . '%60id%60+%3D+1&amp;clause_is_unique=1&amp;sql_query=SELECT+%2A+'
-                . 'FROM+%60new%60&amp;goto=sql.php&amp;default_action=update&amp;'
-                . 'token=ae4c6d18375f446dfa068420c1f6a4e8',
+                . 'FROM+%60new%60&amp;goto=sql.php&amp;default_action=update',
                 'tbl_change.php?db=data&amp;table=new&amp;where_clause=%60new%60.'
                 . '%60id%60+%3D+1&amp;clause_is_unique=1&amp;sql_query=SELECT+%2A+'
-                . 'FROM+%60new%60&amp;goto=sql.php&amp;default_action=insert&amp;'
-                . 'token=ae4c6d18375f446dfa068420c1f6a4e8',
+                . 'FROM+%60new%60&amp;goto=sql.php&amp;default_action=insert',
                 'edit_row_anchor',
                 '<span class="nowrap"><img src="themes/dot.gif" title="Edit" '
                 . 'alt="Edit" class="icon ic_b_edit" /> Edit</span>',
@@ -741,8 +729,7 @@ class DisplayResultsTest extends PMATestCase
                 . 'message_to_show=The+row+has+been+deleted&amp;goto=sql.php%3Fdb'
                 . '%3Ddata%26table%3Dnew%26sql_query%3DSELECT%2B%252A%2BFROM%2B%25'
                 . '60new%2560%26message_to_show%3DThe%2Brow%2Bhas%2Bbeen%2Bdeleted'
-                . '%26goto%3Dtbl_structure.php%26token%3Dae4c6d18375f446dfa068420c'
-                . '1f6a4e8&amp;token=ae4c6d18375f446dfa068420c1f6a4e8" class="delete'
+                . '%26goto%3Dtbl_structure.php" class="delete'
                 . '_row requireConfirm"><span class="nowrap"><img src="themes/dot.gif" title='
                 . '"Delete" alt="Delete" class="icon ic_b_drop" /> Delete</span></a>'
                 . "\n" . '<div class="hide">DELETE FROM `data`.`new` WHERE `new`.'
@@ -750,7 +737,7 @@ class DisplayResultsTest extends PMATestCase
                 . "\n" . '<a href="tbl_change.php?db=data&amp;table=new&amp;where_'
                 . 'clause=%60new%60.%60id%60+%3D+1&amp;clause_is_unique=1&amp;sql_'
                 . 'query=SELECT+%2A+FROM+%60new%60&amp;goto=sql.php&amp;default_'
-                . 'action=insert&amp;token=ae4c6d18375f446dfa068420c1f6a4e8" ><span '
+                . 'action=insert" ><span '
                 . 'class="nowrap"><img src="themes/dot.gif" title="Copy" alt="Copy" '
                 . 'class="icon ic_b_insrow" /> Copy</span></a>' . "\n"
                 . '<input type="hidden" class="where_clause" value="%60new%60.%60id'
@@ -759,7 +746,7 @@ class DisplayResultsTest extends PMATestCase
                 . '<a href="tbl_change.php?db=data&amp;table=new&amp;where_clause'
                 . '=%60new%60.%60id%60+%3D+1&amp;clause_is_unique=1&amp;sql_query='
                 . 'SELECT+%2A+FROM+%60new%60&amp;goto=sql.php&amp;default_action='
-                . 'update&amp;token=ae4c6d18375f446dfa068420c1f6a4e8" ><span class='
+                . 'update" ><span class='
                 . '"nowrap"><img src="themes/dot.gif" title="Edit" alt="Edit" class'
                 . '="icon ic_b_edit" /> Edit</span></a>' . "\n"
                 . '<input type="hidden" class="where_clause" value ="%60new%60.%60'
@@ -776,8 +763,7 @@ class DisplayResultsTest extends PMATestCase
                 . 'row+has+been+deleted&amp;goto=sql.php%3Fdb%3Ddata%26table%3Dnew'
                 . '%26sql_query%3DSELECT%2B%252A%2BFROM%2B%2560new%2560%26message_'
                 . 'to_show%3DThe%2Brow%2Bhas%2Bbeen%2Bdeleted%26goto%3Dtbl_structure'
-                . '.php%26token%3Dae4c6d18375f446dfa068420c1f6a4e8&amp;token='
-                . 'ae4c6d18375f446dfa068420c1f6a4e8',
+                . '.php',
                 array(
                     'edit_lnk' => 'ur',
                     'del_lnk' => 'dr',
@@ -795,12 +781,10 @@ class DisplayResultsTest extends PMATestCase
                 ),
                 'tbl_change.php?db=data&amp;table=new&amp;where_clause=%60new%60.%60'
                 . 'id%60+%3D+1&amp;clause_is_unique=1&amp;sql_query=SELECT+%2A+FROM+'
-                . '%60new%60&amp;goto=sql.php&amp;default_action=update&amp;token='
-                . 'ae4c6d18375f446dfa068420c1f6a4e8',
+                . '%60new%60&amp;goto=sql.php&amp;default_action=update',
                 'tbl_change.php?db=data&amp;table=new&amp;where_clause=%60new%60.%60'
                 . 'id%60+%3D+1&amp;clause_is_unique=1&amp;sql_query=SELECT+%2A+FROM+'
-                . '%60new%60&amp;goto=sql.php&amp;default_action=insert&amp;token='
-                . 'ae4c6d18375f446dfa068420c1f6a4e8',
+                . '%60new%60&amp;goto=sql.php&amp;default_action=insert',
                 'edit_row_anchor',
                 '<span class="nowrap"><img src="themes/dot.gif" title="Edit" '
                 . 'alt="Edit" class="icon ic_b_edit" /> Edit</span>',
@@ -876,8 +860,7 @@ class DisplayResultsTest extends PMATestCase
                 . 'row+has+been+deleted&amp;goto=sql.php%3Fdb%3Ddata%26table%3Dnew'
                 . '%26sql_query%3DSELECT%2B%252A%2BFROM%2B%2560new%2560%26message_'
                 . 'to_show%3DThe%2Brow%2Bhas%2Bbeen%2Bdeleted%26goto%3Dtbl_structure'
-                . '.php%26token%3Dae4c6d18375f446dfa068420c1f6a4e8&amp;token='
-                . 'ae4c6d18375f446dfa068420c1f6a4e8',
+                . '.php',
                 array(
                     'edit_lnk' => 'ur',
                     'del_lnk' => 'dr',
@@ -895,12 +878,10 @@ class DisplayResultsTest extends PMATestCase
                 ),
                 'tbl_change.php?db=data&amp;table=new&amp;where_clause=%60new%60.%60'
                 . 'id%60+%3D+1&amp;clause_is_unique=1&amp;sql_query=SELECT+%2A+FROM+'
-                . '%60new%60&amp;goto=sql.php&amp;default_action=update&amp;token='
-                . 'ae4c6d18375f446dfa068420c1f6a4e8',
+                . '%60new%60&amp;goto=sql.php&amp;default_action=update',
                 'tbl_change.php?db=data&amp;table=new&amp;where_clause=%60new%60.%60'
                 . 'id%60+%3D+1&amp;clause_is_unique=1&amp;sql_query=SELECT+%2A+FROM+'
-                . '%60new%60&amp;goto=sql.php&amp;default_action=insert&amp;token='
-                . 'ae4c6d18375f446dfa068420c1f6a4e8',
+                . '%60new%60&amp;goto=sql.php&amp;default_action=insert',
                 'edit_row_anchor',
                 '<span class="nowrap"><img src="themes/dot.gif" title="Edit" '
                 . 'alt="Edit" class="icon ic_b_edit" /> Edit</span>',
@@ -979,10 +960,9 @@ class DisplayResultsTest extends PMATestCase
                     'routine_type' => 'FUNCTION'
                 ),
                 'routine_name',
-                'db_routines.php?item_name=circumference&amp;db=data'
-                . '&amp;item_type=FUNCTION&amp;server=0&amp;lang=en'
-                . '&amp;collation_connection=utf-8'
-                . '&amp;token=token'
+                'db_routines.php?item_name=circumference&db=data'
+                . '&item_type=FUNCTION&server=0&lang=en'
+                . '&collation_connection=utf-8'
             ),
             array(
                 'information_schema',
@@ -994,10 +974,9 @@ class DisplayResultsTest extends PMATestCase
                     'routine_type' => 'PROCEDURE'
                 ),
                 'routine_name',
-                'db_routines.php?item_name=area&amp;db=data'
-                . '&amp;item_type=PROCEDURE&amp;server=0&amp;lang=en'
-                . '&amp;collation_connection=utf-8'
-                . '&amp;token=token'
+                'db_routines.php?item_name=area&db=data'
+                . '&item_type=PROCEDURE&server=0&lang=en'
+                . '&collation_connection=utf-8'
             ),
             array(
                 'information_schema',
@@ -1009,10 +988,9 @@ class DisplayResultsTest extends PMATestCase
                 ),
                 'column_name',
                 'index.php?sql_query=SELECT+%60CHARACTER_SET_NAME%60+FROM+%60info'
-                . 'rmation_schema%60.%60CHARACTER_SETS%60&amp;db=information_schema'
-                . '&amp;test_name=value&amp;server=0&amp;lang=en'
-                . '&amp;collation_connection=utf-8'
-                . '&amp;token=token'
+                . 'rmation_schema%60.%60CHARACTER_SETS%60&db=information_schema'
+                . '&test_name=value&server=0&lang=en'
+                . '&collation_connection=utf-8'
             )
         );
     }
@@ -1342,7 +1320,7 @@ class DisplayResultsTest extends PMATestCase
                 null,
                 '<a href="tbl_get_field.php?db=foo&amp;table=bar&amp;server=0'
                 . '&amp;lang=en&amp;collation_connection=utf-8'
-                . '&amp;token=token" class="disableAjax">1001</a>'
+                . '" class="disableAjax">1001</a>'
             ),
             array(
                 true,
@@ -1357,7 +1335,7 @@ class DisplayResultsTest extends PMATestCase
                 null,
                 '<a href="tbl_get_field.php?db=foo&amp;table=bar&amp;server=0'
                 . '&amp;lang=en&amp;collation_connection=utf-8'
-                . '&amp;token=token" class="disableAjax">0x123456</a>'
+                . '" class="disableAjax">0x123456</a>'
             ),
             array(
                 true,
@@ -1372,7 +1350,7 @@ class DisplayResultsTest extends PMATestCase
                 null,
                 '<a href="tbl_get_field.php?db=foo&amp;table=bar&amp;server=0'
                 . '&amp;lang=en&amp;collation_connection=utf-8'
-                . '&amp;token=token" class="disableAjax">[BLOB - 4 B]</a>'
+                . '" class="disableAjax">[BLOB - 4 B]</a>'
             ),
             array(
                 false,
@@ -1495,7 +1473,7 @@ class DisplayResultsTest extends PMATestCase
                 '<td class="left   hex"><a href="tbl_get_field.php?'
                 . 'db=foo&amp;table=tbl&amp;server=0&amp;lang=en'
                 . '&amp;collation_connection=utf-8'
-                . '&amp;token=token" '
+                . '" '
                 . 'class="disableAjax">[BLOB - 4 B]</a></td>'
             ),
             array(

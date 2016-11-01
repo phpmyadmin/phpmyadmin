@@ -16,7 +16,9 @@ require_once 'libraries/common.inc.php';
 require_once 'libraries/db_common.inc.php';
 
 $container = libraries\di\Container::getDefaultContainer();
-$container->factory('PMA\libraries\controllers\database\DatabaseStructureController');
+$container->factory(
+    'PMA\libraries\controllers\database\DatabaseStructureController'
+);
 $container->alias(
     'DatabaseStructureController',
     'PMA\libraries\controllers\database\DatabaseStructureController'

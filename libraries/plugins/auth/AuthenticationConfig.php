@@ -10,6 +10,7 @@ namespace PMA\libraries\plugins\auth;
 
 use PMA\libraries\plugins\AuthenticationPlugin;
 use PMA;
+use PMA\libraries\URL;
 
 /**
  * Handles the config authentication method
@@ -158,7 +159,7 @@ class AuthenticationConfig extends AuthenticationPlugin
                 $GLOBALS['cfg']['DefaultTabServer'],
                 'server'
             )
-            , PMA_URL_getCommon(array()) , '" class="button disableAjax">'
+            , URL::getCommon() , '" class="button disableAjax">'
             , __('Retry to connect')
             , '</a>' , "\n";
         echo '</td>

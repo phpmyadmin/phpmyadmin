@@ -10,15 +10,14 @@
  * Include to test.
  */
 use PMA\libraries\Theme;
+use PMA\libraries\URL;
 
 require_once 'libraries/tracking.lib.php';
 
 require_once 'libraries/database_interface.inc.php';
 require_once 'libraries/relation.lib.php';
-require_once 'libraries/url_generating.lib.php';
 
 
-require_once 'libraries/js_escape.lib.php';
 
 /**
  * Tests for libraries/tracking.lib.php
@@ -45,7 +44,6 @@ class PMA_TblTrackingTest extends PHPUnit_Framework_TestCase
         $GLOBALS['server'] = 1;
         $GLOBALS['db'] = "PMA_db";
         $GLOBALS['table'] = "PMA_table";
-        $GLOBALS['pmaThemeImage'] = "image";
         $GLOBALS['cfg']['ServerDefault'] = "server";
         $GLOBALS['cfg']['ActionLinksMode'] = 'both';
         $GLOBALS['cfg']['MaxCharactersInDisplayedSQL'] = 1000;
@@ -56,7 +54,6 @@ class PMA_TblTrackingTest extends PHPUnit_Framework_TestCase
             'tracking' => 'tracking',
             'trackingwork' => true
         );
-        $_SESSION['PMA_Theme'] = new Theme();
 
         $GLOBALS['cfg']['Server']['tracking_default_statements'] = 'DELETE';
 
@@ -141,7 +138,7 @@ class PMA_TblTrackingTest extends PHPUnit_Framework_TestCase
         );
 
         $this->assertContains(
-            PMA_URL_getHiddenInputs($GLOBALS['db']),
+            URL::getHiddenInputs($GLOBALS['db']),
             $html
         );
 
@@ -593,7 +590,7 @@ class PMA_TblTrackingTest extends PHPUnit_Framework_TestCase
         );
 
         $version = '<form method="post" action="tbl_tracking.php'
-            . PMA_URL_getCommon(
+            . URL::getCommon(
                 $url_params + array(
                     'report' => 'true', 'version' => $_REQUEST['version']
                 )

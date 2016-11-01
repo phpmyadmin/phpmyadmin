@@ -379,9 +379,9 @@ button {
 table caption,
 table th,
 table td {
-    padding: .3em;
+    padding: .1em .3em;
     margin: .1em;
-    vertical-align: top;
+    vertical-align: middle;
     text-shadow: 0 1px 0 #fff;
 }
 
@@ -542,7 +542,6 @@ button.mult_submit {
 table tr.odd th,
 .odd {
     background: #fff;
-    <?php echo $_SESSION['PMA_Theme']->getCssIEClearFilter(); ?>
 }
 
 /* even items 2,4,6,8,... */
@@ -550,7 +549,6 @@ table tr.odd th,
 table tr.even th,
 .even {
     background: #DFDFDF;
-    <?php echo $_SESSION['PMA_Theme']->getCssIEClearFilter(); ?>
 }
 
 /* odd table rows 1,3,5,7,... */
@@ -620,6 +618,7 @@ tr:last-child td.condition {
 td.null {
     font-style: italic;
     text-align: <?php echo $right; ?>;
+    color: #7d7d7d;
 }
 
 table .valueHeader {
@@ -1288,7 +1287,7 @@ h3#serverstatusqueries span {
 
 /* Also used for the variables page */
 fieldset#tableFilter {
-    margin-bottom: 1em;
+    padding: 0.1em 1em;
 }
 
 div#serverStatusTabs {
@@ -1786,6 +1785,16 @@ label.desc sup {
     position: absolute;
 }
 
+code.php {
+    display: block;
+    padding-left: 1em;
+    margin-top: 0;
+    margin-bottom: 0;
+    max-height: 10em;
+    overflow: auto;
+    direction: ltr;
+}
+
 code.sql,
 div.sqlvalidate {
     display: block;
@@ -2131,6 +2140,10 @@ input#input_import_file {
 
 .formelementrow {
     margin: 5px 0 5px 0;
+}
+
+#filterText {
+    vertical-align: baseline;
 }
 
 #popup_background {
@@ -2873,7 +2886,8 @@ fieldset .disabled-field td {
 }
 
 .cEdit .edit_box {
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: scroll;
     padding: 0;
     margin: 0;
 }
@@ -2954,10 +2968,6 @@ body .ui-widget {
 
 div#page_content div#tableslistcontainer table.data {
     border-top: 0.1px solid #EEEEEE;
-}
-
-div#page_content form#db_search_form.ajax fieldset {
-    margin-top: -0.3em;
 }
 
 div#page_content div#tableslistcontainer, div#page_content div.notice, div#page_content div.result_query {
@@ -3340,9 +3350,6 @@ html.ie7 #pma_console .query_input {
     width: 100%;
     min-height: initial;
     max-height: initial;
-}
-.firefox .cm-s-pma.CodeMirror {
-    font-size: 120%;
 }
 .cm-s-pma .CodeMirror-scroll {
     cursor: text;

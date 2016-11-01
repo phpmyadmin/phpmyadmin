@@ -12,15 +12,9 @@
 use PMA\libraries\Theme;
 
 
-require_once 'libraries/url_generating.lib.php';
-
 require_once 'libraries/database_interface.inc.php';
 require_once 'libraries/replication.inc.php';
 require_once 'libraries/replication_gui.lib.php';
-
-
-require_once 'libraries/sanitizing.lib.php';
-require_once 'libraries/js_escape.lib.php';
 
 /**
  * PMA_Serverreplication_Test class
@@ -57,11 +51,8 @@ class PMA_ServerReplication_Test extends PHPUnit_Framework_TestCase
 
         $GLOBALS['table'] = "table";
         $GLOBALS['url_params'] = array();
-        $GLOBALS['pmaThemeImage'] = 'image';
 
         //$_SESSION
-        $_SESSION['PMA_Theme'] = Theme::load('./themes/pmahomme');
-        $_SESSION['PMA_Theme'] = new Theme();
 
         //Mock DBI
 

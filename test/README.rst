@@ -41,7 +41,7 @@ TESTSUITE_SELENIUM_BROWSER
 
 With BrowserStack, set following:
 
-TESTSUITE_BROWSERSTACK_UNAME
+TESTSUITE_BROWSERSTACK_USER
     BrowserStack username.
 TESTSUITE_BROWSERSTACK_KEY
     BrowserStack access key.
@@ -53,7 +53,7 @@ For example you can use following setup in ``phpunit.xml``::
         <env name="TESTSUITE_USER" value="root"/>
         <env name="TESTSUITE_PASSWORD" value="root"/>
         <env name="TESTSUITE_DATABASE" value="test"/>
-        <env name="TESTSUITE_PHPMYADMIN_HOST" value="http://localhost/phpmyadmin/" />
+        <env name="TESTSUITE_URL" value="http://localhost/phpmyadmin/" />
         <env name="TESTSUITE_SELENIUM_HOST" value="127.0.0.1" />
         <env name="TESTSUITE_SELENIUM_PORT" value="4444" />
     </php>

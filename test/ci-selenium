@@ -1,0 +1,7 @@
+#!/bin/sh
+
+ant locales
+
+export PHPUNIT_ARGS="--group selenium --debug"
+
+ant phpunit-nocoverage

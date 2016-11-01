@@ -33,8 +33,7 @@ $forms['Servers']['Server'] = array('Servers' => array(1 => array(
     'socket',
     'ssl',
     'connect_type',
-    'compress',
-    'nopassword')));
+    'compress')));
 $forms['Servers']['Server_auth'] = array('Servers' => array(1 => array(
     'auth_type',
     ':group:' . __('Config authentication'),
@@ -147,7 +146,8 @@ $forms['Features']['Other_core_settings'] = array(
     'ProxyUser',
     'ProxyPass',
     'AllowThirdPartyFraming',
-    'ZeroConf'
+    'ZeroConf',
+    'DisableShortcutKeys'
 );
 $forms['Sql_queries']['Sql_queries'] = array(
     'ShowSQL',
@@ -205,6 +205,7 @@ $forms['Main_panel']['Startup'] = array(
     'ShowServerInfo',
     'ShowChgPassword');
 $forms['Main_panel']['DbStructure'] = array(
+    'ShowDbStructureCharset',
     'ShowDbStructureComment',
     'ShowDbStructureCreation',
     'ShowDbStructureLastUpdate',

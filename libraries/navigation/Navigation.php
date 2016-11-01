@@ -12,6 +12,7 @@ use PMA\libraries\config\PageSettings;
 use PMA\libraries\Message;
 use PMA\libraries\Response;
 use PMA\libraries\Util;
+use PMA\libraries\URL;
 
 /**
  * The navigation panel - displays server, db and table selection tree
@@ -163,7 +164,7 @@ class Navigation
     {
         $html  = '<form method="post" action="navigation.php" class="ajax">';
         $html .= '<fieldset>';
-        $html .= PMA_URL_getHiddenInputs($dbName, $tableName);
+        $html .= URL::getHiddenInputs($dbName, $tableName);
 
         $navTable = Util::backquote($GLOBALS['cfgRelation']['db'])
             . "." . Util::backquote($GLOBALS['cfgRelation']['navigationhiding']);
@@ -206,16 +207,19 @@ class Navigation
                     $html .= '<table width="100%"><tbody>';
                     $odd = true;
                     foreach ($hidden[$t] as $hiddenItem) {
+                        $params = array(
+                            'unhideNavItem' => true,
+                            'itemType' => $t,
+                            'itemName' => $hiddenItem,
+                            'dbName' => $dbName
+                        );
+
                         $html .= '<tr class="' . ($odd ? 'odd' : 'even') . '">';
                         $html .= '<td>' . htmlspecialchars($hiddenItem) . '</td>';
                         $html .= '<td style="width:80px"><a href="navigation.php'
-                            . PMA_URL_getCommon()
-                            . '&unhideNavItem=true'
-                            . '&itemType=' . urlencode($t)
-                            . '&itemName=' . urlencode($hiddenItem)
-                            . '&dbName=' . urlencode($dbName) . '"'
+                            . URL::getCommon($params) . '"'
                             . ' class="unhideNavItem ajax">'
-                            . Util::getIcon('lightbulb.png', __('Show'))
+                            . Util::getIcon('show.png', __('Show'))
                             .  '</a></td>';
                         $odd = ! $odd;
                     }

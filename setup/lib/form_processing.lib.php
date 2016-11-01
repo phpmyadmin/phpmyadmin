@@ -6,6 +6,7 @@
  * @package PhpMyAdmin-Setup
  */
 use PMA\libraries\config\FormDisplay;
+use PMA\libraries\URL;
 
 /**
  * Processes forms registered in $form_display, handles error correction
@@ -35,7 +36,7 @@ function PMA_Process_formset(FormDisplay $form_display)
     }
 
     // form has errors, show warning
-    $separator = PMA_URL_getArgSeparator('html');
+    $separator = URL::getArgSeparator('html');
     $page = isset($_GET['page']) ? htmlspecialchars($_GET['page']) : null;
     $formset = isset($_GET['formset']) ? htmlspecialchars($_GET['formset']) : null;
     $formset = $formset ? "{$separator}formset=$formset" : '';
@@ -49,16 +50,16 @@ function PMA_Process_formset(FormDisplay $form_display)
     <div class="error">
         <h4><?php echo __('Warning') ?></h4>
         <?php echo __('Submitted form contains errors') ?><br />
-        <a href="<?php echo PMA_URL_getCommon() , $separator ?>page=<?php echo $page , $formset , $formId , $separator ?>mode=revert">
+        <a href="<?php echo URL::getCommon() , $separator ?>page=<?php echo $page , $formset , $formId , $separator ?>mode=revert">
             <?php echo __('Try to revert erroneous fields to their default values') ?>
         </a>
     </div>
     <?php echo $form_display->displayErrors() ?>
-    <a class="btn" href="index.php<?php echo PMA_URL_getCommon() ?>">
+    <a class="btn" href="index.php<?php echo URL::getCommon() ?>">
         <?php echo __('Ignore errors') ?>
     </a>
     &nbsp;
-    <a class="btn" href="<?php echo PMA_URL_getCommon() , $separator ?>page=<?php echo $page , $formset , $formId , $separator ?>mode=edit">
+    <a class="btn" href="<?php echo URL::getCommon() , $separator ?>page=<?php echo $page , $formset , $formId , $separator ?>mode=edit">
         <?php echo __('Show form') ?>
     </a>
     <?php
@@ -73,7 +74,7 @@ function PMA_generateHeader303()
 {
     // drop post data
     header('HTTP/1.1 303 See Other');
-    header('Location: index.php' . PMA_URL_getCommon());
+    header('Location: index.php' . URL::getCommonRaw());
 
     if (!defined('TESTSUITE')) {
         exit;

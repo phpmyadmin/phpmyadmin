@@ -63,7 +63,7 @@ if (! empty($_REQUEST['tbl_group'])) {
     $_url_params['tbl_group'] = $_REQUEST['tbl_group'];
 }
 
-$url = 'db_structure.php' . PMA_URL_getCommon($_url_params);
+$url = 'db_structure.php' . PMA\libraries\URL::getCommon($_url_params);
 
 echo PMA\libraries\Util::linkOrButton(
     $url, $title . $order_img, $order_link_params

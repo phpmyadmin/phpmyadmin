@@ -5,9 +5,11 @@
  *
  * @package PhpMyAdmin-Import
  */
+use PMA\libraries\Encoding;
 use PMA\libraries\Message;
 use PMA\libraries\Table;
 use PMA\libraries\Util;
+use PMA\libraries\URL;
 
 if (! defined('PHPMYADMIN')) {
     exit;
@@ -17,11 +19,6 @@ if (! defined('PHPMYADMIN')) {
  * We need to know something about user
  */
 require_once './libraries/check_user_privileges.lib.php';
-
-/**
- * We do this check, DROP DATABASE does not need to be confirmed elsewhere
- */
-define('PMA_CHK_DROP', 1);
 
 /**
  * Checks whether timeout is getting close
@@ -43,23 +40,6 @@ function PMA_checkTimeout()
     } else {
         return false;
     }
-}
-
-/**
- * Detects what compression the file uses
- *
- * @param string $filepath filename to check
- *
- * @return string MIME type of compression, none for none
- * @access public
- */
-function PMA_detectCompression($filepath)
-{
-    $file = @fopen($filepath, 'rb');
-    if (! $file) {
-        return false;
-    }
-    return PMA\libraries\Util::getCompressionMimeType($file);
 }
 
 /**
@@ -189,7 +169,6 @@ function PMA_importRunQuery($sql = '', $full = '', &$sql_data = array())
     if (! empty($import_run_buffer['sql'])
         && trim($import_run_buffer['sql']) != ''
     ) {
-
         $max_sql_len = max(
             $max_sql_len,
             mb_strlen($import_run_buffer['sql'])
@@ -197,63 +176,53 @@ function PMA_importRunQuery($sql = '', $full = '', &$sql_data = array())
         if (! $sql_query_disabled) {
             $sql_query .= $import_run_buffer['full'];
         }
-        $pattern = '@^[[:space:]]*DROP[[:space:]]+(IF EXISTS[[:space:]]+)?'
-            . 'DATABASE @i';
-        if (! $cfg['AllowUserDropDatabase']
-            && ! $is_superuser
-            && preg_match($pattern, $import_run_buffer['sql'])
-        ) {
-            $GLOBALS['message'] = Message::error(
-                __('"DROP DATABASE" statements are disabled.')
+
+        $executed_queries++;
+
+        if ($run_query && $executed_queries < 50) {
+            $go_sql = true;
+
+            if (! $sql_query_disabled) {
+                $complete_query = $sql_query;
+                $display_query = $sql_query;
+            } else {
+                $complete_query = '';
+                $display_query = '';
+            }
+            $sql_query = $import_run_buffer['sql'];
+            $sql_data['valid_sql'][] = $import_run_buffer['sql'];
+            $sql_data['valid_full'][] = $import_run_buffer['full'];
+            if (! isset($sql_data['valid_queries'])) {
+                $sql_data['valid_queries'] = 0;
+            }
+            $sql_data['valid_queries']++;
+        } elseif ($run_query) {
+
+            /* Handle rollback from go_sql */
+            if ($go_sql && isset($sql_data['valid_full'])) {
+                $queries = $sql_data['valid_sql'];
+                $fulls = $sql_data['valid_full'];
+                $count = $sql_data['valid_queries'];
+                $go_sql = false;
+
+                $sql_data['valid_sql'] = array();
+                $sql_data['valid_queries'] = 0;
+                unset($sql_data['valid_full']);
+                for ($i = 0; $i < $count; $i++) {
+                    PMA_executeQuery(
+                        $queries[$i],
+                        $fulls[$i],
+                        $sql_data
+                    );
+                }
+            }
+
+            PMA_executeQuery(
+                $import_run_buffer['sql'],
+                $import_run_buffer['full'],
+                $sql_data
             );
-            $error = true;
-        } else {
-            $executed_queries++;
-
-            if ($run_query && $executed_queries < 50) {
-                $go_sql = true;
-                if (! $sql_query_disabled) {
-                    $complete_query = $sql_query;
-                    $display_query = $sql_query;
-                } else {
-                    $complete_query = '';
-                    $display_query = '';
-                }
-                $sql_query = $import_run_buffer['sql'];
-                $sql_data['valid_sql'][] = $import_run_buffer['sql'];
-                $sql_data['valid_full'][] = $import_run_buffer['full'];
-                if (! isset($sql_data['valid_queries'])) {
-                    $sql_data['valid_queries'] = 0;
-                }
-                $sql_data['valid_queries']++;
-            } elseif ($run_query) {
-
-                /* Handle rollback from go_sql */
-                if ($go_sql && isset($sql_data['valid_full'])) {
-                    $queries = $sql_data['valid_sql'];
-                    $fulls = $sql_data['valid_full'];
-                    $count = $sql_data['valid_queries'];
-                    $go_sql = false;
-
-                    $sql_data['valid_sql'] = array();
-                    $sql_data['valid_queries'] = 0;
-                    unset($sql_data['valid_full']);
-                    for ($i = 0; $i < $count; $i++) {
-                        PMA_executeQuery(
-                            $queries[$i],
-                            $fulls[$i],
-                            $sql_data
-                        );
-                    }
-                }
-
-                PMA_executeQuery(
-                    $import_run_buffer['sql'],
-                    $import_run_buffer['full'],
-                    $sql_data
-                );
-            } // end run query
-        } // end if not DROP DATABASE
+        } // end run query
         // end non empty query
     } elseif (! empty($import_run_buffer['full'])) {
         if ($go_sql) {
@@ -384,32 +353,12 @@ function PMA_importGetNextChunk($size = 32768)
         }
     }
 
-    switch ($compression) {
-    case 'application/bzip2':
-        $result = bzread($import_handle, $size);
-        $GLOBALS['finished'] = feof($import_handle);
-        break;
-    case 'application/gzip':
-        $result = gzread($import_handle, $size);
-        $GLOBALS['finished'] = feof($import_handle);
-        break;
-    case 'application/zip':
-        $result = mb_substr($GLOBALS['import_text'], 0, $size);
-        $GLOBALS['import_text'] = mb_substr(
-            $GLOBALS['import_text'],
-            $size
-        );
-        $GLOBALS['finished'] = empty($GLOBALS['import_text']);
-        break;
-    case 'none':
-        $result = fread($import_handle, $size);
-        $GLOBALS['finished'] = feof($import_handle);
-        break;
-    }
+    $result = $import_handle->read($size);
+    $GLOBALS['finished'] = $import_handle->eof();
     $GLOBALS['offset'] += $size;
 
     if ($charset_conversion) {
-        return PMA_convertString($charset_of_file, 'utf-8', $result);
+        return Encoding::convertString($charset_of_file, 'utf-8', $result);
     }
 
     /**
@@ -527,7 +476,7 @@ function PMA_getColumnNumberFromName($name)
         // base26 to base10 conversion : multiply each number
         // with corresponding value of the position, in this case
         // $i=0 : 1; $i=1 : 26; $i=2 : 676; ...
-        $column_number += $number * PMA\libraries\Util::pow(26, $i);
+        $column_number += $number * pow(26, $i);
     }
     return $column_number;
 }
@@ -1246,8 +1195,8 @@ function PMA_buildSQL($db_name, &$tables, &$analyses = null,
     }
 
     $params = array('db' => (string)$db_name);
-    $db_url = 'db_structure.php' . PMA_URL_getCommon($params);
-    $db_ops_url = 'db_operations.php' . PMA_URL_getCommon($params);
+    $db_url = 'db_structure.php' . URL::getCommon($params);
+    $db_ops_url = 'db_operations.php' . URL::getCommon($params);
 
     $message = '<br /><br />';
     $message .= '<strong>' . __(
@@ -1287,9 +1236,9 @@ function PMA_buildSQL($db_name, &$tables, &$analyses = null,
              'db' => (string) $db_name,
              'table' => (string) $tables[$i][TBL_NAME]
         );
-        $tbl_url = 'sql.php' . PMA_URL_getCommon($params);
-        $tbl_struct_url = 'tbl_structure.php' . PMA_URL_getCommon($params);
-        $tbl_ops_url = 'tbl_operations.php' . PMA_URL_getCommon($params);
+        $tbl_url = 'sql.php' . URL::getCommon($params);
+        $tbl_struct_url = 'tbl_structure.php' . URL::getCommon($params);
+        $tbl_ops_url = 'tbl_operations.php' . URL::getCommon($params);
 
         unset($params);
 
@@ -1361,7 +1310,7 @@ function PMA_stopImport( Message $error_message )
 
     // Close open handles
     if ($import_handle !== false && $import_handle !== null) {
-        fclose($import_handle);
+        $import_handle->close();
     }
 
     // Delete temporary file
@@ -1469,7 +1418,7 @@ function PMA_getMatchedRows($analyzed_sql_results = array())
         'db'        => $GLOBALS['db'],
         'sql_query' => $matched_row_query
     );
-    $matched_rows_url  = 'sql.php' . PMA_URL_getCommon($_url_params);
+    $matched_rows_url  = 'sql.php' . URL::getCommon($_url_params);
 
     return array(
         'sql_query' => PMA\libraries\Util::formatSql($analyzed_sql_results['query']),

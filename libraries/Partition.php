@@ -193,7 +193,7 @@ class Partition extends SubPartition
     {
         if (Partition::havePartitioning()) {
             return $GLOBALS['dbi']->fetchResult(
-                "SELECT `PARTITION_NAME` FROM `information_schema`.`PARTITIONS`"
+                "SELECT DISTINCT `PARTITION_NAME` FROM `information_schema`.`PARTITIONS`"
                 . " WHERE `TABLE_SCHEMA` = '" . Util::sqlAddSlashes($db)
                 . "' AND `TABLE_NAME` = '" . Util::sqlAddSlashes($table) . "'"
             );
@@ -217,6 +217,7 @@ class Partition extends SubPartition
                 "SELECT `PARTITION_METHOD` FROM `information_schema`.`PARTITIONS`"
                 . " WHERE `TABLE_SCHEMA` = '" . Util::sqlAddSlashes($db) . "'"
                 . " AND `TABLE_NAME` = '" . Util::sqlAddSlashes($table) . "'"
+                . " LIMIT 1"
             );
             if (! empty($partition_method)) {
                 return $partition_method[0];

@@ -7,6 +7,8 @@
  */
 namespace PMA\libraries\plugins;
 
+use PMA\libraries\Sanitize;
+
 /**
  * Provides a common interface that will have to be implemented by all of the
  * authentication plugins.
@@ -114,7 +116,7 @@ abstract class AuthenticationPlugin
         } else {
             $dbi_error = $GLOBALS['dbi']->getError();
             if (!empty($dbi_error)) {
-                return PMA_sanitize($dbi_error);
+                return Sanitize::sanitize($dbi_error);
             } elseif (isset($GLOBALS['errno'])) {
                 return '#' . $GLOBALS['errno'] . ' '
                 . __('Cannot log in to the MySQL server');

@@ -2,7 +2,7 @@
       action="tbl_find_replace.php"
       name="previewForm"
       id="previewForm">
-    <?= PMA_URL_getHiddenInputs($db, $table); ?>
+    <?= \PMA\libraries\URL::getHiddenInputs($db, $table); ?>
     <input type="hidden" name="replace" value="true" />
     <input type="hidden" name="columnIndex" value="<?= $columnIndex; ?>" />
     <input type="hidden" name="findString" value="<?= htmlspecialchars($find); ?>" />

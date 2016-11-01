@@ -14,6 +14,7 @@ use PMA\libraries\plugins\AuthenticationPlugin;
 use PMA\libraries\Response;
 use PMA\libraries\Util;
 use ReCaptcha\ReCaptcha;
+use PMA\libraries\URL;
 
 require_once './libraries/session.lib.php';
 
@@ -93,7 +94,7 @@ class AuthenticationCookie extends AuthenticationPlugin
     <div class="container">
     <a href="';
         echo PMA_linkURL('https://www.phpmyadmin.net/');
-        echo '" target="_blank" class="logo">';
+        echo '" target="_blank" rel="noopener noreferrer" class="logo">';
         $logo_image = $GLOBALS['pmaThemeImage'] . 'logo_right.png';
         if (@file_exists($logo_image)) {
             echo '<img src="' , $logo_image
@@ -220,7 +221,7 @@ class AuthenticationCookie extends AuthenticationPlugin
         }
         // do not generate a "server" hidden field as we want the "server"
         // drop-down to have priority
-        echo PMA_URL_getHiddenInputs($_form_params, '', 0, 'server');
+        echo URL::getHiddenInputs($_form_params, '', 0, 'server');
         echo '</fieldset>
     </form>';
 
@@ -278,7 +279,6 @@ class AuthenticationCookie extends AuthenticationPlugin
             ) {
                 if (! empty($_POST["g-recaptcha-response"])) {
 
-                    include_once 'libraries/plugins/auth/recaptcha/autoload.php';
                     $reCaptcha = new ReCaptcha(
                         $GLOBALS['cfg']['CaptchaLoginPrivateKey']
                     );
@@ -286,7 +286,7 @@ class AuthenticationCookie extends AuthenticationPlugin
                     // verify captcha status.
                     $resp = $reCaptcha->verify(
                         $_POST["g-recaptcha-response"],
-                        $_SERVER["REMOTE_ADDR"]
+                        PMA_getIp()
                     );
 
                     // Check if the captcha entered is valid, if not stop the login.
@@ -302,9 +302,7 @@ class AuthenticationCookie extends AuthenticationPlugin
 
             // The user just logged in
             $GLOBALS['PHP_AUTH_USER'] = $_REQUEST['pma_username'];
-            $GLOBALS['PHP_AUTH_PW']   = empty($_REQUEST['pma_password'])
-                ? ''
-                : $_REQUEST['pma_password'];
+            $GLOBALS['PHP_AUTH_PW']   = $_REQUEST['pma_password'];
             if ($GLOBALS['cfg']['AllowArbitraryServer']
                 && isset($_REQUEST['pma_servername'])
             ) {
@@ -384,6 +382,7 @@ class AuthenticationCookie extends AuthenticationPlugin
             ),
             true
         );
+
         if (! is_array($auth_data) || ! isset($auth_data['password'])) {
             return false;
         }
@@ -485,10 +484,10 @@ class AuthenticationCookie extends AuthenticationPlugin
 
             // any parameters to pass?
             $url_params = array();
-            if (mb_strlen($GLOBALS['db'])) {
+            if (strlen($GLOBALS['db']) > 0) {
                 $url_params['db'] = $GLOBALS['db'];
             }
-            if (mb_strlen($GLOBALS['table'])) {
+            if (strlen($GLOBALS['table']) > 0) {
                 $url_params['table'] = $GLOBALS['table'];
             }
             // any target to pass?
@@ -507,7 +506,7 @@ class AuthenticationCookie extends AuthenticationPlugin
                 ->disable();
 
             PMA_sendHeaderLocation(
-                $redirect_url . PMA_URL_getCommon($url_params, 'text'),
+                $redirect_url . URL::getCommonRaw($url_params),
                 true
             );
             if (! defined('TESTSUITE')) {
@@ -632,11 +631,7 @@ class AuthenticationCookie extends AuthenticationPlugin
      */
     public static function useOpenSSL()
     {
-        return (
-            function_exists('openssl_encrypt')
-            && function_exists('openssl_decrypt')
-            && function_exists('openssl_random_pseudo_bytes')
-        );
+        return ! class_exists('phpseclib\Crypt\Random');
     }
 
     /**

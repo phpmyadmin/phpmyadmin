@@ -7,6 +7,9 @@
  */
 namespace PMA\libraries;
 
+use PMA\libraries\URL;
+use PMA\libraries\Sanitize;
+
 /**
  * Collects information about which JavaScript
  * files and objects are necessary to render
@@ -43,7 +46,7 @@ class Scripts
         $first_dynamic_scripts = "";
         $dynamic_scripts = "";
         $scripts = array();
-        $separator = PMA_URL_getArgSeparator();
+        $separator = URL::getArgSeparator();
         foreach ($files as $value) {
             if (mb_strpos($value['filename'], "?") !== false) {
                 $file_name = $value['filename'] . $separator
@@ -60,22 +63,11 @@ class Scripts
                 continue;
             }
             $include = true;
-            if ($value['conditional_ie'] !== false
-                && PMA_USR_BROWSER_AGENT === 'IE'
-            ) {
-                if ($value['conditional_ie'] === true) {
-                    $include = true;
-                } else if ($value['conditional_ie'] == PMA_USR_BROWSER_VER) {
-                    $include = true;
-                } else {
-                    $include = false;
-                }
-            }
             if ($include) {
                 $scripts[] = "scripts%5B%5D=" . $value['filename'];
             }
         }
-        $separator = PMA_URL_getArgSeparator();
+        $separator = URL::getArgSeparator();
         $static_scripts = '';
         // Using chunks of 10 files to avoid too long URLs
         // as some servers are set to 512 bytes URL limit
@@ -109,8 +101,6 @@ class Scripts
      * Adds a new file to the list of scripts
      *
      * @param string $filename       The name of the file to include
-     * @param bool   $conditional_ie Whether to wrap the script tag in
-     *                               conditional comments for IE
      * @param bool   $before_statics Whether this dynamic script should be
      *                               included before the static ones
      *
@@ -118,7 +108,6 @@ class Scripts
      */
     public function addFile(
         $filename,
-        $conditional_ie = false,
         $before_statics = false
     ) {
         $hash = md5($filename);
@@ -130,7 +119,6 @@ class Scripts
         $this->_files[$hash] = array(
             'has_onload' => $has_onload,
             'filename' => $filename,
-            'conditional_ie' => $conditional_ie,
             'before_statics' => $before_statics
         );
     }
@@ -138,16 +126,14 @@ class Scripts
     /**
      * Add new files to the list of scripts
      *
-     * @param array $filelist       The array of file names
-     * @param bool  $conditional_ie Whether to wrap the script tag in
-     *                              conditional comments for IE
+     * @param array $filelist The array of file names
      *
      * @return void
      */
-    public function addFiles($filelist, $conditional_ie = false)
+    public function addFiles($filelist)
     {
         foreach ($filelist as $filename) {
-            $this->addFile($filename, $conditional_ie);
+            $this->addFile($filename);
         }
     }
 
@@ -200,13 +186,11 @@ class Scripts
             if (strpos($file['filename'], "?") !== false) {
                 continue;
             }
+            $retval[] = array(
+                'name' => $file['filename'],
+                'fire' => $file['has_onload']
+            );
 
-            if (! $file['conditional_ie'] || PMA_USR_BROWSER_AGENT == 'IE') {
-                $retval[] = array(
-                    'name' => $file['filename'],
-                    'fire' => $file['has_onload']
-                );
-            }
         }
         return $retval;
     }
@@ -230,7 +214,7 @@ class Scripts
         foreach ($this->_files as $file) {
             $code .= sprintf(
                 '.add("%s",%d)',
-                PMA_escapeJsString($file['filename']),
+                Sanitize::escapeJsString($file['filename']),
                 $file['has_onload'] ? 1 : 0
             );
         }
@@ -241,7 +225,7 @@ class Scripts
         foreach ($this->_files as $file) {
             if ($file['has_onload']) {
                 $code .= 'AJAX.fireOnload("';
-                $code .= PMA_escapeJsString($file['filename']);
+                $code .= Sanitize::escapeJsString($file['filename']);
                 $code .= '");';
             }
         }

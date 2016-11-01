@@ -7,6 +7,8 @@
  */
 namespace PMA\libraries;
 
+use PMA\libraries\URL;
+
 /**
  * Class to handle database QBE search
  *
@@ -1468,17 +1470,21 @@ class DbQbe
         // Of course we only want to check each table once
         $checked_tables = $candidate_columns;
         $tsize = array();
-        $csize = array();
+        $maxsize = -1;
+        $result = '';
         foreach ($candidate_columns as $table) {
             if ($checked_tables[$table] != 1) {
                 $_table = new Table($table, $this->_db);
                 $tsize[$table] = $_table->countRecords();
                 $checked_tables[$table] = 1;
             }
-            $csize[$table] = $tsize[$table];
+            if ($tsize[$table] > $maxsize) {
+                $maxsize = $tsize[$table];
+                $result = $table;
+            }
         }
         // Return largest table
-        return array_search(max($csize), $csize);
+        return $result;
     }
 
     /**
@@ -1599,7 +1605,7 @@ class DbQbe
         // Will include master tables and all tables that can be combined into
         // a cluster by their relation
         $finalized = array();
-        if (mb_strlen($master) > 0) {
+        if (strlen($master) > 0) {
             // Add master tables
             $finalized[$master] = '';
         }
@@ -1828,7 +1834,7 @@ class DbQbe
         $url_params['db'] = $this->_db;
         $url_params['criteriaColumnCount'] = $this->_new_column_count;
         $url_params['rows'] = $this->_new_row_count;
-        $html_output .= PMA_URL_getHiddenInputs($url_params);
+        $html_output .= URL::getHiddenInputs($url_params);
         $html_output .= '</fieldset>';
         // get footers
         $html_output .= $this->_getTableFooters();
@@ -1836,7 +1842,7 @@ class DbQbe
         $html_output .= $this->_getTablesList();
         $html_output .= '</form>';
         $html_output .= '<form action="db_qbe.php" method="post" class="lock-page">';
-        $html_output .= PMA_URL_getHiddenInputs(array('db' => $this->_db));
+        $html_output .= URL::getHiddenInputs(array('db' => $this->_db));
         // get SQL query
         $html_output .= '<div class="floatleft" style="width:50%">';
         $html_output .= '<fieldset>';

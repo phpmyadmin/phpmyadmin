@@ -9,7 +9,6 @@
 use PMA\libraries\plugins\auth\AuthenticationSignon;
 
 require_once 'libraries/config.default.php';
-require_once 'libraries/sanitizing.lib.php';
 require_once 'test/PMATestCase.php';
 
 /**

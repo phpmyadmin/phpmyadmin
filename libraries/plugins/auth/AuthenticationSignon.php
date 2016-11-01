@@ -42,8 +42,8 @@ class AuthenticationSignon extends AuthenticationPlugin
     /**
      * Gets advanced authentication settings
      *
-     * @global  string $PHP_AUTH_USER        the username if register_globals is on
-     * @global  string $PHP_AUTH_PW          the password if register_globals is on
+     * @global string $PHP_AUTH_USER the username
+     * @global string $PHP_AUTH_PW   the password
      *
      * @return boolean   whether we get authentication settings or not
      */

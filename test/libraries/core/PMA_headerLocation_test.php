@@ -10,15 +10,8 @@
  * Include to test.
  */
 use PMA\libraries\Theme;
-
-
-require_once 'libraries/js_escape.lib.php';
-require_once 'libraries/sanitizing.lib.php';
-
-require_once 'libraries/url_generating.lib.php';
-
-
-
+use PMA\libraries\URL;
+use PMA\libraries\Sanitize;
 
 /**
  * Test function sending headers.
@@ -43,7 +36,6 @@ require_once 'libraries/url_generating.lib.php';
 class PMA_HeaderLocation_Test extends PHPUnit_Framework_TestCase
 {
 
-    protected $oldIISvalue;
     protected $runkitExt;
     protected $apdExt;
 
@@ -56,44 +48,10 @@ class PMA_HeaderLocation_Test extends PHPUnit_Framework_TestCase
     {
         //session_start();
 
-        // cleaning constants
-        if (PMA_HAS_RUNKIT) {
-
-            $this->oldIISvalue = 'non-defined';
-
-            $defined_constants = get_defined_constants(true);
-            $user_defined_constants = $defined_constants['user'];
-            if (array_key_exists('PMA_IS_IIS', $user_defined_constants)) {
-                $this->oldIISvalue = PMA_IS_IIS;
-                runkit_constant_redefine('PMA_IS_IIS', null);
-            } else {
-                runkit_constant_add('PMA_IS_IIS', null);
-            }
-        }
-        $_SESSION['PMA_Theme'] = Theme::load('./themes/pmahomme');
         $GLOBALS['server'] = 0;
         $GLOBALS['PMA_Config'] = new PMA\libraries\Config();
         $GLOBALS['PMA_Config']->enableBc();
-    }
-
-    /**
-     * Tear down
-     *
-     * @return void
-     */
-    public function tearDown()
-    {
-        //session_destroy();
-
-        // cleaning constants
-        if (PMA_HAS_RUNKIT) {
-
-            if ($this->oldIISvalue != 'non-defined') {
-                runkit_constant_redefine('PMA_IS_IIS', $this->oldIISvalue);
-            } elseif (defined('PMA_IS_IIS')) {
-                runkit_constant_remove('PMA_IS_IIS');
-            }
-        }
+        $GLOBALS['PMA_Config']->set('PMA_IS_IIS', null);
     }
 
     /**
@@ -105,7 +63,7 @@ class PMA_HeaderLocation_Test extends PHPUnit_Framework_TestCase
     {
         if (defined('PMA_TEST_HEADERS')) {
 
-            runkit_constant_redefine('PMA_IS_IIS', true);
+            $GLOBALS['PMA_Config']->set('PMA_IS_IIS', true);
 
             $testUri = 'https://example.com/test.php';
 
@@ -158,15 +116,7 @@ class PMA_HeaderLocation_Test extends PHPUnit_Framework_TestCase
      */
     public function testSendHeaderLocationIisLongUri()
     {
-        if (defined('PMA_IS_IIS') && PMA_HAS_RUNKIT) {
-            runkit_constant_redefine('PMA_IS_IIS', true);
-        } elseif (!defined('PMA_IS_IIS')) {
-            define('PMA_IS_IIS', true);
-        } elseif (! PMA_IS_IIS) {
-            $this->markTestSkipped(
-                'Cannot redefine constant/function - missing runkit extension'
-            );
-        }
+        $GLOBALS['PMA_Config']->set('PMA_IS_IIS', true);
 
         // over 600 chars
         $testUri = 'https://example.com/test.php?testlonguri=over600chars&test=test'
@@ -181,7 +131,7 @@ class PMA_HeaderLocation_Test extends PHPUnit_Framework_TestCase
             . '&test=test&test=test&test=test&test=test&test=test&test=test'
             . '&test=test&test=test';
         $testUri_html = htmlspecialchars($testUri);
-        $testUri_js = PMA_escapeJsString($testUri);
+        $testUri_js = Sanitize::escapeJsString($testUri);
 
         $header = "<html>\n<head>\n    <title>- - -</title>
     <meta http-equiv=\"expires\" content=\"0\">"

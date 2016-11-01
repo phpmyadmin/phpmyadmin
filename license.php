@@ -31,7 +31,9 @@ if (@is_readable($filename)) {
     printf(
         __(
             'The %s file is not available on this system, please visit ' .
-            'www.phpmyadmin.net for more information.'
-        ), $filename
+            '%s for more information.'
+        ),
+        $filename,
+        'https://www.phpmyadmin.net/'
     );
 }

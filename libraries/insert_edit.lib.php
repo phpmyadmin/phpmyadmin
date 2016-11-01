@@ -7,6 +7,8 @@
  */
 use PMA\libraries\Message;
 use PMA\libraries\plugins\TransformationsPlugin;
+use PMA\libraries\URL;
+use PMA\libraries\Sanitize;
 
 /**
  * Retrieve form parameters for insert/edit form
@@ -222,12 +224,12 @@ function PMA_showTypeOrFunction($which, $url_params, $is_show)
 
     if (! $is_show) {
         return ' : <a href="tbl_change.php'
-            . PMA_URL_getCommon($this_url_params) . '">'
+            . URL::getCommon($this_url_params) . '">'
             . PMA_showTypeOrFunctionLabel($which)
             . '</a>';
     }
     return '<th><a href="tbl_change.php'
-        . PMA_URL_getCommon($this_url_params)
+        . URL::getCommon($this_url_params)
         . '" title="' . __('Hide') . '">'
         . PMA_showTypeOrFunctionLabel($which)
         . '</a></th>';
@@ -379,12 +381,13 @@ function PMA_getEnumSetAndTimestampColumns($column, $timestamp_seen)
  * @param integer $tabindex              tab index
  * @param integer $idindex               id index
  * @param boolean $insert_mode           insert mode or edit mode
+ * @param boolean $readOnly              is column read only or not
  *
  * @return string                           an html snippet
  */
 function PMA_getFunctionColumn($column, $is_upload, $column_name_appendix,
     $onChangeClause, $no_support_types, $tabindex_for_function,
-    $tabindex, $idindex, $insert_mode
+    $tabindex, $idindex, $insert_mode, $readOnly
 ) {
     $html_output = '';
     if (($GLOBALS['cfg']['ProtectBinary'] === 'blob'
@@ -395,7 +398,8 @@ function PMA_getFunctionColumn($column, $is_upload, $column_name_appendix,
         && $column['is_binary'])
     ) {
         $html_output .= '<td class="center">' . __('Binary') . '</td>' . "\n";
-    } elseif (mb_strstr($column['True_Type'], 'enum')
+    } elseif ($readOnly
+        || mb_strstr($column['True_Type'], 'enum')
         || mb_strstr($column['True_Type'], 'set')
         || in_array($column['pma_type'], $no_support_types)
     ) {
@@ -430,13 +434,15 @@ function PMA_getFunctionColumn($column, $is_upload, $column_name_appendix,
  * @param string  $vkey                 [multi_edit]['row_id']
  * @param array   $foreigners           keys into foreign fields
  * @param array   $foreignData          data about the foreign keys
+ * @param boolean $readOnly             is column read only or not
  *
  * @return string                       an html snippet
  */
 function PMA_getNullColumn($column, $column_name_appendix, $real_null_value,
-    $tabindex, $tabindex_for_null, $idindex, $vkey, $foreigners, $foreignData
+    $tabindex, $tabindex_for_null, $idindex, $vkey, $foreigners, $foreignData,
+    $readOnly
 ) {
-    if ($column['Null'] != 'YES') {
+    if ($column['Null'] != 'YES' || $readOnly) {
         return "<td></td>\n";
     }
     $html_output = '';
@@ -466,7 +472,7 @@ function PMA_getNullColumn($column, $column_name_appendix, $real_null_value,
     $html_output .= '<input type="hidden" class="hashed_field" name="hashed_field'
         . $column_name_appendix . '" value="' .  $column['Field_md5'] . '" />';
     $html_output .= '<input type="hidden" class="multi_edit" name="multi_edit'
-        . $column_name_appendix . '" value="' . PMA_escapeJsString($vkey) . '" />';
+        . $column_name_appendix . '" value="' . Sanitize::escapeJsString($vkey) . '" />';
     $html_output .= '</td>' . "\n";
 
     return $html_output;
@@ -544,6 +550,7 @@ function PMA_getNullifyCodeForNullColumn($column, $foreigners, $foreignData)
  * @param array   $extracted_columnspec  associative array containing type,
  *                                       spec_in_brackets and possibly
  *                                       enum_set_values (another array)
+ * @param boolean $readOnly              is column read only or not
  *
  * @return string an html snippet
  */
@@ -552,7 +559,8 @@ function PMA_getValueColumn($column, $backup_field, $column_name_appendix,
     $special_chars, $foreignData, $odd_row, $paramTableDbArray, $rownumber,
     $titles, $text_dir, $special_chars_encoded, $vkey,
     $is_upload, $biggest_max_file_size,
-    $default_char_editing, $no_support_types, $gis_data_types, $extracted_columnspec
+    $default_char_editing, $no_support_types, $gis_data_types, $extracted_columnspec,
+    $readOnly
 ) {
     // HTML5 data-* attribute data-type
     $data_type = $GLOBALS['PMA_Types']->getTypeClass($column['True_Type']);
@@ -562,14 +570,14 @@ function PMA_getValueColumn($column, $backup_field, $column_name_appendix,
         $html_output .= PMA_getForeignLink(
             $column, $backup_field, $column_name_appendix,
             $onChangeClause, $tabindex, $tabindex_for_value, $idindex, $data,
-            $paramTableDbArray, $rownumber, $titles
+            $paramTableDbArray, $rownumber, $titles, $readOnly
         );
 
     } elseif (is_array($foreignData['disp_row'])) {
         $html_output .= PMA_dispRowForeignData(
             $backup_field, $column_name_appendix,
             $onChangeClause, $tabindex, $tabindex_for_value,
-            $idindex, $data, $foreignData
+            $idindex, $data, $foreignData, $readOnly
         );
 
     } elseif ($GLOBALS['cfg']['LongtextDoubleTextarea']
@@ -582,7 +590,7 @@ function PMA_getValueColumn($column, $backup_field, $column_name_appendix,
         $html_output .= PMA_getTextarea(
             $column, $backup_field, $column_name_appendix, $onChangeClause,
             $tabindex, $tabindex_for_value, $idindex, $text_dir,
-            $special_chars_encoded, $data_type
+            $special_chars_encoded, $data_type, $readOnly
         );
 
     } elseif (mb_strstr($column['pma_type'], 'text')) {
@@ -590,7 +598,7 @@ function PMA_getValueColumn($column, $backup_field, $column_name_appendix,
         $html_output .= PMA_getTextarea(
             $column, $backup_field, $column_name_appendix, $onChangeClause,
             $tabindex, $tabindex_for_value, $idindex, $text_dir,
-            $special_chars_encoded, $data_type
+            $special_chars_encoded, $data_type, $readOnly
         );
         $html_output .= "\n";
         if (mb_strlen($special_chars) > 32000) {
@@ -603,14 +611,15 @@ function PMA_getValueColumn($column, $backup_field, $column_name_appendix,
     } elseif ($column['pma_type'] == 'enum') {
         $html_output .= PMA_getPmaTypeEnum(
             $column, $backup_field, $column_name_appendix, $extracted_columnspec,
-            $onChangeClause, $tabindex, $tabindex_for_value, $idindex, $data
+            $onChangeClause, $tabindex, $tabindex_for_value, $idindex, $data,
+            $readOnly
         );
 
     } elseif ($column['pma_type'] == 'set') {
         $html_output .= PMA_getPmaTypeSet(
             $column, $extracted_columnspec, $backup_field,
             $column_name_appendix, $onChangeClause, $tabindex,
-            $tabindex_for_value, $idindex, $data
+            $tabindex_for_value, $idindex, $data, $readOnly
         );
 
     } elseif ($column['is_binary'] || $column['is_blob']) {
@@ -618,7 +627,7 @@ function PMA_getValueColumn($column, $backup_field, $column_name_appendix,
             $column, $data, $special_chars, $biggest_max_file_size,
             $backup_field, $column_name_appendix, $onChangeClause, $tabindex,
             $tabindex_for_value, $idindex, $text_dir, $special_chars_encoded,
-            $vkey, $is_upload
+            $vkey, $is_upload, $readOnly
         );
 
     } elseif (! in_array($column['pma_type'], $no_support_types)) {
@@ -626,7 +635,7 @@ function PMA_getValueColumn($column, $backup_field, $column_name_appendix,
             $column, $default_char_editing, $backup_field,
             $column_name_appendix, $onChangeClause, $tabindex, $special_chars,
             $tabindex_for_value, $idindex, $text_dir, $special_chars_encoded,
-            $data, $extracted_columnspec
+            $data, $extracted_columnspec, $readOnly
         );
     }
 
@@ -653,12 +662,13 @@ function PMA_getValueColumn($column, $backup_field, $column_name_appendix,
  * @param array   $titles               An HTML IMG tag for a particular icon from
  *                                      a theme, which may be an actual file or
  *                                      an icon from a sprite
+ * @param boolean $readOnly             is column read only or not
  *
  * @return string                       an html snippet
  */
 function PMA_getForeignLink($column, $backup_field, $column_name_appendix,
     $onChangeClause, $tabindex, $tabindex_for_value, $idindex, $data,
-    $paramTableDbArray, $rownumber, $titles
+    $paramTableDbArray, $rownumber, $titles, $readOnly
 ) {
     list($table, $db) = $paramTableDbArray;
     $html_output = '';
@@ -670,12 +680,13 @@ function PMA_getForeignLink($column, $backup_field, $column_name_appendix,
     $html_output .= '<input type="text" name="fields' . $column_name_appendix . '" '
         . 'class="textfield" '
         . $onChangeClause . ' '
+        . ($readOnly ? 'readonly="readonly" ' : '')
         . 'tabindex="' . ($tabindex + $tabindex_for_value) . '" '
         . 'id="field_' . ($idindex) . '_3" '
         . 'value="' . htmlspecialchars($data) . '" />';
 
     $html_output .= '<a class="ajax browse_foreign" href="browse_foreigners.php'
-        . PMA_URL_getCommon(
+        . URL::getCommon(
             array(
                 'db' => $db,
                 'table' => $table,
@@ -699,12 +710,13 @@ function PMA_getForeignLink($column, $backup_field, $column_name_appendix,
  * @param integer $idindex              id index
  * @param string  $data                 data to edit
  * @param array   $foreignData          data about the foreign keys
+ * @param boolean $readOnly             is display read only or not
  *
  * @return string                       an html snippet
  */
 function PMA_dispRowForeignData($backup_field, $column_name_appendix,
     $onChangeClause, $tabindex, $tabindex_for_value, $idindex, $data,
-    $foreignData
+    $foreignData, $readOnly
 ) {
     $html_output = '';
     $html_output .= $backup_field . "\n";
@@ -715,6 +727,7 @@ function PMA_dispRowForeignData($backup_field, $column_name_appendix,
     $html_output .= '<select name="fields' . $column_name_appendix . '"'
         . ' ' . $onChangeClause
         . ' class="textfield"'
+        . ($readOnly ? ' disabled' : '')
         . ' tabindex="' . ($tabindex + $tabindex_for_value) . '"'
         . ' id="field_' . $idindex . '_3">';
     $html_output .= PMA_foreignDropdown(
@@ -723,6 +736,12 @@ function PMA_dispRowForeignData($backup_field, $column_name_appendix,
         $GLOBALS['cfg']['ForeignKeyMaxLimit']
     );
     $html_output .= '</select>';
+
+    //Add hidden input, as disabled <select> input does not included in POST.
+    if ($readOnly) {
+        $html_output .= '<input name="fields' . $column_name_appendix . '"'
+            . ' type="hidden" value="' . htmlspecialchars($data) . '">';
+    }
 
     return $html_output;
 }
@@ -741,12 +760,13 @@ function PMA_dispRowForeignData($backup_field, $column_name_appendix,
  * @param string  $special_chars_encoded replaced char if the string starts
  *                                       with a \r\n pair (0x0d0a) add an extra \n
  * @param string  $data_type             the html5 data-* attribute type
+ * @param boolean $readOnly              is column read only or not
  *
  * @return string                       an html snippet
  */
 function PMA_getTextarea($column, $backup_field, $column_name_appendix,
     $onChangeClause, $tabindex, $tabindex_for_value, $idindex,
-    $text_dir, $special_chars_encoded, $data_type
+    $text_dir, $special_chars_encoded, $data_type, $readOnly
 ) {
     $the_class = '';
     $textAreaRows = $GLOBALS['cfg']['TextareaRows'];
@@ -773,6 +793,7 @@ function PMA_getTextarea($column, $backup_field, $column_name_appendix,
     $html_output = $backup_field . "\n"
         . '<textarea name="fields' . $column_name_appendix . '"'
         . ' class="' . $the_class . '"'
+        . ($readOnly ? ' readonly="readonly"' : '')
         . (isset($maxlength) ? ' data-maxlength="' . $maxlength . '"' : '')
         . ' rows="' . $textAreaRows . '"'
         . ' cols="' . $textareaCols . '"'
@@ -801,12 +822,13 @@ function PMA_getTextarea($column, $backup_field, $column_name_appendix,
  * @param integer $tabindex_for_value   offset for the values tabindex
  * @param integer $idindex              id index
  * @param mixed   $data                 data to edit
+ * @param boolean $readOnly             is column read only or not
  *
  * @return string an html snippet
  */
 function PMA_getPmaTypeEnum($column, $backup_field, $column_name_appendix,
     $extracted_columnspec, $onChangeClause, $tabindex, $tabindex_for_value,
-    $idindex, $data
+    $idindex, $data, $readOnly
 ) {
     $html_output = '';
     if (! isset($column['values'])) {
@@ -821,13 +843,14 @@ function PMA_getPmaTypeEnum($column, $backup_field, $column_name_appendix,
     if (mb_strlen($column['Type']) > 20) {
         $html_output .= PMA_getDropDownDependingOnLength(
             $column, $column_name_appendix, $onChangeClause,
-            $tabindex, $tabindex_for_value, $idindex, $data, $column_enum_values
+            $tabindex, $tabindex_for_value,
+            $idindex, $data, $column_enum_values, $readOnly
         );
     } else {
         $html_output .= PMA_getRadioButtonDependingOnLength(
             $column_name_appendix, $onChangeClause,
             $tabindex, $column, $tabindex_for_value,
-            $idindex, $data, $column_enum_values
+            $idindex, $data, $column_enum_values, $readOnly
         );
     }
     return $html_output;
@@ -866,20 +889,24 @@ function PMA_getColumnEnumValues($column, $extracted_columnspec)
  * @param integer $idindex              id index
  * @param string  $data                 data to edit
  * @param array   $column_enum_values   $column['values']
+ * @param boolean $readOnly              is column read only or not
  *
  * @return string                       an html snippet
  */
 function PMA_getDropDownDependingOnLength(
     $column, $column_name_appendix, $onChangeClause,
-    $tabindex, $tabindex_for_value, $idindex, $data, $column_enum_values
+    $tabindex, $tabindex_for_value, $idindex, $data, $column_enum_values,
+    $readOnly
 ) {
     $html_output = '<select name="fields' . $column_name_appendix . '"'
         . ' ' . $onChangeClause
         . ' class="textfield"'
         . ' tabindex="' . ($tabindex + $tabindex_for_value) . '"'
+        . ($readOnly ? ' disabled' : '')
         . ' id="field_' . ($idindex) . '_3">';
     $html_output .= '<option value="">&nbsp;</option>' . "\n";
 
+    $selected_html = '';
     foreach ($column_enum_values as $enum_value) {
         $html_output .= '<option value="' . $enum_value['html'] . '"';
         if ($data == $enum_value['plain']
@@ -889,10 +916,17 @@ function PMA_getDropDownDependingOnLength(
             && $enum_value['plain'] == $column['Default'])
         ) {
             $html_output .= ' selected="selected"';
+            $selected_html = $enum_value['html'];
         }
         $html_output .= '>' . $enum_value['html'] . '</option>' . "\n";
     }
     $html_output .= '</select>';
+
+    //Add hidden input, as disabled <select> input does not included in POST.
+    if ($readOnly) {
+        $html_output .= '<input name="fields' . $column_name_appendix . '"'
+            . ' type="hidden" value="' . $selected_html . '">';
+    }
     return $html_output;
 }
 
@@ -907,12 +941,14 @@ function PMA_getDropDownDependingOnLength(
  * @param integer $idindex              id index
  * @param string  $data                 data to edit
  * @param array   $column_enum_values   $column['values']
+ * @param boolean $readOnly              is column read only or not
  *
  * @return string                       an html snippet
  */
 function PMA_getRadioButtonDependingOnLength(
     $column_name_appendix, $onChangeClause,
-    $tabindex, $column, $tabindex_for_value, $idindex, $data, $column_enum_values
+    $tabindex, $column, $tabindex_for_value, $idindex, $data,
+    $column_enum_values, $readOnly
 ) {
     $j = 0;
     $html_output = '';
@@ -930,6 +966,9 @@ function PMA_getRadioButtonDependingOnLength(
             && $enum_value['plain'] == $column['Default'])
         ) {
             $html_output .= ' checked="checked"';
+        }
+        elseif ($readOnly) {
+            $html_output .= ' disabled';
         }
         $html_output .= ' tabindex="' . ($tabindex + $tabindex_for_value) . '" />';
         $html_output .= '<label for="field_' . $idindex . '_3_' . $j . '">'
@@ -953,13 +992,14 @@ function PMA_getRadioButtonDependingOnLength(
  * @param integer $tabindex_for_value   offset for the values tabindex
  * @param integer $idindex              id index
  * @param string  $data                 description of the column field
+ * @param boolean $readOnly             is column read only or not
  *
  * @return string                       an html snippet
  */
 function PMA_getPmaTypeSet(
     $column, $extracted_columnspec, $backup_field,
     $column_name_appendix, $onChangeClause, $tabindex,
-    $tabindex_for_value, $idindex, $data
+    $tabindex_for_value, $idindex, $data, $readOnly
 ) {
     list($column_set_values, $select_size) = PMA_getColumnSetValueAndSelectSize(
         $column, $extracted_columnspec
@@ -970,19 +1010,29 @@ function PMA_getPmaTypeSet(
         . $column_name_appendix . '" value="set" />';
     $html_output .= '<select name="fields' . $column_name_appendix . '[]' . '"'
         . ' class="textfield"'
+        . ($readOnly ? ' disabled' : '')
         . ' size="' . $select_size . '"'
         . ' multiple="multiple"'
         . ' ' . $onChangeClause
         . ' tabindex="' . ($tabindex + $tabindex_for_value) . '"'
         . ' id="field_' . ($idindex) . '_3">';
+
+    $selected_html = '';
     foreach ($column_set_values as $column_set_value) {
         $html_output .= '<option value="' . $column_set_value['html'] . '"';
         if (isset($vset[$column_set_value['plain']])) {
             $html_output .= ' selected="selected"';
+            $selected_html = $column_set_value['html'];
         }
         $html_output .= '>' . $column_set_value['html'] . '</option>' . "\n";
     }
     $html_output .= '</select>';
+
+    //Add hidden input, as disabled <select> input does not included in POST.
+    if ($readOnly) {
+        $html_output .= '<input name="fields' . $column_name_appendix . '[]' . '"'
+            . ' type="hidden" value="' . $selected_html . '">';
+    }
     return $html_output;
 }
 
@@ -1029,6 +1079,7 @@ function PMA_getColumnSetValueAndSelectSize($column, $extracted_columnspec)
  *                                       with a \r\n pair (0x0d0a) add an extra \n
  * @param string  $vkey                  [multi_edit]['row_id']
  * @param boolean $is_upload             is upload or not
+ * @param boolean $readOnly              is column read only or not
  *
  * @return string                           an html snippet
  */
@@ -1036,7 +1087,7 @@ function PMA_getBinaryAndBlobColumn(
     $column, $data, $special_chars, $biggest_max_file_size,
     $backup_field, $column_name_appendix, $onChangeClause, $tabindex,
     $tabindex_for_value, $idindex, $text_dir, $special_chars_encoded,
-    $vkey, $is_upload
+    $vkey, $is_upload, $readOnly
 ) {
     $html_output = '';
     // Add field type : Protected or Hexadecimal
@@ -1065,23 +1116,27 @@ function PMA_getBinaryAndBlobColumn(
         $html_output .= "\n" . PMA_getTextarea(
             $column, $backup_field, $column_name_appendix, $onChangeClause,
             $tabindex, $tabindex_for_value, $idindex, $text_dir,
-            $special_chars_encoded, 'HEX'
+            $special_chars_encoded, 'HEX', $readOnly
         );
     } else {
         // field size should be at least 4 and max $GLOBALS['cfg']['LimitChars']
         $fieldsize = min(max($column['len'], 4), $GLOBALS['cfg']['LimitChars']);
         $html_output .= "\n" . $backup_field . "\n" . PMA_getHTMLinput(
             $column, $column_name_appendix, $special_chars, $fieldsize,
-            $onChangeClause, $tabindex, $tabindex_for_value, $idindex, 'HEX'
+            $onChangeClause, $tabindex, $tabindex_for_value, $idindex, 'HEX',
+            $readOnly
         );
     }
     $html_output .= sprintf($fields_type_html, $fields_type_val);
 
-    if ($is_upload && $column['is_blob']) {
+    if ($is_upload && $column['is_blob'] && !$readOnly) {
+        // We don't want to prevent users from using
+        // browser's default drag-drop feature on some page(s),
+        // so we add noDragDrop class to the input
         $html_output .= '<br />'
             . '<input type="file"'
             . ' name="fields_upload' . $vkey . '[' . $column['Field_md5'] . ']"'
-            . ' class="textfield" id="field_' . $idindex . '_3" size="10"'
+            . ' class="textfield noDragDrop" id="field_' . $idindex . '_3" size="10"'
             . ' ' . $onChangeClause . '/>&nbsp;';
         list($html_out,) = PMA_getMaxUploadSize(
             $column, $biggest_max_file_size
@@ -1089,7 +1144,7 @@ function PMA_getBinaryAndBlobColumn(
         $html_output .= $html_out;
     }
 
-    if (!empty($GLOBALS['cfg']['UploadDir'])) {
+    if (!empty($GLOBALS['cfg']['UploadDir']) && !$readOnly) {
         $html_output .= PMA_getSelectOptionForUpload($vkey, $column);
     }
 
@@ -1108,12 +1163,13 @@ function PMA_getBinaryAndBlobColumn(
  * @param integer $tabindex_for_value   offset for the values tabindex
  * @param integer $idindex              id index
  * @param string  $data_type            the html5 data-* attribute type
+ * @param boolean $readOnly             is column read only or not
  *
  * @return string                       an html snippet
  */
 function PMA_getHTMLinput(
     $column, $column_name_appendix, $special_chars, $fieldsize, $onChangeClause,
-    $tabindex, $tabindex_for_value, $idindex, $data_type
+    $tabindex, $tabindex_for_value, $idindex, $data_type, $readOnly
 ) {
     $input_type = 'text';
     // do not use the 'date' or 'time' types here; they have no effect on some
@@ -1121,7 +1177,9 @@ function PMA_getHTMLinput(
 
     $the_class = 'textfield';
     // verify True_Type which does not contain the parentheses and length
-    if ($column['True_Type'] === 'date') {
+    if ($readOnly) {
+        //NOOP. Disable date/timepicker
+    } else if ($column['True_Type'] === 'date') {
         $the_class .= ' datefield';
     } else if ($column['True_Type'] === 'time') {
         $the_class .= ' timefield';
@@ -1149,6 +1207,7 @@ function PMA_getHTMLinput(
         . ((isset($column['is_char']) && $column['is_char'])
         ? ' data-maxlength="' . $fieldsize . '"'
         : '')
+        . ($readOnly ? ' readonly="readonly"' : '')
         . ($input_min_max !== false ? ' ' . $input_min_max : '')
         . ' data-type="' . $data_type . '"'
         . ($input_type === 'time' ? ' step="1"' : '')
@@ -1248,6 +1307,7 @@ function PMA_getMaxUploadSize($column, $biggest_max_file_size)
  * @param array   $extracted_columnspec  associative array containing type,
  *                                       spec_in_brackets and possibly
  *                                       enum_set_values (another array)
+ * @param boolean $readOnly              is column read only or not
  *
  * @return string an html snippet
  */
@@ -1255,7 +1315,7 @@ function PMA_getValueColumnForOtherDatatypes($column, $default_char_editing,
     $backup_field,
     $column_name_appendix, $onChangeClause, $tabindex, $special_chars,
     $tabindex_for_value, $idindex, $text_dir, $special_chars_encoded, $data,
-    $extracted_columnspec
+    $extracted_columnspec, $readOnly
 ) {
     // HTML5 data-* attribute data-type
     $data_type = $GLOBALS['PMA_Types']->getTypeClass($column['True_Type']);
@@ -1270,12 +1330,13 @@ function PMA_getValueColumnForOtherDatatypes($column, $default_char_editing,
         $html_output .= PMA_getTextarea(
             $column, $backup_field, $column_name_appendix, $onChangeClause,
             $tabindex, $tabindex_for_value, $idindex, $text_dir,
-            $special_chars_encoded, $data_type
+            $special_chars_encoded, $data_type, $readOnly
         );
     } else {
         $html_output .= PMA_getHTMLinput(
             $column, $column_name_appendix, $special_chars, $fieldsize,
-            $onChangeClause, $tabindex, $tabindex_for_value, $idindex, $data_type
+            $onChangeClause, $tabindex, $tabindex_for_value, $idindex,
+            $data_type, $readOnly
         );
 
         $virtual = array(
@@ -1377,7 +1438,7 @@ function PMA_getContinueInsertionForm($table, $db, $where_clause_array, $err_url
 {
     $html_output = '<form id="continueForm" method="post"'
         . ' action="tbl_replace.php" name="continueForm">'
-        . PMA_URL_getHiddenInputs($db, $table)
+        . URL::getHiddenInputs($db, $table)
         . '<input type="hidden" name="goto"'
         . ' value="' . htmlspecialchars($GLOBALS['goto']) . '" />'
         . '<input type="hidden" name="err_url"'
@@ -1862,14 +1923,12 @@ function PMA_getGotoInclude($goto_include)
         } else {
             $goto_include = $GLOBALS['goto'];
         }
-        if ($GLOBALS['goto'] == 'db_sql.php'
-            && mb_strlen($GLOBALS['table'])
-        ) {
+        if ($GLOBALS['goto'] == 'db_sql.php' && strlen($GLOBALS['table']) > 0) {
             $GLOBALS['table'] = '';
         }
     }
     if (! $goto_include) {
-        if (! mb_strlen($GLOBALS['table'])) {
+        if (strlen($GLOBALS['table']) === 0) {
             $goto_include = 'db_sql.php';
         } else {
             $goto_include = 'tbl_sql.php';
@@ -1890,7 +1949,7 @@ function PMA_getErrorUrl($url_params)
     if (isset($_REQUEST['err_url'])) {
         return $_REQUEST['err_url'];
     } else {
-        return 'tbl_change.php' . PMA_URL_getCommon($url_params);
+        return 'tbl_change.php' . URL::getCommon($url_params);
     }
 }
 
@@ -1957,7 +2016,7 @@ function PMA_executeSqlQuery($url_params, $query)
             $result = $GLOBALS['dbi']->query($single_query);
         }
         if (! $result) {
-            $error_messages[] = Message::sanitize($GLOBALS['dbi']->getError());
+            $error_messages[] = $GLOBALS['dbi']->getError();
         } else {
             // The next line contains a real assignment, it's not a typo
             if ($tmp = @$GLOBALS['dbi']->affectedRows()) {
@@ -2026,7 +2085,7 @@ function PMA_getDisplayValueForForeignTableColumn($where_comparison,
         $foreigner['foreign_table']
     );
     // Field to display from the foreign table?
-    if (isset($display_field) && mb_strlen($display_field)) {
+    if (isset($display_field) && strlen($display_field) > 0) {
         $dispsql = 'SELECT ' . PMA\libraries\Util::backquote($display_field)
             . ' FROM ' . PMA\libraries\Util::backquote($foreigner['foreign_db'])
             . '.' . PMA\libraries\Util::backquote($foreigner['foreign_table'])
@@ -2084,7 +2143,7 @@ function PMA_getLinkForRelationalDisplayField($map, $relation_field,
             . $where_comparison
     );
     $output = '<a href="sql.php'
-        . PMA_URL_getCommon($_url_params) . '"' . $title . '>';
+        . URL::getCommon($_url_params) . '"' . $title . '>';
 
     if ('D' == $_SESSION['tmpval']['relational_display']) {
         // user chose "relational display field" in the
@@ -2131,7 +2190,7 @@ function PMA_transformEditedValues($db, $table,
             : ''
         );
         $transform_options['wrapper_link']
-            = PMA_URL_getCommon($_url_params);
+            = URL::getCommon($_url_params);
         $class_name = PMA_getTransformationClassName($include_file);
         /** @var TransformationsPlugin $transformation_plugin */
         $transformation_plugin = new $class_name();
@@ -2235,7 +2294,7 @@ function PMA_getQueryValuesForInsertAndUpdateInMultipleEdit($multi_edit_columns_
     //  i n s e r t
     if ($is_insert) {
         // no need to add column into the valuelist
-        if (mb_strlen($current_value_as_an_array)) {
+        if (strlen($current_value_as_an_array) > 0) {
             $query_values[] = $current_value_as_an_array;
             // first inserted row so prepare the list of fields
             if (empty($value_sets)) {
@@ -2326,9 +2385,7 @@ function PMA_getCurrentValueForDifferentTypes($possibly_uploaded_val, $key,
             $type = '';
         }
 
-        if ($type != 'protected' && $type != 'set'
-            && 0 === mb_strlen($current_value)
-        ) {
+        if ($type != 'protected' && $type != 'set' && strlen($current_value) === 0) {
             // best way to avoid problems in strict mode
             // (works also in non-strict mode)
             if (isset($multi_edit_auto_increment)
@@ -2700,6 +2757,11 @@ function PMA_getHtmlForInsertEditFormColumn($table_columns, $column_number,
     $text_dir, $repopulate, $column_mime, $where_clause
 ) {
     $column = $table_columns[$column_number];
+    $readOnly = false;
+    if (! PMA_userHasColumnPrivileges($column, $insert_mode)) {
+        $readOnly = true;
+    }
+
     if (! isset($column['processed'])) {
         $column = PMA_analyzeTableColumnsArray(
             $column, $comments_map, $timestamp_seen
@@ -2727,8 +2789,8 @@ function PMA_getHtmlForInsertEditFormColumn($table_columns, $column_number,
     //Call validation when the form submitted...
     $onChangeClause = $chg_evt_handler
         . "=\"return verificationsAfterFieldChange('"
-        . PMA_escapeJsString($column['Field_md5']) . "', '"
-        . PMA_escapeJsString($jsvkey) . "','" . $column['pma_type'] . "')\"";
+        . Sanitize::escapeJsString($column['Field_md5']) . "', '"
+        . Sanitize::escapeJsString($jsvkey) . "','" . $column['pma_type'] . "')\"";
 
     // Use an MD5 as an array index to avoid having special characters
     // in the name attribute (see bug #1746964 )
@@ -2794,7 +2856,7 @@ function PMA_getHtmlForInsertEditFormColumn($table_columns, $column_number,
         $html_output .= PMA_getFunctionColumn(
             $column, $is_upload, $column_name_appendix,
             $onChangeClause, $no_support_types, $tabindex_for_function,
-            $tabindex, $idindex, $insert_mode
+            $tabindex, $idindex, $insert_mode, $readOnly
         );
     }
 
@@ -2806,7 +2868,7 @@ function PMA_getHtmlForInsertEditFormColumn($table_columns, $column_number,
     $html_output .= PMA_getNullColumn(
         $column, $column_name_appendix, $real_null_value,
         $tabindex, $tabindex_for_null, $idindex, $vkey, $foreigners,
-        $foreignData
+        $foreignData, $readOnly
     );
 
     // The value column (depends on type)
@@ -2847,7 +2909,7 @@ function PMA_getHtmlForInsertEditFormColumn($table_columns, $column_number,
                 'where_clause'  => $where_clause
             );
             $transformation_options['wrapper_link']
-                = PMA_URL_getCommon($_url_params);
+                = URL::getCommon($_url_params);
             $current_value = '';
             if (isset($current_row[$column['Field']])) {
                 $current_value = $current_row[$column['Field']];
@@ -2875,7 +2937,7 @@ function PMA_getHtmlForInsertEditFormColumn($table_columns, $column_number,
             $foreignData, $odd_row, array($table, $db), $row_id, $titles,
             $text_dir, $special_chars_encoded, $vkey, $is_upload,
             $biggest_max_file_size, $default_char_editing,
-            $no_support_types, $gis_data_types, $extracted_columnspec
+            $no_support_types, $gis_data_types, $extracted_columnspec, $readOnly
         );
     }
     $html_output .= '</td>'
@@ -2936,10 +2998,6 @@ function PMA_getHtmlForInsertEditRow($url_params, $table_columns,
     }
     for ($column_number = 0; $column_number < $columns_cnt; $column_number++) {
         $table_column = $table_columns[$column_number];
-        // skip this column if user does not have necessary column privilges
-        if (! PMA_userHasColumnPrivileges($table_column, $insert_mode)) {
-            continue;
-        }
         $column_mime = array();
         if (isset($mime_map[$table_column['Field']])) {
             $column_mime = $mime_map[$table_column['Field']];

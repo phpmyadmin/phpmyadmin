@@ -26,11 +26,9 @@ class NodeTableContainer extends NodeDatabaseChildContainer
         $this->icon = PMA\libraries\Util::getImage('b_browse.png', __('Tables'));
         $this->links = array(
             'text' => 'db_structure.php?server=' . $GLOBALS['server']
-                . '&amp;db=%1$s&amp;tbl_type=table'
-                . '&amp;token=' . $_SESSION[' PMA_token '],
+                . '&amp;db=%1$s&amp;tbl_type=table',
             'icon' => 'db_structure.php?server=' . $GLOBALS['server']
-                . '&amp;db=%1$s&amp;tbl_type=table'
-                . '&amp;token=' . $_SESSION[' PMA_token '],
+                . '&amp;db=%1$s&amp;tbl_type=table',
         );
         $this->real_name = 'tables';
         $this->classes = 'tableContainer subContainer';
@@ -44,9 +42,9 @@ class NodeTableContainer extends NodeDatabaseChildContainer
         $new->icon = PMA\libraries\Util::getImage('b_table_add.png', $new_label);
         $new->links = array(
             'text' => 'tbl_create.php?server=' . $GLOBALS['server']
-                . '&amp;db=%2$s&amp;token=' . $_SESSION[' PMA_token '],
+                . '&amp;db=%2$s',
             'icon' => 'tbl_create.php?server=' . $GLOBALS['server']
-                . '&amp;db=%2$s&amp;token=' . $_SESSION[' PMA_token '],
+                . '&amp;db=%2$s',
         );
         $new->classes = 'new_table italics';
         $this->addChild($new);

@@ -11,7 +11,6 @@
 
 use PMA\libraries\Theme;
 
-require_once 'libraries/sanitizing.lib.php';
 require_once 'test/PMATestCase.php';
 
 /**
@@ -37,9 +36,6 @@ class ErrorHandlerTest extends PMATestCase
     {
         $this->object = new PMA\libraries\ErrorHandler();
 
-        $GLOBALS['pmaThemeImage'] = 'image';
-        $_SESSION['PMA_Theme'] = Theme::load('./themes/pmahomme');
-        $_SESSION['PMA_Theme'] = new Theme();
     }
 
     /**

@@ -330,18 +330,18 @@ class Response
             }
 
             $this->addJSON('_scripts', $this->getHeader()->getScripts()->getFiles());
-            $this->addJSON('_selflink', $this->getFooter()->getSelfUrl('unencoded'));
+            $this->addJSON('_selflink', $this->getFooter()->getSelfUrl());
             $this->addJSON('_displayMessage', $this->getHeader()->getMessage());
 
             $debug = $this->_footer->getDebugMessage();
             if (empty($_REQUEST['no_debug'])
-                && mb_strlen($debug)
+                && strlen($debug) > 0
             ) {
                 $this->addJSON('_debug', $debug);
             }
 
             $errors = $this->_footer->getErrorMessages();
-            if (mb_strlen($errors)) {
+            if (strlen($errors) > 0) {
                 $this->addJSON('_errors', $errors);
             }
             $promptPhpErrors = $GLOBALS['error_handler']->hasErrorsForPrompt();
@@ -448,6 +448,8 @@ class Response
 
     /**
      * Wrapper around PHP's header() function.
+     *
+     * @param string $text header string
      *
      * @return void
      */

@@ -10,6 +10,7 @@
 use PMA\libraries\Message;
 use PMA\libraries\ServerStatusData;
 use PMA\libraries\Util;
+use PMA\libraries\URL;
 
 /**
  * Prints html for auto refreshing processes list
@@ -51,11 +52,11 @@ function PMA_getHtmlForServerProcesslist()
     $show_full_sql = ! empty($_REQUEST['full']);
     if ($show_full_sql) {
         $url_params['full'] = 1;
-        $full_text_link = 'server_status_processes.php' . PMA_URL_getCommon(
-            array(), 'html', '?'
+        $full_text_link = 'server_status_processes.php' . URL::getCommon(
+            array(), '?'
         );
     } else {
-        $full_text_link = 'server_status_processes.php' . PMA_URL_getCommon(
+        $full_text_link = 'server_status_processes.php' . URL::getCommon(
             array('full' => 1)
         );
     }
@@ -142,7 +143,7 @@ function PMA_getHtmlForServerProcesslist()
         }
 
         $retval .= '<th>';
-        $columnUrl = PMA_URL_getCommon($column);
+        $columnUrl = URL::getCommon($column);
         $retval .= '<a href="server_status_processes.php' . $columnUrl . '" ';
         if ($is_sorted) {
             $retval .= 'onmouseout="$(\'.soimg\').toggle()" '
@@ -231,7 +232,7 @@ function PMA_getHtmlForProcessListFilter()
     $retval .= '<fieldset id="tableFilter">';
     $retval .= '<legend>' . __('Filters') . '</legend>';
     $retval .= '<form action="server_status_processes.php'
-        . PMA_URL_getCommon($url_params) . '">';
+        . URL::getCommon($url_params) . '">';
     $retval .= '<input type="submit" value="' . __('Refresh') . '" />';
     $retval .= '<div class="formelement">';
     $retval .= '<input' . $showExecuting . ' type="checkbox" name="showExecuting"'
@@ -275,7 +276,7 @@ function PMA_getHtmlForServerProcessItem($process, $odd_row, $show_full_sql)
         'kill' => $process['Id'],
         'ajax_request' => true
     );
-    $kill_process = 'server_status_processes.php' . PMA_URL_getCommon($url_params);
+    $kill_process = 'server_status_processes.php' . URL::getCommon($url_params);
 
     $retval  = '<tr class="' . ($odd_row ? 'odd' : 'even') . '">';
     $retval .= '<td><a class="ajax kill_process" href="' . $kill_process . '">'
@@ -284,7 +285,7 @@ function PMA_getHtmlForServerProcessItem($process, $odd_row, $show_full_sql)
     $retval .= '<td>' . htmlspecialchars($process['User']) . '</td>';
     $retval .= '<td>' . htmlspecialchars($process['Host']) . '</td>';
     $retval .= '<td>' . ((! isset($process['db'])
-            || !mb_strlen($process['db']))
+            || strlen($process['db']) === 0)
             ? '<i>' . __('None') . '</i>'
             : htmlspecialchars($process['db'])) . '</td>';
     $retval .= '<td>' . htmlspecialchars($process['Command']) . '</td>';

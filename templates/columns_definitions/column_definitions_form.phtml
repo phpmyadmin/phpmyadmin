@@ -1,12 +1,13 @@
 <?php
 use PMA\libraries\Partition;
 use PMA\libraries\StorageEngine;
+use PMA\libraries\URL;
 
 ?>
 <form method="post"
       action="<?= $action; ?>"
       class="<?= ($action == 'tbl_create.php' ? 'create_table' : 'append_fields'); ?>_form ajax lock-page">
-    <?= PMA_URL_getHiddenInputs($form_params); ?>
+    <?= URL::getHiddenInputs($form_params); ?>
    <!-- happens when an index has been set on a column -->
    <!-- and a column is added to the table creation dialog -->
    <!-- This contains a JSON-encoded string -->
@@ -54,7 +55,7 @@ use PMA\libraries\StorageEngine;
                            class="textfield" autofocus required />
                     </td>
                     <td>
-                        Add
+                        <?= __('Add'); ?>
                         <input type="number"
                                id="added_fields"
                                name="added_fields"
@@ -62,7 +63,7 @@ use PMA\libraries\StorageEngine;
                                value="1"
                                min="1"
                                onfocus="this.select()" />
-                        column(s)
+                        <?= __('column(s)'); ?>
                         <input type="button"
                                name="submit_num_fields"
                                value="<?= __('Go'); ?>" />
@@ -113,8 +114,7 @@ use PMA\libraries\StorageEngine;
                 </td>
                 <td width="25">&nbsp;</td>
                 <td>
-                    <?= PMA_generateCharsetDropdownBox(
-                        PMA_CSDROPDOWN_COLLATION,
+                    <?= PMA\libraries\Charsets::getCollationDropdownBox(
                         'tbl_collation',
                         null,
                         isset($_REQUEST['tbl_collation']) ? $_REQUEST['tbl_collation'] : null,

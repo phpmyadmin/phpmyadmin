@@ -8,15 +8,12 @@
 
 use PMA\libraries\di\Container;
 use PMA\libraries\Theme;
+use PMA\libraries\URL;
 
-require_once 'libraries/url_generating.lib.php';
 
 require_once 'libraries/database_interface.inc.php';
 require_once 'test/libraries/stubs/ResponseStub.php';
 require_once 'test/PMATestCase.php';
-
-require_once 'libraries/sanitizing.lib.php';
-require_once 'libraries/js_escape.lib.php';
 
 /**
  * Tests for ServerVariablesController class
@@ -45,11 +42,8 @@ class ServerVariablesControllerTest extends PMATestCase
         $GLOBALS['PMA_PHP_SELF'] = PMA_getenv('PHP_SELF');
         $GLOBALS['server'] = 1;
         $GLOBALS['table'] = "table";
-        $GLOBALS['pmaThemeImage'] = 'image';
 
         //$_SESSION
-        $_SESSION['PMA_Theme'] = Theme::load('./themes/pmahomme');
-        $_SESSION['PMA_Theme'] = new Theme();
 
         //Mock DBI
         $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
@@ -130,22 +124,31 @@ class ServerVariablesControllerTest extends PMATestCase
         $name_for_value_not_num = "PMA_key";
 
         //name is_numeric and the value type is byte
+        $args = array($name_for_value_byte, "3");
+        list($formattedValue, $isHtmlFormatted) = $method->invokeArgs($ctrl, $args);
         $this->assertEquals(
             '<abbr title="3">3 B</abbr>',
-            $method->invoke($ctrl, $name_for_value_byte, "3")
+            $formattedValue
         );
+        $this->assertEquals(true, $isHtmlFormatted);
 
         //name is_numeric and the value type is not byte
+        $args = array($name_for_value_not_byte, "3");
+        list($formattedValue, $isHtmlFormatted) = $method->invokeArgs($ctrl, $args);
         $this->assertEquals(
             '3',
-            $method->invoke($ctrl, $name_for_value_not_byte, "3")
+            $formattedValue
         );
+        $this->assertEquals(false, $isHtmlFormatted);
 
         //value is not a number
+        $args = array($name_for_value_not_byte, "value");
+        list($formattedValue, $isHtmlFormatted) = $method->invokeArgs($ctrl, $args);
         $this->assertEquals(
             'value',
-            $method->invoke($ctrl, $name_for_value_not_num, "value")
+            $formattedValue
         );
+        $this->assertEquals(false, $isHtmlFormatted);
     }
 
     /**
@@ -173,7 +176,7 @@ class ServerVariablesControllerTest extends PMATestCase
 
         //Call the test function
         $html = $method->invoke($ctrl);
-        $url = 'server_variables.php' . PMA_URL_getCommon(array());
+        $url = 'server_variables.php' . URL::getCommon();
 
         //validate 1: URL
         $this->assertContains(
@@ -299,7 +302,8 @@ class ServerVariablesControllerTest extends PMATestCase
         $formatVariable = $class->getMethod('_formatVariable');
         $formatVariable->setAccessible(true);
 
-        $value = $formatVariable->invoke($ctrl, $name, "12");
+        $args = array($name, "12");
+        list($value, $isHtmlFormatted) = $formatVariable->invokeArgs($ctrl, $args);
         $this->assertContains(
             $value,
             $html
@@ -311,7 +315,8 @@ class ServerVariablesControllerTest extends PMATestCase
             $html
         );
 
-        $value = $formatVariable->invoke($ctrl, $name, "13");
+        $args = array($name, "13");
+        list($value, $isHtmlFormatted) = $formatVariable->invokeArgs($ctrl, $args);
         $this->assertContains(
             $value,
             $html

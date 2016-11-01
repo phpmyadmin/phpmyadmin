@@ -6,6 +6,7 @@
 language: php
 
 php:
+  - "7.1.0RC3"
   - "7.0"
   - "5.6"
   - "5.5"
@@ -15,20 +16,18 @@ sudo: false
 
 env:
   matrix:
-    - PHPUNIT_ARGS="--exclude-group selenium"
+    - CI_MODE=test
+    - CI_MODE=lint
   global:
     - TESTSUITE_USER=root
     - TESTSUITE_PASSWORD=root
     - TESTSUITE_URL=http://127.0.0.1:8000
 
 install:
-  - pip install --user codecov
-  - ./test/install-runkit
-  - ./test/install-browserstack
-  - composer install --dev --no-interaction
+  - ./test/ci-install-$CI_MODE
+  - if [ $TRAVIS_PHP_VERSION != "hhvm" ] ; then phpenv config-add test/php-noprofile.ini ; fi
 
 before_script:
-  - if [ $TRAVIS_PHP_VERSION != "hhvm" ] ; then phpenv config-add test/php-noprofile.ini ; fi
   - export PATH=~/.composer/vendor/bin/:$PATH
   - mysql -uroot -e "CREATE DATABASE test"
   - mysql -uroot < sql/create_tables.sql
@@ -37,31 +36,42 @@ before_script:
 
 script:
   - ant clean
-  - ant locales
-  - ant lint
-  - set -e;
-    if [ $TRAVIS_PHP_VERSION == "hhvm" ] ; then
-    ant phpunit-hhvm ;
-    else
-    if [ ! -z "$SELENIUM" ] ; then
-    ant phpunit-nocoverage ;
-    else
-    ant phpunit ;
-    fi ;
-    fi
+  - ./test/ci-$CI_MODE
 
 after_script:
   - if [ -f vendor/bin/coveralls ] ; then php vendor/bin/coveralls -v || true ; fi
   - if [ -f vendor/bin/codacycoverage ] ; then php vendor/bin/codacycoverage clover || true ; fi
-  - codecov
   - if [ -f php.log ] ; then cat php.log ; fi
 
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
+
+matrix:
+  allow_failures:
+    - php: "7.0"
+      env: CI_MODE=selenium
+  fast_finish: true
+  include:
+    - php: "7.0"
+      env: CI_MODE=selenium
+    - php: "7.0"
+      env: CI_MODE=release
+    - php: "7.0"
+      env: CI_MODE=docs
 cache:
   directories:
     - $HOME/.composer/cache/
     - $HOME/browserstack
     - $HOME/runkit
+    - $HOME/.cache/pip
 # trigger Buildtime Trend Service to parse Travis CI log
 notifications:
   webhooks:
     - https://buildtimetrend.herokuapp.com/travis
+addons:
+  apt:
+    packages:
+    - git
+    - python-coverage
+    sources:
+    - git-core

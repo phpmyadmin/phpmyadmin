@@ -9,7 +9,6 @@
 use PMA\libraries\gis\GISMultipolygon;
 
 require_once 'GISGeomTest.php';
-require_once 'libraries/tcpdf/tcpdf.php';
 
 
 /**

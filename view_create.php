@@ -7,6 +7,7 @@
  * @todo (also validate if js is disabled, after form submission?)
  * @package PhpMyAdmin
  */
+use PMA\libraries\URL;
 
 require_once './libraries/common.inc.php';
 
@@ -71,9 +72,14 @@ if (isset($_REQUEST['createview']) || isset($_REQUEST['alterview'])) {
     }
 
     if (! empty($_REQUEST['view']['definer'])) {
-        $arr = explode('@', $_REQUEST['view']['definer']);
-        $sql_query .= $sep . 'DEFINER=' . PMA\libraries\Util::backquote($arr[0]);
-        $sql_query .= '@' . PMA\libraries\Util::backquote($arr[1]) . ' ';
+        if (strpos($_REQUEST['view']['definer'], '@') === FALSE) {
+            $sql_query .= $sep . 'DEFINER='
+                . PMA\libraries\Util::backquote($_REQUEST['view']['definer']);
+        } else {
+            $arr = explode('@', $_REQUEST['view']['definer']);
+            $sql_query .= $sep . 'DEFINER=' . PMA\libraries\Util::backquote($arr[0]);
+            $sql_query .= '@' . PMA\libraries\Util::backquote($arr[1]) . ' ';
+        }
     }
 
     if (isset($_REQUEST['view']['sql_security'])) {
@@ -192,7 +198,7 @@ $url_params['reload'] = 1;
 $htmlString = '<!-- CREATE VIEW options -->'
     . '<div id="div_view_options">'
     . '<form method="post" action="view_create.php">'
-    . PMA_URL_getHiddenInputs($url_params)
+    . URL::getHiddenInputs($url_params)
     . '<fieldset>'
     . '<legend>'
     . (isset($_REQUEST['ajax_dialog']) ?

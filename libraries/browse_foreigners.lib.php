@@ -5,6 +5,7 @@
  *
  * @package PhpMyAdmin
  */
+use PMA\libraries\URL;
 
 /**
  * Function to get html for one relational key
@@ -116,7 +117,7 @@ function PMA_getHtmlForRelationalFieldSelection($db, $table, $field, $foreignDat
         . 'id="browse_foreign_form" name="browse_foreign_from" '
         . 'action="browse_foreigners.php" method="post">'
         . '<fieldset>'
-        . PMA_URL_getHiddenInputs($db, $table)
+        . URL::getHiddenInputs($db, $table)
         . '<input type="hidden" name="field" value="' . htmlspecialchars($field)
         . '" />'
         . '<input type="hidden" name="fieldkey" value="'

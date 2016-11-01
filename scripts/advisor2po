@@ -50,8 +50,7 @@ function print_message($idx) {
 }
 
 define('PHPMYADMIN', 1);
-require_once 'libraries/vendor_config.php';
-require_once 'libraries/autoloader.php';
+require_once 'vendor/autoload.php';
 require_once 'libraries/core.lib.php';
 
 $rules = PMA\libraries\Advisor::parseRulesFile();

@@ -9,6 +9,8 @@ namespace PMA\libraries\navigation;
 
 use PMA;
 use PMA\libraries\Template;
+use PMA\libraries\URL;
+use PMA\libraries\Sanitize;
 
 /**
  * This class renders the logo, links, server selection,
@@ -26,9 +28,9 @@ class NavigationHeader
     public function getDisplay()
     {
         if (empty($GLOBALS['url_query'])) {
-            $GLOBALS['url_query'] = PMA_URL_getCommon();
+            $GLOBALS['url_query'] = URL::getCommon();
         }
-        $link_url = PMA_URL_getCommon(
+        $link_url = URL::getCommon(
             array(
                 'ajax_request' => true,
             )
@@ -108,14 +110,12 @@ class NavigationHeader
         );
         // prevent XSS, see PMASA-2013-9
         // if link has protocol, allow only http and https
-        if (preg_match('/^[a-z]+:/i', $logoLink)
-            && !preg_match('/^https?:/i', $logoLink)
-        ) {
+        if (! Sanitize::checkLink($logoLink, true)) {
             $logoLink = 'index.php';
         }
         switch ($GLOBALS['cfg']['NavigationLogoLinkWindow']) {
         case 'new':
-            $linkAttriks = 'target="_blank"';
+            $linkAttriks = 'target="_blank" rel="noopener noreferrer"';
             break;
         case 'main':
             // do not add our parameters for an external link
@@ -124,9 +124,9 @@ class NavigationHeader
                 PHP_URL_HOST
             );
             if (empty($host)) {
-                $logoLink .= PMA_URL_getCommon();
+                $logoLink .= URL::getCommon();
             } else {
-                $linkAttriks = 'target="_blank"';
+                $linkAttriks = 'target="_blank" rel="noopener noreferrer"';
             }
         }
 
@@ -157,7 +157,7 @@ class NavigationHeader
         $retval = '<!-- LINKS START -->';
         $retval .= '<div id="navipanellinks">';
         $retval .= PMA\libraries\Util::getNavigationLink(
-            'index.php' . PMA_URL_getCommon(),
+            'index.php' . URL::getCommon(),
             $showText,
             __('Home'),
             $showIcon,
@@ -179,7 +179,9 @@ class NavigationHeader
                 $showIcon,
                 's_loggoff.png',
                 '',
-                true
+                true,
+                '',
+                array('logout')
             );
         }
         $retval .= PMA\libraries\Util::getNavigationLink(
