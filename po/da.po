@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.5-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-10-25 11:13+0200\n"
-"PO-Revision-Date: 2016-10-10 19:29+0000\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Danish <https://hosted.weblate.org/projects/phpmyadmin/4-6/da/"
-">\n"
+"PO-Revision-Date: 2016-11-02 16:34+0000\n"
+"Last-Translator: Jørgen Thomsen <opensource@jth.net>\n"
+"Language-Team: Danish "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-6/da/>\n"
 "Language: da\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -586,8 +586,7 @@ msgid "Bookmark %s has been created."
 msgstr "Bogmærket %s er blevet oprettet."
 
 #: import.php:697
-#, fuzzy, php-format
-#| msgid "Import has been successfully finished, %d queries executed."
+#, php-format
 msgid "Import has been successfully finished, %d query executed."
 msgid_plural "Import has been successfully finished, %d queries executed."
 msgstr[0] "Importen er korrekt gennemført, %d forespørgsler udført."
@@ -755,6 +754,8 @@ msgid ""
 "The curl extension was not found and allow_url_fopen is disabled. Due to "
 "this some features such as error reporting or version check are disabled."
 msgstr ""
+"Curl-udvidelsen blev ikke fundet og allow_url_fopen er deaktiveret. Derfor "
+"er nogle funktioner, som fejlrapportering og versionskontrol, deaktiveret."
 
 #: index.php:468
 msgid ""
@@ -784,7 +785,7 @@ msgstr ""
 
 #: index.php:509
 msgid "The secret passphrase in configuration (blowfish_secret) is too short."
-msgstr ""
+msgstr "Det hemmelige password i konfigurationen (blowfish_secret) er for kort."
 
 #: index.php:523
 msgid ""
@@ -929,16 +930,12 @@ msgid "Do you really want to TRUNCATE the selected partition(s)?"
 msgstr "Er du sikker på at du vil TRUNCATE de valgte partitioner?"
 
 #: js/messages.php:80
-#, fuzzy
-#| msgid "Do you really want to TRUNCATE the selected partition(s)?"
 msgid "Do you really want to remove partitioning?"
-msgstr "Er du sikker på at du vil TRUNCATE de valgte partitioner?"
+msgstr "Er du sikker på, at du vil fjerne partitionering?"
 
 #: js/messages.php:81
-#, fuzzy
-#| msgid "Do you really want to execute \"%s\"?"
 msgid "Do you really want to RESET SLAVE?"
-msgstr "Er du sikker på at du vil udføre \"%s\"?"
+msgstr "Er du sikker på, at du vil RESET SLAVE?"
 
 #: js/messages.php:83
 msgid ""
@@ -966,14 +963,6 @@ msgstr ""
 "dataene?"
 
 #: js/messages.php:93
-#, fuzzy
-#| msgid ""
-#| "Through this operation, MySQL attempts to map the data values between "
-#| "collations. If the character sets are incompatible, there may be data "
-#| "loss and this lost data may <b>NOT</b> be recoverable simply by changing "
-#| "back the column collation(s).<b> To convert existing data, it is "
-#| "suggested to use the column(s) editing feature (the \"Change\" Link) on "
-#| "the table structure page. </b>"
 msgid ""
 "Through this operation, MySQL attempts to map the data values between "
 "collations. If the character sets are incompatible, there may be data loss "
@@ -983,11 +972,11 @@ msgid ""
 "</b>"
 msgstr ""
 "Ved denne operation vil MySQL forsøge at mappe data mellem "
-"sorteringsrækkefølgerne.  Hvis karaktersæt er inkompatible, kan der "
-"forekomme datatab og de tabte data kan måske <b>IKKE</b> reddes ved at ændre "
-"tilbage kolonne sorteringsrækkefølgen.<b>For at konvertere eksisterende "
-"data, foreslås det at benytte kolonne redigeringsfunktionen (\"Change\" "
-"Link) på tabelstruktur siden.</b>"
+"sorteringsrækkefølgerne. Hvis karaktersæt er inkompatible, kan der forekomme "
+"datatab og de tabte data kan måske <b>IKKE</b> reddes ved at ændre "
+"sorteringsrækkefølgen for kolonner tilbage.<b>For at konvertere eksisterende "
+"data foreslås det at benytte redigeringsfunktionen for kolonner (\"Ret\") på "
+"tabelstruktursiden.</b>"
 
 #: js/messages.php:102
 msgid ""
@@ -1675,10 +1664,8 @@ msgid "Formatting SQL…"
 msgstr "Formatterer SQL …"
 
 #: js/messages.php:341
-#, fuzzy
-#| msgid "Bad parameters!"
 msgid "No parameters found!"
-msgstr "Forkerte parametre!"
+msgstr "Ingen parametre fundet!"
 
 #: js/messages.php:345
 #: templates/database/designer/aggregate_query_panel.phtml:63
@@ -1823,7 +1810,7 @@ msgstr "Eksportér"
 
 #: js/messages.php:389
 msgid "No routine is exportable. Required privileges may be lacking."
-msgstr ""
+msgstr "Ingen rutine er eksporterbar. Nødvendige rettigheder kan savnes."
 
 #: js/messages.php:392 libraries/rte/rte_routines.lib.php:754
 msgid "ENUM/SET editor"
@@ -2182,6 +2169,8 @@ msgid ""
 "MySQL accepts additional values not selectable by the slider; key in those "
 "values directly if desired"
 msgstr ""
+"MySQL accepterer værdier, som ikke kan vælges med skydeknappen; indtast "
+"disse værdier direkte, hvis det ønskes"
 
 #: js/messages.php:528
 msgid ""
@@ -2570,24 +2559,23 @@ msgid ""
 "cause such a problem, clearing your \"Offline Website Data\" might help. In "
 "Safari, such problem is commonly caused by \"Private Mode Browsing\"."
 msgstr ""
+"Det er ikke muligt at tilgå din browsers lokale lager. Visse funktioner "
+"fungerer derfor måske ikke. Det er muligt, at browseren ikke understøtter "
+"lager eller at kvotagrænsen er nået. I Firefox kan ødelagt lager også "
+"forårsage problemet. Sletning af dit \"Offline webindhold\" kan hjælpe. I "
+"Safari er sådan et problem ofte forårsaget af browsing i \"Private Mode\"."
 
 #: js/messages.php:714
-#, fuzzy
-#| msgid "Copy database to"
 msgid "Copy tables to"
-msgstr "Kopier database til"
+msgstr "Kopier tabeller til"
 
 #: js/messages.php:715
-#, fuzzy
-#| msgid "Add table prefix:"
 msgid "Add table prefix"
-msgstr "Tilføj tabelpræfiks:"
+msgstr "Tilføj tabelpræfiks"
 
 #: js/messages.php:716
-#, fuzzy
-#| msgid "Replace table prefix"
 msgid "Replace table with prefix"
-msgstr "Erstat tabel præfiks"
+msgstr "Erstat tabel med præfiks"
 
 #: js/messages.php:717 templates/database/structure/check_all_tables.phtml:29
 msgid "Copy table with prefix"
@@ -2952,6 +2940,7 @@ msgstr "Mislykkedes med at formatere streng for reglen '%s'."
 #, php-format
 msgid "Error in reading file: The file '%s' does not exist or is not readable!"
 msgstr ""
+"Fejl ved læsning af fil: Filen '%s' eksisterer ikke eller er ikke læsbar!"
 
 #: libraries/Advisor.php:492
 #, php-format
@@ -3024,8 +3013,8 @@ msgstr "Database"
 #, php-format
 msgid "Showing %1$d bookmark (both private and shared)"
 msgid_plural "Showing %1$d bookmarks (both private and shared)"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Viser %1$d bogmærke (både privat og delt)"
+msgstr[1] "Viser %1$d bogmærker (både private og delte)"
 
 #: libraries/Console.php:107
 msgid "No bookmarks"
@@ -3224,10 +3213,8 @@ msgid "Switch to dark theme"
 msgstr "Skift til det mørke tema"
 
 #: libraries/DatabaseInterface.php:1485
-#, fuzzy
-#| msgid "Failed to read configuration file!"
 msgid "Failed to set configured collation connection!"
-msgstr "Kunne ikke indlæse konfigurationsfilen!"
+msgstr "Kunne ikke indstille den konfigurerede sorteringsforbindelse!"
 
 #: libraries/DatabaseInterface.php:2097
 msgid ""
@@ -3615,7 +3602,7 @@ msgstr "Vælg alle"
 
 #: libraries/DisplayResults.php:5014
 msgid "Copy to clipboard"
-msgstr ""
+msgstr "Kopier til udklipsholder"
 
 #: libraries/DisplayResults.php:5070
 msgid "Query results operations"
@@ -3683,7 +3670,7 @@ msgstr "Ukendt fejl i filupload."
 
 #: libraries/File.php:424
 msgid "File is a symbolic link"
-msgstr ""
+msgstr "Filen er et symbolsk link"
 
 #: libraries/File.php:470
 msgid "Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc]."
@@ -4610,6 +4597,8 @@ msgid ""
 "Stores and enables efficient access to data in JSON (JavaScript Object "
 "Notation) documents"
 msgstr ""
+"Lagrer og muliggør effektiv tilgang til data i JSON (JavaScript Object "
+"Notation) dokumenter"
 
 #: libraries/TypesMySQL.php:479
 msgctxt "numeric types"
@@ -4671,14 +4660,10 @@ msgid "Analyze Explain at %s"
 msgstr "Forklaring af analyse ved %s"
 
 #: libraries/Util.php:1258
-#, fuzzy
-#| msgid "Without PHP Code"
 msgid "Without PHP code"
 msgstr "Uden PHP-kode"
 
 #: libraries/Util.php:1270
-#, fuzzy
-#| msgid "Submit Query"
 msgid "Submit query"
 msgstr "Send forespørgsel"
 
@@ -4857,7 +4842,6 @@ msgid "Attribute"
 msgstr "Attribut"
 
 #: libraries/central_columns.lib.php:707 libraries/central_columns.lib.php:1381
-#, fuzzy
 msgid "A_I"
 msgstr "A_I"
 
@@ -5187,10 +5171,10 @@ msgid "Allow users to customize this value"
 msgstr "Tillad brugerdefinerede indstillinger for værdien"
 
 #: libraries/config/PageSettings.php:141
-#, fuzzy
-#| msgid "Cannot save settings, submitted form contains errors!"
 msgid "Cannot save settings, submitted configuration form contains errors!"
-msgstr "Kan ikke gemme indstillinger, den sendte formular indeholder fejl!"
+msgstr ""
+"Kan ikke gemme indstillinger, den sendte konfigurationsformular indeholder "
+"fejl!"
 
 #: libraries/config/ServerConfigChecks.php:157
 msgid "You should use SSL connections if your database server supports it."
@@ -5202,10 +5186,8 @@ msgid "You allow for connecting to the server without a password."
 msgstr "Du tillader forbindelse til serveren uden adgangskode."
 
 #: libraries/config/ServerConfigChecks.php:347
-#, fuzzy
-#| msgid "Key is too short, it should have at least 8 characters."
 msgid "Key is too short, it should have at least 32 characters."
-msgstr "Nøglen er for kort, den bør have mindst 8 tegn."
+msgstr "Nøglen er for kort, den bør have mindst 32 tegn."
 
 #: libraries/config/ServerConfigChecks.php:357
 msgid "Key should contain letters, numbers [em]and[/em] special characters."
@@ -5344,10 +5326,8 @@ msgid "Could not connect to the database server!"
 msgstr "Kunne ikke forbinde databaseserveren!"
 
 #: libraries/config/Validator.php:243
-#, fuzzy
-#| msgid "Authentication type"
 msgid "Invalid authentication type!"
-msgstr "Autentifikationstype"
+msgstr "Invalid autentifikationstype!"
 
 #: libraries/config/Validator.php:250
 msgid "Empty username while using [kbd]config[/kbd] authentication method!"
@@ -5459,14 +5439,8 @@ msgid "Highlight pointer"
 msgstr "Fremhæv pointer"
 
 #: libraries/config/messages.inc.php:47
-#, fuzzy
-#| msgid ""
-#| "Enable [a@https://en.wikipedia.org/wiki/Bzip2]bzip2[/a] compression for "
-#| "import operations."
 msgid "Enable bzip2 compression for import operations."
-msgstr ""
-"Aktivér komprimering med [a@https://en.wikipedia.org/wiki/Bzip2]bzip2[/a] "
-"ved import."
+msgstr "Aktivér komprimering med bzip2 ved import."
 
 #: libraries/config/messages.inc.php:50
 msgid "Bzip2"
@@ -5487,17 +5461,12 @@ msgid "CHAR columns editing"
 msgstr "Redigering af CHAR-kolonner"
 
 #: libraries/config/messages.inc.php:58
-#, fuzzy
-#| msgid ""
-#| "Use user-friendly editor for editing SQL queries ([a@https://codemirror."
-#| "net/]CodeMirror[/a]) with syntax highlighting and line numbers."
 msgid ""
 "Use user-friendly editor for editing SQL queries (CodeMirror) with syntax "
 "highlighting and line numbers."
 msgstr ""
-"Brug et brugervenligt tekstredigereingsprogram til at redigere SQL-"
-"forespørgsler, ([a@https://codemirror.net/]CodeMirror[/a]) med fremhævelse "
-"af syntaks og linjenummerering."
+"Brug et brugervenligt tekstredigeringsprogram til at redigere SQL-"
+"forespørgsler (CodeMirror) med fremhævelse af syntaks og linjenummerering."
 
 #: libraries/config/messages.inc.php:62
 msgid "Enable CodeMirror"
@@ -5508,12 +5477,12 @@ msgid ""
 "Find any errors in the query before executing it. Requires CodeMirror to be "
 "enabled."
 msgstr ""
+"Find alle fejl i forspørgslen, før den udføres. Kræver, at CodeMirror er "
+"aktiveret."
 
 #: libraries/config/messages.inc.php:67
-#, fuzzy
-#| msgid "Enable SQL Validator"
 msgid "Enable linter"
-msgstr "Aktivér SQL Validator"
+msgstr "Aktivér linter"
 
 #: libraries/config/messages.inc.php:69
 msgid ""
@@ -5591,7 +5560,7 @@ msgstr "Bekræft DROP-forespørgsler"
 #: libraries/config/messages.inc.php:97
 msgid ""
 "Log SQL queries and their execution time, to be displayed in the console"
-msgstr ""
+msgstr "Log SQL forespørgsler og deres udførselstid. Vises i konsollen"
 
 #: libraries/config/messages.inc.php:101
 msgid "Tab that is displayed when entering a database."
@@ -5618,30 +5587,24 @@ msgid "Default table tab"
 msgstr "Standard tabel-fane"
 
 #: libraries/config/messages.inc.php:110
-#, fuzzy
-#| msgid "Enclose table and column names with backquotes"
 msgid "Autocomplete of the table and column names in the SQL queries."
-msgstr "Brug \"backquotes\" omkring tabel- og feltnavne"
+msgstr "Autofyld tabel- og kolonnenavne i SQL forespørgsler."
 
 #: libraries/config/messages.inc.php:113
-#, fuzzy
-#| msgid "Enclose table and column names with backquotes"
 msgid "Enable autocomplete for table and column names"
-msgstr "Brug \"backquotes\" omkring tabel- og feltnavne"
+msgstr "Aktiver autofyld for tabel- og kolonnenavne"
 
 #: libraries/config/messages.inc.php:116
 msgid "Whether the table structure actions should be hidden."
 msgstr "Hvorvidt tabelstruktur handlinger skal være skjulte."
 
 #: libraries/config/messages.inc.php:117
-#, fuzzy
-#| msgid "Table comments"
 msgid "Show column comments"
-msgstr "Tabel kommentarer"
+msgstr "Vis kolonnekommentarer"
 
 #: libraries/config/messages.inc.php:119
 msgid "Whether column comments should be shown in table structure view"
-msgstr ""
+msgstr "Om kolonnekommentarer skal vises i visningen af tabelstruktur"
 
 #: libraries/config/messages.inc.php:120
 msgid "Hide table structure actions"
@@ -5680,10 +5643,9 @@ msgid "Maximum execution time"
 msgstr "Maksimal eksekveringstid"
 
 #: libraries/config/messages.inc.php:135 libraries/display_export.lib.php:796
-#, fuzzy, php-format
-#| msgid "Add %s statement"
+#, php-format
 msgid "Use %s statement"
-msgstr "Tilføj %s forespørgsel"
+msgstr "Brug %s forespørgsel"
 
 #: libraries/config/messages.inc.php:137 prefs_manage.php:317
 msgid "Save as file"
@@ -5825,10 +5787,8 @@ msgid "Overwrite existing file(s)"
 msgstr "Overskriv eksisterende fil(er)"
 
 #: libraries/config/messages.inc.php:184
-#, fuzzy
-#| msgid "Export table headers"
 msgid "Export as separate files"
-msgstr "Eksportér tabel-hoveder"
+msgstr "Eksportér som separate filer"
 
 #: libraries/config/messages.inc.php:188
 msgid "Remember file name template"
@@ -5867,10 +5827,8 @@ msgid "Export views as tables"
 msgstr "Eksportér visninger som tabeller"
 
 #: libraries/config/messages.inc.php:198
-#, fuzzy
-#| msgid "%sCreate%s missing phpMyAdmin configuration storage tables."
 msgid "Export related metadata from phpMyAdmin configuration storage"
-msgstr "%sOpret%s manglende tabeller for phpMyAdmin-konfigurationslager."
+msgstr "Eksporter relaterede metadata fra phpMyAdmin-konfigurationslager"
 
 #: libraries/config/messages.inc.php:200 libraries/config/messages.inc.php:201
 #: libraries/config/messages.inc.php:203 libraries/config/messages.inc.php:205
@@ -5890,6 +5848,8 @@ msgid ""
 "Add IF NOT EXISTS (less efficient as indexes will be generated during table "
 "creation)"
 msgstr ""
+"Tilføj IF NOT EXISTS (mindre effektivt, da indeks vil blive genereret under "
+"oprettelsen af tabellen)"
 
 #: libraries/config/messages.inc.php:214
 msgid "Use ignore inserts"
@@ -5940,12 +5900,11 @@ msgstr "Øvre grænse for fremmednøgle"
 #: libraries/config/messages.inc.php:242
 msgid "Default value for foreign key checks checkbox for some queries."
 msgstr ""
+"Standardværdi for checkboksen for fremmednøglechecks for nogle forespørgsler."
 
 #: libraries/config/messages.inc.php:244
-#, fuzzy
-#| msgid "Foreign key check:"
 msgid "Foreign key checks"
-msgstr "Tjek af fremmednøgle:"
+msgstr "Tjek af fremmednøgle"
 
 #: libraries/config/messages.inc.php:245
 msgid "Browse mode"
@@ -6040,16 +5999,12 @@ msgid "Customize appearance of the navigation panel."
 msgstr "Tilpas navigationspanelets udseende."
 
 #: libraries/config/messages.inc.php:273
-#, fuzzy
-#| msgid "Navigation panel"
 msgid "Navigation tree"
-msgstr "Navigationspanel"
+msgstr "Navigationstræ"
 
 #: libraries/config/messages.inc.php:274
-#, fuzzy
-#| msgid "Customize navigation panel"
 msgid "Customize the navigation tree."
-msgstr "Tilpas navigationspanelet"
+msgstr "Tilpas navigationstræet."
 
 #: libraries/config/messages.inc.php:275 libraries/select_server.lib.php:43
 #: setup/frames/index.inc.php:158
@@ -6263,14 +6218,8 @@ msgid "Disable some of the warnings shown by phpMyAdmin."
 msgstr "Deaktiver nogle af advarslerne, som phpMyAdmin viser."
 
 #: libraries/config/messages.inc.php:353
-#, fuzzy
-#| msgid ""
-#| "Enable [a@https://en.wikipedia.org/wiki/Gzip]gzip[/a] compression for "
-#| "import and export operations."
 msgid "Enable gzip compression for import and export operations."
-msgstr ""
-"Aktivér [a@https://en.wikipedia.org/wiki/Gzip]gzip[/a] komprimering for "
-"import og eksport-funktionerne."
+msgstr "Aktivér gzip komprimering for import og eksport-funktionerne."
 
 #: libraries/config/messages.inc.php:356
 msgid "GZip"
@@ -6516,16 +6465,12 @@ msgid "Maximum tables"
 msgstr "Maksimalt antal tabeller"
 
 #: libraries/config/messages.inc.php:466
-#, fuzzy
-#| msgid ""
-#| "The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd] "
-#| "([kbd]0[/kbd] for no limit)."
 msgid ""
 "The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd] "
 "([kbd]-1[/kbd] for no limit and [kbd]0[/kbd] for no change)."
 msgstr ""
-"Antallet af bytes et script må allokere, fx. [kbd]32M[/kbd] ([kbd]0[/kbd] "
-"for ubegrænset)."
+"Antallet af bytes et script må allokere, fx. [kbd]32M[/kbd] ([kbd]-1[/kbd] "
+"for ubegrænset og [kbd]0[/kbd] for uændret)."
 
 #: libraries/config/messages.inc.php:469
 msgid "Memory limit"
@@ -6647,71 +6592,51 @@ msgstr "Aktivér fremhævning"
 #: libraries/config/messages.inc.php:521
 msgid ""
 "Whether to offer the possibility of tree expansion in the navigation panel."
-msgstr ""
-"Om der skal eller ikke skal tilbydes udvidelse af træ i navigationspanelet."
+msgstr "Om der skal tilbydes udvidelse af træ i navigationspanelet."
 
 #: libraries/config/messages.inc.php:524
 msgid "Enable navigation tree expansion"
 msgstr "Slå udfoldelse af navigationstræ til"
 
 #: libraries/config/messages.inc.php:525
-#, fuzzy
-#| msgid "Show/Hide tables list"
 msgid "Show tables in tree"
-msgstr "Vis/skjul tabelliste"
+msgstr "Vis tabeller i træet"
 
 #: libraries/config/messages.inc.php:527
-#, fuzzy
-#| msgid ""
-#| "Whether to offer the possibility of tree expansion in the navigation "
-#| "panel."
 msgid "Whether to show tables under database in the navigation tree"
-msgstr ""
-"Om der skal eller ikke skal tilbydes udvidelse af træ i navigationspanelet."
+msgstr "Om der skal vises tabeller under database i navigationstræet"
 
 #: libraries/config/messages.inc.php:528
-#, fuzzy
-#| msgid "Show versions"
 msgid "Show views in tree"
-msgstr "Vis versioner"
+msgstr "Vis views i træet"
 
 #: libraries/config/messages.inc.php:530
-#, fuzzy
-#| msgid "Show databases navigation as tree"
 msgid "Whether to show views under database in the navigation tree"
-msgstr "Vis databasenavigationen som en træstruktur"
+msgstr "Om views skal vises under database i navigationstræet"
 
 #: libraries/config/messages.inc.php:531
-#, fuzzy
-#| msgid "Show function fields"
 msgid "Show functions in tree"
-msgstr "Vis funktionsfelter"
+msgstr "Vis funktioner i træet"
 
 #: libraries/config/messages.inc.php:533
 msgid "Whether to show functions under database in the navigation tree"
-msgstr ""
+msgstr "Om der skal vises funktioner under database i navigationstræet"
 
 #: libraries/config/messages.inc.php:534
-#, fuzzy
-#| msgid "Show processes"
 msgid "Show procedures in tree"
-msgstr "Vis tråde"
+msgstr "Vis procedurer i træet"
 
 #: libraries/config/messages.inc.php:536
 msgid "Whether to show procedures under database in the navigation tree"
-msgstr ""
+msgstr "Om der skal vises procedurer under database i navigationstræet"
 
 #: libraries/config/messages.inc.php:537
-#, fuzzy
-#| msgid "Show versions"
 msgid "Show events in tree"
-msgstr "Vis versioner"
+msgstr "Vis hændelser i træet"
 
 #: libraries/config/messages.inc.php:539
-#, fuzzy
-#| msgid "Show databases navigation as tree"
 msgid "Whether to show events under database in the navigation tree"
-msgstr "Vis databasenavigationen som en træstruktur"
+msgstr "Om hændelser skal vises under database i navigationstræet"
 
 #: libraries/config/messages.inc.php:541
 msgid "Maximum number of recently used tables; set 0 to disable."
@@ -6738,10 +6663,11 @@ msgstr "Hvor links til tablerækker skal vises"
 #: libraries/config/messages.inc.php:549
 msgid "Whether to show row links even in the absence of a unique key."
 msgstr ""
+"Om der skal vises række-links selv i tilfælde af en manglende unik nøgle."
 
 #: libraries/config/messages.inc.php:551
 msgid "Show row links anyway"
-msgstr ""
+msgstr "Vis række-links alligevel"
 
 #: libraries/config/messages.inc.php:553
 msgid "Use natural order for sorting table and database names."
@@ -6974,16 +6900,12 @@ msgid "Authentication type"
 msgstr "Autentifikationstype"
 
 #: libraries/config/messages.inc.php:638
-#, fuzzy
-#| msgid ""
-#| "Leave blank for no [a@https://wiki.phpmyadmin.net/pma/bookmark]bookmark[/"
-#| "a] support, suggested: [kbd]pma__bookmark[/kbd]"
 msgid ""
 "Leave blank for no [doc@bookmarks@]bookmark[/doc] support, suggested: "
 "[kbd]pma__bookmark[/kbd]"
 msgstr ""
-"Efterlades tom for at undlade understøttelse af [a@https://wiki.phpmyadmin."
-"net/pma/bookmark]bogmærkeer[/a], forslag: [kbd]pma_bookmark[/kbd]"
+"Efterlades tom for ingen understøttelse af [doc@bookmarks@]bookmark[/doc], "
+"forslag: [kbd]pma__bookmark[/kbd]"
 
 #: libraries/config/messages.inc.php:641
 msgid "Bookmark table"
@@ -7022,17 +6944,12 @@ msgid "Control user password"
 msgstr "Adgangskode for kontrolbruger"
 
 #: libraries/config/messages.inc.php:654
-#, fuzzy
-#| msgid ""
-#| "A special MySQL user configured with limited permissions, more "
-#| "information available on [a@https://wiki.phpmyadmin.net/pma/"
-#| "controluser]wiki[/a]."
 msgid ""
 "A special MySQL user configured with limited permissions, more information "
 "available on [doc@linked-tables]documentation[/doc]."
 msgstr ""
-"En speciel MySQL bruger med begrænsede tilladelser. Mere information på "
-"[a@https://wiki.phpmyadmin.net/pma/controluser]wiki[/a]."
+"En speciel MySQL bruger med begrænsede tilladelser. Mere information på  [doc"
+"@linked-tables]dokumentation[/doc]."
 
 #: libraries/config/messages.inc.php:657
 msgid "Control user"
@@ -7134,22 +7051,16 @@ msgstr ""
 "[kbd]pma_pdf_pages[/kbd]."
 
 #: libraries/config/messages.inc.php:696
-#, fuzzy
-#| msgid "Export views as tables"
 msgid "Export templates table"
-msgstr "Eksportér visninger som tabeller"
+msgstr "Eksportér skabelontabel"
 
 #: libraries/config/messages.inc.php:698
-#, fuzzy
-#| msgid ""
-#| "Leave blank for no PDF schema support, suggested: [kbd]pma__pdf_pages[/"
-#| "kbd]."
 msgid ""
 "Leave blank for no export template support, suggested: "
 "[kbd]pma__export_templates[/kbd]."
 msgstr ""
-"Efterlades tom for at undlade understøttelse af PDF-skematik, forslag: "
-"[kbd]pma_pdf_pages[/kbd]."
+"Efterlades tom for ingen understøttelse af eksport af skabeloner, forslag: "
+"[kbd]pma__export_templates[/kbd]."
 
 #: libraries/config/messages.inc.php:701
 msgid "Central columns table"
@@ -7204,19 +7115,14 @@ msgid "PDF schema: pages table"
 msgstr "PDF-skematik: pages tabel"
 
 #: libraries/config/messages.inc.php:721
-#, fuzzy
-#| msgid ""
-#| "Database used for relations, bookmarks, and PDF features. See [a@https://"
-#| "wiki.phpmyadmin.net/pma/pmadb]pmadb[/a] for complete information. Leave "
-#| "blank for no support. Suggested: [kbd]phpmyadmin[/kbd]."
 msgid ""
 "Database used for relations, bookmarks, and PDF features. See [doc@linked-"
 "tables]pmadb[/doc] for complete information. Leave blank for no support. "
 "Suggested: [kbd]phpmyadmin[/kbd]."
 msgstr ""
-"Database brugt til relationer, bogmærker, og PDF funktioner. Se [a@https://"
-"wiki.phpmyadmin.net/pma/pmadb]pmadb[/a] for komplet information. Lades blank "
-"ved ingen understøttelse. Forslag: [kbd]phpmyadmin[/kbd]."
+"Database brugt til relationer, bogmærker, og PDF funktioner. Se [doc@linked-"
+"tables]pmadb[/doc] for komplet information. Lades blank ved ingen "
+"understøttelse. Forslag: [kbd]phpmyadmin[/kbd]."
 
 #: libraries/config/messages.inc.php:725
 #: templates/server/databases/create.phtml:20
@@ -7256,31 +7162,22 @@ msgid "Favorites table"
 msgstr "Favorit tabeller"
 
 #: libraries/config/messages.inc.php:740
-#, fuzzy
-#| msgid ""
-#| "Leave blank for no [a@https://wiki.phpmyadmin.net/pma/relation]relation-"
-#| "links[/a] support, suggested: [kbd]pma__relation[/kbd]."
 msgid ""
 "Leave blank for no [doc@relations@]relation-links[/doc] support, suggested: "
 "[kbd]pma__relation[/kbd]."
 msgstr ""
-"Efterlades tom for at undlade understøttelse af [a@https://wiki.phpmyadmin."
-"net/pma/relation]relation-links[/a], forslag: [kbd]pma_relation[/kbd]."
+"Efterlades tom for ingen understøttelse af [doc@relations@]relation-"
+"links[/doc], forslag: [kbd]pma_relation[/kbd]."
 
 #: libraries/config/messages.inc.php:744
 msgid "Relation table"
 msgstr "Relationstabel"
 
 #: libraries/config/messages.inc.php:746
-#, fuzzy
-#| msgid ""
-#| "See [a@https://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
-#| "types[/a] for an example."
 msgid ""
 "See [doc@authentication-modes]authentication types[/doc] for an example."
 msgstr ""
-"Se [a@https://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
-"types[/a] for et eksempel."
+"Se [doc@authentication-modes]authentication types[/doc] for et eksempel."
 
 #: libraries/config/messages.inc.php:749
 msgid "Signon session name"
@@ -7506,19 +7403,12 @@ msgid "Show create database form"
 msgstr "Vis formular til databaseoprettelse"
 
 #: libraries/config/messages.inc.php:842
-#, fuzzy
-#| msgid ""
-#| "Show or hide a column displaying the Creation timestamp for all tables."
 msgid "Show or hide a column displaying the comments for all tables."
-msgstr ""
-"Vis eller skjul en kolonne, der viser oprettelses-tidsstempel for alle "
-"tabeller."
+msgstr "Vis eller skjul en kolonne, der viser kommentarer for alle tabeller."
 
 #: libraries/config/messages.inc.php:844
-#, fuzzy
-#| msgid "Table comments"
 msgid "Show table comments"
-msgstr "Tabel kommentarer"
+msgstr "Vis tabelkommentarer"
 
 #: libraries/config/messages.inc.php:846
 msgid "Show or hide a column displaying the Creation timestamp for all tables."
@@ -7527,8 +7417,6 @@ msgstr ""
 "tabeller."
 
 #: libraries/config/messages.inc.php:848
-#, fuzzy
-#| msgid "Show Creation timestamp"
 msgid "Show creation timestamp"
 msgstr "Vis tidsstempel for oprettelse"
 
@@ -7540,8 +7428,6 @@ msgstr ""
 "alle tabeller."
 
 #: libraries/config/messages.inc.php:852
-#, fuzzy
-#| msgid "Show Last update timestamp"
 msgid "Show last update timestamp"
 msgstr "Vis tidsstempel med seneste opdatering"
 
@@ -7553,10 +7439,8 @@ msgstr ""
 "tabeller."
 
 #: libraries/config/messages.inc.php:856
-#, fuzzy
-#| msgid "Show Last check timestamp"
 msgid "Show last check timestamp"
-msgstr "Vis tidsstempel for Seneste tjek"
+msgstr "Vis tidsstempel for seneste tjek"
 
 #: libraries/config/messages.inc.php:858
 msgid ""
@@ -7628,12 +7512,10 @@ msgid "Skip locked tables"
 msgstr "Spring over låste tabeller"
 
 #: libraries/config/messages.inc.php:890
-#, fuzzy
-#| msgid "A warning is displayed on the main page if Suhosin is detected."
 msgid ""
 "Disable the default warning that is displayed on the main page if Suhosin is "
 "detected."
-msgstr "En advarsel vises på hovedsiden, hvis Suhosin registreres."
+msgstr "Slå standardadvarslen på hovedsiden fra, hvis Suhosin registreres."
 
 #: libraries/config/messages.inc.php:893
 msgid "Suhosin warning"
@@ -7654,34 +7536,24 @@ msgid "Login cookie validity warning"
 msgstr "Advarsel om gyldighed for logincookie"
 
 #: libraries/config/messages.inc.php:903
-#, fuzzy
-#| msgid ""
-#| "Textarea size (columns) in edit mode, this value will be emphasized for "
-#| "SQL query textareas (*2) and for query window (*1.25)."
 msgid ""
 "Textarea size (columns) in edit mode, this value will be emphasized for SQL "
 "query textareas (*2)."
 msgstr ""
 "Tekstboksstørrelse (kolonner) i redigeringstilstand; denne værdi vil blive "
-"fremhævet i SQL forespørgselstekstbokse (*2) og for forespørgselsvinduet "
-"(*1,25)."
+"fremhævet i SQL forespørgselstekstbokse (*2)."
 
 #: libraries/config/messages.inc.php:906
 msgid "Textarea columns"
 msgstr "Tekstboks kolonner"
 
 #: libraries/config/messages.inc.php:908
-#, fuzzy
-#| msgid ""
-#| "Textarea size (rows) in edit mode, this value will be emphasized for SQL "
-#| "query textareas (*2) and for query window (*1.25)."
 msgid ""
 "Textarea size (rows) in edit mode, this value will be emphasized for SQL "
 "query textareas (*2)."
 msgstr ""
 "Tekstboksstørrelse (rækker) i redigeringstilstand; denne værdi vil blive "
-"fremhævet i SQL forespørgselstekstbokse (*2) og for forespørgselsvinduet "
-"(*1,25)."
+"fremhævet i SQL forespørgselstekstbokse (*2)."
 
 #: libraries/config/messages.inc.php:911
 msgid "Textarea rows"
@@ -7806,14 +7678,8 @@ msgid "Proxy password"
 msgstr "Adgangskode for proxy"
 
 #: libraries/config/messages.inc.php:967
-#, fuzzy
-#| msgid ""
-#| "Enable [a@https://en.wikipedia.org/wiki/Gzip]gzip[/a] compression for "
-#| "import and export operations."
 msgid "Enable ZIP compression for import and export operations."
-msgstr ""
-"Aktivér [a@https://en.wikipedia.org/wiki/Gzip]gzip[/a] komprimering for "
-"import og eksport-funktionerne."
+msgstr "Aktivér ZIP komprimering for import og eksport-funktionerne."
 
 #: libraries/config/messages.inc.php:970
 msgid "ZIP"
@@ -7848,6 +7714,8 @@ msgid ""
 "Queries are executed by pressing Enter (instead of Ctrl+Enter). New lines "
 "will be inserted with Shift+Enter."
 msgstr ""
+"Forespørgsler udføres ved at trykke på Retur (i stedet for Ctrl+Retur). "
+"Linjeskift indsættes med Skift+Retur."
 
 #: libraries/config/messages.inc.php:989
 msgid "Enter executes queries in console"
@@ -8036,16 +7904,14 @@ msgstr ""
 
 #: libraries/controllers/server/ServerDatabasesController.php:571
 #: libraries/controllers/server/ServerDatabasesController.php:577
-#, fuzzy
-#| msgid "Enable Statistics"
 msgid "Enable statistics"
 msgstr "Slå statistikker til"
 
 #: libraries/controllers/server/ServerVariablesController.php:110
-#, fuzzy, php-format
-#| msgid "Not enough privilege to view users."
+#, php-format
 msgid "Not enough privilege to view server variables and settings. %s"
-msgstr "Ikke tilstrækkelige privilegier til at se brugere."
+msgstr ""
+"Ikke tilstrækkelige privilegier til at se server variable og indstillinger %s"
 
 #: libraries/controllers/server/ServerVariablesController.php:220
 msgid "Setting variable failed"
@@ -8115,11 +7981,10 @@ msgid "Query error"
 msgstr "Forespørgselsfejl"
 
 #: libraries/controllers/table/TableStructureController.php:962
-#, fuzzy, php-format
-#| msgid "Table %1$s has been altered successfully."
+#, php-format
 msgid ""
 "Table %1$s has been altered successfully. Privileges have been adjusted."
-msgstr "Tabel %1$s er blevet ændret."
+msgstr "Tabel %1$s er blevet ændret. Rettighederne er justeret."
 
 #: libraries/controllers/table/TableStructureController.php:1184
 #: templates/table/structure/check_all_table_column.phtml:11
@@ -8212,6 +8077,9 @@ msgid ""
 "connection that encrypts the password using RSA</i>'; while connecting to "
 "the server."
 msgstr ""
+"Denne metode kræver en <i>SSL-forbindelse</i> eller en <i>ukrypteret "
+"forbindelse, som krypterer passwordet med RSA</i> ved forbindelse til "
+"serveren."
 
 #: libraries/display_export.lib.php:170
 msgid "Exporting databases from the current server"
@@ -8228,22 +8096,16 @@ msgid "Exporting rows from \"%s\" table"
 msgstr "Eksporterer rækker fra tabellen \"%s\""
 
 #: libraries/display_export.lib.php:198
-#, fuzzy
-#| msgid "Export type"
 msgid "Export templates:"
-msgstr "Eksporttype"
+msgstr "Eksportskabeloner:"
 
 #: libraries/display_export.lib.php:203
-#, fuzzy
-#| msgid "File name template:"
 msgid "New template:"
-msgstr "Skabelon for filnavn:"
+msgstr "Ny skabelon:"
 
 #: libraries/display_export.lib.php:206
-#, fuzzy
-#| msgid "Table name"
 msgid "Template name"
-msgstr "Tabelnavn"
+msgstr "Skabelonnavn"
 
 #: libraries/display_export.lib.php:208
 #: templates/server/databases/create.phtml:22
@@ -8251,34 +8113,24 @@ msgid "Create"
 msgstr "Opret"
 
 #: libraries/display_export.lib.php:215
-#, fuzzy
-#| msgid "File name template:"
 msgid "Existing templates:"
-msgstr "Skabelon for filnavn:"
+msgstr "Eksisterende skabeloner:"
 
 #: libraries/display_export.lib.php:216
-#, fuzzy
-#| msgid "Temp disk rate"
 msgid "Template:"
-msgstr "Frekvens af midlertidig disk"
+msgstr "Skabelon:"
 
 #: libraries/display_export.lib.php:221
-#, fuzzy
-#| msgid "Updated"
 msgid "Update"
-msgstr "Opdateret"
+msgstr "Opdater"
 
 #: libraries/display_export.lib.php:243
-#, fuzzy
-#| msgid "Select a table"
 msgid "Select a template"
-msgstr "Vælg en tabel"
+msgstr "Vælg en skabelon"
 
 #: libraries/display_export.lib.php:292
-#, fuzzy
-#| msgid "Export method"
 msgid "Export method:"
-msgstr "Eksporttype"
+msgstr "Eksportmetode:"
 
 #: libraries/display_export.lib.php:302
 msgid "Quick - display only the minimal options"
@@ -8289,10 +8141,8 @@ msgid "Custom - display all possible options"
 msgstr "Brugerdefineret - vis alle indstillinger"
 
 #: libraries/display_export.lib.php:336
-#, fuzzy
-#| msgid "Databases"
 msgid "Databases:"
-msgstr "Databaser"
+msgstr "Databaser:"
 
 #: libraries/display_export.lib.php:338 libraries/navigation/Navigation.php:195
 msgid "Tables:"
@@ -8397,16 +8247,12 @@ msgid "View output as text"
 msgstr "Se output som tekst"
 
 #: libraries/display_export.lib.php:751
-#, fuzzy
-#| msgid "Export views as tables"
 msgid "Export databases as separate files"
-msgstr "Eksportér visninger som tabeller"
+msgstr "Eksportér databaser som separate filer"
 
 #: libraries/display_export.lib.php:753
-#, fuzzy
-#| msgid "Export table headers"
 msgid "Export tables as separate files"
-msgstr "Eksportér tabel-hoveder"
+msgstr "Eksportér tabeller som separate filer"
 
 #: libraries/display_export.lib.php:783 libraries/display_export.lib.php:909
 msgid "Rename exported databases/tables/columns"
@@ -8506,8 +8352,6 @@ msgstr ""
 "<b>.sql.zip</b>"
 
 #: libraries/display_import.lib.php:221
-#, fuzzy
-#| msgid "File to Import:"
 msgid "File to import:"
 msgstr "Fil til import:"
 
@@ -8520,8 +8364,6 @@ msgid "File uploads are not allowed on this server."
 msgstr "Fil-uploads er ikke tilladte på denne server."
 
 #: libraries/display_import.lib.php:281
-#, fuzzy
-#| msgid "Partial Import:"
 msgid "Partial import:"
 msgstr "Delvis import:"
 
@@ -8544,20 +8386,12 @@ msgstr ""
 "større filer, men kan ødelægge transaktioner.)</i>"
 
 #: libraries/display_import.lib.php:312
-#, fuzzy
-#| msgid ""
-#| "Skip this number of queries (for SQL) or lines (for other formats), "
-#| "starting from the first one:"
 msgid "Skip this number of queries (for SQL) starting from the first one:"
-msgstr ""
-"Spring over antallet af forespørgsler (til SQL) eller linier (andre "
-"formater) begyndende med:"
+msgstr "Overspring dette antal forespørgsler (til SQL) begyndende med:"
 
 #: libraries/display_import.lib.php:342
-#, fuzzy
-#| msgid "Options"
 msgid "Other options:"
-msgstr "Indstillinger"
+msgstr "Andre indstillinger:"
 
 #: libraries/display_import.lib.php:480
 msgid ""
@@ -9110,14 +8944,11 @@ msgid "Edit next row"
 msgstr "Rediger næste række"
 
 #: libraries/insert_edit.lib.php:1607
-#, fuzzy
-#| msgid ""
-#| "Use TAB key to move from value to value, or CTRL+arrows to move anywhere"
 msgid ""
 "Use TAB key to move from value to value, or CTRL+arrows to move anywhere."
 msgstr ""
-"Brug TAB-tasten for at flytte dig fra værdi til værdi, eller CTRL"
-"+piletasterne til at flytte frit omkring"
+"Brug TAB-tasten for at flytte dig fra værdi til værdi, eller CTRL+"
+"piletasterne til at flytte frit omkring."
 
 #: libraries/insert_edit.lib.php:1644 libraries/replication_gui.lib.php:542
 #: libraries/rte/rte_routines.lib.php:1616
@@ -9171,10 +9002,8 @@ msgid "Data only"
 msgstr "Kun data"
 
 #: libraries/mult_submits.lib.php:352
-#, fuzzy
-#| msgid "Add AUTO_INCREMENT value"
 msgid "Add AUTO INCREMENT value"
-msgstr "Tilføj AUTO_INCREMENT værdi"
+msgstr "Tilføj AUTO INCREMENT værdi"
 
 #: libraries/mult_submits.lib.php:354 libraries/operations.lib.php:225
 #: libraries/operations.lib.php:1288
@@ -9186,8 +9015,6 @@ msgstr "Tilføj begrænsninger"
 #: libraries/operations.lib.php:953 libraries/operations.lib.php:1307
 #: libraries/rte/rte_routines.lib.php:1014
 #: templates/columns_definitions/table_fields_definitions.phtml:47
-#, fuzzy
-#| msgid "Edit Privileges"
 msgid "Adjust privileges"
 msgstr "Ret privilegier"
 
@@ -9309,7 +9136,7 @@ msgstr "Rumænsk"
 
 #: libraries/mysql_charsets.lib.php:235
 msgid "Sinhalese"
-msgstr ""
+msgstr "Singalesisk"
 
 #: libraries/mysql_charsets.lib.php:238
 msgid "Slovak"
@@ -9476,7 +9303,7 @@ msgstr[1] "Fandt %s resultater"
 #: libraries/navigation/NavigationTree.php:1364
 #: libraries/navigation/NavigationTree.php:1401
 msgid "Type to filter these, Enter to search all"
-msgstr ""
+msgstr "SKriv for at filtrere med disse, Retur for at søge i alt"
 
 #: libraries/navigation/NavigationTree.php:1366
 #: libraries/navigation/NavigationTree.php:1402
@@ -10070,7 +9897,7 @@ msgstr "Reparer"
 #: libraries/operations.lib.php:1584
 #: templates/table/structure/display_structure.phtml:178
 msgid "Truncate"
-msgstr ""
+msgstr "Afkort"
 
 #: libraries/operations.lib.php:1598
 #, fuzzy
@@ -10333,7 +10160,7 @@ msgstr "Stand-in-struktur for visning"
 
 #: libraries/plugins/export/ExportJson.php:65
 msgid "Output pretty-printed JSON (Use human-readable formatting)"
-msgstr ""
+msgstr "Vis pretty-trykt JSON (brug læsbar formatering)"
 
 #: libraries/plugins/export/ExportLatex.php:48
 msgid "Content of table @TABLE@"
@@ -10504,7 +10331,7 @@ msgstr "Tilføj %s forespørgsel"
 
 #: libraries/plugins/export/ExportSql.php:285
 msgid "(less efficient as indexes will be generated during table creation)"
-msgstr ""
+msgstr "(mindre effektiv da indeks skal oprettes under oprettelse af tabel)"
 
 #: libraries/plugins/export/ExportSql.php:293
 #, fuzzy, php-format
@@ -10700,7 +10527,7 @@ msgstr "Struktur for visningen %s blev eksporteret som en tabel"
 
 #: libraries/plugins/export/ExportSql.php:2115
 msgid "(See below for the actual view)"
-msgstr ""
+msgstr "(Se nedenfor for det aktuelle view)"
 
 #: libraries/plugins/export/ExportSql.php:2201
 msgid "Error reading data:"
@@ -10720,7 +10547,7 @@ msgstr "Tabel:"
 
 #: libraries/plugins/export/PMA_ExportPdf.php:120
 msgid "Purpose:"
-msgstr ""
+msgstr "Formål:"
 
 #: libraries/plugins/export/PMA_ExportPdf.php:501
 #, fuzzy
@@ -11160,7 +10987,7 @@ msgstr ""
 
 #: libraries/plugins/transformations/input/Text_Plain_Iptobinary.php:29
 msgid "Converts an Internet network address in (IPv4/IPv6) format to binary"
-msgstr ""
+msgstr "Konverterer en IP-adresse i (IPv4/IPv6) format til et binært tal"
 
 #: libraries/plugins/transformations/input/Text_Plain_JsonEditor.php:29
 msgid "Syntax highlighted CodeMirror editor for JSON."
@@ -11370,6 +11197,9 @@ msgid ""
 "'phpmyadmin'. You may go to 'Operations' tab of any database to set up the "
 "phpMyAdmin configuration storage there."
 msgstr ""
+"Du har ikke de nødvendige rettigheder til at oprette en database med navnet "
+"'phpmyadmin'. Du kan gå til 'Operationer' fanen af enhver database for at "
+"oprette phpMyAdmin konfigurationslageret der."
 
 #: libraries/relation.lib.php:1982
 #, fuzzy, php-format
@@ -11940,6 +11770,8 @@ msgid ""
 "You do not have sufficient privileges to perform this operation; Please "
 "refer to the documentation for more details"
 msgstr ""
+"Du har ikke tilstrækkelige rettigheder til at udføre denne handling; Der "
+"henvises til dokumentationen for flere detaljer"
 
 #: libraries/rte/rte_routines.lib.php:1040
 msgid "Security type"
@@ -12071,6 +11903,8 @@ msgid ""
 "No routine with name %1$s found in database %2$s. You might be lacking the "
 "necessary privileges to edit this routine"
 msgstr ""
+"Ingen rutine med navnet %1$s findes i database %2$s. Du kan mangle de "
+"nødvendige privilegier for at redigere denne rutine"
 
 #: libraries/rte/rte_words.lib.php:39
 #, php-format
@@ -12078,6 +11912,8 @@ msgid ""
 "No routine with name %1$s found in database %2$s. You might be lacking the "
 "necessary privileges to view/export this routine"
 msgstr ""
+"Ingen rutine med navnet %1$s findes i database %2$s. Du kan mangle de "
+"nødvendige rettigheder til at se/eksportere denne rutine"
 
 #: libraries/rte/rte_words.lib.php:42
 #, php-format
@@ -12411,6 +12247,8 @@ msgid ""
 "Allows user to give to other users or remove from other users privileges "
 "that user possess on this routine."
 msgstr ""
+"Tillader brugeren at give til eller fjerne fra andre brugere privilegier, "
+"som brugeren råder over på denne rutine."
 
 #: libraries/server_privileges.lib.php:1042
 #, fuzzy
@@ -12476,6 +12314,8 @@ msgid ""
 "Allows user to give to other users or remove from other users the privileges "
 "that user possess yourself."
 msgstr ""
+"Tillader brugeren at give til eller fjerne fra andre brugere privilegier, "
+"som brugeren råder over selv."
 
 #: libraries/server_privileges.lib.php:1552
 #, fuzzy
@@ -12781,6 +12621,10 @@ msgid ""
 "will prevent other users from connecting if the host part of their account "
 "allows a connection from any (%) host."
 msgstr ""
+"En brugerkonto, der tillader enhver bruger fra localhost at oprette "
+"forbindelse, er til stede. Dette vil forhindre andre brugere i at oprette "
+"forbindelse, hvis værtsdelen af deres konto tillader forbindelse fra enhver "
+"(%) vært."
 
 #: libraries/server_privileges.lib.php:4843
 #, php-format
@@ -13126,7 +12970,7 @@ msgstr "Kommando"
 
 #: libraries/server_status_processes.lib.php:95
 msgid "Progress"
-msgstr ""
+msgstr "Fremskridt"
 
 #: libraries/server_status_processes.lib.php:232
 #: libraries/server_status_variables.lib.php:36
@@ -13942,13 +13786,15 @@ msgstr "Faner på tabelniveau"
 #: libraries/sql-parser/src/Component.php:47
 #: libraries/sql-parser/src/Component.php:67
 msgid "Not implemented yet."
-msgstr ""
+msgstr "Endnu ikke implementeret."
 
 #: libraries/sql-parser/src/Components/AlterOperation.php:228
 #: libraries/sql-parser/src/Statement.php:337
 msgid ""
 "A new statement was found, but no delimiter between it and the previous one."
 msgstr ""
+"Et nyt statement blev fundet, men der var ingen adskillelsestegn mellem det "
+"og det foregående."
 
 #: libraries/sql-parser/src/Components/AlterOperation.php:240
 #, fuzzy
@@ -13959,16 +13805,16 @@ msgstr "Tabeloperationer med ikoner"
 #: libraries/sql-parser/src/Components/Array2d.php:91
 #, php-format
 msgid "%1$d values were expected, but found %2$d."
-msgstr ""
+msgstr "%1$d værdier var ventet, men fandt %2$d."
 
 #: libraries/sql-parser/src/Components/Array2d.php:114
 msgid "An opening bracket followed by a set of values was expected."
-msgstr ""
+msgstr "En kantet venstreparentes efterfulgt af et sæt værdier blev forventet."
 
 #: libraries/sql-parser/src/Components/ArrayObj.php:118
 #: libraries/sql-parser/src/Components/CreateDefinition.php:206
 msgid "An opening bracket was expected."
-msgstr ""
+msgstr "En kantet venstreparantes var forventet."
 
 #: libraries/sql-parser/src/Components/CaseExpression.php:137
 #: libraries/sql-parser/src/Components/CaseExpression.php:167
@@ -13991,13 +13837,15 @@ msgstr "Uventet tegn på linje %s."
 
 #: libraries/sql-parser/src/Components/CaseExpression.php:202
 msgid "Unexpected end of CASE expression"
-msgstr ""
+msgstr "Uventet afslutning af CASE udtryk"
 
 #: libraries/sql-parser/src/Components/CreateDefinition.php:227
 msgid ""
 "A symbol name was expected! A reserved keyword can not be used as a field "
 "name without backquotes."
 msgstr ""
+"Et symbolnavn var ventet! Et reserveret nøgleord kan ikke bruges som et "
+"feltnavn uden backquotes."
 
 #: libraries/sql-parser/src/Components/CreateDefinition.php:241
 #, fuzzy
@@ -14013,11 +13861,11 @@ msgstr "Ingen tabeller valgt."
 
 #: libraries/sql-parser/src/Components/CreateDefinition.php:289
 msgid "A closing bracket was expected."
-msgstr ""
+msgstr "En kantet højreparantes var ventet."
 
 #: libraries/sql-parser/src/Components/DataType.php:127
 msgid "Unrecognized data type."
-msgstr ""
+msgstr "Ukendt datatype."
 
 #: libraries/sql-parser/src/Components/Expression.php:248
 #: libraries/sql-parser/src/Components/Expression.php:398
@@ -14030,11 +13878,11 @@ msgstr "Ingen tabeller valgt."
 #: libraries/sql-parser/src/Components/Expression.php:355
 #: libraries/sql-parser/src/Components/Expression.php:387
 msgid "An alias was previously found."
-msgstr ""
+msgstr "Et alias er fundet tidligere."
 
 #: libraries/sql-parser/src/Components/Expression.php:368
 msgid "Unexpected dot."
-msgstr ""
+msgstr "Uventet punktum."
 
 #: libraries/sql-parser/src/Components/ExpressionArray.php:106
 #, fuzzy
@@ -14045,12 +13893,12 @@ msgstr "Der er ikke valgt versioner."
 #: libraries/sql-parser/src/Components/Limit.php:90
 #: libraries/sql-parser/src/Components/Limit.php:112
 msgid "An offset was expected."
-msgstr ""
+msgstr "En forskydning var ventet."
 
 #: libraries/sql-parser/src/Components/OptionsArray.php:146
 #, php-format
 msgid "This option conflicts with \"%1$s\"."
-msgstr ""
+msgstr "Denne indstilling er i konflikt med \"%1$s\"."
 
 #: libraries/sql-parser/src/Components/OptionsArray.php:260
 #, fuzzy, php-format
@@ -14066,7 +13914,7 @@ msgstr "Antallet af tabeller der er åbne."
 
 #: libraries/sql-parser/src/Components/RenameOperation.php:111
 msgid "Keyword \"TO\" was expected."
-msgstr ""
+msgstr "Nøgleordet \"TO\" var forventet."
 
 #: libraries/sql-parser/src/Components/RenameOperation.php:127
 #, fuzzy
@@ -14088,12 +13936,12 @@ msgstr "Uventet tegn på linje %s."
 
 #: libraries/sql-parser/src/Lexer.php:303
 msgid "Expected whitespace(s) before delimiter."
-msgstr ""
+msgstr "Forventede whitespace(s) før adskillelsestegn."
 
 #: libraries/sql-parser/src/Lexer.php:321
 #: libraries/sql-parser/src/Lexer.php:337
 msgid "Expected delimiter."
-msgstr ""
+msgstr "Forventede adskillelsestegn."
 
 #: libraries/sql-parser/src/Lexer.php:838
 #, fuzzy, php-format
@@ -14115,11 +13963,11 @@ msgstr "i begyndelsen af tabellen"
 
 #: libraries/sql-parser/src/Parser.php:469
 msgid "Unrecognized statement type."
-msgstr ""
+msgstr "Ukendt type af statement."
 
 #: libraries/sql-parser/src/Parser.php:551
 msgid "No transaction was previously started."
-msgstr ""
+msgstr "Ingen transaktion er blevet startet tidligere."
 
 #: libraries/sql-parser/src/Statement.php:245
 #: libraries/sql-parser/src/Statements/DeleteStatement.php:250
@@ -14134,11 +13982,11 @@ msgstr "Uventet tegn på linje %s."
 
 #: libraries/sql-parser/src/Statement.php:309
 msgid "This type of clause was previously parsed."
-msgstr ""
+msgstr "Denne type af sætningskonstruktion er tidligere blevet parset."
 
 #: libraries/sql-parser/src/Statement.php:357
 msgid "Unrecognized keyword."
-msgstr ""
+msgstr "Ukendt nøgleord."
 
 #: libraries/sql-parser/src/Statements/CreateStatement.php:381
 #, fuzzy
@@ -14160,11 +14008,12 @@ msgstr "Rækken er slettet."
 
 #: libraries/sql-parser/src/Statements/CreateStatement.php:555
 msgid "A \"RETURNS\" keyword was expected."
-msgstr ""
+msgstr "Et \"RETURNS\" nøgleord var forventet."
 
 #: libraries/sql-parser/src/Statements/DeleteStatement.php:303
 msgid "This type of clause is not valid in Multi-table queries."
 msgstr ""
+"Denn type af sætningskonstruktion er ikke gyldig i multitabel forespørgsler."
 
 #: libraries/sql.lib.php:231
 msgid "Detailed profile"
@@ -14634,6 +14483,8 @@ msgid ""
 "Username and hostname didn't change. If you only want to change the "
 "password, 'Change password' tab should be used."
 msgstr ""
+"Brugernavn og værtsnavn blev ikke ændret. Hvis du kun vil ændre "
+"adgangskoden, bør 'Skift adgangskode' fanen anvendes."
 
 #: server_status.php:35
 #, fuzzy
@@ -14853,7 +14704,7 @@ msgstr "Forkerte data"
 #: setup/validate.php:30
 #, php-format
 msgid "Wrong data or no validation for %s"
-msgstr ""
+msgstr "Forkerte data eller ingen validering af %s"
 
 #: tbl_create.php:30 tbl_get_field.php:26
 #, php-format
@@ -15082,7 +14933,7 @@ msgstr ""
 
 #: templates/columns_definitions/table_fields_definitions.phtml:70
 msgid "Virtuality"
-msgstr ""
+msgstr "Virtualitet"
 
 #: templates/columns_definitions/table_fields_definitions.phtml:76
 msgid "Move column"
@@ -15342,7 +15193,7 @@ msgstr "Sum"
 
 #: templates/database/structure/check_all_tables.phtml:6
 msgid "Check tables having overhead"
-msgstr "Tjek tabeller der har overhead"
+msgstr "Tjek tabeller, der har overhead"
 
 #: templates/database/structure/check_all_tables.phtml:10
 #, fuzzy
@@ -15448,6 +15299,8 @@ msgid ""
 "Can you tell us the steps leading to this error? It decisively helps in "
 "debugging:"
 msgstr ""
+"Kan du fortælle os de trin, der fører til denne fejl? Det hjælper meget ved "
+"fejlfinding:"
 
 #: templates/error/report_form.phtml:21
 msgid "You may examine the data in the error report:"
@@ -15525,7 +15378,7 @@ msgstr "Sessionsværdi"
 
 #: templates/server/variables/variable_row.phtml:6
 msgid "This is a read-only variable and can not be edited"
-msgstr ""
+msgstr "Dette er en skrivebeskyttet variabel, som ikke kan redigeres"
 
 #: templates/server/variables/variable_table_head.phtml:5
 msgid "Global value"
@@ -16011,7 +15864,7 @@ msgstr "Adgangskodehashing:"
 
 #: view_create.php:44
 msgid "View name can not be empty"
-msgstr ""
+msgstr "Navnet på et view kan ikke være tomt"
 
 #: view_create.php:247
 msgid "VIEW name"
@@ -16261,6 +16114,9 @@ msgid ""
 "Percona documentation is at <a href=\"https://www.percona.com/software/"
 "documentation/\">https://www.percona.com/software/documentation/</a>"
 msgstr ""
+"Dokumentation for Percona er på <a target=\"_blank\" href=\""
+"https://www.percona.com/software/documentation/\"> "
+"https://www.percona.com/software/documentation/</a>"
 
 #: libraries/advisory_rules.txt:133
 msgid "'percona' found in version_comment"
