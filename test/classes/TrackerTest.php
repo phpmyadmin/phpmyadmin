@@ -621,18 +621,27 @@ class TrackerTest extends PMATestCase
             ->disableOriginalConstructor()
             ->getMock();
 
-        $dbi->expects($this->at(0))
+        $dbi->expects($this->once())
             ->method('query')
-            ->with($sql_query, null, 0, false)
+            // ->with($sql_query, null, 0, false)
             ->will($this->returnValue("executed_1"));
 
-        $dbi->expects($this->at(1))
+        $dbi->expects($this->once())
             ->method('fetchAssoc')
             ->with("executed_1")
             ->will($this->returnValue($fetchArrayReturn));
 
-        $dbi->expects($this->any())->method('escapeString')
-            ->will($this->returnArgument(0));
+        $dbi->expects($this->any())
+            ->method('escapeString')
+            ->will(
+                $this->returnValueMap(
+                    array(
+                        array("pma'db", "pma\'db"),
+                        array("pma'table", "pma\'table"),
+                        array("1.0", "1.0"),
+                    )
+                )
+            );
 
         $GLOBALS['dbi'] = $dbi;
         $result = Tracker::getTrackedData("pma'db", "pma'table", "1.0");

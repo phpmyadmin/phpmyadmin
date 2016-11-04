@@ -258,7 +258,6 @@ class ExportXmlTest extends PMATestCase
 
         $dbi->expects($this->exactly(2))
             ->method('getProceduresOrFunctions')
-            ->with('d<"b', 'FUNCTION')
             ->willReturnOnConsecutiveCalls(
                 array(
                     'fn'
