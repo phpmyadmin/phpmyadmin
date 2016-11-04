@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.5-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-10-25 11:13+0200\n"
-"PO-Revision-Date: 2016-10-20 10:55+0000\n"
-"Last-Translator: SDSkyKlouD <koongchi135@gmail.com>\n"
-"Language-Team: Korean <https://hosted.weblate.org/projects/phpmyadmin/4-6/ko/"
-">\n"
+"PO-Revision-Date: 2016-11-04 05:25+0000\n"
+"Last-Translator: Lee Joon Haeng <calmnoia@gmail.com>\n"
+"Language-Team: Korean "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-6/ko/>\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -954,6 +954,9 @@ msgid ""
 "column(s) editing feature (the \"Change\" Link) on the table structure page. "
 "</b>"
 msgstr ""
+"이 작업을 통해, MySQL은 콜레이션 간 데이터값들의 매핑을 시도합니다. 만약 문자셋들이 호환되지 않는다면, 데이터가 손실 될 수 "
+"있으며 이렇게 손실된 데이터는 컬럼의 콜레이션(들)을 되돌리는 것으로 간단하게 복원되지 <b>않을</b>을 것입니다. <b>이미 존재하는 "
+"데이터를 변환하기 위해, 테이블 구조 페이지의 컬럼(들) 수정 기능(\"변경\" 링크)을 이용하는 것을 추천합니다.</b>"
 
 #: js/messages.php:102
 msgid ""
@@ -1776,7 +1779,7 @@ msgstr "내보내기"
 
 #: js/messages.php:389
 msgid "No routine is exportable. Required privileges may be lacking."
-msgstr ""
+msgstr "내보낼 수 있는 루틴이 없습니다. 필요 권한이 없을 수도 있습니다."
 
 #: js/messages.php:392 libraries/rte/rte_routines.lib.php:754
 msgid "ENUM/SET editor"
@@ -1875,7 +1878,7 @@ msgstr "현재 리스트 검색"
 msgid ""
 "No columns in the central list. Make sure the Central columns list for "
 "database %s has columns that are not present in the current table."
-msgstr ""
+msgstr "센트럴 목록에 컬럼이 없습니다. 데이터베이스 %s의 센트럴 컬럼 목록 중 현재 테이블에 없는 컬럼을 확인하십시오."
 
 #: js/messages.php:421
 msgid "See more"
@@ -1883,7 +1886,7 @@ msgstr "더 보기"
 
 #: js/messages.php:422
 msgid "Are you sure?"
-msgstr "정말로?"
+msgstr "확실합니까?"
 
 #: js/messages.php:424
 msgid ""
@@ -1933,7 +1936,7 @@ msgstr "부분 의존성 확인"
 
 #: js/messages.php:439
 msgid "Selected partial dependencies are as follows:"
-msgstr "선택된 부분 의존성은 다음과 같다:"
+msgstr "선택된 부분의 의존성은 다음과 같음:"
 
 #: js/messages.php:441
 msgid ""
@@ -1972,7 +1975,7 @@ msgstr "다음 행동이 실행됩니다 :"
 #: js/messages.php:456
 #, php-format
 msgid "DROP columns %s from the table %s"
-msgstr ""
+msgstr "컬럼%s을(를) 테이블%s로부터 DROP"
 
 #: js/messages.php:457
 msgid "Create the following table"
@@ -1984,7 +1987,7 @@ msgstr "정규화의 세번째 단계 (3NF)"
 
 #: js/messages.php:461
 msgid "Confirm transitive dependencies"
-msgstr ""
+msgstr "이행 의존성 확인"
 
 #: js/messages.php:462
 msgid "Selected dependencies are as follows:"
@@ -2813,7 +2816,7 @@ msgstr "같은 값을 한번 더 입력하세요"
 
 #: js/messages.php:908
 msgid "Please enter no more than {0} characters"
-msgstr ""
+msgstr "{0} 글자 이하로 입력해 주세요"
 
 #: js/messages.php:913
 msgid "Please enter at least {0} characters"
@@ -2821,7 +2824,7 @@ msgstr "최소 {0} 글자 이상 입력해주세요"
 
 #: js/messages.php:918
 msgid "Please enter a value between {0} and {1} characters long"
-msgstr ""
+msgstr "{0} 글자에서 {1} 글자 사이로 입력해 주세요"
 
 #: js/messages.php:923
 msgid "Please enter a value between {0} and {1}"
@@ -2877,7 +2880,7 @@ msgstr "규칙 '%s'를 변환하는데 실패했습니다."
 #: libraries/Advisor.php:467
 #, php-format
 msgid "Error in reading file: The file '%s' does not exist or is not readable!"
-msgstr ""
+msgstr "파일 읽기 오류: 파일 '%s'는 존재하지 않거나 읽을 수 없는 상태입니다!"
 
 #: libraries/Advisor.php:492
 #, php-format
@@ -2991,7 +2994,7 @@ msgstr "콘솔"
 #: libraries/Console.php:219 libraries/sql_query_form.lib.php:244
 #: setup/frames/index.inc.php:311
 msgid "Clear"
-msgstr ""
+msgstr "제거"
 
 #: libraries/Console.php:222
 msgid "History"
@@ -3066,7 +3069,7 @@ msgstr "실행 순서"
 
 #: libraries/Console.php:280
 msgid "Time taken"
-msgstr ""
+msgstr "소요 시간"
 
 #: libraries/Console.php:283
 msgid "Order by:"
@@ -3204,7 +3207,7 @@ msgstr "컬럼명:"
 
 #: libraries/DbQbe.php:511
 msgid "Alias:"
-msgstr ""
+msgstr "별칭:"
 
 #: libraries/DbQbe.php:564
 msgid "Sort:"
@@ -7261,10 +7264,8 @@ msgid "Show or hide a column displaying the comments for all tables."
 msgstr "전체 테이블의 생성 시간을 표시하는 컬럼을 보이기/숨기기."
 
 #: libraries/config/messages.inc.php:844
-#, fuzzy
-#| msgid "Table comments"
 msgid "Show table comments"
-msgstr "테이블 설명"
+msgstr "테이블 설명 표시"
 
 #: libraries/config/messages.inc.php:846
 msgid "Show or hide a column displaying the Creation timestamp for all tables."
@@ -8978,7 +8979,7 @@ msgstr "루마니어어"
 
 #: libraries/mysql_charsets.lib.php:235
 msgid "Sinhalese"
-msgstr ""
+msgstr "싱할라어"
 
 #: libraries/mysql_charsets.lib.php:238
 msgid "Slovak"
