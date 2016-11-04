@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-10-25 11:15+0200\n"
-"PO-Revision-Date: 2016-11-03 19:03+0000\n"
+"PO-Revision-Date: 2016-11-04 05:25+0000\n"
 "Last-Translator: Lee Joon Haeng <calmnoia@gmail.com>\n"
 "Language-Team: Korean "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/ko/>\n"
@@ -1979,7 +1979,7 @@ msgstr "정규화의 세번째 단계 (3NF)"
 
 #: js/messages.php:466
 msgid "Confirm transitive dependencies"
-msgstr ""
+msgstr "이행 의존성 확인"
 
 #: js/messages.php:467
 msgid "Selected dependencies are as follows:"
@@ -2808,7 +2808,7 @@ msgstr "같은 값을 한번 더 입력하세요"
 
 #: js/messages.php:913
 msgid "Please enter no more than {0} characters"
-msgstr ""
+msgstr "{0} 글자 이하로 입력해 주세요"
 
 #: js/messages.php:918
 msgid "Please enter at least {0} characters"
@@ -2816,7 +2816,7 @@ msgstr "최소 {0} 글자 이상 입력해주세요"
 
 #: js/messages.php:923
 msgid "Please enter a value between {0} and {1} characters long"
-msgstr ""
+msgstr "{0} 글자에서 {1} 글자 사이로 입력해 주세요"
 
 #: js/messages.php:928
 msgid "Please enter a value between {0} and {1}"
@@ -2872,7 +2872,7 @@ msgstr "규칙 '%s'를 변환하는데 실패했습니다."
 #: libraries/Advisor.php:469
 #, php-format
 msgid "Error in reading file: The file '%s' does not exist or is not readable!"
-msgstr ""
+msgstr "파일 읽기 오류: 파일 '%s'는 존재하지 않거나 읽을 수 없는 상태입니다!"
 
 #: libraries/Advisor.php:494
 #, php-format
@@ -3002,7 +3002,7 @@ msgstr "한국어"
 
 #: libraries/Charsets.php:313
 msgid "Burmese"
-msgstr ""
+msgstr "버마어"
 
 #: libraries/Charsets.php:316
 msgid "Persian"
@@ -3022,7 +3022,7 @@ msgstr "루마니어어"
 
 #: libraries/Charsets.php:328
 msgid "Sinhalese"
-msgstr ""
+msgstr "싱할라어"
 
 #: libraries/Charsets.php:331
 msgid "Slovak"
@@ -3232,7 +3232,7 @@ msgstr "컬럼명:"
 
 #: libraries/DbQbe.php:513
 msgid "Alias:"
-msgstr ""
+msgstr "별칭:"
 
 #: libraries/DbQbe.php:566
 msgid "Sort:"
@@ -13341,7 +13341,7 @@ msgstr "테이블 %s에 SQL 질의를 실행"
 #: libraries/sql_query_form.lib.php:247 setup/frames/index.inc.php:313
 #: templates/console/display.phtml:10
 msgid "Clear"
-msgstr ""
+msgstr "제거"
 
 #: libraries/sql_query_form.lib.php:253
 msgid "Get auto-saved query"
@@ -14312,7 +14312,7 @@ msgstr "실행 순서"
 
 #: templates/console/display.phtml:87 templates/console/display.phtml:110
 msgid "Time taken"
-msgstr ""
+msgstr "소요 시간"
 
 #: templates/console/display.phtml:88
 msgid "Order by:"
