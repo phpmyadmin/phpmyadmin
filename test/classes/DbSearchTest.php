@@ -10,6 +10,7 @@
  */
 
 require_once 'libraries/url_generating.lib.php';
+require_once 'libraries/js_escape.lib.php';
 require_once 'libraries/database_interface.inc.php';
 require_once 'test/PMATestCase.php';
 
@@ -40,6 +41,22 @@ class DbSearchTest extends PMATestCase
         $this->object = new DbSearch('pma_test');
         $GLOBALS['server'] = 0;
         $GLOBALS['db'] = 'pma';
+
+        //mock DBI
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+            ->disableOriginalConstructor()
+            ->getMock();
+
+        $dbi->expects($this->any())
+            ->method('getColumns')
+            ->with('pma', 'table1')
+            ->will($this->returnValue(array()));
+
+        $dbi->expects($this->any())
+            ->method('escapeString')
+            ->will($this->returnArgument(0));
+
+        $GLOBALS['dbi'] = $dbi;
     }
 
     /**
@@ -77,18 +94,6 @@ class DbSearchTest extends PMATestCase
      */
     public function testGetSearchSqls()
     {
-        //mock DBI
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
-            ->disableOriginalConstructor()
-            ->getMock();
-
-        $dbi->expects($this->any())
-            ->method('getColumns')
-            ->with('pma', 'table1')
-            ->will($this->returnValue(array()));
-
-        $GLOBALS['dbi'] = $dbi;
-
         $this->assertEquals(
             array (
                 'select_columns' => 'SELECT *  FROM `pma`.`table1` WHERE FALSE',

@@ -92,6 +92,9 @@ class ExportSqlTest extends PMATestCase
             ->method('getCompatibilities')
             ->will($this->returnValue(array('v1', 'v2')));
 
+        $dbi->expects($this->any())->method('escapeString')
+            ->will($this->returnArgument(0));
+
         $GLOBALS['dbi'] = $dbi;
         $GLOBALS['plugin_param']['export_type'] = 'server';
         $GLOBALS['plugin_param']['single_table'] = false;
@@ -857,8 +860,10 @@ class ExportSqlTest extends PMATestCase
         $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
+        $dbi->expects($this->any())->method('escapeString')
+            ->will($this->returnArgument(0));
 
-        $dbi->expects($this->at(0))
+        $dbi->expects($this->any(0))
             ->method('getColumns')
             ->with('db', 'view')
             ->will(
@@ -876,22 +881,6 @@ class ExportSqlTest extends PMATestCase
                 )
             );
 
-        $dbi->expects($this->at(1))
-            ->method('getColumns')
-            ->with('db', 'view')
-            ->will(
-                $this->returnValue(
-                    array(
-                        'cname' => array(
-                            'Type' => 'char',
-                            'Collation' => 'utf-8',
-                            'Null' => 'YES',
-                            'Comment' => 'cmt',
-                            'Field' => 'fname'
-                        )
-                    )
-                )
-            );
         $GLOBALS['dbi'] = $dbi;
         $GLOBALS['sql_compatibility'] = 'MSSQL';
 
@@ -910,6 +899,31 @@ class ExportSqlTest extends PMATestCase
 
         // case 2
         unset($GLOBALS['sql_compatibility']);
+
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+            ->disableOriginalConstructor()
+            ->getMock();
+        $dbi->expects($this->any())->method('escapeString')
+            ->will($this->returnArgument(0));
+
+        $dbi->expects($this->any())
+            ->method('getColumns')
+            ->with('db', 'view')
+            ->will(
+                $this->returnValue(
+                    array(
+                        'cname' => array(
+                            'Type' => 'char',
+                            'Collation' => 'utf-8',
+                            'Null' => 'YES',
+                            'Comment' => 'cmt',
+                            'Field' => 'fname'
+                        )
+                    )
+                )
+            );
+        $GLOBALS['dbi'] = $dbi;
+
         $result = $method->invoke(
             $this->object, 'db', 'view', "\n", false
         );
@@ -950,12 +964,8 @@ class ExportSqlTest extends PMATestCase
             ->disableOriginalConstructor()
             ->getMock();
 
-        $dbi->expects($this->at(0))
+        $dbi->expects($this->any())
             ->method('query')
-            ->with(
-                'SHOW TABLE STATUS FROM `db` WHERE Name = \'table\'', null,
-                PMA\libraries\DatabaseInterface::QUERY_STORE
-            )
             ->will($this->returnValue('res'));
 
         $dbi->expects($this->never())
@@ -981,11 +991,6 @@ class ExportSqlTest extends PMATestCase
             ->method('fetchAssoc')
             ->with('res')
             ->will($this->returnValue($tmpres));
-
-        $dbi->expects($this->at(5))
-            ->method('query')
-            ->with('SET SQL_QUOTE_SHOW_CREATE = 1')
-            ->will($this->returnValue('res'));
 
         $dbi->expects($this->once())
             ->method('tryQuery')
@@ -1019,7 +1024,7 @@ class ExportSqlTest extends PMATestCase
 
         $dbi->expects($this->once())
             ->method('getTable')
-            ->will($this->returnValue(new Table('table', 'db')));
+            ->will($this->returnValue(new Table('table', 'db', $dbi)));
 
         $GLOBALS['dbi'] = $dbi;
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
@@ -1121,12 +1126,8 @@ class ExportSqlTest extends PMATestCase
             ->disableOriginalConstructor()
             ->getMock();
 
-        $dbi->expects($this->at(0))
+        $dbi->expects($this->any())
             ->method('query')
-            ->with(
-                'SHOW TABLE STATUS FROM `db` WHERE Name = \'table\'', null,
-                PMA\libraries\DatabaseInterface::QUERY_STORE
-            )
             ->will($this->returnValue('res'));
 
         $dbi->expects($this->never())
@@ -1153,11 +1154,6 @@ class ExportSqlTest extends PMATestCase
             ->with('res')
             ->will($this->returnValue($tmpres));
 
-        $dbi->expects($this->at(5))
-            ->method('query')
-            ->with('SET SQL_QUOTE_SHOW_CREATE = 0')
-            ->will($this->returnValue('res'));
-
         $dbi->expects($this->once())
             ->method('tryQuery')
             ->with('SHOW CREATE TABLE `db`.`table`')
@@ -1169,7 +1165,10 @@ class ExportSqlTest extends PMATestCase
 
         $dbi->expects($this->once())
             ->method('getTable')
-            ->will($this->returnValue(new Table('table', 'db')));
+            ->will($this->returnValue(new Table('table', 'db', $dbi)));
+        $dbi->expects($this->any())
+            ->method('escapeString')
+            ->will($this->returnArgument(0));
 
         $GLOBALS['dbi'] = $dbi;
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
@@ -1207,32 +1206,24 @@ class ExportSqlTest extends PMATestCase
             ->disableOriginalConstructor()
             ->getMock();
 
-        $dbi->expects($this->at(0))
+        $dbi->expects($this->exactly(2))
             ->method('fetchResult')
-            ->will(
-                $this->returnValue(
-                    array(
-                        'foo' => array(
-                            'foreign_table' => 'ftable',
-                            'foreign_field' => 'ffield'
-                        )
+            ->willReturnOnConsecutiveCalls(
+                array(
+                    'foo' => array(
+                        'foreign_table' => 'ftable',
+                        'foreign_field' => 'ffield'
+                    )
+                ),
+                array(
+                    'fieldname' => array(
+                        'values' => 'test-',
+                        'transformation' => 'testfoo',
+                        'mimetype' => 'test<'
                     )
                 )
             );
 
-        $dbi->expects($this->at(1))
-            ->method('fetchResult')
-            ->will(
-                $this->returnValue(
-                    array(
-                        'fieldname' => array(
-                            'values' => 'test-',
-                            'transformation' => 'testfoo',
-                            'mimetype' => 'test<'
-                        )
-                    )
-                )
-            );
         $GLOBALS['dbi'] = $dbi;
 
         $method = new ReflectionMethod('PMA\libraries\plugins\export\ExportSql', '_getTableComments');

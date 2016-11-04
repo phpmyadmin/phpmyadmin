@@ -204,8 +204,7 @@ class DbSearch
         // Usage example: If user is searching for a literal $ in a regexp search,
         // he should enter \$ as the value.
         $criteriaSearchStringEscaped = $GLOBALS['dbi']->escapeString(
-            $this->_criteriaSearchString,
-            ($this->_criteriaSearchType == 4 ? false : true)
+            $this->_criteriaSearchString
         );
         // Extract search words or pattern
         $search_words = (($this->_criteriaSearchType > 2)

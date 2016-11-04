@@ -489,10 +489,9 @@ class DatabaseInterface
                     $needAnd = false;
                     if ($table || (true === $tbl_is_group)) {
                         $sql .= " `Name` LIKE '"
-                            . 
-                            // Util::escapeMysqlWildcards(
+                            . Util::escapeMysqlWildcards(
                                 $this->escapeString($table, $link)
-                            // )
+                            )
                             . "%'";
                         $needAnd = true;
                     }

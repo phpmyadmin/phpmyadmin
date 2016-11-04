@@ -117,13 +117,11 @@ class NavigationTest extends PMATestCase
         $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
-        $dbi->expects($this->any())->method('escapeString')
-            ->will($this->returnArgument(0));
         $dbi->expects($this->once())
             ->method('tryQuery')
             ->with($expectedQuery)
             ->will($this->returnValue(true));
-        $dbi->expects($this->at(1))
+        $dbi->expects($this->at(3))
             ->method('fetchArray')
             ->will(
                 $this->returnValue(
@@ -133,7 +131,7 @@ class NavigationTest extends PMATestCase
                     )
                 )
             );
-        $dbi->expects($this->at(2))
+        $dbi->expects($this->at(4))
             ->method('fetchArray')
             ->will(
                 $this->returnValue(
@@ -143,11 +141,13 @@ class NavigationTest extends PMATestCase
                     )
                 )
             );
-        $dbi->expects($this->at(3))
+        $dbi->expects($this->at(5))
             ->method('fetchArray')
             ->will($this->returnValue(false));
         $dbi->expects($this->once())
             ->method('freeResult');
+        $dbi->expects($this->any())->method('escapeString')
+            ->will($this->returnArgument(0));
 
         $GLOBALS['dbi'] = $dbi;
 
