@@ -327,36 +327,33 @@ class ExportXmlTest extends PMATestCase
         unset($GLOBALS['xml_export_procedures']);
         $GLOBALS['output_charset_conversion'] = 0;
 
-        $result = array(
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+            ->disableOriginalConstructor()
+            ->getMock();
+
+        $result_1 = array(
             array(
                 'DEFAULT_COLLATION_NAME' => 'utf8_general_ci',
                 'DEFAULT_CHARACTER_SET_NAME' => 'utf-8',
 
             )
         );
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
-            ->disableOriginalConstructor()
-            ->getMock();
-
-        $dbi->expects($this->at(0))
-            ->method('fetchResult')
-            ->with(
-                'SELECT `DEFAULT_CHARACTER_SET_NAME`, `DEFAULT_COLLATION_NAME`'
-                . ' FROM `information_schema`.`SCHEMATA` WHERE `SCHEMA_NAME`'
-                . ' = \'d<"b\' LIMIT 1'
-            )
-            ->will($this->returnValue($result));
-
-        $result = array(
+        $result_2 = array(
             't1' => array(null, '"tbl"')
         );
 
-        $dbi->expects($this->exactly(4))
+        $result_3 = array(
+            't2' => array(null, '"tbl"')
+        );
+
+
+        $dbi->expects($this->exactly(5))
             ->method('fetchResult')
             ->willReturnOnConsecutiveCalls(
-                $result,
+                $result_1,
+                $result_2,
                 true,
-                $result,
+                $result_3,
                 false
             );
 
