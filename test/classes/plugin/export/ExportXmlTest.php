@@ -270,7 +270,6 @@ class ExportXmlTest extends PMATestCase
 
         $dbi->expects($this->exactly(2))
             ->method('getDefinition')
-            ->with('d<"b', 'FUNCTION', 'fn')
             ->willReturnOnConsecutiveCalls(
                 'fndef',
                 'prdef'
