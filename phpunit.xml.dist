@@ -29,7 +29,7 @@
         </testsuite>
         <testsuite name="Selenium">
             <directory suffix="Test.php">test/selenium</directory>
-        </testsuite> -->
+        </testsuite>
     </testsuites>
 
     <logging>
