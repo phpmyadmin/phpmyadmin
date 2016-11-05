@@ -42,10 +42,10 @@ function PMA_getTablesInfo()
         $GLOBALS['PMD']['TABLE_NAME_SMALL'][$i] = $one_table['TABLE_NAME'];
 
         $GLOBALS['PMD_URL']['TABLE_NAME'][$i]
-            = urlencode($GLOBALS['db'] . "." . $one_table['TABLE_NAME']);
-        $GLOBALS['PMD_URL']['OWNER'][$i] = urlencode($GLOBALS['db']);
+            = $GLOBALS['db'] . "." . $one_table['TABLE_NAME'];
+        $GLOBALS['PMD_URL']['OWNER'][$i] = $GLOBALS['db'];
         $GLOBALS['PMD_URL']['TABLE_NAME_SMALL'][$i]
-            = urlencode($one_table['TABLE_NAME']);
+            = $one_table['TABLE_NAME'];
 
         $GLOBALS['PMD_OUT']['TABLE_NAME'][$i] = htmlspecialchars(
             $GLOBALS['db'] . "." . $one_table['TABLE_NAME'], ENT_QUOTES
@@ -63,7 +63,7 @@ function PMA_getTablesInfo()
 
         $DF = PMA_getDisplayField($GLOBALS['db'], $one_table['TABLE_NAME']);
         if ($DF != '') {
-            $retval[$GLOBALS['PMD_URL']["TABLE_NAME_SMALL"][$i]] = urlencode($DF);
+            $retval[$GLOBALS['PMD_URL']["TABLE_NAME_SMALL"][$i]] = $DF;
         }
 
         $i++;
