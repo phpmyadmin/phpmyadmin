@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-10-25 11:15+0200\n"
-"PO-Revision-Date: 2016-10-20 12:33+0000\n"
-"Last-Translator: Reksa Suhud Tri Atmojo <reksasuhud@yahoo.co.id>\n"
-"Language-Team: Indonesian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/id/>\n"
+"PO-Revision-Date: 2016-11-05 20:48+0000\n"
+"Last-Translator: Prasna Lukito <prasnakuxing@gmail.com>\n"
+"Language-Team: Indonesian "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/id/>\n"
 "Language: id\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 2.9-dev\n"
+"X-Generator: Weblate 2.9\n"
 "X-Poedit-Basepath: ../../..\n"
 
 #: changelog.php:38 license.php:33
@@ -951,7 +951,6 @@ msgstr ""
 "Apakah Anda yakin Anda ingin mengubah pemeriksaan dan mengkonversi data?"
 
 #: js/messages.php:98
-#, fuzzy
 msgid ""
 "Through this operation, MySQL attempts to map the data values between "
 "collations. If the character sets are incompatible, there may be data loss "
@@ -964,8 +963,8 @@ msgstr ""
 "set karakter tidak kompatibel, mungkin ada kehilangan data dan kehilangan "
 "data ini mungkin <b>TIDAK</b> dapat dipulihkan hanya dengan mengubah kembali "
 "kolom pemeriksaan. <b>Untuk mengkonversi data yang ada, disarankan untuk "
-"menggunakan kolom fitur editing (\"Ubah\" Link) di halaman struktur tabel. </"
-"b>"
+"menggunakan kolom fitur editing (\"Ubah\" Link) di halaman struktur tabel. "
+"</b>"
 
 #: js/messages.php:107
 msgid ""
@@ -976,8 +975,6 @@ msgstr ""
 "data?"
 
 #: js/messages.php:111
-#, fuzzy
-#| msgid "Save & Close"
 msgid "Save & close"
 msgstr "Simpan & Tutup"
 
@@ -1159,7 +1156,7 @@ msgstr "Singgahan kueri terpakai"
 #: js/messages.php:180
 #, fuzzy
 msgid "System CPU usage"
-msgstr "Penggunaan Sistem CPU."
+msgstr "Penggunaan CPU."
 
 #: js/messages.php:181
 msgid "System memory"
@@ -1167,7 +1164,7 @@ msgstr "Memori sistem"
 
 #: js/messages.php:182
 msgid "System swap"
-msgstr "Swap sistem"
+msgstr "Menukar sistem"
 
 #: js/messages.php:184
 msgid "Average load"
@@ -2170,10 +2167,13 @@ msgid "Encryption key"
 msgstr "Kunci Enskripsi"
 
 #: js/messages.php:527
+#, fuzzy
 msgid ""
 "MySQL accepts additional values not selectable by the slider; key in those "
 "values directly if desired"
 msgstr ""
+"MySQL menerima nilai tambahan yang tidak dapat terpilih oleh slider; kunci "
+"di nilai-nilai ini secara langsung jika diinginkan"
 
 #: js/messages.php:533
 msgid ""
@@ -3005,6 +3005,7 @@ msgstr "Gagal memformat string untuk aturan '%s'."
 #, php-format
 msgid "Error in reading file: The file '%s' does not exist or is not readable!"
 msgstr ""
+"Kesalahan dalam membaca Arsip: Arsip '%s' tidak ada atau tidak dapat terbaca!"
 
 #: libraries/Advisor.php:494
 #, php-format
@@ -12561,6 +12562,8 @@ msgid ""
 "No routine with name %1$s found in database %2$s. You might be lacking the "
 "necessary privileges to edit this routine"
 msgstr ""
+"Tidak ada rutinitas ditemukan dengan nama %1$s  dalam database %2$s. Anda "
+"mungkin tidak memiliki otoritas untuk menyunting rutinitas ini"
 
 #: libraries/rte/rte_words.lib.php:39
 #, php-format
@@ -12568,6 +12571,8 @@ msgid ""
 "No routine with name %1$s found in database %2$s. You might be lacking the "
 "necessary privileges to view/export this routine"
 msgstr ""
+"Tidak ada rutinitas bernama %1$s ditemukan di database %2$s. Anda mungkin "
+"tidak memiliki otoritas untuk melihat/mengkespor rutinitas ini"
 
 #: libraries/rte/rte_words.lib.php:42
 #, php-format
@@ -12915,10 +12920,13 @@ msgid "Routine"
 msgstr "Routine"
 
 #: libraries/server_privileges.lib.php:1026
+#, fuzzy
 msgid ""
 "Allows user to give to other users or remove from other users privileges "
 "that user possess on this routine."
 msgstr ""
+"Memperbolehkan pengguna untujk memberi atau menghapus otoritas pengguna lain "
+"yang mengakses rutinitas ini."
 
 #: libraries/server_privileges.lib.php:1033
 #, fuzzy
@@ -12984,10 +12992,13 @@ msgstr ""
 "tabel hak akses."
 
 #: libraries/server_privileges.lib.php:1437 server_privileges.php:72
+#, fuzzy
 msgid ""
 "Allows user to give to other users or remove from other users the privileges "
 "that user possess yourself."
 msgstr ""
+"Memperbolehkan pengguna untuk memberikan atau menghapus otoritas pengguna "
+"lain yang mengakses diri anda."
 
 #: libraries/server_privileges.lib.php:1543
 #, fuzzy
@@ -16906,14 +16917,18 @@ msgid "Unexpected keyword."
 msgstr "Karakter tidak diharapkan pada baris %s."
 
 #: vendor/phpmyadmin/sql-parser/src/Components/CaseExpression.php:202
+#, fuzzy
 msgid "Unexpected end of CASE expression"
-msgstr ""
+msgstr "Akhir tak terduga dari ekspresi CASE"
 
 #: vendor/phpmyadmin/sql-parser/src/Components/CreateDefinition.php:227
+#, fuzzy
 msgid ""
 "A symbol name was expected! A reserved keyword can not be used as a field "
 "name without backquotes."
 msgstr ""
+"Ada sebuah simbol yang menghilang! Kata kunci dasar tidak dapat digunakan "
+"sebagai nama field tanpa tanda kutip."
 
 #: vendor/phpmyadmin/sql-parser/src/Components/CreateDefinition.php:241
 #, fuzzy
@@ -17855,69 +17870,56 @@ msgid "The rate of reading the next table row is high."
 msgstr "Tempat menampilkan tautan baris tabel"
 
 #: libraries/advisory_rules.txt:251
-#, fuzzy
 msgid ""
 "This indicates that many queries are doing full table scans. Add indexes "
 "where applicable."
 msgstr ""
-"Hal ini menunjukkan bahwa banyak pertanyaan yang melakukan scan meja penuh. "
-"Menambahkan indeks mana yang berlaku."
+"Hal ini menunjukkan bahwa banyak kueri yang melakukan scan tabel secara "
+"menyeluruh. Menambahkan indeks dimana memungkinkan."
 
 #: libraries/advisory_rules.txt:252
-#, fuzzy, php-format
-#| msgid ""
-#| "Rate of temporary tables being written to disk: %s, this value should be "
-#| "less than 1 per hour"
+#, php-format
 msgid ""
 "Rate of reading next table row: %s, this value should be less than 1 per hour"
 msgstr ""
-"Tingkat pembuatan tabel temporer ke diska: %s, nilai ini hasul kurang dari 1 "
-"per jam"
+"Tingkat (kecepatan) membaca baris tabel selanjutnya: %s, nilai ini "
+"seharusnya kurang dari 1 per jam"
 
 #: libraries/advisory_rules.txt:255
-#, fuzzy
 msgid "Different tmp_table_size and max_heap_table_size"
-msgstr "tmp_table_size lawan max_heap_table_size"
+msgstr "tmp_table_size max_heap_table_size berbeda"
 
 #: libraries/advisory_rules.txt:258
 msgid "{tmp_table_size} and {max_heap_table_size} are not the same."
 msgstr "{tmp_table_size} dan {max_heap_table_size} tidak sama."
 
 #: libraries/advisory_rules.txt:259
-#, fuzzy
 msgid ""
 "If you have deliberately changed one of either: The server uses the lower "
 "value of either to determine the maximum size of in-memory tables. So if you "
 "wish to increase the in-memory table limit you will have to increase the "
 "other value as well."
 msgstr ""
-"Jika Anda telah sengaja mengubah salah satu salah satu dari: Server "
-"menggunakan nilai yang lebih rendah baik untuk menentukan ukuran maksimum di "
-"memori tabel. Jadi jika Anda ingin meningkatkan batas tabel di memori Anda "
+"Jika anda telah sengaja mengubah salah satu salah satu dari: Server "
+"menggunakan nilai yang lebih rendah untuk menentukan ukuran maksimum di "
+"memori tabel. Jadi jika Anda ingin meningkatkan batas tabel di memori anda "
 "harus meningkatkan nilai lain juga."
 
 #: libraries/advisory_rules.txt:260
-#, fuzzy, php-format
+#, php-format
 msgid "Current values are tmp_table_size: %s, max_heap_table_size: %s"
 msgstr "Nilai sekarang tmp_table_size: %s, max_heap_table_size: %s"
 
 #: libraries/advisory_rules.txt:262
-#, fuzzy
-#| msgid "Percentage of aborted clients"
 msgid "Percentage of temp tables on disk"
-msgstr "Persentase klien yang digugurkan"
+msgstr "Persentase tabel sementara di disk"
 
 #: libraries/advisory_rules.txt:265 libraries/advisory_rules.txt:272
-#, fuzzy
-#| msgid ""
-#| "Rate of temporary tables being written to disk: %s, this value should be "
-#| "less than 1 per hour"
 msgid ""
 "Many temporary tables are being written to disk instead of being kept in "
 "memory."
 msgstr ""
-"Tingkat pembuatan tabel temporer ke diska: %s, nilai ini hasul kurang dari 1 "
-"per jam"
+"Banyak tabel sementara yang ditulis ke disk daripada disimpan di memori."
 
 #: libraries/advisory_rules.txt:266
 #, fuzzy
@@ -17931,29 +17933,26 @@ msgid ""
 "note_id=10150111255065841&comments\">Article by the Pythian Group</a>"
 msgstr ""
 "Meningkatkan {max_heap_table_size} dan {tmp_table_size} mungkin bisa "
-"membantu. Namun beberapa tabel sementara selalu sedang ditulis ke disk, "
-"independen dari nilai variabel-variabel ini. Untuk menghilangkan ini Anda "
-"akan harus menulis ulang pertanyaan Anda untuk menghindari kondisi tersebut "
-"(dalam tabel sementara: Hadirnya BLOB atau TEXT kolom atau adanya kolom "
-"lebih besar dari 512 bytes) sebagaimana disebutkan dalam awal dari <a href="
-"\"https://www.facebook.com/note.php?note_id=10150111255065841&comments"
-"\">Article by the Pythian Group</a>"
+"membantu. Namun beberapa tabel sementara selalu ditulis ke disk, independen "
+"dari nilai variabel-variabel ini. Untuk menghilangkan ini anda akan harus "
+"menulis ulang pertanyaan anda untuk menghindari kondisi tersebut (dalam "
+"tabel sementara: Hadirnya BLOB atau TEXT kolom atau adanya kolom lebih besar "
+"dari 512 bytes) sebagaimana disebutkan dalam awal dari <a href=\""
+"https://www.facebook.com/note.php?note_id=10150111255065841&comments\">"
+"Artikel oleh the Pythian Group</a>"
 
 #: libraries/advisory_rules.txt:267
-#, fuzzy, php-format
-#| msgid ""
-#| "Rate of temporary tables being written to disk: %s, this value should be "
-#| "less than 1 per hour"
+#, php-format
 msgid ""
 "%s%% of all temporary tables are being written to disk, this value should be "
 "below 25%%"
 msgstr ""
-"Tingkat pembuatan tabel temporer ke diska: %s, nilai ini hasul kurang dari 1 "
-"per jam"
+"%s%% dari semua tabel sementara yang sedang ditulis ke disk, nilai ini "
+"seharusnya kurang dari 25%%"
 
 #: libraries/advisory_rules.txt:269
 msgid "Temp disk rate"
-msgstr "Tingkat diska temporer"
+msgstr "Tingkat disk sementara"
 
 #: libraries/advisory_rules.txt:273
 #, fuzzy
@@ -18003,10 +18002,8 @@ msgstr ""
 "awal yang baik."
 
 #: libraries/advisory_rules.txt:283
-#, fuzzy
-#| msgid "MyISAM key buffer size"
 msgid "key_buffer_size is 0"
-msgstr "Ukuran penyangga kunci MyISAM"
+msgstr "nilai key_buffer_size adalah 0"
 
 #: libraries/advisory_rules.txt:285
 #, php-format
@@ -18044,13 +18041,12 @@ msgstr "Persentase penyangga kunci MyISAM yang dipakai"
 #, fuzzy, php-format
 #| msgid "Max %% MyISAM key buffer ever used"
 msgid "%% MyISAM key buffer used: %s%%, this value should be above 95%%"
-msgstr "Jumlah %% maksimum penyangga kunci MyISAM yang pernah dipakai"
+msgstr ""
+"%% MyISAM kunci penyinggah terpakai: %s%%, nilai ini seharusnya diatas 95%%"
 
 #: libraries/advisory_rules.txt:300
-#, fuzzy
-#| msgid "Percentage of slow queries"
 msgid "Percentage of index reads from memory"
-msgstr "Persentase kueri lambat"
+msgstr "Persentase dari indeks yang dibaca dari memori"
 
 #: libraries/advisory_rules.txt:303
 #, fuzzy, php-format
@@ -18063,39 +18059,32 @@ msgid "You may need to increase {key_buffer_size}."
 msgstr "Anda mungkin perlu untuk meningkatkan {key_buffer_size}."
 
 #: libraries/advisory_rules.txt:305
-#, fuzzy, php-format
-#| msgid "Max %% MyISAM key buffer ever used"
+#, php-format
 msgid "Index reads from memory: %s%%, this value should be above 95%%"
-msgstr "Jumlah %% maksimum penyangga kunci MyISAM yang pernah dipakai"
+msgstr "Indeks membaca dari memori: %s%%, nilai ini seharusnya diatas 95%%"
 
 #: libraries/advisory_rules.txt:309
 msgid "Rate of table open"
 msgstr "Tingkat tabel yang terbuka"
 
 #: libraries/advisory_rules.txt:312
-#, fuzzy
-#| msgid "The current number of pending writes."
 msgid "The rate of opening tables is high."
-msgstr "Jumlah tulis tunda saat ini."
+msgstr "Tingkat pembukaan tabel tinggi."
 
 #: libraries/advisory_rules.txt:313
-#, fuzzy
 msgid ""
 "Opening tables requires disk I/O which is costly. Increasing "
 "{table_open_cache} might avoid this."
 msgstr ""
-"Membuka tabel membutuhkan disk I/O yang mahal. Meningkatkan  "
-"{table_open_cache} mungkin menghindari hal ini."
+"Membuka tabel membutuhkan disk I/O (baca-tulis) yang mana kurang "
+"menguntungkan. Meningkatkan  {table_open_cache} mungkin menghindari hal ini."
 
 #: libraries/advisory_rules.txt:314
-#, fuzzy, php-format
-#| msgid ""
-#| "Aborted connections rate is at %s, this value should be less than 1 per "
-#| "hour"
+#, php-format
 msgid "Opened table rate: %s, this value should be less than 10 per hour"
 msgstr ""
-"Tingkat koneksi yang digugurkan adalah pada %s, hasil ini seharusnya kurang "
-"dari 1 per jam"
+"Tingkat koneksi yang dibatalkan adalah %s, ninlai ini seharusnya kurang dari "
+"10 per jam"
 
 #: libraries/advisory_rules.txt:316
 msgid "Percentage of used open files limit"
