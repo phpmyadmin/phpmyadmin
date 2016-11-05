@@ -535,15 +535,15 @@ class TrackerTest extends PMATestCase
         " AND `table_name` = 'pma_table' " .
         " AND `version` = '1.0' ";
 
-        $dbi->expects($this->at(0))
-            ->method('query')
-            ->with($sql_query_1, null, 0, false)
-            ->will($this->returnValue("executed_1"));
-
-        $dbi->expects($this->at(1))
-            ->method('query')
-            ->with($sql_query_2, null, 0, false)
-            ->will($this->returnValue("executed_2"));
+        $dbi->method('query')
+            ->will(
+                $this->returnValueMap(
+                    array(
+                        array($sql_query_1, null, 0, false, "executed_1"),
+                        array($sql_query_2, null, 0, false, "executed_2")
+                    )
+                )
+            );
 
         $dbi->expects($this->any())->method('escapeString')
             ->will($this->returnArgument(0));
@@ -609,12 +609,6 @@ class TrackerTest extends PMATestCase
      */
     public function testGetTrackedData($fetchArrayReturn, $expectedArray)
     {
-        $sql_query = " SELECT * FROM `pmadb`.`tracking`" .
-            " WHERE `db_name` = 'pma\\'db' " .
-            " AND `table_name` = 'pma\\'table' " .
-            " AND `version` = '1.0' " .
-            " ORDER BY `version` DESC LIMIT 1";
-
         $GLOBALS['controllink'] = null;
 
         $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
@@ -623,7 +617,6 @@ class TrackerTest extends PMATestCase
 
         $dbi->expects($this->once())
             ->method('query')
-            // ->with($sql_query, null, 0, false)
             ->will($this->returnValue("executed_1"));
 
         $dbi->expects($this->once())

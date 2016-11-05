@@ -316,13 +316,12 @@ class ExportOdsTest extends PMATestCase
             ->with(true)
             ->will($this->returnValue($flags));
 
-        $dbi->expects($this->at(4))
+        $dbi->expects($this->exactly(2))
             ->method('fieldFlags')
-            ->will($this->returnValue('BINARYTEST'));
-
-        $dbi->expects($this->at(5))
-            ->method('fieldFlags')
-            ->will($this->returnValue('binary'));
+            ->willReturnOnConsecutiveCalls(
+                'BINARYTEST',
+                'binary'
+            );
 
         $dbi->expects($this->once())
             ->method('query')
@@ -334,22 +333,19 @@ class ExportOdsTest extends PMATestCase
             ->with(true)
             ->will($this->returnValue(8));
 
-        $dbi->expects($this->at(11))
+        $dbi->expects($this->exactly(2))
             ->method('fetchRow')
-            ->with(true)
             ->will(
-                $this->returnValue(
+                $this->returnValueMap(
                     array(
-                        null, '01-01-2000', '01-01-2000', '01-01-2000 10:00:00',
-                        "01-01-2014 10:02:00", "t>s", "a&b", "<"
+                        array(true, array(
+                            null, '01-01-2000', '01-01-2000', '01-01-2000 10:00:00',
+                            "01-01-2014 10:02:00", "t>s", "a&b", "<"
+                        )),
+                        array(true, null)
                     )
                 )
             );
-
-        $dbi->expects($this->at(12))
-            ->method('fetchRow')
-            ->with(true)
-            ->will($this->returnValue(null));
 
         $GLOBALS['dbi'] = $dbi;
         $GLOBALS['mediawiki_caption'] = true;

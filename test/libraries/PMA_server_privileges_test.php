@@ -123,6 +123,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
             'password' => 'pma_password',
             'Table_priv' => 'pri1, pri2',
             'Type' => 'Type',
+            '@@old_passwords' => 0,
         );
         $dbi->expects($this->any())->method('fetchSingleRow')
             ->will($this->returnValue($fetchSingleRow));
