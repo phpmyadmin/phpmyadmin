@@ -1026,10 +1026,17 @@ class ExportSqlTest extends PMATestCase
             ") ENGINE=InnoDB AUTO_INCREMENT=16050 DEFAULT CHARSET=utf8\n"
         );
 
-        $dbi->expects($this->at(11))
+        $dbi->expects($this->exactly(2))
             ->method('fetchRow')
             ->with('res')
-            ->will($this->returnValue($row));
+            ->will(
+                $this->returnValueMap(
+                    array(
+                        array('res', $row),
+                        array('res', null)
+                    )
+                )
+            );
         $dbi->expects($this->once())
             ->method('getTable')
             ->will($this->returnValue(new Table('table', 'db', $dbi)));
@@ -1509,12 +1516,15 @@ class ExportSqlTest extends PMATestCase
             ->with('res')
             ->will($this->returnValue(5));
 
-        $dbi->expects($this->once())
+        $dbi->expects($this->exactly(2))
             ->method('fetchRow')
             ->with('res')
             ->will(
-                $this->returnValue(
-                    array(null, 'test', '10', '6', "\x00\x0a\x0d\x1a")
+                $this->returnValueMap(
+                    array(
+                        array('res', array(null, 'test', '10', '6', "\x00\x0a\x0d\x1a")),
+                        array('res', null)
+                    )
                 )
             );
         $dbi->expects($this->any())->method('escapeString')
