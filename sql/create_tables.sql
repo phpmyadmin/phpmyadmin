@@ -37,7 +37,7 @@ USE phpmyadmin;
 --
 
 CREATE TABLE IF NOT EXISTS `pma__bookmark` (
-  `id` int(11) NOT NULL auto_increment,
+  `id` int(10) unsigned NOT NULL auto_increment,
   `dbase` varchar(255) NOT NULL default '',
   `user` varchar(255) NOT NULL default '',
   `label` varchar(255) COLLATE utf8_general_ci NOT NULL default '',
