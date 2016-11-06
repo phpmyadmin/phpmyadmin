@@ -316,11 +316,17 @@ class ExportOdsTest extends PMATestCase
             ->with(true)
             ->will($this->returnValue($flags));
 
-        $dbi->expects($this->exactly(2))
+        $dbi->expects($this->exactly(8))
             ->method('fieldFlags')
             ->willReturnOnConsecutiveCalls(
                 'BINARYTEST',
-                'binary'
+                'binary',
+                '',
+                '',
+                '',
+                '',
+                '',
+                ''
             );
 
         $dbi->expects($this->once())
@@ -333,16 +339,14 @@ class ExportOdsTest extends PMATestCase
             ->with(true)
             ->will($this->returnValue(8));
 
-        $dbi->expects($this->exactly(2))
+        $dbi->expects($this->at(11))
             ->method('fetchRow')
+            ->with(true)
             ->will(
-                $this->returnValueMap(
+                $this->returnValue(
                     array(
-                        array(true, array(
-                            null, '01-01-2000', '01-01-2000', '01-01-2000 10:00:00',
-                            "01-01-2014 10:02:00", "t>s", "a&b", "<"
-                        )),
-                        array(true, null)
+                        null, '01-01-2000', '01-01-2000', '01-01-2000 10:00:00',
+                        "01-01-2014 10:02:00", "t>s", "a&b", "<"
                     )
                 )
             );
