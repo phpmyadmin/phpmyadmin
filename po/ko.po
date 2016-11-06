@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.5-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-10-25 11:13+0200\n"
-"PO-Revision-Date: 2016-11-04 05:25+0000\n"
+"PO-Revision-Date: 2016-11-06 17:38+0000\n"
 "Last-Translator: Lee Joon Haeng <calmnoia@gmail.com>\n"
 "Language-Team: Korean "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-6/ko/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 2.9-dev\n"
+"X-Generator: Weblate 2.9\n"
 
 #: changelog.php:38 license.php:33
 #, php-format
@@ -1939,10 +1939,11 @@ msgid "Selected partial dependencies are as follows:"
 msgstr "선택된 부분의 의존성은 다음과 같음:"
 
 #: js/messages.php:441
+#, fuzzy
 msgid ""
 "Note: a, b -> d,f implies values of columns a and b combined together can "
 "determine values of column d and column f."
-msgstr ""
+msgstr "참고: a, b -> d, f 는 컬럼 a와 컬럼 b의 결합된 값들이 컬럼 d와 컬럼 f의 값을 결정할 수 있다는 뜻입니다."
 
 #: js/messages.php:444
 msgid "No partial dependencies selected!"
@@ -2127,13 +2128,13 @@ msgstr "암호화 키"
 msgid ""
 "MySQL accepts additional values not selectable by the slider; key in those "
 "values directly if desired"
-msgstr ""
+msgstr "MySQL은 슬라이더로 선택되지 않는 추가값을 허용합니다; 값들을 직접 입력하길 원할 경우"
 
 #: js/messages.php:528
 msgid ""
 "Indicates that you have made changes to this page; you will be prompted for "
 "confirmation before abandoning changes"
-msgstr ""
+msgstr "이 페이지를 변경했다는것을 나타냅니다; 변경사항을 적용하지 않고 나갈 경우 확인 메시지가 표시 됩니다"
 
 #: js/messages.php:533
 msgid "Select referenced key"
@@ -2505,6 +2506,9 @@ msgid ""
 "cause such a problem, clearing your \"Offline Website Data\" might help. In "
 "Safari, such problem is commonly caused by \"Private Mode Browsing\"."
 msgstr ""
+"브라우저 저장소에 접근하는데 문제가 발생하여, 몇 가지 기능이 제대로 동작하지 않을 수 있습니다. 이 문제는 브라우저가 저장소를 지원하지 "
+"않거나 저장소의 한계치에 도달하거나 하는 경우 발생합니다. 파이어폭스에서는 오류가 생긴 저장소가 문제가 될 수 있으며, \"오프라인 "
+"웹사이트 데이터\"를 삭제하는것이 도움이 될 수 있습니다. 사파리에서는 일반적으로 \"개인 모드 브라우징\"에 의해 발생 됩니다."
 
 #: js/messages.php:714
 msgid "Copy tables to"
@@ -2953,7 +2957,7 @@ msgstr "데이터베이스"
 #, php-format
 msgid "Showing %1$d bookmark (both private and shared)"
 msgid_plural "Showing %1$d bookmarks (both private and shared)"
-msgstr[0] ""
+msgstr[0] "%1$d 북마크 보이기 (개인 및 공유)"
 
 #: libraries/Console.php:107
 msgid "No bookmarks"
@@ -3764,7 +3768,7 @@ msgstr "지원되지 않는 언어의 코드는 무시합니다."
 #: libraries/Linter.php:99
 msgid ""
 "Linting is disabled for this query because it exceeds the maximum length."
-msgstr ""
+msgstr "이 쿼리가 최대길이를 초과하여 Linting을 사용할 수 없습니다."
 
 #: libraries/Linter.php:165
 #, php-format
@@ -4511,7 +4515,7 @@ msgstr "모든 종류의 기하데이터 객체들의 집합"
 msgid ""
 "Stores and enables efficient access to data in JSON (JavaScript Object "
 "Notation) documents"
-msgstr ""
+msgstr "JSON (JavaScript Object Notation) 문서로 데이터를 저장하면 데이터에 효율적으로 접근할 수 있습니다"
 
 #: libraries/TypesMySQL.php:479
 msgctxt "numeric types"
@@ -4570,7 +4574,7 @@ msgstr "SQL 해석 생략"
 #: libraries/Util.php:1225
 #, php-format
 msgid "Analyze Explain at %s"
-msgstr ""
+msgstr "%s의 분석 설명"
 
 #: libraries/Util.php:1258
 msgid "Without PHP code"
