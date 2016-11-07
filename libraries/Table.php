@@ -500,6 +500,49 @@ class Table
     } // end function
 
     /**
+     * Checks if the number of records in a table is at least equal to
+     * $min_records
+     *
+     * @param int $min_records Number of records to check for in a table
+     *
+     * @return bool True, if at least $min_records exist, False otherwise.
+     */
+    public function checkIfMinRecordsExist($min_records = 0)
+    {
+        $check_query = 'SELECT ';
+        $fieldsToSelect = '';
+
+        $uniqueFields = $this->getUniqueColumns(true, false);
+        if (count($uniqueFields) > 0) {
+            $fieldsToSelect = implode(', ', $uniqueFields);
+        } else {
+            $indexedCols = $this->getIndexedColumns(true, false);
+            if (count($indexedCols) > 0) {
+                $fieldsToSelect = implode(', ', $indexedCols);
+            } else {
+                $fieldsToSelect = '*';
+            }
+        }
+
+        $check_query .= $fieldsToSelect
+            . ' FROM ' . $this->getFullName(true)
+            . ' LIMIT ' . $min_records;
+
+        $res = $GLOBALS['dbi']->tryQuery(
+            $check_query
+        );
+
+        if ($res !== false) {
+            $num_records = $GLOBALS['dbi']->numRows($res);
+            if ($num_records >= $min_records) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    /**
      * Counts and returns (or displays) the number of records in a table
      *
      * @param bool $force_exact whether to force an exact count
