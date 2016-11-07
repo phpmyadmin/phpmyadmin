@@ -696,18 +696,8 @@ class ExportSqlTest extends PMATestCase
      *
      * @return void
      */
-    public function testExportEventsWithNewerMySQLVersion()
+    public function testExportEvents()
     {
-        $restoreMySQLVersion = "PMANORESTORE";
-
-        if (! PMA_HAS_RUNKIT) {
-            $this->markTestSkipped(
-                'Cannot redefine constant. Missing runkit extension'
-            );
-        } else {
-            $restoreMySQLVersion = PMA_MYSQL_INT_VERSION;
-            runkit_constant_redefine('PMA_MYSQL_INT_VERSION', 50101);
-        }
 
         $GLOBALS['crlf'] = "\n";
         $GLOBALS['sql_structure_or_data'] = 'structure';
@@ -729,8 +719,10 @@ class ExportSqlTest extends PMATestCase
             ->method('getDefinition')
             ->will(
                 $this->returnValueMap(
-                    array('db', 'EVENT', 'f1', 'f1event'),
-                    array('db', 'EVENT', 'f2', 'f2event')
+                    array(
+                        array('db', 'EVENT', 'f1', null, 'f1event'),
+                        array('db', 'EVENT', 'f2', null, 'f2event')
+                    )
                 )
             );
         $dbi->expects($this->any())->method('escapeString')
@@ -763,10 +755,6 @@ class ExportSqlTest extends PMATestCase
             "f2event$$\n",
             $result
         );
-
-        if ($restoreMySQLVersion !== "PMANORESTORE") {
-            runkit_constant_redefine('PMA_MYSQL_INT_VERSION', $restoreMySQLVersion);
-        }
     }
 
     /**
@@ -774,19 +762,8 @@ class ExportSqlTest extends PMATestCase
      *
      * @return void
      */
-    public function testExportDBFooterWithOlderMySQLVersion()
+    public function testExportDBFooter()
     {
-        $restoreMySQLVersion = "PMANORESTORE";
-
-        if (! PMA_HAS_RUNKIT) {
-            $this->markTestSkipped(
-                'Cannot redefine constant. Missing runkit extension'
-            );
-        } else {
-            $restoreMySQLVersion = PMA_MYSQL_INT_VERSION;
-            runkit_constant_redefine('PMA_MYSQL_INT_VERSION', 50100);
-        }
-
         $GLOBALS['crlf'] = "\n";
         $GLOBALS['sql_constraints'] = "SqlConstraints";
         $GLOBALS['sql_structure_or_data'] = 'structure';
@@ -810,10 +787,6 @@ class ExportSqlTest extends PMATestCase
             'SqlConstraints',
             $result
         );
-
-        if ($restoreMySQLVersion !== "PMANORESTORE") {
-            runkit_constant_redefine('PMA_MYSQL_INT_VERSION', $restoreMySQLVersion);
-        }
     }
 
     /**
@@ -983,7 +956,7 @@ class ExportSqlTest extends PMATestCase
         $dbi->expects($this->once())
             ->method('numRows')
             ->with('res')
-            ->will($this->returnValue(2));
+            ->will($this->returnValue(1));
 
         $dbi->expects($this->any())
             ->method('fetchValue')
@@ -1026,14 +999,12 @@ class ExportSqlTest extends PMATestCase
             ") ENGINE=InnoDB AUTO_INCREMENT=16050 DEFAULT CHARSET=utf8\n"
         );
 
-        $dbi->expects($this->exactly(2))
+        $dbi->expects($this->exactly(1))
             ->method('fetchRow')
-            ->with('res')
             ->will(
                 $this->returnValueMap(
                     array(
-                        array('res', $row),
-                        array('res', null)
+                        array('res', $row)
                     )
                 )
             );
@@ -1518,14 +1489,9 @@ class ExportSqlTest extends PMATestCase
 
         $dbi->expects($this->exactly(2))
             ->method('fetchRow')
-            ->with('res')
-            ->will(
-                $this->returnValueMap(
-                    array(
-                        array('res', array(null, 'test', '10', '6', "\x00\x0a\x0d\x1a")),
-                        array('res', null)
-                    )
-                )
+            ->willReturnOnConsecutiveCalls(
+                array(null, 'test', '10', '6', "\x00\x0a\x0d\x1a"),
+                null
             );
         $dbi->expects($this->any())->method('escapeString')
             ->will($this->returnArgument(0));
@@ -1654,13 +1620,9 @@ class ExportSqlTest extends PMATestCase
 
         $dbi->expects($this->exactly(2))
             ->method('fetchRow')
-            ->will(
-                $this->returnValueMap(
-                    array(
-                        array('res', array(null, null)),
-                        array('res', null)
-                    )
-                )
+            ->willReturnOnConsecutiveCalls(
+                array(null, null),
+                null
             );
 
         $_table = $this->getMockBuilder('PMA\libraries\Table')
@@ -1740,6 +1702,7 @@ class ExportSqlTest extends PMATestCase
         $GLOBALS['crlf'] = "\n";
         $oldVal = isset($GLOBALS['sql_compatibility']) ? $GLOBALS['sql_compatibility'] : '';
         $GLOBALS['sql_compatibility'] = 'NONE';
+        $GLOBALS['sql_backquotes'] = true;
 
         ob_start();
         $this->assertTrue(

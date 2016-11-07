@@ -639,54 +639,23 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_getSqlQueriesForDisplayAndAddUser
-     *
-     * @return void
-     */
-    public function testPMAGetSqlQueriesForDisplayAndAddNewUser()
-    {
-        $username = 'pma_username';
-        $hostname = 'pma_hostname';
-        $password = 'pma_password';
-        $_REQUEST['adduser_submit'] = true;
-        $_POST['pred_username'] = 'any';
-        $_POST['pred_hostname'] = 'localhost';
-        $_POST['pred_password'] = 'keep';
-        $_REQUEST['createdb-3'] = true;
-        $_REQUEST['authentication_plugin'] = 'mysql_native_password';
-
-        list($create_user_real, $create_user_show, $real_sql_query, $sql_query)
-            = PMA_getSqlQueriesForDisplayAndAddUser(
-                $username, $hostname,
-                (isset($password) ? $password : '')
-            );
-        $this->assertEquals(
-            "CREATE USER 'pma_username'@'pma_hostname' "
-            . "IDENTIFIED WITH mysql_native_password AS 'pma_password';",
-            $create_user_real
-        );
-        $this->assertEquals(
-            "CREATE USER 'pma_username'@'pma_hostname' "
-            . "IDENTIFIED WITH mysql_native_password AS '***';",
-            $create_user_show
-        );
-        $this->assertEquals(
-            "GRANT USAGE ON *.* TO 'pma_username'@'pma_hostname' REQUIRE NONE;",
-            $real_sql_query
-        );
-        $this->assertEquals(
-            "GRANT USAGE ON *.* TO 'pma_username'@'pma_hostname' REQUIRE NONE;",
-            $sql_query
-        );
-    }
-
-    /**
      * Test for PMA_addUser
      *
      * @return void
      */
     public function testPMAAddUser()
     {
+        // Case 1 : Test with Newer version
+        $restoreMySQLVersion = "PMANORESTORE";
+        if (! PMA_HAS_RUNKIT) {
+            $this->markTestSkipped(
+                'Cannot redefine constant. Missing runkit extension'
+            );
+        } else {
+            $restoreMySQLVersion = PMA_MYSQL_INT_VERSION;
+            runkit_constant_redefine('PMA_MYSQL_INT_VERSION', 50706);
+        }
+
         $dbname = 'pma_dbname';
         $username = 'pma_username';
         $hostname = 'pma_hostname';
@@ -722,6 +691,53 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
             false,
             $_add_user_error
         );
+
+        if ($restoreMySQLVersion !== "PMANORESTORE") {
+            runkit_constant_redefine('PMA_MYSQL_INT_VERSION', $restoreMySQLVersion);
+        }
+
+
+        // Case 2 : Test with older versions
+        $restoreMySQLVersion = "PMANORESTORE";
+        if (! PMA_HAS_RUNKIT) {
+            $this->markTestSkipped(
+                'Cannot redefine constant. Missing runkit extension'
+            );
+        } else {
+            $restoreMySQLVersion = PMA_MYSQL_INT_VERSION;
+            runkit_constant_redefine('PMA_MYSQL_INT_VERSION', 50506);
+        }
+
+        list(
+            $ret_message,,, $sql_query,
+            $_add_user_error
+        ) = PMA_addUser(
+            $dbname,
+            $username,
+            $hostname,
+            $dbname,
+            true
+        );
+
+        $this->assertEquals(
+            'You have added a new user.',
+            $ret_message->getMessage()
+        );
+        $this->assertEquals(
+            "CREATE USER ''@'localhost';"
+            . "GRANT USAGE ON *.* TO ''@'localhost' REQUIRE NONE;"
+            . "SET PASSWORD FOR ''@'localhost' = '***';"
+            . "GRANT ALL PRIVILEGES ON `pma_dbname`.* TO ''@'localhost';",
+            $sql_query
+        );
+        $this->assertEquals(
+            false,
+            $_add_user_error
+        );
+
+        if ($restoreMySQLVersion !== "PMANORESTORE") {
+            runkit_constant_redefine('PMA_MYSQL_INT_VERSION', $restoreMySQLVersion);
+        }
     }
 
     /**
@@ -960,6 +976,17 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
      */
     public function testPMAGetSqlQueriesForDisplayAndAddUser()
     {
+        $restoreMySQLVersion = "PMANORESTORE";
+
+        if (! PMA_HAS_RUNKIT) {
+            $this->markTestSkipped(
+                'Cannot redefine constant. Missing runkit extension'
+            );
+        } else {
+            $restoreMySQLVersion = PMA_MYSQL_INT_VERSION;
+            runkit_constant_redefine('PMA_MYSQL_INT_VERSION', 50706);
+        }
+
         $username = "PMA_username";
         $hostname = "PMA_hostname";
         $password = "pma_password";
@@ -1012,6 +1039,10 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
             "You have added a new user.",
             $message->getMessage()
         );
+
+        if ($restoreMySQLVersion !== "PMANORESTORE") {
+            runkit_constant_redefine('PMA_MYSQL_INT_VERSION', $restoreMySQLVersion);
+        }
     }
 
     /**
