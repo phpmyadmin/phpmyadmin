@@ -863,6 +863,9 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
         $dbi->expects($this->at(1))
             ->method('fetchRow')
             ->will($this->returnValue(false));
+        $dbi->expects($this->any())
+            ->method('escapeString')
+            ->will($this->returnArgument(0));
 
         $GLOBALS['dbi'] = $dbi;
 
@@ -1102,6 +1105,10 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
         );
         $dbi->expects($this->any())->method('fetchResult')
             ->will($this->returnValue($fields_info));
+        $dbi->expects($this->any())
+            ->method('escapeString')
+            ->will($this->returnArgument(0));
+
 
         $GLOBALS['dbi'] = $dbi;
 
@@ -1207,6 +1214,9 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
         );
         $dbi->expects($this->any())->method('fetchResult')
             ->will($this->returnValue($fields_info));
+        $dbi->expects($this->any())
+            ->method('escapeString')
+            ->will($this->returnArgument(0));
 
         $GLOBALS['dbi'] = $dbi;
 
@@ -1274,6 +1284,9 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
         );
         $dbi->expects($this->any())->method('fetchResult')
             ->will($this->returnValue($fields_info));
+        $dbi->expects($this->any())
+            ->method('escapeString')
+            ->will($this->returnArgument(0));
 
         $GLOBALS['dbi'] = $dbi;
 
@@ -1349,6 +1362,9 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
         );
         $dbi->expects($this->any())->method('fetchResult')
             ->will($this->returnValue($fields_info));
+        $dbi->expects($this->any())
+            ->method('escapeString')
+            ->will($this->returnArgument(0));
 
         $GLOBALS['dbi'] = $dbi;
 
@@ -1660,6 +1676,9 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
 
         $dbi->expects($this->any())->method('fetchValue')
             ->will($this->returnValue($expected_userGroup));
+        $dbi->expects($this->any())
+            ->method('escapeString')
+            ->will($this->returnArgument(0));
 
         $GLOBALS['dbi'] = $dbi;
 
@@ -1722,6 +1741,9 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
 
         $dbi->expects($this->any())->method('fetchValue')
             ->will($this->returnValue($expected_userGroup));
+        $dbi->expects($this->any())
+            ->method('escapeString')
+            ->will($this->returnArgument(0));
 
         $GLOBALS['dbi'] = $dbi;
 
@@ -2225,6 +2247,10 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
                     )
                 )
             );
+        $dbi->expects($this->any())
+            ->method('escapeString')
+            ->will($this->returnArgument(0));
+
         $_GET['initial'] = 'A';
         $GLOBALS['dbi'] = $dbi;
 
@@ -2260,6 +2286,10 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
         $dbi->expects($this->any())
             ->method('getError')
             ->will($this->returnValue('Some error occurred!'));
+        $dbi->expects($this->any())
+            ->method('escapeString')
+            ->will($this->returnArgument(0));
+
         $GLOBALS['dbi'] = $dbi;
 
         // Test case 1 : empty queries

@@ -1547,6 +1547,7 @@ class ExportSqlTest extends PMATestCase
         $GLOBALS['dbi'] = $dbi;
         $GLOBALS['sql_compatibility'] = 'MSSQL';
         $GLOBALS['sql_backquotes'] = true;
+        $GLOBALS['sql_max_query_size'] = 50000;
         $GLOBALS['sql_views_as_tables'] = true;
         $GLOBALS['sql_type'] = 'INSERT';
         $GLOBALS['sql_delayed'] = ' DELAYED';
@@ -1651,12 +1652,14 @@ class ExportSqlTest extends PMATestCase
             ->with('res')
             ->will($this->returnValue(2));
 
-        $dbi->expects($this->once())
+        $dbi->expects($this->exactly(2))
             ->method('fetchRow')
-            ->with('res')
             ->will(
-                $this->returnValue(
-                    array(null, null)
+                $this->returnValueMap(
+                    array(
+                        array('res', array(null, null)),
+                        array('res', null)
+                    )
                 )
             );
 
@@ -1735,7 +1738,7 @@ class ExportSqlTest extends PMATestCase
         $GLOBALS['sql_views_as_tables'] = false;
         $GLOBALS['sql_include_comments'] = true;
         $GLOBALS['crlf'] = "\n";
-        $oldVal = $GLOBALS['sql_compatibility'];
+        $oldVal = isset($GLOBALS['sql_compatibility']) ? $GLOBALS['sql_compatibility'] : '';
         $GLOBALS['sql_compatibility'] = 'NONE';
 
         ob_start();
