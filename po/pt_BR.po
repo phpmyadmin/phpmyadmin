@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.5-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-10-25 11:13+0200\n"
-"PO-Revision-Date: 2016-11-07 12:54+0000\n"
-"Last-Translator: popinha13 <apolonio.serafim@hotmail.com>\n"
+"PO-Revision-Date: 2016-11-07 12:57+0000\n"
+"Last-Translator: Guilherme Rocha <guilherme@candiba.net>\n"
 "Language-Team: Portuguese (Brazil) "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-6/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -5954,10 +5954,9 @@ msgid "Foreign key limit"
 msgstr "Limite de chave estrangeira"
 
 #: libraries/config/messages.inc.php:242
-#, fuzzy
 msgid "Default value for foreign key checks checkbox for some queries."
 msgstr ""
-"Valor padrão para chave estrangeira checa a checkbox por algumas consultas."
+"O valor padrão para foreign key restringe o  checkbox para algumas consultas."
 
 #: libraries/config/messages.inc.php:244
 msgid "Foreign key checks"
