@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.5-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-10-25 11:13+0200\n"
-"PO-Revision-Date: 2016-10-18 09:48+0000\n"
-"Last-Translator: Paul Polidoro <leedshs@gmail.com>\n"
-"Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
-"phpmyadmin/4-6/pt_BR/>\n"
+"PO-Revision-Date: 2016-11-07 12:54+0000\n"
+"Last-Translator: popinha13 <apolonio.serafim@hotmail.com>\n"
+"Language-Team: Portuguese (Brazil) "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-6/pt_BR/>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 2.9-dev\n"
+"X-Generator: Weblate 2.9\n"
 
 #: changelog.php:38 license.php:33
 #, php-format
@@ -1826,6 +1826,7 @@ msgstr "Exportar"
 #: js/messages.php:389
 msgid "No routine is exportable. Required privileges may be lacking."
 msgstr ""
+"Nenhuma rotina é exportável. Podem estar faltando privilégios necessários.."
 
 #: js/messages.php:392 libraries/rte/rte_routines.lib.php:754
 msgid "ENUM/SET editor"
@@ -2186,6 +2187,8 @@ msgid ""
 "MySQL accepts additional values not selectable by the slider; key in those "
 "values directly if desired"
 msgstr ""
+"MySQL aceita valores que não seria possível seleciona-los com a barra; se o "
+"desejar insira-os diretamente"
 
 #: js/messages.php:528
 msgid ""
@@ -2964,6 +2967,8 @@ msgstr "Falha ao formatar string para a regra '%s'."
 #, php-format
 msgid "Error in reading file: The file '%s' does not exist or is not readable!"
 msgstr ""
+"Erro na leitura do arquivo: O arquivo '%s' pode não existir ou não estar "
+"acessível!"
 
 #: libraries/Advisor.php:492
 #, php-format
@@ -3700,7 +3705,6 @@ msgid "Unknown error in file upload."
 msgstr "Erro desconhecido no carregamento do arquivo."
 
 #: libraries/File.php:424
-#, fuzzy
 msgid "File is a symbolic link"
 msgstr "O arquivo é um link simbólico"
 
@@ -5876,11 +5880,9 @@ msgid "Export views as tables"
 msgstr "Exportar vistas como tabelas"
 
 #: libraries/config/messages.inc.php:198
-#, fuzzy
-#| msgid "%sCreate%s missing phpMyAdmin configuration storage tables."
 msgid "Export related metadata from phpMyAdmin configuration storage"
 msgstr ""
-"Exportar metadados relacionados ao armazenamento de configurações do "
+"Exportar metadados relacionados as configurações de armazenamento do "
 "phpMyAdmin"
 
 #: libraries/config/messages.inc.php:200 libraries/config/messages.inc.php:201
