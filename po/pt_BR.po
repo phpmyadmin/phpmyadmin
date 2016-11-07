@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-10-25 11:15+0200\n"
-"PO-Revision-Date: 2016-10-18 09:48+0000\n"
-"Last-Translator: Paul Polidoro <leedshs@gmail.com>\n"
-"Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
-"phpmyadmin/master/pt_BR/>\n"
+"PO-Revision-Date: 2016-11-07 13:09+0000\n"
+"Last-Translator: popinha13 <apolonio.serafim@hotmail.com>\n"
+"Language-Team: Portuguese (Brazil) "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/pt_BR/>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 2.9-dev\n"
+"X-Generator: Weblate 2.9\n"
 
 #: changelog.php:38 license.php:33
 #, php-format
@@ -1814,6 +1814,7 @@ msgstr "Exportar"
 #: js/messages.php:394
 msgid "No routine is exportable. Required privileges may be lacking."
 msgstr ""
+"Nenhuma rotina é exportável. Podem estar faltando privilégios necessários.."
 
 #: js/messages.php:397 libraries/rte/rte_routines.lib.php:756
 msgid "ENUM/SET editor"
@@ -2176,6 +2177,8 @@ msgid ""
 "MySQL accepts additional values not selectable by the slider; key in those "
 "values directly if desired"
 msgstr ""
+"MySQL aceita valores que não seria possível seleciona-los com a barra; se o "
+"desejar insira-os diretamente"
 
 #: js/messages.php:533
 msgid ""
@@ -2954,6 +2957,8 @@ msgstr "Falha ao formatar string para a regra '%s'."
 #, php-format
 msgid "Error in reading file: The file '%s' does not exist or is not readable!"
 msgstr ""
+"Erro na leitura do arquivo: O arquivo '%s' pode não existir ou não estar "
+"acessível!"
 
 #: libraries/Advisor.php:494
 #, php-format
@@ -3766,7 +3771,6 @@ msgid "Unknown error in file upload."
 msgstr "Erro desconhecido no carregamento do arquivo."
 
 #: libraries/File.php:424
-#, fuzzy
 msgid "File is a symbolic link"
 msgstr "O arquivo é um link simbólico"
 
@@ -5956,11 +5960,9 @@ msgid "Export views as tables"
 msgstr "Exportar vistas como tabelas"
 
 #: libraries/config/messages.inc.php:198
-#, fuzzy
-#| msgid "%sCreate%s missing phpMyAdmin configuration storage tables."
 msgid "Export related metadata from phpMyAdmin configuration storage"
 msgstr ""
-"Exportar metadados relacionados ao armazenamento de configurações do "
+"Exportar metadados relacionados as configurações de armazenamento do "
 "phpMyAdmin"
 
 #: libraries/config/messages.inc.php:200 libraries/config/messages.inc.php:201
@@ -6032,10 +6034,9 @@ msgid "Foreign key limit"
 msgstr "Limite de chave estrangeira"
 
 #: libraries/config/messages.inc.php:242
-#, fuzzy
 msgid "Default value for foreign key checks checkbox for some queries."
 msgstr ""
-"Valor padrão para chave estrangeira checa a checkbox por algumas consultas."
+"O valor padrão para foreign key restringe o  checkbox para algumas consultas."
 
 #: libraries/config/messages.inc.php:244
 msgid "Foreign key checks"
@@ -6608,15 +6609,11 @@ msgid "Maximum tables"
 msgstr "Número máximo de tabelas"
 
 #: libraries/config/messages.inc.php:466
-#, fuzzy
-#| msgid ""
-#| "The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd] "
-#| "([kbd]0[/kbd] for no limit)."
 msgid ""
 "The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd] "
 "([kbd]-1[/kbd] for no limit and [kbd]0[/kbd] for no change)."
 msgstr ""
-"O número de bytes que um script é permitido alocar, ex. [kbd]32MB[/kbd] "
+"A quantidade de bytes que um script pode alocar, ex. [kbd]32M[/kbd] "
 "([kbd]-1[/kbd] para não haver limite e [kbd]0[/kbd] para não haver mudança)."
 
 #: libraries/config/messages.inc.php:469
@@ -6755,14 +6752,10 @@ msgid "Show tables in tree"
 msgstr "Mostrar tabelas na lista de tabelas"
 
 #: libraries/config/messages.inc.php:527
-#, fuzzy
-#| msgid ""
-#| "Whether to offer the possibility of tree expansion in the navigation "
-#| "panel."
 msgid "Whether to show tables under database in the navigation tree"
 msgstr ""
-"Se deseja oferecer a possibilidade de expansão de árvore no painel de "
-"navegação."
+"Se deseja mostrar as tabelas do banco de dados da árvore no painel de "
+"navegação"
 
 #: libraries/config/messages.inc.php:528
 #, fuzzy
