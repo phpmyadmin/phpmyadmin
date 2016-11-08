@@ -518,8 +518,14 @@ $js_messages['strCopyEncryptionKey'] = __('Do you want to copy encryption key?')
 $js_messages['strEncryptionKey'] = __('Encryption key');
 
 /* For Tip to be shown on Time field */
-$js_messages['strMysqlAllowedValuesTip'] = __(
+$js_messages['strMysqlAllowedValuesTipTime'] = __(
     'MySQL accepts additional values not selectable by the slider;'
+    . ' key in those values directly if desired'
+);
+
+/* For Tip to be shown on Date field */
+$js_messages['strMysqlAllowedValuesTipDate'] = __(
+    'MySQL accepts additional values not selectable by the datepicker;'
     . ' key in those values directly if desired'
 );
 
