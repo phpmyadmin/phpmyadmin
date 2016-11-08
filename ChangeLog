@@ -111,6 +111,7 @@ phpMyAdmin - ChangeLog
 - issue #12661 Error inserting into pma__history after timeout
 - issue #12195 Row_format = fixed not visible
 - issue #12665 Cannot add a foreign key - non-indexed fields not listed in InnoDB tables
+- issue #12674 Allow for proper MySQL-allowed strings as identifiers
 
 4.6.4 (2016-08-16)
 - issue        [security] Weaknesses with cookie encryption, see PMASA-2016-29

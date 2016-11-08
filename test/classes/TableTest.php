@@ -401,10 +401,12 @@ class TableTest extends PMATestCase
             array('te/st', false),
             array('te.st', false),
             array('te\\st', false),
-            array('te st', true),
+            array('te st', false),
             array('  te st', true, true),
             array('test ', false),
+            array('te.st', false),
             array('test ', false, true),
+            array('te.st ', false, true),
         );
     }
 
@@ -773,8 +775,14 @@ class TableTest extends PMATestCase
         $table_new = 'PMA_.BookMark';
         $result = $table->rename($table_new);
         $this->assertEquals(
-            false,
+            true,
             $result
+        );
+
+        //message
+        $this->assertEquals(
+            "Table PMA_BookMark has been renamed to PMA_.BookMark.",
+            $table->getLastMessage()
         );
 
         $table_new = 'PMA_BookMark_new';
@@ -786,7 +794,7 @@ class TableTest extends PMATestCase
         );
         //message
         $this->assertEquals(
-            "Table PMA_BookMark has been renamed to PMA_BookMark_new.",
+            "Table PMA_.BookMark has been renamed to PMA_BookMark_new.",
             $table->getLastMessage()
         );
     }
