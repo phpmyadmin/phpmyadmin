@@ -80,6 +80,7 @@ phpMyAdmin - ChangeLog
 - issue #12195 Row_format = fixed not visible
 - issue #12665 Cannot add a foreign key - non-indexed fields not listed in InnoDB tables
 - issue #12674 Allow for proper MySQL-allowed strings as identifiers
+- issue #12651 Allow for partial dates on table insert page
 
 4.6.4 (2016-08-16)
 - issue        [security] Weaknesses with cookie encryption, see PMASA-2016-29
