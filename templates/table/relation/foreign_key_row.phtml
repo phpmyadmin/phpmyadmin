@@ -35,7 +35,9 @@ $on_update = isset($one_key['on_update'])
 $column_array = array();
 $column_array[''] = '';
 foreach ($columns as $column) {
-    if (! empty($column['Key'])) {
+    if (strtoupper($tbl_storage_engine) == 'INNODB'
+        || ! empty($column['Key'])
+    ) {
         $column_array[$column['Field']] = $column['Field'];
     }
 }

@@ -3,11 +3,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.5-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2016-10-18 13:42+0200\n"
-"PO-Revision-Date: 2016-10-10 19:29+0000\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Danish <https://hosted.weblate.org/projects/phpmyadmin/4-6/da/"
-">\n"
+"POT-Creation-Date: 2016-10-25 11:13+0200\n"
+"PO-Revision-Date: 2016-11-02 16:34+0000\n"
+"Last-Translator: Jørgen Thomsen <opensource@jth.net>\n"
+"Language-Team: Danish "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-6/da/>\n"
 "Language: da\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -462,7 +462,7 @@ msgid "Add geometry"
 msgstr "Tilføj geometri"
 
 #: gis_data_editor.php:411 js/messages.php:344 libraries/DbSearch.php:463
-#: libraries/DisplayResults.php:1797 libraries/browse_foreigners.lib.php:139
+#: libraries/DisplayResults.php:1798 libraries/browse_foreigners.lib.php:139
 #: libraries/display_change_password.lib.php:147
 #: libraries/display_export.lib.php:400 libraries/display_export.lib.php:406
 #: libraries/display_import.lib.php:396 libraries/index.lib.php:41
@@ -517,7 +517,7 @@ msgstr ""
 msgid "Succeeded"
 msgstr "Blev gennemført"
 
-#: import.php:63 js/messages.php:589
+#: import.php:63 js/messages.php:595
 msgid "Failed"
 msgstr "Mislykket"
 
@@ -586,8 +586,7 @@ msgid "Bookmark %s has been created."
 msgstr "Bogmærket %s er blevet oprettet."
 
 #: import.php:697
-#, fuzzy, php-format
-#| msgid "Import has been successfully finished, %d queries executed."
+#, php-format
 msgid "Import has been successfully finished, %d query executed."
 msgid_plural "Import has been successfully finished, %d queries executed."
 msgstr[0] "Importen er korrekt gennemført, %d forespørgsler udført."
@@ -619,7 +618,7 @@ msgstr "\"DROP DATABASE\" erklæringer kan ikke bruges."
 msgid "Could not load the progress of the import."
 msgstr "Kunne ikke indlæse hvor langt importen er nået."
 
-#: import_status.php:116 js/messages.php:445 js/messages.php:597
+#: import_status.php:116 js/messages.php:445 js/messages.php:603
 #: libraries/Util.php:800 libraries/export.lib.php:516
 #: libraries/plugins/schema/ExportRelationSchema.php:297 user_password.php:298
 msgid "Back"
@@ -643,7 +642,7 @@ msgstr ""
 msgid "General settings"
 msgstr "Generelle indstillinger"
 
-#: index.php:191 js/messages.php:622
+#: index.php:191 js/messages.php:628
 #: libraries/display_change_password.lib.php:50
 #: libraries/display_change_password.lib.php:53 user_password.php:292
 msgid "Change password"
@@ -755,6 +754,8 @@ msgid ""
 "The curl extension was not found and allow_url_fopen is disabled. Due to "
 "this some features such as error reporting or version check are disabled."
 msgstr ""
+"Curl-udvidelsen blev ikke fundet og allow_url_fopen er deaktiveret. Derfor "
+"er nogle funktioner, som fejlrapportering og versionskontrol, deaktiveret."
 
 #: index.php:468
 msgid ""
@@ -784,7 +785,7 @@ msgstr ""
 
 #: index.php:509
 msgid "The secret passphrase in configuration (blowfish_secret) is too short."
-msgstr ""
+msgstr "Det hemmelige password i konfigurationen (blowfish_secret) er for kort."
 
 #: index.php:523
 msgid ""
@@ -929,16 +930,12 @@ msgid "Do you really want to TRUNCATE the selected partition(s)?"
 msgstr "Er du sikker på at du vil TRUNCATE de valgte partitioner?"
 
 #: js/messages.php:80
-#, fuzzy
-#| msgid "Do you really want to TRUNCATE the selected partition(s)?"
 msgid "Do you really want to remove partitioning?"
-msgstr "Er du sikker på at du vil TRUNCATE de valgte partitioner?"
+msgstr "Er du sikker på, at du vil fjerne partitionering?"
 
 #: js/messages.php:81
-#, fuzzy
-#| msgid "Do you really want to execute \"%s\"?"
 msgid "Do you really want to RESET SLAVE?"
-msgstr "Er du sikker på at du vil udføre \"%s\"?"
+msgstr "Er du sikker på, at du vil RESET SLAVE?"
 
 #: js/messages.php:83
 msgid ""
@@ -966,14 +963,6 @@ msgstr ""
 "dataene?"
 
 #: js/messages.php:93
-#, fuzzy
-#| msgid ""
-#| "Through this operation, MySQL attempts to map the data values between "
-#| "collations. If the character sets are incompatible, there may be data "
-#| "loss and this lost data may <b>NOT</b> be recoverable simply by changing "
-#| "back the column collation(s).<b> To convert existing data, it is "
-#| "suggested to use the column(s) editing feature (the \"Change\" Link) on "
-#| "the table structure page. </b>"
 msgid ""
 "Through this operation, MySQL attempts to map the data values between "
 "collations. If the character sets are incompatible, there may be data loss "
@@ -983,11 +972,11 @@ msgid ""
 "</b>"
 msgstr ""
 "Ved denne operation vil MySQL forsøge at mappe data mellem "
-"sorteringsrækkefølgerne.  Hvis karaktersæt er inkompatible, kan der "
-"forekomme datatab og de tabte data kan måske <b>IKKE</b> reddes ved at ændre "
-"tilbage kolonne sorteringsrækkefølgen.<b>For at konvertere eksisterende "
-"data, foreslås det at benytte kolonne redigeringsfunktionen (\"Change\" "
-"Link) på tabelstruktur siden.</b>"
+"sorteringsrækkefølgerne. Hvis karaktersæt er inkompatible, kan der forekomme "
+"datatab og de tabte data kan måske <b>IKKE</b> reddes ved at ændre "
+"sorteringsrækkefølgen for kolonner tilbage.<b>For at konvertere eksisterende "
+"data foreslås det at benytte redigeringsfunktionen for kolonner (\"Ret\") på "
+"tabelstruktursiden.</b>"
 
 #: js/messages.php:102
 msgid ""
@@ -1308,7 +1297,7 @@ msgstr "Snap diagram til gitter"
 msgid "Please add at least one variable to the series!"
 msgstr "Tilføj mindst en variabel til serien!"
 
-#: js/messages.php:214 libraries/DisplayResults.php:1491
+#: js/messages.php:214 libraries/DisplayResults.php:1492
 #: libraries/config.values.php:69 libraries/display_export.lib.php:691
 #: libraries/plugins/export/ExportSql.php:2180
 #: libraries/plugins/schema/SchemaPdf.php:103
@@ -1520,7 +1509,7 @@ msgstr "Forklar output"
 msgid "Status"
 msgstr "Status"
 
-#: js/messages.php:287 js/messages.php:867
+#: js/messages.php:287 js/messages.php:873
 #: libraries/plugins/export/ExportHtmlword.php:486
 #: libraries/plugins/export/ExportOdt.php:605
 #: libraries/plugins/export/ExportTexytext.php:447
@@ -1675,10 +1664,8 @@ msgid "Formatting SQL…"
 msgstr "Formatterer SQL …"
 
 #: js/messages.php:341
-#, fuzzy
-#| msgid "Bad parameters!"
 msgid "No parameters found!"
-msgstr "Forkerte parametre!"
+msgstr "Ingen parametre fundet!"
 
 #: js/messages.php:345
 #: templates/database/designer/aggregate_query_panel.phtml:63
@@ -1805,8 +1792,8 @@ msgstr ""
 "Ifølge definitionen på en stored function, skal denne indeholde et RETURN-"
 "udtryk!"
 
-#: js/messages.php:387 libraries/DisplayResults.php:4861
-#: libraries/DisplayResults.php:5144 libraries/Menu.php:350
+#: js/messages.php:387 libraries/DisplayResults.php:4862
+#: libraries/DisplayResults.php:5145 libraries/Menu.php:350
 #: libraries/Menu.php:451 libraries/Menu.php:577 libraries/Util.php:3721
 #: libraries/Util.php:3722 libraries/Util.php:4340 libraries/Util.php:4355
 #: libraries/Util.php:4372 libraries/config/messages.inc.php:255
@@ -1823,7 +1810,7 @@ msgstr "Eksportér"
 
 #: js/messages.php:389
 msgid "No routine is exportable. Required privileges may be lacking."
-msgstr ""
+msgstr "Ingen rutine er eksporterbar. Nødvendige rettigheder kan savnes."
 
 #: js/messages.php:392 libraries/rte/rte_routines.lib.php:754
 msgid "ENUM/SET editor"
@@ -1862,7 +1849,7 @@ msgid "Show query box"
 msgstr "Vis forespørgselsbox"
 
 #: js/messages.php:406 libraries/Console.php:88 libraries/Console.php:199
-#: libraries/DisplayResults.php:3479 libraries/DisplayResults.php:4845
+#: libraries/DisplayResults.php:3480 libraries/DisplayResults.php:4846
 #: libraries/Index.php:721 libraries/Util.php:730 libraries/Util.php:1244
 #: libraries/Util.php:3719 libraries/Util.php:3720
 #: libraries/central_columns.lib.php:848 libraries/central_columns.lib.php:1191
@@ -1874,7 +1861,7 @@ msgid "Edit"
 msgstr "Ret"
 
 #: js/messages.php:407 libraries/Console.php:89 libraries/DbSearch.php:361
-#: libraries/DisplayResults.php:3548 libraries/DisplayResults.php:4829
+#: libraries/DisplayResults.php:3549 libraries/DisplayResults.php:4830
 #: libraries/central_columns.lib.php:850 libraries/central_columns.lib.php:1196
 #: libraries/display_export.lib.php:223
 #: libraries/server_user_groups.lib.php:127
@@ -1884,8 +1871,8 @@ msgstr "Ret"
 msgid "Delete"
 msgstr "Slet"
 
-#: js/messages.php:408 libraries/DisplayResults.php:926
-#: libraries/DisplayResults.php:934
+#: js/messages.php:408 libraries/DisplayResults.php:927
+#: libraries/DisplayResults.php:935
 #, php-format
 msgid "%d is not valid row number."
 msgstr "%d er ikke et gyldigt rækkenummer."
@@ -1975,7 +1962,7 @@ msgid "Second step of normalization (2NF)"
 msgstr "Andet trin af normaliseringen (2NF)"
 
 #. l10n: Display text for calendar close link
-#: js/messages.php:437 js/messages.php:736 libraries/normalization.lib.php:285
+#: js/messages.php:437 js/messages.php:742 libraries/normalization.lib.php:285
 msgid "Done"
 msgstr "Færdig"
 
@@ -2134,14 +2121,14 @@ msgstr "Vælg to forskellige kolonner"
 msgid "Data point content"
 msgstr "Datapunkt-indhold"
 
-#: js/messages.php:503 js/messages.php:657 js/messages.php:674
+#: js/messages.php:503 js/messages.php:663 js/messages.php:680
 #: libraries/ErrorHandler.php:363 libraries/insert_edit.lib.php:2646
 #: templates/table/index_form.phtml:154 templates/table/index_form.phtml:199
 msgid "Ignore"
 msgstr "Ignorer"
 
-#: js/messages.php:504 libraries/DisplayResults.php:3482
-#: libraries/DisplayResults.php:4850
+#: js/messages.php:504 libraries/DisplayResults.php:3483
+#: libraries/DisplayResults.php:4851
 msgid "Copy"
 msgstr "Kopi"
 
@@ -2157,7 +2144,7 @@ msgstr "Linjestreng"
 msgid "Polygon"
 msgstr "Polygon"
 
-#: js/messages.php:511 libraries/DisplayResults.php:1781
+#: js/messages.php:511 libraries/DisplayResults.php:1782
 msgid "Geometry"
 msgstr "Geometri"
 
@@ -2179,30 +2166,38 @@ msgstr "Krypteringsnøgle"
 
 #: js/messages.php:522
 msgid ""
+"MySQL accepts additional values not selectable by the slider; key in those "
+"values directly if desired"
+msgstr ""
+"MySQL accepterer værdier, som ikke kan vælges med skydeknappen; indtast "
+"disse værdier direkte, hvis det ønskes"
+
+#: js/messages.php:528
+msgid ""
 "Indicates that you have made changes to this page; you will be prompted for "
 "confirmation before abandoning changes"
 msgstr ""
 "Indikerer at du har lavet ændringer ved denne side, du vil blive spurgt om "
 "godkendelse før ændringerne frafalder"
 
-#: js/messages.php:527
+#: js/messages.php:533
 msgid "Select referenced key"
 msgstr "Vælg refereret nøgle"
 
-#: js/messages.php:528
+#: js/messages.php:534
 msgid "Select Foreign Key"
 msgstr "Vælg fremmednøgle"
 
-#: js/messages.php:530
+#: js/messages.php:536
 msgid "Please select the primary key or a unique key!"
 msgstr "Vælg venligst den primære nøgle eller en unik nøgle!"
 
-#: js/messages.php:531 templates/database/designer/side_menu.phtml:91
+#: js/messages.php:537 templates/database/designer/side_menu.phtml:91
 #: templates/database/designer/side_menu.phtml:94
 msgid "Choose column to display"
 msgstr "Vælg kolonne til visning"
 
-#: js/messages.php:533
+#: js/messages.php:539
 msgid ""
 "You haven't saved the changes in the layout. They will be lost if you don't "
 "save them. Do you want to continue?"
@@ -2210,76 +2205,76 @@ msgstr ""
 "Du har ikke gemt ændringerne i layoutet. De vil bleve slettet hvis du ikke "
 "gemmer dem. Vil du fortsætte?"
 
-#: js/messages.php:536
+#: js/messages.php:542
 msgid "Page name"
 msgstr "Sidenavn"
 
-#: js/messages.php:537 templates/database/designer/side_menu.phtml:56
+#: js/messages.php:543 templates/database/designer/side_menu.phtml:56
 #: templates/database/designer/side_menu.phtml:59
 msgid "Save page"
 msgstr "Gem side"
 
-#: js/messages.php:538 templates/database/designer/side_menu.phtml:63
+#: js/messages.php:544 templates/database/designer/side_menu.phtml:63
 #: templates/database/designer/side_menu.phtml:66
 msgid "Save page as"
 msgstr "Gem side som"
 
-#: js/messages.php:539 templates/database/designer/side_menu.phtml:49
+#: js/messages.php:545 templates/database/designer/side_menu.phtml:49
 #: templates/database/designer/side_menu.phtml:52
 msgid "Open page"
 msgstr "Åbn side"
 
-#: js/messages.php:540
+#: js/messages.php:546
 msgid "Delete page"
 msgstr "Slet side"
 
-#: js/messages.php:541 templates/database/designer/side_menu.phtml:10
+#: js/messages.php:547 templates/database/designer/side_menu.phtml:10
 msgid "Untitled"
 msgstr "Unavngivet"
 
-#: js/messages.php:542
+#: js/messages.php:548
 msgid "Please select a page to continue"
 msgstr "Vælg venligst en side for at fortsætte"
 
-#: js/messages.php:543
+#: js/messages.php:549
 msgid "Please enter a valid page name"
 msgstr "Angiv venligst et gyldigt sidenavn"
 
-#: js/messages.php:545
+#: js/messages.php:551
 msgid "Do you want to save the changes to the current page?"
 msgstr "Ønsker du at gemme ændringerne til nuværende side?"
 
-#: js/messages.php:546
+#: js/messages.php:552
 msgid "Successfully deleted the page"
 msgstr "Sletning af siden er gennemført"
 
-#: js/messages.php:547
+#: js/messages.php:553
 msgid "Export relational schema"
 msgstr "Eksportér relationsskema"
 
-#: js/messages.php:548
+#: js/messages.php:554
 msgid "Modifications have been saved"
 msgstr "Rettelserne er gemt"
 
-#: js/messages.php:551
+#: js/messages.php:557
 #, php-format
 msgid "Add an option for column \"%s\"."
 msgstr "Tilføj mulighed for kolonnen \"%s\"."
 
-#: js/messages.php:552
+#: js/messages.php:558
 #, php-format
 msgid "%d object(s) created."
 msgstr "%d objekt(er) oprettet."
 
-#: js/messages.php:553 libraries/sql_query_form.lib.php:409
+#: js/messages.php:559 libraries/sql_query_form.lib.php:409
 msgid "Submit"
 msgstr "Send"
 
-#: js/messages.php:556
+#: js/messages.php:562
 msgid "Press escape to cancel editing."
 msgstr "Tryk på ESC for at annullere redigeringen."
 
-#: js/messages.php:558
+#: js/messages.php:564
 msgid ""
 "You have edited some data and they have not been saved. Are you sure you "
 "want to leave this page before saving the data?"
@@ -2287,15 +2282,15 @@ msgstr ""
 "Du har redigeret nogle data og de er ikke blevet gemt. Er du sikker på, at "
 "du vil forlade siden uden at gemme data ?"
 
-#: js/messages.php:561
+#: js/messages.php:567
 msgid "Drag to reorder."
 msgstr "Træk for at ændre rækkefølge."
 
-#: js/messages.php:562
+#: js/messages.php:568
 msgid "Click to sort results by this column."
 msgstr "Klik for at sortere resultater efter denne kolonne."
 
-#: js/messages.php:564
+#: js/messages.php:570
 msgid ""
 "Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC.<br /"
 ">- Ctrl+Click or Alt+Click (Mac: Shift+Option+Click) to remove column from "
@@ -2305,26 +2300,26 @@ msgstr ""
 "mellem tiltagende og aftagende, ASC/DESC.<br />- Ctrl+klik eller Alt+Click "
 "(Mac: Shift+Option+Klik) for at fjerne kolonne fra klausulen ORDER BY"
 
-#: js/messages.php:568
+#: js/messages.php:574
 msgid "Click to mark/unmark."
 msgstr "Klik for at markere/afmarkere."
 
-#: js/messages.php:569
+#: js/messages.php:575
 msgid "Double-click to copy column name."
 msgstr "Dobbeltklik for at kopiere kolonnenavn."
 
-#: js/messages.php:571
+#: js/messages.php:577
 msgid "Click the drop-down arrow<br />to toggle column's visibility."
 msgstr "Klik på pilen for valgboks<br />for at skifte kolonnens synlighed."
 
-#: js/messages.php:573 libraries/DisplayResults.php:1033
+#: js/messages.php:579 libraries/DisplayResults.php:1034
 #: libraries/browse_foreigners.lib.php:287
 #: libraries/browse_foreigners.lib.php:340
 #: libraries/server_privileges.lib.php:3890
 msgid "Show all"
 msgstr "Vis alle"
 
-#: js/messages.php:575
+#: js/messages.php:581
 msgid ""
 "This table does not contain a unique column. Features related to the grid "
 "edit, checkbox, Edit, Copy and Delete links may not work after saving."
@@ -2333,11 +2328,11 @@ msgstr ""
 "redigering af gitter, afkrydsningsboks og links til redigering, kopiering og "
 "sletning fungerer måske ikke, efter at data er gemt."
 
-#: js/messages.php:579
+#: js/messages.php:585
 msgid "Please enter a valid hexadecimal string. Valid characters are 0-9, A-F."
 msgstr "Indtast venligst en gyldig heximal streng. Gyldige tegn er 0-9 og A-F."
 
-#: js/messages.php:581
+#: js/messages.php:587
 msgid ""
 "Do you really want to see all of the rows? For a big table this could crash "
 "the browser."
@@ -2345,103 +2340,103 @@ msgstr ""
 "Sikker på du vil se alle rækkerne? For store tabeller kan dette få browseren "
 "til at gå ned."
 
-#: js/messages.php:584
+#: js/messages.php:590
 msgid "Original length"
 msgstr "Oprindelige længde"
 
-#: js/messages.php:587
+#: js/messages.php:593
 msgid "cancel"
 msgstr "annullér"
 
-#: js/messages.php:588 libraries/server_status.lib.php:277
+#: js/messages.php:594 libraries/server_status.lib.php:277
 msgid "Aborted"
 msgstr "Afbrudt"
 
-#: js/messages.php:590
+#: js/messages.php:596
 msgid "Success"
 msgstr "Gennemført"
 
-#: js/messages.php:591
+#: js/messages.php:597
 msgid "Import status"
 msgstr "Importstatus"
 
-#: js/messages.php:592 libraries/navigation/Navigation.php:111
+#: js/messages.php:598 libraries/navigation/Navigation.php:111
 msgid "Drop files here"
 msgstr "Drop filerne her"
 
-#: js/messages.php:593
+#: js/messages.php:599
 msgid "Select database first"
 msgstr "Vælg først en database"
 
-#: js/messages.php:596 libraries/DisplayResults.php:5036
+#: js/messages.php:602 libraries/DisplayResults.php:5037
 #: libraries/Util.php:4233
 #: templates/database/structure/print_view_data_dictionary_link.phtml:3
 #: templates/table/structure/optional_action_links.phtml:6
 msgid "Print"
 msgstr "Udskriv"
 
-#: js/messages.php:603
+#: js/messages.php:609
 msgid "You can also edit most values<br />by double-clicking directly on them."
 msgstr ""
 "Du kan også redigere de fleste værdier<br />ved at dobbelt-klikke direkte på "
 "dem."
 
-#: js/messages.php:608
+#: js/messages.php:614
 msgid "You can also edit most values<br />by clicking directly on them."
 msgstr ""
 "Du kan også redigere de fleste værdier<br />ved at klikke direkte på dem."
 
-#: js/messages.php:614
+#: js/messages.php:620
 msgid "Go to link:"
 msgstr "Gå til linket:"
 
-#: js/messages.php:615
+#: js/messages.php:621
 msgid "Copy column name."
 msgstr "Kopiér kolonnenavn."
 
-#: js/messages.php:617
+#: js/messages.php:623
 msgid "Right-click the column name to copy it to your clipboard."
 msgstr "Højreklik kolonnenavnet for at kopiere det til din udklipsholder."
 
-#: js/messages.php:620
+#: js/messages.php:626
 msgid "Generate password"
 msgstr "Generer adgangskode"
 
-#: js/messages.php:621 libraries/replication_gui.lib.php:883
+#: js/messages.php:627 libraries/replication_gui.lib.php:883
 msgid "Generate"
 msgstr "Generer"
 
-#: js/messages.php:625
+#: js/messages.php:631
 msgid "More"
 msgstr "Mere"
 
-#: js/messages.php:628
+#: js/messages.php:634
 msgid "Show panel"
 msgstr "Vis panel"
 
-#: js/messages.php:629
+#: js/messages.php:635
 msgid "Hide panel"
 msgstr "Skjul panel"
 
-#: js/messages.php:630
+#: js/messages.php:636
 msgid "Show hidden navigation tree items."
 msgstr "Vis skjulte elementer i navigationstræet."
 
-#: js/messages.php:631 libraries/config/messages.inc.php:479
+#: js/messages.php:637 libraries/config/messages.inc.php:479
 #: libraries/navigation/NavigationTree.php:1434
 msgid "Link with main panel"
 msgstr "Link med hovedpanel"
 
-#: js/messages.php:632 libraries/navigation/NavigationTree.php:1437
+#: js/messages.php:638 libraries/navigation/NavigationTree.php:1437
 msgid "Unlink from main panel"
 msgstr "Fjern link fra hovedpanel"
 
-#: js/messages.php:636
+#: js/messages.php:642
 msgid "The requested page was not found in the history, it may have expired."
 msgstr ""
 "Den forespurgte side blev ikke fundet i historikken. Den kan være udløbet."
 
-#: js/messages.php:640 setup/lib/index.lib.php:169
+#: js/messages.php:646 setup/lib/index.lib.php:169
 #, php-format
 msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
@@ -2451,42 +2446,42 @@ msgstr ""
 "opgradere. Den nyeste version er %s, udgivet den %s."
 
 #. l10n: Latest available phpMyAdmin version
-#: js/messages.php:644
+#: js/messages.php:650
 msgid ", latest stable version:"
 msgstr ", seneste stabile version:"
 
-#: js/messages.php:645
+#: js/messages.php:651
 msgid "up to date"
 msgstr "up-to-date"
 
-#: js/messages.php:647 libraries/DisplayResults.php:4967 view_create.php:200
+#: js/messages.php:653 libraries/DisplayResults.php:4968 view_create.php:200
 msgid "Create view"
 msgstr "Opret view"
 
-#: js/messages.php:650
+#: js/messages.php:656
 msgid "Send error report"
 msgstr "Send fejlrapporter"
 
-#: js/messages.php:651
+#: js/messages.php:657
 msgid "Submit error report"
 msgstr "Indsend fejlrapport"
 
-#: js/messages.php:653
+#: js/messages.php:659
 msgid ""
 "A fatal JavaScript error has occurred. Would you like to send an error "
 "report?"
 msgstr ""
 "Der opstod en alvorlig JavaScript-fejl. Vil du at indsende en fejlrapport?"
 
-#: js/messages.php:655
+#: js/messages.php:661
 msgid "Change report settings"
 msgstr "Tilpas indstillinger for rapportering"
 
-#: js/messages.php:656
+#: js/messages.php:662
 msgid "Show report details"
 msgstr "Vis detaljer for rapport"
 
-#: js/messages.php:659
+#: js/messages.php:665
 msgid ""
 "Your export is incomplete, due to a low execution time limit at the PHP "
 "level!"
@@ -2494,7 +2489,7 @@ msgstr ""
 "Din eksport er ikke komplet, da der er en lav tidsgrænse for afvikling på "
 "PHP-niveaut!"
 
-#: js/messages.php:663
+#: js/messages.php:669
 #, php-format
 msgid ""
 "Warning: a form on this page has more than %d fields. On submission, some of "
@@ -2503,60 +2498,60 @@ msgstr ""
 "Advarsel: en form har mere end %d felter. Ved afsendelse, vil nogle felter "
 "måske blive ignoreret, iht. PHP's max_input_vars konfiguration."
 
-#: js/messages.php:669 js/messages.php:682
+#: js/messages.php:675 js/messages.php:688
 msgid "Some errors have been detected on the server!"
 msgstr "Der er registreret fejl på serveren!"
 
-#: js/messages.php:671
+#: js/messages.php:677
 msgid "Please look at the bottom of this window."
 msgstr "Gennemse venligst bunden af denne side."
 
-#: js/messages.php:677 libraries/ErrorHandler.php:367
+#: js/messages.php:683 libraries/ErrorHandler.php:367
 msgid "Ignore All"
 msgstr "Ignorér alle"
 
-#: js/messages.php:685
+#: js/messages.php:691
 msgid ""
 "As per your settings, they are being submitted currently, please be patient."
 msgstr ""
 "I henhold til dine indstillinger, så indsendes de i øjeblikket - udvis "
 "venligst tålmodighed."
 
-#: js/messages.php:695
+#: js/messages.php:701
 msgid "Execute this query again?"
 msgstr "Udfør denne forespørgsel påny?"
 
-#: js/messages.php:697
+#: js/messages.php:703
 msgid "Do you really want to delete this bookmark?"
 msgstr "Er du sikker på at du vil slette dette bogmærke?"
 
-#: js/messages.php:699
+#: js/messages.php:705
 msgid "Some error occurred while getting SQL debug info."
 msgstr "En fejl opstod mens hentede SQL debug info."
 
-#: js/messages.php:701
+#: js/messages.php:707
 #, php-format
 msgid "%s queries executed %s times in %s seconds."
 msgstr "%s forespørgsler udført %s gange på %s sekunder."
 
-#: js/messages.php:702
+#: js/messages.php:708
 #, php-format
 msgid "%s argument(s) passed"
 msgstr "%s argument(er) sendt"
 
-#: js/messages.php:703
+#: js/messages.php:709
 msgid "Show arguments"
 msgstr "Tabel kommentarer"
 
-#: js/messages.php:704
+#: js/messages.php:710
 msgid "Hide arguments"
 msgstr "Skjul argumenterne"
 
-#: js/messages.php:705 libraries/Console.php:306
+#: js/messages.php:711 libraries/Console.php:306
 msgid "Time taken:"
 msgstr "Tidsforbrug:"
 
-#: js/messages.php:706
+#: js/messages.php:712
 msgid ""
 "There was a problem accessing your browser storage, some features may not "
 "work properly for you. It is likely that the browser doesn't support storage "
@@ -2564,354 +2559,353 @@ msgid ""
 "cause such a problem, clearing your \"Offline Website Data\" might help. In "
 "Safari, such problem is commonly caused by \"Private Mode Browsing\"."
 msgstr ""
+"Det er ikke muligt at tilgå din browsers lokale lager. Visse funktioner "
+"fungerer derfor måske ikke. Det er muligt, at browseren ikke understøtter "
+"lager eller at kvotagrænsen er nået. I Firefox kan ødelagt lager også "
+"forårsage problemet. Sletning af dit \"Offline webindhold\" kan hjælpe. I "
+"Safari er sådan et problem ofte forårsaget af browsing i \"Private Mode\"."
 
-#: js/messages.php:708
-#, fuzzy
-#| msgid "Copy database to"
+#: js/messages.php:714
 msgid "Copy tables to"
-msgstr "Kopier database til"
+msgstr "Kopier tabeller til"
 
-#: js/messages.php:709
-#, fuzzy
-#| msgid "Add table prefix:"
+#: js/messages.php:715
 msgid "Add table prefix"
-msgstr "Tilføj tabelpræfiks:"
+msgstr "Tilføj tabelpræfiks"
 
-#: js/messages.php:710
-#, fuzzy
-#| msgid "Replace table prefix"
+#: js/messages.php:716
 msgid "Replace table with prefix"
-msgstr "Erstat tabel præfiks"
+msgstr "Erstat tabel med præfiks"
 
-#: js/messages.php:711 templates/database/structure/check_all_tables.phtml:29
+#: js/messages.php:717 templates/database/structure/check_all_tables.phtml:29
 msgid "Copy table with prefix"
 msgstr "Kopier tabel med præfiks"
 
-#: js/messages.php:740
+#: js/messages.php:746
 msgctxt "Previous month"
 msgid "Prev"
 msgstr "Forrige"
 
-#: js/messages.php:745
+#: js/messages.php:751
 msgctxt "Next month"
 msgid "Next"
 msgstr "Næste"
 
 #. l10n: Display text for current month link in calendar
-#: js/messages.php:748
+#: js/messages.php:754
 msgid "Today"
 msgstr "I dag"
 
-#: js/messages.php:752
+#: js/messages.php:758
 msgid "January"
 msgstr "januar"
 
-#: js/messages.php:753
+#: js/messages.php:759
 msgid "February"
 msgstr "februar"
 
-#: js/messages.php:754
+#: js/messages.php:760
 msgid "March"
 msgstr "marts"
 
-#: js/messages.php:755
+#: js/messages.php:761
 msgid "April"
 msgstr "april"
 
-#: js/messages.php:756
+#: js/messages.php:762
 msgid "May"
 msgstr "maj"
 
-#: js/messages.php:757
+#: js/messages.php:763
 msgid "June"
 msgstr "juni"
 
-#: js/messages.php:758
+#: js/messages.php:764
 msgid "July"
 msgstr "juli"
 
-#: js/messages.php:759
+#: js/messages.php:765
 msgid "August"
 msgstr "august"
 
-#: js/messages.php:760
+#: js/messages.php:766
 msgid "September"
 msgstr "september"
 
-#: js/messages.php:761
+#: js/messages.php:767
 msgid "October"
 msgstr "oktober"
 
-#: js/messages.php:762
+#: js/messages.php:768
 msgid "November"
 msgstr "november"
 
-#: js/messages.php:763
+#: js/messages.php:769
 msgid "December"
 msgstr "december"
 
 #. l10n: Short month name
-#: js/messages.php:770 libraries/Util.php:1665
+#: js/messages.php:776 libraries/Util.php:1665
 msgid "Jan"
 msgstr "jan"
 
 #. l10n: Short month name
-#: js/messages.php:772 libraries/Util.php:1667
+#: js/messages.php:778 libraries/Util.php:1667
 msgid "Feb"
 msgstr "feb"
 
 #. l10n: Short month name
-#: js/messages.php:774 libraries/Util.php:1669
+#: js/messages.php:780 libraries/Util.php:1669
 msgid "Mar"
 msgstr "mar"
 
 #. l10n: Short month name
-#: js/messages.php:776 libraries/Util.php:1671
+#: js/messages.php:782 libraries/Util.php:1671
 msgid "Apr"
 msgstr "apr"
 
 #. l10n: Short month name
-#: js/messages.php:778 libraries/Util.php:1673
+#: js/messages.php:784 libraries/Util.php:1673
 msgctxt "Short month name"
 msgid "May"
 msgstr "maj"
 
 #. l10n: Short month name
-#: js/messages.php:780 libraries/Util.php:1675
+#: js/messages.php:786 libraries/Util.php:1675
 msgid "Jun"
 msgstr "jun"
 
 #. l10n: Short month name
-#: js/messages.php:782 libraries/Util.php:1677
+#: js/messages.php:788 libraries/Util.php:1677
 msgid "Jul"
 msgstr "jul"
 
 #. l10n: Short month name
-#: js/messages.php:784 libraries/Util.php:1679
+#: js/messages.php:790 libraries/Util.php:1679
 msgid "Aug"
 msgstr "aug"
 
 #. l10n: Short month name
-#: js/messages.php:786 libraries/Util.php:1681
+#: js/messages.php:792 libraries/Util.php:1681
 msgid "Sep"
 msgstr "sep"
 
 #. l10n: Short month name
-#: js/messages.php:788 libraries/Util.php:1683
+#: js/messages.php:794 libraries/Util.php:1683
 msgid "Oct"
 msgstr "okt"
 
 #. l10n: Short month name
-#: js/messages.php:790 libraries/Util.php:1685
+#: js/messages.php:796 libraries/Util.php:1685
 msgid "Nov"
 msgstr "nov"
 
 #. l10n: Short month name
-#: js/messages.php:792 libraries/Util.php:1687
+#: js/messages.php:798 libraries/Util.php:1687
 msgid "Dec"
 msgstr "dec"
 
-#: js/messages.php:798
+#: js/messages.php:804
 msgid "Sunday"
 msgstr "søndag"
 
-#: js/messages.php:799
+#: js/messages.php:805
 msgid "Monday"
 msgstr "mandag"
 
-#: js/messages.php:800
+#: js/messages.php:806
 msgid "Tuesday"
 msgstr "tirsdag"
 
-#: js/messages.php:801
+#: js/messages.php:807
 msgid "Wednesday"
 msgstr "onsdag"
 
-#: js/messages.php:802
+#: js/messages.php:808
 msgid "Thursday"
 msgstr "torsdag"
 
-#: js/messages.php:803
+#: js/messages.php:809
 msgid "Friday"
 msgstr "fredag"
 
-#: js/messages.php:804
+#: js/messages.php:810
 msgid "Saturday"
 msgstr "lørdag"
 
 #. l10n: Short week day name
-#: js/messages.php:811
+#: js/messages.php:817
 msgid "Sun"
 msgstr "søn"
 
 #. l10n: Short week day name
-#: js/messages.php:813 libraries/Util.php:1692
+#: js/messages.php:819 libraries/Util.php:1692
 msgid "Mon"
 msgstr "man"
 
 #. l10n: Short week day name
-#: js/messages.php:815 libraries/Util.php:1694
+#: js/messages.php:821 libraries/Util.php:1694
 msgid "Tue"
 msgstr "tir"
 
 #. l10n: Short week day name
-#: js/messages.php:817 libraries/Util.php:1696
+#: js/messages.php:823 libraries/Util.php:1696
 msgid "Wed"
 msgstr "ons"
 
 #. l10n: Short week day name
-#: js/messages.php:819 libraries/Util.php:1698
+#: js/messages.php:825 libraries/Util.php:1698
 msgid "Thu"
 msgstr "tor"
 
 #. l10n: Short week day name
-#: js/messages.php:821 libraries/Util.php:1700
+#: js/messages.php:827 libraries/Util.php:1700
 msgid "Fri"
 msgstr "fre"
 
 #. l10n: Short week day name
-#: js/messages.php:823 libraries/Util.php:1702
+#: js/messages.php:829 libraries/Util.php:1702
 msgid "Sat"
 msgstr "lør"
 
 #. l10n: Minimal week day name
-#: js/messages.php:830
+#: js/messages.php:836
 msgid "Su"
 msgstr "sø"
 
 #. l10n: Minimal week day name
-#: js/messages.php:832
+#: js/messages.php:838
 msgid "Mo"
 msgstr "ma"
 
 #. l10n: Minimal week day name
-#: js/messages.php:834
+#: js/messages.php:840
 msgid "Tu"
 msgstr "ti"
 
 #. l10n: Minimal week day name
-#: js/messages.php:836
+#: js/messages.php:842
 msgid "We"
 msgstr "on"
 
 #. l10n: Minimal week day name
-#: js/messages.php:838
+#: js/messages.php:844
 msgid "Th"
 msgstr "to"
 
 #. l10n: Minimal week day name
-#: js/messages.php:840
+#: js/messages.php:846
 msgid "Fr"
 msgstr "fr"
 
 #. l10n: Minimal week day name
-#: js/messages.php:842
+#: js/messages.php:848
 msgid "Sa"
 msgstr "lø"
 
 #. l10n: Column header for week of the year in calendar
-#: js/messages.php:846
+#: js/messages.php:852
 msgid "Wk"
 msgstr "uge"
 
 #. l10n: Month-year order for calendar, use either "calendar-month-year"
 #. * or "calendar-year-month".
 #.
-#: js/messages.php:853
+#: js/messages.php:859
 msgid "calendar-month-year"
 msgstr "calendar-month-year"
 
 #. l10n: Year suffix for calendar, "none" is empty.
-#: js/messages.php:856
+#: js/messages.php:862
 msgctxt "Year suffix"
 msgid "none"
 msgstr "ingen"
 
-#: js/messages.php:868
+#: js/messages.php:874
 msgid "Hour"
 msgstr "Time"
 
-#: js/messages.php:869
+#: js/messages.php:875
 msgid "Minute"
 msgstr "Minut"
 
-#: js/messages.php:870
+#: js/messages.php:876
 msgid "Second"
 msgstr "Sekund"
 
-#: js/messages.php:881
+#: js/messages.php:887
 msgid "This field is required"
 msgstr "Dette felt er påkrævet"
 
-#: js/messages.php:882
+#: js/messages.php:888
 msgid "Please fix this field"
 msgstr "Ret venligst dette felt"
 
-#: js/messages.php:883
+#: js/messages.php:889
 msgid "Please enter a valid email address"
 msgstr "Angiv en gyldig e-mailadresse"
 
-#: js/messages.php:884
+#: js/messages.php:890
 msgid "Please enter a valid URL"
 msgstr "Angiv en gyldig URL-adresse"
 
-#: js/messages.php:885
+#: js/messages.php:891
 msgid "Please enter a valid date"
 msgstr "Indtast en gyldig dato"
 
-#: js/messages.php:888
+#: js/messages.php:894
 msgid "Please enter a valid date ( ISO )"
 msgstr "Indtast en gyldig dato (ISO)"
 
-#: js/messages.php:890
+#: js/messages.php:896
 msgid "Please enter a valid number"
 msgstr "Angiv et gyldigt tal"
 
-#: js/messages.php:893
+#: js/messages.php:899
 msgid "Please enter a valid credit card number"
 msgstr "Indtast et gyldigt kreditkortnummer"
 
-#: js/messages.php:895
+#: js/messages.php:901
 msgid "Please enter only digits"
 msgstr "Angiv kun tal"
 
-#: js/messages.php:898
+#: js/messages.php:904
 msgid "Please enter the same value again"
 msgstr "Angiv samme værdi igen"
 
-#: js/messages.php:902
+#: js/messages.php:908
 msgid "Please enter no more than {0} characters"
 msgstr "Angiv venligst ikke mere end {0} tegn"
 
-#: js/messages.php:907
+#: js/messages.php:913
 msgid "Please enter at least {0} characters"
 msgstr "Angiv mindst {0} tegn"
 
-#: js/messages.php:912
+#: js/messages.php:918
 msgid "Please enter a value between {0} and {1} characters long"
 msgstr "Indtast venligst en værdi med en længde på mellem {0} og {1} tegn"
 
-#: js/messages.php:917
+#: js/messages.php:923
 msgid "Please enter a value between {0} and {1}"
 msgstr "Indtast venligst en værdi mellem {0} og {1}"
 
-#: js/messages.php:922
+#: js/messages.php:928
 msgid "Please enter a value less than or equal to {0}"
 msgstr "Angiv venligst værdi der er mindre end eller lig med {0}"
 
-#: js/messages.php:927
+#: js/messages.php:933
 msgid "Please enter a value greater than or equal to {0}"
 msgstr "Angiv venligst værdi der er større end eller lig med {0}"
 
-#: js/messages.php:933
+#: js/messages.php:939
 msgid "Please enter a valid date or time"
 msgstr "Angiv venligst en gyldig dato eller tid"
 
-#: js/messages.php:938
+#: js/messages.php:944
 msgid "Please enter a valid HEX input"
 msgstr "Angiv venligst et gyldigt HEX-tal"
 
-#: js/messages.php:943 libraries/Message.php:200 libraries/Util.php:677
+#: js/messages.php:949 libraries/Message.php:200 libraries/Util.php:677
 #: libraries/core.lib.php:245 libraries/import.lib.php:94
 #: libraries/insert_edit.lib.php:1230 view_operations.php:73
 msgid "Error"
@@ -2946,6 +2940,7 @@ msgstr "Mislykkedes med at formatere streng for reglen '%s'."
 #, php-format
 msgid "Error in reading file: The file '%s' does not exist or is not readable!"
 msgstr ""
+"Fejl ved læsning af fil: Filen '%s' eksisterer ikke eller er ikke læsbar!"
 
 #: libraries/Advisor.php:492
 #, php-format
@@ -3018,8 +3013,8 @@ msgstr "Database"
 #, php-format
 msgid "Showing %1$d bookmark (both private and shared)"
 msgid_plural "Showing %1$d bookmarks (both private and shared)"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Viser %1$d bogmærke (både privat og delt)"
+msgstr[1] "Viser %1$d bogmærker (både private og delte)"
 
 #: libraries/Console.php:107
 msgid "No bookmarks"
@@ -3067,7 +3062,7 @@ msgid "History"
 msgstr "Historik"
 
 #: libraries/Console.php:225 libraries/Console.php:355
-#: libraries/DisplayResults.php:1718 libraries/import.lib.php:1250
+#: libraries/DisplayResults.php:1719 libraries/import.lib.php:1250
 #: libraries/import.lib.php:1285 libraries/mult_submits.lib.php:342
 #: libraries/plugins/export/ExportCodegen.php:84
 #: libraries/plugins/export/ExportCsv.php:48
@@ -3218,10 +3213,8 @@ msgid "Switch to dark theme"
 msgstr "Skift til det mørke tema"
 
 #: libraries/DatabaseInterface.php:1485
-#, fuzzy
-#| msgid "Failed to read configuration file!"
 msgid "Failed to set configured collation connection!"
-msgstr "Kunne ikke indlæse konfigurationsfilen!"
+msgstr "Kunne ikke indstille den konfigurerede sorteringsforbindelse!"
 
 #: libraries/DatabaseInterface.php:2097
 msgid ""
@@ -3248,8 +3241,8 @@ msgid "Connection for controluser as defined in your configuration failed."
 msgstr ""
 "Forbindelse for kontrolbruger som defineret i din konfiguration slog fejl."
 
-#: libraries/DbQbe.php:403 libraries/DisplayResults.php:2263
-#: libraries/DisplayResults.php:2269 libraries/config.values.php:70
+#: libraries/DbQbe.php:403 libraries/DisplayResults.php:2264
+#: libraries/DisplayResults.php:2270 libraries/config.values.php:70
 #: libraries/controllers/server/ServerDatabasesController.php:539
 #: libraries/operations.lib.php:789
 #: libraries/server_status_processes.lib.php:166
@@ -3259,8 +3252,8 @@ msgstr ""
 msgid "Ascending"
 msgstr "Stigende"
 
-#: libraries/DbQbe.php:406 libraries/DisplayResults.php:2259
-#: libraries/DisplayResults.php:2273 libraries/config.values.php:71
+#: libraries/DbQbe.php:406 libraries/DisplayResults.php:2260
+#: libraries/DisplayResults.php:2274 libraries/config.values.php:71
 #: libraries/controllers/server/ServerDatabasesController.php:539
 #: libraries/operations.lib.php:792
 #: libraries/server_status_processes.lib.php:163
@@ -3445,29 +3438,29 @@ msgstr "Fravælg alle"
 msgid "Inside column:"
 msgstr "Indeni kolonne:"
 
-#: libraries/DisplayResults.php:903
+#: libraries/DisplayResults.php:904
 msgid "Save edited data"
 msgstr "Gem redigerede data"
 
-#: libraries/DisplayResults.php:909
+#: libraries/DisplayResults.php:910
 msgid "Restore column order"
 msgstr "Gendan kolonnerækkefølge"
 
-#: libraries/DisplayResults.php:957 libraries/central_columns.lib.php:659
+#: libraries/DisplayResults.php:958 libraries/central_columns.lib.php:659
 msgid "Filter rows"
 msgstr "Filtrer rækker"
 
-#: libraries/DisplayResults.php:959 libraries/central_columns.lib.php:661
+#: libraries/DisplayResults.php:960 libraries/central_columns.lib.php:661
 msgid "Search this table"
 msgstr "Søg i denne tabel"
 
-#: libraries/DisplayResults.php:990 libraries/Util.php:2612
+#: libraries/DisplayResults.php:991 libraries/Util.php:2612
 #: libraries/Util.php:2615
 msgctxt "First page"
 msgid "Begin"
 msgstr "Start"
 
-#: libraries/DisplayResults.php:993 libraries/Util.php:2613
+#: libraries/DisplayResults.php:994 libraries/Util.php:2613
 #: libraries/Util.php:2616
 #: libraries/controllers/server/ServerBinlogController.php:193
 #: libraries/controllers/server/ServerBinlogController.php:195
@@ -3475,7 +3468,7 @@ msgctxt "Previous page"
 msgid "Previous"
 msgstr "Forrige"
 
-#: libraries/DisplayResults.php:1059 libraries/Util.php:2644
+#: libraries/DisplayResults.php:1060 libraries/Util.php:2644
 #: libraries/Util.php:2654
 #: libraries/controllers/server/ServerBinlogController.php:227
 #: libraries/controllers/server/ServerBinlogController.php:229
@@ -3483,75 +3476,75 @@ msgctxt "Next page"
 msgid "Next"
 msgstr "Næste"
 
-#: libraries/DisplayResults.php:1089 libraries/Util.php:2645
+#: libraries/DisplayResults.php:1090 libraries/Util.php:2645
 #: libraries/Util.php:2655
 msgctxt "Last page"
 msgid "End"
 msgstr "Slut"
 
-#: libraries/DisplayResults.php:1132
+#: libraries/DisplayResults.php:1133
 msgid "All"
 msgstr "Alle"
 
-#: libraries/DisplayResults.php:1142 libraries/display_export.lib.php:435
+#: libraries/DisplayResults.php:1143 libraries/display_export.lib.php:435
 #: templates/startAndNumberOfRowsPanel.phtml:10
 msgid "Number of rows:"
 msgstr "Antal rækker:"
 
-#: libraries/DisplayResults.php:1435
+#: libraries/DisplayResults.php:1436
 msgid "Sort by key"
 msgstr "Sorteringsnøgle"
 
-#: libraries/DisplayResults.php:1724 libraries/DisplayResults.php:1830
+#: libraries/DisplayResults.php:1725 libraries/DisplayResults.php:1831
 msgid "Partial texts"
 msgstr "Delvise tekster"
 
-#: libraries/DisplayResults.php:1725 libraries/DisplayResults.php:1834
+#: libraries/DisplayResults.php:1726 libraries/DisplayResults.php:1835
 msgid "Full texts"
 msgstr "Komplette tekster"
 
-#: libraries/DisplayResults.php:1741
+#: libraries/DisplayResults.php:1742
 msgid "Relational key"
 msgstr "Relationel nøgle"
 
-#: libraries/DisplayResults.php:1742
+#: libraries/DisplayResults.php:1743
 msgid "Display column for relations"
 msgstr "Vis kolonne for relationer"
 
-#: libraries/DisplayResults.php:1755
+#: libraries/DisplayResults.php:1756
 msgid "Show binary contents"
 msgstr "Vis binært indhold"
 
-#: libraries/DisplayResults.php:1761
+#: libraries/DisplayResults.php:1762
 msgid "Show BLOB contents"
 msgstr "Vis indhold af BLOB"
 
-#: libraries/DisplayResults.php:1773
+#: libraries/DisplayResults.php:1774
 msgid "Hide browser transformation"
 msgstr "Skjul browser-transformation"
 
-#: libraries/DisplayResults.php:1782
+#: libraries/DisplayResults.php:1783
 msgid "Well Known Text"
 msgstr "Velkendt tekst"
 
-#: libraries/DisplayResults.php:1783
+#: libraries/DisplayResults.php:1784
 msgid "Well Known Binary"
 msgstr "Velkendt binær"
 
-#: libraries/DisplayResults.php:3524 libraries/DisplayResults.php:3539
+#: libraries/DisplayResults.php:3525 libraries/DisplayResults.php:3540
 msgid "The row has been deleted."
 msgstr "Rækken er slettet."
 
-#: libraries/DisplayResults.php:3575 libraries/DisplayResults.php:4829
+#: libraries/DisplayResults.php:3576 libraries/DisplayResults.php:4830
 #: libraries/server_status_processes.lib.php:282
 msgid "Kill"
 msgstr "Dræb (Kill)"
 
-#: libraries/DisplayResults.php:4267
+#: libraries/DisplayResults.php:4268
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
 msgstr "Kan være anslået. Se [doc@faq3-11] FAQ 3.11[/doc]."
 
-#: libraries/DisplayResults.php:4340 libraries/Message.php:181
+#: libraries/DisplayResults.php:4341 libraries/Message.php:181
 #: libraries/controllers/table/TableRelationController.php:253
 #: libraries/controllers/table/TableSearchController.php:639
 #: libraries/rte/rte_routines.lib.php:1451 libraries/sql_query_form.lib.php:89
@@ -3559,7 +3552,7 @@ msgstr "Kan være anslået. Se [doc@faq3-11] FAQ 3.11[/doc]."
 msgid "Your SQL query has been executed successfully."
 msgstr "Din SQL-forespørgsel blev udført korrekt."
 
-#: libraries/DisplayResults.php:4687
+#: libraries/DisplayResults.php:4688
 #: libraries/controllers/database/DatabaseStructureController.php:753
 #, php-format
 msgid ""
@@ -3568,27 +3561,27 @@ msgid ""
 msgstr ""
 "Viewet har som minimum dette antal rækker. Se venligst %sdokumentationen%s."
 
-#: libraries/DisplayResults.php:4700
+#: libraries/DisplayResults.php:4701
 #, php-format
 msgid "Showing rows %1s - %2s"
 msgstr "Viser rækkerne %1s - %2s"
 
-#: libraries/DisplayResults.php:4715
+#: libraries/DisplayResults.php:4716
 #, php-format
 msgid "%1$d total, %2$d in query"
 msgstr "%1$d i alt, %2$d i forespørgsel"
 
-#: libraries/DisplayResults.php:4720
+#: libraries/DisplayResults.php:4721
 #, php-format
 msgid "%d total"
 msgstr "%d i alt"
 
-#: libraries/DisplayResults.php:4732 libraries/sql.lib.php:1380
+#: libraries/DisplayResults.php:4733 libraries/sql.lib.php:1380
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "Forespørgsel tog %01.4f sekunder."
 
-#: libraries/DisplayResults.php:4834 libraries/DisplayResults.php:4841
+#: libraries/DisplayResults.php:4835 libraries/DisplayResults.php:4842
 #: libraries/Util.php:4638 libraries/Util.php:4644
 #: libraries/mult_submits.inc.php:53
 #: templates/database/structure/check_all_tables.phtml:2
@@ -3596,7 +3589,7 @@ msgstr "Forespørgsel tog %01.4f sekunder."
 msgid "With selected:"
 msgstr "Med det markerede:"
 
-#: libraries/DisplayResults.php:4838 libraries/DisplayResults.php:4840
+#: libraries/DisplayResults.php:4839 libraries/DisplayResults.php:4841
 #: libraries/Util.php:4640 libraries/Util.php:4641
 #: libraries/server_privileges.lib.php:1272
 #: libraries/server_privileges.lib.php:1273
@@ -3607,23 +3600,23 @@ msgstr "Med det markerede:"
 msgid "Check all"
 msgstr "Vælg alle"
 
-#: libraries/DisplayResults.php:5013
+#: libraries/DisplayResults.php:5014
 msgid "Copy to clipboard"
-msgstr ""
+msgstr "Kopier til udklipsholder"
 
-#: libraries/DisplayResults.php:5069
+#: libraries/DisplayResults.php:5070
 msgid "Query results operations"
 msgstr "Forespørgselsresultat operationer"
 
-#: libraries/DisplayResults.php:5157 templates/table/chart/tbl_chart.phtml:12
+#: libraries/DisplayResults.php:5158 templates/table/chart/tbl_chart.phtml:12
 msgid "Display chart"
 msgstr "Vis diagram"
 
-#: libraries/DisplayResults.php:5182
+#: libraries/DisplayResults.php:5183
 msgid "Visualize GIS data"
 msgstr "Visualiser GIS data"
 
-#: libraries/DisplayResults.php:5368
+#: libraries/DisplayResults.php:5369
 msgid "Link not found!"
 msgstr "Link ikke fundet!"
 
@@ -3677,7 +3670,7 @@ msgstr "Ukendt fejl i filupload."
 
 #: libraries/File.php:424
 msgid "File is a symbolic link"
-msgstr ""
+msgstr "Filen er et symbolsk link"
 
 #: libraries/File.php:470
 msgid "Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc]."
@@ -4240,29 +4233,29 @@ msgstr "Kildedatabasen '%s' blev ikke fundet!"
 msgid "Target database `%s` was not found!"
 msgstr "Mål-databasen '%s' blev ikke fundet!"
 
-#: libraries/Table.php:1300
+#: libraries/Table.php:1305
 msgid "Invalid database:"
 msgstr "Ugyldig database:"
 
-#: libraries/Table.php:1314
+#: libraries/Table.php:1322
 msgid "Invalid table name:"
 msgstr "Ugyldigt tabelnavn:"
 
-#: libraries/Table.php:1349
+#: libraries/Table.php:1357
 #, php-format
 msgid "Failed to rename table %1$s to %2$s!"
 msgstr "Fejl ved omdøbning af tabel %1$s til %2$s!"
 
-#: libraries/Table.php:1368
+#: libraries/Table.php:1376
 #, php-format
 msgid "Table %1$s has been renamed to %2$s."
 msgstr "Tabellen %1$s er nu omdøbt til %2$s."
 
-#: libraries/Table.php:1587
+#: libraries/Table.php:1595
 msgid "Could not save table UI preferences!"
 msgstr "Kunne ikke gemme indstillinger af brugergrænseflade for tabel!"
 
-#: libraries/Table.php:1617
+#: libraries/Table.php:1625
 #, php-format
 msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
@@ -4271,7 +4264,7 @@ msgstr ""
 "Kunne ikke rydde op i indstillinger for tabel-UI (se $cfg['Servers'][$i]"
 "['MaxTableUiprefs'] %s)"
 
-#: libraries/Table.php:1770
+#: libraries/Table.php:1778
 #, php-format
 msgid ""
 "Cannot save UI property \"%s\". The changes made will not be persistent "
@@ -4282,19 +4275,19 @@ msgstr ""
 "efter at du opfrisker denne side. Undersøg, om tabelstrukturen er blevet "
 "ændret."
 
-#: libraries/Table.php:1906
+#: libraries/Table.php:1914
 msgid "The name of the primary key must be \"PRIMARY\"!"
 msgstr "Navnet på primærnøglen skal være \"PRIMARY\"!"
 
-#: libraries/Table.php:1917
+#: libraries/Table.php:1925
 msgid "Can't rename index to PRIMARY!"
 msgstr "Kan ikke omdøbe indeks til PRIMARY!"
 
-#: libraries/Table.php:1939
+#: libraries/Table.php:1947
 msgid "No index parts defined!"
 msgstr "Ingen dele af indeks er defineret!"
 
-#: libraries/Table.php:2257
+#: libraries/Table.php:2265
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr "Fejl ved dannelse af fremmednøgle på %1$s (tjek datatyper)"
@@ -4604,6 +4597,8 @@ msgid ""
 "Stores and enables efficient access to data in JSON (JavaScript Object "
 "Notation) documents"
 msgstr ""
+"Lagrer og muliggør effektiv tilgang til data i JSON (JavaScript Object "
+"Notation) dokumenter"
 
 #: libraries/TypesMySQL.php:479
 msgctxt "numeric types"
@@ -4665,14 +4660,10 @@ msgid "Analyze Explain at %s"
 msgstr "Forklaring af analyse ved %s"
 
 #: libraries/Util.php:1258
-#, fuzzy
-#| msgid "Without PHP Code"
 msgid "Without PHP code"
 msgstr "Uden PHP-kode"
 
 #: libraries/Util.php:1270
-#, fuzzy
-#| msgid "Submit Query"
 msgid "Submit query"
 msgstr "Send forespørgsel"
 
@@ -4851,7 +4842,6 @@ msgid "Attribute"
 msgstr "Attribut"
 
 #: libraries/central_columns.lib.php:707 libraries/central_columns.lib.php:1381
-#, fuzzy
 msgid "A_I"
 msgstr "A_I"
 
@@ -5181,10 +5171,10 @@ msgid "Allow users to customize this value"
 msgstr "Tillad brugerdefinerede indstillinger for værdien"
 
 #: libraries/config/PageSettings.php:141
-#, fuzzy
-#| msgid "Cannot save settings, submitted form contains errors!"
 msgid "Cannot save settings, submitted configuration form contains errors!"
-msgstr "Kan ikke gemme indstillinger, den sendte formular indeholder fejl!"
+msgstr ""
+"Kan ikke gemme indstillinger, den sendte konfigurationsformular indeholder "
+"fejl!"
 
 #: libraries/config/ServerConfigChecks.php:157
 msgid "You should use SSL connections if your database server supports it."
@@ -5196,10 +5186,8 @@ msgid "You allow for connecting to the server without a password."
 msgstr "Du tillader forbindelse til serveren uden adgangskode."
 
 #: libraries/config/ServerConfigChecks.php:347
-#, fuzzy
-#| msgid "Key is too short, it should have at least 8 characters."
 msgid "Key is too short, it should have at least 32 characters."
-msgstr "Nøglen er for kort, den bør have mindst 8 tegn."
+msgstr "Nøglen er for kort, den bør have mindst 32 tegn."
 
 #: libraries/config/ServerConfigChecks.php:357
 msgid "Key should contain letters, numbers [em]and[/em] special characters."
@@ -5338,10 +5326,8 @@ msgid "Could not connect to the database server!"
 msgstr "Kunne ikke forbinde databaseserveren!"
 
 #: libraries/config/Validator.php:243
-#, fuzzy
-#| msgid "Authentication type"
 msgid "Invalid authentication type!"
-msgstr "Autentifikationstype"
+msgstr "Invalid autentifikationstype!"
 
 #: libraries/config/Validator.php:250
 msgid "Empty username while using [kbd]config[/kbd] authentication method!"
@@ -5453,14 +5439,8 @@ msgid "Highlight pointer"
 msgstr "Fremhæv pointer"
 
 #: libraries/config/messages.inc.php:47
-#, fuzzy
-#| msgid ""
-#| "Enable [a@https://en.wikipedia.org/wiki/Bzip2]bzip2[/a] compression for "
-#| "import operations."
 msgid "Enable bzip2 compression for import operations."
-msgstr ""
-"Aktivér komprimering med [a@https://en.wikipedia.org/wiki/Bzip2]bzip2[/a] "
-"ved import."
+msgstr "Aktivér komprimering med bzip2 ved import."
 
 #: libraries/config/messages.inc.php:50
 msgid "Bzip2"
@@ -5481,17 +5461,12 @@ msgid "CHAR columns editing"
 msgstr "Redigering af CHAR-kolonner"
 
 #: libraries/config/messages.inc.php:58
-#, fuzzy
-#| msgid ""
-#| "Use user-friendly editor for editing SQL queries ([a@https://codemirror."
-#| "net/]CodeMirror[/a]) with syntax highlighting and line numbers."
 msgid ""
 "Use user-friendly editor for editing SQL queries (CodeMirror) with syntax "
 "highlighting and line numbers."
 msgstr ""
-"Brug et brugervenligt tekstredigereingsprogram til at redigere SQL-"
-"forespørgsler, ([a@https://codemirror.net/]CodeMirror[/a]) med fremhævelse "
-"af syntaks og linjenummerering."
+"Brug et brugervenligt tekstredigeringsprogram til at redigere SQL-"
+"forespørgsler (CodeMirror) med fremhævelse af syntaks og linjenummerering."
 
 #: libraries/config/messages.inc.php:62
 msgid "Enable CodeMirror"
@@ -5502,12 +5477,12 @@ msgid ""
 "Find any errors in the query before executing it. Requires CodeMirror to be "
 "enabled."
 msgstr ""
+"Find alle fejl i forspørgslen, før den udføres. Kræver, at CodeMirror er "
+"aktiveret."
 
 #: libraries/config/messages.inc.php:67
-#, fuzzy
-#| msgid "Enable SQL Validator"
 msgid "Enable linter"
-msgstr "Aktivér SQL Validator"
+msgstr "Aktivér linter"
 
 #: libraries/config/messages.inc.php:69
 msgid ""
@@ -5585,7 +5560,7 @@ msgstr "Bekræft DROP-forespørgsler"
 #: libraries/config/messages.inc.php:97
 msgid ""
 "Log SQL queries and their execution time, to be displayed in the console"
-msgstr ""
+msgstr "Log SQL forespørgsler og deres udførselstid. Vises i konsollen"
 
 #: libraries/config/messages.inc.php:101
 msgid "Tab that is displayed when entering a database."
@@ -5612,30 +5587,24 @@ msgid "Default table tab"
 msgstr "Standard tabel-fane"
 
 #: libraries/config/messages.inc.php:110
-#, fuzzy
-#| msgid "Enclose table and column names with backquotes"
 msgid "Autocomplete of the table and column names in the SQL queries."
-msgstr "Brug \"backquotes\" omkring tabel- og feltnavne"
+msgstr "Autofyld tabel- og kolonnenavne i SQL forespørgsler."
 
 #: libraries/config/messages.inc.php:113
-#, fuzzy
-#| msgid "Enclose table and column names with backquotes"
 msgid "Enable autocomplete for table and column names"
-msgstr "Brug \"backquotes\" omkring tabel- og feltnavne"
+msgstr "Aktiver autofyld for tabel- og kolonnenavne"
 
 #: libraries/config/messages.inc.php:116
 msgid "Whether the table structure actions should be hidden."
 msgstr "Hvorvidt tabelstruktur handlinger skal være skjulte."
 
 #: libraries/config/messages.inc.php:117
-#, fuzzy
-#| msgid "Table comments"
 msgid "Show column comments"
-msgstr "Tabel kommentarer"
+msgstr "Vis kolonnekommentarer"
 
 #: libraries/config/messages.inc.php:119
 msgid "Whether column comments should be shown in table structure view"
-msgstr ""
+msgstr "Om kolonnekommentarer skal vises i visningen af tabelstruktur"
 
 #: libraries/config/messages.inc.php:120
 msgid "Hide table structure actions"
@@ -5674,10 +5643,9 @@ msgid "Maximum execution time"
 msgstr "Maksimal eksekveringstid"
 
 #: libraries/config/messages.inc.php:135 libraries/display_export.lib.php:796
-#, fuzzy, php-format
-#| msgid "Add %s statement"
+#, php-format
 msgid "Use %s statement"
-msgstr "Tilføj %s forespørgsel"
+msgstr "Brug %s forespørgsel"
 
 #: libraries/config/messages.inc.php:137 prefs_manage.php:317
 msgid "Save as file"
@@ -5819,10 +5787,8 @@ msgid "Overwrite existing file(s)"
 msgstr "Overskriv eksisterende fil(er)"
 
 #: libraries/config/messages.inc.php:184
-#, fuzzy
-#| msgid "Export table headers"
 msgid "Export as separate files"
-msgstr "Eksportér tabel-hoveder"
+msgstr "Eksportér som separate filer"
 
 #: libraries/config/messages.inc.php:188
 msgid "Remember file name template"
@@ -5861,10 +5827,8 @@ msgid "Export views as tables"
 msgstr "Eksportér visninger som tabeller"
 
 #: libraries/config/messages.inc.php:198
-#, fuzzy
-#| msgid "%sCreate%s missing phpMyAdmin configuration storage tables."
 msgid "Export related metadata from phpMyAdmin configuration storage"
-msgstr "%sOpret%s manglende tabeller for phpMyAdmin-konfigurationslager."
+msgstr "Eksporter relaterede metadata fra phpMyAdmin-konfigurationslager"
 
 #: libraries/config/messages.inc.php:200 libraries/config/messages.inc.php:201
 #: libraries/config/messages.inc.php:203 libraries/config/messages.inc.php:205
@@ -5884,6 +5848,8 @@ msgid ""
 "Add IF NOT EXISTS (less efficient as indexes will be generated during table "
 "creation)"
 msgstr ""
+"Tilføj IF NOT EXISTS (mindre effektivt, da indeks vil blive genereret under "
+"oprettelsen af tabellen)"
 
 #: libraries/config/messages.inc.php:214
 msgid "Use ignore inserts"
@@ -5934,12 +5900,11 @@ msgstr "Øvre grænse for fremmednøgle"
 #: libraries/config/messages.inc.php:242
 msgid "Default value for foreign key checks checkbox for some queries."
 msgstr ""
+"Standardværdi for checkboksen for fremmednøglechecks for nogle forespørgsler."
 
 #: libraries/config/messages.inc.php:244
-#, fuzzy
-#| msgid "Foreign key check:"
 msgid "Foreign key checks"
-msgstr "Tjek af fremmednøgle:"
+msgstr "Tjek af fremmednøgle"
 
 #: libraries/config/messages.inc.php:245
 msgid "Browse mode"
@@ -6034,16 +5999,12 @@ msgid "Customize appearance of the navigation panel."
 msgstr "Tilpas navigationspanelets udseende."
 
 #: libraries/config/messages.inc.php:273
-#, fuzzy
-#| msgid "Navigation panel"
 msgid "Navigation tree"
-msgstr "Navigationspanel"
+msgstr "Navigationstræ"
 
 #: libraries/config/messages.inc.php:274
-#, fuzzy
-#| msgid "Customize navigation panel"
 msgid "Customize the navigation tree."
-msgstr "Tilpas navigationspanelet"
+msgstr "Tilpas navigationstræet."
 
 #: libraries/config/messages.inc.php:275 libraries/select_server.lib.php:43
 #: setup/frames/index.inc.php:158
@@ -6257,14 +6218,8 @@ msgid "Disable some of the warnings shown by phpMyAdmin."
 msgstr "Deaktiver nogle af advarslerne, som phpMyAdmin viser."
 
 #: libraries/config/messages.inc.php:353
-#, fuzzy
-#| msgid ""
-#| "Enable [a@https://en.wikipedia.org/wiki/Gzip]gzip[/a] compression for "
-#| "import and export operations."
 msgid "Enable gzip compression for import and export operations."
-msgstr ""
-"Aktivér [a@https://en.wikipedia.org/wiki/Gzip]gzip[/a] komprimering for "
-"import og eksport-funktionerne."
+msgstr "Aktivér gzip komprimering for import og eksport-funktionerne."
 
 #: libraries/config/messages.inc.php:356
 msgid "GZip"
@@ -6510,16 +6465,12 @@ msgid "Maximum tables"
 msgstr "Maksimalt antal tabeller"
 
 #: libraries/config/messages.inc.php:466
-#, fuzzy
-#| msgid ""
-#| "The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd] "
-#| "([kbd]0[/kbd] for no limit)."
 msgid ""
 "The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd] "
 "([kbd]-1[/kbd] for no limit and [kbd]0[/kbd] for no change)."
 msgstr ""
-"Antallet af bytes et script må allokere, fx. [kbd]32M[/kbd] ([kbd]0[/kbd] "
-"for ubegrænset)."
+"Antallet af bytes et script må allokere, fx. [kbd]32M[/kbd] ([kbd]-1[/kbd] "
+"for ubegrænset og [kbd]0[/kbd] for uændret)."
 
 #: libraries/config/messages.inc.php:469
 msgid "Memory limit"
@@ -6641,71 +6592,51 @@ msgstr "Aktivér fremhævning"
 #: libraries/config/messages.inc.php:521
 msgid ""
 "Whether to offer the possibility of tree expansion in the navigation panel."
-msgstr ""
-"Om der skal eller ikke skal tilbydes udvidelse af træ i navigationspanelet."
+msgstr "Om der skal tilbydes udvidelse af træ i navigationspanelet."
 
 #: libraries/config/messages.inc.php:524
 msgid "Enable navigation tree expansion"
 msgstr "Slå udfoldelse af navigationstræ til"
 
 #: libraries/config/messages.inc.php:525
-#, fuzzy
-#| msgid "Show/Hide tables list"
 msgid "Show tables in tree"
-msgstr "Vis/skjul tabelliste"
+msgstr "Vis tabeller i træet"
 
 #: libraries/config/messages.inc.php:527
-#, fuzzy
-#| msgid ""
-#| "Whether to offer the possibility of tree expansion in the navigation "
-#| "panel."
 msgid "Whether to show tables under database in the navigation tree"
-msgstr ""
-"Om der skal eller ikke skal tilbydes udvidelse af træ i navigationspanelet."
+msgstr "Om der skal vises tabeller under database i navigationstræet"
 
 #: libraries/config/messages.inc.php:528
-#, fuzzy
-#| msgid "Show versions"
 msgid "Show views in tree"
-msgstr "Vis versioner"
+msgstr "Vis views i træet"
 
 #: libraries/config/messages.inc.php:530
-#, fuzzy
-#| msgid "Show databases navigation as tree"
 msgid "Whether to show views under database in the navigation tree"
-msgstr "Vis databasenavigationen som en træstruktur"
+msgstr "Om views skal vises under database i navigationstræet"
 
 #: libraries/config/messages.inc.php:531
-#, fuzzy
-#| msgid "Show function fields"
 msgid "Show functions in tree"
-msgstr "Vis funktionsfelter"
+msgstr "Vis funktioner i træet"
 
 #: libraries/config/messages.inc.php:533
 msgid "Whether to show functions under database in the navigation tree"
-msgstr ""
+msgstr "Om der skal vises funktioner under database i navigationstræet"
 
 #: libraries/config/messages.inc.php:534
-#, fuzzy
-#| msgid "Show processes"
 msgid "Show procedures in tree"
-msgstr "Vis tråde"
+msgstr "Vis procedurer i træet"
 
 #: libraries/config/messages.inc.php:536
 msgid "Whether to show procedures under database in the navigation tree"
-msgstr ""
+msgstr "Om der skal vises procedurer under database i navigationstræet"
 
 #: libraries/config/messages.inc.php:537
-#, fuzzy
-#| msgid "Show versions"
 msgid "Show events in tree"
-msgstr "Vis versioner"
+msgstr "Vis hændelser i træet"
 
 #: libraries/config/messages.inc.php:539
-#, fuzzy
-#| msgid "Show databases navigation as tree"
 msgid "Whether to show events under database in the navigation tree"
-msgstr "Vis databasenavigationen som en træstruktur"
+msgstr "Om hændelser skal vises under database i navigationstræet"
 
 #: libraries/config/messages.inc.php:541
 msgid "Maximum number of recently used tables; set 0 to disable."
@@ -6732,10 +6663,11 @@ msgstr "Hvor links til tablerækker skal vises"
 #: libraries/config/messages.inc.php:549
 msgid "Whether to show row links even in the absence of a unique key."
 msgstr ""
+"Om der skal vises række-links selv i tilfælde af en manglende unik nøgle."
 
 #: libraries/config/messages.inc.php:551
 msgid "Show row links anyway"
-msgstr ""
+msgstr "Vis række-links alligevel"
 
 #: libraries/config/messages.inc.php:553
 msgid "Use natural order for sorting table and database names."
@@ -6968,16 +6900,12 @@ msgid "Authentication type"
 msgstr "Autentifikationstype"
 
 #: libraries/config/messages.inc.php:638
-#, fuzzy
-#| msgid ""
-#| "Leave blank for no [a@https://wiki.phpmyadmin.net/pma/bookmark]bookmark[/"
-#| "a] support, suggested: [kbd]pma__bookmark[/kbd]"
 msgid ""
 "Leave blank for no [doc@bookmarks@]bookmark[/doc] support, suggested: "
 "[kbd]pma__bookmark[/kbd]"
 msgstr ""
-"Efterlades tom for at undlade understøttelse af [a@https://wiki.phpmyadmin."
-"net/pma/bookmark]bogmærkeer[/a], forslag: [kbd]pma_bookmark[/kbd]"
+"Efterlades tom for ingen understøttelse af [doc@bookmarks@]bookmark[/doc], "
+"forslag: [kbd]pma__bookmark[/kbd]"
 
 #: libraries/config/messages.inc.php:641
 msgid "Bookmark table"
@@ -7016,17 +6944,12 @@ msgid "Control user password"
 msgstr "Adgangskode for kontrolbruger"
 
 #: libraries/config/messages.inc.php:654
-#, fuzzy
-#| msgid ""
-#| "A special MySQL user configured with limited permissions, more "
-#| "information available on [a@https://wiki.phpmyadmin.net/pma/"
-#| "controluser]wiki[/a]."
 msgid ""
 "A special MySQL user configured with limited permissions, more information "
 "available on [doc@linked-tables]documentation[/doc]."
 msgstr ""
-"En speciel MySQL bruger med begrænsede tilladelser. Mere information på "
-"[a@https://wiki.phpmyadmin.net/pma/controluser]wiki[/a]."
+"En speciel MySQL bruger med begrænsede tilladelser. Mere information på  [doc"
+"@linked-tables]dokumentation[/doc]."
 
 #: libraries/config/messages.inc.php:657
 msgid "Control user"
@@ -7128,22 +7051,16 @@ msgstr ""
 "[kbd]pma_pdf_pages[/kbd]."
 
 #: libraries/config/messages.inc.php:696
-#, fuzzy
-#| msgid "Export views as tables"
 msgid "Export templates table"
-msgstr "Eksportér visninger som tabeller"
+msgstr "Eksportér skabelontabel"
 
 #: libraries/config/messages.inc.php:698
-#, fuzzy
-#| msgid ""
-#| "Leave blank for no PDF schema support, suggested: [kbd]pma__pdf_pages[/"
-#| "kbd]."
 msgid ""
 "Leave blank for no export template support, suggested: "
 "[kbd]pma__export_templates[/kbd]."
 msgstr ""
-"Efterlades tom for at undlade understøttelse af PDF-skematik, forslag: "
-"[kbd]pma_pdf_pages[/kbd]."
+"Efterlades tom for ingen understøttelse af eksport af skabeloner, forslag: "
+"[kbd]pma__export_templates[/kbd]."
 
 #: libraries/config/messages.inc.php:701
 msgid "Central columns table"
@@ -7198,19 +7115,14 @@ msgid "PDF schema: pages table"
 msgstr "PDF-skematik: pages tabel"
 
 #: libraries/config/messages.inc.php:721
-#, fuzzy
-#| msgid ""
-#| "Database used for relations, bookmarks, and PDF features. See [a@https://"
-#| "wiki.phpmyadmin.net/pma/pmadb]pmadb[/a] for complete information. Leave "
-#| "blank for no support. Suggested: [kbd]phpmyadmin[/kbd]."
 msgid ""
 "Database used for relations, bookmarks, and PDF features. See [doc@linked-"
 "tables]pmadb[/doc] for complete information. Leave blank for no support. "
 "Suggested: [kbd]phpmyadmin[/kbd]."
 msgstr ""
-"Database brugt til relationer, bogmærker, og PDF funktioner. Se [a@https://"
-"wiki.phpmyadmin.net/pma/pmadb]pmadb[/a] for komplet information. Lades blank "
-"ved ingen understøttelse. Forslag: [kbd]phpmyadmin[/kbd]."
+"Database brugt til relationer, bogmærker, og PDF funktioner. Se [doc@linked-"
+"tables]pmadb[/doc] for komplet information. Lades blank ved ingen "
+"understøttelse. Forslag: [kbd]phpmyadmin[/kbd]."
 
 #: libraries/config/messages.inc.php:725
 #: templates/server/databases/create.phtml:20
@@ -7250,31 +7162,22 @@ msgid "Favorites table"
 msgstr "Favorit tabeller"
 
 #: libraries/config/messages.inc.php:740
-#, fuzzy
-#| msgid ""
-#| "Leave blank for no [a@https://wiki.phpmyadmin.net/pma/relation]relation-"
-#| "links[/a] support, suggested: [kbd]pma__relation[/kbd]."
 msgid ""
 "Leave blank for no [doc@relations@]relation-links[/doc] support, suggested: "
 "[kbd]pma__relation[/kbd]."
 msgstr ""
-"Efterlades tom for at undlade understøttelse af [a@https://wiki.phpmyadmin."
-"net/pma/relation]relation-links[/a], forslag: [kbd]pma_relation[/kbd]."
+"Efterlades tom for ingen understøttelse af [doc@relations@]relation-"
+"links[/doc], forslag: [kbd]pma_relation[/kbd]."
 
 #: libraries/config/messages.inc.php:744
 msgid "Relation table"
 msgstr "Relationstabel"
 
 #: libraries/config/messages.inc.php:746
-#, fuzzy
-#| msgid ""
-#| "See [a@https://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
-#| "types[/a] for an example."
 msgid ""
 "See [doc@authentication-modes]authentication types[/doc] for an example."
 msgstr ""
-"Se [a@https://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
-"types[/a] for et eksempel."
+"Se [doc@authentication-modes]authentication types[/doc] for et eksempel."
 
 #: libraries/config/messages.inc.php:749
 msgid "Signon session name"
@@ -7500,19 +7403,12 @@ msgid "Show create database form"
 msgstr "Vis formular til databaseoprettelse"
 
 #: libraries/config/messages.inc.php:842
-#, fuzzy
-#| msgid ""
-#| "Show or hide a column displaying the Creation timestamp for all tables."
 msgid "Show or hide a column displaying the comments for all tables."
-msgstr ""
-"Vis eller skjul en kolonne, der viser oprettelses-tidsstempel for alle "
-"tabeller."
+msgstr "Vis eller skjul en kolonne, der viser kommentarer for alle tabeller."
 
 #: libraries/config/messages.inc.php:844
-#, fuzzy
-#| msgid "Table comments"
 msgid "Show table comments"
-msgstr "Tabel kommentarer"
+msgstr "Vis tabelkommentarer"
 
 #: libraries/config/messages.inc.php:846
 msgid "Show or hide a column displaying the Creation timestamp for all tables."
@@ -7521,8 +7417,6 @@ msgstr ""
 "tabeller."
 
 #: libraries/config/messages.inc.php:848
-#, fuzzy
-#| msgid "Show Creation timestamp"
 msgid "Show creation timestamp"
 msgstr "Vis tidsstempel for oprettelse"
 
@@ -7534,8 +7428,6 @@ msgstr ""
 "alle tabeller."
 
 #: libraries/config/messages.inc.php:852
-#, fuzzy
-#| msgid "Show Last update timestamp"
 msgid "Show last update timestamp"
 msgstr "Vis tidsstempel med seneste opdatering"
 
@@ -7547,10 +7439,8 @@ msgstr ""
 "tabeller."
 
 #: libraries/config/messages.inc.php:856
-#, fuzzy
-#| msgid "Show Last check timestamp"
 msgid "Show last check timestamp"
-msgstr "Vis tidsstempel for Seneste tjek"
+msgstr "Vis tidsstempel for seneste tjek"
 
 #: libraries/config/messages.inc.php:858
 msgid ""
@@ -7622,12 +7512,10 @@ msgid "Skip locked tables"
 msgstr "Spring over låste tabeller"
 
 #: libraries/config/messages.inc.php:890
-#, fuzzy
-#| msgid "A warning is displayed on the main page if Suhosin is detected."
 msgid ""
 "Disable the default warning that is displayed on the main page if Suhosin is "
 "detected."
-msgstr "En advarsel vises på hovedsiden, hvis Suhosin registreres."
+msgstr "Slå standardadvarslen på hovedsiden fra, hvis Suhosin registreres."
 
 #: libraries/config/messages.inc.php:893
 msgid "Suhosin warning"
@@ -7648,34 +7536,24 @@ msgid "Login cookie validity warning"
 msgstr "Advarsel om gyldighed for logincookie"
 
 #: libraries/config/messages.inc.php:903
-#, fuzzy
-#| msgid ""
-#| "Textarea size (columns) in edit mode, this value will be emphasized for "
-#| "SQL query textareas (*2) and for query window (*1.25)."
 msgid ""
 "Textarea size (columns) in edit mode, this value will be emphasized for SQL "
 "query textareas (*2)."
 msgstr ""
 "Tekstboksstørrelse (kolonner) i redigeringstilstand; denne værdi vil blive "
-"fremhævet i SQL forespørgselstekstbokse (*2) og for forespørgselsvinduet "
-"(*1,25)."
+"fremhævet i SQL forespørgselstekstbokse (*2)."
 
 #: libraries/config/messages.inc.php:906
 msgid "Textarea columns"
 msgstr "Tekstboks kolonner"
 
 #: libraries/config/messages.inc.php:908
-#, fuzzy
-#| msgid ""
-#| "Textarea size (rows) in edit mode, this value will be emphasized for SQL "
-#| "query textareas (*2) and for query window (*1.25)."
 msgid ""
 "Textarea size (rows) in edit mode, this value will be emphasized for SQL "
 "query textareas (*2)."
 msgstr ""
 "Tekstboksstørrelse (rækker) i redigeringstilstand; denne værdi vil blive "
-"fremhævet i SQL forespørgselstekstbokse (*2) og for forespørgselsvinduet "
-"(*1,25)."
+"fremhævet i SQL forespørgselstekstbokse (*2)."
 
 #: libraries/config/messages.inc.php:911
 msgid "Textarea rows"
@@ -7800,14 +7678,8 @@ msgid "Proxy password"
 msgstr "Adgangskode for proxy"
 
 #: libraries/config/messages.inc.php:967
-#, fuzzy
-#| msgid ""
-#| "Enable [a@https://en.wikipedia.org/wiki/Gzip]gzip[/a] compression for "
-#| "import and export operations."
 msgid "Enable ZIP compression for import and export operations."
-msgstr ""
-"Aktivér [a@https://en.wikipedia.org/wiki/Gzip]gzip[/a] komprimering for "
-"import og eksport-funktionerne."
+msgstr "Aktivér ZIP komprimering for import og eksport-funktionerne."
 
 #: libraries/config/messages.inc.php:970
 msgid "ZIP"
@@ -7842,6 +7714,8 @@ msgid ""
 "Queries are executed by pressing Enter (instead of Ctrl+Enter). New lines "
 "will be inserted with Shift+Enter."
 msgstr ""
+"Forespørgsler udføres ved at trykke på Retur (i stedet for Ctrl+Retur). "
+"Linjeskift indsættes med Skift+Retur."
 
 #: libraries/config/messages.inc.php:989
 msgid "Enter executes queries in console"
@@ -7912,19 +7786,19 @@ msgid "Favorite List is full!"
 msgstr "Favoritliste er fyldt!"
 
 #: libraries/controllers/database/DatabaseStructureController.php:544
-#: tbl_operations.php:379
+#: tbl_operations.php:384
 #, php-format
 msgid "Table %s has been emptied."
 msgstr "Tabel %s blev tømt."
 
 #: libraries/controllers/database/DatabaseStructureController.php:565
-#: tbl_operations.php:397 view_operations.php:131
+#: tbl_operations.php:402 view_operations.php:131
 #, php-format
 msgid "View %s has been dropped."
 msgstr "Visning %s er blevet slettet."
 
 #: libraries/controllers/database/DatabaseStructureController.php:566
-#: tbl_operations.php:398
+#: tbl_operations.php:403
 #, php-format
 msgid "Table %s has been dropped."
 msgstr "Tabel %s blev slettet."
@@ -8030,16 +7904,14 @@ msgstr ""
 
 #: libraries/controllers/server/ServerDatabasesController.php:571
 #: libraries/controllers/server/ServerDatabasesController.php:577
-#, fuzzy
-#| msgid "Enable Statistics"
 msgid "Enable statistics"
 msgstr "Slå statistikker til"
 
 #: libraries/controllers/server/ServerVariablesController.php:110
-#, fuzzy, php-format
-#| msgid "Not enough privilege to view users."
+#, php-format
 msgid "Not enough privilege to view server variables and settings. %s"
-msgstr "Ikke tilstrækkelige privilegier til at se brugere."
+msgstr ""
+"Ikke tilstrækkelige privilegier til at se server variable og indstillinger %s"
 
 #: libraries/controllers/server/ServerVariablesController.php:220
 msgid "Setting variable failed"
@@ -8109,11 +7981,10 @@ msgid "Query error"
 msgstr "Forespørgselsfejl"
 
 #: libraries/controllers/table/TableStructureController.php:962
-#, fuzzy, php-format
-#| msgid "Table %1$s has been altered successfully."
+#, php-format
 msgid ""
 "Table %1$s has been altered successfully. Privileges have been adjusted."
-msgstr "Tabel %1$s er blevet ændret."
+msgstr "Tabel %1$s er blevet ændret. Rettighederne er justeret."
 
 #: libraries/controllers/table/TableStructureController.php:1184
 #: templates/table/structure/check_all_table_column.phtml:11
@@ -8206,6 +8077,9 @@ msgid ""
 "connection that encrypts the password using RSA</i>'; while connecting to "
 "the server."
 msgstr ""
+"Denne metode kræver en <i>SSL-forbindelse</i> eller en <i>ukrypteret "
+"forbindelse, som krypterer passwordet med RSA</i> ved forbindelse til "
+"serveren."
 
 #: libraries/display_export.lib.php:170
 msgid "Exporting databases from the current server"
@@ -8222,22 +8096,16 @@ msgid "Exporting rows from \"%s\" table"
 msgstr "Eksporterer rækker fra tabellen \"%s\""
 
 #: libraries/display_export.lib.php:198
-#, fuzzy
-#| msgid "Export type"
 msgid "Export templates:"
-msgstr "Eksporttype"
+msgstr "Eksportskabeloner:"
 
 #: libraries/display_export.lib.php:203
-#, fuzzy
-#| msgid "File name template:"
 msgid "New template:"
-msgstr "Skabelon for filnavn:"
+msgstr "Ny skabelon:"
 
 #: libraries/display_export.lib.php:206
-#, fuzzy
-#| msgid "Table name"
 msgid "Template name"
-msgstr "Tabelnavn"
+msgstr "Skabelonnavn"
 
 #: libraries/display_export.lib.php:208
 #: templates/server/databases/create.phtml:22
@@ -8245,34 +8113,24 @@ msgid "Create"
 msgstr "Opret"
 
 #: libraries/display_export.lib.php:215
-#, fuzzy
-#| msgid "File name template:"
 msgid "Existing templates:"
-msgstr "Skabelon for filnavn:"
+msgstr "Eksisterende skabeloner:"
 
 #: libraries/display_export.lib.php:216
-#, fuzzy
-#| msgid "Temp disk rate"
 msgid "Template:"
-msgstr "Frekvens af midlertidig disk"
+msgstr "Skabelon:"
 
 #: libraries/display_export.lib.php:221
-#, fuzzy
-#| msgid "Updated"
 msgid "Update"
-msgstr "Opdateret"
+msgstr "Opdater"
 
 #: libraries/display_export.lib.php:243
-#, fuzzy
-#| msgid "Select a table"
 msgid "Select a template"
-msgstr "Vælg en tabel"
+msgstr "Vælg en skabelon"
 
 #: libraries/display_export.lib.php:292
-#, fuzzy
-#| msgid "Export method"
 msgid "Export method:"
-msgstr "Eksporttype"
+msgstr "Eksportmetode:"
 
 #: libraries/display_export.lib.php:302
 msgid "Quick - display only the minimal options"
@@ -8283,10 +8141,8 @@ msgid "Custom - display all possible options"
 msgstr "Brugerdefineret - vis alle indstillinger"
 
 #: libraries/display_export.lib.php:336
-#, fuzzy
-#| msgid "Databases"
 msgid "Databases:"
-msgstr "Databaser"
+msgstr "Databaser:"
 
 #: libraries/display_export.lib.php:338 libraries/navigation/Navigation.php:195
 msgid "Tables:"
@@ -8391,16 +8247,12 @@ msgid "View output as text"
 msgstr "Se output som tekst"
 
 #: libraries/display_export.lib.php:751
-#, fuzzy
-#| msgid "Export views as tables"
 msgid "Export databases as separate files"
-msgstr "Eksportér visninger som tabeller"
+msgstr "Eksportér databaser som separate filer"
 
 #: libraries/display_export.lib.php:753
-#, fuzzy
-#| msgid "Export table headers"
 msgid "Export tables as separate files"
-msgstr "Eksportér tabel-hoveder"
+msgstr "Eksportér tabeller som separate filer"
 
 #: libraries/display_export.lib.php:783 libraries/display_export.lib.php:909
 msgid "Rename exported databases/tables/columns"
@@ -8500,8 +8352,6 @@ msgstr ""
 "<b>.sql.zip</b>"
 
 #: libraries/display_import.lib.php:221
-#, fuzzy
-#| msgid "File to Import:"
 msgid "File to import:"
 msgstr "Fil til import:"
 
@@ -8514,8 +8364,6 @@ msgid "File uploads are not allowed on this server."
 msgstr "Fil-uploads er ikke tilladte på denne server."
 
 #: libraries/display_import.lib.php:281
-#, fuzzy
-#| msgid "Partial Import:"
 msgid "Partial import:"
 msgstr "Delvis import:"
 
@@ -8538,20 +8386,12 @@ msgstr ""
 "større filer, men kan ødelægge transaktioner.)</i>"
 
 #: libraries/display_import.lib.php:312
-#, fuzzy
-#| msgid ""
-#| "Skip this number of queries (for SQL) or lines (for other formats), "
-#| "starting from the first one:"
 msgid "Skip this number of queries (for SQL) starting from the first one:"
-msgstr ""
-"Spring over antallet af forespørgsler (til SQL) eller linier (andre "
-"formater) begyndende med:"
+msgstr "Overspring dette antal forespørgsler (til SQL) begyndende med:"
 
 #: libraries/display_import.lib.php:342
-#, fuzzy
-#| msgid "Options"
 msgid "Other options:"
-msgstr "Indstillinger"
+msgstr "Andre indstillinger:"
 
 #: libraries/display_import.lib.php:480
 msgid ""
@@ -9104,14 +8944,11 @@ msgid "Edit next row"
 msgstr "Rediger næste række"
 
 #: libraries/insert_edit.lib.php:1607
-#, fuzzy
-#| msgid ""
-#| "Use TAB key to move from value to value, or CTRL+arrows to move anywhere"
 msgid ""
 "Use TAB key to move from value to value, or CTRL+arrows to move anywhere."
 msgstr ""
-"Brug TAB-tasten for at flytte dig fra værdi til værdi, eller CTRL"
-"+piletasterne til at flytte frit omkring"
+"Brug TAB-tasten for at flytte dig fra værdi til værdi, eller CTRL+"
+"piletasterne til at flytte frit omkring."
 
 #: libraries/insert_edit.lib.php:1644 libraries/replication_gui.lib.php:542
 #: libraries/rte/rte_routines.lib.php:1616
@@ -9165,10 +9002,8 @@ msgid "Data only"
 msgstr "Kun data"
 
 #: libraries/mult_submits.lib.php:352
-#, fuzzy
-#| msgid "Add AUTO_INCREMENT value"
 msgid "Add AUTO INCREMENT value"
-msgstr "Tilføj AUTO_INCREMENT værdi"
+msgstr "Tilføj AUTO INCREMENT værdi"
 
 #: libraries/mult_submits.lib.php:354 libraries/operations.lib.php:225
 #: libraries/operations.lib.php:1288
@@ -9180,8 +9015,6 @@ msgstr "Tilføj begrænsninger"
 #: libraries/operations.lib.php:953 libraries/operations.lib.php:1307
 #: libraries/rte/rte_routines.lib.php:1014
 #: templates/columns_definitions/table_fields_definitions.phtml:47
-#, fuzzy
-#| msgid "Edit Privileges"
 msgid "Adjust privileges"
 msgstr "Ret privilegier"
 
@@ -9303,7 +9136,7 @@ msgstr "Rumænsk"
 
 #: libraries/mysql_charsets.lib.php:235
 msgid "Sinhalese"
-msgstr ""
+msgstr "Singalesisk"
 
 #: libraries/mysql_charsets.lib.php:238
 msgid "Slovak"
@@ -9470,7 +9303,7 @@ msgstr[1] "Fandt %s resultater"
 #: libraries/navigation/NavigationTree.php:1364
 #: libraries/navigation/NavigationTree.php:1401
 msgid "Type to filter these, Enter to search all"
-msgstr ""
+msgstr "SKriv for at filtrere med disse, Retur for at søge i alt"
 
 #: libraries/navigation/NavigationTree.php:1366
 #: libraries/navigation/NavigationTree.php:1402
@@ -10064,7 +9897,7 @@ msgstr "Reparer"
 #: libraries/operations.lib.php:1584
 #: templates/table/structure/display_structure.phtml:178
 msgid "Truncate"
-msgstr ""
+msgstr "Afkort"
 
 #: libraries/operations.lib.php:1598
 #, fuzzy
@@ -10327,7 +10160,7 @@ msgstr "Stand-in-struktur for visning"
 
 #: libraries/plugins/export/ExportJson.php:65
 msgid "Output pretty-printed JSON (Use human-readable formatting)"
-msgstr ""
+msgstr "Vis pretty-trykt JSON (brug læsbar formatering)"
 
 #: libraries/plugins/export/ExportLatex.php:48
 msgid "Content of table @TABLE@"
@@ -10498,7 +10331,7 @@ msgstr "Tilføj %s forespørgsel"
 
 #: libraries/plugins/export/ExportSql.php:285
 msgid "(less efficient as indexes will be generated during table creation)"
-msgstr ""
+msgstr "(mindre effektiv da indeks skal oprettes under oprettelse af tabel)"
 
 #: libraries/plugins/export/ExportSql.php:293
 #, fuzzy, php-format
@@ -10694,7 +10527,7 @@ msgstr "Struktur for visningen %s blev eksporteret som en tabel"
 
 #: libraries/plugins/export/ExportSql.php:2115
 msgid "(See below for the actual view)"
-msgstr ""
+msgstr "(Se nedenfor for det aktuelle view)"
 
 #: libraries/plugins/export/ExportSql.php:2201
 msgid "Error reading data:"
@@ -10714,7 +10547,7 @@ msgstr "Tabel:"
 
 #: libraries/plugins/export/PMA_ExportPdf.php:120
 msgid "Purpose:"
-msgstr ""
+msgstr "Formål:"
 
 #: libraries/plugins/export/PMA_ExportPdf.php:501
 #, fuzzy
@@ -11154,7 +10987,7 @@ msgstr ""
 
 #: libraries/plugins/transformations/input/Text_Plain_Iptobinary.php:29
 msgid "Converts an Internet network address in (IPv4/IPv6) format to binary"
-msgstr ""
+msgstr "Konverterer en IP-adresse i (IPv4/IPv6) format til et binært tal"
 
 #: libraries/plugins/transformations/input/Text_Plain_JsonEditor.php:29
 msgid "Syntax highlighted CodeMirror editor for JSON."
@@ -11364,6 +11197,9 @@ msgid ""
 "'phpmyadmin'. You may go to 'Operations' tab of any database to set up the "
 "phpMyAdmin configuration storage there."
 msgstr ""
+"Du har ikke de nødvendige rettigheder til at oprette en database med navnet "
+"'phpmyadmin'. Du kan gå til 'Operationer' fanen af enhver database for at "
+"oprette phpMyAdmin konfigurationslageret der."
 
 #: libraries/relation.lib.php:1982
 #, fuzzy, php-format
@@ -11934,6 +11770,8 @@ msgid ""
 "You do not have sufficient privileges to perform this operation; Please "
 "refer to the documentation for more details"
 msgstr ""
+"Du har ikke tilstrækkelige rettigheder til at udføre denne handling; Der "
+"henvises til dokumentationen for flere detaljer"
 
 #: libraries/rte/rte_routines.lib.php:1040
 msgid "Security type"
@@ -12065,6 +11903,8 @@ msgid ""
 "No routine with name %1$s found in database %2$s. You might be lacking the "
 "necessary privileges to edit this routine"
 msgstr ""
+"Ingen rutine med navnet %1$s findes i database %2$s. Du kan mangle de "
+"nødvendige privilegier for at redigere denne rutine"
 
 #: libraries/rte/rte_words.lib.php:39
 #, php-format
@@ -12072,6 +11912,8 @@ msgid ""
 "No routine with name %1$s found in database %2$s. You might be lacking the "
 "necessary privileges to view/export this routine"
 msgstr ""
+"Ingen rutine med navnet %1$s findes i database %2$s. Du kan mangle de "
+"nødvendige rettigheder til at se/eksportere denne rutine"
 
 #: libraries/rte/rte_words.lib.php:42
 #, php-format
@@ -12405,6 +12247,8 @@ msgid ""
 "Allows user to give to other users or remove from other users privileges "
 "that user possess on this routine."
 msgstr ""
+"Tillader brugeren at give til eller fjerne fra andre brugere privilegier, "
+"som brugeren råder over på denne rutine."
 
 #: libraries/server_privileges.lib.php:1042
 #, fuzzy
@@ -12470,6 +12314,8 @@ msgid ""
 "Allows user to give to other users or remove from other users the privileges "
 "that user possess yourself."
 msgstr ""
+"Tillader brugeren at give til eller fjerne fra andre brugere privilegier, "
+"som brugeren råder over selv."
 
 #: libraries/server_privileges.lib.php:1552
 #, fuzzy
@@ -12775,6 +12621,10 @@ msgid ""
 "will prevent other users from connecting if the host part of their account "
 "allows a connection from any (%) host."
 msgstr ""
+"En brugerkonto, der tillader enhver bruger fra localhost at oprette "
+"forbindelse, er til stede. Dette vil forhindre andre brugere i at oprette "
+"forbindelse, hvis værtsdelen af deres konto tillader forbindelse fra enhver "
+"(%) vært."
 
 #: libraries/server_privileges.lib.php:4843
 #, php-format
@@ -13120,7 +12970,7 @@ msgstr "Kommando"
 
 #: libraries/server_status_processes.lib.php:95
 msgid "Progress"
-msgstr ""
+msgstr "Fremskridt"
 
 #: libraries/server_status_processes.lib.php:232
 #: libraries/server_status_variables.lib.php:36
@@ -13936,13 +13786,15 @@ msgstr "Faner på tabelniveau"
 #: libraries/sql-parser/src/Component.php:47
 #: libraries/sql-parser/src/Component.php:67
 msgid "Not implemented yet."
-msgstr ""
+msgstr "Endnu ikke implementeret."
 
 #: libraries/sql-parser/src/Components/AlterOperation.php:228
 #: libraries/sql-parser/src/Statement.php:337
 msgid ""
 "A new statement was found, but no delimiter between it and the previous one."
 msgstr ""
+"Et nyt statement blev fundet, men der var ingen adskillelsestegn mellem det "
+"og det foregående."
 
 #: libraries/sql-parser/src/Components/AlterOperation.php:240
 #, fuzzy
@@ -13953,16 +13805,16 @@ msgstr "Tabeloperationer med ikoner"
 #: libraries/sql-parser/src/Components/Array2d.php:91
 #, php-format
 msgid "%1$d values were expected, but found %2$d."
-msgstr ""
+msgstr "%1$d værdier var ventet, men fandt %2$d."
 
 #: libraries/sql-parser/src/Components/Array2d.php:114
 msgid "An opening bracket followed by a set of values was expected."
-msgstr ""
+msgstr "En kantet venstreparentes efterfulgt af et sæt værdier blev forventet."
 
 #: libraries/sql-parser/src/Components/ArrayObj.php:118
 #: libraries/sql-parser/src/Components/CreateDefinition.php:206
 msgid "An opening bracket was expected."
-msgstr ""
+msgstr "En kantet venstreparantes var forventet."
 
 #: libraries/sql-parser/src/Components/CaseExpression.php:137
 #: libraries/sql-parser/src/Components/CaseExpression.php:167
@@ -13985,13 +13837,15 @@ msgstr "Uventet tegn på linje %s."
 
 #: libraries/sql-parser/src/Components/CaseExpression.php:202
 msgid "Unexpected end of CASE expression"
-msgstr ""
+msgstr "Uventet afslutning af CASE udtryk"
 
 #: libraries/sql-parser/src/Components/CreateDefinition.php:227
 msgid ""
 "A symbol name was expected! A reserved keyword can not be used as a field "
 "name without backquotes."
 msgstr ""
+"Et symbolnavn var ventet! Et reserveret nøgleord kan ikke bruges som et "
+"feltnavn uden backquotes."
 
 #: libraries/sql-parser/src/Components/CreateDefinition.php:241
 #, fuzzy
@@ -14007,28 +13861,28 @@ msgstr "Ingen tabeller valgt."
 
 #: libraries/sql-parser/src/Components/CreateDefinition.php:289
 msgid "A closing bracket was expected."
-msgstr ""
+msgstr "En kantet højreparantes var ventet."
 
 #: libraries/sql-parser/src/Components/DataType.php:127
 msgid "Unrecognized data type."
-msgstr ""
+msgstr "Ukendt datatype."
 
 #: libraries/sql-parser/src/Components/Expression.php:248
-#: libraries/sql-parser/src/Components/Expression.php:391
+#: libraries/sql-parser/src/Components/Expression.php:398
 #, fuzzy
 #| msgid "No tables selected."
 msgid "An alias was expected."
 msgstr "Ingen tabeller valgt."
 
-#: libraries/sql-parser/src/Components/Expression.php:329
-#: libraries/sql-parser/src/Components/Expression.php:348
-#: libraries/sql-parser/src/Components/Expression.php:380
+#: libraries/sql-parser/src/Components/Expression.php:336
+#: libraries/sql-parser/src/Components/Expression.php:355
+#: libraries/sql-parser/src/Components/Expression.php:387
 msgid "An alias was previously found."
-msgstr ""
+msgstr "Et alias er fundet tidligere."
 
-#: libraries/sql-parser/src/Components/Expression.php:361
+#: libraries/sql-parser/src/Components/Expression.php:368
 msgid "Unexpected dot."
-msgstr ""
+msgstr "Uventet punktum."
 
 #: libraries/sql-parser/src/Components/ExpressionArray.php:106
 #, fuzzy
@@ -14039,12 +13893,12 @@ msgstr "Der er ikke valgt versioner."
 #: libraries/sql-parser/src/Components/Limit.php:90
 #: libraries/sql-parser/src/Components/Limit.php:112
 msgid "An offset was expected."
-msgstr ""
+msgstr "En forskydning var ventet."
 
 #: libraries/sql-parser/src/Components/OptionsArray.php:146
 #, php-format
 msgid "This option conflicts with \"%1$s\"."
-msgstr ""
+msgstr "Denne indstilling er i konflikt med \"%1$s\"."
 
 #: libraries/sql-parser/src/Components/OptionsArray.php:260
 #, fuzzy, php-format
@@ -14060,7 +13914,7 @@ msgstr "Antallet af tabeller der er åbne."
 
 #: libraries/sql-parser/src/Components/RenameOperation.php:111
 msgid "Keyword \"TO\" was expected."
-msgstr ""
+msgstr "Nøgleordet \"TO\" var forventet."
 
 #: libraries/sql-parser/src/Components/RenameOperation.php:127
 #, fuzzy
@@ -14082,38 +13936,38 @@ msgstr "Uventet tegn på linje %s."
 
 #: libraries/sql-parser/src/Lexer.php:303
 msgid "Expected whitespace(s) before delimiter."
-msgstr ""
+msgstr "Forventede whitespace(s) før adskillelsestegn."
 
 #: libraries/sql-parser/src/Lexer.php:321
 #: libraries/sql-parser/src/Lexer.php:337
 msgid "Expected delimiter."
-msgstr ""
+msgstr "Forventede adskillelsestegn."
 
-#: libraries/sql-parser/src/Lexer.php:783
+#: libraries/sql-parser/src/Lexer.php:838
 #, fuzzy, php-format
 #| msgid "Event %1$s has been created."
 msgid "Ending quote %1$s was expected."
 msgstr "Hændelse %1$s er oprettet."
 
-#: libraries/sql-parser/src/Lexer.php:823
+#: libraries/sql-parser/src/Lexer.php:878
 #, fuzzy
 #| msgid "Table name template"
 msgid "Variable name was expected."
 msgstr "Skabelon for tabelnavn"
 
-#: libraries/sql-parser/src/Parser.php:430
+#: libraries/sql-parser/src/Parser.php:450
 #, fuzzy
 #| msgid "at beginning of table"
 msgid "Unexpected beginning of statement."
 msgstr "i begyndelsen af tabellen"
 
-#: libraries/sql-parser/src/Parser.php:449
+#: libraries/sql-parser/src/Parser.php:469
 msgid "Unrecognized statement type."
-msgstr ""
+msgstr "Ukendt type af statement."
 
-#: libraries/sql-parser/src/Parser.php:531
+#: libraries/sql-parser/src/Parser.php:551
 msgid "No transaction was previously started."
-msgstr ""
+msgstr "Ingen transaktion er blevet startet tidligere."
 
 #: libraries/sql-parser/src/Statement.php:245
 #: libraries/sql-parser/src/Statements/DeleteStatement.php:250
@@ -14128,11 +13982,11 @@ msgstr "Uventet tegn på linje %s."
 
 #: libraries/sql-parser/src/Statement.php:309
 msgid "This type of clause was previously parsed."
-msgstr ""
+msgstr "Denne type af sætningskonstruktion er tidligere blevet parset."
 
 #: libraries/sql-parser/src/Statement.php:357
 msgid "Unrecognized keyword."
-msgstr ""
+msgstr "Ukendt nøgleord."
 
 #: libraries/sql-parser/src/Statements/CreateStatement.php:381
 #, fuzzy
@@ -14154,11 +14008,12 @@ msgstr "Rækken er slettet."
 
 #: libraries/sql-parser/src/Statements/CreateStatement.php:555
 msgid "A \"RETURNS\" keyword was expected."
-msgstr ""
+msgstr "Et \"RETURNS\" nøgleord var forventet."
 
 #: libraries/sql-parser/src/Statements/DeleteStatement.php:303
 msgid "This type of clause is not valid in Multi-table queries."
 msgstr ""
+"Denn type af sætningskonstruktion er ikke gyldig i multitabel forespørgsler."
 
 #: libraries/sql.lib.php:231
 msgid "Detailed profile"
@@ -14628,6 +14483,8 @@ msgid ""
 "Username and hostname didn't change. If you only want to change the "
 "password, 'Change password' tab should be used."
 msgstr ""
+"Brugernavn og værtsnavn blev ikke ændret. Hvis du kun vil ændre "
+"adgangskoden, bør 'Skift adgangskode' fanen anvendes."
 
 #: server_status.php:35
 #, fuzzy
@@ -14847,7 +14704,7 @@ msgstr "Forkerte data"
 #: setup/validate.php:30
 #, php-format
 msgid "Wrong data or no validation for %s"
-msgstr ""
+msgstr "Forkerte data eller ingen validering af %s"
 
 #: tbl_create.php:30 tbl_get_field.php:26
 #, php-format
@@ -15076,7 +14933,7 @@ msgstr ""
 
 #: templates/columns_definitions/table_fields_definitions.phtml:70
 msgid "Virtuality"
-msgstr ""
+msgstr "Virtualitet"
 
 #: templates/columns_definitions/table_fields_definitions.phtml:76
 msgid "Move column"
@@ -15336,7 +15193,7 @@ msgstr "Sum"
 
 #: templates/database/structure/check_all_tables.phtml:6
 msgid "Check tables having overhead"
-msgstr "Tjek tabeller der har overhead"
+msgstr "Tjek tabeller, der har overhead"
 
 #: templates/database/structure/check_all_tables.phtml:10
 #, fuzzy
@@ -15442,6 +15299,8 @@ msgid ""
 "Can you tell us the steps leading to this error? It decisively helps in "
 "debugging:"
 msgstr ""
+"Kan du fortælle os de trin, der fører til denne fejl? Det hjælper meget ved "
+"fejlfinding:"
 
 #: templates/error/report_form.phtml:21
 msgid "You may examine the data in the error report:"
@@ -15519,7 +15378,7 @@ msgstr "Sessionsværdi"
 
 #: templates/server/variables/variable_row.phtml:6
 msgid "This is a read-only variable and can not be edited"
-msgstr ""
+msgstr "Dette er en skrivebeskyttet variabel, som ikke kan redigeres"
 
 #: templates/server/variables/variable_table_head.phtml:5
 msgid "Global value"
@@ -16005,7 +15864,7 @@ msgstr "Adgangskodehashing:"
 
 #: view_create.php:44
 msgid "View name can not be empty"
-msgstr ""
+msgstr "Navnet på et view kan ikke være tomt"
 
 #: view_create.php:247
 msgid "VIEW name"
@@ -16255,6 +16114,9 @@ msgid ""
 "Percona documentation is at <a href=\"https://www.percona.com/software/"
 "documentation/\">https://www.percona.com/software/documentation/</a>"
 msgstr ""
+"Dokumentation for Percona er på <a target=\"_blank\" href=\""
+"https://www.percona.com/software/documentation/\"> "
+"https://www.percona.com/software/documentation/</a>"
 
 #: libraries/advisory_rules.txt:133
 msgid "'percona' found in version_comment"

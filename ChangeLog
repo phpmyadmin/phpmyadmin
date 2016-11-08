@@ -75,6 +75,13 @@ phpMyAdmin - ChangeLog
 - issue #12637 Fixed editing some timestamp values
 - issue #12622 Fixed javascript error in designer
 - issue #12334 Missing page indicator or VIEWs
+- issue #12610 Export of tables with Timestamp/Datetime/Time columns defined with ON UPDATE clause with precision fails
+- issue #12661 Error inserting into pma__history after timeout
+- issue #12195 Row_format = fixed not visible
+- issue #12665 Cannot add a foreign key - non-indexed fields not listed in InnoDB tables
+- issue #12674 Allow for proper MySQL-allowed strings as identifiers
+- issue #12651 Allow for partial dates on table insert page
+- issue #12681 Fixed designer with tables using special chars
 
 4.6.4 (2016-08-16)
 - issue        [security] Weaknesses with cookie encryption, see PMASA-2016-29
