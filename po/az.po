@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-10-25 11:15+0200\n"
-"PO-Revision-Date: 2016-09-06 06:15+0000\n"
+"PO-Revision-Date: 2016-11-08 18:50+0000\n"
 "Last-Translator: Sevdimali İsa <sevdimaliisayev@mail.ru>\n"
-"Language-Team: Azerbaijani <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/az/>\n"
+"Language-Team: Azerbaijani "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/az/>\n"
 "Language: az\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.8\n"
+"X-Generator: Weblate 2.9\n"
 
 #: changelog.php:38 license.php:33
 #, fuzzy, php-format
@@ -569,24 +569,20 @@ msgid "Bookmark %s has been created."
 msgstr "Əlfəcin %s yaradıldı."
 
 #: import.php:593
-#, fuzzy, php-format
-#| msgid "Import has been successfully finished, %d queries executed."
+#, php-format
 msgid "Import has been successfully finished, %d query executed."
 msgid_plural "Import has been successfully finished, %d queries executed."
 msgstr[0] "İmport uğurla başa çatdı, %d sorğu yerinə yetirlidi."
 msgstr[1] "İmport uğurla başa çatdı, %d sorğu yerinə yetirlidi."
 
 #: import.php:622
-#, fuzzy, php-format
-#| msgid ""
-#| "Script timeout passed, if you want to finish import, please resubmit same "
-#| "file and import will resume."
+#, php-format
 msgid ""
 "Script timeout passed, if you want to finish import, please %sresubmit the "
 "same file%s and import will resume."
 msgstr ""
-"Skript zaman limitini keçdi, importu tamamlamaq üçün zəhmət olmasa, həmin "
-"faylı yenidən göndərin və import davam edəcəkdir."
+"Skript zaman limitini keçdi, importu tamamlamaq üçün zəhmət olmasa, %shəmin "
+"faylı yenidən göndərin%s və import davam edəcəkdir."
 
 #: import.php:632
 msgid ""
@@ -624,10 +620,8 @@ msgstr ""
 "dəyişdirməyin. Daha ətraflı məlumat üçün: %s."
 
 #: index.php:165
-#, fuzzy
-#| msgid "General Settings"
 msgid "General settings"
-msgstr "Ümumi Tənzimləmələr"
+msgstr "Ümumi ayarlar"
 
 #: index.php:195 js/messages.php:633
 #: libraries/display_change_password.lib.php:47
@@ -640,10 +634,8 @@ msgid "Server connection collation"
 msgstr "Server qoşulma qarşılaşdırması"
 
 #: index.php:233
-#, fuzzy
-#| msgid "Appearance Settings"
 msgid "Appearance settings"
-msgstr "Mövzu Tənzimləmələri"
+msgstr "Mövzu ayarları"
 
 #: index.php:265 prefs_manage.php:304
 msgid "More settings"
@@ -692,10 +684,8 @@ msgid "PHP extension:"
 msgstr "PHP genişlənməsi:"
 
 #: index.php:355
-#, fuzzy
-#| msgid "PHP Version:"
 msgid "PHP version:"
-msgstr "PHP Versiyası:"
+msgstr "PHP versiyası:"
 
 #: index.php:376
 msgid "Version information:"
@@ -767,7 +757,7 @@ msgstr ""
 
 #: index.php:513
 msgid "The secret passphrase in configuration (blowfish_secret) is too short."
-msgstr ""
+msgstr "Konfiqurasiya içindəki (blowfish_secret) gizli parol çox qısadır."
 
 #: index.php:527
 msgid ""
@@ -791,6 +781,8 @@ msgstr ""
 msgid ""
 "Or alternately go to 'Operations' tab of any database to set it up there."
 msgstr ""
+"Və yaxud alternativ olaraq ayarlamaq üçün isə hər hansı bazada "
+"'Əməliyyatlar' bölməsinə gedin."
 
 #: index.php:589
 #, php-format
@@ -852,10 +844,8 @@ msgid "Delete tracking data for these versions?"
 msgstr "Bu versiyalar üçün izləmə verilənləri silinsin?"
 
 #: js/messages.php:60
-#, fuzzy
-#| msgid "Delete tracking data row from report"
 msgid "Delete entry from tracking report?"
-msgstr "Hesabatdan izlənən verilən sətirini sil"
+msgstr "İzləmə Hesabatından giriş silinsinmi?"
 
 #: js/messages.php:61
 msgid "Deleting tracking data"
@@ -894,16 +884,12 @@ msgid "Do you really want to revoke the selected user(s) ?"
 msgstr "Seçilən istifadəçiləri ləğv etmək istədiyinizə əminsinizmi?"
 
 #: js/messages.php:75
-#, fuzzy
-#| msgid "Do you really want to delete this bookmark?"
 msgid "Do you really want to delete this central column?"
-msgstr "Bu əlfəcini silmək istədiyinizə əminsinizmi?"
+msgstr "Bu mərkəzi sütunu silmək istədiyinizə əminsinizmi?"
 
 #: js/messages.php:77
-#, fuzzy
-#| msgid "Do you really want to delete the search \"%s\"?"
 msgid "Do you really want to delete the selected items?"
-msgstr "\"%s\" axtarışını silmək istədiyinizdən əminsinizmi?"
+msgstr "Seçilmiş olanları silmək istədiyinizdən əminsinizmi?"
 
 #: js/messages.php:79
 msgid ""
@@ -924,10 +910,8 @@ msgid "Do you really want to remove partitioning?"
 msgstr "\"%s\" axtarışını silmək istədiyinizdən əminsinizmi?"
 
 #: js/messages.php:86
-#, fuzzy
-#| msgid "Do you really want to execute \"%s\"?"
 msgid "Do you really want to RESET SLAVE?"
-msgstr "\"%s\" sorğusunu icra etmək istəyirsiniz?"
+msgstr "SLAVE-i SIFIRLAMAQ istəyirsinizmi?"
 
 #: js/messages.php:88
 msgid ""
@@ -963,10 +947,8 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:111
-#, fuzzy
-#| msgid "Save & Close"
 msgid "Save & close"
-msgstr "Yaddaşa ver və Bağla"
+msgstr "Yaddaşa ver və bağla"
 
 #: js/messages.php:112 libraries/config/FormDisplay.tpl.php:426
 #: libraries/insert_edit.lib.php:1621 prefs_manage.php:385 prefs_manage.php:396
@@ -974,10 +956,8 @@ msgid "Reset"
 msgstr "Sıfırla"
 
 #: js/messages.php:113
-#, fuzzy
-#| msgid "Reset All"
 msgid "Reset all"
-msgstr "Hamısını Sıfırla"
+msgstr "Hamısını sıfırla"
 
 #: js/messages.php:116
 msgid "Missing value in the form!"
@@ -1000,8 +980,6 @@ msgid "Add index"
 msgstr "İndeks əlavə et"
 
 #: js/messages.php:121
-#, fuzzy
-#| msgid "Edit Index"
 msgid "Edit index"
 msgstr "İndeksi redaktə et"
 
@@ -1019,10 +997,8 @@ msgid "Create composite index"
 msgstr "Kompleks indeks yarat"
 
 #: js/messages.php:125
-#, fuzzy
-#| msgid "Fields enclosed by"
 msgid "Composite with:"
-msgstr "Saheler ehate edildiyi işare"
+msgstr "Bununla birləşmiş:"
 
 #: js/messages.php:126
 msgid "Please select column(s) for the index."
@@ -1053,10 +1029,8 @@ msgstr "SQL sorğusu:"
 
 #. l10n: Default label for the y-Axis of Charts
 #: js/messages.php:141
-#, fuzzy
-#| msgid "Y Values"
 msgid "Y values"
-msgstr "Y Qiyməti"
+msgstr "Y qiymətləri"
 
 #: js/messages.php:144
 msgid "The host name is empty!"
@@ -1086,26 +1060,20 @@ msgid "Close"
 msgstr "Bağla"
 
 #: js/messages.php:152
-#, fuzzy
-#| msgid "The number of pages created."
 msgid "Template was created."
-msgstr "Yaradılmış səhifələrin sayı."
+msgstr "Şablon yaradıldı."
 
 #: js/messages.php:153
 msgid "Template was loaded."
-msgstr ""
+msgstr "Şablon yükləndi."
 
 #: js/messages.php:154
-#, fuzzy
-#| msgid "The profile has been updated."
 msgid "Template was updated."
-msgstr "Profil yenilendi."
+msgstr "Şablon yeniləndi."
 
 #: js/messages.php:155
-#, fuzzy
-#| msgid "The row has been deleted."
 msgid "Template was deleted."
-msgstr "Sətir silindi."
+msgstr "Şablon silindi."
 
 #. l10n: Other, small valued, queries
 #: js/messages.php:158 libraries/ServerStatusData.php:132
@@ -1154,14 +1122,12 @@ msgid "Query cache used"
 msgstr "İstifadə edilən sorğu keşi"
 
 #: js/messages.php:180
-#, fuzzy
-#| msgid "System CPU Usage"
 msgid "System CPU usage"
 msgstr "Sistem prosessoru istifadəsi"
 
 #: js/messages.php:181
 msgid "System memory"
-msgstr "Sistem Yaddaşı"
+msgstr "Sistem yaddaşı"
 
 #: js/messages.php:182
 msgid "System swap"
@@ -1181,7 +1147,7 @@ msgstr "Keş edilmiş yaddaş"
 
 #: js/messages.php:187
 msgid "Buffered memory"
-msgstr ""
+msgstr "Bufer yaddaşı"
 
 #: js/messages.php:188
 msgid "Free memory"
@@ -1192,28 +1158,20 @@ msgid "Used memory"
 msgstr "İstifadə olunan yaddaş"
 
 #: js/messages.php:191
-#, fuzzy
-#| msgid "Total Swap"
 msgid "Total swap"
 msgstr "Toplam mübadilə"
 
 #: js/messages.php:192
-#, fuzzy
-#| msgid "Cached Swap"
 msgid "Cached swap"
-msgstr "Keş edilmiş mübadilə"
+msgstr "Keş olunmuş mübadilə"
 
 #: js/messages.php:193
-#, fuzzy
-#| msgid "Used Swap"
 msgid "Used swap"
 msgstr "İstifadə olunan mübadilə"
 
 #: js/messages.php:194
-#, fuzzy
-#| msgid "Free Swap"
 msgid "Free swap"
-msgstr "Sərbəst mübadilə"
+msgstr "Boş mübadilə"
 
 #: js/messages.php:196
 msgid "Bytes sent"
@@ -1321,11 +1279,11 @@ msgstr "İzləməni dayandır"
 
 #: js/messages.php:222 libraries/server_status_processes.lib.php:37
 msgid "Start auto refresh"
-msgstr ""
+msgstr "Avto yenilənməni başlat"
 
 #: js/messages.php:223
 msgid "Stop auto refresh"
-msgstr ""
+msgstr "Avto yenilənməni dayandır"
 
 #: js/messages.php:225
 msgid "general_log and slow_query_log are enabled."
@@ -1341,7 +1299,7 @@ msgstr "slow_query_log aktivləşdirildi."
 
 #: js/messages.php:228
 msgid "slow_query_log and general_log are disabled."
-msgstr ""
+msgstr "slow_query_log və general_log deaktiv edildi."
 
 #: js/messages.php:229
 msgid "log_output is not set to TABLE."
@@ -1358,6 +1316,9 @@ msgid ""
 "than %d seconds. It is advisable to set this long_query_time 0-2 seconds, "
 "depending on your system."
 msgstr ""
+"slow_query_log deaktiv edildi, ancaq server sadəcə %d saniyədən daha çox "
+"çəkən sorğuları loglayır. Bu long_query_time-ın, sisteminizə bağlı olaraq 0-"
+"2 saniyəyə ayarlanmasını tövsiyyə edirik."
 
 #: js/messages.php:236
 #, php-format
@@ -1432,15 +1393,15 @@ msgstr "Vahid"
 
 #: js/messages.php:262
 msgid "From slow log"
-msgstr ""
+msgstr "Yavaş logdan"
 
 #: js/messages.php:263
 msgid "From general log"
-msgstr ""
+msgstr "Ümumi logdan"
 
 #: js/messages.php:265
 msgid "The database name is not known for this query in the server's logs."
-msgstr ""
+msgstr "Serverin logunda bu sorğu üçün baza adı bilinmir."
 
 #: js/messages.php:267
 msgid "Analysing logs"
@@ -1448,7 +1409,7 @@ msgstr "Loglar analiz edilir"
 
 #: js/messages.php:269
 msgid "Analysing & loading logs. This may take a while."
-msgstr ""
+msgstr "Loglar analiz olunur və yüklənir. Bu bir az çəkə bilər."
 
 #: js/messages.php:270
 msgid "Cancel request"
@@ -1544,7 +1505,7 @@ msgstr "Söz/düzənli ifadəyə görə sorğuları filtrlə:"
 
 #: js/messages.php:304
 msgid "Group queries, ignoring variable data in WHERE clauses"
-msgstr ""
+msgstr "Qrup sorğuları, WHERE içərisindəki dəyişkən dəyərləri göz ardı edildi"
 
 #: js/messages.php:305
 msgid "Sum of grouped rows:"
@@ -1560,7 +1521,7 @@ msgstr "Loglar yüklənir"
 
 #: js/messages.php:309
 msgid "Monitor refresh failed"
-msgstr ""
+msgstr "Monitor yeniləmə uğursuz oldu"
 
 #: js/messages.php:311
 msgid ""
@@ -1608,10 +1569,8 @@ msgid "No files available on server for import!"
 msgstr "İmport üçün serverdə fayllar yoxdur!"
 
 #: js/messages.php:331
-#, fuzzy
-#| msgid "Analyse Query"
 msgid "Analyse query"
-msgstr "Sorğunu Analiz et"
+msgstr "Sorğunu analiz et"
 
 #: js/messages.php:335
 msgid "Advisor system"
