@@ -1066,7 +1066,7 @@ if (! function_exists('hash_hmac')) {
 /**
  * Sanitizes MySQL hostname
  *
- * * strips p: prefix
+ * * strips p: prefix(es)
  *
  * @param string $name User given hostname
  *
@@ -1074,8 +1074,8 @@ if (! function_exists('hash_hmac')) {
  */
 function PMA_sanitizeMySQLHost($name)
 {
-    if (strtolower(substr($name, 0, 2)) == 'p:') {
-        return substr($name, 2);
+    while (strtolower(substr($name, 0, 2)) == 'p:') {
+        $name = substr($name, 2);
     }
 
     return $name;
