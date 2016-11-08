@@ -37,7 +37,7 @@ function PMA_RTE_getWord($index)
             ),
             'no_view'   => __(
                 'No routine with name %1$s found in database %2$s. '
-                . 'You might be lacking the necessary privileges to view/export this routine'
+                . 'You might be lacking the necessary privileges to view/export this routine.'
             ),
             'not_found' => __('No routine with name %1$s found in database %2$s'),
             'nothing'   => __('There are no routines to display.'),
