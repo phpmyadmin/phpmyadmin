@@ -738,7 +738,7 @@ if ($go_sql) {
     // since only one bookmark has to be added for all the queries submitted through
     // the SQL tab
     if (! empty($_POST['bkm_label']) && ! empty($import_text)) {
-        $cfgBookmark = PMA_Bookmark_getParams();
+        $cfgBookmark = Bookmark::getParams();
         PMA_storeTheQueryAsBookmark(
             $db, $cfgBookmark['user'],
             $_REQUEST['sql_query'], $_POST['bkm_label'],

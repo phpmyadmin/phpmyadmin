@@ -42,10 +42,10 @@ function PMA_getTablesInfo()
         $GLOBALS['PMD']['TABLE_NAME_SMALL'][$i] = $one_table['TABLE_NAME'];
 
         $GLOBALS['PMD_URL']['TABLE_NAME'][$i]
-            = urlencode($GLOBALS['db'] . "." . $one_table['TABLE_NAME']);
-        $GLOBALS['PMD_URL']['OWNER'][$i] = urlencode($GLOBALS['db']);
+            = $GLOBALS['db'] . "." . $one_table['TABLE_NAME'];
+        $GLOBALS['PMD_URL']['OWNER'][$i] = $GLOBALS['db'];
         $GLOBALS['PMD_URL']['TABLE_NAME_SMALL'][$i]
-            = urlencode($one_table['TABLE_NAME']);
+            = $one_table['TABLE_NAME'];
 
         $GLOBALS['PMD_OUT']['TABLE_NAME'][$i] = htmlspecialchars(
             $GLOBALS['db'] . "." . $one_table['TABLE_NAME'], ENT_QUOTES
@@ -63,7 +63,7 @@ function PMA_getTablesInfo()
 
         $DF = PMA_getDisplayField($GLOBALS['db'], $one_table['TABLE_NAME']);
         if ($DF != '') {
-            $retval[$GLOBALS['PMD_URL']["TABLE_NAME_SMALL"][$i]] = urlencode($DF);
+            $retval[$GLOBALS['PMD_URL']["TABLE_NAME_SMALL"][$i]] = $DF;
         }
 
         $i++;
@@ -123,8 +123,7 @@ function PMA_getScriptContr()
     );
     while ($val = @$GLOBALS['dbi']->fetchRow($alltab_rs)) {
         $row = PMA_getForeigners($GLOBALS['db'], $val[0], '', 'internal');
-        //echo "<br> internal ".$GLOBALS['db']." - ".$val[0]." - ";
-        //print_r($row);
+
         if ($row !== false) {
             foreach ($row as $field => $value) {
                 $con['C_NAME'][$i] = '';
@@ -138,8 +137,7 @@ function PMA_getScriptContr()
             }
         }
         $row = PMA_getForeigners($GLOBALS['db'], $val[0], '', 'foreign');
-        //echo "<br> INNO ";
-        //print_r($row);
+
         if ($row !== false) {
             foreach ($row['foreign_keys_data'] as $one_key) {
                 foreach ($one_key['index_list'] as $index => $one_field) {

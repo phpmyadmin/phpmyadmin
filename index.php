@@ -10,6 +10,7 @@ use PMA\libraries\URL;
 use PMA\libraries\Sanitize;
 use PMA\libraries\Charsets;
 use PMA\libraries\ThemeManager;
+use PMA\libraries\LanguageManager;
 
 /**
  * Gets some core libraries and displays a top message if required
@@ -236,9 +237,9 @@ echo '  <ul>';
 // Displays language selection combo
 if (empty($cfg['Lang'])) {
     echo '<li id="li_select_lang" class="no_bullets">';
-    include_once 'libraries/display_select_lang.lib.php';
+
     echo PMA\libraries\Util::getImage('s_lang.png') , " "
-        , PMA_getLanguageSelectorHtml();
+        , LanguageManager::getInstance()->getSelectorDisplay();
     echo '</li>';
 }
 

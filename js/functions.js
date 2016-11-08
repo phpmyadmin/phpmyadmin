@@ -188,9 +188,12 @@ function addDateTimePicker() {
                 timeFormat: timeFormat
             });
 
-            // Add a tip regarding entering MySQL allowed-values for TIME data-type
+            // Add a tip regarding entering MySQL allowed-values
+            // for TIME and DATE data-type
             if ($(this).hasClass('timefield')) {
-                PMA_tooltip($(this), 'input', PMA_messages.strMysqlAllowedValuesTip);
+                PMA_tooltip($(this), 'input', PMA_messages.strMysqlAllowedValuesTipTime);
+            } else if ($(this).hasClass('datefield')) {
+                PMA_tooltip($(this), 'input', PMA_messages.strMysqlAllowedValuesTipDate);
             }
         });
     }
@@ -4959,6 +4962,30 @@ function PMA_ignorePhpErrors(clearPrevErrors){
     var $pmaErrors = $('#pma_errors');
     $pmaErrors.fadeOut( "slow");
     $pmaErrors.remove();
+}
+
+/**
+ * Toggle the Datetimepicker UI if the date value entered
+ * by the user in the 'text box' is not going to be accepted
+ * by the Datetimepicker plugin (but is accepted by MySQL)
+ */
+function toggleDatepickerIfInvalid($td, $input_field) {
+    // Regex allowed by the Datetimepicker UI
+    var dtexpDate = new RegExp(['^([0-9]{4})',
+        '-(((01|03|05|07|08|10|12)-((0[1-9])|([1-2][0-9])|(3[0-1])))|((02|04|06|09|11)',
+        '-((0[1-9])|([1-2][0-9])|30)))$'].join(''));
+    var dtexpTime = new RegExp(['^(([0-1][0-9])|(2[0-3]))',
+        ':((0[0-9])|([1-5][0-9]))',
+        ':((0[0-9])|([1-5][0-9]))(\.[0-9]{1,6}){0,1}$'].join(''));
+
+    // If key-ed in Time or Date values are unsupported by the UI, close it
+    if ($td.attr('data-type') === 'date' && ! dtexpDate.test($input_field.val())) {
+        $input_field.datepicker('hide');
+    } else if ($td.attr('data-type') === 'time' && ! dtexpTime.test($input_field.val())) {
+        $input_field.datepicker('hide');
+    } else {
+        $input_field.datepicker('show');
+    }
 }
 
 /**
