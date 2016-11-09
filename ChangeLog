@@ -82,6 +82,7 @@ phpMyAdmin - ChangeLog
 - issue #12674 Allow for proper MySQL-allowed strings as identifiers
 - issue #12651 Allow for partial dates on table insert page
 - issue #12681 Fixed designer with tables using special chars
+- issue #12652 Fixed visual query builder for foreign keys with more fields
 
 4.6.4 (2016-08-16)
 - issue        [security] Weaknesses with cookie encryption, see PMASA-2016-29
