@@ -141,7 +141,7 @@ function PMA_getScriptContr()
         if ($row !== false) {
             foreach ($row['foreign_keys_data'] as $one_key) {
                 foreach ($one_key['index_list'] as $index => $one_field) {
-                    $con['C_NAME'][$i] = '';
+                    $con['C_NAME'][$i] = $one_key['constraint'];
                     $con['DTN'][$i]    = urlencode($GLOBALS['db'] . "." . $val[0]);
                     $con['DCN'][$i]    = urlencode($one_field);
                     $con['STN'][$i]    = urlencode(
