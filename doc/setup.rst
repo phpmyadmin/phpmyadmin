@@ -635,6 +635,8 @@ If you already had this infrastructure and:
   :file:`sql/upgrade_tables_mysql_4_1_2+.sql`.
 * upgraded to phpMyAdmin 4.3.0 or newer from 2.5.0 or newer (<= 4.2.x),
   please use :file:`sql/upgrade_column_info_4_3_0+.sql`.
+* upgraded to phpMyAdmin 4.7.0 or newer from 4.3.0 or newer,
+  please use :file:`sql/upgrade_tables_4_7_0+.sql`.
 
 and then create new tables by importing :file:`sql/create_tables.sql`.
 
