@@ -286,46 +286,6 @@ class Util
     }
 
     /**
-     * Add slashes before "'" and "\" characters so a value containing them can
-     * be used in a sql comparison.
-     *
-     * @param string $a_string the string to slash
-     * @param bool   $is_like  whether the string will be used in a 'LIKE' clause
-     *                         (it then requires two more escaped sequences) or not
-     * @param bool   $crlf     whether to treat cr/lfs as escape-worthy entities
-     *                         (converts \n to \\n, \r to \\r)
-     * @param bool   $php_code whether this function is used as part of the
-     *                         "Create PHP code" dialog
-     *
-     * @return string   the slashed string
-     *
-     * @access  public
-     */
-    public static function sqlAddSlashes(
-        $a_string = '',
-        $is_like = false,
-        $crlf = false,
-        $php_code = false
-    ) {
-        if ($is_like) {
-            $a_string = str_replace('\\', '\\\\\\\\', $a_string);
-        } else {
-            $a_string = str_replace('\\', '\\\\', $a_string);
-        }
-
-        if ($crlf) {
-            $a_string = strtr(
-                $a_string,
-                array("\n" => '\n', "\r" => '\r', "\t" => '\t')
-            );
-        }
-
-        $a_string = str_replace('\'', '\\\'', $a_string);
-
-        return $a_string;
-    } // end of the 'sqlAddSlashes()' function
-
-    /**
      * Add slashes before "_" and "%" characters for using them in MySQL
      * database, table and field names.
      * Note: This function does not escape backslashes!

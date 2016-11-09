@@ -1267,7 +1267,7 @@ function PMA_RTN_getQueryFromRequest()
         $query .= ' ';
     }
     if (! empty($_REQUEST['item_comment'])) {
-        $query .= "COMMENT '" . PMA\libraries\Util::sqlAddslashes($_REQUEST['item_comment'])
+        $query .= "COMMENT '" . $GLOBALS['dbi']->escapeString($_REQUEST['item_comment'])
             . "' ";
     }
     if (isset($_REQUEST['item_isdeterministic'])) {

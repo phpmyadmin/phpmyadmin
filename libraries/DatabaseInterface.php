@@ -428,7 +428,7 @@ class DatabaseInterface
             // comparison (if we are looking for the db Aa we don't want
             // to find the db aa)
             $this_databases = array_map(
-                'PMA\libraries\Util::sqlAddSlashes',
+                array($this, 'escapeString'),
                 $databases
             );
 
