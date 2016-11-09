@@ -32,6 +32,7 @@ phpMyAdmin - ChangeLog
 - issue #12656 Server selection not working
 - issue #12543 NULL results in dataset are colored grey
 - issue #12664 Create Bookmark broken
+- issue #12688 Use unsigned int for storing bookmark ID
 
 4.6.5 (not yet released)
 - issue        Remove potentionally license problematic sRGB profile
