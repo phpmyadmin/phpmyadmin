@@ -116,6 +116,7 @@ phpMyAdmin - ChangeLog
 - issue #12651 Allow for partial dates on table insert page
 - issue #12681 Fixed designer with tables using special chars
 - issue #12652 Fixed visual query builder for foreign keys with more fields
+- issue #12257 Improved search page performance
 
 4.6.4 (2016-08-16)
 - issue        [security] Weaknesses with cookie encryption, see PMASA-2016-29

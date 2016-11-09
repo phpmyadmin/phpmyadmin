@@ -1362,11 +1362,13 @@ function PMA_getForeignData(
         // We could also do the SELECT anyway, with a LIMIT, and ensure that
         // the current value of the field is one of the choices.
 
-        $the_total = $GLOBALS['dbi']->getTable($foreign_db, $foreign_table)
-            ->countRecords(true);
+        // Check if table has more rows than specified by
+        // $GLOBALS['cfg']['ForeignKeyMaxLimit']
+        $moreThanLimit = $GLOBALS['dbi']->getTable($foreign_db, $foreign_table)
+            ->checkIfMinRecordsExist($GLOBALS['cfg']['ForeignKeyMaxLimit']);
 
         if ($override_total == true
-            || $the_total < $GLOBALS['cfg']['ForeignKeyMaxLimit']
+            || !$moreThanLimit
         ) {
             // foreign_display can be false if no display field defined:
             $foreign_display = PMA_getDisplayField($foreign_db, $foreign_table);
