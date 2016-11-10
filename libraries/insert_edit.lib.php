@@ -2257,7 +2257,7 @@ function PMA_getCurrentValueAsAnArrayForMultipleEdit( $multi_edit_funcs,
             || $multi_edit_funcs[$key] == "ENCRYPT"))
         ) {
             return $multi_edit_funcs[$key] . '(' . $current_value . ",'"
-                . PMA\libraries\Util::sqlAddSlashes($multi_edit_salt[$key]) . "')";
+                . $GLOBALS['dbi']->escapeString($multi_edit_salt[$key]) . "')";
         } else {
             return $multi_edit_funcs[$key] . '(' . $current_value . ')';
         }
@@ -2316,7 +2316,7 @@ function PMA_getQueryValuesForInsertAndUpdateInMultipleEdit($multi_edit_columns_
             . ' = ' . $current_value_as_an_array;
     } elseif (empty($multi_edit_funcs[$key])
         && isset($multi_edit_columns_prev[$key])
-        && (("'" . PMA\libraries\Util::sqlAddSlashes($multi_edit_columns_prev[$key]) . "'" === $current_value)
+        && (("'" . $GLOBALS['dbi']->escapeString($multi_edit_columns_prev[$key]) . "'" === $current_value)
         || ('0x' . $multi_edit_columns_prev[$key] === $current_value))
     ) {
         // No change for this column and no MySQL function is used -> next column
@@ -2375,7 +2375,7 @@ function PMA_getCurrentValueForDifferentTypes($possibly_uploaded_val, $key,
     if (false !== $possibly_uploaded_val) {
         $current_value = $possibly_uploaded_val;
     } else if (! empty($multi_edit_funcs[$key])) {
-        $current_value = "'" . PMA\libraries\Util::sqlAddSlashes($current_value)
+        $current_value = "'" . $GLOBALS['dbi']->escapeString($current_value)
             . "'";
     } else {
         // c o l u m n    v a l u e    i n    t h e    f o r m
@@ -2403,7 +2403,7 @@ function PMA_getCurrentValueForDifferentTypes($possibly_uploaded_val, $key,
                     ',', $_REQUEST['fields']['multi_edit'][$rownumber][$key]
                 );
                 $current_value = "'"
-                    . PMA\libraries\Util::sqlAddSlashes($current_value) . "'";
+                    . $GLOBALS['dbi']->escapeString($current_value) . "'";
             } else {
                  $current_value = "''";
             }
@@ -2426,12 +2426,12 @@ function PMA_getCurrentValueForDifferentTypes($possibly_uploaded_val, $key,
             $current_value = '0x' . $current_value;
         } elseif ($type == 'bit') {
             $current_value = preg_replace('/[^01]/', '0', $current_value);
-            $current_value = "b'" . PMA\libraries\Util::sqlAddSlashes($current_value)
+            $current_value = "b'" . $GLOBALS['dbi']->escapeString($current_value)
                 . "'";
         } elseif (! ($type == 'datetime' || $type == 'timestamp')
             || $current_value != 'CURRENT_TIMESTAMP'
         ) {
-            $current_value = "'" . PMA\libraries\Util::sqlAddSlashes($current_value)
+            $current_value = "'" . $GLOBALS['dbi']->escapeString($current_value)
                 . "'";
         }
 

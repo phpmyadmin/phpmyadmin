@@ -307,13 +307,13 @@ class DatabaseInterface
             if (true === $tbl_is_group) {
                 $sql_where_table = 'AND t.`TABLE_NAME` LIKE \''
                     . Util::escapeMysqlWildcards(
-                        Util::sqlAddSlashes($table)
+                        $GLOBALS['dbi']->escapeString($table)
                     )
                     . '%\'';
             } else {
                 $sql_where_table = 'AND t.`TABLE_NAME` '
                     . Util::getCollateForIS() . ' = \''
-                    . Util::sqlAddSlashes($table) . '\'';
+                    . $GLOBALS['dbi']->escapeString($table) . '\'';
             }
         } else {
             $sql_where_table = '';
@@ -428,7 +428,7 @@ class DatabaseInterface
             // comparison (if we are looking for the db Aa we don't want
             // to find the db aa)
             $this_databases = array_map(
-                'PMA\libraries\Util::sqlAddSlashes',
+                array($this, 'escapeString'),
                 $databases
             );
 
@@ -490,7 +490,7 @@ class DatabaseInterface
                     if ($table || (true === $tbl_is_group)) {
                         $sql .= " `Name` LIKE '"
                             . Util::escapeMysqlWildcards(
-                                Util::sqlAddSlashes($table, true)
+                                $this->escapeString($table, $link)
                             )
                             . "%'";
                         $needAnd = true;
@@ -851,7 +851,7 @@ class DatabaseInterface
             // get table information from information_schema
             if (! empty($database)) {
                 $sql_where_schema = 'WHERE `SCHEMA_NAME` LIKE \''
-                    . Util::sqlAddSlashes($database) . '\'';
+                    . $this->escapeString($database, $link) . '\'';
             } else {
                 $sql_where_schema = '';
             }
@@ -1090,19 +1090,19 @@ class DatabaseInterface
             // get columns information from information_schema
             if (null !== $database) {
                 $sql_wheres[] = '`TABLE_SCHEMA` = \''
-                    . Util::sqlAddSlashes($database) . '\' ';
+                    . $this->escapeString($database, $link) . '\' ';
             } else {
                 $array_keys[] = 'TABLE_SCHEMA';
             }
             if (null !== $table) {
                 $sql_wheres[] = '`TABLE_NAME` = \''
-                    . Util::sqlAddSlashes($table) . '\' ';
+                    . $this->escapeString($table, $link) . '\' ';
             } else {
                 $array_keys[] = 'TABLE_NAME';
             }
             if (null !== $column) {
                 $sql_wheres[] = '`COLUMN_NAME` = \''
-                    . Util::sqlAddSlashes($column) . '\' ';
+                    . $this->escapeString($column, $link) . '\' ';
             } else {
                 $array_keys[] = 'COLUMN_NAME';
             }
@@ -1147,7 +1147,7 @@ class DatabaseInterface
             $sql = 'SHOW FULL COLUMNS FROM '
                 . Util::backquote($database) . '.' . Util::backquote($table);
             if (null !== $column) {
-                $sql .= " LIKE '" . Util::sqlAddSlashes($column, true) . "'";
+                $sql .= " LIKE '" . $this->escapeString($column, $link) . "'";
             }
 
             $columns = $this->fetchResult($sql, 'Field', null, $link);
@@ -1235,7 +1235,7 @@ class DatabaseInterface
         $sql = 'SHOW ' . ($full ? 'FULL' : '') . ' COLUMNS FROM '
             . Util::backquote($database) . '.' . Util::backquote($table)
             . (($column !== null) ? "LIKE '"
-            . Util::sqlAddSlashes($column, true) . "'" : '');
+            . $GLOBALS['dbi']->escapeString($column) . "'" : '');
 
         return $sql;
     }
@@ -1475,7 +1475,7 @@ class DatabaseInterface
             }
             $result = $this->tryQuery(
                 "SET collation_connection = '"
-                . Util::sqlAddSlashes($GLOBALS['collation_connection'])
+                . $this->escapeString($GLOBALS['collation_connection'], $link)
                 . "';",
                 $link,
                 self::QUERY_STORE
@@ -1487,7 +1487,7 @@ class DatabaseInterface
                 );
                 $this->query(
                     "SET collation_connection = '"
-                    . Util::sqlAddSlashes($default_collation)
+                    . $this->escapeString($GLOBALS['collation_connection'], $link)
                     . "';",
                     $link,
                     self::QUERY_STORE
@@ -1871,13 +1871,13 @@ class DatabaseInterface
                 . " `DTD_IDENTIFIER`"
                 . " FROM `information_schema`.`ROUTINES`"
                 . " WHERE `ROUTINE_SCHEMA` " . Util::getCollateForIS()
-                . " = '" . Util::sqlAddSlashes($db) . "'";
+                . " = '" . $GLOBALS['dbi']->escapeString($db) . "'";
             if (PMA_isValid($which, array('FUNCTION','PROCEDURE'))) {
                 $query .= " AND `ROUTINE_TYPE` = '" . $which . "'";
             }
             if (! empty($name)) {
                 $query .= " AND `SPECIFIC_NAME`"
-                    . " = '" . Util::sqlAddSlashes($name) . "'";
+                    . " = '" . $GLOBALS['dbi']->escapeString($name) . "'";
             }
             $result = $this->fetchResult($query);
             if (!empty($result)) {
@@ -1886,10 +1886,10 @@ class DatabaseInterface
         } else {
             if ($which == 'FUNCTION' || $which == null) {
                 $query = "SHOW FUNCTION STATUS"
-                    . " WHERE `Db` = '" . Util::sqlAddSlashes($db) . "'";
+                    . " WHERE `Db` = '" . $GLOBALS['dbi']->escapeString($db) . "'";
                 if (! empty($name)) {
                     $query .= " AND `Name` = '"
-                        . Util::sqlAddSlashes($name) . "'";
+                        . $GLOBALS['dbi']->escapeString($name) . "'";
                 }
                 $result = $this->fetchResult($query);
                 if (!empty($result)) {
@@ -1898,10 +1898,10 @@ class DatabaseInterface
             }
             if ($which == 'PROCEDURE' || $which == null) {
                 $query = "SHOW PROCEDURE STATUS"
-                    . " WHERE `Db` = '" . Util::sqlAddSlashes($db) . "'";
+                    . " WHERE `Db` = '" . $GLOBALS['dbi']->escapeString($db) . "'";
                 if (! empty($name)) {
                     $query .= " AND `Name` = '"
-                        . Util::sqlAddSlashes($name) . "'";
+                        . $GLOBALS['dbi']->escapeString($name) . "'";
                 }
                 $result = $this->fetchResult($query);
                 if (!empty($result)) {
@@ -1961,16 +1961,16 @@ class DatabaseInterface
                 . "`DATABASE_COLLATION` AS `Database Collation`"
                 . " FROM `information_schema`.`EVENTS`"
                 . " WHERE `EVENT_SCHEMA` " . Util::getCollateForIS()
-                . " = '" . Util::sqlAddSlashes($db) . "'";
+                . " = '" . $GLOBALS['dbi']->escapeString($db) . "'";
             if (! empty($name)) {
                 $query .= " AND `EVENT_NAME`"
-                    . " = '" . Util::sqlAddSlashes($name) . "'";
+                    . " = '" . $GLOBALS['dbi']->escapeString($name) . "'";
             }
         } else {
             $query = "SHOW EVENTS FROM " . Util::backquote($db);
             if (! empty($name)) {
                 $query .= " AND `Name` = '"
-                    . Util::sqlAddSlashes($name) . "'";
+                    . $GLOBALS['dbi']->escapeString($name) . "'";
             }
         }
 
@@ -2013,16 +2013,16 @@ class DatabaseInterface
                 . ', EVENT_OBJECT_SCHEMA, EVENT_OBJECT_TABLE, DEFINER'
                 . ' FROM information_schema.TRIGGERS'
                 . ' WHERE EVENT_OBJECT_SCHEMA ' . Util::getCollateForIS() . '='
-                . ' \'' . Util::sqlAddSlashes($db) . '\'';
+                . ' \'' . $GLOBALS['dbi']->escapeString($db) . '\'';
 
             if (! empty($table)) {
                 $query .= " AND EVENT_OBJECT_TABLE " . Util::getCollateForIS()
-                    . " = '" . Util::sqlAddSlashes($table) . "';";
+                    . " = '" . $GLOBALS['dbi']->escapeString($table) . "';";
             }
         } else {
             $query = "SHOW TRIGGERS FROM " . Util::backquote($db);
             if (! empty($table)) {
-                $query .= " LIKE '" . Util::sqlAddSlashes($table, true) . "';";
+                $query .= " LIKE '" . $GLOBALS['dbi']->escapeString($table) . "';";
             }
         }
 
@@ -2650,6 +2650,27 @@ class DatabaseInterface
     }
 
     /**
+     * returns properly escaped string for use in MySQL queries
+     *
+     * @param string $str  string to be escaped
+     * @param mixed  $link optional database link to use
+     *
+     * @return string a MySQL escaped string
+     */
+    public function escapeString($str, $link = null)
+    {
+        if ($link === null) {
+            $link = $this->getLink();
+        }
+
+        if ($this->_extension === null) {
+            return $str;
+        }
+
+        return $this->_extension->escapeString($link, $str);
+    }
+
+    /**
      * Gets server connection port
      *
      * @param array|null $server host/port/socket/persistent
@@ -2704,6 +2725,7 @@ class DatabaseInterface
         if (isset($GLOBALS['userlink']) && !is_null($GLOBALS['userlink'])) {
             return $GLOBALS['userlink'];
         } else {
+            error_log("YAHA\n", 3, "/tmp/a.txt");
             return false;
         }
     }

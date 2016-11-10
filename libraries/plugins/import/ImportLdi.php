@@ -117,7 +117,7 @@ class ImportLdi extends AbstractImportCsv
         if (isset($ldi_local_option)) {
             $sql .= ' LOCAL';
         }
-        $sql .= ' INFILE \'' . PMA\libraries\Util::sqlAddSlashes($import_file)
+        $sql .= ' INFILE \'' . $GLOBALS['dbi']->escapeString($import_file)
             . '\'';
         if (isset($ldi_replace)) {
             $sql .= ' REPLACE';
@@ -131,11 +131,11 @@ class ImportLdi extends AbstractImportCsv
         }
         if (strlen($ldi_enclosed) > 0) {
             $sql .= ' ENCLOSED BY \''
-                . PMA\libraries\Util::sqlAddSlashes($ldi_enclosed) . '\'';
+                . $GLOBALS['dbi']->escapeString($ldi_enclosed) . '\'';
         }
         if (strlen($ldi_escaped) > 0) {
             $sql .= ' ESCAPED BY \''
-                . PMA\libraries\Util::sqlAddSlashes($ldi_escaped) . '\'';
+                . $GLOBALS['dbi']->escapeString($ldi_escaped) . '\'';
         }
         if (strlen($ldi_new_line) > 0) {
             if ($ldi_new_line == 'auto') {

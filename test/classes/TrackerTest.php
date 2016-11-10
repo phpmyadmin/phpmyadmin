@@ -47,6 +47,14 @@ class TrackerTest extends PMATestCase
             'db' => 'pmadb',
             'tracking' => 'tracking'
         );
+
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+            ->disableOriginalConstructor()
+            ->getMock();
+        $dbi->expects($this->any())->method('escapeString')
+            ->will($this->returnArgument(0));
+
+        $cfg['dbi'] = $dbi;
     }
     /**
      * Test for Tracker::enable
@@ -318,6 +326,9 @@ class TrackerTest extends PMATestCase
         $dbi->expects($this->any())->method('query')
             ->will($this->returnValueMap($queryResults));
 
+        $dbi->expects($this->any())->method('escapeString')
+            ->will($this->returnArgument(0));
+
         $GLOBALS['dbi'] = $dbi;
         $this->assertEquals(
             'executed',
@@ -348,6 +359,8 @@ class TrackerTest extends PMATestCase
             ->method('query')
             ->with($sql_query)
             ->will($this->returnValue('executed'));
+        $dbi->expects($this->any())->method('escapeString')
+            ->will($this->returnArgument(0));
 
         $GLOBALS['dbi'] = $dbi;
         $this->assertEquals(
@@ -400,6 +413,9 @@ class TrackerTest extends PMATestCase
             ->with($expectedMainQuery, null, 0, false)
             ->will($this->returnValue("executed"));
 
+        $dbi->expects($this->any())->method('escapeString')
+            ->will($this->returnArgument(0));
+
         $GLOBALS['dbi'] = $dbi;
         $this->assertEquals(
             'executed',
@@ -443,6 +459,9 @@ class TrackerTest extends PMATestCase
             ->method('query')
             ->with($sql_query, null, 0, false)
             ->will($this->returnValue("executed"));
+
+        $dbi->expects($this->any())->method('escapeString')
+            ->will($this->returnArgument(0));
 
         $GLOBALS['dbi'] = $dbi;
 
@@ -516,15 +535,18 @@ class TrackerTest extends PMATestCase
         " AND `table_name` = 'pma_table' " .
         " AND `version` = '1.0' ";
 
-        $dbi->expects($this->at(0))
-            ->method('query')
-            ->with($sql_query_1, null, 0, false)
-            ->will($this->returnValue("executed_1"));
+        $dbi->method('query')
+            ->will(
+                $this->returnValueMap(
+                    array(
+                        array($sql_query_1, null, 0, false, "executed_1"),
+                        array($sql_query_2, null, 0, false, "executed_2")
+                    )
+                )
+            );
 
-        $dbi->expects($this->at(1))
-            ->method('query')
-            ->with($sql_query_2, null, 0, false)
-            ->will($this->returnValue("executed_2"));
+        $dbi->expects($this->any())->method('escapeString')
+            ->will($this->returnArgument(0));
 
         $GLOBALS['dbi'] = $dbi;
 
@@ -587,27 +609,32 @@ class TrackerTest extends PMATestCase
      */
     public function testGetTrackedData($fetchArrayReturn, $expectedArray)
     {
-        $sql_query = " SELECT * FROM `pmadb`.`tracking`" .
-            " WHERE `db_name` = 'pma\\'db' " .
-            " AND `table_name` = 'pma\\'table' " .
-            " AND `version` = '1.0' " .
-            " ORDER BY `version` DESC LIMIT 1";
-
         $GLOBALS['controllink'] = null;
 
         $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
-        $dbi->expects($this->at(0))
+        $dbi->expects($this->once())
             ->method('query')
-            ->with($sql_query, null, 0, false)
             ->will($this->returnValue("executed_1"));
 
-        $dbi->expects($this->at(1))
+        $dbi->expects($this->once())
             ->method('fetchAssoc')
             ->with("executed_1")
             ->will($this->returnValue($fetchArrayReturn));
+
+        $dbi->expects($this->any())
+            ->method('escapeString')
+            ->will(
+                $this->returnValueMap(
+                    array(
+                        array("pma'db", "pma\'db"),
+                        array("pma'table", "pma\'table"),
+                        array("1.0", "1.0"),
+                    )
+                )
+            );
 
         $GLOBALS['dbi'] = $dbi;
         $result = Tracker::getTrackedData("pma'db", "pma'table", "1.0");

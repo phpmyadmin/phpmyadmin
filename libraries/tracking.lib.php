@@ -244,10 +244,10 @@ function PMA_getListOfVersionsOfTable()
     $sql_query = " SELECT * FROM " .
         PMA\libraries\Util::backquote($cfgRelation['db']) . "." .
         PMA\libraries\Util::backquote($cfgRelation['tracking']) .
-        " WHERE db_name = '" . PMA\libraries\Util::sqlAddSlashes($_REQUEST['db']) .
+        " WHERE db_name = '" . $GLOBALS['dbi']->escapeString($_REQUEST['db']) .
         "' " .
         " AND table_name = '" .
-        PMA\libraries\Util::sqlAddSlashes($_REQUEST['table']) . "' " .
+        $GLOBALS['dbi']->escapeString($_REQUEST['table']) . "' " .
         " ORDER BY version DESC ";
 
     return PMA_queryAsControlUser($sql_query);
@@ -404,7 +404,7 @@ function PMA_getSQLResultForSelectableTables()
     $sql_query = " SELECT DISTINCT db_name, table_name FROM " .
         PMA\libraries\Util::backquote($cfgRelation['db']) . "." .
         PMA\libraries\Util::backquote($cfgRelation['tracking']) .
-        " WHERE db_name = '" . PMA\libraries\Util::sqlAddSlashes($GLOBALS['db']) .
+        " WHERE db_name = '" . $GLOBALS['dbi']->escapeString($GLOBALS['db']) .
         "' " .
         " ORDER BY db_name, table_name";
 
@@ -1646,9 +1646,9 @@ function PMA_displayTrackedTables(
              PMA\libraries\Util::backquote($cfgRelation['db']) . '.' .
              PMA\libraries\Util::backquote($cfgRelation['tracking']) .
              ' WHERE `db_name` = \''
-             . PMA\libraries\Util::sqlAddSlashes($_REQUEST['db'])
+             . $GLOBALS['dbi']->escapeString($_REQUEST['db'])
              . '\' AND `table_name`  = \''
-             . PMA\libraries\Util::sqlAddSlashes($table_name)
+             . $GLOBALS['dbi']->escapeString($table_name)
              . '\' AND `version` = \'' . $version_number . '\'';
 
         $table_result = PMA_queryAsControlUser($table_query);

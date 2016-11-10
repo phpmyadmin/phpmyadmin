@@ -548,7 +548,7 @@ class ImportCsv extends AbstractImportCsv
                                 $sql .= 'NULL';
                             } else {
                                 $sql .= '\''
-                                    . PMA\libraries\Util::sqlAddSlashes($val)
+                                    . $GLOBALS['dbi']->escapeString($val)
                                     . '\'';
                             }
 

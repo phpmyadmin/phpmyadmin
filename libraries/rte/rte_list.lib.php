@@ -200,9 +200,9 @@ function PMA_RTN_getRowForList($routine, $rowclass = '')
     // this is for our purpose to decide whether to
     // show the edit link or not, so we need the DEFINER for the routine
     $where = "ROUTINE_SCHEMA " . PMA\libraries\Util::getCollateForIS() . "="
-        . "'" . PMA\libraries\Util::sqlAddSlashes($db) . "' "
-        . "AND SPECIFIC_NAME='" . PMA\libraries\Util::sqlAddSlashes($routine['name']) . "'"
-        . "AND ROUTINE_TYPE='" . PMA\libraries\Util::sqlAddSlashes($routine['type']) . "'";
+        . "'" . $GLOBALS['dbi']->escapeString($db) . "' "
+        . "AND SPECIFIC_NAME='" . $GLOBALS['dbi']->escapeString($routine['name']) . "'"
+        . "AND ROUTINE_TYPE='" . $GLOBALS['dbi']->escapeString($routine['type']) . "'";
     $query = "SELECT `DEFINER` FROM INFORMATION_SCHEMA.ROUTINES WHERE $where;";
     $routine_definer = $GLOBALS['dbi']->fetchValue($query, 0, 0, $GLOBALS['controllink']);
 

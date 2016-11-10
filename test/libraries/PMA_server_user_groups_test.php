@@ -182,12 +182,16 @@ class PMA_ServerUserGroupsTest extends PHPUnit_Framework_TestCase
         $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
-        $dbi->expects($this->at(0))
-            ->method('query')
-            ->with($userDelQuery);
         $dbi->expects($this->at(1))
             ->method('query')
+            ->with($userDelQuery);
+        $dbi->expects($this->at(3))
+            ->method('query')
             ->with($userGrpDelQuery);
+        $dbi->expects($this->any())
+            ->method('escapeString')
+            ->will($this->returnArgument(0));
+
         $GLOBALS['dbi'] = $dbi;
 
         PMA_deleteUserGroup('ug');
@@ -220,24 +224,22 @@ class PMA_ServerUserGroupsTest extends PHPUnit_Framework_TestCase
             ->method('tryQuery')
             ->with($expectedQuery)
             ->will($this->returnValue(true));
-        $dbi->expects($this->at(1))
+        $dbi->expects($this->exactly(2))
             ->method('fetchAssoc')
-            ->withAnyParameters()
-            ->will(
-                $this->returnValue(
-                    array(
-                        'usergroup' => 'ug',
-                        'tab' => 'server_sql',
-                        'allowed' => 'Y'
-                    )
-                )
+            ->willReturnOnConsecutiveCalls(
+                array(
+                    'usergroup' => 'ug',
+                    'tab' => 'server_sql',
+                    'allowed' => 'Y'
+                ),
+                false
             );
-        $dbi->expects($this->at(2))
-            ->method('fetchAssoc')
-            ->withAnyParameters()
-            ->will($this->returnValue(false));
         $dbi->expects($this->once())
             ->method('freeResult');
+        $dbi->expects($this->any())
+            ->method('escapeString')
+            ->will($this->returnArgument(0));
+
         $GLOBALS['dbi'] = $dbi;
 
         // editing a user group

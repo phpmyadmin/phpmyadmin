@@ -137,33 +137,19 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
             ->disableOriginalConstructor()
             ->getMock();
 
-        $dbi->expects($this->at(0))
+        $dbi->expects($this->exactly(2))
             ->method('query')
-            ->with(
-                'SELECT * FROM `db`.`table` WHERE a=1;',
-                null,
-                PMA\libraries\DatabaseInterface::QUERY_STORE
-            )
-            ->will($this->returnValue('result1'));
+            ->willReturnOnConsecutiveCalls(
+                'result1',
+                'result2'
+            );
 
-        $dbi->expects($this->at(3))
-            ->method('query')
-            ->with(
-                'SELECT * FROM `db`.`table` WHERE b="fo\o";',
-                null,
-                PMA\libraries\DatabaseInterface::QUERY_STORE
-            )
-            ->will($this->returnValue('result2'));
-
-        $dbi->expects($this->at(1))
+        $dbi->expects($this->exactly(2))
             ->method('fetchAssoc')
-            ->with('result1')
-            ->will($this->returnValue(array('assoc1')));
-
-        $dbi->expects($this->at(4))
-            ->method('fetchAssoc')
-            ->with('result2')
-            ->will($this->returnValue(array('assoc2')));
+            ->willReturnOnConsecutiveCalls(
+                array('assoc1'),
+                array('assoc2')
+            );
 
         $GLOBALS['dbi'] = $dbi;
         $result = PMA_analyzeWhereClauses($clauses, 'table', 'db');
@@ -2473,6 +2459,12 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
             ->method('fetchSingleRow')
             ->with('SELECT * FROM `table` WHERE 1;')
             ->will($this->returnValue($prow));
+        $dbi->expects($this->exactly(2))
+            ->method('escapeString')
+            ->willReturnOnConsecutiveCalls(
+                $this->returnArgument(0),
+                "20\'12"
+            );
 
         $GLOBALS['dbi'] = $dbi;
 
