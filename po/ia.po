@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.5-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-11-10 09:39+0100\n"
-"PO-Revision-Date: 2016-10-18 12:15+0000\n"
+"PO-Revision-Date: 2016-11-10 20:37+0000\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
-"Language-Team: Interlingua <https://hosted.weblate.org/projects/"
-"phpmyadmin/4-6/ia/>\n"
+"Language-Team: Interlingua "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-6/ia/>\n"
 "Language: ia\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.9-dev\n"
+"X-Generator: Weblate 2.9\n"
 
 #: changelog.php:38 license.php:33
 #, php-format
@@ -1829,6 +1829,8 @@ msgstr "Exporta"
 #: js/messages.php:389
 msgid "No routine is exportable. Required privileges may be lacking."
 msgstr ""
+"Il non ha alcun routine exportabile. Il pote esser que privilegios requirite "
+"es mancante."
 
 #: js/messages.php:392 libraries/rte/rte_routines.lib.php:754
 msgid "ENUM/SET editor"
@@ -10435,6 +10437,8 @@ msgstr "Exporta metadata"
 msgid ""
 "Database system or older MySQL server to maximize output compatibility with:"
 msgstr ""
+"Le systema de base de datos o servitor MySQL plus vetere per maximisar "
+"compatibilitate de exito con:"
 
 #: libraries/plugins/export/ExportSql.php:231
 msgid "Add statements:"
@@ -10454,6 +10458,8 @@ msgstr "Adde declaration %s"
 #: libraries/plugins/export/ExportSql.php:285
 msgid "(less efficient as indexes will be generated during table creation)"
 msgstr ""
+"(minus efficiente proque indices essera generate durante le creation del "
+"tabella)"
 
 #: libraries/plugins/export/ExportSql.php:293
 #, php-format
@@ -10673,6 +10679,8 @@ msgstr "MIME"
 msgid ""
 "Update data when duplicate keys found on import (add ON DUPLICATE KEY UPDATE)"
 msgstr ""
+"Actualisa datos quando  il ha trovate claves duplicate quando on importa ("
+"adde ON DUPLICATE KEY UPDATE)"
 
 #: libraries/plugins/import/ImportCsv.php:61
 #: libraries/plugins/import/ImportOds.php:72
@@ -10755,7 +10763,7 @@ msgstr ""
 
 #: libraries/plugins/import/ImportOds.php:171
 msgid "Could not parse OpenDocument Spreadsheet!"
-msgstr ""
+msgstr "Non pote analysar le folio de calculo de formato OpenDocument!"
 
 #: libraries/plugins/import/ImportShp.php:49
 msgid "ESRI Shape File"
@@ -10862,7 +10870,7 @@ msgstr "Le tabella %s non existe!"
 #: libraries/plugins/schema/svg/SvgRelationSchema.php:68
 #, php-format
 msgid "Schema of the %s database - Page %s"
-msgstr ""
+msgstr "Schema del base de datos %s  - Pagina %s"
 
 #: libraries/plugins/schema/pdf/Pdf.php:238
 msgid "PDF export page"
@@ -10876,7 +10884,7 @@ msgstr "Schema de le base de datos %s"
 #: libraries/plugins/schema/pdf/PdfRelationSchema.php:130
 #: libraries/plugins/schema/pdf/PdfRelationSchema.php:525
 msgid "Relational schema"
-msgstr ""
+msgstr "Schema relational"
 
 #: libraries/plugins/schema/pdf/PdfRelationSchema.php:486
 msgid "Table of contents"
@@ -10943,7 +10951,7 @@ msgstr ""
 
 #: libraries/plugins/transformations/abs/ImageLinkTransformationsPlugin.php:35
 msgid "Displays a link to download this image."
-msgstr ""
+msgstr "Monstra un ligamine per discargar iste imagine."
 
 #: libraries/plugins/transformations/abs/ImageUploadTransformationsPlugin.php:28
 msgid ""
@@ -10953,7 +10961,7 @@ msgstr ""
 
 #: libraries/plugins/transformations/abs/ImageUploadTransformationsPlugin.php:87
 msgid "Image preview here"
-msgstr ""
+msgstr "Vista preliminar de imagine hic"
 
 #: libraries/plugins/transformations/abs/InlineTransformationsPlugin.php:35
 msgid ""
@@ -11896,10 +11904,9 @@ msgid ""
 msgstr ""
 
 #: libraries/rte/rte_words.lib.php:42
-#, fuzzy, php-format
-#| msgid "No tables found in database."
+#, php-format
 msgid "No routine with name %1$s found in database %2$s."
-msgstr "Il non ha tabulas in le base de datos."
+msgstr "Il non ha trovate alcun routine con nomine %1$s  in base de datos %2$s."
 
 #: libraries/rte/rte_words.lib.php:43
 msgid "There are no routines to display."
@@ -11923,10 +11930,9 @@ msgid "You do not have the necessary privileges to create a trigger."
 msgstr ""
 
 #: libraries/rte/rte_words.lib.php:56
-#, fuzzy, php-format
-#| msgid "No tables found in database."
+#, php-format
 msgid "No trigger with name %1$s found in database %2$s."
-msgstr "Il non ha tabulas in le base de datos."
+msgstr "Il non ha trovate alcun trigger con nomine %1$s in base de datos %2$s."
 
 #: libraries/rte/rte_words.lib.php:57
 msgid "There are no triggers to display."
@@ -11950,10 +11956,9 @@ msgid "You do not have the necessary privileges to create an event."
 msgstr ""
 
 #: libraries/rte/rte_words.lib.php:70
-#, fuzzy, php-format
-#| msgid "No tables found in database."
+#, php-format
 msgid "No event with name %1$s found in database %2$s."
-msgstr "Il non ha tabulas in le base de datos."
+msgstr "il non ha trovate alcun evento con nomine %1$s  in base de datos %2$s."
 
 #: libraries/rte/rte_words.lib.php:71
 msgid "There are no events to display."
