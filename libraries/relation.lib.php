@@ -1330,13 +1330,17 @@ function PMA_foreignDropdown($disp_row, $foreign_field, $foreign_display, $data,
  * @param bool          $override_total whether to override the total
  * @param string        $foreign_filter a possible filter
  * @param string        $foreign_limit  a possible LIMIT clause
+ * @param bool          $get_total      optional, whether to get total num of rows
+ *                                      in $foreignData['the_total;]
+ *                                      (has an effect of performance)
  *
  * @return array    data about the foreign keys
  *
  * @access  public
  */
 function PMA_getForeignData(
-    $foreigners, $field, $override_total, $foreign_filter, $foreign_limit
+    $foreigners, $field, $override_total,
+    $foreign_filter, $foreign_limit, $get_total=false
 ) {
     // we always show the foreign field in the drop-down; if a display
     // field is defined, we show it besides the foreign field
@@ -1401,7 +1405,7 @@ function PMA_getForeignData(
                 . PMA\libraries\Util::backquote($foreign_table) . '.'
                 . PMA\libraries\Util::backquote($foreign_display);
 
-            $f_query_limit = ! empty($foreign_limit) ? (' LIMIT ' . $foreign_limit) : '';
+            $f_query_limit = ! empty($foreign_limit) ? ($foreign_limit) : '';
 
             if (!empty($foreign_filter)) {
                 $the_total = $GLOBALS['dbi']->fetchValue(
@@ -1439,6 +1443,11 @@ function PMA_getForeignData(
         }
     } while (false);
 
+    if ($get_total) {
+        $the_total = $GLOBALS['dbi']->getTable($foreign_db, $foreign_table)
+            ->countRecords(true);
+    }
+
     $foreignData = array();
     $foreignData['foreign_link'] = $foreign_link;
     $foreignData['the_total'] = isset($the_total) ? $the_total : null;
@@ -1447,6 +1456,7 @@ function PMA_getForeignData(
     );
     $foreignData['disp_row'] = isset($disp_row) ? $disp_row : null;
     $foreignData['foreign_field'] = isset($foreign_field) ? $foreign_field : null;
+
     return $foreignData;
 } // end of 'PMA_getForeignData()' function
 
