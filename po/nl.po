@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-11-10 09:40+0100\n"
-"PO-Revision-Date: 2016-10-25 11:49+0000\n"
+"PO-Revision-Date: 2016-11-10 18:12+0000\n"
 "Last-Translator: dingo thirteen <dingo13@gmail.com>\n"
-"Language-Team: Dutch <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"nl/>\n"
+"Language-Team: Dutch "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/nl/>\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.9-dev\n"
+"X-Generator: Weblate 2.9\n"
 
 #: changelog.php:38 license.php:33
 #, php-format
@@ -2182,16 +2182,12 @@ msgstr ""
 "zijn; tik deze waardes indien gewenst rechtstreeks in"
 
 #: js/messages.php:533
-#, fuzzy
-#| msgid ""
-#| "MySQL accepts additional values not selectable by the slider; key in "
-#| "those values directly if desired"
 msgid ""
 "MySQL accepts additional values not selectable by the datepicker; key in "
 "those values directly if desired"
 msgstr ""
-"MySQL accepteert additionele waardes die niet met schuiven te selecteren "
-"zijn; tik deze waardes indien gewenst rechtstreeks in"
+"MySQL accepteert additionele waardes die niet met de datumprikker te "
+"selecteren zijn; tik deze waardes indien gewenst rechtstreeks in"
 
 #: js/messages.php:539
 msgid ""
@@ -11830,40 +11826,31 @@ msgid "routine"
 msgstr "routine"
 
 #: libraries/rte/rte_words.lib.php:32
-#, fuzzy
-#| msgid "You do not have the necessary privileges to create a routine"
 msgid "You do not have the necessary privileges to create a routine."
-msgstr "U heeft niet voldoende rechten om een routine aan te maken"
+msgstr "U hebt niet voldoende rechten om een routine aan te maken."
 
 #: libraries/rte/rte_words.lib.php:35
-#, fuzzy, php-format
-#| msgid ""
-#| "No routine with name %1$s found in database %2$s. You might be lacking "
-#| "the necessary privileges to edit this routine"
+#, php-format
 msgid ""
 "No routine with name %1$s found in database %2$s. You might be lacking the "
 "necessary privileges to edit this routine."
 msgstr ""
 "Geen routine met de naam %1$s gevonden in database %2$s. Je hebt mogelijk "
-"niet de benodigde rechten om deze routine te wijzigen"
+"niet de benodigde rechten om deze routine te wijzigen."
 
 #: libraries/rte/rte_words.lib.php:39
-#, fuzzy, php-format
-#| msgid ""
-#| "No routine with name %1$s found in database %2$s. You might be lacking "
-#| "the necessary privileges to view/export this routine"
+#, php-format
 msgid ""
 "No routine with name %1$s found in database %2$s. You might be lacking the "
 "necessary privileges to view/export this routine."
 msgstr ""
 "Geen routine met de naam %1$s gevonden in database %2$s. Je hebt mogelijk "
-"niet de benodigde rechten om deze routine te lezen/wijzigen"
+"niet de benodigde rechten om deze routine te lezen/wijzigen."
 
 #: libraries/rte/rte_words.lib.php:42
-#, fuzzy, php-format
-#| msgid "No routine with name %1$s found in database %2$s"
+#, php-format
 msgid "No routine with name %1$s found in database %2$s."
-msgstr "Geen routine met naam %1$s gevonden in database %2$s"
+msgstr "Geen routine met naam %1$s gevonden in database %2$s."
 
 #: libraries/rte/rte_words.lib.php:43
 msgid "There are no routines to display."
@@ -11883,16 +11870,13 @@ msgid "trigger"
 msgstr "trigger"
 
 #: libraries/rte/rte_words.lib.php:54
-#, fuzzy
-#| msgid "You do not have the necessary privileges to create a trigger"
 msgid "You do not have the necessary privileges to create a trigger."
-msgstr "U heeft niet voldoende rechten om een trigger aan te maken"
+msgstr "U heeft niet voldoende rechten om een trigger aan te maken."
 
 #: libraries/rte/rte_words.lib.php:56
-#, fuzzy, php-format
-#| msgid "No trigger with name %1$s found in database %2$s"
+#, php-format
 msgid "No trigger with name %1$s found in database %2$s."
-msgstr "Geen trigger met naam %1$s gevonden in database %2$s"
+msgstr "Geen trigger met naam %1$s gevonden in database %2$s."
 
 #: libraries/rte/rte_words.lib.php:57
 msgid "There are no triggers to display."
@@ -11912,16 +11896,13 @@ msgid "event"
 msgstr "gebeurtenis"
 
 #: libraries/rte/rte_words.lib.php:68
-#, fuzzy
-#| msgid "You do not have the necessary privileges to create an event"
 msgid "You do not have the necessary privileges to create an event."
-msgstr "U heeft niet voldoende rechten om een gebeurtenis aan te maken"
+msgstr "U heeft niet voldoende rechten om een gebeurtenis aan te maken."
 
 #: libraries/rte/rte_words.lib.php:70
-#, fuzzy, php-format
-#| msgid "No event with name %1$s found in database %2$s"
+#, php-format
 msgid "No event with name %1$s found in database %2$s."
-msgstr "Geen gebeurtenis met naam %1$s gevonden in database %2$s"
+msgstr "Geen gebeurtenis met naam %1$s gevonden in database %2$s."
 
 #: libraries/rte/rte_words.lib.php:71
 msgid "There are no events to display."
@@ -15369,6 +15350,9 @@ msgid ""
 "an index on it. Alternatively, you can define an index below, before "
 "creating the foreign key."
 msgstr ""
+"Aanmaken van een externe sleutel voor een niet geïndexeerde kolom zou "
+"automatisch een index aanmaken. Als alternatief kunt u hier beneden een "
+"index definiëren voor dat u een externe sleutel aanmaakt."
 
 #: templates/table/relation/common_form.phtml:20
 msgid ""
