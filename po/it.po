@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.5-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-11-10 09:39+0100\n"
-"PO-Revision-Date: 2016-10-27 08:34+0000\n"
+"PO-Revision-Date: 2016-11-10 10:06+0000\n"
 "Last-Translator: Stefano Martinelli <stefano.ste.martinelli@gmail.com>\n"
-"Language-Team: Italian <https://hosted.weblate.org/projects/phpmyadmin/4-6/"
-"it/>\n"
+"Language-Team: Italian "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-6/it/>\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.9-dev\n"
+"X-Generator: Weblate 2.9\n"
 
 #: changelog.php:38 license.php:33
 #, php-format
@@ -2195,16 +2195,12 @@ msgstr ""
 "slider; se lo desideri, puoi inserire direttamente questi valori"
 
 #: js/messages.php:528
-#, fuzzy
-#| msgid ""
-#| "MySQL accepts additional values not selectable by the slider; key in "
-#| "those values directly if desired"
 msgid ""
 "MySQL accepts additional values not selectable by the datepicker; key in "
 "those values directly if desired"
 msgstr ""
-"MySQL accetta ulteriori valori non selezionabili con il movimento dello "
-"slider; se lo desideri, puoi inserire direttamente questi valori"
+"MySQL accetta ulteriori valori non selezionabili con il selettore date; se "
+"lo desideri, puoi inserire direttamente questi valori"
 
 #: js/messages.php:534
 msgid ""
@@ -12028,40 +12024,31 @@ msgid "routine"
 msgstr "routine"
 
 #: libraries/rte/rte_words.lib.php:32
-#, fuzzy
-#| msgid "You do not have the necessary privileges to create a routine"
 msgid "You do not have the necessary privileges to create a routine."
-msgstr "Non hai i necessari privilegi per creare una routine"
+msgstr "Non hai i necessari privilegi per creare una routine."
 
 #: libraries/rte/rte_words.lib.php:35
-#, fuzzy, php-format
-#| msgid ""
-#| "No routine with name %1$s found in database %2$s. You might be lacking "
-#| "the necessary privileges to edit this routine"
+#, php-format
 msgid ""
 "No routine with name %1$s found in database %2$s. You might be lacking the "
 "necessary privileges to edit this routine."
 msgstr ""
 "Non c'è alcuna routine di nome %1$s nel database %2$s. Potresti non avere le "
-"autorizzazioni necessarie per editare questa routine"
+"autorizzazioni necessarie per editare questa routine."
 
 #: libraries/rte/rte_words.lib.php:39
-#, fuzzy, php-format
-#| msgid ""
-#| "No routine with name %1$s found in database %2$s. You might be lacking "
-#| "the necessary privileges to view/export this routine"
+#, php-format
 msgid ""
 "No routine with name %1$s found in database %2$s. You might be lacking the "
 "necessary privileges to view/export this routine."
 msgstr ""
 "Non c'è alcuna routine di nome %1$s nel database %2$s. Potresti non avere le "
-"autorizzazioni necessarie per visualizzare/esportare questa routine"
+"autorizzazioni necessarie per visualizzare/esportare questa routine."
 
 #: libraries/rte/rte_words.lib.php:42
-#, fuzzy, php-format
-#| msgid "No routine with name %1$s found in database %2$s"
+#, php-format
 msgid "No routine with name %1$s found in database %2$s."
-msgstr "Non é stata trovata alcuna routine con nome %1$s nel database %2$s"
+msgstr "Non é stata trovata alcuna routine con nome %1$s nel database %2$s."
 
 #: libraries/rte/rte_words.lib.php:43
 msgid "There are no routines to display."
@@ -12081,16 +12068,13 @@ msgid "trigger"
 msgstr "trigger"
 
 #: libraries/rte/rte_words.lib.php:54
-#, fuzzy
-#| msgid "You do not have the necessary privileges to create a trigger"
 msgid "You do not have the necessary privileges to create a trigger."
-msgstr "Non hai i necessari privilegi per creare un trigger"
+msgstr "Non hai i necessari privilegi per creare un trigger."
 
 #: libraries/rte/rte_words.lib.php:56
-#, fuzzy, php-format
-#| msgid "No trigger with name %1$s found in database %2$s"
+#, php-format
 msgid "No trigger with name %1$s found in database %2$s."
-msgstr "Non é stata trovato alcun trigger con nome %1$s nel database %2$s"
+msgstr "Non é stata trovato alcun trigger con nome %1$s nel database %2$s."
 
 #: libraries/rte/rte_words.lib.php:57
 msgid "There are no triggers to display."
@@ -12110,16 +12094,13 @@ msgid "event"
 msgstr "evento"
 
 #: libraries/rte/rte_words.lib.php:68
-#, fuzzy
-#| msgid "You do not have the necessary privileges to create an event"
 msgid "You do not have the necessary privileges to create an event."
-msgstr "Non hai i necessari privilegi per creare un evento"
+msgstr "Non hai i necessari privilegi per creare un evento."
 
 #: libraries/rte/rte_words.lib.php:70
-#, fuzzy, php-format
-#| msgid "No event with name %1$s found in database %2$s"
+#, php-format
 msgid "No event with name %1$s found in database %2$s."
-msgstr "Non é stata trovato alcun evento con nome %1$s nel database %2$s"
+msgstr "Non é stata trovato alcun evento con nome %1$s nel database %2$s."
 
 #: libraries/rte/rte_words.lib.php:71
 msgid "There are no events to display."
@@ -13959,10 +13940,6 @@ msgid "Unexpected end of CASE expression"
 msgstr "Inattesa fine dell'espressione CASE"
 
 #: libraries/sql-parser/src/Components/CreateDefinition.php:227
-#, fuzzy
-#| msgid ""
-#| "A symbol name was expected! A reserved keyword can not be used as a field "
-#| "name without backquotes."
 msgid ""
 "A symbol name was expected! A reserved keyword can not be used as a column "
 "name without backquotes."
@@ -14088,10 +14065,8 @@ msgid "Unrecognized keyword."
 msgstr "Parola chiave non riconosciuta."
 
 #: libraries/sql-parser/src/Statement.php:457
-#, fuzzy
-#| msgid "Unexpected beginning of statement."
 msgid "Unexpected ordering of clauses."
-msgstr "Inizio di statement inatteso."
+msgstr "Ordinamento di clausole inatteso."
 
 #: libraries/sql-parser/src/Statements/CreateStatement.php:381
 msgid "The name of the entity was expected."
@@ -15585,6 +15560,9 @@ msgid ""
 "an index on it. Alternatively, you can define an index below, before "
 "creating the foreign key."
 msgstr ""
+"La creazione di una foreign key su un campo non indicizzato creerebbe "
+"automaticamente un indice su quel campo. In alternativa, puoi definire un "
+"indice qui sotto, prima di creare la foreign key."
 
 #: templates/table/relation/common_form.phtml:20
 msgid ""
