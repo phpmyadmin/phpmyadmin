@@ -557,7 +557,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         $this->assertContains(
             '<td class="center">Binary</td>',
             PMA_getFunctionColumn(
-                $column, false, '', '', array(), 0, 0, 0, false, false
+                $column, false, '', '', array(), 0, 0, 0, false, false, array()
             )
         );
 
@@ -566,7 +566,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         $this->assertContains(
             '<td class="center">Binary</td>',
             PMA_getFunctionColumn(
-                $column, true, '', '', array(), 0, 0, 0, false, false
+                $column, true, '', '', array(), 0, 0, 0, false, false, array()
             )
         );
 
@@ -575,7 +575,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         $this->assertContains(
             '<td class="center">Binary</td>',
             PMA_getFunctionColumn(
-                $column, true, '', '', array(), 0, 0, 0, false, false
+                $column, true, '', '', array(), 0, 0, 0, false, false, array()
             )
         );
 
@@ -584,7 +584,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         $this->assertContains(
             '<td class="center">--</td>',
             PMA_getFunctionColumn(
-                $column, true, '', '', array(), 0, 0, 0, false, false
+                $column, true, '', '', array(), 0, 0, 0, false, false, array()
             )
         );
 
@@ -592,7 +592,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         $this->assertContains(
             '<td class="center">--</td>',
             PMA_getFunctionColumn(
-                $column, true, '', '', array(), 0, 0, 0, false, false
+                $column, true, '', '', array(), 0, 0, 0, false, false, array()
             )
         );
 
@@ -601,7 +601,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         $this->assertContains(
             '<td class="center">--</td>',
             PMA_getFunctionColumn(
-                $column, true, '', '', array('int'), 0, 0, 0, false, false
+                $column, true, '', '', array('int'), 0, 0, 0, false, false, array()
             )
         );
 
@@ -610,7 +610,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         $this->assertContains(
             '<select name="funcsa" b tabindex="5" id="field_3_1"',
             PMA_getFunctionColumn(
-                $column, true, 'a', 'b', array(), 2, 3, 3, false, false
+                $column, true, 'a', 'b', array(), 2, 3, 3, false, false, array()
             )
         );
     }

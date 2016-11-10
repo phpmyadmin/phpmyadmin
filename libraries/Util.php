@@ -3901,7 +3901,7 @@ class Util
      * @return string   An HTML snippet of a dropdown list with function
      *                    names appropriate for the requested column.
      */
-    public static function getFunctionsForField($field, $insert_mode)
+    public static function getFunctionsForField($field, $insert_mode, $foreignData)
     {
         $default_function = self::getDefaultFunctionForField($field, $insert_mode);
         $dropdown_built = array();
@@ -3913,7 +3913,7 @@ class Util
         $functions = $GLOBALS['PMA_Types']->getFunctions($field['True_Type']);
         foreach ($functions as $function) {
             $retval .= '<option';
-            if ($default_function === $function) {
+            if (isset($foreignData['foreign_link']) && $foreignData['foreign_link'] !== false && $default_function === $function) {
                 $retval .= ' selected="selected"';
             }
             $retval .= '>' . $function . '</option>' . "\n";
