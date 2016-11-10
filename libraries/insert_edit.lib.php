@@ -2689,6 +2689,18 @@ function PMA_getHtmlForInsertEditColumnType($column)
 
 }
 
+function PMA_getHtmlForRandomDataForm($_form_params)
+{
+    $html_output = URL::getHiddenInputs($_form_params);
+    $html_output .= '<fieldset>';
+    $html_output .= '<span> Insert ';
+    $html_output .= '<input type="text" name="random_data_row_count" id="random_data_row_count" value="5"/> ';
+    $html_output .= 'rows of random data</span>';
+    $html_output .= '<input type="submit" value="Go" name="random_form_submit"/>';
+    $html_output .= '</fieldset>';
+    return $html_output;
+}
+
 /**
  * Function to get html for the insert edit form header
  *

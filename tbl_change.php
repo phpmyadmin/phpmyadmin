@@ -142,9 +142,13 @@ foreach ($table_columns as $column) {
     }
 }
 
+
+
 //Insert/Edit form
 //If table has blob fields we have to disable ajax.
 $html_output .= PMA_getHtmlForInsertEditFormHeader($has_blob_field, $is_upload);
+
+$html_output .= PMA_getHtmlForRandomDataForm($_form_params);
 
 $html_output .= URL::getHiddenInputs($_form_params);
 

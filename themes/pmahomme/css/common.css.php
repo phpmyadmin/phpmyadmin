@@ -3493,6 +3493,14 @@ span.drag_icon {
     margin-top: 1em;
 }
 
+#random_data_row_count{
+    width: 25px;
+}
+
+#randomDataInsertForm{
+    display:inline;
+}
+
 /* styles for sortable tables created with tablesorter jquery plugin */
 th.header {
     cursor: pointer;

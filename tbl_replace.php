@@ -199,6 +199,7 @@ foreach ($loop_array as $rownumber => $where_clause) {
     // when inserting multiple entries
     $insert_fail = false;
     foreach ($multi_edit_columns_name as $key => $column_name) {
+        $response->addHTML($column_name . ' ');
         $current_value = $multi_edit_columns[$key];
         // Note: $key is an md5 of the fieldname. The actual fieldname is
         // available in $multi_edit_columns_name[$key]
@@ -304,8 +305,30 @@ unset(
 );
 
 // Builds the sql query
+if(isset($_REQUEST['random_form_submit'])) {
+    unset($value_sets);
+    $value_sets = array();
+    $no_of_random_records = $_REQUEST['random_data_row_count'];
+    $fields = $GLOBALS['dbi']->getColumns($GLOBALS['db'],$GLOBALS['table'],null,true);
+
+    for ($i=1;$i<=$no_of_random_records;$i++) {
+        $string_to_insert = '';
+        foreach ($fields as $field){
+            if($field['Type'] == 'varchar(10)')
+                $string_to_insert .= "'abcd', ";
+            else
+                $string_to_insert .= "'', ";
+        }
+        $string_to_insert = rtrim($string_to_insert," ");
+        $string_to_insert = rtrim($string_to_insert,",");
+        $value_sets[] = $string_to_insert;;
+    }
+}
 if ($is_insert && count($value_sets) > 0) {
     $query = PMA_buildSqlQuery($is_insertignore, $query_fields, $value_sets);
+    $response->addHTML('<p>' . $value_sets[0] . '</p>');
+    if(isset($value_sets[1]))
+    $response->addHTML('<p>' . $value_sets[1] . '</p>');
 } elseif (empty($query) && ! isset($_REQUEST['preview_sql']) && !$row_skipped) {
     // No change -> move back to the calling script
     //
