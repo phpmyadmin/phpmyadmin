@@ -4,17 +4,17 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-11-10 09:40+0100\n"
-"PO-Revision-Date: 2016-10-26 02:15+0000\n"
+"PO-Revision-Date: 2016-11-10 15:08+0000\n"
 "Last-Translator: Domen <mitenem@outlook.com>\n"
-"Language-Team: Slovenian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/sl/>\n"
+"Language-Team: Slovenian "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/sl/>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
-"%100==4 ? 2 : 3;\n"
-"X-Generator: Weblate 2.9-dev\n"
+"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
+"n%100==4 ? 2 : 3;\n"
+"X-Generator: Weblate 2.9\n"
 
 #: changelog.php:38 license.php:33
 #, php-format
@@ -2167,16 +2167,12 @@ msgstr ""
 "želite, lahko te vrednosti vnesete neposredno"
 
 #: js/messages.php:533
-#, fuzzy
-#| msgid ""
-#| "MySQL accepts additional values not selectable by the slider; key in "
-#| "those values directly if desired"
 msgid ""
 "MySQL accepts additional values not selectable by the datepicker; key in "
 "those values directly if desired"
 msgstr ""
-"MySQL sprejme dodatne vrednosti, ki jih ni mogoče izbrati z drsnikom; če "
-"želite, lahko te vrednosti vnesete neposredno"
+"MySQL sprejme dodatne vrednosti, ki jih ni mogoče izbrati z izbirnikom "
+"datuma; če želite, lahko te vrednosti vnesete neposredno"
 
 #: js/messages.php:539
 msgid ""
@@ -11730,40 +11726,31 @@ msgid "routine"
 msgstr "rutina"
 
 #: libraries/rte/rte_words.lib.php:32
-#, fuzzy
-#| msgid "You do not have the necessary privileges to create a routine"
 msgid "You do not have the necessary privileges to create a routine."
-msgstr "Nimate zadostnih pravic za ustvarjanje rutine"
+msgstr "Nimate zadostnih pravic za ustvarjanje rutine."
 
 #: libraries/rte/rte_words.lib.php:35
-#, fuzzy, php-format
-#| msgid ""
-#| "No routine with name %1$s found in database %2$s. You might be lacking "
-#| "the necessary privileges to edit this routine"
+#, php-format
 msgid ""
 "No routine with name %1$s found in database %2$s. You might be lacking the "
 "necessary privileges to edit this routine."
 msgstr ""
 "V zbirki podatkov %2$s nismo našli nobene rutine z imenom %1$s. Morda nimate "
-"zahtevanih privilegijev za urejanje rutine"
+"zahtevanih privilegijev za urejanje rutine."
 
 #: libraries/rte/rte_words.lib.php:39
-#, fuzzy, php-format
-#| msgid ""
-#| "No routine with name %1$s found in database %2$s. You might be lacking "
-#| "the necessary privileges to view/export this routine"
+#, php-format
 msgid ""
 "No routine with name %1$s found in database %2$s. You might be lacking the "
 "necessary privileges to view/export this routine."
 msgstr ""
 "V zbirki podatkov %2$s nismo našli nobene rutine z imenom %1$s. Morda nimate "
-"zahtevanih privilegijev za ogled/izvoz rutine"
+"zahtevanih privilegijev za ogled/izvoz rutine."
 
 #: libraries/rte/rte_words.lib.php:42
-#, fuzzy, php-format
-#| msgid "No routine with name %1$s found in database %2$s"
+#, php-format
 msgid "No routine with name %1$s found in database %2$s."
-msgstr "Rutine imenovane %1$s ni mogoče najti v zbirki podatkov %2$s"
+msgstr "Rutine imenovane %1$s ni mogoče najti v zbirki podatkov %2$s."
 
 #: libraries/rte/rte_words.lib.php:43
 msgid "There are no routines to display."
@@ -11783,16 +11770,13 @@ msgid "trigger"
 msgstr "sprožilec"
 
 #: libraries/rte/rte_words.lib.php:54
-#, fuzzy
-#| msgid "You do not have the necessary privileges to create a trigger"
 msgid "You do not have the necessary privileges to create a trigger."
-msgstr "Nimate zadostnih pravic za ustvarjanje sprožilca"
+msgstr "Nimate zadostnih pravic za ustvarjanje sprožilca."
 
 #: libraries/rte/rte_words.lib.php:56
-#, fuzzy, php-format
-#| msgid "No trigger with name %1$s found in database %2$s"
+#, php-format
 msgid "No trigger with name %1$s found in database %2$s."
-msgstr "Sprožilca imenovanega %1$s ni mogoče najti v zbirki podatkov %2$s"
+msgstr "Sprožilca imenovanega %1$s ni mogoče najti v zbirki podatkov %2$s."
 
 #: libraries/rte/rte_words.lib.php:57
 msgid "There are no triggers to display."
@@ -11812,16 +11796,13 @@ msgid "event"
 msgstr "dogodek"
 
 #: libraries/rte/rte_words.lib.php:68
-#, fuzzy
-#| msgid "You do not have the necessary privileges to create an event"
 msgid "You do not have the necessary privileges to create an event."
-msgstr "Nimate zadostnih pravic za ustvarjanje dogodka"
+msgstr "Nimate zadostnih pravic za ustvarjanje dogodka."
 
 #: libraries/rte/rte_words.lib.php:70
-#, fuzzy, php-format
-#| msgid "No event with name %1$s found in database %2$s"
+#, php-format
 msgid "No event with name %1$s found in database %2$s."
-msgstr "Dogodka imenovanega %1$s ni mogoče najti v zbirki podatkov %2$s"
+msgstr "Dogodka imenovanega %1$s ni mogoče najti v zbirki podatkov %2$s."
 
 #: libraries/rte/rte_words.lib.php:71
 msgid "There are no events to display."
@@ -15217,6 +15198,9 @@ msgid ""
 "an index on it. Alternatively, you can define an index below, before "
 "creating the foreign key."
 msgstr ""
+"Ustvarjanje tujega ključa na neindeksiranem stolpcu bo samodejno ustvarilo "
+"indeks na njem. Lahko pa pred ustvarjanjem tujega ključa opredelite indeks "
+"spodaj."
 
 #: templates/table/relation/common_form.phtml:20
 msgid ""
