@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.5-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-11-10 09:39+0100\n"
-"PO-Revision-Date: 2016-10-25 10:17+0000\n"
+"PO-Revision-Date: 2016-11-10 17:32+0000\n"
 "Last-Translator: Παναγιώτης Παπάζογλου <papaz_p@yahoo.com>\n"
-"Language-Team: Greek <https://hosted.weblate.org/projects/phpmyadmin/4-6/el/"
-">\n"
+"Language-Team: Greek <https://hosted.weblate.org/projects/phpmyadmin/4-6/el/>"
+"\n"
 "Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.9-dev\n"
+"X-Generator: Weblate 2.9\n"
 
 #: changelog.php:38 license.php:33
 #, php-format
@@ -2195,16 +2195,12 @@ msgstr ""
 "δώστε κλειδί σε αυτές τιμές άμεσα, αν το επιθυμείτε"
 
 #: js/messages.php:528
-#, fuzzy
-#| msgid ""
-#| "MySQL accepts additional values not selectable by the slider; key in "
-#| "those values directly if desired"
 msgid ""
 "MySQL accepts additional values not selectable by the datepicker; key in "
 "those values directly if desired"
 msgstr ""
-"Η MySQL αποδέχεται πρόσθετες τιμές που δεν είναι επιλέξιμες από την κύλιση, "
-"δώστε κλειδί σε αυτές τιμές άμεσα, αν το επιθυμείτε"
+"Η MySQL αποδέχεται πρόσθετες τιμές που δεν είναι επιλέξιμες από τον επιλογέα "
+"ημερομηνίας, δώστε κλειδί σε αυτές τιμές άμεσα, αν το επιθυμείτε"
 
 #: js/messages.php:534
 msgid ""
@@ -11999,40 +11995,31 @@ msgid "routine"
 msgstr "ρουτίνα"
 
 #: libraries/rte/rte_words.lib.php:32
-#, fuzzy
-#| msgid "You do not have the necessary privileges to create a routine"
 msgid "You do not have the necessary privileges to create a routine."
-msgstr "Δεν έχετε τα απαραίτητα δικαιώματα για να δημιουργήσετε μια ρουτίνα"
+msgstr "Δεν έχετε τα απαραίτητα δικαιώματα για να δημιουργήσετε μια ρουτίνα."
 
 #: libraries/rte/rte_words.lib.php:35
-#, fuzzy, php-format
-#| msgid ""
-#| "No routine with name %1$s found in database %2$s. You might be lacking "
-#| "the necessary privileges to edit this routine"
+#, php-format
 msgid ""
 "No routine with name %1$s found in database %2$s. You might be lacking the "
 "necessary privileges to edit this routine."
 msgstr ""
 "Καμιά ρουτίνα με το όνομα %1$s δεν βρέθηκε στη βάση δεδομένων %2$s. Ίσως δεν "
-"έχετε τα απαραίτητα δικαιώματα για επεξεργασία της ρουτίνας"
+"έχετε τα απαραίτητα δικαιώματα για επεξεργασία της ρουτίνας."
 
 #: libraries/rte/rte_words.lib.php:39
-#, fuzzy, php-format
-#| msgid ""
-#| "No routine with name %1$s found in database %2$s. You might be lacking "
-#| "the necessary privileges to view/export this routine"
+#, php-format
 msgid ""
 "No routine with name %1$s found in database %2$s. You might be lacking the "
 "necessary privileges to view/export this routine."
 msgstr ""
 "Καμιά ρουτίνα με το όνομα %1$s δεν βρέθηκε στη βάση δεδομένων %2$s. Ίσως δεν "
-"έχετε τα απαραίτητα δικαιώματα για προβολή/εξάγωγή της ρουτίνας"
+"έχετε τα απαραίτητα δικαιώματα για προβολή/εξάγωγή της ρουτίνας."
 
 #: libraries/rte/rte_words.lib.php:42
-#, fuzzy, php-format
-#| msgid "No routine with name %1$s found in database %2$s"
+#, php-format
 msgid "No routine with name %1$s found in database %2$s."
-msgstr "Καμιά ρουτίνα με την ονομασία %1$s δεν βρέθηκε στη βάση δεδομένων %2$s"
+msgstr "Καμιά ρουτίνα με την ονομασία %1$s δεν βρέθηκε στη βάση δεδομένων %2$s."
 
 #: libraries/rte/rte_words.lib.php:43
 msgid "There are no routines to display."
@@ -12052,17 +12039,14 @@ msgid "trigger"
 msgstr "ενέργεια"
 
 #: libraries/rte/rte_words.lib.php:54
-#, fuzzy
-#| msgid "You do not have the necessary privileges to create a trigger"
 msgid "You do not have the necessary privileges to create a trigger."
-msgstr "Δεν έχετε τα απαραίτητα δικαιώματα για να δημιουργήσετε μια ενέργεια"
+msgstr "Δεν έχετε τα απαραίτητα δικαιώματα για να δημιουργήσετε μια ενέργεια."
 
 #: libraries/rte/rte_words.lib.php:56
-#, fuzzy, php-format
-#| msgid "No trigger with name %1$s found in database %2$s"
+#, php-format
 msgid "No trigger with name %1$s found in database %2$s."
 msgstr ""
-"Καμιά ενέργεια με την ονομασία %1$s δεν βρέθηκε στη βάση δεδομένων %2$s"
+"Καμιά ενέργεια με την ονομασία %1$s δεν βρέθηκε στη βάση δεδομένων %2$s."
 
 #: libraries/rte/rte_words.lib.php:57
 msgid "There are no triggers to display."
@@ -12082,16 +12066,13 @@ msgid "event"
 msgstr "συμβάν"
 
 #: libraries/rte/rte_words.lib.php:68
-#, fuzzy
-#| msgid "You do not have the necessary privileges to create an event"
 msgid "You do not have the necessary privileges to create an event."
-msgstr "Δεν έχετε τα απαραίτητα δικαιώματα για να δημιουργήσετε ένα συμβάν"
+msgstr "Δεν έχετε τα απαραίτητα δικαιώματα για να δημιουργήσετε ένα συμβάν."
 
 #: libraries/rte/rte_words.lib.php:70
-#, fuzzy, php-format
-#| msgid "No event with name %1$s found in database %2$s"
+#, php-format
 msgid "No event with name %1$s found in database %2$s."
-msgstr "Κανένα συμβάν με ονομασία %1$s δεν βρέθηκε στη βάση δεδομένων %2$s"
+msgstr "Κανένα συμβάν με ονομασία %1$s δεν βρέθηκε στη βάση δεδομένων %2$s."
 
 #: libraries/rte/rte_words.lib.php:71
 msgid "There are no events to display."
@@ -13954,16 +13935,12 @@ msgid "Unexpected end of CASE expression"
 msgstr "Μη αναμενόμενο τέλος της έκφρασης CASE"
 
 #: libraries/sql-parser/src/Components/CreateDefinition.php:227
-#, fuzzy
-#| msgid ""
-#| "A symbol name was expected! A reserved keyword can not be used as a field "
-#| "name without backquotes."
 msgid ""
 "A symbol name was expected! A reserved keyword can not be used as a column "
 "name without backquotes."
 msgstr ""
 "Αναμενόταν ένα όνομα συμβόλου! Μια δεσμευμένη λέξη-κλειδί δεν μπορεί να "
-"χρησιμοποιηθεί ως όνομα πεδίου χωρίς εισαγωγικά."
+"χρησιμοποιηθεί ως όνομα στήλης χωρίς εισαγωγικά."
 
 #: libraries/sql-parser/src/Components/CreateDefinition.php:241
 msgid "A symbol name was expected!"
@@ -14083,10 +14060,8 @@ msgid "Unrecognized keyword."
 msgstr "Μη αναγνωρισμένη λέξη κλειδί."
 
 #: libraries/sql-parser/src/Statement.php:457
-#, fuzzy
-#| msgid "Unexpected beginning of statement."
 msgid "Unexpected ordering of clauses."
-msgstr "Μη αναμενόμενη έναρξη δήλωσης."
+msgstr "Μη αναμενόμενη ταξινόμηση δηλώσεων."
 
 #: libraries/sql-parser/src/Statements/CreateStatement.php:381
 msgid "The name of the entity was expected."
@@ -15585,6 +15560,9 @@ msgid ""
 "an index on it. Alternatively, you can define an index below, before "
 "creating the foreign key."
 msgstr ""
+"Δημιουργώντας ένα ξένο κλειδί σε μια στήλη χωρίς ευρετήριο θα δημιουργήσει "
+"αυτόματα ένα ευρετήριο για αυτή. Εναλλακτικά, μπορείτε να ορίσετε ένα "
+"ευρετήριο παρακάτω, πριν δημιουρήσετε το ξένο κλειδί."
 
 #: templates/table/relation/common_form.phtml:20
 msgid ""
