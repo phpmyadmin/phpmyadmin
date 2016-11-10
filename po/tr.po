@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-11-10 09:40+0100\n"
-"PO-Revision-Date: 2016-10-25 17:20+0000\n"
+"PO-Revision-Date: 2016-11-10 13:02+0000\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
-"Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/tr/>\n"
+"Language-Team: Turkish "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/tr/>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 2.9-dev\n"
+"X-Generator: Weblate 2.9\n"
 
 #: changelog.php:38 license.php:33
 #, php-format
@@ -2167,15 +2167,11 @@ msgstr ""
 "doğrudan istendiğinde bu değerler içindeki anahtarı"
 
 #: js/messages.php:533
-#, fuzzy
-#| msgid ""
-#| "MySQL accepts additional values not selectable by the slider; key in "
-#| "those values directly if desired"
 msgid ""
 "MySQL accepts additional values not selectable by the datepicker; key in "
 "those values directly if desired"
 msgstr ""
-"MySQL, kaydırıcı tarafından seçilebilir olmayan ek değerleri kabul eder; "
+"MySQL, datepicker tarafından seçilebilir olmayan ek değerleri kabul eder; "
 "doğrudan istendiğinde bu değerler içindeki anahtarı"
 
 #: js/messages.php:539
@@ -11745,40 +11741,31 @@ msgid "routine"
 msgstr "yordam"
 
 #: libraries/rte/rte_words.lib.php:32
-#, fuzzy
-#| msgid "You do not have the necessary privileges to create a routine"
 msgid "You do not have the necessary privileges to create a routine."
-msgstr "Bir yordam oluşturmak için gerekli yetkilere sahip değilsiniz"
+msgstr "Bir yordam oluşturmak için gerekli yetkilere sahip değilsiniz."
 
 #: libraries/rte/rte_words.lib.php:35
-#, fuzzy, php-format
-#| msgid ""
-#| "No routine with name %1$s found in database %2$s. You might be lacking "
-#| "the necessary privileges to edit this routine"
+#, php-format
 msgid ""
 "No routine with name %1$s found in database %2$s. You might be lacking the "
 "necessary privileges to edit this routine."
 msgstr ""
 "%2$s veritabanında bulunan %1$s adında yordam yok. Bu yordamı düzenlemek "
-"için gerekli yetkiler yetersiz olabilir"
+"için gerekli yetkiler yetersiz olabilir."
 
 #: libraries/rte/rte_words.lib.php:39
-#, fuzzy, php-format
-#| msgid ""
-#| "No routine with name %1$s found in database %2$s. You might be lacking "
-#| "the necessary privileges to view/export this routine"
+#, php-format
 msgid ""
 "No routine with name %1$s found in database %2$s. You might be lacking the "
 "necessary privileges to view/export this routine."
 msgstr ""
 "%2$s veritabanında bulunan %1$s adında yordam yok. Bu yordamı görüntülemek/"
-"dışa aktarmak için gerekli yetkiler yetersiz olabilir"
+"dışa aktarmak için gerekli yetkiler yetersiz olabilir."
 
 #: libraries/rte/rte_words.lib.php:42
-#, fuzzy, php-format
-#| msgid "No routine with name %1$s found in database %2$s"
+#, php-format
 msgid "No routine with name %1$s found in database %2$s."
-msgstr "%1$s veritabanında %2$s adıyla yordam bulunamadı"
+msgstr "%1$s veritabanında %2$s adıyla yordam bulunamadı."
 
 #: libraries/rte/rte_words.lib.php:43
 msgid "There are no routines to display."
@@ -11798,16 +11785,13 @@ msgid "trigger"
 msgstr "trigger"
 
 #: libraries/rte/rte_words.lib.php:54
-#, fuzzy
-#| msgid "You do not have the necessary privileges to create a trigger"
 msgid "You do not have the necessary privileges to create a trigger."
-msgstr "Bir tetikleyici oluşturmak için gerekli yetkilere sahip değilsiniz"
+msgstr "Bir tetikleyici oluşturmak için gerekli yetkilere sahip değilsiniz."
 
 #: libraries/rte/rte_words.lib.php:56
-#, fuzzy, php-format
-#| msgid "No trigger with name %1$s found in database %2$s"
+#, php-format
 msgid "No trigger with name %1$s found in database %2$s."
-msgstr "%2$s veritabanında %1$s adıyla tetikleyici bulunamadı"
+msgstr "%2$s veritabanında %1$s adıyla tetikleyici bulunamadı."
 
 #: libraries/rte/rte_words.lib.php:57
 msgid "There are no triggers to display."
@@ -11827,16 +11811,13 @@ msgid "event"
 msgstr "olay"
 
 #: libraries/rte/rte_words.lib.php:68
-#, fuzzy
-#| msgid "You do not have the necessary privileges to create an event"
 msgid "You do not have the necessary privileges to create an event."
-msgstr "Bir olay oluşturmak için gerekli yetkilere sahip değilsiniz"
+msgstr "Bir olay oluşturmak için gerekli yetkilere sahip değilsiniz."
 
 #: libraries/rte/rte_words.lib.php:70
-#, fuzzy, php-format
-#| msgid "No event with name %1$s found in database %2$s"
+#, php-format
 msgid "No event with name %1$s found in database %2$s."
-msgstr "%2$s veritabanında %1$s adıyla olay bulunamadı"
+msgstr "%2$s veritabanında %1$s adıyla olay bulunamadı."
 
 #: libraries/rte/rte_words.lib.php:71
 msgid "There are no events to display."
@@ -15236,6 +15217,9 @@ msgid ""
 "an index on it. Alternatively, you can define an index below, before "
 "creating the foreign key."
 msgstr ""
+"Bir indekslenmemiş sütun üzerinde dış anahtar oluşturmak otomatik olarak bir "
+"indeks oluşturmaktadır. Alternatif olarak, dış anahtar oluşturmadan önce, "
+"aşağıda bir dizin tanımlayabilirsiniz."
 
 #: templates/table/relation/common_form.phtml:20
 msgid ""
