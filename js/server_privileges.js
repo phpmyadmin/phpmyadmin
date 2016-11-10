@@ -32,10 +32,19 @@ function checkAddUser(the_form)
 } // end of the 'checkAddUser()' function
 
 function checkPasswordStrength(value, meter_obj, meter_object_label, username = null) {
-    customDict = ['phpmyadmin', 'mariadb', 'mysql', 'admin']; //This list may be modified.
-    if (username != null)
+    // List of words we don't want to appear in the password
+    customDict = [
+        'phpmyadmin',
+        'mariadb',
+        'mysql',
+        'php',
+        'my',
+        'admin',
+    ];
+    if (username != null) {
         customDict.push(username)
-    var zxcvbn_obj = zxcvbn(value,customDict);
+    }
+    var zxcvbn_obj = zxcvbn(value, customDict);
     var strength = zxcvbn_obj.score;
     strength = parseInt(strength);
     meter_obj.val(strength);
