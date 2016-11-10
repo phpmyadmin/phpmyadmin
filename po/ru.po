@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2016-10-25 11:15+0200\n"
+"POT-Creation-Date: 2016-11-10 09:40+0100\n"
 "PO-Revision-Date: 2016-10-20 17:08+0000\n"
 "Last-Translator: Артем <artem_ibatullin@mail.ru>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -67,11 +67,12 @@ msgstr "Комментарии к таблице:"
 #: libraries/tracking.lib.php:898 libraries/tracking.lib.php:996
 #: templates/columns_definitions/column_name.phtml:18
 #: templates/table/index_form.phtml:124
-#: templates/table/relation/common_form.phtml:11
-#: templates/table/relation/common_form.phtml:26
-#: templates/table/relation/common_form.phtml:78
-#: templates/table/relation/foreign_key_row.phtml:180
-#: templates/table/relation/foreign_key_row.phtml:192
+#: templates/table/relation/common_form.phtml:12
+#: templates/table/relation/common_form.phtml:19
+#: templates/table/relation/common_form.phtml:35
+#: templates/table/relation/common_form.phtml:87
+#: templates/table/relation/foreign_key_row.phtml:182
+#: templates/table/relation/foreign_key_row.phtml:194
 #: templates/table/relation/internal_relational_row.phtml:73
 #: templates/table/search/table_header.phtml:6
 #: templates/table/search/zoom_result_form.phtml:33
@@ -521,7 +522,7 @@ msgstr ""
 msgid "Succeeded"
 msgstr "Удалось"
 
-#: import.php:67 js/messages.php:600
+#: import.php:67 js/messages.php:606
 msgid "Failed"
 msgstr "Ошибка"
 
@@ -599,17 +600,17 @@ msgstr "Команда \"DROP DATABASE\" (удалить базу данных) 
 msgid "Could not load the progress of the import."
 msgstr "Не удалось загрузить прогресс (ход) импорта."
 
-#: import_status.php:114 js/messages.php:450 js/messages.php:608
+#: import_status.php:114 js/messages.php:450 js/messages.php:614
 #: libraries/Util.php:729 libraries/export.lib.php:520
 #: libraries/plugins/schema/ExportRelationSchema.php:298 user_password.php:297
 msgid "Back"
 msgstr "Назад"
 
-#: index.php:151 libraries/Footer.php:70
+#: index.php:152 libraries/Footer.php:70
 msgid "phpMyAdmin Demo Server"
 msgstr "Демо-сервер phpMyAdmin"
 
-#: index.php:155
+#: index.php:156
 #, php-format
 msgid ""
 "You are using the demo server. You can do anything here, but please do not "
@@ -620,79 +621,79 @@ msgstr ""
 "пожалуйста, не изменяйте пользователей root, debian-sys-maint и pma. "
 "Дополнительная информация доступна на %s."
 
-#: index.php:165
+#: index.php:166
 msgid "General settings"
 msgstr "Основные настройки"
 
-#: index.php:195 js/messages.php:633
+#: index.php:196 js/messages.php:639
 #: libraries/display_change_password.lib.php:47
 #: libraries/display_change_password.lib.php:50 user_password.php:291
 msgid "Change password"
 msgstr "Изменить пароль"
 
-#: index.php:212
+#: index.php:213
 msgid "Server connection collation"
 msgstr "Сопоставление кодировки соединения"
 
-#: index.php:233
+#: index.php:234
 msgid "Appearance settings"
 msgstr "Настройки внешнего вида"
 
-#: index.php:265 prefs_manage.php:304
+#: index.php:266 prefs_manage.php:304
 msgid "More settings"
 msgstr "Дополнительные настройки"
 
-#: index.php:287
+#: index.php:288
 msgid "Database server"
 msgstr "Сервер баз данных"
 
-#: index.php:290 libraries/plugins/auth/AuthenticationCookie.php:157
+#: index.php:291 libraries/plugins/auth/AuthenticationCookie.php:157
 msgid "Server:"
 msgstr "Сервер:"
 
-#: index.php:294
+#: index.php:295
 msgid "Server type:"
 msgstr "Тип сервера:"
 
-#: index.php:298 libraries/plugins/export/ExportLatex.php:220
+#: index.php:299 libraries/plugins/export/ExportLatex.php:220
 #: libraries/plugins/export/ExportSql.php:701
 #: libraries/plugins/export/ExportXml.php:242
 msgid "Server version:"
 msgstr "Версия сервера:"
 
-#: index.php:304
+#: index.php:305
 msgid "Protocol version:"
 msgstr "Версия протокола:"
 
-#: index.php:308
+#: index.php:309
 msgid "User:"
 msgstr "Пользователь:"
 
-#: index.php:313
+#: index.php:314
 msgid "Server charset:"
 msgstr "Кодировка сервера:"
 
-#: index.php:326
+#: index.php:327
 msgid "Web server"
 msgstr "Веб-сервер"
 
-#: index.php:337
+#: index.php:338
 msgid "Database client version:"
 msgstr "Версия клиента базы данных:"
 
-#: index.php:341
+#: index.php:342
 msgid "PHP extension:"
 msgstr "PHP расширение:"
 
-#: index.php:355
+#: index.php:356
 msgid "PHP version:"
 msgstr "Версия PHP:"
 
-#: index.php:376
+#: index.php:377
 msgid "Version information:"
 msgstr "Информация о версии:"
 
-#: index.php:385 libraries/Sanitize.php:189 libraries/Util.php:376
+#: index.php:386 libraries/Sanitize.php:189 libraries/Util.php:376
 #: libraries/Util.php:443 libraries/config/FormDisplay.tpl.php:165
 #: libraries/display_export.lib.php:576 libraries/engines/Pbxt.php:166
 #: libraries/navigation/NavigationHeader.php:200
@@ -700,27 +701,27 @@ msgstr "Информация о версии:"
 msgid "Documentation"
 msgstr "Документация"
 
-#: index.php:394
+#: index.php:395
 msgid "Official Homepage"
 msgstr "Официальная страница phpMyAdmin"
 
-#: index.php:401
+#: index.php:402
 msgid "Contribute"
 msgstr "Пожертвовать"
 
-#: index.php:408
+#: index.php:409
 msgid "Get support"
 msgstr "Получить помощь"
 
-#: index.php:415
+#: index.php:416
 msgid "List of changes"
 msgstr "Список изменений"
 
-#: index.php:422 templates/server/plugins/section.phtml:12
+#: index.php:423 templates/server/plugins/section.phtml:12
 msgid "License"
 msgstr "Лицензия"
 
-#: index.php:442
+#: index.php:443
 msgid ""
 "The mbstring PHP extension was not found and you seem to be using a "
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
@@ -730,7 +731,7 @@ msgstr ""
 "mbstring phpMyAdmin не в состоянии производить корректное разбиение строк, "
 "что может привести к непредсказуемым результатам."
 
-#: index.php:457
+#: index.php:458
 msgid ""
 "The curl extension was not found and allow_url_fopen is disabled. Due to "
 "this some features such as error reporting or version check are disabled."
@@ -739,7 +740,7 @@ msgstr ""
 "этим, некоторые возможности, включая отправление ошибок и проверка версий, "
 "отключены."
 
-#: index.php:472
+#: index.php:473
 msgid ""
 "Your PHP parameter [a@https://secure.php.net/manual/en/session.configuration."
 "php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
@@ -752,7 +753,7 @@ msgstr ""
 "этой причине сессия входа может закончиться быстрее установленной в "
 "phpMyAdmin."
 
-#: index.php:491
+#: index.php:492
 msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
@@ -760,17 +761,17 @@ msgstr ""
 "Значение длительности хранения cookie меньше, чем определено в phpMyAdmin. "
 "По этой причине сессия входа завершится быстрее установленной в phpMyAdmin."
 
-#: index.php:506
+#: index.php:507
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
 msgstr ""
 "В конфигурационном файле необходимо задать парольную фразу (blowfish_secret)."
 
-#: index.php:513
+#: index.php:514
 msgid "The secret passphrase in configuration (blowfish_secret) is too short."
 msgstr ""
 "Секретная парольная фраза в конфигурации (blowfish_secret) слишком короткая."
 
-#: index.php:527
+#: index.php:528
 msgid ""
 "Directory [code]config[/code], which is used by the setup script, still "
 "exists in your phpMyAdmin directory. It is strongly recommended to remove it "
@@ -783,7 +784,7 @@ msgstr ""
 "может быть скомпрометирована через свободный доступ к загрузке "
 "конфигурационного файла."
 
-#: index.php:543
+#: index.php:544
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
@@ -792,14 +793,14 @@ msgstr ""
 "Хранилище конфигурации phpMyAdmin не полностью настроено, некоторые "
 "расширенные функции были отключены. %sУзнайте причину%s. "
 
-#: index.php:550
+#: index.php:551
 msgid ""
 "Or alternately go to 'Operations' tab of any database to set it up there."
 msgstr ""
 "Или перейдите на вкладку 'Операции' любой базы данных, чтобы настроить "
 "хранилище в ней."
 
-#: index.php:589
+#: index.php:590
 #, php-format
 msgid ""
 "Your PHP MySQL library version %s differs from your MySQL server version %s. "
@@ -808,7 +809,7 @@ msgstr ""
 "Версия клиентской библиотеки MySQL %s отличается от версии установленного "
 "MySQL-сервера %s. Это может привести к некорректной работе."
 
-#: index.php:617
+#: index.php:618
 #, php-format
 msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
@@ -1036,7 +1037,7 @@ msgstr "Необходимо добавить хотя бы одно поле."
 #: js/messages.php:132 libraries/insert_edit.lib.php:1619
 #: templates/columns_definitions/column_definitions_form.phtml:163
 #: templates/table/index_form.phtml:242
-#: templates/table/relation/common_form.phtml:126
+#: templates/table/relation/common_form.phtml:135
 msgid "Preview SQL"
 msgstr "Предпросмотр SQL"
 
@@ -1500,7 +1501,7 @@ msgstr "Анализ результатов"
 msgid "Status"
 msgstr "Состояние"
 
-#: js/messages.php:292 js/messages.php:878
+#: js/messages.php:292 js/messages.php:884
 #: libraries/plugins/export/ExportHtmlword.php:486
 #: libraries/plugins/export/ExportOdt.php:605
 #: libraries/plugins/export/ExportTexytext.php:447
@@ -1952,7 +1953,7 @@ msgid "Second step of normalization (2NF)"
 msgstr "Второй этап нормализации (2NF)"
 
 #. l10n: Display text for calendar close link
-#: js/messages.php:442 js/messages.php:747 libraries/normalization.lib.php:286
+#: js/messages.php:442 js/messages.php:753 libraries/normalization.lib.php:286
 msgid "Done"
 msgstr "Готово"
 
@@ -2032,7 +2033,7 @@ msgstr "Не выбраны зависимости!"
 #: templates/columns_definitions/column_definitions_form.phtml:166
 #: templates/server/variables/link_template.phtml:2
 #: templates/table/gis_visualization/gis_visualization.phtml:48
-#: templates/table/relation/common_form.phtml:127
+#: templates/table/relation/common_form.phtml:136
 #: templates/table/structure/partition_definition_form.phtml:11
 msgid "Save"
 msgstr "Сохранить"
@@ -2111,7 +2112,7 @@ msgstr "Выберите два различных столбца"
 msgid "Data point content"
 msgstr "Содержание точки данных"
 
-#: js/messages.php:508 js/messages.php:668 js/messages.php:685
+#: js/messages.php:508 js/messages.php:674 js/messages.php:691
 #: libraries/ErrorHandler.php:363 libraries/insert_edit.lib.php:2646
 #: templates/table/index_form.phtml:154 templates/table/index_form.phtml:199
 msgid "Ignore"
@@ -2162,30 +2163,36 @@ msgstr ""
 
 #: js/messages.php:533
 msgid ""
+"MySQL accepts additional values not selectable by the datepicker; key in "
+"those values directly if desired"
+msgstr ""
+
+#: js/messages.php:539
+msgid ""
 "Indicates that you have made changes to this page; you will be prompted for "
 "confirmation before abandoning changes"
 msgstr ""
 "Показывает, что были произведены изменения на странице. Для отмены изменений "
 "потребуется подтверждение"
 
-#: js/messages.php:538
+#: js/messages.php:544
 msgid "Select referenced key"
 msgstr "Выберите ссылочный ключ"
 
-#: js/messages.php:539
+#: js/messages.php:545
 msgid "Select Foreign Key"
 msgstr "Выберите внешний ключ"
 
-#: js/messages.php:541
+#: js/messages.php:547
 msgid "Please select the primary key or a unique key!"
 msgstr "Выберите поле основного индекса (PRIMARY) или уникального индекса!"
 
-#: js/messages.php:542 templates/database/designer/side_menu.phtml:91
+#: js/messages.php:548 templates/database/designer/side_menu.phtml:91
 #: templates/database/designer/side_menu.phtml:94
 msgid "Choose column to display"
 msgstr "Выбор отображаемого столбца"
 
-#: js/messages.php:544
+#: js/messages.php:550
 msgid ""
 "You haven't saved the changes in the layout. They will be lost if you don't "
 "save them. Do you want to continue?"
@@ -2193,76 +2200,76 @@ msgstr ""
 "Вы не сохранили изменения в раскладке. Без сохранения, они будут потеряны. "
 "Продолжить?"
 
-#: js/messages.php:547
+#: js/messages.php:553
 msgid "Page name"
 msgstr "Название страницы"
 
-#: js/messages.php:548 templates/database/designer/side_menu.phtml:56
+#: js/messages.php:554 templates/database/designer/side_menu.phtml:56
 #: templates/database/designer/side_menu.phtml:59
 msgid "Save page"
 msgstr "Сохранить страницу"
 
-#: js/messages.php:549 templates/database/designer/side_menu.phtml:63
+#: js/messages.php:555 templates/database/designer/side_menu.phtml:63
 #: templates/database/designer/side_menu.phtml:66
 msgid "Save page as"
 msgstr "Сохранить страницу как"
 
-#: js/messages.php:550 templates/database/designer/side_menu.phtml:49
+#: js/messages.php:556 templates/database/designer/side_menu.phtml:49
 #: templates/database/designer/side_menu.phtml:52
 msgid "Open page"
 msgstr "Открыть страницу"
 
-#: js/messages.php:551
+#: js/messages.php:557
 msgid "Delete page"
 msgstr "Удалить страницу"
 
-#: js/messages.php:552 templates/database/designer/side_menu.phtml:10
+#: js/messages.php:558 templates/database/designer/side_menu.phtml:10
 msgid "Untitled"
 msgstr "Без названия"
 
-#: js/messages.php:553
+#: js/messages.php:559
 msgid "Please select a page to continue"
 msgstr "Выберите следующую страницу"
 
-#: js/messages.php:554
+#: js/messages.php:560
 msgid "Please enter a valid page name"
 msgstr "Введите правильное имя страницы"
 
-#: js/messages.php:556
+#: js/messages.php:562
 msgid "Do you want to save the changes to the current page?"
 msgstr "Вы хотите записать изменения на текущую страницу?"
 
-#: js/messages.php:557
+#: js/messages.php:563
 msgid "Successfully deleted the page"
 msgstr "Страница успешно удалена"
 
-#: js/messages.php:558
+#: js/messages.php:564
 msgid "Export relational schema"
 msgstr "Экспорт схемы связей"
 
-#: js/messages.php:559
+#: js/messages.php:565
 msgid "Modifications have been saved"
 msgstr "Изменения сохранены"
 
-#: js/messages.php:562
+#: js/messages.php:568
 #, php-format
 msgid "Add an option for column \"%s\"."
 msgstr "Добавить параметр для столбца \"%s\"."
 
-#: js/messages.php:563
+#: js/messages.php:569
 #, php-format
 msgid "%d object(s) created."
 msgstr "создано %d объект(ов)."
 
-#: js/messages.php:564 libraries/sql_query_form.lib.php:414
+#: js/messages.php:570 libraries/sql_query_form.lib.php:414
 msgid "Submit"
 msgstr "Выполнить"
 
-#: js/messages.php:567
+#: js/messages.php:573
 msgid "Press escape to cancel editing."
 msgstr "Для отмены редактирования нажмите Esc."
 
-#: js/messages.php:569
+#: js/messages.php:575
 msgid ""
 "You have edited some data and they have not been saved. Are you sure you "
 "want to leave this page before saving the data?"
@@ -2270,15 +2277,15 @@ msgstr ""
 "Вы отредактировали некоторые данные, но изменения не были сохранены. Вы "
 "уверены, что хотите покинуть данную страницу без сохранения данных?"
 
-#: js/messages.php:572
+#: js/messages.php:578
 msgid "Drag to reorder."
 msgstr "Перетяните для изменения порядка сортировки."
 
-#: js/messages.php:573
+#: js/messages.php:579
 msgid "Click to sort results by this column."
 msgstr "Кликните для сортировки результатов по данному столбцу."
 
-#: js/messages.php:575
+#: js/messages.php:581
 msgid ""
 "Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC.<br /"
 ">- Ctrl+Click or Alt+Click (Mac: Shift+Option+Click) to remove column from "
@@ -2288,26 +2295,26 @@ msgstr ""
 "переключения ASC/DESC.<br />- Удерживая Ctrl или Alt (для Mac: удерживая "
 "Shift и Option), кликните для удаления столбца из класса ORDER BY"
 
-#: js/messages.php:579
+#: js/messages.php:585
 msgid "Click to mark/unmark."
 msgstr "Кликните для установки/снятия отметки."
 
-#: js/messages.php:580
+#: js/messages.php:586
 msgid "Double-click to copy column name."
 msgstr "Кликните дважды для копирования имени столбца."
 
-#: js/messages.php:582
+#: js/messages.php:588
 msgid "Click the drop-down arrow<br />to toggle column's visibility."
 msgstr "Кликните выпадающую стрелку<br />для переключения видимости столбца."
 
-#: js/messages.php:584 libraries/DisplayResults.php:1036
+#: js/messages.php:590 libraries/DisplayResults.php:1036
 #: libraries/browse_foreigners.lib.php:288
 #: libraries/browse_foreigners.lib.php:341
 #: libraries/server_privileges.lib.php:3907
 msgid "Show all"
 msgstr "Показать все"
 
-#: js/messages.php:586
+#: js/messages.php:592
 msgid ""
 "This table does not contain a unique column. Features related to the grid "
 "edit, checkbox, Edit, Copy and Delete links may not work after saving."
@@ -2316,13 +2323,13 @@ msgstr ""
 "могут не работать функции связанные с редактированием сетки, выставления "
 "галочки, ссылки редактирования, копирования и удаления."
 
-#: js/messages.php:590
+#: js/messages.php:596
 msgid "Please enter a valid hexadecimal string. Valid characters are 0-9, A-F."
 msgstr ""
 "Пожалуйста, введите допустимую шестнадцатеричную строку. Допустимыми знаками "
 "являются 0-9, A-F."
 
-#: js/messages.php:592
+#: js/messages.php:598
 msgid ""
 "Do you really want to see all of the rows? For a big table this could crash "
 "the browser."
@@ -2330,104 +2337,104 @@ msgstr ""
 "Вы действительно хотите отобразить все строки? При большом количестве данных "
 "возможно отключение браузера."
 
-#: js/messages.php:595
+#: js/messages.php:601
 msgid "Original length"
 msgstr "Исходный размер"
 
-#: js/messages.php:598
+#: js/messages.php:604
 msgid "cancel"
 msgstr "Отмена"
 
-#: js/messages.php:599 libraries/server_status.lib.php:277
+#: js/messages.php:605 libraries/server_status.lib.php:277
 msgid "Aborted"
 msgstr "Прервано"
 
-#: js/messages.php:601
+#: js/messages.php:607
 msgid "Success"
 msgstr "Успех"
 
-#: js/messages.php:602
+#: js/messages.php:608
 msgid "Import status"
 msgstr "Импортировать состояние"
 
-#: js/messages.php:603 libraries/navigation/Navigation.php:112
+#: js/messages.php:609 libraries/navigation/Navigation.php:112
 msgid "Drop files here"
 msgstr "Перетащите файлы сюда"
 
-#: js/messages.php:604
+#: js/messages.php:610
 msgid "Select database first"
 msgstr "Выберите базу данных"
 
-#: js/messages.php:607 libraries/DisplayResults.php:5050
+#: js/messages.php:613 libraries/DisplayResults.php:5050
 #: libraries/Util.php:4078
 #: templates/database/structure/print_view_data_dictionary_link.phtml:3
 #: templates/table/structure/optional_action_links.phtml:6
 msgid "Print"
 msgstr "Печать"
 
-#: js/messages.php:614
+#: js/messages.php:620
 msgid "You can also edit most values<br />by double-clicking directly on them."
 msgstr ""
 "Большинство значений можно отредактировать<br />дважды кликнув прямо на них."
 
-#: js/messages.php:619
+#: js/messages.php:625
 msgid "You can also edit most values<br />by clicking directly on them."
 msgstr "Возможно редактировать большинство значений<br />кликнув прямо на них."
 
-#: js/messages.php:625
+#: js/messages.php:631
 msgid "Go to link:"
 msgstr "Перейти к ссылке:"
 
-#: js/messages.php:626
+#: js/messages.php:632
 msgid "Copy column name."
 msgstr "Скопировать имя столбца."
 
-#: js/messages.php:628
+#: js/messages.php:634
 msgid "Right-click the column name to copy it to your clipboard."
 msgstr ""
 "Для копирования имени столбца в буфер обмена, сделайте щелчок правой кнопкой "
 "мышки."
 
-#: js/messages.php:631
+#: js/messages.php:637
 msgid "Generate password"
 msgstr "Создать пароль"
 
-#: js/messages.php:632 libraries/replication_gui.lib.php:882
+#: js/messages.php:638 libraries/replication_gui.lib.php:882
 msgid "Generate"
 msgstr "Генерировать"
 
-#: js/messages.php:636
+#: js/messages.php:642
 msgid "More"
 msgstr "Ещё"
 
-#: js/messages.php:639
+#: js/messages.php:645
 msgid "Show panel"
 msgstr "Раскрыть панель"
 
-#: js/messages.php:640
+#: js/messages.php:646
 msgid "Hide panel"
 msgstr "Скрыть панель"
 
-#: js/messages.php:641
+#: js/messages.php:647
 msgid "Show hidden navigation tree items."
 msgstr "Отображать скрытые пункты дерева навигации."
 
-#: js/messages.php:642 libraries/config/messages.inc.php:479
+#: js/messages.php:648 libraries/config/messages.inc.php:479
 #: libraries/navigation/NavigationTree.php:1422
 msgid "Link with main panel"
 msgstr "Связать с главной панелью"
 
-#: js/messages.php:643 libraries/navigation/NavigationTree.php:1425
+#: js/messages.php:649 libraries/navigation/NavigationTree.php:1425
 msgid "Unlink from main panel"
 msgstr "Отсоединить от основной панели"
 
-#: js/messages.php:647
+#: js/messages.php:653
 msgid "The requested page was not found in the history, it may have expired."
 msgstr ""
 "Запрошенная страница не найдена в истории, возможно, истекло время ее "
 "хранения."
 
-#: js/messages.php:651 setup/lib/index.lib.php:170
+#: js/messages.php:657 setup/lib/index.lib.php:170
 #, php-format
 msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
@@ -2437,49 +2444,49 @@ msgstr ""
 "Новейшая версия %s, выпущена %s."
 
 #. l10n: Latest available phpMyAdmin version
-#: js/messages.php:655
+#: js/messages.php:661
 msgid ", latest stable version:"
 msgstr ", последняя стабильная версия:"
 
-#: js/messages.php:656
+#: js/messages.php:662
 msgid "up to date"
 msgstr "актуально"
 
-#: js/messages.php:658 libraries/DisplayResults.php:4981 view_create.php:206
+#: js/messages.php:664 libraries/DisplayResults.php:4981 view_create.php:206
 msgid "Create view"
 msgstr "Создать представление"
 
-#: js/messages.php:661
+#: js/messages.php:667
 msgid "Send error report"
 msgstr "Отправить отчёт об ошибках"
 
-#: js/messages.php:662
+#: js/messages.php:668
 msgid "Submit error report"
 msgstr "Отправить отчёт об ошибке"
 
-#: js/messages.php:664
+#: js/messages.php:670
 msgid ""
 "A fatal JavaScript error has occurred. Would you like to send an error "
 "report?"
 msgstr ""
 "Произошла фатальная ошибка JavaScript. Вы хотите отправить отчёт об ошибке?"
 
-#: js/messages.php:666
+#: js/messages.php:672
 msgid "Change report settings"
 msgstr "Изменить настройки отчёта"
 
-#: js/messages.php:667
+#: js/messages.php:673
 msgid "Show report details"
 msgstr "Показать детали отчёта"
 
-#: js/messages.php:670
+#: js/messages.php:676
 msgid ""
 "Your export is incomplete, due to a low execution time limit at the PHP "
 "level!"
 msgstr ""
 "Ваш экспорт незавершён из-за ограничений времени выполнения на уровне PHP!"
 
-#: js/messages.php:674
+#: js/messages.php:680
 #, php-format
 msgid ""
 "Warning: a form on this page has more than %d fields. On submission, some of "
@@ -2489,60 +2496,60 @@ msgstr ""
 "поля могут быть проигнорированы согласно значения переменной max_input_vars "
 "в PHP."
 
-#: js/messages.php:680 js/messages.php:693
+#: js/messages.php:686 js/messages.php:699
 msgid "Some errors have been detected on the server!"
 msgstr "На сервере обнаружены некоторые ошибки!"
 
-#: js/messages.php:682
+#: js/messages.php:688
 msgid "Please look at the bottom of this window."
 msgstr "Пожалуйста, посмотрите вниз текущего окна."
 
-#: js/messages.php:688 libraries/ErrorHandler.php:367
+#: js/messages.php:694 libraries/ErrorHandler.php:367
 msgid "Ignore All"
 msgstr "Игнорировать всё"
 
-#: js/messages.php:696
+#: js/messages.php:702
 msgid ""
 "As per your settings, they are being submitted currently, please be patient."
 msgstr ""
 "В соответствии с вашими настройками они заносятся в данное время, подождите, "
 "пожалуйста."
 
-#: js/messages.php:706
+#: js/messages.php:712
 msgid "Execute this query again?"
 msgstr "Выполнить запрос ещё раз?"
 
-#: js/messages.php:708
+#: js/messages.php:714
 msgid "Do you really want to delete this bookmark?"
 msgstr "Вы действительно хотите удалить эту закладку?"
 
-#: js/messages.php:710
+#: js/messages.php:716
 msgid "Some error occurred while getting SQL debug info."
 msgstr "В процессе получения информации по отладке SQL произошла ошибка."
 
-#: js/messages.php:712
+#: js/messages.php:718
 #, php-format
 msgid "%s queries executed %s times in %s seconds."
 msgstr "%s запрос(ов) выполнено %s раз(а) за %s секунд(у/ы)."
 
-#: js/messages.php:713
+#: js/messages.php:719
 #, php-format
 msgid "%s argument(s) passed"
 msgstr "%s аргумент(ов/а) передано"
 
-#: js/messages.php:714
+#: js/messages.php:720
 msgid "Show arguments"
 msgstr "Отобразить аргументы"
 
-#: js/messages.php:715
+#: js/messages.php:721
 msgid "Hide arguments"
 msgstr "Скрыть аргументы"
 
-#: js/messages.php:716
+#: js/messages.php:722
 msgid "Time taken:"
 msgstr "Занято времени:"
 
-#: js/messages.php:717
+#: js/messages.php:723
 msgid ""
 "There was a problem accessing your browser storage, some features may not "
 "work properly for you. It is likely that the browser doesn't support storage "
@@ -2557,348 +2564,348 @@ msgstr ""
 "содержимое и данные пользователя\" может ее решить. В Safari, данную "
 "проблему обычно вызывает установка \"Режим частного доступа\"."
 
-#: js/messages.php:719
+#: js/messages.php:725
 msgid "Copy tables to"
 msgstr "Скопировать таблицы в"
 
-#: js/messages.php:720
+#: js/messages.php:726
 msgid "Add table prefix"
 msgstr "Добавить префикс таблицы"
 
-#: js/messages.php:721
+#: js/messages.php:727
 #, fuzzy
 msgid "Replace table with prefix"
 msgstr "Заменить префикс таблицы"
 
-#: js/messages.php:722 templates/database/structure/check_all_tables.phtml:29
+#: js/messages.php:728 templates/database/structure/check_all_tables.phtml:29
 msgid "Copy table with prefix"
 msgstr "Копировать таблицу с префиксом"
 
-#: js/messages.php:751
+#: js/messages.php:757
 msgctxt "Previous month"
 msgid "Prev"
 msgstr "Предыдущий"
 
-#: js/messages.php:756
+#: js/messages.php:762
 msgctxt "Next month"
 msgid "Next"
 msgstr "Следующий"
 
 #. l10n: Display text for current month link in calendar
-#: js/messages.php:759
+#: js/messages.php:765
 msgid "Today"
 msgstr "Сегодня"
 
-#: js/messages.php:763
+#: js/messages.php:769
 msgid "January"
 msgstr "Январь"
 
-#: js/messages.php:764
+#: js/messages.php:770
 msgid "February"
 msgstr "Февраль"
 
-#: js/messages.php:765
+#: js/messages.php:771
 msgid "March"
 msgstr "Март"
 
-#: js/messages.php:766
+#: js/messages.php:772
 msgid "April"
 msgstr "Апрель"
 
-#: js/messages.php:767
+#: js/messages.php:773
 msgid "May"
 msgstr "Май"
 
-#: js/messages.php:768
+#: js/messages.php:774
 msgid "June"
 msgstr "Июнь"
 
-#: js/messages.php:769
+#: js/messages.php:775
 msgid "July"
 msgstr "Июль"
 
-#: js/messages.php:770
+#: js/messages.php:776
 msgid "August"
 msgstr "Август"
 
-#: js/messages.php:771
+#: js/messages.php:777
 msgid "September"
 msgstr "Сентябрь"
 
-#: js/messages.php:772
+#: js/messages.php:778
 msgid "October"
 msgstr "Октябрь"
 
-#: js/messages.php:773
+#: js/messages.php:779
 msgid "November"
 msgstr "Ноябрь"
 
-#: js/messages.php:774
+#: js/messages.php:780
 msgid "December"
 msgstr "Декабрь"
 
 #. l10n: Short month name
-#: js/messages.php:781 libraries/Util.php:1587
+#: js/messages.php:787 libraries/Util.php:1587
 msgid "Jan"
 msgstr "Янв"
 
 #. l10n: Short month name
-#: js/messages.php:783 libraries/Util.php:1589
+#: js/messages.php:789 libraries/Util.php:1589
 msgid "Feb"
 msgstr "Фев"
 
 #. l10n: Short month name
-#: js/messages.php:785 libraries/Util.php:1591
+#: js/messages.php:791 libraries/Util.php:1591
 msgid "Mar"
 msgstr "Мар"
 
 #. l10n: Short month name
-#: js/messages.php:787 libraries/Util.php:1593
+#: js/messages.php:793 libraries/Util.php:1593
 msgid "Apr"
 msgstr "Апр"
 
 #. l10n: Short month name
-#: js/messages.php:789 libraries/Util.php:1595
+#: js/messages.php:795 libraries/Util.php:1595
 msgctxt "Short month name"
 msgid "May"
 msgstr "Май"
 
 #. l10n: Short month name
-#: js/messages.php:791 libraries/Util.php:1597
+#: js/messages.php:797 libraries/Util.php:1597
 msgid "Jun"
 msgstr "Июн"
 
 #. l10n: Short month name
-#: js/messages.php:793 libraries/Util.php:1599
+#: js/messages.php:799 libraries/Util.php:1599
 msgid "Jul"
 msgstr "Июл"
 
 #. l10n: Short month name
-#: js/messages.php:795 libraries/Util.php:1601
+#: js/messages.php:801 libraries/Util.php:1601
 msgid "Aug"
 msgstr "Авг"
 
 #. l10n: Short month name
-#: js/messages.php:797 libraries/Util.php:1603
+#: js/messages.php:803 libraries/Util.php:1603
 msgid "Sep"
 msgstr "Сен"
 
 #. l10n: Short month name
-#: js/messages.php:799 libraries/Util.php:1605
+#: js/messages.php:805 libraries/Util.php:1605
 msgid "Oct"
 msgstr "Окт"
 
 #. l10n: Short month name
-#: js/messages.php:801 libraries/Util.php:1607
+#: js/messages.php:807 libraries/Util.php:1607
 msgid "Nov"
 msgstr "Ноя"
 
 #. l10n: Short month name
-#: js/messages.php:803 libraries/Util.php:1609
+#: js/messages.php:809 libraries/Util.php:1609
 msgid "Dec"
 msgstr "Дек"
 
-#: js/messages.php:809
+#: js/messages.php:815
 msgid "Sunday"
 msgstr "Воскресенье"
 
-#: js/messages.php:810
+#: js/messages.php:816
 msgid "Monday"
 msgstr "Понедельник"
 
-#: js/messages.php:811
+#: js/messages.php:817
 msgid "Tuesday"
 msgstr "Вторник"
 
-#: js/messages.php:812
+#: js/messages.php:818
 msgid "Wednesday"
 msgstr "Среда"
 
-#: js/messages.php:813
+#: js/messages.php:819
 msgid "Thursday"
 msgstr "Четверг"
 
-#: js/messages.php:814
+#: js/messages.php:820
 msgid "Friday"
 msgstr "Пятница"
 
-#: js/messages.php:815
+#: js/messages.php:821
 msgid "Saturday"
 msgstr "Суббота"
 
 #. l10n: Short week day name
-#: js/messages.php:822
+#: js/messages.php:828
 msgid "Sun"
 msgstr "Вс"
 
 #. l10n: Short week day name
-#: js/messages.php:824 libraries/Util.php:1614
+#: js/messages.php:830 libraries/Util.php:1614
 msgid "Mon"
 msgstr "Пн"
 
 #. l10n: Short week day name
-#: js/messages.php:826 libraries/Util.php:1616
+#: js/messages.php:832 libraries/Util.php:1616
 msgid "Tue"
 msgstr "Вт"
 
 #. l10n: Short week day name
-#: js/messages.php:828 libraries/Util.php:1618
+#: js/messages.php:834 libraries/Util.php:1618
 msgid "Wed"
 msgstr "Ср"
 
 #. l10n: Short week day name
-#: js/messages.php:830 libraries/Util.php:1620
+#: js/messages.php:836 libraries/Util.php:1620
 msgid "Thu"
 msgstr "Чт"
 
 #. l10n: Short week day name
-#: js/messages.php:832 libraries/Util.php:1622
+#: js/messages.php:838 libraries/Util.php:1622
 msgid "Fri"
 msgstr "Пт"
 
 #. l10n: Short week day name
-#: js/messages.php:834 libraries/Util.php:1624
+#: js/messages.php:840 libraries/Util.php:1624
 msgid "Sat"
 msgstr "Сб"
 
 #. l10n: Minimal week day name
-#: js/messages.php:841
+#: js/messages.php:847
 msgid "Su"
 msgstr "Вс"
 
 #. l10n: Minimal week day name
-#: js/messages.php:843
+#: js/messages.php:849
 msgid "Mo"
 msgstr "Пн"
 
 #. l10n: Minimal week day name
-#: js/messages.php:845
+#: js/messages.php:851
 msgid "Tu"
 msgstr "Вт"
 
 #. l10n: Minimal week day name
-#: js/messages.php:847
+#: js/messages.php:853
 msgid "We"
 msgstr "Ср"
 
 #. l10n: Minimal week day name
-#: js/messages.php:849
+#: js/messages.php:855
 msgid "Th"
 msgstr "Чт"
 
 #. l10n: Minimal week day name
-#: js/messages.php:851
+#: js/messages.php:857
 msgid "Fr"
 msgstr "Пт"
 
 #. l10n: Minimal week day name
-#: js/messages.php:853
+#: js/messages.php:859
 msgid "Sa"
 msgstr "Сб"
 
 #. l10n: Column header for week of the year in calendar
-#: js/messages.php:857
+#: js/messages.php:863
 msgid "Wk"
 msgstr "Нед."
 
 #. l10n: Month-year order for calendar, use either "calendar-month-year"
 #. * or "calendar-year-month".
 #.
-#: js/messages.php:864
+#: js/messages.php:870
 msgid "calendar-month-year"
 msgstr "календарь-месяц-год"
 
 #. l10n: Year suffix for calendar, "none" is empty.
-#: js/messages.php:867
+#: js/messages.php:873
 msgctxt "Year suffix"
 msgid "none"
 msgstr "none"
 
-#: js/messages.php:879
+#: js/messages.php:885
 msgid "Hour"
 msgstr "Час"
 
-#: js/messages.php:880
+#: js/messages.php:886
 msgid "Minute"
 msgstr "Минута"
 
-#: js/messages.php:881
+#: js/messages.php:887
 msgid "Second"
 msgstr "Секунда"
 
-#: js/messages.php:892
+#: js/messages.php:898
 msgid "This field is required"
 msgstr "Это обязательное поле"
 
-#: js/messages.php:893
+#: js/messages.php:899
 msgid "Please fix this field"
 msgstr "Пожалуйста, исправьте это поле"
 
-#: js/messages.php:894
+#: js/messages.php:900
 msgid "Please enter a valid email address"
 msgstr "Введите правильный email"
 
-#: js/messages.php:895
+#: js/messages.php:901
 msgid "Please enter a valid URL"
 msgstr "Пожалуйста, введите правильный URL"
 
-#: js/messages.php:896
+#: js/messages.php:902
 msgid "Please enter a valid date"
 msgstr "Введите правильную дату"
 
-#: js/messages.php:899
+#: js/messages.php:905
 msgid "Please enter a valid date ( ISO )"
 msgstr "Введите правильную дату ( ISO )"
 
-#: js/messages.php:901
+#: js/messages.php:907
 msgid "Please enter a valid number"
 msgstr "Пожалуйста, введите правильное числовое значение"
 
-#: js/messages.php:904
+#: js/messages.php:910
 msgid "Please enter a valid credit card number"
 msgstr "Пожалуйста, введите правильный номер кредитной карты"
 
-#: js/messages.php:906
+#: js/messages.php:912
 msgid "Please enter only digits"
 msgstr "Пожалуйста, введите только цифровые символы"
 
-#: js/messages.php:909
+#: js/messages.php:915
 msgid "Please enter the same value again"
 msgstr "Введите то же значение еще раз"
 
-#: js/messages.php:913
+#: js/messages.php:919
 msgid "Please enter no more than {0} characters"
 msgstr "Пожалуйста, введите не более {0} символ(ов/а)"
 
-#: js/messages.php:918
+#: js/messages.php:924
 msgid "Please enter at least {0} characters"
 msgstr "Пожалуйста, введите не минее {0} символ(ов/а)"
 
-#: js/messages.php:923
+#: js/messages.php:929
 msgid "Please enter a value between {0} and {1} characters long"
 msgstr "Пожалуйста, введите значение длиной между {0} и {1} символами(ом)"
 
-#: js/messages.php:928
+#: js/messages.php:934
 msgid "Please enter a value between {0} and {1}"
 msgstr "Пожалуйста, введите значение между {0} и {1} символами(ом)"
 
-#: js/messages.php:933
+#: js/messages.php:939
 msgid "Please enter a value less than or equal to {0}"
 msgstr "Пожалуйста, введите значение меньшее или равное {0}"
 
-#: js/messages.php:938
+#: js/messages.php:944
 msgid "Please enter a value greater than or equal to {0}"
 msgstr "Пожалуйста, введите значение, большее или равное {0}"
 
-#: js/messages.php:944
+#: js/messages.php:950
 msgid "Please enter a valid date or time"
 msgstr "Введите правильную дату или время"
 
-#: js/messages.php:949
+#: js/messages.php:955
 msgid "Please enter a valid HEX input"
 msgstr "Пожалуйста, введите правильное значение HEX"
 
-#: js/messages.php:954 libraries/Message.php:182 libraries/Util.php:606
+#: js/messages.php:960 libraries/Message.php:182 libraries/Util.php:606
 #: libraries/core.lib.php:237 libraries/import.lib.php:79
 #: libraries/insert_edit.lib.php:1234 view_operations.php:78
 msgid "Error"
@@ -3801,7 +3808,7 @@ msgstr "Версия для печати"
 msgid "Click on the bar to scroll to top of page"
 msgstr "Кликните на строку, чтобы перейти вверх страницы"
 
-#: libraries/Header.php:768 libraries/plugins/auth/AuthenticationCookie.php:128
+#: libraries/Header.php:768 libraries/plugins/auth/AuthenticationCookie.php:129
 msgid "Javascript must be enabled past this point!"
 msgstr "Для полноценной работы необходимо включить JavaScript!"
 
@@ -3879,7 +3886,7 @@ msgstr "Индекс %s был удален."
 #: libraries/controllers/table/TableStructureController.php:1183
 #: libraries/operations.lib.php:1596 libraries/rte/rte_list.lib.php:161
 #: templates/database/structure/check_all_tables.phtml:17
-#: templates/table/relation/foreign_key_row.phtml:77
+#: templates/table/relation/foreign_key_row.phtml:79
 #: templates/table/structure/check_all_table_column.phtml:22
 #: templates/table/structure/display_structure.phtml:182
 msgid "Drop"
@@ -3899,9 +3906,14 @@ msgstr "Индексы %1$s и %2$s равнозначны и один из ни
 msgid "Page number:"
 msgstr "Номер страницы:"
 
-#: libraries/LanguageManager.php:888
+#: libraries/LanguageManager.php:889
 msgid "Ignoring unsupported language code."
 msgstr ""
+
+#: libraries/LanguageManager.php:916 libraries/LanguageManager.php:917
+#: setup/frames/index.inc.php:100
+msgid "Language"
+msgstr "Язык"
 
 #: libraries/Linter.php:99
 msgid ""
@@ -3933,8 +3945,8 @@ msgstr "Сервер"
 #: templates/console/bookmark_content.phtml:19
 #: templates/console/display.phtml:57 templates/console/display.phtml:219
 #: templates/server/databases/table_header.phtml:8
-#: templates/table/relation/common_form.phtml:24
-#: templates/table/relation/foreign_key_row.phtml:151
+#: templates/table/relation/common_form.phtml:33
+#: templates/table/relation/foreign_key_row.phtml:153
 #: templates/table/relation/internal_relational_row.phtml:57
 msgid "Database"
 msgstr "База данных"
@@ -3956,8 +3968,8 @@ msgstr "Представление"
 #: libraries/server_privileges.lib.php:4684 libraries/tracking.lib.php:1479
 #: libraries/tracking.lib.php:1628
 #: templates/database/structure/table_header.phtml:21
-#: templates/table/relation/common_form.phtml:25
-#: templates/table/relation/foreign_key_row.phtml:162
+#: templates/table/relation/common_form.phtml:34
+#: templates/table/relation/foreign_key_row.phtml:164
 #: templates/table/relation/internal_relational_row.phtml:65
 msgid "Table"
 msgstr "Таблица"
@@ -4331,39 +4343,39 @@ msgstr "Данный сервер MySQL не поддерживает тип т�
 msgid "Unknown table status:"
 msgstr "Неизвестный статус таблицы:"
 
-#: libraries/Table.php:702
+#: libraries/Table.php:745
 #, php-format
 msgid "Source database `%s` was not found!"
 msgstr "База данных `%s`, являющаяся источником, не найдена!"
 
-#: libraries/Table.php:710
+#: libraries/Table.php:753
 #, php-format
 msgid "Target database `%s` was not found!"
 msgstr "База данных `%s`, являющаяся целевой, не найдена!"
 
-#: libraries/Table.php:1259
+#: libraries/Table.php:1308
 msgid "Invalid database:"
 msgstr "Некорректная база данных:"
 
-#: libraries/Table.php:1276
+#: libraries/Table.php:1325
 msgid "Invalid table name:"
 msgstr "Некорректное имя таблицы:"
 
-#: libraries/Table.php:1311
+#: libraries/Table.php:1360
 #, php-format
 msgid "Failed to rename table %1$s to %2$s!"
 msgstr "Не удалось переименовать таблицу %1$s в %2$s!"
 
-#: libraries/Table.php:1330
+#: libraries/Table.php:1379
 #, php-format
 msgid "Table %1$s has been renamed to %2$s."
 msgstr "Таблица %1$s была переименована в %2$s."
 
-#: libraries/Table.php:1561
+#: libraries/Table.php:1610
 msgid "Could not save table UI preferences!"
 msgstr "Не удалось сохранить настройки пользовательского интерфейса!"
 
-#: libraries/Table.php:1591
+#: libraries/Table.php:1640
 #, php-format
 msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
@@ -4372,7 +4384,7 @@ msgstr ""
 "Ошибка при очистке таблицы содержащей настройки пользовательского интерфейса "
 "(смотрите переменную $cfg['Servers'][$i]['MaxTableUiprefs'] %s)"
 
-#: libraries/Table.php:1744
+#: libraries/Table.php:1793
 #, php-format
 msgid ""
 "Cannot save UI property \"%s\". The changes made will not be persistent "
@@ -4383,19 +4395,19 @@ msgstr ""
 "перезагрузки страницы, изменения интерфейса будут отменены. Пожалуйста, "
 "проверьте изменена ли структура таблицы."
 
-#: libraries/Table.php:1880
+#: libraries/Table.php:1929
 msgid "The name of the primary key must be \"PRIMARY\"!"
 msgstr "Имя первичного индекса должно быть \"PRIMARY\"!"
 
-#: libraries/Table.php:1891
+#: libraries/Table.php:1940
 msgid "Can't rename index to PRIMARY!"
 msgstr "Невозможно переименовать индекс в PRIMARY!"
 
-#: libraries/Table.php:1913
+#: libraries/Table.php:1962
 msgid "No index parts defined!"
 msgstr "Части индекса не определены!"
 
-#: libraries/Table.php:2231
+#: libraries/Table.php:2280
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr "Ошибка создания внешнего ключа на %1$s (проверьте типы данных)"
@@ -8563,11 +8575,6 @@ msgstr "Осталось около %SEC сек."
 msgid "The file is being processed, please be patient."
 msgstr "Пожалуйста, подождите, файл находится в обработке."
 
-#: libraries/display_select_lang.lib.php:40
-#: libraries/display_select_lang.lib.php:41 setup/frames/index.inc.php:100
-msgid "Language"
-msgstr "Язык"
-
 #: libraries/engines/Bdb.php:28
 msgid "Version information"
 msgstr "Информация о версии"
@@ -9901,7 +9908,7 @@ msgid "Cannot connect: invalid settings."
 msgstr "Соединение невозможно! Неверные настройки."
 
 #: libraries/plugins/auth/AuthenticationConfig.php:99
-#: libraries/plugins/auth/AuthenticationCookie.php:110
+#: libraries/plugins/auth/AuthenticationCookie.php:111
 #: libraries/plugins/auth/AuthenticationHttp.php:82
 #, php-format
 msgid "Welcome to %s"
@@ -9932,7 +9939,7 @@ msgstr ""
 msgid "Retry to connect"
 msgstr "Повторить попытку соединения"
 
-#: libraries/plugins/auth/AuthenticationCookie.php:122
+#: libraries/plugins/auth/AuthenticationCookie.php:123
 msgid "Your session has expired. Please log in again."
 msgstr "Время сессии истекло. Пожалуйста, войдите заново."
 
@@ -10880,47 +10887,47 @@ msgstr "Форматирует текст в виде JSON с подсветко
 msgid "Formats text as XML with syntax highlighting."
 msgstr "Форматирует текст в виде XML с подсветкой синтаксиса."
 
-#: libraries/pmd_common.php:551
+#: libraries/pmd_common.php:549
 msgid "Error: relation already exists."
 msgstr "Ошибка: Связь уже существует."
 
-#: libraries/pmd_common.php:597
+#: libraries/pmd_common.php:595
 msgid "FOREIGN KEY relation has been added."
 msgstr "Добавлена связь FOREIGN KEY."
 
-#: libraries/pmd_common.php:603
+#: libraries/pmd_common.php:601
 msgid "Error: FOREIGN KEY relation could not be added!"
 msgstr "Ошибка: связь внешнего ключа невозможно добавить!"
 
-#: libraries/pmd_common.php:608
+#: libraries/pmd_common.php:606
 msgid "Error: Missing index on column(s)."
 msgstr "Ошибка: отсутствует индекс в столбце."
 
-#: libraries/pmd_common.php:613
+#: libraries/pmd_common.php:611
 msgid "Error: Relational features are disabled!"
 msgstr "Ошибка: Функция связи отключена!"
 
-#: libraries/pmd_common.php:635
+#: libraries/pmd_common.php:633
 msgid "Internal relation has been added."
 msgstr "Добавлена внутренняя связь."
 
-#: libraries/pmd_common.php:641
+#: libraries/pmd_common.php:639
 msgid "Error: Internal relation could not be added!"
 msgstr "Ошибка: внутреннюю связь невозможно добавить!"
 
-#: libraries/pmd_common.php:679
+#: libraries/pmd_common.php:677
 msgid "FOREIGN KEY relation has been removed."
 msgstr "Связь внешнего ключа была удалена."
 
-#: libraries/pmd_common.php:685
+#: libraries/pmd_common.php:683
 msgid "Error: FOREIGN KEY relation could not be removed!"
 msgstr "Ошибка: связь внешнего ключа невозможно удалить!"
 
-#: libraries/pmd_common.php:712
+#: libraries/pmd_common.php:710
 msgid "Error: Internal relation could not be removed!"
 msgstr "Ошибка: внутреннюю связь невозможно удалить!"
 
-#: libraries/pmd_common.php:716
+#: libraries/pmd_common.php:714
 msgid "Internal relation has been removed."
 msgstr "Внутренняя связь удалена."
 
@@ -11042,18 +11049,18 @@ msgid "Re-login to phpMyAdmin to load the updated configuration file."
 msgstr ""
 "Перезайдите в phpMyAdmin, чтобы загрузить обновленный конфигурационный файл."
 
-#: libraries/relation.lib.php:1674
+#: libraries/relation.lib.php:1686
 msgid "no description"
 msgstr "нет описания"
 
-#: libraries/relation.lib.php:1867
+#: libraries/relation.lib.php:1879
 msgid ""
 "You do not have necessary privileges to create a database named "
 "'phpmyadmin'. You may go to 'Operations' tab of any database to set up the "
 "phpMyAdmin configuration storage there."
 msgstr ""
 
-#: libraries/relation.lib.php:1982
+#: libraries/relation.lib.php:1994
 #, php-format
 msgid ""
 "%sCreate%s a database named 'phpmyadmin' and setup the phpMyAdmin "
@@ -11062,13 +11069,13 @@ msgstr ""
 "%sСоздать%s базу данных с именем 'phpmyadmin' и настроить там хранение "
 "конфигурации phpMyAdmin."
 
-#: libraries/relation.lib.php:1990
+#: libraries/relation.lib.php:2002
 #, php-format
 msgid ""
 "%sCreate%s the phpMyAdmin configuration storage in the current database."
 msgstr "%sСоздать%s хранилище конфигурации phpMyAdmin в текущей базе данных."
 
-#: libraries/relation.lib.php:1998
+#: libraries/relation.lib.php:2010
 #, php-format
 msgid "%sCreate%s missing phpMyAdmin configuration storage tables."
 msgstr "%sСоздать%s отсутствующие таблицы хранения конфигурации phpMyAdmin."
@@ -11743,26 +11750,29 @@ msgid "routine"
 msgstr "процедура"
 
 #: libraries/rte/rte_words.lib.php:32
-msgid "You do not have the necessary privileges to create a routine"
+#, fuzzy
+#| msgid "You do not have the necessary privileges to create a routine"
+msgid "You do not have the necessary privileges to create a routine."
 msgstr "У вас недостаточно прав для создания процедуры"
 
 #: libraries/rte/rte_words.lib.php:35
 #, php-format
 msgid ""
 "No routine with name %1$s found in database %2$s. You might be lacking the "
-"necessary privileges to edit this routine"
+"necessary privileges to edit this routine."
 msgstr ""
 
 #: libraries/rte/rte_words.lib.php:39
 #, php-format
 msgid ""
 "No routine with name %1$s found in database %2$s. You might be lacking the "
-"necessary privileges to view/export this routine"
+"necessary privileges to view/export this routine."
 msgstr ""
 
 #: libraries/rte/rte_words.lib.php:42
-#, php-format
-msgid "No routine with name %1$s found in database %2$s"
+#, fuzzy, php-format
+#| msgid "No routine with name %1$s found in database %2$s"
+msgid "No routine with name %1$s found in database %2$s."
 msgstr "В базе данных %2$s процедура с именем %1$s не найдена"
 
 #: libraries/rte/rte_words.lib.php:43
@@ -11783,12 +11793,15 @@ msgid "trigger"
 msgstr "триггер"
 
 #: libraries/rte/rte_words.lib.php:54
-msgid "You do not have the necessary privileges to create a trigger"
+#, fuzzy
+#| msgid "You do not have the necessary privileges to create a trigger"
+msgid "You do not have the necessary privileges to create a trigger."
 msgstr "У вас недостаточно прав для создания триггера"
 
 #: libraries/rte/rte_words.lib.php:56
-#, php-format
-msgid "No trigger with name %1$s found in database %2$s"
+#, fuzzy, php-format
+#| msgid "No trigger with name %1$s found in database %2$s"
+msgid "No trigger with name %1$s found in database %2$s."
 msgstr "В базе данных %2$s триггер с именем %1$s не найден"
 
 #: libraries/rte/rte_words.lib.php:57
@@ -11809,12 +11822,15 @@ msgid "event"
 msgstr "событие"
 
 #: libraries/rte/rte_words.lib.php:68
-msgid "You do not have the necessary privileges to create an event"
+#, fuzzy
+#| msgid "You do not have the necessary privileges to create an event"
+msgid "You do not have the necessary privileges to create an event."
 msgstr "У вас недостаточно прав для создания события"
 
 #: libraries/rte/rte_words.lib.php:70
-#, php-format
-msgid "No event with name %1$s found in database %2$s"
+#, fuzzy, php-format
+#| msgid "No event with name %1$s found in database %2$s"
+msgid "No event with name %1$s found in database %2$s."
 msgstr "В базе данных %2$s не найдено событие с именем %1$s"
 
 #: libraries/rte/rte_words.lib.php:71
@@ -15235,31 +15251,38 @@ msgstr "Действия"
 msgid "Constraint properties"
 msgstr "Свойства ограничения"
 
-#: templates/table/relation/common_form.phtml:12
+#: templates/table/relation/common_form.phtml:13
+msgid ""
+"Creating a foreign key over a non-indexed column would automatically create "
+"an index on it. Alternatively, you can define an index below, before "
+"creating the foreign key."
+msgstr ""
+
+#: templates/table/relation/common_form.phtml:20
 msgid ""
 "Only columns with index will be displayed. You can define an index below."
 msgstr ""
 "Будут отображаться только столбцы с индексом. Вы можете определить индекс "
 "ниже."
 
-#: templates/table/relation/common_form.phtml:17
+#: templates/table/relation/common_form.phtml:26
 msgid "Foreign key constraint"
 msgstr "Ограничение внешнего ключа"
 
-#: templates/table/relation/common_form.phtml:59
+#: templates/table/relation/common_form.phtml:68
 msgid "+ Add constraint"
 msgstr "+ Добавить ограничение"
 
-#: templates/table/relation/common_form.phtml:69
-#: templates/table/relation/common_form.phtml:75
+#: templates/table/relation/common_form.phtml:78
+#: templates/table/relation/common_form.phtml:84
 msgid "Internal relations"
 msgstr "Внутренние связи"
 
-#: templates/table/relation/common_form.phtml:79
+#: templates/table/relation/common_form.phtml:88
 msgid "Internal relation"
 msgstr "Внутренняя связь"
 
-#: templates/table/relation/common_form.phtml:82
+#: templates/table/relation/common_form.phtml:91
 msgid ""
 "An internal relation is not necessary when a corresponding FOREIGN KEY "
 "relation exists."
@@ -15267,7 +15290,7 @@ msgstr ""
 "Внутренняя связь не обязательна, если существует соответствующая связь с "
 "помощью внешнего ключа (FOREIGN KEY)."
 
-#: templates/table/relation/common_form.phtml:110
+#: templates/table/relation/common_form.phtml:119
 msgid "Choose column to display:"
 msgstr "Выбор отображаемого столбца:"
 
@@ -15276,11 +15299,11 @@ msgstr "Выбор отображаемого столбца:"
 msgid "Foreign key constraint %s has been dropped"
 msgstr "Ограничение внешнего ключа %s удалено"
 
-#: templates/table/relation/foreign_key_row.phtml:88
+#: templates/table/relation/foreign_key_row.phtml:90
 msgid "Constraint name"
 msgstr "Ограничения внешнего ключа"
 
-#: templates/table/relation/foreign_key_row.phtml:143
+#: templates/table/relation/foreign_key_row.phtml:145
 msgid "+ Add column"
 msgstr "+ Добавить столбец"
 

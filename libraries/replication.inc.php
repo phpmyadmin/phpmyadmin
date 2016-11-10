@@ -28,7 +28,7 @@ if (! empty($_REQUEST['master_connection'])) {
     if ($server_slave_multi_replication) {
         $GLOBALS['dbi']->query(
             "SET @@default_master_connection = '"
-            . PMA\libraries\Util::sqlAddSlashes(
+            . $GLOBALS['dbi']->escapeString(
                 $_REQUEST['master_connection']
             ) . "'"
         );

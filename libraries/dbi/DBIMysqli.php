@@ -578,4 +578,17 @@ class DBIMysqli implements DBIExtension
         }
         return implode(' ', $flags);
     }
+
+    /**
+     * returns properly escaped string for use in MySQL queries
+     *
+     * @param mixed  $link database link
+     * @param string $str  string to be escaped
+     *
+     * @return string a MySQL escaped string
+     */
+    public function escapeString($link, $str)
+    {
+        return mysqli_real_escape_string($link, $str);
+    }
 }

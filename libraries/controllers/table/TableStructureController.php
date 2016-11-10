@@ -1208,8 +1208,8 @@ class TableStructureController extends TableController
                     FROM `INFORMATION_SCHEMA`.`VIEWS`
                     WHERE TABLE_SCHEMA='%s'
                     AND TABLE_NAME='%s';",
-                    Util::sqlAddSlashes($this->db),
-                    Util::sqlAddSlashes($this->table)
+                    $GLOBALS['dbi']->escapeString($this->db),
+                    $GLOBALS['dbi']->escapeString($this->table)
                 )
             );
 

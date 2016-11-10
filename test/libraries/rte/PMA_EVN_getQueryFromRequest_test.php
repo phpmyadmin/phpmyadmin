@@ -48,6 +48,14 @@ class PMA_EVN_GetQueryFromRequest_Test extends PHPUnit_Framework_TestCase
         unset($_REQUEST);
         $_REQUEST = $request;
 
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+            ->disableOriginalConstructor()
+            ->getMock();
+        $dbi->expects($this->any())
+            ->method('escapeString')
+            ->will($this->returnArgument(0));
+        $GLOBALS['dbi'] = $dbi;
+
         $this->assertEquals($query, PMA_EVN_getQueryFromRequest());
         $this->assertEquals($num_err, count($errors));
     }

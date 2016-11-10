@@ -471,8 +471,13 @@ function suggestPassword(passwd_form)
         passwd.value += pwchars.charAt(Math.abs(randomWords[i]) % pwchars.length);
     }
 
-    passwd_form.text_pma_pw.value = passwd.value;
-    passwd_form.text_pma_pw2.value = passwd.value;
+    $jquery_passwd_form = $(passwd_form);
+
+    passwd_form.elements['pma_pw'].value = passwd.value;
+    passwd_form.elements['pma_pw2'].value = passwd.value;
+    meter_obj = $jquery_passwd_form.find('meter[name="pw_meter"]').first();
+    meter_obj_label = $jquery_passwd_form.find('span[name="pw_strength"]').first();
+    checkPasswordStrength(passwd.value, meter_obj, meter_obj_label);
     return true;
 }
 
@@ -3173,6 +3178,10 @@ AJAX.registerOnload('functions.js', function () {
                 return;
             }
 
+            if (data._scripts) {
+                AJAX.scriptHandler.load(data._scripts);
+            }
+
             $('<div id="change_password_dialog"></div>')
                 .dialog({
                     title: PMA_messages.strChangePassword,
@@ -3189,7 +3198,6 @@ AJAX.registerOnload('functions.js', function () {
                 .find("legend").remove().end()
                 .find("table.noclick").unwrap().addClass("some-margin")
                 .find("input#text_pma_pw").focus();
-            displayPasswordGenerateButton();
             $('#fieldset_change_password_footer').hide();
             PMA_ajaxRemoveMessage($msgbox);
             $('#change_password_form').bind('submit', function (e) {

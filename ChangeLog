@@ -32,6 +32,8 @@ phpMyAdmin - ChangeLog
 - issue #12656 Server selection not working
 - issue #12543 NULL results in dataset are colored grey
 - issue #12664 Create Bookmark broken
+- issue #12688 Use unsigned int for storing bookmark ID
+- issue #12352 Added password strength indicator
 
 4.6.5 (not yet released)
 - issue        Remove potentionally license problematic sRGB profile
@@ -114,6 +116,10 @@ phpMyAdmin - ChangeLog
 - issue #12674 Allow for proper MySQL-allowed strings as identifiers
 - issue #12651 Allow for partial dates on table insert page
 - issue #12681 Fixed designer with tables using special chars
+- issue #12652 Fixed visual query builder for foreign keys with more fields
+- issue #12257 Improved search page performance
+- issue #12322 Avoid selecting default function for foreign keys
+- issue #12453 Fixed escaping of SQL parts in some corner cases
 
 4.6.4 (2016-08-16)
 - issue        [security] Weaknesses with cookie encryption, see PMASA-2016-29

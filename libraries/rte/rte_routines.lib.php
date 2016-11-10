@@ -590,9 +590,9 @@ function PMA_RTN_getDataFromName($name, $type, $all = true, $control = false)
              . "ROUTINE_DEFINITION, IS_DETERMINISTIC, SQL_DATA_ACCESS, "
              . "ROUTINE_COMMENT, SECURITY_TYPE";
     $where   = "ROUTINE_SCHEMA " . PMA\libraries\Util::getCollateForIS() . "="
-             . "'" . PMA\libraries\Util::sqlAddSlashes($db) . "' "
-             . "AND SPECIFIC_NAME='" . PMA\libraries\Util::sqlAddSlashes($name) . "'"
-             . "AND ROUTINE_TYPE='" . PMA\libraries\Util::sqlAddSlashes($type) . "'";
+             . "'" . $GLOBALS['dbi']->escapeString($db) . "' "
+             . "AND SPECIFIC_NAME='" . $GLOBALS['dbi']->escapeString($name) . "'"
+             . "AND ROUTINE_TYPE='" . $GLOBALS['dbi']->escapeString($type) . "'";
     $query   = "SELECT $fields FROM INFORMATION_SCHEMA.ROUTINES WHERE $where;";
 
     $routine = $GLOBALS['dbi']->fetchSingleRow($query, 'ASSOC', $link);
@@ -1267,7 +1267,7 @@ function PMA_RTN_getQueryFromRequest()
         $query .= ' ';
     }
     if (! empty($_REQUEST['item_comment'])) {
-        $query .= "COMMENT '" . PMA\libraries\Util::sqlAddslashes($_REQUEST['item_comment'])
+        $query .= "COMMENT '" . $GLOBALS['dbi']->escapeString($_REQUEST['item_comment'])
             . "' ";
     }
     if (isset($_REQUEST['item_isdeterministic'])) {
@@ -1342,7 +1342,7 @@ function PMA_RTN_handleExecute()
                 if (is_array($value)) { // is SET type
                     $value = implode(',', $value);
                 }
-                $value = PMA\libraries\Util::sqlAddSlashes($value);
+                $value = $GLOBALS['dbi']->escapeString($value);
                 if (! empty($_REQUEST['funcs'][$routine['item_param_name'][$i]])
                     && in_array(
                         $_REQUEST['funcs'][$routine['item_param_name'][$i]],
@@ -1650,7 +1650,7 @@ function PMA_RTN_getExecuteForm($routine)
                 );
                 $retval .= "<select name='funcs["
                     . $routine['item_param_name'][$i] . "]'>";
-                $retval .= PMA\libraries\Util::getFunctionsForField($field, false);
+                $retval .= PMA\libraries\Util::getFunctionsForField($field, false, array());
                 $retval .= "</select>";
             }
             $retval .= "</td>\n";

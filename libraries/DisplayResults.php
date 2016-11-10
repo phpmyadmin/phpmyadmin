@@ -4054,7 +4054,7 @@ class DisplayResults
             || $bool_nowrap) ? ' nowrap' : '';
 
         $where_comparison = ' = \''
-            . Util::sqlAddSlashes($column)
+            . $GLOBALS['dbi']->escapeString($column)
             . '\'';
 
         $cell = $this->_getRowData(

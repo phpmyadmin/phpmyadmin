@@ -22,6 +22,7 @@ $response = PMA\libraries\Response::getInstance();
 $header   = $response->getHeader();
 $scripts  = $header->getScripts();
 $scripts->addFile('server_privileges.js');
+$scripts->addFile('zxcvbn.js');
 
 /**
  * Displays an error message and exits if the user isn't allowed to use this
@@ -235,7 +236,7 @@ function PMA_changePassUrlParamsAndSubmitQuery(
             . ' IDENTIFIED with ' . $orig_auth_plugin . ' BY '
             . (($password == '')
             ? '\'\''
-            : '\'' . PMA\libraries\Util::sqlAddSlashes($password) . '\'');
+            : '\'' . $GLOBALS['dbi']->escapeString($password) . '\'');
     } else if ($serverType == 'MariaDB'
         && PMA_MYSQL_INT_VERSION >= 50200
         && PMA_MYSQL_INT_VERSION < 100100
@@ -263,7 +264,7 @@ function PMA_changePassUrlParamsAndSubmitQuery(
         $local_query = 'SET password = ' . (($password == '')
             ? '\'\''
             : $hashing_function . '(\''
-                . PMA\libraries\Util::sqlAddSlashes($password) . '\')');
+                . $GLOBALS['dbi']->escapeString($password) . '\')');
     }
     if (! @$GLOBALS['dbi']->tryQuery($local_query)) {
         PMA\libraries\Util::mysqlDie(
