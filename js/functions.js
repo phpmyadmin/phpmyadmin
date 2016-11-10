@@ -3173,6 +3173,10 @@ AJAX.registerOnload('functions.js', function () {
                 return;
             }
 
+            if (data._scripts) {
+                AJAX.scriptHandler.load(data._scripts);
+            }
+
             $('<div id="change_password_dialog"></div>')
                 .dialog({
                     title: PMA_messages.strChangePassword,
@@ -3189,7 +3193,6 @@ AJAX.registerOnload('functions.js', function () {
                 .find("legend").remove().end()
                 .find("table.noclick").unwrap().addClass("some-margin")
                 .find("input#text_pma_pw").focus();
-            displayPasswordGenerateButton();
             $('#fieldset_change_password_footer').hide();
             PMA_ajaxRemoveMessage($msgbox);
             $('#change_password_form').bind('submit', function (e) {
