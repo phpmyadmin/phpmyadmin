@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.5-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-11-10 09:39+0100\n"
-"PO-Revision-Date: 2016-11-10 13:06+0000\n"
+"PO-Revision-Date: 2016-11-10 13:08+0000\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-6/tr/>\n"
@@ -15439,7 +15439,7 @@ msgstr "Sütunları seç (en az bir):"
 
 #: templates/table/search/options.phtml:37
 msgid "Add search conditions (body of the \"where\" clause):"
-msgstr "Arama koşulu ekle (\"where\" koşulu gövdesi):"
+msgstr "Arama koşulları ekle (\"where\" yan tümcesi gövdesi):"
 
 #: templates/table/search/options.phtml:45
 msgid "Number of rows per page"
@@ -16231,9 +16231,9 @@ msgid ""
 "indexed columns in the ORDER BY clause, as this will result in much faster "
 "sorting."
 msgstr ""
-"Satır sıralamanın yüksek miktarıyla hiçbir sorun yokken, ORDER BY ibaresinde "
-"indekslenmiş sütunları kullanan çok fazla sıralama gerektiren sorgulardan "
-"emin olmak isteyebilirsiniz, ki bu çok daha hızlı sıralamayla "
+"Satır sıralamanın yüksek miktarıyla hiçbir sorun yokken, ORDER BY yan "
+"tümcesinde indekslenmiş sütunları kullanan çok fazla sıralama gerektiren "
+"sorgulardan emin olmak isteyebilirsiniz, ki bu çok daha hızlı sıralamayla "
 "sonuçlanacaktır."
 
 #: libraries/advisory_rules.txt:223
