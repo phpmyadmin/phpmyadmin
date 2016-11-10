@@ -119,6 +119,7 @@ phpMyAdmin - ChangeLog
 - issue #12652 Fixed visual query builder for foreign keys with more fields
 - issue #12257 Improved search page performance
 - issue #12322 Avoid selecting default function for foreign keys
+- issue #12453 Fixed escaping of SQL parts in some corner cases
 
 4.6.4 (2016-08-16)
 - issue        [security] Weaknesses with cookie encryption, see PMASA-2016-29

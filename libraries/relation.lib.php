@@ -757,12 +757,12 @@ function PMA_getForeigners($db, $table, $column = '', $source = 'both')
                 `foreign_field`
             FROM ' . PMA\libraries\Util::backquote($cfgRelation['db'])
                 . '.' . PMA\libraries\Util::backquote($cfgRelation['relation']) . '
-            WHERE `master_db`    = \'' . PMA\libraries\Util::sqlAddSlashes($db) . '\'
-                AND `master_table` = \'' . PMA\libraries\Util::sqlAddSlashes($table)
+            WHERE `master_db`    = \'' . $GLOBALS['dbi']->escapeString($db) . '\'
+                AND `master_table` = \'' . $GLOBALS['dbi']->escapeString($table)
             . '\' ';
         if (strlen($column) > 0) {
             $rel_query .= ' AND `master_field` = '
-                . '\'' . PMA\libraries\Util::sqlAddSlashes($column) . '\'';
+                . '\'' . $GLOBALS['dbi']->escapeString($column) . '\'';
         }
         $foreign = $GLOBALS['dbi']->fetchResult(
             $rel_query, 'master_field', null, $GLOBALS['controllink']
@@ -836,8 +836,8 @@ function PMA_getDisplayField($db, $table)
             SELECT `display_field`
             FROM ' . PMA\libraries\Util::backquote($cfgRelation['db'])
                 . '.' . PMA\libraries\Util::backquote($cfgRelation['table_info']) . '
-            WHERE `db_name`    = \'' . PMA\libraries\Util::sqlAddSlashes($db) . '\'
-                AND `table_name` = \'' . PMA\libraries\Util::sqlAddSlashes($table)
+            WHERE `db_name`    = \'' . $GLOBALS['dbi']->escapeString($db) . '\'
+                AND `table_name` = \'' . $GLOBALS['dbi']->escapeString($table)
             . '\'';
 
         $row = $GLOBALS['dbi']->fetchSingleRow(
@@ -919,7 +919,7 @@ function PMA_getDbComment($db)
             FROM " . PMA\libraries\Util::backquote($cfgRelation['db'])
                 . "." . PMA\libraries\Util::backquote($cfgRelation['column_info'])
                 . "
-            WHERE db_name     = '" . PMA\libraries\Util::sqlAddSlashes($db) . "'
+            WHERE db_name     = '" . $GLOBALS['dbi']->escapeString($db) . "'
                 AND table_name  = ''
                 AND column_name = '(db_comment)'";
         $com_rs = PMA_queryAsControlUser(
@@ -995,17 +995,17 @@ function PMA_setDbComment($db, $comment = '')
             . PMA\libraries\Util::backquote($cfgRelation['column_info'])
             . ' (`db_name`, `table_name`, `column_name`, `comment`)'
             . ' VALUES (\''
-            . PMA\libraries\Util::sqlAddSlashes($db)
+            . $GLOBALS['dbi']->escapeString($db)
             . "', '', '(db_comment)', '"
-            . PMA\libraries\Util::sqlAddSlashes($comment)
+            . $GLOBALS['dbi']->escapeString($comment)
             . "') "
             . ' ON DUPLICATE KEY UPDATE '
-            . "`comment` = '" . PMA\libraries\Util::sqlAddSlashes($comment) . "'";
+            . "`comment` = '" . $GLOBALS['dbi']->escapeString($comment) . "'";
     } else {
         $upd_query = 'DELETE FROM '
             . PMA\libraries\Util::backquote($cfgRelation['db']) . '.'
             . PMA\libraries\Util::backquote($cfgRelation['column_info'])
-            . ' WHERE `db_name`     = \'' . PMA\libraries\Util::sqlAddSlashes($db)
+            . ' WHERE `db_name`     = \'' . $GLOBALS['dbi']->escapeString($db)
             . '\'
                 AND `table_name`  = \'\'
                 AND `column_name` = \'(db_comment)\'';
@@ -1071,11 +1071,11 @@ function PMA_setHistory($db, $table, $username, $sqlquery)
                 `timevalue`,
                 `sqlquery`)
         VALUES
-              (\'' . PMA\libraries\Util::sqlAddSlashes($username) . '\',
-               \'' . PMA\libraries\Util::sqlAddSlashes($db) . '\',
-               \'' . PMA\libraries\Util::sqlAddSlashes($table) . '\',
+              (\'' . $GLOBALS['dbi']->escapeString($username) . '\',
+               \'' . $GLOBALS['dbi']->escapeString($db) . '\',
+               \'' . $GLOBALS['dbi']->escapeString($table) . '\',
                NOW(),
-               \'' . PMA\libraries\Util::sqlAddSlashes($sqlquery) . '\')'
+               \'' . $GLOBALS['dbi']->escapeString($sqlquery) . '\')'
     );
 
     PMA_purgeHistory($username);
@@ -1117,7 +1117,7 @@ function PMA_getHistory($username)
                 `timevalue`
            FROM ' . PMA\libraries\Util::backquote($cfgRelation['db'])
             . '.' . PMA\libraries\Util::backquote($cfgRelation['history']) . '
-          WHERE `username` = \'' . PMA\libraries\Util::sqlAddSlashes($username) . '\'
+          WHERE `username` = \'' . $GLOBALS['dbi']->escapeString($username) . '\'
        ORDER BY `id` DESC';
 
     return $GLOBALS['dbi']->fetchResult(
@@ -1152,7 +1152,7 @@ function PMA_purgeHistory($username)
         SELECT `timevalue`
         FROM ' . PMA\libraries\Util::backquote($cfgRelation['db'])
             . '.' . PMA\libraries\Util::backquote($cfgRelation['history']) . '
-        WHERE `username` = \'' . PMA\libraries\Util::sqlAddSlashes($username) . '\'
+        WHERE `username` = \'' . $GLOBALS['dbi']->escapeString($username) . '\'
         ORDER BY `timevalue` DESC
         LIMIT ' . $GLOBALS['cfg']['QueryHistoryMax'] . ', 1';
 
@@ -1163,7 +1163,7 @@ function PMA_purgeHistory($username)
             'DELETE FROM '
             . PMA\libraries\Util::backquote($cfgRelation['db']) . '.'
             . PMA\libraries\Util::backquote($cfgRelation['history']) . '
-              WHERE `username` = \'' . PMA\libraries\Util::sqlAddSlashes($username)
+              WHERE `username` = \'' . $GLOBALS['dbi']->escapeString($username)
             . '\'
                 AND `timevalue` <= \'' . $max_time . '\''
         );
@@ -1387,7 +1387,7 @@ function PMA_getForeignData(
                 . '.' . PMA\libraries\Util::backquote($foreign_table);
             $f_query_filter = empty($foreign_filter) ? '' : ' WHERE '
                 . PMA\libraries\Util::backquote($foreign_field)
-                . ' LIKE "%' . PMA\libraries\Util::sqlAddSlashes(
+                . ' LIKE "%' . $GLOBALS['dbi']->escapeString(
                     $foreign_filter,
                     true
                 ) . '%"'
@@ -1395,7 +1395,7 @@ function PMA_getForeignData(
                 ($foreign_display == false)
                     ? ''
                     : ' OR ' . PMA\libraries\Util::backquote($foreign_display)
-                    . ' LIKE "%' . PMA\libraries\Util::sqlAddSlashes(
+                    . ' LIKE "%' . $GLOBALS['dbi']->escapeString(
                         $foreign_filter,
                         true
                     )
@@ -1480,14 +1480,14 @@ function PMA_REL_renameField($db, $table, $field, $new_name)
         $table_query = 'UPDATE '
             . PMA\libraries\Util::backquote($cfgRelation['db']) . '.'
             . PMA\libraries\Util::backquote($cfgRelation['table_info'])
-            . '   SET display_field = \'' . PMA\libraries\Util::sqlAddSlashes(
+            . '   SET display_field = \'' . $GLOBALS['dbi']->escapeString(
                 $new_name
             ) . '\''
-            . ' WHERE db_name       = \'' . PMA\libraries\Util::sqlAddSlashes($db)
+            . ' WHERE db_name       = \'' . $GLOBALS['dbi']->escapeString($db)
             . '\''
-            . '   AND table_name    = \'' . PMA\libraries\Util::sqlAddSlashes($table)
+            . '   AND table_name    = \'' . $GLOBALS['dbi']->escapeString($table)
             . '\''
-            . '   AND display_field = \'' . PMA\libraries\Util::sqlAddSlashes($field)
+            . '   AND display_field = \'' . $GLOBALS['dbi']->escapeString($field)
             . '\'';
         PMA_queryAsControlUser($table_query);
     }
@@ -1496,28 +1496,28 @@ function PMA_REL_renameField($db, $table, $field, $new_name)
         $table_query = 'UPDATE '
             . PMA\libraries\Util::backquote($cfgRelation['db']) . '.'
             . PMA\libraries\Util::backquote($cfgRelation['relation'])
-            . '   SET master_field = \'' . PMA\libraries\Util::sqlAddSlashes(
+            . '   SET master_field = \'' . $GLOBALS['dbi']->escapeString(
                 $new_name
             ) . '\''
-            . ' WHERE master_db    = \'' . PMA\libraries\Util::sqlAddSlashes($db)
+            . ' WHERE master_db    = \'' . $GLOBALS['dbi']->escapeString($db)
             . '\''
-            . '   AND master_table = \'' . PMA\libraries\Util::sqlAddSlashes($table)
+            . '   AND master_table = \'' . $GLOBALS['dbi']->escapeString($table)
             . '\''
-            . '   AND master_field = \'' . PMA\libraries\Util::sqlAddSlashes($field)
+            . '   AND master_field = \'' . $GLOBALS['dbi']->escapeString($field)
             . '\'';
         PMA_queryAsControlUser($table_query);
 
         $table_query = 'UPDATE '
             . PMA\libraries\Util::backquote($cfgRelation['db']) . '.'
             . PMA\libraries\Util::backquote($cfgRelation['relation'])
-            . '   SET foreign_field = \'' . PMA\libraries\Util::sqlAddSlashes(
+            . '   SET foreign_field = \'' . $GLOBALS['dbi']->escapeString(
                 $new_name
             ) . '\''
-            . ' WHERE foreign_db    = \'' . PMA\libraries\Util::sqlAddSlashes($db)
+            . ' WHERE foreign_db    = \'' . $GLOBALS['dbi']->escapeString($db)
             . '\''
-            . '   AND foreign_table = \'' . PMA\libraries\Util::sqlAddSlashes($table)
+            . '   AND foreign_table = \'' . $GLOBALS['dbi']->escapeString($table)
             . '\''
-            . '   AND foreign_field = \'' . PMA\libraries\Util::sqlAddSlashes($field)
+            . '   AND foreign_field = \'' . $GLOBALS['dbi']->escapeString($field)
             . '\'';
         PMA_queryAsControlUser($table_query);
 
@@ -1547,14 +1547,14 @@ function PMA_REL_renameSingleTable($table,
         . PMA\libraries\Util::backquote($GLOBALS['cfgRelation']['db']) . '.'
         . PMA\libraries\Util::backquote($GLOBALS['cfgRelation'][$table])
         . ' SET '
-        . $db_field . ' = \'' . PMA\libraries\Util::sqlAddSlashes($target_db)
+        . $db_field . ' = \'' . $GLOBALS['dbi']->escapeString($target_db)
         . '\', '
-        . $table_field . ' = \'' . PMA\libraries\Util::sqlAddSlashes($target_table)
+        . $table_field . ' = \'' . $GLOBALS['dbi']->escapeString($target_table)
         . '\''
         . ' WHERE '
-        . $db_field . '  = \'' . PMA\libraries\Util::sqlAddSlashes($source_db) . '\''
+        . $db_field . '  = \'' . $GLOBALS['dbi']->escapeString($source_db) . '\''
         . ' AND '
-        . $table_field . ' = \'' . PMA\libraries\Util::sqlAddSlashes($source_table)
+        . $table_field . ' = \'' . $GLOBALS['dbi']->escapeString($source_table)
         . '\'';
     PMA_queryAsControlUser($query);
 }
@@ -1627,8 +1627,8 @@ function PMA_REL_renameTable($source_db, $target_db, $source_table, $target_tabl
             $remove_query = "DELETE FROM "
                 . PMA\libraries\Util::backquote($GLOBALS['cfgRelation']['db']) . "."
                 . PMA\libraries\Util::backquote($GLOBALS['cfgRelation']['table_coords'])
-                . " WHERE db_name  = '" . PMA\libraries\Util::sqlAddSlashes($source_db) . "'"
-                . " AND table_name = '" . PMA\libraries\Util::sqlAddSlashes($source_table)
+                . " WHERE db_name  = '" . $GLOBALS['dbi']->escapeString($source_db) . "'"
+                . " AND table_name = '" . $GLOBALS['dbi']->escapeString($source_table)
                 . "'";
             PMA_queryAsControlUser($remove_query);
         }
@@ -1658,13 +1658,13 @@ function PMA_REL_renameTable($source_db, $target_db, $source_table, $target_tabl
             . PMA\libraries\Util::backquote(
                 $GLOBALS['cfgRelation']['navigationhiding']
             )
-            . " SET db_name = '" . PMA\libraries\Util::sqlAddSlashes($target_db)
+            . " SET db_name = '" . $GLOBALS['dbi']->escapeString($target_db)
             . "',"
-            . " item_name = '" . PMA\libraries\Util::sqlAddSlashes($target_table)
+            . " item_name = '" . $GLOBALS['dbi']->escapeString($target_table)
             . "'"
-            . " WHERE db_name  = '" . PMA\libraries\Util::sqlAddSlashes($source_db)
+            . " WHERE db_name  = '" . $GLOBALS['dbi']->escapeString($source_db)
             . "'"
-            . " AND item_name = '" . PMA\libraries\Util::sqlAddSlashes($source_table)
+            . " AND item_name = '" . $GLOBALS['dbi']->escapeString($source_table)
             . "'"
             . " AND item_type = 'table'";
         PMA_queryAsControlUser($query);
@@ -1690,8 +1690,8 @@ function PMA_REL_createPage($newpage, $cfgRelation, $db)
         . PMA\libraries\Util::backquote($cfgRelation['pdf_pages'])
         . ' (db_name, page_descr)'
         . ' VALUES (\''
-        . PMA\libraries\Util::sqlAddSlashes($db) . '\', \''
-        . PMA\libraries\Util::sqlAddSlashes($newpage) . '\')';
+        . $GLOBALS['dbi']->escapeString($db) . '\', \''
+        . $GLOBALS['dbi']->escapeString($newpage) . '\')';
     PMA_queryAsControlUser($ins_query, false);
 
     return $GLOBALS['dbi']->insertId(
@@ -1717,12 +1717,12 @@ function PMA_getChildReferences($db, $table, $column = '')
             . " `table_schema`, `referenced_column_name`"
             . " FROM `information_schema`.`key_column_usage`"
             . " WHERE `referenced_table_name` = '"
-            . PMA\libraries\Util::sqlAddSlashes($table) . "'"
+            . $GLOBALS['dbi']->escapeString($table) . "'"
             . " AND `referenced_table_schema` = '"
-            . PMA\libraries\Util::sqlAddSlashes($db) . "'";
+            . $GLOBALS['dbi']->escapeString($db) . "'";
         if ($column) {
             $rel_query .= " AND `referenced_column_name` = '"
-                . PMA\libraries\Util::sqlAddSlashes($column) . "'";
+                . $GLOBALS['dbi']->escapeString($column) . "'";
         }
 
         $child_references = $GLOBALS['dbi']->fetchResult(

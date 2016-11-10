@@ -689,20 +689,15 @@ class ExportOdtTest extends PMATestCase
             ->disableOriginalConstructor()
             ->getMock();
 
-        $dbi->expects($this->at(1))
+        $dbi->expects($this->exactly(2))
             ->method('fetchResult')
-            ->will($this->returnValue(array()));
-
-        $dbi->expects($this->at(6))
-            ->method('fetchResult')
-            ->will(
-                $this->returnValue(
-                    array(
-                        'fieldname' => array(
-                            'values' => 'test-',
-                            'transformation' => 'testfoo',
-                            'mimetype' => 'test<'
-                        )
+            ->willReturnOnConsecutiveCalls(
+                array(),
+                array(
+                    'fieldname' => array(
+                        'values' => 'test-',
+                        'transformation' => 'testfoo',
+                        'mimetype' => 'test<'
                     )
                 )
             );
@@ -795,29 +790,20 @@ class ExportOdtTest extends PMATestCase
             ->disableOriginalConstructor()
             ->getMock();
 
-        $dbi->expects($this->at(1))
+        $dbi->expects($this->exactly(2))
             ->method('fetchResult')
-            ->will(
-                $this->returnValue(
-                    array(
-                        'fieldname' => array(
-                            'foreign_table' => 'ftable',
-                            'foreign_field' => 'ffield'
-                        )
+            ->willReturnOnConsecutiveCalls(
+                array(
+                    'fieldname' => array(
+                        'foreign_table' => 'ftable',
+                        'foreign_field' => 'ffield'
                     )
-                )
-            );
-
-        $dbi->expects($this->at(6))
-            ->method('fetchResult')
-            ->will(
-                $this->returnValue(
-                    array(
-                        'field' => array(
-                            'values' => 'test-',
-                            'transformation' => 'testfoo',
-                            'mimetype' => 'test<'
-                        )
+                ),
+                array(
+                    'field' => array(
+                        'values' => 'test-',
+                        'transformation' => 'testfoo',
+                        'mimetype' => 'test<'
                     )
                 )
             );

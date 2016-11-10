@@ -119,10 +119,10 @@ class Bookmark
         $query = "INSERT INTO " . Util::backquote($cfgBookmark['db'])
             . "." . Util::backquote($cfgBookmark['table'])
             . " (id, dbase, user, query, label) VALUES (NULL, "
-            . "'" . Util::sqlAddSlashes($this->_database) . "', "
-            . "'" . Util::sqlAddSlashes($this->_user) . "', "
-            . "'" . Util::sqlAddSlashes($this->_query) . "', "
-            . "'" . Util::sqlAddSlashes($this->_label) . "')";
+            . "'" . $GLOBALS['dbi']->escapeString($this->_database) . "', "
+            . "'" . $GLOBALS['dbi']->escapeString($this->_user) . "', "
+            . "'" . $GLOBALS['dbi']->escapeString($this->_query) . "', "
+            . "'" . $GLOBALS['dbi']->escapeString($this->_label) . "')";
         return $GLOBALS['dbi']->query($query, $controllink);
     }
 
@@ -182,7 +182,7 @@ class Bookmark
         for ($i = 1; $i <= $number_of_variables; $i++) {
             $var = '';
             if (! empty($variables[$i])) {
-                $var = Util::sqlAddSlashes($variables[$i]);
+                $var = $GLOBALS['dbi']->escapeString($variables[$i]);
             }
             $query = str_replace('[VARIABLE' . $i . ']', $var, $query);
             // backward compatibility
@@ -273,9 +273,9 @@ class Bookmark
         $query = "SELECT * FROM " . Util::backquote($cfgBookmark['db'])
             . "." . Util::backquote($cfgBookmark['table'])
             . " WHERE `user` = ''"
-            . " OR `user` = '" . Util::sqlAddSlashes($cfgBookmark['user']) . "'";
+            . " OR `user` = '" . $GLOBALS['dbi']->escapeString($cfgBookmark['user']) . "'";
         if ($db !== false) {
-            $query .= " AND dbase = '" . Util::sqlAddSlashes($db) . "'";
+            $query .= " AND dbase = '" . $GLOBALS['dbi']->escapeString($db) . "'";
         }
         $query .= " ORDER BY label";
 
@@ -334,17 +334,17 @@ class Bookmark
 
         $query = "SELECT * FROM " . Util::backquote($cfgBookmark['db'])
             . "." . Util::backquote($cfgBookmark['table'])
-            . " WHERE dbase = '" . Util::sqlAddSlashes($db) . "'";
+            . " WHERE dbase = '" . $GLOBALS['dbi']->escapeString($db) . "'";
         if (! $action_bookmark_all) {
             $query .= " AND (user = '"
-                . Util::sqlAddSlashes($cfgBookmark['user']) . "'";
+                . $GLOBALS['dbi']->escapeString($cfgBookmark['user']) . "'";
             if (! $exact_user_match) {
                 $query .= " OR user = ''";
             }
             $query .= ")";
         }
         $query .= " AND " . Util::backquote($id_field)
-            . " = " . Util::sqlAddSlashes($id) . " LIMIT 1";
+            . " = " . $GLOBALS['dbi']->escapeString($id) . " LIMIT 1";
 
         $result = $GLOBALS['dbi']->fetchSingleRow($query, 'ASSOC', $controllink);
         if (! empty($result)) {

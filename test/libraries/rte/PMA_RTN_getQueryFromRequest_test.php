@@ -48,10 +48,30 @@ class PMA_RTN_GetQueryFromRequest_Test extends PHPUnit_Framework_TestCase
         $errors = array();
         PMA_RTN_setGlobals();
 
+        $old_dbi = isset($GLOBALS['dbi']) ? $GLOBALS['dbi'] : null;
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+            ->disableOriginalConstructor()
+            ->getMock();
+        $dbi->expects($this->any())
+            ->method('escapeString')
+            ->will(
+                $this->returnValueMap(
+                    array(
+                        array('foo', null, 'foo'),
+                        array("foo's bar", null, "foo\'s bar"),
+                        array('', null, '')
+                    )
+                )
+            );
+        $GLOBALS['dbi'] = $dbi;
+
         unset($_REQUEST);
         $_REQUEST = $request;
         $this->assertEquals($query, PMA_RTN_getQueryFromRequest());
         $this->assertEquals($num_err, count($errors));
+
+        // reset
+        $GLOBALS['dbi'] = $old_dbi;
     }
 
     /**

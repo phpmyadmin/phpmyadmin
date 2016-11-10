@@ -1109,7 +1109,7 @@ function PMA_buildSQL($db_name, &$tables, &$analyses = null,
                     }
 
                     $tempSQLStr .= (($is_varchar) ? "'" : "");
-                    $tempSQLStr .= PMA\libraries\Util::sqlAddSlashes(
+                    $tempSQLStr .= $GLOBALS['dbi']->escapeString(
                         (string) $tables[$i][ROWS][$j][$k]
                     );
                     $tempSQLStr .= (($is_varchar) ? "'" : "");
