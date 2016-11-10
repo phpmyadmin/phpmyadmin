@@ -260,6 +260,9 @@ class Header
             && isset($GLOBALS['cfg']['Server']['auth_type'])
         ) {
             $params['auth_type'] = $GLOBALS['cfg']['Server']['auth_type'];
+            if (isset($GLOBALS['cfg']['Server']['user'])) {
+                $params['user'] = $GLOBALS['cfg']['Server']['user'];
+            }
         }
 
         return $params;

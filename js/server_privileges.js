@@ -136,7 +136,7 @@ AJAX.registerOnload('server_privileges.js', function () {
     $('#text_pma_change_pw').on('keyup', function () {
         meter_obj = $('#change_password_strength_meter');
         meter_obj_label = $('#change_password_strength');
-        checkPasswordStrength($(this).val(), meter_obj, meter_obj_label);
+        checkPasswordStrength($(this).val(), meter_obj, meter_obj_label, PMA_commonParams.get('user'));
     });
 
     /**
