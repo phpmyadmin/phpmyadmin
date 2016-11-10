@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.5-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2016-10-25 11:13+0200\n"
-"PO-Revision-Date: 2016-09-06 06:15+0000\n"
+"POT-Creation-Date: 2016-11-10 09:39+0100\n"
+"PO-Revision-Date: 2016-11-08 18:50+0000\n"
 "Last-Translator: Sevdimali İsa <sevdimaliisayev@mail.ru>\n"
 "Language-Team: Azerbaijani <https://hosted.weblate.org/projects/"
 "phpmyadmin/4-6/az/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.8\n"
+"X-Generator: Weblate 2.9\n"
 
 #: changelog.php:38 license.php:33
 #, php-format
@@ -63,11 +63,12 @@ msgstr "Cədvəl şərhləri:"
 #: libraries/tracking.lib.php:893 libraries/tracking.lib.php:991
 #: templates/columns_definitions/column_name.phtml:18
 #: templates/table/index_form.phtml:124
-#: templates/table/relation/common_form.phtml:11
-#: templates/table/relation/common_form.phtml:26
-#: templates/table/relation/common_form.phtml:78
-#: templates/table/relation/foreign_key_row.phtml:178
-#: templates/table/relation/foreign_key_row.phtml:190
+#: templates/table/relation/common_form.phtml:12
+#: templates/table/relation/common_form.phtml:19
+#: templates/table/relation/common_form.phtml:35
+#: templates/table/relation/common_form.phtml:87
+#: templates/table/relation/foreign_key_row.phtml:180
+#: templates/table/relation/foreign_key_row.phtml:192
 #: templates/table/relation/internal_relational_row.phtml:73
 #: templates/table/search/table_header.phtml:6
 #: templates/table/search/zoom_result_form.phtml:33
@@ -516,7 +517,7 @@ msgstr ""
 msgid "Succeeded"
 msgstr "Uğurlu"
 
-#: import.php:63 js/messages.php:595
+#: import.php:63 js/messages.php:601
 msgid "Failed"
 msgstr "Uğursuz oldu"
 
@@ -584,24 +585,20 @@ msgid "Bookmark %s has been created."
 msgstr "Əlfəcin %s yaradıldı."
 
 #: import.php:697
-#, fuzzy, php-format
-#| msgid "Import has been successfully finished, %d queries executed."
+#, php-format
 msgid "Import has been successfully finished, %d query executed."
 msgid_plural "Import has been successfully finished, %d queries executed."
 msgstr[0] "İmport uğurla başa çatdı, %d sorğu yerinə yetirlidi."
 msgstr[1] "İmport uğurla başa çatdı, %d sorğu yerinə yetirlidi."
 
 #: import.php:728
-#, fuzzy, php-format
-#| msgid ""
-#| "Script timeout passed, if you want to finish import, please resubmit same "
-#| "file and import will resume."
+#, php-format
 msgid ""
 "Script timeout passed, if you want to finish import, please %sresubmit the "
 "same file%s and import will resume."
 msgstr ""
-"Skript zaman limitini keçdi, importu tamamlamaq üçün zəhmət olmasa, həmin "
-"faylı yenidən göndərin və import davam edəcəkdir."
+"Skript zaman limitini keçdi, importu tamamlamaq üçün zəhmət olmasa, %shəmin "
+"faylı yenidən göndərin%s və import davam edəcəkdir."
 
 #: import.php:738
 msgid ""
@@ -617,7 +614,7 @@ msgstr "\"DROP DATABASE\" ifadeleri söndürülmüşdür (disabled)."
 msgid "Could not load the progress of the import."
 msgstr "İmport prosesinin iləriləmə vəziyyəti yüklənə bilmədi."
 
-#: import_status.php:116 js/messages.php:445 js/messages.php:603
+#: import_status.php:116 js/messages.php:445 js/messages.php:609
 #: libraries/Util.php:800 libraries/export.lib.php:516
 #: libraries/plugins/schema/ExportRelationSchema.php:297 user_password.php:298
 msgid "Back"
@@ -639,12 +636,10 @@ msgstr ""
 "dəyişdirməyin. Daha ətraflı məlumat üçün: %s."
 
 #: index.php:161
-#, fuzzy
-#| msgid "General Settings"
 msgid "General settings"
-msgstr "Ümumi Tənzimləmələr"
+msgstr "Ümumi ayarlar"
 
-#: index.php:191 js/messages.php:628
+#: index.php:191 js/messages.php:634
 #: libraries/display_change_password.lib.php:50
 #: libraries/display_change_password.lib.php:53 user_password.php:292
 msgid "Change password"
@@ -655,10 +650,8 @@ msgid "Server connection collation"
 msgstr "Server qoşulma qarşılaşdırması"
 
 #: index.php:230
-#, fuzzy
-#| msgid "Appearance Settings"
 msgid "Appearance settings"
-msgstr "Mövzu Tənzimləmələri"
+msgstr "Mövzu ayarları"
 
 #: index.php:262 prefs_manage.php:284
 msgid "More settings"
@@ -707,10 +700,8 @@ msgid "PHP extension:"
 msgstr "PHP genişlənməsi:"
 
 #: index.php:351
-#, fuzzy
-#| msgid "PHP Version:"
 msgid "PHP version:"
-msgstr "PHP Versiyası:"
+msgstr "PHP versiyası:"
 
 #: index.php:372
 msgid "Version information:"
@@ -783,7 +774,7 @@ msgstr ""
 
 #: index.php:509
 msgid "The secret passphrase in configuration (blowfish_secret) is too short."
-msgstr ""
+msgstr "Konfiqurasiya içindəki (blowfish_secret) gizli parol çox qısadır."
 
 #: index.php:523
 msgid ""
@@ -807,6 +798,8 @@ msgstr ""
 msgid ""
 "Or alternately go to 'Operations' tab of any database to set it up there."
 msgstr ""
+"Və yaxud alternativ olaraq ayarlamaq üçün isə hər hansı bazada "
+"'Əməliyyatlar' bölməsinə gedin."
 
 #: index.php:589
 #, php-format
@@ -864,10 +857,8 @@ msgid "Delete tracking data for these versions?"
 msgstr "Bu versiyalar üçün izləmə verilənləri silinsin?"
 
 #: js/messages.php:55
-#, fuzzy
-#| msgid "Delete tracking data row from report"
 msgid "Delete entry from tracking report?"
-msgstr "Hesabatdan izlənən verilən sətirini sil"
+msgstr "İzləmə Hesabatından giriş silinsinmi?"
 
 #: js/messages.php:56
 msgid "Deleting tracking data"
@@ -906,16 +897,12 @@ msgid "Do you really want to revoke the selected user(s) ?"
 msgstr "Seçilən istifadəçiləri ləğv etmək istədiyinizə əminsinizmi?"
 
 #: js/messages.php:70
-#, fuzzy
-#| msgid "Do you really want to delete this bookmark?"
 msgid "Do you really want to delete this central column?"
-msgstr "Bu əlfəcini silmək istədiyinizə əminsinizmi?"
+msgstr "Bu mərkəzi sütunu silmək istədiyinizə əminsinizmi?"
 
 #: js/messages.php:72
-#, fuzzy
-#| msgid "Do you really want to delete the search \"%s\"?"
 msgid "Do you really want to delete the selected items?"
-msgstr "\"%s\" axtarışını silmək istədiyinizdən əminsinizmi?"
+msgstr "Seçilmiş olanları silmək istədiyinizdən əminsinizmi?"
 
 #: js/messages.php:74
 msgid ""
@@ -936,10 +923,8 @@ msgid "Do you really want to remove partitioning?"
 msgstr "\"%s\" axtarışını silmək istədiyinizdən əminsinizmi?"
 
 #: js/messages.php:81
-#, fuzzy
-#| msgid "Do you really want to execute \"%s\"?"
 msgid "Do you really want to RESET SLAVE?"
-msgstr "\"%s\" sorğusunu icra etmək istəyirsiniz?"
+msgstr "SLAVE-i SIFIRLAMAQ istəyirsinizmi?"
 
 #: js/messages.php:83
 msgid ""
@@ -975,10 +960,8 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:106
-#, fuzzy
-#| msgid "Save & Close"
 msgid "Save & close"
-msgstr "Yaddaşa ver və Bağla"
+msgstr "Yaddaşa ver və bağla"
 
 #: js/messages.php:107 libraries/config/FormDisplay.tpl.php:424
 #: libraries/insert_edit.lib.php:1617 prefs_manage.php:360 prefs_manage.php:371
@@ -986,10 +969,8 @@ msgid "Reset"
 msgstr "Sıfırla"
 
 #: js/messages.php:108
-#, fuzzy
-#| msgid "Reset All"
 msgid "Reset all"
-msgstr "Hamısını Sıfırla"
+msgstr "Hamısını sıfırla"
 
 #: js/messages.php:111
 msgid "Missing value in the form!"
@@ -1012,8 +993,6 @@ msgid "Add index"
 msgstr "İndeks əlavə et"
 
 #: js/messages.php:116
-#, fuzzy
-#| msgid "Edit Index"
 msgid "Edit index"
 msgstr "İndeksi redaktə et"
 
@@ -1031,10 +1010,8 @@ msgid "Create composite index"
 msgstr "Kompleks indeks yarat"
 
 #: js/messages.php:120
-#, fuzzy
-#| msgid "Fields enclosed by"
 msgid "Composite with:"
-msgstr "Saheler ehate edildiyi işare"
+msgstr "Bununla birləşmiş:"
 
 #: js/messages.php:121
 msgid "Please select column(s) for the index."
@@ -1047,7 +1024,7 @@ msgstr "Ən az bir sütun əlavə etməlisiniz."
 #: js/messages.php:127 libraries/insert_edit.lib.php:1615
 #: templates/columns_definitions/column_definitions_form.phtml:163
 #: templates/table/index_form.phtml:242
-#: templates/table/relation/common_form.phtml:126
+#: templates/table/relation/common_form.phtml:135
 msgid "Preview SQL"
 msgstr "SQL önizləmə"
 
@@ -1065,10 +1042,8 @@ msgstr "SQL sorğusu:"
 
 #. l10n: Default label for the y-Axis of Charts
 #: js/messages.php:136
-#, fuzzy
-#| msgid "Y Values"
 msgid "Y values"
-msgstr "Y Qiyməti"
+msgstr "Y qiymətləri"
 
 #: js/messages.php:139
 msgid "The host name is empty!"
@@ -1098,26 +1073,20 @@ msgid "Close"
 msgstr "Bağla"
 
 #: js/messages.php:147
-#, fuzzy
-#| msgid "The number of pages created."
 msgid "Template was created."
-msgstr "Yaradılmış səhifələrin sayı."
+msgstr "Şablon yaradıldı."
 
 #: js/messages.php:148
 msgid "Template was loaded."
-msgstr ""
+msgstr "Şablon yükləndi."
 
 #: js/messages.php:149
-#, fuzzy
-#| msgid "The profile has been updated."
 msgid "Template was updated."
-msgstr "Profil yenilendi."
+msgstr "Şablon yeniləndi."
 
 #: js/messages.php:150
-#, fuzzy
-#| msgid "The row has been deleted."
 msgid "Template was deleted."
-msgstr "Sətir silindi."
+msgstr "Şablon silindi."
 
 #. l10n: Other, small valued, queries
 #: js/messages.php:153 libraries/ServerStatusData.php:130
@@ -1164,14 +1133,12 @@ msgid "Query cache used"
 msgstr "İstifadə edilən sorğu keşi"
 
 #: js/messages.php:175
-#, fuzzy
-#| msgid "System CPU Usage"
 msgid "System CPU usage"
 msgstr "Sistem prosessoru istifadəsi"
 
 #: js/messages.php:176
 msgid "System memory"
-msgstr "Sistem Yaddaşı"
+msgstr "Sistem yaddaşı"
 
 #: js/messages.php:177
 msgid "System swap"
@@ -1191,7 +1158,7 @@ msgstr "Keş edilmiş yaddaş"
 
 #: js/messages.php:182
 msgid "Buffered memory"
-msgstr ""
+msgstr "Bufer yaddaşı"
 
 #: js/messages.php:183
 msgid "Free memory"
@@ -1202,28 +1169,20 @@ msgid "Used memory"
 msgstr "İstifadə olunan yaddaş"
 
 #: js/messages.php:186
-#, fuzzy
-#| msgid "Total Swap"
 msgid "Total swap"
 msgstr "Toplam mübadilə"
 
 #: js/messages.php:187
-#, fuzzy
-#| msgid "Cached Swap"
 msgid "Cached swap"
-msgstr "Keş edilmiş mübadilə"
+msgstr "Keş olunmuş mübadilə"
 
 #: js/messages.php:188
-#, fuzzy
-#| msgid "Used Swap"
 msgid "Used swap"
 msgstr "İstifadə olunan mübadilə"
 
 #: js/messages.php:189
-#, fuzzy
-#| msgid "Free Swap"
 msgid "Free swap"
-msgstr "Sərbəst mübadilə"
+msgstr "Boş mübadilə"
 
 #: js/messages.php:191
 msgid "Bytes sent"
@@ -1331,11 +1290,11 @@ msgstr "İzləməni dayandır"
 
 #: js/messages.php:217 libraries/server_status_processes.lib.php:36
 msgid "Start auto refresh"
-msgstr ""
+msgstr "Avto yenilənməni başlat"
 
 #: js/messages.php:218
 msgid "Stop auto refresh"
-msgstr ""
+msgstr "Avto yenilənməni dayandır"
 
 #: js/messages.php:220
 msgid "general_log and slow_query_log are enabled."
@@ -1351,7 +1310,7 @@ msgstr "slow_query_log aktivləşdirildi."
 
 #: js/messages.php:223
 msgid "slow_query_log and general_log are disabled."
-msgstr ""
+msgstr "slow_query_log və general_log deaktiv edildi."
 
 #: js/messages.php:224
 msgid "log_output is not set to TABLE."
@@ -1368,6 +1327,9 @@ msgid ""
 "than %d seconds. It is advisable to set this long_query_time 0-2 seconds, "
 "depending on your system."
 msgstr ""
+"slow_query_log deaktiv edildi, ancaq server sadəcə %d saniyədən daha çox "
+"çəkən sorğuları loglayır. Bu long_query_time-ın, sisteminizə bağlı olaraq "
+"0-2 saniyəyə ayarlanmasını tövsiyyə edirik."
 
 #: js/messages.php:231
 #, php-format
@@ -1442,15 +1404,15 @@ msgstr "Vahid"
 
 #: js/messages.php:257
 msgid "From slow log"
-msgstr ""
+msgstr "Yavaş logdan"
 
 #: js/messages.php:258
 msgid "From general log"
-msgstr ""
+msgstr "Ümumi logdan"
 
 #: js/messages.php:260
 msgid "The database name is not known for this query in the server's logs."
-msgstr ""
+msgstr "Serverin logunda bu sorğu üçün baza adı bilinmir."
 
 #: js/messages.php:262
 msgid "Analysing logs"
@@ -1458,7 +1420,7 @@ msgstr "Loglar analiz edilir"
 
 #: js/messages.php:264
 msgid "Analysing & loading logs. This may take a while."
-msgstr ""
+msgstr "Loglar analiz olunur və yüklənir. Bu bir az çəkə bilər."
 
 #: js/messages.php:265
 msgid "Cancel request"
@@ -1510,7 +1472,7 @@ msgstr "Eksportu açıqla"
 msgid "Status"
 msgstr "Status"
 
-#: js/messages.php:287 js/messages.php:873
+#: js/messages.php:287 js/messages.php:879
 #: libraries/plugins/export/ExportHtmlword.php:486
 #: libraries/plugins/export/ExportOdt.php:605
 #: libraries/plugins/export/ExportTexytext.php:447
@@ -1553,7 +1515,7 @@ msgstr "Söz/düzənli ifadəyə görə sorğuları filtrlə:"
 
 #: js/messages.php:299
 msgid "Group queries, ignoring variable data in WHERE clauses"
-msgstr ""
+msgstr "Qrup sorğuları, WHERE içərisindəki dəyişkən dəyərləri göz ardı edildi"
 
 #: js/messages.php:300
 msgid "Sum of grouped rows:"
@@ -1569,7 +1531,7 @@ msgstr "Loglar yüklənir"
 
 #: js/messages.php:304
 msgid "Monitor refresh failed"
-msgstr ""
+msgstr "Monitor yeniləmə uğursuz oldu"
 
 #: js/messages.php:306
 msgid ""
@@ -1617,10 +1579,8 @@ msgid "No files available on server for import!"
 msgstr "İmport üçün serverdə fayllar yoxdur!"
 
 #: js/messages.php:326
-#, fuzzy
-#| msgid "Analyse Query"
 msgid "Analyse query"
-msgstr "Sorğunu Analiz et"
+msgstr "Sorğunu analiz et"
 
 #: js/messages.php:330
 msgid "Advisor system"
@@ -1978,7 +1938,7 @@ msgid "Second step of normalization (2NF)"
 msgstr "Normallaşdırmanın ikinci addımı(2NF)"
 
 #. l10n: Display text for calendar close link
-#: js/messages.php:437 js/messages.php:742 libraries/normalization.lib.php:285
+#: js/messages.php:437 js/messages.php:748 libraries/normalization.lib.php:285
 msgid "Done"
 msgstr "Hazırdır"
 
@@ -2057,7 +2017,7 @@ msgstr "Heç bir baza seçilmemişdir."
 #: templates/columns_definitions/column_definitions_form.phtml:166
 #: templates/server/variables/link_template.phtml:2
 #: templates/table/gis_visualization/gis_visualization.phtml:48
-#: templates/table/relation/common_form.phtml:127
+#: templates/table/relation/common_form.phtml:136
 #: templates/table/structure/partition_definition_form.phtml:11
 msgid "Save"
 msgstr "Yaddaşa ver"
@@ -2135,7 +2095,7 @@ msgstr "İki fərqli sütun seçin"
 msgid "Data point content"
 msgstr "Verilən nöqtə məzmunu"
 
-#: js/messages.php:503 js/messages.php:663 js/messages.php:680
+#: js/messages.php:503 js/messages.php:669 js/messages.php:686
 #: libraries/ErrorHandler.php:363 libraries/insert_edit.lib.php:2646
 #: templates/table/index_form.phtml:154 templates/table/index_form.phtml:199
 msgid "Ignore"
@@ -2190,105 +2150,111 @@ msgstr ""
 
 #: js/messages.php:528
 msgid ""
+"MySQL accepts additional values not selectable by the datepicker; key in "
+"those values directly if desired"
+msgstr ""
+
+#: js/messages.php:534
+msgid ""
 "Indicates that you have made changes to this page; you will be prompted for "
 "confirmation before abandoning changes"
 msgstr ""
 
-#: js/messages.php:533
+#: js/messages.php:539
 msgid "Select referenced key"
 msgstr ""
 
-#: js/messages.php:534
+#: js/messages.php:540
 msgid "Select Foreign Key"
 msgstr ""
 
-#: js/messages.php:536
+#: js/messages.php:542
 msgid "Please select the primary key or a unique key!"
 msgstr "Zəhmət olmasa birinci dərəcəli və ya unikal açar seçin!"
 
-#: js/messages.php:537 templates/database/designer/side_menu.phtml:91
+#: js/messages.php:543 templates/database/designer/side_menu.phtml:91
 #: templates/database/designer/side_menu.phtml:94
 msgid "Choose column to display"
 msgstr "Göstərmək üçün sütun seçin"
 
-#: js/messages.php:539
+#: js/messages.php:545
 msgid ""
 "You haven't saved the changes in the layout. They will be lost if you don't "
 "save them. Do you want to continue?"
 msgstr ""
 
-#: js/messages.php:542
+#: js/messages.php:548
 msgid "Page name"
 msgstr "Səhifə adı"
 
-#: js/messages.php:543 templates/database/designer/side_menu.phtml:56
+#: js/messages.php:549 templates/database/designer/side_menu.phtml:56
 #: templates/database/designer/side_menu.phtml:59
 msgid "Save page"
 msgstr "Səhifəni yaddaşa ver"
 
-#: js/messages.php:544 templates/database/designer/side_menu.phtml:63
+#: js/messages.php:550 templates/database/designer/side_menu.phtml:63
 #: templates/database/designer/side_menu.phtml:66
 #, fuzzy
 #| msgid "Save page"
 msgid "Save page as"
 msgstr "Səhifəni yaddaşa ver"
 
-#: js/messages.php:545 templates/database/designer/side_menu.phtml:49
+#: js/messages.php:551 templates/database/designer/side_menu.phtml:49
 #: templates/database/designer/side_menu.phtml:52
 msgid "Open page"
 msgstr "Səhifəni aç"
 
-#: js/messages.php:546
+#: js/messages.php:552
 msgid "Delete page"
 msgstr "Səhifəni sil"
 
-#: js/messages.php:547 templates/database/designer/side_menu.phtml:10
+#: js/messages.php:553 templates/database/designer/side_menu.phtml:10
 msgid "Untitled"
 msgstr "Başlıqsız"
 
-#: js/messages.php:548
+#: js/messages.php:554
 msgid "Please select a page to continue"
 msgstr "Zəhmət olmasa davam etmək üçün bir səhifə seçin"
 
-#: js/messages.php:549
+#: js/messages.php:555
 msgid "Please enter a valid page name"
 msgstr "Zəhmət olmasa keçərli bir səhifə adı daxil edin"
 
-#: js/messages.php:551
+#: js/messages.php:557
 msgid "Do you want to save the changes to the current page?"
 msgstr "Bu səhifədə dəyişiklikləri yaddaşa vermək istəyirsiniz?"
 
-#: js/messages.php:552
+#: js/messages.php:558
 msgid "Successfully deleted the page"
 msgstr "Səhifə uğurla silindi"
 
-#: js/messages.php:553
+#: js/messages.php:559
 msgid "Export relational schema"
 msgstr "Əlaqəli sxemləri eksport et"
 
-#: js/messages.php:554
+#: js/messages.php:560
 msgid "Modifications have been saved"
 msgstr "Modifikasiyalar yaddaşa verildi"
 
-#: js/messages.php:557
+#: js/messages.php:563
 #, php-format
 msgid "Add an option for column \"%s\"."
 msgstr "\"%s\" sütunu üçün seçim əlavə edin."
 
-#: js/messages.php:558
+#: js/messages.php:564
 #, php-format
 msgid "%d object(s) created."
 msgstr "%d obyekt yaradıldı."
 
-#: js/messages.php:559 libraries/sql_query_form.lib.php:409
+#: js/messages.php:565 libraries/sql_query_form.lib.php:409
 msgid "Submit"
 msgstr "Submit"
 
-#: js/messages.php:562
+#: js/messages.php:568
 msgid "Press escape to cancel editing."
 msgstr "Redaktəni ləğv etmək üçün Esc düyməsinə basın."
 
-#: js/messages.php:564
+#: js/messages.php:570
 msgid ""
 "You have edited some data and they have not been saved. Are you sure you "
 "want to leave this page before saving the data?"
@@ -2296,157 +2262,157 @@ msgstr ""
 "Bəzi verilənləri redaktə etdiniz və yaddaşa vermədiniz. Verilənləri yadda "
 "saxlamadan çıxmaq istəyirsinizmi?"
 
-#: js/messages.php:567
+#: js/messages.php:573
 msgid "Drag to reorder."
 msgstr "Yenidən düzənləmək üçün sürükləyin."
 
-#: js/messages.php:568
+#: js/messages.php:574
 msgid "Click to sort results by this column."
 msgstr "Nəticələri bu sütuna görə sıralamaq üçün klikləyin."
 
-#: js/messages.php:570
+#: js/messages.php:576
 msgid ""
 "Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC.<br /"
 ">- Ctrl+Click or Alt+Click (Mac: Shift+Option+Click) to remove column from "
 "ORDER BY clause"
 msgstr ""
 
-#: js/messages.php:574
+#: js/messages.php:580
 msgid "Click to mark/unmark."
 msgstr ""
 
-#: js/messages.php:575
+#: js/messages.php:581
 msgid "Double-click to copy column name."
 msgstr "Sütun adını kopyalamaq üçün iki dəfə klikləyin."
 
-#: js/messages.php:577
+#: js/messages.php:583
 msgid "Click the drop-down arrow<br />to toggle column's visibility."
 msgstr ""
 
-#: js/messages.php:579 libraries/DisplayResults.php:1034
+#: js/messages.php:585 libraries/DisplayResults.php:1034
 #: libraries/browse_foreigners.lib.php:287
 #: libraries/browse_foreigners.lib.php:340
 #: libraries/server_privileges.lib.php:3890
 msgid "Show all"
 msgstr "Hamısını göstər"
 
-#: js/messages.php:581
+#: js/messages.php:587
 msgid ""
 "This table does not contain a unique column. Features related to the grid "
 "edit, checkbox, Edit, Copy and Delete links may not work after saving."
 msgstr ""
 
-#: js/messages.php:585
+#: js/messages.php:591
 msgid "Please enter a valid hexadecimal string. Valid characters are 0-9, A-F."
 msgstr ""
 "Zəhmət olamasa keçərli onaltılıq sətir daxil edin. Keçərli simvollar 0-9, A-"
 "F."
 
-#: js/messages.php:587
+#: js/messages.php:593
 msgid ""
 "Do you really want to see all of the rows? For a big table this could crash "
 "the browser."
 msgstr ""
 
-#: js/messages.php:590
+#: js/messages.php:596
 #, fuzzy
 #| msgid "Original string"
 msgid "Original length"
 msgstr "Orjinal sətir"
 
-#: js/messages.php:593
+#: js/messages.php:599
 msgid "cancel"
 msgstr "ləğv et"
 
-#: js/messages.php:594 libraries/server_status.lib.php:277
+#: js/messages.php:600 libraries/server_status.lib.php:277
 msgid "Aborted"
 msgstr "Dayandırılmış Əlaqələr"
 
-#: js/messages.php:596
+#: js/messages.php:602
 msgid "Success"
 msgstr ""
 
-#: js/messages.php:597
+#: js/messages.php:603
 msgid "Import status"
 msgstr "İmport statusu"
 
-#: js/messages.php:598 libraries/navigation/Navigation.php:111
+#: js/messages.php:604 libraries/navigation/Navigation.php:111
 msgid "Drop files here"
 msgstr ""
 
-#: js/messages.php:599
+#: js/messages.php:605
 msgid "Select database first"
 msgstr "Əvvəlcə Verilənlər Bazasını seçin"
 
-#: js/messages.php:602 libraries/DisplayResults.php:5037
+#: js/messages.php:608 libraries/DisplayResults.php:5037
 #: libraries/Util.php:4233
 #: templates/database/structure/print_view_data_dictionary_link.phtml:3
 #: templates/table/structure/optional_action_links.phtml:6
 msgid "Print"
 msgstr "Çap et"
 
-#: js/messages.php:609
+#: js/messages.php:615
 msgid "You can also edit most values<br />by double-clicking directly on them."
 msgstr ""
 
-#: js/messages.php:614
+#: js/messages.php:620
 msgid "You can also edit most values<br />by clicking directly on them."
 msgstr ""
 
-#: js/messages.php:620
+#: js/messages.php:626
 msgid "Go to link:"
 msgstr "Bağlantıya get:"
 
-#: js/messages.php:621
+#: js/messages.php:627
 msgid "Copy column name."
 msgstr "Sütun adını kopyala."
 
-#: js/messages.php:623
+#: js/messages.php:629
 msgid "Right-click the column name to copy it to your clipboard."
 msgstr "Sütun adını buferə kopyalamaq üçün sağ klikləyin."
 
-#: js/messages.php:626
+#: js/messages.php:632
 msgid "Generate password"
 msgstr "Parol yarat"
 
-#: js/messages.php:627 libraries/replication_gui.lib.php:883
+#: js/messages.php:633 libraries/replication_gui.lib.php:883
 msgid "Generate"
 msgstr "Yarat"
 
-#: js/messages.php:631
+#: js/messages.php:637
 msgid "More"
 msgstr "Daha çox"
 
-#: js/messages.php:634
+#: js/messages.php:640
 #, fuzzy
 #| msgid "Show Panel"
 msgid "Show panel"
 msgstr "Paneli Göstər"
 
-#: js/messages.php:635
+#: js/messages.php:641
 #, fuzzy
 #| msgid "Hide Panel"
 msgid "Hide panel"
 msgstr "Paneli Gizlət"
 
-#: js/messages.php:636
+#: js/messages.php:642
 msgid "Show hidden navigation tree items."
 msgstr "Gizli naviqasiya ağac bəndlərini göstər."
 
-#: js/messages.php:637 libraries/config/messages.inc.php:479
+#: js/messages.php:643 libraries/config/messages.inc.php:479
 #: libraries/navigation/NavigationTree.php:1434
 msgid "Link with main panel"
 msgstr "Əsas panel ilə əlaqələndir"
 
-#: js/messages.php:638 libraries/navigation/NavigationTree.php:1437
+#: js/messages.php:644 libraries/navigation/NavigationTree.php:1437
 msgid "Unlink from main panel"
 msgstr "Əsas panel ilə əlaqəni kəs"
 
-#: js/messages.php:642
+#: js/messages.php:648
 msgid "The requested page was not found in the history, it may have expired."
 msgstr "İstənilən səhifə tarixdə tapılmadı, ola bilsin vaxtı keçib."
 
-#: js/messages.php:646 setup/lib/index.lib.php:169
+#: js/messages.php:652 setup/lib/index.lib.php:169
 #, php-format
 msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
@@ -2456,56 +2422,56 @@ msgstr ""
 "versiya %s, %s tarixində yayımlanıb."
 
 #. l10n: Latest available phpMyAdmin version
-#: js/messages.php:650
+#: js/messages.php:656
 msgid ", latest stable version:"
 msgstr ", son stabil versiya:"
 
-#: js/messages.php:651
+#: js/messages.php:657
 msgid "up to date"
 msgstr "aktual"
 
-#: js/messages.php:653 libraries/DisplayResults.php:4968 view_create.php:200
+#: js/messages.php:659 libraries/DisplayResults.php:4968 view_create.php:200
 msgid "Create view"
 msgstr "Görünüş yarat"
 
-#: js/messages.php:656
+#: js/messages.php:662
 #, fuzzy
 #| msgid "Send error reports"
 msgid "Send error report"
 msgstr "Xəta hesabatları göndər"
 
-#: js/messages.php:657
+#: js/messages.php:663
 #, fuzzy
 #| msgid "Submit Error Report"
 msgid "Submit error report"
 msgstr "Xəta Hesabatı Göndər"
 
-#: js/messages.php:659
+#: js/messages.php:665
 msgid ""
 "A fatal JavaScript error has occurred. Would you like to send an error "
 "report?"
 msgstr "Önəmli JavaScript xətası yarandı. Xəta hesabatı yollamaq istəyirsiniz?"
 
-#: js/messages.php:661
+#: js/messages.php:667
 #, fuzzy
 #| msgid "Change Report Settings"
 msgid "Change report settings"
 msgstr "Hesabat tənzimləmələrini dəyişdir"
 
-#: js/messages.php:662
+#: js/messages.php:668
 #, fuzzy
 #| msgid "Show Report Details"
 msgid "Show report details"
 msgstr "Hesabat Təfsilatlarını Göstər"
 
-#: js/messages.php:665
+#: js/messages.php:671
 msgid ""
 "Your export is incomplete, due to a low execution time limit at the PHP "
 "level!"
 msgstr ""
 "Eksport PHP səviyyəsindəki aşağı icra(execution) vaxtına görə tamamlanmadı!"
 
-#: js/messages.php:669
+#: js/messages.php:675
 #, php-format
 msgid ""
 "Warning: a form on this page has more than %d fields. On submission, some of "
@@ -2515,64 +2481,64 @@ msgstr ""
 "edilmədə, bəzi sahələr, PHP-nin max_input_vars konfiqurasiyasından dolayı "
 "göz ardı edilə bilər."
 
-#: js/messages.php:675 js/messages.php:688
+#: js/messages.php:681 js/messages.php:694
 msgid "Some errors have been detected on the server!"
 msgstr "Serverdə bəzi xətalar aşkar edildi!"
 
-#: js/messages.php:677
+#: js/messages.php:683
 msgid "Please look at the bottom of this window."
 msgstr "Zəhmət olmasa bu pəncərənin altına baxın."
 
-#: js/messages.php:683 libraries/ErrorHandler.php:367
+#: js/messages.php:689 libraries/ErrorHandler.php:367
 msgid "Ignore All"
 msgstr "Heç birin diqqətə alma"
 
-#: js/messages.php:691
+#: js/messages.php:697
 msgid ""
 "As per your settings, they are being submitted currently, please be patient."
 msgstr ""
 "Hər tənzimləmələriniz kimi bunlar da hal-hazırda göndərilir, zəhmət olmasa "
 "səbirli olun."
 
-#: js/messages.php:701
+#: js/messages.php:707
 msgid "Execute this query again?"
 msgstr "Bu sorğu təkrar icra olunsunmu?"
 
-#: js/messages.php:703
+#: js/messages.php:709
 msgid "Do you really want to delete this bookmark?"
 msgstr "Bu əlfəcini silmək istədiyinizə əminsinizmi?"
 
-#: js/messages.php:705
+#: js/messages.php:711
 msgid "Some error occurred while getting SQL debug info."
 msgstr ""
 
-#: js/messages.php:707
+#: js/messages.php:713
 #, php-format
 msgid "%s queries executed %s times in %s seconds."
 msgstr ""
 
-#: js/messages.php:708
+#: js/messages.php:714
 #, php-format
 msgid "%s argument(s) passed"
 msgstr ""
 
-#: js/messages.php:709
+#: js/messages.php:715
 #, fuzzy
 #| msgid "Table comments"
 msgid "Show arguments"
 msgstr "Cədvəl haqqında izahat"
 
-#: js/messages.php:710
+#: js/messages.php:716
 #, fuzzy
 #| msgid "Hide search results"
 msgid "Hide arguments"
 msgstr "Axtarış nəticələrini gizlət"
 
-#: js/messages.php:711 libraries/Console.php:306
+#: js/messages.php:717 libraries/Console.php:306
 msgid "Time taken:"
 msgstr ""
 
-#: js/messages.php:712
+#: js/messages.php:718
 msgid ""
 "There was a problem accessing your browser storage, some features may not "
 "work properly for you. It is likely that the browser doesn't support storage "
@@ -2581,385 +2547,385 @@ msgid ""
 "Safari, such problem is commonly caused by \"Private Mode Browsing\"."
 msgstr ""
 
-#: js/messages.php:714
+#: js/messages.php:720
 #, fuzzy
 #| msgid "Copy database to"
 msgid "Copy tables to"
 msgstr "Verilənlər Bazasını buraya kopyala"
 
-#: js/messages.php:715
+#: js/messages.php:721
 #, fuzzy
 #| msgid "Add table prefix:"
 msgid "Add table prefix"
 msgstr "Cədvəl prefiksi əlavə et:"
 
-#: js/messages.php:716
+#: js/messages.php:722
 #, fuzzy
 #| msgid "Replace table prefix"
 msgid "Replace table with prefix"
 msgstr "Cədvəl prefiksini dəyiş"
 
-#: js/messages.php:717 templates/database/structure/check_all_tables.phtml:29
+#: js/messages.php:723 templates/database/structure/check_all_tables.phtml:29
 msgid "Copy table with prefix"
 msgstr "Cədvəli prefiks ilə birgə kopyala"
 
-#: js/messages.php:746
+#: js/messages.php:752
 msgctxt "Previous month"
 msgid "Prev"
 msgstr "Əvvəlki"
 
-#: js/messages.php:751
+#: js/messages.php:757
 msgctxt "Next month"
 msgid "Next"
 msgstr "Sonrakı"
 
 #. l10n: Display text for current month link in calendar
-#: js/messages.php:754
+#: js/messages.php:760
 msgid "Today"
 msgstr "Bugün"
 
-#: js/messages.php:758
+#: js/messages.php:764
 msgid "January"
 msgstr "Yanvar"
 
-#: js/messages.php:759
+#: js/messages.php:765
 msgid "February"
 msgstr "Fevral"
 
-#: js/messages.php:760
+#: js/messages.php:766
 msgid "March"
 msgstr "Mart"
 
-#: js/messages.php:761
+#: js/messages.php:767
 msgid "April"
 msgstr "Aprel"
 
-#: js/messages.php:762
+#: js/messages.php:768
 msgid "May"
 msgstr "May"
 
-#: js/messages.php:763
+#: js/messages.php:769
 msgid "June"
 msgstr "İyun"
 
-#: js/messages.php:764
+#: js/messages.php:770
 msgid "July"
 msgstr "İyul"
 
-#: js/messages.php:765
+#: js/messages.php:771
 msgid "August"
 msgstr "Avqust"
 
-#: js/messages.php:766
+#: js/messages.php:772
 msgid "September"
 msgstr "Sentyabr"
 
-#: js/messages.php:767
+#: js/messages.php:773
 msgid "October"
 msgstr "Oktyabr"
 
-#: js/messages.php:768
+#: js/messages.php:774
 msgid "November"
 msgstr "Noyabr"
 
-#: js/messages.php:769
+#: js/messages.php:775
 msgid "December"
 msgstr "Dekabr"
 
 #. l10n: Short month name
-#: js/messages.php:776 libraries/Util.php:1665
+#: js/messages.php:782 libraries/Util.php:1665
 msgid "Jan"
 msgstr "Yan"
 
 #. l10n: Short month name
-#: js/messages.php:778 libraries/Util.php:1667
+#: js/messages.php:784 libraries/Util.php:1667
 msgid "Feb"
 msgstr "Fev"
 
 #. l10n: Short month name
-#: js/messages.php:780 libraries/Util.php:1669
+#: js/messages.php:786 libraries/Util.php:1669
 msgid "Mar"
 msgstr "Mar"
 
 #. l10n: Short month name
-#: js/messages.php:782 libraries/Util.php:1671
+#: js/messages.php:788 libraries/Util.php:1671
 msgid "Apr"
 msgstr "Apr"
 
 #. l10n: Short month name
-#: js/messages.php:784 libraries/Util.php:1673
+#: js/messages.php:790 libraries/Util.php:1673
 msgctxt "Short month name"
 msgid "May"
 msgstr "May"
 
 #. l10n: Short month name
-#: js/messages.php:786 libraries/Util.php:1675
+#: js/messages.php:792 libraries/Util.php:1675
 msgid "Jun"
 msgstr "İyun"
 
 #. l10n: Short month name
-#: js/messages.php:788 libraries/Util.php:1677
+#: js/messages.php:794 libraries/Util.php:1677
 msgid "Jul"
 msgstr "İyul"
 
 #. l10n: Short month name
-#: js/messages.php:790 libraries/Util.php:1679
+#: js/messages.php:796 libraries/Util.php:1679
 msgid "Aug"
 msgstr "Avq"
 
 #. l10n: Short month name
-#: js/messages.php:792 libraries/Util.php:1681
+#: js/messages.php:798 libraries/Util.php:1681
 msgid "Sep"
 msgstr "Sent"
 
 #. l10n: Short month name
-#: js/messages.php:794 libraries/Util.php:1683
+#: js/messages.php:800 libraries/Util.php:1683
 msgid "Oct"
 msgstr "Okt"
 
 #. l10n: Short month name
-#: js/messages.php:796 libraries/Util.php:1685
+#: js/messages.php:802 libraries/Util.php:1685
 msgid "Nov"
 msgstr "Noy"
 
 #. l10n: Short month name
-#: js/messages.php:798 libraries/Util.php:1687
+#: js/messages.php:804 libraries/Util.php:1687
 msgid "Dec"
 msgstr "Dek"
 
-#: js/messages.php:804
+#: js/messages.php:810
 msgid "Sunday"
 msgstr "Bazar"
 
-#: js/messages.php:805
+#: js/messages.php:811
 msgid "Monday"
 msgstr "Bazar Ertəsi"
 
-#: js/messages.php:806
+#: js/messages.php:812
 msgid "Tuesday"
 msgstr "Çərşənbə axşamı"
 
-#: js/messages.php:807
+#: js/messages.php:813
 msgid "Wednesday"
 msgstr "Çərşənbə"
 
-#: js/messages.php:808
+#: js/messages.php:814
 msgid "Thursday"
 msgstr "Cümə axşamı"
 
-#: js/messages.php:809
+#: js/messages.php:815
 msgid "Friday"
 msgstr "Cümə"
 
-#: js/messages.php:810
+#: js/messages.php:816
 msgid "Saturday"
 msgstr "Şənbə"
 
 #. l10n: Short week day name
-#: js/messages.php:817
+#: js/messages.php:823
 msgid "Sun"
 msgstr "Baz"
 
 #. l10n: Short week day name
-#: js/messages.php:819 libraries/Util.php:1692
+#: js/messages.php:825 libraries/Util.php:1692
 msgid "Mon"
 msgstr "Baz Ert"
 
 #. l10n: Short week day name
-#: js/messages.php:821 libraries/Util.php:1694
+#: js/messages.php:827 libraries/Util.php:1694
 msgid "Tue"
 msgstr "Çerş Axş"
 
 #. l10n: Short week day name
-#: js/messages.php:823 libraries/Util.php:1696
+#: js/messages.php:829 libraries/Util.php:1696
 msgid "Wed"
 msgstr "Çerş"
 
 #. l10n: Short week day name
-#: js/messages.php:825 libraries/Util.php:1698
+#: js/messages.php:831 libraries/Util.php:1698
 msgid "Thu"
 msgstr "Cüme Axş"
 
 #. l10n: Short week day name
-#: js/messages.php:827 libraries/Util.php:1700
+#: js/messages.php:833 libraries/Util.php:1700
 msgid "Fri"
 msgstr "Cüme"
 
 #. l10n: Short week day name
-#: js/messages.php:829 libraries/Util.php:1702
+#: js/messages.php:835 libraries/Util.php:1702
 msgid "Sat"
 msgstr "Şen"
 
 #. l10n: Minimal week day name
-#: js/messages.php:836
+#: js/messages.php:842
 msgid "Su"
 msgstr "B"
 
 #. l10n: Minimal week day name
-#: js/messages.php:838
+#: js/messages.php:844
 msgid "Mo"
 msgstr "Baz Ert"
 
 #. l10n: Minimal week day name
-#: js/messages.php:840
+#: js/messages.php:846
 msgid "Tu"
 msgstr "Çərş Axş"
 
 #. l10n: Minimal week day name
-#: js/messages.php:842
+#: js/messages.php:848
 msgid "We"
 msgstr "Ç"
 
 #. l10n: Minimal week day name
-#: js/messages.php:844
+#: js/messages.php:850
 msgid "Th"
 msgstr "CA"
 
 #. l10n: Minimal week day name
-#: js/messages.php:846
+#: js/messages.php:852
 msgid "Fr"
 msgstr "C"
 
 #. l10n: Minimal week day name
-#: js/messages.php:848
+#: js/messages.php:854
 msgid "Sa"
 msgstr "Ş"
 
 #. l10n: Column header for week of the year in calendar
-#: js/messages.php:852
+#: js/messages.php:858
 msgid "Wk"
 msgstr ""
 
 #. l10n: Month-year order for calendar, use either "calendar-month-year"
 #. * or "calendar-year-month".
 #.
-#: js/messages.php:859
+#: js/messages.php:865
 msgid "calendar-month-year"
 msgstr "təqvim-ay-il"
 
 #. l10n: Year suffix for calendar, "none" is empty.
-#: js/messages.php:862
+#: js/messages.php:868
 msgctxt "Year suffix"
 msgid "none"
 msgstr "Heç biri"
 
-#: js/messages.php:874
+#: js/messages.php:880
 msgid "Hour"
 msgstr "Saat"
 
-#: js/messages.php:875
+#: js/messages.php:881
 msgid "Minute"
 msgstr "Dəqiqə"
 
-#: js/messages.php:876
+#: js/messages.php:882
 msgid "Second"
 msgstr "Saniyə"
 
-#: js/messages.php:887
+#: js/messages.php:893
 msgid "This field is required"
 msgstr ""
 
-#: js/messages.php:888
+#: js/messages.php:894
 #, fuzzy
 #| msgid "Use text field"
 msgid "Please fix this field"
 msgstr "Mətn sahəsi istifadə et"
 
-#: js/messages.php:889
+#: js/messages.php:895
 #, fuzzy
 #| msgid "Please enter a valid page name"
 msgid "Please enter a valid email address"
 msgstr "Zəhmət olmasa keçərli bir səhifə adı daxil edin"
 
-#: js/messages.php:890
+#: js/messages.php:896
 #, fuzzy
 #| msgid "Please enter a valid number!"
 msgid "Please enter a valid URL"
 msgstr "Zəhmət olmasa keçərli bir nömrə daxil edin!"
 
-#: js/messages.php:891
+#: js/messages.php:897
 #, fuzzy
 #| msgid "Please enter a valid page name"
 msgid "Please enter a valid date"
 msgstr "Zəhmət olmasa keçərli bir səhifə adı daxil edin"
 
-#: js/messages.php:894
+#: js/messages.php:900
 #, fuzzy
 #| msgid "Please enter a valid page name"
 msgid "Please enter a valid date ( ISO )"
 msgstr "Zəhmət olmasa keçərli bir səhifə adı daxil edin"
 
-#: js/messages.php:896
+#: js/messages.php:902
 #, fuzzy
 #| msgid "Please enter a valid number!"
 msgid "Please enter a valid number"
 msgstr "Zəhmət olmasa keçərli bir nömrə daxil edin!"
 
-#: js/messages.php:899
+#: js/messages.php:905
 #, fuzzy
 #| msgid "Please enter a valid number!"
 msgid "Please enter a valid credit card number"
 msgstr "Zəhmət olmasa keçərli bir nömrə daxil edin!"
 
-#: js/messages.php:901
+#: js/messages.php:907
 #, fuzzy
 #| msgid "Please enter a valid length!"
 msgid "Please enter only digits"
 msgstr "Zəhmət olmasa keçərli uzunluq daxil edin!"
 
-#: js/messages.php:904
+#: js/messages.php:910
 #, fuzzy
 #| msgid "Please enter a valid page name"
 msgid "Please enter the same value again"
 msgstr "Zəhmət olmasa keçərli bir səhifə adı daxil edin"
 
-#: js/messages.php:908
+#: js/messages.php:914
 #, fuzzy
 #| msgid "Please enter correct captcha!"
 msgid "Please enter no more than {0} characters"
 msgstr "Lütfən düzgün captcha daxil edin!"
 
-#: js/messages.php:913
+#: js/messages.php:919
 #, fuzzy
 #| msgid "Please enter correct captcha!"
 msgid "Please enter at least {0} characters"
 msgstr "Lütfən düzgün captcha daxil edin!"
 
-#: js/messages.php:918
+#: js/messages.php:924
 msgid "Please enter a value between {0} and {1} characters long"
 msgstr ""
 
-#: js/messages.php:923
+#: js/messages.php:929
 #, fuzzy
 #| msgid "Please enter a valid page name"
 msgid "Please enter a value between {0} and {1}"
 msgstr "Zəhmət olmasa keçərli bir səhifə adı daxil edin"
 
-#: js/messages.php:928
+#: js/messages.php:934
 #, fuzzy
 #| msgid "Please enter a valid length!"
 msgid "Please enter a value less than or equal to {0}"
 msgstr "Zəhmət olmasa keçərli uzunluq daxil edin!"
 
-#: js/messages.php:933
+#: js/messages.php:939
 #, fuzzy
 #| msgid "Please enter a valid page name"
 msgid "Please enter a value greater than or equal to {0}"
 msgstr "Zəhmət olmasa keçərli bir səhifə adı daxil edin"
 
-#: js/messages.php:939
+#: js/messages.php:945
 #, fuzzy
 #| msgid "Please enter a valid page name"
 msgid "Please enter a valid date or time"
 msgstr "Zəhmət olmasa keçərli bir səhifə adı daxil edin"
 
-#: js/messages.php:944
+#: js/messages.php:950
 #, fuzzy
 #| msgid "Please enter a valid number!"
 msgid "Please enter a valid HEX input"
 msgstr "Zəhmət olmasa keçərli bir nömrə daxil edin!"
 
-#: js/messages.php:949 libraries/Message.php:200 libraries/Util.php:677
+#: js/messages.php:955 libraries/Message.php:200 libraries/Util.php:677
 #: libraries/core.lib.php:245 libraries/import.lib.php:94
 #: libraries/insert_edit.lib.php:1230 view_operations.php:73
 msgid "Error"
@@ -3056,8 +3022,8 @@ msgstr "Sorğunu təkrarla"
 #: libraries/server_privileges.lib.php:4659
 #: libraries/server_status_processes.lib.php:79
 #: templates/server/databases/table_header.phtml:8
-#: templates/table/relation/common_form.phtml:24
-#: templates/table/relation/foreign_key_row.phtml:149
+#: templates/table/relation/common_form.phtml:33
+#: templates/table/relation/foreign_key_row.phtml:151
 #: templates/table/relation/internal_relational_row.phtml:57
 msgid "Database"
 msgstr "Verilənlər Bazası"
@@ -3884,7 +3850,7 @@ msgstr "%s indeksi ləğv edildi."
 #: libraries/controllers/table/TableStructureController.php:1186
 #: libraries/operations.lib.php:1596 libraries/rte/rte_list.lib.php:153
 #: templates/database/structure/check_all_tables.phtml:17
-#: templates/table/relation/foreign_key_row.phtml:75
+#: templates/table/relation/foreign_key_row.phtml:77
 #: templates/table/structure/check_all_table_column.phtml:15
 #: templates/table/structure/display_structure.phtml:181
 msgid "Drop"
@@ -3940,8 +3906,8 @@ msgstr "Görünüş"
 #: libraries/server_privileges.lib.php:4673 libraries/tracking.lib.php:1474
 #: libraries/tracking.lib.php:1620
 #: templates/database/structure/table_header.phtml:21
-#: templates/table/relation/common_form.phtml:25
-#: templates/table/relation/foreign_key_row.phtml:160
+#: templates/table/relation/common_form.phtml:34
+#: templates/table/relation/foreign_key_row.phtml:162
 #: templates/table/relation/internal_relational_row.phtml:65
 msgid "Table"
 msgstr "Cədvəl"
@@ -4304,47 +4270,47 @@ msgstr "Bu MySQL server %s depolama motorunu desteklememektedir."
 msgid "Unknown table status:"
 msgstr "Bilinməyən cədvəl statusu:"
 
-#: libraries/Table.php:748
+#: libraries/Table.php:791
 #, php-format
 msgid "Source database `%s` was not found!"
 msgstr "Qaynaq Verilənlər Bazası `%s` tapılmadı!"
 
-#: libraries/Table.php:756
+#: libraries/Table.php:799
 #, php-format
 msgid "Target database `%s` was not found!"
 msgstr "Hədəf Verilənlər Bazası `%s` tapılmadı!"
 
-#: libraries/Table.php:1305
+#: libraries/Table.php:1354
 msgid "Invalid database:"
 msgstr "Etibarsız Verilənlər Bazası:"
 
-#: libraries/Table.php:1322
+#: libraries/Table.php:1371
 msgid "Invalid table name:"
 msgstr "Etibarsız cədvəl adı:"
 
-#: libraries/Table.php:1357
+#: libraries/Table.php:1406
 #, php-format
 msgid "Failed to rename table %1$s to %2$s!"
 msgstr ""
 "%1$s Cədvəl adını %2$s cədvəl adına dəyişdirmə yerinə yetirilə bilmədi!"
 
-#: libraries/Table.php:1376
+#: libraries/Table.php:1425
 #, php-format
 msgid "Table %1$s has been renamed to %2$s."
 msgstr "%1$s cədvəli %2$s olaraq yenidən adlandırılmışdır."
 
-#: libraries/Table.php:1595
+#: libraries/Table.php:1644
 msgid "Could not save table UI preferences!"
 msgstr ""
 
-#: libraries/Table.php:1625
+#: libraries/Table.php:1674
 #, php-format
 msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
 "['MaxTableUiprefs'] %s)"
 msgstr ""
 
-#: libraries/Table.php:1778
+#: libraries/Table.php:1827
 #, php-format
 msgid ""
 "Cannot save UI property \"%s\". The changes made will not be persistent "
@@ -4352,20 +4318,20 @@ msgid ""
 "changed."
 msgstr ""
 
-#: libraries/Table.php:1914
+#: libraries/Table.php:1963
 msgid "The name of the primary key must be \"PRIMARY\"!"
 msgstr "Birinci dərəcəli açarın adı \"PRIMARY\" olmalıdır!"
 
-#: libraries/Table.php:1925
+#: libraries/Table.php:1974
 msgid "Can't rename index to PRIMARY!"
 msgstr ""
 "İndeksi Birinci dərəcəli (PRIMARY) olaraq yenidən adlandıra bilməzsiniz!"
 
-#: libraries/Table.php:1947
+#: libraries/Table.php:1996
 msgid "No index parts defined!"
 msgstr "İndeks qisimleri te'yin edilmedi!"
 
-#: libraries/Table.php:2265
+#: libraries/Table.php:2314
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr ""
@@ -10835,55 +10801,55 @@ msgstr ""
 msgid "Formats text as XML with syntax highlighting."
 msgstr ""
 
-#: libraries/pmd_common.php:551
+#: libraries/pmd_common.php:549
 msgid "Error: relation already exists."
 msgstr ""
 
-#: libraries/pmd_common.php:597
+#: libraries/pmd_common.php:595
 #, fuzzy
 #| msgid "Modifications have been saved"
 msgid "FOREIGN KEY relation has been added."
 msgstr "Modifications have been saved"
 
-#: libraries/pmd_common.php:603
+#: libraries/pmd_common.php:601
 #, fuzzy
 #| msgid "File could not be read"
 msgid "Error: FOREIGN KEY relation could not be added!"
 msgstr "Fayl oxuna bilmir"
 
-#: libraries/pmd_common.php:608
+#: libraries/pmd_common.php:606
 msgid "Error: Missing index on column(s)."
 msgstr ""
 
-#: libraries/pmd_common.php:613
+#: libraries/pmd_common.php:611
 msgid "Error: Relational features are disabled!"
 msgstr ""
 
-#: libraries/pmd_common.php:635
+#: libraries/pmd_common.php:633
 msgid "Internal relation has been added."
 msgstr "Daxili əlaqə əlavə edildi."
 
-#: libraries/pmd_common.php:641
+#: libraries/pmd_common.php:639
 msgid "Error: Internal relation could not be added!"
 msgstr "Xəta: Daxili əlaqə əlavə edilmədi!"
 
-#: libraries/pmd_common.php:679
+#: libraries/pmd_common.php:677
 #, fuzzy
 #| msgid "Modifications have been saved"
 msgid "FOREIGN KEY relation has been removed."
 msgstr "Modifications have been saved"
 
-#: libraries/pmd_common.php:685
+#: libraries/pmd_common.php:683
 #, fuzzy
 #| msgid "File could not be read"
 msgid "Error: FOREIGN KEY relation could not be removed!"
 msgstr "Fayl oxuna bilmir"
 
-#: libraries/pmd_common.php:712
+#: libraries/pmd_common.php:710
 msgid "Error: Internal relation could not be removed!"
 msgstr "Xəta: Daxili əlaqə ləğv edilə bilmədi!"
 
-#: libraries/pmd_common.php:716
+#: libraries/pmd_common.php:714
 msgid "Internal relation has been removed."
 msgstr "Daxili əlaqə ləğv edildi."
 
@@ -11009,31 +10975,31 @@ msgstr ""
 msgid "Re-login to phpMyAdmin to load the updated configuration file."
 msgstr ""
 
-#: libraries/relation.lib.php:1674
+#: libraries/relation.lib.php:1686
 msgid "no description"
 msgstr "Haqqında məlumat (description) mövcud deyildir"
 
-#: libraries/relation.lib.php:1867
+#: libraries/relation.lib.php:1879
 msgid ""
 "You do not have necessary privileges to create a database named "
 "'phpmyadmin'. You may go to 'Operations' tab of any database to set up the "
 "phpMyAdmin configuration storage there."
 msgstr ""
 
-#: libraries/relation.lib.php:1982
+#: libraries/relation.lib.php:1994
 #, php-format
 msgid ""
 "%sCreate%s a database named 'phpmyadmin' and setup the phpMyAdmin "
 "configuration storage there."
 msgstr ""
 
-#: libraries/relation.lib.php:1990
+#: libraries/relation.lib.php:2002
 #, php-format
 msgid ""
 "%sCreate%s the phpMyAdmin configuration storage in the current database."
 msgstr ""
 
-#: libraries/relation.lib.php:1998
+#: libraries/relation.lib.php:2010
 #, php-format
 msgid "%sCreate%s missing phpMyAdmin configuration storage tables."
 msgstr ""
@@ -11694,26 +11660,27 @@ msgstr "rutin"
 #: libraries/rte/rte_words.lib.php:32
 #, fuzzy
 #| msgid "You don't have sufficient privileges to be here right now!"
-msgid "You do not have the necessary privileges to create a routine"
+msgid "You do not have the necessary privileges to create a routine."
 msgstr "Burada olma haqqınız yoxdur!"
 
 #: libraries/rte/rte_words.lib.php:35
 #, php-format
 msgid ""
 "No routine with name %1$s found in database %2$s. You might be lacking the "
-"necessary privileges to edit this routine"
+"necessary privileges to edit this routine."
 msgstr ""
 
 #: libraries/rte/rte_words.lib.php:39
 #, php-format
 msgid ""
 "No routine with name %1$s found in database %2$s. You might be lacking the "
-"necessary privileges to view/export this routine"
+"necessary privileges to view/export this routine."
 msgstr ""
 
 #: libraries/rte/rte_words.lib.php:42
-#, php-format
-msgid "No routine with name %1$s found in database %2$s"
+#, fuzzy, php-format
+#| msgid "No routine with name %1$s found in database %2$s"
+msgid "No routine with name %1$s found in database %2$s."
 msgstr "%1$s bazasında %2$s adında rutin tapılmadı"
 
 #: libraries/rte/rte_words.lib.php:43
@@ -11736,12 +11703,13 @@ msgstr "trigger"
 #: libraries/rte/rte_words.lib.php:54
 #, fuzzy
 #| msgid "You don't have sufficient privileges to be here right now!"
-msgid "You do not have the necessary privileges to create a trigger"
+msgid "You do not have the necessary privileges to create a trigger."
 msgstr "Burada olma haqqınız yoxdur!"
 
 #: libraries/rte/rte_words.lib.php:56
-#, php-format
-msgid "No trigger with name %1$s found in database %2$s"
+#, fuzzy, php-format
+#| msgid "No trigger with name %1$s found in database %2$s"
+msgid "No trigger with name %1$s found in database %2$s."
 msgstr "%1$s adlnda trigger %2$s Bazasında tapılmadı"
 
 #: libraries/rte/rte_words.lib.php:57
@@ -11764,12 +11732,13 @@ msgstr "hadisə"
 #: libraries/rte/rte_words.lib.php:68
 #, fuzzy
 #| msgid "You don't have sufficient privileges to be here right now!"
-msgid "You do not have the necessary privileges to create an event"
+msgid "You do not have the necessary privileges to create an event."
 msgstr "Burada olma haqqınız yoxdur!"
 
 #: libraries/rte/rte_words.lib.php:70
-#, php-format
-msgid "No event with name %1$s found in database %2$s"
+#, fuzzy, php-format
+#| msgid "No event with name %1$s found in database %2$s"
+msgid "No event with name %1$s found in database %2$s."
 msgstr "%1$s bu adda %2$s bazasında heç bir hadisə tapılmadı"
 
 #: libraries/rte/rte_words.lib.php:71
@@ -13485,7 +13454,7 @@ msgstr ""
 
 #: libraries/sql-parser/src/Components/CreateDefinition.php:227
 msgid ""
-"A symbol name was expected! A reserved keyword can not be used as a field "
+"A symbol name was expected! A reserved keyword can not be used as a column "
 "name without backquotes."
 msgstr ""
 
@@ -13607,7 +13576,7 @@ msgstr "Cədvəlin başına"
 msgid "Unrecognized statement type."
 msgstr ""
 
-#: libraries/sql-parser/src/Parser.php:551
+#: libraries/sql-parser/src/Parser.php:554
 msgid "No transaction was previously started."
 msgstr ""
 
@@ -13629,6 +13598,12 @@ msgstr ""
 #: libraries/sql-parser/src/Statement.php:357
 msgid "Unrecognized keyword."
 msgstr ""
+
+#: libraries/sql-parser/src/Statement.php:457
+#, fuzzy
+#| msgid "At Beginning of Table"
+msgid "Unexpected ordering of clauses."
+msgstr "Cədvəlin başına"
 
 #: libraries/sql-parser/src/Statements/CreateStatement.php:381
 #, fuzzy
@@ -15202,31 +15177,38 @@ msgstr "Fəaliyyətlər"
 msgid "Constraint properties"
 msgstr "Sütun adları"
 
-#: templates/table/relation/common_form.phtml:12
+#: templates/table/relation/common_form.phtml:13
+msgid ""
+"Creating a foreign key over a non-indexed column would automatically create "
+"an index on it. Alternatively, you can define an index below, before "
+"creating the foreign key."
+msgstr ""
+
+#: templates/table/relation/common_form.phtml:20
 msgid ""
 "Only columns with index will be displayed. You can define an index below."
 msgstr ""
 
-#: templates/table/relation/common_form.phtml:17
+#: templates/table/relation/common_form.phtml:26
 msgid "Foreign key constraint"
 msgstr ""
 
-#: templates/table/relation/common_form.phtml:59
+#: templates/table/relation/common_form.phtml:68
 #, fuzzy
 #| msgid "Add a linestring"
 msgid "+ Add constraint"
 msgstr "Sətir sırası əlavə et"
 
-#: templates/table/relation/common_form.phtml:69
-#: templates/table/relation/common_form.phtml:75
+#: templates/table/relation/common_form.phtml:78
+#: templates/table/relation/common_form.phtml:84
 msgid "Internal relations"
 msgstr "Daxili əlaqələr"
 
-#: templates/table/relation/common_form.phtml:79
+#: templates/table/relation/common_form.phtml:88
 msgid "Internal relation"
 msgstr "Daxili əlaqə"
 
-#: templates/table/relation/common_form.phtml:82
+#: templates/table/relation/common_form.phtml:91
 msgid ""
 "An internal relation is not necessary when a corresponding FOREIGN KEY "
 "relation exists."
@@ -15234,7 +15216,7 @@ msgstr ""
 "FOREIGN KEY bağlantısının yerini tutan bir bağlantı varkən daxili bağlantı "
 "yaratmaq mümkün deyildir."
 
-#: templates/table/relation/common_form.phtml:110
+#: templates/table/relation/common_form.phtml:119
 msgid "Choose column to display:"
 msgstr "Göstərmək üçün sütun seçin:"
 
@@ -15244,13 +15226,13 @@ msgstr "Göstərmək üçün sütun seçin:"
 msgid "Foreign key constraint %s has been dropped"
 msgstr "%s sahesi leğv edildi"
 
-#: templates/table/relation/foreign_key_row.phtml:86
+#: templates/table/relation/foreign_key_row.phtml:88
 #, fuzzy
 #| msgid "Column names"
 msgid "Constraint name"
 msgstr "Sütun adları"
 
-#: templates/table/relation/foreign_key_row.phtml:141
+#: templates/table/relation/foreign_key_row.phtml:143
 #, fuzzy
 #| msgid "Add column"
 msgid "+ Add column"

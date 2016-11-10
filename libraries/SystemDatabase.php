@@ -50,7 +50,7 @@ class SystemDatabase
             "SELECT * FROM %s.%s WHERE `db_name` = '%s'",
             Util::backquote($cfgRelation['db']),
             Util::backquote($cfgRelation['column_info']),
-            Util::sqlAddSlashes($db)
+            $GLOBALS['dbi']->escapeString($db)
         );
 
         return $this->dbi->tryQuery($pma_transformation_sql);
@@ -105,7 +105,7 @@ class SystemDatabase
                     $data_row['comment'],
                     $data_row['mimetype'],
                     $data_row['transformation'],
-                    Util::sqlAddSlashes(
+                    $GLOBALS['dbi']->escapeString(
                         $data_row['transformation_options']
                     )
                 );

@@ -286,46 +286,6 @@ class Util
     }
 
     /**
-     * Add slashes before "'" and "\" characters so a value containing them can
-     * be used in a sql comparison.
-     *
-     * @param string $a_string the string to slash
-     * @param bool   $is_like  whether the string will be used in a 'LIKE' clause
-     *                         (it then requires two more escaped sequences) or not
-     * @param bool   $crlf     whether to treat cr/lfs as escape-worthy entities
-     *                         (converts \n to \\n, \r to \\r)
-     * @param bool   $php_code whether this function is used as part of the
-     *                         "Create PHP code" dialog
-     *
-     * @return string   the slashed string
-     *
-     * @access  public
-     */
-    public static function sqlAddSlashes(
-        $a_string = '',
-        $is_like = false,
-        $crlf = false,
-        $php_code = false
-    ) {
-        if ($is_like) {
-            $a_string = str_replace('\\', '\\\\\\\\', $a_string);
-        } else {
-            $a_string = str_replace('\\', '\\\\', $a_string);
-        }
-
-        if ($crlf) {
-            $a_string = strtr(
-                $a_string,
-                array("\n" => '\n', "\r" => '\r', "\t" => '\t')
-            );
-        }
-
-        $a_string = str_replace('\'', '\\\'', $a_string);
-
-        return $a_string;
-    } // end of the 'sqlAddSlashes()' function
-
-    /**
      * Add slashes before "_" and "%" characters for using them in MySQL
      * database, table and field names.
      * Note: This function does not escape backslashes!
@@ -2337,7 +2297,7 @@ class Util
                         . self::printableBitValue($row[$i], $meta->length) . "'";
                 } else {
                     $con_val = '= \''
-                        . self::sqlAddSlashes($row[$i], false, true) . '\'';
+                        . $GLOBALS['dbi']->escapeString($row[$i]) . '\'';
                 }
             }
 
@@ -4052,7 +4012,7 @@ class Util
      * @return string   An HTML snippet of a dropdown list with function
      *                    names appropriate for the requested column.
      */
-    public static function getFunctionsForField($field, $insert_mode)
+    public static function getFunctionsForField($field, $insert_mode, $foreignData)
     {
         $default_function = self::getDefaultFunctionForField($field, $insert_mode);
         $dropdown_built = array();
@@ -4064,7 +4024,7 @@ class Util
         $functions = $GLOBALS['PMA_Types']->getFunctions($field['True_Type']);
         foreach ($functions as $function) {
             $retval .= '<option';
-            if ($default_function === $function) {
+            if (isset($foreignData['foreign_link']) && $foreignData['foreign_link'] !== false && $default_function === $function) {
                 $retval .= ' selected="selected"';
             }
             $retval .= '>' . $function . '</option>' . "\n";
@@ -4161,7 +4121,7 @@ class Util
                     'SCHEMA_PRIVILEGES',
                     $username,
                     $priv,
-                    self::sqlAddSlashes($db)
+                    $GLOBALS['dbi']->escapeString($db)
                 )
             );
             if ($schema_privileges) {
@@ -4184,8 +4144,8 @@ class Util
                     'TABLE_PRIVILEGES',
                     $username,
                     $priv,
-                    self::sqlAddSlashes($db),
-                    self::sqlAddSlashes($tbl)
+                    $GLOBALS['dbi']->escapeString($db),
+                    $GLOBALS['dbi']->escapeString($tbl)
                 )
             );
             if ($table_privileges) {
@@ -4942,7 +4902,7 @@ class Util
                     if (! isset($sot_cache[$tmp[0]])) {
                         $sts_result = $GLOBALS['dbi']->query(
                             "SHOW TABLE STATUS FROM " . Util::backquote($db)
-                            . " LIKE '" . Util::sqlAddSlashes($tmp[0], true)
+                            . " LIKE '" . $GLOBALS['dbi']->escapeString($tmp[0])
                             . "';"
                         );
                         $sts_tmp = $GLOBALS['dbi']->fetchAssoc($sts_result);

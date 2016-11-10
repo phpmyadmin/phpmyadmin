@@ -137,33 +137,19 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
             ->disableOriginalConstructor()
             ->getMock();
 
-        $dbi->expects($this->at(0))
+        $dbi->expects($this->exactly(2))
             ->method('query')
-            ->with(
-                'SELECT * FROM `db`.`table` WHERE a=1;',
-                null,
-                PMA\libraries\DatabaseInterface::QUERY_STORE
-            )
-            ->will($this->returnValue('result1'));
+            ->willReturnOnConsecutiveCalls(
+                'result1',
+                'result2'
+            );
 
-        $dbi->expects($this->at(3))
-            ->method('query')
-            ->with(
-                'SELECT * FROM `db`.`table` WHERE b="fo\o";',
-                null,
-                PMA\libraries\DatabaseInterface::QUERY_STORE
-            )
-            ->will($this->returnValue('result2'));
-
-        $dbi->expects($this->at(1))
+        $dbi->expects($this->exactly(2))
             ->method('fetchAssoc')
-            ->with('result1')
-            ->will($this->returnValue(array('assoc1')));
-
-        $dbi->expects($this->at(4))
-            ->method('fetchAssoc')
-            ->with('result2')
-            ->will($this->returnValue(array('assoc2')));
+            ->willReturnOnConsecutiveCalls(
+                array('assoc1'),
+                array('assoc2')
+            );
 
         $GLOBALS['dbi'] = $dbi;
         $result = PMA_analyzeWhereClauses($clauses, 'table', 'db');
@@ -562,7 +548,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         $this->assertContains(
             '<td class="center">Binary</td>',
             PMA_getFunctionColumn(
-                $column, false, '', '', array(), 0, 0, 0, false, false
+                $column, false, '', '', array(), 0, 0, 0, false, false, array()
             )
         );
 
@@ -571,7 +557,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         $this->assertContains(
             '<td class="center">Binary</td>',
             PMA_getFunctionColumn(
-                $column, true, '', '', array(), 0, 0, 0, false, false
+                $column, true, '', '', array(), 0, 0, 0, false, false, array()
             )
         );
 
@@ -580,7 +566,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         $this->assertContains(
             '<td class="center">Binary</td>',
             PMA_getFunctionColumn(
-                $column, true, '', '', array(), 0, 0, 0, false, false
+                $column, true, '', '', array(), 0, 0, 0, false, false, array()
             )
         );
 
@@ -589,7 +575,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         $this->assertContains(
             '<td class="center">--</td>',
             PMA_getFunctionColumn(
-                $column, true, '', '', array(), 0, 0, 0, false, false
+                $column, true, '', '', array(), 0, 0, 0, false, false, array()
             )
         );
 
@@ -597,7 +583,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         $this->assertContains(
             '<td class="center">--</td>',
             PMA_getFunctionColumn(
-                $column, true, '', '', array(), 0, 0, 0, false, false
+                $column, true, '', '', array(), 0, 0, 0, false, false, array()
             )
         );
 
@@ -606,7 +592,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         $this->assertContains(
             '<td class="center">--</td>',
             PMA_getFunctionColumn(
-                $column, true, '', '', array('int'), 0, 0, 0, false, false
+                $column, true, '', '', array('int'), 0, 0, 0, false, false, array()
             )
         );
 
@@ -615,7 +601,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         $this->assertContains(
             '<select name="funcsa" b tabindex="5" id="field_3_1"',
             PMA_getFunctionColumn(
-                $column, true, 'a', 'b', array(), 2, 3, 3, false, false
+                $column, true, 'a', 'b', array(), 2, 3, 3, false, false, array()
             )
         );
     }
@@ -2473,6 +2459,12 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
             ->method('fetchSingleRow')
             ->with('SELECT * FROM `table` WHERE 1;')
             ->will($this->returnValue($prow));
+        $dbi->expects($this->exactly(2))
+            ->method('escapeString')
+            ->willReturnOnConsecutiveCalls(
+                $this->returnArgument(0),
+                "20\'12"
+            );
 
         $GLOBALS['dbi'] = $dbi;
 

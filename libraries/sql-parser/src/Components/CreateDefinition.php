@@ -226,7 +226,7 @@ class CreateDefinition extends Component
                         $parser->error(
                             __('A symbol name was expected! '
                                 . 'A reserved keyword can not be used '
-                                . 'as a field name without backquotes.'
+                                . 'as a column name without backquotes.'
                             ),
                             $token
                         );

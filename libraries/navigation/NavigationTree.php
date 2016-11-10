@@ -174,7 +174,7 @@ class NavigationTree
             $query = "SELECT (COUNT(DB_first_level) DIV %d) * %d ";
             $query .= "from ( ";
             $query .= " SELECT distinct SUBSTRING_INDEX(SCHEMA_NAME, ";
-            $query .= " '" . Util::sqlAddSlashes($GLOBALS['cfg']['NavigationTreeDbSeparator']) . "', 1) ";
+            $query .= " '" . $GLOBALS['dbi']->escapeString($GLOBALS['cfg']['NavigationTreeDbSeparator']) . "', 1) ";
             $query .= " DB_first_level ";
             $query .= " FROM INFORMATION_SCHEMA.SCHEMATA ";
             $query .= " WHERE `SCHEMA_NAME` < '%s' ";
@@ -185,7 +185,7 @@ class NavigationTree
                     $query,
                     (int)$GLOBALS['cfg']['FirstLevelNavigationItems'],
                     (int)$GLOBALS['cfg']['FirstLevelNavigationItems'],
-                    Util::sqlAddSlashes($GLOBALS['db'])
+                    $GLOBALS['dbi']->escapeString($GLOBALS['db'])
                 )
             );
 

@@ -887,7 +887,7 @@ function PMA_getDefaultSqlQueryForBrowse($db, $table)
     include_once 'libraries/bookmark.lib.php';
     $book_sql_query = PMA_Bookmark_get(
         $db,
-        '\'' . PMA\libraries\Util::sqlAddSlashes($table) . '\'',
+        '\'' . $GLOBALS['dbi']->escapeString($table) . '\'',
         'label',
         false,
         true

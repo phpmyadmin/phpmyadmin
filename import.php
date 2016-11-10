@@ -120,13 +120,13 @@ if (! empty($sql_query)) {
             // making sure that :param does not apply values to :param1
             $sql_query = preg_replace(
                 '/' . $quoted . '([^a-zA-Z0-9_])/',
-                PMA\libraries\Util::sqlAddSlashes($replacement) . '${1}',
+                $GLOBALS['dbi']->escapeString($replacement) . '${1}',
                 $sql_query
             );
             // for parameters the appear at the end of the string
             $sql_query = preg_replace(
                 '/' . $quoted . '$/',
-                PMA\libraries\Util::sqlAddSlashes($replacement),
+                $GLOBALS['dbi']->escapeString($replacement),
                 $sql_query
             );
         }

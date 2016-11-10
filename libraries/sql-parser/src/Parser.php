@@ -531,6 +531,9 @@ class Parser
                 $lastStatement->last = $statement->last;
 
                 $unionType = false;
+
+                // Validate clause order
+                $statement->validateClauseOrder($this, $list);
                 continue;
             }
 
@@ -556,8 +559,14 @@ class Parser
                     }
                     $lastTransaction = null;
                 }
+
+                // Validate clause order
+                $statement->validateClauseOrder($this, $list);
                 continue;
             }
+
+            // Validate clause order
+            $statement->validateClauseOrder($this, $list);
 
             // Finally, storing the statement.
             if ($lastTransaction !== null) {

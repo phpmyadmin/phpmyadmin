@@ -35,6 +35,14 @@ class ThemeManagerTest extends PMATestCase
         $GLOBALS['server'] = 99;
         $GLOBALS['PMA_Config'] = new PMA\libraries\Config();
         $GLOBALS['collation_connection'] = 'utf8_general_ci';
+
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+            ->disableOriginalConstructor()
+            ->getMock();
+        $dbi->expects($this->any())->method('escapeString')
+            ->will($this->returnArgument(0));
+
+        $cfg['dbi'] = $dbi;
     }
 
     /**

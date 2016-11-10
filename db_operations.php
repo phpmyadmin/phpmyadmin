@@ -305,7 +305,7 @@ if ($cfgRelation['pdfwork'] && $num_tables > 0) {
         SELECT *
         FROM ' . PMA\libraries\Util::backquote($GLOBALS['cfgRelation']['db'])
         . '.' . PMA\libraries\Util::backquote($cfgRelation['pdf_pages']) . '
-        WHERE db_name = \'' . PMA\libraries\Util::sqlAddSlashes($GLOBALS['db'])
+        WHERE db_name = \'' . $GLOBALS['dbi']->escapeString($GLOBALS['db'])
         . '\'';
     $test_rs = PMA_queryAsControlUser(
         $test_query,

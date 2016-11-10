@@ -310,7 +310,7 @@ function PMA_TRI_getEditorForm($mode, $item)
                        . "type='hidden' value='{$item['item_original_name']}'/>\n";
     }
     $query  = "SELECT `TABLE_NAME` FROM `INFORMATION_SCHEMA`.`TABLES` ";
-    $query .= "WHERE `TABLE_SCHEMA`='" . PMA\libraries\Util::sqlAddSlashes($db) . "' ";
+    $query .= "WHERE `TABLE_SCHEMA`='" . $GLOBALS['dbi']->escapeString($db) . "' ";
     $query .= "AND `TABLE_TYPE`='BASE TABLE'";
     $tables = $GLOBALS['dbi']->fetchResult($query);
 

@@ -114,7 +114,7 @@ $cfgRelation = PMA_getRelationsParam();
 $all_tables_query = ' SELECT table_name, MAX(version) as version FROM ' .
     PMA\libraries\Util::backquote($cfgRelation['db']) . '.' .
     PMA\libraries\Util::backquote($cfgRelation['tracking']) .
-    ' WHERE db_name = \'' . PMA\libraries\Util::sqlAddSlashes($_REQUEST['db']) .
+    ' WHERE db_name = \'' . $GLOBALS['dbi']->escapeString($_REQUEST['db']) .
     '\' ' .
     ' GROUP BY table_name' .
     ' ORDER BY table_name ASC';

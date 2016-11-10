@@ -283,6 +283,9 @@ class TableTest extends PMATestCase
         $dbi->expects($this->any())->method('fetchRow')
             ->will($this->returnValue(false));
 
+        $dbi->expects($this->any())->method('escapeString')
+            ->will($this->returnArgument(0));
+
         $GLOBALS['dbi'] = $dbi;
     }
 
@@ -998,6 +1001,72 @@ class TableTest extends PMATestCase
             $expect,
             $return
         );
+    }
+
+    /**
+     * Test for checkIfMinRecordsExist
+     *
+     * @return void
+     */
+    public function testCheckIfMinRecordsExist()
+    {
+        $old_dbi = $GLOBALS['dbi'];
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+            ->disableOriginalConstructor()
+            ->getMock();
+        $dbi->expects($this->any())
+            ->method('tryQuery')
+            ->will($this->returnValue('res'));
+        $dbi->expects($this->any())
+            ->method('numRows')
+            ->willReturnOnConsecutiveCalls(
+                0,
+                10,
+                200
+            );
+        $dbi->expects($this->any())
+            ->method('fetchResult')
+            ->willReturnOnConsecutiveCalls(
+                array('`one_pk`'),
+
+                array(), // No Uniques found
+                array('`one_ind`', '`sec_ind`'),
+
+                array(), // No Uniques found
+                array()  // No Indexed found
+            );
+
+        $GLOBALS['dbi'] = $dbi;
+
+        $table = 'PMA_BookMark';
+        $db = 'PMA';
+        $tableObj = new Table($table, $db);
+
+        // Case 1 : Check if table is non-empty
+        $return = $tableObj->checkIfMinRecordsExist();
+        $expect = true;
+        $this->assertEquals(
+            $expect,
+            $return
+        );
+
+        // Case 2 : Check if table contains at least 100
+        $return = $tableObj->checkIfMinRecordsExist(100);
+        $expect = false;
+        $this->assertEquals(
+            $expect,
+            $return
+        );
+
+        // Case 3 : Check if table contains at least 100
+        $return = $tableObj->checkIfMinRecordsExist(100);
+        $expect = true;
+        $this->assertEquals(
+            $expect,
+            $return
+        );
+
+        $GLOBALS['dbi'] = $old_dbi;
     }
 
     /**

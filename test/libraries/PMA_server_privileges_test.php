@@ -123,6 +123,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
             'password' => 'pma_password',
             'Table_priv' => 'pri1, pri2',
             'Type' => 'Type',
+            '@@old_passwords' => 0,
         );
         $dbi->expects($this->any())->method('fetchSingleRow')
             ->will($this->returnValue($fetchSingleRow));
@@ -134,10 +135,14 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
         $dbi->expects($this->any())->method('tryQuery')
             ->will($this->returnValue(true));
 
+        $dbi->expects($this->any())->method('escapeString')
+            ->will($this->returnArgument(0));
+
         $GLOBALS['dbi'] = $dbi;
         $GLOBALS['is_superuser'] = true;
         $GLOBALS['is_grantuser'] = true;
         $GLOBALS['is_createuser'] = true;
+        $GLOBALS['is_reload_priv'] = true;
     }
 
     /**
@@ -507,8 +512,8 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
             $db, $table, $username, $hostname
         );
         $sql = "SELECT * FROM `mysql`.`user`"
-            . " WHERE `User` = '" . PMA\libraries\Util::sqlAddSlashes($username) . "'"
-            . " AND `Host` = '" . PMA\libraries\Util::sqlAddSlashes($hostname) . "';";
+            . " WHERE `User` = '" . $GLOBALS['dbi']->escapeString($username) . "'"
+            . " AND `Host` = '" . $GLOBALS['dbi']->escapeString($hostname) . "';";
         $this->assertEquals(
             $sql,
             $ret
@@ -521,8 +526,8 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
             $db, $table, $username, $hostname
         );
         $sql = "SELECT * FROM `mysql`.`db`"
-            . " WHERE `User` = '" . PMA\libraries\Util::sqlAddSlashes($username) . "'"
-            . " AND `Host` = '" . PMA\libraries\Util::sqlAddSlashes($hostname) . "'"
+            . " WHERE `User` = '" . $GLOBALS['dbi']->escapeString($username) . "'"
+            . " AND `Host` = '" . $GLOBALS['dbi']->escapeString($hostname) . "'"
             . " AND '" . PMA\libraries\Util::unescapeMysqlWildcards($db) . "'"
             . " LIKE `Db`;";
         $this->assertEquals(
@@ -538,10 +543,10 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
         );
         $sql = "SELECT `Table_priv`"
             . " FROM `mysql`.`tables_priv`"
-            . " WHERE `User` = '" . PMA\libraries\Util::sqlAddSlashes($username) . "'"
-            . " AND `Host` = '" . PMA\libraries\Util::sqlAddSlashes($hostname) . "'"
+            . " WHERE `User` = '" . $GLOBALS['dbi']->escapeString($username) . "'"
+            . " AND `Host` = '" . $GLOBALS['dbi']->escapeString($hostname) . "'"
             . " AND `Db` = '" . PMA\libraries\Util::unescapeMysqlWildcards($db) . "'"
-            . " AND `Table_name` = '" . PMA\libraries\Util::sqlAddSlashes($table) . "';";
+            . " AND `Table_name` = '" . $GLOBALS['dbi']->escapeString($table) . "';";
         $this->assertEquals(
             $sql,
             $ret
@@ -556,7 +561,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
         $this->assertEquals(
             "SELECT `Table_priv` FROM `mysql`.`tables_priv` "
             . "WHERE `User` = 'pma_username' AND "
-            . "`Host` = 'pma_hostname' AND `Db` = 'db\' AND' AND "
+            . "`Host` = 'pma_hostname' AND `Db` = 'db' AND' AND "
             . "`Table_name` = 'pma_table';",
             $ret
         );
@@ -634,54 +639,23 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_getSqlQueriesForDisplayAndAddUser
-     *
-     * @return void
-     */
-    public function testPMAGetSqlQueriesForDisplayAndAddNewUser()
-    {
-        $username = 'pma_username';
-        $hostname = 'pma_hostname';
-        $password = 'pma_password';
-        $_REQUEST['adduser_submit'] = true;
-        $_POST['pred_username'] = 'any';
-        $_POST['pred_hostname'] = 'localhost';
-        $_POST['pred_password'] = 'keep';
-        $_REQUEST['createdb-3'] = true;
-        $_REQUEST['authentication_plugin'] = 'mysql_native_password';
-
-        list($create_user_real, $create_user_show, $real_sql_query, $sql_query)
-            = PMA_getSqlQueriesForDisplayAndAddUser(
-                $username, $hostname,
-                (isset($password) ? $password : '')
-            );
-        $this->assertEquals(
-            "CREATE USER 'pma_username'@'pma_hostname' "
-            . "IDENTIFIED WITH mysql_native_password AS 'pma_password';",
-            $create_user_real
-        );
-        $this->assertEquals(
-            "CREATE USER 'pma_username'@'pma_hostname' "
-            . "IDENTIFIED WITH mysql_native_password AS '***';",
-            $create_user_show
-        );
-        $this->assertEquals(
-            "GRANT USAGE ON *.* TO 'pma_username'@'pma_hostname' REQUIRE NONE;",
-            $real_sql_query
-        );
-        $this->assertEquals(
-            "GRANT USAGE ON *.* TO 'pma_username'@'pma_hostname' REQUIRE NONE;",
-            $sql_query
-        );
-    }
-
-    /**
      * Test for PMA_addUser
      *
      * @return void
      */
     public function testPMAAddUser()
     {
+        // Case 1 : Test with Newer version
+        $restoreMySQLVersion = "PMANORESTORE";
+        if (! PMA_HAS_RUNKIT) {
+            $this->markTestSkipped(
+                'Cannot redefine constant. Missing runkit extension'
+            );
+        } else {
+            $restoreMySQLVersion = PMA_MYSQL_INT_VERSION;
+            runkit_constant_redefine('PMA_MYSQL_INT_VERSION', 50706);
+        }
+
         $dbname = 'pma_dbname';
         $username = 'pma_username';
         $hostname = 'pma_hostname';
@@ -717,6 +691,53 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
             false,
             $_add_user_error
         );
+
+        if ($restoreMySQLVersion !== "PMANORESTORE") {
+            runkit_constant_redefine('PMA_MYSQL_INT_VERSION', $restoreMySQLVersion);
+        }
+
+
+        // Case 2 : Test with older versions
+        $restoreMySQLVersion = "PMANORESTORE";
+        if (! PMA_HAS_RUNKIT) {
+            $this->markTestSkipped(
+                'Cannot redefine constant. Missing runkit extension'
+            );
+        } else {
+            $restoreMySQLVersion = PMA_MYSQL_INT_VERSION;
+            runkit_constant_redefine('PMA_MYSQL_INT_VERSION', 50506);
+        }
+
+        list(
+            $ret_message,,, $sql_query,
+            $_add_user_error
+        ) = PMA_addUser(
+            $dbname,
+            $username,
+            $hostname,
+            $dbname,
+            true
+        );
+
+        $this->assertEquals(
+            'You have added a new user.',
+            $ret_message->getMessage()
+        );
+        $this->assertEquals(
+            "CREATE USER ''@'localhost';"
+            . "GRANT USAGE ON *.* TO ''@'localhost' REQUIRE NONE;"
+            . "SET PASSWORD FOR ''@'localhost' = '***';"
+            . "GRANT ALL PRIVILEGES ON `pma_dbname`.* TO ''@'localhost';",
+            $sql_query
+        );
+        $this->assertEquals(
+            false,
+            $_add_user_error
+        );
+
+        if ($restoreMySQLVersion !== "PMANORESTORE") {
+            runkit_constant_redefine('PMA_MYSQL_INT_VERSION', $restoreMySQLVersion);
+        }
     }
 
     /**
@@ -858,6 +879,9 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
         $dbi->expects($this->at(1))
             ->method('fetchRow')
             ->will($this->returnValue(false));
+        $dbi->expects($this->any())
+            ->method('escapeString')
+            ->will($this->returnArgument(0));
 
         $GLOBALS['dbi'] = $dbi;
 
@@ -952,6 +976,17 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
      */
     public function testPMAGetSqlQueriesForDisplayAndAddUser()
     {
+        $restoreMySQLVersion = "PMANORESTORE";
+
+        if (! PMA_HAS_RUNKIT) {
+            $this->markTestSkipped(
+                'Cannot redefine constant. Missing runkit extension'
+            );
+        } else {
+            $restoreMySQLVersion = PMA_MYSQL_INT_VERSION;
+            runkit_constant_redefine('PMA_MYSQL_INT_VERSION', 50706);
+        }
+
         $username = "PMA_username";
         $hostname = "PMA_hostname";
         $password = "pma_password";
@@ -1004,6 +1039,10 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
             "You have added a new user.",
             $message->getMessage()
         );
+
+        if ($restoreMySQLVersion !== "PMANORESTORE") {
+            runkit_constant_redefine('PMA_MYSQL_INT_VERSION', $restoreMySQLVersion);
+        }
     }
 
     /**
@@ -1097,6 +1136,10 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
         );
         $dbi->expects($this->any())->method('fetchResult')
             ->will($this->returnValue($fields_info));
+        $dbi->expects($this->any())
+            ->method('escapeString')
+            ->will($this->returnArgument(0));
+
 
         $GLOBALS['dbi'] = $dbi;
 
@@ -1202,6 +1245,9 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
         );
         $dbi->expects($this->any())->method('fetchResult')
             ->will($this->returnValue($fields_info));
+        $dbi->expects($this->any())
+            ->method('escapeString')
+            ->will($this->returnArgument(0));
 
         $GLOBALS['dbi'] = $dbi;
 
@@ -1269,6 +1315,9 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
         );
         $dbi->expects($this->any())->method('fetchResult')
             ->will($this->returnValue($fields_info));
+        $dbi->expects($this->any())
+            ->method('escapeString')
+            ->will($this->returnArgument(0));
 
         $GLOBALS['dbi'] = $dbi;
 
@@ -1344,6 +1393,9 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
         );
         $dbi->expects($this->any())->method('fetchResult')
             ->will($this->returnValue($fields_info));
+        $dbi->expects($this->any())
+            ->method('escapeString')
+            ->will($this->returnArgument(0));
 
         $GLOBALS['dbi'] = $dbi;
 
@@ -1655,6 +1707,9 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
 
         $dbi->expects($this->any())->method('fetchValue')
             ->will($this->returnValue($expected_userGroup));
+        $dbi->expects($this->any())
+            ->method('escapeString')
+            ->will($this->returnArgument(0));
 
         $GLOBALS['dbi'] = $dbi;
 
@@ -1717,6 +1772,9 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
 
         $dbi->expects($this->any())->method('fetchValue')
             ->will($this->returnValue($expected_userGroup));
+        $dbi->expects($this->any())
+            ->method('escapeString')
+            ->will($this->returnArgument(0));
 
         $GLOBALS['dbi'] = $dbi;
 
@@ -2220,6 +2278,10 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
                     )
                 )
             );
+        $dbi->expects($this->any())
+            ->method('escapeString')
+            ->will($this->returnArgument(0));
+
         $_GET['initial'] = 'A';
         $GLOBALS['dbi'] = $dbi;
 
@@ -2255,6 +2317,10 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
         $dbi->expects($this->any())
             ->method('getError')
             ->will($this->returnValue('Some error occurred!'));
+        $dbi->expects($this->any())
+            ->method('escapeString')
+            ->will($this->returnArgument(0));
+
         $GLOBALS['dbi'] = $dbi;
 
         // Test case 1 : empty queries

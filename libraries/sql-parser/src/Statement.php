@@ -422,4 +422,47 @@ abstract class Statement
     {
         return $this->build();
     }
+
+    /**
+     * Validates the order of the clauses in parsed statement
+     * Ideally this should be called after successfully
+     * completing the parsing of each statement
+     *
+     * @param Parser     $parser The instance that requests parsing.
+     * @param TokensList $list   The list of tokens to be parsed.
+     *
+     * @return boolean
+     */
+    public function validateClauseOrder($parser, $list)
+    {
+        $clauses = array_flip(array_keys($this->getClauses()));
+
+        if (empty($clauses)
+            || count($clauses) == 0
+        ) {
+            return true;
+        }
+
+        $minIdx = -1;
+        foreach ($clauses as $clauseType => $index) {
+            $clauseStartIdx = Utils\Query::getClauseStartOffset(
+                $this,
+                $list,
+                $clauseType
+            );
+
+            if ($clauseStartIdx != -1 && $clauseStartIdx < $minIdx) {
+                $token = $list->tokens[$clauseStartIdx];
+                $parser->error(
+                    __('Unexpected ordering of clauses.'),
+                    $token
+                );
+                return false;
+            } elseif ($clauseStartIdx != -1) {
+                $minIdx = $clauseStartIdx;
+            }
+        }
+
+        return true;
+    }
 }

@@ -877,7 +877,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         if ($cfg['Server']['SessionTimeZone'] != '') {
             $sql_query_tz = 'SET ' . Util::backquote('time_zone') . ' = '
                 . '\''
-                . Util::sqlAddSlashes($cfg['Server']['SessionTimeZone'])
+                . $GLOBALS['dbi']->escapeString($cfg['Server']['SessionTimeZone'])
                 . '\'';
 
             if (! $userlink->query($sql_query_tz)) {

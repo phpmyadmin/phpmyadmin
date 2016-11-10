@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.5-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2016-10-25 11:13+0200\n"
+"POT-Creation-Date: 2016-11-10 09:39+0100\n"
 "PO-Revision-Date: 2016-01-23 11:11+0000\n"
 "Last-Translator: Arturs Nikolajevs <nikidijs@gmail.com>\n"
 "Language-Team: Latvian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -63,11 +63,12 @@ msgstr "Tabulas komentāri:"
 #: libraries/tracking.lib.php:893 libraries/tracking.lib.php:991
 #: templates/columns_definitions/column_name.phtml:18
 #: templates/table/index_form.phtml:124
-#: templates/table/relation/common_form.phtml:11
-#: templates/table/relation/common_form.phtml:26
-#: templates/table/relation/common_form.phtml:78
-#: templates/table/relation/foreign_key_row.phtml:178
-#: templates/table/relation/foreign_key_row.phtml:190
+#: templates/table/relation/common_form.phtml:12
+#: templates/table/relation/common_form.phtml:19
+#: templates/table/relation/common_form.phtml:35
+#: templates/table/relation/common_form.phtml:87
+#: templates/table/relation/foreign_key_row.phtml:180
+#: templates/table/relation/foreign_key_row.phtml:192
 #: templates/table/relation/internal_relational_row.phtml:73
 #: templates/table/search/table_header.phtml:6
 #: templates/table/search/zoom_result_form.phtml:33
@@ -523,7 +524,7 @@ msgstr ""
 msgid "Succeeded"
 msgstr "Izdevās"
 
-#: import.php:63 js/messages.php:595
+#: import.php:63 js/messages.php:601
 msgid "Failed"
 msgstr "Kļūda"
 
@@ -625,7 +626,7 @@ msgstr "\"DROP DATABASE\" komanda ir aizliegta."
 msgid "Could not load the progress of the import."
 msgstr ""
 
-#: import_status.php:116 js/messages.php:445 js/messages.php:603
+#: import_status.php:116 js/messages.php:445 js/messages.php:609
 #: libraries/Util.php:800 libraries/export.lib.php:516
 #: libraries/plugins/schema/ExportRelationSchema.php:297 user_password.php:298
 msgid "Back"
@@ -651,7 +652,7 @@ msgstr ""
 msgid "General settings"
 msgstr "Galvenie uzstādījumi"
 
-#: index.php:191 js/messages.php:628
+#: index.php:191 js/messages.php:634
 #: libraries/display_change_password.lib.php:50
 #: libraries/display_change_password.lib.php:53 user_password.php:292
 msgid "Change password"
@@ -1074,7 +1075,7 @@ msgstr "Izvēlieties vismaz vienu kolonnu attēlošanai"
 #: js/messages.php:127 libraries/insert_edit.lib.php:1615
 #: templates/columns_definitions/column_definitions_form.phtml:163
 #: templates/table/index_form.phtml:242
-#: templates/table/relation/common_form.phtml:126
+#: templates/table/relation/common_form.phtml:135
 msgid "Preview SQL"
 msgstr ""
 
@@ -1537,7 +1538,7 @@ msgstr "Izskaidrot izvadu"
 msgid "Status"
 msgstr "Statuss"
 
-#: js/messages.php:287 js/messages.php:873
+#: js/messages.php:287 js/messages.php:879
 #: libraries/plugins/export/ExportHtmlword.php:486
 #: libraries/plugins/export/ExportOdt.php:605
 #: libraries/plugins/export/ExportTexytext.php:447
@@ -2023,7 +2024,7 @@ msgid "Second step of normalization (2NF)"
 msgstr ""
 
 #. l10n: Display text for calendar close link
-#: js/messages.php:437 js/messages.php:742 libraries/normalization.lib.php:285
+#: js/messages.php:437 js/messages.php:748 libraries/normalization.lib.php:285
 #, fuzzy
 #| msgid "None"
 msgid "Done"
@@ -2106,7 +2107,7 @@ msgstr "Datubāze nav izvēlēta."
 #: templates/columns_definitions/column_definitions_form.phtml:166
 #: templates/server/variables/link_template.phtml:2
 #: templates/table/gis_visualization/gis_visualization.phtml:48
-#: templates/table/relation/common_form.phtml:127
+#: templates/table/relation/common_form.phtml:136
 #: templates/table/structure/partition_definition_form.phtml:11
 msgid "Save"
 msgstr "Saglabāt"
@@ -2195,7 +2196,7 @@ msgstr "Izvēlies 2 dažādas kolonnas"
 msgid "Data point content"
 msgstr "Satura rādītājs"
 
-#: js/messages.php:503 js/messages.php:663 js/messages.php:680
+#: js/messages.php:503 js/messages.php:669 js/messages.php:686
 #: libraries/ErrorHandler.php:363 libraries/insert_edit.lib.php:2646
 #: templates/table/index_form.phtml:154 templates/table/index_form.phtml:199
 msgid "Ignore"
@@ -2250,56 +2251,62 @@ msgstr ""
 
 #: js/messages.php:528
 msgid ""
+"MySQL accepts additional values not selectable by the datepicker; key in "
+"those values directly if desired"
+msgstr ""
+
+#: js/messages.php:534
+msgid ""
 "Indicates that you have made changes to this page; you will be prompted for "
 "confirmation before abandoning changes"
 msgstr ""
 
-#: js/messages.php:533
+#: js/messages.php:539
 msgid "Select referenced key"
 msgstr ""
 
-#: js/messages.php:534
+#: js/messages.php:540
 msgid "Select Foreign Key"
 msgstr ""
 
-#: js/messages.php:536
+#: js/messages.php:542
 msgid "Please select the primary key or a unique key!"
 msgstr ""
 
-#: js/messages.php:537 templates/database/designer/side_menu.phtml:91
+#: js/messages.php:543 templates/database/designer/side_menu.phtml:91
 #: templates/database/designer/side_menu.phtml:94
 #, fuzzy
 #| msgid "Choose field to display"
 msgid "Choose column to display"
 msgstr "Izvēlieties, kuru lauku rādīt"
 
-#: js/messages.php:539
+#: js/messages.php:545
 msgid ""
 "You haven't saved the changes in the layout. They will be lost if you don't "
 "save them. Do you want to continue?"
 msgstr ""
 
-#: js/messages.php:542
+#: js/messages.php:548
 #, fuzzy
 #| msgid "Page number:"
 msgid "Page name"
 msgstr "Lapas numurs:"
 
-#: js/messages.php:543 templates/database/designer/side_menu.phtml:56
+#: js/messages.php:549 templates/database/designer/side_menu.phtml:56
 #: templates/database/designer/side_menu.phtml:59
 #, fuzzy
 #| msgid "Select All"
 msgid "Save page"
 msgstr "Iezīmēt visu"
 
-#: js/messages.php:544 templates/database/designer/side_menu.phtml:63
+#: js/messages.php:550 templates/database/designer/side_menu.phtml:63
 #: templates/database/designer/side_menu.phtml:66
 #, fuzzy
 #| msgid "Select All"
 msgid "Save page as"
 msgstr "Iezīmēt visu"
 
-#: js/messages.php:545 templates/database/designer/side_menu.phtml:49
+#: js/messages.php:551 templates/database/designer/side_menu.phtml:49
 #: templates/database/designer/side_menu.phtml:52
 #, fuzzy
 #| msgctxt "PDF"
@@ -2307,243 +2314,243 @@ msgstr "Iezīmēt visu"
 msgid "Open page"
 msgstr "Aizņem"
 
-#: js/messages.php:546
+#: js/messages.php:552
 #, fuzzy
 #| msgid "Select All"
 msgid "Delete page"
 msgstr "Iezīmēt visu"
 
-#: js/messages.php:547 templates/database/designer/side_menu.phtml:10
+#: js/messages.php:553 templates/database/designer/side_menu.phtml:10
 #, fuzzy
 #| msgid "Unit"
 msgid "Untitled"
 msgstr "Vienība"
 
-#: js/messages.php:548
+#: js/messages.php:554
 #, fuzzy
 #| msgid "Please choose a page to edit"
 msgid "Please select a page to continue"
 msgstr "Izvēlieties lapu redigēšanai"
 
-#: js/messages.php:549
+#: js/messages.php:555
 #, fuzzy
 #| msgid "Please enter a valid number"
 msgid "Please enter a valid page name"
 msgstr "Lūdzu ievadiet derīgu numuru"
 
-#: js/messages.php:551
+#: js/messages.php:557
 msgid "Do you want to save the changes to the current page?"
 msgstr ""
 
-#: js/messages.php:552
+#: js/messages.php:558
 msgid "Successfully deleted the page"
 msgstr ""
 
-#: js/messages.php:553
+#: js/messages.php:559
 #, fuzzy
 #| msgid "Relational schema"
 msgid "Export relational schema"
 msgstr "Relāciju shēma"
 
-#: js/messages.php:554
+#: js/messages.php:560
 msgid "Modifications have been saved"
 msgstr "Labojumi tika saglabāti"
 
-#: js/messages.php:557
+#: js/messages.php:563
 #, fuzzy, php-format
 #| msgid "Value for the column \"%s\""
 msgid "Add an option for column \"%s\"."
 msgstr "Kolonnas vērtība \"%s\""
 
-#: js/messages.php:558
+#: js/messages.php:564
 #, php-format
 msgid "%d object(s) created."
 msgstr ""
 
-#: js/messages.php:559 libraries/sql_query_form.lib.php:409
+#: js/messages.php:565 libraries/sql_query_form.lib.php:409
 msgid "Submit"
 msgstr "Nosūtīt"
 
-#: js/messages.php:562
+#: js/messages.php:568
 msgid "Press escape to cancel editing."
 msgstr ""
 
-#: js/messages.php:564
+#: js/messages.php:570
 msgid ""
 "You have edited some data and they have not been saved. Are you sure you "
 "want to leave this page before saving the data?"
 msgstr ""
 
-#: js/messages.php:567
+#: js/messages.php:573
 msgid "Drag to reorder."
 msgstr ""
 
-#: js/messages.php:568
+#: js/messages.php:574
 msgid "Click to sort results by this column."
 msgstr ""
 
-#: js/messages.php:570
+#: js/messages.php:576
 msgid ""
 "Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC.<br /"
 ">- Ctrl+Click or Alt+Click (Mac: Shift+Option+Click) to remove column from "
 "ORDER BY clause"
 msgstr ""
 
-#: js/messages.php:574
+#: js/messages.php:580
 msgid "Click to mark/unmark."
 msgstr ""
 
-#: js/messages.php:575
+#: js/messages.php:581
 #, fuzzy
 #| msgid "Column names"
 msgid "Double-click to copy column name."
 msgstr "Kolonnu nosaukumi"
 
-#: js/messages.php:577
+#: js/messages.php:583
 msgid "Click the drop-down arrow<br />to toggle column's visibility."
 msgstr ""
 
-#: js/messages.php:579 libraries/DisplayResults.php:1034
+#: js/messages.php:585 libraries/DisplayResults.php:1034
 #: libraries/browse_foreigners.lib.php:287
 #: libraries/browse_foreigners.lib.php:340
 #: libraries/server_privileges.lib.php:3890
 msgid "Show all"
 msgstr "Rādīt visu"
 
-#: js/messages.php:581
+#: js/messages.php:587
 msgid ""
 "This table does not contain a unique column. Features related to the grid "
 "edit, checkbox, Edit, Copy and Delete links may not work after saving."
 msgstr ""
 
-#: js/messages.php:585
+#: js/messages.php:591
 msgid "Please enter a valid hexadecimal string. Valid characters are 0-9, A-F."
 msgstr ""
 
-#: js/messages.php:587
+#: js/messages.php:593
 msgid ""
 "Do you really want to see all of the rows? For a big table this could crash "
 "the browser."
 msgstr ""
 
-#: js/messages.php:590
+#: js/messages.php:596
 #, fuzzy
 #| msgid "Original position"
 msgid "Original length"
 msgstr "Oriģinālā pozīcija"
 
-#: js/messages.php:593
+#: js/messages.php:599
 #, fuzzy
 #| msgid "Cancel"
 msgid "cancel"
 msgstr "Atcelt"
 
-#: js/messages.php:594 libraries/server_status.lib.php:277
+#: js/messages.php:600 libraries/server_status.lib.php:277
 msgid "Aborted"
 msgstr "Pārtraukts"
 
-#: js/messages.php:596
+#: js/messages.php:602
 msgid "Success"
 msgstr ""
 
-#: js/messages.php:597
+#: js/messages.php:603
 #, fuzzy
 msgid "Import status"
 msgstr "Importēt failus"
 
-#: js/messages.php:598 libraries/navigation/Navigation.php:111
+#: js/messages.php:604 libraries/navigation/Navigation.php:111
 msgid "Drop files here"
 msgstr ""
 
-#: js/messages.php:599
+#: js/messages.php:605
 #, fuzzy
 #| msgid "Select Tables"
 msgid "Select database first"
 msgstr "Izvēlieties tabulas"
 
-#: js/messages.php:602 libraries/DisplayResults.php:5037
+#: js/messages.php:608 libraries/DisplayResults.php:5037
 #: libraries/Util.php:4233
 #: templates/database/structure/print_view_data_dictionary_link.phtml:3
 #: templates/table/structure/optional_action_links.phtml:6
 msgid "Print"
 msgstr "Drukāt"
 
-#: js/messages.php:609
+#: js/messages.php:615
 msgid "You can also edit most values<br />by double-clicking directly on them."
 msgstr ""
 
-#: js/messages.php:614
+#: js/messages.php:620
 msgid "You can also edit most values<br />by clicking directly on them."
 msgstr ""
 
-#: js/messages.php:620
+#: js/messages.php:626
 #, fuzzy
 msgid "Go to link:"
 msgstr "Nav datubāzu"
 
-#: js/messages.php:621
+#: js/messages.php:627
 #, fuzzy
 #| msgid "Column names"
 msgid "Copy column name."
 msgstr "Kolonnu nosaukumi"
 
-#: js/messages.php:623
+#: js/messages.php:629
 msgid "Right-click the column name to copy it to your clipboard."
 msgstr ""
 
-#: js/messages.php:626
+#: js/messages.php:632
 #, fuzzy
 #| msgid "Change password"
 msgid "Generate password"
 msgstr "Mainīt paroli"
 
-#: js/messages.php:627 libraries/replication_gui.lib.php:883
+#: js/messages.php:633 libraries/replication_gui.lib.php:883
 #, fuzzy
 msgid "Generate"
 msgstr "Uzģenerēja"
 
-#: js/messages.php:631
+#: js/messages.php:637
 #, fuzzy
 #| msgid "Mon"
 msgid "More"
 msgstr "P"
 
-#: js/messages.php:634
+#: js/messages.php:640
 #, fuzzy
 #| msgid "Show all"
 msgid "Show panel"
 msgstr "Rādīt visu"
 
-#: js/messages.php:635
+#: js/messages.php:641
 #, fuzzy
 #| msgid "Add new field"
 msgid "Hide panel"
 msgstr "Pievienot jaunu lauku"
 
-#: js/messages.php:636
+#: js/messages.php:642
 #, fuzzy
 #| msgid "Show grid"
 msgid "Show hidden navigation tree items."
 msgstr "Rādīt režģi"
 
-#: js/messages.php:637 libraries/config/messages.inc.php:479
+#: js/messages.php:643 libraries/config/messages.inc.php:479
 #: libraries/navigation/NavigationTree.php:1434
 #, fuzzy
 msgid "Link with main panel"
 msgstr "Datubāzu eksporta opcijas"
 
-#: js/messages.php:638 libraries/navigation/NavigationTree.php:1437
+#: js/messages.php:644 libraries/navigation/NavigationTree.php:1437
 #, fuzzy
 msgid "Unlink from main panel"
 msgstr "Datubāzu eksporta opcijas"
 
-#: js/messages.php:642
+#: js/messages.php:648
 #, fuzzy
 #| msgid "The selected user was not found in the privilege table."
 msgid "The requested page was not found in the history, it may have expired."
 msgstr "Izvēlētais lietotājs nav atrasts privilēģiju tabulā."
 
-#: js/messages.php:646 setup/lib/index.lib.php:169
+#: js/messages.php:652 setup/lib/index.lib.php:169
 #, php-format
 msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
@@ -2551,122 +2558,122 @@ msgid ""
 msgstr ""
 
 #. l10n: Latest available phpMyAdmin version
-#: js/messages.php:650
+#: js/messages.php:656
 msgid ", latest stable version:"
 msgstr ""
 
-#: js/messages.php:651
+#: js/messages.php:657
 #, fuzzy
 msgid "up to date"
 msgstr "Nav datubāzu"
 
-#: js/messages.php:653 libraries/DisplayResults.php:4968 view_create.php:200
+#: js/messages.php:659 libraries/DisplayResults.php:4968 view_create.php:200
 #, fuzzy
 msgid "Create view"
 msgstr "Servera versija"
 
-#: js/messages.php:656
+#: js/messages.php:662
 #, fuzzy
 msgid "Send error report"
 msgstr "Servera ID"
 
-#: js/messages.php:657
+#: js/messages.php:663
 #, fuzzy
 msgid "Submit error report"
 msgstr "Servera ID"
 
-#: js/messages.php:659
+#: js/messages.php:665
 msgid ""
 "A fatal JavaScript error has occurred. Would you like to send an error "
 "report?"
 msgstr ""
 
-#: js/messages.php:661
+#: js/messages.php:667
 #, fuzzy
 #| msgid "Change settings"
 msgid "Change report settings"
 msgstr "Mainīt uzstādījumus"
 
-#: js/messages.php:662
+#: js/messages.php:668
 #, fuzzy
 msgid "Show report details"
 msgstr "Rādīt tabulas"
 
-#: js/messages.php:665
+#: js/messages.php:671
 msgid ""
 "Your export is incomplete, due to a low execution time limit at the PHP "
 "level!"
 msgstr ""
 
-#: js/messages.php:669
+#: js/messages.php:675
 #, php-format
 msgid ""
 "Warning: a form on this page has more than %d fields. On submission, some of "
 "the fields might be ignored, due to PHP's max_input_vars configuration."
 msgstr ""
 
-#: js/messages.php:675 js/messages.php:688
+#: js/messages.php:681 js/messages.php:694
 msgid "Some errors have been detected on the server!"
 msgstr ""
 
-#: js/messages.php:677
+#: js/messages.php:683
 msgid "Please look at the bottom of this window."
 msgstr ""
 
-#: js/messages.php:683 libraries/ErrorHandler.php:367
+#: js/messages.php:689 libraries/ErrorHandler.php:367
 #, fuzzy
 #| msgid "Ignore"
 msgid "Ignore All"
 msgstr "Ignorēt"
 
-#: js/messages.php:691
+#: js/messages.php:697
 msgid ""
 "As per your settings, they are being submitted currently, please be patient."
 msgstr ""
 
-#: js/messages.php:701
+#: js/messages.php:707
 #, fuzzy
 #| msgid "Show this query here again"
 msgid "Execute this query again?"
 msgstr "Rādīt šo vaicājumu šeit atkal"
 
-#: js/messages.php:703
+#: js/messages.php:709
 #, fuzzy
 #| msgid "Do you really want to delete user group \"%s\"?"
 msgid "Do you really want to delete this bookmark?"
 msgstr "Vai Jūs tiešām vēlaties dzēst lietotāju grupu \"%s\"?"
 
-#: js/messages.php:705
+#: js/messages.php:711
 msgid "Some error occurred while getting SQL debug info."
 msgstr ""
 
-#: js/messages.php:707
+#: js/messages.php:713
 #, fuzzy, php-format
 msgid "%s queries executed %s times in %s seconds."
 msgstr "SQL vaicājums"
 
-#: js/messages.php:708
+#: js/messages.php:714
 #, php-format
 msgid "%s argument(s) passed"
 msgstr ""
 
-#: js/messages.php:709
+#: js/messages.php:715
 #, fuzzy
 #| msgid "Table comments"
 msgid "Show arguments"
 msgstr "Komentārs tabulai"
 
-#: js/messages.php:710
+#: js/messages.php:716
 #, fuzzy
 #| msgid "Hide search results"
 msgid "Hide arguments"
 msgstr "Slēpt meklēšanas rezultātus"
 
-#: js/messages.php:711 libraries/Console.php:306
+#: js/messages.php:717 libraries/Console.php:306
 msgid "Time taken:"
 msgstr ""
 
-#: js/messages.php:712
+#: js/messages.php:718
 msgid ""
 "There was a problem accessing your browser storage, some features may not "
 "work properly for you. It is likely that the browser doesn't support storage "
@@ -2675,38 +2682,38 @@ msgid ""
 "Safari, such problem is commonly caused by \"Private Mode Browsing\"."
 msgstr ""
 
-#: js/messages.php:714
+#: js/messages.php:720
 #, fuzzy
 #| msgid "Copy database to"
 msgid "Copy tables to"
 msgstr "Kopēt datubāzi uz"
 
-#: js/messages.php:715
+#: js/messages.php:721
 #, fuzzy
 #| msgid "Add new field"
 msgid "Add table prefix"
 msgstr "Pievienot jaunu lauku"
 
-#: js/messages.php:716
+#: js/messages.php:722
 #, fuzzy
 #| msgid "Replace table data with file"
 msgid "Replace table with prefix"
 msgstr "Aizvietot tabulas datus ar datiem no faila"
 
-#: js/messages.php:717 templates/database/structure/check_all_tables.phtml:29
+#: js/messages.php:723 templates/database/structure/check_all_tables.phtml:29
 #, fuzzy
 #| msgid "Replace table data with file"
 msgid "Copy table with prefix"
 msgstr "Aizvietot tabulas datus ar datiem no faila"
 
-#: js/messages.php:746
+#: js/messages.php:752
 #, fuzzy
 #| msgid "Previous"
 msgctxt "Previous month"
 msgid "Prev"
 msgstr "Iepriekšējie"
 
-#: js/messages.php:751
+#: js/messages.php:757
 #, fuzzy
 #| msgid "Next"
 msgctxt "Next month"
@@ -2714,96 +2721,96 @@ msgid "Next"
 msgstr "Nākamie"
 
 #. l10n: Display text for current month link in calendar
-#: js/messages.php:754
+#: js/messages.php:760
 #, fuzzy
 #| msgid "Total"
 msgid "Today"
 msgstr "Kopā"
 
-#: js/messages.php:758
+#: js/messages.php:764
 #, fuzzy
 #| msgid "Binary"
 msgid "January"
 msgstr "Binārais"
 
-#: js/messages.php:759
+#: js/messages.php:765
 msgid "February"
 msgstr ""
 
-#: js/messages.php:760
+#: js/messages.php:766
 #, fuzzy
 #| msgid "Mar"
 msgid "March"
 msgstr "Mar"
 
-#: js/messages.php:761
+#: js/messages.php:767
 #, fuzzy
 #| msgid "Apr"
 msgid "April"
 msgstr "Apr"
 
-#: js/messages.php:762
+#: js/messages.php:768
 msgid "May"
 msgstr "Mai"
 
-#: js/messages.php:763
+#: js/messages.php:769
 #, fuzzy
 #| msgid "Jun"
 msgid "June"
 msgstr "Jūn"
 
-#: js/messages.php:764
+#: js/messages.php:770
 #, fuzzy
 #| msgid "Jul"
 msgid "July"
 msgstr "Jūl"
 
-#: js/messages.php:765
+#: js/messages.php:771
 #, fuzzy
 #| msgid "Aug"
 msgid "August"
 msgstr "Aug"
 
-#: js/messages.php:766
+#: js/messages.php:772
 msgid "September"
 msgstr ""
 
-#: js/messages.php:767
+#: js/messages.php:773
 #, fuzzy
 #| msgid "Oct"
 msgid "October"
 msgstr "Okt"
 
-#: js/messages.php:768
+#: js/messages.php:774
 msgid "November"
 msgstr ""
 
-#: js/messages.php:769
+#: js/messages.php:775
 msgid "December"
 msgstr ""
 
 #. l10n: Short month name
-#: js/messages.php:776 libraries/Util.php:1665
+#: js/messages.php:782 libraries/Util.php:1665
 msgid "Jan"
 msgstr "Jan"
 
 #. l10n: Short month name
-#: js/messages.php:778 libraries/Util.php:1667
+#: js/messages.php:784 libraries/Util.php:1667
 msgid "Feb"
 msgstr "Feb"
 
 #. l10n: Short month name
-#: js/messages.php:780 libraries/Util.php:1669
+#: js/messages.php:786 libraries/Util.php:1669
 msgid "Mar"
 msgstr "Mar"
 
 #. l10n: Short month name
-#: js/messages.php:782 libraries/Util.php:1671
+#: js/messages.php:788 libraries/Util.php:1671
 msgid "Apr"
 msgstr "Apr"
 
 #. l10n: Short month name
-#: js/messages.php:784 libraries/Util.php:1673
+#: js/messages.php:790 libraries/Util.php:1673
 #, fuzzy
 #| msgid "May"
 msgctxt "Short month name"
@@ -2811,78 +2818,78 @@ msgid "May"
 msgstr "Mai"
 
 #. l10n: Short month name
-#: js/messages.php:786 libraries/Util.php:1675
+#: js/messages.php:792 libraries/Util.php:1675
 msgid "Jun"
 msgstr "Jūn"
 
 #. l10n: Short month name
-#: js/messages.php:788 libraries/Util.php:1677
+#: js/messages.php:794 libraries/Util.php:1677
 msgid "Jul"
 msgstr "Jūl"
 
 #. l10n: Short month name
-#: js/messages.php:790 libraries/Util.php:1679
+#: js/messages.php:796 libraries/Util.php:1679
 msgid "Aug"
 msgstr "Aug"
 
 #. l10n: Short month name
-#: js/messages.php:792 libraries/Util.php:1681
+#: js/messages.php:798 libraries/Util.php:1681
 msgid "Sep"
 msgstr "Sep"
 
 #. l10n: Short month name
-#: js/messages.php:794 libraries/Util.php:1683
+#: js/messages.php:800 libraries/Util.php:1683
 msgid "Oct"
 msgstr "Okt"
 
 #. l10n: Short month name
-#: js/messages.php:796 libraries/Util.php:1685
+#: js/messages.php:802 libraries/Util.php:1685
 msgid "Nov"
 msgstr "Nov"
 
 #. l10n: Short month name
-#: js/messages.php:798 libraries/Util.php:1687
+#: js/messages.php:804 libraries/Util.php:1687
 msgid "Dec"
 msgstr "Dec"
 
-#: js/messages.php:804
+#: js/messages.php:810
 #, fuzzy
 #| msgid "Sun"
 msgid "Sunday"
 msgstr "Sv"
 
-#: js/messages.php:805
+#: js/messages.php:811
 #, fuzzy
 #| msgid "Mon"
 msgid "Monday"
 msgstr "P"
 
-#: js/messages.php:806
+#: js/messages.php:812
 #, fuzzy
 #| msgid "Tue"
 msgid "Tuesday"
 msgstr "O"
 
-#: js/messages.php:807
+#: js/messages.php:813
 msgid "Wednesday"
 msgstr ""
 
-#: js/messages.php:808
+#: js/messages.php:814
 msgid "Thursday"
 msgstr ""
 
-#: js/messages.php:809
+#: js/messages.php:815
 #, fuzzy
 #| msgid "Fri"
 msgid "Friday"
 msgstr "Pk"
 
-#: js/messages.php:810
+#: js/messages.php:816
 msgid "Saturday"
 msgstr ""
 
 #. l10n: Short week day name
-#: js/messages.php:817
+#: js/messages.php:823
 #, fuzzy
 #| msgctxt "Short week day name"
 #| msgid "Sun"
@@ -2890,223 +2897,223 @@ msgid "Sun"
 msgstr "Sv"
 
 #. l10n: Short week day name
-#: js/messages.php:819 libraries/Util.php:1692
+#: js/messages.php:825 libraries/Util.php:1692
 msgid "Mon"
 msgstr "P"
 
 #. l10n: Short week day name
-#: js/messages.php:821 libraries/Util.php:1694
+#: js/messages.php:827 libraries/Util.php:1694
 msgid "Tue"
 msgstr "O"
 
 #. l10n: Short week day name
-#: js/messages.php:823 libraries/Util.php:1696
+#: js/messages.php:829 libraries/Util.php:1696
 msgid "Wed"
 msgstr "T"
 
 #. l10n: Short week day name
-#: js/messages.php:825 libraries/Util.php:1698
+#: js/messages.php:831 libraries/Util.php:1698
 msgid "Thu"
 msgstr "C"
 
 #. l10n: Short week day name
-#: js/messages.php:827 libraries/Util.php:1700
+#: js/messages.php:833 libraries/Util.php:1700
 msgid "Fri"
 msgstr "Pk"
 
 #. l10n: Short week day name
-#: js/messages.php:829 libraries/Util.php:1702
+#: js/messages.php:835 libraries/Util.php:1702
 msgid "Sat"
 msgstr "S"
 
 #. l10n: Minimal week day name
-#: js/messages.php:836
+#: js/messages.php:842
 #, fuzzy
 #| msgid "Sun"
 msgid "Su"
 msgstr "Sv"
 
 #. l10n: Minimal week day name
-#: js/messages.php:838
+#: js/messages.php:844
 #, fuzzy
 #| msgid "Mon"
 msgid "Mo"
 msgstr "P"
 
 #. l10n: Minimal week day name
-#: js/messages.php:840
+#: js/messages.php:846
 #, fuzzy
 #| msgid "Tue"
 msgid "Tu"
 msgstr "O"
 
 #. l10n: Minimal week day name
-#: js/messages.php:842
+#: js/messages.php:848
 #, fuzzy
 #| msgid "Wed"
 msgid "We"
 msgstr "T"
 
 #. l10n: Minimal week day name
-#: js/messages.php:844
+#: js/messages.php:850
 #, fuzzy
 #| msgid "Thu"
 msgid "Th"
 msgstr "C"
 
 #. l10n: Minimal week day name
-#: js/messages.php:846
+#: js/messages.php:852
 #, fuzzy
 #| msgid "Fri"
 msgid "Fr"
 msgstr "Pk"
 
 #. l10n: Minimal week day name
-#: js/messages.php:848
+#: js/messages.php:854
 #, fuzzy
 #| msgid "Sat"
 msgid "Sa"
 msgstr "S"
 
 #. l10n: Column header for week of the year in calendar
-#: js/messages.php:852
+#: js/messages.php:858
 msgid "Wk"
 msgstr ""
 
 #. l10n: Month-year order for calendar, use either "calendar-month-year"
 #. * or "calendar-year-month".
 #.
-#: js/messages.php:859
+#: js/messages.php:865
 msgid "calendar-month-year"
 msgstr ""
 
 #. l10n: Year suffix for calendar, "none" is empty.
-#: js/messages.php:862
+#: js/messages.php:868
 #, fuzzy
 #| msgid "None"
 msgctxt "Year suffix"
 msgid "none"
 msgstr "Nav"
 
-#: js/messages.php:874
+#: js/messages.php:880
 msgid "Hour"
 msgstr ""
 
-#: js/messages.php:875
+#: js/messages.php:881
 #, fuzzy
 #| msgid "in use"
 msgid "Minute"
 msgstr "lietošanā"
 
-#: js/messages.php:876
+#: js/messages.php:882
 #, fuzzy
 #| msgid "per second"
 msgid "Second"
 msgstr "sekundē"
 
-#: js/messages.php:887
+#: js/messages.php:893
 msgid "This field is required"
 msgstr ""
 
-#: js/messages.php:888
+#: js/messages.php:894
 #, fuzzy
 #| msgid "Use text field"
 msgid "Please fix this field"
 msgstr "Lietot teksta lauku"
 
-#: js/messages.php:889
+#: js/messages.php:895
 #, fuzzy
 #| msgid "Please enter a valid number"
 msgid "Please enter a valid email address"
 msgstr "Lūdzu ievadiet derīgu numuru"
 
-#: js/messages.php:890
+#: js/messages.php:896
 #, fuzzy
 #| msgid "Please enter a valid number"
 msgid "Please enter a valid URL"
 msgstr "Lūdzu ievadiet derīgu numuru"
 
-#: js/messages.php:891
+#: js/messages.php:897
 #, fuzzy
 #| msgid "Please enter a valid number"
 msgid "Please enter a valid date"
 msgstr "Lūdzu ievadiet derīgu numuru"
 
-#: js/messages.php:894
+#: js/messages.php:900
 #, fuzzy
 #| msgid "Please enter a valid number"
 msgid "Please enter a valid date ( ISO )"
 msgstr "Lūdzu ievadiet derīgu numuru"
 
-#: js/messages.php:896
+#: js/messages.php:902
 #, fuzzy
 #| msgid "Please enter a valid number"
 msgid "Please enter a valid number"
 msgstr "Lūdzu ievadiet derīgu numuru"
 
-#: js/messages.php:899
+#: js/messages.php:905
 #, fuzzy
 #| msgid "Please enter a valid number"
 msgid "Please enter a valid credit card number"
 msgstr "Lūdzu ievadiet derīgu numuru"
 
-#: js/messages.php:901
+#: js/messages.php:907
 #, fuzzy
 #| msgid "Please enter a valid length"
 msgid "Please enter only digits"
 msgstr "Lūdzu ievadiet derīgu garumu"
 
-#: js/messages.php:904
+#: js/messages.php:910
 #, fuzzy
 #| msgid "Please enter a valid number"
 msgid "Please enter the same value again"
 msgstr "Lūdzu ievadiet derīgu numuru"
 
-#: js/messages.php:908
+#: js/messages.php:914
 msgid "Please enter no more than {0} characters"
 msgstr ""
 
-#: js/messages.php:913
+#: js/messages.php:919
 #, fuzzy
 #| msgid "Please enter a valid number"
 msgid "Please enter at least {0} characters"
 msgstr "Lūdzu ievadiet derīgu numuru"
 
-#: js/messages.php:918
+#: js/messages.php:924
 msgid "Please enter a value between {0} and {1} characters long"
 msgstr ""
 
-#: js/messages.php:923
+#: js/messages.php:929
 #, fuzzy
 #| msgid "Please enter a valid number"
 msgid "Please enter a value between {0} and {1}"
 msgstr "Lūdzu ievadiet derīgu numuru"
 
-#: js/messages.php:928
+#: js/messages.php:934
 #, fuzzy
 #| msgid "Please enter a valid length"
 msgid "Please enter a value less than or equal to {0}"
 msgstr "Lūdzu ievadiet derīgu garumu"
 
-#: js/messages.php:933
+#: js/messages.php:939
 #, fuzzy
 #| msgid "Please enter a valid number"
 msgid "Please enter a value greater than or equal to {0}"
 msgstr "Lūdzu ievadiet derīgu numuru"
 
-#: js/messages.php:939
+#: js/messages.php:945
 #, fuzzy
 #| msgid "Please enter a valid number"
 msgid "Please enter a valid date or time"
 msgstr "Lūdzu ievadiet derīgu numuru"
 
-#: js/messages.php:944
+#: js/messages.php:950
 #, fuzzy
 #| msgid "Please enter a valid number"
 msgid "Please enter a valid HEX input"
 msgstr "Lūdzu ievadiet derīgu numuru"
 
-#: js/messages.php:949 libraries/Message.php:200 libraries/Util.php:677
+#: js/messages.php:955 libraries/Message.php:200 libraries/Util.php:677
 #: libraries/core.lib.php:245 libraries/import.lib.php:94
 #: libraries/insert_edit.lib.php:1230 view_operations.php:73
 msgid "Error"
@@ -3202,8 +3209,8 @@ msgstr "vaicājumā"
 #: libraries/server_privileges.lib.php:4659
 #: libraries/server_status_processes.lib.php:79
 #: templates/server/databases/table_header.phtml:8
-#: templates/table/relation/common_form.phtml:24
-#: templates/table/relation/foreign_key_row.phtml:149
+#: templates/table/relation/common_form.phtml:33
+#: templates/table/relation/foreign_key_row.phtml:151
 #: templates/table/relation/internal_relational_row.phtml:57
 msgid "Database"
 msgstr "Datubāze"
@@ -4131,7 +4138,7 @@ msgstr "Indekss %s tika izdzēsts."
 #: libraries/controllers/table/TableStructureController.php:1186
 #: libraries/operations.lib.php:1596 libraries/rte/rte_list.lib.php:153
 #: templates/database/structure/check_all_tables.phtml:17
-#: templates/table/relation/foreign_key_row.phtml:75
+#: templates/table/relation/foreign_key_row.phtml:77
 #: templates/table/structure/check_all_table_column.phtml:15
 #: templates/table/structure/display_structure.phtml:181
 msgid "Drop"
@@ -4187,8 +4194,8 @@ msgstr ""
 #: libraries/server_privileges.lib.php:4673 libraries/tracking.lib.php:1474
 #: libraries/tracking.lib.php:1620
 #: templates/database/structure/table_header.phtml:21
-#: templates/table/relation/common_form.phtml:25
-#: templates/table/relation/foreign_key_row.phtml:160
+#: templates/table/relation/common_form.phtml:34
+#: templates/table/relation/foreign_key_row.phtml:162
 #: templates/table/relation/internal_relational_row.phtml:65
 msgid "Table"
 msgstr "Tabula"
@@ -4586,50 +4593,50 @@ msgstr ""
 msgid "Unknown table status:"
 msgstr "Rādīt tabulas"
 
-#: libraries/Table.php:748
+#: libraries/Table.php:791
 #, fuzzy, php-format
 msgid "Source database `%s` was not found!"
 msgstr "Meklēt datubāzē"
 
-#: libraries/Table.php:756
+#: libraries/Table.php:799
 #, fuzzy, php-format
 msgid "Target database `%s` was not found!"
 msgstr "Meklēt datubāzē"
 
-#: libraries/Table.php:1305
+#: libraries/Table.php:1354
 #, fuzzy
 msgid "Invalid database:"
 msgstr "Nav datubāzu"
 
-#: libraries/Table.php:1322
+#: libraries/Table.php:1371
 #, fuzzy
 #| msgid "Inside table(s):"
 msgid "Invalid table name:"
 msgstr "Tabulā(s):"
 
-#: libraries/Table.php:1357
+#: libraries/Table.php:1406
 #, fuzzy, php-format
 msgid "Failed to rename table %1$s to %2$s!"
 msgstr "Servera versija"
 
-#: libraries/Table.php:1376
+#: libraries/Table.php:1425
 #, fuzzy, php-format
 #| msgid "Table %s has been renamed to %s."
 msgid "Table %1$s has been renamed to %2$s."
 msgstr "Tabula %s tika pārsaukta par %s"
 
-#: libraries/Table.php:1595
+#: libraries/Table.php:1644
 msgid "Could not save table UI preferences!"
 msgstr ""
 
-#: libraries/Table.php:1625
+#: libraries/Table.php:1674
 #, php-format
 msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
 "['MaxTableUiprefs'] %s)"
 msgstr ""
 
-#: libraries/Table.php:1778
+#: libraries/Table.php:1827
 #, php-format
 msgid ""
 "Cannot save UI property \"%s\". The changes made will not be persistent "
@@ -4637,19 +4644,19 @@ msgid ""
 "changed."
 msgstr ""
 
-#: libraries/Table.php:1914
+#: libraries/Table.php:1963
 msgid "The name of the primary key must be \"PRIMARY\"!"
 msgstr "Primārās atslēgas nosaukumam jābūt \"PRIMARY\"!"
 
-#: libraries/Table.php:1925
+#: libraries/Table.php:1974
 msgid "Can't rename index to PRIMARY!"
 msgstr "Nevar pārsaukt indeksu par PRIMARY!"
 
-#: libraries/Table.php:1947
+#: libraries/Table.php:1996
 msgid "No index parts defined!"
 msgstr "Nav definēto indeksa daļu!"
 
-#: libraries/Table.php:2265
+#: libraries/Table.php:2314
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr ""
@@ -11404,60 +11411,60 @@ msgstr ""
 msgid "Formats text as XML with syntax highlighting."
 msgstr ""
 
-#: libraries/pmd_common.php:551
+#: libraries/pmd_common.php:549
 msgid "Error: relation already exists."
 msgstr ""
 
-#: libraries/pmd_common.php:597
+#: libraries/pmd_common.php:595
 #, fuzzy
 #| msgid "Modifications have been saved"
 msgid "FOREIGN KEY relation has been added."
 msgstr "Labojumi tika saglabāti"
 
-#: libraries/pmd_common.php:603
+#: libraries/pmd_common.php:601
 #, fuzzy
 #| msgid "File could not be read"
 msgid "Error: FOREIGN KEY relation could not be added!"
 msgstr "Nevar nolasīt failu"
 
-#: libraries/pmd_common.php:608
+#: libraries/pmd_common.php:606
 msgid "Error: Missing index on column(s)."
 msgstr ""
 
-#: libraries/pmd_common.php:613
+#: libraries/pmd_common.php:611
 msgid "Error: Relational features are disabled!"
 msgstr ""
 
-#: libraries/pmd_common.php:635
+#: libraries/pmd_common.php:633
 #, fuzzy
 msgid "Internal relation has been added."
 msgstr "Iekšējās relācijas"
 
-#: libraries/pmd_common.php:641
+#: libraries/pmd_common.php:639
 #, fuzzy
 #| msgid "File could not be read"
 msgid "Error: Internal relation could not be added!"
 msgstr "Nevar nolasīt failu"
 
-#: libraries/pmd_common.php:679
+#: libraries/pmd_common.php:677
 #, fuzzy
 #| msgid "Modifications have been saved"
 msgid "FOREIGN KEY relation has been removed."
 msgstr "Labojumi tika saglabāti"
 
-#: libraries/pmd_common.php:685
+#: libraries/pmd_common.php:683
 #, fuzzy
 #| msgid "File could not be read"
 msgid "Error: FOREIGN KEY relation could not be removed!"
 msgstr "Nevar nolasīt failu"
 
-#: libraries/pmd_common.php:712
+#: libraries/pmd_common.php:710
 #, fuzzy
 #| msgid "File could not be read"
 msgid "Error: Internal relation could not be removed!"
 msgstr "Nevar nolasīt failu"
 
-#: libraries/pmd_common.php:716
+#: libraries/pmd_common.php:714
 #, fuzzy
 msgid "Internal relation has been removed."
 msgstr "Iekšējās relācijas"
@@ -11592,31 +11599,31 @@ msgstr ""
 msgid "Re-login to phpMyAdmin to load the updated configuration file."
 msgstr ""
 
-#: libraries/relation.lib.php:1674
+#: libraries/relation.lib.php:1686
 msgid "no description"
 msgstr "Bez apraksta"
 
-#: libraries/relation.lib.php:1867
+#: libraries/relation.lib.php:1879
 msgid ""
 "You do not have necessary privileges to create a database named "
 "'phpmyadmin'. You may go to 'Operations' tab of any database to set up the "
 "phpMyAdmin configuration storage there."
 msgstr ""
 
-#: libraries/relation.lib.php:1982
+#: libraries/relation.lib.php:1994
 #, php-format
 msgid ""
 "%sCreate%s a database named 'phpmyadmin' and setup the phpMyAdmin "
 "configuration storage there."
 msgstr ""
 
-#: libraries/relation.lib.php:1990
+#: libraries/relation.lib.php:2002
 #, php-format
 msgid ""
 "%sCreate%s the phpMyAdmin configuration storage in the current database."
 msgstr ""
 
-#: libraries/relation.lib.php:1998
+#: libraries/relation.lib.php:2010
 #, php-format
 msgid "%sCreate%s missing phpMyAdmin configuration storage tables."
 msgstr ""
@@ -12327,27 +12334,27 @@ msgstr "Pievienot jaunu lauku"
 #: libraries/rte/rte_words.lib.php:32
 #, fuzzy
 #| msgid "You don't have sufficient privileges to be here right now!"
-msgid "You do not have the necessary privileges to create a routine"
+msgid "You do not have the necessary privileges to create a routine."
 msgstr "Jums nav pietiekoši tiesību, lai atrastos šeit tagad!"
 
 #: libraries/rte/rte_words.lib.php:35
 #, php-format
 msgid ""
 "No routine with name %1$s found in database %2$s. You might be lacking the "
-"necessary privileges to edit this routine"
+"necessary privileges to edit this routine."
 msgstr ""
 
 #: libraries/rte/rte_words.lib.php:39
 #, php-format
 msgid ""
 "No routine with name %1$s found in database %2$s. You might be lacking the "
-"necessary privileges to view/export this routine"
+"necessary privileges to view/export this routine."
 msgstr ""
 
 #: libraries/rte/rte_words.lib.php:42
 #, fuzzy, php-format
 #| msgid "No tables found in database."
-msgid "No routine with name %1$s found in database %2$s"
+msgid "No routine with name %1$s found in database %2$s."
 msgstr "Tabulas nav atrastas šajā datubāzē."
 
 #: libraries/rte/rte_words.lib.php:43
@@ -12372,13 +12379,13 @@ msgstr "Pievienot jaunu lietotāju"
 #: libraries/rte/rte_words.lib.php:54
 #, fuzzy
 #| msgid "You don't have sufficient privileges to be here right now!"
-msgid "You do not have the necessary privileges to create a trigger"
+msgid "You do not have the necessary privileges to create a trigger."
 msgstr "Jums nav pietiekoši tiesību, lai atrastos šeit tagad!"
 
 #: libraries/rte/rte_words.lib.php:56
 #, fuzzy, php-format
 #| msgid "No tables found in database."
-msgid "No trigger with name %1$s found in database %2$s"
+msgid "No trigger with name %1$s found in database %2$s."
 msgstr "Tabulas nav atrastas šajā datubāzē."
 
 #: libraries/rte/rte_words.lib.php:57
@@ -12404,13 +12411,13 @@ msgstr "Nosūtīts"
 #: libraries/rte/rte_words.lib.php:68
 #, fuzzy
 #| msgid "You don't have sufficient privileges to be here right now!"
-msgid "You do not have the necessary privileges to create an event"
+msgid "You do not have the necessary privileges to create an event."
 msgstr "Jums nav pietiekoši tiesību, lai atrastos šeit tagad!"
 
 #: libraries/rte/rte_words.lib.php:70
 #, fuzzy, php-format
 #| msgid "No tables found in database."
-msgid "No event with name %1$s found in database %2$s"
+msgid "No event with name %1$s found in database %2$s."
 msgstr "Tabulas nav atrastas šajā datubāzē."
 
 #: libraries/rte/rte_words.lib.php:71
@@ -14179,7 +14186,7 @@ msgstr ""
 
 #: libraries/sql-parser/src/Components/CreateDefinition.php:227
 msgid ""
-"A symbol name was expected! A reserved keyword can not be used as a field "
+"A symbol name was expected! A reserved keyword can not be used as a column "
 "name without backquotes."
 msgstr ""
 
@@ -14291,7 +14298,7 @@ msgstr "Tabulas sākumā"
 msgid "Unrecognized statement type."
 msgstr ""
 
-#: libraries/sql-parser/src/Parser.php:551
+#: libraries/sql-parser/src/Parser.php:554
 msgid "No transaction was previously started."
 msgstr ""
 
@@ -14311,6 +14318,12 @@ msgstr ""
 #: libraries/sql-parser/src/Statement.php:357
 msgid "Unrecognized keyword."
 msgstr ""
+
+#: libraries/sql-parser/src/Statement.php:457
+#, fuzzy
+#| msgid "At Beginning of Table"
+msgid "Unexpected ordering of clauses."
+msgstr "Tabulas sākumā"
 
 #: libraries/sql-parser/src/Statements/CreateStatement.php:381
 msgid "The name of the entity was expected."
@@ -15986,39 +15999,46 @@ msgstr "Darbība"
 msgid "Constraint properties"
 msgstr "Ierobežojumi tabulai"
 
-#: templates/table/relation/common_form.phtml:12
+#: templates/table/relation/common_form.phtml:13
+msgid ""
+"Creating a foreign key over a non-indexed column would automatically create "
+"an index on it. Alternatively, you can define an index below, before "
+"creating the foreign key."
+msgstr ""
+
+#: templates/table/relation/common_form.phtml:20
 msgid ""
 "Only columns with index will be displayed. You can define an index below."
 msgstr ""
 
-#: templates/table/relation/common_form.phtml:17
+#: templates/table/relation/common_form.phtml:26
 msgid "Foreign key constraint"
 msgstr ""
 
-#: templates/table/relation/common_form.phtml:59
+#: templates/table/relation/common_form.phtml:68
 #, fuzzy
 #| msgid "Add constraints"
 msgid "+ Add constraint"
 msgstr "Pievienot ierobežojumus"
 
-#: templates/table/relation/common_form.phtml:69
-#: templates/table/relation/common_form.phtml:75
+#: templates/table/relation/common_form.phtml:78
+#: templates/table/relation/common_form.phtml:84
 msgid "Internal relations"
 msgstr "Iekšējās relācijas"
 
-#: templates/table/relation/common_form.phtml:79
+#: templates/table/relation/common_form.phtml:88
 #, fuzzy
 #| msgid "Internal relations"
 msgid "Internal relation"
 msgstr "Iekšējās relācijas"
 
-#: templates/table/relation/common_form.phtml:82
+#: templates/table/relation/common_form.phtml:91
 msgid ""
 "An internal relation is not necessary when a corresponding FOREIGN KEY "
 "relation exists."
 msgstr ""
 
-#: templates/table/relation/common_form.phtml:110
+#: templates/table/relation/common_form.phtml:119
 #, fuzzy
 #| msgid "Choose field to display"
 msgid "Choose column to display:"
@@ -16030,13 +16050,13 @@ msgstr "Izvēlieties, kuru lauku rādīt"
 msgid "Foreign key constraint %s has been dropped"
 msgstr "Svešo atslēgu pārbaude:"
 
-#: templates/table/relation/foreign_key_row.phtml:86
+#: templates/table/relation/foreign_key_row.phtml:88
 #, fuzzy
 #| msgid "Constraints for table"
 msgid "Constraint name"
 msgstr "Ierobežojumi tabulai"
 
-#: templates/table/relation/foreign_key_row.phtml:141
+#: templates/table/relation/foreign_key_row.phtml:143
 #, fuzzy
 #| msgid "Add %s field(s)"
 msgid "+ Add column"
