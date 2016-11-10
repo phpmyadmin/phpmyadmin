@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.5-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2016-10-25 11:13+0200\n"
+"POT-Creation-Date: 2016-11-10 09:39+0100\n"
 "PO-Revision-Date: 2016-05-23 19:20+0000\n"
 "Last-Translator: Yordan Nedelchev <yordan.nedelchev@hotmail.com>\n"
 "Language-Team: Bulgarian <https://hosted.weblate.org/projects/phpmyadmin/4-6/"
@@ -63,11 +63,12 @@ msgstr "Коментари към таблицата:"
 #: libraries/tracking.lib.php:893 libraries/tracking.lib.php:991
 #: templates/columns_definitions/column_name.phtml:18
 #: templates/table/index_form.phtml:124
-#: templates/table/relation/common_form.phtml:11
-#: templates/table/relation/common_form.phtml:26
-#: templates/table/relation/common_form.phtml:78
-#: templates/table/relation/foreign_key_row.phtml:178
-#: templates/table/relation/foreign_key_row.phtml:190
+#: templates/table/relation/common_form.phtml:12
+#: templates/table/relation/common_form.phtml:19
+#: templates/table/relation/common_form.phtml:35
+#: templates/table/relation/common_form.phtml:87
+#: templates/table/relation/foreign_key_row.phtml:180
+#: templates/table/relation/foreign_key_row.phtml:192
 #: templates/table/relation/internal_relational_row.phtml:73
 #: templates/table/search/table_header.phtml:6
 #: templates/table/search/zoom_result_form.phtml:33
@@ -517,7 +518,7 @@ msgstr ""
 msgid "Succeeded"
 msgstr "Успешно"
 
-#: import.php:63 js/messages.php:595
+#: import.php:63 js/messages.php:601
 msgid "Failed"
 msgstr "Неуспешно"
 
@@ -619,7 +620,7 @@ msgstr "\"DROP DATABASE\" заявката е забранена."
 msgid "Could not load the progress of the import."
 msgstr "Невъзможност да се зареди прогрес (ход) на импорта."
 
-#: import_status.php:116 js/messages.php:445 js/messages.php:603
+#: import_status.php:116 js/messages.php:445 js/messages.php:609
 #: libraries/Util.php:800 libraries/export.lib.php:516
 #: libraries/plugins/schema/ExportRelationSchema.php:297 user_password.php:298
 msgid "Back"
@@ -644,7 +645,7 @@ msgstr ""
 msgid "General settings"
 msgstr "Общи настройки"
 
-#: index.php:191 js/messages.php:628
+#: index.php:191 js/messages.php:634
 #: libraries/display_change_password.lib.php:50
 #: libraries/display_change_password.lib.php:53 user_password.php:292
 msgid "Change password"
@@ -1055,7 +1056,7 @@ msgstr "Трябва да добавите поне една колона."
 #: js/messages.php:127 libraries/insert_edit.lib.php:1615
 #: templates/columns_definitions/column_definitions_form.phtml:163
 #: templates/table/index_form.phtml:242
-#: templates/table/relation/common_form.phtml:126
+#: templates/table/relation/common_form.phtml:135
 msgid "Preview SQL"
 msgstr "Преглед на SQL"
 
@@ -1513,7 +1514,7 @@ msgstr "Обяснение на изхода"
 msgid "Status"
 msgstr "Състояние"
 
-#: js/messages.php:287 js/messages.php:873
+#: js/messages.php:287 js/messages.php:879
 #: libraries/plugins/export/ExportHtmlword.php:486
 #: libraries/plugins/export/ExportOdt.php:605
 #: libraries/plugins/export/ExportTexytext.php:447
@@ -1963,7 +1964,7 @@ msgid "Second step of normalization (2NF)"
 msgstr "Втора стъпка на нормализация (2NF)"
 
 #. l10n: Display text for calendar close link
-#: js/messages.php:437 js/messages.php:742 libraries/normalization.lib.php:285
+#: js/messages.php:437 js/messages.php:748 libraries/normalization.lib.php:285
 msgid "Done"
 msgstr "Готово"
 
@@ -2043,7 +2044,7 @@ msgstr "Няма избрани зависимости!"
 #: templates/columns_definitions/column_definitions_form.phtml:166
 #: templates/server/variables/link_template.phtml:2
 #: templates/table/gis_visualization/gis_visualization.phtml:48
-#: templates/table/relation/common_form.phtml:127
+#: templates/table/relation/common_form.phtml:136
 #: templates/table/structure/partition_definition_form.phtml:11
 msgid "Save"
 msgstr "Запазване"
@@ -2124,7 +2125,7 @@ msgstr "Изберете две различни колони"
 msgid "Data point content"
 msgstr "Съдържание на точката с данни"
 
-#: js/messages.php:503 js/messages.php:663 js/messages.php:680
+#: js/messages.php:503 js/messages.php:669 js/messages.php:686
 #: libraries/ErrorHandler.php:363 libraries/insert_edit.lib.php:2646
 #: templates/table/index_form.phtml:154 templates/table/index_form.phtml:199
 msgid "Ignore"
@@ -2175,30 +2176,36 @@ msgstr ""
 
 #: js/messages.php:528
 msgid ""
+"MySQL accepts additional values not selectable by the datepicker; key in "
+"those values directly if desired"
+msgstr ""
+
+#: js/messages.php:534
+msgid ""
 "Indicates that you have made changes to this page; you will be prompted for "
 "confirmation before abandoning changes"
 msgstr ""
 "Изглежда сте направили промени на страницата; ще бъдете уведомени преди да "
 "изоставите промените"
 
-#: js/messages.php:533
+#: js/messages.php:539
 msgid "Select referenced key"
 msgstr "Изберете посочвания ключ"
 
-#: js/messages.php:534
+#: js/messages.php:540
 msgid "Select Foreign Key"
 msgstr "Избор външен ключ"
 
-#: js/messages.php:536
+#: js/messages.php:542
 msgid "Please select the primary key or a unique key!"
 msgstr "Моля изберете главен или уникален ключ!"
 
-#: js/messages.php:537 templates/database/designer/side_menu.phtml:91
+#: js/messages.php:543 templates/database/designer/side_menu.phtml:91
 #: templates/database/designer/side_menu.phtml:94
 msgid "Choose column to display"
 msgstr "Изберете колона за показване"
 
-#: js/messages.php:539
+#: js/messages.php:545
 msgid ""
 "You haven't saved the changes in the layout. They will be lost if you don't "
 "save them. Do you want to continue?"
@@ -2206,76 +2213,76 @@ msgstr ""
 "Не сте записали промените в оформлението. Те ще бъдат загубени, ако не ги "
 "запазите. Искате ли да продължите?"
 
-#: js/messages.php:542
+#: js/messages.php:548
 msgid "Page name"
 msgstr "Име на страница"
 
-#: js/messages.php:543 templates/database/designer/side_menu.phtml:56
+#: js/messages.php:549 templates/database/designer/side_menu.phtml:56
 #: templates/database/designer/side_menu.phtml:59
 msgid "Save page"
 msgstr "Записване на страница"
 
-#: js/messages.php:544 templates/database/designer/side_menu.phtml:63
+#: js/messages.php:550 templates/database/designer/side_menu.phtml:63
 #: templates/database/designer/side_menu.phtml:66
 msgid "Save page as"
 msgstr "Записване на страница като"
 
-#: js/messages.php:545 templates/database/designer/side_menu.phtml:49
+#: js/messages.php:551 templates/database/designer/side_menu.phtml:49
 #: templates/database/designer/side_menu.phtml:52
 msgid "Open page"
 msgstr "Отвори страница"
 
-#: js/messages.php:546
+#: js/messages.php:552
 msgid "Delete page"
 msgstr "Изтриване на страница"
 
-#: js/messages.php:547 templates/database/designer/side_menu.phtml:10
+#: js/messages.php:553 templates/database/designer/side_menu.phtml:10
 msgid "Untitled"
 msgstr "Неозаглавено"
 
-#: js/messages.php:548
+#: js/messages.php:554
 msgid "Please select a page to continue"
 msgstr "Моля изберете страница, за да продължите"
 
-#: js/messages.php:549
+#: js/messages.php:555
 msgid "Please enter a valid page name"
 msgstr "Моля, въведете валидно име на страница"
 
-#: js/messages.php:551
+#: js/messages.php:557
 msgid "Do you want to save the changes to the current page?"
 msgstr "Искате ли да запишете промените на текущата страница?"
 
-#: js/messages.php:552
+#: js/messages.php:558
 msgid "Successfully deleted the page"
 msgstr "Изтриването на страницата е успешно"
 
-#: js/messages.php:553
+#: js/messages.php:559
 msgid "Export relational schema"
 msgstr "Експорт на релационна схема"
 
-#: js/messages.php:554
+#: js/messages.php:560
 msgid "Modifications have been saved"
 msgstr "Промените бяха запазени"
 
-#: js/messages.php:557
+#: js/messages.php:563
 #, php-format
 msgid "Add an option for column \"%s\"."
 msgstr "Добавяне на опция към колона \"%s\"."
 
-#: js/messages.php:558
+#: js/messages.php:564
 #, php-format
 msgid "%d object(s) created."
 msgstr "%d обект(а) бяха създадени."
 
-#: js/messages.php:559 libraries/sql_query_form.lib.php:409
+#: js/messages.php:565 libraries/sql_query_form.lib.php:409
 msgid "Submit"
 msgstr "Изпълнение"
 
-#: js/messages.php:562
+#: js/messages.php:568
 msgid "Press escape to cancel editing."
 msgstr "Натиснете Esc за отмяна на редакцията."
 
-#: js/messages.php:564
+#: js/messages.php:570
 msgid ""
 "You have edited some data and they have not been saved. Are you sure you "
 "want to leave this page before saving the data?"
@@ -2283,15 +2290,15 @@ msgstr ""
 "Редактирали сте данни и те не са запазени. Наистина ли искате да напуснете "
 "страницата преди запазването им?"
 
-#: js/messages.php:567
+#: js/messages.php:573
 msgid "Drag to reorder."
 msgstr "Завличане за промяна на подредбата."
 
-#: js/messages.php:568
+#: js/messages.php:574
 msgid "Click to sort results by this column."
 msgstr "Кликнете за сортиране на резултата по тази колона."
 
-#: js/messages.php:570
+#: js/messages.php:576
 msgid ""
 "Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC.<br /"
 ">- Ctrl+Click or Alt+Click (Mac: Shift+Option+Click) to remove column from "
@@ -2301,26 +2308,26 @@ msgstr ""
 "ASC/DESC.<br />- Control+кликване за премахване на колоната от ORDER BY "
 "клаузата"
 
-#: js/messages.php:574
+#: js/messages.php:580
 msgid "Click to mark/unmark."
 msgstr "Щракване за маркиране/отмаркиране."
 
-#: js/messages.php:575
+#: js/messages.php:581
 msgid "Double-click to copy column name."
 msgstr "Щракнете двукратно за копиране името на колона."
 
-#: js/messages.php:577
+#: js/messages.php:583
 msgid "Click the drop-down arrow<br />to toggle column's visibility."
 msgstr "Щракнете стрелката,<br />за да изберете колони."
 
-#: js/messages.php:579 libraries/DisplayResults.php:1034
+#: js/messages.php:585 libraries/DisplayResults.php:1034
 #: libraries/browse_foreigners.lib.php:287
 #: libraries/browse_foreigners.lib.php:340
 #: libraries/server_privileges.lib.php:3890
 msgid "Show all"
 msgstr "Показване на всички"
 
-#: js/messages.php:581
+#: js/messages.php:587
 msgid ""
 "This table does not contain a unique column. Features related to the grid "
 "edit, checkbox, Edit, Copy and Delete links may not work after saving."
@@ -2329,11 +2336,11 @@ msgstr ""
 "редакция, отметката, връзките редактиране, копиране и изтриване може да не "
 "работят след запазване."
 
-#: js/messages.php:585
+#: js/messages.php:591
 msgid "Please enter a valid hexadecimal string. Valid characters are 0-9, A-F."
 msgstr "Моля въведете валиден шеснадесетичен низ. Валидни символи са 0-9, A-F."
 
-#: js/messages.php:587
+#: js/messages.php:593
 msgid ""
 "Do you really want to see all of the rows? For a big table this could crash "
 "the browser."
@@ -2341,107 +2348,107 @@ msgstr ""
 "Наистина ли искате да видите всички редове? За една голяма таблица, това "
 "може да блокира браузъра."
 
-#: js/messages.php:590
+#: js/messages.php:596
 msgid "Original length"
 msgstr "Първоначална дължина"
 
-#: js/messages.php:593
+#: js/messages.php:599
 msgid "cancel"
 msgstr "Отмяна"
 
-#: js/messages.php:594 libraries/server_status.lib.php:277
+#: js/messages.php:600 libraries/server_status.lib.php:277
 msgid "Aborted"
 msgstr "Прекъснати"
 
-#: js/messages.php:596
+#: js/messages.php:602
 msgid "Success"
 msgstr "Успех"
 
-#: js/messages.php:597
+#: js/messages.php:603
 msgid "Import status"
 msgstr "Състояние на импорта"
 
-#: js/messages.php:598 libraries/navigation/Navigation.php:111
+#: js/messages.php:604 libraries/navigation/Navigation.php:111
 msgid "Drop files here"
 msgstr "Пуснете файловете тук"
 
-#: js/messages.php:599
+#: js/messages.php:605
 msgid "Select database first"
 msgstr "Първо избетере база данни"
 
-#: js/messages.php:602 libraries/DisplayResults.php:5037
+#: js/messages.php:608 libraries/DisplayResults.php:5037
 #: libraries/Util.php:4233
 #: templates/database/structure/print_view_data_dictionary_link.phtml:3
 #: templates/table/structure/optional_action_links.phtml:6
 msgid "Print"
 msgstr "Печат"
 
-#: js/messages.php:609
+#: js/messages.php:615
 msgid "You can also edit most values<br />by double-clicking directly on them."
 msgstr ""
 "Можете също да редактирате повече стойности<br/>като щракнете два пъти "
 "директно върху тях."
 
-#: js/messages.php:614
+#: js/messages.php:620
 msgid "You can also edit most values<br />by clicking directly on them."
 msgstr ""
 "Можете също да редактирате повече стойности<br/>като щракнете директно върху "
 "тях."
 
-#: js/messages.php:620
+#: js/messages.php:626
 msgid "Go to link:"
 msgstr "Към връзка:"
 
-#: js/messages.php:621
+#: js/messages.php:627
 msgid "Copy column name."
 msgstr "Копиране името на колоната."
 
-#: js/messages.php:623
+#: js/messages.php:629
 msgid "Right-click the column name to copy it to your clipboard."
 msgstr ""
 "Кликване с десния бутон върху името на колоната, за да го копирате в "
 "системния буфер."
 
-#: js/messages.php:626
+#: js/messages.php:632
 msgid "Generate password"
 msgstr "Генериране на парола"
 
-#: js/messages.php:627 libraries/replication_gui.lib.php:883
+#: js/messages.php:633 libraries/replication_gui.lib.php:883
 msgid "Generate"
 msgstr "Генериране"
 
-#: js/messages.php:631
+#: js/messages.php:637
 msgid "More"
 msgstr "Още"
 
-#: js/messages.php:634
+#: js/messages.php:640
 msgid "Show panel"
 msgstr "Показване на панела"
 
-#: js/messages.php:635
+#: js/messages.php:641
 msgid "Hide panel"
 msgstr "Скриване на панела"
 
-#: js/messages.php:636
+#: js/messages.php:642
 msgid "Show hidden navigation tree items."
 msgstr "Показване на скритото навигационно дърво."
 
-#: js/messages.php:637 libraries/config/messages.inc.php:479
+#: js/messages.php:643 libraries/config/messages.inc.php:479
 #: libraries/navigation/NavigationTree.php:1434
 msgid "Link with main panel"
 msgstr "Свързване с главния панел"
 
-#: js/messages.php:638 libraries/navigation/NavigationTree.php:1437
+#: js/messages.php:644 libraries/navigation/NavigationTree.php:1437
 msgid "Unlink from main panel"
 msgstr "Премахване от главния панел"
 
-#: js/messages.php:642
+#: js/messages.php:648
 msgid "The requested page was not found in the history, it may have expired."
 msgstr ""
 "Исканата страница не беше намерена в хронологията, може би е с изтекла "
 "валидност."
 
-#: js/messages.php:646 setup/lib/index.lib.php:169
+#: js/messages.php:652 setup/lib/index.lib.php:169
 #, php-format
 msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
@@ -2451,27 +2458,27 @@ msgstr ""
 "версия е %s, излязла на %s."
 
 #. l10n: Latest available phpMyAdmin version
-#: js/messages.php:650
+#: js/messages.php:656
 msgid ", latest stable version:"
 msgstr ", последната стабилна версия:"
 
-#: js/messages.php:651
+#: js/messages.php:657
 msgid "up to date"
 msgstr "актуално"
 
-#: js/messages.php:653 libraries/DisplayResults.php:4968 view_create.php:200
+#: js/messages.php:659 libraries/DisplayResults.php:4968 view_create.php:200
 msgid "Create view"
 msgstr "Създаване на изглед"
 
-#: js/messages.php:656
+#: js/messages.php:662
 msgid "Send error report"
 msgstr "Изпрати доклад за грешка"
 
-#: js/messages.php:657
+#: js/messages.php:663
 msgid "Submit error report"
 msgstr "Представи доклад за грешка"
 
-#: js/messages.php:659
+#: js/messages.php:665
 msgid ""
 "A fatal JavaScript error has occurred. Would you like to send an error "
 "report?"
@@ -2479,21 +2486,21 @@ msgstr ""
 "Възникнала е грешка фатална JavaScript. Бихте ли искали да изпратите доклад "
 "за грешка?"
 
-#: js/messages.php:661
+#: js/messages.php:667
 msgid "Change report settings"
 msgstr "Промяна на настройки за доклади"
 
-#: js/messages.php:662
+#: js/messages.php:668
 msgid "Show report details"
 msgstr "Показване детайли за доклада"
 
-#: js/messages.php:665
+#: js/messages.php:671
 msgid ""
 "Your export is incomplete, due to a low execution time limit at the PHP "
 "level!"
 msgstr "Вашият износ е непълна, поради нисък изпълнение срок на ниво PHP!"
 
-#: js/messages.php:669
+#: js/messages.php:675
 #, php-format
 msgid ""
 "Warning: a form on this page has more than %d fields. On submission, some of "
@@ -2503,58 +2510,58 @@ msgstr ""
 "някои от полетата могат да бъдат пренебрегнати, поради max_input_vars "
 "конфигурацията на PHP."
 
-#: js/messages.php:675 js/messages.php:688
+#: js/messages.php:681 js/messages.php:694
 msgid "Some errors have been detected on the server!"
 msgstr "Засечени са някой грешки на сървъра!"
 
-#: js/messages.php:677
+#: js/messages.php:683
 msgid "Please look at the bottom of this window."
 msgstr "Моля погледнете в края на този прозорец."
 
-#: js/messages.php:683 libraries/ErrorHandler.php:367
+#: js/messages.php:689 libraries/ErrorHandler.php:367
 msgid "Ignore All"
 msgstr "Игнориране на всички"
 
-#: js/messages.php:691
+#: js/messages.php:697
 msgid ""
 "As per your settings, they are being submitted currently, please be patient."
 msgstr "Според настройките си, те се подава в момента, моля, бъдете търпеливи."
 
-#: js/messages.php:701
+#: js/messages.php:707
 msgid "Execute this query again?"
 msgstr "Изпълняване на заявката отново?"
 
-#: js/messages.php:703
+#: js/messages.php:709
 msgid "Do you really want to delete this bookmark?"
 msgstr "Наистина ли искате да изтриете отметката: \"%s\"?"
 
-#: js/messages.php:705
+#: js/messages.php:711
 msgid "Some error occurred while getting SQL debug info."
 msgstr "Възникнаха грешки при вземане на информация за SQL дебъг."
 
-#: js/messages.php:707
+#: js/messages.php:713
 #, php-format
 msgid "%s queries executed %s times in %s seconds."
 msgstr "%s изпълнени заявки %s пъти %s секунди."
 
-#: js/messages.php:708
+#: js/messages.php:714
 #, php-format
 msgid "%s argument(s) passed"
 msgstr ""
 
-#: js/messages.php:709
+#: js/messages.php:715
 msgid "Show arguments"
 msgstr "Покажи доводи"
 
-#: js/messages.php:710
+#: js/messages.php:716
 msgid "Hide arguments"
 msgstr "Скриване доводи"
 
-#: js/messages.php:711 libraries/Console.php:306
+#: js/messages.php:717 libraries/Console.php:306
 msgid "Time taken:"
 msgstr "Използвано време:"
 
-#: js/messages.php:712
+#: js/messages.php:718
 msgid ""
 "There was a problem accessing your browser storage, some features may not "
 "work properly for you. It is likely that the browser doesn't support storage "
@@ -2570,347 +2577,347 @@ msgstr ""
 "подобен проблем и често причинен от „Браузване в личне режим“ (Private Mode "
 "Browsing)."
 
-#: js/messages.php:714
+#: js/messages.php:720
 msgid "Copy tables to"
 msgstr "Копиране на таблици в"
 
-#: js/messages.php:715
+#: js/messages.php:721
 msgid "Add table prefix"
 msgstr "Добавяне на представка на таблица"
 
-#: js/messages.php:716
+#: js/messages.php:722
 msgid "Replace table with prefix"
 msgstr "Замяна на таблица с представка"
 
-#: js/messages.php:717 templates/database/structure/check_all_tables.phtml:29
+#: js/messages.php:723 templates/database/structure/check_all_tables.phtml:29
 msgid "Copy table with prefix"
 msgstr "Копиране на таблицата с представка"
 
-#: js/messages.php:746
+#: js/messages.php:752
 msgctxt "Previous month"
 msgid "Prev"
 msgstr "Преден"
 
-#: js/messages.php:751
+#: js/messages.php:757
 msgctxt "Next month"
 msgid "Next"
 msgstr "Следващ"
 
 #. l10n: Display text for current month link in calendar
-#: js/messages.php:754
+#: js/messages.php:760
 msgid "Today"
 msgstr "Днес"
 
-#: js/messages.php:758
+#: js/messages.php:764
 msgid "January"
 msgstr "януари"
 
-#: js/messages.php:759
+#: js/messages.php:765
 msgid "February"
 msgstr "февруари"
 
-#: js/messages.php:760
+#: js/messages.php:766
 msgid "March"
 msgstr "март"
 
-#: js/messages.php:761
+#: js/messages.php:767
 msgid "April"
 msgstr "април"
 
-#: js/messages.php:762
+#: js/messages.php:768
 msgid "May"
 msgstr "май"
 
-#: js/messages.php:763
+#: js/messages.php:769
 msgid "June"
 msgstr "юни"
 
-#: js/messages.php:764
+#: js/messages.php:770
 msgid "July"
 msgstr "юли"
 
-#: js/messages.php:765
+#: js/messages.php:771
 msgid "August"
 msgstr "август"
 
-#: js/messages.php:766
+#: js/messages.php:772
 msgid "September"
 msgstr "септември"
 
-#: js/messages.php:767
+#: js/messages.php:773
 msgid "October"
 msgstr "октомври"
 
-#: js/messages.php:768
+#: js/messages.php:774
 msgid "November"
 msgstr "ноември"
 
-#: js/messages.php:769
+#: js/messages.php:775
 msgid "December"
 msgstr "декември"
 
 #. l10n: Short month name
-#: js/messages.php:776 libraries/Util.php:1665
+#: js/messages.php:782 libraries/Util.php:1665
 msgid "Jan"
 msgstr "яну"
 
 #. l10n: Short month name
-#: js/messages.php:778 libraries/Util.php:1667
+#: js/messages.php:784 libraries/Util.php:1667
 msgid "Feb"
 msgstr "фев"
 
 #. l10n: Short month name
-#: js/messages.php:780 libraries/Util.php:1669
+#: js/messages.php:786 libraries/Util.php:1669
 msgid "Mar"
 msgstr "март"
 
 #. l10n: Short month name
-#: js/messages.php:782 libraries/Util.php:1671
+#: js/messages.php:788 libraries/Util.php:1671
 msgid "Apr"
 msgstr "апр"
 
 #. l10n: Short month name
-#: js/messages.php:784 libraries/Util.php:1673
+#: js/messages.php:790 libraries/Util.php:1673
 msgctxt "Short month name"
 msgid "May"
 msgstr "май"
 
 #. l10n: Short month name
-#: js/messages.php:786 libraries/Util.php:1675
+#: js/messages.php:792 libraries/Util.php:1675
 msgid "Jun"
 msgstr "юни"
 
 #. l10n: Short month name
-#: js/messages.php:788 libraries/Util.php:1677
+#: js/messages.php:794 libraries/Util.php:1677
 msgid "Jul"
 msgstr "юли"
 
 #. l10n: Short month name
-#: js/messages.php:790 libraries/Util.php:1679
+#: js/messages.php:796 libraries/Util.php:1679
 msgid "Aug"
 msgstr "авг"
 
 #. l10n: Short month name
-#: js/messages.php:792 libraries/Util.php:1681
+#: js/messages.php:798 libraries/Util.php:1681
 msgid "Sep"
 msgstr "септ"
 
 #. l10n: Short month name
-#: js/messages.php:794 libraries/Util.php:1683
+#: js/messages.php:800 libraries/Util.php:1683
 msgid "Oct"
 msgstr "окт"
 
 #. l10n: Short month name
-#: js/messages.php:796 libraries/Util.php:1685
+#: js/messages.php:802 libraries/Util.php:1685
 msgid "Nov"
 msgstr "ное"
 
 #. l10n: Short month name
-#: js/messages.php:798 libraries/Util.php:1687
+#: js/messages.php:804 libraries/Util.php:1687
 msgid "Dec"
 msgstr "дек"
 
-#: js/messages.php:804
+#: js/messages.php:810
 msgid "Sunday"
 msgstr "неделя"
 
-#: js/messages.php:805
+#: js/messages.php:811
 msgid "Monday"
 msgstr "понеделник"
 
-#: js/messages.php:806
+#: js/messages.php:812
 msgid "Tuesday"
 msgstr "вторник"
 
-#: js/messages.php:807
+#: js/messages.php:813
 msgid "Wednesday"
 msgstr "сряда"
 
-#: js/messages.php:808
+#: js/messages.php:814
 msgid "Thursday"
 msgstr "четвъртък"
 
-#: js/messages.php:809
+#: js/messages.php:815
 msgid "Friday"
 msgstr "петък"
 
-#: js/messages.php:810
+#: js/messages.php:816
 msgid "Saturday"
 msgstr "събота"
 
 #. l10n: Short week day name
-#: js/messages.php:817
+#: js/messages.php:823
 msgid "Sun"
 msgstr "нд"
 
 #. l10n: Short week day name
-#: js/messages.php:819 libraries/Util.php:1692
+#: js/messages.php:825 libraries/Util.php:1692
 msgid "Mon"
 msgstr "пн"
 
 #. l10n: Short week day name
-#: js/messages.php:821 libraries/Util.php:1694
+#: js/messages.php:827 libraries/Util.php:1694
 msgid "Tue"
 msgstr "вт"
 
 #. l10n: Short week day name
-#: js/messages.php:823 libraries/Util.php:1696
+#: js/messages.php:829 libraries/Util.php:1696
 msgid "Wed"
 msgstr "ср"
 
 #. l10n: Short week day name
-#: js/messages.php:825 libraries/Util.php:1698
+#: js/messages.php:831 libraries/Util.php:1698
 msgid "Thu"
 msgstr "чт"
 
 #. l10n: Short week day name
-#: js/messages.php:827 libraries/Util.php:1700
+#: js/messages.php:833 libraries/Util.php:1700
 msgid "Fri"
 msgstr "пт"
 
 #. l10n: Short week day name
-#: js/messages.php:829 libraries/Util.php:1702
+#: js/messages.php:835 libraries/Util.php:1702
 msgid "Sat"
 msgstr "сб"
 
 #. l10n: Minimal week day name
-#: js/messages.php:836
+#: js/messages.php:842
 msgid "Su"
 msgstr "нд"
 
 #. l10n: Minimal week day name
-#: js/messages.php:838
+#: js/messages.php:844
 msgid "Mo"
 msgstr "пн"
 
 #. l10n: Minimal week day name
-#: js/messages.php:840
+#: js/messages.php:846
 msgid "Tu"
 msgstr "вт"
 
 #. l10n: Minimal week day name
-#: js/messages.php:842
+#: js/messages.php:848
 msgid "We"
 msgstr "ср"
 
 #. l10n: Minimal week day name
-#: js/messages.php:844
+#: js/messages.php:850
 msgid "Th"
 msgstr "чт"
 
 #. l10n: Minimal week day name
-#: js/messages.php:846
+#: js/messages.php:852
 msgid "Fr"
 msgstr "пт"
 
 #. l10n: Minimal week day name
-#: js/messages.php:848
+#: js/messages.php:854
 msgid "Sa"
 msgstr "сб"
 
 #. l10n: Column header for week of the year in calendar
-#: js/messages.php:852
+#: js/messages.php:858
 msgid "Wk"
 msgstr "Сед"
 
 #. l10n: Month-year order for calendar, use either "calendar-month-year"
 #. * or "calendar-year-month".
 #.
-#: js/messages.php:859
+#: js/messages.php:865
 msgid "calendar-month-year"
 msgstr "календар-месец-година"
 
 #. l10n: Year suffix for calendar, "none" is empty.
-#: js/messages.php:862
+#: js/messages.php:868
 msgctxt "Year suffix"
 msgid "none"
 msgstr "няма"
 
-#: js/messages.php:874
+#: js/messages.php:880
 msgid "Hour"
 msgstr "Час"
 
-#: js/messages.php:875
+#: js/messages.php:881
 msgid "Minute"
 msgstr "минута"
 
-#: js/messages.php:876
+#: js/messages.php:882
 msgid "Second"
 msgstr "секунда"
 
-#: js/messages.php:887
+#: js/messages.php:893
 msgid "This field is required"
 msgstr "Полето е задължително"
 
-#: js/messages.php:888
+#: js/messages.php:894
 msgid "Please fix this field"
 msgstr "Моля поправете тази област"
 
-#: js/messages.php:889
+#: js/messages.php:895
 msgid "Please enter a valid email address"
 msgstr "Моля въведете валиден емайл адрес"
 
-#: js/messages.php:890
+#: js/messages.php:896
 msgid "Please enter a valid URL"
 msgstr "Моля, въведете валиден URL"
 
-#: js/messages.php:891
+#: js/messages.php:897
 msgid "Please enter a valid date"
 msgstr "Моля, въведете валидна дата"
 
-#: js/messages.php:894
+#: js/messages.php:900
 msgid "Please enter a valid date ( ISO )"
 msgstr "Моля въведете валидна дата (ISO)"
 
-#: js/messages.php:896
+#: js/messages.php:902
 msgid "Please enter a valid number"
 msgstr "Моля, въведете валиден номер"
 
-#: js/messages.php:899
+#: js/messages.php:905
 msgid "Please enter a valid credit card number"
 msgstr "Моля, въведете валиден номер на кредитна карта"
 
-#: js/messages.php:901
+#: js/messages.php:907
 msgid "Please enter only digits"
 msgstr "Моля, въведете само цифри"
 
-#: js/messages.php:904
+#: js/messages.php:910
 msgid "Please enter the same value again"
 msgstr "Моля, въведете една и съща стойност отново"
 
-#: js/messages.php:908
+#: js/messages.php:914
 msgid "Please enter no more than {0} characters"
 msgstr "Моля въведете не повече от {0} знака"
 
-#: js/messages.php:913
+#: js/messages.php:919
 msgid "Please enter at least {0} characters"
 msgstr "Моля, въведете поне {0} букви"
 
-#: js/messages.php:918
+#: js/messages.php:924
 msgid "Please enter a value between {0} and {1} characters long"
 msgstr "Моля въведете стойност с дължина между {0} и {1} знака"
 
-#: js/messages.php:923
+#: js/messages.php:929
 msgid "Please enter a value between {0} and {1}"
 msgstr "Моля, въведете стойност между {0} и {1}"
 
-#: js/messages.php:928
+#: js/messages.php:934
 msgid "Please enter a value less than or equal to {0}"
 msgstr "Моля въведете стойност по-малка или равна на {0}"
 
-#: js/messages.php:933
+#: js/messages.php:939
 msgid "Please enter a value greater than or equal to {0}"
 msgstr "Въведете стойност по-голяма от или равна на {0}"
 
-#: js/messages.php:939
+#: js/messages.php:945
 msgid "Please enter a valid date or time"
 msgstr "Моля, въведете валиден дата или час"
 
-#: js/messages.php:944
+#: js/messages.php:950
 msgid "Please enter a valid HEX input"
 msgstr "Моля, въведете валиден HEX"
 
-#: js/messages.php:949 libraries/Message.php:200 libraries/Util.php:677
+#: js/messages.php:955 libraries/Message.php:200 libraries/Util.php:677
 #: libraries/core.lib.php:245 libraries/import.lib.php:94
 #: libraries/insert_edit.lib.php:1230 view_operations.php:73
 msgid "Error"
@@ -3008,8 +3015,8 @@ msgstr "Подзаявка"
 #: libraries/server_privileges.lib.php:4659
 #: libraries/server_status_processes.lib.php:79
 #: templates/server/databases/table_header.phtml:8
-#: templates/table/relation/common_form.phtml:24
-#: templates/table/relation/foreign_key_row.phtml:149
+#: templates/table/relation/common_form.phtml:33
+#: templates/table/relation/foreign_key_row.phtml:151
 #: templates/table/relation/internal_relational_row.phtml:57
 msgid "Database"
 msgstr "DB"
@@ -3803,7 +3810,7 @@ msgstr "Индекс %s беше изтрит."
 #: libraries/controllers/table/TableStructureController.php:1186
 #: libraries/operations.lib.php:1596 libraries/rte/rte_list.lib.php:153
 #: templates/database/structure/check_all_tables.phtml:17
-#: templates/table/relation/foreign_key_row.phtml:75
+#: templates/table/relation/foreign_key_row.phtml:77
 #: templates/table/structure/check_all_table_column.phtml:15
 #: templates/table/structure/display_structure.phtml:181
 msgid "Drop"
@@ -3861,8 +3868,8 @@ msgstr "Изглед"
 #: libraries/server_privileges.lib.php:4673 libraries/tracking.lib.php:1474
 #: libraries/tracking.lib.php:1620
 #: templates/database/structure/table_header.phtml:21
-#: templates/table/relation/common_form.phtml:25
-#: templates/table/relation/foreign_key_row.phtml:160
+#: templates/table/relation/common_form.phtml:34
+#: templates/table/relation/foreign_key_row.phtml:162
 #: templates/table/relation/internal_relational_row.phtml:65
 msgid "Table"
 msgstr "Таблица"
@@ -4222,46 +4229,46 @@ msgstr "Този MySQL сървър не поддържа хранилището
 msgid "Unknown table status:"
 msgstr "Неизвестно състояние на таблица:"
 
-#: libraries/Table.php:748
+#: libraries/Table.php:791
 #, php-format
 msgid "Source database `%s` was not found!"
 msgstr "БД-източник `%s` не е намерена!"
 
-#: libraries/Table.php:756
+#: libraries/Table.php:799
 #, php-format
 msgid "Target database `%s` was not found!"
 msgstr "Целевата БД `%s` не е намерена!"
 
-#: libraries/Table.php:1305
+#: libraries/Table.php:1354
 msgid "Invalid database:"
 msgstr "Невалидна БД:"
 
-#: libraries/Table.php:1322
+#: libraries/Table.php:1371
 msgid "Invalid table name:"
 msgstr "Невалидно име на таблица:"
 
-#: libraries/Table.php:1357
+#: libraries/Table.php:1406
 #, php-format
 msgid "Failed to rename table %1$s to %2$s!"
 msgstr "Грешка при преименуване на таблица %1$s в %2$s!"
 
-#: libraries/Table.php:1376
+#: libraries/Table.php:1425
 #, php-format
 msgid "Table %1$s has been renamed to %2$s."
 msgstr "Таблица %1$s беше преименувана на %2$s."
 
-#: libraries/Table.php:1595
+#: libraries/Table.php:1644
 msgid "Could not save table UI preferences!"
 msgstr "Таблицата с визуалните настройки не може да бъде запазена!"
 
-#: libraries/Table.php:1625
+#: libraries/Table.php:1674
 #, php-format
 msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
 "['MaxTableUiprefs'] %s)"
 msgstr ""
 
-#: libraries/Table.php:1778
+#: libraries/Table.php:1827
 #, php-format
 msgid ""
 "Cannot save UI property \"%s\". The changes made will not be persistent "
@@ -4269,19 +4276,19 @@ msgid ""
 "changed."
 msgstr ""
 
-#: libraries/Table.php:1914
+#: libraries/Table.php:1963
 msgid "The name of the primary key must be \"PRIMARY\"!"
 msgstr "Името на първичния ключ трябва да е \"PRIMARY\"!"
 
-#: libraries/Table.php:1925
+#: libraries/Table.php:1974
 msgid "Can't rename index to PRIMARY!"
 msgstr "Индексът не може да бъде преименуван на PRIMARY!"
 
-#: libraries/Table.php:1947
+#: libraries/Table.php:1996
 msgid "No index parts defined!"
 msgstr "Не са дефинирани части на индекс!"
 
-#: libraries/Table.php:2265
+#: libraries/Table.php:2314
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr ""
@@ -11133,61 +11140,61 @@ msgstr "Форматира текст като SQL заявка със синт�
 msgid "Formats text as XML with syntax highlighting."
 msgstr "Форматира текст като SQL заявка със синтактично оцветяване."
 
-#: libraries/pmd_common.php:551
+#: libraries/pmd_common.php:549
 msgid "Error: relation already exists."
 msgstr "Грешка: Релацията вече съществува."
 
-#: libraries/pmd_common.php:597
+#: libraries/pmd_common.php:595
 #, fuzzy
 #| msgid "FOREIGN KEY relation added"
 msgid "FOREIGN KEY relation has been added."
 msgstr "FOREIGN KEY релация е добавена"
 
-#: libraries/pmd_common.php:603
+#: libraries/pmd_common.php:601
 #, fuzzy
 #| msgid "Error: Relation not added."
 msgid "Error: FOREIGN KEY relation could not be added!"
 msgstr "Грешка: Релацията не е добавена."
 
-#: libraries/pmd_common.php:608
+#: libraries/pmd_common.php:606
 msgid "Error: Missing index on column(s)."
 msgstr ""
 
-#: libraries/pmd_common.php:613
+#: libraries/pmd_common.php:611
 msgid "Error: Relational features are disabled!"
 msgstr "Грешка: Релацията е изключена!"
 
-#: libraries/pmd_common.php:635
+#: libraries/pmd_common.php:633
 #, fuzzy
 #| msgid "Internal relation added"
 msgid "Internal relation has been added."
 msgstr "Добавена е вътрешна релация"
 
-#: libraries/pmd_common.php:641
+#: libraries/pmd_common.php:639
 #, fuzzy
 #| msgid "Error: Relation not added."
 msgid "Error: Internal relation could not be added!"
 msgstr "Грешка: Релацията не е добавена."
 
-#: libraries/pmd_common.php:679
+#: libraries/pmd_common.php:677
 #, fuzzy
 #| msgid "FOREIGN KEY relation added"
 msgid "FOREIGN KEY relation has been removed."
 msgstr "FOREIGN KEY релация е добавена"
 
-#: libraries/pmd_common.php:685
+#: libraries/pmd_common.php:683
 #, fuzzy
 #| msgid "Error: Relation not added."
 msgid "Error: FOREIGN KEY relation could not be removed!"
 msgstr "Грешка: Релацията не е добавена."
 
-#: libraries/pmd_common.php:712
+#: libraries/pmd_common.php:710
 #, fuzzy
 #| msgid "Error: Relation not added."
 msgid "Error: Internal relation could not be removed!"
 msgstr "Грешка: Релацията не е добавена."
 
-#: libraries/pmd_common.php:716
+#: libraries/pmd_common.php:714
 #, fuzzy
 #| msgid "Internal relation added"
 msgid "Internal relation has been removed."
@@ -11324,18 +11331,18 @@ msgstr ""
 msgid "Re-login to phpMyAdmin to load the updated configuration file."
 msgstr ""
 
-#: libraries/relation.lib.php:1674
+#: libraries/relation.lib.php:1686
 msgid "no description"
 msgstr "няма описание"
 
-#: libraries/relation.lib.php:1867
+#: libraries/relation.lib.php:1879
 msgid ""
 "You do not have necessary privileges to create a database named "
 "'phpmyadmin'. You may go to 'Operations' tab of any database to set up the "
 "phpMyAdmin configuration storage there."
 msgstr ""
 
-#: libraries/relation.lib.php:1982
+#: libraries/relation.lib.php:1994
 #, fuzzy, php-format
 #| msgid "Missing phpMyAdmin configuration storage tables"
 msgid ""
@@ -11343,14 +11350,14 @@ msgid ""
 "configuration storage there."
 msgstr "Липсват таблици от хранилището за конфигурация на phpMyAdmin"
 
-#: libraries/relation.lib.php:1990
+#: libraries/relation.lib.php:2002
 #, fuzzy, php-format
 #| msgid "Missing phpMyAdmin configuration storage tables"
 msgid ""
 "%sCreate%s the phpMyAdmin configuration storage in the current database."
 msgstr "Липсват таблици от хранилището за конфигурация на phpMyAdmin"
 
-#: libraries/relation.lib.php:1998
+#: libraries/relation.lib.php:2010
 #, fuzzy, php-format
 #| msgid "Missing phpMyAdmin configuration storage tables"
 msgid "%sCreate%s missing phpMyAdmin configuration storage tables."
@@ -12060,26 +12067,29 @@ msgid "routine"
 msgstr "процедура"
 
 #: libraries/rte/rte_words.lib.php:32
-msgid "You do not have the necessary privileges to create a routine"
+#, fuzzy
+#| msgid "You do not have the necessary privileges to create a routine"
+msgid "You do not have the necessary privileges to create a routine."
 msgstr "Не разполагате с права, за да създадете процедура"
 
 #: libraries/rte/rte_words.lib.php:35
 #, php-format
 msgid ""
 "No routine with name %1$s found in database %2$s. You might be lacking the "
-"necessary privileges to edit this routine"
+"necessary privileges to edit this routine."
 msgstr ""
 
 #: libraries/rte/rte_words.lib.php:39
 #, php-format
 msgid ""
 "No routine with name %1$s found in database %2$s. You might be lacking the "
-"necessary privileges to view/export this routine"
+"necessary privileges to view/export this routine."
 msgstr ""
 
 #: libraries/rte/rte_words.lib.php:42
-#, php-format
-msgid "No routine with name %1$s found in database %2$s"
+#, fuzzy, php-format
+#| msgid "No routine with name %1$s found in database %2$s"
+msgid "No routine with name %1$s found in database %2$s."
 msgstr "Няма процедура с име %1$s в БД %2$s"
 
 #: libraries/rte/rte_words.lib.php:43
@@ -12100,12 +12110,15 @@ msgid "trigger"
 msgstr "тригер"
 
 #: libraries/rte/rte_words.lib.php:54
-msgid "You do not have the necessary privileges to create a trigger"
+#, fuzzy
+#| msgid "You do not have the necessary privileges to create a trigger"
+msgid "You do not have the necessary privileges to create a trigger."
 msgstr "Не разполагате с права, за да създадете тригер"
 
 #: libraries/rte/rte_words.lib.php:56
-#, php-format
-msgid "No trigger with name %1$s found in database %2$s"
+#, fuzzy, php-format
+#| msgid "No trigger with name %1$s found in database %2$s"
+msgid "No trigger with name %1$s found in database %2$s."
 msgstr "Няма тригер с име %1$s в БД %2$s"
 
 #: libraries/rte/rte_words.lib.php:57
@@ -12126,12 +12139,15 @@ msgid "event"
 msgstr "събитие"
 
 #: libraries/rte/rte_words.lib.php:68
-msgid "You do not have the necessary privileges to create an event"
+#, fuzzy
+#| msgid "You do not have the necessary privileges to create an event"
+msgid "You do not have the necessary privileges to create an event."
 msgstr "Не разполагате с права, за да създадете събитие"
 
 #: libraries/rte/rte_words.lib.php:70
-#, php-format
-msgid "No event with name %1$s found in database %2$s"
+#, fuzzy, php-format
+#| msgid "No event with name %1$s found in database %2$s"
+msgid "No event with name %1$s found in database %2$s."
 msgstr "Няма събитие с име %1$s в БД %2$s"
 
 #: libraries/rte/rte_words.lib.php:71
@@ -13895,7 +13911,7 @@ msgstr ""
 
 #: libraries/sql-parser/src/Components/CreateDefinition.php:227
 msgid ""
-"A symbol name was expected! A reserved keyword can not be used as a field "
+"A symbol name was expected! A reserved keyword can not be used as a column "
 "name without backquotes."
 msgstr ""
 
@@ -14017,7 +14033,7 @@ msgstr "В началото на таблицата"
 msgid "Unrecognized statement type."
 msgstr ""
 
-#: libraries/sql-parser/src/Parser.php:551
+#: libraries/sql-parser/src/Parser.php:554
 msgid "No transaction was previously started."
 msgstr ""
 
@@ -14039,6 +14055,12 @@ msgstr ""
 #: libraries/sql-parser/src/Statement.php:357
 msgid "Unrecognized keyword."
 msgstr ""
+
+#: libraries/sql-parser/src/Statement.php:457
+#, fuzzy
+#| msgid "At Beginning of Table"
+msgid "Unexpected ordering of clauses."
+msgstr "В началото на таблицата"
 
 #: libraries/sql-parser/src/Statements/CreateStatement.php:381
 #, fuzzy
@@ -15672,38 +15694,45 @@ msgstr "Действие"
 msgid "Constraint properties"
 msgstr "Ограничения за таблица"
 
-#: templates/table/relation/common_form.phtml:12
+#: templates/table/relation/common_form.phtml:13
+msgid ""
+"Creating a foreign key over a non-indexed column would automatically create "
+"an index on it. Alternatively, you can define an index below, before "
+"creating the foreign key."
+msgstr ""
+
+#: templates/table/relation/common_form.phtml:20
 msgid ""
 "Only columns with index will be displayed. You can define an index below."
 msgstr ""
 
-#: templates/table/relation/common_form.phtml:17
+#: templates/table/relation/common_form.phtml:26
 msgid "Foreign key constraint"
 msgstr "Ограничение за външен ключ"
 
-#: templates/table/relation/common_form.phtml:59
+#: templates/table/relation/common_form.phtml:68
 #, fuzzy
 #| msgid "Add constraints"
 msgid "+ Add constraint"
 msgstr "Добавяне ограничения"
 
-#: templates/table/relation/common_form.phtml:69
-#: templates/table/relation/common_form.phtml:75
+#: templates/table/relation/common_form.phtml:78
+#: templates/table/relation/common_form.phtml:84
 msgid "Internal relations"
 msgstr "Вътрешни релации"
 
-#: templates/table/relation/common_form.phtml:79
+#: templates/table/relation/common_form.phtml:88
 msgid "Internal relation"
 msgstr "Вътрешна релация"
 
-#: templates/table/relation/common_form.phtml:82
+#: templates/table/relation/common_form.phtml:91
 msgid ""
 "An internal relation is not necessary when a corresponding FOREIGN KEY "
 "relation exists."
 msgstr ""
 "Вътрешна релация не е необходима, при наличието на съответен FOREIGN KEY."
 
-#: templates/table/relation/common_form.phtml:110
+#: templates/table/relation/common_form.phtml:119
 #, fuzzy
 #| msgid "Choose column to display"
 msgid "Choose column to display:"
@@ -15715,13 +15744,13 @@ msgstr "Изберете колона за показване"
 msgid "Foreign key constraint %s has been dropped"
 msgstr "Ограничение за външен ключ"
 
-#: templates/table/relation/foreign_key_row.phtml:86
+#: templates/table/relation/foreign_key_row.phtml:88
 #, fuzzy
 #| msgid "Constraints for table"
 msgid "Constraint name"
 msgstr "Ограничения за таблица"
 
-#: templates/table/relation/foreign_key_row.phtml:141
+#: templates/table/relation/foreign_key_row.phtml:143
 #, fuzzy
 #| msgid "Add column"
 msgid "+ Add column"
