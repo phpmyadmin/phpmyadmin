@@ -27,6 +27,7 @@ $response = PMA\libraries\Response::getInstance();
 $header   = $response->getHeader();
 $scripts  = $header->getScripts();
 $scripts->addFile('server_privileges.js');
+$scripts->addFile('zxcvbn.js');
 
 if ((isset($_REQUEST['viewing_mode'])
     && $_REQUEST['viewing_mode'] == 'server')

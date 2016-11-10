@@ -471,8 +471,13 @@ function suggestPassword(passwd_form)
         passwd.value += pwchars.charAt(Math.abs(randomWords[i]) % pwchars.length);
     }
 
-    passwd_form.text_pma_pw.value = passwd.value;
-    passwd_form.text_pma_pw2.value = passwd.value;
+    $jquery_passwd_form = $(passwd_form);
+
+    passwd_form.elements['pma_pw'].value = passwd.value;
+    passwd_form.elements['pma_pw2'].value = passwd.value;
+    meter_obj = $jquery_passwd_form.find('meter[name="pw_meter"]').first();
+    meter_obj_label = $jquery_passwd_form.find('span[name="pw_strength"]').first();
+    checkPasswordStrength(passwd.value, meter_obj, meter_obj_label);
     return true;
 }
 

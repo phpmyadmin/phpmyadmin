@@ -1797,6 +1797,9 @@ function PMA_getHtmlForLoginInformationFields(
         . 'title="' . __('Password') . '" '
         . (isset($GLOBALS['username']) ? '' : 'required="required"')
         . '/>' . "\n"
+        . '<span>Strength:</span> '
+        . '<meter max="4" id="password_strength_meter" name="pw_meter"></meter> '
+        . '<span id="password_strength" name="pw_strength"></span>' . "\n"
         . '</div>' . "\n";
 
     $html_output .= '<div class="item" '
