@@ -3285,12 +3285,12 @@ function PMA_getUserSpecificRights($username, $hostname, $type, $dbname = '')
         $dbOrTableName = 'Db';
     } elseif ($type == 'table') {
         $user_host_condition .= " AND `Db` LIKE '"
-            . $GLOBALS['dbi']->escapeString($dbname, true) . "'";
+            . $GLOBALS['dbi']->escapeString($dbname) . "'";
         $tables_to_search_for_users = array('columns_priv',);
         $dbOrTableName = 'Table_name';
     } else { // routine
         $user_host_condition .= " AND `Db` LIKE '"
-            . $GLOBALS['dbi']->escapeString($dbname, true) . "'";
+            . $GLOBALS['dbi']->escapeString($dbname) . "'";
         $tables_to_search_for_users = array('procs_priv',);
         $dbOrTableName = 'Routine_name';
     }
