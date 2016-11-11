@@ -79,6 +79,8 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['username'] = "username";
         $GLOBALS['collation_connection'] = "collation_connection";
         $GLOBALS['text_dir'] = "text_dir";
+        $GLOBALS['is_reload_priv'] = true;
+
         //$_POST
         $_POST['pred_password'] = 'none';
         //$_SESSION
@@ -2062,7 +2064,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
 
         $html = PMA_getHtmlHeaderForUserProperties(
             $dbname_is_wildcard, $url_dbname, $dbname,
-            $username, $hostname, $tablename
+            $username, $hostname, $tablename, 'table'
         );
 
         //title
