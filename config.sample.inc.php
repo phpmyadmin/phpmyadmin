@@ -151,7 +151,7 @@ $cfg['SaveDir'] = '';
 
 /**
  * Enter your e-mailadres into the fields as owner for retrieving updates from your phpMyAdmin installation,
- * Eg. My name <webmaster@example.com> or webmaster@example.com.
+ * E.g. My name <webmaster@example.com> or webmaster@example.com.
  */
 //$cfg['AdminEmailFROM'] = 'phpMyAdmin <phpmyadmin@example.com>';
 //$cfg['AdminEmailSUBJECT'] = 'phpMyAdmin {VERSION} @ {SERVER_NAME} sends you a update';
