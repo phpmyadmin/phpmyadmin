@@ -334,29 +334,21 @@ class DbSearch
         $html_output .= '</td>';
         // Displays browse/delete link if result count > 0
         if ($res_cnt > 0) {
-            $this_url_params['sql_query'] = $newsearchsqls['select_columns'];
+            $this_url_params['db'] = $GLOBALS['db'];
+            $this_url_params['table'] = $each_table;
             $browse_result_path = 'sql.php' . PMA_URL_getCommon($this_url_params);
-            $html_output .= '<td><a name="browse_search" class="ajax" href="'
-                . $browse_result_path . '" onclick="loadResult(\''
-                . $browse_result_path . '\',\''
-                . PMA_escapeJsString(htmlspecialchars($each_table)) . '\',\''
-                . PMA_URL_getCommon(
-                    array(
-                        'db' => $GLOBALS['db'], 'table' => $each_table
-                    )
-                ) . '\''
-                . ');return false;" >'
+            $html_output .= '<td><a name="browse_search" '
+                . ' class="ajax browse_results" href="'
+                . $browse_result_path . '" '
+                . 'browse_sql="' . $newsearchsqls['select_columns'] . '" '
+                . 'table_name="' . $each_table . '" >'
                 . __('Browse') . '</a></td>';
-            $this_url_params['sql_query'] = $newsearchsqls['delete'];
-            $delete_result_path = 'sql.php' . PMA_URL_getCommon($this_url_params);
-            $html_output .= '<td><a name="delete_search" class="ajax" href="'
-                . $delete_result_path . '" onclick="deleteResult(\''
-                . $delete_result_path . '\' , \''
-                . PMA_escapeJsString(sprintf(
-                    __('Delete the matches for the %s table?'),
-                    htmlspecialchars($each_table)
-                ))
-                . '\');return false;">'
+
+            $delete_result_path = $browse_result_path;
+            $html_output .= '<td><a name="delete_search" class="ajax delete_results"'
+                . ' href="' . $delete_result_path . '"'
+                . ' table_name="' . $each_table . '"'
+                . ' sql_query="' . $newsearchsqls['delete'] . '" >'
                 . __('Delete') . '</a></td>';
         } else {
             $html_output .= '<td>&nbsp;</td>'
