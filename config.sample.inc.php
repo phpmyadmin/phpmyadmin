@@ -161,7 +161,7 @@ $cfg['SaveDir'] = '';
 
 /**
  * Receive automatic updates at your webserver.
- * For this function you'll need a database with writing-acces to your phpMyAdmin installation.
+ * For this function you'll need a database with writing-access to your phpMyAdmin installation.
  */
 //$cfg['Servers'][$i]['update'] = 'pma__update';
 //$cfg['AutomaticUpdate'] = 'true';
