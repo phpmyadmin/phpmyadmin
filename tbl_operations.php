@@ -356,7 +356,7 @@ $response->addHTML(
         $is_myisam_or_aria,
         $is_innodb,
         $is_berkeleydb,
-		$is_tokudb,
+        $is_tokudb,
         $url_params
     )
 );

@@ -1874,7 +1874,7 @@ function PMA_setGlobalVariablesForEngine($tbl_storage_engine)
     return array(
         $is_myisam_or_aria, $is_innodb, $is_isam,
         $is_berkeleydb, $is_aria, $is_pbxt,
-		$is_tokudb
+        $is_tokudb
     );
 }
 
