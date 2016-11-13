@@ -150,6 +150,24 @@ $cfg['SaveDir'] = '';
 //$cfg['SendErrorReports'] = 'always';
 
 /**
+ * Enter your e-mailadres into the fields as owner for retrieving updates from your phpMyAdmin installation,
+ * Eg. My name <webmaster@example.com> or webmaster@example.com.
+ */
+//$cfg['AdminEmailFROM'] = 'phpMyAdmin <phpmyadmin@example.com>';
+//$cfg['AdminEmailSUBJECT'] = 'phpMyAdmin {VERSION} @ {SERVER_NAME} sends you a update';
+//$cfg['AdminEmailTO'] = '';
+//$cfg['AdminEmailCC'] = '';
+//$cfg['AdminEmailBCC'] = '';
+
+/**
+ * Receive automatic updates at your webserver.
+ * For this function you'll need a database with writing-acces to your phpMyAdmin installation.
+ */
+//$cfg['Servers'][$i]['update'] = 'pma__update';
+//$cfg['AutomaticUpdate'] = 'true';
+//$cfg['AutomaticUpdateVersion'] = 'stable';
+
+/**
  * You can find more configuration options in the documentation
  * in the doc/ folder or at <https://docs.phpmyadmin.net/>.
  */
