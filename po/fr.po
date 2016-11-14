@@ -4,28 +4,25 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-11-10 09:40+0100\n"
-"PO-Revision-Date: 2016-11-08 15:00+0000\n"
+"PO-Revision-Date: 2016-11-14 14:22+0000\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
-"Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"fr/>\n"
+"Language-Team: French "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/fr/>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 2.9\n"
+"X-Generator: Weblate 2.10-dev\n"
 
 #: changelog.php:38 license.php:33
-#, fuzzy, php-format
-#| msgid ""
-#| "The %s file is not available on this system, please visit www.phpmyadmin."
-#| "net for more information."
+#, php-format
 msgid ""
 "The %s file is not available on this system, please visit %s for more "
 "information."
 msgstr ""
-"Le fichier %s n'est pas disponible sur ce serveur, veuillez visiter www."
-"phpmyadmin.net pour plus d'informations."
+"Le fichier %s n'est pas disponible sur ce serveur, veuillez visiter %s pour "
+"plus d'informations."
 
 #: db_central_columns.php:107
 msgid "The central list of columns for the current database is empty."
@@ -2187,16 +2184,12 @@ msgstr ""
 "directement ces valeurs si besoin"
 
 #: js/messages.php:533
-#, fuzzy
-#| msgid ""
-#| "MySQL accepts additional values not selectable by the slider; key in "
-#| "those values directly if desired"
 msgid ""
 "MySQL accepts additional values not selectable by the datepicker; key in "
 "those values directly if desired"
 msgstr ""
-"MySQL accepte des valeurs non sélectionnables via le menu; entrez "
-"directement ces valeurs si besoin"
+"MySQL accepte des valeurs non sélectionnables via le sélecteur de date; "
+"entrez directement ces valeurs si besoin"
 
 #: js/messages.php:539
 msgid ""
@@ -3223,22 +3216,16 @@ msgid "unknown"
 msgstr "inconnu"
 
 #: libraries/Charsets.php:460
-#, fuzzy
-#| msgid "Collation"
 msgid "binary collation"
-msgstr "Interclassement"
+msgstr "Interclassement binaire"
 
 #: libraries/Charsets.php:467
-#, fuzzy
-#| msgid "case-insensitive"
 msgid "case-insensitive collation"
-msgstr "insensible à la casse"
+msgstr "interclassement insensible à la casse"
 
 #: libraries/Charsets.php:469
-#, fuzzy
-#| msgid "case-sensitive"
 msgid "case-sensitive collation"
-msgstr "sensible à la casse"
+msgstr "interclassement sensible à la casse"
 
 #: libraries/Config.php:1100
 #, php-format
@@ -15417,6 +15404,9 @@ msgid ""
 "an index on it. Alternatively, you can define an index below, before "
 "creating the foreign key."
 msgstr ""
+"Créer une clé étrangère sur une colonne non indexée créerait automatiquement "
+"un index sur celle-ci. Vous pouvez également définir un index ci-dessous, "
+"avant de créer la clé étrangère."
 
 #: templates/table/relation/common_form.phtml:20
 msgid ""
