@@ -596,7 +596,7 @@ function PMA_EVN_getQueryFromRequest()
         }
     }
     if (! empty($_REQUEST['item_comment'])) {
-        $query .= "COMMENT '" . PMA\libraries\Util::sqlAddslashes(
+        $query .= "COMMENT '" . $GLOBALS['dbi']->escapeString(
             $_REQUEST['item_comment']
         ) . "' ";
     }
