@@ -171,7 +171,7 @@ AJAX.registerOnload('db_search.js', function () {
             var params = {
                 'ajax_request': true,
                 'is_js_confirmed': true,
-                'sql_query': $(this).attr('sql_query')
+                'sql_query': $(this).attr('delete_sql')
             };
             var url = $(this).attr('href');
 

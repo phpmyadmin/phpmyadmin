@@ -41,6 +41,7 @@ class DbSearchTest extends PMATestCase
         $this->object = new DbSearch('pma_test');
         $GLOBALS['server'] = 0;
         $GLOBALS['db'] = 'pma';
+        $GLOBALS['collation_connection'] = 'utf-8';
 
         //mock DBI
         $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
@@ -166,28 +167,19 @@ class DbSearchTest extends PMATestCase
                 ),
                 true,
                 '<tr class="noclick odd"><td>2 matches in <strong>table1</strong>'
-                . '</td><td><a name="browse_search" class="ajax" '
+                . '</td><td><a name="browse_search"  class="ajax browse_results" '
                 . 'href="sql.php?db=pma&amp;table'
                 . '=table1&amp;goto=db_sql.php&amp;pos=0&amp;is_js_confirmed=0&amp;'
-                . 'sql_query=column1&amp;server=0&amp;lang=en&amp;'
+                . 'server=0&amp;lang=en&amp;'
                 . 'collation_connection=utf-8&amp;token=token" '
-                . 'onclick="loadResult(\'sql.php?db=pma&amp;table=table1&amp;goto='
-                . 'db_sql.php&amp;pos=0&amp;is_js_confirmed=0&amp;sql_query=column1'
-                . '&amp;server=0&amp;lang=en&amp;collation_connection=utf-8'
-                . '&amp;token=token\',\'table1\',\'?db=pma'
-                . '&amp;table=table1&amp;server=0&amp;lang=en'
-                . '&amp;collation_connection=utf-8&amp;token=token\');'
-                . 'return false;" >Browse</a></td><td>'
-                . '<a name="delete_search" class="ajax" href'
+                . 'browse_sql="column1" table_name="table1" '
+                . '>Browse</a></td><td>'
+                . '<a name="delete_search" class="ajax delete_results" href'
                 . '="sql.php?db=pma&amp;table=table1&amp;goto=db_sql.php&amp;pos=0'
-                . '&amp;is_js_confirmed=0&amp;sql_query=column2&amp;server=0&amp;'
-                . 'lang=en&amp;collation_connection=utf-8&amp;token=token"'
-                . ' onclick="deleteResult(\'sql.php?db=pma'
-                . '&amp;table=table1&amp;goto=db_sql.php&amp;pos=0&amp;is_js_'
-                . 'confirmed=0&amp;sql_query=column2&amp;server=0&amp;lang=en'
-                . '&amp;collation_connection=utf-8&amp;'
-                . 'token=token\' , \'Delete the matches for the table1 table?\');'
-                . 'return false;">Delete</a></td></tr>'
+                . '&amp;is_js_confirmed=0&amp;server=0&amp;'
+                . 'lang=en&amp;collation_connection=utf-8&amp;token=token" '
+                . 'table_name="table1" delete_sql="column2" '
+                . '>Delete</a></td></tr>'
             )
         );
     }

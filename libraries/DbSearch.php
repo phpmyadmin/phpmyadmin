@@ -348,7 +348,7 @@ class DbSearch
             $html_output .= '<td><a name="delete_search" class="ajax delete_results"'
                 . ' href="' . $delete_result_path . '"'
                 . ' table_name="' . $each_table . '"'
-                . ' sql_query="' . $newsearchsqls['delete'] . '" >'
+                . ' delete_sql="' . $newsearchsqls['delete'] . '" >'
                 . __('Delete') . '</a></td>';
         } else {
             $html_output .= '<td>&nbsp;</td>'
