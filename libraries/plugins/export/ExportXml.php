@@ -349,7 +349,7 @@ class ExportXml extends ExportPlugin
                 // Export events
                 $events = $GLOBALS['dbi']->fetchResult(
                     "SELECT EVENT_NAME FROM information_schema.EVENTS "
-                    . "WHERE EVENT_SCHEMA='" . Util::sqlAddslashes($db)
+                    . "WHERE EVENT_SCHEMA='" . $GLOBALS['dbi']->escapeString($db)
                     . "'"
                 );
                 $head .= $this->_exportDefinitions(
