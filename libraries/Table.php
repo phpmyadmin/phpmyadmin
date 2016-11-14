@@ -1900,6 +1900,12 @@ class Table
      */
     public function getSqlQueryForIndexCreateOrEdit($index, &$error)
     {
+        $engine = null;
+        // if called static, with parameters
+        if (! empty($this->_db_name) && ! empty($this->_name)) {
+            $engine = $this->getStatusInfo('ENGINE', null, true);
+        }
+        
         // $sql_query is the one displayed in the query box
         $sql_query = sprintf(
             'ALTER TABLE %s.%s',
@@ -1908,16 +1914,37 @@ class Table
         );
 
         // Drops the old index
-        if (! empty($_REQUEST['old_index'])) {
-            if ($_REQUEST['old_index'] == 'PRIMARY') {
-                $sql_query .= ' DROP PRIMARY KEY,';
-            } else {
+        /* Prevent TokuDB Slow Query, Drop and Add cannot do in once. */
+        if ( $engine == 'TokuDB' ) {
+            if (! empty($_REQUEST['old_index'])) {
+                if ($_REQUEST['old_index'] == 'PRIMARY') {
+                    $sql_query .= ' DROP PRIMARY KEY; ';
+                } else {
+                    $sql_query .= sprintf(
+                        ' DROP INDEX %s;',
+                        Util::backquote($_REQUEST['old_index'])
+                    );
+                }
+                
                 $sql_query .= sprintf(
-                    ' DROP INDEX %s,',
-                    Util::backquote($_REQUEST['old_index'])
+                    'ALTER TABLE %s.%s',
+                    Util::backquote($this->_db_name),
+                    Util::backquote($this->_name)
                 );
             }
-        } // end if
+        } else {
+            if (! empty($_REQUEST['old_index'])) {
+                if ($_REQUEST['old_index'] == 'PRIMARY') {
+                    $sql_query .= ' DROP PRIMARY KEY,';
+                } else {
+                    $sql_query .= sprintf(
+                        ' DROP INDEX %s,',
+                        Util::backquote($_REQUEST['old_index'])
+                    );
+                }
+            }
+        }
+        // end if
 
         // Builds the new one
         switch ($index->getChoice()) {
@@ -1973,10 +2000,13 @@ class Table
         }
 
         // specifying index type is allowed only for primary, unique and index only
+        // TokuDB is using Fractal Tree, Using Type is not useless
+        // Ref: https://mariadb.com/kb/en/mariadb/storage-engine-index-types/
         $type = $index->getType();
         if ($index->getChoice() != 'SPATIAL'
             && $index->getChoice() != 'FULLTEXT'
             && in_array($type, Index::getIndexTypes())
+            && $engine != 'TokuDB'
         ) {
             $sql_query .= ' USING ' . $type;
         }
