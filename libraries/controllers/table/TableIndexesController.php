@@ -146,18 +146,18 @@ class TableIndexesController extends TableController
                     )
             );
         } elseif (!$error) {
-			
-			/* Support For Multiple Querys returned by getSqlQueryForIndexCreateOrEdit */
-			if ( substr_count($sql_query, ";") > 1 ) {
-				while( ( $pos = strpos($sql_query, ";") ) !== false) {
-					$q = substr($sql_query, 0, $pos);
-					$sql_query = substr($sql_query, $pos + 1);
-					$this->dbi->query($q);
-				}
-			} else {
-				$this->dbi->query($sql_query);
-			}
-			
+            
+            /* Support For Multiple Querys returned by getSqlQueryForIndexCreateOrEdit */
+            if ( substr_count($sql_query, ";") > 1 ) {
+                while( ( $pos = strpos($sql_query, ";") ) !== false) {
+                    $q = substr($sql_query, 0, $pos);
+                    $sql_query = substr($sql_query, $pos + 1);
+                    $this->dbi->query($q);
+                }
+            } else {
+                $this->dbi->query($sql_query);
+            }
+            
             if ($GLOBALS['is_ajax_request'] == true) {
                 $message = Message::success(
                     __('Table %1$s has been altered successfully.')
