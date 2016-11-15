@@ -334,29 +334,22 @@ class DbSearch
         $html_output .= '</td>';
         // Displays browse/delete link if result count > 0
         if ($res_cnt > 0) {
-            $this_url_params['sql_query'] = $newsearchsqls['select_columns'];
+            $this_url_params['db'] = htmlspecialchars($GLOBALS['db']);
+            $this_url_params['table'] = htmlspecialchars($each_table);
             $browse_result_path = 'sql.php' . URL::getCommon($this_url_params);
-            $html_output .= '<td><a name="browse_search" class="ajax" href="'
-                . $browse_result_path . '" onclick="loadResult(\''
-                . $browse_result_path . '\',\''
-                . Sanitize::escapeJsString(htmlspecialchars($each_table)) . '\',\''
-                . URL::getCommon(
-                    array(
-                        'db' => $GLOBALS['db'], 'table' => $each_table
-                    )
-                ) . '\''
-                . ');return false;" >'
+            $html_output .= '<td><a name="browse_search" '
+                . ' class="ajax browse_results" href="'
+                . $browse_result_path . '" '
+                . 'data-browse-sql="'
+                . htmlspecialchars($newsearchsqls['select_columns']). '" '
+                . 'data-table-name="' . htmlspecialchars($each_table) . '" >'
                 . __('Browse') . '</a></td>';
-            $this_url_params['sql_query'] = $newsearchsqls['delete'];
-            $delete_result_path = 'sql.php' . URL::getCommon($this_url_params);
-            $html_output .= '<td><a name="delete_search" class="ajax" href="'
-                . $delete_result_path . '" onclick="deleteResult(\''
-                . $delete_result_path . '\' , \''
-                . Sanitize::escapeJsString(sprintf(
-                    __('Delete the matches for the %s table?'),
-                    htmlspecialchars($each_table)
-                ))
-                . '\');return false;">'
+
+            $delete_result_path = $browse_result_path;
+            $html_output .= '<td><a name="delete_search" class="ajax delete_results"'
+                . ' href="' . $delete_result_path . '"'
+                . ' data-delete-sql="' . htmlspecialchars($newsearchsqls['delete']) . '"'
+                . ' data-table-name="' . htmlspecialchars($each_table) . '" >'
                 . __('Delete') . '</a></td>';
         } else {
             $html_output .= '<td>&nbsp;</td>'

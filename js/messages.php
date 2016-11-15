@@ -385,6 +385,7 @@ $js_messages['strHideSearchResults'] = __('Hide search results');
 $js_messages['strShowSearchResults'] = __('Show search results');
 $js_messages['strBrowsing'] = __('Browsing');
 $js_messages['strDeleting'] = __('Deleting');
+$js_messages['strConfirmDeleteResults'] = __('Delete the matches for the %s table?');
 
 /* For db_routines.js */
 $js_messages['MissingReturn']
