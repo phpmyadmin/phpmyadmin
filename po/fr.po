@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-11-10 09:39+0100\n"
-"PO-Revision-Date: 2016-11-08 14:56+0000\n"
+"PO-Revision-Date: 2016-11-14 14:21+0000\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
-"Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/4-6/fr/"
-">\n"
+"Language-Team: French "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-6/fr/>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 2.9\n"
+"X-Generator: Weblate 2.10-dev\n"
 
 #: changelog.php:38 license.php:33
 #, php-format
@@ -2193,16 +2193,12 @@ msgstr ""
 "directement ces valeurs si besoin"
 
 #: js/messages.php:528
-#, fuzzy
-#| msgid ""
-#| "MySQL accepts additional values not selectable by the slider; key in "
-#| "those values directly if desired"
 msgid ""
 "MySQL accepts additional values not selectable by the datepicker; key in "
 "those values directly if desired"
 msgstr ""
-"MySQL accepte des valeurs non sélectionnables via le menu; entrez "
-"directement ces valeurs si besoin"
+"MySQL accepte des valeurs non sélectionnables via le sélecteur de date; "
+"entrez directement ces valeurs si besoin"
 
 #: js/messages.php:534
 msgid ""
@@ -15569,6 +15565,9 @@ msgid ""
 "an index on it. Alternatively, you can define an index below, before "
 "creating the foreign key."
 msgstr ""
+"Créer une clé étrangère sur une colonne non indexée créerait automatiquement "
+"un index sur celle-ci. Vous pouvez également définir un index ci-dessous, "
+"avant de créer la clé étrangère."
 
 #: templates/table/relation/common_form.phtml:20
 msgid ""
