@@ -109,7 +109,7 @@ foreach ($tables as $each_table) {
     } else {
         $structure_checked = $is_checked;
     }
-    if (isset($_GET['table_data'])) {
+    if (isset($_GET['table_data']) && is_array($_GET['table_data'])) {
         $data_checked = PMA_getCheckedClause(
             $each_table['Name'], $_GET['table_data']
         );
