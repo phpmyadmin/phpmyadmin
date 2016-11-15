@@ -122,6 +122,7 @@ phpMyAdmin - ChangeLog
 - issue #12453 Fixed escaping of SQL parts in some corner cases
 - issue #12542 Missing table name in account privileges editor
 - issue #12691 Remove ksort call on empty array in PMA_getPlugins function
+- issue #12443 Check parameter type before processing
 
 4.6.4 (2016-08-16)
 - issue        [security] Weaknesses with cookie encryption, see PMASA-2016-29
