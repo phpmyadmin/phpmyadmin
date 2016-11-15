@@ -74,6 +74,11 @@ class SelectStatement extends Statement
         'SQL_CALC_FOUND_ROWS'           => 9,
     );
 
+    public static $END_OPTIONS = array(
+        'FOR UPDATE'                    => 1,
+        'LOCK IN SHARE MODE'            => 1
+    );
+
     /**
      * The clauses of this statement, in order.
      *
@@ -111,6 +116,7 @@ class SelectStatement extends Statement
         'LIMIT'                         => array('LIMIT',                   3),
         'PROCEDURE'                     => array('PROCEDURE',               3),
         'UNION'                         => array('UNION',                   1),
+        '_END_OPTIONS'                  => array('_END_OPTIONS',            1)
         // These are available only when `UNION` is present.
         // 'ORDER BY'                      => array('ORDER BY',    3),
         // 'LIMIT'                         => array('LIMIT',       3),
@@ -199,6 +205,15 @@ class SelectStatement extends Statement
      * @var SelectStatement[]
      */
     public $union = array();
+
+    /**
+     * The end options of this query.
+     *
+     * @var OptionsArray
+     *
+     * @see static::$END_OPTIONS
+     */
+    public $end_options;
 
     /**
      * Gets the clauses of this statement.

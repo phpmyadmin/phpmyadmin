@@ -352,10 +352,23 @@ abstract class Statement
                     $parsedOptions = true;
                 }
             } elseif ($class === null) {
-                // There is no parser for this keyword and isn't the beginning
-                // of a statement (so no options) either.
-                $parser->error(__('Unrecognized keyword.'), $token);
-                continue;
+                // Handle special end options in Select statement
+                // See Statements\SelectStatement::$END_OPTIONS
+                if (get_class($this) === 'SqlParser\Statements\SelectStatement'
+                    && ($token->value === 'FOR UPDATE'
+                    || $token->value === 'LOCK IN SHARE MODE')
+                ) {
+                    $this->end_options = OptionsArray::parse(
+                        $parser,
+                        $list,
+                        static::$END_OPTIONS
+                    );
+                } else {
+                    // There is no parser for this keyword and isn't the beginning
+                    // of a statement (so no options) either.
+                    $parser->error(__('Unrecognized keyword.'), $token);
+                    continue;
+                }
             }
 
             $this->before($parser, $list, $token);
@@ -444,6 +457,19 @@ abstract class Statement
         }
 
         $minIdx = -1;
+
+        /**
+         * For tracking JOIN clauses in a query
+         *   0 - JOIN not found till now
+         *   1 - JOIN has been found
+         *   2 - A Non-JOIN clause has been found
+         *       after a previously found JOIN clause
+         *
+         * @var int $joinStart
+         */
+        $joinStart = 0;
+
+        $error = 0;
         foreach ($clauses as $clauseType => $index) {
             $clauseStartIdx = Utils\Query::getClauseStartOffset(
                 $this,
@@ -451,13 +477,28 @@ abstract class Statement
                 $clauseType
             );
 
+            // Handle ordering of Multiple Joins in a query
+            if ($clauseStartIdx != -1) {
+                if ($joinStart == 0 && stripos($clauseType, 'JOIN')) {
+                    $joinStart = 1;
+                } elseif ($joinStart == 1 && ! stripos($clauseType, 'JOIN')) {
+                    $joinStart = 2;
+                } elseif ($joinStart == 2 && stripos($clauseType, 'JOIN')) {
+                    $error = 1;
+                }
+            }
+
             if ($clauseStartIdx != -1 && $clauseStartIdx < $minIdx) {
-                $token = $list->tokens[$clauseStartIdx];
-                $parser->error(
-                    __('Unexpected ordering of clauses.'),
-                    $token
-                );
-                return false;
+                if ($joinStart == 0 || ($joinStart == 2 && $error = 1)) {
+                    $token = $list->tokens[$clauseStartIdx];
+                    $parser->error(
+                        __('Unexpected ordering of clauses.'),
+                        $token
+                    );
+                    return false;
+                } else {
+                    $minIdx = $clauseStartIdx;
+                }
             } elseif ($clauseStartIdx != -1) {
                 $minIdx = $clauseStartIdx;
             }

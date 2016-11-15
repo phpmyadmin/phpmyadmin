@@ -111,6 +111,12 @@ class Parser
             'class'             => 'SqlParser\\Components\\OptionsArray',
             'field'             => 'options',
         ),
+        '_END_OPTIONS'          => array(
+            'class'             => 'SqlParser\\Components\\OptionsArray',
+            'field'             => 'end_options',
+        ),
+
+
         'UNION'                 => array(
             'class'             => 'SqlParser\\Components\\UnionKeyword',
             'field'             => 'union',
