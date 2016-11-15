@@ -340,15 +340,15 @@ class DbSearch
             $html_output .= '<td><a name="browse_search" '
                 . ' class="ajax browse_results" href="'
                 . $browse_result_path . '" '
-                . 'browse_sql="' . $newsearchsqls['select_columns'] . '" '
-                . 'table_name="' . $each_table . '" >'
+                . 'data-browse-sql="' . $newsearchsqls['select_columns'] . '" '
+                . 'data-table-name="' . $each_table . '" >'
                 . __('Browse') . '</a></td>';
 
             $delete_result_path = $browse_result_path;
             $html_output .= '<td><a name="delete_search" class="ajax delete_results"'
                 . ' href="' . $delete_result_path . '"'
-                . ' table_name="' . $each_table . '"'
-                . ' delete_sql="' . $newsearchsqls['delete'] . '" >'
+                . ' data-table-name="' . $each_table . '"'
+                . ' data-delete-sql="' . $newsearchsqls['delete'] . '" >'
                 . __('Delete') . '</a></td>';
         } else {
             $html_output .= '<td>&nbsp;</td>'

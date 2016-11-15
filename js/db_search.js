@@ -121,11 +121,11 @@ AJAX.registerOnload('db_search.js', function () {
         $('#togglequerybox').hide();
         /**  Load the browse results to the page */
         $("#table-info").show();
-        var table_name = $(this).attr('table_name');
+        var table_name = $(this).data('table-name');
         $('#table-link').attr({"href" : $(this).attr('href')}).text(table_name);
 
         var url = $(this).attr('href') + "#searchresults";
-        var browse_sql = $(this).attr('browse_sql');
+        var browse_sql = $(this).data('browse-sql');
         var params = {
             'ajax_request': true,
             'is_js_confirmed': true,
@@ -162,7 +162,7 @@ AJAX.registerOnload('db_search.js', function () {
         /** Conformation message for deletion */
         var msg = PMA_sprintf(
             PMA_messages.strConfirmDeleteResults,
-            $(this).attr('table_name')
+            $(this).data('table-name')
         );
         if (confirm(msg)) {
             var $msg = PMA_ajaxShowMessage(PMA_messages.strDeleting, false);
@@ -171,7 +171,7 @@ AJAX.registerOnload('db_search.js', function () {
             var params = {
                 'ajax_request': true,
                 'is_js_confirmed': true,
-                'sql_query': $(this).attr('delete_sql')
+                'sql_query': $(this).data('delete-sql')
             };
             var url = $(this).attr('href');
 
