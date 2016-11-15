@@ -172,13 +172,14 @@ class DbSearchTest extends PMATestCase
                 . '=table1&amp;goto=db_sql.php&amp;pos=0&amp;is_js_confirmed=0&amp;'
                 . 'server=0&amp;lang=en&amp;'
                 . 'collation_connection=utf-8&amp;token=token" '
-                . 'browse_sql="column1" table_name="table1" '
+                . 'data-browse-sql="column1" data-table-name="table1" '
                 . '>Browse</a></td><td>'
                 . '<a name="delete_search" class="ajax delete_results" href'
                 . '="sql.php?db=pma&amp;table=table1&amp;goto=db_sql.php&amp;pos=0'
                 . '&amp;is_js_confirmed=0&amp;server=0&amp;'
                 . 'lang=en&amp;collation_connection=utf-8&amp;token=token" '
-                . 'table_name="table1" delete_sql="column2" '
+                . 'data-delete-sql="column2" '
+                . 'data-table-name="table1" '
                 . '>Delete</a></td></tr>'
             )
         );
