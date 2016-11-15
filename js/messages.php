@@ -655,7 +655,7 @@ $js_messages['strInvalidPage']
 /* update */
 $js_messages['strNewerVersion'] = __(
     'A newer version of phpMyAdmin is available and you should consider upgrading. '
-    . 'The newest version is %s, released on %s.'
+    . 'The newest version is %s, released on %s.' . ' View <a href="../changelog.php">Changelog</a>'
 );
 /* l10n: Latest available phpMyAdmin version */
 $js_messages['strLatestAvailable'] = __(', latest stable version:');
