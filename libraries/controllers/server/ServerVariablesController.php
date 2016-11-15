@@ -135,7 +135,7 @@ class ServerVariablesController extends Controller
         // when server is running in ANSI_QUOTES sql_mode
         $varValue = $this->dbi->fetchSingleRow(
             'SHOW GLOBAL VARIABLES WHERE Variable_name=\''
-            . Util::sqlAddSlashes($_REQUEST['varName']) . '\';',
+            . $GLOBALS['dbi']->escapeString($_REQUEST['varName']) . '\';',
             'NUM'
         );
 
@@ -182,12 +182,12 @@ class ServerVariablesController extends Controller
                 'gb' => 3,
                 'gib' => 3
             );
-            $value = floatval($matches[1]) * Util::pow(
+            $value = floatval($matches[1]) * pow(
                 1024,
                 $exp[mb_strtolower($matches[3])]
             );
         } else {
-            $value = Util::sqlAddSlashes($value);
+            $value = $GLOBALS['dbi']->escapeString($value);
         }
 
         if (! is_numeric($value)) {
@@ -202,7 +202,7 @@ class ServerVariablesController extends Controller
             // Some values are rounded down etc.
             $varValue = $this->dbi->fetchSingleRow(
                 'SHOW GLOBAL VARIABLES WHERE Variable_name="'
-                . Util::sqlAddSlashes($_REQUEST['varName'])
+                . $GLOBALS['dbi']->escapeString($_REQUEST['varName'])
                 . '";', 'NUM'
             );
             list($formattedValue, $isHtmlFormatted) = $this->_formatVariable(

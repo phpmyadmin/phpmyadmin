@@ -171,7 +171,12 @@ AJAX.registerOnload('sql.js', function () {
             if ($link.hasClass('formLinkSubmit')) {
                 submitFormLink($link);
             } else {
-                $.post(url, {'ajax_request': true, 'is_js_confirmed': true}, function (data) {
+                var params = {
+                    'ajax_request': true,
+                    'is_js_confirmed': true,
+                    'token': PMA_commonParams.get('token')
+                };
+                $.post(url, params, function (data) {
                     if (data.success) {
                         PMA_ajaxShowMessage(data.message);
                         $link.closest('tr').remove();

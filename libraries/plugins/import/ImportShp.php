@@ -105,7 +105,7 @@ class ImportShp extends ImportPlugin
                     if ($extracted !== false) {
                         $dbf_file_path = realpath($GLOBALS['cfg']['TempDir'])
                             . (PMA_IS_WINDOWS ? '\\' : '/')
-                            . PMA_sanitizeFilename($dbf_file_name, true);
+                            . Sanitize::sanitizeFilename($dbf_file_name, true);
                         $handle = fopen($dbf_file_path, 'wb');
                         if ($handle !== false) {
                             fwrite($handle, $extracted);
@@ -241,7 +241,7 @@ class ImportShp extends ImportPlugin
         }
 
         // Set table name based on the number of tables
-        if (mb_strlen($db)) {
+        if (strlen($db) > 0) {
             $result = $GLOBALS['dbi']->fetchResult('SHOW TABLES');
             $table_name = 'TABLE ' . (count($result) + 1);
         } else {
@@ -259,7 +259,7 @@ class ImportShp extends ImportPlugin
         $analyses[$table_no][FORMATTEDSQL][$spatial_col] = true;
 
         // Set database name to the currently selected one, if applicable
-        if (mb_strlen($db)) {
+        if (strlen($db) > 0) {
             $db_name = $db;
             $options = array('create_db' => false);
         } else {

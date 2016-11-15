@@ -142,7 +142,7 @@ class DbSearch
         ) {
             unset($this->_criteriaColumnName);
         } else {
-            $this->_criteriaColumnName = Util::sqlAddSlashes(
+            $this->_criteriaColumnName = $GLOBALS['dbi']->escapeString(
                 $_REQUEST['criteriaColumnName'], true
             );
         }
@@ -206,9 +206,8 @@ class DbSearch
         // For "as regular expression" (search option 4), LIKE won't be used
         // Usage example: If user is searching for a literal $ in a regexp search,
         // he should enter \$ as the value.
-        $criteriaSearchStringEscaped = Util::sqlAddSlashes(
-            $this->_criteriaSearchString,
-            ($this->_criteriaSearchType == 4 ? false : true)
+        $criteriaSearchStringEscaped = $GLOBALS['dbi']->escapeString(
+            $this->_criteriaSearchString
         );
         // Extract search words or pattern
         $search_words = (($this->_criteriaSearchType > 2)
@@ -217,14 +216,14 @@ class DbSearch
 
         foreach ($search_words as $search_word) {
             // Eliminates empty values
-            if (mb_strlen($search_word) === 0) {
+            if (strlen($search_word) === 0) {
                 continue;
             }
             $likeClausesPerColumn = array();
             // for each column in the table
             foreach ($allColumns as $column) {
                 if (! isset($this->_criteriaColumnName)
-                    || mb_strlen($this->_criteriaColumnName) == 0
+                    || strlen($this->_criteriaColumnName) === 0
                     || $column['Field'] == $this->_criteriaColumnName
                 ) {
                     $column = 'CONVERT(' . Util::backquote($column['Field'])

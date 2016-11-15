@@ -47,19 +47,21 @@ $test_defaults = array(
     'TESTSUITE_FULL' => '',
     'CI_MODE' => ''
 );
-foreach ($test_defaults as $varname => $defvalue) {
-    $envvar = getenv($varname);
-    if ($envvar) {
-        $GLOBALS[$varname] = $envvar;
-    } else {
-        $GLOBALS[$varname] = $defvalue;
+if (PHP_SAPI == 'cli') {
+    foreach ($test_defaults as $varname => $defvalue) {
+        $envvar = getenv($varname);
+        if ($envvar) {
+            $GLOBALS[$varname] = $envvar;
+        } else {
+            $GLOBALS[$varname] = $defvalue;
+        }
     }
 }
 
 require_once 'libraries/vendor_config.php';
 require_once 'vendor/autoload.php';
 require_once 'libraries/core.lib.php';
-MoTranslator\Loader::load_functions();
+MoTranslator\Loader::loadFunctions();
 $CFG = new PMA\libraries\Config();
 // Initialize PMA_VERSION variable
 define('PMA_VERSION', $CFG->get('PMA_VERSION'));
@@ -70,7 +72,7 @@ PMA\libraries\LanguageManager::getInstance()->getLanguage('en')->activate();
 
 // Set proxy information from env, if available
 $http_proxy = getenv('http_proxy');
-if ($http_proxy && ($url_info = parse_url($http_proxy))) {
+if (PHP_SAPI == 'cli' && $http_proxy && ($url_info = parse_url($http_proxy))) {
     define('PROXY_URL', $url_info['host'] . ':' . $url_info['port']);
     define('PROXY_USER', empty($url_info['user']) ? '' : $url_info['user']);
     define('PROXY_PASS', empty($url_info['pass']) ? '' : $url_info['pass']);

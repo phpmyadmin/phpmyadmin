@@ -35,7 +35,7 @@ function PMA_ipMaskTest($testRange, $ipToTest)
 /**
  * Based on IP Pattern Matcher
  * Originally by J.Adams <jna@retina.net>
- * Found on <https://php.net/manual/en/function.ip2long.php>
+ * Found on <https://secure.php.net/manual/en/function.ip2long.php>
  * Modified for phpMyAdmin
  *
  * Matches:
@@ -72,7 +72,7 @@ function PMA_ipv4MaskTest($testRange, $ipToTest)
 
         for ($i = 0; $i < 31; $i++) {
             if ($i < $regs[5] - 1) {
-                $maskl = $maskl + PMA\libraries\Util::pow(2, (30 - $i));
+                $maskl = $maskl + pow(2, (30 - $i));
             } // end if
         } // end for
 

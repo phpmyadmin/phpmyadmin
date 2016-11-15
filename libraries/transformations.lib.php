@@ -41,7 +41,7 @@ function PMA_Transformation_getOptions($option_string)
 {
     $result = array();
 
-    if (! mb_strlen($option_string)
+    if (strlen($option_string) === 0
         || ! $transform_options = preg_split('/,/', $option_string)
     ) {
         return $result;
@@ -49,7 +49,7 @@ function PMA_Transformation_getOptions($option_string)
 
     while (($option = array_shift($transform_options)) !== null) {
         $trimmed = trim($option);
-        if (mb_strlen($trimmed) > 1
+        if (strlen($trimmed) > 1
             && $trimmed[0] == "'"
             && $trimmed[strlen($trimmed) - 1] == "'"
         ) {
@@ -236,8 +236,8 @@ function PMA_getMIME($db, $table, $strict = false, $fullName = false)
                 `input_transformation_options`
          FROM ' . PMA\libraries\Util::backquote($cfgRelation['db']) . '.'
         . PMA\libraries\Util::backquote($cfgRelation['column_info']) . '
-         WHERE `db_name`    = \'' . PMA\libraries\Util::sqlAddSlashes($db) . '\'
-           AND `table_name` = \'' . PMA\libraries\Util::sqlAddSlashes($table) . '\'
+         WHERE `db_name`    = \'' . $GLOBALS['dbi']->escapeString($db) . '\'
+           AND `table_name` = \'' . $GLOBALS['dbi']->escapeString($table) . '\'
            AND ( `mimetype` != \'\'' . (!$strict ? '
               OR `transformation` != \'\'
               OR `transformation_options` != \'\'
@@ -331,9 +331,9 @@ function PMA_setMIME($db, $table, $key, $mimetype, $transformation,
                 `comment`
            FROM ' . PMA\libraries\Util::backquote($cfgRelation['db']) . '.'
         . PMA\libraries\Util::backquote($cfgRelation['column_info']) . '
-          WHERE `db_name`     = \'' . PMA\libraries\Util::sqlAddSlashes($db) . '\'
-            AND `table_name`  = \'' . PMA\libraries\Util::sqlAddSlashes($table) . '\'
-            AND `column_name` = \'' . PMA\libraries\Util::sqlAddSlashes($key) . '\'';
+          WHERE `db_name`     = \'' . $GLOBALS['dbi']->escapeString($db) . '\'
+            AND `table_name`  = \'' . $GLOBALS['dbi']->escapeString($table) . '\'
+            AND `column_name` = \'' . $GLOBALS['dbi']->escapeString($key) . '\'';
 
     $test_rs   = PMA_queryAsControlUser(
         $test_qry, true, PMA\libraries\DatabaseInterface::QUERY_STORE
@@ -343,40 +343,40 @@ function PMA_setMIME($db, $table, $key, $mimetype, $transformation,
         $row = @$GLOBALS['dbi']->fetchAssoc($test_rs);
         $GLOBALS['dbi']->freeResult($test_rs);
 
-        $transformationLength = mb_strlen($transformation);
         if (! $forcedelete
-            && (mb_strlen($mimetype) || $transformationLength
-            || mb_strlen($transformationOpts)
-            || mb_strlen($row['comment']))
+            && (strlen($mimetype) > 0
+            || strlen($transformation) > 0
+            || strlen($transformationOpts) > 0
+            || strlen($row['comment']) > 0)
         ) {
             $upd_query = 'UPDATE '
                 . PMA\libraries\Util::backquote($cfgRelation['db']) . '.'
                 . PMA\libraries\Util::backquote($cfgRelation['column_info'])
                 . ' SET '
                 . '`mimetype` = \''
-                . PMA\libraries\Util::sqlAddSlashes($mimetype) . '\', '
+                . $GLOBALS['dbi']->escapeString($mimetype) . '\', '
                 . '`transformation` = \''
-                . PMA\libraries\Util::sqlAddSlashes($transformation) . '\', '
+                . $GLOBALS['dbi']->escapeString($transformation) . '\', '
                 . '`transformation_options` = \''
-                . PMA\libraries\Util::sqlAddSlashes($transformationOpts) . '\', '
+                . $GLOBALS['dbi']->escapeString($transformationOpts) . '\', '
                 . '`input_transformation` = \''
-                . PMA\libraries\Util::sqlAddSlashes($inputTransform) . '\', '
+                . $GLOBALS['dbi']->escapeString($inputTransform) . '\', '
                 . '`input_transformation_options` = \''
-                . PMA\libraries\Util::sqlAddSlashes($inputTransformOpts) . '\'';
+                . $GLOBALS['dbi']->escapeString($inputTransformOpts) . '\'';
         } else {
             $upd_query = 'DELETE FROM '
                 . PMA\libraries\Util::backquote($cfgRelation['db'])
                 . '.' . PMA\libraries\Util::backquote($cfgRelation['column_info']);
         }
         $upd_query .= '
-            WHERE `db_name`     = \'' . PMA\libraries\Util::sqlAddSlashes($db) . '\'
-              AND `table_name`  = \'' . PMA\libraries\Util::sqlAddSlashes($table)
+            WHERE `db_name`     = \'' . $GLOBALS['dbi']->escapeString($db) . '\'
+              AND `table_name`  = \'' . $GLOBALS['dbi']->escapeString($table)
                 . '\'
-              AND `column_name` = \'' . PMA\libraries\Util::sqlAddSlashes($key)
+              AND `column_name` = \'' . $GLOBALS['dbi']->escapeString($key)
                 . '\'';
-    } elseif (mb_strlen($mimetype)
-        || mb_strlen($transformation)
-        || mb_strlen($transformationOpts)
+    } elseif (strlen($mimetype) > 0
+        || strlen($transformation) > 0
+        || strlen($transformationOpts) > 0
     ) {
 
         $upd_query = 'INSERT INTO '
@@ -386,14 +386,14 @@ function PMA_setMIME($db, $table, $key, $mimetype, $transformation,
             . 'transformation, transformation_options, '
             . 'input_transformation, input_transformation_options) '
             . ' VALUES('
-            . '\'' . PMA\libraries\Util::sqlAddSlashes($db) . '\','
-            . '\'' . PMA\libraries\Util::sqlAddSlashes($table) . '\','
-            . '\'' . PMA\libraries\Util::sqlAddSlashes($key) . '\','
-            . '\'' . PMA\libraries\Util::sqlAddSlashes($mimetype) . '\','
-            . '\'' . PMA\libraries\Util::sqlAddSlashes($transformation) . '\','
-            . '\'' . PMA\libraries\Util::sqlAddSlashes($transformationOpts) . '\','
-            . '\'' . PMA\libraries\Util::sqlAddSlashes($inputTransform) . '\','
-            . '\'' . PMA\libraries\Util::sqlAddSlashes($inputTransformOpts) . '\')';
+            . '\'' . $GLOBALS['dbi']->escapeString($db) . '\','
+            . '\'' . $GLOBALS['dbi']->escapeString($table) . '\','
+            . '\'' . $GLOBALS['dbi']->escapeString($key) . '\','
+            . '\'' . $GLOBALS['dbi']->escapeString($mimetype) . '\','
+            . '\'' . $GLOBALS['dbi']->escapeString($transformation) . '\','
+            . '\'' . $GLOBALS['dbi']->escapeString($transformationOpts) . '\','
+            . '\'' . $GLOBALS['dbi']->escapeString($inputTransform) . '\','
+            . '\'' . $GLOBALS['dbi']->escapeString($inputTransformOpts) . '\')';
     }
 
     if (isset($upd_query)) {

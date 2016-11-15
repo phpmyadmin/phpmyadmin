@@ -612,6 +612,7 @@ tr:last-child td.condition {
 td.null {
     font-style: italic;
     text-align: <?php echo $right; ?>;
+    color: #7d7d7d;
 }
 
 table .valueHeader {
@@ -1778,6 +1779,16 @@ label.desc sup {
     position: absolute;
 }
 
+code.php {
+    display: block;
+    padding-left: 1em;
+    margin-top: 0;
+    margin-bottom: 0;
+    max-height: 10em;
+    overflow: auto;
+    direction: ltr;
+}
+
 code.sql,
 div.sqlvalidate {
     display: block;
@@ -2869,7 +2880,8 @@ fieldset .disabled-field td {
 }
 
 .cEdit .edit_box {
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: scroll;
     padding: 0;
     margin: 0;
 }
@@ -3333,9 +3345,6 @@ html.ie7 #pma_console .query_input {
     min-height: initial;
     max-height: initial;
 }
-.firefox .cm-s-pma.CodeMirror {
-    font-size: 120%;
-}
 .cm-s-pma .CodeMirror-scroll {
     cursor: text;
 }
@@ -3476,6 +3485,16 @@ span.drag_icon {
 
 .topmargin {
     margin-top: 1em;
+}
+
+meter[value="1"]::-webkit-meter-optimum-value {
+    background: linear-gradient(white 3%, #E32929 5%, transparent 10%, #E32929);
+}
+meter[value="2"]::-webkit-meter-optimum-value {
+    background: linear-gradient(white 3%, #FF6600 5%, transparent 10%, #FF6600);
+}
+meter[value="3"]::-webkit-meter-optimum-value {
+    background: linear-gradient(white 3%, #FFD700 5%, transparent 10%, #FFD700);
 }
 
 /* styles for sortable tables created with tablesorter jquery plugin */

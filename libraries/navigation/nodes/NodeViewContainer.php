@@ -26,11 +26,9 @@ class NodeViewContainer extends NodeDatabaseChildContainer
         $this->icon = PMA\libraries\Util::getImage('b_views.png', __('Views'));
         $this->links = array(
             'text' => 'db_structure.php?server=' . $GLOBALS['server']
-                . '&amp;db=%1$s&amp;tbl_type=view'
-                . '&amp;token=' . $_SESSION[' PMA_token '],
+                . '&amp;db=%1$s&amp;tbl_type=view',
             'icon' => 'db_structure.php?server=' . $GLOBALS['server']
-                . '&amp;db=%1$s&amp;tbl_type=view'
-                . '&amp;token=' . $_SESSION[' PMA_token '],
+                . '&amp;db=%1$s&amp;tbl_type=view',
         );
         $this->classes = 'viewContainer subContainer';
         $this->real_name = 'views';
@@ -44,9 +42,9 @@ class NodeViewContainer extends NodeDatabaseChildContainer
         $new->icon = PMA\libraries\Util::getImage('b_view_add.png', $new_label);
         $new->links = array(
             'text' => 'view_create.php?server=' . $GLOBALS['server']
-                . '&amp;db=%2$s&amp;token=' . $_SESSION[' PMA_token '],
+                . '&amp;db=%2$s',
             'icon' => 'view_create.php?server=' . $GLOBALS['server']
-                . '&amp;db=%2$s&amp;token=' . $_SESSION[' PMA_token '],
+                . '&amp;db=%2$s',
         );
         $new->classes = 'new_view italics';
         $this->addChild($new);

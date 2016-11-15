@@ -636,7 +636,7 @@ class DisplayResults
             $the_total = $unlim_num_rows;
         } elseif ((($displayParts['nav_bar'] == '1')
             || ($displayParts['sort_lnk'] == '1'))
-            && (mb_strlen($db) && !empty($table))
+            && (strlen($db) > 0 && strlen($table) > 0)
         ) {
             $the_total = $GLOBALS['dbi']->getTable($db, $table)->countRecords();
         }
@@ -870,9 +870,10 @@ class DisplayResults
         $endpos = $_SESSION['tmpval']['pos']
             + $_SESSION['tmpval']['max_rows'];
 
-        if (($endpos < $this->__get('unlim_num_rows'))
-            && ($this->__get('num_rows') >= $_SESSION['tmpval']['max_rows'])
-            && ($_SESSION['tmpval']['max_rows'] != self::ALL_ROWS)
+        if ($this->__get('unlim_num_rows') === false // view with unknown number of rows
+            || ($endpos < $this->__get('unlim_num_rows')
+            && $this->__get('num_rows') >= $_SESSION['tmpval']['max_rows']
+            && $_SESSION['tmpval']['max_rows'] != self::ALL_ROWS)
         ) {
 
             $table_navigation_html
@@ -1078,12 +1079,12 @@ class DisplayResults
 
         $maxRows = $_SESSION['tmpval']['max_rows'];
         $onsubmit = 'onsubmit="return '
-            . ($_SESSION['tmpval']['pos']
+            . (($_SESSION['tmpval']['pos']
                 + $maxRows
                 < $this->__get('unlim_num_rows')
                 && $this->__get('num_rows') >= $maxRows)
             ? 'true'
-            : 'false' . '"';
+            : 'false') . '"';
 
         // display the End button
         $buttons_html .= $this->_getTableNavigationButton(
@@ -1976,7 +1977,7 @@ class DisplayResults
         // FROM `PMA_relation` AS `1` , `PMA_relation` AS `2`
 
         $sort_tbl = (isset($fields_meta->table)
-            && mb_strlen($fields_meta->table)
+            && strlen($fields_meta->table) > 0
             && $fields_meta->orgname == $fields_meta->name)
             ? Util::backquote(
                 $fields_meta->table
@@ -2116,7 +2117,7 @@ class DisplayResults
             if (mb_strpos($name_to_use_in_sort, '(') !== false) {
                 $sort_order .=  $query_head  . $name_to_use_in_sort . ' ' ;
             } else {
-                if (mb_strlen($sort_tbl_new) > 0) {
+                if (strlen($sort_tbl_new) > 0) {
                     $sort_tbl_new .= ".";
                 }
                 $sort_order .=  $query_head  . $sort_tbl_new
@@ -2167,7 +2168,7 @@ class DisplayResults
         $sort_order = mb_substr(
             $sort_order,
             0,
-            mb_strlen($sort_order)-2
+            mb_strlen($sort_order) - 2
         );
         if (empty($order_img)) {
             $order_img = '';
@@ -4050,7 +4051,7 @@ class DisplayResults
             || $bool_nowrap) ? ' nowrap' : '';
 
         $where_comparison = ' = \''
-            . Util::sqlAddSlashes($column)
+            . $GLOBALS['dbi']->escapeString($column)
             . '\'';
 
         $cell = $this->_getRowData(
@@ -4353,7 +4354,7 @@ class DisplayResults
         }
 
         // 2.3 Prepare the navigation bars
-        if (!mb_strlen($this->__get('table'))) {
+        if (strlen($this->__get('table')) === 0) {
 
             if ($analyzed_sql_results['querytype'] == 'SELECT') {
                 // table does not always contain a real table name,
@@ -4404,7 +4405,7 @@ class DisplayResults
             }
         }
 
-        if (mb_strlen($this->__get('table'))) {
+        if (strlen($this->__get('table')) > 0) {
             // This method set the values for $map array
             $this->_setParamForLinkForeignKeyRelatedTables($map);
 
@@ -5452,7 +5453,7 @@ class DisplayResults
 
             // Field to display from the foreign table?
             if (isset($map[$meta->name][2])
-                && mb_strlen($map[$meta->name][2])
+                && strlen($map[$meta->name][2]) > 0
             ) {
                 $dispval = $this->_getFromForeign(
                     $map, $meta, $where_comparison

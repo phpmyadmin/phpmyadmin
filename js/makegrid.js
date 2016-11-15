@@ -1051,7 +1051,21 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                         timeFormat: timeFormat
                     });
 
+                    $input_field.on('keyup', function (e) {
+                        if (e.which == 13) {
+                            // post on pressing "Enter"
+                            e.preventDefault();
+                            e.stopPropagation();
+                            g.saveOrPostEditedCell();
+                        } else if (e.which == 27) {
+                        } else {
+                            toggleDatepickerIfInvalid($td, $input_field);
+                        }
+                    });
+
                     $input_field.datepicker("show");
+                    toggleDatepickerIfInvalid($td, $input_field);
+
                     // unbind the mousedown event to prevent the problem of
                     // datepicker getting closed, needs to be checked for any
                     // change in names when updating

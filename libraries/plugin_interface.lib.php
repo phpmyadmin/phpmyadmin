@@ -62,7 +62,6 @@ function PMA_getPlugins($plugin_type, $plugins_dir, $plugin_param)
     /* Scan for plugins */
     $plugin_list = array();
     if (!($handle = @opendir($plugins_dir))) {
-        ksort($plugin_list);
         return $plugin_list;
     }
 

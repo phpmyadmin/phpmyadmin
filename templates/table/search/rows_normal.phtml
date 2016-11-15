@@ -33,11 +33,7 @@ for (
         <!-- here, the data-type attribute is needed for a date/time picker-->
         <td data-type="<?= htmlspecialchars($properties['type']); ?>">
             <?= $properties['value']; ?>
-        </td>
-    </tr>
-    <!-- Displays hidden fields -->
-    <tr>
-        <td>
+            <!-- Displays hidden fields -->
             <input type="hidden"
                    name="criteriaColumnNames[<?= $column_index; ?>]"
                    value="<?= htmlspecialchars($columnNames[$column_index]); ?>" />

@@ -16,7 +16,7 @@ use XMLWriter;
  *
  * @package PhpMyAdmin
  * @access  public
- * @see     https://php.net/manual/en/book.xmlwriter.php
+ * @see     https://secure.php.net/manual/en/book.xmlwriter.php
  */
 class Dia extends XMLWriter
 {

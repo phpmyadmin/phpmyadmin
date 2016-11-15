@@ -80,7 +80,7 @@ require_once './vendor/autoload.php';
 /**
  * Load gettext functions.
  */
-MoTranslator\Loader::load_functions();
+MoTranslator\Loader::loadFunctions();
 
 /**
  * initialize the error handler
@@ -372,56 +372,32 @@ if (PMA_checkPageValidity($_REQUEST['back'], $goto_whitelist)) {
  * could access this variables before we reach this point
  * f.e. PMA\libraries\Config: fontsize
  *
+ * Check for token mismatch only if the Request method is POST
+ * GET Requests would never have token and therefore checking
+ * mis-match does not make sense
+ *
  * @todo variables should be handled by their respective owners (objects)
  * f.e. lang, server, collation_connection in PMA\libraries\Config
  */
+
 $token_mismatch = true;
 $token_provided = false;
-if (PMA_isValid($_REQUEST['token'])) {
-    $token_provided = true;
-    $token_mismatch = ! hash_equals($_SESSION[' PMA_token '], $_REQUEST['token']);
-}
 
-if ($token_mismatch) {
-    /**
-     *  List of parameters which are allowed from unsafe source
-     */
-    $allow_list = array(
-        /* needed for direct access, see FAQ 1.34
-         * also, server needed for cookie login screen (multi-server)
-         */
-        'server', 'db', 'table', 'target', 'lang',
-        /* Session ID */
-        'phpMyAdmin',
-        /* Cookie preferences */
-        'pma_lang', 'pma_collation_connection',
-        /* Possible login form */
-        'pma_servername', 'pma_username', 'pma_password',
-        'g-recaptcha-response',
-        /* Needed to send the correct reply */
-        'ajax_request',
-        /* Permit to log out even if there is a token mismatch */
-        'old_usr',
-        /* Permit redirection with token-mismatch in url.php */
-        'url',
-        /* Permit session expiry flag */
-        'session_expired',
-        /* JS loading */
-        'scripts', 'call_done',
-        /* Navigation panel */
-        'aPath', 'vPath', 'pos', 'pos2_name', 'pos2_value', 'searchClause', 'searchClause2'
-    );
-    /**
-     * Allow changing themes in test/theme.php
-     */
-    if (defined('PMA_TEST_THEME')) {
-        $allow_list[] = 'set_theme';
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    if (PMA_isValid($_POST['token'])) {
+        $token_provided = true;
+        $token_mismatch = ! hash_equals($_SESSION[' PMA_token '], $_POST['token']);
     }
-    /**
-     * Do actual cleanup
-     */
-    PMA\libraries\Sanitize::removeRequestVars($allow_list);
 
+    if ($token_mismatch) {
+        /**
+         * We don't allow any POST operation parameters if the token is mismatched
+         * or is not provided
+         *
+         */
+        $whitelist = array();
+        PMA\libraries\Sanitize::removeRequestVars($whitelist);
+    }
 }
 
 
@@ -492,6 +468,20 @@ if ($GLOBALS['text_dir'] == 'ltr') {
  */
 $GLOBALS['PMA_Config']->checkPermissions();
 $GLOBALS['PMA_Config']->checkErrors();
+
+/**
+ * As we try to handle charsets by ourself, mbstring overloads just
+ * break it, see bug 1063821.
+ */
+if (@extension_loaded('mbstring') && @ini_get('mbstring.func_overload') != '0') {
+    PMA_fatalError(
+        __(
+            'You have enabled mbstring.func_overload in your PHP '
+            . 'configuration. This option is incompatible with phpMyAdmin '
+            . 'and might cause some data to be corrupted!'
+        )
+    );
+}
 
 /******************************************************************************/
 /* setup servers                                       LABEL_setup_servers    */
@@ -777,7 +767,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         if ($cfg['Server']['SessionTimeZone'] != '') {
             $sql_query_tz = 'SET ' . Util::backquote('time_zone') . ' = '
                 . '\''
-                . Util::sqlAddSlashes($cfg['Server']['SessionTimeZone'])
+                . $GLOBALS['dbi']->escapeString($cfg['Server']['SessionTimeZone'])
                 . '\'';
 
             if (! $userlink->query($sql_query_tz)) {

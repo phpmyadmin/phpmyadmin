@@ -516,7 +516,7 @@ function PMA_runEventDefinitionsForDb($db)
 {
     $event_names = $GLOBALS['dbi']->fetchResult(
         'SELECT EVENT_NAME FROM information_schema.EVENTS WHERE EVENT_SCHEMA= \''
-        . Util::sqlAddSlashes($db, true) . '\';'
+        . $GLOBALS['dbi']->escapeString($db) . '\';'
     );
     if ($event_names) {
         foreach ($event_names as $event_name) {
@@ -586,26 +586,26 @@ function PMA_AdjustPrivileges_moveDB($oldDb, $newname)
 
         // For Db specific privileges
         $query_db_specific = 'UPDATE ' . Util::backquote('db')
-            . 'SET Db = \'' . Util::sqlAddSlashes($newname)
-            . '\' where Db = \'' . Util::sqlAddSlashes($oldDb) . '\';';
+            . 'SET Db = \'' . $GLOBALS['dbi']->escapeString($newname)
+            . '\' where Db = \'' . $GLOBALS['dbi']->escapeString($oldDb) . '\';';
         $GLOBALS['dbi']->query($query_db_specific);
 
         // For table specific privileges
         $query_table_specific = 'UPDATE ' . Util::backquote('tables_priv')
-            . 'SET Db = \'' . Util::sqlAddSlashes($newname)
-            . '\' where Db = \'' . Util::sqlAddSlashes($oldDb) . '\';';
+            . 'SET Db = \'' . $GLOBALS['dbi']->escapeString($newname)
+            . '\' where Db = \'' . $GLOBALS['dbi']->escapeString($oldDb) . '\';';
         $GLOBALS['dbi']->query($query_table_specific);
 
         // For column specific privileges
         $query_col_specific = 'UPDATE ' . Util::backquote('columns_priv')
-            . 'SET Db = \'' . Util::sqlAddSlashes($newname)
-            . '\' where Db = \'' . Util::sqlAddSlashes($oldDb) . '\';';
+            . 'SET Db = \'' . $GLOBALS['dbi']->escapeString($newname)
+            . '\' where Db = \'' . $GLOBALS['dbi']->escapeString($oldDb) . '\';';
         $GLOBALS['dbi']->query($query_col_specific);
 
         // For procedures specific privileges
         $query_proc_specific = 'UPDATE ' . Util::backquote('procs_priv')
-            . 'SET Db = \'' . Util::sqlAddSlashes($newname)
-            . '\' where Db = \'' . Util::sqlAddSlashes($oldDb) . '\';';
+            . 'SET Db = \'' . $GLOBALS['dbi']->escapeString($newname)
+            . '\' where Db = \'' . $GLOBALS['dbi']->escapeString($oldDb) . '\';';
         $GLOBALS['dbi']->query($query_proc_specific);
 
         // Finally FLUSH the new privileges
@@ -1108,7 +1108,7 @@ function PMA_getTableOptionFieldset($comment, $tbl_collation,
         );
     } // end if (ARIA)
 
-    if (mb_strlen($auto_increment) > 0
+    if (strlen($auto_increment) > 0
         && ($is_myisam_or_aria || $is_innodb || $is_pbxt)
     ) {
         $html_output .= '<tr><td class="vmiddle">'
@@ -1771,7 +1771,7 @@ function PMA_getTableAltersArray($is_myisam_or_aria, $is_isam, $pack_keys,
         && urldecode($_REQUEST['prev_comment']) !== $_REQUEST['comment']
     ) {
         $table_alters[] = 'COMMENT = \''
-            . Util::sqlAddSlashes($_REQUEST['comment']) . '\'';
+            . $GLOBALS['dbi']->escapeString($_REQUEST['comment']) . '\'';
     }
 
     if (! empty($newTblStorageEngine)
@@ -1830,18 +1830,18 @@ function PMA_getTableAltersArray($is_myisam_or_aria, $is_isam, $pack_keys,
         || $_REQUEST['new_auto_increment'] !== $auto_increment)
     ) {
         $table_alters[] = 'auto_increment = '
-            . Util::sqlAddSlashes($_REQUEST['new_auto_increment']);
+            . $GLOBALS['dbi']->escapeString($_REQUEST['new_auto_increment']);
     }
 
     if (! empty($_REQUEST['new_row_format'])) {
         $newRowFormat = $_REQUEST['new_row_format'];
         $newRowFormatLower = mb_strtolower($newRowFormat);
         if (($is_myisam_or_aria || $is_innodb || $is_pbxt)
-            && (!mb_strlen($row_format)
+            && (strlen($row_format) === 0
             || $newRowFormatLower !== mb_strtolower($row_format))
         ) {
             $table_alters[] = 'ROW_FORMAT = '
-                . Util::sqlAddSlashes($newRowFormat);
+                . $GLOBALS['dbi']->escapeString($newRowFormat);
         }
     }
 
@@ -1945,15 +1945,15 @@ function PMA_AdjustPrivileges_renameOrMoveTable($oldDb, $oldTable, $newDb, $newT
 
         // For table specific privileges
         $query_table_specific = 'UPDATE ' . Util::backquote('tables_priv')
-            . 'SET Db = \'' . Util::sqlAddSlashes($newDb) . '\', Table_name = \'' . Util::sqlAddSlashes($newTable)
-            . '\' where Db = \'' . Util::sqlAddSlashes($oldDb) . '\' AND Table_name = \'' . Util::sqlAddSlashes($oldTable)
+            . 'SET Db = \'' . $GLOBALS['dbi']->escapeString($newDb) . '\', Table_name = \'' . $GLOBALS['dbi']->escapeString($newTable)
+            . '\' where Db = \'' . $GLOBALS['dbi']->escapeString($oldDb) . '\' AND Table_name = \'' . $GLOBALS['dbi']->escapeString($oldTable)
             . '\';';
         $GLOBALS['dbi']->query($query_table_specific);
 
         // For column specific privileges
         $query_col_specific = 'UPDATE ' . Util::backquote('columns_priv')
-            . 'SET Db = \'' . Util::sqlAddSlashes($newDb) . '\', Table_name = \'' . Util::sqlAddSlashes($newTable)
-            . '\' where Db = \'' . Util::sqlAddSlashes($oldDb) . '\' AND Table_name = \'' . Util::sqlAddSlashes($oldTable)
+            . 'SET Db = \'' . $GLOBALS['dbi']->escapeString($newDb) . '\', Table_name = \'' . $GLOBALS['dbi']->escapeString($newTable)
+            . '\' where Db = \'' . $GLOBALS['dbi']->escapeString($oldDb) . '\' AND Table_name = \'' . $GLOBALS['dbi']->escapeString($oldTable)
             . '\';';
         $GLOBALS['dbi']->query($query_col_specific);
 

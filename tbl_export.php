@@ -67,13 +67,17 @@ if (! empty($sql_query)) {
         }
 
         // Rebuilding the SELECT and FROM clauses.
-        $replaces = array(
-            array(
-                'FROM', 'FROM ' . SqlParser\Components\ExpressionArray::build(
-                    $parser->statements[0]->from
+        if (count($parser->statements[0]->from) > 0
+            && count($parser->statements[0]->union) === 0
+        ) {
+            $replaces = array(
+                array(
+                    'FROM', 'FROM ' . SqlParser\Components\ExpressionArray::build(
+                        $parser->statements[0]->from
+                    ),
                 ),
-            ),
-        );
+            );
+        }
 
         // Checking if the WHERE clause has to be replaced.
         if ((!empty($where_clause)) && (is_array($where_clause))) {

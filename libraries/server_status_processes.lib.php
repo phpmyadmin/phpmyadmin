@@ -281,7 +281,7 @@ function PMA_getHtmlForServerProcessItem($process, $show_full_sql)
     $retval .= '<td>' . htmlspecialchars($process['User']) . '</td>';
     $retval .= '<td>' . htmlspecialchars($process['Host']) . '</td>';
     $retval .= '<td>' . ((! isset($process['db'])
-            || !mb_strlen($process['db']))
+            || strlen($process['db']) === 0)
             ? '<i>' . __('None') . '</i>'
             : htmlspecialchars($process['db'])) . '</td>';
     $retval .= '<td>' . htmlspecialchars($process['Command']) . '</td>';

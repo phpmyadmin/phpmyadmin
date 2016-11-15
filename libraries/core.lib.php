@@ -99,7 +99,7 @@ function PMA_ifSetOr(&$var, $default = null, $type = 'similar')
  * @return boolean whether valid or not
  *
  * @todo add some more var types like hex, bin, ...?
- * @see     https://php.net/gettype
+ * @see     https://secure.php.net/gettype
  */
 function PMA_isValid(&$var, $type = 'length', $compare = null)
 {
@@ -166,7 +166,7 @@ function PMA_isValid(&$var, $type = 'length', $compare = null)
     if ($type === 'length' || $type === 'scalar') {
         $is_scalar = is_scalar($var);
         if ($is_scalar && $type === 'length') {
-            return (bool) mb_strlen($var);
+            return strlen($var) > 0;
         }
         return $is_scalar;
     }
@@ -278,7 +278,7 @@ function PMA_getPHPDocLink($target)
         $lang = $GLOBALS['lang'];
     }
 
-    return PMA_linkURL('https://php.net/manual/' . $lang . '/' . $target);
+    return PMA_linkURL('https://secure.php.net/manual/' . $lang . '/' . $target);
 }
 
 /**
@@ -579,7 +579,7 @@ function PMA_downloadHeader($filename, $mimetype, $length = 0, $no_cache = true)
         PMA_noCacheHeader();
     }
     /* Replace all possibly dangerous chars in filename */
-    $filename = str_replace(array(';', '"', "\n", "\r"), '-', $filename);
+    $filename = Sanitize::sanitizeFilename($filename);
     if (!empty($filename)) {
         header('Content-Description: File Transfer');
         header('Content-Disposition: attachment; filename="' . $filename . '"');
@@ -779,22 +779,6 @@ function PMA_addJSCode($str)
     $header   = $response->getHeader();
     $scripts  = $header->getScripts();
     $scripts->addCode($str);
-}
-
-/**
- * Adds JS code snippet for variable assignment
- * to be displayed by the PMA\libraries\Response class.
- *
- * @param string $key    Name of value to set
- * @param mixed  $value  Value to set, can be either string or array of strings
- * @param bool   $escape Whether to escape value or keep it as it is
- *                       (for inclusion of js code)
- *
- * @return void
- */
-function PMA_addJSVar($key, $value, $escape = true)
-{
-    PMA_addJSCode(Sanitize::getJsValue($key, $value, $escape));
 }
 
 /**

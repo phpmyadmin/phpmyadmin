@@ -29,76 +29,6 @@ if (! defined('PHPMYADMIN')) {
  */
 class Util
 {
-
-    /**
-     * Detects which function to use for pow.
-     *
-     * @return string Function name.
-     */
-    public static function detectPow()
-    {
-        if (function_exists('bcpow')) {
-            // BCMath Arbitrary Precision Mathematics Function
-            return 'bcpow';
-        } elseif (function_exists('gmp_pow')) {
-            // GMP Function
-            return 'gmp_pow';
-        } else {
-            // PHP function
-            return 'pow';
-        }
-    }
-
-    /**
-     * Exponential expression / raise number into power
-     *
-     * @param string $base         base to raise
-     * @param string $exp          exponent to use
-     * @param string $use_function pow function to use, or false for auto-detect
-     *
-     * @return mixed string or float
-     */
-    public static function pow($base, $exp, $use_function = '')
-    {
-        static $pow_function = null;
-
-        if ($pow_function == null) {
-            $pow_function = self::detectPow();
-        }
-
-        if (! $use_function) {
-            if ($exp < 0) {
-                $use_function = 'pow';
-            } else {
-                $use_function = $pow_function;
-            }
-        }
-
-        if (($exp < 0) && ($use_function != 'pow')) {
-            return false;
-        }
-
-        switch ($use_function) {
-        case 'bcpow' :
-            // bcscale() needed for testing pow() with base values < 1
-            bcscale(10);
-            $pow = bcpow($base, $exp);
-            break;
-        case 'gmp_pow' :
-             $pow = gmp_strval(gmp_pow($base, $exp));
-            break;
-        case 'pow' :
-            $base = $base;
-            $exp = (int) $exp;
-            $pow = pow($base, $exp);
-            break;
-        default:
-            $pow = $use_function($base, $exp);
-        }
-
-        return $pow;
-    }
-
     /**
      * Checks whether configuration value tells to show icons.
      *
@@ -283,50 +213,6 @@ class Util
         return '<input type="hidden" name="MAX_FILE_SIZE" value="'
             . $max_size . '" />';
     }
-
-    /**
-     * Add slashes before "'" and "\" characters so a value containing them can
-     * be used in a sql comparison.
-     *
-     * @param string $a_string the string to slash
-     * @param bool   $is_like  whether the string will be used in a 'LIKE' clause
-     *                         (it then requires two more escaped sequences) or not
-     * @param bool   $crlf     whether to treat cr/lfs as escape-worthy entities
-     *                         (converts \n to \\n, \r to \\r)
-     * @param bool   $php_code whether this function is used as part of the
-     *                         "Create PHP code" dialog
-     *
-     * @return string   the slashed string
-     *
-     * @access  public
-     */
-    public static function sqlAddSlashes(
-        $a_string = '',
-        $is_like = false,
-        $crlf = false,
-        $php_code = false
-    ) {
-        if ($is_like) {
-            $a_string = str_replace('\\', '\\\\\\\\', $a_string);
-        } else {
-            $a_string = str_replace('\\', '\\\\', $a_string);
-        }
-
-        if ($crlf) {
-            $a_string = strtr(
-                $a_string,
-                array("\n" => '\n', "\r" => '\r', "\t" => '\t')
-            );
-        }
-
-        if ($php_code) {
-            $a_string = str_replace('\'', '\\\'', $a_string);
-        } else {
-            $a_string = str_replace('\'', '\\\'', $a_string);
-        }
-
-        return $a_string;
-    } // end of the 'sqlAddSlashes()' function
 
     /**
      * Add slashes before "_" and "%" characters for using them in MySQL
@@ -715,12 +601,12 @@ class Util
                     'sql_query' => $sql_query,
                     'show_query' => 1,
                 );
-                if (mb_strlen($table)) {
+                if (strlen($table) > 0) {
                     $_url_params['db'] = $db;
                     $_url_params['table'] = $table;
                     $doedit_goto = '<a href="tbl_sql.php'
                         . URL::getCommon($_url_params) . '">';
-                } elseif (mb_strlen($db)) {
+                } elseif (strlen($db) > 0) {
                     $_url_params['db'] = $db;
                     $doedit_goto = '<a href="db_sql.php'
                         . URL::getCommon($_url_params) . '">';
@@ -983,7 +869,7 @@ class Util
         }
 
         // '0' is also empty for php :-(
-        if (mb_strlen($a_name) && $a_name !== '*') {
+        if (strlen($a_name) > 0 && $a_name !== '*') {
             return '`' . str_replace('`', '``', $a_name) . '`';
         } else {
             return $a_name;
@@ -1040,7 +926,7 @@ class Util
         }
 
         // '0' is also empty for php :-(
-        if (mb_strlen($a_name) && $a_name !== '*') {
+        if (strlen($a_name) > 0 && $a_name !== '*') {
             return $quote . $a_name . $quote;
         } else {
             return $a_name;
@@ -1152,13 +1038,15 @@ class Util
 
             if (! empty($GLOBALS['show_as_php'])) {
                 $new_line = '\\n"<br />' . "\n" . '&nbsp;&nbsp;&nbsp;&nbsp;. "';
-                $query_base = htmlspecialchars(addslashes($query_base));
+                $query_base = '$sql  = \'' . $query_base;
+                $query_base = '<code class="php"><pre>' . "\n"
+                    . htmlspecialchars(addslashes($query_base));
                 $query_base = preg_replace(
                     '/((\015\012)|(\015)|(\012))/',
                     $new_line,
                     $query_base
                 );
-                $query_base = '$sql  = "' . $query_base . '"';
+                $query_base = '$sql  = \'' . $query_base . '"';
             } elseif ($query_too_big) {
                 $query_base = htmlspecialchars($query_base);
             } else {
@@ -1174,9 +1062,9 @@ class Util
             if (! isset($GLOBALS['db'])) {
                 $GLOBALS['db'] = '';
             }
-            if (mb_strlen($GLOBALS['db'])) {
+            if (strlen($GLOBALS['db']) > 0) {
                 $url_params['db'] = $GLOBALS['db'];
-                if (mb_strlen($GLOBALS['table'])) {
+                if (strlen($GLOBALS['table']) > 0) {
                     $url_params['table'] = $GLOBALS['table'];
                     $edit_link = 'tbl_sql.php';
                 } else {
@@ -1231,7 +1119,9 @@ class Util
 
             // even if the query is big and was truncated, offer the chance
             // to edit it (unless it's enormous, see linkOrButton() )
-            if (! empty($cfg['SQLQuery']['Edit'])) {
+            if (! empty($cfg['SQLQuery']['Edit'])
+                && empty($GLOBALS['show_as_php'])
+            ) {
                 $edit_link .= URL::getCommon($url_params) . '#querybox';
                 $edit_link = ' ['
                     . self::linkOrButton($edit_link, __('Edit'))
@@ -1300,7 +1190,8 @@ class Util
 
             //Clean up the end of the PHP
             if (! empty($GLOBALS['show_as_php'])) {
-                $retval .= '";';
+                $retval .= '\';' . "\n"
+                    . '</pre></code>';
             }
             $retval .= '</div>';
 
@@ -1330,7 +1221,10 @@ class Util
             /**
              * TODO: Should we have $cfg['SQLQuery']['InlineEdit']?
              */
-            if (! empty($cfg['SQLQuery']['Edit']) && ! $query_too_big) {
+            if (! empty($cfg['SQLQuery']['Edit'])
+                && ! $query_too_big
+                && empty($GLOBALS['show_as_php'])
+            ) {
                 $inline_edit_link = ' ['
                     . self::linkOrButton(
                         '#',
@@ -1448,15 +1342,15 @@ class Util
             __('EiB')
         );
 
-        $dh   = self::pow(10, $comma);
-        $li   = self::pow(10, $limes);
+        $dh   = pow(10, $comma);
+        $li   = pow(10, $limes);
         $unit = $byteUnits[0];
 
         for ($d = 6, $ex = 15; $d >= 1; $d--, $ex-=3) {
-            $unitSize = $li * self::pow(10, $ex);
+            $unitSize = $li * pow(10, $ex);
             if (isset($byteUnits[$d]) && $value >= $unitSize) {
                 // use 1024.0 to avoid integer overflow on 64-bit machines
-                $value = round($value / (self::pow(1024, $d) / $dh)) /$dh;
+                $value = round($value / (pow(1024, $d) / $dh)) /$dh;
                 $unit = $byteUnits[$d];
                 break 1;
             } // end if
@@ -1475,26 +1369,6 @@ class Util
         return array(trim($return_value), $unit);
     } // end of the 'formatByteDown' function
 
-    /**
-     * Changes thousands and decimal separators to locale specific values.
-     *
-     * @param string $value the value
-     *
-     * @return string
-     */
-    public static function localizeNumber($value)
-    {
-        return str_replace(
-            array(',', '.'),
-            array(
-                /* l10n: Thousands separator */
-                __(','),
-                /* l10n: Decimal separator */
-                __('.'),
-            ),
-            $value
-        );
-    }
 
     /**
      * Formats $value to the given length and appends SI prefixes
@@ -1536,11 +1410,18 @@ class Util
         $originalValue = $value;
         //number_format is not multibyte safe, str_replace is safe
         if ($digits_left === 0) {
-            $value = number_format($value, $digits_right);
+            $value = number_format(
+                $value,
+                $digits_right,
+                /* l10n: Decimal separator */
+                __('.'),
+                /* l10n: Thousands separator */
+                __(',')
+            );
             if (($originalValue != 0) && (floatval($value) == 0)) {
-                $value = ' <' . (1 / self::pow(10, $digits_right));
+                $value = ' <' . (1 / pow(10, $digits_right));
             }
-            return self::localizeNumber($value);
+            return $value;
         }
 
         // this units needs no translation, ISO
@@ -1572,7 +1453,7 @@ class Util
             $sign = '';
         }
 
-        $dh = self::pow(10, $digits_right);
+        $dh = pow(10, $digits_right);
 
         /*
          * This gives us the right SI prefix already,
@@ -1584,7 +1465,7 @@ class Util
          * So if we have 3,6,9,12.. free digits ($digits_left - $cur_digits)
          * to use, then lower the SI prefix
          */
-        $cur_digits = floor(log10($value / self::pow(1000, $d, 'pow'))+1);
+        $cur_digits = floor(log10($value / pow(1000, $d))+1);
         if ($digits_left > $cur_digits) {
             $d -= floor(($digits_left - $cur_digits)/3);
         }
@@ -1593,23 +1474,36 @@ class Util
             $d = 0;
         }
 
-        $value = round($value / (self::pow(1000, $d, 'pow') / $dh)) /$dh;
+        $value = round($value / (pow(1000, $d) / $dh)) /$dh;
         $unit = $units[$d];
 
         // number_format is not multibyte safe, str_replace is safe
-        $formattedValue = number_format($value, $digits_right);
+        $formattedValue = number_format(
+            $value,
+            $digits_right,
+            /* l10n: Decimal separator */
+            __('.'),
+            /* l10n: Thousands separator */
+            __(',')
+        );
         // If we don't want any zeros, remove them now
         if ($noTrailingZero && strpos($formattedValue, '.') !== false) {
             $formattedValue = preg_replace('/\.?0+$/', '', $formattedValue);
         }
-        $localizedValue = self::localizeNumber($formattedValue);
 
         if ($originalValue != 0 && floatval($value) == 0) {
-            return ' <' . self::localizeNumber((1 / self::pow(10, $digits_right)))
+            return ' <' . number_format(
+                (1 / pow(10, $digits_right)),
+                $digits_right,
+                /* l10n: Decimal separator */
+                __('.'),
+                /* l10n: Thousands separator */
+                __(',')
+            )
             . ' ' . $unit;
         }
 
-        return $sign . $localizedValue . ' ' . $unit;
+        return $sign . $formattedValue . ' ' . $unit;
     } // end of the 'formatNumber' function
 
     /**
@@ -1625,13 +1519,13 @@ class Util
 
         if (preg_match('/^[0-9]+GB$/', $formatted_size)) {
             $return_value = mb_substr($formatted_size, 0, -2)
-                * self::pow(1024, 3);
+                * pow(1024, 3);
         } elseif (preg_match('/^[0-9]+MB$/', $formatted_size)) {
             $return_value = mb_substr($formatted_size, 0, -2)
-                * self::pow(1024, 2);
+                * pow(1024, 2);
         } elseif (preg_match('/^[0-9]+K$/', $formatted_size)) {
             $return_value = mb_substr($formatted_size, 0, -1)
-                * self::pow(1024, 1);
+                * pow(1024, 1);
         }
         return $return_value;
     }// end of the 'extractValueFromFormattedSize' function
@@ -1690,7 +1584,7 @@ class Util
             __('Sat'));
 
         if ($format == '') {
-            /* l10n: See https://php.net/manual/en/function.strftime.php */
+            /* l10n: See https://secure.php.net/manual/en/function.strftime.php */
             $format = __('%B %d, %Y at %I:%M %p');
         }
 
@@ -2227,7 +2121,7 @@ class Util
             $meta        = $fields_meta[$i];
 
             // do not use a column alias in a condition
-            if (! isset($meta->orgname) || ! mb_strlen($meta->orgname)) {
+            if (! isset($meta->orgname) || strlen($meta->orgname) === 0) {
                 $meta->orgname = $meta->name;
 
                 if (!empty($analyzed_sql_results['statement']->expr)) {
@@ -2325,7 +2219,7 @@ class Util
                         . self::printableBitValue($row[$i], $meta->length) . "'";
                 } else {
                     $con_val = '= \''
-                        . self::sqlAddSlashes($row[$i], false, true) . '\'';
+                        . $GLOBALS['dbi']->escapeString($row[$i]) . '\'';
                 }
             }
 
@@ -2698,8 +2592,8 @@ class Util
      */
     public static function getDbLink($database = null)
     {
-        if (! mb_strlen($database)) {
-            if (! mb_strlen($GLOBALS['db'])) {
+        if (strlen($database) === 0) {
+            if (strlen($GLOBALS['db']) === 0) {
                 return '';
             }
             $database = $GLOBALS['db'];
@@ -3967,7 +3861,7 @@ class Util
      * @return string   An HTML snippet of a dropdown list with function
      *                    names appropriate for the requested column.
      */
-    public static function getFunctionsForField($field, $insert_mode)
+    public static function getFunctionsForField($field, $insert_mode, $foreignData)
     {
         $default_function = self::getDefaultFunctionForField($field, $insert_mode);
         $dropdown_built = array();
@@ -3979,7 +3873,7 @@ class Util
         $functions = $GLOBALS['PMA_Types']->getFunctions($field['True_Type']);
         foreach ($functions as $function) {
             $retval .= '<option';
-            if ($default_function === $function) {
+            if (isset($foreignData['foreign_link']) && $foreignData['foreign_link'] !== false && $default_function === $function) {
                 $retval .= ' selected="selected"';
             }
             $retval .= '>' . $function . '</option>' . "\n";
@@ -4072,7 +3966,7 @@ class Util
                     'SCHEMA_PRIVILEGES',
                     $username,
                     $priv,
-                    self::sqlAddSlashes($db)
+                    $GLOBALS['dbi']->escapeString($db)
                 )
             );
             if ($schema_privileges) {
@@ -4095,8 +3989,8 @@ class Util
                     'TABLE_PRIVILEGES',
                     $username,
                     $priv,
-                    self::sqlAddSlashes($db),
-                    self::sqlAddSlashes($tbl)
+                    $GLOBALS['dbi']->escapeString($db),
+                    $GLOBALS['dbi']->escapeString($tbl)
                 )
             );
             if ($table_privileges) {
@@ -4193,7 +4087,7 @@ class Util
 
         }
 
-        if (mb_strlen($buffer) > 0) {
+        if (strlen($buffer) > 0) {
             // The leftovers in the buffer are the last value (if any)
             $values[] = $buffer;
         }
@@ -4308,12 +4202,12 @@ class Util
      */
     public static function handleContext(array $context)
     {
-        if (mb_strlen($GLOBALS['cfg']['ProxyUrl'])) {
+        if (strlen($GLOBALS['cfg']['ProxyUrl']) > 0) {
             $context['http'] = array(
                 'proxy' => $GLOBALS['cfg']['ProxyUrl'],
                 'request_fulluri' => true
             );
-            if (mb_strlen($GLOBALS['cfg']['ProxyUser'])) {
+            if (strlen($GLOBALS['cfg']['ProxyUser']) > 0) {
                 $auth = base64_encode(
                     $GLOBALS['cfg']['ProxyUser'] . ':' . $GLOBALS['cfg']['ProxyPass']
                 );
@@ -4334,9 +4228,9 @@ class Util
      */
     public static function configureCurl($curl_handle)
     {
-        if (mb_strlen($GLOBALS['cfg']['ProxyUrl'])) {
+        if (strlen($GLOBALS['cfg']['ProxyUrl']) > 0) {
             curl_setopt($curl_handle, CURLOPT_PROXY, $GLOBALS['cfg']['ProxyUrl']);
-            if (mb_strlen($GLOBALS['cfg']['ProxyUser'])) {
+            if (strlen($GLOBALS['cfg']['ProxyUser']) > 0) {
                 curl_setopt(
                     $curl_handle,
                     CURLOPT_PROXYUSERPWD,
@@ -4919,7 +4813,6 @@ class Util
             curl_setopt($curl_handle, CURLOPT_HTTPHEADER, array($header));
             curl_setopt($curl_handle, CURLOPT_HEADER, true);
         }
-
 
         if ($method == "POST") {
             curl_setopt($curl_handle, CURLOPT_POSTFIELDS, $content);

@@ -382,12 +382,13 @@ function PMA_getEnumSetAndTimestampColumns($column, $timestamp_seen)
  * @param integer $idindex               id index
  * @param boolean $insert_mode           insert mode or edit mode
  * @param boolean $readOnly              is column read only or not
+ * @param array   $foreignData           foreign key data
  *
  * @return string                           an html snippet
  */
 function PMA_getFunctionColumn($column, $is_upload, $column_name_appendix,
     $onChangeClause, $no_support_types, $tabindex_for_function,
-    $tabindex, $idindex, $insert_mode, $readOnly
+    $tabindex, $idindex, $insert_mode, $readOnly, $foreignData
 ) {
     $html_output = '';
     if (($GLOBALS['cfg']['ProtectBinary'] === 'blob'
@@ -413,7 +414,8 @@ function PMA_getFunctionColumn($column, $is_upload, $column_name_appendix,
             . ' id="field_' . $idindex . '_1">';
         $html_output .= PMA\libraries\Util::getFunctionsForField(
             $column,
-            $insert_mode
+            $insert_mode,
+            $foreignData
         ) . "\n";
 
         $html_output .= '</select>' .  "\n";
@@ -887,6 +889,7 @@ function PMA_getColumnEnumValues($column, $extracted_columnspec)
  * @param integer $idindex              id index
  * @param string  $data                 data to edit
  * @param array   $column_enum_values   $column['values']
+ * @param boolean $readOnly              is column read only or not
  *
  * @return string                       an html snippet
  */
@@ -938,6 +941,7 @@ function PMA_getDropDownDependingOnLength(
  * @param integer $idindex              id index
  * @param string  $data                 data to edit
  * @param array   $column_enum_values   $column['values']
+ * @param boolean $readOnly              is column read only or not
  *
  * @return string                       an html snippet
  */
@@ -1126,10 +1130,13 @@ function PMA_getBinaryAndBlobColumn(
     $html_output .= sprintf($fields_type_html, $fields_type_val);
 
     if ($is_upload && $column['is_blob'] && !$readOnly) {
+        // We don't want to prevent users from using
+        // browser's default drag-drop feature on some page(s),
+        // so we add noDragDrop class to the input
         $html_output .= '<br />'
             . '<input type="file"'
             . ' name="fields_upload' . $vkey . '[' . $column['Field_md5'] . ']"'
-            . ' class="textfield" id="field_' . $idindex . '_3" size="10"'
+            . ' class="textfield noDragDrop" id="field_' . $idindex . '_3" size="10"'
             . ' ' . $onChangeClause . '/>&nbsp;';
         list($html_out,) = PMA_getMaxUploadSize(
             $column, $biggest_max_file_size
@@ -1916,14 +1923,12 @@ function PMA_getGotoInclude($goto_include)
         } else {
             $goto_include = $GLOBALS['goto'];
         }
-        if ($GLOBALS['goto'] == 'db_sql.php'
-            && mb_strlen($GLOBALS['table'])
-        ) {
+        if ($GLOBALS['goto'] == 'db_sql.php' && strlen($GLOBALS['table']) > 0) {
             $GLOBALS['table'] = '';
         }
     }
     if (! $goto_include) {
-        if (! mb_strlen($GLOBALS['table'])) {
+        if (strlen($GLOBALS['table']) === 0) {
             $goto_include = 'db_sql.php';
         } else {
             $goto_include = 'tbl_sql.php';
@@ -2080,7 +2085,7 @@ function PMA_getDisplayValueForForeignTableColumn($where_comparison,
         $foreigner['foreign_table']
     );
     // Field to display from the foreign table?
-    if (isset($display_field) && mb_strlen($display_field)) {
+    if (isset($display_field) && strlen($display_field) > 0) {
         $dispsql = 'SELECT ' . PMA\libraries\Util::backquote($display_field)
             . ' FROM ' . PMA\libraries\Util::backquote($foreigner['foreign_db'])
             . '.' . PMA\libraries\Util::backquote($foreigner['foreign_table'])
@@ -2252,7 +2257,7 @@ function PMA_getCurrentValueAsAnArrayForMultipleEdit( $multi_edit_funcs,
             || $multi_edit_funcs[$key] == "ENCRYPT"))
         ) {
             return $multi_edit_funcs[$key] . '(' . $current_value . ",'"
-                . PMA\libraries\Util::sqlAddSlashes($multi_edit_salt[$key]) . "')";
+                . $GLOBALS['dbi']->escapeString($multi_edit_salt[$key]) . "')";
         } else {
             return $multi_edit_funcs[$key] . '(' . $current_value . ')';
         }
@@ -2289,7 +2294,7 @@ function PMA_getQueryValuesForInsertAndUpdateInMultipleEdit($multi_edit_columns_
     //  i n s e r t
     if ($is_insert) {
         // no need to add column into the valuelist
-        if (mb_strlen($current_value_as_an_array)) {
+        if (strlen($current_value_as_an_array) > 0) {
             $query_values[] = $current_value_as_an_array;
             // first inserted row so prepare the list of fields
             if (empty($value_sets)) {
@@ -2311,7 +2316,7 @@ function PMA_getQueryValuesForInsertAndUpdateInMultipleEdit($multi_edit_columns_
             . ' = ' . $current_value_as_an_array;
     } elseif (empty($multi_edit_funcs[$key])
         && isset($multi_edit_columns_prev[$key])
-        && (("'" . PMA\libraries\Util::sqlAddSlashes($multi_edit_columns_prev[$key]) . "'" === $current_value)
+        && (("'" . $GLOBALS['dbi']->escapeString($multi_edit_columns_prev[$key]) . "'" === $current_value)
         || ('0x' . $multi_edit_columns_prev[$key] === $current_value))
     ) {
         // No change for this column and no MySQL function is used -> next column
@@ -2370,7 +2375,7 @@ function PMA_getCurrentValueForDifferentTypes($possibly_uploaded_val, $key,
     if (false !== $possibly_uploaded_val) {
         $current_value = $possibly_uploaded_val;
     } else if (! empty($multi_edit_funcs[$key])) {
-        $current_value = "'" . PMA\libraries\Util::sqlAddSlashes($current_value)
+        $current_value = "'" . $GLOBALS['dbi']->escapeString($current_value)
             . "'";
     } else {
         // c o l u m n    v a l u e    i n    t h e    f o r m
@@ -2380,9 +2385,7 @@ function PMA_getCurrentValueForDifferentTypes($possibly_uploaded_val, $key,
             $type = '';
         }
 
-        if ($type != 'protected' && $type != 'set'
-            && 0 === mb_strlen($current_value)
-        ) {
+        if ($type != 'protected' && $type != 'set' && strlen($current_value) === 0) {
             // best way to avoid problems in strict mode
             // (works also in non-strict mode)
             if (isset($multi_edit_auto_increment)
@@ -2398,7 +2401,7 @@ function PMA_getCurrentValueForDifferentTypes($possibly_uploaded_val, $key,
                     ',', $_REQUEST['fields']['multi_edit'][$rownumber][$key]
                 );
                 $current_value = "'"
-                    . PMA\libraries\Util::sqlAddSlashes($current_value) . "'";
+                    . $GLOBALS['dbi']->escapeString($current_value) . "'";
             } else {
                  $current_value = "''";
             }
@@ -2421,12 +2424,12 @@ function PMA_getCurrentValueForDifferentTypes($possibly_uploaded_val, $key,
             $current_value = '0x' . $current_value;
         } elseif ($type == 'bit') {
             $current_value = preg_replace('/[^01]/', '0', $current_value);
-            $current_value = "b'" . PMA\libraries\Util::sqlAddSlashes($current_value)
+            $current_value = "b'" . $GLOBALS['dbi']->escapeString($current_value)
                 . "'";
         } elseif (! ($type == 'datetime' || $type == 'timestamp')
             || $current_value != 'CURRENT_TIMESTAMP'
         ) {
-            $current_value = "'" . PMA\libraries\Util::sqlAddSlashes($current_value)
+            $current_value = "'" . $GLOBALS['dbi']->escapeString($current_value)
                 . "'";
         }
 
@@ -2847,19 +2850,19 @@ function PMA_getHtmlForInsertEditFormColumn($table_columns, $column_number,
 
     // The function column
     // -------------------
+    $foreignData = PMA_getForeignData(
+        $foreigners, $column['Field'], false, '', ''
+    );
     if ($GLOBALS['cfg']['ShowFunctionFields']) {
         $html_output .= PMA_getFunctionColumn(
             $column, $is_upload, $column_name_appendix,
             $onChangeClause, $no_support_types, $tabindex_for_function,
-            $tabindex, $idindex, $insert_mode, $readOnly
+            $tabindex, $idindex, $insert_mode, $readOnly, $foreignData
         );
     }
 
     // The null column
     // ---------------
-    $foreignData = PMA_getForeignData(
-        $foreigners, $column['Field'], false, '', ''
-    );
     $html_output .= PMA_getNullColumn(
         $column, $column_name_appendix, $real_null_value,
         $tabindex, $tabindex_for_null, $idindex, $vkey, $foreigners,

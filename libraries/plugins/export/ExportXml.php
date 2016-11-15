@@ -17,7 +17,7 @@ use PMA\libraries\DatabaseInterface;
 use PMA\libraries\plugins\ExportPlugin;
 use PMA\libraries\Util;
 
-if (!mb_strlen($GLOBALS['db'])) { /* Can't do server export */
+if (strlen($GLOBALS['db']) === 0) { /* Can't do server export */
     $GLOBALS['skip_import'] = true;
     return;
 }
@@ -253,7 +253,7 @@ class ExportXml extends ExportPlugin
             $result = $GLOBALS['dbi']->fetchResult(
                 'SELECT `DEFAULT_CHARACTER_SET_NAME`, `DEFAULT_COLLATION_NAME`'
                 . ' FROM `information_schema`.`SCHEMATA` WHERE `SCHEMA_NAME`'
-                . ' = \'' . Util::sqlAddSlashes($db) . '\' LIMIT 1'
+                . ' = \'' . $GLOBALS['dbi']->escapeString($db) . '\' LIMIT 1'
             );
             $db_collation = $result[0]['DEFAULT_COLLATION_NAME'];
             $db_charset = $result[0]['DEFAULT_CHARACTER_SET_NAME'];
@@ -349,7 +349,7 @@ class ExportXml extends ExportPlugin
                 // Export events
                 $events = $GLOBALS['dbi']->fetchResult(
                     "SELECT EVENT_NAME FROM information_schema.EVENTS "
-                    . "WHERE EVENT_SCHEMA='" . Util::sqlAddslashes($db)
+                    . "WHERE EVENT_SCHEMA='" . $GLOBALS['dbi']->escapeString($db)
                     . "'"
                 );
                 $head .= $this->_exportDefinitions(

@@ -8,6 +8,7 @@
 namespace PMA\libraries;
 
 use PMA\libraries\Language;
+use PMA\libraries\URL;
 
 /**
  * Language selection manager
@@ -889,5 +890,44 @@ class LanguageManager
                 E_USER_ERROR
             );
         }
+    }
+
+
+    /**
+     * Returns HTML code for the language selector
+     *
+     * @param boolean $use_fieldset whether to use fieldset for selection
+     * @param boolean $show_doc     whether to show documentation links
+     *
+     * @return string
+     *
+     * @access  public
+     */
+    public function getSelectorDisplay($use_fieldset = false, $show_doc = true)
+    {
+        $_form_params = array(
+            'db' => $GLOBALS['db'],
+            'table' => $GLOBALS['table'],
+        );
+
+        // For non-English, display "Language" with emphasis because it's
+        // not a proper word in the current language; we show it to help
+        // people recognize the dialog
+        $language_title = __('Language')
+            . (__('Language') != 'Language' ? ' - <em>Language</em>' : '');
+        if ($show_doc) {
+            $language_title .= Util::showDocu('faq', 'faq7-2');
+        }
+
+        $available_languages = $this->sortedLanguages();
+
+        return Template::get('select_lang')->render(
+            array(
+                'language_title' => $language_title,
+                'use_fieldset' => $use_fieldset,
+                'available_languages' => $available_languages,
+                '_form_params' => $_form_params,
+            )
+        );
     }
 }

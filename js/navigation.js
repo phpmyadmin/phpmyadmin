@@ -609,7 +609,8 @@ $(function () {
             data: {
                 favorite_tables: (isStorageSupported('localStorage') && typeof window.localStorage.favorite_tables !== 'undefined')
                     ? window.localStorage.favorite_tables
-                    : ''
+                    : '',
+                token: PMA_commonParams.get('token')
             },
             success: function (data) {
                 if (data.changes) {
@@ -940,7 +941,8 @@ function PMA_ensureNaviSettings(selflink) {
 
     if (!$('#pma_navigation_settings').length) {
         var params = {
-            getNaviSettings: true
+            getNaviSettings: true,
+            token: PMA_commonParams.get('token')
         };
         var url = $('#pma_navigation').find('a.navigation_url').attr('href');
         $.post(url, params, function (data) {
@@ -1537,6 +1539,8 @@ PMA_fastFilter.filter.prototype.request = function () {
     }
     var url = $('#pma_navigation').find('a.navigation_url').attr('href');
     var params = self.$this.find('> ul > li > form.fast_filter').first().serialize();
+    params.token = PMA_commonParams.get('token');
+
     if (self.$this.find('> ul > li > form.fast_filter:first input[name=searchClause]').length === 0) {
         var $input = $('#pma_navigation_tree').find('li.fast_filter.db_fast_filter input.searchClause');
         if ($input.length && $input.val() != $input[0].defaultValue) {

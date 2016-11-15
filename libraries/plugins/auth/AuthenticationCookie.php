@@ -9,6 +9,7 @@
 namespace PMA\libraries\plugins\auth;
 
 use phpseclib\Crypt;
+use PMA\libraries\LanguageManager;
 use PMA\libraries\Message;
 use PMA\libraries\plugins\AuthenticationPlugin;
 use PMA\libraries\Response;
@@ -132,9 +133,8 @@ class AuthenticationCookie extends AuthenticationPlugin
         echo "<div class='hide js-show'>";
         // Displays the languages form
         if (empty($GLOBALS['cfg']['Lang'])) {
-            include_once './libraries/display_select_lang.lib.php';
             // use fieldset, don't show doc link
-            echo PMA_getLanguageSelectorHtml(true, false);
+            echo LanguageManager::getInstance()->getSelectorDisplay(true, false);
         }
         echo '</div>
     <br />
@@ -484,10 +484,10 @@ class AuthenticationCookie extends AuthenticationPlugin
 
             // any parameters to pass?
             $url_params = array();
-            if (mb_strlen($GLOBALS['db'])) {
+            if (strlen($GLOBALS['db']) > 0) {
                 $url_params['db'] = $GLOBALS['db'];
             }
-            if (mb_strlen($GLOBALS['table'])) {
+            if (strlen($GLOBALS['table']) > 0) {
                 $url_params['table'] = $GLOBALS['table'];
             }
             // any target to pass?

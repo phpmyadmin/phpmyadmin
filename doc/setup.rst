@@ -163,9 +163,25 @@ environment variables:
     
     Host name or IP address of the database server to use.
 
+    .. seealso:: :config:option:`$cfg['Servers'][$i]['host']`
+
 .. envvar:: PMA_HOSTS
     
     Comma separated host names or IP addresses of the database servers to use.
+
+    .. note:: Used only if :envvar:`PMA_HOST` is empty.
+
+.. envvar:: PMA_VERBOSE
+    
+    Verbose name the database server.
+
+    .. seealso:: :config:option:`$cfg['Servers'][$i]['verbose']`
+
+.. envvar:: PMA_VERBOSES
+    
+    Comma separated verbose name the database servers.
+
+    .. note:: Used only if :envvar:`PMA_VERBOSE` is empty.
 
 .. envvar:: PMA_USER
     
@@ -193,19 +209,33 @@ By default, :ref:`cookie` is used, but if :envvar:`PMA_USER` and
 
     The credentials you need to login are stored in the MySQL server, in case
     of Docker image there are various ways to set it (for example
-    :envvar:`MYSQL_ROOT_PASSWORD` when starting MySQL container). Please check 
+    :samp:`MYSQL_ROOT_PASSWORD` when starting MySQL container). Please check 
     documentation for `MariaDB container <https://hub.docker.com/r/_/mariadb/>`_
     or `MySQL container <https://hub.docker.com/r/_/mysql/>`_.
 
-Additionally configuration can be tweaked by :file:`/config.user.inc.php`. If
+Additionally configuration can be tweaked by :file:`/www/config.user.inc.php`. If
 this file exists, it will be loaded after configuration generated from above
 environment variables, so you can override any configuration variable. This
 configuraiton can be added as a volume when invoking docker using 
-`-v /some/local/directory/config.user.inc.php:/config.user.inc.php` parameters.
+`-v /some/local/directory/config.user.inc.php:/www/config.user.inc.php` parameters.
 
 .. seealso:: 
    
     See :ref:`config` for detailed description of configuration options.
+
+Docker Volumes
+--------------
+
+You can use following volumes to customise image behavior:
+
+:file:`/www/config.user.inc.php`
+
+    Can be used for additional settings, see previous chapter for more details.
+
+:file:`/sessions/`
+
+    Directory where PHP sessions are stored. You might want to share this 
+    for example when uswing :ref:`auth_signon`.
 
 Docker Examples
 ---------------
@@ -302,8 +332,8 @@ simple configuration may look like this:
     $i=0;
     $i++;
     $cfg['Servers'][$i]['auth_type']     = 'cookie';
-    // if you insist on "root" having no password:
-    // $cfg['Servers'][$i]['AllowNoPasswordRoot'] = true; `
+    // if you insist on "root" having no password:
+    // $cfg['Servers'][$i]['AllowNoPasswordRoot'] = true; `
     ?>
 
 Or, if you prefer to not be prompted every time you log in:
@@ -430,7 +460,7 @@ Setup script on openSUSE
 Some openSUSE releases do not include setup script in the package. In case you
 want to generate configuration on these you can either download original
 package from <https://www.phpmyadmin.net/> or use setup script on our demo
-server: <https://demo.phpmyadmin.net/master/setup/>.
+server: <https://demo.phpmyadmin.net/STABLE/setup/>.
 
 
 .. _verify:
@@ -466,9 +496,10 @@ Some additional downloads (for example themes) might be signed by Michal Čihař
 
 and you can get more identification information from <https://keybase.io/nijel>.
 
-You should verify that the signature matches
-the archive you have downloaded. This way you can be sure that you are using
-the same code that was released.
+You should verify that the signature matches the archive you have downloaded.
+This way you can be sure that you are using the same code that was released.
+You should also verify the date of the signature to make sure that you
+downloaded the latest version.
 
 Each archive is accompanied with ``.asc`` files which contains the PGP signature
 for it. Once you have both of them in the same folder, you can verify the signature:
@@ -604,6 +635,8 @@ If you already had this infrastructure and:
   :file:`sql/upgrade_tables_mysql_4_1_2+.sql`.
 * upgraded to phpMyAdmin 4.3.0 or newer from 2.5.0 or newer (<= 4.2.x),
   please use :file:`sql/upgrade_column_info_4_3_0+.sql`.
+* upgraded to phpMyAdmin 4.7.0 or newer from 4.3.0 or newer,
+  please use :file:`sql/upgrade_tables_4_7_0+.sql`.
 
 and then create new tables by importing :file:`sql/create_tables.sql`.
 
@@ -850,8 +883,9 @@ are always ways to make your installation more secure:
 * Serve phpMyAdmin on HTTPS only. Preferably, you should use HSTS as well, so that
   you're protected from protocol downgrade attacks.
 * Ensure your PHP setup follows recommendations for production sites, for example
-  `display_errors <https://php.net/manual/en/errorfunc.configuration.php#ini.display-errors>`_ 
+  `display_errors <https://secure.php.net/manual/en/errorfunc.configuration.php#ini.display-errors>`_ 
   should be disabled.
+* Remove the ``test`` directory from phpMyAdmin, unless you are developing and need test suite.
 * Remove the ``setup`` directory from phpMyAdmin, you will probably not
   use it after the initial setup.
 * Properly choose an authentication method - :ref:`cookie`
@@ -867,7 +901,8 @@ are always ways to make your installation more secure:
   can do this using ``robots.txt`` file in root of your webserver or limit
   access by web server configuration, see :ref:`faq1_42`.
 * In case you don't want all MySQL users to be able to access
-  phpMyAdmin, you can use :config:option:`$cfg['Servers'][$i]['AllowDeny']['rules']` to limit them.
+  phpMyAdmin, you can use :config:option:`$cfg['Servers'][$i]['AllowDeny']['rules']` to limit them
+  or :config:option:`$cfg['Servers'][$i]['AllowRoot']` to deny root user access.
 * Consider hiding phpMyAdmin behind an authentication proxy, so that
   users need to authenticate prior to providing MySQL credentials
   to phpMyAdmin. You can achieve this by configuring your web server to request

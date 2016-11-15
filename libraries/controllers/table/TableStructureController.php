@@ -1039,9 +1039,7 @@ class TableStructureController extends TableController
         ) {
             foreach ($_REQUEST['field_mimetype'] as $fieldindex => $mimetype) {
                 if (isset($_REQUEST['field_name'][$fieldindex])
-                    && mb_strlen(
-                        $_REQUEST['field_name'][$fieldindex]
-                    )
+                    && strlen($_REQUEST['field_name'][$fieldindex]) > 0
                 ) {
                     PMA_setMIME(
                         $this->db, $this->table,
@@ -1210,8 +1208,8 @@ class TableStructureController extends TableController
                     FROM `INFORMATION_SCHEMA`.`VIEWS`
                     WHERE TABLE_SCHEMA='%s'
                     AND TABLE_NAME='%s';",
-                    Util::sqlAddSlashes($this->db),
-                    Util::sqlAddSlashes($this->table)
+                    $GLOBALS['dbi']->escapeString($this->db),
+                    $GLOBALS['dbi']->escapeString($this->table)
                 )
             );
 

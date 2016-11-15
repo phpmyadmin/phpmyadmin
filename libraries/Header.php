@@ -260,6 +260,9 @@ class Header
             && isset($GLOBALS['cfg']['Server']['auth_type'])
         ) {
             $params['auth_type'] = $GLOBALS['cfg']['Server']['auth_type'];
+            if (isset($GLOBALS['cfg']['Server']['user'])) {
+                $params['user'] = $GLOBALS['cfg']['Server']['user'];
+            }
         }
 
         return $params;
@@ -630,10 +633,7 @@ class Header
         $dir  = $GLOBALS['text_dir'];
 
         $retval  = "<!DOCTYPE HTML>";
-        $retval .= "<html lang='$lang' dir='$dir' class='";
-        $retval .= mb_strtolower(PMA_USR_BROWSER_AGENT) . " ";
-        $retval .= mb_strtolower(PMA_USR_BROWSER_AGENT)
-            . intval(PMA_USR_BROWSER_VER) . "'>";
+        $retval .= "<html lang='$lang' dir='$dir'>";
         $retval .= '<head>';
 
         return $retval;
@@ -787,7 +787,7 @@ class Header
     {
         $retval = '';
         if ($this->_menuEnabled
-            && mb_strlen($table)
+            && strlen($table) > 0
             && $GLOBALS['cfg']['NumRecentTables'] > 0
         ) {
             $tmp_result = RecentFavoriteTable::getInstance('recent')

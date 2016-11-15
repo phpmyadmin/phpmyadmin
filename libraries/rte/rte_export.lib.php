@@ -44,15 +44,16 @@ function PMA_RTE_handleExport($export_data)
     } else {
         $_db = htmlspecialchars(PMA\libraries\Util::backquote($db));
         $message  = __('Error in processing request:') . ' '
-                  . sprintf(PMA_RTE_getWord('not_found'), $item_name, $_db);
-        $response = Message::error($message);
+                  . sprintf(PMA_RTE_getWord('no_view'), $item_name, $_db);
+        $message = Message::error($message);
+
         if ($GLOBALS['is_ajax_request'] == true) {
             $response = PMA\libraries\Response::getInstance();
             $response->setRequestStatus(false);
             $response->addJSON('message', $message);
             exit;
         } else {
-            $response->display();
+            $message->display();
         }
     }
 } // end PMA_RTE_handleExport()
@@ -70,6 +71,9 @@ function PMA_EVN_handleExport()
     if (! empty($_GET['export_item']) && ! empty($_GET['item_name'])) {
         $item_name = $_GET['item_name'];
         $export_data = $GLOBALS['dbi']->getDefinition($db, 'EVENT', $item_name);
+        if (! $export_data) {
+            $export_data = false;
+        }
         PMA_RTE_handleExport($export_data);
     }
 } // end PMA_EVN_handleExport()
@@ -89,13 +93,20 @@ function PMA_RTN_handleExport()
         && ! empty($_GET['item_type'])
     ) {
         if ($_GET['item_type'] == 'FUNCTION' || $_GET['item_type'] == 'PROCEDURE') {
-            $export_data = "DELIMITER $$\n"
-                . $GLOBALS['dbi']->getDefinition(
+            $rtn_definition
+                = $GLOBALS['dbi']->getDefinition(
                     $db,
                     $_GET['item_type'],
                     $_GET['item_name']
-                )
-                . "$$\nDELIMITER ;\n";
+                );
+            if (! $rtn_definition) {
+                $export_data = false;
+            } else {
+                $export_data = "DELIMITER $$\n"
+                    . $rtn_definition
+                    . "$$\nDELIMITER ;\n";
+            }
+
             PMA_RTE_handleExport($export_data);
         }
     }

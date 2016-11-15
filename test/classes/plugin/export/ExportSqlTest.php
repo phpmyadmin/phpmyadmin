@@ -89,6 +89,9 @@ class ExportSqlTest extends PMATestCase
             ->method('getCompatibilities')
             ->will($this->returnValue(array('v1', 'v2')));
 
+        $dbi->expects($this->any())->method('escapeString')
+            ->will($this->returnArgument(0));
+
         $GLOBALS['dbi'] = $dbi;
         $GLOBALS['plugin_param']['export_type'] = 'server';
         $GLOBALS['plugin_param']['single_table'] = false;
@@ -572,6 +575,8 @@ class ExportSqlTest extends PMATestCase
         $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
+        $dbi->expects($this->any())->method('escapeString')
+            ->will($this->returnArgument(0));
 
         $dbi->expects($this->once())
             ->method('getDbCollation')
@@ -587,7 +592,7 @@ class ExportSqlTest extends PMATestCase
         $result = ob_get_clean();
 
         $this->assertContains(
-            "DROP DATABASE `db`;\n",
+            "DROP DATABASE IF EXISTS `db`;\n",
             $result
         );
 
@@ -610,6 +615,8 @@ class ExportSqlTest extends PMATestCase
         $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
+        $dbi->expects($this->any())->method('escapeString')
+            ->will($this->returnArgument(0));
 
         $dbi->expects($this->once())
             ->method('getDbCollation')
@@ -625,7 +632,7 @@ class ExportSqlTest extends PMATestCase
         $result = ob_get_clean();
 
         $this->assertContains(
-            "DROP DATABASE db;\n",
+            "DROP DATABASE IF EXISTS db;\n",
             $result
         );
 
@@ -684,18 +691,8 @@ class ExportSqlTest extends PMATestCase
      *
      * @return void
      */
-    public function testExportEventsWithNewerMySQLVersion()
+    public function testExportEvents()
     {
-        $restoreMySQLVersion = "PMANORESTORE";
-
-        if (! PMA_HAS_RUNKIT) {
-            $this->markTestSkipped(
-                'Cannot redefine constant. Missing runkit extension'
-            );
-        } else {
-            $restoreMySQLVersion = PMA_MYSQL_INT_VERSION;
-            runkit_constant_redefine('PMA_MYSQL_INT_VERSION', 50101);
-        }
 
         $GLOBALS['crlf'] = "\n";
         $GLOBALS['sql_structure_or_data'] = 'structure';
@@ -713,15 +710,18 @@ class ExportSqlTest extends PMATestCase
             )
             ->will($this->returnValue(array('f1', 'f2')));
 
-        $dbi->expects($this->at(1))
+        $dbi->expects($this->exactly(2))
             ->method('getDefinition')
-            ->with('db', 'EVENT', 'f1')
-            ->will($this->returnValue('f1event'));
-
-        $dbi->expects($this->at(2))
-            ->method('getDefinition')
-            ->with('db', 'EVENT', 'f2')
-            ->will($this->returnValue('f2event'));
+            ->will(
+                $this->returnValueMap(
+                    array(
+                        array('db', 'EVENT', 'f1', null, 'f1event'),
+                        array('db', 'EVENT', 'f2', null, 'f2event')
+                    )
+                )
+            );
+        $dbi->expects($this->any())->method('escapeString')
+            ->will($this->returnArgument(0));
 
         $GLOBALS['dbi'] = $dbi;
 
@@ -750,10 +750,6 @@ class ExportSqlTest extends PMATestCase
             "f2event$$\n",
             $result
         );
-
-        if ($restoreMySQLVersion !== "PMANORESTORE") {
-            runkit_constant_redefine('PMA_MYSQL_INT_VERSION', $restoreMySQLVersion);
-        }
     }
 
     /**
@@ -761,19 +757,8 @@ class ExportSqlTest extends PMATestCase
      *
      * @return void
      */
-    public function testExportDBFooterWithOlderMySQLVersion()
+    public function testExportDBFooter()
     {
-        $restoreMySQLVersion = "PMANORESTORE";
-
-        if (! PMA_HAS_RUNKIT) {
-            $this->markTestSkipped(
-                'Cannot redefine constant. Missing runkit extension'
-            );
-        } else {
-            $restoreMySQLVersion = PMA_MYSQL_INT_VERSION;
-            runkit_constant_redefine('PMA_MYSQL_INT_VERSION', 50100);
-        }
-
         $GLOBALS['crlf'] = "\n";
         $GLOBALS['sql_constraints'] = "SqlConstraints";
         $GLOBALS['sql_structure_or_data'] = 'structure';
@@ -782,6 +767,8 @@ class ExportSqlTest extends PMATestCase
         $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
+        $dbi->expects($this->any())->method('escapeString')
+            ->will($this->returnArgument(0));
 
         $GLOBALS['dbi'] = $dbi;
 
@@ -795,10 +782,6 @@ class ExportSqlTest extends PMATestCase
             'SqlConstraints',
             $result
         );
-
-        if ($restoreMySQLVersion !== "PMANORESTORE") {
-            runkit_constant_redefine('PMA_MYSQL_INT_VERSION', $restoreMySQLVersion);
-        }
     }
 
     /**
@@ -814,6 +797,8 @@ class ExportSqlTest extends PMATestCase
         $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
+        $dbi->expects($this->any())->method('escapeString')
+            ->will($this->returnArgument(0));
 
         $dbi->expects($this->once())
             ->method('getColumnsFull')
@@ -852,8 +837,10 @@ class ExportSqlTest extends PMATestCase
         $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
+        $dbi->expects($this->any())->method('escapeString')
+            ->will($this->returnArgument(0));
 
-        $dbi->expects($this->at(0))
+        $dbi->expects($this->any(0))
             ->method('getColumns')
             ->with('db', 'view')
             ->will(
@@ -871,22 +858,6 @@ class ExportSqlTest extends PMATestCase
                 )
             );
 
-        $dbi->expects($this->at(1))
-            ->method('getColumns')
-            ->with('db', 'view')
-            ->will(
-                $this->returnValue(
-                    array(
-                        'cname' => array(
-                            'Type' => 'char',
-                            'Collation' => 'utf-8',
-                            'Null' => 'YES',
-                            'Comment' => 'cmt',
-                            'Field' => 'fname'
-                        )
-                    )
-                )
-            );
         $GLOBALS['dbi'] = $dbi;
         $GLOBALS['sql_compatibility'] = 'MSSQL';
 
@@ -905,6 +876,31 @@ class ExportSqlTest extends PMATestCase
 
         // case 2
         unset($GLOBALS['sql_compatibility']);
+
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+            ->disableOriginalConstructor()
+            ->getMock();
+        $dbi->expects($this->any())->method('escapeString')
+            ->will($this->returnArgument(0));
+
+        $dbi->expects($this->any())
+            ->method('getColumns')
+            ->with('db', 'view')
+            ->will(
+                $this->returnValue(
+                    array(
+                        'cname' => array(
+                            'Type' => 'char',
+                            'Collation' => 'utf-8',
+                            'Null' => 'YES',
+                            'Comment' => 'cmt',
+                            'Field' => 'fname'
+                        )
+                    )
+                )
+            );
+        $GLOBALS['dbi'] = $dbi;
+
         $result = $method->invoke(
             $this->object, 'db', 'view', "\n", false
         );
@@ -945,12 +941,8 @@ class ExportSqlTest extends PMATestCase
             ->disableOriginalConstructor()
             ->getMock();
 
-        $dbi->expects($this->at(0))
+        $dbi->expects($this->any())
             ->method('query')
-            ->with(
-                'SHOW TABLE STATUS FROM `db` WHERE Name = \'table\'', null,
-                PMA\libraries\DatabaseInterface::QUERY_STORE
-            )
             ->will($this->returnValue('res'));
 
         $dbi->expects($this->never())
@@ -959,7 +951,7 @@ class ExportSqlTest extends PMATestCase
         $dbi->expects($this->once())
             ->method('numRows')
             ->with('res')
-            ->will($this->returnValue(2));
+            ->will($this->returnValue(1));
 
         $dbi->expects($this->any())
             ->method('fetchValue')
@@ -976,11 +968,6 @@ class ExportSqlTest extends PMATestCase
             ->method('fetchAssoc')
             ->with('res')
             ->will($this->returnValue($tmpres));
-
-        $dbi->expects($this->at(5))
-            ->method('query')
-            ->with('SET SQL_QUOTE_SHOW_CREATE = 1')
-            ->will($this->returnValue('res'));
 
         $dbi->expects($this->once())
             ->method('tryQuery')
@@ -1007,14 +994,20 @@ class ExportSqlTest extends PMATestCase
             ") ENGINE=InnoDB AUTO_INCREMENT=16050 DEFAULT CHARSET=utf8\n"
         );
 
-        $dbi->expects($this->once())
+        $dbi->expects($this->exactly(1))
             ->method('fetchRow')
-            ->with('res')
-            ->will($this->returnValue($row));
-
+            ->will(
+                $this->returnValueMap(
+                    array(
+                        array('res', $row)
+                    )
+                )
+            );
         $dbi->expects($this->once())
             ->method('getTable')
-            ->will($this->returnValue(new Table('table', 'db')));
+            ->will($this->returnValue(new Table('table', 'db', $dbi)));
+        $dbi->expects($this->any())->method('escapeString')
+            ->will($this->returnArgument(0));
 
         $GLOBALS['dbi'] = $dbi;
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
@@ -1116,12 +1109,8 @@ class ExportSqlTest extends PMATestCase
             ->disableOriginalConstructor()
             ->getMock();
 
-        $dbi->expects($this->at(0))
+        $dbi->expects($this->any())
             ->method('query')
-            ->with(
-                'SHOW TABLE STATUS FROM `db` WHERE Name = \'table\'', null,
-                PMA\libraries\DatabaseInterface::QUERY_STORE
-            )
             ->will($this->returnValue('res'));
 
         $dbi->expects($this->never())
@@ -1148,11 +1137,6 @@ class ExportSqlTest extends PMATestCase
             ->with('res')
             ->will($this->returnValue($tmpres));
 
-        $dbi->expects($this->at(5))
-            ->method('query')
-            ->with('SET SQL_QUOTE_SHOW_CREATE = 0')
-            ->will($this->returnValue('res'));
-
         $dbi->expects($this->once())
             ->method('tryQuery')
             ->with('SHOW CREATE TABLE `db`.`table`')
@@ -1164,7 +1148,10 @@ class ExportSqlTest extends PMATestCase
 
         $dbi->expects($this->once())
             ->method('getTable')
-            ->will($this->returnValue(new Table('table', 'db')));
+            ->will($this->returnValue(new Table('table', 'db', $dbi)));
+        $dbi->expects($this->any())
+            ->method('escapeString')
+            ->will($this->returnArgument(0));
 
         $GLOBALS['dbi'] = $dbi;
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
@@ -1202,32 +1189,27 @@ class ExportSqlTest extends PMATestCase
             ->disableOriginalConstructor()
             ->getMock();
 
-        $dbi->expects($this->at(0))
+        $dbi->expects($this->any())->method('escapeString')
+            ->will($this->returnArgument(0));
+
+        $dbi->expects($this->exactly(2))
             ->method('fetchResult')
-            ->will(
-                $this->returnValue(
-                    array(
-                        'foo' => array(
-                            'foreign_table' => 'ftable',
-                            'foreign_field' => 'ffield'
-                        )
+            ->willReturnOnConsecutiveCalls(
+                array(
+                    'foo' => array(
+                        'foreign_table' => 'ftable',
+                        'foreign_field' => 'ffield'
+                    )
+                ),
+                array(
+                    'fieldname' => array(
+                        'values' => 'test-',
+                        'transformation' => 'testfoo',
+                        'mimetype' => 'test<'
                     )
                 )
             );
 
-        $dbi->expects($this->at(1))
-            ->method('fetchResult')
-            ->will(
-                $this->returnValue(
-                    array(
-                        'fieldname' => array(
-                            'values' => 'test-',
-                            'transformation' => 'testfoo',
-                            'mimetype' => 'test<'
-                        )
-                    )
-                )
-            );
         $GLOBALS['dbi'] = $dbi;
 
         $method = new ReflectionMethod('PMA\libraries\plugins\export\ExportSql', '_getTableComments');
@@ -1263,6 +1245,8 @@ class ExportSqlTest extends PMATestCase
         $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
+        $dbi->expects($this->any())->method('escapeString')
+            ->will($this->returnArgument(0));
 
         $dbi->expects($this->once())
             ->method('getTriggers')
@@ -1375,6 +1359,8 @@ class ExportSqlTest extends PMATestCase
         $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
+        $dbi->expects($this->any())->method('escapeString')
+            ->will($this->returnArgument(0));
 
         $dbi->expects($this->once())
             ->method('getColumns')
@@ -1496,14 +1482,14 @@ class ExportSqlTest extends PMATestCase
             ->with('res')
             ->will($this->returnValue(5));
 
-        $dbi->expects($this->at(11))
+        $dbi->expects($this->exactly(2))
             ->method('fetchRow')
-            ->with('res')
-            ->will(
-                $this->returnValue(
-                    array(null, 'test', '10', '6', "\x00\x0a\x0d\x1a")
-                )
+            ->willReturnOnConsecutiveCalls(
+                array(null, 'test', '10', '6', "\x00\x0a\x0d\x1a"),
+                null
             );
+        $dbi->expects($this->any())->method('escapeString')
+            ->will($this->returnArgument(0));
 
         $_table = $this->getMockBuilder('PMA\libraries\Table')
             ->disableOriginalConstructor()
@@ -1522,6 +1508,7 @@ class ExportSqlTest extends PMATestCase
         $GLOBALS['dbi'] = $dbi;
         $GLOBALS['sql_compatibility'] = 'MSSQL';
         $GLOBALS['sql_backquotes'] = true;
+        $GLOBALS['sql_max_query_size'] = 50000;
         $GLOBALS['sql_views_as_tables'] = true;
         $GLOBALS['sql_type'] = 'INSERT';
         $GLOBALS['sql_delayed'] = ' DELAYED';
@@ -1626,13 +1613,11 @@ class ExportSqlTest extends PMATestCase
             ->with('res')
             ->will($this->returnValue(2));
 
-        $dbi->expects($this->at(8))
+        $dbi->expects($this->exactly(2))
             ->method('fetchRow')
-            ->with('res')
-            ->will(
-                $this->returnValue(
-                    array(null, null)
-                )
+            ->willReturnOnConsecutiveCalls(
+                array(null, null),
+                null
             );
 
         $_table = $this->getMockBuilder('PMA\libraries\Table')
@@ -1648,6 +1633,8 @@ class ExportSqlTest extends PMATestCase
         $dbi->expects($this->any())
             ->method('getTable')
             ->will($this->returnValue($_table));
+        $dbi->expects($this->any())->method('escapeString')
+            ->will($this->returnArgument(0));
 
         $GLOBALS['dbi'] = $dbi;
         $GLOBALS['sql_compatibility'] = 'MSSQL';
@@ -1700,12 +1687,17 @@ class ExportSqlTest extends PMATestCase
         $dbi->expects($this->any())
             ->method('getTable')
             ->will($this->returnValue($_table));
+        $dbi->expects($this->any())->method('escapeString')
+            ->will($this->returnArgument(0));
 
         $GLOBALS['dbi'] = $dbi;
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['sql_views_as_tables'] = false;
         $GLOBALS['sql_include_comments'] = true;
         $GLOBALS['crlf'] = "\n";
+        $oldVal = isset($GLOBALS['sql_compatibility']) ? $GLOBALS['sql_compatibility'] : '';
+        $GLOBALS['sql_compatibility'] = 'NONE';
+        $GLOBALS['sql_backquotes'] = true;
 
         ob_start();
         $this->assertTrue(
@@ -1714,7 +1706,7 @@ class ExportSqlTest extends PMATestCase
         $result = ob_get_clean();
 
         $this->assertContains(
-            "-- VIEW  tbl\n",
+            "-- VIEW  `tbl`\n",
             $result
         );
 
@@ -1722,6 +1714,9 @@ class ExportSqlTest extends PMATestCase
             "-- Data: None\n",
             $result
         );
+
+        // reset
+        $GLOBALS['sql_compatibility'] = $oldVal;
     }
 
     /**
@@ -1752,6 +1747,8 @@ class ExportSqlTest extends PMATestCase
         $dbi->expects($this->any())
             ->method('getTable')
             ->will($this->returnValue($_table));
+        $dbi->expects($this->any())->method('escapeString')
+            ->will($this->returnArgument(0));
 
         $GLOBALS['dbi'] = $dbi;
         $GLOBALS['cfg']['Server']['DisableIS'] = false;

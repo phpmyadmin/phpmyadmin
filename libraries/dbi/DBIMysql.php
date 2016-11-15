@@ -92,9 +92,9 @@ class DBIMysql implements DBIExtension
     /**
      * connects to the database server
      *
-     * @param string $user                 mysql user name
-     * @param string $password             mysql user password
-     * @param array  $server               host/port/socket/persistent
+     * @param string $user     mysql user name
+     * @param string $password mysql user password
+     * @param array  $server   host/port/socket/persistent
      *
      * @return mixed false on error or a mysqli object on success
      */
@@ -446,5 +446,18 @@ class DBIMysql implements DBIExtension
     public function storeResult($result)
     {
         return false;
+    }
+
+    /**
+     * returns properly escaped string for use in MySQL queries
+     *
+     * @param mixed  $link database link
+     * @param string $str  string to be escaped
+     *
+     * @return string a MySQL escaped string
+     */
+    public function escapeString($link, $str)
+    {
+        return mysql_real_escape_string($str, $link);
     }
 }

@@ -122,8 +122,8 @@ libraries/plugins/transformations/TEMPLATE\_ABSTRACT files for adding
 your own transformation plug-in. You can also generate a new
 transformation plug-in (with or without the abstract transformation
 class), by using
-:file:`libraries/plugins/transformations/generator_plugin.sh` or
-:file:`libraries/plugins/transformations/generator_main_class.sh`.
+:file:`scripts/transformations_generator_plugin.sh` or
+:file:`scripts/transformations_generator_main_class.sh`.
 
 The applyTransformation() method always gets passed three variables:
 
@@ -133,9 +133,9 @@ The applyTransformation() method always gets passed three variables:
    function as an array.
 #. **$meta** - Contains an object with information about your column. The
    data is drawn from the output of the `mysql\_fetch\_field()
-   <https://php.net/mysql_fetch_field>`_ function. This means, all
+   <https://secure.php.net/mysql_fetch_field>`_ function. This means, all
    object properties described on the `manual page
-   <https://php.net/mysql_fetch_field>`_ are available in this
+   <https://secure.php.net/mysql_fetch_field>`_ are available in this
    variable and can be used to transform a column accordingly to
    unsigned/zerofill/not\_null/... properties. The $meta->mimetype
    variable contains the original MIME-type of the column (i.e.

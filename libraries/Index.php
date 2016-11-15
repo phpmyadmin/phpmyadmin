@@ -132,7 +132,7 @@ class Index
         Index::_loadIndexes($table, $schema);
         if (! isset(Index::$_registry[$schema][$table][$index_name])) {
             $index = new Index;
-            if (mb_strlen($index_name)) {
+            if (strlen($index_name) > 0) {
                 $index->setName($index_name);
                 Index::$_registry[$schema][$table][$index->getName()] = $index;
             }
@@ -263,7 +263,7 @@ class Index
     public function addColumn($params)
     {
         if (isset($params['Column_name'])
-            && mb_strlen($params['Column_name'])
+            && strlen($params['Column_name']) > 0
         ) {
             $this->_columns[$params['Column_name']] = new IndexColumn($params);
         }
@@ -436,7 +436,7 @@ class Index
     public function getComments()
     {
         $comments = $this->getRemarks();
-        if (mb_strlen($comments)) {
+        if (strlen($comments) > 0) {
             $comments .= "\n";
         }
         $comments .= $this->getComment();

@@ -683,9 +683,7 @@ function PMA_getHtmlForReplicationMasterAddSlaveuser()
     list($username_length, $hostname_length)
         = PMA_replicationGetUsernameHostnameLength();
 
-    if (isset($_REQUEST['username'])
-        && mb_strlen($_REQUEST['username']) === 0
-    ) {
+    if (isset($_REQUEST['username']) && strlen($_REQUEST['username']) === 0) {
         $GLOBALS['pred_username'] = 'any';
     }
     $html .= '<div id="master_addslaveuser_gui">';
@@ -961,13 +959,13 @@ function PMA_handleRequestForSlaveChangeMaster()
 {
     $sr = array();
     $_SESSION['replication']['m_username'] = $sr['username']
-        = PMA\libraries\Util::sqlAddSlashes($_REQUEST['username']);
+        = $GLOBALS['dbi']->escapeString($_REQUEST['username']);
     $_SESSION['replication']['m_password'] = $sr['pma_pw']
-        = PMA\libraries\Util::sqlAddSlashes($_REQUEST['pma_pw']);
+        = $GLOBALS['dbi']->escapeString($_REQUEST['pma_pw']);
     $_SESSION['replication']['m_hostname'] = $sr['hostname']
-        = PMA\libraries\Util::sqlAddSlashes($_REQUEST['hostname']);
+        = $GLOBALS['dbi']->escapeString($_REQUEST['hostname']);
     $_SESSION['replication']['m_port']     = $sr['port']
-        = PMA\libraries\Util::sqlAddSlashes($_REQUEST['text_port']);
+        = $GLOBALS['dbi']->escapeString($_REQUEST['text_port']);
     $_SESSION['replication']['m_correct']  = '';
     $_SESSION['replication']['sr_action_status'] = 'error';
     $_SESSION['replication']['sr_action_info'] = __('Unknown error');

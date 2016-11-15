@@ -175,7 +175,7 @@ class NavigationTree
             $query = "SELECT (COUNT(DB_first_level) DIV %d) * %d ";
             $query .= "from ( ";
             $query .= " SELECT distinct SUBSTRING_INDEX(SCHEMA_NAME, ";
-            $query .= " '" . Util::sqlAddSlashes($GLOBALS['cfg']['NavigationTreeDbSeparator']) . "', 1) ";
+            $query .= " '" . $GLOBALS['dbi']->escapeString($GLOBALS['cfg']['NavigationTreeDbSeparator']) . "', 1) ";
             $query .= " DB_first_level ";
             $query .= " FROM INFORMATION_SCHEMA.SCHEMATA ";
             $query .= " WHERE `SCHEMA_NAME` < '%s' ";
@@ -186,7 +186,7 @@ class NavigationTree
                     $query,
                     (int)$GLOBALS['cfg']['FirstLevelNavigationItems'],
                     (int)$GLOBALS['cfg']['FirstLevelNavigationItems'],
-                    Util::sqlAddSlashes($GLOBALS['db'])
+                    $GLOBALS['dbi']->escapeString($GLOBALS['db'])
                 )
             );
 
@@ -1258,7 +1258,6 @@ class NavigationTree
         $children = $this->_tree->children;
         array_shift($children);
         $url_params = array(
-            'token'  => $_SESSION[' PMA_token '],
             'server' => $GLOBALS['server'],
         );
         $retval .= '<div id="pma_navigation_db_select">';
@@ -1354,14 +1353,7 @@ class NavigationTree
             $retval .= URL::getHiddenFields($url_params);
             $retval .= '<input class="searchClause" type="text"';
             $retval .= ' name="searchClause" accesskey="q"';
-            // allow html5 placeholder attribute
-            $placeholder_key = 'value';
-            if (PMA_USR_BROWSER_AGENT !== 'IE'
-                || PMA_USR_BROWSER_VER > 9
-            ) {
-                $placeholder_key = 'placeholder';
-            }
-            $retval .= " $placeholder_key='"
+            $retval .= " placeholder='"
                 . __("Type to filter these, Enter to search all");
             $retval .= "' />";
             $retval .= '<span title="' . __('Clear fast filter') . '">X</span>';
@@ -1393,12 +1385,7 @@ class NavigationTree
             $retval .= URL::getHiddenFields($url_params);
             $retval .= "<input class='searchClause' type='text'";
             $retval .= " name='searchClause2'";
-            // allow html5 placeholder attribute
-            $placeholder_key = 'value';
-            if (PMA_USR_BROWSER_AGENT !== 'IE' || PMA_USR_BROWSER_VER > 9) {
-                $placeholder_key = 'placeholder';
-            }
-            $retval .= " $placeholder_key='"
+            $retval .= " placeholder='"
                 . __("Type to filter these, Enter to search all") . "' />";
             $retval .= "<span title='" . __('Clear fast filter') . "'>X</span>";
             $retval .= "</form>";

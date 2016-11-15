@@ -744,7 +744,7 @@ function PMA_getSuspensionPoints($lastChar)
 function PMA_getJsonForLoggingVars()
 {
     if (isset($_REQUEST['varName']) && isset($_REQUEST['varValue'])) {
-        $value = PMA\libraries\Util::sqlAddSlashes($_REQUEST['varValue']);
+        $value = $GLOBALS['dbi']->escapeString($_REQUEST['varValue']);
         if (! is_numeric($value)) {
             $value="'" . $value . "'";
         }
@@ -775,7 +775,7 @@ function PMA_getJsonForQueryAnalyzer()
 {
     $return = array();
 
-    if (mb_strlen($_REQUEST['database'])) {
+    if (strlen($_REQUEST['database']) > 0) {
         $GLOBALS['dbi']->selectDb($_REQUEST['database']);
     }
 
