@@ -150,9 +150,9 @@ class TableIndexesController extends TableController
             /* Support For Multiple Querys returned by getSqlQueryForIndexCreateOrEdit */
             if ( substr_count($sql_query, ";") > 1 ) {
                 while( ( $pos = strpos($sql_query, ";") ) !== false) {
-                    $q = substr($sql_query, 0, $pos);
+                    $this_query = substr($sql_query, 0, $pos);
                     $sql_query = substr($sql_query, $pos + 1);
-                    $this->dbi->query($q);
+                    $this->dbi->query($this_query);
                 }
             } else {
                 $this->dbi->query($sql_query);
