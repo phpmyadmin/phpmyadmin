@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-11-10 09:40+0100\n"
-"PO-Revision-Date: 2016-11-14 14:22+0000\n"
+"PO-Revision-Date: 2016-11-16 13:27+0000\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: French "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/fr/>\n"
@@ -3300,10 +3300,8 @@ msgid "Details…"
 msgstr "Détails…"
 
 #: libraries/DatabaseInterface.php:2326
-#, fuzzy
-#| msgid "Missing parameter:"
 msgid "Missing connection parameters!"
-msgstr "Paramètre manquant : "
+msgstr "Paramètres de connexion manquants !"
 
 #: libraries/DatabaseInterface.php:2350
 msgid "Connection for controluser as defined in your configuration failed."
@@ -3623,9 +3621,8 @@ msgid "Hide browser transformation"
 msgstr "Masquer les transformations"
 
 #: libraries/DisplayResults.php:1800
-#, fuzzy
 msgid "Well Known Text"
-msgstr "Texte très connu"
+msgstr "Well Known Text"
 
 #: libraries/DisplayResults.php:1801
 msgid "Well Known Binary"
