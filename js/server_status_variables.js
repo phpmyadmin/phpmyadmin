@@ -21,7 +21,6 @@ AJAX.registerOnload('server_status_variables.js', function () {
     var textFilter = null;
     var alertFilter = $('#filterAlert').prop('checked');
     var categoryFilter = $('#filterCategory').find(':selected').val();
-    var odd_row = false;
     var text = ''; // Holds filter text
 
     /* 3 Filtering functions */
