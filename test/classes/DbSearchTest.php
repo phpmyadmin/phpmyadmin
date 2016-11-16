@@ -163,7 +163,7 @@ class DbSearchTest extends PMATestCase
                     'delete' => 'column2'
                 ),
                 '<tr class="noclick"><td>2 matches in <strong>table1</strong>'
-                . '</td><td><a name="browse_search" class="ajax browse_results" '
+                . '</td><td><a name="browse_search"  class="ajax browse_results" '
                 . 'href="sql.php?db=pma&amp;table'
                 . '=table1&amp;goto=db_sql.php&amp;pos=0&amp;is_js_confirmed=0&amp;'
                 . 'server=0&amp;lang=en&amp;'
