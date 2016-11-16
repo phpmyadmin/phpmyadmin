@@ -2725,7 +2725,6 @@ class DatabaseInterface
         if (isset($GLOBALS['userlink']) && !is_null($GLOBALS['userlink'])) {
             return $GLOBALS['userlink'];
         } else {
-            error_log("YAHA\n", 3, "/tmp/a.txt");
             return false;
         }
     }
