@@ -1444,7 +1444,10 @@ function PMA_RTN_handleExecute()
 
                 $GLOBALS['dbi']->freeResult($result);
 
-            } while ($GLOBALS['dbi']->nextResult());
+            } while ($outcome = $GLOBALS['dbi']->nextResult());
+        }
+
+        if ($outcome) {
 
             $output .= "</fieldset>";
 
