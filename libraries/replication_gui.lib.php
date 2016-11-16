@@ -545,9 +545,8 @@ function PMA_getHtmlForReplicationStatusTable($type, $hidden = false, $title = t
     $html .= '   </thead>';
     $html .= '   <tbody>';
 
-    $odd_row = true;
     foreach (${"{$type}_variables"} as $variable) {
-        $html .= '   <tr class="' . ($odd_row ? 'odd' : 'even') . '">';
+        $html .= '   <tr>';
         $html .= '     <td class="name">';
         $html .= htmlspecialchars($variable);
         $html .= '     </td>';
@@ -584,8 +583,6 @@ function PMA_getHtmlForReplicationStatusTable($type, $hidden = false, $title = t
 
         $html .= '  </td>';
         $html .= ' </tr>';
-
-        $odd_row = ! $odd_row;
     }
 
     $html .= '   </tbody>';
