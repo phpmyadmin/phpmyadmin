@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-11-10 09:39+0100\n"
-"PO-Revision-Date: 2016-11-14 14:21+0000\n"
+"PO-Revision-Date: 2016-11-16 13:27+0000\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: French "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-6/fr/>\n"
@@ -3567,9 +3567,8 @@ msgid "Hide browser transformation"
 msgstr "Masquer les transformations"
 
 #: libraries/DisplayResults.php:1783
-#, fuzzy
 msgid "Well Known Text"
-msgstr "Texte très connu"
+msgstr "Well Known Text"
 
 #: libraries/DisplayResults.php:1784
 msgid "Well Known Binary"
