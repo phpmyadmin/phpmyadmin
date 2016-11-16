@@ -188,8 +188,16 @@ function PMA_extractPrivInfo($row = null, $enableHTML = false, $tablePrivs = fal
                 && is_array($GLOBALS[$current_grant[0]])
                 && empty($GLOBALS[$current_grant[0] . '_none'])
             ) {
+                // Required for proper escaping of ` (backtick) in a column name
+                $grant_cols = array_map(
+                    function($val) {
+                        return Util::backquote($val);
+                    },
+                    $GLOBALS[$current_grant[0]]
+                );
+
                 $privs[] = PMA_formatPrivilege($current_grant, $enableHTML)
-                    . ' (`' . join('`, `', $GLOBALS[$current_grant[0]]) . '`)';
+                    . ' (' . join(', ', $grant_cols) . ')';
             } else {
                 $allPrivileges = false;
             }

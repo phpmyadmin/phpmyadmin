@@ -124,6 +124,7 @@ phpMyAdmin - ChangeLog
 - issue #12691 Remove ksort call on empty array in PMA_getPlugins function
 - issue #12443 Check parameter type before processing
 - issue #12299 Avoid generating too long URLs in search
+- issue #12361 Fix self SQL injection in table-specific privileges
 
 4.6.4 (2016-08-16)
 - issue        [security] Weaknesses with cookie encryption, see PMASA-2016-29
