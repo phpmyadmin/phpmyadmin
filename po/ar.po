@@ -4,17 +4,17 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.5-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-11-10 09:39+0100\n"
-"PO-Revision-Date: 2016-10-07 11:45+0000\n"
-"Last-Translator: Ihab Mardoud <ihab.mardoud@gmail.com>\n"
-"Language-Team: Arabic <https://hosted.weblate.org/projects/phpmyadmin/4-6/ar/"
-">\n"
+"PO-Revision-Date: 2016-11-17 22:26+0000\n"
+"Last-Translator: Boussaid Mustafa <bousali@gmail.com>\n"
+"Language-Team: Arabic "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-6/ar/>\n"
 "Language: ar\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
-"X-Generator: Weblate 2.9-dev\n"
+"X-Generator: Weblate 2.10-dev\n"
 
 #: changelog.php:38 license.php:33
 #, php-format
@@ -15683,7 +15683,7 @@ msgstr "إرسال الاستعلام"
 #: templates/database/designer/side_menu.phtml:173
 #: templates/database/designer/side_menu.phtml:177
 msgid "Move Menu"
-msgstr ""
+msgstr "نقل القائمة"
 
 #: templates/database/designer/side_menu.phtml:181
 #: templates/database/designer/side_menu.phtml:186
@@ -15694,17 +15694,15 @@ msgstr "نصوص جزئيّة"
 
 #: templates/database/designer/table_list.phtml:4
 msgid "Hide/Show all"
-msgstr ""
+msgstr "إخفاء/عرض الكل"
 
 #: templates/database/designer/table_list.phtml:14
 msgid "Hide/Show Tables with no relation"
-msgstr ""
+msgstr "إخفاء / عرض الجداول الغير مرتبطة بعلاقة"
 
 #: templates/database/designer/table_list.phtml:59
-#, fuzzy
-#| msgid "Number of tables"
 msgid "Number of tables:"
-msgstr "عدد الجداول"
+msgstr "عدد الجداول:"
 
 #: templates/database/structure/body_for_table_summary.phtml:6
 #, php-format
