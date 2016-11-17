@@ -92,6 +92,7 @@ phpMyAdmin - ChangeLog
 - issue #12299 Avoid generating too long URLs in search
 - issue #12361 Fix self SQL injection in table-specific privileges
 - issue #12698 Add link to release notes and download on new version notification
+- issue #12712 Error when trying to setup replication (fatal error in call to an old PMA_DBI_connect function)
 
 4.6.4 (2016-08-16)
 - issue        [security] Weaknesses with cookie encryption, see PMASA-2016-29
