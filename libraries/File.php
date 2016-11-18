@@ -7,6 +7,8 @@
  */
 namespace PMA\libraries;
 
+use PMA\libraries\config\ConfigFile;
+
 /**
  * File wrapper class
  *
@@ -462,18 +464,7 @@ class File
             return true;
         }
 
-        if (! empty($GLOBALS['cfg']['TempDir'])
-            && @is_writable($GLOBALS['cfg']['TempDir'])
-        ) {
-            $tmp_subdir = $GLOBALS['cfg']['TempDir'];
-        } else {
-            $tmp_subdir = ini_get('upload_tmp_dir');
-            if (empty($tmp_subdir)) {
-                $tmp_subdir = sys_get_temp_dir();
-            }
-            $tmp_subdir = rtrim($tmp_subdir, DIRECTORY_SEPARATOR);
-        }
-
+        $tmp_subdir = ConfigFile::getDefaultTempDirectory();
         if (@is_writable($tmp_subdir)) {
             // cannot create directory or access, point user to FAQ 1.11
             $this->_error_message = Message::error(__(
