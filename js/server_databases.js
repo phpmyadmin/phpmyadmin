@@ -163,20 +163,14 @@ AJAX.registerOnload('server_databases.js', function () {
 
     /* Filters the rows by the user given regexp */
     function filterVariables(textFilter) {
-        var $row, odd_row = false, databasesCount = 0;
+        var $row, databasesCount = 0;
         $('#tabledatabases').find('.db-row').each(function () {
             $row = $(this);
             if (textFilter === null ||
                 textFilter.exec($row.find('.name').text())
                ) {
-                   odd_row = ! odd_row;
                    $row.css('display', '');
                    databasesCount += 1;
-                   if (odd_row) {
-                       $row.addClass('odd').removeClass('even');
-                   } else {
-                       $row.addClass('even').removeClass('odd');
-                   }
                } else {
                    $row.css('display', 'none');
                }

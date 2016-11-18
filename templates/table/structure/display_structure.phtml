@@ -4,7 +4,7 @@ use PMA\libraries\Template;
 use PMA\libraries\Util;
 use PMA\libraries\URL;
 
-$rownum = 0; $odd_row = true; ?>
+$rownum = 0; ?>
 <form method="post" action="tbl_structure.php" name="fieldsForm" id="fieldsForm" class="ajax<?= $HideStructureActions; ?>">
     <?= URL::getHiddenInputs($db, $table); ?>
     <input type="hidden" name="table_type" value=
@@ -68,8 +68,7 @@ $rownum = 0; $odd_row = true; ?>
                     );
                 }
             ?>
-        <tr class="<?= ($odd_row ? 'odd': 'even'); ?>">
-            <?php $odd_row = !$odd_row; ?>
+        <tr>
             <?= PMA\libraries\Template::get('table/structure/table_structure_row')->render(
                 array(
                     'row' => $row,

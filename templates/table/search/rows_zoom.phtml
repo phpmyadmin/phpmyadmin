@@ -1,5 +1,4 @@
 <?php
-$odd_row = true;
 $type = $collation = $func = $value = array();
 /**
  * Get already set search criteria (if any)
@@ -17,8 +16,7 @@ for ($i = 0; $i < 4; $i++): ?>
             </td>
         </tr>
     <?php endif; ?>
-    <tr class="noclick <?= ($odd_row ? 'odd' : 'even'); ?>">
-        <?php $odd_row = ! $odd_row; ?>
+    <tr class="noclick">
         <!-- Select options for column names -->
         <th>
             <select name="criteriaColumnNames[]" id="tableid_<?= $i; ?>" >

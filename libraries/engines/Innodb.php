@@ -185,7 +185,7 @@ class Innodb extends StorageEngine
             . '        </tr>' . "\n"
             . '    </tfoot>' . "\n"
             . '    <tbody>' . "\n"
-            . '        <tr class="odd">' . "\n"
+            . '        <tr>' . "\n"
             . '            <th>' . __('Free pages') . '</th>' . "\n"
             . '            <td class="value">'
             . Util::formatNumber(
@@ -194,7 +194,7 @@ class Innodb extends StorageEngine
             )
             . '</td>' . "\n"
             . '        </tr>' . "\n"
-            . '        <tr class="even">' . "\n"
+            . '        <tr>' . "\n"
             . '            <th>' . __('Dirty pages') . '</th>' . "\n"
             . '            <td class="value">'
             . Util::formatNumber(
@@ -203,7 +203,7 @@ class Innodb extends StorageEngine
             )
             . '</td>' . "\n"
             . '        </tr>' . "\n"
-            . '        <tr class="odd">' . "\n"
+            . '        <tr>' . "\n"
             . '            <th>' . __('Pages containing data') . '</th>' . "\n"
             . '            <td class="value">'
             . Util::formatNumber(
@@ -212,7 +212,7 @@ class Innodb extends StorageEngine
             ) . "\n"
             . '</td>' . "\n"
             . '        </tr>' . "\n"
-            . '        <tr class="even">' . "\n"
+            . '        <tr>' . "\n"
             . '            <th>' . __('Pages to be flushed') . '</th>' . "\n"
             . '            <td class="value">'
             . Util::formatNumber(
@@ -221,7 +221,7 @@ class Innodb extends StorageEngine
             ) . "\n"
             . '</td>' . "\n"
             . '        </tr>' . "\n"
-            . '        <tr class="odd">' . "\n"
+            . '        <tr>' . "\n"
             . '            <th>' . __('Busy pages') . '</th>' . "\n"
             . '            <td class="value">'
             . Util::formatNumber(
@@ -233,7 +233,7 @@ class Innodb extends StorageEngine
 
         // not present at least since MySQL 5.1.40
         if (isset($status['Innodb_buffer_pool_pages_latched'])) {
-            $output .= '        <tr class="even">'
+            $output .= '        <tr>'
                 . '            <th>' . __('Latched pages') . '</th>'
                 . '            <td class="value">'
                 . Util::formatNumber(
@@ -251,7 +251,7 @@ class Innodb extends StorageEngine
             . '        ' . __('Buffer Pool Activity') . "\n"
             . '    </caption>' . "\n"
             . '    <tbody>' . "\n"
-            . '        <tr class="odd">' . "\n"
+            . '        <tr>' . "\n"
             . '            <th>' . __('Read requests') . '</th>' . "\n"
             . '            <td class="value">'
             . Util::formatNumber(
@@ -260,7 +260,7 @@ class Innodb extends StorageEngine
             ) . "\n"
             . '</td>' . "\n"
             . '        </tr>' . "\n"
-            . '        <tr class="even">' . "\n"
+            . '        <tr>' . "\n"
             . '            <th>' . __('Write requests') . '</th>' . "\n"
             . '            <td class="value">'
             . Util::formatNumber(
@@ -269,7 +269,7 @@ class Innodb extends StorageEngine
             ) . "\n"
             . '</td>' . "\n"
             . '        </tr>' . "\n"
-            . '        <tr class="odd">' . "\n"
+            . '        <tr>' . "\n"
             . '            <th>' . __('Read misses') . '</th>' . "\n"
             . '            <td class="value">'
             . Util::formatNumber(
@@ -278,7 +278,7 @@ class Innodb extends StorageEngine
             ) . "\n"
             . '</td>' . "\n"
             . '        </tr>' . "\n"
-            . '        <tr class="even">' . "\n"
+            . '        <tr>' . "\n"
             . '            <th>' . __('Write waits') . '</th>' . "\n"
             . '            <td class="value">'
             . Util::formatNumber(
@@ -287,7 +287,7 @@ class Innodb extends StorageEngine
             ) . "\n"
             . '</td>' . "\n"
             . '        </tr>' . "\n"
-            . '        <tr class="odd">' . "\n"
+            . '        <tr>' . "\n"
             . '            <th>' . __('Read misses in %') . '</th>' . "\n"
             . '            <td class="value">'
             . ($status['Innodb_buffer_pool_read_requests'] == 0
@@ -302,7 +302,7 @@ class Innodb extends StorageEngine
                 ) . ' %') . "\n"
             . '</td>' . "\n"
             . '        </tr>' . "\n"
-            . '        <tr class="even">' . "\n"
+            . '        <tr>' . "\n"
             . '            <th>' . __('Write waits in %') . '</th>' . "\n"
             . '            <td class="value">'
             . ($status['Innodb_buffer_pool_write_requests'] == 0

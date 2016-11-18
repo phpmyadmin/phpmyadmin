@@ -6,10 +6,8 @@
         </tr>
     </thead>
     <tbody>
-        <?php $odd_row = true; ?>
         <?php foreach ($engines as $engine => $details): ?>
             <tr class="
-                <?= $odd_row ? 'odd' : 'even'; ?>
                 <?= $details['Support'] == 'NO' || $details['Support'] == 'DISABLED' ? ' disabled' : ''; ?>
                 <?= $details['Support'] == 'DEFAULT' ? ' marked' : ''; ?>">
                 <td>
@@ -19,7 +17,6 @@
                 </td>
                 <td><?= htmlspecialchars($details['Comment']); ?></td>
             </tr>
-            <?php $odd_row = !$odd_row; ?>
         <?php endforeach; ?>
     </tbody>
 </table>

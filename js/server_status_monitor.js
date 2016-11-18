@@ -1690,7 +1690,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
          *                to group queries ignoring data in WHERE clauses
         */
         function filterQueries(varFilterChange) {
-            var odd_row = false, cell, textFilter;
+            var cell, textFilter;
             var val = $('#filterQueryText').val();
 
             if (val.length === 0) {
@@ -1791,16 +1791,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
                 } else {
                     totalSum += parseInt($t.next().text(), 10);
                     rowSum++;
-
-                    odd_row = ! odd_row;
                     $t.parent().css('display', '');
-                    if (odd_row) {
-                        $t.parent().addClass('odd');
-                        $t.parent().removeClass('even');
-                    } else {
-                        $t.parent().addClass('even');
-                        $t.parent().removeClass('odd');
-                    }
                 }
 
                 hide = false;

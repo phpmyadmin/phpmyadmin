@@ -188,7 +188,6 @@ class PMA_ServerStatusProcesses_Test extends PHPUnit_Framework_TestCase
             "state" => "State1",
             "time" => "Time1",
         );
-        $odd_row = true;
         $show_full_sql = true;
 
         $_REQUEST['sort_order'] = "desc";
@@ -196,7 +195,7 @@ class PMA_ServerStatusProcesses_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['MaxCharactersInDisplayedSQL'] = 12;
 
         //Call the test function
-        $html = PMA_getHtmlForServerProcessItem($process, $odd_row, $show_full_sql);
+        $html = PMA_getHtmlForServerProcessItem($process, $show_full_sql);
 
         //validate 1: $kill_process
         $url_params = array(
@@ -261,7 +260,7 @@ class PMA_ServerStatusProcesses_Test extends PHPUnit_Framework_TestCase
         );
 
         unset($process['info']);
-        $html = PMA_getHtmlForServerProcessItem($process, $odd_row, $show_full_sql);
+        $html = PMA_getHtmlForServerProcessItem($process, $show_full_sql);
 
         $this->assertContains(
             '---',

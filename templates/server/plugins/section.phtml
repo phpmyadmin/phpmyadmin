@@ -13,9 +13,8 @@
         </tr>
     </thead>
     <tbody>
-        <?php $odd_row = true; ?>
         <?php foreach ($plugin_list as $plugin): ?>
-            <tr class="noclick <?= ($odd_row ? 'odd' : 'even'); ?>">
+            <tr class="noclick">
                 <th>
                     <?= htmlspecialchars($plugin['plugin_name']); ?>
                     <?php if (! $plugin['is_active']): ?>
@@ -27,7 +26,6 @@
                 <td><?= htmlspecialchars($plugin['plugin_author']); ?></td>
                 <td><?= htmlspecialchars($plugin['plugin_license']); ?></td>
             </tr>
-            <?php $odd_row = !$odd_row; ?>
         <?php endforeach; ?>
     </tbody>
 </table>

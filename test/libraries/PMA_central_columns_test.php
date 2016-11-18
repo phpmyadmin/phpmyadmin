@@ -409,7 +409,7 @@ class PMA_Central_Columns_Test extends PHPUnit_Framework_TestCase
         );
         $this->assertContains(
             PMA_getHTMLforCentralColumnsEditTableRow(
-                $list_detail_cols[0], false, 0
+                $list_detail_cols[0], 0
             ), $result
         );
         $this->assertContains(

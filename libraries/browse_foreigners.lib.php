@@ -12,7 +12,6 @@ use PMA\libraries\URL;
  *
  * @param integer $horizontal_count   the current horizontal count
  * @param string  $header             table header
- * @param boolean $odd_row            for the row background color
  * @param array   $keys               all the keys
  * @param integer $indexByKeyname     index by keyname
  * @param array   $descriptions       descriptions
@@ -21,7 +20,7 @@ use PMA\libraries\URL;
  *
  * @return string $html the generated html
  */
-function PMA_getHtmlForOneKey($horizontal_count, $header, $odd_row, $keys,
+function PMA_getHtmlForOneKey($horizontal_count, $header, $keys,
     $indexByKeyname, $descriptions, $indexByDescription, $current_value
 ) {
     $horizontal_count++;
@@ -36,7 +35,6 @@ function PMA_getHtmlForOneKey($horizontal_count, $header, $odd_row, $keys,
     ) {
         $output .= $header;
         $horizontal_count = 0;
-        $odd_row = true;
     }
 
     // key names and descriptions for the left section,
@@ -62,8 +60,7 @@ function PMA_getHtmlForOneKey($horizontal_count, $header, $odd_row, $keys,
         $leftKeynameIsSelected = $leftKeyname == $current_value;
     }
 
-    $output .= '<tr class="noclick ' . ($odd_row ? 'odd' : 'even') . '">';
-    $odd_row = ! $odd_row;
+    $output .= '<tr class="noclick ' . '>';
 
     $output .= PMA_getHtmlForColumnElement(
         'class="nowrap"', $leftKeynameIsSelected,
@@ -92,7 +89,7 @@ function PMA_getHtmlForOneKey($horizontal_count, $header, $odd_row, $keys,
     );
     $output .= '</tr>';
 
-    return array($output, $horizontal_count, $odd_row, $indexByDescription);
+    return array($output, $horizontal_count, $indexByDescription);
 }
 
 /**
@@ -180,17 +177,15 @@ function PMA_getHtmlForRelationalFieldSelection($db, $table, $field, $foreignDat
     asort($keys);
 
     $horizontal_count = 0;
-    $odd_row = true;
     $indexByDescription = 0;
 
     foreach ($keys as $indexByKeyname => $value) {
         list(
             $html,
             $horizontal_count,
-            $odd_row,
             $indexByDescription
         ) = PMA_getHtmlForOneKey(
-            $horizontal_count, $header, $odd_row, $keys, $indexByKeyname,
+            $horizontal_count, $header, $keys, $indexByKeyname,
             $descriptions, $indexByDescription, $current_value
         );
         $output .= $html;
