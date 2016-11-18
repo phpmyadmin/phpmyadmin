@@ -554,9 +554,9 @@ class ConfigFile
             if (empty($tmp_subdir)) {
                 $tmp_subdir = sys_get_temp_dir();
             }
-        $tmp_subdir = rtrim($tmp_subdir, DIRECTORY_SEPARATOR);
+            $tmp_subdir = rtrim($tmp_subdir, DIRECTORY_SEPARATOR);
         }
         return $tmp_subdir;
-    }
+        }
     }
 }
