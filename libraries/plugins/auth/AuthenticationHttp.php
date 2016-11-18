@@ -128,10 +128,8 @@ class AuthenticationHttp extends AuthenticationPlugin
             } elseif (PMA_getenv('AUTH_USER')) {
                 // WebSite Professional
                 $PHP_AUTH_USER = PMA_getenv('AUTH_USER');
-            } elseif (PMA_getenv('HTTP_AUTHORIZATION')
-                && false === strpos(PMA_getenv('HTTP_AUTHORIZATION'), '<')
-            ) {
-                // IIS, might be encoded, see below; also prevent XSS
+            } elseif (PMA_getenv('HTTP_AUTHORIZATION')) {
+                // IIS, might be encoded, see below
                 $PHP_AUTH_USER = PMA_getenv('HTTP_AUTHORIZATION');
             } elseif (PMA_getenv('Authorization')) {
                 // FastCGI, might be encoded, see below
