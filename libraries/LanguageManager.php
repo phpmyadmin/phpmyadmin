@@ -819,9 +819,8 @@ class LanguageManager
         $langs = $this->availableLanguages();
 
         // try to find out user's language by checking its HTTP_ACCEPT_LANGUAGE variable;
-        // prevent XSS
         $accepted_languages = PMA_getenv('HTTP_ACCEPT_LANGUAGE');
-        if ($accepted_languages && false === mb_strpos($accepted_languages, '<')) {
+        if ($accepted_languages) {
             foreach (explode(',', $accepted_languages) as $header) {
                 foreach ($langs as $language) {
                     if ($language->matchesAcceptLanguage($header)) {
