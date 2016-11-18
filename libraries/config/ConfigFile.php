@@ -547,11 +547,8 @@ class ConfigFile
     {
         $tmp_subdir = null;
         if (! empty($GLOBALS['cfg']['TempDir']) && @is_writable($GLOBALS['cfg']['TempDir'])) {
-<<<<<<< HEAD
             $tmp_subdir = $GLOBALS['cfg']['TempDir'];
-=======
         $tmp_subdir = $GLOBALS['cfg']['TempDir'];
->>>>>>> 383f66ede8e6235f08f74caf77a7e764d60a7369
         } else {
             $tmp_subdir = ini_get('upload_tmp_dir');
             if (empty($tmp_subdir)) {
@@ -560,9 +557,6 @@ class ConfigFile
         $tmp_subdir = rtrim($tmp_subdir, DIRECTORY_SEPARATOR);
         }
         return $tmp_subdir;
-<<<<<<< HEAD
     }
-=======
     }
 }
->>>>>>> 383f66ede8e6235f08f74caf77a7e764d60a7369
