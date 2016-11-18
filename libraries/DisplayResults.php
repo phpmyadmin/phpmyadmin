@@ -2747,8 +2747,6 @@ class DisplayResults
         // table being displayed has one or more keys; but to display
         // delete/edit options correctly for tables without keys.
 
-        $odd_row = true;
-
         $whereClauseMap = $this->__get('whereClauseMap');
         while ($row = $GLOBALS['dbi']->fetchRow($dt_result)) {
 
@@ -2768,11 +2766,10 @@ class DisplayResults
             if ($GLOBALS['cfg']['BrowseMarkerEnable'] != true) {
                 $tr_class[] = 'nomarker';
             }
-            $tr_class[] = ($odd_row ? 'odd' : 'even');
-            $odd_row = ! $odd_row;
 
             // pointer code part
-            $table_body_html .= '<tr class="' . implode(' ', $tr_class) . '">';
+            $classes = (empty($tr_class) ? ' ' : 'class="' . implode(' ', $tr_class) . '"');
+            $table_body_html .= '<tr ' . $classes . ' >';
 
             // 1. Prepares the row
 

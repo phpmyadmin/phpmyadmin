@@ -9,8 +9,7 @@ AJAX.registerOnload('server_plugins.js', function () {
         sortList: [[0, 0]],
         headers: {
             1: {sorter: false}
-        },
-        widgets: ['zebra']
+        }
     });
     $tables.find('thead th')
         .append('<div class="sorticon"></div>');

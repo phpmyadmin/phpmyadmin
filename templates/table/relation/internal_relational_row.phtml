@@ -43,7 +43,7 @@ if ($foreign_db && $foreign_table) {
     $columns = $table_obj->getUniqueColumns(false, false);
 }
 ?>
-<tr class="<?= ($odd_row ? 'odd' : 'even'); ?>">
+<tr>
     <td class="vmiddle">
         <strong><?= $myfield_html; ?></strong>
         <input type="hidden" name="fields_name[<?= $myfield_md5; ?>]"

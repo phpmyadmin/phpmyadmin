@@ -1,4 +1,4 @@
-<tr class="<?= ($odd_row ? 'odd' : 'even') , ($table_is_view ? ' is_view' : '') ?>"
+<tr <?= ($table_is_view ? ' class="is_view"' : '') ?>
     id="row_tbl_<?= $curr; ?>">
     <td class="center print_ignore">
         <input type="checkbox"
