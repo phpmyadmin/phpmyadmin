@@ -539,46 +539,40 @@ button.mult_submit {
 }
 
 /* odd items 1,3,5,7,... */
-table tr.odd th,
-.odd {
+table tbody:first-of-type tr:nth-child(odd),
+table tbody:first-of-type tr:nth-child(odd) th {
     background: #fff;
-}
+} 
 
 /* even items 2,4,6,8,... */
-/* (tested on CRTs and ACLs) */
-table tr.even th,
-.even {
+table tbody:first-of-type tr:nth-child(even),
+table tbody:first-of-type tr:nth-child(even) th {
     background: #DFDFDF;
 }
 
-/* odd table rows 1,3,5,7,... */
-table tr.odd th,
-table tr.odd,
-table tr.even th,
-table tr.even {
+table tr th,
+table tr {
     text-align: <?php echo $left; ?>;
 }
 
 /* marked table rows */
 td.marked:not(.nomarker),
 table tr.marked:not(.nomarker) td,
-table tr.marked:not(.nomarker) th,
+table tbody:first-of-type tr.marked:not(.nomarker) th,
 table tr.marked:not(.nomarker) {
     <?php echo $_SESSION['PMA_Theme']->getCssGradient('ced6df', 'b6c6d7'); ?>
     color: <?php echo $GLOBALS['cfg']['BrowseMarkerColor']; ?>;
 }
 
 /* hovered items */
-.odd:not(.nopointer):hover,
-.even:not(.nopointer):hover,
+table tbody:first-of-type tr:not(.nopointer):hover,
+table tbody:first-of-type tr:not(.nopointer):hover th,
 .hover:not(.nopointer) {
     <?php echo $_SESSION['PMA_Theme']->getCssGradient('ced6df', 'b6c6d7'); ?>
     color: <?php echo $GLOBALS['cfg']['BrowsePointerColor']; ?>;
 }
 
 /* hovered table rows */
-table tr.odd:not(.nopointer):hover th,
-table tr.even:not(.nopointer):hover th,
 table tr.hover:not(.nopointer) th {
     <?php echo $_SESSION['PMA_Theme']->getCssGradient('ced6df', 'b6c6d7'); ?>
     color: <?php echo $GLOBALS['cfg']['BrowsePointerColor']; ?>;

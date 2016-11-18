@@ -297,7 +297,6 @@ function setDefaultValuesFromSavedState()
 
 function Main()
 {
-    //alert( document.getElementById('osn_tab').offsetTop);
     //---CROSS
 
     document.getElementById("layer_menu").style.top = -1000 + 'px'; //fast scroll
@@ -400,14 +399,10 @@ function Re_load()
                         x2 = x2_left - sm_s;
                         s_left = 1;
                     }
-                    //alert(key2 + "." + key3);
 
                     var row_offset_top = 0;
-                    //alert('id_tbody_' + key2);
-                    //alert(document.getElementById('id_hide_tbody_' + key2));
                     var tab_hide_button = document.getElementById('id_hide_tbody_' + key2);
 
-                    //alert(tab_hide_button.innerHTML);
                     if (tab_hide_button.innerHTML == 'v') {
                         var fromColumn = document.getElementById(key2 + "." + key3);
                         if (fromColumn) {
@@ -1200,18 +1195,12 @@ function Click_field(T, f, PK) // table field
     if (ON_display_field) {
         // if is display field
         if (display_field[T] == f) {
-            //alert(T);
-            //s = '';for(k in display_field)s += k + ' = ' + display_field[k] + ',';alert(s);
             old_class = 'tab_field';
-            //display_field.splice(T, 1);
             delete display_field[T];
-            //s = '';for(k in display_field)s += k + ' = ' + display_field[k] + ', ';alert(s);
-            //n = 0;for(k in display_field)n++;alert(n);
         } else {
             old_class = 'tab_field_3';
             if (display_field[T]) {
                 document.getElementById('id_tr_' + T + '.' + display_field[T]).className = 'tab_field';
-                //display_field.splice(T, 1);
                 delete display_field[T];
             }
             display_field[T] = f;
@@ -1457,7 +1446,6 @@ function Canvas_click(id, event)
     }
     if (selected) {
         // select relations
-        //alert(Key0+' - '+Key1+' - '+Key2+' - '+Key3);
         var left = Glob_X - (document.getElementById('layer_upd_relation').offsetWidth>>1);
         document.getElementById('layer_upd_relation').style.left = left + 'px';
         var top = Glob_Y - document.getElementById('layer_upd_relation').offsetHeight - 10;

@@ -211,25 +211,25 @@ class InnodbTest extends PMATestCase
         </tr>
     </tfoot>
     <tbody>
-        <tr class="odd">
+        <tr>
             <th>Free pages</th>
             <td class="value">0</td>
         </tr>
-        <tr class="even">
+        <tr>
             <th>Dirty pages</th>
             <td class="value">0</td>
         </tr>
-        <tr class="odd">
+        <tr>
             <th>Pages containing data</th>
             <td class="value">0
 </td>
         </tr>
-        <tr class="even">
+        <tr>
             <th>Pages to be flushed</th>
             <td class="value">0
 </td>
         </tr>
-        <tr class="odd">
+        <tr>
             <th>Busy pages</th>
             <td class="value">0
 </td>
@@ -241,32 +241,32 @@ class InnodbTest extends PMATestCase
         Buffer Pool Activity
     </caption>
     <tbody>
-        <tr class="odd">
+        <tr>
             <th>Read requests</th>
             <td class="value">64
 </td>
         </tr>
-        <tr class="even">
+        <tr>
             <th>Write requests</th>
             <td class="value">64
 </td>
         </tr>
-        <tr class="odd">
+        <tr>
             <th>Read misses</th>
             <td class="value">32
 </td>
         </tr>
-        <tr class="even">
+        <tr>
             <th>Write waits</th>
             <td class="value">0
 </td>
         </tr>
-        <tr class="odd">
+        <tr>
             <th>Read misses in %</th>
             <td class="value">50   %
 </td>
         </tr>
-        <tr class="even">
+        <tr>
             <th>Write waits in %</th>
             <td class="value">0 %
 </td>

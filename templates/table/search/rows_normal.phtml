@@ -1,14 +1,12 @@
 <?php
-$odd_row = true;
 // for every column present in table
 for (
     $column_index = 0, $nb = count($columnNames);
     $column_index < $nb;
     $column_index++
 ): ?>
-    <tr class="noclick <?= $odd_row ? 'odd' : 'even'; ?>">
-        <?php $odd_row = !$odd_row; ?>
-        <!-- If 'Function' column is present -->
+    <tr class="noclick">
+        <!-- If 'Function' column is present trying to change comment -->
         <?php if ($geomColumnFlag): ?>
             <?= PMA\libraries\Template::get('table/search/geom_func')
                 ->render(array(

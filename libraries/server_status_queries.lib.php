@@ -77,8 +77,6 @@ function PMA_getHtmlForServerStatusQueriesDetails($ServerStatusData)
     // reverse sort by value to show most used statements first
     arsort($used_queries);
 
-    $odd_row        = true;
-
     //(- $ServerStatusData->status['Connections']);
     $perc_factor    = 100 / $total_queries;
 
@@ -103,7 +101,6 @@ function PMA_getHtmlForServerStatusQueriesDetails($ServerStatusData)
     $query_sum = array_sum($used_queries);
     $other_sum = 0;
     foreach ($used_queries as $name => $value) {
-        $odd_row = !$odd_row;
         // For the percentage column, use Questions - Connections, because
         // the number of connections is not an item of the Query types
         // but is included in Questions. Then the total of the percentages is 100.
@@ -115,9 +112,7 @@ function PMA_getHtmlForServerStatusQueriesDetails($ServerStatusData)
         } else {
             $chart_json[$name] = $value;
         }
-        $retval .= '<tr class="';
-        $retval .= $odd_row ? 'odd' : 'even';
-        $retval .= '">';
+        $retval .= '<tr>';
         $retval .= '<th class="name">' . htmlspecialchars($name) . '</th>';
         $retval .= '<td class="value">';
         $retval .= htmlspecialchars(
