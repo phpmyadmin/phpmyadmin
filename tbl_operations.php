@@ -326,12 +326,13 @@ if (mb_strstr($show_comment, '; InnoDB free') === false) {
 $response->addHTML(
     PMA_getTableOptionDiv(
         $comment, $tbl_collation, $tbl_storage_engine,
-        $is_myisam_or_aria, $is_isam, $create_options['pack_keys'],
+        $pma_table->isEngine(array("MYISAM", "ARIA")), $pma_table->isEngine('ISAM'), $create_options['pack_keys'],
         $auto_increment,
         (empty($create_options['delay_key_write']) ? '0' : '1'),
         ((isset($create_options['transactional']) && $create_options['transactional'] == '0') ? '0' : '1'),
         ((isset($create_options['page_checksum'])) ? $create_options['page_checksum'] : ''),
-        $is_innodb, $is_pbxt, $is_aria, (empty($create_options['checksum']) ? '0' : '1')
+        $pma_table->isEngine('INNODB'), $pma_table->isEngine('PBXT'), $pma_table->isEngine('ARIA'),
+        (empty($create_options['checksum']) ? '0' : '1')
     )
 );
 
