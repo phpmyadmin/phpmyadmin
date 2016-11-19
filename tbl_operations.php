@@ -346,9 +346,9 @@ $response->addHTML(PMA_getHtmlForCopytable());
  */
 $response->addHTML(
     PMA_getHtmlForTableMaintenance(
-        $is_myisam_or_aria,
-        $is_innodb,
-        $is_berkeleydb,
+        $pma_table->isEngine(array('MYISAM', 'ARIA')),
+        $pma_table->isEngine('INNODB'),
+        $pma_table->isEngine('BERKELEYDB'),
         $url_params
     )
 );
@@ -423,7 +423,7 @@ unset($partition_names);
 // so I assume that if the current table is InnoDB, I don't display
 // this choice (InnoDB maintains integrity by itself)
 
-if ($cfgRelation['relwork'] && ! $is_innodb) {
+if ($cfgRelation['relwork'] && ! $pma_table->isEngine("INNODB")) {
     $GLOBALS['dbi']->selectDb($GLOBALS['db']);
     $foreign = PMA_getForeigners($GLOBALS['db'], $GLOBALS['table'], '', 'internal');
 
