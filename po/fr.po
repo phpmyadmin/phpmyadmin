@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-11-10 09:40+0100\n"
-"PO-Revision-Date: 2016-11-16 13:27+0000\n"
+"PO-Revision-Date: 2016-11-19 12:34+0000\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: French "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/fr/>\n"
@@ -3942,12 +3942,11 @@ msgid "Language"
 msgstr "Langue"
 
 #: libraries/Linter.php:99
-#, fuzzy
 msgid ""
 "Linting is disabled for this query because it exceeds the maximum length."
 msgstr ""
-"L'indentation automatique et les commentaires sont désactivés pour cette "
-"requête car elle dépasse la longueur maximum."
+"Le peluchage est désactivé pour cette requête, car elle dépasse la longueur "
+"maximale."
 
 #: libraries/Linter.php:165
 #, php-format
@@ -5001,7 +5000,6 @@ msgid "Attribute"
 msgstr "Attribut"
 
 #: libraries/central_columns.lib.php:709 libraries/central_columns.lib.php:1387
-#, fuzzy
 msgid "A_I"
 msgstr "Incrémentation automatique"
 
@@ -7632,18 +7630,14 @@ msgid "Show last check timestamp"
 msgstr "Montrer la date de dernière vérification"
 
 #: libraries/config/messages.inc.php:858
-#, fuzzy
-#| msgid "Show or hide a column displaying the comments for all tables."
 msgid "Show or hide a column displaying the charset for all tables."
 msgstr ""
-"Montrer ou cacher une colonne affichant les commentaires pour toutes les "
-"tables."
+"Montrer ou cacher une colonne affichant le jeu de charactères pour toutes "
+"les tables."
 
 #: libraries/config/messages.inc.php:860
-#, fuzzy
-#| msgid "Show table comments"
 msgid "Show table charset"
-msgstr "Montrer les commentaires de table"
+msgstr "Montrer le jeu de caractères de la table"
 
 #: libraries/config/messages.inc.php:862
 msgid ""
