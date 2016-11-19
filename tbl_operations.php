@@ -51,11 +51,7 @@ $GLOBALS['dbi']->selectDb($GLOBALS['db']);
 require 'libraries/tbl_info.inc.php';
 
 // set initial value of these variables, based on the current table engine
-list($is_myisam_or_aria, $is_innodb, $is_isam,
-    $is_berkeleydb, $is_aria, $is_pbxt
-) = PMA_setGlobalVariablesForEngine($tbl_storage_engine);
-
-if ($is_aria) {
+if ($pma_table->isEngine('ARIA')) {
     // the value for transactional can be implicit
     // (no create option found, in this case it means 1)
     // or explicit (option found with a value of 0 or 1)
@@ -126,12 +122,8 @@ if (isset($_REQUEST['submitoptions'])) {
         && mb_strtoupper($_REQUEST['new_tbl_storage_engine']) !== $tbl_storage_engine
     ) {
         $new_tbl_storage_engine = mb_strtoupper($_REQUEST['new_tbl_storage_engine']);
-        // reset the globals for the new engine
-        list($is_myisam_or_aria, $is_innodb, $is_isam,
-            $is_berkeleydb, $is_aria, $is_pbxt
-        ) = PMA_setGlobalVariablesForEngine($new_tbl_storage_engine);
 
-        if ($is_aria) {
+        if ($pma_table->isEngine('ARIA')) {
             $create_options['transactional'] = (isset($create_options['transactional']) && $create_options['transactional'] == '0')
                 ? '0'
                 : '1';
@@ -142,12 +134,12 @@ if (isset($_REQUEST['submitoptions'])) {
     }
 
     $table_alters = PMA_getTableAltersArray(
-        $is_myisam_or_aria, $is_isam, $create_options['pack_keys'],
+        $pma_table->isEngine('MYISAM', 'ARIA'), $pma_table->isEngine('ISAM'), $create_options['pack_keys'],
         (empty($create_options['checksum']) ? '0' : '1'),
         $is_aria,
         ((isset($create_options['page_checksum'])) ? $create_options['page_checksum'] : ''),
         (empty($create_options['delay_key_write']) ? '0' : '1'),
-        $is_innodb, $is_pbxt, $create_options['row_format'],
+        $pma_table->isEngine('INNODB'), $pma_table->isEngine('PBXT'), $create_options['row_format'],
         $new_tbl_storage_engine,
         ((isset($create_options['transactional']) && $create_options['transactional'] == '0') ? '0' : '1'),
         $tbl_collation

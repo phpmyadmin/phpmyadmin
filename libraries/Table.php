@@ -160,6 +160,27 @@ class Table
         . $this->getName($backquoted);
     }
 
+
+    /**
+     * Checks the storage engine used to create table
+     *
+     * @param array or string $engine Checks the table engine against an
+     * array of engine strings or a single string
+     *
+     * @return bool True, if $engine matches the storage engine for the table,
+     * False otherwise.
+     */
+    public function isEngine($engine)
+    {
+        $supporteEngines = array('MYISAM', 'ARIA', 'MARIA', 'ISAM', 'INNODB', 'BERKELEYDB', 'PBXT');
+
+        if (is_array($engine) && in_array($this->tbl_storage_engine, $engine)){
+            return true;
+        }
+
+        return $this->tbl_storage_engine == $engine ? true : false;
+    }
+
     /**
      * returns whether the table is actually a view
      *
