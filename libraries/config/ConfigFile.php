@@ -557,6 +557,5 @@ class ConfigFile
             $tmp_subdir = rtrim($tmp_subdir, DIRECTORY_SEPARATOR);
         }
         return $tmp_subdir;
-        }
     }
 }
