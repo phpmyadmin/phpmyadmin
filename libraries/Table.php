@@ -178,6 +178,7 @@ class Table
                     return true;
                 }
             }
+            return false;
         }else{
             return $this->tbl_storage_engine == $engine ? true : false;
         }
