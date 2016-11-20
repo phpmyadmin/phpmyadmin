@@ -692,11 +692,10 @@ class Index
         $r .= '</thead>';
         $r .= '<tbody>';
 
-        $odd_row = true;
         foreach ($indexes as $index) {
             $row_span = ' rowspan="' . $index->getColumnCount() . '" ';
 
-            $r .= '<tr class="noclick ' . ($odd_row ? 'odd' : 'even') . '">';
+            $r .= '<tr class="noclick" >';
 
             if (! $print_mode) {
                 $this_params = $GLOBALS['url_params'];
@@ -767,7 +766,7 @@ class Index
 
             foreach ($index->getColumns() as $column) {
                 if ($column->getSeqInIndex() > 1) {
-                    $r .= '<tr class="noclick ' . ($odd_row ? 'odd' : 'even') . '">';
+                    $r .= '<tr class="noclick" >';
                 }
                 $r .= '<td>' . htmlspecialchars($column->getName());
                 if ($column->getSubPart()) {
@@ -792,7 +791,6 @@ class Index
                 $r .= '</tr>';
             } // end foreach $index['Sequences']
 
-            $odd_row = ! $odd_row;
         } // end while
         $r .= '</tbody>';
         $r .= '</table>';

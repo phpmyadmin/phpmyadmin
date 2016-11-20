@@ -173,8 +173,7 @@ AJAX.registerOnload('tbl_relation.js', function () {
         event.stopPropagation();
 
         var $prev_row = $(this).closest('tr').prev('tr');
-        var odd_even = ($prev_row.attr('class') == 'odd') ? 'even' : 'odd';
-        var $new_row = $prev_row.clone(true, true).attr('class', odd_even);
+        var $new_row = $prev_row.clone(true, true);
 
         // Update serial number.
         var curr_index = $new_row

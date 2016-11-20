@@ -2389,19 +2389,18 @@ function PMA_getListOfPrivilegesAndComparedPrivileges()
  * Get the HTML for routine based privileges
  *
  * @param string $db             database name
- * @param string $odd_row        row styling
  * @param string $index_checkbox starting index for rows to be added
  *
  * @return string $html_output
  */
-function PMA_getHtmlTableBodyForSpecificDbRoutinePrivs($db, $odd_row, $index_checkbox)
+function PMA_getHtmlTableBodyForSpecificDbRoutinePrivs($db, $index_checkbox)
 {
     $sql_query = 'SELECT * FROM `mysql`.`procs_priv` WHERE Db = \'' . $GLOBALS['dbi']->escapeString($db) . '\';';
     $res = $GLOBALS['dbi']->query($sql_query);
     $html_output = '';
     while ($row = $GLOBALS['dbi']->fetchAssoc($res)) {
 
-        $html_output .= '<tr class="' . ($odd_row ? 'odd' : 'even') . '">';
+        $html_output .= '<tr>';
 
         $html_output .= '<td';
         $value = htmlspecialchars($row['User'] . '&amp;#27;' . $row['Host']);
@@ -2443,7 +2442,6 @@ function PMA_getHtmlTableBodyForSpecificDbRoutinePrivs($db, $odd_row, $index_che
         $html_output .= '</td>';
 
         $html_output .= '</tr>';
-        $odd_row = !$odd_row;
 
     }
     return $html_output;
@@ -2692,9 +2690,8 @@ function PMA_getHtmlTableBodyForSpecificDbOrTablePrivs($privMap, $db)
 {
     $html_output = '<tbody>';
     $index_checkbox = 0;
-    $odd_row = true;
     if (empty($privMap)) {
-        $html_output .= '<tr class="odd">'
+        $html_output .= '<tr>'
             . '<td colspan="6">'
             . __('No user found.')
             . '</td>'
@@ -2706,7 +2703,7 @@ function PMA_getHtmlTableBodyForSpecificDbOrTablePrivs($privMap, $db)
     foreach ($privMap as $current_user => $val) {
         foreach ($val as $current_host => $current_privileges) {
             $nbPrivileges = count($current_privileges);
-            $html_output .= '<tr class="' . ($odd_row ? 'odd' : 'even') . '">';
+            $html_output .= '<tr>';
 
             $value = htmlspecialchars($current_user . '&amp;#27;' . $current_host);
             $html_output .= '<td';
@@ -2744,15 +2741,13 @@ function PMA_getHtmlTableBodyForSpecificDbOrTablePrivs($privMap, $db)
 
             $html_output .= PMA_getHtmlListOfPrivs(
                 $db, $current_privileges, $current_user,
-                $current_host, $odd_row
+                $current_host
             );
-
-            $odd_row = ! $odd_row;
         }
     }
 
     //For fetching routine based privileges
-    $html_output .= PMA_getHtmlTableBodyForSpecificDbRoutinePrivs($db, $odd_row, $index_checkbox);
+    $html_output .= PMA_getHtmlTableBodyForSpecificDbRoutinePrivs($db, $index_checkbox);
     $html_output .= '</tbody>';
 
     return $html_output;
@@ -2765,13 +2760,12 @@ function PMA_getHtmlTableBodyForSpecificDbOrTablePrivs($privMap, $db)
  * @param array   $current_privileges List of privileges
  * @param string  $current_user       Current user
  * @param string  $current_host       Current host
- * @param boolean $odd_row            Current row is odd
  *
  * @return string HTML to display privileges
  */
 function PMA_getHtmlListOfPrivs(
     $db, $current_privileges, $current_user,
-    $current_host, $odd_row
+    $current_host
 ) {
     $nbPrivileges = count($current_privileges);
     $html_output = null;
@@ -2862,8 +2856,7 @@ function PMA_getHtmlListOfPrivs(
 
         $html_output .= '</tr>';
         if (($i + 1) < $nbPrivileges) {
-            $html_output .= '<tr class="noclick '
-                . ($odd_row ? 'odd' : 'even') . '">';
+            $html_output .= '<tr class="noclick">';
         }
     }
     return $html_output;
@@ -3696,14 +3689,13 @@ function PMA_getHtmlTableBodyForUserRights($db_rights)
         $user_group_count = PMA_getUserGroupCount();
     }
 
-    $odd_row = true;
     $index_checkbox = 0;
     $html_output = '';
     foreach ($db_rights as $user) {
         ksort($user);
         foreach ($user as $host) {
             $index_checkbox++;
-            $html_output .= '<tr class="' . ($odd_row ? 'odd' : 'even') . '">'
+            $html_output .= '<tr>'
                 . "\n";
             $html_output .= '<td>'
                 . '<input type="checkbox" class="checkall" name="selected_usr[]" '
@@ -3800,7 +3792,6 @@ function PMA_getHtmlTableBodyForUserRights($db_rights)
                 )
                 . '</td>';
             $html_output .= '</tr>';
-            $odd_row = ! $odd_row;
         }
     }
     return $html_output;

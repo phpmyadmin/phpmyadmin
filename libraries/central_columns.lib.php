@@ -827,16 +827,14 @@ function PMA_getHTMLforAddCentralColumn($total_rows, $pos, $db)
  *
  * @param array   $row     array contains complete information of
  * a particular row of central list table
- * @param boolean $odd_row set true if the row is at odd number position
  * @param int     $row_num position the row in the table
  * @param string  $db      current database
  *
  * @return string html of a particular row in the central columns table.
  */
-function PMA_getHTMLforCentralColumnsTableRow($row, $odd_row, $row_num, $db)
+function PMA_getHTMLforCentralColumnsTableRow($row, $row_num, $db)
 {
-    $tableHtml = '<tr data-rownum="' . $row_num . '" id="f_' . $row_num . '" '
-        . 'class="' . ($odd_row ? 'odd' : 'even') . '">'
+    $tableHtml = '<tr data-rownum="' . $row_num . '" id="f_' . $row_num . '">'
         . URL::getHiddenInputs(
             $db
         )
@@ -1000,14 +998,13 @@ function PMA_getHTMLforCentralColumnsTableRow($row, $odd_row, $row_num, $db)
  *
  * @param array   $row     array contains complete information of
  * a particular row of central list table
- * @param boolean $odd_row set true if the row is at odd number position
  * @param int     $row_num position the row in the table
  *
  * @return string html of a particular row in the central columns table.
  */
-function PMA_getHTMLforCentralColumnsEditTableRow($row, $odd_row, $row_num)
+function PMA_getHTMLforCentralColumnsEditTableRow($row, $row_num)
 {
-    $tableHtml = '<tr class="' . ($odd_row ? 'odd' : 'even') . '">'
+    $tableHtml = '<tr>'
         . '<input name="orig_col_name[' . $row_num . ']" type="hidden" '
         . 'value="' . htmlspecialchars($row['col_name']) . '">'
         . '<td name="col_name" class="nowrap">'
@@ -1394,14 +1391,12 @@ function PMA_getHTMLforEditingPage($selected_fld,$selected_db)
     $columns_list = implode("','", $selected_fld_safe);
     $columns_list = "'" . $columns_list . "'";
     $list_detail_cols = PMA_findExistingColNames($selected_db, $columns_list, true);
-    $odd_row = false;
     $row_num = 0;
     foreach ($list_detail_cols as $row) {
         $tableHtmlRow = PMA_getHTMLforCentralColumnsEditTableRow(
-            $row, $odd_row, $row_num
+            $row, $row_num
         );
         $html .= $tableHtmlRow;
-        $odd_row = !$odd_row;
         $row_num++;
     }
     $html .= '</table>';

@@ -532,7 +532,6 @@ function PMA_getNullifyCodeForNullColumn($column, $foreigners, $foreignData)
  * @param string  $data                  description of the column field
  * @param string  $special_chars         special characters
  * @param array   $foreignData           data about the foreign keys
- * @param boolean $odd_row               whether row is odd
  * @param array   $paramTableDbArray     array containing $table and $db
  * @param integer $rownumber             the row number
  * @param array   $titles                An HTML IMG tag for a particular icon from
@@ -558,7 +557,7 @@ function PMA_getNullifyCodeForNullColumn($column, $foreigners, $foreignData)
  */
 function PMA_getValueColumn($column, $backup_field, $column_name_appendix,
     $onChangeClause, $tabindex, $tabindex_for_value, $idindex, $data,
-    $special_chars, $foreignData, $odd_row, $paramTableDbArray, $rownumber,
+    $special_chars, $foreignData, $paramTableDbArray, $rownumber,
     $titles, $text_dir, $special_chars_encoded, $vkey,
     $is_upload, $biggest_max_file_size,
     $default_char_editing, $no_support_types, $gis_data_types, $extracted_columnspec,
@@ -587,8 +586,7 @@ function PMA_getValueColumn($column, $backup_field, $column_name_appendix,
     ) {
         $html_output = '&nbsp;</td>';
         $html_output .= '</tr>';
-        $html_output .= '<tr class="' . ($odd_row ? 'odd' : 'even') . '">'
-            . '<td colspan="5" class="right">';
+        $html_output .= '<tr>' . '<td colspan="5" class="right">';
         $html_output .= PMA_getTextarea(
             $column, $backup_field, $column_name_appendix, $onChangeClause,
             $tabindex, $tabindex_for_value, $idindex, $text_dir,
@@ -2652,16 +2650,15 @@ function PMA_getHtmlForIgnoreOption($row_id, $checked = true)
 /**
  * Function to get html for the function option
  *
- * @param bool   $odd_row              whether odd row or not
  * @param array  $column               column
  * @param string $column_name_appendix column name appendix
  *
  * @return String
  */
-function PMA_getHtmlForFunctionOption($odd_row, $column, $column_name_appendix)
+function PMA_getHtmlForFunctionOption($column, $column_name_appendix)
 {
     $longDoubleTextArea = $GLOBALS['cfg']['LongtextDoubleTextarea'];
-    return '<tr class="noclick ' . ($odd_row ? 'odd' : 'even' ) . '">'
+    return '<tr class="noclick">'
         . '<td '
         . ($longDoubleTextArea
             && mb_strstr($column['True_Type'], 'longtext')
@@ -2727,7 +2724,6 @@ function PMA_getHtmlForInsertEditFormHeader($has_blob_field, $is_upload)
  * @param string $vkey                  validation key
  * @param bool   $insert_mode           whether insert mode
  * @param array  $current_row           current row
- * @param bool   $odd_row               whether odd row
  * @param int    &$o_rows               row offset
  * @param int    &$tabindex             tab index
  * @param int    $columns_cnt           columns count
@@ -2752,7 +2748,7 @@ function PMA_getHtmlForInsertEditFormHeader($has_blob_field, $is_upload)
  */
 function PMA_getHtmlForInsertEditFormColumn($table_columns, $column_number,
     $comments_map, $timestamp_seen, $current_result, $chg_evt_handler,
-    $jsvkey, $vkey, $insert_mode, $current_row, $odd_row, &$o_rows,
+    $jsvkey, $vkey, $insert_mode, $current_row, &$o_rows,
     &$tabindex, $columns_cnt, $is_upload, $tabindex_for_function,
     $foreigners, $tabindex_for_null, $tabindex_for_value, $table, $db,
     $row_id, $titles, $biggest_max_file_size, $default_char_editing,
@@ -2807,7 +2803,7 @@ function PMA_getHtmlForInsertEditFormColumn($table_columns, $column_number,
     }
 
     $html_output = PMA_getHtmlForFunctionOption(
-        $odd_row, $column, $column_name_appendix
+        $column, $column_name_appendix
     );
 
     if ($GLOBALS['cfg']['ShowFieldTypesInDataEditView']) {
@@ -2936,7 +2932,7 @@ function PMA_getHtmlForInsertEditFormColumn($table_columns, $column_number,
         $html_output .= PMA_getValueColumn(
             $column, $backup_field, $column_name_appendix, $onChangeClause,
             $tabindex, $tabindex_for_value, $idindex, $data, $special_chars,
-            $foreignData, $odd_row, array($table, $db), $row_id, $titles,
+            $foreignData, array($table, $db), $row_id, $titles,
             $text_dir, $special_chars_encoded, $vkey, $is_upload,
             $biggest_max_file_size, $default_char_editing,
             $no_support_types, $gis_data_types, $extracted_columnspec, $readOnly
@@ -2993,7 +2989,6 @@ function PMA_getHtmlForInsertEditRow($url_params, $table_columns,
     //store the default value for CharEditing
     $default_char_editing  = $GLOBALS['cfg']['CharEditing'];
     $mime_map = PMA_getMIME($db, $table);
-    $odd_row = true;
     $where_clause = '';
     if (isset($where_clause_array[$row_id])) {
         $where_clause = $where_clause_array[$row_id];
@@ -3007,13 +3002,12 @@ function PMA_getHtmlForInsertEditRow($url_params, $table_columns,
         $html_output .= PMA_getHtmlForInsertEditFormColumn(
             $table_columns, $column_number, $comments_map, $timestamp_seen,
             $current_result, $chg_evt_handler, $jsvkey, $vkey, $insert_mode,
-            $current_row, $odd_row, $o_rows, $tabindex, $columns_cnt, $is_upload,
+            $current_row, $o_rows, $tabindex, $columns_cnt, $is_upload,
             $tabindex_for_function, $foreigners, $tabindex_for_null,
             $tabindex_for_value, $table, $db, $row_id, $titles,
             $biggest_max_file_size, $default_char_editing, $text_dir, $repopulate,
             $column_mime, $where_clause
         );
-        $odd_row = !$odd_row;
     } // end for
     $o_rows++;
     $html_output .= '  </tbody>'
