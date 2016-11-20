@@ -172,13 +172,15 @@ class Table
      */
     public function isEngine($engine)
     {
-        $supporteEngines = array('MYISAM', 'ARIA', 'MARIA', 'ISAM', 'INNODB', 'BERKELEYDB', 'PBXT');
-
-        if (is_array($engine) && in_array($this->tbl_storage_engine, $engine)){
-            return true;
+        if (is_array($engine)){
+            foreach($engine as $e){
+                if($e == $this->isEngine()){
+                    return true;
+                }
+            }
+        }else{
+            return $this->tbl_storage_engine == $engine ? true : false;
         }
-
-        return $this->tbl_storage_engine == $engine ? true : false;
     }
 
     /**
