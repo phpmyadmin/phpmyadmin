@@ -1547,7 +1547,7 @@ function PMA_getHtmlForAuthPluginsDropdown(
         }
     } else {
         $active_auth_plugins = array(
-            'mysql_native_password' => __('Native MySQL Authentication')
+            'mysql_native_password' => __('Native MySQL authentication')
         );
     }
 

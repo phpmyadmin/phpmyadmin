@@ -2366,9 +2366,37 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
             $actualHtml
         );
 
+        /* Assertion 3 */
+        $actualHtml = PMA_getHtmlForAuthPluginsDropdown(
+            'mysql_native_password',
+            'new',
+            'old'
+        );
+        $this->assertEquals(
+            '<select name="authentication_plugin" '
+            . 'id="select_authentication_plugin"><option '
+            . 'value="mysql_native_password" selected="selected">'
+            . 'Native MySQL authentication</option></select>',
+            $actualHtml
+        );
 
+
+        /* Assertion 4 */
+        $actualHtml = PMA_getHtmlForAuthPluginsDropdown(
+            'mysql_native_password',
+            'change_pw',
+            'old'
+        );
+        $this->assertEquals(
+            '<select name="authentication_plugin" '
+            . 'id="select_authentication_plugin_cp"><option '
+            . 'value="mysql_native_password" selected="selected">'
+            . 'Native MySQL authentication</option></select>',
+            $actualHtml
+        );
+
+        // Restore old DBI
         $GLOBALS['dbi'] = $oldDbi;
-
     }
 
     /**
