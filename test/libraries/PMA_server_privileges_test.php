@@ -2301,6 +2301,77 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test for PMA_getHtmlForAuthPluginsDropdown()
+     *
+     * @return void
+     */
+    function testPMAGetHtmlForAuthPluginsDropdown()
+    {
+        $oldDbi = $GLOBALS['dbi'];
+
+        //Mock DBI
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+            ->disableOriginalConstructor()
+            ->getMock();
+        $dbi->expects($this->any())
+            ->method('query')
+            ->will($this->onConsecutiveCalls(true, true));
+
+        $plugins = array(
+            array(
+                'PLUGIN_NAME'=>'mysql_native_password',
+                'PLUGIN_DESCRIPTION' => 'Native MySQL authentication'
+            ),
+            array(
+                'PLUGIN_NAME' => 'sha256_password',
+                'PLUGIN_DESCRIPTION' => 'SHA256 password authentication'
+            )
+        );
+        $dbi->expects($this->any())
+            ->method('fetchAssoc')
+            ->will(
+                $this->onConsecutiveCalls(
+                    $plugins[0], $plugins[1], null, /* For Assertion 1 */
+                    $plugins[0], $plugins[1], null  /* For Assertion 2 */
+                )
+            );
+        $GLOBALS['dbi'] = $dbi;
+
+        /* Assertion 1 */
+        $actualHtml = PMA_getHtmlForAuthPluginsDropdown(
+            'mysql_native_password',
+            'new',
+            'new'
+        );
+        $this->assertEquals(
+            '<select name="authentication_plugin" id="select_authentication_plugin">'
+            . '<option value="mysql_native_password" selected="selected">'
+            . 'Native MySQL authentication</option><option value="sha256_password">'
+            . 'SHA256 password authentication</option></select>',
+            $actualHtml
+        );
+
+        /* Assertion 2 */
+        $actualHtml = PMA_getHtmlForAuthPluginsDropdown(
+            'mysql_native_password',
+            'change_pw',
+            'new'
+        );
+        $this->assertEquals(
+            '<select name="authentication_plugin" '
+            . 'id="select_authentication_plugin_cp"><option '
+            . 'value="mysql_native_password" selected="selected">'
+            . 'Native MySQL authentication</option><option value="sha256_password">'
+            . 'SHA256 password authentication</option></select>',
+            $actualHtml
+        );
+
+
+        $GLOBALS['dbi'] = $oldDbi;
+
+    }
+
+    /**
      * Tests for PMA_deleteUser
      *
      * @return void
