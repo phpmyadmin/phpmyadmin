@@ -1577,9 +1577,9 @@ function PMA_getActiveAuthPlugins()
 
     while ($row = $GLOBALS['dbi']->fetchAssoc($resultset)) {
         // if description is known, enable its translation
-        if ('Native MySQL authentication' == $row['PLUGIN_DESCRIPTION']) {
+        if ('mysql_native_password' == $row['PLUGIN_NAME']) {
             $row['PLUGIN_DESCRIPTION'] = __('Native MySQL authentication');
-        } elseif ('SHA256 password authentication' == $row['PLUGIN_DESCRIPTION']) {
+        } elseif ('sha256_password' == $row['PLUGIN_NAME']) {
             $row['PLUGIN_DESCRIPTION'] = __('SHA256 password authentication');
         }
 
