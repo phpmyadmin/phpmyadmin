@@ -1536,41 +1536,31 @@ function PMA_getHtmlForAuthPluginsDropdown(
     $mode = 'new',
     $versions = 'new'
 ) {
-    $html_output = '<select '
-        . 'id="select_authentication_plugin'
-        . ($mode =='change_pw' ? '_cp' : '') . '" '
-        . 'name="authentication_plugin" >';
+    $select_id = 'select_authentication_plugin'
+        . ($mode =='change_pw' ? '_cp' : '');
+
     if ($versions == 'new') {
         $active_auth_plugins = PMA_getActiveAuthPlugins();
 
-        foreach ($active_auth_plugins as $plugin) {
-            if ($plugin['PLUGIN_NAME'] == 'mysql_old_password') {
-                continue;
-            }
-            // if description is known, enable its translation
-            if ('Native MySQL authentication' == $plugin['PLUGIN_DESCRIPTION']) {
-                $description = __('Native MySQL authentication');
-            } elseif ('SHA256 password authentication' == $plugin['PLUGIN_DESCRIPTION']) {
-                $description = __('SHA256 password authentication');
-            } else {
-                // but there can be other auth plugins, see
-                // https://github.com/phpmyadmin/phpmyadmin/issues/11561
-                $description = $plugin['PLUGIN_DESCRIPTION'];
-            }
-
-            $html_output .= '<option value="' . $plugin['PLUGIN_NAME'] . '"'
-                . ($orig_auth_plugin == $plugin['PLUGIN_NAME'] ? 'selected ' : '')
-                . '>' . $description . '</option>';
+        if (isset($active_auth_plugins['mysql_old_password'])) {
+            unset($active_auth_plugins['mysql_old_password']);
         }
-        $html_output .= '</select>';
     } else {
-        $html_output .= '<option value="mysql_native_password" >'
-            . __('Native MySQL Authentication') . '</option>'
-            . '</select>';
+        $active_auth_plugins = array(
+            'mysql_native_password' => __('Native MySQL Authentication')
+        );
     }
+
+    $html_output = Util::getDropdown(
+        'authentication_plugin',
+        $active_auth_plugins,
+        $orig_auth_plugin,
+        $select_id
+    );
 
     return $html_output;
 }
+
 /**
  * Gets the currently active authentication plugins
  *
@@ -1586,7 +1576,14 @@ function PMA_getActiveAuthPlugins()
     $result = array();
 
     while ($row = $GLOBALS['dbi']->fetchAssoc($resultset)) {
-        $result[] = $row;
+        // if description is known, enable its translation
+        if ('Native MySQL authentication' == $row['PLUGIN_DESCRIPTION']) {
+            $row['PLUGIN_DESCRIPTION'] = __('Native MySQL authentication');
+        } elseif ('SHA256 password authentication' == $row['PLUGIN_DESCRIPTION']) {
+            $row['PLUGIN_DESCRIPTION'] = __('SHA256 password authentication');
+        }
+
+        $result[$row['PLUGIN_NAME']] = $row['PLUGIN_DESCRIPTION'];
     }
 
     return $result;
