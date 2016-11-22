@@ -429,18 +429,32 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['dbi'] = $dbi;
 
         $actualHtml = PMA_getHtmlForUserGroupDialog($username, $is_menuswork);
-        $this->assertEquals(
-            '<form class="ajax" id="changeUserGroupForm" '
-            . 'action="server_privileges.php" method="post">'
-            . '<input type="hidden" name="username" value="test">'
-            . '<fieldset id="fieldset_user_group_selection">'
-            . 'User group :'
-            . '<select name="userGroup" id="userGroup_select">'
-            . '<option value=""></option>'
-            . '<option value="userG" selected="selected">userG</option></select>'
-            . '<input type="hidden" name="changeUserGroup" value="1">'
-            . '</fieldset>'
-            . '</form>',
+        $this->assertContains(
+            '<form class="ajax" id="changeUserGroupForm"',
+            $actualHtml
+        );
+        //URL::getHiddenInputs
+        $params = array('username' => $username);
+        $html_output = URL::getHiddenInputs($params);
+        $this->assertContains(
+            $html_output,
+            $actualHtml
+        );
+        //__('User group')
+        $this->assertContains(
+            __('User group'),
+            $actualHtml
+        );
+
+        // Empty default user group
+        $this->assertContains(
+            '<option value=""></option>',
+            $actualHtml
+        );
+
+        // Current user's group selected
+        $this->assertContains(
+            '<option value="userG" selected="selected">userG</option>',
             $actualHtml
         );
 
