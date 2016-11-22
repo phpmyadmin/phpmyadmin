@@ -455,35 +455,19 @@ function PMA_getGrantsArray()
 function PMA_getHtmlForColumnPrivileges($columns, $row, $name_for_select,
     $priv_for_header, $name, $name_for_dfn, $name_for_current
 ) {
-    $html_output = '<div class="item" id="div_item_' . $name . '">' . "\n"
-        . '<label for="select_' . $name . '_priv">' . "\n"
-        . '<code><dfn title="' . $name_for_dfn . '">'
-        . $priv_for_header . '</dfn></code>' . "\n"
-        . '</label><br />' . "\n"
-        . '<select id="select_' . $name . '_priv" name="'
-        . $name_for_select . '[]" multiple="multiple" size="8">' . "\n";
+    $data = array(
+        'columns'          => $columns,
+        'row'              => $row,
+        'name_for_select'  => $name_for_select,
+        'priv_for_header'  => $priv_for_header,
+        'name'             => $name,
+        'name_for_dfn'     => $name_for_dfn,
+        'name_for_current' => $name_for_current
+    );
 
-    foreach ($columns as $currCol => $currColPrivs) {
-        $html_output .= '<option '
-            . 'value="' . htmlspecialchars($currCol) . '"';
-        if ($row[$name_for_select] == 'Y'
-            || $currColPrivs[$name_for_current]
-        ) {
-            $html_output .= ' selected="selected"';
-        }
-        $html_output .= '>'
-            . htmlspecialchars($currCol) . '</option>' . "\n";
-    }
+    $html_output = Template::get('privileges/column_privileges')
+        ->render($data);
 
-    $html_output .= '</select>' . "\n"
-        . '<i>' . __('Or') . '</i>' . "\n"
-        . '<label for="checkbox_' . $name_for_select
-        . '_none"><input type="checkbox"'
-        . ' name="' . $name_for_select . '_none" id="checkbox_'
-        . $name_for_select . '_none" title="'
-        . _pgettext('None privileges', 'None') . '" />'
-        . _pgettext('None privileges', 'None') . '</label>' . "\n"
-        . '</div>' . "\n";
     return $html_output;
 } // end function
 
