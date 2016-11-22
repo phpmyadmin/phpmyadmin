@@ -24,14 +24,23 @@ if (! defined('PHPMYADMIN')) {
 function get($array, $path, $default = null)
 {
     if (is_string($path)) {
-        $path = explode('.', $path);
+        $path = str_getcsv($path,'.','`');
     }
+
     $p = array_shift($path);
     while (isset($p)) {
-        if (!isset($array[$p])) {
+        if (!isset($array[$p]) && !isset($array['`' . $p . '`'])) {
             return $default;
         }
-        $array = $array[$p];
+
+        if (isset($array[$p])) {
+            $array = $array[$p];
+        }
+
+        if (isset($array['`' . $p . '`'])) {
+            $array = $array['`' . $p . '`'];
+        }
+
         $p = array_shift($path);
     }
     return $array;
