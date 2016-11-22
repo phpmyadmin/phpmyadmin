@@ -387,6 +387,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
         $_REQUEST['edit_user_group_dialog'] = "edit_user_group_dialog";
         $GLOBALS['is_ajax_request'] = false;
 
+        /* Assertion 1 */
         //PMA_getHtmlForUserGroupDialog
         $html = PMA_getHtmlForUserGroupDialog($username, $is_menuswork);
         $this->assertContains(
@@ -405,6 +406,46 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
             __('User group'),
             $html
         );
+
+        /* Assertion 2 */
+        $oldDbi = $GLOBALS['dbi'];
+        //Mock DBI
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+            ->disableOriginalConstructor()
+            ->getMock();
+
+        $dbi->expects($this->any())
+            ->method('fetchValue')
+            ->will($this->returnValue('userG'));
+        $dbi->expects($this->any())
+            ->method('tryQuery')
+            ->will($this->returnValue(true));
+        $dbi->expects($this->any())
+            ->method('fetchRow')
+            ->willReturnOnConsecutiveCalls(array('userG'), null);
+        $dbi->expects($this->any())->method('escapeString')
+            ->will($this->returnArgument(0));
+
+        $GLOBALS['dbi'] = $dbi;
+
+        $actualHtml = PMA_getHtmlForUserGroupDialog($username, $is_menuswork);
+        $this->assertEquals(
+            '<form class="ajax" id="changeUserGroupForm" '
+            . 'action="server_privileges.php" method="post">'
+            . '<input type="hidden" name="username" value="test">'
+            . '<fieldset id="fieldset_user_group_selection">'
+            . 'User group :'
+            . '<select name="userGroup" id="userGroup_select">'
+            . '<option value=""></option>'
+            . '<option value="userG" selected="selected">userG</option></select>'
+            . '<input type="hidden" name="changeUserGroup" value="1">'
+            . '</fieldset>'
+            . '</form>',
+            $actualHtml
+        );
+
+        /* reset original dbi */
+        $GLOBALS['dbi'] = $oldDbi;
     }
 
     /**
