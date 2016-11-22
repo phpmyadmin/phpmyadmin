@@ -528,28 +528,11 @@ function PMA_getSqlQueryForDisplayPrivTable($db, $table, $username, $hostname)
  */
 function PMA_getHtmlToChooseUserGroup($username)
 {
-    $html_output = '<form class="ajax" id="changeUserGroupForm"'
-            . ' action="server_privileges.php" method="post">';
-    $params = array('username' => $username);
-    $html_output .= URL::getHiddenInputs($params);
-    $html_output .= '<fieldset id="fieldset_user_group_selection">';
-    $html_output .= '<legend>' . __('User group') . '</legend>';
-
     $cfgRelation = PMA_getRelationsParam();
     $groupTable = Util::backquote($cfgRelation['db'])
         . "." . Util::backquote($cfgRelation['usergroups']);
     $userTable = Util::backquote($cfgRelation['db'])
         . "." . Util::backquote($cfgRelation['users']);
-
-    $userGroups = array();
-    $sql_query = "SELECT DISTINCT `usergroup` FROM " . $groupTable;
-    $result = PMA_queryAsControlUser($sql_query, false);
-    if ($result) {
-        while ($row = $GLOBALS['dbi']->fetchRow($result)) {
-            $userGroups[] = $row[0];
-        }
-    }
-    $GLOBALS['dbi']->freeResult($result);
 
     $userGroup = '';
     if (isset($GLOBALS['username'])) {
@@ -560,20 +543,25 @@ function PMA_getHtmlToChooseUserGroup($username)
         );
     }
 
-    $html_output .= __('User group') . ': ';
-    $html_output .= '<select name="userGroup">';
-    $html_output .= '<option value=""></option>';
-    foreach ($userGroups as $oneUserGroup) {
-        $html_output .= '<option value="' . htmlspecialchars($oneUserGroup) . '"'
-            . ($oneUserGroup == $userGroup ? ' selected="selected"' : '')
-            . '>'
-            . htmlspecialchars($oneUserGroup)
-            . '</option>';
+    $allUserGroups = array('' => '');
+    $sql_query = "SELECT DISTINCT `usergroup` FROM " . $groupTable;
+    $result = PMA_queryAsControlUser($sql_query, false);
+    if ($result) {
+        while ($row = $GLOBALS['dbi']->fetchRow($result)) {
+            $allUserGroups[$row[0]] = $row[0];
+        }
     }
-    $html_output .= '</select>';
-    $html_output .= '<input type="hidden" name="changeUserGroup" value="1">';
-    $html_output .= '</fieldset>';
-    $html_output .= '</form>';
+    $GLOBALS['dbi']->freeResult($result);
+
+    // render the template
+    $data = array(
+        'allUserGroups'   => $allUserGroups,
+        'userGroup'       => $userGroup,
+        'params'          => array('username' => $username)
+    );
+    $html_output = Template::get('privileges/choose_user_group')
+        ->render($data);
+
     return $html_output;
 }
 
