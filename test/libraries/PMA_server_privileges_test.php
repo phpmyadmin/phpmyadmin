@@ -372,7 +372,138 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
             _pgettext('None privileges', 'None'),
             $html
         );
+    }
 
+    /**
+     * Test for PMA_getHtmlForRequires
+     *
+     * @return void
+     */
+    public function testPMAGetHtmlForRequires()
+    {
+        /* Assertion 1 */
+        $row = array(
+            'ssl_type'   => '',
+            'ssh_cipher' => ''
+        );
+
+        $html = PMA_getHtmlForRequires(
+            $row
+        );
+        // <legend>SSL</legend>
+        $this->assertContains(
+            '<legend>SSL</legend>',
+            $html
+        );
+        $this->assertContains(
+            'value="NONE" checked="checked"',
+            $html
+        );
+        $this->assertContains(
+            'value="ANY"',
+            $html
+        );
+        $this->assertContains(
+            'value="X509"',
+            $html
+        );
+        $this->assertContains(
+            'value="SPECIFIED"',
+            $html
+        );
+
+        /* Assertion 2 */
+        $row = array(
+            'ssl_type'   => 'ANY',
+            'ssh_cipher' => ''
+        );
+
+        $html = PMA_getHtmlForRequires(
+            $row
+        );
+        // <legend>SSL</legend>
+        $this->assertContains(
+            '<legend>SSL</legend>',
+            $html
+        );
+        $this->assertContains(
+            'value="NONE"',
+            $html
+        );
+        $this->assertContains(
+            'value="ANY" checked="checked"',
+            $html
+        );
+        $this->assertContains(
+            'value="X509"',
+            $html
+        );
+        $this->assertContains(
+            'value="SPECIFIED"',
+            $html
+        );
+
+        /* Assertion 3 */
+        $row = array(
+            'ssl_type'   => 'X509',
+            'ssh_cipher' => ''
+        );
+
+        $html = PMA_getHtmlForRequires(
+            $row
+        );
+        // <legend>SSL</legend>
+        $this->assertContains(
+            '<legend>SSL</legend>',
+            $html
+        );
+        $this->assertContains(
+            'value="NONE"',
+            $html
+        );
+        $this->assertContains(
+            'value="ANY"',
+            $html
+        );
+        $this->assertContains(
+            'value="X509" checked="checked"',
+            $html
+        );
+        $this->assertContains(
+            'value="SPECIFIED"',
+            $html
+        );
+
+        /* Assertion 4 */
+        $row = array(
+            'ssl_type'   => 'SPECIFIED',
+            'ssh_cipher' => ''
+        );
+
+        $html = PMA_getHtmlForRequires(
+            $row
+        );
+        // <legend>SSL</legend>
+        $this->assertContains(
+            '<legend>SSL</legend>',
+            $html
+        );
+        $this->assertContains(
+            'value="NONE"',
+            $html
+        );
+        $this->assertContains(
+            'value="ANY"',
+            $html
+        );
+        $this->assertContains(
+            'value="X509"',
+            $html
+        );
+        $this->assertContains(
+            'value="SPECIFIED" checked="checked"',
+            $html
+        );
     }
 
     /**
