@@ -536,7 +536,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
             $html
         );
         $this->assertContains(
-            __('Limits the number of simultaneous connections the user may have.'),
+            __('Limits the number of new connections the user may open per hour.'),
             $html
         );
         $this->assertContains(
