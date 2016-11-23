@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-11-10 09:40+0100\n"
-"PO-Revision-Date: 2016-11-19 12:34+0000\n"
+"PO-Revision-Date: 2016-11-23 14:43+0000\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: French "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/fr/>\n"
@@ -10473,10 +10473,9 @@ msgid "Last check:"
 msgstr "Dernière vérification : "
 
 #: libraries/plugins/export/ExportSql.php:1488
-#, fuzzy, php-format
-#| msgid "Table structure for table"
+#, php-format
 msgid "Error reading structure for table %s:"
-msgstr "Structure de la table"
+msgstr "Erreur de lecture de structure pour la table %s :"
 
 #: libraries/plugins/export/ExportSql.php:1542
 msgid "It appears your database uses views;"
@@ -10528,10 +10527,9 @@ msgid "(See below for the actual view)"
 msgstr "(Voir ci-dessous la vue réelle)"
 
 #: libraries/plugins/export/ExportSql.php:2204
-#, fuzzy, php-format
-#| msgid "Error reading data:"
+#, php-format
 msgid "Error reading data for table %s:"
-msgstr "Erreur de lecture des données : "
+msgstr "Erreur de lecture des données pour la table %s :"
 
 #: libraries/plugins/export/ExportXml.php:97
 msgid "Object creation options (all are recommended)"
@@ -11862,28 +11860,20 @@ msgid "routine"
 msgstr "Procédure stockée"
 
 #: libraries/rte/rte_words.lib.php:32
-#, fuzzy
-#| msgid "You do not have the necessary privileges to create a routine"
 msgid "You do not have the necessary privileges to create a routine."
-msgstr "Vous n'avez pas les privilèges nécessaires pour créer une procédure"
+msgstr "Vous n'avez pas les privilèges nécessaires pour créer une procédure."
 
 #: libraries/rte/rte_words.lib.php:35
-#, fuzzy, php-format
-#| msgid ""
-#| "No routine with name %1$s found in database %2$s. You might be lacking "
-#| "the necessary privileges to edit this routine"
+#, php-format
 msgid ""
 "No routine with name %1$s found in database %2$s. You might be lacking the "
 "necessary privileges to edit this routine."
 msgstr ""
 "La procédure %1$s n'a pas été trouvée dans la base de données %2$s . Vous "
-"manquez sans-doute des privilèges nécessaires pour modifier cette procédure"
+"manquez sans doute des privilèges nécessaires pour modifier cette procédure."
 
 #: libraries/rte/rte_words.lib.php:39
-#, fuzzy, php-format
-#| msgid ""
-#| "No routine with name %1$s found in database %2$s. You might be lacking "
-#| "the necessary privileges to view/export this routine"
+#, php-format
 msgid ""
 "No routine with name %1$s found in database %2$s. You might be lacking the "
 "necessary privileges to view/export this routine."
