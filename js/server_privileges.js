@@ -392,7 +392,7 @@ AJAX.registerOnload('server_privileges.js', function () {
 
     $(document).on('change', 'input[name="ssl_type"]', function (e) {
         var $div = $('#specified_div');
-        if ($('#ssl_type_specified').is(':checked')) {
+        if ($('#ssl_type_SPECIFIED').is(':checked')) {
             $div.find('input').prop('disabled', false);
         } else {
             $div.find('input').prop('disabled', true);
@@ -403,7 +403,7 @@ AJAX.registerOnload('server_privileges.js', function () {
         var $div = $('#require_ssl_div');
         if ($(this).is(':checked')) {
             $div.find('input').prop('disabled', false);
-            $('#ssl_type_specified').trigger('change');
+            $('#ssl_type_SPECIFIED').trigger('change');
         } else {
             $div.find('input').prop('disabled', true);
         }
