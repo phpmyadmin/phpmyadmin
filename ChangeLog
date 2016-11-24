@@ -1,7 +1,7 @@
 phpMyAdmin - ChangeLog
 ======================
 
-4.6.5 (not yet released)
+4.6.5 (2016-11-24)
 - issue        Remove potentionally license problematic sRGB profile
 - issue #12459 Display read only fields as read only when editing
 - issue #12384 Fix expanding of navigation pane when clicking on database
@@ -86,6 +86,20 @@ phpMyAdmin - ChangeLog
 - issue #12257 Improved search page performance
 - issue #12322 Avoid selecting default function for foreign keys
 - issue #12453 Fixed escaping of SQL parts in some corner cases
+- issue        [security] Unsafe generation of $cfg['blowfish_secret'], see PMASA-2016-58
+- issue        [security] phpMyAdmin's phpinfo functionality is removed, see PMASA-2016-59
+- issue        [security] AllowRoot and allow/deny rule bypass with specially-crafted username, see PMASA-2016-60
+- issue        [security] Username matching weaknesses with allow/deny rules, see PMASA-2016-61
+- issue        [security] Possible to bypass logout timeout, see PMASA-2016-62
+- issue        [security] Full path disclosure (FPD) weaknesses, see PMASA-2016-63
+- issue        [security] Multiple XSS weaknesses, see PMASA-2016-64
+- issue        [security] Multiple denial-of-service (DOS) vulnerabilities, see PMASA-2016-65
+- issue        [security] Possible to bypass white-list protection for URL redirection, see PMASA-2016-66
+- issue        [security] BBCode injection to login page, see PMASA-2016-67
+- issue        [security] Denial-of-service (DOS) vulnerability in table partitioning, see PMASA-2016-68
+- issue        [security] Multiple SQL injection vulnerabilities, see PMASA-2016-69
+- issue        [security] Incorrect serialized string parsing, see PMASA-2016-70
+- issue        [security] CSRF token not stripped from the URL, see PMASA-2016-71
 
 4.6.4 (2016-08-16)
 - issue        [security] Weaknesses with cookie encryption, see PMASA-2016-29
