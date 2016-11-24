@@ -63,16 +63,6 @@ put phpMyAdmin-$REL-all-languages.zip.sha1
 put phpMyAdmin-$REL-english.zip.sha1
 put phpMyAdmin-$REL-all-languages.7z.sha1
 put phpMyAdmin-$REL-english.7z.sha1
-put phpMyAdmin-$REL-all-languages.tar.bz2.md5
-put phpMyAdmin-$REL-english.tar.bz2.md5
-put phpMyAdmin-$REL-all-languages.tar.xz.md5
-put phpMyAdmin-$REL-english.tar.xz.md5
-put phpMyAdmin-$REL-all-languages.tar.gz.md5
-put phpMyAdmin-$REL-english.tar.gz.md5
-put phpMyAdmin-$REL-all-languages.zip.md5
-put phpMyAdmin-$REL-english.zip.md5
-put phpMyAdmin-$REL-all-languages.7z.md5
-put phpMyAdmin-$REL-english.7z.md5
 put phpMyAdmin-$REL-notes.html
 EOT
 
