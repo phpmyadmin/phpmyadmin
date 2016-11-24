@@ -699,148 +699,104 @@ function PMA_getHtmlToDisplayPrivilegesTable($db = '*',
  */
 function PMA_getHtmlForRequires($row)
 {
-    $html_output  = '<fieldset>';
-    $html_output .= '<legend>SSL</legend>';
-
-    $html_output .= '<div id="require_ssl_div">';
-
-    // REQUIRE NONE
-    $html_output .= '<div class="item">';
-    $html_output .= '<input type="radio" name="ssl_type" id="ssl_type_NONE"'
-        . ' value="NONE" title="'
-        . __(
-            'Does not require SSL-encrypted connections.'
-        )
-        . '"'
-        . ((isset($row['ssl_type'])
-            && ($row['ssl_type'] == 'NONE'
-                || $row['ssl_type'] == ''))
-            ? ' checked="checked"'
-            : ''
-        )
-        . '/>';
-
-    $html_output .= '<label for="ssl_type_NONE"><code>'
-        . 'REQUIRE NONE'
-        . '</code></label>';
-    $html_output .= '</div>';
-
-    // REQUIRE SSL
-    $html_output .= '<div class="item">';
-    $html_output .= '<input type="radio" name="ssl_type" id="ssl_type_ANY"'
-        . ' value="ANY" title="'
-        . __(
-            'Requires SSL-encrypted connections.'
-        )
-        . '"'
-        . ((isset($row['ssl_type'])
-            && $row['ssl_type'] == 'ANY')
-            ? ' checked="checked"'
-            : ''
-        )
-        . '/>';
-
-    $html_output .= '<label for="ssl_type_ANY"><code>'
-        . 'REQUIRE SSL'
-        . '</code></label>';
-    $html_output .= '</div>';
-
-    // REQUIRE X509
-    $html_output .= '<div class="item">';
-    $html_output .= '<input type="radio" name="ssl_type" id="ssl_type_X509"'
-        . ' value="X509" title="'
-        . __(
-            'Requires a valid X509 certificate.'
-        )
-        . '"'
-        . ((isset($row['ssl_type']) && $row['ssl_type'] == 'X509')
-            ? ' checked="checked"'
-            : ''
-        )
-        . '/>';
-
-    $html_output .= '<label for="ssl_type_X509"><code>'
-        . 'REQUIRE X509'
-        . '</code></label>';
-    $html_output .= '</div>';
-
-    // Specified
     $specified = (isset($row['ssl_type']) && $row['ssl_type'] == 'SPECIFIED');
-    $html_output .= '<div class="item">';
-    $html_output .= '<input type="radio" name="ssl_type" id="ssl_type_specified"'
-        . ' value="SPECIFIED"' . ($specified ? ' checked="checked"' : '') . '/>';
+    $require_options = array(
+        array(
+            'name'        => 'ssl_type',
+            'value'       => 'NONE',
+            'description' => __(
+                'Does not require SSL-encrypted connections.'
+            ),
+            'label'       => 'REQUIRE NONE',
+            'checked'     => ((isset($row['ssl_type'])
+                && ($row['ssl_type'] == 'NONE'
+                    || $row['ssl_type'] == ''))
+                ? 'checked="checked"'
+                : ''
+            ),
+            'disabled'    => false,
+            'radio'       => true
+        ),
+        array(
+            'name'        => 'ssl_type',
+            'value'       => 'ANY',
+            'description' => __(
+                'Requires SSL-encrypted connections.'
+            ),
+            'label'       => 'REQUIRE SSL',
+            'checked'     => (isset($row['ssl_type']) && ($row['ssl_type'] == 'ANY')
+                ? 'checked="checked"'
+                : ''
+            ),
+            'disabled'    => false,
+            'radio'       => true
+        ),
+        array(
+            'name'        => 'ssl_type',
+            'value'       => 'X509',
+            'description' => __(
+                'Requires a valid X509 certificate.'
+            ),
+            'label'       => 'REQUIRE SSL',
+            'checked'     => (isset($row['ssl_type']) && ($row['ssl_type'] == 'X509')
+                ? 'checked="checked"'
+                : ''
+            ),
+            'disabled'    => false,
+            'radio'       => true
+        ),
+        array(
+            'name'        => 'ssl_type',
+            'value'       => 'SPECIFIED',
+            'description' => '',
+            'label'       => 'SPECIFIED',
+            'checked'     => ($specified ? 'checked="checked"' : ''),
+            'disabled'    => false,
+            'radio'       => true
+        ),
+        array(
+            'name'        => 'ssl_cipher',
+            'value'       => (isset($row['ssl_cipher'])
+                ? htmlspecialchars($row['ssl_cipher']) : ''
+            ),
+            'description' => __(
+                'Requires that a specific cipher method be used for a connection.'
+            ),
+            'label'       => 'REQUIRE CIPHER',
+            'checked'     => '',
+            'disabled'    => ! $specified,
+            'radio'       => false
+        ),
+        array(
+            'name'        => 'x509_issuer',
+            'value'       => (isset($row['x509_issuer'])
+                ? htmlspecialchars($row['x509_issuer']) : ''
+            ),
+            'description' => __(
+                'Requires that a valid X509 certificate issued by this CA be presented.'
+            ),
+            'label'       => 'REQUIRE ISSUER',
+            'checked'     => '',
+            'disabled'    => ! $specified,
+            'radio'       => false
+        ),
+        array(
+            'name'        => 'x509_subject',
+            'value'       => (isset($row['x509_subject'])
+                ? htmlspecialchars($row['x509_subject']) : ''
+            ),
+            'description' => __(
+                'Requires that a valid X509 certificate with this subject be presented.'
+            ),
+            'label'       => 'REQUIRE SUBJECT',
+            'checked'     => '',
+            'disabled'    => ! $specified,
+            'radio'       => false
+        ),
+    );
 
-    $html_output .= '<label for="ssl_type_specified"><code>'
-        . 'SPECIFIED'
-        . '</code></label>';
-    $html_output .= '</div>';
-
-    $html_output .= '<div id="specified_div" style="padding-left:20px;">';
-
-    // REQUIRE CIPHER
-    $html_output .= '<div class="item">';
-    $html_output .= '<label for="text_ssl_cipher">'
-        . '<code><dfn title="'
-        . __(
-            'Requires that a specific cipher method be used for a connection.'
-        )
-        . '">'
-        . 'REQUIRE CIPHER'
-        . '</dfn></code></label>';
-    $html_output .= '<input type="text" name="ssl_cipher" id="text_ssl_cipher" '
-        . 'value="' . (isset($row['ssl_cipher']) ? htmlspecialchars($row['ssl_cipher']) : '') . '" '
-        . 'size=80" title="'
-        . __(
-            'Requires that a specific cipher method be used for a connection.'
-        ) . '"'
-        . (! $specified ? ' disabled' : '')
-        . ' />';
-    $html_output .= '</div>';
-
-    // REQUIRE ISSUER
-    $html_output .= '<div class="item">';
-    $html_output .= '<label for="text_x509_issuer">'
-        . '<code><dfn title="'
-        . __(
-            'Requires that a valid X509 certificate issued by this CA be presented.'
-        )
-        . '">'
-        . 'REQUIRE ISSUER'
-        . '</dfn></code></label>';
-    $html_output .= '<input type="text" name="x509_issuer" id="text_x509_issuer" '
-        . 'value="' . (isset($row['x509_issuer']) ? htmlspecialchars($row['x509_issuer']) : '') . '" '
-        . 'size=80" title="'
-        . __(
-            'Requires that a valid X509 certificate issued by this CA be presented.'
-        ) . '"'
-        . (! $specified ? ' disabled' : '')
-        . ' />';
-    $html_output .= '</div>';
-
-    // REQUIRE SUBJECT
-    $html_output .= '<div class="item">';
-    $html_output .= '<label for="text_x509_subject">'
-        . '<code><dfn title="'
-        . __(
-            'Requires that a valid X509 certificate with this subject be presented.'
-        )
-        . '">'
-        . 'REQUIRE SUBJECT'
-        . '</dfn></code></label>';
-    $html_output .= '<input type="text" name="x509_subject" id="text_x509_subject" '
-        . 'value="' . (isset($row['x509_subject']) ? htmlspecialchars($row['x509_subject']) : '')
-        . '" size=80" title="'
-        . __(
-            'Requires that a valid X509 certificate with this subject be presented.'
-        ) . '"'
-        . (! $specified ? ' disabled' : '')
-        . ' />';
-    $html_output .= '</div>';
-
-    $html_output .= '</div>';
-
-    $html_output .= '</div>';
-    $html_output .= '</fieldset>';
+    $html_output = Template::get('privileges/require_options')
+        ->render(array('require_options' => $require_options));
 
     return $html_output;
 }
