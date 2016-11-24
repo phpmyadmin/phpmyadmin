@@ -1,8 +1,20 @@
 phpMyAdmin - ChangeLog
 ======================
 
-4.0.10.18 (not yet released)
+4.0.10.18 (2016-11-24)
 - issue #12485 Do not show warning about short blowfish_secret if none is set
+- issue        [security] Open redirection issue, see PMASA-2016-57
+- issue        [security] Unsafe generation of $cfg['blowfish_secret'], see PMASA-2016-58
+- issue        [security] phpMyAdmin's phpinfo functionality is removed, see PMASA-2016-59
+- issue        [security] AllowRoot and allow/deny rule bypass with specially-crafted username, see PMASA-2016-60
+- issue        [security] Username matching weaknesses with allow/deny rules, see PMASA-2016-61
+- issue        [security] Full path disclosure (FPD) weaknesses, see PMASA-2016-63
+- issue        [security] Multiple cross-site scripting (XSS) weaknesses, see PMASA-2016-64
+- issue        [security] Multiple denial-of-service (DOS) vulnerabilities, see PMASA-2016-65
+- issue        [security] Possible to bypass white-list protection for URL redirection, see PMASA-2016-66
+- issue        [security] Multiple SQL injection vulnerabilities, see PMASA-2016-69
+- issue        [security] Incorrect serialized string parsing, see PMASA-2016-70
+- issue        [security] CSRF token not stripped from the URL, see PMASA-2016-71
 
 4.0.10.17 (2016-08-16)
 - issue        [security] Weaknesses with cookie encryption, see PMASA-2016-29
