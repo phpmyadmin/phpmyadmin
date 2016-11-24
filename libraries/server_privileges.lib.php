@@ -1375,35 +1375,15 @@ function PMA_getHtmlForGlobalPrivTableWithCheckboxes(
     $privTable, $privTable_names, $row
 ) {
     $html_output = '';
-    foreach ($privTable as $i => $table) {
-        $html_output .= '<fieldset>' . "\n"
-            . '<legend>' . "\n"
-            . '<input type="checkbox" class="sub_checkall_box"'
-            . ' id="checkall_' . $privTable_names[$i] . '_priv"'
-            . ' title="' . __('Check all') . '"/>'
-            . '<label for="checkall_' . $privTable_names[$i] . '_priv">'
-            . $privTable_names[$i] . '</label>' . "\n"
-            . '</legend>' . "\n";
-        foreach ($table as $priv) {
-            $html_output .= '<div class="item">' . "\n"
-                . '<input type="checkbox" class="checkall"'
-                . ' name="' . $priv[0] . '_priv" '
-                . 'id="checkbox_' . $priv[0] . '_priv"'
-                . ' value="Y" title="' . $priv[2] . '"'
-                . ((isset($row[$priv[0] . '_priv'])
-                    && $row[$priv[0] . '_priv'] == 'Y')
-                    ?  ' checked="checked"'
-                    : ''
-                )
-                . '/>' . "\n"
-                . '<label for="checkbox_' . $priv[0] . '_priv">'
-                . '<code>'
-                . PMA_formatPrivilege($priv, true)
-                . '</code></label>' . "\n"
-                . '</div>' . "\n";
-        }
-        $html_output .= '</fieldset>' . "\n";
-    }
+    $html_output = Template::get('privileges/global_priv_table')
+        ->render(
+            array(
+                'privTable'       => $privTable,
+                'privTable_names' => $privTable_names,
+                'row'             => $row
+            )
+        );
+
     return $html_output;
 }
 
