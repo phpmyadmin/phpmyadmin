@@ -21,8 +21,7 @@ use SqlParser\Statements\TransactionStatement;
  *
  * @category Parser
  * @package  SqlParser
- * @author   Dan Ungureanu <udan1107@gmail.com>
- * @license  http://opensource.org/licenses/GPL-2.0 GNU Public License
+ * @license  https://www.gnu.org/licenses/gpl-2.0.txt GPL-2.0+
  */
 class Parser
 {
@@ -112,6 +111,12 @@ class Parser
             'class'             => 'SqlParser\\Components\\OptionsArray',
             'field'             => 'options',
         ),
+        '_END_OPTIONS'          => array(
+            'class'             => 'SqlParser\\Components\\OptionsArray',
+            'field'             => 'end_options',
+        ),
+
+
         'UNION'                 => array(
             'class'             => 'SqlParser\\Components\\UnionKeyword',
             'field'             => 'union',
@@ -155,6 +160,10 @@ class Parser
             'field'             => 'tables',
             'options'           => array('parseField' => 'table'),
         ),
+        'CROSS JOIN'            => array(
+            'class'             => 'SqlParser\\Components\\JoinKeyword',
+            'field'             => 'join',
+        ),
         'DROP'                  => array(
             'class'             => 'SqlParser\\Components\\ExpressionArray',
             'field'             => 'fields',
@@ -163,7 +172,7 @@ class Parser
         'FROM'                  => array(
             'class'             => 'SqlParser\\Components\\ExpressionArray',
             'field'             => 'from',
-            'options'           => array('parseField' => 'table'),
+            'options'           => array('field' => 'table'),
         ),
         'GROUP BY'              => array(
             'class'             => 'SqlParser\\Components\\OrderKeyword',
@@ -214,7 +223,23 @@ class Parser
             'class'             => 'SqlParser\\Components\\JoinKeyword',
             'field'             => 'join',
         ),
-        'STRAIGHT_JOIN'         => array(
+        'NATURAL JOIN'         => array(
+            'class'             => 'SqlParser\\Components\\JoinKeyword',
+            'field'             => 'join',
+        ),
+        'NATURAL LEFT JOIN'         => array(
+            'class'             => 'SqlParser\\Components\\JoinKeyword',
+            'field'             => 'join',
+        ),
+        'NATURAL RIGHT JOIN'         => array(
+            'class'             => 'SqlParser\\Components\\JoinKeyword',
+            'field'             => 'join',
+        ),
+        'NATURAL LEFT OUTER JOIN'         => array(
+            'class'             => 'SqlParser\\Components\\JoinKeyword',
+            'field'             => 'join',
+        ),
+        'NATURAL RIGHT OUTER JOIN'         => array(
             'class'             => 'SqlParser\\Components\\JoinKeyword',
             'field'             => 'join',
         ),
@@ -512,6 +537,9 @@ class Parser
                 $lastStatement->last = $statement->last;
 
                 $unionType = false;
+
+                // Validate clause order
+                $statement->validateClauseOrder($this, $list);
                 continue;
             }
 
@@ -537,8 +565,14 @@ class Parser
                     }
                     $lastTransaction = null;
                 }
+
+                // Validate clause order
+                $statement->validateClauseOrder($this, $list);
                 continue;
             }
+
+            // Validate clause order
+            $statement->validateClauseOrder($this, $list);
 
             // Finally, storing the statement.
             if ($lastTransaction !== null) {

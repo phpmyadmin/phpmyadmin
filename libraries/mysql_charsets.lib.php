@@ -117,7 +117,7 @@ function PMA_getDbCollation($db)
     if (! $GLOBALS['cfg']['Server']['DisableIS']) {
         // this is slow with thousands of databases
         $sql = 'SELECT DEFAULT_COLLATION_NAME FROM information_schema.SCHEMATA'
-            . ' WHERE SCHEMA_NAME = \'' . Util::sqlAddSlashes($db)
+            . ' WHERE SCHEMA_NAME = \'' . $GLOBALS['dbi']->escapeString($db)
             . '\' LIMIT 1';
         return $GLOBALS['dbi']->fetchValue($sql);
     } else {

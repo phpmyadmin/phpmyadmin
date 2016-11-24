@@ -39,8 +39,7 @@ use SqlParser\Statements\UpdateStatement;
  * @category   Statement
  * @package    SqlParser
  * @subpackage Utils
- * @author     Dan Ungureanu <udan1107@gmail.com>
- * @license    http://opensource.org/licenses/GPL-2.0 GNU Public License
+ * @license    https://www.gnu.org/licenses/gpl-2.0.txt GPL-2.0+
  */
 class Query
 {
@@ -783,5 +782,59 @@ class Query
         }
 
         return array(trim($statement), $query, $delimiter);
+    }
+
+    /**
+     * Gets a starting offset of a specific clause.
+     *
+     * @param Statement  $statement The parsed query that has to be modified.
+     * @param TokensList $list      The list of tokens.
+     * @param string     $clause    The clause to be returned.
+     *
+     * @return int
+     */
+    public static function getClauseStartOffset($statement, $list, $clause)
+    {
+        /**
+         * The count of brackets.
+         * We keep track of them so we won't insert the clause in a subquery.
+         *
+         * @var int $brackets
+         */
+        $brackets = 0;
+
+        /**
+         * The clauses of this type of statement and their index.
+         *
+         * @var array $clauses
+         */
+        $clauses = array_flip(array_keys($statement->getClauses()));
+
+        for ($i = $statement->first; $i <= $statement->last; ++$i) {
+            $token = $list->tokens[$i];
+
+            if ($token->type === Token::TYPE_COMMENT) {
+                continue;
+            }
+
+            if ($token->type === Token::TYPE_OPERATOR) {
+                if ($token->value === '(') {
+                    ++$brackets;
+                } elseif ($token->value === ')') {
+                    --$brackets;
+                }
+            }
+
+            if ($brackets == 0) {
+                if (($token->type === Token::TYPE_KEYWORD)
+                    && (isset($clauses[$token->value]))
+                    && ($clause === $token->value)
+                ) {
+                    return $i;
+                }
+            }
+        }
+
+        return -1;
     }
 }

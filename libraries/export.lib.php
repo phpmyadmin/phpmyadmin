@@ -18,12 +18,10 @@ use PMA\libraries\ZipFile;
  */
 function PMA_shutdownDuringExport()
 {
-    $a = error_get_last();
-    if ($a != null && mb_strpos($a['message'], "execution time")) {
-        //write in partially downloaded file for future reference of user
-        print_r($a);
+    $error = error_get_last();
+    if ($error != null && mb_strpos($error['message'], "execution time")) {
         //set session variable to check if there was error while exporting
-        $_SESSION['pma_export_error'] = $a['message'];
+        $_SESSION['pma_export_error'] = $error['message'];
     }
 }
 
@@ -655,8 +653,8 @@ function PMA_exportDatabase(
                     // This obtains the current table's size
                     $query = 'SELECT data_length + index_length
                           from information_schema.TABLES
-                          WHERE table_schema = "' . PMA\libraries\Util::sqlAddSlashes($db) . '"
-                          AND table_name = "' . PMA\libraries\Util::sqlAddSlashes($table) . '"';
+                          WHERE table_schema = "' . $GLOBALS['dbi']->escapeString($db) . '"
+                          AND table_name = "' . $GLOBALS['dbi']->escapeString($table) . '"';
 
                     $size = $GLOBALS['dbi']->fetchValue($query);
                     //Converting the size to MB
@@ -682,8 +680,13 @@ function PMA_exportDatabase(
             && in_array($table, $table_data)
             && ! ($is_view)
         ) {
-            $local_query  = 'SELECT * FROM ' . PMA\libraries\Util::backquote($db)
+            $tableObj = new PMA\libraries\Table($table, $db);
+            $nonGeneratedCols = $tableObj->getNonGeneratedColumns(true);
+
+            $local_query  = 'SELECT ' . implode(', ', $nonGeneratedCols)
+                .  ' FROM ' . PMA\libraries\Util::backquote($db)
                 . '.' . PMA\libraries\Util::backquote($table);
+
             if (! $export_plugin->exportData(
                 $db, $table, $crlf, $err_url, $local_query, $aliases
             )) {
@@ -862,7 +865,12 @@ function PMA_exportTable(
             $local_query = $sql_query . $add_query;
             $GLOBALS['dbi']->selectDb($db);
         } else {
-            $local_query  = 'SELECT * FROM ' . PMA\libraries\Util::backquote($db)
+            // Data is exported only for Non-generated columns
+            $tableObj = new PMA\libraries\Table($table, $db);
+            $nonGeneratedCols = $tableObj->getNonGeneratedColumns(true);
+
+            $local_query  = 'SELECT ' . implode(', ', $nonGeneratedCols)
+                .  ' FROM ' . PMA\libraries\Util::backquote($db)
                 . '.' . PMA\libraries\Util::backquote($table) . $add_query;
         }
         if (! $export_plugin->exportData(

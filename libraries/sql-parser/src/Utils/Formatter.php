@@ -19,8 +19,7 @@ use SqlParser\TokensList;
  * @category   Misc
  * @package    SqlParser
  * @subpackage Utils
- * @author     Dan Ungureanu <udan1107@gmail.com>
- * @license    http://opensource.org/licenses/GPL-2.0 GNU Public License
+ * @license    https://www.gnu.org/licenses/gpl-2.0.txt GPL-2.0+
  */
 class Formatter
 {
@@ -73,7 +72,7 @@ class Formatter
                  *
                  * @var string
                  */
-                'line_ending' => $this->options['type'] == 'html' ? '<br/>' : "\n",
+                'line_ending' => NULL,
 
                 /**
                  * The string used for indentation.
@@ -122,55 +121,59 @@ class Formatter
                         'type'      => Token::TYPE_KEYWORD,
                         'flags'     => Token::FLAG_KEYWORD_RESERVED,
                         'html'      => 'class="sql-reserved"',
-                        'cli'       => "\e[35m",
+                        'cli'       => "\x1b[35m",
                         'function'  => 'strtoupper',
                     ),
                     array(
                         'type'      => Token::TYPE_KEYWORD,
                         'flags'     => 0,
                         'html'      => 'class="sql-keyword"',
-                        'cli'       => "\e[95m",
+                        'cli'       => "\x1b[95m",
                         'function'  => 'strtoupper',
                     ),
                     array(
                         'type'      => Token::TYPE_COMMENT,
                         'flags'     => 0,
                         'html'      => 'class="sql-comment"',
-                        'cli'       => "\e[37m",
+                        'cli'       => "\x1b[37m",
                         'function'  => '',
                     ),
                     array(
                         'type'      => Token::TYPE_BOOL,
                         'flags'     => 0,
                         'html'      => 'class="sql-atom"',
-                        'cli'       => "\e[36m",
+                        'cli'       => "\x1b[36m",
                         'function'  => 'strtoupper',
                     ),
                     array(
                         'type'      => Token::TYPE_NUMBER,
                         'flags'     => 0,
                         'html'      => 'class="sql-number"',
-                        'cli'       => "\e[92m",
+                        'cli'       => "\x1b[92m",
                         'function'  => 'strtolower',
                     ),
                     array(
                         'type'      => Token::TYPE_STRING,
                         'flags'     => 0,
                         'html'      => 'class="sql-string"',
-                        'cli'       => "\e[91m",
+                        'cli'       => "\x1b[91m",
                         'function'  => '',
                     ),
                     array(
                         'type'      => Token::TYPE_SYMBOL,
                         'flags'     => 0,
                         'html'      => 'class="sql-variable"',
-                        'cli'       => "\e[36m",
+                        'cli'       => "\x1b[36m",
                         'function'  => '',
                     ),
                 )
             ),
             $options
         );
+
+        if (is_null($this->options['line_ending'])) {
+            $this->options['line_ending'] = $this->options['type'] == 'html' ? '<br/>' : "\n";
+        }
 
         // `parts_newline` requires `clause_newline`
         $this->options['parts_newline'] &= $this->options['clause_newline'];
@@ -420,10 +423,31 @@ class Formatter
         }
 
         if ($this->options['type'] === 'cli') {
-            return $ret . "\e[0m";
+            return $ret . "\x1b[0m";
         }
 
         return $ret;
+    }
+
+    public function escapeConsole($string)
+    {
+        return str_replace(
+            array(
+                "\x00", "\x01", "\x02", "\x03", "\x04",
+                "\x05", "\x06", "\x07", "\x08", "\x09", "\x0A",
+                "\x0B","\x0C","\x0D", "\x0E", "\x0F", "\x10", "\x11",
+                "\x12","\x13","\x14","\x15", "\x16", "\x17", "\x18",
+                "\x19","\x1A","\x1B","\x1C","\x1D", "\x1E", "\x1F"
+            ),
+            array(
+                '\x00', '\x01', '\x02', '\x03', '\x04',
+                '\x05', '\x06', '\x07', '\x08', '\x09', '\x0A',
+                '\x0B', '\x0C', '\x0D', '\x0E', '\x0F', '\x10', '\x11',
+                '\x12', '\x13', '\x14', '\x15', '\x16', '\x17', '\x18',
+                '\x19', '\x1A', '\x1B', '\x1C', '\x1D', '\x1E', '\x1F'
+            ),
+            $string
+        );
     }
 
     /**
@@ -449,9 +473,9 @@ class Formatter
 
                 // Formatting HTML.
                 if ($this->options['type'] === 'html') {
-                    return '<span ' . $format['html'] . '>' . $text . '</span>';
+                    return '<span ' . $format['html'] . '>' . htmlspecialchars($text, ENT_NOQUOTES) . '</span>';
                 } elseif ($this->options['type'] === 'cli') {
-                    return $format['cli'] . $text;
+                    return $format['cli'] . $this->escapeConsole($text);
                 }
 
                 break;
@@ -459,9 +483,10 @@ class Formatter
         }
 
         if ($this->options['type'] === 'cli') {
-            return "\e[39m" . $text;
+            return "\x1b[39m" . $this->escapeConsole($text);
+        } elseif ($this->options['type'] === 'html') {
+            return htmlspecialchars($text, ENT_NOQUOTES);
         }
-        return $text;
     }
 
     /**

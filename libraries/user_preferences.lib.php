@@ -64,7 +64,7 @@ function PMA_loadUserprefs()
     $query = 'SELECT `config_data`, UNIX_TIMESTAMP(`timevalue`) ts'
         . ' FROM ' . $query_table
         . ' WHERE `username` = \''
-        . PMA\libraries\Util::sqlAddSlashes($cfgRelation['user'])
+        . $GLOBALS['dbi']->escapeString($cfgRelation['user'])
         . '\'';
     $row = $GLOBALS['dbi']->fetchSingleRow($query, 'ASSOC', $GLOBALS['controllink']);
 
@@ -104,7 +104,7 @@ function PMA_saveUserprefs(array $config_array)
         . PMA\libraries\Util::backquote($cfgRelation['userconfig']);
     $query = 'SELECT `username` FROM ' . $query_table
         . ' WHERE `username` = \''
-        . PMA\libraries\Util::sqlAddSlashes($cfgRelation['user'])
+        . $GLOBALS['dbi']->escapeString($cfgRelation['user'])
         . '\'';
 
     $has_config = $GLOBALS['dbi']->fetchValue(
@@ -114,17 +114,17 @@ function PMA_saveUserprefs(array $config_array)
     if ($has_config) {
         $query = 'UPDATE ' . $query_table
             . ' SET `timevalue` = NOW(), `config_data` = \''
-            . PMA\libraries\Util::sqlAddSlashes($config_data)
+            . $GLOBALS['dbi']->escapeString($config_data)
             . '\''
             . ' WHERE `username` = \''
-            . PMA\libraries\Util::sqlAddSlashes($cfgRelation['user'])
+            . $GLOBALS['dbi']->escapeString($cfgRelation['user'])
             . '\'';
     } else {
         $query = 'INSERT INTO ' . $query_table
             . ' (`username`, `timevalue`,`config_data`) '
             . 'VALUES (\''
-            . PMA\libraries\Util::sqlAddSlashes($cfgRelation['user']) . '\', NOW(), '
-            . '\'' . PMA\libraries\Util::sqlAddSlashes($config_data) . '\')';
+            . $GLOBALS['dbi']->escapeString($cfgRelation['user']) . '\', NOW(), '
+            . '\'' . $GLOBALS['dbi']->escapeString($config_data) . '\')';
     }
     if (isset($_SESSION['cache'][$cache_key]['userprefs'])) {
         unset($_SESSION['cache'][$cache_key]['userprefs']);

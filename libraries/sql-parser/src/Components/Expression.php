@@ -22,8 +22,7 @@ use SqlParser\TokensList;
  * @category   Components
  * @package    SqlParser
  * @subpackage Components
- * @author     Dan Ungureanu <udan1107@gmail.com>
- * @license    http://opensource.org/licenses/GPL-2.0 GNU Public License
+ * @license    https://www.gnu.org/licenses/gpl-2.0.txt GPL-2.0+
  */
 class Expression extends Component
 {
@@ -34,7 +33,7 @@ class Expression extends Component
      * @var array
      */
     private static $ALLOWED_KEYWORDS = array(
-        'AS' => 1, 'DUAL' => 1, 'NULL' => 1, 'REGEXP' => 1
+        'AS' => 1, 'DUAL' => 1, 'NULL' => 1, 'REGEXP' => 1, 'CASE' => 1
     );
 
     /**
@@ -252,6 +251,13 @@ class Expression extends Component
                             break;
                         }
                         $alias = true;
+                        continue;
+                    } elseif ($token->value === 'CASE') {
+                        // For a use of CASE like
+                        // 'SELECT a = CASE .... END, b=1, `id`, ... FROM ...'
+                        $tempCaseExpr = CaseExpression::parse($parser, $list);
+                        $ret->expr .= CaseExpression::build($tempCaseExpr);
+                        $isExpr = true;
                         continue;
                     }
                     $isExpr = true;

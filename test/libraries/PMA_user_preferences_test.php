@@ -130,6 +130,10 @@ class PMA_User_Preferences_Test extends PHPUnit_Framework_TestCase
                     )
                 )
             );
+        $dbi->expects($this->any())
+            ->method('escapeString')
+            ->will($this->returnArgument(0));
+
         $GLOBALS['dbi'] = $dbi;
 
         $result = PMA_loadUserprefs();
@@ -217,6 +221,10 @@ class PMA_User_Preferences_Test extends PHPUnit_Framework_TestCase
             ->with($query2, null)
             ->will($this->returnValue(true));
 
+        $dbi->expects($this->any())
+            ->method('escapeString')
+            ->will($this->returnArgument(0));
+
         $GLOBALS['dbi'] = $dbi;
         $this->assertTrue(
             PMA_saveUserprefs(array(1))
@@ -248,6 +256,9 @@ class PMA_User_Preferences_Test extends PHPUnit_Framework_TestCase
             ->method('getError')
             ->with(null)
             ->will($this->returnValue("err1"));
+        $dbi->expects($this->any())
+            ->method('escapeString')
+            ->will($this->returnArgument(0));
 
         $GLOBALS['dbi'] = $dbi;
 
@@ -360,6 +371,7 @@ class PMA_User_Preferences_Test extends PHPUnit_Framework_TestCase
                 'Cannot redefine constant/function - missing runkit extension'
             );
         }
+        $GLOBALS['PMA_Config']->set('PmaAbsoluteUri', '');
 
         $GLOBALS['cfg']['ServerDefault'] = 1;
         $GLOBALS['lang'] = '';

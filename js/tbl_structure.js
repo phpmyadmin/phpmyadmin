@@ -201,7 +201,7 @@ AJAX.registerOnload('tbl_structure.js', function () {
         /**
          * @var curr_column_name    String containing name of the field referred to by {@link curr_row}
          */
-        var curr_column_name = $curr_row.children('th').children('label').text();
+        var curr_column_name = $curr_row.children('th').children('label').text().trim();
         curr_column_name = escapeHtml(curr_column_name);
         /**
          * @var $after_field_item    Corresponding entry in the 'After' field.
@@ -233,8 +233,16 @@ AJAX.registerOnload('tbl_structure.js', function () {
                     }
                     $after_field_item.remove();
                     $curr_row.hide("medium").remove();
-                    //by default select the last option to add new column (in case last column is dropped)
+
+                    // Remove the dropped column from select menu for 'after field'
+                    $("select[name=after_field]").find(
+                        '[value="' + curr_column_name + '"]'
+                    ).remove();
+
+                    // by default select the (new) last option to add new column
+                    // (in case last column is dropped)
                     $("select[name=after_field] option:last").attr("selected","selected");
+
                     //refresh table stats
                     if (data.tableStat) {
                         $('#tablestatistics').html(data.tableStat);
@@ -267,7 +275,7 @@ AJAX.registerOnload('tbl_structure.js', function () {
 
         var $this = $(this);
         var curr_table_name = $this.closest('form').find('input[name=table]').val();
-        var curr_column_name = $this.parents('tr').children('th').children('label').text();
+        var curr_column_name = $this.parents('tr').children('th').children('label').text().trim();
 
         var add_clause = '';
         if ($this.is('.add_primary_key_anchor')) {

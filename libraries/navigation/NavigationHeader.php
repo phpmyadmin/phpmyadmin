@@ -108,14 +108,12 @@ class NavigationHeader
         );
         // prevent XSS, see PMASA-2013-9
         // if link has protocol, allow only http and https
-        if (preg_match('/^[a-z]+:/i', $logoLink)
-            && !preg_match('/^https?:/i', $logoLink)
-        ) {
+        if (! PMA_checkLink($logoLink, true)) {
             $logoLink = 'index.php';
         }
         switch ($GLOBALS['cfg']['NavigationLogoLinkWindow']) {
         case 'new':
-            $linkAttriks = 'target="_blank"';
+            $linkAttriks = 'target="_blank" rel="noopener noreferrer"';
             break;
         case 'main':
             // do not add our parameters for an external link
@@ -126,7 +124,7 @@ class NavigationHeader
             if (empty($host)) {
                 $logoLink .= PMA_URL_getCommon();
             } else {
-                $linkAttriks = 'target="_blank"';
+                $linkAttriks = 'target="_blank" rel="noopener noreferrer"';
             }
         }
 

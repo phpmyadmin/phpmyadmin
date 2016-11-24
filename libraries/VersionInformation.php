@@ -72,7 +72,7 @@ class VersionInformation
                     CURLOPT_TIMEOUT,
                     $connection_timeout
                 );
-                $response = curl_exec($curl_handle);
+                $response = @curl_exec($curl_handle);
             } else if (ini_get('allow_url_fopen')) {
                 $context = array(
                     'http' => array(
@@ -81,11 +81,15 @@ class VersionInformation
                     )
                 );
                 $context = Util::handleContext($context);
-                $response = file_get_contents(
+                $response = @file_get_contents(
                     $file,
                     false,
                     stream_context_create($context)
                 );
+            }
+            // Check possible failure of getting data
+            if ($response === false) {
+                $response = '{}';
             }
         }
 
@@ -269,6 +273,6 @@ class VersionInformation
      */
     protected function getMySQLVersion()
     {
-        return Util::cacheGet('PMA_MYSQL_STR_VERSION');
+        return PMA_MYSQL_STR_VERSION;
     }
 }

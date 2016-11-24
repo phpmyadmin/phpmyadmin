@@ -196,9 +196,24 @@ function PMA_RTN_getRowForList($routine, $rowclass = '')
     $retval .= "                </strong>\n";
     $retval .= "            </td>\n";
     $retval .= "            <td>\n";
+
+    // this is for our purpose to decide whether to
+    // show the edit link or not, so we need the DEFINER for the routine
+    $where = "ROUTINE_SCHEMA " . PMA\libraries\Util::getCollateForIS() . "="
+        . "'" . $GLOBALS['dbi']->escapeString($db) . "' "
+        . "AND SPECIFIC_NAME='" . $GLOBALS['dbi']->escapeString($routine['name']) . "'"
+        . "AND ROUTINE_TYPE='" . $GLOBALS['dbi']->escapeString($routine['type']) . "'";
+    $query = "SELECT `DEFINER` FROM INFORMATION_SCHEMA.ROUTINES WHERE $where;";
+    $routine_definer = $GLOBALS['dbi']->fetchValue($query, 0, 0, $GLOBALS['controllink']);
+
+    $curr_user = $GLOBALS['dbi']->getCurrentUser();
+
     // Since editing a procedure involved dropping and recreating, check also for
     // CREATE ROUTINE privilege to avoid lost procedures.
-    if (PMA\libraries\Util::currentUserHasPrivilege('CREATE ROUTINE', $db)) {
+    if ((PMA\libraries\Util::currentUserHasPrivilege('CREATE ROUTINE', $db)
+        && $curr_user == $routine_definer)
+        || $GLOBALS['is_superuser']
+    ) {
         $retval .= '                <a ' . $ajax_class['edit']
                                          . ' href="db_routines.php'
                                          . $url_query
@@ -225,7 +240,7 @@ function PMA_RTN_getRowForList($routine, $rowclass = '')
     // otherwise we can execute it directly.
 
     $definition = $GLOBALS['dbi']->getDefinition(
-        $db, $routine['type'], $routine['name']
+        $db, $routine['type'], $routine['name'], $GLOBALS['controllink']
     );
     if ($definition !== false) {
         $parser = new SqlParser\Parser($definition);
@@ -263,14 +278,21 @@ function PMA_RTN_getRowForList($routine, $rowclass = '')
 
     $retval .= "            </td>\n";
     $retval .= "            <td>\n";
-    $retval .= '                <a ' . $ajax_class['export']
-                                     . ' href="db_routines.php'
-                                     . $url_query
-                                     . '&amp;export_item=1'
-                                     . '&amp;item_name='
-                                     . urlencode($routine['name'])
-                                     . '&amp;' . $type_link
-                                     . '">' . $titles['Export'] . "</a>\n";
+    if ((PMA\libraries\Util::currentUserHasPrivilege('CREATE ROUTINE', $db)
+        && $curr_user == $routine_definer)
+        || $GLOBALS['is_superuser']
+    ) {
+        $retval .= '                <a ' . $ajax_class['export']
+                                         . ' href="db_routines.php'
+                                         . $url_query
+                                         . '&amp;export_item=1'
+                                         . '&amp;item_name='
+                                         . urlencode($routine['name'])
+                                         . '&amp;' . $type_link
+                                         . '">' . $titles['Export'] . "</a>\n";
+    } else {
+        $retval .= "                {$titles['NoExport']}\n";
+    }
     $retval .= "            </td>\n";
     $retval .= "            <td>\n";
     $retval .= '                <a ' . $ajax_class['drop']

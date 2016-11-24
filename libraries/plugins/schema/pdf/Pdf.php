@@ -240,7 +240,7 @@ class Pdf extends PDF_lib
                 $test_query = 'SELECT * FROM '
                     . Util::backquote($GLOBALS['cfgRelation']['db']) . '.'
                     . Util::backquote($GLOBALS['cfgRelation']['pdf_pages'])
-                    . ' WHERE db_name = \'' . Util::sqlAddSlashes($this->_db)
+                    . ' WHERE db_name = \'' . $GLOBALS['dbi']->escapeString($this->_db)
                     . '\' AND page_nr = \'' . $this->_pageNumber . '\'';
                 $test_rs = PMA_queryAsControlUser($test_query);
                 $pages = @$GLOBALS['dbi']->fetchAssoc($test_rs);

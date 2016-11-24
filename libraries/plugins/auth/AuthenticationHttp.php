@@ -128,10 +128,8 @@ class AuthenticationHttp extends AuthenticationPlugin
             } elseif (PMA_getenv('AUTH_USER')) {
                 // WebSite Professional
                 $PHP_AUTH_USER = PMA_getenv('AUTH_USER');
-            } elseif (PMA_getenv('HTTP_AUTHORIZATION')
-                && false === strpos(PMA_getenv('HTTP_AUTHORIZATION'), '<')
-            ) {
-                // IIS, might be encoded, see below; also prevent XSS
+            } elseif (PMA_getenv('HTTP_AUTHORIZATION')) {
+                // IIS, might be encoded, see below
                 $PHP_AUTH_USER = PMA_getenv('HTTP_AUTHORIZATION');
             } elseif (PMA_getenv('Authorization')) {
                 // FastCGI, might be encoded, see below
@@ -167,10 +165,13 @@ class AuthenticationHttp extends AuthenticationPlugin
             unset($usr_pass);
         }
 
+        // sanitize username
+        $PHP_AUTH_USER = PMA_sanitizeMySQLUser($PHP_AUTH_USER);
+
         // User logged out -> ensure the new username is not the same
         $old_usr = isset($_REQUEST['old_usr']) ? $_REQUEST['old_usr'] : '';
-        if (!empty($old_usr)
-            && (isset($PHP_AUTH_USER) && $old_usr == $PHP_AUTH_USER)
+        if (! empty($old_usr)
+            && (isset($PHP_AUTH_USER) && hash_equals($old_usr, $PHP_AUTH_USER))
         ) {
             $PHP_AUTH_USER = '';
             // -> delete user's choices that were stored in session
@@ -204,12 +205,12 @@ class AuthenticationHttp extends AuthenticationPlugin
 
         // Ensures valid authentication mode, 'only_db', bookmark database and
         // table names and relation table name are used
-        if ($cfg['Server']['user'] != $PHP_AUTH_USER) {
+        if (! hash_equals($cfg['Server']['user'], $PHP_AUTH_USER)) {
             $servers_cnt = count($cfg['Servers']);
             for ($i = 1; $i <= $servers_cnt; $i++) {
                 if (isset($cfg['Servers'][$i])
                     && ($cfg['Servers'][$i]['host'] == $cfg['Server']['host']
-                    && $cfg['Servers'][$i]['user'] == $PHP_AUTH_USER)
+                    && hash_equals($cfg['Servers'][$i]['user'], $PHP_AUTH_USER))
                 ) {
                     $server = $i;
                     $cfg['Server'] = $cfg['Servers'][$i];
@@ -225,9 +226,7 @@ class AuthenticationHttp extends AuthenticationPlugin
         unset($GLOBALS['PHP_AUTH_PW']);
         unset($_SERVER['PHP_AUTH_PW']);
 
-        // try to workaround PHP 5 session garbage collection which
-        // looks at the session file's last modified time
-        $_SESSION['last_access_time'] = time();
+        $this->setSessionAccessTime();
 
         return true;
     }

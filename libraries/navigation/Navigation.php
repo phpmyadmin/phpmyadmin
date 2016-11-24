@@ -90,11 +90,11 @@ class Navigation
         $sqlQuery = "INSERT INTO " . $navTable
             . "(`username`, `item_name`, `item_type`, `db_name`, `table_name`)"
             . " VALUES ("
-            . "'" . Util::sqlAddSlashes($GLOBALS['cfg']['Server']['user']) . "',"
-            . "'" . Util::sqlAddSlashes($itemName) . "',"
-            . "'" . Util::sqlAddSlashes($itemType) . "',"
-            . "'" . Util::sqlAddSlashes($dbName) . "',"
-            . "'" . (! empty($tableName)? Util::sqlAddSlashes($tableName) : "" )
+            . "'" . $GLOBALS['dbi']->escapeString($GLOBALS['cfg']['Server']['user']) . "',"
+            . "'" . $GLOBALS['dbi']->escapeString($itemName) . "',"
+            . "'" . $GLOBALS['dbi']->escapeString($itemType) . "',"
+            . "'" . $GLOBALS['dbi']->escapeString($dbName) . "',"
+            . "'" . (! empty($tableName)? $GLOBALS['dbi']->escapeString($tableName) : "" )
             . "')";
         PMA_queryAsControlUser($sqlQuery, false);
     }
@@ -139,12 +139,12 @@ class Navigation
         $sqlQuery = "DELETE FROM " . $navTable
             . " WHERE"
             . " `username`='"
-            . Util::sqlAddSlashes($GLOBALS['cfg']['Server']['user']) . "'"
-            . " AND `item_name`='" . Util::sqlAddSlashes($itemName) . "'"
-            . " AND `item_type`='" . Util::sqlAddSlashes($itemType) . "'"
-            . " AND `db_name`='" . Util::sqlAddSlashes($dbName) . "'"
+            . $GLOBALS['dbi']->escapeString($GLOBALS['cfg']['Server']['user']) . "'"
+            . " AND `item_name`='" . $GLOBALS['dbi']->escapeString($itemName) . "'"
+            . " AND `item_type`='" . $GLOBALS['dbi']->escapeString($itemType) . "'"
+            . " AND `db_name`='" . $GLOBALS['dbi']->escapeString($dbName) . "'"
             . (! empty($tableName)
-                ? " AND `table_name`='" . Util::sqlAddSlashes($tableName) . "'"
+                ? " AND `table_name`='" . $GLOBALS['dbi']->escapeString($tableName) . "'"
                 : ""
             );
         PMA_queryAsControlUser($sqlQuery, false);
@@ -169,10 +169,10 @@ class Navigation
             . "." . Util::backquote($GLOBALS['cfgRelation']['navigationhiding']);
         $sqlQuery = "SELECT `item_name`, `item_type` FROM " . $navTable
             . " WHERE `username`='"
-            . Util::sqlAddSlashes($GLOBALS['cfg']['Server']['user']) . "'"
-            . " AND `db_name`='" . Util::sqlAddSlashes($dbName) . "'"
+            . $GLOBALS['dbi']->escapeString($GLOBALS['cfg']['Server']['user']) . "'"
+            . " AND `db_name`='" . $GLOBALS['dbi']->escapeString($dbName) . "'"
             . " AND `table_name`='"
-            . (! empty($tableName) ? Util::sqlAddSlashes($tableName) : '') . "'";
+            . (! empty($tableName) ? $GLOBALS['dbi']->escapeString($tableName) : '') . "'";
         $result = PMA_queryAsControlUser($sqlQuery, false);
 
         $hidden = array();

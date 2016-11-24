@@ -192,7 +192,7 @@ var PMA_console = {
             });
 
             $(document).ajaxComplete(function (event, xhr, ajaxOptions) {
-                if (ajaxOptions.dataType != 'json') {
+                if (ajaxOptions.dataType && ajaxOptions.dataType.indexOf('json') != -1) {
                     return;
                 }
                 try {
@@ -1235,7 +1235,7 @@ PMA_consoleDebug = {
             functionName += dbgStep.type;
         }
         functionName += dbgStep.function;
-        if (dbgStep.args.length) {
+        if (dbgStep.args && dbgStep.args.length) {
             functionName += '(...)';
         } else {
             functionName += '()';
@@ -1303,7 +1303,7 @@ PMA_consoleDebug = {
                             .append(
                             $('<span class="file">').text(this._formatFileName(step))
                         );
-                    if (step.args.length) {
+                    if (step.args && step.args.length) {
                         $stepElem
                             .append(
                             $('<span class="args">').html(this._formatFunctionArgs(step))

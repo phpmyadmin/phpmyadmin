@@ -84,6 +84,11 @@ class Error extends Message
     protected $backtrace = array();
 
     /**
+     * Hide location of errors
+     */
+    protected $hide_location = false;
+
+    /**
      * Constructor
      *
      * @param integer $errno   error number
@@ -144,6 +149,18 @@ class Error extends Message
         }
 
         return $result;
+    }
+
+    /**
+     * Toggles location hiding
+     *
+     * @param boolean $hide Whether to hide
+     *
+     * @return void
+     */
+    public function setHideLocation($hide)
+    {
+        $this->hide_location = $hide;
     }
 
     /**
@@ -441,7 +458,8 @@ class Error extends Message
      */
     public function isUserError()
     {
-        return $this->getNumber() & (E_USER_WARNING | E_USER_ERROR | E_USER_NOTICE);
+        return $this->hide_location ||
+            ($this->getNumber() & (E_USER_WARNING | E_USER_ERROR | E_USER_NOTICE));
     }
 
     /**
@@ -460,7 +478,7 @@ class Error extends Message
 
         /* Probably affected by open_basedir */
         if ($dest === FALSE) {
-            return $path;
+            return basename($path);
         }
 
         $Ahere = explode(

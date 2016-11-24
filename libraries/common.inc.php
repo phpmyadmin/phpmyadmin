@@ -108,6 +108,13 @@ ini_set('default_charset', 'utf-8');
 mb_internal_encoding('utf-8');
 
 /**
+ * Set precision to sane value, with higher values
+ * things behave slightly unexpectedly, for example
+ * round(1.2, 2) returns 1.199999999999999956.
+ */
+ini_set('precision', 14);
+
+/**
  * the relation lib, tracker needs it
  */
 require './libraries/relation.lib.php';
@@ -455,9 +462,15 @@ PMA_setGlobalDbOrTable('table');
  */
 if (PMA_isValid($_REQUEST['selected_recent_table'])) {
     $recent_table = json_decode($_REQUEST['selected_recent_table'], true);
-    $GLOBALS['db'] = $recent_table['db'];
+
+    $GLOBALS['db']
+        = (array_key_exists('db', $recent_table) && is_string($recent_table['db'])) ?
+            $recent_table['db'] : '';
     $GLOBALS['url_params']['db'] = $GLOBALS['db'];
-    $GLOBALS['table'] = $recent_table['table'];
+
+    $GLOBALS['table']
+        = (array_key_exists('table', $recent_table) && is_string($recent_table['table'])) ?
+            $recent_table['table'] : '';
     $GLOBALS['url_params']['table'] = $GLOBALS['table'];
 }
 
@@ -515,6 +528,20 @@ if ($GLOBALS['PMA_Config']->error_config_default_file) {
         $GLOBALS['PMA_Config']->default_source
     );
     trigger_error($error, E_USER_ERROR);
+}
+
+/**
+ * As we try to handle charsets by ourself, mbstring overloads just
+ * break it, see bug 1063821.
+ */
+if (@extension_loaded('mbstring') && @ini_get('mbstring.func_overload') != '0') {
+    PMA_fatalError(
+        __(
+            'You have enabled mbstring.func_overload in your PHP '
+            . 'configuration. This option is incompatible with phpMyAdmin '
+            . 'and might cause some data to be corrupted!'
+        )
+    );
 }
 
 
@@ -850,7 +877,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         if ($cfg['Server']['SessionTimeZone'] != '') {
             $sql_query_tz = 'SET ' . Util::backquote('time_zone') . ' = '
                 . '\''
-                . Util::sqlAddSlashes($cfg['Server']['SessionTimeZone'])
+                . $GLOBALS['dbi']->escapeString($cfg['Server']['SessionTimeZone'])
                 . '\'';
 
             if (! $userlink->query($sql_query_tz)) {

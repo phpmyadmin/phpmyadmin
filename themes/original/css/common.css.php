@@ -1355,6 +1355,16 @@ label.desc sup {
     position: absolute;
 }
 
+code.php {
+    display: block;
+    padding-left: 0.3em;
+    margin-top: 0;
+    margin-bottom: 0;
+    max-height: 10em;
+    overflow: auto;
+    direction: ltr;
+}
+
 code.sql,
 div.sqlvalidate {
     display:            block;
@@ -2321,7 +2331,8 @@ fieldset .disabled-field td {
 }
 
 .cEdit .edit_box {
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: scroll;
     padding: 0;
 }
 

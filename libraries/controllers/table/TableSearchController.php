@@ -460,10 +460,10 @@ class TableSearchController extends TableController
             return;
         }
         $key = array_search($field, $this->_columnNames);
-        $search_index = 0;
-        if (PMA_isValid($_REQUEST['it'], 'integer')) {
-            $search_index = $_REQUEST['it'];
-        }
+        $search_index
+            = ((isset($_REQUEST['it']) && is_numeric($_REQUEST['it']))
+                ? intval($_REQUEST['it']) : 0);
+
         $properties = $this->getColumnProperties($search_index, $key);
         $this->response->addJSON(
             'field_type', htmlspecialchars($properties['type'])
@@ -716,7 +716,7 @@ class TableSearchController extends TableController
             . " FROM " . Util::backquote($this->db)
             . "." . Util::backquote($this->table)
             . " WHERE " . Util::backquote($column)
-            . " RLIKE '" . Util::sqlAddSlashes($find) . "' COLLATE "
+            . " RLIKE '" . $GLOBALS['dbi']->escapeString($find) . "' COLLATE "
             . $charSet . "_bin"; // here we
         // change the collation of the 2nd operand to a case sensitive
         // binary collation to make sure that the comparison is case sensitive
@@ -774,13 +774,13 @@ class TableSearchController extends TableController
             if (is_array($toReplace)) {
                 foreach ($toReplace as $row) {
                     $sql_query .= "\n WHEN " . Util::backquote($column)
-                        . " = '" . Util::sqlAddSlashes($row[0])
-                        . "' THEN '" . Util::sqlAddSlashes($row[1]) . "'";
+                        . " = '" . $GLOBALS['dbi']->escapeString($row[0])
+                        . "' THEN '" . $GLOBALS['dbi']->escapeString($row[1]) . "'";
                 }
             }
             $sql_query .= " END"
                 . " WHERE " . Util::backquote($column)
-                . " RLIKE '" . Util::sqlAddSlashes($find) . "' COLLATE "
+                . " RLIKE '" . $GLOBALS['dbi']->escapeString($find) . "' COLLATE "
                 . $charSet . "_bin"; // here we
             // change the collation of the 2nd operand to a case sensitive
             // binary collation to make sure that the comparison
@@ -1034,10 +1034,10 @@ class TableSearchController extends TableController
             $parens_close = '';
         }
         $enum_where = '\''
-            . Util::sqlAddSlashes($criteriaValues[0]) . '\'';
+            . $GLOBALS['dbi']->escapeString($criteriaValues[0]) . '\'';
         for ($e = 1; $e < $enum_selected_count; $e++) {
             $enum_where .= ', \''
-                . Util::sqlAddSlashes($criteriaValues[$e]) . '\'';
+                . $GLOBALS['dbi']->escapeString($criteriaValues[$e]) . '\'';
         }
 
         return ' ' . $func_type . ' ' . $parens_open
@@ -1163,7 +1163,7 @@ class TableSearchController extends TableController
                 && 'NOT BETWEEN' != $func_type
             ) {
                 return $backquoted_name . ' ' . $func_type . ' ' . $quot
-                        . Util::sqlAddSlashes($criteriaValues) . $quot;
+                        . $GLOBALS['dbi']->escapeString($criteriaValues) . $quot;
             }
             $func_type = str_replace(' (...)', '', $func_type);
 
@@ -1182,7 +1182,7 @@ class TableSearchController extends TableController
                     $value = 'NULL';
                     continue;
                 }
-                $value = $quot . Util::sqlAddSlashes(trim($value))
+                $value = $quot . $GLOBALS['dbi']->escapeString(trim($value))
                     . $quot;
             }
 

@@ -28,7 +28,7 @@ if (!@function_exists('session_name')) {
 
 // session cookie settings
 session_set_cookie_params(
-    0, $GLOBALS['PMA_Config']->getCookiePath(),
+    0, $GLOBALS['PMA_Config']->getRootPath(),
     '', $GLOBALS['PMA_Config']->isHttps(), true
 );
 
@@ -86,9 +86,9 @@ function PMA_sessionFailed($errors)
          * will not change in future.
          */
         $messages[] = preg_replace(
-            '/open(.*, O_RDWR)/',
+            '/open\(.*, O_RDWR\)/',
             'open(SESSION_FILE, O_RDWR)',
-            $error->getMessage()
+            htmlspecialchars($error->getMessage())
         );
     }
 

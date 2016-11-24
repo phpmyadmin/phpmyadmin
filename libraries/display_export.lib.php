@@ -249,8 +249,8 @@ function PMA_getOptionsForExportTemplates($export_type)
        . PMA\libraries\Util::backquote($cfgRelation['db']) . '.'
        . PMA\libraries\Util::backquote($cfgRelation['export_templates'])
        . " WHERE `username` = "
-       . "'" . PMA\libraries\Util::sqlAddSlashes($GLOBALS['cfg']['Server']['user'])
-        . "' AND `export_type` = '" . PMA\libraries\Util::sqlAddSlashes($export_type) . "'"
+       . "'" . $GLOBALS['dbi']->escapeString($GLOBALS['cfg']['Server']['user'])
+        . "' AND `export_type` = '" . $GLOBALS['dbi']->escapeString($export_type) . "'"
        . " ORDER BY `template_name`;";
 
     $result = PMA_queryAsControlUser($query);
@@ -1113,14 +1113,14 @@ function PMA_getExportDisplay(
 function PMA_handleExportTemplateActions($cfgRelation)
 {
     if (isset($_REQUEST['templateId'])) {
-        $id = PMA\libraries\Util::sqlAddSlashes($_REQUEST['templateId']);
+        $id = $GLOBALS['dbi']->escapeString($_REQUEST['templateId']);
     } else {
         $id = '';
     }
 
     $templateTable = PMA\libraries\Util::backquote($cfgRelation['db']) . '.'
        . PMA\libraries\Util::backquote($cfgRelation['export_templates']);
-    $user = PMA\libraries\Util::sqlAddSlashes($GLOBALS['cfg']['Server']['user']);
+    $user = $GLOBALS['dbi']->escapeString($GLOBALS['cfg']['Server']['user']);
 
     switch ($_REQUEST['templateAction']) {
     case 'create':
@@ -1129,9 +1129,9 @@ function PMA_handleExportTemplateActions($cfgRelation)
             . " `template_name`, `template_data`"
             . ") VALUES ("
             . "'" . $user . "', "
-            . "'" . PMA\libraries\Util::sqlAddSlashes($_REQUEST['exportType'])
-            . "', '" . PMA\libraries\Util::sqlAddSlashes($_REQUEST['templateName'])
-            . "', '" . PMA\libraries\Util::sqlAddSlashes($_REQUEST['templateData'])
+            . "'" . $GLOBALS['dbi']->escapeString($_REQUEST['exportType'])
+            . "', '" . $GLOBALS['dbi']->escapeString($_REQUEST['templateName'])
+            . "', '" . $GLOBALS['dbi']->escapeString($_REQUEST['templateData'])
             . "');";
         break;
     case 'load':
@@ -1140,7 +1140,7 @@ function PMA_handleExportTemplateActions($cfgRelation)
         break;
     case 'update':
         $query = "UPDATE " . $templateTable . " SET `template_data` = "
-          . "'" . PMA\libraries\Util::sqlAddSlashes($_REQUEST['templateData']) . "'"
+          . "'" . $GLOBALS['dbi']->escapeString($_REQUEST['templateData']) . "'"
           . " WHERE `id` = " . $id  . " AND `username` = '" . $user . "'";
         break;
     case 'delete':

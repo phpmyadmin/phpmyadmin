@@ -24,8 +24,7 @@ use SqlParser\TokensList;
  * @category   Components
  * @package    SqlParser
  * @subpackage Components
- * @author     Dan Ungureanu <udan1107@gmail.com>
- * @license    http://opensource.org/licenses/GPL-2.0 GNU Public License
+ * @license    https://www.gnu.org/licenses/gpl-2.0.txt GPL-2.0+
  */
 class CreateDefinition extends Component
 {
@@ -51,7 +50,7 @@ class CreateDefinition extends Component
         'UNIQUE KEY'                    => 4,
         'COMMENT'                       => array(5, 'var'),
         'COLUMN_FORMAT'                 => array(6, 'var'),
-        'ON UPDATE'                     => array(7, 'var'),
+        'ON UPDATE'                     => array(7, 'expr'),
 
         // Generated columns options.
         'GENERATED ALWAYS'              => 8,
@@ -218,6 +217,23 @@ class CreateDefinition extends Component
                 } elseif ($token->type === Token::TYPE_SYMBOL || $token->type === Token::TYPE_NONE) {
                     $expr->name = $token->value;
                     if (!$expr->isConstraint) {
+                        $state = 2;
+                    }
+                } else if ($token->type === Token::TYPE_KEYWORD) {
+                    if ($token->flags & Token::FLAG_KEYWORD_RESERVED) {
+                        // Reserved keywords can't be used
+                        // as field names without backquotes
+                        $parser->error(
+                            __('A symbol name was expected! '
+                                . 'A reserved keyword can not be used '
+                                . 'as a column name without backquotes.'
+                            ),
+                            $token
+                        );
+                        return $ret;
+                    } else {
+                        // Non-reserved keywords are allowed without backquotes
+                        $expr->name = $token->value;
                         $state = 2;
                     }
                 } else {

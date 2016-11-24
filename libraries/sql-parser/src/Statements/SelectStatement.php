@@ -49,8 +49,7 @@ use SqlParser\Components\Condition;
  * @category   Statements
  * @package    SqlParser
  * @subpackage Statements
- * @author     Dan Ungureanu <udan1107@gmail.com>
- * @license    http://opensource.org/licenses/GPL-2.0 GNU Public License
+ * @license    https://www.gnu.org/licenses/gpl-2.0.txt GPL-2.0+
  */
 class SelectStatement extends Statement
 {
@@ -75,6 +74,11 @@ class SelectStatement extends Statement
         'SQL_CALC_FOUND_ROWS'           => 9,
     );
 
+    public static $END_OPTIONS = array(
+        'FOR UPDATE'                    => 1,
+        'LOCK IN SHARE MODE'            => 1
+    );
+
     /**
      * The clauses of this statement, in order.
      *
@@ -83,30 +87,36 @@ class SelectStatement extends Statement
      * @var array
      */
     public static $CLAUSES = array(
-        'SELECT'                        => array('SELECT',              2),
+        'SELECT'                        => array('SELECT',                  2),
         // Used for options.
-        '_OPTIONS'                      => array('_OPTIONS',            1),
+        '_OPTIONS'                      => array('_OPTIONS',                1),
         // Used for selected expressions.
-        '_SELECT'                       => array('SELECT',              1),
-        'FROM'                          => array('FROM',                3),
-        'PARTITION'                     => array('PARTITION',           3),
+        '_SELECT'                       => array('SELECT',                  1),
+        'INTO'                          => array('INTO',                    3),
+        'FROM'                          => array('FROM',                    3),
+        'PARTITION'                     => array('PARTITION',               3),
 
-        'JOIN'                          => array('JOIN',                1),
-        'FULL JOIN'                     => array('FULL JOIN',           1),
-        'INNER JOIN'                    => array('INNER JOIN',          1),
-        'LEFT JOIN'                     => array('LEFT JOIN',           1),
-        'LEFT OUTER JOIN'               => array('LEFT OUTER JOIN',     1),
-        'RIGHT JOIN'                    => array('RIGHT JOIN',          1),
-        'RIGHT OUTER JOIN'              => array('RIGHT OUTER JOIN',    1),
+        'JOIN'                          => array('JOIN',                    1),
+        'FULL JOIN'                     => array('FULL JOIN',               1),
+        'INNER JOIN'                    => array('INNER JOIN',              1),
+        'LEFT JOIN'                     => array('LEFT JOIN',               1),
+        'LEFT OUTER JOIN'               => array('LEFT OUTER JOIN',         1),
+        'RIGHT JOIN'                    => array('RIGHT JOIN',              1),
+        'RIGHT OUTER JOIN'              => array('RIGHT OUTER JOIN',        1),
+        'NATURAL JOIN'                  => array('NATURAL JOIN',            1),
+        'NATURAL LEFT JOIN'             => array('NATURAL LEFT JOIN',       1),
+        'NATURAL RIGHT JOIN'            => array('NATURAL RIGHT JOIN',      1),
+        'NATURAL LEFT OUTER JOIN'       => array('NATURAL LEFT OUTER JOIN', 1),
+        'NATURAL RIGHT OUTER JOIN'      => array('NATURAL RIGHT JOIN',      1),
 
-        'WHERE'                         => array('WHERE',               3),
-        'GROUP BY'                      => array('GROUP BY',            3),
-        'HAVING'                        => array('HAVING',              3),
-        'ORDER BY'                      => array('ORDER BY',            3),
-        'LIMIT'                         => array('LIMIT',               3),
-        'PROCEDURE'                     => array('PROCEDURE',           3),
-        'INTO'                          => array('INTO',                3),
-        'UNION'                         => array('UNION',               1),
+        'WHERE'                         => array('WHERE',                   3),
+        'GROUP BY'                      => array('GROUP BY',                3),
+        'HAVING'                        => array('HAVING',                  3),
+        'ORDER BY'                      => array('ORDER BY',                3),
+        'LIMIT'                         => array('LIMIT',                   3),
+        'PROCEDURE'                     => array('PROCEDURE',               3),
+        'UNION'                         => array('UNION',                   1),
+        '_END_OPTIONS'                  => array('_END_OPTIONS',            1)
         // These are available only when `UNION` is present.
         // 'ORDER BY'                      => array('ORDER BY',    3),
         // 'LIMIT'                         => array('LIMIT',       3),
@@ -195,6 +205,15 @@ class SelectStatement extends Statement
      * @var SelectStatement[]
      */
     public $union = array();
+
+    /**
+     * The end options of this query.
+     *
+     * @var OptionsArray
+     *
+     * @see static::$END_OPTIONS
+     */
+    public $end_options;
 
     /**
      * Gets the clauses of this statement.

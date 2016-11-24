@@ -456,6 +456,7 @@ class AuthenticationCookieTest extends PMATestCase
         $GLOBALS['cfg']['CaptchaLoginPrivateKey'] = '';
         $GLOBALS['cfg']['CaptchaLoginPublicKey'] = '';
         $GLOBALS['cfg']['LoginCookieDeleteAll'] = true;
+        $GLOBALS['PMA_Config']->set('PmaAbsoluteUri', '');
         $GLOBALS['cfg']['Servers'] = array(1);
 
         $_COOKIE['pmaAuth-0'] = 'test';
@@ -497,6 +498,7 @@ class AuthenticationCookieTest extends PMATestCase
         $GLOBALS['cfg']['CaptchaLoginPrivateKey'] = '';
         $GLOBALS['cfg']['CaptchaLoginPublicKey'] = '';
         $GLOBALS['cfg']['LoginCookieDeleteAll'] = false;
+        $GLOBALS['PMA_Config']->set('PmaAbsoluteUri', '');
         $GLOBALS['cfg']['Servers'] = array(1);
         $GLOBALS['server'] = 1;
 

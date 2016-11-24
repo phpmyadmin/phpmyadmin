@@ -588,8 +588,9 @@ function setTab(tab_id)
         }
         $this.find('li').removeClass('active').find('a[href=#' + tab_id + ']').parent().addClass('active');
         $this.parent().find('div.tabs_contents fieldset').hide().filter('#' + tab_id).show();
-        location.hash = 'tab_' + tab_id;
-        $this.parent().find('input[name=tab_hash]').val(location.hash);
+        var hashValue = 'tab_' + tab_id;
+        location.hash = hashValue;
+        $this.parent().find('input[name=tab_hash]').val(hashValue);
     });
 }
 
@@ -624,9 +625,9 @@ AJAX.registerOnload('config.js', function () {
     var tab_check_fnc = function () {
         if (location.hash != prev_hash) {
             prev_hash = location.hash;
-            if (location.hash.match(/^#tab_[a-zA-Z0-9_]+/)) {
+            if (prev_hash.match(/^#tab_[a-zA-Z0-9_]+$/)) {
                 // session ID is sometimes appended here
-                var hash = location.hash.substr(5).split('&')[0];
+                var hash = prev_hash.substr(5).split('&')[0];
                 if ($('#' + hash).length) {
                     setTab(hash);
                 }

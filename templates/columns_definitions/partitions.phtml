@@ -1,5 +1,5 @@
 <?php
-$partitionOptions = array('', 'HASH', 'LINEAR HASH', 'KEY', 'LINEAR KEY', 'RANGE', 'LIST');
+$partitionOptions = array('', 'HASH', 'LINEAR HASH', 'KEY', 'LINEAR KEY', 'RANGE', 'RANGE COLUMNS', 'LIST', 'LIST COLUMNS');
 $subPartitionOptions = array('', 'HASH', 'LINEAR HASH', 'KEY', 'LINEAR KEY');
 $valueTypeOptions = array('', 'LESS THAN', 'LESS THAN MAXVALUE', 'IN');
 ?>
@@ -88,9 +88,10 @@ $valueTypeOptions = array('', 'LESS THAN', 'LESS THAN MAXVALUE', 'IN');
         <?php foreach ($partitionDetails['partitions'] as $partition): ?>
             <?php $rowspan = ! empty($partition['subpartition_count']) ? ($partition['subpartition_count'] + 1) : 2; ?>
             <tr class="<?= ($odd ? 'odd' : 'even'); ?>">
-                <th rowspan="<?= $rowspan; ?>" class="vmiddle">
-                    <?= htmlspecialchars($partition['name']); ?>
-                </th>
+                <td rowspan="<?= $rowspan; ?>">
+                    <input type="text" name="<?= $partition['prefix']; ?>[name]"
+                       value="<?= htmlspecialchars($partition['name']); ?>" />
+                </td>
                 <?php if ($partitionDetails['value_enabled']): ?>
                     <td rowspan="<?= $rowspan; ?>" class="vmiddle">
                         <select class="partition_value"
@@ -123,7 +124,10 @@ $valueTypeOptions = array('', 'LESS THAN', 'LESS THAN MAXVALUE', 'IN');
             <?php foreach ($subpartitions as $subpartition): ?>
                 <tr class="<?= ($odd ? 'odd' : 'even'); ?>">
                     <?php if ($partitionDetails['can_have_subpartitions'] && $partitionDetails['subpartition_count'] > 1): ?>
-                        <th class="vmiddle"><?= htmlspecialchars($subpartition['name']); ?></th>
+                        <td>
+                            <input type="text" name="<?= $subpartition['prefix']; ?>[name]"
+                               value="<?= htmlspecialchars($subpartition['name']); ?>" />
+                        </td>
                     <?php endif; ?>
                     <td>
                         <?= PMA\libraries\StorageEngine::getHtmlSelect(
@@ -135,9 +139,8 @@ $valueTypeOptions = array('', 'LESS THAN', 'LESS THAN MAXVALUE', 'IN');
                         ); ?>
                     </td>
                     <td>
-                        <textarea name="<?= $subpartition['prefix']; ?>[comment]">
-                            <?= htmlspecialchars($subpartition['comment']); ?>
-                        </textarea>
+                        <?php  //Please keep this at one line to avoid extra spaces in textarea value. ?>
+                        <textarea name="<?= $subpartition['prefix']; ?>[comment]"><?= htmlspecialchars($subpartition['comment']); ?></textarea>
                     </td>
                     <td>
                         <input type="text" name="<?= $subpartition['prefix']; ?>[data_directory]"

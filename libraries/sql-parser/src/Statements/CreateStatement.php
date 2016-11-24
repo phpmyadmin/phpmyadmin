@@ -27,8 +27,7 @@ use SqlParser\Statements\SelectStatement;
  * @category   Statements
  * @package    SqlParser
  * @subpackage Statements
- * @author     Dan Ungureanu <udan1107@gmail.com>
- * @license    http://opensource.org/licenses/GPL-2.0 GNU Public License
+ * @license    https://www.gnu.org/licenses/gpl-2.0.txt GPL-2.0+
  */
 class CreateStatement extends Statement
 {
@@ -47,7 +46,7 @@ class CreateStatement extends Statement
         'OR REPLACE'                    => array(2, 'var='),
         'ALGORITHM'                     => array(3, 'var='),
         // `DEFINER` is also used for `CREATE FUNCTION / PROCEDURE`
-        'DEFINER'                       => array(4, 'var='),
+        'DEFINER'                       => array(4, 'expr='),
         'SQL SECURITY'                  => array(5, 'var'),
 
         'DATABASE'                      => 6,
@@ -188,6 +187,15 @@ class CreateStatement extends Statement
     public $select;
 
     /**
+     * If `CREATE TABLE ... LIKE`
+     *
+     * Used by `CREATE TABLE`
+     *
+     * @var Expression
+     */
+    public $like;
+
+    /**
      * Expression used for partitioning.
      *
      * @var string
@@ -282,6 +290,11 @@ class CreateStatement extends Statement
                 . OptionsArray::build($this->options) . ' '
                 . Expression::build($this->name) . ' '
                 . $this->select->build();
+        } elseif ($this->options->has('TABLE') && !is_null($this->like)) {
+            return 'CREATE '
+                . OptionsArray::build($this->options) . ' '
+                . Expression::build($this->name) . ' LIKE '
+                . Expression::build($this->like);
         } elseif ($this->options->has('TABLE')) {
             $partition = '';
 
@@ -389,17 +402,41 @@ class CreateStatement extends Statement
                 $list,
                 static::$DB_OPTIONS
             );
-        } elseif ($this->options->has('TABLE') && ($token->type == Token::TYPE_KEYWORD) && ($token->value == 'SELECT')) {
+        } elseif ($this->options->has('TABLE')
+            && ($token->type == Token::TYPE_KEYWORD)
+            && ($token->value == 'SELECT')
+        ) {
             /* CREATE TABLE ... SELECT */
             $this->select = new SelectStatement($parser, $list);
-        } elseif (
-                $this->options->has('TABLE') &&
-                ($token->type == Token::TYPE_KEYWORD) && ($token->value == 'AS') &&
-                ($list->tokens[$nextidx]->type == Token::TYPE_KEYWORD) && ($list->tokens[$nextidx]->value == 'SELECT')
-            ) {
+        } elseif ($this->options->has('TABLE')
+            && ($token->type == Token::TYPE_KEYWORD) && ($token->value == 'AS')
+            && ($list->tokens[$nextidx]->type == Token::TYPE_KEYWORD)
+            && ($list->tokens[$nextidx]->value == 'SELECT')
+        ) {
             /* CREATE TABLE ... AS SELECT */
             $list->idx = $nextidx;
             $this->select = new SelectStatement($parser, $list);
+        } elseif ($this->options->has('TABLE')
+            && $token->type == Token::TYPE_KEYWORD
+            && $token->value == 'LIKE'
+        ) {
+            /* CREATE TABLE `new_tbl` LIKE 'orig_tbl' */
+            $list->idx = $nextidx;
+            $this->like = Expression::parse(
+                $parser,
+                $list,
+                array(
+                    'parseField' => 'table',
+                    'breakOnAlias' => true,
+                )
+            );
+            // The 'LIKE' keyword was found, but no table_name was found next to it
+            if ($this->like == null) {
+                $parser->error(
+                    __('A table name was expected.'),
+                    $list->tokens[$list->idx]
+                );
+            }
         } elseif ($this->options->has('TABLE')) {
             $this->fields = CreateDefinition::parse($parser, $list);
             if (empty($this->fields)) {

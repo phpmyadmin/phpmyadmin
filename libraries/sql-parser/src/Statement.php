@@ -17,8 +17,7 @@ use SqlParser\Components\OptionsArray;
  *
  * @category Statements
  * @package  SqlParser
- * @author   Dan Ungureanu <udan1107@gmail.com>
- * @license  http://opensource.org/licenses/GPL-2.0 GNU Public License
+ * @license  https://www.gnu.org/licenses/gpl-2.0.txt GPL-2.0+
  */
 abstract class Statement
 {
@@ -254,6 +253,32 @@ abstract class Statement
                 break;
             }
 
+            $lastIdx = $list->idx;
+
+            // ON DUPLICATE KEY UPDATE ...
+            // has to be parsed in parent statement (INSERT or REPLACE)
+            // so look for it and break
+            if (get_class($this) === 'SqlParser\Statements\SelectStatement'
+                && $token->value === 'ON'
+            ) {
+                ++$list->idx; // Skip ON
+
+                // look for ON DUPLICATE KEY UPDATE
+                $first = $list->getNextOfType(Token::TYPE_KEYWORD);
+                $second = $list->getNextOfType(Token::TYPE_KEYWORD);
+                $third = $list->getNextOfType(Token::TYPE_KEYWORD);
+
+                if ($first && $second && $third
+                    && $first->value === 'DUPLICATE'
+                    && $second->value === 'KEY'
+                    && $third->value === 'UPDATE'
+                ) {
+                    $list->idx = $lastIdx;
+                    break;
+                }
+            }
+            $list->idx = $lastIdx;
+
             /**
              * The name of the class that is used for parsing.
              *
@@ -327,10 +352,23 @@ abstract class Statement
                     $parsedOptions = true;
                 }
             } elseif ($class === null) {
-                // There is no parser for this keyword and isn't the beginning
-                // of a statement (so no options) either.
-                $parser->error(__('Unrecognized keyword.'), $token);
-                continue;
+                // Handle special end options in Select statement
+                // See Statements\SelectStatement::$END_OPTIONS
+                if (get_class($this) === 'SqlParser\Statements\SelectStatement'
+                    && ($token->value === 'FOR UPDATE'
+                    || $token->value === 'LOCK IN SHARE MODE')
+                ) {
+                    $this->end_options = OptionsArray::parse(
+                        $parser,
+                        $list,
+                        static::$END_OPTIONS
+                    );
+                } else {
+                    // There is no parser for this keyword and isn't the beginning
+                    // of a statement (so no options) either.
+                    $parser->error(__('Unrecognized keyword.'), $token);
+                    continue;
+                }
             }
 
             $this->before($parser, $list, $token);
@@ -396,5 +434,76 @@ abstract class Statement
     public function __toString()
     {
         return $this->build();
+    }
+
+    /**
+     * Validates the order of the clauses in parsed statement
+     * Ideally this should be called after successfully
+     * completing the parsing of each statement
+     *
+     * @param Parser     $parser The instance that requests parsing.
+     * @param TokensList $list   The list of tokens to be parsed.
+     *
+     * @return boolean
+     */
+    public function validateClauseOrder($parser, $list)
+    {
+        $clauses = array_flip(array_keys($this->getClauses()));
+
+        if (empty($clauses)
+            || count($clauses) == 0
+        ) {
+            return true;
+        }
+
+        $minIdx = -1;
+
+        /**
+         * For tracking JOIN clauses in a query
+         *   0 - JOIN not found till now
+         *   1 - JOIN has been found
+         *   2 - A Non-JOIN clause has been found
+         *       after a previously found JOIN clause
+         *
+         * @var int $joinStart
+         */
+        $joinStart = 0;
+
+        $error = 0;
+        foreach ($clauses as $clauseType => $index) {
+            $clauseStartIdx = Utils\Query::getClauseStartOffset(
+                $this,
+                $list,
+                $clauseType
+            );
+
+            // Handle ordering of Multiple Joins in a query
+            if ($clauseStartIdx != -1) {
+                if ($joinStart == 0 && stripos($clauseType, 'JOIN')) {
+                    $joinStart = 1;
+                } elseif ($joinStart == 1 && ! stripos($clauseType, 'JOIN')) {
+                    $joinStart = 2;
+                } elseif ($joinStart == 2 && stripos($clauseType, 'JOIN')) {
+                    $error = 1;
+                }
+            }
+
+            if ($clauseStartIdx != -1 && $clauseStartIdx < $minIdx) {
+                if ($joinStart == 0 || ($joinStart == 2 && $error = 1)) {
+                    $token = $list->tokens[$clauseStartIdx];
+                    $parser->error(
+                        __('Unexpected ordering of clauses.'),
+                        $token
+                    );
+                    return false;
+                } else {
+                    $minIdx = $clauseStartIdx;
+                }
+            } elseif ($clauseStartIdx != -1) {
+                $minIdx = $clauseStartIdx;
+            }
+        }
+
+        return true;
     }
 }

@@ -19,11 +19,6 @@ if (! defined('PHPMYADMIN')) {
 require_once './libraries/check_user_privileges.lib.php';
 
 /**
- * We do this check, DROP DATABASE does not need to be confirmed elsewhere
- */
-define('PMA_CHK_DROP', 1);
-
-/**
  * Checks whether timeout is getting close
  *
  * @return boolean true if timeout is close
@@ -189,7 +184,6 @@ function PMA_importRunQuery($sql = '', $full = '', &$sql_data = array())
     if (! empty($import_run_buffer['sql'])
         && trim($import_run_buffer['sql']) != ''
     ) {
-
         $max_sql_len = max(
             $max_sql_len,
             mb_strlen($import_run_buffer['sql'])
@@ -197,63 +191,53 @@ function PMA_importRunQuery($sql = '', $full = '', &$sql_data = array())
         if (! $sql_query_disabled) {
             $sql_query .= $import_run_buffer['full'];
         }
-        $pattern = '@^[[:space:]]*DROP[[:space:]]+(IF EXISTS[[:space:]]+)?'
-            . 'DATABASE @i';
-        if (! $cfg['AllowUserDropDatabase']
-            && ! $is_superuser
-            && preg_match($pattern, $import_run_buffer['sql'])
-        ) {
-            $GLOBALS['message'] = Message::error(
-                __('"DROP DATABASE" statements are disabled.')
+
+        $executed_queries++;
+
+        if ($run_query && $executed_queries < 50) {
+            $go_sql = true;
+
+            if (! $sql_query_disabled) {
+                $complete_query = $sql_query;
+                $display_query = $sql_query;
+            } else {
+                $complete_query = '';
+                $display_query = '';
+            }
+            $sql_query = $import_run_buffer['sql'];
+            $sql_data['valid_sql'][] = $import_run_buffer['sql'];
+            $sql_data['valid_full'][] = $import_run_buffer['full'];
+            if (! isset($sql_data['valid_queries'])) {
+                $sql_data['valid_queries'] = 0;
+            }
+            $sql_data['valid_queries']++;
+        } elseif ($run_query) {
+
+            /* Handle rollback from go_sql */
+            if ($go_sql && isset($sql_data['valid_full'])) {
+                $queries = $sql_data['valid_sql'];
+                $fulls = $sql_data['valid_full'];
+                $count = $sql_data['valid_queries'];
+                $go_sql = false;
+
+                $sql_data['valid_sql'] = array();
+                $sql_data['valid_queries'] = 0;
+                unset($sql_data['valid_full']);
+                for ($i = 0; $i < $count; $i++) {
+                    PMA_executeQuery(
+                        $queries[$i],
+                        $fulls[$i],
+                        $sql_data
+                    );
+                }
+            }
+
+            PMA_executeQuery(
+                $import_run_buffer['sql'],
+                $import_run_buffer['full'],
+                $sql_data
             );
-            $error = true;
-        } else {
-            $executed_queries++;
-
-            if ($run_query && $executed_queries < 50) {
-                $go_sql = true;
-                if (! $sql_query_disabled) {
-                    $complete_query = $sql_query;
-                    $display_query = $sql_query;
-                } else {
-                    $complete_query = '';
-                    $display_query = '';
-                }
-                $sql_query = $import_run_buffer['sql'];
-                $sql_data['valid_sql'][] = $import_run_buffer['sql'];
-                $sql_data['valid_full'][] = $import_run_buffer['full'];
-                if (! isset($sql_data['valid_queries'])) {
-                    $sql_data['valid_queries'] = 0;
-                }
-                $sql_data['valid_queries']++;
-            } elseif ($run_query) {
-
-                /* Handle rollback from go_sql */
-                if ($go_sql && isset($sql_data['valid_full'])) {
-                    $queries = $sql_data['valid_sql'];
-                    $fulls = $sql_data['valid_full'];
-                    $count = $sql_data['valid_queries'];
-                    $go_sql = false;
-
-                    $sql_data['valid_sql'] = array();
-                    $sql_data['valid_queries'] = 0;
-                    unset($sql_data['valid_full']);
-                    for ($i = 0; $i < $count; $i++) {
-                        PMA_executeQuery(
-                            $queries[$i],
-                            $fulls[$i],
-                            $sql_data
-                        );
-                    }
-                }
-
-                PMA_executeQuery(
-                    $import_run_buffer['sql'],
-                    $import_run_buffer['full'],
-                    $sql_data
-                );
-            } // end run query
-        } // end if not DROP DATABASE
+        } // end run query
         // end non empty query
     } elseif (! empty($import_run_buffer['full'])) {
         if ($go_sql) {
@@ -1160,7 +1144,7 @@ function PMA_buildSQL($db_name, &$tables, &$analyses = null,
                     }
 
                     $tempSQLStr .= (($is_varchar) ? "'" : "");
-                    $tempSQLStr .= PMA\libraries\Util::sqlAddSlashes(
+                    $tempSQLStr .= $GLOBALS['dbi']->escapeString(
                         (string) $tables[$i][ROWS][$j][$k]
                     );
                     $tempSQLStr .= (($is_varchar) ? "'" : "");

@@ -83,6 +83,9 @@ class ImportLdiTest extends PMATestCase
         $dbi->expects($this->any())->method('fetchRow')
             ->will($this->returnValue($fetchRowResult));
 
+        $dbi->expects($this->any())->method('escapeString')
+            ->will($this->returnArgument(0));
+
         $GLOBALS['dbi'] = $dbi;
 
         $this->object = new ImportLdi();

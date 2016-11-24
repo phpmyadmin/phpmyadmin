@@ -356,7 +356,7 @@ function PMA_getTableCount($db)
 
 /**
  * Converts numbers like 10M into bytes
- * Used with permission from Moodle (http://moodle.org) by Martin Dougiamas
+ * Used with permission from Moodle (https://moodle.org) by Martin Dougiamas
  * (renamed with PMA prefix to avoid double definition when embedded
  * in Moodle)
  *
@@ -503,7 +503,7 @@ function PMA_sendHeaderLocation($uri, $use_refresh = false)
      * like /phpmyadmin/index.php/ which some web servers happily accept.
      */
     if ($uri[0] == '.') {
-        $uri = $GLOBALS['PMA_Config']->getCookiePath() . substr($uri, 2);
+        $uri = $GLOBALS['PMA_Config']->getRootPath() . substr($uri, 2);
     }
 
     $response = PMA\libraries\Response::getInstance();
@@ -556,7 +556,7 @@ function PMA_noCacheHeader()
         return;
     }
     // rfc2616 - Section 14.21
-    header('Expires: ' . date(DATE_RFC1123));
+    header('Expires: ' . gmdate(DATE_RFC1123));
     // HTTP/1.1
     header(
         'Cache-Control: no-store, no-cache, must-revalidate,'
@@ -579,7 +579,7 @@ function PMA_noCacheHeader()
     // test case: exporting a database into a .gz file with Safari
     // would produce files not having the current time
     // (added this header for Safari but should not harm other browsers)
-    header('Last-Modified: ' . date(DATE_RFC1123));
+    header('Last-Modified: ' . gmdate(DATE_RFC1123));
 }
 
 
@@ -754,9 +754,16 @@ function PMA_linkURL($url)
 function PMA_isAllowedDomain($url)
 {
     $arr = parse_url($url);
-    // Avoid URLs without hostname or with credentials
-    if (empty($arr['host']) || ! empty($arr['user']) || ! empty($arr['pass'])) {
+    // We need host to be set
+    if (! isset($arr['host']) || strlen($arr['host']) == 0) {
         return false;
+    }
+    // We do not want these to be present
+    $blocked = array('user', 'pass', 'port');
+    foreach ($blocked as $part) {
+        if (isset($arr[$part]) && strlen($arr[$part]) != 0) {
+            return false;
+        }
     }
     $domain = $arr["host"];
     $domainWhiteList = array(
@@ -766,6 +773,7 @@ function PMA_isAllowedDomain($url)
         'wiki.phpmyadmin.net', 'www.phpmyadmin.net', 'phpmyadmin.net',
         'demo.phpmyadmin.net',
         'docs.phpmyadmin.net',
+        'demo.phpmyadmin.net',
         /* mysql.com domains */
         'dev.mysql.com','bugs.mysql.com',
         /* mariadb domains */
@@ -781,7 +789,7 @@ function PMA_isAllowedDomain($url)
         /* Following are doubtful ones. */
         'mysqldatabaseadministration.blogspot.com',
     );
-    if (in_array(mb_strtolower($domain), $domainWhiteList)) {
+    if (in_array($domain, $domainWhiteList)) {
         return true;
     }
 
@@ -1014,7 +1022,7 @@ if (! function_exists('hash_hmac')) {
 /**
  * Sanitizes MySQL hostname
  *
- * * strips p: prefix
+ * * strips p: prefix(es)
  *
  * @param string $name User given hostname
  *
@@ -1022,10 +1030,28 @@ if (! function_exists('hash_hmac')) {
  */
 function PMA_sanitizeMySQLHost($name)
 {
-    if (strtolower(substr($name, 0, 2)) == 'p:') {
-        return substr($name, 2);
+    while (strtolower(substr($name, 0, 2)) == 'p:') {
+        $name = substr($name, 2);
     }
 
+    return $name;
+}
+
+/**
+ * Sanitizes MySQL username
+ *
+ * * strips part behind null byte
+ *
+ * @param string $name User given username
+ *
+ * @return string
+ */
+function PMA_sanitizeMySQLUser($name)
+{
+    $position = strpos($name, chr(0));
+    if ($position !== false) {
+        return substr($name, 0, $position);
+    }
     return $name;
 }
 
@@ -1062,7 +1088,7 @@ function PMA_safeUnserialize($data)
             case 's':
                 /* string */
                 // parse sting length
-                $strlen = intval($data[$i + 2]);
+                $strlen = intval(substr($data, $i + 2));
                 // string start
                 $i = strpos($data, ':', $i + 2);
                 if ($i === false) {

@@ -19,8 +19,7 @@ use SqlParser\TokensList;
  * @category   Keywords
  * @package    SqlParser
  * @subpackage Components
- * @author     Dan Ungureanu <udan1107@gmail.com>
- * @license    http://opensource.org/licenses/GPL-2.0 GNU Public License
+ * @license    https://www.gnu.org/licenses/gpl-2.0.txt GPL-2.0+
  */
 class IntoKeyword extends Component
 {
@@ -45,6 +44,13 @@ class IntoKeyword extends Component
      * @var array
      */
     public $columns;
+
+    /**
+     * The values to be selected into (SELECT .. INTO @var1)
+     *
+     * @var ExpressionArray
+     */
+    public $values;
 
     /**
      * @param Parser     $parser  The parser that serves as context.
@@ -103,14 +109,22 @@ class IntoKeyword extends Component
             }
 
             if ($state === 0) {
-                $ret->dest = Expression::parse(
-                    $parser,
-                    $list,
-                    array(
-                        'parseField' => 'table',
-                        'breakOnAlias' => true,
-                    )
-                );
+                if ((isset($options['fromInsert'])
+                    && $options['fromInsert'])
+                    || (isset($options['fromReplace'])
+                    && $options['fromReplace'])
+                ) {
+                    $ret->dest = Expression::parse(
+                        $parser,
+                        $list,
+                        array(
+                            'parseField' => 'table',
+                            'breakOnAlias' => true,
+                        )
+                    );
+                } else {
+                    $ret->values = ExpressionArray::parse($parser, $list);
+                }
                 $state = 1;
             } elseif ($state === 1) {
                 if (($token->type === Token::TYPE_OPERATOR) && ($token->value === '(')) {
@@ -139,8 +153,10 @@ class IntoKeyword extends Component
     {
         if ($component->dest instanceof Expression) {
             $columns = !empty($component->columns) ?
-                '(' . implode(', ', $component->columns) . ')' : '';
+                '(`' . implode('`, `', $component->columns) . '`)' : '';
             return $component->dest . $columns;
+        } elseif (isset($component->values)) {
+            return ExpressionArray::build($component->values);
         } else {
             return 'OUTFILE "' . $component->dest . '"';
         }

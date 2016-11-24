@@ -64,12 +64,12 @@ if ($is_aria) {
     // the value for transactional can be implicit
     // (no create option found, in this case it means 1)
     // or explicit (option found with a value of 0 or 1)
-    // ($transactional may have been set by libraries/tbl_info.inc.php,
+    // ($create_options['transactional'] may have been set by libraries/tbl_info.inc.php,
     // from the $create_options)
-    $transactional = (isset($transactional) && $transactional == '0')
+    $create_options['transactional'] = (isset($create_options['transactional']) && $create_options['transactional'] == '0')
         ? '0'
         : '1';
-    $page_checksum = (isset($page_checksum)) ? $page_checksum : '';
+    $create_options['page_checksum'] = (isset($create_options['page_checksum'])) ? $create_options['page_checksum'] : '';
 }
 
 $reread_info = false;
@@ -137,24 +137,24 @@ if (isset($_REQUEST['submitoptions'])) {
         ) = PMA_setGlobalVariablesForEngine($new_tbl_storage_engine);
 
         if ($is_aria) {
-            $transactional = (isset($transactional) && $transactional == '0')
+            $create_options['transactional'] = (isset($create_options['transactional']) && $create_options['transactional'] == '0')
                 ? '0'
                 : '1';
-            $page_checksum = (isset($page_checksum)) ? $page_checksum : '';
+            $create_options['page_checksum'] = (isset($create_options['page_checksum'])) ? $create_options['page_checksum'] : '';
         }
     } else {
         $new_tbl_storage_engine = '';
     }
 
     $table_alters = PMA_getTableAltersArray(
-        $is_myisam_or_aria, $is_isam, $pack_keys,
-        (empty($checksum) ? '0' : '1'),
+        $is_myisam_or_aria, $is_isam, $create_options['pack_keys'],
+        (empty($create_options['checksum']) ? '0' : '1'),
         $is_aria,
-        ((isset($page_checksum)) ? $page_checksum : ''),
-        (empty($delay_key_write) ? '0' : '1'),
-        $is_innodb, $is_pbxt, $row_format,
+        ((isset($create_options['page_checksum'])) ? $create_options['page_checksum'] : ''),
+        (empty($create_options['delay_key_write']) ? '0' : '1'),
+        $is_innodb, $is_pbxt, $create_options['row_format'],
         $new_tbl_storage_engine,
-        ((isset($transactional) && $transactional == '0') ? '0' : '1'),
+        ((isset($create_options['transactional']) && $create_options['transactional'] == '0') ? '0' : '1'),
         $tbl_collation
     );
 
@@ -199,7 +199,6 @@ if ($reread_info) {
     // to avoid showing the old value (for example the AUTO_INCREMENT) after
     // a change, clear the cache
     $GLOBALS['dbi']->clearTableCache();
-    $page_checksum = $checksum = $delay_key_write = 0;
     include 'libraries/tbl_info.inc.php';
 }
 unset($reread_info);
@@ -227,7 +226,12 @@ if (isset($result) && empty($message_to_show)) {
             }
             exit;
         }
+    } else {
+        $_message = $result
+            ? PMA\libraries\Message::success($_message)
+            : PMA\libraries\Message::error($_message);
     }
+
     if (! empty($warning_messages)) {
         $_message = new PMA\libraries\Message;
         $_message->addMessages($warning_messages);
@@ -335,12 +339,12 @@ if (mb_strstr($show_comment, '; InnoDB free') === false) {
 $response->addHTML(
     PMA_getTableOptionDiv(
         $comment, $tbl_collation, $tbl_storage_engine,
-        $is_myisam_or_aria, $is_isam, $pack_keys,
+        $is_myisam_or_aria, $is_isam, $create_options['pack_keys'],
         $auto_increment,
-        (empty($delay_key_write) ? '0' : '1'),
-        ((isset($transactional) && $transactional == '0') ? '0' : '1'),
-        ((isset($page_checksum)) ? $page_checksum : ''),
-        $is_innodb, $is_pbxt, $is_aria, (empty($checksum) ? '0' : '1')
+        (empty($create_options['delay_key_write']) ? '0' : '1'),
+        ((isset($create_options['transactional']) && $create_options['transactional'] == '0') ? '0' : '1'),
+        ((isset($create_options['page_checksum'])) ? $create_options['page_checksum'] : ''),
+        $is_innodb, $is_pbxt, $is_aria, (empty($create_options['checksum']) ? '0' : '1')
     )
 );
 

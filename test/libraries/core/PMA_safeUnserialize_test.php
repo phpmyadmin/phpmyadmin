@@ -44,6 +44,7 @@ class PMA_safeUnserialize_test extends PHPUnit_Framework_TestCase
             array('b:0;', false),
             array('O:1:"a":1:{s:5:"value";s:3:"100";}', null),
             array('O:8:"stdClass":1:{s:5:"field";O:8:"stdClass":0:{}}', null),
+            array('a:2:{i:0;s:90:"1234567890;a345678901234567890123456789012345678901234567890123456789012345678901234567890";i:1;O:8:"stdClass":0:{}}', null),
             array(serialize(array(1, 2, 3)), array(1, 2, 3)),
             array(serialize('string""'), 'string""'),
             array(serialize(array('foo' => 'bar')), array('foo' => 'bar')),

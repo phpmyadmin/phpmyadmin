@@ -36,11 +36,6 @@ register_shutdown_function(
     }
 );
 
-$js_messages['strNoDropDatabases'] = __('"DROP DATABASE" statements are disabled.');
-if ($cfg['AllowUserDropDatabase']) {
-    $js_messages['strNoDropDatabases'] = '';
-}
-
 /* For confirmations */
 $js_messages['strConfirm'] = __('Confirm');
 $js_messages['strDoYouReally'] = __('Do you really want to execute "%s"?');
@@ -385,11 +380,14 @@ $js_messages['strHideSearchResults'] = __('Hide search results');
 $js_messages['strShowSearchResults'] = __('Show search results');
 $js_messages['strBrowsing'] = __('Browsing');
 $js_messages['strDeleting'] = __('Deleting');
+$js_messages['strConfirmDeleteResults'] = __('Delete the matches for the %s table?');
 
 /* For db_routines.js */
 $js_messages['MissingReturn']
     = __('The definition of a stored function must contain a RETURN statement!');
 $js_messages['strExport'] = __('Export');
+$js_messages['NoExportable']
+    = __('No routine is exportable. Required privileges may be lacking.');
 
 /* For ENUM/SET editor*/
 $js_messages['enum_editor'] = __('ENUM/SET editor');
@@ -519,6 +517,18 @@ $js_messages['strAddInnerRing'] = __('Add an inner ring');
 $js_messages['strYes'] = __('Yes');
 $js_messages['strCopyEncryptionKey'] = __('Do you want to copy encryption key?');
 $js_messages['strEncryptionKey'] = __('Encryption key');
+
+/* For Tip to be shown on Time field */
+$js_messages['strMysqlAllowedValuesTipTime'] = __(
+    'MySQL accepts additional values not selectable by the slider;'
+    . ' key in those values directly if desired'
+);
+
+/* For Tip to be shown on Date field */
+$js_messages['strMysqlAllowedValuesTipDate'] = __(
+    'MySQL accepts additional values not selectable by the datepicker;'
+    . ' key in those values directly if desired'
+);
 
 /* For Lock symbol Tooltip */
 $js_messages['strLockToolTip'] = __(

@@ -658,6 +658,10 @@ function query_from()
     var key2;
     var key3;
     var parts1;
+
+    // the constraints that have been used in the LEFT JOIN
+    var constraints_added = [];
+
     for (i = 0; i < history_array.length; i++) {
         from_array.push(history_array[i].get_tab());
     }
@@ -666,6 +670,7 @@ function query_from()
     temp = tab_left.shift();
     quer = '`' + temp + '`';
     tab_used.push(temp);
+
     // if master table (key2) matches with tab used get all keys and check if tab_left matches
     // after this check if master table (key2) matches with tab left then check if any foreign matches with master .
     for (i = 0; i < 2; i++) {
@@ -677,11 +682,18 @@ function query_from()
                         for (key3 in contr[K][key][key2]) {
                             parts1 = contr[K][key][key2][key3][0].split(".");
                             if (found(tab_left, parts1[1]) > 0) {
-                                query += "\n" + 'LEFT JOIN ';
-                                query += '`' + parts1[1] + '` ON ';
-                                query += '`' + parts[1] + '`.`' + key3 + '` = ';
-                                query += '`' + parts1[1] + '`.`' + contr[K][key][key2][key3][1] + '` ';
-                                t_tab_left.push(parts1[1]);
+                                if (found(constraints_added, key) > 0) {
+                                    query += ' AND ' + '`' + parts[1] + '`.`' + key3 + '` = ';
+                                    query += '`' + parts1[1] + '`.`' + contr[K][key][key2][key3][1] + '` ';
+                                } else {
+                                    query += "\n" + 'LEFT JOIN ';
+                                    query += '`' + parts[1] + '` ON ';
+                                    query += '`' + parts1[1] + '`.`' + contr[K][key][key2][key3][1] + '` = ';
+                                    query += '`' + parts[1] + '`.`' + key3 + '` ';
+
+                                    constraints_added.push(key);
+                                }
+                                t_tab_left.push(parts[1]);
                             }
                         }
                     }
@@ -701,10 +713,17 @@ function query_from()
                         for (key3 in contr[K][key][key2]) {
                             parts1 = contr[K][key][key2][key3][0].split(".");
                             if (found(tab_used, parts1[1]) > 0) {
-                                query += "\n" + 'LEFT JOIN ';
-                                query += '`' + parts[1] + '` ON ';
-                                query += '`' + parts1[1] + '`.`' + contr[K][key][key2][key3][1] + '` = ';
-                                query += '`' + parts[1] + '`.`' + key3 + '` ';
+                                if (found(constraints_added, key) > 0) {
+                                    query += ' AND ' + '`' + parts[1] + '`.`' + key3 + '` = ';
+                                    query += '`' + parts1[1] + '`.`' + contr[K][key][key2][key3][1] + '` ';
+                                } else {
+                                    query += "\n" + 'LEFT JOIN ';
+                                    query += '`' + parts[1] + '` ON ';
+                                    query += '`' + parts1[1] + '`.`' + contr[K][key][key2][key3][1] + '` = ';
+                                    query += '`' + parts[1] + '`.`' + key3 + '` ';
+
+                                    constraints_added.push(key);
+                                }
                                 t_tab_left.push(parts[1]);
                             }
                         }

@@ -287,8 +287,8 @@ function PMA_EVN_getDataFromName($name)
              . "`INTERVAL_VALUE`, `INTERVAL_FIELD`, `STARTS`, `ENDS`, "
              . "`EVENT_DEFINITION`, `ON_COMPLETION`, `DEFINER`, `EVENT_COMMENT`";
     $where   = "EVENT_SCHEMA " . PMA\libraries\Util::getCollateForIS() . "="
-             . "'" . PMA\libraries\Util::sqlAddSlashes($db) . "' "
-             . "AND EVENT_NAME='" . PMA\libraries\Util::sqlAddSlashes($name) . "'";
+             . "'" . $GLOBALS['dbi']->escapeString($db) . "' "
+             . "AND EVENT_NAME='" . $GLOBALS['dbi']->escapeString($name) . "'";
     $query   = "SELECT $columns FROM `INFORMATION_SCHEMA`.`EVENTS` WHERE $where;";
     $item    = $GLOBALS['dbi']->fetchSingleRow($query);
     if (! $item) {
@@ -561,18 +561,18 @@ function PMA_EVN_getQueryFromRequest()
             }
             if (! empty($_REQUEST['item_starts'])) {
                 $query .= "STARTS '"
-                    . PMA\libraries\Util::sqlAddSlashes($_REQUEST['item_starts'])
+                    . $GLOBALS['dbi']->escapeString($_REQUEST['item_starts'])
                     . "' ";
             }
             if (! empty($_REQUEST['item_ends'])) {
                 $query .= "ENDS '"
-                    . PMA\libraries\Util::sqlAddSlashes($_REQUEST['item_ends'])
+                    . $GLOBALS['dbi']->escapeString($_REQUEST['item_ends'])
                     . "' ";
             }
         } else {
             if (! empty($_REQUEST['item_execute_at'])) {
                 $query .= "AT '"
-                    . PMA\libraries\Util::sqlAddSlashes($_REQUEST['item_execute_at'])
+                    . $GLOBALS['dbi']->escapeString($_REQUEST['item_execute_at'])
                     . "' ";
             } else {
                 $errors[]
@@ -596,7 +596,7 @@ function PMA_EVN_getQueryFromRequest()
         }
     }
     if (! empty($_REQUEST['item_comment'])) {
-        $query .= "COMMENT '" . PMA\libraries\Util::sqlAddslashes(
+        $query .= "COMMENT '" . $GLOBALS['dbi']->escapeString(
             $_REQUEST['item_comment']
         ) . "' ";
     }

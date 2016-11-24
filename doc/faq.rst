@@ -561,7 +561,7 @@ This is not specific to phpmyadmin, it's just the behavior of Apache.
     ProxyPassReverse /mirror/foo/ http://backend.example.com/%7Euser/phpmyadmin
     ProxyPassReverseCookiePath /%7Euser/phpmyadmin /mirror/foo
 
-.. seealso:: <https://httpd.apache.org/docs/2.2/mod/mod_proxy.html>
+.. seealso:: <https://httpd.apache.org/docs/2.2/mod/mod_proxy.html>, :config:option:`$cfg['PmaAbsoluteUri']`
 
 .. _faq1_41:
 
@@ -714,9 +714,9 @@ revision.
 
 Check your webserver setup if it correctly fills in either PHP_SELF or REQUEST_URI variables.
 
-If you are running phpMyAdmin older than 4.6.0, you can also check the value
-you set for the :config:option:`$cfg['PmaAbsoluteUri']` directive in the
-phpMyAdmin configuration file.
+If you are running phpMyAdmin behind reverse proxy, please set the
+:config:option:`$cfg['PmaAbsoluteUri']` directive in the phpMyAdmin
+configuration file to match your setup.
 
 .. _faq2_6:
 
@@ -1386,6 +1386,9 @@ button. Then click Go.  With version 2.7.0, the import engine has been
 re–written, if possible it is suggested that you upgrade to take
 advantage of the new features.  For additional help on this subject,
 look for the word "upload" in this document.
+
+Note: For errors while importing of dumps exported from older MySQL versions to newer MySQL versions,
+please check :ref:`faq6_41`.
 
 .. _faq6_6:
 
@@ -2093,6 +2096,31 @@ From version 4.5, phpMyAdmin allows users to execute parameterized queries in th
 Parameters should be prefixed with a colon(:) and when the "Bind parameters" checkbox is checked
 these parameters will be identified and input fields for these parameters will be presented.
 Values entered in these field will be substituted in the query before being executed.
+
+.. _faq6_41:
+
+6.41 I get import errors while importing the dumps exported from older MySQL versions (pre-5.7.6) into newer MySQL versions (5.7.7+), but they work fine when imported back on same older versions ?
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+If you get errors like *#1031 - Table storage engine for 'table_name' doesn't have this option*
+while importing the dumps exported from pre-5.7.7 MySQL servers into new MySQL server versions 5.7.7+,
+it might be because ROW_FORMAT=FIXED is not supported with InnoDB tables. Moreover, the value of
+`innodb_strict_mode <http://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_strict_mode>`_ would define if this would be reported as a warning or as an error.
+
+Since MySQL version 5.7.9, the default value for `innodb_strict_mode` is `ON` and thus would generate
+an error when such a CREATE TABLE or ALTER TABLE statement is encountered.
+
+There are two ways of preventing such errors while importing:
+
+* Change the value of `innodb_strict_mode` to `OFF` before starting the import and turn it `ON` after
+  the import is successfully completed.
+* This can be achieved in two ways:
+
+  * Go to 'Variables' page and edit the value of `innodb_strict_mode`
+  * Run the query : `SET GLOBAL `innodb_strict_mode` = '[value]'`
+
+After the import is done, it is suggested that the value of `innodb_strict_mode` should be reset to the
+original value.
 
 .. _faqproject:
 

@@ -24,6 +24,7 @@ $_GET['scripts'] = json_encode($_GET['scripts']);
 // Avoid loading the full common.inc.php because this would add many
 // non-js-compatible stuff like DOCTYPE
 define('PMA_MINIMUM_COMMON', true);
+define('PMA_PATH_TO_BASEDIR', '../');
 require_once './libraries/common.inc.php';
 
 $buffer = PMA\libraries\OutputBuffering::getInstance();

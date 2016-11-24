@@ -693,20 +693,15 @@ class ExportLatexTest extends PMATestCase
             ->with('database', '')
             ->will($this->returnValue($keys));
 
-        $dbi->expects($this->at(2))
+        $dbi->expects($this->exactly(2))
             ->method('fetchResult')
-            ->will($this->returnValue(array()));
-
-        $dbi->expects($this->at(7))
-            ->method('fetchResult')
-            ->will(
-                $this->returnValue(
-                    array(
-                        'name1' => array(
-                            'values' => 'test-',
-                            'transformation' => 'testfoo',
-                            'mimetype' => 'testmimetype_'
-                        )
+            ->willReturnOnConsecutiveCalls(
+                array(),
+                array(
+                    'name1' => array(
+                        'values' => 'test-',
+                        'transformation' => 'testfoo',
+                        'mimetype' => 'testmimetype_'
                     )
                 )
             );
@@ -811,30 +806,21 @@ class ExportLatexTest extends PMATestCase
             ->disableOriginalConstructor()
             ->getMock();
 
-        $dbi->expects($this->at(2))
+        $dbi->expects($this->exactly(2))
             ->method('fetchResult')
-            ->will(
-                $this->returnValue(
-                    array(
-                        'name1' => array(
-                            'foreign_table' => 'ftable',
-                            'foreign_field' => 'ffield'
-                        ),
-                        'foreign_keys_data' => array()
-                    )
-                )
-            );
-
-        $dbi->expects($this->at(7))
-            ->method('fetchResult')
-            ->will(
-                $this->returnValue(
-                    array(
-                        'field' => array(
-                            'values' => 'test-',
-                            'transformation' => 'testfoo',
-                            'mimetype' => 'test<'
-                        )
+            ->willReturnOnConsecutiveCalls(
+                array(
+                    'name1' => array(
+                        'foreign_table' => 'ftable',
+                        'foreign_field' => 'ffield'
+                    ),
+                    'foreign_keys_data' => array()
+                ),
+                array(
+                    'field' => array(
+                        'values' => 'test-',
+                        'transformation' => 'testfoo',
+                        'mimetype' => 'test<'
                     )
                 )
             );

@@ -152,7 +152,7 @@ if ($server > 0 || count($cfg['Servers']) > 1
                 . 'please do not change root, debian-sys-maint and pma users. '
                 . 'More information is available at %s.'
             ),
-            '<a href="url.php?url=https://demo.phpmyadmin.net/" target="_blank">demo.phpmyadmin.net</a>'
+            '<a href="url.php?url=https://demo.phpmyadmin.net/" target="_blank" rel="noopener noreferrer">demo.phpmyadmin.net</a>'
         );
         echo '</p>';
         echo '</div>';
@@ -389,7 +389,7 @@ PMA_printListItem(
 PMA_printListItem(
     __('Official Homepage'),
     'li_pma_homepage',
-    PMA_linkURL('https://www.phpMyAdmin.net/'),
+    PMA_linkURL('https://www.phpmyadmin.net/'),
     null,
     '_blank'
 );
@@ -427,21 +427,6 @@ echo ' </div>';
 echo '</div>';
 
 echo '</div>';
-
-/**
- * As we try to handle charsets by ourself, mbstring overloads just
- * break it, see bug 1063821.
- */
-if (@extension_loaded('mbstring') && @ini_get('mbstring.func_overload') > 1) {
-    trigger_error(
-        __(
-            'You have enabled mbstring.func_overload in your PHP '
-            . 'configuration. This option is incompatible with phpMyAdmin '
-            . 'and might cause some data to be corrupted!'
-        ),
-        E_USER_WARNING
-    );
-}
 
 /**
  * mbstring is used for handling multibytes inside parser, so it is good
@@ -518,8 +503,7 @@ if (! empty($_SESSION['encryption_key'])) {
             ),
             E_USER_WARNING
         );
-    }
-    if (strlen($GLOBALS['cfg']['blowfish_secret']) < 32) {
+    } elseif (strlen($GLOBALS['cfg']['blowfish_secret']) < 32) {
         trigger_error(
             __(
                 'The secret passphrase in configuration (blowfish_secret) is too short.'

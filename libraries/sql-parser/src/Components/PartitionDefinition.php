@@ -23,8 +23,7 @@ use SqlParser\TokensList;
  * @category   Components
  * @package    SqlParser
  * @subpackage Components
- * @author     Dan Ungureanu <udan1107@gmail.com>
- * @license    http://opensource.org/licenses/GPL-2.0 GNU Public License
+ * @license    https://www.gnu.org/licenses/gpl-2.0.txt GPL-2.0+
  */
 class PartitionDefinition extends Component
 {
@@ -215,7 +214,7 @@ class PartitionDefinition extends Component
                     ? '' : ' ' . PartitionDefinition::build($component->subpartitions);
                 return trim(
                     'PARTITION ' . $component->name
-                    . (empty($component->type) ? '' : ' VALUES ' . $component->type . ' ' . $component->expr)
+                    . (empty($component->type) ? '' : ' VALUES ' . $component->type . ' ' . $component->expr . ' ')
                     . $component->options . $subpartitions
                 );
             }
