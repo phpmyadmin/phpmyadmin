@@ -144,8 +144,9 @@ class Tracker
     static public function getLogComment()
     {
         $date = date('Y-m-d H:i:s');
+        $user = preg_replace('/\s+/', ' ', $GLOBALS['cfg']['Server']['user']);
 
-        return "# log " . $date . " " . $GLOBALS['cfg']['Server']['user'] . "\n";
+        return "# log " . $date . " " . $user . "\n";
     }
 
     /**

@@ -1186,14 +1186,16 @@ function PMA_exportAsFileDownload($entries)
 {
     @ini_set('url_rewriter.tags', '');
 
+    // Replace all multiple whitespaces by a single space
+    $table = htmlspecialchars(preg_replace('/\s+/', ' ', $_REQUEST['table']));
     $dump = "# " . sprintf(
-        __('Tracking report for table `%s`'), htmlspecialchars($_REQUEST['table'])
+        __('Tracking report for table `%s`'), $table
     )
     . "\n" . "# " . date('Y-m-d H:i:s') . "\n";
     foreach ($entries as $entry) {
         $dump .= $entry['statement'];
     }
-    $filename = 'log_' . htmlspecialchars($_REQUEST['table']) . '.sql';
+    $filename = 'log_' . $table . '.sql';
     PMA\libraries\Response::getInstance()->disable();
     PMA_downloadHeader(
         $filename,
