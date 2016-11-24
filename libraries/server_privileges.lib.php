@@ -737,7 +737,7 @@ function PMA_getHtmlForRequires($row)
             'description' => __(
                 'Requires a valid X509 certificate.'
             ),
-            'label'       => 'REQUIRE SSL',
+            'label'       => 'REQUIRE X509',
             'checked'     => (isset($row['ssl_type']) && ($row['ssl_type'] == 'X509')
                 ? 'checked="checked"'
                 : ''
