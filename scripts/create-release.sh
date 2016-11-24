@@ -337,7 +337,6 @@ git worktree prune
 echo "* Signing files"
 for file in *.gz *.zip *.xz *.bz2 *.7z ; do
     gpg --detach-sign --armor $file
-    md5sum $file > $file.md5
     sha1sum $file > $file.sha1
     sha256sum $file > $file.sha256
 done
