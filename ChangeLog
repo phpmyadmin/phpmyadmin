@@ -2,6 +2,7 @@ phpMyAdmin - ChangeLog
 ======================
 
 4.6.6 (not yet released)
+- issue #12735 Incorrect parameters to escapeString in Node.php
 
 4.6.5 (2016-11-24)
 - issue        Remove potentionally license problematic sRGB profile
