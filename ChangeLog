@@ -1,6 +1,8 @@
 phpMyAdmin - ChangeLog
 ======================
 
+4.6.6 (not yet released)
+
 4.6.5 (2016-11-24)
 - issue        Remove potentionally license problematic sRGB profile
 - issue #12459 Display read only fields as read only when editing
