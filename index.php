@@ -389,7 +389,7 @@ PMA_printListItem(
 PMA_printListItem(
     __('Official Homepage'),
     'li_pma_homepage',
-    PMA_linkURL('https://www.phpMyAdmin.net/'),
+    PMA_linkURL('https://www.phpmyadmin.net/'),
     null,
     '_blank'
 );
