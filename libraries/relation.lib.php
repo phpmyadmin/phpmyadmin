@@ -1387,18 +1387,12 @@ function PMA_getForeignData(
                 . '.' . PMA\libraries\Util::backquote($foreign_table);
             $f_query_filter = empty($foreign_filter) ? '' : ' WHERE '
                 . PMA\libraries\Util::backquote($foreign_field)
-                . ' LIKE "%' . $GLOBALS['dbi']->escapeString(
-                    $foreign_filter,
-                    true
-                ) . '%"'
+                . ' LIKE "%' . $GLOBALS['dbi']->escapeString($foreign_filter) . '%"'
                 . (
                 ($foreign_display == false)
                     ? ''
                     : ' OR ' . PMA\libraries\Util::backquote($foreign_display)
-                    . ' LIKE "%' . $GLOBALS['dbi']->escapeString(
-                        $foreign_filter,
-                        true
-                    )
+                    . ' LIKE "%' . $GLOBALS['dbi']->escapeString($foreign_filter)
                     . '%"'
                 );
             $f_query_order = ($foreign_display == false) ? '' :' ORDER BY '
