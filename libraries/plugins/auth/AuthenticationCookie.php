@@ -301,7 +301,7 @@ class AuthenticationCookie extends AuthenticationPlugin
             }
 
             // The user just logged in
-            $GLOBALS['PHP_AUTH_USER'] = $_REQUEST['pma_username'];
+            $GLOBALS['PHP_AUTH_USER'] = PMA_sanitizeMySQLUser($_REQUEST['pma_username']);
             $GLOBALS['PHP_AUTH_PW']   = $_REQUEST['pma_password'];
             if ($GLOBALS['cfg']['AllowArbitraryServer']
                 && isset($_REQUEST['pma_servername'])
@@ -407,14 +407,14 @@ class AuthenticationCookie extends AuthenticationPlugin
 
         // Ensures valid authentication mode, 'only_db', bookmark database and
         // table names and relation table name are used
-        if ($cfg['Server']['user'] != $GLOBALS['PHP_AUTH_USER']) {
+        if (! hash_equals($cfg['Server']['user'], $GLOBALS['PHP_AUTH_USER'])) {
             foreach ($cfg['Servers'] as $idx => $current) {
                 if ($current['host'] == $cfg['Server']['host']
                     && $current['port'] == $cfg['Server']['port']
                     && $current['socket'] == $cfg['Server']['socket']
                     && $current['ssl'] == $cfg['Server']['ssl']
                     && $current['connect_type'] == $cfg['Server']['connect_type']
-                    && $current['user'] == $GLOBALS['PHP_AUTH_USER']
+                    && hash_equals($current['user'], $GLOBALS['PHP_AUTH_USER'])
                 ) {
                     $GLOBALS['server'] = $idx;
                     $cfg['Server']     = $current;
@@ -449,11 +449,7 @@ class AuthenticationCookie extends AuthenticationPlugin
         // Avoid showing the password in phpinfo()'s output
         unset($GLOBALS['PHP_AUTH_PW']);
         unset($_SERVER['PHP_AUTH_PW']);
-        if (isset($_REQUEST['access_time'])) {
-            $_SESSION['last_access_time'] = time() - $_REQUEST['access_time'];
-        } else {
-            $_SESSION['last_access_time'] = time();
-        }
+        $this->setSessionAccessTime();
     }
 
     /**

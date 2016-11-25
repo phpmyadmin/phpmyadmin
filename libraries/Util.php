@@ -4826,7 +4826,7 @@ class Util
         curl_setopt($curl_handle, CURLOPT_IPRESOLVE, CURL_IPRESOLVE_V4);
         curl_setopt($curl_handle, CURLOPT_TIMEOUT, 10);
         curl_setopt($curl_handle, CURLOPT_CONNECTTIMEOUT, 10);
-        $response = curl_exec($curl_handle);
+        $response = @curl_exec($curl_handle);
         if ($return_only_status) {
             if ($response === false) {
                 return null;

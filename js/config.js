@@ -625,9 +625,9 @@ AJAX.registerOnload('config.js', function () {
     var tab_check_fnc = function () {
         if (location.hash != prev_hash) {
             prev_hash = location.hash;
-            if (location.hash.match(/^#tab_[a-zA-Z0-9_]+/)) {
+            if (prev_hash.match(/^#tab_[a-zA-Z0-9_]+$/)) {
                 // session ID is sometimes appended here
-                var hash = location.hash.substr(5).split('&')[0];
+                var hash = prev_hash.substr(5).split('&')[0];
                 if ($('#' + hash).length) {
                     setTab(hash);
                 }

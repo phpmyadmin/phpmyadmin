@@ -478,7 +478,7 @@ class Error extends Message
 
         /* Probably affected by open_basedir */
         if ($dest === FALSE) {
-            return $path;
+            return basename($path);
         }
 
         $Ahere = explode(

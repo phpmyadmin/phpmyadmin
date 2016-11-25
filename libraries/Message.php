@@ -95,6 +95,14 @@ class Message
     protected $isDisplayed = false;
 
     /**
+     * Whether to use BB code when displaying.
+     *
+     * @access  protected
+     * @var     boolean
+     */
+    protected $useBBCode = true;
+
+    /**
      * Unique id
      *
      * @access  protected
@@ -218,6 +226,7 @@ class Message
     {
         $r = new Message('', $type);
         $r->setMessage($message);
+        $r->setBBCode(false);
         return $r;
     }
 
@@ -372,6 +381,18 @@ class Message
         }
 
         return $this->getNumber() === Message::ERROR;
+    }
+
+    /**
+     * Set whether we should use BB Code when rendering.
+     *
+     * @param boolean $useBBCode Use BB Code?
+     *
+     * @return void
+     */
+    public function setBBCode($useBBCode)
+    {
+        $this->useBBCode = $useBBCode;
     }
 
     /**
@@ -682,7 +703,9 @@ class Message
             $message = Message::format($message, $this->getParams());
         }
 
-        $message = Message::decodeBB($message);
+        if ($this->useBBCode) {
+            $message = Message::decodeBB($message);
+        }
 
         foreach ($this->getAddedMessages() as $add_message) {
             $message .= $add_message;
