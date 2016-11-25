@@ -213,7 +213,7 @@ From Wikipedia, the free encyclopedia
 
        If you have troubles installing this extension, please follow :ref:`faqmysql`, it provides useful hints.
        
-       ..seealso:: <https://secure.php.net/manual/en/book.mbstring.php>
+       .. seealso:: <https://secure.php.net/manual/en/book.mbstring.php>
 
     MCrypt
       a cryptographic library.	
