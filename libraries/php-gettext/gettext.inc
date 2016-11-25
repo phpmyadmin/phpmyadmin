@@ -183,7 +183,7 @@ function _get_codeset($domain=null) {
  */
 function _encode($text) {
     $source_encoding = 'utf-8';
-    if (function_exists(mb_detect_encoding)) {
+    if (function_exists('mb_detect_encoding')) {
         $source_encoding = mb_detect_encoding($text);
         if ($source_encoding === false) {
             $source_encoding = 'utf-8';
