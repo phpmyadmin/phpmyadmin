@@ -3672,44 +3672,9 @@ function PMA_getHtmlTableBodyForUserRights($db_rights)
 function PMA_getFieldsetForAddDeleteUser()
 {
     $html_output = PMA_getAddUserHtmlFieldset();
-    $html_output .= '<fieldset id="fieldset_delete_user">'
-        . '<legend>' . "\n"
-        . Util::getIcon('b_usrdrop.png')
-        . '            ' . __('Remove selected user accounts') . '' . "\n"
-        . '</legend>' . "\n";
 
-    $html_output .= '<input type="hidden" name="mode" value="2" />' . "\n"
-        . '('
-        . __(
-            'Revoke all active privileges from the users '
-            . 'and delete them afterwards.'
-        )
-        . ')'
-        . '<br />' . "\n";
-
-    $html_output .= '<input type="checkbox" '
-        . 'title="'
-        . __('Drop the databases that have the same names as the users.')
-        . '" '
-        . 'name="drop_users_db" id="checkbox_drop_users_db" />' . "\n";
-
-    $html_output .= '<label for="checkbox_drop_users_db" '
-        . 'title="'
-        . __('Drop the databases that have the same names as the users.')
-        . '">' . "\n"
-        . '            '
-        . __('Drop the databases that have the same names as the users.')
-        . "\n"
-        . '</label>' . "\n"
-        . '</fieldset>' . "\n";
-
-    $html_output .= '<fieldset id="fieldset_delete_user_footer" class="tblFooters">'
-        . "\n";
-    $html_output .= '<input type="submit" name="delete" '
-        . 'value="' . __('Go') . '" id="buttonGo" '
-        . 'class="ajax"/>' . "\n";
-
-    $html_output .= '</fieldset>' . "\n";
+    $html_output .= Template::get('privileges/delete_user_fieldset')
+        ->render(array());
 
     return $html_output;
 }
@@ -4486,17 +4451,13 @@ function PMA_getAddUserHtmlFieldset($db = '', $table = '')
                 = $table;
     }
 
-    return '<fieldset id="fieldset_add_user">' . "\n"
-        . '<legend>' . _pgettext('Create new user', 'New') . '</legend>'
-        . '<a id="add_user_anchor" href="server_privileges.php'
-        . URL::getCommon($url_params) . '" '
-        . (!empty($rel_params)
-            ? ('rel="' . URL::getCommon($rel_params) . '" ')
-            : '')
-        . '>' . "\n"
-        . Util::getIcon('b_usradd.png')
-        . '            ' . __('Add user account') . '</a>' . "\n"
-        . '</fieldset>' . "\n";
+    return Template::get('privileges/add_user_fieldset')
+        ->render(
+            array(
+                'url_params' => $url_params,
+                'rel_params' => $rel_params
+            )
+        );
 }
 
 /**
