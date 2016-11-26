@@ -28,14 +28,16 @@ if (!isset($partitionDetails)) {
     } else {
         $partition_count = 0;
     }
-    $partitionDetails['partition_count'] = $partition_count;
+    $partitionDetails['partition_count']
+        = ($partition_count === 0) ? '' : $partition_count;
     if (PMA_isValid($_REQUEST['subpartition_count'], 'numeric')) {
         // MySQL's limit is 8192, so do not allow more
         $subpartition_count = min(intval($_REQUEST['subpartition_count']), 8192);
     } else {
         $subpartition_count = 0;
     }
-    $partitionDetails['subpartition_count'] = $subpartition_count;
+    $partitionDetails['subpartition_count']
+        = ($subpartition_count === 0) ? '' : $subpartition_count;
 
     // Only LIST and RANGE type parameters allow subpartitioning
     $partitionDetails['can_have_subpartitions'] = $partition_count > 1
