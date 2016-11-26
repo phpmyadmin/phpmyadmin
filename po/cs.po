@@ -6,8 +6,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.5-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-11-10 09:39+0100\n"
-"PO-Revision-Date: 2016-11-17 12:10+0000\n"
-"Last-Translator: Liška <nicefox1@gmail.com>\n"
+"PO-Revision-Date: 2016-11-24 13:35+0000\n"
+"Last-Translator: ratajs <simonrataj@seznam.cz>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/phpmyadmin/4-6/cs/>"
 "\n"
 "Language: cs\n"
@@ -786,7 +786,7 @@ msgstr ""
 
 #: index.php:509
 msgid "The secret passphrase in configuration (blowfish_secret) is too short."
-msgstr ""
+msgstr "Tajné heslo v konfiguraci (blowfish_secret) je příliš krátké."
 
 #: index.php:523
 msgid ""
@@ -968,6 +968,12 @@ msgid ""
 "column(s) editing feature (the \"Change\" Link) on the table structure page. "
 "</b>"
 msgstr ""
+"Prostřednictvím této operace se MySQL pokusí namapovat datové hodnoty mezi "
+"řazení. Jestli znakové sady nejsou kompatibilní, může dojít ke ztrátě dat a "
+"<b>ztracená data nemusí</b> být obnovitelné jednoduše tím, že změníte zpět "
+"collation(s) sloupec. <b>Pro převedení existujících data se doporučuje "
+"použít editace funkce (odkaz \"Změnit\") na stránce struktury sloupce "
+"tabulky.</b>"
 
 #: js/messages.php:102
 msgid ""
@@ -1796,7 +1802,7 @@ msgstr "Export"
 
 #: js/messages.php:389
 msgid "No routine is exportable. Required privileges may be lacking."
-msgstr ""
+msgstr "Žádná rutina nejde exportovat. Možná chybí požadovaná oprávnění."
 
 #: js/messages.php:392 libraries/rte/rte_routines.lib.php:754
 msgid "ENUM/SET editor"
@@ -2147,10 +2153,13 @@ msgid "Encryption key"
 msgstr "Šifrovací klíč"
 
 #: js/messages.php:522
+#, fuzzy
 msgid ""
 "MySQL accepts additional values not selectable by the slider; key in those "
 "values directly if desired"
 msgstr ""
+"Další přijaté hodnoty nelze vybrat nastavením jezdce; Zadejte tyto hodnoty "
+"přímo podle potřeby"
 
 #: js/messages.php:528
 msgid ""

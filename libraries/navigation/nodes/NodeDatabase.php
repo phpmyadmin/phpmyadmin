@@ -342,7 +342,7 @@ class NodeDatabase extends Node
             $query .= "'" . $GLOBALS['dbi']->escapeString($searchClause) . "'";
         } else {
             $query .= Util::backquote($columnName) . " LIKE ";
-            $query .= "'%" . $GLOBALS['dbi']->escapeString($searchClause, true)
+            $query .= "'%" . $GLOBALS['dbi']->escapeString($searchClause)
                 . "%'";
         }
 
@@ -459,10 +459,7 @@ class NodeDatabase extends Node
             $query .= "AND `TABLE_TYPE`" . $condition . "'BASE TABLE' ";
             if (! empty($searchClause)) {
                 $query .= "AND `TABLE_NAME` LIKE '%";
-                $query .= $GLOBALS['dbi']->escapeString(
-                    $searchClause,
-                    true
-                );
+                $query .= $GLOBALS['dbi']->escapeString($searchClause);
                 $query .= "%'";
             }
             $query .= "ORDER BY `TABLE_NAME` ASC ";
@@ -477,8 +474,7 @@ class NodeDatabase extends Node
                     "Tables_in_" . $db
                 );
                 $query .= " LIKE '%" . $GLOBALS['dbi']->escapeString(
-                    $searchClause,
-                    true
+                    $searchClause
                 );
                 $query .= "%'";
             }
@@ -550,10 +546,7 @@ class NodeDatabase extends Node
             $query .= "AND `ROUTINE_TYPE`='" . $routineType . "' ";
             if (!empty($searchClause)) {
                 $query .= "AND `ROUTINE_NAME` LIKE '%";
-                $query .= $GLOBALS['dbi']->escapeString(
-                    $searchClause,
-                    true
-                );
+                $query .= $GLOBALS['dbi']->escapeString($searchClause);
                 $query .= "%'";
             }
             $query .= "ORDER BY `ROUTINE_NAME` ASC ";
@@ -564,10 +557,7 @@ class NodeDatabase extends Node
             $query = "SHOW " . $routineType . " STATUS WHERE `Db`='$escdDb' ";
             if (!empty($searchClause)) {
                 $query .= "AND `Name` LIKE '%";
-                $query .= $GLOBALS['dbi']->escapeString(
-                    $searchClause,
-                    true
-                );
+                $query .= $GLOBALS['dbi']->escapeString($searchClause);
                 $query .= "%'";
             }
             $handle = $GLOBALS['dbi']->tryQuery($query);
@@ -636,10 +626,7 @@ class NodeDatabase extends Node
                 . Util::getCollateForIS() . "='$escdDb' ";
             if (!empty($searchClause)) {
                 $query .= "AND `EVENT_NAME` LIKE '%";
-                $query .= $GLOBALS['dbi']->escapeString(
-                    $searchClause,
-                    true
-                );
+                $query .= $GLOBALS['dbi']->escapeString($searchClause);
                 $query .= "%'";
             }
             $query .= "ORDER BY `EVENT_NAME` ASC ";
@@ -650,10 +637,7 @@ class NodeDatabase extends Node
             $query = "SHOW EVENTS FROM $escdDb ";
             if (!empty($searchClause)) {
                 $query .= "WHERE `Name` LIKE '%";
-                $query .= $GLOBALS['dbi']->escapeString(
-                    $searchClause,
-                    true
-                );
+                $query .= $GLOBALS['dbi']->escapeString($searchClause);
                 $query .= "%'";
             }
             $handle = $GLOBALS['dbi']->tryQuery($query);
