@@ -280,7 +280,7 @@ class Encoding
             return $file;
         }
 
-        $tmpfname = tempnam('', $enc);
+        $tmpfname = tempnam(sys_get_temp_dir(), $enc);
         $fpd      = fopen($tmpfname, 'wb');
         $fps      = fopen($file, 'r');
         self::kanjiChangeOrder();
