@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-11-10 09:40+0100\n"
-"PO-Revision-Date: 2016-11-27 14:31+0000\n"
-"Last-Translator: Carlos Ferreira <c.ferreira@acsiiweb.com>\n"
+"PO-Revision-Date: 2016-11-27 14:34+0000\n"
+"Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: French "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/fr/>\n"
 "Language: fr\n"
@@ -12379,10 +12379,9 @@ msgid "Grant all privileges on wildcard name (username\\_%)."
 msgstr "Donner les privilèges passepartout (utilisateur\\_%)."
 
 #: libraries/server_privileges.lib.php:2295
-#, fuzzy, php-format
-#| msgid "Grant all privileges on database \"%s\"."
+#, php-format
 msgid "Grant all privileges on database %s."
-msgstr "Donner tous les privilèges sur la base de données \"%s\"."
+msgstr "Donner tous les privilèges sur la base de données %s."
 
 #: libraries/server_privileges.lib.php:2459
 #: libraries/server_privileges.lib.php:2530
@@ -14119,10 +14118,8 @@ msgstr ""
 "paramètres !"
 
 #: prefs_manage.php:50
-#, fuzzy
-#| msgid "Missing phpMyAdmin configuration storage tables"
 msgid "phpMyAdmin configuration snippet"
-msgstr "Tables manquantes pour le stockage de configurations phpMyAdmin"
+msgstr "Extrait de configuration de phpMyAdmin"
 
 #: prefs_manage.php:51
 msgid "Paste it to your config.inc.php"
@@ -14180,10 +14177,8 @@ msgstr ""
 "exemple au moyen du %sscript d'installation%s."
 
 #: prefs_manage.php:342
-#, fuzzy
-#| msgid "Save as file"
 msgid "Save as PHP file"
-msgstr "Transmettre"
+msgstr "Enregistrer en tant que fichier PHP"
 
 #: prefs_manage.php:347
 msgid "Save to browser's storage"
@@ -14802,10 +14797,8 @@ msgid "Show query history at start"
 msgstr "Afficher l'historique des requêtes au début"
 
 #: templates/console/display.phtml:189
-#, fuzzy
-#| msgid "Show current browsing query"
 msgid "Show current browsing query"
-msgstr "Montrer la requête courante"
+msgstr "Voir la requête de navigation courante"
 
 #: templates/console/display.phtml:194
 msgid ""
