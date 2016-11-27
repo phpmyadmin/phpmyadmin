@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-11-10 09:39+0100\n"
-"PO-Revision-Date: 2016-11-24 13:18+0000\n"
-"Last-Translator: Carlos Ferreira <c.ferreira@acsiiweb.com>\n"
+"PO-Revision-Date: 2016-11-27 14:34+0000\n"
+"Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: French "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-6/fr/>\n"
 "Language: fr\n"
@@ -3240,7 +3240,7 @@ msgstr "Afficher l'historique des requêtes au début"
 
 #: libraries/Console.php:367
 msgid "Show current browsing query"
-msgstr "Montrer la requête courante"
+msgstr "Voir la requête de navigation courante"
 
 #: libraries/Console.php:370
 msgid ""
@@ -3878,8 +3878,8 @@ msgstr "Ce code de langue non pris en charge est ignoré."
 msgid ""
 "Linting is disabled for this query because it exceeds the maximum length."
 msgstr ""
-"Le peluchage est désactivé pour cette requête, car elle dépasse la longueur "
-"maximale."
+"L'analyse statique est désactivé pour cette requête, car elle dépasse la "
+"longueur maximale."
 
 #: libraries/Linter.php:165
 #, php-format
