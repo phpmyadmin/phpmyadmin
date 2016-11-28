@@ -157,11 +157,11 @@ By default, :ref:`cookie` is used, but if :envvar:`PMA_USER` and
     documentation for `MariaDB container <https://hub.docker.com/r/_/mariadb/>`_
     or `MySQL container <https://hub.docker.com/r/_/mysql/>`_.
 
-Additionally configuration can be tweaked by :file:`/www/config.user.inc.php`. If
+Additionally configuration can be tweaked by :file:`/etc/phpmyadmin/config.user.inc.php`. If
 this file exists, it will be loaded after configuration generated from above
 environment variables, so you can override any configuration variable. This
 configuraiton can be added as a volume when invoking docker using 
-`-v /some/local/directory/config.user.inc.php:/www/config.user.inc.php` parameters.
+`-v /some/local/directory/config.user.inc.php:/etc/phpmyadmin/config.user.inc.php` parameters.
 
 .. seealso:: 
    
@@ -172,7 +172,7 @@ Docker Volumes
 
 You can use following volumes to customise image behavior:
 
-:file:`/www/config.user.inc.php`
+:file:`/etc/phpmyadmin/config.user.inc.php`
 
     Can be used for additional settings, see previous chapter for more details.
 
