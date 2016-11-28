@@ -326,7 +326,6 @@ $file_to_unlink = '';
 $sql_query = '';
 $sql_query_disabled = false;
 $go_sql = false;
-$msg='';
 $executed_queries = 0;
 $run_query = true;
 $charset_conversion = false;
