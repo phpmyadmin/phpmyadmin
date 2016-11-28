@@ -85,7 +85,7 @@ define('TCPDF_INC', './libraries/tcpdf/tcpdf.php');
 define('PHPSECLIB_INC_DIR', './libraries/phpseclib/');
 
 /**
- * Path to the udan11/sql-parser. Useful when you want to use system version.
+ * Path to the phpmyadmin/sql-parser. Useful when you want to use system version.
  */
 define('SQL_PARSER_AUTOLOAD', './libraries/sql-parser/autoload.php');
 
