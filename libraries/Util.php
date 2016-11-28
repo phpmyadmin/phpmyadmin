@@ -4790,6 +4790,29 @@ class Util
     /**
      * Creates HTTP request using curl
      *
+     * @param mixed    $response           HTTP response
+     * @param interger $http_status        HTTP response status code
+     * @param bool     $return_only_status If set to true, the method would only return response status
+     *
+     * @return mixed
+     */
+    public static function httpRequestReturn($response, $http_status, $return_only_status)
+    {
+        if ($http_status == 404) {
+            return false;
+        }
+        if ($http_status != 200) {
+            return null;
+        }
+        if ($return_only_status) {
+            return true;
+        }
+        return $response;
+    }
+
+    /**
+     * Creates HTTP request using curl
+     *
      * @param string $url                Url to send the request
      * @param string $method             HTTP request method (GET, POST, PUT, DELETE, etc)
      * @param bool   $return_only_status If set to true, the method would only return response status
@@ -4827,25 +4850,15 @@ class Util
         curl_setopt($curl_handle, CURLOPT_TIMEOUT, 10);
         curl_setopt($curl_handle, CURLOPT_CONNECTTIMEOUT, 10);
         $response = @curl_exec($curl_handle);
-        if ($return_only_status) {
-            if ($response === false) {
-                return null;
-            }
-            $http_status = curl_getinfo($curl_handle, CURLINFO_HTTP_CODE);
-            if ($http_status == 200) {
-                return true;
-            }
-
-            if ($http_status == 404) {
-                return false;
-            }
+        if ($response === false) {
             return null;
         }
-        return $response;
+        $http_status = curl_getinfo($curl_handle, CURLINFO_HTTP_CODE);
+        return Util::httpRequestReturn($response, $http_status, $return_only_status);
     }
 
     /**
-     * Creates HTTP request using curl
+     * Creates HTTP request using file_get_contents
      *
      * @param string $url                Url to send the request
      * @param string $method             HTTP request method (GET, POST, PUT, DELETE, etc)
@@ -4879,15 +4892,12 @@ class Util
             false,
             stream_context_create($context)
         );
-        if ($return_only_status) {
-            // Failed request without connecting to remote
-            if (! isset($http_response_header)) {
-                return null;
-            }
-            preg_match("#HTTP/[0-9\.]+\s+([0-9]+)#", $http_response_header[0], $out );
-            return ((intval($out[1]) == 200) ? true : ((intval($out[1]) == 404) ? false : null));
+        if (! isset($http_response_header)) {
+            return null;
         }
-        return $response;
+        preg_match("#HTTP/[0-9\.]+\s+([0-9]+)#", $http_response_header[0], $out );
+        $http_status = intval($out[1]);
+        return Util::httpRequestReturn($response, $http_status, $return_only_status);
     }
 
     /**

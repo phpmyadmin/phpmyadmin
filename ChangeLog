@@ -34,6 +34,7 @@ phpMyAdmin - ChangeLog
 - issue #12664 Create Bookmark broken
 - issue #12688 Use unsigned int for storing bookmark ID
 - issue #12352 Added password strength indicator
+- issue #12713 Correctly handle HTTP status when doing requests
 
 4.6.6 (not yet released)
 
