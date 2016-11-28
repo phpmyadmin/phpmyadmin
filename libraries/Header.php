@@ -646,7 +646,7 @@ class Header
         $retval  = '<meta charset="utf-8" />';
         $retval .= '<meta name="referrer" content="no-referrer" />';
         $retval .= '<meta name="robots" content="noindex,nofollow" />';
-        $retval .= '<meta http-equiv="X-UA-Compatible" content="IE=Edge">';
+        $retval .= '<meta http-equiv="X-UA-Compatible" content="IE=Edge" />';
         if (! $GLOBALS['cfg']['AllowThirdPartyFraming']) {
             $retval .= '<style id="cfs-style">html{display: none;}</style>';
         }
