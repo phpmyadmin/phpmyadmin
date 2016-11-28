@@ -7,6 +7,8 @@
  */
 namespace PMA\libraries;
 
+use PMA\libraries\config\ConfigFile;
+
 /**
  * Encoding conversion helper class
  *
@@ -279,8 +281,7 @@ class Encoding
         if ($enc == '' && $kana == '') {
             return $file;
         }
-
-        $tmpfname = tempnam('', $enc);
+        $tmpfname = tempnam(ConfigFile::getDefaultTempDirectory(), $enc);
         $fpd      = fopen($tmpfname, 'wb');
         $fps      = fopen($file, 'r');
         self::kanjiChangeOrder();
