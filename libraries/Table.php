@@ -174,13 +174,13 @@ class Table
     {
         if (is_array($engine)){
             foreach($engine as $e){
-                if($e == $this->isEngine()){
+                if($e == $this->tbl_storage_engine){
                     return true;
                 }
             }
             return false;
         }else{
-            return $this->tbl_storage_engine == $engine ? true : false;
+            return $this->tbl_storage_engine == $engine;
         }
     }
 
