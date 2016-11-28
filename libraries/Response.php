@@ -293,9 +293,6 @@ class Response
         }
 
         if ($this->_isSuccess) {
-            // Note: the old judge sentence is:
-            // $this->_isAjaxPage && $this->_isSuccess
-            // Removal the first, because console need log all queries
             $this->addJSON('_title', $this->getHeader()->getTitleTag());
 
             if (isset($GLOBALS['dbi'])) {
