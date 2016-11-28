@@ -543,7 +543,7 @@ class ConfigFile
      *
      * @return string
      */
-    public function getDefaultTempDirectory()
+    public static function getDefaultTempDirectory()
     {
         $tmp_subdir = null;
         if (! empty($GLOBALS['cfg']['TempDir']) && @is_writable($GLOBALS['cfg']['TempDir'])) {
