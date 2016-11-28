@@ -157,12 +157,12 @@ class File
     /**
      * Gets file content
      *
-     * @return string|false the binary file content as a string,
+     * @return string|false the binary file content,
      *                      or false if no content
      *
      * @access  public
      */
-    public function getContent()
+    public function getRawContent()
     {
         if (null === $this->_content) {
             if ($this->isUploaded() && ! $this->checkUploadedFile()) {
@@ -176,11 +176,26 @@ class File
             if (function_exists('file_get_contents')) {
                 $this->_content = file_get_contents($this->getName());
             } elseif ($size = filesize($this->getName())) {
-                $this->_content = fread(fopen($this->getName(), 'rb'), $size);
+                $handle = fopen($this->getName(), 'rb');
+                $this->_content = fread($handle, $size);
+                fclose($handle);
             }
         }
 
-        return '0x' . bin2hex($this->_content);
+        return $this->_content;
+    }
+
+    /**
+     * Gets file content
+     *
+     * @return string|false the binary file content as a string,
+     *                      or false if no content
+     *
+     * @access  public
+     */
+    public function getContent()
+    {
+        return '0x' . bin2hex($this->getRawContent());
     }
 
     /**

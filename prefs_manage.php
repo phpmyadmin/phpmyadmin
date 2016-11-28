@@ -7,6 +7,7 @@
  */
 use PMA\libraries\config\ConfigFile;
 use PMA\libraries\config\FormDisplay;
+use PMA\libraries\File;
 use PMA\libraries\Message;
 use PMA\libraries\Response;
 use PMA\libraries\Util;
@@ -69,27 +70,13 @@ if (isset($_POST['submit_export'])
         && $_FILES['import_file']['error'] == UPLOAD_ERR_OK
         && is_uploaded_file($_FILES['import_file']['tmp_name'])
     ) {
-        // read JSON from uploaded file
-        $open_basedir = @ini_get('open_basedir');
-        $file_to_unlink = '';
-        $import_file = $_FILES['import_file']['tmp_name'];
-
-        // If we are on a server with open_basedir, we must move the file
-        // before opening it. The doc explains how to create the "./tmp"
-        // directory
-        if (!empty($open_basedir)) {
-            $tmp_subdir = (PMA_IS_WINDOWS ? '.\\tmp\\' : 'tmp/');
-            if (@is_writable($tmp_subdir)) {
-                $import_file_new = tempnam($tmp_subdir, 'prefs');
-                $file_to_unlink = $import_file_new;
-                if (move_uploaded_file($import_file, $import_file_new)) {
-                    $import_file = $import_file_new;
-                }
-            }
-        }
-        $json = file_get_contents($import_file);
-        if ($file_to_unlink) {
-            unlink($file_to_unlink);
+        $import_handle = new File($_FILES['import_file']['tmp_name']);
+        $import_handle->checkUploadedFile();
+        if ($import_handle->isError()) {
+            $error = $import_handle->getError();
+        } else {
+            // read JSON from uploaded file
+            $json = $import_handle->getRawContent();
         }
     } else {
         // read from POST value (json)
@@ -102,7 +89,9 @@ if (isset($_POST['submit_export'])
     $config = json_decode($json, true);
     $return_url = isset($_POST['return_url']) ? $_POST['return_url'] : null;
     if (! is_array($config)) {
-        $error = __('Could not import configuration');
+        if (! isset($error)) {
+            $error = __('Could not import configuration');
+        }
     } else {
         // sanitize input values: treat them as though
         // they came from HTTP POST request
