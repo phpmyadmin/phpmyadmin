@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.5-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-11-10 09:39+0100\n"
-"PO-Revision-Date: 2016-06-24 00:59+0000\n"
-"Last-Translator: Peter Chen <petercpg@gmail.com>\n"
-"Language-Team: Chinese (Taiwan) <https://hosted.weblate.org/projects/"
-"phpmyadmin/4-6/zh_TW/>\n"
+"PO-Revision-Date: 2016-11-28 05:32+0000\n"
+"Last-Translator: ncwgf <hd@cgsword.com>\n"
+"Language-Team: Chinese (Taiwan) "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-6/zh_TW/>\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 2.7-dev\n"
+"X-Generator: Weblate 2.10-dev\n"
 
 #: changelog.php:38 license.php:33
 #, php-format
@@ -768,7 +768,7 @@ msgstr "設定檔案需要設定一組加密密碼 (blowfish_secret)。"
 
 #: index.php:509
 msgid "The secret passphrase in configuration (blowfish_secret) is too short."
-msgstr ""
+msgstr "設定的秘密密鑰(blowfish_secret)過短。"
 
 #: index.php:523
 msgid ""
@@ -2116,7 +2116,7 @@ msgstr ""
 msgid ""
 "MySQL accepts additional values not selectable by the datepicker; key in "
 "those values directly if desired"
-msgstr ""
+msgstr "MySQL"
 
 #: js/messages.php:534
 msgid ""
