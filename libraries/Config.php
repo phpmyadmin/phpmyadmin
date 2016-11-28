@@ -683,7 +683,7 @@ class Config
             } while ($dataline != '');
             $message = trim(implode(' ', $commit));
 
-        } elseif (isset($commit_json)) {
+        } elseif (isset($commit_json) && isset($commit_json->author) && isset($commit_json->committer)) {
             $author = array(
                 'name' => $commit_json->author->name,
                 'email' => $commit_json->author->email,
