@@ -770,10 +770,11 @@ function PMA_isAllowedDomain($url)
         /* Include current domain */
         $_SERVER['SERVER_NAME'],
         /* phpMyAdmin domains */
-        'wiki.phpmyadmin.net', 'www.phpmyadmin.net', 'phpmyadmin.net',
+        'wiki.phpmyadmin.net',
+        'www.phpmyadmin.net',
+        'phpmyadmin.net',
         'demo.phpmyadmin.net',
         'docs.phpmyadmin.net',
-        'demo.phpmyadmin.net',
         /* mysql.com domains */
         'dev.mysql.com','bugs.mysql.com',
         /* mariadb domains */
