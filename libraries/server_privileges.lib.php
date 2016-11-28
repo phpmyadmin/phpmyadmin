@@ -3713,34 +3713,12 @@ function PMA_getHtmlForInitials($array_initials)
 
     uksort($array_initials, "strnatcasecmp");
 
-    $html_output = '<table id="initials_table" cellspacing="5">'
-        . '<tr>';
-    foreach ($array_initials as $tmp_initial => $initial_was_found) {
-        if ($tmp_initial === null) {
-            continue;
-        }
-
-        if (!$initial_was_found) {
-            $html_output .= '<td>' . $tmp_initial . '</td>';
-            continue;
-        }
-
-        $html_output .= '<td>'
-            . '<a class="ajax'
-            . ((isset($_REQUEST['initial'])
-                && $_REQUEST['initial'] === $tmp_initial
-                ) ? ' active' : '')
-            . '" href="server_privileges.php'
-            . URL::getCommon(array('initial' => $tmp_initial))
-            . '">' . $tmp_initial
-            . '</a>'
-            . '</td>' . "\n";
-    }
-    $html_output .= '<td>'
-        . '<a href="server_privileges.php'
-        . URL::getCommon(array('showall' => 1))
-        . '" class="nowrap">' . __('Show all') . '</a></td>' . "\n";
-    $html_output .= '</tr></table>';
+    $html_output = Template::get('privileges/initials_row')
+        ->render(
+            array(
+                'array_initials' => $array_initials
+            )
+        );
 
     return $html_output;
 }
