@@ -68,14 +68,6 @@ class Response
      */
     private $_isDisabled;
     /**
-     * Whether we are servicing an ajax request for a page
-     * that was fired using the generic page handler in JS.
-     *
-     * @access private
-     * @var bool
-     */
-    private $_isAjaxPage;
-    /**
      * Whether there were any errors during the processing of the request
      * Only used for ajax responses
      *
@@ -108,15 +100,9 @@ class Response
 
         $this->_isSuccess  = true;
         $this->_isAjax     = false;
-        $this->_isAjaxPage = false;
         $this->_isDisabled = false;
         if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
             $this->_isAjax = true;
-        }
-        if (isset($_REQUEST['ajax_page_request'])
-            && $_REQUEST['ajax_page_request'] == true
-        ) {
-            $this->_isAjaxPage = true;
         }
         $this->_header->setAjax($this->_isAjax);
         $this->_footer->setAjax($this->_isAjax);
