@@ -4355,7 +4355,7 @@ function PMA_addUser(
 
     // Copy the user group while copying a user
     $old_usergroup =
-        $_REQUEST['old_usergroup'] ? $_REQUEST['old_usergroup'] : null;
+        isset($_REQUEST['old_usergroup']) ? $_REQUEST['old_usergroup'] : null;
     PMA_setUserGroup($_REQUEST['username'], $old_usergroup);
 
 
