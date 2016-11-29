@@ -560,6 +560,10 @@ function PMA_getHtmlToChooseUserGroup($username)
 function PMA_setUserGroup($username, $userGroup)
 {
     $cfgRelation = PMA_getRelationsParam();
+    if (! isset($cfgRelation['users']) || isset($cfgRelation['usergroups'])) {
+        return;
+    }
+
     $userTable = Util::backquote($cfgRelation['db'])
         . "." . Util::backquote($cfgRelation['users']);
 
@@ -4171,7 +4175,7 @@ function PMA_addUser(
 
     // Copy the user group while copying a user
     $old_usergroup =
-        $_REQUEST['old_usergroup'] ? $_REQUEST['old_usergroup'] : null;
+        isset($_REQUEST['old_usergroup']) ? $_REQUEST['old_usergroup'] : null;
     PMA_setUserGroup($_REQUEST['username'], $old_usergroup);
 
     if (isset($create_user_real)) {
