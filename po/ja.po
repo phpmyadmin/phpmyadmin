@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.5-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-11-10 09:39+0100\n"
-"PO-Revision-Date: 2016-11-29 03:34+0000\n"
+"PO-Revision-Date: 2016-11-29 03:45+0000\n"
 "Last-Translator: pralin <itgo1004@gmail.com>\n"
 "Language-Team: Japanese "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-6/ja/>\n"
@@ -596,7 +596,7 @@ msgstr[0] "インポートは正常に終了しました。%d 個のクエリを
 msgid ""
 "Script timeout passed, if you want to finish import, please %sresubmit the "
 "same file%s and import will resume."
-msgstr "スクリプトがタイムアウトしました。インポートを完了させたいのであれば同じファイルを再送信すればインポートが再開されます。"
+msgstr "スクリプトがタイムアウトしました。インポートを完了させたいのであれば%s同じファイルを再送信%sすればインポートが再開されます。"
 
 #: import.php:738
 msgid ""
@@ -988,7 +988,7 @@ msgstr "リセット"
 #, fuzzy
 #| msgid "Reset All"
 msgid "Reset all"
-msgstr "全リセット"
+msgstr "全てリセット"
 
 #: js/messages.php:111
 msgid "Missing value in the form!"
@@ -2006,7 +2006,7 @@ msgstr "部分従属の一覧を隠す"
 msgid ""
 "Sit tight! It may take few seconds depending on data size and column count "
 "of the table."
-msgstr "テーブルのデータサイズと列数に応じて数秒かかる場合があります。"
+msgstr "テーブルのデータサイズと列数に応じて数秒かかる場合があります。しばらくお待ちください。"
 
 #: js/messages.php:453
 msgid "Step"
