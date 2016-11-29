@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-11-10 09:40+0100\n"
-"PO-Revision-Date: 2016-11-29 03:06+0000\n"
+"PO-Revision-Date: 2016-11-29 03:45+0000\n"
 "Last-Translator: pralin <itgo1004@gmail.com>\n"
 "Language-Team: Japanese "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/ja/>\n"
@@ -580,7 +580,7 @@ msgstr[0] "インポートは正常に終了しました。%d 個のクエリを
 msgid ""
 "Script timeout passed, if you want to finish import, please %sresubmit the "
 "same file%s and import will resume."
-msgstr "スクリプトがタイムアウトしました。インポートを完了させたいのであれば同じファイルを再送信すればインポートが再開されます。"
+msgstr "スクリプトがタイムアウトしました。インポートを完了させたいのであれば%s同じファイルを再送信%sすればインポートが再開されます。"
 
 #: import.php:632
 msgid ""
@@ -946,6 +946,7 @@ msgid "Are you sure you wish to change the collation and convert the data?"
 msgstr "照合順序を変更しデータを変換してもよろしいですか?"
 
 #: js/messages.php:98
+#, fuzzy
 msgid ""
 "Through this operation, MySQL attempts to map the data values between "
 "collations. If the character sets are incompatible, there may be data loss "
@@ -954,6 +955,9 @@ msgid ""
 "column(s) editing feature (the \"Change\" Link) on the table structure page. "
 "</b>"
 msgstr ""
+"この操作によって、MySQLは照合順序間のデータ値の対応付けを試みます。文字セットに互換性がない場合データが欠落する可能性があり、欠落したデータは単にカラ"
+"ムの照合順序を元に戻しただけでは復元<b>されません</b>。<b>既存のデータの変換を行うには、テーブル構造ページのカラム編集機能（「変更」リンク）の使"
+"用が推奨されます。</b>"
 
 #: js/messages.php:107
 msgid ""
@@ -974,7 +978,7 @@ msgstr "リセット"
 #, fuzzy
 #| msgid "Reset All"
 msgid "Reset all"
-msgstr "全リセット"
+msgstr "全てリセット"
 
 #: js/messages.php:116
 msgid "Missing value in the form!"
@@ -1662,8 +1666,9 @@ msgid "Cancel"
 msgstr "キャンセル"
 
 #: js/messages.php:353 libraries/Header.php:459
+#, fuzzy
 msgid "Page-related settings"
-msgstr ""
+msgstr "ページ関連の設定"
 
 #: js/messages.php:354 libraries/config/FormDisplay.tpl.php:424
 msgid "Apply"
@@ -1962,12 +1967,14 @@ msgid "Done"
 msgstr "決定"
 
 #: js/messages.php:443
+#, fuzzy
 msgid "Confirm partial dependencies"
-msgstr ""
+msgstr "部分従属の確認"
 
 #: js/messages.php:444
+#, fuzzy
 msgid "Selected partial dependencies are as follows:"
-msgstr ""
+msgstr "選択された部分従属は以下の通りです："
 
 #: js/messages.php:446
 msgid ""
@@ -1986,14 +1993,15 @@ msgid "Show me the possible partial dependencies based on data in the table"
 msgstr ""
 
 #: js/messages.php:453
+#, fuzzy
 msgid "Hide partial dependencies list"
-msgstr ""
+msgstr "部分従属の一覧を隠す"
 
 #: js/messages.php:455
 msgid ""
 "Sit tight! It may take few seconds depending on data size and column count "
 "of the table."
-msgstr "テーブルのデータサイズと列数に応じて数秒かかる場合があります。"
+msgstr "テーブルのデータサイズと列数に応じて数秒かかる場合があります。しばらくお待ちください。"
 
 #: js/messages.php:458
 msgid "Step"
