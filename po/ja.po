@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.5-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-11-10 09:39+0100\n"
-"PO-Revision-Date: 2016-11-29 03:23+0000\n"
+"PO-Revision-Date: 2016-11-29 03:34+0000\n"
 "Last-Translator: pralin <itgo1004@gmail.com>\n"
 "Language-Team: Japanese "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-6/ja/>\n"
@@ -1673,8 +1673,9 @@ msgid "Cancel"
 msgstr "キャンセル"
 
 #: js/messages.php:348 libraries/Header.php:456
+#, fuzzy
 msgid "Page-related settings"
-msgstr ""
+msgstr "ページ関連の設定"
 
 #: js/messages.php:349 libraries/config/FormDisplay.tpl.php:422
 msgid "Apply"
@@ -1971,12 +1972,14 @@ msgid "Done"
 msgstr "決定"
 
 #: js/messages.php:438
+#, fuzzy
 msgid "Confirm partial dependencies"
-msgstr ""
+msgstr "部分従属の確認"
 
 #: js/messages.php:439
+#, fuzzy
 msgid "Selected partial dependencies are as follows:"
-msgstr ""
+msgstr "選択された部分従属は以下の通りです："
 
 #: js/messages.php:441
 msgid ""
@@ -1995,8 +1998,9 @@ msgid "Show me the possible partial dependencies based on data in the table"
 msgstr ""
 
 #: js/messages.php:448
+#, fuzzy
 msgid "Hide partial dependencies list"
-msgstr ""
+msgstr "部分従属の一覧を隠す"
 
 #: js/messages.php:450
 msgid ""
