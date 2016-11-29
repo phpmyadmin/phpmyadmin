@@ -587,6 +587,10 @@ function PMA_getHtmlToChooseUserGroup($username)
 function PMA_setUserGroup($username, $userGroup)
 {
     $cfgRelation = PMA_getRelationsParam();
+    if (! isset($cfgRelation['users']) || isset($cfgRelation['usergroups'])) {
+        return;
+    }
+
     $userTable = Util::backquote($cfgRelation['db'])
         . "." . Util::backquote($cfgRelation['users']);
 
