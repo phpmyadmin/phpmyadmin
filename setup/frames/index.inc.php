@@ -131,7 +131,7 @@ case 'config_not_saved':
     /* Use uniqid to display this message every time configuration is saved */
     PMA_messagesSet(
         'notice', uniqid('config_not_saved'), __('Configuration not saved!'),
-        PMA_sanitize(
+        Sanitize::sanitize(
             __(
                 'Please create web server writable folder [em]config[/em] in '
                 . 'phpMyAdmin top level directory as described in '
