@@ -2141,7 +2141,7 @@ Values entered in these field will be substituted in the query before being exec
 If you get errors like *#1031 - Table storage engine for 'table_name' doesn't have this option*
 while importing the dumps exported from pre-5.7.7 MySQL servers into new MySQL server versions 5.7.7+,
 it might be because ROW_FORMAT=FIXED is not supported with InnoDB tables. Moreover, the value of
-`innodb_strict_mode <http://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_strict_mode>`_ would define if this would be reported as a warning or as an error.
+`innodb_strict_mode <https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_strict_mode>`_ would define if this would be reported as a warning or as an error.
 
 Since MySQL version 5.7.9, the default value for `innodb_strict_mode` is `ON` and thus would generate
 an error when such a CREATE TABLE or ALTER TABLE statement is encountered.

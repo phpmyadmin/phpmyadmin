@@ -1269,7 +1269,7 @@ class Table
 
         if (! $is_backquoted && preg_match('/^[a-zA-Z0-9_$]+$/', $table_name)) {
             // only allow the above regex in unquoted identifiers
-            // see : http://dev.mysql.com/doc/refman/5.7/en/identifiers.html
+            // see : https://dev.mysql.com/doc/refman/5.7/en/identifiers.html
             return true;
         } else if ($is_backquoted) {
             // If backquoted, all characters should be allowed (except w/ trailing spaces)
