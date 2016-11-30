@@ -831,6 +831,8 @@ class Query
                     && ($clause === $token->value)
                 ) {
                     return $i;
+                } elseif ($token->value === 'UNION') {
+                    return -1;
                 }
             }
         }

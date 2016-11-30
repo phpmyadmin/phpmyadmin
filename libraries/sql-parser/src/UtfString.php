@@ -174,7 +174,7 @@ class UtfString implements \ArrayAccess
      *
      * @param string $byte The byte to be analyzed.
      *
-     * @see http://tools.ietf.org/html/rfc3629
+     * @see https://tools.ietf.org/html/rfc3629
      *
      * @return int
      */

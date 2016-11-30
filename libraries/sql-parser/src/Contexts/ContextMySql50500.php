@@ -191,7 +191,7 @@ class ContextMySql50500 extends Context
         'INT' => 11, 'SET' => 11,
         'BLOB' => 11, 'REAL' => 11,
         'FLOAT' => 11,
-        'BIGINT' => 11, 'BINARY' => 11, 'DOUBLE' => 11,
+        'BIGINT' => 11, 'DOUBLE' => 11,
         'DECIMAL' => 11, 'INTEGER' => 11, 'NUMERIC' => 11, 'TINYINT' => 11, 'VARCHAR' => 11,
         'LONGBLOB' => 11, 'LONGTEXT' => 11, 'SMALLINT' => 11, 'TINYBLOB' => 11,
         'TINYTEXT' => 11,
@@ -311,6 +311,7 @@ class ContextMySql50500 extends Context
         'GEOMETRYCOLLECTION' => 41,
 
         'CHAR' => 43,
+        'BINARY' => 43,
         'INTERVAL' => 43,
 
     );
