@@ -197,7 +197,11 @@ class File
      */
     public function getContent()
     {
-        return '0x' . bin2hex($this->getRawContent());
+        $result = $this->getRawContent();
+        if ($result === false) {
+            return false;
+        }
+        return '0x' . bin2hex($result);
     }
 
     /**
