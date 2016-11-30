@@ -14,7 +14,7 @@ use PMA\libraries\Message;
 use PMA\libraries\plugins\AuthenticationPlugin;
 use PMA\libraries\Response;
 use PMA\libraries\Util;
-use ReCaptcha\ReCaptcha;
+use ReCaptcha;
 use PMA\libraries\URL;
 
 require_once './libraries/session.lib.php';
@@ -278,10 +278,22 @@ class AuthenticationCookie extends AuthenticationPlugin
                 && ! empty($GLOBALS['cfg']['CaptchaLoginPublicKey'])
             ) {
                 if (! empty($_POST["g-recaptcha-response"])) {
-
-                    $reCaptcha = new ReCaptcha(
-                        $GLOBALS['cfg']['CaptchaLoginPrivateKey']
-                    );
+                    if (function_exists('curl_init')) {
+                        $reCaptcha = new ReCaptcha\ReCaptcha(
+                            $GLOBALS['cfg']['CaptchaLoginPrivateKey'],
+                            new ReCaptcha\RequestMethod\CurlPost()
+                        );
+                    } else if (ini_get('allow_url_fopen')) {
+                        $reCaptcha = new ReCaptcha\ReCaptcha(
+                            $GLOBALS['cfg']['CaptchaLoginPrivateKey'],
+                            new ReCaptcha\RequestMethod\Post()
+                        );
+                    } else {
+                        $reCaptcha = new ReCaptcha\ReCaptcha(
+                            $GLOBALS['cfg']['CaptchaLoginPrivateKey'],
+                            new ReCaptcha\RequestMethod\SocketPost()
+                        );
+                    }
 
                     // verify captcha status.
                     $resp = $reCaptcha->verify(
