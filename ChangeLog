@@ -2,6 +2,8 @@ phpMyAdmin - ChangeLog
 ======================
 
 4.6.6 (not yet released)
+- issue #12759 Fix Notice regarding 'Undefined index: old_usergroup'
+- issue #12760 Fix Notice regarding 'Undefined index: users'
 - issue #12762 Fixed parsing of SQL with BINARY function
 - issue #12588 ReCaptcha now works without allow_url_fopen
 
@@ -9,8 +11,6 @@ phpMyAdmin - ChangeLog
 - issue #12735 Incorrect parameters to escapeString in Node.php
 - issue #12734 Fix PHP error when mbstring is not installed
 - issue #12736 Don't force partition count to be specified when creating a new table
-- issue #12759 Fix Notice regarding 'Undefined index: old_usergroup'
-- issue #12760 Fix Notice regarding 'Undefined index: users'
 
 4.6.5 (2016-11-24)
 - issue        Remove potentionally license problematic sRGB profile
