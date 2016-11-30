@@ -1984,55 +1984,6 @@ class Util
     }
 
     /**
-     * Takes a string and outputs each character on a line for itself. Used
-     * mainly for horizontalflipped display mode.
-     * Takes care of special html-characters.
-     * Fulfills https://sourceforge.net/p/phpmyadmin/feature-requests/164/
-     *
-     * @param string $string    The string
-     * @param string $Separator The Separator (defaults to "<br />\n")
-     *
-     * @access  public
-     * @todo    add a multibyte safe function $GLOBALS['String']->split()
-     *
-     * @return string      The flipped string
-     */
-    public static function flipstring($string, $Separator = "<br />\n")
-    {
-        $format_string = '';
-        $charbuff = false;
-
-        for ($i = 0, $str_len = mb_strlen($string);
-             $i < $str_len;
-             $i++
-        ) {
-            $char = $string{$i};
-            $append = false;
-
-            if ($char == '&') {
-                $format_string .= $charbuff;
-                $charbuff = $char;
-            } elseif ($char == ';' && ! empty($charbuff)) {
-                $format_string .= $charbuff . $char;
-                $charbuff = false;
-                $append = true;
-            } elseif (! empty($charbuff)) {
-                $charbuff .= $char;
-            } else {
-                $format_string .= $char;
-                $append = true;
-            }
-
-            // do not add separator after the last character
-            if ($append && ($i != $str_len - 1)) {
-                $format_string .= $Separator;
-            }
-        }
-
-        return $format_string;
-    }
-
-    /**
      * Function added to avoid path disclosures.
      * Called by each script that needs parameters, it displays
      * an error message and, by default, stops the execution.
