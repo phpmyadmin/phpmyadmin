@@ -37,6 +37,7 @@ phpMyAdmin - ChangeLog
 - issue #12713 Correctly handle HTTP status when doing requests
 
 4.6.6 (not yet released)
+- issue #12762 Fixed parsing of SQL with BINARY function
 
 4.6.5.1 (2016-11-25)
 - issue #12735 Incorrect parameters to escapeString in Node.php
