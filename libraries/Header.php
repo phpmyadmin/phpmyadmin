@@ -605,7 +605,7 @@ class Header
             'X-Content-Type-Options: nosniff'
         );
         // Adobe cross-domain-policies
-        // see http://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html
+        // see https://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html
         header(
             'X-Permitted-Cross-Domain-Policies: none'
         );
