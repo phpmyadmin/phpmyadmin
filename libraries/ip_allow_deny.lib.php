@@ -218,7 +218,7 @@ function PMA_ipv6MaskTest($test_range, $ip_to_test)
  *
  * @param string $type 'allow' | 'deny' type of rule to match
  *
- * @return bool   Matched a rule ?
+ * @return bool   Whether rule has matched
  *
  * @access  public
  *
