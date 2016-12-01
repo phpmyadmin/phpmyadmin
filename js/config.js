@@ -838,7 +838,7 @@ function updatePrefsDate()
 }
 
 /**
- * Prepares message which informs that localStorage preferences are available and can be imported
+ * Prepares message which informs that localStorage preferences are available and can be imported or deleted
  */
 function offerPrefsAutoimport()
 {
@@ -855,6 +855,14 @@ function offerPrefsAutoimport()
             $.post('index.php', {
                 token: $cnt.find('input[name=token]').val(),
                 prefs_autoload: 'hide'
+            }, null, 'html');
+            return;
+        } else if ($a.attr('href') == '#delete') {
+          $cnt.remove();
+          localStorage.clear();
+          $.post('index.php', {
+            token: $cnt.find('input[name=token]').val(),
+            prefs_autoload: 'hide'
             }, null, 'html');
             return;
         }
