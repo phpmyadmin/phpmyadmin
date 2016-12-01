@@ -1334,25 +1334,20 @@ function PMA_getHtmlForCopytable()
 /**
  * Get HTML snippet for table maintenance
  *
- * @param boolean $is_myisam_or_aria whether MYISAM | ARIA or not
- * @param boolean $is_innodb         whether innodb or not
- * @param boolean $is_berkeleydb     whether  berkeleydb or not
- * @param array   $url_params        array of URL parameters
+ * @param Table   $pma_table  Table object
+ * @param array   $url_params array of URL parameters
  *
  * @return string $html_output
  */
-function PMA_getHtmlForTableMaintenance(
-    $is_myisam_or_aria, $is_innodb, $is_berkeleydb, $url_params
-) {
+function PMA_getHtmlForTableMaintenance($pma_table, $url_params)
+{
     $html_output = '<div class="operations_half_width">';
     $html_output .= '<fieldset>'
         . '<legend>' . __('Table maintenance') . '</legend>';
     $html_output .= '<ul id="tbl_maintenance">';
 
     // Note: BERKELEY (BDB) is no longer supported, starting with MySQL 5.1
-    $html_output .= PMA_getListofMaintainActionLink(
-        $is_myisam_or_aria, $is_innodb, $url_params, $is_berkeleydb
-    );
+    $html_output .= PMA_getListofMaintainActionLink($pma_table, $url_params);
 
     $html_output .= '</ul>'
         . '</fieldset>'
@@ -1364,20 +1359,17 @@ function PMA_getHtmlForTableMaintenance(
 /**
  * Get HTML 'li' having a link of maintain action
  *
- * @param boolean $is_myisam_or_aria whether MYISAM | ARIA or not
- * @param boolean $is_innodb         whether innodb or not
- * @param array   $url_params        array of URL parameters
- * @param boolean $is_berkeleydb     whether  berkeleydb or not
+ * @param Table   $pma_table  Table object
+ * @param array   $url_params Array of URL parameters
  *
  * @return string $html_output
  */
-function PMA_getListofMaintainActionLink($is_myisam_or_aria,
-    $is_innodb, $url_params, $is_berkeleydb
-) {
+function PMA_getListofMaintainActionLink($pma_table, $url_params)
+{
     $html_output = '';
 
     // analyze table
-    if ($is_innodb || $is_myisam_or_aria || $is_berkeleydb) {
+    if ($pma_table->isEngine(array('MYISAM', 'ARIA', 'INNODB', 'BERKELEYDB'))) {
         $params = array(
             'sql_query' => 'ANALYZE TABLE '
                 . Util::backquote($GLOBALS['table']),
@@ -1392,7 +1384,7 @@ function PMA_getListofMaintainActionLink($is_myisam_or_aria,
     }
 
     // check table
-    if ($is_myisam_or_aria || $is_innodb) {
+    if ($pma_table->isEngine(array('MYISAM', 'ARIA', 'INNODB'))) {
         $params = array(
             'sql_query' => 'CHECK TABLE '
                 . Util::backquote($GLOBALS['table']),
@@ -1420,7 +1412,7 @@ function PMA_getListofMaintainActionLink($is_myisam_or_aria,
     );
 
     // defragment table
-    if ($is_innodb) {
+    if ($pma_table->isEngine(array('INNODB'))) {
         $params = array(
             'sql_query' => 'ALTER TABLE '
             . Util::backquote($GLOBALS['table'])
@@ -1452,7 +1444,7 @@ function PMA_getListofMaintainActionLink($is_myisam_or_aria,
     );
 
     // optimize table
-    if ($is_myisam_or_aria || $is_innodb || $is_berkeleydb) {
+    if ($pma_table->isEngine(array('MYISAM', 'ARIA', 'INNODB', 'BERKELEYDB'))) {
         $params = array(
             'sql_query' => 'OPTIMIZE TABLE '
                 . Util::backquote($GLOBALS['table']),
@@ -1467,7 +1459,7 @@ function PMA_getListofMaintainActionLink($is_myisam_or_aria,
     }
 
     // repair table
-    if ($is_myisam_or_aria) {
+    if ($pma_table->isEngine(array('MYISAM', 'ARIA'))) {
         $params = array(
             'sql_query' => 'REPAIR TABLE '
                 . Util::backquote($GLOBALS['table']),

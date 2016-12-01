@@ -345,12 +345,7 @@ $response->addHTML(PMA_getHtmlForCopytable());
  * Table maintenance
  */
 $response->addHTML(
-    PMA_getHtmlForTableMaintenance(
-        $pma_table->isEngine(array('MYISAM', 'ARIA')),
-        $pma_table->isEngine('INNODB'),
-        $pma_table->isEngine('BERKELEYDB'),
-        $url_params
-    )
+    PMA_getHtmlForTableMaintenance($pma_table, $url_params)
 );
 
 if (! (isset($db_is_system_schema) && $db_is_system_schema)) {
