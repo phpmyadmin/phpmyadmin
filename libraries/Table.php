@@ -172,15 +172,17 @@ class Table
      */
     public function isEngine($engine)
     {
+        $tbl_storage_engine = $this->getStatusInfo('ENGINE', null, true);
+
         if (is_array($engine)){
             foreach($engine as $e){
-                if($e == $this->tbl_storage_engine){
+                if($e == $tbl_storage_engine){
                     return true;
                 }
             }
             return false;
         }else{
-            return $this->tbl_storage_engine == $engine;
+            return $tbl_storage_engine == $engine;
         }
     }
 
