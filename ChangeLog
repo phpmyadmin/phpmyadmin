@@ -41,6 +41,7 @@ phpMyAdmin - ChangeLog
 - issue #12760 Fix Notice regarding 'Undefined index: users'
 - issue #12762 Fixed parsing of SQL with BINARY function
 - issue #12588 ReCaptcha now works without allow_url_fopen
+- issue #12699 Show no local storage warning only on settings tab
 
 4.6.5.1 (2016-11-25)
 - issue #12735 Incorrect parameters to escapeString in Node.php

@@ -10,7 +10,7 @@
  *
  * @returns bool
  */
-function isStorageSupported(type)
+function isStorageSupported(type, warn)
 {
     try {
         window[type].setItem('PMATest', 'test');
@@ -22,7 +22,9 @@ function isStorageSupported(type)
         }
     } catch(error) {
         // Not supported
-        PMA_ajaxShowMessage(PMA_messages.strNoLocalStorage, false);
+        if (warn) {
+            PMA_ajaxShowMessage(PMA_messages.strNoLocalStorage, false);
+        }
     }
     return false;
 }
@@ -740,7 +742,7 @@ AJAX.registerOnload('config.js', function () {
         });
 
     // detect localStorage state
-    var ls_supported = isStorageSupported('localStorage');
+    var ls_supported = isStorageSupported('localStorage', true);
     var ls_exists = ls_supported ? (window.localStorage.config || false) : false;
     $('div.localStorage-' + (ls_supported ? 'un' : '') + 'supported').hide();
     $('div.localStorage-' + (ls_exists ? 'empty' : 'exists')).hide();
