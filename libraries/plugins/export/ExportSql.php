@@ -2416,7 +2416,9 @@ class ExportSql extends ExportPlugin
                                 $search,
                                 $replace,
                                 $row[$j]
-                            )
+                            ),
+                            null,
+                            true
                         )
                         . '\'';
                 } // end if
