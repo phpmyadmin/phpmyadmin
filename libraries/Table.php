@@ -165,14 +165,16 @@ class Table
      * Checks the storage engine used to create table
      *
      * @param array or string $engine Checks the table engine against an
-     * array of engine strings or a single string
+     * array of engine strings or a single string, should be uppercase
      *
      * @return bool True, if $engine matches the storage engine for the table,
      * False otherwise.
      */
     public function isEngine($engine)
     {
-        $tbl_storage_engine = $this->getStatusInfo('ENGINE', null, true);
+        $tbl_storage_engine = strtoupper(
+            $this->getStatusInfo('ENGINE', null, true)
+        );
 
         if (is_array($engine)){
             foreach($engine as $e){
