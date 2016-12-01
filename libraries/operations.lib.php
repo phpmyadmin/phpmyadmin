@@ -1068,11 +1068,11 @@ function PMA_getTableOptionFieldset($pma_table, $comment, $tbl_collation,
         . '</label>'
         . '</td></tr>';
 
-    if ($pma_table->isEngine('MYISAM', 'ARIA', 'ISAM')) {
+    if ($pma_table->isEngine(array('MYISAM', 'ARIA', 'ISAM'))) {
         $html_output .= PMA_getHtmlForPackKeys($pack_keys);
     } // end if (MYISAM|ISAM)
 
-    if ($pma_table->isEngine('MYISAM', 'ARIA')) {
+    if ($pma_table->isEngine(array('MYISAM', 'ARIA'))) {
         $html_output .= PMA_getHtmlForTableRow(
             'new_checksum',
             'CHECKSUM',
@@ -1101,7 +1101,7 @@ function PMA_getTableOptionFieldset($pma_table, $comment, $tbl_collation,
     } // end if (ARIA)
 
     if (strlen($auto_increment) > 0
-        && $pma_table->isEngine('MYISAM', 'ARIA', 'INNODB', 'PBXT')
+        && $pma_table->isEngine(array('MYISAM', 'ARIA', 'INNODB', 'PBXT'))
     ) {
         $html_output .= '<tr><td class="vmiddle">'
             . '<label for="auto_increment_opt">AUTO_INCREMENT</label></td>'
@@ -1766,7 +1766,7 @@ function PMA_getTableAltersArray($pma_table, $pack_keys,
             . Util::getCharsetQueryPart($_REQUEST['tbl_collation']);
     }
 
-    if ($pma_table->isEngine('MYISAM', 'ARIA', 'ISAM')
+    if ($pma_table->isEngine(array('MYISAM', 'ARIA', 'ISAM'))
         && isset($_REQUEST['new_pack_keys'])
         && $_REQUEST['new_pack_keys'] != (string)$pack_keys
     ) {
@@ -1774,7 +1774,7 @@ function PMA_getTableAltersArray($pma_table, $pack_keys,
     }
 
     $_REQUEST['new_checksum'] = empty($_REQUEST['new_checksum']) ? '0' : '1';
-    if ($pma_table->isEngine('MYISAM', 'ARIA')
+    if ($pma_table->isEngine(array('MYISAM', 'ARIA'))
         && $_REQUEST['new_checksum'] !== $checksum
     ) {
         $table_alters[] = 'checksum = ' . $_REQUEST['new_checksum'];
@@ -1798,13 +1798,13 @@ function PMA_getTableAltersArray($pma_table, $pack_keys,
 
     $_REQUEST['new_delay_key_write']
         = empty($_REQUEST['new_delay_key_write']) ? '0' : '1';
-    if ($pma_table->isEngine('MYISAM', 'ARIA')
+    if ($pma_table->isEngine(array('MYISAM', 'ARIA'))
         && $_REQUEST['new_delay_key_write'] !== $delay_key_write
     ) {
         $table_alters[] = 'delay_key_write = ' . $_REQUEST['new_delay_key_write'];
     }
 
-    if ($pma_table->isEngine('MYISAM', 'ARIA', 'INNODB', 'PBXT')
+    if ($pma_table->isEngine(array('MYISAM', 'ARIA', 'INNODB', 'PBXT'))
         && ! empty($_REQUEST['new_auto_increment'])
         && (! isset($auto_increment)
         || $_REQUEST['new_auto_increment'] !== $auto_increment)
@@ -1816,7 +1816,7 @@ function PMA_getTableAltersArray($pma_table, $pack_keys,
     if (! empty($_REQUEST['new_row_format'])) {
         $newRowFormat = $_REQUEST['new_row_format'];
         $newRowFormatLower = mb_strtolower($newRowFormat);
-        if ($pma_table->isEngine('MYISAM', 'ARIA', 'INNODB', 'PBXT')
+        if ($pma_table->isEngine(array('MYISAM', 'ARIA', 'INNODB', 'PBXT'))
             && (strlen($row_format) === 0
             || $newRowFormatLower !== mb_strtolower($row_format))
         ) {
