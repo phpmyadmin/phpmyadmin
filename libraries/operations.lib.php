@@ -875,26 +875,22 @@ function PMA_getHtmlForMoveTable()
 /**
  * Get the HTML div for Table option
  *
+ * @param Table   $pma_table          Table object
  * @param string  $comment            Comment
  * @param array   $tbl_collation      table collation
  * @param string  $tbl_storage_engine table storage engine
- * @param boolean $is_myisam_or_aria  whether MYISAM | ARIA or not
- * @param boolean $is_isam            whether ISAM or not
  * @param string  $pack_keys          pack keys
  * @param string  $auto_increment     value of auto increment
  * @param string  $delay_key_write    delay key write
  * @param string  $transactional      value of transactional
  * @param string  $page_checksum      value of page checksum
- * @param boolean $is_innodb          whether INNODB or not
- * @param boolean $is_pbxt            whether PBXT or not
- * @param boolean $is_aria            whether ARIA or not
  * @param string  $checksum           the checksum
  *
  * @return string $html_output
  */
-function PMA_getTableOptionDiv($comment, $tbl_collation, $tbl_storage_engine,
-    $is_myisam_or_aria, $is_isam, $pack_keys, $auto_increment, $delay_key_write,
-    $transactional, $page_checksum, $is_innodb, $is_pbxt, $is_aria, $checksum
+function PMA_getTableOptionDiv($pma_table, $comment, $tbl_collation, $tbl_storage_engine,
+    $pack_keys, $auto_increment, $delay_key_write,
+    $transactional, $page_checksum, $checksum
 ) {
     $html_output = '<div class="operations_half_width clearfloat">';
     $html_output .= '<form method="post" action="tbl_operations.php"';
@@ -905,10 +901,10 @@ function PMA_getTableOptionDiv($comment, $tbl_collation, $tbl_storage_engine,
     $html_output .= '<input type="hidden" name="reload" value="1" />';
 
     $html_output .= PMA_getTableOptionFieldset(
-        $comment, $tbl_collation,
-        $tbl_storage_engine, $is_myisam_or_aria, $is_isam, $pack_keys,
+        $pma_table, $comment, $tbl_collation,
+        $tbl_storage_engine, $pack_keys,
         $delay_key_write, $auto_increment, $transactional, $page_checksum,
-        $is_innodb, $is_pbxt, $is_aria, $checksum
+        $checksum
     );
 
     $html_output .= '<fieldset class="tblFooters">'
@@ -1018,27 +1014,23 @@ function PMA_getHtmlForPackKeys($current_value)
 /**
  * Get HTML fieldset for Table option, it contains HTML table for options
  *
+ * @param Table   $pma_table          Table object
  * @param string  $comment            Comment
  * @param array   $tbl_collation      table collation
  * @param string  $tbl_storage_engine table storage engine
- * @param boolean $is_myisam_or_aria  whether MYISAM | ARIA or not
- * @param boolean $is_isam            whether ISAM or not
  * @param string  $pack_keys          pack keys
  * @param string  $delay_key_write    delay key write
  * @param string  $auto_increment     value of auto increment
  * @param string  $transactional      value of transactional
  * @param string  $page_checksum      value of page checksum
- * @param boolean $is_innodb          whether INNODB or not
- * @param boolean $is_pbxt            whether PBXT or not
- * @param boolean $is_aria            whether ARIA or not
  * @param string  $checksum           the checksum
  *
  * @return string $html_output
  */
-function PMA_getTableOptionFieldset($comment, $tbl_collation,
-    $tbl_storage_engine, $is_myisam_or_aria, $is_isam, $pack_keys,
+function PMA_getTableOptionFieldset($pma_table, $comment, $tbl_collation,
+    $tbl_storage_engine, $pack_keys,
     $delay_key_write, $auto_increment, $transactional,
-    $page_checksum, $is_innodb, $is_pbxt, $is_aria, $checksum
+    $page_checksum, $checksum
 ) {
     $html_output = '<fieldset>'
         . '<legend>' . __('Table options') . '</legend>';
@@ -1076,11 +1068,11 @@ function PMA_getTableOptionFieldset($comment, $tbl_collation,
         . '</label>'
         . '</td></tr>';
 
-    if ($is_myisam_or_aria || $is_isam) {
+    if ($pma_table->isEngine('MYISAM', 'ARIA', 'ISAM')) {
         $html_output .= PMA_getHtmlForPackKeys($pack_keys);
     } // end if (MYISAM|ISAM)
 
-    if ($is_myisam_or_aria) {
+    if ($pma_table->isEngine('MYISAM', 'ARIA')) {
         $html_output .= PMA_getHtmlForTableRow(
             'new_checksum',
             'CHECKSUM',
@@ -1094,7 +1086,7 @@ function PMA_getTableOptionFieldset($comment, $tbl_collation,
         );
     } // end if (MYISAM)
 
-    if ($is_aria) {
+    if ($pma_table->isEngine('ARIA')) {
         $html_output .= PMA_getHtmlForTableRow(
             'new_transactional',
             'TRANSACTIONAL',
@@ -1109,7 +1101,7 @@ function PMA_getTableOptionFieldset($comment, $tbl_collation,
     } // end if (ARIA)
 
     if (strlen($auto_increment) > 0
-        && ($is_myisam_or_aria || $is_innodb || $is_pbxt)
+        && $pma_table->isEngine('MYISAM', 'ARIA', 'INNODB', 'PBXT')
     ) {
         $html_output .= '<tr><td class="vmiddle">'
             . '<label for="auto_increment_opt">AUTO_INCREMENT</label></td>'
