@@ -1,6 +1,9 @@
 phpMyAdmin - ChangeLog
 ======================
 
+4.6.5.2 (2016-12-05)
+- issue #12765 Fixed SQL export with newlines
+
 4.6.5.1 (2016-11-25)
 - issue #12735 Incorrect parameters to escapeString in Node.php
 - issue #12734 Fix PHP error when mbstring is not installed
