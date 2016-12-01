@@ -249,6 +249,7 @@ class Table
      * If the ENGINE of the table is MERGE or MRG_MYISAM (alias),
      * this is a merge table.
      *
+     * @todo Replace by calls isEngine and remove
      *
      * @return boolean  true if it is a merge table
      */
