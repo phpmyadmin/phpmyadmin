@@ -249,28 +249,11 @@ class Table
      * If the ENGINE of the table is MERGE or MRG_MYISAM (alias),
      * this is a merge table.
      *
-     * @todo Replace by calls isEngine and remove
-     *
      * @return boolean  true if it is a merge table
      */
     public function isMerge()
     {
-        $engine = null;
-        // if called static, with parameters
-        if (! empty($this->_db_name) && ! empty($this->_name)) {
-            $engine = $this->getStatusInfo('ENGINE', null, true);
-        }
-
-        // did we get engine?
-        if (empty($engine)) {
-            return false;
-        }
-
-        // any of known merge engines?
-        return in_array(
-            mb_strtoupper($engine),
-            array('MERGE', 'MRG_MYISAM')
-        );
+        return $this->isEngine(array('MERGE', 'MRG_MYISAM'));
     }
 
     /**
