@@ -858,11 +858,11 @@ function offerPrefsAutoimport()
             }, null, 'html');
             return;
         } else if ($a.attr('href') == '#delete') {
-          $cnt.remove();
-          localStorage.clear();
-          $.post('index.php', {
-            token: $cnt.find('input[name=token]').val(),
-            prefs_autoload: 'hide'
+            $cnt.remove();
+            localStorage.clear();
+            $.post('index.php', {
+                token: $cnt.find('input[name=token]').val(),
+                prefs_autoload: 'hide'
             }, null, 'html');
             return;
         }
