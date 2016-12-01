@@ -4526,8 +4526,8 @@ function PMA_getHtmlHeaderForUserProperties(
 
     }
     $html_output .= '</h2>' . "\n";
-    $cur_user = htmlspecialchars($GLOBALS['dbi']->getCurrentUser());
-    $user = htmlspecialchars($username . '@' . $hostname);
+    $cur_user = $GLOBALS['dbi']->getCurrentUser();
+    $user = $username . '@' . $hostname;
     // Add a short notice for the user
     // to remind him that he is editing his own privileges
     if ($user === $cur_user) {
