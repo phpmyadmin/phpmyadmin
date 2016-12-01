@@ -2652,12 +2652,13 @@ class DatabaseInterface
     /**
      * returns properly escaped string for use in MySQL queries
      *
-     * @param string $str  string to be escaped
-     * @param mixed  $link optional database link to use
+     * @param string  $str     string to be escaped
+     * @param mixed   $link    optional database link to use
+     * @param boolean $no_crlf optional whether to not escape '\n', '\r', '\r\n' with extra slash
      *
      * @return string a MySQL escaped string
      */
-    public function escapeString($str, $link = null)
+    public function escapeString($str, $link = null, $no_crlf=false)
     {
         if ($link === null) {
             $link = $this->getLink();
@@ -2667,7 +2668,17 @@ class DatabaseInterface
             return $str;
         }
 
-        return $this->_extension->escapeString($link, $str);
+        $ret = $this->_extension->escapeString($link, $str);
+
+        if ($no_crlf) {
+            return str_replace(
+                array('\\\r\\\n', '\\\r', '\\\n'),
+                array('\r\n', '\r', '\n'),
+                $ret
+            );
+        }
+
+        return $ret;
     }
 
     /**

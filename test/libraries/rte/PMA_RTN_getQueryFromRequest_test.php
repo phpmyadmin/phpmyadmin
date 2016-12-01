@@ -57,9 +57,9 @@ class PMA_RTN_GetQueryFromRequest_Test extends PHPUnit_Framework_TestCase
             ->will(
                 $this->returnValueMap(
                     array(
-                        array('foo', null, 'foo'),
-                        array("foo's bar", null, "foo\'s bar"),
-                        array('', null, '')
+                        array('foo', null, false, 'foo'),
+                        array("foo's bar", null, false, "foo\'s bar"),
+                        array('', null, false, '')
                     )
                 )
             );
