@@ -141,7 +141,6 @@ phpMyAdmin - ChangeLog
 - issue        [security] Verify data before unserializing, see PMASA-2016-43
 - issue        [security] Use HTTPS for wiki links
 - issue        Remove Swekey support
-- issue        [security] SSRF in setup script, see PMASA-2016-44
 - issue        [security] Denial-of-service attack with $cfg['AllowArbitraryServer'] = true and persistent connections, see PMASA-2016-45
 - issue        [security] Improve SSL certificate handling
 - issue        [security] Fix full path disclosure in debugging code
