@@ -2317,8 +2317,6 @@ class ExportSql extends ExportPlugin
         }
 
         //\x08\\x09, not required
-        $search = array("\x00", "\x0a", "\x0d", "\x1a");
-        $replace = array('\0', '\n', '\r', '\Z');
         $current_row = 0;
         $query_size = 0;
         if (($GLOBALS['sql_insert_syntax'] == 'extended'
@@ -2411,13 +2409,7 @@ class ExportSql extends ExportPlugin
                 } else {
                     // something else -> treat as a string
                     $values[] = '\''
-                        . $GLOBALS['dbi']->escapeString(
-                            str_replace(
-                                $search,
-                                $replace,
-                                $row[$j]
-                            )
-                        )
+                        . $GLOBALS['dbi']->escapeString($row[$j])
                         . '\'';
                 } // end if
             } // end for
