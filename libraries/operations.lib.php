@@ -1342,7 +1342,7 @@ function PMA_getHtmlForCopytable()
  * @return string $html_output
  */
 function PMA_getHtmlForTableMaintenance(
-    $is_myisam_or_aria, $is_innodb, $is_berkeleydb, $url_params
+    $is_myisam_or_aria, $is_innodb, $is_berkeleydb, $is_tokudb, $url_params
 ) {
     $html_output = '<div class="operations_half_width">';
     $html_output .= '<fieldset>'
@@ -1351,7 +1351,7 @@ function PMA_getHtmlForTableMaintenance(
 
     // Note: BERKELEY (BDB) is no longer supported, starting with MySQL 5.1
     $html_output .= PMA_getListofMaintainActionLink(
-        $is_myisam_or_aria, $is_innodb, $url_params, $is_berkeleydb
+        $is_myisam_or_aria, $is_innodb, $url_params, $is_berkeleydb, $is_tokudb
     );
 
     $html_output .= '</ul>'
@@ -1372,12 +1372,12 @@ function PMA_getHtmlForTableMaintenance(
  * @return string $html_output
  */
 function PMA_getListofMaintainActionLink($is_myisam_or_aria,
-    $is_innodb, $url_params, $is_berkeleydb
+    $is_innodb, $url_params, $is_berkeleydb, $is_tokudb
 ) {
     $html_output = '';
 
     // analyze table
-    if ($is_innodb || $is_myisam_or_aria || $is_berkeleydb) {
+    if ($is_innodb || $is_myisam_or_aria || $is_berkeleydb || $is_tokudb) {
         $params = array(
             'sql_query' => 'ANALYZE TABLE '
                 . Util::backquote($GLOBALS['table']),
@@ -1392,7 +1392,7 @@ function PMA_getListofMaintainActionLink($is_myisam_or_aria,
     }
 
     // check table
-    if ($is_myisam_or_aria || $is_innodb) {
+    if ($is_myisam_or_aria || $is_innodb || $is_tokudb) {
         $params = array(
             'sql_query' => 'CHECK TABLE '
                 . Util::backquote($GLOBALS['table']),
@@ -1452,7 +1452,7 @@ function PMA_getListofMaintainActionLink($is_myisam_or_aria,
     );
 
     // optimize table
-    if ($is_myisam_or_aria || $is_innodb || $is_berkeleydb) {
+    if ($is_myisam_or_aria || $is_innodb || $is_berkeleydb || $is_tokudb) {
         $params = array(
             'sql_query' => 'OPTIMIZE TABLE '
                 . Util::backquote($GLOBALS['table']),
@@ -1869,10 +1869,12 @@ function PMA_setGlobalVariablesForEngine($tbl_storage_engine)
     $is_innodb = ($tbl_storage_engine == 'INNODB');
     $is_berkeleydb = ($tbl_storage_engine == 'BERKELEYDB');
     $is_pbxt = ($tbl_storage_engine == 'PBXT');
+    $is_tokudb = ($tbl_storage_engine == 'TOKUDB');
 
     return array(
         $is_myisam_or_aria, $is_innodb, $is_isam,
-        $is_berkeleydb, $is_aria, $is_pbxt
+        $is_berkeleydb, $is_aria, $is_pbxt,
+        $is_tokudb
     );
 }
 

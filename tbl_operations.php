@@ -52,7 +52,7 @@ require 'libraries/tbl_info.inc.php';
 
 // set initial value of these variables, based on the current table engine
 list($is_myisam_or_aria, $is_innodb, $is_isam,
-    $is_berkeleydb, $is_aria, $is_pbxt
+    $is_berkeleydb, $is_aria, $is_pbxt, $is_tokudb
 ) = PMA_setGlobalVariablesForEngine($tbl_storage_engine);
 
 if ($is_aria) {
@@ -128,7 +128,7 @@ if (isset($_REQUEST['submitoptions'])) {
         $new_tbl_storage_engine = mb_strtoupper($_REQUEST['new_tbl_storage_engine']);
         // reset the globals for the new engine
         list($is_myisam_or_aria, $is_innodb, $is_isam,
-            $is_berkeleydb, $is_aria, $is_pbxt
+            $is_berkeleydb, $is_aria, $is_pbxt, $is_tokudb
         ) = PMA_setGlobalVariablesForEngine($new_tbl_storage_engine);
 
         if ($is_aria) {
@@ -356,6 +356,7 @@ $response->addHTML(
         $is_myisam_or_aria,
         $is_innodb,
         $is_berkeleydb,
+        $is_tokudb,
         $url_params
     )
 );
