@@ -134,12 +134,12 @@ if (isset($_REQUEST['submitoptions'])) {
     }
 
     $table_alters = PMA_getTableAltersArray(
-        $pma_table->isEngine('MYISAM', 'ARIA'), $pma_table->isEngine('ISAM'), $create_options['pack_keys'],
+        $pma_table,
+        $create_options['pack_keys'],
         (empty($create_options['checksum']) ? '0' : '1'),
-        $is_aria,
         ((isset($create_options['page_checksum'])) ? $create_options['page_checksum'] : ''),
         (empty($create_options['delay_key_write']) ? '0' : '1'),
-        $pma_table->isEngine('INNODB'), $pma_table->isEngine('PBXT'), $create_options['row_format'],
+        $create_options['row_format'],
         $new_tbl_storage_engine,
         ((isset($create_options['transactional']) && $create_options['transactional'] == '0') ? '0' : '1'),
         $tbl_collation

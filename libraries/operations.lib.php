@@ -1735,15 +1735,11 @@ function PMA_getQueryAndResultForReorderingTable()
 /**
  * Get table alters array
  *
- * @param boolean $is_myisam_or_aria   whether MYISAM | ARIA or not
- * @param boolean $is_isam             whether ISAM or not
+ * @param Table   $pma_table           The Table object
  * @param string  $pack_keys           pack keys
  * @param string  $checksum            value of checksum
- * @param boolean $is_aria             whether ARIA or not
  * @param string  $page_checksum       value of page checksum
  * @param string  $delay_key_write     delay key write
- * @param boolean $is_innodb           whether INNODB or not
- * @param boolean $is_pbxt             whether PBXT or not
  * @param string  $row_format          row format
  * @param string  $newTblStorageEngine table storage engine
  * @param string  $transactional       value of transactional
@@ -1751,9 +1747,9 @@ function PMA_getQueryAndResultForReorderingTable()
  *
  * @return array  $table_alters
  */
-function PMA_getTableAltersArray($is_myisam_or_aria, $is_isam, $pack_keys,
-    $checksum, $is_aria, $page_checksum, $delay_key_write, $is_innodb,
-    $is_pbxt, $row_format, $newTblStorageEngine, $transactional, $tbl_collation
+function PMA_getTableAltersArray($pma_table, $pack_keys,
+    $checksum, $page_checksum, $delay_key_write,
+    $row_format, $newTblStorageEngine, $transactional, $tbl_collation
 ) {
     global $auto_increment;
 
@@ -1778,7 +1774,7 @@ function PMA_getTableAltersArray($is_myisam_or_aria, $is_isam, $pack_keys,
             . Util::getCharsetQueryPart($_REQUEST['tbl_collation']);
     }
 
-    if (($is_myisam_or_aria || $is_isam)
+    if ($pma_table->isEngine('MYISAM', 'ARIA', 'ISAM')
         && isset($_REQUEST['new_pack_keys'])
         && $_REQUEST['new_pack_keys'] != (string)$pack_keys
     ) {
@@ -1786,7 +1782,7 @@ function PMA_getTableAltersArray($is_myisam_or_aria, $is_isam, $pack_keys,
     }
 
     $_REQUEST['new_checksum'] = empty($_REQUEST['new_checksum']) ? '0' : '1';
-    if ($is_myisam_or_aria
+    if ($pma_table->isEngine('MYISAM', 'ARIA')
         && $_REQUEST['new_checksum'] !== $checksum
     ) {
         $table_alters[] = 'checksum = ' . $_REQUEST['new_checksum'];
@@ -1794,7 +1790,7 @@ function PMA_getTableAltersArray($is_myisam_or_aria, $is_isam, $pack_keys,
 
     $_REQUEST['new_transactional']
         = empty($_REQUEST['new_transactional']) ? '0' : '1';
-    if ($is_aria
+    if ($pma_table->isEngine('ARIA')
         && $_REQUEST['new_transactional'] !== $transactional
     ) {
         $table_alters[] = 'TRANSACTIONAL = ' . $_REQUEST['new_transactional'];
@@ -1802,7 +1798,7 @@ function PMA_getTableAltersArray($is_myisam_or_aria, $is_isam, $pack_keys,
 
     $_REQUEST['new_page_checksum']
         = empty($_REQUEST['new_page_checksum']) ? '0' : '1';
-    if ($is_aria
+    if ($pma_table->isEngine('ARIA')
         && $_REQUEST['new_page_checksum'] !== $page_checksum
     ) {
         $table_alters[] = 'PAGE_CHECKSUM = ' . $_REQUEST['new_page_checksum'];
@@ -1810,13 +1806,13 @@ function PMA_getTableAltersArray($is_myisam_or_aria, $is_isam, $pack_keys,
 
     $_REQUEST['new_delay_key_write']
         = empty($_REQUEST['new_delay_key_write']) ? '0' : '1';
-    if ($is_myisam_or_aria
+    if ($pma_table->isEngine('MYISAM', 'ARIA')
         && $_REQUEST['new_delay_key_write'] !== $delay_key_write
     ) {
         $table_alters[] = 'delay_key_write = ' . $_REQUEST['new_delay_key_write'];
     }
 
-    if (($is_myisam_or_aria || $is_innodb || $is_pbxt)
+    if ($pma_table->isEngine('MYISAM', 'ARIA', 'INNODB', 'PBXT')
         && ! empty($_REQUEST['new_auto_increment'])
         && (! isset($auto_increment)
         || $_REQUEST['new_auto_increment'] !== $auto_increment)
@@ -1828,7 +1824,7 @@ function PMA_getTableAltersArray($is_myisam_or_aria, $is_isam, $pack_keys,
     if (! empty($_REQUEST['new_row_format'])) {
         $newRowFormat = $_REQUEST['new_row_format'];
         $newRowFormatLower = mb_strtolower($newRowFormat);
-        if (($is_myisam_or_aria || $is_innodb || $is_pbxt)
+        if ($pma_table->isEngine('MYISAM', 'ARIA', 'INNODB', 'PBXT')
             && (strlen($row_format) === 0
             || $newRowFormatLower !== mb_strtolower($row_format))
         ) {
