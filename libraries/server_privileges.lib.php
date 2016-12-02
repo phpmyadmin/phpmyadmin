@@ -5241,7 +5241,7 @@ function PMA_getHashedPassword($password)
  */
 function PMA_checkIfMariaDBPwdCheckPluginActive()
 {
-    if (Util::getServerType() !== 'MariaDB') {
+    if (!(Util::getServerType() == 'MariaDB' && PMA_MYSQL_INT_VERSION >= 100002)) {
         return false;
     }
 
