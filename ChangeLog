@@ -44,6 +44,7 @@ phpMyAdmin - ChangeLog
 - issue #12588 ReCaptcha now works without allow_url_fopen
 - issue #12699 Show no local storage warning only on settings tab
 - issue #12765 Fixed SQL export with newlines
+- issue #12769 Edit/Export links are not clickable under Routines tab
 
 4.6.5.1 (2016-11-25)
 - issue #12735 Incorrect parameters to escapeString in Node.php
