@@ -2060,7 +2060,7 @@ class DatabaseInterface
         if (Util::cacheExists('mysql_cur_user')) {
             return Util::cacheGet('mysql_cur_user');
         }
-        $user = $this->fetchValue('SELECT  CURRENT_USER();');
+        $user = $this->fetchValue('SELECT CURRENT_USER();');
         if ($user !== false) {
             Util::cacheSet('mysql_cur_user', $user);
             return Util::cacheGet('mysql_cur_user');
@@ -2178,7 +2178,7 @@ class DatabaseInterface
     public function getCurrentUserAndHost()
     {
         if (count($this->_current_user) == 0) {
-            $user = $this->fetchValue("SELECT CURRENT_USER();");
+            $user = $this->getCurrentUser();
             $this->_current_user = explode("@", $user);
         }
         return $this->_current_user;
