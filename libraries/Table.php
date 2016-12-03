@@ -380,6 +380,7 @@ class Table
 
                 if ($is_timestamp
                     && preg_match('/TIMESTAMP/i', $attribute)
+                    && strlen($length) !== 0
                     && $length !== 0
                 ) {
                     $query .= '(' . $length . ')';
@@ -439,7 +440,12 @@ class Table
                 // else fall-through intended, no break here
             case 'CURRENT_TIMESTAMP' :
                 $query .= ' DEFAULT ' . $default_type;
-                if ($length !== 0 && $is_timestamp) {
+
+                if (strlen($length) !== 0
+                    && $length !== 0
+                    && $is_timestamp
+                    && $default_type !== 'NULL' // Not to be added in case of NULL
+                ) {
                     $query .= '(' . $length . ')';
                 }
                 break;
