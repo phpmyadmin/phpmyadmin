@@ -773,23 +773,6 @@ function PMA_isAllowedDomain($url)
     return false;
 }
 
-
-/**
- * Adds JS code snippets to be displayed by the PMA\libraries\Response class.
- * Adds a newline to each snippet.
- *
- * @param string $str Js code to be added (e.g. "token=1234;")
- *
- * @return void
- */
-function PMA_addJSCode($str)
-{
-    $response = PMA\libraries\Response::getInstance();
-    $header   = $response->getHeader();
-    $scripts  = $header->getScripts();
-    $scripts->addCode($str);
-}
-
 /**
  * Replace some html-unfriendly stuff
  *
