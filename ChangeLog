@@ -47,6 +47,7 @@ phpMyAdmin - ChangeLog
 - issue #12778 Syntax Error in Adding/Changing TIMESTAMP columns with default value as NULL
 - issue #12769 Edit/Export links are not clickable under Routines tab
 - issue #12757 Fixed creating new user with older MariaDB
+- issue #12784 Remove ctype installation suggestion
 
 4.6.5.1 (2016-11-25)
 - issue #12735 Incorrect parameters to escapeString in Node.php
