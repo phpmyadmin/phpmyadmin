@@ -7,12 +7,14 @@ phpMyAdmin - ChangeLog
 - issue #12762 Fixed parsing of SQL with BINARY function
 - issue #12588 ReCaptcha now works without allow_url_fopen
 - issue #12699 Show no local storage warning only on settings tab
-- issue #12765 Fixed SQL export with newlines
 - issue #12778 Syntax Error in Adding/Changing TIMESTAMP columns with default value as NULL
 - issue #12769 Edit/Export links are not clickable under Routines tab
 - issue #12757 Fixed creating new user with older MariaDB
 - issue #12784 Remove ctype installation suggestion
 - issue #12780 Format button replaces all text with blank spaces
+
+4.6.5.2 (2016-12-05)
+- issue #12765 Fixed SQL export with newlines
 
 4.6.5.1 (2016-11-25)
 - issue #12735 Incorrect parameters to escapeString in Node.php
