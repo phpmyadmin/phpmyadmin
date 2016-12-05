@@ -487,6 +487,7 @@ class Formatter
         } elseif ($this->options['type'] === 'html') {
             return htmlspecialchars($text, ENT_NOQUOTES);
         }
+        return $text;
     }
 
     /**
