@@ -296,6 +296,9 @@ class GISMultipolygonTest extends GISGeomTest
      */
     public function providerForPrepareRowAsPng()
     {
+        if (! function_exists('imagecreatetruecolor')) {
+            $this->markTestSkipped('GD extension missing!');
+        }
         return array(
             array(
                 'MULTIPOLYGON(((136 40,147 83,16 75,136 40)),'
