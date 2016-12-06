@@ -943,6 +943,7 @@ class ConfigTest extends PMATestCase
      * Test for Check HTTP
      *
      * @group medium
+     * @group network
      *
      * @return void
      */
