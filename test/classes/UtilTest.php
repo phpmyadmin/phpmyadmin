@@ -156,6 +156,8 @@ class UtilTest extends PMATestCase
      * @return void
      *
      * @dataProvider httpRequests
+     *
+     * @group network
      */
     public function testHttpRequestCurl($url, $method, $return_only_status, $expected)
     {
@@ -174,6 +176,8 @@ class UtilTest extends PMATestCase
      * @return void
      *
      * @dataProvider httpRequests
+     *
+     * @group network
      */
     public function testHttpRequestFopen($url, $method, $return_only_status, $expected)
     {
@@ -193,6 +197,8 @@ class UtilTest extends PMATestCase
      * @return void
      *
      * @dataProvider httpRequests
+     *
+     * @group network
      */
     public function testHttpRequest($url, $method, $return_only_status, $expected)
     {

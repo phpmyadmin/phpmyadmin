@@ -328,7 +328,7 @@ class ConfigTest extends PMATestCase
         $this->object->checkGd2();
         $this->assertEquals(0, $this->object->get('PMA_IS_GD2'));
 
-        $this->object->set('GD2Available', $prevIsGb2Val);
+        $this->object->set('GD2Available', 'auto');
 
         if (!@function_exists('imagecreatetruecolor')) {
             $this->object->checkGd2();

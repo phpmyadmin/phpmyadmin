@@ -383,6 +383,9 @@ class GISPolygonTest extends GISGeomTest
      */
     public function providerForPrepareRowAsPng()
     {
+        if (! function_exists('imagecreatetruecolor')) {
+            $this->markTestSkipped('GD extension missing!');
+        }
         return array(
             array(
                 'POLYGON((123 0,23 30,17 63,123 0))',
