@@ -9,7 +9,7 @@
 use PMA\libraries\gis\GISPoint;
 
 require_once 'GISGeomTest.php';
-require_once 'libraries/tcpdf/tcpdf.php';
+require_once TCPDF_INC;
 
 /**
  * Tests for PMA\libraries\gis\GISPoint class.
