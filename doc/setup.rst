@@ -139,6 +139,8 @@ The installation is possible by adding our own repository
 
     composer create-project phpmyadmin/phpmyadmin --repository-url=https://www.phpmyadmin.net/packages.json --no-dev
 
+.. _docker:
+
 Installing using Docker
 +++++++++++++++++++++++
 
