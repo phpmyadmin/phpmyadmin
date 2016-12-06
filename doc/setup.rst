@@ -111,7 +111,7 @@ You can clone current phpMyAdmin source from
 
     git clone https://github.com/phpmyadmin/phpmyadmin.git
 
-Additionally you need to install dependencies using `Composer`_:
+Additionally you need to install dependencies using `Composer tool`_:
 
 .. code-block:: sh
 
@@ -130,7 +130,7 @@ by invoking:
 Installing using Composer
 +++++++++++++++++++++++++
 
-You can install phpMyAdmin using `Composer`_, however it's currently not
+You can install phpMyAdmin using `Composer tool`_, however it's currently not
 available in the default `Packagist`_ repository due to its technical
 limitations.
 
@@ -951,6 +951,6 @@ When using the 'http' ``auth_type``, it can be impossible to log back in (when t
 manually or after a period of inactivity). `Issue 11898 <https://github.com/phpmyadmin/phpmyadmin/issues/11898>`_.
 
 
-.. _Composer: https://getcomposer.org/
+.. _Composer tool: https://getcomposer.org/
 .. _Packagist: https://packagist.org/
 .. _Docker image: https://hub.docker.com/r/phpmyadmin/phpmyadmin/
