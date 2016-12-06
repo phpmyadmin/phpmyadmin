@@ -468,7 +468,7 @@ class GISVisualization
     {
         $this->init();
 
-        include_once './libraries/tcpdf/tcpdf.php';
+        include_once TCPDF_INC;
 
         // create pdf
         $pdf = new TCPDF(
