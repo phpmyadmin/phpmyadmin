@@ -125,6 +125,8 @@ by invoking:
     composer update --no-dev
 
 
+.. _composer:
+
 Installing using Composer
 +++++++++++++++++++++++++
 
