@@ -108,14 +108,16 @@ class DatabaseStructureController extends DatabaseController
      */
     public function indexAction()
     {
+        $response = PMA\libraries\Response::getInstance();
+
         // Add/Remove favorite tables using Ajax request.
-        if ($GLOBALS['is_ajax_request'] && !empty($_REQUEST['favorite_table'])) {
+        if ($response->isAjax() && !empty($_REQUEST['favorite_table'])) {
             $this->addRemoveFavoriteTablesAction();
             return;
         }
 
         // If there is an Ajax request for real row count of a table.
-        if ($GLOBALS['is_ajax_request']
+        if ($response->isAjax()
             && isset($_REQUEST['real_row_count'])
             && $_REQUEST['real_row_count'] == true
         ) {

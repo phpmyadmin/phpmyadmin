@@ -39,8 +39,6 @@ class Console
 
     /**
      * Whether we are servicing an ajax request.
-     * We can't simply use $GLOBALS['is_ajax_request']
-     * here since it may have not been initialised yet.
      *
      * @access private
      * @var bool

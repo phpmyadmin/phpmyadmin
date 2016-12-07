@@ -21,7 +21,9 @@ require_once './libraries/rte/rte_export.lib.php';
 require_once './libraries/rte/rte_list.lib.php';
 require_once './libraries/rte/rte_footer.lib.php';
 
-if ($GLOBALS['is_ajax_request'] != true) {
+$response = PMA\libraries\Response::getInstance();
+
+if (! $response->isAjax()) {
     /**
      * Displays the header and tabs
      */

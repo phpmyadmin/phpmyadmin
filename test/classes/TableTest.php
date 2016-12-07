@@ -44,7 +44,6 @@ class TableTest extends PMATestCase
         $GLOBALS['sql_drop_table'] = true;
         $GLOBALS['cfg']['Server']['table_uiprefs'] = "pma__table_uiprefs";
 
-        $GLOBALS['is_ajax_request'] = false;
         $GLOBALS['cfgRelation'] = PMA_getRelationsParam();
         $GLOBALS['dblist'] = new DataBasePMAMock();
         $GLOBALS['dblist']->databases = new DataBaseMock();

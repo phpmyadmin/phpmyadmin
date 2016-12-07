@@ -669,8 +669,8 @@ class Util
          * If this is an AJAX request, there is no "Back" link and
          * `Response()` is used to send the response.
          */
-        if (!empty($GLOBALS['is_ajax_request'])) {
-            $response = Response::getInstance();
+        $response = Response::getInstance();
+        if ($response->isAjax()) {
             $response->setRequestStatus(false);
             $response->addJSON('message', $error_msg);
             exit;

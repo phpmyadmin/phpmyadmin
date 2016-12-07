@@ -57,8 +57,10 @@ class ServerDatabasesController extends Controller
     {
         include_once 'libraries/check_user_privileges.lib.php';
 
+        $response = PMA\libraries\Response::getInstance();
+
         if (isset($_REQUEST['drop_selected_dbs'])
-            && $GLOBALS['is_ajax_request']
+            && $response->isAjax()
             && ($GLOBALS['is_superuser'] || $GLOBALS['cfg']['AllowUserDropDatabase'])
         ) {
             $this->dropDatabasesAction();
@@ -68,7 +70,7 @@ class ServerDatabasesController extends Controller
         include_once 'libraries/replication.inc.php';
 
         if (! empty($_POST['new_db'])
-            && $GLOBALS['is_ajax_request']
+            && $response->isAjax()
         ) {
             $this->createDatabaseAction();
             return;

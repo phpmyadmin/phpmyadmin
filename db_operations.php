@@ -174,8 +174,8 @@ if (strlen($GLOBALS['db'] > 0)
      * Database has been successfully renamed/moved.  If in an Ajax request,
      * generate the output with {@link PMA\libraries\Response} and exit
      */
-    if ($GLOBALS['is_ajax_request'] == true) {
-        $response = PMA\libraries\Response::getInstance();
+    $response = PMA\libraries\Response::getInstance();
+    if ($response->isAjax()) {
         $response->setRequestStatus($message->isSuccess());
         $response->addJSON('message', $message);
         $response->addJSON('newname', $_REQUEST['newname']);

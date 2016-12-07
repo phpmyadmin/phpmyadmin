@@ -335,6 +335,7 @@ $bookmark_created = false;
 // Bookmark Support: get a query back from bookmark if required
 if (! empty($_REQUEST['id_bookmark'])) {
     $id_bookmark = (int)$_REQUEST['id_bookmark'];
+    $response = PMA\libraries\Response::getInstance();
     switch ($_REQUEST['action_bookmark']) {
     case 0: // bookmarked query that have to be run
         $bookmark = Bookmark::get(
@@ -373,9 +374,8 @@ if (! empty($_REQUEST['id_bookmark'])) {
     case 1: // bookmarked query that have to be displayed
         $bookmark = Bookmark::get($db, $id_bookmark);
         $import_text = $bookmark->getQuery();
-        if ($GLOBALS['is_ajax_request'] == true) {
+        if ($response->isAjax()) {
             $message = PMA\libraries\Message::success(__('Showing bookmark'));
-            $response = PMA\libraries\Response::getInstance();
             $response->setRequestStatus($message->isSuccess());
             $response->addJSON('message', $message);
             $response->addJSON('sql_query', $import_text);
@@ -389,7 +389,7 @@ if (! empty($_REQUEST['id_bookmark'])) {
         $bookmark = Bookmark::get($db, $id_bookmark);
         if (! empty($bookmark)) {
             $bookmark->delete();
-            if ($GLOBALS['is_ajax_request'] == true) {
+            if ($response->isAjax()) {
                 $message = PMA\libraries\Message::success(
                     __('The bookmark has been deleted.')
                 );

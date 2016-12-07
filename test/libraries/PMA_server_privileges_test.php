@@ -516,7 +516,6 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
         $username = "pma_username";
         $is_menuswork = true;
         $_REQUEST['edit_user_group_dialog'] = "edit_user_group_dialog";
-        $GLOBALS['is_ajax_request'] = false;
 
         /* Assertion 1 */
         //PMA_getHtmlForUserGroupDialog

@@ -119,8 +119,9 @@ function PMA_RTE_getList($type, $items)
     $retval .= "        </tr>\n";
     $retval .= "        <!-- TABLE DATA -->\n";
     $count = 0;
+    $response = PMA\libraries\Response::getInstance();
     foreach ($items as $item) {
-        if ($GLOBALS['is_ajax_request'] && empty($_REQUEST['ajax_page_request'])) {
+        if ($response->isAjax() && empty($_REQUEST['ajax_page_request'])) {
             $rowclass = 'ajaxInsert hide';
         } else {
             $rowclass = '';

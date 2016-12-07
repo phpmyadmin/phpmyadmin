@@ -25,7 +25,7 @@ function PMA_getHtmlForUserGroupDialog($username, $is_menuswork)
     if (! empty($_REQUEST['edit_user_group_dialog']) && $is_menuswork) {
         $dialog = PMA_getHtmlToChooseUserGroup($username);
         $response = PMA\libraries\Response::getInstance();
-        if ($GLOBALS['is_ajax_request']) {
+        if ($response->isAjax()) {
             $response->addJSON('message', $dialog);
             exit;
         } else {
@@ -2371,11 +2371,11 @@ function PMA_getHtmlForSpecificDbPrivileges($db)
         $html_output .= PMA_getHtmlForViewUsersError();
     }
 
-    if ($GLOBALS['is_ajax_request'] == true
+    $response = PMA\libraries\Response::getInstance();
+    if ($response->isAjax() == true
         && empty($_REQUEST['ajax_page_request'])
     ) {
         $message = Message::success(__('User has been added.'));
-        $response = PMA\libraries\Response::getInstance();
         $response->addJSON('message', $message);
         $response->addJSON('user_form', $html_output);
         exit;
@@ -4657,7 +4657,8 @@ function PMA_getHtmlForUserOverview($pmaThemeImage, $text_dir)
             $html_output .= PMA_getAddUserHtmlFieldset();
         } // end if (display overview)
 
-        if (! $GLOBALS['is_ajax_request']
+        $response = PMA\libraries\Response::getInstance();
+        if (! $response->isAjax()
             || ! empty($_REQUEST['ajax_page_request'])
         ) {
             if ($GLOBALS['is_reload_priv']) {

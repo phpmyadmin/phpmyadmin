@@ -92,8 +92,8 @@ if (isset($_REQUEST['submitcollation'])
      * db charset change action on db_operations.php.  If this causes a bug on
      * other pages, we might have to move this to a different location.
      */
-    if ($GLOBALS['is_ajax_request'] == true) {
-        $response = PMA\libraries\Response::getInstance();
+    $response = PMA\libraries\Response::getInstance();
+    if ($response->isAjax()) {
         $response->setRequestStatus($message->isSuccess());
         $response->addJSON('message', $message);
         exit;

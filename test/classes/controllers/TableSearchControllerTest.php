@@ -44,7 +44,6 @@ class TableSearchControllerTest extends PMATestCase
 
         $GLOBALS['server'] = 1;
         $GLOBALS['PMA_PHP_SELF'] = 'index.php';
-        $GLOBALS['is_ajax_request'] = false;
         $GLOBALS['cfgRelation'] = PMA_getRelationsParam();
         $GLOBALS['PMA_Types'] = new TypesMySQL();
         $GLOBALS['cfg']['Server']['DisableIS'] = false;

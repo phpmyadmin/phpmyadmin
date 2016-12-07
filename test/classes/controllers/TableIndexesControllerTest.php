@@ -10,15 +10,11 @@ use PMA\libraries\controllers\table\TableIndexesController;
 use PMA\libraries\di\Container;
 use PMA\libraries\Theme;
 use PMA\libraries\URL;
+use PMA\libraries\Response;
 
 /*
  * Include to test.
  */
-
-
-
-
-
 require_once 'libraries/database_interface.inc.php';
 require_once 'libraries/relation.lib.php';
 
@@ -121,12 +117,13 @@ class TableIndexesControllerTest extends PMATestCase
 
         // Alter success
         $response->clear();
+        Response::getInstance()->setAjax(true);
         unset($_REQUEST['preview_sql']);
-        $GLOBALS['is_ajax_request'] = true;
         $ctrl->doSaveDataAction();
         $jsonArray = $response->getJSONResult();
         $this->assertArrayHasKey('index_table', $jsonArray);
         $this->assertArrayHasKey('message', $jsonArray);
+        Response::getInstance()->setAjax(false);
     }
 
     /**

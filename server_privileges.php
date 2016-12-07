@@ -297,7 +297,7 @@ if (isset($message_ret)) {
  * If we are in an Ajax request for Create User/Edit User/Revoke User/
  * Flush Privileges, show $message and exit.
  */
-if ($GLOBALS['is_ajax_request']
+if ($response->isAjax()
     && empty($_REQUEST['ajax_page_request'])
     && ! isset($_REQUEST['export'])
     && (! isset($_REQUEST['submit_mult']) || $_REQUEST['submit_mult'] != 'export')
@@ -380,7 +380,7 @@ if (isset($_REQUEST['export'])
     unset($username, $hostname, $grants, $one_grant);
 
     $response = PMA\libraries\Response::getInstance();
-    if ($GLOBALS['is_ajax_request']) {
+    if ($response->isAjax()) {
         $response->addJSON('message', $export);
         $response->addJSON('title', $title);
         exit;
@@ -434,7 +434,7 @@ if (isset($_REQUEST['adduser'])) {
     } else {
         // A user was selected -> display the user's properties
         // In an Ajax request, prevent cached values from showing
-        if ($GLOBALS['is_ajax_request'] == true) {
+        if ($response->isAjax()) {
             header('Cache-Control: no-cache');
         }
 

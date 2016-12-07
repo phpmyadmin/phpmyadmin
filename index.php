@@ -79,11 +79,11 @@ if (! empty($_REQUEST['db'])) {
     exit;
 }
 
+$response = PMA\libraries\Response::getInstance();
 /**
  * Check if it is an ajax request to reload the recent tables list.
  */
-if ($GLOBALS['is_ajax_request'] && ! empty($_REQUEST['recent_table'])) {
-    $response = PMA\libraries\Response::getInstance();
+if ($response->isAjax() && ! empty($_REQUEST['recent_table'])) {
     $response->addJSON(
         'list',
         RecentFavoriteTable::getInstance('recent')->getHtmlList()
@@ -92,7 +92,7 @@ if ($GLOBALS['is_ajax_request'] && ! empty($_REQUEST['recent_table'])) {
 }
 
 if ($GLOBALS['PMA_Config']->isGitRevision()) {
-    if (isset($_REQUEST['git_revision']) && $GLOBALS['is_ajax_request'] == true) {
+    if (isset($_REQUEST['git_revision']) && $response->isAjax()) {
         PMA_printGitRevision();
         exit;
     }

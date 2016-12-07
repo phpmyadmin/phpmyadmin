@@ -53,8 +53,6 @@ class Response
     private $_footer;
     /**
      * Whether we are servicing an ajax request.
-     * We can't simply use $GLOBALS['is_ajax_request']
-     * here since it may have not been initialised yet.
      *
      * @access private
      * @var bool
@@ -107,6 +105,21 @@ class Response
         $this->_header->setAjax($this->_isAjax);
         $this->_footer->setAjax($this->_isAjax);
         $this->_CWD = getcwd();
+    }
+
+    /**
+     * Set the ajax flag to indicate whether
+     * we are servicing an ajax request
+     *
+     * @param bool $isAjax Whether we are servicing an ajax request
+     *
+     * @return void
+     */
+    public function setAjax($isAjax)
+    {
+        $this->_isAjax = (boolean) $isAjax;
+        $this->_header->setAjax($this->_isAjax);
+        $this->_footer->setAjax($this->_isAjax);
     }
 
     /**

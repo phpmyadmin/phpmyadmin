@@ -2103,8 +2103,8 @@ function PMA_moveOrCopyTable($db, $table)
         $message = Message::error(__('The table name is empty!'));
     }
 
-    if ($GLOBALS['is_ajax_request'] == true) {
-        $response = Response::getInstance();
+    $response = Response::getInstance();
+    if ($response->isAjax()) {
         $response->addJSON('message', $message);
         if ($message->isSuccess()) {
             $response->addJSON('db', $GLOBALS['db']);

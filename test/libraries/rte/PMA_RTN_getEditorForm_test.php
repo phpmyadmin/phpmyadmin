@@ -8,6 +8,7 @@
 
 use PMA\libraries\Theme;
 use PMA\libraries\TypesMySQL;
+use PMA\libraries\Response;
 
 $GLOBALS['server'] = 0;
 
@@ -50,7 +51,6 @@ class PMA_RTN_GetEditorForm_Test extends PHPUnit_Framework_TestCase
      */
     public function testgetParameterRowEmpty()
     {
-        $GLOBALS['is_ajax_request'] = false;
         PMA_RTN_setGlobals();
         $this->assertEquals('', PMA_RTN_getParameterRow(array(), 0));
     }
@@ -69,7 +69,6 @@ class PMA_RTN_GetEditorForm_Test extends PHPUnit_Framework_TestCase
      */
     public function testgetParameterRow($data, $index, $matcher)
     {
-        $GLOBALS['is_ajax_request'] = false;
         PMA_RTN_setGlobals();
         $this->assertContains(
             $matcher,
@@ -152,12 +151,13 @@ class PMA_RTN_GetEditorForm_Test extends PHPUnit_Framework_TestCase
      */
     public function testgetParameterRowAjax($data, $matcher)
     {
-        $GLOBALS['is_ajax_request'] = false;
+        Response::getInstance()->setAjax(true);
         PMA_RTN_setGlobals();
         $this->assertContains(
             $matcher,
             PMA_RTN_getParameterRow($data)
         );
+        Response::getInstance()->setAjax(false);
     }
 
     /**
@@ -230,7 +230,6 @@ class PMA_RTN_GetEditorForm_Test extends PHPUnit_Framework_TestCase
      */
     public function testgetEditorForm1($data, $matcher)
     {
-        $GLOBALS['is_ajax_request'] = false;
         PMA_RTN_setGlobals();
         $this->assertContains(
             $matcher,
@@ -352,7 +351,6 @@ class PMA_RTN_GetEditorForm_Test extends PHPUnit_Framework_TestCase
      */
     public function testgetEditorForm2($data, $matcher)
     {
-        $GLOBALS['is_ajax_request'] = false;
         PMA_RTN_setGlobals();
         $this->assertContains(
             $matcher,
@@ -474,12 +472,13 @@ class PMA_RTN_GetEditorForm_Test extends PHPUnit_Framework_TestCase
      */
     public function testgetEditorForm3($data, $matcher)
     {
-        $GLOBALS['is_ajax_request'] = true;
+        Response::getInstance()->setAjax(true);
         PMA_RTN_setGlobals();
         $this->assertContains(
             $matcher,
             PMA_RTN_getEditorForm('edit', 'remove', $data)
         );
+        Response::getInstance()->setAjax(false);
     }
 
     /**
@@ -596,7 +595,6 @@ class PMA_RTN_GetEditorForm_Test extends PHPUnit_Framework_TestCase
      */
     public function testgetEditorForm4($data, $matcher)
     {
-        $GLOBALS['is_ajax_request'] = false;
         PMA_RTN_setGlobals();
         $this->assertContains(
             $matcher,

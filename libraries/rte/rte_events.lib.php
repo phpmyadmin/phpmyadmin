@@ -180,8 +180,8 @@ function PMA_EVN_handleEditor()
         }
 
         $output = PMA\libraries\Util::getMessage($message, $sql_query);
-        if ($GLOBALS['is_ajax_request']) {
-            $response = PMA\libraries\Response::getInstance();
+        $response = PMA\libraries\Response::getInstance();
+        if ($response->isAjax()) {
             if ($message->isSuccess()) {
                 $events = $GLOBALS['dbi']->getEvents($db, $_REQUEST['item_name']);
                 $event = $events[0];
@@ -339,6 +339,8 @@ function PMA_EVN_getEditorForm($mode, $operation, $item)
 
     $modeToUpper = mb_strtoupper($mode);
 
+    $response = PMA\libraries\Response::getInstance();
+
     // Escape special characters
     $need_escape = array(
                        'item_original_name',
@@ -411,7 +413,7 @@ function PMA_EVN_getEditorForm($mode, $operation, $item)
     $retval .= "<tr>\n";
     $retval .= "    <td>" . __('Event type') . "</td>\n";
     $retval .= "    <td>\n";
-    if ($GLOBALS['is_ajax_request']) {
+    if ($response->isAjax()) {
         $retval .= "        <select name='item_type'>";
         foreach ($event_type as $key => $value) {
             $selected = "";
@@ -503,7 +505,7 @@ function PMA_EVN_getEditorForm($mode, $operation, $item)
     $retval .= "</tr>\n";
     $retval .= "</table>\n";
     $retval .= "</fieldset>\n";
-    if ($GLOBALS['is_ajax_request']) {
+    if ($response->isAjax()) {
         $retval .= "<input type='hidden' name='editor_process_{$mode}'\n";
         $retval .= "       value='true' />\n";
         $retval .= "<input type='hidden' name='ajax_request' value='true' />\n";

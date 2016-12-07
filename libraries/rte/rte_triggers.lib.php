@@ -156,8 +156,8 @@ function PMA_TRI_handleEditor()
         }
 
         $output = PMA\libraries\Util::getMessage($message, $sql_query);
-        if ($GLOBALS['is_ajax_request']) {
-            $response = PMA\libraries\Response::getInstance();
+        $response = PMA\libraries\Response::getInstance();
+        if ($response->isAjax()) {
             if ($message->isSuccess()) {
                 $items = $GLOBALS['dbi']->getTriggers($db, $table, '');
                 $trigger = false;
@@ -294,6 +294,7 @@ function PMA_TRI_getEditorForm($mode, $item)
     global $db, $table, $event_manipulations, $action_timings;
 
     $modeToUpper = mb_strtoupper($mode);
+    $response = PMA\libraries\Response::getInstance();
 
     // Escape special characters
     $need_escape = array(
@@ -389,7 +390,7 @@ function PMA_TRI_getEditorForm($mode, $item)
     $retval .= "</tr>\n";
     $retval .= "</table>\n";
     $retval .= "</fieldset>\n";
-    if ($GLOBALS['is_ajax_request']) {
+    if ($response->isAjax()) {
         $retval .= "<input type='hidden' name='editor_process_{$mode}'\n";
         $retval .= "       value='true' />\n";
         $retval .= "<input type='hidden' name='ajax_request' value='true' />\n";

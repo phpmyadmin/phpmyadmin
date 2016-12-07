@@ -50,7 +50,6 @@ class ServerCollationsControllerTest extends PMATestCase
         $_REQUEST['pos'] = 3;
 
         //$GLOBALS
-        $GLOBALS['is_ajax_request'] = true;
         $GLOBALS['table'] = "table";
     }
 
