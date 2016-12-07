@@ -205,7 +205,6 @@ class Navigation
                     $html .= (! $first ? '<br/>' : '')
                         . '<strong>' . $lable . '</strong>';
                     $html .= '<table width="100%"><tbody>';
-                    $odd = true;
                     foreach ($hidden[$t] as $hiddenItem) {
                         $params = array(
                             'unhideNavItem' => true,
@@ -214,14 +213,13 @@ class Navigation
                             'dbName' => $dbName
                         );
 
-                        $html .= '<tr class="' . ($odd ? 'odd' : 'even') . '">';
+                        $html .= '<tr>';
                         $html .= '<td>' . htmlspecialchars($hiddenItem) . '</td>';
                         $html .= '<td style="width:80px"><a href="navigation.php'
                             . URL::getCommon($params) . '"'
                             . ' class="unhideNavItem ajax">'
                             . Util::getIcon('show.png', __('Show'))
                             .  '</a></td>';
-                        $odd = ! $odd;
                     }
                     $html .= '</tbody></table>';
                     $first = false;

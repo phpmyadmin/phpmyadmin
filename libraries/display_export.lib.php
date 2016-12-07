@@ -985,7 +985,6 @@ function PMA_getHtmlForAliasModalDialog($db = '', $table = '')
                 . $class . '" width="100%">';
             $col_html .= '<thead><tr><th>' . __('Old column name') . '</th>'
                 . '<th>' . __('New column name') . '</th></tr></thead><tbody>';
-            $class = 'odd';
             foreach ($columns as $column => $col_def) {
                 $val = '';
                 if (!empty($aliases[$db]['tables'][$table]['columns'][$column])) {
@@ -997,14 +996,13 @@ function PMA_getHtmlForAliasModalDialog($db = '', $table = '')
                 $name_attr = 'aliases[' . $db . '][tables][' . $table
                     . '][columns][' . $column . ']';
                 $id_attr = substr(md5($name_attr), 0, 12);
-                $col_html .= '<tr class="' . $class . '">';
+                $col_html .= '<tr>';
                 $col_html .= '<th><label for="' . $id_attr . '">' . $column
                     . '</label></th>';
                 $col_html .= '<td><dummy_inp type="text" name="' . $name_attr . '" '
                     . 'id="' . $id_attr . '" placeholder="'
                     . $column . ' alias" value="' . $val . '"></dummy_inp></td>';
                 $col_html .= '</tr>';
-                $class = $class === 'odd' ? 'even' : 'odd';
             }
             $col_html .= '</tbody></table>';
         }

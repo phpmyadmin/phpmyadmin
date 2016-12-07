@@ -123,7 +123,6 @@ foreach ($tables as $table) {
         echo '    <th>MIME</th>' , "\n";
     }
     echo '</tr>';
-    $odd_row = true;
     foreach ($columns as $row) {
 
         if ($row['Null'] == '') {
@@ -146,9 +145,7 @@ foreach ($tables as $table) {
         }
         $column_name = $row['Field'];
 
-        echo '<tr class="';
-        echo $odd_row ? 'odd' : 'even'; $odd_row = ! $odd_row;
-        echo '">';
+        echo '<tr>';
         echo '<td class="nowrap">';
         echo htmlspecialchars($column_name);
 

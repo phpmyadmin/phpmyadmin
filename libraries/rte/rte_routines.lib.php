@@ -1423,11 +1423,8 @@ function PMA_RTN_handleExecute()
                     }
                     $output .= "</tr>";
 
-                    $color_class = 'odd';
-
                     while ($row = $GLOBALS['dbi']->fetchAssoc($result)) {
-                        $output .= "<tr>" . browseRow($row, $color_class) . "</tr>";
-                        $color_class = ($color_class == 'odd') ? 'even' : 'odd';
+                        $output .= "<tr>" . browseRow($row) . "</tr>";
                     }
 
                     $output .= "</table>";
@@ -1554,7 +1551,7 @@ function PMA_RTN_handleExecute()
  *
  * @return string
  */
-function browseRow($row, $color_class)
+function browseRow($row)
 {
     $output = null;
     foreach ($row as $value) {
@@ -1626,8 +1623,7 @@ function PMA_RTN_getExecuteForm($routine)
         ) {
             continue;
         }
-        $rowclass = ($i % 2 == 0) ? 'even' : 'odd';
-        $retval .= "\n<tr class='$rowclass'>\n";
+        $retval .= "\n<tr>\n";
         $retval .= "<td>{$routine['item_param_name'][$i]}</td>\n";
         $retval .= "<td>{$routine['item_param_type'][$i]}</td>\n";
         if ($cfg['ShowFunctionFields']) {

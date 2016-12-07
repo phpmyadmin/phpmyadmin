@@ -120,9 +120,10 @@ function PMA_RTE_getList($type, $items)
     $retval .= "        <!-- TABLE DATA -->\n";
     $count = 0;
     foreach ($items as $item) {
-        $rowclass = ($count % 2 == 0) ? 'odd' : 'even';
         if ($GLOBALS['is_ajax_request'] && empty($_REQUEST['ajax_page_request'])) {
-            $rowclass .= ' ajaxInsert hide';
+            $rowclass = 'ajaxInsert hide';
+        } else {
+            $rowclass = '';
         }
         // Get each row from the correct function
         switch ($type) {
@@ -174,7 +175,7 @@ function PMA_RTE_getList($type, $items)
  * Creates the contents for a row in the list of routines
  *
  * @param array  $routine  An array of routine data
- * @param string $rowclass Empty or one of ['even'|'odd']
+ * @param string $rowclass Additional class
  *
  * @return string HTML code of a row for the list of routines
  */
@@ -327,7 +328,7 @@ function PMA_RTN_getRowForList($routine, $rowclass = '')
  * Creates the contents for a row in the list of triggers
  *
  * @param array  $trigger  An array of routine data
- * @param string $rowclass Empty or one of ['even'|'odd']
+ * @param string $rowclass Additional class
  *
  * @return string HTML code of a cell for the list of triggers
  */
@@ -406,7 +407,7 @@ function PMA_TRI_getRowForList($trigger, $rowclass = '')
  * Creates the contents for a row in the list of events
  *
  * @param array  $event    An array of routine data
- * @param string $rowclass Empty or one of ['even'|'odd']
+ * @param string $rowclass Additional class
  *
  * @return string HTML code of a cell for the list of events
  */

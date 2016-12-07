@@ -81,7 +81,6 @@ function PMA_getHtmlForUserGroupsTable()
         $html_output .= '</tr></thead>';
         $html_output .= '<tbody>';
 
-        $odd = true;
         $userGroups = array();
         while ($row = $GLOBALS['dbi']->fetchAssoc($result)) {
             $groupName = $row['usergroup'];
@@ -91,7 +90,7 @@ function PMA_getHtmlForUserGroupsTable()
             $userGroups[$groupName][$row['tab']] = $row['allowed'];
         }
         foreach ($userGroups as $groupName => $tabs) {
-            $html_output .= '<tr class="' . ($odd ? 'odd' : 'even') . '">';
+            $html_output .= '<tr>';
             $html_output .= '<td>' . htmlspecialchars($groupName) . '</td>';
             $html_output .= '<td>' . _getAllowedTabNames($tabs, 'server') . '</td>';
             $html_output .= '<td>' . _getAllowedTabNames($tabs, 'db') . '</td>';
@@ -129,8 +128,6 @@ function PMA_getHtmlForUserGroupsTable()
             $html_output .= '</td>';
 
             $html_output .= '</tr>';
-
-            $odd = ! $odd;
         }
 
         $html_output .= '</tbody>';

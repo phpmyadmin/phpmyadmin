@@ -49,7 +49,7 @@ function PMA_getHtmlForChangePassword($mode, $username, $hostname)
         )
         . '>' . __('Change password') . '</legend>'
         . '<table class="data noclick">'
-        . '<tr class="odd">'
+        . '<tr>'
         . '<td colspan="2">'
         . '<input type="radio" name="nopass" value="1" id="nopass_1" '
         . 'onclick="pma_pw.value = \'\'; pma_pw2.value = \'\'; '
@@ -57,7 +57,7 @@ function PMA_getHtmlForChangePassword($mode, $username, $hostname)
         . '<label for="nopass_1">' . __('No Password') . '</label>'
         . '</td>'
         . '</tr>'
-        . '<tr class="even vmiddle">'
+        . '<tr class="vmiddle">'
         . '<td>'
         . '<input type="radio" name="nopass" value="0" id="nopass_0" '
         . 'onclick="document.getElementById(\'text_pma_change_pw\').focus();" '
