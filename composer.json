@@ -29,6 +29,7 @@
         "ext-json": "*"
     },
     "suggest": {
+        "ext-openssl": "Cookie encryption",
         "ext-curl": "Updates checking",
         "ext-opcache": "Better performance",
         "ext-zlib": "For gz import and export",
