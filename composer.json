@@ -28,7 +28,9 @@
     "require": {
         "php": ">=5.5.0",
         "ext-mbstring": "*",
+        "ext-mysqli": "*",
         "ext-xml": "*",
+        "ext-json": "*",
         "phpmyadmin/sql-parser": "^3.4",
         "phpmyadmin/motranslator": "^2.0",
         "phpmyadmin/shapefile": "^1.0",
@@ -37,6 +39,8 @@
         "google/recaptcha": "^1.1"
     },
     "suggest": {
+        "ext-curl": "Updates checking",
+        "ext-opcache": "Better performance",
         "ext-zlib": "For gz import and export",
         "ext-bz2": "For bzip2 import and export",
         "ext-zip": "For zip import and export",
