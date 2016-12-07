@@ -49,6 +49,7 @@ phpMyAdmin - ChangeLog
 - issue #12757 Fixed creating new user with older MariaDB
 - issue #12784 Remove ctype installation suggestion
 - issue #12780 Format button replaces all text with blank spaces
+- issue #12786 Fixed database searching
 
 4.6.5.2 (2016-12-05)
 - issue #12765 Fixed SQL export with newlines
