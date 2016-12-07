@@ -627,7 +627,6 @@ AJAX.registerOnload('indexes.js', function () {
                         $table_ref.siblings('div.notice').hide('medium');
                     } else {
                         // We are removing some of the rows only
-                        toggleRowColors($rows_to_hide.last().next());
                         $rows_to_hide.hide("medium", function () {
                             $(this).remove();
                         });

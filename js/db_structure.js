@@ -374,7 +374,6 @@ AJAX.registerOnload('db_structure.js', function () {
             $.post(url, params, function (data) {
                 if (typeof data !== 'undefined' && data.success === true) {
                     PMA_ajaxShowMessage(data.message);
-                    toggleRowColors($curr_row.next());
                     $curr_row.hide("medium").remove();
                     PMA_adjustTotals();
                     PMA_reloadNavigation();

@@ -231,7 +231,6 @@ AJAX.registerOnload('tbl_structure.js', function () {
                             .prependTo('#structure_content');
                         PMA_highlightSQL($('#page_content'));
                     }
-                    toggleRowColors($curr_row.next());
                     // Adjust the row numbers
                     for (var $row = $curr_row.next(); $row.length > 0; $row = $row.next()) {
                         var new_val = parseInt($row.find('td:nth-child(2)').text(), 10) - 1;

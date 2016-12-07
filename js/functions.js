@@ -979,7 +979,7 @@ AJAX.registerOnload('functions.js', function () {
             last_click_checked = checked;
 
             // remember the last clicked row
-            last_clicked_row = last_click_checked ? $table.find('tr.odd:not(.noclick), tr.even:not(.noclick)').index($tr) : -1;
+            last_clicked_row = last_click_checked ? $table.find('tr:not(.noclick)').index($tr) : -1;
             last_shift_clicked_row = -1;
         } else {
             // handle the shift click
@@ -995,7 +995,7 @@ AJAX.registerOnload('functions.js', function () {
                     start = last_shift_clicked_row;
                     end = last_clicked_row;
                 }
-                $tr.parent().find('tr.odd:not(.noclick), tr.even:not(.noclick)')
+                $tr.parent().find('tr:not(.noclick)')
                     .slice(start, end + 1)
                     .removeClass('marked')
                     .find(':checkbox')
@@ -1004,7 +1004,7 @@ AJAX.registerOnload('functions.js', function () {
             }
 
             // handle new shift click
-            var curr_row = $table.find('tr.odd:not(.noclick), tr.even:not(.noclick)').index($tr);
+            var curr_row = $table.find('tr:not(.noclick)').index($tr);
             if (curr_row >= last_clicked_row) {
                 start = last_clicked_row;
                 end = curr_row;
@@ -1012,7 +1012,7 @@ AJAX.registerOnload('functions.js', function () {
                 start = curr_row;
                 end = last_clicked_row;
             }
-            $tr.parent().find('tr.odd:not(.noclick), tr.even:not(.noclick)')
+            $tr.parent().find('tr:not(.noclick)')
                 .slice(start, end + 1)
                 .addClass('marked')
                 .find(':checkbox')
@@ -1039,7 +1039,7 @@ AJAX.registerOnload('functions.js', function () {
  * so that it works also for pages reached via AJAX)
  */
 /*AJAX.registerOnload('functions.js', function () {
-    $(document).on('hover', 'tr.odd, tr.even',function (event) {
+    $(document).on('hover', 'tr',function (event) {
         var $tr = $(this);
         $tr.toggleClass('hover',event.type=='mouseover');
         $tr.children().toggleClass('hover',event.type=='mouseover');
@@ -2755,7 +2755,6 @@ jQuery.fn.PMA_confirm = function (question, url, callbackFn, openCallback) {
 
 /**
  * jQuery function to sort a table's body after a new row has been appended to it.
- * Also fixes the even/odd classes of the table rows at the end.
  *
  * @param string      text_selector   string to select the sortKey's text
  *
@@ -2794,13 +2793,6 @@ jQuery.fn.PMA_sort_table = function (text_selector) {
             $(table_body).append(row);
             row.sortKey = null;
         });
-
-        //Re-check the classes of each row
-        $(this).find('tr:odd')
-        .removeClass('even').addClass('odd')
-        .end()
-        .find('tr:even')
-        .removeClass('odd').addClass('even');
     });
 };
 
@@ -4601,7 +4593,7 @@ function copyToClipboard()
     });
 
     textArea.value += '\n';
-    elementList = $('tbody .odd,tbody .even');
+    elementList = $('tbody tr');
     elementList.each(function() {
         var childElementList = $(this).find('.data span');
         childElementList.each(function(){
@@ -4815,22 +4807,6 @@ $(document).on("change", "input.sub_checkall_box", function () {
     $form.find(checkboxes_sel).prop("checked", is_checked)
     .parents("tr").toggleClass("marked", is_checked);
 });
-
-/**
- * Toggles row colors of a set of 'tr' elements starting from a given element
- *
- * @param $start Starting element
- */
-function toggleRowColors($start)
-{
-    for (var $curr_row = $start; $curr_row.length > 0; $curr_row = $curr_row.next()) {
-        if ($curr_row.hasClass('odd')) {
-            $curr_row.removeClass('odd').addClass('even');
-        } else if ($curr_row.hasClass('even')) {
-            $curr_row.removeClass('even').addClass('odd');
-        }
-    }
-}
 
 /**
  * Formats a byte number to human-readable form
