@@ -30,6 +30,7 @@
         "ext-mbstring": "*",
         "ext-mysqli": "*",
         "ext-xml": "*",
+        "ext-pcre": "*",
         "ext-json": "*",
         "phpmyadmin/sql-parser": "^3.4",
         "phpmyadmin/motranslator": "^2.0",
