@@ -326,6 +326,8 @@ $file_to_unlink = '';
 $sql_query = '';
 $sql_query_disabled = false;
 $go_sql = false;
+$result= true;
+$msg = '';
 $executed_queries = 0;
 $run_query = true;
 $charset_conversion = false;
@@ -769,7 +771,7 @@ if ($go_sql) {
         'sql_query',
         PMA\libraries\Util::getMessage($msg, $sql_query, 'success')
     );
-} else if ($result == false) {
+} else if ($result === false) {
     $response = PMA\libraries\Response::getInstance();
     $response->setRequestStatus(false);
     $response->addJSON('message', PMA\libraries\Message::error($msg));
