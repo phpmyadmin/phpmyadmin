@@ -518,7 +518,7 @@ function PMA_current_version(data)
         var url = 'https://web.phpmyadmin.net/files/' + escapeHtml(encodeURIComponent(data.version)) + '/';
         var version_information_message = '<span class="latest">' +
             PMA_messages.strLatestAvailable +
-            ' <a href="' + url + '">' + escapeHtml(data.version) + '</a>' +
+            ' <a href="' + url + '" class="disableAjax">' + escapeHtml(data.version) + '</a>' +
             '</span>';
         if (latest > current) {
             var message = PMA_sprintf(
@@ -532,7 +532,7 @@ function PMA_current_version(data)
                 htmlClass = 'error';
             }
             $('#newer_version_notice').remove();
-            $('#maincontainer').after('<div id="newer_version_notice" class="' + htmlClass + '"><a href="' + url + '">' + message + '</a></div>');
+            $('#maincontainer').after('<div id="newer_version_notice" class="' + htmlClass + '"><a href="' + url + '" class="disableAjax">' + message + '</a></div>');
         }
         if (latest === current) {
             version_information_message = ' (' + PMA_messages.strUpToDate + ')';
