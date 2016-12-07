@@ -133,6 +133,9 @@ $replaces = array(
     '/(    ### )(.*)/'
     => '\\1<b>\\2</b>',
 
+    // Links target and rel
+    '/a href="/' => 'a target="_blank" rel="noopener noreferrer" href="/'
+
 );
 
 header('Content-type: text/html; charset=utf-8');
@@ -152,12 +155,5 @@ echo '<pre>';
 echo preg_replace(array_keys($replaces), $replaces, $changelog);
 echo '</pre>';
 ?>
-<script type="text/javascript">
-var links = document.getElementsByTagName("a");
-for(var i = 0; i < links.length; i++) {
-    links[i].target = "_blank";
-    links[i].rel = "noopener noreferrer";
-}
-</script>
 </body>
 </html>
