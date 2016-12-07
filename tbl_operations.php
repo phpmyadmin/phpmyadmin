@@ -201,9 +201,7 @@ if (isset($result) && empty($message_to_show)) {
                 : PMA\libraries\Message::error();
         }
 
-        if (isset($GLOBALS['ajax_request'])
-            && $GLOBALS['ajax_request'] == true
-        ) {
+        if ($response->isAjax()) {
             $response->setRequestStatus($_message->isSuccess());
             $response->addJSON('message', $_message);
             if (!empty($sql_query)) {
@@ -223,9 +221,7 @@ if (isset($result) && empty($message_to_show)) {
         $_message = new PMA\libraries\Message;
         $_message->addMessagesString($warning_messages);
         $_message->isError(true);
-        if (isset($GLOBALS['ajax_request'])
-            && $GLOBALS['ajax_request'] == true
-        ) {
+        if ($response->isAjax()) {
             $response->setRequestStatus(false);
             $response->addJSON('message', $_message);
             if (!empty($sql_query)) {

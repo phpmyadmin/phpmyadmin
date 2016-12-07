@@ -11,6 +11,7 @@ namespace PMA\libraries\controllers\server;
 
 use PMA\libraries\controllers\Controller;
 use PMA\libraries\Message;
+use PMA\libraries\Response;
 use PMA\libraries\Template;
 use PMA\libraries\Util;
 use PMA\libraries\URL;
@@ -44,7 +45,8 @@ class ServerVariablesController extends Controller
      */
     public function indexAction()
     {
-        if (! empty($_REQUEST['ajax_request'])
+        $request = Request::getInstance();
+        if ($request->isAjax()
             && isset($_REQUEST['type'])
             && $_REQUEST['type'] === 'getval'
         ) {
@@ -52,7 +54,7 @@ class ServerVariablesController extends Controller
             return;
         }
 
-        if (! empty($_REQUEST['ajax_request'])
+        if ($request->isAjax()
             && isset($_REQUEST['type'])
             && $_REQUEST['type'] === 'setval'
         ) {

@@ -11,6 +11,7 @@ namespace PMA\libraries\controllers\table;
 
 use PMA\libraries\controllers\TableController;
 use PMA\libraries\Message;
+use PMA\libraries\Response;
 use PMA\libraries\Template;
 use PMA\libraries\Util;
 
@@ -61,7 +62,8 @@ class TableChartController extends TableController
      */
     public function indexAction()
     {
-        if (isset($_REQUEST['ajax_request'])
+        $request = Request::getInstance();
+        if ($request->isAjax()
             && isset($_REQUEST['pos'])
             && isset($_REQUEST['session_max_rows'])
         ) {

@@ -20,7 +20,7 @@ $response = Response::getInstance();
 /**
  * Ajax request
  */
-if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
+if ($response->isAjax()) {
     // Send with correct charset
     header('Content-Type: text/html; charset=UTF-8');
 
