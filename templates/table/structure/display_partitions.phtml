@@ -37,9 +37,8 @@ use PMA\libraries\URL; ?>
                     </tr>
                 </thead>
                 <tbody>
-                <?php $odd = true; ?>
                 <?php foreach ($partitions as $partition): ?>
-                    <tr class="noclick <?= ($odd ? 'odd' : 'even') , ($hasSubPartitions ? ' marked' : '') ?>">
+                    <tr class="noclick <?= ($hasSubPartitions ? ' marked' : '') ?>">
                         <?php if ($hasSubPartitions): ?>
                             <td><?= $partition->getOrdinal(); ?></td>
                             <td></td>
@@ -92,7 +91,7 @@ use PMA\libraries\URL; ?>
 
                         <?php if ($hasSubPartitions): ?>
                             <?php foreach ($partition->getSubPartitions() as $subParition): ?>
-                                <tr class="noclick <?= $odd ? 'odd' : 'even' ?>">
+                                <tr class="noclick">
                                     <td></td>
                                     <td><?= $subParition->getOrdinal(); ?></td>
                                     <td><?= htmlspecialchars($subParition->getName()); ?></td>
@@ -122,7 +121,6 @@ use PMA\libraries\URL; ?>
                             <?php endforeach; ?>
                         <?php endif; ?>
                     </tr>
-                    <?php $odd = ! $odd; ?>
                 <?php endforeach; ?>
                 </tbody>
             </table>
