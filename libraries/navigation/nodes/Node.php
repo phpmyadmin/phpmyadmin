@@ -685,7 +685,7 @@ class Node
     {
         if (!empty($searchClause)) {
             $databases = array(
-                "%" . $GLOBALS['dbi']->escapeString($searchClause, true) . "%",
+                "%" . $GLOBALS['dbi']->escapeString($searchClause) . "%",
             );
         } elseif (!empty($GLOBALS['cfg']['Server']['only_db'])) {
             $databases = $GLOBALS['cfg']['Server']['only_db'];
@@ -712,10 +712,7 @@ class Node
         if (!empty($searchClause)) {
             $whereClause .= "AND " . Util::backquote($columnName)
                 . " LIKE '%";
-            $whereClause .= $GLOBALS['dbi']->escapeString(
-                $searchClause,
-                true
-            );
+            $whereClause .= $GLOBALS['dbi']->escapeString($searchClause);
             $whereClause .= "%' ";
         }
 
