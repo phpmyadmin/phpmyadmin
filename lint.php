@@ -6,6 +6,7 @@
  * @package PhpMyAdmin
  */
 use PMA\libraries\Linter;
+use PMA\libraries\Response;
 
 $_GET['ajax_request'] = 'true';
 
@@ -29,7 +30,7 @@ require_once 'libraries/common.inc.php';
 $sql_query = !empty($_POST['sql_query']) ? $_POST['sql_query'] : '';
 
 // Disabling standard response.
-PMA\libraries\Response::getInstance()->disable();
+Response::getInstance()->disable();
 
 PMA_headerJSON();
 

@@ -8,6 +8,7 @@
 namespace PMA\libraries\plugins\schema\dia;
 
 use PMA;
+use PMA\libraries\Response;
 use XMLWriter;
 
 /**
@@ -176,8 +177,7 @@ class Dia extends XMLWriter
             ob_end_clean();
         }
         $output = $this->flush();
-        PMA\libraries\Response::getInstance()
-            ->disable();
+        Response::getInstance()->disable();
         PMA_downloadHeader(
             $fileName,
             'application/x-dia-diagram',

@@ -9,6 +9,7 @@
 use PMA\libraries\Encoding;
 use PMA\libraries\Message;
 use PMA\libraries\plugins\ExportPlugin;
+use PMA\libraries\Response;
 use PMA\libraries\Table;
 use PMA\libraries\URL;
 
@@ -1150,7 +1151,7 @@ function PMA_handleExportTemplateActions($cfgRelation)
 
     $result = PMA_queryAsControlUser($query, false);
 
-    $response = PMA\libraries\Response::getInstance();
+    $response = Response::getInstance();
     if (! $result) {
         $error = $GLOBALS['dbi']->getError($GLOBALS['controllink']);
         $response->setRequestStatus(false);

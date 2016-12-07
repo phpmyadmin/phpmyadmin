@@ -5,6 +5,7 @@
  *
  * @package PhpMyAdmin
  */
+use PMA\libraries\Response;
 use PMA\libraries\Encoding;
 use PMA\libraries\plugins\ImportPlugin;
 use PMA\libraries\File;
@@ -36,9 +37,10 @@ if (isset($_REQUEST['simulate_dml'])) {
     exit;
 }
 
+$response = Response::getInstance();
+
 // If it's a refresh console bookmarks request
 if (isset($_REQUEST['console_bookmark_refresh'])) {
-    $response = PMA\libraries\Response::getInstance();
     $response->addJSON(
         'console_message_bookmark', PMA\libraries\Console::getBookmarkContent()
     );
@@ -46,7 +48,6 @@ if (isset($_REQUEST['console_bookmark_refresh'])) {
 }
 // If it's a console bookmark add request
 if (isset($_REQUEST['console_bookmark_add'])) {
-    $response = PMA\libraries\Response::getInstance();
     if (isset($_REQUEST['label']) && isset($_REQUEST['db'])
         && isset($_REQUEST['bookmark_query']) && isset($_REQUEST['shared'])
     ) {
@@ -203,7 +204,6 @@ if ($_POST == array() && $_GET == array()) {
     $_SESSION['Import_message']['message'] = $message->getDisplay();
     $_SESSION['Import_message']['go_back_url'] = $GLOBALS['goto'];
 
-    $response = PMA\libraries\Response::getInstance();
     $response->setRequestStatus(false);
     $response->addJSON('message', $message);
 
@@ -212,7 +212,6 @@ if ($_POST == array() && $_GET == array()) {
 
 // Add console message id to response output
 if (isset($_POST['console_message_id'])) {
-    $response = PMA\libraries\Response::getInstance();
     $response->addJSON('console_message_id', $_POST['console_message_id']);
 }
 
@@ -335,7 +334,6 @@ $bookmark_created = false;
 // Bookmark Support: get a query back from bookmark if required
 if (! empty($_REQUEST['id_bookmark'])) {
     $id_bookmark = (int)$_REQUEST['id_bookmark'];
-    $response = PMA\libraries\Response::getInstance();
     switch ($_REQUEST['action_bookmark']) {
     case 0: // bookmarked query that have to be run
         $bookmark = Bookmark::get(
@@ -393,7 +391,6 @@ if (! empty($_REQUEST['id_bookmark'])) {
                 $message = PMA\libraries\Message::success(
                     __('The bookmark has been deleted.')
                 );
-                $response = PMA\libraries\Response::getInstance();
                 $response->setRequestStatus($message->isSuccess());
                 $response->addJSON('message', $message);
                 $response->addJSON('action_bookmark', $_REQUEST['action_bookmark']);
@@ -746,7 +743,6 @@ if ($go_sql) {
         );
     }
 
-    $response = PMA\libraries\Response::getInstance();
     $response->addJSON('ajax_reload', $ajax_reload);
     $response->addHTML($html_output);
     exit();
@@ -762,7 +758,6 @@ if ($go_sql) {
         );
     }
 
-    $response = PMA\libraries\Response::getInstance();
     $response->setRequestStatus(true);
     $response->addJSON('message', PMA\libraries\Message::success($msg));
     $response->addJSON(
@@ -770,7 +765,6 @@ if ($go_sql) {
         PMA\libraries\Util::getMessage($msg, $sql_query, 'success')
     );
 } else if ($result == false) {
-    $response = PMA\libraries\Response::getInstance();
     $response->setRequestStatus(false);
     $response->addJSON('message', PMA\libraries\Message::error($msg));
 } else {

@@ -8,13 +8,14 @@
  *
  * @package PhpMyAdmin
  */
+use PMA\libraries\Response;
 
 /**
  * Gets core libraries and defines some variables
  */
 require 'libraries/common.inc.php';
 
-$response = PMA\libraries\Response::getInstance();
+$response = Response::getInstance();
 $response->disable();
 
 /**

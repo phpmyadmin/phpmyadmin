@@ -7,6 +7,7 @@
  * @package PhpMyAdmin
  */
 use PMA\libraries\Message;
+use PMA\libraries\Response;
 use PMA\libraries\URL;
 
 if (! defined('PHPMYADMIN')) {
@@ -23,7 +24,7 @@ if (empty($is_db)) {
     if (! $is_db) {
         // not a valid db name -> back to the welcome page
         if (! defined('IS_TRANSFORMATION_WRAPPER')) {
-            $response = PMA\libraries\Response::getInstance();
+            $response = Response::getInstance();
             if ($response->isAjax()) {
                 $response->setRequestStatus(false);
                 $response->addJSON(

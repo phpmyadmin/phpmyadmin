@@ -26,6 +26,7 @@ require 'libraries/config/user_preferences.forms.php';
 
 $cf = new ConfigFile($GLOBALS['PMA_Config']->base_settings);
 PMA_userprefsPageInit($cf);
+$response = Response::getInstance();
 
 $error = '';
 if (isset($_POST['submit_export'])
@@ -33,7 +34,7 @@ if (isset($_POST['submit_export'])
     && $_POST['export_type'] == 'text_file'
 ) {
     // export to JSON file
-    PMA\libraries\Response::getInstance()->disable();
+    $response->disable();
     $filename = 'phpMyAdmin-config-' . urlencode(PMA_getenv('HTTP_HOST')) . '.json';
     PMA_downloadHeader($filename, 'application/json');
     $settings = PMA_loadUserprefs();
@@ -44,7 +45,7 @@ if (isset($_POST['submit_export'])
     && $_POST['export_type'] == 'php_file'
 ) {
     // export to JSON file
-    PMA\libraries\Response::getInstance()->disable();
+    $response->disable();
     $filename = 'phpMyAdmin-config-' . urlencode(PMA_getenv('HTTP_HOST')) . '.php';
     PMA_downloadHeader($filename, 'application/php');
     $settings = PMA_loadUserprefs();
@@ -57,7 +58,6 @@ if (isset($_POST['submit_export'])
     exit;
 } else if (isset($_POST['submit_get_json'])) {
     $settings = PMA_loadUserprefs();
-    $response = PMA\libraries\Response::getInstance();
     $response->addJSON('prefs', json_encode($settings['config_data']));
     $response->addJSON('mtime', $settings['mtime']);
     exit;

@@ -13,9 +13,10 @@
  */
 require_once 'libraries/common.inc.php';
 
+use PMA\libraries\Response;
 use PMA\libraries\DbSearch;
 
-$response = PMA\libraries\Response::getInstance();
+$response = Response::getInstance();
 $header   = $response->getHeader();
 $scripts  = $header->getScripts();
 $scripts->addFile('db_search.js');

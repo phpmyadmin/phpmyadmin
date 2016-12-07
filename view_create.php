@@ -8,6 +8,7 @@
  * @package PhpMyAdmin
  */
 use PMA\libraries\URL;
+use PMA\libraries\Response;
 
 require_once './libraries/common.inc.php';
 
@@ -17,6 +18,8 @@ require_once './libraries/common.inc.php';
 require './libraries/db_common.inc.php';
 $url_params['goto'] = 'tbl_structure.php';
 $url_params['back'] = 'view_create.php';
+
+$response = Response::getInstance();
 
 $view_algorithm_options = array(
     'UNDEFINED',
@@ -43,7 +46,6 @@ if (isset($_REQUEST['view']['name'])
     && empty($_REQUEST['view']['name'])
 ) {
     $message = PMA\libraries\Message::error(__('View name can not be empty'));
-    $response = PMA\libraries\Response::getInstance();
     $response->addJSON(
         'message',
         $message
@@ -111,7 +113,6 @@ if (isset($_REQUEST['createview']) || isset($_REQUEST['alterview'])) {
             return;
         }
 
-        $response = PMA\libraries\Response::getInstance();
         $response->addJSON(
             'message',
             PMA\libraries\Message::error(
@@ -158,7 +159,6 @@ if (isset($_REQUEST['createview']) || isset($_REQUEST['alterview'])) {
         $message = PMA\libraries\Message::success();
         include 'tbl_structure.php';
     } else {
-        $response = PMA\libraries\Response::getInstance();
         $response->addJSON(
             'message',
             PMA\libraries\Util::getMessage(

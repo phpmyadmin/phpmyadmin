@@ -729,7 +729,7 @@ function PMA_setColumnProperty($pmatable, $request_index)
         $_REQUEST['table_create_time']
     );
     if (gettype($retval) != 'boolean') {
-        $response = PMA\libraries\Response::getInstance();
+        $response = Response::getInstance();
         $response->setRequestStatus(false);
         $response->addJSON('message', $retval->getString());
         exit;
@@ -761,7 +761,7 @@ function PMA_setColumnOrderOrVisibility($table, $db)
         $retval = PMA_setColumnProperty($pmatable, 'col_visib');
     }
 
-    $response = PMA\libraries\Response::getInstance();
+    $response = Response::getInstance();
     $response->setRequestStatus($retval == true);
     exit;
 }
@@ -844,7 +844,7 @@ function PMA_getRelationalValues($db, $table)
     $dropdown = PMA_getHtmlForRelationalColumnDropdown(
         $db, $table, $column, $curr_value
     );
-    $response = PMA\libraries\Response::getInstance();
+    $response = Response::getInstance();
     $response->addJSON('dropdown', $dropdown);
     exit;
 }
@@ -862,7 +862,7 @@ function PMA_getEnumOrSetValues($db, $table, $columnType)
 {
     $column = $_REQUEST['column'];
     $curr_value = $_REQUEST['curr_value'];
-    $response = PMA\libraries\Response::getInstance();
+    $response = Response::getInstance();
     if ($columnType == "enum") {
         $dropdown = PMA_getHtmlForEnumColumnDropdown(
             $db, $table, $column, $curr_value
@@ -956,7 +956,7 @@ function PMA_handleQueryExecuteError($is_gotofile, $error, $full_sql_query)
 {
     if ($is_gotofile) {
         $message = PMA\libraries\Message::rawError($error);
-        $response = PMA\libraries\Response::getInstance();
+        $response = Response::getInstance();
         $response->setRequestStatus(false);
         $response->addJSON('message', $message);
     } else {
@@ -1202,7 +1202,7 @@ function PMA_countQueryResults(
 function PMA_executeTheQuery($analyzed_sql_results, $full_sql_query, $is_gotofile,
     $db, $table, $find_real_end, $sql_query_for_bookmark, $extra_data
 ) {
-    $response = PMA\libraries\Response::getInstance();
+    $response = Response::getInstance();
     $response->getHeader()->getMenu()->setTable($table);
 
     // Only if we ask to see the php code
@@ -1453,7 +1453,7 @@ function PMA_getQueryResponseForNoResultsReturned($analyzed_sql_results, $db,
             }
         }
 
-        $response = PMA\libraries\Response::getInstance();
+        $response = Response::getInstance();
         $response->addJSON(isset($extra_data) ? $extra_data : array());
 
         if (!empty($analyzed_sql_results['is_select']) &&
@@ -1511,7 +1511,7 @@ function PMA_sendResponseForGridEdit($result)
     if (stristr($field_flags, PMA\libraries\DisplayResults::BINARY_FIELD)) {
         $row[0] = bin2hex($row[0]);
     }
-    $response = PMA\libraries\Response::getInstance();
+    $response = Response::getInstance();
     $response->addJSON('value', $row[0]);
     exit;
 }
@@ -1852,7 +1852,7 @@ function PMA_getQueryResponseForResultsReturned($result, $analyzed_sql_results,
     $showtable = isset($showtable) ? $showtable : null;
     $url_query = isset($url_query) ? $url_query : null;
 
-    $response = PMA\libraries\Response::getInstance();
+    $response = Response::getInstance();
     $header   = $response->getHeader();
     $scripts  = $header->getScripts();
 
@@ -2079,7 +2079,7 @@ function PMA_executeQueryAndSendQueryResponse($analyzed_sql_results,
         $complete_query // complete_query
     );
 
-    $response = PMA\libraries\Response::getInstance();
+    $response = Response::getInstance();
     $response->addHTML($html_output);
 }
 

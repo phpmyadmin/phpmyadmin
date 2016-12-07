@@ -1173,7 +1173,7 @@ function PMA_exportAsFileDownload($entries)
         $dump .= $entry['statement'];
     }
     $filename = 'log_' . $table . '.sql';
-    PMA\libraries\Response::getInstance()->disable();
+    Response::getInstance()->disable();
     PMA_downloadHeader(
         $filename,
         'text/x-sql',

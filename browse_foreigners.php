@@ -5,6 +5,7 @@
  *
  * @package PhpMyAdmin
  */
+use PMA\libraries\Response;
 
 require_once 'libraries/common.inc.php';
 require_once 'libraries/transformations.lib.php';
@@ -26,7 +27,7 @@ foreach ($request_params as $one_request_param) {
 
 PMA\libraries\Util::checkParameters(array('db', 'table', 'field'));
 
-$response = PMA\libraries\Response::getInstance();
+$response = Response::getInstance();
 $response->getFooter()->setMinimal();
 $header = $response->getHeader();
 $header->disableMenuAndConsole();

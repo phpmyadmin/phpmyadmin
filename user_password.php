@@ -7,6 +7,7 @@
  * @package PhpMyAdmin
  */
 use PMA\libraries\URL;
+use PMA\libraries\Response;
 
 /**
  * Gets some core libraries
@@ -18,7 +19,7 @@ require_once './libraries/common.inc.php';
  */
 require_once './libraries/server_privileges.lib.php';
 
-$response = PMA\libraries\Response::getInstance();
+$response = Response::getInstance();
 $header   = $response->getHeader();
 $scripts  = $header->getScripts();
 $scripts->addFile('server_privileges.js');
@@ -87,7 +88,7 @@ function PMA_getChangePassMessage($change_password_message, $sql_query = '')
         /**
          * If in an Ajax request, we don't need to show the rest of the page
          */
-        $response = PMA\libraries\Response::getInstance();
+        $response = Response::getInstance();
         if ($change_password_message['error']) {
             $response->addJSON('message', $change_password_message['msg']);
             $response->setRequestStatus(false);

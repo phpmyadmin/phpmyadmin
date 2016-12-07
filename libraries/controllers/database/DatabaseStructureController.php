@@ -14,6 +14,7 @@ use PMA\libraries\controllers\DatabaseController;
 use PMA\libraries\Charsets;
 use PMA\libraries\Message;
 use PMA\libraries\RecentFavoriteTable;
+use PMA\libraries\Response;
 use PMA\libraries\Template;
 use PMA\libraries\Tracker;
 use PMA\libraries\Util;
@@ -108,7 +109,7 @@ class DatabaseStructureController extends DatabaseController
      */
     public function indexAction()
     {
-        $response = PMA\libraries\Response::getInstance();
+        $response = Response::getInstance();
 
         // Add/Remove favorite tables using Ajax request.
         if ($response->isAjax() && !empty($_REQUEST['favorite_table'])) {

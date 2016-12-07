@@ -55,7 +55,7 @@ function checkResult($result, $error, $createStatement, $errors)
  */
 function PMA_RTE_sendEditor($type, $mode, $item, $title, $db, $operation = null)
 {
-    $response = PMA\libraries\Response::getInstance();
+    $response = Response::getInstance();
     if ($item !== false) {
         // Show form
         if ($type == 'TRI') {

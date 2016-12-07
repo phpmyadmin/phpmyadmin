@@ -180,7 +180,7 @@ function PMA_EVN_handleEditor()
         }
 
         $output = PMA\libraries\Util::getMessage($message, $sql_query);
-        $response = PMA\libraries\Response::getInstance();
+        $response = Response::getInstance();
         if ($response->isAjax()) {
             if ($message->isSuccess()) {
                 $events = $GLOBALS['dbi']->getEvents($db, $_REQUEST['item_name']);
@@ -339,7 +339,7 @@ function PMA_EVN_getEditorForm($mode, $operation, $item)
 
     $modeToUpper = mb_strtoupper($mode);
 
-    $response = PMA\libraries\Response::getInstance();
+    $response = Response::getInstance();
 
     // Escape special characters
     $need_escape = array(

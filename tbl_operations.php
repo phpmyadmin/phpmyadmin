@@ -7,6 +7,7 @@
  */
 use PMA\libraries\Partition;
 use PMA\libraries\Table;
+use PMA\libraries\Response;
 
 /**
  *
@@ -24,7 +25,7 @@ $pma_table = new Table($GLOBALS['table'], $GLOBALS['db']);
 /**
  * Load JavaScript files
  */
-$response = PMA\libraries\Response::getInstance();
+$response = Response::getInstance();
 $header   = $response->getHeader();
 $scripts  = $header->getScripts();
 $scripts->addFile('tbl_operations.js');
@@ -203,7 +204,6 @@ if (isset($result) && empty($message_to_show)) {
         if (isset($GLOBALS['ajax_request'])
             && $GLOBALS['ajax_request'] == true
         ) {
-            $response = PMA\libraries\Response::getInstance();
             $response->setRequestStatus($_message->isSuccess());
             $response->addJSON('message', $_message);
             if (!empty($sql_query)) {
@@ -226,7 +226,6 @@ if (isset($result) && empty($message_to_show)) {
         if (isset($GLOBALS['ajax_request'])
             && $GLOBALS['ajax_request'] == true
         ) {
-            $response = PMA\libraries\Response::getInstance();
             $response->setRequestStatus(false);
             $response->addJSON('message', $_message);
             if (!empty($sql_query)) {

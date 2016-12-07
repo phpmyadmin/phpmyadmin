@@ -156,7 +156,7 @@ function PMA_TRI_handleEditor()
         }
 
         $output = PMA\libraries\Util::getMessage($message, $sql_query);
-        $response = PMA\libraries\Response::getInstance();
+        $response = Response::getInstance();
         if ($response->isAjax()) {
             if ($message->isSuccess()) {
                 $items = $GLOBALS['dbi']->getTriggers($db, $table, '');
@@ -294,7 +294,7 @@ function PMA_TRI_getEditorForm($mode, $item)
     global $db, $table, $event_manipulations, $action_timings;
 
     $modeToUpper = mb_strtoupper($mode);
-    $response = PMA\libraries\Response::getInstance();
+    $response = Response::getInstance();
 
     // Escape special characters
     $need_escape = array(

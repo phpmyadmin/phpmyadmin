@@ -5,6 +5,7 @@
  *
  * @package PhpMyAdmin
  */
+use PMA\libraries\Response;
 
 /**
  *
@@ -95,7 +96,7 @@ if ($cfgRelation['commwork'] && $cfgRelation['mimework']) {
 }
 
 // Only output the http headers
-$response = PMA\libraries\Response::getInstance();
+$response = Response::getInstance();
 $response->getHeader()->sendHttpHeaders();
 
 // [MIME]

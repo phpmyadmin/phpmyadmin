@@ -19,6 +19,7 @@ PMA\libraries\Util::checkParameters(array('db'));
 global $cfg;
 global $db;
 
+$response = Response::getInstance();
 $is_show_stats = $cfg['ShowStats'];
 
 $db_is_system_schema = $GLOBALS['dbi']->isSystemSchema($db);
@@ -58,7 +59,7 @@ if (! isset($is_db) || ! $is_db) {
         . URL::getCommonRaw(array())
         . (isset($message) ? '&message=' . urlencode($message) : '') . '&reload=1';
     if (strlen($db) === 0 || ! $is_db) {
-        $response = PMA\libraries\Response::getInstance();
+        $response = Response::getInstance();
         if ($response->isAjax()) {
             $response->setRequestStatus(false);
             $response->addJSON(
@@ -92,7 +93,6 @@ if (isset($_REQUEST['submitcollation'])
      * db charset change action on db_operations.php.  If this causes a bug on
      * other pages, we might have to move this to a different location.
      */
-    $response = PMA\libraries\Response::getInstance();
     if ($response->isAjax()) {
         $response->setRequestStatus($message->isSuccess());
         $response->addJSON('message', $message);

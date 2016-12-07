@@ -6,13 +6,14 @@
  * @package PhpMyAdmin
  */
 use PMA\libraries\ThemeManager;
+use PMA\libraries\Response;
 
 /**
  * get some globals
  */
 require './libraries/common.inc.php';
 
-$response = PMA\libraries\Response::getInstance();
+$response = Response::getInstance();
 $response->getFooter()->setMinimal();
 $header = $response->getHeader();
 $header->setBodyId('bodythemes');

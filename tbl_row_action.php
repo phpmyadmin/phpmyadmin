@@ -6,6 +6,7 @@
  * @package PhpMyAdmin
  */
 use PMA\libraries\URL;
+use PMA\libraries\Response;
 
 /**
  *
@@ -66,7 +67,7 @@ if (!empty($submit_mult)) {
         && (! isset($_REQUEST['rows_to_delete'])
         || ! is_array($_REQUEST['rows_to_delete']))
     ) {
-        $response = PMA\libraries\Response::getInstance();
+        $response = Response::getInstance();
         $response->setRequestStatus(false);
         $response->addJSON('message', __('No row selected.'));
     }

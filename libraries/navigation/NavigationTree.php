@@ -1031,7 +1031,7 @@ class NavigationTree
         if ($node->hasSiblings()
             || $node->realParent() === false
         ) {
-            $response = PMA\libraries\Response::getInstance();
+            $response = Response::getInstance();
             if ($node->type == Node::CONTAINER
                 && count($node->children) == 0
                 && ! $response->isAjax()

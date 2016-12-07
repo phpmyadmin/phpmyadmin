@@ -39,6 +39,7 @@ foreach ($request_params as $one_request_param) {
         $GLOBALS[$one_request_param] = $_REQUEST[$one_request_param];
     }
 }
+$response = Response::getInstance();
 
 global $db, $table,  $clause_is_unique, $from_prefix, $goto,
        $mult_btn, $original_sql_query, $query_type, $reload,
@@ -98,7 +99,6 @@ if (! empty($submit_mult)
                 isset($original_sql_query)? $original_sql_query : null,
                 isset($original_url_query)? $original_url_query : null
             );
-            $response = PMA\libraries\Response::getInstance();
             $response->disable();
             $response->addHTML(
                 PMA_getHtmlForCopyMultipleTables($action, $_url_params)
@@ -115,7 +115,6 @@ if (! empty($submit_mult)
                     )
                 );
             // Send response to client.
-            $response = PMA\libraries\Response::getInstance();
             $response->addJSON('message', $show_create);
             exit;
         case 'sync_unique_columns_central_list':
@@ -195,7 +194,6 @@ if (!empty($submit_mult) && !empty($what)) {
         isset($original_url_query)? $original_url_query : null
     );
 
-    $response = PMA\libraries\Response::getInstance();
 
     if ($what == 'replace_prefix_tbl' || $what == 'copy_tbl_change_prefix') {
         $response->disable();

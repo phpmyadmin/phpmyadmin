@@ -6,6 +6,7 @@
  * @package PhpMyAdmin
  */
 use PMA\libraries\Message;
+use PMA\libraries\Response;
 use PMA\libraries\URL;
 
 /**
@@ -928,7 +929,7 @@ function PMA_handleControlRequest()
         }
 
         if ($refresh) {
-            $response = PMA\libraries\Response::getInstance();
+            $response = Response::getInstance();
             if ($response->isAjax()) {
                 $response->setRequestStatus($result);
                 $response->addJSON(

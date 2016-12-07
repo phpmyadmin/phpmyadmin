@@ -7,6 +7,7 @@
  */
 use PMA\libraries\Message;
 use PMA\libraries\plugins\TransformationsPlugin;
+use PMA\libraries\Response;
 use PMA\libraries\URL;
 use PMA\libraries\Sanitize;
 
@@ -119,7 +120,7 @@ function PMA_showEmptyResultMessageOrSetUniqueCondition($rows, $key_id,
     // No row returned
     if (! $rows[$key_id]) {
         unset($rows[$key_id], $where_clause_array[$key_id]);
-        PMA\libraries\Response::getInstance()->addHtml(
+        Response::getInstance()->addHtml(
             PMA\libraries\Util::getMessage(
                 __('MySQL returned an empty result set (i.e. zero rows).'),
                 $local_query
@@ -1853,7 +1854,7 @@ function PMA_isInsertRow()
         && $_REQUEST['insert_rows'] != $GLOBALS['cfg']['InsertRows']
     ) {
         $GLOBALS['cfg']['InsertRows'] = $_REQUEST['insert_rows'];
-        $response = PMA\libraries\Response::getInstance();
+        $response = Response::getInstance();
         $header = $response->getHeader();
         $scripts = $header->getScripts();
         $scripts->addFile('tbl_change.js');

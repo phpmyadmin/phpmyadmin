@@ -5,6 +5,7 @@
  *
  * @package PhpMyAdmin
  */
+use PMA\libraries\Response;
 
 /**
  * Gets some core libraries and displays a top message if required
@@ -12,7 +13,7 @@
 require_once './libraries/common.inc.php';
 require_once './libraries/transformations.lib.php';
 
-$response = PMA\libraries\Response::getInstance();
+$response = Response::getInstance();
 $header   = $response->getHeader();
 $header->disableMenuAndConsole();
 

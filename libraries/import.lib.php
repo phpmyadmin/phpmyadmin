@@ -7,6 +7,7 @@
  */
 use PMA\libraries\Encoding;
 use PMA\libraries\Message;
+use PMA\libraries\Response;
 use PMA\libraries\Table;
 use PMA\libraries\Util;
 use PMA\libraries\URL;
@@ -1320,7 +1321,7 @@ function PMA_stopImport( Message $error_message )
     $msg = $error_message->getDisplay();
     $_SESSION['Import_message']['message'] = $msg;
 
-    $response = PMA\libraries\Response::getInstance();
+    $response = Response::getInstance();
     $response->setRequestStatus(false);
     $response->addJSON('message', PMA\libraries\Message::error($msg));
 
@@ -1334,7 +1335,7 @@ function PMA_stopImport( Message $error_message )
  */
 function PMA_handleSimulateDMLRequest()
 {
-    $response = PMA\libraries\Response::getInstance();
+    $response = Response::getInstance();
     $error = false;
     $error_msg = __('Only single-table UPDATE and DELETE queries can be simulated.');
     $sql_delimiter = $_REQUEST['sql_delimiter'];
@@ -1581,7 +1582,7 @@ function PMA_handleRollbackRequest($sql_query)
 
     if ($error) {
         unset($_REQUEST['rollback_query']);
-        $response = PMA\libraries\Response::getInstance();
+        $response = Response::getInstance();
         $message = Message::rawError($error);
         $response->addJSON('message', $message);
         exit;

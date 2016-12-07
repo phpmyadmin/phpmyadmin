@@ -8,13 +8,14 @@
 
 // Sets up the session
 use PMA\libraries\VersionInformation;
+use PMA\libraries\Response;
 
 $_GET['ajax_request'] = 'true';
 
 require_once 'libraries/common.inc.php';
 
 // Disabling standard response.
-PMA\libraries\Response::getInstance()->disable();
+Response::getInstance()->disable();
 
 // Always send the correct headers
 PMA_headerJSON();

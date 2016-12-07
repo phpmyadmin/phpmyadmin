@@ -5,6 +5,7 @@
  *
  * @package PhpMyAdmin
  */
+use PMA\libraries\Response;
 use PMA\libraries\RecentFavoriteTable;
 use PMA\libraries\URL;
 use PMA\libraries\Sanitize;
@@ -79,7 +80,7 @@ if (! empty($_REQUEST['db'])) {
     exit;
 }
 
-$response = PMA\libraries\Response::getInstance();
+$response = Response::getInstance();
 /**
  * Check if it is an ajax request to reload the recent tables list.
  */

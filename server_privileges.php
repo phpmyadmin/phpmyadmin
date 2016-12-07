@@ -5,6 +5,7 @@
  *
  * @package PhpMyAdmin
  */
+use PMA\libraries\Response;
 
 /**
  * include common file
@@ -23,7 +24,7 @@ $cfgRelation = PMA_getRelationsParam();
 /**
  * Does the common work
  */
-$response = PMA\libraries\Response::getInstance();
+$response = Response::getInstance();
 $header   = $response->getHeader();
 $scripts  = $header->getScripts();
 $scripts->addFile('server_privileges.js');
@@ -316,7 +317,6 @@ if ($response->isAjax()
     );
 
     if (! empty($message) && $message instanceof PMA\libraries\Message) {
-        $response = PMA\libraries\Response::getInstance();
         $response->setRequestStatus($message->isSuccess());
         $response->addJSON('message', $message);
         $response->addJSON($extra_data);
@@ -379,7 +379,6 @@ if (isset($_REQUEST['export'])
 
     unset($username, $hostname, $grants, $one_grant);
 
-    $response = PMA\libraries\Response::getInstance();
     if ($response->isAjax()) {
         $response->addJSON('message', $export);
         $response->addJSON('title', $title);

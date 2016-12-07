@@ -8,6 +8,7 @@
  * @package PhpMyAdmin
  */
 use PMA\libraries\Message;
+use PMA\libraries\Response;
 use PMA\libraries\URL;
 use PMA\libraries\Sanitize;
 
@@ -223,7 +224,7 @@ function PMA_fatalError(
         $error_message = vsprintf($error_message, $message_args);
     }
 
-        $response = PMA\libraries\Response::getInstance();
+    $response = Response::getInstance();
     if ($response->isAjax()) {
         $response->setRequestStatus(false);
         $response->addJSON('message', PMA\libraries\Message::error($error_message));
@@ -481,7 +482,7 @@ function PMA_getenv($var_name)
 function PMA_sendHeaderLocation($uri, $use_refresh = false)
 {
     if ($GLOBALS['PMA_Config']->get('PMA_IS_IIS') && mb_strlen($uri) > 600) {
-        PMA\libraries\Response::getInstance()->disable();
+        Response::getInstance()->disable();
 
         echo PMA\libraries\Template::get('header_location')
             ->render(array('uri' => $uri));
@@ -497,7 +498,7 @@ function PMA_sendHeaderLocation($uri, $use_refresh = false)
         $uri = $GLOBALS['PMA_Config']->getRootPath() . substr($uri, 2);
     }
 
-    $response = PMA\libraries\Response::getInstance();
+    $response = Response::getInstance();
 
     session_write_close();
     if ($response->headersSent()) {
@@ -809,7 +810,7 @@ function PMA_previewSQL($query_data)
         $retval .= PMA\libraries\Util::formatSql($query_data);
     }
     $retval .= '</div>';
-    $response = PMA\libraries\Response::getInstance();
+    $response = Response::getInstance();
     $response->addJSON('sql_data', $retval);
     exit;
 }

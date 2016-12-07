@@ -6,6 +6,7 @@
  * @package PhpMyAdmin
  */
 use SqlParser\Statements\CreateStatement;
+use PMA\libraries\Response;
 use PMA\libraries\URL;
 use PMA\libraries\Template;
 
@@ -119,7 +120,7 @@ function PMA_RTE_getList($type, $items)
     $retval .= "        </tr>\n";
     $retval .= "        <!-- TABLE DATA -->\n";
     $count = 0;
-    $response = PMA\libraries\Response::getInstance();
+    $response = Response::getInstance();
     foreach ($items as $item) {
         if ($response->isAjax() && empty($_REQUEST['ajax_page_request'])) {
             $rowclass = 'ajaxInsert hide';

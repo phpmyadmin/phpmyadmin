@@ -7,6 +7,7 @@
  */
 
 use PMA\libraries\Message;
+use PMA\libraries\Response;
 use PMA\libraries\ServerStatusData;
 
 require_once 'libraries/common.inc.php';
@@ -22,7 +23,7 @@ require_once 'libraries/replication_gui.lib.php';
 /**
  * start output
  */
-$response = PMA\libraries\Response::getInstance();
+$response = Response::getInstance();
 $response->addHTML('<div>');
 
 $serverStatusData = new ServerStatusData();

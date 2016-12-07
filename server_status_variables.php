@@ -6,6 +6,7 @@
  * @package PhpMyAdmin
  */
 
+use PMA\libraries\Response;
 use PMA\libraries\Message;
 use PMA\libraries\ServerStatusData;
 
@@ -33,7 +34,7 @@ if (isset($_REQUEST['flush'])) {
 
 $serverStatusData = new ServerStatusData();
 
-$response = PMA\libraries\Response::getInstance();
+$response = Response::getInstance();
 $header   = $response->getHeader();
 $scripts  = $header->getScripts();
 $scripts->addFile('server_status_variables.js');

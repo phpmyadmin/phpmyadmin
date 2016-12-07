@@ -24,7 +24,7 @@ function PMA_RTE_handleExport($export_data)
 {
     global $db;
 
-    $response = PMA\libraries\Response::getInstance();
+    $response = Response::getInstance();
 
     $item_name = htmlspecialchars(PMA\libraries\Util::backquote($_GET['item_name']));
     if ($export_data !== false) {

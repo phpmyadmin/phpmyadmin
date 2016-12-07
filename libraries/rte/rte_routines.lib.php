@@ -96,7 +96,7 @@ function PMA_RTN_handleEditor()
     global $_GET, $_POST, $_REQUEST, $GLOBALS, $db, $errors;
 
     $errors = PMA_RTN_handleRequestCreateOrEdit($errors, $db);
-    $response = PMA\libraries\Response::getInstance();
+    $response = Response::getInstance();
 
     /**
      * Display a form used to add/edit a routine, if necessary
@@ -282,7 +282,7 @@ function PMA_RTN_handleRequestCreateOrEdit($errors, $db)
     }
 
     $output = PMA\libraries\Util::getMessage($message, $sql_query);
-    $response = PMA\libraries\Response::getInstance();
+    $response = Response::getInstance();
     if (!$response->isAjax()) {
         return $errors;
     }
@@ -808,7 +808,7 @@ function PMA_RTN_getEditorForm($mode, $operation, $routine)
 {
     global $db, $errors, $param_sqldataaccess, $param_opts_num;
 
-    $response = PMA\libraries\Response::getInstance();
+    $response = Response::getInstance();
 
     // Escape special characters
     $need_escape = array(
@@ -1306,7 +1306,7 @@ function PMA_RTN_handleExecute()
 {
     global $_GET, $_POST, $_REQUEST, $GLOBALS, $db;
 
-    $response = PMA\libraries\Response::getInstance();
+    $response = Response::getInstance();
 
     /**
      * Handle all user requests other than the default of listing routines
@@ -1576,7 +1576,7 @@ function PMA_RTN_getExecuteForm($routine)
 {
     global $db, $cfg;
 
-    $response = PMA\libraries\Response::getInstance();
+    $response = Response::getInstance();
 
     // Escape special characters
     $routine['item_name'] = htmlentities($routine['item_name'], ENT_QUOTES);

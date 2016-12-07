@@ -7,6 +7,7 @@
  */
 use PMA\libraries\DatabaseInterface;
 use PMA\libraries\Message;
+use PMA\libraries\Response;
 use PMA\libraries\Template;
 use PMA\libraries\Util;
 use PMA\libraries\URL;
@@ -24,7 +25,7 @@ function PMA_getHtmlForUserGroupDialog($username, $is_menuswork)
     $html = '';
     if (! empty($_REQUEST['edit_user_group_dialog']) && $is_menuswork) {
         $dialog = PMA_getHtmlToChooseUserGroup($username);
-        $response = PMA\libraries\Response::getInstance();
+        $response = Response::getInstance();
         if ($response->isAjax()) {
             $response->addJSON('message', $dialog);
             exit;
@@ -2371,7 +2372,7 @@ function PMA_getHtmlForSpecificDbPrivileges($db)
         $html_output .= PMA_getHtmlForViewUsersError();
     }
 
-    $response = PMA\libraries\Response::getInstance();
+    $response = Response::getInstance();
     if ($response->isAjax() == true
         && empty($_REQUEST['ajax_page_request'])
     ) {
@@ -3908,7 +3909,7 @@ function PMA_getDataForChangeOrCopyUser()
             'SELECT * FROM `mysql`.`user` ' . $user_host_condition
         );
         if (! $row) {
-            $response = PMA\libraries\Response::getInstance();
+            $response = Response::getInstance();
             $response->addHTML(
                 Message::notice(__('No user found.'))->getDisplay()
             );
@@ -4657,7 +4658,7 @@ function PMA_getHtmlForUserOverview($pmaThemeImage, $text_dir)
             $html_output .= PMA_getAddUserHtmlFieldset();
         } // end if (display overview)
 
-        $response = PMA\libraries\Response::getInstance();
+        $response = Response::getInstance();
         if (! $response->isAjax()
             || ! empty($_REQUEST['ajax_page_request'])
         ) {

@@ -11,6 +11,7 @@
  *
  * @package PhpMyAdmin
  */
+use PMA\libraries\Response;
 use PMA\libraries\plugins\export\ExportSql;
 
 /**
@@ -26,7 +27,7 @@ require_once 'libraries/check_user_privileges.lib.php';
 require_once 'libraries/operations.lib.php';
 
 // add a javascript file for jQuery functions to handle Ajax actions
-$response = PMA\libraries\Response::getInstance();
+$response = Response::getInstance();
 $header = $response->getHeader();
 $scripts = $header->getScripts();
 $scripts->addFile('db_operations.js');
@@ -174,7 +175,6 @@ if (strlen($GLOBALS['db'] > 0)
      * Database has been successfully renamed/moved.  If in an Ajax request,
      * generate the output with {@link PMA\libraries\Response} and exit
      */
-    $response = PMA\libraries\Response::getInstance();
     if ($response->isAjax()) {
         $response->setRequestStatus($message->isSuccess());
         $response->addJSON('message', $message);

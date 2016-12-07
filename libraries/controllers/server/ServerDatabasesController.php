@@ -12,6 +12,7 @@ namespace PMA\libraries\controllers\server;
 use PMA\libraries\controllers\Controller;
 use PMA\libraries\Charsets;
 use PMA\libraries\Message;
+use PMA\libraries\Response;
 use PMA\libraries\Template;
 use PMA\libraries\Util;
 use PMA\libraries\URL;
@@ -57,7 +58,7 @@ class ServerDatabasesController extends Controller
     {
         include_once 'libraries/check_user_privileges.lib.php';
 
-        $response = PMA\libraries\Response::getInstance();
+        $response = Response::getInstance();
 
         if (isset($_REQUEST['drop_selected_dbs'])
             && $response->isAjax()
