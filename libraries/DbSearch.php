@@ -143,7 +143,7 @@ class DbSearch
             unset($this->_criteriaColumnName);
         } else {
             $this->_criteriaColumnName = $GLOBALS['dbi']->escapeString(
-                $_REQUEST['criteriaColumnName'], true
+                $_REQUEST['criteriaColumnName']
             );
         }
     }
