@@ -14,6 +14,7 @@ phpMyAdmin - ChangeLog
 - issue #12780 Format button replaces all text with blank spaces
 - issue #12786 Fixed database searching
 - issue #12792 Fixed javascript error on new version link
+- issue #12785 Add information about required and suggested extensions to composer.json
 
 4.6.5.2 (2016-12-05)
 - issue #12765 Fixed SQL export with newlines
