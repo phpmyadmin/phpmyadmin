@@ -25,6 +25,7 @@
         "ext-mbstring": "*",
         "ext-mysqli": "*",
         "ext-xml": "*",
+        "ext-pcre": "*",
         "ext-json": "*"
     },
     "suggest": {
