@@ -1141,5 +1141,9 @@ function PMA_safeUnserialize($data)
         return null;
     }
 
-    return unserialize($data);
+    if (PHP_VERSION_ID < 70000) {
+        return unserialize($data);
+    } else {
+        return unserialize($data, false);
+    }
 }
