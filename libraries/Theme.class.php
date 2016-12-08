@@ -433,9 +433,6 @@ class PMA_Theme
         if (!is_null($fs)) {
             return $fs;
         }
-        if (isset($_COOKIE['pma_fontsize'])) {
-            return htmlspecialchars($_COOKIE['pma_fontsize']);
-        }
         return '82%';
     }
 
