@@ -72,7 +72,7 @@ if (!$is_https) {
 }
 ?>
 
-<form id="select_lang" method="post" action="<?php echo htmlspecialchars($_SERVER['REQUEST_URI']) ?>">
+<form id="select_lang" method="post">
     <?php echo PMA_generate_common_hidden_inputs() ?>
     <bdo lang="en" dir="ltr"><label for="lang">
     <?php echo __('Language') . (__('Language') != 'Language' ? ' - Language' : '') ?>
