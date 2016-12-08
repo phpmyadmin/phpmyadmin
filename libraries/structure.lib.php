@@ -1054,7 +1054,7 @@ function PMA_getServerSlaveStatus($server_slave_status, $truename)
     foreach ($GLOBALS['replication_info']['slave']['Wild_Do_Table'] as $db_table) {
         $table_part = PMA_extractDbOrTable($db_table, 'table');
         $pattern = "@^"
-            . /*overload*/mb_substr($table_part, 0, -1)
+            . preg_quote(/*overload*/mb_substr($table_part, 0, -1))
             . "@";
         if (($GLOBALS['db'] == PMA_extractDbOrTable($db_table, 'db'))
             && (preg_match($pattern, $truename))
