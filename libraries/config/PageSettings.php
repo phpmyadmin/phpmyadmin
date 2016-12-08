@@ -115,7 +115,7 @@ class PageSettings
                 $response = Response::getInstance();
                 PMA_sendHeaderLocation(
                     $response->getFooter()->getSelfUrl('unencoded')
-                )
+                );
                 exit();
             } else {
                 $error = $result;
