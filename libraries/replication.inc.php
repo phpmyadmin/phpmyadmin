@@ -6,6 +6,8 @@
  * @package PhpMyAdmin
  */
 
+ use PMA\libraries\DatabaseInterface;
+
 if (! defined('PHPMYADMIN')) {
     exit;
 }
@@ -301,7 +303,7 @@ function PMA_Replication_connectToMaster(
 
     // 5th parameter set to true means that it's an auxiliary connection
     // and we must not go back to login page if it fails
-    return $GLOBALS['dbi']->connect(DatabaseInterface::CONNECT_AUXILIARY, $server);
+    return $GLOBALS['dbi']->connect(databaseinterface::CONNECT_AUXILIARY, $server);
 }
 /**
  * Fetches position and file of current binary log on master
