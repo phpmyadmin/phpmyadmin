@@ -1,6 +1,12 @@
 #!/bin/sh
 # vim: expandtab sw=4 ts=4 sts=4:
 
+# Do not run as CGI
+if [ -n "$GATEWAY_INTERFACE" ] ; then
+    echo 'Can not invoke as CGI!'
+    exit 1
+fi
+
 # Check for proper number of command line args.
 if [ $# -ne 1 ]; then
   echo "Usage: `basename $0` {path_to_pma_root_folder}"

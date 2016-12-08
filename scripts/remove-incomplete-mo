@@ -3,6 +3,12 @@
 # Removes mo files for incomplete translations
 #
 
+# Do not run as CGI
+if [ -n "$GATEWAY_INTERFACE" ] ; then
+    echo 'Can not invoke as CGI!'
+    exit 1
+fi
+
 set -e
 
 #
