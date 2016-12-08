@@ -172,7 +172,7 @@ class NavigationTree
          * @todo describe a scenario where this code is executed
          */
         if (!$GLOBALS['cfg']['Server']['DisableIS']) {
-            $dbSeparator = $GLOBALS['dbi']->escapeString((
+            $dbSeparator = $GLOBALS['dbi']->escapeString(
                 $GLOBALS['cfg']['NavigationTreeDbSeparator']
             );
             $query = "SELECT (COUNT(DB_first_level) DIV %d) * %d ";
