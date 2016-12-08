@@ -91,8 +91,7 @@ if (!$is_https) {
     PMA_messagesSet('notice', 'no_https', __('Insecure connection'), $text);
 }
 
-echo '<form id="select_lang" method="post" action="'
-    , htmlspecialchars($_SERVER['REQUEST_URI']) , '">';
+echo '<form id="select_lang" method="post">';
 echo PMA_URL_getHiddenInputs();
 echo '<bdo lang="en" dir="ltr"><label for="lang">';
 echo __('Language') , (__('Language') != 'Language' ? ' - Language' : '');
