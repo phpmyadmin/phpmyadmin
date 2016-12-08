@@ -4,6 +4,12 @@
 #
 # Script for removing language selection from phpMyAdmin
 
+# Do not run as CGI
+if [ -n "$GATEWAY_INTERFACE" ] ; then
+    echo 'Can not invoke as CGI!'
+    exit 1
+fi
+
 if [ $# -lt 1 ] ; then
     echo "Usage: lang-cleanup.sh type"
     echo "Type can be one of:"
