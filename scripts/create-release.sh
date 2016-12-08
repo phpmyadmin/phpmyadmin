@@ -3,6 +3,12 @@
 # vim: expandtab sw=4 ts=4 sts=4:
 #
 
+# Do not run as CGI
+if [ -n "$GATEWAY_INTERFACE" ] ; then
+    echo 'Can not invoke as CGI!'
+    exit 1
+fi
+
 # More documentation about making a release is available at:
 # https://wiki.phpmyadmin.net/pma/Releasing
 
