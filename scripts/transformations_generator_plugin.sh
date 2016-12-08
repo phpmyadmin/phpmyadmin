@@ -11,6 +11,12 @@
 # $3: Transformation Name
 # $4: (optional) Description
 
+# Do not run as CGI
+if [ -n "$GATEWAY_INTERFACE" ] ; then
+    echo 'Can not invoke as CGI!'
+    exit 1
+fi
+
 echo $#
 if [ $# -ne 3 -a $# -ne 4 ]; then
   echo -e "Usage: ./generator_plugin.sh MIMEType MIMESubtype TransformationName [Description]\n"
