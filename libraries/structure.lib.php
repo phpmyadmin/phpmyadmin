@@ -963,7 +963,7 @@ function PMA_getServerSlaveStatus($server_slave_status, $truename)
         foreach ($server_slave_Wild_Do_Table as $db_table) {
             $table_part = PMA_extract_db_or_table($db_table, 'table');
             if (($GLOBALS['db'] == PMA_extract_db_or_table($db_table, 'db'))
-                && (preg_match("@^" . substr($table_part, 0, strlen($table_part) - 1) . "@", $truename))
+                && (preg_match("@^" . preg_quote(substr($table_part, 0, strlen($table_part) - 1)) . "@", $truename))
             ) {
                 $do = true;
             }
@@ -1318,8 +1318,8 @@ function PMA_getHtmlForDropColumn($tbl_is_view, $db_is_information_schema,
     if (! $tbl_is_view && ! $db_is_information_schema) {
         $html_output .= '<td class="edit center">'
             . '<a class="change_column_anchor ajax"'
-            . ' href="tbl_structure.php?' 
-            . $url_query . '&amp;field=' . $field_encoded 
+            . ' href="tbl_structure.php?'
+            . $url_query . '&amp;field=' . $field_encoded
             . '&amp;change_column=1">'
             . $titles['Change'] . '</a>' . '</td>';
         $html_output .= '<td class="drop center">'
@@ -1724,10 +1724,10 @@ function getHtmlForRowStatsTable($showtable, $tbl_collation,
         && isset($showtable['Avg_row_length'])
         && $showtable['Avg_row_length'] > 0
     ) {
-        list($avg_row_length_value, $avg_row_length_unit) 
+        list($avg_row_length_value, $avg_row_length_unit)
             = PMA_Util::formatByteDown(
                 $showtable['Avg_row_length'],
-                6, 
+                6,
                 1
             );
         $html_output .= PMA_getHtmlForRowStatsTableRow(
@@ -2230,12 +2230,12 @@ function PMA_getHtmlForDisplayTableStats($showtable, $table_info_num_rows,
  * @param string  $db                       database name
  * @param string  $table                    table name
  * @param array   $selected                 the selected columns
- * @param string  $action                   target script to call 
+ * @param string  $action                   target script to call
  *
  * @return boolean $regenerate              true if error occurred
- * 
+ *
  */
-function PMA_displayHtmlForColumnChange($db, $table, $selected, $action) 
+function PMA_displayHtmlForColumnChange($db, $table, $selected, $action)
 {
     // $selected comes from multi_submits.inc.php
     if (empty($selected)) {
@@ -2252,12 +2252,12 @@ function PMA_displayHtmlForColumnChange($db, $table, $selected, $action)
         $fields_meta[] = PMA_DBI_get_columns($db, $table, $selected[$i], true);
     }
     $num_fields  = count($fields_meta);
-    // set these globals because tbl_columns_definition_form.inc.php 
+    // set these globals because tbl_columns_definition_form.inc.php
     // verifies them
-    // @todo: refactor tbl_columns_definition_form.inc.php so that it uses 
+    // @todo: refactor tbl_columns_definition_form.inc.php so that it uses
     // function params
     $GLOBALS['action'] = 'tbl_structure.php';
-    $GLOBALS['num_fields'] = $num_fields; 
+    $GLOBALS['num_fields'] = $num_fields;
 
     // Get more complete field information.
     // For now, this is done to obtain MySQL 4.1.2+ new TIMESTAMP options
