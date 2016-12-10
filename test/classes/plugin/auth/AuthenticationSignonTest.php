@@ -158,7 +158,7 @@ class AuthenticationSignonTest extends PMATestCase
         $_SESSION['LAST_SIGNON_URL'] = 'https://example.com/SignonURL';
         $GLOBALS['cfg']['Server']['SignonScript'] = './examples/signon-script.php';
         $GLOBALS['cfg']['Server']['SignonSession'] = 'session123';
-        $GLOBALS['cfg']['Server']['SignonCookieParams'] = array('secure' => true);
+        $GLOBALS['cfg']['Server']['SignonCookieParams'] = array();
         $GLOBALS['cfg']['Server']['host'] = 'localhost';
         $GLOBALS['cfg']['Server']['port'] = '80';
         $GLOBALS['cfg']['Server']['user'] = 'user';
@@ -212,7 +212,7 @@ class AuthenticationSignonTest extends PMATestCase
 
         $GLOBALS['cfg']['Server']['SignonURL'] = 'https://example.com/SignonURL';
         $GLOBALS['cfg']['Server']['SignonSession'] = 'session123';
-        $GLOBALS['cfg']['Server']['SignonCookieParams'] = array('secure' => true);
+        $GLOBALS['cfg']['Server']['SignonCookieParams'] = array();
         $GLOBALS['cfg']['Server']['host'] = 'localhost';
         $GLOBALS['cfg']['Server']['port'] = '80';
         $GLOBALS['cfg']['Server']['user'] = 'user';
@@ -234,7 +234,7 @@ class AuthenticationSignonTest extends PMATestCase
                 'SignonURL' => 'https://example.com/SignonURL',
                 'SignonScript' => '',
                 'SignonSession' => 'session123',
-                'SignonCookieParams' => array('secure' => true),
+                'SignonCookieParams' => array(),
                 'host' => 'localhost',
                 'port' => '80',
                 'user' => 'user',
@@ -267,6 +267,7 @@ class AuthenticationSignonTest extends PMATestCase
     {
         $GLOBALS['cfg']['Server']['SignonURL'] = 'https://example.com/SignonURL';
         $GLOBALS['cfg']['Server']['SignonSession'] = 'session123';
+        $GLOBALS['cfg']['Server']['SignonCookieParams'] = array();
         $GLOBALS['cfg']['Server']['host'] = 'localhost';
         $GLOBALS['cfg']['Server']['port'] = '80';
         $GLOBALS['cfg']['Server']['user'] = 'user';

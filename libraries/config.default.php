@@ -280,7 +280,7 @@ $cfg['Servers'][$i]['SignonSession'] = '';
  * Cookie params to match session to use for 'signon' authentication method
  * It should be an associative array matching result of session_get_cookie_params() in other system
  *
- * @global string $cfg['Servers'][$i]['SignonCookieParams']
+ * @global array $cfg['Servers'][$i]['SignonCookieParams']
  */
 $cfg['Servers'][$i]['SignonCookieParams'] = array();
 
