@@ -86,9 +86,6 @@ class AuthenticationCookie extends AuthenticationPlugin
         $header->disableMenuAndConsole();
         $header->disableWarnings();
 
-        if (@file_exists(CUSTOM_HEADER_FILE)) {
-            include CUSTOM_HEADER_FILE;
-        }
         echo '
     <div class="container">
     <a href="';
