@@ -32,6 +32,7 @@ use SqlParser\Statements\SelectStatement;
 use SqlParser\Statements\ShowStatement;
 use SqlParser\Statements\TruncateStatement;
 use SqlParser\Statements\UpdateStatement;
+use SqlParser\Components\JoinKeyword;
 
 /**
  * Statement utilities.
@@ -611,11 +612,13 @@ class Query
 
             if ($brackets == 0) {
                 // Checking if the section was changed.
-                if (($token->type === Token::TYPE_KEYWORD)
-                    && (isset($clauses[$token->value]))
-                    && ($clauses[$token->value] >= $currIdx)
+                if ($token->type === Token::TYPE_KEYWORD
+                    && ((isset($clauses[$token->value]) && $clauses[$token->value] >= $currIdx)
+                    || (isset(JoinKeyword::$JOINS[$token->value]) && $clauses['JOIN'] >= $currIdx))
                 ) {
-                    $currIdx = $clauses[$token->value];
+                    $currIdx = isset($clauses[$token->value])
+                        ? $clauses[$token->value]
+                        : $clauses['JOIN'];
                     if (($skipFirst) && ($currIdx == $clauseIdx)) {
                         // This token is skipped (not added to the old
                         // clause) because it will be replaced.
