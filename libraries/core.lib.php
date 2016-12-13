@@ -363,36 +363,22 @@ function PMA_getRealSize($size = 0)
         return 0;
     }
 
-    $scan = array(
-        'gb' => 1073741824, //1024 * 1024 * 1024,
-        'g'  => 1073741824, //1024 * 1024 * 1024,
-        'mb' =>    1048576,
-        'm'  =>    1048576,
-        'kb' =>       1024,
-        'k'  =>       1024,
-        'b'  =>          1,
+    $binaryprefixes = array(
+        'T' => 1099511627776,
+        't' => 1099511627776,
+        'G' =>    1073741824,
+        'g' =>    1073741824,
+        'M' =>       1048576,
+        'm' =>       1048576,
+        'K' =>          1024,
+        'k' =>          1024,
     );
 
-    foreach ($scan as $unit => $factor) {
-        $sizeLength = strlen($size);
-        $unitLength = strlen($unit);
-        if ($sizeLength > $unitLength
-            && strtolower(
-                substr(
-                    $size,
-                    $sizeLength - $unitLength
-                )
-            ) == $unit
-        ) {
-            return substr(
-                $size,
-                0,
-                $sizeLength - $unitLength
-            ) * $factor;
-        }
+    if (preg_match('/^([0-9]+)([KMGT])/i', $size, $matches)) {
+        return $matches[1] * $binaryprefixes[$matches[2]];
     }
 
-    return $size;
+    return (int) $size;
 } // end function PMA_getRealSize()
 
 /**
