@@ -17,7 +17,6 @@ use PMA\libraries\Util;
 use PMA\Util as Util_lib;
 use SqlParser;
 use SqlParser\Statements\CreateStatement;
-use SqlParser\Utils\Table as SqlTable;
 use PMA\libraries\Table;
 use PMA\libraries\controllers\TableController;
 use PMA\libraries\URL;
