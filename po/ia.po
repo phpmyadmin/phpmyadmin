@@ -15487,10 +15487,8 @@ msgid "Unrecognized keyword."
 msgstr ""
 
 #: vendor/phpmyadmin/sql-parser/src/Statement.php:495
-#, fuzzy
-#| msgid "Unexpected beginning of statement."
 msgid "Unexpected ordering of clauses."
-msgstr "Un initio de instruction non expectate."
+msgstr "Un ordine de clausas  non expectate."
 
 #: vendor/phpmyadmin/sql-parser/src/Statements/CreateStatement.php:381
 msgid "The name of the entity was expected."
