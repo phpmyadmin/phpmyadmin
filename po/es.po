@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.5-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-11-10 09:39+0100\n"
-"PO-Revision-Date: 2016-07-27 00:30+0000\n"
-"Last-Translator: jorge jansen abreu <condecalifornia@hotmail.com>\n"
-"Language-Team: Spanish <https://hosted.weblate.org/projects/phpmyadmin/4-6/"
-"es/>\n"
+"PO-Revision-Date: 2016-12-13 09:24+0000\n"
+"Last-Translator: Laura Arjona Reina <larjona@larjona.net>\n"
+"Language-Team: Spanish "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-6/es/>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.8-dev\n"
+"X-Generator: Weblate 2.10-dev\n"
 
 #: changelog.php:38 license.php:33
 #, php-format
@@ -792,6 +792,7 @@ msgstr ""
 #: index.php:509
 msgid "The secret passphrase in configuration (blowfish_secret) is too short."
 msgstr ""
+"La frase secreta en la configuración (blowfish_secret) es demasiado corta."
 
 #: index.php:523
 msgid ""
@@ -1822,6 +1823,7 @@ msgstr "Exportar"
 #: js/messages.php:389
 msgid "No routine is exportable. Required privileges may be lacking."
 msgstr ""
+"No se puede exportar ninguna rutina. Quizá falten los privilegios necesarios."
 
 #: js/messages.php:392 libraries/rte/rte_routines.lib.php:754
 msgid "ENUM/SET editor"
@@ -2182,12 +2184,16 @@ msgid ""
 "MySQL accepts additional values not selectable by the slider; key in those "
 "values directly if desired"
 msgstr ""
+"MySQL acepta valores adicionales que no se pueden seleccionar en el "
+"deslizador; introduzca esos valores directamente si lo desea"
 
 #: js/messages.php:528
 msgid ""
 "MySQL accepts additional values not selectable by the datepicker; key in "
 "those values directly if desired"
 msgstr ""
+"MySQL acepta valores adicionales que no se pueden seleccionar en el "
+"calendario; introduzca esos valores directamente si lo desea"
 
 #: js/messages.php:534
 msgid ""
@@ -2966,6 +2972,7 @@ msgstr "No se pudo dar formato a una cadena para la regla '%s'."
 #, php-format
 msgid "Error in reading file: The file '%s' does not exist or is not readable!"
 msgstr ""
+"Error al leer el archivo: ¡El archivo '%s' no existe o no se puede leer!"
 
 #: libraries/Advisor.php:492
 #, php-format
@@ -3704,7 +3711,7 @@ msgstr "Error desconocido al subir el archivo."
 
 #: libraries/File.php:424
 msgid "File is a symbolic link"
-msgstr ""
+msgstr "El archivo es un enlace simbólico"
 
 #: libraries/File.php:470
 msgid "Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc]."
@@ -5242,10 +5249,8 @@ msgid "You allow for connecting to the server without a password."
 msgstr "Permite conectarse al servidor sin contraseña."
 
 #: libraries/config/ServerConfigChecks.php:347
-#, fuzzy
-#| msgid "Key is too short, it should have at least 8 characters."
 msgid "Key is too short, it should have at least 32 characters."
-msgstr "La clave es muy corta, debe tener al menos 8 caracteres."
+msgstr "La clave es muy corta, debe tener al menos 32 caracteres."
 
 #: libraries/config/ServerConfigChecks.php:357
 msgid "Key should contain letters, numbers [em]and[/em] special characters."
@@ -5388,10 +5393,8 @@ msgid "Could not connect to the database server!"
 msgstr "¡No se pudo conectar con el servidor de base de datos!"
 
 #: libraries/config/Validator.php:243
-#, fuzzy
-#| msgid "Authentication type"
 msgid "Invalid authentication type!"
-msgstr "Tipo de autenticación"
+msgstr "¡Tipo de autenticación inválida!"
 
 #: libraries/config/Validator.php:250
 msgid "Empty username while using [kbd]config[/kbd] authentication method!"
@@ -9420,10 +9423,8 @@ msgid "Log out"
 msgstr "Finalizar sesión"
 
 #: libraries/navigation/NavigationHeader.php:170
-#, fuzzy
-#| msgid "Dumping data"
 msgid "Empty session data"
-msgstr "Volcado de datos"
+msgstr "Datos de sesión vacíos"
 
 #: libraries/navigation/NavigationHeader.php:186
 msgid "phpMyAdmin documentation"
@@ -9455,9 +9456,8 @@ msgstr[1] "Se encontró %s resultado adicional"
 
 #: libraries/navigation/NavigationTree.php:1364
 #: libraries/navigation/NavigationTree.php:1401
-#, fuzzy
 msgid "Type to filter these, Enter to search all"
-msgstr "Escribe para filtrar estos, Introduce para buscar todo"
+msgstr "Escribe para filtrar estos, «Intro» para buscar todo"
 
 #: libraries/navigation/NavigationTree.php:1366
 #: libraries/navigation/NavigationTree.php:1402
@@ -12023,10 +12023,8 @@ msgid "routine"
 msgstr "rutina"
 
 #: libraries/rte/rte_words.lib.php:32
-#, fuzzy
-#| msgid "You do not have the necessary privileges to create a routine"
 msgid "You do not have the necessary privileges to create a routine."
-msgstr "No posee los privilegios necesarios para crear una rutina"
+msgstr "No posee los privilegios necesarios para crear una rutina."
 
 #: libraries/rte/rte_words.lib.php:35
 #, php-format
@@ -12034,6 +12032,8 @@ msgid ""
 "No routine with name %1$s found in database %2$s. You might be lacking the "
 "necessary privileges to edit this routine."
 msgstr ""
+"No se encuentran rutinas con nombre %1$s en la base de datos %2$s. Quizá "
+"falten los privilegios necesarios para editar esta rutina."
 
 #: libraries/rte/rte_words.lib.php:39
 #, php-format
@@ -12041,12 +12041,13 @@ msgid ""
 "No routine with name %1$s found in database %2$s. You might be lacking the "
 "necessary privileges to view/export this routine."
 msgstr ""
+"No se encuentran rutinas con nombre %1$s en la base de datos %2$s. Quizá "
+"falten los privilegios necesarios para ver/exportar esta rutina."
 
 #: libraries/rte/rte_words.lib.php:42
-#, fuzzy, php-format
-#| msgid "No routine with name %1$s found in database %2$s"
+#, php-format
 msgid "No routine with name %1$s found in database %2$s."
-msgstr "No se encontró rutina con nombre %1$s en la base de datos %2$s"
+msgstr "No se encontró rutina con nombre %1$s en la base de datos %2$s."
 
 #: libraries/rte/rte_words.lib.php:43
 msgid "There are no routines to display."
@@ -12066,16 +12067,13 @@ msgid "trigger"
 msgstr "disparador"
 
 #: libraries/rte/rte_words.lib.php:54
-#, fuzzy
-#| msgid "You do not have the necessary privileges to create a trigger"
 msgid "You do not have the necessary privileges to create a trigger."
-msgstr "No posee los privilegios necesarios para crear un disparador"
+msgstr "No posee los privilegios necesarios para crear un disparador."
 
 #: libraries/rte/rte_words.lib.php:56
-#, fuzzy, php-format
-#| msgid "No trigger with name %1$s found in database %2$s"
+#, php-format
 msgid "No trigger with name %1$s found in database %2$s."
-msgstr "No se encontró disparador con nombre %1$s en la base de datos %2$s"
+msgstr "No se encontró disparador con nombre %1$s en la base de datos %2$s."
 
 #: libraries/rte/rte_words.lib.php:57
 msgid "There are no triggers to display."
@@ -12095,16 +12093,13 @@ msgid "event"
 msgstr "evento"
 
 #: libraries/rte/rte_words.lib.php:68
-#, fuzzy
-#| msgid "You do not have the necessary privileges to create an event"
 msgid "You do not have the necessary privileges to create an event."
-msgstr "No posee los privilegios necesarios para crear un evento"
+msgstr "No posee los privilegios necesarios para crear un evento."
 
 #: libraries/rte/rte_words.lib.php:70
-#, fuzzy, php-format
-#| msgid "No event with name %1$s found in database %2$s"
+#, php-format
 msgid "No event with name %1$s found in database %2$s."
-msgstr "No se encontró evento con nombre %1$s en la base de datos %2$s"
+msgstr "No se encontró evento con nombre %1$s en la base de datos %2$s."
 
 #: libraries/rte/rte_words.lib.php:71
 msgid "There are no events to display."
@@ -12382,6 +12377,8 @@ msgid ""
 "Allows user to give to other users or remove from other users privileges "
 "that user possess on this routine."
 msgstr ""
+"Permite al usuario dar o quitar a otros usuarios los permisos que el usuario "
+"posee en esta rutina."
 
 #: libraries/server_privileges.lib.php:1042
 msgid "Allows altering and dropping this routine."
@@ -12444,6 +12441,8 @@ msgid ""
 "Allows user to give to other users or remove from other users the privileges "
 "that user possess yourself."
 msgstr ""
+"Permite al usuario dar o quitar a otros usuarios los permisos que el usuario "
+"posee."
 
 #: libraries/server_privileges.lib.php:1552
 msgid "Native MySQL authentication"
@@ -13949,20 +13948,20 @@ msgstr "Se esperaba un corchete de apertura."
 #: libraries/sql-parser/src/Statements/InsertStatement.php:227
 #: libraries/sql-parser/src/Statements/ReplaceStatement.php:165
 #: libraries/sql-parser/src/Statements/ReplaceStatement.php:193
-#, fuzzy
-#| msgid "Unexpected token."
 msgid "Unexpected keyword."
-msgstr "Símbolo (token) inesperado."
+msgstr "Palabra clave inesperada."
 
 #: libraries/sql-parser/src/Components/CaseExpression.php:202
 msgid "Unexpected end of CASE expression"
-msgstr ""
+msgstr "Final inesperado de expresión CASE"
 
 #: libraries/sql-parser/src/Components/CreateDefinition.php:227
 msgid ""
 "A symbol name was expected! A reserved keyword can not be used as a column "
 "name without backquotes."
 msgstr ""
+"¡Se esperaba un nombre de símbolo! Una palabra reservada no puede usarse "
+"como nombre de columna sin comillas."
 
 #: libraries/sql-parser/src/Components/CreateDefinition.php:241
 msgid "A symbol name was expected!"
@@ -14010,10 +14009,9 @@ msgid "This option conflicts with \"%1$s\"."
 msgstr "Esta opción tiene conflictos con \"%1$s\"."
 
 #: libraries/sql-parser/src/Components/OptionsArray.php:260
-#, fuzzy, php-format
-#| msgid "Ending quote %1$s was expected."
+#, php-format
 msgid "Value/Expression for the option %1$s was expected"
-msgstr "Se esperaba terminar la cita %1$s."
+msgstr "Se esperaba una expresión/valor para la opción %1$s"
 
 #: libraries/sql-parser/src/Components/RenameOperation.php:101
 msgid "The old name of the table was expected."
@@ -14083,20 +14081,16 @@ msgid "Unrecognized keyword."
 msgstr "Palabra clave no reconocida."
 
 #: libraries/sql-parser/src/Statement.php:457
-#, fuzzy
-#| msgid "Unexpected beginning of statement."
 msgid "Unexpected ordering of clauses."
-msgstr "Comienzo inesperado de declaración."
+msgstr "Orden inesperado de condiciones."
 
 #: libraries/sql-parser/src/Statements/CreateStatement.php:381
 msgid "The name of the entity was expected."
 msgstr "Se esperaba el nombre de la entidad."
 
 #: libraries/sql-parser/src/Statements/CreateStatement.php:436
-#, fuzzy
-#| msgid "Variable name was expected."
 msgid "A table name was expected."
-msgstr "Se esperaba el nombre de la variable."
+msgstr "Se esperaba un nombre de tabla."
 
 #: libraries/sql-parser/src/Statements/CreateStatement.php:444
 msgid "At least one column definition was expected."
@@ -14107,10 +14101,8 @@ msgid "A \"RETURNS\" keyword was expected."
 msgstr "Se esperaba una palabra \"RETURNS\"."
 
 #: libraries/sql-parser/src/Statements/DeleteStatement.php:303
-#, fuzzy
-#| msgid "This type of clause was previously parsed."
 msgid "This type of clause is not valid in Multi-table queries."
-msgstr "Este tipo de cláusula se analizó previamente."
+msgstr "Este tipo de cláusula no es válida en consultas multi-tabla."
 
 #: libraries/sql.lib.php:231
 msgid "Detailed profile"
@@ -14672,10 +14664,8 @@ msgstr ""
 "config para utilizarlo."
 
 #: setup/frames/index.inc.php:132
-#, fuzzy
-#| msgid "Configuration saved."
 msgid "Configuration not saved!"
-msgstr "Configuración guardada."
+msgstr "¡Configuración no guardada!"
 
 #: setup/frames/index.inc.php:147 setup/frames/menu.inc.php:19
 msgid "Overview"
@@ -14797,7 +14787,7 @@ msgstr "Datos incorrectos"
 #: setup/validate.php:30
 #, php-format
 msgid "Wrong data or no validation for %s"
-msgstr ""
+msgstr "Datos erróneos o sin validación para %s"
 
 #: tbl_create.php:30 tbl_get_field.php:26
 #, php-format
@@ -14859,10 +14849,8 @@ msgid "Table name"
 msgstr "Nombre de la tabla"
 
 #: templates/columns_definitions/column_definitions_form.phtml:65
-#, fuzzy
-#| msgid "Columns"
 msgid "column(s)"
-msgstr "Columnas"
+msgstr "columna(s)"
 
 #: templates/columns_definitions/column_definitions_form.phtml:92
 msgid "Collation:"
@@ -15599,6 +15587,9 @@ msgid ""
 "an index on it. Alternatively, you can define an index below, before "
 "creating the foreign key."
 msgstr ""
+"Crear una clave foránea sobre una columna no indexada crearía "
+"automáticamente un índice en ella. De manera alternativa, puede definir un "
+"índice más abajo, antes de crear la clave foránea."
 
 #: templates/table/relation/common_form.phtml:20
 msgid ""
