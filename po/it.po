@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-12-13 10:41+0100\n"
-"PO-Revision-Date: 2016-11-10 10:06+0000\n"
+"PO-Revision-Date: 2016-12-13 14:14+0000\n"
 "Last-Translator: Stefano Martinelli <stefano.ste.martinelli@gmail.com>\n"
-"Language-Team: Italian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/it/>\n"
+"Language-Team: Italian "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/it/>\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.9\n"
+"X-Generator: Weblate 2.10-dev\n"
 
 #: changelog.php:39 license.php:34
 #, php-format
@@ -2632,23 +2632,23 @@ msgstr "Copia tabella col prefisso"
 
 #: js/messages.php:732
 msgid "Extremely weak"
-msgstr ""
+msgstr "Estremamente debole"
 
 #: js/messages.php:733
 msgid "Very weak"
-msgstr ""
+msgstr "Molto debole"
 
 #: js/messages.php:734
 msgid "Weak"
-msgstr ""
+msgstr "Debole"
 
 #: js/messages.php:735
 msgid "Good"
-msgstr ""
+msgstr "Buona"
 
 #: js/messages.php:736
 msgid "Strong"
-msgstr ""
+msgstr "Forte"
 
 #: js/messages.php:765
 msgctxt "Previous month"
@@ -8314,7 +8314,7 @@ msgstr "Password:"
 
 #: libraries/display_change_password.lib.php:68
 msgid "Enter:"
-msgstr ""
+msgstr "Inserisci:"
 
 #: libraries/display_change_password.lib.php:75
 #: libraries/replication_gui.lib.php:865
@@ -14286,16 +14286,12 @@ msgstr ""
 "senza essere cifrati!"
 
 #: setup/frames/index.inc.php:78
-#, fuzzy
-#| msgid ""
-#| "If your server is also configured to accept HTTPS requests follow [a@"
-#| "%s]this link[/a] to use a secure connection."
 msgid ""
 "If your server is also configured to accept HTTPS requests follow this link "
 "to use a secure connection."
 msgstr ""
-"Se il tuo server accetta anche richieste HTTPS, [a@%s]clicca qui[/a] per "
-"utilizzare la conessione sicura."
+"Se il tuo server accetta anche richieste HTTPS, segui questo link per "
+"utilizzare una connessione sicura."
 
 #: setup/frames/index.inc.php:82
 msgid "Insecure connection"
@@ -15157,10 +15153,8 @@ msgstr ""
 "dominio. Vuoi importarla per la sessione corrente?"
 
 #: templates/prefs_autoload.phtml:14
-#, fuzzy
-#| msgid "Delete tracking"
 msgid "Delete settings "
-msgstr "Cancella monitoraggio"
+msgstr "Cancella impostazioni "
 
 #: templates/privileges/add_privileges_database.phtml:2
 msgid "Add privileges on the following database(s):"
@@ -15796,10 +15790,6 @@ msgid "Unexpected end of CASE expression"
 msgstr "Inattesa fine dell'espressione CASE"
 
 #: vendor/phpmyadmin/sql-parser/src/Components/CreateDefinition.php:227
-#, fuzzy
-#| msgid ""
-#| "A symbol name was expected! A reserved keyword can not be used as a field "
-#| "name without backquotes."
 msgid ""
 "A symbol name was expected! A reserved keyword can not be used as a column "
 "name without backquotes."
@@ -15925,10 +15915,8 @@ msgid "Unrecognized keyword."
 msgstr "Parola chiave non riconosciuta."
 
 #: vendor/phpmyadmin/sql-parser/src/Statement.php:495
-#, fuzzy
-#| msgid "Unexpected beginning of statement."
 msgid "Unexpected ordering of clauses."
-msgstr "Inizio di statement inatteso."
+msgstr "Ordinamento di clausole inatteso."
 
 #: vendor/phpmyadmin/sql-parser/src/Statements/CreateStatement.php:381
 msgid "The name of the entity was expected."
