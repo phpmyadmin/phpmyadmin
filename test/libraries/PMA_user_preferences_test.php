@@ -384,6 +384,9 @@ class PMA_User_Preferences_Test extends PHPUnit_Framework_TestCase
             ->with()
             ->will($this->returnValue(false));
 
+        $attrInstance = new ReflectionProperty('PMA\libraries\Response', '_instance');
+        $attrInstance->setAccessible(true);
+        $attrInstance->setValue($mockResponse);
 
         $GLOBALS['PMA_Config']->set('PmaAbsoluteUri', '');
         $GLOBALS['PMA_Config']->set('PMA_IS_IIS', false);
@@ -394,6 +397,7 @@ class PMA_User_Preferences_Test extends PHPUnit_Framework_TestCase
             'h ash'
         );
 
+        $attrInstance->setValue($restoreInstance);
     }
 
     /**
