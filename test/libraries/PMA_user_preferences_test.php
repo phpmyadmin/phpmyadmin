@@ -384,18 +384,9 @@ class PMA_User_Preferences_Test extends PHPUnit_Framework_TestCase
             ->with()
             ->will($this->returnValue(false));
 
+
         $GLOBALS['PMA_Config']->set('PmaAbsoluteUri', '');
-
-        $GLOBALS['cfg']['ServerDefault'] = 1;
-        $GLOBALS['lang'] = '';
-
-        $redefine = null;
-        if (!defined('PMA_IS_IIS')) {
-            define('PMA_IS_IIS', false);
-        } else {
-            $redefine = PMA_IS_IIS;
-            runkit_constant_redefine('PMA_IS_IIS', false);
-        }
+        $GLOBALS['PMA_Config']->set('PMA_IS_IIS', false);
 
         PMA_userprefsRedirect(
             'file.html',
@@ -403,11 +394,6 @@ class PMA_User_Preferences_Test extends PHPUnit_Framework_TestCase
             'h ash'
         );
 
-        if ($redefine !== null) {
-            runkit_constant_redefine('PMA_IS_IIS', $redefine);
-        } else {
-            runkit_constant_remove('PMA_IS_IIS');
-        }
     }
 
     /**
