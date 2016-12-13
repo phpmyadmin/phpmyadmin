@@ -79,23 +79,18 @@ function PMA_messagesEnd()
  */
 function PMA_messagesShowHtml()
 {
-    $old_ids = array();
     foreach ($_SESSION['messages'] as $type => $messages) {
         foreach ($messages as $id => $msg) {
-            echo '<div class="' , $type , '" id="' , $id , '">'
+            if (! $msg['fresh'] && $type != 'error') {
+                $extra = ' hiddenmessage';
+            } else {
+                $extra = '';
+            }
+            echo '<div class="' , $type, $extra , '" id="' , $id , '">'
                 , '<h4>' , $msg['title'] , '</h4>'
                 , $msg['message'] , '</div>';
-            if (!$msg['fresh'] && $type != 'error') {
-                $old_ids[] = $id;
-            }
         }
     }
-
-    echo "\n" , '<script type="text/javascript">';
-    foreach ($old_ids as $id) {
-        echo "\nhiddenMessages.push('$id');";
-    }
-    echo "\n</script>\n";
 }
 
 /**
