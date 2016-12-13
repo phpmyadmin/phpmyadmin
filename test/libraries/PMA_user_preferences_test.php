@@ -369,19 +369,17 @@ class PMA_User_Preferences_Test extends PHPUnit_Framework_TestCase
 
         $mockResponse = $this->getMockBuilder('PMA\libraries\Response')
             ->disableOriginalConstructor()
-            ->setMethods(array('headersSent', 'header'))
+            ->setMethods(array('header', 'headersSent'))
             ->getMock();
+
+        $mockResponse->expects($this->once())
+            ->method('header')
+            ->with('Location: /phpmyadmin/file.html?a=b&saved=1&server=0#h+ash');
 
         $mockResponse->expects($this->any())
             ->method('headersSent')
             ->with()
             ->will($this->returnValue(false));
-
-        $mockResponse->expects($this->once())
-            ->method('header')
-            ->with(
-                $this->stringContains('Location: /phpmyadmin/file.html?a=b&saved=1&server=0#h+ash')
-            );
 
         $GLOBALS['PMA_Config']->set('PmaAbsoluteUri', '');
 
