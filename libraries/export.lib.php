@@ -248,7 +248,7 @@ function PMA_getMemoryLimitForExport()
  * @param string       $compression       compression asked
  * @param string       $filename_template the filename template
  *
- * @return array the filename template and mime type
+ * @return string[] the filename template and mime type
  */
 function PMA_getExportFilenameAndMimetype(
     $export_type, $remember_template, $export_plugin, $compression,
@@ -366,7 +366,7 @@ function PMA_openExportFile($filename, $quick_export)
  * @param string   $dump_buffer   the current dump buffer
  * @param string   $save_filename the export filename
  *
- * @return object $message a message object (or empty string)
+ * @return Message $message a message object (or empty string)
  */
 function PMA_closeExportFile($file_handle, $dump_buffer, $save_filename)
 {
@@ -465,7 +465,7 @@ function PMA_saveObjectInBuffer($object_name, $append = false)
  * @param string $db          the database name
  * @param string $table       the table name
  *
- * @return array the generated HTML and back button
+ * @return string[] the generated HTML and back button
  */
 function PMA_getHtmlForDisplayedExportHeader($export_type, $db, $table)
 {
@@ -1021,7 +1021,7 @@ function PMA_unlockTables()
 /**
  * Returns all the metadata types that can be exported with a database or a table
  *
- * @return array metadata types.
+ * @return string[] metadata types.
  */
 function PMA_getMetadataTypesToExport()
 {
