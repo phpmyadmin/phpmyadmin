@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.5-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-11-10 09:39+0100\n"
-"PO-Revision-Date: 2016-12-13 09:25+0000\n"
-"Last-Translator: jorge jansen abreu <condecalifornia@hotmail.com>\n"
+"PO-Revision-Date: 2016-12-13 09:29+0000\n"
+"Last-Translator: Laura Arjona Reina <larjona@larjona.net>\n"
 "Language-Team: Spanish "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-6/es/>\n"
 "Language: es\n"
@@ -15887,14 +15887,12 @@ msgid "The profile has been updated."
 msgstr "Se actualizó el perfil."
 
 #: user_password.php:124
-#, fuzzy
-#| msgid "Password Hashing:"
 msgid "Password is too long!"
-msgstr "Hashing de la contraseña:"
+msgstr "¡Contraseña muy larga!"
 
 #: view_create.php:44
 msgid "View name can not be empty"
-msgstr ""
+msgstr "El nombre de la vista no puede estar vacío"
 
 #: view_create.php:247
 msgid "VIEW name"
