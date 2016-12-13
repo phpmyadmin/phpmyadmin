@@ -364,11 +364,23 @@ class PMA_User_Preferences_Test extends PHPUnit_Framework_TestCase
      */
     public function testUserprefsRedirect()
     {
-        if (!defined('PMA_TEST_HEADERS')) {
-            $this->markTestSkipped(
-                'Cannot redefine constant/function - missing runkit extension'
-            );
-        }
+        
+        $restoreInstance = PMA\libraries\Response::getInstance();
+
+        $mockResponse = $this->getMockBuilder('PMA\libraries\Response')
+            ->disableOriginalConstructor()
+            ->setMethods(array('header', 'headersSent'))
+            ->getMock();
+
+        $mockResponse->expects($this->once())
+            ->method('header')
+            ->with('Location: /phpmyadmin/file.html?a=b&saved=1&server=0#h+ash');
+
+        $mockResponse->expects($this->any())
+            ->method('headersSent')
+            ->with()
+            ->will($this->returnValue(false));
+
         $GLOBALS['PMA_Config']->set('PmaAbsoluteUri', '');
 
         $GLOBALS['cfg']['ServerDefault'] = 1;
@@ -386,11 +398,6 @@ class PMA_User_Preferences_Test extends PHPUnit_Framework_TestCase
             'file.html',
             array('a' => 'b'),
             'h ash'
-        );
-
-        $this->assertContains(
-            'Location: /phpmyadmin/file.html?a=b&saved=1&server=0#h+ash',
-            $GLOBALS['header'][0]
         );
 
         if ($redefine !== null) {
