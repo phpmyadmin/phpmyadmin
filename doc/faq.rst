@@ -555,6 +555,23 @@ parameters:
 * `suhosin.log.\* <https://suhosin.org/stories/configuration.html#logging-configuration>`_ should not
   include :term:`SQL`, otherwise you get big
   slowdown
+* `suhosin.sql.union <https://suhosin.org/stories/configuration.html#suhosin-
+  sql-union>`_ must be disabled (which is the default).
+* `suhosin.sql.multiselect <https://suhosin.org/stories/configuration.html#
+  suhosin-sql-multiselect>`_ must be disabled (which is the default).
+* `suhosin.sql.comment <https://suhosin.org/stories/configuration.html#suhosin-
+  sql-comment>`_ must be disabled (which is the default).
+
+To further improve security, we also recommend these modifications:
+
+* `suhosin.executor.include.max\_traversal <https://suhosin.org/stories/
+  configuration.html#suhosin-executor-include-max-traversal>`_ should be
+  enabled as a mitigation against local file inclusion attacks. We suggest
+  setting this to 2 as ``../`` is used with the ReCaptcha library.
+* `suhosin.cookie.encrypt <https://suhosin.org/stories/configuration.html#
+  suhosin-cookie-encrypt>`_ should be enabled.
+* `suhosin.executor.disable_emodifier <https://suhosin.org/stories/config
+  uration.html#suhosin-executor-disable-emodifier>`_ should be enabled.
 
 You can also disable the warning using the :config:option:`$cfg['SuhosinDisableWarning']`.
 
