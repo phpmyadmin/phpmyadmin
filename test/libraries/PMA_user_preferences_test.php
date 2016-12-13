@@ -30,6 +30,8 @@ class PMA_User_Preferences_Test extends PHPUnit_Framework_TestCase
      */
     function setUp()
     {
+        global $cfg;
+        include 'libraries/config.default.php';
         $GLOBALS['server'] = 0;
         $GLOBALS['PMA_PHP_SELF'] = '/phpmyadmin/';
     }
@@ -364,7 +366,8 @@ class PMA_User_Preferences_Test extends PHPUnit_Framework_TestCase
      */
     public function testUserprefsRedirect()
     {
-        
+        $GLOBALS['lang'] = '';
+
         $restoreInstance = PMA\libraries\Response::getInstance();
 
         $mockResponse = $this->getMockBuilder('PMA\libraries\Response')
