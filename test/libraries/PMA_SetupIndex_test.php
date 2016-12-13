@@ -149,27 +149,12 @@ class PMA_SetupIndex_Test extends PHPUnit_Framework_TestCase
         $result = ob_get_clean();
 
         $this->assertContains(
-            '<div class="type" id="0"><h4>foo</h4>123</div>',
+            '<div class="type hiddenmessage" id="0"><h4>foo</h4>123</div>',
             $result
         );
 
         $this->assertContains(
             '<div class="type" id="1"><h4>bar</h4>321</div>',
-            $result
-        );
-
-        $this->assertContains(
-            '<script type="text/javascript">',
-            $result
-        );
-
-        $this->assertContains(
-            "hiddenMessages.push('0');",
-            $result
-        );
-
-        $this->assertContains(
-            "</script>",
             $result
         );
     }

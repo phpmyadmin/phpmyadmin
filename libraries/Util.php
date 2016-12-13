@@ -2973,7 +2973,7 @@ class Util
      */
     public static function cacheExists($var)
     {
-        return isset($_SESSION['cache']['server_' . $GLOBALS['server']][$var]);
+        return isset($_SESSION['cache']['server_' . $GLOBALS['server'] . '_' . $GLOBALS['cfg']['Server']['user']][$var]);
     }
 
     /**
@@ -2987,7 +2987,7 @@ class Util
     public static function cacheGet($var, $callback = null)
     {
         if (self::cacheExists($var)) {
-            return $_SESSION['cache']['server_' . $GLOBALS['server']][$var];
+            return $_SESSION['cache']['server_' . $GLOBALS['server'] . '_' . $GLOBALS['cfg']['Server']['user']][$var];
         } else {
             if ($callback) {
                 $val = $callback();
@@ -3008,7 +3008,7 @@ class Util
      */
     public static function cacheSet($var, $val = null)
     {
-        $_SESSION['cache']['server_' . $GLOBALS['server']][$var] = $val;
+        $_SESSION['cache']['server_' . $GLOBALS['server'] . '_' . $GLOBALS['cfg']['Server']['user']][$var] = $val;
     }
 
     /**
@@ -3020,7 +3020,7 @@ class Util
      */
     public static function cacheUnset($var)
     {
-        unset($_SESSION['cache']['server_' . $GLOBALS['server']][$var]);
+        unset($_SESSION['cache']['server_' . $GLOBALS['server'] . '_' . $GLOBALS['cfg']['Server']['user']][$var]);
     }
 
     /**
