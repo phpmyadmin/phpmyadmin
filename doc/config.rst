@@ -1748,7 +1748,7 @@ Cookie authentication options
     :default: ``''``
 
     The public key for the reCaptcha service that can be obtained from
-    https://www.google.com/recaptcha.
+    https://www.google.com/recaptcha/intro/.
 
     reCaptcha will be then used in :ref:`cookie`.
 
@@ -1758,7 +1758,7 @@ Cookie authentication options
     :default: ``''``
 
     The private key for the reCaptcha service that can be obtain from
-    https://www.google.com/recaptcha.
+    https://www.google.com/recaptcha/intro/.
 
     reCaptcha will be then used in :ref:`cookie`.
 
@@ -3116,7 +3116,7 @@ Developer
     :default: false
 
     Enable to let server present itself as demo server.
-    This is used for `phpMyAdmin demo server <https://www.phpmyadmin.net/try>`_.
+    This is used for `phpMyAdmin demo server <https://www.phpmyadmin.net/try/>`_.
 
 .. _config-examples:
 

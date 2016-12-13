@@ -24,8 +24,8 @@ if [ $# -gt 1 ] ; then
     cd "$2"
 fi
 
-# Upload to our file server
-sftp -P 11022 files@klutz.phpmyadmin.net -f -b - <<EOT
+BATCH=`mktemp`
+cat > $BATCH <<EOT
 cd /mnt/storage/files/phpMyAdmin
 mkdir $REL
 cd $REL
@@ -71,6 +71,11 @@ put phpMyAdmin-$REL-all-languages.7z.sha1
 put phpMyAdmin-$REL-english.7z.sha1
 put phpMyAdmin-$REL-notes.html
 EOT
+
+# Upload to our file server
+sftp -P 11022 -f -b $BATCH files@klutz.phpmyadmin.net
+
+rm $BATCH
 
 # Sync files to CDN
 ssh -xka2 -p 11022 files@klutz.phpmyadmin.net ./bin/sync-files-cdn
