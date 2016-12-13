@@ -17,6 +17,7 @@ phpMyAdmin - ChangeLog
 - issue #12785 Add information about required and suggested extensions to composer.json
 - issue #12434 Improve documentation for servers running with Suhosin
 - issue #12800 Updated embedded phpSecLib to 2.0.4
+- issue #12800 Fixed various issues with PHP 7.1
 
 4.6.5.2 (2016-12-05)
 - issue #12765 Fixed SQL export with newlines
