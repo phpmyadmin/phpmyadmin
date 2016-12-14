@@ -2646,7 +2646,8 @@ class DatabaseInterface
              * match existing strings
              */
             foreach ($result as $value) {
-                if (strlen($value->orgtable) !== 0 && mb_strtolower($value->orgtable) == mb_strtolower($value->table)) {
+                if (strlen($value->orgtable) !== 0 &&
+                        mb_strtolower($value->orgtable) === mb_strtolower($value->table)) {
                     $value->orgtable = $value->table;
                 }
             }
