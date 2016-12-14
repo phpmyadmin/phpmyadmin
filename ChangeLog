@@ -19,6 +19,7 @@ phpMyAdmin - ChangeLog
 - issue #12800 Updated embedded phpSecLib to 2.0.4
 - issue #12800 Fixed various issues with PHP 7.1
 - issue #11816 Fixed operation with lower_case_table_names=2
+- issue #12813 Fixed stored procedure execution
 
 4.6.5.2 (2016-12-05)
 - issue #12765 Fixed SQL export with newlines
