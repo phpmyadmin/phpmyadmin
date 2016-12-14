@@ -48,6 +48,11 @@ class DatabaseInterface
     private $_table_cache;
 
     /**
+     * @var null|string lower_case_table_names value cache
+     */
+    private $_lower_case_table_names = null;
+
+    /**
      * Constructor
      *
      * @param DBIExtension $ext Object to be used for database queries
@@ -2257,6 +2262,21 @@ class DatabaseInterface
     }
 
     /**
+     * Returns value for lower_case_table_names variable
+     *
+     * @return string
+     */
+    public function getLowerCaseNames()
+    {
+        if (is_null($this->_lower_case_table_names)) {
+            $this->_lower_case_table_names = $this->fetchValue(
+                "SELECT @@lower_case_table_names"
+            );
+        }
+        return $this->_lower_case_table_names;
+    }
+
+    /**
      * Get the list of system schemas
      *
      * @return array list of system schemas
@@ -2595,7 +2615,24 @@ class DatabaseInterface
      */
     public function getFieldsMeta($result)
     {
-        return $this->_extension->getFieldsMeta($result);
+        $result = $this->_extension->getFieldsMeta($result);
+
+        if ($this->getLowerCaseNames() === '2') {
+            /**
+             * Fixup orgtable for lower_case_table_names = 2
+             *
+             * In this setup MySQL server reports table name lower case
+             * but we still need to operate on original case to properly
+             * match existing strings
+             */
+            foreach ($result as $value) {
+                if (strlen($value->orgtable) !== 0 && mb_strtolower($value->orgtable) == mb_strtolower($value->table)) {
+                    $value->orgtable = $value->table;
+                }
+            }
+        }
+
+        return $result;
     }
 
     /**
