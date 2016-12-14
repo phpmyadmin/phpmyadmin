@@ -4324,19 +4324,11 @@ class Util
      */
     public static function getCollateForIS()
     {
-        $lowerCaseTableNames = self::cacheGet(
-            'lower_case_table_names',
-            function () {
-                return $GLOBALS['dbi']->fetchValue(
-                    "SELECT @@lower_case_table_names"
-                );
-            }
-        );
-
-        if ($lowerCaseTableNames === '0' // issue #10961
-            || $lowerCaseTableNames === '2' // issue #11461
-        ) {
+        $names = $GLOBALS['dbi']->getLowerCaseNames();
+        if ($names === '0') {
             return "COLLATE utf8_bin";
+        } elseif ($names === '2') {
+            return "COLLATE utf8_general_ci";
         }
         return "";
     }
