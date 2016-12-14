@@ -224,8 +224,16 @@ function PMA_fatalError(
         $error_message = vsprintf($error_message, $message_args);
     }
 
-    $response = Response::getInstance();
-    if ($response->isAjax()) {
+    /*
+     * Avoid using Response if Config is not yet loaded
+     * (this can happen on early fatal error)
+     */
+    if (isset($GLOBALS['Config'])) {
+        $response = Response::getInstance();
+    } else {
+        $response = null;
+    }
+    if (! is_null($response) && $response->isAjax()) {
         $response->setRequestStatus(false);
         $response->addJSON('message', PMA\libraries\Message::error($error_message));
     } else {
