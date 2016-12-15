@@ -98,9 +98,7 @@ class Response
 
         $this->_isSuccess  = true;
         $this->_isDisabled = false;
-        $this->setAjax(
-            isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true
-        );
+        $this->setAjax(! empty($_REQUEST['ajax_request']));
         $this->_CWD = getcwd();
     }
 
