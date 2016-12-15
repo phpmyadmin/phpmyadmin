@@ -97,13 +97,10 @@ class Response
         $this->_footer = new Footer();
 
         $this->_isSuccess  = true;
-        $this->_isAjax     = false;
         $this->_isDisabled = false;
-        if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
-            $this->_isAjax = true;
-        }
-        $this->_header->setAjax($this->_isAjax);
-        $this->_footer->setAjax($this->_isAjax);
+        $this->setAjax(
+            isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true
+        );
         $this->_CWD = getcwd();
     }
 
