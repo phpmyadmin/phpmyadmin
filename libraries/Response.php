@@ -89,7 +89,7 @@ class Response
         if (! defined('TESTSUITE')) {
             $buffer = OutputBuffering::getInstance();
             $buffer->start();
-            register_shutdown_function(array('PMA\libraries\Response', 'response'));
+            register_shutdown_function(array($this, 'response'));
         }
         $this->_header = new Header();
         $this->_HTML   = '';
@@ -419,21 +419,19 @@ class Response
     /**
      * Sends an HTML response to the browser
      *
-     * @static
      * @return void
      */
-    public static function response()
+    public function response()
     {
-        $response = Response::getInstance();
-        chdir($response->getCWD());
+        chdir($this->getCWD());
         $buffer = OutputBuffering::getInstance();
-        if (empty($response->_HTML)) {
-            $response->_HTML = $buffer->getContents();
+        if (empty($this->_HTML)) {
+            $this->_HTML = $buffer->getContents();
         }
-        if ($response->isAjax()) {
-            $response->_ajaxResponse();
+        if ($this->isAjax()) {
+            $this->_ajaxResponse();
         } else {
-            $response->_htmlResponse();
+            $this->_htmlResponse();
         }
         $buffer->flush();
         exit;
