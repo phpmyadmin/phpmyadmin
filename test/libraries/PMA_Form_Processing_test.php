@@ -44,7 +44,7 @@ class PMA_Form_Processing_Test extends PHPUnit_Framework_TestCase
             ->setMethods(array('header', 'headersSent'))
             ->getMock();
 
-        $mockResponse->expects($this->once())
+        $mockResponse->expects($this->exactly(2))
             ->method('header')
             ->withConsecutive(
                 'HTTP/1.1 303 See Other',
