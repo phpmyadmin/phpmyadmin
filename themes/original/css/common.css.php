@@ -1642,6 +1642,10 @@ input#input_import_file {
     vertical-align: baseline;
 }
 
+#serverstatusquerieschart_data {
+    display: none;
+}
+
 #popup_background {
     display: none;
     position: fixed;
