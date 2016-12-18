@@ -304,6 +304,14 @@ class Footer
         if ($this->_isEnabled) {
             if (! $this->_isAjax) {
                 $retval .= "</div>";
+                if (file_exists(CUSTOM_FOOTER_FILE)) {
+                    $retval .= '<div id="pma_footer">';
+                    ob_start();
+                    include CUSTOM_FOOTER_FILE;
+                    $retval .= ob_get_contents();
+                    ob_end_clean();
+                    $retval .= '</div>';
+                }
             }
             if (! $this->_isAjax && ! $this->_isMinimal) {
                 if (PMA_getenv('SCRIPT_NAME')
