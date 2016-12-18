@@ -47,9 +47,9 @@ class PMA_Form_Processing_Test extends PHPUnit_Framework_TestCase
         $mockResponse->expects($this->exactly(2))
             ->method('header')
             ->withConsecutive(
-                'HTTP/1.1 303 See Other',
-                'Location: index.php?lang=en'
-                );
+                ['HTTP/1.1 303 See Other'],
+                ['Location: index.php?lang=en']
+            );
 
         $mockResponse->expects($this->any())
             ->method('headersSent')
