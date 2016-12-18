@@ -44,7 +44,7 @@ If you prefer to follow the git repository, the following branch and tag names m
 
 Note that phpMyAdmin uses Composer to manage library dependencies, when using git
 development versions you must manually run Composer.
-Please see `our wiki <https://github.com/phpmyadmin/phpmyadmin/wiki/Composer>`_ for details.
+Please see `the documentation <https://docs.phpmyadmin.net/en/latest/setup.html#installing-from-git>`_ for details.
 
 More Information
 ----------------
