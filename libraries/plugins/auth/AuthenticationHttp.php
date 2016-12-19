@@ -144,6 +144,10 @@ class AuthenticationHttp extends AuthenticationPlugin
                 $PHP_AUTH_PW = PMA_getenv('AUTH_PASSWORD');
             }
         }
+        // Sanitize empty password login
+        if (is_null($PHP_AUTH_PW)) {
+            $PHP_AUTH_PW = '';
+        }
 
         // Decode possibly encoded information (used by IIS/CGI/FastCGI)
         // (do not use explode() because a user might have a colon in his password
