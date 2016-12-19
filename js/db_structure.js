@@ -182,6 +182,28 @@ function PMA_fetchRealRowCount($target)
     });
 }
 
+/**
+ * Filtering tables on table listing of particular database
+ * 
+ */
+function PMA_searchTables() {
+	var filter, table, tr;
+	filter = $("#tableSearch").val().toUpperCase();
+	table = $("#structureTable")[0];
+	tr = table.getElementsByTagName("tr");
+	
+	for (i = 0; i < tr.length; i++) {
+		a = tr[i].getElementsByTagName("a")[0];
+		if (a) {
+			if (a.text.trim().toUpperCase().indexOf(filter) > -1) {
+				tr[i].style.display = "";
+			} else {
+				tr[i].style.display = "none";
+			}
+		}
+	}
+}
+
 AJAX.registerOnload('db_structure.js', function () {
 /**
  * function to open the confirmation dialog for making table consistent with central list
