@@ -90,7 +90,7 @@ class AuthenticationHttp extends AuthenticationPlugin
         $response->addHTML('</h3>');
 
         if (@file_exists(CUSTOM_FOOTER_FILE)) {
-            include CUSTOM_FOOTER_FILE;
+            $response->addHTML(file_get_contents(CUSTOM_FOOTER_FILE));
         }
 
         if (!defined('TESTSUITE')) {
