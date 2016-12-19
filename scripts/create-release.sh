@@ -17,7 +17,7 @@ set -u
 # Fail on failure
 set -e
 
-KITS="all-languages english"
+KITS="all-languages english source"
 COMPRESSIONS="zip-7z txz tgz"
 
 # Process parameters
@@ -183,8 +183,6 @@ if [ -d po ] ; then
         echo "* Removing incomplete translations"
         ./scripts/remove-incomplete-mo
     fi
-    echo "* Removing gettext source files"
-    rm -rf po
 fi
 
 if [ -f ./scripts/line-counts.sh ] ; then
@@ -279,7 +277,25 @@ for kit in $KITS ; do
 
     # Cleanup translations
     cd phpMyAdmin-$version-$kit
-    scripts/lang-cleanup.sh $kit
+    ./scripts/lang-cleanup.sh $kit
+
+    # Remove tests, source code,...
+    if [ $kit != source ] ; then
+        echo "* Removing source files"
+        # Testsuite
+        rm -rf test/
+        rm phpunit.xml.* build.xml
+        # Gettext po files
+        rm -rf po/
+        # Documentation source code
+        mv doc/html htmldoc
+        rm -rf doc
+        mkdir doc
+        mv htmldoc doc/html
+        rm doc/html/.buildinfo doc/html/objects.inv
+        # Javascript sources
+        rm -rf js/jquery/src/ js/openlayers/src/
+    fi
 
     # Remove developer scripts
     rm -rf scripts
