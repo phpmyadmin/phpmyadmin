@@ -52,6 +52,8 @@ phpMyAdmin - ChangeLog
 - issue #12786 Fixed database searching
 - issue #12792 Fixed javascript error on new version link
 - issue #12785 Add information about required and suggested extensions to composer.json
+- issue #12801 Custom header shown twice with cookie login form
+- issue #12802 Custom footer not shown with auth_type http login failure
 - issue #12434 Improve documentation for servers running with Suhosin
 - issue #12800 Updated embedded phpSecLib to 2.0.4
 - issue #12800 Fixed various issues with PHP 7.1

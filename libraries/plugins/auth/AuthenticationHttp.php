@@ -12,6 +12,7 @@ namespace PMA\libraries\plugins\auth;
 use PMA\libraries\plugins\AuthenticationPlugin;
 use PMA\libraries\Message;
 use PMA\libraries\Response;
+use PMA\libraries\Config;
 
 /**
  * Handles the HTTP authentication methods
@@ -89,9 +90,7 @@ class AuthenticationHttp extends AuthenticationPlugin
         );
         $response->addHTML('</h3>');
 
-        if (@file_exists(CUSTOM_FOOTER_FILE)) {
-            include CUSTOM_FOOTER_FILE;
-        }
+        $response->addHTML(Config::renderFooter());
 
         if (!defined('TESTSUITE')) {
             exit;

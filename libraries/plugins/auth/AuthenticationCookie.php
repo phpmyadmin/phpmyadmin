@@ -14,6 +14,7 @@ use PMA\libraries\Message;
 use PMA\libraries\plugins\AuthenticationPlugin;
 use PMA\libraries\Response;
 use PMA\libraries\Util;
+use PMA\libraries\Config;
 use ReCaptcha;
 use PMA\libraries\URL;
 
@@ -88,9 +89,6 @@ class AuthenticationCookie extends AuthenticationPlugin
         $header->disableMenuAndConsole();
         $header->disableWarnings();
 
-        if (@file_exists(CUSTOM_HEADER_FILE)) {
-            include CUSTOM_HEADER_FILE;
-        }
         echo '
     <div class="container">
     <a href="';
@@ -231,9 +229,7 @@ class AuthenticationCookie extends AuthenticationPlugin
             echo '</div>';
         }
         echo '</div>';
-        if (@file_exists(CUSTOM_FOOTER_FILE)) {
-            include CUSTOM_FOOTER_FILE;
-        }
+        echo Config::renderFooter();
         if (! defined('TESTSUITE')) {
             exit;
         } else {
