@@ -1463,24 +1463,22 @@ class DatabaseInterface
             $default_charset = 'utf8';
             $default_collation = 'utf8_general_ci';
         }
-        if (! empty($GLOBALS['collation_connection'])) {
+        $collation_connection = $GLOBALS['PMA_Config']->get('collation_connection');
+        if (! empty($collation_connection)) {
             $this->query(
                 "SET CHARACTER SET '$default_charset';",
                 $link,
                 self::QUERY_STORE
             );
-            /* Automatically adjust collation to mb4 variant */
-            if ($default_charset == 'utf8mb4'
-                && strncmp('utf8_', $GLOBALS['collation_connection'], 5) == 0
+            /* Automatically adjust collation if not supported by server */
+            if ($default_charset == 'utf8'
+                && strncmp('utf8mb4_', $collation_connection, 8) == 0
             ) {
-                $GLOBALS['collation_connection'] = 'utf8mb4_' . substr(
-                    $GLOBALS['collation_connection'],
-                    5
-                );
+                $collation_connection = 'utf8_' . substr($collation_connection, 8);
             }
             $result = $this->tryQuery(
                 "SET collation_connection = '"
-                . $this->escapeString($GLOBALS['collation_connection'], $link)
+                . $this->escapeString($collation_connection, $link)
                 . "';",
                 $link,
                 self::QUERY_STORE
@@ -1492,7 +1490,7 @@ class DatabaseInterface
                 );
                 $this->query(
                     "SET collation_connection = '"
-                    . $this->escapeString($GLOBALS['collation_connection'], $link)
+                    . $this->escapeString($collation_connection, $link)
                     . "';",
                     $link,
                     self::QUERY_STORE
