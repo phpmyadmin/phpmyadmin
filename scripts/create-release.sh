@@ -310,10 +310,6 @@ for kit in $KITS ; do
                     gzip -9c $name.tar > $name.tar.gz
                 fi
                 ;;
-            zip)
-                echo "* Creating $name.zip"
-                zip -q -9 -r $name.zip $name
-                ;;
             zip-7z)
                 echo "* Creating $name.zip"
                 7za a -bd -tzip $name.zip $name > /dev/null
