@@ -18,7 +18,7 @@ set -u
 set -e
 
 KITS="all-languages english"
-COMPRESSIONS="zip-7z tbz txz tgz 7z"
+COMPRESSIONS="zip-7z txz tgz 7z"
 
 # Process parameters
 
@@ -297,10 +297,6 @@ for kit in $KITS ; do
                     echo "* Creating $name.tar"
                     tar --owner=root --group=root --numeric-owner --sort=name -cf $name.tar $name
                 fi
-                if [ $comp = tbz ] ; then
-                    echo "* Creating $name.tar.bz2"
-                    bzip2 -9k $name.tar
-                fi
                 if [ $comp = txz ] ; then
                     echo "* Creating $name.tar.xz"
                     xz -9k $name.tar
@@ -337,7 +333,7 @@ git worktree prune
 
 # Signing of files with default GPG key
 echo "* Signing files"
-for file in *.gz *.zip *.xz *.bz2 *.7z ; do
+for file in *.gz *.zip *.xz *.7z ; do
     gpg --detach-sign --armor $file
     sha1sum $file > $file.sha1
     sha256sum $file > $file.sha256
@@ -350,7 +346,7 @@ echo ""
 echo "Files:"
 echo "------"
 
-ls -la *.gz *.zip *.xz *.bz2 *.7z
+ls -la *.gz *.zip *.xz *.7z
 
 cd ..
 
