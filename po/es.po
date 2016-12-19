@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.6-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-12-13 10:40+0100\n"
-"PO-Revision-Date: 2016-12-13 09:29+0000\n"
-"Last-Translator: Laura Arjona Reina <larjona@larjona.net>\n"
-"Language-Team: Spanish <https://hosted.weblate.org/projects/phpmyadmin/4-6/"
-"es/>\n"
+"PO-Revision-Date: 2016-12-19 03:03+0000\n"
+"Last-Translator: Franco <fulanodetal.github1@openaliasbox.org>\n"
+"Language-Team: Spanish "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-6/es/>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.10-dev\n"
+"X-Generator: Weblate 2.10\n"
 
 #: changelog.php:38 license.php:33
 #, php-format
@@ -3238,7 +3238,7 @@ msgstr "Mostrar histórico de consultas al iniciar"
 
 #: libraries/Console.php:367
 msgid "Show current browsing query"
-msgstr "Mostrar consulta actual"
+msgstr "Mostrar consulta de navegación actual"
 
 #: libraries/Console.php:370
 msgid ""
@@ -9458,7 +9458,7 @@ msgstr[1] "Se encontró %s resultado adicional"
 #: libraries/navigation/NavigationTree.php:1364
 #: libraries/navigation/NavigationTree.php:1401
 msgid "Type to filter these, Enter to search all"
-msgstr "Escribe para filtrar estos, «Intro» para buscar todo"
+msgstr "Escribe para filtrar estos, «Enter» para buscar todo"
 
 #: libraries/navigation/NavigationTree.php:1366
 #: libraries/navigation/NavigationTree.php:1402
@@ -14639,16 +14639,12 @@ msgstr ""
 "sin encriptar!"
 
 #: setup/frames/index.inc.php:77
-#, fuzzy
-#| msgid ""
-#| "If your server is also configured to accept HTTPS requests follow [a@"
-#| "%s]this link[/a] to use a secure connection."
 msgid ""
 "If your server is also configured to accept HTTPS requests follow this link "
 "to use a secure connection."
 msgstr ""
-"Si su servidor también está configurado para acepta solicitudes HTTPS siga "
-"[a@%s]este enlace[/a] para utilizar una conexión segura."
+"Si su servidor también está configurado para aceptar solicitudes HTTPS siga "
+"este enlace para utilizar una conexión segura."
 
 #: setup/frames/index.inc.php:81
 msgid "Insecure connection"
@@ -16458,12 +16454,6 @@ msgid "There are lots of rows being sorted."
 msgstr "Hay demasiadas filas siendo ordenadas."
 
 #: libraries/advisory_rules.txt:222
-#, fuzzy
-#| msgid ""
-#| "While there is nothing wrong with a high amount of row sorting, you might "
-#| "want to make sure that the queries which require a lot of sorting use "
-#| "indexed columns in the ORDER BY clause, as this will result in much "
-#| "faster sorting"
 msgid ""
 "While there is nothing wrong with a high amount of row sorting, you might "
 "want to make sure that the queries which require a lot of sorting use "
@@ -16473,7 +16463,7 @@ msgstr ""
 "Si bien no hay nada de malo en ordenar una gran cantidad de filas, es "
 "probable que desee asegurarse que las consultas que requieren gran cantidad "
 "de ordenación utilicen campos indexados en la cláusula «ORDER BY», lo que "
-"resultará en una ordenación más rápida"
+"resultará en una ordenación más rápida."
 
 #: libraries/advisory_rules.txt:223
 #, php-format
@@ -16489,18 +16479,13 @@ msgid "There are too many joins without indexes."
 msgstr "Hay demasiadas uniones («JOIN») sin índices."
 
 #: libraries/advisory_rules.txt:230
-#, fuzzy
-#| msgid ""
-#| "This means that joins are doing full table scans. Adding indexes for the "
-#| "columns being used in the join conditions will greatly speed up table "
-#| "joins"
 msgid ""
 "This means that joins are doing full table scans. Adding indexes for the "
 "columns being used in the join conditions will greatly speed up table joins."
 msgstr ""
 "Esto significa que las uniones («JOIN») están realizando escrutinios "
 "completos sobre tablas. Agregar índices a los campos utilizados en las "
-"condiciones de la unión las acelerarán en gran medida"
+"condiciones de la unión las acelerarán en gran medida."
 
 #: libraries/advisory_rules.txt:231
 #, php-format
@@ -16934,22 +16919,16 @@ msgid "Slow launch time"
 msgstr "Tiempo de inicio lento"
 
 #: libraries/advisory_rules.txt:368
-#, fuzzy
-#| msgid "Slow_launch_time is above 2s"
 msgid "Slow_launch_time is above 2s."
-msgstr "«Slow_launch_time» es mayor a 2s"
+msgstr "«Slow_launch_time» es mayor a 2s."
 
 #: libraries/advisory_rules.txt:369
-#, fuzzy
-#| msgid ""
-#| "Set {slow_launch_time} to 1s or 2s to correctly count threads that are "
-#| "slow to launch"
 msgid ""
 "Set {slow_launch_time} to 1s or 2s to correctly count threads that are slow "
 "to launch."
 msgstr ""
-"Configure {slow_launch_time} a 1 ó 2 segundos para contar correctamente los "
-"hilos que inician ejecución lentamente"
+"Configure {slow_launch_time} a 1 o 2 segundos para contar correctamente los "
+"hilos que inician ejecución lentamente."
 
 #: libraries/advisory_rules.txt:370
 #, php-format
