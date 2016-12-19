@@ -13,6 +13,7 @@ use PMA\libraries\Message;
 use PMA\libraries\plugins\AuthenticationPlugin;
 use PMA\libraries\Response;
 use PMA\libraries\Util;
+use PMA\libraries\Config;
 use ReCaptcha;
 
 require_once './libraries/session.lib.php';
@@ -227,9 +228,7 @@ class AuthenticationCookie extends AuthenticationPlugin
             echo '</div>';
         }
         echo '</div>';
-        if (@file_exists(CUSTOM_FOOTER_FILE)) {
-            include CUSTOM_FOOTER_FILE;
-        }
+        echo Config::renderFooter();
         if (! defined('TESTSUITE')) {
             exit;
         } else {

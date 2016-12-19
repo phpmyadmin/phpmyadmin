@@ -1692,6 +1692,48 @@ class Config
             )
         );
     }
+
+    /**
+     * Wrapper for footer/header rendering
+     *
+     * @param string $filename File to check and render
+     * @param string $id       Div ID
+     *
+     * @return string
+     */
+    private static function _renderCustom($filename, $id)
+    {
+        $retval = '';
+        if (file_exists($filename)) {
+            $retval .= '<div id="' . $id . '">';
+            ob_start();
+            include $filename;
+            $retval .= ob_get_contents();
+            ob_end_clean();
+            $retval .= '</div>';
+        }
+        return $retval;
+    }
+
+    /**
+     * Renders user configured footer
+     *
+     * @return string
+     */
+    public static function renderFooter()
+    {
+        return self::_renderCustom(CUSTOM_FOOTER_FILE, 'pma_footer');
+    }
+
+    /**
+     * Renders user configured footer
+     *
+     * @return string
+     */
+    public static function renderHeader()
+    {
+        return self::_renderCustom(CUSTOM_HEADER_FILE, 'pma_header');
+    }
 }
 
 if (!defined('TESTSUITE')) {
