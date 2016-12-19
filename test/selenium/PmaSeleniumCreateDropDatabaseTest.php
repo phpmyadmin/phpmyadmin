@@ -43,7 +43,7 @@ class PMA_SeleniumCreateDropDatabaseTest extends PMA_SeleniumBase
 
         $this->_dropDatabase();
 
-        $this->waitForElement('byLinkText', "Databases")->click();
+        $this->waitForElement('byPartialLinkText','Databases')->click();
         $this->waitForElementNotPresent('byCssSelector', 'div#loading_parent');
 
         $element = $this->waitForElement('byId', 'text_create_db');
@@ -52,9 +52,7 @@ class PMA_SeleniumCreateDropDatabaseTest extends PMA_SeleniumBase
 
         $this->byId("buttonGo")->click();
 
-        $element = $this->waitForElement(
-            "byCssSelector", "span.ajax_notification div.success"
-        );
+        $element = $this->waitForElement('byLinkText', 'Database: ' . $this->database_name);
 
         $this->_dropDatabase();
     }
@@ -68,7 +66,7 @@ class PMA_SeleniumCreateDropDatabaseTest extends PMA_SeleniumBase
     {
         $this->gotoHomepage();
 
-        $this->byLinkText("Databases")->click();
+        $this->byPartialLinkText('Databases')->click();
         $this->waitForElementNotPresent('byCssSelector', 'div#loading_parent');
 
         $this->byCssSelector(
