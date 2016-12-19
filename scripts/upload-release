@@ -35,32 +35,24 @@ put phpMyAdmin-$REL-all-languages.tar.gz
 put phpMyAdmin-$REL-english.tar.gz
 put phpMyAdmin-$REL-all-languages.zip
 put phpMyAdmin-$REL-english.zip
-put phpMyAdmin-$REL-all-languages.7z
-put phpMyAdmin-$REL-english.7z
 put phpMyAdmin-$REL-all-languages.tar.xz.asc
 put phpMyAdmin-$REL-english.tar.xz.asc
 put phpMyAdmin-$REL-all-languages.tar.gz.asc
 put phpMyAdmin-$REL-english.tar.gz.asc
 put phpMyAdmin-$REL-all-languages.zip.asc
 put phpMyAdmin-$REL-english.zip.asc
-put phpMyAdmin-$REL-all-languages.7z.asc
-put phpMyAdmin-$REL-english.7z.asc
 put phpMyAdmin-$REL-all-languages.tar.xz.sha256
 put phpMyAdmin-$REL-english.tar.xz.sha256
 put phpMyAdmin-$REL-all-languages.tar.gz.sha256
 put phpMyAdmin-$REL-english.tar.gz.sha256
 put phpMyAdmin-$REL-all-languages.zip.sha256
 put phpMyAdmin-$REL-english.zip.sha256
-put phpMyAdmin-$REL-all-languages.7z.sha256
-put phpMyAdmin-$REL-english.7z.sha256
 put phpMyAdmin-$REL-all-languages.tar.xz.sha1
 put phpMyAdmin-$REL-english.tar.xz.sha1
 put phpMyAdmin-$REL-all-languages.tar.gz.sha1
 put phpMyAdmin-$REL-english.tar.gz.sha1
 put phpMyAdmin-$REL-all-languages.zip.sha1
 put phpMyAdmin-$REL-english.zip.sha1
-put phpMyAdmin-$REL-all-languages.7z.sha1
-put phpMyAdmin-$REL-english.7z.sha1
 put phpMyAdmin-$REL-notes.html
 EOT
 

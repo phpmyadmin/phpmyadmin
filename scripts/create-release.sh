@@ -18,7 +18,7 @@ set -u
 set -e
 
 KITS="all-languages english"
-COMPRESSIONS="zip-7z txz tgz 7z"
+COMPRESSIONS="zip-7z txz tgz"
 
 # Process parameters
 
@@ -310,10 +310,6 @@ for kit in $KITS ; do
                 echo "* Creating $name.zip"
                 7za a -bd -tzip $name.zip $name > /dev/null
                 ;;
-            7z)
-                echo "* Creating $name.7z"
-                7za a -bd $name.7z $name > /dev/null
-                ;;
             *)
                 echo "WARNING: ignoring compression '$comp', not known!"
                 ;;
@@ -333,7 +329,7 @@ git worktree prune
 
 # Signing of files with default GPG key
 echo "* Signing files"
-for file in *.gz *.zip *.xz *.7z ; do
+for file in *.gz *.zip *.xz ; do
     gpg --detach-sign --armor $file
     sha1sum $file > $file.sha1
     sha256sum $file > $file.sha256
@@ -346,7 +342,7 @@ echo ""
 echo "Files:"
 echo "------"
 
-ls -la *.gz *.zip *.xz *.7z
+ls -la *.gz *.zip *.xz
 
 cd ..
 
