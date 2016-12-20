@@ -221,10 +221,10 @@ AJAX.registerOnload('db_structure.js', function () {
             var tr = $(this);
             var a = tr.find('a')[0];
             if (a) {
-            	if (a.text.trim().toUpperCase().indexOf(filter) > -1) {
-                	tr[0].style.display = "";
+                if (a.text.trim().toUpperCase().indexOf(filter) > -1) {
+                    tr[0].style.display = "";
                 } else {
-                	tr[0].style.display = "none";
+                    tr[0].style.display = "none";
                 }
             }
         });
