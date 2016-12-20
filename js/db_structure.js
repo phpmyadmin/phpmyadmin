@@ -215,13 +215,13 @@ AJAX.registerOnload('db_structure.js', function () {
 * 
 */
     $("#tableSearch").keyup(function() {
-        var filter = $(this).val().toUpperCase();
+        var filterInput = $(this).val().toUpperCase();
         var structureTable = $('#structureTable')[0];
         $('#structureTable tbody tr').each(function() {
             var tr = $(this);
             var a = tr.find('a')[0];
             if (a) {
-                if (a.text.trim().toUpperCase().indexOf(filter) > -1) {
+                if (a.text.trim().toUpperCase().indexOf(filterInput) > -1) {
                     tr[0].style.display = "";
                 } else {
                     tr[0].style.display = "none";
