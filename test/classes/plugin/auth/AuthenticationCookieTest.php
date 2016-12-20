@@ -1076,6 +1076,17 @@ class AuthenticationCookieTest extends PMATestCase
     }
 
     /**
+     * Test for PMA\libraries\plugins\auth\AuthenticationConfig::cookieEncrypt
+     *
+     * @return void
+     */
+    public function testCookieEncryptPHPSecLib()
+    {
+        $this->object->setUseOpenSSL(false);
+        $this->testCookieEncrypt();
+    }
+
+    /**
      * Test for PMA\libraries\plugins\auth\AuthenticationConfig::cookieDecrypt
      *
      * @return void
@@ -1090,6 +1101,17 @@ class AuthenticationCookieTest extends PMATestCase
                 'sec321'
             )
         );
+    }
+
+    /**
+     * Test for PMA\libraries\plugins\auth\AuthenticationConfig::cookieDecrypt
+     *
+     * @return void
+     */
+    public function testCookieDecryptPHPSecLib()
+    {
+        $this->object->setUseOpenSSL(false);
+        $this->testCookieDecrypt();
     }
 
     /**
