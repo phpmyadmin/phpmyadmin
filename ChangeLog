@@ -24,6 +24,7 @@ phpMyAdmin - ChangeLog
 - issue #12813 Fixed stored procedure execution
 - issue #12826 Honor user configured connection collation
 - issue #12293 Correctly report OpenSSL errors from cookie encryption
+- issue #12814 DateTime won't allow to input length in Routine editor
 
 4.6.5.2 (2016-12-05)
 - issue #12765 Fixed SQL export with newlines
