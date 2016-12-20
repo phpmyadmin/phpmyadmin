@@ -41,6 +41,35 @@ class AuthenticationCookie extends AuthenticationPlugin
     private $_cookie_iv = null;
 
     /**
+     * Whether to use OpenSSL directly
+     */
+    private $_use_openssl;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->_use_openssl = (
+            function_exists('openssl_encrypt')
+            && function_exists('openssl_decrypt')
+            && function_exists('openssl_random_pseudo_bytes')
+        );
+    }
+
+    /**
+     * Forces (not)using of openSSL
+     *
+     * @param boolean $use The flag
+     *
+     * @return void
+     */
+    public function setUseOpenSSL($use)
+    {
+        $this->_use_openssl = $use;
+    }
+
+    /**
      * Displays authentication form
      *
      * this function MUST exit/quit the application
@@ -621,27 +650,13 @@ class AuthenticationCookie extends AuthenticationPlugin
     private function _getSessionEncryptionSecret()
     {
         if (empty($_SESSION['encryption_key'])) {
-            if (self::useOpenSSL()) {
+            if ($this->_use_openssl) {
                 $_SESSION['encryption_key'] = openssl_random_pseudo_bytes(32);
             } else {
                 $_SESSION['encryption_key'] = Crypt\Random::string(32);
             }
         }
         return $_SESSION['encryption_key'];
-    }
-
-    /**
-     * Checks whether we should use openssl for encryption.
-     *
-     * @return boolean
-     */
-    public static function useOpenSSL()
-    {
-        return (
-            function_exists('openssl_encrypt')
-            && function_exists('openssl_decrypt')
-            && function_exists('openssl_random_pseudo_bytes')
-        );
     }
 
     /**
@@ -716,7 +731,7 @@ class AuthenticationCookie extends AuthenticationPlugin
         $mac_secret = $this->getMACSecret($secret);
         $aes_secret = $this->getAESSecret($secret);
         $iv = $this->createIV();
-        if (self::useOpenSSL()) {
+        if ($this->_use_openssl) {
             $result = openssl_encrypt(
                 $data,
                 'AES-128-CBC',
@@ -767,7 +782,7 @@ class AuthenticationCookie extends AuthenticationPlugin
             return false;
         }
 
-        if (self::useOpenSSL()) {
+        if ($this->_use_openssl) {
             return openssl_decrypt(
                 $data['payload'],
                 'AES-128-CBC',
@@ -790,7 +805,7 @@ class AuthenticationCookie extends AuthenticationPlugin
      */
     public function getIVSize()
     {
-        if (self::useOpenSSL()) {
+        if ($this->_use_openssl) {
             return openssl_cipher_iv_length('AES-128-CBC');
         }
         $cipher = new Crypt\AES(Crypt\Base::MODE_CBC);
@@ -811,7 +826,7 @@ class AuthenticationCookie extends AuthenticationPlugin
         if (! is_null($this->_cookie_iv)) {
             return $this->_cookie_iv;
         }
-        if (self::useOpenSSL()) {
+        if ($this->_use_openssl) {
             return openssl_random_pseudo_bytes(
                 $this->getIVSize()
             );
