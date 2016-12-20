@@ -1070,6 +1070,31 @@ class AuthenticationCookieTest extends PMATestCase
     }
 
     /**
+     * Test for PMA\libraries\plugins\auth\AuthenticationConfig::cookieEncrypt
+     *
+     * @return void
+     */
+    public function testCookieEncryptPHPSecLib()
+    {
+        $this->object->setUseOpenSSL(false);
+        $this->testCookieEncrypt();
+    }
+
+    /**
+     * Test for PMA\libraries\plugins\auth\AuthenticationConfig::cookieEncrypt
+     *
+     * @return void
+     */
+    public function testCookieEncryptOpenSSL()
+    {
+        if (! function_exists('openssl_encrypt')) {
+            $this->markTestSkipped('openssl not available');
+        }
+        $this->object->setUseOpenSSL(true);
+        $this->testCookieEncrypt();
+    }
+
+    /**
      * Test for PMA\libraries\plugins\auth\AuthenticationConfig::cookieDecrypt
      *
      * @return void
@@ -1084,6 +1109,31 @@ class AuthenticationCookieTest extends PMATestCase
                 'sec321'
             )
         );
+    }
+
+    /**
+     * Test for PMA\libraries\plugins\auth\AuthenticationConfig::cookieDecrypt
+     *
+     * @return void
+     */
+    public function testCookieDecryptPHPSecLib()
+    {
+        $this->object->setUseOpenSSL(false);
+        $this->testCookieDecrypt();
+    }
+
+    /**
+     * Test for PMA\libraries\plugins\auth\AuthenticationConfig::cookieDecrypt
+     *
+     * @return void
+     */
+    public function testCookieDecryptOpenSSL()
+    {
+        if (! function_exists('openssl_encrypt')) {
+            $this->markTestSkipped('openssl not available');
+        }
+        $this->object->setUseOpenSSL(true);
+        $this->testCookieDecrypt();
     }
 
     /**
