@@ -718,6 +718,18 @@ class AuthenticationCookie extends AuthenticationPlugin
     }
 
     /**
+     * Reports any SSL errors
+     *
+     * @return void
+     */
+    public function reportSSLErrors()
+    {
+        while (($ssl_err = openssl_error_string()) !== false) {
+            trigger_error('OpenSSL error: ' . $ssl_err, E_USER_ERROR);
+        }
+    }
+
+    /**
      * Encryption using openssl's AES or phpseclib's AES
      * (phpseclib uses mcrypt when it is available)
      *
@@ -739,6 +751,7 @@ class AuthenticationCookie extends AuthenticationPlugin
                 0,
                 $iv
             );
+            $this->reportSSLErrors();
         } else {
             $cipher = new Crypt\AES(Crypt\Base::MODE_CBC);
             $cipher->setIV($iv);
@@ -783,13 +796,15 @@ class AuthenticationCookie extends AuthenticationPlugin
         }
 
         if ($this->_use_openssl) {
-            return openssl_decrypt(
+            $result = openssl_decrypt(
                 $data['payload'],
                 'AES-128-CBC',
                 $secret,
                 0,
                 base64_decode($data['iv'])
             );
+            $this->reportSSLErrors();
+            return $result;
         } else {
             $cipher = new Crypt\AES(Crypt\Base::MODE_CBC);
             $cipher->setIV(base64_decode($data['iv']));
