@@ -747,7 +747,7 @@ class AuthenticationCookie extends AuthenticationPlugin
             $result = openssl_encrypt(
                 $data,
                 'AES-128-CBC',
-                $secret,
+                $aes_secret,
                 0,
                 $iv
             );
@@ -799,7 +799,7 @@ class AuthenticationCookie extends AuthenticationPlugin
             $result = openssl_decrypt(
                 $data['payload'],
                 'AES-128-CBC',
-                $secret,
+                $aes_secret,
                 0,
                 base64_decode($data['iv'])
             );
