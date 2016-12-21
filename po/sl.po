@@ -4,17 +4,17 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.6-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-12-13 10:40+0100\n"
-"PO-Revision-Date: 2016-11-10 15:08+0000\n"
+"PO-Revision-Date: 2016-12-14 09:30+0000\n"
 "Last-Translator: Domen <mitenem@outlook.com>\n"
-"Language-Team: Slovenian <https://hosted.weblate.org/projects/phpmyadmin/4-6/"
-"sl/>\n"
+"Language-Team: Slovenian "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-6/sl/>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
-"%100==4 ? 2 : 3;\n"
-"X-Generator: Weblate 2.9\n"
+"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
+"n%100==4 ? 2 : 3;\n"
+"X-Generator: Weblate 2.10-dev\n"
 
 #: changelog.php:38 license.php:33
 #, php-format
@@ -13749,16 +13749,12 @@ msgid "Unexpected end of CASE expression"
 msgstr "Nepričakovan konec izraza CASE"
 
 #: libraries/sql-parser/src/Components/CreateDefinition.php:227
-#, fuzzy
-#| msgid ""
-#| "A symbol name was expected! A reserved keyword can not be used as a field "
-#| "name without backquotes."
 msgid ""
 "A symbol name was expected! A reserved keyword can not be used as a column "
 "name without backquotes."
 msgstr ""
 "Pričakovali smo ime simbola! Rezervirane besede ne morete uporabiti kot ime "
-"polja brez ustreznih narekovajev."
+"stolpca brez ustreznih narekovajev."
 
 #: libraries/sql-parser/src/Components/CreateDefinition.php:241
 msgid "A symbol name was expected!"
@@ -13878,10 +13874,8 @@ msgid "Unrecognized keyword."
 msgstr "Nepričakovana ključna beseda."
 
 #: libraries/sql-parser/src/Statement.php:495
-#, fuzzy
-#| msgid "Unexpected beginning of statement."
 msgid "Unexpected ordering of clauses."
-msgstr "Nepričakovan začetek stavka."
+msgstr "Nepričakovan vrstni red stavkov."
 
 #: libraries/sql-parser/src/Statements/CreateStatement.php:381
 msgid "The name of the entity was expected."
@@ -14429,16 +14423,12 @@ msgstr ""
 "občutljivimi informacijami, kot so gesla) se prenašajo nešifrirani!"
 
 #: setup/frames/index.inc.php:77
-#, fuzzy
-#| msgid ""
-#| "If your server is also configured to accept HTTPS requests follow [a@"
-#| "%s]this link[/a] to use a secure connection."
 msgid ""
 "If your server is also configured to accept HTTPS requests follow this link "
 "to use a secure connection."
 msgstr ""
-"Če je vaš strežnik nastavljen za sprejemanje zahtev HTTPS, sledite [a@%s]tej "
-"povezavi[/a] za uporabo varne povezave."
+"Če je vaš strežnik nastavljen za sprejemanje zahtev HTTPS, sledite tej "
+"povezavi za uporabo varne povezave."
 
 #: setup/frames/index.inc.php:81
 msgid "Insecure connection"

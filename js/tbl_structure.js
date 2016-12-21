@@ -354,7 +354,7 @@ AJAX.registerOnload('tbl_structure.js', function () {
                     for (var i in data.columns) {
                         var the_column = data.columns[i];
                         var $the_row = $rows
-                            .find("input:checkbox[value=" + the_column + "]")
+                            .find("input:checkbox[value='" + the_column + "']")
                             .closest("tr");
                         // append the row for this column to the table
                         $fields_table.append($the_row);

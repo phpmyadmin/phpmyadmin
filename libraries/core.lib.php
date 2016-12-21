@@ -206,13 +206,10 @@ function PMA_securePath($path)
  *
  * @param string       $error_message  the error message or named error message
  * @param string|array $message_args   arguments applied to $error_message
- * @param boolean      $delete_session whether to delete session cookie
  *
  * @return void
  */
-function PMA_fatalError(
-    $error_message, $message_args = null, $delete_session = true
-) {
+function PMA_fatalError($error_message, $message_args = null) {
     /* Use format string if applicable */
     if (is_string($message_args)) {
         $error_message = sprintf($error_message, $message_args);
@@ -248,14 +245,6 @@ function PMA_fatalError(
         }
         $lang = isset($GLOBALS['lang']) ? $GLOBALS['lang'] : 'en';
         $dir = isset($GLOBALS['text_dir']) ? $GLOBALS['text_dir'] : 'ltr';
-
-        // on fatal errors it cannot hurt to always delete the current session
-        if ($delete_session
-            && isset($GLOBALS['session_name'])
-            && isset($_COOKIE[$GLOBALS['session_name']])
-        ) {
-            $GLOBALS['PMA_Config']->removeCookie($GLOBALS['session_name']);
-        }
 
         // Displays the error message
         include './libraries/error.inc.php';
