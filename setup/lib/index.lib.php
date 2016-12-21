@@ -181,28 +181,3 @@ function PMA_versionCheck()
         }
     }
 }
-
-/**
- * Checks whether config file is readable/writable
- *
- * @param bool &$is_readable whether the file is readable
- * @param bool &$is_writable whether the file is writable
- * @param bool &$file_exists whether the file exists
- *
- * @return void
- */
-function PMA_checkConfigRw(&$is_readable, &$is_writable, &$file_exists)
-{
-    $file_path = $GLOBALS['ConfigFile']->getFilePath();
-    $file_dir = dirname($file_path);
-    $is_readable = true;
-    $is_writable = @is_dir($file_dir);
-    if (SETUP_DIR_WRITABLE) {
-        $is_writable = $is_writable && @is_writable($file_dir);
-    }
-    $file_exists = file_exists($file_path);
-    if ($file_exists) {
-        $is_readable = is_readable($file_path);
-        $is_writable = $is_writable && @is_writable($file_path);
-    }
-}

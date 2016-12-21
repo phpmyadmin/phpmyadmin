@@ -578,17 +578,6 @@ class ConfigFileTest extends PMATestCase
     }
 
     /**
-     * Test for ConfigFile::getFilePath
-     *
-     * @return void
-     * @test
-     */
-    public function testGetFilePath()
-    {
-        $this->assertNotEmpty($this->object->getFilePath());
-    }
-
-    /**
      * Test for ConfigFile::getConfigArray
      *
      * @return void
