@@ -62,8 +62,8 @@ class TableChartController extends TableController
      */
     public function indexAction()
     {
-        $request = Request::getInstance();
-        if ($request->isAjax()
+        $response = Response::getInstance();
+        if ($response->isAjax()
             && isset($_REQUEST['pos'])
             && isset($_REQUEST['session_max_rows'])
         ) {
