@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-12-13 10:41+0100\n"
-"PO-Revision-Date: 2016-12-14 19:32+0000\n"
+"PO-Revision-Date: 2016-11-10 18:12+0000\n"
 "Last-Translator: dingo thirteen <dingo13@gmail.com>\n"
-"Language-Team: Dutch "
-"<https://hosted.weblate.org/projects/phpmyadmin/master/nl/>\n"
+"Language-Team: Dutch <https://hosted.weblate.org/projects/phpmyadmin/master/"
+"nl/>\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.10-dev\n"
+"X-Generator: Weblate 2.9\n"
 
 #: changelog.php:39 license.php:34
 #, php-format
@@ -2610,23 +2610,23 @@ msgstr "Vervang tabel met voorvoegsel"
 
 #: js/messages.php:732
 msgid "Extremely weak"
-msgstr "Extreem zwak"
+msgstr ""
 
 #: js/messages.php:733
 msgid "Very weak"
-msgstr "Erg zwak"
+msgstr ""
 
 #: js/messages.php:734
 msgid "Weak"
-msgstr "Zwak"
+msgstr ""
 
 #: js/messages.php:735
 msgid "Good"
-msgstr "Goed"
+msgstr ""
 
 #: js/messages.php:736
 msgid "Strong"
-msgstr "Sterk"
+msgstr ""
 
 #: js/messages.php:765
 msgctxt "Previous month"
@@ -8270,7 +8270,7 @@ msgstr "Wachtwoord:"
 
 #: libraries/display_change_password.lib.php:68
 msgid "Enter:"
-msgstr "Ingave:"
+msgstr ""
 
 #: libraries/display_change_password.lib.php:75
 #: libraries/replication_gui.lib.php:865
@@ -14230,12 +14230,16 @@ msgstr ""
 "verzonden!"
 
 #: setup/frames/index.inc.php:78
+#, fuzzy
+#| msgid ""
+#| "If your server is also configured to accept HTTPS requests follow [a@"
+#| "%s]this link[/a] to use a secure connection."
 msgid ""
 "If your server is also configured to accept HTTPS requests follow this link "
 "to use a secure connection."
 msgstr ""
 "Indien uw server ook is ingesteld om HTTPS-verbindingen te ondersteunen, "
-"gebruik dan deze link om de beveiligde verbinding te gebruiken."
+"gebruik dan [a@%s]deze link[/a] om de beveiligde verbinding te gebruiken."
 
 #: setup/frames/index.inc.php:82
 msgid "Insecure connection"
@@ -15099,8 +15103,10 @@ msgstr ""
 "gebruiken in de huidige sessie?"
 
 #: templates/prefs_autoload.phtml:14
+#, fuzzy
+#| msgid "Delete tracking"
 msgid "Delete settings "
-msgstr "Verwijder instellingen "
+msgstr "Verwijder tracking"
 
 #: templates/privileges/add_privileges_database.phtml:2
 msgid "Add privileges on the following database(s):"
@@ -15742,12 +15748,16 @@ msgid "Unexpected end of CASE expression"
 msgstr "Onverwacht einde van CASE expressie"
 
 #: vendor/phpmyadmin/sql-parser/src/Components/CreateDefinition.php:227
+#, fuzzy
+#| msgid ""
+#| "A symbol name was expected! A reserved keyword can not be used as a field "
+#| "name without backquotes."
 msgid ""
 "A symbol name was expected! A reserved keyword can not be used as a column "
 "name without backquotes."
 msgstr ""
 "Een symbool naam werd verwacht! Een gereserveerd sleutelwoord kan niet als "
-"kolomnaam gebruikt worden zonder achterwaartse aanhalingstekens."
+"veldnaam gebruikt worden zonder achterwaartse aanhalingstekens."
 
 #: vendor/phpmyadmin/sql-parser/src/Components/CreateDefinition.php:241
 msgid "A symbol name was expected!"
@@ -15867,8 +15877,10 @@ msgid "Unrecognized keyword."
 msgstr "Sleutelwoord niet herkent."
 
 #: vendor/phpmyadmin/sql-parser/src/Statement.php:495
+#, fuzzy
+#| msgid "Unexpected beginning of statement."
 msgid "Unexpected ordering of clauses."
-msgstr "Onverwachte volgorde van voorwaarden."
+msgstr "Onverwacht begin van opdracht."
 
 #: vendor/phpmyadmin/sql-parser/src/Statements/CreateStatement.php:381
 msgid "The name of the entity was expected."

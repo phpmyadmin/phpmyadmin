@@ -364,10 +364,6 @@ class DatabaseStructureController extends DatabaseController
      */
     protected function displayTableList()
     {
-        // filtering
-        $this->response->addHTML(
-            Template::get('filter')->render(array('filterValue'=>''))
-        );
         // table form
         $this->response->addHTML(
             Template::get('database/structure/table_header')

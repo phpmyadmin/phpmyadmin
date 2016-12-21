@@ -30,13 +30,12 @@ class Navigation
     {
         /* Init */
         $retval = '';
-        $response = Response::getInstance();
-        if (! $response->isAjax()) {
+        if (!Response::getInstance()->isAjax()) {
             $header = new NavigationHeader();
             $retval = $header->getDisplay();
         }
         $tree = new NavigationTree();
-        if (! $response->isAjax()
+        if (! Response::getInstance()->isAjax()
             || ! empty($_REQUEST['full'])
             || ! empty($_REQUEST['reload'])
         ) {
@@ -58,7 +57,7 @@ class Navigation
             $retval .= $navRender;
         }
 
-        if (! $response->isAjax()) {
+        if (! Response::getInstance()->isAjax()) {
             // closes the tags that were opened by the navigation header
             $retval .= '</div>'; // pma_navigation_tree
             $retval .= '<div id="pma_navi_settings_container">';

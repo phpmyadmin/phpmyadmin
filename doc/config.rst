@@ -2411,7 +2411,7 @@ Languages
 .. config:option:: $cfg['DefaultConnectionCollation']
 
     :type: string
-    :default: ``'utf8mb4_general_ci'``
+    :default: ``'utf8_general_ci'``
 
     Defines the default connection collation to use, if not user-defined.
     See the `MySQL documentation for charsets

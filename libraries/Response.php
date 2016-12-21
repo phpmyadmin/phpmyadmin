@@ -89,7 +89,7 @@ class Response
         if (! defined('TESTSUITE')) {
             $buffer = OutputBuffering::getInstance();
             $buffer->start();
-            register_shutdown_function(array($this, 'response'));
+            register_shutdown_function(array('PMA\libraries\Response', 'response'));
         }
         $this->_header = new Header();
         $this->_HTML   = '';
@@ -97,8 +97,13 @@ class Response
         $this->_footer = new Footer();
 
         $this->_isSuccess  = true;
+        $this->_isAjax     = false;
         $this->_isDisabled = false;
-        $this->setAjax(! empty($_REQUEST['ajax_request']));
+        if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
+            $this->_isAjax = true;
+        }
+        $this->_header->setAjax($this->_isAjax);
+        $this->_footer->setAjax($this->_isAjax);
         $this->_CWD = getcwd();
     }
 
@@ -417,19 +422,21 @@ class Response
     /**
      * Sends an HTML response to the browser
      *
+     * @static
      * @return void
      */
-    public function response()
+    public static function response()
     {
-        chdir($this->getCWD());
+        $response = Response::getInstance();
+        chdir($response->getCWD());
         $buffer = OutputBuffering::getInstance();
-        if (empty($this->_HTML)) {
-            $this->_HTML = $buffer->getContents();
+        if (empty($response->_HTML)) {
+            $response->_HTML = $buffer->getContents();
         }
-        if ($this->isAjax()) {
-            $this->_ajaxResponse();
+        if ($response->isAjax()) {
+            $response->_ajaxResponse();
         } else {
-            $this->_htmlResponse();
+            $response->_htmlResponse();
         }
         $buffer->flush();
         exit;

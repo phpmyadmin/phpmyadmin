@@ -31,7 +31,7 @@ function checkAddUser(the_form)
     return PMA_checkPassword($(the_form));
 } // end of the 'checkAddUser()' function
 
-function checkPasswordStrength(value, meter_obj, meter_object_label, username) {
+function checkPasswordStrength(value, meter_obj, meter_object_label, username = null) {
     // List of words we don't want to appear in the password
     customDict = [
         'phpmyadmin',

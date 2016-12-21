@@ -10,7 +10,6 @@ namespace PMA\libraries;
 use Traversable;
 use PMA\libraries\URL;
 use PMA\libraries\Sanitize;
-use PMA\libraries\Config;
 
 /**
  * Class used to output the footer
@@ -349,8 +348,15 @@ class Footer
                     $retval .= $this->_getDemoMessage();
                     $retval .= '</div>';
                 }
-
-                $retval .= Config::renderFooter();
+                // Include possible custom footers
+                if (file_exists(CUSTOM_FOOTER_FILE)) {
+                    $retval .= '<div id="pma_footer">';
+                    ob_start();
+                    include CUSTOM_FOOTER_FILE;
+                    $retval .= ob_get_contents();
+                    ob_end_clean();
+                    $retval .= '</div>';
+                }
             }
             if (! $this->_isAjax) {
                 $retval .= "</body></html>";
