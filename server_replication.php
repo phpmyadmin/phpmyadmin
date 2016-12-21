@@ -69,7 +69,10 @@ foreach ($request_params as $one_request_param) {
  */
 if (isset($GLOBALS['sr_take_action'])) {
     $refresh = false;
-    if (isset($GLOBALS['slave_changemaster'])) {
+    if (isset($GLOBALS['slave_changemaster']) && ! $GLOBALS['cfg']['AllowArbitraryServer']) {
+        $_SESSION['replication']['sr_action_status'] = 'error';
+        $_SESSION['replication']['sr_action_info'] = __('Connection to server is disabled, please enable $cfg[\'AllowArbitraryServer\'] in phpMyAdmin configuration.');
+    } elseif (isset($GLOBALS['slave_changemaster'])) {
         $_SESSION['replication']['m_username'] = $sr['username'] = PMA_Util::sqlAddSlashes($GLOBALS['username']);
         $_SESSION['replication']['m_password'] = $sr['pma_pw']   = PMA_Util::sqlAddSlashes($GLOBALS['pma_pw']);
         $_SESSION['replication']['m_hostname'] = $sr['hostname'] = PMA_Util::sqlAddSlashes($GLOBALS['hostname']);
