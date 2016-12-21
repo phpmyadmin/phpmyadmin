@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-12-21 17:06+0100\n"
-"PO-Revision-Date: 2016-12-21 16:04+0000\n"
+"PO-Revision-Date: 2016-12-21 16:16+0000\n"
 "Last-Translator: Daniel Miloca <danielmiloca@gmail.com>\n"
-"Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
-"phpmyadmin/master/pt_BR/>\n"
+"Language-Team: Portuguese (Brazil) "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/pt_BR/>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -919,16 +919,16 @@ msgid ""
 "Do you really want to DROP the selected partition(s)? This will also DELETE "
 "the data related to the selected partition(s)!"
 msgstr ""
-"Você realmente quer APAGAR a(s) partição(ões) seleciona(s)? Isso também irá "
-"DELETAR os dados relacionados com a(s) partição(ões) seleciona(s)!"
+"Você realmente quer APAGAR a(s) partição(ões) selecionada(s)? Isso também "
+"irá DELETAR os dados relacionados com a(s) partição(ões) selecionada(s)!"
 
 #: js/messages.php:83
 msgid "Do you really want to TRUNCATE the selected partition(s)?"
-msgstr "Você realmente deseja LIMPAR a(s) partição(ões) seleciona(s)?"
+msgstr "Você realmente deseja LIMPAR a(s) partição(ões) selecionada(s)?"
 
 #: js/messages.php:85
 msgid "Do you really want to remove partitioning?"
-msgstr "Você realmente deseja remover a(s) partição(ões) seleciona(s)?"
+msgstr "Você realmente deseja remover a(s) partição(ões) selecionada(s)?"
 
 #: js/messages.php:86
 msgid "Do you really want to RESET SLAVE?"
@@ -2187,15 +2187,11 @@ msgstr ""
 "desejar insira-os diretamente"
 
 #: js/messages.php:534
-#, fuzzy
-#| msgid ""
-#| "MySQL accepts additional values not selectable by the slider; key in "
-#| "those values directly if desired"
 msgid ""
 "MySQL accepts additional values not selectable by the datepicker; key in "
 "those values directly if desired"
 msgstr ""
-"MySQL aceita valores que não seria possível seleciona-los com a barra; se o "
+"MySQL aceita valores adicionais não selecionáveis pela caixa de seleção; se "
 "desejar insira-os diretamente"
 
 #: js/messages.php:540
@@ -2618,23 +2614,23 @@ msgstr "Copiar tabelas com prefixo"
 
 #: js/messages.php:732
 msgid "Extremely weak"
-msgstr ""
+msgstr "Extremamente fraco"
 
 #: js/messages.php:733
 msgid "Very weak"
-msgstr ""
+msgstr "Muito fraco"
 
 #: js/messages.php:734
 msgid "Weak"
-msgstr ""
+msgstr "Fraco"
 
 #: js/messages.php:735
 msgid "Good"
-msgstr ""
+msgstr "Bom"
 
 #: js/messages.php:736
 msgid "Strong"
-msgstr ""
+msgstr "Forte"
 
 #: js/messages.php:765
 msgctxt "Previous month"
@@ -6860,6 +6856,7 @@ msgstr "Onde mostrar os links de linha de tabela"
 #: libraries/config/messages.inc.php:549
 msgid "Whether to show row links even in the absence of a unique key."
 msgstr ""
+"Se os links de linha devem ser mostrados mesmo na ausência de chave única."
 
 #: libraries/config/messages.inc.php:551
 msgid "Show row links anyway"
