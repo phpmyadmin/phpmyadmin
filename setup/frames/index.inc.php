@@ -40,19 +40,6 @@ if (isset($_GET['version_check'])) {
 perform_config_checks();
 
 //
-// Check whether we can read/write configuration
-//
-$config_readable = false;
-$config_writable = false;
-$config_exists = false;
-check_config_rw($config_readable, $config_writable, $config_exists);
-if (!$config_writable || !$config_readable) {
-    messages_set(
-        'error', 'config_rw', __('Cannot load or save configuration'),
-        PMA_lang(__('Please create web server writable folder [em]config[/em] in phpMyAdmin top level directory as described in [doc@setup_script]documentation[/doc]. Otherwise you will be only able to download or display it.'))
-    );
-}
-//
 // Check https connection
 //
 $is_https = !empty($_SERVER['HTTPS']) && strtolower($_SERVER['HTTPS']) == 'on';
@@ -259,20 +246,6 @@ PMA_displayInput(
     <td colspan="2" class="lastrow" style="text-align: left">
         <input type="submit" name="submit_display" value="<?php echo __('Display') ?>" />
         <input type="submit" name="submit_download" value="<?php echo __('Download') ?>" />
-        &nbsp; &nbsp;
-        <input type="submit" name="submit_save" value="<?php echo __('Save') ?>"<?php
-if (!$config_writable) {
-    echo ' disabled="disabled"';
-} ?> />
-        <input type="submit" name="submit_load" value="<?php echo __('Load') ?>"<?php
-if (!$config_exists) {
-    echo ' disabled="disabled"';
-} ?> />
-        <input type="submit" name="submit_delete" value="<?php echo __('Delete')
-        ?>"<?php
-if (!$config_exists || !$config_writable) {
-    echo ' disabled="disabled"';
-} ?> />
         &nbsp; &nbsp;
         <input type="submit" name="submit_clear" value="<?php echo __('Clear')
         ?>" class="red" />

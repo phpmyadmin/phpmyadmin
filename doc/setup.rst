@@ -92,51 +92,14 @@ For a full explanation of possible configuration values, see the
 Using Setup script
 ------------------
 
-Instead of manually editing :file:`config.inc.php`, you can use the `Setup
-Script <setup/>`_. First you must manually create a folder ``config``
-in the phpMyAdmin directory. This is a security measure. On a
-Linux/Unix system you can use the following commands:
+Instead of manually editing :file:`config.inc.php`, you can use phpMyAdmin's 
+setup feature. The file can be generated using the setup and you can download it 
+for upload to the server.
 
-.. code-block:: sh
-
-    
-    cd phpMyAdmin
-    mkdir config                        # create directory for saving
-    chmod o+rw config                   # give it world writable permissions
-
-And to edit an existing configuration, copy it over first:
-
-.. code-block:: sh
-
-    
-    cp config.inc.php config/           # copy current configuration for editing
-    chmod o+w config/config.inc.php     # give it world writable permissions
-
-On other platforms, simply create the folder and ensure that your web
-server has read and write access to it. :ref:`faq1_26` can help with
-this.
-
-Next, open ``setup/`` in your browser. If you have an existing configuration,
-use the ``Load`` button to bring its content inside the setup panel.
-Note that **changes are not saved to disk until explicitly choose ``Save``**
-from the *Configuration* area of the screen. Normally the script saves the new
-:file:`config.inc.php` to the ``config/`` directory, but if the webserver does
-not have the proper permissions you may see the error "Cannot load or
-save configuration." Ensure that the ``config/`` directory exists and
-has the proper permissions - or use the ``Download`` link to save the
-config file locally and upload it (via FTP or some similar means) to the
-proper location.
-
-Once the file has been saved, it must be moved out of the ``config/``
-directory and the permissions must be reset, again as a security
-measure:
-
-.. code-block:: sh
-
-    
-    mv config/config.inc.php .         # move file to current directory
-    chmod o-rw config.inc.php          # remove world read and write permissions
-    rm -rf config                      # remove not needed directory
+Next, open your browser and visit the location where you installed phpMyAdmin,
+with the ``/setup`` suffix. The changes are not saved to the server, you need to 
+use the :guilabel:`Download` button to save them to your computer and then upload 
+to the server.
 
 Now the file is ready to be used. You can choose to review or edit the
 file with your favorite editor, if you prefer to set some advanced
