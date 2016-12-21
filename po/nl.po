@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-12-13 10:41+0100\n"
-"PO-Revision-Date: 2016-12-14 19:32+0000\n"
+"PO-Revision-Date: 2016-12-21 15:11+0000\n"
 "Last-Translator: dingo thirteen <dingo13@gmail.com>\n"
 "Language-Team: Dutch "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/nl/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.10-dev\n"
+"X-Generator: Weblate 2.10\n"
 
 #: changelog.php:39 license.php:34
 #, php-format
@@ -15751,7 +15751,7 @@ msgstr ""
 
 #: vendor/phpmyadmin/sql-parser/src/Components/CreateDefinition.php:241
 msgid "A symbol name was expected!"
-msgstr "Naam van een symbool werd verwacht!"
+msgstr "Een symbool naam werd verwacht!"
 
 #: vendor/phpmyadmin/sql-parser/src/Components/CreateDefinition.php:273
 msgid "A comma or a closing bracket was expected."
@@ -15876,7 +15876,7 @@ msgstr "De naam van de entiteit werd verwacht."
 
 #: vendor/phpmyadmin/sql-parser/src/Statements/CreateStatement.php:436
 msgid "A table name was expected."
-msgstr "Een tabelnaam  werd verwacht."
+msgstr "Een tabel naam  werd verwacht."
 
 #: vendor/phpmyadmin/sql-parser/src/Statements/CreateStatement.php:444
 msgid "At least one column definition was expected."
@@ -15888,7 +15888,7 @@ msgstr "Een \"RETURNS\" sleutelwoord werd verwacht."
 
 #: vendor/phpmyadmin/sql-parser/src/Statements/DeleteStatement.php:303
 msgid "This type of clause is not valid in Multi-table queries."
-msgstr "Dit type van voorwaarde is niet geldig in een Multi-tabel query."
+msgstr "Dit type van voorwaarde is niet bruikbaar in multi-tabel queries."
 
 #: vendor/phpmyadmin/sql-parser/tests/Lexer/LexerTest.php:21
 #: vendor/phpmyadmin/sql-parser/tests/Parser/ParserTest.php:58
