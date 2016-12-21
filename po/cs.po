@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-12-13 10:41+0100\n"
-"PO-Revision-Date: 2016-12-13 10:10+0000\n"
+"PO-Revision-Date: 2016-12-21 16:04+0000\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Czech "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/cs/>\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Weblate 2.10-dev\n"
+"X-Generator: Weblate 2.10\n"
 
 #: changelog.php:39 license.php:34
 #, php-format
@@ -2935,8 +2935,8 @@ msgstr "Selhalo formátování textu pro pravidlo „%s“."
 #, php-format
 msgid "Error in reading file: The file '%s' does not exist or is not readable!"
 msgstr ""
-"Chyba při čtení souboru: Soubor '%s' neexistuje, nebo se jej nepodařilo "
-"přečíst"
+"Chyba při čtení souboru: Soubor „%s“ neexistuje, nebo se jej nepodařilo "
+"přečíst!"
 
 #: libraries/Advisor.php:494
 #, php-format
@@ -15765,7 +15765,7 @@ msgstr ""
 
 #: vendor/phpmyadmin/sql-parser/src/Statement.php:369
 msgid "Unrecognized keyword."
-msgstr ""
+msgstr "Nerozpoznané klíčové slovo."
 
 #: vendor/phpmyadmin/sql-parser/src/Statement.php:495
 #, fuzzy
