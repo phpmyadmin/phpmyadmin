@@ -558,17 +558,6 @@ class PMA_ConfigFile_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for ConfigFile::getFilePath
-     *
-     * @return void
-     * @test
-     */
-    public function testGetFilePath()
-    {
-        $this->assertNotEmpty($this->object->getFilePath());
-    }
-
-    /**
      * Test for ConfigFile::getConfigArray
      *
      * @return void

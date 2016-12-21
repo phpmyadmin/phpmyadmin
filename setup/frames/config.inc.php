@@ -17,11 +17,7 @@ require_once './libraries/config/FormDisplay.class.php';
 require_once './setup/lib/index.lib.php';
 require_once './setup/lib/ConfigGenerator.class.php';
 
-$config_readable = false;
-$config_writable = false;
-$config_exists = false;
-PMA_checkConfigRw($config_readable, $config_writable, $config_exists);
-echo '<h2>' . __('Configuration file') . '</h2>';
+echo '<h2>' , __('Configuration file') , '</h2>';
 
 PMA_displayFormTop('config.php');
 echo '<input type="hidden" name="eol" value="'
@@ -39,11 +35,6 @@ echo '<tr>';
 echo '<td class="lastrow" style="text-align: left">';
 echo '<input type="submit" name="submit_download" value="'
     . __('Download') . '" class="green" />';
-echo '<input type="submit" name="submit_save" value="' . __('Save') . '"';
-if (!$config_writable) {
-    echo ' disabled="disabled"';
-}
-echo '/>';
 echo '</td>';
 echo '</tr>';
 

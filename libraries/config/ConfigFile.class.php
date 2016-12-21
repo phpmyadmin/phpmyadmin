@@ -478,21 +478,6 @@ class ConfigFile
     }
 
     /**
-     * Returns config file path, relative to phpMyAdmin's root path
-     *
-     * @return string
-     */
-    public function getFilePath()
-    {
-        // Load paths
-        if (!defined('SETUP_CONFIG_FILE')) {
-            include_once './libraries/vendor_config.php';
-        }
-
-        return SETUP_CONFIG_FILE;
-    }
-
-    /**
      * Returns configuration array (full, multidimensional format)
      *
      * @return array
