@@ -16,12 +16,12 @@ AJAX.registerOnload('pmd/init.js', function () {
         $('#ab').accordion("refresh");
         return false;
     });
-    var tables_data = $.parseJSON($("#script_tables").html());
+    var tables_data = JSON.parse($("#script_tables").html());
 
     j_tabs             = tables_data.j_tabs;
     h_tabs             = tables_data.h_tabs;
-    contr              = $.parseJSON($("#script_contr").html());
-    display_field      = $.parseJSON($("#script_display_field").html());
+    contr              = JSON.parse($("#script_contr").html());
+    display_field      = JSON.parse($("#script_display_field").html());
 
     server             = $("#script_server").html();
     db                 = $("#script_db").html();

@@ -793,7 +793,7 @@ function makeProfilingChart()
     }
 
     var data = [];
-    $.each(jQuery.parseJSON($('#profilingChartData').html()), function (key, value) {
+    $.each(JSON.parse($('#profilingChartData').html()), function (key, value) {
         data.push([key, parseFloat(value)]);
     });
 

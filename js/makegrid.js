@@ -1163,7 +1163,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                     where_clause = '';
                 }
                 full_where_clause.push(PMA_urldecode(where_clause));
-                var condition_array = jQuery.parseJSON($tr.find('.condition_array').val());
+                var condition_array = JSON.parse($tr.find('.condition_array').val());
 
                 /**
                  * multi edit variables, for current row

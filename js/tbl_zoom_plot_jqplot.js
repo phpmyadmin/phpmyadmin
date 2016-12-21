@@ -152,7 +152,7 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function () {
     // Get query result
     var searchedData;
     try {
-        searchedData = jQuery.parseJSON($('#querydata').html());
+        searchedData = JSON.parse($('#querydata').html());
     } catch (err) {
         searchedData = null;
     }

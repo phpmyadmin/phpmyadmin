@@ -1951,7 +1951,7 @@ function codemirrorAutocompleteOnInputRead(instance) {
                 data: params,
                 success: function (data) {
                     if (data.success) {
-                        var tables = $.parseJSON(data.tables);
+                        var tables = JSON.parse(data.tables);
                         sql_autocomplete_default_table = PMA_commonParams.get('table');
                         sql_autocomplete = [];
                         for (var table in tables) {
@@ -3520,7 +3520,7 @@ AJAX.registerOnload('functions.js', function () {
                 url: href,
                 data: params,
                 success: function (data) {
-                    central_column_list[db + '_' + table] = $.parseJSON(data.message);
+                    central_column_list[db + '_' + table] = JSON.parse(data.message);
                 },
                 async:false
             });
