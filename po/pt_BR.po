@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.6-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-12-13 10:40+0100\n"
-"PO-Revision-Date: 2016-11-07 13:09+0000\n"
-"Last-Translator: popinha13 <apolonio.serafim@hotmail.com>\n"
-"Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
-"phpmyadmin/4-6/pt_BR/>\n"
+"PO-Revision-Date: 2016-12-21 15:45+0000\n"
+"Last-Translator: Rogerio Marques <rogerio@algoincomum.com.br>\n"
+"Language-Team: Portuguese (Brazil) "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-6/pt_BR/>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 2.9\n"
+"X-Generator: Weblate 2.10\n"
 
 #: changelog.php:38 license.php:33
 #, php-format
@@ -6711,7 +6711,7 @@ msgstr "Mostra campos de função"
 
 #: libraries/config/messages.inc.php:533
 msgid "Whether to show functions under database in the navigation tree"
-msgstr ""
+msgstr "Mostrar funções do banco de dados na árvore de navegação"
 
 #: libraries/config/messages.inc.php:534
 #, fuzzy
