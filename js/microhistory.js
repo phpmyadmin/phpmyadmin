@@ -251,7 +251,7 @@ PMA_SetUrlHash = (function (jQuery, window) {
         if (navigator.userAgent.indexOf('Firefox') > -1) {
             // Move the link tags for the favicon to the bottom
             // of the head element to force a reload of the favicon
-            $('head > link[href=favicon\\.ico]').appendTo('head');
+            $('head > link[href="favicon\\.ico"]').appendTo('head');
         }
     }
 
