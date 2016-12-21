@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.6-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-12-13 10:40+0100\n"
-"PO-Revision-Date: 2016-12-21 15:45+0000\n"
-"Last-Translator: Rogerio Marques <rogerio@algoincomum.com.br>\n"
+"PO-Revision-Date: 2016-12-21 16:03+0000\n"
+"Last-Translator: Daniel Miloca <danielmiloca@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-6/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -6714,14 +6714,12 @@ msgid "Whether to show functions under database in the navigation tree"
 msgstr "Mostrar funções do banco de dados na árvore de navegação"
 
 #: libraries/config/messages.inc.php:534
-#, fuzzy
-#| msgid "Show processes"
 msgid "Show procedures in tree"
-msgstr "Mostrar os Processos"
+msgstr "Mostrar os procedimentos em árvore"
 
 #: libraries/config/messages.inc.php:536
 msgid "Whether to show procedures under database in the navigation tree"
-msgstr ""
+msgstr "Se os procedimentos de um banco de dados devem ser exibidos em árvore"
 
 #: libraries/config/messages.inc.php:537
 msgid "Show events in tree"
