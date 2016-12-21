@@ -152,7 +152,7 @@ class Header
         if (isset($GLOBALS['db'])) {
             $params['db'] = $GLOBALS['db'];
         }
-        $this->_scripts->addFile('jquery/jquery-2.1.4.min.js');
+        $this->_scripts->addFile('jquery/jquery.min.js');
         $this->_scripts->addFile(
             'whitelist.php' . URL::getCommon($params), false, true
         );
