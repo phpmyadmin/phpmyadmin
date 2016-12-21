@@ -12,7 +12,8 @@ if ($GLOBALS['cfg']['NumFavoriteTables'] > 0) {
 ?>
 <form method="post" action="db_structure.php" name="tablesForm" id="tablesForm">
 <?= PMA\libraries\URL::getHiddenInputs($db); ?>
-<table class="data">
+<input type="text" id="tableSearch" placeholder="Search for tables..">
+<table id="structureTable" class="data">
     <thead>
         <tr>
             <th class="print_ignore"></th>
