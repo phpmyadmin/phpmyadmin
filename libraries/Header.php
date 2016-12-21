@@ -153,6 +153,7 @@ class Header
             $params['db'] = $GLOBALS['db'];
         }
         $this->_scripts->addFile('jquery/jquery.min.js');
+        $this->_scripts->addFile('jquery/jquery-migrate-3.0.0.js');
         $this->_scripts->addFile(
             'whitelist.php' . URL::getCommon($params), false, true
         );
