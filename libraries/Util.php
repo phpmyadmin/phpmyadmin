@@ -2030,7 +2030,7 @@ class Util
             }
         }
         if ($found_error) {
-            PMA_fatalError($error_message, null, false);
+            PMA_fatalError($error_message);
         }
     } // end function
 

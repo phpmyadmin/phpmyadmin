@@ -4,28 +4,25 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-12-13 10:41+0100\n"
-"PO-Revision-Date: 2016-12-13 09:29+0000\n"
-"Last-Translator: Laura Arjona Reina <larjona@larjona.net>\n"
-"Language-Team: Spanish <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/es/>\n"
+"PO-Revision-Date: 2016-12-19 03:03+0000\n"
+"Last-Translator: Franco <fulanodetal.github1@openaliasbox.org>\n"
+"Language-Team: Spanish "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/es/>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.10-dev\n"
+"X-Generator: Weblate 2.10\n"
 
 #: changelog.php:39 license.php:34
-#, fuzzy, php-format
-#| msgid ""
-#| "The %s file is not available on this system, please visit www.phpmyadmin."
-#| "net for more information."
+#, php-format
 msgid ""
 "The %s file is not available on this system, please visit %s for more "
 "information."
 msgstr ""
-"El archivo %s no está disponible en este sistema, visite www.phpmyadmin.net "
-"para más información."
+"El archivo %s no está disponible en este sistema, visite %s para más "
+"información."
 
 #: db_central_columns.php:108
 msgid "The central list of columns for the current database is empty."
@@ -841,6 +838,8 @@ msgstr "¡Está a punto de DESTRUIR una base de datos completa!"
 #: js/messages.php:48
 msgid "Cannot rename database to the same name. Change the name and try again"
 msgstr ""
+"No puede renombrar la base de datos con el mismo nombre. Cambie el nombre e "
+"inténtelo de nuevo"
 
 #: js/messages.php:50
 msgid "You are about to DESTROY a complete table!"
@@ -2612,23 +2611,23 @@ msgstr "Copiar tabla con prefijo"
 
 #: js/messages.php:732
 msgid "Extremely weak"
-msgstr ""
+msgstr "Extremadamente débil"
 
 #: js/messages.php:733
 msgid "Very weak"
-msgstr ""
+msgstr "Muy débil"
 
 #: js/messages.php:734
 msgid "Weak"
-msgstr ""
+msgstr "Débil"
 
 #: js/messages.php:735
 msgid "Good"
-msgstr ""
+msgstr "Bueno"
 
 #: js/messages.php:736
 msgid "Strong"
-msgstr ""
+msgstr "Fuerte"
 
 #: js/messages.php:765
 msgctxt "Previous month"
@@ -3121,7 +3120,7 @@ msgstr "Coreano"
 
 #: libraries/Charsets.php:313
 msgid "Burmese"
-msgstr ""
+msgstr "Birmania"
 
 #: libraries/Charsets.php:316
 msgid "Persian"
@@ -3235,22 +3234,16 @@ msgid "unknown"
 msgstr "desconocido"
 
 #: libraries/Charsets.php:460
-#, fuzzy
-#| msgid "Collation"
 msgid "binary collation"
-msgstr "Cotejamiento"
+msgstr "Cotejamiento binario"
 
 #: libraries/Charsets.php:467
-#, fuzzy
-#| msgid "case-insensitive"
 msgid "case-insensitive collation"
-msgstr "independiente de mayúsculas y minúsculas"
+msgstr "Cotejamiento independiente de mayúsculas y minúsculas"
 
 #: libraries/Charsets.php:469
-#, fuzzy
-#| msgid "case-sensitive"
 msgid "case-sensitive collation"
-msgstr "dependiente de mayúsculas y minúsculas"
+msgstr "Cotejamiento dependiente de mayúsculas y minúsculas"
 
 #: libraries/Config.php:1100
 #, php-format
@@ -3324,10 +3317,8 @@ msgid "Details…"
 msgstr "Detalles…"
 
 #: libraries/DatabaseInterface.php:2327
-#, fuzzy
-#| msgid "Missing parameter:"
 msgid "Missing connection parameters!"
-msgstr "Parámetro faltante:"
+msgstr "¡Parámetros de conexión faltantes!"
 
 #: libraries/DatabaseInterface.php:2351
 msgid "Connection for controluser as defined in your configuration failed."
@@ -6888,10 +6879,8 @@ msgid "Show row links anyway"
 msgstr "Mostrar enlaces de fila de todas maneras"
 
 #: libraries/config/messages.inc.php:552 libraries/config/messages.inc.php:553
-#, fuzzy
-#| msgid "Disable foreign key checks"
 msgid "Disable shortcut keys"
-msgstr "Deshabilitar la revisión de las claves foráneas"
+msgstr "Deshabilitar teclas de atajos"
 
 #: libraries/config/messages.inc.php:555
 msgid "Use natural order for sorting table and database names."
@@ -7682,17 +7671,14 @@ msgid "Show last check timestamp"
 msgstr "Mostrar marca temporal de la última revisión"
 
 #: libraries/config/messages.inc.php:858
-#, fuzzy
-#| msgid "Show or hide a column displaying the comments for all tables."
 msgid "Show or hide a column displaying the charset for all tables."
 msgstr ""
-"Mostrar u ocultar una columna, mostrando los comentarios de todas las tablas."
+"Mostrar u ocultar una columna, mostrando conjunto de caracteres de todas las "
+"tablas."
 
 #: libraries/config/messages.inc.php:860
-#, fuzzy
-#| msgid "Show table comments"
 msgid "Show table charset"
-msgstr "Mostrar comentarios de la tabla"
+msgstr "Mostrar conjunto de caracteres de la tabla"
 
 #: libraries/config/messages.inc.php:862
 msgid ""
@@ -8323,7 +8309,7 @@ msgstr "Contraseña:"
 
 #: libraries/display_change_password.lib.php:68
 msgid "Enter:"
-msgstr ""
+msgstr "Ingresar:"
 
 #: libraries/display_change_password.lib.php:75
 #: libraries/replication_gui.lib.php:865
@@ -9371,7 +9357,7 @@ msgstr[1] "Se encontró %s resultado adicional"
 #: libraries/navigation/NavigationTree.php:1358
 #: libraries/navigation/NavigationTree.php:1390
 msgid "Type to filter these, Enter to search all"
-msgstr "Escribe para filtrar estos, «Intro» para buscar todo"
+msgstr "Escribe para filtrar estos, «Enter» para buscar todo"
 
 #: libraries/navigation/NavigationTree.php:1360
 #: libraries/navigation/NavigationTree.php:1391
@@ -10530,10 +10516,9 @@ msgid "Last check:"
 msgstr "Última revisión:"
 
 #: libraries/plugins/export/ExportSql.php:1488
-#, fuzzy, php-format
-#| msgid "Table structure for table"
+#, php-format
 msgid "Error reading structure for table %s:"
-msgstr "Estructura de tabla para la tabla"
+msgstr "Error leyendo la estructura de la tabla %s:"
 
 #: libraries/plugins/export/ExportSql.php:1542
 msgid "It appears your database uses views;"
@@ -10585,10 +10570,9 @@ msgid "(See below for the actual view)"
 msgstr "(Véase abajo para la vista actual)"
 
 #: libraries/plugins/export/ExportSql.php:2204
-#, fuzzy, php-format
-#| msgid "Error reading data:"
+#, php-format
 msgid "Error reading data for table %s:"
-msgstr "Error leyendo datos:"
+msgstr "Error leyendo datos de la tabla %s:"
 
 #: libraries/plugins/export/ExportXml.php:97
 msgid "Object creation options (all are recommended)"
@@ -12405,10 +12389,9 @@ msgstr ""
 "Otorgar todos los privilegios al nombre que contiene comodín (username\\_%)."
 
 #: libraries/server_privileges.lib.php:2176
-#, fuzzy, php-format
-#| msgid "Grant all privileges on database \"%s\"."
+#, php-format
 msgid "Grant all privileges on database %s."
-msgstr "Otorgar todos los privilegios para la base de datos \"%s\"."
+msgstr "Otorgar todos los privilegios para la base de datos %s."
 
 #: libraries/server_privileges.lib.php:2338
 #: libraries/server_privileges.lib.php:2409
@@ -14152,14 +14135,12 @@ msgstr ""
 "No se pudo guardar la configuración, ¡el formulario enviado contiene errores!"
 
 #: prefs_manage.php:52
-#, fuzzy
-#| msgid "Missing phpMyAdmin configuration storage tables"
 msgid "phpMyAdmin configuration snippet"
-msgstr "Faltan las tablas de almacenaje de configuración de phpMyAdmin"
+msgstr "Fragmento de configuración de phpMyAdmin"
 
 #: prefs_manage.php:53
 msgid "Paste it to your config.inc.php"
-msgstr ""
+msgstr "Pegue esto en su archivo config.inc.php"
 
 #: prefs_manage.php:93
 msgid "Could not import configuration"
@@ -14213,10 +14194,8 @@ msgstr ""
 "ejemplo, utilizado %sscripts de configuración%s."
 
 #: prefs_manage.php:331
-#, fuzzy
-#| msgid "Save as file"
 msgid "Save as PHP file"
-msgstr "Guardar como archivo"
+msgstr "Guardar como archivo PHP"
 
 #: prefs_manage.php:336
 msgid "Save to browser's storage"
@@ -14318,16 +14297,12 @@ msgstr ""
 "sin encriptar!"
 
 #: setup/frames/index.inc.php:78
-#, fuzzy
-#| msgid ""
-#| "If your server is also configured to accept HTTPS requests follow [a@"
-#| "%s]this link[/a] to use a secure connection."
 msgid ""
 "If your server is also configured to accept HTTPS requests follow this link "
 "to use a secure connection."
 msgstr ""
-"Si su servidor también está configurado para acepta solicitudes HTTPS siga "
-"[a@%s]este enlace[/a] para utilizar una conexión segura."
+"Si su servidor también está configurado para aceptar solicitudes HTTPS siga "
+"este enlace para utilizar una conexión segura."
 
 #: setup/frames/index.inc.php:82
 msgid "Insecure connection"
@@ -14845,10 +14820,8 @@ msgid "Show query history at start"
 msgstr "Mostrar histórico de consultas al iniciar"
 
 #: templates/console/display.phtml:189
-#, fuzzy
-#| msgid "Show current browsing query"
 msgid "Show current browsing query"
-msgstr "Mostrar consulta actual"
+msgstr "Mostrar consulta de navegación actual"
 
 #: templates/console/display.phtml:194
 msgid ""
@@ -15198,10 +15171,8 @@ msgstr ""
 "importarlo a la sesión actual?"
 
 #: templates/prefs_autoload.phtml:14
-#, fuzzy
-#| msgid "Delete tracking"
 msgid "Delete settings "
-msgstr "Borrando los datos de seguimiento"
+msgstr "Borrar configuración "
 
 #: templates/privileges/add_privileges_database.phtml:2
 msgid "Add privileges on the following database(s):"
@@ -15851,6 +15822,8 @@ msgid ""
 "A symbol name was expected! A reserved keyword can not be used as a column "
 "name without backquotes."
 msgstr ""
+"¡Se esperaba un nombre de símbolo! Una palabra reservada no puede usarse "
+"como nombre de columna sin comillas."
 
 #: vendor/phpmyadmin/sql-parser/src/Components/CreateDefinition.php:241
 msgid "A symbol name was expected!"
@@ -15970,10 +15943,8 @@ msgid "Unrecognized keyword."
 msgstr "Palabra clave no reconocida."
 
 #: vendor/phpmyadmin/sql-parser/src/Statement.php:495
-#, fuzzy
-#| msgid "Unexpected beginning of statement."
 msgid "Unexpected ordering of clauses."
-msgstr "Comienzo inesperado de declaración."
+msgstr "Orden inesperado de condiciones."
 
 #: vendor/phpmyadmin/sql-parser/src/Statements/CreateStatement.php:381
 msgid "The name of the entity was expected."
@@ -16579,12 +16550,6 @@ msgid "There are lots of rows being sorted."
 msgstr "Hay demasiadas filas siendo ordenadas."
 
 #: libraries/advisory_rules.txt:222
-#, fuzzy
-#| msgid ""
-#| "While there is nothing wrong with a high amount of row sorting, you might "
-#| "want to make sure that the queries which require a lot of sorting use "
-#| "indexed columns in the ORDER BY clause, as this will result in much "
-#| "faster sorting"
 msgid ""
 "While there is nothing wrong with a high amount of row sorting, you might "
 "want to make sure that the queries which require a lot of sorting use "
@@ -16594,7 +16559,7 @@ msgstr ""
 "Si bien no hay nada de malo en ordenar una gran cantidad de filas, es "
 "probable que desee asegurarse que las consultas que requieren gran cantidad "
 "de ordenación utilicen campos indexados en la cláusula «ORDER BY», lo que "
-"resultará en una ordenación más rápida"
+"resultará en una ordenación más rápida."
 
 #: libraries/advisory_rules.txt:223
 #, php-format
@@ -16610,18 +16575,13 @@ msgid "There are too many joins without indexes."
 msgstr "Hay demasiadas uniones («JOIN») sin índices."
 
 #: libraries/advisory_rules.txt:230
-#, fuzzy
-#| msgid ""
-#| "This means that joins are doing full table scans. Adding indexes for the "
-#| "columns being used in the join conditions will greatly speed up table "
-#| "joins"
 msgid ""
 "This means that joins are doing full table scans. Adding indexes for the "
 "columns being used in the join conditions will greatly speed up table joins."
 msgstr ""
 "Esto significa que las uniones («JOIN») están realizando escrutinios "
 "completos sobre tablas. Agregar índices a los campos utilizados en las "
-"condiciones de la unión las acelerarán en gran medida"
+"condiciones de la unión las acelerarán en gran medida."
 
 #: libraries/advisory_rules.txt:231
 #, php-format
@@ -17055,22 +17015,16 @@ msgid "Slow launch time"
 msgstr "Tiempo de inicio lento"
 
 #: libraries/advisory_rules.txt:368
-#, fuzzy
-#| msgid "Slow_launch_time is above 2s"
 msgid "Slow_launch_time is above 2s."
-msgstr "«Slow_launch_time» es mayor a 2s"
+msgstr "«Slow_launch_time» es mayor a 2s."
 
 #: libraries/advisory_rules.txt:369
-#, fuzzy
-#| msgid ""
-#| "Set {slow_launch_time} to 1s or 2s to correctly count threads that are "
-#| "slow to launch"
 msgid ""
 "Set {slow_launch_time} to 1s or 2s to correctly count threads that are slow "
 "to launch."
 msgstr ""
-"Configure {slow_launch_time} a 1 ó 2 segundos para contar correctamente los "
-"hilos que inician ejecución lentamente"
+"Configure {slow_launch_time} a 1 o 2 segundos para contar correctamente los "
+"hilos que inician ejecución lentamente."
 
 #: libraries/advisory_rules.txt:370
 #, php-format
