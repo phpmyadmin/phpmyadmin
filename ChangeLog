@@ -37,6 +37,7 @@ phpMyAdmin - ChangeLog
 - issue #12713 Correctly handle HTTP status when doing requests
 - issue #12247 Add option to delete settings from browser storage
 - issue #12783 Remove unused PMA_addJSCode function
+- issue #12069 Add table filtering to database structure
 
 4.6.6 (not yet released)
 - issue #12759 Fix Notice regarding 'Undefined index: old_usergroup'
