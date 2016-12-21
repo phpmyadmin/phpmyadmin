@@ -159,7 +159,7 @@ class Header
         $this->_scripts->addFile('sprintf.js');
         $this->_scripts->addFile('ajax.js');
         $this->_scripts->addFile('keyhandler.js');
-        $this->_scripts->addFile('jquery/jquery-ui-1.11.4.min.js');
+        $this->_scripts->addFile('jquery/jquery-ui.min.js');
         $this->_scripts->addFile('jquery/jquery.cookie.js');
         $this->_scripts->addFile('jquery/jquery.mousewheel.js');
         $this->_scripts->addFile('jquery/jquery.event.drag-2.2.js');
@@ -671,7 +671,7 @@ class Header
             // load jQuery's CSS prior to our theme's CSS, to let the theme
             // override jQuery's CSS
             $retval .= '<link rel="stylesheet" type="text/css" href="'
-                . $theme_path . '/jquery/jquery-ui-1.11.4.css" />';
+                . $theme_path . '/jquery/jquery-ui.css" />';
             $retval .= '<link rel="stylesheet" type="text/css" href="'
                 . $basedir . 'js/codemirror/lib/codemirror.css?' . $v . '" />';
             $retval .= '<link rel="stylesheet" type="text/css" href="'
