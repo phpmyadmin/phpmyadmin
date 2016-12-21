@@ -568,12 +568,19 @@ function PMA_RTN_getDataFromRequest()
  * @param string $type    Type of routine (ROUTINE|PROCEDURE)
  * @param bool   $all     Whether to return all data or just
  *                        the info about parameters.
+ * @param bool   $control Where to use Controllink to query for
+ *                        routine information
  *
  * @return array    Data necessary to create the routine editor.
  */
-function PMA_RTN_getDataFromName($name, $type, $all = true)
+function PMA_RTN_getDataFromName($name, $type, $all = true, $control = false)
 {
     global $db;
+    $link = null;
+
+    if ($control) {
+        $link = $GLOBALS['controllink'];
+    }
 
     $retval  = array();
 
@@ -587,7 +594,7 @@ function PMA_RTN_getDataFromName($name, $type, $all = true)
              . "AND ROUTINE_TYPE='" . $GLOBALS['dbi']->escapeString($type) . "'";
     $query   = "SELECT $fields FROM INFORMATION_SCHEMA.ROUTINES WHERE $where;";
 
-    $routine = $GLOBALS['dbi']->fetchSingleRow($query, 'ASSOC');
+    $routine = $GLOBALS['dbi']->fetchSingleRow($query, 'ASSOC', $link);
 
     if (! $routine) {
         return false;
@@ -601,7 +608,8 @@ function PMA_RTN_getDataFromName($name, $type, $all = true)
         = $GLOBALS['dbi']->getDefinition(
             $db,
             $routine['ROUTINE_TYPE'],
-            $routine['SPECIFIC_NAME']
+            $routine['SPECIFIC_NAME'],
+            $link
         );
 
     if ($definition == NULL) {
@@ -1162,7 +1170,7 @@ function PMA_RTN_getQueryFromRequest()
                 }
                 if ($item_param_length[$i] != ''
                     && !preg_match(
-                        '@^(DATE|TINYBLOB|TINYTEXT|BLOB|TEXT|'
+                        '@^(DATE|DATETIME|TIME|TINYBLOB|TINYTEXT|BLOB|TEXT|'
                         . 'MEDIUMBLOB|MEDIUMTEXT|LONGBLOB|LONGTEXT|'
                         . 'SERIAL|BOOLEAN)$@i',
                         $item_param_type[$i]
@@ -1306,7 +1314,7 @@ function PMA_RTN_handleExecute()
     if (! empty($_REQUEST['execute_routine']) && ! empty($_REQUEST['item_name'])) {
         // Build the queries
         $routine = PMA_RTN_getDataFromName(
-            $_REQUEST['item_name'], $_REQUEST['item_type'], false
+            $_REQUEST['item_name'], $_REQUEST['item_type'], false, true
         );
         if ($routine === false) {
             $message  = __('Error in processing request:') . ' ';
@@ -1502,7 +1510,7 @@ function PMA_RTN_handleExecute()
          * Display the execute form for a routine.
          */
         $routine = PMA_RTN_getDataFromName(
-            $_GET['item_name'], $_GET['item_type'], true
+            $_GET['item_name'], $_GET['item_type'], true, true
         );
         if ($routine !== false) {
             $form = PMA_RTN_getExecuteForm($routine);

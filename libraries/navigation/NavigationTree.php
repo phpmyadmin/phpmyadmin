@@ -1351,7 +1351,7 @@ class NavigationTree
             );
             $retval .= '<li class="fast_filter db_fast_filter">';
             $retval .= '<form class="ajax fast_filter">';
-            $retval .= URL::getHiddenInputs($url_params);
+            $retval .= URL::getHiddenFields($url_params);
             $retval .= '<input class="searchClause" type="text"';
             $retval .= ' name="searchClause" accesskey="q"';
             $retval .= " placeholder='"

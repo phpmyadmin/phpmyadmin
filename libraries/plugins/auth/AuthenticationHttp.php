@@ -12,7 +12,6 @@ namespace PMA\libraries\plugins\auth;
 use PMA\libraries\plugins\AuthenticationPlugin;
 use PMA\libraries\Message;
 use PMA\libraries\Response;
-use PMA\libraries\Config;
 
 /**
  * Handles the HTTP authentication methods
@@ -90,7 +89,9 @@ class AuthenticationHttp extends AuthenticationPlugin
         );
         $response->addHTML('</h3>');
 
-        $response->addHTML(Config::renderFooter());
+        if (@file_exists(CUSTOM_FOOTER_FILE)) {
+            include CUSTOM_FOOTER_FILE;
+        }
 
         if (!defined('TESTSUITE')) {
             exit;
@@ -143,10 +144,6 @@ class AuthenticationHttp extends AuthenticationPlugin
                 // WebSite Professional
                 $PHP_AUTH_PW = PMA_getenv('AUTH_PASSWORD');
             }
-        }
-        // Sanitize empty password login
-        if (is_null($PHP_AUTH_PW)) {
-            $PHP_AUTH_PW = '';
         }
 
         // Decode possibly encoded information (used by IIS/CGI/FastCGI)

@@ -146,7 +146,7 @@ The MySQL manual explains how to `reset the permissions
 1.15 I have problems with *mysql.user* column names.
 ----------------------------------------------------
 
-In previous MySQL versions, the ``User`` and ``Password`` columns were
+In previous MySQL versions, the ``User`` and ``Password``columns were
 named ``user`` and ``password``. Please modify your column names to
 align with current standards.
 

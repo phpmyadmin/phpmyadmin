@@ -210,10 +210,13 @@ function PMA_securePath($path)
  *
  * @param string       $error_message  the error message or named error message
  * @param string|array $message_args   arguments applied to $error_message
+ * @param boolean      $delete_session whether to delete session cookie
  *
  * @return void
  */
-function PMA_fatalError($error_message, $message_args = null) {
+function PMA_fatalError(
+    $error_message, $message_args = null, $delete_session = true
+) {
     /* Use format string if applicable */
     if (is_string($message_args)) {
         $error_message = sprintf($error_message, $message_args);
@@ -221,16 +224,8 @@ function PMA_fatalError($error_message, $message_args = null) {
         $error_message = vsprintf($error_message, $message_args);
     }
 
-    /*
-     * Avoid using Response if Config is not yet loaded
-     * (this can happen on early fatal error)
-     */
-    if (isset($GLOBALS['Config'])) {
-        $response = Response::getInstance();
-    } else {
-        $response = null;
-    }
-    if (! is_null($response) && $response->isAjax()) {
+    $response = Response::getInstance();
+    if ($response->isAjax()) {
         $response->setRequestStatus(false);
         $response->addJSON('message', PMA\libraries\Message::error($error_message));
     } else {
@@ -246,6 +241,14 @@ function PMA_fatalError($error_message, $message_args = null) {
         }
         $lang = isset($GLOBALS['lang']) ? $GLOBALS['lang'] : 'en';
         $dir = isset($GLOBALS['text_dir']) ? $GLOBALS['text_dir'] : 'ltr';
+
+        // on fatal errors it cannot hurt to always delete the current session
+        if ($delete_session
+            && isset($GLOBALS['session_name'])
+            && isset($_COOKIE[$GLOBALS['session_name']])
+        ) {
+            $GLOBALS['PMA_Config']->removeCookie($GLOBALS['session_name']);
+        }
 
         // Displays the error message
         include './libraries/error.inc.php';
