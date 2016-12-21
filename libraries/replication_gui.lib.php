@@ -912,7 +912,10 @@ function PMA_handleControlRequest()
         $messageSuccess = null;
         $messageError = null;
 
-        if (isset($_REQUEST['slave_changemaster'])) {
+        if (isset($_REQUEST['slave_changemaster']) && ! $GLOBALS['cfg']['AllowArbitraryServer']) {
+            $_SESSION['replication']['sr_action_status'] = 'error';
+            $_SESSION['replication']['sr_action_info'] = __('Connection to server is disabled, please enable $cfg[\'AllowArbitraryServer\'] in phpMyAdmin configuration.');
+        } elseif (isset($_REQUEST['slave_changemaster'])) {
             $result = PMA_handleRequestForSlaveChangeMaster();
         } elseif (isset($_REQUEST['sr_slave_server_control'])) {
             $result = PMA_handleRequestForSlaveServerControl();
