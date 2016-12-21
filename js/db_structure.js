@@ -30,6 +30,7 @@ AJAX.registerTeardown('db_structure.js', function () {
     $('a.real_row_count').off('click');
     $('a.row_count_sum').off('click');
     $('select[name=submit_mult]').unbind('change');
+    $("#tableSearch").unbind('keyup');
 });
 
 /**
@@ -209,10 +210,10 @@ AJAX.registerOnload('db_structure.js', function () {
             buttons: buttonOptions
         });
     };
-    
+
 /**
 * Filtering tables on table listing of particular database
-* 
+*
 */
     $("#tableSearch").keyup(function() {
         var filterInput = $(this).val().toUpperCase();
