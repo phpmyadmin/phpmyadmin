@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-12-13 10:41+0100\n"
-"PO-Revision-Date: 2016-11-10 13:08+0000\n"
+"PO-Revision-Date: 2016-12-13 10:30+0000\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
-"Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/tr/>\n"
+"Language-Team: Turkish "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/tr/>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 2.9\n"
+"X-Generator: Weblate 2.10-dev\n"
 
 #: changelog.php:39 license.php:34
 #, php-format
@@ -2592,23 +2592,23 @@ msgstr "Tabloyu ön ek ile kopyala"
 
 #: js/messages.php:732
 msgid "Extremely weak"
-msgstr ""
+msgstr "Son derece zayıf"
 
 #: js/messages.php:733
 msgid "Very weak"
-msgstr ""
+msgstr "Çok zayıf"
 
 #: js/messages.php:734
 msgid "Weak"
-msgstr ""
+msgstr "Zayıf"
 
 #: js/messages.php:735
 msgid "Good"
-msgstr ""
+msgstr "İyi"
 
 #: js/messages.php:736
 msgid "Strong"
-msgstr ""
+msgstr "Güçlü"
 
 #: js/messages.php:765
 msgctxt "Previous month"
@@ -8215,7 +8215,7 @@ msgstr "Parola:"
 
 #: libraries/display_change_password.lib.php:68
 msgid "Enter:"
-msgstr ""
+msgstr "Giriş:"
 
 #: libraries/display_change_password.lib.php:75
 #: libraries/replication_gui.lib.php:865
@@ -14104,17 +14104,12 @@ msgstr ""
 "bilgiler dahil) şifresiz olarak aktarılır!"
 
 #: setup/frames/index.inc.php:78
-#, fuzzy
-#| msgid ""
-#| "If your server is also configured to accept HTTPS requests follow [a@"
-#| "%s]this link[/a] to use a secure connection."
 msgid ""
 "If your server is also configured to accept HTTPS requests follow this link "
 "to use a secure connection."
 msgstr ""
 "Eğer sunucunuz aynı zamanda HTTPS isteklerini kabul etmek için "
-"yapılandırılmışsa güvenli bağlantı kullanmak için [a@%s]bu bağlantıyı[/a] "
-"takip edin."
+"yapılandırılmışsa güvenli bağlantı kullanmak için bu bağlantıyı takip edin."
 
 #: setup/frames/index.inc.php:82
 msgid "Insecure connection"
@@ -14976,10 +14971,8 @@ msgstr ""
 "oturum için bunu içe aktarmak istiyor musunuz?"
 
 #: templates/prefs_autoload.phtml:14
-#, fuzzy
-#| msgid "Delete tracking"
 msgid "Delete settings "
-msgstr "İzlemeyi sil"
+msgstr "Ayarları sil "
 
 #: templates/privileges/add_privileges_database.phtml:2
 msgid "Add privileges on the following database(s):"
@@ -15611,16 +15604,12 @@ msgid "Unexpected end of CASE expression"
 msgstr "Beklenmedik Büyük/Küçük harf ifadesi sonu"
 
 #: vendor/phpmyadmin/sql-parser/src/Components/CreateDefinition.php:227
-#, fuzzy
-#| msgid ""
-#| "A symbol name was expected! A reserved keyword can not be used as a field "
-#| "name without backquotes."
 msgid ""
 "A symbol name was expected! A reserved keyword can not be used as a column "
 "name without backquotes."
 msgstr ""
 "Bir sembol adı beklenmekte! Ayrılmış bir anahtar kelime ters eğik tırnakları "
-"olmadan bir alan adı olarak kullanılamaz."
+"olmadan bir sütun adı olarak kullanılamaz."
 
 #: vendor/phpmyadmin/sql-parser/src/Components/CreateDefinition.php:241
 msgid "A symbol name was expected!"
@@ -15740,10 +15729,8 @@ msgid "Unrecognized keyword."
 msgstr "Tanınmayan anahtar kelime."
 
 #: vendor/phpmyadmin/sql-parser/src/Statement.php:495
-#, fuzzy
-#| msgid "Unexpected beginning of statement."
 msgid "Unexpected ordering of clauses."
-msgstr "Beklenmedik ifade başlangıcı."
+msgstr "Beklenmedik yan tümce sıralaması."
 
 #: vendor/phpmyadmin/sql-parser/src/Statements/CreateStatement.php:381
 msgid "The name of the entity was expected."

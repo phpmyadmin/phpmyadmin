@@ -17,8 +17,9 @@
         <!-- Is current one active ?  -->
         <option value=<?= '"', strtolower($language->getCode()), '"' ?>
             <?php if ($language->isActive()) : ?>
-                    selected="selected">
+                    selected="selected"
             <?php endif; ?>
+            >
         <?= $language->getName(); ?>
         </option>
     <?php endforeach; ?>

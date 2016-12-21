@@ -7,6 +7,7 @@
  */
 use PMA\libraries\config\FormDisplay;
 use PMA\libraries\URL;
+use PMA\libraries\Response;
 
 /**
  * Processes forms registered in $form_display, handles error correction
@@ -72,9 +73,11 @@ function PMA_Process_formset(FormDisplay $form_display)
  */
 function PMA_generateHeader303()
 {
+    $response = Response::getInstance();
+
     // drop post data
-    header('HTTP/1.1 303 See Other');
-    header('Location: index.php' . URL::getCommonRaw());
+    $response->header('HTTP/1.1 303 See Other');
+    $response->header('Location: index.php' . URL::getCommonRaw());
 
     if (!defined('TESTSUITE')) {
         exit;

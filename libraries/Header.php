@@ -10,6 +10,7 @@ namespace PMA\libraries;
 use PMA\libraries\navigation\Navigation;
 use PMA\libraries\URL;
 use PMA\libraries\Sanitize;
+use PMA\libraries\Config;
 
 
 /**
@@ -229,7 +230,6 @@ class Header
             'opendb_url' => Util::getScriptNameForOption(
                 $GLOBALS['cfg']['DefaultTabDatabase'], 'database'
             ),
-            'safari_browser' => PMA_USR_BROWSER_AGENT == 'SAFARI' ? 1 : 0,
             'collation_connection' => $GLOBALS['collation_connection'],
             'lang' => $GLOBALS['lang'],
             'server' => $GLOBALS['server'],
@@ -431,14 +431,7 @@ class Header
                     $retval .= $nav->getDisplay();
                 }
                 // Include possible custom headers
-                if (file_exists(CUSTOM_HEADER_FILE)) {
-                    $retval .= '<div id="pma_header">';
-                    ob_start();
-                    include CUSTOM_HEADER_FILE;
-                    $retval .= ob_get_contents();
-                    ob_end_clean();
-                    $retval .= '</div>';
-                }
+                $retval .= Config::renderHeader();
                 // offer to load user preferences from localStorage
                 if ($this->_userprefsOfferImport) {
                     include_once './libraries/user_preferences.lib.php';

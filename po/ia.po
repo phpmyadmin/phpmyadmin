@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-12-13 10:41+0100\n"
-"PO-Revision-Date: 2016-11-10 20:37+0000\n"
+"PO-Revision-Date: 2016-12-13 10:29+0000\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
-"Language-Team: Interlingua <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/ia/>\n"
+"Language-Team: Interlingua "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/ia/>\n"
 "Language: ia\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.9\n"
+"X-Generator: Weblate 2.10-dev\n"
 
 #: changelog.php:39 license.php:34
 #, php-format
@@ -2623,23 +2623,23 @@ msgstr "Copia tabella con prefixo"
 
 #: js/messages.php:732
 msgid "Extremely weak"
-msgstr ""
+msgstr "Extrememente debile"
 
 #: js/messages.php:733
 msgid "Very weak"
-msgstr ""
+msgstr "Multe debile"
 
 #: js/messages.php:734
 msgid "Weak"
-msgstr ""
+msgstr "Debile"
 
 #: js/messages.php:735
 msgid "Good"
-msgstr ""
+msgstr "Bon"
 
 #: js/messages.php:736
 msgid "Strong"
-msgstr ""
+msgstr "Forte"
 
 #: js/messages.php:765
 msgctxt "Previous month"
@@ -8304,7 +8304,7 @@ msgstr "Contrasigno:"
 
 #: libraries/display_change_password.lib.php:68
 msgid "Enter:"
-msgstr ""
+msgstr "Inserta:"
 
 #: libraries/display_change_password.lib.php:75
 #: libraries/replication_gui.lib.php:865
@@ -10883,7 +10883,7 @@ msgstr ""
 #: libraries/plugins/transformations/abs/RegexValidationTransformationsPlugin.php:52
 #, php-format
 msgid "Validation failed for the input string %s."
-msgstr ""
+msgstr "Validation falleva per le catena de ingresso %s."
 
 #: libraries/plugins/transformations/abs/SQLTransformationsPlugin.php:29
 msgid "Formats text as SQL query with syntax highlighting."
@@ -14738,10 +14738,8 @@ msgid ""
 msgstr ""
 
 #: templates/prefs_autoload.phtml:14
-#, fuzzy
-#| msgid "Delete tracking"
 msgid "Delete settings "
-msgstr "Delite traciar"
+msgstr "Deli fixationes "
 
 #: templates/privileges/add_privileges_database.phtml:2
 msgid "Add privileges on the following database(s):"
@@ -15489,10 +15487,8 @@ msgid "Unrecognized keyword."
 msgstr ""
 
 #: vendor/phpmyadmin/sql-parser/src/Statement.php:495
-#, fuzzy
-#| msgid "Unexpected beginning of statement."
 msgid "Unexpected ordering of clauses."
-msgstr "Un initio de instruction non expectate."
+msgstr "Un ordine de clausas  non expectate."
 
 #: vendor/phpmyadmin/sql-parser/src/Statements/CreateStatement.php:381
 msgid "The name of the entity was expected."

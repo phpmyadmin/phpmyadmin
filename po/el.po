@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-12-13 10:41+0100\n"
-"PO-Revision-Date: 2016-11-10 17:31+0000\n"
+"PO-Revision-Date: 2016-12-14 08:11+0000\n"
 "Last-Translator: Παναγιώτης Παπάζογλου <papaz_p@yahoo.com>\n"
-"Language-Team: Greek <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"el/>\n"
+"Language-Team: Greek "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/el/>\n"
 "Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.9\n"
+"X-Generator: Weblate 2.10-dev\n"
 
 #: changelog.php:39 license.php:34
 #, php-format
@@ -2609,23 +2609,23 @@ msgstr "Αντιγραφή πίνακα με πρόθεμα"
 
 #: js/messages.php:732
 msgid "Extremely weak"
-msgstr ""
+msgstr "Υπερβολικά αδύνατο"
 
 #: js/messages.php:733
 msgid "Very weak"
-msgstr ""
+msgstr "Πολύ αδύνατο"
 
 #: js/messages.php:734
 msgid "Weak"
-msgstr ""
+msgstr "Αδύνατο"
 
 #: js/messages.php:735
 msgid "Good"
-msgstr ""
+msgstr "Καλό"
 
 #: js/messages.php:736
 msgid "Strong"
-msgstr ""
+msgstr "Δυνατό"
 
 #: js/messages.php:765
 msgctxt "Previous month"
@@ -8295,7 +8295,7 @@ msgstr "Κωδικός πρόσβασης:"
 
 #: libraries/display_change_password.lib.php:68
 msgid "Enter:"
-msgstr ""
+msgstr "Εισαγωγή:"
 
 #: libraries/display_change_password.lib.php:75
 #: libraries/replication_gui.lib.php:865
@@ -14279,16 +14279,12 @@ msgstr ""
 "ακρυπτογράφητα!"
 
 #: setup/frames/index.inc.php:78
-#, fuzzy
-#| msgid ""
-#| "If your server is also configured to accept HTTPS requests follow [a@"
-#| "%s]this link[/a] to use a secure connection."
 msgid ""
 "If your server is also configured to accept HTTPS requests follow this link "
 "to use a secure connection."
 msgstr ""
-"Αν ο διακομιστής σας έχει ρυθμιστεί να δέχεται αιτήσεις HTTPS πατήστε [a@"
-"%s]αυτόν τον σύνδεσμο[/a] για χρήση ασφαλούς σύνδεσης."
+"Αν ο διακομιστής σας έχει ρυθμιστεί να δέχεται αιτήσεις HTTPS πατήστε αυτόν "
+"τον σύνδεσμο για χρήση ασφαλούς σύνδεσης."
 
 #: setup/frames/index.inc.php:82
 msgid "Insecure connection"
@@ -15150,10 +15146,8 @@ msgstr ""
 "εισάγετε για την τρέχουσα συνεδρία;"
 
 #: templates/prefs_autoload.phtml:14
-#, fuzzy
-#| msgid "Delete tracking"
 msgid "Delete settings "
-msgstr "Διαγραφή παρακολούθησης"
+msgstr "Διαγραφή ρυθμίσεων "
 
 #: templates/privileges/add_privileges_database.phtml:2
 msgid "Add privileges on the following database(s):"
@@ -15794,16 +15788,12 @@ msgid "Unexpected end of CASE expression"
 msgstr "Μη αναμενόμενο τέλος της έκφρασης CASE"
 
 #: vendor/phpmyadmin/sql-parser/src/Components/CreateDefinition.php:227
-#, fuzzy
-#| msgid ""
-#| "A symbol name was expected! A reserved keyword can not be used as a field "
-#| "name without backquotes."
 msgid ""
 "A symbol name was expected! A reserved keyword can not be used as a column "
 "name without backquotes."
 msgstr ""
 "Αναμενόταν ένα όνομα συμβόλου! Μια δεσμευμένη λέξη-κλειδί δεν μπορεί να "
-"χρησιμοποιηθεί ως όνομα πεδίου χωρίς εισαγωγικά."
+"χρησιμοποιηθεί ως όνομα στήλης χωρίς εισαγωγικά."
 
 #: vendor/phpmyadmin/sql-parser/src/Components/CreateDefinition.php:241
 msgid "A symbol name was expected!"
@@ -15923,10 +15913,8 @@ msgid "Unrecognized keyword."
 msgstr "Μη αναγνωρισμένη λέξη κλειδί."
 
 #: vendor/phpmyadmin/sql-parser/src/Statement.php:495
-#, fuzzy
-#| msgid "Unexpected beginning of statement."
 msgid "Unexpected ordering of clauses."
-msgstr "Μη αναμενόμενη έναρξη δήλωσης."
+msgstr "Μη αναμενόμενη ταξινόμηση δηλώσεων."
 
 #: vendor/phpmyadmin/sql-parser/src/Statements/CreateStatement.php:381
 msgid "The name of the entity was expected."

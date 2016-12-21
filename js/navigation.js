@@ -1539,7 +1539,6 @@ PMA_fastFilter.filter.prototype.request = function () {
     }
     var url = $('#pma_navigation').find('a.navigation_url').attr('href');
     var params = self.$this.find('> ul > li > form.fast_filter').first().serialize();
-    params.token = PMA_commonParams.get('token');
 
     if (self.$this.find('> ul > li > form.fast_filter:first input[name=searchClause]').length === 0) {
         var $input = $('#pma_navigation_tree').find('li.fast_filter.db_fast_filter input.searchClause');

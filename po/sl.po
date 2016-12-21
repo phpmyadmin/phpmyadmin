@@ -4,17 +4,17 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-12-13 10:41+0100\n"
-"PO-Revision-Date: 2016-11-10 15:08+0000\n"
+"PO-Revision-Date: 2016-12-14 09:30+0000\n"
 "Last-Translator: Domen <mitenem@outlook.com>\n"
-"Language-Team: Slovenian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/sl/>\n"
+"Language-Team: Slovenian "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/sl/>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
-"%100==4 ? 2 : 3;\n"
-"X-Generator: Weblate 2.9\n"
+"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
+"n%100==4 ? 2 : 3;\n"
+"X-Generator: Weblate 2.10-dev\n"
 
 #: changelog.php:39 license.php:34
 #, php-format
@@ -2592,23 +2592,23 @@ msgstr "Kopiraj tabelo s predpono"
 
 #: js/messages.php:732
 msgid "Extremely weak"
-msgstr ""
+msgstr "Izredno šibko"
 
 #: js/messages.php:733
 msgid "Very weak"
-msgstr ""
+msgstr "Zelo šibko"
 
 #: js/messages.php:734
 msgid "Weak"
-msgstr ""
+msgstr "Šibko"
 
 #: js/messages.php:735
 msgid "Good"
-msgstr ""
+msgstr "Dobro"
 
 #: js/messages.php:736
 msgid "Strong"
-msgstr ""
+msgstr "Močno"
 
 #: js/messages.php:765
 msgctxt "Previous month"
@@ -8210,7 +8210,7 @@ msgstr "Geslo:"
 
 #: libraries/display_change_password.lib.php:68
 msgid "Enter:"
-msgstr ""
+msgstr "Vnesite:"
 
 #: libraries/display_change_password.lib.php:75
 #: libraries/replication_gui.lib.php:865
@@ -14083,16 +14083,12 @@ msgstr ""
 "občutljivimi informacijami, kot so gesla) se prenašajo nešifrirani!"
 
 #: setup/frames/index.inc.php:78
-#, fuzzy
-#| msgid ""
-#| "If your server is also configured to accept HTTPS requests follow [a@"
-#| "%s]this link[/a] to use a secure connection."
 msgid ""
 "If your server is also configured to accept HTTPS requests follow this link "
 "to use a secure connection."
 msgstr ""
-"Če je vaš strežnik nastavljen za sprejemanje zahtev HTTPS, sledite [a@%s]tej "
-"povezavi[/a] za uporabo varne povezave."
+"Če je vaš strežnik nastavljen za sprejemanje zahtev HTTPS, sledite tej "
+"povezavi za uporabo varne povezave."
 
 #: setup/frames/index.inc.php:82
 msgid "Insecure connection"
@@ -14956,10 +14952,8 @@ msgstr ""
 "uvoziti za trenutno sejo?"
 
 #: templates/prefs_autoload.phtml:14
-#, fuzzy
-#| msgid "Delete tracking"
 msgid "Delete settings "
-msgstr "Izbriši sledenje"
+msgstr "Izbriši nastavitve "
 
 #: templates/privileges/add_privileges_database.phtml:2
 msgid "Add privileges on the following database(s):"
@@ -15594,16 +15588,12 @@ msgid "Unexpected end of CASE expression"
 msgstr "Nepričakovan konec izraza CASE"
 
 #: vendor/phpmyadmin/sql-parser/src/Components/CreateDefinition.php:227
-#, fuzzy
-#| msgid ""
-#| "A symbol name was expected! A reserved keyword can not be used as a field "
-#| "name without backquotes."
 msgid ""
 "A symbol name was expected! A reserved keyword can not be used as a column "
 "name without backquotes."
 msgstr ""
 "Pričakovali smo ime simbola! Rezervirane besede ne morete uporabiti kot ime "
-"polja brez ustreznih narekovajev."
+"stolpca brez ustreznih narekovajev."
 
 #: vendor/phpmyadmin/sql-parser/src/Components/CreateDefinition.php:241
 msgid "A symbol name was expected!"
@@ -15723,10 +15713,8 @@ msgid "Unrecognized keyword."
 msgstr "Nepričakovana ključna beseda."
 
 #: vendor/phpmyadmin/sql-parser/src/Statement.php:495
-#, fuzzy
-#| msgid "Unexpected beginning of statement."
 msgid "Unexpected ordering of clauses."
-msgstr "Nepričakovan začetek stavka."
+msgstr "Nepričakovan vrstni red stavkov."
 
 #: vendor/phpmyadmin/sql-parser/src/Statements/CreateStatement.php:381
 msgid "The name of the entity was expected."
