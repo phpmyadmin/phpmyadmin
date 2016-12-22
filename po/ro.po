@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.6-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-12-13 10:40+0100\n"
-"PO-Revision-Date: 2016-12-21 18:18+0000\n"
-"Last-Translator: Oasisone Doe <oasisontherun@gmail.com>\n"
+"PO-Revision-Date: 2016-12-22 14:58+0000\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Romanian "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-6/ro/>\n"
 "Language: ro\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
 "20)) ? 1 : 2;\n"
-"X-Generator: Weblate 2.10\n"
+"X-Generator: Weblate 2.11-dev\n"
 
 #: changelog.php:38 license.php:33
 #, php-format
@@ -828,7 +828,7 @@ msgid ""
 "extended features have been deactivated. %sFind out why%s. "
 msgstr ""
 "Configurarea stocării setărilor phpMyAdmin nu a fost finalizată, unele din "
-"funcțiile avansate au fost dezactivate. %Află de ce%s. "
+"funcțiile avansate au fost dezactivate. %sAflă de ce%s. "
 
 #: index.php:546
 msgid ""
