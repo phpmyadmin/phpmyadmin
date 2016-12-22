@@ -11466,7 +11466,7 @@ msgstr "Slave-instellingen"
 
 #: libraries/replication_gui.lib.php:403
 msgid ""
-"Make sure, you have unique server-id in your configuration file (my.cnf). If "
+"Make sure you have a unique server-id in your configuration file (my.cnf). If "
 "not, please add the following line into [mysqld] section:"
 msgstr ""
 "Let er op dat u op iedere MySQL-server een uniek server-id heeft ingesteld "
