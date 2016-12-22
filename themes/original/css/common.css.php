@@ -978,6 +978,7 @@ div#serverstatusquerieschart {
     width:500px;
     height:350px;
     padding-<?php echo $left; ?>: 30px;
+    display: none;
 }
 
 div#serverstatus table#serverstatusqueriesdetails {
@@ -1640,10 +1641,6 @@ input#input_import_file {
 
 #filterText {
     vertical-align: baseline;
-}
-
-#serverstatusquerieschart_data {
-    display: none;
 }
 
 #popup_background {
