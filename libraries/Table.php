@@ -2465,7 +2465,7 @@ class Table
          * @var \SqlParser\Statements\CreateStatement $stmt
         */
         $stmt = $parser->statements[0];
-        $fields = Table::getFields($stmt);
+        $fields = \SqlParser\Utils\Table::getFields($stmt);
         if ($column != null) {
             $expression = isset($fields[$column]['expr']) ?
                 substr($fields[$column]['expr'], 1, -1) : '';
