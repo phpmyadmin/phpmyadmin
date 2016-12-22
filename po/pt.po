@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.6-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-12-13 10:40+0100\n"
-"PO-Revision-Date: 2016-10-10 19:29+0000\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Portuguese <https://hosted.weblate.org/projects/"
-"phpmyadmin/4-6/pt/>\n"
+"PO-Revision-Date: 2016-12-22 16:10+0000\n"
+"Last-Translator: Marco Filipe Ferreira Fidalgo <mardalgo@gmail.com>\n"
+"Language-Team: Portuguese "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-6/pt/>\n"
 "Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.9-dev\n"
+"X-Generator: Weblate 2.11-dev\n"
 
 #: changelog.php:38 license.php:33
 #, php-format
@@ -767,22 +767,17 @@ msgstr ""
 "verificação de versão estão desativadas."
 
 #: index.php:468
-#, fuzzy
-#| msgid ""
-#| "Your PHP parameter [a@https://php.net/manual/en/session.configuration."
-#| "php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
-#| "than cookie validity configured in phpMyAdmin, because of this, your "
-#| "login will expire sooner than configured in phpMyAdmin."
 msgid ""
 "Your PHP parameter [a@https://php.net/manual/en/session.configuration."
 "php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
 "than cookie validity configured in phpMyAdmin, because of this, your login "
 "might expire sooner than configured in phpMyAdmin."
 msgstr ""
-"O seu parâmetro PHP [a@https://php.net/manual/en/session.configuration."
-"php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] é menor que "
-"o valor válido para o cookie configurado no phpMyAdmin, e por isso, a sua "
-"autenticação poderá expirar mais cedo que o configurado no phpMyAdmin."
+"O seu parâmetro PHP "
+"[a@https://php.net/manual/en/session.configuration.php#ini.session.gc-"
+"maxlifetime@_blank]session.gc_maxlifetime[/a] é menor que o valor válido no "
+"cookie configurado no phpMyAdmin, e por isso, a sua autenticação poderá "
+"expirar mais cedo que o configurado no phpMyAdmin."
 
 #: index.php:487
 msgid ""
@@ -888,10 +883,8 @@ msgid "Delete tracking data for these versions?"
 msgstr "Apagar dados de tracking para estas versões?"
 
 #: js/messages.php:55
-#, fuzzy
-#| msgid "Delete tracking data for this table"
 msgid "Delete entry from tracking report?"
-msgstr "Apagar dados de tracking para esta tabela"
+msgstr "Apagar entrada do relatório de rastreamento"
 
 #: js/messages.php:56
 msgid "Deleting tracking data"
