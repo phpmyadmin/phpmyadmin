@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.6-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-12-13 10:40+0100\n"
-"PO-Revision-Date: 2016-10-02 09:16+0000\n"
-"Last-Translator: an wei <justregonly1@gmail.com>\n"
-"Language-Team: Chinese (China) <https://hosted.weblate.org/projects/"
-"phpmyadmin/4-6/zh_CN/>\n"
+"PO-Revision-Date: 2016-12-24 08:03+0000\n"
+"Last-Translator: ctyzxx <ctyzxx@126.com>\n"
+"Language-Team: Chinese (China) "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-6/zh_CN/>\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 2.9-dev\n"
+"X-Generator: Weblate 2.11-dev\n"
 
 #: changelog.php:38 license.php:33
 #, php-format
@@ -1759,8 +1759,9 @@ msgid "Export"
 msgstr "导出"
 
 #: js/messages.php:390
+#, fuzzy
 msgid "No routine is exportable. Required privileges may be lacking."
-msgstr ""
+msgstr "权限不足，无法输出routine"
 
 #: js/messages.php:393 libraries/rte/rte_routines.lib.php:754
 msgid "ENUM/SET editor"
@@ -2862,7 +2863,7 @@ msgstr "格式化规则‘%s’的字符串时出错。"
 #: libraries/Advisor.php:467
 #, php-format
 msgid "Error in reading file: The file '%s' does not exist or is not readable!"
-msgstr ""
+msgstr "文件读取失败，%s不存在或不可读，请检查！"
 
 #: libraries/Advisor.php:492
 #, php-format
@@ -3129,8 +3130,6 @@ msgid "Switch to dark theme"
 msgstr "切换到黑色主题"
 
 #: libraries/DatabaseInterface.php:1485
-#, fuzzy
-#| msgid "Failed to read configuration file!"
 msgid "Failed to set configured collation connection!"
 msgstr "读取配置文件失败！"
 
@@ -7646,10 +7645,9 @@ msgid "Enable statistics"
 msgstr "启用统计"
 
 #: libraries/controllers/server/ServerVariablesController.php:110
-#, fuzzy, php-format
-#| msgid "Server variables and settings"
+#, php-format
 msgid "Not enough privilege to view server variables and settings. %s"
-msgstr "服务器变量和设置"
+msgstr "您没有足够的权限查看服务器变量和设置。%s"
 
 #: libraries/controllers/server/ServerVariablesController.php:220
 msgid "Setting variable failed"
@@ -13593,7 +13591,7 @@ msgstr ""
 
 #: libraries/sql-parser/src/Statement.php:369
 msgid "Unrecognized keyword."
-msgstr ""
+msgstr "不能识别的关键词"
 
 #: libraries/sql-parser/src/Statement.php:495
 #, fuzzy
@@ -15473,6 +15471,7 @@ msgid "Improve table structure"
 msgstr "规划表结构"
 
 #: templates/table/structure/optional_action_links.phtml:34
+#, fuzzy
 msgid "Track view"
 msgstr "显示追逐"
 
