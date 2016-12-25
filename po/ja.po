@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-12-21 17:06+0100\n"
-"PO-Revision-Date: 2016-11-29 03:45+0000\n"
-"Last-Translator: pralin <itgo1004@gmail.com>\n"
-"Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/ja/>\n"
+"PO-Revision-Date: 2016-12-25 14:37+0000\n"
+"Last-Translator: Fujiwara Software <fujiwara@diskcatalogmaker.com>\n"
+"Language-Team: Japanese "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/ja/>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 2.10-dev\n"
+"X-Generator: Weblate 2.11-dev\n"
 
 #: changelog.php:39 license.php:34
 #, fuzzy, php-format
@@ -979,8 +979,6 @@ msgid "Reset"
 msgstr "リセット"
 
 #: js/messages.php:113
-#, fuzzy
-#| msgid "Reset All"
 msgid "Reset all"
 msgstr "全てリセット"
 
@@ -1042,7 +1040,7 @@ msgstr "SQLのプレビュー"
 
 #: js/messages.php:135
 msgid "Simulate query"
-msgstr "クエリを検証"
+msgstr "クエリをシミュレート"
 
 #: js/messages.php:136
 msgid "Matched rows:"
@@ -3194,7 +3192,7 @@ msgstr "多言語"
 #, fuzzy
 #| msgid "File name"
 msgid "Vietnamese"
-msgstr "ファイル名"
+msgstr "ベトナム語"
 
 #: libraries/Charsets.php:390
 msgid "Central European"
@@ -15346,22 +15344,16 @@ msgid "Collation:"
 msgstr "照合順序"
 
 #: templates/columns_definitions/column_definitions_form.phtml:97
-#, fuzzy
-#| msgid "Storage Engine"
 msgid "Storage Engine:"
-msgstr "ストレージエンジン"
+msgstr "ストレージエンジン:"
 
 #: templates/columns_definitions/column_definitions_form.phtml:102
-#, fuzzy
-#| msgid "Connections"
 msgid "Connection:"
-msgstr "接続"
+msgstr "接続:"
 
 #: templates/columns_definitions/column_definitions_form.phtml:146
-#, fuzzy
-#| msgid "PARTITION definition"
 msgid "PARTITION definition:"
-msgstr "パーティションの定義"
+msgstr "PARTITION 定義:"
 
 #: templates/columns_definitions/column_length.phtml:9
 msgid "Edit ENUM/SET values"
@@ -15374,10 +15366,8 @@ msgid "Referenced by %s."
 msgstr "参照されているキーを選択"
 
 #: templates/columns_definitions/column_name.phtml:14
-#, fuzzy
-#| msgid "Select Foreign Key"
 msgid "Is a foreign key."
-msgstr "外部キーを選択してください"
+msgstr "外部キーです。"
 
 #: templates/columns_definitions/column_name.phtml:43
 #, fuzzy
@@ -15569,8 +15559,9 @@ msgstr "変換オプション"
 #: templates/console/bookmark_content.phtml:14
 #: templates/console/display.phtml:48 templates/console/display.phtml:105
 #: templates/console/display.phtml:210
+#, fuzzy
 msgid "Collapse"
-msgstr ""
+msgstr "折畳み"
 
 #: templates/console/bookmark_content.phtml:15
 #: templates/console/display.phtml:49 templates/console/display.phtml:106
@@ -15614,10 +15605,8 @@ msgid "Press Enter to execute query"
 msgstr "実行間隔"
 
 #: templates/console/display.phtml:39
-#, fuzzy
-#| msgid "Skip current error"
 msgid "During current session"
-msgstr "現在のエラーをスキップする"
+msgstr "現在のセッションの間"
 
 #: templates/console/display.phtml:52 templates/console/display.phtml:214
 #, fuzzy
@@ -15630,47 +15619,33 @@ msgid "Bookmark"
 msgstr "ブックマーク"
 
 #: templates/console/display.phtml:56 templates/console/display.phtml:218
-#, fuzzy
-#| msgid "Query cache"
 msgid "Query failed"
-msgstr "クエリキャッシュ"
+msgstr "問い合わせ失敗"
 
 #: templates/console/display.phtml:58 templates/console/display.phtml:220
-#, fuzzy
-#| msgid "Query execution time"
 msgid "Queried time"
-msgstr "クエリの実行時間"
+msgstr "問い合わせた時間"
 
 #: templates/console/display.phtml:81
-#, fuzzy
-#| msgid "Ascending"
 msgid "ascending"
 msgstr "昇順"
 
 #: templates/console/display.phtml:82
-#, fuzzy
-#| msgid "Descending"
 msgid "descending"
 msgstr "降順"
 
 #: templates/console/display.phtml:83
-#, fuzzy
-#| msgid "Other"
 msgid "Order:"
-msgstr "その他"
+msgstr "順序:"
 
 #: templates/console/display.phtml:85 templates/console/display.phtml:109
 #: templates/table/search/replace_preview.phtml:17
-#, fuzzy
-#| msgid "Column"
 msgid "Count"
-msgstr "カラム"
+msgstr "カウント"
 
 #: templates/console/display.phtml:86
-#, fuzzy
-#| msgid "Execute every"
 msgid "Execution order"
-msgstr "実行間隔"
+msgstr "実行順"
 
 #: templates/console/display.phtml:87 templates/console/display.phtml:110
 msgid "Time taken"
@@ -16274,7 +16249,7 @@ msgstr "曲線グラフ"
 #: templates/table/chart/tbl_chart.phtml:32
 msgctxt "Chart type"
 msgid "Area"
-msgstr ""
+msgstr "面グラフ"
 
 #: templates/table/chart/tbl_chart.phtml:36
 msgctxt "Chart type"
@@ -16291,7 +16266,7 @@ msgstr "時間"
 #: templates/table/chart/tbl_chart.phtml:44
 msgctxt "Chart type"
 msgid "Scatter"
-msgstr ""
+msgstr "散布図"
 
 #: templates/table/chart/tbl_chart.phtml:49
 msgid "Stacked"
@@ -16384,7 +16359,7 @@ msgstr "インデックスキャッシュの大きさ"
 
 #: templates/table/index_form.phtml:57
 msgid "Key block size:"
-msgstr ""
+msgstr "キーブロックサイズ:"
 
 #: templates/table/index_form.phtml:74
 msgid "Index type:"
@@ -16512,7 +16487,7 @@ msgstr "プロットする結果の最大数"
 
 #: templates/table/search/replace_preview.phtml:13
 msgid "Find and replace - preview"
-msgstr ""
+msgstr "検索と置換 - プレビュー"
 
 #: templates/table/search/replace_preview.phtml:18
 #, fuzzy
@@ -16809,7 +16784,7 @@ msgstr "実装されていません。"
 #: vendor/phpmyadmin/sql-parser/src/Statement.php:337
 msgid ""
 "A new statement was found, but no delimiter between it and the previous one."
-msgstr ""
+msgstr "新しいステートメントが見つかりましたが、それとその前の間に区切り文字がありません。"
 
 #: vendor/phpmyadmin/sql-parser/src/Components/AlterOperation.php:240
 #, fuzzy
@@ -16820,7 +16795,7 @@ msgstr "アイコンによるテーブルの操作"
 #: vendor/phpmyadmin/sql-parser/src/Components/Array2d.php:91
 #, php-format
 msgid "%1$d values were expected, but found %2$d."
-msgstr ""
+msgstr "値 %1$d があるべきですが、 %2$d が見つかりました。"
 
 #: vendor/phpmyadmin/sql-parser/src/Components/Array2d.php:114
 msgid "An opening bracket followed by a set of values was expected."
@@ -16845,14 +16820,12 @@ msgstr ""
 #: vendor/phpmyadmin/sql-parser/src/Statements/InsertStatement.php:227
 #: vendor/phpmyadmin/sql-parser/src/Statements/ReplaceStatement.php:165
 #: vendor/phpmyadmin/sql-parser/src/Statements/ReplaceStatement.php:193
-#, fuzzy
-#| msgid "Unexpected characters on line %s."
 msgid "Unexpected keyword."
-msgstr "予期しない文字 (行: %s)。"
+msgstr "予期しないキーワード。"
 
 #: vendor/phpmyadmin/sql-parser/src/Components/CaseExpression.php:202
 msgid "Unexpected end of CASE expression"
-msgstr ""
+msgstr "予期しないCASE式の終了"
 
 #: vendor/phpmyadmin/sql-parser/src/Components/CreateDefinition.php:227
 msgid ""
@@ -16861,10 +16834,8 @@ msgid ""
 msgstr ""
 
 #: vendor/phpmyadmin/sql-parser/src/Components/CreateDefinition.php:241
-#, fuzzy
-#| msgid "Table name template"
 msgid "A symbol name was expected!"
-msgstr "テーブル名のテンプレート"
+msgstr "シンボル名があるべきです!"
 
 #: vendor/phpmyadmin/sql-parser/src/Components/CreateDefinition.php:273
 #, fuzzy
@@ -16878,7 +16849,7 @@ msgstr ""
 
 #: vendor/phpmyadmin/sql-parser/src/Components/DataType.php:127
 msgid "Unrecognized data type."
-msgstr ""
+msgstr "認識できないデータ形式。"
 
 #: vendor/phpmyadmin/sql-parser/src/Components/Expression.php:248
 #: vendor/phpmyadmin/sql-parser/src/Components/Expression.php:398
@@ -16895,13 +16866,11 @@ msgstr ""
 
 #: vendor/phpmyadmin/sql-parser/src/Components/Expression.php:368
 msgid "Unexpected dot."
-msgstr ""
+msgstr "予期しないドット。"
 
 #: vendor/phpmyadmin/sql-parser/src/Components/ExpressionArray.php:106
-#, fuzzy
-#| msgid "No rows selected"
 msgid "An expression was expected."
-msgstr "行が選択されていません"
+msgstr "式があるべきです。"
 
 #: vendor/phpmyadmin/sql-parser/src/Components/Limit.php:90
 #: vendor/phpmyadmin/sql-parser/src/Components/Limit.php:112
@@ -16927,7 +16896,7 @@ msgstr "開いているテーブルの数。"
 
 #: vendor/phpmyadmin/sql-parser/src/Components/RenameOperation.php:111
 msgid "Keyword \"TO\" was expected."
-msgstr ""
+msgstr "キーワード \"TO\" があるべきです。"
 
 #: vendor/phpmyadmin/sql-parser/src/Components/RenameOperation.php:127
 #, fuzzy
@@ -16949,30 +16918,25 @@ msgstr "予期しない文字 (行: %s)。"
 
 #: vendor/phpmyadmin/sql-parser/src/Lexer.php:303
 msgid "Expected whitespace(s) before delimiter."
-msgstr ""
+msgstr "空白が区切り文字の前にあるべきです。"
 
 #: vendor/phpmyadmin/sql-parser/src/Lexer.php:321
 #: vendor/phpmyadmin/sql-parser/src/Lexer.php:337
 msgid "Expected delimiter."
-msgstr ""
+msgstr "区切り文字があるべきです。"
 
 #: vendor/phpmyadmin/sql-parser/src/Lexer.php:838
-#, fuzzy, php-format
-#| msgid "Event %1$s has been created."
+#, php-format
 msgid "Ending quote %1$s was expected."
-msgstr "イベント %1$s を作成しました。"
+msgstr "終端クォート %1$s があるべきです。"
 
 #: vendor/phpmyadmin/sql-parser/src/Lexer.php:878
-#, fuzzy
-#| msgid "Table name template"
 msgid "Variable name was expected."
-msgstr "テーブル名のテンプレート"
+msgstr "変数名があるべきです。"
 
 #: vendor/phpmyadmin/sql-parser/src/Parser.php:456
-#, fuzzy
-#| msgid "At Beginning of Table"
 msgid "Unexpected beginning of statement."
-msgstr "テーブルの先頭"
+msgstr "ステートメントの開始があるべきです。"
 
 #: vendor/phpmyadmin/sql-parser/src/Parser.php:475
 msgid "Unrecognized statement type."
@@ -16988,10 +16952,8 @@ msgstr "開始されているトランザクションはありません。"
 #: vendor/phpmyadmin/sql-parser/src/Statements/InsertStatement.php:236
 #: vendor/phpmyadmin/sql-parser/src/Statements/InsertStatement.php:256
 #: vendor/phpmyadmin/sql-parser/src/Statements/ReplaceStatement.php:201
-#, fuzzy
-#| msgid "Unexpected characters on line %s."
 msgid "Unexpected token."
-msgstr "予期しない文字 (行: %s)。"
+msgstr "予期しないトークン。"
 
 #: vendor/phpmyadmin/sql-parser/src/Statement.php:309
 msgid "This type of clause was previously parsed."
