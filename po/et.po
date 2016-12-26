@@ -6,16 +6,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-12-21 17:06+0100\n"
-"PO-Revision-Date: 2016-11-18 10:30+0000\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Estonian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/et/>\n"
+"PO-Revision-Date: 2016-12-26 10:21+0000\n"
+"Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
+"Language-Team: Estonian "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/et/>\n"
 "Language: et\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.10-dev\n"
+"X-Generator: Weblate 2.11-dev\n"
 
 #: changelog.php:39 license.php:34
 #, php-format
@@ -1798,7 +1798,7 @@ msgstr "Ekspordi"
 
 #: js/messages.php:395
 msgid "No routine is exportable. Required privileges may be lacking."
-msgstr ""
+msgstr "Eksporditavaid funktsioone ei ole. Vajalikud õigused võivad puududa."
 
 #: js/messages.php:398 libraries/rte/rte_routines.lib.php:747
 msgid "ENUM/SET editor"
@@ -2158,12 +2158,16 @@ msgid ""
 "MySQL accepts additional values not selectable by the slider; key in those "
 "values directly if desired"
 msgstr ""
+"MySQL võtab vastu ka väärtuseid, mida liguriga ei saa valida. Soovi korral "
+"sisesta need väärtused otse"
 
 #: js/messages.php:534
 msgid ""
 "MySQL accepts additional values not selectable by the datepicker; key in "
 "those values directly if desired"
 msgstr ""
+"MySQL võtab vastu ka väärtuseid, mida ei saa valida kuupäeva valijaga. Soovi "
+"korral sisesta need väärtused otse"
 
 #: js/messages.php:540
 msgid ""
@@ -2573,23 +2577,23 @@ msgstr "Kopeeri tabel koos eesliitega"
 
 #: js/messages.php:732
 msgid "Extremely weak"
-msgstr ""
+msgstr "Ülimalt nõrk"
 
 #: js/messages.php:733
 msgid "Very weak"
-msgstr ""
+msgstr "Väga nõrk"
 
 #: js/messages.php:734
 msgid "Weak"
-msgstr ""
+msgstr "Nõrk"
 
 #: js/messages.php:735
 msgid "Good"
-msgstr ""
+msgstr "Hea"
 
 #: js/messages.php:736
 msgid "Strong"
-msgstr ""
+msgstr "Tugev"
 
 #: js/messages.php:765
 msgctxt "Previous month"
@@ -2949,7 +2953,7 @@ msgstr "Sõne vormindamine reeglile '%s' ebaõnnestus."
 #: libraries/Advisor.php:469
 #, php-format
 msgid "Error in reading file: The file '%s' does not exist or is not readable!"
-msgstr ""
+msgstr "Viga faili lugemisel: faili '%s' ei ole olemas või ta pole loetav!"
 
 #: libraries/Advisor.php:494
 #, php-format
@@ -8121,7 +8125,7 @@ msgstr "Parool:"
 
 #: libraries/display_change_password.lib.php:68
 msgid "Enter:"
-msgstr ""
+msgstr "Sisesta:"
 
 #: libraries/display_change_password.lib.php:75
 #: libraries/replication_gui.lib.php:865
@@ -11647,10 +11651,8 @@ msgid "routine"
 msgstr "funktsioon"
 
 #: libraries/rte/rte_words.lib.php:32
-#, fuzzy
-#| msgid "You do not have the necessary privileges to create a routine"
 msgid "You do not have the necessary privileges to create a routine."
-msgstr "Sul pole funktsiooni loomiseks piisavalt õigusi"
+msgstr "Sul pole funktsiooni loomiseks piisavalt õiguseid."
 
 #: libraries/rte/rte_words.lib.php:35
 #, php-format
@@ -11658,6 +11660,8 @@ msgid ""
 "No routine with name %1$s found in database %2$s. You might be lacking the "
 "necessary privileges to edit this routine."
 msgstr ""
+"Andmebaasist %2$s ei leitud funktsiooni nimega %1$s. Sul võivad puududa "
+"selle funktsiooni muutmiseks vajalikud õigused."
 
 #: libraries/rte/rte_words.lib.php:39
 #, php-format
@@ -11665,12 +11669,13 @@ msgid ""
 "No routine with name %1$s found in database %2$s. You might be lacking the "
 "necessary privileges to view/export this routine."
 msgstr ""
+"Andmebaasist %2$s ei leitud funktsiooni nimega %1$s. Sul võivad puududa "
+"selle funktsiooni vaatamiseks/eksportimiseks vajalikud õigused."
 
 #: libraries/rte/rte_words.lib.php:42
-#, fuzzy, php-format
-#| msgid "No routine with name %1$s found in database %2$s"
+#, php-format
 msgid "No routine with name %1$s found in database %2$s."
-msgstr "%2$s andmebaasist ei leitud funktsiooni nimega %1$s"
+msgstr "Andmebaasist %2$s ei leitud funktsiooni nimega %1$s."
 
 #: libraries/rte/rte_words.lib.php:43
 msgid "There are no routines to display."
@@ -11690,16 +11695,13 @@ msgid "trigger"
 msgstr "päästik"
 
 #: libraries/rte/rte_words.lib.php:54
-#, fuzzy
-#| msgid "You do not have the necessary privileges to create a trigger"
 msgid "You do not have the necessary privileges to create a trigger."
-msgstr "Sul pole päästiku loomiseks piisavalt õigusi"
+msgstr "Sul pole päästiku loomiseks piisavalt õiguseid."
 
 #: libraries/rte/rte_words.lib.php:56
-#, fuzzy, php-format
-#| msgid "No trigger with name %1$s found in database %2$s"
+#, php-format
 msgid "No trigger with name %1$s found in database %2$s."
-msgstr "%2$s andmebaasist ei leitud päästikut nimega %1$s"
+msgstr "Andmebaasist %2$s ei leitud päästikut nimega %1$s."
 
 #: libraries/rte/rte_words.lib.php:57
 msgid "There are no triggers to display."
@@ -11719,16 +11721,13 @@ msgid "event"
 msgstr "sündmus"
 
 #: libraries/rte/rte_words.lib.php:68
-#, fuzzy
-#| msgid "You do not have the necessary privileges to create an event"
 msgid "You do not have the necessary privileges to create an event."
-msgstr "Sul pole sündmuse loomiseks piisavalt õigusi"
+msgstr "Sul pole sündmuse loomiseks piisavalt õiguseid."
 
 #: libraries/rte/rte_words.lib.php:70
-#, fuzzy, php-format
-#| msgid "No event with name %1$s found in database %2$s"
+#, php-format
 msgid "No event with name %1$s found in database %2$s."
-msgstr "%2$s andmebaasist ei leitud sündmust nimega %1$s"
+msgstr "Andmebaasist %2$s ei leitud sündmust nimega %1$s."
 
 #: libraries/rte/rte_words.lib.php:71
 msgid "There are no events to display."
@@ -11972,6 +11971,9 @@ msgid ""
 "Allows user to give to other users or remove from other users privileges "
 "that user possess on this routine."
 msgstr ""
+"Võimaldab kasutajal anda teistele kasutajatele või eemalda teistelt "
+"kasutajatelt õigused, mis on selle funktsiooni kasutamiseks kinnitatud antud "
+"kasutajale."
 
 #: libraries/server_privileges.lib.php:934
 msgid "Allows altering and dropping this routine."
@@ -12031,6 +12033,8 @@ msgid ""
 "Allows user to give to other users or remove from other users the privileges "
 "that user possess yourself."
 msgstr ""
+"Võimaldab kasutajal endal anda teistele kasutajatele või eemalda teistelt "
+"kasutajatelt õigused, mida too kasutaja omab."
 
 #: libraries/server_privileges.lib.php:1422
 #: libraries/server_privileges.lib.php:1453
@@ -13959,16 +13963,12 @@ msgstr ""
 "tundlikku teavet, nt paroole) edastatakse krüptimata!"
 
 #: setup/frames/index.inc.php:78
-#, fuzzy
-#| msgid ""
-#| "If your server is also configured to accept HTTPS requests follow [a@"
-#| "%s]this link[/a] to use a secure connection."
 msgid ""
 "If your server is also configured to accept HTTPS requests follow this link "
 "to use a secure connection."
 msgstr ""
-"Kui sinu server on seadistatud nõustuma ka HTTPS taotlustega, siis ava [a@"
-"%s]see link[/a], et teada saada, kuidas kasutada turvalist ühendust."
+"Kui sinu server on seadistatud nõustuma ka HTTPS taotlustega, siis ava see "
+"link, et kasutada turvalist ühendust."
 
 #: setup/frames/index.inc.php:82
 msgid "Insecure connection"
@@ -14829,10 +14829,8 @@ msgstr ""
 "soovid selle importida praeguse seansi jaoks?"
 
 #: templates/prefs_autoload.phtml:14
-#, fuzzy
-#| msgid "Delete tracking"
 msgid "Delete settings "
-msgstr "Kustuta jälgimine"
+msgstr "Kustuta sätted "
 
 #: templates/privileges/add_privileges_database.phtml:2
 msgid "Add privileges on the following database(s):"
@@ -15098,6 +15096,9 @@ msgid ""
 "an index on it. Alternatively, you can define an index below, before "
 "creating the foreign key."
 msgstr ""
+"Luues välisvõtme üle indekseerimata veeru põhjustab antud veeru automaatse "
+"indekseerimise. Alternatiivselt võid sa luua indeksi allpool enne välisvõtme "
+"loomist."
 
 #: templates/table/relation/common_form.phtml:20
 msgid ""
@@ -15455,20 +15456,20 @@ msgstr "Oodati avanevat sulgu."
 #: vendor/phpmyadmin/sql-parser/src/Statements/InsertStatement.php:227
 #: vendor/phpmyadmin/sql-parser/src/Statements/ReplaceStatement.php:165
 #: vendor/phpmyadmin/sql-parser/src/Statements/ReplaceStatement.php:193
-#, fuzzy
-#| msgid "Unexpected token."
 msgid "Unexpected keyword."
-msgstr "Ootamatud märk."
+msgstr "Ootamatu võtmesõna."
 
 #: vendor/phpmyadmin/sql-parser/src/Components/CaseExpression.php:202
 msgid "Unexpected end of CASE expression"
-msgstr ""
+msgstr "Ootamatu CASE lause lõpp"
 
 #: vendor/phpmyadmin/sql-parser/src/Components/CreateDefinition.php:227
 msgid ""
 "A symbol name was expected! A reserved keyword can not be used as a column "
 "name without backquotes."
 msgstr ""
+"Oodati sümboli nime! Reserveeritud võtmesõna saab kasutada veeru nimena "
+"ainult siis, kui ta on ühekordsete tagurpidi jutumärkide vahel."
 
 #: vendor/phpmyadmin/sql-parser/src/Components/CreateDefinition.php:241
 msgid "A symbol name was expected!"
@@ -15516,10 +15517,9 @@ msgid "This option conflicts with \"%1$s\"."
 msgstr "See säte põhjustab konflikti sättega \"%1$s\"."
 
 #: vendor/phpmyadmin/sql-parser/src/Components/OptionsArray.php:260
-#, fuzzy, php-format
-#| msgid "Ending quote %1$s was expected."
+#, php-format
 msgid "Value/Expression for the option %1$s was expected"
-msgstr "Oodati lõpetavat sümbolit %1$s."
+msgstr "Oodati valiku %1$s väärtust/avaldist"
 
 #: vendor/phpmyadmin/sql-parser/src/Components/RenameOperation.php:101
 msgid "The old name of the table was expected."
@@ -15589,20 +15589,16 @@ msgid "Unrecognized keyword."
 msgstr "Tundmatu võtmesõna."
 
 #: vendor/phpmyadmin/sql-parser/src/Statement.php:495
-#, fuzzy
-#| msgid "Unexpected beginning of statement."
 msgid "Unexpected ordering of clauses."
-msgstr "Ootamatu lause algus."
+msgstr "Ootamatu lausete järjestus."
 
 #: vendor/phpmyadmin/sql-parser/src/Statements/CreateStatement.php:381
 msgid "The name of the entity was expected."
 msgstr "Oodati olemi nime."
 
 #: vendor/phpmyadmin/sql-parser/src/Statements/CreateStatement.php:436
-#, fuzzy
-#| msgid "Variable name was expected."
 msgid "A table name was expected."
-msgstr "Oodati muutuja nime."
+msgstr "Oodati tabeli nime."
 
 #: vendor/phpmyadmin/sql-parser/src/Statements/CreateStatement.php:444
 msgid "At least one column definition was expected."
@@ -15613,10 +15609,8 @@ msgid "A \"RETURNS\" keyword was expected."
 msgstr "Oodati võtmesõna \"RETURNS\"."
 
 #: vendor/phpmyadmin/sql-parser/src/Statements/DeleteStatement.php:303
-#, fuzzy
-#| msgid "This type of clause was previously parsed."
 msgid "This type of clause is not valid in Multi-table queries."
-msgstr "Sellist tüüpi klausel parsiti eelnevalt."
+msgstr "Sellist tüüpi klausel ei ole mitme tabeli päringus kehtiv."
 
 #: vendor/phpmyadmin/sql-parser/tests/Lexer/LexerTest.php:21
 #: vendor/phpmyadmin/sql-parser/tests/Parser/ParserTest.php:58
@@ -15635,10 +15629,8 @@ msgid "strict error"
 msgstr "otsene viga"
 
 #: view_create.php:48
-#, fuzzy
-#| msgid "View name can not be empty"
 msgid "View name can not be empty!"
-msgstr "Vaate nimi ei saa olla tühi"
+msgstr "Vaate nimi ei saa olla tühi!"
 
 #: view_create.php:253
 msgid "VIEW name"
