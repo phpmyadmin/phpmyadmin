@@ -615,4 +615,28 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
             "//a[@class='tabactive' and contains(., 'Browse')]"
         );
     }
+
+    /**
+     * Scrolls to a coordinate such that the element with given id is visible
+     *
+     * @param string $element_id Id of the element
+     *
+     * @return void
+     */
+    public function scrollIntoView($element_id)
+    {
+        // 70pt offset so that the topmenu does not cover the element
+        $this->execute(
+            array(
+                'script' => 'var element = document.getElementById("'
+                            . $element_id . '");'
+                            . 'var position = element.getBoundingClientRect();'
+                            . 'var x = position.left;'
+                            . 'var y = position.top;'
+                            . 'window.scrollTo(x, y-70);',
+                'args'   => array()
+            )
+        );
+        usleep(10000);
+    }
 }
