@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-12-13 10:40+0100\n"
 "PO-Revision-Date: 2016-12-26 23:39+0000\n"
-"Last-Translator: Lari Oesch <lari@oesch.me>\n"
+"Last-Translator: Elias Kosunen <elias.kosunen@gmail.com>\n"
 "Language-Team: Finnish "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-6/fi/>\n"
 "Language: fi\n"
@@ -614,7 +614,7 @@ msgstr "\"DROP DATABASE\" -kyselyjen käyttö on estetty."
 
 #: import_status.php:107
 msgid "Could not load the progress of the import."
-msgstr "Tuonnin tilaa ei voitu ladata."
+msgstr "Tuonnin etenemisen lataus epäonnistui."
 
 #: import_status.php:116 js/messages.php:446 js/messages.php:610
 #: libraries/Util.php:760 libraries/export.lib.php:514
