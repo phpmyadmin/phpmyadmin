@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-12-21 17:06+0100\n"
-"PO-Revision-Date: 2016-12-27 15:51+0000\n"
+"PO-Revision-Date: 2016-12-27 15:52+0000\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: French "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/fr/>\n"
@@ -15825,7 +15825,7 @@ msgstr "L'ancien nom de la table était attendu."
 
 #: vendor/phpmyadmin/sql-parser/src/Components/RenameOperation.php:111
 msgid "Keyword \"TO\" was expected."
-msgstr "Le mot clef « TO » était attendu."
+msgstr "Le mot clé « TO » était attendu."
 
 #: vendor/phpmyadmin/sql-parser/src/Components/RenameOperation.php:127
 msgid "The new name of the table was expected."
