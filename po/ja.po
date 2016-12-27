@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-12-21 17:06+0100\n"
-"PO-Revision-Date: 2016-12-25 14:37+0000\n"
-"Last-Translator: Fujiwara Software <fujiwara@diskcatalogmaker.com>\n"
+"PO-Revision-Date: 2016-12-27 15:16+0000\n"
+"Last-Translator: Fujiwara Software <fujisoft@gmail.com>\n"
 "Language-Team: Japanese "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/ja/>\n"
 "Language: ja\n"
@@ -16787,10 +16787,8 @@ msgid ""
 msgstr "新しいステートメントが見つかりましたが、それとその前の間に区切り文字がありません。"
 
 #: vendor/phpmyadmin/sql-parser/src/Components/AlterOperation.php:240
-#, fuzzy
-#| msgid "Iconic table operations"
 msgid "Unrecognized alter operation."
-msgstr "アイコンによるテーブルの操作"
+msgstr "認識できない alter 操作。"
 
 #: vendor/phpmyadmin/sql-parser/src/Components/Array2d.php:91
 #, php-format
@@ -16838,14 +16836,12 @@ msgid "A symbol name was expected!"
 msgstr "シンボル名があるべきです!"
 
 #: vendor/phpmyadmin/sql-parser/src/Components/CreateDefinition.php:273
-#, fuzzy
-#| msgid "No tables selected."
 msgid "A comma or a closing bracket was expected."
-msgstr "テーブルが選択されていません。"
+msgstr "カンマか閉じる括弧があるべきです。"
 
 #: vendor/phpmyadmin/sql-parser/src/Components/CreateDefinition.php:289
 msgid "A closing bracket was expected."
-msgstr ""
+msgstr "閉じる括弧があるべきです。"
 
 #: vendor/phpmyadmin/sql-parser/src/Components/DataType.php:127
 msgid "Unrecognized data type."
@@ -16853,16 +16849,14 @@ msgstr "認識できないデータ形式。"
 
 #: vendor/phpmyadmin/sql-parser/src/Components/Expression.php:248
 #: vendor/phpmyadmin/sql-parser/src/Components/Expression.php:398
-#, fuzzy
-#| msgid "No tables selected."
 msgid "An alias was expected."
-msgstr "テーブルが選択されていません。"
+msgstr "エイリアスがあるべきです。"
 
 #: vendor/phpmyadmin/sql-parser/src/Components/Expression.php:336
 #: vendor/phpmyadmin/sql-parser/src/Components/Expression.php:355
 #: vendor/phpmyadmin/sql-parser/src/Components/Expression.php:387
 msgid "An alias was previously found."
-msgstr ""
+msgstr "エイリアスが前に見つかっています。"
 
 #: vendor/phpmyadmin/sql-parser/src/Components/Expression.php:368
 msgid "Unexpected dot."
@@ -16964,10 +16958,8 @@ msgid "Unrecognized keyword."
 msgstr "認識できないキーワードです。"
 
 #: vendor/phpmyadmin/sql-parser/src/Statement.php:495
-#, fuzzy
-#| msgid "At Beginning of Table"
 msgid "Unexpected ordering of clauses."
-msgstr "テーブルの先頭"
+msgstr "予期しない節の順序。"
 
 #: vendor/phpmyadmin/sql-parser/src/Statements/CreateStatement.php:381
 #, fuzzy
@@ -16976,10 +16968,8 @@ msgid "The name of the entity was expected."
 msgstr "開いているテーブルの数。"
 
 #: vendor/phpmyadmin/sql-parser/src/Statements/CreateStatement.php:436
-#, fuzzy
-#| msgid "Table name template"
 msgid "A table name was expected."
-msgstr "テーブル名のテンプレート"
+msgstr "テーブル名があるべきです。"
 
 #: vendor/phpmyadmin/sql-parser/src/Statements/CreateStatement.php:444
 #, fuzzy
@@ -16989,7 +16979,7 @@ msgstr "行を削除しました"
 
 #: vendor/phpmyadmin/sql-parser/src/Statements/CreateStatement.php:555
 msgid "A \"RETURNS\" keyword was expected."
-msgstr ""
+msgstr "キーワード \"RETURNS\" があるべきです。"
 
 #: vendor/phpmyadmin/sql-parser/src/Statements/DeleteStatement.php:303
 msgid "This type of clause is not valid in Multi-table queries."
