@@ -535,11 +535,12 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
     /**
      * Type text in textarea (CodeMirror enabled)
      *
-     * @param string $text Text to type
+     * @param string $text  Text to type
+     * @param string $index Index of CodeMirror instance to write to
      *
      * @return void
      */
-    public function typeInTextArea($text)
+    public function typeInTextArea($text, $index=0)
     {
         /**
          * Firefox needs some escaping of a text, see
@@ -555,8 +556,13 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
             );
         }
 
-        $this->byClassName("CodeMirror-scroll")->click();
-        $this->keys($text);
+        $this->execute(
+            array(
+                'script' => "var cm = $('.CodeMirror')[" . $index . "].CodeMirror;"
+                    . "cm.setValue('" . $text . "');",
+                'args' => array()
+            )
+        );
     }
 
     /**
@@ -574,7 +580,7 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
         /* We need to resize to ensure it fits into accessible area */
         $this->execute(
             array(
-                'script' => "$('#topmenu').css('font-size', '50%');"
+                'script' => "$('#topmenu').css('font-size', '30%');"
                     . "$(window).resize()",
                 'args' => array()
             )
