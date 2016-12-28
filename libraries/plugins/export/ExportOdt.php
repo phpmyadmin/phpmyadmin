@@ -19,6 +19,10 @@ use PMA\libraries\properties\options\items\RadioPropertyItem;
 use PMA\libraries\properties\options\items\TextPropertyItem;
 use PMA\libraries\OpenDocument;
 
+if (! defined('PHPMYADMIN')) {
+    exit;
+}
+
 $GLOBALS['odt_buffer'] = '';
 
 /**

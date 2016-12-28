@@ -16,6 +16,10 @@ use PMA\libraries\plugins\export\PMA_ExportPdf;
 use PMA\libraries\properties\options\items\RadioPropertyItem;
 use PMA\libraries\properties\options\items\TextPropertyItem;
 
+if (! defined('PHPMYADMIN')) {
+    exit;
+}
+
 /**
  * Skip the plugin if TCPDF is not available.
  */

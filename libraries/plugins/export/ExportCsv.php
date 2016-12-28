@@ -18,6 +18,10 @@ use PMA\libraries\properties\options\groups\OptionsPropertyRootGroup;
 use PMA;
 use PMA\libraries\properties\options\items\TextPropertyItem;
 
+if (! defined('PHPMYADMIN')) {
+    exit;
+}
+
 /**
  * Handles the export for the CSV format
  *

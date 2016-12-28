@@ -17,6 +17,10 @@ use PMA\libraries\DatabaseInterface;
 use PMA\libraries\plugins\ExportPlugin;
 use PMA\libraries\Util;
 
+if (! defined('PHPMYADMIN')) {
+    exit;
+}
+
 if (strlen($GLOBALS['db']) === 0) { /* Can't do server export */
     $GLOBALS['skip_import'] = true;
     return;

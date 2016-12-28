@@ -17,6 +17,10 @@ use PMA\libraries\properties\options\groups\OptionsPropertySubgroup;
 use PMA;
 use PMA\libraries\properties\options\items\RadioPropertyItem;
 
+if (! defined('PHPMYADMIN')) {
+    exit;
+}
+
 /**
  * Handles the export for the MediaWiki class
  *

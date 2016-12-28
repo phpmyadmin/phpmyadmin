@@ -15,6 +15,10 @@ use PMA;
 use PMA\libraries\plugins\ImportPlugin;
 use SimpleXMLElement;
 
+if (! defined('PHPMYADMIN')) {
+    exit;
+}
+
 /**
  * Handles the import for the XML format
  *

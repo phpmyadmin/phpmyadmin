@@ -17,6 +17,10 @@ use PMA;
 use PMA\libraries\properties\options\items\SelectPropertyItem;
 use PMA\libraries\plugins\export\TableProperty;
 
+if (! defined('PHPMYADMIN')) {
+    exit;
+}
+
 /**
  * Handles the export for the CodeGen class
  *

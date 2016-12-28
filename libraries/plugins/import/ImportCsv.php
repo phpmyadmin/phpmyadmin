@@ -13,6 +13,10 @@ use PMA\libraries\properties\options\items\BoolPropertyItem;
 use PMA;
 use PMA\libraries\properties\options\items\TextPropertyItem;
 
+if (! defined('PHPMYADMIN')) {
+    exit;
+}
+
 /**
  * Handles the import for the CSV format
  *
