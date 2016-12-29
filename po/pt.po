@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.6-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-12-13 10:40+0100\n"
-"PO-Revision-Date: 2016-12-22 16:10+0000\n"
-"Last-Translator: Marco Filipe Ferreira Fidalgo <mardalgo@gmail.com>\n"
+"PO-Revision-Date: 2016-12-29 18:02+0000\n"
+"Last-Translator: Rodrigo Felix <cuca.baratas@hotmail.com>\n"
 "Language-Team: Portuguese "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-6/pt/>\n"
 "Language: pt\n"
@@ -621,7 +621,6 @@ msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "Os comandos \"DROP DATABASE\" estão desactivados."
 
 #: import_status.php:107
-#, fuzzy
 msgid "Could not load the progress of the import."
 msgstr "Não foi possível carregar o progresso da importação."
 
@@ -944,10 +943,8 @@ msgid "Do you really want to TRUNCATE the selected partition(s)?"
 msgstr "Deseja realmente TRUNCAR a(s) partição(ões) seleccionada(s)?"
 
 #: js/messages.php:80
-#, fuzzy
-#| msgid "Do you really want to delete the search \"%s\"?"
 msgid "Do you really want to remove partitioning?"
-msgstr "Deseja realmente eliminar a pesquisa \"%s\"?"
+msgstr "Deseja realmente eliminar o particionamento?"
 
 #: js/messages.php:81
 #, fuzzy
