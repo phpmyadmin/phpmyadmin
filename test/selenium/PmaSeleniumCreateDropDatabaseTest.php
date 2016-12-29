@@ -69,12 +69,13 @@ class PMA_SeleniumCreateDropDatabaseTest extends PMA_SeleniumBase
         $this->byPartialLinkText('Databases')->click();
         $this->waitForElementNotPresent('byCssSelector', 'div#loading_parent');
 
+        $this->scrollIntoView('tableslistcontainer');
         $this->byCssSelector(
             "input[name='selected_dbs[]'][value='" . $this->database_name . "']"
         )->click();
 
         $this->byCssSelector("button.mult_submit")->click();
-        $this->byCssSelector("span.ui-button-text:nth-child(1)")->click();
+        $this->byCssSelector("button.submitOK")->click();
 
         $this->waitForElementNotPresent(
             "byCssSelector",

@@ -62,6 +62,7 @@ class PMA_SeleniumCreateRemoveUserTest extends PMA_SeleniumBase
         // Let the User Accounts page load
         $this->waitForElementNotPresent('byId', 'ajax_message_num_1');
 
+        $this->scrollIntoView('add_user_anchor');
         $link = $this->waitForElement("byId", "add_user_anchor");
         $link->click();
 

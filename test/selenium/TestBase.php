@@ -572,19 +572,17 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
      */
     public function expandMore()
     {
+        $ele = null;
         try {
-            $this->waitForElement('byCssSelector', 'li.submenu > a');
+            $ele = $this->waitForElement('byCssSelector', 'li.submenu > a');
         } catch (PHPUnit_Extensions_Selenium2TestCase_WebDriverException $e) {
             return;
         }
-        /* We need to resize to ensure it fits into accessible area */
-        $this->execute(
-            array(
-                'script' => "$('#topmenu').css('font-size', '30%');"
-                    . "$(window).resize()",
-                'args' => array()
-            )
-        );
+
+        // Will never be 'null' here
+        $ele->click();
+        $this->waitForElement('byCssSelector', 'li.submenuhover > a');
+
         $this->sleep();
     }
 
