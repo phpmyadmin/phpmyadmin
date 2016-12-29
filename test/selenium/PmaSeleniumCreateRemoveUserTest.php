@@ -59,6 +59,9 @@ class PMA_SeleniumCreateRemoveUserTest extends PMA_SeleniumBase
         $this->login();
         $this->waitForElement('byPartialLinkText', "User accounts")->click();
 
+        // Let the User Accounts page load
+        $this->waitForElementNotPresent('byId', 'ajax_message_num_1');
+
         $link = $this->waitForElement("byId", "add_user_anchor");
         $link->click();
 
