@@ -107,8 +107,8 @@ class AuthenticationSignon extends AuthenticationPlugin
                     case 'lifetime': return 0;
                     case 'path': return '/';
                     case 'domain': return '';
-                    case 'secure': return (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on');
-                    case 'httponly': return true;
+                    case 'secure': return false;
+                    case 'httponly': return false;
                 }
                 return null;
             };
