@@ -1259,7 +1259,7 @@ function PMA_handleColumnExtra(&$columns_list)
  */
 function PMA_getHTMLforAddNewColumn($db)
 {
-    $addNewColumn = '<div id="add_col_div"><a href="#">'
+    $addNewColumn = '<div id="add_col_div" style="margin: .25em .5em 0;"><a href="#">'
         . '<span>+</span> ' . __('Add new column') . '</a>'
         . '<form id="add_new" style="min-width:100%;display:none" '
         . 'method="post" action="db_central_columns.php">'
