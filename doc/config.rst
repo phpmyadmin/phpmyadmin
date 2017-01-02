@@ -1354,6 +1354,8 @@ Server connection settings
     :type: array
     :default: ``array()``
 
+    .. versionadded:: 4.7.0
+
     An associative array of session cookie parameters of other authentication system.
     It is not needed if the other system doesn't use session_set_cookie_params().
     Keys should include 'lifetime', 'path', 'domain', 'secure' or 'httponly'.
