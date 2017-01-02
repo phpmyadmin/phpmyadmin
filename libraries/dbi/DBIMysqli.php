@@ -144,7 +144,12 @@ class DBIMysqli implements DBIExtension
         /* Optionally enable SSL */
         if ($server['ssl']) {
             $client_flags |= MYSQLI_CLIENT_SSL;
-            if (!empty($server['ssl_key'])) {
+            if (! is_null($server['ssl_key']) ||
+                ! is_null($server['ssl_cert']) ||
+                ! is_null($server['ssl_ca']) ||
+                ! is_null($server['ssl_ca_paths']) ||
+                ! is_null($server['ssl_ciphers'])
+            ) {
                 mysqli_ssl_set(
                     $link,
                     $server['ssl_key'],
