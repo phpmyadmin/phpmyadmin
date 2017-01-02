@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2016-12-21 17:06+0100\n"
+"POT-Creation-Date: 2016-12-13 10:40+0100\n"
 "PO-Revision-Date: 2015-10-15 11:26+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Basque <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -11655,7 +11655,7 @@ msgstr ""
 
 #: libraries/replication_gui.lib.php:405
 msgid ""
-"Make sure, you have unique server-id in your configuration file (my.cnf). If "
+"Make sure you have a unique server-id in your configuration file (my.cnf). If "
 "not, please add the following line into [mysqld] section:"
 msgstr ""
 
