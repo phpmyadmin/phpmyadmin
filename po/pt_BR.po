@@ -11621,7 +11621,7 @@ msgstr "Configuração do escravo"
 
 #: libraries/replication_gui.lib.php:403
 msgid ""
-"Make sure, you have unique server-id in your configuration file (my.cnf). If "
+"Make sure you have a unique server-id in your configuration file (my.cnf). If "
 "not, please add the following line into [mysqld] section:"
 msgstr ""
 "Certifique-se de que você tem um ID de servidor único no seu arquivo de "

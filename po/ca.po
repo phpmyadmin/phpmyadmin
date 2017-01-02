@@ -11415,7 +11415,7 @@ msgstr "Configració de l'esclau"
 
 #: libraries/replication_gui.lib.php:403
 msgid ""
-"Make sure, you have unique server-id in your configuration file (my.cnf). If "
+"Make sure you have a unique server-id in your configuration file (my.cnf). If "
 "not, please add the following line into [mysqld] section:"
 msgstr ""
 "Assegura't que tens un identificador únic de servidor en el teu arxiu de "
