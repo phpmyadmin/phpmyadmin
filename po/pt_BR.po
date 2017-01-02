@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.6-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-12-13 10:40+0100\n"
-"PO-Revision-Date: 2016-12-21 16:16+0000\n"
-"Last-Translator: Daniel Miloca <danielmiloca@gmail.com>\n"
+"PO-Revision-Date: 2017-01-02 18:53+0000\n"
+"Last-Translator: Vinicius Veroneze <veroneze@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-6/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 2.10\n"
+"X-Generator: Weblate 2.11-dev\n"
 
 #: changelog.php:38 license.php:33
 #, php-format
@@ -6755,7 +6755,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:551
 msgid "Show row links anyway"
-msgstr ""
+msgstr "Forçar exibição de links de linha"
 
 #: libraries/config/messages.inc.php:553
 msgid "Use natural order for sorting table and database names."
@@ -8247,6 +8247,9 @@ msgid ""
 "connection that encrypts the password using RSA</i>'; while connecting to "
 "the server."
 msgstr ""
+"Este método requer a utilização de uma '<i> conexão SSL</i> ' ou uma '<i> "
+"conexão que realize a criptografia da senha utilizando RSA</i> 4'; durante a "
+"conexão com o servidor."
 
 #: libraries/display_export.lib.php:170
 msgid "Exporting databases from the current server"
@@ -9517,7 +9520,7 @@ msgstr[1] "%s resultados encontrados"
 #: libraries/navigation/NavigationTree.php:1364
 #: libraries/navigation/NavigationTree.php:1401
 msgid "Type to filter these, Enter to search all"
-msgstr ""
+msgstr "Digite para filtrar estes, Enter para procurar todos"
 
 #: libraries/navigation/NavigationTree.php:1366
 #: libraries/navigation/NavigationTree.php:1402
@@ -10380,7 +10383,7 @@ msgstr "Estrutura stand-in para view"
 
 #: libraries/plugins/export/ExportJson.php:65
 msgid "Output pretty-printed JSON (Use human-readable formatting)"
-msgstr ""
+msgstr "Exibir JSON bem formatado (Usar formatação para leitura humana)"
 
 #: libraries/plugins/export/ExportLatex.php:48
 msgid "Content of table @TABLE@"
@@ -10553,6 +10556,7 @@ msgstr "Adicionar comando %s"
 #: libraries/plugins/export/ExportSql.php:285
 msgid "(less efficient as indexes will be generated during table creation)"
 msgstr ""
+"(menos eficiente pois os índices serão gerados durante a criação da tabela)"
 
 #: libraries/plugins/export/ExportSql.php:293
 #, fuzzy, php-format
@@ -10765,7 +10769,7 @@ msgstr "Tabela:"
 
 #: libraries/plugins/export/PMA_ExportPdf.php:120
 msgid "Purpose:"
-msgstr ""
+msgstr "Propósito:"
 
 #: libraries/plugins/export/PMA_ExportPdf.php:501
 msgid "MIME"
@@ -11208,7 +11212,7 @@ msgstr ""
 
 #: libraries/plugins/transformations/input/Text_Plain_Iptobinary.php:29
 msgid "Converts an Internet network address in (IPv4/IPv6) format to binary"
-msgstr ""
+msgstr "Converte um endereço de internet no formato (IPv4/IPv6) em binário"
 
 #: libraries/plugins/transformations/input/Text_Plain_JsonEditor.php:29
 msgid "Syntax highlighted CodeMirror editor for JSON."
@@ -11418,6 +11422,9 @@ msgid ""
 "'phpmyadmin'. You may go to 'Operations' tab of any database to set up the "
 "phpMyAdmin configuration storage there."
 msgstr ""
+"Você não tem privilégios suficientes para criar uma base de dados chamada "
+"'phpmyadmin'. Você pode configurar o phpMyAdmin na aba 'Operações' de "
+"qualquer base de dados."
 
 #: libraries/relation.lib.php:1988
 #, fuzzy, php-format
@@ -12000,6 +12007,8 @@ msgid ""
 "You do not have sufficient privileges to perform this operation; Please "
 "refer to the documentation for more details"
 msgstr ""
+"Você não tem privilégios suficientes para executar esta operação; Por favor "
+"verifique a documentação para maiores detalhes"
 
 #: libraries/rte/rte_routines.lib.php:1040
 msgid "Security type"
