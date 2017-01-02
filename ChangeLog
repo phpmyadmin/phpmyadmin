@@ -27,6 +27,7 @@ phpMyAdmin - ChangeLog
 - issue #12814 DateTime won't allow to input length in Routine editor
 - issue #12841 Fixed moving of columns with whitespace in name
 - issue #12847 Fixed editing of virtual columns
+- issue #12859 Changed WHERE condition to 0 instead of 1 for SQL query window to avoid accidents
 
 4.6.5.2 (2016-12-05)
 - issue #12765 Fixed SQL export with newlines
