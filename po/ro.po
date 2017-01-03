@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.6-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-12-13 10:40+0100\n"
-"PO-Revision-Date: 2016-12-22 14:58+0000\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2017-01-03 15:27+0000\n"
+"Last-Translator: Flavius Nopcea <domnulnopcea@gmail.com>\n"
 "Language-Team: Romanian "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-6/ro/>\n"
 "Language: ro\n"
@@ -14660,8 +14660,9 @@ msgstr "Denumire tabel"
 
 #: libraries/sql-parser/src/Component.php:47
 #: libraries/sql-parser/src/Component.php:67
+#, fuzzy
 msgid "Not implemented yet."
-msgstr ""
+msgstr "Nu este inca implementat."
 
 #: libraries/sql-parser/src/Components/AlterOperation.php:228
 #: libraries/sql-parser/src/Statement.php:337
