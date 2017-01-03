@@ -12,6 +12,7 @@
 use PMA\libraries\Theme;
 use PMA\libraries\URL;
 use PMA\libraries\Sanitize;
+use PMA\test\PMATestCase;
 
 /**
  * Test function sending headers.
@@ -65,16 +66,14 @@ class PMA_HeaderLocation_Test extends PHPUnit_Framework_TestCase
 
         $testUri = 'https://example.com/test.php';
 
-        $header = array('Location: ' . $testUri);
         PMA_sendHeaderLocation($testUri); // sets $GLOBALS['header']
-        $this->assertEquals($header, $GLOBALS['header']);
+        PMATestCase::mockResponse('Location: ' . $testUri);
 
         //reset $GLOBALS['header'] for the next assertion
         unset($GLOBALS['header']);
 
-        $header = array('Refresh: 0; ' . $testUri);
         PMA_sendHeaderLocation($testUri, true); // sets $GLOBALS['header']
-        $this->assertEquals($header, $GLOBALS['header']);
+        PMATestCase::mockResponse('Refresh: 0; ' . $testUri);
     }
 
     /**
@@ -85,10 +84,9 @@ class PMA_HeaderLocation_Test extends PHPUnit_Framework_TestCase
     public function testSendHeaderLocationWithoutSidWithoutIis()
     {
         $testUri = 'https://example.com/test.php';
-        $header = array('Location: ' . $testUri);
 
         PMA_sendHeaderLocation($testUri);            // sets $GLOBALS['header']
-        $this->assertEquals($header, $GLOBALS['header']);
+        PMATestCase::mockResponse('Location: ' . $testUri);
     }
 
     /**

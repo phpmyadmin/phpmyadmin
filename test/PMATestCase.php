@@ -21,4 +21,33 @@ class PMATestCase extends PHPUnit_Framework_TestCase
         require 'libraries/config.default.php';
         $GLOBALS['cfg'] = $cfg;
     }
+    /**
+     * Creates mock of Response object
+     *
+     * @param string $param parameter for header method
+     *
+     * @return void
+     */
+    public static function mockResponse($param)
+    {
+        $restoreInstance = PMA\libraries\Response::getInstance();
+
+        $mockResponse = $this->getMockBuilder('PMA\libraries\Response')
+            ->disableOriginalConstructor()
+            ->setMethods(array('header', 'headersSent'))
+            ->getMock();
+
+        $mockResponse->expects($this->once())
+            ->method('header')
+            ->with($param);
+
+        $mockResponse->expects($this->any())
+            ->method('headersSent')
+            ->with()
+            ->will($this->returnValue(false));
+
+        $attrInstance = new ReflectionProperty('PMA\libraries\Response', '_instance');
+        $attrInstance->setAccessible(true);
+        $attrInstance->setValue($mockResponse);
+    }
 }
