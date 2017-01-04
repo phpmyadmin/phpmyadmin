@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.6-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-12-13 10:40+0100\n"
-"PO-Revision-Date: 2017-01-03 15:27+0000\n"
+"PO-Revision-Date: 2017-01-04 15:32+0000\n"
 "Last-Translator: Flavius Nopcea <domnulnopcea@gmail.com>\n"
 "Language-Team: Romanian "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-6/ro/>\n"
@@ -14687,7 +14687,7 @@ msgstr ""
 #: libraries/sql-parser/src/Components/ArrayObj.php:118
 #: libraries/sql-parser/src/Components/CreateDefinition.php:206
 msgid "An opening bracket was expected."
-msgstr ""
+msgstr "O paranteza deschisa este necesara."
 
 #: libraries/sql-parser/src/Components/CaseExpression.php:137
 #: libraries/sql-parser/src/Components/CaseExpression.php:167
@@ -14732,11 +14732,11 @@ msgstr "Nici o bază de date selectată."
 
 #: libraries/sql-parser/src/Components/CreateDefinition.php:289
 msgid "A closing bracket was expected."
-msgstr ""
+msgstr "O paranteza inchisa este necesara."
 
 #: libraries/sql-parser/src/Components/DataType.php:127
 msgid "Unrecognized data type."
-msgstr ""
+msgstr "Tip de date nerecunoscut."
 
 #: libraries/sql-parser/src/Components/Expression.php:248
 #: libraries/sql-parser/src/Components/Expression.php:398
