@@ -34,7 +34,7 @@ use PMA\test\PMATestCase;
  * @package PhpMyAdmin-test
  */
 
-class PMA_HeaderLocation_Test extends PHPUnit_Framework_TestCase
+class PMA_HeaderLocation_Test extends PMATestCase
 {
 
     protected $runkitExt;
