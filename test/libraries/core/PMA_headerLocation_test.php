@@ -12,7 +12,6 @@
 use PMA\libraries\Theme;
 use PMA\libraries\URL;
 use PMA\libraries\Sanitize;
-use PMA\test\PMATestCase;
 
 /**
  * Test function sending headers.
@@ -67,13 +66,13 @@ class PMA_HeaderLocation_Test extends PMATestCase
         $testUri = 'https://example.com/test.php';
 
         PMA_sendHeaderLocation($testUri); // sets $GLOBALS['header']
-        PMATestCase::mockResponse('Location: ' . $testUri);
+        $this->mockResponse('Location: ' . $testUri);
 
         //reset $GLOBALS['header'] for the next assertion
         unset($GLOBALS['header']);
 
         PMA_sendHeaderLocation($testUri, true); // sets $GLOBALS['header']
-        PMATestCase::mockResponse('Refresh: 0; ' . $testUri);
+        $this->mockResponse('Refresh: 0; ' . $testUri);
     }
 
     /**
@@ -86,7 +85,7 @@ class PMA_HeaderLocation_Test extends PMATestCase
         $testUri = 'https://example.com/test.php';
 
         PMA_sendHeaderLocation($testUri);            // sets $GLOBALS['header']
-        PMATestCase::mockResponse('Location: ' . $testUri);
+        $this->mockResponse('Location: ' . $testUri);
     }
 
     /**
