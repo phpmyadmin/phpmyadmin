@@ -64,7 +64,10 @@ AJAX.registerOnload('server_databases.js', function () {
             function (url) {
                 PMA_ajaxShowMessage(PMA_messages.strProcessingRequest, false);
 
-                $.post(url, function (data) {
+                var params = getJSConfirmCommonParam(this);
+                params.token = PMA_commonParams.get('token');
+
+                $.post(url, params, function (data) {
                     if (typeof data !== 'undefined' && data.success === true) {
                         PMA_ajaxShowMessage(data.message);
 
