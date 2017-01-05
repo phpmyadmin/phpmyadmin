@@ -28,7 +28,7 @@ class PMATestCase extends PHPUnit_Framework_TestCase
      *
      * @return void
      */
-    public static function mockResponse($param)
+    public function mockResponse($param)
     {
         $restoreInstance = PMA\libraries\Response::getInstance();
 
