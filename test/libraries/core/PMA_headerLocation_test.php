@@ -65,14 +65,11 @@ class PMA_HeaderLocation_Test extends PMATestCase
 
         $testUri = 'https://example.com/test.php';
 
-        PMA_sendHeaderLocation($testUri); // sets $GLOBALS['header']
         $this->mockResponse('Location: ' . $testUri);
+        PMA_sendHeaderLocation($testUri); // sets $GLOBALS['header']
 
-        //reset $GLOBALS['header'] for the next assertion
-        unset($GLOBALS['header']);
-
-        PMA_sendHeaderLocation($testUri, true); // sets $GLOBALS['header']
         $this->mockResponse('Refresh: 0; ' . $testUri);
+        PMA_sendHeaderLocation($testUri, true); // sets $GLOBALS['header']
     }
 
     /**
@@ -84,8 +81,8 @@ class PMA_HeaderLocation_Test extends PMATestCase
     {
         $testUri = 'https://example.com/test.php';
 
-        PMA_sendHeaderLocation($testUri);            // sets $GLOBALS['header']
         $this->mockResponse('Location: ' . $testUri);
+        PMA_sendHeaderLocation($testUri);            // sets $GLOBALS['header']
     }
 
     /**
