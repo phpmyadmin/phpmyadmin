@@ -2,17 +2,14 @@
 
 /**
  * `INSERT` statement.
- *
- * @package    SqlParser
- * @subpackage Statements
  */
+
 namespace SqlParser\Statements;
 
 use SqlParser\Parser;
 use SqlParser\Token;
 use SqlParser\TokensList;
 use SqlParser\Statement;
-use SqlParser\Statements\SelectStatement;
 use SqlParser\Components\IntoKeyword;
 use SqlParser\Components\Array2d;
 use SqlParser\Components\OptionsArray;
@@ -52,23 +49,21 @@ use SqlParser\Components\SetOperation;
  *         [, col_name=expr] ... ]
  *
  * @category   Statements
- * @package    SqlParser
- * @subpackage Statements
+ *
  * @license    https://www.gnu.org/licenses/gpl-2.0.txt GPL-2.0+
  */
 class InsertStatement extends Statement
 {
-
     /**
      * Options for `INSERT` statements.
      *
      * @var array
      */
     public static $OPTIONS = array(
-        'LOW_PRIORITY'                  => 1,
-        'DELAYED'                       => 2,
-        'HIGH_PRIORITY'                 => 3,
-        'IGNORE'                        => 4,
+        'LOW_PRIORITY' => 1,
+        'DELAYED' => 2,
+        'HIGH_PRIORITY' => 3,
+        'IGNORE' => 4,
     );
 
     /**
@@ -81,13 +76,13 @@ class InsertStatement extends Statement
     /**
      * Values to be inserted.
      *
-     * @var Array2d
+     * @var ArrayObj[]|null
      */
     public $values;
 
     /**
      * If SET clause is present
-     * holds the SetOperation
+     * holds the SetOperation.
      *
      * @var SetOperation[]
      */
@@ -95,7 +90,7 @@ class InsertStatement extends Statement
 
     /**
      * If SELECT clause is present
-     * holds the SelectStatement
+     * holds the SelectStatement.
      *
      * @var SelectStatement
      */
@@ -103,7 +98,7 @@ class InsertStatement extends Statement
 
     /**
      * If ON DUPLICATE KEY UPDATE clause is present
-     * holds the SetOperation
+     * holds the SetOperation.
      *
      * @var SetOperation[]
      */
@@ -117,28 +112,24 @@ class InsertStatement extends Statement
         $ret = 'INSERT ' . $this->options
             . ' INTO ' . $this->into;
 
-        if ($this->values != NULL && count($this->values) > 0) {
+        if ($this->values != null && count($this->values) > 0) {
             $ret .= ' VALUES ' . Array2d::build($this->values);
-        } elseif ($this->set != NULL && count($this->set) > 0) {
+        } elseif ($this->set != null && count($this->set) > 0) {
             $ret .= ' SET ' . SetOperation::build($this->set);
-        } elseif ($this->select != NULL && count($this->select) > 0) {
+        } elseif ($this->select != null && strlen($this->select) > 0) {
             $ret .= ' ' . $this->select->build();
         }
 
-        if ($this->onDuplicateSet != NULL && count($this->onDuplicateSet) > 0) {
+        if ($this->onDuplicateSet != null && count($this->onDuplicateSet) > 0) {
             $ret .= ' ON DUPLICATE KEY UPDATE ' . SetOperation::build($this->onDuplicateSet);
         }
 
         return $ret;
-
     }
 
-
     /**
-     * @param Parser     $parser The instance that requests parsing.
-     * @param TokensList $list   The list of tokens to be parsed.
-     *
-     * @return void
+     * @param Parser     $parser the instance that requests parsing
+     * @param TokensList $list   the list of tokens to be parsed
      */
     public function parse(Parser $parser, TokensList $list)
     {
@@ -163,14 +154,13 @@ class InsertStatement extends Statement
          *
          *      2 -------------------------[ ON DUPLICATE KEY UPDATE ]-----------------------> 3
          *
-         * @var int $state
+         * @var int
          */
         $state = 0;
 
         /**
          * For keeping track of semi-states on encountering
          * ON DUPLICATE KEY UPDATE ...
-         *
          */
         $miniState = 0;
 
@@ -178,7 +168,7 @@ class InsertStatement extends Statement
             /**
              * Token parsed at this moment.
              *
-             * @var Token $token
+             * @var Token
              */
             $token = $list->tokens[$list->idx];
 
@@ -242,13 +232,13 @@ class InsertStatement extends Statement
                 $lastCount = $miniState;
 
                 if ($miniState === 1 && $token->value === 'ON') {
-                    $miniState++;
+                    ++$miniState;
                 } elseif ($miniState === 2 && $token->value === 'DUPLICATE') {
-                    $miniState++;
+                    ++$miniState;
                 } elseif ($miniState === 3 && $token->value === 'KEY') {
-                    $miniState++;
+                    ++$miniState;
                 } elseif ($miniState === 4 && $token->value === 'UPDATE') {
-                    $miniState++;
+                    ++$miniState;
                 }
 
                 if ($lastCount === $miniState) {

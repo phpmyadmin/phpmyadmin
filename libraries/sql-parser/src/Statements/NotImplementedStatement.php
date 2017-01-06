@@ -2,10 +2,8 @@
 
 /**
  * Not implemented (yet) statements.
- *
- * @package    SqlParser
- * @subpackage Statements
  */
+
 namespace SqlParser\Statements;
 
 use SqlParser\Parser;
@@ -19,13 +17,11 @@ use SqlParser\TokensList;
  * The `after` function makes the parser jump straight to the first delimiter.
  *
  * @category   Statements
- * @package    SqlParser
- * @subpackage Statements
+ *
  * @license    https://www.gnu.org/licenses/gpl-2.0.txt GPL-2.0+
  */
 class NotImplementedStatement extends Statement
 {
-
     /**
      * The part of the statement that can't be parsed.
      *
@@ -50,10 +46,8 @@ class NotImplementedStatement extends Statement
     }
 
     /**
-     * @param Parser     $parser The instance that requests parsing.
-     * @param TokensList $list   The list of tokens to be parsed.
-     *
-     * @return void
+     * @param Parser     $parser the instance that requests parsing
+     * @param TokensList $list   the list of tokens to be parsed
      */
     public function parse(Parser $parser, TokensList $list)
     {

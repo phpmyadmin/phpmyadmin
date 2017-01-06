@@ -2,10 +2,8 @@
 
 /**
  * `SET` keyword parser.
- *
- * @package    SqlParser
- * @subpackage Components
  */
+
 namespace SqlParser\Components;
 
 use SqlParser\Component;
@@ -17,13 +15,11 @@ use SqlParser\TokensList;
  * `SET` keyword parser.
  *
  * @category   Keywords
- * @package    SqlParser
- * @subpackage Components
+ *
  * @license    https://www.gnu.org/licenses/gpl-2.0.txt GPL-2.0+
  */
 class SetOperation extends Component
 {
-
     /**
      * The name of the column that is being updated.
      *
@@ -39,9 +35,9 @@ class SetOperation extends Component
     public $value;
 
     /**
-     * @param Parser     $parser  The parser that serves as context.
-     * @param TokensList $list    The list of tokens that are being parsed.
-     * @param array      $options Parameters for parsing.
+     * @param Parser     $parser  the parser that serves as context
+     * @param TokensList $list    the list of tokens that are being parsed
+     * @param array      $options parameters for parsing
      *
      * @return SetOperation[]
      */
@@ -49,7 +45,7 @@ class SetOperation extends Component
     {
         $ret = array();
 
-        $expr = new SetOperation();
+        $expr = new self();
 
         /**
          * The state of the parser.
@@ -61,7 +57,7 @@ class SetOperation extends Component
          *      1 ------------------------[ , ]------------------------> 0
          *      1 ----------------------[ value ]----------------------> 1
          *
-         * @var int $state
+         * @var int
          */
         $state = 0;
 
@@ -69,7 +65,7 @@ class SetOperation extends Component
             /**
              * Token parsed at this moment.
              *
-             * @var Token $token
+             * @var Token
              */
             $token = $list->tokens[$list->idx];
 
@@ -106,23 +102,25 @@ class SetOperation extends Component
                     )
                 );
                 if ($tmp == null) {
+                    $parser->error(__('Missing expression.'), $token);
                     break;
                 }
                 $expr->column = trim($expr->column);
                 $expr->value = $tmp->expr;
                 $ret[] = $expr;
-                $expr = new SetOperation();
+                $expr = new self();
                 $state = 0;
             }
         }
 
         --$list->idx;
+
         return $ret;
     }
 
     /**
-     * @param SetOperation|SetOperation[] $component The component to be built.
-     * @param array                       $options   Parameters for building.
+     * @param SetOperation|SetOperation[] $component the component to be built
+     * @param array                       $options   parameters for building
      *
      * @return string
      */

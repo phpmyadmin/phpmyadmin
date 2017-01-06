@@ -2,10 +2,8 @@
 
 /**
  * Parses the definition of a key.
- *
- * @package    SqlParser
- * @subpackage Components
  */
+
 namespace SqlParser\Components;
 
 use SqlParser\Context;
@@ -20,23 +18,21 @@ use SqlParser\TokensList;
  * Used for parsing `CREATE TABLE` statement.
  *
  * @category   Components
- * @package    SqlParser
- * @subpackage Components
+ *
  * @license    https://www.gnu.org/licenses/gpl-2.0.txt GPL-2.0+
  */
 class Key extends Component
 {
-
     /**
      * All key options.
      *
      * @var array
      */
     public static $KEY_OPTIONS = array(
-        'KEY_BLOCK_SIZE'                => array(1, 'var'),
-        'USING'                         => array(2, 'var'),
-        'WITH PARSER'                   => array(3, 'var'),
-        'COMMENT'                       => array(4, 'var='),
+        'KEY_BLOCK_SIZE' => array(1, 'var'),
+        'USING' => array(2, 'var'),
+        'WITH PARSER' => array(3, 'var'),
+        'COMMENT' => array(4, 'var='),
     );
 
     /**
@@ -70,10 +66,10 @@ class Key extends Component
     /**
      * Constructor.
      *
-     * @param string       $name    The name of the key.
-     * @param array        $columns The columns covered by this key.
-     * @param string       $type    The type of this key.
-     * @param OptionsArray $options The options of this key.
+     * @param string       $name    the name of the key
+     * @param array        $columns the columns covered by this key
+     * @param string       $type    the type of this key
+     * @param OptionsArray $options the options of this key
      */
     public function __construct(
         $name = null,
@@ -88,15 +84,15 @@ class Key extends Component
     }
 
     /**
-     * @param Parser     $parser  The parser that serves as context.
-     * @param TokensList $list    The list of tokens that are being parsed.
-     * @param array      $options Parameters for parsing.
+     * @param Parser     $parser  the parser that serves as context
+     * @param TokensList $list    the list of tokens that are being parsed
+     * @param array      $options parameters for parsing
      *
      * @return Key
      */
     public static function parse(Parser $parser, TokensList $list, array $options = array())
     {
-        $ret = new Key();
+        $ret = new self();
 
         /**
          * Last parsed column.
@@ -117,7 +113,7 @@ class Key extends Component
          *
          *      2 ---------------------[ options ]---------------------> 3
          *
-         * @var int $state
+         * @var int
          */
         $state = 0;
 
@@ -125,7 +121,7 @@ class Key extends Component
             /**
              * Token parsed at this moment.
              *
-             * @var Token $token
+             * @var Token
              */
             $token = $list->tokens[$list->idx];
 
@@ -176,12 +172,13 @@ class Key extends Component
         }
 
         --$list->idx;
+
         return $ret;
     }
 
     /**
-     * @param Key   $component The component to be built.
-     * @param array $options   Parameters for building.
+     * @param Key   $component the component to be built
+     * @param array $options   parameters for building
      *
      * @return string
      */
@@ -202,6 +199,7 @@ class Key extends Component
         }
 
         $ret .= '(' . implode(',', $columns) . ') ' . $component->options;
+
         return trim($ret);
     }
 }

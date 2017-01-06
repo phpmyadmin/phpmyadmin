@@ -2,10 +2,8 @@
 
 /**
  * `DELETE` statement.
- *
- * @package    SqlParser
- * @subpackage Statements
  */
+
 namespace SqlParser\Statements;
 
 use SqlParser\Statement;
@@ -45,22 +43,20 @@ use SqlParser\Components\OptionsArray;
  *
  *
  * @category   Statements
- * @package    SqlParser
- * @subpackage Statements
+ *
  * @license    https://www.gnu.org/licenses/gpl-2.0.txt GPL-2.0+
  */
 class DeleteStatement extends Statement
 {
-
     /**
      * Options for `DELETE` statements.
      *
      * @var array
      */
     public static $OPTIONS = array(
-        'LOW_PRIORITY'                  => 1,
-        'QUICK'                         => 2,
-        'IGNORE'                        => 3,
+        'LOW_PRIORITY' => 1,
+        'QUICK' => 2,
+        'IGNORE' => 3,
     );
 
     /**
@@ -71,15 +67,15 @@ class DeleteStatement extends Statement
      * @var array
      */
     public static $CLAUSES = array(
-        'DELETE'                        => array('DELETE',      2),
+        'DELETE' => array('DELETE',      2),
         // Used for options.
-        '_OPTIONS'                      => array('_OPTIONS',    1),
-        'FROM'                          => array('FROM',        3),
-        'PARTITION'                     => array('PARTITION',   3),
-        'USING'                         => array('USING',       3),
-        'WHERE'                         => array('WHERE',       3),
-        'ORDER BY'                      => array('ORDER BY',    3),
-        'LIMIT'                         => array('LIMIT',       3),
+        '_OPTIONS' => array('_OPTIONS',    1),
+        'FROM' => array('FROM',        3),
+        'PARTITION' => array('PARTITION',   3),
+        'USING' => array('USING',       3),
+        'WHERE' => array('WHERE',       3),
+        'ORDER BY' => array('ORDER BY',    3),
+        'LIMIT' => array('LIMIT',       3),
     );
 
     /**
@@ -90,14 +86,14 @@ class DeleteStatement extends Statement
     public $from;
 
     /**
-     * Tables used as sources for this statement
+     * Tables used as sources for this statement.
      *
      * @var Expression[]
      */
     public $using;
 
     /**
-     * Columns used in this statement
+     * Columns used in this statement.
      *
      * @var Expression[]
      */
@@ -131,7 +127,6 @@ class DeleteStatement extends Statement
      */
     public $limit;
 
-
     /**
      * @return string
      */
@@ -139,35 +134,31 @@ class DeleteStatement extends Statement
     {
         $ret = 'DELETE ' . OptionsArray::build($this->options);
 
-        if ($this->columns != NULL && count($this->columns) > 0) {
+        if ($this->columns != null && count($this->columns) > 0) {
             $ret .= ' ' . ExpressionArray::build($this->columns);
         }
-        if ($this->from != NULL && count($this->from) > 0) {
+        if ($this->from != null && count($this->from) > 0) {
             $ret .= ' FROM ' . ExpressionArray::build($this->from);
         }
-        if ($this->using != NULL && count($this->using) > 0) {
+        if ($this->using != null && count($this->using) > 0) {
             $ret .= ' USING ' . ExpressionArray::build($this->using);
         }
-        if ($this->where != NULL && count($this->where) > 0) {
+        if ($this->where != null && count($this->where) > 0) {
             $ret .= ' WHERE ' . Condition::build($this->where);
         }
-        if ($this->order != NULL && count($this->order) > 0) {
+        if ($this->order != null && count($this->order) > 0) {
             $ret .= ' ORDER BY ' . ExpressionArray::build($this->order);
         }
-        if ($this->limit != NULL && count($this->limit) > 0) {
+        if ($this->limit != null && strlen($this->limit) > 0) {
             $ret .= ' LIMIT ' . Limit::build($this->limit);
         }
 
         return $ret;
-
     }
 
-
     /**
-     * @param Parser     $parser The instance that requests parsing.
-     * @param TokensList $list   The list of tokens to be parsed.
-     *
-     * @return void
+     * @param Parser     $parser the instance that requests parsing
+     * @param TokensList $list   the list of tokens to be parsed
      */
     public function parse(Parser $parser, TokensList $list)
     {
@@ -194,14 +185,14 @@ class DeleteStatement extends Statement
          *      2 --------------------------------[ ORDER ]----------------------------------> 5
          *      2 --------------------------------[ LIMIT ]----------------------------------> 6
          *
-         * @var int $state
+         * @var int
          */
         $state = 0;
 
         /**
-         * If the query is multi-table or not
+         * If the query is multi-table or not.
          *
-         * @var bool $multiTable
+         * @var bool
          */
         $multiTable = false;
 
@@ -209,7 +200,7 @@ class DeleteStatement extends Statement
             /**
              * Token parsed at this moment.
              *
-             * @var Token $token
+             * @var Token
              */
             $token = $list->tokens[$list->idx];
 
@@ -312,7 +303,7 @@ class DeleteStatement extends Statement
                     ++$list->idx; // Skip 'ORDER  BY'
                     $this->order = OrderKeyword::parse($parser, $list);
                     $state = 5;
-                }  elseif ($token->type === Token::TYPE_KEYWORD
+                } elseif ($token->type === Token::TYPE_KEYWORD
                     && $token->value === 'LIMIT'
                 ) {
                     ++$list->idx; // Skip 'LIMIT'

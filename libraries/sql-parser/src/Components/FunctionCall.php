@@ -2,10 +2,8 @@
 
 /**
  * Parses a function call.
- *
- * @package    SqlParser
- * @subpackage Components
  */
+
 namespace SqlParser\Components;
 
 use SqlParser\Component;
@@ -17,13 +15,11 @@ use SqlParser\TokensList;
  * Parses a function call.
  *
  * @category   Keywords
- * @package    SqlParser
- * @subpackage Components
+ *
  * @license    https://www.gnu.org/licenses/gpl-2.0.txt GPL-2.0+
  */
 class FunctionCall extends Component
 {
-
     /**
      * The name of this function.
      *
@@ -32,7 +28,7 @@ class FunctionCall extends Component
     public $name;
 
     /**
-     * The list of parameters
+     * The list of parameters.
      *
      * @var ArrayObj
      */
@@ -41,8 +37,8 @@ class FunctionCall extends Component
     /**
      * Constructor.
      *
-     * @param string         $name       The name of the function to be called.
-     * @param array|ArrayObj $parameters The parameters of this function.
+     * @param string         $name       the name of the function to be called
+     * @param array|ArrayObj $parameters the parameters of this function
      */
     public function __construct($name = null, $parameters = null)
     {
@@ -55,15 +51,15 @@ class FunctionCall extends Component
     }
 
     /**
-     * @param Parser     $parser  The parser that serves as context.
-     * @param TokensList $list    The list of tokens that are being parsed.
-     * @param array      $options Parameters for parsing.
+     * @param Parser     $parser  the parser that serves as context
+     * @param TokensList $list    the list of tokens that are being parsed
+     * @param array      $options parameters for parsing
      *
      * @return FunctionCall
      */
     public static function parse(Parser $parser, TokensList $list, array $options = array())
     {
-        $ret = new FunctionCall();
+        $ret = new self();
 
         /**
          * The state of the parser.
@@ -74,7 +70,7 @@ class FunctionCall extends Component
          *
          *      1 --------------------[ parameters ]-------------------> (END)
          *
-         * @var int $state
+         * @var int
          */
         $state = 0;
 
@@ -82,7 +78,7 @@ class FunctionCall extends Component
             /**
              * Token parsed at this moment.
              *
-             * @var Token $token
+             * @var Token
              */
             $token = $list->tokens[$list->idx];
 
@@ -105,15 +101,14 @@ class FunctionCall extends Component
                 }
                 break;
             }
-
         }
 
         return $ret;
     }
 
     /**
-     * @param FunctionCall $component The component to be built.
-     * @param array        $options   Parameters for building.
+     * @param FunctionCall $component the component to be built
+     * @param array        $options   parameters for building
      *
      * @return string
      */

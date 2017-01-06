@@ -2,10 +2,8 @@
 
 /**
  * Error related utilities.
- *
- * @package    SqlParser
- * @subpackage Utils
  */
+
 namespace SqlParser\Utils;
 
 use SqlParser\Lexer;
@@ -15,24 +13,22 @@ use SqlParser\Parser;
  * Error related utilities.
  *
  * @category   Exceptions
- * @package    SqlParser
- * @subpackage Utils
+ *
  * @license    https://www.gnu.org/licenses/gpl-2.0.txt GPL-2.0+
  */
 class Error
 {
-
     /**
      * Gets the errors of a lexer and a parser.
      *
-     * @param array $objs Objects from where the errors will be extracted.
+     * @param array $objs objects from where the errors will be extracted
      *
      * @return array Each element of the array represents an error.
-     *                    `$err[0]` holds the error message.
-     *                    `$err[1]` holds the error code.
-     *                    `$err[2]` holds the string that caused the issue.
-     *                    `$err[3]` holds the position of the string.
-     *                    (i.e. `array($msg, $code, $str, $pos)`)
+     *               `$err[0]` holds the error message.
+     *               `$err[1]` holds the error code.
+     *               `$err[2]` holds the string that caused the issue.
+     *               `$err[3]` holds the position of the string.
+     *               (i.e. `array($msg, $code, $str, $pos)`)
      */
     public static function get($objs)
     {
@@ -45,7 +41,7 @@ class Error
                         $err->getMessage(),
                         $err->getCode(),
                         $err->ch,
-                        $err->pos
+                        $err->pos,
                     );
                 }
             } elseif ($obj instanceof Parser) {
@@ -54,7 +50,7 @@ class Error
                         $err->getMessage(),
                         $err->getCode(),
                         $err->token->token,
-                        $err->token->position
+                        $err->token->position,
                     );
                 }
             }
@@ -64,16 +60,17 @@ class Error
     }
 
     /**
-     * Formats the specified errors
+     * Formats the specified errors.
      *
-     * @param  array  $errors The errors to be formatted.
-     * @param  string $format The format of an error.
-     *                         '$1$d' is replaced by the position of this error.
-     *                         '$2$s' is replaced by the error message.
-     *                         '$3$d' is replaced by the error code.
-     *                         '$4$s' is replaced by the string that caused the
-     *                                issue.
-     *                         '$5$d' is replaced by the position of the string.
+     * @param array  $errors the errors to be formatted
+     * @param string $format The format of an error.
+     *                       '$1$d' is replaced by the position of this error.
+     *                       '$2$s' is replaced by the error message.
+     *                       '$3$d' is replaced by the error code.
+     *                       '$4$s' is replaced by the string that caused the
+     *                       issue.
+     *                       '$5$d' is replaced by the position of the string.
+     *
      * @return array
      */
     public static function format(

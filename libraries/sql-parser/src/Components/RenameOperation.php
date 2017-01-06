@@ -2,10 +2,8 @@
 
 /**
  * `RENAME TABLE` keyword parser.
- *
- * @package    SqlParser
- * @subpackage Components
  */
+
 namespace SqlParser\Components;
 
 use SqlParser\Component;
@@ -17,13 +15,11 @@ use SqlParser\TokensList;
  * `RENAME TABLE` keyword parser.
  *
  * @category   Keywords
- * @package    SqlParser
- * @subpackage Components
+ *
  * @license    https://www.gnu.org/licenses/gpl-2.0.txt GPL-2.0+
  */
 class RenameOperation extends Component
 {
-
     /**
      * The old table name.
      *
@@ -39,9 +35,9 @@ class RenameOperation extends Component
     public $new;
 
     /**
-     * @param Parser     $parser  The parser that serves as context.
-     * @param TokensList $list    The list of tokens that are being parsed.
-     * @param array      $options Parameters for parsing.
+     * @param Parser     $parser  the parser that serves as context
+     * @param TokensList $list    the list of tokens that are being parsed
+     * @param array      $options parameters for parsing
      *
      * @return RenameOperation[]
      */
@@ -49,7 +45,7 @@ class RenameOperation extends Component
     {
         $ret = array();
 
-        $expr = new RenameOperation();
+        $expr = new self();
 
         /**
          * The state of the parser.
@@ -65,7 +61,7 @@ class RenameOperation extends Component
          *      3 ------------------------[ , ]------------------------> 0
          *      3 -----------------------[ else ]----------------------> (END)
          *
-         * @var int $state
+         * @var int
          */
         $state = 0;
 
@@ -73,7 +69,7 @@ class RenameOperation extends Component
             /**
              * Token parsed at this moment.
              *
-             * @var Token $token
+             * @var Token
              */
             $token = $list->tokens[$list->idx];
 
@@ -132,7 +128,7 @@ class RenameOperation extends Component
             } elseif ($state === 3) {
                 if (($token->type === Token::TYPE_OPERATOR) && ($token->value === ',')) {
                     $ret[] = $expr;
-                    $expr = new RenameOperation();
+                    $expr = new self();
                     $state = 0;
                 } else {
                     break;
@@ -153,12 +149,13 @@ class RenameOperation extends Component
         }
 
         --$list->idx;
+
         return $ret;
     }
 
     /**
-     * @param RenameOperation $component The component to be built.
-     * @param array           $options   Parameters for building.
+     * @param RenameOperation $component the component to be built
+     * @param array           $options   parameters for building
      *
      * @return string
      */

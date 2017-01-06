@@ -2,17 +2,14 @@
 
 /**
  * `REPLACE` statement.
- *
- * @package    SqlParser
- * @subpackage Statements
  */
+
 namespace SqlParser\Statements;
 
 use SqlParser\Parser;
 use SqlParser\Token;
 use SqlParser\TokensList;
 use SqlParser\Statement;
-use SqlParser\Statements\SelectStatement;
 use SqlParser\Components\Array2d;
 use SqlParser\Components\IntoKeyword;
 use SqlParser\Components\OptionsArray;
@@ -40,21 +37,19 @@ use SqlParser\Components\SetOperation;
  *   SELECT ...
  *
  * @category   Statements
- * @package    SqlParser
- * @subpackage Statements
+ *
  * @license    https://www.gnu.org/licenses/gpl-2.0.txt GPL-2.0+
  */
 class ReplaceStatement extends Statement
 {
-
     /**
      * Options for `REPLACE` statements and their slot ID.
      *
      * @var array
      */
     public static $OPTIONS = array(
-        'LOW_PRIORITY'                  => 1,
-        'DELAYED'                       => 1,
+        'LOW_PRIORITY' => 1,
+        'DELAYED' => 1,
     );
 
     /**
@@ -73,7 +68,7 @@ class ReplaceStatement extends Statement
 
     /**
      * If SET clause is present
-     * holds the SetOperation
+     * holds the SetOperation.
      *
      * @var SetOperation[]
      */
@@ -81,7 +76,7 @@ class ReplaceStatement extends Statement
 
     /**
      * If SELECT clause is present
-     * holds the SelectStatement
+     * holds the SelectStatement.
      *
      * @var SelectStatement
      */
@@ -95,23 +90,20 @@ class ReplaceStatement extends Statement
         $ret = 'REPLACE ' . $this->options
             . ' INTO ' . $this->into;
 
-        if ($this->values != NULL && count($this->values) > 0) {
+        if ($this->values != null && count($this->values) > 0) {
             $ret .= ' VALUES ' . Array2d::build($this->values);
-        } elseif ($this->set != NULL && count($this->set) > 0) {
+        } elseif ($this->set != null && count($this->set) > 0) {
             $ret .= ' SET ' . SetOperation::build($this->set);
-        } elseif ($this->select != NULL && count($this->select) > 0) {
+        } elseif ($this->select != null && strlen($this->select) > 0) {
             $ret .= ' ' . $this->select->build();
         }
 
         return $ret;
     }
 
-
     /**
-     * @param Parser     $parser The instance that requests parsing.
-     * @param TokensList $list   The list of tokens to be parsed.
-     *
-     * @return void
+     * @param Parser     $parser the instance that requests parsing
+     * @param TokensList $list   the list of tokens to be parsed
      */
     public function parse(Parser $parser, TokensList $list)
     {
@@ -136,7 +128,7 @@ class ReplaceStatement extends Statement
          *
          *      1 -------------------------[ VALUES/VALUE/SET/SELECT ]-----------------------> 2
          *
-         * @var int $state
+         * @var int
          */
         $state = 0;
 
@@ -144,7 +136,7 @@ class ReplaceStatement extends Statement
             /**
              * Token parsed at this moment.
              *
-             * @var Token $token
+             * @var Token
              */
             $token = $list->tokens[$list->idx];
 

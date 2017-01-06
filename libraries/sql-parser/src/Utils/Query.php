@@ -2,10 +2,8 @@
 
 /**
  * Statement utilities.
- *
- * @package    SqlParser
- * @subpackage Utils
  */
+
 namespace SqlParser\Utils;
 
 use SqlParser\Lexer;
@@ -37,27 +35,25 @@ use SqlParser\Statements\UpdateStatement;
  * Statement utilities.
  *
  * @category   Statement
- * @package    SqlParser
- * @subpackage Utils
+ *
  * @license    https://www.gnu.org/licenses/gpl-2.0.txt GPL-2.0+
  */
 class Query
 {
-
     /**
      * Functions that set the flag `is_func`.
      *
      * @var array
      */
     public static $FUNCTIONS = array(
-        'SUM', 'AVG', 'STD', 'STDDEV', 'MIN', 'MAX', 'BIT_OR', 'BIT_AND'
+        'SUM', 'AVG', 'STD', 'STDDEV', 'MIN', 'MAX', 'BIT_OR', 'BIT_AND',
     );
 
     /**
      * Gets an array with flags this statement has.
      *
-     * @param Statement|null $statement The statement to be processed.
-     * @param bool           $all       If `false`, false values will not be included.
+     * @param Statement|null $statement the statement to be processed
+     * @param bool           $all       if `false`, false values will not be included
      *
      * @return array
      */
@@ -66,83 +62,82 @@ class Query
         $flags = array();
         if ($all) {
             $flags = array(
-
-                /**
+                /*
                  * select ... DISTINCT ...
                  */
-                'distinct'      => false,
+                'distinct' => false,
 
-                /**
+                /*
                  * drop ... DATABASE ...
                  */
                 'drop_database' => false,
 
-                /**
+                /*
                  * ... GROUP BY ...
                  */
-                'group'         => false,
+                'group' => false,
 
-                /**
+                /*
                  * ... HAVING ...
                  */
-                'having'        => false,
+                'having' => false,
 
-                /**
+                /*
                  * INSERT ...
                  * or
                  * REPLACE ...
                  * or
                  * DELETE ...
                  */
-                'is_affected'   => false,
+                'is_affected' => false,
 
-                /**
+                /*
                  * select ... PROCEDURE ANALYSE( ... ) ...
                  */
-                'is_analyse'    => false,
+                'is_analyse' => false,
 
-                /**
+                /*
                  * select COUNT( ... ) ...
                  */
-                'is_count'      => false,
+                'is_count' => false,
 
-                /**
+                /*
                  * DELETE ...
                  */
-                'is_delete'     => false, // @deprecated; use `querytype`
+                'is_delete' => false, // @deprecated; use `querytype`
 
-                /**
+                /*
                  * EXPLAIN ...
                  */
-                'is_explain'    => false, // @deprecated; use `querytype`
+                'is_explain' => false, // @deprecated; use `querytype`
 
-                /**
+                /*
                  * select ... INTO OUTFILE ...
                  */
-                'is_export'     => false,
+                'is_export' => false,
 
-                /**
+                /*
                  * select FUNC( ... ) ...
                  */
-                'is_func'       => false,
+                'is_func' => false,
 
-                /**
+                /*
                  * select ... GROUP BY ...
                  * or
                  * select ... HAVING ...
                  */
-                'is_group'      => false,
+                'is_group' => false,
 
-                /**
+                /*
                  * INSERT ...
                  * or
                  * REPLACE ...
                  * or
                  * TODO: LOAD DATA ...
                  */
-                'is_insert'     => false,
+                'is_insert' => false,
 
-                /**
+                /*
                  * ANALYZE ...
                  * or
                  * CHECK ...
@@ -153,73 +148,73 @@ class Query
                  * or
                  * REPAIR ...
                  */
-                'is_maint'      => false,
+                'is_maint' => false,
 
-                /**
+                /*
                  * CALL ...
                  */
-                'is_procedure'  => false,
+                'is_procedure' => false,
 
-                /**
+                /*
                  * REPLACE ...
                  */
-                'is_replace'    => false, // @deprecated; use `querytype`
+                'is_replace' => false, // @deprecated; use `querytype`
 
-                /**
+                /*
                  * SELECT ...
                  */
-                'is_select'     => false, // @deprecated; use `querytype`
+                'is_select' => false, // @deprecated; use `querytype`
 
-                /**
+                /*
                  * SHOW ...
                  */
-                'is_show'       => false, // @deprecated; use `querytype`
+                'is_show' => false, // @deprecated; use `querytype`
 
-                /**
+                /*
                  * Contains a subquery.
                  */
-                'is_subquery'   => false,
+                'is_subquery' => false,
 
-                /**
+                /*
                  * ... JOIN ...
                  */
-                'join'          => false,
+                'join' => false,
 
-                /**
+                /*
                  * ... LIMIT ...
                  */
-                'limit'         => false,
+                'limit' => false,
 
-                /**
+                /*
                  * TODO
                  */
-                'offset'        => false,
+                'offset' => false,
 
-                /**
+                /*
                  * ... ORDER ...
                  */
-                'order'         => false,
+                'order' => false,
 
-                /**
+                /*
                  * The type of the query (which is usually the first keyword of
                  * the statement).
                  */
-                'querytype'     => false,
+                'querytype' => false,
 
-                /**
+                /*
                  * Whether a page reload is required.
                  */
-                'reload'        => false,
+                'reload' => false,
 
-                /**
+                /*
                  * SELECT ... FROM ...
                  */
-                'select_from'   => false,
+                'select_from' => false,
 
-                /**
+                /*
                  * ... UNION ...
                  */
-                'union'         => false
+                'union' => false,
             );
         }
 
@@ -335,7 +330,6 @@ class Query
             if (!empty($statement->join)) {
                 $flags['join'] = true;
             }
-
         } elseif ($statement instanceof ShowStatement) {
             $flags['querytype'] = 'SHOW';
             $flags['is_show'] = true;
@@ -362,17 +356,17 @@ class Query
     /**
      * Parses a query and gets all information about it.
      *
-     * @param string $query The query to be parsed.
+     * @param string $query the query to be parsed
      *
      * @return array The array returned is the one returned by
      *               `static::getFlags()`, with the following keys added:
-     *                 - parser - the parser used to analyze the query;
-     *                 - statement - the first statement resulted from parsing;
-     *                 - select_tables - the real name of the tables selected;
-     *                       if there are no table names in the `SELECT`
-     *                       expressions, the table names are fetched from the
-     *                       `FROM` expressions
-     *                 - select_expr - selected expressions
+     *               - parser - the parser used to analyze the query;
+     *               - statement - the first statement resulted from parsing;
+     *               - select_tables - the real name of the tables selected;
+     *               if there are no table names in the `SELECT`
+     *               expressions, the table names are fetched from the
+     *               `FROM` expressions
+     *               - select_expr - selected expressions
      */
     public static function getAll($query)
     {
@@ -401,7 +395,7 @@ class Query
                 ) {
                     $tableAliases[$expr->alias] = array(
                         $expr->table,
-                        isset($expr->database) ? $expr->database : null
+                        isset($expr->database) ? $expr->database : null,
                     );
                 }
             }
@@ -417,7 +411,7 @@ class Query
                         $arr = array(
                             $expr->table,
                             ((isset($expr->database)) && ($expr->database !== '')) ?
-                                $expr->database : null
+                                $expr->database : null,
                         );
                     }
                     if (!in_array($arr, $ret['select_tables'])) {
@@ -437,7 +431,7 @@ class Query
                         $arr = array(
                             $expr->table,
                             ((isset($expr->database)) && ($expr->database !== '')) ?
-                                $expr->database : null
+                                $expr->database : null,
                         );
                         if (!in_array($arr, $ret['select_tables'])) {
                             $ret['select_tables'][] = $arr;
@@ -453,7 +447,7 @@ class Query
     /**
      * Gets a list of all tables used in this statement.
      *
-     * @param Statement $statement Statement to be scanned.
+     * @param Statement $statement statement to be scanned
      *
      * @return array
      */
@@ -495,33 +489,33 @@ class Query
                 $ret[] = Expression::build($expr);
             }
         }
+
         return $ret;
     }
 
     /**
      * Gets a specific clause.
      *
-     * @param Statement  $statement The parsed query that has to be modified.
-     * @param TokensList $list      The list of tokens.
-     * @param string     $clause    The clause to be returned.
+     * @param Statement  $statement the parsed query that has to be modified
+     * @param TokensList $list      the list of tokens
+     * @param string     $clause    the clause to be returned
      * @param int|string $type      The type of the search.
      *                              If int,
-     *                                -1 for everything that was before
-     *                                 0 only for the clause
-     *                                 1 for everything after
+     *                              -1 for everything that was before
+     *                              0 only for the clause
+     *                              1 for everything after
      *                              If string, the name of the first clause that
      *                              should not be included.
-     * @param bool       $skipFirst Whether to skip the first keyword in clause.
+     * @param bool       $skipFirst whether to skip the first keyword in clause
      *
      * @return string
      */
     public static function getClause($statement, $list, $clause, $type = 0, $skipFirst = true)
     {
-
         /**
          * The index of the current clause.
          *
-         * @var int $currIdx
+         * @var int
          */
         $currIdx = 0;
 
@@ -529,42 +523,42 @@ class Query
          * The count of brackets.
          * We keep track of them so we won't insert the clause in a subquery.
          *
-         * @var int $brackets
+         * @var int
          */
         $brackets = 0;
 
         /**
          * The string to be returned.
          *
-         * @var string $ret
+         * @var string
          */
         $ret = '';
 
         /**
          * The clauses of this type of statement and their index.
          *
-         * @var array $clauses
+         * @var array
          */
         $clauses = array_flip(array_keys($statement->getClauses()));
 
         /**
          * Lexer used for lexing the clause.
          *
-         * @var Lexer $lexer
+         * @var Lexer
          */
         $lexer = new Lexer($clause);
 
         /**
          * The type of this clause.
          *
-         * @var string $clauseType
+         * @var string
          */
         $clauseType = $lexer->list->getNextOfType(Token::TYPE_KEYWORD)->value;
 
         /**
          * The index of this clause.
          *
-         * @var int $clauseIdx
+         * @var int
          */
         $clauseIdx = $clauses[$clauseType];
 
@@ -637,14 +631,14 @@ class Query
      *
      * It is a very basic version of a query builder.
      *
-     * @param Statement  $statement The parsed query that has to be modified.
-     * @param TokensList $list      The list of tokens.
+     * @param Statement  $statement the parsed query that has to be modified
+     * @param TokensList $list      the list of tokens
      * @param string     $old       The type of the clause that should be
      *                              replaced. This can be an entire clause.
      * @param string     $new       The new clause. If this parameter is omitted
      *                              it is considered to be equal with `$old`.
-     * @param bool       $onlyType  Whether only the type of the clause should
-     *                              be replaced or the entire clause.
+     * @param bool       $onlyType  whether only the type of the clause should
+     *                              be replaced or the entire clause
      *
      * @return string
      */
@@ -670,8 +664,8 @@ class Query
      * Builds a query by rebuilding the statement from the tokens list supplied
      * and replaces multiple clauses.
      *
-     * @param Statement  $statement The parsed query that has to be modified.
-     * @param TokensList $list      The list of tokens.
+     * @param Statement  $statement the parsed query that has to be modified
+     * @param TokensList $list      the list of tokens
      * @param array      $ops       Clauses to be replaced. Contains multiple
      *                              arrays having two values: array($old, $new).
      *                              Clauses must be sorted.
@@ -690,7 +684,7 @@ class Query
         /**
          * Value to be returned.
          *
-         * @var string $ret
+         * @var string
          */
         $ret = '';
 
@@ -726,12 +720,12 @@ class Query
     /**
      * Gets the first full statement in the query.
      *
-     * @param string $query     The query to be analyzed.
-     * @param string $delimiter The delimiter to be used.
+     * @param string $query     the query to be analyzed
+     * @param string $delimiter the delimiter to be used
      *
-     * @return array                Array containing the first full query, the
-     *                              remaining part of the query and the last
-     *                              delimiter.
+     * @return array array containing the first full query, the
+     *               remaining part of the query and the last
+     *               delimiter
      */
     public static function getFirstStatement($query, $delimiter = null)
     {
@@ -741,14 +735,14 @@ class Query
         /**
          * Whether a full statement was found.
          *
-         * @var bool $fullStatement
+         * @var bool
          */
         $fullStatement = false;
 
         /**
          * The first full statement.
          *
-         * @var string $statement
+         * @var string
          */
         $statement = '';
 
@@ -787,9 +781,9 @@ class Query
     /**
      * Gets a starting offset of a specific clause.
      *
-     * @param Statement  $statement The parsed query that has to be modified.
-     * @param TokensList $list      The list of tokens.
-     * @param string     $clause    The clause to be returned.
+     * @param Statement  $statement the parsed query that has to be modified
+     * @param TokensList $list      the list of tokens
+     * @param string     $clause    the clause to be returned
      *
      * @return int
      */
@@ -799,14 +793,14 @@ class Query
          * The count of brackets.
          * We keep track of them so we won't insert the clause in a subquery.
          *
-         * @var int $brackets
+         * @var int
          */
         $brackets = 0;
 
         /**
          * The clauses of this type of statement and their index.
          *
-         * @var array $clauses
+         * @var array
          */
         $clauses = array_flip(array_keys($statement->getClauses()));
 

@@ -2,10 +2,8 @@
 
 /**
  * `REFERENCES` keyword parser.
- *
- * @package    SqlParser
- * @subpackage Components
  */
+
 namespace SqlParser\Components;
 
 use SqlParser\Context;
@@ -18,22 +16,20 @@ use SqlParser\TokensList;
  * `REFERENCES` keyword parser.
  *
  * @category   Keywords
- * @package    SqlParser
- * @subpackage Components
+ *
  * @license    https://www.gnu.org/licenses/gpl-2.0.txt GPL-2.0+
  */
 class Reference extends Component
 {
-
     /**
      * All references options.
      *
      * @var array
      */
     public static $REFERENCES_OPTIONS = array(
-        'MATCH'                         => array(1, 'var'),
-        'ON DELETE'                     => array(2, 'var'),
-        'ON UPDATE'                     => array(3, 'var'),
+        'MATCH' => array(1, 'var'),
+        'ON DELETE' => array(2, 'var'),
+        'ON UPDATE' => array(3, 'var'),
     );
 
     /**
@@ -60,9 +56,9 @@ class Reference extends Component
     /**
      * Constructor.
      *
-     * @param Expression   $table   The name of the table referenced.
-     * @param array        $columns The columns referenced.
-     * @param OptionsArray $options The options.
+     * @param Expression   $table   the name of the table referenced
+     * @param array        $columns the columns referenced
+     * @param OptionsArray $options the options
      */
     public function __construct($table = null, array $columns = array(), $options = null)
     {
@@ -72,15 +68,15 @@ class Reference extends Component
     }
 
     /**
-     * @param Parser     $parser  The parser that serves as context.
-     * @param TokensList $list    The list of tokens that are being parsed.
-     * @param array      $options Parameters for parsing.
+     * @param Parser     $parser  the parser that serves as context
+     * @param TokensList $list    the list of tokens that are being parsed
+     * @param array      $options parameters for parsing
      *
      * @return Reference
      */
     public static function parse(Parser $parser, TokensList $list, array $options = array())
     {
-        $ret = new Reference();
+        $ret = new self();
 
         /**
          * The state of the parser.
@@ -93,7 +89,7 @@ class Reference extends Component
          *
          *      2 ---------------------[ options ]--------------------> (END)
          *
-         * @var int $state
+         * @var int
          */
         $state = 0;
 
@@ -101,7 +97,7 @@ class Reference extends Component
             /**
              * Token parsed at this moment.
              *
-             * @var Token $token
+             * @var Token
              */
             $token = $list->tokens[$list->idx];
 
@@ -133,16 +129,16 @@ class Reference extends Component
                 ++$list->idx;
                 break;
             }
-
         }
 
         --$list->idx;
+
         return $ret;
     }
 
     /**
-     * @param Reference $component The component to be built.
-     * @param array     $options   Parameters for building.
+     * @param Reference $component the component to be built
+     * @param array     $options   parameters for building
      *
      * @return string
      */

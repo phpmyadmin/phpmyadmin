@@ -2,10 +2,8 @@
 
 /**
  * Maintenance statement.
- *
- * @package    SqlParser
- * @subpackage Statements
  */
+
 namespace SqlParser\Statements;
 
 use SqlParser\Parser;
@@ -22,13 +20,11 @@ use SqlParser\Components\OptionsArray;
  *     STMT [some options] tbl_name [, tbl_name] ... [some more options]
  *
  * @category   Statements
- * @package    SqlParser
- * @subpackage Statements
+ *
  * @license    https://www.gnu.org/licenses/gpl-2.0.txt GPL-2.0+
  */
 class MaintenanceStatement extends Statement
 {
-
     /**
      * Tables maintained.
      *
@@ -41,11 +37,9 @@ class MaintenanceStatement extends Statement
      *
      * Parses the additional options from the end.
      *
-     * @param Parser     $parser The instance that requests parsing.
-     * @param TokensList $list   The list of tokens to be parsed.
-     * @param Token      $token  The token that is being parsed.
-     *
-     * @return void
+     * @param Parser     $parser the instance that requests parsing
+     * @param TokensList $list   the list of tokens to be parsed
+     * @param Token      $token  the token that is being parsed
      */
     public function after(Parser $parser, TokensList $list, Token $token)
     {

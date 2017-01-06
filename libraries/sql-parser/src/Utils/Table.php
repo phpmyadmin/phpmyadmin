@@ -2,10 +2,8 @@
 
 /**
  * Table utilities.
- *
- * @package    SqlParser
- * @subpackage Utils
  */
+
 namespace SqlParser\Utils;
 
 use SqlParser\Statements\CreateStatement;
@@ -14,17 +12,15 @@ use SqlParser\Statements\CreateStatement;
  * Table utilities.
  *
  * @category   Statement
- * @package    SqlParser
- * @subpackage Utils
+ *
  * @license    https://www.gnu.org/licenses/gpl-2.0.txt GPL-2.0+
  */
 class Table
 {
-
     /**
      * Gets the foreign keys of the table.
      *
-     * @param CreateStatement $statement The statement to be processed.
+     * @param CreateStatement $statement the statement to be processed
      *
      * @return array
      */
@@ -73,7 +69,6 @@ class Table
             }
 
             $ret[] = $tmp;
-
         }
 
         return $ret;
@@ -82,7 +77,7 @@ class Table
     /**
      * Gets fields of the table.
      *
-     * @param CreateStatement $statement The statement to be processed.
+     * @param CreateStatement $statement the statement to be processed
      *
      * @return array
      */
@@ -133,7 +128,6 @@ class Table
                     $ret[$field->name]['expr'] = $option;
                 }
             }
-
         }
 
         return $ret;

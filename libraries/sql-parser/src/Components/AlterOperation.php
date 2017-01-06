@@ -2,10 +2,8 @@
 
 /**
  * Parses an alter operation.
- *
- * @package    SqlParser
- * @subpackage Components
  */
+
 namespace SqlParser\Components;
 
 use SqlParser\Component;
@@ -17,86 +15,84 @@ use SqlParser\TokensList;
  * Parses an alter operation.
  *
  * @category   Components
- * @package    SqlParser
- * @subpackage Components
+ *
  * @license    https://www.gnu.org/licenses/gpl-2.0.txt GPL-2.0+
  */
 class AlterOperation extends Component
 {
-
     /**
-     * All database options
+     * All database options.
      *
      * @var array
      */
     public static $DB_OPTIONS = array(
-        'CHARACTER SET'             => array(1, 'var'),
-        'CHARSET'                   => array(1, 'var'),
-        'DEFAULT CHARACTER SET'     => array(1, 'var'),
-        'DEFAULT CHARSET'           => array(1, 'var'),
-        'UPGRADE'                   => array(1, 'var'),
-        'COLLATE'                   => array(2, 'var'),
-        'DEFAULT COLLATE'           => array(2, 'var'),
+        'CHARACTER SET' => array(1, 'var'),
+        'CHARSET' => array(1, 'var'),
+        'DEFAULT CHARACTER SET' => array(1, 'var'),
+        'DEFAULT CHARSET' => array(1, 'var'),
+        'UPGRADE' => array(1, 'var'),
+        'COLLATE' => array(2, 'var'),
+        'DEFAULT COLLATE' => array(2, 'var'),
     );
 
     /**
-     * All table options
+     * All table options.
      *
      * @var array
      */
     public static $TABLE_OPTIONS = array(
-        'ENGINE'                        => array(1, 'var='),
-        'AUTO_INCREMENT'                => array(1, 'var='),
-        'AVG_ROW_LENGTH'                => array(1, 'var'),
-        'MAX_ROWS'                      => array(1, 'var'),
-        'ROW_FORMAT'                    => array(1, 'var'),
-        'COMMENT'                       => array(1, 'var'),
-        'ADD'                           => 1,
-        'ALTER'                         => 1,
-        'ANALYZE'                       => 1,
-        'CHANGE'                        => 1,
-        'CHECK'                         => 1,
-        'COALESCE'                      => 1,
-        'CONVERT'                       => 1,
-        'DISABLE'                       => 1,
-        'DISCARD'                       => 1,
-        'DROP'                          => 1,
-        'ENABLE'                        => 1,
-        'IMPORT'                        => 1,
-        'MODIFY'                        => 1,
-        'OPTIMIZE'                      => 1,
-        'ORDER'                         => 1,
-        'PARTITION'                     => 1,
-        'REBUILD'                       => 1,
-        'REMOVE'                        => 1,
-        'RENAME'                        => 1,
-        'REORGANIZE'                    => 1,
-        'REPAIR'                        => 1,
-        'UPGRADE'                       => 1,
+        'ENGINE' => array(1, 'var='),
+        'AUTO_INCREMENT' => array(1, 'var='),
+        'AVG_ROW_LENGTH' => array(1, 'var'),
+        'MAX_ROWS' => array(1, 'var'),
+        'ROW_FORMAT' => array(1, 'var'),
+        'COMMENT' => array(1, 'var'),
+        'ADD' => 1,
+        'ALTER' => 1,
+        'ANALYZE' => 1,
+        'CHANGE' => 1,
+        'CHECK' => 1,
+        'COALESCE' => 1,
+        'CONVERT' => 1,
+        'DISABLE' => 1,
+        'DISCARD' => 1,
+        'DROP' => 1,
+        'ENABLE' => 1,
+        'IMPORT' => 1,
+        'MODIFY' => 1,
+        'OPTIMIZE' => 1,
+        'ORDER' => 1,
+        'PARTITION' => 1,
+        'REBUILD' => 1,
+        'REMOVE' => 1,
+        'RENAME' => 1,
+        'REORGANIZE' => 1,
+        'REPAIR' => 1,
+        'UPGRADE' => 1,
 
-        'COLUMN'                        => 2,
-        'CONSTRAINT'                    => 2,
-        'DEFAULT'                       => 2,
-        'TO'                            => 2,
-        'BY'                            => 2,
-        'FOREIGN'                       => 2,
-        'FULLTEXT'                      => 2,
-        'KEY'                           => 2,
-        'KEYS'                          => 2,
-        'PARTITIONING'                  => 2,
-        'PRIMARY KEY'                   => 2,
-        'SPATIAL'                       => 2,
-        'TABLESPACE'                    => 2,
-        'INDEX'                         => 2,
+        'COLUMN' => 2,
+        'CONSTRAINT' => 2,
+        'DEFAULT' => 2,
+        'TO' => 2,
+        'BY' => 2,
+        'FOREIGN' => 2,
+        'FULLTEXT' => 2,
+        'KEY' => 2,
+        'KEYS' => 2,
+        'PARTITIONING' => 2,
+        'PRIMARY KEY' => 2,
+        'SPATIAL' => 2,
+        'TABLESPACE' => 2,
+        'INDEX' => 2,
     );
 
     /**
-     * All view options
+     * All view options.
      *
      * @var array
      */
     public static $VIEW_OPTIONS = array(
-        'AS'                            => 1,
+        'AS' => 1,
     );
 
     /**
@@ -121,20 +117,20 @@ class AlterOperation extends Component
     public $unknown = array();
 
     /**
-     * @param Parser     $parser  The parser that serves as context.
-     * @param TokensList $list    The list of tokens that are being parsed.
-     * @param array      $options Parameters for parsing.
+     * @param Parser     $parser  the parser that serves as context
+     * @param TokensList $list    the list of tokens that are being parsed
+     * @param array      $options parameters for parsing
      *
      * @return AlterOperation
      */
     public static function parse(Parser $parser, TokensList $list, array $options = array())
     {
-        $ret = new AlterOperation();
+        $ret = new self();
 
         /**
          * Counts brackets.
          *
-         * @var int $brackets
+         * @var int
          */
         $brackets = 0;
 
@@ -149,7 +145,7 @@ class AlterOperation extends Component
          *
          *      2 -------------------------[ , ]-----------------------> 0
          *
-         * @var int $state
+         * @var int
          */
         $state = 0;
 
@@ -157,7 +153,7 @@ class AlterOperation extends Component
             /**
              * Token parsed at this moment.
              *
-             * @var Token $token
+             * @var Token
              */
             $token = $list->tokens[$list->idx];
 
@@ -223,7 +219,7 @@ class AlterOperation extends Component
                     // We have reached the end of ALTER operation and suddenly found
                     // a start to new statement, but have not find a delimiter between them
 
-                    if (! ($token->value == 'SET' && $list->tokens[$list->idx - 1]->value == 'CHARACTER')) {
+                    if (!($token->value == 'SET' && $list->tokens[$list->idx - 1]->value == 'CHARACTER')) {
                         $parser->error(
                             __('A new statement was found, but no delimiter between it and the previous one.'),
                             $token
@@ -248,8 +244,8 @@ class AlterOperation extends Component
     }
 
     /**
-     * @param AlterOperation $component The component to be built.
-     * @param array          $options   Parameters for building.
+     * @param AlterOperation $component the component to be built
+     * @param array          $options   parameters for building
      *
      * @return string
      */
@@ -260,6 +256,7 @@ class AlterOperation extends Component
             $ret .= $component->field . ' ';
         }
         $ret .= TokensList::build($component->unknown);
+
         return $ret;
     }
 }

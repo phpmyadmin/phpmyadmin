@@ -1,22 +1,19 @@
 <?php
 
 /**
- * CLI interface
- *
- * @package    SqlParser
- * @subpackage Utils
+ * CLI interface.
  */
+
 namespace SqlParser\Utils;
 
 use SqlParser\Parser;
 use SqlParser\Lexer;
 
 /**
- * CLI interface
+ * CLI interface.
  *
  * @category   Exceptions
- * @package    SqlParser
- * @subpackage Utils
+ *
  * @license    https://www.gnu.org/licenses/gpl-2.0.txt GPL-2.0+
  */
 class CLI
@@ -51,13 +48,15 @@ class CLI
             return false;
         }
         $this->mergeLongOpts($params, $longopts);
-        if (! isset($params['f'])) {
+        if (!isset($params['f'])) {
             $params['f'] = 'cli';
         }
-        if (! in_array($params['f'], array('html', 'cli', 'text'))) {
+        if (!in_array($params['f'], array('html', 'cli', 'text'))) {
             echo "ERROR: Invalid value for format!\n";
+
             return false;
         }
+
         return $params;
     }
 
@@ -69,6 +68,7 @@ class CLI
         }
         if (isset($params['h'])) {
             $this->usageHighlight();
+
             return 0;
         }
         if (isset($params['q'])) {
@@ -76,10 +76,12 @@ class CLI
                 $params['q'], array('type' => $params['f'])
             );
             echo "\n";
+
             return 0;
         }
         echo "ERROR: Missing parameters!\n";
         $this->usageHighlight();
+
         return 1;
     }
 
@@ -95,6 +97,7 @@ class CLI
             'hq:', $longopts
         );
         $this->mergeLongOpts($params, $longopts);
+
         return $params;
     }
 
@@ -106,6 +109,7 @@ class CLI
         }
         if (isset($params['h'])) {
             $this->usageLint();
+
             return 0;
         }
         if (isset($params['q'])) {
@@ -118,10 +122,12 @@ class CLI
             $output = Error::format($errors);
             echo implode("\n", $output);
             echo "\n";
+
             return 10;
         }
         echo "ERROR: Missing parameters!\n";
         $this->usageLint();
+
         return 1;
     }
 }

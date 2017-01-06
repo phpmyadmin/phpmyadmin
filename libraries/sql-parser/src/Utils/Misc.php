@@ -2,10 +2,8 @@
 
 /**
  * Miscellaneous utilities.
- *
- * @package    SqlParser
- * @subpackage Utils
  */
+
 namespace SqlParser\Utils;
 
 use SqlParser\Components\Expression;
@@ -15,18 +13,16 @@ use SqlParser\Statements\SelectStatement;
  * Miscellaneous utilities.
  *
  * @category   Misc
- * @package    SqlParser
- * @subpackage Utils
+ *
  * @license    https://www.gnu.org/licenses/gpl-2.0.txt GPL-2.0+
  */
 class Misc
 {
-
     /**
      * Gets a list of all aliases and their original names.
      *
-     * @param SelectStatement $statement The statement to be processed.
-     * @param string          $database  The name of the database.
+     * @param SelectStatement $statement the statement to be processed
+     * @param string          $database  the name of the database
      *
      * @return array
      */
@@ -47,7 +43,7 @@ class Misc
          * Expressions that may contain aliases.
          * These are extracted from `FROM` and `JOIN` keywords.
          *
-         * @var Expression[] $expressions
+         * @var Expression[]
          */
         $expressions = $statement->from;
 

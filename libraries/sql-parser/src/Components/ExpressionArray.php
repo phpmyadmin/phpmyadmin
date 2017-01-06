@@ -2,10 +2,8 @@
 
 /**
  * Parses a list of expressions delimited by a comma.
- *
- * @package    SqlParser
- * @subpackage Components
  */
+
 namespace SqlParser\Components;
 
 use SqlParser\Component;
@@ -17,17 +15,15 @@ use SqlParser\TokensList;
  * Parses a list of expressions delimited by a comma.
  *
  * @category   Keywords
- * @package    SqlParser
- * @subpackage Components
+ *
  * @license    https://www.gnu.org/licenses/gpl-2.0.txt GPL-2.0+
  */
 class ExpressionArray extends Component
 {
-
     /**
-     * @param Parser     $parser  The parser that serves as context.
-     * @param TokensList $list    The list of tokens that are being parsed.
-     * @param array      $options Parameters for parsing.
+     * @param Parser     $parser  the parser that serves as context
+     * @param TokensList $list    the list of tokens that are being parsed
+     * @param array      $options parameters for parsing
      *
      * @return Expression[]
      */
@@ -45,7 +41,7 @@ class ExpressionArray extends Component
          *      1 ------------------------[ , ]------------------------> 0
          *      1 -----------------------[ else ]----------------------> (END)
          *
-         * @var int $state
+         * @var int
          */
         $state = 0;
 
@@ -53,7 +49,7 @@ class ExpressionArray extends Component
             /**
              * Token parsed at this moment.
              *
-             * @var Token $token
+             * @var Token
              */
             $token = $list->tokens[$list->idx];
 
@@ -109,12 +105,13 @@ class ExpressionArray extends Component
         }
 
         --$list->idx;
+
         return $ret;
     }
 
     /**
-     * @param Expression[] $component The component to be built.
-     * @param array        $options   Parameters for building.
+     * @param Expression[] $component the component to be built
+     * @param array        $options   parameters for building
      *
      * @return string
      */
@@ -124,6 +121,7 @@ class ExpressionArray extends Component
         foreach ($component as $frag) {
             $ret[] = $frag::build($frag);
         }
+
         return implode($ret, ', ');
     }
 }

@@ -2,10 +2,8 @@
 
 /**
  * `SELECT` statement.
- *
- * @package    SqlParser
- * @subpackage Statements
  */
+
 namespace SqlParser\Statements;
 
 use SqlParser\Statement;
@@ -47,36 +45,34 @@ use SqlParser\Components\Condition;
  *     [FOR UPDATE | LOCK IN SHARE MODE]]
  *
  * @category   Statements
- * @package    SqlParser
- * @subpackage Statements
+ *
  * @license    https://www.gnu.org/licenses/gpl-2.0.txt GPL-2.0+
  */
 class SelectStatement extends Statement
 {
-
     /**
      * Options for `SELECT` statements and their slot ID.
      *
      * @var array
      */
     public static $OPTIONS = array(
-        'ALL'                           => 1,
-        'DISTINCT'                      => 1,
-        'DISTINCTROW'                   => 1,
-        'HIGH_PRIORITY'                 => 2,
-        'MAX_STATEMENT_TIME'            => array(3, 'var='),
-        'STRAIGHT_JOIN'                 => 4,
-        'SQL_SMALL_RESULT'              => 5,
-        'SQL_BIG_RESULT'                => 6,
-        'SQL_BUFFER_RESULT'             => 7,
-        'SQL_CACHE'                     => 8,
-        'SQL_NO_CACHE'                  => 8,
-        'SQL_CALC_FOUND_ROWS'           => 9,
+        'ALL' => 1,
+        'DISTINCT' => 1,
+        'DISTINCTROW' => 1,
+        'HIGH_PRIORITY' => 2,
+        'MAX_STATEMENT_TIME' => array(3, 'var='),
+        'STRAIGHT_JOIN' => 4,
+        'SQL_SMALL_RESULT' => 5,
+        'SQL_BIG_RESULT' => 6,
+        'SQL_BUFFER_RESULT' => 7,
+        'SQL_CACHE' => 8,
+        'SQL_NO_CACHE' => 8,
+        'SQL_CALC_FOUND_ROWS' => 9,
     );
 
     public static $END_OPTIONS = array(
-        'FOR UPDATE'                    => 1,
-        'LOCK IN SHARE MODE'            => 1
+        'FOR UPDATE' => 1,
+        'LOCK IN SHARE MODE' => 1,
     );
 
     /**
@@ -87,36 +83,36 @@ class SelectStatement extends Statement
      * @var array
      */
     public static $CLAUSES = array(
-        'SELECT'                        => array('SELECT',                  2),
+        'SELECT' => array('SELECT',                  2),
         // Used for options.
-        '_OPTIONS'                      => array('_OPTIONS',                1),
+        '_OPTIONS' => array('_OPTIONS',                1),
         // Used for selected expressions.
-        '_SELECT'                       => array('SELECT',                  1),
-        'INTO'                          => array('INTO',                    3),
-        'FROM'                          => array('FROM',                    3),
-        'PARTITION'                     => array('PARTITION',               3),
+        '_SELECT' => array('SELECT',                  1),
+        'INTO' => array('INTO',                    3),
+        'FROM' => array('FROM',                    3),
+        'PARTITION' => array('PARTITION',               3),
 
-        'JOIN'                          => array('JOIN',                    1),
-        'FULL JOIN'                     => array('FULL JOIN',               1),
-        'INNER JOIN'                    => array('INNER JOIN',              1),
-        'LEFT JOIN'                     => array('LEFT JOIN',               1),
-        'LEFT OUTER JOIN'               => array('LEFT OUTER JOIN',         1),
-        'RIGHT JOIN'                    => array('RIGHT JOIN',              1),
-        'RIGHT OUTER JOIN'              => array('RIGHT OUTER JOIN',        1),
-        'NATURAL JOIN'                  => array('NATURAL JOIN',            1),
-        'NATURAL LEFT JOIN'             => array('NATURAL LEFT JOIN',       1),
-        'NATURAL RIGHT JOIN'            => array('NATURAL RIGHT JOIN',      1),
-        'NATURAL LEFT OUTER JOIN'       => array('NATURAL LEFT OUTER JOIN', 1),
-        'NATURAL RIGHT OUTER JOIN'      => array('NATURAL RIGHT JOIN',      1),
+        'JOIN' => array('JOIN',                    1),
+        'FULL JOIN' => array('FULL JOIN',               1),
+        'INNER JOIN' => array('INNER JOIN',              1),
+        'LEFT JOIN' => array('LEFT JOIN',               1),
+        'LEFT OUTER JOIN' => array('LEFT OUTER JOIN',         1),
+        'RIGHT JOIN' => array('RIGHT JOIN',              1),
+        'RIGHT OUTER JOIN' => array('RIGHT OUTER JOIN',        1),
+        'NATURAL JOIN' => array('NATURAL JOIN',            1),
+        'NATURAL LEFT JOIN' => array('NATURAL LEFT JOIN',       1),
+        'NATURAL RIGHT JOIN' => array('NATURAL RIGHT JOIN',      1),
+        'NATURAL LEFT OUTER JOIN' => array('NATURAL LEFT OUTER JOIN', 1),
+        'NATURAL RIGHT OUTER JOIN' => array('NATURAL RIGHT JOIN',      1),
 
-        'WHERE'                         => array('WHERE',                   3),
-        'GROUP BY'                      => array('GROUP BY',                3),
-        'HAVING'                        => array('HAVING',                  3),
-        'ORDER BY'                      => array('ORDER BY',                3),
-        'LIMIT'                         => array('LIMIT',                   3),
-        'PROCEDURE'                     => array('PROCEDURE',               3),
-        'UNION'                         => array('UNION',                   1),
-        '_END_OPTIONS'                  => array('_END_OPTIONS',            1)
+        'WHERE' => array('WHERE',                   3),
+        'GROUP BY' => array('GROUP BY',                3),
+        'HAVING' => array('HAVING',                  3),
+        'ORDER BY' => array('ORDER BY',                3),
+        'LIMIT' => array('LIMIT',                   3),
+        'PROCEDURE' => array('PROCEDURE',               3),
+        'UNION' => array('UNION',                   1),
+        '_END_OPTIONS' => array('_END_OPTIONS',            1),
         // These are available only when `UNION` is present.
         // 'ORDER BY'                      => array('ORDER BY',    3),
         // 'LIMIT'                         => array('LIMIT',       3),
@@ -231,8 +227,10 @@ class SelectStatement extends Statement
             unset($clauses['LIMIT']);
             $clauses['ORDER BY'] = array('ORDER BY', 3);
             $clauses['LIMIT'] = array('LIMIT', 3);
+
             return $clauses;
         }
+
         return static::$CLAUSES;
     }
 }
