@@ -49,5 +49,6 @@ class PMATestCase extends PHPUnit_Framework_TestCase
         $attrInstance = new ReflectionProperty('PMA\libraries\Response', '_instance');
         $attrInstance->setAccessible(true);
         $attrInstance->setValue($mockResponse);
+        $attrInstance->setValue($restoreInstance);
     }
 }
