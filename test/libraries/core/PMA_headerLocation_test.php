@@ -61,29 +61,20 @@ class PMA_HeaderLocation_Test extends PHPUnit_Framework_TestCase
      */
     public function testSendHeaderLocationWithoutSidWithIis()
     {
-        if (defined('PMA_TEST_HEADERS')) {
+        $GLOBALS['PMA_Config']->set('PMA_IS_IIS', true);
 
-            $GLOBALS['PMA_Config']->set('PMA_IS_IIS', true);
+        $testUri = 'https://example.com/test.php';
 
-            $testUri = 'https://example.com/test.php';
+        $header = array('Location: ' . $testUri);
+        PMA_sendHeaderLocation($testUri); // sets $GLOBALS['header']
+        $this->assertEquals($header, $GLOBALS['header']);
 
-            $header = array('Location: ' . $testUri);
-            PMA_sendHeaderLocation($testUri); // sets $GLOBALS['header']
-            $this->assertEquals($header, $GLOBALS['header']);
+        //reset $GLOBALS['header'] for the next assertion
+        unset($GLOBALS['header']);
 
-            //reset $GLOBALS['header'] for the next assertion
-            unset($GLOBALS['header']);
-
-            $header = array('Refresh: 0; ' . $testUri);
-            PMA_sendHeaderLocation($testUri, true); // sets $GLOBALS['header']
-            $this->assertEquals($header, $GLOBALS['header']);
-
-        } else {
-            $this->markTestSkipped(
-                'Cannot redefine constant/function - missing runkit extension'
-            );
-        }
-
+        $header = array('Refresh: 0; ' . $testUri);
+        PMA_sendHeaderLocation($testUri, true); // sets $GLOBALS['header']
+        $this->assertEquals($header, $GLOBALS['header']);
     }
 
     /**
@@ -93,20 +84,11 @@ class PMA_HeaderLocation_Test extends PHPUnit_Framework_TestCase
      */
     public function testSendHeaderLocationWithoutSidWithoutIis()
     {
-        if (defined('PMA_TEST_HEADERS')) {
+        $testUri = 'https://example.com/test.php';
+        $header = array('Location: ' . $testUri);
 
-            $testUri = 'https://example.com/test.php';
-            $header = array('Location: ' . $testUri);
-
-            PMA_sendHeaderLocation($testUri);            // sets $GLOBALS['header']
-            $this->assertEquals($header, $GLOBALS['header']);
-
-        } else {
-            $this->markTestSkipped(
-                'Cannot redefine constant/function - missing runkit extension'
-            );
-        }
-
+        PMA_sendHeaderLocation($testUri);            // sets $GLOBALS['header']
+        $this->assertEquals($header, $GLOBALS['header']);
     }
 
     /**
