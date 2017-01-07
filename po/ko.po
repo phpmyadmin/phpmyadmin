@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-12-13 10:40+0100\n"
-"PO-Revision-Date: 2017-01-07 15:48+0000\n"
-"Last-Translator: Yungu Kim <crimsonpi@gmail.com>\n"
+"PO-Revision-Date: 2017-01-07 15:50+0000\n"
+"Last-Translator: Lee Joon Haeng <calmnoia@gmail.com>\n"
 "Language-Team: Korean "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/ko/>\n"
 "Language: ko\n"
@@ -1915,7 +1915,7 @@ msgstr "다음 단계로 가는 중…"
 #: js/messages.php:440
 #, php-format
 msgid "The first step of normalization is complete for table '%s'."
-msgstr "정규화의 첫번째 단계는 테이블 '%s'를 완성하는 것이다."
+msgstr "테이블 '%s' 정규화의 첫번째 단계가 완료되었습니다."
 
 #: js/messages.php:441 libraries/normalization.lib.php:450
 #: libraries/normalization.lib.php:497 libraries/normalization.lib.php:582
