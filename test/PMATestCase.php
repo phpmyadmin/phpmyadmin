@@ -8,8 +8,8 @@
 
 class PMATestCase extends PHPUnit_Framework_TestCase
 {
-	public $restoreInstance;
-	public $attrInstance;
+    public $restoreInstance;
+    public $attrInstance;
     /**
      * This method is called before the first test of this test class is run.
      */
