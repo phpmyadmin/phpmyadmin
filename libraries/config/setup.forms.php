@@ -203,6 +203,7 @@ $forms['Main_panel']['Startup'] = array(
     'ShowCreateDb',
     'ShowStats',
     'ShowServerInfo',
+    'ShowPhpInfo',
     'ShowChgPassword');
 $forms['Main_panel']['DbStructure'] = array(
     'ShowDbStructureComment',
