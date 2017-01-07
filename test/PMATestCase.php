@@ -6,13 +6,10 @@
  * @package PhpMyAdmin-test
  */
 
-/**
- * Base class for phpMyAdmin tests.
- *
- * @package PhpMyAdmin-test
- */
 class PMATestCase extends PHPUnit_Framework_TestCase
 {
+	public $restoreInstance;
+	public $attrInstance;
     /**
      * This method is called before the first test of this test class is run.
      */
@@ -22,7 +19,7 @@ class PMATestCase extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg'] = $cfg;
     }
     /**
-     * Creates mock of Response object
+     * Creates mock of Response object for header testing
      *
      * @param string $param parameter for header method
      *
@@ -30,7 +27,7 @@ class PMATestCase extends PHPUnit_Framework_TestCase
      */
     public function mockResponse($param)
     {
-        $restoreInstance = PMA\libraries\Response::getInstance();
+        $this->restoreInstance = PMA\libraries\Response::getInstance();
 
         $mockResponse = $this->getMockBuilder('PMA\libraries\Response')
             ->disableOriginalConstructor()
@@ -46,9 +43,8 @@ class PMATestCase extends PHPUnit_Framework_TestCase
             ->with()
             ->will($this->returnValue(false));
 
-        $attrInstance = new ReflectionProperty('PMA\libraries\Response', '_instance');
-        $attrInstance->setAccessible(true);
-        $attrInstance->setValue($mockResponse);
-        $attrInstance->setValue($restoreInstance);
+        $this->attrInstance = new ReflectionProperty('PMA\libraries\Response', '_instance');
+        $this->attrInstance->setAccessible(true);
+        $this->attrInstance->setValue($mockResponse);
     }
 }

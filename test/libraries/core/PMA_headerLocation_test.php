@@ -68,6 +68,8 @@ class PMA_HeaderLocation_Test extends PMATestCase
         $this->mockResponse('Location: ' . $testUri);
         PMA_sendHeaderLocation($testUri); // sets $GLOBALS['header']
 
+        $this->tearDown();
+
         $this->mockResponse('Refresh: 0; ' . $testUri);
         PMA_sendHeaderLocation($testUri, true); // sets $GLOBALS['header']
     }
@@ -146,5 +148,19 @@ class PMA_HeaderLocation_Test extends PMATestCase
         PMA_sendHeaderLocation($testUri);
 
         $attrInstance->setValue($restoreInstance);
+    }
+    /**
+     *Tear down function for mockResponse method
+     *
+     *@return void
+     */
+    public function tearDown()
+    {
+        if(isset($this->attrInstance, $this->restoreInstance))
+        {
+            $this->attrInstance->setValue($this->restoreInstance);
+            unset($this->restoreInstance);
+            unset($this->attrInstance);
+        }
     }
 }
