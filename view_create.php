@@ -45,7 +45,7 @@ if (empty($sql_query)) {
 if (isset($_REQUEST['view']['name'])
     && empty($_REQUEST['view']['name'])
 ) {
-    $message = PMA\libraries\Message::error(__('View name can not be empty'));
+    $message = PMA\libraries\Message::error(__('View name can not be empty!'));
     $response->addJSON(
         'message',
         $message

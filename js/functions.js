@@ -1212,7 +1212,7 @@ function insertQuery(queryType)
         } else if (queryType == "update") {
             query = "UPDATE `" + table + "` SET " + editDis + " WHERE 1";
         } else if (queryType == "delete") {
-            query = "DELETE FROM `" + table + "` WHERE 1";
+            query = "DELETE FROM `" + table + "` WHERE 0";
         }
         setQuery(query);
         sql_box_locked = false;
@@ -1951,7 +1951,7 @@ function codemirrorAutocompleteOnInputRead(instance) {
                 data: params,
                 success: function (data) {
                     if (data.success) {
-                        var tables = $.parseJSON(data.tables);
+                        var tables = JSON.parse(data.tables);
                         sql_autocomplete_default_table = PMA_commonParams.get('table');
                         sql_autocomplete = [];
                         for (var table in tables) {
@@ -3520,7 +3520,7 @@ AJAX.registerOnload('functions.js', function () {
                 url: href,
                 data: params,
                 success: function (data) {
-                    central_column_list[db + '_' + table] = $.parseJSON(data.message);
+                    central_column_list[db + '_' + table] = JSON.parse(data.message);
                 },
                 async:false
             });
@@ -4049,7 +4049,9 @@ var toggleButton = function ($obj) {
             removeClass = 'off';
             addClass = 'on';
         }
-        $.post(url, {'ajax_request': true}, function (data) {
+
+        var params = {'ajax_request': true, 'token': PMA_commonParams.get('token')};
+        $.post(url, params, function (data) {
             if (typeof data !== 'undefined' && data.success === true) {
                 PMA_ajaxRemoveMessage($msg);
                 $container

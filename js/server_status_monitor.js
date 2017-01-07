@@ -610,7 +610,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
                 try {
                     var data = $('body', $('iframe#monitorConfigUpload')[0].contentWindow.document).html();
                     // Chrome wraps around '<pre style="word-wrap: break-word; white-space: pre-wrap;">' to any text content -.-
-                    json = $.parseJSON(data.substring(data.indexOf("{"), data.lastIndexOf("}") + 1));
+                    json = JSON.parse(data.substring(data.indexOf("{"), data.lastIndexOf("}") + 1));
                 } catch (err) {
                     alert(PMA_messages.strFailedParsingConfig);
                     $('#emptyDialog').dialog('close');
@@ -944,10 +944,10 @@ AJAX.registerOnload('server_status_monitor.js', function () {
         /* Apply default values & config */
         if (isStorageSupported('localStorage')) {
             if (typeof window.localStorage.monitorCharts !== 'undefined') {
-                runtime.charts = $.parseJSON(window.localStorage.monitorCharts);
+                runtime.charts = JSON.parse(window.localStorage.monitorCharts);
             }
             if (typeof window.localStorage.monitorSettings !== 'undefined') {
-                monitorSettings = $.parseJSON(window.localStorage.monitorSettings);
+                monitorSettings = JSON.parse(window.localStorage.monitorSettings);
             }
 
             $('a[href="#clearMonitorConfig"]').toggle(runtime.charts !== null);

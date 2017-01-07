@@ -3,17 +3,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2016-12-13 10:41+0100\n"
-"PO-Revision-Date: 2016-11-18 10:30+0000\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
-"phpmyadmin/master/pt_BR/>\n"
+"POT-Creation-Date: 2016-12-13 10:40+0100\n"
+"PO-Revision-Date: 2017-01-03 16:54+0000\n"
+"Last-Translator: Daniel Palmeira Huanca <daniel46758@hotmail.com>\n"
+"Language-Team: Portuguese (Brazil) "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/pt_BR/>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 2.10-dev\n"
+"X-Generator: Weblate 2.11-dev\n"
 
 #: changelog.php:39 license.php:34
 #, php-format
@@ -91,9 +91,9 @@ msgstr "Coluna"
 #: libraries/plugins/schema/pdf/PdfRelationSchema.php:630
 #: libraries/plugins/schema/pdf/PdfRelationSchema.php:653
 #: libraries/rte/rte_list.lib.php:82 libraries/rte/rte_list.lib.php:110
-#: libraries/rte/rte_routines.lib.php:906
-#: libraries/rte/rte_routines.lib.php:937
-#: libraries/rte/rte_routines.lib.php:1613
+#: libraries/rte/rte_routines.lib.php:898
+#: libraries/rte/rte_routines.lib.php:929
+#: libraries/rte/rte_routines.lib.php:1605
 #: libraries/server_privileges.lib.php:2529 libraries/tracking.lib.php:885
 #: libraries/tracking.lib.php:972
 #: templates/columns_definitions/table_fields_definitions.phtml:11
@@ -171,8 +171,8 @@ msgid "Comments"
 msgstr "Comentários"
 
 #: db_datadict.php:154
-#: libraries/controllers/table/TableStructureController.php:1184
-#: libraries/controllers/table/TableStructureController.php:1189
+#: libraries/controllers/table/TableStructureController.php:1183
+#: libraries/controllers/table/TableStructureController.php:1188
 #: libraries/tracking.lib.php:920
 #: templates/columns_definitions/column_indexes.phtml:6
 #: templates/table/structure/check_all_table_column.phtml:28
@@ -208,12 +208,12 @@ msgstr "Não"
 #: libraries/IndexColumn.php:143 libraries/central_columns.lib.php:963
 #: libraries/config/FormDisplay.tpl.php:282
 #: libraries/controllers/server/ServerDatabasesController.php:200
-#: libraries/controllers/table/TableStructureController.php:757
-#: libraries/controllers/table/TableStructureController.php:1434
-#: libraries/controllers/table/TableStructureController.php:1443
-#: libraries/controllers/table/TableStructureController.php:1448
-#: libraries/controllers/table/TableStructureController.php:1453
-#: libraries/controllers/table/TableStructureController.php:1458
+#: libraries/controllers/table/TableStructureController.php:756
+#: libraries/controllers/table/TableStructureController.php:1433
+#: libraries/controllers/table/TableStructureController.php:1442
+#: libraries/controllers/table/TableStructureController.php:1447
+#: libraries/controllers/table/TableStructureController.php:1452
+#: libraries/controllers/table/TableStructureController.php:1457
 #: libraries/mult_submits.inc.php:85 libraries/mult_submits.inc.php:213
 #: libraries/mult_submits.lib.php:359 libraries/mult_submits.lib.php:392
 #: libraries/mult_submits.lib.php:421 libraries/mult_submits.lib.php:448
@@ -258,8 +258,8 @@ msgid "Tables"
 msgstr "Tabelas"
 
 #: db_export.php:66 libraries/Menu.php:330 libraries/Menu.php:437
-#: libraries/Util.php:3178 libraries/Util.php:3188 libraries/Util.php:3194
-#: libraries/Util.php:3474 libraries/Util.php:4107 libraries/Util.php:4124
+#: libraries/Util.php:3192 libraries/Util.php:3202 libraries/Util.php:3208
+#: libraries/Util.php:3488 libraries/Util.php:4121 libraries/Util.php:4138
 #: libraries/central_columns.lib.php:727 libraries/config.values.php:39
 #: libraries/config.values.php:47 libraries/config.values.php:110
 #: libraries/config.values.php:116 libraries/config/setup.forms.php:317
@@ -328,7 +328,7 @@ msgstr "Alterar para %sconstrutor visual%s"
 #: db_search.php:32 libraries/plugins/AuthenticationPlugin.php:110
 #: libraries/plugins/auth/AuthenticationConfig.php:89
 #: libraries/plugins/auth/AuthenticationConfig.php:104
-#: libraries/plugins/auth/AuthenticationHttp.php:77
+#: libraries/plugins/auth/AuthenticationHttp.php:78
 msgid "Access denied!"
 msgstr "Acesso negado!"
 
@@ -482,12 +482,12 @@ msgstr "Adicionar geometria"
 #: libraries/operations.lib.php:797 libraries/operations.lib.php:867
 #: libraries/operations.lib.php:912 libraries/operations.lib.php:1318
 #: libraries/operations.lib.php:1631
-#: libraries/plugins/auth/AuthenticationCookie.php:211
+#: libraries/plugins/auth/AuthenticationCookie.php:234
 #: libraries/replication_gui.lib.php:122 libraries/replication_gui.lib.php:161
 #: libraries/replication_gui.lib.php:326 libraries/replication_gui.lib.php:463
 #: libraries/replication_gui.lib.php:885 libraries/rte/rte_events.lib.php:515
-#: libraries/rte/rte_routines.lib.php:1075
-#: libraries/rte/rte_routines.lib.php:1700
+#: libraries/rte/rte_routines.lib.php:1067
+#: libraries/rte/rte_routines.lib.php:1692
 #: libraries/rte/rte_triggers.lib.php:400
 #: libraries/server_privileges.lib.php:692
 #: libraries/server_privileges.lib.php:2194
@@ -609,7 +609,7 @@ msgstr "Não foi possível carregar o progresso da importação."
 msgid "Back"
 msgstr "Voltar"
 
-#: index.php:153 libraries/Footer.php:68
+#: index.php:153 libraries/Footer.php:69
 msgid "phpMyAdmin Demo Server"
 msgstr "Servidor de Demonstração do phpMyAdmin"
 
@@ -650,7 +650,7 @@ msgstr "Mais configurações"
 msgid "Database server"
 msgstr "Servidor de banco de dados"
 
-#: index.php:292 libraries/plugins/auth/AuthenticationCookie.php:157
+#: index.php:292 libraries/plugins/auth/AuthenticationCookie.php:180
 msgid "Server:"
 msgstr "Servidor:"
 
@@ -919,16 +919,16 @@ msgid ""
 "Do you really want to DROP the selected partition(s)? This will also DELETE "
 "the data related to the selected partition(s)!"
 msgstr ""
-"Você realmente quer APAGAR a(s) partição(ões) seleciona(s)? Isso também irá "
-"DELETAR os dados relacionados com a(s) partição(ões) seleciona(s)!"
+"Você realmente quer APAGAR a(s) partição(ões) selecionada(s)? Isso também "
+"irá DELETAR os dados relacionados com a(s) partição(ões) selecionada(s)!"
 
 #: js/messages.php:83
 msgid "Do you really want to TRUNCATE the selected partition(s)?"
-msgstr "Você realmente deseja LIMPAR a(s) partição(ões) seleciona(s)?"
+msgstr "Você realmente deseja LIMPAR a(s) partição(ões) selecionada(s)?"
 
 #: js/messages.php:85
 msgid "Do you really want to remove partitioning?"
-msgstr "Você realmente deseja remover a(s) partição(ões) seleciona(s)?"
+msgstr "Você realmente deseja remover a(s) partição(ões) selecionada(s)?"
 
 #: js/messages.php:86
 msgid "Do you really want to RESET SLAVE?"
@@ -1280,7 +1280,7 @@ msgstr "Requisições"
 msgid "Traffic"
 msgstr "Tráfego"
 
-#: js/messages.php:214 libraries/Menu.php:592 libraries/Util.php:4098
+#: js/messages.php:214 libraries/Menu.php:592 libraries/Util.php:4112
 #: libraries/server_status_monitor.lib.php:253
 msgid "Settings"
 msgstr "Configurações"
@@ -1506,7 +1506,7 @@ msgstr "Analisando…"
 msgid "Explain output"
 msgstr "Demonstrar saída"
 
-#: js/messages.php:291 libraries/Menu.php:558 libraries/Util.php:4094
+#: js/messages.php:291 libraries/Menu.php:558 libraries/Util.php:4108
 #: libraries/config.values.php:105 libraries/rte/rte_events.lib.php:399
 #: libraries/rte/rte_list.lib.php:108
 #: libraries/server_status_processes.lib.php:92 libraries/tracking.lib.php:286
@@ -1608,8 +1608,8 @@ msgstr ""
 "Resetando para a configuração padrão…"
 
 #: js/messages.php:325 libraries/Menu.php:365 libraries/Menu.php:467
-#: libraries/Menu.php:588 libraries/Util.php:4097 libraries/Util.php:4112
-#: libraries/Util.php:4129 libraries/config/messages.inc.php:261
+#: libraries/Menu.php:588 libraries/Util.php:4111 libraries/Util.php:4126
+#: libraries/Util.php:4143 libraries/config/messages.inc.php:261
 #: libraries/display_import.lib.php:107
 #: libraries/server_status_monitor.lib.php:313 prefs_manage.php:246
 #: setup/frames/menu.inc.php:27
@@ -1684,7 +1684,7 @@ msgstr "Parâmetros incorretos!"
 msgid "Cancel"
 msgstr "Cancelar"
 
-#: js/messages.php:353 libraries/Header.php:460
+#: js/messages.php:353 libraries/Header.php:454
 msgid "Page-related settings"
 msgstr "Configurações da página"
 
@@ -1763,7 +1763,7 @@ msgstr "Copiando o banco de dados"
 msgid "Changing charset"
 msgstr "Alterando o conjunto de caracteres"
 
-#: js/messages.php:377 libraries/Util.php:3077
+#: js/messages.php:377 libraries/Util.php:3091
 msgid "Enable foreign key checks"
 msgstr "Habilitar verificação de chaves estrangeiras"
 
@@ -1803,9 +1803,9 @@ msgstr ""
 
 #: js/messages.php:393 libraries/DisplayResults.php:4872
 #: libraries/DisplayResults.php:5155 libraries/Menu.php:357
-#: libraries/Menu.php:458 libraries/Menu.php:584 libraries/Util.php:3481
-#: libraries/Util.php:3482 libraries/Util.php:4096 libraries/Util.php:4111
-#: libraries/Util.php:4128 libraries/config/messages.inc.php:255
+#: libraries/Menu.php:458 libraries/Menu.php:584 libraries/Util.php:3495
+#: libraries/Util.php:3496 libraries/Util.php:4110 libraries/Util.php:4125
+#: libraries/Util.php:4142 libraries/config/messages.inc.php:255
 #: libraries/display_export.lib.php:171 libraries/rte/rte_list.lib.php:160
 #: libraries/server_privileges.lib.php:2366
 #: libraries/server_privileges.lib.php:2450
@@ -1822,7 +1822,7 @@ msgid "No routine is exportable. Required privileges may be lacking."
 msgstr ""
 "Nenhuma rotina é exportável. Podem estar faltando privilégios necessários.."
 
-#: js/messages.php:398 libraries/rte/rte_routines.lib.php:755
+#: js/messages.php:398 libraries/rte/rte_routines.lib.php:747
 msgid "ENUM/SET editor"
 msgstr "Editor ENUM/SET"
 
@@ -1860,8 +1860,8 @@ msgstr "Mostrar caixa de consulta"
 
 #: js/messages.php:412 libraries/DisplayResults.php:3493
 #: libraries/DisplayResults.php:4856 libraries/Index.php:709
-#: libraries/Util.php:619 libraries/Util.php:1127 libraries/Util.php:3479
-#: libraries/Util.php:3480 libraries/central_columns.lib.php:848
+#: libraries/Util.php:619 libraries/Util.php:1127 libraries/Util.php:3493
+#: libraries/Util.php:3494 libraries/central_columns.lib.php:848
 #: libraries/central_columns.lib.php:1195 libraries/config/messages.inc.php:889
 #: libraries/server_user_groups.lib.php:117 setup/frames/index.inc.php:183
 #: templates/console/bookmark_content.phtml:17
@@ -2187,15 +2187,11 @@ msgstr ""
 "desejar insira-os diretamente"
 
 #: js/messages.php:534
-#, fuzzy
-#| msgid ""
-#| "MySQL accepts additional values not selectable by the slider; key in "
-#| "those values directly if desired"
 msgid ""
 "MySQL accepts additional values not selectable by the datepicker; key in "
 "those values directly if desired"
 msgstr ""
-"MySQL aceita valores que não seria possível seleciona-los com a barra; se o "
+"MySQL aceita valores adicionais não selecionáveis pela caixa de seleção; se "
 "desejar insira-os diretamente"
 
 #: js/messages.php:540
@@ -2389,7 +2385,7 @@ msgstr "Sucesso"
 msgid "Import status"
 msgstr "Importar estado"
 
-#: js/messages.php:610 libraries/navigation/Navigation.php:112
+#: js/messages.php:610 libraries/navigation/Navigation.php:113
 msgid "Drop files here"
 msgstr "Solte os arquivos aqui"
 
@@ -2398,7 +2394,7 @@ msgid "Select database first"
 msgstr "Primeiro escolha um banco de dados"
 
 #: js/messages.php:614 libraries/DisplayResults.php:5047
-#: libraries/Util.php:3989
+#: libraries/Util.php:4003
 #: templates/database/structure/print_view_data_dictionary_link.phtml:3
 #: templates/table/structure/optional_action_links.phtml:6
 msgid "Print"
@@ -2618,23 +2614,23 @@ msgstr "Copiar tabelas com prefixo"
 
 #: js/messages.php:732
 msgid "Extremely weak"
-msgstr ""
+msgstr "Extremamente fraco"
 
 #: js/messages.php:733
 msgid "Very weak"
-msgstr ""
+msgstr "Muito fraco"
 
 #: js/messages.php:734
 msgid "Weak"
-msgstr ""
+msgstr "Fraco"
 
 #: js/messages.php:735
 msgid "Good"
-msgstr ""
+msgstr "Bom"
 
 #: js/messages.php:736
 msgid "Strong"
-msgstr ""
+msgstr "Forte"
 
 #: js/messages.php:765
 msgctxt "Previous month"
@@ -2961,7 +2957,7 @@ msgid "Please enter a valid HEX input"
 msgstr "Por favor, digite um número HEXADECIMAL válido"
 
 #: js/messages.php:968 libraries/Message.php:190 libraries/Util.php:566
-#: libraries/core.lib.php:238 libraries/import.lib.php:80
+#: libraries/core.lib.php:243 libraries/import.lib.php:80
 #: libraries/insert_edit.lib.php:1235 view_operations.php:78
 msgid "Error"
 msgstr "Erro"
@@ -3237,7 +3233,7 @@ msgid "Czech-Slovak"
 msgstr "Tcheco-Eslováquio"
 
 #: libraries/Charsets.php:456 libraries/Charsets.php:463
-#: libraries/controllers/database/DatabaseStructureController.php:982
+#: libraries/controllers/database/DatabaseStructureController.php:986
 msgid "unknown"
 msgstr "desconhecido"
 
@@ -3302,11 +3298,11 @@ msgstr "Sem marcador(es)"
 msgid "SQL Query Console"
 msgstr "Caixa de consulta SQL"
 
-#: libraries/DatabaseInterface.php:1410
+#: libraries/DatabaseInterface.php:1413
 msgid "Failed to set configured collation connection!"
 msgstr "Falha ao definir conexão do agrupamento configurado!"
 
-#: libraries/DatabaseInterface.php:2022
+#: libraries/DatabaseInterface.php:2025
 msgid ""
 "The server is not responding (or the local server's socket is not correctly "
 "configured)."
@@ -3314,24 +3310,24 @@ msgstr ""
 "O servidor não está respondendo (ou o soquete do servidor local não está "
 "configurado corretamente)."
 
-#: libraries/DatabaseInterface.php:2027
+#: libraries/DatabaseInterface.php:2030
 msgid "The server is not responding."
 msgstr "O servidor não está respondendo."
 
-#: libraries/DatabaseInterface.php:2033
+#: libraries/DatabaseInterface.php:2036
 msgid "Please check privileges of directory containing database."
 msgstr ""
 "Por favor verifique os privilégios do diretório que contém o banco de dados."
 
-#: libraries/DatabaseInterface.php:2044
+#: libraries/DatabaseInterface.php:2047
 msgid "Details…"
 msgstr "Detalhes…"
 
-#: libraries/DatabaseInterface.php:2327
+#: libraries/DatabaseInterface.php:2345
 msgid "Missing connection parameters!"
 msgstr "Parâmetro de conexão ausente!"
 
-#: libraries/DatabaseInterface.php:2351
+#: libraries/DatabaseInterface.php:2369
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr ""
 "A conexão para o controle do usuário, como definida nas configurações, "
@@ -3491,9 +3487,9 @@ msgid_plural "%1$s matches in <strong>%2$s</strong>"
 msgstr[0] "%1$s resultado em <strong>%2$s</strong>"
 msgstr[1] "%1$s resultados em <strong>%2$s</strong>"
 
-#: libraries/DbSearch.php:346 libraries/Menu.php:324 libraries/Util.php:3182
-#: libraries/Util.php:3192 libraries/Util.php:3468 libraries/Util.php:3469
-#: libraries/Util.php:4123 libraries/config.values.php:43
+#: libraries/DbSearch.php:346 libraries/Menu.php:324 libraries/Util.php:3196
+#: libraries/Util.php:3206 libraries/Util.php:3482 libraries/Util.php:3483
+#: libraries/Util.php:4137 libraries/config.values.php:43
 #: libraries/config.values.php:51 libraries/config.values.php:120
 #: libraries/navigation/nodes/NodeTable.php:311
 #: templates/table/structure/check_all_table_column.phtml:12
@@ -3609,7 +3605,7 @@ msgstr "Ordenar pela chave"
 #: libraries/plugins/import/ImportShp.php:48
 #: libraries/plugins/import/ImportSql.php:47
 #: libraries/plugins/import/ImportXml.php:47
-#: libraries/rte/rte_routines.lib.php:939 templates/console/display.phtml:12
+#: libraries/rte/rte_routines.lib.php:931 templates/console/display.phtml:12
 #: templates/console/display.phtml:173 templates/table/index_form.phtml:49
 #: templates/table/search/options.phtml:2
 #: templates/table/structure/row_stats_table.phtml:19
@@ -3668,13 +3664,13 @@ msgstr "Pode ser aproximado. Veja a [doc@faq3-11]FAQ 3.11[/doc]."
 #: libraries/DisplayResults.php:4351 libraries/Message.php:171
 #: libraries/controllers/table/TableRelationController.php:253
 #: libraries/controllers/table/TableSearchController.php:570
-#: libraries/rte/rte_routines.lib.php:1453 libraries/sql_query_form.lib.php:92
+#: libraries/rte/rte_routines.lib.php:1445 libraries/sql_query_form.lib.php:92
 #: tbl_row_action.php:141 view_operations.php:75
 msgid "Your SQL query has been executed successfully."
 msgstr "Seu comando SQL foi executado com sucesso."
 
 #: libraries/DisplayResults.php:4698
-#: libraries/controllers/database/DatabaseStructureController.php:766
+#: libraries/controllers/database/DatabaseStructureController.php:770
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to %sdocumentation"
@@ -3833,28 +3829,28 @@ msgstr ""
 "suporte para ele não está implementado ou pode ter sido desabilitado por sua "
 "configuração."
 
-#: libraries/Footer.php:72
+#: libraries/Footer.php:73
 #, php-format
 msgid "Currently running Git revision %1$s from the %2$s branch."
 msgstr "Atualmente rodando a revisão Git %1$s da branch %2$s."
 
-#: libraries/Footer.php:79
+#: libraries/Footer.php:80
 msgid "Git information missing!"
 msgstr "Faltando informações do Git!"
 
-#: libraries/Footer.php:194 libraries/Footer.php:198 libraries/Footer.php:201
+#: libraries/Footer.php:195 libraries/Footer.php:199 libraries/Footer.php:202
 msgid "Open new phpMyAdmin window"
 msgstr "Abrir nova janela do phpMyAdmin"
 
-#: libraries/Header.php:381
+#: libraries/Header.php:382
 msgid "Print view"
 msgstr "Imprimir view"
 
-#: libraries/Header.php:467
+#: libraries/Header.php:461
 msgid "Click on the bar to scroll to top of page"
 msgstr "Clique na barra para rolar até o topo da página"
 
-#: libraries/Header.php:769 libraries/plugins/auth/AuthenticationCookie.php:129
+#: libraries/Header.php:763 libraries/plugins/auth/AuthenticationCookie.php:152
 msgid "Javascript must be enabled past this point!"
 msgstr "O JavaScript deve estar ativo após este ponto!"
 
@@ -3892,8 +3888,8 @@ msgid "Keyname"
 msgstr "Nome da chave"
 
 #: libraries/Index.php:684
-#: libraries/controllers/table/TableStructureController.php:1186
-#: libraries/controllers/table/TableStructureController.php:1191
+#: libraries/controllers/table/TableStructureController.php:1185
+#: libraries/controllers/table/TableStructureController.php:1190
 #: libraries/tracking.lib.php:973
 #: templates/columns_definitions/column_indexes.phtml:11
 #: templates/table/structure/check_all_table_column.phtml:32
@@ -3909,7 +3905,7 @@ msgid "Cardinality"
 msgstr "Cardinalidade"
 
 #: libraries/Index.php:690 libraries/rte/rte_events.lib.php:502
-#: libraries/rte/rte_routines.lib.php:1062 libraries/tracking.lib.php:890
+#: libraries/rte/rte_routines.lib.php:1054 libraries/tracking.lib.php:890
 #: libraries/tracking.lib.php:979
 #: templates/columns_definitions/partitions.phtml:79
 #: templates/database/structure/table_header.phtml:94
@@ -3926,10 +3922,10 @@ msgstr "A chave primária foi deletada."
 msgid "Index %s has been dropped."
 msgstr "Índice %s foi eliminado."
 
-#: libraries/Index.php:743 libraries/Util.php:3475 libraries/Util.php:3476
+#: libraries/Index.php:743 libraries/Util.php:3489 libraries/Util.php:3490
 #: libraries/controllers/server/ServerDatabasesController.php:402
+#: libraries/controllers/table/TableStructureController.php:1181
 #: libraries/controllers/table/TableStructureController.php:1182
-#: libraries/controllers/table/TableStructureController.php:1183
 #: libraries/operations.lib.php:1580 libraries/rte/rte_list.lib.php:164
 #: templates/database/structure/check_all_tables.phtml:17
 #: templates/table/relation/foreign_key_row.phtml:79
@@ -4025,8 +4021,8 @@ msgid "Table"
 msgstr "Tabela"
 
 #: libraries/Menu.php:338 libraries/Menu.php:441 libraries/Menu.php:554
-#: libraries/Util.php:3179 libraries/Util.php:3189 libraries/Util.php:3195
-#: libraries/Util.php:4093 libraries/Util.php:4108 libraries/Util.php:4125
+#: libraries/Util.php:3193 libraries/Util.php:3203 libraries/Util.php:3209
+#: libraries/Util.php:4107 libraries/Util.php:4122 libraries/Util.php:4139
 #: libraries/config.values.php:40 libraries/config.values.php:48
 #: libraries/config.values.php:111 libraries/config.values.php:117
 #: libraries/config/messages.inc.php:324
@@ -4034,25 +4030,25 @@ msgstr "Tabela"
 msgid "SQL"
 msgstr "SQL"
 
-#: libraries/Menu.php:341 libraries/Menu.php:444 libraries/Util.php:3180
-#: libraries/Util.php:3190 libraries/Util.php:3196 libraries/Util.php:3470
-#: libraries/Util.php:3471 libraries/Util.php:4109 libraries/Util.php:4126
+#: libraries/Menu.php:341 libraries/Menu.php:444 libraries/Util.php:3194
+#: libraries/Util.php:3204 libraries/Util.php:3210 libraries/Util.php:3484
+#: libraries/Util.php:3485 libraries/Util.php:4123 libraries/Util.php:4140
 #: libraries/config.values.php:41 libraries/config.values.php:49
 #: libraries/config.values.php:112 libraries/config.values.php:118
 #: libraries/navigation/nodes/NodeTable.php:296
 msgid "Search"
 msgstr "Procurar"
 
-#: libraries/Menu.php:351 libraries/Util.php:3181 libraries/Util.php:3191
-#: libraries/Util.php:3472 libraries/Util.php:3473 libraries/Util.php:4127
+#: libraries/Menu.php:351 libraries/Util.php:3195 libraries/Util.php:3205
+#: libraries/Util.php:3486 libraries/Util.php:3487 libraries/Util.php:4141
 #: libraries/config.values.php:42 libraries/config.values.php:50
 #: libraries/config.values.php:119 libraries/navigation/nodes/NodeTable.php:302
 #: libraries/sql_query_form.lib.php:289 libraries/sql_query_form.lib.php:292
 msgid "Insert"
 msgstr "Inserir"
 
-#: libraries/Menu.php:375 libraries/Menu.php:479 libraries/Util.php:4114
-#: libraries/Util.php:4130 libraries/config.values.php:107
+#: libraries/Menu.php:375 libraries/Menu.php:479 libraries/Util.php:4128
+#: libraries/Util.php:4144 libraries/config.values.php:107
 #: libraries/server_common.lib.php:48 libraries/server_privileges.lib.php:2530
 #: libraries/server_privileges.lib.php:4371
 #: templates/privileges/privileges_summary.phtml:16
@@ -4060,19 +4056,19 @@ msgid "Privileges"
 msgstr "Privilégios"
 
 #: libraries/Menu.php:384 libraries/Menu.php:392 libraries/Menu.php:471
-#: libraries/Util.php:3183 libraries/Util.php:3197 libraries/Util.php:4113
-#: libraries/Util.php:4131 libraries/config.values.php:113
+#: libraries/Util.php:3197 libraries/Util.php:3211 libraries/Util.php:4127
+#: libraries/Util.php:4145 libraries/config.values.php:113
 #: view_operations.php:107
 msgid "Operations"
 msgstr "Operações"
 
-#: libraries/Menu.php:397 libraries/Menu.php:501 libraries/Util.php:4118
-#: libraries/Util.php:4132 libraries/relation.lib.php:265
+#: libraries/Menu.php:397 libraries/Menu.php:501 libraries/Util.php:4132
+#: libraries/Util.php:4146 libraries/relation.lib.php:265
 msgid "Tracking"
 msgstr "Monitoramento"
 
-#: libraries/Menu.php:409 libraries/Menu.php:495 libraries/Util.php:4117
-#: libraries/Util.php:4133
+#: libraries/Menu.php:409 libraries/Menu.php:495 libraries/Util.php:4131
+#: libraries/Util.php:4147
 #: libraries/navigation/nodes/NodeTriggerContainer.php:25
 #: libraries/plugins/export/ExportHtmlword.php:578
 #: libraries/plugins/export/ExportOdt.php:713
@@ -4088,16 +4084,16 @@ msgstr "Gatilhos"
 msgid "Database seems to be empty!"
 msgstr "O banco de dados parece estar vazio!"
 
-#: libraries/Menu.php:451 libraries/Util.php:4110
+#: libraries/Menu.php:451 libraries/Util.php:4124
 msgid "Query"
 msgstr "Consulta"
 
-#: libraries/Menu.php:484 libraries/Util.php:4115
+#: libraries/Menu.php:484 libraries/Util.php:4129
 #: libraries/rte/rte_words.lib.php:44
 msgid "Routines"
 msgstr "Rotinas"
 
-#: libraries/Menu.php:489 libraries/Util.php:4116
+#: libraries/Menu.php:489 libraries/Util.php:4130
 #: libraries/navigation/nodes/NodeEventContainer.php:25
 #: libraries/plugins/export/ExportSql.php:961
 #: libraries/plugins/export/ExportXml.php:103
@@ -4105,16 +4101,16 @@ msgstr "Rotinas"
 msgid "Events"
 msgstr "Eventos"
 
-#: libraries/Menu.php:507 libraries/Util.php:4119
+#: libraries/Menu.php:507 libraries/Util.php:4133
 msgid "Designer"
 msgstr "Designer"
 
-#: libraries/Menu.php:516 libraries/Util.php:4120
+#: libraries/Menu.php:516 libraries/Util.php:4134
 #: templates/database/structure/check_all_tables.phtml:34
 msgid "Central columns"
 msgstr "Colunas centrais"
 
-#: libraries/Menu.php:550 libraries/Util.php:4092
+#: libraries/Menu.php:550 libraries/Util.php:4106
 #: libraries/config.values.php:104 libraries/config/messages.inc.php:269
 #: libraries/config/messages.inc.php:344
 #: libraries/navigation/NavigationTree.php:1269
@@ -4127,34 +4123,34 @@ msgid "User accounts"
 msgstr "Contas de usuário"
 
 #: libraries/Menu.php:601 libraries/ServerStatusData.php:121
-#: libraries/Util.php:4099 libraries/server_common.lib.php:33
+#: libraries/Util.php:4113 libraries/server_common.lib.php:33
 msgid "Binary log"
 msgstr "Log binário"
 
 #: libraries/Menu.php:607 libraries/ServerStatusData.php:126
-#: libraries/Util.php:4100 libraries/server_common.lib.php:39
+#: libraries/Util.php:4114 libraries/server_common.lib.php:39
 #: templates/database/structure/body_for_table_summary.phtml:10
 #: templates/database/structure/table_header.phtml:27
 msgid "Replication"
 msgstr "Replicação"
 
 #: libraries/Menu.php:612 libraries/ServerStatusData.php:193
-#: libraries/Util.php:4101 libraries/config.values.php:106
+#: libraries/Util.php:4115 libraries/config.values.php:106
 #: libraries/sql_query_form.lib.php:427
 #: templates/server/engines/engine.phtml:15
 #: templates/server/engines/engine.phtml:18
 msgid "Variables"
 msgstr "Variáveis"
 
-#: libraries/Menu.php:616 libraries/Util.php:4102
+#: libraries/Menu.php:616 libraries/Util.php:4116
 msgid "Charsets"
 msgstr "Charsets"
 
-#: libraries/Menu.php:620 libraries/Util.php:4104
+#: libraries/Menu.php:620 libraries/Util.php:4118
 msgid "Engines"
 msgstr "Motores"
 
-#: libraries/Menu.php:624 libraries/Util.php:4103
+#: libraries/Menu.php:624 libraries/Util.php:4117
 #: libraries/server_common.lib.php:30
 msgid "Plugins"
 msgstr "Plugins"
@@ -4817,7 +4813,7 @@ msgstr "%d 1 erros foram encontrados durante a análise."
 #: libraries/rte/rte_general.lib.php:39 libraries/rte/rte_routines.lib.php:230
 #: libraries/rte/rte_routines.lib.php:257
 #: libraries/rte/rte_routines.lib.php:371
-#: libraries/rte/rte_routines.lib.php:1487
+#: libraries/rte/rte_routines.lib.php:1479
 #: libraries/rte/rte_triggers.lib.php:89 libraries/rte/rte_triggers.lib.php:98
 #: libraries/rte/rte_triggers.lib.php:130
 msgid "MySQL said: "
@@ -4896,34 +4892,34 @@ msgstr "Ir para o banco de dados '%s'."
 msgid "The %s functionality is affected by a known bug, see %s"
 msgstr "A funcionalidade %s é afetada por um bug conhecido, veja %s"
 
-#: libraries/Util.php:3387 prefs_manage.php:256
+#: libraries/Util.php:3401 prefs_manage.php:256
 msgid "Browse your computer:"
 msgstr "Procurar no seu computador:"
 
-#: libraries/Util.php:3412
+#: libraries/Util.php:3426
 #, php-format
 msgid "Select from the web server upload directory <b>%s</b>:"
 msgstr "Selecionar a partir do diretório de upload do servidor <b>%s</b>:"
 
-#: libraries/Util.php:3441 libraries/insert_edit.lib.php:1236
+#: libraries/Util.php:3455 libraries/insert_edit.lib.php:1236
 msgid "The directory you set for upload work cannot be reached."
 msgstr ""
 "O diretório que você especificou para subir arquivos não foi encontrado."
 
-#: libraries/Util.php:3452
+#: libraries/Util.php:3466
 msgid "There are no files to upload!"
 msgstr "Não existem arquivos para envio!"
 
-#: libraries/Util.php:3477 libraries/Util.php:3478
+#: libraries/Util.php:3491 libraries/Util.php:3492
 #: templates/database/structure/check_all_tables.phtml:16
 msgid "Empty"
 msgstr "Limpar"
 
-#: libraries/Util.php:3483 libraries/Util.php:3484
+#: libraries/Util.php:3497 libraries/Util.php:3498
 msgid "Execute"
 msgstr "Executar"
 
-#: libraries/Util.php:4095
+#: libraries/Util.php:4109
 msgid "Users"
 msgstr "Usuários"
 
@@ -5005,8 +5001,8 @@ msgstr "Não"
 #: libraries/plugins/export/ExportTexytext.php:446
 #: libraries/plugins/export/PMA_ExportPdf.php:312
 #: libraries/rte/rte_list.lib.php:80 libraries/rte/rte_list.lib.php:92
-#: libraries/rte/rte_list.lib.php:107 libraries/rte/rte_routines.lib.php:936
-#: libraries/rte/rte_routines.lib.php:1612 setup/frames/index.inc.php:166
+#: libraries/rte/rte_list.lib.php:107 libraries/rte/rte_routines.lib.php:928
+#: libraries/rte/rte_routines.lib.php:1604 setup/frames/index.inc.php:166
 #: templates/columns_definitions/table_fields_definitions.phtml:8
 #: templates/database/create_table.phtml:11
 #: templates/table/structure/table_structure_header.phtml:7
@@ -5014,7 +5010,7 @@ msgid "Name"
 msgstr "Nome"
 
 #: libraries/central_columns.lib.php:698 libraries/central_columns.lib.php:1383
-#: libraries/rte/rte_routines.lib.php:938
+#: libraries/rte/rte_routines.lib.php:930
 #: templates/columns_definitions/table_fields_definitions.phtml:14
 msgid "Length/Values"
 msgstr "Tamanho/Valores"
@@ -5330,7 +5326,7 @@ msgstr "Restaurar valor padrão"
 msgid "Allow users to customize this value"
 msgstr "Permitir usuários customizar esse valor"
 
-#: libraries/config/PageSettings.php:141
+#: libraries/config/PageSettings.php:143
 msgid "Cannot save settings, submitted configuration form contains errors!"
 msgstr ""
 "As configurações não podem salvas, a configuração enviada contém erros!"
@@ -6816,17 +6812,15 @@ msgstr "Mostra campos de função"
 
 #: libraries/config/messages.inc.php:533
 msgid "Whether to show functions under database in the navigation tree"
-msgstr ""
+msgstr "Mostrar funções do banco de dados na árvore de navegação"
 
 #: libraries/config/messages.inc.php:534
-#, fuzzy
-#| msgid "Show processes"
 msgid "Show procedures in tree"
-msgstr "Mostrar os Processos"
+msgstr "Mostrar os procedimentos em árvore"
 
 #: libraries/config/messages.inc.php:536
 msgid "Whether to show procedures under database in the navigation tree"
-msgstr ""
+msgstr "Se os procedimentos de um banco de dados devem ser exibidos em árvore"
 
 #: libraries/config/messages.inc.php:537
 msgid "Show events in tree"
@@ -6862,10 +6856,11 @@ msgstr "Onde mostrar os links de linha de tabela"
 #: libraries/config/messages.inc.php:549
 msgid "Whether to show row links even in the absence of a unique key."
 msgstr ""
+"Se os links de linha devem ser mostrados mesmo na ausência de chave única."
 
 #: libraries/config/messages.inc.php:551
 msgid "Show row links anyway"
-msgstr ""
+msgstr "Forçar exibição de links de linha"
 
 #: libraries/config/messages.inc.php:552 libraries/config/messages.inc.php:553
 #, fuzzy
@@ -8072,19 +8067,19 @@ msgstr "Texto OpenDocument"
 msgid "Favorite List is full!"
 msgstr "A lista de favoritos está cheia!"
 
-#: libraries/controllers/database/DatabaseStructureController.php:556
+#: libraries/controllers/database/DatabaseStructureController.php:560
 #: tbl_operations.php:361
 #, php-format
 msgid "Table %s has been emptied."
 msgstr "A tabela %s foi esvaziada."
 
-#: libraries/controllers/database/DatabaseStructureController.php:577
+#: libraries/controllers/database/DatabaseStructureController.php:581
 #: tbl_operations.php:379 view_operations.php:136
 #, php-format
 msgid "View %s has been dropped."
 msgstr "A view %s foi apagada."
 
-#: libraries/controllers/database/DatabaseStructureController.php:578
+#: libraries/controllers/database/DatabaseStructureController.php:582
 #: tbl_operations.php:380
 #, php-format
 msgid "Table %s has been dropped."
@@ -8215,8 +8210,8 @@ msgid "No data to display"
 msgstr "Sem dados para mostrar"
 
 #: libraries/controllers/table/TableIndexesController.php:155
-#: libraries/controllers/table/TableStructureController.php:718
-#: libraries/controllers/table/TableStructureController.php:967
+#: libraries/controllers/table/TableStructureController.php:717
+#: libraries/controllers/table/TableStructureController.php:966
 #: tbl_addfield.php:95
 #, php-format
 msgid "Table %1$s has been altered successfully."
@@ -8243,41 +8238,41 @@ msgstr "pesquisa detalhada"
 msgid "Find and replace"
 msgstr "Pesquisar e substituir"
 
-#: libraries/controllers/table/TableStructureController.php:162
+#: libraries/controllers/table/TableStructureController.php:161
 #, php-format
 msgid "The name '%s' is a MySQL reserved keyword."
 msgid_plural "The names '%s' are MySQL reserved keywords."
 msgstr[0] "O nome '%s' é uma palavra-chave reservada do MySQL."
 msgstr[1] "Os nomes '%s' são palavras-chaves reservadas do MySQL."
 
-#: libraries/controllers/table/TableStructureController.php:250
+#: libraries/controllers/table/TableStructureController.php:249
 msgid "No column selected."
 msgstr "Nenhuma coluna selecionada."
 
-#: libraries/controllers/table/TableStructureController.php:465
+#: libraries/controllers/table/TableStructureController.php:464
 msgid "The columns have been moved successfully."
 msgstr "As colunas foram movidas com sucesso."
 
-#: libraries/controllers/table/TableStructureController.php:729
-#: libraries/controllers/table/TableStructureController.php:1016
+#: libraries/controllers/table/TableStructureController.php:728
+#: libraries/controllers/table/TableStructureController.php:1015
 #: libraries/tracking.lib.php:1087
 msgid "Query error"
 msgstr "Erro de consulta"
 
-#: libraries/controllers/table/TableStructureController.php:961
+#: libraries/controllers/table/TableStructureController.php:960
 #, fuzzy, php-format
 #| msgid "Table %1$s has been altered successfully."
 msgid ""
 "Table %1$s has been altered successfully. Privileges have been adjusted."
 msgstr "A tabela %1$s foi alterada com sucesso."
 
-#: libraries/controllers/table/TableStructureController.php:1181
+#: libraries/controllers/table/TableStructureController.php:1180
 #: templates/table/structure/check_all_table_column.phtml:18
 msgid "Change"
 msgstr "Alterar"
 
-#: libraries/controllers/table/TableStructureController.php:1185
-#: libraries/controllers/table/TableStructureController.php:1190
+#: libraries/controllers/table/TableStructureController.php:1184
+#: libraries/controllers/table/TableStructureController.php:1189
 #: libraries/navigation/nodes/NodeIndex.php:30 libraries/tracking.lib.php:924
 #: templates/columns_definitions/column_indexes.phtml:16
 #: templates/columns_definitions/table_fields_definitions.phtml:57
@@ -8287,30 +8282,30 @@ msgstr "Alterar"
 msgid "Index"
 msgstr "Índice"
 
-#: libraries/controllers/table/TableStructureController.php:1187
-#: libraries/controllers/table/TableStructureController.php:1192
+#: libraries/controllers/table/TableStructureController.php:1186
+#: libraries/controllers/table/TableStructureController.php:1191
 #: templates/columns_definitions/column_indexes.phtml:26
 msgid "Spatial"
 msgstr "Espacial"
 
-#: libraries/controllers/table/TableStructureController.php:1188
-#: libraries/controllers/table/TableStructureController.php:1193
+#: libraries/controllers/table/TableStructureController.php:1187
+#: libraries/controllers/table/TableStructureController.php:1192
 #: templates/columns_definitions/column_indexes.phtml:21
 #: templates/table/structure/check_all_table_column.phtml:45
 msgid "Fulltext"
 msgstr "Texto completo"
 
-#: libraries/controllers/table/TableStructureController.php:1196
+#: libraries/controllers/table/TableStructureController.php:1195
 msgid "Distinct values"
 msgstr "Procurar valores distintos"
 
-#: libraries/core.lib.php:299
+#: libraries/core.lib.php:296
 #, php-format
 msgid "The %s extension is missing. Please check your PHP configuration."
 msgstr ""
 "A extensão %s não está presente. Por favor, verifique a configuração do PHP."
 
-#: libraries/core.lib.php:790 libraries/mult_submits.inc.php:329
+#: libraries/core.lib.php:787 libraries/mult_submits.inc.php:329
 #: tbl_operations.php:197 tbl_replace.php:314 templates/preview_sql.phtml:3
 msgid "No change"
 msgstr "Nenhuma alteração"
@@ -8341,7 +8336,7 @@ msgid "No Password"
 msgstr "Sem senha"
 
 #: libraries/display_change_password.lib.php:65
-#: libraries/plugins/auth/AuthenticationCookie.php:175
+#: libraries/plugins/auth/AuthenticationCookie.php:198
 #: libraries/replication_gui.lib.php:424 libraries/replication_gui.lib.php:845
 #: libraries/server_privileges.lib.php:1654
 msgid "Password:"
@@ -8369,6 +8364,9 @@ msgid ""
 "connection that encrypts the password using RSA</i>'; while connecting to "
 "the server."
 msgstr ""
+"Este método requer a utilização de uma '<i> conexão SSL</i> ' ou uma '<i> "
+"conexão que realize a criptografia da senha utilizando RSA</i> 4'; durante a "
+"conexão com o servidor."
 
 #: libraries/display_export.lib.php:173
 msgid "Exporting databases from the current server"
@@ -8451,7 +8449,7 @@ msgstr "Personalizada - exibir todas as opções possíveis"
 msgid "Databases:"
 msgstr "Bancos de dados"
 
-#: libraries/display_export.lib.php:341 libraries/navigation/Navigation.php:196
+#: libraries/display_export.lib.php:341 libraries/navigation/Navigation.php:197
 msgid "Tables:"
 msgstr "Tabelas:"
 
@@ -9121,7 +9119,7 @@ msgid "Dump has been saved to file %s."
 msgstr "Dump foi salvo no arquivo %s."
 
 #: libraries/import.lib.php:98 libraries/insert_edit.lib.php:125
-#: libraries/rte/rte_routines.lib.php:1474 libraries/sql.lib.php:1374
+#: libraries/rte/rte_routines.lib.php:1466 libraries/sql.lib.php:1374
 #: tbl_get_field.php:45
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "O MySQL retornou um conjunto vazio (ex. zero registros)."
@@ -9201,7 +9199,7 @@ msgstr "Ocultar"
 
 #: libraries/insert_edit.lib.php:250
 #: libraries/navigation/nodes/NodeFunction.php:30
-#: libraries/rte/rte_routines.lib.php:1615
+#: libraries/rte/rte_routines.lib.php:1607
 #: templates/table/search/table_header.phtml:4
 msgid "Function"
 msgstr "Função"
@@ -9276,7 +9274,7 @@ msgstr ""
 "em qualquer direção"
 
 #: libraries/insert_edit.lib.php:1649 libraries/replication_gui.lib.php:544
-#: libraries/rte/rte_routines.lib.php:1617
+#: libraries/rte/rte_routines.lib.php:1609
 #: libraries/server_status_variables.lib.php:218
 #: templates/database/designer/having_query_panel.phtml:100
 #: templates/database/designer/options_panel.phtml:73
@@ -9329,7 +9327,7 @@ msgstr "Adicionar restrições"
 #: libraries/mult_submits.lib.php:357 libraries/operations.lib.php:102
 #: libraries/operations.lib.php:245 libraries/operations.lib.php:863
 #: libraries/operations.lib.php:950 libraries/operations.lib.php:1299
-#: libraries/rte/rte_routines.lib.php:1015
+#: libraries/rte/rte_routines.lib.php:1007
 #: templates/columns_definitions/table_fields_definitions.phtml:47
 #, fuzzy
 #| msgid "Edit Privileges"
@@ -9352,33 +9350,33 @@ msgstr "Adicionar índice"
 msgid "Do you really want to execute the following query?"
 msgstr "Você realmente deseja executar a query SQL a seguir?"
 
-#: libraries/navigation/Navigation.php:54
+#: libraries/navigation/Navigation.php:55
 msgid "An error has occurred while loading the navigation display"
 msgstr "Ocorreu um erro enquanto carrega-se a exibição de navegação"
 
-#: libraries/navigation/Navigation.php:192
+#: libraries/navigation/Navigation.php:193
 #, fuzzy
 #| msgid "Group name:"
 msgid "Groups:"
 msgstr "Nome do Grupo:"
 
-#: libraries/navigation/Navigation.php:193
+#: libraries/navigation/Navigation.php:194
 msgid "Events:"
 msgstr "Eventos:"
 
-#: libraries/navigation/Navigation.php:194
+#: libraries/navigation/Navigation.php:195
 msgid "Functions:"
 msgstr "Funções:"
 
-#: libraries/navigation/Navigation.php:195
+#: libraries/navigation/Navigation.php:196
 msgid "Procedures:"
 msgstr "Procedimentos:"
 
-#: libraries/navigation/Navigation.php:197
+#: libraries/navigation/Navigation.php:198
 msgid "Views:"
 msgstr "Views:"
 
-#: libraries/navigation/Navigation.php:221 libraries/tracking.lib.php:288
+#: libraries/navigation/Navigation.php:222 libraries/tracking.lib.php:288
 #: libraries/tracking.lib.php:1600 tbl_change.php:156
 msgid "Show"
 msgstr "Mostrar"
@@ -9429,7 +9427,7 @@ msgstr[1] "%s resultados encontrados"
 #: libraries/navigation/NavigationTree.php:1358
 #: libraries/navigation/NavigationTree.php:1390
 msgid "Type to filter these, Enter to search all"
-msgstr ""
+msgstr "Digite para filtrar estes, Enter para procurar todos"
 
 #: libraries/navigation/NavigationTree.php:1360
 #: libraries/navigation/NavigationTree.php:1391
@@ -10122,8 +10120,8 @@ msgid "Cannot connect: invalid settings."
 msgstr "Não pode conectar: configurações inválidas."
 
 #: libraries/plugins/auth/AuthenticationConfig.php:94
-#: libraries/plugins/auth/AuthenticationCookie.php:111
-#: libraries/plugins/auth/AuthenticationHttp.php:82
+#: libraries/plugins/auth/AuthenticationCookie.php:134
+#: libraries/plugins/auth/AuthenticationHttp.php:83
 #, php-format
 msgid "Welcome to %s"
 msgstr "Bem-vindo ao %s"
@@ -10153,43 +10151,43 @@ msgstr ""
 msgid "Retry to connect"
 msgstr "Tente se conectar novamente"
 
-#: libraries/plugins/auth/AuthenticationCookie.php:123
+#: libraries/plugins/auth/AuthenticationCookie.php:146
 msgid "Your session has expired. Please log in again."
 msgstr "Sua sessão expirou. Por favor, faça login novamente."
 
-#: libraries/plugins/auth/AuthenticationCookie.php:146
+#: libraries/plugins/auth/AuthenticationCookie.php:169
 msgid "Log in"
 msgstr "Entrar"
 
-#: libraries/plugins/auth/AuthenticationCookie.php:154
-#: libraries/plugins/auth/AuthenticationCookie.php:164
+#: libraries/plugins/auth/AuthenticationCookie.php:177
+#: libraries/plugins/auth/AuthenticationCookie.php:187
 msgid "You can enter hostname/IP address and port separated by space."
 msgstr ""
 "Você pode digitar o nome do servidor/endereço IP e a porta separados por um "
 "espaço."
 
-#: libraries/plugins/auth/AuthenticationCookie.php:169
+#: libraries/plugins/auth/AuthenticationCookie.php:192
 msgid "Username:"
 msgstr "Usuário:"
 
-#: libraries/plugins/auth/AuthenticationCookie.php:181
+#: libraries/plugins/auth/AuthenticationCookie.php:204
 msgid "Server Choice:"
 msgstr "Escolha de servidor:"
 
-#: libraries/plugins/auth/AuthenticationCookie.php:306
+#: libraries/plugins/auth/AuthenticationCookie.php:327
 msgid "Entered captcha is wrong, try again!"
 msgstr ""
 "O valor digitado na imagem de verificação está errado, tente novamente!"
 
-#: libraries/plugins/auth/AuthenticationCookie.php:310
+#: libraries/plugins/auth/AuthenticationCookie.php:331
 msgid "Please enter correct captcha!"
 msgstr "Por favor, digite o valor correto da imagem de verificação!"
 
-#: libraries/plugins/auth/AuthenticationCookie.php:334
+#: libraries/plugins/auth/AuthenticationCookie.php:355
 msgid "You are not allowed to log in to this MySQL server!"
 msgstr "Você não tem permissão para fazer logon no servidor MySQL!"
 
-#: libraries/plugins/auth/AuthenticationHttp.php:87
+#: libraries/plugins/auth/AuthenticationHttp.php:88
 msgid "Wrong username/password. Access denied."
 msgstr "Usuário ou senha incorreta. Acesso negado."
 
@@ -10264,7 +10262,7 @@ msgstr "Evento"
 #: libraries/plugins/export/ExportOdt.php:611
 #: libraries/plugins/export/ExportTexytext.php:449
 #: libraries/plugins/export/PMA_ExportPdf.php:318
-#: libraries/rte/rte_events.lib.php:486 libraries/rte/rte_routines.lib.php:1001
+#: libraries/rte/rte_events.lib.php:486 libraries/rte/rte_routines.lib.php:993
 #: libraries/rte/rte_triggers.lib.php:381
 msgid "Definition"
 msgstr "Definição"
@@ -10292,7 +10290,7 @@ msgstr "Estrutura stand-in para view"
 
 #: libraries/plugins/export/ExportJson.php:83
 msgid "Output pretty-printed JSON (Use human-readable formatting)"
-msgstr ""
+msgstr "Exibir JSON bem formatado (Usar formatação para leitura humana)"
 
 #: libraries/plugins/export/ExportLatex.php:48
 msgid "Content of table @TABLE@"
@@ -10465,6 +10463,7 @@ msgstr "Adicionar comando %s"
 #: libraries/plugins/export/ExportSql.php:286
 msgid "(less efficient as indexes will be generated during table creation)"
 msgstr ""
+"(menos eficiente pois os índices serão gerados durante a criação da tabela)"
 
 #: libraries/plugins/export/ExportSql.php:294
 #, fuzzy, php-format
@@ -10680,7 +10679,7 @@ msgstr "Tabela:"
 
 #: libraries/plugins/export/PMA_ExportPdf.php:120
 msgid "Purpose:"
-msgstr ""
+msgstr "Propósito:"
 
 #: libraries/plugins/export/PMA_ExportPdf.php:501
 msgid "MIME"
@@ -11111,7 +11110,7 @@ msgstr ""
 
 #: libraries/plugins/transformations/input/Text_Plain_Iptobinary.php:29
 msgid "Converts an Internet network address in (IPv4/IPv6) format to binary"
-msgstr ""
+msgstr "Converte um endereço de internet no formato (IPv4/IPv6) em binário"
 
 #: libraries/plugins/transformations/input/Text_Plain_JsonEditor.php:29
 msgid "Syntax highlighted CodeMirror editor for JSON."
@@ -11145,47 +11144,47 @@ msgstr "Formata o texto como JSON destacando a sintaxe."
 msgid "Formats text as XML with syntax highlighting."
 msgstr "Formata o texto como XML destacando a sintaxe."
 
-#: libraries/pmd_common.php:549
+#: libraries/pmd_common.php:551
 msgid "Error: relation already exists."
 msgstr "Erro: relação já existe."
 
-#: libraries/pmd_common.php:595
+#: libraries/pmd_common.php:597
 msgid "FOREIGN KEY relation has been added."
 msgstr "Relação de FOREIGN KEY foi adicionada."
 
-#: libraries/pmd_common.php:601
+#: libraries/pmd_common.php:603
 msgid "Error: FOREIGN KEY relation could not be added!"
 msgstr "Erro: Relação de FOREIGN KEY não pôde ser adicionada!"
 
-#: libraries/pmd_common.php:606
+#: libraries/pmd_common.php:608
 msgid "Error: Missing index on column(s)."
 msgstr "Erro: Perda de Índice(s) de coluna(s)."
 
-#: libraries/pmd_common.php:611
+#: libraries/pmd_common.php:613
 msgid "Error: Relational features are disabled!"
 msgstr "Erro: Relacionamentos estão desativados!"
 
-#: libraries/pmd_common.php:633
+#: libraries/pmd_common.php:635
 msgid "Internal relation has been added."
 msgstr "Adicionado modelo interno."
 
-#: libraries/pmd_common.php:639
+#: libraries/pmd_common.php:641
 msgid "Error: Internal relation could not be added!"
 msgstr "Erro: Não foi possível adicionar relação interna!"
 
-#: libraries/pmd_common.php:677
+#: libraries/pmd_common.php:679
 msgid "FOREIGN KEY relation has been removed."
 msgstr "Relação de FOREIGN KEY foi removida."
 
-#: libraries/pmd_common.php:683
+#: libraries/pmd_common.php:685
 msgid "Error: FOREIGN KEY relation could not be removed!"
 msgstr "Erro: Relação de FOREIGN KEY não pode ser removida!"
 
-#: libraries/pmd_common.php:710
+#: libraries/pmd_common.php:712
 msgid "Error: Internal relation could not be removed!"
 msgstr "Erro: Relação interna não pode ser removida!"
 
-#: libraries/pmd_common.php:714
+#: libraries/pmd_common.php:716
 msgid "Internal relation has been removed."
 msgstr "Relação interna foi removida."
 
@@ -11321,6 +11320,9 @@ msgid ""
 "'phpmyadmin'. You may go to 'Operations' tab of any database to set up the "
 "phpMyAdmin configuration storage there."
 msgstr ""
+"Você não tem privilégios suficientes para criar uma base de dados chamada "
+"'phpmyadmin'. Você pode configurar o phpMyAdmin na aba 'Operações' de "
+"qualquer base de dados."
 
 #: libraries/relation.lib.php:1988
 #, fuzzy, php-format
@@ -11524,7 +11526,7 @@ msgstr "Configuração do escravo"
 
 #: libraries/replication_gui.lib.php:405
 msgid ""
-"Make sure, you have unique server-id in your configuration file (my.cnf). If "
+"Make sure you have a unique server-id in your configuration file (my.cnf). If "
 "not, please add the following line into [mysqld] section:"
 msgstr ""
 "Certifique-se de que você tem um ID de servidor único no seu arquivo de "
@@ -11697,7 +11699,7 @@ msgstr "Servidor mestre alterado com sucesso para %s."
 #: libraries/rte/rte_events.lib.php:150 libraries/rte/rte_routines.lib.php:226
 #: libraries/rte/rte_routines.lib.php:253
 #: libraries/rte/rte_routines.lib.php:367
-#: libraries/rte/rte_routines.lib.php:1483
+#: libraries/rte/rte_routines.lib.php:1475
 #: libraries/rte/rte_triggers.lib.php:85 libraries/rte/rte_triggers.lib.php:94
 #: libraries/rte/rte_triggers.lib.php:126
 #, php-format
@@ -11727,7 +11729,7 @@ msgstr "Um ou mais erros ocorreram durante o processamento da sua solicitação:
 msgid "Edit event"
 msgstr "Editar evento"
 
-#: libraries/rte/rte_events.lib.php:390 libraries/rte/rte_routines.lib.php:898
+#: libraries/rte/rte_events.lib.php:390 libraries/rte/rte_routines.lib.php:890
 #: libraries/rte/rte_triggers.lib.php:327 view_create.php:205
 msgid "Details"
 msgstr "Detalhes"
@@ -11736,7 +11738,7 @@ msgstr "Detalhes"
 msgid "Event name"
 msgstr "Nome do evento"
 
-#: libraries/rte/rte_events.lib.php:436 libraries/rte/rte_routines.lib.php:921
+#: libraries/rte/rte_events.lib.php:436 libraries/rte/rte_routines.lib.php:913
 #, php-format
 msgid "Change to %s"
 msgstr "Alterar para %s"
@@ -11763,12 +11765,12 @@ msgstr "Final"
 msgid "On completion preserve"
 msgstr "Guardar após a conclusão"
 
-#: libraries/rte/rte_events.lib.php:497 libraries/rte/rte_routines.lib.php:1036
+#: libraries/rte/rte_events.lib.php:497 libraries/rte/rte_routines.lib.php:1028
 #: libraries/rte/rte_triggers.lib.php:387 view_create.php:234
 msgid "Definer"
 msgstr "Definidor"
 
-#: libraries/rte/rte_events.lib.php:541 libraries/rte/rte_routines.lib.php:1117
+#: libraries/rte/rte_events.lib.php:541 libraries/rte/rte_routines.lib.php:1109
 #: libraries/rte/rte_triggers.lib.php:426
 msgid "The definer must be in the \"username@hostname\" format!"
 msgstr "O definidor deve estar no formato \"username@hostname\"!"
@@ -11795,8 +11797,8 @@ msgstr "Você deve informar uma definição do evento."
 
 #: libraries/rte/rte_export.lib.php:47 libraries/rte/rte_general.lib.php:75
 #: libraries/rte/rte_routines.lib.php:158
-#: libraries/rte/rte_routines.lib.php:1320
-#: libraries/rte/rte_routines.lib.php:1530
+#: libraries/rte/rte_routines.lib.php:1312
+#: libraries/rte/rte_routines.lib.php:1522
 msgid "Error in processing request:"
 msgstr "Erro no processamento do request:"
 
@@ -11837,7 +11839,7 @@ msgid "Edit routine"
 msgstr "Editar rotina"
 
 #: libraries/rte/rte_routines.lib.php:207
-#: libraries/rte/rte_routines.lib.php:1126
+#: libraries/rte/rte_routines.lib.php:1118
 #, php-format
 msgid "Invalid routine type: \"%s\""
 msgstr "Tipo de rotina inválido: \"%s\""
@@ -11862,67 +11864,69 @@ msgstr "A rotina %1$s foi modificada."
 msgid "Routine %1$s has been modified."
 msgstr "A rotina %1$s foi modificada."
 
-#: libraries/rte/rte_routines.lib.php:901
+#: libraries/rte/rte_routines.lib.php:893
 msgid "Routine name"
 msgstr "Nome das rotinas"
 
-#: libraries/rte/rte_routines.lib.php:927
+#: libraries/rte/rte_routines.lib.php:919
 msgid "Parameters"
 msgstr "Parâmetros"
 
-#: libraries/rte/rte_routines.lib.php:935
+#: libraries/rte/rte_routines.lib.php:927
 msgid "Direction"
 msgstr "Direção"
 
-#: libraries/rte/rte_routines.lib.php:956
+#: libraries/rte/rte_routines.lib.php:948
 msgid "Add parameter"
 msgstr "Adicionar parâmetro"
 
-#: libraries/rte/rte_routines.lib.php:960
+#: libraries/rte/rte_routines.lib.php:952
 msgid "Remove last parameter"
 msgstr "Remover último parâmetro"
 
-#: libraries/rte/rte_routines.lib.php:965
+#: libraries/rte/rte_routines.lib.php:957
 msgid "Return type"
 msgstr "Tipo de returno"
 
-#: libraries/rte/rte_routines.lib.php:971
+#: libraries/rte/rte_routines.lib.php:963
 msgid "Return length/values"
 msgstr "Retornar comprimento/valores"
 
-#: libraries/rte/rte_routines.lib.php:977
+#: libraries/rte/rte_routines.lib.php:969
 msgid "Return options"
 msgstr "Opções de retorno"
 
-#: libraries/rte/rte_routines.lib.php:1007
+#: libraries/rte/rte_routines.lib.php:999
 msgid "Is deterministic"
 msgstr "É determinístico"
 
-#: libraries/rte/rte_routines.lib.php:1026
+#: libraries/rte/rte_routines.lib.php:1018
 msgid ""
 "You do not have sufficient privileges to perform this operation; Please "
 "refer to the documentation for more details"
 msgstr ""
+"Você não tem privilégios suficientes para executar esta operação; Por favor "
+"verifique a documentação para maiores detalhes"
 
-#: libraries/rte/rte_routines.lib.php:1041
+#: libraries/rte/rte_routines.lib.php:1033
 msgid "Security type"
 msgstr "Tipo de segurança"
 
-#: libraries/rte/rte_routines.lib.php:1050
+#: libraries/rte/rte_routines.lib.php:1042
 msgid "SQL data access"
 msgstr "Acesso de dados SQL"
 
-#: libraries/rte/rte_routines.lib.php:1133
+#: libraries/rte/rte_routines.lib.php:1125
 msgid "You must provide a routine name!"
 msgstr "Você deve informar o nome da rotina!"
 
-#: libraries/rte/rte_routines.lib.php:1167
+#: libraries/rte/rte_routines.lib.php:1159
 #, php-format
 msgid "Invalid direction \"%s\" given for parameter."
 msgstr "Direção inválida \"%s\" dada para o parâmetro."
 
-#: libraries/rte/rte_routines.lib.php:1189
-#: libraries/rte/rte_routines.lib.php:1251
+#: libraries/rte/rte_routines.lib.php:1181
+#: libraries/rte/rte_routines.lib.php:1243
 msgid ""
 "You must provide length/values for routine parameters of type ENUM, SET, "
 "VARCHAR and VARBINARY."
@@ -11930,37 +11934,37 @@ msgstr ""
 "Você deve informar tamanhos/comprimentos para os parâmetros de rotina do "
 "tipo ENUM, SET, VARCHAR and VARBINARY."
 
-#: libraries/rte/rte_routines.lib.php:1215
+#: libraries/rte/rte_routines.lib.php:1207
 msgid "You must provide a name and a type for each routine parameter."
 msgstr "Você deve informar um nome e um tipo para cada parâmetro de rotina."
 
-#: libraries/rte/rte_routines.lib.php:1234
+#: libraries/rte/rte_routines.lib.php:1226
 msgid "You must provide a valid return type for the routine."
 msgstr "Você deve informar um tipo de retorno válido para a rotina."
 
-#: libraries/rte/rte_routines.lib.php:1294
+#: libraries/rte/rte_routines.lib.php:1286
 msgid "You must provide a routine definition."
 msgstr "Você deve informar uma definição da rotina."
 
-#: libraries/rte/rte_routines.lib.php:1406
+#: libraries/rte/rte_routines.lib.php:1398
 #, php-format
 msgid "Execution results of routine %s"
 msgstr "Resultados da execução da rotina %s"
 
-#: libraries/rte/rte_routines.lib.php:1461
+#: libraries/rte/rte_routines.lib.php:1453
 #, php-format
 msgid "%d row affected by the last statement inside the procedure."
 msgid_plural "%d rows affected by the last statement inside the procedure."
 msgstr[0] "%d linha afetada pela última instrução dentro do procedimento."
 msgstr[1] "%d linhas afetadas pela última instrução dentro do procedimento."
 
-#: libraries/rte/rte_routines.lib.php:1518
-#: libraries/rte/rte_routines.lib.php:1525
+#: libraries/rte/rte_routines.lib.php:1510
+#: libraries/rte/rte_routines.lib.php:1517
 msgid "Execute routine"
 msgstr "Executar rotina"
 
-#: libraries/rte/rte_routines.lib.php:1605
-#: libraries/rte/rte_routines.lib.php:1608
+#: libraries/rte/rte_routines.lib.php:1597
+#: libraries/rte/rte_routines.lib.php:1600
 msgid "Routine parameters"
 msgstr "Parâmetros da rotina"
 
@@ -14540,23 +14544,23 @@ msgstr "Adicionar novo servidor"
 msgid "Wrong GET file attribute value"
 msgstr "Valor de atributo de arquivo GET incorreto"
 
-#: setup/lib/form_processing.lib.php:51
+#: setup/lib/form_processing.lib.php:52
 msgid "Warning"
 msgstr "Aviso"
 
-#: setup/lib/form_processing.lib.php:52
+#: setup/lib/form_processing.lib.php:53
 msgid "Submitted form contains errors"
 msgstr "O formulário submetido contém erros"
 
-#: setup/lib/form_processing.lib.php:54
+#: setup/lib/form_processing.lib.php:55
 msgid "Try to revert erroneous fields to their default values"
 msgstr "Tentar reverter campos errôneos para os seus valores padrões"
 
-#: setup/lib/form_processing.lib.php:59
+#: setup/lib/form_processing.lib.php:60
 msgid "Ignore errors"
 msgstr "Ignorar erros"
 
-#: setup/lib/form_processing.lib.php:63
+#: setup/lib/form_processing.lib.php:64
 msgid "Show form"
 msgstr "Mostrar formulário"
 
@@ -15983,33 +15987,34 @@ msgstr[1] "%d segundos"
 #: vendor/phpmyadmin/sql-parser/src/Component.php:47
 #: vendor/phpmyadmin/sql-parser/src/Component.php:67
 msgid "Not implemented yet."
-msgstr ""
+msgstr "Ainda não implementado."
 
 #: vendor/phpmyadmin/sql-parser/src/Components/AlterOperation.php:228
 #: vendor/phpmyadmin/sql-parser/src/Statement.php:337
 msgid ""
 "A new statement was found, but no delimiter between it and the previous one."
 msgstr ""
+"Uma nova declaração foi encontrada, porém não há delimitador entre esta e a "
+"anterior."
 
 #: vendor/phpmyadmin/sql-parser/src/Components/AlterOperation.php:240
-#, fuzzy
-#| msgid "Iconic table operations"
 msgid "Unrecognized alter operation."
-msgstr "Operações de tabela icônicas"
+msgstr "Operação de alteração desconhecida."
 
 #: vendor/phpmyadmin/sql-parser/src/Components/Array2d.php:91
 #, php-format
 msgid "%1$d values were expected, but found %2$d."
-msgstr ""
+msgstr "Eram esperados %1$d valores, mas foram encontrados %2$d."
 
 #: vendor/phpmyadmin/sql-parser/src/Components/Array2d.php:114
 msgid "An opening bracket followed by a set of values was expected."
 msgstr ""
+"Era esperado um colchete de abertura seguido por um conjunto de valores."
 
 #: vendor/phpmyadmin/sql-parser/src/Components/ArrayObj.php:118
 #: vendor/phpmyadmin/sql-parser/src/Components/CreateDefinition.php:206
 msgid "An opening bracket was expected."
-msgstr ""
+msgstr "Era esperado um colchete de abertura."
 
 #: vendor/phpmyadmin/sql-parser/src/Components/CaseExpression.php:137
 #: vendor/phpmyadmin/sql-parser/src/Components/CaseExpression.php:167
@@ -16025,73 +16030,65 @@ msgstr ""
 #: vendor/phpmyadmin/sql-parser/src/Statements/InsertStatement.php:227
 #: vendor/phpmyadmin/sql-parser/src/Statements/ReplaceStatement.php:165
 #: vendor/phpmyadmin/sql-parser/src/Statements/ReplaceStatement.php:193
-#, fuzzy
-#| msgid "Unexpected characters on line %s."
 msgid "Unexpected keyword."
-msgstr "Há caracteres inesperados na linha %s."
+msgstr "Caracter inesperado."
 
 #: vendor/phpmyadmin/sql-parser/src/Components/CaseExpression.php:202
 msgid "Unexpected end of CASE expression"
-msgstr ""
+msgstr "Final inesperado da expressão CASE"
 
 #: vendor/phpmyadmin/sql-parser/src/Components/CreateDefinition.php:227
 msgid ""
 "A symbol name was expected! A reserved keyword can not be used as a column "
 "name without backquotes."
 msgstr ""
+"Era esperado um nome de símbolo! Um caracter reservado não pode ser usado "
+"como um nome de coluna sem apóstrofo."
 
 #: vendor/phpmyadmin/sql-parser/src/Components/CreateDefinition.php:241
-#, fuzzy
-#| msgid "Table name template"
 msgid "A symbol name was expected!"
-msgstr "Modelo de nome da tabela"
+msgstr "Era esperado um nome de símbolo!"
 
 #: vendor/phpmyadmin/sql-parser/src/Components/CreateDefinition.php:273
-#, fuzzy
-#| msgid "No tables selected."
 msgid "A comma or a closing bracket was expected."
-msgstr "Nenhum banco de dados selecionado."
+msgstr "Era esperado uma vírgula ou um colchete de fechamento."
 
 #: vendor/phpmyadmin/sql-parser/src/Components/CreateDefinition.php:289
 msgid "A closing bracket was expected."
-msgstr ""
+msgstr "Era esperado um colchete de fechamento."
 
 #: vendor/phpmyadmin/sql-parser/src/Components/DataType.php:127
 msgid "Unrecognized data type."
-msgstr ""
+msgstr "Tipo de dado desconhecido."
 
 #: vendor/phpmyadmin/sql-parser/src/Components/Expression.php:248
 #: vendor/phpmyadmin/sql-parser/src/Components/Expression.php:398
-#, fuzzy
-#| msgid "No tables selected."
 msgid "An alias was expected."
-msgstr "Nenhum banco de dados selecionado."
+msgstr "Era esperado um nome de correlação."
 
 #: vendor/phpmyadmin/sql-parser/src/Components/Expression.php:336
 #: vendor/phpmyadmin/sql-parser/src/Components/Expression.php:355
 #: vendor/phpmyadmin/sql-parser/src/Components/Expression.php:387
 msgid "An alias was previously found."
-msgstr ""
+msgstr "Um nome correlação foi encontrado anteriormente."
 
 #: vendor/phpmyadmin/sql-parser/src/Components/Expression.php:368
 msgid "Unexpected dot."
-msgstr ""
+msgstr "Ponto inesperado."
 
 #: vendor/phpmyadmin/sql-parser/src/Components/ExpressionArray.php:106
-#, fuzzy
-#| msgid "No versions selected."
 msgid "An expression was expected."
-msgstr "Não há versões selecionadas."
+msgstr "Era esperado uma expressão."
 
 #: vendor/phpmyadmin/sql-parser/src/Components/Limit.php:90
 #: vendor/phpmyadmin/sql-parser/src/Components/Limit.php:112
 msgid "An offset was expected."
-msgstr ""
+msgstr "Era esperado um espaçamento."
 
 #: vendor/phpmyadmin/sql-parser/src/Components/OptionsArray.php:146
 #, php-format
 msgid "This option conflicts with \"%1$s\"."
-msgstr ""
+msgstr "Esta opção está em conflito com \"%1$s\"."
 
 #: vendor/phpmyadmin/sql-parser/src/Components/OptionsArray.php:260
 #, fuzzy, php-format
@@ -16100,67 +16097,54 @@ msgid "Value/Expression for the option %1$s was expected"
 msgstr "O evento %1$s foi criado."
 
 #: vendor/phpmyadmin/sql-parser/src/Components/RenameOperation.php:101
-#, fuzzy
-#| msgid "The number of tables that are open."
 msgid "The old name of the table was expected."
-msgstr "O número de tabelas que estão abertas."
+msgstr "Era esperado o nome anterior da tabela."
 
 #: vendor/phpmyadmin/sql-parser/src/Components/RenameOperation.php:111
 msgid "Keyword \"TO\" was expected."
-msgstr ""
+msgstr "Era esperado o caracter \"TO\"."
 
 #: vendor/phpmyadmin/sql-parser/src/Components/RenameOperation.php:127
-#, fuzzy
-#| msgid "The number of tables that are open."
 msgid "The new name of the table was expected."
-msgstr "O número de tabelas que estão abertas."
+msgstr "Era esperado o novo nome da tabela."
 
 #: vendor/phpmyadmin/sql-parser/src/Components/RenameOperation.php:145
-#, fuzzy
-#| msgid "The row has been deleted."
 msgid "A rename operation was expected."
-msgstr "Registro eliminado."
+msgstr "Era esperado uma operação renomear."
 
 #: vendor/phpmyadmin/sql-parser/src/Lexer.php:266
-#, fuzzy
-#| msgid "Unexpected characters on line %s."
 msgid "Unexpected character."
-msgstr "Há caracteres inesperados na linha %s."
+msgstr "Caracter inesperado."
 
 #: vendor/phpmyadmin/sql-parser/src/Lexer.php:303
 msgid "Expected whitespace(s) before delimiter."
-msgstr ""
+msgstr "Era(m) esperado(s) espaço(s) em branco antes do delimitador."
 
 #: vendor/phpmyadmin/sql-parser/src/Lexer.php:321
 #: vendor/phpmyadmin/sql-parser/src/Lexer.php:337
 msgid "Expected delimiter."
-msgstr ""
+msgstr "Esperado delimitador."
 
 #: vendor/phpmyadmin/sql-parser/src/Lexer.php:838
-#, fuzzy, php-format
-#| msgid "Event %1$s has been created."
+#, php-format
 msgid "Ending quote %1$s was expected."
-msgstr "O evento %1$s foi criado."
+msgstr "Era esperado fechar aspas %1$s."
 
 #: vendor/phpmyadmin/sql-parser/src/Lexer.php:878
-#, fuzzy
-#| msgid "Table name template"
 msgid "Variable name was expected."
-msgstr "Modelo de nome da tabela"
+msgstr "Era perado nome de variável."
 
 #: vendor/phpmyadmin/sql-parser/src/Parser.php:456
-#, fuzzy
-#| msgid "at beginning of table"
 msgid "Unexpected beginning of statement."
-msgstr "No início da tabela"
+msgstr "Início de declaração inesperado."
 
 #: vendor/phpmyadmin/sql-parser/src/Parser.php:475
 msgid "Unrecognized statement type."
-msgstr ""
+msgstr "Tipo de declaração desconhecido."
 
 #: vendor/phpmyadmin/sql-parser/src/Parser.php:560
 msgid "No transaction was previously started."
-msgstr ""
+msgstr "Nenhuma operação foi iniciada anteriormente."
 
 #: vendor/phpmyadmin/sql-parser/src/Statement.php:245
 #: vendor/phpmyadmin/sql-parser/src/Statements/DeleteStatement.php:250
@@ -16168,57 +16152,45 @@ msgstr ""
 #: vendor/phpmyadmin/sql-parser/src/Statements/InsertStatement.php:236
 #: vendor/phpmyadmin/sql-parser/src/Statements/InsertStatement.php:256
 #: vendor/phpmyadmin/sql-parser/src/Statements/ReplaceStatement.php:201
-#, fuzzy
-#| msgid "Unexpected characters on line %s."
 msgid "Unexpected token."
-msgstr "Há caracteres inesperados na linha %s."
+msgstr "Símbolo (token) inesperado."
 
 #: vendor/phpmyadmin/sql-parser/src/Statement.php:309
 msgid "This type of clause was previously parsed."
-msgstr ""
+msgstr "Este tipo de sentença foi previamente analisado."
 
 #: vendor/phpmyadmin/sql-parser/src/Statement.php:369
 msgid "Unrecognized keyword."
-msgstr ""
+msgstr "Comando desconhecido."
 
 #: vendor/phpmyadmin/sql-parser/src/Statement.php:495
-#, fuzzy
-#| msgid "at beginning of table"
 msgid "Unexpected ordering of clauses."
-msgstr "No início da tabela"
+msgstr "Ordenamento de sentenças inesperado."
 
 #: vendor/phpmyadmin/sql-parser/src/Statements/CreateStatement.php:381
-#, fuzzy
-#| msgid "The number of tables that are open."
 msgid "The name of the entity was expected."
-msgstr "O número de tabelas que estão abertas."
+msgstr "Era esperado o nome da entidade."
 
 #: vendor/phpmyadmin/sql-parser/src/Statements/CreateStatement.php:436
-#, fuzzy
-#| msgid "Table name template"
 msgid "A table name was expected."
-msgstr "Modelo de nome da tabela"
+msgstr "Era esperado um nome de tabela."
 
 #: vendor/phpmyadmin/sql-parser/src/Statements/CreateStatement.php:444
-#, fuzzy
-#| msgid "The row has been deleted."
 msgid "At least one column definition was expected."
-msgstr "Registro eliminado."
+msgstr "Era esperado a definição de pelo menos uma coluna."
 
 #: vendor/phpmyadmin/sql-parser/src/Statements/CreateStatement.php:555
 msgid "A \"RETURNS\" keyword was expected."
-msgstr ""
+msgstr "Era esperado um comando \"RETURNS\"."
 
 #: vendor/phpmyadmin/sql-parser/src/Statements/DeleteStatement.php:303
 msgid "This type of clause is not valid in Multi-table queries."
-msgstr ""
+msgstr "Este tipo de sentença não é válida em consultas à várias tabelas."
 
 #: vendor/phpmyadmin/sql-parser/tests/Lexer/LexerTest.php:21
 #: vendor/phpmyadmin/sql-parser/tests/Parser/ParserTest.php:58
-#, fuzzy
-#| msgid "errors."
 msgid "error #1"
-msgstr "erros."
+msgstr "erro #1"
 
 #: vendor/phpmyadmin/sql-parser/tests/Lexer/LexerTest.php:23
 #: vendor/phpmyadmin/sql-parser/tests/Parser/ParserTest.php:59
@@ -16228,13 +16200,11 @@ msgstr ""
 
 #: vendor/phpmyadmin/sql-parser/tests/Lexer/LexerTest.php:48
 #: vendor/phpmyadmin/sql-parser/tests/Parser/ParserTest.php:80
-#, fuzzy
-#| msgid "Gather errors"
 msgid "strict error"
-msgstr "Reunir erros"
+msgstr "Erro estrito"
 
 #: view_create.php:48
-msgid "View name can not be empty"
+msgid "View name can not be empty!"
 msgstr ""
 
 #: view_create.php:253

@@ -210,6 +210,10 @@ class GISVisualization
     {
         $modified_result = $GLOBALS['dbi']->tryQuery($this->_modified_sql);
 
+        if ($modified_result === false) {
+            return array();
+        }
+
         $data = array();
         while ($row = $GLOBALS['dbi']->fetchAssoc($modified_result)) {
             $data[] = $row;

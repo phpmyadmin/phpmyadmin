@@ -1553,7 +1553,7 @@ PMA_fastFilter.filter.prototype.request = function () {
         data: params,
         complete: function (jqXHR, status) {
             if (status != 'abort') {
-                var data = $.parseJSON(jqXHR.responseText);
+                var data = JSON.parse(jqXHR.responseText);
                 self.$this.find('li.fast_filter').find('div.throbber').remove();
                 if (data && data.results) {
                     self.swap.apply(self, [data.message]);
