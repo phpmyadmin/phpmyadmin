@@ -864,7 +864,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
     if (! defined('PMA_BYPASS_GET_INSTANCE')) {
         $response = Response::getInstance();
     }
-    if (isset($_SESSION['profiling'])) {
+    if (isset($response) && isset($_SESSION['profiling'])) {
         $header   = $response->getHeader();
         $scripts  = $header->getScripts();
         $scripts->addFile('chart.js');
