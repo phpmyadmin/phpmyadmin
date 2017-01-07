@@ -2,21 +2,19 @@
 
 /**
  * Defines an array of tokens and utility functions to iterate through it.
- *
- * @package SqlParser
  */
+
 namespace SqlParser;
 
 /**
  * A structure representing a list of tokens.
  *
  * @category Tokens
- * @package  SqlParser
+ *
  * @license  https://www.gnu.org/licenses/gpl-2.0.txt GPL-2.0+
  */
 class TokensList implements \ArrayAccess
 {
-
     /**
      * The array of tokens.
      *
@@ -41,8 +39,8 @@ class TokensList implements \ArrayAccess
     /**
      * Constructor.
      *
-     * @param array $tokens The initial array of tokens.
-     * @param int   $count  The count of tokens in the initial array.
+     * @param array $tokens the initial array of tokens
+     * @param int   $count  the count of tokens in the initial array
      */
     public function __construct(array $tokens = array(), $count = -1)
     {
@@ -57,7 +55,7 @@ class TokensList implements \ArrayAccess
     /**
      * Builds an array of tokens by merging their raw value.
      *
-     * @param string|Token[]|TokensList $list The tokens to be built.
+     * @param string|Token[]|TokensList $list the tokens to be built
      *
      * @return string
      */
@@ -67,7 +65,7 @@ class TokensList implements \ArrayAccess
             return $list;
         }
 
-        if ($list instanceof TokensList) {
+        if ($list instanceof self) {
             $list = $list->tokens;
         }
 
@@ -77,15 +75,14 @@ class TokensList implements \ArrayAccess
                 $ret .= $tok->token;
             }
         }
+
         return $ret;
     }
 
     /**
      * Adds a new token.
      *
-     * @param Token $token Token to be added in list.
-     *
-     * @return void
+     * @param Token $token token to be added in list
      */
     public function add(Token $token)
     {
@@ -107,13 +104,14 @@ class TokensList implements \ArrayAccess
                 return $this->tokens[$this->idx++];
             }
         }
+
         return null;
     }
 
     /**
      * Gets the next token.
      *
-     * @param int $type The type.
+     * @param int $type the type
      *
      * @return Token
      */
@@ -124,14 +122,15 @@ class TokensList implements \ArrayAccess
                 return $this->tokens[$this->idx++];
             }
         }
+
         return null;
     }
 
     /**
      * Gets the next token.
      *
-     * @param int    $type  The type of the token.
-     * @param string $value The value of the token.
+     * @param int    $type  the type of the token
+     * @param string $value the value of the token
      *
      * @return Token
      */
@@ -144,16 +143,15 @@ class TokensList implements \ArrayAccess
                 return $this->tokens[$this->idx++];
             }
         }
+
         return null;
     }
 
     /**
      * Sets an value inside the container.
      *
-     * @param int   $offset The offset to be set.
-     * @param Token $value  The token to be saved.
-     *
-     * @return void
+     * @param int   $offset the offset to be set
+     * @param Token $value  the token to be saved
      */
     public function offsetSet($offset, $value)
     {
@@ -167,7 +165,7 @@ class TokensList implements \ArrayAccess
     /**
      * Gets a value from the container.
      *
-     * @param int $offset The offset to be returned.
+     * @param int $offset the offset to be returned
      *
      * @return Token
      */
@@ -179,7 +177,7 @@ class TokensList implements \ArrayAccess
     /**
      * Checks if an offset was previously set.
      *
-     * @param int $offset The offset to be checked.
+     * @param int $offset the offset to be checked
      *
      * @return bool
      */
@@ -191,9 +189,7 @@ class TokensList implements \ArrayAccess
     /**
      * Unsets the value of an offset.
      *
-     * @param int $offset The offset to be unset.
-     *
-     * @return void
+     * @param int $offset the offset to be unset
      */
     public function offsetUnset($offset)
     {

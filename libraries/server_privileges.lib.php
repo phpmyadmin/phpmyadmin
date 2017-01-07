@@ -587,7 +587,7 @@ function PMA_getHtmlToChooseUserGroup($username)
 function PMA_setUserGroup($username, $userGroup)
 {
     $cfgRelation = PMA_getRelationsParam();
-    if (! isset($cfgRelation['users']) || isset($cfgRelation['usergroups'])) {
+    if (empty($cfgRelation['db']) || empty($cfgRelation['users']) || empty($cfgRelation['usergroups'])) {
         return;
     }
 
@@ -2986,8 +2986,8 @@ function PMA_getUserGroupForUser($username)
 {
     $cfgRelation = PMA_getRelationsParam();
 
-    if (! isset($cfgRelation['db'])
-        || ! isset($cfgRelation['users'])
+    if (empty($cfgRelation['db'])
+        || empty($cfgRelation['users'])
     ) {
         return null;
     }
@@ -3076,7 +3076,7 @@ function PMA_getExtraDataForAjaxBehavior(
         // if $cfg['Servers'][$i]['users'] and $cfg['Servers'][$i]['usergroups'] are
         // enabled
         $cfgRelation = PMA_getRelationsParam();
-        if (isset($cfgRelation['users']) && isset($cfgRelation['usergroups'])) {
+        if (!empty($cfgRelation['users']) && !empty($cfgRelation['usergroups'])) {
             $new_user_string .= '<td class="usrGroup"></td>';
         }
 

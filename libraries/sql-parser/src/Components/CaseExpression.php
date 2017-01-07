@@ -1,11 +1,9 @@
 <?php
 
 /**
- * Parses a reference to a CASE expression
- *
- * @package    SqlParser
- * @subpackage Components
+ * Parses a reference to a CASE expression.
  */
+
 namespace SqlParser\Components;
 
 use SqlParser\Component;
@@ -13,48 +11,45 @@ use SqlParser\Parser;
 use SqlParser\Token;
 use SqlParser\TokensList;
 
-
 /**
- * Parses a reference to a CASE expression
+ * Parses a reference to a CASE expression.
  *
  * @category   Components
- * @package    SqlParser
- * @subpackage Components
+ *
  * @license    https://www.gnu.org/licenses/gpl-2.0.txt GPL-2.0+
  */
 class CaseExpression extends Component
 {
-
     /**
-     * The value to be compared
+     * The value to be compared.
      *
      * @var Expression
      */
     public $value;
 
     /**
-     * The conditions in WHEN clauses
+     * The conditions in WHEN clauses.
      *
      * @var array
      */
     public $conditions;
 
     /**
-     * The results matching with the WHEN clauses
+     * The results matching with the WHEN clauses.
      *
      * @var array
      */
     public $results;
 
     /**
-     * The values to be compared against
+     * The values to be compared against.
      *
      * @var array
      */
     public $compare_values;
 
     /**
-     * The result in ELSE section of expr
+     * The result in ELSE section of expr.
      *
      * @var array
      */
@@ -62,45 +57,42 @@ class CaseExpression extends Component
 
     /**
      * Constructor.
-     *
      */
     public function __construct()
     {
     }
 
     /**
-     *
-     * @param Parser     $parser  The parser that serves as context.
-     * @param TokensList $list    The list of tokens that are being parsed.
+     * @param Parser     $parser the parser that serves as context
+     * @param TokensList $list   the list of tokens that are being parsed
      *
      * @return Expression
      */
     public static function parse(Parser $parser, TokensList $list, array $options = array())
     {
-        $ret = new CaseExpression();
+        $ret = new self();
 
         /**
-         * State of parser
+         * State of parser.
          *
-         * @var int $parser
+         * @var int
          */
         $state = 0;
 
         /**
-         * Syntax type (type 0 or type 1)
+         * Syntax type (type 0 or type 1).
          *
-         * @var int $type
+         * @var int
          */
         $type = 0;
 
         ++$list->idx; // Skip 'CASE'
 
         for (; $list->idx < $list->count; ++$list->idx) {
-
             /**
              * Token parsed at this moment.
              *
-             * @var Token $token
+             * @var Token
              */
             $token = $list->tokens[$list->idx];
 
@@ -205,12 +197,13 @@ class CaseExpression extends Component
         }
 
         --$list->idx;
+
         return $ret;
     }
 
     /**
-     * @param Expression $component The component to be built.
-     * @param array      $options   Parameters for building.
+     * @param Expression $component the component to be built
+     * @param array      $options   parameters for building
      *
      * @return string
      */

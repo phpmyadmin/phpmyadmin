@@ -4,9 +4,8 @@
  * Defines the parser of the library.
  *
  * This is one of the most important components, along with the lexer.
- *
- * @package SqlParser
  */
+
 namespace SqlParser;
 
 require_once 'common.php';
@@ -20,76 +19,74 @@ use SqlParser\Statements\TransactionStatement;
  * parse tree.
  *
  * @category Parser
- * @package  SqlParser
+ *
  * @license  https://www.gnu.org/licenses/gpl-2.0.txt GPL-2.0+
  */
 class Parser
 {
-
     /**
      * Array of classes that are used in parsing the SQL statements.
      *
      * @var array
      */
     public static $STATEMENT_PARSERS = array(
-
         // MySQL Utility Statements
-        'DESCRIBE'          => 'SqlParser\\Statements\\ExplainStatement',
-        'DESC'              => 'SqlParser\\Statements\\ExplainStatement',
-        'EXPLAIN'           => 'SqlParser\\Statements\\ExplainStatement',
-        'FLUSH'             => '',
-        'GRANT'             => '',
-        'HELP'              => '',
-        'SET PASSWORD'      => '',
-        'STATUS'            => '',
-        'USE'               => '',
+        'DESCRIBE' => 'SqlParser\\Statements\\ExplainStatement',
+        'DESC' => 'SqlParser\\Statements\\ExplainStatement',
+        'EXPLAIN' => 'SqlParser\\Statements\\ExplainStatement',
+        'FLUSH' => '',
+        'GRANT' => '',
+        'HELP' => '',
+        'SET PASSWORD' => '',
+        'STATUS' => '',
+        'USE' => '',
 
         // Table Maintenance Statements
         // https://dev.mysql.com/doc/refman/5.7/en/table-maintenance-sql.html
-        'ANALYZE'           => 'SqlParser\\Statements\\AnalyzeStatement',
-        'BACKUP'            => 'SqlParser\\Statements\\BackupStatement',
-        'CHECK'             => 'SqlParser\\Statements\\CheckStatement',
-        'CHECKSUM'          => 'SqlParser\\Statements\\ChecksumStatement',
-        'OPTIMIZE'          => 'SqlParser\\Statements\\OptimizeStatement',
-        'REPAIR'            => 'SqlParser\\Statements\\RepairStatement',
-        'RESTORE'           => 'SqlParser\\Statements\\RestoreStatement',
+        'ANALYZE' => 'SqlParser\\Statements\\AnalyzeStatement',
+        'BACKUP' => 'SqlParser\\Statements\\BackupStatement',
+        'CHECK' => 'SqlParser\\Statements\\CheckStatement',
+        'CHECKSUM' => 'SqlParser\\Statements\\ChecksumStatement',
+        'OPTIMIZE' => 'SqlParser\\Statements\\OptimizeStatement',
+        'REPAIR' => 'SqlParser\\Statements\\RepairStatement',
+        'RESTORE' => 'SqlParser\\Statements\\RestoreStatement',
 
         // Database Administration Statements
         // https://dev.mysql.com/doc/refman/5.7/en/sql-syntax-server-administration.html
-        'SET'               => 'SqlParser\\Statements\\SetStatement',
-        'SHOW'              => 'SqlParser\\Statements\\ShowStatement',
+        'SET' => 'SqlParser\\Statements\\SetStatement',
+        'SHOW' => 'SqlParser\\Statements\\ShowStatement',
 
         // Data Definition Statements.
         // https://dev.mysql.com/doc/refman/5.7/en/sql-syntax-data-definition.html
-        'ALTER'             => 'SqlParser\\Statements\\AlterStatement',
-        'CREATE'            => 'SqlParser\\Statements\\CreateStatement',
-        'DROP'              => 'SqlParser\\Statements\\DropStatement',
-        'RENAME'            => 'SqlParser\\Statements\\RenameStatement',
-        'TRUNCATE'          => 'SqlParser\\Statements\\TruncateStatement',
+        'ALTER' => 'SqlParser\\Statements\\AlterStatement',
+        'CREATE' => 'SqlParser\\Statements\\CreateStatement',
+        'DROP' => 'SqlParser\\Statements\\DropStatement',
+        'RENAME' => 'SqlParser\\Statements\\RenameStatement',
+        'TRUNCATE' => 'SqlParser\\Statements\\TruncateStatement',
 
         // Data Manipulation Statements.
         // https://dev.mysql.com/doc/refman/5.7/en/sql-syntax-data-manipulation.html
-        'CALL'              => 'SqlParser\\Statements\\CallStatement',
-        'DELETE'            => 'SqlParser\\Statements\\DeleteStatement',
-        'DO'                => '',
-        'HANDLER'           => '',
-        'INSERT'            => 'SqlParser\\Statements\\InsertStatement',
-        'LOAD'              => '',
-        'REPLACE'           => 'SqlParser\\Statements\\ReplaceStatement',
-        'SELECT'            => 'SqlParser\\Statements\\SelectStatement',
-        'UPDATE'            => 'SqlParser\\Statements\\UpdateStatement',
+        'CALL' => 'SqlParser\\Statements\\CallStatement',
+        'DELETE' => 'SqlParser\\Statements\\DeleteStatement',
+        'DO' => '',
+        'HANDLER' => '',
+        'INSERT' => 'SqlParser\\Statements\\InsertStatement',
+        'LOAD' => '',
+        'REPLACE' => 'SqlParser\\Statements\\ReplaceStatement',
+        'SELECT' => 'SqlParser\\Statements\\SelectStatement',
+        'UPDATE' => 'SqlParser\\Statements\\UpdateStatement',
 
         // Prepared Statements.
         // https://dev.mysql.com/doc/refman/5.7/en/sql-syntax-prepared-statements.html
-        'DEALLOCATE'        => '',
-        'EXECUTE'           => '',
-        'PREPARE'           => '',
+        'DEALLOCATE' => '',
+        'EXECUTE' => '',
+        'PREPARE' => '',
 
         // Transactional and Locking Statements
         // https://dev.mysql.com/doc/refman/5.7/en/commit.html
-        'BEGIN'             => 'SqlParser\\Statements\\TransactionStatement',
-        'COMMIT'            => 'SqlParser\\Statements\\TransactionStatement',
-        'ROLLBACK'          => 'SqlParser\\Statements\\TransactionStatement',
+        'BEGIN' => 'SqlParser\\Statements\\TransactionStatement',
+        'COMMIT' => 'SqlParser\\Statements\\TransactionStatement',
+        'ROLLBACK' => 'SqlParser\\Statements\\TransactionStatement',
         'START TRANSACTION' => 'SqlParser\\Statements\\TransactionStatement',
     );
 
@@ -99,216 +96,213 @@ class Parser
      * @var array
      */
     public static $KEYWORD_PARSERS = array(
-
         // This is not a proper keyword and was added here to help the
         // formatter.
-        'PARTITION BY'          => array(),
-        'SUBPARTITION BY'       => array(),
+        'PARTITION BY' => array(),
+        'SUBPARTITION BY' => array(),
 
         // This is not a proper keyword and was added here to help the
         // builder.
-        '_OPTIONS'              => array(
-            'class'             => 'SqlParser\\Components\\OptionsArray',
-            'field'             => 'options',
+        '_OPTIONS' => array(
+            'class' => 'SqlParser\\Components\\OptionsArray',
+            'field' => 'options',
         ),
-        '_END_OPTIONS'          => array(
-            'class'             => 'SqlParser\\Components\\OptionsArray',
-            'field'             => 'end_options',
+        '_END_OPTIONS' => array(
+            'class' => 'SqlParser\\Components\\OptionsArray',
+            'field' => 'end_options',
         ),
 
-
-        'UNION'                 => array(
-            'class'             => 'SqlParser\\Components\\UnionKeyword',
-            'field'             => 'union',
+        'UNION' => array(
+            'class' => 'SqlParser\\Components\\UnionKeyword',
+            'field' => 'union',
         ),
-        'UNION ALL'             => array(
-            'class'             => 'SqlParser\\Components\\UnionKeyword',
-            'field'             => 'union',
+        'UNION ALL' => array(
+            'class' => 'SqlParser\\Components\\UnionKeyword',
+            'field' => 'union',
         ),
-        'UNION DISTINCT'        => array(
-            'class'             => 'SqlParser\\Components\\UnionKeyword',
-            'field'             => 'union',
+        'UNION DISTINCT' => array(
+            'class' => 'SqlParser\\Components\\UnionKeyword',
+            'field' => 'union',
         ),
 
         // Actual clause parsers.
-        'ALTER'                 => array(
-            'class'             => 'SqlParser\\Components\\Expression',
-            'field'             => 'table',
-            'options'           => array('parseField' => 'table'),
+        'ALTER' => array(
+            'class' => 'SqlParser\\Components\\Expression',
+            'field' => 'table',
+            'options' => array('parseField' => 'table'),
         ),
-        'ANALYZE'               => array(
-            'class'             => 'SqlParser\\Components\\ExpressionArray',
-            'field'             => 'tables',
-            'options'           => array('parseField' => 'table'),
+        'ANALYZE' => array(
+            'class' => 'SqlParser\\Components\\ExpressionArray',
+            'field' => 'tables',
+            'options' => array('parseField' => 'table'),
         ),
-        'BACKUP'                => array(
-            'class'             => 'SqlParser\\Components\\ExpressionArray',
-            'field'             => 'tables',
-            'options'           => array('parseField' => 'table'),
+        'BACKUP' => array(
+            'class' => 'SqlParser\\Components\\ExpressionArray',
+            'field' => 'tables',
+            'options' => array('parseField' => 'table'),
         ),
-        'CALL'                  => array(
-            'class'             => 'SqlParser\\Components\\FunctionCall',
-            'field'             => 'call',
+        'CALL' => array(
+            'class' => 'SqlParser\\Components\\FunctionCall',
+            'field' => 'call',
         ),
-        'CHECK'                 => array(
-            'class'             => 'SqlParser\\Components\\ExpressionArray',
-            'field'             => 'tables',
-            'options'           => array('parseField' => 'table'),
+        'CHECK' => array(
+            'class' => 'SqlParser\\Components\\ExpressionArray',
+            'field' => 'tables',
+            'options' => array('parseField' => 'table'),
         ),
-        'CHECKSUM'              => array(
-            'class'             => 'SqlParser\\Components\\ExpressionArray',
-            'field'             => 'tables',
-            'options'           => array('parseField' => 'table'),
+        'CHECKSUM' => array(
+            'class' => 'SqlParser\\Components\\ExpressionArray',
+            'field' => 'tables',
+            'options' => array('parseField' => 'table'),
         ),
-        'CROSS JOIN'            => array(
-            'class'             => 'SqlParser\\Components\\JoinKeyword',
-            'field'             => 'join',
+        'CROSS JOIN' => array(
+            'class' => 'SqlParser\\Components\\JoinKeyword',
+            'field' => 'join',
         ),
-        'DROP'                  => array(
-            'class'             => 'SqlParser\\Components\\ExpressionArray',
-            'field'             => 'fields',
-            'options'           => array('parseField' => 'table'),
+        'DROP' => array(
+            'class' => 'SqlParser\\Components\\ExpressionArray',
+            'field' => 'fields',
+            'options' => array('parseField' => 'table'),
         ),
-        'FROM'                  => array(
-            'class'             => 'SqlParser\\Components\\ExpressionArray',
-            'field'             => 'from',
-            'options'           => array('field' => 'table'),
+        'FROM' => array(
+            'class' => 'SqlParser\\Components\\ExpressionArray',
+            'field' => 'from',
+            'options' => array('field' => 'table'),
         ),
-        'GROUP BY'              => array(
-            'class'             => 'SqlParser\\Components\\OrderKeyword',
-            'field'             => 'group',
+        'GROUP BY' => array(
+            'class' => 'SqlParser\\Components\\OrderKeyword',
+            'field' => 'group',
         ),
-        'HAVING'                => array(
-            'class'             => 'SqlParser\\Components\\Condition',
-            'field'             => 'having',
+        'HAVING' => array(
+            'class' => 'SqlParser\\Components\\Condition',
+            'field' => 'having',
         ),
-        'INTO'                  => array(
-            'class'             => 'SqlParser\\Components\\IntoKeyword',
-            'field'             => 'into',
+        'INTO' => array(
+            'class' => 'SqlParser\\Components\\IntoKeyword',
+            'field' => 'into',
         ),
-        'JOIN'                  => array(
-            'class'             => 'SqlParser\\Components\\JoinKeyword',
-            'field'             => 'join',
+        'JOIN' => array(
+            'class' => 'SqlParser\\Components\\JoinKeyword',
+            'field' => 'join',
         ),
-        'LEFT JOIN'             => array(
-            'class'             => 'SqlParser\\Components\\JoinKeyword',
-            'field'             => 'join',
+        'LEFT JOIN' => array(
+            'class' => 'SqlParser\\Components\\JoinKeyword',
+            'field' => 'join',
         ),
-        'LEFT OUTER JOIN'       => array(
-            'class'             => 'SqlParser\\Components\\JoinKeyword',
-            'field'             => 'join',
+        'LEFT OUTER JOIN' => array(
+            'class' => 'SqlParser\\Components\\JoinKeyword',
+            'field' => 'join',
         ),
-        'ON'                    => array(
-            'class'             => 'SqlParser\\Components\\Expression',
-            'field'             => 'table',
-            'options'           => array('parseField' => 'table'),
+        'ON' => array(
+            'class' => 'SqlParser\\Components\\Expression',
+            'field' => 'table',
+            'options' => array('parseField' => 'table'),
         ),
-        'RIGHT JOIN'            => array(
-            'class'             => 'SqlParser\\Components\\JoinKeyword',
-            'field'             => 'join',
+        'RIGHT JOIN' => array(
+            'class' => 'SqlParser\\Components\\JoinKeyword',
+            'field' => 'join',
         ),
-        'RIGHT OUTER JOIN'      => array(
-            'class'             => 'SqlParser\\Components\\JoinKeyword',
-            'field'             => 'join',
+        'RIGHT OUTER JOIN' => array(
+            'class' => 'SqlParser\\Components\\JoinKeyword',
+            'field' => 'join',
         ),
-        'INNER JOIN'            => array(
-            'class'             => 'SqlParser\\Components\\JoinKeyword',
-            'field'             => 'join',
+        'INNER JOIN' => array(
+            'class' => 'SqlParser\\Components\\JoinKeyword',
+            'field' => 'join',
         ),
-        'FULL JOIN'             => array(
-            'class'             => 'SqlParser\\Components\\JoinKeyword',
-            'field'             => 'join',
+        'FULL JOIN' => array(
+            'class' => 'SqlParser\\Components\\JoinKeyword',
+            'field' => 'join',
         ),
-        'FULL OUTER JOIN'       => array(
-            'class'             => 'SqlParser\\Components\\JoinKeyword',
-            'field'             => 'join',
+        'FULL OUTER JOIN' => array(
+            'class' => 'SqlParser\\Components\\JoinKeyword',
+            'field' => 'join',
         ),
-        'NATURAL JOIN'         => array(
-            'class'             => 'SqlParser\\Components\\JoinKeyword',
-            'field'             => 'join',
+        'NATURAL JOIN' => array(
+            'class' => 'SqlParser\\Components\\JoinKeyword',
+            'field' => 'join',
         ),
-        'NATURAL LEFT JOIN'         => array(
-            'class'             => 'SqlParser\\Components\\JoinKeyword',
-            'field'             => 'join',
+        'NATURAL LEFT JOIN' => array(
+            'class' => 'SqlParser\\Components\\JoinKeyword',
+            'field' => 'join',
         ),
-        'NATURAL RIGHT JOIN'         => array(
-            'class'             => 'SqlParser\\Components\\JoinKeyword',
-            'field'             => 'join',
+        'NATURAL RIGHT JOIN' => array(
+            'class' => 'SqlParser\\Components\\JoinKeyword',
+            'field' => 'join',
         ),
-        'NATURAL LEFT OUTER JOIN'         => array(
-            'class'             => 'SqlParser\\Components\\JoinKeyword',
-            'field'             => 'join',
+        'NATURAL LEFT OUTER JOIN' => array(
+            'class' => 'SqlParser\\Components\\JoinKeyword',
+            'field' => 'join',
         ),
-        'NATURAL RIGHT OUTER JOIN'         => array(
-            'class'             => 'SqlParser\\Components\\JoinKeyword',
-            'field'             => 'join',
+        'NATURAL RIGHT OUTER JOIN' => array(
+            'class' => 'SqlParser\\Components\\JoinKeyword',
+            'field' => 'join',
         ),
-        'LIMIT'                 => array(
-            'class'             => 'SqlParser\\Components\\Limit',
-            'field'             => 'limit',
+        'LIMIT' => array(
+            'class' => 'SqlParser\\Components\\Limit',
+            'field' => 'limit',
         ),
-        'OPTIMIZE'              => array(
-            'class'             => 'SqlParser\\Components\\ExpressionArray',
-            'field'             => 'tables',
-            'options'           => array('parseField' => 'table'),
+        'OPTIMIZE' => array(
+            'class' => 'SqlParser\\Components\\ExpressionArray',
+            'field' => 'tables',
+            'options' => array('parseField' => 'table'),
         ),
-        'ORDER BY'              => array(
-            'class'             => 'SqlParser\\Components\\OrderKeyword',
-            'field'             => 'order',
+        'ORDER BY' => array(
+            'class' => 'SqlParser\\Components\\OrderKeyword',
+            'field' => 'order',
         ),
-        'PARTITION'             => array(
-            'class'             => 'SqlParser\\Components\\ArrayObj',
-            'field'             => 'partition',
+        'PARTITION' => array(
+            'class' => 'SqlParser\\Components\\ArrayObj',
+            'field' => 'partition',
         ),
-        'PROCEDURE'             => array(
-            'class'             => 'SqlParser\\Components\\FunctionCall',
-            'field'             => 'procedure',
+        'PROCEDURE' => array(
+            'class' => 'SqlParser\\Components\\FunctionCall',
+            'field' => 'procedure',
         ),
-        'RENAME'                => array(
-            'class'             => 'SqlParser\\Components\\RenameOperation',
-            'field'             => 'renames',
+        'RENAME' => array(
+            'class' => 'SqlParser\\Components\\RenameOperation',
+            'field' => 'renames',
         ),
-        'REPAIR'                => array(
-            'class'             => 'SqlParser\\Components\\ExpressionArray',
-            'field'             => 'tables',
-            'options'           => array('parseField' => 'table'),
+        'REPAIR' => array(
+            'class' => 'SqlParser\\Components\\ExpressionArray',
+            'field' => 'tables',
+            'options' => array('parseField' => 'table'),
         ),
-        'RESTORE'               => array(
-            'class'             => 'SqlParser\\Components\\ExpressionArray',
-            'field'             => 'tables',
-            'options'           => array('parseField' => 'table'),
+        'RESTORE' => array(
+            'class' => 'SqlParser\\Components\\ExpressionArray',
+            'field' => 'tables',
+            'options' => array('parseField' => 'table'),
         ),
-        'SET'                   => array(
-            'class'             => 'SqlParser\\Components\\SetOperation',
-            'field'             => 'set',
+        'SET' => array(
+            'class' => 'SqlParser\\Components\\SetOperation',
+            'field' => 'set',
         ),
-        'SELECT'                => array(
-            'class'             => 'SqlParser\\Components\\ExpressionArray',
-            'field'             => 'expr',
+        'SELECT' => array(
+            'class' => 'SqlParser\\Components\\ExpressionArray',
+            'field' => 'expr',
         ),
-        'TRUNCATE'              => array(
-            'class'             => 'SqlParser\\Components\\Expression',
-            'field'             => 'table',
-            'options'           => array('parseField' => 'table'),
+        'TRUNCATE' => array(
+            'class' => 'SqlParser\\Components\\Expression',
+            'field' => 'table',
+            'options' => array('parseField' => 'table'),
         ),
-        'UPDATE'                => array(
-            'class'             => 'SqlParser\\Components\\ExpressionArray',
-            'field'             => 'tables',
-            'options'           => array('parseField' => 'table'),
+        'UPDATE' => array(
+            'class' => 'SqlParser\\Components\\ExpressionArray',
+            'field' => 'tables',
+            'options' => array('parseField' => 'table'),
         ),
-        'VALUE'                 => array(
-            'class'             => 'SqlParser\\Components\\Array2d',
-            'field'             => 'values',
+        'VALUE' => array(
+            'class' => 'SqlParser\\Components\\Array2d',
+            'field' => 'values',
         ),
-        'VALUES'                => array(
-            'class'             => 'SqlParser\\Components\\Array2d',
-            'field'             => 'values',
+        'VALUES' => array(
+            'class' => 'SqlParser\\Components\\Array2d',
+            'field' => 'values',
         ),
-        'WHERE'                 => array(
-            'class'             => 'SqlParser\\Components\\Condition',
-            'field'             => 'where',
+        'WHERE' => array(
+            'class' => 'SqlParser\\Components\\Condition',
+            'field' => 'where',
         ),
-
     );
 
     /**
@@ -357,8 +351,8 @@ class Parser
     /**
      * Constructor.
      *
-     * @param string|UtfString|TokensList $list   The list of tokens to be parsed.
-     * @param bool                        $strict Whether strict mode should be enabled or not.
+     * @param string|UtfString|TokensList $list   the list of tokens to be parsed
+     * @param bool                        $strict whether strict mode should be enabled or not
      */
     public function __construct($list = null, $strict = false)
     {
@@ -378,44 +372,41 @@ class Parser
 
     /**
      * Builds the parse trees.
-     *
-     * @return void
      */
     public function parse()
     {
-
         /**
          * Last transaction.
          *
-         * @var TransactionStatement $lastTransaction
+         * @var TransactionStatement
          */
         $lastTransaction = null;
 
         /**
          * Last parsed statement.
          *
-         * @var Statement $lastStatement
+         * @var Statement
          */
         $lastStatement = null;
 
         /**
          * Union's type or false for no union.
          *
-         * @var bool|string $unionType
+         * @var bool|string
          */
         $unionType = false;
 
         /**
          * The index of the last token from the last statement.
          *
-         * @var int $prevLastIdx
+         * @var int
          */
         $prevLastIdx = -1;
 
         /**
          * The list of tokens.
          *
-         * @var TokensList $list
+         * @var TokensList
          */
         $list = &$this->list;
 
@@ -423,7 +414,7 @@ class Parser
             /**
              * Token parsed at this moment.
              *
-             * @var Token $token
+             * @var Token
              */
             $token = $list->tokens[$list->idx];
 
@@ -485,14 +476,14 @@ class Parser
             /**
              * The name of the class that is used for parsing.
              *
-             * @var string $class
+             * @var string
              */
             $class = static::$STATEMENT_PARSERS[$token->value];
 
             /**
              * Processed statement.
              *
-             * @var Statement $statement
+             * @var Statement
              */
             $statement = new $class($this, $this->list);
 
@@ -512,13 +503,13 @@ class Parser
                 && ($lastStatement instanceof SelectStatement)
                 && ($statement instanceof SelectStatement)
             ) {
-                /**
+                /*
                  * This SELECT statement.
                  *
                  * @var SelectStatement $statement
                  */
 
-                /**
+                /*
                  * Last SELECT statement.
                  *
                  * @var SelectStatement $lastStatement
@@ -545,8 +536,8 @@ class Parser
 
             // Handles transactions.
             if ($statement instanceof TransactionStatement) {
-                /**
-                 * @var TransactionStatement $statement
+                /*
+                 * @var TransactionStatement
                  */
                 if ($statement->type === TransactionStatement::TYPE_BEGIN) {
                     $lastTransaction = $statement;
@@ -581,20 +572,17 @@ class Parser
                 $this->statements[] = $statement;
             }
             $lastStatement = $statement;
-
         }
     }
 
     /**
      * Creates a new error log.
      *
-     * @param string $msg   The error message.
-     * @param Token  $token The token that produced the error.
-     * @param int    $code  The code of the error.
+     * @param string $msg   the error message
+     * @param Token  $token the token that produced the error
+     * @param int    $code  the code of the error
      *
-     * @throws ParserException Throws the exception, if strict mode is enabled.
-     *
-     * @return void
+     * @throws ParserException throws the exception, if strict mode is enabled
      */
     public function error($msg = '', Token $token = null, $code = 0)
     {

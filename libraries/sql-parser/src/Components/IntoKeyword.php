@@ -2,10 +2,8 @@
 
 /**
  * `INTO` keyword parser.
- *
- * @package    SqlParser
- * @subpackage Components
  */
+
 namespace SqlParser\Components;
 
 use SqlParser\Component;
@@ -17,12 +15,32 @@ use SqlParser\TokensList;
  * `INTO` keyword parser.
  *
  * @category   Keywords
- * @package    SqlParser
- * @subpackage Components
+ *
  * @license    https://www.gnu.org/licenses/gpl-2.0.txt GPL-2.0+
  */
 class IntoKeyword extends Component
 {
+    /**
+     * FIELDS/COLUMNS Options for `SELECT...INTO` statements.
+     *
+     * @var array
+     */
+    public static $FIELDS_OPTIONS = array(
+        'TERMINATED BY' => array(1, 'expr'),
+        'OPTIONALLY' => 2,
+        'ENCLOSED BY' => array(3, 'expr'),
+        'ESCAPED BY' => array(4, 'expr'),
+    );
+
+    /**
+     * LINES Options for `SELECT...INTO` statements.
+     *
+     * @var array
+     */
+    public static $LINES_OPTIONS = array(
+        'STARTING BY' => array(1, 'expr'),
+        'TERMINATED BY' => array(2, 'expr'),
+    );
 
     /**
      * Type of target (OUTFILE or SYMBOL).
@@ -46,22 +64,47 @@ class IntoKeyword extends Component
     public $columns;
 
     /**
-     * The values to be selected into (SELECT .. INTO @var1)
+     * The values to be selected into (SELECT .. INTO @var1).
      *
      * @var ExpressionArray
      */
     public $values;
 
     /**
-     * @param Parser     $parser  The parser that serves as context.
-     * @param TokensList $list    The list of tokens that are being parsed.
-     * @param array      $options Parameters for parsing.
+     * Options for FIELDS/COLUMNS keyword.
+     *
+     * @var OptionsArray
+     *
+     * @see static::$FIELDS_OPTIONS
+     */
+    public $fields_options;
+
+    /**
+     * Whether to use `FIELDS` or `COLUMNS` while building.
+     *
+     * @var bool
+     */
+    public $fields_keyword;
+
+    /**
+     * Options for OPTIONS keyword.
+     *
+     * @var OptionsArray
+     *
+     * @see static::$LINES_OPTIONS
+     */
+    public $lines_options;
+
+    /**
+     * @param Parser     $parser  the parser that serves as context
+     * @param TokensList $list    the list of tokens that are being parsed
+     * @param array      $options parameters for parsing
      *
      * @return IntoKeyword
      */
     public static function parse(Parser $parser, TokensList $list, array $options = array())
     {
-        $ret = new IntoKeyword();
+        $ret = new self();
 
         /**
          * The state of the parser.
@@ -75,7 +118,7 @@ class IntoKeyword extends Component
          *
          *      2 ---------------------[ filename ]--------------------> 1
          *
-         * @var int $state
+         * @var int
          */
         $state = 0;
 
@@ -83,7 +126,7 @@ class IntoKeyword extends Component
             /**
              * Token parsed at this moment.
              *
-             * @var Token $token
+             * @var Token
              */
             $token = $list->tokens[$list->idx];
 
@@ -104,8 +147,10 @@ class IntoKeyword extends Component
                     continue;
                 }
 
-                // No other keyword is expected.
-                break;
+                // No other keyword is expected except for $state = 4, which expects `LINES`
+                if ($state !== 4) {
+                    break;
+                }
             }
 
             if ($state === 0) {
@@ -134,18 +179,56 @@ class IntoKeyword extends Component
                 break;
             } elseif ($state === 2) {
                 $ret->dest = $token->value;
-                ++$list->idx;
-                break;
+
+                $state = 3;
+            } elseif ($state == 3) {
+                $ret->parseFileOptions($parser, $list, $token->value);
+                $state = 4;
+            } elseif ($state == 4) {
+                if ($token->type === Token::TYPE_KEYWORD && $token->value !== 'LINES') {
+                    break;
+                }
+
+                $ret->parseFileOptions($parser, $list, $token->value);
+                $state = 5;
             }
         }
 
         --$list->idx;
+
         return $ret;
     }
 
+    public function parseFileOptions(Parser $parser, TokensList $list, $keyword = 'FIELDS')
+    {
+        ++$list->idx;
+
+        if ($keyword === 'FIELDS' || $keyword === 'COLUMNS') {
+            // parse field options
+            $this->fields_options = OptionsArray::parse(
+                $parser,
+                $list,
+                static::$FIELDS_OPTIONS
+            );
+
+            if ($keyword === 'FIELDS') {
+                $this->fields_keyword = true;
+            } else {
+                $this->fields_keyword = false;
+            }
+        } else {
+            // parse line options
+            $this->lines_options = OptionsArray::parse(
+                $parser,
+                $list,
+                static::$LINES_OPTIONS
+            );
+        }
+    }
+
     /**
-     * @param IntoKeyword $component The component to be built.
-     * @param array       $options   Parameters for building.
+     * @param IntoKeyword $component the component to be built
+     * @param array       $options   parameters for building
      *
      * @return string
      */
@@ -154,11 +237,25 @@ class IntoKeyword extends Component
         if ($component->dest instanceof Expression) {
             $columns = !empty($component->columns) ?
                 '(`' . implode('`, `', $component->columns) . '`)' : '';
+
             return $component->dest . $columns;
         } elseif (isset($component->values)) {
             return ExpressionArray::build($component->values);
         } else {
-            return 'OUTFILE "' . $component->dest . '"';
+            $ret = 'OUTFILE "' . $component->dest . '"';
+
+            $fields_options_str = OptionsArray::build($component->fields_options);
+            if (trim($fields_options_str) !== '') {
+                $ret .= ($component->fields_keyword) ? ' FIELDS' : ' COLUMNS';
+                $ret .= ' ' . $fields_options_str;
+            }
+
+            $lines_options_str = OptionsArray::build($component->lines_options, array('expr' => true));
+            if (trim($lines_options_str) !== '') {
+                $ret .= ' LINES ' . $lines_options_str;
+            }
+
+            return $ret;
         }
     }
 }

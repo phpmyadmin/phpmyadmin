@@ -2,10 +2,8 @@
 
 /**
  * `WHERE` keyword parser.
- *
- * @package    SqlParser
- * @subpackage Components
  */
+
 namespace SqlParser\Components;
 
 use SqlParser\Component;
@@ -17,13 +15,11 @@ use SqlParser\TokensList;
  * `WHERE` keyword parser.
  *
  * @category   Keywords
- * @package    SqlParser
- * @subpackage Components
+ *
  * @license    https://www.gnu.org/licenses/gpl-2.0.txt GPL-2.0+
  */
 class Condition extends Component
 {
-
     /**
      * Logical operators that can be used to delimit expressions.
      *
@@ -37,24 +33,24 @@ class Condition extends Component
      * @var array
      */
     public static $ALLOWED_KEYWORDS = array(
-        'ALL'                           => 1,
-        'AND'                           => 1,
-        'BETWEEN'                       => 1,
-        'EXISTS'                        => 1,
-        'IF'                            => 1,
-        'IN'                            => 1,
-        'INTERVAL'                      => 1,
-        'IS'                            => 1,
-        'LIKE'                          => 1,
-        'MATCH'                         => 1,
-        'NOT IN'                        => 1,
-        'NOT NULL'                      => 1,
-        'NOT'                           => 1,
-        'NULL'                          => 1,
-        'OR'                            => 1,
-        'REGEXP'                        => 1,
-        'RLIKE'                         => 1,
-        'XOR'                           => 1,
+        'ALL' => 1,
+        'AND' => 1,
+        'BETWEEN' => 1,
+        'EXISTS' => 1,
+        'IF' => 1,
+        'IN' => 1,
+        'INTERVAL' => 1,
+        'IS' => 1,
+        'LIKE' => 1,
+        'MATCH' => 1,
+        'NOT IN' => 1,
+        'NOT NULL' => 1,
+        'NOT' => 1,
+        'NULL' => 1,
+        'OR' => 1,
+        'REGEXP' => 1,
+        'RLIKE' => 1,
+        'XOR' => 1,
     );
 
     /**
@@ -81,7 +77,7 @@ class Condition extends Component
     /**
      * Constructor.
      *
-     * @param string $expr The condition or the operator.
+     * @param string $expr the condition or the operator
      */
     public function __construct($expr = null)
     {
@@ -89,9 +85,9 @@ class Condition extends Component
     }
 
     /**
-     * @param Parser     $parser  The parser that serves as context.
-     * @param TokensList $list    The list of tokens that are being parsed.
-     * @param array      $options Parameters for parsing.
+     * @param Parser     $parser  the parser that serves as context
+     * @param TokensList $list    the list of tokens that are being parsed
+     * @param array      $options parameters for parsing
      *
      * @return Condition[]
      */
@@ -99,12 +95,12 @@ class Condition extends Component
     {
         $ret = array();
 
-        $expr = new Condition();
+        $expr = new self();
 
         /**
          * Counts brackets.
          *
-         * @var int $brackets
+         * @var int
          */
         $brackets = 0;
 
@@ -115,16 +111,15 @@ class Condition extends Component
          * the keyword `AND`, which is also an operator that delimits
          * expressions.
          *
-         * @var bool $betweenBefore
+         * @var bool
          */
         $betweenBefore = false;
 
         for (; $list->idx < $list->count; ++$list->idx) {
-
             /**
              * Token parsed at this moment.
              *
-             * @var Token $token
+             * @var Token
              */
             $token = $list->tokens[$list->idx];
 
@@ -158,12 +153,12 @@ class Condition extends Component
                     }
 
                     // Adding the operator.
-                    $expr = new Condition($token->value);
+                    $expr = new self($token->value);
                     $expr->isOperator = true;
                     $ret[] = $expr;
 
                     // Preparing to parse another condition.
-                    $expr = new Condition();
+                    $expr = new self();
                     continue;
                 }
             }
@@ -211,12 +206,13 @@ class Condition extends Component
         }
 
         --$list->idx;
+
         return $ret;
     }
 
     /**
-     * @param Condition[] $component The component to be built.
-     * @param array       $options   Parameters for building.
+     * @param Condition[] $component the component to be built
+     * @param array       $options   parameters for building
      *
      * @return string
      */

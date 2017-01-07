@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.6-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-12-13 10:40+0100\n"
-"PO-Revision-Date: 2016-11-06 17:38+0000\n"
-"Last-Translator: Lee Joon Haeng <calmnoia@gmail.com>\n"
-"Language-Team: Korean <https://hosted.weblate.org/projects/phpmyadmin/4-6/ko/"
-">\n"
+"PO-Revision-Date: 2016-12-25 22:02+0000\n"
+"Last-Translator: SD SkyKlouD <koongchi135@gmail.com>\n"
+"Language-Team: Korean "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-6/ko/>\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 2.9\n"
+"X-Generator: Weblate 2.11-dev\n"
 
 #: changelog.php:38 license.php:33
 #, php-format
@@ -11151,7 +11151,7 @@ msgstr ""
 
 #: libraries/replication_gui.lib.php:403
 msgid ""
-"Make sure, you have unique server-id in your configuration file (my.cnf). If "
+"Make sure you have a unique server-id in your configuration file (my.cnf). If "
 "not, please add the following line into [mysqld] section:"
 msgstr ""
 
@@ -13404,7 +13404,7 @@ msgstr "테이블 설명"
 #: libraries/sql-parser/src/Component.php:47
 #: libraries/sql-parser/src/Component.php:67
 msgid "Not implemented yet."
-msgstr ""
+msgstr "아직 구현되지 않은 기능입니다."
 
 #: libraries/sql-parser/src/Components/AlterOperation.php:228
 #: libraries/sql-parser/src/Statement.php:337
@@ -13413,15 +13413,13 @@ msgid ""
 msgstr ""
 
 #: libraries/sql-parser/src/Components/AlterOperation.php:240
-#, fuzzy
-#| msgid "Log table filter options"
 msgid "Unrecognized alter operation."
-msgstr "로그 테이블의 필터 옵션"
+msgstr "인식되지 않은 ALTER 작업입니다."
 
 #: libraries/sql-parser/src/Components/Array2d.php:91
 #, php-format
 msgid "%1$d values were expected, but found %2$d."
-msgstr ""
+msgstr "값 %1$d 이 예상되었지만, %2$d 가 발견되었습니다."
 
 #: libraries/sql-parser/src/Components/Array2d.php:114
 msgid "An opening bracket followed by a set of values was expected."
@@ -13446,14 +13444,12 @@ msgstr ""
 #: libraries/sql-parser/src/Statements/InsertStatement.php:227
 #: libraries/sql-parser/src/Statements/ReplaceStatement.php:165
 #: libraries/sql-parser/src/Statements/ReplaceStatement.php:193
-#, fuzzy
-#| msgid "Unexpected characters on line %s."
 msgid "Unexpected keyword."
-msgstr "%s 라인에 알 수 없는 문자가 있습니다."
+msgstr "예상되지 않은 키워드입니다."
 
 #: libraries/sql-parser/src/Components/CaseExpression.php:202
 msgid "Unexpected end of CASE expression"
-msgstr ""
+msgstr "예상되지 않은 CASE 문의 종료"
 
 #: libraries/sql-parser/src/Components/CreateDefinition.php:227
 msgid ""
@@ -13462,10 +13458,8 @@ msgid ""
 msgstr ""
 
 #: libraries/sql-parser/src/Components/CreateDefinition.php:241
-#, fuzzy
-#| msgid "Table name template"
 msgid "A symbol name was expected!"
-msgstr "파일명 템플릿"
+msgstr "심볼 이름이 예상되었습니다!"
 
 #: libraries/sql-parser/src/Components/CreateDefinition.php:273
 #, fuzzy
@@ -13479,7 +13473,7 @@ msgstr ""
 
 #: libraries/sql-parser/src/Components/DataType.php:127
 msgid "Unrecognized data type."
-msgstr ""
+msgstr "인식할 수 없는 데이터 형식입니다."
 
 #: libraries/sql-parser/src/Components/Expression.php:248
 #: libraries/sql-parser/src/Components/Expression.php:398
@@ -13496,23 +13490,21 @@ msgstr ""
 
 #: libraries/sql-parser/src/Components/Expression.php:368
 msgid "Unexpected dot."
-msgstr ""
+msgstr "예상되지 않은 점(.)입니다."
 
 #: libraries/sql-parser/src/Components/ExpressionArray.php:106
-#, fuzzy
-#| msgid "No rows selected"
 msgid "An expression was expected."
-msgstr "선택된 행이 없습니다"
+msgstr "식이 예상되었습니다."
 
 #: libraries/sql-parser/src/Components/Limit.php:90
 #: libraries/sql-parser/src/Components/Limit.php:112
 msgid "An offset was expected."
-msgstr ""
+msgstr "오프셋이 예상되었습니다."
 
 #: libraries/sql-parser/src/Components/OptionsArray.php:146
 #, php-format
 msgid "This option conflicts with \"%1$s\"."
-msgstr ""
+msgstr "이 옵션은 \"%1$s\"와(과) 충돌합니다."
 
 #: libraries/sql-parser/src/Components/OptionsArray.php:260
 #, fuzzy, php-format
@@ -13521,20 +13513,16 @@ msgid "Value/Expression for the option %1$s was expected"
 msgstr "이벤트 %1$s 를 생성했습니다."
 
 #: libraries/sql-parser/src/Components/RenameOperation.php:101
-#, fuzzy
-#| msgid "The number of tables that are open."
 msgid "The old name of the table was expected."
-msgstr "열린 테이블 수."
+msgstr "테이블의 이전 이름이 예상되었습니다."
 
 #: libraries/sql-parser/src/Components/RenameOperation.php:111
 msgid "Keyword \"TO\" was expected."
-msgstr ""
+msgstr "키워드 \"TO\"가 예상되었습니다."
 
 #: libraries/sql-parser/src/Components/RenameOperation.php:127
-#, fuzzy
-#| msgid "The number of tables that are open."
 msgid "The new name of the table was expected."
-msgstr "열린 테이블 수."
+msgstr "테이블의 새로운 이름이 예상되었습니다."
 
 #: libraries/sql-parser/src/Components/RenameOperation.php:145
 #, fuzzy

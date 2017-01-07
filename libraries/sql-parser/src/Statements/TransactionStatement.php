@@ -2,10 +2,8 @@
 
 /**
  * Transaction statement.
- *
- * @package    SqlParser
- * @subpackage Statements
  */
+
 namespace SqlParser\Statements;
 
 use SqlParser\Parser;
@@ -17,26 +15,24 @@ use SqlParser\Components\OptionsArray;
  * Transaction statement.
  *
  * @category   Statements
- * @package    SqlParser
- * @subpackage Statements
+ *
  * @license    https://www.gnu.org/licenses/gpl-2.0.txt GPL-2.0+
  */
 class TransactionStatement extends Statement
 {
-
     /**
-     * START TRANSACTION and BEGIN
+     * START TRANSACTION and BEGIN.
      *
      * @var int
      */
-    const TYPE_BEGIN                    = 1;
+    const TYPE_BEGIN = 1;
 
     /**
-     * COMMIT and ROLLBACK
+     * COMMIT and ROLLBACK.
      *
      * @var int
      */
-    const TYPE_END                      = 2;
+    const TYPE_END = 2;
 
     /**
      * The type of this query.
@@ -65,23 +61,21 @@ class TransactionStatement extends Statement
      * @var array
      */
     public static $OPTIONS = array(
-        'START TRANSACTION'             => 1,
-        'BEGIN'                         => 1,
-        'COMMIT'                        => 1,
-        'ROLLBACK'                      => 1,
-        'WITH CONSISTENT SNAPSHOT'      => 2,
-        'WORK'                          => 2,
-        'AND NO CHAIN'                  => 3,
-        'AND CHAIN'                     => 3,
-        'RELEASE'                       => 4,
-        'NO RELEASE'                    => 4,
+        'START TRANSACTION' => 1,
+        'BEGIN' => 1,
+        'COMMIT' => 1,
+        'ROLLBACK' => 1,
+        'WITH CONSISTENT SNAPSHOT' => 2,
+        'WORK' => 2,
+        'AND NO CHAIN' => 3,
+        'AND CHAIN' => 3,
+        'RELEASE' => 4,
+        'NO RELEASE' => 4,
     );
 
     /**
-     * @param Parser     $parser The instance that requests parsing.
-     * @param TokensList $list   The list of tokens to be parsed.
-     *
-     * @return void
+     * @param Parser     $parser the instance that requests parsing
+     * @param TokensList $list   the list of tokens to be parsed
      */
     public function parse(Parser $parser, TokensList $list)
     {
@@ -91,11 +85,11 @@ class TransactionStatement extends Statement
         if (($this->options->has('START TRANSACTION'))
             || ($this->options->has('BEGIN'))
         ) {
-            $this->type = TransactionStatement::TYPE_BEGIN;
+            $this->type = self::TYPE_BEGIN;
         } elseif (($this->options->has('COMMIT'))
             || ($this->options->has('ROLLBACK'))
         ) {
-            $this->type = TransactionStatement::TYPE_END;
+            $this->type = self::TYPE_END;
         }
     }
 
@@ -105,15 +99,16 @@ class TransactionStatement extends Statement
     public function build()
     {
         $ret = OptionsArray::build($this->options);
-        if ($this->type === TransactionStatement::TYPE_BEGIN) {
+        if ($this->type === self::TYPE_BEGIN) {
             foreach ($this->statements as $statement) {
-                /**
+                /*
                  * @var SelectStatement $statement
                  */
                 $ret .= ';' . $statement->build();
             }
             $ret .= ';' . $this->end->build();
         }
+
         return $ret;
     }
 }

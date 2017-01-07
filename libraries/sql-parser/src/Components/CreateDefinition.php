@@ -4,10 +4,8 @@
  * Parses the create definition of a column or a key.
  *
  * Used for parsing `CREATE TABLE` statement.
- *
- * @package    SqlParser
- * @subpackage Components
  */
+
 namespace SqlParser\Components;
 
 use SqlParser\Context;
@@ -22,42 +20,39 @@ use SqlParser\TokensList;
  * Used for parsing `CREATE TABLE` statement.
  *
  * @category   Components
- * @package    SqlParser
- * @subpackage Components
+ *
  * @license    https://www.gnu.org/licenses/gpl-2.0.txt GPL-2.0+
  */
 class CreateDefinition extends Component
 {
-
     /**
      * All field options.
      *
      * @var array
      */
     public static $FIELD_OPTIONS = array(
-
         // Tells the `OptionsArray` to not sort the options.
         // See the note below.
-        '_UNSORTED'                     => true,
+        '_UNSORTED' => true,
 
-        'NOT NULL'                      => 1,
-        'NULL'                          => 1,
-        'DEFAULT'                       => array(2, 'expr', array('breakOnAlias' => true)),
-        'AUTO_INCREMENT'                => 3,
-        'PRIMARY'                       => 4,
-        'PRIMARY KEY'                   => 4,
-        'UNIQUE'                        => 4,
-        'UNIQUE KEY'                    => 4,
-        'COMMENT'                       => array(5, 'var'),
-        'COLUMN_FORMAT'                 => array(6, 'var'),
-        'ON UPDATE'                     => array(7, 'expr'),
+        'NOT NULL' => 1,
+        'NULL' => 1,
+        'DEFAULT' => array(2, 'expr', array('breakOnAlias' => true)),
+        'AUTO_INCREMENT' => 3,
+        'PRIMARY' => 4,
+        'PRIMARY KEY' => 4,
+        'UNIQUE' => 4,
+        'UNIQUE KEY' => 4,
+        'COMMENT' => array(5, 'var'),
+        'COLUMN_FORMAT' => array(6, 'var'),
+        'ON UPDATE' => array(7, 'expr'),
 
         // Generated columns options.
-        'GENERATED ALWAYS'              => 8,
-        'AS'                            => array(9, 'expr', array('parenthesesDelimited' => true)),
-        'VIRTUAL'                       => 10,
-        'PERSISTENT'                    => 11,
-        'STORED'                        => 11,
+        'GENERATED ALWAYS' => 8,
+        'AS' => array(9, 'expr', array('parenthesesDelimited' => true)),
+        'VIRTUAL' => 10,
+        'PERSISTENT' => 11,
+        'STORED' => 11,
         // Common entries.
         //
         // NOTE: Some of the common options are not in the same order which
@@ -119,11 +114,11 @@ class CreateDefinition extends Component
     /**
      * Constructor.
      *
-     * @param string       $name         The name of the field.
-     * @param OptionsArray $options      The options of this field.
-     * @param DataType|Key $type         The data type of this field or the key.
-     * @param bool         $isConstraint Whether this field is a constraint or not.
-     * @param Reference    $references   References.
+     * @param string       $name         the name of the field
+     * @param OptionsArray $options      the options of this field
+     * @param DataType|Key $type         the data type of this field or the key
+     * @param bool         $isConstraint whether this field is a constraint or not
+     * @param Reference    $references   references
      */
     public function __construct(
         $name = null,
@@ -144,9 +139,9 @@ class CreateDefinition extends Component
     }
 
     /**
-     * @param Parser     $parser  The parser that serves as context.
-     * @param TokensList $list    The list of tokens that are being parsed.
-     * @param array      $options Parameters for parsing.
+     * @param Parser     $parser  the parser that serves as context
+     * @param TokensList $list    the list of tokens that are being parsed
+     * @param array      $options parameters for parsing
      *
      * @return CreateDefinition[]
      */
@@ -154,7 +149,7 @@ class CreateDefinition extends Component
     {
         $ret = array();
 
-        $expr = new CreateDefinition();
+        $expr = new self();
 
         /**
          * The state of the parser.
@@ -176,7 +171,7 @@ class CreateDefinition extends Component
          *      5 ------------------------[ , ]-----------------------> 1
          *      5 ------------------------[ ) ]-----------------------> 6 (-1)
          *
-         * @var int $state
+         * @var int
          */
         $state = 0;
 
@@ -184,7 +179,7 @@ class CreateDefinition extends Component
             /**
              * Token parsed at this moment.
              *
-             * @var Token $token
+             * @var Token
              */
             $token = $list->tokens[$list->idx];
 
@@ -219,7 +214,7 @@ class CreateDefinition extends Component
                     if (!$expr->isConstraint) {
                         $state = 2;
                     }
-                } else if ($token->type === Token::TYPE_KEYWORD) {
+                } elseif ($token->type === Token::TYPE_KEYWORD) {
                     if ($token->flags & Token::FLAG_KEYWORD_RESERVED) {
                         // Reserved keywords can't be used
                         // as field names without backquotes
@@ -230,6 +225,7 @@ class CreateDefinition extends Component
                             ),
                             $token
                         );
+
                         return $ret;
                     } else {
                         // Non-reserved keywords are allowed without backquotes
@@ -241,6 +237,7 @@ class CreateDefinition extends Component
                         __('A symbol name was expected!'),
                         $token
                     );
+
                     return $ret;
                 }
             } elseif ($state === 2) {
@@ -261,7 +258,7 @@ class CreateDefinition extends Component
                 if ((!empty($expr->type)) || (!empty($expr->key))) {
                     $ret[] = $expr;
                 }
-                $expr = new CreateDefinition();
+                $expr = new self();
                 if ($token->value === ',') {
                     $state = 1;
                 } elseif ($token->value === ')') {
@@ -292,12 +289,13 @@ class CreateDefinition extends Component
         }
 
         --$list->idx;
+
         return $ret;
     }
 
     /**
-     * @param CreateDefinition|CreateDefinition[] $component The component to be built.
-     * @param array                               $options   Parameters for building.
+     * @param CreateDefinition|CreateDefinition[] $component the component to be built
+     * @param array                               $options   parameters for building
      *
      * @return string
      */

@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.6-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-12-13 10:40+0100\n"
-"PO-Revision-Date: 2016-12-13 10:29+0000\n"
+"PO-Revision-Date: 2016-12-21 21:16+0000\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-6/ia/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.10-dev\n"
+"X-Generator: Weblate 2.10\n"
 
 #: changelog.php:38 license.php:33
 #, php-format
@@ -11404,7 +11404,7 @@ msgstr ""
 
 #: libraries/replication_gui.lib.php:403
 msgid ""
-"Make sure, you have unique server-id in your configuration file (my.cnf). If "
+"Make sure you have a unique server-id in your configuration file (my.cnf). If "
 "not, please add the following line into [mysqld] section:"
 msgstr ""
 
@@ -13521,31 +13521,33 @@ msgstr "Schedas de nivello de tabula"
 #: libraries/sql-parser/src/Component.php:47
 #: libraries/sql-parser/src/Component.php:67
 msgid "Not implemented yet."
-msgstr ""
+msgstr "Ancora non actuate."
 
 #: libraries/sql-parser/src/Components/AlterOperation.php:228
 #: libraries/sql-parser/src/Statement.php:337
 msgid ""
 "A new statement was found, but no delimiter between it and the previous one."
 msgstr ""
+"On trovava un nove declaration, ma il non ha alcun demarcator inter isto e "
+"le previe."
 
 #: libraries/sql-parser/src/Components/AlterOperation.php:240
 msgid "Unrecognized alter operation."
-msgstr ""
+msgstr "Operation d alteration non recognoscite."
 
 #: libraries/sql-parser/src/Components/Array2d.php:91
 #, php-format
 msgid "%1$d values were expected, but found %2$d."
-msgstr ""
+msgstr "%1$d valores esseva expectate, ma il trovava %2$d."
 
 #: libraries/sql-parser/src/Components/Array2d.php:114
 msgid "An opening bracket followed by a set of values was expected."
-msgstr ""
+msgstr "On expectava un parenthesis aperite sequite per un insimul de valores."
 
 #: libraries/sql-parser/src/Components/ArrayObj.php:118
 #: libraries/sql-parser/src/Components/CreateDefinition.php:206
 msgid "An opening bracket was expected."
-msgstr ""
+msgstr "On expectava un parenthesis aperite."
 
 #: libraries/sql-parser/src/Components/CaseExpression.php:137
 #: libraries/sql-parser/src/Components/CaseExpression.php:167
@@ -13566,13 +13568,15 @@ msgstr "Un parola clave non expectate."
 
 #: libraries/sql-parser/src/Components/CaseExpression.php:202
 msgid "Unexpected end of CASE expression"
-msgstr ""
+msgstr "Un fin inexpectate del expression CASE"
 
 #: libraries/sql-parser/src/Components/CreateDefinition.php:227
 msgid ""
 "A symbol name was expected! A reserved keyword can not be used as a column "
 "name without backquotes."
 msgstr ""
+"On expectava un nomine de symbolo! Un parola clave reservate non pte esser "
+"usate como nomine de columna sin retro citationes (backquotes)."
 
 #: libraries/sql-parser/src/Components/CreateDefinition.php:241
 msgid "A symbol name was expected!"
@@ -13584,11 +13588,11 @@ msgstr "On expectava un comma o un parentheses claudite."
 
 #: libraries/sql-parser/src/Components/CreateDefinition.php:289
 msgid "A closing bracket was expected."
-msgstr ""
+msgstr "On expectava un parenthesis claudite."
 
 #: libraries/sql-parser/src/Components/DataType.php:127
 msgid "Unrecognized data type."
-msgstr ""
+msgstr "Typo de datos non cognoscite."
 
 #: libraries/sql-parser/src/Components/Expression.php:248
 #: libraries/sql-parser/src/Components/Expression.php:398
@@ -13599,11 +13603,11 @@ msgstr "On expectava un alias."
 #: libraries/sql-parser/src/Components/Expression.php:355
 #: libraries/sql-parser/src/Components/Expression.php:387
 msgid "An alias was previously found."
-msgstr ""
+msgstr "Previemente  on trovava un pseudonymo."
 
 #: libraries/sql-parser/src/Components/Expression.php:368
 msgid "Unexpected dot."
-msgstr ""
+msgstr "Puncto inexpectate."
 
 #: libraries/sql-parser/src/Components/ExpressionArray.php:106
 msgid "An expression was expected."
@@ -13612,12 +13616,12 @@ msgstr "On expectava un expression."
 #: libraries/sql-parser/src/Components/Limit.php:90
 #: libraries/sql-parser/src/Components/Limit.php:112
 msgid "An offset was expected."
-msgstr ""
+msgstr "On expectava un displaciamento."
 
 #: libraries/sql-parser/src/Components/OptionsArray.php:146
 #, php-format
 msgid "This option conflicts with \"%1$s\"."
-msgstr ""
+msgstr "Iste option conflige con \"%1$s\"."
 
 #: libraries/sql-parser/src/Components/OptionsArray.php:260
 #, php-format
@@ -13630,11 +13634,11 @@ msgstr "On expectava le vetule nomine de le tabella."
 
 #: libraries/sql-parser/src/Components/RenameOperation.php:111
 msgid "Keyword \"TO\" was expected."
-msgstr ""
+msgstr "On expectava le parola clave \"TO\"."
 
 #: libraries/sql-parser/src/Components/RenameOperation.php:127
 msgid "The new name of the table was expected."
-msgstr ""
+msgstr "On expectava le nove nomine del tabella."
 
 #: libraries/sql-parser/src/Components/RenameOperation.php:145
 msgid "A rename operation was expected."
@@ -13646,17 +13650,17 @@ msgstr "Un  character non expectate."
 
 #: libraries/sql-parser/src/Lexer.php:303
 msgid "Expected whitespace(s) before delimiter."
-msgstr ""
+msgstr "On expectava spatio(s) blanc ante le demarcator."
 
 #: libraries/sql-parser/src/Lexer.php:321
 #: libraries/sql-parser/src/Lexer.php:337
 msgid "Expected delimiter."
-msgstr ""
+msgstr "On expectava demarcator."
 
 #: libraries/sql-parser/src/Lexer.php:838
 #, php-format
 msgid "Ending quote %1$s was expected."
-msgstr ""
+msgstr "On expectava le fin de citation %1$s ."
 
 #: libraries/sql-parser/src/Lexer.php:878
 msgid "Variable name was expected."
@@ -13668,11 +13672,11 @@ msgstr "Un initio de instruction non expectate."
 
 #: libraries/sql-parser/src/Parser.php:475
 msgid "Unrecognized statement type."
-msgstr ""
+msgstr "Typo de declaration non recognoscite."
 
 #: libraries/sql-parser/src/Parser.php:560
 msgid "No transaction was previously started."
-msgstr ""
+msgstr "Necun transaction esseva initiate previemente."
 
 #: libraries/sql-parser/src/Statement.php:245
 #: libraries/sql-parser/src/Statements/DeleteStatement.php:250
@@ -13685,11 +13689,11 @@ msgstr "Un indicio non expectate."
 
 #: libraries/sql-parser/src/Statement.php:309
 msgid "This type of clause was previously parsed."
-msgstr ""
+msgstr "Iste typo de proposition esseva analysate previemente."
 
 #: libraries/sql-parser/src/Statement.php:369
 msgid "Unrecognized keyword."
-msgstr ""
+msgstr "Parola clave non recognoscite."
 
 #: libraries/sql-parser/src/Statement.php:495
 msgid "Unexpected ordering of clauses."
@@ -13697,7 +13701,7 @@ msgstr "Un ordine de clausas  non expectate."
 
 #: libraries/sql-parser/src/Statements/CreateStatement.php:381
 msgid "The name of the entity was expected."
-msgstr ""
+msgstr "On expectava le nomine del entitate."
 
 #: libraries/sql-parser/src/Statements/CreateStatement.php:436
 msgid "A table name was expected."
@@ -13709,11 +13713,11 @@ msgstr "On expectava al minus un definition de columna."
 
 #: libraries/sql-parser/src/Statements/CreateStatement.php:555
 msgid "A \"RETURNS\" keyword was expected."
-msgstr ""
+msgstr "On expectava le parola clave \"RETURN\"."
 
 #: libraries/sql-parser/src/Statements/DeleteStatement.php:303
 msgid "This type of clause is not valid in Multi-table queries."
-msgstr ""
+msgstr "Iste typo de proposition non es valide in query de multi-tabella."
 
 #: libraries/sql.lib.php:231
 msgid "Detailed profile"

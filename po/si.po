@@ -11789,7 +11789,7 @@ msgstr "අනුගාමි සේවාදායකය සඳහා වින
 
 #: libraries/replication_gui.lib.php:403
 msgid ""
-"Make sure, you have unique server-id in your configuration file (my.cnf). If "
+"Make sure you have a unique server-id in your configuration file (my.cnf). If "
 "not, please add the following line into [mysqld] section:"
 msgstr ""
 "ඔබගේ වින්‍යාස ගොනුවේ (my.cnf) අනන්‍ය සේවාදායක-හැඳුනුමක් ඇති බවට තහවුරු කරගන්න. එසේ නොමැති "

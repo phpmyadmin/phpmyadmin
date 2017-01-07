@@ -4,17 +4,17 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.6-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-12-13 10:40+0100\n"
-"PO-Revision-Date: 2016-06-30 09:38+0000\n"
-"Last-Translator: Bartosz Pazoła <mmmalfc@gmail.com>\n"
-"Language-Team: Polish <https://hosted.weblate.org/projects/phpmyadmin/4-6/pl/"
-">\n"
+"PO-Revision-Date: 2017-01-05 18:42+0000\n"
+"Last-Translator: Mateusz Wasik <morwa666@gmail.com>\n"
+"Language-Team: Polish "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-6/pl/>\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 2.7-dev\n"
+"X-Generator: Weblate 2.11-dev\n"
 
 #: changelog.php:38 license.php:33
 #, php-format
@@ -794,6 +794,8 @@ msgstr ""
 #: index.php:509
 msgid "The secret passphrase in configuration (blowfish_secret) is too short."
 msgstr ""
+"Tajna fraza kodująca (blowfish_secret) w pliku konfiguracyjnym jest za "
+"krótka."
 
 #: index.php:523
 msgid ""
@@ -2079,10 +2081,8 @@ msgid "Column maximum:"
 msgstr "Maximum kolumny:"
 
 #: js/messages.php:474
-#, fuzzy
-#| msgid "Column names: "
 msgid "Column minimum:"
-msgstr "Nazwy kolumn:"
+msgstr "Minimum kolumny:"
 
 #: js/messages.php:475
 msgid "Minimum value:"
@@ -2174,10 +2174,8 @@ msgid "Inner ring"
 msgstr "Pierścień wewnętrzny"
 
 #: js/messages.php:514
-#, fuzzy
-#| msgid "Outer ring:"
 msgid "Outer ring"
-msgstr "Pierścień zewnętrzny:"
+msgstr "Pierścień zewnętrzny"
 
 #: js/messages.php:518
 msgid "Do you want to copy encryption key?"
@@ -11874,7 +11872,7 @@ msgstr "Konfiguracja serwera podrzędnego"
 
 #: libraries/replication_gui.lib.php:403
 msgid ""
-"Make sure, you have unique server-id in your configuration file (my.cnf). If "
+"Make sure you have a unique server-id in your configuration file (my.cnf). If "
 "not, please add the following line into [mysqld] section:"
 msgstr ""
 "Upewnij się, że w pliku konfiguracyjnym (my.conf) jest wprowadzony unikalny "
@@ -14314,13 +14312,13 @@ msgstr "Komentarze tabeli"
 #: libraries/sql-parser/src/Component.php:47
 #: libraries/sql-parser/src/Component.php:67
 msgid "Not implemented yet."
-msgstr ""
+msgstr "Jeszcze nie zaimplementowane."
 
 #: libraries/sql-parser/src/Components/AlterOperation.php:228
 #: libraries/sql-parser/src/Statement.php:337
 msgid ""
 "A new statement was found, but no delimiter between it and the previous one."
-msgstr ""
+msgstr "Znaleziono kolejne polecenie, ale brakuje między nimi rozgranicznika."
 
 #: libraries/sql-parser/src/Components/AlterOperation.php:240
 #, fuzzy
@@ -14331,16 +14329,16 @@ msgstr "Wygląd interfejsu do operacji na tabeli"
 #: libraries/sql-parser/src/Components/Array2d.php:91
 #, php-format
 msgid "%1$d values were expected, but found %2$d."
-msgstr ""
+msgstr "Oczekiwano następującej liczby wartości: %1$d; znaleziono %2$d."
 
 #: libraries/sql-parser/src/Components/Array2d.php:114
 msgid "An opening bracket followed by a set of values was expected."
-msgstr ""
+msgstr "Oczekiwano nawiasu otwierającego i listy wartości."
 
 #: libraries/sql-parser/src/Components/ArrayObj.php:118
 #: libraries/sql-parser/src/Components/CreateDefinition.php:206
 msgid "An opening bracket was expected."
-msgstr ""
+msgstr "Brak nawiasu otwierającego."
 
 #: libraries/sql-parser/src/Components/CaseExpression.php:137
 #: libraries/sql-parser/src/Components/CaseExpression.php:167
@@ -14356,14 +14354,12 @@ msgstr ""
 #: libraries/sql-parser/src/Statements/InsertStatement.php:227
 #: libraries/sql-parser/src/Statements/ReplaceStatement.php:165
 #: libraries/sql-parser/src/Statements/ReplaceStatement.php:193
-#, fuzzy
-#| msgid "Unexpected characters on line %s."
 msgid "Unexpected keyword."
-msgstr "Nieoczekiwane znaki w linii %s."
+msgstr "Nieznane słowo kluczowe."
 
 #: libraries/sql-parser/src/Components/CaseExpression.php:202
 msgid "Unexpected end of CASE expression"
-msgstr ""
+msgstr "Nieoczekiwany koniec polecenia CASE"
 
 #: libraries/sql-parser/src/Components/CreateDefinition.php:227
 msgid ""
@@ -14378,41 +14374,36 @@ msgid "A symbol name was expected!"
 msgstr "Nazwa szablonu tabeli"
 
 #: libraries/sql-parser/src/Components/CreateDefinition.php:273
-#, fuzzy
-#| msgid "No databases selected."
 msgid "A comma or a closing bracket was expected."
-msgstr "Żadna baza danych nie został wybrana."
+msgstr "Oczekiwano przecinka lub nawiasu zamykającego."
 
 #: libraries/sql-parser/src/Components/CreateDefinition.php:289
 msgid "A closing bracket was expected."
-msgstr ""
+msgstr "Brak nawiasu zamykającego."
 
 #: libraries/sql-parser/src/Components/DataType.php:127
 msgid "Unrecognized data type."
-msgstr ""
+msgstr "Nierozpoznany typ danych."
 
 #: libraries/sql-parser/src/Components/Expression.php:248
 #: libraries/sql-parser/src/Components/Expression.php:398
-#, fuzzy
-#| msgid "No databases selected."
 msgid "An alias was expected."
-msgstr "Żadna baza danych nie został wybrana."
+msgstr "Oczekiwano aliasu."
 
 #: libraries/sql-parser/src/Components/Expression.php:336
 #: libraries/sql-parser/src/Components/Expression.php:355
 #: libraries/sql-parser/src/Components/Expression.php:387
+#, fuzzy
 msgid "An alias was previously found."
-msgstr ""
+msgstr "Alias został już wykorzystany."
 
 #: libraries/sql-parser/src/Components/Expression.php:368
 msgid "Unexpected dot."
-msgstr ""
+msgstr "Nieoczekiwana kropka."
 
 #: libraries/sql-parser/src/Components/ExpressionArray.php:106
-#, fuzzy
-#| msgid "No rows selected"
 msgid "An expression was expected."
-msgstr "Nie wybrano żadnego rekordu"
+msgstr "Oczekiwano wyrażenia."
 
 #: libraries/sql-parser/src/Components/Limit.php:90
 #: libraries/sql-parser/src/Components/Limit.php:112
@@ -14431,63 +14422,50 @@ msgid "Value/Expression for the option %1$s was expected"
 msgstr "Zdarzenie %1$s zostało utworzone."
 
 #: libraries/sql-parser/src/Components/RenameOperation.php:101
-#, fuzzy
-#| msgid "The number of tables that are open."
 msgid "The old name of the table was expected."
-msgstr "Liczba otwartych tabel."
+msgstr "Oczekiwano starej nazwy tabeli."
 
 #: libraries/sql-parser/src/Components/RenameOperation.php:111
 msgid "Keyword \"TO\" was expected."
-msgstr ""
+msgstr "Oczekiwano słowa kluczowego \"TO\"."
 
 #: libraries/sql-parser/src/Components/RenameOperation.php:127
-#, fuzzy
-#| msgid "The number of tables that are open."
 msgid "The new name of the table was expected."
-msgstr "Liczba otwartych tabel."
+msgstr "Oczekiwano nowej nazwy tabeli."
 
 #: libraries/sql-parser/src/Components/RenameOperation.php:145
-#, fuzzy
-#| msgid "The row has been deleted."
 msgid "A rename operation was expected."
-msgstr "Wiersz został usunięty."
+msgstr "Oczekiwano polecenia zmiany nazwy."
 
 #: libraries/sql-parser/src/Lexer.php:266
-#, fuzzy
-#| msgid "Unexpected characters on line %s."
 msgid "Unexpected character."
-msgstr "Nieoczekiwane znaki w linii %s."
+msgstr "Nieoczekiwany znak."
 
 #: libraries/sql-parser/src/Lexer.php:303
 msgid "Expected whitespace(s) before delimiter."
-msgstr ""
+msgstr "Oczekiwano spacji przez rozgranicznikiem."
 
 #: libraries/sql-parser/src/Lexer.php:321
 #: libraries/sql-parser/src/Lexer.php:337
 msgid "Expected delimiter."
-msgstr ""
+msgstr "Oczekiwano rozgranicznika."
 
 #: libraries/sql-parser/src/Lexer.php:838
-#, fuzzy, php-format
-#| msgid "Event %1$s has been created."
+#, php-format
 msgid "Ending quote %1$s was expected."
-msgstr "Zdarzenie %1$s zostało utworzone."
+msgstr "Oczekiwano znaku końca %1$s."
 
 #: libraries/sql-parser/src/Lexer.php:878
-#, fuzzy
-#| msgid "Table name template"
 msgid "Variable name was expected."
-msgstr "Nazwa szablonu tabeli"
+msgstr "Oczekiwano nazwy zmiennej."
 
 #: libraries/sql-parser/src/Parser.php:456
-#, fuzzy
-#| msgid "At Beginning of Table"
 msgid "Unexpected beginning of statement."
-msgstr "Na początku tabeli"
+msgstr "Oczekiwano początku polecenia."
 
 #: libraries/sql-parser/src/Parser.php:475
 msgid "Unrecognized statement type."
-msgstr ""
+msgstr "Nierozpoznany typ polecenia."
 
 #: libraries/sql-parser/src/Parser.php:560
 msgid "No transaction was previously started."
@@ -14499,10 +14477,8 @@ msgstr ""
 #: libraries/sql-parser/src/Statements/InsertStatement.php:236
 #: libraries/sql-parser/src/Statements/InsertStatement.php:256
 #: libraries/sql-parser/src/Statements/ReplaceStatement.php:201
-#, fuzzy
-#| msgid "Unexpected characters on line %s."
 msgid "Unexpected token."
-msgstr "Nieoczekiwane znaki w linii %s."
+msgstr "Nieoczekiwany znak."
 
 #: libraries/sql-parser/src/Statement.php:309
 msgid "This type of clause was previously parsed."
@@ -14510,7 +14486,7 @@ msgstr ""
 
 #: libraries/sql-parser/src/Statement.php:369
 msgid "Unrecognized keyword."
-msgstr ""
+msgstr "Nierozpoznane słowo kluczowe."
 
 #: libraries/sql-parser/src/Statement.php:495
 #, fuzzy
@@ -14519,30 +14495,24 @@ msgid "Unexpected ordering of clauses."
 msgstr "Na początku tabeli"
 
 #: libraries/sql-parser/src/Statements/CreateStatement.php:381
-#, fuzzy
-#| msgid "The number of tables that are open."
 msgid "The name of the entity was expected."
-msgstr "Liczba otwartych tabel."
+msgstr "Oczekiwano nazwy obiektu."
 
 #: libraries/sql-parser/src/Statements/CreateStatement.php:436
-#, fuzzy
-#| msgid "Table name template"
 msgid "A table name was expected."
-msgstr "Nazwa szablonu tabeli"
+msgstr "Oczekiwano nazwy tabeli."
 
 #: libraries/sql-parser/src/Statements/CreateStatement.php:444
-#, fuzzy
-#| msgid "The row has been deleted."
 msgid "At least one column definition was expected."
-msgstr "Wiersz został usunięty."
+msgstr "Oczekiwano definicji co najmniej jednej kolumny."
 
 #: libraries/sql-parser/src/Statements/CreateStatement.php:555
 msgid "A \"RETURNS\" keyword was expected."
-msgstr ""
+msgstr "Oczekiwano słowa kluczowego \"RETURNS\"."
 
 #: libraries/sql-parser/src/Statements/DeleteStatement.php:303
 msgid "This type of clause is not valid in Multi-table queries."
-msgstr ""
+msgstr "Ta klauzula nie może być stosowana w poleceniach międzytabelowych."
 
 #: libraries/sql.lib.php:231
 msgid "Detailed profile"

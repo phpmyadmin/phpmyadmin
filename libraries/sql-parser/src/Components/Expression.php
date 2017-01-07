@@ -3,10 +3,8 @@
 /**
  * Parses a reference to an expression (column, table or database name, function
  * call, mathematical expression, etc.).
- *
- * @package    SqlParser
- * @subpackage Components
  */
+
 namespace SqlParser\Components;
 
 use SqlParser\Context;
@@ -20,20 +18,19 @@ use SqlParser\TokensList;
  * call, mathematical expression, etc.).
  *
  * @category   Components
- * @package    SqlParser
- * @subpackage Components
+ *
  * @license    https://www.gnu.org/licenses/gpl-2.0.txt GPL-2.0+
  */
 class Expression extends Component
 {
-
     /**
      * List of allowed reserved keywords in expressions.
      *
      * @var array
      */
     private static $ALLOWED_KEYWORDS = array(
-        'AS' => 1, 'DUAL' => 1, 'NULL' => 1, 'REGEXP' => 1, 'CASE' => 1
+        'AS' => 1, 'DUAL' => 1, 'NULL' => 1, 'REGEXP' => 1, 'CASE' => 1,
+        'DIV' => 1, 'AND' => 1, 'OR' => 1, 'XOR' => 1, 'NOT' => 1, 'MOD' => 1,
     );
 
     /**
@@ -98,11 +95,11 @@ class Expression extends Component
      * string.
      *
      * @param string $database The name of the database or the the expression.
-     *                          the the expression.
+     *                         the the expression.
      * @param string $table    The name of the table or the alias of the expression.
-     *                          the alias of the expression.
-     * @param string $column   The name of the column.
-     * @param string $alias    The name of the alias.
+     *                         the alias of the expression.
+     * @param string $column   the name of the column
+     * @param string $alias    the name of the alias
      */
     public function __construct($database = null, $table = null, $column = null, $alias = null)
     {
@@ -118,7 +115,7 @@ class Expression extends Component
     }
 
     /**
-     * Possible options:
+     * Possible options:.
      *
      *      `field`
      *
@@ -143,48 +140,48 @@ class Expression extends Component
      *
      *          If not empty, breaks after last parentheses occurred.
      *
-     * @param Parser     $parser  The parser that serves as context.
-     * @param TokensList $list    The list of tokens that are being parsed.
-     * @param array      $options Parameters for parsing.
+     * @param Parser     $parser  the parser that serves as context
+     * @param TokensList $list    the list of tokens that are being parsed
+     * @param array      $options parameters for parsing
      *
      * @return Expression
      */
     public static function parse(Parser $parser, TokensList $list, array $options = array())
     {
-        $ret = new Expression();
+        $ret = new self();
 
         /**
          * Whether current tokens make an expression or a table reference.
          *
-         * @var bool $isExpr
+         * @var bool
          */
         $isExpr = false;
 
         /**
          * Whether a period was previously found.
          *
-         * @var bool $dot
+         * @var bool
          */
         $dot = false;
 
         /**
          * Whether an alias is expected. Is 2 if `AS` keyword was found.
          *
-         * @var bool $alias
+         * @var bool
          */
         $alias = false;
 
         /**
          * Counts brackets.
          *
-         * @var int $brackets
+         * @var int
          */
         $brackets = 0;
 
         /**
          * Keeps track of the last two previous tokens.
          *
-         * @var Token[] $prev
+         * @var Token[]
          */
         $prev = array(null, null);
 
@@ -195,11 +192,10 @@ class Expression extends Component
         }
 
         for (; $list->idx < $list->count; ++$list->idx) {
-
             /**
              * Token parsed at this moment.
              *
-             * @var Token $token
+             * @var Token
              */
             $token = $list->tokens[$list->idx];
 
@@ -227,7 +223,7 @@ class Expression extends Component
                     $ret->subquery = $token->value;
                 } elseif (($token->flags & Token::FLAG_KEYWORD_FUNCTION)
                     && (empty($options['parseField'])
-                    && ! $alias)
+                    && !$alias)
                 ) {
                     $isExpr = true;
                 } elseif (($token->flags & Token::FLAG_KEYWORD_RESERVED)
@@ -261,7 +257,7 @@ class Expression extends Component
                         continue;
                     }
                     $isExpr = true;
-                } elseif ($brackets === 0 && count($ret->expr) > 0 && ! $alias) {
+                } elseif ($brackets === 0 && strlen($ret->expr) > 0 && !$alias) {
                     /* End of expression */
                     break;
                 }
@@ -408,12 +404,13 @@ class Expression extends Component
         }
 
         --$list->idx;
+
         return $ret;
     }
 
     /**
-     * @param Expression|Expression[] $component The component to be built.
-     * @param array                   $options   Parameters for building.
+     * @param Expression|Expression[] $component the component to be built
+     * @param array                   $options   parameters for building
      *
      * @return string
      */

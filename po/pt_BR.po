@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.6-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-12-13 10:40+0100\n"
-"PO-Revision-Date: 2016-11-07 13:09+0000\n"
-"Last-Translator: popinha13 <apolonio.serafim@hotmail.com>\n"
-"Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
-"phpmyadmin/4-6/pt_BR/>\n"
+"PO-Revision-Date: 2017-01-03 16:54+0000\n"
+"Last-Translator: Daniel Palmeira Huanca <daniel46758@hotmail.com>\n"
+"Language-Team: Portuguese (Brazil) "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-6/pt_BR/>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 2.9\n"
+"X-Generator: Weblate 2.11-dev\n"
 
 #: changelog.php:38 license.php:33
 #, php-format
@@ -934,16 +934,16 @@ msgid ""
 "Do you really want to DROP the selected partition(s)? This will also DELETE "
 "the data related to the selected partition(s)!"
 msgstr ""
-"Você realmente quer APAGAR a(s) partição(ões) seleciona(s)? Isso também irá "
-"DELETAR os dados relacionados com a(s) partição(ões) seleciona(s)!"
+"Você realmente quer APAGAR a(s) partição(ões) selecionada(s)? Isso também "
+"irá DELETAR os dados relacionados com a(s) partição(ões) selecionada(s)!"
 
 #: js/messages.php:78
 msgid "Do you really want to TRUNCATE the selected partition(s)?"
-msgstr "Você realmente deseja LIMPAR a(s) partição(ões) seleciona(s)?"
+msgstr "Você realmente deseja LIMPAR a(s) partição(ões) selecionada(s)?"
 
 #: js/messages.php:80
 msgid "Do you really want to remove partitioning?"
-msgstr "Você realmente deseja remover a(s) partição(ões) seleciona(s)?"
+msgstr "Você realmente deseja remover a(s) partição(ões) selecionada(s)?"
 
 #: js/messages.php:81
 msgid "Do you really want to RESET SLAVE?"
@@ -2197,15 +2197,11 @@ msgstr ""
 "desejar insira-os diretamente"
 
 #: js/messages.php:529
-#, fuzzy
-#| msgid ""
-#| "MySQL accepts additional values not selectable by the slider; key in "
-#| "those values directly if desired"
 msgid ""
 "MySQL accepts additional values not selectable by the datepicker; key in "
 "those values directly if desired"
 msgstr ""
-"MySQL aceita valores que não seria possível seleciona-los com a barra; se o "
+"MySQL aceita valores adicionais não selecionáveis pela caixa de seleção; se "
 "desejar insira-os diretamente"
 
 #: js/messages.php:535
@@ -6711,17 +6707,15 @@ msgstr "Mostra campos de função"
 
 #: libraries/config/messages.inc.php:533
 msgid "Whether to show functions under database in the navigation tree"
-msgstr ""
+msgstr "Mostrar funções do banco de dados na árvore de navegação"
 
 #: libraries/config/messages.inc.php:534
-#, fuzzy
-#| msgid "Show processes"
 msgid "Show procedures in tree"
-msgstr "Mostrar os Processos"
+msgstr "Mostrar os procedimentos em árvore"
 
 #: libraries/config/messages.inc.php:536
 msgid "Whether to show procedures under database in the navigation tree"
-msgstr ""
+msgstr "Se os procedimentos de um banco de dados devem ser exibidos em árvore"
 
 #: libraries/config/messages.inc.php:537
 msgid "Show events in tree"
@@ -6757,10 +6751,11 @@ msgstr "Onde mostrar os links de linha de tabela"
 #: libraries/config/messages.inc.php:549
 msgid "Whether to show row links even in the absence of a unique key."
 msgstr ""
+"Se os links de linha devem ser mostrados mesmo na ausência de chave única."
 
 #: libraries/config/messages.inc.php:551
 msgid "Show row links anyway"
-msgstr ""
+msgstr "Forçar exibição de links de linha"
 
 #: libraries/config/messages.inc.php:553
 msgid "Use natural order for sorting table and database names."
@@ -8252,6 +8247,9 @@ msgid ""
 "connection that encrypts the password using RSA</i>'; while connecting to "
 "the server."
 msgstr ""
+"Este método requer a utilização de uma '<i> conexão SSL</i> ' ou uma '<i> "
+"conexão que realize a criptografia da senha utilizando RSA</i> 4'; durante a "
+"conexão com o servidor."
 
 #: libraries/display_export.lib.php:170
 msgid "Exporting databases from the current server"
@@ -9522,7 +9520,7 @@ msgstr[1] "%s resultados encontrados"
 #: libraries/navigation/NavigationTree.php:1364
 #: libraries/navigation/NavigationTree.php:1401
 msgid "Type to filter these, Enter to search all"
-msgstr ""
+msgstr "Digite para filtrar estes, Enter para procurar todos"
 
 #: libraries/navigation/NavigationTree.php:1366
 #: libraries/navigation/NavigationTree.php:1402
@@ -10385,7 +10383,7 @@ msgstr "Estrutura stand-in para view"
 
 #: libraries/plugins/export/ExportJson.php:65
 msgid "Output pretty-printed JSON (Use human-readable formatting)"
-msgstr ""
+msgstr "Exibir JSON bem formatado (Usar formatação para leitura humana)"
 
 #: libraries/plugins/export/ExportLatex.php:48
 msgid "Content of table @TABLE@"
@@ -10558,6 +10556,7 @@ msgstr "Adicionar comando %s"
 #: libraries/plugins/export/ExportSql.php:285
 msgid "(less efficient as indexes will be generated during table creation)"
 msgstr ""
+"(menos eficiente pois os índices serão gerados durante a criação da tabela)"
 
 #: libraries/plugins/export/ExportSql.php:293
 #, fuzzy, php-format
@@ -10770,7 +10769,7 @@ msgstr "Tabela:"
 
 #: libraries/plugins/export/PMA_ExportPdf.php:120
 msgid "Purpose:"
-msgstr ""
+msgstr "Propósito:"
 
 #: libraries/plugins/export/PMA_ExportPdf.php:501
 msgid "MIME"
@@ -11213,7 +11212,7 @@ msgstr ""
 
 #: libraries/plugins/transformations/input/Text_Plain_Iptobinary.php:29
 msgid "Converts an Internet network address in (IPv4/IPv6) format to binary"
-msgstr ""
+msgstr "Converte um endereço de internet no formato (IPv4/IPv6) em binário"
 
 #: libraries/plugins/transformations/input/Text_Plain_JsonEditor.php:29
 msgid "Syntax highlighted CodeMirror editor for JSON."
@@ -11423,6 +11422,9 @@ msgid ""
 "'phpmyadmin'. You may go to 'Operations' tab of any database to set up the "
 "phpMyAdmin configuration storage there."
 msgstr ""
+"Você não tem privilégios suficientes para criar uma base de dados chamada "
+"'phpmyadmin'. Você pode configurar o phpMyAdmin na aba 'Operações' de "
+"qualquer base de dados."
 
 #: libraries/relation.lib.php:1988
 #, fuzzy, php-format
@@ -11626,7 +11628,7 @@ msgstr "Configuração do escravo"
 
 #: libraries/replication_gui.lib.php:403
 msgid ""
-"Make sure, you have unique server-id in your configuration file (my.cnf). If "
+"Make sure you have a unique server-id in your configuration file (my.cnf). If "
 "not, please add the following line into [mysqld] section:"
 msgstr ""
 "Certifique-se de que você tem um ID de servidor único no seu arquivo de "
@@ -12005,6 +12007,8 @@ msgid ""
 "You do not have sufficient privileges to perform this operation; Please "
 "refer to the documentation for more details"
 msgstr ""
+"Você não tem privilégios suficientes para executar esta operação; Por favor "
+"verifique a documentação para maiores detalhes"
 
 #: libraries/rte/rte_routines.lib.php:1040
 msgid "Security type"
@@ -14026,33 +14030,34 @@ msgstr "Guias de Tabelas"
 #: libraries/sql-parser/src/Component.php:47
 #: libraries/sql-parser/src/Component.php:67
 msgid "Not implemented yet."
-msgstr ""
+msgstr "Ainda não implementado."
 
 #: libraries/sql-parser/src/Components/AlterOperation.php:228
 #: libraries/sql-parser/src/Statement.php:337
 msgid ""
 "A new statement was found, but no delimiter between it and the previous one."
 msgstr ""
+"Uma nova declaração foi encontrada, porém não há delimitador entre esta e a "
+"anterior."
 
 #: libraries/sql-parser/src/Components/AlterOperation.php:240
-#, fuzzy
-#| msgid "Iconic table operations"
 msgid "Unrecognized alter operation."
-msgstr "Operações de tabela icônicas"
+msgstr "Operação de alteração desconhecida."
 
 #: libraries/sql-parser/src/Components/Array2d.php:91
 #, php-format
 msgid "%1$d values were expected, but found %2$d."
-msgstr ""
+msgstr "Eram esperados %1$d valores, mas foram encontrados %2$d."
 
 #: libraries/sql-parser/src/Components/Array2d.php:114
 msgid "An opening bracket followed by a set of values was expected."
 msgstr ""
+"Era esperado um colchete de abertura seguido por um conjunto de valores."
 
 #: libraries/sql-parser/src/Components/ArrayObj.php:118
 #: libraries/sql-parser/src/Components/CreateDefinition.php:206
 msgid "An opening bracket was expected."
-msgstr ""
+msgstr "Era esperado um colchete de abertura."
 
 #: libraries/sql-parser/src/Components/CaseExpression.php:137
 #: libraries/sql-parser/src/Components/CaseExpression.php:167
@@ -14068,73 +14073,65 @@ msgstr ""
 #: libraries/sql-parser/src/Statements/InsertStatement.php:227
 #: libraries/sql-parser/src/Statements/ReplaceStatement.php:165
 #: libraries/sql-parser/src/Statements/ReplaceStatement.php:193
-#, fuzzy
-#| msgid "Unexpected characters on line %s."
 msgid "Unexpected keyword."
-msgstr "Há caracteres inesperados na linha %s."
+msgstr "Caracter inesperado."
 
 #: libraries/sql-parser/src/Components/CaseExpression.php:202
 msgid "Unexpected end of CASE expression"
-msgstr ""
+msgstr "Final inesperado da expressão CASE"
 
 #: libraries/sql-parser/src/Components/CreateDefinition.php:227
 msgid ""
 "A symbol name was expected! A reserved keyword can not be used as a column "
 "name without backquotes."
 msgstr ""
+"Era esperado um nome de símbolo! Um caracter reservado não pode ser usado "
+"como um nome de coluna sem apóstrofo."
 
 #: libraries/sql-parser/src/Components/CreateDefinition.php:241
-#, fuzzy
-#| msgid "Table name template"
 msgid "A symbol name was expected!"
-msgstr "Modelo de nome da tabela"
+msgstr "Era esperado um nome de símbolo!"
 
 #: libraries/sql-parser/src/Components/CreateDefinition.php:273
-#, fuzzy
-#| msgid "No tables selected."
 msgid "A comma or a closing bracket was expected."
-msgstr "Nenhum banco de dados selecionado."
+msgstr "Era esperado uma vírgula ou um colchete de fechamento."
 
 #: libraries/sql-parser/src/Components/CreateDefinition.php:289
 msgid "A closing bracket was expected."
-msgstr ""
+msgstr "Era esperado um colchete de fechamento."
 
 #: libraries/sql-parser/src/Components/DataType.php:127
 msgid "Unrecognized data type."
-msgstr ""
+msgstr "Tipo de dado desconhecido."
 
 #: libraries/sql-parser/src/Components/Expression.php:248
 #: libraries/sql-parser/src/Components/Expression.php:398
-#, fuzzy
-#| msgid "No tables selected."
 msgid "An alias was expected."
-msgstr "Nenhum banco de dados selecionado."
+msgstr "Era esperado um nome de correlação."
 
 #: libraries/sql-parser/src/Components/Expression.php:336
 #: libraries/sql-parser/src/Components/Expression.php:355
 #: libraries/sql-parser/src/Components/Expression.php:387
 msgid "An alias was previously found."
-msgstr ""
+msgstr "Um nome correlação foi encontrado anteriormente."
 
 #: libraries/sql-parser/src/Components/Expression.php:368
 msgid "Unexpected dot."
-msgstr ""
+msgstr "Ponto inesperado."
 
 #: libraries/sql-parser/src/Components/ExpressionArray.php:106
-#, fuzzy
-#| msgid "No versions selected."
 msgid "An expression was expected."
-msgstr "Não há versões selecionadas."
+msgstr "Era esperado uma expressão."
 
 #: libraries/sql-parser/src/Components/Limit.php:90
 #: libraries/sql-parser/src/Components/Limit.php:112
 msgid "An offset was expected."
-msgstr ""
+msgstr "Era esperado um espaçamento."
 
 #: libraries/sql-parser/src/Components/OptionsArray.php:146
 #, php-format
 msgid "This option conflicts with \"%1$s\"."
-msgstr ""
+msgstr "Esta opção está em conflito com \"%1$s\"."
 
 #: libraries/sql-parser/src/Components/OptionsArray.php:260
 #, fuzzy, php-format
@@ -14143,67 +14140,54 @@ msgid "Value/Expression for the option %1$s was expected"
 msgstr "O evento %1$s foi criado."
 
 #: libraries/sql-parser/src/Components/RenameOperation.php:101
-#, fuzzy
-#| msgid "The number of tables that are open."
 msgid "The old name of the table was expected."
-msgstr "O número de tabelas que estão abertas."
+msgstr "Era esperado o nome anterior da tabela."
 
 #: libraries/sql-parser/src/Components/RenameOperation.php:111
 msgid "Keyword \"TO\" was expected."
-msgstr ""
+msgstr "Era esperado o caracter \"TO\"."
 
 #: libraries/sql-parser/src/Components/RenameOperation.php:127
-#, fuzzy
-#| msgid "The number of tables that are open."
 msgid "The new name of the table was expected."
-msgstr "O número de tabelas que estão abertas."
+msgstr "Era esperado o novo nome da tabela."
 
 #: libraries/sql-parser/src/Components/RenameOperation.php:145
-#, fuzzy
-#| msgid "The row has been deleted."
 msgid "A rename operation was expected."
-msgstr "Registro eliminado."
+msgstr "Era esperado uma operação renomear."
 
 #: libraries/sql-parser/src/Lexer.php:266
-#, fuzzy
-#| msgid "Unexpected characters on line %s."
 msgid "Unexpected character."
-msgstr "Há caracteres inesperados na linha %s."
+msgstr "Caracter inesperado."
 
 #: libraries/sql-parser/src/Lexer.php:303
 msgid "Expected whitespace(s) before delimiter."
-msgstr ""
+msgstr "Era(m) esperado(s) espaço(s) em branco antes do delimitador."
 
 #: libraries/sql-parser/src/Lexer.php:321
 #: libraries/sql-parser/src/Lexer.php:337
 msgid "Expected delimiter."
-msgstr ""
+msgstr "Esperado delimitador."
 
 #: libraries/sql-parser/src/Lexer.php:838
-#, fuzzy, php-format
-#| msgid "Event %1$s has been created."
+#, php-format
 msgid "Ending quote %1$s was expected."
-msgstr "O evento %1$s foi criado."
+msgstr "Era esperado fechar aspas %1$s."
 
 #: libraries/sql-parser/src/Lexer.php:878
-#, fuzzy
-#| msgid "Table name template"
 msgid "Variable name was expected."
-msgstr "Modelo de nome da tabela"
+msgstr "Era perado nome de variável."
 
 #: libraries/sql-parser/src/Parser.php:456
-#, fuzzy
-#| msgid "at beginning of table"
 msgid "Unexpected beginning of statement."
-msgstr "No início da tabela"
+msgstr "Início de declaração inesperado."
 
 #: libraries/sql-parser/src/Parser.php:475
 msgid "Unrecognized statement type."
-msgstr ""
+msgstr "Tipo de declaração desconhecido."
 
 #: libraries/sql-parser/src/Parser.php:560
 msgid "No transaction was previously started."
-msgstr ""
+msgstr "Nenhuma operação foi iniciada anteriormente."
 
 #: libraries/sql-parser/src/Statement.php:245
 #: libraries/sql-parser/src/Statements/DeleteStatement.php:250
@@ -14211,50 +14195,40 @@ msgstr ""
 #: libraries/sql-parser/src/Statements/InsertStatement.php:236
 #: libraries/sql-parser/src/Statements/InsertStatement.php:256
 #: libraries/sql-parser/src/Statements/ReplaceStatement.php:201
-#, fuzzy
-#| msgid "Unexpected characters on line %s."
 msgid "Unexpected token."
-msgstr "Há caracteres inesperados na linha %s."
+msgstr "Símbolo (token) inesperado."
 
 #: libraries/sql-parser/src/Statement.php:309
 msgid "This type of clause was previously parsed."
-msgstr ""
+msgstr "Este tipo de sentença foi previamente analisado."
 
 #: libraries/sql-parser/src/Statement.php:369
 msgid "Unrecognized keyword."
-msgstr ""
+msgstr "Comando desconhecido."
 
 #: libraries/sql-parser/src/Statement.php:495
-#, fuzzy
-#| msgid "at beginning of table"
 msgid "Unexpected ordering of clauses."
-msgstr "No início da tabela"
+msgstr "Ordenamento de sentenças inesperado."
 
 #: libraries/sql-parser/src/Statements/CreateStatement.php:381
-#, fuzzy
-#| msgid "The number of tables that are open."
 msgid "The name of the entity was expected."
-msgstr "O número de tabelas que estão abertas."
+msgstr "Era esperado o nome da entidade."
 
 #: libraries/sql-parser/src/Statements/CreateStatement.php:436
-#, fuzzy
-#| msgid "Table name template"
 msgid "A table name was expected."
-msgstr "Modelo de nome da tabela"
+msgstr "Era esperado um nome de tabela."
 
 #: libraries/sql-parser/src/Statements/CreateStatement.php:444
-#, fuzzy
-#| msgid "The row has been deleted."
 msgid "At least one column definition was expected."
-msgstr "Registro eliminado."
+msgstr "Era esperado a definição de pelo menos uma coluna."
 
 #: libraries/sql-parser/src/Statements/CreateStatement.php:555
 msgid "A \"RETURNS\" keyword was expected."
-msgstr ""
+msgstr "Era esperado um comando \"RETURNS\"."
 
 #: libraries/sql-parser/src/Statements/DeleteStatement.php:303
 msgid "This type of clause is not valid in Multi-table queries."
-msgstr ""
+msgstr "Este tipo de sentença não é válida em consultas à várias tabelas."
 
 #: libraries/sql.lib.php:231
 msgid "Detailed profile"

@@ -2,10 +2,8 @@
 
 /**
  * `JOIN` keyword parser.
- *
- * @package    SqlParser
- * @subpackage Components
  */
+
 namespace SqlParser\Components;
 
 use SqlParser\Component;
@@ -17,41 +15,39 @@ use SqlParser\TokensList;
  * `JOIN` keyword parser.
  *
  * @category   Keywords
- * @package    SqlParser
- * @subpackage Components
+ *
  * @license    https://www.gnu.org/licenses/gpl-2.0.txt GPL-2.0+
  */
 class JoinKeyword extends Component
 {
-
     /**
      * Types of join.
      *
      * @var array
      */
     public static $JOINS = array(
-        'CROSS JOIN'                    => 'CROSS',
-        'FULL JOIN'                     => 'FULL',
-        'FULL OUTER JOIN'               => 'FULL',
-        'INNER JOIN'                    => 'INNER',
-        'JOIN'                          => 'JOIN',
-        'LEFT JOIN'                     => 'LEFT',
-        'LEFT OUTER JOIN'               => 'LEFT',
-        'RIGHT JOIN'                    => 'RIGHT',
-        'RIGHT OUTER JOIN'              => 'RIGHT',
-        'NATURAL JOIN'                  => 'NATURAL',
-        'NATURAL LEFT JOIN'             => 'NATURAL LEFT',
-        'NATURAL LEFT JOIN'             => 'NATURAL LEFT',
-        'NATURAL RIGHT JOIN'            => 'NATURAL RIGHT',
-        'NATURAL LEFT OUTER JOIN'       => 'NATURAL LEFT OUTER',
-        'NATURAL RIGHT OUTER JOIN'      => 'NATURAL RIGHT OUTER',
-        'STRAIGHT_JOIN'                 => 'STRAIGHT',
+        'CROSS JOIN' => 'CROSS',
+        'FULL JOIN' => 'FULL',
+        'FULL OUTER JOIN' => 'FULL',
+        'INNER JOIN' => 'INNER',
+        'JOIN' => 'JOIN',
+        'LEFT JOIN' => 'LEFT',
+        'LEFT OUTER JOIN' => 'LEFT',
+        'RIGHT JOIN' => 'RIGHT',
+        'RIGHT OUTER JOIN' => 'RIGHT',
+        'NATURAL JOIN' => 'NATURAL',
+        'NATURAL LEFT JOIN' => 'NATURAL LEFT',
+        'NATURAL RIGHT JOIN' => 'NATURAL RIGHT',
+        'NATURAL LEFT OUTER JOIN' => 'NATURAL LEFT OUTER',
+        'NATURAL RIGHT OUTER JOIN' => 'NATURAL RIGHT OUTER',
+        'STRAIGHT_JOIN' => 'STRAIGHT',
     );
 
     /**
      * Type of this join.
      *
      * @see static::$JOINS
+     *
      * @var string
      */
     public $type;
@@ -71,16 +67,16 @@ class JoinKeyword extends Component
     public $on;
 
     /**
-     * Columns in Using clause
+     * Columns in Using clause.
      *
      * @var ArrayObj
      */
     public $using;
 
     /**
-     * @param Parser     $parser  The parser that serves as context.
-     * @param TokensList $list    The list of tokens that are being parsed.
-     * @param array      $options Parameters for parsing.
+     * @param Parser     $parser  the parser that serves as context
+     * @param TokensList $list    the list of tokens that are being parsed
+     * @param array      $options parameters for parsing
      *
      * @return JoinKeyword[]
      */
@@ -88,7 +84,7 @@ class JoinKeyword extends Component
     {
         $ret = array();
 
-        $expr = new JoinKeyword();
+        $expr = new self();
 
         /**
          * The state of the parser.
@@ -106,7 +102,7 @@ class JoinKeyword extends Component
          *
          *      4 ----------------------[ columns ]--------------------> 0
          *
-         * @var int $state
+         * @var int
          */
         $state = 0;
 
@@ -121,7 +117,7 @@ class JoinKeyword extends Component
             /**
              * Token parsed at this moment.
              *
-             * @var Token $token
+             * @var Token
              */
             $token = $list->tokens[$list->idx];
 
@@ -158,7 +154,7 @@ class JoinKeyword extends Component
                             && (!empty(static::$JOINS[$token->value]))
                         ) {
                             $ret[] = $expr;
-                            $expr = new JoinKeyword();
+                            $expr = new self();
                             $expr->type = static::$JOINS[$token->value];
                             $state = 1;
                         } else {
@@ -170,15 +166,14 @@ class JoinKeyword extends Component
             } elseif ($state === 3) {
                 $expr->on = Condition::parse($parser, $list);
                 $ret[] = $expr;
-                $expr = new JoinKeyword();
+                $expr = new self();
                 $state = 0;
             } elseif ($state === 4) {
                 $expr->using = ArrayObj::parse($parser, $list);
                 $ret[] = $expr;
-                $expr = new JoinKeyword();
+                $expr = new self();
                 $state = 0;
             }
-
         }
 
         if (!empty($expr->type)) {
@@ -186,12 +181,13 @@ class JoinKeyword extends Component
         }
 
         --$list->idx;
+
         return $ret;
     }
 
     /**
-     * @param JoinKeyword[] $component The component to be built.
-     * @param array         $options   Parameters for building.
+     * @param JoinKeyword[] $component the component to be built
+     * @param array         $options   parameters for building
      *
      * @return string
      */
@@ -205,6 +201,7 @@ class JoinKeyword extends Component
                 . (!empty($c->using)
                     ? ' USING ' . ArrayObj::build($c->using) : '');
         }
+
         return implode(' ', $ret);
     }
 }

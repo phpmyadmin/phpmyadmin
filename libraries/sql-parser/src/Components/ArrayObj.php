@@ -2,10 +2,8 @@
 
 /**
  * Parses an array.
- *
- * @package    SqlParser
- * @subpackage Components
  */
+
 namespace SqlParser\Components;
 
 use SqlParser\Component;
@@ -17,13 +15,11 @@ use SqlParser\TokensList;
  * Parses an array.
  *
  * @category   Components
- * @package    SqlParser
- * @subpackage Components
+ *
  * @license    https://www.gnu.org/licenses/gpl-2.0.txt GPL-2.0+
  */
 class ArrayObj extends Component
 {
-
     /**
      * The array that contains the unprocessed value of each token.
      *
@@ -41,8 +37,8 @@ class ArrayObj extends Component
     /**
      * Constructor.
      *
-     * @param array $raw    The unprocessed values.
-     * @param array $values The processed values.
+     * @param array $raw    the unprocessed values
+     * @param array $values the processed values
      */
     public function __construct(array $raw = array(), array $values = array())
     {
@@ -51,41 +47,41 @@ class ArrayObj extends Component
     }
 
     /**
-     * @param Parser     $parser  The parser that serves as context.
-     * @param TokensList $list    The list of tokens that are being parsed.
-     * @param array      $options Parameters for parsing.
+     * @param Parser     $parser  the parser that serves as context
+     * @param TokensList $list    the list of tokens that are being parsed
+     * @param array      $options parameters for parsing
      *
      * @return ArrayObj|Component[]
      */
     public static function parse(Parser $parser, TokensList $list, array $options = array())
     {
-        $ret = empty($options['type']) ? new ArrayObj() : array();
+        $ret = empty($options['type']) ? new self() : array();
 
         /**
          * The last raw expression.
          *
-         * @var string $lastRaw
+         * @var string
          */
         $lastRaw = '';
 
         /**
          * The last value.
          *
-         * @var string $lastValue
+         * @var string
          */
         $lastValue = '';
 
         /**
          * Counts brackets.
          *
-         * @var int $brackets
+         * @var int
          */
         $brackets = 0;
 
         /**
          * Last separator (bracket or comma).
          *
-         * @var boolean $isCommaLast
+         * @var bool
          */
         $isCommaLast = false;
 
@@ -93,7 +89,7 @@ class ArrayObj extends Component
             /**
              * Token parsed at this moment.
              *
-             * @var Token $token
+             * @var Token
              */
             $token = $list->tokens[$list->idx];
 
@@ -175,8 +171,8 @@ class ArrayObj extends Component
     }
 
     /**
-     * @param ArrayObj|ArrayObj[] $component The component to be built.
-     * @param array               $options   Parameters for building.
+     * @param ArrayObj|ArrayObj[] $component the component to be built
+     * @param array               $options   parameters for building
      *
      * @return string
      */

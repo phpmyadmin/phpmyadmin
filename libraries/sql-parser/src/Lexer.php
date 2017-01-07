@@ -6,9 +6,8 @@
  * This is one of the most important components, along with the parser.
  *
  * Depends on context to extract lexemes.
- *
- * @package SqlParser
  */
+
 namespace SqlParser;
 
 require_once 'common.php';
@@ -21,7 +20,7 @@ if (!defined('USE_UTF_STRINGS')) {
     // All `mb_` functions must specify the correct encoding, which is
     // 'UTF-8' in order to work properly.
 
-    /**
+    /*
      * Forces usage of `UtfString` if the string is multibyte.
      * `UtfString` may be slower, but it gives better results.
      *
@@ -37,20 +36,19 @@ if (!defined('USE_UTF_STRINGS')) {
  * The output of the lexer is affected by the context of the SQL statement.
  *
  * @category Lexer
- * @package  SqlParser
+ *
  * @license  https://www.gnu.org/licenses/gpl-2.0.txt GPL-2.0+
+ *
  * @see      Context
  */
 class Lexer
 {
-
     /**
      * A list of methods that are used in lexing the SQL query.
      *
      * @var array
      */
     public static $PARSER_METHODS = array(
-
         // It is best to put the parsers in order of their complexity
         // (ascending) and their occurrence rate (descending).
         //
@@ -76,7 +74,7 @@ class Lexer
 
         'parseDelimiter', 'parseWhitespace', 'parseNumber',
         'parseComment', 'parseOperator', 'parseBool', 'parseString',
-        'parseSymbol', 'parseKeyword', 'parseLabel', 'parseUnknown'
+        'parseSymbol', 'parseKeyword', 'parseLabel', 'parseUnknown',
     );
 
     /**
@@ -161,26 +159,27 @@ class Lexer
     /**
      * Gets the tokens list parsed by a new instance of a lexer.
      *
-     * @param string|UtfString $str       The query to be lexed.
-     * @param bool             $strict    Whether strict mode should be
-     *                                    enabled or not.
-     * @param string           $delimiter The delimiter to be used.
+     * @param string|UtfString $str       the query to be lexed
+     * @param bool             $strict    whether strict mode should be
+     *                                    enabled or not
+     * @param string           $delimiter the delimiter to be used
      *
      * @return TokensList
      */
     public static function getTokens($str, $strict = false, $delimiter = null)
     {
-        $lexer = new Lexer($str, $strict, $delimiter);
+        $lexer = new self($str, $strict, $delimiter);
+
         return $lexer->list;
     }
 
     /**
      * Constructor.
      *
-     * @param string|UtfString $str       The query to be lexed.
-     * @param bool             $strict    Whether strict mode should be
-     *                                    enabled or not.
-     * @param string           $delimiter The delimiter to be used.
+     * @param string|UtfString $str       the query to be lexed
+     * @param bool             $strict    whether strict mode should be
+     *                                    enabled or not
+     * @param string           $delimiter the delimiter to be used
      */
     public function __construct($str, $strict = false, $delimiter = null)
     {
@@ -212,7 +211,7 @@ class Lexer
     /**
      * Sets the delimiter.
      *
-     * @param string $delimiter The new delimiter.
+     * @param string $delimiter the new delimiter
      */
     public function setDelimiter($delimiter)
     {
@@ -222,8 +221,6 @@ class Lexer
 
     /**
      * Parses the string and extracts lexemes.
-     *
-     * @return void
      */
     public function lex()
     {
@@ -241,7 +238,7 @@ class Lexer
         /**
          * Last processed token.
          *
-         * @var Token $lastToken
+         * @var Token
          */
         $lastToken = null;
 
@@ -249,7 +246,7 @@ class Lexer
             /**
              * The new token.
              *
-             * @var Token $token
+             * @var Token
              */
             $token = null;
 
@@ -363,14 +360,12 @@ class Lexer
     /**
      * Creates a new error log.
      *
-     * @param string $msg  The error message.
-     * @param string $str  The character that produced the error.
-     * @param int    $pos  The position of the character.
-     * @param int    $code The code of the error.
+     * @param string $msg  the error message
+     * @param string $str  the character that produced the error
+     * @param int    $pos  the position of the character
+     * @param int    $code the code of the error
      *
-     * @throws LexerException Throws the exception, if strict mode is enabled.
-     *
-     * @return void
+     * @throws LexerException throws the exception, if strict mode is enabled
      */
     public function error($msg = '', $str = '', $pos = 0, $code = 0)
     {
@@ -393,21 +388,21 @@ class Lexer
         /**
          * Value to be returned.
          *
-         * @var Token $ret
+         * @var Token
          */
         $ret = null;
 
         /**
          * The value of `$this->last` where `$token` ends in `$this->str`.
          *
-         * @var int $iEnd
+         * @var int
          */
         $iEnd = $this->last;
 
         /**
          * Whether last parsed character is a whitespace.
          *
-         * @var bool $lastSpace
+         * @var bool
          */
         $lastSpace = false;
 
@@ -438,6 +433,7 @@ class Lexer
         }
 
         $this->last = $iEnd;
+
         return $ret;
     }
 
@@ -453,21 +449,21 @@ class Lexer
         /**
          * Value to be returned.
          *
-         * @var Token $ret
+         * @var Token
          */
         $ret = null;
 
         /**
          * The value of `$this->last` where `$token` ends in `$this->str`.
          *
-         * @var int $iEnd
+         * @var int
          */
         $iEnd = $this->last;
 
         /**
          * Whether last parsed character is a whitespace.
          *
-         * @var bool $lastSpace
+         * @var bool
          */
         $lastSpace = false;
 
@@ -493,6 +489,7 @@ class Lexer
         }
 
         $this->last = $iEnd;
+
         return $ret;
     }
 
@@ -508,14 +505,14 @@ class Lexer
         /**
          * Value to be returned.
          *
-         * @var Token $ret
+         * @var Token
          */
         $ret = null;
 
         /**
          * The value of `$this->last` where `$token` ends in `$this->str`.
          *
-         * @var int $iEnd
+         * @var int
          */
         $iEnd = $this->last;
 
@@ -528,6 +525,7 @@ class Lexer
         }
 
         $this->last = $iEnd;
+
         return $ret;
     }
 
@@ -549,6 +547,7 @@ class Lexer
         }
 
         --$this->last;
+
         return new Token($token, Token::TYPE_WHITESPACE);
     }
 
@@ -612,6 +611,7 @@ class Lexer
                 if ($this->last < $this->len) {
                     $token .= $this->str[$this->last];
                 }
+
                 return new Token($token, Token::TYPE_COMMENT, $flags);
             }
         }
@@ -627,11 +627,13 @@ class Lexer
                     }
                     $token .= "\n"; // Adding the line ending.
                 }
+
                 return new Token($token, Token::TYPE_COMMENT, Token::FLAG_COMMENT_SQL);
             }
         }
 
         $this->last = $iBak;
+
         return null;
     }
 
@@ -662,6 +664,7 @@ class Lexer
         }
 
         $this->last = $iBak;
+
         return null;
     }
 
@@ -797,16 +800,18 @@ class Lexer
             || ($state === 6) || ($state === 9)
         ) {
             --$this->last;
+
             return new Token($token, Token::TYPE_NUMBER, $flags);
         }
         $this->last = $iBak;
+
         return null;
     }
 
     /**
      * Parses a string.
      *
-     * @param string $quote Additional starting symbol.
+     * @param string $quote additional starting symbol
      *
      * @return Token
      */
@@ -844,6 +849,7 @@ class Lexer
         } else {
             $token .= $this->str[$this->last];
         }
+
         return new Token($token, Token::TYPE_STRING, $flags);
     }
 
@@ -905,6 +911,7 @@ class Lexer
             $token .= $this->str[$this->last];
         }
         --$this->last;
+
         return new Token($token);
     }
 
@@ -925,6 +932,7 @@ class Lexer
         }
 
         $this->last += $this->delimiterLen - 1;
+
         return new Token($this->delimiter, Token::TYPE_DELIMITER);
     }
 }

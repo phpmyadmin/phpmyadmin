@@ -2,10 +2,8 @@
 
 /**
  * Exception thrown by the parser.
- *
- * @package    SqlParser
- * @subpackage Exceptions
  */
+
 namespace SqlParser\Exceptions;
 
 use SqlParser\Token;
@@ -14,13 +12,11 @@ use SqlParser\Token;
  * Exception thrown by the parser.
  *
  * @category   Exceptions
- * @package    SqlParser
- * @subpackage Exceptions
+ *
  * @license    https://www.gnu.org/licenses/gpl-2.0.txt GPL-2.0+
  */
 class ParserException extends \Exception
 {
-
     /**
      * The token that produced this error.
      *
@@ -31,9 +27,9 @@ class ParserException extends \Exception
     /**
      * Constructor.
      *
-     * @param string $msg   The message of this exception.
-     * @param Token  $token The token that produced this exception.
-     * @param int    $code  The code of this error.
+     * @param string $msg   the message of this exception
+     * @param Token  $token the token that produced this exception
+     * @param int    $code  the code of this error
      */
     public function __construct($msg = '', Token $token = null, $code = 0)
     {

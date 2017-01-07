@@ -2,10 +2,8 @@
 
 /**
  * Parses a list of options.
- *
- * @package    SqlParser
- * @subpackage Components
  */
+
 namespace SqlParser\Components;
 
 use SqlParser\Component;
@@ -17,13 +15,11 @@ use SqlParser\TokensList;
  * Parses a list of options.
  *
  * @category   Components
- * @package    SqlParser
- * @subpackage Components
+ *
  * @license    https://www.gnu.org/licenses/gpl-2.0.txt GPL-2.0+
  */
 class OptionsArray extends Component
 {
-
     /**
      * ArrayObj of selected options.
      *
@@ -44,41 +40,41 @@ class OptionsArray extends Component
     }
 
     /**
-     * @param Parser     $parser  The parser that serves as context.
-     * @param TokensList $list    The list of tokens that are being parsed.
-     * @param array      $options Parameters for parsing.
+     * @param Parser     $parser  the parser that serves as context
+     * @param TokensList $list    the list of tokens that are being parsed
+     * @param array      $options parameters for parsing
      *
      * @return OptionsArray
      */
     public static function parse(Parser $parser, TokensList $list, array $options = array())
     {
-        $ret = new OptionsArray();
+        $ret = new self();
 
         /**
          * The ID that will be assigned to duplicate options.
          *
-         * @var int $lastAssignedId
+         * @var int
          */
         $lastAssignedId = count($options) + 1;
 
         /**
          * The option that was processed last time.
          *
-         * @var array $lastOption
+         * @var array
          */
         $lastOption = null;
 
         /**
          * The index of the option that was processed last time.
          *
-         * @var int $lastOptionId
+         * @var int
          */
         $lastOptionId = 0;
 
         /**
          * Counts brackets.
          *
-         * @var int $brackets
+         * @var int
          */
         $brackets = 0;
 
@@ -93,7 +89,7 @@ class OptionsArray extends Component
          *
          *      2 ----------------------[ value ]----------------------> 0
          *
-         * @var int $state
+         * @var int
          */
         $state = 0;
 
@@ -101,7 +97,7 @@ class OptionsArray extends Component
             /**
              * Token parsed at this moment.
              *
-             * @var Token $token
+             * @var Token
              */
             $token = $list->tokens[$list->idx];
 
@@ -182,7 +178,7 @@ class OptionsArray extends Component
                         'value' => '',
                     );
                     $state = 1;
-                } elseif ($lastOption[1] === 'expr'  || $lastOption[1] === 'expr=') {
+                } elseif ($lastOption[1] === 'expr' || $lastOption[1] === 'expr=') {
                     // This is a keyword that is followed by an expression.
                     // The expression is used by the specialized parser.
 
@@ -257,7 +253,7 @@ class OptionsArray extends Component
         ) {
             $parser->error(
                 sprintf(
-                    __('Value/Expression for the option %1$s was expected'),
+                    __('Value/Expression for the option %1$s was expected.'),
                     $ret->options[$lastOptionId]['name']
                 ),
                 $list->tokens[$list->idx - 1]
@@ -269,12 +265,13 @@ class OptionsArray extends Component
         }
 
         --$list->idx;
+
         return $ret;
     }
 
     /**
-     * @param OptionsArray $component The component to be built.
-     * @param array        $options   Parameters for building.
+     * @param OptionsArray $component the component to be built
+     * @param array        $options   parameters for building
      *
      * @return string
      */
@@ -294,13 +291,14 @@ class OptionsArray extends Component
                     . (!empty($option['expr']) ? $option['expr'] : $option['value']);
             }
         }
+
         return implode(' ', $options);
     }
 
     /**
      * Checks if it has the specified option and returns it value or true.
      *
-     * @param string $key     The key to be checked.
+     * @param string $key     the key to be checked
      * @param bool   $getExpr Gets the expression instead of the value.
      *                        The value is the processed form of the expression.
      *
@@ -317,15 +315,16 @@ class OptionsArray extends Component
                 return true;
             }
         }
+
         return false;
     }
 
     /**
      * Removes the option from the array.
      *
-     * @param string $key The key to be removed.
+     * @param string $key the key to be removed
      *
-     * @return bool Whether the key was found and deleted or not.
+     * @return bool whether the key was found and deleted or not
      */
     public function remove($key)
     {
@@ -333,13 +332,16 @@ class OptionsArray extends Component
             if (is_array($option)) {
                 if (!strcasecmp($key, $option['name'])) {
                     unset($this->options[$idx]);
+
                     return true;
                 }
             } elseif (!strcasecmp($key, $option)) {
                 unset($this->options[$idx]);
+
                 return true;
             }
         }
+
         return false;
     }
 
@@ -347,15 +349,13 @@ class OptionsArray extends Component
      * Merges the specified options with these ones. Values with same ID will be
      * replaced.
      *
-     * @param array|OptionsArray $options The options to be merged.
-     *
-     * @return void
+     * @param array|OptionsArray $options the options to be merged
      */
     public function merge($options)
     {
         if (is_array($options)) {
             $this->options = array_merge_recursive($this->options, $options);
-        } elseif ($options instanceof OptionsArray) {
+        } elseif ($options instanceof self) {
             $this->options = array_merge_recursive($this->options, $options->options);
         }
     }
