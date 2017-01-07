@@ -569,22 +569,11 @@ AJAX.registerOnload('server_status_monitor.js', function () {
             monitorCharts: gridCopy,
             monitorSettings: monitorSettings
         };
-        $('<form />', {
-            "class": "disableAjax",
-            method: "post",
-            action: "file_echo.php" + PMA_commonParams.get('common_query') + "&filename=1",
-            style: "display:none;"
-        })
-        .append(
-            $('<input />', {
-                type: "hidden",
-                name: "monitorconfig",
-                value: JSON.stringify(exportData)
-            })
-        )
-        .appendTo('body')
-        .submit()
-        .remove();
+
+        var blob = new Blob([JSON.stringify(exportData)], {type: "application/octet-stream"});
+        var url = window.URL.createObjectURL(blob);
+        window.location.href = url;
+        window.URL.revokeObjectURL(url);
     });
 
     $('a[href="#importMonitorConfig"]').click(function (event) {
