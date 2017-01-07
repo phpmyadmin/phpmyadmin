@@ -937,10 +937,8 @@ if (! defined('PMA_MINIMUM_COMMON')
     }
     $cfgRelation = PMA_getRelationsParam();
     if (empty($cfgRelation['db'])) {
-        foreach ($GLOBALS['dblist']->databases as $database) {
-            if ($database == 'phpmyadmin') {
-                PMA_fixPMATables($database, false);
-            }
+        if ($GLOBALS['dblist']->databases->exists('phpmyadmin')) {
+            PMA_fixPMATables('phpmyadmin', false);
         }
     }
 }
