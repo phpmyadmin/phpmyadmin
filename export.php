@@ -23,6 +23,7 @@ if (isset($_POST['output_format']) && $_POST['output_format'] == 'sendit') {
 include_once 'libraries/common.inc.php';
 include_once 'libraries/plugin_interface.lib.php';
 include_once 'libraries/export.lib.php';
+include_once 'libraries/check_user_privileges.lib.php';
 
 //check if it's the GET request to check export time out
 if (isset($_GET['check_time_out'])) {
