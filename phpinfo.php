@@ -18,5 +18,5 @@ $response->getHeader()->sendHttpHeaders();
  * Displays PHP information
  */
 if ($GLOBALS['cfg']['ShowPhpInfo']) {
-    phpinfo();
+    phpinfo(INFO_GENERAL | INFO_CONFIGURATION | INFO_MODULES);
 }
