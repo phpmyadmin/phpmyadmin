@@ -8,8 +8,9 @@
 
 class PMATestCase extends PHPUnit_Framework_TestCase
 {
-    public $restoreInstance;
-    public $attrInstance;
+    protected $restoreInstance = null;
+    protected $attrInstance = null;
+
     /**
      * This method is called before the first test of this test class is run.
      */
@@ -18,6 +19,7 @@ class PMATestCase extends PHPUnit_Framework_TestCase
         require 'libraries/config.default.php';
         $GLOBALS['cfg'] = $cfg;
     }
+
     /**
      * Creates mock of Response object for header testing
      *
@@ -47,6 +49,7 @@ class PMATestCase extends PHPUnit_Framework_TestCase
         $this->attrInstance->setAccessible(true);
         $this->attrInstance->setValue($mockResponse);
     }
+
     /**
      *Tear down function for mockResponse method
      *
@@ -54,11 +57,10 @@ class PMATestCase extends PHPUnit_Framework_TestCase
      */
     protected function tearDown()
     {
-        if(isset($this->attrInstance, $this->restoreInstance))
-        {
+        if (! is_null($this->attrInstance) && ! is_null($this->restoreInstance)) {
             $this->attrInstance->setValue($this->restoreInstance);
-            unset($this->restoreInstance);
-            unset($this->attrInstance);
+            $this->restoreInstance = null;
+            $this->attrInstance = null;
         }
     }
 }
