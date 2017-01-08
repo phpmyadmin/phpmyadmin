@@ -40,7 +40,7 @@ class AuthenticationSignonTest extends PMATestCase
      */
     public function tearDown()
     {
-    	parent::tearDown();
+        parent::tearDown();
         unset($this->object);
     }
 

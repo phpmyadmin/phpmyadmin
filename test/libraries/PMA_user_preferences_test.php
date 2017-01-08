@@ -378,8 +378,6 @@ class PMA_User_Preferences_Test extends PMATestCase
             array('a' => 'b'),
             'h ash'
         );
-
-        $attrInstance->setValue($restoreInstance);
     }
 
     /**
