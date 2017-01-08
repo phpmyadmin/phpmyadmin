@@ -40,6 +40,7 @@ class AuthenticationSignonTest extends PMATestCase
      */
     public function tearDown()
     {
+    	parent::tearDown();
         unset($this->object);
     }
 
@@ -69,31 +70,12 @@ class AuthenticationSignonTest extends PMATestCase
      */
     public function testAuthLogoutURL()
     {
-        $restoreInstance = PMA\libraries\Response::getInstance();
+        $this->mockResponse('Location: https://example.com/logoutURL');
 
-        $mockResponse = $this->getMockBuilder('PMA\libraries\Response')
-            ->disableOriginalConstructor()
-            ->setMethods(array('isAjax', 'headersSent', 'header'))
-            ->getMock();
-
-        $mockResponse->expects($this->any())
-            ->method('headersSent')
-            ->with()
-            ->will($this->returnValue(false));
-
-        $mockResponse->expects($this->once())
-            ->method('header')
-            ->with('Location: https://example.com/logoutURL');
-
-        $attrInstance = new ReflectionProperty('PMA\libraries\Response', '_instance');
-        $attrInstance->setAccessible(true);
-        $attrInstance->setValue($mockResponse);
         $GLOBALS['cfg']['Server']['SignonURL'] = 'https://example.com/SignonURL';
         $GLOBALS['cfg']['Server']['LogoutURL'] = 'https://example.com/logoutURL';
 
         $this->object->logOut();
-
-        $attrInstance->setValue($restoreInstance);
     }
 
     /**
@@ -103,32 +85,13 @@ class AuthenticationSignonTest extends PMATestCase
      */
     public function testAuthLogout()
     {
-        $restoreInstance = PMA\libraries\Response::getInstance();
+        $this->mockResponse('Location: https://example.com/SignonURL');
 
-        $mockResponse = $this->getMockBuilder('PMA\libraries\Response')
-            ->disableOriginalConstructor()
-            ->setMethods(array('isAjax', 'headersSent', 'header'))
-            ->getMock();
-
-        $mockResponse->expects($this->any())
-            ->method('headersSent')
-            ->with()
-            ->will($this->returnValue(false));
-
-        $mockResponse->expects($this->once())
-            ->method('header')
-            ->with('Location: https://example.com/SignonURL');
-
-        $attrInstance = new ReflectionProperty('PMA\libraries\Response', '_instance');
-        $attrInstance->setAccessible(true);
-        $attrInstance->setValue($mockResponse);
         $GLOBALS['header'] = array();
         $GLOBALS['cfg']['Server']['SignonURL'] = 'https://example.com/SignonURL';
         $GLOBALS['cfg']['Server']['LogoutURL'] = '';
 
         $this->object->logOut();
-
-        $attrInstance->setValue($restoreInstance);
     }
 
     /**
@@ -189,25 +152,7 @@ class AuthenticationSignonTest extends PMATestCase
      */
     public function testAuthCheckToken()
     {
-        $restoreInstance = PMA\libraries\Response::getInstance();
-
-        $mockResponse = $this->getMockBuilder('PMA\libraries\Response')
-            ->disableOriginalConstructor()
-            ->setMethods(array('isAjax', 'headersSent', 'header'))
-            ->getMock();
-
-        $mockResponse->expects($this->any())
-            ->method('headersSent')
-            ->with()
-            ->will($this->returnValue(false));
-
-        $mockResponse->expects($this->once())
-            ->method('header')
-            ->with('Location: https://example.com/SignonURL');
-
-        $attrInstance = new ReflectionProperty('PMA\libraries\Response', '_instance');
-        $attrInstance->setAccessible(true);
-        $attrInstance->setValue($mockResponse);
+        $this->mockResponse('Location: https://example.com/SignonURL');
 
         $GLOBALS['cfg']['Server']['SignonURL'] = 'https://example.com/SignonURL';
         $GLOBALS['cfg']['Server']['SignonSession'] = 'session123';
@@ -254,7 +199,6 @@ class AuthenticationSignonTest extends PMATestCase
         $this->assertFalse(
             isset($_SESSION['LAST_SIGNON_URL'])
         );
-        $attrInstance->setValue($restoreInstance);
     }
 
     /**
