@@ -37,11 +37,28 @@ class PMA_Form_Processing_Test extends PHPUnit_Framework_TestCase
      */
     public function testProcessFormSet()
     {
-        if (!defined('PMA_TEST_HEADERS')) {
-            $this->markTestSkipped(
-                'Cannot redefine constant/function - missing runkit extension'
+        $restoreInstance = PMA\libraries\Response::getInstance();
+
+        $mockResponse = $this->getMockBuilder('PMA\libraries\Response')
+            ->disableOriginalConstructor()
+            ->setMethods(array('header', 'headersSent'))
+            ->getMock();
+
+        $mockResponse->expects($this->exactly(2))
+            ->method('header')
+            ->withConsecutive(
+                ['HTTP/1.1 303 See Other'],
+                ['Location: index.php?lang=en']
             );
-        }
+
+        $mockResponse->expects($this->any())
+            ->method('headersSent')
+            ->with()
+            ->will($this->returnValue(false));
+
+        $attrInstance = new ReflectionProperty('PMA\libraries\Response', '_instance');
+        $attrInstance->setAccessible(true);
+        $attrInstance->setValue($mockResponse);
 
         // case 1
         $formDisplay = $this->getMockBuilder('PMA\libraries\config\FormDisplay')
@@ -118,12 +135,6 @@ class PMA_Form_Processing_Test extends PHPUnit_Framework_TestCase
 
         PMA_Process_formset($formDisplay);
 
-        $this->assertEquals(
-            array('HTTP/1.1 303 See Other', 'Location: index.php?lang=en'),
-            $GLOBALS['header']
-        );
-
     }
-
 
 }

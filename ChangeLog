@@ -37,6 +37,10 @@ phpMyAdmin - ChangeLog
 - issue #12713 Correctly handle HTTP status when doing requests
 - issue #12247 Add option to delete settings from browser storage
 - issue #12783 Remove unused PMA_addJSCode function
+- issue #12069 Add table filtering to database structure
+- issue #12799 Allow to configure signon session parameters
+- issue #12854 Drop database is broken
+- issue #12863 Can't toggle Event Scheduler on
 
 4.6.6 (not yet released)
 - issue #12759 Fix Notice regarding 'Undefined index: old_usergroup'
@@ -52,11 +56,21 @@ phpMyAdmin - ChangeLog
 - issue #12786 Fixed database searching
 - issue #12792 Fixed javascript error on new version link
 - issue #12785 Add information about required and suggested extensions to composer.json
+- issue #12801 Custom header shown twice with cookie login form
+- issue #12802 Custom footer not shown with auth_type http login failure
 - issue #12434 Improve documentation for servers running with Suhosin
 - issue #12800 Updated embedded phpSecLib to 2.0.4
 - issue #12800 Fixed various issues with PHP 7.1
 - issue #11816 Fixed operation with lower_case_table_names=2
 - issue #12813 Fixed stored procedure execution
+- issue #12826 Honor user configured connection collation
+- issue #12293 Correctly report OpenSSL errors from cookie encryption
+- issue #12814 DateTime won't allow to input length in Routine editor
+- issue #12841 Fixed moving of columns with whitespace in name
+- issue #12847 Fixed editing of virtual columns
+- issue #12859 Changed WHERE condition to 0 instead of 1 for SQL query window to avoid accidents
+- issue #12872 Use same query for display and execution when dropping index
+- issue #12868 Fix check for user groups freatures being enabled
 
 4.6.5.2 (2016-12-05)
 - issue #12765 Fixed SQL export with newlines

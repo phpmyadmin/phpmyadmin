@@ -43,7 +43,7 @@ AJAX.registerOnload('server_status_advisor.js', function () {
     var $cnt = $('#statustabs_advisor');
     var $tbody, $tr, str, even = true;
 
-    data = $.parseJSON($('#advisorData').text());
+    data = JSON.parse($('#advisorData').text());
     $cnt.html('');
 
     if (data.parse.errors.length > 0) {

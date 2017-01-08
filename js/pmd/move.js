@@ -14,30 +14,23 @@ var show_relation_lines = true;
 var always_show_text = false;
 
 AJAX.registerTeardown('pmd/move.js', function () {
-    if ($.FullScreen.supported) {
-        $(document).unbind($.FullScreen.prefix + 'fullscreenchange');
-    }
-
+    $(document).off('fullscreenchange');
     $('#selflink').show();
 });
 
 AJAX.registerOnload('pmd/move.js', function () {
     $('#page_content').css({'margin-left': '3px'});
-    if ($.FullScreen.supported) {
-        $(document).fullScreenChange(function () {
-            if (! $.FullScreen.isFullScreen()) {
-                $('#page_content').removeClass('content_fullscreen')
-                    .css({'width': 'auto', 'height': 'auto'});
-                var $img = $('#toggleFullscreen').find('img');
-                var $span = $img.siblings('span');
-                $span.text($span.data('enter'));
-                $img.attr('src', $img.data('enter'))
-                    .attr('title', $span.data('enter'));
-            }
-        });
-    } else {
-        $('#toggleFullscreen').hide();
-    }
+    $(document).on('fullscreenchange', function () {
+        if (! $.fn.fullScreen()) {
+            $('#page_content').removeClass('content_fullscreen')
+                .css({'width': 'auto', 'height': 'auto'});
+            var $img = $('#toggleFullscreen').find('img');
+            var $span = $img.siblings('span');
+            $span.text($span.data('enter'));
+            $img.attr('src', $img.data('enter'))
+                .attr('title', $span.data('enter'));
+        }
+    });
 
     $('#selflink').hide();
 });
@@ -582,18 +575,18 @@ function Toggle_fullscreen()
     var value_sent = '';
     var $img = $('#toggleFullscreen').find('img');
     var $span = $img.siblings('span');
-    if (! $.FullScreen.isFullScreen()) {
+    var $content = $('#page_content');
+    if (! $content.fullScreen()) {
         $img.attr('src', $img.data('exit'))
             .attr('title', $span.data('exit'));
         $span.text($span.data('exit'));
-        $('#page_content')
+        $content
             .addClass('content_fullscreen')
-            .css({'width': screen.width - 5, 'height': screen.height - 5})
-            .requestFullScreen();
+            .css({'width': screen.width - 5, 'height': screen.height - 5});
         value_sent = 'on';
-    }
-    if ($.FullScreen.isFullScreen()) {
-        $.FullScreen.cancelFullScreen();
+        $content.fullScreen(true);
+    } else {
+        $content.fullScreen(false);
         value_sent = 'off';
     }
     saveValueInConfig('full_screen', value_sent);

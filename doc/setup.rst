@@ -154,8 +154,13 @@ download it using:
     docker pull phpmyadmin/phpmyadmin
 
 The phpMyAdmin server will be executed on port 80. It supports several ways of
-configuring the link to the database server, which you can manage using
-environment variables:
+configuring the link to the database server, either by Docker's link feature
+by linking your database container to ``db`` for phpMyAdmin (by specifying
+``--link your_db_host:db``) or by environment variables (in this case it's up
+to you to setup networking in Docker to allow phpMyAdmin container to access
+the database container over network).
+
+You can configure several phpMyAdmin features using environment variables:
 
 .. envvar:: PMA_ARBITRARY
 
@@ -816,7 +821,8 @@ Signon authentication mode
   application to authenticate to phpMyAdmin to implement single signon
   solution.
 * The other application has to store login information into session
-  data (see :config:option:`$cfg['Servers'][$i]['SignonSession']`) or you
+  data (see :config:option:`$cfg['Servers'][$i]['SignonSession']` and
+  :config:option:`$cfg['Servers'][$i]['SignonCookieParams']`) or you
   need to implement script to return the credentials (see
   :config:option:`$cfg['Servers'][$i]['SignonScript']`).
 * When no credentials are available, the user is being redirected to
@@ -846,6 +852,7 @@ in :file:`examples/signon-script.php`:
 .. seealso::
     :config:option:`$cfg['Servers'][$i]['auth_type']`,
     :config:option:`$cfg['Servers'][$i]['SignonSession']`,
+    :config:option:`$cfg['Servers'][$i]['SignonCookieParams']`,
     :config:option:`$cfg['Servers'][$i]['SignonScript']`,
     :config:option:`$cfg['Servers'][$i]['SignonURL']`,
     :ref:`example-signon`

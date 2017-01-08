@@ -126,7 +126,7 @@ function loadTemplate(id)
     $.post('tbl_export.php', params, function (response) {
         if (response.success === true) {
             var $form = $('form[name="dump"]');
-            var options = $.parseJSON(response.data);
+            var options = JSON.parse(response.data);
             $.each(options, function (key, value) {
                 var $element = $form.find('[name="' + key + '"]');
                 if ($element.length) {

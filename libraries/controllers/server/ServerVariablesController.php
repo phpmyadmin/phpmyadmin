@@ -45,8 +45,8 @@ class ServerVariablesController extends Controller
      */
     public function indexAction()
     {
-        $request = Request::getInstance();
-        if ($request->isAjax()
+        $response = Response::getInstance();
+        if ($response->isAjax()
             && isset($_REQUEST['type'])
             && $_REQUEST['type'] === 'getval'
         ) {
@@ -54,7 +54,7 @@ class ServerVariablesController extends Controller
             return;
         }
 
-        if ($request->isAjax()
+        if ($response->isAjax()
             && isset($_REQUEST['type'])
             && $_REQUEST['type'] === 'setval'
         ) {

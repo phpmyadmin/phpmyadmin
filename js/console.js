@@ -190,7 +190,7 @@ var PMA_console = {
                     return;
                 }
                 try {
-                    var data = $.parseJSON(xhr.responseText);
+                    var data = JSON.parse(xhr.responseText);
                     PMA_console.ajaxCallback(data);
                 } catch (e) {
                     console.log("Invalid JSON!" + e.message);
