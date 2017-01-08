@@ -23,7 +23,7 @@ class PMATestCase extends PHPUnit_Framework_TestCase
     /**
      * Creates mock of Response object for header testing
      *
-     * @param string $param parameter for header method
+     * @param mixed $param parameter for header method
      *
      * @return void
      */
@@ -33,17 +33,26 @@ class PMATestCase extends PHPUnit_Framework_TestCase
 
         $mockResponse = $this->getMockBuilder('PMA\libraries\Response')
             ->disableOriginalConstructor()
-            ->setMethods(array('header', 'headersSent'))
+            ->setMethods(array('header', 'headersSent', 'disable', 'isAjax'))
             ->getMock();
-
-        $mockResponse->expects($this->once())
-            ->method('header')
-            ->with($param);
 
         $mockResponse->expects($this->any())
             ->method('headersSent')
             ->with()
             ->will($this->returnValue(false));
+
+        $param = func_get_args();
+
+        if (is_array($param[0])) {
+            $header_method = $mockResponse->expects($this->exactly(count($param)))
+                ->method('header');
+
+            call_user_func_array(array($header_method, 'withConsecutive'), $param);
+        } else {
+            $mockResponse->expects($this->once())
+                ->method('header')
+                ->with($param[0]);
+        }
 
         $this->attrInstance = new ReflectionProperty('PMA\libraries\Response', '_instance');
         $this->attrInstance->setAccessible(true);
