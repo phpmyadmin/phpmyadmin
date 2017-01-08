@@ -585,10 +585,10 @@ function setTab(tab_id)
 {
     $('ul.tabs').each(function() {
         var $this = $(this);
-        if (!$this.find('li a[href=#' + tab_id + ']').length) {
+        if (!$this.find('li a[href="#' + tab_id + '"]').length) {
             return;
         }
-        $this.find('li').removeClass('active').find('a[href=#' + tab_id + ']').parent().addClass('active');
+        $this.find('li').removeClass('active').find('a[href="#' + tab_id + '"]').parent().addClass('active');
         $this.parent().find('div.tabs_contents fieldset').hide().filter('#' + tab_id).show();
         var hashValue = 'tab_' + tab_id;
         location.hash = hashValue;

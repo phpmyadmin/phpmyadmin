@@ -1162,7 +1162,7 @@ function PMA_RTN_getQueryFromRequest()
                 }
                 if ($item_param_length[$i] != ''
                     && !preg_match(
-                        '@^(DATE|DATETIME|TIME|TINYBLOB|TINYTEXT|BLOB|TEXT|'
+                        '@^(DATE|TINYBLOB|TINYTEXT|BLOB|TEXT|'
                         . 'MEDIUMBLOB|MEDIUMTEXT|LONGBLOB|LONGTEXT|'
                         . 'SERIAL|BOOLEAN)$@i',
                         $item_param_type[$i]

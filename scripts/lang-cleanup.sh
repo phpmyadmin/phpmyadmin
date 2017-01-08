@@ -14,6 +14,7 @@ if [ $# -lt 1 ] ; then
     echo "Usage: lang-cleanup.sh type"
     echo "Type can be one of:"
     echo "  all-languages - nothing will be done"
+    echo "  source - nothing will be done"
     echo "  english - no translations will be kept"
     echo "  langcode - keeps language"
     echo
@@ -25,7 +26,7 @@ fi
 match=""
 for type in "$@" ; do
     case $type in
-        all-languages)
+        all-languages|source)
             exit 0
             ;;
         english)

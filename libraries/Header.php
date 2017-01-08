@@ -10,6 +10,7 @@ namespace PMA\libraries;
 use PMA\libraries\navigation\Navigation;
 use PMA\libraries\URL;
 use PMA\libraries\Sanitize;
+use PMA\libraries\Config;
 
 
 /**
@@ -151,14 +152,15 @@ class Header
         if (isset($GLOBALS['db'])) {
             $params['db'] = $GLOBALS['db'];
         }
-        $this->_scripts->addFile('jquery/jquery-2.1.4.min.js');
+        $this->_scripts->addFile('jquery/jquery.min.js');
+        $this->_scripts->addFile('jquery/jquery-migrate-3.0.0.js');
         $this->_scripts->addFile(
             'whitelist.php' . URL::getCommon($params), false, true
         );
         $this->_scripts->addFile('sprintf.js');
         $this->_scripts->addFile('ajax.js');
         $this->_scripts->addFile('keyhandler.js');
-        $this->_scripts->addFile('jquery/jquery-ui-1.11.4.min.js');
+        $this->_scripts->addFile('jquery/jquery-ui.min.js');
         $this->_scripts->addFile('jquery/jquery.cookie.js');
         $this->_scripts->addFile('jquery/jquery.mousewheel.js');
         $this->_scripts->addFile('jquery/jquery.event.drag-2.2.js');
@@ -430,14 +432,7 @@ class Header
                     $retval .= $nav->getDisplay();
                 }
                 // Include possible custom headers
-                if (file_exists(CUSTOM_HEADER_FILE)) {
-                    $retval .= '<div id="pma_header">';
-                    ob_start();
-                    include CUSTOM_HEADER_FILE;
-                    $retval .= ob_get_contents();
-                    ob_end_clean();
-                    $retval .= '</div>';
-                }
+                $retval .= Config::renderHeader();
                 // offer to load user preferences from localStorage
                 if ($this->_userprefsOfferImport) {
                     include_once './libraries/user_preferences.lib.php';
@@ -677,7 +672,7 @@ class Header
             // load jQuery's CSS prior to our theme's CSS, to let the theme
             // override jQuery's CSS
             $retval .= '<link rel="stylesheet" type="text/css" href="'
-                . $theme_path . '/jquery/jquery-ui-1.11.4.css" />';
+                . $theme_path . '/jquery/jquery-ui.css" />';
             $retval .= '<link rel="stylesheet" type="text/css" href="'
                 . $basedir . 'js/codemirror/lib/codemirror.css?' . $v . '" />';
             $retval .= '<link rel="stylesheet" type="text/css" href="'

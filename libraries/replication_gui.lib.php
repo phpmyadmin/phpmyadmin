@@ -402,7 +402,7 @@ function PMA_getHtmlForReplicationChangeMaster($submitname)
     $html .= '  <legend>' . __('Slave configuration');
     $html .= ' - ' . __('Change or reconfigure master server') . '</legend>';
     $html .= __(
-        'Make sure, you have unique server-id in your configuration file (my.cnf). '
+        'Make sure you have a unique server-id in your configuration file (my.cnf). '
         . 'If not, please add the following line into [mysqld] section:'
     );
     $html .= '<br />';

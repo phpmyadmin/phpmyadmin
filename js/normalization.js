@@ -151,7 +151,7 @@ function goToStep3()
             $("#mainContent #extra").html(data.extra);
             $("#mainContent #newCols").html('');
             $('.tblFooters').html('');
-            primary_key = $.parseJSON(data.primary_key);
+            primary_key = JSON.parse(data.primary_key);
             for(var pk in primary_key) {
                 $("#extra input[value='" + escapeJsString(primary_key[pk]) + "']").attr("disabled","disabled");
             }
@@ -357,7 +357,7 @@ function goTo3NFStep2(pd, tablesTds)
             data: datastring,
             async:false,
             success: function(data) {
-                data_parsed = $.parseJSON(data.message);
+                data_parsed = JSON.parse(data.message);
                 if (data.success === true) {
                     extra += data_parsed.html;
                 } else {
