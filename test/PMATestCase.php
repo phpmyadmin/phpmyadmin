@@ -47,4 +47,18 @@ class PMATestCase extends PHPUnit_Framework_TestCase
         $this->attrInstance->setAccessible(true);
         $this->attrInstance->setValue($mockResponse);
     }
+    /**
+     *Tear down function for mockResponse method
+     *
+     *@return void
+     */
+    protected function tearDown()
+    {
+        if(isset($this->attrInstance, $this->restoreInstance))
+        {
+            $this->attrInstance->setValue($this->restoreInstance);
+            unset($this->restoreInstance);
+            unset($this->attrInstance);
+        }
+    }
 }

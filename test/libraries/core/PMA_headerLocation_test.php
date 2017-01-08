@@ -149,18 +149,4 @@ class PMA_HeaderLocation_Test extends PMATestCase
 
         $attrInstance->setValue($restoreInstance);
     }
-    /**
-     *Tear down function for mockResponse method
-     *
-     *@return void
-     */
-    public function tearDown()
-    {
-        if(isset($this->attrInstance, $this->restoreInstance))
-        {
-            $this->attrInstance->setValue($this->restoreInstance);
-            unset($this->restoreInstance);
-            unset($this->attrInstance);
-        }
-    }
 }
