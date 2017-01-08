@@ -16,9 +16,10 @@ AJAX.registerOnload('server_status_queries.js', function () {
     // Build query statistics chart
     var cdata = [];
     try {
-        $.each(jQuery.parseJSON($('#serverstatusquerieschart_data').text()), function (key, value) {
+        $.each(jQuery.parseJSON($('#serverstatusquerieschart').text()), function (key, value) {
             cdata.push([key, parseInt(value, 10)]);
         });
+        $('#serverstatusquerieschart').empty();
         $('#serverstatusquerieschart').data(
             'queryPieChart',
             PMA_createProfilingChart(

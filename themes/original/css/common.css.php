@@ -978,7 +978,6 @@ div#serverstatusquerieschart {
     width:500px;
     height:350px;
     padding-<?php echo $left; ?>: 30px;
-    display: none;
 }
 
 div#serverstatus table#serverstatusqueriesdetails {
