@@ -6,13 +6,10 @@
  * @package PhpMyAdmin-test
  */
 
-/**
- * Base class for phpMyAdmin tests.
- *
- * @package PhpMyAdmin-test
- */
 class PMATestCase extends PHPUnit_Framework_TestCase
 {
+    public $restoreInstance;
+    public $attrInstance;
     /**
      * This method is called before the first test of this test class is run.
      */
@@ -20,5 +17,48 @@ class PMATestCase extends PHPUnit_Framework_TestCase
     {
         require 'libraries/config.default.php';
         $GLOBALS['cfg'] = $cfg;
+    }
+    /**
+     * Creates mock of Response object for header testing
+     *
+     * @param string $param parameter for header method
+     *
+     * @return void
+     */
+    public function mockResponse($param)
+    {
+        $this->restoreInstance = PMA\libraries\Response::getInstance();
+
+        $mockResponse = $this->getMockBuilder('PMA\libraries\Response')
+            ->disableOriginalConstructor()
+            ->setMethods(array('header', 'headersSent'))
+            ->getMock();
+
+        $mockResponse->expects($this->once())
+            ->method('header')
+            ->with($param);
+
+        $mockResponse->expects($this->any())
+            ->method('headersSent')
+            ->with()
+            ->will($this->returnValue(false));
+
+        $this->attrInstance = new ReflectionProperty('PMA\libraries\Response', '_instance');
+        $this->attrInstance->setAccessible(true);
+        $this->attrInstance->setValue($mockResponse);
+    }
+    /**
+     *Tear down function for mockResponse method
+     *
+     *@return void
+     */
+    protected function tearDown()
+    {
+        if(isset($this->attrInstance, $this->restoreInstance))
+        {
+            $this->attrInstance->setValue($this->restoreInstance);
+            unset($this->restoreInstance);
+            unset($this->attrInstance);
+        }
     }
 }
