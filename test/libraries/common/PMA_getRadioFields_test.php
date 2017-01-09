@@ -32,7 +32,7 @@ class PMA_GetRadioFieldsTest extends PHPUnit_Framework_TestCase
 
         $this->assertEquals(
             PMA\libraries\Util::getRadioFields($name, $choices),
-            ""
+            "<root></root>"
         );
     }
 
@@ -47,6 +47,7 @@ class PMA_GetRadioFieldsTest extends PHPUnit_Framework_TestCase
         $choices = array('value_1'=>'choice_1', 'value_2'=>'choice_2');
 
         $out = "";
+        $out .='<root>';
         foreach ($choices as $choice_value => $choice_label) {
             $html_field_id = $name . '_' . $choice_value;
             $out .= '<input type="radio" name="' . $name . '" id="' . $html_field_id
@@ -56,9 +57,10 @@ class PMA_GetRadioFieldsTest extends PHPUnit_Framework_TestCase
                 . '</label>';
             $out .= '<br />';
             $out .= "\n";
-        }
 
-        $this->assertEquals(
+        }
+        $out .='</root>';
+        $this->assertXmlStringEqualsXmlString(
             PMA\libraries\Util::getRadioFields($name, $choices),
             $out
         );
@@ -76,6 +78,7 @@ class PMA_GetRadioFieldsTest extends PHPUnit_Framework_TestCase
         $checked_choice = "value_2";
 
         $out = "";
+        $out .='<root>';
         foreach ($choices as $choice_value => $choice_label) {
             $html_field_id = $name . '_' . $choice_value;
             $out .= '<input type="radio" name="' . $name . '" id="' . $html_field_id
@@ -88,9 +91,11 @@ class PMA_GetRadioFieldsTest extends PHPUnit_Framework_TestCase
                 . '</label>';
             $out .= '<br />';
             $out .= "\n";
-        }
 
-        $this->assertEquals(
+        }
+        $out .='</root>';
+
+        $this->assertXmlStringEqualsXmlString(
             PMA\libraries\Util::getRadioFields(
                 $name, $choices, $checked_choice
             ),
@@ -111,6 +116,7 @@ class PMA_GetRadioFieldsTest extends PHPUnit_Framework_TestCase
         $class = "test_class";
 
         $out = "";
+        $out .='<root>';
         foreach ($choices as $choice_value => $choice_label) {
             $html_field_id = $name . '_' . $choice_value;
             $out .= '<div class="' . $class . '">';
@@ -126,8 +132,9 @@ class PMA_GetRadioFieldsTest extends PHPUnit_Framework_TestCase
             $out .= '</div>';
             $out .= "\n";
         }
+            $out .='</root>';
 
-        $this->assertEquals(
+        $this->assertXmlStringEqualsXmlString(
             PMA\libraries\Util::getRadioFields(
                 $name, $choices, $checked_choice, true, false, $class
             ),
@@ -143,10 +150,11 @@ class PMA_GetRadioFieldsTest extends PHPUnit_Framework_TestCase
     function testGetRadioFieldsWithoutBR()
     {
         $name = "test_display_radio";
-        $choices = array('value_1'=>'choice_1', 'value&_&lt;2&gt;'=>'choice_2');
+        $choices = array('value_1'=>'choice_1', 'value&amp;_&amp;lt;2&amp;gt;'=>'choice_2');
         $checked_choice = "choice_2";
 
         $out = "";
+        $out .='<root>';
         foreach ($choices as $choice_value => $choice_label) {
             $html_field_id = $name . '_' . $choice_value;
             $out .= '<input type="radio" name="' . $name . '" id="' . $html_field_id
@@ -159,8 +167,9 @@ class PMA_GetRadioFieldsTest extends PHPUnit_Framework_TestCase
                 . '</label>';
             $out .= "\n";
         }
+            $out .='</root>';
 
-        $this->assertEquals(
+        $this->assertXmlStringEqualsXmlString(
             PMA\libraries\Util::getRadioFields(
                 $name, $choices, $checked_choice, false
             ),
@@ -176,10 +185,11 @@ class PMA_GetRadioFieldsTest extends PHPUnit_Framework_TestCase
     function testGetRadioFieldsEscapeLabelEscapeLabel()
     {
         $name = "test_display_radio";
-        $choices = array('value_1'=>'choice_1', 'value_&2'=>'choice&_&lt;2&gt;');
+        $choices = array('value_1'=>'choice_1', 'value_&amp;2'=>'choice&amp;_&amp;lt;2&amp;gt;');
         $checked_choice = "value_2";
 
         $out = "";
+        $out .='<root>';
         foreach ($choices as $choice_value => $choice_label) {
             $html_field_id = $name . '_' . $choice_value;
             $out .= '<input type="radio" name="' . $name . '" id="' . $html_field_id
@@ -193,8 +203,9 @@ class PMA_GetRadioFieldsTest extends PHPUnit_Framework_TestCase
             $out .= '<br />';
             $out .= "\n";
         }
+            $out .='</root>';
 
-        $this->assertEquals(
+        $this->assertXmlStringEqualsXmlString(
             PMA\libraries\Util::getRadioFields(
                 $name, $choices, $checked_choice, true, true
             ),
@@ -210,10 +221,11 @@ class PMA_GetRadioFieldsTest extends PHPUnit_Framework_TestCase
     function testGetRadioFieldsEscapeLabelNotEscapeLabel()
     {
         $name = "test_display_radio";
-        $choices = array('value_1'=>'choice_1', 'value_&2'=>'choice&_&lt;2&gt;');
+        $choices = array('value_1'=>'choice_1', 'value_&amp;2'=>'choice&amp;_&amp;lt;2&amp;gt;');
         $checked_choice = "value_2";
 
         $out = "";
+        $out .='<root>';
         foreach ($choices as $choice_value => $choice_label) {
             $html_field_id = $name . '_' . $choice_value;
             $out .= '<input type="radio" name="' . $name . '" id="' . $html_field_id
@@ -227,8 +239,9 @@ class PMA_GetRadioFieldsTest extends PHPUnit_Framework_TestCase
             $out .= '<br />';
             $out .= "\n";
         }
+            $out .='</root>';
 
-        $this->assertEquals(
+        $this->assertXmlStringEqualsXmlString(
             PMA\libraries\Util::getRadioFields(
                 $name, $choices, $checked_choice, true, false
             ),
@@ -244,11 +257,12 @@ class PMA_GetRadioFieldsTest extends PHPUnit_Framework_TestCase
     function testGetRadioFieldsEscapeLabelEscapeLabelWithClass()
     {
         $name = "test_display_radio";
-        $choices = array('value_1'=>'choice_1', 'value_&2'=>'choice&_&lt;2&gt;');
+        $choices = array('value_1'=>'choice_1', 'value_&amp;2'=>'choice&amp;_&amp;lt;2&amp;gt;');
         $checked_choice = "value_2";
         $class = "test_class";
 
         $out = "";
+        $out .='<root>';
         foreach ($choices as $choice_value => $choice_label) {
             $html_field_id = $name . '_' . $choice_value;
             $out .= '<div class="' . $class . '">';
@@ -264,8 +278,9 @@ class PMA_GetRadioFieldsTest extends PHPUnit_Framework_TestCase
             $out .= '</div>';
             $out .= "\n";
         }
+            $out .='</root>';
 
-        $this->assertEquals(
+        $this->assertXmlStringEqualsXmlString(
             PMA\libraries\Util::getRadioFields(
                 $name, $choices, $checked_choice, true, true, $class
             ),

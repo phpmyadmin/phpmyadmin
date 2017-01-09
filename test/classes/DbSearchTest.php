@@ -188,8 +188,8 @@ class DbSearchTest extends PMATestCase
      */
     public function testGetSelectionForm()
     {
-        $this->assertEquals(
-            '<a id="db_search"></a><form id="db_search_form" class="ajax lock-page" '
+        $this->assertXmlStringEqualsXmlString(
+            '<main><a id="db_search"></a><form id="db_search_form" class="ajax lock-page" '
             . 'method="post" action="db_search.php" name="db_search">'
             . '<input type="hidden" name="db" value="pma" />'
             . '<input type="hidden" name="lang" value="en" />'
@@ -197,8 +197,8 @@ class DbSearchTest extends PMATestCase
             . '<input type="hidden" name="token" value="token" />'
             . '<fieldset><legend>Search in database</legend><table class='
             . '"formlayout"><tr><td>Words or values to search for (wildcard: "%"):'
-            . '</td><td><input type="text" name="criteriaSearchString" size="60" '
-            . 'value="" /></td></tr><tr><td class="right vtop">Find:</td><td><input '
+            . '</td><td><input type="text" name="criteriaSearchString" size="60"'
+            . ' value=""/></td></tr><tr><td class="right vtop">Find:</td><td><root><input '
             . 'type="radio" name="criteriaSearchType" id="criteriaSearchType_1" '
             . 'value="1" checked="checked" />' . "\n"
             . '<label for="criteriaSearchType_1">at least one of the words<span '
@@ -220,21 +220,21 @@ class DbSearchTest extends PMATestCase
             . '"./url.php?url=https%3A%2F%2Fdev.mysql.com%2Fdoc%2Frefman%2F5.7%2Fen'
             . '%2Fregexp.html" target='
             . '"mysql_doc"><img src="themes/dot.gif" title="Documentation"'
-            . ' alt="Documentation" class="icon ic_b_help" /></a></label><br />' . "\n"
+            . ' alt="Documentation" class="icon ic_b_help" /></a></label><br /></root>' . "\n"
             . '</td></tr><tr><td class="right vtop">Inside tables:</td>'
             . '<td rowspan="2"><select name="criteriaTables[]" size="6" '
             . 'multiple="multiple"><option value="table1">table1</option>'
             . '<option value="table2">table2</option></select></td></tr><tr>'
             . '<td class="right vbottom"><a href="#" onclick="setSelectOptions'
             . '(\'db_search\', \'criteriaTables[]\', true); return false;">Select '
-            . 'all</a> &nbsp;/&nbsp;<a href="#" onclick="setSelectOptions'
+            . 'all</a>&#xA0;/&#xA0;<a href="#" onclick="setSelectOptions'
             . '(\'db_search\', \'criteriaTables[]\', false); return false;">Unselect'
             . ' all</a></td></tr><tr><td class="right">Inside column:</td><td>'
-            . '<input type="text" name="criteriaColumnName" size="60"value="" />'
+            . '<input type="text" name="criteriaColumnName" size="60" value="" />'
             . '</td></tr></table></fieldset><fieldset class="tblFooters"><input '
             . 'type="submit" name="submit_search" value="Go" id="buttonGo" />'
             . '</fieldset></form><div id="togglesearchformdiv">'
-            . '<a id="togglesearchformlink"></a></div>',
+            . '<a id="togglesearchformlink"></a></div></main>',
             $this->object->getSelectionForm()
         );
     }

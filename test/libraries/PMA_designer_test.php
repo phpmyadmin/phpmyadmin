@@ -160,9 +160,8 @@ class PMA_DesignerTest extends PHPUnit_Framework_TestCase
         $this->assertContains('page2', $result);
 
         $this->assertContains(
-            '<input type="radio" name="save_page" id="save_page_same" value="same"'
-            . ' checked="checked" />',
-            $result
+            '<input type="radio" name="save_page" id="save_page_same" value="same" checked="checked" />',
+            $result,true
         );
         $this->assertContains(
             '<input type="radio" name="save_page" id="save_page_new" value="new" />',

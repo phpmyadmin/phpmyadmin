@@ -2612,44 +2612,18 @@ class Util
         $line_break = true, $escape_label = true, $class = '',
         $id_prefix = ''
     ) {
-        $radio_html = '';
-
-        foreach ($choices as $choice_value => $choice_label) {
-
-            if (! empty($class)) {
-                $radio_html .= '<div class="' . $class . '">';
-            }
-
-            if (! $id_prefix) {
-                $id_prefix = $html_field_name;
-            }
-            $html_field_id = $id_prefix . '_' . $choice_value;
-            $radio_html .= '<input type="radio" name="' . $html_field_name . '" id="'
-                        . $html_field_id . '" value="'
-                        . htmlspecialchars($choice_value) . '"';
-
-            if ($choice_value == $checked_choice) {
-                $radio_html .= ' checked="checked"';
-            }
-
-            $radio_html .= ' />' . "\n"
-                        . '<label for="' . $html_field_id . '">'
-                        . ($escape_label
-                        ? htmlspecialchars($choice_label)
-                        : $choice_label)
-                        . '</label>';
-
-            if ($line_break) {
-                $radio_html .= '<br />';
-            }
-
-            if (! empty($class)) {
-                $radio_html .= '</div>';
-            }
-            $radio_html .= "\n";
-        }
-
-        return $radio_html;
+        return Template::get('getRadioField')
+            ->render(
+                array(
+                    'html_field_name' => $html_field_name,
+                    'choices' =>$choices ,
+                    'checked_choice' =>$checked_choice,
+                    'line_break' => $line_break,
+                    'escape_label'=>$escape_label,
+                    'class'=>$class,
+                    'id_prefix'=>$id_prefix,
+                )
+            );
     }
 
     /**
@@ -2672,38 +2646,22 @@ class Util
     public static function getDropdown(
         $select_name, $choices, $active_choice, $id, $class = '', $placeholder = null
     ) {
-        $result = '<select'
-            . ' name="' . htmlspecialchars($select_name) . '"'
-            . ' id="' . htmlspecialchars($id) . '"'
-            . (! empty($class) ? ' class="' . htmlspecialchars($class) . '"' : '')
-            . '>';
-
         $resultOptions = '';
         $selected = false;
+        return Template::get('getDropDown')
+            ->render(
+                array(
+                    'select_name' => $select_name,
+                    'choices' =>$choices ,
+                    'active_choice' =>$active_choice,
+                    'placeholder' => $placeholder,
+                    'class'=>$class,
+                    'id'=>$id,
+                    'resultOptions'=>$resultOptions,
+                    'selected'=>$selected,
+                )
+            );
 
-        foreach ($choices as $one_choice_value => $one_choice_label) {
-            $resultOptions .= '<option value="'
-                . htmlspecialchars($one_choice_value) . '"';
-
-            if ($one_choice_value == $active_choice) {
-                $resultOptions .= ' selected="selected"';
-                $selected = true;
-            }
-            $resultOptions .= '>' . htmlspecialchars($one_choice_label)
-                . '</option>';
-        }
-
-        if (!empty($placeholder)) {
-            $resultOptions = '<option value="" disabled="disabled"'
-                . ( !$selected ? ' selected="selected"' : '' )
-                . '>' . $placeholder . '</option>'
-                . $resultOptions;
-        }
-
-        $result .= $resultOptions
-            . '</select>';
-
-        return $result;
     }
 
     /**

@@ -1,0 +1,27 @@
+<root>
+    <?php foreach ($choices as $choice_value => $choice_label):?>
+        <?php if (! empty($class)):?>
+            <div class="<?php echo $class;?>" >
+        <?php  endif;?>
+        <?php if (! $id_prefix):?>
+            <?php $id_prefix=$html_field_name;?>
+        <?php endif;?>
+        <?php $html_field_id=$id_prefix.'_'.$choice_value;?>
+              <input type="radio" name="<?php echo $html_field_name;?>" id="<?php echo $html_field_id;?>" value="<?php echo htmlspecialchars($choice_value);?>"<?php if ($choice_value == $checked_choice):?> checked="checked"<?php endif;?> />
+                <label for="<?php echo $html_field_id;?>">
+                    <?php if ($escape_label):?>
+                        <?php echo htmlspecialchars($choice_label);?>
+                    <?php else:?>
+                        <?php echo $choice_label;?>
+                    <?php endif;?>
+                </label>
+                <?php if($line_break):?>
+                    <br />
+                    <?php echo "\n"; ?>
+                <?php endif;?>
+                <?php if(!empty($class)):?>
+                    </div>
+                    <?php echo "\n"; ?>
+                <?php endif;?>
+    <?php endforeach;?>
+</root>

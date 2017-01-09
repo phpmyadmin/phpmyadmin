@@ -35,7 +35,7 @@ class PMA_GetDropdownTest extends PHPUnit_Framework_TestCase
         $result = '<select name="' . htmlspecialchars($name) . '" id="'
             . htmlspecialchars($id) . '"></select>';
 
-        $this->assertEquals(
+        $this->assertXmlStringEqualsXmlString(
             $result,
             PMA\libraries\Util::getDropdown(
                 $name, $choices, $active_choice, $id
@@ -66,7 +66,7 @@ class PMA_GetDropdownTest extends PHPUnit_Framework_TestCase
         }
         $result .= '</select>';
 
-        $this->assertEquals(
+        $this->assertXmlStringEqualsXmlString(
             $result,
             PMA\libraries\Util::getDropdown(
                 $name, $choices, $active_choice, $id
@@ -97,7 +97,7 @@ class PMA_GetDropdownTest extends PHPUnit_Framework_TestCase
         }
         $result .= '</select>';
 
-        $this->assertEquals(
+        $this->assertXmlStringEqualsXmlString(
             $result,
             PMA\libraries\Util::getDropdown(
                 $name, $choices, $active_choice, $id

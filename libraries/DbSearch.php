@@ -366,7 +366,8 @@ class DbSearch
      */
     public function getSelectionForm()
     {
-        $html_output = '<a id="db_search"></a>';
+        $html_output  ='<main>';
+        $html_output .='<a id="db_search"></a>';
         $html_output .= '<form id="db_search_form"'
             . ' class="ajax lock-page"'
             . ' method="post" action="db_search.php" name="db_search">';
@@ -431,7 +432,7 @@ class DbSearch
         $alter_select = '<a href="#" '
             . 'onclick="setSelectOptions(\'db_search\','
             . ' \'criteriaTables[]\', true); return false;">'
-            . __('Select all') . '</a> &nbsp;/&nbsp;';
+            . __('Select all') . '</a>&#xA0;/&#xA0;';
         $alter_select .= '<a href="#" '
             . 'onclick="setSelectOptions(\'db_search\','
             . ' \'criteriaTables[]\', false); return false;">'
@@ -441,8 +442,8 @@ class DbSearch
         // Inputbox for column name entry
         $html_output .= '<tr>';
         $html_output .= '<td class="right">' . __('Inside column:') . '</td>';
-        $html_output .= '<td><input type="text" name="criteriaColumnName" size="60"'
-            . 'value="'
+        $html_output .= '<td><input type="text" name="criteriaColumnName" size="60" '
+            . ' value="'
             . (! empty($this->_criteriaColumnName)
                 ? htmlspecialchars($this->_criteriaColumnName)
                 : '')
@@ -457,6 +458,7 @@ class DbSearch
         $html_output .= '</form>';
         $html_output .= '<div id="togglesearchformdiv">'
             . '<a id="togglesearchformlink"></a></div>';
+        $html_output .='</main>';
 
         return $html_output;
     }
