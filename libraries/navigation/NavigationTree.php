@@ -16,6 +16,8 @@ use PMA\libraries\RecentFavoriteTable;
 use PMA\libraries\Response;
 use PMA\libraries\Util;
 
+require_once 'libraries/check_user_privileges.lib.php';
+
 /**
  * Displays a collapsible of database objects in the navigation frame
  *
