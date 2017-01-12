@@ -2658,11 +2658,6 @@ function PMA_getHtmlForFunctionOption($column, $column_name_appendix)
     $longDoubleTextArea = $GLOBALS['cfg']['LongtextDoubleTextarea'];
     return '<tr class="noclick">'
         . '<td '
-        . ($longDoubleTextArea
-            && mb_strstr($column['True_Type'], 'longtext')
-            ? 'rowspan="1"'
-            : ''
-        )
         . 'class="center">'
         . $column['Field_title']
         . '<input type="hidden" name="fields_name' . $column_name_appendix
