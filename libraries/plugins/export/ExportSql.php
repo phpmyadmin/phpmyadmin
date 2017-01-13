@@ -1875,7 +1875,7 @@ class ExportSql extends ExportPlugin
             $schema_create .= $this->_possibleCRLF()
                 . $this->_exportComment()
                 . $this->_exportComment(
-                    __('RELATIONS FOR TABLE') . ' '
+                    __('RELATIONSHIPS FOR TABLE') . ' '
                     . Util::backquote($table_alias, $sql_backquotes)
                     . ':'
                 );
