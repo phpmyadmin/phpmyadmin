@@ -39,9 +39,7 @@ $url_params['goto'] = $url_params['back'] = 'view_operations.php';
 /**
  * Gets tables information
  */
-
-require './libraries/tbl_info.inc.php';
-$reread_info = false;
+$reread_info = $pma_table->getStatusInfo(null, false);
 
 /**
  * Updates if required
@@ -55,7 +53,7 @@ if (isset($_REQUEST['submitoptions'])) {
             $_message->addText($pma_table->getLastMessage());
             $result = true;
             $GLOBALS['table'] = $pma_table->getName();
-            $reread_info = true;
+            $reread_info = $pma_table->getStatusInfo(null, true);
             $reload = true;
         } else {
             $_message->addText($pma_table->getLastError());

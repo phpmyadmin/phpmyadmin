@@ -39,11 +39,6 @@ $goto = 'tbl_sql.php';
 $back = 'tbl_sql.php';
 
 /**
- * Get table information
- */
-require_once 'libraries/tbl_info.inc.php';
-
-/**
  * Query box, bookmark, insert data from textfile
  */
 $response->addHTML(
