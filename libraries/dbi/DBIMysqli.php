@@ -180,7 +180,8 @@ class DBIMysqli implements DBIExtension
             $user,
             $password,
             $server['port'],
-            $server['socket']
+            $server['socket'],
+            $client_flags
         );
 
         if ($return_value === false || is_null($return_value)) {
