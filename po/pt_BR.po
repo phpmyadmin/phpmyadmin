@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.6-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-12-13 10:40+0100\n"
-"PO-Revision-Date: 2017-01-03 16:54+0000\n"
-"Last-Translator: Daniel Palmeira Huanca <daniel46758@hotmail.com>\n"
+"PO-Revision-Date: 2017-01-16 16:13+0000\n"
+"Last-Translator: Ariel Alonso <arielmontessinobarbosa@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-6/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -6047,7 +6047,6 @@ msgid "Set import and export directories and compression options."
 msgstr "Define diretórios de importação e exportação e opções de compressão."
 
 #: libraries/config/messages.inc.php:267
-#, fuzzy
 msgid "LaTeX"
 msgstr "LaTeX"
 
