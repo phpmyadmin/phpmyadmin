@@ -585,9 +585,6 @@ function PMA_getValueColumn($column, $backup_field, $column_name_appendix,
     } elseif ($GLOBALS['cfg']['LongtextDoubleTextarea']
         && mb_strstr($column['pma_type'], 'longtext')
     ) {
-        $html_output = '&nbsp;</td>';
-        $html_output .= '</tr>';
-        $html_output .= '<tr>' . '<td colspan="5" class="right">';
         $html_output .= PMA_getTextarea(
             $column, $backup_field, $column_name_appendix, $onChangeClause,
             $tabindex, $tabindex_for_value, $idindex, $text_dir,
@@ -2661,11 +2658,6 @@ function PMA_getHtmlForFunctionOption($column, $column_name_appendix)
     $longDoubleTextArea = $GLOBALS['cfg']['LongtextDoubleTextarea'];
     return '<tr class="noclick">'
         . '<td '
-        . ($longDoubleTextArea
-            && mb_strstr($column['True_Type'], 'longtext')
-            ? 'rowspan="2"'
-            : ''
-        )
         . 'class="center">'
         . $column['Field_title']
         . '<input type="hidden" name="fields_name' . $column_name_appendix
@@ -2939,9 +2931,6 @@ function PMA_getHtmlForInsertEditFormColumn($table_columns, $column_number,
             $no_support_types, $gis_data_types, $extracted_columnspec, $readOnly
         );
     }
-    $html_output .= '</td>'
-        . '</tr>';
-
     return $html_output;
 }
 
