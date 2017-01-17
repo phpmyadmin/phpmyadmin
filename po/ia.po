@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.6-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-12-13 10:40+0100\n"
-"PO-Revision-Date: 2016-12-21 21:16+0000\n"
+"PO-Revision-Date: 2017-01-17 21:58+0000\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-6/ia/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.10\n"
+"X-Generator: Weblate 2.11-dev\n"
 
 #: changelog.php:38 license.php:33
 #, php-format
@@ -2199,12 +2199,16 @@ msgid ""
 "MySQL accepts additional values not selectable by the slider; key in those "
 "values directly if desired"
 msgstr ""
+"MySQL accepta valores additional non selectionabile per le slider; si tu "
+"vole pote insertar directemente celle valores"
 
 #: js/messages.php:529
 msgid ""
 "MySQL accepts additional values not selectable by the datepicker; key in "
 "those values directly if desired"
 msgstr ""
+"MySQL accepta valores additional non selectionabile per le selector de datas:"
+" si tu vole pote insertar celle valores directemente"
 
 #: js/messages.php:535
 msgid ""
@@ -10429,6 +10433,8 @@ msgid ""
 "Include a timestamp of when databases were created, last updated, and last "
 "checked"
 msgstr ""
+"Include un timestamp (marca de tempore) de quando le base de datos esseva "
+"create, le ultime actualisation e le ultime controlo"
 
 #: libraries/plugins/export/ExportSql.php:171
 msgid "Export metadata"
@@ -10996,7 +11002,7 @@ msgstr "Validation falleva per le catena de ingresso %s."
 
 #: libraries/plugins/transformations/abs/SQLTransformationsPlugin.php:29
 msgid "Formats text as SQL query with syntax highlighting."
-msgstr ""
+msgstr "Formata texto como query de SQL con evidentia de syntaxe."
 
 #: libraries/plugins/transformations/abs/SubstringTransformationsPlugin.php:28
 msgid ""
@@ -11012,6 +11018,8 @@ msgid ""
 "File upload functionality for TEXT columns. It does not have a textarea for "
 "input."
 msgstr ""
+"Functionalitate de incargamento de file per columnas de TEXT. Il non ha un "
+"textarea per le ingresso."
 
 #: libraries/plugins/transformations/abs/TextImageLinkTransformationsPlugin.php:32
 msgid ""
@@ -11029,19 +11037,19 @@ msgstr ""
 
 #: libraries/plugins/transformations/input/Text_Plain_Iptobinary.php:29
 msgid "Converts an Internet network address in (IPv4/IPv6) format to binary"
-msgstr ""
+msgstr "Converte un adresse de rete Internet ab formato (IPv4/IPv6) a binari"
 
 #: libraries/plugins/transformations/input/Text_Plain_JsonEditor.php:29
 msgid "Syntax highlighted CodeMirror editor for JSON."
-msgstr ""
+msgstr "Editor CodeMirror per jSON con evidentia de syntaxe."
 
 #: libraries/plugins/transformations/input/Text_Plain_SqlEditor.php:29
 msgid "Syntax highlighted CodeMirror editor for SQL."
-msgstr ""
+msgstr "Editor CodeMirror per SQL con evidentia de syntaxe."
 
 #: libraries/plugins/transformations/input/Text_Plain_XmlEditor.php:29
 msgid "Syntax highlighted CodeMirror editor for XML (and HTML)."
-msgstr ""
+msgstr "Editor CodeMirror per  XML (e HTML) con evidentia de syntaxe."
 
 #: libraries/plugins/transformations/output/Text_Plain_Binarytoip.php:29
 msgid ""
@@ -11051,11 +11059,11 @@ msgstr ""
 
 #: libraries/plugins/transformations/output/Text_Plain_Json.php:47
 msgid "Formats text as JSON with syntax highlighting."
-msgstr ""
+msgstr "Formata texto como JSON con evidentia de syntaxe."
 
 #: libraries/plugins/transformations/output/Text_Plain_Xml.php:47
 msgid "Formats text as XML with syntax highlighting."
-msgstr ""
+msgstr "Formata texto como XML con evidentia de syntaxe."
 
 #: libraries/pmd_common.php:549
 msgid "Error: relation already exists."
@@ -11072,7 +11080,7 @@ msgstr ""
 
 #: libraries/pmd_common.php:606
 msgid "Error: Missing index on column(s)."
-msgstr ""
+msgstr "Error: Il es mancante le indice sur le campo(s)."
 
 #: libraries/pmd_common.php:611
 msgid "Error: Relational features are disabled!"
@@ -11122,7 +11130,7 @@ msgstr "Configuration de pmadb…"
 
 #: libraries/relation.lib.php:105 libraries/relation.lib.php:141
 msgid "General relation features"
-msgstr ""
+msgstr "Characteristicas general de relation"
 
 #: libraries/relation.lib.php:152
 msgid "Display Features"
