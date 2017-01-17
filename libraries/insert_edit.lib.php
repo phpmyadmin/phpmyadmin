@@ -2655,7 +2655,6 @@ function PMA_getHtmlForIgnoreOption($row_id, $checked = true)
  */
 function PMA_getHtmlForFunctionOption($column, $column_name_appendix)
 {
-    $longDoubleTextArea = $GLOBALS['cfg']['LongtextDoubleTextarea'];
     return '<tr class="noclick">'
         . '<td '
         . 'class="center">'
