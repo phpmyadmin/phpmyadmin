@@ -71,6 +71,7 @@ phpMyAdmin - ChangeLog
 - issue #12859 Changed WHERE condition to 0 instead of 1 for SQL query window to avoid accidents
 - issue #12872 Use same query for display and execution when dropping index
 - issue #12868 Fix check for user groups freatures being enabled
+- issue #12831 Fix table formatting on Insert tab, which mostly affected row highlighting
 
 4.6.5.2 (2016-12-05)
 - issue #12765 Fixed SQL export with newlines
