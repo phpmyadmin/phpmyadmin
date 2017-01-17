@@ -507,7 +507,7 @@ function PMA_sendHeaderLocation($uri, $use_refresh = false)
  */
 function PMA_headerJSON()
 {
-    if (defined('TESTSUITE') && ! defined('PMA_TEST_HEADERS')) {
+    if (defined('TESTSUITE')) {
         return;
     }
     // No caching
@@ -527,7 +527,7 @@ function PMA_headerJSON()
  */
 function PMA_noCacheHeader()
 {
-    if (defined('TESTSUITE') && ! defined('PMA_TEST_HEADERS')) {
+    if (defined('TESTSUITE')) {
         return;
     }
     // rfc2616 - Section 14.21

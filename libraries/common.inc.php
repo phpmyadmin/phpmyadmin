@@ -864,7 +864,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
     if (! defined('PMA_BYPASS_GET_INSTANCE')) {
         $response = Response::getInstance();
     }
-    if (isset($_SESSION['profiling'])) {
+    if (isset($response) && isset($_SESSION['profiling'])) {
         $header   = $response->getHeader();
         $scripts  = $header->getScripts();
         $scripts->addFile('chart.js');
@@ -937,10 +937,8 @@ if (! defined('PMA_MINIMUM_COMMON')
     }
     $cfgRelation = PMA_getRelationsParam();
     if (empty($cfgRelation['db'])) {
-        foreach ($GLOBALS['dblist']->databases as $database) {
-            if ($database == 'phpmyadmin') {
-                PMA_fixPMATables($database, false);
-            }
+        if ($GLOBALS['dblist']->databases->exists('phpmyadmin')) {
+            PMA_fixPMATables('phpmyadmin', false);
         }
     }
 }

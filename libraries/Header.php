@@ -512,7 +512,7 @@ class Header
      */
     public function sendHttpHeaders()
     {
-        if (defined('TESTSUITE') && ! defined('PMA_TEST_HEADERS')) {
+        if (defined('TESTSUITE')) {
             return;
         }
         $map_tile_urls = ' *.tile.openstreetmap.org';

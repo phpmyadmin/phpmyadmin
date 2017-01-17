@@ -569,48 +569,35 @@ AJAX.registerOnload('server_status_monitor.js', function () {
             monitorCharts: gridCopy,
             monitorSettings: monitorSettings
         };
-        $('<form />', {
-            "class": "disableAjax",
-            method: "post",
-            action: "file_echo.php" + PMA_commonParams.get('common_query') + "&filename=1",
-            style: "display:none;"
-        })
-        .append(
-            $('<input />', {
-                type: "hidden",
-                name: "monitorconfig",
-                value: JSON.stringify(exportData)
-            })
-        )
-        .appendTo('body')
-        .submit()
-        .remove();
+
+        var blob = new Blob([JSON.stringify(exportData)], {type: "application/octet-stream"});
+        var url = window.URL.createObjectURL(blob);
+        window.location.href = url;
+        window.URL.revokeObjectURL(url);
     });
 
     $('a[href="#importMonitorConfig"]').click(function (event) {
         event.preventDefault();
         $('#emptyDialog').dialog({title: PMA_messages.strImportDialogTitle});
-        $('#emptyDialog').html(PMA_messages.strImportDialogMessage + ':<br/><form action="file_echo.php' + PMA_commonParams.get('common_query') + '&import=1" method="post" enctype="multipart/form-data">' +
-            '<input type="file" name="file"> <input type="hidden" name="import" value="1"> </form>');
+        $('#emptyDialog').html(PMA_messages.strImportDialogMessage + ':<br/><form>' +
+            '<input type="file" name="file" id="import_file"> </form>');
 
         var dlgBtns = {};
 
         dlgBtns[PMA_messages.strImport] = function () {
-            var $iframe, $form;
-            $('body').append($iframe = $('<iframe id="monitorConfigUpload" style="display:none;"></iframe>'));
-            var d = $iframe[0].contentWindow.document;
-            d.open();
-            d.close();
-            mew = d;
+            var input = $('#emptyDialog').find('#import_file')[0];
+            var reader = new FileReader();
 
-            $iframe.load(function () {
-                var json;
+            reader.onerror = function(event) {
+                alert(PMA_messages.strFailedParsingConfig + "\n" + event.target.error.code);
+            };
+            reader.onload = function(e) {
+
+                var data = e.target.result;
 
                 // Try loading config
                 try {
-                    var data = $('body', $('iframe#monitorConfigUpload')[0].contentWindow.document).html();
-                    // Chrome wraps around '<pre style="word-wrap: break-word; white-space: pre-wrap;">' to any text content -.-
-                    json = JSON.parse(data.substring(data.indexOf("{"), data.lastIndexOf("}") + 1));
+                    json = JSON.parse(data);
                 } catch (err) {
                     alert(PMA_messages.strFailedParsingConfig);
                     $('#emptyDialog').dialog('close');
@@ -630,6 +617,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
                     window.localStorage.monitorSettings = JSON.stringify(json.monitorSettings);
                     rebuildGrid();
                 } catch (err) {
+                    console.log(err);
                     alert(PMA_messages.strFailedBuildingGrid);
                     // If an exception is thrown, load default again
                     if (isStorageSupported('localStorage')) {
@@ -640,17 +628,13 @@ AJAX.registerOnload('server_status_monitor.js', function () {
                 }
 
                 $('#emptyDialog').dialog('close');
-            });
-
-            $("body", d).append($form = $('#emptyDialog').find('form'));
-            $form.submit();
-            $('#emptyDialog').append('<img class="ajaxIcon" src="' + pmaThemeImage + 'ajax_clock_small.gif" alt="">');
+            };
+            reader.readAsText(input.files[0]);
         };
 
         dlgBtns[PMA_messages.strCancel] = function () {
             $(this).dialog('close');
         };
-
 
         $('#emptyDialog').dialog({
             width: 'auto',

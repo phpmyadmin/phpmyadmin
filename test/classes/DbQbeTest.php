@@ -72,6 +72,7 @@ class DbQbeTest extends PMATestCase
      */
     protected function tearDown()
     {
+        parent::tearDown();
         unset($this->object);
     }
 
