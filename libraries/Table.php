@@ -1308,15 +1308,7 @@ class Table
      */
     public function rename($new_name, $new_db = null)
     {
-        $lowerCaseTableNames = Util::cacheGet(
-            'lower_case_table_names',
-            function () {
-                return $GLOBALS['dbi']->fetchValue(
-                    "SELECT @@lower_case_table_names"
-                );
-            }
-        );
-        if ($lowerCaseTableNames) {
+        if ($GLOBALS['dbi']->getLowerCaseNames() === '1') {
             $new_name = strtolower($new_name);
         }
 
