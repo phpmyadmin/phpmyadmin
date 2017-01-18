@@ -30,6 +30,7 @@ phpMyAdmin - ChangeLog
 - issue #12859 Changed WHERE condition to 0 instead of 1 for SQL query window to avoid accidents
 - issue #12872 Use same query for display and execution when dropping index
 - issue #12868 Fix check for user groups freatures being enabled
+- issue #12876 Fix notices and warning related to dbs_to_test global
 - issue #12831 Fix table formatting on Insert tab, which mostly affected row highlighting
 - issue #12495 Reintroduced phpinfo page with limited capabilities
 - issue #12861 Fix renaming tables with lower_case_table_names=2
