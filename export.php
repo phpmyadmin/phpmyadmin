@@ -186,9 +186,6 @@ $export_plugin = PMA_getPlugin(
     )
 );
 
-// Backward compatibility
-$type = $what;
-
 // Check export type
 if (empty($export_plugin)) {
     PMA_fatalError(__('Bad type!'));
@@ -318,13 +315,12 @@ if ($what == 'sql') {
     $crlf = PMA\libraries\Util::whichCrlf();
 }
 
-$output_kanji_conversion = Encoding::canConvertKanji() && $type != 'xls';
+$output_kanji_conversion = Encoding::canConvertKanji();
 
 // Do we need to convert charset?
 $output_charset_conversion = $asfile
     && Encoding::isSupported()
-    && isset($charset) && $charset != 'utf-8'
-    && $type != 'xls';
+    && isset($charset) && $charset != 'utf-8';
 
 // Use on the fly compression?
 $GLOBALS['onfly_compression'] = $GLOBALS['cfg']['CompressOnFly']
