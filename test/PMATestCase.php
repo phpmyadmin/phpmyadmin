@@ -35,7 +35,7 @@ class PMATestCase extends PHPUnit_Framework_TestCase
             ->disableOriginalConstructor()
             ->setMethods(array(
                 'header', 'headersSent', 'disable', 'isAjax',
-                'setRequestStatus', 'addJSON',
+                'setRequestStatus', 'addJSON', 'addHTML',
                 'getFooter', 'getHeader',
             ))
             ->getMock();
@@ -49,6 +49,9 @@ class PMATestCase extends PHPUnit_Framework_TestCase
 
         if (count($param) > 0) {
             if (is_array($param[0])) {
+                if (is_array($param[0][0]) && count($param) == 1) {
+                    $param = $param[0];
+                }
                 $header_method = $mockResponse->expects($this->exactly(count($param)))
                     ->method('header');
 
