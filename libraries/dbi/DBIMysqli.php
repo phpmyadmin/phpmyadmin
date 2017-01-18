@@ -58,55 +58,6 @@ if (! defined('MYSQLI_TYPE_JSON')) {
 class DBIMysqli implements DBIExtension
 {
     /**
-     * Helper function for connecting to the database server
-     *
-     * @param mysqli $link          connection link
-     * @param string $host          mysql hostname
-     * @param string $user          mysql user name
-     * @param string $password      mysql user password
-     * @param int    $server_port   server port
-     * @param string $server_socket server socket
-     * @param int    $client_flags  client flags of connection
-     * @param bool   $persistent    whether to use persistent connection
-     *
-     * @return bool
-     */
-    private function _realConnect(
-        $link, $host, $user, $password, $server_port,
-        $server_socket, $client_flags = null, $persistent = false
-    ) {
-        global $cfg;
-
-        // mysqli persistent connections
-        if ($cfg['PersistentConnections'] || $persistent) {
-            $host = 'p:' . $host;
-        }
-
-        if ($client_flags === null) {
-            return mysqli_real_connect(
-                $link,
-                $host,
-                $user,
-                $password,
-                '',
-                $server_port,
-                $server_socket
-            );
-        } else {
-            return mysqli_real_connect(
-                $link,
-                $host,
-                $user,
-                $password,
-                '',
-                $server_port,
-                $server_socket,
-                $client_flags
-            );
-        }
-    }
-
-    /**
      * connects to the database server
      *
      * @param string $user     mysql user name
@@ -174,13 +125,21 @@ class DBIMysqli implements DBIExtension
             }
         }
 
-        $return_value = $this->_realConnect(
+        if ($GLOBALS['cfg']['PersistentConnections']) {
+            $host = 'p:' . $server['host'];
+        } else {
+            $host = $server['host'];
+        }
+
+        $return_value = mysqli_real_connect(
             $link,
-            $server['host'],
+            $host,
             $user,
             $password,
+            '',
             $server['port'],
-            $server['socket']
+            $server['socket'],
+            $client_flags
         );
 
         if ($return_value === false || is_null($return_value)) {
