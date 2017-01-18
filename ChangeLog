@@ -41,6 +41,7 @@ phpMyAdmin - ChangeLog
 - issue #12799 Allow to configure signon session parameters
 - issue #12854 Drop database is broken
 - issue #12863 Can't toggle Event Scheduler on
+- issue #12742 Finish removing dead code references to xls/xlsx import and export, which was removed some time ago.
 
 4.6.6 (not yet released)
 - issue #12759 Fix Notice regarding 'Undefined index: old_usergroup'
