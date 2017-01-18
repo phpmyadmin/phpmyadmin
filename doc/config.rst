@@ -2315,6 +2315,13 @@ Export and import settings
     items are similar to texts seen on export page, so you can easily
     identify what they mean.
 
+.. config:option:: $cfg['Export']['format']
+   
+    :type: string
+    :default: ``'sql'``
+
+    Default export format.
+
 .. config:option:: $cfg['Export']['method']
 
     :type: string
@@ -2335,6 +2342,33 @@ Export and import settings
 
     Defines charset for generated export. By default no charset conversion is
     done assuming UTF-8.
+
+.. config:option:: $cfg['Export']['file_template_table']
+
+    :type: string
+    :default: ``'@TABLE@'``
+
+    Default filename template for table exports.
+
+    .. seealso:: :ref:`faq6_27`
+
+.. config:option:: $cfg['Export']['file_template_database']
+
+    :type: string
+    :default: ``'@DATABASE@'``
+
+    Default filename template for database exports.
+
+    .. seealso:: :ref:`faq6_27`
+
+.. config:option:: $cfg['Export']['file_template_server']
+
+    :type: string
+    :default: ``'@SERVER@'``
+
+    Default filename template for server exports.
+
+    .. seealso:: :ref:`faq6_27`
 
 .. config:option:: $cfg['Import']
 
