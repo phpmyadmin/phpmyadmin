@@ -43,15 +43,17 @@ class PMATestCase extends PHPUnit_Framework_TestCase
 
         $param = func_get_args();
 
-        if (is_array($param[0])) {
-            $header_method = $mockResponse->expects($this->exactly(count($param)))
-                ->method('header');
+        if (count($param) > 0) {
+            if (is_array($param[0])) {
+                $header_method = $mockResponse->expects($this->exactly(count($param)))
+                    ->method('header');
 
-            call_user_func_array(array($header_method, 'withConsecutive'), $param);
-        } else {
-            $mockResponse->expects($this->once())
-                ->method('header')
-                ->with($param[0]);
+                call_user_func_array(array($header_method, 'withConsecutive'), $param);
+            } else {
+                $mockResponse->expects($this->once())
+                    ->method('header')
+                    ->with($param[0]);
+            }
         }
 
         $this->attrInstance = new ReflectionProperty('PMA\libraries\Response', '_instance');
