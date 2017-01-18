@@ -164,7 +164,7 @@ $strConfigExport_latex_data_continued_caption_name = __('Continued table caption
 $strConfigExport_latex_data_label_name = __('Label key');
 $strConfigExport_latex_mime_name = __('MIME type');
 $strConfigExport_latex_null_name = __('Replace NULL with');
-$strConfigExport_latex_relation_name = __('Relations');
+$strConfigExport_latex_relation_name = __('Relationships');
 $strConfigExport_latex_structure_caption_name = __('Table caption');
 $strConfigExport_latex_structure_continued_caption_name
     = __('Continued table caption');
@@ -177,7 +177,7 @@ $strConfigExport_odt_columns_name = __('Put columns names in the first row');
 $strConfigExport_odt_comments_name = __('Comments');
 $strConfigExport_odt_mime_name = __('MIME type');
 $strConfigExport_odt_null_name = __('Replace NULL with');
-$strConfigExport_odt_relation_name = __('Relations');
+$strConfigExport_odt_relation_name = __('Relationships');
 $strConfigExport_odt_structure_or_data_name = __('Dump table');
 $strConfigExport_onserver_name = __('Save on server');
 $strConfigExport_onserver_overwrite_name = __('Overwrite existing file(s)');
@@ -218,7 +218,7 @@ $strConfigExport_sql_max_query_size_name = __('Maximal length of created query')
 $strConfigExport_sql_mime_name = __('MIME type');
 $strConfigExport_sql_procedure_function_name
     = sprintf(__('Add %s'), 'CREATE PROCEDURE / FUNCTION / EVENT');
-$strConfigExport_sql_relation_name = __('Relations');
+$strConfigExport_sql_relation_name = __('Relationships');
 $strConfigExport_sql_structure_or_data_name = __('Dump table');
 $strConfigExport_sql_type_name = __('Export type');
 $strConfigExport_sql_use_transaction_name = __('Enclose export in a transaction');

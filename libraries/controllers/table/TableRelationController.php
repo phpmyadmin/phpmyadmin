@@ -279,7 +279,7 @@ class TableRelationController extends TableController
         ) {
             $this->response->addHTML(
                 Util::getMessage(
-                    __('Internal relations were successfully updated.'),
+                    __('Internal relationships were successfully updated.'),
                     '', 'success'
                 )
             );

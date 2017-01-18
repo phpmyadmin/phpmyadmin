@@ -1742,7 +1742,7 @@ class DisplayResults
             $options_html .= '<div class="formelement">';
             $choices = array(
                 'K'   => __('Relational key'),
-                'D'   => __('Display column for relations')
+                'D'   => __('Display column for relationships')
             );
 
             $options_html .= Util::getRadioFields(
