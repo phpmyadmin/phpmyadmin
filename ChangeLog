@@ -34,6 +34,7 @@ phpMyAdmin - ChangeLog
 - issue #12831 Fix table formatting on Insert tab, which mostly affected row highlighting
 - issue #12495 Reintroduced phpinfo page with limited capabilities
 - issue #12861 Fix renaming tables with lower_case_table_names=2
+- issue #12876 Fix possible PHP error in navigation
 
 4.6.5.2 (2016-12-05)
 - issue #12765 Fixed SQL export with newlines
