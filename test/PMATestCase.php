@@ -33,7 +33,11 @@ class PMATestCase extends PHPUnit_Framework_TestCase
 
         $mockResponse = $this->getMockBuilder('PMA\libraries\Response')
             ->disableOriginalConstructor()
-            ->setMethods(array('header', 'headersSent', 'disable', 'isAjax'))
+            ->setMethods(array(
+                'header', 'headersSent', 'disable', 'isAjax',
+                'setRequestStatus', 'addJSON',
+                'getFooter', 'getHeader',
+            ))
             ->getMock();
 
         $mockResponse->expects($this->any())
@@ -59,6 +63,8 @@ class PMATestCase extends PHPUnit_Framework_TestCase
         $this->attrInstance = new ReflectionProperty('PMA\libraries\Response', '_instance');
         $this->attrInstance->setAccessible(true);
         $this->attrInstance->setValue($mockResponse);
+
+        return $mockResponse;
     }
 
     /**
