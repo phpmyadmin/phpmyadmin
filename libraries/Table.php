@@ -1316,7 +1316,7 @@ class Table
                 );
             }
         );
-        if ($lowerCaseTableNames) {
+        if ($lowerCaseTableNames === '1') {
             $new_name = strtolower($new_name);
         }
 
