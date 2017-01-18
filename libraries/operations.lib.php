@@ -353,10 +353,7 @@ function PMA_runProcedureAndFunctionDefinitions($db)
 function PMA_createDbBeforeCopy()
 {
     // lower_case_table_names=1 `DB` becomes `db`
-    $lowerCaseTableNames = $GLOBALS['dbi']->fetchValue(
-        'SELECT @@lower_case_table_names'
-    );
-    if ($lowerCaseTableNames === '1') {
+    if ($GLOBALS['dbi']->getLowerCaseNames() === '1') {
         $_REQUEST['newname'] = mb_strtolower(
             $_REQUEST['newname']
         );
