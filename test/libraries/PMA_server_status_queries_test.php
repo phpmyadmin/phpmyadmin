@@ -219,7 +219,7 @@ class PMA_ServerStatusQueries_Test extends PHPUnit_Framework_TestCase
 
         //validate 3:serverstatusquerieschart
         $this->assertContains(
-            '<div id="serverstatusquerieschart">',
+            '<div id="serverstatusquerieschart" data-chart="',
             $html
         );
 
