@@ -32,7 +32,7 @@ install:
 
 before_script:
   - export PATH=~/.composer/vendor/bin/:$PATH
-  - mysql -uroot -e "CREATE DATABASE test"
+  - mysql -uroot -e "CREATE DATABASE IF NOT EXISTS test"
   - mysql -uroot < sql/create_tables.sql
   - mysql -uroot -e "SET PASSWORD = PASSWORD('$TESTSUITE_PASSWORD')"
   - ./test/start-local-server
