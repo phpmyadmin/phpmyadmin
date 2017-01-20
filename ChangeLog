@@ -84,6 +84,7 @@ phpMyAdmin - ChangeLog
 - issue #12876 Fix possible PHP error in navigation
 - issue #12881 Fix database search with newer php-gettext
 - issue #12894 Fix linter error on unterminated variable name
+- issue #12732 Fixed filtering for active processes
 
 
          --- Older ChangeLogs can be found on our project website ---
