@@ -81,6 +81,7 @@ phpMyAdmin - ChangeLog
 - issue #12495 Reintroduced phpinfo page with limited capabilities
 - issue #12861 Fix renaming tables with lower_case_table_names=2
 - issue #12876 Fix possible PHP error in navigation
+- issue #12881 Fix database search with newer php-gettext
 
 
          --- Older ChangeLogs can be found on our project website ---
