@@ -37,6 +37,7 @@ phpMyAdmin - ChangeLog
 - issue #12861 Fix renaming tables with lower_case_table_names=2
 - issue #12876 Fix possible PHP error in navigation
 - issue #12881 Fix database search with newer php-gettext
+- issue #12894 Fix linter error on unterminated variable name
 
 4.6.5.2 (2016-12-05)
 - issue #12765 Fixed SQL export with newlines
