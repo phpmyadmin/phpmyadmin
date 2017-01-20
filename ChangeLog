@@ -45,6 +45,7 @@ phpMyAdmin - ChangeLog
 - issue #12536 Rename "Relations" to "Relationships" in many places as it's the more proper term
 - issue #12834 Fixed margins in central columns feature
 - issue #12903 Document more export configuration options
+- issue #12897 Use consistent numeric format for table overhead
 
 4.6.6 (not yet released)
 - issue #12759 Fix Notice regarding 'Undefined index: old_usergroup'
