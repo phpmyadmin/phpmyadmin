@@ -522,11 +522,12 @@ function PMA_current_version(data)
         var latest = parseVersionString(data.version);
         var url = 'https://web.phpmyadmin.net/files/' + escapeHtml(encodeURIComponent(data.version)) + '/';
         var version_information_message = document.createElement('span');
-        version_information_message.class = 'latest';
+        version_information_message.className = 'latest';
         var version_information_message_link = document.createElement('a');
         version_information_message_link.href = url;
-        version_information_message_link.class = 'disableAjax';
-        version_information_message_link.innerHTML = escapeHtml(data.version);
+        version_information_message_link.className = 'disableAjax';
+        version_information_message_link_text = document.createTextNode(data.version);
+        version_information_message_link.appendChild(version_information_message_link_text);
         var prefix_message = document.createTextNode(PMA_messages.strLatestAvailable);
         version_information_message.appendChild(prefix_message);
         version_information_message.appendChild(version_information_message_link);
@@ -544,20 +545,21 @@ function PMA_current_version(data)
             $('#newer_version_notice').remove();
             var maincontainer_div = document.createElement('div');
             maincontainer_div.id = 'newer_version_notice';
-            maincontainer_div.class = htmlClass;
+            maincontainer_div.className = htmlClass;
             var maincontainer_div_link = document.createElement('a');
             maincontainer_div_link.href = url;
-            maincontainer_div_link.class = "disableAjax";
-            maincontainer_div_link.innerHTML = message;
+            maincontainer_div_link.className = 'disableAjax';
+            maincontainer_div_link_text = document.createTextNode(message);
+            maincontainer_div_link.appendChild(maincontainer_div_link_text);
             maincontainer_div.appendChild(maincontainer_div_link);
-            document.getElementById("maincontainer").appendChild(maincontainer_div);
+            $('#maincontainer').append($(maincontainer_div));
         }
         if (latest === current) {
             version_information_message = document.createTextNode(' (' + PMA_messages.strUpToDate + ')');
         }
         var $liPmaVersion = $('#li_pma_version');
         $liPmaVersion.find('span.latest').remove();
-        document.getElementById("li_pma_version").appendChild(version_information_message);
+        $liPmaVersion.append($(version_information_message));
     }
 }
 
