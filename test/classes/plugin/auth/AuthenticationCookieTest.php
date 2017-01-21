@@ -306,11 +306,15 @@ class AuthenticationCookieTest extends PMATestCase
             $result
         );
 
-        $this->assertContains(
-            '<select name="lang" class="autosubmit" lang="en" dir="ltr" ' .
-            'id="sel-lang">',
-            $result
-        );
+        // Check for language selection if locales are there
+        $loc = LOCALE_PATH . '/cs/LC_MESSAGES/phpmyadmin.mo';
+        if (is_readable($loc)) {
+            $this->assertContains(
+                '<select name="lang" class="autosubmit" lang="en" dir="ltr" ' .
+                'id="sel-lang">',
+                $result
+            );
+        }
 
         $this->assertContains(
             '<form method="post" action="index.php" name="login_form" ' .
