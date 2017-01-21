@@ -6,7 +6,7 @@ if [ -n "$GATEWAY_INTERFACE" ] ; then
     exit 1
 fi
 
-if [ "$TRAVIS_PHP_VERSION" = "nightly" -o "$TRAVIS_PHP_VERSION" = "hhvm" -o "$TRAVIS_PHP_VERSION" = "7.0" -o "$TRAVIS_PHP_VERSION" = "7.1" ] ; then
+if [ "$TRAVIS_PHP_VERSION" = "nightly" -o "$TRAVIS_PHP_VERSION" = "hhvm" -o "$TRAVIS_PHP_VERSION" = "7.0" -o "$TRAVIS_PHP_VERSION" = "7.1" -o "$TRAVIS_OS_NAME" = "osx" ] ; then
     exit 0
 fi
 

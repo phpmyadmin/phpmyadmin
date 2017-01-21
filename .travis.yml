@@ -5,6 +5,9 @@
 
 language: php
 
+services:
+  - mysql
+
 php:
   - "7.1"
   - "7.0"
@@ -29,7 +32,7 @@ install:
 
 before_script:
   - export PATH=~/.composer/vendor/bin/:$PATH
-  - mysql -uroot -e "CREATE DATABASE test"
+  - mysql -uroot -e "CREATE DATABASE IF NOT EXISTS test"
   - mysql -uroot < sql/create_tables.sql
   - mysql -uroot -e "SET PASSWORD = PASSWORD('$TESTSUITE_PASSWORD')"
   - ./test/start-local-server
@@ -58,6 +61,18 @@ matrix:
       env: CI_MODE=release
     - php: "7.0"
       env: CI_MODE=docs
+    - os: osx
+      language: generic
+      env: CI_MODE=test
+      before_install:
+        - brew tap homebrew/php
+        - brew update
+        - brew install ant gettext php70 mariadb
+        - brew link --force gettext
+        - curl https://getcomposer.org/installer | php
+        - ln -s /Users/travis/build/phpmyadmin/phpmyadmin/composer.phar /usr/local/bin/composer
+        - mysql.server start
+
 cache:
   directories:
     - $HOME/.composer/cache/
