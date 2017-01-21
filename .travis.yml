@@ -70,7 +70,7 @@ matrix:
         - brew install ant gettext php70 mariadb
         - brew link --force gettext
         - curl https://getcomposer.org/installer | php
-        - ln -s /Users/travis/build/phpmyadmin/phpmyadmin/composer.phar /usr/local/bin/composer
+        - ln -s `readlink -f ./composer.phar` /usr/local/bin/composer
         - mysql.server start
 
 cache:
