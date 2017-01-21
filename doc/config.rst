@@ -2038,6 +2038,11 @@ Main panel
     You can additionally hide more information by using
     :config:option:`$cfg['Servers'][$i]['verbose']`.
 
+.. config:option:: $cfg['ShowPhpInfo']
+
+    :type: boolean
+    :default: false
+
 .. config:option:: $cfg['ShowChgPassword']
 
     :type: boolean
@@ -2048,10 +2053,25 @@ Main panel
     :type: boolean
     :default: true
 
-    Defines whether to display the 
+    Defines whether to display the :guilabel:`PHP information` and
     :guilabel:`Change password` links and form for creating database or not at
     the starting main (right) frame. This setting does not check MySQL commands
     entered directly.
+
+    Please note that to block the usage of ``phpinfo()`` in scripts, you have to
+    put this in your :file:`php.ini`:
+
+    .. code-block:: ini
+
+        disable_functions = phpinfo()
+
+    .. warning::
+
+        Enabling phpinfo page will leak quite a lot of information about server
+        setup. Is it not recommended to enable this on shared installations.
+
+        This might also make easier some remote attacks on your installations,
+        so enable this only when needed.
 
     Also note that enabling the :guilabel:`Change password` link has no effect
     with config authentication mode: because of the hard coded password value
@@ -2295,6 +2315,13 @@ Export and import settings
     items are similar to texts seen on export page, so you can easily
     identify what they mean.
 
+.. config:option:: $cfg['Export']['format']
+   
+    :type: string
+    :default: ``'sql'``
+
+    Default export format.
+
 .. config:option:: $cfg['Export']['method']
 
     :type: string
@@ -2315,6 +2342,33 @@ Export and import settings
 
     Defines charset for generated export. By default no charset conversion is
     done assuming UTF-8.
+
+.. config:option:: $cfg['Export']['file_template_table']
+
+    :type: string
+    :default: ``'@TABLE@'``
+
+    Default filename template for table exports.
+
+    .. seealso:: :ref:`faq6_27`
+
+.. config:option:: $cfg['Export']['file_template_database']
+
+    :type: string
+    :default: ``'@DATABASE@'``
+
+    Default filename template for database exports.
+
+    .. seealso:: :ref:`faq6_27`
+
+.. config:option:: $cfg['Export']['file_template_server']
+
+    :type: string
+    :default: ``'@SERVER@'``
+
+    Default filename template for server exports.
+
+    .. seealso:: :ref:`faq6_27`
 
 .. config:option:: $cfg['Import']
 

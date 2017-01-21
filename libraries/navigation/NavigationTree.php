@@ -17,6 +17,8 @@ use PMA\libraries\Response;
 use PMA\libraries\Util;
 use PMA\libraries\URL;
 
+require_once 'libraries/check_user_privileges.lib.php';
+
 /**
  * Displays a collapsible of database objects in the navigation frame
  *

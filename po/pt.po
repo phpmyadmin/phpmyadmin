@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-12-13 10:40+0100\n"
-"PO-Revision-Date: 2017-01-16 01:58+0000\n"
-"Last-Translator: Manuela Silva <manuela.silva@sky.com>\n"
+"PO-Revision-Date: 2017-01-19 21:38+0000\n"
+"Last-Translator: Flavio Coelho <flavio.coelho.mail@gmail.com>\n"
 "Language-Team: Portuguese "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/pt/>\n"
 "Language: pt\n"
@@ -746,24 +746,17 @@ msgstr ""
 "verificação de versão estão desativadas."
 
 #: index.php:474
-#, fuzzy
-#| msgid ""
-#| "Your PHP parameter [a@https://secure.php.net/manual/en/session."
-#| "configuration.php#ini.session.gc-maxlifetime@_blank]session."
-#| "gc_maxlifetime[/a] is lower than cookie validity configured in "
-#| "phpMyAdmin, because of this, your login will expire sooner than "
-#| "configured in phpMyAdmin."
 msgid ""
 "Your PHP parameter [a@https://secure.php.net/manual/en/session.configuration."
 "php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
 "than cookie validity configured in phpMyAdmin, because of this, your login "
 "might expire sooner than configured in phpMyAdmin."
 msgstr ""
-"O seu parâmetro PHP [a@https://secure.php.net/manual/en/session."
-"configuration.php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/"
-"a] é menor que o valor válido para o cookie configurado no phpMyAdmin, e por "
-"isso, a sua autenticação poderá expirar mais cedo que o configurado no "
-"phpMyAdmin."
+"O seu parâmetro PHP "
+"[a@https://secure.php.net/manual/en/session.configuration.php#ini.session.gc-"
+"maxlifetime@_blank]session.gc_maxlifetime[/a] é menor que o valor válido "
+"para o cookie configurado no phpMyAdmin, e por isso, a sua autenticação "
+"poderá expirar mais cedo que o configurado no phpMyAdmin."
 
 #: index.php:493
 msgid ""
@@ -1204,8 +1197,6 @@ msgid "Used memory"
 msgstr "Memória utilizada"
 
 #: js/messages.php:191
-#, fuzzy
-#| msgid "Total Swap"
 msgid "Total swap"
 msgstr "Swap total"
 
@@ -1726,8 +1717,6 @@ msgid "Processing request"
 msgstr "Processando Pedido"
 
 #: js/messages.php:360
-#, fuzzy
-#| msgid "Request Aborted!!"
 msgid "Request failed!!"
 msgstr "Pedido falhou!!"
 

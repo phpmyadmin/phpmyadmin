@@ -1036,11 +1036,9 @@ class DatabaseStructureController extends DatabaseController
             if (isset($current_table['Data_free'])
                 && $current_table['Data_free'] > 0
             ) {
-                // here, the value 4 as the second parameter
-                // would transform 6.1MiB into 6,224.6KiB
                 list($formatted_overhead, $overhead_unit)
                     = Util::formatByteDown(
-                        $current_table['Data_free'], 4,
+                        $current_table['Data_free'], 3,
                         (($current_table['Data_free'] > 0) ? 1 : 0)
                     );
                 $overhead_size += $current_table['Data_free'];

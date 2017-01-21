@@ -27,13 +27,17 @@ class PMATestCase extends PHPUnit_Framework_TestCase
      *
      * @return void
      */
-    public function mockResponse($param)
+    public function mockResponse()
     {
         $this->restoreInstance = PMA\libraries\Response::getInstance();
 
         $mockResponse = $this->getMockBuilder('PMA\libraries\Response')
             ->disableOriginalConstructor()
-            ->setMethods(array('header', 'headersSent', 'disable', 'isAjax'))
+            ->setMethods(array(
+                'header', 'headersSent', 'disable', 'isAjax',
+                'setRequestStatus', 'addJSON', 'addHTML',
+                'getFooter', 'getHeader',
+            ))
             ->getMock();
 
         $mockResponse->expects($this->any())
@@ -43,20 +47,27 @@ class PMATestCase extends PHPUnit_Framework_TestCase
 
         $param = func_get_args();
 
-        if (is_array($param[0])) {
-            $header_method = $mockResponse->expects($this->exactly(count($param)))
-                ->method('header');
+        if (count($param) > 0) {
+            if (is_array($param[0])) {
+                if (is_array($param[0][0]) && count($param) == 1) {
+                    $param = $param[0];
+                }
+                $header_method = $mockResponse->expects($this->exactly(count($param)))
+                    ->method('header');
 
-            call_user_func_array(array($header_method, 'withConsecutive'), $param);
-        } else {
-            $mockResponse->expects($this->once())
-                ->method('header')
-                ->with($param[0]);
+                call_user_func_array(array($header_method, 'withConsecutive'), $param);
+            } else {
+                $mockResponse->expects($this->once())
+                    ->method('header')
+                    ->with($param[0]);
+            }
         }
 
         $this->attrInstance = new ReflectionProperty('PMA\libraries\Response', '_instance');
         $this->attrInstance->setAccessible(true);
         $this->attrInstance->setValue($mockResponse);
+
+        return $mockResponse;
     }
 
     /**

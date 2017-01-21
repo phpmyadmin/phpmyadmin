@@ -521,10 +521,16 @@ function PMA_current_version(data)
         var current = parseVersionString($('span.version').text());
         var latest = parseVersionString(data.version);
         var url = 'https://web.phpmyadmin.net/files/' + escapeHtml(encodeURIComponent(data.version)) + '/';
-        var version_information_message = '<span class="latest">' +
-            PMA_messages.strLatestAvailable +
-            ' <a href="' + url + '" class="disableAjax">' + escapeHtml(data.version) + '</a>' +
-            '</span>';
+        var version_information_message = document.createElement('span');
+        version_information_message.className = 'latest';
+        var version_information_message_link = document.createElement('a');
+        version_information_message_link.href = url;
+        version_information_message_link.className = 'disableAjax';
+        version_information_message_link_text = document.createTextNode(data.version);
+        version_information_message_link.appendChild(version_information_message_link_text);
+        var prefix_message = document.createTextNode(PMA_messages.strLatestAvailable);
+        version_information_message.appendChild(prefix_message);
+        version_information_message.appendChild(version_information_message_link);
         if (latest > current) {
             var message = PMA_sprintf(
                 PMA_messages.strNewerVersion,
@@ -537,14 +543,23 @@ function PMA_current_version(data)
                 htmlClass = 'error';
             }
             $('#newer_version_notice').remove();
-            $('#maincontainer').after('<div id="newer_version_notice" class="' + htmlClass + '"><a href="' + url + '" class="disableAjax">' + message + '</a></div>');
+            var maincontainer_div = document.createElement('div');
+            maincontainer_div.id = 'newer_version_notice';
+            maincontainer_div.className = htmlClass;
+            var maincontainer_div_link = document.createElement('a');
+            maincontainer_div_link.href = url;
+            maincontainer_div_link.className = 'disableAjax';
+            maincontainer_div_link_text = document.createTextNode(message);
+            maincontainer_div_link.appendChild(maincontainer_div_link_text);
+            maincontainer_div.appendChild(maincontainer_div_link);
+            $('#maincontainer').append($(maincontainer_div));
         }
         if (latest === current) {
-            version_information_message = ' (' + PMA_messages.strUpToDate + ')';
+            version_information_message = document.createTextNode(' (' + PMA_messages.strUpToDate + ')');
         }
         var $liPmaVersion = $('#li_pma_version');
         $liPmaVersion.find('span.latest').remove();
-        $liPmaVersion.append(version_information_message);
+        $liPmaVersion.append($(version_information_message));
     }
 }
 

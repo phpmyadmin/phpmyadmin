@@ -20,7 +20,7 @@ require_once 'libraries/relation.lib.php';
  *
  * @package PhpMyAdmin-test
  */
-class PMA_User_Preferences_Test extends PHPUnit_Framework_TestCase
+class PMA_User_Preferences_Test extends PMATestCase
 {
 
     /**
@@ -368,25 +368,7 @@ class PMA_User_Preferences_Test extends PHPUnit_Framework_TestCase
     {
         $GLOBALS['lang'] = '';
 
-        $restoreInstance = PMA\libraries\Response::getInstance();
-
-        $mockResponse = $this->getMockBuilder('PMA\libraries\Response')
-            ->disableOriginalConstructor()
-            ->setMethods(array('header', 'headersSent'))
-            ->getMock();
-
-        $mockResponse->expects($this->once())
-            ->method('header')
-            ->with('Location: /phpmyadmin/file.html?a=b&saved=1&server=0#h+ash');
-
-        $mockResponse->expects($this->any())
-            ->method('headersSent')
-            ->with()
-            ->will($this->returnValue(false));
-
-        $attrInstance = new ReflectionProperty('PMA\libraries\Response', '_instance');
-        $attrInstance->setAccessible(true);
-        $attrInstance->setValue($mockResponse);
+        $this->mockResponse('Location: /phpmyadmin/file.html?a=b&saved=1&server=0#h+ash');
 
         $GLOBALS['PMA_Config']->set('PmaAbsoluteUri', '');
         $GLOBALS['PMA_Config']->set('PMA_IS_IIS', false);
@@ -396,8 +378,6 @@ class PMA_User_Preferences_Test extends PHPUnit_Framework_TestCase
             array('a' => 'b'),
             'h ash'
         );
-
-        $attrInstance->setValue($restoreInstance);
     }
 
     /**

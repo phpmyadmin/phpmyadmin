@@ -64,12 +64,7 @@ class AuthenticationCookieTest extends PMATestCase
      */
     public function testAuthErrorAJAX()
     {
-        $restoreInstance = PMA\libraries\Response::getInstance();
-
-        $mockResponse = $this->getMockBuilder('PMA\libraries\Response')
-            ->disableOriginalConstructor()
-            ->setMethods(array('isAjax', 'setRequestStatus', 'addJSON'))
-            ->getMock();
+        $mockResponse = $this->mockResponse();
 
         $mockResponse->expects($this->once())
             ->method('isAjax')
@@ -87,15 +82,10 @@ class AuthenticationCookieTest extends PMATestCase
                 '1'
             );
 
-        $attrInstance = new ReflectionProperty('PMA\libraries\Response', '_instance');
-        $attrInstance->setAccessible(true);
-        $attrInstance->setValue($mockResponse);
         $GLOBALS['conn_error'] = true;
         $this->assertTrue(
             $this->object->auth()
         );
-
-        $attrInstance->setValue($restoreInstance);
     }
 
     /**
@@ -106,11 +96,7 @@ class AuthenticationCookieTest extends PMATestCase
      */
     public function testAuthError()
     {
-        $restoreInstance = PMA\libraries\Response::getInstance();
-        $mockResponse = $this->getMockBuilder('PMA\libraries\Response')
-            ->disableOriginalConstructor()
-            ->setMethods(array('isAjax', 'getFooter', 'getHeader'))
-            ->getMock();
+        $mockResponse = $this->mockResponse();
 
         $mockResponse->expects($this->once())
             ->method('isAjax')
@@ -174,10 +160,6 @@ class AuthenticationCookieTest extends PMATestCase
             ->method('getHeader')
             ->with()
             ->will($this->returnValue($mockHeader));
-
-        $attrInstance = new ReflectionProperty('PMA\libraries\Response', '_instance');
-        $attrInstance->setAccessible(true);
-        $attrInstance->setValue($mockResponse);
 
         $GLOBALS['pmaThemeImage'] = 'test';
         $GLOBALS['conn_error'] = true;
@@ -273,7 +255,6 @@ class AuthenticationCookieTest extends PMATestCase
         );
 
         @unlink('testlogo_right.png');
-        $attrInstance->setValue($restoreInstance);
     }
 
     /**
@@ -284,11 +265,7 @@ class AuthenticationCookieTest extends PMATestCase
      */
     public function testAuthCaptcha()
     {
-        $restoreInstance = PMA\libraries\Response::getInstance();
-        $mockResponse = $this->getMockBuilder('PMA\libraries\Response')
-            ->disableOriginalConstructor()
-            ->setMethods(array('isAjax', 'getFooter', 'getHeader'))
-            ->getMock();
+        $mockResponse = $this->mockResponse();
 
         $mockResponse->expects($this->once())
             ->method('isAjax')
@@ -307,10 +284,6 @@ class AuthenticationCookieTest extends PMATestCase
 
         $_REQUEST['old_usr'] = '';
         $GLOBALS['cfg']['LoginCookieRecall'] = false;
-
-        $attrInstance = new ReflectionProperty('PMA\libraries\Response', '_instance');
-        $attrInstance->setAccessible(true);
-        $attrInstance->setValue($mockResponse);
 
         $GLOBALS['pmaThemeImage'] = 'test';
         $GLOBALS['cfg']['Lang'] = '';
@@ -333,11 +306,15 @@ class AuthenticationCookieTest extends PMATestCase
             $result
         );
 
-        $this->assertContains(
-            '<select name="lang" class="autosubmit" lang="en" dir="ltr" ' .
-            'id="sel-lang">',
-            $result
-        );
+        // Check for language selection if locales are there
+        $loc = LOCALE_PATH . '/cs/LC_MESSAGES/phpmyadmin.mo';
+        if (is_readable($loc)) {
+            $this->assertContains(
+                '<select name="lang" class="autosubmit" lang="en" dir="ltr" ' .
+                'id="sel-lang">',
+                $result
+            );
+        }
 
         $this->assertContains(
             '<form method="post" action="index.php" name="login_form" ' .
@@ -360,8 +337,6 @@ class AuthenticationCookieTest extends PMATestCase
             '<div class="g-recaptcha" data-sitekey="testpubkey">',
             $result
         );
-
-        $attrInstance->setValue($restoreInstance);
     }
 
     /**
