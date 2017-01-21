@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.6-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-12-13 10:40+0100\n"
-"PO-Revision-Date: 2016-11-08 18:50+0000\n"
+"PO-Revision-Date: 2017-01-17 17:34+0000\n"
 "Last-Translator: Sevdimali İsa <sevdimaliisayev@mail.ru>\n"
-"Language-Team: Azerbaijani <https://hosted.weblate.org/projects/"
-"phpmyadmin/4-6/az/>\n"
+"Language-Team: Azerbaijani "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-6/az/>\n"
 "Language: az\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.9\n"
+"X-Generator: Weblate 2.11-dev\n"
 
 #: changelog.php:38 license.php:33
 #, php-format
@@ -5829,7 +5829,7 @@ msgstr "Verilənləri daxil edərkən istifadə olunacaq sintaksis"
 #: libraries/config/messages.inc.php:217
 #: libraries/plugins/export/ExportSql.php:436
 msgid "Maximal length of created query"
-msgstr ""
+msgstr "Yaradılan sorğunun maksimal uzunluğu"
 
 #: libraries/config/messages.inc.php:223
 msgid "Export type"
@@ -5838,7 +5838,7 @@ msgstr "Eksport tipi"
 #: libraries/config/messages.inc.php:224
 #: libraries/plugins/export/ExportSql.php:136
 msgid "Enclose export in a transaction"
-msgstr ""
+msgstr "Tranzaksiya içində eksportu daxil et"
 
 #: libraries/config/messages.inc.php:225
 msgid "Export time in UTC"
@@ -5856,7 +5856,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:239
 msgid "A dropdown will be used if fewer items are present."
-msgstr ""
+msgstr "Az olarsa açılan menu istifadə olunacaq."
 
 #: libraries/config/messages.inc.php:240
 msgid "Foreign key limit"
@@ -5875,10 +5875,8 @@ msgid "Browse mode"
 msgstr ""
 
 #: libraries/config/messages.inc.php:246
-#, fuzzy
-#| msgid "Automatic recovery mode"
 msgid "Customize browse mode."
-msgstr "Avtomatik qurtarma rejimi"
+msgstr "Browse rejimini özəlləşdir."
 
 #: libraries/config/messages.inc.php:248 libraries/config/messages.inc.php:250
 #: libraries/config/messages.inc.php:268 libraries/config/messages.inc.php:281
@@ -5895,7 +5893,7 @@ msgstr "CSV verilenleri"
 
 #: libraries/config/messages.inc.php:251
 msgid "Developer"
-msgstr ""
+msgstr "Developer"
 
 #: libraries/config/messages.inc.php:252
 msgid "Settings for phpMyAdmin developers."

@@ -112,7 +112,7 @@ function PMA_getHtmlForServerProcesslist()
         $sql_query = 'SELECT * FROM `INFORMATION_SCHEMA`.`PROCESSLIST` ';
     }
     if (! empty($_REQUEST['showExecuting'])) {
-        $sql_query .= ' WHERE state = "executing" ';
+        $sql_query .= ' WHERE state != "" ';
     }
     if (!empty($_REQUEST['order_by_field']) && !empty($_REQUEST['sort_order'])) {
         $sql_query .= ' ORDER BY '

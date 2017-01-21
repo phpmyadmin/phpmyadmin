@@ -294,9 +294,6 @@ $GLOBALS['url_params'] = array();
  * @global array $goto_whitelist
  */
 $goto_whitelist = array(
-    //'browse_foreigners.php',
-    //'changelog.php',
-    //'chk_rel.php',
     'db_datadict.php',
     'db_sql.php',
     'db_events.php',
@@ -310,9 +307,6 @@ $goto_whitelist = array(
     'db_routines.php',
     'export.php',
     'import.php',
-    //'index.php',
-    //'navigation.php',
-    //'license.php',
     'index.php',
     'pdf_pages.php',
     'pdf_schema.php',
@@ -345,7 +339,6 @@ $goto_whitelist = array(
     'tbl_row_action.php',
     'tbl_select.php',
     'tbl_zoom_select.php',
-    //'themes.php',
     'transformation_overview.php',
     'transformation_wrapper.php',
     'user_password.php',

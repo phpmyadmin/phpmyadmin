@@ -25,11 +25,20 @@ phpMyAdmin - ChangeLog
 - issue #12826 Honor user configured connection collation
 - issue #12293 Correctly report OpenSSL errors from cookie encryption
 - issue #12814 DateTime won't allow to input length in Routine editor
+- issue #12840 Fix Notice regarding 'Undefined index: row_format' when altering table options
 - issue #12841 Fixed moving of columns with whitespace in name
 - issue #12847 Fixed editing of virtual columns
 - issue #12859 Changed WHERE condition to 0 instead of 1 for SQL query window to avoid accidents
 - issue #12872 Use same query for display and execution when dropping index
 - issue #12868 Fix check for user groups freatures being enabled
+- issue #12876 Fix notices and warning related to dbs_to_test global
+- issue #12831 Fix table formatting on Insert tab, which mostly affected row highlighting
+- issue #12495 Reintroduced phpinfo page with limited capabilities
+- issue #12861 Fix renaming tables with lower_case_table_names=2
+- issue #12876 Fix possible PHP error in navigation
+- issue #12881 Fix database search with newer php-gettext
+- issue #12894 Fix linter error on unterminated variable name
+- issue #12732 Fixed filtering for active processes
 
 4.6.5.2 (2016-12-05)
 - issue #12765 Fixed SQL export with newlines

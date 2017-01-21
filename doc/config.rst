@@ -1850,6 +1850,11 @@ Main panel
     You can additionally hide more information by using
     :config:option:`$cfg['Servers'][$i]['verbose']`.
 
+.. config:option:: $cfg['ShowPhpInfo']
+
+    :type: boolean
+    :default: false
+
 .. config:option:: $cfg['ShowChgPassword']
 
     :type: boolean
@@ -1860,10 +1865,25 @@ Main panel
     :type: boolean
     :default: true
 
-    Defines whether to display the 
+    Defines whether to display the :guilabel:`PHP information` and
     :guilabel:`Change password` links and form for creating database or not at
     the starting main (right) frame. This setting does not check MySQL commands
     entered directly.
+
+    Please note that to block the usage of ``phpinfo()`` in scripts, you have to
+    put this in your :file:`php.ini`:
+
+    .. code-block:: ini
+
+        disable_functions = phpinfo()
+
+    .. warning::
+
+        Enabling phpinfo page will leak quite a lot of information about server
+        setup. Is it not recommended to enable this on shared installations.
+
+        This might also make easier some remote attacks on your installations,
+        so enable this only when needed.
 
     Also note that enabling the :guilabel:`Change password` link has no effect
     with config authentication mode: because of the hard coded password value
