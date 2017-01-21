@@ -1603,6 +1603,15 @@ class Util
             $date
         );
 
+        /* Fill in AM/PM */
+        $hours = (int)date('H', $timestamp);
+        if ($hours >= 12) {
+            $am_pm = _pgettext('AM/PM indication in time', 'PM');
+        } else {
+            $am_pm = _pgettext('AM/PM indication in time', 'AM');
+        }
+        $date = preg_replace('@%[pP]@', $am_pm, $date);
+
         $ret = strftime($date, $timestamp);
         // Some OSes such as Win8.1 Traditional Chinese version did not produce UTF-8
         // output here. See https://sourceforge.net/p/phpmyadmin/bugs/4207/
