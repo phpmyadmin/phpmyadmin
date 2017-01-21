@@ -44,8 +44,8 @@ class PMA_GetCheckboxTest extends PHPUnit_Framework_TestCase
                 )
             ) . ' </root>',
             '<root> <input type="checkbox" name="' . $name . '" id="' . $name
-            . '" /><label for="' . $name . '">' . $label
-            . '</label> </root>'
+            . '" />' . "\n" . '<label for="' . $name . '">' . $label
+            . '</label>' . "\n" . ' </root>'
         );
     }
 
@@ -70,9 +70,9 @@ class PMA_GetCheckboxTest extends PHPUnit_Framework_TestCase
                     'html_field_id'     => $name,
                 )
             ) . '</root>',
-            '<root> <input type="checkbox" name="' . $name . '" id="' . $name
-            . '" checked="checked" /><label for="' . $name . '">' . $label
-            . '</label> </root>'
+            "<root><input type=\"checkbox\" name=\"$name\" id=\"$name"
+            . "\" checked=\"checked\" />\n<label for=\"$name\">$label"
+            . "</label>\n</root>"
         );
     }
 
@@ -97,9 +97,9 @@ class PMA_GetCheckboxTest extends PHPUnit_Framework_TestCase
                     'html_field_id'     => $name,
                 )
             ) . '</root>',
-            '<root> <input type="checkbox" name="' . $name . '" id="' . $name
-            . '" class="autosubmit" /><label for="' . $name . '">' . $label
-            . '</label> </root>'
+            "<root><input type=\"checkbox\" name=\"$name\" id=\"$name"
+            . "\" class=\"autosubmit\" />\n<label for=\"$name\">$label"
+            . "</label>\n</root>"
         );
     }
 
@@ -124,9 +124,9 @@ class PMA_GetCheckboxTest extends PHPUnit_Framework_TestCase
                     'html_field_id'     => $name,
                 )
             ) . '</root>',
-            '<root> <input type="checkbox" name="' . $name . '" id="' . $name
-            . '" checked="checked" class="autosubmit" /><label for="' . $name
-            . '">' . $label . '</label> </root>'
+            "<root><input type=\"checkbox\" name=\"$name\" id=\"$name"
+            . "\" checked=\"checked\" class=\"autosubmit\" />\n<label for=\"$name"
+            . "\">$label</label>\n</root>"
         );
     }
 }
