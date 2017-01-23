@@ -1214,7 +1214,11 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                             fields_type.push('hex');
                         }
                         fields_null.push('');
-                        fields.push($this_field.data('value'));
+                        // Convert \n to \r\n to be consistent with form submitted value.
+                        // The internal browser representation has to be just \n
+                        // while form submitted value \r\n, see specification:
+                        // https://www.w3.org/TR/html5/forms.html#the-textarea-element
+                        fields.push($this_field.data('value').replace(/\n/g, '\r\n'));
 
                         var cell_index = $this_field.index('.to_be_saved');
                         if ($this_field.is(":not(.relation, .enum, .set, .bit)")) {
