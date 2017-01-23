@@ -4,17 +4,17 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-01-23 14:24+0100\n"
-"PO-Revision-Date: 2016-12-21 23:03+0000\n"
+"PO-Revision-Date: 2017-01-23 18:40+0000\n"
 "Last-Translator: Domen <mitenem@outlook.com>\n"
-"Language-Team: Slovenian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/sl/>\n"
+"Language-Team: Slovenian "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/sl/>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
-"%100==4 ? 2 : 3;\n"
-"X-Generator: Weblate 2.10\n"
+"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
+"n%100==4 ? 2 : 3;\n"
+"X-Generator: Weblate 2.11-dev\n"
 
 #: changelog.php:39 license.php:34
 #, php-format
@@ -3601,8 +3601,6 @@ msgid "Relational key"
 msgstr "Relacijski ključ"
 
 #: libraries/DisplayResults.php:1745
-#, fuzzy
-#| msgid "Display column for relations"
 msgid "Display column for relationships"
 msgstr "Prikaži stolpec za razmerja"
 
@@ -4838,12 +4836,12 @@ msgstr "%d. %B %Y ob %H.%M"
 #: libraries/Util.php:1609
 msgctxt "AM/PM indication in time"
 msgid "PM"
-msgstr ""
+msgstr "PM"
 
 #: libraries/Util.php:1611
 msgctxt "AM/PM indication in time"
 msgid "AM"
-msgstr ""
+msgstr "AM"
 
 #: libraries/Util.php:1987
 #, php-format
@@ -5899,10 +5897,8 @@ msgstr "Vrsta MIME"
 
 #: libraries/config/messages.inc.php:167 libraries/config/messages.inc.php:180
 #: libraries/config/messages.inc.php:221
-#, fuzzy
-#| msgid "Relations"
 msgid "Relationships"
-msgstr "Relacije"
+msgstr "Razmerja"
 
 #: libraries/config/messages.inc.php:173
 msgid "Export method"
@@ -7617,16 +7613,12 @@ msgid "Show hint"
 msgstr "Prikaži namig"
 
 #: libraries/config/messages.inc.php:867
-#, fuzzy
-#| msgid ""
-#| "Shows link to [a@https://secure.php.net/manual/function.phpinfo."
-#| "php]phpinfo()[/a] output."
 msgid ""
 "Shows link to [a@https://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
 "output."
 msgstr ""
-"Prikaže povezavo do podatkov [a@https://secure.php.net/manual/function."
-"phpinfo.php]phpinfo()[/a]."
+"Prikaže povezavo do podatkov "
+"[a@https://php.net/manual/function.phpinfo.php]phpinfo()[/a]."
 
 #: libraries/config/messages.inc.php:870
 msgid "Show phpinfo() link"
@@ -8106,8 +8098,6 @@ msgid "Display column was successfully updated."
 msgstr "Prikazni stolpec smo uspešno posodobili."
 
 #: libraries/controllers/table/TableRelationController.php:282
-#, fuzzy
-#| msgid "Internal relations were successfully updated."
 msgid "Internal relationships were successfully updated."
 msgstr "Notranja razmerja smo uspešno posodobili."
 
@@ -10435,10 +10425,8 @@ msgid "MIME TYPES FOR TABLE"
 msgstr "VRSTE MIME ZA TABELO"
 
 #: libraries/plugins/export/ExportSql.php:1878
-#, fuzzy
-#| msgid "RELATIONS FOR TABLE"
 msgid "RELATIONSHIPS FOR TABLE"
-msgstr "RELACIJE ZA TABELO"
+msgstr "RAZMERJA ZA TABELO"
 
 #: libraries/plugins/export/ExportSql.php:2059
 msgid "It appears your table uses triggers;"
@@ -10904,22 +10892,16 @@ msgid "Formats text as XML with syntax highlighting."
 msgstr "Oblikuje besedilo kot XML z označevanjem skladnje."
 
 #: libraries/pmd_common.php:551
-#, fuzzy
-#| msgid "Error: relation already exists."
 msgid "Error: relationship already exists."
 msgstr "Napaka: razmerje že obstaja."
 
 #: libraries/pmd_common.php:597
-#, fuzzy
-#| msgid "FOREIGN KEY relation has been added."
 msgid "FOREIGN KEY relationship has been added."
-msgstr "Dodal sem razmerje FOREIGN KEY."
+msgstr "Dodali smo razmerje FOREIGN KEY."
 
 #: libraries/pmd_common.php:603
-#, fuzzy
-#| msgid "Error: FOREIGN KEY relation could not be added!"
 msgid "Error: FOREIGN KEY relationship could not be added!"
-msgstr "Napaka: Razmerja FOREIGN KEY nisem mogel dodati!"
+msgstr "Napaka: Razmerja FOREIGN KEY nismo mogli dodati!"
 
 #: libraries/pmd_common.php:608
 msgid "Error: Missing index on column(s)."
@@ -10930,40 +10912,28 @@ msgid "Error: Relational features are disabled!"
 msgstr "Napaka: Funkcionalnosti razmerij so onemogočene!"
 
 #: libraries/pmd_common.php:635
-#, fuzzy
-#| msgid "Internal relation has been added."
 msgid "Internal relationship has been added."
-msgstr "Dodal sem notranje razmerje."
+msgstr "Dodali smo notranje razmerje."
 
 #: libraries/pmd_common.php:641
-#, fuzzy
-#| msgid "Error: Internal relation could not be added!"
 msgid "Error: Internal relationship could not be added!"
-msgstr "Napaka: Notranjega razmerja nisem mogel dodati!"
+msgstr "Napaka: Notranjega razmerja nismo mogli dodati!"
 
 #: libraries/pmd_common.php:679
-#, fuzzy
-#| msgid "FOREIGN KEY relation has been removed."
 msgid "FOREIGN KEY relationship has been removed."
-msgstr "Odstranil sem razmerje FOREIGN KEY."
+msgstr "Odstranili smo razmerje FOREIGN KEY."
 
 #: libraries/pmd_common.php:685
-#, fuzzy
-#| msgid "Error: FOREIGN KEY relation could not be removed!"
 msgid "Error: FOREIGN KEY relationship could not be removed!"
-msgstr "Napaka: Razmerja FOREIGN KEY nisem mogel odstraniti!"
+msgstr "Napaka: Razmerja FOREIGN KEY nismo mogli odstraniti!"
 
 #: libraries/pmd_common.php:712
-#, fuzzy
-#| msgid "Error: Internal relation could not be removed!"
 msgid "Error: Internal relationship could not be removed!"
-msgstr "Napaka: Notranjega razmerja nisem mogel odstraniti!"
+msgstr "Napaka: Notranjega razmerja nismo mogli odstraniti!"
 
 #: libraries/pmd_common.php:716
-#, fuzzy
-#| msgid "Internal relation has been removed."
 msgid "Internal relationship has been removed."
-msgstr "Odstranil sem notranje razmerje."
+msgstr "Odstranili smo notranje razmerje."
 
 #: libraries/relation.lib.php:90
 msgid "not OK"
@@ -14691,8 +14661,6 @@ msgid "See table structure"
 msgstr "Ogled zgradbe tabele"
 
 #: templates/database/designer/delete_relation_panel.phtml:21
-#, fuzzy
-#| msgid "Delete relation"
 msgid "Delete relationship"
 msgstr "Izbriši razmerje"
 
@@ -14721,15 +14689,11 @@ msgstr "podpoizvedba"
 #: templates/database/designer/new_relation_panel.phtml:22
 #: templates/database/designer/side_menu.phtml:84
 #: templates/database/designer/side_menu.phtml:87
-#, fuzzy
-#| msgid "Create relation"
 msgid "Create relationship"
 msgstr "Ustvari razmerje"
 
 #: templates/database/designer/options_panel.phtml:34
 #: templates/database/designer/options_panel.phtml:200
-#, fuzzy
-#| msgid "Relation operator"
 msgid "Relationship operator"
 msgstr "Operator razmerja"
 
@@ -14829,10 +14793,8 @@ msgstr "Preklopi majhno/veliko"
 
 #: templates/database/designer/side_menu.phtml:145
 #: templates/database/designer/side_menu.phtml:148
-#, fuzzy
-#| msgid "Toggle relation lines"
 msgid "Toggle relationship lines"
-msgstr "Preklopi relacijske črte"
+msgstr "Preklopi črte razmerij"
 
 #: templates/database/designer/side_menu.phtml:153
 #: templates/database/designer/side_menu.phtml:156
@@ -14859,8 +14821,6 @@ msgid "Hide/Show all"
 msgstr "Skrij/Pokaži vse"
 
 #: templates/database/designer/table_list.phtml:14
-#, fuzzy
-#| msgid "Hide/Show Tables with no relation"
 msgid "Hide/Show Tables with no relationship"
 msgstr "Skrij/Pokaži tabele brez razmerij"
 
@@ -15285,8 +15245,6 @@ msgstr "+ Dodaj omejitev"
 
 #: templates/table/relation/common_form.phtml:76
 #: templates/table/relation/common_form.phtml:82
-#, fuzzy
-#| msgid "Internal relations"
 msgid "Internal relationships"
 msgstr "Notranja razmerja"
 
