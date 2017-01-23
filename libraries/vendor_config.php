@@ -26,17 +26,6 @@ define('CHANGELOG_FILE', './ChangeLog');
 define('LICENSE_FILE', './LICENSE');
 
 /**
- * Path to config file generated using setup script.
- */
-define('SETUP_CONFIG_FILE', './config/config.inc.php');
-
-/**
- * Whether setup requires writable directory where config
- * file will be generated.
- */
-define('SETUP_DIR_WRITABLE', true);
-
-/**
  * Directory where SQL scripts to create/upgrade configuration storage reside.
  */
 define('SQL_DIR', './sql/');

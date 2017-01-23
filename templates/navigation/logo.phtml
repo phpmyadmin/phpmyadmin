@@ -17,12 +17,11 @@ $linkAttribs = isset($linkAttribs) ? $linkAttribs : null;
 if (!isset($logo)) {
     $logo = null;
     if (isset($GLOBALS['pmaThemeImage'])) {
-        $imgTag = '<img src="' . $GLOBALS['pmaThemeImage'] . '%s" '
-            . 'alt="phpMyAdmin" id="imgpmalogo" />';
+        $imgTag = '<img src="%s%s" ' . 'alt="phpMyAdmin" id="imgpmalogo" />';
         if (@file_exists($GLOBALS['pmaThemeImage'] . 'logo_left.png')) {
-            $logo = sprintf($imgTag, 'logo_left.png');
+            $logo = sprintf($imgTag, $GLOBALS['pmaThemeImage'], 'logo_left.png');
         } elseif (@file_exists($GLOBALS['pmaThemeImage'] . 'pma_logo2.png')) {
-            $logo = sprintf($imgTag, 'pma_logo2.png');
+            $logo = sprintf($imgTag, $GLOBALS['pmaThemeImage'], 'pma_logo2.png');
         }
     }
 }
