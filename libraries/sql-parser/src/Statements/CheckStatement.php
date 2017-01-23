@@ -4,7 +4,7 @@
  * `CHECK` statement.
  */
 
-namespace SqlParser\Statements;
+namespace PhpMyAdmin\SqlParser\Statements;
 
 /**
  * `CHECK` statement.

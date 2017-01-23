@@ -4,10 +4,10 @@
  * Miscellaneous utilities.
  */
 
-namespace SqlParser\Utils;
+namespace PhpMyAdmin\SqlParser\Utils;
 
-use SqlParser\Components\Expression;
-use SqlParser\Statements\SelectStatement;
+use PhpMyAdmin\SqlParser\Components\Expression;
+use PhpMyAdmin\SqlParser\Statements\SelectStatement;
 
 /**
  * Miscellaneous utilities.

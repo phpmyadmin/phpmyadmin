@@ -4,32 +4,32 @@
  * Statement utilities.
  */
 
-namespace SqlParser\Utils;
+namespace PhpMyAdmin\SqlParser\Utils;
 
-use SqlParser\Lexer;
-use SqlParser\Parser;
-use SqlParser\Statement;
-use SqlParser\Token;
-use SqlParser\TokensList;
-use SqlParser\Components\Expression;
-use SqlParser\Statements\AlterStatement;
-use SqlParser\Statements\AnalyzeStatement;
-use SqlParser\Statements\CallStatement;
-use SqlParser\Statements\CheckStatement;
-use SqlParser\Statements\ChecksumStatement;
-use SqlParser\Statements\CreateStatement;
-use SqlParser\Statements\DeleteStatement;
-use SqlParser\Statements\DropStatement;
-use SqlParser\Statements\ExplainStatement;
-use SqlParser\Statements\InsertStatement;
-use SqlParser\Statements\OptimizeStatement;
-use SqlParser\Statements\RenameStatement;
-use SqlParser\Statements\RepairStatement;
-use SqlParser\Statements\ReplaceStatement;
-use SqlParser\Statements\SelectStatement;
-use SqlParser\Statements\ShowStatement;
-use SqlParser\Statements\TruncateStatement;
-use SqlParser\Statements\UpdateStatement;
+use PhpMyAdmin\SqlParser\Lexer;
+use PhpMyAdmin\SqlParser\Parser;
+use PhpMyAdmin\SqlParser\Statement;
+use PhpMyAdmin\SqlParser\Token;
+use PhpMyAdmin\SqlParser\TokensList;
+use PhpMyAdmin\SqlParser\Components\Expression;
+use PhpMyAdmin\SqlParser\Statements\AlterStatement;
+use PhpMyAdmin\SqlParser\Statements\AnalyzeStatement;
+use PhpMyAdmin\SqlParser\Statements\CallStatement;
+use PhpMyAdmin\SqlParser\Statements\CheckStatement;
+use PhpMyAdmin\SqlParser\Statements\ChecksumStatement;
+use PhpMyAdmin\SqlParser\Statements\CreateStatement;
+use PhpMyAdmin\SqlParser\Statements\DeleteStatement;
+use PhpMyAdmin\SqlParser\Statements\DropStatement;
+use PhpMyAdmin\SqlParser\Statements\ExplainStatement;
+use PhpMyAdmin\SqlParser\Statements\InsertStatement;
+use PhpMyAdmin\SqlParser\Statements\OptimizeStatement;
+use PhpMyAdmin\SqlParser\Statements\RenameStatement;
+use PhpMyAdmin\SqlParser\Statements\RepairStatement;
+use PhpMyAdmin\SqlParser\Statements\ReplaceStatement;
+use PhpMyAdmin\SqlParser\Statements\SelectStatement;
+use PhpMyAdmin\SqlParser\Statements\ShowStatement;
+use PhpMyAdmin\SqlParser\Statements\TruncateStatement;
+use PhpMyAdmin\SqlParser\Statements\UpdateStatement;
 
 /**
  * Statement utilities.

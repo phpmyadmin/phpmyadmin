@@ -4,9 +4,9 @@
  * Table utilities.
  */
 
-namespace SqlParser\Utils;
+namespace PhpMyAdmin\SqlParser\Utils;
 
-use SqlParser\Statements\CreateStatement;
+use PhpMyAdmin\SqlParser\Statements\CreateStatement;
 
 /**
  * Table utilities.

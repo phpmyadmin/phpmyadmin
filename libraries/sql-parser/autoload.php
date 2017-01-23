@@ -13,14 +13,14 @@
  */
 namespace SqlParser\Autoload;
 
-if (!class_exists('SqlParser\\Autoload\\ClassLoader')) {
+if (!class_exists('PhpMyAdmin\\SqlParser\\Autoload\\ClassLoader')) {
     if (! file_exists('./libraries/sql-parser/ClassLoader.php')) {
         die('Invalid invocation');
     }
     include_once './libraries/sql-parser/ClassLoader.php';
 }
 
-use SqlParser\Autoload\ClassLoader;
+use PhpMyAdmin\SqlParser\Autoload\ClassLoader;
 
 /**
  * Initializes the autoloader.
@@ -73,6 +73,6 @@ require_once GETTEXT_INC;
 // Initializing the autoloader.
 return AutoloaderInit::getLoader(
     array(
-        'SqlParser\\' => array(dirname(__FILE__) . '/src'),
+        'PhpMyAdmin\\SqlParser\\' => array(dirname(__FILE__) . '/src'),
     )
 );

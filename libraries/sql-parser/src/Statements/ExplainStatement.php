@@ -4,7 +4,7 @@
  * `EXPLAIN` statement.
  */
 
-namespace SqlParser\Statements;
+namespace PhpMyAdmin\SqlParser\Statements;
 
 /**
  * `EXPLAIN` statement.

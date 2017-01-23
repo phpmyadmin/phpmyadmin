@@ -8,11 +8,11 @@
  * Depends on context to extract lexemes.
  */
 
-namespace SqlParser;
+namespace PhpMyAdmin\SqlParser;
 
 require_once 'common.php';
 
-use SqlParser\Exceptions\LexerException;
+use PhpMyAdmin\SqlParser\Exceptions\LexerException;
 
 if (!defined('USE_UTF_STRINGS')) {
     // NOTE: In previous versions of PHP (5.5 and older) the default
@@ -572,6 +572,7 @@ class Lexer
             ) {
                 $token .= $this->str[$this->last];
             }
+
             return new Token($token, Token::TYPE_COMMENT, Token::FLAG_COMMENT_BASH);
         }
 

@@ -4,12 +4,12 @@
  * Transaction statement.
  */
 
-namespace SqlParser\Statements;
+namespace PhpMyAdmin\SqlParser\Statements;
 
-use SqlParser\Parser;
-use SqlParser\Statement;
-use SqlParser\TokensList;
-use SqlParser\Components\OptionsArray;
+use PhpMyAdmin\SqlParser\Parser;
+use PhpMyAdmin\SqlParser\Statement;
+use PhpMyAdmin\SqlParser\TokensList;
+use PhpMyAdmin\SqlParser\Components\OptionsArray;
 
 /**
  * Transaction statement.

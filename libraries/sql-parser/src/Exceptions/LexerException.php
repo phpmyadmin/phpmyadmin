@@ -4,7 +4,7 @@
  * Exception thrown by the lexer.
  */
 
-namespace SqlParser\Exceptions;
+namespace PhpMyAdmin\SqlParser\Exceptions;
 
 /**
  * Exception thrown by the lexer.

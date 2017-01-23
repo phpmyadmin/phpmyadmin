@@ -4,9 +4,9 @@
  * Exception thrown by the parser.
  */
 
-namespace SqlParser\Exceptions;
+namespace PhpMyAdmin\SqlParser\Exceptions;
 
-use SqlParser\Token;
+use PhpMyAdmin\SqlParser\Token;
 
 /**
  * Exception thrown by the parser.

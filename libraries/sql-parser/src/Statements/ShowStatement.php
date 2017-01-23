@@ -4,7 +4,7 @@
  * `SHOW` statement.
  */
 
-namespace SqlParser\Statements;
+namespace PhpMyAdmin\SqlParser\Statements;
 
 /**
  * `SHOW` statement.

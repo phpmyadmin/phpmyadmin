@@ -4,10 +4,10 @@
  * CLI interface.
  */
 
-namespace SqlParser\Utils;
+namespace PhpMyAdmin\SqlParser\Utils;
 
-use SqlParser\Parser;
-use SqlParser\Lexer;
+use PhpMyAdmin\SqlParser\Parser;
+use PhpMyAdmin\SqlParser\Lexer;
 
 /**
  * CLI interface.

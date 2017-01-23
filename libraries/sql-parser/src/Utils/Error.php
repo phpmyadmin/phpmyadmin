@@ -4,10 +4,10 @@
  * Error related utilities.
  */
 
-namespace SqlParser\Utils;
+namespace PhpMyAdmin\SqlParser\Utils;
 
-use SqlParser\Lexer;
-use SqlParser\Parser;
+use PhpMyAdmin\SqlParser\Lexer;
+use PhpMyAdmin\SqlParser\Parser;
 
 /**
  * Error related utilities.

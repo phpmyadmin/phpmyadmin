@@ -4,12 +4,12 @@
  * `INTO` keyword parser.
  */
 
-namespace SqlParser\Components;
+namespace PhpMyAdmin\SqlParser\Components;
 
-use SqlParser\Component;
-use SqlParser\Parser;
-use SqlParser\Token;
-use SqlParser\TokensList;
+use PhpMyAdmin\SqlParser\Component;
+use PhpMyAdmin\SqlParser\Parser;
+use PhpMyAdmin\SqlParser\Token;
+use PhpMyAdmin\SqlParser\TokensList;
 
 /**
  * `INTO` keyword parser.

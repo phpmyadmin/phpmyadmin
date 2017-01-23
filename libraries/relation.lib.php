@@ -8,7 +8,7 @@
 use PMA\libraries\Message;
 use PMA\libraries\Table;
 use PMA\libraries\RecentFavoriteTable;
-use SqlParser\Statements\CreateStatement;
+use PhpMyAdmin\SqlParser\Statements\CreateStatement;
 
 /**
  * Executes a query as controluser if possible, otherwise as normal user
@@ -773,12 +773,12 @@ function PMA_getForeigners($db, $table, $column = '', $source = 'both')
         $tableObj = new Table($table, $db);
         $show_create_table = $tableObj->showCreate();
         if ($show_create_table) {
-            $parser = new SqlParser\Parser($show_create_table);
+            $parser = new PhpMyAdmin\SqlParser\Parser($show_create_table);
             /**
              * @var CreateStatement $stmt
              */
             $stmt = $parser->statements[0];
-            $foreign['foreign_keys_data'] = SqlParser\Utils\Table::getForeignKeys(
+            $foreign['foreign_keys_data'] = PhpMyAdmin\SqlParser\Utils\Table::getForeignKeys(
                 $stmt
             );
         }

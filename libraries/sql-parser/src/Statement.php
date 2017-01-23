@@ -7,9 +7,9 @@
  * A statement represents the result of parsing the lexemes.
  */
 
-namespace SqlParser;
+namespace PhpMyAdmin\SqlParser;
 
-use SqlParser\Components\OptionsArray;
+use PhpMyAdmin\SqlParser\Components\OptionsArray;
 
 /**
  * Abstract statement definition.
@@ -255,7 +255,7 @@ abstract class Statement
             // ON DUPLICATE KEY UPDATE ...
             // has to be parsed in parent statement (INSERT or REPLACE)
             // so look for it and break
-            if (get_class($this) === 'SqlParser\Statements\SelectStatement'
+            if (get_class($this) === 'PhpMyAdmin\SqlParser\Statements\SelectStatement'
                 && $token->value === 'ON'
             ) {
                 ++$list->idx; // Skip ON
@@ -351,7 +351,7 @@ abstract class Statement
             } elseif ($class === null) {
                 // Handle special end options in Select statement
                 // See Statements\SelectStatement::$END_OPTIONS
-                if (get_class($this) === 'SqlParser\Statements\SelectStatement'
+                if (get_class($this) === 'PhpMyAdmin\SqlParser\Statements\SelectStatement'
                     && ($token->value === 'FOR UPDATE'
                     || $token->value === 'LOCK IN SHARE MODE')
                 ) {

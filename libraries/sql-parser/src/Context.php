@@ -7,7 +7,7 @@
  * parsing.
  */
 
-namespace SqlParser;
+namespace PhpMyAdmin\SqlParser;
 
 /**
  * Holds the configuration of the context that is currently used.
@@ -51,14 +51,14 @@ abstract class Context
      *
      * @var string
      */
-    public static $defaultContext = '\\SqlParser\\Contexts\\ContextMySql50700';
+    public static $defaultContext = '\\PhpMyAdmin\\SqlParser\\Contexts\\ContextMySql50700';
 
     /**
      * The name of the loaded context.
      *
      * @var string
      */
-    public static $loadedContext = '\\SqlParser\\Contexts\\ContextMySql50700';
+    public static $loadedContext = '\\PhpMyAdmin\\SqlParser\\Contexts\\ContextMySql50700';
 
     /**
      * The prefix concatenated to the context name when an incomplete class name
@@ -66,7 +66,7 @@ abstract class Context
      *
      * @var string
      */
-    public static $contextPrefix = '\\SqlParser\\Contexts\\Context';
+    public static $contextPrefix = '\\PhpMyAdmin\\SqlParser\\Contexts\\Context';
 
     /**
      * List of keywords.

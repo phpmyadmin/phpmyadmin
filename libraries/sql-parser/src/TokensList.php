@@ -4,7 +4,7 @@
  * Defines an array of tokens and utility functions to iterate through it.
  */
 
-namespace SqlParser;
+namespace PhpMyAdmin\SqlParser;
 
 /**
  * A structure representing a list of tokens.

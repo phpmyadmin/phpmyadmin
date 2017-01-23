@@ -11,7 +11,7 @@
  * implemented.
  */
 
-namespace SqlParser;
+namespace PhpMyAdmin\SqlParser;
 
 /**
  * Implements array-like access for UTF-8 strings.

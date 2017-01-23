@@ -9,7 +9,7 @@
  * count on the *Component classes to do their job.
  */
 
-namespace SqlParser;
+namespace PhpMyAdmin\SqlParser;
 
 require_once 'common.php';
 

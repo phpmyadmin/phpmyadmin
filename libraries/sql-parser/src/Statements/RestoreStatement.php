@@ -4,7 +4,7 @@
  * `RESTORE` statement.
  */
 
-namespace SqlParser\Statements;
+namespace PhpMyAdmin\SqlParser\Statements;
 
 /**
  * `RESTORE` statement.

@@ -4,9 +4,9 @@
  * Buffered query utilities.
  */
 
-namespace SqlParser\Utils;
+namespace PhpMyAdmin\SqlParser\Utils;
 
-use SqlParser\Context;
+use PhpMyAdmin\SqlParser\Context;
 
 /**
  * Buffer query utilities.

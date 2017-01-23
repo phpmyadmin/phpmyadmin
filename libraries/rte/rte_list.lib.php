@@ -5,7 +5,7 @@
  *
  * @package PhpMyAdmin
  */
-use SqlParser\Statements\CreateStatement;
+use PhpMyAdmin\SqlParser\Statements\CreateStatement;
 
 if (! defined('PHPMYADMIN')) {
     exit;
@@ -243,14 +243,14 @@ function PMA_RTN_getRowForList($routine, $rowclass = '')
         $db, $routine['type'], $routine['name']
     );
     if ($definition !== false) {
-        $parser = new SqlParser\Parser($definition);
+        $parser = new PhpMyAdmin\SqlParser\Parser($definition);
 
         /**
          * @var CreateStatement $stmt
          */
         $stmt = $parser->statements[0];
 
-        $params = SqlParser\Utils\Routine::getParameters($stmt);
+        $params = PhpMyAdmin\SqlParser\Utils\Routine::getParameters($stmt);
 
         if (PMA\libraries\Util::currentUserHasPrivilege('EXECUTE', $db)) {
             $execute_action = 'execute_routine';

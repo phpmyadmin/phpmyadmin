@@ -4,16 +4,16 @@
  * `REPLACE` statement.
  */
 
-namespace SqlParser\Statements;
+namespace PhpMyAdmin\SqlParser\Statements;
 
-use SqlParser\Parser;
-use SqlParser\Token;
-use SqlParser\TokensList;
-use SqlParser\Statement;
-use SqlParser\Components\Array2d;
-use SqlParser\Components\IntoKeyword;
-use SqlParser\Components\OptionsArray;
-use SqlParser\Components\SetOperation;
+use PhpMyAdmin\SqlParser\Parser;
+use PhpMyAdmin\SqlParser\Token;
+use PhpMyAdmin\SqlParser\TokensList;
+use PhpMyAdmin\SqlParser\Statement;
+use PhpMyAdmin\SqlParser\Components\Array2d;
+use PhpMyAdmin\SqlParser\Components\IntoKeyword;
+use PhpMyAdmin\SqlParser\Components\OptionsArray;
+use PhpMyAdmin\SqlParser\Components\SetOperation;
 
 /**
  * `REPLACE` statement.
@@ -116,8 +116,6 @@ class ReplaceStatement extends Statement
             static::$OPTIONS
         );
         ++$list->idx;
-
-        $token = $list->tokens[$list->idx];
 
         /**
          * The state of the parser.

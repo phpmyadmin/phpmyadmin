@@ -4,7 +4,7 @@
  * `REPAIR` statement.
  */
 
-namespace SqlParser\Statements;
+namespace PhpMyAdmin\SqlParser\Statements;
 
 /**
  * `REPAIR` statement.

@@ -4,13 +4,13 @@
  * Routine utilities.
  */
 
-namespace SqlParser\Utils;
+namespace PhpMyAdmin\SqlParser\Utils;
 
-use SqlParser\Lexer;
-use SqlParser\Parser;
-use SqlParser\Components\DataType;
-use SqlParser\Components\ParameterDefinition;
-use SqlParser\Statements\CreateStatement;
+use PhpMyAdmin\SqlParser\Lexer;
+use PhpMyAdmin\SqlParser\Parser;
+use PhpMyAdmin\SqlParser\Components\DataType;
+use PhpMyAdmin\SqlParser\Components\ParameterDefinition;
+use PhpMyAdmin\SqlParser\Statements\CreateStatement;
 
 /**
  * Routine utilities.

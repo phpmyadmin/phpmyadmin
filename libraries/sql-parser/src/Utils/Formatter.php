@@ -4,12 +4,12 @@
  * Utilities that are used for formatting queries.
  */
 
-namespace SqlParser\Utils;
+namespace PhpMyAdmin\SqlParser\Utils;
 
-use SqlParser\Lexer;
-use SqlParser\Parser;
-use SqlParser\Token;
-use SqlParser\TokensList;
+use PhpMyAdmin\SqlParser\Lexer;
+use PhpMyAdmin\SqlParser\Parser;
+use PhpMyAdmin\SqlParser\Token;
+use PhpMyAdmin\SqlParser\TokensList;
 
 /**
  * Utilities that are used for formatting queries.
@@ -334,7 +334,7 @@ class Formatter
             /**
              * Token parsed at this moment.
              *
-             * @var Token $curr
+             * @var Token
              */
             $curr = $list->tokens[$list->idx];
 
@@ -349,10 +349,8 @@ class Formatter
             }
 
             // Checking if pointers were initialized.
-            /**
+            /*
              * Previous Token.
-             *
-             * @var Token $prev
              */
             if ($prev !== null) {
                 // Checking if a new clause started.

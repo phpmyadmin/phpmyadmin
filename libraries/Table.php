@@ -8,11 +8,11 @@
 namespace PMA\libraries;
 
 use PMA\libraries\plugins\export\ExportSql;
-use SqlParser\Components\Expression;
-use SqlParser\Components\OptionsArray;
-use SqlParser\Context;
-use SqlParser\Parser;
-use SqlParser\Statements\DropStatement;
+use PhpMyAdmin\SqlParser\Components\Expression;
+use PhpMyAdmin\SqlParser\Components\OptionsArray;
+use PhpMyAdmin\SqlParser\Context;
+use PhpMyAdmin\SqlParser\Parser;
+use PhpMyAdmin\SqlParser\Statements\DropStatement;
 
 /**
  * Handles everything related to tables
@@ -939,7 +939,7 @@ class Table
 
                 /**
                  * The CREATE statement of this structure.
-                 * @var \SqlParser\Statements\CreateStatement $statement
+                 * @var \PhpMyAdmin\SqlParser\Statements\CreateStatement $statement
                  */
                 $statement = $parser->statements[0];
 
@@ -966,7 +966,7 @@ class Table
 
                 /**
                  * The ALTER statement that generates the constraints.
-                 * @var \SqlParser\Statements\AlterStatement $statement
+                 * @var \PhpMyAdmin\SqlParser\Statements\AlterStatement $statement
                  */
                 $statement = $parser->statements[0];
 
@@ -1005,7 +1005,7 @@ class Table
                 $GLOBALS['sql_indexes'] = '';
                 /**
                  * The ALTER statement that generates the indexes.
-                 * @var \SqlParser\Statements\AlterStatement $statement
+                 * @var \PhpMyAdmin\SqlParser\Statements\AlterStatement $statement
                  */
                 foreach ($parser->statements as $statement) {
 
@@ -1047,7 +1047,7 @@ class Table
 
                     /**
                      * The ALTER statement that alters the AUTO_INCREMENT value.
-                     * @var \SqlParser\Statements\AlterStatement $statement
+                     * @var \PhpMyAdmin\SqlParser\Statements\AlterStatement $statement
                      */
                     $statement = $parser->statements[0];
 
@@ -2454,10 +2454,10 @@ class Table
 
         $parser = new Parser($createTable);
         /**
-         * @var \SqlParser\Statements\CreateStatement $stmt
+         * @var \PhpMyAdmin\SqlParser\Statements\CreateStatement $stmt
         */
         $stmt = $parser->statements[0];
-        $fields = \SqlParser\Utils\Table::getFields($stmt);
+        $fields = \PhpMyAdmin\SqlParser\Utils\Table::getFields($stmt);
         if ($column != null) {
             $expression = isset($fields[$column]['expr']) ?
                 substr($fields[$column]['expr'], 1, -1) : '';

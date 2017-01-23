@@ -4,10 +4,10 @@
  * `TRUNCATE` statement.
  */
 
-namespace SqlParser\Statements;
+namespace PhpMyAdmin\SqlParser\Statements;
 
-use SqlParser\Statement;
-use SqlParser\Components\Expression;
+use PhpMyAdmin\SqlParser\Statement;
+use PhpMyAdmin\SqlParser\Components\Expression;
 
 /**
  * `TRUNCATE` statement.

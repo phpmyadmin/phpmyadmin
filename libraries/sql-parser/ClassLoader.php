@@ -9,7 +9,7 @@
  * @package     SqlParser
  * @subpackage  Autoload
  */
-namespace SqlParser\Autoload;
+namespace PhpMyAdmin\SqlParser\Autoload;
 
 /**
  * ClassLoader implements a PSR-4 class loader,
@@ -232,7 +232,7 @@ class ClassLoader
     }
 }
 
-if (!function_exists('SqlParser\\Autoload\\includeFile')) {
+if (!function_exists('PhpMyAdmin\\SqlParser\\Autoload\\includeFile')) {
 
     /**
      * Scope isolated include.

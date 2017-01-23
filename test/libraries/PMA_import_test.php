@@ -385,7 +385,7 @@ class PMA_Import_Test extends PHPUnit_Framework_TestCase
      */
     function simulatedQueryTest($sql_query, $simulated_query)
     {
-        $parser = new SqlParser\Parser($sql_query);
+        $parser = new PhpMyAdmin\SqlParser\Parser($sql_query);
         $analyzed_sql_results = array(
             'query' => $sql_query,
             'parser' => $parser,

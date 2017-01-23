@@ -4,10 +4,10 @@
  * `UNION` keyword builder.
  */
 
-namespace SqlParser\Components;
+namespace PhpMyAdmin\SqlParser\Components;
 
-use SqlParser\Component;
-use SqlParser\Statements\SelectStatement;
+use PhpMyAdmin\SqlParser\Component;
+use PhpMyAdmin\SqlParser\Statements\SelectStatement;
 
 /**
  * `UNION` keyword builder.

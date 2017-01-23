@@ -6,13 +6,13 @@
  * This is one of the most important components, along with the lexer.
  */
 
-namespace SqlParser;
+namespace PhpMyAdmin\SqlParser;
 
 require_once 'common.php';
 
-use SqlParser\Exceptions\ParserException;
-use SqlParser\Statements\SelectStatement;
-use SqlParser\Statements\TransactionStatement;
+use PhpMyAdmin\SqlParser\Exceptions\ParserException;
+use PhpMyAdmin\SqlParser\Statements\SelectStatement;
+use PhpMyAdmin\SqlParser\Statements\TransactionStatement;
 
 /**
  * Takes multiple tokens (contained in a Lexer instance) as input and builds a
@@ -31,9 +31,9 @@ class Parser
      */
     public static $STATEMENT_PARSERS = array(
         // MySQL Utility Statements
-        'DESCRIBE' => 'SqlParser\\Statements\\ExplainStatement',
-        'DESC' => 'SqlParser\\Statements\\ExplainStatement',
-        'EXPLAIN' => 'SqlParser\\Statements\\ExplainStatement',
+        'DESCRIBE' => 'PhpMyAdmin\\SqlParser\\Statements\\ExplainStatement',
+        'DESC' => 'PhpMyAdmin\\SqlParser\\Statements\\ExplainStatement',
+        'EXPLAIN' => 'PhpMyAdmin\\SqlParser\\Statements\\ExplainStatement',
         'FLUSH' => '',
         'GRANT' => '',
         'HELP' => '',
@@ -43,38 +43,38 @@ class Parser
 
         // Table Maintenance Statements
         // https://dev.mysql.com/doc/refman/5.7/en/table-maintenance-sql.html
-        'ANALYZE' => 'SqlParser\\Statements\\AnalyzeStatement',
-        'BACKUP' => 'SqlParser\\Statements\\BackupStatement',
-        'CHECK' => 'SqlParser\\Statements\\CheckStatement',
-        'CHECKSUM' => 'SqlParser\\Statements\\ChecksumStatement',
-        'OPTIMIZE' => 'SqlParser\\Statements\\OptimizeStatement',
-        'REPAIR' => 'SqlParser\\Statements\\RepairStatement',
-        'RESTORE' => 'SqlParser\\Statements\\RestoreStatement',
+        'ANALYZE' => 'PhpMyAdmin\\SqlParser\\Statements\\AnalyzeStatement',
+        'BACKUP' => 'PhpMyAdmin\\SqlParser\\Statements\\BackupStatement',
+        'CHECK' => 'PhpMyAdmin\\SqlParser\\Statements\\CheckStatement',
+        'CHECKSUM' => 'PhpMyAdmin\\SqlParser\\Statements\\ChecksumStatement',
+        'OPTIMIZE' => 'PhpMyAdmin\\SqlParser\\Statements\\OptimizeStatement',
+        'REPAIR' => 'PhpMyAdmin\\SqlParser\\Statements\\RepairStatement',
+        'RESTORE' => 'PhpMyAdmin\\SqlParser\\Statements\\RestoreStatement',
 
         // Database Administration Statements
         // https://dev.mysql.com/doc/refman/5.7/en/sql-syntax-server-administration.html
-        'SET' => 'SqlParser\\Statements\\SetStatement',
-        'SHOW' => 'SqlParser\\Statements\\ShowStatement',
+        'SET' => 'PhpMyAdmin\\SqlParser\\Statements\\SetStatement',
+        'SHOW' => 'PhpMyAdmin\\SqlParser\\Statements\\ShowStatement',
 
         // Data Definition Statements.
         // https://dev.mysql.com/doc/refman/5.7/en/sql-syntax-data-definition.html
-        'ALTER' => 'SqlParser\\Statements\\AlterStatement',
-        'CREATE' => 'SqlParser\\Statements\\CreateStatement',
-        'DROP' => 'SqlParser\\Statements\\DropStatement',
-        'RENAME' => 'SqlParser\\Statements\\RenameStatement',
-        'TRUNCATE' => 'SqlParser\\Statements\\TruncateStatement',
+        'ALTER' => 'PhpMyAdmin\\SqlParser\\Statements\\AlterStatement',
+        'CREATE' => 'PhpMyAdmin\\SqlParser\\Statements\\CreateStatement',
+        'DROP' => 'PhpMyAdmin\\SqlParser\\Statements\\DropStatement',
+        'RENAME' => 'PhpMyAdmin\\SqlParser\\Statements\\RenameStatement',
+        'TRUNCATE' => 'PhpMyAdmin\\SqlParser\\Statements\\TruncateStatement',
 
         // Data Manipulation Statements.
         // https://dev.mysql.com/doc/refman/5.7/en/sql-syntax-data-manipulation.html
-        'CALL' => 'SqlParser\\Statements\\CallStatement',
-        'DELETE' => 'SqlParser\\Statements\\DeleteStatement',
+        'CALL' => 'PhpMyAdmin\\SqlParser\\Statements\\CallStatement',
+        'DELETE' => 'PhpMyAdmin\\SqlParser\\Statements\\DeleteStatement',
         'DO' => '',
         'HANDLER' => '',
-        'INSERT' => 'SqlParser\\Statements\\InsertStatement',
+        'INSERT' => 'PhpMyAdmin\\SqlParser\\Statements\\InsertStatement',
         'LOAD' => '',
-        'REPLACE' => 'SqlParser\\Statements\\ReplaceStatement',
-        'SELECT' => 'SqlParser\\Statements\\SelectStatement',
-        'UPDATE' => 'SqlParser\\Statements\\UpdateStatement',
+        'REPLACE' => 'PhpMyAdmin\\SqlParser\\Statements\\ReplaceStatement',
+        'SELECT' => 'PhpMyAdmin\\SqlParser\\Statements\\SelectStatement',
+        'UPDATE' => 'PhpMyAdmin\\SqlParser\\Statements\\UpdateStatement',
 
         // Prepared Statements.
         // https://dev.mysql.com/doc/refman/5.7/en/sql-syntax-prepared-statements.html
@@ -84,10 +84,10 @@ class Parser
 
         // Transactional and Locking Statements
         // https://dev.mysql.com/doc/refman/5.7/en/commit.html
-        'BEGIN' => 'SqlParser\\Statements\\TransactionStatement',
-        'COMMIT' => 'SqlParser\\Statements\\TransactionStatement',
-        'ROLLBACK' => 'SqlParser\\Statements\\TransactionStatement',
-        'START TRANSACTION' => 'SqlParser\\Statements\\TransactionStatement',
+        'BEGIN' => 'PhpMyAdmin\\SqlParser\\Statements\\TransactionStatement',
+        'COMMIT' => 'PhpMyAdmin\\SqlParser\\Statements\\TransactionStatement',
+        'ROLLBACK' => 'PhpMyAdmin\\SqlParser\\Statements\\TransactionStatement',
+        'START TRANSACTION' => 'PhpMyAdmin\\SqlParser\\Statements\\TransactionStatement',
     );
 
     /**
@@ -104,203 +104,203 @@ class Parser
         // This is not a proper keyword and was added here to help the
         // builder.
         '_OPTIONS' => array(
-            'class' => 'SqlParser\\Components\\OptionsArray',
+            'class' => 'PhpMyAdmin\\SqlParser\\Components\\OptionsArray',
             'field' => 'options',
         ),
         '_END_OPTIONS' => array(
-            'class' => 'SqlParser\\Components\\OptionsArray',
+            'class' => 'PhpMyAdmin\\SqlParser\\Components\\OptionsArray',
             'field' => 'end_options',
         ),
 
         'UNION' => array(
-            'class' => 'SqlParser\\Components\\UnionKeyword',
+            'class' => 'PhpMyAdmin\\SqlParser\\Components\\UnionKeyword',
             'field' => 'union',
         ),
         'UNION ALL' => array(
-            'class' => 'SqlParser\\Components\\UnionKeyword',
+            'class' => 'PhpMyAdmin\\SqlParser\\Components\\UnionKeyword',
             'field' => 'union',
         ),
         'UNION DISTINCT' => array(
-            'class' => 'SqlParser\\Components\\UnionKeyword',
+            'class' => 'PhpMyAdmin\\SqlParser\\Components\\UnionKeyword',
             'field' => 'union',
         ),
 
         // Actual clause parsers.
         'ALTER' => array(
-            'class' => 'SqlParser\\Components\\Expression',
+            'class' => 'PhpMyAdmin\\SqlParser\\Components\\Expression',
             'field' => 'table',
             'options' => array('parseField' => 'table'),
         ),
         'ANALYZE' => array(
-            'class' => 'SqlParser\\Components\\ExpressionArray',
+            'class' => 'PhpMyAdmin\\SqlParser\\Components\\ExpressionArray',
             'field' => 'tables',
             'options' => array('parseField' => 'table'),
         ),
         'BACKUP' => array(
-            'class' => 'SqlParser\\Components\\ExpressionArray',
+            'class' => 'PhpMyAdmin\\SqlParser\\Components\\ExpressionArray',
             'field' => 'tables',
             'options' => array('parseField' => 'table'),
         ),
         'CALL' => array(
-            'class' => 'SqlParser\\Components\\FunctionCall',
+            'class' => 'PhpMyAdmin\\SqlParser\\Components\\FunctionCall',
             'field' => 'call',
         ),
         'CHECK' => array(
-            'class' => 'SqlParser\\Components\\ExpressionArray',
+            'class' => 'PhpMyAdmin\\SqlParser\\Components\\ExpressionArray',
             'field' => 'tables',
             'options' => array('parseField' => 'table'),
         ),
         'CHECKSUM' => array(
-            'class' => 'SqlParser\\Components\\ExpressionArray',
+            'class' => 'PhpMyAdmin\\SqlParser\\Components\\ExpressionArray',
             'field' => 'tables',
             'options' => array('parseField' => 'table'),
         ),
         'CROSS JOIN' => array(
-            'class' => 'SqlParser\\Components\\JoinKeyword',
+            'class' => 'PhpMyAdmin\\SqlParser\\Components\\JoinKeyword',
             'field' => 'join',
         ),
         'DROP' => array(
-            'class' => 'SqlParser\\Components\\ExpressionArray',
+            'class' => 'PhpMyAdmin\\SqlParser\\Components\\ExpressionArray',
             'field' => 'fields',
             'options' => array('parseField' => 'table'),
         ),
         'FROM' => array(
-            'class' => 'SqlParser\\Components\\ExpressionArray',
+            'class' => 'PhpMyAdmin\\SqlParser\\Components\\ExpressionArray',
             'field' => 'from',
             'options' => array('field' => 'table'),
         ),
         'GROUP BY' => array(
-            'class' => 'SqlParser\\Components\\OrderKeyword',
+            'class' => 'PhpMyAdmin\\SqlParser\\Components\\OrderKeyword',
             'field' => 'group',
         ),
         'HAVING' => array(
-            'class' => 'SqlParser\\Components\\Condition',
+            'class' => 'PhpMyAdmin\\SqlParser\\Components\\Condition',
             'field' => 'having',
         ),
         'INTO' => array(
-            'class' => 'SqlParser\\Components\\IntoKeyword',
+            'class' => 'PhpMyAdmin\\SqlParser\\Components\\IntoKeyword',
             'field' => 'into',
         ),
         'JOIN' => array(
-            'class' => 'SqlParser\\Components\\JoinKeyword',
+            'class' => 'PhpMyAdmin\\SqlParser\\Components\\JoinKeyword',
             'field' => 'join',
         ),
         'LEFT JOIN' => array(
-            'class' => 'SqlParser\\Components\\JoinKeyword',
+            'class' => 'PhpMyAdmin\\SqlParser\\Components\\JoinKeyword',
             'field' => 'join',
         ),
         'LEFT OUTER JOIN' => array(
-            'class' => 'SqlParser\\Components\\JoinKeyword',
+            'class' => 'PhpMyAdmin\\SqlParser\\Components\\JoinKeyword',
             'field' => 'join',
         ),
         'ON' => array(
-            'class' => 'SqlParser\\Components\\Expression',
+            'class' => 'PhpMyAdmin\\SqlParser\\Components\\Expression',
             'field' => 'table',
             'options' => array('parseField' => 'table'),
         ),
         'RIGHT JOIN' => array(
-            'class' => 'SqlParser\\Components\\JoinKeyword',
+            'class' => 'PhpMyAdmin\\SqlParser\\Components\\JoinKeyword',
             'field' => 'join',
         ),
         'RIGHT OUTER JOIN' => array(
-            'class' => 'SqlParser\\Components\\JoinKeyword',
+            'class' => 'PhpMyAdmin\\SqlParser\\Components\\JoinKeyword',
             'field' => 'join',
         ),
         'INNER JOIN' => array(
-            'class' => 'SqlParser\\Components\\JoinKeyword',
+            'class' => 'PhpMyAdmin\\SqlParser\\Components\\JoinKeyword',
             'field' => 'join',
         ),
         'FULL JOIN' => array(
-            'class' => 'SqlParser\\Components\\JoinKeyword',
+            'class' => 'PhpMyAdmin\\SqlParser\\Components\\JoinKeyword',
             'field' => 'join',
         ),
         'FULL OUTER JOIN' => array(
-            'class' => 'SqlParser\\Components\\JoinKeyword',
+            'class' => 'PhpMyAdmin\\SqlParser\\Components\\JoinKeyword',
             'field' => 'join',
         ),
         'NATURAL JOIN' => array(
-            'class' => 'SqlParser\\Components\\JoinKeyword',
+            'class' => 'PhpMyAdmin\\SqlParser\\Components\\JoinKeyword',
             'field' => 'join',
         ),
         'NATURAL LEFT JOIN' => array(
-            'class' => 'SqlParser\\Components\\JoinKeyword',
+            'class' => 'PhpMyAdmin\\SqlParser\\Components\\JoinKeyword',
             'field' => 'join',
         ),
         'NATURAL RIGHT JOIN' => array(
-            'class' => 'SqlParser\\Components\\JoinKeyword',
+            'class' => 'PhpMyAdmin\\SqlParser\\Components\\JoinKeyword',
             'field' => 'join',
         ),
         'NATURAL LEFT OUTER JOIN' => array(
-            'class' => 'SqlParser\\Components\\JoinKeyword',
+            'class' => 'PhpMyAdmin\\SqlParser\\Components\\JoinKeyword',
             'field' => 'join',
         ),
         'NATURAL RIGHT OUTER JOIN' => array(
-            'class' => 'SqlParser\\Components\\JoinKeyword',
+            'class' => 'PhpMyAdmin\\SqlParser\\Components\\JoinKeyword',
             'field' => 'join',
         ),
         'LIMIT' => array(
-            'class' => 'SqlParser\\Components\\Limit',
+            'class' => 'PhpMyAdmin\\SqlParser\\Components\\Limit',
             'field' => 'limit',
         ),
         'OPTIMIZE' => array(
-            'class' => 'SqlParser\\Components\\ExpressionArray',
+            'class' => 'PhpMyAdmin\\SqlParser\\Components\\ExpressionArray',
             'field' => 'tables',
             'options' => array('parseField' => 'table'),
         ),
         'ORDER BY' => array(
-            'class' => 'SqlParser\\Components\\OrderKeyword',
+            'class' => 'PhpMyAdmin\\SqlParser\\Components\\OrderKeyword',
             'field' => 'order',
         ),
         'PARTITION' => array(
-            'class' => 'SqlParser\\Components\\ArrayObj',
+            'class' => 'PhpMyAdmin\\SqlParser\\Components\\ArrayObj',
             'field' => 'partition',
         ),
         'PROCEDURE' => array(
-            'class' => 'SqlParser\\Components\\FunctionCall',
+            'class' => 'PhpMyAdmin\\SqlParser\\Components\\FunctionCall',
             'field' => 'procedure',
         ),
         'RENAME' => array(
-            'class' => 'SqlParser\\Components\\RenameOperation',
+            'class' => 'PhpMyAdmin\\SqlParser\\Components\\RenameOperation',
             'field' => 'renames',
         ),
         'REPAIR' => array(
-            'class' => 'SqlParser\\Components\\ExpressionArray',
+            'class' => 'PhpMyAdmin\\SqlParser\\Components\\ExpressionArray',
             'field' => 'tables',
             'options' => array('parseField' => 'table'),
         ),
         'RESTORE' => array(
-            'class' => 'SqlParser\\Components\\ExpressionArray',
+            'class' => 'PhpMyAdmin\\SqlParser\\Components\\ExpressionArray',
             'field' => 'tables',
             'options' => array('parseField' => 'table'),
         ),
         'SET' => array(
-            'class' => 'SqlParser\\Components\\SetOperation',
+            'class' => 'PhpMyAdmin\\SqlParser\\Components\\SetOperation',
             'field' => 'set',
         ),
         'SELECT' => array(
-            'class' => 'SqlParser\\Components\\ExpressionArray',
+            'class' => 'PhpMyAdmin\\SqlParser\\Components\\ExpressionArray',
             'field' => 'expr',
         ),
         'TRUNCATE' => array(
-            'class' => 'SqlParser\\Components\\Expression',
+            'class' => 'PhpMyAdmin\\SqlParser\\Components\\Expression',
             'field' => 'table',
             'options' => array('parseField' => 'table'),
         ),
         'UPDATE' => array(
-            'class' => 'SqlParser\\Components\\ExpressionArray',
+            'class' => 'PhpMyAdmin\\SqlParser\\Components\\ExpressionArray',
             'field' => 'tables',
             'options' => array('parseField' => 'table'),
         ),
         'VALUE' => array(
-            'class' => 'SqlParser\\Components\\Array2d',
+            'class' => 'PhpMyAdmin\\SqlParser\\Components\\Array2d',
             'field' => 'values',
         ),
         'VALUES' => array(
-            'class' => 'SqlParser\\Components\\Array2d',
+            'class' => 'PhpMyAdmin\\SqlParser\\Components\\Array2d',
             'field' => 'values',
         ),
         'WHERE' => array(
-            'class' => 'SqlParser\\Components\\Condition',
+            'class' => 'PhpMyAdmin\\SqlParser\\Components\\Condition',
             'field' => 'where',
         ),
     );

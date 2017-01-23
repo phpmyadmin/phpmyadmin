@@ -7,7 +7,7 @@
  */
 namespace PMA\libraries;
 
-use SqlParser\Utils\Query;
+use PhpMyAdmin\SqlParser\Utils\Query;
 use PMA\libraries\plugins\transformations\Text_Plain_Link;
 
 require_once './libraries/transformations.lib.php';
@@ -4237,7 +4237,7 @@ class DisplayResults
 
         /**
          * The statement this table is built for.
-         * @var \SqlParser\Statements\SelectStatement
+         * @var \PhpMyAdmin\SqlParser\Statements\SelectStatement
          */
         $statement = $analyzed_sql_results['statement'];
 

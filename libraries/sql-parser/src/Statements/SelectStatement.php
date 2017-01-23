@@ -4,17 +4,17 @@
  * `SELECT` statement.
  */
 
-namespace SqlParser\Statements;
+namespace PhpMyAdmin\SqlParser\Statements;
 
-use SqlParser\Statement;
-use SqlParser\Components\ArrayObj;
-use SqlParser\Components\FunctionCall;
-use SqlParser\Components\Expression;
-use SqlParser\Components\IntoKeyword;
-use SqlParser\Components\JoinKeyword;
-use SqlParser\Components\Limit;
-use SqlParser\Components\OrderKeyword;
-use SqlParser\Components\Condition;
+use PhpMyAdmin\SqlParser\Statement;
+use PhpMyAdmin\SqlParser\Components\ArrayObj;
+use PhpMyAdmin\SqlParser\Components\FunctionCall;
+use PhpMyAdmin\SqlParser\Components\Expression;
+use PhpMyAdmin\SqlParser\Components\IntoKeyword;
+use PhpMyAdmin\SqlParser\Components\JoinKeyword;
+use PhpMyAdmin\SqlParser\Components\Limit;
+use PhpMyAdmin\SqlParser\Components\OrderKeyword;
+use PhpMyAdmin\SqlParser\Components\Condition;
 
 /**
  * `SELECT` statement.

@@ -6,12 +6,12 @@
  * Used for parsing `CREATE TABLE` statement.
  */
 
-namespace SqlParser\Components;
+namespace PhpMyAdmin\SqlParser\Components;
 
-use SqlParser\Component;
-use SqlParser\Parser;
-use SqlParser\Token;
-use SqlParser\TokensList;
+use PhpMyAdmin\SqlParser\Component;
+use PhpMyAdmin\SqlParser\Parser;
+use PhpMyAdmin\SqlParser\Token;
+use PhpMyAdmin\SqlParser\TokensList;
 
 /**
  * Parses the create definition of a partition.
@@ -179,7 +179,7 @@ class PartitionDefinition extends Component
                         $parser,
                         $list,
                         array(
-                            'type' => 'SqlParser\\Components\\PartitionDefinition',
+                            'type' => 'PhpMyAdmin\\SqlParser\\Components\\PartitionDefinition',
                         )
                     );
                     ++$list->idx;

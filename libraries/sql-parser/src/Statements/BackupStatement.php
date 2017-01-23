@@ -4,7 +4,7 @@
  * `BACKUP` statement.
  */
 
-namespace SqlParser\Statements;
+namespace PhpMyAdmin\SqlParser\Statements;
 
 /**
  * `BACKUP` statement.

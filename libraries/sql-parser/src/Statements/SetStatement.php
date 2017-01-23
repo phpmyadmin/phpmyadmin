@@ -4,11 +4,11 @@
  * `SET` statement.
  */
 
-namespace SqlParser\Statements;
+namespace PhpMyAdmin\SqlParser\Statements;
 
-use SqlParser\Statement;
-use SqlParser\Components\SetOperation;
-use SqlParser\Components\OptionsArray;
+use PhpMyAdmin\SqlParser\Statement;
+use PhpMyAdmin\SqlParser\Components\SetOperation;
+use PhpMyAdmin\SqlParser\Components\OptionsArray;
 
 /**
  * `SET` statement.

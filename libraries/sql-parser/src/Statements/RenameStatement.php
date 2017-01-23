@@ -4,13 +4,13 @@
  * `RENAME` statement.
  */
 
-namespace SqlParser\Statements;
+namespace PhpMyAdmin\SqlParser\Statements;
 
-use SqlParser\Parser;
-use SqlParser\Statement;
-use SqlParser\Token;
-use SqlParser\TokensList;
-use SqlParser\Components\RenameOperation;
+use PhpMyAdmin\SqlParser\Parser;
+use PhpMyAdmin\SqlParser\Statement;
+use PhpMyAdmin\SqlParser\Token;
+use PhpMyAdmin\SqlParser\TokensList;
+use PhpMyAdmin\SqlParser\Components\RenameOperation;
 
 /**
  * `RENAME` statement.

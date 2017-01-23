@@ -8,12 +8,12 @@
 namespace PMA\libraries;
 
 use PMA\libraries\plugins\ImportPlugin;
-use SqlParser\Context;
-use SqlParser\Lexer;
-use SqlParser\Parser;
-use SqlParser\Token;
+use PhpMyAdmin\SqlParser\Context;
+use PhpMyAdmin\SqlParser\Lexer;
+use PhpMyAdmin\SqlParser\Parser;
+use PhpMyAdmin\SqlParser\Token;
 use stdClass;
-use SqlParser\Utils\Error as ParserError;
+use PhpMyAdmin\SqlParser\Utils\Error as ParserError;
 
 if (! defined('PHPMYADMIN')) {
     exit;

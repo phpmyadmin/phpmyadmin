@@ -61,19 +61,19 @@ function PMA_handleSortOrder(
         );
 
         // Create the new query.
-        $full_sql_query = SqlParser\Utils\Query::replaceClause(
+        $full_sql_query = PhpMyAdmin\SqlParser\Utils\Query::replaceClause(
             $analyzed_sql_results['statement'],
             $analyzed_sql_results['parser']->list,
             'ORDER BY ' . $sortCol
         );
 
         // TODO: Avoid reparsing the query.
-        $analyzed_sql_results = SqlParser\Utils\Query::getAll($full_sql_query);
+        $analyzed_sql_results = PhpMyAdmin\SqlParser\Utils\Query::getAll($full_sql_query);
     } else {
         // Store the remembered table into session.
         $pmatable->setUiProp(
             Table::PROP_SORTED_COLUMN,
-            SqlParser\Utils\Query::getClause(
+            PhpMyAdmin\SqlParser\Utils\Query::getClause(
                 $analyzed_sql_results['statement'],
                 $analyzed_sql_results['parser']->list,
                 'ORDER BY'
@@ -91,7 +91,7 @@ function PMA_handleSortOrder(
  */
 function PMA_getSqlWithLimitClause(&$analyzed_sql_results)
 {
-    return SqlParser\Utils\Query::replaceClause(
+    return PhpMyAdmin\SqlParser\Utils\Query::replaceClause(
         $analyzed_sql_results['statement'],
         $analyzed_sql_results['parser']->list,
         'LIMIT ' . $_SESSION['tmpval']['pos'] . ', '
@@ -1156,7 +1156,7 @@ function PMA_countQueryResults(
             // For UNION statements, only a SQL_CALC_FOUND_ROWS is required
             // after the first SELECT.
 
-            $count_query = SqlParser\Utils\Query::replaceClause(
+            $count_query = PhpMyAdmin\SqlParser\Utils\Query::replaceClause(
                 $analyzed_sql_results['statement'],
                 $analyzed_sql_results['parser']->list,
                 'SELECT SQL_CALC_FOUND_ROWS',
@@ -1299,7 +1299,7 @@ function PMA_deleteTransformationInfo($db, $table, $analyzed_sql_results)
 {
     include_once 'libraries/transformations.lib.php';
     $statement = $analyzed_sql_results['statement'];
-    if ($statement instanceof SqlParser\Statements\AlterStatement) {
+    if ($statement instanceof PhpMyAdmin\SqlParser\Statements\AlterStatement) {
         if (!empty($statement->altered[0])
             && $statement->altered[0]->options->has('DROP')
         ) {
@@ -1311,7 +1311,7 @@ function PMA_deleteTransformationInfo($db, $table, $analyzed_sql_results)
                 );
             }
         }
-    } elseif ($statement instanceof SqlParser\Statements\DropStatement) {
+    } elseif ($statement instanceof PhpMyAdmin\SqlParser\Statements\DropStatement) {
         PMA_clearTransformations($db, $table);
     }
 }
@@ -1867,7 +1867,7 @@ function PMA_getQueryResponseForResultsReturned($result, $analyzed_sql_results,
     $updatableView = false;
 
     $statement = $analyzed_sql_results['statement'];
-    if ($statement instanceof SqlParser\Statements\SelectStatement) {
+    if ($statement instanceof PhpMyAdmin\SqlParser\Statements\SelectStatement) {
         if (!empty($statement->expr)) {
             if ($statement->expr[0]->expr === '*') {
                 $_table = new Table($table, $db);

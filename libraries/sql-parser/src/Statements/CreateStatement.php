@@ -4,19 +4,19 @@
  * `CREATE` statement.
  */
 
-namespace SqlParser\Statements;
+namespace PhpMyAdmin\SqlParser\Statements;
 
-use SqlParser\Parser;
-use SqlParser\Statement;
-use SqlParser\Token;
-use SqlParser\TokensList;
-use SqlParser\Components\ArrayObj;
-use SqlParser\Components\DataType;
-use SqlParser\Components\CreateDefinition;
-use SqlParser\Components\PartitionDefinition;
-use SqlParser\Components\Expression;
-use SqlParser\Components\OptionsArray;
-use SqlParser\Components\ParameterDefinition;
+use PhpMyAdmin\SqlParser\Parser;
+use PhpMyAdmin\SqlParser\Statement;
+use PhpMyAdmin\SqlParser\Token;
+use PhpMyAdmin\SqlParser\TokensList;
+use PhpMyAdmin\SqlParser\Components\ArrayObj;
+use PhpMyAdmin\SqlParser\Components\DataType;
+use PhpMyAdmin\SqlParser\Components\CreateDefinition;
+use PhpMyAdmin\SqlParser\Components\PartitionDefinition;
+use PhpMyAdmin\SqlParser\Components\Expression;
+use PhpMyAdmin\SqlParser\Components\OptionsArray;
+use PhpMyAdmin\SqlParser\Components\ParameterDefinition;
 
 /**
  * `CREATE` statement.
@@ -531,7 +531,7 @@ class CreateStatement extends Statement
                             $parser,
                             $list,
                             array(
-                                'type' => 'SqlParser\\Components\\PartitionDefinition',
+                                'type' => 'PhpMyAdmin\\SqlParser\\Components\\PartitionDefinition',
                             )
                         );
                     }

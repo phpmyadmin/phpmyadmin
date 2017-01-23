@@ -6,7 +6,7 @@
  * An array of tokens will result after parsing the query.
  */
 
-namespace SqlParser;
+namespace PhpMyAdmin\SqlParser;
 
 /**
  * A structure representing a lexeme that explicitly indicates its

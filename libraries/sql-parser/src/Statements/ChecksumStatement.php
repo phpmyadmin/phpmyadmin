@@ -4,7 +4,7 @@
  * `CHECKSUM` statement.
  */
 
-namespace SqlParser\Statements;
+namespace PhpMyAdmin\SqlParser\Statements;
 
 /**
  * `CHECKSUM` statement.

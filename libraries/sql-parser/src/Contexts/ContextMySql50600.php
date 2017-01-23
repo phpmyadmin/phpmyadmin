@@ -8,9 +8,9 @@
  * @see https://dev.mysql.com/doc/refman/5.6/en/keywords.html
  */
 
-namespace SqlParser\Contexts;
+namespace PhpMyAdmin\SqlParser\Contexts;
 
-use SqlParser\Context;
+use PhpMyAdmin\SqlParser\Context;
 
 /**
  * Context for MySQL 5.6.

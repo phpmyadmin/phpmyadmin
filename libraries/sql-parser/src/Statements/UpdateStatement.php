@@ -4,14 +4,14 @@
  * `UPDATE` statement.
  */
 
-namespace SqlParser\Statements;
+namespace PhpMyAdmin\SqlParser\Statements;
 
-use SqlParser\Statement;
-use SqlParser\Components\Expression;
-use SqlParser\Components\Limit;
-use SqlParser\Components\OrderKeyword;
-use SqlParser\Components\SetOperation;
-use SqlParser\Components\Condition;
+use PhpMyAdmin\SqlParser\Statement;
+use PhpMyAdmin\SqlParser\Components\Expression;
+use PhpMyAdmin\SqlParser\Components\Limit;
+use PhpMyAdmin\SqlParser\Components\OrderKeyword;
+use PhpMyAdmin\SqlParser\Components\SetOperation;
+use PhpMyAdmin\SqlParser\Components\Condition;
 
 /**
  * `UPDATE` statement.
