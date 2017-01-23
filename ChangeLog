@@ -1,7 +1,7 @@
 phpMyAdmin - ChangeLog
 ======================
 
-4.4.15.10 (2017-01-??)
+4.4.15.10 (2017-01-23)
 - issue        [security] Multiple vulnerabilities in setup script, see PMASA-2016-44.
 - issue        [security] Open redirect, see PMASA-2017-1.
 - issue        [security] php-gettext code execution, see PMASA-2017-2.
