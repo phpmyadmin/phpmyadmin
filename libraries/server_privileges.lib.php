@@ -587,6 +587,10 @@ function PMA_getHtmlToChooseUserGroup($username)
 function PMA_setUserGroup($username, $userGroup)
 {
     $cfgRelation = PMA_getRelationsParam();
+    if (empty($cfgRelation['db']) || empty($cfgRelation['users']) || empty($cfgRelation['usergroups'])) {
+        return;
+    }
+
     $userTable = Util::backquote($cfgRelation['db'])
         . "." . Util::backquote($cfgRelation['users']);
 
@@ -2982,8 +2986,8 @@ function PMA_getUserGroupForUser($username)
 {
     $cfgRelation = PMA_getRelationsParam();
 
-    if (! isset($cfgRelation['db'])
-        || ! isset($cfgRelation['users'])
+    if (empty($cfgRelation['db'])
+        || empty($cfgRelation['users'])
     ) {
         return null;
     }
@@ -3072,7 +3076,7 @@ function PMA_getExtraDataForAjaxBehavior(
         // if $cfg['Servers'][$i]['users'] and $cfg['Servers'][$i]['usergroups'] are
         // enabled
         $cfgRelation = PMA_getRelationsParam();
-        if (isset($cfgRelation['users']) && isset($cfgRelation['usergroups'])) {
+        if (!empty($cfgRelation['users']) && !empty($cfgRelation['usergroups'])) {
             $new_user_string .= '<td class="usrGroup"></td>';
         }
 
@@ -4355,7 +4359,7 @@ function PMA_addUser(
 
     // Copy the user group while copying a user
     $old_usergroup =
-        $_REQUEST['old_usergroup'] ? $_REQUEST['old_usergroup'] : null;
+        isset($_REQUEST['old_usergroup']) ? $_REQUEST['old_usergroup'] : null;
     PMA_setUserGroup($_REQUEST['username'], $old_usergroup);
 
 
@@ -5237,7 +5241,7 @@ function PMA_getHashedPassword($password)
  */
 function PMA_checkIfMariaDBPwdCheckPluginActive()
 {
-    if (Util::getServerType() !== 'MariaDB') {
+    if (!(Util::getServerType() == 'MariaDB' && PMA_MYSQL_INT_VERSION >= 100002)) {
         return false;
     }
 

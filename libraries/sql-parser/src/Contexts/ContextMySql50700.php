@@ -5,10 +5,9 @@
  *
  * This file was auto-generated.
  *
- * @package    SqlParser
- * @subpackage Contexts
- * @link       https://dev.mysql.com/doc/refman/5.7/en/keywords.html
+ * @see https://dev.mysql.com/doc/refman/5.7/en/keywords.html
  */
+
 namespace SqlParser\Contexts;
 
 use SqlParser\Context;
@@ -17,13 +16,11 @@ use SqlParser\Context;
  * Context for MySQL 5.7.
  *
  * @category   Contexts
- * @package    SqlParser
- * @subpackage Contexts
+ *
  * @license    https://www.gnu.org/licenses/gpl-2.0.txt GPL-2.0+
  */
 class ContextMySql50700 extends Context
 {
-
     /**
      * List of keywords.
      *
@@ -34,7 +31,6 @@ class ContextMySql50700 extends Context
      * @var array
      */
     public static $KEYWORDS = array(
-
         'AT' => 1, 'DO' => 1, 'IO' => 1, 'NO' => 1, 'XA' => 1,
         'ANY' => 1, 'CPU' => 1, 'END' => 1, 'IPC' => 1, 'NDB' => 1, 'NEW' => 1,
         'ONE' => 1, 'ROW' => 1, 'XID' => 1,
@@ -175,12 +171,12 @@ class ContextMySql50700 extends Context
         'AND CHAIN' => 7, 'FULL JOIN' => 7, 'IF EXISTS' => 7, 'LEFT JOIN' => 7,
         'LESS THAN' => 7, 'NO ACTION' => 7, 'ON DELETE' => 7, 'ON UPDATE' => 7,
         'UNION ALL' => 7,
-        'CROSS JOIN' => 7, 'FOR UPDATE' => 7, 'INNER JOIN' => 7, 'LINEAR KEY' => 7,
-        'NO RELEASE' => 7, 'OR REPLACE' => 7, 'RIGHT JOIN' => 7,
-        'LINEAR HASH' => 7,
+        'CROSS JOIN' => 7, 'ESCAPED BY' => 7, 'FOR UPDATE' => 7, 'INNER JOIN' => 7,
+        'LINEAR KEY' => 7, 'NO RELEASE' => 7, 'OR REPLACE' => 7, 'RIGHT JOIN' => 7,
+        'ENCLOSED BY' => 7, 'LINEAR HASH' => 7, 'STARTING BY' => 7,
         'AND NO CHAIN' => 7, 'FOR EACH ROW' => 7, 'NATURAL JOIN' => 7,
         'PARTITION BY' => 7, 'SET PASSWORD' => 7, 'SQL SECURITY' => 7,
-        'CHARACTER SET' => 7, 'IF NOT EXISTS' => 7,
+        'CHARACTER SET' => 7, 'IF NOT EXISTS' => 7, 'TERMINATED BY' => 7,
         'DATA DIRECTORY' => 7, 'UNION DISTINCT' => 7,
         'DEFAULT CHARSET' => 7, 'DEFAULT COLLATE' => 7, 'FULL OUTER JOIN' => 7,
         'INDEX DIRECTORY' => 7, 'LEFT OUTER JOIN' => 7, 'SUBPARTITION BY' => 7,
@@ -203,7 +199,7 @@ class ContextMySql50700 extends Context
         'INT' => 11, 'SET' => 11,
         'BLOB' => 11, 'REAL' => 11,
         'FLOAT' => 11,
-        'BIGINT' => 11, 'BINARY' => 11, 'DOUBLE' => 11,
+        'BIGINT' => 11, 'DOUBLE' => 11,
         'DECIMAL' => 11, 'INTEGER' => 11, 'NUMERIC' => 11, 'TINYINT' => 11, 'VARCHAR' => 11,
         'LONGBLOB' => 11, 'LONGTEXT' => 11, 'SMALLINT' => 11, 'TINYBLOB' => 11,
         'TINYTEXT' => 11,
@@ -352,7 +348,7 @@ class ContextMySql50700 extends Context
         'GEOMETRYCOLLECTION' => 41,
 
         'CHAR' => 43,
+        'BINARY' => 43,
         'INTERVAL' => 43,
-
     );
 }

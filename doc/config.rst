@@ -692,7 +692,7 @@ Server connection settings
         For auto-upgrade functionality to work, your
         ``$cfg['Servers'][$i]['controluser']`` must have ALTER privilege on
         ``phpmyadmin`` database. See the `MySQL documentation for GRANT
-        <https://dev.mysql.com/doc/mysql/en/grant.html>`_ on how to
+        <https://dev.mysql.com/doc/refman/5.7/en/grant.html>`_ on how to
         ``GRANT`` privileges to a user.
 
 .. _history:
@@ -1577,7 +1577,7 @@ Cookie authentication options
     :default: ``''``
 
     The public key for the reCaptcha service that can be obtained from
-    https://www.google.com/recaptcha.
+    https://www.google.com/recaptcha/intro/.
 
     reCaptcha will be then used in :ref:`cookie`.
 
@@ -1587,7 +1587,7 @@ Cookie authentication options
     :default: ``''``
 
     The private key for the reCaptcha service that can be obtain from
-    https://www.google.com/recaptcha.
+    https://www.google.com/recaptcha/intro/.
 
     reCaptcha will be then used in :ref:`cookie`.
 
@@ -1850,6 +1850,11 @@ Main panel
     You can additionally hide more information by using
     :config:option:`$cfg['Servers'][$i]['verbose']`.
 
+.. config:option:: $cfg['ShowPhpInfo']
+
+    :type: boolean
+    :default: false
+
 .. config:option:: $cfg['ShowChgPassword']
 
     :type: boolean
@@ -1860,10 +1865,25 @@ Main panel
     :type: boolean
     :default: true
 
-    Defines whether to display the 
+    Defines whether to display the :guilabel:`PHP information` and
     :guilabel:`Change password` links and form for creating database or not at
     the starting main (right) frame. This setting does not check MySQL commands
     entered directly.
+
+    Please note that to block the usage of ``phpinfo()`` in scripts, you have to
+    put this in your :file:`php.ini`:
+
+    .. code-block:: ini
+
+        disable_functions = phpinfo()
+
+    .. warning::
+
+        Enabling phpinfo page will leak quite a lot of information about server
+        setup. Is it not recommended to enable this on shared installations.
+
+        This might also make easier some remote attacks on your installations,
+        so enable this only when needed.
 
     Also note that enabling the :guilabel:`Change password` link has no effect
     with config authentication mode: because of the hard coded password value
@@ -2224,11 +2244,11 @@ Languages
 .. config:option:: $cfg['DefaultConnectionCollation']
 
     :type: string
-    :default: ``'utf8_general_ci'``
+    :default: ``'utf8mb4_general_ci'``
 
     Defines the default connection collation to use, if not user-defined.
     See the `MySQL documentation for charsets
-    <https://dev.mysql.com/doc/mysql/en/charset-charsets.html>`_
+    <https://dev.mysql.com/doc/refman/5.7/en/charset-charsets.html>`_
     for list of possible values.
 
 .. config:option:: $cfg['Lang']
@@ -2927,7 +2947,7 @@ Developer
     :default: false
 
     Enable to let server present itself as demo server.
-    This is used for <https://demo.phpmyadmin.net/>.
+    This is used for `phpMyAdmin demo server <https://www.phpmyadmin.net/try/>`_.
 
 
 Examples

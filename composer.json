@@ -21,7 +21,21 @@
     },
     "non-feature-branches": ["RELEASE_.*"],
     "require": {
-        "php": ">=5.5.0"
+        "php": ">=5.5.0",
+        "ext-mbstring": "*",
+        "ext-mysqli": "*",
+        "ext-xml": "*",
+        "ext-pcre": "*",
+        "ext-json": "*"
+    },
+    "suggest": {
+        "ext-openssl": "Cookie encryption",
+        "ext-curl": "Updates checking",
+        "ext-opcache": "Better performance",
+        "ext-zlib": "For gz import and export",
+        "ext-bz2": "For bzip2 import and export",
+        "ext-zip": "For zip import and export",
+        "ext-gd2": "For image transformations"
     },
     "require-dev": {
         "satooshi/php-coveralls": "~0.6",

@@ -2,10 +2,8 @@
 
 /**
  * Routine utilities.
- *
- * @package    SqlParser
- * @subpackage Utils
  */
+
 namespace SqlParser\Utils;
 
 use SqlParser\Lexer;
@@ -18,17 +16,15 @@ use SqlParser\Statements\CreateStatement;
  * Routine utilities.
  *
  * @category   Routines
- * @package    SqlParser
- * @subpackage Utils
+ *
  * @license    https://www.gnu.org/licenses/gpl-2.0.txt GPL-2.0+
  */
 class Routine
 {
-
     /**
      * Parses a parameter of a routine.
      *
-     * @param string $param Parameter's definition.
+     * @param string $param parameter's definition
      *
      * @return array
      */
@@ -53,14 +49,14 @@ class Routine
             '',
             $type->name,
             implode(',', $type->parameters),
-            implode(' ', $options)
+            implode(' ', $options),
         );
     }
 
     /**
      * Parses a parameter of a routine.
      *
-     * @param string $param Parameter's definition.
+     * @param string $param parameter's definition
      *
      * @return array
      */
@@ -87,14 +83,14 @@ class Routine
             $param->name,
             $param->type->name,
             implode(',', $param->type->parameters),
-            implode(' ', $options)
+            implode(' ', $options),
         );
     }
 
     /**
      * Gets the parameters of a routine from the parse tree.
      *
-     * @param CreateStatement $statement The statement to be processed.
+     * @param CreateStatement $statement the statement to be processed
      *
      * @return array
      */

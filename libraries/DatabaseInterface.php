@@ -48,6 +48,11 @@ class DatabaseInterface
     private $_table_cache;
 
     /**
+     * @var null|string lower_case_table_names value cache
+     */
+    private $_lower_case_table_names = null;
+
+    /**
      * Constructor
      *
      * @param DBIExtension $ext Object to be used for database queries
@@ -1458,24 +1463,22 @@ class DatabaseInterface
             $default_charset = 'utf8';
             $default_collation = 'utf8_general_ci';
         }
-        if (! empty($GLOBALS['collation_connection'])) {
+        $collation_connection = $GLOBALS['PMA_Config']->get('collation_connection');
+        if (! empty($collation_connection)) {
             $this->query(
                 "SET CHARACTER SET '$default_charset';",
                 $link,
                 self::QUERY_STORE
             );
-            /* Automatically adjust collation to mb4 variant */
-            if ($default_charset == 'utf8mb4'
-                && strncmp('utf8_', $GLOBALS['collation_connection'], 5) == 0
+            /* Automatically adjust collation if not supported by server */
+            if ($default_charset == 'utf8'
+                && strncmp('utf8mb4_', $collation_connection, 8) == 0
             ) {
-                $GLOBALS['collation_connection'] = 'utf8mb4_' . substr(
-                    $GLOBALS['collation_connection'],
-                    5
-                );
+                $collation_connection = 'utf8_' . substr($collation_connection, 8);
             }
             $result = $this->tryQuery(
                 "SET collation_connection = '"
-                . $this->escapeString($GLOBALS['collation_connection'], $link)
+                . $this->escapeString($collation_connection, $link)
                 . "';",
                 $link,
                 self::QUERY_STORE
@@ -1487,7 +1490,7 @@ class DatabaseInterface
                 );
                 $this->query(
                     "SET collation_connection = '"
-                    . $this->escapeString($GLOBALS['collation_connection'], $link)
+                    . $this->escapeString($collation_connection, $link)
                     . "';",
                     $link,
                     self::QUERY_STORE
@@ -2135,7 +2138,7 @@ class DatabaseInterface
         if (Util::cacheExists('mysql_cur_user')) {
             return Util::cacheGet('mysql_cur_user');
         }
-        $user = $GLOBALS['dbi']->fetchValue('SELECT USER();');
+        $user = $GLOBALS['dbi']->fetchValue('SELECT CURRENT_USER();');
         if ($user !== false) {
             Util::cacheSet('mysql_cur_user', $user);
             return Util::cacheGet('mysql_cur_user');
@@ -2254,6 +2257,21 @@ class DatabaseInterface
     {
         $user = $GLOBALS['dbi']->fetchValue("SELECT CURRENT_USER();");
         return explode("@", $user);
+    }
+
+    /**
+     * Returns value for lower_case_table_names variable
+     *
+     * @return string
+     */
+    public function getLowerCaseNames()
+    {
+        if (is_null($this->_lower_case_table_names)) {
+            $this->_lower_case_table_names = $this->fetchValue(
+                "SELECT @@lower_case_table_names"
+            );
+        }
+        return $this->_lower_case_table_names;
     }
 
     /**
@@ -2595,7 +2613,25 @@ class DatabaseInterface
      */
     public function getFieldsMeta($result)
     {
-        return $this->_extension->getFieldsMeta($result);
+        $result = $this->_extension->getFieldsMeta($result);
+
+        if ($this->getLowerCaseNames() === '2') {
+            /**
+             * Fixup orgtable for lower_case_table_names = 2
+             *
+             * In this setup MySQL server reports table name lower case
+             * but we still need to operate on original case to properly
+             * match existing strings
+             */
+            foreach ($result as $value) {
+                if (strlen($value->orgtable) !== 0 &&
+                        mb_strtolower($value->orgtable) === mb_strtolower($value->table)) {
+                    $value->orgtable = $value->table;
+                }
+            }
+        }
+
+        return $result;
     }
 
     /**

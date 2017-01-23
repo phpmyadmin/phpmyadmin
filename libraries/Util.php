@@ -2157,7 +2157,7 @@ class Util
             }
         }
         if ($found_error) {
-            PMA_fatalError($error_message, null, false);
+            PMA_fatalError($error_message);
         }
     } // end function
 
@@ -2965,6 +2965,20 @@ class Util
     }
 
     /**
+     * Calculates session cache key
+     *
+     * @return string
+     */
+    public static function cacheKey()
+    {
+        if (isset($GLOBALS['cfg']['Server']['user'])) {
+            return 'server_' . $GLOBALS['server'] . '_' . $GLOBALS['cfg']['Server']['user'];
+        } else {
+            return 'server_' . $GLOBALS['server'];
+        }
+    }
+
+    /**
      * Verifies if something is cached in the session
      *
      * @param string $var variable name
@@ -2973,7 +2987,7 @@ class Util
      */
     public static function cacheExists($var)
     {
-        return isset($_SESSION['cache']['server_' . $GLOBALS['server']][$var]);
+        return isset($_SESSION['cache'][self::cacheKey()][$var]);
     }
 
     /**
@@ -2987,7 +3001,7 @@ class Util
     public static function cacheGet($var, $callback = null)
     {
         if (self::cacheExists($var)) {
-            return $_SESSION['cache']['server_' . $GLOBALS['server']][$var];
+            return $_SESSION['cache'][self::cacheKey()][$var];
         } else {
             if ($callback) {
                 $val = $callback();
@@ -3008,7 +3022,7 @@ class Util
      */
     public static function cacheSet($var, $val = null)
     {
-        $_SESSION['cache']['server_' . $GLOBALS['server']][$var] = $val;
+        $_SESSION['cache'][self::cacheKey()][$var] = $val;
     }
 
     /**
@@ -3020,7 +3034,7 @@ class Util
      */
     public static function cacheUnset($var)
     {
-        unset($_SESSION['cache']['server_' . $GLOBALS['server']][$var]);
+        unset($_SESSION['cache'][self::cacheKey()][$var]);
     }
 
     /**
@@ -4514,19 +4528,11 @@ class Util
      */
     public static function getCollateForIS()
     {
-        $lowerCaseTableNames = self::cacheGet(
-            'lower_case_table_names',
-            function () {
-                return $GLOBALS['dbi']->fetchValue(
-                    "SELECT @@lower_case_table_names"
-                );
-            }
-        );
-
-        if ($lowerCaseTableNames === '0' // issue #10961
-            || $lowerCaseTableNames === '2' // issue #11461
-        ) {
+        $names = $GLOBALS['dbi']->getLowerCaseNames();
+        if ($names === '0') {
             return "COLLATE utf8_bin";
+        } elseif ($names === '2') {
+            return "COLLATE utf8_general_ci";
         }
         return "";
     }

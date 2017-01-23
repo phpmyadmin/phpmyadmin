@@ -2,23 +2,19 @@
 
 /**
  * Exception thrown by the lexer.
- *
- * @package    SqlParser
- * @subpackage Exceptions
  */
+
 namespace SqlParser\Exceptions;
 
 /**
  * Exception thrown by the lexer.
  *
  * @category   Exceptions
- * @package    SqlParser
- * @subpackage Exceptions
+ *
  * @license    https://www.gnu.org/licenses/gpl-2.0.txt GPL-2.0+
  */
 class LexerException extends \Exception
 {
-
     /**
      * The character that produced this error.
      *
@@ -36,10 +32,10 @@ class LexerException extends \Exception
     /**
      * Constructor.
      *
-     * @param string $msg  The message of this exception.
-     * @param string $ch   The character that produced this exception.
-     * @param int    $pos  The position of the character.
-     * @param int    $code The code of this error.
+     * @param string $msg  the message of this exception
+     * @param string $ch   the character that produced this exception
+     * @param int    $pos  the position of the character
+     * @param int    $code the code of this error
      */
     public function __construct($msg = '', $ch = '', $pos = 0, $code = 0)
     {

@@ -102,6 +102,8 @@ The installation is possible by adding our own repository
 
     composer create-project phpmyadmin/phpmyadmin --repository-url=https://www.phpmyadmin.net/packages.json --no-dev
 
+.. _docker:
+
 Installing using Docker
 +++++++++++++++++++++++
 
@@ -157,11 +159,11 @@ By default, :ref:`cookie` is used, but if :envvar:`PMA_USER` and
     documentation for `MariaDB container <https://hub.docker.com/r/_/mariadb/>`_
     or `MySQL container <https://hub.docker.com/r/_/mysql/>`_.
 
-Additionally configuration can be tweaked by :file:`/www/config.user.inc.php`. If
+Additionally configuration can be tweaked by :file:`/etc/phpmyadmin/config.user.inc.php`. If
 this file exists, it will be loaded after configuration generated from above
 environment variables, so you can override any configuration variable. This
 configuraiton can be added as a volume when invoking docker using 
-`-v /some/local/directory/config.user.inc.php:/www/config.user.inc.php` parameters.
+`-v /some/local/directory/config.user.inc.php:/etc/phpmyadmin/config.user.inc.php` parameters.
 
 .. seealso:: 
    
@@ -172,7 +174,7 @@ Docker Volumes
 
 You can use following volumes to customise image behavior:
 
-:file:`/www/config.user.inc.php`
+:file:`/etc/phpmyadmin/config.user.inc.php`
 
     Can be used for additional settings, see previous chapter for more details.
 
@@ -208,11 +210,11 @@ You can also link the database container using Docker:
 
     docker run --name phpmyadmin -d --link mysql_db_server:db -p 8080:80 phpmyadmin/phpmyadmin
 
-Running with additional configration:
+Running with additional configuration:
 
 .. code-block:: sh
 
-    docker run --name phpmyadmin -d --link mysql_db_server:db -p 8080:80 -v /some/local/directory/config.user.inc.php:/config.user.inc.php phpmyadmin/phpmyadmin
+    docker run --name phpmyadmin -d --link mysql_db_server:db -p 8080:80 -v /some/local/directory/config.user.inc.php:/etc/phpmyadmin/config.user.inc.php phpmyadmin/phpmyadmin
 
 Using docker-compose
 --------------------
@@ -303,60 +305,13 @@ Using Setup script
 ------------------
 
 Instead of manually editing :file:`config.inc.php`, you can use phpMyAdmin's 
-setup feature. First you must manually create a folder ``config``
-in the phpMyAdmin directory. This is a security measure. On a
-Linux/Unix system you can use the following commands:
+setup feature. The file can be generated using the setup and you can download it 
+for upload to the server.
 
-.. code-block:: sh
-
-
-    cd phpMyAdmin
-    mkdir config                        # create directory for saving
-    chmod o+rw config                   # give it world writable permissions
-
-And to edit an existing configuration, copy it over first:
-
-.. code-block:: sh
-
-
-    cp config.inc.php config/           # copy current configuration for editing
-    chmod o+w config/config.inc.php     # give it world writable permissions
-
-.. note::
-
-    Debian and Ubuntu have simplified this setup and all you need to do is to
-    execute :program:`/usr/sbin/pma-configure`.
-
-On other platforms, simply create the folder and ensure that your web
-server has read and write access to it. :ref:`faq1_26` can help with
-this.
-
-Next, open your browser and visit the location where you installed phpMyAdmin, with the ``/setup`` suffix. If you have an existing configuration,
-use the ``Load`` button to bring its content inside the setup panel.
-Note that **changes are not saved to disk until you explicitly choose ``Save``**
-from the *Configuration* area of the screen. Normally the script saves the new
-:file:`config.inc.php` to the ``config/`` directory, but if the webserver does
-not have the proper permissions you may see the error "Cannot load or
-save configuration." Ensure that the ``config/`` directory exists and
-has the proper permissions - or use the ``Download`` link to save the
-config file locally and upload it (via FTP or some similar means) to the
-proper location.
-
-Once the file has been saved, it must be moved out of the ``config/``
-directory and the permissions must be reset, again as a security
-measure:
-
-.. code-block:: sh
-
-
-    mv config/config.inc.php .         # move file to current directory
-    chmod o-rw config.inc.php          # remove world read and write permissions
-    rm -rf config                      # remove not needed directory
-
-.. note::
-
-    Debian and Ubuntu have simplified this setup and all you need to do is to
-    execute :program:`/usr/sbin/pma-secure`.
+Next, open your browser and visit the location where you installed phpMyAdmin,
+with the ``/setup`` suffix. The changes are not saved to the server, you need to 
+use the :guilabel:`Download` button to save them to your computer and then upload 
+to the server.
 
 Now the file is ready to be used. You can choose to review or edit the
 file with your favorite editor, if you prefer to set some advanced

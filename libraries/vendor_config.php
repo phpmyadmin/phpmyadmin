@@ -26,17 +26,6 @@ define('CHANGELOG_FILE', './ChangeLog');
 define('LICENSE_FILE', './LICENSE');
 
 /**
- * Path to config file generated using setup script.
- */
-define('SETUP_CONFIG_FILE', './config/config.inc.php');
-
-/**
- * Whether setup requires writable directory where config
- * file will be generated.
- */
-define('SETUP_DIR_WRITABLE', true);
-
-/**
  * Directory where SQL scripts to create/upgrade configuration storage reside.
  */
 define('SQL_DIR', './sql/');
@@ -85,7 +74,7 @@ define('TCPDF_INC', './libraries/tcpdf/tcpdf.php');
 define('PHPSECLIB_INC_DIR', './libraries/phpseclib/');
 
 /**
- * Path to the udan11/sql-parser. Useful when you want to use system version.
+ * Path to the phpmyadmin/sql-parser. Useful when you want to use system version.
  */
 define('SQL_PARSER_AUTOLOAD', './libraries/sql-parser/autoload.php');
 

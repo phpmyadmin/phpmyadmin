@@ -140,7 +140,7 @@ class DbSearch
             unset($this->_criteriaColumnName);
         } else {
             $this->_criteriaColumnName = $GLOBALS['dbi']->escapeString(
-                $_REQUEST['criteriaColumnName'], true
+                $_REQUEST['criteriaColumnName']
             );
         }
     }
@@ -275,7 +275,7 @@ class DbSearch
             // Gets the SQL statements
             $newsearchsqls = $this->_getSearchSqls($each_table);
             // Executes the "COUNT" statement
-            $res_cnt = $GLOBALS['dbi']->fetchValue($newsearchsqls['select_count']);
+            $res_cnt = intval($GLOBALS['dbi']->fetchValue($newsearchsqls['select_count']));
             $num_search_result_total += $res_cnt;
             // Gets the result row's HTML for a table
             $html_output .= $this->_getResultsRow(

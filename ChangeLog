@@ -1,6 +1,53 @@
 phpMyAdmin - ChangeLog
 ======================
 
+4.6.6 (2017-01-23)
+- issue #12759 Fix Notice regarding 'Undefined index: old_usergroup'
+- issue #12760 Fix Notice regarding 'Undefined index: users'
+- issue #12762 Fixed parsing of SQL with BINARY function
+- issue #12588 ReCaptcha now works without allow_url_fopen
+- issue #12699 Show no local storage warning only on settings tab
+- issue #12778 Syntax Error in Adding/Changing TIMESTAMP columns with default value as NULL
+- issue #12769 Edit/Export links are not clickable under Routines tab
+- issue #12757 Fixed creating new user with older MariaDB
+- issue #12784 Remove ctype installation suggestion
+- issue #12780 Format button replaces all text with blank spaces
+- issue #12786 Fixed database searching
+- issue #12792 Fixed javascript error on new version link
+- issue #12785 Add information about required and suggested extensions to composer.json
+- issue #12801 Custom header shown twice with cookie login form
+- issue #12802 Custom footer not shown with auth_type http login failure
+- issue #12434 Improve documentation for servers running with Suhosin
+- issue #12800 Updated embedded phpSecLib to 2.0.4
+- issue #12800 Fixed various issues with PHP 7.1
+- issue #11816 Fixed operation with lower_case_table_names=2
+- issue #12813 Fixed stored procedure execution
+- issue #12826 Honor user configured connection collation
+- issue #12293 Correctly report OpenSSL errors from cookie encryption
+- issue #12814 DateTime won't allow to input length in Routine editor
+- issue #12840 Fix Notice regarding 'Undefined index: row_format' when altering table options
+- issue #12841 Fixed moving of columns with whitespace in name
+- issue #12847 Fixed editing of virtual columns
+- issue #12859 Changed WHERE condition to 0 instead of 1 for SQL query window to avoid accidents
+- issue #12872 Use same query for display and execution when dropping index
+- issue #12868 Fix check for user groups freatures being enabled
+- issue #12876 Fix notices and warning related to dbs_to_test global
+- issue #12831 Fix table formatting on Insert tab, which mostly affected row highlighting
+- issue #12495 Reintroduced phpinfo page with limited capabilities
+- issue #12861 Fix renaming tables with lower_case_table_names=2
+- issue #12876 Fix possible PHP error in navigation
+- issue #12881 Fix database search with newer php-gettext
+- issue #12894 Fix linter error on unterminated variable name
+- issue #12732 Fixed filtering for active processes
+- issue        [security] Multiple vulnerabilities in setup script, see PMASA-2016-44.
+- issue        [security] Open redirect, see PMASA-2017-1.
+- issue        [security] php-gettext code execution, see PMASA-2017-2.
+- issue        [security] DOS vulnerabiltiy in table editing, see PMASA-2017-3.
+- issue        [security] CSS injection in themes, see PMASA-2017-4.
+- issue        [security] Cookie attribute injection attack, see PMASA-2017-5.
+- issue        [security] SSRF in replication, see PMASA-2017-6.
+- issue        [security] DOS in replication status, see PMASA-2017-7.
+
 4.6.5.2 (2016-12-05)
 - issue #12765 Fixed SQL export with newlines
 
@@ -138,7 +185,6 @@ phpMyAdmin - ChangeLog
 - issue        [security] Verify data before unserializing, see PMASA-2016-43
 - issue        [security] Use HTTPS for wiki links
 - issue        Remove Swekey support
-- issue        [security] SSRF in setup script, see PMASA-2016-44
 - issue        [security] Denial-of-service attack with $cfg['AllowArbitraryServer'] = true and persistent connections, see PMASA-2016-45
 - issue        [security] Improve SSL certificate handling
 - issue        [security] Fix full path disclosure in debugging code

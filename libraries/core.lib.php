@@ -206,13 +206,10 @@ function PMA_securePath($path)
  *
  * @param string       $error_message  the error message or named error message
  * @param string|array $message_args   arguments applied to $error_message
- * @param boolean      $delete_session whether to delete session cookie
  *
  * @return void
  */
-function PMA_fatalError(
-    $error_message, $message_args = null, $delete_session = true
-) {
+function PMA_fatalError($error_message, $message_args = null) {
     /* Use format string if applicable */
     if (is_string($message_args)) {
         $error_message = sprintf($error_message, $message_args);
@@ -248,14 +245,6 @@ function PMA_fatalError(
         }
         $lang = isset($GLOBALS['lang']) ? $GLOBALS['lang'] : 'en';
         $dir = isset($GLOBALS['text_dir']) ? $GLOBALS['text_dir'] : 'ltr';
-
-        // on fatal errors it cannot hurt to always delete the current session
-        if ($delete_session
-            && isset($GLOBALS['session_name'])
-            && isset($_COOKIE[$GLOBALS['session_name']])
-        ) {
-            $GLOBALS['PMA_Config']->removeCookie($GLOBALS['session_name']);
-        }
 
         // Displays the error message
         include './libraries/error.inc.php';
@@ -770,10 +759,11 @@ function PMA_isAllowedDomain($url)
         /* Include current domain */
         $_SERVER['SERVER_NAME'],
         /* phpMyAdmin domains */
-        'wiki.phpmyadmin.net', 'www.phpmyadmin.net', 'phpmyadmin.net',
+        'wiki.phpmyadmin.net',
+        'www.phpmyadmin.net',
+        'phpmyadmin.net',
         'demo.phpmyadmin.net',
         'docs.phpmyadmin.net',
-        'demo.phpmyadmin.net',
         /* mysql.com domains */
         'dev.mysql.com','bugs.mysql.com',
         /* mariadb domains */
@@ -945,6 +935,10 @@ function PMA_cleanupPathInfo()
     }
     $_PATH_INFO = PMA_getenv('PATH_INFO');
     if (! empty($_PATH_INFO) && ! empty($PMA_PHP_SELF)) {
+        $question_pos = mb_strpos($PMA_PHP_SELF, '?');
+        if ($question_pos != false) {
+            $PMA_PHP_SELF = mb_substr($PMA_PHP_SELF, 0, $question_pos);
+        }
         $path_info_pos = mb_strrpos($PMA_PHP_SELF, $_PATH_INFO);
         if ($path_info_pos !== false) {
             $path_info_part = mb_substr($PMA_PHP_SELF, $path_info_pos, mb_strlen($_PATH_INFO));
@@ -953,7 +947,24 @@ function PMA_cleanupPathInfo()
             }
         }
     }
-    $PMA_PHP_SELF = htmlspecialchars($PMA_PHP_SELF);
+
+    $path = [];
+    foreach(explode('/', $PMA_PHP_SELF) as $part) {
+        // ignore parts that have no value
+        if (empty($part) || $part === '.') continue;
+
+        if ($part !== '..') {
+            // cool, we found a new part
+            array_push($path, $part);
+        } else if (count($path) > 0) {
+            // going back up? sure
+            array_pop($path);
+        }
+        // Here we intentionall ignore case where we go too up
+        // as there is nothing sane to do
+    }
+
+    $PMA_PHP_SELF = htmlspecialchars('/' . join('/', $path));
 }
 
 /**

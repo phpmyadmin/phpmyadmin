@@ -112,7 +112,10 @@ class PageSettings
             $result = PMA_saveUserprefs($cf->getConfigArray());
             if ($result === true) {
                 // reload page
-                header('Location: ' . $_SERVER['REQUEST_URI']);
+                $response = Response::getInstance();
+                PMA_sendHeaderLocation(
+                    $response->getFooter()->getSelfUrl('unencoded')
+                );
                 exit();
             } else {
                 $error = $result;

@@ -129,7 +129,7 @@ and after execution of your :term:`SQL` commands, removed.
 -------------------------------------------------------
 
 The MySQL manual explains how to `reset the permissions
-<https://dev.mysql.com/doc/mysql/en/resetting-permissions.html>`_.
+<https://dev.mysql.com/doc/refman/5.7/en/resetting-permissions.html>`_.
 
 .. _faq1_13:
 
@@ -146,7 +146,7 @@ The MySQL manual explains how to `reset the permissions
 1.15 I have problems with *mysql.user* column names.
 ----------------------------------------------------
 
-In previous MySQL versions, the ``User`` and ``Password``columns were
+In previous MySQL versions, the ``User`` and ``Password`` columns were
 named ``user`` and ``password``. Please modify your column names to
 align with current standards.
 
@@ -210,7 +210,7 @@ The proper solution is to use the `mysqli extension
 <https://www.php.net/mysqli>`_ with the proper client library to match
 your MySQL installation. More
 information (and several workarounds) are located in the `MySQL
-Documentation <https://dev.mysql.com/doc/mysql/en/old-client.html>`_.
+Documentation <https://dev.mysql.com/doc/refman/5.7/en/old-client.html>`_.
 
 .. _faq1_18:
 
@@ -316,7 +316,7 @@ should work.
 1.27 I get empty page when I want to view huge page (eg. db\_structure.php with plenty of tables).
 --------------------------------------------------------------------------------------------------
 
-This was caused by a `PHP bug <https://bugs.php.net/21079>`_ that occur when
+This was caused by a `PHP bug <https://bugs.php.net/bug.php?id=21079>`_ that occur when
 GZIP output buffering is enabled. If you turn off it (by
 :config:option:`$cfg['OBGzip']` in :file:`config.inc.php`), it should work.
 This bug will has been fixed in PHP 5.0.0.
@@ -493,34 +493,42 @@ The default values for most Suhosin configuration options will work in
 most scenarios, however you might want to adjust at least following
 parameters:
 
-* `suhosin.request.max\_vars <http://www.hardened-
-  php.net/suhosin/configuration.html#suhosin.request.max_vars>`_ should
+* `suhosin.request.max\_vars <https://suhosin.org/stories/configuration.html#suhosin-request-max-vars>`_ should
   be increased (eg. 2048)
-* `suhosin.post.max\_vars <http://www.hardened-
-  php.net/suhosin/configuration.html#suhosin.post.max_vars>`_ should be
+* `suhosin.post.max\_vars <https://suhosin.org/stories/configuration.html#suhosin-post-max-vars>`_ should be
   increased (eg. 2048)
-* `suhosin.request.max\_array\_index\_length <http://www.hardened-php.ne
-  t/suhosin/configuration.html#suhosin.request.max_array_index_length>`_
+* `suhosin.request.max\_array\_index\_length <https://suhosin.org/stories/configuration.html#suhosin-request-max-array-index-length>`_
   should be increased (eg. 256)
-* `suhosin.post.max\_array\_index\_length <http://www.hardened-php.net/s
-  uhosin/configuration.html#suhosin.post.max_array_index_length>`_
+* `suhosin.post.max\_array\_index\_length <https://suhosin.org/stories/configuration.html#suhosin-post-max-array-index-length>`_
   should be increased (eg. 256)
-* `suhosin.request.max\_totalname\_length <http://www.hardened-php.net/s
-  uhosin/configuration.html#suhosin.request.max_totalname_length>`_
+* `suhosin.request.max\_totalname\_length <https://suhosin.org/stories/configuration.html#suhosin-request-max-totalname-length>`_
   should be increased (eg. 8192)
-* `suhosin.post.max\_totalname\_length <http://www.hardened-php.net/suho
-  sin/configuration.html#suhosin.post.max_totalname_length>`_ should be
+* `suhosin.post.max\_totalname\_length <https://suhosin.org/stories/configuration.html#suhosin-post-max-totalname-length>`_ should be
   increased (eg. 8192)
-* `suhosin.get.max\_value\_length <http://www.hardened-
-  php.net/suhosin/configuration.html#suhosin.get.max_value_length>`_
+* `suhosin.get.max\_value\_length <https://suhosin.org/stories/configuration.html#suhosin-get-max-value-length>`_
   should be increased (eg. 1024)
-* `suhosin.sql.bailout\_on\_error <http://www.hardened-
-  php.net/suhosin/configuration.html#suhosin.sql.bailout_on_error>`_
+* `suhosin.sql.bailout\_on\_error <https://suhosin.org/stories/configuration.html#suhosin-sql-bailout-on-error>`_
   needs to be disabled (the default)
-* `suhosin.log.\* <http://www.hardened-
-  php.net/suhosin/configuration.html#logging_configuration>`_ should not
+* `suhosin.log.\* <https://suhosin.org/stories/configuration.html#logging-configuration>`_ should not
   include :term:`SQL`, otherwise you get big
   slowdown
+* `suhosin.sql.union <https://suhosin.org/stories/configuration.html#suhosin-
+  sql-union>`_ must be disabled (which is the default).
+* `suhosin.sql.multiselect <https://suhosin.org/stories/configuration.html#
+  suhosin-sql-multiselect>`_ must be disabled (which is the default).
+* `suhosin.sql.comment <https://suhosin.org/stories/configuration.html#suhosin-
+  sql-comment>`_ must be disabled (which is the default).
+
+To further improve security, we also recommend these modifications:
+
+* `suhosin.executor.include.max\_traversal <https://suhosin.org/stories/
+  configuration.html#suhosin-executor-include-max-traversal>`_ should be
+  enabled as a mitigation against local file inclusion attacks. We suggest
+  setting this to 2 as ``../`` is used with the ReCaptcha library.
+* `suhosin.cookie.encrypt <https://suhosin.org/stories/configuration.html#
+  suhosin-cookie-encrypt>`_ should be enabled.
+* `suhosin.executor.disable_emodifier <https://suhosin.org/stories/config
+  uration.html#suhosin-executor-disable-emodifier>`_ should be enabled.
 
 You can also disable the warning using the :config:option:`$cfg['SuhosinDisableWarning']`.
 

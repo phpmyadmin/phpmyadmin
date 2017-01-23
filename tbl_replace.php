@@ -310,6 +310,10 @@ if ($is_insert && count($value_sets) > 0) {
     //
     // Note: logic passes here for inline edit
     $message = PMA\libraries\Message::success(__('No change'));
+    // Avoid infinite recursion
+    if ($goto_include == 'tbl_replace.php') {
+        $goto_include = 'tbl_change.php';
+    }
     $active_page = $goto_include;
     include '' . PMA_securePath($goto_include);
     exit;

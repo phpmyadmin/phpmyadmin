@@ -298,7 +298,7 @@ class PMA_ServerReplication_Test extends PHPUnit_Framework_TestCase
             'Change or reconfigure master server',
             $html
         );
-        $notice = 'Make sure, you have unique server-id '
+        $notice = 'Make sure you have a unique server-id '
             . 'in your configuration file (my.cnf)';
         $this->assertContains(
             $notice,

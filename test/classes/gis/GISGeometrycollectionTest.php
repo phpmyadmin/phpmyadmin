@@ -8,7 +8,7 @@
  */
 use PMA\libraries\gis\GISGeometrycollection;
 
-require_once 'libraries/tcpdf/tcpdf.php';
+require_once TCPDF_INC;
 
 /**
  * Tests for PMA\libraries\gis\GISGeometrycollection class
@@ -208,6 +208,9 @@ class GISGeometryCollectionTest extends PHPUnit_Framework_TestCase
      */
     public function providerForPrepareRowAsPng()
     {
+        if (! function_exists('imagecreatetruecolor')) {
+            $this->markTestSkipped('GD extension missing!');
+        }
         return array(
             array(
                 'GEOMETRYCOLLECTION(POLYGON((35 10,10 20,15 40,45 45,35 10),'

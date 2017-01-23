@@ -9,9 +9,8 @@
  *
  * Because the lexer relies on the subscript operator this class had to be
  * implemented.
- *
- * @package SqlParser
  */
+
 namespace SqlParser;
 
 /**
@@ -20,12 +19,11 @@ namespace SqlParser;
  * In this library, this class should be used to parse UTF-8 queries.
  *
  * @category Misc
- * @package  SqlParser
+ *
  * @license  https://www.gnu.org/licenses/gpl-2.0.txt GPL-2.0+
  */
 class UtfString implements \ArrayAccess
 {
-
     /**
      * The raw, multi-byte string.
      *
@@ -69,24 +67,21 @@ class UtfString implements \ArrayAccess
     /**
      * Constructor.
      *
-     * @param string $str The string.
+     * @param string $str the string
      */
     public function __construct($str)
     {
         $this->str = $str;
         $this->byteIdx = 0;
         $this->charIdx = 0;
-        // TODO: `strlen($str)` might return a wrong length when function
-        // overloading is enabled.
-        // https://php.net/manual/ro/mbstring.overload.php
-        $this->byteLen = strlen($str);
+        $this->byteLen = mb_strlen($str, '8bit');
         $this->charLen = mb_strlen($str, 'UTF-8');
     }
 
     /**
      * Checks if the given offset exists.
      *
-     * @param int $offset The offset to be checked.
+     * @param int $offset the offset to be checked
      *
      * @return bool
      */
@@ -98,7 +93,7 @@ class UtfString implements \ArrayAccess
     /**
      * Gets the character at given offset.
      *
-     * @param int $offset The offset to be returned.
+     * @param int $offset the offset to be returned
      *
      * @return string
      */
@@ -139,12 +134,10 @@ class UtfString implements \ArrayAccess
     /**
      * Sets the value of a character.
      *
-     * @param int    $offset The offset to be set.
-     * @param string $value  The value to be set.
+     * @param int    $offset the offset to be set
+     * @param string $value  the value to be set
      *
-     * @throws \Exception Not implemented.
-     *
-     * @return void
+     * @throws \Exception not implemented
      */
     public function offsetSet($offset, $value)
     {
@@ -154,11 +147,9 @@ class UtfString implements \ArrayAccess
     /**
      * Unsets an index.
      *
-     * @param int $offset The value to be unset.
+     * @param int $offset the value to be unset
      *
-     * @throws \Exception Not implemented.
-     *
-     * @return void
+     * @throws \Exception not implemented
      */
     public function offsetUnset($offset)
     {
@@ -172,9 +163,9 @@ class UtfString implements \ArrayAccess
      * However, this implementation supports UTF-8 characters containing up to 6
      * bytes.
      *
-     * @param string $byte The byte to be analyzed.
+     * @param string $byte the byte to be analyzed
      *
-     * @see http://tools.ietf.org/html/rfc3629
+     * @see https://tools.ietf.org/html/rfc3629
      *
      * @return int
      */
@@ -192,6 +183,7 @@ class UtfString implements \ArrayAccess
         } elseif ($byte < 252) {
             return 5; // unofficial
         }
+
         return 6; // unofficial
     }
 

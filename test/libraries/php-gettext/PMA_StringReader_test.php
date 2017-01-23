@@ -5,12 +5,6 @@
  * @package PhpMyAdmin-test
  */
 
-/*
- * Include to test.
- */
-
-require_once 'libraries/php-gettext/streams.php';
-
 class PMA_StringReader_Test extends PHPUnit_Framework_TestCase
 {
     /**

@@ -1070,9 +1070,20 @@ class AuthenticationCookieTest extends PMATestCase
         $this->object->setIV('testiv09testiv09');
         // works with the openssl extension active or inactive
         $this->assertEquals(
-            '{"iv":"dGVzdGl2MDl0ZXN0aXYwOQ==","mac":"34367a80e4276906637b5eaecf8c3931547aae68","payload":"+coP\/up\/ZBTBwbiEpCUVXQ=="}',
+            '{"iv":"dGVzdGl2MDl0ZXN0aXYwOQ==","mac":"347aa45ae1ade00c980f31129ec2defef18b2bfd","payload":"YDEaxOfP9nD9q\/2pC6hjfQ=="}',
             $this->object->cookieEncrypt('data123', 'sec321')
         );
+    }
+
+    /**
+     * Test for PMA\libraries\plugins\auth\AuthenticationConfig::cookieEncrypt
+     *
+     * @return void
+     */
+    public function testCookieEncryptPHPSecLib()
+    {
+        $this->object->setUseOpenSSL(false);
+        $this->testCookieEncrypt();
     }
 
     /**
@@ -1086,10 +1097,21 @@ class AuthenticationCookieTest extends PMATestCase
         $this->assertEquals(
             'data123',
             $this->object->cookieDecrypt(
-                '{"iv":"dGVzdGl2MDl0ZXN0aXYwOQ==","mac":"34367a80e4276906637b5eaecf8c3931547aae68","payload":"+coP\/up\/ZBTBwbiEpCUVXQ=="}',
+                '{"iv":"dGVzdGl2MDl0ZXN0aXYwOQ==","mac":"347aa45ae1ade00c980f31129ec2defef18b2bfd","payload":"YDEaxOfP9nD9q\/2pC6hjfQ=="}',
                 'sec321'
             )
         );
+    }
+
+    /**
+     * Test for PMA\libraries\plugins\auth\AuthenticationConfig::cookieDecrypt
+     *
+     * @return void
+     */
+    public function testCookieDecryptPHPSecLib()
+    {
+        $this->object->setUseOpenSSL(false);
+        $this->testCookieDecrypt();
     }
 
     /**

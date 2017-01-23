@@ -2,10 +2,8 @@
 
 /**
  * `REPAIR` statement.
- *
- * @package    SqlParser
- * @subpackage Statements
  */
+
 namespace SqlParser\Statements;
 
 /**
@@ -16,27 +14,24 @@ namespace SqlParser\Statements;
  *  [QUICK] [EXTENDED] [USE_FRM]
  *
  * @category   Statements
- * @package    SqlParser
- * @subpackage Statements
+ *
  * @license    https://www.gnu.org/licenses/gpl-2.0.txt GPL-2.0+
  */
 class RepairStatement extends MaintenanceStatement
 {
-
     /**
      * Options of this statement.
      *
      * @var array
      */
     public static $OPTIONS = array(
+        'TABLE' => 1,
 
-        'TABLE'                         => 1,
+        'NO_WRITE_TO_BINLOG' => 2,
+        'LOCAL' => 3,
 
-        'NO_WRITE_TO_BINLOG'            => 2,
-        'LOCAL'                         => 3,
-
-        'QUICK'                         => 4,
-        'EXTENDED'                      => 5,
-        'USE_FRM'                       => 6,
+        'QUICK' => 4,
+        'EXTENDED' => 5,
+        'USE_FRM' => 6,
     );
 }

@@ -101,7 +101,7 @@ class Config
      */
     public function checkSystem()
     {
-        $this->set('PMA_VERSION', '4.6.5.2');
+        $this->set('PMA_VERSION', '4.6.6');
         /**
          * @deprecated
          */
@@ -683,7 +683,7 @@ class Config
             } while ($dataline != '');
             $message = trim(implode(' ', $commit));
 
-        } elseif (isset($commit_json)) {
+        } elseif (isset($commit_json) && isset($commit_json->author) && isset($commit_json->committer)) {
             $author = array(
                 'name' => $commit_json->author->name,
                 'email' => $commit_json->author->email,
@@ -1691,6 +1691,48 @@ class Config
                 $error['message']
             )
         );
+    }
+
+    /**
+     * Wrapper for footer/header rendering
+     *
+     * @param string $filename File to check and render
+     * @param string $id       Div ID
+     *
+     * @return string
+     */
+    private static function _renderCustom($filename, $id)
+    {
+        $retval = '';
+        if (file_exists($filename)) {
+            $retval .= '<div id="' . $id . '">';
+            ob_start();
+            include $filename;
+            $retval .= ob_get_contents();
+            ob_end_clean();
+            $retval .= '</div>';
+        }
+        return $retval;
+    }
+
+    /**
+     * Renders user configured footer
+     *
+     * @return string
+     */
+    public static function renderFooter()
+    {
+        return self::_renderCustom(CUSTOM_FOOTER_FILE, 'pma_footer');
+    }
+
+    /**
+     * Renders user configured footer
+     *
+     * @return string
+     */
+    public static function renderHeader()
+    {
+        return self::_renderCustom(CUSTOM_HEADER_FILE, 'pma_header');
     }
 }
 

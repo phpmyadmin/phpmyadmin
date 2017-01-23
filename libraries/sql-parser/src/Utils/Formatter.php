@@ -2,10 +2,8 @@
 
 /**
  * Utilities that are used for formatting queries.
- *
- * @package    SqlParser
- * @subpackage Utils
  */
+
 namespace SqlParser\Utils;
 
 use SqlParser\Lexer;
@@ -17,13 +15,11 @@ use SqlParser\TokensList;
  * Utilities that are used for formatting queries.
  *
  * @category   Misc
- * @package    SqlParser
- * @subpackage Utils
+ *
  * @license    https://www.gnu.org/licenses/gpl-2.0.txt GPL-2.0+
  */
 class Formatter
 {
-
     /**
      * The formatting options.
      *
@@ -39,188 +35,264 @@ class Formatter
      * @var array
      */
     public static $INLINE_CLAUSES = array(
-        'CREATE'                        => true,
-        'LIMIT'                         => true,
-        'PARTITION BY'                  => true,
-        'PARTITION'                     => true,
-        'PROCEDURE'                     => true,
-        'SUBPARTITION BY'               => true,
-        'VALUES'                        => true,
+        'CREATE' => true,
+        'LIMIT' => true,
+        'PARTITION BY' => true,
+        'PARTITION' => true,
+        'PROCEDURE' => true,
+        'SUBPARTITION BY' => true,
+        'VALUES' => true,
     );
 
     /**
      * Constructor.
      *
-     * @param array $options The formatting options.
+     * @param array $options the formatting options
      */
     public function __construct(array $options = array())
     {
-        // The specified formatting options are merged with the default values.
-        $this->options = array_merge(
-            array(
+        $this->options = $this->getMergedOptions($options);
+    }
 
-                /**
-                 * The format of the result.
-                 *
-                 * @var string The type ('text', 'cli' or 'html')
-                 */
-                'type' => php_sapi_name() == 'cli' ? 'cli' : 'text',
-
-                /**
-                 * The line ending used.
-                 * By default, for text this is "\n" and for HTML this is "<br/>".
-                 *
-                 * @var string
-                 */
-                'line_ending' => NULL,
-
-                /**
-                 * The string used for indentation.
-                 *
-                 * @var string
-                 */
-                'indentation' => '  ',
-
-                /**
-                 * Whether comments should be removed or not.
-                 *
-                 * @var bool
-                 */
-                'remove_comments' => false,
-
-                /**
-                 * Whether each clause should be on a new line.
-                 *
-                 * @var bool
-                 */
-                'clause_newline' => true,
-
-                /**
-                 * Whether each part should be on a new line.
-                 * Parts are delimited by brackets and commas.
-                 *
-                 * @var bool
-                 */
-                'parts_newline' => true,
-
-                /**
-                 * Whether each part of each clause should be indented.
-                 *
-                 * @var bool
-                 */
-                'indent_parts' => true,
-
-                /**
-                 * The styles used for HTML formatting.
-                 * array($type, $flags, $span, $callback)
-                 *
-                 * @var array[]
-                 */
-                'formats' => array(
-                    array(
-                        'type'      => Token::TYPE_KEYWORD,
-                        'flags'     => Token::FLAG_KEYWORD_RESERVED,
-                        'html'      => 'class="sql-reserved"',
-                        'cli'       => "\x1b[35m",
-                        'function'  => 'strtoupper',
-                    ),
-                    array(
-                        'type'      => Token::TYPE_KEYWORD,
-                        'flags'     => 0,
-                        'html'      => 'class="sql-keyword"',
-                        'cli'       => "\x1b[95m",
-                        'function'  => 'strtoupper',
-                    ),
-                    array(
-                        'type'      => Token::TYPE_COMMENT,
-                        'flags'     => 0,
-                        'html'      => 'class="sql-comment"',
-                        'cli'       => "\x1b[37m",
-                        'function'  => '',
-                    ),
-                    array(
-                        'type'      => Token::TYPE_BOOL,
-                        'flags'     => 0,
-                        'html'      => 'class="sql-atom"',
-                        'cli'       => "\x1b[36m",
-                        'function'  => 'strtoupper',
-                    ),
-                    array(
-                        'type'      => Token::TYPE_NUMBER,
-                        'flags'     => 0,
-                        'html'      => 'class="sql-number"',
-                        'cli'       => "\x1b[92m",
-                        'function'  => 'strtolower',
-                    ),
-                    array(
-                        'type'      => Token::TYPE_STRING,
-                        'flags'     => 0,
-                        'html'      => 'class="sql-string"',
-                        'cli'       => "\x1b[91m",
-                        'function'  => '',
-                    ),
-                    array(
-                        'type'      => Token::TYPE_SYMBOL,
-                        'flags'     => 0,
-                        'html'      => 'class="sql-variable"',
-                        'cli'       => "\x1b[36m",
-                        'function'  => '',
-                    ),
-                )
-            ),
+    /**
+     * The specified formatting options are merged with the default values.
+     *
+     * @param array $options
+     *
+     * @return array
+     */
+    private function getMergedOptions(array $options)
+    {
+        $options = array_merge(
+            $this->getDefaultOptions(),
             $options
         );
 
-        if (is_null($this->options['line_ending'])) {
-            $this->options['line_ending'] = $this->options['type'] == 'html' ? '<br/>' : "\n";
+        if (isset($options['formats'])) {
+            $options['formats'] = self::mergeFormats($this->getDefaultFormats(), $options['formats']);
+        } else {
+            $options['formats'] = $this->getDefaultFormats();
+        }
+
+        if (is_null($options['line_ending'])) {
+            $options['line_ending'] = $options['type'] === 'html' ? '<br/>' : "\n";
+        }
+
+        if (is_null($options['indentation'])) {
+            $options['indentation'] = $options['type'] === 'html' ? '&nbsp;&nbsp;&nbsp;&nbsp;' : '    ';
         }
 
         // `parts_newline` requires `clause_newline`
-        $this->options['parts_newline'] &= $this->options['clause_newline'];
+        $options['parts_newline'] &= $options['clause_newline'];
+
+        return $options;
+    }
+
+    /**
+     * The default formatting options.
+     *
+     * @return array
+     */
+    protected function getDefaultOptions()
+    {
+        return array(
+            /*
+             * The format of the result.
+             *
+             * @var string The type ('text', 'cli' or 'html')
+             */
+            'type' => php_sapi_name() === 'cli' ? 'cli' : 'text',
+
+            /*
+             * The line ending used.
+             * By default, for text this is "\n" and for HTML this is "<br/>".
+             *
+             * @var string
+             */
+            'line_ending' => null,
+
+            /*
+             * The string used for indentation.
+             *
+             * @var string
+             */
+            'indentation' => null,
+
+            /*
+             * Whether comments should be removed or not.
+             *
+             * @var bool
+             */
+            'remove_comments' => false,
+
+            /*
+             * Whether each clause should be on a new line.
+             *
+             * @var bool
+             */
+            'clause_newline' => true,
+
+            /*
+             * Whether each part should be on a new line.
+             * Parts are delimited by brackets and commas.
+             *
+             * @var bool
+             */
+            'parts_newline' => true,
+
+            /*
+             * Whether each part of each clause should be indented.
+             *
+             * @var bool
+             */
+            'indent_parts' => true,
+        );
+    }
+
+    /**
+     * The styles used for HTML formatting.
+     * array($type, $flags, $span, $callback).
+     *
+     * @return array
+     */
+    protected function getDefaultFormats()
+    {
+        return array(
+            array(
+                'type' => Token::TYPE_KEYWORD,
+                'flags' => Token::FLAG_KEYWORD_RESERVED,
+                'html' => 'class="sql-reserved"',
+                'cli' => "\x1b[35m",
+                'function' => 'strtoupper',
+            ),
+            array(
+                'type' => Token::TYPE_KEYWORD,
+                'flags' => 0,
+                'html' => 'class="sql-keyword"',
+                'cli' => "\x1b[95m",
+                'function' => 'strtoupper',
+            ),
+            array(
+                'type' => Token::TYPE_COMMENT,
+                'flags' => 0,
+                'html' => 'class="sql-comment"',
+                'cli' => "\x1b[37m",
+                'function' => '',
+            ),
+            array(
+                'type' => Token::TYPE_BOOL,
+                'flags' => 0,
+                'html' => 'class="sql-atom"',
+                'cli' => "\x1b[36m",
+                'function' => 'strtoupper',
+            ),
+            array(
+                'type' => Token::TYPE_NUMBER,
+                'flags' => 0,
+                'html' => 'class="sql-number"',
+                'cli' => "\x1b[92m",
+                'function' => 'strtolower',
+            ),
+            array(
+                'type' => Token::TYPE_STRING,
+                'flags' => 0,
+                'html' => 'class="sql-string"',
+                'cli' => "\x1b[91m",
+                'function' => '',
+            ),
+            array(
+                'type' => Token::TYPE_SYMBOL,
+                'flags' => 0,
+                'html' => 'class="sql-variable"',
+                'cli' => "\x1b[36m",
+                'function' => '',
+            ),
+        );
+    }
+
+    private static function mergeFormats(array $formats, array $newFormats)
+    {
+        $added = array();
+        $integers = array('flags', 'type');
+        $strings = array('html', 'cli', 'function');
+
+        /* Sanitize the array so that we do not have to care later */
+        foreach ($newFormats as $j => $new) {
+            foreach ($integers as $name) {
+                if (!isset($new[$name])) {
+                    $newFormats[$j][$name] = 0;
+                }
+            }
+            foreach ($strings as $name) {
+                if (!isset($new[$name])) {
+                    $newFormats[$j][$name] = '';
+                }
+            }
+        }
+
+        /* Process changes to existing formats */
+        foreach ($formats as $i => $original) {
+            foreach ($newFormats as $j => $new) {
+                if ($new['type'] === $original['type']
+                    && $original['flags'] === $new['flags']
+                ) {
+                    $formats[$i] = $new;
+                    $added[] = $j;
+                }
+            }
+        }
+
+        /* Add not already handled formats */
+        foreach ($newFormats as $j => $new) {
+            if (!in_array($j, $added)) {
+                $formats[] = $new;
+            }
+        }
+
+        return $formats;
     }
 
     /**
      * Formats the given list of tokens.
      *
-     * @param TokensList $list The list of tokens.
+     * @param TokensList $list the list of tokens
      *
      * @return string
      */
     public function formatList($list)
     {
-
         /**
          * The query to be returned.
          *
-         * @var string $ret
+         * @var string
          */
         $ret = '';
 
         /**
          * The indentation level.
          *
-         * @var int $indent
+         * @var int
          */
         $indent = 0;
 
         /**
          * Whether the line ended.
          *
-         * @var bool $lineEnded
+         * @var bool
          */
         $lineEnded = false;
 
         /**
-         * Whether current group is short (no linebreaks)
+         * Whether current group is short (no linebreaks).
          *
-         * @var bool $shortGroup
+         * @var bool
          */
         $shortGroup = false;
 
         /**
          * The name of the last clause.
          *
-         * @var string $lastClause
+         * @var string
          */
         $lastClause = '';
 
@@ -228,7 +300,7 @@ class Formatter
          * A stack that keeps track of the indentation level every time a new
          * block is found.
          *
-         * @var array $blocksIndentation
+         * @var array
          */
         $blocksIndentation = array();
 
@@ -236,31 +308,23 @@ class Formatter
          * A stack that keeps track of the line endings every time a new block
          * is found.
          *
-         * @var array $blocksLineEndings
+         * @var array
          */
         $blocksLineEndings = array();
 
         /**
          * Whether clause's options were formatted.
          *
-         * @var bool $formattedOptions
+         * @var bool
          */
         $formattedOptions = false;
 
         /**
          * Previously parsed token.
          *
-         * @var Token $prev
+         * @var Token
          */
         $prev = null;
-
-        /**
-         * Comments are being formatted separately to maintain the whitespaces
-         * before and after them.
-         *
-         * @var string $comment
-         */
-        $comment = '';
 
         // In order to be able to format the queries correctly, the next token
         // must be taken into consideration. The loop below uses two pointers,
@@ -277,32 +341,19 @@ class Formatter
             if ($curr->type === Token::TYPE_WHITESPACE) {
                 // Whitespaces are skipped because the formatter adds its own.
                 continue;
-            } elseif ($curr->type === Token::TYPE_COMMENT) {
-                // Whether the comments should be parsed.
-                if (!empty($this->options['remove_comments'])) {
-                    continue;
-                }
+            }
 
-                if ($list->tokens[$list->idx - 1]->type === Token::TYPE_WHITESPACE) {
-                    // The whitespaces before and after are preserved for
-                    // formatting reasons.
-                    $comment .= $list->tokens[$list->idx - 1]->token;
-                }
-                $comment .= $this->toString($curr);
-                if (($list->tokens[$list->idx + 1]->type === Token::TYPE_WHITESPACE)
-                    && ($list->tokens[$list->idx + 2]->type !== Token::TYPE_COMMENT)
-                ) {
-                    // Adding the next whitespace only there is no comment that
-                    // follows it immediately which may cause adding a
-                    // whitespace twice.
-                    $comment .= $list->tokens[$list->idx + 1]->token;
-                }
-
-                // Everything was handled here, no need to continue.
+            if ($curr->type === Token::TYPE_COMMENT && $this->options['remove_comments']) {
+                // Skip Comments if option `remove_comments` is enabled
                 continue;
             }
 
             // Checking if pointers were initialized.
+            /**
+             * Previous Token.
+             *
+             * @var Token $prev
+             */
             if ($prev !== null) {
                 // Checking if a new clause started.
                 if (static::isClause($prev) !== false) {
@@ -311,12 +362,16 @@ class Formatter
                 }
 
                 // The options of a clause should stay on the same line and everything that follows.
-                if (($this->options['parts_newline'])
-                    && (!$formattedOptions)
-                    && (empty(self::$INLINE_CLAUSES[$lastClause]))
-                    && (($curr->type !== Token::TYPE_KEYWORD)
-                    || (($curr->type === Token::TYPE_KEYWORD)
-                    && ($curr->flags & Token::FLAG_KEYWORD_FUNCTION)))
+                if ($this->options['parts_newline']
+                    && !$formattedOptions
+                    && empty(self::$INLINE_CLAUSES[$lastClause])
+                    && (
+                        $curr->type !== Token::TYPE_KEYWORD
+                        || (
+                            $curr->type === Token::TYPE_KEYWORD
+                            && $curr->flags & Token::FLAG_KEYWORD_FUNCTION
+                        )
+                    )
                 ) {
                     $formattedOptions = true;
                     $lineEnded = true;
@@ -325,7 +380,7 @@ class Formatter
 
                 // Checking if this clause ended.
                 if ($tmp = static::isClause($curr)) {
-                    if (($tmp == 2) || ($this->options['clause_newline'])) {
+                    if ($tmp == 2 || $this->options['clause_newline']) {
                         $lineEnded = true;
                         if ($this->options['parts_newline']) {
                             --$indent;
@@ -334,24 +389,26 @@ class Formatter
                 }
 
                 // Indenting BEGIN ... END blocks.
-                if (($prev->type === Token::TYPE_KEYWORD) && ($prev->value === 'BEGIN')) {
+                if ($prev->type === Token::TYPE_KEYWORD && $prev->value === 'BEGIN') {
                     $lineEnded = true;
                     array_push($blocksIndentation, $indent);
                     ++$indent;
-                } elseif (($curr->type === Token::TYPE_KEYWORD) && ($curr->value === 'END')) {
+                } elseif ($curr->type === Token::TYPE_KEYWORD && $curr->value === 'END') {
                     $lineEnded = true;
                     $indent = array_pop($blocksIndentation);
                 }
 
                 // Formatting fragments delimited by comma.
-                if (($prev->type === Token::TYPE_OPERATOR) && ($prev->value === ',')) {
+                if ($prev->type === Token::TYPE_OPERATOR && $prev->value === ',') {
                     // Fragments delimited by a comma are broken into multiple
                     // pieces only if the clause is not inlined or this fragment
                     // is between brackets that are on new line.
-                    if (((empty(self::$INLINE_CLAUSES[$lastClause]))
-                        && ! $shortGroup
-                        && ($this->options['parts_newline']))
-                        || (end($blocksLineEndings) === true)
+                    if (end($blocksLineEndings) === true
+                        || (
+                            empty(self::$INLINE_CLAUSES[$lastClause])
+                            && !$shortGroup
+                            && $this->options['parts_newline']
+                        )
                     ) {
                         $lineEnded = true;
                     }
@@ -360,7 +417,7 @@ class Formatter
                 // Handling brackets.
                 // Brackets are indented only if the length of the fragment between
                 // them is longer than 30 characters.
-                if (($prev->type === Token::TYPE_OPERATOR) && ($prev->value === '(')) {
+                if ($prev->type === Token::TYPE_OPERATOR && $prev->value === '(') {
                     array_push($blocksIndentation, $indent);
                     $shortGroup = true;
                     if (static::getGroupLength($list) > 30) {
@@ -369,16 +426,10 @@ class Formatter
                         $shortGroup = false;
                     }
                     array_push($blocksLineEndings, $lineEnded);
-                } elseif (($curr->type === Token::TYPE_OPERATOR) && ($curr->value === ')')) {
+                } elseif ($curr->type === Token::TYPE_OPERATOR && $curr->value === ')') {
                     $indent = array_pop($blocksIndentation);
                     $lineEnded |= array_pop($blocksLineEndings);
                     $shortGroup = false;
-                }
-
-                // Delimiter must be placed on the same line with the last
-                // clause.
-                if ($curr->type === Token::TYPE_DELIMITER) {
-                    $lineEnded = false;
                 }
 
                 // Adding the token.
@@ -391,31 +442,27 @@ class Formatter
                         $indent = 0;
                     }
 
-                    if ($curr->type !== Token::TYPE_COMMENT) {
-                        $ret .= $this->options['line_ending']
-                            . str_repeat($this->options['indentation'], $indent);
-                    }
+                    $ret .= $this->options['line_ending']
+                        . str_repeat($this->options['indentation'], $indent);
+
                     $lineEnded = false;
                 } else {
                     // If the line ended there is no point in adding whitespaces.
                     // Also, some tokens do not have spaces before or after them.
-                    if (!((($prev->type === Token::TYPE_OPERATOR) && (($prev->value === '.') || ($prev->value === '(')))
-                        // No space after . (
-                        || (($curr->type === Token::TYPE_OPERATOR) && (($curr->value === '.') || ($curr->value === ',')
-                        || ($curr->value === '(') || ($curr->value === ')')))
-                        // No space before . , ( )
-                        || (($curr->type === Token::TYPE_DELIMITER)) && (mb_strlen($curr->value, 'UTF-8') < 2))
+                    if (
                         // A space after delimiters that are longer than 2 characters.
-                        || ($prev->value === 'DELIMITER')
+                        $prev->value === 'DELIMITER'
+                        || !(
+                            ($prev->type === Token::TYPE_OPERATOR && ($prev->value === '.' || $prev->value === '('))
+                            // No space after . (
+                            || ($curr->type === Token::TYPE_OPERATOR && ($curr->value === '.' || $curr->value === ',' || $curr->value === '(' || $curr->value === ')'))
+                            // No space before . , ( )
+                            || $curr->type === Token::TYPE_DELIMITER && mb_strlen($curr->value, 'UTF-8') < 2
+                        )
                     ) {
                         $ret .= ' ';
                     }
                 }
-            }
-
-            if (!empty($comment)) {
-                $ret .= $comment;
-                $comment = '';
             }
 
             // Iteration finished, consider current token as previous.
@@ -433,18 +480,12 @@ class Formatter
     {
         return str_replace(
             array(
-                "\x00", "\x01", "\x02", "\x03", "\x04",
-                "\x05", "\x06", "\x07", "\x08", "\x09", "\x0A",
-                "\x0B","\x0C","\x0D", "\x0E", "\x0F", "\x10", "\x11",
-                "\x12","\x13","\x14","\x15", "\x16", "\x17", "\x18",
-                "\x19","\x1A","\x1B","\x1C","\x1D", "\x1E", "\x1F"
+                "\x00", "\x01", "\x02", "\x03", "\x04", "\x05", "\x06", "\x07", "\x08", "\x09", "\x0A", "\x0B", "\x0C", "\x0D", "\x0E", "\x0F",
+                "\x10", "\x11", "\x12", "\x13", "\x14", "\x15", "\x16", "\x17", "\x18", "\x19", "\x1A", "\x1B", "\x1C",  "\x1D", "\x1E", "\x1F",
             ),
             array(
-                '\x00', '\x01', '\x02', '\x03', '\x04',
-                '\x05', '\x06', '\x07', '\x08', '\x09', '\x0A',
-                '\x0B', '\x0C', '\x0D', '\x0E', '\x0F', '\x10', '\x11',
-                '\x12', '\x13', '\x14', '\x15', '\x16', '\x17', '\x18',
-                '\x19', '\x1A', '\x1B', '\x1C', '\x1D', '\x1E', '\x1F'
+                '\x00', '\x01', '\x02', '\x03', '\x04', '\x05', '\x06', '\x07', '\x08', '\x09', '\x0A', '\x0B', '\x0C', '\x0D', '\x0E', '\x0F',
+                '\x10', '\x11', '\x12', '\x13', '\x14', '\x15', '\x16', '\x17', '\x18', '\x19', '\x1A', '\x1B', '\x1C',  '\x1D', '\x1E', '\x1F',
             ),
             $string
         );
@@ -453,7 +494,7 @@ class Formatter
     /**
      * Tries to print the query and returns the result.
      *
-     * @param Token $token The token to be printed.
+     * @param Token $token the token to be printed
      *
      * @return string
      */
@@ -462,8 +503,8 @@ class Formatter
         $text = $token->token;
 
         foreach ($this->options['formats'] as $format) {
-            if (($token->type === $format['type'])
-                && (($token->flags & $format['flags']) === $format['flags'])
+            if ($token->type === $format['type']
+                && ($token->flags & $format['flags']) === $format['flags']
             ) {
                 // Running transformation function.
                 if (!empty($format['function'])) {
@@ -487,20 +528,23 @@ class Formatter
         } elseif ($this->options['type'] === 'html') {
             return htmlspecialchars($text, ENT_NOQUOTES);
         }
+
+        return $text;
     }
 
     /**
      * Formats a query.
      *
      * @param string $query   The query to be formatted
-     * @param array  $options The formatting options.
+     * @param array  $options the formatting options
      *
-     * @return string          The formatted string.
+     * @return string the formatted string
      */
     public static function format($query, array $options = array())
     {
         $lexer = new Lexer($query);
-        $formatter = new Formatter($options);
+        $formatter = new self($options);
+
         return $formatter->formatList($lexer->list);
     }
 
@@ -509,7 +553,7 @@ class Formatter
      *
      * A group is delimited by a pair of brackets.
      *
-     * @param TokensList $list The list of tokens.
+     * @param TokensList $list the list of tokens
      *
      * @return int
      */
@@ -521,14 +565,14 @@ class Formatter
          * the list already advanced one position and the opening bracket was
          * already parsed.
          *
-         * @var int $count
+         * @var int
          */
         $count = 1;
 
         /**
          * The length of this group.
          *
-         * @var int $length
+         * @var int
          */
         $length = 0;
 
@@ -555,19 +599,23 @@ class Formatter
     /**
      * Checks if a token is a statement or a clause inside a statement.
      *
-     * @param Token $token The token to be checked.
+     * @param Token $token the token to be checked
      *
      * @return int|bool
      */
     public static function isClause($token)
     {
-        if ((($token->type === Token::TYPE_NONE) && (strtoupper($token->token) === 'DELIMITER'))
-            || (($token->type === Token::TYPE_KEYWORD) && (isset(Parser::$STATEMENT_PARSERS[$token->value])))
+        if (
+            ($token->type === Token::TYPE_KEYWORD && isset(Parser::$STATEMENT_PARSERS[$token->value]))
+            || ($token->type === Token::TYPE_NONE && strtoupper($token->token) === 'DELIMITER')
         ) {
             return 2;
-        } elseif (($token->type === Token::TYPE_KEYWORD) && (isset(Parser::$KEYWORD_PARSERS[$token->value]))) {
+        } elseif (
+            $token->type === Token::TYPE_KEYWORD && isset(Parser::$KEYWORD_PARSERS[$token->value])
+        ) {
             return 1;
         }
+
         return false;
     }
 }

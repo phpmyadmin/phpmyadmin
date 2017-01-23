@@ -152,13 +152,12 @@ class PMA_ServerStatus_Test extends PHPUnit_Framework_TestCase
     public function testPMAGetHtmlForServerStatus()
     {
         //parameters
-        $upTime = "10h";
         $bytes_received = 100;
         $bytes_sent = 200;
         $max_used_conn = 500;
         $aborted_conn = 200;
         $conn = 1000;
-        $this->ServerStatusData->status['Uptime'] = $upTime;
+        $this->ServerStatusData->status['Uptime'] = 36000;
         $this->ServerStatusData->status['Bytes_received'] = $bytes_received;
         $this->ServerStatusData->status['Bytes_sent'] = $bytes_sent;
         $this->ServerStatusData->status['Max_used_connections'] = $max_used_conn;
@@ -178,7 +177,7 @@ class PMA_ServerStatus_Test extends PHPUnit_Framework_TestCase
         );
         //updatetime
         $upTime_html = 'This MySQL server has been running for '
-            . '0 days, 0 hours, 0 minutes and 10h seconds';
+            . '0 days, 10 hours, 0 minutes and 0 seconds';
         $this->assertContains(
             $upTime_html,
             $html

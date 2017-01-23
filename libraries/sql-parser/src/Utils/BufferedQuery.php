@@ -2,10 +2,8 @@
 
 /**
  * Buffered query utilities.
- *
- * @package    SqlParser
- * @subpackage Utils
  */
+
 namespace SqlParser\Utils;
 
 use SqlParser\Context;
@@ -20,26 +18,24 @@ use SqlParser\Context;
  * All comments are skipped, with one exception: MySQL commands inside `/*!`.
  *
  * @category   Lexer
- * @package    SqlParser
- * @subpackage Utils
+ *
  * @license    https://www.gnu.org/licenses/gpl-2.0.txt GPL-2.0+
  */
 class BufferedQuery
 {
-
     // Constants that describe the current status of the parser.
 
     // A string is being parsed.
-    const STATUS_STRING                 = 16; // 0001 0000
-    const STATUS_STRING_SINGLE_QUOTES   = 17; // 0001 0001
-    const STATUS_STRING_DOUBLE_QUOTES   = 18; // 0001 0010
-    const STATUS_STRING_BACKTICK        = 20; // 0001 0100
+    const STATUS_STRING = 16; // 0001 0000
+    const STATUS_STRING_SINGLE_QUOTES = 17; // 0001 0001
+    const STATUS_STRING_DOUBLE_QUOTES = 18; // 0001 0010
+    const STATUS_STRING_BACKTICK = 20; // 0001 0100
 
     // A comment is being parsed.
-    const STATUS_COMMENT                = 32; // 0010 0000
-    const STATUS_COMMENT_BASH           = 33; // 0010 0001
-    const STATUS_COMMENT_C              = 34; // 0010 0010
-    const STATUS_COMMENT_SQL            = 36; // 0010 0100
+    const STATUS_COMMENT = 32; // 0010 0000
+    const STATUS_COMMENT_BASH = 33; // 0010 0001
+    const STATUS_COMMENT_C = 34; // 0010 0010
+    const STATUS_COMMENT_SQL = 36; // 0010 0100
 
     /**
      * The query that is being processed.
@@ -88,30 +84,29 @@ class BufferedQuery
     /**
      * Constructor.
      *
-     * @param string $query   The query to be parsed.
-     * @param array  $options The options of this parser.
+     * @param string $query   the query to be parsed
+     * @param array  $options the options of this parser
      */
     public function __construct($query = '', array $options = array())
     {
         // Merges specified options with defaults.
         $this->options = array_merge(
             array(
-
-                /**
+                /*
                  * The starting delimiter.
                  *
                  * @var string
                  */
                 'delimiter' => ';',
 
-                /**
+                /*
                  * Whether `DELIMITER` statements should be parsed.
                  *
                  * @var bool
                  */
                 'parse_delimiter' => false,
 
-                /**
+                /*
                  * Whether a delimiter should be added at the end of the
                  * statement.
                  *
@@ -142,7 +137,7 @@ class BufferedQuery
     /**
      * Extracts a statement from the buffer.
      *
-     * @param bool $end Whether the end of the buffer was reached.
+     * @param bool $end whether the end of the buffer was reached
      *
      * @return string
      */
@@ -166,7 +161,7 @@ class BufferedQuery
         /**
          * The length of the buffer.
          *
-         * @var int $len
+         * @var int
          */
         $len = strlen($this->query);
 
@@ -186,12 +181,12 @@ class BufferedQuery
          * Those extra characters are required only if there is more data
          * expected (the end of the buffer was not reached).
          *
-         * @var int $loopLen
+         * @var int
          */
         $loopLen = $end ? $len : $len - 16;
 
         for (; $i < $loopLen; ++$i) {
-            /**
+            /*
              * Handling backslash.
              *
              * Even if the next character is a special character that should be
@@ -294,7 +289,7 @@ class BufferedQuery
              * statement. This is the reason for the last condition.
              */
             if (($i + 9 < $len)
-                && (($this->query[$i    ] === 'D') || ($this->query[$i    ] === 'd'))
+                && (($this->query[$i] === 'D') || ($this->query[$i] === 'd'))
                 && (($this->query[$i + 1] === 'E') || ($this->query[$i + 1] === 'e'))
                 && (($this->query[$i + 2] === 'L') || ($this->query[$i + 2] === 'l'))
                 && (($this->query[$i + 3] === 'I') || ($this->query[$i + 3] === 'i'))
@@ -353,6 +348,7 @@ class BufferedQuery
 
                 // Incomplete statement. Reverting
                 $i = $iBak;
+
                 return false;
             }
 
