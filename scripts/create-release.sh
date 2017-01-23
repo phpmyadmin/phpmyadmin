@@ -213,6 +213,7 @@ if [ ! -d libraries/tcpdf ] ; then
     rm -rf \
         vendor/phpmyadmin/sql-parser/tests/ \
         vendor/phpmyadmin/sql-parser/tools/ \
+        vendor/phpmyadmin/sql-parser/locale/*/LC_MESSAGES/sqlparser.po \
         vendor/phpmyadmin/motranslator/tests/ \
         vendor/phpmyadmin/shapefile/tests/ \
         vendor/phpmyadmin/shapefile/examples/ \
