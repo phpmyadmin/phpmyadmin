@@ -142,7 +142,7 @@ class ImportLdi extends AbstractImportCsv
         if (strlen($ldi_new_line) > 0) {
             if ($ldi_new_line == 'auto') {
                 $ldi_new_line
-                    = (PMA\libraries\Util::whichCrlf() == "\n")
+                    = (PHP_EOL == "\n")
                     ? '\n'
                     : '\r\n';
             }

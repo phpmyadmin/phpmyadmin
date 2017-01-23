@@ -934,27 +934,6 @@ class Util
     } // end of the 'backquoteCompat()' function
 
     /**
-     * Defines the <CR><LF> value depending on the user OS.
-     *
-     * @return string   the <CR><LF> value to use
-     *
-     * @access  public
-     */
-    public static function whichCrlf()
-    {
-        // The 'PMA_USR_OS' constant is defined in "libraries/Config.php"
-        // Win case
-        if (PMA_USR_OS == 'Win') {
-            $the_crlf = "\r\n";
-        } else {
-            // Others
-            $the_crlf = "\n";
-        }
-
-        return $the_crlf;
-    } // end of the 'whichCrlf()' function
-
-    /**
      * Prepare the message and the query
      * usually the message is the result of the query executed
      *
