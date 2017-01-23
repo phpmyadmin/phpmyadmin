@@ -4,17 +4,17 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.6-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-01-23 14:25+0100\n"
-"PO-Revision-Date: 2016-12-14 09:30+0000\n"
+"PO-Revision-Date: 2017-01-23 18:41+0000\n"
 "Last-Translator: Domen <mitenem@outlook.com>\n"
-"Language-Team: Slovenian <https://hosted.weblate.org/projects/phpmyadmin/4-6/"
-"sl/>\n"
+"Language-Team: Slovenian "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-6/sl/>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
-"%100==4 ? 2 : 3;\n"
-"X-Generator: Weblate 2.10-dev\n"
+"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
+"n%100==4 ? 2 : 3;\n"
+"X-Generator: Weblate 2.11-dev\n"
 
 #: changelog.php:38 license.php:33
 #, php-format
@@ -13818,10 +13818,9 @@ msgid "This option conflicts with \"%1$s\"."
 msgstr "Izbira je v sporu z \"%1$s\"."
 
 #: libraries/sql-parser/src/Components/OptionsArray.php:256
-#, fuzzy, php-format
-#| msgid "Value/Expression for the option %1$s was expected"
+#, php-format
 msgid "Value/Expression for the option %1$s was expected."
-msgstr "Pričakovali smo vrednost/izraz za možnost %1$s"
+msgstr "Pričakovali smo vrednost/izraz za možnost %1$s."
 
 #: libraries/sql-parser/src/Components/RenameOperation.php:97
 msgid "The old name of the table was expected."
@@ -13840,10 +13839,8 @@ msgid "A rename operation was expected."
 msgstr "Pričakovali smo poseg preimenovanja."
 
 #: libraries/sql-parser/src/Components/SetOperation.php:105
-#, fuzzy
-#| msgid "as regular expression"
 msgid "Missing expression."
-msgstr "kot običajni izraz (regular expression)"
+msgstr "Manjkajoč izraz."
 
 #: libraries/sql-parser/src/Lexer.php:261
 msgid "Unexpected character."
