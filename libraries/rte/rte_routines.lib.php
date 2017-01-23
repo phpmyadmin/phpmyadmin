@@ -9,8 +9,8 @@ use PMA\libraries\Charsets;
 use PMA\libraries\Message;
 use PMA\libraries\Response;
 use PMA\libraries\Util;
-use SqlParser\Statements\CreateStatement;
 use PMA\libraries\URL;
+use PhpMyAdmin\SqlParser\Statements\CreateStatement;
 
 if (! defined('PHPMYADMIN')) {
     exit;
@@ -608,14 +608,14 @@ function PMA_RTN_getDataFromName($name, $type, $all = true)
         return false;
     }
 
-    $parser = new SqlParser\Parser($definition);
+    $parser = new PhpMyAdmin\SqlParser\Parser($definition);
 
     /**
      * @var CreateStatement $stmt
      */
     $stmt = $parser->statements[0];
 
-    $params = SqlParser\Utils\Routine::getParameters($stmt);
+    $params = PhpMyAdmin\SqlParser\Utils\Routine::getParameters($stmt);
     $retval['item_num_params']       = $params['num'];
     $retval['item_param_dir']        = $params['dir'];
     $retval['item_param_name']       = $params['name'];

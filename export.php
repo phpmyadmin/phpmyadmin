@@ -277,12 +277,12 @@ if ($export_type == 'server') {
 // Merge SQL Query aliases with Export aliases from
 // export page, Export page aliases are given more
 // preference over SQL Query aliases.
-$parser = new SqlParser\Parser($sql_query);
+$parser = new \PhpMyAdmin\SqlParser\Parser($sql_query);
 $aliases = array();
 if ((!empty($parser->statements[0]))
-    && ($parser->statements[0] instanceof SqlParser\Statements\SelectStatement)
+    && ($parser->statements[0] instanceof \PhpMyAdmin\SqlParser\Statements\SelectStatement)
 ) {
-    $aliases = SqlParser\Utils\Misc::getAliases($parser->statements[0], $db);
+    $aliases = \PhpMyAdmin\SqlParser\Utils\Misc::getAliases($parser->statements[0], $db);
 }
 if (!empty($_REQUEST['aliases'])) {
     $aliases = PMA_mergeAliases($aliases, $_REQUEST['aliases']);

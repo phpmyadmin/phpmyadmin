@@ -1347,7 +1347,7 @@ function PMA_handleSimulateDMLRequest()
         }
 
         // Parsing the query.
-        $parser = new SqlParser\Parser($sql_query);
+        $parser = new PhpMyAdmin\SqlParser\Parser($sql_query);
 
         if (empty($parser->statements[0])) {
             continue;
@@ -1361,15 +1361,15 @@ function PMA_handleSimulateDMLRequest()
             'statement' => $statement,
         );
 
-        if ((!(($statement instanceof SqlParser\Statements\UpdateStatement)
-            || ($statement instanceof SqlParser\Statements\DeleteStatement)))
+        if ((!(($statement instanceof PhpMyAdmin\SqlParser\Statements\UpdateStatement)
+            || ($statement instanceof PhpMyAdmin\SqlParser\Statements\DeleteStatement)))
             || (!empty($statement->join))
         ) {
             $error = $error_msg;
             break;
         }
 
-        $tables = SqlParser\Utils\Query::getTables($statement);
+        $tables = PhpMyAdmin\SqlParser\Utils\Query::getTables($statement);
         if (count($tables) > 1) {
             $error = $error_msg;
             break;
@@ -1405,9 +1405,9 @@ function PMA_getMatchedRows($analyzed_sql_results = array())
     $statement = $analyzed_sql_results['statement'];
 
     $matched_row_query = '';
-    if ($statement instanceof SqlParser\Statements\DeleteStatement) {
+    if ($statement instanceof PhpMyAdmin\SqlParser\Statements\DeleteStatement) {
         $matched_row_query = PMA_getSimulatedDeleteQuery($analyzed_sql_results);
-    } elseif ($statement instanceof SqlParser\Statements\UpdateStatement) {
+    } elseif ($statement instanceof PhpMyAdmin\SqlParser\Statements\UpdateStatement) {
         $matched_row_query = PMA_getSimulatedUpdateQuery($analyzed_sql_results);
     }
 
@@ -1437,11 +1437,11 @@ function PMA_getMatchedRows($analyzed_sql_results = array())
  */
 function PMA_getSimulatedUpdateQuery($analyzed_sql_results)
 {
-    $table_references = SqlParser\Utils\Query::getTables(
+    $table_references = PhpMyAdmin\SqlParser\Utils\Query::getTables(
         $analyzed_sql_results['statement']
     );
 
-    $where = SqlParser\Utils\Query::getClause(
+    $where = PhpMyAdmin\SqlParser\Utils\Query::getClause(
         $analyzed_sql_results['statement'],
         $analyzed_sql_results['parser']->list,
         'WHERE'
@@ -1464,7 +1464,7 @@ function PMA_getSimulatedUpdateQuery($analyzed_sql_results)
     $order_and_limit = '';
 
     if (!empty($analyzed_sql_results['statement']->order)) {
-        $order_and_limit .= ' ORDER BY ' . SqlParser\Utils\Query::getClause(
+        $order_and_limit .= ' ORDER BY ' . PhpMyAdmin\SqlParser\Utils\Query::getClause(
             $analyzed_sql_results['statement'],
             $analyzed_sql_results['parser']->list,
             'ORDER BY'
@@ -1472,7 +1472,7 @@ function PMA_getSimulatedUpdateQuery($analyzed_sql_results)
     }
 
     if (!empty($analyzed_sql_results['statement']->limit)) {
-        $order_and_limit .= ' LIMIT ' . SqlParser\Utils\Query::getClause(
+        $order_and_limit .= ' LIMIT ' . PhpMyAdmin\SqlParser\Utils\Query::getClause(
             $analyzed_sql_results['statement'],
             $analyzed_sql_results['parser']->list,
             'LIMIT'
@@ -1493,11 +1493,11 @@ function PMA_getSimulatedUpdateQuery($analyzed_sql_results)
  */
 function PMA_getSimulatedDeleteQuery($analyzed_sql_results)
 {
-    $table_references = SqlParser\Utils\Query::getTables(
+    $table_references = PhpMyAdmin\SqlParser\Utils\Query::getTables(
         $analyzed_sql_results['statement']
     );
 
-    $where = SqlParser\Utils\Query::getClause(
+    $where = PhpMyAdmin\SqlParser\Utils\Query::getClause(
         $analyzed_sql_results['statement'],
         $analyzed_sql_results['parser']->list,
         'WHERE'
@@ -1510,7 +1510,7 @@ function PMA_getSimulatedDeleteQuery($analyzed_sql_results)
     $order_and_limit = '';
 
     if (!empty($analyzed_sql_results['statement']->order)) {
-        $order_and_limit .= ' ORDER BY ' . SqlParser\Utils\Query::getClause(
+        $order_and_limit .= ' ORDER BY ' . PhpMyAdmin\SqlParser\Utils\Query::getClause(
             $analyzed_sql_results['statement'],
             $analyzed_sql_results['parser']->list,
             'ORDER BY'
@@ -1518,7 +1518,7 @@ function PMA_getSimulatedDeleteQuery($analyzed_sql_results)
     }
 
     if (!empty($analyzed_sql_results['statement']->limit)) {
-        $order_and_limit .= ' LIMIT ' . SqlParser\Utils\Query::getClause(
+        $order_and_limit .= ' LIMIT ' . PhpMyAdmin\SqlParser\Utils\Query::getClause(
             $analyzed_sql_results['statement'],
             $analyzed_sql_results['parser']->list,
             'LIMIT'
@@ -1601,7 +1601,7 @@ function PMA_handleRollbackRequest($sql_query)
  */
 function PMA_checkIfRollbackPossible($sql_query)
 {
-    $parser = new SqlParser\Parser($sql_query);
+    $parser = new PhpMyAdmin\SqlParser\Parser($sql_query);
 
     if (empty($parser->statements[0])) {
         return false;
@@ -1610,16 +1610,16 @@ function PMA_checkIfRollbackPossible($sql_query)
     $statement = $parser->statements[0];
 
     // Check if query is supported.
-    if (!(($statement instanceof SqlParser\Statements\InsertStatement)
-        || ($statement instanceof SqlParser\Statements\UpdateStatement)
-        || ($statement instanceof SqlParser\Statements\DeleteStatement)
-        || ($statement instanceof SqlParser\Statements\ReplaceStatement))
+    if (!(($statement instanceof PhpMyAdmin\SqlParser\Statements\InsertStatement)
+        || ($statement instanceof PhpMyAdmin\SqlParser\Statements\UpdateStatement)
+        || ($statement instanceof PhpMyAdmin\SqlParser\Statements\DeleteStatement)
+        || ($statement instanceof PhpMyAdmin\SqlParser\Statements\ReplaceStatement))
     ) {
         return false;
     }
 
     // Get table_references from the query.
-    $tables = SqlParser\Utils\Query::getTables($statement);
+    $tables = PhpMyAdmin\SqlParser\Utils\Query::getTables($statement);
 
     // Check if each table is 'InnoDB'.
     foreach ($tables as $table) {

@@ -7,10 +7,10 @@
  */
 namespace PMA\libraries;
 
-use SqlParser\Lexer;
-use SqlParser\Parser;
-use SqlParser\UtfString;
-use SqlParser\Utils\Error as ParserError;
+use PhpMyAdmin\SqlParser\Lexer;
+use PhpMyAdmin\SqlParser\Parser;
+use PhpMyAdmin\SqlParser\UtfString;
+use PhpMyAdmin\SqlParser\Utils\Error as ParserError;
 
 /**
  * The linter itself.

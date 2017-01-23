@@ -800,11 +800,11 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         $GLOBALS['PMA_Types'] = new TypesMySQL();
 
         // Loads closest context to this version.
-        SqlParser\Context::loadClosest('MySql' . PMA_MYSQL_INT_VERSION);
+        PhpMyAdmin\SqlParser\Context::loadClosest('MySql' . PMA_MYSQL_INT_VERSION);
 
         // Sets the default delimiter (if specified).
         if (!empty($_REQUEST['sql_delimiter'])) {
-            SqlParser\Lexer::$DEFAULT_DELIMITER = $_REQUEST['sql_delimiter'];
+            PhpMyAdmin\SqlParser\Lexer::$DEFAULT_DELIMITER = $_REQUEST['sql_delimiter'];
         }
 
         // TODO: Set SQL modes too.
