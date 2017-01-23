@@ -1,7 +1,7 @@
 phpMyAdmin - ChangeLog
 ======================
 
-4.6.6 (not yet released)
+4.6.6 (2017-01-23)
 - issue #12759 Fix Notice regarding 'Undefined index: old_usergroup'
 - issue #12760 Fix Notice regarding 'Undefined index: users'
 - issue #12762 Fixed parsing of SQL with BINARY function
