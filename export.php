@@ -312,7 +312,7 @@ $time_start = time();
 if ($what == 'sql') {
     $crlf = "\n";
 } else {
-    $crlf = PMA\libraries\Util::whichCrlf();
+    $crlf = PHP_EOL;
 }
 
 $output_kanji_conversion = Encoding::canConvertKanji();
