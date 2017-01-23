@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-01-23 14:24+0100\n"
-"PO-Revision-Date: 2017-01-17 21:58+0000\n"
+"PO-Revision-Date: 2017-01-23 21:27+0000\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
-"Language-Team: Interlingua <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/ia/>\n"
+"Language-Team: Interlingua "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/ia/>\n"
 "Language: ia\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -3634,10 +3634,8 @@ msgid "Relational key"
 msgstr "Clave relational"
 
 #: libraries/DisplayResults.php:1745
-#, fuzzy
-#| msgid "Display column for relations"
 msgid "Display column for relationships"
-msgstr "Monstra columnas pro relationes"
+msgstr "Monstra columna pro relationes"
 
 #: libraries/DisplayResults.php:1761
 msgid "Show binary contents"
@@ -5962,8 +5960,6 @@ msgstr "Typo MIME"
 
 #: libraries/config/messages.inc.php:167 libraries/config/messages.inc.php:180
 #: libraries/config/messages.inc.php:221
-#, fuzzy
-#| msgid "Relations"
 msgid "Relationships"
 msgstr "Relationes"
 
@@ -7708,16 +7704,12 @@ msgid "Show hint"
 msgstr "Monstra adjuta"
 
 #: libraries/config/messages.inc.php:867
-#, fuzzy
-#| msgid ""
-#| "Shows link to [a@https://secure.php.net/manual/function.phpinfo."
-#| "php]phpinfo()[/a] output."
 msgid ""
 "Shows link to [a@https://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
 "output."
 msgstr ""
-"Monstra ligamine a exito [a@https://secure.php.net/manual/function.phpinfo."
-"php]phpinfo()[/a] ."
+"Monstra ligamine a "
+"exito[a@https://php.net/manual/function.phpinfo.php]phpinfo()[/a]."
 
 #: libraries/config/messages.inc.php:870
 msgid "Show phpinfo() link"
@@ -8201,8 +8193,6 @@ msgid "Display column was successfully updated."
 msgstr "Columna de monstrar esseva actualisate con successo."
 
 #: libraries/controllers/table/TableRelationController.php:282
-#, fuzzy
-#| msgid "Internal relations were successfully updated."
 msgid "Internal relationships were successfully updated."
 msgstr "Relationes interne ha essite actualisate on successo."
 
@@ -10560,10 +10550,8 @@ msgid "MIME TYPES FOR TABLE"
 msgstr "MIME TYPES FOR TABLE"
 
 #: libraries/plugins/export/ExportSql.php:1878
-#, fuzzy
-#| msgid "RELATIONS FOR TABLE"
 msgid "RELATIONSHIPS FOR TABLE"
-msgstr "RELATIONS FOR TABLE"
+msgstr "RELATIONES PER TABULA"
 
 #: libraries/plugins/export/ExportSql.php:2059
 msgid "It appears your table uses triggers;"
@@ -10820,6 +10808,8 @@ msgid ""
 "Converts Boolean values to text (default 'T' and 'F'). First option is for "
 "TRUE, second for FALSE. Nonzero=true."
 msgstr ""
+"Il converte valores de Boolean a texto (predefinite 'T' e 'F'). Le prime "
+"option es per TRUE, le secunde per FALSE. Nonzero=true."
 
 #: libraries/plugins/transformations/abs/DateFormatTransformationsPlugin.php:30
 msgid ""
@@ -10977,23 +10967,16 @@ msgid "Formats text as XML with syntax highlighting."
 msgstr "Formata texto como XML con evidentia de syntaxe."
 
 #: libraries/pmd_common.php:551
-#, fuzzy
-#| msgid "Error: relation already exists."
 msgid "Error: relationship already exists."
 msgstr "Error: le relation ja existe."
 
 #: libraries/pmd_common.php:597
-#, fuzzy
-#| msgid "FOREIGN KEY relation has been added."
 msgid "FOREIGN KEY relationship has been added."
 msgstr "Relation de FOREIGN KEY ha essite addite."
 
 #: libraries/pmd_common.php:603
-#, fuzzy
-#| msgid "Error: FOREIGN KEY relation could not be added!"
 msgid "Error: FOREIGN KEY relationship could not be added!"
-msgstr ""
-"Error: FOREIGN_KEY - clave extranee - relation non poteva esser addite!"
+msgstr "Error: FOREIGN_KEY - clave extranee - relation non poteva esser addite!"
 
 #: libraries/pmd_common.php:608
 msgid "Error: Missing index on column(s)."
@@ -11004,39 +10987,27 @@ msgid "Error: Relational features are disabled!"
 msgstr "Error: characteristicas relational es dishabilitate!"
 
 #: libraries/pmd_common.php:635
-#, fuzzy
-#| msgid "Internal relation has been added."
 msgid "Internal relationship has been added."
 msgstr "Relation interne ha essite addite."
 
 #: libraries/pmd_common.php:641
-#, fuzzy
-#| msgid "Error: Internal relation could not be added!"
 msgid "Error: Internal relationship could not be added!"
 msgstr "Error: Relation interne non poteva esser addite!"
 
 #: libraries/pmd_common.php:679
-#, fuzzy
-#| msgid "FOREIGN KEY relation has been removed."
 msgid "FOREIGN KEY relationship has been removed."
 msgstr "Relation de FOREIGN KEY ha essite removite."
 
 #: libraries/pmd_common.php:685
-#, fuzzy
-#| msgid "Error: FOREIGN KEY relation could not be removed!"
 msgid "Error: FOREIGN KEY relationship could not be removed!"
 msgstr ""
 "Error: FOREIGN KEY - clave extranee - relation non poteva esser removite!"
 
 #: libraries/pmd_common.php:712
-#, fuzzy
-#| msgid "Error: Internal relation could not be removed!"
 msgid "Error: Internal relationship could not be removed!"
-msgstr "Error: Relation non poteva esser removite!"
+msgstr "Error: Relation interne non poteva esser removite!"
 
 #: libraries/pmd_common.php:716
-#, fuzzy
-#| msgid "Internal relation has been removed."
 msgid "Internal relationship has been removed."
 msgstr "Relation interne ha essite removite."
 
@@ -14491,8 +14462,6 @@ msgid "See table structure"
 msgstr "Vide le structura de tabella"
 
 #: templates/database/designer/delete_relation_panel.phtml:21
-#, fuzzy
-#| msgid "Delete relation"
 msgid "Delete relationship"
 msgstr "Dele relation"
 
@@ -14521,15 +14490,11 @@ msgstr "subquery"
 #: templates/database/designer/new_relation_panel.phtml:22
 #: templates/database/designer/side_menu.phtml:84
 #: templates/database/designer/side_menu.phtml:87
-#, fuzzy
-#| msgid "Create relation"
 msgid "Create relationship"
 msgstr "Crea relation"
 
 #: templates/database/designer/options_panel.phtml:34
 #: templates/database/designer/options_panel.phtml:200
-#, fuzzy
-#| msgid "Relation operator"
 msgid "Relationship operator"
 msgstr "Operator de relation"
 
@@ -14629,8 +14594,6 @@ msgstr "Commuta inter parve/grande"
 
 #: templates/database/designer/side_menu.phtml:145
 #: templates/database/designer/side_menu.phtml:148
-#, fuzzy
-#| msgid "Toggle relation lines"
 msgid "Toggle relationship lines"
 msgstr "Commuta lineas de relation"
 
@@ -14659,8 +14622,6 @@ msgid "Hide/Show all"
 msgstr "Cela/monstra toto"
 
 #: templates/database/designer/table_list.phtml:14
-#, fuzzy
-#| msgid "Hide/Show Tables with no relation"
 msgid "Hide/Show Tables with no relationship"
 msgstr "Cela/Monstra tabellas con necun relation"
 
@@ -15072,8 +15033,6 @@ msgstr "+ Adde un limite"
 
 #: templates/table/relation/common_form.phtml:76
 #: templates/table/relation/common_form.phtml:82
-#, fuzzy
-#| msgid "Internal relations"
 msgid "Internal relationships"
 msgstr "Relationes interne"
 
