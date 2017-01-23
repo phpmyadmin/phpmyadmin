@@ -2083,8 +2083,15 @@ function PMA_moveOrCopyTable($db, $table)
             $old = Util::backquote($db) . '.'
                 . Util::backquote($table);
             $message->addParam($old);
+
+
+            $new_name = $_REQUEST['new_name'];
+            if ($GLOBALS['dbi']->getLowerCaseNames() === '1') {
+                $new_name = strtolower($new_name);
+            }
+
             $new = Util::backquote($_REQUEST['target_db']) . '.'
-                . Util::backquote($_REQUEST['new_name']);
+                . Util::backquote($new_name);
             $message->addParam($new);
 
             /* Check: Work on new table or on old table? */
