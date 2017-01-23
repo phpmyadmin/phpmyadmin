@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.6-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-01-23 14:25+0100\n"
-"PO-Revision-Date: 2017-01-17 21:58+0000\n"
+"PO-Revision-Date: 2017-01-23 21:22+0000\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
-"Language-Team: Interlingua <https://hosted.weblate.org/projects/"
-"phpmyadmin/4-6/ia/>\n"
+"Language-Team: Interlingua "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-6/ia/>\n"
 "Language: ia\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -7605,8 +7605,8 @@ msgid ""
 "Shows link to [a@https://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
 "output."
 msgstr ""
-"Monstra ligamine a exito [a@https://php.net/manual/function.phpinfo."
-"php]phpinfo()[/a] ."
+"Monstra ligamine a "
+"exito[a@https://php.net/manual/function.phpinfo.php]phpinfo()[/a]."
 
 #: libraries/config/messages.inc.php:872
 msgid "Show phpinfo() link"
@@ -10803,6 +10803,8 @@ msgid ""
 "You tried to import an invalid file or the imported file contains invalid "
 "data!"
 msgstr ""
+"Tu tentava importar un file invalide ole file importate contine datos "
+"invalide!"
 
 #: libraries/plugins/import/ImportShp.php:204
 #, php-format
@@ -10830,7 +10832,7 @@ msgstr "XML"
 #: libraries/plugins/import/ShapeRecord.php:57
 #, php-format
 msgid "Geometry type '%s' is not supported by MySQL."
-msgstr ""
+msgstr "Le typo de geometria '%s' non es supportate per MySQL."
 
 #: libraries/plugins/schema/ExportRelationSchema.php:288
 msgid "SCHEMA ERROR: "
@@ -10925,6 +10927,8 @@ msgid ""
 "Converts Boolean values to text (default 'T' and 'F'). First option is for "
 "TRUE, second for FALSE. Nonzero=true."
 msgstr ""
+"Il converte valores de Boolean a texto (predefinite 'T' e 'F'). Le prime "
+"option es per TRUE, le secunde per FALSE. Nonzero=true."
 
 #: libraries/plugins/transformations/abs/DateFormatTransformationsPlugin.php:31
 msgid ""
@@ -13648,10 +13652,9 @@ msgid "This option conflicts with \"%1$s\"."
 msgstr "Iste option conflige con \"%1$s\"."
 
 #: libraries/sql-parser/src/Components/OptionsArray.php:256
-#, fuzzy, php-format
-#| msgid "Value/Expression for the option %1$s was expected"
+#, php-format
 msgid "Value/Expression for the option %1$s was expected."
-msgstr "On expectava un valor/expression pro le option %1$s"
+msgstr "On expectava un valor/expression pro le option %1$s."
 
 #: libraries/sql-parser/src/Components/RenameOperation.php:97
 msgid "The old name of the table was expected."
@@ -13670,10 +13673,8 @@ msgid "A rename operation was expected."
 msgstr "On expectava un operation de renominar.."
 
 #: libraries/sql-parser/src/Components/SetOperation.php:105
-#, fuzzy
-#| msgid "as regular expression"
 msgid "Missing expression."
-msgstr "como expression regular"
+msgstr "Expression mancante."
 
 #: libraries/sql-parser/src/Lexer.php:261
 msgid "Unexpected character."
