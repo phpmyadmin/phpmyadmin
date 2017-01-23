@@ -456,4 +456,38 @@ class Response
     {
         return headers_sent();
     }
+
+    /**
+     * Wrapper around PHP's http_response_code() function.
+     *
+     * @param int $response_code will set the response code.
+     *
+     * @return void
+     */
+    public function http_response_code($response_code)
+    {
+        $httpStatusMsg  = ' Web server is down';
+        if (php_sapi_name() !== 'cgi-fcgi') {
+            $this->header('status: ' . $response_code . $httpStatusMsg);
+        }
+        else{
+            http_response_code($response_code);
+        }
+    }
+
+   /**
+     * Generate header for 303
+     *
+     * @param string $location will set location to redirect.
+     *
+     * @return void
+     */
+    public function PMA_generateHeader303($location)
+    {
+        $this->http_response_code(303);
+        $this->header('Location: '.$location);
+        if (!defined('TESTSUITE')) {
+            exit;
+        }
+    }
 }
