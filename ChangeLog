@@ -49,7 +49,7 @@ phpMyAdmin - ChangeLog
 - issue #12901 Use server returned table name on renaming table
 - issue #12918 Always use \r\n as newline when editing fields
 
-4.6.6 (not yet released)
+4.6.6 (2017-01-23)
 - issue #12759 Fix Notice regarding 'Undefined index: old_usergroup'
 - issue #12760 Fix Notice regarding 'Undefined index: users'
 - issue #12762 Fixed parsing of SQL with BINARY function
@@ -87,7 +87,14 @@ phpMyAdmin - ChangeLog
 - issue #12881 Fix database search with newer php-gettext
 - issue #12894 Fix linter error on unterminated variable name
 - issue #12732 Fixed filtering for active processes
-
+- issue        [security] Multiple vulnerabilities in setup script, see PMASA-2016-44.
+- issue        [security] Open redirect, see PMASA-2017-1.
+- issue        [security] php-gettext code execution, see PMASA-2017-2.
+- issue        [security] DOS vulnerabiltiy in table editing, see PMASA-2017-3.
+- issue        [security] CSS injection in themes, see PMASA-2017-4.
+- issue        [security] Cookie attribute injection attack, see PMASA-2017-5.
+- issue        [security] SSRF in replication, see PMASA-2017-6.
+- issue        [security] DOS in replication status, see PMASA-2017-7.
 
          --- Older ChangeLogs can be found on our project website ---
                      https://www.phpmyadmin.net/old-stuff/ChangeLogs/
