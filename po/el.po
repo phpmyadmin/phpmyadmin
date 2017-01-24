@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.6-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-01-23 14:25+0100\n"
-"PO-Revision-Date: 2016-12-14 08:07+0000\n"
+"PO-Revision-Date: 2017-01-24 07:02+0000\n"
 "Last-Translator: Παναγιώτης Παπάζογλου <papaz_p@yahoo.com>\n"
-"Language-Team: Greek <https://hosted.weblate.org/projects/phpmyadmin/4-6/el/"
-">\n"
+"Language-Team: Greek <https://hosted.weblate.org/projects/phpmyadmin/4-6/el/>"
+"\n"
 "Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.10-dev\n"
+"X-Generator: Weblate 2.11-dev\n"
 
 #: changelog.php:38 license.php:33
 #, php-format
@@ -7592,8 +7592,8 @@ msgid ""
 "Shows link to [a@https://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
 "output."
 msgstr ""
-"Εμφανίζει σύνδεσμο για την τεκμηρίωση της συνάρτησης [a@https://php.net/"
-"manual/function.phpinfo.php]phpinfo()[/a]."
+"Εμφανίζει σύνδεσμο για το προϊόν του "
+"[a@https://php.net/manual/function.phpinfo.php]phpinfo()[/a]."
 
 #: libraries/config/messages.inc.php:872
 msgid "Show phpinfo() link"
@@ -14006,10 +14006,9 @@ msgid "This option conflicts with \"%1$s\"."
 msgstr "Αυτή η επιλογή έχει διαίνεξη με το «%1$s»."
 
 #: libraries/sql-parser/src/Components/OptionsArray.php:256
-#, fuzzy, php-format
-#| msgid "Value/Expression for the option %1$s was expected"
+#, php-format
 msgid "Value/Expression for the option %1$s was expected."
-msgstr "Αναμενόταν Τιμή/Έκφραση για την επιλογή %1$s"
+msgstr "Αναμενόταν Τιμή/Έκφραση για την επιλογή %1$s."
 
 #: libraries/sql-parser/src/Components/RenameOperation.php:97
 msgid "The old name of the table was expected."
@@ -14028,10 +14027,8 @@ msgid "A rename operation was expected."
 msgstr "Αναμενόταν μια λειτουργία μετονομασίας."
 
 #: libraries/sql-parser/src/Components/SetOperation.php:105
-#, fuzzy
-#| msgid "as regular expression"
 msgid "Missing expression."
-msgstr "ως κανονική έκφραση"
+msgstr "Απολεσθείσα έκφραση."
 
 #: libraries/sql-parser/src/Lexer.php:261
 msgid "Unexpected character."
