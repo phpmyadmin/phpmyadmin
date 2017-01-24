@@ -49,7 +49,7 @@ phpMyAdmin - ChangeLog
 - issue #12901 Use server returned table name on renaming table
 - issue #12918 Always use \r\n as newline when editing fields
 
-4.6.6 (not yet released)
+4.6.6 (2017-01-23)
 - issue #12759 Fix Notice regarding 'Undefined index: old_usergroup'
 - issue #12760 Fix Notice regarding 'Undefined index: users'
 - issue #12762 Fixed parsing of SQL with BINARY function
@@ -95,7 +95,6 @@ phpMyAdmin - ChangeLog
 - issue        [security] Cookie attribute injection attack, see PMASA-2017-5.
 - issue        [security] SSRF in replication, see PMASA-2017-6.
 - issue        [security] DOS in replication status, see PMASA-2017-7.
-
 
          --- Older ChangeLogs can be found on our project website ---
                      https://www.phpmyadmin.net/old-stuff/ChangeLogs/
