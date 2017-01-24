@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.6.6-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-01-23 14:25+0100\n"
-"PO-Revision-Date: 2017-01-05 18:42+0000\n"
-"Last-Translator: Mateusz Wasik <morwa666@gmail.com>\n"
-"Language-Team: Polish <https://hosted.weblate.org/projects/phpmyadmin/4-6/pl/"
-">\n"
+"PO-Revision-Date: 2017-01-24 13:48+0000\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"Language-Team: Polish "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-6/pl/>\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -14458,10 +14458,8 @@ msgid "A rename operation was expected."
 msgstr "Oczekiwano polecenia zmiany nazwy."
 
 #: libraries/sql-parser/src/Components/SetOperation.php:105
-#, fuzzy
-#| msgid "as regular expression"
 msgid "Missing expression."
-msgstr "jako wyrażenie regularne"
+msgstr "Brakujące wyrażenie."
 
 #: libraries/sql-parser/src/Lexer.php:261
 msgid "Unexpected character."
