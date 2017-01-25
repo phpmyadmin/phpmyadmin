@@ -424,9 +424,7 @@ class Node
             return $retval;
         }
 
-        $dbSeparator = $GLOBALS['dbi']->escapeString(
-            $GLOBALS['cfg']['NavigationTreeDbSeparator']
-        );
+        $dbSeparator = $GLOBALS['cfg']['NavigationTreeDbSeparator'];
         if (isset($GLOBALS['cfg']['Server']['DisableIS'])
             && !$GLOBALS['cfg']['Server']['DisableIS']
         ) {
@@ -436,7 +434,7 @@ class Node
             $query .= "SELECT DB_first_level ";
             $query .= "FROM ( ";
             $query .= "SELECT DISTINCT SUBSTRING_INDEX(SCHEMA_NAME, ";
-            $query .= "'%s', 1) ";
+            $query .= "'" . $GLOBALS['dbi']->escapeString($dbSeparator) . "', 1) ";
             $query .= "DB_first_level ";
             $query .= "FROM INFORMATION_SCHEMA.SCHEMATA ";
             $query .= $this->_getWhereClause('SCHEMA_NAME', $searchClause);
@@ -446,19 +444,11 @@ class Node
             $query .= ") t2 ";
             $query .= $this->_getWhereClause('SCHEMA_NAME', $searchClause);
             $query .= "AND 1 = LOCATE(CONCAT(DB_first_level, ";
-            $query .= "'%s'), ";
+            $query .= "'" . $GLOBALS['dbi']->escapeString($dbSeparator) . "'), ";
             $query .= "CONCAT(SCHEMA_NAME, ";
-            $query .= "'%s')) ";
+            $query .= "'" . $GLOBALS['dbi']->escapeString($dbSeparator) . "')) ";
             $query .= "ORDER BY SCHEMA_NAME ASC";
-
-            $retval = $GLOBALS['dbi']->fetchResult(
-                sprintf(
-                    $query,
-                    $dbSeparator,
-                    $dbSeparator,
-                    $dbSeparator
-                )
-            );
+            $retval = $GLOBALS['dbi']->fetchResult($query);
 
             return $retval;
         }
