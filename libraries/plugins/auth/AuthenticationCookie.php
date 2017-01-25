@@ -719,7 +719,10 @@ class AuthenticationCookie extends AuthenticationPlugin
     public function reportSSLErrors()
     {
         while (($ssl_err = openssl_error_string()) !== false) {
-            trigger_error('OpenSSL error: ' . $ssl_err, E_USER_ERROR);
+            trigger_error(
+                _('OpenSSL error when manipulating with cookies:') . ' ' . $ssl_err,
+                E_USER_ERROR
+            );
         }
     }
 
