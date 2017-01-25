@@ -4,17 +4,17 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-01-25 10:08+0100\n"
-"PO-Revision-Date: 2016-08-21 15:35+0000\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Ukrainian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/uk/>\n"
+"PO-Revision-Date: 2017-01-25 10:08+0000\n"
+"Last-Translator: Vitaliy Perekupka <vperekupka@gmail.com>\n"
+"Language-Team: Ukrainian "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/uk/>\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 2.8-dev\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
+"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 2.11-dev\n"
 
 #: changelog.php:39 license.php:34
 #, php-format
@@ -566,11 +566,10 @@ msgid "Bookmark %s has been created."
 msgstr "Закладку %s створено."
 
 #: import.php:590
-#, fuzzy, php-format
-#| msgid "Import has been successfully finished, %d queries executed."
+#, php-format
 msgid "Import has been successfully finished, %d query executed."
 msgid_plural "Import has been successfully finished, %d queries executed."
-msgstr[0] "Імпорт завершився вдало, %d запитів виконано."
+msgstr[0] "Імпорт завершився вдало, %d запит виконано."
 msgstr[1] "Імпорт завершився вдало, %d запитів виконано."
 msgstr[2] "Імпорт завершився вдало, %d запитів виконано."
 
@@ -622,8 +621,6 @@ msgstr ""
 "інформація доступна на %s."
 
 #: index.php:167
-#, fuzzy
-#| msgid "General Settings"
 msgid "General settings"
 msgstr "Загальні налаштування"
 
@@ -638,8 +635,6 @@ msgid "Server connection collation"
 msgstr "Конфігурація сервера"
 
 #: index.php:235
-#, fuzzy
-#| msgid "Appearance Settings"
 msgid "Appearance settings"
 msgstr "Налаштування вигляду"
 
@@ -690,8 +685,6 @@ msgid "PHP extension:"
 msgstr "PHP розширення:"
 
 #: index.php:357
-#, fuzzy
-#| msgid "PHP Version:"
 msgid "PHP version:"
 msgstr "Версія PHP:"
 
@@ -874,10 +867,8 @@ msgid "Delete tracking data for these versions?"
 msgstr "Видалити дані відстеження для цих версій?"
 
 #: js/messages.php:60
-#, fuzzy
-#| msgid "Delete tracking data row from report"
 msgid "Delete entry from tracking report?"
-msgstr "Видалити рядки даних відстеження із звіту"
+msgstr "Видалити рядок даних зі звіту відстеження?"
 
 #: js/messages.php:61
 msgid "Deleting tracking data"
@@ -953,7 +944,7 @@ msgstr ""
 
 #: js/messages.php:94
 msgid "Garbled Data"
-msgstr ""
+msgstr "Спотворені дані"
 
 #: js/messages.php:96
 msgid "Are you sure you wish to change the collation and convert the data?"
