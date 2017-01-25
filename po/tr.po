@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-01-25 10:08+0100\n"
-"PO-Revision-Date: 2017-01-24 04:16+0000\n"
+"PO-Revision-Date: 2017-01-25 15:26+0000\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
-"Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/tr/>\n"
+"Language-Team: Turkish "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/tr/>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -9997,7 +9997,7 @@ msgstr "Bu MySQL sunucusuna oturum açmanıza izin verilmiyor!"
 
 #: libraries/plugins/auth/AuthenticationCookie.php:723
 msgid "OpenSSL error when manipulating with cookies:"
-msgstr ""
+msgstr "Tanımlama bilgileri ile yönlendirilirken OpenSSL hatası:"
 
 #: libraries/plugins/auth/AuthenticationHttp.php:88
 msgid "Wrong username/password. Access denied."
@@ -11394,6 +11394,8 @@ msgid ""
 "Connection to server is disabled, please enable $cfg['AllowArbitraryServer'] "
 "in phpMyAdmin configuration."
 msgstr ""
+"Sunucuya bağlantı etkisizleştirildi, phpMyAdmin yapılandırmasında lütfen "
+"$cfg['AllowArbitraryServer'] parametresini etkinleştirin."
 
 #: libraries/replication_gui.lib.php:914
 msgid "Replication started successfully."
@@ -14202,7 +14204,7 @@ msgstr "Yeni sunucu ekle"
 
 #: setup/index.php:16
 msgid "Configuration already exists, setup is disabled!"
-msgstr ""
+msgstr "Yapılandırma zaten var, kurulum etkisizleştirildi!"
 
 #: setup/index.php:26
 msgid "Wrong GET file attribute value"
