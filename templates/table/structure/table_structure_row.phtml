@@ -1,7 +1,9 @@
 <td class="center print_ignore">
     <input type="checkbox" class="checkall" name="selected_fld[]" value="<?= htmlspecialchars($row['Field']); ?>" id="checkbox_row_<?= $rownum; ?>"/>
 </td>
-<td class="right"><?= $rownum; ?></td>
+<td class="right">
+    <?= $rownum; ?>
+</td>
 <td class="nowrap">
     <label for="checkbox_row_<?= $rownum; ?>">
         <?= preg_replace('/[\x00-\x1F]/', '&#x2051;', $displayed_field_name); ?>
