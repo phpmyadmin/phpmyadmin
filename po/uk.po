@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-01-25 10:08+0100\n"
-"PO-Revision-Date: 2017-01-25 10:08+0000\n"
+"PO-Revision-Date: 2017-01-26 15:43+0000\n"
 "Last-Translator: Vitaliy Perekupka <vperekupka@gmail.com>\n"
 "Language-Team: Ukrainian "
-"<https://hosted.weblate.org/projects/phpmyadmin/master/uk/>\n"
+"<https://hosted.weblate.org/projects/phpmyadmin/4-7/uk/>\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -941,6 +941,11 @@ msgid ""
 "collation; in this case we suggest you revert to the original collation and "
 "refer to the tips at "
 msgstr ""
+"Ця операція буде намагатися перетворити ваші дані на нове зіставлення. У "
+"рідкісних випадках, особливо коли символ не існує в новому зіставленні, цей "
+"процес може призвести до того, що дані можуть відображатись неналежним чином "
+"у новому зіставленні; у цьому випадку, ми пропонуємо вам повернутися до "
+"початкового зіставлення та див. поради на "
 
 #: js/messages.php:94
 msgid "Garbled Data"
@@ -948,7 +953,7 @@ msgstr "Спотворені дані"
 
 #: js/messages.php:96
 msgid "Are you sure you wish to change the collation and convert the data?"
-msgstr ""
+msgstr "Ви впевнені, що ви хочете змінити зіставлення і конвертувати дані?"
 
 #: js/messages.php:98
 msgid ""
