@@ -1,6 +1,8 @@
 phpMyAdmin - ChangeLog
 ======================
 
+4.8.0 (not yet released)
+
 4.7.0.0 (not yet released)
 - patch #12233 [Display] Improve message when renaming database to same name
 - issue #6146  Log authentication attempts to syslog
