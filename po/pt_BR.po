@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-01-25 10:08+0100\n"
-"PO-Revision-Date: 2017-01-16 16:13+0000\n"
-"Last-Translator: Ariel Alonso <arielmontessinobarbosa@gmail.com>\n"
-"Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
-"phpmyadmin/master/pt_BR/>\n"
+"PO-Revision-Date: 2017-01-27 13:17+0000\n"
+"Last-Translator: Diogo Millnitz <diogo.millnitzz@gmail.com>\n"
+"Language-Team: Portuguese (Brazil) "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-7/pt_BR/>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -6790,14 +6790,10 @@ msgstr ""
 "navegação"
 
 #: libraries/config/messages.inc.php:522
-#, fuzzy
-#| msgid "Show versions"
 msgid "Show views in tree"
 msgstr "Mostrar visualizações em árvore"
 
 #: libraries/config/messages.inc.php:524
-#, fuzzy
-#| msgid "Show databases navigation as tree"
 msgid "Whether to show views under database in the navigation tree"
 msgstr "Mostrar a navegação por bases de dados como árvore"
 
