@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-01-25 10:08+0100\n"
-"PO-Revision-Date: 2017-01-25 12:21+0000\n"
+"PO-Revision-Date: 2017-01-27 20:07+0000\n"
 "Last-Translator: Domen <mitenem@outlook.com>\n"
 "Language-Team: Slovenian "
-"<https://hosted.weblate.org/projects/phpmyadmin/master/sl/>\n"
+"<https://hosted.weblate.org/projects/phpmyadmin/4-7/sl/>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -14627,11 +14627,11 @@ msgid ""
 "this permanent, view settings."
 msgstr ""
 "Izvedi poizvedbe z Enter in vstavi novo vrstico s Shift + Enter. Da to "
-"nastavite za stalno, si oglejte nastavitve."
+"ohranite za vedno, si oglejte nastavitve."
 
 #: templates/console/display.phtml:198
 msgid "Switch to dark theme"
-msgstr "Preklopi na temno emo"
+msgstr "Preklopi na temno temo"
 
 #: templates/database/create_table.phtml:7
 #: templates/database/designer/side_menu.phtml:77
