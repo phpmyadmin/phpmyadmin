@@ -98,7 +98,7 @@ class DBIMysqli implements DBIExtension
             if (! is_null($server['ssl_key']) ||
                 ! is_null($server['ssl_cert']) ||
                 ! is_null($server['ssl_ca']) ||
-                ! is_null($server['ssl_ca_paths']) ||
+                ! is_null($server['ssl_ca_path']) ||
                 ! is_null($server['ssl_ciphers'])
             ) {
                 mysqli_ssl_set(
