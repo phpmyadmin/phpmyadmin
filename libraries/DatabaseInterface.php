@@ -280,6 +280,7 @@ class DatabaseInterface
                     'SQL[' . basename($_SERVER['SCRIPT_NAME']) . ']: '
                     . sprintf('%0.3f', $time) . ' > ' . $query
                 );
+                closelog();
             }
         }
 

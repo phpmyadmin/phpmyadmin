@@ -37,6 +37,7 @@ class Logging
                 'user denied: ' . $user . ' (' . $status . ') from ' .
                 PMA_getIp()
             );
+            closelog();
         }
     }
 }
