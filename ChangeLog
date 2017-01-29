@@ -51,6 +51,7 @@ phpMyAdmin - ChangeLog
 - issue #12901 Use server returned table name on renaming table
 - issue #12918 Always use \r\n as newline when editing fields
 - issue #12923 Fixed server side search in navigation panel
+- issue #12929 Undefined index warning with ssl_ca_paths
 
 4.6.6 (2017-01-23)
 - issue #12759 Fix Notice regarding 'Undefined index: old_usergroup'
