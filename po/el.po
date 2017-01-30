@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-02-22 08:57+0100\n"
-"PO-Revision-Date: 2017-01-30 00:45+0000\n"
+"PO-Revision-Date: 2017-02-22 19:30+0000\n"
 "Last-Translator: Παναγιώτης Παπάζογλου <papaz_p@yahoo.com>\n"
-"Language-Team: Greek <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"el/>\n"
+"Language-Team: Greek "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/el/>\n"
 "Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.11-dev\n"
+"X-Generator: Weblate 2.12-dev\n"
 
 #: changelog.php:39 license.php:34
 #, php-format
@@ -10159,7 +10159,7 @@ msgstr "Προϊόν όμορφα εκτυπώσιμου JSON (Χρήση μορ
 
 #: libraries/plugins/export/ExportJson.php:94
 msgid "Output unicode characters unescaped"
-msgstr ""
+msgstr "Προϊόν κανονικών χαρακτήρων unicode"
 
 #: libraries/plugins/export/ExportLatex.php:48
 msgid "Content of table @TABLE@"
