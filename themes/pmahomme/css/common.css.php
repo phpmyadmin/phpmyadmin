@@ -786,6 +786,10 @@ fieldset.confirmation legend {
 
 /* end messageboxes */
 
+.new_central_col{
+    width: 100%;
+}
+
 .tblcomment {
     font-size: 70%;
     font-weight: normal;
