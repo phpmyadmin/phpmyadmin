@@ -1095,7 +1095,9 @@ div#logTable table {
     text-overflow: ellipsis;
     line-height: 2em;
 }
-
+#serverVariables .var-row > td:last-child {
+    text-align: center;
+}
 #serverVariables .var-header {
     font-weight:        bold;
     color:              <?php echo $GLOBALS['cfg']['ThColor']; ?>;

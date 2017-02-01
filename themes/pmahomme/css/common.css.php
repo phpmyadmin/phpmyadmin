@@ -1433,6 +1433,9 @@ div#queryAnalyzerDialog table.queryNums {
     text-overflow: ellipsis;
     line-height: 2em;
 }
+#serverVariables .var-row > td:last-child {
+    text-align: center;
+}
 #serverVariables .var-header {
     color: <?php echo $GLOBALS['cfg']['ThColor']; ?>;
     background: #f3f3f3;
