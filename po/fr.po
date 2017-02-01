@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-01-25 10:08+0100\n"
-"PO-Revision-Date: 2016-12-27 15:52+0000\n"
+"PO-Revision-Date: 2017-02-01 12:37+0000\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
-"Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"fr/>\n"
+"Language-Team: French "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/fr/>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 2.11-dev\n"
+"X-Generator: Weblate 2.11\n"
 
 #: changelog.php:39 license.php:34
 #, php-format
@@ -14389,6 +14389,7 @@ msgstr "Ajouter un serveur"
 #: setup/index.php:16
 msgid "Configuration already exists, setup is disabled!"
 msgstr ""
+"Il existe déjà une configuration, le programme d’installation est désactivé !"
 
 #: setup/index.php:26
 msgid "Wrong GET file attribute value"
