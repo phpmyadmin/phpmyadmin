@@ -33,7 +33,7 @@ if (PMA_ifSetOr($_POST['submit_clear'], '')) {
     //
     $GLOBALS['ConfigFile']->resetConfigData();
     // drop post data
-    $response->PMA_generateHeader303('index.php' . URL::getCommonRaw());
+    $response->generateHeader303('index.php' . URL::getCommonRaw());
     exit;
 } elseif (PMA_ifSetOr($_POST['submit_download'], '')) {
     //
@@ -46,6 +46,6 @@ if (PMA_ifSetOr($_POST['submit_clear'], '')) {
     //
     // Show generated config file in a <textarea>
     //
-    $response->PMA_generateHeader303('index.php' . URL::getCommonRaw() . '&page=config');
+    $response->generateHeader303('index.php' . URL::getCommonRaw() . '&page=config');
     exit;
 }

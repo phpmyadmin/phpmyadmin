@@ -22,7 +22,7 @@ function PMA_Process_formset(FormDisplay $form_display)
         // revert erroneous fields to their default values
         $form_display->fixErrors();
         $response = Response::getInstance();
-        $response->PMA_generateHeader303('index.php' . URL::getCommonRaw());
+        $response->generateHeader303('index.php' . URL::getCommonRaw());
     }
 
     if (!$form_display->process(false)) {
@@ -34,7 +34,7 @@ function PMA_Process_formset(FormDisplay $form_display)
     // check for form errors
     if (!$form_display->hasErrors()) {
         $response = Response::getInstance();
-        $response->PMA_generateHeader303('index.php' . URL::getCommonRaw());
+        $response->generateHeader303('index.php' . URL::getCommonRaw());
         return;
     }
 
