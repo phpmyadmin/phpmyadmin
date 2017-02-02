@@ -712,17 +712,23 @@ class AuthenticationCookie extends AuthenticationPlugin
     }
 
     /**
-     * Reports any SSL errors
+     * Cleans any SSL errors
+     *
+     * This can happen from corrupted cookies, by invalid encryption
+     * parameters used in older phpMyAdmin versions or by wrong openSSL
+     * configuration.
+     *
+     * In neither case the error is useful to user, but we need to clear
+     * the error buffer as otherwise the errors would pop up later, for
+     * example during MySQL SSL setup.
      *
      * @return void
      */
-    public function reportSSLErrors()
+    public function cleanSSLErrors()
     {
-        while (($ssl_err = openssl_error_string()) !== false) {
-            trigger_error(
-                _('OpenSSL error when manipulating with cookies:') . ' ' . $ssl_err,
-                E_USER_ERROR
-            );
+        if (function_exists('openssl_error_string')) {
+            while (($ssl_err = openssl_error_string()) !== false) {
+            }
         }
     }
 
@@ -748,13 +754,13 @@ class AuthenticationCookie extends AuthenticationPlugin
                 0,
                 $iv
             );
-            $this->reportSSLErrors();
         } else {
             $cipher = new Crypt\AES(Crypt\Base::MODE_CBC);
             $cipher->setIV($iv);
             $cipher->setKey($aes_secret);
             $result = base64_encode($cipher->encrypt($data));
         }
+        $this->cleanSSLErrors();
         $iv = base64_encode($iv);
         return json_encode(
             array(
@@ -800,14 +806,14 @@ class AuthenticationCookie extends AuthenticationPlugin
                 0,
                 base64_decode($data['iv'])
             );
-            $this->reportSSLErrors();
-            return $result;
         } else {
             $cipher = new Crypt\AES(Crypt\Base::MODE_CBC);
             $cipher->setIV(base64_decode($data['iv']));
             $cipher->setKey($aes_secret);
-            return $cipher->decrypt(base64_decode($data['payload']));
+            $result = $cipher->decrypt(base64_decode($data['payload']));
         }
+        $this->cleanSSLErrors();
+        return $result;
     }
 
     /**
