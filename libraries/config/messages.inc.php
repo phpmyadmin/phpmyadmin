@@ -642,9 +642,6 @@ $strConfigServers_column_info_desc = __(
 $strConfigServers_column_info_name = __('Column information table');
 $strConfigServers_compress_desc = __('Compress connection to MySQL server.');
 $strConfigServers_compress_name = __('Compress connection');
-$strConfigServers_connect_type_desc
-    = __('How to connect to server, keep [kbd]tcp[/kbd] if unsure.');
-$strConfigServers_connect_type_name = __('Connection type');
 $strConfigServers_controlpass_name = __('Control user password');
 $strConfigServers_controluser_desc = __(
     'A special MySQL user configured with limited permissions, more information '

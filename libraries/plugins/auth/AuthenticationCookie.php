@@ -446,7 +446,6 @@ class AuthenticationCookie extends AuthenticationPlugin
                     && $current['port'] == $cfg['Server']['port']
                     && $current['socket'] == $cfg['Server']['socket']
                     && $current['ssl'] == $cfg['Server']['ssl']
-                    && $current['connect_type'] == $cfg['Server']['connect_type']
                     && hash_equals($current['user'], $GLOBALS['PHP_AUTH_USER'])
                 ) {
                     $GLOBALS['server'] = $idx;
