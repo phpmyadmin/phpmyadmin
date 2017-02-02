@@ -319,13 +319,17 @@ class DatabaseInterface
      */
     public function getTables($database, $link = null)
     {
-        return $this->fetchResult(
+        $tables = $this->fetchResult(
             'SHOW TABLES FROM ' . Util::backquote($database) . ';',
             null,
             0,
             $link,
             self::QUERY_STORE
         );
+        if ($GLOBALS['cfg']['NaturalOrder']) {
+            uksort($tables, 'strnatcasecmp');
+        }
+        return $tables;
     }
 
     /**
