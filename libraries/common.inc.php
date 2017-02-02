@@ -361,8 +361,8 @@ if (PMA_checkPageValidity($_REQUEST['back'], $goto_whitelist)) {
 $token_mismatch = true;
 $token_provided = false;
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    if (PMA_isValid($_SESSION[' PMA_token ']) && PMA_isValid($_POST['token'])) {
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && PMA_isValid($_SESSION[' PMA_token '])) {
+    if (PMA_isValid($_POST['token'])) {
         $token_provided = true;
         $token_mismatch = ! hash_equals($_SESSION[' PMA_token '], $_POST['token']);
     }
