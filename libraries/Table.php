@@ -173,7 +173,7 @@ class Table
     public function isEngine($engine)
     {
         $tbl_storage_engine = strtoupper(
-            $this->getStatusInfo('ENGINE', null, true)
+            $this->getStatusInfo('ENGINE', false, true)
         );
 
         if (is_array($engine)){
