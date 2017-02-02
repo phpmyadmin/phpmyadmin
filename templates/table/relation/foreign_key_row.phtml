@@ -66,6 +66,9 @@ if ($foreign_db) {
         }
     }
 }
+if ($GLOBALS['cfg']['NaturalOrder']) {
+    uksort($tables, 'strnatcasecmp');
+}
 ?>
 <tr>
     <!-- Drop key anchor -->
