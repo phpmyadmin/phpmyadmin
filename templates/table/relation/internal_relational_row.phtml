@@ -31,6 +31,9 @@ if ($foreign_db) {
     while ($row = $GLOBALS['dbi']->fetchRow($tables_rs)) {
         $tables[] = $row[0];
     }
+    if ($GLOBALS['cfg']['NaturalOrder']) {
+        uksort($tables, 'strnatcasecmp');
+    }
 }
 
 // column dropdown

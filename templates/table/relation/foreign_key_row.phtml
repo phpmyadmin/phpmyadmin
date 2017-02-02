@@ -65,9 +65,9 @@ if ($foreign_db) {
             $tables[] = $row[0];
         }
     }
-}
-if ($GLOBALS['cfg']['NaturalOrder']) {
-    uksort($tables, 'strnatcasecmp');
+    if ($GLOBALS['cfg']['NaturalOrder']) {
+        uksort($tables, 'strnatcasecmp');
+    }
 }
 ?>
 <tr>
