@@ -1634,7 +1634,7 @@ function PMA_getHtmlForLoginInformationFields(
         . $hostname_length . '" value="'
         // use default value of '%' to match with the default 'Any host'
         . htmlspecialchars(isset($GLOBALS['hostname']) ? $GLOBALS['hostname'] : '%')
-        . '" title="' . __('Host name')
+        . '" title="' . __('Host name') . '" '
         . ((isset($GLOBALS['pred_hostname'])
                 && $GLOBALS['pred_hostname'] == 'userdefined'
             )
