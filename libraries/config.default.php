@@ -1856,6 +1856,13 @@ $cfg['Export']['json_structure_or_data'] = 'data';
 $cfg['Export']['json_pretty_print'] = false;
 
 /**
+ * Export functions
+ *
+ * @global string $cfg['Export']['json_unicode']
+ */
+$cfg['Export']['json_unicode'] = true;
+
+/**
  *
  *
  * @global string $cfg['Export']['sql_structure_or_data']

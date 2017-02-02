@@ -95,6 +95,7 @@ $post_params = array(
         'ods_columns',
         'json_structure_or_data',
         'json_pretty_print',
+        'json_unicode',
         'xml_structure_or_data',
         'xml_export_events',
         'xml_export_functions',
