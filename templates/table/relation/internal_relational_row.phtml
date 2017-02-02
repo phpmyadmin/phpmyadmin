@@ -23,7 +23,7 @@ if ($foreign_db) {
     if (isset($existrel[$myfield])) {
         $foreign_table = $existrel[$myfield]['foreign_table'];
     }
-    $tables = $GLOBALS['dbi']->getTables();
+    $tables = $GLOBALS['dbi']->getTables($foreign_db);
 }
 
 // column dropdown
