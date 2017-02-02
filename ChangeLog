@@ -56,6 +56,7 @@ phpMyAdmin - ChangeLog
 - issue #12924 Do not show errors from OpenSSL cookie encryption/decryption
 - issue #12945 Fixed hint rendering on adding new user
 - issue #12941 Fixed sorting of tables in relation view
+- issue #12936 Fixed tables pagination in navigation panel
 
 4.6.6 (2017-01-23)
 - issue #12759 Fix Notice regarding 'Undefined index: old_usergroup'
