@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-01-25 10:08+0100\n"
 "PO-Revision-Date: 2017-02-04 01:15+0000\n"
-"Last-Translator: anonymous <>\n"
+"Last-Translator: Franco <fulanodetal.github1@openaliasbox.org>\n"
 "Language-Team: Spanish "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/es/>\n"
 "Language: es\n"
@@ -14421,7 +14421,7 @@ msgstr "Añadir un nuevo servidor"
 
 #: setup/index.php:16
 msgid "Configuration already exists, setup is disabled!"
-msgstr "¡La configuración ya existe, la configuración está deshabilitada!"
+msgstr "¡La configuración ya existe y está deshabilitada!"
 
 #: setup/index.php:26
 msgid "Wrong GET file attribute value"
