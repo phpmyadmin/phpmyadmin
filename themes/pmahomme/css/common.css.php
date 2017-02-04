@@ -1296,7 +1296,7 @@ div#serverstatusquerieschart {
     float: <?php echo $left; ?>;
     width: 500px;
     height: 350px;
-    padding-<?php echo $left; ?>: 30px;
+    margin-right: 50px;
 }
 
 table#serverstatusqueriesdetails,

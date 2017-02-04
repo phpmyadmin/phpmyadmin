@@ -974,10 +974,10 @@ caption a.top {
 }
 
 div#serverstatusquerieschart {
-    float:<?php echo $left; ?>;
-    width:500px;
-    height:350px;
-    padding-<?php echo $left; ?>: 30px;
+    float: <?php echo $left; ?>;
+    width: 500px;
+    height: 350px;
+    margin-right: 50px;
 }
 
 div#serverstatus table#serverstatusqueriesdetails {

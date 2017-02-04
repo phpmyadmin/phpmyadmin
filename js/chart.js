@@ -603,7 +603,10 @@ JQPlotPieChart.prototype.populateOptions = function (dataTable, options) {
             tooltipAxes: 'xy',
             formatString:'%s, %d',
             useAxesFormatters: false
-        }
+        },
+        legend: {
+            renderer: $.jqplot.EnhancedPieLegendRenderer,
+        },
     };
     var compulsory = {
         seriesDefaults : {

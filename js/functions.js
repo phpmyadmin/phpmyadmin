@@ -2502,7 +2502,7 @@ function PMA_createProfilingChart(target, data)
         },
         legend: {
             show: true,
-            location: 'e',
+            location: 'se',
             rendererOptions: {
                 numberColumns: 2
             }
