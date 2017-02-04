@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-01-25 10:08+0100\n"
-"PO-Revision-Date: 2017-02-04 01:15+0000\n"
-"Last-Translator: Franco <fulanodetal.github1@openaliasbox.org>\n"
+"PO-Revision-Date: 2017-02-04 01:17+0000\n"
+"Last-Translator: anonymous <>\n"
 "Language-Team: Spanish "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/es/>\n"
 "Language: es\n"
@@ -15046,10 +15046,8 @@ msgstr "Alterne entre pequeño y grande"
 
 #: templates/database/designer/side_menu.phtml:145
 #: templates/database/designer/side_menu.phtml:148
-#, fuzzy
-#| msgid "Toggle relation lines"
 msgid "Toggle relationship lines"
-msgstr "Conmutar líneas de relación"
+msgstr "Alternar líneas de relación"
 
 # Used as description for SQL syntax Export Type (options are INSERT, UPDATE
 # and REPLACE)
@@ -15078,10 +15076,8 @@ msgid "Hide/Show all"
 msgstr "Ocultar/mostrar todo"
 
 #: templates/database/designer/table_list.phtml:14
-#, fuzzy
-#| msgid "Hide/Show Tables with no relation"
 msgid "Hide/Show Tables with no relationship"
-msgstr "Ocultar/mostrar Tablas que no tengan relación"
+msgstr "Ocultar / Mostrar tablas sin relación"
 
 #: templates/database/designer/table_list.phtml:59
 msgid "Number of tables:"
@@ -15799,10 +15795,8 @@ msgid "Password is too long!"
 msgstr "¡Contraseña muy larga!"
 
 #: view_create.php:48
-#, fuzzy
-#| msgid "View name can not be empty"
 msgid "View name can not be empty!"
-msgstr "El nombre de la vista no puede estar vacío"
+msgstr "El nombre de la vista no puede estar vacío.!"
 
 #: view_create.php:253
 msgid "VIEW name"
