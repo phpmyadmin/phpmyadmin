@@ -192,13 +192,6 @@ $cfg['Servers'][$i]['ssl_ciphers'] = null;
 $cfg['Servers'][$i]['ssl_verify'] = true;
 
 /**
- * How to connect to MySQL server ('tcp' or 'socket')
- *
- * @global string $cfg['Servers'][$i]['connect_type']
- */
-$cfg['Servers'][$i]['connect_type'] = 'tcp';
-
-/**
  * Use compressed protocol for the MySQL connection
  *
  * @global boolean $cfg['Servers'][$i]['compress']

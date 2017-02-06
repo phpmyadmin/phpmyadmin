@@ -498,7 +498,6 @@ class ConfigFileTest extends PMATestCase
                     1 => array(
                         "auth_type" => "config",
                         "user" => "testUser",
-                        "connect_type" => "tcp",
                         "host" => "example.com",
                         "port" => "21"
                     )
@@ -516,8 +515,7 @@ class ConfigFileTest extends PMATestCase
                     1 => array(
                         "auth_type" => "config",
                         "user" => "testUser",
-                        "connect_type" => "socket",
-                        "host" => "example.com",
+                        "host" => "localhost",
                         "port" => "21",
                         "socket" => "123",
                         "password" => "",
@@ -536,7 +534,6 @@ class ConfigFileTest extends PMATestCase
                     1 => array(
                         "auth_type" => "config",
                         "user" => "testUser",
-                        "connect_type" => "tcp",
                         "host" => "example.com",
                         "port" => "21",
                         "password" => "testPass"

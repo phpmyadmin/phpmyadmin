@@ -2278,7 +2278,7 @@ class DatabaseInterface
             // Share the settings if the host is same
             if ($server['host'] == $cfg['Server']['host']) {
                 $shared = array(
-                    'port', 'socket', 'connect_type', 'compress',
+                    'port', 'socket', 'compress',
                     'ssl', 'ssl_key', 'ssl_cert', 'ssl_ca',
                     'ssl_ca_path',  'ssl_ciphers', 'ssl_verify',
                 );

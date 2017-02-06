@@ -32,7 +32,6 @@ $forms['Servers']['Server'] = array('Servers' => array(1 => array(
     'port',
     'socket',
     'ssl',
-    'connect_type',
     'compress')));
 $forms['Servers']['Server_auth'] = array('Servers' => array(1 => array(
     'auth_type',

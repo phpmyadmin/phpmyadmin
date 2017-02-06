@@ -640,7 +640,6 @@ class AuthenticationCookieTest extends PMATestCase
             'port' => 1,
             'socket' => true,
             'ssl' => true,
-            'connect_type' => 'port',
             'user' => 'pmaUser2'
         );
 
@@ -697,7 +696,6 @@ class AuthenticationCookieTest extends PMATestCase
             'port' => 1,
             'socket' => true,
             'ssl' => true,
-            'connect_type' => 'port',
             'user' => 'pmaUser2'
         );
 
