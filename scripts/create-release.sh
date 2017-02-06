@@ -418,6 +418,6 @@ Todo now:
 
  9. in case of a new major release ('y' in x.y.0), update the pmaweb/settings.py in website repository to include the new major releases
 
-10. the end :-)
+10. update the Dockerfile in the docker repository to reflect the new version
 
 END
