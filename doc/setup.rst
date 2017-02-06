@@ -293,7 +293,7 @@ arbitrary server - allowing you to specify MySQL/MariaDB server on login page.
 Customizing configuration file using docker-compose
 ---------------------------------------------------
 
-You can use external firle to customize phpMyAdmin configuration and pass it
+You can use external file to customize phpMyAdmin configuration and pass it
 using volumes directive:
 
 .. code-block:: yaml
@@ -310,6 +310,57 @@ using volumes directive:
          - /sessions
          - ~/docker/phpmyadmin/config.user.inc.php:/etc/phpmyadmin/config.user.inc.php
 
+Running behind haproxy in a subdirectory
+----------------------------------------
+
+When you want to expose phpMyAdmin running in a Docker container in a
+subdirectory, you need to rewrite the request path in the server proxying the
+requests. For example using haproxy it can be done as:
+
+.. code-block:: text
+
+    frontend http
+        bind *:80
+        option forwardfor
+        option http-server-close
+
+        ### NETWORK restriction
+        acl LOCALNET  src 10.0.0.0/8 192.168.0.0/16 172.16.0.0/12
+
+        # /phpmyadmin
+        acl phpmyadmin  path_dir /phpmyadmin
+        use_backend phpmyadmin if phpmyadmin LOCALNET  
+
+    backend phpmyadmin
+        mode http
+
+        reqirep  ^(GET|POST|HEAD)\ /phpmyadmin/(.*)     \1\ /\2 
+
+        # phpMyAdmin container IP
+        server localhost     172.30.21.21:80                
+
+You then should specify :envvar:`PMA_ABSOLUTE_URI` in the docker-compose
+configuration:
+
+.. code-block:: yaml
+
+    version: '2'
+
+    services:
+      phpmyadmin:
+        restart: always
+        image: phpmyadmin/phpmyadmin
+        container_name: phpmyadmin
+        hostname: phpmyadmin
+        domainname: example.com
+        ports:
+          - 8000:80
+        environment:
+          - PMA_HOSTS=172.26.36.7,172.26.36.8,172.26.36.9,172.26.36.10
+          - PMA_VERBOSES=production-db1,production-db2,dev-db1,dev-db2
+          - PMA_USER=root
+          - PMA_PASSWORD=
+          - PMA_ABSOLUTE_URI=http://example.com/phpmyadmin/
 
 .. _quick_install:
 
