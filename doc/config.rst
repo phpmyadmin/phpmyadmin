@@ -221,7 +221,7 @@ Server connection settings
         The hostname ``localhost`` is handled specially by MySQL and it uses
         the socket based connection protocol. To use TCP/IP networking, use an
         IP address or hostname such as ``127.0.0.1`` or ``db.example.com``. You
-        can configure socket address by
+        can configure the path to the socket with
         :config:option:`$cfg['Servers'][$i]['socket']`.
 
     .. seealso::
