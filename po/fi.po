@@ -4,28 +4,25 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-01-25 10:08+0100\n"
-"PO-Revision-Date: 2016-12-26 23:41+0000\n"
-"Last-Translator: Lari Oesch <lari@oesch.me>\n"
-"Language-Team: Finnish <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/fi/>\n"
+"PO-Revision-Date: 2017-02-06 07:52+0000\n"
+"Last-Translator: Capita-Finnish <tom.shaw2@capita.co.uk>\n"
+"Language-Team: Finnish "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-7/fi/>\n"
 "Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.11-dev\n"
+"X-Generator: Weblate 2.11\n"
 
 #: changelog.php:39 license.php:34
-#, fuzzy, php-format
-#| msgid ""
-#| "The %s file is not available on this system, please visit www.phpmyadmin."
-#| "net for more information."
+#, php-format
 msgid ""
 "The %s file is not available on this system, please visit %s for more "
 "information."
 msgstr ""
-"Tiedostoa %s ei löydy tästä järjestelmästä, saadaksesi lisätietoja ole hyvä "
-"ja käy osoitteessa www.phpmyadmin.net."
+"Tiedostoa %s ei löydy tästä järjestelmästä, saadaksesi lisätietoja käy "
+"osoitteessa %s."
 
 #: db_central_columns.php:108
 msgid "The central list of columns for the current database is empty."
@@ -764,7 +761,7 @@ msgstr "Asetustiedosto vaatii nyt salalausetta (blowfish_secret)."
 
 #: index.php:524
 msgid "The secret passphrase in configuration (blowfish_secret) is too short."
-msgstr ""
+msgstr "Määritetty salalause (blowfish_secret) on liian lyhyt."
 
 #: index.php:538
 msgid ""
@@ -829,6 +826,8 @@ msgstr "Olet aikeissasi HÄVITTÄÄ kokonaisen tietokannan!"
 #: js/messages.php:48
 msgid "Cannot rename database to the same name. Change the name and try again"
 msgstr ""
+"Tietokannalle ei voi antaa samaa nimeä uudelleen. Muuta nimi ja yritä "
+"uudelleen"
 
 #: js/messages.php:50
 msgid "You are about to DESTROY a complete table!"
@@ -1796,7 +1795,7 @@ msgstr "Vienti"
 
 #: js/messages.php:395
 msgid "No routine is exportable. Required privileges may be lacking."
-msgstr ""
+msgstr "Rutiineja ei voida viedä. Vaaditut oikeudet puuttuvat."
 
 #: js/messages.php:398 libraries/rte/rte_routines.lib.php:747
 msgid "ENUM/SET editor"
@@ -2155,12 +2154,16 @@ msgid ""
 "MySQL accepts additional values not selectable by the slider; key in those "
 "values directly if desired"
 msgstr ""
+"MySQL hyväksyy arvoja, joita ei voida valita liukusäätimellä. Näppäile arvot "
+"haluttaessa suoraan"
 
 #: js/messages.php:534
 msgid ""
 "MySQL accepts additional values not selectable by the datepicker; key in "
 "those values directly if desired"
 msgstr ""
+"MySQL hyväksyy arvoja, joita ei voida valita päivämääräkentästä. Näppäile "
+"arvot haluttaessa suoraan"
 
 #: js/messages.php:540
 msgid ""
@@ -2576,23 +2579,23 @@ msgstr "Kopioi taulun etuliite"
 
 #: js/messages.php:732
 msgid "Extremely weak"
-msgstr ""
+msgstr "Erittäin heikko"
 
 #: js/messages.php:733
 msgid "Very weak"
-msgstr ""
+msgstr "Hyvin heikko"
 
 #: js/messages.php:734
 msgid "Weak"
-msgstr ""
+msgstr "Heikko"
 
 #: js/messages.php:735
 msgid "Good"
-msgstr ""
+msgstr "Hyvä"
 
 #: js/messages.php:736
 msgid "Strong"
-msgstr ""
+msgstr "Vahva"
 
 #: js/messages.php:765
 msgctxt "Previous month"
@@ -2953,6 +2956,8 @@ msgstr "Merkkijonon muotoilu epäonnistui '%s' säännöllä."
 #, php-format
 msgid "Error in reading file: The file '%s' does not exist or is not readable!"
 msgstr ""
+"Virhe luettaessa tiedostoa: Tiedostoa '%s' ei ole olemassa tai sitä ei voida "
+"lukea!"
 
 #: libraries/Advisor.php:494
 #, php-format
@@ -3281,10 +3286,8 @@ msgid "Details…"
 msgstr "Lisätiedot…"
 
 #: libraries/DatabaseInterface.php:2345
-#, fuzzy
-#| msgid "Missing parameter:"
 msgid "Missing connection parameters!"
-msgstr "Puuttuva parametri:"
+msgstr "Puuttuvat yhteysparametrit!"
 
 #: libraries/DatabaseInterface.php:2369
 msgid "Connection for controluser as defined in your configuration failed."
@@ -3583,8 +3586,6 @@ msgid "Relational key"
 msgstr "Relaatioavain"
 
 #: libraries/DisplayResults.php:1745
-#, fuzzy
-#| msgid "Display column for relations"
 msgid "Display column for relationships"
 msgstr "Näytä sarakkeet relaatioille"
 
@@ -3761,7 +3762,7 @@ msgstr "Tuntematon virhe tiedostoa lähetettäessä."
 
 #: libraries/File.php:445
 msgid "File is a symbolic link"
-msgstr ""
+msgstr "Tiedosto on symbolinen linkki"
 
 #: libraries/File.php:450 libraries/File.php:542
 msgid "File could not be read!"
@@ -4813,12 +4814,12 @@ msgstr "%d.%m.%Y klo %H:%M"
 #: libraries/Util.php:1588
 msgctxt "AM/PM indication in time"
 msgid "PM"
-msgstr ""
+msgstr "IP"
 
 #: libraries/Util.php:1590
 msgctxt "AM/PM indication in time"
 msgid "AM"
-msgstr ""
+msgstr "AP"
 
 #: libraries/Util.php:1966
 #, php-format
@@ -5282,10 +5283,8 @@ msgid "You allow for connecting to the server without a password."
 msgstr "Sallit yhteyden muodostamisen palvelimeen ilman salasanaa."
 
 #: libraries/config/ServerConfigChecks.php:349
-#, fuzzy
-#| msgid "Key is too short, it should have at least 8 characters."
 msgid "Key is too short, it should have at least 32 characters."
-msgstr "Avain on liian lyhyt; siinä tulisi olla ainakin 8 merkkiä."
+msgstr "Avain on liian lyhyt; siinä tulisi olla ainakin 32 merkkiä."
 
 #: libraries/config/ServerConfigChecks.php:359
 msgid "Key should contain letters, numbers [em]and[/em] special characters."
@@ -5879,8 +5878,6 @@ msgstr "MIME-tyyppi"
 
 #: libraries/config/messages.inc.php:167 libraries/config/messages.inc.php:180
 #: libraries/config/messages.inc.php:221
-#, fuzzy
-#| msgid "Relations"
 msgid "Relationships"
 msgstr "Relaatiot"
 
@@ -7548,10 +7545,8 @@ msgid "Show last check timestamp"
 msgstr "Näytä viime tarkistuksen ajankohta"
 
 #: libraries/config/messages.inc.php:852
-#, fuzzy
-#| msgid "Show or hide a column displaying the comments for all tables."
 msgid "Show or hide a column displaying the charset for all tables."
-msgstr "Näytä tai piilota kommentti -sarake kaikista tauluista."
+msgstr "Näytä tai piilota merkkisarake kaikista tauluista."
 
 #: libraries/config/messages.inc.php:854
 #, fuzzy
@@ -8104,8 +8099,8 @@ msgstr "Etsi ja Korvaa"
 #, php-format
 msgid "The name '%s' is a MySQL reserved keyword."
 msgid_plural "The names '%s' are MySQL reserved keywords."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Nimi '%s' on MySQL:n varattu hakusana."
+msgstr[1] "Nimet '%s' ovat MySQL:n varattuja salasanoja."
 
 #: libraries/controllers/table/TableStructureController.php:250
 msgid "No column selected."
@@ -8152,7 +8147,7 @@ msgstr "Indeksi"
 #: libraries/controllers/table/TableStructureController.php:1192
 #: templates/columns_definitions/column_indexes.phtml:26
 msgid "Spatial"
-msgstr ""
+msgstr "Tilaa koskeva"
 
 #: libraries/controllers/table/TableStructureController.php:1188
 #: libraries/controllers/table/TableStructureController.php:1193
@@ -8170,7 +8165,7 @@ msgstr "Selaa erilaisia arvoja"
 #: libraries/core.lib.php:296
 #, php-format
 msgid "The %s extension is missing. Please check your PHP configuration."
-msgstr ""
+msgstr "Pääte %s puuttuu. Tarkista PHP-määritykset."
 
 #: libraries/core.lib.php:787 libraries/mult_submits.inc.php:329
 #: tbl_operations.php:201 tbl_replace.php:314 templates/preview_sql.phtml:3
@@ -8180,7 +8175,7 @@ msgstr "Ei muutoksia"
 #: libraries/database_interface.inc.php:36
 #, php-format
 msgid "See %sour documentation%s for more information."
-msgstr ""
+msgstr "Katso lisätietoa %sdokumentoinnistamme%s."
 
 #: libraries/database_interface.inc.php:53
 msgid ""
