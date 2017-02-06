@@ -218,8 +218,11 @@ Server connection settings
 
     .. note::
 
-        The hostname ``localhost`` is handled specially by MySQL and it
-        ignores :config:option:`$cfg['Servers'][$i]['port']` in this case.
+        The hostname ``localhost`` is handled specially by MySQL and it uses
+        the socket based connection protocol. To use TCP/IP networking, use an
+        IP address or hostname such as ``127.0.0.1`` or ``db.example.com``. You
+        can configure the path to the socket with
+        :config:option:`$cfg['Servers'][$i]['socket']`.
 
     .. seealso::
 
@@ -255,6 +258,11 @@ Server connection settings
     the correct socket, check your MySQL configuration or, using the
     :command:`mysql` command–line client, issue the ``status`` command. Among the
     resulting information displayed will be the socket used.
+
+    .. note::
+
+        This takes effect only if :config:option:`$cfg['Servers'][$i]['host']` is set
+        to ``localhost``.
 
     .. seealso::
 
@@ -417,6 +425,13 @@ Server connection settings
 
     :type: string
     :default: ``'tcp'``
+
+    .. deprecated:: 4.7.0
+
+       This setting is no longer used as of 4.7.0, since MySQL decides the
+       connection type based on host, so it could lead to unexpected results.
+       Please set :config:option:`$cfg['Servers'][$i]['host']` accordingly
+       instead.
 
     What type connection to use with the MySQL server. Your options are
     ``'socket'`` and ``'tcp'``. It defaults to tcp as that is nearly guaranteed

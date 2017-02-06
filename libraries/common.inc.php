@@ -495,29 +495,12 @@ if (! isset($cfg['Servers']) || count($cfg['Servers']) == 0) {
 
         $each_server = array_merge($default_server, $each_server);
 
-        // Don't use servers with no hostname
-        if ($each_server['connect_type'] == 'tcp' && empty($each_server['host'])) {
-            trigger_error(
-                sprintf(
-                    __(
-                        'Invalid hostname for server %1$s. '
-                        . 'Please review your configuration.'
-                    ),
-                    $server_index
-                ),
-                E_USER_ERROR
-            );
-        }
-
         // Final solution to bug #582890
         // If we are using a socket connection
         // and there is nothing in the verbose server name
         // or the host field, then generate a name for the server
         // in the form of "Server 2", localized of course!
-        if ($each_server['connect_type'] == 'socket'
-            && empty($each_server['host'])
-            && empty($each_server['verbose'])
-        ) {
+        if (empty($each_server['host']) && empty($each_server['verbose'])) {
             $each_server['verbose'] = sprintf(__('Server %d'), $server_index);
         }
 
@@ -719,11 +702,6 @@ if (! defined('PMA_MINIMUM_COMMON')) {
             $login_without_password_is_forbidden = true;
             Logging::logUser($cfg['Server']['user'], 'empty-denied');
             $auth_plugin->authFails();
-        }
-
-        // if using TCP socket is not needed
-        if (mb_strtolower($cfg['Server']['connect_type']) == 'tcp') {
-            $cfg['Server']['socket'] = '';
         }
 
         // Try to connect MySQL with the control user profile (will be used to

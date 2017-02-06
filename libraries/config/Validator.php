@@ -162,7 +162,6 @@ class Validator
     /**
      * Test database connection
      *
-     * @param string $connect_type 'tcp' or 'socket'
      * @param string $host         host name
      * @param string $port         tcp port to use
      * @param string $socket       socket to use
@@ -173,7 +172,6 @@ class Validator
      * @return bool|array
      */
     public static function testDBConnection(
-        $connect_type,
         $host,
         $port,
         $socket,
@@ -186,14 +184,12 @@ class Validator
         $host = PMA_sanitizeMySQLHost($host);
 
         if (DatabaseInterface::checkDbExtension('mysqli')) {
-            $socket = empty($socket) || $connect_type == 'tcp' ? null : $socket;
-            $port = empty($port) || $connect_type == 'socket' ? null : $port;
+            $socket = empty($socket) ? null : $socket;
+            $port = empty($port) ? null : $port;
             $extension = 'mysqli';
         } else {
-            $socket = empty($socket) || $connect_type == 'tcp'
-                ? null
-                : ':' . ($socket[0] == '/' ? '' : '/') . $socket;
-            $port = empty($port) || $connect_type == 'socket' ? null : ':' . $port;
+            $socket = empty($socket) ? null : ':' . ($socket[0] == '/' ? '' : '/') . $socket;
+            $port = empty($port) ? null : ':' . $port;
             $extension = 'mysql';
         }
 
@@ -276,7 +272,6 @@ class Validator
                 $password = $values['Servers/1/password'];
             }
             $test = static::testDBConnection(
-                empty($values['Servers/1/connect_type']) ? '' : $values['Servers/1/connect_type'],
                 empty($values['Servers/1/host']) ? '' : $values['Servers/1/host'],
                 empty($values['Servers/1/port']) ? '' : $values['Servers/1/port'],
                 empty($values['Servers/1/socket']) ? '' : $values['Servers/1/socket'],
@@ -332,7 +327,6 @@ class Validator
         }
         if (! $error) {
             $test = static::testDBConnection(
-                empty($values['Servers/1/connect_type']) ? '' : $values['Servers/1/connect_type'],
                 empty($values['Servers/1/host']) ? '' : $values['Servers/1/host'],
                 empty($values['Servers/1/port']) ? '' : $values['Servers/1/port'],
                 empty($values['Servers/1/socket']) ? '' : $values['Servers/1/socket'],

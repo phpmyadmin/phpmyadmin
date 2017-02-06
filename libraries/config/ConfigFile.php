@@ -421,7 +421,7 @@ class ConfigFile
             }
             $dsn .= '@';
         }
-        if ($this->getValue("$path/connect_type") == 'tcp') {
+        if ($this->getValue("$path/host") != 'localhost') {
             $dsn .= $this->getValue("$path/host");
             $port = $this->getValue("$path/port");
             if ($port) {
