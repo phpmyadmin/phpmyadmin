@@ -128,8 +128,14 @@ and after execution of your :term:`SQL` commands, removed.
 1.12 I have lost my MySQL root password, what can I do?
 -------------------------------------------------------
 
+phpMyAdmin does authenticate against MySQL server you're using, so to recover
+from phpMyAdmin password loss, you need to recover at MySQL level.
+
 The MySQL manual explains how to `reset the permissions
 <https://dev.mysql.com/doc/refman/5.7/en/resetting-permissions.html>`_.
+
+If you are using MySQL server installed by your hosting provider, please
+contact their support to recover the password for you.
 
 .. _faq1_13:
 
