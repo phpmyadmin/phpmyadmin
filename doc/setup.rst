@@ -290,6 +290,27 @@ arbitrary server - allowing you to specify MySQL/MariaDB server on login page.
 
     docker-compose up -d
 
+Customizing configuration file using docker-compose
+---------------------------------------------------
+
+You can use external firle to customize phpMyAdmin configuration and pass it
+using volumes directive:
+
+.. code-block:: yaml
+
+    phpmyadmin:
+        image: phpmyadmin/phpmyadmin
+        container_name: phpmyadmin
+        environment:
+         - PMA_ARBITRARY=1
+        restart: always
+        ports:
+         - 8080:80
+        volumes:
+         - /sessions
+         - ~/docker/phpmyadmin/config.user.inc.php:/etc/phpmyadmin/config.user.inc.php
+
+
 .. _quick_install:
 
 Quick Install
