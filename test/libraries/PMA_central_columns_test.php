@@ -532,7 +532,7 @@ class PMA_Central_Columns_Test extends PHPUnit_Framework_TestCase
      */
     public function testPMAGetHTMLforAddNewColumn()
     {
-        $result = PMA_getHTMLforAddNewColumn('phpmyadmin');
+        $result = PMA_getHTMLforAddNewColumn('phpmyadmin', 0);
         $this->assertContains(
             '<form',
             $result

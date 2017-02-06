@@ -1252,16 +1252,18 @@ function PMA_handleColumnExtra(&$columns_list)
 /**
  * build html for adding a new user defined column to central list
  *
- * @param string $db current database
+ * @param string  $db         current database
+ * @param integer $total_rows number of rows in central columns
  *
  * @return string html of the form to let user add a new user defined column to the
  *                list
  */
-function PMA_getHTMLforAddNewColumn($db)
+function PMA_getHTMLforAddNewColumn($db, $total_rows)
 {
     $addNewColumn = '<div id="add_col_div" class="topmargin"><a href="#">'
         . '<span>+</span> ' . __('Add new column') . '</a>'
-        . '<form id="add_new" style="min-width:100%;display:none" '
+        . '<form id="add_new" class="new_central_col '
+        . ($total_rows != 0 ? 'hide"' : '"')
         . 'method="post" action="db_central_columns.php">'
         . URL::getHiddenInputs(
             $db
