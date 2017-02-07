@@ -1902,7 +1902,7 @@ $cfg['Export']['sql_metadata'] = false;
  *
  * @global boolean $cfg['Export']['sql_use_transaction']
  */
-$cfg['Export']['sql_use_transaction'] = false;
+$cfg['Export']['sql_use_transaction'] = true;
 
 /**
  *
