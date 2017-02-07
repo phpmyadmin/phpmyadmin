@@ -2998,7 +2998,7 @@ AJAX.registerOnload('functions.js', function () {
         }
     });
 
-    $("input[value=AUTO_INCREMENT]").change(function(){
+    $(document).on('change', "input[value=AUTO_INCREMENT]", function() {
         if (this.checked) {
             var col = /\d/.exec($(this).attr('name'));
             col = col[0];
