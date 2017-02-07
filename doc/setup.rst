@@ -160,6 +160,11 @@ by linking your database container to ``db`` for phpMyAdmin (by specifying
 to you to setup networking in Docker to allow phpMyAdmin container to access
 the database container over network).
 
+.. _docker-vars:
+
+Docker environment variables
+----------------------------
+
 You can configure several phpMyAdmin features using environment variables:
 
 .. envvar:: PMA_ARBITRARY
@@ -222,11 +227,28 @@ By default, :ref:`cookie` is used, but if :envvar:`PMA_USER` and
     documentation for `MariaDB container <https://hub.docker.com/r/_/mariadb/>`_
     or `MySQL container <https://hub.docker.com/r/_/mysql/>`_.
 
+.. _docker-custom:
+
+Customizing configuration
+-------------------------
+
 Additionally configuration can be tweaked by :file:`/etc/phpmyadmin/config.user.inc.php`. If
 this file exists, it will be loaded after configuration generated from above
 environment variables, so you can override any configuration variable. This
 configuraiton can be added as a volume when invoking docker using 
 `-v /some/local/directory/config.user.inc.php:/etc/phpmyadmin/config.user.inc.php` parameters.
+
+Note that the supplied configuration file is applied after :ref:`docker-vars`,
+but you can override any of the values.
+
+For example to change default behaviour of CSV export you can use following
+configuration file:
+
+.. code-block:: php
+
+    <?php
+    $cfg['Export']['csv_columns'] = true;
+
 
 .. seealso:: 
    
@@ -309,6 +331,8 @@ using volumes directive:
         volumes:
          - /sessions
          - ~/docker/phpmyadmin/config.user.inc.php:/etc/phpmyadmin/config.user.inc.php
+
+.. seealso:: :ref:`docker-custom`
 
 Running behind haproxy in a subdirectory
 ----------------------------------------
