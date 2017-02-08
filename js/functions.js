@@ -2516,7 +2516,6 @@ function PMA_createProfilingChart(target, data)
             '#729fcf',
             '#ad7fa8',
             '#ef2929',
-            '#eeeeec',
             '#888a85',
             '#c4a000',
             '#ce5c00',

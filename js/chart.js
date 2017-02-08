@@ -610,7 +610,9 @@ JQPlotPieChart.prototype.populateOptions = function (dataTable, options) {
     };
     var compulsory = {
         seriesDefaults : {
-            renderer : $.jqplot.PieRenderer
+            shadow: false,
+            renderer : $.jqplot.PieRenderer,
+            rendererOptions: {sliceMargin: 1, showDataLabels: true }
         }
     };
     $.extend(true, optional, options, compulsory);
