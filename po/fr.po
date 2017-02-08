@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-01-25 10:08+0100\n"
-"PO-Revision-Date: 2017-02-01 12:37+0000\n"
-"Last-Translator: Marc Delisle <marc@infomarc.info>\n"
+"PO-Revision-Date: 2017-02-08 20:10+0000\n"
+"Last-Translator: tmtisfree <tmtisfree@free.fr>\n"
 "Language-Team: French "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/fr/>\n"
 "Language: fr\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 2.11\n"
+"X-Generator: Weblate 2.12-dev\n"
 
 #: changelog.php:39 license.php:34
 #, php-format
@@ -21,7 +21,7 @@ msgid ""
 "The %s file is not available on this system, please visit %s for more "
 "information."
 msgstr ""
-"Le fichier %s n'est pas disponible sur ce serveur, veuillez visiter %s pour "
+"Le fichier %s n'est pas disponible sur ce serveur, merci de visiter %s pour "
 "plus d'informations."
 
 #: db_central_columns.php:108
@@ -149,7 +149,7 @@ msgstr "Valeur par défaut"
 #: libraries/plugins/schema/pdf/PdfRelationSchema.php:635
 #: libraries/plugins/schema/pdf/PdfRelationSchema.php:658
 msgid "Links to"
-msgstr "Relié à"
+msgstr "Est relié à"
 
 #: db_datadict.php:122 libraries/config/messages.inc.php:161
 #: libraries/config/messages.inc.php:177 libraries/config/messages.inc.php:215
@@ -301,24 +301,24 @@ msgstr "La base de données %1$s a été renommée en %2$s."
 #: db_operations.php:150
 #, php-format
 msgid "Database %1$s has been copied to %2$s."
-msgstr "La base de données %1$s a été copiée sur %2$s."
+msgstr "La base de données %1$s a été copiée vers %2$s."
 
 #: db_operations.php:279
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. %sFind out why%s."
 msgstr ""
-"Le stockage de configurations phpMyAdmin a été désactivé. %sVoir l'analyse "
-"du problème%s."
+"Le stockage de la configuration de phpMyAdmin a été désactivé. %sVoir "
+"l'analyse du problème%s."
 
 #: db_qbe.php:126
 msgid "You have to choose at least one column to display!"
-msgstr "Vous devez choisir au moins une colonne à afficher !"
+msgstr "ll faut choisir au moins une colonne à afficher !"
 
 #: db_qbe.php:144
 #, php-format
 msgid "Switch to %svisual builder%s"
-msgstr "Passer au %smode visuel%s"
+msgstr "Passer en %smode visuel%s"
 
 #: db_search.php:32 libraries/plugins/AuthenticationPlugin.php:110
 #: libraries/plugins/auth/AuthenticationConfig.php:89
@@ -353,7 +353,7 @@ msgid ""
 "submitted based on your settings."
 msgstr ""
 "Une erreur a été détectée et un rapport a été envoyé automatiquement, selon "
-"vos réglages."
+"les réglages personnels."
 
 #: error_report.php:72
 msgid "Thank you for submitting this report."
@@ -370,12 +370,11 @@ msgstr ""
 #: error_report.php:81
 msgid "If you experience any problems please submit a bug report manually."
 msgstr ""
-"Si vous éprouvez des problèmes, veuillez soumettre manuellement un rapport "
-"d'anomalie."
+"En cas de problème, merci de soumettre manuellement un rapport de bogue."
 
 #: error_report.php:85
 msgid "You may want to refresh the page."
-msgstr "Veuillez rafraîchir la page."
+msgstr "Merci de rafraîchir la page."
 
 #: export.php:191 schema_export.php:64
 msgid "Bad type!"
@@ -388,7 +387,7 @@ msgstr "Paramètres incorrects !"
 #: gis_data_editor.php:119
 #, php-format
 msgid "Value for the column \"%s\""
-msgstr "Valeur pour la colonne «%s»"
+msgstr "Valeur pour la colonne « %s »"
 
 #: gis_data_editor.php:147
 #: templates/table/gis_visualization/gis_visualization.phtml:38
@@ -463,7 +462,7 @@ msgstr "Ajouter un polygone"
 
 #: gis_data_editor.php:407
 msgid "Add geometry"
-msgstr "Ajouter géométrie"
+msgstr "Ajouter une géométrie"
 
 #: gis_data_editor.php:413 js/messages.php:349 libraries/DbSearch.php:455
 #: libraries/DisplayResults.php:1815 libraries/browse_foreigners.lib.php:137
@@ -514,8 +513,8 @@ msgid ""
 "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
 "below into the \"Value\" field."
 msgstr ""
-"Choisissez «GeomFromText» depuis la colonne «Fonction» et collez la chaîne "
-"ci dessous dans le champ «Valeur»."
+"Choisir « GeomFromText » depuis la colonne « Fonction » et coller la chaîne "
+"ci-dessous dans le champ « Valeur »."
 
 #: import.php:64
 msgid "Succeeded"
@@ -535,9 +534,8 @@ msgid ""
 "You probably tried to upload a file that is too large. Please refer to "
 "%sdocumentation%s for a workaround for this limit."
 msgstr ""
-"Vous avez probablement tenté de télécharger un fichier trop volumineux. "
-"Veuillez vous référer à la %sdocumentation%s pour trouver le moyen de "
-"contourner cette limite."
+"Le fichier envoyé est probablement trop volumineux. Merci de se référer à la "
+"%sdocumentation%s pour trouver le moyen de contourner cette limite."
 
 #: import.php:376 import.php:577
 msgid "Showing bookmark"
@@ -545,7 +543,7 @@ msgstr "Affichage du signet"
 
 #: import.php:392 import.php:573
 msgid "The bookmark has been deleted."
-msgstr "Le signet a été effacé."
+msgstr "Le signet a été supprimé."
 
 #: import.php:486
 msgid ""
@@ -553,20 +551,20 @@ msgid ""
 "file size exceeded the maximum size permitted by your PHP configuration. See "
 "[doc@faq1-16]FAQ 1.16[/doc]."
 msgstr ""
-"Aucune données n'a été reçu en vue de l'importation. Aucun nom de fichier "
-"n'a été fourni, ou encore la taille du fichier a dépassé la limite permise "
-"par votre configuration de PHP. Voir [doc@faq1-16]FAQ 1.16[/doc]."
+"Aucune donnée n'a été reçue pour l'importation. Soit aucun nom de fichier "
+"n'a été fourni, soit la taille du fichier a dépassé la limite permise par la "
+"configuration de PHP. Voir [doc@faq1-16]FAQ 1.16[/doc]."
 
 #: import.php:538 libraries/display_import.lib.php:665
 msgid "Could not load import plugins, please check your installation!"
 msgstr ""
-"Chargement impossible des greffons d'importation, veuillez vérifier votre "
+"Chargement impossible des greffons d'importation, merci de vérifier cette "
 "installation !"
 
 #: import.php:580 libraries/sql.lib.php:788 libraries/sql.lib.php:1564
 #, php-format
 msgid "Bookmark %s has been created."
-msgstr "Signet %s créé."
+msgstr "Le signet %s a été créé."
 
 #: import.php:590
 #, php-format
@@ -581,21 +579,21 @@ msgid ""
 "Script timeout passed, if you want to finish import, please %sresubmit the "
 "same file%s and import will resume."
 msgstr ""
-"La limite de temps a été atteinte; si vous voulez terminer l'importation, "
-"%ssoumettez à nouveau%s le même fichier et l'importation continuera."
+"La limite de temps a été atteinte ; pour terminer l'importation, %ssoumettre "
+"à nouveau le même fichier%s et l'importation reprendra."
 
 #: import.php:629
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
 msgstr ""
-"Cependant lors du dernier traitement, aucune section n'a été analysée; ceci "
+"Cependant lors du dernier traitement, aucune section n'a été analysée ; ceci "
 "signifie que phpMyAdmin ne pourra terminer cette importation, à moins que la "
 "limite de temps de PHP ne soit augmentée."
 
 #: import.php:700 sql.php:163
 msgid "\"DROP DATABASE\" statements are disabled."
-msgstr "La commande «DROP DATABASE» est désactivée."
+msgstr "La commande « DROP DATABASE » est désactivée."
 
 #: import_status.php:105
 msgid "Could not load the progress of the import."
@@ -618,9 +616,9 @@ msgid ""
 "change root, debian-sys-maint and pma users. More information is available "
 "at %s."
 msgstr ""
-"Vous utilisez le serveur de démo. Vous êtes libre d'y faire ce que vous "
-"voulez, mais s'il vous plaît, ne changez pas les utilisateurs root, debian-"
-"sys-maint et pma. Plus d'informations sont disponibles à %s."
+"Le serveur de démonstration est en fonction. Il est possible de le tester en "
+"profondeur, mais merci de pas modifier les utilisateurs root, debian-sys-"
+"maint et pma. Plus d'informations sont disponibles à %s."
 
 #: index.php:167
 msgid "General settings"
@@ -676,7 +674,7 @@ msgstr "Jeu de caractères du serveur : "
 
 #: index.php:328
 msgid "Web server"
-msgstr "Serveur web"
+msgstr "Serveur Web"
 
 #: index.php:339
 msgid "Database client version:"
@@ -732,18 +730,18 @@ msgid ""
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
 "split strings correctly and it may result in unexpected results."
 msgstr ""
-"L'extension PHP mbstring n'a pu être localisée et il semble que vous "
-"utilisiez un jeu de caractères multi-octets. Sans cette extension, "
-"phpMyAdmin est incapable de gérer correctement les caractères et il peut en "
-"résulter des problèmes."
+"L'extension PHP mbstring n'a pas été trouvée et il semble qu'un jeu de "
+"caractères multi-octets soit utilisé. Sans cette extension, phpMyAdmin est "
+"incapable de gérer correctement les caractères et des problèmes inattendus "
+"pourraient survenir."
 
 #: index.php:468
 msgid ""
 "The curl extension was not found and allow_url_fopen is disabled. Due to "
 "this some features such as error reporting or version check are disabled."
 msgstr ""
-"L'extension curl n'a pas été trouvée et allow_url_fopen est désactivé. A "
-"cause de cela, des fonctionnalités telles que le rapport d'erreur ou la "
+"L'extension curl n'a pas été trouvée et allow_url_fopen est désactivé. De ce "
+"fait, des fonctionnalités telles que les rapports d'erreur ou la "
 "vérification de version sont désactivées."
 
 #: index.php:483
@@ -753,10 +751,11 @@ msgid ""
 "than cookie validity configured in phpMyAdmin, because of this, your login "
 "might expire sooner than configured in phpMyAdmin."
 msgstr ""
-"La valeur du paramètre PHP [a@https://secure.php.net/manual/fr/session."
-"configuration.php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/"
-"a] est plus petite que la durée du cookie configurée dans phpMyAdmin; donc, "
-"votre session de travail pourrait expirer plus tôt."
+"La valeur du paramètre PHP "
+"[a@https://secure.php.net/manual/fr/session.configuration.php#ini.session.gc-"
+"maxlifetime@_blank]session.gc_maxlifetime[/a] est plus petite que la durée "
+"du Cookie configurée dans phpMyAdmin ; la session de travail pourrait donc "
+"expirer plus tôt que la valeur configurée dans phpMyAdmin."
 
 #: index.php:502
 msgid ""
@@ -764,19 +763,20 @@ msgid ""
 "because of this, your login will expire sooner than configured in phpMyAdmin."
 msgstr ""
 "La valeur du paramètre LoginCookieStore est plus petite que la valeur de "
-"LoginCookieValidity; donc, votre session de travail expirera plus tôt que la "
+"LoginCookieValidity ; la session de travail expirera donc plus tôt que la "
 "valeur configurée dans phpMyAdmin."
 
 #: index.php:517
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
 msgstr ""
-"Vous devez ajouter dans le fichier de configuration une phrase de passe "
-"secrète (blowfish_secret)."
+"Le fichier de configuration nécessite maintenant une phrase de passe secrète "
+"(blowfish_secret)."
 
 #: index.php:524
 msgid "The secret passphrase in configuration (blowfish_secret) is too short."
 msgstr ""
-"La phrase secrète de la configuration (blowfish_secret) est trop courte."
+"La phrase de passe secrète de la configuration (blowfish_secret) est trop "
+"courte."
 
 #: index.php:538
 msgid ""
@@ -785,11 +785,11 @@ msgid ""
 "once phpMyAdmin has been configured. Otherwise the security of your server "
 "may be compromised by unauthorized people downloading your configuration."
 msgstr ""
-"Le répertoire [code]config[/code], utilisé par le script setup, est encore "
-"présent dans votre répertoire phpMyAdmin. Il est fortement recommandé de le "
-"supprimer dès que phpMyAdmin a été configuré. Sinon, la sécurité de votre "
-"serveur peut être compromise par le téléchargement de votre configuration "
-"par des personnes non autorisées."
+"Le répertoire [code]config[/code], qui est utilisé par le script de "
+"configuration, est encore présent dans le répertoire de phpMyAdmin. Il est "
+"fortement recommandé de le supprimer dès que phpMyAdmin est configuré. Sinon "
+"la sécurité de ce serveur pourrait être compromise par le téléchargement de "
+"la configuration par des personnes non autorisées."
 
 #: index.php:554
 #, php-format
@@ -805,8 +805,8 @@ msgstr ""
 msgid ""
 "Or alternately go to 'Operations' tab of any database to set it up there."
 msgstr ""
-"Ou encore allez sur l'onglet «Opérations», de n'importe quelle base de "
-"données pour l'y placer à cet endroit."
+"Ou encore aller sur l'onglet « Opérations » de n'importe quelle base de "
+"données pour le définir à cet endroit."
 
 #: index.php:600
 #, php-format
@@ -814,8 +814,8 @@ msgid ""
 "Your PHP MySQL library version %s differs from your MySQL server version %s. "
 "This may cause unpredictable behavior."
 msgstr ""
-"La version de votre bibliothèque MySQL (%s) de PHP diffère de la version de "
-"votre serveur MySQL (%s). Ceci peut occasionner un comportement imprévisible."
+"La version de la bibliothèque MySQL (%s) de PHP diffère de la version du "
+"serveur MySQL (%s). Ceci peut occasionner un comportement inattendu."
 
 #: index.php:628
 #, php-format
@@ -823,8 +823,8 @@ msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
 "issues."
 msgstr ""
-"Ce serveur utilise Suhosin. Veuillez vous référer à la %sdocumentation%s "
-"pour en connaître les conséquences possibles."
+"Ce serveur utilise Suhosin. Merci de se référer à la %sdocumentation%s pour "
+"en connaître les conséquences possibles."
 
 #: js/messages.php:43
 msgid "Confirm"
@@ -833,45 +833,45 @@ msgstr "Confirmer"
 #: js/messages.php:44
 #, php-format
 msgid "Do you really want to execute \"%s\"?"
-msgstr "Voulez-vous vraiment exécuter «%s» ?"
+msgstr "Faut-il vraiment exécuter « %s » ?"
 
 #: js/messages.php:46 libraries/mult_submits.lib.php:444
 msgid "You are about to DESTROY a complete database!"
-msgstr "Vous êtes sur le point de DÉTRUIRE une base de données !"
+msgstr "Une base de données est sur le point d'être DÉTRUITE !"
 
 #: js/messages.php:48
 msgid "Cannot rename database to the same name. Change the name and try again"
 msgstr ""
 "Impossible de donner le même nom à la base de données. Modifier le nom et "
-"essayez à nouveau"
+"réessayer"
 
 #: js/messages.php:50
 msgid "You are about to DESTROY a complete table!"
-msgstr "Vous êtes sur le point de DÉTRUIRE une table au complet !"
+msgstr "Une table entière est sur le point d'être DÉTRUITE !"
 
 #: js/messages.php:52
 msgid "You are about to TRUNCATE a complete table!"
-msgstr "Vous êtes sur le point de VIDER une table au complet !"
+msgstr "Une table entière est sur le point d'être VIDÉE !"
 
 #: js/messages.php:53
 msgid "Delete tracking data for this table?"
-msgstr "Supprimer les données de suivi pour cette table ?"
+msgstr "Faut-il supprimer les données de suivi pour cette table ?"
 
 #: js/messages.php:55
 msgid "Delete tracking data for these tables?"
-msgstr "Supprimer les données de suivi pour ces tables ?"
+msgstr "Faut-il supprimer les données de suivi pour ces tables ?"
 
 #: js/messages.php:57
 msgid "Delete tracking data for this version?"
-msgstr "Supprimer les données de suivi pour cette version ?"
+msgstr "Faut-il supprimer les données de suivi pour cette version ?"
 
 #: js/messages.php:59
 msgid "Delete tracking data for these versions?"
-msgstr "Supprimer les données de suivi pour ces versions ?"
+msgstr "Faut-il supprimer les données de suivi pour ces versions ?"
 
 #: js/messages.php:60
 msgid "Delete entry from tracking report?"
-msgstr "Supprimer l'entrée du rapport de suivi ?"
+msgstr "Faut-il supprimer l'entrée du rapport de suivi ?"
 
 #: js/messages.php:61
 msgid "Deleting tracking data"
@@ -879,63 +879,65 @@ msgstr "Suppression des données de suivi"
 
 #: js/messages.php:62
 msgid "Dropping Primary Key/Index"
-msgstr "Destruction de clé primaire / index"
+msgstr "Destruction de clé primaire/index"
 
 #: js/messages.php:63
 msgid "Dropping Foreign key."
-msgstr "Suppression de la clé étrangère."
+msgstr "Destruction de la clé étrangère"
 
 #: js/messages.php:65
 msgid "This operation could take a long time. Proceed anyway?"
-msgstr "Cette opération pourrait être longue. Procéder quand même ?"
+msgstr "Cette opération pourrait être longue. Fquand même procéder ?"
 
 #: js/messages.php:67
 #, php-format
 msgid "Do you really want to delete user group \"%s\"?"
-msgstr "Voulez-vous vraiment supprimer le groupe «%s» ?"
+msgstr "Faut-il vraiment supprimer le groupe d'utilisateurs « %s » ?"
 
 #: js/messages.php:69
 #, php-format
 msgid "Do you really want to delete the search \"%s\"?"
-msgstr "Voulez-vous vraiment supprimer la recherche «%s» ?"
+msgstr "Faut-il vraiment supprimer la recherche « %s » ?"
 
 #: js/messages.php:71
 msgid "You have unsaved changes; are you sure you want to leave this page?"
 msgstr ""
-"Des changements n'ont pas été sauvegardés; êtes-vous sûr de vouloir quitter "
-"cette page ?"
+"Des modifications n'ont pas été sauvegardées. Faut-il vraiment quitter cette "
+"page ?"
 
 #: js/messages.php:73
 msgid "Do you really want to revoke the selected user(s) ?"
-msgstr "Voulez-vous vraiment supprimer les utilisateurs sélectionnés ?"
+msgstr "Faut-il vraiment supprimer l'(es) utilisateur(s) sélectionné(s) ?"
 
 #: js/messages.php:75
 msgid "Do you really want to delete this central column?"
-msgstr "Voulez-vous vraiment supprimer cette colonne centrale ?"
+msgstr "Faut-il vraiment supprimer cette colonne centrale ?"
 
 #: js/messages.php:77
 msgid "Do you really want to delete the selected items?"
-msgstr "Voulez-vous vraiment supprimer les éléments sélectionnés ?"
+msgstr "Faut-il vraiment supprimer les éléments sélectionnés ?"
 
 #: js/messages.php:79
 msgid ""
 "Do you really want to DROP the selected partition(s)? This will also DELETE "
 "the data related to the selected partition(s)!"
 msgstr ""
-"Voulez-vous vraiment supprimer les partitions sélectionnées ? Cela va "
-"également supprimer les données associées aux partitions sélectionnées !"
+"Faut-il vraiment supprimer (DROP) la(es) partition(s) sélectionnée(s) ? Cela "
+"va également SUPPRIMER les données associées à la(aux) partition(s) "
+"sélectionnée(s) !"
 
 #: js/messages.php:83
 msgid "Do you really want to TRUNCATE the selected partition(s)?"
-msgstr "Voulez-vous vraiment tronquer les partitions sélectionnées ?"
+msgstr ""
+"Faut-il vraiment tronquer (TRUNCATE) la(es) partition(s) sélectionnée(s) ?"
 
 #: js/messages.php:85
 msgid "Do you really want to remove partitioning?"
-msgstr "Voulez-vous vraiment enlever le partitionnement ?"
+msgstr "Faut-il vraiment retirer le partitionnement ?"
 
 #: js/messages.php:86
 msgid "Do you really want to RESET SLAVE?"
-msgstr "Voulez-vous vraiment exécuter « RESET SLAVE » ?"
+msgstr "Faut-il vraiment exécuter « RESET SLAVE » ?"
 
 #: js/messages.php:88
 msgid ""
@@ -945,11 +947,11 @@ msgid ""
 "collation; in this case we suggest you revert to the original collation and "
 "refer to the tips at "
 msgstr ""
-"Cette opération va tenter de convertir vos données dans le nouveau "
-"classement. Dans de rares cas, particulièrement où un caractère n'existe pas "
-"dans le nouveau classement, ce processus pourrait causer un mauvais "
-"affichage des données dans le nouveau classement; dans ce cas nous vous "
-"suggérons de revenir au classement original et de consulter les conseils à "
+"Cette opération va tenter de convertir les données dans le nouveau "
+"classement. Dans de rares cas, en particulièrement quand un caractère "
+"n'existe pas dans le nouveau classement, ce processus pourrait causer un "
+"mauvais affichage des données dans le nouveau classement ; dans ce cas il "
+"est suggéré de revenir au classement d'origine et de consulter les astuces à "
 
 #: js/messages.php:94
 msgid "Garbled Data"
@@ -957,9 +959,7 @@ msgstr "Données déformées"
 
 #: js/messages.php:96
 msgid "Are you sure you wish to change the collation and convert the data?"
-msgstr ""
-"Êtes-vous certain de vouloir modifier le classement et de convertir les "
-"données ?"
+msgstr "Faut-il vraiment modifier le classement et convertir les données ?"
 
 #: js/messages.php:98
 msgid ""
@@ -972,10 +972,10 @@ msgid ""
 msgstr ""
 "Par cette opération, MySQL tente de mapper les valeurs de données entre les "
 "classements. Si les jeux de caractères sont incompatibles, il peut y avoir "
-"perte de données et ces données perdues peuvent <b>NE PAS</b> être "
+"une perte de données et les données perdues peuvent <b>NE PAS</b> être "
 "récupérables simplement en changeant la colonne de classement. <b>Pour "
 "convertir les données existantes, il est conseillé d'utiliser le mode "
-"d'édition de colonne (le lien \"Modifier\") sur la page de structure de "
+"d'édition de colonne (le lien « Modifier ») sur la page de structure de "
 "table.</b>"
 
 #: js/messages.php:107
@@ -983,8 +983,8 @@ msgid ""
 "Are you sure you wish to change all the column collations and convert the "
 "data?"
 msgstr ""
-"Êtes-vous certain de vouloir modifier le classement de toutes les colonnes "
-"et de convertir les données ?"
+"Faut-il vraiment modifier tous les classements de colonnes et convertir les "
+"données ?"
 
 #: js/messages.php:111
 msgid "Save & close"
@@ -1005,15 +1005,15 @@ msgstr "Formulaire incomplet !"
 
 #: js/messages.php:117
 msgid "Select at least one of the options!"
-msgstr "Sélectionnez au moins l'une des options !"
+msgstr "Sélectionner au moins l'une des options !"
 
 #: js/messages.php:118
 msgid "Please enter a valid number!"
-msgstr "Veuillez saisir un nombre valide !"
+msgstr "Merci de saisir un nombre valide !"
 
 #: js/messages.php:119
 msgid "Please enter a valid length!"
-msgstr "Veuillez saisir une longueur valide !"
+msgstr "Merci de saisir une longueur valide !"
 
 #: js/messages.php:120
 msgid "Add index"
@@ -1030,7 +1030,7 @@ msgstr "Ajouter %s colonne(s) à l'index"
 
 #: js/messages.php:123
 msgid "Create single-column index"
-msgstr "Créer un index sur une seule colonne"
+msgstr "Créer un index sur colonne unique"
 
 #: js/messages.php:124
 msgid "Create composite index"
@@ -1042,11 +1042,11 @@ msgstr "Autres colonnes formant l'index :"
 
 #: js/messages.php:126
 msgid "Please select column(s) for the index."
-msgstr "Veuillez sélectionner les colonnes de l'index."
+msgstr "Merci de sélectionner la(es) colonne(s) de l'index."
 
 #: js/messages.php:129 templates/table/structure/add_column.phtml:1
 msgid "You have to add at least one column."
-msgstr "Vous devez ajouter au moins une colonne."
+msgstr "Il faut ajouter au moins une colonne."
 
 #: js/messages.php:132 libraries/insert_edit.lib.php:1617
 #: templates/columns_definitions/column_definitions_form.phtml:163
@@ -1074,7 +1074,7 @@ msgstr "Valeurs en Y"
 
 #: js/messages.php:144
 msgid "The host name is empty!"
-msgstr "Le nom de serveur est vide !"
+msgstr "Le nom d'hôte est vide !"
 
 #: js/messages.php:145
 msgid "The user name is empty!"
@@ -1109,7 +1109,7 @@ msgstr "Le modèle a été chargé."
 
 #: js/messages.php:154
 msgid "Template was updated."
-msgstr "Le modèle a été modifié."
+msgstr "Le modèle a été mis à  jour."
 
 #: js/messages.php:155
 msgid "Template was deleted."
@@ -1148,10 +1148,10 @@ msgid ""
 "likely that your current configuration will not work anymore. Please reset "
 "your configuration to default in the <i>Settings</i> menu."
 msgstr ""
-"La configuration du graphique dans votre stockage local du navigateur n'est "
-"plus compatible avec l'interface de surveillance. Votre configuration "
-"courante ne fonctionnera probablement pas. Veuillez réinitialiser votre "
-"configuration via le menu <i>Paramètres</i>."
+"La configuration de la disposition des graphiques dans le stockage local du "
+"navigateur n'est plus compatible avec l'interface de surveillance. La "
+"configuration courante ne fonctionnera probablement pas. Merci de "
+"réinitialiser la configuration via le menu <i>Paramètres</i>."
 
 #: js/messages.php:176
 msgid "Query cache efficiency"
@@ -1175,7 +1175,7 @@ msgstr "Mémoire système"
 
 #: js/messages.php:182
 msgid "System swap"
-msgstr "Zone d'échange"
+msgstr "Zone d'échange système"
 
 #: js/messages.php:184
 msgid "Average load"
@@ -1191,7 +1191,7 @@ msgstr "Mémoire cache"
 
 #: js/messages.php:187
 msgid "Buffered memory"
-msgstr "Mémoire-tampon"
+msgstr "Mémoire tampon"
 
 #: js/messages.php:188
 msgid "Free memory"
@@ -1243,7 +1243,7 @@ msgstr "o"
 #: js/messages.php:203 libraries/Util.php:1311
 #: libraries/server_status_monitor.lib.php:213
 msgid "KiB"
-msgstr "Kio"
+msgstr "kio"
 
 #. l10n: shortcuts for Megabyte
 #: js/messages.php:204 libraries/Util.php:1313
@@ -1293,11 +1293,11 @@ msgstr "Paramètres"
 
 #: js/messages.php:215
 msgid "Add chart to grid"
-msgstr "Ajouter graphique à la grille"
+msgstr "Ajouter le graphique à la grille"
 
 #: js/messages.php:218
 msgid "Please add at least one variable to the series!"
-msgstr "Veuillez ajouter au moins une variable à la série !"
+msgstr "Merci ajouter au moins une variable aux séries !"
 
 #: js/messages.php:219 libraries/DisplayResults.php:1494
 #: libraries/config.values.php:69 libraries/display_export.lib.php:691
@@ -1347,11 +1347,11 @@ msgstr "general_log et slow_query_log sont désactivés."
 
 #: js/messages.php:229
 msgid "log_output is not set to TABLE."
-msgstr "log_output n'est pas réglé à TABLE."
+msgstr "log_output n'est pas défini à TABLE."
 
 #: js/messages.php:230
 msgid "log_output is set to TABLE."
-msgstr "log_output est réglé à TABLE."
+msgstr "log_output est défini à TABLE."
 
 #: js/messages.php:232
 #, php-format
@@ -1362,26 +1362,26 @@ msgid ""
 msgstr ""
 "slow_query_log est activé, mais le serveur n'enregistre que les requêtes qui "
 "prennent plus de %d secondes. Il est recommandé de régler long_query_time à "
-"0-2 secondes, selon votre système."
+"0-2 secondes, selon le système."
 
 #: js/messages.php:236
 #, php-format
 msgid "long_query_time is set to %d second(s)."
-msgstr "long_query_time est réglé à %d seconde(s)."
+msgstr "long_query_time est défini à %d seconde(s)."
 
 #: js/messages.php:238
 msgid ""
 "Following settings will be applied globally and reset to default on server "
 "restart:"
 msgstr ""
-"Les réglages suivants seront appliqués globalement et remis à la valeur par "
-"défaut lors du rémarrage du serveur : "
+"Les paramètres suivants seront appliqués globalement et remis à la valeur "
+"par défaut lors du redémarrage du serveur :"
 
 #. l10n: %s is FILE or TABLE
 #: js/messages.php:242
 #, php-format
 msgid "Set log_output to %s"
-msgstr "Régler log_output à %s"
+msgstr "Définir log_output à %s"
 
 #. l10n: Enable in this context means setting a status variable to ON
 #: js/messages.php:244
@@ -1399,23 +1399,23 @@ msgstr "Désactiver %s"
 #: js/messages.php:248
 #, php-format
 msgid "Set long_query_time to %d seconds."
-msgstr "Régler long_query_time à %d secondes."
+msgstr "Définir long_query_time à %d secondes."
 
 #: js/messages.php:250
 msgid ""
 "You can't change these variables. Please log in as root or contact your "
 "database administrator."
 msgstr ""
-"Vous ne pouvez changer ces variables. Connectez-vous en tant que root ou "
-"contactez l'administrateur du serveur."
+"Il n'est pas possible de modifier ces variables. Merci de se connecter en "
+"tant que root ou de contacter l'administrateur du serveur."
 
 #: js/messages.php:253
 msgid "Change settings"
-msgstr "Changer les paramètres"
+msgstr "Modifier les paramètres"
 
 #: js/messages.php:254
 msgid "Current settings"
-msgstr "Paramètres courants"
+msgstr "Paramètres actuels"
 
 #: js/messages.php:256
 msgid "Chart title"
@@ -1446,8 +1446,8 @@ msgstr "Depuis le journal général"
 #: js/messages.php:265
 msgid "The database name is not known for this query in the server's logs."
 msgstr ""
-"Le nom de la base de données n'est pas connu pour cette requête dans les "
-"logs du serveur."
+"Le nom de la base de données est inconnu pour cette requête dans les "
+"journaux du serveur."
 
 #: js/messages.php:267
 msgid "Analysing logs"
@@ -1480,8 +1480,8 @@ msgid ""
 "same table are also being grouped together, disregarding of the inserted "
 "data."
 msgstr ""
-"Puisque le groupement des requêtes INSERT a été sélectionné, les requêtes "
-"INSERT vers une même table sont groupées, peu importe les données insérées."
+"Comme le groupement des requêtes INSERT a été sélectionné, les requêtes "
+"INSERT dans une même table sont groupées, peu importe les données insérées."
 
 #: js/messages.php:282
 msgid "Log data loaded. Queries executed in this time span:"
@@ -1493,11 +1493,11 @@ msgstr "Aller à la table du journal"
 
 #: js/messages.php:285
 msgid "No data found"
-msgstr "Aucune donnée"
+msgstr "Aucune donnée trouvée"
 
 #: js/messages.php:287
 msgid "Log analysed, but no data found in this time span."
-msgstr "Journal analysé, mais aucune donnée trouvée pour ce laps de temps."
+msgstr "Journal analysé, mais aucune donnée trouvée dans ce laps de temps."
 
 #: js/messages.php:289
 msgid "Analyzing…"
@@ -1523,7 +1523,7 @@ msgstr "État"
 #: libraries/rte/rte_list.lib.php:96
 #: libraries/server_status_processes.lib.php:88 libraries/sql.lib.php:241
 msgid "Time"
-msgstr "Moment"
+msgstr "Temps"
 
 #: js/messages.php:293
 msgid "Total time:"
@@ -1540,12 +1540,12 @@ msgstr "Table"
 
 #: js/messages.php:296
 msgid "Chart"
-msgstr "Tableau"
+msgstr "Graphique"
 
 #. l10n: A collection of available filters
 #: js/messages.php:299
 msgid "Log table filter options"
-msgstr "Options de filtrage de la table journal"
+msgstr "Options de filtrage du journal de la table"
 
 #. l10n: Filter as in "Start Filtering"
 #: js/messages.php:301
@@ -1582,8 +1582,9 @@ msgid ""
 "This is most likely because your session expired. Reloading the page and "
 "reentering your credentials should help."
 msgstr ""
-"Le serveur a retourné une réponse invalide. Votre session a probablement "
-"expiré. Veuillez recharger la page et vous connecter à nouveau."
+"Le serveur a retourné une réponse invalide à la demande d'un nouveau "
+"graphique de données. La session a probablement expiré. Merci de recharger "
+"la page et de se connecter à nouveau."
 
 #: js/messages.php:315
 msgid "Reload page"
@@ -1603,8 +1604,8 @@ msgstr ""
 msgid ""
 "Failed building chart grid with imported config. Resetting to default config…"
 msgstr ""
-"Échec de construction du graphique avec la configuration importée. "
-"Réinitialisation à la configuration par défaut…"
+"Échec de construction de la grille de graphiques avec la configuration "
+"importée. Réinitialisation à la configuration par défaut…"
 
 #: js/messages.php:325 libraries/Menu.php:365 libraries/Menu.php:467
 #: libraries/Menu.php:588 libraries/Util.php:4099 libraries/Util.php:4114
@@ -1613,7 +1614,7 @@ msgstr ""
 #: libraries/server_status_monitor.lib.php:313 prefs_manage.php:246
 #: setup/frames/menu.inc.php:27
 msgid "Import"
-msgstr "Import"
+msgstr "Importer"
 
 #: js/messages.php:326
 msgid "Import monitor configuration"
@@ -1621,7 +1622,7 @@ msgstr "Importer la configuration de surveillance"
 
 #: js/messages.php:328
 msgid "Please select the file you want to import."
-msgstr "Veuillez choisir le fichier à importer."
+msgstr "Merci de choisir le fichier à importer."
 
 #: js/messages.php:329
 msgid "No files available on server for import!"
@@ -1637,7 +1638,7 @@ msgstr "Conseiller"
 
 #: js/messages.php:336
 msgid "Possible performance issues"
-msgstr "Impact de performance possible"
+msgstr "Impact possible sur les performances"
 
 #: js/messages.php:337
 msgid "Issue"
@@ -1669,7 +1670,7 @@ msgstr "Formatage SQL…"
 
 #: js/messages.php:346
 msgid "No parameters found!"
-msgstr "Paramètres manquants !"
+msgstr "Aucun paramètre trouvé !"
 
 #: js/messages.php:350
 #: templates/database/designer/aggregate_query_panel.phtml:63
@@ -1685,7 +1686,7 @@ msgstr "Annuler"
 
 #: js/messages.php:353 libraries/Header.php:454
 msgid "Page-related settings"
-msgstr "Paramètres liés à la page"
+msgstr "Paramètres relatifs à la page"
 
 #: js/messages.php:354 libraries/config/FormDisplay.tpl.php:424
 msgid "Apply"
@@ -1702,7 +1703,7 @@ msgstr "Requête abandonnée !"
 
 #: js/messages.php:359
 msgid "Processing request"
-msgstr "Requête en traitement"
+msgstr "Traitement de la requête"
 
 #: js/messages.php:360
 msgid "Request failed!!"
@@ -1752,7 +1753,7 @@ msgstr "Cliquer pour éliminer ce message"
 
 #: js/messages.php:371
 msgid "Renaming databases"
-msgstr "Changement de nom de la base de données"
+msgstr "Changement du nom de la base de données"
 
 #: js/messages.php:372
 msgid "Copying database"
@@ -1784,20 +1785,21 @@ msgstr "Afficher les résultats de recherche"
 
 #: js/messages.php:386
 msgid "Browsing"
-msgstr "Affichage en cours"
+msgstr "Parcours en cours"
 
 #: js/messages.php:387
 msgid "Deleting"
-msgstr "Destruction en cours"
+msgstr "Suppression en cours"
 
 #: js/messages.php:388
 #, php-format
 msgid "Delete the matches for the %s table?"
-msgstr "Supprimer de la table %s les occurences ?"
+msgstr "Faut-il supprimer de la table %s les correspondances ?"
 
 #: js/messages.php:392
 msgid "The definition of a stored function must contain a RETURN statement!"
-msgstr "La définition d'une fonction doit comporter un énoncé RETURN !"
+msgstr ""
+"La définition d'une fonction stockée doit comporter une déclaration RETURN !"
 
 #: js/messages.php:393 libraries/DisplayResults.php:4872
 #: libraries/DisplayResults.php:5155 libraries/Menu.php:357
@@ -1813,12 +1815,12 @@ msgstr "La définition d'une fonction doit comporter un énoncé RETURN !"
 #: setup/frames/menu.inc.php:28
 #: templates/database/structure/check_all_tables.phtml:12
 msgid "Export"
-msgstr "Export"
+msgstr "Exporter"
 
 #: js/messages.php:395
 msgid "No routine is exportable. Required privileges may be lacking."
 msgstr ""
-"Aucune routine n’est exportable. Des privilèges requis manquent sans-doute."
+"Aucune routine n’est exportable. Des privilèges requis pourraient manquer."
 
 #: js/messages.php:398 libraries/rte/rte_routines.lib.php:747
 msgid "ENUM/SET editor"
@@ -1846,15 +1848,16 @@ msgstr "Ajouter %d valeur(s)"
 msgid ""
 "Note: If the file contains multiple tables, they will be combined into one."
 msgstr ""
-"Note : si le fichier contient plusieurs tables, elles seront combinées."
+"Remarque : si le fichier contient plusieurs tables, elles seront combinées "
+"en une seule."
 
 #: js/messages.php:410
 msgid "Hide query box"
-msgstr "Cacher zone SQL"
+msgstr "Masquer la zone SQL"
 
 #: js/messages.php:411
 msgid "Show query box"
-msgstr "Montrer zone SQL"
+msgstr "Afficher la zone SQL"
 
 #: js/messages.php:412 libraries/DisplayResults.php:3493
 #: libraries/DisplayResults.php:4856 libraries/Index.php:709
@@ -1867,7 +1870,7 @@ msgstr "Montrer zone SQL"
 #: templates/server/variables/variable_row.phtml:4
 #: templates/server/variables/variable_row.phtml:7
 msgid "Edit"
-msgstr "Modifier"
+msgstr "Éditer"
 
 #: js/messages.php:413 libraries/DbSearch.php:353
 #: libraries/DisplayResults.php:3562 libraries/DisplayResults.php:4840
@@ -1878,20 +1881,20 @@ msgstr "Modifier"
 #: setup/frames/index.inc.php:166 templates/console/bookmark_content.phtml:18
 #: templates/database/designer/delete_relation_panel.phtml:27
 msgid "Delete"
-msgstr "Effacer"
+msgstr "Supprimer"
 
 #: js/messages.php:414 libraries/DisplayResults.php:929
 #: libraries/DisplayResults.php:937
 #, php-format
 msgid "%d is not valid row number."
-msgstr "%d n'est pas un numéro de ligne valable."
+msgstr "%d n'est pas un numéro de ligne valide."
 
 #: js/messages.php:415
 #: libraries/controllers/table/TableSearchController.php:357
 #: libraries/controllers/table/TableSearchController.php:844
 #: libraries/sql.lib.php:195 tbl_change.php:151
 msgid "Browse foreign values"
-msgstr "Afficher les valeurs de la table liée"
+msgstr "Parcourir les valeurs étrangères"
 
 #: js/messages.php:416
 msgid "No auto-saved query"
@@ -1920,7 +1923,7 @@ msgid ""
 "No columns in the central list. Make sure the Central columns list for "
 "database %s has columns that are not present in the current table."
 msgstr ""
-"Aucune colonne dans la liste centrale. Assurez-vous que la liste de colonnes "
+"Aucune colonne dans la liste centrale. S'assurer que la liste de colonnes "
 "centrales pour la base de données %s comporte des colonnes qui ne sont pas "
 "présentes dans la table actuelle."
 
@@ -1930,15 +1933,15 @@ msgstr "Plus"
 
 #: js/messages.php:428
 msgid "Are you sure?"
-msgstr "Êtes-vous certain ?"
+msgstr "Faut-il confirmer ?"
 
 #: js/messages.php:430
 msgid ""
 "This action may change some of the columns definition.<br/>Are you sure you "
 "want to continue?"
 msgstr ""
-"Cette action peut changer certaines définitions de colonnes. <br/>Êtes-vous "
-"sûr de vouloir continuer ?"
+"Cette action peut changer certaines définitions de colonnes.<br/>Faut-il "
+"vraiment continuer ?"
 
 #: js/messages.php:433
 msgid "Continue"
@@ -1954,18 +1957,19 @@ msgstr "Une clé primaire a été ajoutée."
 
 #: js/messages.php:438 libraries/normalization.lib.php:189
 msgid "Taking you to next step…"
-msgstr "Vous êtes redirigé vers l'étape suivante…"
+msgstr "Vers l'étape suivante…"
 
 #: js/messages.php:440
 #, php-format
 msgid "The first step of normalization is complete for table '%s'."
-msgstr "La première étape de la normalisation est terminée pour la table «%s»."
+msgstr ""
+"La première étape de la normalisation est terminée pour la table « %s »."
 
 #: js/messages.php:441 libraries/normalization.lib.php:450
 #: libraries/normalization.lib.php:497 libraries/normalization.lib.php:582
 #: libraries/normalization.lib.php:642
 msgid "End of step"
-msgstr "Fin d'étape"
+msgstr "Fin de l'étape"
 
 #: js/messages.php:442
 msgid "Second step of normalization (2NF)"
@@ -1989,18 +1993,18 @@ msgid ""
 "Note: a, b -> d,f implies values of columns a and b combined together can "
 "determine values of column d and column f."
 msgstr ""
-"Remarque: a, b -> d, f implique que les valeurs des colonnes a et b "
+"Remarque : a, b -> d, f implique que les valeurs des colonnes a et b "
 "combinées peuvent déterminer les valeurs des colonnes d et f."
 
 #: js/messages.php:450
 msgid "No partial dependencies selected!"
-msgstr "Pas de dépendances partielles sélectionnées !"
+msgstr "Aucune dépendance partielle sélectionnée !"
 
 #: js/messages.php:453
 msgid "Show me the possible partial dependencies based on data in the table"
 msgstr ""
-"Montrez-moi les dépendances partielles possibles en se basant sur les "
-"données de la table"
+"Afficher les dépendances partielles possibles en se basant sur les données "
+"de la table"
 
 #: js/messages.php:454
 msgid "Hide partial dependencies list"
@@ -2011,8 +2015,8 @@ msgid ""
 "Sit tight! It may take few seconds depending on data size and column count "
 "of the table."
 msgstr ""
-"Soyez patient ! Cela peut prendre quelques secondes selon la taille des "
-"données et le nombre de colonnes de la table."
+"Patience ! Cela peut prendre quelques secondes selon la taille des données "
+"et le nombre de colonnes de la table."
 
 #: js/messages.php:459
 msgid "Step"
@@ -2025,7 +2029,7 @@ msgstr "Les actions suivantes seront effectuées :"
 #: js/messages.php:462
 #, php-format
 msgid "DROP columns %s from the table %s"
-msgstr "Supprimer les colonnes %s de la table %s"
+msgstr "Supprimer (DROP) les colonnes %s de la table %s"
 
 #: js/messages.php:463
 msgid "Create the following table"
@@ -2055,11 +2059,11 @@ msgstr "Aucune dépendance sélectionnée !"
 #: templates/table/relation/common_form.phtml:132
 #: templates/table/structure/partition_definition_form.phtml:11
 msgid "Save"
-msgstr "Sauvegarder"
+msgstr "Enregistrer"
 
 #: js/messages.php:475
 msgid "Hide search criteria"
-msgstr "Cacher les critères de recherche"
+msgstr "Masquer les critères de recherche"
 
 #: js/messages.php:476
 msgid "Show search criteria"
@@ -2075,19 +2079,19 @@ msgstr "Maximum pour la colonne :"
 
 #: js/messages.php:479
 msgid "Column minimum:"
-msgstr "Valeur minimum pour la colonne :"
+msgstr "Minimum pour la colonne :"
 
 #: js/messages.php:480
 msgid "Minimum value:"
-msgstr "Valeur minimum :"
+msgstr "Valeur minimale :"
 
 #: js/messages.php:481
 msgid "Maximum value:"
-msgstr "Valeur maximum :"
+msgstr "Valeur maximale :"
 
 #: js/messages.php:484
 msgid "Hide find and replace criteria"
-msgstr "Cacher les critères de recherche et remplacement"
+msgstr "Masquer les critères de recherche et remplacement"
 
 #: js/messages.php:485
 msgid "Show find and replace criteria"
@@ -2099,20 +2103,21 @@ msgstr "Chaque point représente une ligne de données."
 
 #: js/messages.php:491
 msgid "Hovering over a point will show its label."
-msgstr "Survoler un point montrera sa description."
+msgstr "Survoler un point affichera son libellé."
 
 #: js/messages.php:493
 msgid "To zoom in, select a section of the plot with the mouse."
-msgstr "Pour zoomer, sélectionnez une section avec la souris."
+msgstr "Pour zoomer, sélectionner une section avec la souris."
 
 #: js/messages.php:495
 msgid "Click reset zoom button to come back to original state."
-msgstr "Cliquez le lien «Réinitialiser zoom» pour revenir à l'état original."
+msgstr ""
+"Cliquer le bouton « Réinitialiser le zoom » pour revenir à l'état d'origine."
 
 #: js/messages.php:497
 msgid "Click a data point to view and possibly edit the data row."
 msgstr ""
-"Cliquez sur un point pour visualiser et possiblement éditer la ligne de "
+"Cliquer sur un point pour visualiser et possiblement éditer la ligne de "
 "données."
 
 #: js/messages.php:499
@@ -2122,15 +2127,15 @@ msgstr ""
 
 #: js/messages.php:502
 msgid "Select two columns"
-msgstr "Sélectionnez deux colonnes"
+msgstr "Sélectionner deux colonnes"
 
 #: js/messages.php:504
 msgid "Select two different columns"
-msgstr "Sélectionnez deux colonnes différentes"
+msgstr "Sélectionner deux colonnes différentes"
 
 #: js/messages.php:506
 msgid "Data point content"
-msgstr "Données reliées à ce point"
+msgstr "Données relatives à ce point"
 
 #: js/messages.php:509 js/messages.php:675 js/messages.php:692
 #: libraries/ErrorHandler.php:366 libraries/insert_edit.lib.php:2644
@@ -2169,18 +2174,18 @@ msgstr "Anneau extérieur"
 
 #: js/messages.php:523
 msgid "Do you want to copy encryption key?"
-msgstr "Voulez-vous copier la clé de cryptage ?"
+msgstr "Faut-il copier la clé de chiffrement ?"
 
 #: js/messages.php:524
 msgid "Encryption key"
-msgstr "Clé de cryptage"
+msgstr "Clé de chiffrement"
 
 #: js/messages.php:528
 msgid ""
 "MySQL accepts additional values not selectable by the slider; key in those "
 "values directly if desired"
 msgstr ""
-"MySQL accepte des valeurs non sélectionnables via le menu; entrez "
+"MySQL accepte des valeurs non sélectionnables via le sélecteur ; saisir "
 "directement ces valeurs si besoin"
 
 #: js/messages.php:534
@@ -2189,40 +2194,40 @@ msgid ""
 "those values directly if desired"
 msgstr ""
 "MySQL accepte des valeurs non sélectionnables via le sélecteur de date; "
-"entrez directement ces valeurs si besoin"
+"saisir directement ces valeurs si besoin"
 
 #: js/messages.php:540
 msgid ""
 "Indicates that you have made changes to this page; you will be prompted for "
 "confirmation before abandoning changes"
 msgstr ""
-"Indique que vous avez fait des modifications à cette page; on vous demandera "
-"confirmation avant d'abandonner les modifications"
+"Indique que des modifications ont été apportées à cette page ; une "
+"confirmation sera demandée avant d'abandonner ces modifications"
 
 #: js/messages.php:545
 msgid "Select referenced key"
-msgstr "Sélectionnez la clé référencée"
+msgstr "Sélectionner la clé référencée"
 
 #: js/messages.php:546
 msgid "Select Foreign Key"
-msgstr "Choisissez la clé étrangère"
+msgstr "Sélectionner la clé étrangère"
 
 #: js/messages.php:548
 msgid "Please select the primary key or a unique key!"
-msgstr "Veuillez choisir la clé primaire ou un index unique !"
+msgstr "Merci de sélectionner la clé primaire ou une clé unique !"
 
 #: js/messages.php:549 templates/database/designer/side_menu.phtml:91
 #: templates/database/designer/side_menu.phtml:94
 msgid "Choose column to display"
-msgstr "Colonne descriptive"
+msgstr "Choisir la colonne à afficher"
 
 #: js/messages.php:551
 msgid ""
 "You haven't saved the changes in the layout. They will be lost if you don't "
 "save them. Do you want to continue?"
 msgstr ""
-"Vous n'avez pas sauvegardé les changements. Ils seront perdus si vous ne les "
-"sauvegardez pas. Voulez-vous continuer ?"
+"Les modifications de la disposition n'ont pas été sauvées. Elles seront "
+"perdues si elles ne sont pas enregistrées. Faut-il vraiment continuer ?"
 
 #: js/messages.php:554
 msgid "Page name"
@@ -2231,12 +2236,12 @@ msgstr "Nom de la page"
 #: js/messages.php:555 templates/database/designer/side_menu.phtml:56
 #: templates/database/designer/side_menu.phtml:59
 msgid "Save page"
-msgstr "Sauvegarder la page"
+msgstr "Enregistrer la page"
 
 #: js/messages.php:556 templates/database/designer/side_menu.phtml:63
 #: templates/database/designer/side_menu.phtml:66
 msgid "Save page as"
-msgstr "Sauvegarder la page en tant que"
+msgstr "Enregistrer la page sous"
 
 #: js/messages.php:557 templates/database/designer/side_menu.phtml:49
 #: templates/database/designer/side_menu.phtml:52
@@ -2253,15 +2258,15 @@ msgstr "Sans titre"
 
 #: js/messages.php:560
 msgid "Please select a page to continue"
-msgstr "Veuillez sélectionner une page pour continuer"
+msgstr "Merci de sélectionner une page pour continuer"
 
 #: js/messages.php:561
 msgid "Please enter a valid page name"
-msgstr "Veuillez saisir un nom de page valide"
+msgstr "Merci de saisir un nom de page valide"
 
 #: js/messages.php:563
 msgid "Do you want to save the changes to the current page?"
-msgstr "Voulez-vous enregistrer les modifications dans la page en cours ?"
+msgstr "Faut-il enregistrer les modifications dans la page en cours ?"
 
 #: js/messages.php:564
 msgid "Successfully deleted the page"
@@ -2273,12 +2278,12 @@ msgstr "Exporter un schéma relationnel"
 
 #: js/messages.php:566
 msgid "Modifications have been saved"
-msgstr "Les modifications ont été sauvegardées"
+msgstr "Les modifications ont été enregistrées"
 
 #: js/messages.php:569
 #, php-format
 msgid "Add an option for column \"%s\"."
-msgstr "Ajouter une option pour la colonne «%s»."
+msgstr "Ajouter une option pour la colonne « %s »."
 
 #: js/messages.php:570
 #, php-format
@@ -2287,19 +2292,19 @@ msgstr "%d objet(s) créé(s)."
 
 #: js/messages.php:571 libraries/sql_query_form.lib.php:414
 msgid "Submit"
-msgstr "Exécuter"
+msgstr "Soumettre"
 
 #: js/messages.php:574
 msgid "Press escape to cancel editing."
-msgstr "Appuyez sur la touche d'échappement pour annuler l'édition."
+msgstr "Appuyer sur la touche d'échappement pour annuler l'édition."
 
 #: js/messages.php:576
 msgid ""
 "You have edited some data and they have not been saved. Are you sure you "
 "want to leave this page before saving the data?"
 msgstr ""
-"Vous avez modifier des données non encore sauvegardées, êtes vous sûr de "
-"vouloir quitter cette page avant de sauvegarder ?"
+"Des données modifiées n'ont pas encore été sauvées. Faut-il vraiment quitter "
+"cette page avant de les enregistrer ?"
 
 #: js/messages.php:579
 msgid "Drag to reorder."
@@ -2315,21 +2320,21 @@ msgid ""
 ">- Ctrl+Click or Alt+Click (Mac: Shift+Option+Click) to remove column from "
 "ORDER BY clause"
 msgstr ""
-"Maj + clic pour ajouter cette colonne à la clause ORDER BY ou pour basculer "
-"ASC/DESC.<br />- Ctrl + clic ou Alt + clic (sur Mac : Maj + Option + Clic) "
-"pour enlever la colonne de la clause ORDER BY"
+"Maj+Clic pour ajouter cette colonne à la clause ORDER BY ou pour basculer "
+"ASC/DESC.<br />- Ctrl+Clic ou Alt+Clic (sur Mac : Maj+Option+Clic) pour "
+"enlever la colonne de la clause ORDER BY"
 
 #: js/messages.php:586
 msgid "Click to mark/unmark."
-msgstr "Cliquer pour marquer/enlever les marques."
+msgstr "Cliquer pour marquer/retirer les marques."
 
 #: js/messages.php:587
 msgid "Double-click to copy column name."
-msgstr "Double-cliquez pour copier le nom de la colonne."
+msgstr "Double-cliquer pour copier le nom de la colonne."
 
 #: js/messages.php:589
 msgid "Click the drop-down arrow<br />to toggle column's visibility."
-msgstr "Cliquer sur la flèche<br />pour gérer l'affichage des colonnes."
+msgstr "Cliquer sur la flèche<br />pour afficher/masquer la colonne."
 
 #: js/messages.php:591 libraries/DisplayResults.php:1036
 #: libraries/browse_foreigners.lib.php:283
@@ -2344,13 +2349,13 @@ msgid ""
 "edit, checkbox, Edit, Copy and Delete links may not work after saving."
 msgstr ""
 "Cette table ne contient pas de colonne unique. Les grilles d'édition, les "
-"cases à cocher ainsi que les liens Edition, Copie et Supprimer pourrait ne "
-"plus fonctionner après prise en compte de la modification."
+"cases à cocher ainsi que les liens Éditer, Copier et Supprimer pourraient ne "
+"plus fonctionner après l'enregistrement."
 
 #: js/messages.php:597
 msgid "Please enter a valid hexadecimal string. Valid characters are 0-9, A-F."
 msgstr ""
-"Veuillez saisir une chaîne en hexadécimal valide. Les caractères possibles "
+"Merci de saisir une chaîne en hexadécimal valide. Les caractères possibles "
 "sont 0-9, A-F."
 
 #: js/messages.php:599
@@ -2358,12 +2363,12 @@ msgid ""
 "Do you really want to see all of the rows? For a big table this could crash "
 "the browser."
 msgstr ""
-"Voulez-vous vraiment voir toutes les lignes ? Pour une grande table, cela "
+"Faut-il vraiment afficher toutes les lignes ? Pour une grande table, cela "
 "pourrait faire planter le navigateur."
 
 #: js/messages.php:602
 msgid "Original length"
-msgstr "Longueur originale"
+msgstr "Longueur d'origine"
 
 #: js/messages.php:605
 msgid "cancel"
@@ -2371,7 +2376,7 @@ msgstr "annuler"
 
 #: js/messages.php:606 libraries/server_status.lib.php:277
 msgid "Aborted"
-msgstr "Arrêts prématurés"
+msgstr "Abandonné(s)"
 
 #: js/messages.php:608
 msgid "Success"
@@ -2383,11 +2388,11 @@ msgstr "État de l'importation"
 
 #: js/messages.php:610 libraries/navigation/Navigation.php:113
 msgid "Drop files here"
-msgstr "Déposez des fichiers ici"
+msgstr "Déposer des fichiers ici"
 
 #: js/messages.php:611
 msgid "Select database first"
-msgstr "Choisissez d'abord une base de données"
+msgstr "Sélectionner d'abord une base de données"
 
 #: js/messages.php:614 libraries/DisplayResults.php:5047
 #: libraries/Util.php:3991
@@ -2399,13 +2404,13 @@ msgstr "Imprimer"
 #: js/messages.php:621
 msgid "You can also edit most values<br />by double-clicking directly on them."
 msgstr ""
-"Vous pouvez aussi modifier la plupart des valeurs<br/> en double-cliquant "
-"directement sur celles-ci."
+"Il est aussi possible de modifier la plupart<br/>des valeurs en les double-"
+"cliquant."
 
 #: js/messages.php:626
 msgid "You can also edit most values<br />by clicking directly on them."
 msgstr ""
-"Vous pouvez aussi modifier la plupart des valeurs<br/> en cliquant "
+"Il est aussi possible de modifier la plupart des valeurs<br/>en cliquant "
 "directement sur celles-ci."
 
 #: js/messages.php:632
@@ -2419,8 +2424,8 @@ msgstr "Copier le nom de la colonne."
 #: js/messages.php:635
 msgid "Right-click the column name to copy it to your clipboard."
 msgstr ""
-"Faites un clic-droit sur le nom de la colonne pour le copier vers le presse-"
-"papier."
+"Faire un clic-droit sur le nom de la colonne pour le copier vers le presse-"
+"papiers."
 
 #: js/messages.php:638
 msgid "Generate password"
@@ -2432,19 +2437,19 @@ msgstr "Générer"
 
 #: js/messages.php:643
 msgid "More"
-msgstr "plus"
+msgstr "Plus"
 
 #: js/messages.php:646
 msgid "Show panel"
-msgstr "Montrer le panneau"
+msgstr "Afficher le panneau"
 
 #: js/messages.php:647
 msgid "Hide panel"
-msgstr "Cacher le panneau"
+msgstr "Masquer le panneau"
 
 #: js/messages.php:648
 msgid "Show hidden navigation tree items."
-msgstr "Montrer les éléments de navigation cachés."
+msgstr "Afficher les éléments cachés de l'arbre de navigation."
 
 #: js/messages.php:649 libraries/config/messages.inc.php:473
 #: libraries/navigation/NavigationTree.php:1429
@@ -2466,7 +2471,7 @@ msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
 "upgrading. The newest version is %s, released on %s."
 msgstr ""
-"Une nouvelle version de phpMyAdmin est disponible et vous devriez songer à "
+"Une nouvelle version de phpMyAdmin est disponible et il faudrait songer à "
 "une mise à niveau. La version la plus récente est %s, publiée le %s."
 
 #. l10n: Latest available phpMyAdmin version
@@ -2495,23 +2500,23 @@ msgid ""
 "A fatal JavaScript error has occurred. Would you like to send an error "
 "report?"
 msgstr ""
-"Une erreur JavaScript fatale s'est produite. Désirez-vous envoyer un rapport "
-"d'erreur ?"
+"Une erreur JavaScript fatale s'est produite. Faut-il envoyer un rapport "
+"d'erreurs ?"
 
 #: js/messages.php:673
 msgid "Change report settings"
-msgstr "Changer les paramètres du rapport"
+msgstr "Modifier les paramètres de rapport"
 
 #: js/messages.php:674
 msgid "Show report details"
-msgstr "Montrer les détails du rapport"
+msgstr "Afficher les détails du rapport"
 
 #: js/messages.php:677
 msgid ""
 "Your export is incomplete, due to a low execution time limit at the PHP "
 "level!"
 msgstr ""
-"Votre exportation est incomplète en raison d'une limite de temps d'exécution "
+"L'exportation est incomplète en raison d'une limite de temps d'exécution "
 "trop basse au niveau PHP !"
 
 #: js/messages.php:681
@@ -2520,7 +2525,7 @@ msgid ""
 "Warning: a form on this page has more than %d fields. On submission, some of "
 "the fields might be ignored, due to PHP's max_input_vars configuration."
 msgstr ""
-"Avis : un formulaire sur cette page contient plus de %d champs. Lors de "
+"Attention : un formulaire sur cette page contient plus de %d champs. Lors de "
 "l'envoi, certains des champs pourraient être ignorés, en raison de la "
 "configuration max_input_vars de PHP."
 
@@ -2530,7 +2535,7 @@ msgstr "Des erreurs ont été détectées sur le serveur !"
 
 #: js/messages.php:689
 msgid "Please look at the bottom of this window."
-msgstr "Veuillez regarder au bas de cette fenêtre."
+msgstr "Merci de regarder au bas de cette fenêtre."
 
 #: js/messages.php:695 libraries/ErrorHandler.php:370
 msgid "Ignore All"
@@ -2539,16 +2544,15 @@ msgstr "Ignorer tout"
 #: js/messages.php:703
 msgid ""
 "As per your settings, they are being submitted currently, please be patient."
-msgstr ""
-"Selon vos paramètres, ils sont actuellement soumis, veuillez patienter."
+msgstr "Selon les paramètres, ils sont actuellement soumis, merci de patienter."
 
 #: js/messages.php:713
 msgid "Execute this query again?"
-msgstr "Exécuter cette requête à nouveau ?"
+msgstr "Faut-il exécuter à nouveau cette requête ?"
 
 #: js/messages.php:715
 msgid "Do you really want to delete this bookmark?"
-msgstr "Voulez-vous vraiment supprimer ce signet ?"
+msgstr "Faut-il vraiment supprimer ce signet ?"
 
 #: js/messages.php:717
 msgid "Some error occurred while getting SQL debug info."
@@ -2568,15 +2572,15 @@ msgstr "%s arguments passés"
 
 #: js/messages.php:721
 msgid "Show arguments"
-msgstr "Montrer les arguments"
+msgstr "Afficher les arguments"
 
 #: js/messages.php:722
 msgid "Hide arguments"
-msgstr "Cacher les arguments"
+msgstr "Masquer les arguments"
 
 #: js/messages.php:723
 msgid "Time taken:"
-msgstr "Temps nécessaire :"
+msgstr "Temps écoulé :"
 
 #: js/messages.php:724
 msgid ""
@@ -2586,11 +2590,11 @@ msgid ""
 "cause such a problem, clearing your \"Offline Website Data\" might help. In "
 "Safari, such problem is commonly caused by \"Private Mode Browsing\"."
 msgstr ""
-"Un problème est survenu lors de l'accès au stockage du navigateur, certaines "
-"fonctionnalités peuvent ne pas fonctionner pour vous. Il est probable que le "
-"navigateur ne prend pas en charge le stockage ou que la limite d'espace ait "
-"été atteinte. Dans Firefox, un stockage corrompu peut également causer ce "
-"problème, et vider les « Données de site web hors connexion » peut aider. "
+"Un problème est survenu lors de l'accès au stockage du navigateur ; "
+"certaines fonctionnalités peuvent ne pas fonctionner. Il est probable que le "
+"navigateur ne prenne pas en charge le stockage ou que le quota d'espace ait "
+"été atteint. Dans Firefox, un stockage corrompu peut également causer ce "
+"problème, et vider les « Données de site Web hors connexion » peut aider. "
 "Dans Safari, ce problème est habituellement causé par l'utilisation de la « "
 "Navigation en mode privé »."
 
@@ -2696,22 +2700,22 @@ msgstr "Décembre"
 #. l10n: Short month name
 #: js/messages.php:795 libraries/Util.php:1526
 msgid "Jan"
-msgstr "Janvier"
+msgstr "Jan"
 
 #. l10n: Short month name
 #: js/messages.php:797 libraries/Util.php:1528
 msgid "Feb"
-msgstr "Février"
+msgstr "Fév"
 
 #. l10n: Short month name
 #: js/messages.php:799 libraries/Util.php:1530
 msgid "Mar"
-msgstr "Mars"
+msgstr "Mar"
 
 #. l10n: Short month name
 #: js/messages.php:801 libraries/Util.php:1532
 msgid "Apr"
-msgstr "Avril"
+msgstr "Avr"
 
 #. l10n: Short month name
 #: js/messages.php:803 libraries/Util.php:1534
@@ -2722,37 +2726,37 @@ msgstr "Mai"
 #. l10n: Short month name
 #: js/messages.php:805 libraries/Util.php:1536
 msgid "Jun"
-msgstr "Juin"
+msgstr "Jun"
 
 #. l10n: Short month name
 #: js/messages.php:807 libraries/Util.php:1538
 msgid "Jul"
-msgstr "Juillet"
+msgstr "Jui"
 
 #. l10n: Short month name
 #: js/messages.php:809 libraries/Util.php:1540
 msgid "Aug"
-msgstr "Août"
+msgstr "Aoû"
 
 #. l10n: Short month name
 #: js/messages.php:811 libraries/Util.php:1542
 msgid "Sep"
-msgstr "Septembre"
+msgstr "Sep."
 
 #. l10n: Short month name
 #: js/messages.php:813 libraries/Util.php:1544
 msgid "Oct"
-msgstr "Octobre"
+msgstr "Oct"
 
 #. l10n: Short month name
 #: js/messages.php:815 libraries/Util.php:1546
 msgid "Nov"
-msgstr "Novembre"
+msgstr "Nov"
 
 #. l10n: Short month name
 #: js/messages.php:817 libraries/Util.php:1548
 msgid "Dec"
-msgstr "Décembre"
+msgstr "Déc."
 
 #: js/messages.php:823
 msgid "Sunday"
@@ -2888,71 +2892,71 @@ msgstr "Ce champ est obligatoire"
 
 #: js/messages.php:907
 msgid "Please fix this field"
-msgstr "Corrigez ce champ"
+msgstr "Merci de corriger ce champ"
 
 #: js/messages.php:908
 msgid "Please enter a valid email address"
-msgstr "Veuillez saisir une adresse courriel valide"
+msgstr "Merci de saisir une adresse courriel valide"
 
 #: js/messages.php:909
 msgid "Please enter a valid URL"
-msgstr "Veuillez saisir une URL valide"
+msgstr "Merci de saisir une URL valide"
 
 #: js/messages.php:910
 msgid "Please enter a valid date"
-msgstr "Veuillez saisir une date valide"
+msgstr "Merci de saisir une date valide"
 
 #: js/messages.php:913
 msgid "Please enter a valid date ( ISO )"
-msgstr "Veuillez saisir une date valide (ISO)"
+msgstr "Merci de saisir une date valide (ISO)"
 
 #: js/messages.php:915
 msgid "Please enter a valid number"
-msgstr "Veuillez saisir un nombre valide"
+msgstr "Merci de saisir un nombre valide"
 
 #: js/messages.php:918
 msgid "Please enter a valid credit card number"
-msgstr "Veuillez saisir un numéro de carte de crédit valide"
+msgstr "Merci de saisir un numéro de carte de crédit valide"
 
 #: js/messages.php:920
 msgid "Please enter only digits"
-msgstr "Veuillez saisir uniquement des chiffres"
+msgstr "Merci de saisir uniquement des chiffres"
 
 #: js/messages.php:923
 msgid "Please enter the same value again"
-msgstr "Veuillez saisir la même valeur à nouveau"
+msgstr "Merci de saisir la même valeur à nouveau"
 
 #: js/messages.php:927
 msgid "Please enter no more than {0} characters"
-msgstr "Veuillez saisir au maximum {0} caractères"
+msgstr "Merci de saisir au maximum {0} caractères"
 
 #: js/messages.php:932
 msgid "Please enter at least {0} characters"
-msgstr "Veuillez saisir au moins {0} caractères"
+msgstr "Merci de saisir au moins {0} caractères"
 
 #: js/messages.php:937
 msgid "Please enter a value between {0} and {1} characters long"
-msgstr "Veuillez saisir une valeur d'une longueur entre {0} et {1} caractères"
+msgstr "Merci de saisir une valeur d'une longueur entre {0} et {1} caractères"
 
 #: js/messages.php:942
 msgid "Please enter a value between {0} and {1}"
-msgstr "Veuillez saisir une valeur entre {0} et {1}"
+msgstr "Merci de saisir une valeur entre {0} et {1}"
 
 #: js/messages.php:947
 msgid "Please enter a value less than or equal to {0}"
-msgstr "Veuillez saisir une valeur inférieure ou égale à {0}"
+msgstr "Merci de saisir une valeur inférieure ou égale à {0}"
 
 #: js/messages.php:952
 msgid "Please enter a value greater than or equal to {0}"
-msgstr "Veuillez saisir une valeur supérieure ou égale à {0}"
+msgstr "Merci de saisir une valeur supérieure ou égale à {0}"
 
 #: js/messages.php:958
 msgid "Please enter a valid date or time"
-msgstr "Veuillez saisir une date ou une heure valide"
+msgstr "Merci de saisir saisir une date ou une heure valide"
 
 #: js/messages.php:963
 msgid "Please enter a valid HEX input"
-msgstr "Veuillez saisir une valeur hexadécimale valide"
+msgstr "Merci de saisir saisir une valeur hexadécimale valide"
 
 #: js/messages.php:968 libraries/Message.php:190 libraries/Util.php:566
 #: libraries/core.lib.php:243 libraries/import.lib.php:80
@@ -2968,28 +2972,28 @@ msgstr "PHP a émis l'erreur suivante : %s"
 #: libraries/Advisor.php:194
 #, php-format
 msgid "Failed evaluating precondition for rule '%s'."
-msgstr "Échec lors de l'évaluation de la précondition pour la règle «%s»."
+msgstr "Échec lors de l'évaluation de la précondition pour la règle « %s »."
 
 #: libraries/Advisor.php:211
 #, php-format
 msgid "Failed calculating value for rule '%s'."
-msgstr "Échec de calcul de la valeur pour la règle «%s»."
+msgstr "Échec de calcul de la valeur pour la règle « %s »."
 
 #: libraries/Advisor.php:230
 #, php-format
 msgid "Failed running test for rule '%s'."
-msgstr "Échec d'exécution du test pour la règle «%s»."
+msgstr "Échec d'exécution du test pour la règle « %s »."
 
 #: libraries/Advisor.php:310
 #, php-format
 msgid "Failed formatting string for rule '%s'."
-msgstr "Échec de formatage de la chaîne pour la règle «%s»."
+msgstr "Échec de formatage de la chaîne pour la règle « %s »."
 
 #: libraries/Advisor.php:469
 #, php-format
 msgid "Error in reading file: The file '%s' does not exist or is not readable!"
 msgstr ""
-"Erreur dans la lecture du fichier : Le fichier '%s' n'existe pas ou ne peut "
+"Erreur à la lecture du fichier : le fichier « %s » n'existe pas ou ne peut "
 "être lu !"
 
 #: libraries/Advisor.php:494
@@ -2997,7 +3001,7 @@ msgstr ""
 msgid ""
 "Invalid rule declaration on line %1$s, expected line %2$s of previous rule."
 msgstr ""
-"Règle invalide à la ligne %1$s, la ligne %2$s de la règle précédente était "
+"Règle invalide à la ligne %1$s ; la ligne %2$s de la règle précédente était "
 "attendue."
 
 #: libraries/Advisor.php:513
@@ -3014,8 +3018,8 @@ msgstr "Caractères inattendus à la ligne %s."
 #, php-format
 msgid "Unexpected character on line %1$s. Expected tab, but found \"%2$s\"."
 msgstr ""
-"Caractère imprévu à la ligne %1$s. Une tabulation était attendue, mais \"%2$s"
-"\" a été trouvé."
+"Caractère inattendu à la ligne %1$s. Une tabulation était attendue, mais « "
+"%2$s » a été trouvé."
 
 #: libraries/Charsets.php:160
 #: templates/database/structure/table_header.phtml:84
@@ -3118,7 +3122,7 @@ msgstr "Lituanien"
 
 #: libraries/Charsets.php:310 libraries/Charsets.php:429
 msgid "Korean"
-msgstr "Cor&eacute;en"
+msgstr "Coréen"
 
 #: libraries/Charsets.php:313
 msgid "Burmese"
@@ -3142,7 +3146,7 @@ msgstr "Roumain"
 
 #: libraries/Charsets.php:328
 msgid "Sinhalese"
-msgstr "Cingalais"
+msgstr "Cinghalais"
 
 #: libraries/Charsets.php:331
 msgid "Slovak"
@@ -3216,11 +3220,11 @@ msgstr "Arabe"
 
 #: libraries/Charsets.php:432
 msgid "Hebrew"
-msgstr "H&eacute;breu"
+msgstr "Hébreu"
 
 #: libraries/Charsets.php:435
 msgid "Georgian"
-msgstr "G&eacute;orgien"
+msgstr "Géorgien"
 
 #: libraries/Charsets.php:438
 msgid "Greek"
@@ -3272,7 +3276,7 @@ msgid ""
 "This usually means there is a syntax error in it, please check any errors "
 "shown below."
 msgstr ""
-"Ceci indique habituellement qu'il y a une erreur de syntaxe, veuillez "
+"Ceci indique habituellement qu'il y a une erreur de syntaxe, merci de "
 "vérifier si une erreur s'affiche plus bas."
 
 #: libraries/Config.php:1538
@@ -3283,7 +3287,7 @@ msgstr "Taille du texte"
 #, php-format
 msgid "Showing %1$d bookmark (both private and shared)"
 msgid_plural "Showing %1$d bookmarks (both private and shared)"
-msgstr[0] "Affichage d'%1$d favori (privés et partagés compris)"
+msgstr[0] "Affichage d'%1$d favori (privé et partagé compris)"
 msgstr[1] "Affichage de %1$d favoris (privés et partagés compris)"
 
 #: libraries/Console.php:93
@@ -3313,7 +3317,7 @@ msgstr "Le serveur ne répond pas."
 #: libraries/DatabaseInterface.php:2036
 msgid "Please check privileges of directory containing database."
 msgstr ""
-"Veuillez vérifier les privilèges du répertoire contenant la base de données."
+"Merci de vérifier les privilèges du répertoire contenant la base de données."
 
 #: libraries/DatabaseInterface.php:2047
 msgid "Details…"
@@ -3326,7 +3330,8 @@ msgstr "Paramètres de connexion manquants !"
 #: libraries/DatabaseInterface.php:2369
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr ""
-"La connexion au controluser tel que défini dans votre configuration a échoué."
+"La connexion au « controluser » telle que définie dans la configuration a "
+"échoué."
 
 #: libraries/DbQbe.php:405 libraries/DisplayResults.php:2281
 #: libraries/DisplayResults.php:2287 libraries/config.values.php:70
@@ -3376,15 +3381,15 @@ msgstr "Critère : "
 
 #: libraries/DbQbe.php:797
 msgid "Add/Delete criteria rows"
-msgstr "Ajouter/effacer des lignes"
+msgstr "Ajouter/Supprimer des lignes de critères"
 
 #: libraries/DbQbe.php:797
 msgid "Add/Delete columns"
-msgstr "Ajouter/effacer des colonnes"
+msgstr "Ajouter/Supprimer des colonnes"
 
 #: libraries/DbQbe.php:824 libraries/DbQbe.php:856
 msgid "Update Query"
-msgstr "Mise-à-jour de la requête"
+msgstr "Mettre à jour la requête"
 
 #: libraries/DbQbe.php:839
 msgid "Use Tables"
@@ -3400,11 +3405,11 @@ msgstr "Et : "
 
 #: libraries/DbQbe.php:886
 msgid "Ins"
-msgstr "Ajouter"
+msgstr "Ins."
 
 #: libraries/DbQbe.php:889
 msgid "Del"
-msgstr "Effacer"
+msgstr "Suppr."
 
 #: libraries/DbQbe.php:905
 msgid "Modify:"
@@ -3425,7 +3430,7 @@ msgstr "Requête SQL sur la base <b>%s</b> : "
 
 #: libraries/DbQbe.php:1865
 msgid "Submit Query"
-msgstr "Exécuter la requête"
+msgstr "Soumettre la requête"
 
 #: libraries/DbQbe.php:1879
 msgid "Saved bookmarked search:"
@@ -3445,11 +3450,11 @@ msgstr "Mettre à jour le signet"
 
 #: libraries/DbQbe.php:1912
 msgid "Delete bookmark"
-msgstr "Effacer le signet"
+msgstr "Supprimer le signet"
 
 #: libraries/DbSearch.php:99 libraries/DbSearch.php:392
 msgid "at least one of the words"
-msgstr "au moins un mot"
+msgstr "au moins un des mots"
 
 #: libraries/DbSearch.php:100 libraries/DbSearch.php:396
 msgid "all words"
@@ -3457,23 +3462,23 @@ msgstr "tous les mots"
 
 #: libraries/DbSearch.php:101 libraries/DbSearch.php:400
 msgid "the exact phrase"
-msgstr "phrase exacte"
+msgstr "la phrase exacte"
 
 #: libraries/DbSearch.php:102 libraries/DbSearch.php:401
 msgid "as regular expression"
-msgstr "expression réguliére"
+msgstr "comme expression régulière"
 
 #: libraries/DbSearch.php:268
 #, php-format
 msgid "Search results for \"<i>%s</i>\" %s:"
-msgstr "Résultats de la recherche de «<i>%s</i>» %s : "
+msgstr "Résultats de la recherche de « <i>%s</i> » %s :"
 
 #: libraries/DbSearch.php:293
 #, php-format
 msgid "<b>Total:</b> <i>%s</i> match"
 msgid_plural "<b>Total:</b> <i>%s</i> matches"
-msgstr[0] "<b>Total :</b> <i>%s</i> occurence"
-msgstr[1] "<b>Total :</b> <i>%s</i> occurences"
+msgstr[0] "<b>Total :</b> <i>%s</i> correspondance"
+msgstr[1] "<b>Total :</b> <i>%s</i> correspondances"
 
 #: libraries/DbSearch.php:329
 #, php-format
@@ -3489,23 +3494,23 @@ msgstr[1] "%1$s correspondances dans <strong>%2$s</strong>"
 #: libraries/navigation/nodes/NodeTable.php:311
 #: templates/table/structure/check_all_table_column.phtml:12
 msgid "Browse"
-msgstr "Afficher"
+msgstr "Parcourir"
 
 #: libraries/DbSearch.php:376
 msgid "Search in database"
-msgstr "Effectuer une nouvelle recherche dans la base de données"
+msgstr "Effectuer une recherche dans la base de données"
 
 #: libraries/DbSearch.php:380
 msgid "Words or values to search for (wildcard: \"%\"):"
-msgstr "Mots ou valeurs à rechercher (passe-partout: «%») : "
+msgstr "Mots ou valeurs à rechercher (passe-partout : « % ») :"
 
 #: libraries/DbSearch.php:389 templates/table/search/search_and_replace.phtml:1
 msgid "Find:"
-msgstr "Type de recherche : "
+msgstr "Rechercher :"
 
 #: libraries/DbSearch.php:394 libraries/DbSearch.php:398
 msgid "Words are separated by a space character (\" \")."
-msgstr "Séparer les mots par un espace (« »)."
+msgstr "Séparer les mots par une espace (« »)."
 
 #: libraries/DbSearch.php:413
 msgid "Inside tables:"
@@ -3522,7 +3527,7 @@ msgstr "Dans la colonne : "
 
 #: libraries/DisplayResults.php:906
 msgid "Save edited data"
-msgstr "Sauvegarder les données modifiées"
+msgstr "Enregistrer les données modifiées"
 
 #: libraries/DisplayResults.php:912
 msgid "Restore column order"
@@ -3609,7 +3614,7 @@ msgstr "Options"
 
 #: libraries/DisplayResults.php:1727 libraries/DisplayResults.php:1848
 msgid "Partial texts"
-msgstr "Textes réduits"
+msgstr "Textes partiels"
 
 #: libraries/DisplayResults.php:1728 libraries/DisplayResults.php:1852
 msgid "Full texts"
@@ -3617,7 +3622,7 @@ msgstr "Textes complets"
 
 #: libraries/DisplayResults.php:1744
 msgid "Relational key"
-msgstr "Relations : clés"
+msgstr "Clé relationnelle"
 
 #: libraries/DisplayResults.php:1745
 #, fuzzy
@@ -3627,15 +3632,15 @@ msgstr "Colonne d'affichage pour les relations"
 
 #: libraries/DisplayResults.php:1761
 msgid "Show binary contents"
-msgstr "Montrer le contenu binaire"
+msgstr "Afficher le contenu binaire"
 
 #: libraries/DisplayResults.php:1772
 msgid "Show BLOB contents"
-msgstr "Montrer le contenu BLOB"
+msgstr "Afficher le contenu BLOB"
 
 #: libraries/DisplayResults.php:1789
 msgid "Hide browser transformation"
-msgstr "Masquer les transformations"
+msgstr "Masquer les transformations du navigateur"
 
 #: libraries/DisplayResults.php:1800
 msgid "Well Known Text"
@@ -3647,12 +3652,12 @@ msgstr "Well Known Binary"
 
 #: libraries/DisplayResults.php:3538 libraries/DisplayResults.php:3553
 msgid "The row has been deleted."
-msgstr "La ligne a été effacée."
+msgstr "La ligne a été supprimée."
 
 #: libraries/DisplayResults.php:3586 libraries/DisplayResults.php:4840
 #: libraries/server_status_processes.lib.php:279
 msgid "Kill"
-msgstr "Supprimer"
+msgstr "Tuer"
 
 #: libraries/DisplayResults.php:4278
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
@@ -3664,7 +3669,7 @@ msgstr "Peut être approximatif. Voir [doc@faq3-11]FAQ 3.11[/doc]."
 #: libraries/rte/rte_routines.lib.php:1445 libraries/sql_query_form.lib.php:92
 #: tbl_row_action.php:141 view_operations.php:75
 msgid "Your SQL query has been executed successfully."
-msgstr "Votre requête SQL a été exécutée avec succès."
+msgstr "La requête SQL a été exécutée avec succès."
 
 #: libraries/DisplayResults.php:4698
 #: libraries/controllers/database/DatabaseStructureController.php:770
@@ -3673,7 +3678,7 @@ msgid ""
 "This view has at least this number of rows. Please refer to %sdocumentation"
 "%s."
 msgstr ""
-"Cette vue contient au moins ce nombre de lignes. Veuillez référer à "
+"Cette vue contient au moins ce nombre de lignes. Merci de se référer à "
 "%sdocumentation%s."
 
 #: libraries/DisplayResults.php:4711
@@ -3717,7 +3722,7 @@ msgstr "Tout cocher"
 
 #: libraries/DisplayResults.php:5024
 msgid "Copy to clipboard"
-msgstr "Copier dans le presse-papier"
+msgstr "Copier dans le presse-papiers"
 
 #: libraries/DisplayResults.php:5080
 msgid "Query results operations"
@@ -3744,7 +3749,7 @@ msgstr "Aucune"
 #. l10n: This is currently used only in Japanese locales
 #: libraries/Encoding.php:324
 msgid "Convert to Kana"
-msgstr "Conversion en kana"
+msgstr "Convertir en Kana"
 
 #: libraries/ErrorHandler.php:70
 msgid "Too many error messages, some are not displayed."
@@ -3761,12 +3766,12 @@ msgstr "La prochaine fois, envoyer automatiquement le rapport"
 
 #: libraries/File.php:244
 msgid "File was not an uploaded file."
-msgstr "Le fichier n'était pas un fichier téléversé."
+msgstr "Le fichier n'était pas un fichier envoyé."
 
 #: libraries/File.php:284
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
 msgstr ""
-"La taille du fichier téléchargé dépasse la limite permise par la directive "
+"La taille du fichier envoyé dépasse la limite permise par la directive "
 "upload_max_filesize de php.ini."
 
 #: libraries/File.php:290
@@ -3774,16 +3779,16 @@ msgid ""
 "The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
 "the HTML form."
 msgstr ""
-"La taille du fichier téléchargé dépasse la limite permise par la directive "
+"La taille du fichier envoyé dépasse la limite permise par la directive "
 "MAX_FILE_SIZE présente dans le formulaire HTML."
 
 #: libraries/File.php:296
 msgid "The uploaded file was only partially uploaded."
-msgstr "Le fichier n'a été que partiellement téléchargé."
+msgstr "Le fichier n'a été que partiellement envoyé."
 
 #: libraries/File.php:300
 msgid "Missing a temporary folder."
-msgstr "Répertoire temporaire manquant."
+msgstr "Dossier temporaire manquant."
 
 #: libraries/File.php:303
 msgid "Failed to write file to disk."
@@ -3791,11 +3796,11 @@ msgstr "Erreur lors de l'écriture du fichier sur disque."
 
 #: libraries/File.php:306
 msgid "File upload stopped by extension."
-msgstr "Téléchargement arrêté par l'extension."
+msgstr "Envoi arrêté par l'extension."
 
 #: libraries/File.php:309
 msgid "Unknown error in file upload."
-msgstr "Erreur inconnue durant le téléchargement."
+msgstr "Erreur inconnue durant l'envoi."
 
 #: libraries/File.php:445
 msgid "File is a symbolic link"
@@ -3808,16 +3813,16 @@ msgstr "Le fichier n'a pu être lu !"
 #: libraries/File.php:490
 msgid "Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc]."
 msgstr ""
-"Erreur lors du déplacement du fichier téléchargé, voir [doc@faq1-11]FAQ "
+"Erreur lors du déplacement du fichier envoyé, voir [doc@faq1-11]FAQ "
 "1.11[/doc]."
 
 #: libraries/File.php:509
 msgid "Error while moving uploaded file."
-msgstr "Erreur lors du déplacement du fichier téléversé."
+msgstr "Erreur lors du déplacement du fichier envoyé."
 
 #: libraries/File.php:517
 msgid "Cannot read uploaded file."
-msgstr "Impossible de lire le fichier téléversé."
+msgstr "Impossible de lire le fichier envoyé."
 
 #: libraries/File.php:609
 #, php-format
@@ -3825,8 +3830,9 @@ msgid ""
 "You attempted to load file with unsupported compression (%s). Either support "
 "for it is not implemented or disabled by your configuration."
 msgstr ""
-"Vous avez tenté d'importer un fichier dont le mode de compression (%s) n'est "
-"pas supporté par votre configuration PHP ou est désactivé dans celle-ci."
+"Il a été procédé à une tentative de charger un fichier dont le mode de "
+"compression (%s) n'est pas supporté par la configuration PHP ou est "
+"désactivé dans celle-ci."
 
 #: libraries/Footer.php:73
 #, php-format
@@ -3847,11 +3853,11 @@ msgstr "Version imprimable"
 
 #: libraries/Header.php:461
 msgid "Click on the bar to scroll to top of page"
-msgstr "Cliquez sur la barre pour faire défiler en haut de page"
+msgstr "Cliquer sur la barre pour faire défiler en haut de page"
 
 #: libraries/Header.php:763 libraries/plugins/auth/AuthenticationCookie.php:152
 msgid "Javascript must be enabled past this point!"
-msgstr "Javascript doit être activé !"
+msgstr "JavaScript doit être activé !"
 
 #: libraries/Index.php:654
 msgid "No index defined!"
@@ -3914,12 +3920,12 @@ msgstr "Commentaire"
 
 #: libraries/Index.php:717
 msgid "The primary key has been dropped."
-msgstr "La clé primaire a été effacée."
+msgstr "La clé primaire a été supprimée."
 
 #: libraries/Index.php:724
 #, php-format
 msgid "Index %s has been dropped."
-msgstr "L'index %s a été effacé."
+msgstr "L'index %s a été supprimé."
 
 #: libraries/Index.php:736 libraries/Util.php:3477 libraries/Util.php:3478
 #: libraries/controllers/server/ServerDatabasesController.php:402
@@ -3962,7 +3968,7 @@ msgstr "Langue"
 msgid ""
 "Linting is disabled for this query because it exceeds the maximum length."
 msgstr ""
-"L'analyse statique est désactivé pour cette requête, car elle dépasse la "
+"L'analyse statique est désactivée pour cette requête car elle dépasse la "
 "longueur maximale."
 
 #: libraries/Linter.php:165
@@ -4064,7 +4070,7 @@ msgstr "Opérations"
 #: libraries/Menu.php:397 libraries/Menu.php:501 libraries/Util.php:4120
 #: libraries/Util.php:4134 libraries/relation.lib.php:264
 msgid "Tracking"
-msgstr "Suivi"
+msgstr "Traçage"
 
 #: libraries/Menu.php:409 libraries/Menu.php:495 libraries/Util.php:4119
 #: libraries/Util.php:4135
@@ -4098,7 +4104,7 @@ msgstr "Procédures stockées"
 #: libraries/plugins/export/ExportXml.php:103
 #: libraries/rte/rte_words.lib.php:72
 msgid "Events"
-msgstr "Événements"
+msgstr "Évènements"
 
 #: libraries/Menu.php:507 libraries/Util.php:4121
 msgid "Designer"
@@ -4124,7 +4130,7 @@ msgstr "Comptes d'utilisateurs"
 #: libraries/Menu.php:601 libraries/ServerStatusData.php:121
 #: libraries/Util.php:4101 libraries/server_common.lib.php:33
 msgid "Binary log"
-msgstr "Log binaire"
+msgstr "Journal binaire"
 
 #: libraries/Menu.php:607 libraries/ServerStatusData.php:126
 #: libraries/Util.php:4102 libraries/server_common.lib.php:39
@@ -4218,11 +4224,11 @@ msgstr "Préférées"
 
 #: libraries/SavedSearches.php:256
 msgid "Please provide a name for this bookmarked search."
-msgstr "Veuillez fournir un nom pour ce signet de recherche."
+msgstr "Merci de fournir un nom pour ce signet de recherche."
 
 #: libraries/SavedSearches.php:271
 msgid "Missing information to save the bookmarked search."
-msgstr "Informations manquantes pour sauvegarder le signet de recherche."
+msgstr "Informations manquantes pour enregistrer le signet de recherche."
 
 #: libraries/SavedSearches.php:293 libraries/SavedSearches.php:330
 msgid "An entry with this name already exists."
@@ -4230,7 +4236,7 @@ msgstr "Une entrée existe déjà sous ce nom."
 
 #: libraries/SavedSearches.php:357
 msgid "Missing information to delete the search."
-msgstr "Informations manquantes pour effacer la recherche."
+msgstr "Informations manquantes pour supprimer la recherche."
 
 #: libraries/SavedSearches.php:385
 msgid "Missing information to load the search."
