@@ -62,6 +62,7 @@ phpMyAdmin - ChangeLog
 - issue #12954 Fixed export of tracking data
 - issue #12960 Enclose exports in transaction by default
 - issue #12966 After adding a column ADD INDEX option won't be displayed when enabling AI
+- issue #12972 Better error message when Composer has not been run
 
 4.6.6 (2017-01-23)
 - issue #12759 Fix Notice regarding 'Undefined index: old_usergroup'
