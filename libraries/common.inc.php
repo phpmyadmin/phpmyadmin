@@ -75,6 +75,13 @@ require_once './libraries/vendor_config.php';
 /**
  * Activate autoloader
  */
+if (! @is_readable('./vendor/autoload.php')) {
+    die(
+        'File <tt>./vendor/autoload.php</tt> missing or not readable. <br />'
+        . 'Most likely you did not run Composer to '
+        . '<a href="https://docs.phpmyadmin.net/en/latest/setup.html#installing-from-git">install library files</a>.'
+    );
+}
 require_once './vendor/autoload.php';
 
 /**
