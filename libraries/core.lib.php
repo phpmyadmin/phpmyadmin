@@ -754,7 +754,7 @@ function PMA_isAllowedDomain($url)
             return false;
         }
     }
-    $domain = $arr["host"];
+    $domain = strtolower($arr["host"]);
     $domainWhiteList = array(
         /* Include current domain */
         $_SERVER['SERVER_NAME'],
