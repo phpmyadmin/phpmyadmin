@@ -2365,8 +2365,8 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
             'Note: MySQL privilege names are expressed in English.', $actual
         );
         $this->assertContains(
-            'Note: phpMyAdmin gets the users\' privileges directly '
-            . 'from MySQL\'s privilege tables.',
+            'Note: phpMyAdmin gets the users’ privileges directly '
+            . 'from MySQL’s privilege tables.',
             $actual
         );
     }
