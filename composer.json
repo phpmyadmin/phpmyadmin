@@ -46,7 +46,7 @@
         "ext-bz2": "For bzip2 import and export",
         "ext-zip": "For zip import and export",
         "ext-gd2": "For image transformations",
-        "tecnickcom/tcpdf": "^6.2": "For PDF support"
+        "tecnickcom/tcpdf": "For PDF support"
     },
     "require-dev": {
         "satooshi/php-coveralls": "^1.0",
