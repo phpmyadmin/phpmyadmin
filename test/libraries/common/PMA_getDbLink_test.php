@@ -59,8 +59,8 @@ class PMA_GetDbLink_Test extends PHPUnit_Framework_TestCase
             )
             . '?db=' . $database
             . '&amp;server=99&amp;lang=en" '
-            . 'title="Jump to database &quot;'
-            . htmlspecialchars($database) . '&quot;.">'
+            . 'title="Jump to database &ldquo;'
+            . htmlspecialchars($database) . '&rdquo;.">'
             . htmlspecialchars($database) . '</a>',
             PMA\libraries\Util::getDbLink()
         );

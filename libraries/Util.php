@@ -2547,7 +2547,7 @@ class Util
             . URL::getCommon(array('db' => $database)) . '" title="'
             . htmlspecialchars(
                 sprintf(
-                    __('Jump to database "%s".'),
+                    __('Jump to database “%s”.'),
                     $database
                 )
             )
