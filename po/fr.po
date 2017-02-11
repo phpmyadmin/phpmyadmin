@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-01-25 10:08+0100\n"
-"PO-Revision-Date: 2017-02-08 20:10+0000\n"
+"PO-Revision-Date: 2017-02-11 09:12+0000\n"
 "Last-Translator: tmtisfree <tmtisfree@free.fr>\n"
 "Language-Team: French "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-7/fr/>\n"
@@ -2741,7 +2741,7 @@ msgstr "Aoû"
 #. l10n: Short month name
 #: js/messages.php:811 libraries/Util.php:1542
 msgid "Sep"
-msgstr "Sep."
+msgstr "Sep"
 
 #. l10n: Short month name
 #: js/messages.php:813 libraries/Util.php:1544
@@ -2756,7 +2756,7 @@ msgstr "Nov"
 #. l10n: Short month name
 #: js/messages.php:817 libraries/Util.php:1548
 msgid "Dec"
-msgstr "Déc."
+msgstr "Déc"
 
 #: js/messages.php:823
 msgid "Sunday"
@@ -4281,11 +4281,11 @@ msgstr "Jointures"
 
 #: libraries/ServerStatusData.php:127
 msgid "Sorting"
-msgstr "Mécanisme de tri"
+msgstr "Tri"
 
 #: libraries/ServerStatusData.php:129
 msgid "Transaction coordinator"
-msgstr "Coordonnateur des transactions"
+msgstr "Coordonnateur de transactions"
 
 #: libraries/ServerStatusData.php:130
 #: templates/server/binlog/log_selector.phtml:19
@@ -4385,12 +4385,12 @@ msgstr "État de la table inconnu :"
 #: libraries/Table.php:763
 #, php-format
 msgid "Source database `%s` was not found!"
-msgstr "La base de données source `%s` n'existe pas !"
+msgstr "La base de données source « %s » n'existe pas !"
 
 #: libraries/Table.php:771
 #, php-format
 msgid "Target database `%s` was not found!"
-msgstr "La base de données cible `%s` n'existe pas !"
+msgstr "La base de données cible « %s » n'existe pas !"
 
 #: libraries/Table.php:1318
 msgid "Invalid database:"
@@ -4420,7 +4420,7 @@ msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
 "['MaxTableUiprefs'] %s)"
 msgstr ""
-"Echec lors de la tentative de vidage de la table UI Préférences (voir "
+"Échec lors de la tentative de vidage de la table des préférences UI (voir "
 "$cfg['Servers'][$i]['MaxTableUiprefs'] %s)"
 
 #: libraries/Table.php:1803
@@ -4430,13 +4430,13 @@ msgid ""
 "after you refresh this page. Please check if the table structure has been "
 "changed."
 msgstr ""
-"Impossible de sauvegarder l'UI Propriété \"%s\". Le changement effectué ne "
+"Impossible de sauvegarder la propriété UI « %s ». Le changement effectué ne "
 "sera pas persistant après actualisation de cette page. Merci de vérifier si "
 "la structure de la table a changé."
 
 #: libraries/Table.php:1939
 msgid "The name of the primary key must be \"PRIMARY\"!"
-msgstr "Le nom d'une clé primaire doit être «PRIMARY» !"
+msgstr "Le nom d'une clé primaire doit être « PRIMARY » !"
 
 #: libraries/Table.php:1950
 msgid "Can't rename index to PRIMARY!"
@@ -4450,7 +4450,7 @@ msgstr "Aucune colonne n'a été définie pour cet index !"
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr ""
-"Erreur lors de la création de la clé étrangère sur %1$s (vérifiez le type "
+"Erreur lors de la création de la clé étrangère sur %1$s (vérifier le type "
 "des colonnes)"
 
 #: libraries/Theme.php:168
@@ -4531,7 +4531,7 @@ msgid ""
 "A fixed-point number (M, D) - the maximum number of digits (M) is 65 "
 "(default 10), the maximum number of decimals (D) is 30 (default 0)"
 msgstr ""
-"Un nombre en virgule fixe (M, D) - le nombre maximum de chiffres (M) est de "
+"Un nombre en virgule fixe (M, D). Le nombre maximum de chiffres (M) est de "
 "65 (10 par défaut), le nombre maximum de décimales (D) est de 30 (0 par "
 "défaut)"
 
@@ -4540,7 +4540,7 @@ msgid ""
 "A small floating-point number, allowable values are -3.402823466E+38 to "
 "-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
-"Un petit nombre en virgule flottante, la fourchette des valeurs est "
+"Un petit nombre en virgule flottante. La fourchette des valeurs est "
 "-3.402823466E+38 à -1.175494351E-38, 0, et 1.175494351E-38 à 3.402823466E+38"
 
 #: libraries/TypesMySQL.php:70
@@ -4549,7 +4549,7 @@ msgid ""
 "-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
-"Un nombre en virgule flottante double-précision, la fourchette des valeurs "
+"Un nombre en virgule flottante double-précision. La fourchette des valeurs "
 "est -1.7976931348623157E+308 à -2.2250738585072014E-308, 0, et "
 "2.2250738585072014E-308 à 1.7976931348623157E+308"
 
@@ -4589,21 +4589,21 @@ msgstr "Une date, la fourchette est de «%1$s» à «%2$s»"
 #: libraries/TypesMySQL.php:98
 #, php-format
 msgid "A date and time combination, supported range is %1$s to %2$s"
-msgstr "Une combinaison date et heure, la fourchette est de «%1$s» à «%2$s»"
+msgstr "Une combinaison date et heure, la fourchette est de « %1$s » à « %2$s »"
 
 #: libraries/TypesMySQL.php:103
 msgid ""
 "A timestamp, range is 1970-01-01 00:00:01 UTC to 2038-01-09 03:14:07 UTC, "
 "stored as the number of seconds since the epoch (1970-01-01 00:00:00 UTC)"
 msgstr ""
-"Un type d'horodatage, la fourchette est de «1970-01-01 00:00:01» UTC à "
-"«2038-01-09 03:14:07» UTC, en nombre de secondes depuis le moment de "
-"référence («1970-01-01 00:00:00» UTC)"
+"Un type d'horodatage, la fourchette est de 1970-01-01 00:00:01 UTC à 2038-01-"
+"09 03:14:07 UTC, en nombre de secondes depuis le moment de référence "
+"(1970-01-01 00:00:00 UTC)"
 
 #: libraries/TypesMySQL.php:109
 #, php-format
 msgid "A time, range is %1$s to %2$s"
-msgstr "Une heure, la fourchette est de «%1$s» à «%2$s»"
+msgstr "Une heure, la fourchette est de %1$s à %2$s"
 
 #: libraries/TypesMySQL.php:113
 msgid ""
@@ -4628,34 +4628,34 @@ msgid ""
 "the maximum row size"
 msgstr ""
 "Une chaîne de longueur variable (%s), la longueur effective réelle dépend de "
-"la taille maximum d'une ligne"
+"la taille maximale d'une ligne"
 
 #: libraries/TypesMySQL.php:131
 msgid ""
 "A TEXT column with a maximum length of 255 (2^8 - 1) characters, stored with "
 "a one-byte prefix indicating the length of the value in bytes"
 msgstr ""
-"Une colonne de type TEXT d'une longueur maximum de 255 (2^8 - 1) caractères, "
-"stockée avec un préfixe d'un octet indiquant la longueur de la valeur en "
-"octets"
+"Une colonne de type TEXT d'une longueur maximale de 255 (2^8 - 1) "
+"caractères, stockée avec un préfixe d'un octet indiquant la longueur de la "
+"valeur en octets"
 
 #: libraries/TypesMySQL.php:137
 msgid ""
 "A TEXT column with a maximum length of 65,535 (2^16 - 1) characters, stored "
 "with a two-byte prefix indicating the length of the value in bytes"
 msgstr ""
-"Une colonne TEXT d'une longueur maximum de 65 535 (2^16 - 1) caractères, "
+"Une colonne TEXT d'une longueur maximale de 65 535 (2^16 - 1) caractères, "
 "stockée avec un préfixe de deux octets indiquant la longueur de la valeur en "
-"octets \t"
+"octets"
 
 #: libraries/TypesMySQL.php:143
 msgid ""
 "A TEXT column with a maximum length of 16,777,215 (2^24 - 1) characters, "
 "stored with a three-byte prefix indicating the length of the value in bytes"
 msgstr ""
-"Une colonne TEXT d'une longueur maximum de 16 777 215 (2^24 - 1) caractères, "
-"stockée avec un préfixe de trois octets indiquant la longueur de la valeur "
-"en octets"
+"Une colonne TEXT d'une longueur maximale de 16 777 215 (2^24 - 1) "
+"caractères, stockée avec un préfixe de trois octets indiquant la longueur de "
+"la valeur en octets"
 
 #: libraries/TypesMySQL.php:149
 msgid ""
@@ -4663,8 +4663,8 @@ msgid ""
 "characters, stored with a four-byte prefix indicating the length of the "
 "value in bytes"
 msgstr ""
-"Une colonne TEXT d'une longueur maximum de 4 294 967 295 ou 4 GiB (2^32 - 1) "
-"caractères, stockée avec un préfixe de quatre octets indiquant la longueur "
+"Une colonne TEXT d'une longueur maximale de 4 294 967 295 ou 4 GiB (2^32 - 1)"
+" caractères, stockée avec un préfixe de quatre octets indiquant la longueur "
 "de la valeur en octets"
 
 #: libraries/TypesMySQL.php:155
@@ -4688,7 +4688,7 @@ msgid ""
 "A BLOB column with a maximum length of 255 (2^8 - 1) bytes, stored with a "
 "one-byte prefix indicating the length of the value"
 msgstr ""
-"Une colonne BLOB d'une longueur maximum de 255 (2^8 - 1) octets, stockée "
+"Une colonne BLOB d'une longueur maximale de 255 (2^8 - 1) octets, stockée "
 "avec un préfixe d'un octet indiquant la longueur de la valeur"
 
 #: libraries/TypesMySQL.php:170
@@ -4696,7 +4696,7 @@ msgid ""
 "A BLOB column with a maximum length of 16,777,215 (2^24 - 1) bytes, stored "
 "with a three-byte prefix indicating the length of the value"
 msgstr ""
-"Une colonne BLOB d'une longueur maximum de 16 777 215 (2^24 - 1) octets, "
+"Une colonne BLOB d'une longueur maximale de 16 777 215 (2^24 - 1) octets, "
 "stockée avec un préfixe de trois octets indiquant la longueur de la valeur"
 
 #: libraries/TypesMySQL.php:176
@@ -4704,16 +4704,16 @@ msgid ""
 "A BLOB column with a maximum length of 65,535 (2^16 - 1) bytes, stored with "
 "a two-byte prefix indicating the length of the value"
 msgstr ""
-"Une colonne BLOB d'une longueur maximum de 65 535 (2^16 - 1) octets, stockée "
-"avec un préfixe de quatre octets indiquant la longueur de la valeur"
+"Une colonne BLOB d'une longueur maximale de 65 535 (2^16 - 1) octets, "
+"stockée avec un préfixe de quatre octets indiquant la longueur de la valeur"
 
 #: libraries/TypesMySQL.php:181
 msgid ""
 "A BLOB column with a maximum length of 4,294,967,295 or 4GiB (2^32 - 1) "
 "bytes, stored with a four-byte prefix indicating the length of the value"
 msgstr ""
-"Une colonne BLOB d'une longueur maximum de 4 294 967 295 ou 4GiB (2^32 - 1), "
-"stockée avec un préfixe de quatre octets indiquant la longueur de la valeur"
+"Une colonne BLOB d'une longueur maximale de 4 294 967 295 ou 4GiB (2^32 - 1)"
+", stockée avec un préfixe de quatre octets indiquant la longueur de la valeur"
 
 #: libraries/TypesMySQL.php:187
 msgid ""
@@ -4738,7 +4738,7 @@ msgstr "Un point dans un espace à deux dimensions"
 
 #: libraries/TypesMySQL.php:197
 msgid "A curve with linear interpolation between points"
-msgstr "Une courbe avec une interpolation linéaire entre les points"
+msgstr "Une courbe avec interpolation linéaire entre les points"
 
 #: libraries/TypesMySQL.php:199
 msgid "A polygon"
@@ -4750,8 +4750,7 @@ msgstr "Une collection de points"
 
 #: libraries/TypesMySQL.php:204
 msgid "A collection of curves with linear interpolation between points"
-msgstr ""
-"Une collection de courbes avec l'interpolation linéaire entre les points"
+msgstr "Une collection de courbes avec interpolation linéaire entre les points"
 
 #: libraries/TypesMySQL.php:207
 msgid "A collection of polygons"
@@ -4777,7 +4776,7 @@ msgstr "Numérique"
 #: libraries/TypesMySQL.php:497
 msgctxt "date and time types"
 msgid "Date and time"
-msgstr "Contient la date et l'heure"
+msgstr "Date et l'heure"
 
 #: libraries/TypesMySQL.php:506 libraries/normalization.lib.php:158
 #: normalization.php:25
@@ -4793,7 +4792,7 @@ msgstr "Spatial"
 #: libraries/Util.php:198
 #, php-format
 msgid "Max: %s%s"
-msgstr "Taille maximum: %s%s"
+msgstr "Taille maximale : %s%s"
 
 #: libraries/Util.php:573
 msgid "Static analysis:"
@@ -4813,7 +4812,7 @@ msgstr "%d erreurs trouvées lors de l'analyse."
 #: libraries/rte/rte_triggers.lib.php:89 libraries/rte/rte_triggers.lib.php:98
 #: libraries/rte/rte_triggers.lib.php:130
 msgid "MySQL said: "
-msgstr "MySQL a répondu: "
+msgstr "MySQL a répondu : "
 
 #: libraries/Util.php:1068 libraries/config/messages.inc.php:889
 msgid "Explain SQL"
@@ -4834,11 +4833,11 @@ msgstr "Sans source PHP"
 
 #: libraries/Util.php:1132
 msgid "Submit query"
-msgstr "Exécuter la requête"
+msgstr "Soumettre la requête"
 
 #: libraries/Util.php:1143 libraries/config/messages.inc.php:891
 msgid "Create PHP code"
-msgstr "Créer code source PHP"
+msgstr "Créer le code source PHP"
 
 #: libraries/Util.php:1162 libraries/config/messages.inc.php:890
 #: libraries/server_status_processes.lib.php:233
@@ -4872,12 +4871,12 @@ msgstr "%A %d %B %Y à %H:%M"
 #: libraries/Util.php:1588
 msgctxt "AM/PM indication in time"
 msgid "PM"
-msgstr ""
+msgstr "PM"
 
 #: libraries/Util.php:1590
 msgctxt "AM/PM indication in time"
 msgid "AM"
-msgstr ""
+msgstr "AM"
 
 #: libraries/Util.php:1966
 #, php-format
@@ -4886,21 +4885,21 @@ msgstr "%s jours, %s heures, %s minutes et %s secondes"
 
 #: libraries/Util.php:2013
 msgid "Missing parameter:"
-msgstr "Paramètre manquant : "
+msgstr "Paramètre absent :"
 
 #: libraries/Util.php:2550
 #, php-format
 msgid "Jump to database \"%s\"."
-msgstr "Aller à la base de données \"%s\"."
+msgstr "Aller à la base de données « %s »."
 
 #: libraries/Util.php:2575
 #, php-format
 msgid "The %s functionality is affected by a known bug, see %s"
-msgstr "La fonctionnalité %s est affectée par une anomalie connue, voir %s"
+msgstr "La fonctionnalité %s est affectée par un bogue connu, voir %s"
 
 #: libraries/Util.php:3389 prefs_manage.php:256
 msgid "Browse your computer:"
-msgstr "Parcourir : "
+msgstr "Parcourir les fichiers :"
 
 #: libraries/Util.php:3414
 #, php-format
