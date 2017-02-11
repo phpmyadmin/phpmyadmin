@@ -237,11 +237,14 @@ echo '  <ul>';
 
 // Displays language selection combo
 if (empty($cfg['Lang'])) {
-    echo '<li id="li_select_lang" class="no_bullets">';
+    $selector = LanguageManager::getInstance()->getSelectorDisplay();
 
-    echo PMA\libraries\Util::getImage('s_lang.png') , " "
-        , LanguageManager::getInstance()->getSelectorDisplay();
-    echo '</li>';
+    if (!empty(trim($selector))) {
+        echo '<li id="li_select_lang" class="no_bullets">';
+        echo PMA\libraries\Util::getImage('s_lang.png') , ' ' , $selector;
+        echo '</li>';
+    }
+    unset($selector);
 }
 
 // ThemeManager if available
