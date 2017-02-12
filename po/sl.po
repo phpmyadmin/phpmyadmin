@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-01-25 10:08+0100\n"
-"PO-Revision-Date: 2017-01-27 20:07+0000\n"
+"PO-Revision-Date: 2017-02-12 19:41+0000\n"
 "Last-Translator: Domen <mitenem@outlook.com>\n"
 "Language-Team: Slovenian "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-7/sl/>\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
 "n%100==4 ? 2 : 3;\n"
-"X-Generator: Weblate 2.11-dev\n"
+"X-Generator: Weblate 2.12-dev\n"
 
 #: changelog.php:39 license.php:34
 #, php-format
@@ -296,12 +296,12 @@ msgstr "Ime zbirke podatkov je prazno!"
 #: db_operations.php:138
 #, php-format
 msgid "Database %1$s has been renamed to %2$s."
-msgstr "Zbirko podatkov %1$s sem preimenoval v %2$s."
+msgstr "Zbirko podatkov %1$s smo preimenovali v %2$s."
 
 #: db_operations.php:150
 #, php-format
 msgid "Database %1$s has been copied to %2$s."
-msgstr "Zbirko podatkov %1$s sem skopiral v %2$s."
+msgstr "Zbirko podatkov %1$s smo skopirali v %2$s."
 
 #: db_operations.php:279
 #, php-format
@@ -560,7 +560,7 @@ msgstr ""
 #: import.php:580 libraries/sql.lib.php:788 libraries/sql.lib.php:1564
 #, php-format
 msgid "Bookmark %s has been created."
-msgstr "Ustvaril sem zaznamek %s."
+msgstr "Ustvarili smo zaznamek %s."
 
 #: import.php:590
 #, php-format
@@ -864,7 +864,7 @@ msgstr "Izbrišemo podatke sledenja teh različic?"
 
 #: js/messages.php:60
 msgid "Delete entry from tracking report?"
-msgstr "Izbrišem vnos iz poročila o sledenju?"
+msgstr "Izbrišemo vnos iz poročila o sledenju?"
 
 #: js/messages.php:61
 msgid "Deleting tracking data"
@@ -1480,12 +1480,12 @@ msgstr "Pojdi v dnevniško tabelo"
 
 #: js/messages.php:285
 msgid "No data found"
-msgstr "Našel nisem nobenih podatkov"
+msgstr "Našli nismo nobenih podatkov"
 
 #: js/messages.php:287
 msgid "Log analysed, but no data found in this time span."
 msgstr ""
-"Dnevnik je analiziran, vendar v tem časovnem razponu nisem našel podatkov."
+"Dnevnik smo analizirali, vendar v tem časovnem razponu nismo našli podatkov."
 
 #: js/messages.php:289
 msgid "Analyzing…"
@@ -1782,7 +1782,7 @@ msgstr "Brisanje"
 #: js/messages.php:388
 #, php-format
 msgid "Delete the matches for the %s table?"
-msgstr "Izbrišem zadetke v tabeli %s?"
+msgstr "Izbrišemo zadetke v tabeli %s?"
 
 #: js/messages.php:392
 msgid "The definition of a stored function must contain a RETURN statement!"
@@ -1937,7 +1937,7 @@ msgstr "Dodaj primarni ključ"
 
 #: js/messages.php:437
 msgid "Primary key added."
-msgstr "Dodal sem primarni ključ."
+msgstr "Dodali smo primarni ključ."
 
 #: js/messages.php:438 libraries/normalization.lib.php:189
 msgid "Taking you to next step…"
@@ -2266,7 +2266,7 @@ msgstr "Dodaj možnost za stolpec \"%s\"."
 #: js/messages.php:570
 #, php-format
 msgid "%d object(s) created."
-msgstr "Ustvaril sem %d objekt(ov)."
+msgstr "Ustvarili smo %d objekt(ov)."
 
 #: js/messages.php:571 libraries/sql_query_form.lib.php:414
 msgid "Submit"
@@ -2436,7 +2436,7 @@ msgstr "Ne poveži z glavno ploščo"
 
 #: js/messages.php:654
 msgid "The requested page was not found in the history, it may have expired."
-msgstr "Izbrane strani nisem našel v zgodovini; morda je potekla."
+msgstr "Izbrane strani nismo našli v zgodovini; morda je potekla."
 
 #: js/messages.php:658 setup/lib/index.lib.php:165
 #, php-format
@@ -2971,7 +2971,7 @@ msgstr ""
 msgid ""
 "Invalid rule declaration on line %1$s, expected line %2$s of previous rule."
 msgstr ""
-"Neveljavna označba v vrstici %1$s; pričakoval sem vrstico %2$s prejšnjega "
+"Neveljavna označba v vrstici %1$s; pričakovali smo vrstico %2$s prejšnjega "
 "pravila."
 
 #: libraries/Advisor.php:513
@@ -2988,7 +2988,7 @@ msgstr "Nepričakovani znaki v vrstici %s."
 #, php-format
 msgid "Unexpected character on line %1$s. Expected tab, but found \"%2$s\"."
 msgstr ""
-"Nepričakovan znak v vrstici %1$s. Pričakoval sem tabulator, vendar našel "
+"Nepričakovan znak v vrstici %1$s. Pričakovali smo tabulator, vendar našli "
 "»%2$s«."
 
 #: libraries/Charsets.php:160
@@ -3229,7 +3229,7 @@ msgstr "Obstoječa konfiguracijska datoteka (%s) ni berljiva."
 #: libraries/Config.php:1130
 msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr ""
-"Napačna dovoljenja konfiguracijski datoteke; ne sme biti vsem zapisljiva!"
+"Napačna dovoljenja konfiguracijske datoteke; ne sme biti vsem zapisljiva!"
 
 #: libraries/Config.php:1150
 #, php-format
@@ -3641,7 +3641,7 @@ msgstr "Morda je približno. Glej [doc@faq3-11]FAQ 3.11[/doc]."
 #: libraries/rte/rte_routines.lib.php:1445 libraries/sql_query_form.lib.php:92
 #: tbl_row_action.php:141 view_operations.php:75
 msgid "Your SQL query has been executed successfully."
-msgstr "Poizvedbo SQL sem uspešno izvedel."
+msgstr "Poizvedbo SQL smo uspešno izvedli."
 
 #: libraries/DisplayResults.php:4698
 #: libraries/controllers/database/DatabaseStructureController.php:770
@@ -3885,12 +3885,12 @@ msgstr "Pripomba"
 
 #: libraries/Index.php:717
 msgid "The primary key has been dropped."
-msgstr "Zavrgel sem primarni ključ."
+msgstr "Zavrgli smo primarni ključ."
 
 #: libraries/Index.php:724
 #, php-format
 msgid "Index %s has been dropped."
-msgstr "Zavrgel sem indeks %s."
+msgstr "Zavrgli smo indeks %s."
 
 #: libraries/Index.php:736 libraries/Util.php:3477 libraries/Util.php:3478
 #: libraries/controllers/server/ServerDatabasesController.php:402
@@ -3922,7 +3922,7 @@ msgstr "Številka strani:"
 
 #: libraries/LanguageManager.php:888
 msgid "Ignoring unsupported language code."
-msgstr "Preskočil sem nepodprto kodo jezika."
+msgstr "Preskočili smo nepodprto kodo jezika."
 
 #: libraries/LanguageManager.php:915 libraries/LanguageManager.php:916
 #: setup/frames/index.inc.php:67
@@ -4127,28 +4127,28 @@ msgstr "Vtičniki"
 #, php-format
 msgid "%1$d row affected."
 msgid_plural "%1$d rows affected."
-msgstr[0] "Spremenil sem %1$d vrstico."
-msgstr[1] "Spremenil sem %1$d vrstici."
-msgstr[2] "Spremenil sem %1$d vrstice."
-msgstr[3] "Spremenil sem %1$d vrstic."
+msgstr[0] "Spremenili smo %1$d vrstico."
+msgstr[1] "Spremenili smo %1$d vrstici."
+msgstr[2] "Spremenili smo %1$d vrstice."
+msgstr[3] "Spremenili smo %1$d vrstic."
 
 #: libraries/Message.php:265
 #, php-format
 msgid "%1$d row deleted."
 msgid_plural "%1$d rows deleted."
-msgstr[0] "Izbrisal sem %1$d vrstico."
-msgstr[1] "Izbrisal sem %1$d vrstici."
-msgstr[2] "Izbrisal sem %1$d vrstice."
-msgstr[3] "Izbrisal sem %1$d vrstic."
+msgstr[0] "Izbrisali smo %1$d vrstico."
+msgstr[1] "Izbrisali smo %1$d vrstici."
+msgstr[2] "Izbrisali smo %1$d vrstice."
+msgstr[3] "Izbrisali smo %1$d vrstic."
 
 #: libraries/Message.php:284
 #, php-format
 msgid "%1$d row inserted."
 msgid_plural "%1$d rows inserted."
-msgstr[0] "Vstavil sem %1$d vrstico."
-msgstr[1] "Vstavil sem %1$d vrstici."
-msgstr[2] "Vstavil sem %1$d vrstice."
-msgstr[3] "Vstavil sem %1$d vrstic."
+msgstr[0] "Vstavili smo %1$d vrstico."
+msgstr[1] "Vstavili smo %1$d vrstici."
+msgstr[2] "Vstavili smo %1$d vrstice."
+msgstr[3] "Vstavili smo %1$d vrstic."
 
 #: libraries/PDF.php:125
 msgid "Error while creating PDF:"
@@ -4357,12 +4357,12 @@ msgstr "Neznano stanje tabele:"
 #: libraries/Table.php:763
 #, php-format
 msgid "Source database `%s` was not found!"
-msgstr "Izvorne zbirke podatkov `%s` nisem našel!"
+msgstr "Izvorne zbirke podatkov `%s` nismo našli!"
 
 #: libraries/Table.php:771
 #, php-format
 msgid "Target database `%s` was not found!"
-msgstr "Ciljne zbirke podatkov `%s` nisem našel!"
+msgstr "Ciljne zbirke podatkov `%s` nismo našli!"
 
 #: libraries/Table.php:1318
 msgid "Invalid database:"
@@ -4380,7 +4380,7 @@ msgstr "Preimenovanje tabele %1$s v %2$s je spodletelo!"
 #: libraries/Table.php:1389
 #, php-format
 msgid "Table %1$s has been renamed to %2$s."
-msgstr "Tabelo %1$s sem preimenoval v %2$s."
+msgstr "Tabelo %1$s smo preimenovali v %2$s."
 
 #: libraries/Table.php:1620
 msgid "Could not save table UI preferences!"
@@ -4440,7 +4440,7 @@ msgstr "uporabi"
 #: libraries/ThemeManager.php:148
 #, php-format
 msgid "Default theme %s not found!"
-msgstr "Privzete teme %s nisem našel!"
+msgstr "Privzete teme %s nismo našli!"
 
 #: libraries/ThemeManager.php:204
 #, php-format
@@ -7943,19 +7943,19 @@ msgstr "Seznam Priljubljenih je poln!"
 #: tbl_operations.php:365
 #, php-format
 msgid "Table %s has been emptied."
-msgstr "Izpraznil sem tabelo %s."
+msgstr "Izpraznili smo tabelo %s."
 
 #: libraries/controllers/database/DatabaseStructureController.php:581
 #: tbl_operations.php:383 view_operations.php:136
 #, php-format
 msgid "View %s has been dropped."
-msgstr "Pogled %s sem zavrgel."
+msgstr "Zavrgli smo pogled %s."
 
 #: libraries/controllers/database/DatabaseStructureController.php:582
 #: tbl_operations.php:384
 #, php-format
 msgid "Table %s has been dropped."
-msgstr "Tabelo %s sem zavrgel."
+msgstr "Tabelo %s smo zavrgli."
 
 #: libraries/controllers/server/ServerBinlogController.php:152
 msgid "Log name"
@@ -8007,10 +8007,10 @@ msgstr "Zbirka podatkov %1$s je ustvarjena."
 #, php-format
 msgid "%1$d database has been dropped successfully."
 msgid_plural "%1$d databases have been dropped successfully."
-msgstr[0] "Uspešno sem zavrgel %1$d zbirko podatkov."
-msgstr[1] "Uspešno sem zavrgel %1$d zbirki podatkov."
-msgstr[2] "Uspešno sem zavrgel %1$d zbirke podatkov."
-msgstr[3] "Uspešno sem zavrgel %1$d zbirk podatkov."
+msgstr[0] "Uspešno smo zavrgli %1$d zbirko podatkov."
+msgstr[1] "Uspešno smo zavrgli %1$d zbirki podatkov."
+msgstr[2] "Uspešno smo zavrgli %1$d zbirke podatkov."
+msgstr[3] "Uspešno smo zavrgli %1$d zbirk podatkov."
 
 #: libraries/controllers/server/ServerDatabasesController.php:349
 #: libraries/import.lib.php:90
@@ -9771,7 +9771,7 @@ msgstr "Defragmentiraj tabelo"
 #: libraries/operations.lib.php:1423
 #, php-format
 msgid "Table %s has been flushed."
-msgstr "Osvežil sem tabelo %s."
+msgstr "Osvežili smo tabelo %s."
 
 #: libraries/operations.lib.php:1429
 msgid "Flush the table (FLUSH)"
@@ -11433,7 +11433,7 @@ msgstr "Ne morem spremeniti glavnega strežnika!"
 #: libraries/replication_gui.lib.php:1015
 #, php-format
 msgid "Master server changed successfully to %s."
-msgstr "Glavni strežnik sem uspešno spremenil v %s."
+msgstr "Glavni strežnik smo uspešno spremenili v %s."
 
 #: libraries/rte/rte_events.lib.php:110 libraries/rte/rte_events.lib.php:119
 #: libraries/rte/rte_events.lib.php:150 libraries/rte/rte_routines.lib.php:226
@@ -12352,7 +12352,7 @@ msgstr "Osvežujem privilegije"
 
 #: libraries/server_privileges.lib.php:3812
 msgid "The selected users have been deleted successfully."
-msgstr "Uspešno sem izbrisal izbrane uporabnike."
+msgstr "Uspešno smo izbrisali izbrane uporabnike."
 
 #: libraries/server_privileges.lib.php:3887
 #, php-format
@@ -12362,11 +12362,11 @@ msgstr "Posodobili ste privilegije za %s."
 #: libraries/server_privileges.lib.php:3991
 #, php-format
 msgid "Deleting %s"
-msgstr "Brišem %s"
+msgstr "Brišemo %s"
 
 #: libraries/server_privileges.lib.php:4021
 msgid "The privileges were reloaded successfully."
-msgstr "Uspešno sem osvežil privilegije."
+msgstr "Uspešno smo osvežili privilegije."
 
 #: libraries/server_privileges.lib.php:4112
 #, php-format
@@ -12444,7 +12444,7 @@ msgstr ""
 
 #: libraries/server_privileges.lib.php:4736
 msgid "The selected user was not found in the privilege table."
-msgstr "Izbranega uporabnika v tabelah privilegijev nisem našel."
+msgstr "Izbranega uporabnika v tabelah privilegijev nismo našli."
 
 #: libraries/server_privileges.lib.php:4956
 msgid "You have added a new user."
@@ -13502,7 +13502,7 @@ msgstr "Uporabniki uporabniške skupine '%s'"
 
 #: libraries/server_user_groups.lib.php:33
 msgid "No users were found belonging to this user group."
-msgstr "Našel nisem nobenega uporabnika, ki pripada tej uporabniški skupini."
+msgstr "Našli nismo nobenega uporabnika, ki pripada tej uporabniški skupini."
 
 #: libraries/server_user_groups.lib.php:62 libraries/server_users.lib.php:30
 msgid "User groups"
@@ -13600,7 +13600,7 @@ msgstr "Dovoli dostop do zaznamka vsem uporabnikom"
 
 #: libraries/sql.lib.php:792
 msgid "Bookmark not created!"
-msgstr "Zaznamka nisem ustvaril!"
+msgstr "Zaznamka nismo ustvarili!"
 
 #: libraries/sql.lib.php:900
 #, php-format
@@ -13913,7 +13913,7 @@ msgstr "Upravljajte svoje nastavitve"
 
 #: libraries/user_preferences.inc.php:57 prefs_manage.php:315
 msgid "Configuration has been saved."
-msgstr "Konfiguracijo sem shranil."
+msgstr "Konfiguracijo smo shranili."
 
 #: libraries/user_preferences.inc.php:78
 #, php-format
@@ -14219,7 +14219,7 @@ msgstr ""
 
 #: setup/lib/index.lib.php:140
 msgid "Got invalid version string from server"
-msgstr "Od strežnika sem dobil neveljavno besedilo različice"
+msgstr "Od strežnika smo dobili neveljavno besedilo različice"
 
 #: setup/lib/index.lib.php:153
 msgid "Unparsable version string"
@@ -14281,7 +14281,7 @@ msgstr "Sledenje %s je aktivirano."
 
 #: tbl_tracking.php:105
 msgid "Tracking versions deleted successfully."
-msgstr "Uspešno sem izbrisal različice sledenja."
+msgstr "Uspešno smo izbrisali različice sledenja."
 
 #: tbl_tracking.php:110
 msgid "No versions selected."
@@ -15271,7 +15271,7 @@ msgstr "Izberite stolpec za prikaz:"
 #: templates/table/relation/foreign_key_row.phtml:19
 #, php-format
 msgid "Foreign key constraint %s has been dropped"
-msgstr "Zavrgel sem omejitev tujega ključa %s"
+msgstr "Zavrgli smo omejitev tujega ključa %s"
 
 #: templates/table/relation/foreign_key_row.phtml:90
 msgid "Constraint name"
@@ -15361,7 +15361,7 @@ msgstr "Pogled relacij"
 #: templates/table/structure/actions_in_table_structure.phtml:15
 #, php-format
 msgid "A primary key has been added on %s."
-msgstr "Na %s sem dodal primarni ključ."
+msgstr "Na %s smo dodali primarni ključ."
 
 #: templates/table/structure/actions_in_table_structure.phtml:34
 #: templates/table/structure/actions_in_table_structure.phtml:53
@@ -15369,7 +15369,7 @@ msgstr "Na %s sem dodal primarni ključ."
 #: templates/table/structure/actions_in_table_structure.phtml:100
 #, php-format
 msgid "An index has been added on %s."
-msgstr "Na %s sem dodal indeks."
+msgstr "Na %s smo dodali indeks."
 
 #: templates/table/structure/actions_in_table_structure.phtml:128
 #: templates/table/structure/check_all_table_column.phtml:57
@@ -15488,7 +15488,7 @@ msgstr "Naslednji samodejni indeks"
 #: templates/table/structure/table_structure_row.phtml:51
 #, php-format
 msgid "Column %s has been dropped."
-msgstr "Zavrgel sem stolpec %s."
+msgstr "Zavrgli smo stolpec %s."
 
 #: templates/toggle_button.phtml:4
 msgid "Click to toggle"
@@ -15769,7 +15769,7 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:126
 msgid "'source' found in version_comment"
-msgstr "našel sem 'source' v version_comment"
+msgstr "Našli smo 'source' v version_comment"
 
 #: libraries/advisory_rules.txt:131
 msgid "The MySQL manual only is accurate for official MySQL binaries."
@@ -15785,7 +15785,7 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:133
 msgid "'percona' found in version_comment"
-msgstr "našel sem 'percona' v version_comment"
+msgstr "Našli smo 'percona' v version_comment"
 
 #: libraries/advisory_rules.txt:135
 msgid "MySQL Architecture"
