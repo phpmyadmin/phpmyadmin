@@ -72,6 +72,7 @@ phpMyAdmin - ChangeLog
 - issue #12985 Fixed rendering of foreign key browsing
 - issue #12957 Fixed manipulation with GIS data having zero coordinates
 - issue #12804 Fixed various designer javascript errors
+- issue #12934 Fixed possible javascript error on server status page
 
 4.6.6 (2017-01-23)
 - issue #12759 Fix Notice regarding 'Undefined index: old_usergroup'
