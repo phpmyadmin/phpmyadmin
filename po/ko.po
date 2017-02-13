@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-01-25 10:08+0100\n"
-"PO-Revision-Date: 2017-01-07 15:53+0000\n"
-"Last-Translator: Kyeong Su Shin <cdac1234@gmail.com>\n"
-"Language-Team: Korean <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"ko/>\n"
+"PO-Revision-Date: 2017-02-13 13:58+0000\n"
+"Last-Translator: Yungu Kim <crimsonpi@gmail.com>\n"
+"Language-Team: Korean "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-7/ko/>\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 2.11-dev\n"
+"X-Generator: Weblate 2.12-dev\n"
 
 #: changelog.php:39 license.php:34
 #, php-format
@@ -2546,7 +2546,7 @@ msgstr "테이블에 접두사를 추가하여 복제"
 
 #: js/messages.php:732
 msgid "Extremely weak"
-msgstr ""
+msgstr "매우 취약"
 
 #: js/messages.php:733
 msgid "Very weak"
@@ -2554,7 +2554,7 @@ msgstr ""
 
 #: js/messages.php:734
 msgid "Weak"
-msgstr ""
+msgstr "취약"
 
 #: js/messages.php:735
 msgid "Good"
@@ -3879,7 +3879,7 @@ msgstr "언어"
 #: libraries/Linter.php:99
 msgid ""
 "Linting is disabled for this query because it exceeds the maximum length."
-msgstr "이 쿼리가 최대길이를 초과하여 Linting을 사용할 수 없습니다."
+msgstr "쿼리 문자열의 길이가 최대치를 초과하여서 Linting을 사용할 수 없습니다."
 
 #: libraries/Linter.php:165
 #, php-format
