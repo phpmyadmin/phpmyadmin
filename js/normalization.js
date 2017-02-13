@@ -303,7 +303,7 @@ function goTo2NFStep2(pd, primary_key)
             "pd": JSON.stringify(pd),
             "getNewTables2NF":1};
         $.ajax({
-            type: "GET",
+            type: "POST",
             url: "normalization.php",
             data: datastring,
             async:false,
@@ -352,12 +352,12 @@ function goTo3NFStep2(pd, tablesTds)
             "pd": JSON.stringify(pd),
             "getNewTables3NF":1};
         $.ajax({
-            type: "GET",
+            type: "POST",
             url: "normalization.php",
             data: datastring,
             async:false,
             success: function(data) {
-                data_parsed = JSON.parse(data.message);
+                data_parsed = data;
                 if (data.success === true) {
                     extra += data_parsed.html;
                 } else {
