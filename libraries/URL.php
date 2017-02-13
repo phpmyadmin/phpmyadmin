@@ -220,7 +220,13 @@ class URL
             $params['collation_connection'] = $GLOBALS['collation_connection'];
         }
 
-        return $divider . http_build_query($params, null, $separator);
+        $query = http_build_query($params, null, $separator);
+
+        if ($divider != '?' || strlen($query) > 0) {
+            return $divider . $query;
+        }
+
+        return '';
     }
 
     /**
