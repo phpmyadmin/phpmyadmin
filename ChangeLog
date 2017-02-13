@@ -64,6 +64,7 @@ phpMyAdmin - ChangeLog
 - issue #12993 Fixed external links to php documentation
 - issue #12990 Fixed error when loading favorite tables to console
 - issue #12981 Improved rendering of new version information
+- issue #12922 Fixed bookmarks ordering
 
 4.6.6 (2017-01-23)
 - issue #12759 Fix Notice regarding 'Undefined index: old_usergroup'
