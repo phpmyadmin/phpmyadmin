@@ -1714,6 +1714,8 @@ function PMA_getQueryAndResultForReorderingTable()
         && $_REQUEST['order_order'] === 'desc'
     ) {
         $sql_query .= ' DESC';
+    } else {
+        $sql_query .= ' ASC';
     }
     $sql_query .= ';';
     $result = $GLOBALS['dbi']->query($sql_query);
