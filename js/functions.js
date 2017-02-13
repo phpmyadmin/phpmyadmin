@@ -528,7 +528,7 @@ function PMA_current_version(data)
         version_information_message_link.className = 'disableAjax';
         version_information_message_link_text = document.createTextNode(data.version);
         version_information_message_link.appendChild(version_information_message_link_text);
-        var prefix_message = document.createTextNode(PMA_messages.strLatestAvailable);
+        var prefix_message = document.createTextNode(PMA_messages.strLatestAvailable + ' ');
         version_information_message.appendChild(prefix_message);
         version_information_message.appendChild(version_information_message_link);
         if (latest > current) {
@@ -557,6 +557,9 @@ function PMA_current_version(data)
         if (latest === current) {
             version_information_message = document.createTextNode(' (' + PMA_messages.strUpToDate + ')');
         }
+        /* Remove extra whitespace */
+        var version_info = $('#li_pma_version').contents().get(2);
+        version_info.textContent = $.trim(version_info.textContent);
         var $liPmaVersion = $('#li_pma_version');
         $liPmaVersion.find('span.latest').remove();
         $liPmaVersion.append($(version_information_message));
@@ -4193,6 +4196,7 @@ AJAX.registerOnload('functions.js', function () {
                 favorite_tables: (isStorageSupported('localStorage') && typeof window.localStorage.favorite_tables !== 'undefined')
                     ? window.localStorage.favorite_tables
                     : '',
+                token: PMA_commonParams.get('token'),
                 no_debug: true
             },
             success: function (data) {

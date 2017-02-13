@@ -277,7 +277,7 @@ class Bookmark
         if ($db !== false) {
             $query .= " AND dbase = '" . $GLOBALS['dbi']->escapeString($db) . "'";
         }
-        $query .= " ORDER BY label";
+        $query .= " ORDER BY label ASC";
 
         $result = $GLOBALS['dbi']->fetchResult(
             $query,
