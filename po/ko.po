@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-01-25 10:08+0100\n"
-"PO-Revision-Date: 2017-02-13 14:02+0000\n"
+"PO-Revision-Date: 2017-02-13 14:07+0000\n"
 "Last-Translator: Yungu Kim <crimsonpi@gmail.com>\n"
 "Language-Team: Korean "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/ko/>\n"
@@ -9463,7 +9463,7 @@ msgstr ""
 
 #: libraries/normalization.lib.php:810
 msgid "Third step of normalization (1NF+2NF+3NF)"
-msgstr ""
+msgstr "정규화 세번째 단계"
 
 #: libraries/normalization.lib.php:817
 msgid ""
@@ -15057,10 +15057,8 @@ msgid "Actions"
 msgstr "액션"
 
 #: templates/table/relation/common_form.phtml:10
-#, fuzzy
-#| msgid "Constraints for table"
 msgid "Constraint properties"
-msgstr "테이블의 제약사항"
+msgstr "제약사항"
 
 #: templates/table/relation/common_form.phtml:13
 msgid ""
@@ -15068,6 +15066,8 @@ msgid ""
 "an index on it. Alternatively, you can define an index below, before "
 "creating the foreign key."
 msgstr ""
+"인덱스가 설정되지 않은 컬럼에 대해 외래키를 생성할경우 해당 컬럼에 자동으로 인덱스가 생성됩니다. 또는, 외래키를 생성하기 전에 아래에서 "
+"직접 인덱스를 정의할 수 있습니다."
 
 #: templates/table/relation/common_form.phtml:20
 msgid ""
