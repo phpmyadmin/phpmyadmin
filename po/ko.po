@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-01-25 10:08+0100\n"
-"PO-Revision-Date: 2017-02-13 14:07+0000\n"
+"PO-Revision-Date: 2017-02-13 14:29+0000\n"
 "Last-Translator: Yungu Kim <crimsonpi@gmail.com>\n"
 "Language-Team: Korean "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-7/ko/>\n"
@@ -9447,7 +9447,7 @@ msgstr ""
 
 #: libraries/normalization.lib.php:779
 msgid "Table is already in Third normal form!"
-msgstr ""
+msgstr "테이블이 이미 세번째 정규화 형식입니다!"
 
 #: libraries/normalization.lib.php:804
 msgid "Improve table structure (Normalization):"
@@ -9455,11 +9455,11 @@ msgstr "테이블 구조 개선 (표준화):"
 
 #: libraries/normalization.lib.php:805
 msgid "Select up to what step you want to normalize"
-msgstr ""
+msgstr "정규화 할 단계 선택"
 
 #: libraries/normalization.lib.php:809
 msgid "Second step of normalization (1NF+2NF)"
-msgstr ""
+msgstr "정규화 두번째 단계"
 
 #: libraries/normalization.lib.php:810
 msgid "Third step of normalization (1NF+2NF+3NF)"
@@ -9469,13 +9469,13 @@ msgstr "정규화 세번째 단계"
 msgid ""
 "Hint: Please follow the procedure carefully in order to obtain correct "
 "normalization"
-msgstr ""
+msgstr "힌트: 올바른 정규화를 위해 해당 절차를 신중히 수행하세요"
 
 #: libraries/normalization.lib.php:878
 msgid ""
 "This list is based on a subset of the table's data and is not necessarily "
 "accurate. "
-msgstr ""
+msgstr "이 항목은 테이블의 일부 데이터를 기반으로 한 내용이며 정확하지 않을 수 있습니다. "
 
 #: libraries/normalization.lib.php:894
 msgid "No partial dependencies found!"
@@ -9578,10 +9578,8 @@ msgstr "테이블 검사"
 
 #: libraries/operations.lib.php:1397
 #: templates/database/structure/check_all_tables.phtml:22
-#, fuzzy
-#| msgid "Check table"
 msgid "Checksum table"
-msgstr "테이블 검사"
+msgstr "체크섬 테이블"
 
 #: libraries/operations.lib.php:1411
 msgid "Defragment table"
@@ -9649,7 +9647,7 @@ msgstr "복구"
 #: libraries/operations.lib.php:1565
 #: templates/table/structure/display_structure.phtml:178
 msgid "Truncate"
-msgstr ""
+msgstr "초기화"
 
 #: libraries/operations.lib.php:1579
 msgid "Coalesce"
@@ -9682,16 +9680,14 @@ msgid "Can't copy table to same one!"
 msgstr "같은 테이블이 있어 복사할 수 없음!"
 
 #: libraries/operations.lib.php:2058
-#, fuzzy, php-format
-#| msgid "Table %s has been moved to %s."
+#, php-format
 msgid "Table %s has been moved to %s. Privileges have been adjusted."
-msgstr "테이블 %s 을 %s 로 옮겼습니다."
+msgstr "테이블 %s 을 %s 로 옮겼습니다. 권한설정을 조정하였습니다."
 
 #: libraries/operations.lib.php:2065
-#, fuzzy, php-format
-#| msgid "Table %s has been copied to %s."
+#, php-format
 msgid "Table %s has been copied to %s. Privileges have been adjusted."
-msgstr "%s 테이블이 %s 으로 복사되었습니다."
+msgstr "%s 테이블을 %s 으로 복사하였습니다. 권한설정을 조정하였습니다."
 
 #: libraries/operations.lib.php:2074
 #, php-format
@@ -9807,7 +9803,7 @@ msgstr "MySQL 서버에 로그인 할 권한이 없습니다!"
 
 #: libraries/plugins/auth/AuthenticationCookie.php:723
 msgid "OpenSSL error when manipulating with cookies:"
-msgstr ""
+msgstr "쿠키 값을 설정하는 동안 OpenSSL 에러 발생:"
 
 #: libraries/plugins/auth/AuthenticationHttp.php:88
 msgid "Wrong username/password. Access denied."
@@ -15072,7 +15068,7 @@ msgstr ""
 #: templates/table/relation/common_form.phtml:20
 msgid ""
 "Only columns with index will be displayed. You can define an index below."
-msgstr ""
+msgstr "인덱스에 포함된 컬럼만 출력합니다. 아래에서 인덱스를 정의할 수 있습니다."
 
 #: templates/table/relation/common_form.phtml:26
 msgid "Foreign key constraint"
@@ -15084,8 +15080,6 @@ msgstr "+ 제약조건 추가"
 
 #: templates/table/relation/common_form.phtml:76
 #: templates/table/relation/common_form.phtml:82
-#, fuzzy
-#| msgid "Internal relations"
 msgid "Internal relationships"
 msgstr "내부 릴레이션"
 
@@ -15111,13 +15105,11 @@ msgstr "외래키 제약 %s 가 제거되었습니다"
 
 #: templates/table/relation/foreign_key_row.phtml:90
 msgid "Constraint name"
-msgstr ""
+msgstr "제약조건 이름"
 
 #: templates/table/relation/foreign_key_row.phtml:145
-#, fuzzy
-#| msgid "Add column"
 msgid "+ Add column"
-msgstr "컬럼 추가"
+msgstr "+ 컬럼 추가"
 
 #: templates/table/search/options.phtml:8
 msgid "Select columns (at least one):"
@@ -15210,17 +15202,13 @@ msgstr "%s에 인덱스를 추가했습니다."
 
 #: templates/table/structure/actions_in_table_structure.phtml:128
 #: templates/table/structure/check_all_table_column.phtml:57
-#, fuzzy
-#| msgid "Remove from Favorites"
 msgid "Remove from central columns"
-msgstr "즐겨찾기에서 삭제"
+msgstr "중앙컬럼에서 제거"
 
 #: templates/table/structure/actions_in_table_structure.phtml:136
 #: templates/table/structure/check_all_table_column.phtml:52
-#, fuzzy
-#| msgid "CHAR textarea columns"
 msgid "Add to central columns"
-msgstr "CHAR 텍스트입력 컬럼"
+msgstr "중앙컬럼에 추가"
 
 #: templates/table/structure/add_column.phtml:7
 #, php-format
@@ -15228,58 +15216,42 @@ msgid "Add %s column(s)"
 msgstr "%s 컬럼 추가"
 
 #: templates/table/structure/add_column.phtml:12
-#, fuzzy
-#| msgid "At Beginning of Table"
 msgid "at beginning of table"
 msgstr "테이블의 처음"
 
 #: templates/table/structure/display_partitions.phtml:6
 #: templates/table/structure/display_structure.phtml:185
-#, fuzzy
-#| msgid "Partition %s"
 msgid "Partitions"
-msgstr "파티션 %s"
+msgstr "파티션"
 
 #: templates/table/structure/display_partitions.phtml:10
-#, fuzzy
-#| msgid "No index defined!"
 msgid "No partitioning defined!"
-msgstr "인덱스가 설정되지 않았습니다!"
+msgstr "파티션이 설정되지 않았습니다!"
 
 #: templates/table/structure/display_partitions.phtml:13
-#, fuzzy
-#| msgid "partitioned"
 msgid "Partitioned by:"
-msgstr "파티션 있음"
+msgstr "파티션:"
 
 #: templates/table/structure/display_partitions.phtml:18
-#, fuzzy
-#| msgid "partitioned"
 msgid "Sub partitioned by:"
-msgstr "파티션 있음"
+msgstr "서브 파티션:"
 
 #: templates/table/structure/display_partitions.phtml:31
-#, fuzzy
-#| msgid "Row length"
 msgid "Data length"
-msgstr "행 길이"
+msgstr "데이터 길이"
 
 #: templates/table/structure/display_partitions.phtml:32
 msgid "Index length"
 msgstr "인덱스 길이"
 
 #: templates/table/structure/display_partitions.phtml:134
-#, fuzzy
-#| msgid "partitioned"
 msgid "Partition table"
-msgstr "파티션 있음"
+msgstr "파티션 테이블"
 
 #: templates/table/structure/display_partitions.phtml:137
 #: templates/table/structure/partition_definition_form.phtml:7
-#, fuzzy
-#| msgid "Remove partitioning"
 msgid "Edit partitioning"
-msgstr "파티셔닝 삭제"
+msgstr "파티셔닝 수정"
 
 #: templates/table/structure/display_structure.phtml:129 view_create.php:206
 msgid "Edit view"
@@ -15311,10 +15283,8 @@ msgid "Improve table structure"
 msgstr "테이블 구조 개선"
 
 #: templates/table/structure/optional_action_links.phtml:34
-#, fuzzy
-#| msgid "Track table"
 msgid "Track view"
-msgstr "테이블 추적"
+msgstr "추적 뷰"
 
 #: templates/table/structure/row_stats_table.phtml:2
 msgid "Row statistics"
@@ -15366,16 +15336,12 @@ msgid "Available MIME types"
 msgstr "사용가능한 MIME 형식"
 
 #: transformation_overview.php:38
-#, fuzzy
-#| msgid "Available transformations"
 msgid "Available browser display transformations"
-msgstr "이용 가능한 변환 기능"
+msgstr "이용 가능한 브라우저 디스플레이 변환 기능"
 
 #: transformation_overview.php:39
-#, fuzzy
-#| msgid "Available transformations"
 msgid "Available input transformations"
-msgstr "이용 가능한 변환 기능"
+msgstr "이용 가능한 입력 변환 기능"
 
 #: transformation_overview.php:54
 msgctxt "for MIME transformation"
@@ -15383,10 +15349,8 @@ msgid "Description"
 msgstr "설명"
 
 #: url.php:39
-#, fuzzy
-#| msgid "Taking you to next step…"
 msgid "Taking you to the target site."
-msgstr "다음 단계로 가는 중…"
+msgstr "해당 사이트로 가는 중."
 
 #: user_password.php:37
 msgid "You don't have sufficient privileges to be here right now!"
@@ -15397,14 +15361,12 @@ msgid "The profile has been updated."
 msgstr "프로파일을 업데이트했습니다."
 
 #: user_password.php:127
-#, fuzzy
-#| msgid "Password Hashing:"
 msgid "Password is too long!"
-msgstr "비밀번호 해싱:"
+msgstr "비밀번호가 너무 길어요!"
 
 #: view_create.php:48
 msgid "View name can not be empty!"
-msgstr ""
+msgstr "뷰 이름은 비워둘 수 없습니다!"
 
 #: view_create.php:253
 msgid "VIEW name"
