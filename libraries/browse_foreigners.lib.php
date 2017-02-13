@@ -60,7 +60,7 @@ function PMA_getHtmlForOneKey($horizontal_count, $header, $keys,
         $leftKeynameIsSelected = $leftKeyname == $current_value;
     }
 
-    $output .= '<tr class="noclick ' . '>';
+    $output .= '<tr class="noclick">';
 
     $output .= PMA_getHtmlForColumnElement(
         'class="nowrap"', $leftKeynameIsSelected,
