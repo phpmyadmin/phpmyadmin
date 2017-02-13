@@ -466,51 +466,49 @@ class Response
      */
     public function http_response_code($response_code)
     {
+        http_response_code($response_code);
         switch ($response_code) {
-            case 100: $httpStatusMsg = 'Continue'; break;
-            case 101: $httpStatusMsg = 'Switching Protocols'; break;
-            case 200: $httpStatusMsg = 'OK'; break;
-            case 201: $httpStatusMsg = 'Created'; break;
-            case 202: $httpStatusMsg = 'Accepted'; break;
-            case 203: $httpStatusMsg = 'Non-Authoritative Information'; break;
-            case 204: $httpStatusMsg = 'No Content'; break;
-            case 205: $httpStatusMsg = 'Reset Content'; break;
-            case 206: $httpStatusMsg = 'Partial Content'; break;
-            case 300: $httpStatusMsg = 'Multiple Choices'; break;
-            case 301: $httpStatusMsg = 'Moved Permanently'; break;
-            case 302: $httpStatusMsg = 'Moved Temporarily'; break;
-            case 303: $httpStatusMsg = 'See Other'; break;
-            case 304: $httpStatusMsg = 'Not Modified'; break;
-            case 305: $httpStatusMsg = 'Use Proxy'; break;
-            case 400: $httpStatusMsg = 'Bad Request'; break;
-            case 401: $httpStatusMsg = 'Unauthorized'; break;
-            case 402: $httpStatusMsg = 'Payment Required'; break;
-            case 403: $httpStatusMsg = 'Forbidden'; break;
-            case 404: $httpStatusMsg = 'Not Found'; break;
-            case 405: $httpStatusMsg = 'Method Not Allowed'; break;
-            case 406: $httpStatusMsg = 'Not Acceptable'; break;
-            case 407: $httpStatusMsg = 'Proxy Authentication Required'; break;
-            case 408: $httpStatusMsg = 'Request Time-out'; break;
-            case 409: $httpStatusMsg = 'Conflict'; break;
-            case 410: $httpStatusMsg = 'Gone'; break;
-            case 411: $httpStatusMsg = 'Length Required'; break;
-            case 412: $httpStatusMsg = 'Precondition Failed'; break;
-            case 413: $httpStatusMsg = 'Request Entity Too Large'; break;
-            case 414: $httpStatusMsg = 'Request-URI Too Large'; break;
-            case 415: $httpStatusMsg = 'Unsupported Media Type'; break;
-            case 500: $httpStatusMsg = 'Internal Server Error'; break;
-            case 501: $httpStatusMsg = 'Not Implemented'; break;
-            case 502: $httpStatusMsg = 'Bad Gateway'; break;
-            case 503: $httpStatusMsg = 'Service Unavailable'; break;
-            case 504: $httpStatusMsg = 'Gateway Time-out'; break;
-            case 505: $httpStatusMsg = 'HTTP Version not supported'; break;
+            case 100: $httpStatusMsg = ' Continue'; break;
+            case 101: $httpStatusMsg = ' Switching Protocols'; break;
+            case 200: $httpStatusMsg = ' OK'; break;
+            case 201: $httpStatusMsg = ' Created'; break;
+            case 202: $httpStatusMsg = ' Accepted'; break;
+            case 203: $httpStatusMsg = ' Non-Authoritative Information'; break;
+            case 204: $httpStatusMsg = ' No Content'; break;
+            case 205: $httpStatusMsg = ' Reset Content'; break;
+            case 206: $httpStatusMsg = ' Partial Content'; break;
+            case 300: $httpStatusMsg = ' Multiple Choices'; break;
+            case 301: $httpStatusMsg = ' Moved Permanently'; break;
+            case 302: $httpStatusMsg = ' Moved Temporarily'; break;
+            case 303: $httpStatusMsg = ' See Other'; break;
+            case 304: $httpStatusMsg = ' Not Modified'; break;
+            case 305: $httpStatusMsg = ' Use Proxy'; break;
+            case 400: $httpStatusMsg = ' Bad Request'; break;
+            case 401: $httpStatusMsg = ' Unauthorized'; break;
+            case 402: $httpStatusMsg = ' Payment Required'; break;
+            case 403: $httpStatusMsg = ' Forbidden'; break;
+            case 404: $httpStatusMsg = ' Not Found'; break;
+            case 405: $httpStatusMsg = ' Method Not Allowed'; break;
+            case 406: $httpStatusMsg = ' Not Acceptable'; break;
+            case 407: $httpStatusMsg = ' Proxy Authentication Required'; break;
+            case 408: $httpStatusMsg = ' Request Time-out'; break;
+            case 409: $httpStatusMsg = ' Conflict'; break;
+            case 410: $httpStatusMsg = ' Gone'; break;
+            case 411: $httpStatusMsg = ' Length Required'; break;
+            case 412: $httpStatusMsg = ' Precondition Failed'; break;
+            case 413: $httpStatusMsg = ' Request Entity Too Large'; break;
+            case 414: $httpStatusMsg = ' Request-URI Too Large'; break;
+            case 415: $httpStatusMsg = ' Unsupported Media Type'; break;
+            case 500: $httpStatusMsg = ' Internal Server Error'; break;
+            case 501: $httpStatusMsg = ' Not Implemented'; break;
+            case 502: $httpStatusMsg = ' Bad Gateway'; break;
+            case 503: $httpStatusMsg = ' Service Unavailable'; break;
+            case 504: $httpStatusMsg = ' Gateway Time-out'; break;
+            case 505: $httpStatusMsg = ' HTTP Version not supported'; break;
             default: $httpStatusMsg  = ' Web server is down'; break;
         }
         if (php_sapi_name() !== 'cgi-fcgi') {
             $this->header('status: ' . $response_code . $httpStatusMsg);
-        }
-        else{
-            http_response_code($response_code);
         }
     }
 

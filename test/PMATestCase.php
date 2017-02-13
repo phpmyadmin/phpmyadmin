@@ -35,7 +35,7 @@ class PMATestCase extends PHPUnit_Framework_TestCase
             ->disableOriginalConstructor()
             ->setMethods(array(
                 'header', 'headersSent', 'disable', 'isAjax',
-                'setRequestStatus', 'addJSON', 'addHTML', 'http_response_code',
+                'setRequestStatus', 'addJSON', 'addHTML',
                 'getFooter', 'getHeader',
             ))
             ->getMock();
