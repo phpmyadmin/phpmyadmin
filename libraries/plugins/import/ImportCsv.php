@@ -113,7 +113,7 @@ class ImportCsv extends AbstractImportCsv
         $csv_new_line = strtr($csv_new_line, $replacements);
 
         $param_error = false;
-        if (mb_strlen($csv_terminated) < 1) {
+        if (strlen($csv_terminated) === 0) {
             $message = PMA\libraries\Message::error(
                 __('Invalid parameter for CSV import: %s')
             );
@@ -548,7 +548,7 @@ class ImportCsv extends AbstractImportCsv
                                 $sql .= 'NULL';
                             } else {
                                 $sql .= '\''
-                                    . PMA\libraries\Util::sqlAddSlashes($val)
+                                    . $GLOBALS['dbi']->escapeString($val)
                                     . '\'';
                             }
 

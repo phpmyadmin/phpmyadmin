@@ -80,7 +80,7 @@ require_once './vendor/autoload.php';
 /**
  * Load gettext functions.
  */
-MoTranslator\Loader::load_functions();
+MoTranslator\Loader::loadFunctions();
 
 /**
  * initialize the error handler
@@ -102,6 +102,13 @@ PMA_checkExtensions();
  */
 ini_set('default_charset', 'utf-8');
 mb_internal_encoding('utf-8');
+
+/**
+ * Set precision to sane value, with higher values
+ * things behave slightly unexpectedly, for example
+ * round(1.2, 2) returns 1.199999999999999956.
+ */
+ini_set('precision', 14);
 
 /**
  * the relation lib, tracker needs it
@@ -141,21 +148,6 @@ foreach (get_defined_vars() as $key => $value) {
     }
 }
 unset($key, $value, $variables_whitelist);
-
-/**
- * @global boolean $GLOBALS['is_ajax_request']
- * @todo should this be moved to the variables init section above?
- *
- * Check if the current request is an AJAX request, and set is_ajax_request
- * accordingly.  Suppress headers, footers and unnecessary output if set to
- * true
- */
-if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
-    $GLOBALS['is_ajax_request'] = true;
-} else {
-    $GLOBALS['is_ajax_request'] = false;
-}
-
 
 /**
  * Subforms - some functions need to be called by form, cause of the limited URL
@@ -292,7 +284,6 @@ $goto_whitelist = array(
     'index.php',
     'pdf_pages.php',
     'pdf_schema.php',
-    //'phpinfo.php',
     'server_binlog.php',
     'server_collations.php',
     'server_databases.php',
@@ -366,60 +357,32 @@ if (PMA_checkPageValidity($_REQUEST['back'], $goto_whitelist)) {
  * could access this variables before we reach this point
  * f.e. PMA\libraries\Config: fontsize
  *
+ * Check for token mismatch only if the Request method is POST
+ * GET Requests would never have token and therefore checking
+ * mis-match does not make sense
+ *
  * @todo variables should be handled by their respective owners (objects)
  * f.e. lang, server, collation_connection in PMA\libraries\Config
  */
+
 $token_mismatch = true;
 $token_provided = false;
-if (PMA_isValid($_REQUEST['token'])) {
-    $token_provided = true;
-    $token_mismatch = ! hash_equals($_SESSION[' PMA_token '], $_REQUEST['token']);
-}
 
-if ($token_mismatch) {
-    /**
-     *  List of parameters which are allowed from unsafe source
-     */
-    $allow_list = array(
-        /* needed for direct access, see FAQ 1.34
-         * also, server needed for cookie login screen (multi-server)
-         */
-        'server', 'db', 'table', 'target', 'lang',
-        /* Session ID */
-        'phpMyAdmin',
-        /* Cookie preferences */
-        'pma_lang', 'pma_collation_connection',
-        /* Possible login form */
-        'pma_servername', 'pma_username', 'pma_password',
-        'g-recaptcha-response',
-        /* Needed to send the correct reply */
-        'ajax_request',
-        /* Permit to log out even if there is a token mismatch */
-        'old_usr',
-        /* Permit redirection with token-mismatch in url.php */
-        'url',
-        /* Permit session expiry flag */
-        'session_expired',
-        /* JS loading */
-        'scripts', 'call_done',
-        /* Navigation panel */
-        'aPath', 'vPath', 'pos', 'pos2_name', 'pos2_value', 'searchClause', 'searchClause2'
-    );
-    /**
-     * Allow changing themes in test/theme.php
-     */
-    if (defined('PMA_TEST_THEME')) {
-        $allow_list[] = 'set_theme';
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    if (PMA_isValid($_POST['token'])) {
+        $token_provided = true;
+        $token_mismatch = ! hash_equals($_SESSION[' PMA_token '], $_POST['token']);
     }
-    /**
-     * Require cleanup functions
-     */
-    include './libraries/cleanup.lib.php';
-    /**
-     * Do actual cleanup
-     */
-    PMA_removeRequestVars($allow_list);
 
+    if ($token_mismatch) {
+        /**
+         * We don't allow any POST operation parameters if the token is mismatched
+         * or is not provided
+         *
+         */
+        $whitelist = array();
+        PMA\libraries\Sanitize::removeRequestVars($whitelist);
+    }
 }
 
 
@@ -441,9 +404,15 @@ PMA_setGlobalDbOrTable('table');
  */
 if (PMA_isValid($_REQUEST['selected_recent_table'])) {
     $recent_table = json_decode($_REQUEST['selected_recent_table'], true);
-    $GLOBALS['db'] = $recent_table['db'];
+
+    $GLOBALS['db']
+        = (array_key_exists('db', $recent_table) && is_string($recent_table['db'])) ?
+            $recent_table['db'] : '';
     $GLOBALS['url_params']['db'] = $GLOBALS['db'];
-    $GLOBALS['table'] = $recent_table['table'];
+
+    $GLOBALS['table']
+        = (array_key_exists('table', $recent_table) && is_string($recent_table['table'])) ?
+            $recent_table['table'] : '';
     $GLOBALS['url_params']['table'] = $GLOBALS['table'];
 }
 
@@ -484,6 +453,20 @@ if ($GLOBALS['text_dir'] == 'ltr') {
  */
 $GLOBALS['PMA_Config']->checkPermissions();
 $GLOBALS['PMA_Config']->checkErrors();
+
+/**
+ * As we try to handle charsets by ourself, mbstring overloads just
+ * break it, see bug 1063821.
+ */
+if (@extension_loaded('mbstring') && @ini_get('mbstring.func_overload') != '0') {
+    PMA_fatalError(
+        __(
+            'You have enabled mbstring.func_overload in your PHP '
+            . 'configuration. This option is incompatible with phpMyAdmin '
+            . 'and might cause some data to be corrupted!'
+        )
+    );
+}
 
 /******************************************************************************/
 /* setup servers                                       LABEL_setup_servers    */
@@ -769,7 +752,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         if ($cfg['Server']['SessionTimeZone'] != '') {
             $sql_query_tz = 'SET ' . Util::backquote('time_zone') . ' = '
                 . '\''
-                . Util::sqlAddSlashes($cfg['Server']['SessionTimeZone'])
+                . $GLOBALS['dbi']->escapeString($cfg['Server']['SessionTimeZone'])
                 . '\'';
 
             if (! $userlink->query($sql_query_tz)) {

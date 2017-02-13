@@ -237,7 +237,7 @@ class ExportSql extends ExportPlugin
                 if ($plugin_param['export_type'] == 'server') {
                     $leaf = new BoolPropertyItem(
                         "drop_database",
-                        sprintf(__('Add %s statement'), '<code>DROP DATABASE</code>')
+                        sprintf(__('Add %s statement'), '<code>DROP DATABASE IF EXISTS</code>')
                     );
                     $subgroup->addProperty($leaf);
                 }
@@ -596,7 +596,16 @@ class ExportSql extends ExportPlugin
             && $GLOBALS['sql_include_comments']
         ) {
             // see https://dev.mysql.com/doc/refman/5.0/en/ansi-diff-comments.html
-            return '--' . (empty($text) ? '' : ' ') . $text . $GLOBALS['crlf'];
+            if (empty($text)) {
+                return '--' . $GLOBALS['crlf'];
+            } else {
+                $lines = preg_split("/\\r\\n|\\r|\\n/", $text);
+                $result = array();
+                foreach ($lines as $line) {
+                    $result[] = '-- ' . $line . $GLOBALS['crlf'];
+                }
+                return implode('', $result);
+            }
         } else {
             return '';
         }
@@ -787,7 +796,7 @@ class ExportSql extends ExportPlugin
         }
         if (isset($GLOBALS['sql_drop_database'])) {
             if (!PMA_exportOutputHandler(
-                'DROP DATABASE '
+                'DROP DATABASE IF EXISTS '
                 . Util::backquoteCompat(
                     $db_alias,
                     $compat,
@@ -940,7 +949,7 @@ class ExportSql extends ExportPlugin
 
         $event_names = $GLOBALS['dbi']->fetchResult(
             "SELECT EVENT_NAME FROM information_schema.EVENTS WHERE"
-            . " EVENT_SCHEMA= '" . Util::sqlAddSlashes($db, true)
+            . " EVENT_SCHEMA= '" . $GLOBALS['dbi']->escapeString($db)
             . "';"
         );
 
@@ -1093,7 +1102,7 @@ class ExportSql extends ExportPlugin
                         . Util::backquote($cfgRelation['db'])
                         . "." . Util::backquote($cfgRelation[$type])
                         . " WHERE " . Util::backquote($dbNameColumn)
-                        . " = '" . Util::sqlAddSlashes($db) . "'";
+                        . " = '" . $GLOBALS['dbi']->escapeString($db) . "'";
 
                     $result = $GLOBALS['dbi']->fetchResult(
                         $sql_query,
@@ -1111,8 +1120,8 @@ class ExportSql extends ExportPlugin
                             . " WHERE " . Util::backquote(
                                 $dbNameColumn
                             )
-                            . " = '" . Util::sqlAddSlashes($db) . "'"
-                            . " AND `page_nr` = '" . $page . "'";
+                            . " = '" . $GLOBALS['dbi']->escapeString($db) . "'"
+                            . " AND `page_nr` = '" . intval($page) . "'";
 
                         if (!$this->exportData(
                             $cfgRelation['db'],
@@ -1177,10 +1186,10 @@ class ExportSql extends ExportPlugin
                 $sql_query .= Util::backquote($cfgRelation['db'])
                     . '.' . Util::backquote($cfgRelation[$type])
                     . " WHERE " . Util::backquote($dbNameColumn)
-                    . " = '" . Util::sqlAddSlashes($db) . "'";
+                    . " = '" . $GLOBALS['dbi']->escapeString($db) . "'";
                 if (isset($table)) {
                     $sql_query .= " AND `table_name` = '"
-                        . Util::sqlAddSlashes($table) . "'";
+                        . $GLOBALS['dbi']->escapeString($table) . "'";
                 }
 
                 if (!$this->exportData(
@@ -1300,7 +1309,7 @@ class ExportSql extends ExportPlugin
             }
             if (isset($column['Default'])) {
                 $create_query .= " DEFAULT '"
-                    . Util::sqlAddSlashes($column['Default']) . "'";
+                    . $GLOBALS['dbi']->escapeString($column['Default']) . "'";
             } else {
                 if ($column['Null'] == 'YES') {
                     $create_query .= " DEFAULT NULL";
@@ -1308,7 +1317,7 @@ class ExportSql extends ExportPlugin
             }
             if (!empty($column['Comment'])) {
                 $create_query .= " COMMENT '"
-                    . Util::sqlAddSlashes($column['Comment']) . "'";
+                    . $GLOBALS['dbi']->escapeString($column['Comment']) . "'";
             }
             $firstCol = false;
         }
@@ -1380,7 +1389,7 @@ class ExportSql extends ExportPlugin
         // with $GLOBALS['dbi']->numRows() in mysqli
         $result = $GLOBALS['dbi']->query(
             'SHOW TABLE STATUS FROM ' . Util::backquote($db)
-            . ' WHERE Name = \'' . Util::sqlAddSlashes($table) . '\'',
+            . ' WHERE Name = \'' . $GLOBALS['dbi']->escapeString($table) . '\'',
             null,
             DatabaseInterface::QUERY_STORE
         );
@@ -2316,8 +2325,6 @@ class ExportSql extends ExportPlugin
         }
 
         //\x08\\x09, not required
-        $search = array("\x00", "\x0a", "\x0d", "\x1a");
-        $replace = array('\0', '\n', '\r', '\Z');
         $current_row = 0;
         $query_size = 0;
         if (($GLOBALS['sql_insert_syntax'] == 'extended'
@@ -2396,7 +2403,7 @@ class ExportSql extends ExportPlugin
                     }
                 } elseif ($fields_meta[$j]->type == 'bit') {
                     // detection of 'bit' works only on mysqli extension
-                    $values[] = "b'" . Util::sqlAddSlashes(
+                    $values[] = "b'" . $GLOBALS['dbi']->escapeString(
                         Util::printableBitValue(
                             $row[$j],
                             $fields_meta[$j]->length
@@ -2410,11 +2417,7 @@ class ExportSql extends ExportPlugin
                 } else {
                     // something else -> treat as a string
                     $values[] = '\''
-                        . str_replace(
-                            $search,
-                            $replace,
-                            Util::sqlAddSlashes($row[$j])
-                        )
+                        . $GLOBALS['dbi']->escapeString($row[$j])
                         . '\'';
                 } // end if
             } // end for

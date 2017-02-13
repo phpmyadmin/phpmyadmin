@@ -62,7 +62,7 @@ if (! isset($err_url)) {
     $err_url = (! empty($back) ? $back : $goto)
         . '?' . URL::getCommon(array('db' => $GLOBALS['db']))
         . ((mb_strpos(' ' . $goto, 'db_') != 1
-            && mb_strlen($table))
+            && strlen($table) > 0)
             ? '&amp;table=' . urlencode($table)
             : ''
         );
@@ -122,9 +122,7 @@ if (isset($_REQUEST['set_col_prefs']) && $_REQUEST['set_col_prefs'] == true) {
 
 // Default to browse if no query set and we have table
 // (needed for browsing from DefaultTabTable)
-$tableLength = mb_strlen($table);
-$dbLength = mb_strlen($db);
-if (empty($sql_query) && $tableLength && $dbLength) {
+if (empty($sql_query) && strlen($table) > 0 && strlen($db) > 0) {
     $sql_query = PMA_getDefaultSqlQueryForBrowse($db, $table);
 
     // set $goto to what will be displayed if query returns 0 rows

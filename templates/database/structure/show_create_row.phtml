@@ -8,14 +8,11 @@
         </tr>
         </thead>
         <tbody>
-        <?php $odd = true; ?>
         <?php foreach ($db_objects as $object): ?>
-            <?php $row_class = ($odd) ? 'odd' : 'even'; ?>
-            <tr class="<?= $row_class; ?>">
+            <tr>
                 <td><strong><?= PMA_mimeDefaultFunction($object); ?></strong></td>
                 <td><?= PMA_mimeDefaultFunction($GLOBALS['dbi']->getTable($db, $object)->showCreate()); ?></td>
             </tr>
-            <?php $odd = ! $odd; ?>
         <?php endforeach; ?>
         </tbody>
     </table>

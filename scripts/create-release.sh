@@ -3,6 +3,12 @@
 # vim: expandtab sw=4 ts=4 sts=4:
 #
 
+# Do not run as CGI
+if [ -n "$GATEWAY_INTERFACE" ] ; then
+    echo 'Can not invoke as CGI!'
+    exit 1
+fi
+
 # More documentation about making a release is available at:
 # https://wiki.phpmyadmin.net/pma/Releasing
 
@@ -59,9 +65,17 @@ while [ $# -gt 0 ] ; do
             ;;
         *)
             if [ -z "$version" ] ; then
-                version="$1"
+                version=`echo $1 | tr -d -c '0-9a-z.-'`
+                if [ "x$version" != "x$1" ] ; then
+                    echo "Invalid version: $1"
+                    exit 1
+                fi
             elif [ -z "$branch" ] ; then
-                branch="$1"
+                branch=`echo $1 | tr -d -c '0-9A-Za-z_-'`
+                if [ "x$branch" != "x$1" ] ; then
+                    echo "Invalid branch: $1"
+                    exit 1
+                fi
             else
                 echo "Unknown parameter: $1!"
                 exit 1
@@ -207,11 +221,14 @@ if [ ! -d libraries/tcpdf ] ; then
         vendor/phpseclib/phpseclib/phpseclib/Math/ \
         vendor/phpseclib/phpseclib/phpseclib/Net/ \
         vendor/phpseclib/phpseclib/phpseclib/System/ \
+        vendor/symfony/expression-language/Tests/ \
+        vendor/symfony/expression-language/Resources/ \
         vendor/tecnickcom/tcpdf/examples/ \
         vendor/tecnickcom/tcpdf/tools/ \
         vendor/tecnickcom/tcpdf/fonts/ae_fonts_*/ \
         vendor/tecnickcom/tcpdf/fonts/dejavu-fonts-ttf-2.33/ \
         vendor/tecnickcom/tcpdf/fonts/freefont-*/ \
+        vendor/tecnickcom/tcpdf/include/sRGB.icc \
         vendor/google/recaptcha/examples/ \
         vendor/google/recaptcha/tests/
     find vendor/phpseclib/phpseclib/phpseclib/Crypt/ -maxdepth 1 -type f -not -name AES.php -not -name Base.php -not -name Random.php -not -name Rijndael.php -print0 | xargs -0 rm
@@ -278,7 +295,7 @@ for kit in $KITS ; do
             tbz|tgz|txz)
                 if [ ! -f $name.tar ] ; then
                     echo "* Creating $name.tar"
-                    tar cf $name.tar $name
+                    tar --owner=root --group=root --numeric-owner --sort=name -cf $name.tar $name
                 fi
                 if [ $comp = tbz ] ; then
                     echo "* Creating $name.tar.bz2"
@@ -326,7 +343,6 @@ git worktree prune
 echo "* Signing files"
 for file in *.gz *.zip *.xz *.bz2 *.7z ; do
     gpg --detach-sign --armor $file
-    md5sum $file > $file.md5
     sha1sum $file > $file.sha1
     sha256sum $file > $file.sha256
 done
@@ -348,7 +364,7 @@ if [ $do_tag -eq 1 ] ; then
     echo "Additional tasks:"
     tagname=RELEASE_`echo $version | tr . _ | tr '[:lower:]' '[:upper:]' | tr -d -`
     echo "* Tagging release as $tagname"
-    git tag -a -m "Released $version" $tagname $branch
+    git tag -s -a -m "Released $version" $tagname $branch
     echo "   Dont forget to push tags using: git push --tags"
 fi
 

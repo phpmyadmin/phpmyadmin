@@ -246,17 +246,13 @@ class ServerBinlogController extends Controller
     private function _getAllLogItemInfo($result, $dontlimitchars)
     {
         $html = "";
-        $odd_row = true;
         while ($value = $this->dbi->fetchAssoc($result)) {
             $html .= Template::get('server/binlog/log_row')->render(
                 array(
-                    'odd_row' => $odd_row,
                     'value' => $value,
                     'dontlimitchars' => $dontlimitchars,
                 )
             );
-
-            $odd_row = !$odd_row;
         }
         return $html;
     }

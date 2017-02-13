@@ -7,6 +7,7 @@
  * @package PhpMyAdmin
  */
 use PMA\libraries\Message;
+use PMA\libraries\Response;
 use PMA\libraries\URL;
 
 if (! defined('PHPMYADMIN')) {
@@ -14,7 +15,7 @@ if (! defined('PHPMYADMIN')) {
 }
 
 if (empty($is_db)) {
-    if (mb_strlen($db)) {
+    if (strlen($db) > 0) {
         $is_db = @$GLOBALS['dbi']->selectDb($db);
     } else {
         $is_db = false;
@@ -23,7 +24,7 @@ if (empty($is_db)) {
     if (! $is_db) {
         // not a valid db name -> back to the welcome page
         if (! defined('IS_TRANSFORMATION_WRAPPER')) {
-            $response = PMA\libraries\Response::getInstance();
+            $response = Response::getInstance();
             if ($response->isAjax()) {
                 $response->setRequestStatus(false);
                 $response->addJSON(
@@ -57,13 +58,13 @@ if (empty($is_table)
 ) {
     // Not a valid table name -> back to the db_sql.php
 
-    if (mb_strlen($table)) {
+    if (strlen($table) > 0) {
         $is_table = $GLOBALS['dbi']->getCachedTableContent(array($db, $table), false);
 
         if (! $is_table) {
             $_result = $GLOBALS['dbi']->tryQuery(
                 'SHOW TABLES LIKE \''
-                . PMA\libraries\Util::sqlAddSlashes($table, true) . '\';',
+                . $GLOBALS['dbi']->escapeString($table) . '\';',
                 null, PMA\libraries\DatabaseInterface::QUERY_STORE
             );
             $is_table = @$GLOBALS['dbi']->numRows($_result);
@@ -75,7 +76,7 @@ if (empty($is_table)
 
     if (! $is_table) {
         if (!defined('IS_TRANSFORMATION_WRAPPER')) {
-            if (mb_strlen($table)) {
+            if (strlen($table) > 0) {
                 // SHOW TABLES doesn't show temporary tables, so try select
                 // (as it can happen just in case temporary table, it should be
                 // fast):

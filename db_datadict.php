@@ -6,6 +6,7 @@
  * @package PhpMyAdmin
  */
 use PMA\libraries\URL;
+use PMA\libraries\Response;
 
 /**
  * Gets the variables sent or posted to this script, then displays headers
@@ -27,7 +28,7 @@ if (! isset($selected_tbl)) {
     ) = PMA\libraries\Util::getDbInfo($db, isset($sub_part) ? $sub_part : '');
 }
 
-$response = PMA\libraries\Response::getInstance();
+$response = Response::getInstance();
 $header   = $response->getHeader();
 $header->enablePrintView();
 
@@ -123,7 +124,6 @@ foreach ($tables as $table) {
         echo '    <th>MIME</th>' , "\n";
     }
     echo '</tr>';
-    $odd_row = true;
     foreach ($columns as $row) {
 
         if ($row['Null'] == '') {
@@ -146,9 +146,7 @@ foreach ($tables as $table) {
         }
         $column_name = $row['Field'];
 
-        echo '<tr class="';
-        echo $odd_row ? 'odd' : 'even'; $odd_row = ! $odd_row;
-        echo '">';
+        echo '<tr>';
         echo '<td class="nowrap">';
         echo htmlspecialchars($column_name);
 

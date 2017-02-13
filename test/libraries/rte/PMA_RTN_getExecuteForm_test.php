@@ -7,6 +7,7 @@
  */
 
 use PMA\libraries\TypesMySQL;
+use PMA\libraries\Response;
 
 $GLOBALS['server'] = 0;
 
@@ -54,7 +55,6 @@ class PMA_RTN_GetExecuteForm_Test extends PHPUnit_Framework_TestCase
      */
     public function testgetExecuteForm1($data, $matcher)
     {
-        $GLOBALS['is_ajax_request'] = false;
         PMA_RTN_setGlobals();
         $this->assertContains(
             $matcher,
@@ -190,12 +190,13 @@ class PMA_RTN_GetExecuteForm_Test extends PHPUnit_Framework_TestCase
      */
     public function testgetExecuteForm2($data, $matcher)
     {
-        $GLOBALS['is_ajax_request'] = true;
+        Response::getInstance()->setAjax(true);
         PMA_RTN_setGlobals();
         $this->assertContains(
             $matcher,
             PMA_RTN_getExecuteForm($data)
         );
+        Response::getInstance()->setAjax(false);
     }
 
     /**

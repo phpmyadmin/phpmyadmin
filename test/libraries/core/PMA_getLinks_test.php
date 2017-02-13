@@ -33,7 +33,7 @@ class PMA_GetLinks_Test extends PHPUnit_Framework_TestCase
         $lang = _pgettext('PHP documentation language', 'en');
         $this->assertEquals(
             PMA_getPHPDocLink('function'),
-            './url.php?url=https%3A%2F%2Fphp.net%2Fmanual%2F'
+            './url.php?url=https%3A%2F%2Fsecure.php.net%2Fmanual%2F'
             . $lang . '%2Ffunction'
         );
     }

@@ -20,6 +20,25 @@
  */
 
 /**
+ * Your phpMyAdmin URL.
+ *
+ * Complete the variable below with the full URL ie
+ *    https://example.com/path_to_your_phpMyAdmin_directory/
+ *
+ * It must contain characters that are valid for a URL, and the path is
+ * case sensitive on some Web servers, for example Unix-based servers.
+ *
+ * In most cases you can leave this variable empty, as the correct value
+ * will be detected automatically. However, we recommend that you do
+ * test to see that the auto-detection code works in your system. A good
+ * test is to browse a table, then edit a row and save it.  There will be
+ * an error message if phpMyAdmin cannot auto-detect the correct value.
+ *
+ * @global string $cfg['PmaAbsoluteUri']
+ */
+$cfg['PmaAbsoluteUri'] = '';
+
+/**
  * Disable the default warning that is displayed on the DB Details Structure page if
  * any of the required Tables for the configuration storage could not be found
  *
@@ -277,13 +296,6 @@ $cfg['Servers'][$i]['SignonURL'] = '';
  * @global string $cfg['Servers'][$i]['LogoutURL']
  */
 $cfg['Servers'][$i]['LogoutURL'] = '';
-
-/**
- * Whether to try to connect without password
- *
- * @global boolean $cfg['Servers'][$i]['nopassword']
- */
-$cfg['Servers'][$i]['nopassword'] = false;
 
 /**
  * If set to a db-name, only this db is displayed in navigation panel
@@ -1039,13 +1051,6 @@ $cfg['NavigationTreeShowEvents'] = true;
 $cfg['ShowStats'] = true;
 
 /**
- * show PHP info link
- *
- * @global boolean $cfg['ShowPhpInfo']
- */
-$cfg['ShowPhpInfo'] = false;
-
-/**
  * show MySQL server and web server information
  *
  * @global boolean $cfg['ShowServerInfo']
@@ -1070,6 +1075,12 @@ $cfg['ShowCreateDb'] = true;
 /*******************************************************************************
  * Database structure
  */
+
+/** show charset column in database structure (true|false)?
+ *
+ * @global boolean $cfg['ShowDbStructureCharset']
+ */
+$cfg['ShowDbStructureCharset'] = false;
 
 /**
  * show comment column in database structure (true|false)?
@@ -2548,7 +2559,7 @@ $cfg['DefaultLang'] = 'en';
  *
  * @global string $cfg['DefaultConnectionCollation']
  */
-$cfg['DefaultConnectionCollation'] = 'utf8_unicode_ci';
+$cfg['DefaultConnectionCollation'] = 'utf8mb4_unicode_ci';
 
 /**
  * Force: always use this language, e.g. 'en'

@@ -37,7 +37,10 @@ function PMA_getPlugin(
     if (is_file($plugins_dir . $file)) {
         //include_once $plugins_dir . $file;
         $fqnClass = 'PMA\\' . str_replace('/', '\\', $plugins_dir) . $class_name;
-        return new $fqnClass;
+        // check if class exists, could be caused by skip_import
+        if (class_exists($fqnClass)) {
+            return new $fqnClass;
+        }
     }
 
     return null;
@@ -59,7 +62,6 @@ function PMA_getPlugins($plugin_type, $plugins_dir, $plugin_param)
     /* Scan for plugins */
     $plugin_list = array();
     if (!($handle = @opendir($plugins_dir))) {
-        ksort($plugin_list);
         return $plugin_list;
     }
 

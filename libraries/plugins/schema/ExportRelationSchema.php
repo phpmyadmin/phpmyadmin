@@ -54,7 +54,7 @@ class ExportRelationSchema
      */
     public function setPageNumber($value)
     {
-        $this->pageNumber = $value;
+        $this->pageNumber = intval($value);
     }
 
     /**

@@ -268,4 +268,22 @@ class SanitizeTest extends PHPUnit_Framework_TestCase
             array("\\\\\'\'\'\'\'\'\'\'\'\'\'\'\\\\", "\\''''''''''''\\")
         );
     }
+
+    /**
+     * Test for removeRequestVars
+     *
+     * @return void
+     */
+    public function testRemoveRequestVars()
+    {
+        $_REQUEST['foo'] = 'bar';
+        $_REQUEST['allow'] = 'all';
+        $_REQUEST['second'] = 1;
+        $allow_list = array('allow', 'second');
+        Sanitize::removeRequestVars($allow_list);
+        $this->assertFalse(isset($_REQUEST['foo']));
+        $this->assertFalse(isset($_REQUEST['second']));
+        $this->assertTrue(isset($_REQUEST['allow']));
+    }
+
 }

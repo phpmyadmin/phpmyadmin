@@ -627,7 +627,13 @@ function PMA_isRememberSortingOrder($analyzed_sql_results)
  */
 function PMA_isAppendLimitClause($analyzed_sql_results)
 {
-    return ($_SESSION['tmpval']['max_rows'] != 'all')
+    // Assigning LIMIT clause to an syntactically-wrong query
+    // is not needed. Also we would want to show the true query
+    // and the true error message to the query executor
+
+    return (isset($analyzed_sql_results['parser'])
+        && count($analyzed_sql_results['parser']->errors) === 0)
+        && ($_SESSION['tmpval']['max_rows'] != 'all')
         && ! ($analyzed_sql_results['is_export']
         || $analyzed_sql_results['is_analyse'])
         && ($analyzed_sql_results['select_from']
@@ -651,13 +657,14 @@ function PMA_isJustBrowsing($analyzed_sql_results, $find_real_end)
         && empty($analyzed_sql_results['union'])
         && empty($analyzed_sql_results['distinct'])
         && $analyzed_sql_results['select_from']
-        && (count($analyzed_sql_results['select_tables']) <= 1)
+        && (count($analyzed_sql_results['select_tables']) === 1)
         && (empty($analyzed_sql_results['statement']->where)
             || (count($analyzed_sql_results['statement']->where) == 1
                 && $analyzed_sql_results['statement']->where[0]->expr ==='1'))
         && empty($analyzed_sql_results['group'])
         && ! isset($find_real_end)
         && ! $analyzed_sql_results['is_subquery']
+        && ! $analyzed_sql_results['join']
         && empty($analyzed_sql_results['having']);
 }
 
@@ -689,8 +696,7 @@ function PMA_isDeleteTransformationInfo($analyzed_sql_results)
 function PMA_hasNoRightsToDropDatabase($analyzed_sql_results,
     $allowUserDropDatabase, $is_superuser
 ) {
-    return ! defined('PMA_CHK_DROP')
-        && ! $allowUserDropDatabase
+    return ! $allowUserDropDatabase
         && isset($analyzed_sql_results['drop_database'])
         && $analyzed_sql_results['drop_database']
         && ! $is_superuser;
@@ -723,7 +729,7 @@ function PMA_setColumnProperty($pmatable, $request_index)
         $_REQUEST['table_create_time']
     );
     if (gettype($retval) != 'boolean') {
-        $response = PMA\libraries\Response::getInstance();
+        $response = Response::getInstance();
         $response->setRequestStatus(false);
         $response->addJSON('message', $retval->getString());
         exit;
@@ -755,7 +761,7 @@ function PMA_setColumnOrderOrVisibility($table, $db)
         $retval = PMA_setColumnProperty($pmatable, 'col_visib');
     }
 
-    $response = PMA\libraries\Response::getInstance();
+    $response = Response::getInstance();
     $response->setRequestStatus($retval == true);
     exit;
 }
@@ -838,7 +844,7 @@ function PMA_getRelationalValues($db, $table)
     $dropdown = PMA_getHtmlForRelationalColumnDropdown(
         $db, $table, $column, $curr_value
     );
-    $response = PMA\libraries\Response::getInstance();
+    $response = Response::getInstance();
     $response->addJSON('dropdown', $dropdown);
     exit;
 }
@@ -856,7 +862,7 @@ function PMA_getEnumOrSetValues($db, $table, $columnType)
 {
     $column = $_REQUEST['column'];
     $curr_value = $_REQUEST['curr_value'];
-    $response = PMA\libraries\Response::getInstance();
+    $response = Response::getInstance();
     if ($columnType == "enum") {
         $dropdown = PMA_getHtmlForEnumColumnDropdown(
             $db, $table, $column, $curr_value
@@ -950,7 +956,7 @@ function PMA_handleQueryExecuteError($is_gotofile, $error, $full_sql_query)
 {
     if ($is_gotofile) {
         $message = PMA\libraries\Message::rawError($error);
-        $response = PMA\libraries\Response::getInstance();
+        $response = Response::getInstance();
         $response->setRequestStatus(false);
         $response->addJSON('message', $message);
     } else {
@@ -1049,7 +1055,7 @@ function PMA_getNumberOfRowsAffectedOrChanged($is_affected, $result)
  */
 function PMA_hasCurrentDbChanged($db)
 {
-    if (mb_strlen($db)) {
+    if (strlen($db) > 0) {
         $current_db = $GLOBALS['dbi']->fetchValue('SELECT DATABASE()');
         // $current_db is false, except when a USE statement was sent
         return ($current_db != false) && ($db !== $current_db);
@@ -1072,9 +1078,9 @@ function PMA_cleanupRelations($db, $table, $column, $purge)
 {
     include_once 'libraries/relation_cleanup.lib.php';
 
-    if (! empty($purge) && mb_strlen($db)) {
-        if (mb_strlen($table)) {
-            if (isset($column) && mb_strlen($column)) {
+    if (! empty($purge) && strlen($db) > 0) {
+        if (strlen($table) > 0) {
+            if (isset($column) && strlen($column) > 0) {
                 PMA_relationsCleanupColumn($db, $table, $column);
             } else {
                 PMA_relationsCleanupTable($db, $table);
@@ -1117,7 +1123,7 @@ function PMA_countQueryResults(
     ) {
         //    c o u n t    q u e r y
 
-        // If we are "just browsing", there is only one table,
+        // If we are "just browsing", there is only one table (and no join),
         // and no WHERE clause (or just 'WHERE 1 '),
         // we do a quick count (which uses MaxExactCount) because
         // SQL_CALC_FOUND_ROWS is not quick on large InnoDB tables
@@ -1196,7 +1202,7 @@ function PMA_countQueryResults(
 function PMA_executeTheQuery($analyzed_sql_results, $full_sql_query, $is_gotofile,
     $db, $table, $find_real_end, $sql_query_for_bookmark, $extra_data
 ) {
-    $response = PMA\libraries\Response::getInstance();
+    $response = Response::getInstance();
     $response->getHeader()->getMenu()->setTable($table);
 
     // Only if we ask to see the php code
@@ -1265,8 +1271,8 @@ function PMA_executeTheQuery($analyzed_sql_results, $full_sql_query, $is_gotofil
         );
 
         if (isset($_REQUEST['dropped_column'])
-            && mb_strlen($db)
-            && mb_strlen($table)
+            && strlen($db) > 0
+            && strlen($table) > 0
         ) {
             // to refresh the list of indexes (Ajax mode)
             $extra_data['indexes_list'] = PMA\libraries\Index::getHtmlForIndexes(
@@ -1428,17 +1434,16 @@ function PMA_getQueryResponseForNoResultsReturned($analyzed_sql_results, $db,
     }
 
     $html_output = '';
+    $html_message = PMA\libraries\Util::getMessage(
+        $message, $GLOBALS['sql_query'], 'success'
+    );
+    $html_output .= $html_message;
     if (!isset($GLOBALS['show_as_php'])) {
 
         if (! empty($GLOBALS['reload'])) {
             $extra_data['reload'] = 1;
             $extra_data['db'] = $GLOBALS['db'];
         }
-
-        $html_message = PMA\libraries\Util::getMessage(
-            $message, $GLOBALS['sql_query'], 'success'
-        );
-        $html_output .= $html_message;
 
         // For ajax requests add message and sql_query as JSON
         if (empty($_REQUEST['ajax_page_request'])) {
@@ -1448,7 +1453,7 @@ function PMA_getQueryResponseForNoResultsReturned($analyzed_sql_results, $db,
             }
         }
 
-        $response = PMA\libraries\Response::getInstance();
+        $response = Response::getInstance();
         $response->addJSON(isset($extra_data) ? $extra_data : array());
 
         if (!empty($analyzed_sql_results['is_select']) &&
@@ -1506,7 +1511,7 @@ function PMA_sendResponseForGridEdit($result)
     if (stristr($field_flags, PMA\libraries\DisplayResults::BINARY_FIELD)) {
         $row[0] = bin2hex($row[0]);
     }
-    $response = PMA\libraries\Response::getInstance();
+    $response = Response::getInstance();
     $response->addJSON('value', $row[0]);
     exit;
 }
@@ -1847,14 +1852,17 @@ function PMA_getQueryResponseForResultsReturned($result, $analyzed_sql_results,
     $showtable = isset($showtable) ? $showtable : null;
     $url_query = isset($url_query) ? $url_query : null;
 
-    $response = PMA\libraries\Response::getInstance();
+    $response = Response::getInstance();
     $header   = $response->getHeader();
     $scripts  = $header->getScripts();
+
+    $just_one_table = PMA_resultSetHasJustOneTable($fields_meta);
 
     // hide edit and delete links:
     // - for information_schema
     // - if the result set does not contain all the columns of a unique key
     //   (unless this is an updatable view)
+    // - if the SELECT query contains a join or a subquery
 
     $updatableView = false;
 
@@ -1866,13 +1874,18 @@ function PMA_getQueryResponseForResultsReturned($result, $analyzed_sql_results,
                 $updatableView = $_table->isUpdatableView();
             }
         }
+
+        if ($analyzed_sql_results['join']
+            || $analyzed_sql_results['is_subquery']
+            || count($analyzed_sql_results['select_tables']) !== 1
+        ) {
+            $just_one_table = false;
+        }
     }
 
     $has_unique = PMA_resultSetContainsUniqueKey(
         $db, $table, $fields_meta
     );
-
-    $just_one_table = PMA_resultSetHasJustOneTable($fields_meta);
 
     $editable = ($has_unique
         || $GLOBALS['cfg']['RowActionLinksWithoutUnique']
@@ -1889,7 +1902,7 @@ function PMA_getQueryResponseForResultsReturned($result, $analyzed_sql_results,
         'pview_lnk' => '1'
     );
 
-    if (!empty($table) && ($GLOBALS['dbi']->isSystemSchema($db) || !$editable)) {
+    if ($GLOBALS['dbi']->isSystemSchema($db) || !$editable) {
         $displayParts = array(
             'edit_lnk' => $displayResultsObject::NO_EDIT_OR_DELETE,
             'del_lnk' => $displayResultsObject::NO_EDIT_OR_DELETE,
@@ -2066,7 +2079,7 @@ function PMA_executeQueryAndSendQueryResponse($analyzed_sql_results,
         $complete_query // complete_query
     );
 
-    $response = PMA\libraries\Response::getInstance();
+    $response = Response::getInstance();
     $response->addHTML($html_output);
 }
 

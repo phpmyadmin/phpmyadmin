@@ -8,11 +8,20 @@
                 <tr>
                     <th><?= __('Actions'); ?></th>
                     <th><?= __('Constraint properties'); ?></th>
-                    <th><?= __('Column') , PMA\libraries\Util::showHint(__(
-                            'Only columns with index will be displayed. You can define an'
-                            . ' index below.'
-                        )) ?>
-                    </th>
+                    <?php if (strtoupper($tbl_storage_engine) == 'INNODB'): ?>
+                        <th><?= __('Column') , PMA\libraries\Util::showHint(__(
+                                'Creating a foreign key over a non-indexed column would automatically create'
+                                . ' an index on it. Alternatively, you can define an index below, before creating'
+                                . ' the foreign key.'
+                            )) ?>
+                        </th>
+                    <?php else: ?>
+                        <th><?= __('Column') , PMA\libraries\Util::showHint(__(
+                                'Only columns with index will be displayed. You can define an'
+                                . ' index below.'
+                            )) ?>
+                        </th>
+                    <?php endif; ?>
                     <th colspan="3">
                         <?= __('Foreign key constraint'); ?> (<?= $tbl_storage_engine; ?>)
                     </th>
@@ -25,13 +34,12 @@
                     <th><?= __('Table'); ?></th>
                     <th><?= __('Column'); ?></th>
                 </tr>
-                <?php $odd_row = true; $i = 0; ?>
+                <?php $i = 0; ?>
                 <?php if (! empty($existrel_foreign)): ?>
                     <?php foreach ($existrel_foreign as $key => $one_key): ?>
                         <?= PMA\libraries\Template::get('table/relation/foreign_key_row')->render(
                             array(
                                 'one_key' => $one_key,
-                                'odd_row' => $odd_row,
                                 'columns' => $columns,
                                 'i' => $i++,
                                 'options_array' => $options_array,
@@ -39,13 +47,12 @@
                                 'db' => $db
                             )
                         );
-                        $odd_row = ! $odd_row;?>
+                        ?>
                     <?php endforeach; ?>
                 <?php endif; ?>
                 <?= PMA\libraries\Template::get('table/relation/foreign_key_row')->render(
                     array(
                         'one_key' => array(),
-                        'odd_row' => $odd_row,
                         'columns' => $columns,
                         'i' => $i++,
                         'options_array' => $options_array,
@@ -83,18 +90,16 @@
                                 . ' FOREIGN KEY relation exists.')); ?>
                         <?php endif; ?>
                     </th>
-                    <?php $odd_row = true; ?>
                     <?php for ($i = 0; $i < $saved_row_cnt; $i++): ?>
                         <?= PMA\libraries\Template::get('table/relation/internal_relational_row')->render(
                             array(
                                 'save_row' => $save_row,
                                 'i' => $i,
-                                'odd_row' => $odd_row,
                                 'existrel' => $existrel,
                                 'db' => $db
                             )
                         );
-                        $odd_row = ! $odd_row; ?>
+                        ?>
                     <?php endfor; ?>
             </table>
         </fieldset>

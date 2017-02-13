@@ -34,13 +34,13 @@ Pie chart
 
 Query results for a simple pie chart can be generated with:
 
-.. code-block:: sql
+.. code-block:: mysql
 
-    SELECT 'Food' AS 'expense', 
-       1250 AS 'amount' UNION
-    SELECT 'Accommodation', 500 UNION
-    SELECT 'Travel', 720 UNION
-    SELECT 'Misc', 220
+    SELECT 'Food' AS 'expense', 
+       1250 AS 'amount' UNION
+    SELECT 'Accommodation', 500 UNION
+    SELECT 'Travel', 720 UNION
+    SELECT 'Misc', 220
 
 And the result of this query is:
 
@@ -67,16 +67,16 @@ Both bar charts and column chats support stacking. Upon selecting one of these t
 
 Query results for a simple bar or column chart can be generated with:
 
-.. code-block:: sql
+.. code-block:: mysql
 
-    SELECT 
-       'ACADEMY DINOSAUR' AS 'title',
-       0.99 AS 'rental_rate',
-       20.99 AS 'replacement_cost' UNION
-    SELECT 'ACE GOLDFINGER', 4.99, 12.99 UNION
-    SELECT 'ADAPTATION HOLES', 2.99, 18.99 UNION
-    SELECT 'AFFAIR PREJUDICE', 2.99, 26.99 UNION
-    SELECT 'AFRICAN EGG', 2.99, 22.99
+    SELECT 
+       'ACADEMY DINOSAUR' AS 'title',
+       0.99 AS 'rental_rate',
+       20.99 AS 'replacement_cost' UNION
+    SELECT 'ACE GOLDFINGER', 4.99, 12.99 UNION
+    SELECT 'ADAPTATION HOLES', 2.99, 18.99 UNION
+    SELECT 'AFFAIR PREJUDICE', 2.99, 26.99 UNION
+    SELECT 'AFRICAN EGG', 2.99, 22.99
 
 And the result of this query is:
 
@@ -114,15 +114,15 @@ These charts can be used to illustrate trends in underlying data. Spline charts 
 
 Query results for a simple line, spline or timeline chart can be generated with:
 
-.. code-block:: sql
+.. code-block:: mysql
 
-    SELECT 
-       DATE('2006-01-08') AS 'date', 
-       2056 AS 'revenue',
-       1378 AS 'cost' UNION
-    SELECT DATE('2006-01-09'), 1898, 2301 UNION
-    SELECT DATE('2006-01-15'), 1560, 600 UNION
-    SELECT DATE('2006-01-17'), 3457, 1565
+    SELECT 
+       DATE('2006-01-08') AS 'date', 
+       2056 AS 'revenue',
+       1378 AS 'cost' UNION
+    SELECT DATE('2006-01-09'), 1898, 2301 UNION
+    SELECT DATE('2006-01-15'), 1560, 600 UNION
+    SELECT DATE('2006-01-17'), 3457, 1565
 
 And the result of this query is:
 

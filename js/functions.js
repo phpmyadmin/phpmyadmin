@@ -152,6 +152,8 @@ function PMA_addDatepicker($this_element, type, options)
     }
     else if (type == "time") {
         $this_element.timepicker($.extend(defaultOptions, options));
+        // Add a tip regarding entering MySQL allowed-values for TIME data-type
+        PMA_tooltip($this_element, 'input', PMA_messages.strMysqlAllowedValuesTip);
     }
 }
 
@@ -185,6 +187,14 @@ function addDateTimePicker() {
                 showMicrosec: showMicrosec,
                 timeFormat: timeFormat
             });
+
+            // Add a tip regarding entering MySQL allowed-values
+            // for TIME and DATE data-type
+            if ($(this).hasClass('timefield')) {
+                PMA_tooltip($(this), 'input', PMA_messages.strMysqlAllowedValuesTipTime);
+            } else if ($(this).hasClass('datefield')) {
+                PMA_tooltip($(this), 'input', PMA_messages.strMysqlAllowedValuesTipDate);
+            }
         });
     }
 }
@@ -253,7 +263,7 @@ function PMA_getSQLEditor($textarea, options, resize, lintOptions) {
         }
         var handles = '';
         if (resize == 'vertical') {
-            handles = 'n, s';
+            handles = 's';
         }
         if (resize == 'both') {
             handles = 'all';
@@ -299,7 +309,7 @@ function PMA_clearSelection() {
  *
  * @param $elements     jQuery object representing the elements
  * @param item          the item
- *                      (see http://api.jqueryui.com/tooltip/#option-items)
+ *                      (see https://api.jqueryui.com/tooltip/#option-items)
  * @param myContent     content of the tooltip
  * @param additionalOptions to override the default options
  *
@@ -461,8 +471,13 @@ function suggestPassword(passwd_form)
         passwd.value += pwchars.charAt(Math.abs(randomWords[i]) % pwchars.length);
     }
 
-    passwd_form.text_pma_pw.value = passwd.value;
-    passwd_form.text_pma_pw2.value = passwd.value;
+    $jquery_passwd_form = $(passwd_form);
+
+    passwd_form.elements['pma_pw'].value = passwd.value;
+    passwd_form.elements['pma_pw2'].value = passwd.value;
+    meter_obj = $jquery_passwd_form.find('meter[name="pw_meter"]').first();
+    meter_obj_label = $jquery_passwd_form.find('span[name="pw_strength"]').first();
+    checkPasswordStrength(passwd.value, meter_obj, meter_obj_label);
     return true;
 }
 
@@ -505,9 +520,10 @@ function PMA_current_version(data)
     if (data && data.version && data.date) {
         var current = parseVersionString($('span.version').text());
         var latest = parseVersionString(data.version);
+        var url = 'https://web.phpmyadmin.net/files/' + escapeHtml(encodeURIComponent(data.version)) + '/';
         var version_information_message = '<span class="latest">' +
             PMA_messages.strLatestAvailable +
-            ' ' + escapeHtml(data.version) +
+            ' <a href="' + url + '" class="disableAjax">' + escapeHtml(data.version) + '</a>' +
             '</span>';
         if (latest > current) {
             var message = PMA_sprintf(
@@ -521,7 +537,7 @@ function PMA_current_version(data)
                 htmlClass = 'error';
             }
             $('#newer_version_notice').remove();
-            $('#maincontainer').after('<div id="newer_version_notice" class="' + htmlClass + '">' + message + '</div>');
+            $('#maincontainer').after('<div id="newer_version_notice" class="' + htmlClass + '"><a href="' + url + '" class="disableAjax">' + message + '</a></div>');
         }
         if (latest === current) {
             version_information_message = ' (' + PMA_messages.strUpToDate + ')';
@@ -613,8 +629,12 @@ function confirmLink(theLink, theSqlQuery)
     if (is_confirmed) {
         if ($(theLink).hasClass('formLinkSubmit')) {
             var name = 'is_js_confirmed';
+
             if ($(theLink).attr('href').indexOf('usesubform') != -1) {
-                name = 'subform[' + $(theLink).attr('href').substr('#').match(/usesubform\[(\d+)\]/i)[1] + '][is_js_confirmed]';
+                var matches = $(theLink).attr('href').substr('#').match(/usesubform\[(\d+)\]/i);
+                if (matches != null) {
+                    name = 'subform[' + matches[1] + '][is_js_confirmed]';
+                }
             }
 
             $(theLink).parents('form').append('<input type="hidden" name="' + name + '" value="1" />');
@@ -629,8 +649,7 @@ function confirmLink(theLink, theSqlQuery)
 } // end of the 'confirmLink()' function
 
 /**
- * Displays an error message if a "DROP DATABASE" statement is submitted
- * while it isn't allowed, else confirms a "DROP/DELETE/ALTER" query before
+ * Confirms a "DROP/DELETE/ALTER" query before
  * submitting it if required.
  * This function is called by the 'checkSqlQuery()' js function.
  *
@@ -648,17 +667,6 @@ function confirmQuery(theForm1, sqlQuery1)
         return true;
     }
 
-    // "DROP DATABASE" statement isn't allowed
-    if (PMA_messages.strNoDropDatabases !== '') {
-        var drop_re = new RegExp('(^|;)\\s*DROP\\s+(IF EXISTS\\s+)?DATABASE\\s', 'i');
-        if (drop_re.test(sqlQuery1.value)) {
-            alert(PMA_messages.strNoDropDatabases);
-            theForm1.reset();
-            sqlQuery1.focus();
-            return false;
-        } // end if
-    } // end if
-
     // Confirms a "DROP/DELETE/ALTER/TRUNCATE" statement
     //
     // TODO: find a way (if possible) to use the parser-analyser
@@ -666,7 +674,7 @@ function confirmQuery(theForm1, sqlQuery1)
     // For now, I just added a ^ to check for the statement at
     // beginning of expression
 
-    var do_confirm_re_0 = new RegExp('^\\s*DROP\\s+(IF EXISTS\\s+)?(TABLE|DATABASE|PROCEDURE)\\s', 'i');
+    var do_confirm_re_0 = new RegExp('^\\s*DROP\\s+(IF EXISTS\\s+)?(TABLE|PROCEDURE)\\s', 'i');
     var do_confirm_re_1 = new RegExp('^\\s*ALTER\\s+TABLE\\s+((`[^`]+`)|([A-Za-z0-9_$]+))\\s+DROP\\s', 'i');
     var do_confirm_re_2 = new RegExp('^\\s*DELETE\\s+FROM\\s', 'i');
     var do_confirm_re_3 = new RegExp('^\\s*TRUNCATE\\s', 'i');
@@ -911,13 +919,13 @@ AJAX.registerOnload('functions.js', function () {
                 data: params,
                 success: function (data) {
                     if (data.success) {
-                        if (PMA_commonParams.get('LoginCookieValidity')-_idleSecondsCounter > 5) {
-                            var interval = (PMA_commonParams.get('LoginCookieValidity') - _idleSecondsCounter - 5) * 1000;
-                            if (interval > Math.pow(2, 31) - 1) { // max value for setInterval() function
-                                interval = Math.pow(2, 31) - 1;
-                            }
+                        var remaining = PMA_commonParams.get('LoginCookieValidity') - _idleSecondsCounter;
+                        if (remaining > 5) {
+                            // max value for setInterval() function
+                            var interval = Math.min(remaining * 1000, Math.pow(2, 31) - 1);
                             updateTimeout = window.setTimeout(UpdateIdleTime, interval);
-                        } else {
+                        } else if (remaining > 0) {
+                            // We're close to session expiry
                             updateTimeout = window.setTimeout(UpdateIdleTime, 2000);
                         }
                     } else { //timeout occurred
@@ -971,7 +979,7 @@ AJAX.registerOnload('functions.js', function () {
             last_click_checked = checked;
 
             // remember the last clicked row
-            last_clicked_row = last_click_checked ? $table.find('tr.odd:not(.noclick), tr.even:not(.noclick)').index($tr) : -1;
+            last_clicked_row = last_click_checked ? $table.find('tr:not(.noclick)').index($tr) : -1;
             last_shift_clicked_row = -1;
         } else {
             // handle the shift click
@@ -987,7 +995,7 @@ AJAX.registerOnload('functions.js', function () {
                     start = last_shift_clicked_row;
                     end = last_clicked_row;
                 }
-                $tr.parent().find('tr.odd:not(.noclick), tr.even:not(.noclick)')
+                $tr.parent().find('tr:not(.noclick)')
                     .slice(start, end + 1)
                     .removeClass('marked')
                     .find(':checkbox')
@@ -996,7 +1004,7 @@ AJAX.registerOnload('functions.js', function () {
             }
 
             // handle new shift click
-            var curr_row = $table.find('tr.odd:not(.noclick), tr.even:not(.noclick)').index($tr);
+            var curr_row = $table.find('tr:not(.noclick)').index($tr);
             if (curr_row >= last_clicked_row) {
                 start = last_clicked_row;
                 end = curr_row;
@@ -1004,7 +1012,7 @@ AJAX.registerOnload('functions.js', function () {
                 start = curr_row;
                 end = last_clicked_row;
             }
-            $tr.parent().find('tr.odd:not(.noclick), tr.even:not(.noclick)')
+            $tr.parent().find('tr:not(.noclick)')
                 .slice(start, end + 1)
                 .addClass('marked')
                 .find(':checkbox')
@@ -1031,7 +1039,7 @@ AJAX.registerOnload('functions.js', function () {
  * so that it works also for pages reached via AJAX)
  */
 /*AJAX.registerOnload('functions.js', function () {
-    $(document).on('hover', 'tr.odd, tr.even',function (event) {
+    $(document).on('hover', 'tr',function (event) {
         var $tr = $(this);
         $tr.toggleClass('hover',event.type=='mouseover');
         $tr.children().toggleClass('hover',event.type=='mouseover');
@@ -1164,7 +1172,9 @@ function insertQuery(queryType)
         }
         return;
     } else if (queryType == "saved") {
-        if ($.cookie('auto_saved_sql')) {
+        if (isStorageSupported('localStorage') && typeof window.localStorage.auto_saved_sql != 'undefined') {
+            setQuery(window.localStorage.auto_saved_sql);
+        } else if ($.cookie('auto_saved_sql')) {
             setQuery($.cookie('auto_saved_sql'));
         } else {
             PMA_ajaxShowMessage(PMA_messages.strNoAutoSavedQuery);
@@ -1941,7 +1951,7 @@ function codemirrorAutocompleteOnInputRead(instance) {
                 data: params,
                 success: function (data) {
                     if (data.success) {
-                        var tables = $.parseJSON(data.tables);
+                        var tables = JSON.parse(data.tables);
                         sql_autocomplete_default_table = PMA_commonParams.get('table');
                         sql_autocomplete = [];
                         for (var table in tables) {
@@ -2745,7 +2755,6 @@ jQuery.fn.PMA_confirm = function (question, url, callbackFn, openCallback) {
 
 /**
  * jQuery function to sort a table's body after a new row has been appended to it.
- * Also fixes the even/odd classes of the table rows at the end.
  *
  * @param string      text_selector   string to select the sortKey's text
  *
@@ -2784,13 +2793,6 @@ jQuery.fn.PMA_sort_table = function (text_selector) {
             $(table_body).append(row);
             row.sortKey = null;
         });
-
-        //Re-check the classes of each row
-        $(this).find('tr:odd')
-        .removeClass('even').addClass('odd')
-        .end()
-        .find('tr:even')
-        .removeClass('odd').addClass('even');
     });
 };
 
@@ -3169,6 +3171,10 @@ AJAX.registerOnload('functions.js', function () {
                 return;
             }
 
+            if (data._scripts) {
+                AJAX.scriptHandler.load(data._scripts);
+            }
+
             $('<div id="change_password_dialog"></div>')
                 .dialog({
                     title: PMA_messages.strChangePassword,
@@ -3185,7 +3191,6 @@ AJAX.registerOnload('functions.js', function () {
                 .find("legend").remove().end()
                 .find("table.noclick").unwrap().addClass("some-margin")
                 .find("input#text_pma_pw").focus();
-            displayPasswordGenerateButton();
             $('#fieldset_change_password_footer').hide();
             PMA_ajaxRemoveMessage($msgbox);
             $('#change_password_form').bind('submit', function (e) {
@@ -3515,7 +3520,7 @@ AJAX.registerOnload('functions.js', function () {
                 url: href,
                 data: params,
                 success: function (data) {
-                    central_column_list[db + '_' + table] = $.parseJSON(data.message);
+                    central_column_list[db + '_' + table] = JSON.parse(data.message);
                 },
                 async:false
             });
@@ -4117,7 +4122,16 @@ AJAX.registerOnload('functions.js', function () {
      * Load version information asynchronously.
      */
     if ($('li.jsversioncheck').length > 0) {
-        $.getJSON('version_check.php', {'server' : PMA_commonParams.get('server')}, PMA_current_version);
+        $.ajax({
+            dataType: "json",
+            url: 'version_check.php',
+            method: "POST",
+            data: {
+                "server": PMA_commonParams.get('server'),
+                "token": PMA_commonParams.get('token'),
+            },
+            success: PMA_current_version
+        });
     }
 
     if ($('#is_git_revision').length > 0) {
@@ -4579,7 +4593,7 @@ function copyToClipboard()
     });
 
     textArea.value += '\n';
-    elementList = $('tbody .odd,tbody .even');
+    elementList = $('tbody tr');
     elementList.each(function() {
         var childElementList = $(this).find('.data span');
         childElementList.each(function(){
@@ -4613,6 +4627,16 @@ AJAX.registerTeardown('functions.js', function () {
 
 AJAX.registerOnload('functions.js', function () {
     $('input#print').click(printPage);
+    $('.logout').click(function() {
+        var form = $(
+            '<form method="POST" action="' + $(this).attr('href') + '" class="disableAjax">' +
+            '<input type="hidden" name="token" value="' + PMA_commonParams.get('token') + '"/>' +
+            '</form>'
+        );
+        $('body').append(form);
+        form.submit();
+        return false;
+    });
     /**
      * Ajaxification for the "Create View" action
      */
@@ -4785,22 +4809,6 @@ $(document).on("change", "input.sub_checkall_box", function () {
 });
 
 /**
- * Toggles row colors of a set of 'tr' elements starting from a given element
- *
- * @param $start Starting element
- */
-function toggleRowColors($start)
-{
-    for (var $curr_row = $start; $curr_row.length > 0; $curr_row = $curr_row.next()) {
-        if ($curr_row.hasClass('odd')) {
-            $curr_row.removeClass('odd').addClass('even');
-        } else if ($curr_row.hasClass('even')) {
-            $curr_row.removeClass('even').addClass('odd');
-        }
-    }
-}
-
-/**
  * Formats a byte number to human-readable form
  *
  * @param bytes the bytes to format
@@ -4825,11 +4833,6 @@ function formatBytes(bytes, subdecimals, pointchar) {
 }
 
 AJAX.registerOnload('functions.js', function () {
-    /**
-     * Opens pma more themes link in themes browser, in new window instead of popup
-     * This way, we don't break HTML validity
-     */
-    $("a._blank").prop("target", "_blank");
     /**
      * Reveal the login form to users with JS enabled
      * and focus the appropriate input field
@@ -4944,6 +4947,30 @@ function PMA_ignorePhpErrors(clearPrevErrors){
     var $pmaErrors = $('#pma_errors');
     $pmaErrors.fadeOut( "slow");
     $pmaErrors.remove();
+}
+
+/**
+ * Toggle the Datetimepicker UI if the date value entered
+ * by the user in the 'text box' is not going to be accepted
+ * by the Datetimepicker plugin (but is accepted by MySQL)
+ */
+function toggleDatepickerIfInvalid($td, $input_field) {
+    // Regex allowed by the Datetimepicker UI
+    var dtexpDate = new RegExp(['^([0-9]{4})',
+        '-(((01|03|05|07|08|10|12)-((0[1-9])|([1-2][0-9])|(3[0-1])))|((02|04|06|09|11)',
+        '-((0[1-9])|([1-2][0-9])|30)))$'].join(''));
+    var dtexpTime = new RegExp(['^(([0-1][0-9])|(2[0-3]))',
+        ':((0[0-9])|([1-5][0-9]))',
+        ':((0[0-9])|([1-5][0-9]))(\.[0-9]{1,6}){0,1}$'].join(''));
+
+    // If key-ed in Time or Date values are unsupported by the UI, close it
+    if ($td.attr('data-type') === 'date' && ! dtexpDate.test($input_field.val())) {
+        $input_field.datepicker('hide');
+    } else if ($td.attr('data-type') === 'time' && ! dtexpTime.test($input_field.val())) {
+        $input_field.datepicker('hide');
+    } else {
+        $input_field.datepicker('show');
+    }
 }
 
 /**

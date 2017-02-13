@@ -162,7 +162,7 @@ class ExportPhparrayTest extends PMATestCase
      */
     public function testExportDBHeader()
     {
-        $GLOBALS['crlf'] = ' ';
+        $GLOBALS['crlf'] = "\n";
 
         ob_start();
         $this->assertTrue(
@@ -171,7 +171,7 @@ class ExportPhparrayTest extends PMATestCase
         $result = ob_get_clean();
 
         $this->assertContains(
-            '// Database `db` ',
+            "/**\n * Database `db`\n */",
             $result
         );
     }
@@ -252,7 +252,7 @@ class ExportPhparrayTest extends PMATestCase
         $result = ob_get_clean();
 
         $this->assertEquals(
-            "\n" . '// `db`.`table`' . "\n" .
+            "\n" . '/* `db`.`table` */' . "\n" .
             '$table = array('  . "\n" .
             '  array(\'c1\' => 1,\'\' => \'a\')' . "\n" .
             ');' . "\n",

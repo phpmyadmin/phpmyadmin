@@ -10,8 +10,8 @@
                 <select name="visualizationSettings[labelColumn]" id="labelColumn" class="autosubmit">
                     <option value=""><?= __("-- None --"); ?></option>
                     <?php foreach ($labelCandidates as $value): ?>
-                        <option value="<?= $value; ?>" <?= ($value == $visualizationSettings['labelColumn'] ? 'selected="selected"' : ''); ?>>
-                            <?= $value; ?>
+                        <option value="<?= htmlspecialchars($value); ?>" <?= ($value == $visualizationSettings['labelColumn'] ? 'selected="selected"' : ''); ?>>
+                            <?= htmlspecialchars($value); ?>
                         </option>
                     <?php endforeach; ?>
                 </select>
@@ -20,8 +20,8 @@
                 </label>
                 <select name="visualizationSettings[spatialColumn]" id="spatialColumn" class="autosubmit">
                     <?php foreach ($spatialCandidates as $value): ?>
-                        <option value="<?= $value; ?>" <?= ($value == $visualizationSettings['spatialColumn'] ? 'selected="selected"' : ''); ?>>
-                            <?= $value; ?>
+                        <option value="<?= htmlspecialchars($value); ?>" <?= ($value == $visualizationSettings['spatialColumn'] ? 'selected="selected"' : ''); ?>>
+                            <?= htmlspecialchars($value); ?>
                         </option>
                     <?php endforeach; ?>
                 </select>

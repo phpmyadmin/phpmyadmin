@@ -516,7 +516,7 @@ function PMA_runEventDefinitionsForDb($db)
 {
     $event_names = $GLOBALS['dbi']->fetchResult(
         'SELECT EVENT_NAME FROM information_schema.EVENTS WHERE EVENT_SCHEMA= \''
-        . Util::sqlAddSlashes($db, true) . '\';'
+        . $GLOBALS['dbi']->escapeString($db) . '\';'
     );
     if ($event_names) {
         foreach ($event_names as $event_name) {
@@ -586,26 +586,26 @@ function PMA_AdjustPrivileges_moveDB($oldDb, $newname)
 
         // For Db specific privileges
         $query_db_specific = 'UPDATE ' . Util::backquote('db')
-            . 'SET Db = \'' . Util::sqlAddSlashes($newname)
-            . '\' where Db = \'' . Util::sqlAddSlashes($oldDb) . '\';';
+            . 'SET Db = \'' . $GLOBALS['dbi']->escapeString($newname)
+            . '\' where Db = \'' . $GLOBALS['dbi']->escapeString($oldDb) . '\';';
         $GLOBALS['dbi']->query($query_db_specific);
 
         // For table specific privileges
         $query_table_specific = 'UPDATE ' . Util::backquote('tables_priv')
-            . 'SET Db = \'' . Util::sqlAddSlashes($newname)
-            . '\' where Db = \'' . Util::sqlAddSlashes($oldDb) . '\';';
+            . 'SET Db = \'' . $GLOBALS['dbi']->escapeString($newname)
+            . '\' where Db = \'' . $GLOBALS['dbi']->escapeString($oldDb) . '\';';
         $GLOBALS['dbi']->query($query_table_specific);
 
         // For column specific privileges
         $query_col_specific = 'UPDATE ' . Util::backquote('columns_priv')
-            . 'SET Db = \'' . Util::sqlAddSlashes($newname)
-            . '\' where Db = \'' . Util::sqlAddSlashes($oldDb) . '\';';
+            . 'SET Db = \'' . $GLOBALS['dbi']->escapeString($newname)
+            . '\' where Db = \'' . $GLOBALS['dbi']->escapeString($oldDb) . '\';';
         $GLOBALS['dbi']->query($query_col_specific);
 
         // For procedures specific privileges
         $query_proc_specific = 'UPDATE ' . Util::backquote('procs_priv')
-            . 'SET Db = \'' . Util::sqlAddSlashes($newname)
-            . '\' where Db = \'' . Util::sqlAddSlashes($oldDb) . '\';';
+            . 'SET Db = \'' . $GLOBALS['dbi']->escapeString($newname)
+            . '\' where Db = \'' . $GLOBALS['dbi']->escapeString($oldDb) . '\';';
         $GLOBALS['dbi']->query($query_proc_specific);
 
         // Finally FLUSH the new privileges
@@ -875,26 +875,22 @@ function PMA_getHtmlForMoveTable()
 /**
  * Get the HTML div for Table option
  *
+ * @param Table   $pma_table          Table object
  * @param string  $comment            Comment
  * @param array   $tbl_collation      table collation
  * @param string  $tbl_storage_engine table storage engine
- * @param boolean $is_myisam_or_aria  whether MYISAM | ARIA or not
- * @param boolean $is_isam            whether ISAM or not
  * @param string  $pack_keys          pack keys
  * @param string  $auto_increment     value of auto increment
  * @param string  $delay_key_write    delay key write
  * @param string  $transactional      value of transactional
  * @param string  $page_checksum      value of page checksum
- * @param boolean $is_innodb          whether INNODB or not
- * @param boolean $is_pbxt            whether PBXT or not
- * @param boolean $is_aria            whether ARIA or not
  * @param string  $checksum           the checksum
  *
  * @return string $html_output
  */
-function PMA_getTableOptionDiv($comment, $tbl_collation, $tbl_storage_engine,
-    $is_myisam_or_aria, $is_isam, $pack_keys, $auto_increment, $delay_key_write,
-    $transactional, $page_checksum, $is_innodb, $is_pbxt, $is_aria, $checksum
+function PMA_getTableOptionDiv($pma_table, $comment, $tbl_collation, $tbl_storage_engine,
+    $pack_keys, $auto_increment, $delay_key_write,
+    $transactional, $page_checksum, $checksum
 ) {
     $html_output = '<div class="operations_half_width clearfloat">';
     $html_output .= '<form method="post" action="tbl_operations.php"';
@@ -905,10 +901,10 @@ function PMA_getTableOptionDiv($comment, $tbl_collation, $tbl_storage_engine,
     $html_output .= '<input type="hidden" name="reload" value="1" />';
 
     $html_output .= PMA_getTableOptionFieldset(
-        $comment, $tbl_collation,
-        $tbl_storage_engine, $is_myisam_or_aria, $is_isam, $pack_keys,
+        $pma_table, $comment, $tbl_collation,
+        $tbl_storage_engine, $pack_keys,
         $delay_key_write, $auto_increment, $transactional, $page_checksum,
-        $is_innodb, $is_pbxt, $is_aria, $checksum
+        $checksum
     );
 
     $html_output .= '<fieldset class="tblFooters">'
@@ -1018,27 +1014,23 @@ function PMA_getHtmlForPackKeys($current_value)
 /**
  * Get HTML fieldset for Table option, it contains HTML table for options
  *
+ * @param Table   $pma_table          Table object
  * @param string  $comment            Comment
  * @param array   $tbl_collation      table collation
  * @param string  $tbl_storage_engine table storage engine
- * @param boolean $is_myisam_or_aria  whether MYISAM | ARIA or not
- * @param boolean $is_isam            whether ISAM or not
  * @param string  $pack_keys          pack keys
  * @param string  $delay_key_write    delay key write
  * @param string  $auto_increment     value of auto increment
  * @param string  $transactional      value of transactional
  * @param string  $page_checksum      value of page checksum
- * @param boolean $is_innodb          whether INNODB or not
- * @param boolean $is_pbxt            whether PBXT or not
- * @param boolean $is_aria            whether ARIA or not
  * @param string  $checksum           the checksum
  *
  * @return string $html_output
  */
-function PMA_getTableOptionFieldset($comment, $tbl_collation,
-    $tbl_storage_engine, $is_myisam_or_aria, $is_isam, $pack_keys,
+function PMA_getTableOptionFieldset($pma_table, $comment, $tbl_collation,
+    $tbl_storage_engine, $pack_keys,
     $delay_key_write, $auto_increment, $transactional,
-    $page_checksum, $is_innodb, $is_pbxt, $is_aria, $checksum
+    $page_checksum, $checksum
 ) {
     $html_output = '<fieldset>'
         . '<legend>' . __('Table options') . '</legend>';
@@ -1076,11 +1068,11 @@ function PMA_getTableOptionFieldset($comment, $tbl_collation,
         . '</label>'
         . '</td></tr>';
 
-    if ($is_myisam_or_aria || $is_isam) {
+    if ($pma_table->isEngine(array('MYISAM', 'ARIA', 'ISAM'))) {
         $html_output .= PMA_getHtmlForPackKeys($pack_keys);
     } // end if (MYISAM|ISAM)
 
-    if ($is_myisam_or_aria) {
+    if ($pma_table->isEngine(array('MYISAM', 'ARIA'))) {
         $html_output .= PMA_getHtmlForTableRow(
             'new_checksum',
             'CHECKSUM',
@@ -1094,7 +1086,7 @@ function PMA_getTableOptionFieldset($comment, $tbl_collation,
         );
     } // end if (MYISAM)
 
-    if ($is_aria) {
+    if ($pma_table->isEngine('ARIA')) {
         $html_output .= PMA_getHtmlForTableRow(
             'new_transactional',
             'TRANSACTIONAL',
@@ -1108,8 +1100,8 @@ function PMA_getTableOptionFieldset($comment, $tbl_collation,
         );
     } // end if (ARIA)
 
-    if (mb_strlen($auto_increment) > 0
-        && ($is_myisam_or_aria || $is_innodb || $is_pbxt)
+    if (strlen($auto_increment) > 0
+        && $pma_table->isEngine(array('MYISAM', 'ARIA', 'INNODB', 'PBXT'))
     ) {
         $html_output .= '<tr><td class="vmiddle">'
             . '<label for="auto_increment_opt">AUTO_INCREMENT</label></td>'
@@ -1334,25 +1326,20 @@ function PMA_getHtmlForCopytable()
 /**
  * Get HTML snippet for table maintenance
  *
- * @param boolean $is_myisam_or_aria whether MYISAM | ARIA or not
- * @param boolean $is_innodb         whether innodb or not
- * @param boolean $is_berkeleydb     whether  berkeleydb or not
- * @param array   $url_params        array of URL parameters
+ * @param Table   $pma_table  Table object
+ * @param array   $url_params array of URL parameters
  *
  * @return string $html_output
  */
-function PMA_getHtmlForTableMaintenance(
-    $is_myisam_or_aria, $is_innodb, $is_berkeleydb, $url_params
-) {
+function PMA_getHtmlForTableMaintenance($pma_table, $url_params)
+{
     $html_output = '<div class="operations_half_width">';
     $html_output .= '<fieldset>'
         . '<legend>' . __('Table maintenance') . '</legend>';
     $html_output .= '<ul id="tbl_maintenance">';
 
     // Note: BERKELEY (BDB) is no longer supported, starting with MySQL 5.1
-    $html_output .= PMA_getListofMaintainActionLink(
-        $is_myisam_or_aria, $is_innodb, $url_params, $is_berkeleydb
-    );
+    $html_output .= PMA_getListofMaintainActionLink($pma_table, $url_params);
 
     $html_output .= '</ul>'
         . '</fieldset>'
@@ -1364,20 +1351,17 @@ function PMA_getHtmlForTableMaintenance(
 /**
  * Get HTML 'li' having a link of maintain action
  *
- * @param boolean $is_myisam_or_aria whether MYISAM | ARIA or not
- * @param boolean $is_innodb         whether innodb or not
- * @param array   $url_params        array of URL parameters
- * @param boolean $is_berkeleydb     whether  berkeleydb or not
+ * @param Table   $pma_table  Table object
+ * @param array   $url_params Array of URL parameters
  *
  * @return string $html_output
  */
-function PMA_getListofMaintainActionLink($is_myisam_or_aria,
-    $is_innodb, $url_params, $is_berkeleydb
-) {
+function PMA_getListofMaintainActionLink($pma_table, $url_params)
+{
     $html_output = '';
 
     // analyze table
-    if ($is_innodb || $is_myisam_or_aria || $is_berkeleydb) {
+    if ($pma_table->isEngine(array('MYISAM', 'ARIA', 'INNODB', 'BERKELEYDB'))) {
         $params = array(
             'sql_query' => 'ANALYZE TABLE '
                 . Util::backquote($GLOBALS['table']),
@@ -1392,7 +1376,7 @@ function PMA_getListofMaintainActionLink($is_myisam_or_aria,
     }
 
     // check table
-    if ($is_myisam_or_aria || $is_innodb) {
+    if ($pma_table->isEngine(array('MYISAM', 'ARIA', 'INNODB'))) {
         $params = array(
             'sql_query' => 'CHECK TABLE '
                 . Util::backquote($GLOBALS['table']),
@@ -1420,7 +1404,7 @@ function PMA_getListofMaintainActionLink($is_myisam_or_aria,
     );
 
     // defragment table
-    if ($is_innodb) {
+    if ($pma_table->isEngine(array('INNODB'))) {
         $params = array(
             'sql_query' => 'ALTER TABLE '
             . Util::backquote($GLOBALS['table'])
@@ -1452,7 +1436,7 @@ function PMA_getListofMaintainActionLink($is_myisam_or_aria,
     );
 
     // optimize table
-    if ($is_myisam_or_aria || $is_innodb || $is_berkeleydb) {
+    if ($pma_table->isEngine(array('MYISAM', 'ARIA', 'INNODB', 'BERKELEYDB'))) {
         $params = array(
             'sql_query' => 'OPTIMIZE TABLE '
                 . Util::backquote($GLOBALS['table']),
@@ -1467,7 +1451,7 @@ function PMA_getListofMaintainActionLink($is_myisam_or_aria,
     }
 
     // repair table
-    if ($is_myisam_or_aria) {
+    if ($pma_table->isEngine(array('MYISAM', 'ARIA'))) {
         $params = array(
             'sql_query' => 'REPAIR TABLE '
                 . Util::backquote($GLOBALS['table']),
@@ -1588,7 +1572,11 @@ function PMA_getHtmlForPartitionMaintenance($partition_names, $url_params)
         $GLOBALS['db'], $GLOBALS['table']
     );
     // add COALESCE or DROP option to choices array depeding on Partition method
-    if ($partition_method == 'RANGE' || $partition_method == 'LIST') {
+    if ($partition_method == 'RANGE'
+        || $partition_method == 'RANGE COLUMNS'
+        || $partition_method == 'LIST'
+        || $partition_method == 'LIST COLUMNS'
+    ) {
         $choices['DROP'] = __('Drop');
     } else {
         $choices['COALESCE'] = __('Coalesce');
@@ -1739,15 +1727,11 @@ function PMA_getQueryAndResultForReorderingTable()
 /**
  * Get table alters array
  *
- * @param boolean $is_myisam_or_aria   whether MYISAM | ARIA or not
- * @param boolean $is_isam             whether ISAM or not
+ * @param Table   $pma_table           The Table object
  * @param string  $pack_keys           pack keys
  * @param string  $checksum            value of checksum
- * @param boolean $is_aria             whether ARIA or not
  * @param string  $page_checksum       value of page checksum
  * @param string  $delay_key_write     delay key write
- * @param boolean $is_innodb           whether INNODB or not
- * @param boolean $is_pbxt             whether PBXT or not
  * @param string  $row_format          row format
  * @param string  $newTblStorageEngine table storage engine
  * @param string  $transactional       value of transactional
@@ -1755,9 +1739,9 @@ function PMA_getQueryAndResultForReorderingTable()
  *
  * @return array  $table_alters
  */
-function PMA_getTableAltersArray($is_myisam_or_aria, $is_isam, $pack_keys,
-    $checksum, $is_aria, $page_checksum, $delay_key_write, $is_innodb,
-    $is_pbxt, $row_format, $newTblStorageEngine, $transactional, $tbl_collation
+function PMA_getTableAltersArray($pma_table, $pack_keys,
+    $checksum, $page_checksum, $delay_key_write,
+    $row_format, $newTblStorageEngine, $transactional, $tbl_collation
 ) {
     global $auto_increment;
 
@@ -1767,7 +1751,7 @@ function PMA_getTableAltersArray($is_myisam_or_aria, $is_isam, $pack_keys,
         && urldecode($_REQUEST['prev_comment']) !== $_REQUEST['comment']
     ) {
         $table_alters[] = 'COMMENT = \''
-            . Util::sqlAddSlashes($_REQUEST['comment']) . '\'';
+            . $GLOBALS['dbi']->escapeString($_REQUEST['comment']) . '\'';
     }
 
     if (! empty($newTblStorageEngine)
@@ -1782,7 +1766,7 @@ function PMA_getTableAltersArray($is_myisam_or_aria, $is_isam, $pack_keys,
             . Util::getCharsetQueryPart($_REQUEST['tbl_collation']);
     }
 
-    if (($is_myisam_or_aria || $is_isam)
+    if ($pma_table->isEngine(array('MYISAM', 'ARIA', 'ISAM'))
         && isset($_REQUEST['new_pack_keys'])
         && $_REQUEST['new_pack_keys'] != (string)$pack_keys
     ) {
@@ -1790,7 +1774,7 @@ function PMA_getTableAltersArray($is_myisam_or_aria, $is_isam, $pack_keys,
     }
 
     $_REQUEST['new_checksum'] = empty($_REQUEST['new_checksum']) ? '0' : '1';
-    if ($is_myisam_or_aria
+    if ($pma_table->isEngine(array('MYISAM', 'ARIA'))
         && $_REQUEST['new_checksum'] !== $checksum
     ) {
         $table_alters[] = 'checksum = ' . $_REQUEST['new_checksum'];
@@ -1798,7 +1782,7 @@ function PMA_getTableAltersArray($is_myisam_or_aria, $is_isam, $pack_keys,
 
     $_REQUEST['new_transactional']
         = empty($_REQUEST['new_transactional']) ? '0' : '1';
-    if ($is_aria
+    if ($pma_table->isEngine('ARIA')
         && $_REQUEST['new_transactional'] !== $transactional
     ) {
         $table_alters[] = 'TRANSACTIONAL = ' . $_REQUEST['new_transactional'];
@@ -1806,7 +1790,7 @@ function PMA_getTableAltersArray($is_myisam_or_aria, $is_isam, $pack_keys,
 
     $_REQUEST['new_page_checksum']
         = empty($_REQUEST['new_page_checksum']) ? '0' : '1';
-    if ($is_aria
+    if ($pma_table->isEngine('ARIA')
         && $_REQUEST['new_page_checksum'] !== $page_checksum
     ) {
         $table_alters[] = 'PAGE_CHECKSUM = ' . $_REQUEST['new_page_checksum'];
@@ -1814,62 +1798,34 @@ function PMA_getTableAltersArray($is_myisam_or_aria, $is_isam, $pack_keys,
 
     $_REQUEST['new_delay_key_write']
         = empty($_REQUEST['new_delay_key_write']) ? '0' : '1';
-    if ($is_myisam_or_aria
+    if ($pma_table->isEngine(array('MYISAM', 'ARIA'))
         && $_REQUEST['new_delay_key_write'] !== $delay_key_write
     ) {
         $table_alters[] = 'delay_key_write = ' . $_REQUEST['new_delay_key_write'];
     }
 
-    if (($is_myisam_or_aria || $is_innodb || $is_pbxt)
+    if ($pma_table->isEngine(array('MYISAM', 'ARIA', 'INNODB', 'PBXT'))
         && ! empty($_REQUEST['new_auto_increment'])
         && (! isset($auto_increment)
         || $_REQUEST['new_auto_increment'] !== $auto_increment)
     ) {
         $table_alters[] = 'auto_increment = '
-            . Util::sqlAddSlashes($_REQUEST['new_auto_increment']);
+            . $GLOBALS['dbi']->escapeString($_REQUEST['new_auto_increment']);
     }
 
     if (! empty($_REQUEST['new_row_format'])) {
         $newRowFormat = $_REQUEST['new_row_format'];
         $newRowFormatLower = mb_strtolower($newRowFormat);
-        if (($is_myisam_or_aria || $is_innodb || $is_pbxt)
-            && (!mb_strlen($row_format)
+        if ($pma_table->isEngine(array('MYISAM', 'ARIA', 'INNODB', 'PBXT'))
+            && (strlen($row_format) === 0
             || $newRowFormatLower !== mb_strtolower($row_format))
         ) {
             $table_alters[] = 'ROW_FORMAT = '
-                . Util::sqlAddSlashes($newRowFormat);
+                . $GLOBALS['dbi']->escapeString($newRowFormat);
         }
     }
 
     return $table_alters;
-}
-
-/**
- * set initial value of the set of variables, based on the current table engine
- *
- * @param string $tbl_storage_engine table storage engine in upper case
- *
- * @return array ($is_myisam_or_aria, $is_innodb, $is_isam,
- *                $is_berkeleydb, $is_aria, $is_pbxt)
- */
-function PMA_setGlobalVariablesForEngine($tbl_storage_engine)
-{
-    //Options that apply to MYISAM usually apply to ARIA
-    $is_myisam_or_aria = ($tbl_storage_engine == 'MYISAM'
-        || $tbl_storage_engine == 'ARIA'
-        || $tbl_storage_engine == 'MARIA'
-    );
-    $is_aria = ($tbl_storage_engine == 'ARIA');
-
-    $is_isam = ($tbl_storage_engine == 'ISAM');
-    $is_innodb = ($tbl_storage_engine == 'INNODB');
-    $is_berkeleydb = ($tbl_storage_engine == 'BERKELEYDB');
-    $is_pbxt = ($tbl_storage_engine == 'PBXT');
-
-    return array(
-        $is_myisam_or_aria, $is_innodb, $is_isam,
-        $is_berkeleydb, $is_aria, $is_pbxt
-    );
 }
 
 /**
@@ -1941,15 +1897,15 @@ function PMA_AdjustPrivileges_renameOrMoveTable($oldDb, $oldTable, $newDb, $newT
 
         // For table specific privileges
         $query_table_specific = 'UPDATE ' . Util::backquote('tables_priv')
-            . 'SET Db = \'' . Util::sqlAddSlashes($newDb) . '\', Table_name = \'' . Util::sqlAddSlashes($newTable)
-            . '\' where Db = \'' . Util::sqlAddSlashes($oldDb) . '\' AND Table_name = \'' . Util::sqlAddSlashes($oldTable)
+            . 'SET Db = \'' . $GLOBALS['dbi']->escapeString($newDb) . '\', Table_name = \'' . $GLOBALS['dbi']->escapeString($newTable)
+            . '\' where Db = \'' . $GLOBALS['dbi']->escapeString($oldDb) . '\' AND Table_name = \'' . $GLOBALS['dbi']->escapeString($oldTable)
             . '\';';
         $GLOBALS['dbi']->query($query_table_specific);
 
         // For column specific privileges
         $query_col_specific = 'UPDATE ' . Util::backquote('columns_priv')
-            . 'SET Db = \'' . Util::sqlAddSlashes($newDb) . '\', Table_name = \'' . Util::sqlAddSlashes($newTable)
-            . '\' where Db = \'' . Util::sqlAddSlashes($oldDb) . '\' AND Table_name = \'' . Util::sqlAddSlashes($oldTable)
+            . 'SET Db = \'' . $GLOBALS['dbi']->escapeString($newDb) . '\', Table_name = \'' . $GLOBALS['dbi']->escapeString($newTable)
+            . '\' where Db = \'' . $GLOBALS['dbi']->escapeString($oldDb) . '\' AND Table_name = \'' . $GLOBALS['dbi']->escapeString($oldTable)
             . '\';';
         $GLOBALS['dbi']->query($query_col_specific);
 
@@ -2147,8 +2103,8 @@ function PMA_moveOrCopyTable($db, $table)
         $message = Message::error(__('The table name is empty!'));
     }
 
-    if ($GLOBALS['is_ajax_request'] == true) {
-        $response = Response::getInstance();
+    $response = Response::getInstance();
+    if ($response->isAjax()) {
         $response->addJSON('message', $message);
         if ($message->isSuccess()) {
             $response->addJSON('db', $GLOBALS['db']);

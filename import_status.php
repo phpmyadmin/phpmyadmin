@@ -32,7 +32,7 @@ if (ini_get('session.upload_progress.enabled')) {
     session_start();
     foreach ($_SESSION as $key => $value) {
         // only copy session-prefixed data
-        if (mb_substr($key, 0, mb_strlen(UPLOAD_PREFIX))
+        if (substr($key, 0, strlen(UPLOAD_PREFIX))
             == UPLOAD_PREFIX) {
             $sessionupload[$key] = $value;
         }
@@ -67,7 +67,7 @@ if (defined('SESSIONUPLOAD')) {
 
     // remove session upload data that are not set anymore
     foreach ($_SESSION as $key => $value) {
-        if (mb_substr($key, 0, mb_strlen(UPLOAD_PREFIX))
+        if (substr($key, 0, strlen(UPLOAD_PREFIX))
             == UPLOAD_PREFIX
             && ! isset($sessionupload[$key])
         ) {

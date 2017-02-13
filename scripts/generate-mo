@@ -1,4 +1,10 @@
 #!/bin/sh
+# Do not run as CGI
+if [ -n "$GATEWAY_INTERFACE" ] ; then
+    echo 'Can not invoke as CGI!'
+    exit 1
+fi
+
 if [ x$1 = x--quiet ] ; then
     stats=""
     shift

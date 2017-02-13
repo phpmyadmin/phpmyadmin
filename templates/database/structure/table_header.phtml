@@ -12,7 +12,7 @@ if ($GLOBALS['cfg']['NumFavoriteTables'] > 0) {
 ?>
 <form method="post" action="db_structure.php" name="tablesForm" id="tablesForm">
 <?= PMA\libraries\URL::getHiddenInputs($db); ?>
-<table class="data">
+<table id="structureTable" class="data">
     <thead>
         <tr>
             <th class="print_ignore"></th>
@@ -74,6 +74,16 @@ if ($GLOBALS['cfg']['NumFavoriteTables'] > 0) {
                             'title' => __('Overhead'),
                             'sort' => 'overhead',
                             'initial_sort_order' => 'DESC'
+                        )
+                    ); $cnt++; ?></th>
+            <?php endif; ?>
+
+            <?php if ($GLOBALS['cfg']['ShowDbStructureCharset']): ?>
+                <th><?= PMA\libraries\Template::get('database/structure/sortable_header')->render(
+                        array(
+                            'title' => __('Charset'),
+                            'sort' => 'charset',
+                            'initial_sort_order' => 'ASC'
                         )
                     ); $cnt++; ?></th>
             <?php endif; ?>

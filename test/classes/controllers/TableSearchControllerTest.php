@@ -44,7 +44,6 @@ class TableSearchControllerTest extends PMATestCase
 
         $GLOBALS['server'] = 1;
         $GLOBALS['PMA_PHP_SELF'] = 'index.php';
-        $GLOBALS['is_ajax_request'] = false;
         $GLOBALS['cfgRelation'] = PMA_getRelationsParam();
         $GLOBALS['PMA_Types'] = new TypesMySQL();
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
@@ -83,6 +82,8 @@ class TableSearchControllerTest extends PMATestCase
 
         $dbi->expects($this->any())->method('fetchValue')
             ->will($this->returnValue($show_create_table));
+        $dbi->expects($this->any())->method('escapeString')
+            ->will($this->returnArgument(0));
 
         $GLOBALS['dbi'] = $dbi;
 

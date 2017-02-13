@@ -17,7 +17,7 @@ use PMA\libraries\DatabaseInterface;
 use PMA\libraries\plugins\ExportPlugin;
 use PMA\libraries\Util;
 
-if (!mb_strlen($GLOBALS['db'])) { /* Can't do server export */
+if (strlen($GLOBALS['db']) === 0) { /* Can't do server export */
     $GLOBALS['skip_import'] = true;
     return;
 }
@@ -185,7 +185,7 @@ class ExportXml extends ExportPlugin
         if ($names) {
             foreach ($names as $name) {
                 $head .= '            <pma:' . $type . ' name="'
-                    . $name . '">' . $crlf;
+                    . htmlspecialchars($name) . '">' . $crlf;
 
                 // Do some formatting
                 $sql = $GLOBALS['dbi']->getDefinition($db, $dbitype, $name);
@@ -232,7 +232,7 @@ class ExportXml extends ExportPlugin
             . '- version ' . PMA_VERSION . $crlf
             . '- https://www.phpmyadmin.net' . $crlf
             . '-' . $crlf
-            . '- ' . __('Host:') . ' ' . $cfg['Server']['host'];
+            . '- ' . __('Host:') . ' ' . htmlspecialchars($cfg['Server']['host']);
         if (!empty($cfg['Server']['port'])) {
             $head .= ':' . $cfg['Server']['port'];
         }
@@ -253,7 +253,7 @@ class ExportXml extends ExportPlugin
             $result = $GLOBALS['dbi']->fetchResult(
                 'SELECT `DEFAULT_CHARACTER_SET_NAME`, `DEFAULT_COLLATION_NAME`'
                 . ' FROM `information_schema`.`SCHEMATA` WHERE `SCHEMA_NAME`'
-                . ' = \'' . Util::sqlAddSlashes($db) . '\' LIMIT 1'
+                . ' = \'' . $GLOBALS['dbi']->escapeString($db) . '\' LIMIT 1'
             );
             $db_collation = $result[0]['DEFAULT_COLLATION_NAME'];
             $db_charset = $result[0]['DEFAULT_CHARACTER_SET_NAME'];
@@ -263,7 +263,7 @@ class ExportXml extends ExportPlugin
             $head .= '    -->' . $crlf;
             $head .= '    <pma:structure_schemas>' . $crlf;
             $head .= '        <pma:database name="' . htmlspecialchars($db)
-                . '" collation="' . $db_collation . '" charset="' . $db_charset
+                . '" collation="' . htmlspecialchars($db_collation) . '" charset="' . htmlspecialchars($db_charset)
                 . '">' . $crlf;
 
             if (count($tables) == 0) {
@@ -296,7 +296,7 @@ class ExportXml extends ExportPlugin
                     continue;
                 }
 
-                $head .= '            <pma:' . $type . ' name="' . $table . '">'
+                $head .= '            <pma:' . $type . ' name="' . htmlspecialchars($table) . '">'
                     . $crlf;
 
                 $tbl = "                " . htmlspecialchars($tbl);
@@ -314,7 +314,7 @@ class ExportXml extends ExportPlugin
                         foreach ($triggers as $trigger) {
                             $code = $trigger['create'];
                             $head .= '            <pma:trigger name="'
-                                . $trigger['name'] . '">' . $crlf;
+                                . htmlspecialchars($trigger['name']) . '">' . $crlf;
 
                             // Do some formatting
                             $code = mb_substr(rtrim($code), 0, -3);
@@ -349,7 +349,7 @@ class ExportXml extends ExportPlugin
                 // Export events
                 $events = $GLOBALS['dbi']->fetchResult(
                     "SELECT EVENT_NAME FROM information_schema.EVENTS "
-                    . "WHERE EVENT_SCHEMA='" . Util::sqlAddslashes($db)
+                    . "WHERE EVENT_SCHEMA='" . $GLOBALS['dbi']->escapeString($db)
                     . "'"
                 );
                 $head .= $this->_exportDefinitions(
@@ -402,7 +402,7 @@ class ExportXml extends ExportPlugin
         ) {
             $head = '    <!--' . $crlf
                 . '    - ' . __('Database:') . ' ' . '\''
-                . $db_alias . '\'' . $crlf
+                . htmlspecialchars($db_alias) . '\'' . $crlf
                 . '    -->' . $crlf . '    <database name="'
                 . htmlspecialchars($db_alias) . '">' . $crlf;
 
@@ -491,7 +491,7 @@ class ExportXml extends ExportPlugin
             unset($i);
 
             $buffer = '        <!-- ' . __('Table') . ' '
-                . $table_alias . ' -->' . $crlf;
+                . htmlspecialchars($table_alias) . ' -->' . $crlf;
             if (!PMA_exportOutputHandler($buffer)) {
                 return false;
             }

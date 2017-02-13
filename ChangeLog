@@ -3,7 +3,6 @@ phpMyAdmin - ChangeLog
 
 4.7.0.0 (not yet released)
 - patch #12233 [Display] Improve message when renaming database to same name
-- issue #11924 Remove caching of server information
 - issue #6146  Log authentication attempts to syslog
 - issue #11981 Remove support for Swekey authentication
 - issue #11987 Remove code for no longer supported MSIE versions
@@ -22,8 +21,203 @@ phpMyAdmin - ChangeLog
 - issue #12378 Support IPv6 proxies
 - issue        Removed MySQL connection retry without password
 - issue #12218 Allow to specify further parameters for control connection
+- issue #12162 Show charset for each table on Database structure page
+- issue #12463 Incorrect link in the href of icon at Hide/Show unhide links
+- issue #12330 Shortcut for closing console
+- issue #12465 Improved handling of http requests
+- issue #12474 Broken links in Setup forms Navigation
+- issue #12494 Can't add a new User
+- issue #12523 Add 'token' Parameter in all POST requests (Fix 'Token mismatch' errors)
+- issue #12302 Improved usage of number_format
+- issue #12656 Server selection not working
+- issue #12543 NULL results in dataset are colored grey
+- issue #12664 Create Bookmark broken
+- issue #12688 Use unsigned int for storing bookmark ID
+- issue #12352 Added password strength indicator
+- issue #12713 Correctly handle HTTP status when doing requests
+- issue #12247 Add option to delete settings from browser storage
+- issue #12783 Remove unused PMA_addJSCode function
+- issue #12069 Add table filtering to database structure
 
-4.6.4 (not yet released)
+4.6.6 (not yet released)
+- issue #12759 Fix Notice regarding 'Undefined index: old_usergroup'
+- issue #12760 Fix Notice regarding 'Undefined index: users'
+- issue #12762 Fixed parsing of SQL with BINARY function
+- issue #12588 ReCaptcha now works without allow_url_fopen
+- issue #12699 Show no local storage warning only on settings tab
+- issue #12778 Syntax Error in Adding/Changing TIMESTAMP columns with default value as NULL
+- issue #12769 Edit/Export links are not clickable under Routines tab
+- issue #12757 Fixed creating new user with older MariaDB
+- issue #12784 Remove ctype installation suggestion
+- issue #12780 Format button replaces all text with blank spaces
+- issue #12786 Fixed database searching
+- issue #12792 Fixed javascript error on new version link
+- issue #12785 Add information about required and suggested extensions to composer.json
+- issue #12801 Custom header shown twice with cookie login form
+- issue #12802 Custom footer not shown with auth_type http login failure
+- issue #12434 Improve documentation for servers running with Suhosin
+- issue #12800 Updated embedded phpSecLib to 2.0.4
+- issue #12800 Fixed various issues with PHP 7.1
+- issue #11816 Fixed operation with lower_case_table_names=2
+- issue #12813 Fixed stored procedure execution
+- issue #12826 Honor user configured connection collation
+- issue #12293 Correctly report OpenSSL errors from cookie encryption
+- issue #12814 DateTime won't allow to input length in Routine editor
+- issue #12841 Fixed moving of columns with whitespace in name
+- issue #12847 Fixed editing of virtual columns
+
+4.6.5.2 (2016-12-05)
+- issue #12765 Fixed SQL export with newlines
+
+4.6.5.1 (2016-11-25)
+- issue #12735 Incorrect parameters to escapeString in Node.php
+- issue #12734 Fix PHP error when mbstring is not installed
+- issue #12736 Don't force partition count to be specified when creating a new table
+
+4.6.5 (2016-11-24)
+- issue        Remove potentionally license problematic sRGB profile
+- issue #12459 Display read only fields as read only when editing
+- issue #12384 Fix expanding of navigation pane when clicking on database
+- issue #12430 Impove partitioning support
+- issue #12374 Reintroduced simplified PmaAbsoluteUri configuration directive
+- issue        Always use UTC time in HTTP headers
+- issue #12479 Simplified validation of external links
+- issue #12483 Fix browsing tables with built in transformations
+- issue #12485 Do not show warning about short blowfish_secret if none is set
+- issue #12251 Fixed random logouts due to wrong cookie path
+- issue #12480 Fixed editing of ENUM/SET/DECIMAL fields structure
+- issue #12497 Missing escaping of configuration used in SQL (hide_db and only_db)
+- issue #12476 Add error checking in reading advisory rules file
+- issue #12477 Add checking missing elements and confirming element types from json_decode
+- issue #12251 Automatically save SQL query in browser local storage rather than in cookie
+- issue #12292 Unable to edit transformations
+- issue #12502 Remove unused paramenter when connecting to MySQLi
+- issue #12303 Fix number formatting with different settings of precision in PHP
+- issue #12405 Use single quotes in PHP code
+- issue #12534 Option for the dropped column is not removed from 'after_field' select, after the column is dropped
+- issue #12531 Properly detect DROP DATABASE queries
+- issue #12470 Fix possible race condition in setting URL hash
+- issue #11924 Remove caching of server information
+- issue #11628 Proper parsing of INSERT ... ON DUPLICATE KEY queries
+- issue #12545 Proper parsing of CREATE TABLE ... PARTITION queries
+- issue #12473 Code can throw unhandled exception
+- issue #12550 Do not try to keep alive session even after expiry
+- issue #12512 Fixed rendering BBCode links in setup
+- issue #12518 Fixed copy of table with generated columns
+- issue #12221 Fixed export of table with generated columns
+- issue #12320 Copying a user does not copy usergroup
+- issue #12272 Adding a new row with default enum goes to no selection when you want to add more then 2 rows
+- issue #12487 Drag and drop import prevents file dropping to blob column file selector on the insert tab
+- issue #12554 Absence of scrolling makes it impossible to read longer text values in grid editing
+- issue #12530 "Edit routine" crashes when the current user is not the definer, even if privileges are adequate
+- issue #12300 Export selective tables by-default dumps Events also
+- issue #12298 Fixed export of view definitions
+- issue #12242 Edit routine detail dialog does not fill "Return length" field in mysql functions
+- issue #12575 New index Confirm adds whitespace around the field name
+- issue #12382 Bug in zoom search
+- issue #12321 Assign LIMIT clause only to syntactically correct queries
+- issue #12461 Can't Execute SQL With Sub-Query Due To "LIMIT 0,25" Inserted At Wrong Place
+- issue #12511 Clarify documentation on ArbitraryServerRegexp
+- issue #12508 Remove duplicate code in SQL escaping
+- issue #12475 Cleanup code for getting table information
+- issue #12579 phpMyAdmin's export of a Select statment without a FROM clause generates Wrong SQL
+- issue #12316 Correct export of complex SELECT statements
+- issue #12080 Fixed parsing of subselect queries
+- issue #11740 Fixed handling DELETE ... USING queries
+- issue #12100 Fixed handling of CASE operator
+- issue #12455 Query history stores separate entry for every letter typed
+- issue #12327 Create PHP code no longer works
+- issue #12179 Fixed bookmarking of query with multiple statements
+- issue #12419 Wrong description on GRANT OPTION
+- issue #12615 Fixed regexp for matching browser versions
+- issue #12569 Avoid showing import errors twice
+- issue #12362 prefs_manage.php can leave an orphaned temporary file
+- issue #12619 Unable to export csv when using union select
+- issue #12625 Broken Edit links in query results of JOIN query
+- issue #12634 Drop DB error in import if DB doesn't exist
+- issue #12338 Designer reverts to first saved ER after EACH relation create or delete
+- issue #12639 'Show trace' in Console generates JS error for functions in query's trace called without any arguments
+- issue #12366 Fix user creation with certain MariaDB setups
+- issue #12616 Refuse to work with mbstring.func_overload enabled
+- issue #12472 Properly report connection without password in setup
+- issue #12365 Fix records count for large tables
+- issue #12533 Fix records count for complex queries
+- issue #12454 Query history not updated in console until page refresh
+- issue #12344 Fixed parsing of labels in loop
+- issue #12228 Fixed parsing of BEGIN labels
+- issue #12637 Fixed editing some timestamp values
+- issue #12622 Fixed javascript error in designer
+- issue #12334 Missing page indicator or VIEWs
+- issue #12610 Export of tables with Timestamp/Datetime/Time columns defined with ON UPDATE clause with precision fails
+- issue #12661 Error inserting into pma__history after timeout
+- issue #12195 Row_format = fixed not visible
+- issue #12665 Cannot add a foreign key - non-indexed fields not listed in InnoDB tables
+- issue #12674 Allow for proper MySQL-allowed strings as identifiers
+- issue #12651 Allow for partial dates on table insert page
+- issue #12681 Fixed designer with tables using special chars
+- issue #12652 Fixed visual query builder for foreign keys with more fields
+- issue #12257 Improved search page performance
+- issue #12322 Avoid selecting default function for foreign keys
+- issue #12453 Fixed escaping of SQL parts in some corner cases
+- issue #12542 Missing table name in account privileges editor
+- issue #12691 Remove ksort call on empty array in PMA_getPlugins function
+- issue #12443 Check parameter type before processing
+- issue #12299 Avoid generating too long URLs in search
+- issue #12361 Fix self SQL injection in table-specific privileges
+- issue #12698 Add link to release notes and download on new version notification
+- issue #12712 Error when trying to setup replication (fatal error in call to an old PMA_DBI_connect function)
+- issue        [security] Unsafe generation of $cfg['blowfish_secret'], see PMASA-2016-58
+- issue        [security] phpMyAdmin's phpinfo functionality is removed, see PMASA-2016-59
+- issue        [security] AllowRoot and allow/deny rule bypass with specially-crafted username, see PMASA-2016-60
+- issue        [security] Username matching weaknesses with allow/deny rules, see PMASA-2016-61
+- issue        [security] Possible to bypass logout timeout, see PMASA-2016-62
+- issue        [security] Full path disclosure (FPD) weaknesses, see PMASA-2016-63
+- issue        [security] Multiple XSS weaknesses, see PMASA-2016-64
+- issue        [security] Multiple denial-of-service (DOS) vulnerabilities, see PMASA-2016-65
+- issue        [security] Possible to bypass white-list protection for URL redirection, see PMASA-2016-66
+- issue        [security] BBCode injection to login page, see PMASA-2016-67
+- issue        [security] Denial-of-service (DOS) vulnerability in table partitioning, see PMASA-2016-68
+- issue        [security] Multiple SQL injection vulnerabilities, see PMASA-2016-69
+- issue        [security] Incorrect serialized string parsing, see PMASA-2016-70
+- issue        [security] CSRF token not stripped from the URL, see PMASA-2016-71
+
+4.6.4 (2016-08-16)
+- issue        [security] Weaknesses with cookie encryption, see PMASA-2016-29
+- issue        [security] Improve session cookie code for openid.php and signon.php example files
+- issue        [security] Full path disclosure in openid.php and signon.php example files
+- issue        [security] Multiple XSS vulnerabilities, see PMASA-2016-30
+- issue        [security] Multiple XSS vulnerabilities, see PMASA-2016-31
+- issue        [security] Unsafe generation of BlowfishSecret (when not supplied by the user)
+- issue        [security] Referrer leak when phpinfo is enabled
+- issue        [security] PHP code injection, see PMASA-2016-32
+- issue        [security] Full path disclosure, see PMASA-2016-33
+- issue        [security] SQL injection attack, see PMASA-2016-34
+- issue        [security] Local file exposure through LOAD DATA LOCAL INFILE, see PMASA-2016-35
+- issue        [security] Local file exposure through symlinks with UploadDir, see PMASA-2016-36
+- issue        [security] Path traversal with SaveDir and UploadDir, see PMASA-2016-37
+- issue        [security] Multiple XSS vulnerabilities, see PMASA-2016-38
+- issue        [security] SQL injection vulnerability as control user, see PMASA-2016-39
+- issue        [security] SQL injection vulnerability, see PMASA-2016-40
+- issue        [security] Denial-of-service attack through transformation feature, see PMASA-2016-41
+- issue        [security] SQL injection vulnerability as control user, see PMASA-2016-42
+- issue        [security] Verify data before unserializing, see PMASA-2016-43
+- issue        [security] Use HTTPS for wiki links
+- issue        Remove Swekey support
+- issue        [security] Denial-of-service attack with $cfg['AllowArbitraryServer'] = true and persistent connections, see PMASA-2016-45
+- issue        [security] Improve SSL certificate handling
+- issue        [security] Fix full path disclosure in debugging code
+- issue        [security] Possible circumvention of IP-based allow/deny rules with IPv6 and proxy server, see PMASA-2016-47
+- issue        [security] Detect if user is logged in, see PMASA-2016-48
+- issue        [security] Bypass URL redirection protection, see PMASA-2016-49
+- issue        [security] Referrer leak, see PMASA-2016-50
+- issue        [security] Reflected File Download, see PMASA-2016-51
+- issue        [security] ArbitraryServerRegexp bypass, see PMASA-2016-52
+- issue        [security] Denial-of-service attack by entering long password, see PMASA-2016-53
+- issue        [security] Remote code execution vulnerability when running as CGI, see PMASA-2016-054
+- issue        [security] Administrators could trigger SQL injection attack against users
+- issue        [security] Denial-of-service attack when PHP uses dbase extension, see PMASA-2016-55
+- issue        [security] Remove tode execution vulnerability when PHP uses dbase extension, see PMASA-2016-56
+- issue        [security] Denial-of-service attack by using for loops, see PMASA-2016-46
 - issue        Include X-Robots-Tag header in responses
 - issue        Enforce numeric field length when creating table
 - issue        Fixed invalid Content-Length in some HTTP responses
@@ -43,6 +237,8 @@ phpMyAdmin - ChangeLog
 - issue #12395 Do not try to load old transformation plugins
 - issue #12423 Fixed replication status in database listing
 - issue #12433 Copy table with prefix does not copy the indexes
+- issue #12375 Search in database: Window content is not scrolling down when clicking first time on Browse link
+- issue #12346 SQL Editor textareas can have their size increased from the top, distorting the page view
 
 4.6.3 (2016-06-23)
 - issue #12249 Fixed cookie path on Windows

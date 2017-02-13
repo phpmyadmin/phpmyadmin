@@ -4,10 +4,11 @@
 }
 
 .CodeMirror-lint-tooltip {
-  background-color: infobackground;
+  background-color: #ffd;
   border: 1px solid black;
   border-radius: 4px 4px 4px 4px;
-  color: infotext;
+  color: black;
+  font-family: monospace;
   font-size: 10pt;
   overflow: hidden;
   padding: 2px 5px;
@@ -22,11 +23,6 @@
   -webkit-transition: opacity .4s;
   -o-transition: opacity .4s;
   -ms-transition: opacity .4s;
-}
-
-.CodeMirror-lint-tooltip code {
-  font-family: monospace;
-  font-weight: bold;
 }
 
 .CodeMirror-lint-mark-error, .CodeMirror-lint-mark-warning {

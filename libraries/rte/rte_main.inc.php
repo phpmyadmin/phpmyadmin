@@ -6,6 +6,7 @@
  * @package PhpMyAdmin
  */
 use PMA\libraries\URL;
+use PMA\libraries\Response;
 
 if (! defined('PHPMYADMIN')) {
     exit;
@@ -21,7 +22,9 @@ require_once './libraries/rte/rte_export.lib.php';
 require_once './libraries/rte/rte_list.lib.php';
 require_once './libraries/rte/rte_footer.lib.php';
 
-if ($GLOBALS['is_ajax_request'] != true) {
+$response = Response::getInstance();
+
+if (! $response->isAjax()) {
     /**
      * Displays the header and tabs
      */
@@ -49,7 +52,7 @@ if ($GLOBALS['is_ajax_request'] != true) {
      * to manually select the required database and
      * create the missing $url_query variable
      */
-    if (mb_strlen($db)) {
+    if (strlen($db) > 0) {
         $GLOBALS['dbi']->selectDb($db);
         if (! isset($url_query)) {
             $url_query = URL::getCommon(

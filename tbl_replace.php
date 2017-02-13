@@ -12,6 +12,7 @@
  * @package PhpMyAdmin
  */
 use PMA\libraries\plugins\IOTransformationsPlugin;
+use PMA\libraries\Response;
 use PMA\libraries\Table;
 
 /**
@@ -35,7 +36,7 @@ $GLOBALS['dbi']->selectDb($GLOBALS['db']);
  */
 $goto_include = false;
 
-$response = PMA\libraries\Response::getInstance();
+$response = Response::getInstance();
 $header = $response->getHeader();
 $scripts = $header->getScripts();
 $scripts->addFile('makegrid.js');
@@ -440,7 +441,6 @@ if ($response->isAjax() && ! isset($_POST['ajax_page_request'])) {
     $extra_data['sql_query']
         = PMA\libraries\Util::getMessage($message, $GLOBALS['display_query']);
 
-    $response = PMA\libraries\Response::getInstance();
     $response->setRequestStatus($message->isSuccess());
     $response->addJSON('message', $message);
     $response->addJSON($extra_data);

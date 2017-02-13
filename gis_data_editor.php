@@ -5,6 +5,7 @@
  *
  * @package PhpMyAdmin
  */
+use PMA\libraries\Response;
 use PMA\libraries\gis\GISFactory;
 use PMA\libraries\gis\GISVisualization;
 use PMA\libraries\URL;
@@ -101,7 +102,7 @@ if (isset($_REQUEST['generate']) && $_REQUEST['generate'] == true) {
         'visualization' => $visualization,
         'openLayers'    => $open_layers,
     );
-    $response = PMA\libraries\Response::getInstance();
+    $response = Response::getInstance();
     $response->addJSON($extra_data);
     exit;
 }
@@ -427,5 +428,5 @@ echo '</div>';
 echo '</div>';
 echo '</form>';
 
-PMA\libraries\Response::getInstance()->addJSON('gis_editor', ob_get_contents());
+Response::getInstance()->addJSON('gis_editor', ob_get_contents());
 ob_end_clean();

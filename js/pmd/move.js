@@ -14,30 +14,23 @@ var show_relation_lines = true;
 var always_show_text = false;
 
 AJAX.registerTeardown('pmd/move.js', function () {
-    if ($.FullScreen.supported) {
-        $(document).unbind($.FullScreen.prefix + 'fullscreenchange');
-    }
-
+    $(document).off('fullscreenchange');
     $('#selflink').show();
 });
 
 AJAX.registerOnload('pmd/move.js', function () {
     $('#page_content').css({'margin-left': '3px'});
-    if ($.FullScreen.supported) {
-        $(document).fullScreenChange(function () {
-            if (! $.FullScreen.isFullScreen()) {
-                $('#page_content').removeClass('content_fullscreen')
-                    .css({'width': 'auto', 'height': 'auto'});
-                var $img = $('#toggleFullscreen').find('img');
-                var $span = $img.siblings('span');
-                $span.text($span.data('enter'));
-                $img.attr('src', $img.data('enter'))
-                    .attr('title', $span.data('enter'));
-            }
-        });
-    } else {
-        $('#toggleFullscreen').hide();
-    }
+    $(document).on('fullscreenchange', function () {
+        if (! $.fn.fullScreen()) {
+            $('#page_content').removeClass('content_fullscreen')
+                .css({'width': 'auto', 'height': 'auto'});
+            var $img = $('#toggleFullscreen').find('img');
+            var $span = $img.siblings('span');
+            $span.text($span.data('enter'));
+            $img.attr('src', $img.data('enter'))
+                .attr('title', $span.data('enter'));
+        }
+    });
 
     $('#selflink').hide();
 });
@@ -297,7 +290,6 @@ function setDefaultValuesFromSavedState()
 
 function Main()
 {
-    //alert( document.getElementById('osn_tab').offsetTop);
     //---CROSS
 
     document.getElementById("layer_menu").style.top = -1000 + 'px'; //fast scroll
@@ -400,14 +392,10 @@ function Re_load()
                         x2 = x2_left - sm_s;
                         s_left = 1;
                     }
-                    //alert(key2 + "." + key3);
 
                     var row_offset_top = 0;
-                    //alert('id_tbody_' + key2);
-                    //alert(document.getElementById('id_hide_tbody_' + key2));
                     var tab_hide_button = document.getElementById('id_hide_tbody_' + key2);
 
-                    //alert(tab_hide_button.innerHTML);
                     if (tab_hide_button.innerHTML == 'v') {
                         var fromColumn = document.getElementById(key2 + "." + key3);
                         if (fromColumn) {
@@ -587,18 +575,18 @@ function Toggle_fullscreen()
     var value_sent = '';
     var $img = $('#toggleFullscreen').find('img');
     var $span = $img.siblings('span');
-    if (! $.FullScreen.isFullScreen()) {
+    var $content = $('#page_content');
+    if (! $content.fullScreen()) {
         $img.attr('src', $img.data('exit'))
             .attr('title', $span.data('exit'));
         $span.text($span.data('exit'));
-        $('#page_content')
+        $content
             .addClass('content_fullscreen')
-            .css({'width': screen.width - 5, 'height': screen.height - 5})
-            .requestFullScreen();
+            .css({'width': screen.width - 5, 'height': screen.height - 5});
         value_sent = 'on';
-    }
-    if ($.FullScreen.isFullScreen()) {
-        $.FullScreen.cancelFullScreen();
+        $content.fullScreen(true);
+    } else {
+        $content.fullScreen(false);
         value_sent = 'off';
     }
     saveValueInConfig('full_screen', value_sent);
@@ -681,6 +669,49 @@ function Save2(callback)
     }
 }
 
+
+function submitSaveDialogAndClose(callback)
+{
+    var $form = $("#save_page");
+    var name = $form.find('input[name="selected_value"]').val().trim();
+    if (name === '') {
+        PMA_ajaxShowMessage(PMA_messages.strEnterValidPageName, false);
+        return;
+    }
+    $('#page_save_dialog').dialog('close');
+
+    if (pmd_tables_enabled) {
+        var $msgbox = PMA_ajaxShowMessage(PMA_messages.strProcessingRequest);
+        PMA_prepareForAjaxRequest($form);
+        $.post($form.attr('action'), $form.serialize() + Get_url_pos(), function (data) {
+            if (data.success === false) {
+                PMA_ajaxShowMessage(data.error, false);
+            } else {
+                PMA_ajaxRemoveMessage($msgbox);
+                MarkSaved();
+                if (data.id) {
+                    selected_page = data.id;
+                }
+                $('#page_name').text(name);
+                if (typeof callback !== 'undefined') {
+                    callback();
+                }
+            }
+        });
+    } else {
+        Save_to_new_page(db, name, Get_url_pos(), function (page) {
+            MarkSaved();
+            if (page.pg_nr) {
+                selected_page = page.pg_nr;
+            }
+            $('#page_name').text(page.page_descr);
+            if (typeof callback !== 'undefined') {
+                callback();
+            }
+        });
+    }
+}
+
 function Save3(callback)
 {
     if (parseInt(selected_page) !== -1) {
@@ -689,44 +720,8 @@ function Save3(callback)
         var button_options = {};
         button_options[PMA_messages.strGo] = function () {
             var $form = $("#save_page");
-            var name = $form.find('input[name="selected_value"]').val().trim();
-            if (name === '') {
-                PMA_ajaxShowMessage(PMA_messages.strEnterValidPageName, false);
-                return;
-            }
-            $(this).dialog('close');
-
-            if (pmd_tables_enabled) {
-                var $msgbox = PMA_ajaxShowMessage(PMA_messages.strProcessingRequest);
-                PMA_prepareForAjaxRequest($form);
-                $.post($form.attr('action'), $form.serialize() + Get_url_pos(), function (data) {
-                    if (data.success === false) {
-                        PMA_ajaxShowMessage(data.error, false);
-                    } else {
-                        PMA_ajaxRemoveMessage($msgbox);
-                        MarkSaved();
-                        if (data.id) {
-                            selected_page = data.id;
-                        }
-                        $('#page_name').text(name);
-                        if (typeof callback !== 'undefined') {
-                            callback();
-                        }
-                    }
-                });
-            } else {
-                Save_to_new_page(db, name, Get_url_pos(), function (page) {
-                    MarkSaved();
-                    if (page.pg_nr) {
-                        selected_page = page.pg_nr;
-                    }
-                    $('#page_name').text(page.page_descr);
-                    if (typeof callback !== 'undefined') {
-                        callback();
-                    }
-                });
-            }
-        };
+            $form.submit();
+        }
         button_options[PMA_messages.strCancel] = function () {
             $(this).dialog('close');
         };
@@ -739,6 +734,10 @@ function Save3(callback)
             .append('<input type="hidden" name="save_page" value="new" />')
             .append('<label for="selected_value">' + PMA_messages.strPageName +
                 '</label>:<input type="text" name="selected_value" />');
+        $form.on('submit', function(e){
+            e.preventDefault();
+            submitSaveDialogAndClose(callback);
+        });
         $('<div id="page_save_dialog"></div>')
             .append($form)
             .dialog({
@@ -1095,7 +1094,7 @@ function Load_page(page) {
 
 function Grid()
 {
-	var value_sent = '';
+    var value_sent = '';
     if (!ON_grid) {
         ON_grid = 1;
         value_sent = 'on';
@@ -1189,18 +1188,12 @@ function Click_field(T, f, PK) // table field
     if (ON_display_field) {
         // if is display field
         if (display_field[T] == f) {
-            //alert(T);
-            //s = '';for(k in display_field)s += k + ' = ' + display_field[k] + ',';alert(s);
             old_class = 'tab_field';
-            //display_field.splice(T, 1);
             delete display_field[T];
-            //s = '';for(k in display_field)s += k + ' = ' + display_field[k] + ', ';alert(s);
-            //n = 0;for(k in display_field)n++;alert(n);
         } else {
             old_class = 'tab_field_3';
             if (display_field[T]) {
                 document.getElementById('id_tr_' + T + '.' + display_field[T]).className = 'tab_field';
-                //display_field.splice(T, 1);
                 delete display_field[T];
             }
             display_field[T] = f;
@@ -1237,8 +1230,7 @@ function New_relation()
             PMA_ajaxShowMessage(data.error, false);
         } else {
             PMA_ajaxRemoveMessage($msgbox);
-            // Load_page(selected_page);
-            $("#designer_tab").click();
+            Load_page(selected_page);
         }
     }); // end $.post()
 }
@@ -1447,7 +1439,6 @@ function Canvas_click(id, event)
     }
     if (selected) {
         // select relations
-        //alert(Key0+' - '+Key1+' - '+Key2+' - '+Key3);
         var left = Glob_X - (document.getElementById('layer_upd_relation').offsetWidth>>1);
         document.getElementById('layer_upd_relation').style.left = left + 'px';
         var top = Glob_Y - document.getElementById('layer_upd_relation').offsetHeight - 10;
@@ -1469,8 +1460,7 @@ function Upd_relation()
             PMA_ajaxShowMessage(data.error, false);
         } else {
             PMA_ajaxRemoveMessage($msgbox);
-            // Load_page(selected_page);
-            $("#designer_tab").click();
+            Load_page(selected_page);
         }
     }); // end $.post()
 }

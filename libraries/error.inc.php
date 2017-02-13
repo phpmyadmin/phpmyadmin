@@ -12,6 +12,7 @@ if (! defined('PHPMYADMIN')) {
 }
 
 if (! defined('TESTSUITE')) {
+    http_response_code(500);
     header('Content-Type: text/html; charset=utf-8');
 }
 ?>

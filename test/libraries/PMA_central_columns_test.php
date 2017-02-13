@@ -126,6 +126,8 @@ class PMA_Central_Columns_Test extends PHPUnit_Framework_TestCase
             ->will(
                 $this->returnValue(array("PMA_table", "PMA_table1", "PMA_table2"))
             );
+        $dbi->expects($this->any())->method('escapeString')
+            ->will($this->returnArgument(0));
 
     }
 
@@ -153,28 +155,11 @@ class PMA_Central_Columns_Test extends PHPUnit_Framework_TestCase
      */
     public function testPMAGetColumnsList()
     {
-        $GLOBALS['dbi']->expects($this->at(1))
+        $GLOBALS['dbi']->expects($this->exactly(2))
             ->method('fetchResult')
-            ->with(
-                "SELECT * FROM `pma_central_columns` "
-                . "WHERE db_name = 'phpmyadmin' LIMIT 0, 25;",
-                null, null, $GLOBALS['controllink']
-            )
-            ->will(
-                $this->returnValue($this->_columnData)
-            );
-
-        $GLOBALS['dbi']->expects($this->at(3))
-            ->method('fetchResult')
-            ->with(
-                "SELECT * FROM `pma_central_columns` "
-                . "WHERE db_name = 'phpmyadmin' LIMIT 1, 2;",
-                null, null, $GLOBALS['controllink']
-            )
-            ->will(
-                $this->returnValue(
-                    array_slice($this->_columnData, 1, 2)
-                )
+            ->willReturnOnConsecutiveCalls(
+                $this->_columnData,
+                array_slice($this->_columnData, 1, 2)
             );
 
         $this->assertEquals(
@@ -194,7 +179,7 @@ class PMA_Central_Columns_Test extends PHPUnit_Framework_TestCase
      */
     function testPMAGetCentralColumnsCount()
     {
-        $GLOBALS['dbi']->expects($this->at(1))
+        $GLOBALS['dbi']->expects($this->once())
             ->method('fetchResult')
             ->with(
                 "SELECT count(db_name) FROM `pma_central_columns` "
@@ -237,7 +222,7 @@ class PMA_Central_Columns_Test extends PHPUnit_Framework_TestCase
         $_REQUEST['table'] = 'PMA_table';
 
         // when column exists in the central column list
-        $GLOBALS['dbi']->expects($this->at(2))
+        $GLOBALS['dbi']->expects($this->at(4))
             ->method('fetchResult')
             ->with(
                 "SELECT col_name FROM `pma_central_columns` "
@@ -248,7 +233,7 @@ class PMA_Central_Columns_Test extends PHPUnit_Framework_TestCase
                 $this->returnValue(array('col1'))
             );
 
-        $GLOBALS['dbi']->expects($this->at(4))
+        $GLOBALS['dbi']->expects($this->at(7))
             ->method('tryQuery')
             ->with(
                 "DELETE FROM `pma_central_columns` "
@@ -305,7 +290,7 @@ class PMA_Central_Columns_Test extends PHPUnit_Framework_TestCase
         $db = 'PMA_db';
         $table = 'PMA_table';
 
-        $GLOBALS['dbi']->expects($this->at(3))
+        $GLOBALS['dbi']->expects($this->once())
             ->method('fetchResult')
             ->with(
                 "SELECT col_name FROM `pma_central_columns` "
@@ -331,7 +316,7 @@ class PMA_Central_Columns_Test extends PHPUnit_Framework_TestCase
         $db = 'PMA_db';
         $table = 'PMA_table';
 
-        $GLOBALS['dbi']->expects($this->at(3))
+        $GLOBALS['dbi']->expects($this->once())
             ->method('fetchResult')
             ->with(
                 "SELECT * FROM `pma_central_columns` "
@@ -424,7 +409,7 @@ class PMA_Central_Columns_Test extends PHPUnit_Framework_TestCase
         );
         $this->assertContains(
             PMA_getHTMLforCentralColumnsEditTableRow(
-                $list_detail_cols[0], false, 0
+                $list_detail_cols[0], 0
             ), $result
         );
         $this->assertContains(
@@ -499,7 +484,7 @@ class PMA_Central_Columns_Test extends PHPUnit_Framework_TestCase
      */
     public function testPMAGetCentralColumnsListRaw()
     {
-        $GLOBALS['dbi']->expects($this->at(1))
+        $GLOBALS['dbi']->expects($this->once())
             ->method('fetchResult')
             ->with(
                 "SELECT * FROM `pma_central_columns` "
@@ -522,7 +507,7 @@ class PMA_Central_Columns_Test extends PHPUnit_Framework_TestCase
      */
     public function testPMAGetCentralColumnsListRawWithTable()
     {
-        $GLOBALS['dbi']->expects($this->at(3))
+        $GLOBALS['dbi']->expects($this->once())
             ->method('fetchResult')
             ->with(
                 "SELECT * FROM `pma_central_columns` "
@@ -586,7 +571,7 @@ class PMA_Central_Columns_Test extends PHPUnit_Framework_TestCase
      */
     public function testPMAFindExistingColNames()
     {
-        $GLOBALS['dbi']->expects($this->at(1))
+        $GLOBALS['dbi']->expects($this->once())
             ->method('fetchResult')
             ->with(
                 "SELECT * FROM `pma_central_columns` WHERE db_name = 'phpmyadmin'"

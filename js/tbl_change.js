@@ -100,7 +100,7 @@ function isDate(val, tmstmp)
     }
     val = arrayVal.join("-");
     var pos = 2;
-    var dtexp = new RegExp(/^([0-9]{4})-(((01|03|05|07|08|10|12)-((0[1-9])|([1-2][0-9])|(3[0-1])))|((02|04|06|09|11)-((0[1-9])|([1-2][0-9])|30)))$/);
+    var dtexp = new RegExp(/^([0-9]{4})-(((01|03|05|07|08|10|12)-((0[0-9])|([1-2][0-9])|(3[0-1])))|((02|04|06|09|11)-((0[0-9])|([1-2][0-9])|30))|((00)-(00)))$/);
     if (val.length == 8) {
         pos = 0;
     }
@@ -143,7 +143,7 @@ function isTime(val)
         }
     }
     val = arrayVal.join(":");
-    var tmexp = new RegExp(/^(([0-1][0-9])|(2[0-3])):((0[0-9])|([1-5][0-9])):((0[0-9])|([1-5][0-9]))(\.[0-9]{1,6}){0,1}$/);
+    var tmexp = new RegExp(/^(-)?(([0-7]?[0-9][0-9])|(8[0-2][0-9])|(83[0-8])):((0[0-9])|([1-5][0-9])):((0[0-9])|([1-5][0-9]))(\.[0-9]{1,6}){0,1}$/);
     return tmexp.test(val);
 }
 
@@ -551,8 +551,9 @@ AJAX.registerOnload('tbl_change.js', function () {
                 }
 
                 // handle input text fields and textareas
-                if ($this_element.is('.textfield') || $this_element.is('.char')) {
+                if ($this_element.is('.textfield') || $this_element.is('.char') || $this_element.is('textarea')) {
                     // do not remove the 'value' attribute for ENUM columns
+                    // special handling for radio fields after updating ids to unique - see below
                     if ($this_element.closest('tr').find('span.column_type').html() != 'enum') {
                         $this_element.val($this_element.closest('tr').find('span.default_value').html());
                     }
@@ -675,6 +676,15 @@ AJAX.registerOnload('tbl_change.js', function () {
                 $(this).attr('tabindex', tabindex);
                 // update the IDs of textfields to ensure that they are unique
                 $(this).attr('id', "field_" + tabindex + "_3");
+
+                // special handling for radio fields after updating ids to unique
+                if ($(this).closest('tr').find('span.column_type').html() === 'enum') {
+                    if ($(this).val() === $(this).closest('tr').find('span.default_value').html()) {
+                        $(this).prop('checked', true);
+                    } else {
+                        $(this).prop('checked', false);
+                    }
+                }
             });
             $('.control_at_footer')
             .each(function () {

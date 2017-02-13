@@ -7,6 +7,8 @@
  */
 namespace PMA\libraries;
 
+use PMA\libraries\config\ConfigFile;
+
 /**
  * File wrapper class
  *
@@ -157,12 +159,12 @@ class File
     /**
      * Gets file content
      *
-     * @return string|false the binary file content as a string,
+     * @return string|false the binary file content,
      *                      or false if no content
      *
      * @access  public
      */
-    public function getContent()
+    public function getRawContent()
     {
         if (null === $this->_content) {
             if ($this->isUploaded() && ! $this->checkUploadedFile()) {
@@ -176,11 +178,30 @@ class File
             if (function_exists('file_get_contents')) {
                 $this->_content = file_get_contents($this->getName());
             } elseif ($size = filesize($this->getName())) {
-                $this->_content = fread(fopen($this->getName(), 'rb'), $size);
+                $handle = fopen($this->getName(), 'rb');
+                $this->_content = fread($handle, $size);
+                fclose($handle);
             }
         }
 
-        return '0x' . bin2hex($this->_content);
+        return $this->_content;
+    }
+
+    /**
+     * Gets file content
+     *
+     * @return string|false the binary file content as a string,
+     *                      or false if no content
+     *
+     * @access  public
+     */
+    public function getContent()
+    {
+        $result = $this->getRawContent();
+        if ($result === false) {
+            return false;
+        }
+        return '0x' . bin2hex($result);
     }
 
     /**
@@ -420,6 +441,11 @@ class File
         $this->setName(
             Util::userDir($GLOBALS['cfg']['UploadDir']) . PMA_securePath($name)
         );
+        if (@is_link($this->getName())) {
+            $this->_error_message = __('File is a symbolic link');
+            $this->setName(null);
+            return false;
+        }
         if (! $this->isReadable()) {
             $this->_error_message = Message::error(__('File could not be read!'));
             $this->setName(null);
@@ -457,18 +483,7 @@ class File
             return true;
         }
 
-        if (! empty($GLOBALS['cfg']['TempDir'])
-            && @is_writable($GLOBALS['cfg']['TempDir'])
-        ) {
-            $tmp_subdir = $GLOBALS['cfg']['TempDir'];
-        } else {
-            $tmp_subdir = ini_get('upload_tmp_dir');
-            if (empty($tmp_subdir)) {
-                $tmp_subdir = sys_get_temp_dir();
-            }
-            $tmp_subdir = rtrim($tmp_subdir, DIRECTORY_SEPARATOR);
-        }
-
+        $tmp_subdir = ConfigFile::getDefaultTempDirectory();
         if (@is_writable($tmp_subdir)) {
             // cannot create directory or access, point user to FAQ 1.11
             $this->_error_message = Message::error(__(

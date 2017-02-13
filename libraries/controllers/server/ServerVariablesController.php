@@ -11,6 +11,7 @@ namespace PMA\libraries\controllers\server;
 
 use PMA\libraries\controllers\Controller;
 use PMA\libraries\Message;
+use PMA\libraries\Response;
 use PMA\libraries\Template;
 use PMA\libraries\Util;
 use PMA\libraries\URL;
@@ -44,7 +45,8 @@ class ServerVariablesController extends Controller
      */
     public function indexAction()
     {
-        if (! empty($_REQUEST['ajax_request'])
+        $response = Response::getInstance();
+        if ($response->isAjax()
             && isset($_REQUEST['type'])
             && $_REQUEST['type'] === 'getval'
         ) {
@@ -52,7 +54,7 @@ class ServerVariablesController extends Controller
             return;
         }
 
-        if (! empty($_REQUEST['ajax_request'])
+        if ($response->isAjax()
             && isset($_REQUEST['type'])
             && $_REQUEST['type'] === 'setval'
         ) {
@@ -135,7 +137,7 @@ class ServerVariablesController extends Controller
         // when server is running in ANSI_QUOTES sql_mode
         $varValue = $this->dbi->fetchSingleRow(
             'SHOW GLOBAL VARIABLES WHERE Variable_name=\''
-            . Util::sqlAddSlashes($_REQUEST['varName']) . '\';',
+            . $GLOBALS['dbi']->escapeString($_REQUEST['varName']) . '\';',
             'NUM'
         );
 
@@ -182,12 +184,12 @@ class ServerVariablesController extends Controller
                 'gb' => 3,
                 'gib' => 3
             );
-            $value = floatval($matches[1]) * Util::pow(
+            $value = floatval($matches[1]) * pow(
                 1024,
                 $exp[mb_strtolower($matches[3])]
             );
         } else {
-            $value = Util::sqlAddSlashes($value);
+            $value = $GLOBALS['dbi']->escapeString($value);
         }
 
         if (! is_numeric($value)) {
@@ -202,7 +204,7 @@ class ServerVariablesController extends Controller
             // Some values are rounded down etc.
             $varValue = $this->dbi->fetchSingleRow(
                 'SHOW GLOBAL VARIABLES WHERE Variable_name="'
-                . Util::sqlAddSlashes($_REQUEST['varName'])
+                . $GLOBALS['dbi']->escapeString($_REQUEST['varName'])
                 . '";', 'NUM'
             );
             list($formattedValue, $isHtmlFormatted) = $this->_formatVariable(
@@ -323,12 +325,10 @@ class ServerVariablesController extends Controller
         $static_variables = $this->_getStaticSystemVariables();
 
         $output = '';
-        $odd_row = true;
         foreach ($serverVars as $name => $value) {
             $has_session_value = isset($serverVarsSession[$name])
                 && $serverVarsSession[$name] != $value;
-            $row_class = ($odd_row ? ' odd' : ' even')
-                . ($has_session_value ? ' diffSession' : '');
+            $row_class = ($has_session_value ? ' diffSession' : '');
             $docLink = isset($this->variable_doc_links[$name])
                 ? $this->variable_doc_links[$name] : null;
 
@@ -364,7 +364,6 @@ class ServerVariablesController extends Controller
                     );
             }
 
-            $odd_row = ! $odd_row;
         }
 
         return $output;

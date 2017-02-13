@@ -522,6 +522,9 @@ $(function () {
         event.preventDefault();
         $.ajax({
             type: 'POST',
+            data: {
+                token: PMA_commonParams.get('token')
+            },
             url: $(this).attr('href') + '&ajax_request=true',
             success: function (data) {
                 if (typeof data !== 'undefined' && data.success === true) {
@@ -570,6 +573,9 @@ $(function () {
         var $msg = PMA_ajaxShowMessage();
         $.ajax({
             type: 'POST',
+            data: {
+                token: PMA_commonParams.get('token')
+            },
             url: $(this).attr('href') + '&ajax_request=true',
             success: function (data) {
                 PMA_ajaxRemoveMessage($msg);
@@ -603,7 +609,8 @@ $(function () {
             data: {
                 favorite_tables: (isStorageSupported('localStorage') && typeof window.localStorage.favorite_tables !== 'undefined')
                     ? window.localStorage.favorite_tables
-                    : ''
+                    : '',
+                token: PMA_commonParams.get('token')
             },
             success: function (data) {
                 if (data.changes) {
@@ -635,12 +642,15 @@ $(function () {
         if ($('#pma_navigation_tree_content').length &&
             typeof storage.navTreePaths === 'undefined'
         ) {
-            navTreeStateUpdate();
+            PMA_reloadNavigation();
         } else if (PMA_commonParams.get('server') === storage.server &&
             PMA_commonParams.get('token') === storage.token
         ) {
             // Reload the tree to the state before page refresh
             PMA_reloadNavigation(navFilterStateRestore, JSON.parse(storage.navTreePaths));
+        } else {
+            // If the user is different
+            navTreeStateUpdate();
         }
     }
 });
@@ -931,7 +941,8 @@ function PMA_ensureNaviSettings(selflink) {
 
     if (!$('#pma_navigation_settings').length) {
         var params = {
-            getNaviSettings: true
+            getNaviSettings: true,
+            token: PMA_commonParams.get('token')
         };
         var url = $('#pma_navigation').find('a.navigation_url').attr('href');
         $.post(url, params, function (data) {
@@ -961,7 +972,8 @@ function PMA_ensureNaviSettings(selflink) {
 function PMA_reloadNavigation(callback, paths) {
     var params = {
         reload: true,
-        no_debug: true
+        no_debug: true,
+        token: PMA_commonParams.get('token')
     };
     paths = paths || traverseNavigationForPaths();
     $.extend(params, paths);
@@ -1527,6 +1539,7 @@ PMA_fastFilter.filter.prototype.request = function () {
     }
     var url = $('#pma_navigation').find('a.navigation_url').attr('href');
     var params = self.$this.find('> ul > li > form.fast_filter').first().serialize();
+
     if (self.$this.find('> ul > li > form.fast_filter:first input[name=searchClause]').length === 0) {
         var $input = $('#pma_navigation_tree').find('li.fast_filter.db_fast_filter input.searchClause');
         if ($input.length && $input.val() != $input[0].defaultValue) {
@@ -1540,7 +1553,7 @@ PMA_fastFilter.filter.prototype.request = function () {
         data: params,
         complete: function (jqXHR, status) {
             if (status != 'abort') {
-                var data = $.parseJSON(jqXHR.responseText);
+                var data = JSON.parse(jqXHR.responseText);
                 self.$this.find('li.fast_filter').find('div.throbber').remove();
                 if (data && data.results) {
                     self.swap.apply(self, [data.message]);

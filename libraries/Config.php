@@ -135,16 +135,9 @@ class Config
             $this->set('OBGzip', false);
         }
 
-        // disable output-buffering (if set to 'auto') for IE6, else enable it.
+        // enable output-buffering (if set to 'auto')
         if (strtolower($this->get('OBGzip')) == 'auto') {
-            if ($this->get('PMA_USR_BROWSER_AGENT') == 'IE'
-                && $this->get('PMA_USR_BROWSER_VER') >= 6
-                && $this->get('PMA_USR_BROWSER_VER') < 7
-            ) {
-                $this->set('OBGzip', false);
-            } else {
-                $this->set('OBGzip', true);
-            }
+            $this->set('OBGzip', true);
         }
     }
 
@@ -195,20 +188,20 @@ class Config
         // (must check everything else before Mozilla)
 
         $is_mozilla = preg_match(
-            '@Mozilla/([0-9].[0-9]{1,2})@',
+            '@Mozilla/([0-9]\.[0-9]{1,2})@',
             $HTTP_USER_AGENT,
             $mozilla_version
         );
 
         if (preg_match(
-            '@Opera(/| )([0-9].[0-9]{1,2})@',
+            '@Opera(/| )([0-9]\.[0-9]{1,2})@',
             $HTTP_USER_AGENT,
             $log_version
         )) {
             $this->set('PMA_USR_BROWSER_VER', $log_version[2]);
             $this->set('PMA_USR_BROWSER_AGENT', 'OPERA');
         } elseif (preg_match(
-            '@(MS)?IE ([0-9]{1,2}.[0-9]{1,2})@',
+            '@(MS)?IE ([0-9]{1,2}\.[0-9]{1,2})@',
             $HTTP_USER_AGENT,
             $log_version
         )) {
@@ -222,7 +215,7 @@ class Config
             $this->set('PMA_USR_BROWSER_VER', intval($log_version[1]) + 4);
             $this->set('PMA_USR_BROWSER_AGENT', 'IE');
         } elseif (preg_match(
-            '@OmniWeb/([0-9].[0-9]{1,2})@',
+            '@OmniWeb/([0-9]{1,3})@',
             $HTTP_USER_AGENT,
             $log_version
         )) {
@@ -267,7 +260,7 @@ class Config
                 'PMA_USR_BROWSER_VER', $log_version[1]
             );
             $this->set('PMA_USR_BROWSER_AGENT', 'FIREFOX');
-        } elseif (preg_match('@rv:1.9(.*)Gecko@', $HTTP_USER_AGENT)) {
+        } elseif (preg_match('@rv:1\.9(.*)Gecko@', $HTTP_USER_AGENT)) {
             $this->set('PMA_USR_BROWSER_VER', '1.9');
             $this->set('PMA_USR_BROWSER_AGENT', 'GECKO');
         } elseif ($is_mozilla) {
@@ -402,10 +395,11 @@ class Config
 
         $branch = false;
         // are we on any branch?
-        if (mb_strstr($ref_head, '/')) {
-            $ref_head = mb_substr(trim($ref_head), 5);
+        if (strstr($ref_head, '/')) {
+            // remove ref: prefix
+            $ref_head = substr(trim($ref_head), 5);
             if (substr($ref_head, 0, 11) === 'refs/heads/') {
-                $branch = mb_substr($ref_head, 11);
+                $branch = substr($ref_head, 11);
             } else {
                 $branch = basename($ref_head);
             }
@@ -452,7 +446,9 @@ class Config
         }
 
         $commit = false;
-        if (isset($_SESSION['PMA_VERSION_COMMITDATA_' . $hash])) {
+        if (! preg_match('/^[0-9a-f]{40}$/i', $hash)) {
+            $commit = false;
+        } elseif (isset($_SESSION['PMA_VERSION_COMMITDATA_' . $hash])) {
             $commit = $_SESSION['PMA_VERSION_COMMITDATA_' . $hash];
         } elseif (function_exists('gzuncompress')) {
             $git_file_name = $git_folder . '/objects/'
@@ -612,7 +608,7 @@ class Config
         } else {
             $link = 'https://api.github.com/repos/phpmyadmin/phpmyadmin/git/commits/'
                 . $hash;
-            $is_found = $this->checkHTTP($link, ! $commit);
+            $is_found = Util::httpRequest($link, "GET");
             switch($is_found) {
             case false:
                 $is_remote_commit = false;
@@ -641,7 +637,7 @@ class Config
             } else {
                 $link = 'https://api.github.com/repos/phpmyadmin/phpmyadmin'
                     . '/git/trees/' . $branch;
-                $is_found = $this->checkHTTP($link);
+                $is_found = Util::httpRequest($link, "GET", true);
                 switch($is_found) {
                 case true:
                     $is_remote_branch = true;
@@ -682,7 +678,7 @@ class Config
             } while ($dataline != '');
             $message = trim(implode(' ', $commit));
 
-        } elseif (isset($commit_json)) {
+        } elseif (isset($commit_json) && isset($commit_json->author) && isset($commit_json->committer)) {
             $author = array(
                 'name' => $commit_json->author->name,
                 'email' => $commit_json->author->email,
@@ -704,53 +700,6 @@ class Config
         $this->set('PMA_VERSION_GIT_COMMITTER', $committer);
         $this->set('PMA_VERSION_GIT_ISREMOTECOMMIT', $is_remote_commit);
         $this->set('PMA_VERSION_GIT_ISREMOTEBRANCH', $is_remote_branch);
-    }
-
-    /**
-     * Checks if given URL is 200 or 404, optionally returns data
-     *
-     * @param string  $link     the URL to check
-     * @param boolean $get_body whether to retrieve body of document
-     *
-     * @return string|boolean test result or data
-     */
-    public function checkHTTP($link, $get_body = false)
-    {
-        if (! function_exists('curl_init')) {
-            return null;
-        }
-        $handle = curl_init($link);
-        if ($handle === false) {
-            return null;
-        }
-        Util::configureCurl($handle);
-        curl_setopt($handle, CURLOPT_FOLLOWLOCATION, 0);
-        curl_setopt($handle, CURLOPT_RETURNTRANSFER, 1);
-        curl_setopt($handle, CURLOPT_SSL_VERIFYHOST, '2');
-        curl_setopt($handle, CURLOPT_SSL_VERIFYPEER, '1');
-        curl_setopt($handle, CURLOPT_CONNECTTIMEOUT, 5);
-        curl_setopt($handle, CURLOPT_TIMEOUT, 5);
-        curl_setopt($handle, CURLOPT_IPRESOLVE, CURL_IPRESOLVE_V4);
-        if (! defined('TESTSUITE')) {
-            session_write_close();
-        }
-        $data = @curl_exec($handle);
-        if (! defined('TESTSUITE')) {
-            session_start();
-        }
-        if ($data === false) {
-            return null;
-        }
-        $http_status = curl_getinfo($handle, CURLINFO_HTTP_CODE);
-
-        if ($http_status == 200) {
-            return $get_body ? $data : true;
-        }
-
-        if ($http_status == 404) {
-            return false;
-        }
-        return null;
     }
 
     /**
@@ -1400,8 +1349,12 @@ class Config
             return $this->get('is_https');
         }
 
+        $url = $this->get('PmaAbsoluteUri');
+
         $is_https = false;
-        if (strtolower(PMA_getenv('HTTP_SCHEME')) == 'https') {
+        if (! empty($url) && parse_url($url, PHP_URL_SCHEME) === 'https') {
+            $is_https = true;
+        } elseif (strtolower(PMA_getenv('HTTP_SCHEME')) == 'https') {
             $is_https = true;
         } elseif (strtolower(PMA_getenv('HTTPS')) == 'on') {
             $is_https = true;
@@ -1424,16 +1377,28 @@ class Config
     }
 
     /**
-     * Get cookie path
+     * Get phpMyAdmin root path
      *
      * @return string
      */
-    public function getCookiePath()
+    public function getRootPath()
     {
         static $cookie_path = null;
 
         if (null !== $cookie_path && !defined('TESTSUITE')) {
             return $cookie_path;
+        }
+
+        $url = $this->get('PmaAbsoluteUri');
+
+        if (! empty($url)) {
+            $path = parse_url($url, PHP_URL_PATH);
+            if (! empty($path)) {
+                if (substr($path, -1) != '/') {
+                    return $path . '/';
+                }
+                return $path;
+            }
         }
 
         $parsed_url = parse_url($GLOBALS['PMA_PHP_SELF']);
@@ -1619,7 +1584,7 @@ class Config
             $cookie,
             '',
             time() - 3600,
-            $this->getCookiePath(),
+            $this->getRootPath(),
             '',
             $this->isHttps()
         );
@@ -1640,7 +1605,7 @@ class Config
     public function setCookie($cookie, $value, $default = null,
         $validity = null, $httponly = true
     ) {
-        if (mb_strlen($value) && null !== $default && $value === $default
+        if (strlen($value) > 0 && null !== $default && $value === $default
         ) {
             // default value is used
             if (isset($_COOKIE[$cookie])) {
@@ -1650,7 +1615,7 @@ class Config
             return false;
         }
 
-        if (!mb_strlen($value) && isset($_COOKIE[$cookie])) {
+        if (strlen($value) === 0 && isset($_COOKIE[$cookie])) {
             // remove cookie, value is empty
             return $this->removeCookie($cookie);
         }
@@ -1675,7 +1640,7 @@ class Config
                 $cookie,
                 $value,
                 $validity,
-                $this->getCookiePath(),
+                $this->getRootPath(),
                 '',
                 $this->isHttps(),
                 $httponly
@@ -1716,6 +1681,48 @@ class Config
                 $error['message']
             )
         );
+    }
+
+    /**
+     * Wrapper for footer/header rendering
+     *
+     * @param string $filename File to check and render
+     * @param string $id       Div ID
+     *
+     * @return string
+     */
+    private static function _renderCustom($filename, $id)
+    {
+        $retval = '';
+        if (file_exists($filename)) {
+            $retval .= '<div id="' . $id . '">';
+            ob_start();
+            include $filename;
+            $retval .= ob_get_contents();
+            ob_end_clean();
+            $retval .= '</div>';
+        }
+        return $retval;
+    }
+
+    /**
+     * Renders user configured footer
+     *
+     * @return string
+     */
+    public static function renderFooter()
+    {
+        return self::_renderCustom(CUSTOM_FOOTER_FILE, 'pma_footer');
+    }
+
+    /**
+     * Renders user configured footer
+     *
+     * @return string
+     */
+    public static function renderHeader()
+    {
+        return self::_renderCustom(CUSTOM_HEADER_FILE, 'pma_header');
     }
 }
 

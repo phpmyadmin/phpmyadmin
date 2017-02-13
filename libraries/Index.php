@@ -132,7 +132,7 @@ class Index
         Index::_loadIndexes($table, $schema);
         if (! isset(Index::$_registry[$schema][$table][$index_name])) {
             $index = new Index;
-            if (mb_strlen($index_name)) {
+            if (strlen($index_name) > 0) {
                 $index->setName($index_name);
                 Index::$_registry[$schema][$table][$index->getName()] = $index;
             }
@@ -263,7 +263,7 @@ class Index
     public function addColumn($params)
     {
         if (isset($params['Column_name'])
-            && mb_strlen($params['Column_name'])
+            && strlen($params['Column_name']) > 0
         ) {
             $this->_columns[$params['Column_name']] = new IndexColumn($params);
         }
@@ -436,7 +436,7 @@ class Index
     public function getComments()
     {
         $comments = $this->getRemarks();
-        if (mb_strlen($comments)) {
+        if (strlen($comments) > 0) {
             $comments .= "\n";
         }
         $comments .= $this->getComment();
@@ -692,11 +692,10 @@ class Index
         $r .= '</thead>';
         $r .= '<tbody>';
 
-        $odd_row = true;
         foreach ($indexes as $index) {
             $row_span = ' rowspan="' . $index->getColumnCount() . '" ';
 
-            $r .= '<tr class="noclick ' . ($odd_row ? 'odd' : 'even') . '">';
+            $r .= '<tr class="noclick" >';
 
             if (! $print_mode) {
                 $this_params = $GLOBALS['url_params'];
@@ -767,7 +766,7 @@ class Index
 
             foreach ($index->getColumns() as $column) {
                 if ($column->getSeqInIndex() > 1) {
-                    $r .= '<tr class="noclick ' . ($odd_row ? 'odd' : 'even') . '">';
+                    $r .= '<tr class="noclick" >';
                 }
                 $r .= '<td>' . htmlspecialchars($column->getName());
                 if ($column->getSubPart()) {
@@ -792,7 +791,6 @@ class Index
                 $r .= '</tr>';
             } // end foreach $index['Sequences']
 
-            $odd_row = ! $odd_row;
         } // end while
         $r .= '</tbody>';
         $r .= '</table>';

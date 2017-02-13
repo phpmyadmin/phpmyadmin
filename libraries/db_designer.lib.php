@@ -82,7 +82,7 @@ function PMA_getPageIdsAndNames($db)
     $page_query = "SELECT `page_nr`, `page_descr` FROM "
         . PMA\libraries\Util::backquote($cfgRelation['db']) . "."
         . PMA\libraries\Util::backquote($cfgRelation['pdf_pages'])
-        . " WHERE db_name = '" . PMA\libraries\Util::sqlAddSlashes($db) . "'"
+        . " WHERE db_name = '" . $GLOBALS['dbi']->escapeString($db) . "'"
         . " ORDER BY `page_descr`";
     $page_rs = PMA_queryAsControlUser(
         $page_query, false, PMA\libraries\DatabaseInterface::QUERY_STORE
@@ -90,7 +90,7 @@ function PMA_getPageIdsAndNames($db)
 
     $result = array();
     while ($curr_page = $GLOBALS['dbi']->fetchAssoc($page_rs)) {
-        $result[$curr_page['page_nr']] = $curr_page['page_descr'];
+        $result[intval($curr_page['page_nr'])] = $curr_page['page_descr'];
     }
     return $result;
 }

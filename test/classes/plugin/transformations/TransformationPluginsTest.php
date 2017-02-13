@@ -690,7 +690,7 @@ class TransformationPluginsTest extends PMATestCase
      */
     public function transformationDataProvider()
     {
-        return array(
+        $result = array(
             array(
                 new Image_JPEG_Upload(),
                 array(
@@ -772,37 +772,14 @@ class TransformationPluginsTest extends PMATestCase
                 '31 31 31 31 31 30 30 31 '
             ),
             array(
-                new Image_JPEG_Inline(),
-                array(
-                    'PMA_JPEG_Inline',
-                    array("./image/", "200", "wrapper_link"=>"PMA_wrapper_link")
-                ),
-                '<a href="transformation_wrapper.phpPMA_wrapper_link" '
-                . 'target="_blank"><img src="transformation_wrapper.php'
-                . 'PMA_wrapper_link&amp;resize=jpeg&amp;newWidth=./image/&amp;'
-                . 'newHeight=200" alt="[PMA_JPEG_Inline]" border="0" /></a>'
-            ),
-            array(
                 new Image_JPEG_Link(),
                 array(
                     'PMA_IMAGE_LINK',
                     array("./image/", "200", "wrapper_link"=>"PMA_wrapper_link")
                 ),
-                '<a class="disableAjax" target="_new"'
+                '<a class="disableAjax" target="_blank" rel="noopener noreferrer"'
                 . ' href="transformation_wrapper.phpPMA_wrapper_link"'
                 . ' alt="[PMA_IMAGE_LINK]">[BLOB]</a>'
-            ),
-            array(
-                new Image_PNG_Inline(),
-                array(
-                    'PMA_PNG_Inline',
-                    array("./image/", "200", "wrapper_link"=>"PMA_wrapper_link")
-                ),
-                '<a href="transformation_wrapper.phpPMA_wrapper_link"'
-                . ' target="_blank"><img src="transformation_wrapper.php'
-                . 'PMA_wrapper_link&amp;'
-                . 'resize=jpeg&amp;newWidth=./image/&amp;newHeight=200" '
-                . 'alt="[PMA_PNG_Inline]" border="0" /></a>'
             ),
             array(
                 new Text_Plain_Dateformat(),
@@ -866,7 +843,25 @@ class TransformationPluginsTest extends PMATestCase
                     "<a ref='https://www.example.com/'>PMA_BUFFER</a>",
                     array("option1", "option2")
                 ),
-                "<a ref='https://www.example.com/'>PMA_BUFFER</a>"
+                "<iframe srcdoc=\"<a ref='https://www.example.com/'>PMA_BUFFER</a>\" sandbox=\"\"></iframe>"
+            ),
+            array(
+                new Text_Plain_Formatted(),
+                array(
+                    "<a ref=\"https://www.example.com/\">PMA_BUFFER</a>",
+                    array("option1", "option2")
+                ),
+                "<iframe srcdoc=\"<a ref='https://www.example.com/'>PMA_BUFFER</a>\" sandbox=\"\"></iframe>"
+            ),
+            array(
+                new Text_Plain_Imagelink(),
+                array(
+                    'PMA_IMAGE',
+                    array("http://image/", "200")
+                ),
+                '<a href="http://image/PMA_IMAGE" rel="noopener noreferrer" target="_blank">'
+                . '<img src="http://image/PMA_IMAGE" border="0" width="200" '
+                . 'height="50" />PMA_IMAGE</a>'
             ),
             array(
                 new Text_Plain_Imagelink(),
@@ -874,9 +869,7 @@ class TransformationPluginsTest extends PMATestCase
                     'PMA_IMAGE',
                     array("./image/", "200")
                 ),
-                '<a href="./image/PMA_IMAGE" target="_blank">'
-                . '<img src="./image/PMA_IMAGE" border="0" width="200" '
-                . 'height="50" />PMA_IMAGE</a>'
+                './image/PMA_IMAGE'
             ),
             array(
                 new Text_Plain_Sql(),
@@ -894,8 +887,32 @@ class TransformationPluginsTest extends PMATestCase
                     'PMA_TXT_LINK',
                     array("./php/", "text_name")
                 ),
-                '<a href="./php/PMA_TXT_LINK"'
-                . ' title="text_name" target="_new">text_name</a>'
+                './php/PMA_TXT_LINK'
+            ),
+            array(
+                new Text_Plain_Link(),
+                array(
+                    'PMA_TXT_LINK',
+                    array(),
+                ),
+                'PMA_TXT_LINK'
+            ),
+            array(
+                new Text_Plain_Link(),
+                array(
+                    'https://example.com/PMA_TXT_LINK',
+                    array(),
+                ),
+                '<a href="https://example.com/PMA_TXT_LINK" title=""'
+                . ' target="_blank" rel="noopener noreferrer">https://example.com/PMA_TXT_LINK</a>'
+            ),
+            array(
+                new Text_Plain_Link(),
+                array(
+                    'PMA_TXT_LINK',
+                    array("./php/", "text_name")
+                ),
+                './php/PMA_TXT_LINK'
             ),
             array(
                 new Text_Plain_Longtoipv4(),
@@ -930,6 +947,33 @@ class TransformationPluginsTest extends PMATestCase
                 'suffixMA_suffix'
             ),
         );
+
+        if (function_exists('imagecreatetruecolor')) {
+            $result[] = array(
+                new Image_JPEG_Inline(),
+                array(
+                    'PMA_JPEG_Inline',
+                    array("./image/", "200", "wrapper_link"=>"PMA_wrapper_link")
+                ),
+                '<a href="transformation_wrapper.phpPMA_wrapper_link" '
+                . 'rel="noopener noreferrer" target="_blank"><img src="transformation_wrapper.php'
+                . 'PMA_wrapper_link&amp;resize=jpeg&amp;newWidth=0&amp;'
+                . 'newHeight=200" alt="[PMA_JPEG_Inline]" border="0" /></a>'
+            );
+            $result[] = array(
+                new Image_PNG_Inline(),
+                array(
+                    'PMA_PNG_Inline',
+                    array("./image/", "200", "wrapper_link"=>"PMA_wrapper_link")
+                ),
+                '<a href="transformation_wrapper.phpPMA_wrapper_link"'
+                . ' rel="noopener noreferrer" target="_blank"><img src="transformation_wrapper.php'
+                . 'PMA_wrapper_link&amp;'
+                . 'resize=jpeg&amp;newWidth=0&amp;newHeight=200" '
+                . 'alt="[PMA_PNG_Inline]" border="0" /></a>'
+            );
+        }
+        return $result;
     }
 
     /**

@@ -8,45 +8,6 @@
  */
 
 /**
- * Gets the "true" IP address of the current user
- *
- * @return string   the ip of the user
- *
- * @access  private
- */
-function PMA_getIp()
-{
-    /* Get the address of user */
-    if (empty($_SERVER['REMOTE_ADDR'])) {
-        /* We do not know remote IP */
-        return false;
-    }
-
-    $direct_ip = $_SERVER['REMOTE_ADDR'];
-
-    /* Do we trust this IP as a proxy? If yes we will use it's header. */
-    if (!isset($GLOBALS['cfg']['TrustedProxies'][$direct_ip])) {
-        /* Return true IP */
-        return $direct_ip;
-    }
-
-    $trusted_header_value
-        = PMA_getenv($GLOBALS['cfg']['TrustedProxies'][$direct_ip]);
-    $matches = array();
-    // checks that the header contains only one IP address,
-    $is_ip = filter_var($trusted_header_value, FILTER_VALIDATE_IP);
-
-    if ($is_ip !== false) {
-        // True IP behind a proxy
-        return $trusted_header_value;
-    }
-
-    /* Return true IP */
-    return $direct_ip;
-} // end of the 'PMA_getIp()' function
-
-
-/**
  * Matches for IPv4 or IPv6 addresses
  *
  * @param string $testRange string of IP range to match
@@ -74,7 +35,7 @@ function PMA_ipMaskTest($testRange, $ipToTest)
 /**
  * Based on IP Pattern Matcher
  * Originally by J.Adams <jna@retina.net>
- * Found on <https://php.net/manual/en/function.ip2long.php>
+ * Found on <https://secure.php.net/manual/en/function.ip2long.php>
  * Modified for phpMyAdmin
  *
  * Matches:
@@ -111,7 +72,7 @@ function PMA_ipv4MaskTest($testRange, $ipToTest)
 
         for ($i = 0; $i < 31; $i++) {
             if ($i < $regs[5] - 1) {
-                $maskl = $maskl + PMA\libraries\Util::pow(2, (30 - $i));
+                $maskl = $maskl + pow(2, (30 - $i));
             } // end if
         } // end for
 
@@ -183,7 +144,7 @@ function PMA_ipv6MaskTest($test_range, $ip_to_test)
 
     if ($is_single) {
         $range_hex = bin2hex(inet_pton($test_range));
-        $result = $ip_hex === $range_hex;
+        $result = hash_equals($ip_hex, $range_hex);
         return $result;
     }
 
@@ -257,7 +218,7 @@ function PMA_ipv6MaskTest($test_range, $ip_to_test)
  *
  * @param string $type 'allow' | 'deny' type of rule to match
  *
- * @return bool   Matched a rule ?
+ * @return bool   Whether rule has matched
  *
  * @access  public
  *
@@ -310,7 +271,7 @@ function PMA_allowDeny($type)
 
         // check for username
         if (($rule_data[1] != '%') //wildcarded first
-            && ($rule_data[1] != $username)
+            && (! hash_equals($rule_data[1], $username))
         ) {
             continue;
         }

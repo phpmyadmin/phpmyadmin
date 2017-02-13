@@ -33,8 +33,7 @@ $forms['Servers']['Server'] = array('Servers' => array(1 => array(
     'socket',
     'ssl',
     'connect_type',
-    'compress',
-    'nopassword')));
+    'compress')));
 $forms['Servers']['Server_auth'] = array('Servers' => array(1 => array(
     'auth_type',
     ':group:' . __('Config authentication'),
@@ -204,9 +203,9 @@ $forms['Main_panel']['Startup'] = array(
     'ShowCreateDb',
     'ShowStats',
     'ShowServerInfo',
-    'ShowPhpInfo',
     'ShowChgPassword');
 $forms['Main_panel']['DbStructure'] = array(
+    'ShowDbStructureCharset',
     'ShowDbStructureComment',
     'ShowDbStructureCreation',
     'ShowDbStructureLastUpdate',

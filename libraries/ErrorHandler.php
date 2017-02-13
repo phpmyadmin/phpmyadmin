@@ -24,6 +24,11 @@ class ErrorHandler
     protected $errors = array();
 
     /**
+     * Hide location of errors
+     */
+    protected $hide_location = false;
+
+    /**
      * Constructor - set PHP error handler
      *
      */
@@ -75,6 +80,18 @@ class ErrorHandler
                 }
             }
         }
+    }
+
+    /**
+     * Toggles location hiding
+     *
+     * @param boolean $hide Whether to hide
+     *
+     * @return void
+     */
+    public function setHideLocation($hide)
+    {
+        $this->hide_location = $hide;
     }
 
     /**
@@ -170,21 +187,25 @@ class ErrorHandler
             $errfile,
             $errline
         );
+        $error->setHideLocation($this->hide_location);
 
         // do not repeat errors
         $this->errors[$error->getHash()] = $error;
 
         switch ($error->getNumber()) {
-        case E_USER_NOTICE:
-        case E_USER_WARNING:
         case E_STRICT:
         case E_DEPRECATED:
         case E_NOTICE:
         case E_WARNING:
         case E_CORE_WARNING:
         case E_COMPILE_WARNING:
-        case E_USER_ERROR:
         case E_RECOVERABLE_ERROR:
+            /* Avoid rendering BB code in PHP errors */
+            $error->setBBCode(false);
+            break;
+        case E_USER_NOTICE:
+        case E_USER_WARNING:
+        case E_USER_ERROR:
             // just collect the error
             // display is called from outside
             break;

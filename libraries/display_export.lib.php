@@ -9,6 +9,7 @@
 use PMA\libraries\Encoding;
 use PMA\libraries\Message;
 use PMA\libraries\plugins\ExportPlugin;
+use PMA\libraries\Response;
 use PMA\libraries\Table;
 use PMA\libraries\URL;
 
@@ -251,8 +252,8 @@ function PMA_getOptionsForExportTemplates($export_type)
        . PMA\libraries\Util::backquote($cfgRelation['db']) . '.'
        . PMA\libraries\Util::backquote($cfgRelation['export_templates'])
        . " WHERE `username` = "
-       . "'" . PMA\libraries\Util::sqlAddSlashes($GLOBALS['cfg']['Server']['user'])
-        . "' AND `export_type` = '" . $export_type . "'"
+       . "'" . $GLOBALS['dbi']->escapeString($GLOBALS['cfg']['Server']['user'])
+        . "' AND `export_type` = '" . $GLOBALS['dbi']->escapeString($export_type) . "'"
        . " ORDER BY `template_name`;";
 
     $result = PMA_queryAsControlUser($query);
@@ -867,9 +868,8 @@ function PMA_getHtmlForExportOptions(
     $html .= PMA_getHtmlForExportOptionsFormatDropdown($export_list);
     $html .= PMA_getHtmlForExportOptionsSelection($export_type, $multi_values);
 
-    $tableLength = mb_strlen($table);
     $_table = new Table($table, $db);
-    if ($tableLength && empty($num_tables) && ! $_table->isMerge()) {
+    if (strlen($table) > 0 && empty($num_tables) && ! $_table->isMerge()) {
         $html .= PMA_getHtmlForExportOptionsRows($db, $table, $unlim_num_rows);
     }
 
@@ -986,7 +986,6 @@ function PMA_getHtmlForAliasModalDialog($db = '', $table = '')
                 . $class . '" width="100%">';
             $col_html .= '<thead><tr><th>' . __('Old column name') . '</th>'
                 . '<th>' . __('New column name') . '</th></tr></thead><tbody>';
-            $class = 'odd';
             foreach ($columns as $column => $col_def) {
                 $val = '';
                 if (!empty($aliases[$db]['tables'][$table]['columns'][$column])) {
@@ -998,14 +997,13 @@ function PMA_getHtmlForAliasModalDialog($db = '', $table = '')
                 $name_attr = 'aliases[' . $db . '][tables][' . $table
                     . '][columns][' . $column . ']';
                 $id_attr = substr(md5($name_attr), 0, 12);
-                $col_html .= '<tr class="' . $class . '">';
+                $col_html .= '<tr>';
                 $col_html .= '<th><label for="' . $id_attr . '">' . $column
                     . '</label></th>';
                 $col_html .= '<td><dummy_inp type="text" name="' . $name_attr . '" '
                     . 'id="' . $id_attr . '" placeholder="'
                     . $column . ' alias" value="' . $val . '"></dummy_inp></td>';
                 $col_html .= '</tr>';
-                $class = $class === 'odd' ? 'even' : 'odd';
             }
             $col_html .= '</tbody></table>';
         }
@@ -1112,14 +1110,14 @@ function PMA_getExportDisplay(
 function PMA_handleExportTemplateActions($cfgRelation)
 {
     if (isset($_REQUEST['templateId'])) {
-        $id = PMA\libraries\Util::sqlAddSlashes($_REQUEST['templateId']);
+        $id = $GLOBALS['dbi']->escapeString($_REQUEST['templateId']);
     } else {
         $id = '';
     }
 
     $templateTable = PMA\libraries\Util::backquote($cfgRelation['db']) . '.'
        . PMA\libraries\Util::backquote($cfgRelation['export_templates']);
-    $user = PMA\libraries\Util::sqlAddSlashes($GLOBALS['cfg']['Server']['user']);
+    $user = $GLOBALS['dbi']->escapeString($GLOBALS['cfg']['Server']['user']);
 
     switch ($_REQUEST['templateAction']) {
     case 'create':
@@ -1128,9 +1126,9 @@ function PMA_handleExportTemplateActions($cfgRelation)
             . " `template_name`, `template_data`"
             . ") VALUES ("
             . "'" . $user . "', "
-            . "'" . PMA\libraries\Util::sqlAddSlashes($_REQUEST['exportType'])
-            . "', '" . PMA\libraries\Util::sqlAddSlashes($_REQUEST['templateName'])
-            . "', '" . PMA\libraries\Util::sqlAddSlashes($_REQUEST['templateData'])
+            . "'" . $GLOBALS['dbi']->escapeString($_REQUEST['exportType'])
+            . "', '" . $GLOBALS['dbi']->escapeString($_REQUEST['templateName'])
+            . "', '" . $GLOBALS['dbi']->escapeString($_REQUEST['templateData'])
             . "');";
         break;
     case 'load':
@@ -1139,7 +1137,7 @@ function PMA_handleExportTemplateActions($cfgRelation)
         break;
     case 'update':
         $query = "UPDATE " . $templateTable . " SET `template_data` = "
-          . "'" . PMA\libraries\Util::sqlAddSlashes($_REQUEST['templateData']) . "'"
+          . "'" . $GLOBALS['dbi']->escapeString($_REQUEST['templateData']) . "'"
           . " WHERE `id` = " . $id  . " AND `username` = '" . $user . "'";
         break;
     case 'delete':
@@ -1153,7 +1151,7 @@ function PMA_handleExportTemplateActions($cfgRelation)
 
     $result = PMA_queryAsControlUser($query, false);
 
-    $response = PMA\libraries\Response::getInstance();
+    $response = Response::getInstance();
     if (! $result) {
         $error = $GLOBALS['dbi']->getError($GLOBALS['controllink']);
         $response->setRequestStatus(false);

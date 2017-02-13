@@ -162,7 +162,7 @@ class ConfigTest extends PMATestCase
         $this->object->set('PMA_USR_BROWSER_AGENT', 'IE');
         $this->object->set('PMA_USR_BROWSER_VER', 6);
         $this->object->checkOutputCompression();
-        $this->assertFalse($this->object->get("OBGzip"));
+        $this->assertTrue($this->object->get("OBGzip"));
 
         $this->object->set('OBGzip', 'auto');
         $this->object->set('PMA_USR_BROWSER_AGENT', 'MOZILLA');
@@ -328,7 +328,7 @@ class ConfigTest extends PMATestCase
         $this->object->checkGd2();
         $this->assertEquals(0, $this->object->get('PMA_IS_GD2'));
 
-        $this->object->set('GD2Available', $prevIsGb2Val);
+        $this->object->set('GD2Available', 'auto');
 
         if (!@function_exists('imagecreatetruecolor')) {
             $this->object->checkGd2();
@@ -639,76 +639,110 @@ class ConfigTest extends PMATestCase
     }
 
     /**
-     * Test for getting cookie path
+     * Test for getting root path
      *
+     * @param string $request  The request URL used for phpMyAdmin
      * @param string $absolute The absolute URL used for phpMyAdmin
-     * @param string $expected Expected cookie path
+     * @param string $expected Expected root path
      *
      * @return void
      *
-     * @dataProvider cookieUris
+     * @dataProvider rootUris
      */
-    public function testGetCookiePath($absolute, $expected)
+    public function testGetRootPath($request, $absolute, $expected)
     {
-        $GLOBALS['PMA_PHP_SELF'] = $absolute;
-        $this->assertEquals($expected, $this->object->getCookiePath());
+        $GLOBALS['PMA_PHP_SELF'] = $request;
+        $this->object->set('PmaAbsoluteUri', $absolute);
+        $this->assertEquals($expected, $this->object->getRootPath());
     }
 
     /**
-     * Data provider for testGetCookiePath
+     * Data provider for testGetRootPath
      *
-     * @return array data for testGetCookiePath
+     * @return array data for testGetRootPath
      */
-    public function cookieUris()
+    public function rootUris()
     {
         return array(
             array(
+                '',
                 '',
                 '/',
             ),
             array(
                 '/',
+                '',
                 '/',
             ),
             array(
                 '/index.php',
+                '',
                 '/',
             ),
             array(
                 '\\index.php',
+                '',
                 '/',
             ),
             array(
                 '\\',
+                '',
                 '/',
             ),
             array(
                 '\\path\\to\\index.php',
+                '',
                 '/path/to/',
             ),
             array(
                 '/foo/bar/phpmyadmin/index.php',
+                '',
                 '/foo/bar/phpmyadmin/',
             ),
             array(
                 '/foo/bar/phpmyadmin/',
+                '',
                 '/foo/bar/phpmyadmin/',
             ),
             array(
                 'https://example.net/baz/phpmyadmin/',
+                '',
                 '/baz/phpmyadmin/',
             ),
             array(
                 'http://example.net/baz/phpmyadmin/',
+                '',
                 '/baz/phpmyadmin/',
             ),
             array(
+                'http://example.net/phpmyadmin/',
+                '',
+                '/phpmyadmin/',
+            ),
+            array(
+                'http://example.net/',
+                '',
+                '/',
+            ),
+            array(
+                'http://example.net/',
                 'http://example.net/phpmyadmin/',
                 '/phpmyadmin/',
             ),
             array(
                 'http://example.net/',
-                '/',
+                'http://example.net/phpmyadmin',
+                '/phpmyadmin/',
+            ),
+            array(
+                'http://example.net/',
+                '/phpmyadmin2',
+                '/phpmyadmin2/',
+            ),
+            array(
+                'http://example.net/',
+                '/phpmyadmin3/',
+                '/phpmyadmin3/',
             ),
         );
     }
@@ -899,35 +933,6 @@ class ConfigTest extends PMATestCase
     {
         $this->assertTrue(
             $this->object->isGitRevision()
-        );
-    }
-
-    /**
-     * Test for Check HTTP
-     *
-     * @group medium
-     *
-     * @return void
-     */
-    public function testCheckHTTP()
-    {
-        if (! function_exists('curl_init')) {
-            $this->markTestSkipped('Missing curl extension!');
-        }
-        $this->assertTrue(
-            $this->object->checkHTTP("https://www.phpmyadmin.net/test/data")
-        );
-        $this->assertContains(
-            "TEST DATA",
-            $this->object->checkHTTP("https://www.phpmyadmin.net/test/data", true)
-        );
-        $this->assertFalse(
-            $this->object->checkHTTP("https://www.phpmyadmin.net/test/nothing")
-        );
-        // Use rate limit API as it's not subject to rate limiting
-        $this->assertContains(
-            '"resources"',
-            $this->object->checkHTTP("https://api.github.com/rate_limit", true)
         );
     }
 }

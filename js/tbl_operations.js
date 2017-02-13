@@ -137,7 +137,11 @@ AJAX.registerOnload('tbl_operations.js', function () {
             $(".result_query").remove();
         }
         //variables which stores the common attributes
-        $.post($(this).attr('href'), { ajax_request: 1 }, function (data) {
+        var params = {
+            ajax_request: 1,
+            token: PMA_commonParams.get('token')
+        };
+        $.post($(this).attr('href'), params, function (data) {
             function scrollToTop() {
                 $('html, body').animate({ scrollTop: 0 });
             }
@@ -214,6 +218,7 @@ AJAX.registerOnload('tbl_operations.js', function () {
             var $msgbox = PMA_ajaxShowMessage(PMA_messages.strProcessingRequest);
 
             var params = getJSConfirmCommonParam(this);
+            params.token = PMA_commonParams.get('token');
 
             $.post(url, params, function (data) {
                 if (typeof data !== 'undefined' && data.success === true) {
@@ -248,7 +253,12 @@ AJAX.registerOnload('tbl_operations.js', function () {
         $(this).PMA_confirm(question, $(this).attr('href'), function (url) {
 
             var $msgbox = PMA_ajaxShowMessage(PMA_messages.strProcessingRequest);
-            $.post(url, {'is_js_confirmed': '1', 'ajax_request': true}, function (data) {
+            var params = {
+                'is_js_confirmed': '1',
+                'ajax_request': true,
+                'token': PMA_commonParams.get('token')
+            };
+            $.post(url, params, function (data) {
                 if (typeof data !== 'undefined' && data.success === true) {
                     PMA_ajaxRemoveMessage($msgbox);
                     // Table deleted successfully, refresh both the frames
@@ -281,6 +291,7 @@ AJAX.registerOnload('tbl_operations.js', function () {
             PMA_ajaxShowMessage(PMA_messages.strProcessingRequest);
 
             var params = getJSConfirmCommonParam(this);
+            params.token = PMA_commonParams.get('token');
 
             $.post(url, params, function (data) {
                 if ($(".sqlqueryresults").length !== 0) {

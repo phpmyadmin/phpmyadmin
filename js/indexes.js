@@ -609,7 +609,12 @@ AJAX.registerOnload('indexes.js', function () {
 
         $anchor.PMA_confirm(question, $anchor.attr('href'), function (url) {
             var $msg = PMA_ajaxShowMessage(PMA_messages.strDroppingPrimaryKeyIndex, false);
-            $.post(url, {'is_js_confirmed': 1, 'ajax_request': true}, function (data) {
+            var params = {
+                'is_js_confirmed': 1,
+                'ajax_request': true,
+                'token' : PMA_commonParams.get('token')
+            };
+            $.post(url, params, function (data) {
                 if (typeof data !== 'undefined' && data.success === true) {
                     PMA_ajaxRemoveMessage($msg);
                     var $table_ref = $rows_to_hide.closest('table');
@@ -622,7 +627,6 @@ AJAX.registerOnload('indexes.js', function () {
                         $table_ref.siblings('div.notice').hide('medium');
                     } else {
                         // We are removing some of the rows only
-                        toggleRowColors($rows_to_hide.last().next());
                         $rows_to_hide.hide("medium", function () {
                             $(this).remove();
                         });

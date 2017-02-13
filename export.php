@@ -259,9 +259,7 @@ if ($_REQUEST['output_format'] == 'astext') {
 // Generate error url and check for needed variables
 if ($export_type == 'server') {
     $err_url = 'server_export.php' . URL::getCommon();
-} elseif ($export_type == 'database'
-    && mb_strlen($db)
-) {
+} elseif ($export_type == 'database' && strlen($db) > 0) {
     $err_url = 'db_export.php' . URL::getCommon(array('db' => $db));
     // Check if we have something to export
     if (isset($table_select)) {
@@ -269,9 +267,7 @@ if ($export_type == 'server') {
     } else {
         $tables = array();
     }
-} elseif ($export_type == 'table' && mb_strlen($db)
-    && mb_strlen($table)
-) {
+} elseif ($export_type == 'table' && strlen($db) > 0 && strlen($table) > 0) {
     $err_url = 'tbl_export.php' . URL::getCommon(
         array(
             'db' => $db, 'table' => $table

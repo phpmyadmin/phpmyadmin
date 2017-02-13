@@ -6,6 +6,7 @@
  * @package PhpMyAdmin
  */
 use PMA\libraries\config\PageSettings;
+use PMA\libraries\Response;
 
 /**
  *
@@ -19,7 +20,7 @@ PageSettings::showGroup('Sql_queries');
 /**
  * Runs common work
  */
-$response = PMA\libraries\Response::getInstance();
+$response = Response::getInstance();
 $header   = $response->getHeader();
 $scripts  = $header->getScripts();
 $scripts->addFile('makegrid.js');

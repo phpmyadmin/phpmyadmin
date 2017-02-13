@@ -1,6 +1,12 @@
 #!/bin/bash
 
-if [ "$TRAVIS_PHP_VERSION" = "nightly" -o "$TRAVIS_PHP_VERSION" = "hhvm" -o "$TRAVIS_PHP_VERSION" = "7.0" ] ; then
+# Do not run as CGI
+if [ -n "$GATEWAY_INTERFACE" ] ; then
+    echo 'Can not invoke as CGI!'
+    exit 1
+fi
+
+if [ "$TRAVIS_PHP_VERSION" = "nightly" -o "$TRAVIS_PHP_VERSION" = "hhvm" -o "$TRAVIS_PHP_VERSION" = "7.0" -o "$TRAVIS_PHP_VERSION" = "7.1" ] ; then
     exit 0
 fi
 

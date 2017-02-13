@@ -20,7 +20,6 @@ if (!defined('PHPMYADMIN')) {
 /**
  * Core libraries.
  */
-require_once './libraries/display_select_lang.lib.php';
 require_once './setup/lib/index.lib.php';
 require_once './libraries/config/FormDisplay.tpl.php';
 
@@ -68,30 +67,19 @@ if (!$config_writable || !$config_readable) {
     );
 }
 //
-// Check https connection
+// Https connection warning (check done on the client side)
 //
-$is_https = !empty($_SERVER['HTTPS'])
-    && mb_strtolower($_SERVER['HTTPS']) == 'on';
-if (!$is_https) {
-    $text = __(
-        'You are not using a secure connection; all data (including potentially '
-        . 'sensitive information, like passwords) is transferred unencrypted!'
-    );
-
-    $text .= ' <a href="#" onclick="window.location.href = \'https:\' + window.location.href.substring(window.location.protocol.length);">';
-
-    // Temporary workaround to use tranlated message in older releases
-    $text .= str_replace(
-        array('[a@%s]', '[/a]'),
-        array('', ''),
-        __(
-            'If your server is also configured to accept HTTPS requests '
-            . 'follow [a@%s]this link[/a] to use a secure connection.'
-        )
-    );
-    $text .= '</a>';
-    PMA_messagesSet('notice', 'no_https', __('Insecure connection'), $text);
-}
+$text = __(
+    'You are not using a secure connection; all data (including potentially '
+    . 'sensitive information, like passwords) is transferred unencrypted!'
+);
+$text .= ' <a href="#">';
+$text .= __(
+    'If your server is also configured to accept HTTPS requests '
+    . 'follow this link to use a secure connection.'
+);
+$text .= '</a>';
+PMA_messagesSet('notice', 'no_https', __('Insecure connection'), $text);
 
 echo '<form id="select_lang" method="post" action="'
     , htmlspecialchars($_SERVER['REQUEST_URI']) , '">';
@@ -132,7 +120,7 @@ case 'config_not_saved':
     /* Use uniqid to display this message every time configuration is saved */
     PMA_messagesSet(
         'notice', uniqid('config_not_saved'), __('Configuration not saved!'),
-        PMA_sanitize(
+        Sanitize::sanitize(
             __(
                 'Please create web server writable folder [em]config[/em] in '
                 . 'phpMyAdmin top level directory as described in '

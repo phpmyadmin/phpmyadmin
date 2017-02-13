@@ -6,12 +6,18 @@
  * @package PhpMyAdmin
  */
 use PMA\libraries\Sanitize;
+use PMA\libraries\Response;
 
 /**
  * Gets core libraries and defines some variables
  */
 define('PMA_MINIMUM_COMMON', true);
 require_once './libraries/common.inc.php';
+
+// Only output the http headers
+$response = Response::getInstance();
+$response->getHeader()->sendHttpHeaders();
+$response->disable();
 
 if (! PMA_isValid($_REQUEST['url'])
     || ! preg_match('/^https:\/\/[^\n\r]*$/', $_REQUEST['url'])

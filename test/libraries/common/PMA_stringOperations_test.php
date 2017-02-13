@@ -45,37 +45,6 @@ class PMA_StringOperations_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * data provider for PMA\libraries\Util::flipstring test
-     *
-     * @return array
-     */
-    public function flipStringDataProvider()
-    {
-        return array(
-            array('test', "t<br />\ne<br />\ns<br />\nt"),
-            array(
-                'te&nbsp;;st',
-                "t<br />\ne<br />\n&nbsp;<br />\n;<br />\ns<br />\nt"
-            )
-        );
-    }
-
-    /**
-     * test of changing string from horizontal to vertical orientation
-     *
-     * @param string $a String
-     * @param string $e Expected output
-     *
-     * @return void
-     *
-     * @dataProvider flipStringDataProvider
-     */
-    public function testFlipString($a, $e)
-    {
-        $this->assertEquals($e, PMA\libraries\Util::flipstring($a));
-    }
-
-    /**
      * data provider for PMA\libraries\Util::userDir test
      *
      * @return array

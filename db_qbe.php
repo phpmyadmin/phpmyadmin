@@ -7,6 +7,7 @@
  */
 use PMA\libraries\SavedSearches;
 use PMA\libraries\URL;
+use PMA\libraries\Response;
 
 /**
  * requirements
@@ -14,7 +15,7 @@ use PMA\libraries\URL;
 require_once 'libraries/common.inc.php';
 require_once 'libraries/sql.lib.php';
 
-$response = PMA\libraries\Response::getInstance();
+$response = Response::getInstance();
 
 // Gets the relation settings
 $cfgRelation = PMA_getRelationsParam();

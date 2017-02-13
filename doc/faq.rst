@@ -146,7 +146,7 @@ The MySQL manual explains how to `reset the permissions
 1.15 I have problems with *mysql.user* column names.
 ----------------------------------------------------
 
-In previous MySQL versions, the ``User`` and ``Password``columns were
+In previous MySQL versions, the ``User`` and ``Password`` columns were
 named ``user`` and ``password``. Please modify your column names to
 align with current standards.
 
@@ -207,7 +207,7 @@ your server - as mentioned in :ref:`faq1_17`. This problem is
 generally caused by using MySQL version 4.1 or newer. MySQL changed
 the authentication hash and your PHP is trying to use the old method.
 The proper solution is to use the `mysqli extension
-<https://php.net/mysqli>`_ with the proper client library to match
+<https://secure.php.net/mysqli>`_ with the proper client library to match
 your MySQL installation. More
 information (and several workarounds) are located in the `MySQL
 Documentation <https://dev.mysql.com/doc/refman/5.7/en/old-client.html>`_.
@@ -254,8 +254,8 @@ current setup):
 
     [PHP]
 
-    ; Directory in which the loadable extensions (modules) reside.
-    extension_dir = "C:/Apache2/modules/php/ext"
+    ; Directory in which the loadable extensions (modules) reside.
+    extension_dir = "C:/Apache2/modules/php/ext"
 
 The :file:`php.ini` can be loaded from several locations (especially on
 Windows), so please check you're updating the correct one. If using Apache, you
@@ -263,14 +263,14 @@ can tell it to use specific path for this file using ``PHPIniDir`` directive:
 
 .. code-block:: apache
 
-    LoadFile "C:/php/php5ts.dll"
-    LoadModule php5_module "C:/php/php5apache2_2.dll"
+    LoadFile "C:/php/php5ts.dll"
+    LoadModule php5_module "C:/php/php5apache2_2.dll"
     <IfModule php5_module>
-        PHPIniDir "C:/PHP"
-        <Location>
-           AddType text/html .php
-           AddHandler application/x-httpd-php .php
-        </Location>
+        PHPIniDir "C:/PHP"
+        <Location>
+           AddType text/html .php
+           AddHandler application/x-httpd-php .php
+        </Location>
     </IfModule>
 
 In some rare cases this problem can be also caused by other extensions loaded
@@ -373,7 +373,7 @@ This can happen due to a MySQL bug when having database / table names
 with upper case characters although ``lower_case_table_names`` is
 set to 1. To fix this, turn off this directive, convert all database
 and table names to lower case and turn it on again. Alternatively,
-there's a bug-fix available starting with MySQL 3.23.56 /
+there's a bug-fix available starting with MySQL 3.23.56 /
 4.0.11-gamma.
 
 .. _faq1_29:
@@ -555,6 +555,23 @@ parameters:
 * `suhosin.log.\* <https://suhosin.org/stories/configuration.html#logging-configuration>`_ should not
   include :term:`SQL`, otherwise you get big
   slowdown
+* `suhosin.sql.union <https://suhosin.org/stories/configuration.html#suhosin-
+  sql-union>`_ must be disabled (which is the default).
+* `suhosin.sql.multiselect <https://suhosin.org/stories/configuration.html#
+  suhosin-sql-multiselect>`_ must be disabled (which is the default).
+* `suhosin.sql.comment <https://suhosin.org/stories/configuration.html#suhosin-
+  sql-comment>`_ must be disabled (which is the default).
+
+To further improve security, we also recommend these modifications:
+
+* `suhosin.executor.include.max\_traversal <https://suhosin.org/stories/
+  configuration.html#suhosin-executor-include-max-traversal>`_ should be
+  enabled as a mitigation against local file inclusion attacks. We suggest
+  setting this to 2 as ``../`` is used with the ReCaptcha library.
+* `suhosin.cookie.encrypt <https://suhosin.org/stories/configuration.html#
+  suhosin-cookie-encrypt>`_ should be enabled.
+* `suhosin.executor.disable_emodifier <https://suhosin.org/stories/config
+  uration.html#suhosin-executor-disable-emodifier>`_ should be enabled.
 
 You can also disable the warning using the :config:option:`$cfg['SuhosinDisableWarning']`.
 
@@ -599,7 +616,7 @@ This is not specific to phpmyadmin, it's just the behavior of Apache.
     ProxyPassReverse /mirror/foo/ http://backend.example.com/%7Euser/phpmyadmin
     ProxyPassReverseCookiePath /%7Euser/phpmyadmin /mirror/foo
 
-.. seealso:: <https://httpd.apache.org/docs/2.2/mod/mod_proxy.html>
+.. seealso:: <https://httpd.apache.org/docs/2.2/mod/mod_proxy.html>, :config:option:`$cfg['PmaAbsoluteUri']`
 
 .. _faq1_41:
 
@@ -752,9 +769,9 @@ revision.
 
 Check your webserver setup if it correctly fills in either PHP_SELF or REQUEST_URI variables.
 
-If you are running phpMyAdmin older than 4.6.0, you can also check the value
-you set for the :config:option:`$cfg['PmaAbsoluteUri']` directive in the
-phpMyAdmin configuration file.
+If you are running phpMyAdmin behind reverse proxy, please set the
+:config:option:`$cfg['PmaAbsoluteUri']` directive in the phpMyAdmin
+configuration file to match your setup.
 
 .. _faq2_6:
 
@@ -838,7 +855,7 @@ Here are a few points to check:
 ---------------------------------
 
 To be able to see a progress bar during your uploads, your server must
-have the `APC <https://php.net/manual/en/book.apc.php>`_ extension, the
+have the `APC <https://secure.php.net/manual/en/book.apc.php>`_ extension, the
 `uploadprogress <https://pecl.php.net/package/uploadprogress>`_ one, or
 you must be running PHP 5.4.0 or higher. Moreover, the JSON extension
 has to be enabled in your PHP.
@@ -1068,7 +1085,7 @@ is no way for PHP to set the charset before authenticating.
 .. seealso::
 
     `phpMyAdmin issue 12232 <https://github.com/phpmyadmin/phpmyadmin/issues/12232>`_,
-    `MySQL documentation note <https://php.net/manual/en/mysqli.real-connect.php#refsect1-mysqli.real-connect-notes>`_
+    `MySQL documentation note <https://secure.php.net/manual/en/mysqli.real-connect.php#refsect1-mysqli.real-connect-notes>`_
 
 .. _faqmultiuser:
 
@@ -1351,7 +1368,9 @@ browser cache to see if the problem goes away.
 5.20 I get errors about violating Content Security Policy.
 ----------------------------------------------------------
 
-If you see errors like::
+If you see errors like:
+
+.. code-block:: text
 
     Refused to apply inline style because it violates the following Content Security Policy directive
 
@@ -1370,6 +1389,28 @@ override the ones from phpMyAdmin).
 Programs known to cause these kind of errors:
 
 * Kaspersky Internet Security
+
+.. _faq5_21:
+
+5.21 I get errors about potentially unsafe operation when browsing table or executing SQL query.
+------------------------------------------------------------------------------------------------
+
+If you see errors like:
+
+.. code-block:: text
+
+    A potentially unsafe operation has been detected in your request to this site.
+
+This is usually caused by web application firewall doing requests filtering. It
+tries to prevent SQL injection, however phpMyAdmin is tool designed to execute 
+SQL queries, thus it makes it unusable.
+
+Please whitelist phpMyAdmin scripts from the web application firewall settings
+or disable it completely for phpMyAdmin path.
+
+Programs known to cause these kind of errors:
+
+* Wordfence Web Application Firewall
 
 .. _faqusing:
 
@@ -1440,6 +1481,9 @@ button. Then click Go.  With version 2.7.0, the import engine has been
 re–written, if possible it is suggested that you upgrade to take
 advantage of the new features.  For additional help on this subject,
 look for the word "upload" in this document.
+
+Note: For errors while importing of dumps exported from older MySQL versions to newer MySQL versions,
+please check :ref:`faq6_41`.
 
 .. _faq6_6:
 
@@ -1775,7 +1819,7 @@ in Browse mode or on the Structure page.
 -----------------------------------
 
 In all places where phpMyAdmin accepts format strings, you can use
-``@VARIABLE@`` expansion and `strftime <https://php.net/strftime>`_
+``@VARIABLE@`` expansion and `strftime <https://secure.php.net/strftime>`_
 format strings. The expanded variables depend on a context (for
 example, if you haven't chosen a table, you can not get the table
 name), but the following variables can be used:
@@ -2105,6 +2149,31 @@ From version 4.5, phpMyAdmin allows users to execute parameterized queries in th
 Parameters should be prefixed with a colon(:) and when the "Bind parameters" checkbox is checked
 these parameters will be identified and input fields for these parameters will be presented.
 Values entered in these field will be substituted in the query before being executed.
+
+.. _faq6_41:
+
+6.41 I get import errors while importing the dumps exported from older MySQL versions (pre-5.7.6) into newer MySQL versions (5.7.7+), but they work fine when imported back on same older versions ?
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+If you get errors like *#1031 - Table storage engine for 'table_name' doesn't have this option*
+while importing the dumps exported from pre-5.7.7 MySQL servers into new MySQL server versions 5.7.7+,
+it might be because ROW_FORMAT=FIXED is not supported with InnoDB tables. Moreover, the value of
+`innodb_strict_mode <https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_strict_mode>`_ would define if this would be reported as a warning or as an error.
+
+Since MySQL version 5.7.9, the default value for `innodb_strict_mode` is `ON` and thus would generate
+an error when such a CREATE TABLE or ALTER TABLE statement is encountered.
+
+There are two ways of preventing such errors while importing:
+
+* Change the value of `innodb_strict_mode` to `OFF` before starting the import and turn it `ON` after
+  the import is successfully completed.
+* This can be achieved in two ways:
+
+  * Go to 'Variables' page and edit the value of `innodb_strict_mode`
+  * Run the query : `SET GLOBAL `innodb_strict_mode` = '[value]'`
+
+After the import is done, it is suggested that the value of `innodb_strict_mode` should be reset to the
+original value.
 
 .. _faqproject:
 

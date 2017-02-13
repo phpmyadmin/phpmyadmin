@@ -19,23 +19,61 @@ class Sanitize
     /**
      * Checks whether given link is valid
      *
-     * @param string $url URL to check
+     * @param string  $url   URL to check
+     * @param boolean $http  Whether to allow http links
+     * @param boolean $other Whether to allow ftp and mailto links
      *
      * @return boolean True if string can be used as link
      */
-    public static function checkLink($url)
+    public static function checkLink($url, $http=false, $other=false)
     {
+        $url = strtolower($url);
         $valid_starts = array(
             'https://',
-            './url.php?url=https%3A%2F%2F',
+            './url.php?url=https%3a%2f%2f',
             './doc/html/',
+            # possible return values from Util::getScriptNameForOption
+            './index.php?',
+            './server_databases.php?',
+            './server_status.php?',
+            './server_variables.php?',
+            './server_privileges.php?',
+            './db_structure.php?',
+            './db_sql.php?',
+            './db_search.php?',
+            './db_operations.php?',
+            './tbl_structure.php?',
+            './tbl_sql.php?',
+            './tbl_select.php?',
+            './tbl_change.php?',
+            './sql.php?',
+            # Hardcoded options in libraries/special_schema_links.lib.php
+            './db_events.php?',
+            './db_routines.php?',
+            './server_privileges.php?',
+            './tbl_structure.php?',
         );
+        // Adjust path to setup script location
+        if (defined('PMA_SETUP')) {
+            foreach ($valid_starts as $key => $value) {
+                if (substr($value, 0, 2) === './') {
+                    $valid_starts[$key] = '.' . $value;
+                }
+            }
+        }
+        if ($other) {
+            $valid_starts[] = 'mailto:';
+            $valid_starts[] = 'ftp://';
+        }
+        if ($http) {
+            $valid_starts[] = 'http://';
+        }
         if (defined('PMA_SETUP')) {
             $valid_starts[] = '?page=form&';
             $valid_starts[] = '?page=servers&';
         }
         foreach ($valid_starts as $val) {
-            if (mb_substr($url, 0, mb_strlen($val)) == $val) {
+            if (substr($url, 0, strlen($val)) == $val) {
                 return true;
             }
         }
@@ -64,6 +102,9 @@ class Sanitize
         $target = '';
         if (! empty($found[3])) {
             $target = ' target="' . $found[3] . '"';
+            if ($found[3] == '_blank') {
+                $target .= ' rel="noopener noreferrer"';
+            }
         }
 
         /* Construct url */
@@ -143,7 +184,7 @@ class Sanitize
             '[sup]'     => '<sup>',
             '[/sup]'    => '</sup>',
             // used in common.inc.php:
-            '[conferr]' => '<iframe src="show_config_errors.php" />',
+            '[conferr]' => '<iframe src="show_config_errors.php"><a href="show_config_errors.php">show_config_errors.php</a></iframe>',
             // used in libraries/Util.php
             '[dochelpicon]' => Util::getImage('b_help.png', __('Documentation')),
         );
@@ -367,5 +408,45 @@ class Sanitize
     public static function printJsValueForFormValidation($key, $value, $addOn=false, $comma=true)
     {
         echo Sanitize::getJsValueForFormValidation($key, $value, $addOn, $comma);
+    }
+
+    /**
+     * Removes all variables from request except whitelisted ones.
+     *
+     * @param string &$whitelist list of variables to allow
+     *
+     * @return void
+     * @access public
+     */
+    public static function removeRequestVars(&$whitelist)
+    {
+        // do not check only $_REQUEST because it could have been overwritten
+        // and use type casting because the variables could have become
+        // strings
+        $keys = array_keys(
+            array_merge((array)$_REQUEST, (array)$_GET, (array)$_POST, (array)$_COOKIE)
+        );
+
+        foreach ($keys as $key) {
+            if (! in_array($key, $whitelist)) {
+                unset($_REQUEST[$key], $_GET[$key], $_POST[$key]);
+                continue;
+            }
+
+            // allowed stuff could be compromised so escape it
+            // we require it to be a string
+            if (isset($_REQUEST[$key]) && ! is_string($_REQUEST[$key])) {
+                unset($_REQUEST[$key]);
+            }
+            if (isset($_POST[$key]) && ! is_string($_POST[$key])) {
+                unset($_POST[$key]);
+            }
+            if (isset($_COOKIE[$key]) && ! is_string($_COOKIE[$key])) {
+                unset($_COOKIE[$key]);
+            }
+            if (isset($_GET[$key]) && ! is_string($_GET[$key])) {
+                unset($_GET[$key]);
+            }
+        }
     }
 }

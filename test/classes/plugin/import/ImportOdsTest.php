@@ -123,6 +123,8 @@ class ImportOdsTest extends PMATestCase
         $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
+        $dbi->expects($this->any())->method('escapeString')
+            ->will($this->returnArgument(0));
         $GLOBALS['dbi'] = $dbi;
 
         //Test function called

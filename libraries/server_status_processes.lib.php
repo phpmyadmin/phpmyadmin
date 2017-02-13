@@ -192,14 +192,11 @@ function PMA_getHtmlForServerProcesslist()
     $retval .= '</thead>';
     $retval .= '<tbody>';
 
-    $odd_row = true;
     while ($process = $GLOBALS['dbi']->fetchAssoc($result)) {
         $retval .= PMA_getHtmlForServerProcessItem(
             $process,
-            $odd_row,
             $show_full_sql
         );
-        $odd_row = ! $odd_row;
     }
     $retval .= '</tbody>';
     $retval .= '</table>';
@@ -251,12 +248,11 @@ function PMA_getHtmlForProcessListFilter()
  * Prints Every Item of Server Process
  *
  * @param array $process       data of Every Item of Server Process
- * @param bool  $odd_row       display odd row or not
  * @param bool  $show_full_sql show full sql or not
  *
  * @return string
  */
-function PMA_getHtmlForServerProcessItem($process, $odd_row, $show_full_sql)
+function PMA_getHtmlForServerProcessItem($process, $show_full_sql)
 {
     // Array keys need to modify due to the way it has used
     // to display column values
@@ -278,14 +274,14 @@ function PMA_getHtmlForServerProcessItem($process, $odd_row, $show_full_sql)
     );
     $kill_process = 'server_status_processes.php' . URL::getCommon($url_params);
 
-    $retval  = '<tr class="' . ($odd_row ? 'odd' : 'even') . '">';
+    $retval  = '<tr>';
     $retval .= '<td><a class="ajax kill_process" href="' . $kill_process . '">'
         . __('Kill') . '</a></td>';
     $retval .= '<td class="value">' . $process['Id'] . '</td>';
     $retval .= '<td>' . htmlspecialchars($process['User']) . '</td>';
     $retval .= '<td>' . htmlspecialchars($process['Host']) . '</td>';
     $retval .= '<td>' . ((! isset($process['db'])
-            || !mb_strlen($process['db']))
+            || strlen($process['db']) === 0)
             ? '<i>' . __('None') . '</i>'
             : htmlspecialchars($process['db'])) . '</td>';
     $retval .= '<td>' . htmlspecialchars($process['Command']) . '</td>';

@@ -70,7 +70,7 @@ function PMA_displayTabsTop($tabs)
             'items' => $items,
         )
     );
-    $htmlOutput .= '<br clear="right" />';
+    $htmlOutput .= '<br />';
     $htmlOutput .= '<div class="tabs_contents">';
     return $htmlOutput;
 }

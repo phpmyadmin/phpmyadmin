@@ -7,6 +7,7 @@
  * @package PhpMyAdmin
  */
 use PMA\libraries\URL;
+use PMA\libraries\Response;
 
 /**
  * Gets some core libraries
@@ -57,7 +58,7 @@ if (isset($_POST['add_column'])) {
     $selected_col[] = $_POST['column-select'];
     $tmp_msg = PMA_syncUniqueColumns($selected_col, false, $selected_tbl);
 }
-$response = PMA\libraries\Response::getInstance();
+$response = Response::getInstance();
 $header = $response->getHeader();
 $scripts = $header->getScripts();
 $scripts->addFile('jquery/jquery.uitablefilter.js');
@@ -133,14 +134,12 @@ $tableheader = PMA_getCentralColumnsTableHeader(
 );
 $response->addHTML($tableheader);
 $result = PMA_getColumnsList($db, $pos, $max_rows);
-$odd_row = true;
 $row_num = 0;
 foreach ($result as $row) {
     $tableHtmlRow = PMA_getHTMLforCentralColumnsTableRow(
-        $row, $odd_row, $row_num, $db
+        $row, $row_num, $db
     );
     $response->addHTML($tableHtmlRow);
-    $odd_row = !$odd_row;
     $row_num++;
 }
 $response->addHTML('</table>');

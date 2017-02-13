@@ -252,7 +252,7 @@ class PbxtTest extends PMATestCase
                     . ' can be found on the %sPrimeBase XT Home Page%s.'
                 ),
                 '<a href="' . PMA_linkURL('https://mariadb.com/kb/en/mariadb/about-pbxt/')
-                . '" target="_blank">',
+                . '" rel="noopener noreferrer" target="_blank">',
                 '</a>'
             )
             . '</p>' . "\n"

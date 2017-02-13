@@ -8,6 +8,7 @@
  * @package PhpMyAdmin
  */
 use PMA\libraries\URL;
+use PMA\libraries\Response;
 
 require_once './libraries/common.inc.php';
 
@@ -17,6 +18,8 @@ require_once './libraries/common.inc.php';
 require './libraries/db_common.inc.php';
 $url_params['goto'] = 'tbl_structure.php';
 $url_params['back'] = 'view_create.php';
+
+$response = Response::getInstance();
 
 $view_algorithm_options = array(
     'UNDEFINED',
@@ -42,8 +45,7 @@ if (empty($sql_query)) {
 if (isset($_REQUEST['view']['name'])
     && empty($_REQUEST['view']['name'])
 ) {
-    $message = PMA\libraries\Message::error(__('View name can not be empty'));
-    $response = PMA\libraries\Response::getInstance();
+    $message = PMA\libraries\Message::error(__('View name can not be empty!'));
     $response->addJSON(
         'message',
         $message
@@ -72,9 +74,14 @@ if (isset($_REQUEST['createview']) || isset($_REQUEST['alterview'])) {
     }
 
     if (! empty($_REQUEST['view']['definer'])) {
-        $arr = explode('@', $_REQUEST['view']['definer']);
-        $sql_query .= $sep . 'DEFINER=' . PMA\libraries\Util::backquote($arr[0]);
-        $sql_query .= '@' . PMA\libraries\Util::backquote($arr[1]) . ' ';
+        if (strpos($_REQUEST['view']['definer'], '@') === FALSE) {
+            $sql_query .= $sep . 'DEFINER='
+                . PMA\libraries\Util::backquote($_REQUEST['view']['definer']);
+        } else {
+            $arr = explode('@', $_REQUEST['view']['definer']);
+            $sql_query .= $sep . 'DEFINER=' . PMA\libraries\Util::backquote($arr[0]);
+            $sql_query .= '@' . PMA\libraries\Util::backquote($arr[1]) . ' ';
+        }
     }
 
     if (isset($_REQUEST['view']['sql_security'])) {
@@ -106,7 +113,6 @@ if (isset($_REQUEST['createview']) || isset($_REQUEST['alterview'])) {
             return;
         }
 
-        $response = PMA\libraries\Response::getInstance();
         $response->addJSON(
             'message',
             PMA\libraries\Message::error(
@@ -153,7 +159,6 @@ if (isset($_REQUEST['createview']) || isset($_REQUEST['alterview'])) {
         $message = PMA\libraries\Message::success();
         include 'tbl_structure.php';
     } else {
-        $response = PMA\libraries\Response::getInstance();
         $response->addJSON(
             'message',
             PMA\libraries\Util::getMessage(

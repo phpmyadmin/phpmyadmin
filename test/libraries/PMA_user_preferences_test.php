@@ -30,6 +30,8 @@ class PMA_User_Preferences_Test extends PHPUnit_Framework_TestCase
      */
     function setUp()
     {
+        global $cfg;
+        include 'libraries/config.default.php';
         $GLOBALS['server'] = 0;
         $GLOBALS['PMA_PHP_SELF'] = '/phpmyadmin/';
     }
@@ -128,6 +130,10 @@ class PMA_User_Preferences_Test extends PHPUnit_Framework_TestCase
                     )
                 )
             );
+        $dbi->expects($this->any())
+            ->method('escapeString')
+            ->will($this->returnArgument(0));
+
         $GLOBALS['dbi'] = $dbi;
 
         $result = PMA_loadUserprefs();
@@ -215,6 +221,10 @@ class PMA_User_Preferences_Test extends PHPUnit_Framework_TestCase
             ->with($query2, null)
             ->will($this->returnValue(true));
 
+        $dbi->expects($this->any())
+            ->method('escapeString')
+            ->will($this->returnArgument(0));
+
         $GLOBALS['dbi'] = $dbi;
         $this->assertTrue(
             PMA_saveUserprefs(array(1))
@@ -246,6 +256,9 @@ class PMA_User_Preferences_Test extends PHPUnit_Framework_TestCase
             ->method('getError')
             ->with(null)
             ->will($this->returnValue("err1"));
+        $dbi->expects($this->any())
+            ->method('escapeString')
+            ->will($this->returnArgument(0));
 
         $GLOBALS['dbi'] = $dbi;
 
@@ -353,22 +366,30 @@ class PMA_User_Preferences_Test extends PHPUnit_Framework_TestCase
      */
     public function testUserprefsRedirect()
     {
-        if (!defined('PMA_TEST_HEADERS')) {
-            $this->markTestSkipped(
-                'Cannot redefine constant/function - missing runkit extension'
-            );
-        }
-
-        $GLOBALS['cfg']['ServerDefault'] = 1;
         $GLOBALS['lang'] = '';
 
-        $redefine = null;
-        if (!defined('PMA_IS_IIS')) {
-            define('PMA_IS_IIS', false);
-        } else {
-            $redefine = PMA_IS_IIS;
-            runkit_constant_redefine('PMA_IS_IIS', false);
-        }
+        $restoreInstance = PMA\libraries\Response::getInstance();
+
+        $mockResponse = $this->getMockBuilder('PMA\libraries\Response')
+            ->disableOriginalConstructor()
+            ->setMethods(array('header', 'headersSent'))
+            ->getMock();
+
+        $mockResponse->expects($this->once())
+            ->method('header')
+            ->with('Location: /phpmyadmin/file.html?a=b&saved=1&server=0#h+ash');
+
+        $mockResponse->expects($this->any())
+            ->method('headersSent')
+            ->with()
+            ->will($this->returnValue(false));
+
+        $attrInstance = new ReflectionProperty('PMA\libraries\Response', '_instance');
+        $attrInstance->setAccessible(true);
+        $attrInstance->setValue($mockResponse);
+
+        $GLOBALS['PMA_Config']->set('PmaAbsoluteUri', '');
+        $GLOBALS['PMA_Config']->set('PMA_IS_IIS', false);
 
         PMA_userprefsRedirect(
             'file.html',
@@ -376,16 +397,7 @@ class PMA_User_Preferences_Test extends PHPUnit_Framework_TestCase
             'h ash'
         );
 
-        $this->assertContains(
-            'Location: /phpmyadmin/file.html?a=b&saved=1&server=0#h+ash',
-            $GLOBALS['header'][0]
-        );
-
-        if ($redefine !== null) {
-            runkit_constant_redefine('PMA_IS_IIS', $redefine);
-        } else {
-            runkit_constant_remove('PMA_IS_IIS');
-        }
+        $attrInstance->setValue($restoreInstance);
     }
 
     /**

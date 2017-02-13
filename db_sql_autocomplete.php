@@ -6,6 +6,7 @@
  * @package PhpMyAdmin
  */
 
+use PMA\libraries\Response;
 require_once 'libraries/common.inc.php';
 
 if ($GLOBALS['cfg']['EnableAutocompleteForTablesAndColumns']) {
@@ -22,5 +23,5 @@ if ($GLOBALS['cfg']['EnableAutocompleteForTablesAndColumns']) {
 } else {
     $sql_autocomplete = true;
 }
-$response = PMA\libraries\Response::getInstance();
+$response = Response::getInstance();
 $response->addJSON("tables", json_encode($sql_autocomplete));

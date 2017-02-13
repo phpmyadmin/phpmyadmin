@@ -160,6 +160,16 @@ class SavedSearches
             }
         }
 
+        /* Limit amount of rows */
+        if (!isset($data['rows'])) {
+            $data['rows'] = 0;
+        } else {
+            $data['rows'] = min(
+                max(0, intval($data['rows'])),
+                100
+            );
+        }
+
         for ($i = 0; $i <= $data['rows']; $i++) {
             $data['Or' . $i] = $criterias['Or' . $i];
         }
@@ -273,7 +283,7 @@ class SavedSearches
         //If it's an insert.
         if (null === $this->getId()) {
             $wheres = array(
-                "search_name = '" . Util::sqlAddSlashes($this->getSearchName())
+                "search_name = '" . $GLOBALS['dbi']->escapeString($this->getSearchName())
                 . "'"
             );
             $existingSearches = $this->getList($wheres);
@@ -292,10 +302,10 @@ class SavedSearches
             $sqlQuery = "INSERT INTO " . $savedSearchesTbl
                 . "(`username`, `db_name`, `search_name`, `search_data`)"
                 . " VALUES ("
-                . "'" . Util::sqlAddSlashes($this->getUsername()) . "',"
-                . "'" . Util::sqlAddSlashes($this->getDbname()) . "',"
-                . "'" . Util::sqlAddSlashes($this->getSearchName()) . "',"
-                . "'" . Util::sqlAddSlashes(json_encode($this->getCriterias()))
+                . "'" . $GLOBALS['dbi']->escapeString($this->getUsername()) . "',"
+                . "'" . $GLOBALS['dbi']->escapeString($this->getDbname()) . "',"
+                . "'" . $GLOBALS['dbi']->escapeString($this->getSearchName()) . "',"
+                . "'" . $GLOBALS['dbi']->escapeString(json_encode($this->getCriterias()))
                 . "')";
 
             $result = (bool)PMA_queryAsControlUser($sqlQuery);
@@ -311,7 +321,7 @@ class SavedSearches
         //Else, it's an update.
         $wheres = array(
             "id != " . $this->getId(),
-            "search_name = '" . Util::sqlAddSlashes($this->getSearchName()) . "'"
+            "search_name = '" . $GLOBALS['dbi']->escapeString($this->getSearchName()) . "'"
         );
         $existingSearches = $this->getList($wheres);
 
@@ -328,9 +338,9 @@ class SavedSearches
 
         $sqlQuery = "UPDATE " . $savedSearchesTbl
             . "SET `search_name` = '"
-            . Util::sqlAddSlashes($this->getSearchName()) . "', "
+            . $GLOBALS['dbi']->escapeString($this->getSearchName()) . "', "
             . "`search_data` = '"
-            . Util::sqlAddSlashes(json_encode($this->getCriterias())) . "' "
+            . $GLOBALS['dbi']->escapeString(json_encode($this->getCriterias())) . "' "
             . "WHERE id = " . $this->getId();
         return (bool)PMA_queryAsControlUser($sqlQuery);
     }
@@ -358,7 +368,7 @@ class SavedSearches
             . Util::backquote($this->_config['cfgRelation']['savedsearches']);
 
         $sqlQuery = "DELETE FROM " . $savedSearchesTbl
-            . "WHERE id = '" . Util::sqlAddSlashes($this->getId()) . "'";
+            . "WHERE id = '" . $GLOBALS['dbi']->escapeString($this->getId()) . "'";
 
         return (bool)PMA_queryAsControlUser($sqlQuery);
     }
@@ -386,7 +396,7 @@ class SavedSearches
             . Util::backquote($this->_config['cfgRelation']['savedsearches']);
         $sqlQuery = "SELECT id, search_name, search_data "
             . "FROM " . $savedSearchesTbl . " "
-            . "WHERE id = '" . Util::sqlAddSlashes($this->getId()) . "' ";
+            . "WHERE id = '" . $GLOBALS['dbi']->escapeString($this->getId()) . "' ";
 
         $resList = PMA_queryAsControlUser($sqlQuery);
 
@@ -426,8 +436,8 @@ class SavedSearches
         $sqlQuery = "SELECT id, search_name "
             . "FROM " . $savedSearchesTbl . " "
             . "WHERE "
-            . "username = '" . Util::sqlAddSlashes($this->getUsername()) . "' "
-            . "AND db_name = '" . Util::sqlAddSlashes($this->getDbname()) . "' ";
+            . "username = '" . $GLOBALS['dbi']->escapeString($this->getUsername()) . "' "
+            . "AND db_name = '" . $GLOBALS['dbi']->escapeString($this->getDbname()) . "' ";
 
         foreach ($wheres as $where) {
             $sqlQuery .= "AND " . $where . " ";

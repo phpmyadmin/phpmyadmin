@@ -5,11 +5,13 @@
  *
  * @package PhpMyAdmin
  */
+use PMA\libraries\Response;
 use PMA\libraries\RecentFavoriteTable;
 use PMA\libraries\URL;
 use PMA\libraries\Sanitize;
 use PMA\libraries\Charsets;
 use PMA\libraries\ThemeManager;
+use PMA\libraries\LanguageManager;
 
 /**
  * Gets some core libraries and displays a top message if required
@@ -78,11 +80,11 @@ if (! empty($_REQUEST['db'])) {
     exit;
 }
 
+$response = Response::getInstance();
 /**
  * Check if it is an ajax request to reload the recent tables list.
  */
-if ($GLOBALS['is_ajax_request'] && ! empty($_REQUEST['recent_table'])) {
-    $response = PMA\libraries\Response::getInstance();
+if ($response->isAjax() && ! empty($_REQUEST['recent_table'])) {
     $response->addJSON(
         'list',
         RecentFavoriteTable::getInstance('recent')->getHtmlList()
@@ -91,7 +93,7 @@ if ($GLOBALS['is_ajax_request'] && ! empty($_REQUEST['recent_table'])) {
 }
 
 if ($GLOBALS['PMA_Config']->isGitRevision()) {
-    if (isset($_REQUEST['git_revision']) && $GLOBALS['is_ajax_request'] == true) {
+    if (isset($_REQUEST['git_revision']) && $response->isAjax()) {
         PMA_printGitRevision();
         exit;
     }
@@ -156,7 +158,7 @@ if ($server > 0 || count($cfg['Servers']) > 1
                 . 'please do not change root, debian-sys-maint and pma users. '
                 . 'More information is available at %s.'
             ),
-            '<a href="url.php?url=https://demo.phpmyadmin.net/" target="_blank">demo.phpmyadmin.net</a>'
+            '<a href="url.php?url=https://demo.phpmyadmin.net/" target="_blank" rel="noopener noreferrer">demo.phpmyadmin.net</a>'
         );
         echo '</p>';
         echo '</div>';
@@ -236,9 +238,9 @@ echo '  <ul>';
 // Displays language selection combo
 if (empty($cfg['Lang'])) {
     echo '<li id="li_select_lang" class="no_bullets">';
-    include_once 'libraries/display_select_lang.lib.php';
+
     echo PMA\libraries\Util::getImage('s_lang.png') , " "
-        , PMA_getLanguageSelectorHtml();
+        , LanguageManager::getInstance()->getSelectorDisplay();
     echo '</li>';
 }
 
@@ -321,7 +323,7 @@ if ($server > 0 && $GLOBALS['cfg']['ShowServerInfo']) {
        . ' </div>';
 }
 
-if ($GLOBALS['cfg']['ShowServerInfo'] || $GLOBALS['cfg']['ShowPhpInfo']) {
+if ($GLOBALS['cfg']['ShowServerInfo']) {
     echo '<div class="group">';
     echo '<h2>' , __('Web server') , '</h2>';
     echo '<ul>';
@@ -361,15 +363,6 @@ if ($GLOBALS['cfg']['ShowServerInfo'] || $GLOBALS['cfg']['ShowPhpInfo']) {
         }
     }
 
-    if ($cfg['ShowPhpInfo']) {
-        PMA_printListItem(
-            __('Show PHP information'),
-            'li_phpinfo',
-            'phpinfo.php' . $common_url_query,
-            null,
-            '_blank'
-        );
-    }
     echo '  </ul>';
     echo ' </div>';
 }
@@ -402,7 +395,7 @@ PMA_printListItem(
 PMA_printListItem(
     __('Official Homepage'),
     'li_pma_homepage',
-    PMA_linkURL('https://www.phpMyAdmin.net/'),
+    PMA_linkURL('https://www.phpmyadmin.net/'),
     null,
     '_blank'
 );
@@ -442,21 +435,6 @@ echo '</div>';
 echo '</div>';
 
 /**
- * As we try to handle charsets by ourself, mbstring overloads just
- * break it, see bug 1063821.
- */
-if (@extension_loaded('mbstring') && @ini_get('mbstring.func_overload') > 1) {
-    trigger_error(
-        __(
-            'You have enabled mbstring.func_overload in your PHP '
-            . 'configuration. This option is incompatible with phpMyAdmin '
-            . 'and might cause some data to be corrupted!'
-        ),
-        E_USER_WARNING
-    );
-}
-
-/**
  * mbstring is used for handling multibytes inside parser, so it is good
  * to tell user something might be broken without it, see bug #1063149.
  */
@@ -493,7 +471,7 @@ if ($cfg['LoginCookieValidityDisableWarning'] == false) {
     if ($gc_time < $GLOBALS['cfg']['LoginCookieValidity'] ) {
         trigger_error(
             __(
-                'Your PHP parameter [a@https://php.net/manual/en/session.' .
+                'Your PHP parameter [a@https://secure.php.net/manual/en/session.' .
                 'configuration.php#ini.session.gc-maxlifetime@_blank]session.' .
                 'gc_maxlifetime[/a] is lower than cookie validity configured ' .
                 'in phpMyAdmin, because of this, your login might expire sooner ' .
@@ -523,15 +501,22 @@ if ($GLOBALS['cfg']['LoginCookieStore'] != 0
 /**
  * Check if user does not have defined blowfish secret and it is being used.
  */
-if (! empty($_SESSION['encryption_key'])
-    && empty($GLOBALS['cfg']['blowfish_secret'])
-) {
-    trigger_error(
-        __(
-            'The configuration file now needs a secret passphrase (blowfish_secret).'
-        ),
-        E_USER_WARNING
-    );
+if (! empty($_SESSION['encryption_key'])) {
+    if (empty($GLOBALS['cfg']['blowfish_secret'])) {
+        trigger_error(
+            __(
+                'The configuration file now needs a secret passphrase (blowfish_secret).'
+            ),
+            E_USER_WARNING
+        );
+    } elseif (strlen($GLOBALS['cfg']['blowfish_secret']) < 32) {
+        trigger_error(
+            __(
+                'The secret passphrase in configuration (blowfish_secret) is too short.'
+            ),
+            E_USER_WARNING
+        );
+    }
 }
 
 /**

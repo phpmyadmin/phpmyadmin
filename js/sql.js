@@ -37,6 +37,23 @@ function PMA_urlencode(str)
 }
 
 /**
+ * Saves SQL query in local storage or cooie
+ *
+ * @param string SQL query
+ * @return void
+ */
+function PMA_autosaveSQL(query)
+{
+    if (query) {
+        if (isStorageSupported('localStorage')) {
+            window.localStorage.auto_saved_sql = query;
+        } else {
+            $.cookie('auto_saved_sql', query);
+        }
+    }
+}
+
+/**
  * Get the field name for the current field.  Required to construct the query
  * for grid editing
  *
@@ -135,17 +152,11 @@ AJAX.registerOnload('sql.js', function () {
     $(function () {
         if (codemirror_editor) {
             codemirror_editor.on('change', function () {
-                var query = codemirror_editor.getValue();
-                if (query) {
-                    $.cookie('auto_saved_sql', query);
-                }
+                PMA_autosaveSQL(codemirror_editor.getValue());
             });
         } else {
             $('#sqlquery').on('input propertychange', function () {
-                var query = $('#sqlquery').val();
-                if (query) {
-                    $.cookie('auto_saved_sql', query);
-                }
+                PMA_autosaveSQL($('#sqlquery').val());
             });
         }
     });
@@ -160,7 +171,12 @@ AJAX.registerOnload('sql.js', function () {
             if ($link.hasClass('formLinkSubmit')) {
                 submitFormLink($link);
             } else {
-                $.post(url, {'ajax_request': true, 'is_js_confirmed': true}, function (data) {
+                var params = {
+                    'ajax_request': true,
+                    'is_js_confirmed': true,
+                    'token': PMA_commonParams.get('token')
+                };
+                $.post(url, params, function (data) {
                     if (data.success) {
                         PMA_ajaxShowMessage(data.message);
                         $link.closest('tr').remove();
@@ -777,7 +793,7 @@ function makeProfilingChart()
     }
 
     var data = [];
-    $.each(jQuery.parseJSON($('#profilingChartData').html()), function (key, value) {
+    $.each(JSON.parse($('#profilingChartData').html()), function (key, value) {
         data.push([key, parseFloat(value)]);
     });
 

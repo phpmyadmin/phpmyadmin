@@ -19,6 +19,7 @@ PMA\libraries\Util::checkParameters(array('db'));
 global $cfg;
 global $db;
 
+$response = Response::getInstance();
 $is_show_stats = $cfg['ShowStats'];
 
 $db_is_system_schema = $GLOBALS['dbi']->isSystemSchema($db);
@@ -41,7 +42,7 @@ $err_url = PMA\libraries\Util::getScriptNameForOption(
  * headers
  */
 if (! isset($is_db) || ! $is_db) {
-    if (mb_strlen($db)) {
+    if (strlen($db) > 0) {
         $is_db = $GLOBALS['dbi']->selectDb($db);
         // This "Command out of sync" 2014 error may happen, for example
         // after calling a MySQL procedure; at this point we can't select
@@ -57,8 +58,8 @@ if (! isset($is_db) || ! $is_db) {
     $uri = './index.php'
         . URL::getCommonRaw(array())
         . (isset($message) ? '&message=' . urlencode($message) : '') . '&reload=1';
-    if (!mb_strlen($db) || ! $is_db) {
-        $response = PMA\libraries\Response::getInstance();
+    if (strlen($db) === 0 || ! $is_db) {
+        $response = Response::getInstance();
         if ($response->isAjax()) {
             $response->setRequestStatus(false);
             $response->addJSON(
@@ -92,8 +93,7 @@ if (isset($_REQUEST['submitcollation'])
      * db charset change action on db_operations.php.  If this causes a bug on
      * other pages, we might have to move this to a different location.
      */
-    if ($GLOBALS['is_ajax_request'] == true) {
-        $response = PMA\libraries\Response::getInstance();
+    if ($response->isAjax()) {
         $response->setRequestStatus($message->isSuccess());
         $response->addJSON('message', $message);
         exit;

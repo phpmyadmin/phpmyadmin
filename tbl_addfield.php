@@ -6,13 +6,14 @@
  * @package PhpMyAdmin
  */
 use PMA\libraries\URL;
+use PMA\libraries\Response;
 
 /**
  * Get some core libraries
  */
 require_once 'libraries/common.inc.php';
 
-$response = PMA\libraries\Response::getInstance();
+$response = Response::getInstance();
 $header   = $response->getHeader();
 $scripts  = $header->getScripts();
 $scripts->addFile('tbl_structure.js');
@@ -43,10 +44,13 @@ if (isset($_REQUEST['submit_num_fields'])) {
     if (isset($_REQUEST['orig_field_where'])) {
         $_REQUEST['field_where'] = $_REQUEST['orig_field_where'];
     }
-    $num_fields = $_REQUEST['orig_num_fields'] + $_REQUEST['added_fields'];
+    $num_fields = min(
+        intval($_REQUEST['orig_num_fields']) + intval($_REQUEST['added_fields']),
+        4096
+    );
     $regenerate = true;
 } elseif (isset($_REQUEST['num_fields']) && intval($_REQUEST['num_fields']) > 0) {
-    $num_fields = (int) $_REQUEST['num_fields'];
+    $num_fields = min(4096, intval($_REQUEST['num_fields']));
 } else {
     $num_fields = 1;
 }
@@ -71,7 +75,7 @@ if (isset($_REQUEST['do_save_data'])) {
         ) {
             foreach ($_REQUEST['field_mimetype'] as $fieldindex => $mimetype) {
                 if (isset($_REQUEST['field_name'][$fieldindex])
-                    && mb_strlen($_REQUEST['field_name'][$fieldindex])
+                    && strlen($_REQUEST['field_name'][$fieldindex]) > 0
                 ) {
                     PMA_setMIME(
                         $db, $table,

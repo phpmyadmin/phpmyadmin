@@ -30,12 +30,13 @@ class Navigation
     {
         /* Init */
         $retval = '';
-        if (!Response::getInstance()->isAjax()) {
+        $response = Response::getInstance();
+        if (! $response->isAjax()) {
             $header = new NavigationHeader();
             $retval = $header->getDisplay();
         }
         $tree = new NavigationTree();
-        if (! Response::getInstance()->isAjax()
+        if (! $response->isAjax()
             || ! empty($_REQUEST['full'])
             || ! empty($_REQUEST['reload'])
         ) {
@@ -57,7 +58,7 @@ class Navigation
             $retval .= $navRender;
         }
 
-        if (! Response::getInstance()->isAjax()) {
+        if (! $response->isAjax()) {
             // closes the tags that were opened by the navigation header
             $retval .= '</div>'; // pma_navigation_tree
             $retval .= '<div id="pma_navi_settings_container">';
@@ -91,11 +92,11 @@ class Navigation
         $sqlQuery = "INSERT INTO " . $navTable
             . "(`username`, `item_name`, `item_type`, `db_name`, `table_name`)"
             . " VALUES ("
-            . "'" . Util::sqlAddSlashes($GLOBALS['cfg']['Server']['user']) . "',"
-            . "'" . Util::sqlAddSlashes($itemName) . "',"
-            . "'" . Util::sqlAddSlashes($itemType) . "',"
-            . "'" . Util::sqlAddSlashes($dbName) . "',"
-            . "'" . (! empty($tableName)? Util::sqlAddSlashes($tableName) : "" )
+            . "'" . $GLOBALS['dbi']->escapeString($GLOBALS['cfg']['Server']['user']) . "',"
+            . "'" . $GLOBALS['dbi']->escapeString($itemName) . "',"
+            . "'" . $GLOBALS['dbi']->escapeString($itemType) . "',"
+            . "'" . $GLOBALS['dbi']->escapeString($dbName) . "',"
+            . "'" . (! empty($tableName)? $GLOBALS['dbi']->escapeString($tableName) : "" )
             . "')";
         PMA_queryAsControlUser($sqlQuery, false);
     }
@@ -140,12 +141,12 @@ class Navigation
         $sqlQuery = "DELETE FROM " . $navTable
             . " WHERE"
             . " `username`='"
-            . Util::sqlAddSlashes($GLOBALS['cfg']['Server']['user']) . "'"
-            . " AND `item_name`='" . Util::sqlAddSlashes($itemName) . "'"
-            . " AND `item_type`='" . Util::sqlAddSlashes($itemType) . "'"
-            . " AND `db_name`='" . Util::sqlAddSlashes($dbName) . "'"
+            . $GLOBALS['dbi']->escapeString($GLOBALS['cfg']['Server']['user']) . "'"
+            . " AND `item_name`='" . $GLOBALS['dbi']->escapeString($itemName) . "'"
+            . " AND `item_type`='" . $GLOBALS['dbi']->escapeString($itemType) . "'"
+            . " AND `db_name`='" . $GLOBALS['dbi']->escapeString($dbName) . "'"
             . (! empty($tableName)
-                ? " AND `table_name`='" . Util::sqlAddSlashes($tableName) . "'"
+                ? " AND `table_name`='" . $GLOBALS['dbi']->escapeString($tableName) . "'"
                 : ""
             );
         PMA_queryAsControlUser($sqlQuery, false);
@@ -170,10 +171,10 @@ class Navigation
             . "." . Util::backquote($GLOBALS['cfgRelation']['navigationhiding']);
         $sqlQuery = "SELECT `item_name`, `item_type` FROM " . $navTable
             . " WHERE `username`='"
-            . Util::sqlAddSlashes($GLOBALS['cfg']['Server']['user']) . "'"
-            . " AND `db_name`='" . Util::sqlAddSlashes($dbName) . "'"
+            . $GLOBALS['dbi']->escapeString($GLOBALS['cfg']['Server']['user']) . "'"
+            . " AND `db_name`='" . $GLOBALS['dbi']->escapeString($dbName) . "'"
             . " AND `table_name`='"
-            . (! empty($tableName) ? Util::sqlAddSlashes($tableName) : '') . "'";
+            . (! empty($tableName) ? $GLOBALS['dbi']->escapeString($tableName) : '') . "'";
         $result = PMA_queryAsControlUser($sqlQuery, false);
 
         $hidden = array();
@@ -205,20 +206,21 @@ class Navigation
                     $html .= (! $first ? '<br/>' : '')
                         . '<strong>' . $lable . '</strong>';
                     $html .= '<table width="100%"><tbody>';
-                    $odd = true;
                     foreach ($hidden[$t] as $hiddenItem) {
-                        $html .= '<tr class="' . ($odd ? 'odd' : 'even') . '">';
+                        $params = array(
+                            'unhideNavItem' => true,
+                            'itemType' => $t,
+                            'itemName' => $hiddenItem,
+                            'dbName' => $dbName
+                        );
+
+                        $html .= '<tr>';
                         $html .= '<td>' . htmlspecialchars($hiddenItem) . '</td>';
                         $html .= '<td style="width:80px"><a href="navigation.php'
-                            . URL::getCommon()
-                            . '&unhideNavItem=true'
-                            . '&itemType=' . urlencode($t)
-                            . '&itemName=' . urlencode($hiddenItem)
-                            . '&dbName=' . urlencode($dbName) . '"'
+                            . URL::getCommon($params) . '"'
                             . ' class="unhideNavItem ajax">'
                             . Util::getIcon('show.png', __('Show'))
                             .  '</a></td>';
-                        $odd = ! $odd;
                     }
                     $html .= '</tbody></table>';
                     $first = false;

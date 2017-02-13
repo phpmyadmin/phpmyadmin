@@ -12,6 +12,7 @@ namespace PMA\libraries\controllers\server;
 use PMA\libraries\controllers\Controller;
 use PMA\libraries\Charsets;
 use PMA\libraries\Message;
+use PMA\libraries\Response;
 use PMA\libraries\Template;
 use PMA\libraries\Util;
 use PMA\libraries\URL;
@@ -57,8 +58,10 @@ class ServerDatabasesController extends Controller
     {
         include_once 'libraries/check_user_privileges.lib.php';
 
+        $response = Response::getInstance();
+
         if (isset($_REQUEST['drop_selected_dbs'])
-            && $GLOBALS['is_ajax_request']
+            && $response->isAjax()
             && ($GLOBALS['is_superuser'] || $GLOBALS['cfg']['AllowUserDropDatabase'])
         ) {
             $this->dropDatabasesAction();
@@ -68,7 +71,7 @@ class ServerDatabasesController extends Controller
         include_once 'libraries/replication.inc.php';
 
         if (! empty($_POST['new_db'])
-            && $GLOBALS['is_ajax_request']
+            && $response->isAjax()
         ) {
             $this->createDatabaseAction();
             return;
@@ -433,16 +436,13 @@ class ServerDatabasesController extends Controller
      */
     private function _getHtmlForTableBody($column_order, $replication_types)
     {
-        $odd_row = true;
         $html = '<tbody>' . "\n";
 
         foreach ($this->_databases as $current) {
-            $tr_class = $odd_row ? 'odd' : 'even';
-            $tr_class .= ' db-row';
+            $tr_class = ' db-row';
             if ($this->dbi->isSystemSchema($current['SCHEMA_NAME'], true)) {
                 $tr_class .= ' noclick';
             }
-            $odd_row = ! $odd_row;
 
             $generated_html = $this->_buildHtmlForDb(
                 $current,
@@ -484,7 +484,7 @@ class ServerDatabasesController extends Controller
                     $current["SCHEMA_NAME"],
                     $replication_info[$type]['Ignore_DB']
                 );
-                if (mb_strlen($key) > 0) {
+                if (strlen($key) > 0) {
                     $out = Util::getIcon(
                         's_cancel.png',
                         __('Not replicated')
@@ -494,7 +494,7 @@ class ServerDatabasesController extends Controller
                         $current["SCHEMA_NAME"], $replication_info[$type]['Do_DB']
                     );
 
-                    if (mb_strlen($key) > 0
+                    if (strlen($key) > 0
                         || count($replication_info[$type]['Do_DB']) == 0
                     ) {
                         // if ($key != null) did not work for index "0"

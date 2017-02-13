@@ -11,7 +11,6 @@ use PMA\libraries\plugins\export\ExportOds;
 require_once 'libraries/plugins/export/ExportOds.php';
 require_once 'libraries/export.lib.php';
 require_once 'libraries/config.default.php';
-require_once 'libraries/opendocument.lib.php';
 require_once 'test/PMATestCase.php';
 
 /**
@@ -315,13 +314,18 @@ class ExportOdsTest extends PMATestCase
             ->with(true)
             ->will($this->returnValue($flags));
 
-        $dbi->expects($this->at(4))
+        $dbi->expects($this->exactly(8))
             ->method('fieldFlags')
-            ->will($this->returnValue('BINARYTEST'));
-
-        $dbi->expects($this->at(5))
-            ->method('fieldFlags')
-            ->will($this->returnValue('binary'));
+            ->willReturnOnConsecutiveCalls(
+                'BINARYTEST',
+                'binary',
+                '',
+                '',
+                '',
+                '',
+                '',
+                ''
+            );
 
         $dbi->expects($this->once())
             ->method('query')
@@ -344,11 +348,6 @@ class ExportOdsTest extends PMATestCase
                     )
                 )
             );
-
-        $dbi->expects($this->at(12))
-            ->method('fetchRow')
-            ->with(true)
-            ->will($this->returnValue(null));
 
         $GLOBALS['dbi'] = $dbi;
         $GLOBALS['mediawiki_caption'] = true;

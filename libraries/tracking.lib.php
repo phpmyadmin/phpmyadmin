@@ -246,10 +246,10 @@ function PMA_getListOfVersionsOfTable()
     $sql_query = " SELECT * FROM " .
         PMA\libraries\Util::backquote($cfgRelation['db']) . "." .
         PMA\libraries\Util::backquote($cfgRelation['tracking']) .
-        " WHERE db_name = '" . PMA\libraries\Util::sqlAddSlashes($_REQUEST['db']) .
+        " WHERE db_name = '" . $GLOBALS['dbi']->escapeString($_REQUEST['db']) .
         "' " .
         " AND table_name = '" .
-        PMA\libraries\Util::sqlAddSlashes($_REQUEST['table']) . "' " .
+        $GLOBALS['dbi']->escapeString($_REQUEST['table']) . "' " .
         " ORDER BY version DESC ";
 
     return PMA_queryAsControlUser($sql_query);
@@ -290,7 +290,6 @@ function PMA_getHtmlForTableVersionDetails(
     $html .= '</thead>';
     $html .= '<tbody>';
 
-    $style = 'odd';
     $GLOBALS['dbi']->dataSeek($sql_result, 0);
     $delete = PMA\libraries\Util::getIcon('b_drop.png', __('Delete version'));
     $report = PMA\libraries\Util::getIcon('b_report.png', __('Tracking report'));
@@ -312,7 +311,7 @@ function PMA_getHtmlForTableVersionDetails(
             . '&amp;submit_delete_version=true';
         $checkbox_id = 'selected_versions_' . htmlspecialchars($version['version']);
 
-        $html .= '<tr class="' . $style . '">';
+        $html .= '<tr>';
         $html .= '<td class="center">';
         $html .= '<input type="checkbox" name="selected_versions[]"'
             . ' class="checkall" id="' . $checkbox_id . '"'
@@ -344,12 +343,6 @@ function PMA_getHtmlForTableVersionDetails(
         $html .= '">' . $structure . '</a>';
         $html .= '</td>';
         $html .= '</tr>';
-
-        if ($style == 'even') {
-            $style = 'odd';
-        } else {
-            $style = 'even';
-        }
     }
 
     $html .= '</tbody>';
@@ -393,9 +386,7 @@ function PMA_getHtmlForTableVersionDetails(
 function PMA_getTableLastVersionNumber($sql_result)
 {
     $maxversion = $GLOBALS['dbi']->fetchArray($sql_result);
-    $last_version = $maxversion['version'];
-
-    return $last_version;
+    return intval($maxversion['version']);
 }
 
 /**
@@ -411,7 +402,7 @@ function PMA_getSQLResultForSelectableTables()
     $sql_query = " SELECT DISTINCT db_name, table_name FROM " .
         PMA\libraries\Util::backquote($cfgRelation['db']) . "." .
         PMA\libraries\Util::backquote($cfgRelation['tracking']) .
-        " WHERE db_name = '" . PMA\libraries\Util::sqlAddSlashes($GLOBALS['db']) .
+        " WHERE db_name = '" . $GLOBALS['dbi']->escapeString($GLOBALS['db']) .
         "' " .
         " ORDER BY db_name, table_name";
 
@@ -710,7 +701,6 @@ function PMA_getHtmlForDataManipulationStatements($data, $filter_users,
  * @param array  $filter_users       filter users
  * @param int    $filter_ts_from     filter time stamp from
  * @param int    $filter_ts_to       filter time stamp to
- * @param string $style              style
  * @param int    $line_number        line number
  * @param array  $url_params         url parameters
  * @param int    $offset             line number offset
@@ -720,7 +710,7 @@ function PMA_getHtmlForDataManipulationStatements($data, $filter_users,
  * @return string
  */
 function PMA_getHtmlForOneStatement($entry, $filter_users,
-    $filter_ts_from, $filter_ts_to, $style, $line_number, $url_params, $offset,
+    $filter_ts_from, $filter_ts_to, $line_number, $url_params, $offset,
     $drop_image_or_text, $delete_param
 ) {
     $statement  = PMA\libraries\Util::formatSql($entry['statement'], true);
@@ -732,7 +722,7 @@ function PMA_getHtmlForOneStatement($entry, $filter_users,
         && $timestamp <= $filter_ts_to
         && (in_array('*', $filter_users) || $filtered_user)
     ) {
-        $html = '<tr class="noclick ' . $style . '">';
+        $html = '<tr class="noclick">';
         $html .= '<td class="right"><small>' . $line_number . '</small></td>';
         $html .= '<td><small>'
             . htmlspecialchars($entry['date']) . '</small></td>';
@@ -813,18 +803,12 @@ function PMA_getHtmlForDataStatements($data, $filter_users,
     $html .= '</thead>';
     $html .= '<tbody>';
 
-    $style = 'odd';
     foreach ($data[$which_log] as $entry) {
         $html .= PMA_getHtmlForOneStatement(
-            $entry, $filter_users, $filter_ts_from, $filter_ts_to, $style,
+            $entry, $filter_users, $filter_ts_from, $filter_ts_to,
             $line_number, $url_params, $offset, $drop_image_or_text,
             'delete_' . $which_log
         );
-        if ($style == 'even') {
-            $style = 'odd';
-        } else {
-            $style = 'even';
-        }
         $line_number++;
     }
     $html .= '</tbody>';
@@ -867,7 +851,10 @@ function PMA_getHtmlForSchemaSnapshot($url_query)
     );
 
     // Unserialize snapshot
-    $temp = unserialize($data['schema_snapshot']);
+    $temp = PMA_safeUnserialize($data['schema_snapshot']);
+    if ($temp === null) {
+        $temp = array('COLUMNS' => array(), 'INDEXES' => array());
+    }
     $columns = $temp['COLUMNS'];
     $indexes = $temp['INDEXES'];
     $html .= PMA_getHtmlForColumns($columns);
@@ -904,15 +891,9 @@ function PMA_getHtmlForColumns($columns)
     $html .= '</tr>';
     $html .= '</thead>';
     $html .= '<tbody>';
-    $style = 'odd';
     $index = 1;
     foreach ($columns as $field) {
-        $html .= PMA_getHtmlForField($index++, $field, $style);
-        if ($style == 'even') {
-            $style = 'odd';
-        } else {
-            $style = 'even';
-        }
+        $html .= PMA_getHtmlForField($index++, $field);
     }
 
     $html .= '</tbody>';
@@ -926,13 +907,12 @@ function PMA_getHtmlForColumns($columns)
  *
  * @param int    $index index
  * @param array  $field field
- * @param string $style style
  *
  * @return string
  */
-function PMA_getHtmlForField($index, $field, $style)
+function PMA_getHtmlForField($index, $field)
 {
-    $html = '<tr class="noclick ' . $style . '">';
+    $html = '<tr class="noclick">';
     $html .= '<td>' . $index . '</td>';
     $html .= '<td><b>' . htmlspecialchars($field['Field']);
     if ($field['Key'] == 'PRI') {
@@ -1000,14 +980,8 @@ function PMA_getHtmlForIndexes($indexes)
     $html .= '</tr>';
     $html .= '<tbody>';
 
-    $style = 'odd';
     foreach ($indexes as $index) {
-        $html .= PMA_getHtmlForIndex($index, $style);
-        if ($style == 'even') {
-            $style = 'odd';
-        } else {
-            $style = 'even';
-        }
+        $html .= PMA_getHtmlForIndex($index);
     }
     $html .= '</tbody>';
     $html .= '</table>';
@@ -1018,11 +992,10 @@ function PMA_getHtmlForIndexes($indexes)
  * Function to get html for an index in schema snapshot
  *
  * @param array  $index index
- * @param string $style style
  *
  * @return string
  */
-function PMA_getHtmlForIndex($index, $style)
+function PMA_getHtmlForIndex($index)
 {
     if ($index['Non_unique'] == 0) {
         $str_unique = __('Yes');
@@ -1035,7 +1008,7 @@ function PMA_getHtmlForIndex($index, $style)
         $str_packed = __('No');
     }
 
-    $html  = '<tr class="noclick ' . $style . '">';
+    $html  = '<tr class="noclick">';
     $html .= '<td><b>' . htmlspecialchars($index['Key_name']) . '</b></td>';
     $html .= '<td>' . htmlspecialchars($index['Index_type']) . '</td>';
     $html .= '<td>' . $str_unique . '</td>';
@@ -1190,15 +1163,17 @@ function PMA_exportAsFileDownload($entries)
 {
     @ini_set('url_rewriter.tags', '');
 
+    // Replace all multiple whitespaces by a single space
+    $table = htmlspecialchars(preg_replace('/\s+/', ' ', $_REQUEST['table']));
     $dump = "# " . sprintf(
-        __('Tracking report for table `%s`'), htmlspecialchars($_REQUEST['table'])
+        __('Tracking report for table `%s`'), $table
     )
     . "\n" . "# " . date('Y-m-d H:i:s') . "\n";
     foreach ($entries as $entry) {
         $dump .= $entry['statement'];
     }
-    $filename = 'log_' . htmlspecialchars($_REQUEST['table']) . '.sql';
-    PMA\libraries\Response::getInstance()->disable();
+    $filename = 'log_' . $table . '.sql';
+    Response::getInstance()->disable();
     PMA_downloadHeader(
         $filename,
         'text/x-sql',
@@ -1483,9 +1458,8 @@ function PMA_displayUntrackedTables(
     <?php
 
     // Print out list of untracked tables
-    $style = 'odd';
     foreach ($untracked_tables as $key => $tablename) {
-        $style = PMA_displayOneUntrackedTable($db, $tablename, $url_query, $style);
+        PMA_displayOneUntrackedTable($db, $tablename, $url_query);
     }
     ?>
     </tbody>
@@ -1514,11 +1488,10 @@ function PMA_displayUntrackedTables(
  * @param string $db        current database
  * @param string $tablename the table name for which to display a line
  * @param string $url_query url query string
- * @param string $style     odd|even
  *
- * @return string $style        changed style (even|odd)
+ * @return void
  */
-function PMA_displayOneUntrackedTable($db, $tablename, $url_query, $style)
+function PMA_displayOneUntrackedTable($db, $tablename, $url_query)
 {
     $checkbox_id = "selected_tbl_"
         . htmlspecialchars($tablename);
@@ -1528,7 +1501,7 @@ function PMA_displayOneUntrackedTable($db, $tablename, $url_query, $style)
         $my_link .= PMA\libraries\Util::getIcon('eye.png', __('Track table'));
         $my_link .= '</a>';
         ?>
-        <tr class="<?php echo $style;?>">
+        <tr>
             <td class="center">
                 <input type="checkbox" name="selected_tbl[]"
                     class="checkall" id="<?php echo $checkbox_id;?>"
@@ -1542,13 +1515,7 @@ function PMA_displayOneUntrackedTable($db, $tablename, $url_query, $style)
             <td><?php echo $my_link;?></td>
         </tr>
         <?php
-        if ($style == 'even') {
-            $style = 'odd';
-        } else {
-            $style = 'even';
-        }
     }
-    return $style;
 }
 
 /**
@@ -1646,16 +1613,15 @@ function PMA_displayTrackedTables(
         __('Structure snapshot')
     );
 
-    $style = 'odd';
     while ($one_result = $GLOBALS['dbi']->fetchArray($all_tables_result)) {
         list($table_name, $version_number) = $one_result;
         $table_query = ' SELECT * FROM ' .
              PMA\libraries\Util::backquote($cfgRelation['db']) . '.' .
              PMA\libraries\Util::backquote($cfgRelation['tracking']) .
              ' WHERE `db_name` = \''
-             . PMA\libraries\Util::sqlAddSlashes($_REQUEST['db'])
+             . $GLOBALS['dbi']->escapeString($_REQUEST['db'])
              . '\' AND `table_name`  = \''
-             . PMA\libraries\Util::sqlAddSlashes($table_name)
+             . $GLOBALS['dbi']->escapeString($table_name)
              . '\' AND `version` = \'' . $version_number . '\'';
 
         $table_result = PMA_queryAsControlUser($table_query);
@@ -1669,7 +1635,7 @@ function PMA_displayTrackedTables(
         $checkbox_id = "selected_tbl_"
             . htmlspecialchars($version_data['table_name']);
         ?>
-        <tr class="<?php echo $style;?>">
+        <tr>
             <td class="center">
                 <input type="checkbox" name="selected_tbl[]"
                 class="checkall" id="<?php echo $checkbox_id;?>"
@@ -1704,11 +1670,6 @@ function PMA_displayTrackedTables(
             , $version_data['version'] , '">' , $structure , '</a>'
             , '</td>'
             , '</tr>';
-        if ($style == 'even') {
-            $style = 'odd';
-        } else {
-            $style = 'even';
-        }
     }
     ?>
     </tbody>

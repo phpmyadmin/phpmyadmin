@@ -14,6 +14,7 @@ use PMA\libraries\controllers\DatabaseController;
 use PMA\libraries\Charsets;
 use PMA\libraries\Message;
 use PMA\libraries\RecentFavoriteTable;
+use PMA\libraries\Response;
 use PMA\libraries\Template;
 use PMA\libraries\Tracker;
 use PMA\libraries\Util;
@@ -108,14 +109,16 @@ class DatabaseStructureController extends DatabaseController
      */
     public function indexAction()
     {
+        $response = Response::getInstance();
+
         // Add/Remove favorite tables using Ajax request.
-        if ($GLOBALS['is_ajax_request'] && !empty($_REQUEST['favorite_table'])) {
+        if ($response->isAjax() && !empty($_REQUEST['favorite_table'])) {
             $this->addRemoveFavoriteTablesAction();
             return;
         }
 
         // If there is an Ajax request for real row count of a table.
-        if ($GLOBALS['is_ajax_request']
+        if ($response->isAjax()
             && isset($_REQUEST['real_row_count'])
             && $_REQUEST['real_row_count'] == true
         ) {
@@ -361,6 +364,10 @@ class DatabaseStructureController extends DatabaseController
      */
     protected function displayTableList()
     {
+        // filtering
+        $this->response->addHTML(
+            Template::get('filter')->render(array('filterValue'=>''))
+        );
         // table form
         $this->response->addHTML(
             Template::get('database/structure/table_header')
@@ -386,7 +393,6 @@ class DatabaseStructureController extends DatabaseController
         $overhead_size  = 0;
 
         $hidden_fields = array();
-        $odd_row       = true;
         $overall_approx_rows = false;
         foreach ($this->_tables as $keyname => $current_table) {
             // Get valid statistics whatever is the table type
@@ -434,6 +440,14 @@ class DatabaseStructureController extends DatabaseController
                     $overhead = '-';
                 }
             } // end if
+
+            if ($GLOBALS['cfg']['ShowDbStructureCharset']) {
+                if (isset($current_table['Collation'])) {
+                    $charset = mb_substr($collation, 0, mb_strpos($collation, "_"));
+                } else {
+                    $charset = '';
+                }
+            }
 
             if ($GLOBALS['cfg']['ShowDbStructureCreation']) {
                 $create_time = isset($current_table['Create_time'])
@@ -578,7 +592,6 @@ class DatabaseStructureController extends DatabaseController
                 && ($row_count % $num_columns) == 0
             ) {
                 $row_count = 1;
-                $odd_row = true;
 
                 $this->response->addHTML(
                     '</tr></tbody></table></form>'
@@ -607,7 +620,6 @@ class DatabaseStructureController extends DatabaseController
                         array(
                             'db'                    => $this->db,
                             'curr'                  => $i,
-                            'odd_row'               => $odd_row,
                             'table_is_view'         => $table_is_view,
                             'current_table'         => $current_table,
                             'browse_table_label'    => $browse_table_label,
@@ -631,6 +643,8 @@ class DatabaseStructureController extends DatabaseController
                                 ? $update_time : '',
                             'check_time'            => isset($check_time)
                                 ? $check_time : '',
+                            'charset'               => isset($charset)
+                                ? $charset : '',
                             'is_show_stats'         => $this->_is_show_stats,
                             'ignored'               => $ignored,
                             'do'                    => $do,
@@ -644,13 +658,13 @@ class DatabaseStructureController extends DatabaseController
                     )
             );
 
-            $odd_row = ! $odd_row;
             $overall_approx_rows = $overall_approx_rows || $approx_rows;
         } // end foreach
 
         $this->response->addHTML('</tbody>');
 
         $db_collation = $this->dbi->getDbCollation($this->db);
+        $db_charset = mb_substr($db_collation, 0, mb_strpos($db_collation, "_"));
 
         // Show Summary
         $this->response->addHTML(
@@ -662,6 +676,7 @@ class DatabaseStructureController extends DatabaseController
                     'sum_entries' => $sum_entries,
                     'db_collation' => $db_collation,
                     'is_show_stats' => $this->_is_show_stats,
+                    'db_charset' => $db_charset,
                     'sum_size' => $sum_size,
                     'overhead_size' => $overhead_size,
                     'create_time_all' => $create_time_all,

@@ -6,7 +6,7 @@
  * @todo    add an option to use mm-module for session handler
  *
  * @package PhpMyAdmin
- * @see     https://php.net/session
+ * @see     https://secure.php.net/session
  */
 if (! defined('PHPMYADMIN')) {
     exit;
@@ -30,7 +30,7 @@ if (!@function_exists('session_name')) {
 
 // session cookie settings
 session_set_cookie_params(
-    0, $GLOBALS['PMA_Config']->getCookiePath(),
+    0, $GLOBALS['PMA_Config']->getRootPath(),
     '', $GLOBALS['PMA_Config']->isHttps(), true
 );
 
@@ -75,7 +75,23 @@ function PMA_sessionFailed($errors)
 {
     $messages = array();
     foreach ($errors as $error) {
-        $messages[] = $error->getMessage();
+        /*
+         * Remove path from open() in error message to avoid path disclossure
+         *
+         * This can happen with PHP 5 when nonexisting session ID is provided,
+         * since PHP 7, session existence is checked first.
+         *
+         * This error can also happen in case of session backed error (eg.
+         * read only filesystem) on any PHP version.
+         *
+         * The message string is currently hardcoded in PHP, so hopefully it
+         * will not change in future.
+         */
+        $messages[] = preg_replace(
+            '/open\(.*, O_RDWR\)/',
+            'open(SESSION_FILE, O_RDWR)',
+            htmlspecialchars($error->getMessage())
+        );
     }
 
     /*

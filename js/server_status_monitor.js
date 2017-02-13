@@ -610,7 +610,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
                 try {
                     var data = $('body', $('iframe#monitorConfigUpload')[0].contentWindow.document).html();
                     // Chrome wraps around '<pre style="word-wrap: break-word; white-space: pre-wrap;">' to any text content -.-
-                    json = $.parseJSON(data.substring(data.indexOf("{"), data.lastIndexOf("}") + 1));
+                    json = JSON.parse(data.substring(data.indexOf("{"), data.lastIndexOf("}") + 1));
                 } catch (err) {
                     alert(PMA_messages.strFailedParsingConfig);
                     $('#emptyDialog').dialog('close');
@@ -944,10 +944,10 @@ AJAX.registerOnload('server_status_monitor.js', function () {
         /* Apply default values & config */
         if (isStorageSupported('localStorage')) {
             if (typeof window.localStorage.monitorCharts !== 'undefined') {
-                runtime.charts = $.parseJSON(window.localStorage.monitorCharts);
+                runtime.charts = JSON.parse(window.localStorage.monitorCharts);
             }
             if (typeof window.localStorage.monitorSettings !== 'undefined') {
-                monitorSettings = $.parseJSON(window.localStorage.monitorSettings);
+                monitorSettings = JSON.parse(window.localStorage.monitorSettings);
             }
 
             $('a[href="#clearMonitorConfig"]').toggle(runtime.charts !== null);
@@ -1365,7 +1365,8 @@ AJAX.registerOnload('server_status_monitor.js', function () {
             ajax_request: true,
             chart_data: 1,
             type: 'chartgrid',
-            requiredData: JSON.stringify(runtime.dataList)
+            requiredData: JSON.stringify(runtime.dataList),
+            token: PMA_commonParams.get('token')
         }, function (data) {
             var chartData;
             if (typeof data !== 'undefined' && data.success === true) {
@@ -1689,7 +1690,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
          *                to group queries ignoring data in WHERE clauses
         */
         function filterQueries(varFilterChange) {
-            var odd_row = false, cell, textFilter;
+            var cell, textFilter;
             var val = $('#filterQueryText').val();
 
             if (val.length === 0) {
@@ -1790,16 +1791,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
                 } else {
                     totalSum += parseInt($t.next().text(), 10);
                     rowSum++;
-
-                    odd_row = ! odd_row;
                     $t.parent().css('display', '');
-                    if (odd_row) {
-                        $t.parent().addClass('odd');
-                        $t.parent().removeClass('even');
-                    } else {
-                        $t.parent().addClass('even');
-                        $t.parent().removeClass('odd');
-                    }
                 }
 
                 hide = false;
@@ -2006,7 +1998,8 @@ AJAX.registerOnload('server_status_monitor.js', function () {
             ajax_request: true,
             query_analyzer: true,
             query: codemirror_editor ? codemirror_editor.getValue() : $('#sqlquery').val(),
-            database: db
+            database: db,
+            token: PMA_commonParams.get('token')
         }, function (data) {
             var i, l;
             if (typeof data !== 'undefined' && data.success === true) {

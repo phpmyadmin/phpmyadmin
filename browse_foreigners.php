@@ -5,6 +5,7 @@
  *
  * @package PhpMyAdmin
  */
+use PMA\libraries\Response;
 
 require_once 'libraries/common.inc.php';
 require_once 'libraries/transformations.lib.php';
@@ -26,7 +27,7 @@ foreach ($request_params as $one_request_param) {
 
 PMA\libraries\Util::checkParameters(array('db', 'table', 'field'));
 
-$response = PMA\libraries\Response::getInstance();
+$response = Response::getInstance();
 $response->getFooter()->setMinimal();
 $header = $response->getHeader();
 $header->disableMenuAndConsole();
@@ -47,7 +48,8 @@ $foreignData = PMA_getForeignData(
     isset($_REQUEST['foreign_filter'])
     ? $_REQUEST['foreign_filter']
     : '',
-    isset($foreign_limit) ? $foreign_limit : null
+    isset($foreign_limit) ? $foreign_limit : null,
+    true // for getting value in $foreignData['the_total']
 );
 
 // HTML output

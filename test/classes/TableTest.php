@@ -44,7 +44,6 @@ class TableTest extends PMATestCase
         $GLOBALS['sql_drop_table'] = true;
         $GLOBALS['cfg']['Server']['table_uiprefs'] = "pma__table_uiprefs";
 
-        $GLOBALS['is_ajax_request'] = false;
         $GLOBALS['cfgRelation'] = PMA_getRelationsParam();
         $GLOBALS['dblist'] = new DataBasePMAMock();
         $GLOBALS['dblist']->databases = new DataBaseMock();
@@ -176,6 +175,31 @@ class TableTest extends PMATestCase
                     'ALL'
                 )
             ),
+            array(
+                'SHOW COLUMNS FROM `PMA`.`PMA_BookMark`',
+                null,
+                null,
+                null,
+                0,
+                array(
+                    array(
+                        'Field'=>'COLUMN_NAME1',
+                        'Type'=> 'INT(10)',
+                        'Null'=> 'NO',
+                        'Key'=> '',
+                        'Default'=> NULL,
+                        'Extra'=>''
+                    ),
+                    array(
+                        'Field'=>'COLUMN_NAME2',
+                        'Type'=> 'INT(10)',
+                        'Null'=> 'YES',
+                        'Key'=> '',
+                        'Default'=> NULL,
+                        'Extra'=>'STORED GENERATED'
+                    )
+                )
+            ),
         );
 
         $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
@@ -253,6 +277,9 @@ class TableTest extends PMATestCase
 
         $dbi->expects($this->any())->method('fetchRow')
             ->will($this->returnValue(false));
+
+        $dbi->expects($this->any())->method('escapeString')
+            ->will($this->returnArgument(0));
 
         $GLOBALS['dbi'] = $dbi;
     }
@@ -356,11 +383,11 @@ class TableTest extends PMATestCase
      *
      * @dataProvider dataValidateName
      */
-    public function testValidateName($name, $result)
+    public function testValidateName($name, $result, $is_backquoted=false)
     {
         $this->assertEquals(
             $result,
-            Table::isValidName($name)
+            Table::isValidName($name, $is_backquoted)
         );
     }
 
@@ -376,6 +403,12 @@ class TableTest extends PMATestCase
             array('te/st', false),
             array('te.st', false),
             array('te\\st', false),
+            array('te st', false),
+            array('  te st', true, true),
+            array('test ', false),
+            array('te.st', false),
+            array('test ', false, true),
+            array('te.st ', false, true),
         );
     }
 
@@ -491,7 +524,24 @@ class TableTest extends PMATestCase
             $query
         );
 
+        // $type is 'TIMESTAMP(3), $default_type is CURRENT_TIMESTAMP(3)
+        $type = 'TIMESTAMP';
+        $length = '3';
+        $extra = '';
+        $default_type = 'CURRENT_TIMESTAMP';
+        $query = Table::generateFieldSpec(
+            $name, $type, $length, $attribute, $collation,
+            $null, $default_type,  $default_value, $extra, $comment,
+            $virtuality, $expression, $move_to
+        );
+        $this->assertEquals(
+            "`PMA_name` TIMESTAMP(3) PMA_attribute NULL DEFAULT CURRENT_TIMESTAMP(3) "
+            . "COMMENT 'PMA_comment' FIRST",
+            $query
+        );
+
         //$default_type is NONE
+        $type = 'BOOLEAN';
         $default_type = 'NONE';
         $extra = 'INCREMENT';
         $move_to = '-first';
@@ -727,8 +777,14 @@ class TableTest extends PMATestCase
         $table_new = 'PMA_.BookMark';
         $result = $table->rename($table_new);
         $this->assertEquals(
-            false,
+            true,
             $result
+        );
+
+        //message
+        $this->assertEquals(
+            "Table PMA_BookMark has been renamed to PMA_.BookMark.",
+            $table->getLastMessage()
         );
 
         $table_new = 'PMA_BookMark_new';
@@ -740,7 +796,7 @@ class TableTest extends PMATestCase
         );
         //message
         $this->assertEquals(
-            "Table PMA_BookMark has been renamed to PMA_BookMark_new.",
+            "Table PMA_.BookMark has been renamed to PMA_BookMark_new.",
             $table->getLastMessage()
         );
     }
@@ -943,6 +999,72 @@ class TableTest extends PMATestCase
     }
 
     /**
+     * Test for checkIfMinRecordsExist
+     *
+     * @return void
+     */
+    public function testCheckIfMinRecordsExist()
+    {
+        $old_dbi = $GLOBALS['dbi'];
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+            ->disableOriginalConstructor()
+            ->getMock();
+        $dbi->expects($this->any())
+            ->method('tryQuery')
+            ->will($this->returnValue('res'));
+        $dbi->expects($this->any())
+            ->method('numRows')
+            ->willReturnOnConsecutiveCalls(
+                0,
+                10,
+                200
+            );
+        $dbi->expects($this->any())
+            ->method('fetchResult')
+            ->willReturnOnConsecutiveCalls(
+                array('`one_pk`'),
+
+                array(), // No Uniques found
+                array('`one_ind`', '`sec_ind`'),
+
+                array(), // No Uniques found
+                array()  // No Indexed found
+            );
+
+        $GLOBALS['dbi'] = $dbi;
+
+        $table = 'PMA_BookMark';
+        $db = 'PMA';
+        $tableObj = new Table($table, $db);
+
+        // Case 1 : Check if table is non-empty
+        $return = $tableObj->checkIfMinRecordsExist();
+        $expect = true;
+        $this->assertEquals(
+            $expect,
+            $return
+        );
+
+        // Case 2 : Check if table contains at least 100
+        $return = $tableObj->checkIfMinRecordsExist(100);
+        $expect = false;
+        $this->assertEquals(
+            $expect,
+            $return
+        );
+
+        // Case 3 : Check if table contains at least 100
+        $return = $tableObj->checkIfMinRecordsExist(100);
+        $expect = true;
+        $this->assertEquals(
+            $expect,
+            $return
+        );
+
+        $GLOBALS['dbi'] = $old_dbi;
+    }
+
+    /**
      * Test for countRecords
      *
      * @return void
@@ -1043,7 +1165,8 @@ class TableTest extends PMATestCase
             $expect,
             $return
         );
-        $sql_query = "INSERT INTO `PMA_new`.`PMA_BookMark_new` SELECT * FROM "
+        $sql_query = "INSERT INTO `PMA_new`.`PMA_BookMark_new`(`COLUMN_NAME1`)"
+            . " SELECT `COLUMN_NAME1` FROM "
             . "`PMA`.`PMA_BookMark`";
         $this->assertContains(
             $sql_query,
@@ -1066,8 +1189,9 @@ class TableTest extends PMATestCase
             $expect,
             $return
         );
-        $sql_query = "INSERT INTO `PMA_new`.`PMA_BookMark_new` SELECT * FROM "
-            . "`PMA`.`PMA_BookMark`;";
+        $sql_query = "INSERT INTO `PMA_new`.`PMA_BookMark_new`(`COLUMN_NAME1`)"
+            . " SELECT `COLUMN_NAME1` FROM "
+            . "`PMA`.`PMA_BookMark`";
         $this->assertContains(
             $sql_query,
             $GLOBALS['sql_query']

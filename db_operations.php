@@ -11,6 +11,7 @@
  *
  * @package PhpMyAdmin
  */
+use PMA\libraries\Response;
 use PMA\libraries\plugins\export\ExportSql;
 
 /**
@@ -26,7 +27,7 @@ require_once 'libraries/check_user_privileges.lib.php';
 require_once 'libraries/operations.lib.php';
 
 // add a javascript file for jQuery functions to handle Ajax actions
-$response = PMA\libraries\Response::getInstance();
+$response = Response::getInstance();
 $header = $response->getHeader();
 $scripts = $header->getScripts();
 $scripts->addFile('db_operations.js');
@@ -36,7 +37,7 @@ $sql_query = '';
 /**
  * Rename/move or copy database
  */
-if (mb_strlen($GLOBALS['db'])
+if (strlen($GLOBALS['db'] > 0)
     && (! empty($_REQUEST['db_rename']) || ! empty($_REQUEST['db_copy']))
 ) {
     if (! empty($_REQUEST['db_rename'])) {
@@ -45,9 +46,7 @@ if (mb_strlen($GLOBALS['db'])
         $move = false;
     }
 
-    if (! isset($_REQUEST['newname'])
-        || ! mb_strlen($_REQUEST['newname'])
-    ) {
+    if (! isset($_REQUEST['newname']) || strlen($_REQUEST['newname']) === 0) {
         $message = PMA\libraries\Message::error(__('The database name is empty!'));
     } else {
         $_error = false;
@@ -176,8 +175,7 @@ if (mb_strlen($GLOBALS['db'])
      * Database has been successfully renamed/moved.  If in an Ajax request,
      * generate the output with {@link PMA\libraries\Response} and exit
      */
-    if ($GLOBALS['is_ajax_request'] == true) {
-        $response = PMA\libraries\Response::getInstance();
+    if ($response->isAjax()) {
         $response->setRequestStatus($message->isSuccess());
         $response->addJSON('message', $message);
         $response->addJSON('newname', $_REQUEST['newname']);
@@ -300,7 +298,7 @@ if ($cfgRelation['pdfwork'] && $num_tables > 0) {
         SELECT *
         FROM ' . PMA\libraries\Util::backquote($GLOBALS['cfgRelation']['db'])
         . '.' . PMA\libraries\Util::backquote($cfgRelation['pdf_pages']) . '
-        WHERE db_name = \'' . PMA\libraries\Util::sqlAddSlashes($GLOBALS['db'])
+        WHERE db_name = \'' . $GLOBALS['dbi']->escapeString($GLOBALS['db'])
         . '\'';
     $test_rs = PMA_queryAsControlUser(
         $test_query,

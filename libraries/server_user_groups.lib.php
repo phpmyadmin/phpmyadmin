@@ -24,7 +24,7 @@ function PMA_getHtmlForListingUsersofAGroup($userGroup)
     $usersTable = PMA\libraries\Util::backquote($cfgRelation['db'])
         . "." . PMA\libraries\Util::backquote($cfgRelation['users']);
     $sql_query = "SELECT `username` FROM " . $usersTable
-        . " WHERE `usergroup`='" . PMA\libraries\Util::sqlAddSlashes($userGroup)
+        . " WHERE `usergroup`='" . $GLOBALS['dbi']->escapeString($userGroup)
         . "'";
     $result = PMA_queryAsControlUser($sql_query, false);
     if ($result) {
@@ -81,7 +81,6 @@ function PMA_getHtmlForUserGroupsTable()
         $html_output .= '</tr></thead>';
         $html_output .= '<tbody>';
 
-        $odd = true;
         $userGroups = array();
         while ($row = $GLOBALS['dbi']->fetchAssoc($result)) {
             $groupName = $row['usergroup'];
@@ -91,7 +90,7 @@ function PMA_getHtmlForUserGroupsTable()
             $userGroups[$groupName][$row['tab']] = $row['allowed'];
         }
         foreach ($userGroups as $groupName => $tabs) {
-            $html_output .= '<tr class="' . ($odd ? 'odd' : 'even') . '">';
+            $html_output .= '<tr>';
             $html_output .= '<td>' . htmlspecialchars($groupName) . '</td>';
             $html_output .= '<td>' . _getAllowedTabNames($tabs, 'server') . '</td>';
             $html_output .= '<td>' . _getAllowedTabNames($tabs, 'db') . '</td>';
@@ -129,8 +128,6 @@ function PMA_getHtmlForUserGroupsTable()
             $html_output .= '</td>';
 
             $html_output .= '</tr>';
-
-            $odd = ! $odd;
         }
 
         $html_output .= '</tbody>';
@@ -187,11 +184,11 @@ function PMA_deleteUserGroup($userGroup)
     $groupTable = PMA\libraries\Util::backquote($cfgRelation['db'])
         . "." . PMA\libraries\Util::backquote($cfgRelation['usergroups']);
     $sql_query = "DELETE FROM " . $userTable
-        . " WHERE `usergroup`='" . PMA\libraries\Util::sqlAddSlashes($userGroup)
+        . " WHERE `usergroup`='" . $GLOBALS['dbi']->escapeString($userGroup)
         . "'";
     PMA_queryAsControlUser($sql_query, true);
     $sql_query = "DELETE FROM " . $groupTable
-        . " WHERE `usergroup`='" . PMA\libraries\Util::sqlAddSlashes($userGroup)
+        . " WHERE `usergroup`='" . $GLOBALS['dbi']->escapeString($userGroup)
         . "'";
     PMA_queryAsControlUser($sql_query, true);
 }
@@ -228,7 +225,8 @@ function PMA_getHtmlToEditUserGroup($userGroup = null)
     $html_output .= '<fieldset id="fieldset_user_group_rights">';
     $html_output .= '<legend>' . __('User group menu assignments')
         . '&nbsp;&nbsp;&nbsp;'
-        . '<input type="checkbox" class="checkall_box" title="Check all">'
+        . '<input type="checkbox" id="addUsersForm_checkall" '
+        . 'class="checkall_box" title="Check all">'
         . '<label for="addUsersForm_checkall">' . __('Check all') . '</label>'
         . '</legend>';
 
@@ -249,7 +247,7 @@ function PMA_getHtmlToEditUserGroup($userGroup = null)
         $groupTable = PMA\libraries\Util::backquote($cfgRelation['db'])
             . "." . PMA\libraries\Util::backquote($cfgRelation['usergroups']);
         $sql_query = "SELECT * FROM " . $groupTable
-            . " WHERE `usergroup`='" . PMA\libraries\Util::sqlAddSlashes($userGroup)
+            . " WHERE `usergroup`='" . $GLOBALS['dbi']->escapeString($userGroup)
             . "'";
         $result = PMA_queryAsControlUser($sql_query, false);
         if ($result) {
@@ -336,7 +334,7 @@ function PMA_editUserGroup($userGroup, $new = false)
 
     if (! $new) {
         $sql_query = "DELETE FROM " . $groupTable
-            . " WHERE `usergroup`='" . PMA\libraries\Util::sqlAddSlashes($userGroup)
+            . " WHERE `usergroup`='" . $GLOBALS['dbi']->escapeString($userGroup)
             . "';";
         PMA_queryAsControlUser($sql_query, true);
     }
@@ -352,7 +350,7 @@ function PMA_editUserGroup($userGroup, $new = false)
             }
             $tabName = $tabGroupName . '_' . $tab;
             $allowed = isset($_REQUEST[$tabName]) && $_REQUEST[$tabName] == 'Y';
-            $sql_query .= "('" . $userGroup . "', '" . $tabName . "', '"
+            $sql_query .= "('" . $GLOBALS['dbi']->escapeString($userGroup) . "', '" . $tabName . "', '"
                 . ($allowed ? "Y" : "N") . "')";
             $first = false;
         }

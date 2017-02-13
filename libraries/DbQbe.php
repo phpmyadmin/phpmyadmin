@@ -463,7 +463,7 @@ class DbQbe
      */
     private function _getColumnNamesRow()
     {
-        $html_output = '<tr class="odd noclick">';
+        $html_output = '<tr class="noclick">';
         $html_output .= '<th>' . __('Column:') . '</th>';
         $new_column_count = 0;
         for (
@@ -509,7 +509,7 @@ class DbQbe
      */
     private function _getColumnAliasRow()
     {
-        $html_output = '<tr class="even noclick">';
+        $html_output = '<tr class="noclick">';
         $html_output .= '<th>' . __('Alias:') . '</th>';
         $new_column_count = 0;
 
@@ -562,7 +562,7 @@ class DbQbe
      */
     private function _getSortRow()
     {
-        $html_output = '<tr class="even noclick">';
+        $html_output = '<tr class="noclick">';
         $html_output .= '<th>' . __('Sort:') . '</th>';
         $new_column_count = 0;
 
@@ -626,7 +626,7 @@ class DbQbe
      */
     private function _getSortOrder()
     {
-        $html_output = '<tr class="even noclick">';
+        $html_output = '<tr class="noclick">';
         $html_output .= '<th>' . __('Sort order:') . '</th>';
         $new_column_count = 0;
 
@@ -675,7 +675,7 @@ class DbQbe
      */
     private function _getShowRow()
     {
-        $html_output = '<tr class="odd noclick">';
+        $html_output = '<tr class="noclick">';
         $html_output .= '<th>' . __('Show:') . '</th>';
         $new_column_count = 0;
         for (
@@ -724,7 +724,7 @@ class DbQbe
      */
     private function _getCriteriaInputboxRow()
     {
-        $html_output = '<tr class="even noclick">';
+        $html_output = '<tr class="noclick">';
         $html_output .= '<th>' . __('Criteria:') . '</th>';
         $new_column_count = 0;
         for (
@@ -901,7 +901,7 @@ class DbQbe
      */
     private function _getModifyColumnsRow()
     {
-        $html_output = '<tr class="even noclick">';
+        $html_output = '<tr class="noclick">';
         $html_output .= '<th>' . __('Modify:') . '</th>';
         $new_column_count = 0;
         for (
@@ -1064,7 +1064,6 @@ class DbQbe
     {
         $html_output = '';
         $new_row_count = 0;
-        $odd_row = true;
         $checked_options = array();
         for (
         $row_index = 0;
@@ -1076,8 +1075,7 @@ class DbQbe
             ) {
                 $checked_options['or']  = ' checked="checked"';
                 $checked_options['and'] = '';
-                $html_output .= '<tr class="' . ($odd_row ? 'odd' : 'even')
-                    . ' noclick">';
+                $html_output .= '<tr class="noclick">';
                 $html_output .= $this->_getInsDelAndOrCell(
                     $new_row_count, $checked_options
                 );
@@ -1086,7 +1084,6 @@ class DbQbe
                 );
                 $new_row_count++;
                 $html_output .= '</tr>';
-                $odd_row =! $odd_row;
             } // end if
             if (isset($this->_criteriaRowDelete[$row_index])
                 && $this->_criteriaRowDelete[$row_index] == 'on'
@@ -1106,8 +1103,7 @@ class DbQbe
                 $checked_options['or']  =  ' checked="checked"';
                 $checked_options['and'] =  '';
             }
-            $html_output .= '<tr class="' . ($odd_row ? 'odd' : 'even')
-                . ' noclick">';
+            $html_output .= '<tr class="noclick">';
             $html_output .= $this->_getInsDelAndOrCell(
                 $new_row_count, $checked_options
             );
@@ -1116,7 +1112,6 @@ class DbQbe
             );
             $new_row_count++;
             $html_output .= '</tr>';
-            $odd_row =! $odd_row;
         } // end for
         $this->_new_row_count = $new_row_count;
         return $html_output;
@@ -1605,7 +1600,7 @@ class DbQbe
         // Will include master tables and all tables that can be combined into
         // a cluster by their relation
         $finalized = array();
-        if (mb_strlen($master) > 0) {
+        if (strlen($master) > 0) {
             // Add master tables
             $finalized[$master] = '';
         }
@@ -1946,7 +1941,10 @@ class DbQbe
         // sets row count
         $rows = PMA_ifSetOr($_REQUEST['rows'], 0, 'numeric');
         $criteriaRowAdd = PMA_ifSetOr($_REQUEST['criteriaRowAdd'], 0, 'numeric');
-        $this->_criteria_row_count = max($rows + $criteriaRowAdd, 0);
+        $this->_criteria_row_count = min(
+            100,
+            max($rows + $criteriaRowAdd, 0)
+        );
 
         return $criteriaColumnCount;
     }

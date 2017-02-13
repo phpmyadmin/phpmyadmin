@@ -251,7 +251,7 @@ PMA_SetUrlHash = (function (jQuery, window) {
         if (navigator.userAgent.indexOf('Firefox') > -1) {
             // Move the link tags for the favicon to the bottom
             // of the head element to force a reload of the favicon
-            $('head > link[href=favicon\\.ico]').appendTo('head');
+            $('head > link[href="favicon\\.ico"]').appendTo('head');
         }
     }
 
@@ -280,15 +280,16 @@ PMA_SetUrlHash = (function (jQuery, window) {
     /**
      * Start initialisation
      */
-    if (window.location.hash.substring(0, 8) == '#PMAURL-') {
+    var urlhash = window.location.hash;
+    if (urlhash.substring(0, 8) == '#PMAURL-') {
         // We have a valid hash, let's redirect the user
         // to the page that it's pointing to
-        var colon_position = window.location.hash.indexOf(':');
-        var questionmark_position = window.location.hash.indexOf('?');
+        var colon_position = urlhash.indexOf(':');
+        var questionmark_position = urlhash.indexOf('?');
         if (colon_position != -1 && questionmark_position != -1 && colon_position < questionmark_position) {
-            var hash_url = window.location.hash.substring(colon_position + 1, questionmark_position);
+            var hash_url = urlhash.substring(colon_position + 1, questionmark_position);
             if (PMA_gotoWhitelist.indexOf(hash_url) != -1) {
-                window.location = window.location.hash.substring(
+                window.location = urlhash.substring(
                     colon_position + 1
                 );
             }

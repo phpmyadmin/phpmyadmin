@@ -22,12 +22,10 @@ use PMA\libraries\Sanitize;
  */
 function PMA_shutdownDuringExport()
 {
-    $a = error_get_last();
-    if ($a != null && mb_strpos($a['message'], "execution time")) {
-        //write in partially downloaded file for future reference of user
-        print_r($a);
+    $error = error_get_last();
+    if ($error != null && mb_strpos($error['message'], "execution time")) {
         //set session variable to check if there was error while exporting
-        $_SESSION['pma_export_error'] = $a['message'];
+        $_SESSION['pma_export_error'] = $error['message'];
     }
 }
 
@@ -98,7 +96,7 @@ function PMA_exportOutputHandler($line)
         $dump_buffer .= $line;
         if ($GLOBALS['onfly_compression']) {
 
-            $dump_buffer_len += mb_strlen($line);
+            $dump_buffer_len += strlen($line);
 
             if ($dump_buffer_len > $GLOBALS['memory_limit']) {
                 if ($GLOBALS['output_charset_conversion']) {
@@ -250,7 +248,7 @@ function PMA_getMemoryLimitForExport()
  * @param string       $compression       compression asked
  * @param string       $filename_template the filename template
  *
- * @return array the filename template and mime type
+ * @return string[] the filename template and mime type
  */
 function PMA_getExportFilenameAndMimetype(
     $export_type, $remember_template, $export_plugin, $compression,
@@ -368,7 +366,7 @@ function PMA_openExportFile($filename, $quick_export)
  * @param string   $dump_buffer   the current dump buffer
  * @param string   $save_filename the export filename
  *
- * @return object $message a message object (or empty string)
+ * @return Message $message a message object (or empty string)
  */
 function PMA_closeExportFile($file_handle, $dump_buffer, $save_filename)
 {
@@ -376,7 +374,7 @@ function PMA_closeExportFile($file_handle, $dump_buffer, $save_filename)
     fclose($file_handle);
     // Here, use strlen rather than mb_strlen to get the length
     // in bytes to compare against the number of bytes written.
-    if (mb_strlen($dump_buffer) > 0
+    if (strlen($dump_buffer) > 0
         && (! $write_result || $write_result != strlen($dump_buffer))
     ) {
         $message = new Message(
@@ -467,7 +465,7 @@ function PMA_saveObjectInBuffer($object_name, $append = false)
  * @param string $db          the database name
  * @param string $table       the table name
  *
- * @return array the generated HTML and back button
+ * @return string[] the generated HTML and back button
  */
 function PMA_getHtmlForDisplayedExportHeader($export_type, $db, $table)
 {
@@ -659,8 +657,8 @@ function PMA_exportDatabase(
                     // This obtains the current table's size
                     $query = 'SELECT data_length + index_length
                           from information_schema.TABLES
-                          WHERE table_schema = "' . PMA\libraries\Util::sqlAddSlashes($db) . '"
-                          AND table_name = "' . PMA\libraries\Util::sqlAddSlashes($table) . '"';
+                          WHERE table_schema = "' . $GLOBALS['dbi']->escapeString($db) . '"
+                          AND table_name = "' . $GLOBALS['dbi']->escapeString($table) . '"';
 
                     $size = $GLOBALS['dbi']->fetchValue($query);
                     //Converting the size to MB
@@ -686,8 +684,13 @@ function PMA_exportDatabase(
             && in_array($table, $table_data)
             && ! ($is_view)
         ) {
-            $local_query  = 'SELECT * FROM ' . PMA\libraries\Util::backquote($db)
+            $tableObj = new PMA\libraries\Table($table, $db);
+            $nonGeneratedCols = $tableObj->getNonGeneratedColumns(true);
+
+            $local_query  = 'SELECT ' . implode(', ', $nonGeneratedCols)
+                .  ' FROM ' . PMA\libraries\Util::backquote($db)
                 . '.' . PMA\libraries\Util::backquote($table);
+
             if (! $export_plugin->exportData(
                 $db, $table, $crlf, $err_url, $local_query, $aliases
             )) {
@@ -866,7 +869,12 @@ function PMA_exportTable(
             $local_query = $sql_query . $add_query;
             $GLOBALS['dbi']->selectDb($db);
         } else {
-            $local_query  = 'SELECT * FROM ' . PMA\libraries\Util::backquote($db)
+            // Data is exported only for Non-generated columns
+            $tableObj = new PMA\libraries\Table($table, $db);
+            $nonGeneratedCols = $tableObj->getNonGeneratedColumns(true);
+
+            $local_query  = 'SELECT ' . implode(', ', $nonGeneratedCols)
+                .  ' FROM ' . PMA\libraries\Util::backquote($db)
                 . '.' . PMA\libraries\Util::backquote($table) . $add_query;
         }
         if (! $export_plugin->exportData(
@@ -1013,7 +1021,7 @@ function PMA_unlockTables()
 /**
  * Returns all the metadata types that can be exported with a database or a table
  *
- * @return array metadata types.
+ * @return string[] metadata types.
  */
 function PMA_getMetadataTypesToExport()
 {

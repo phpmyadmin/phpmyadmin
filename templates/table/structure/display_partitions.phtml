@@ -23,7 +23,7 @@ use PMA\libraries\URL; ?>
                 <thead>
                     <tr>
                         <th colspan="2">#</th>
-                        <th><?= __('Name'); ?></th>
+                        <th><?= __('Partition'); ?></th>
                         <?php if ($hasDescription): ?>
                             <th><?= __('Expression'); ?></th>
                         <?php endif; ?>
@@ -37,9 +37,8 @@ use PMA\libraries\URL; ?>
                     </tr>
                 </thead>
                 <tbody>
-                <?php $odd = true; ?>
                 <?php foreach ($partitions as $partition): ?>
-                    <tr class="noclick <?= ($odd ? 'odd' : 'even') , ($hasSubPartitions ? ' marked' : '') ?>">
+                    <tr class="noclick <?= ($hasSubPartitions ? ' marked' : '') ?>">
                         <?php if ($hasSubPartitions): ?>
                             <td><?= $partition->getOrdinal(); ?></td>
                             <td></td>
@@ -92,7 +91,7 @@ use PMA\libraries\URL; ?>
 
                         <?php if ($hasSubPartitions): ?>
                             <?php foreach ($partition->getSubPartitions() as $subParition): ?>
-                                <tr class="noclick <?= $odd ? 'odd' : 'even' ?>">
+                                <tr class="noclick">
                                     <td></td>
                                     <td><?= $subParition->getOrdinal(); ?></td>
                                     <td><?= htmlspecialchars($subParition->getName()); ?></td>
@@ -116,13 +115,12 @@ use PMA\libraries\URL; ?>
                                         <span><?= $value; ?></span>
                                         <span class="unit"><?= $unit; ?></span>
                                     </td>
-                                    <td><?= $subParition->getComment(); ?></td>
+                                    <td><?= htmlspecialchars($subParition->getComment()); ?></td>
                                     <td colspan="<?= $rangeOrList ? '7' : '6'; ?>"></td>
                                 </tr>
                             <?php endforeach; ?>
                         <?php endif; ?>
                     </tr>
-                    <?php $odd = ! $odd; ?>
                 <?php endforeach; ?>
                 </tbody>
             </table>

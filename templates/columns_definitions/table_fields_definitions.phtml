@@ -121,10 +121,8 @@
             </th>
         <?php endif; ?>
     </tr>
-    <?php $odd_row = true;?>
     <?php foreach($content_cells as $content_row): ?>
-        <tr class="<?= ($odd_row ? 'odd' : 'even'); ?>">
-            <?php $odd_row = !$odd_row; ?>
+        <tr>
             <?= PMA\libraries\Template::get('columns_definitions/column_attributes')
                 ->render($content_row); ?>
         </tr>

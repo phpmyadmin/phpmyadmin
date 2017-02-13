@@ -111,7 +111,7 @@ You can clone current phpMyAdmin source from
 
     git clone https://github.com/phpmyadmin/phpmyadmin.git
 
-Additionally you need to install dependencies using `Composer`_:
+Additionally you need to install dependencies using `Composer tool`_:
 
 .. code-block:: sh
 
@@ -125,10 +125,12 @@ by invoking:
     composer update --no-dev
 
 
+.. _composer:
+
 Installing using Composer
 +++++++++++++++++++++++++
 
-You can install phpMyAdmin using `Composer`_, however it's currently not
+You can install phpMyAdmin using `Composer tool`_, however it's currently not
 available in the default `Packagist`_ repository due to its technical
 limitations.
 
@@ -138,6 +140,8 @@ The installation is possible by adding our own repository
 .. code-block:: sh
 
     composer create-project phpmyadmin/phpmyadmin --repository-url=https://www.phpmyadmin.net/packages.json --no-dev
+
+.. _docker:
 
 Installing using Docker
 +++++++++++++++++++++++
@@ -155,16 +159,33 @@ environment variables:
 
 .. envvar:: PMA_ARBITRARY
 
-    Allows you to enter database server hostname on login form (see
-    :config:option:`$cfg['AllowArbitraryServer']`).
+    Allows you to enter database server hostname on login form.
+    
+    .. seealso:: :config:option:`$cfg['AllowArbitraryServer']`
 
 .. envvar:: PMA_HOST
     
     Host name or IP address of the database server to use.
 
+    .. seealso:: :config:option:`$cfg['Servers'][$i]['host']`
+
 .. envvar:: PMA_HOSTS
     
     Comma separated host names or IP addresses of the database servers to use.
+
+    .. note:: Used only if :envvar:`PMA_HOST` is empty.
+
+.. envvar:: PMA_VERBOSE
+    
+    Verbose name the database server.
+
+    .. seealso:: :config:option:`$cfg['Servers'][$i]['verbose']`
+
+.. envvar:: PMA_VERBOSES
+    
+    Comma separated verbose name the database servers.
+
+    .. note:: Used only if :envvar:`PMA_VERBOSE` is empty.
 
 .. envvar:: PMA_USER
     
@@ -178,26 +199,47 @@ environment variables:
     
     Port of the databse server to use.
 
-.. envvar:: PHP_UPLOAD_MAX_FILESIZE
+.. envvar:: PMA_ABSOLUTE_URI
    
-    Define upload_max_filesize and post_max_size PHP settings.
+    The fully-qualified path (``https://pma.example.net/``) where the reverse
+    proxy makes phpMyAdmin available.
 
-.. envvar:: PHP_MAX_INPUT_VARS
-   
-    Define max_input_vars PHP setting.
+    .. seealso:: :config:option:`$cfg['PmaAbsoluteUri']`
 
 By default, :ref:`cookie` is used, but if :envvar:`PMA_USER` and
 :envvar:`PMA_PASSWORD` are set, it is switched to :ref:`auth_config`.
 
-Additionally configuration can be tweaked by :file:`/config.user.inc.php`. If
+.. note::
+
+    The credentials you need to login are stored in the MySQL server, in case
+    of Docker image there are various ways to set it (for example
+    :samp:`MYSQL_ROOT_PASSWORD` when starting MySQL container). Please check 
+    documentation for `MariaDB container <https://hub.docker.com/r/_/mariadb/>`_
+    or `MySQL container <https://hub.docker.com/r/_/mysql/>`_.
+
+Additionally configuration can be tweaked by :file:`/etc/phpmyadmin/config.user.inc.php`. If
 this file exists, it will be loaded after configuration generated from above
 environment variables, so you can override any configuration variable. This
 configuraiton can be added as a volume when invoking docker using 
-`-v /some/local/directory/config.user.inc.php:/config.user.inc.php` parameters.
+`-v /some/local/directory/config.user.inc.php:/etc/phpmyadmin/config.user.inc.php` parameters.
 
 .. seealso:: 
    
     See :ref:`config` for detailed description of configuration options.
+
+Docker Volumes
+--------------
+
+You can use following volumes to customise image behavior:
+
+:file:`/etc/phpmyadmin/config.user.inc.php`
+
+    Can be used for additional settings, see previous chapter for more details.
+
+:file:`/sessions/`
+
+    Directory where PHP sessions are stored. You might want to share this 
+    for example when uswing :ref:`auth_signon`.
 
 Docker Examples
 ---------------
@@ -226,11 +268,11 @@ You can also link the database container using Docker:
 
     docker run --name phpmyadmin -d --link mysql_db_server:db -p 8080:80 phpmyadmin/phpmyadmin
 
-Running with additional configration:
+Running with additional configuration:
 
 .. code-block:: sh
 
-    docker run --name phpmyadmin -d --link mysql_db_server:db -p 8080:80 -v /some/local/directory/config.user.inc.php:/config.user.inc.php phpmyadmin/phpmyadmin
+    docker run --name phpmyadmin -d --link mysql_db_server:db -p 8080:80 -v /some/local/directory/config.user.inc.php:/etc/phpmyadmin/config.user.inc.php phpmyadmin/phpmyadmin
 
 Using docker-compose
 --------------------
@@ -288,13 +330,14 @@ simple configuration may look like this:
 
 
     <?php
-    $cfg['blowfish_secret'] = 'ba17c1ec07d65003';  // use here a value of your choice
+    // use here a value of your choice at least 32 chars long
+    $cfg['blowfish_secret'] = '1{dd0`<Q),5XP_:R9UK%%8\"EEcyH#{o';
 
     $i=0;
     $i++;
     $cfg['Servers'][$i]['auth_type']     = 'cookie';
-    // if you insist on "root" having no password:
-    // $cfg['Servers'][$i]['AllowNoPasswordRoot'] = true; `
+    // if you insist on "root" having no password:
+    // $cfg['Servers'][$i]['AllowNoPasswordRoot'] = true; `
     ?>
 
 Or, if you prefer to not be prompted every time you log in:
@@ -421,7 +464,7 @@ Setup script on openSUSE
 Some openSUSE releases do not include setup script in the package. In case you
 want to generate configuration on these you can either download original
 package from <https://www.phpmyadmin.net/> or use setup script on our demo
-server: <https://demo.phpmyadmin.net/master/setup/>.
+server: <https://demo.phpmyadmin.net/STABLE/setup/>.
 
 
 .. _verify:
@@ -437,7 +480,7 @@ releasing developer, who through January 2016 was Marc Delisle. His key id is
 
     436F F188 4B1A 0C3F DCBF 0D79 FEFC 65D1 81AF 644A
 
-and you can get more identification information from `https://keybase.io/lem9 <https://keybase.io/lem9>`_.
+and you can get more identification information from <https://keybase.io/lem9>.
 
 Beginning in January 2016, the release manager is Isaac Bennetch. His key id is
 0xCE752F178259BD92, and his PGP fingerprint is:
@@ -446,11 +489,21 @@ Beginning in January 2016, the release manager is Isaac Bennetch. His key id is
 
     3D06 A59E CE73 0EB7 1B51 1C17 CE75 2F17 8259 BD92
 
-and you can get more identification information from `https://keybase.io/ibennetch <https://keybase.io/ibennetch>`_.
+and you can get more identification information from <https://keybase.io/ibennetch>.
 
-You should verify that the signature matches
-the archive you have downloaded. This way you can be sure that you are using
-the same code that was released.
+Some additional downloads (for example themes) might be signed by Michal Čihař. His key id is
+0x9C27B31342B7511D, and his PGP fingerprint is:
+
+.. code-block:: console
+
+    63CB 1DF1 EF12 CF2A C0EE 5A32 9C27 B313 42B7 511D
+
+and you can get more identification information from <https://keybase.io/nijel>.
+
+You should verify that the signature matches the archive you have downloaded.
+This way you can be sure that you are using the same code that was released.
+You should also verify the date of the signature to make sure that you
+downloaded the latest version.
 
 Each archive is accompanied with ``.asc`` files which contains the PGP signature
 for it. Once you have both of them in the same folder, you can verify the signature:
@@ -586,6 +639,8 @@ If you already had this infrastructure and:
   :file:`sql/upgrade_tables_mysql_4_1_2+.sql`.
 * upgraded to phpMyAdmin 4.3.0 or newer from 2.5.0 or newer (<= 4.2.x),
   please use :file:`sql/upgrade_column_info_4_3_0+.sql`.
+* upgraded to phpMyAdmin 4.7.0 or newer from 4.3.0 or newer,
+  please use :file:`sql/upgrade_tables_4_7_0+.sql`.
 
 and then create new tables by importing :file:`sql/create_tables.sql`.
 
@@ -832,8 +887,9 @@ are always ways to make your installation more secure:
 * Serve phpMyAdmin on HTTPS only. Preferably, you should use HSTS as well, so that
   you're protected from protocol downgrade attacks.
 * Ensure your PHP setup follows recommendations for production sites, for example
-  `display_errors <https://php.net/manual/en/errorfunc.configuration.php#ini.display-errors>`_ 
+  `display_errors <https://secure.php.net/manual/en/errorfunc.configuration.php#ini.display-errors>`_ 
   should be disabled.
+* Remove the ``test`` directory from phpMyAdmin, unless you are developing and need test suite.
 * Remove the ``setup`` directory from phpMyAdmin, you will probably not
   use it after the initial setup.
 * Properly choose an authentication method - :ref:`cookie`
@@ -849,7 +905,8 @@ are always ways to make your installation more secure:
   can do this using ``robots.txt`` file in root of your webserver or limit
   access by web server configuration, see :ref:`faq1_42`.
 * In case you don't want all MySQL users to be able to access
-  phpMyAdmin, you can use :config:option:`$cfg['Servers'][$i]['AllowDeny']['rules']` to limit them.
+  phpMyAdmin, you can use :config:option:`$cfg['Servers'][$i]['AllowDeny']['rules']` to limit them
+  or :config:option:`$cfg['Servers'][$i]['AllowRoot']` to deny root user access.
 * Consider hiding phpMyAdmin behind an authentication proxy, so that
   users need to authenticate prior to providing MySQL credentials
   to phpMyAdmin. You can achieve this by configuring your web server to request
@@ -894,6 +951,6 @@ When using the 'http' ``auth_type``, it can be impossible to log back in (when t
 manually or after a period of inactivity). `Issue 11898 <https://github.com/phpmyadmin/phpmyadmin/issues/11898>`_.
 
 
-.. _Composer: https://getcomposer.org/
+.. _Composer tool: https://getcomposer.org/
 .. _Packagist: https://packagist.org/
 .. _Docker image: https://hub.docker.com/r/phpmyadmin/phpmyadmin/

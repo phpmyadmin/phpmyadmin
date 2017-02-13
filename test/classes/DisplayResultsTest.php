@@ -371,8 +371,8 @@ class DisplayResultsTest extends PMATestCase
                 '%60new%60.%60id%60+%3D+1',
                 array('`new`.`id`' => '= 1'),
                 '[%_PMA_CHECKBOX_DIR_%]',
-                'odd',
-                '<td class="odd" class="center print_ignore"><input type'
+                'klass',
+                '<td class="klass" class="center print_ignore"><input type'
                 . '="checkbox" id="id_rows_to_delete0[%_PMA_CHECKBOX_DIR_%]" name='
                 . '"rows_to_delete[0]" class="multi_checkbox checkall" value="%60'
                 . 'new%60.%60id%60+%3D+1"  /><input type="hidden" class="condition_'
@@ -428,12 +428,12 @@ class DisplayResultsTest extends PMATestCase
                 . 'customer%60.%60id%60+%3D+1&amp;clause_is_unique=1&amp;sql_query='
                 . 'SELECT+%2A+FROM+%60customer%60&amp;goto=sql.php&amp;default_'
                 . 'action=update',
-                'odd edit_row_anchor',
+                'klass edit_row_anchor',
                 '<span class="nowrap"><img src="themes/dot.gif" title="Edit" alt='
                 . '"Edit" class="icon ic_b_edit" /> Edit</span>',
                 '`customer`.`id` = 1',
                 '%60customer%60.%60id%60+%3D+1',
-                '<td class="odd edit_row_anchor center print_ignore"  >'
+                '<td class="klass edit_row_anchor center print_ignore"  >'
                 . '<span class="nowrap">' . "\n"
                 . '<a href="tbl_change.php?db=Data&amp;table=customer&amp;where_'
                 . 'clause=%60customer%60.%60id%60+%3D+1&amp;clause_is_unique=1&amp;'
@@ -495,8 +495,8 @@ class DisplayResultsTest extends PMATestCase
                 . '="Copy" class="icon ic_b_insrow" /> Copy</span>',
                 '`customer`.`id` = 1',
                 '%60customer%60.%60id%60+%3D+1',
-                'odd',
-                '<td class="odd center print_ignore"  ><span class='
+                'klass',
+                '<td class="klass center print_ignore"  ><span class='
                 . '"nowrap">' . "\n"
                 . '<a href="tbl_change.php?db=Data&amp;table=customer&amp;where_'
                 . 'clause=%60customer%60.%60id%60+%3D+1&amp;clause_is_unique=1&amp;'
@@ -559,8 +559,8 @@ class DisplayResultsTest extends PMATestCase
                 '<span class="nowrap"><img src="themes/dot.gif" title="Delete" '
                 . 'alt="Delete" class="icon ic_b_drop" /> Delete</span>',
                 'DELETE FROM `Data`.`customer` WHERE `customer`.`id` = 1',
-                'odd',
-                '<td class="odd center print_ignore"  >' . "\n"
+                'klass',
+                '<td class="klass center print_ignore"  >' . "\n"
                 . '<a href="sql.php?db=Data&amp;table=customer&amp;sql_query=DELETE'
                 . '+FROM+%60Data%60.%60customer%60+WHERE+%60customer%60.%60id%60+%3D'
                 . '+1&amp;message_to_show=The+row+has+been+deleted&amp;goto=sql.php'
@@ -960,9 +960,9 @@ class DisplayResultsTest extends PMATestCase
                     'routine_type' => 'FUNCTION'
                 ),
                 'routine_name',
-                'db_routines.php?item_name=circumference&amp;db=data'
-                . '&amp;item_type=FUNCTION&amp;server=0&amp;lang=en'
-                . '&amp;collation_connection=utf-8'
+                'db_routines.php?item_name=circumference&db=data'
+                . '&item_type=FUNCTION&server=0&lang=en'
+                . '&collation_connection=utf-8'
             ),
             array(
                 'information_schema',
@@ -974,9 +974,9 @@ class DisplayResultsTest extends PMATestCase
                     'routine_type' => 'PROCEDURE'
                 ),
                 'routine_name',
-                'db_routines.php?item_name=area&amp;db=data'
-                . '&amp;item_type=PROCEDURE&amp;server=0&amp;lang=en'
-                . '&amp;collation_connection=utf-8'
+                'db_routines.php?item_name=area&db=data'
+                . '&item_type=PROCEDURE&server=0&lang=en'
+                . '&collation_connection=utf-8'
             ),
             array(
                 'information_schema',
@@ -988,9 +988,9 @@ class DisplayResultsTest extends PMATestCase
                 ),
                 'column_name',
                 'index.php?sql_query=SELECT+%60CHARACTER_SET_NAME%60+FROM+%60info'
-                . 'rmation_schema%60.%60CHARACTER_SETS%60&amp;db=information_schema'
-                . '&amp;test_name=value&amp;server=0&amp;lang=en'
-                . '&amp;collation_connection=utf-8'
+                . 'rmation_schema%60.%60CHARACTER_SETS%60&db=information_schema'
+                . '&test_name=value&server=0&lang=en'
+                . '&collation_connection=utf-8'
             )
         );
     }
@@ -1363,7 +1363,7 @@ class DisplayResultsTest extends PMATestCase
                 $meta,
                 $url_params,
                 null,
-                '<a href="1001" title="" target="_new">1001</a>'
+                '1001'
             ),
             array(
                 false,
@@ -1492,7 +1492,7 @@ class DisplayResultsTest extends PMATestCase
                 0,
                 'binary',
                 '<td class="left grid_edit  transformed hex">'
-                . '<a href="1001" title="" target="_new">1001</a></td>'
+                . '1001</td>'
             ),
             array(
                 'noblob',
