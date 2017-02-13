@@ -66,6 +66,7 @@ phpMyAdmin - ChangeLog
 - issue #12981 Improved rendering of new version information
 - issue #12922 Fixed bookmarks ordering
 - issue #12964 Fixed table search in navigation
+- issue #12985 Fixed rendering of foreign key browsing
 
 4.6.6 (2017-01-23)
 - issue #12759 Fix Notice regarding 'Undefined index: old_usergroup'
