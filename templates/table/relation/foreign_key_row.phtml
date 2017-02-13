@@ -43,6 +43,9 @@ foreach ($columns as $column) {
         $column_array[$column['Field']] = $column['Field'];
     }
 }
+if ($GLOBALS['cfg']['NaturalOrder']) {
+    uksort($column_array, 'strnatcasecmp');
+}
 
 $foreign_table = false;
 // foreign database dropdown
