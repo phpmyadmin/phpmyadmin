@@ -1037,7 +1037,7 @@ function PMA_navigationTreePagination($this) {
     var url, params;
     if ($this[0].tagName == 'A') {
         url = $this.attr('href');
-        params = 'ajax_request=true';
+        params = 'ajax_request=true&token=' + PMA_commonParams.get('token');
     } else { // tagName == 'SELECT'
         url = 'navigation.php';
         params = $this.closest("form").serialize() + '&ajax_request=true';

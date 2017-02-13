@@ -128,8 +128,14 @@ and after execution of your :term:`SQL` commands, removed.
 1.12 I have lost my MySQL root password, what can I do?
 -------------------------------------------------------
 
+phpMyAdmin does authenticate against MySQL server you're using, so to recover
+from phpMyAdmin password loss, you need to recover at MySQL level.
+
 The MySQL manual explains how to `reset the permissions
 <https://dev.mysql.com/doc/refman/5.7/en/resetting-permissions.html>`_.
+
+If you are using MySQL server installed by your hosting provider, please
+contact their support to recover the password for you.
 
 .. _faq1_13:
 
@@ -159,14 +165,13 @@ Starting with version 2.7.0, the import engine has been re–written and
 these problems should not occur. If possible, upgrade your phpMyAdmin
 to the latest version to take advantage of the new import features.
 
-The first things to check (or ask your host provider to check) are the
-values of ``upload_max_filesize``, ``memory_limit`` and
-``post_max_size`` in the :file:`php.ini` configuration file. All of these
-three settings limit the maximum size of data that can be submitted
-and handled by PHP. One user also said that ``post_max_size`` and
-``memory_limit`` need to be larger than ``upload_max_filesize``.
-There exist several workarounds if your upload is too big or your
-hosting provider is unwilling to change the settings:
+The first things to check (or ask your host provider to check) are the values
+of ``max_execution_time``, ``upload_max_filesize``, ``memory_limit`` and
+``post_max_size`` in the :file:`php.ini` configuration file. All of these three
+settings limit the maximum size of data that can be submitted and handled by
+PHP. Please note that ``post_max_size`` needs to be larger than
+``upload_max_filesize``. There exist several workarounds if your upload is too
+big or your hosting provider is unwilling to change the settings:
 
 * Look at the :config:option:`$cfg['UploadDir']` feature. This allows one to upload a file to the server
   via scp, ftp, or your favorite file transfer method. PhpMyAdmin is

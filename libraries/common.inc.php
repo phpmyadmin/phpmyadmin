@@ -75,12 +75,19 @@ require_once './libraries/vendor_config.php';
 /**
  * Activate autoloader
  */
+if (! @is_readable('./vendor/autoload.php')) {
+    die(
+        'File <tt>./vendor/autoload.php</tt> missing or not readable. <br />'
+        . 'Most likely you did not run Composer to '
+        . '<a href="https://docs.phpmyadmin.net/en/latest/setup.html#installing-from-git">install library files</a>.'
+    );
+}
 require_once './vendor/autoload.php';
 
 /**
  * Load gettext functions.
  */
-MoTranslator\Loader::loadFunctions();
+PhpMyAdmin\MoTranslator\Loader::loadFunctions();
 
 /**
  * initialize the error handler
@@ -262,9 +269,6 @@ $GLOBALS['url_params'] = array();
  * @global array $goto_whitelist
  */
 $goto_whitelist = array(
-    //'browse_foreigners.php',
-    //'changelog.php',
-    //'chk_rel.php',
     'db_datadict.php',
     'db_sql.php',
     'db_events.php',
@@ -278,9 +282,6 @@ $goto_whitelist = array(
     'db_routines.php',
     'export.php',
     'import.php',
-    //'index.php',
-    //'navigation.php',
-    //'license.php',
     'index.php',
     'pdf_pages.php',
     'pdf_schema.php',
@@ -313,7 +314,6 @@ $goto_whitelist = array(
     'tbl_row_action.php',
     'tbl_select.php',
     'tbl_zoom_select.php',
-    //'themes.php',
     'transformation_overview.php',
     'transformation_wrapper.php',
     'user_password.php',
@@ -502,29 +502,12 @@ if (! isset($cfg['Servers']) || count($cfg['Servers']) == 0) {
 
         $each_server = array_merge($default_server, $each_server);
 
-        // Don't use servers with no hostname
-        if ($each_server['connect_type'] == 'tcp' && empty($each_server['host'])) {
-            trigger_error(
-                sprintf(
-                    __(
-                        'Invalid hostname for server %1$s. '
-                        . 'Please review your configuration.'
-                    ),
-                    $server_index
-                ),
-                E_USER_ERROR
-            );
-        }
-
         // Final solution to bug #582890
         // If we are using a socket connection
         // and there is nothing in the verbose server name
         // or the host field, then generate a name for the server
         // in the form of "Server 2", localized of course!
-        if ($each_server['connect_type'] == 'socket'
-            && empty($each_server['host'])
-            && empty($each_server['verbose'])
-        ) {
+        if (empty($each_server['host']) && empty($each_server['verbose'])) {
             $each_server['verbose'] = sprintf(__('Server %d'), $server_index);
         }
 
@@ -728,11 +711,6 @@ if (! defined('PMA_MINIMUM_COMMON')) {
             $auth_plugin->authFails();
         }
 
-        // if using TCP socket is not needed
-        if (mb_strtolower($cfg['Server']['connect_type']) == 'tcp') {
-            $cfg['Server']['socket'] = '';
-        }
-
         // Try to connect MySQL with the control user profile (will be used to
         // get the privileges list for the current user but the true user link
         // must be open after this one so it would be default one for all the
@@ -807,11 +785,11 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         $GLOBALS['PMA_Types'] = new TypesMySQL();
 
         // Loads closest context to this version.
-        SqlParser\Context::loadClosest('MySql' . PMA_MYSQL_INT_VERSION);
+        PhpMyAdmin\SqlParser\Context::loadClosest('MySql' . PMA_MYSQL_INT_VERSION);
 
         // Sets the default delimiter (if specified).
         if (!empty($_REQUEST['sql_delimiter'])) {
-            SqlParser\Lexer::$DEFAULT_DELIMITER = $_REQUEST['sql_delimiter'];
+            PhpMyAdmin\SqlParser\Lexer::$DEFAULT_DELIMITER = $_REQUEST['sql_delimiter'];
         }
 
         // TODO: Set SQL modes too.
@@ -864,7 +842,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
     if (! defined('PMA_BYPASS_GET_INSTANCE')) {
         $response = Response::getInstance();
     }
-    if (isset($_SESSION['profiling'])) {
+    if (isset($response) && isset($_SESSION['profiling'])) {
         $header   = $response->getHeader();
         $scripts  = $header->getScripts();
         $scripts->addFile('chart.js');
@@ -937,10 +915,8 @@ if (! defined('PMA_MINIMUM_COMMON')
     }
     $cfgRelation = PMA_getRelationsParam();
     if (empty($cfgRelation['db'])) {
-        foreach ($GLOBALS['dblist']->databases as $database) {
-            if ($database == 'phpmyadmin') {
-                PMA_fixPMATables($database, false);
-            }
+        if ($GLOBALS['dblist']->databases->exists('phpmyadmin')) {
+            PMA_fixPMATables('phpmyadmin', false);
         }
     }
 }

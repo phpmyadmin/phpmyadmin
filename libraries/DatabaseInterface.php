@@ -280,6 +280,7 @@ class DatabaseInterface
                     'SQL[' . basename($_SERVER['SCRIPT_NAME']) . ']: '
                     . sprintf('%0.3f', $time) . ' > ' . $query
                 );
+                closelog();
             }
         }
 
@@ -318,13 +319,17 @@ class DatabaseInterface
      */
     public function getTables($database, $link = null)
     {
-        return $this->fetchResult(
+        $tables = $this->fetchResult(
             'SHOW TABLES FROM ' . Util::backquote($database) . ';',
             null,
             0,
             $link,
             self::QUERY_STORE
         );
+        if ($GLOBALS['cfg']['NaturalOrder']) {
+            uksort($tables, 'strnatcasecmp');
+        }
+        return $tables;
     }
 
     /**
@@ -2273,7 +2278,7 @@ class DatabaseInterface
             // Share the settings if the host is same
             if ($server['host'] == $cfg['Server']['host']) {
                 $shared = array(
-                    'port', 'socket', 'connect_type', 'compress',
+                    'port', 'socket', 'compress',
                     'ssl', 'ssl_key', 'ssl_cert', 'ssl_ca',
                     'ssl_ca_path',  'ssl_ciphers', 'ssl_verify',
                 );

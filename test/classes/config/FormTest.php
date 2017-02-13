@@ -249,7 +249,7 @@ class FormTest extends PMATestCase
 
         $this->object->fields = array(
             "pma_form1" => "Servers/1/port",
-            "pma_form2" => "Servers/1/connect_type",
+            "pma_form2" => "Servers/1/auth_type",
             ":group:end:0" => "preffoo/foo/bar/test",
             "1" => "preffoo/foo/bar/:group:end:0"
         );

@@ -154,8 +154,18 @@ download it using:
     docker pull phpmyadmin/phpmyadmin
 
 The phpMyAdmin server will be executed on port 80. It supports several ways of
-configuring the link to the database server, which you can manage using
-environment variables:
+configuring the link to the database server, either by Docker's link feature
+by linking your database container to ``db`` for phpMyAdmin (by specifying
+``--link your_db_host:db``) or by environment variables (in this case it's up
+to you to setup networking in Docker to allow phpMyAdmin container to access
+the database container over network).
+
+.. _docker-vars:
+
+Docker environment variables
+----------------------------
+
+You can configure several phpMyAdmin features using environment variables:
 
 .. envvar:: PMA_ARBITRARY
 
@@ -217,11 +227,28 @@ By default, :ref:`cookie` is used, but if :envvar:`PMA_USER` and
     documentation for `MariaDB container <https://hub.docker.com/r/_/mariadb/>`_
     or `MySQL container <https://hub.docker.com/r/_/mysql/>`_.
 
+.. _docker-custom:
+
+Customizing configuration
+-------------------------
+
 Additionally configuration can be tweaked by :file:`/etc/phpmyadmin/config.user.inc.php`. If
 this file exists, it will be loaded after configuration generated from above
 environment variables, so you can override any configuration variable. This
 configuraiton can be added as a volume when invoking docker using 
 `-v /some/local/directory/config.user.inc.php:/etc/phpmyadmin/config.user.inc.php` parameters.
+
+Note that the supplied configuration file is applied after :ref:`docker-vars`,
+but you can override any of the values.
+
+For example to change default behaviour of CSV export you can use following
+configuration file:
+
+.. code-block:: php
+
+    <?php
+    $cfg['Export']['csv_columns'] = true;
+
 
 .. seealso:: 
    
@@ -284,6 +311,80 @@ arbitrary server - allowing you to specify MySQL/MariaDB server on login page.
 .. code-block:: sh
 
     docker-compose up -d
+
+Customizing configuration file using docker-compose
+---------------------------------------------------
+
+You can use external file to customize phpMyAdmin configuration and pass it
+using volumes directive:
+
+.. code-block:: yaml
+
+    phpmyadmin:
+        image: phpmyadmin/phpmyadmin
+        container_name: phpmyadmin
+        environment:
+         - PMA_ARBITRARY=1
+        restart: always
+        ports:
+         - 8080:80
+        volumes:
+         - /sessions
+         - ~/docker/phpmyadmin/config.user.inc.php:/etc/phpmyadmin/config.user.inc.php
+
+.. seealso:: :ref:`docker-custom`
+
+Running behind haproxy in a subdirectory
+----------------------------------------
+
+When you want to expose phpMyAdmin running in a Docker container in a
+subdirectory, you need to rewrite the request path in the server proxying the
+requests. For example using haproxy it can be done as:
+
+.. code-block:: text
+
+    frontend http
+        bind *:80
+        option forwardfor
+        option http-server-close
+
+        ### NETWORK restriction
+        acl LOCALNET  src 10.0.0.0/8 192.168.0.0/16 172.16.0.0/12
+
+        # /phpmyadmin
+        acl phpmyadmin  path_dir /phpmyadmin
+        use_backend phpmyadmin if phpmyadmin LOCALNET  
+
+    backend phpmyadmin
+        mode http
+
+        reqirep  ^(GET|POST|HEAD)\ /phpmyadmin/(.*)     \1\ /\2 
+
+        # phpMyAdmin container IP
+        server localhost     172.30.21.21:80                
+
+You then should specify :envvar:`PMA_ABSOLUTE_URI` in the docker-compose
+configuration:
+
+.. code-block:: yaml
+
+    version: '2'
+
+    services:
+      phpmyadmin:
+        restart: always
+        image: phpmyadmin/phpmyadmin
+        container_name: phpmyadmin
+        hostname: phpmyadmin
+        domainname: example.com
+        ports:
+          - 8000:80
+        environment:
+          - PMA_HOSTS=172.26.36.7,172.26.36.8,172.26.36.9,172.26.36.10
+          - PMA_VERBOSES=production-db1,production-db2,dev-db1,dev-db2
+          - PMA_USER=root
+          - PMA_PASSWORD=
+          - PMA_ABSOLUTE_URI=http://example.com/phpmyadmin/
 
 .. _quick_install:
 
@@ -370,57 +471,13 @@ Using Setup script
 ------------------
 
 Instead of manually editing :file:`config.inc.php`, you can use phpMyAdmin's 
-setup feature. First you must manually create a folder ``config``
-in the phpMyAdmin directory. This is a security measure. On a
-Linux/Unix system you can use the following commands:
+setup feature. The file can be generated using the setup and you can download it 
+for upload to the server.
 
-.. code-block:: sh
-
-
-    cd phpMyAdmin
-    mkdir config                        # create directory for saving
-    chmod o+rw config                   # give it world writable permissions
-
-.. note::
-
-    Following documentation covers default behavior of phpMyAdmin. Some
-    distributions have changed this, please check following sections for
-    information on this topic.
-
-And to edit an existing configuration, copy it over first:
-
-.. code-block:: sh
-
-
-    cp config.inc.php config/           # copy current configuration for editing
-    chmod o+w config/config.inc.php     # give it world writable permissions
-
-On other platforms, simply create the folder and ensure that your web
-server has read and write access to it. :ref:`faq1_26` can help with
-this.
-
-Next, open your browser and visit the location where you installed phpMyAdmin, with the ``/setup`` suffix. If you have an existing configuration,
-use the ``Load`` button to bring its content inside the setup panel.
-Note that **changes are not saved to disk until you explicitly choose ``Save``**
-from the *Configuration* area of the screen. Normally the script saves the new
-:file:`config.inc.php` to the ``config/`` directory, but if the webserver does
-not have the proper permissions you may see the error "Cannot load or
-save configuration." Ensure that the ``config/`` directory exists and
-has the proper permissions - or use the ``Download`` link to save the
-config file locally and upload it (via FTP or some similar means) to the
-proper location.
-
-Once the file has been saved, it must be moved out of the ``config/``
-directory and the permissions must be reset, again as a security
-measure:
-
-.. code-block:: sh
-
-
-    mv config/config.inc.php .         # move file to current directory
-    chmod o-rw config.inc.php          # remove world read and write permissions
-    rm -rf config                      # remove not needed directory
-
+Next, open your browser and visit the location where you installed phpMyAdmin,
+with the ``/setup`` suffix. The changes are not saved to the server, you need to 
+use the :guilabel:`Download` button to save them to your computer and then upload 
+to the server.
 
 Now the file is ready to be used. You can choose to review or edit the
 file with your favorite editor, if you prefer to set some advanced
@@ -816,7 +873,8 @@ Signon authentication mode
   application to authenticate to phpMyAdmin to implement single signon
   solution.
 * The other application has to store login information into session
-  data (see :config:option:`$cfg['Servers'][$i]['SignonSession']`) or you
+  data (see :config:option:`$cfg['Servers'][$i]['SignonSession']` and
+  :config:option:`$cfg['Servers'][$i]['SignonCookieParams']`) or you
   need to implement script to return the credentials (see
   :config:option:`$cfg['Servers'][$i]['SignonScript']`).
 * When no credentials are available, the user is being redirected to
@@ -846,6 +904,7 @@ in :file:`examples/signon-script.php`:
 .. seealso::
     :config:option:`$cfg['Servers'][$i]['auth_type']`,
     :config:option:`$cfg['Servers'][$i]['SignonSession']`,
+    :config:option:`$cfg['Servers'][$i]['SignonCookieParams']`,
     :config:option:`$cfg['Servers'][$i]['SignonScript']`,
     :config:option:`$cfg['Servers'][$i]['SignonURL']`,
     :ref:`example-signon`
@@ -929,8 +988,9 @@ are always ways to make your installation more secure:
 * If you are afraid of automated attacks, enabling Captcha by
   :config:option:`$cfg['CaptchaLoginPublicKey']` and
   :config:option:`$cfg['CaptchaLoginPrivateKey']` might be an option.
-* Alternative approach might be using fail2ban as phpMyAdmin logs failed
-  authentication attempts to syslog (if available)
+* Failed login attemps are logged to syslog (if available). This can allow using a tool such as
+  fail2ban to block brute-force attempts. Note that the log file used by syslog is not the same
+  as the Apache error or access log files.
 
 Known issues
 ++++++++++++

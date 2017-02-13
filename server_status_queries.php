@@ -22,7 +22,6 @@ $serverStatusData = new ServerStatusData();
 $response = Response::getInstance();
 $header   = $response->getHeader();
 $scripts  = $header->getScripts();
-$scripts->addFile('server_status_queries.js');
 
 // for charting
 $scripts->addFile('chart.js');
@@ -31,6 +30,7 @@ $scripts->addFile('jqplot/plugins/jqplot.pieRenderer.js');
 $scripts->addFile('jqplot/plugins/jqplot.highlighter.js');
 $scripts->addFile('jquery/jquery.tablesorter.js');
 $scripts->addFile('server_status_sorter.js');
+$scripts->addFile('server_status_queries.js');
 
 // Add the html content to the response
 $response->addHTML('<div>');

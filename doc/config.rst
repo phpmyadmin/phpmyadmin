@@ -218,8 +218,11 @@ Server connection settings
 
     .. note::
 
-        The hostname ``localhost`` is handled specially by MySQL and it
-        ignores :config:option:`$cfg['Servers'][$i]['port']` in this case.
+        The hostname ``localhost`` is handled specially by MySQL and it uses
+        the socket based connection protocol. To use TCP/IP networking, use an
+        IP address or hostname such as ``127.0.0.1`` or ``db.example.com``. You
+        can configure the path to the socket with
+        :config:option:`$cfg['Servers'][$i]['socket']`.
 
     .. seealso::
 
@@ -255,6 +258,11 @@ Server connection settings
     the correct socket, check your MySQL configuration or, using the
     :command:`mysql` command–line client, issue the ``status`` command. Among the
     resulting information displayed will be the socket used.
+
+    .. note::
+
+        This takes effect only if :config:option:`$cfg['Servers'][$i]['host']` is set
+        to ``localhost``.
 
     .. seealso::
 
@@ -417,6 +425,13 @@ Server connection settings
 
     :type: string
     :default: ``'tcp'``
+
+    .. deprecated:: 4.7.0
+
+       This setting is no longer used as of 4.7.0, since MySQL decides the
+       connection type based on host, so it could lead to unexpected results.
+       Please set :config:option:`$cfg['Servers'][$i]['host']` accordingly
+       instead.
 
     What type connection to use with the MySQL server. Your options are
     ``'socket'`` and ``'tcp'``. It defaults to tcp as that is nearly guaranteed
@@ -1349,6 +1364,23 @@ Server connection settings
 
     .. seealso:: :ref:`auth_signon`
 
+.. config:option:: $cfg['Servers'][$i]['SignonCookieParams']
+
+    :type: array
+    :default: ``array()``
+
+    .. versionadded:: 4.7.0
+
+    An associative array of session cookie parameters of other authentication system.
+    It is not needed if the other system doesn't use session_set_cookie_params().
+    Keys should include 'lifetime', 'path', 'domain', 'secure' or 'httponly'.
+    Valid values are mentioned in `session_get_cookie_params <https://secure.php.net/manual/en/
+    function.session-get-cookie-params.php>`_, they should be set to same values as the
+    other application uses. Takes effect only if
+    :config:option:`$cfg['Servers'][$i]['SignonScript']` is not configured.
+
+    .. seealso:: :ref:`auth_signon`
+
 .. config:option:: $cfg['Servers'][$i]['SignonURL']
 
     :type: string
@@ -2021,6 +2053,11 @@ Main panel
     You can additionally hide more information by using
     :config:option:`$cfg['Servers'][$i]['verbose']`.
 
+.. config:option:: $cfg['ShowPhpInfo']
+
+    :type: boolean
+    :default: false
+
 .. config:option:: $cfg['ShowChgPassword']
 
     :type: boolean
@@ -2031,10 +2068,25 @@ Main panel
     :type: boolean
     :default: true
 
-    Defines whether to display the 
+    Defines whether to display the :guilabel:`PHP information` and
     :guilabel:`Change password` links and form for creating database or not at
     the starting main (right) frame. This setting does not check MySQL commands
     entered directly.
+
+    Please note that to block the usage of ``phpinfo()`` in scripts, you have to
+    put this in your :file:`php.ini`:
+
+    .. code-block:: ini
+
+        disable_functions = phpinfo()
+
+    .. warning::
+
+        Enabling phpinfo page will leak quite a lot of information about server
+        setup. Is it not recommended to enable this on shared installations.
+
+        This might also make easier some remote attacks on your installations,
+        so enable this only when needed.
 
     Also note that enabling the :guilabel:`Change password` link has no effect
     with config authentication mode: because of the hard coded password value
@@ -2278,6 +2330,13 @@ Export and import settings
     items are similar to texts seen on export page, so you can easily
     identify what they mean.
 
+.. config:option:: $cfg['Export']['format']
+   
+    :type: string
+    :default: ``'sql'``
+
+    Default export format.
+
 .. config:option:: $cfg['Export']['method']
 
     :type: string
@@ -2298,6 +2357,33 @@ Export and import settings
 
     Defines charset for generated export. By default no charset conversion is
     done assuming UTF-8.
+
+.. config:option:: $cfg['Export']['file_template_table']
+
+    :type: string
+    :default: ``'@TABLE@'``
+
+    Default filename template for table exports.
+
+    .. seealso:: :ref:`faq6_27`
+
+.. config:option:: $cfg['Export']['file_template_database']
+
+    :type: string
+    :default: ``'@DATABASE@'``
+
+    Default filename template for database exports.
+
+    .. seealso:: :ref:`faq6_27`
+
+.. config:option:: $cfg['Export']['file_template_server']
+
+    :type: string
+    :default: ``'@SERVER@'``
+
+    Default filename template for server exports.
+
+    .. seealso:: :ref:`faq6_27`
 
 .. config:option:: $cfg['Import']
 

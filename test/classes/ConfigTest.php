@@ -63,6 +63,7 @@ class ConfigTest extends PMATestCase
      */
     protected function tearDown()
     {
+        parent::tearDown();
         unset($this->object);
         unset($this->permTestObj);
     }

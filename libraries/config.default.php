@@ -192,13 +192,6 @@ $cfg['Servers'][$i]['ssl_ciphers'] = null;
 $cfg['Servers'][$i]['ssl_verify'] = true;
 
 /**
- * How to connect to MySQL server ('tcp' or 'socket')
- *
- * @global string $cfg['Servers'][$i]['connect_type']
- */
-$cfg['Servers'][$i]['connect_type'] = 'tcp';
-
-/**
  * Use compressed protocol for the MySQL connection
  *
  * @global boolean $cfg['Servers'][$i]['compress']
@@ -275,6 +268,14 @@ $cfg['Servers'][$i]['password'] = '';
  * @global string $cfg['Servers'][$i]['SignonSession']
  */
 $cfg['Servers'][$i]['SignonSession'] = '';
+
+/**
+ * Cookie params to match session to use for 'signon' authentication method
+ * It should be an associative array matching result of session_get_cookie_params() in other system
+ *
+ * @global array $cfg['Servers'][$i]['SignonCookieParams']
+ */
+$cfg['Servers'][$i]['SignonCookieParams'] = array();
 
 /**
  * PHP script to use for 'signon' authentication method
@@ -1051,6 +1052,13 @@ $cfg['NavigationTreeShowEvents'] = true;
 $cfg['ShowStats'] = true;
 
 /**
+ * show PHP info link
+ *
+ * @global boolean $cfg['ShowPhpInfo']
+ */
+$cfg['ShowPhpInfo'] = false;
+
+/**
  * show MySQL server and web server information
  *
  * @global boolean $cfg['ShowServerInfo']
@@ -1385,7 +1393,7 @@ $cfg['RowActionType'] = 'both';
 $cfg['Export'] = array();
 
 /**
- * codegen/csv/excel/htmlexcel/htmlword/latex/ods/odt/pdf/sql/texytext/xls/xml/yaml
+ * codegen/csv/excel/htmlexcel/htmlword/latex/ods/odt/pdf/sql/texytext/xml/yaml
  *
  * @global string $cfg['Export']['format']
  */
@@ -1600,48 +1608,6 @@ $cfg['Export']['texytext_columns'] = false;
  * @global string $cfg['Export']['texytext_null']
  */
 $cfg['Export']['texytext_null'] = 'NULL';
-
-/**
- *
- *
- * @global boolean $cfg['Export']['xls_columns']
- */
-$cfg['Export']['xls_columns'] = false;
-
-/**
- *
- *
- * @global string $cfg['Export']['xls_structure_or_data']
- */
-$cfg['Export']['xls_structure_or_data'] = 'data';
-
-/**
- *
- *
- * @global string $cfg['Export']['xls_null']
- */
-$cfg['Export']['xls_null'] = 'NULL';
-
-/**
- *
- *
- * @global boolean $cfg['Export']['xlsx_columns']
- */
-$cfg['Export']['xlsx_columns'] = false;
-
-/**
- *
- *
- * @global string $cfg['Export']['xlsx_structure_or_data']
- */
-$cfg['Export']['xlsx_structure_or_data'] = 'data';
-
-/**
- *
- *
- * @global string $cfg['Export']['xlsx_null']
- */
-$cfg['Export']['xlsx_null'] = 'NULL';
 
 /**
  *
@@ -1883,6 +1849,13 @@ $cfg['Export']['json_structure_or_data'] = 'data';
 $cfg['Export']['json_pretty_print'] = false;
 
 /**
+ * Export functions
+ *
+ * @global string $cfg['Export']['json_unicode']
+ */
+$cfg['Export']['json_unicode'] = true;
+
+/**
  *
  *
  * @global string $cfg['Export']['sql_structure_or_data']
@@ -1929,7 +1902,7 @@ $cfg['Export']['sql_metadata'] = false;
  *
  * @global boolean $cfg['Export']['sql_use_transaction']
  */
-$cfg['Export']['sql_use_transaction'] = false;
+$cfg['Export']['sql_use_transaction'] = true;
 
 /**
  *
@@ -2357,27 +2330,6 @@ $cfg['Import']['ods_recognize_percentages'] = true;
  * @global string $cfg['Import']['ods_recognize_currency']
  */
 $cfg['Import']['ods_recognize_currency'] = true;
-
-/**
- *
- *
- * @global string $cfg['Import']['xml_col_names']
- */
-$cfg['Import']['xls_col_names'] = false;
-
-/**
- *
- *
- * @global string $cfg['Import']['xml_empty_rows']
- */
-$cfg['Import']['xls_empty_rows'] = true;
-
-/**
- *
- *
- * @global string $cfg['Import']['xlsx_col_names']
- */
-$cfg['Import']['xlsx_col_names'] = false;
 
 /*******************************************************************************
  * Schema export defaults

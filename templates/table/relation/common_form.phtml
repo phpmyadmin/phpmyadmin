@@ -73,13 +73,13 @@
     <?php if ($cfgRelation['relwork']): ?>
         <?php if (PMA\libraries\Util::isForeignKeySupported($tbl_storage_engine)): ?>
             <br/>
-            <?= PMA\libraries\Util::getDivForSliderEffect('ir_div', __('Internal relations')) ?>
+            <?= PMA\libraries\Util::getDivForSliderEffect('ir_div', __('Internal relationships')) ?>
         <?php endif; ?>
 
         <?php $save_row = array_values($columns);
         $saved_row_cnt  = count($save_row);?>
         <fieldset>
-            <legend><?= __('Internal relations') , PMA\libraries\Util::showDocu('config', 'cfg_Servers_relation'); ?></legend>
+            <legend><?= __('Internal relationships') , PMA\libraries\Util::showDocu('config', 'cfg_Servers_relation'); ?></legend>
             <table id="internal_relations" class="relationalTable">
                 <tr>
                     <th><?= __('Column'); ?></th>

@@ -23,14 +23,7 @@ if ($foreign_db) {
     if (isset($existrel[$myfield])) {
         $foreign_table = $existrel[$myfield]['foreign_table'];
     }
-    $tables_rs = $GLOBALS['dbi']->query(
-        'SHOW TABLES FROM ' . PMA\libraries\Util::backquote($foreign_db),
-        null,
-        PMA\libraries\DatabaseInterface::QUERY_STORE
-    );
-    while ($row = $GLOBALS['dbi']->fetchRow($tables_rs)) {
-        $tables[] = $row[0];
-    }
+    $tables = $GLOBALS['dbi']->getTables($foreign_db);
 }
 
 // column dropdown

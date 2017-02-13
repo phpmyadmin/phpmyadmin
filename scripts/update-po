@@ -24,7 +24,7 @@ xgettext \
     --from-code=utf-8 \
     --keyword=__ --keyword=_pgettext:1c,2 --keyword=_ngettext:1,2 \
     --copyright-holder="phpMyAdmin devel team" \
-    `find \( -name '*.php' -o -name '*.phtml' \) -not -path './test/*' -not -path './po/*' \( -not -path './release/*' -not -path './vendor/*' -o -path './vendor/phpmyadmin/*' \) | sort`
+    `find \( -name '*.php' -o -name '*.phtml' \) -not -path './test/*' -not -path './po/*' \( -not -path './release/*' -not -path './vendor/*' \) | sort`
 
 
 # Generate PHP code for advisor rules

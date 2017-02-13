@@ -87,7 +87,7 @@ class DisplayResultsTest extends PMATestCase
      */
     public function testisSelect()
     {
-        $parser = new \SqlParser\Parser('SELECT * FROM pma');
+        $parser = new \PhpMyAdmin\SqlParser\Parser('SELECT * FROM pma');
         $this->assertTrue(
             $this->_callPrivateFunction(
                 '_isSelect',
@@ -1211,7 +1211,7 @@ class DisplayResultsTest extends PMATestCase
      */
     public function dataProviderForTestSetHighlightedColumnGlobalField()
     {
-        $parser = new SqlParser\Parser(
+        $parser = new PhpMyAdmin\SqlParser\Parser(
             'SELECT * FROM db_name WHERE `db_name`.`tbl`.id > 0 AND `id` < 10'
         );
         return array(

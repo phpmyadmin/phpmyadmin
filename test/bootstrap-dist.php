@@ -61,7 +61,7 @@ if (PHP_SAPI == 'cli') {
 require_once 'libraries/vendor_config.php';
 require_once 'vendor/autoload.php';
 require_once 'libraries/core.lib.php';
-MoTranslator\Loader::loadFunctions();
+PhpMyAdmin\MoTranslator\Loader::loadFunctions();
 $CFG = new PMA\libraries\Config();
 // Initialize PMA_VERSION variable
 define('PMA_VERSION', $CFG->get('PMA_VERSION'));
@@ -98,34 +98,6 @@ $GLOBALS['runkit_internal_override'] = ini_get('runkit.internal_override');
 
 
 /**
- * Function to emulate headers() function by storing headers in GLOBAL array
- *
- * @param string  $string             header string
- * @param boolean $replace            .
- * @param integer $http_response_code .
- *
- * @return void
- */
-function test_header($string, $replace = true, $http_response_code = 200)
-{
-    if (! isset($GLOBALS['header'])) {
-        $GLOBALS['header'] = array();
-    }
-
-    $GLOBALS['header'][] = $string;
-}
-
-/**
- * Function to emulate headers_send.
- *
- * @return boolean false
- */
-function test_headers_sent()
-{
-    return false;
-}
-
-/**
  * Function to emulate date() function
  *
  * @param string $date_format arg
@@ -135,18 +107,6 @@ function test_headers_sent()
 function test_date($date_format)
 {
     return '0000-00-00 00:00:00';
-}
-
-if (PMA_HAS_RUNKIT && $GLOBALS['runkit_internal_override']) {
-    echo "Enabling headers testing using runkit...\n";
-    runkit_function_rename('header', 'test_header_override');
-    runkit_function_rename('headers_sent', 'test_headers_sent_override');
-    runkit_function_rename('test_header', 'header');
-    runkit_function_rename('test_headers_sent', 'headers_sent');
-    define('PMA_TEST_HEADERS', true);
-} else {
-    echo "No headers testing.\n";
-    echo "Please install runkit and enable runkit.internal_override!\n";
 }
 
 /**

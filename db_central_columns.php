@@ -100,7 +100,7 @@ if (PMA_isValid($_REQUEST['pos'], 'integer')) {
 } else {
     $pos = 0;
 }
-$addNewColumn = PMA_getHTMLforAddNewColumn($db);
+$addNewColumn = PMA_getHTMLforAddNewColumn($db, $total_rows);
 $response->addHTML($addNewColumn);
 if ($total_rows <= 0) {
     $response->addHTML(

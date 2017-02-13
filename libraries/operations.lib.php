@@ -354,10 +354,7 @@ function PMA_runProcedureAndFunctionDefinitions($db)
 function PMA_createDbBeforeCopy()
 {
     // lower_case_table_names=1 `DB` becomes `db`
-    $lowerCaseTableNames = $GLOBALS['dbi']->fetchValue(
-        'SELECT @@lower_case_table_names'
-    );
-    if ($lowerCaseTableNames === '1') {
+    if ($GLOBALS['dbi']->getLowerCaseNames() === '1') {
         $_REQUEST['newname'] = mb_strtolower(
             $_REQUEST['newname']
         );
@@ -1717,6 +1714,8 @@ function PMA_getQueryAndResultForReorderingTable()
         && $_REQUEST['order_order'] === 'desc'
     ) {
         $sql_query .= ' DESC';
+    } else {
+        $sql_query .= ' ASC';
     }
     $sql_query .= ';';
     $result = $GLOBALS['dbi']->query($sql_query);
@@ -2086,8 +2085,15 @@ function PMA_moveOrCopyTable($db, $table)
             $old = Util::backquote($db) . '.'
                 . Util::backquote($table);
             $message->addParam($old);
+
+
+            $new_name = $_REQUEST['new_name'];
+            if ($GLOBALS['dbi']->getLowerCaseNames() === '1') {
+                $new_name = strtolower($new_name);
+            }
+
             $new = Util::backquote($_REQUEST['target_db']) . '.'
-                . Util::backquote($_REQUEST['new_name']);
+                . Util::backquote($new_name);
             $message->addParam($new);
 
             /* Check: Work on new table or on old table? */

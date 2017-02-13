@@ -47,26 +47,6 @@ $configChecker = new ServerConfigChecks($GLOBALS['ConfigFile']);
 $configChecker->performConfigChecks();
 
 //
-// Check whether we can read/write configuration
-//
-$config_readable = false;
-$config_writable = false;
-$config_exists = false;
-PMA_checkConfigRw($config_readable, $config_writable, $config_exists);
-if (!$config_writable || !$config_readable) {
-    PMA_messagesSet(
-        'error', 'config_rw', __('Cannot load or save configuration'),
-        Sanitize::sanitize(
-            __(
-                'Please create web server writable folder [em]config[/em] in '
-                . 'phpMyAdmin top level directory as described in '
-                . '[doc@setup_script]documentation[/doc]. Otherwise you will be '
-                . 'only able to download or display it.'
-            )
-        )
-    );
-}
-//
 // Https connection warning (check done on the client side)
 //
 $text = __(
@@ -81,8 +61,7 @@ $text .= __(
 $text .= '</a>';
 PMA_messagesSet('notice', 'no_https', __('Insecure connection'), $text);
 
-echo '<form id="select_lang" method="post" action="'
-    , htmlspecialchars($_SERVER['REQUEST_URI']) , '">';
+echo '<form id="select_lang" method="post">';
 echo URL::getHiddenInputs();
 echo '<bdo lang="en" dir="ltr"><label for="lang">';
 echo __('Language') , (__('Language') != 'Language' ? ' - Language' : '');
@@ -277,26 +256,6 @@ echo '<tr>';
 echo '<td colspan="2" class="lastrow" style="text-align: left">';
 echo '<input type="submit" name="submit_display" value="' , __('Display') , '" />';
 echo '<input type="submit" name="submit_download" value="' , __('Download') , '" />';
-echo '&nbsp; &nbsp;';
-
-echo '<input type="submit" name="submit_save" value="' , __('Save') , '"';
-if (!$config_writable) {
-    echo ' disabled="disabled"';
-}
-echo '/>';
-
-echo '<input type="submit" name="submit_load" value="' , __('Load') , '"';
-if (!$config_exists) {
-    echo ' disabled="disabled"';
-}
-echo '/>';
-
-echo '<input type="submit" name="submit_delete" value="' , __('Delete') , '"';
-if (!$config_exists || !$config_writable) {
-    echo ' disabled="disabled"';
-}
-echo '/>';
-
 echo '&nbsp; &nbsp;';
 echo '<input type="submit" name="submit_clear" value="' , __('Clear')
     , '" class="red" />';

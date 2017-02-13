@@ -236,11 +236,12 @@ echo '<h2>' , __('Appearance settings') , '</h2>';
 echo '  <ul>';
 
 // Displays language selection combo
-if (empty($cfg['Lang'])) {
+$language_manager = LanguageManager::getInstance();
+if (empty($cfg['Lang']) && $language_manager->hasChoice()) {
     echo '<li id="li_select_lang" class="no_bullets">';
 
     echo PMA\libraries\Util::getImage('s_lang.png') , " "
-        , LanguageManager::getInstance()->getSelectorDisplay();
+        , $language_manager->getSelectorDisplay();
     echo '</li>';
 }
 
@@ -323,7 +324,7 @@ if ($server > 0 && $GLOBALS['cfg']['ShowServerInfo']) {
        . ' </div>';
 }
 
-if ($GLOBALS['cfg']['ShowServerInfo']) {
+if ($GLOBALS['cfg']['ShowServerInfo'] || $GLOBALS['cfg']['ShowPhpInfo']) {
     echo '<div class="group">';
     echo '<h2>' , __('Web server') , '</h2>';
     echo '<ul>';
@@ -363,6 +364,15 @@ if ($GLOBALS['cfg']['ShowServerInfo']) {
         }
     }
 
+    if ($cfg['ShowPhpInfo']) {
+        PMA_printListItem(
+            __('Show PHP information'),
+            'li_phpinfo',
+            'phpinfo.php' . $common_url_query,
+            null,
+            '_blank'
+        );
+    }
     echo '  </ul>';
     echo ' </div>';
 }

@@ -558,7 +558,7 @@ function PMA_getHtmlForNewTables3NF($dependencies, $tables, $db)
             }
         }
     }
-    return array('html' => $html, 'newTables' => $newTables);
+    return array('html' => $html, 'newTables' => $newTables, 'success' => true);
 }
 
 /**

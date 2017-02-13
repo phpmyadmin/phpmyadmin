@@ -421,7 +421,7 @@ class ConfigFile
             }
             $dsn .= '@';
         }
-        if ($this->getValue("$path/connect_type") == 'tcp') {
+        if ($this->getValue("$path/host") != 'localhost') {
             $dsn .= $this->getValue("$path/host");
             $port = $this->getValue("$path/port");
             if ($port) {
@@ -478,16 +478,6 @@ class ConfigFile
         ) {
             unset($_SESSION[$this->_id]['ServerDefault']);
         }
-    }
-
-    /**
-     * Returns config file path, relative to phpMyAdmin's root path
-     *
-     * @return string
-     */
-    public function getFilePath()
-    {
-        return SETUP_CONFIG_FILE;
     }
 
     /**

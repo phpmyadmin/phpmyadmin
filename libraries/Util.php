@@ -8,15 +8,15 @@
 namespace PMA\libraries;
 
 use PMA\libraries\plugins\ImportPlugin;
-use SqlParser\Context;
-use SqlParser\Lexer;
-use SqlParser\Parser;
-use SqlParser\Token;
+use PhpMyAdmin\SqlParser\Context;
+use PhpMyAdmin\SqlParser\Lexer;
+use PhpMyAdmin\SqlParser\Parser;
+use PhpMyAdmin\SqlParser\Token;
 use stdClass;
-use SqlParser\Utils\Error as ParserError;
 use PMA\libraries\URL;
 use PMA\libraries\Sanitize;
 use PMA\libraries\Template;
+use PhpMyAdmin\SqlParser\Utils\Error as ParserError;
 
 if (! defined('PHPMYADMIN')) {
     exit;
@@ -934,27 +934,6 @@ class Util
     } // end of the 'backquoteCompat()' function
 
     /**
-     * Defines the <CR><LF> value depending on the user OS.
-     *
-     * @return string   the <CR><LF> value to use
-     *
-     * @access  public
-     */
-    public static function whichCrlf()
-    {
-        // The 'PMA_USR_OS' constant is defined in "libraries/Config.php"
-        // Win case
-        if (PMA_USR_OS == 'Win') {
-            $the_crlf = "\r\n";
-        } else {
-            // Others
-            $the_crlf = "\n";
-        }
-
-        return $the_crlf;
-    } // end of the 'whichCrlf()' function
-
-    /**
      * Prepare the message and the query
      * usually the message is the result of the query executed
      *
@@ -1602,6 +1581,15 @@ class Util
             $month[(int)strftime('%m', $timestamp)-1],
             $date
         );
+
+        /* Fill in AM/PM */
+        $hours = (int)date('H', $timestamp);
+        if ($hours >= 12) {
+            $am_pm = _pgettext('AM/PM indication in time', 'PM');
+        } else {
+            $am_pm = _pgettext('AM/PM indication in time', 'AM');
+        }
+        $date = preg_replace('@%[pP]@', $am_pm, $date);
 
         $ret = strftime($date, $timestamp);
         // Some OSes such as Win8.1 Traditional Chinese version did not produce UTF-8

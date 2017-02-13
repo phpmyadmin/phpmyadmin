@@ -193,6 +193,7 @@ var PMA_console = {
                     var data = JSON.parse(xhr.responseText);
                     PMA_console.ajaxCallback(data);
                 } catch (e) {
+                    console.trace();
                     console.log("Invalid JSON!" + e.message);
                     if (AJAX.xhr && AJAX.xhr.status === 0 && AJAX.xhr.statusText !== 'abort') {
                         PMA_ajaxShowMessage($('<div />',{'class':'error','html':PMA_messages.strRequestFailed+' ( '+escapeHtml(AJAX.xhr.statusText)+' )'}));
