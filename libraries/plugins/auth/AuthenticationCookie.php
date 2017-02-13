@@ -153,13 +153,15 @@ class AuthenticationCookie extends AuthenticationPlugin
         )->display();
         echo "</noscript>\n";
 
-        echo "<div class='hide js-show'>";
         // Displays the languages form
-        if (empty($GLOBALS['cfg']['Lang'])) {
+        $language_manager = LanguageManager::getInstance();
+        if (empty($GLOBALS['cfg']['Lang']) && $language_manager->hasChoice()) {
+            echo "<div class='hide js-show'>";
             // use fieldset, don't show doc link
-            echo LanguageManager::getInstance()->getSelectorDisplay(true, false);
+            echo $language_manager->getSelectorDisplay(true, false);
+            echo '</div>';
         }
-        echo '</div>
+        echo '
     <br />
     <!-- Login form -->
     <form method="post" action="index.php" name="login_form"' , $autocomplete ,
