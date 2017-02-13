@@ -236,11 +236,12 @@ echo '<h2>' , __('Appearance settings') , '</h2>';
 echo '  <ul>';
 
 // Displays language selection combo
-if (empty($cfg['Lang'])) {
+$language_manager = LanguageManager::getInstance();
+if (empty($cfg['Lang']) && $language_manager->hasChoice()) {
     echo '<li id="li_select_lang" class="no_bullets">';
 
     echo PMA\libraries\Util::getImage('s_lang.png') , " "
-        , LanguageManager::getInstance()->getSelectorDisplay();
+        , $language_manager->getSelectorDisplay();
     echo '</li>';
 }
 
