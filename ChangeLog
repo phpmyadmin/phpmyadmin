@@ -61,6 +61,7 @@ phpMyAdmin - ChangeLog
 - issue #12966 After adding a column ADD INDEX option won't be displayed when enabling AI
 - issue #12972 Better error message when Composer has not been run
 - issue #12988 Do not show language selector without choices
+- issue #12993 Fixed external links to php documentation
 
 4.6.6 (2017-01-23)
 - issue #12759 Fix Notice regarding 'Undefined index: old_usergroup'
