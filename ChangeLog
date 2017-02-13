@@ -62,6 +62,7 @@ phpMyAdmin - ChangeLog
 - issue #12972 Better error message when Composer has not been run
 - issue #12988 Do not show language selector without choices
 - issue #12993 Fixed external links to php documentation
+- issue #12990 Fixed error when loading favorite tables to console
 
 4.6.6 (2017-01-23)
 - issue #12759 Fix Notice regarding 'Undefined index: old_usergroup'

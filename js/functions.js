@@ -4193,6 +4193,7 @@ AJAX.registerOnload('functions.js', function () {
                 favorite_tables: (isStorageSupported('localStorage') && typeof window.localStorage.favorite_tables !== 'undefined')
                     ? window.localStorage.favorite_tables
                     : '',
+                token: PMA_commonParams.get('token'),
                 no_debug: true
             },
             success: function (data) {
