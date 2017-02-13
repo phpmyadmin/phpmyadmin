@@ -351,6 +351,7 @@ class PMA_Normalization_Test extends PHPUnit_Framework_TestCase
         $this->assertEquals(
             array(
                 'html' => '',
+                'success' => true,
                 'newTables' => array()
                 ), $result
         );
