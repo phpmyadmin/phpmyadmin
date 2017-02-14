@@ -112,8 +112,10 @@ class URL
     {
         $fields = '';
 
-        /* Always include token */
-        $values['token'] = $_SESSION[' PMA_token '];
+        /* Always include token in plain forms */
+        if ($pre === '') {
+            $values['token'] = $_SESSION[' PMA_token '];
+        }
 
         foreach ($values as $name => $value) {
             if (! empty($pre)) {
