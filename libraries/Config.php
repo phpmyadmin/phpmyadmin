@@ -790,6 +790,23 @@ class Config
         }
 
         /**
+         * Ignore keys with / as we do not use these
+         *
+         * These can be confusing for user configuration layer as it
+         * flatten array using / and thus don't see difference between
+         * $cfg['Export/method'] and $cfg['Export']['method'], while rest
+         * of thre code uses the setting only in latter form.
+         *
+         * This could be removed once we consistently handle both values
+         * in the functional code as well.
+         */
+        $cfg = array_filter(
+            $cfg,
+            function ($key) {return strpos($key, '/') === false;},
+            ARRAY_FILTER_USE_KEY
+        );
+
+        /**
          * Backward compatibility code
          */
         if (!empty($cfg['DefaultTabTable'])) {
