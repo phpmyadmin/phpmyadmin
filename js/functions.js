@@ -937,15 +937,22 @@ AJAX.registerOnload('functions.js', function () {
                 data: params,
                 success: function (data) {
                     if (data.success) {
-                        var remaining = PMA_commonParams.get('LoginCookieValidity') - _idleSecondsCounter;
+                        if (PMA_commonParams.get('LoginCookieValidity') - _idleSecondsCounter < 0) {
+                            /* There is other active window, let's reset counter */
+                            _idleSecondsCounter = 0;
+                        }
+                        var remaining = Math.min(
+                            /* Remaining login validity */
+                            PMA_commonParams.get('LoginCookieValidity') - _idleSecondsCounter,
+                            /* Remaining time till session GC */
+                            PMA_commonParams.get('session_gc_maxlifetime')
+                        );
+                        var interval = 1000;
                         if (remaining > 5) {
                             // max value for setInterval() function
-                            var interval = Math.min((remaining - 1) * 1000, Math.pow(2, 31) - 1);
-                            updateTimeout = window.setTimeout(UpdateIdleTime, interval);
-                        } else if (remaining > 0) {
-                            // We're close to session expiry
-                            updateTimeout = window.setTimeout(UpdateIdleTime, 1000);
+                            interval = Math.min((remaining - 1) * 1000, Math.pow(2, 31) - 1);
                         }
+                        updateTimeout = window.setTimeout(UpdateIdleTime, interval);
                     } else { //timeout occurred
                         if(isStorageSupported('sessionStorage')){
                             window.sessionStorage.clear();
@@ -958,7 +965,11 @@ AJAX.registerOnload('functions.js', function () {
     }
     if (PMA_commonParams.get('logged_in') && PMA_commonParams.get('auth_type') == 'cookie') {
         IncInterval = window.setInterval(SetIdleTime, 1000);
-        var interval = (PMA_commonParams.get('LoginCookieValidity') - 5) * 1000;
+        var session_timeout = Math.min(
+            PMA_commonParams.get('LoginCookieValidity'),
+            PMA_commonParams.get('session_gc_maxlifetime')
+        );
+        var interval = (session_timeout - 5) * 1000;
         if (interval > Math.pow(2, 31) - 1) { // max value for setInterval() function
             interval = Math.pow(2, 31) - 1;
         }
