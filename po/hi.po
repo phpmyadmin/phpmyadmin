@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-01-25 10:08+0100\n"
-"PO-Revision-Date: 2017-02-14 14:19+0000\n"
+"PO-Revision-Date: 2017-02-14 15:59+0000\n"
 "Last-Translator: Siddhesh Rane <kingsid911@gmail.com>\n"
 "Language-Team: Hindi "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/hi/>\n"
@@ -805,7 +805,7 @@ msgstr ""
 
 #: js/messages.php:43
 msgid "Confirm"
-msgstr ""
+msgstr "पुष्टि करें"
 
 #: js/messages.php:44
 #, php-format
@@ -818,17 +818,15 @@ msgstr "आप एक पूरा डॅटाबेस मिटाने ज�
 
 #: js/messages.php:48
 msgid "Cannot rename database to the same name. Change the name and try again"
-msgstr ""
+msgstr "नये डेटाबेस का नाम पुराने डेटाबेस से अलग होना चाहिए. पुनः प्रयास करें"
 
 #: js/messages.php:50
 msgid "You are about to DESTROY a complete table!"
-msgstr "आप एक पूरी डॅटा टेबल मिटाने जा रहे हैं!"
+msgstr "आप एक पूरे डेटा टेबल को मिटाने जा रहे हो!"
 
 #: js/messages.php:52
-#, fuzzy
-#| msgid "You are about to DESTROY a complete database!"
 msgid "You are about to TRUNCATE a complete table!"
-msgstr "आप एक पूरा डेटाबेस नष्ट कर रहे हैं! "
+msgstr "आप एक पूरे डेटाबेस को नष्ट करने जा रहे हो!"
 
 #: js/messages.php:53
 #, fuzzy
@@ -923,6 +921,8 @@ msgid ""
 "Do you really want to DROP the selected partition(s)? This will also DELETE "
 "the data related to the selected partition(s)!"
 msgstr ""
+"क्या अाप चुने गाये पार्टिशन को नष्ट करना चाहते है? इस कारण चुने गाये पार्टि"
+"शन का डेटा भी नष्ट हो जाएगा!"
 
 #: js/messages.php:83
 #, fuzzy
@@ -950,14 +950,18 @@ msgid ""
 "collation; in this case we suggest you revert to the original collation and "
 "refer to the tips at "
 msgstr ""
+"यह कार्य आपके डेटा को नए अक्षर प्रारूप मे बदलने का प्रयास कारेगा. दुर्लभ "
+"स्थितियों मे यह हो सकता है कि आपका डेटा गलत प्रकार से दर्षाया जाए, खास कर जब "
+"नए अक्षर प्रारूप मे आपके  डेटा का कोई अक्षर ना हो. एेसी परिस्थिति मे हमारा "
+"यही सुझाव है कि आप पुराने अक्षर प्रारूप का हि उपयोग करें अाैर यह सुझाव अपनाए "
 
 #: js/messages.php:94
 msgid "Garbled Data"
-msgstr ""
+msgstr "दूषित डेटा"
 
 #: js/messages.php:96
 msgid "Are you sure you wish to change the collation and convert the data?"
-msgstr ""
+msgstr "क्या आप अक्षर प्रारूप को बदलना चाहते हो?"
 
 #: js/messages.php:98
 msgid ""
@@ -973,24 +977,20 @@ msgstr ""
 msgid ""
 "Are you sure you wish to change all the column collations and convert the "
 "data?"
-msgstr ""
+msgstr "क्या आप यकीन के साथ सारे कॉलम के अक्षर प्रारूप को बदलना चाहते है?"
 
 #: js/messages.php:111
-#, fuzzy
-#| msgid "Save as file"
 msgid "Save & close"
-msgstr "फ़ाइल के रूप में सहेजें"
+msgstr "फ़ाइल को संग्रहित कर बन्द करे"
 
 #: js/messages.php:112 libraries/config/FormDisplay.tpl.php:426
 #: libraries/insert_edit.lib.php:1619 prefs_manage.php:374 prefs_manage.php:385
 msgid "Reset"
-msgstr "रीसेट"
+msgstr "पुर्व स्थिति मे लाए"
 
 #: js/messages.php:113
-#, fuzzy
-#| msgid "Select All"
 msgid "Reset all"
-msgstr "सभी का चयन करें"
+msgstr "सभी को पुर्व स्थिति मे लाए"
 
 #: js/messages.php:116
 msgid "Missing value in the form!"
