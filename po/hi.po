@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-01-25 10:08+0100\n"
-"PO-Revision-Date: 2017-02-14 11:38+0000\n"
+"PO-Revision-Date: 2017-02-14 14:19+0000\n"
 "Last-Translator: Siddhesh Rane <kingsid911@gmail.com>\n"
 "Language-Team: Hindi "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/hi/>\n"
@@ -784,7 +784,7 @@ msgstr ""
 #: index.php:561
 msgid ""
 "Or alternately go to 'Operations' tab of any database to set it up there."
-msgstr ""
+msgstr "या फिर किसि भी डाटाबेस के कार्रवाई टॅब पर जाकर उसे सेतअप करे."
 
 #: index.php:600
 #, php-format
@@ -792,6 +792,8 @@ msgid ""
 "Your PHP MySQL library version %s differs from your MySQL server version %s. "
 "This may cause unpredictable behavior."
 msgstr ""
+"आपका PHP MySQL  library version %s आपके MySQL server version %s से अलग है.  "
+"इस कारण अप्रत्याशित गतिविधि हो सकती है."
 
 #: index.php:628
 #, php-format
@@ -799,6 +801,7 @@ msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
 "issues."
 msgstr ""
+"सर्वर Suhosin के साथ चल रहा है. कॄपया %s के प्रलेखन %s  को परामर्श करें."
 
 #: js/messages.php:43
 msgid "Confirm"
