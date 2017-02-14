@@ -977,7 +977,7 @@ div#serverstatusquerieschart {
     float: <?php echo $left; ?>;
     width: 500px;
     height: 350px;
-    margin-right: 50px;
+    margin-<?php echo $right;?>: 50px;
 }
 
 div#serverstatus table#serverstatusqueriesdetails {
