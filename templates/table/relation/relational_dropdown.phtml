@@ -3,14 +3,14 @@
     <?php $seen_key = false; ?>
     <?php foreach ($values as $value): ?>
         <option value="<?= htmlspecialchars($value); ?>"
-                <?php if ($foreign && $value == $foreign): ?>
+                <?php if ($foreign !== false && $value == $foreign): ?>
                     selected="selected"
                     <?php $seen_key = true; ?>
                 <?php endif; ?>>
             <?= htmlspecialchars($value); ?>
         </option>
     <?php endforeach; ?>
-    <?php if (is_string($foreign) && ! $seen_key): ?>
+    <?php if ($foreign !== false && ! $seen_key): ?>
         <option value="<?= htmlspecialchars($foreign); ?>" selected="selected">
             <?= htmlspecialchars($foreign); ?>
         </option>

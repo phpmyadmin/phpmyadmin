@@ -307,6 +307,9 @@ class TableRelationController extends TableController
         foreach ($columnList as $column) {
             $columns[] = htmlspecialchars($column);
         }
+        if ($GLOBALS['cfg']['NaturalOrder']) {
+            uksort($columns, 'strnatcasecmp');
+        }
         $this->response->addJSON('columns', $columns);
 
         // @todo should be: $server->db($db)->table($table)->primary()
@@ -356,6 +359,9 @@ class TableRelationController extends TableController
             while ($row = $this->dbi->fetchArray($tables_rs)) {
                 $tables[] = htmlspecialchars($row[0]);
             }
+        }
+        if ($GLOBALS['cfg']['NaturalOrder']) {
+            uksort($tables, 'strnatcasecmp');
         }
         $this->response->addJSON('tables', $tables);
     }

@@ -73,6 +73,7 @@ phpMyAdmin - ChangeLog
 - issue #12927 Fixed javascript error on 3NF normalization
 - issue #12996 List all databses in navigation panel database dropdown
 - issue #12980 Better defaults when creating multi field foreign key
+- issue #12976 Improved foreign key editor behavior
 
 4.6.6 (2017-01-23)
 - issue #12759 Fix Notice regarding 'Undefined index: old_usergroup'
