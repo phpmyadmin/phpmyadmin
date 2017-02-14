@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-01-25 10:08+0100\n"
-"PO-Revision-Date: 2017-02-14 16:10+0000\n"
+"PO-Revision-Date: 2017-02-14 16:32+0000\n"
 "Last-Translator: Siddhesh Rane <kingsid911@gmail.com>\n"
 "Language-Team: Hindi <https://hosted.weblate.org/projects/phpmyadmin/4-7/hi/>"
 "\n"
@@ -1491,7 +1491,7 @@ msgstr "सामान्य पंजिका (general_log) से"
 
 #: js/messages.php:265
 msgid "The database name is not known for this query in the server's logs."
-msgstr ""
+msgstr "इस क्वेरी के डेटाबेस का नाम सर्वर की रिपोर्ट मे नही पाया गया."
 
 #: js/messages.php:267
 msgid "Analysing logs"
@@ -1674,7 +1674,7 @@ msgstr "जिस फाईल को आयात करना चाहते 
 
 #: js/messages.php:329
 msgid "No files available on server for import!"
-msgstr ""
+msgstr "सर्वर पे कोई फाइल उपलब्ध नही है!"
 
 #: js/messages.php:331
 #, fuzzy
@@ -1715,8 +1715,9 @@ msgid "Test"
 msgstr "जाँच"
 
 #: js/messages.php:345
+#, fuzzy
 msgid "Formatting SQL…"
-msgstr ""
+msgstr "SQL का स्वरूपण चल रहा है…"
 
 #: js/messages.php:346
 #, fuzzy
@@ -1744,7 +1745,7 @@ msgstr "सेटिंग्स बदलें"
 
 #: js/messages.php:354 libraries/config/FormDisplay.tpl.php:424
 msgid "Apply"
-msgstr ""
+msgstr "लागू करे"
 
 #: js/messages.php:357 libraries/navigation/NavigationHeader.php:60
 #: libraries/server_status_monitor.lib.php:119
@@ -1753,7 +1754,7 @@ msgstr "लोड हो रहा है…"
 
 #: js/messages.php:358
 msgid "Request aborted!!"
-msgstr ""
+msgstr "निवेदन को रोका गया है!!"
 
 #: js/messages.php:359
 #, fuzzy
@@ -1776,12 +1777,12 @@ msgstr "याचिका प्रसंस्करणमें त्रु�
 #: js/messages.php:362
 #, php-format
 msgid "Error code: %s"
-msgstr ""
+msgstr "त्रुटि संख्या : %s"
 
 #: js/messages.php:363
 #, php-format
 msgid "Error text: %s"
-msgstr ""
+msgstr "त्रुटि संदेश: %s"
 
 #: js/messages.php:364
 #: libraries/controllers/server/ServerDatabasesController.php:194
@@ -1980,7 +1981,7 @@ msgstr "स्थिति"
 
 #: js/messages.php:420 libraries/normalization.lib.php:884
 msgid "Pick"
-msgstr ""
+msgstr "चुनिये"
 
 #: js/messages.php:421
 #, fuzzy
@@ -2009,13 +2010,15 @@ msgstr "मुक्त स्मृति"
 
 #: js/messages.php:428
 msgid "Are you sure?"
-msgstr ""
+msgstr "क्या आपको विश्वास है?"
 
 #: js/messages.php:430
 msgid ""
 "This action may change some of the columns definition.<br/>Are you sure you "
 "want to continue?"
 msgstr ""
+"यह क्रिया कुछ कॉलम कि रचना को बदल सकती है.<br/>क्या आप क्रिया के साथ आगे "
+"बढ़ना चाहेंगे?"
 
 #: js/messages.php:433
 #, fuzzy
