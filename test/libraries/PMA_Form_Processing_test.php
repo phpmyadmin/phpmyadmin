@@ -41,7 +41,7 @@ class PMA_Form_Processing_Test extends PMATestCase
             array(
                 array('status: 303 See Other'),
                 array('Location: index.php?lang=en'),
-                array('303')
+                303
                 )
             );
 
