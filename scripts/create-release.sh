@@ -207,6 +207,12 @@ rm -f README.rst
 if [ ! -d libraries/tcpdf ] ; then
     echo "* Running composer"
     composer update --no-dev
+    # Okay, there is no way to tell composer to install
+    # suggested package. Let's require it and then revert
+    # composer.json to original state.
+    cp composer.json composer.json.backup
+    composer require tecnickcom/tcpdf
+    mv composer.json.backup composer.json
     echo "* Cleanup of composer packages"
     rm -rf \
         vendor/phpmyadmin/sql-parser/tests/ \
