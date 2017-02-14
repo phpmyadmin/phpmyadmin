@@ -799,12 +799,16 @@ class Config
          *
          * This could be removed once we consistently handle both values
          * in the functional code as well.
+         *
+         * It could use array_filter(...ARRAY_FILTER_USE_KEY), but it's not
+         * supported on PHP 5.5 and HHVM.
          */
-        $cfg = array_filter(
-            $cfg,
-            function ($key) {return strpos($key, '/') === false;},
-            ARRAY_FILTER_USE_KEY
+        $matched_keys = array_filter(
+            array_keys($cfg),
+            function ($key) {return strpos($key, '/') === false;}
         );
+
+        $cfg = array_intersect_key($cfg, array_flip($matched_keys));
 
         /**
          * Backward compatibility code
