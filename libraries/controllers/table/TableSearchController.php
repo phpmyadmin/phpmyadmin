@@ -835,7 +835,7 @@ class TableSearchController extends TableController
      */
     public function getColumnProperties($search_index, $column_index)
     {
-        $selected_operator = (isset($_POST['criteriaColumnOperators'])
+        $selected_operator = (isset($_POST['criteriaColumnOperators'][$search_index])
             ? $_POST['criteriaColumnOperators'][$search_index] : '');
         $entered_value = (isset($_POST['criteriaValues'])
             ? $_POST['criteriaValues'] : '');

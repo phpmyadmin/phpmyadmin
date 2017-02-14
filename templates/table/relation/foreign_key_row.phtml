@@ -54,7 +54,7 @@ $foreign_db = (isset($one_key['ref_db_name'])) ? $one_key['ref_db_name'] : $db;
 $tables = array();
 if ($foreign_db) {
     $foreign_table = isset($one_key['ref_table_name'])
-        ? $one_key['ref_table_name'] : '';
+        ? $one_key['ref_table_name'] : false;
 
     $tables_rs = $GLOBALS['dbi']->query(
         'SHOW TABLE STATUS FROM ' . Util::backquote($foreign_db),

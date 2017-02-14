@@ -1263,7 +1263,6 @@ class NavigationTree
             array('dbselector')
         );
         $children = $this->_tree->children;
-        array_shift($children);
         $url_params = array(
             'server' => $GLOBALS['server'],
         );

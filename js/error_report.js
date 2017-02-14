@@ -64,6 +64,7 @@ var ErrorReport = {
             $('#error_report_dialog').remove();
         }
         var $div = $('<div id="error_report_dialog"></div>');
+        $div.css('z-index', '1000');
 
         var button_options = {};
 
