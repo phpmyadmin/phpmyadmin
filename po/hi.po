@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-01-25 10:08+0100\n"
-"PO-Revision-Date: 2017-02-14 16:28+0000\n"
+"PO-Revision-Date: 2017-02-14 16:32+0000\n"
 "Last-Translator: Siddhesh Rane <kingsid911@gmail.com>\n"
 "Language-Team: Hindi "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/hi/>\n"
@@ -2017,6 +2017,8 @@ msgid ""
 "This action may change some of the columns definition.<br/>Are you sure you "
 "want to continue?"
 msgstr ""
+"यह क्रिया कुछ कॉलम कि रचना को बदल सकती है.<br/>क्या आप क्रिया के साथ आगे "
+"बढ़ना चाहेंगे?"
 
 #: js/messages.php:433
 #, fuzzy
