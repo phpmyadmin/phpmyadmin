@@ -940,11 +940,11 @@ AJAX.registerOnload('functions.js', function () {
                         var remaining = PMA_commonParams.get('LoginCookieValidity') - _idleSecondsCounter;
                         if (remaining > 5) {
                             // max value for setInterval() function
-                            var interval = Math.min(remaining * 1000, Math.pow(2, 31) - 1);
+                            var interval = Math.min((remaining - 1) * 1000, Math.pow(2, 31) - 1);
                             updateTimeout = window.setTimeout(UpdateIdleTime, interval);
                         } else if (remaining > 0) {
                             // We're close to session expiry
-                            updateTimeout = window.setTimeout(UpdateIdleTime, 2000);
+                            updateTimeout = window.setTimeout(UpdateIdleTime, 1000);
                         }
                     } else { //timeout occurred
                         if(isStorageSupported('sessionStorage')){
