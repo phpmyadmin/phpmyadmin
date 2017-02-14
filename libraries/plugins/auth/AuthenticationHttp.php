@@ -66,7 +66,7 @@ class AuthenticationHttp extends AuthenticationPlugin
         // remove non US-ASCII to respect RFC2616
         $realm_message = preg_replace('/[^\x20-\x7e]/i', '', $realm_message);
         $response->header('WWW-Authenticate: Basic realm="' . $realm_message . '"');
-        $response->http_response_code(401);
+        $response->set_http_response_code(401);
 
         /* HTML header */
         $footer = $response->getFooter();

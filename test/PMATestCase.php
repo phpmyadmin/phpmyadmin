@@ -36,7 +36,7 @@ class PMATestCase extends PHPUnit_Framework_TestCase
             ->setMethods(array(
                 'header', 'headersSent', 'disable', 'isAjax',
                 'setRequestStatus', 'addJSON', 'addHTML',
-                'getFooter', 'getHeader',
+                'getFooter', 'getHeader','http_response_code',
             ))
             ->getMock();
 
@@ -51,11 +51,22 @@ class PMATestCase extends PHPUnit_Framework_TestCase
             if (is_array($param[0])) {
                 if (is_array($param[0][0]) && count($param) == 1) {
                     $param = $param[0];
+                    if(count($param)>=2){
+                        $http_response_code_param = array(end($param));
+                        $param = array_slice($param, 0, -1);
+
+                        $header_method = $mockResponse->expects($this->exactly(count($http_response_code_param)))
+                        ->method('http_response_code');
+
+                        call_user_func_array(array($header_method, 'withConsecutive'), $http_response_code_param);
+                    }
                 }
+
                 $header_method = $mockResponse->expects($this->exactly(count($param)))
                     ->method('header');
 
                 call_user_func_array(array($header_method, 'withConsecutive'), $param);
+
             } else {
                 $mockResponse->expects($this->once())
                     ->method('header')

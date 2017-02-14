@@ -467,6 +467,18 @@ class Response
     public function http_response_code($response_code)
     {
         http_response_code($response_code);
+    }
+
+    /**
+     * Sets http response code.
+     *
+     * @param int $response_code will set the response code.
+     *
+     * @return void
+     */
+    public function set_http_response_code($response_code)
+    {
+        $this->http_response_code($response_code);
         switch ($response_code) {
             case 100: $httpStatusMsg = ' Continue'; break;
             case 101: $httpStatusMsg = ' Switching Protocols'; break;
@@ -521,7 +533,7 @@ class Response
      */
     public function generateHeader303($location)
     {
-        $this->http_response_code(303);
+        $this->set_http_response_code(303);
         $this->header('Location: '.$location);
         if (!defined('TESTSUITE')) {
             exit;
