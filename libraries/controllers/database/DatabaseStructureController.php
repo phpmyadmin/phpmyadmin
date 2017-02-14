@@ -1062,7 +1062,7 @@ class DatabaseStructureController extends DatabaseController
     ) {
         $formatted_size = $unit = '';
 
-        if (in_array($current_table['ENGINE'], array('InnoDB', 'TokuDB'))
+        if ((in_array($current_table['ENGINE'], array('InnoDB', 'TokuDB'))
             && $current_table['TABLE_ROWS'] < $GLOBALS['cfg']['MaxExactCount'])
             || !isset($current_table['TABLE_ROWS'])
         ) {
