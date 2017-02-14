@@ -252,6 +252,7 @@ class Header
             'pftext' => $pftext,
             'confirm' => $GLOBALS['cfg']['Confirm'],
             'LoginCookieValidity' => $GLOBALS['cfg']['LoginCookieValidity'],
+            'session_gc_maxlifetime' => (int)@ini_get('session.gc_maxlifetime'),
             'logged_in' => isset($GLOBALS['userlink']) ? true : false,
             'PMA_VERSION' => PMA_VERSION
         );

@@ -79,6 +79,7 @@ phpMyAdmin - ChangeLog
 - issue #12976 Improved foreign key editor behavior
 - issue #12958 Always show error reporting dialog on top
 - issue #12693 Improved support for TokuDB
+- issue #11231 Try harder to honor LoginCookieValidity setting
 
 4.6.6 (2017-01-23)
 - issue #12759 Fix Notice regarding 'Undefined index: old_usergroup'
