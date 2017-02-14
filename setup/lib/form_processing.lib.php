@@ -21,7 +21,8 @@ function PMA_Process_formset(FormDisplay $form_display)
     if (isset($_GET['mode']) && $_GET['mode'] == 'revert') {
         // revert erroneous fields to their default values
         $form_display->fixErrors();
-        PMA_generateHeader303();
+        $response = Response::getInstance();
+        $response->generateHeader303('index.php' . URL::getCommonRaw());
     }
 
     if (!$form_display->process(false)) {
@@ -32,7 +33,8 @@ function PMA_Process_formset(FormDisplay $form_display)
 
     // check for form errors
     if (!$form_display->hasErrors()) {
-        PMA_generateHeader303();
+        $response = Response::getInstance();
+        $response->generateHeader303('index.php' . URL::getCommonRaw());
         return;
     }
 
@@ -64,22 +66,4 @@ function PMA_Process_formset(FormDisplay $form_display)
         <?php echo __('Show form') ?>
     </a>
     <?php
-}
-
-/**
- * Generate header for 303
- *
- * @return void
- */
-function PMA_generateHeader303()
-{
-    $response = Response::getInstance();
-
-    // drop post data
-    $response->header('HTTP/1.1 303 See Other');
-    $response->header('Location: index.php' . URL::getCommonRaw());
-
-    if (!defined('TESTSUITE')) {
-        exit;
-    }
 }

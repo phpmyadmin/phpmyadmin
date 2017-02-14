@@ -38,8 +38,11 @@ class PMA_Form_Processing_Test extends PMATestCase
     public function testProcessFormSet()
     {
         $this->mockResponse(
-                array('HTTP/1.1 303 See Other'),
-                array('Location: index.php?lang=en')
+            array(
+                array('status: 303 See Other'),
+                array('Location: index.php?lang=en'),
+                303
+                )
             );
 
         // case 1
