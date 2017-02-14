@@ -968,11 +968,11 @@ AJAX.registerOnload('functions.js', function () {
                         }
                         updateTimeout = window.setTimeout(UpdateIdleTime, interval);
                     } else { //timeout occurred
+                        clearInterval(IncInterval);
                         if (isStorageSupported('sessionStorage')){
                             window.sessionStorage.clear();
                         }
                         window.location.reload(true);
-                        clearInterval(IncInterval);
                     }
                 }
             });
