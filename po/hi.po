@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-01-25 10:08+0100\n"
-"PO-Revision-Date: 2017-02-14 15:59+0000\n"
+"PO-Revision-Date: 2017-02-14 16:10+0000\n"
 "Last-Translator: Siddhesh Rane <kingsid911@gmail.com>\n"
 "Language-Team: Hindi <https://hosted.weblate.org/projects/phpmyadmin/4-7/hi/>"
 "\n"
@@ -994,7 +994,7 @@ msgstr "सभी को पुर्व स्थिति मे लाए"
 
 #: js/messages.php:116
 msgid "Missing value in the form!"
-msgstr "फॉर्म में सूचना गुम हैं!"
+msgstr "फॉर्म में जानकारी गुम हैं!"
 
 #: js/messages.php:117
 #, fuzzy
@@ -1127,7 +1127,7 @@ msgstr "पेज बना दिया गया है"
 
 #: js/messages.php:153
 msgid "Template was loaded."
-msgstr ""
+msgstr "टेंप्लेट लोड हो गई है."
 
 #: js/messages.php:154
 #, fuzzy
@@ -1362,11 +1362,11 @@ msgstr "देखभाल व्यवस्था को एक बार य�
 
 #: js/messages.php:222 libraries/server_status_processes.lib.php:37
 msgid "Start auto refresh"
-msgstr ""
+msgstr "ऑटो रिफ्रेष शुरु करें"
 
 #: js/messages.php:223
 msgid "Stop auto refresh"
-msgstr ""
+msgstr "ऑटो रिफ्रॆष को रोकें"
 
 #: js/messages.php:225
 msgid "general_log and slow_query_log are enabled."
