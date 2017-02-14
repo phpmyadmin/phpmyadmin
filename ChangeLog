@@ -75,6 +75,7 @@ phpMyAdmin - ChangeLog
 - issue #12980 Better defaults when creating multi field foreign key
 - issue #12976 Improved foreign key editor behavior
 - issue #12958 Always show error reporting dialog on top
+- issue #12693 Improved support for TokuDB
 
 4.6.6 (2017-01-23)
 - issue #12759 Fix Notice regarding 'Undefined index: old_usergroup'
