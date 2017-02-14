@@ -379,13 +379,19 @@ class AuthenticationCookie extends AuthenticationPlugin
         );
 
         // user was never logged in since session start
-        if (empty($_SESSION['last_access_time'])) {
+        if (empty($_SESSION['browser_access_time'])) {
             return false;
         }
 
         // User inactive too long
         $last_access_time = time() - $GLOBALS['cfg']['LoginCookieValidity'];
-        if ($_SESSION['last_access_time'] < $last_access_time) {
+        foreach ($_SESSION['browser_access_time'] as $key => $value) {
+            if ($value < $last_access_time) {
+                unset($_SESSION['browser_access_time'][$key]);
+            }
+        }
+        // All sessions expired
+        if (empty($_SESSION['browser_access_time'])) {
             Util::cacheUnset('is_create_db_priv');
             Util::cacheUnset('is_reload_priv');
             Util::cacheUnset('db_to_create');

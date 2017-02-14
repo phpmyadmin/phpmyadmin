@@ -918,17 +918,31 @@ AJAX.registerOnload('functions.js', function () {
     document.onkeypress = function() {
         _idleSecondsCounter = 0;
     };
+    function guid() {
+        function s4() {
+            return Math.floor((1 + Math.random()) * 0x10000)
+                .toString(16)
+            .substring(1);
+        }
+        return s4() + s4() + '-' + s4() + '-' + s4() + '-' +
+            s4() + '-' + s4() + s4() + s4();
+    }
 
     function SetIdleTime() {
         _idleSecondsCounter++;
     }
     function UpdateIdleTime() {
         var href = 'index.php';
+        var guid = 'default';
+        if (isStorageSupported('sessionStorage')) {
+            guid = window.sessionStorage.guid;
+        }
         var params = {
                 'ajax_request' : true,
                 'token' : PMA_commonParams.get('token'),
                 'server' : PMA_commonParams.get('server'),
                 'db' : PMA_commonParams.get('db'),
+                'guid': guid,
                 'access_time':_idleSecondsCounter
             };
         $.ajax({
@@ -954,7 +968,7 @@ AJAX.registerOnload('functions.js', function () {
                         }
                         updateTimeout = window.setTimeout(UpdateIdleTime, interval);
                     } else { //timeout occurred
-                        if(isStorageSupported('sessionStorage')){
+                        if (isStorageSupported('sessionStorage')){
                             window.sessionStorage.clear();
                         }
                         window.location.reload(true);
@@ -969,6 +983,9 @@ AJAX.registerOnload('functions.js', function () {
             PMA_commonParams.get('LoginCookieValidity'),
             PMA_commonParams.get('session_gc_maxlifetime')
         );
+        if (isStorageSupported('sessionStorage')) {
+            window.sessionStorage.setItem('guid', guid());
+        }
         var interval = (session_timeout - 5) * 1000;
         if (interval > Math.pow(2, 31) - 1) { // max value for setInterval() function
             interval = Math.pow(2, 31) - 1;
