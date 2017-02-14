@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-01-25 10:08+0100\n"
-"PO-Revision-Date: 2017-02-14 18:43+0000\n"
-"Last-Translator: Lukas Grimm <ombre@ombre.ch>\n"
+"PO-Revision-Date: 2017-02-14 19:16+0000\n"
+"Last-Translator: Microgamer <microgamer.developer@gmail.com>\n"
 "Language-Team: German "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/de/>\n"
 "Language: de\n"
@@ -2194,15 +2194,15 @@ msgid ""
 "values directly if desired"
 msgstr ""
 "MySQL akzeptiert zusätzliche Werte, welche nicht über den Slider ausgewählt "
-"werden können. Falls gewünscht, müssen diese Werte direkt angegeben werden."
+"werden können; diese Werte könnten händisch eingeben werden"
 
 #: js/messages.php:534
 msgid ""
 "MySQL accepts additional values not selectable by the datepicker; key in "
 "those values directly if desired"
 msgstr ""
-"MySQL akzeptiert weitere Werte, die nicht mit dem Kalenderfeld auswählbar "
-"sind; falls gewünscht, geben Sie diese Werte direkt ein"
+"MySQL akzeptiert weitere Werte, die nicht über das Kalenderfeld auswählbar "
+"sind; diese Werte könnten händisch eingeben werden"
 
 #: js/messages.php:540
 msgid ""
@@ -11075,38 +11075,26 @@ msgid "Error: Relational features are disabled!"
 msgstr "Fehler: Beziehungsfunktionen wurde deaktiviert!"
 
 #: libraries/pmd_common.php:635
-#, fuzzy
-#| msgid "Internal relation has been added."
 msgid "Internal relationship has been added."
 msgstr "Interne Verknüpfung wurde hinzugefügt."
 
 #: libraries/pmd_common.php:641
-#, fuzzy
-#| msgid "Error: Internal relation could not be added!"
 msgid "Error: Internal relationship could not be added!"
 msgstr "Fehler: Interne Verknüpfung konnte nicht hinzugefügt werden!"
 
 #: libraries/pmd_common.php:679
-#, fuzzy
-#| msgid "FOREIGN KEY relation has been removed."
 msgid "FOREIGN KEY relationship has been removed."
-msgstr "Fremdschlüssel-Beziehung wurde beseitigt."
+msgstr "FOREIGN KEY wurde beseitigt."
 
 #: libraries/pmd_common.php:685
-#, fuzzy
-#| msgid "Error: FOREIGN KEY relation could not be removed!"
 msgid "Error: FOREIGN KEY relationship could not be removed!"
-msgstr "Fehler: Fremdschlüssel-Beziehung konnte nicht beseitigt werden!"
+msgstr "Fehler: FOREIGEN KEY konnte nicht beseitigt werden!"
 
 #: libraries/pmd_common.php:712
-#, fuzzy
-#| msgid "Error: Internal relation could not be removed!"
 msgid "Error: Internal relationship could not be removed!"
 msgstr "Fehler: Interne Verknüpfung konnte nicht beseitigt werden!"
 
 #: libraries/pmd_common.php:716
-#, fuzzy
-#| msgid "Internal relation has been removed."
 msgid "Internal relationship has been removed."
 msgstr "Interne Verknüpfung wurde beseitigt."
 
@@ -14328,10 +14316,6 @@ msgstr ""
 "Information wie Passwörter) werden unverschlüsselt übertragen!"
 
 #: setup/frames/index.inc.php:58
-#, fuzzy
-#| msgid ""
-#| "If your server is also configured to accept HTTPS requests follow [a@"
-#| "%s]this link[/a] to use a secure connection."
 msgid ""
 "If your server is also configured to accept HTTPS requests follow this link "
 "to use a secure connection."
@@ -14864,8 +14848,6 @@ msgid "Show query history at start"
 msgstr "Abfrageverlauf beim Start anzeigen"
 
 #: templates/console/display.phtml:189
-#, fuzzy
-#| msgid "Show current browsing query"
 msgid "Show current browsing query"
 msgstr "Aktuelle Abfrage anzeigen"
 
@@ -14915,8 +14897,6 @@ msgid "See table structure"
 msgstr "Tabellenstruktur ansehen"
 
 #: templates/database/designer/delete_relation_panel.phtml:21
-#, fuzzy
-#| msgid "Delete relation"
 msgid "Delete relationship"
 msgstr "Verknüpfung löschen"
 
@@ -14945,15 +14925,11 @@ msgstr "Unterabfrage"
 #: templates/database/designer/new_relation_panel.phtml:22
 #: templates/database/designer/side_menu.phtml:84
 #: templates/database/designer/side_menu.phtml:87
-#, fuzzy
-#| msgid "Create relation"
 msgid "Create relationship"
 msgstr "Erzeuge Verknüpfung"
 
 #: templates/database/designer/options_panel.phtml:34
 #: templates/database/designer/options_panel.phtml:200
-#, fuzzy
-#| msgid "Relation operator"
 msgid "Relationship operator"
 msgstr "Beziehungsoperator"
 
@@ -15053,8 +15029,6 @@ msgstr "Wechseln klein/groß"
 
 #: templates/database/designer/side_menu.phtml:145
 #: templates/database/designer/side_menu.phtml:148
-#, fuzzy
-#| msgid "Toggle relation lines"
 msgid "Toggle relationship lines"
 msgstr "Beziehungen anzeigen an/aus"
 
@@ -15083,8 +15057,6 @@ msgid "Hide/Show all"
 msgstr "Alles ein-/ausblenden"
 
 #: templates/database/designer/table_list.phtml:14
-#, fuzzy
-#| msgid "Hide/Show Tables with no relation"
 msgid "Hide/Show Tables with no relationship"
 msgstr "Tabellen ohne Verknüpfung aus-/einblenden"
 
@@ -15223,10 +15195,8 @@ msgstr ""
 "für die aktuelle Session geladen werden?"
 
 #: templates/prefs_autoload.phtml:14
-#, fuzzy
-#| msgid "Delete tracking"
 msgid "Delete settings "
-msgstr "Tracking löschen"
+msgstr "Einstellungen löschen "
 
 #: templates/privileges/add_privileges_database.phtml:2
 msgid "Add privileges on the following database(s):"
@@ -15514,8 +15484,6 @@ msgstr "+ Constraint hinzufügen"
 
 #: templates/table/relation/common_form.phtml:76
 #: templates/table/relation/common_form.phtml:82
-#, fuzzy
-#| msgid "Internal relations"
 msgid "Internal relationships"
 msgstr "Interne Beziehungen"
 
@@ -15804,10 +15772,8 @@ msgid "Password is too long!"
 msgstr "Das Kennwort ist zu lang!"
 
 #: view_create.php:48
-#, fuzzy
-#| msgid "View name can not be empty"
 msgid "View name can not be empty!"
-msgstr "Ansichtsname kann nicht leer sein"
+msgstr "Anzeigename darf nicht leer sein!"
 
 #: view_create.php:253
 msgid "VIEW name"
