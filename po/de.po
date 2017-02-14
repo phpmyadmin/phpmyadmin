@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-01-25 10:08+0100\n"
-"PO-Revision-Date: 2017-01-20 22:55+0000\n"
-"Last-Translator: Daniel Heße <hesse.daniel93@gmail.com>\n"
-"Language-Team: German <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"de/>\n"
+"PO-Revision-Date: 2017-02-14 18:42+0000\n"
+"Last-Translator: Microgamer <microgamer.developer@gmail.com>\n"
+"Language-Team: German "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/de/>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.11-dev\n"
+"X-Generator: Weblate 2.12-dev\n"
 
 #: changelog.php:39 license.php:34
 #, php-format
@@ -22,7 +22,7 @@ msgid ""
 "information."
 msgstr ""
 "Die %s Datei steht auf diesem System nicht zur Verfügung. Bitte besuchen Sie "
-"%s um nach weiteren Informationen zu suchen."
+"%s, um nach weiteren Informationen zu suchen."
 
 #: db_central_columns.php:108
 msgid "The central list of columns for the current database is empty."
@@ -2626,23 +2626,23 @@ msgstr "Tabelle mit Prefix kopieren"
 
 #: js/messages.php:732
 msgid "Extremely weak"
-msgstr ""
+msgstr "Extrem schwach"
 
 #: js/messages.php:733
 msgid "Very weak"
-msgstr ""
+msgstr "Sehr schwach"
 
 #: js/messages.php:734
 msgid "Weak"
-msgstr ""
+msgstr "Schwach"
 
 #: js/messages.php:735
 msgid "Good"
-msgstr ""
+msgstr "Gut"
 
 #: js/messages.php:736
 msgid "Strong"
-msgstr ""
+msgstr "Stark"
 
 #: js/messages.php:765
 msgctxt "Previous month"
@@ -3637,10 +3637,8 @@ msgid "Relational key"
 msgstr "Relationaler Schlüssel"
 
 #: libraries/DisplayResults.php:1745
-#, fuzzy
-#| msgid "Display column for relations"
 msgid "Display column for relationships"
-msgstr "Anzeigespalte für Beziehungen"
+msgstr "Zeige Spalte für Beziehungen"
 
 #: libraries/DisplayResults.php:1761
 msgid "Show binary contents"
@@ -4885,12 +4883,12 @@ msgstr "%d. %B %Y um %H:%M"
 #: libraries/Util.php:1588
 msgctxt "AM/PM indication in time"
 msgid "PM"
-msgstr ""
+msgstr "PM"
 
 #: libraries/Util.php:1590
 msgctxt "AM/PM indication in time"
 msgid "AM"
-msgstr ""
+msgstr "AM"
 
 #: libraries/Util.php:1966
 #, php-format
@@ -5972,10 +5970,8 @@ msgstr "MIME-Typ"
 
 #: libraries/config/messages.inc.php:167 libraries/config/messages.inc.php:180
 #: libraries/config/messages.inc.php:221
-#, fuzzy
-#| msgid "Relations"
 msgid "Relationships"
-msgstr "Tabellenverknüpfungen"
+msgstr "Verknüpfungen"
 
 #: libraries/config/messages.inc.php:173
 msgid "Export method"
@@ -7709,16 +7705,12 @@ msgid "Show hint"
 msgstr "Hinweis anzeigen"
 
 #: libraries/config/messages.inc.php:867
-#, fuzzy
-#| msgid ""
-#| "Shows link to [a@https://secure.php.net/manual/function.phpinfo."
-#| "php]phpinfo()[/a] output."
 msgid ""
 "Shows link to [a@https://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
 "output."
 msgstr ""
-"Zeige Link zu [a@https://secure.php.net/manual/function.phpinfo.php]phpinfo()"
-"[/a] Ausgabe."
+"Zeige Link zu "
+"[a@https://secure.php.net/manual/function.phpinfo.php]phpinfo()[/a] Ausgabe."
 
 #: libraries/config/messages.inc.php:870
 msgid "Show phpinfo() link"
@@ -8205,8 +8197,6 @@ msgid "Display column was successfully updated."
 msgstr "Spaltendarstellung erfolgreich aktualisiert."
 
 #: libraries/controllers/table/TableRelationController.php:282
-#, fuzzy
-#| msgid "Internal relations were successfully updated."
 msgid "Internal relationships were successfully updated."
 msgstr "Interne Verknüpfungen wurden erfolgreich aktualisiert."
 
@@ -8329,7 +8319,7 @@ msgstr "Passwort:"
 
 #: libraries/display_change_password.lib.php:68
 msgid "Enter:"
-msgstr ""
+msgstr "Eingabe:"
 
 #: libraries/display_change_password.lib.php:75
 #: libraries/replication_gui.lib.php:865
@@ -10130,7 +10120,7 @@ msgstr "Sie sind nicht berechtigt, sich an diesem MySQL-Server anzumelden!"
 
 #: libraries/plugins/auth/AuthenticationCookie.php:723
 msgid "OpenSSL error when manipulating with cookies:"
-msgstr ""
+msgstr "OpenSSL-Fehler beim Verändern von Cookies:"
 
 #: libraries/plugins/auth/AuthenticationHttp.php:88
 msgid "Wrong username/password. Access denied."
@@ -10579,8 +10569,6 @@ msgid "MIME TYPES FOR TABLE"
 msgstr "MIME TYPEN DER TABELLE"
 
 #: libraries/plugins/export/ExportSql.php:1878
-#, fuzzy
-#| msgid "RELATIONS FOR TABLE"
 msgid "RELATIONSHIPS FOR TABLE"
 msgstr "RELATIONEN DER TABELLE"
 
@@ -11067,22 +11055,16 @@ msgid "Formats text as XML with syntax highlighting."
 msgstr "Formatiert den Text als XML mit Syntaxhervorhebung."
 
 #: libraries/pmd_common.php:551
-#, fuzzy
-#| msgid "Error: relation already exists."
 msgid "Error: relationship already exists."
 msgstr "Fehler: Verknüpfung existiert bereits."
 
 #: libraries/pmd_common.php:597
-#, fuzzy
-#| msgid "FOREIGN KEY relation has been added."
 msgid "FOREIGN KEY relationship has been added."
-msgstr "Fremdschlüssel-Beziehung wurde hinzugefügt."
+msgstr "FOREIGN KEY wurde hinzugefügt."
 
 #: libraries/pmd_common.php:603
-#, fuzzy
-#| msgid "Error: FOREIGN KEY relation could not be added!"
 msgid "Error: FOREIGN KEY relationship could not be added!"
-msgstr "Fehler: Fremdschlüssel-Beziehung konnte nicht hinzugefügt werden!"
+msgstr "Fehler: FOREIGN KEY konnte nicht hinzugefügt werden!"
 
 #: libraries/pmd_common.php:608
 msgid "Error: Missing index on column(s)."
@@ -11572,6 +11554,8 @@ msgid ""
 "Connection to server is disabled, please enable $cfg['AllowArbitraryServer'] "
 "in phpMyAdmin configuration."
 msgstr ""
+"Verbindung zum Server ist deaktiviert. Bitte aktivieren Sie "
+"$cfg['AllowArbitraryServer'] in der phpMyAdmin Konfiguration."
 
 #: libraries/replication_gui.lib.php:914
 msgid "Replication started successfully."
@@ -12305,7 +12289,7 @@ msgstr "Routine"
 msgid ""
 "Allows user to give to other users or remove from other users privileges "
 "that user possess on this routine."
-msgstr ""
+msgstr "Erlaubt dem Benutzer die Benutzerrechte für diese Routine zu verwalten."
 
 #: libraries/server_privileges.lib.php:934
 msgid "Allows altering and dropping this routine."
@@ -12367,6 +12351,8 @@ msgid ""
 "Allows user to give to other users or remove from other users the privileges "
 "that user possess yourself."
 msgstr ""
+"Erlaubt dem Benutzer die Rechte von anderen Benutzern zu bearbeiten, die er "
+"selbst hat."
 
 #: libraries/server_privileges.lib.php:1422
 #: libraries/server_privileges.lib.php:1453
@@ -14443,7 +14429,7 @@ msgstr "Neuen Server hinzufügen"
 
 #: setup/index.php:16
 msgid "Configuration already exists, setup is disabled!"
-msgstr ""
+msgstr "Konfiguration existiert bereits, Installation ist deaktiviert!"
 
 #: setup/index.php:26
 msgid "Wrong GET file attribute value"
@@ -15507,6 +15493,9 @@ msgid ""
 "an index on it. Alternatively, you can define an index below, before "
 "creating the foreign key."
 msgstr ""
+"Das Erstellen eines Foreign Keys für eine nicht indizierte Spalte erstellt "
+"automatisch einen Index für diese. Sie können auch unten einen Index "
+"definieren, bevor sie den Foreign Key anlegen."
 
 #: templates/table/relation/common_form.phtml:20
 msgid ""
