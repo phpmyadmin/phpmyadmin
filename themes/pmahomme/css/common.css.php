@@ -611,7 +611,6 @@ tr:last-child td.condition {
  */
 td.null {
     font-style: italic;
-    text-align: <?php echo $right; ?>;
     color: #7d7d7d;
 }
 
