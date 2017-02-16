@@ -77,6 +77,7 @@ phpMyAdmin - ChangeLog
 - issue #12958 Always show error reporting dialog on top
 - issue #12693 Improved support for TokuDB
 - issue #11231 Try harder to honor LoginCookieValidity setting
+- issue #13002 OpenDocument Spreadsheet and Text (ODS/ODT) exports an invalid file
 
 4.6.6 (2017-01-23)
 - issue #12759 Fix Notice regarding 'Undefined index: old_usergroup'

@@ -148,7 +148,7 @@ class ExportOdt extends ExportPlugin
     {
         $GLOBALS['odt_buffer'] .= '<?xml version="1.0" encoding="utf-8"?' . '>'
             . '<office:document-content '
-            . OpenDocument::NS . 'office:version="1.0">'
+            . OpenDocument::NS . ' office:version="1.0">'
             . '<office:body>'
             . '<office:text>';
 
