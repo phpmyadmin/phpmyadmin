@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-01-25 10:08+0100\n"
-"PO-Revision-Date: 2017-02-11 04:50+0000\n"
+"PO-Revision-Date: 2017-02-18 09:04+0000\n"
 "Last-Translator: hd hd <hd@cgsword.com>\n"
 "Language-Team: Chinese (Taiwan) "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/zh_TW/>\n"
@@ -804,7 +804,7 @@ msgstr "您正要刪除(DESTROY)一個完整的資料庫！"
 
 #: js/messages.php:48
 msgid "Cannot rename database to the same name. Change the name and try again"
-msgstr ""
+msgstr "無法修改數據庫為相同名稱。改變名稱後再試"
 
 #: js/messages.php:50
 msgid "You are about to DESTROY a complete table!"
@@ -1751,7 +1751,7 @@ msgstr "匯出"
 
 #: js/messages.php:395
 msgid "No routine is exportable. Required privileges may be lacking."
-msgstr ""
+msgstr "沒有預存程序是可匯出的，可能是權限不足。"
 
 #: js/messages.php:398 libraries/rte/rte_routines.lib.php:747
 msgid "ENUM/SET editor"
@@ -2100,7 +2100,7 @@ msgstr "加密金鑰"
 msgid ""
 "MySQL accepts additional values not selectable by the slider; key in those "
 "values directly if desired"
-msgstr ""
+msgstr "MySQL 接受此滑塊以外的值，如有需要可直接輸入"
 
 #: js/messages.php:534
 msgid ""
@@ -2499,23 +2499,23 @@ msgstr "含字首複製資料表"
 
 #: js/messages.php:732
 msgid "Extremely weak"
-msgstr ""
+msgstr "極度弱"
 
 #: js/messages.php:733
 msgid "Very weak"
-msgstr ""
+msgstr "非常弱"
 
 #: js/messages.php:734
 msgid "Weak"
-msgstr ""
+msgstr "弱"
 
 #: js/messages.php:735
 msgid "Good"
-msgstr ""
+msgstr "好"
 
 #: js/messages.php:736
 msgid "Strong"
-msgstr ""
+msgstr "強"
 
 # 這應該是使用於選擇日期的月曆
 #: js/messages.php:765
@@ -2877,7 +2877,7 @@ msgstr "無法產生規則 '%s' 的格式化文字。"
 #: libraries/Advisor.php:469
 #, php-format
 msgid "Error in reading file: The file '%s' does not exist or is not readable!"
-msgstr ""
+msgstr "讀取檔案時的錯誤︰檔案 %s 不存在或不可讀！"
 
 #: libraries/Advisor.php:494
 #, php-format
@@ -3195,10 +3195,8 @@ msgid "Details…"
 msgstr "詳細資訊…"
 
 #: libraries/DatabaseInterface.php:2345
-#, fuzzy
-#| msgid "Missing parameter:"
 msgid "Missing connection parameters!"
-msgstr "未填寫必要的參數:"
+msgstr "缺少連接參數！"
 
 #: libraries/DatabaseInterface.php:2369
 msgid "Connection for controluser as defined in your configuration failed."
@@ -3495,8 +3493,6 @@ msgid "Relational key"
 msgstr "關聯鍵"
 
 #: libraries/DisplayResults.php:1745
-#, fuzzy
-#| msgid "Display column for relations"
 msgid "Display column for relationships"
 msgstr "顯示關聯的欄位"
 
@@ -3667,7 +3663,7 @@ msgstr "上傳檔案時發生未知錯誤。"
 
 #: libraries/File.php:445
 msgid "File is a symbolic link"
-msgstr ""
+msgstr "檔案為符號鏈接"
 
 #: libraries/File.php:450 libraries/File.php:542
 msgid "File could not be read!"
@@ -4684,12 +4680,12 @@ msgstr "%Y 年 %m 月 %d 日 %H:%M"
 #: libraries/Util.php:1588
 msgctxt "AM/PM indication in time"
 msgid "PM"
-msgstr ""
+msgstr "下午"
 
 #: libraries/Util.php:1590
 msgctxt "AM/PM indication in time"
 msgid "AM"
-msgstr ""
+msgstr "上午"
 
 #: libraries/Util.php:1966
 #, php-format
@@ -5149,7 +5145,7 @@ msgstr "該伺服器現在允許空密碼登入。"
 #, fuzzy
 #| msgid "Key is too short, it should have at least 8 characters."
 msgid "Key is too short, it should have at least 32 characters."
-msgstr "密碼太短，至少應有 8 個字元。"
+msgstr "密碼太短，至少應有 32 個字元。"
 
 #: libraries/config/ServerConfigChecks.php:359
 msgid "Key should contain letters, numbers [em]and[/em] special characters."
@@ -5272,10 +5268,8 @@ msgid "Could not connect to the database server!"
 msgstr "無法連線到資料庫！"
 
 #: libraries/config/Validator.php:243
-#, fuzzy
-#| msgid "Authentication type"
 msgid "Invalid authentication type!"
-msgstr "認證方式"
+msgstr "無效的認證方式！"
 
 #: libraries/config/Validator.php:250
 msgid "Empty username while using [kbd]config[/kbd] authentication method!"
@@ -5699,8 +5693,6 @@ msgstr "MIME 類型"
 
 #: libraries/config/messages.inc.php:167 libraries/config/messages.inc.php:180
 #: libraries/config/messages.inc.php:221
-#, fuzzy
-#| msgid "Relations"
 msgid "Relationships"
 msgstr "關聯"
 
@@ -7279,16 +7271,12 @@ msgid "Show last check timestamp"
 msgstr "顯示最後檢查時間"
 
 #: libraries/config/messages.inc.php:852
-#, fuzzy
-#| msgid "Show or hide a column displaying the comments for all tables."
 msgid "Show or hide a column displaying the charset for all tables."
-msgstr "顯示或隱藏所有資料表的建立時間欄位。"
+msgstr "顯示或隱藏所有資料表字符集的欄位。"
 
 #: libraries/config/messages.inc.php:854
-#, fuzzy
-#| msgid "Show table comments"
 msgid "Show table charset"
-msgstr "顯示資料表備註"
+msgstr "顯示資料表字符集"
 
 #: libraries/config/messages.inc.php:856
 msgid ""
@@ -7317,16 +7305,10 @@ msgid "Show hint"
 msgstr "顯示提示"
 
 #: libraries/config/messages.inc.php:867
-#, fuzzy
-#| msgid ""
-#| "Shows link to [a@https://secure.php.net/manual/function.phpinfo."
-#| "php]phpinfo()[/a] output."
 msgid ""
 "Shows link to [a@https://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
 "output."
-msgstr ""
-"顯示 [a@https://secure.php.net/manual/function.phpinfo.php]phpinfo()[/a] 輸出"
-"的連結。"
+msgstr "顯示連結至 [a@https://php.net/manual/function.phpinfo.php]phpinfo()[/a] 的輸出。"
 
 #: libraries/config/messages.inc.php:870
 msgid "Show phpinfo() link"
@@ -7782,8 +7764,6 @@ msgid "Display column was successfully updated."
 msgstr "顯示欄位已成功更新。"
 
 #: libraries/controllers/table/TableRelationController.php:282
-#, fuzzy
-#| msgid "Internal relations were successfully updated."
 msgid "Internal relationships were successfully updated."
 msgstr "內部關聯已成功更新。"
 
@@ -7901,7 +7881,7 @@ msgstr "密碼:"
 
 #: libraries/display_change_password.lib.php:68
 msgid "Enter:"
-msgstr ""
+msgstr "輸入︰"
 
 #: libraries/display_change_password.lib.php:75
 #: libraries/replication_gui.lib.php:865
@@ -8858,10 +8838,8 @@ msgid "Log out"
 msgstr "登出"
 
 #: libraries/navigation/NavigationHeader.php:172
-#, fuzzy
-#| msgid "Dumping data"
 msgid "Empty session data"
-msgstr "匯出資料"
+msgstr "清空會話資料"
 
 #: libraries/navigation/NavigationHeader.php:190
 msgid "phpMyAdmin documentation"
@@ -9593,7 +9571,7 @@ msgstr "您不被允許登入此 MySQL 伺服器！"
 
 #: libraries/plugins/auth/AuthenticationCookie.php:723
 msgid "OpenSSL error when manipulating with cookies:"
-msgstr ""
+msgstr "使用 Cookie 操作時出現 OpenSSL 錯誤："
 
 #: libraries/plugins/auth/AuthenticationHttp.php:88
 msgid "Wrong username/password. Access denied."
@@ -9989,10 +9967,9 @@ msgid "Last check:"
 msgstr "最後檢查:"
 
 #: libraries/plugins/export/ExportSql.php:1488
-#, fuzzy, php-format
-#| msgid "Table structure for table"
+#, php-format
 msgid "Error reading structure for table %s:"
-msgstr "資料表結構"
+msgstr "讀取資料表%s時出現錯誤："
 
 #: libraries/plugins/export/ExportSql.php:1542
 msgid "It appears your database uses views;"
@@ -10027,8 +10004,6 @@ msgid "MIME TYPES FOR TABLE"
 msgstr "MIME 類型表"
 
 #: libraries/plugins/export/ExportSql.php:1878
-#, fuzzy
-#| msgid "RELATIONS FOR TABLE"
 msgid "RELATIONSHIPS FOR TABLE"
 msgstr "表的關聯"
 
@@ -10046,10 +10021,9 @@ msgid "(See below for the actual view)"
 msgstr "(請參考以下實際畫面)"
 
 #: libraries/plugins/export/ExportSql.php:2204
-#, fuzzy, php-format
-#| msgid "Error reading data:"
+#, php-format
 msgid "Error reading data for table %s:"
-msgstr "讀取資料錯誤:"
+msgstr "讀取資料表%s的資料時出現錯誤:"
 
 #: libraries/plugins/export/ExportXml.php:97
 msgid "Object creation options (all are recommended)"
@@ -10473,20 +10447,14 @@ msgid "Formats text as XML with syntax highlighting."
 msgstr "將文字以 XML 語法醒目提示顯示。"
 
 #: libraries/pmd_common.php:551
-#, fuzzy
-#| msgid "Error: relation already exists."
 msgid "Error: relationship already exists."
 msgstr "錯誤: 關聯已存在。"
 
 #: libraries/pmd_common.php:597
-#, fuzzy
-#| msgid "FOREIGN KEY relation has been added."
 msgid "FOREIGN KEY relationship has been added."
 msgstr "已新增外鍵(Foreign Key)關聯。"
 
 #: libraries/pmd_common.php:603
-#, fuzzy
-#| msgid "Error: FOREIGN KEY relation could not be added!"
 msgid "Error: FOREIGN KEY relationship could not be added!"
 msgstr "錯誤: FOREIGN KEY 關聯無法新增!"
 
@@ -10499,38 +10467,26 @@ msgid "Error: Relational features are disabled!"
 msgstr "錯誤：關聯未啟用!"
 
 #: libraries/pmd_common.php:635
-#, fuzzy
-#| msgid "Internal relation has been added."
 msgid "Internal relationship has been added."
 msgstr "已新增內部關聯。"
 
 #: libraries/pmd_common.php:641
-#, fuzzy
-#| msgid "Error: Internal relation could not be added!"
 msgid "Error: Internal relationship could not be added!"
 msgstr "錯誤: 內部關聯無法新增!"
 
 #: libraries/pmd_common.php:679
-#, fuzzy
-#| msgid "FOREIGN KEY relation has been removed."
 msgid "FOREIGN KEY relationship has been removed."
 msgstr "已移除外鍵(Foreign Key)關聯。"
 
 #: libraries/pmd_common.php:685
-#, fuzzy
-#| msgid "Error: FOREIGN KEY relation could not be removed!"
 msgid "Error: FOREIGN KEY relationship could not be removed!"
 msgstr "錯誤: 無法移除 FOREIGN KEY 關聯!"
 
 #: libraries/pmd_common.php:712
-#, fuzzy
-#| msgid "Error: Internal relation could not be removed!"
 msgid "Error: Internal relationship could not be removed!"
 msgstr "錯誤: 無法移除內部關聯!"
 
 #: libraries/pmd_common.php:716
-#, fuzzy
-#| msgid "Internal relation has been removed."
 msgid "Internal relationship has been removed."
 msgstr "已移除內部關聯。"
 
@@ -10955,7 +10911,7 @@ msgstr "產生密碼："
 msgid ""
 "Connection to server is disabled, please enable $cfg['AllowArbitraryServer'] "
 "in phpMyAdmin configuration."
-msgstr ""
+msgstr "已禁用連線至服務器，請於 phpMyAdmin 的設定啟用 $cfg['AllowArbitraryServer']。"
 
 #: libraries/replication_gui.lib.php:914
 msgid "Replication started successfully."
@@ -11340,17 +11296,15 @@ msgid "routine"
 msgstr "程序"
 
 #: libraries/rte/rte_words.lib.php:32
-#, fuzzy
-#| msgid "You do not have the necessary privileges to create a routine"
 msgid "You do not have the necessary privileges to create a routine."
-msgstr "您無建立程序的權限"
+msgstr "您無建立程序的權限。"
 
 #: libraries/rte/rte_words.lib.php:35
 #, php-format
 msgid ""
 "No routine with name %1$s found in database %2$s. You might be lacking the "
 "necessary privileges to edit this routine."
-msgstr ""
+msgstr "無法在資料庫%2$s中找到預存程序%1$s，你可能沒有足夠權限修改此預存程序。"
 
 #: libraries/rte/rte_words.lib.php:39
 #, php-format
