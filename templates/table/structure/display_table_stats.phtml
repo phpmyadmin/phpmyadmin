@@ -1,9 +1,11 @@
 <div id="tablestatistics">
     <fieldset>
         <legend><?= __('Information'); ?></legend>
-        <p> <strong> <?= __('Table comments:') ?> </strong>
-            <?= isset($showtable['TABLE_COMMENT']) ? htmlspecialchars($showtable['TABLE_COMMENT']) : '';?>
-        </p>
+        <?php if($showtable['TABLE_COMMENT'] !== '') { ?>
+            <p> <strong> <?= __('Table comments:') ?> </strong>
+                <?= htmlspecialchars($showtable['TABLE_COMMENT']) ;?>
+            </p>
+        <?php } ?>
         <a id="showusage"></a>
 
         <?php if (! $tbl_is_view && ! $db_is_system_schema): ?>
