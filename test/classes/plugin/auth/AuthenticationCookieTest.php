@@ -334,7 +334,7 @@ class AuthenticationCookieTest extends PMATestCase
         );
 
         $this->assertContains(
-            '<div class="g-recaptcha" data-sitekey="testpubkey" data-callback="login_go_button_enable" data-expired-callback="login_go_button_disable" captcha="enabled">',
+            '<div class="g-recaptcha" data-sitekey="testpubkey" data-callback="loginButtonEnable" data-expired-callback="loginButtonDisable" captcha="enabled">',
             $result
         );
     }

@@ -5025,30 +5025,16 @@ function toggleDatepickerIfInvalid($td, $input_field) {
 /*
  * Function to enable the 'Go' button on login.
  */
-function login_go_button_enable() {
+function loginButtonEnable() {
     $('#input_go').prop('disabled', false);
 }
 
 /*
  * Function to disable the 'Go' button on login.
  */
-function login_go_button_disable() {
+function loginButtonDisable() {
     $('#input_go').prop('disabled', true);
 }
-
-/*
- * Setting the 'Go' login button to disable if captcha is enabled.
- */
-$(function ()
-{
-
-    var captcha = $('.g-recaptcha').attr('captcha');
-
-    if(captcha=='enabled'){
-        login_go_button_disable();
-    }
-
-});
 
 /**
  * Unbind all event handlers before tearing down a page
@@ -5071,6 +5057,13 @@ AJAX.registerOnload('functions.js', function () {
             }
         }
     });
+
+    /*
+     * Setting the 'Go' login button to disable if captcha is enabled.
+     */
+    if ($('.g-recaptcha').attr('captcha') == 'enabled'){
+        loginButtonDisable();
+    }
 });
 
 /**

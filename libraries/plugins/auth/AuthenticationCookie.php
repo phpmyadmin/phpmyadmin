@@ -229,7 +229,7 @@ class AuthenticationCookie extends AuthenticationPlugin
                 , $GLOBALS['lang'] , '" async defer></script>';
             echo '<div class="g-recaptcha" data-sitekey="'
                 , htmlspecialchars($GLOBALS['cfg']['CaptchaLoginPublicKey']) ,
-                '" data-callback="login_go_button_enable" data-expired-callback="login_go_button_disable" captcha="enabled"></div>';
+                '" data-callback="loginButtonEnable" data-expired-callback="loginButtonDisable" captcha="enabled"></div>';
         }
 
         echo '</fieldset>
