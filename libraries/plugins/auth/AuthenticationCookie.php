@@ -228,7 +228,8 @@ class AuthenticationCookie extends AuthenticationPlugin
             echo '<script src="https://www.google.com/recaptcha/api.js?hl='
                 , $GLOBALS['lang'] , '" async defer></script>';
             echo '<div class="g-recaptcha" data-sitekey="'
-                , htmlspecialchars($GLOBALS['cfg']['CaptchaLoginPublicKey']) , '"></div>';
+                , htmlspecialchars($GLOBALS['cfg']['CaptchaLoginPublicKey']) ,
+                '" data-callback="login_go_button_enable" data-expired-callback="login_go_button_disable" captcha="enabled"></div>';
         }
 
         echo '</fieldset>
