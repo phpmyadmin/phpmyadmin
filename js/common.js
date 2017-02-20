@@ -84,9 +84,15 @@ var PMA_commonParams = (function () {
          * @return string
          */
         getUrlQuery: function () {
+            var common = this.get('common_query');
+            var separator = '?';
+            if (common.length > 0) {
+                separator = '&';
+            }
             return PMA_sprintf(
-                '%s&server=%s&db=%s&table=%s',
+                '%s%sserver=%s&db=%s&table=%s',
                 this.get('common_query'),
+                separator,
                 encodeURIComponent(this.get('server')),
                 encodeURIComponent(this.get('db')),
                 encodeURIComponent(this.get('table'))

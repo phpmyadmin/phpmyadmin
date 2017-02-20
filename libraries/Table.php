@@ -1124,12 +1124,11 @@ class Table
                     . ') ' . ' VALUES(' . '\'' . $GLOBALS['dbi']->escapeString($target_db)
                     . '\',\'' . $GLOBALS['dbi']->escapeString($target_table) . '\',\''
                     . $GLOBALS['dbi']->escapeString($comments_copy_row['column_name'])
+                    . '\',\'' . $GLOBALS['dbi']->escapeString($target_table) . '\',\''
+                    . $GLOBALS['dbi']->escapeString($comments_copy_row['comment'])
                     . '\''
                     . ($GLOBALS['cfgRelation']['mimework']
                         ? ',\'' . $GLOBALS['dbi']->escapeString(
-                            $comments_copy_row['comment']
-                        )
-                        . '\',' . '\'' . $GLOBALS['dbi']->escapeString(
                             $comments_copy_row['mimetype']
                         )
                         . '\',' . '\'' . $GLOBALS['dbi']->escapeString(
