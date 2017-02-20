@@ -61,7 +61,7 @@ EOT;
         $zipfile -> addFile(
             '<?xml version="1.0" encoding="UTF-8"?' . '>'
             . '<office:document-styles ' . OpenDocument::NS
-            . 'office:version="1.0">'
+            . ' office:version="1.0">'
             . '<office:font-face-decls>'
             . '<style:font-face style:name="Arial Unicode MS"'
             . ' svg:font-family="\'Arial Unicode MS\'" style:font-pitch="variable"/>'
