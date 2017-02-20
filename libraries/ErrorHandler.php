@@ -155,8 +155,14 @@ class ErrorHandler
      */
     public function handleError($errno, $errstr, $errfile, $errline)
     {
-        // check if Error Control Operator (@) was used.
-        if (error_reporting() == 0 && $this->error_reporting != 0) {
+        /**
+         * Check if Error Control Operator (@) was used, but still show
+         * user errors even in this case.
+         */
+        if (error_reporting() == 0 &&
+            $this->error_reporting != 0 &&
+            ($errno & (E_USER_WARNING | E_USER_ERROR | E_USER_NOTICE)) == 0
+        ) {
             return;
         }
         $this->addError($errstr, $errno, $errfile, $errline, true);
