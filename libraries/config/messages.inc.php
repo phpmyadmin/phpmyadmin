@@ -568,12 +568,6 @@ $strConfigPmaNoRelation_DisableWarning_desc = __(
 );
 $strConfigPmaNoRelation_DisableWarning_name
     = __('Missing phpMyAdmin configuration storage tables');
-$strConfigServerLibraryDifference_DisableWarning_desc = __(
-    'Disable the default warning that is displayed if a difference between the '
-    . 'MySQL library and server is detected.'
-);
-$strConfigServerLibraryDifference_DisableWarning_name
-    = __('Server/library difference warning');
 $strConfigReservedWordDisableWarning_desc = __(
     'Disable the default warning that is displayed on the Structure page if column '
     . 'names in a table are reserved MySQL words.'
