@@ -2087,7 +2087,7 @@ function bindCodeMirrorToInlineEditor() {
 
 function catchKeypressesFromSqlInlineEdit(event) {
     // ctrl-enter is 10 in chrome and ie, but 13 in ff
-    if (event.ctrlKey && (event.keyCode == 13 || event.keyCode == 10)) {
+    if ((event.ctrlKey || event.metaKey) && (event.keyCode == 13 || event.keyCode == 10)) {
         $("#sql_query_edit_save").trigger('click');
     }
 }

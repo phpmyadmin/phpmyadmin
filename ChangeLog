@@ -84,6 +84,7 @@ phpMyAdmin - ChangeLog
 - issue #12345 Correctly show affected rows for LOAD DATA queries
 - issue #13010 Copy database: SQL error for copying PMADB metadata
 - issue #13002 Fixed OpenDocument exports
+- issue #13000 Align NULL values according to the column alignment
 
 4.6.6 (2017-01-23)
 - issue #12759 Fix Notice regarding 'Undefined index: old_usergroup'
