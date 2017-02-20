@@ -195,22 +195,6 @@ class AuthenticationHttp extends AuthenticationPlugin
         global $cfg, $server;
         global $PHP_AUTH_USER, $PHP_AUTH_PW;
 
-        // Ensures valid authentication mode, 'only_db', bookmark database and
-        // table names and relation table name are used
-        if (! hash_equals($cfg['Server']['user'], $PHP_AUTH_USER)) {
-            $servers_cnt = count($cfg['Servers']);
-            for ($i = 1; $i <= $servers_cnt; $i++) {
-                if (isset($cfg['Servers'][$i])
-                    && ($cfg['Servers'][$i]['host'] == $cfg['Server']['host']
-                    && hash_equals($cfg['Servers'][$i]['user'], $PHP_AUTH_USER))
-                ) {
-                    $server = $i;
-                    $cfg['Server'] = $cfg['Servers'][$i];
-                    break;
-                }
-            } // end for
-        } // end if
-
         $cfg['Server']['user'] = $PHP_AUTH_USER;
         $cfg['Server']['password'] = $PHP_AUTH_PW;
 
