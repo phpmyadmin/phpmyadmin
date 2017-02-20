@@ -78,6 +78,7 @@ phpMyAdmin - ChangeLog
 - issue #12693 Improved support for TokuDB
 - issue #11231 Try harder to honor LoginCookieValidity setting
 - issue #13016 and #13017 Slight improvements to the table layout of Relation view
+- issue #12345 Correctly show affected rows for LOAD DATA queries
 - issue #13010 Copy database: SQL error for copying PMADB metadata
 
 4.6.6 (2017-01-23)

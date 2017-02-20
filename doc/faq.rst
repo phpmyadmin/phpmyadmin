@@ -426,12 +426,16 @@ MMCache but upgrading MMCache to version 2.3.21 solves the problem.
 
 .. _faq1_31:
 
-1.31 Does phpMyAdmin support PHP 5?
------------------------------------
+1.31 Which PHP versions does phpMyAdmin support?
+------------------------------------------------
 
-Yes.
+Since release 4.5, phpMyAdmin supports only PHP 5.5 and newer. Since release
+4.1 phpMyAdmin supports only PHP 5.3 and newer. For PHP 5.2 you can use 4.0.x
+releases.
 
-Since release 4.5, phpMyAdmin supports only PHP 5.5 and newer. Since release 4.1 phpMyAdmin supports only PHP 5.3 and newer. For PHP 5.2 you can use 4.0.x releases.
+PHP 7 is supported since phpMyAdmin 4.6, PHP 7.1 is supported since 4.6.5.
+
+phpMyAdmin also works fine with HHVM.
 
 .. _faq1_32:
 
