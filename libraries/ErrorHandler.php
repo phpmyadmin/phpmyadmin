@@ -29,6 +29,11 @@ class ErrorHandler
     protected $hide_location = false;
 
     /**
+     * Initial error reporting state
+     */
+    protected $error_reporting = 0;
+
+    /**
      * Constructor - set PHP error handler
      *
      */
@@ -43,6 +48,7 @@ class ErrorHandler
         if (!defined('TESTSUITE')) {
             set_error_handler(array($this, 'handleError'));
         }
+        $this->error_reporting = error_reporting();
     }
 
     /**
@@ -150,7 +156,7 @@ class ErrorHandler
     public function handleError($errno, $errstr, $errfile, $errline)
     {
         // check if Error Control Operator (@) was used.
-        if (error_reporting() == 0) {
+        if (error_reporting() == 0 && $this->error_reporting != 0) {
             return;
         }
         $this->addError($errstr, $errno, $errfile, $errline, true);
