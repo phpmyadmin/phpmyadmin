@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-01-25 10:08+0100\n"
-"PO-Revision-Date: 2017-02-21 20:10+0000\n"
+"PO-Revision-Date: 2017-02-21 22:46+0000\n"
 "Last-Translator: tmtisfree <tmtisfree@free.fr>\n"
 "Language-Team: French "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/fr/>\n"
@@ -3697,7 +3697,7 @@ msgstr "total de %d"
 #: libraries/DisplayResults.php:4743 libraries/sql.lib.php:1380
 #, php-format
 msgid "Query took %01.4f seconds."
-msgstr "Traitement en %01.4f secondes."
+msgstr "Traité en %01.4f seconde(s)."
 
 #: libraries/DisplayResults.php:4845 libraries/DisplayResults.php:4852
 #: libraries/mult_submits.inc.php:53
@@ -3705,7 +3705,7 @@ msgstr "Traitement en %01.4f secondes."
 #: templates/database/structure/check_all_tables.phtml:9
 #: templates/select_all.phtml:2 templates/select_all.phtml:7
 msgid "With selected:"
-msgstr "Pour la sélection : "
+msgstr "Avec la sélection :"
 
 #: libraries/DisplayResults.php:4849 libraries/DisplayResults.php:4851
 #: libraries/server_privileges.lib.php:1164
@@ -4374,7 +4374,7 @@ msgstr "%s a été désactivé sur ce serveur MySQL."
 #: libraries/StorageEngine.php:393
 #, php-format
 msgid "This MySQL server does not support the %s storage engine."
-msgstr "Ce serveur MySQL ne supporte pas le moteur de stockage %s."
+msgstr "Ce serveur MySQL ne prend pas en charge le moteur de stockage %s."
 
 #: libraries/Table.php:313
 msgid "Unknown table status:"
@@ -4449,7 +4449,7 @@ msgstr "Aucune colonne n'a été définie pour cet index !"
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr ""
 "Erreur lors de la création de la clé étrangère sur %1$s (vérifier le type "
-"des colonnes)"
+"des données)"
 
 #: libraries/Theme.php:168
 #, php-format
@@ -4902,8 +4902,7 @@ msgstr "Parcourir les fichiers :"
 #: libraries/Util.php:3414
 #, php-format
 msgid "Select from the web server upload directory <b>%s</b>:"
-msgstr ""
-"Choisissez depuis le répertoire de téléchargement du serveur web <b>%s</b> : "
+msgstr "Choisir depuis le répertoire de transfert du serveur Web <b>%s</b> :"
 
 #: libraries/Util.php:3443 libraries/insert_edit.lib.php:1233
 msgid "The directory you set for upload work cannot be reached."
@@ -4966,13 +4965,13 @@ msgid ""
 "The configuration storage is not ready for the central list of columns "
 "feature."
 msgstr ""
-"Le stockage de la configuration n'est pas prêt pour la fonctionnalité «liste "
-"centrale des colonnes»."
+"Le stockage de la configuration n'est pas prêt pour la fonctionnalité de "
+"liste centrale des colonnes."
 
 #: libraries/central_columns.lib.php:282
 #, php-format
 msgid "Could not add %1$s as they already exist in central list!"
-msgstr "Ajout de %1$s impossible puisqu'ils existent dans la liste centrale !"
+msgstr "Impossible d'ajouter %1$s puisqu'ils existent dans la liste centrale !"
 
 #: libraries/central_columns.lib.php:297
 msgid "Could not add columns!"
@@ -4988,7 +4987,7 @@ msgstr ""
 
 #: libraries/central_columns.lib.php:384
 msgid "Could not remove columns!"
-msgstr "Impossible de supprimer les colonnes !"
+msgstr "Impossible de retirer les colonnes !"
 
 #: libraries/central_columns.lib.php:529
 msgid "YES"
@@ -5028,7 +5027,7 @@ msgstr "Incrémentation automatique"
 
 #: libraries/central_columns.lib.php:749
 msgid "Select a table"
-msgstr "Choisissez une table"
+msgstr "Sélectionner une table"
 
 #: libraries/central_columns.lib.php:803
 #: templates/table/structure/add_column.phtml:4
@@ -5037,7 +5036,7 @@ msgstr "Ajouter une colonne"
 
 #: libraries/central_columns.lib.php:815
 msgid "Select a column."
-msgstr "Sélectionnez une colonne."
+msgstr "Sélectionner une colonne"
 
 #: libraries/central_columns.lib.php:1263
 msgid "Add new column"
@@ -5057,21 +5056,19 @@ msgid ""
 "option is incompatible with phpMyAdmin and might cause some data to be "
 "corrupted!"
 msgstr ""
-"Vous avez activé mbstring.func_overload dans votre configuration PHP. Cette "
-"option est incompatible avec phpMyAdmin et peut nuire au traitement des "
-"données !"
+"mbstring.func_overload a été activé dans la configuration PHP. Cette option "
+"est incompatible avec phpMyAdmin et pourrait corrompre certaines données !"
 
 #: libraries/common.inc.php:491
 #, php-format
 msgid "Invalid server index: %s"
-msgstr "Indice de serveur invalide: %s"
+msgstr "Indice de serveur invalide : %s"
 
 #: libraries/common.inc.php:503
 #, php-format
 msgid "Invalid hostname for server %1$s. Please review your configuration."
 msgstr ""
-"Nom d'hôte invalide pour le serveur %1$s. Veuillez vérifier votre "
-"configuration."
+"Nom d'hôte invalide pour le serveur %1$s. merci de vérifier la configuration."
 
 #: libraries/common.inc.php:521
 #, php-format
@@ -5090,19 +5087,19 @@ msgid ""
 "setting for [em]$cfg['Servers'][%3$d]['SessionTimeZone'][/em]. phpMyAdmin is "
 "currently using the default time zone of the database server."
 msgstr ""
-"Impossible d'utiliser le fuseau horaire %1$s pour le serveur %2$d. Veuillez "
-"vérifier vos paramètres de configuration pour [em]$cfg['Servers'][%3$d]"
-"['SessionTimeZone'][/em]. phpMyAdmin utilise actuellement le fuseau horaire "
-"par défaut du serveur de base de données."
+"Impossible d'utiliser le fuseau horaire %1$s pour le serveur %2$d. Merci de "
+"vérifier les paramètres de configuration pour "
+"[em]$cfg['Servers'][%3$d]['SessionTimeZone'][/em]. phpMyAdmin utilise "
+"actuellement le fuseau horaire par défaut du serveur de base de données."
 
 #: libraries/common.inc.php:792
 #, php-format
 msgid "You should upgrade to %s %s or later."
-msgstr "Vous devriez utiliser %s en version %s ou plus récente."
+msgstr "Il faudrait utiliser %s en version %s ou plus récente."
 
 #: libraries/common.inc.php:878
 msgid "Error: Token mismatch"
-msgstr "Erreur: disparité du jeton"
+msgstr "Erreur : disparité du jeton"
 
 #: libraries/common.inc.php:896
 msgid "GLOBALS overwrite attempt"
@@ -5240,7 +5237,7 @@ msgstr "Personnalisée - afficher toutes les options possibles"
 
 #: libraries/config.values.php:172
 msgid "Custom - like above, but without the quick/custom choice"
-msgstr "Personnalisée - comme ci-haut mais sans les choix rapide/personnalisée"
+msgstr "Personnalisée - comme ci-dessus mais sans choix rapide/personnalisé"
 
 #: libraries/config.values.php:201
 msgid "complete inserts"
@@ -5252,11 +5249,11 @@ msgstr "Insertions étendues"
 
 #: libraries/config.values.php:203
 msgid "both of the above"
-msgstr "tous les choix ci-haut"
+msgstr "tous les deux ci-dessus"
 
 #: libraries/config.values.php:204
 msgid "neither of the above"
-msgstr "aucun des choix ci-haut"
+msgstr "aucun des deux ci-dessus"
 
 #: libraries/config/FormDisplay.php:99 libraries/config/Validator.php:521
 msgid "Not a positive number!"
@@ -5264,7 +5261,7 @@ msgstr "Nombre non positif !"
 
 #: libraries/config/FormDisplay.php:100 libraries/config/Validator.php:543
 msgid "Not a non-negative number!"
-msgstr "Ce n'est pas un nombre non négatif !"
+msgstr "Nombre non négatif !"
 
 #: libraries/config/FormDisplay.php:101 libraries/config/Validator.php:499
 msgid "Not a valid port number!"
@@ -5294,7 +5291,7 @@ msgstr "non disponible"
 #: libraries/config/FormDisplay.php:824
 #, php-format
 msgid "\"%s\" requires %s extension"
-msgstr "«%s» requiert l'extension %s"
+msgstr "« %s » requiert l'extension %s"
 
 #: libraries/config/FormDisplay.php:844
 #, php-format
@@ -5314,17 +5311,17 @@ msgstr "maximum %s"
 #: libraries/config/FormDisplay.tpl.php:234
 msgid "This setting is disabled, it will not be applied to your configuration."
 msgstr ""
-"Ce réglage est désactivé, il ne sera pas appliqué à votre configuration."
+"Ce réglage est désactivé, il ne sera pas appliqué à cette configuration."
 
 #: libraries/config/FormDisplay.tpl.php:333
 #, php-format
 msgid "Set value: %s"
-msgstr "Assigner la valeur: %s"
+msgstr "Assigner la valeur : %s"
 
 #: libraries/config/FormDisplay.tpl.php:338
 #: libraries/config/messages.inc.php:610
 msgid "Restore default value"
-msgstr "Ramener la valeur par défaut"
+msgstr "Restaurer la valeur par défaut"
 
 #: libraries/config/FormDisplay.tpl.php:352
 msgid "Allow users to customize this value"
@@ -5338,11 +5335,11 @@ msgstr ""
 
 #: libraries/config/ServerConfigChecks.php:159
 msgid "You should use SSL connections if your database server supports it."
-msgstr "Vous devriez utiliser des connexions SSL si votre serveur le permet."
+msgstr "Il faudrait utiliser des connexions SSL si le serveur le permet."
 
 #: libraries/config/ServerConfigChecks.php:198
 msgid "You allow for connecting to the server without a password."
-msgstr "Vous permettez les connexions au serveur sans mot de passe."
+msgstr "Les connexions au serveur sans mot de passe sont permises."
 
 #: libraries/config/ServerConfigChecks.php:349
 msgid "Key is too short, it should have at least 32 characters."
@@ -5364,12 +5361,12 @@ msgid ""
 "to an ISP where thousands of users, including you, are connected to."
 msgstr ""
 "Cette %soption%s ne devrait pas être activée car elle permet à un attaquant "
-"de tenter de forcer l'entrée sur tout serveur MySQL. Si vous en avez "
-"réellement besoin, utilisez une %srestriction de connexion à un serveur MySQL"
-"%s ou une %sliste des serveurs mandataires de confiance%s. Cependant, une "
-"protection basée sur l'adresse IP dans les serveurs mandataires de confiance "
-"peut ne pas être fiable si l'adresse IP appartient à un FAI utilisé par des "
-"milliers d'utilisateurs, dont vous-même."
+"de tenter de forcer l'entrée sur tout serveur MySQL. En cas de réel besoin, "
+"utiliser une %srestriction de connexion à un serveur MySQL%s ou une %sliste "
+"des serveurs mandataires de confiance%s. Cependant, une protection basée sur "
+"l'adresse IP dans les serveurs mandataires de confiance peut ne pas être "
+"fiable si l'adresse IP appartient à un FAI utilisé par des milliers "
+"d'utilisateurs, dont vous-même."
 
 #: libraries/config/ServerConfigChecks.php:404
 msgid ""
@@ -5395,8 +5392,9 @@ msgid ""
 "This value should be double checked to ensure that this directory is neither "
 "world accessible nor readable or writable by other users on your server."
 msgstr ""
-"Assurez-vous que ce répertoire n'est pas accessible par les autres "
-"utilisateurs."
+"Cette valeur devrait être revérifiée pour s'assurer que ce répertoire n'est "
+"accessible ni en lecture ni en écriture aux autres utilisateurs sur ce "
+"serveur."
 
 #: libraries/config/ServerConfigChecks.php:425
 #, php-format
@@ -5423,9 +5421,8 @@ msgid ""
 "%sLogin cookie validity%s should be set to 1800 seconds (30 minutes) at "
 "most. Values larger than 1800 may pose a security risk such as impersonation."
 msgstr ""
-"Le paramètre %s]Login cookie validity%s devrait contenir une valeur d'au "
-"plus 1800 secondes (30 minutes). Une valeur plus grande que 1800 pose un "
-"risque."
+"Le paramètre %sLogin cookie validity%s devrait contenir une valeur d'au plus "
+"1800 secondes (30 minutes). Une valeur plus grande que 1800 pose un risque."
 
 #: libraries/config/ServerConfigChecks.php:463
 #, php-format
@@ -5433,9 +5430,10 @@ msgid ""
 "If using [kbd]cookie[/kbd] authentication and %sLogin cookie store%s is not "
 "0, %sLogin cookie validity%s must be set to a value less or equal to it."
 msgstr ""
-"Si vous utilisez l'authentification [kbd]cookie[/kbd] et que le paramètre "
-"%sLogin cookie store%s n'a pas une valeur de 0, le paramètre %sLogin cookie "
-"validity%s doit avoir une valeur plus petite ou égale à celui-ci."
+"En cas d'utilisation de l'authentification [kbd]cookie[/kbd] et si le "
+"paramètre %sLogin cookie store%s n'a pas une valeur de 0, le paramètre %"
+"sLogin cookie validity%s doit avoir une valeur plus petite ou égale à celui-"
+"ci."
 
 #: libraries/config/ServerConfigChecks.php:477
 #, php-format
@@ -5445,11 +5443,11 @@ msgid ""
 "protection may not be reliable if your IP belongs to an ISP where thousands "
 "of users, including you, are connected to."
 msgstr ""
-"Si vous l'estimez nécessaire, utilisez des paramètres de protection - "
-"%sauthentification de l'hôte%s et %sserveurs mandataires de confiance%s. "
-"Cependant, la protection par adresse IP peut ne pas être fiable si votre IP "
-"appartient à un fournisseur via lequel des milliers d'utilisateurs, vous y "
-"compris, sont connectés."
+"Si nécessaire, utiliser des paramètres de protection - %sauthentification de "
+"l'hôte%s et %sserveurs mandataires de confiance%s. Cependant, la protection "
+"par adresse IP peut ne pas être fiable si votre IP appartient à un "
+"fournisseur via lequel des milliers d'utilisateurs, vous y compris, sont "
+"connectés."
 
 #: libraries/config/ServerConfigChecks.php:492
 #, php-format
@@ -5462,8 +5460,8 @@ msgid ""
 msgstr ""
 "La méthode d'authentification [kbd]config[/kbd] permet une connexion "
 "automatique, ce qui n'est pas souhaitable dans un environnement réel. Toute "
-"personne qui connaît l'URL d'accès peut accéder à votre phpMyAdmin. Il est "
-"suggéré de régler votre %stype d'authentification%s à [kbd]cookie[/kbd] ou "
+"personne qui connaît l'URL d'accès peut accéder à ce phpMyAdmin. Il est "
+"suggéré de régler le %stype d'authentification%s à [kbd]cookie[/kbd] ou "
 "[kbd]http[/kbd]."
 
 #: libraries/config/ServerConfigChecks.php:505
@@ -5472,7 +5470,7 @@ msgid ""
 "%sZip compression%s requires functions (%s) which are unavailable on this "
 "system."
 msgstr ""
-"La %scompression Zip%s requiert des fonctions (%s) non disponibles sur ce "
+"La %scompression ZIP%s requiert des fonctions (%s) non disponibles sur ce "
 "serveur."
 
 #: libraries/config/ServerConfigChecks.php:516
@@ -5481,7 +5479,7 @@ msgid ""
 "%sZip decompression%s requires functions (%s) which are unavailable on this "
 "system."
 msgstr ""
-"La %sdécompression Zip%s requiert des fonctions (%s) non disponibles sur ce "
+"La %sdécompression ZIP%s requiert des fonctions (%s) non disponibles sur ce "
 "serveur."
 
 #: libraries/config/Validator.php:203 libraries/config/Validator.php:210
@@ -5495,29 +5493,37 @@ msgstr "Type d'authentification invalide !"
 #: libraries/config/Validator.php:250
 msgid "Empty username while using [kbd]config[/kbd] authentication method!"
 msgstr ""
-"Le code d'utilisateur est vide alors que vous utilisez la méthode "
-"d'authentification [kbd]config[/kbd] !"
+"Le nom d'utilisateur est vide alors que la méthode d'authentification "
+"[kbd]config[/kbd] est utilisée !"
 
 #: libraries/config/Validator.php:258
 msgid ""
 "Empty signon session name while using [kbd]signon[/kbd] authentication "
 "method!"
-msgstr "Le nom de session [kbd]signon[/kbd] est vide !"
+msgstr ""
+"Le nom de session est vide alors que la méthode d'authentification "
+"[kbd]signon[/kbd] est utilisée !"
 
 #: libraries/config/Validator.php:267
 msgid "Empty signon URL while using [kbd]signon[/kbd] authentication method!"
-msgstr "L'URL de [kbd]signon[/kbd] est vide !"
+msgstr ""
+"L'URL est vide alors que la méthode d'authentification [kbd]signon[/kbd] est "
+"utilisée !"
 
 #: libraries/config/Validator.php:321
 msgid ""
 "Empty phpMyAdmin control user while using phpMyAdmin configuration storage!"
-msgstr "Le controluser est vide !"
+msgstr ""
+"L'utilisateur de contrôle phpMyAdmin est vide alors que le stockage de "
+"configuration de phpMyAdmin est utilisé !"
 
 #: libraries/config/Validator.php:328
 msgid ""
 "Empty phpMyAdmin control user password while using phpMyAdmin configuration "
 "storage!"
-msgstr "Le controlpass est vide !"
+msgstr ""
+"Le mot de passe de l'utilisateur de contrôle phpMyAdmin est vide alors que "
+"le stockage de configuration de phpMyAdmin est utilisé !"
 
 #: libraries/config/Validator.php:427
 msgid "Incorrect value:"
@@ -5532,12 +5538,12 @@ msgstr "Adresse IP incorrecte : %s"
 msgid ""
 "If enabled, user can enter any MySQL server in login form for cookie auth."
 msgstr ""
-"Si activé, permet de saisir un nom de serveur MySQL sur le panneau de "
-"connexion en mode cookie."
+"Si activé, l'utilisateur peut saisir un nom de serveur MySQL sur le panneau "
+"de connexion en mode cookie."
 
 #: libraries/config/messages.inc.php:20
 msgid "Allow login to any MySQL server"
-msgstr "Permettre de tenter une connexion à tout serveur MySQL"
+msgstr "Autoriser la connexion à tout serveur MySQL"
 
 #: libraries/config/messages.inc.php:22
 msgid ""
@@ -5551,7 +5557,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:26
 msgid "Restrict login to MySQL server"
-msgstr "Restreint la connexion au serveur MySQL"
+msgstr "Restreindre la connexion au serveur MySQL"
 
 #: libraries/config/messages.inc.php:28
 msgid ""
@@ -5565,7 +5571,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:32
 msgid "Allow third party framing"
-msgstr "Permettre les cadres tierce partie"
+msgstr "Autoriser les cadres tierce partie"
 
 #: libraries/config/messages.inc.php:34
 msgid "Show \"Drop database\" link to normal users"
@@ -5577,7 +5583,7 @@ msgid ""
 "Secret passphrase used for encrypting cookies in [kbd]cookie[/kbd] "
 "authentication."
 msgstr ""
-"Mot de passe utilisé pour encrypter les cookies quand on utilise "
+"Mot de passe utilisé pour chiffrer les cookies quand on utilise "
 "l'authentification [kbd]cookie[/kbd]."
 
 #: libraries/config/messages.inc.php:39
@@ -5602,13 +5608,11 @@ msgstr "Activer le pointeur de surbrillance"
 
 #: libraries/config/messages.inc.php:47
 msgid "Enable bzip2 compression for import operations."
-msgstr ""
-"Activer la compression [a@https://fr.wikipedia.org/wiki/Bzip2]bzip2[/a] pour "
-"les opérations d'importation."
+msgstr "Activer la compression BZIP2 pour les opérations d'importation."
 
 #: libraries/config/messages.inc.php:50
 msgid "Bzip2"
-msgstr "Bzip2"
+msgstr "BZIP2"
 
 #: libraries/config/messages.inc.php:52
 msgid ""
@@ -5616,9 +5620,9 @@ msgid ""
 "columns; [kbd]input[/kbd] - allows limiting of input length, [kbd]textarea[/"
 "kbd] - allows newlines in columns."
 msgstr ""
-"Détermine la méthode d'édition pour les colonnes CHAR et VARCHAR; "
+"Définit la méthode d'édition pour les colonnes CHAR et VARCHAR ; "
 "[kbd]input[/kbd] - permet de limiter la taille, [kbd]textarea[/kbd] - permet "
-"la saisie de sauts de lignes."
+"les sauts de lignes dans les colonnes."
 
 #: libraries/config/messages.inc.php:56
 msgid "CHAR columns editing"
@@ -5630,7 +5634,7 @@ msgid ""
 "highlighting and line numbers."
 msgstr ""
 "Utiliser un éditeur convivial avec coloration syntaxique et numérotation des "
-"lignes pour rédiger les requêtes SQL. (CodeMirror)"
+"lignes pour rédiger les requêtes SQL (CodeMirror)."
 
 #: libraries/config/messages.inc.php:62
 msgid "Enable CodeMirror"
@@ -5646,47 +5650,47 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:67
 msgid "Enable linter"
-msgstr "Activer «linter»"
+msgstr "Activer « linter »"
 
 #: libraries/config/messages.inc.php:69
 msgid ""
 "Defines the minimum size for input fields generated for CHAR and VARCHAR "
 "columns."
 msgstr ""
-"Définit la taille minimum des champs de saisie générés pour les colonnes "
+"Définit la taille minimale des champs de saisie générés pour les colonnes "
 "CHAR et VARCHAR."
 
 #: libraries/config/messages.inc.php:72
 msgid "Minimum size for input field"
-msgstr "Taille minimum des champs de saisie"
+msgstr "Taille minimale des champs de saisie"
 
 #: libraries/config/messages.inc.php:74
 msgid ""
 "Defines the maximum size for input fields generated for CHAR and VARCHAR "
 "columns."
 msgstr ""
-"Définit la taille maximum des champs de saisie générés pour les colonnes "
+"Définit la taille maximale des champs de saisie générés pour les colonnes "
 "CHAR et VARCHAR."
 
 #: libraries/config/messages.inc.php:77
 msgid "Maximum size for input field"
-msgstr "Taille maximum pour les champs de saisie"
+msgstr "Taille maximale pour les champs de saisie"
 
 #: libraries/config/messages.inc.php:79
 msgid "Number of columns for CHAR/VARCHAR textareas."
-msgstr "Nombre de colonnes pour les textareas CHAR/VARCHAR."
+msgstr "Nombre de colonnes pour les zones de texte (textarea) CHAR/VARCHAR."
 
 #: libraries/config/messages.inc.php:81
 msgid "CHAR textarea columns"
-msgstr "Taille horizontale pour un textarea contenant un CHAR"
+msgstr "Taille horizontale pour une zone de texte (textarea) contenant un CHAR"
 
 #: libraries/config/messages.inc.php:82
 msgid "Number of rows for CHAR/VARCHAR textareas."
-msgstr "Nombre de lignes pour les textareas CHAR/VARCHAR."
+msgstr "Nombre de lignes pour les zones de texte (textarea) CHAR/VARCHAR."
 
 #: libraries/config/messages.inc.php:83
 msgid "CHAR textarea rows"
-msgstr "Taille verticale pour un textarea contenant un CHAR"
+msgstr "Taille verticale pour une zone de texte (textarea) contenant un CHAR"
 
 #: libraries/config/messages.inc.php:84
 msgid "Check config file permissions"
@@ -5697,8 +5701,8 @@ msgid ""
 "Compress gzip exports on the fly without the need for much memory; if you "
 "encounter problems with created gzip files disable this feature."
 msgstr ""
-"Comprime les exportations gzip à la volée avec économie de mémoire; si les "
-"fichiers gzip produits ne sont pas conformes, désactivez ceci."
+"Comprimer les exportations GZIP à la volée avec économie de mémoire ; si les "
+"fichiers GZIP produits ne sont pas conformes, désactiver cette fonction."
 
 #: libraries/config/messages.inc.php:89
 msgid "Compress on the fly"
@@ -5714,8 +5718,8 @@ msgid ""
 "Whether a warning (\"Are your really sure…\") should be displayed when "
 "you're about to lose data."
 msgstr ""
-"Un message (Êtes-vous certain…) devrait-il s'afficher quand vous êtes sur le "
-"point de perdre des données."
+"Un message (Faut-il vraiment …) devrait-il s'afficher quand des données sont "
+"sur le point d'être perdues."
 
 #: libraries/config/messages.inc.php:95
 msgid "Confirm DROP queries"
@@ -15028,7 +15032,7 @@ msgstr "Somme"
 
 #: templates/database/structure/check_all_tables.phtml:6
 msgid "Check tables having overhead"
-msgstr "Cocher les tables avec pertes"
+msgstr "Vérifier les tables non optimisées"
 
 #: templates/database/structure/check_all_tables.phtml:10
 msgid "Copy table"
