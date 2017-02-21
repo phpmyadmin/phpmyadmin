@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-01-25 10:08+0100\n"
-"PO-Revision-Date: 2017-02-21 08:13+0000\n"
+"PO-Revision-Date: 2017-02-21 10:11+0000\n"
 "Last-Translator: Володимир <bardvv@gmail.com>\n"
 "Language-Team: Ukrainian "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-7/uk/>\n"
@@ -972,31 +972,35 @@ msgstr ""
 "структури таблиці."
 
 #: js/messages.php:107
+#, fuzzy
 msgid ""
 "Are you sure you wish to change all the column collations and convert the "
 "data?"
 msgstr ""
+"Ви впевнені, що хочете змінити всі стовпці співставлення і перетворити дані?"
 
 #: js/messages.php:111
 #, fuzzy
 #| msgid "Save & Close"
 msgid "Save & close"
-msgstr "Зберегти та закрити"
+msgstr "Зберегти і закрити"
 
 #: js/messages.php:112 libraries/config/FormDisplay.tpl.php:426
 #: libraries/insert_edit.lib.php:1619 prefs_manage.php:374 prefs_manage.php:385
+#, fuzzy
 msgid "Reset"
-msgstr "Перевстановити"
+msgstr "Скинути"
 
 #: js/messages.php:113
 #, fuzzy
 #| msgid "Reset All"
 msgid "Reset all"
-msgstr "Скинути всі"
+msgstr "Скинути все"
 
 #: js/messages.php:116
+#, fuzzy
 msgid "Missing value in the form!"
-msgstr "Не задано значення для форми!"
+msgstr "Відсутнє значення в формі!"
 
 #: js/messages.php:117
 msgid "Select at least one of the options!"
@@ -1034,8 +1038,9 @@ msgid "Create composite index"
 msgstr "Створити складений індекс"
 
 #: js/messages.php:125
+#, fuzzy
 msgid "Composite with:"
-msgstr ""
+msgstr "Формувати з:"
 
 #: js/messages.php:126
 msgid "Please select column(s) for the index."
@@ -1053,8 +1058,9 @@ msgid "Preview SQL"
 msgstr "Попередній перегляд SQL"
 
 #: js/messages.php:135
+#, fuzzy
 msgid "Simulate query"
-msgstr "Імітувати запит"
+msgstr "Змоделювати запит"
 
 #: js/messages.php:136
 msgid "Matched rows:"
@@ -1072,26 +1078,31 @@ msgid "Y values"
 msgstr "Значення Y"
 
 #: js/messages.php:144
+#, fuzzy
 msgid "The host name is empty!"
-msgstr "Порожнє ім'я хоста!"
+msgstr "Відсутнє ім'я хосту!"
 
 #: js/messages.php:145
+#, fuzzy
 msgid "The user name is empty!"
-msgstr "Порожнє і'мя користувача!"
+msgstr "Відсутнє ім'я користувача!"
 
 #: js/messages.php:146 libraries/server_privileges.lib.php:1868
 #: user_password.php:119
+#, fuzzy
 msgid "The password is empty!"
-msgstr "Порожній пароль!"
+msgstr "Відсутній пароль!"
 
 #: js/messages.php:147 libraries/server_privileges.lib.php:1866
 #: user_password.php:123
+#, fuzzy
 msgid "The passwords aren't the same!"
-msgstr "Паролі не однакові!"
+msgstr "Паролі не співпадають!"
 
 #: js/messages.php:148
+#, fuzzy
 msgid "Removing Selected Users"
-msgstr "Видалення відмічених користувачів"
+msgstr "Видалення вибраних користувачів"
 
 #: js/messages.php:149 js/messages.php:216 libraries/tracking.lib.php:467
 #: libraries/tracking.lib.php:830
@@ -1099,26 +1110,25 @@ msgid "Close"
 msgstr "Закрити"
 
 #: js/messages.php:152
-#, fuzzy
-#| msgid "The number of pages created."
 msgid "Template was created."
-msgstr "Кількість створених сторінок."
+msgstr "Шаблон створений."
 
 #: js/messages.php:153
+#, fuzzy
 msgid "Template was loaded."
-msgstr ""
+msgstr "Шаблон завантажений."
 
 #: js/messages.php:154
 #, fuzzy
 #| msgid "The profile has been updated."
 msgid "Template was updated."
-msgstr "Профіль було поновлено."
+msgstr "Шаблон оновлено."
 
 #: js/messages.php:155
 #, fuzzy
 #| msgid "The row has been deleted."
 msgid "Template was deleted."
-msgstr "Рядок видалено."
+msgstr "Шаблон видалено."
 
 #. l10n: Other, small valued, queries
 #: js/messages.php:158 libraries/ServerStatusData.php:132
@@ -1177,8 +1187,9 @@ msgid "System CPU usage"
 msgstr "Використання CPU системою"
 
 #: js/messages.php:181
+#, fuzzy
 msgid "System memory"
-msgstr "Пам'ять системи"
+msgstr "Системна пам'ять"
 
 #: js/messages.php:182
 msgid "System swap"
@@ -1676,14 +1687,15 @@ msgid "Test"
 msgstr "Тест"
 
 #: js/messages.php:345
+#, fuzzy
 msgid "Formatting SQL…"
-msgstr ""
+msgstr "Форматування SQL…"
 
 #: js/messages.php:346
 #, fuzzy
 #| msgid "Bad parameters!"
 msgid "No parameters found!"
-msgstr "Помилкові параметри!"
+msgstr "Параметри не знайдені!"
 
 #: js/messages.php:350
 #: templates/database/designer/aggregate_query_panel.phtml:63
@@ -1852,8 +1864,9 @@ msgid "Export"
 msgstr "Експортувати"
 
 #: js/messages.php:395
+#, fuzzy
 msgid "No routine is exportable. Required privileges may be lacking."
-msgstr ""
+msgstr "Експортування неможливе. Відсутні необхідні привілеї."
 
 #: js/messages.php:398 libraries/rte/rte_routines.lib.php:747
 msgid "ENUM/SET editor"
@@ -1929,8 +1942,9 @@ msgid "Browse foreign values"
 msgstr "Огляд зовнішніх значень"
 
 #: js/messages.php:416
+#, fuzzy
 msgid "No auto-saved query"
-msgstr ""
+msgstr "Немає автоматичного збереження запиту"
 
 #: js/messages.php:417
 #, fuzzy, php-format
@@ -1939,8 +1953,9 @@ msgid "Variable %d:"
 msgstr "Змінна"
 
 #: js/messages.php:420 libraries/normalization.lib.php:884
+#, fuzzy
 msgid "Pick"
-msgstr ""
+msgstr "Відбір"
 
 #: js/messages.php:421
 msgid "Column selector"
@@ -1951,11 +1966,13 @@ msgid "Search this list"
 msgstr "Шукати в цьому списку"
 
 #: js/messages.php:424
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "No columns in the central list. Make sure the Central columns list for "
 "database %s has columns that are not present in the current table."
 msgstr ""
+"Немає стовпців у списку. Переконайтеся, що список стовпців  бази даних %s "
+"має стовпці, які не представлені в поточній таблиці."
 
 #: js/messages.php:427
 msgid "See more"
@@ -2018,10 +2035,13 @@ msgid "Selected partial dependencies are as follows:"
 msgstr "Обрані часткові залежності такі:"
 
 #: js/messages.php:447
+#, fuzzy
 msgid ""
 "Note: a, b -> d,f implies values of columns a and b combined together can "
 "determine values of column d and column f."
 msgstr ""
+"Примітка:, b-> d, f має на увазі значення стовпців а і b, при об'єднані "
+"разом може визначити значення стовпця d та стовпця f."
 
 #: js/messages.php:450
 msgid "No partial dependencies selected!"
