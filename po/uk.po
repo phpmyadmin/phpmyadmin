@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-01-25 10:08+0100\n"
-"PO-Revision-Date: 2017-02-21 10:11+0000\n"
+"PO-Revision-Date: 2017-02-21 20:51+0000\n"
 "Last-Translator: Володимир <bardvv@gmail.com>\n"
 "Language-Team: Ukrainian "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-7/uk/>\n"
@@ -574,13 +574,13 @@ msgstr[1] "Імпорт завершився вдало, %d запитів ви�
 msgstr[2] "Імпорт завершився вдало, %d запитів виконано."
 
 #: import.php:619
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "Script timeout passed, if you want to finish import, please %sresubmit the "
 "same file%s and import will resume."
 msgstr ""
-"Виконання скрипту перевищило допустимий час, якщо Ви бажаєте закінчити "
-"імпорт, необхідно %sповторно відправити той самий файл%s."
+"Вийшов час очікування виконання сценарію. Якщо ви бажаєте завершити імпорт, "
+"будь ласка %s повторно відправте файл %s і імпорт буде відновлено."
 
 #: import.php:629
 msgid ""
@@ -596,8 +596,9 @@ msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "Оператори \"DROP DATABASE\" заборонені."
 
 #: import_status.php:105
+#, fuzzy
 msgid "Could not load the progress of the import."
-msgstr "Неможливо загрузити прогресс iмпорту."
+msgstr "Не вдалося завантажити, щоб розпочати імпорт."
 
 #: import_status.php:114 js/messages.php:451 js/messages.php:615
 #: libraries/Util.php:689 libraries/export.lib.php:518
@@ -776,7 +777,7 @@ msgstr "Конфігураційний файл потребує секретн�
 
 #: index.php:524
 msgid "The secret passphrase in configuration (blowfish_secret) is too short."
-msgstr "Секретна ключова фраза в налаштуваннях (blowfish_secret) дуже коротка"
+msgstr "Секретна ключова фраза в налаштуваннях (blowfish_secret) дуже коротка."
 
 #: index.php:538
 msgid ""
@@ -839,8 +840,8 @@ msgstr "Ви збираєтесь ЗНИЩИТИ базу даних!"
 #: js/messages.php:48
 msgid "Cannot rename database to the same name. Change the name and try again"
 msgstr ""
-"Неможливо переiменувати базу данних з одинаковою назвою. Помiняйте назву та "
-"попробуйте ще раз."
+"Неможливо перейменувати базу даних з таким же ім'ям. Змініть ім'я та "
+"спробуйте ще раз"
 
 #: js/messages.php:50
 msgid "You are about to DESTROY a complete table!"
@@ -956,6 +957,7 @@ msgid "Are you sure you wish to change the collation and convert the data?"
 msgstr "Ви впевнені, що ви хочете змінити зіставлення і конвертувати дані?"
 
 #: js/messages.php:98
+#, fuzzy
 msgid ""
 "Through this operation, MySQL attempts to map the data values between "
 "collations. If the character sets are incompatible, there may be data loss "
@@ -966,10 +968,9 @@ msgid ""
 msgstr ""
 "Через цю операцію MySQL намагається зіставити значення даних між параметрами "
 "порівняння. Якщо набори символів несумісні, то можуть бути втрачені дані і "
-"їх <b>НЕМОЖЛИВО</ b> буде відновити шляхом повторної зміни значень даних між "
-"порівняннями.<b></b>Щоб перетворити наявні дані, пропонується "
-"використовувати у стовпці функцію редагування ('Змінити') на сторінці "
-"структури таблиці."
+"їх <b>НЕМОЖЛИВО</b> буде відновити шляхом повторної зміни значень даних між "
+"порівняннями.<b>Щоб перетворити наявні дані, пропонується використовувати у "
+"стовпці функцію редагування ('Змінити') на сторінці структури таблиці.</b>"
 
 #: js/messages.php:107
 #, fuzzy
@@ -2233,26 +2234,34 @@ msgid ""
 "MySQL accepts additional values not selectable by the slider; key in those "
 "values directly if desired"
 msgstr ""
+"В MySQL можливе додавання значень не через вибір у колонці вибору. При "
+"необхідності це можна зробити безпосередньо з клавіатури"
 
 #: js/messages.php:534
 msgid ""
 "MySQL accepts additional values not selectable by the datepicker; key in "
 "those values directly if desired"
 msgstr ""
+"В MySQL додаткові значення, які неможливо вибрати через інтерфейс, при "
+"необхідності введіть  безпосередньо з клавіатури"
 
 #: js/messages.php:540
+#, fuzzy
 msgid ""
 "Indicates that you have made changes to this page; you will be prompted for "
 "confirmation before abandoning changes"
 msgstr ""
+"Вказує, що ви внесли зміни в цю сторінку; Вам буде запропоновано "
+"підтвердити, перш ніж відмовитися від змін"
 
 #: js/messages.php:545
+#, fuzzy
 msgid "Select referenced key"
-msgstr "Обрати ключі посилання"
+msgstr "Виберіть системний ключ"
 
 #: js/messages.php:546
 msgid "Select Foreign Key"
-msgstr "Обрати зовнішній ключ"
+msgstr "Виберіть зовнішній ключ"
 
 #: js/messages.php:548
 msgid "Please select the primary key or a unique key!"
@@ -2285,7 +2294,7 @@ msgstr "Зберегти сторінку"
 #, fuzzy
 #| msgid "Save page"
 msgid "Save page as"
-msgstr "Зберегти сторінку"
+msgstr "Зберегти сторінку, як"
 
 #: js/messages.php:557 templates/database/designer/side_menu.phtml:49
 #: templates/database/designer/side_menu.phtml:52
@@ -2614,7 +2623,7 @@ msgstr "Ви дійсно бажаєте видалити цю закладку?
 
 #: js/messages.php:717
 msgid "Some error occurred while getting SQL debug info."
-msgstr ""
+msgstr "Сталася помилка при отриманні відомостей про налагодження SQL."
 
 #: js/messages.php:719
 #, fuzzy, php-format
@@ -2625,7 +2634,7 @@ msgstr "Виконати"
 #: js/messages.php:720
 #, php-format
 msgid "%s argument(s) passed"
-msgstr ""
+msgstr "%s аргумент(ів) передано"
 
 #: js/messages.php:721
 #, fuzzy
@@ -2640,10 +2649,12 @@ msgid "Hide arguments"
 msgstr "Сховати результати пошуку"
 
 #: js/messages.php:723
+#, fuzzy
 msgid "Time taken:"
-msgstr ""
+msgstr "Час створення:"
 
 #: js/messages.php:724
+#, fuzzy
 msgid ""
 "There was a problem accessing your browser storage, some features may not "
 "work properly for you. It is likely that the browser doesn't support storage "
@@ -2651,6 +2662,12 @@ msgid ""
 "cause such a problem, clearing your \"Offline Website Data\" might help. In "
 "Safari, such problem is commonly caused by \"Private Mode Browsing\"."
 msgstr ""
+"Виникла проблема доступу до сховища вашого браузера, деякі функції можуть не "
+"працювати належним чином. Цілком імовірно, що браузер не підтримує функцію "
+"зберігання або досягнуто межі квоти. В Firefox, несправність сховища також "
+"може викликати дану проблему, очищення \"Даних в автономному режимі веб-"
+"сайту\" може допомогти. В Safari, такі проблеми часто викликані установкою \""
+"Приватний режим перегляду\"."
 
 #: js/messages.php:726
 #, fuzzy
@@ -2675,24 +2692,29 @@ msgid "Copy table with prefix"
 msgstr "Копіювати таблицю з префіксом"
 
 #: js/messages.php:732
+#, fuzzy
 msgid "Extremely weak"
-msgstr ""
+msgstr "Надзвичайно слабкий"
 
 #: js/messages.php:733
+#, fuzzy
 msgid "Very weak"
-msgstr ""
+msgstr "Дуже слабкий"
 
 #: js/messages.php:734
+#, fuzzy
 msgid "Weak"
-msgstr ""
+msgstr "Слабкий"
 
 #: js/messages.php:735
+#, fuzzy
 msgid "Good"
-msgstr ""
+msgstr "Хороший"
 
 #: js/messages.php:736
+#, fuzzy
 msgid "Strong"
-msgstr ""
+msgstr "Міцний"
 
 #: js/messages.php:765
 msgctxt "Previous month"
@@ -2948,7 +2970,7 @@ msgstr "Секунда"
 
 #: js/messages.php:906
 msgid "This field is required"
-msgstr ""
+msgstr "Це поле є обов'язковим"
 
 #: js/messages.php:907
 #, fuzzy
@@ -3006,7 +3028,7 @@ msgstr "Будь-ласка, введіть допустиме ім`я стор�
 
 #: js/messages.php:927
 msgid "Please enter no more than {0} characters"
-msgstr ""
+msgstr "Будь ласка, введіть не більше {0} символів"
 
 #: js/messages.php:932
 #, fuzzy
@@ -3016,7 +3038,7 @@ msgstr "Будь-ласка, введіть допустиме ім`я стор�
 
 #: js/messages.php:937
 msgid "Please enter a value between {0} and {1} characters long"
-msgstr ""
+msgstr "Будь ласка, введіть значення довжиною від {0} до {1} символів"
 
 #: js/messages.php:942
 #, fuzzy
@@ -3080,9 +3102,9 @@ msgid "Failed formatting string for rule '%s'."
 msgstr "Не вдалося виконати форматування рядка для правила '%s'."
 
 #: libraries/Advisor.php:469
-#, php-format
+#, fuzzy, php-format
 msgid "Error in reading file: The file '%s' does not exist or is not readable!"
-msgstr ""
+msgstr "Помилка при читанні файлу: файл '%s' не існує або не читається!"
 
 #: libraries/Advisor.php:494
 #, php-format
@@ -3213,7 +3235,7 @@ msgstr "Корейська"
 
 #: libraries/Charsets.php:313
 msgid "Burmese"
-msgstr ""
+msgstr "Бірманська"
 
 #: libraries/Charsets.php:316
 msgid "Persian"
@@ -3233,7 +3255,7 @@ msgstr "Румунська"
 
 #: libraries/Charsets.php:328
 msgid "Sinhalese"
-msgstr ""
+msgstr "Cингальська"
 
 #: libraries/Charsets.php:331
 msgid "Slovak"
@@ -3458,7 +3480,7 @@ msgstr "Стовпчик:"
 
 #: libraries/DbQbe.php:513
 msgid "Alias:"
-msgstr ""
+msgstr "Псевдонім:"
 
 #: libraries/DbQbe.php:566
 msgid "Sort:"
@@ -3532,8 +3554,9 @@ msgid "Submit Query"
 msgstr "Виконати запит"
 
 #: libraries/DbQbe.php:1879
+#, fuzzy
 msgid "Saved bookmarked search:"
-msgstr ""
+msgstr "Закладка пошуку:"
 
 #: libraries/DbQbe.php:1881
 msgid "New bookmark"
@@ -3826,8 +3849,9 @@ msgid "Check all"
 msgstr "Відмітити все"
 
 #: libraries/DisplayResults.php:5024
+#, fuzzy
 msgid "Copy to clipboard"
-msgstr ""
+msgstr "Скопіювати до буфера обміну"
 
 #: libraries/DisplayResults.php:5080
 msgid "Query results operations"
@@ -3906,8 +3930,9 @@ msgid "Unknown error in file upload."
 msgstr "Невідома помилка під час завантаження файла."
 
 #: libraries/File.php:445
+#, fuzzy
 msgid "File is a symbolic link"
-msgstr ""
+msgstr "Файл є символічним посиланням"
 
 #: libraries/File.php:450 libraries/File.php:542
 msgid "File could not be read!"
@@ -4057,8 +4082,9 @@ msgid "Page number:"
 msgstr "Номер сторінки:"
 
 #: libraries/LanguageManager.php:888
+#, fuzzy
 msgid "Ignoring unsupported language code."
-msgstr ""
+msgstr "Ігнорувати непідтримуваний код мови."
 
 #: libraries/LanguageManager.php:915 libraries/LanguageManager.php:916
 #: setup/frames/index.inc.php:67
@@ -4066,14 +4092,17 @@ msgid "Language"
 msgstr "Мова"
 
 #: libraries/Linter.php:99
+#, fuzzy
 msgid ""
 "Linting is disabled for this query because it exceeds the maximum length."
 msgstr ""
+"Linting вимкнуто для цього запиту, оскільки він перевищує максимальну "
+"довжину."
 
 #: libraries/Linter.php:165
-#, php-format
+#, fuzzy, php-format
 msgid "%1$s (near <code>%2$s</code>)"
-msgstr ""
+msgstr "%1$s (приблизно <code>%2$s</code>)"
 
 #: libraries/Menu.php:208 libraries/ServerStatusData.php:425
 #: libraries/config/messages.inc.php:926
@@ -4327,8 +4356,9 @@ msgid "Favorites"
 msgstr "Уподобання"
 
 #: libraries/SavedSearches.php:256
+#, fuzzy
 msgid "Please provide a name for this bookmarked search."
-msgstr ""
+msgstr "Вкажіть ім'я для цієї закладки пошуку."
 
 #: libraries/SavedSearches.php:271
 msgid "Missing information to save the bookmarked search."
@@ -4730,29 +4760,42 @@ msgstr ""
 "відповідає максимальній довжині рядка таблиці"
 
 #: libraries/TypesMySQL.php:131
+#, fuzzy
 msgid ""
 "A TEXT column with a maximum length of 255 (2^8 - 1) characters, stored with "
 "a one-byte prefix indicating the length of the value in bytes"
 msgstr ""
+"Колонка TEXT з максимальною довжиною 255 (2 ^ 8 - 1) символів, зберігається "
+"з однобайтовим префіксом, що вказує довжину значення в байтах"
 
 #: libraries/TypesMySQL.php:137
+#, fuzzy
 msgid ""
 "A TEXT column with a maximum length of 65,535 (2^16 - 1) characters, stored "
 "with a two-byte prefix indicating the length of the value in bytes"
 msgstr ""
+"Колонка TEXT з максимальною довжиною 65,535 (2 ^ 16 - 1) символів, "
+"зберігається з двох-байтовим префіксом, що вказує довжину значення в байтах."
 
 #: libraries/TypesMySQL.php:143
+#, fuzzy
 msgid ""
 "A TEXT column with a maximum length of 16,777,215 (2^24 - 1) characters, "
 "stored with a three-byte prefix indicating the length of the value in bytes"
 msgstr ""
+"Колонка TEXT з максимальною довжиною 16,777,215 (2^24 - 1) символів, "
+"зберігається з трьох-байтовим префіксом, що вказує довжину значення в байтах"
 
 #: libraries/TypesMySQL.php:149
+#, fuzzy
 msgid ""
 "A TEXT column with a maximum length of 4,294,967,295 or 4GiB (2^32 - 1) "
 "characters, stored with a four-byte prefix indicating the length of the "
 "value in bytes"
 msgstr ""
+"Колонка TEXT з максимальною довжиною 4,294,967,295 or 4GiB (2^32 - 1) "
+"символів, зберігається з чотирьох-байтовим префіксом, що вказує довжину "
+"значення в байтах"
 
 #: libraries/TypesMySQL.php:155
 msgid ""
@@ -4771,38 +4814,55 @@ msgstr ""
 "небінарних символів"
 
 #: libraries/TypesMySQL.php:165
+#, fuzzy
 msgid ""
 "A BLOB column with a maximum length of 255 (2^8 - 1) bytes, stored with a "
 "one-byte prefix indicating the length of the value"
 msgstr ""
+"Колонка BLOB з максимальною довжиною  255 (2^8 - 1) байтів, зберігається з "
+"однобайтовим префіксом, що вказує довжину значення"
 
 #: libraries/TypesMySQL.php:170
+#, fuzzy
 msgid ""
 "A BLOB column with a maximum length of 16,777,215 (2^24 - 1) bytes, stored "
 "with a three-byte prefix indicating the length of the value"
 msgstr ""
+"Колонка BLOB з максимальною довжиною  16,777,215 (2^24 - 1) байтів, "
+"зберігається з трьох-байтовим префіксом, що вказує довжину значення"
 
 #: libraries/TypesMySQL.php:176
+#, fuzzy
 msgid ""
 "A BLOB column with a maximum length of 65,535 (2^16 - 1) bytes, stored with "
 "a two-byte prefix indicating the length of the value"
 msgstr ""
+"Колонка BLOB з максимальною довжиною  65,535 (2^16 - 1) байтів, зберігається "
+"з двох-байтовим префіксом, що вказує довжину значення"
 
 #: libraries/TypesMySQL.php:181
+#, fuzzy
 msgid ""
 "A BLOB column with a maximum length of 4,294,967,295 or 4GiB (2^32 - 1) "
 "bytes, stored with a four-byte prefix indicating the length of the value"
 msgstr ""
+"Колонка BLOB з максимальною довжиною  4,294,967,295 чи 4GiB (2^32 - 1) "
+"байтів, зберігається з чотирьох-байтовим префіксом, що вказує довжину "
+"значення"
 
 #: libraries/TypesMySQL.php:187
+#, fuzzy
 msgid ""
 "An enumeration, chosen from the list of up to 65,535 values or the special "
 "'' error value"
 msgstr ""
+"Реєстр типу даних, вибраних зі списку до 65,535 значень чи спеціального '' "
+"значення помилки"
 
 #: libraries/TypesMySQL.php:191
+#, fuzzy
 msgid "A single value chosen from a set of up to 64 members"
-msgstr "Одне значення обране з набору до 64 членів"
+msgstr "Єдине значення вибирається з набору до 64 елементів"
 
 #: libraries/TypesMySQL.php:193
 msgid "A type that can store a geometry of any type"
@@ -4837,10 +4897,13 @@ msgid "A collection of geometry objects of any type"
 msgstr "Колекція геометрії об'єктів будь-якого типу"
 
 #: libraries/TypesMySQL.php:212
+#, fuzzy
 msgid ""
 "Stores and enables efficient access to data in JSON (JavaScript Object "
 "Notation) documents"
 msgstr ""
+"Зберігає та надає ефективний доступ до даних у JSON (JavaScript Object "
+"Notation) документах"
 
 #: libraries/TypesMySQL.php:479
 msgctxt "numeric types"
@@ -4875,9 +4938,9 @@ msgid "Static analysis:"
 msgstr "Статичні дані"
 
 #: libraries/Util.php:576
-#, php-format
+#, fuzzy, php-format
 msgid "%d errors were found during analysis."
-msgstr ""
+msgstr "%d помилки знайдені під час аналізу."
 
 #: libraries/Util.php:639 libraries/rte/rte_events.lib.php:114
 #: libraries/rte/rte_events.lib.php:123 libraries/rte/rte_events.lib.php:154
@@ -4953,14 +5016,16 @@ msgid "%B %d, %Y at %I:%M %p"
 msgstr "%B %d %Y р., %H:%M"
 
 #: libraries/Util.php:1588
+#, fuzzy
 msgctxt "AM/PM indication in time"
 msgid "PM"
-msgstr ""
+msgstr "РМ"
 
 #: libraries/Util.php:1590
+#, fuzzy
 msgctxt "AM/PM indication in time"
 msgid "AM"
-msgstr ""
+msgstr "АМ"
 
 #: libraries/Util.php:1966
 #, php-format
