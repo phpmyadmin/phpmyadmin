@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-01-25 10:08+0100\n"
-"PO-Revision-Date: 2017-02-11 09:12+0000\n"
+"PO-Revision-Date: 2017-02-21 20:10+0000\n"
 "Last-Translator: tmtisfree <tmtisfree@free.fr>\n"
 "Language-Team: French "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-7/fr/>\n"
@@ -883,7 +883,7 @@ msgstr "Destruction de clé primaire/index"
 
 #: js/messages.php:63
 msgid "Dropping Foreign key."
-msgstr "Destruction de la clé étrangère"
+msgstr "Destruction de la clé étrangère."
 
 #: js/messages.php:65
 msgid "This operation could take a long time. Proceed anyway?"
@@ -3625,10 +3625,8 @@ msgid "Relational key"
 msgstr "Clé relationnelle"
 
 #: libraries/DisplayResults.php:1745
-#, fuzzy
-#| msgid "Display column for relations"
 msgid "Display column for relationships"
-msgstr "Colonne d'affichage pour les relations"
+msgstr "Afficher une colonne pour les relations"
 
 #: libraries/DisplayResults.php:1761
 msgid "Show binary contents"
@@ -5946,8 +5944,6 @@ msgstr "Type MIME"
 
 #: libraries/config/messages.inc.php:167 libraries/config/messages.inc.php:180
 #: libraries/config/messages.inc.php:221
-#, fuzzy
-#| msgid "Relations"
 msgid "Relationships"
 msgstr "Relations"
 
@@ -7692,16 +7688,12 @@ msgid "Show hint"
 msgstr "Montrer les explications"
 
 #: libraries/config/messages.inc.php:867
-#, fuzzy
-#| msgid ""
-#| "Shows link to [a@https://secure.php.net/manual/function.phpinfo."
-#| "php]phpinfo()[/a] output."
 msgid ""
 "Shows link to [a@https://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
 "output."
 msgstr ""
-"Montre un lien vers le résultat de [a@https://secure.php.net/manual/function."
-"phpinfo.php]phpinfo()[/a]."
+"Affiche un lien vers le résultat de "
+"[a@https://php.net/manual/function.phpinfo.php]phpinfo()[/a]."
 
 #: libraries/config/messages.inc.php:870
 msgid "Show phpinfo() link"
@@ -8190,10 +8182,8 @@ msgid "Display column was successfully updated."
 msgstr "La colonne descriptive a été correctement modifiée."
 
 #: libraries/controllers/table/TableRelationController.php:282
-#, fuzzy
-#| msgid "Internal relations were successfully updated."
 msgid "Internal relationships were successfully updated."
-msgstr "Les relations internes ont été correctement modifiées."
+msgstr "Les relations internes ont été mises à jour avec succès."
 
 #: libraries/controllers/table/TableSearchController.php:768
 msgid "Table search"
@@ -10114,7 +10104,7 @@ msgstr "Vous n'êtes pas autorisé à vous connecter à ce serveur MySQL !"
 
 #: libraries/plugins/auth/AuthenticationCookie.php:723
 msgid "OpenSSL error when manipulating with cookies:"
-msgstr ""
+msgstr "Erreur OpenSSL en manipulant des cookies :"
 
 #: libraries/plugins/auth/AuthenticationHttp.php:88
 msgid "Wrong username/password. Access denied."
@@ -10561,8 +10551,6 @@ msgid "MIME TYPES FOR TABLE"
 msgstr "TYPES MIME POUR LA TABLE"
 
 #: libraries/plugins/export/ExportSql.php:1878
-#, fuzzy
-#| msgid "RELATIONS FOR TABLE"
 msgid "RELATIONSHIPS FOR TABLE"
 msgstr "RELATIONS POUR LA TABLE"
 
@@ -11040,22 +11028,16 @@ msgid "Formats text as XML with syntax highlighting."
 msgstr "Formate le texte en XML avec la coloration syntaxique."
 
 #: libraries/pmd_common.php:551
-#, fuzzy
-#| msgid "Error: relation already exists."
 msgid "Error: relationship already exists."
-msgstr "Erreur: relation déjà existante."
+msgstr "Erreur : relation déjà existante."
 
 #: libraries/pmd_common.php:597
-#, fuzzy
-#| msgid "FOREIGN KEY relation has been added."
 msgid "FOREIGN KEY relationship has been added."
-msgstr "Relation de type FOREIGN KEY ajoutée."
+msgstr "Relation de clé étrangère ajoutée."
 
 #: libraries/pmd_common.php:603
-#, fuzzy
-#| msgid "Error: FOREIGN KEY relation could not be added!"
 msgid "Error: FOREIGN KEY relationship could not be added!"
-msgstr "Erreur: relation de clé étrangère non ajoutée !"
+msgstr "Erreur : relation de clé étrangère non ajoutée !"
 
 #: libraries/pmd_common.php:608
 msgid "Error: Missing index on column(s)."
@@ -11066,40 +11048,28 @@ msgid "Error: Relational features are disabled!"
 msgstr "Erreur : fonctionnalités relationnelles désactivées !"
 
 #: libraries/pmd_common.php:635
-#, fuzzy
-#| msgid "Internal relation has been added."
 msgid "Internal relationship has been added."
 msgstr "Relation interne ajoutée."
 
 #: libraries/pmd_common.php:641
-#, fuzzy
-#| msgid "Error: Internal relation could not be added!"
 msgid "Error: Internal relationship could not be added!"
-msgstr "Erreur: relation interne non ajoutée !"
-
-#: libraries/pmd_common.php:679
-#, fuzzy
-#| msgid "FOREIGN KEY relation has been removed."
-msgid "FOREIGN KEY relationship has been removed."
-msgstr "Relation de type FOREIGN KEY supprimée."
-
-#: libraries/pmd_common.php:685
-#, fuzzy
-#| msgid "Error: FOREIGN KEY relation could not be removed!"
-msgid "Error: FOREIGN KEY relationship could not be removed!"
-msgstr "Erreur: relation de type FOREIGN KEY non ajoutée !"
-
-#: libraries/pmd_common.php:712
-#, fuzzy
-#| msgid "Error: Internal relation could not be removed!"
-msgid "Error: Internal relationship could not be removed!"
 msgstr "Erreur : relation interne non ajoutée !"
 
+#: libraries/pmd_common.php:679
+msgid "FOREIGN KEY relationship has been removed."
+msgstr "Relation de clé étrangère retirée."
+
+#: libraries/pmd_common.php:685
+msgid "Error: FOREIGN KEY relationship could not be removed!"
+msgstr "Erreur : relation de clé étrangère non retirée !"
+
+#: libraries/pmd_common.php:712
+msgid "Error: Internal relationship could not be removed!"
+msgstr "Erreur : relation interne non retirée !"
+
 #: libraries/pmd_common.php:716
-#, fuzzy
-#| msgid "Internal relation has been removed."
 msgid "Internal relationship has been removed."
-msgstr "Relation interne supprimée."
+msgstr "Relation interne retirée."
 
 #: libraries/relation.lib.php:90
 msgid "not OK"
@@ -11546,6 +11516,8 @@ msgid ""
 "Connection to server is disabled, please enable $cfg['AllowArbitraryServer'] "
 "in phpMyAdmin configuration."
 msgstr ""
+"La connexion au serveur est désactivée, merci d'activer "
+"$cfg['AllowArbitraryServer'] dans la configuration de phpMyAdmin."
 
 #: libraries/replication_gui.lib.php:914
 msgid "Replication started successfully."
@@ -14876,10 +14848,8 @@ msgid "See table structure"
 msgstr "Voir la structure de la table"
 
 #: templates/database/designer/delete_relation_panel.phtml:21
-#, fuzzy
-#| msgid "Delete relation"
 msgid "Delete relationship"
-msgstr "Effacer la relation"
+msgstr "Supprimer la relation"
 
 #: templates/database/designer/edit_delete_pages.phtml:7
 msgid "Page to open"
@@ -14906,15 +14876,11 @@ msgstr "sous-requête"
 #: templates/database/designer/new_relation_panel.phtml:22
 #: templates/database/designer/side_menu.phtml:84
 #: templates/database/designer/side_menu.phtml:87
-#, fuzzy
-#| msgid "Create relation"
 msgid "Create relationship"
 msgstr "Nouvelle relation"
 
 #: templates/database/designer/options_panel.phtml:34
 #: templates/database/designer/options_panel.phtml:200
-#, fuzzy
-#| msgid "Relation operator"
 msgid "Relationship operator"
 msgstr "Opérateur de relation"
 
@@ -15014,10 +14980,8 @@ msgstr "Bascule agrandir/réduire"
 
 #: templates/database/designer/side_menu.phtml:145
 #: templates/database/designer/side_menu.phtml:148
-#, fuzzy
-#| msgid "Toggle relation lines"
 msgid "Toggle relationship lines"
-msgstr "Basculement des lignes de relations"
+msgstr "Commuter les lignes de relations"
 
 #: templates/database/designer/side_menu.phtml:153
 #: templates/database/designer/side_menu.phtml:156
@@ -15044,10 +15008,8 @@ msgid "Hide/Show all"
 msgstr "Cacher/montrer tout"
 
 #: templates/database/designer/table_list.phtml:14
-#, fuzzy
-#| msgid "Hide/Show Tables with no relation"
 msgid "Hide/Show Tables with no relationship"
-msgstr "Cacher/montrer les tables sans liens"
+msgstr "Masquer/Afficher les tables sans relations"
 
 #: templates/database/designer/table_list.phtml:59
 msgid "Number of tables:"
@@ -15468,8 +15430,6 @@ msgstr "+ Ajouter une contrainte"
 
 #: templates/table/relation/common_form.phtml:76
 #: templates/table/relation/common_form.phtml:82
-#, fuzzy
-#| msgid "Internal relations"
 msgid "Internal relationships"
 msgstr "Relations internes"
 
