@@ -4,6 +4,7 @@ phpMyAdmin - ChangeLog
 4.8.0 (not yet released)
 - issue #12946 Allow to export JSON with unescaped unicode chars
 - issue #12983 Disable login button without solved reCaptcha
+- issue #12315 Allow to remove individual segments from pie charts
 
 4.7.0.0 (not yet released)
 - patch #12233 [Display] Improve message when renaming database to same name
