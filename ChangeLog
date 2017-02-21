@@ -87,6 +87,7 @@ phpMyAdmin - ChangeLog
 - issue #13002 Fixed OpenDocument exports
 - issue #13000 Align NULL values according to the column alignment
 - issue #13021 Show phpMyAdmin errors even with error_reporting set to 0
+- issue #13020 Removed warning about client and server versions mismatch
 
 4.6.6 (2017-01-23)
 - issue #12759 Fix Notice regarding 'Undefined index: old_usergroup'

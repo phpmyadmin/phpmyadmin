@@ -108,6 +108,10 @@ Basic settings
     :type: boolean
     :default: false
 
+    .. deprecated:: 4.7.0
+
+        This setting was removed as the warning has been removed as well.
+
     A warning is displayed on the main page if there is a difference
     between the MySQL library and server version.
 
