@@ -575,48 +575,6 @@ if ($server > 0) {
 }
 
 /**
- * Warning about different MySQL library and server version
- * (a difference on the third digit does not count).
- * If someday there is a constant that we can check about mysqlnd,
- * we can use it instead of strpos().
- * If no default server is set, $GLOBALS['dbi'] is not defined yet.
- * We also do not warn if MariaDB is detected, as it has its own version
- * numbering.
- */
-if (isset($GLOBALS['dbi'])
-    && $cfg['ServerLibraryDifference_DisableWarning'] == false
-) {
-    $_client_info = $GLOBALS['dbi']->getClientInfo();
-    if ($server > 0
-        && mb_strpos($_client_info, 'mysqlnd') === false
-        && mb_strpos(PMA_MYSQL_STR_VERSION, 'MariaDB') === false
-        && substr(PMA_MYSQL_CLIENT_API, 0, 3) != substr(
-            PMA_MYSQL_INT_VERSION, 0, 3
-        )
-    ) {
-        trigger_error(
-            Sanitize::sanitize(
-                sprintf(
-                    __(
-                        'Your PHP MySQL library version %s differs from your ' .
-                        'MySQL server version %s. This may cause unpredictable ' .
-                        'behavior.'
-                    ),
-                    $_client_info,
-                    substr(
-                        PMA_MYSQL_STR_VERSION,
-                        0,
-                        strpos(PMA_MYSQL_STR_VERSION . '-', '-')
-                    )
-                )
-            ),
-            E_USER_NOTICE
-        );
-    }
-    unset($_client_info);
-}
-
-/**
  * Warning about Suhosin only if its simulation mode is not enabled
  */
 if ($cfg['SuhosinDisableWarning'] == false
