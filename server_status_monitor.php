@@ -76,6 +76,7 @@ $scripts->addFile('jquery/jquery-ui-timepicker-addon.js');
 // for charting
 $scripts->addFile('jqplot/jquery.jqplot.js');
 $scripts->addFile('jqplot/plugins/jqplot.pieRenderer.js');
+$scripts->addFile('jqplot/plugins/jqplot.enhancedPieLegendRenderer.js');
 $scripts->addFile('jqplot/plugins/jqplot.canvasTextRenderer.js');
 $scripts->addFile('jqplot/plugins/jqplot.canvasAxisLabelRenderer.js');
 $scripts->addFile('jqplot/plugins/jqplot.dateAxisRenderer.js');

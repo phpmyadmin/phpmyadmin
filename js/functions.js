@@ -2533,7 +2533,7 @@ function PMA_createProfilingChart(target, data)
         },
         legend: {
             show: true,
-            location: 'e',
+            location: 'se',
             rendererOptions: {
                 numberColumns: 2
             }
@@ -2547,7 +2547,6 @@ function PMA_createProfilingChart(target, data)
             '#729fcf',
             '#ad7fa8',
             '#ef2929',
-            '#eeeeec',
             '#888a85',
             '#c4a000',
             '#ce5c00',
