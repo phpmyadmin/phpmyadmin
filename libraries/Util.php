@@ -4779,7 +4779,6 @@ class Util
         }
         if ($header) {
             curl_setopt($curl_handle, CURLOPT_HTTPHEADER, array($header));
-            curl_setopt($curl_handle, CURLOPT_HEADER, true);
         }
 
         if ($method == "POST") {
