@@ -330,12 +330,8 @@ class ErrorHandler
         // display errors if SendErrorReports is set to 'ask'.
         if ($GLOBALS['cfg']['SendErrorReports'] != 'never') {
             foreach ($this->getErrors() as $error) {
-                if ($error instanceof Error) {
-                    if (! $error->isDisplayed()) {
-                        $retval .= $error->getDisplay();
-                    }
-                } else {
-                    $retval .= var_export($error, true);
+                if (! $error->isDisplayed()) {
+                    $retval .= $error->getDisplay();
                 }
             }
         } else {
