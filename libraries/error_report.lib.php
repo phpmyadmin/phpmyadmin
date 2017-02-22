@@ -183,7 +183,7 @@ function PMA_sendErrorReport($report)
         "POST",
         false,
         json_encode($report),
-        "Content-Type: application/json\r\n"
+        "Content-Type: application/json"
     );
     return $response;
 }
