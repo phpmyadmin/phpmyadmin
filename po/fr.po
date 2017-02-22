@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-02-22 08:56+0100\n"
-"PO-Revision-Date: 2017-02-22 08:51+0000\n"
+"PO-Revision-Date: 2017-02-22 08:55+0000\n"
 "Last-Translator: tmtisfree <tmtisfree@free.fr>\n"
 "Language-Team: French "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-7/fr/>\n"
@@ -5735,7 +5735,7 @@ msgstr "Onglet par défaut pour bases de données"
 
 #: libraries/config/messages.inc.php:104
 msgid "Tab that is displayed when entering a server."
-msgstr "L'onglet initial dans l'affichage serveur."
+msgstr "Onglet initial dans l'affichage serveur."
 
 #: libraries/config/messages.inc.php:106
 msgid "Default server tab"
@@ -5743,7 +5743,7 @@ msgstr "Onglet par défaut pour serveur"
 
 #: libraries/config/messages.inc.php:107
 msgid "Tab that is displayed when entering a table."
-msgstr "L'onglet initial lors de l'accès à une table."
+msgstr "Onglet initial lors de l'accès à une table."
 
 #: libraries/config/messages.inc.php:108
 msgid "Default table tab"
@@ -5784,7 +5784,7 @@ msgstr "Montrer la liste des serveurs au lieu d'un menu déroulant."
 
 #: libraries/config/messages.inc.php:123
 msgid "Display servers as a list"
-msgstr "Affiche les serveurs sous forme de liste"
+msgstr "Afficher les serveurs sous forme de liste"
 
 #: libraries/config/messages.inc.php:125
 msgid ""
@@ -5803,7 +5803,7 @@ msgid ""
 "Set the number of seconds a script is allowed to run ([kbd]0[/kbd] for no "
 "limit)."
 msgstr ""
-"Nombre de secondes allouées à l'exécution des scripts ([kbd]0[/kbd] signifie "
+"Nombre de secondes alloué à l'exécution des scripts ([kbd]0[/kbd] signifie "
 "illimité)."
 
 #: libraries/config/messages.inc.php:133
@@ -5813,11 +5813,11 @@ msgstr "Durée maximum d'exécution"
 #: libraries/config/messages.inc.php:135 libraries/display_export.lib.php:796
 #, php-format
 msgid "Use %s statement"
-msgstr "Utiliser l'énoncé %s"
+msgstr "Utiliser l'instruction %s"
 
 #: libraries/config/messages.inc.php:137 prefs_manage.php:326
 msgid "Save as file"
-msgstr "Transmettre"
+msgstr "Enregistrer en fichier"
 
 #: libraries/config/messages.inc.php:138 libraries/config/messages.inc.php:365
 msgid "Character set of the file"
