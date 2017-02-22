@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-02-22 08:57+0100\n"
-"PO-Revision-Date: 2017-02-22 08:45+0000\n"
-"Last-Translator: Володимир <bardvv@gmail.com>\n"
+"PO-Revision-Date: 2017-02-22 09:00+0000\n"
+"Last-Translator: Сергій Педько <nitrotoll@gmail.com>\n"
 "Language-Team: Ukrainian "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/uk/>\n"
 "Language: uk\n"
@@ -2024,13 +2024,12 @@ msgid "Selected partial dependencies are as follows:"
 msgstr "Обрані часткові залежності такі:"
 
 #: js/messages.php:447
-#, fuzzy
 msgid ""
 "Note: a, b -> d,f implies values of columns a and b combined together can "
 "determine values of column d and column f."
 msgstr ""
-"Примітка:, b-> d, f має на увазі значення стовпців а і b, при об'єднані "
-"разом може визначити значення стовпця d та стовпця f."
+"Зауважте: a, b -> d, f допущені значення стовпців a і b поєднані разом "
+"можуть визначати значення стовпців d та f."
 
 #: js/messages.php:450
 msgid "No partial dependencies selected!"
