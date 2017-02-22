@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-02-22 08:57+0100\n"
-"PO-Revision-Date: 2017-02-22 08:31+0000\n"
-"Last-Translator: Володимир <bardvv@gmail.com>\n"
+"PO-Revision-Date: 2017-02-22 08:41+0000\n"
+"Last-Translator: Сергій Педько <nitrotoll@gmail.com>\n"
 "Language-Team: Ukrainian "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/uk/>\n"
 "Language: uk\n"
@@ -1029,9 +1029,8 @@ msgid "Create composite index"
 msgstr "Створити складений індекс"
 
 #: js/messages.php:125
-#, fuzzy
 msgid "Composite with:"
-msgstr "Формувати з:"
+msgstr "Складається з:"
 
 #: js/messages.php:126
 msgid "Please select column(s) for the index."
@@ -1944,9 +1943,8 @@ msgid "Variable %d:"
 msgstr "Змінна"
 
 #: js/messages.php:420 libraries/normalization.lib.php:884
-#, fuzzy
 msgid "Pick"
-msgstr "Відбір"
+msgstr "Підібрати"
 
 #: js/messages.php:421
 msgid "Column selector"
@@ -1957,13 +1955,13 @@ msgid "Search this list"
 msgstr "Шукати в цьому списку"
 
 #: js/messages.php:424
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "No columns in the central list. Make sure the Central columns list for "
 "database %s has columns that are not present in the current table."
 msgstr ""
-"Немає стовпців у списку. Переконайтеся, що список стовпців  бази даних %s "
-"має стовпці, які не представлені в поточній таблиці."
+"У центральному списку відсутні стовпці. Впевніться, що у центральному списку "
+"стовпців для бази даних %s містяться стовпці, що відсутні у поточній таблиці."
 
 #: js/messages.php:427
 msgid "See more"
