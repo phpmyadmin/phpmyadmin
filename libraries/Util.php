@@ -2609,30 +2609,12 @@ class Util
             }
             $html_field_id = $id_prefix . '_' . $choice_value;
 
-            // $radio_html .= '<input type="radio" name="' . $html_field_name . '" id="'
-                        // . $html_field_id . '" value="'
-                        // . htmlspecialchars($choice_value) . '"';
-
-            if ($choice_value == $checked_choice)
+            if ($choice_value == $checked_choice){
                 $checked = 1;
-            else
+            }
+            else{
                 $checked = 0;
-
-            // $radio_html .= ' />' . "\n"
-            //             . '<label for="' . $html_field_id . '">'
-            //             . ($escape_label
-            //             ? htmlspecialchars($choice_label)
-            //             : $choice_label)
-            //             . '</label>';
-
-            // if ($line_break) {
-            //     $radio_html .= '<br />';
-            // }
-
-            // if (! empty($class)) {
-            //     $radio_html .= '</div>';
-            // }
-            // $radio_html .= "\n";
+            }
             $radio_html .= Template::get('radio_fields')->render([
                             'class' =>  $class,
                             'html_field_name'   =>  $html_field_name,
