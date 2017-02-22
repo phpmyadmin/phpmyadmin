@@ -326,10 +326,6 @@ class ErrorHandler
      */
     public function getDispErrors()
     {
-        // Not sure why but seen in https://reports.phpmyadmin.net/
-        if (empty($GLOBALS['cfg']['SendErrorReports'])) {
-            $GLOBALS['cfg']['SendErrorReports'] = 'ask';
-        }
         $retval = '';
         // display errors if SendErrorReports is set to 'ask'.
         if ($GLOBALS['cfg']['SendErrorReports'] != 'never') {
