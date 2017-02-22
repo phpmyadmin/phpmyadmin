@@ -407,7 +407,6 @@ class ErrorHandler
                     $this->errors[$hash] = $error;
                 }
             }
-            //$this->errors = array_merge($_SESSION['errors'], $this->errors);
 
             // delete stored errors
             $_SESSION['errors'] = array();
