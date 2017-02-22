@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-02-22 08:57+0100\n"
-"PO-Revision-Date: 2017-02-22 08:41+0000\n"
-"Last-Translator: Сергій Педько <nitrotoll@gmail.com>\n"
+"PO-Revision-Date: 2017-02-22 08:45+0000\n"
+"Last-Translator: Володимир <bardvv@gmail.com>\n"
 "Language-Team: Ukrainian "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/uk/>\n"
 "Language: uk\n"
@@ -1955,12 +1955,12 @@ msgid "Search this list"
 msgstr "Шукати в цьому списку"
 
 #: js/messages.php:424
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "No columns in the central list. Make sure the Central columns list for "
 "database %s has columns that are not present in the current table."
 msgstr ""
-"У центральному списку відсутні стовпці. Впевніться, що у центральному списку "
+"У основному списку відсутні стовпці. Впевніться, що в основному списку "
 "стовпців для бази даних %s містяться стовпці, що відсутні у поточній таблиці."
 
 #: js/messages.php:427
