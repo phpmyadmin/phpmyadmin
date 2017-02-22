@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-02-22 08:57+0100\n"
-"PO-Revision-Date: 2017-02-21 22:46+0000\n"
+"PO-Revision-Date: 2017-02-22 08:51+0000\n"
 "Last-Translator: tmtisfree <tmtisfree@free.fr>\n"
-"Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"fr/>\n"
+"Language-Team: French "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/fr/>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -5727,7 +5727,7 @@ msgstr "Déboguer SQL"
 
 #: libraries/config/messages.inc.php:101
 msgid "Tab that is displayed when entering a database."
-msgstr "L'onglet affiché lors de l'entrée dans une base de données."
+msgstr "Onglet affiché lors de l'entrée dans une base de données."
 
 #: libraries/config/messages.inc.php:102
 msgid "Default database tab"
@@ -5735,7 +5735,7 @@ msgstr "Onglet par défaut pour bases de données"
 
 #: libraries/config/messages.inc.php:104
 msgid "Tab that is displayed when entering a server."
-msgstr "L'onglet initial dans l'affichage serveur."
+msgstr "Onglet initial dans l'affichage serveur."
 
 #: libraries/config/messages.inc.php:106
 msgid "Default server tab"
