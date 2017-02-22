@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-02-22 08:57+0100\n"
-"PO-Revision-Date: 2017-02-21 20:51+0000\n"
+"PO-Revision-Date: 2017-02-22 08:31+0000\n"
 "Last-Translator: Володимир <bardvv@gmail.com>\n"
-"Language-Team: Ukrainian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/uk/>\n"
+"Language-Team: Ukrainian "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/uk/>\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
+"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 2.12-dev\n"
 
 #: changelog.php:39 license.php:34
@@ -574,12 +574,12 @@ msgstr[1] "Імпорт завершився вдало, %d запитів ви�
 msgstr[2] "Імпорт завершився вдало, %d запитів виконано."
 
 #: import.php:619
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "Script timeout passed, if you want to finish import, please %sresubmit the "
 "same file%s and import will resume."
 msgstr ""
-"Вийшов час очікування виконання сценарію. Якщо ви бажаєте завершити імпорт, "
+"Вийшов час очікування виконання сценарію. Якщо Ви бажаєте завершити імпорт, "
 "будь ласка %s повторно відправте файл %s і імпорт буде відновлено."
 
 #: import.php:629
@@ -596,7 +596,6 @@ msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "Оператори \"DROP DATABASE\" заборонені."
 
 #: import_status.php:105
-#, fuzzy
 msgid "Could not load the progress of the import."
 msgstr "Не вдалося завантажити, щоб розпочати імпорт."
 
