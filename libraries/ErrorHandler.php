@@ -326,20 +326,12 @@ class ErrorHandler
      */
     public function getDispErrors()
     {
-        // Not sure why but seen in https://reports.phpmyadmin.net/
-        if (empty($GLOBALS['cfg']['SendErrorReports'])) {
-            $GLOBALS['cfg']['SendErrorReports'] = 'ask';
-        }
         $retval = '';
         // display errors if SendErrorReports is set to 'ask'.
         if ($GLOBALS['cfg']['SendErrorReports'] != 'never') {
             foreach ($this->getErrors() as $error) {
-                if ($error instanceof Error) {
-                    if (! $error->isDisplayed()) {
-                        $retval .= $error->getDisplay();
-                    }
-                } else {
-                    $retval .= var_export($error, true);
+                if (! $error->isDisplayed()) {
+                    $retval .= $error->getDisplay();
                 }
             }
         } else {
@@ -411,7 +403,6 @@ class ErrorHandler
                     $this->errors[$hash] = $error;
                 }
             }
-            //$this->errors = array_merge($_SESSION['errors'], $this->errors);
 
             // delete stored errors
             $_SESSION['errors'] = array();
