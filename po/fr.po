@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-02-22 08:56+0100\n"
-"PO-Revision-Date: 2017-02-22 08:55+0000\n"
+"PO-Revision-Date: 2017-02-22 19:01+0000\n"
 "Last-Translator: tmtisfree <tmtisfree@free.fr>\n"
 "Language-Team: French "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-7/fr/>\n"
@@ -5867,7 +5867,7 @@ msgstr "Remplacer NULL par"
 
 #: libraries/config/messages.inc.php:145 libraries/config/messages.inc.php:151
 msgid "Remove CRLF characters within columns"
-msgstr "Enlève les caractères de fin de ligne à l'intérieur des colonnes"
+msgstr "Retirer les caractères de fin de ligne à l'intérieur des colonnes"
 
 #: libraries/config/messages.inc.php:146 libraries/config/messages.inc.php:374
 #: libraries/config/messages.inc.php:388
@@ -5913,19 +5913,19 @@ msgstr "Exporter la table"
 #: libraries/config/messages.inc.php:159
 #: libraries/plugins/export/ExportLatex.php:86
 msgid "Include table caption"
-msgstr "Inclure les sous-titres"
+msgstr "Inclure la légende de table"
 
 #: libraries/config/messages.inc.php:162 libraries/config/messages.inc.php:168
 msgid "Table caption"
-msgstr "Sous-titre de la table"
+msgstr "Légende de table"
 
 #: libraries/config/messages.inc.php:163 libraries/config/messages.inc.php:170
 msgid "Continued table caption"
-msgstr "Inclure les sous-titres"
+msgstr "Légende de table continuée"
 
 #: libraries/config/messages.inc.php:164 libraries/config/messages.inc.php:171
 msgid "Label key"
-msgstr "Clé de l'intitulé"
+msgstr "Clé de libellé"
 
 #: libraries/config/messages.inc.php:165 libraries/config/messages.inc.php:178
 #: libraries/config/messages.inc.php:218
@@ -5945,12 +5945,12 @@ msgstr "Méthode d'exportation"
 
 #: libraries/config/messages.inc.php:182 libraries/config/messages.inc.php:185
 msgid "Save on server"
-msgstr "Sauvegarder sur le serveur"
+msgstr "Enregistrer sur le serveur"
 
 #: libraries/config/messages.inc.php:183 libraries/config/messages.inc.php:187
 #: libraries/display_export.lib.php:503 libraries/display_export.lib.php:538
 msgid "Overwrite existing file(s)"
-msgstr "Écraser les fichiers existants"
+msgstr "Écraser le(s) fichier(s) existant(s)"
 
 #: libraries/config/messages.inc.php:184
 msgid "Export as separate files"
@@ -5963,7 +5963,7 @@ msgstr "Se souvenir du modèle de nom de fichier"
 #: libraries/config/messages.inc.php:189 libraries/operations.lib.php:223
 #: libraries/operations.lib.php:842 libraries/operations.lib.php:1269
 msgid "Add AUTO_INCREMENT value"
-msgstr "Inclure la valeur courante de l'AUTO_INCREMENT"
+msgstr "Ajouter la valeur de l'AUTO_INCREMENT"
 
 #: libraries/config/messages.inc.php:191
 msgid "Enclose table and column names with backquotes"
@@ -5980,7 +5980,7 @@ msgstr "Dates de création/mise à jour/vérification"
 
 #: libraries/config/messages.inc.php:194
 msgid "Use delayed inserts"
-msgstr "Insertions avec délai"
+msgstr "Utiliser des insertions retardées"
 
 #: libraries/config/messages.inc.php:195
 #: libraries/plugins/export/ExportSql.php:151
@@ -6030,7 +6030,7 @@ msgstr "Syntaxe à utiliser lors de l'insertion de données"
 #: libraries/config/messages.inc.php:217
 #: libraries/plugins/export/ExportSql.php:437
 msgid "Maximal length of created query"
-msgstr "Taille maximum de la requête générée"
+msgstr "Taille maximale de la requête générée"
 
 #: libraries/config/messages.inc.php:223
 msgid "Export type"
