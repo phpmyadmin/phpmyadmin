@@ -15526,19 +15526,3 @@ msgstr ""
 #: libraries/advisory_rules.txt:446
 msgid "concurrent_insert is set to 0"
 msgstr ""
-
-#, fuzzy
-#~| msgid "Columns"
-#~ msgid "Column parser"
-#~ msgstr "Kolumnoj"
-
-#~ msgid "\"%d\" second"
-#~ msgid_plural "\"%d\" seconds"
-#~ msgstr[0] "\"%d\" sekundo"
-#~ msgstr[1] "\"%d\" sekundoj"
-
-#~ msgid "error #1"
-#~ msgstr "eraro #1"
-
-#~ msgid "Wiki"
-#~ msgstr "Vikio"

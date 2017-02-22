@@ -15614,34 +15614,3 @@ msgstr ""
 #: libraries/advisory_rules.txt:446
 msgid "concurrent_insert is set to 0"
 msgstr ""
-
-#, fuzzy
-#~| msgid "Column"
-#~ msgid "Column parser"
-#~ msgstr "स्तम्भ"
-
-#, fuzzy
-#~| msgid "No tables selected."
-#~ msgid "A table name was expected."
-#~ msgstr "कुनैपनि डेटाबेस चयन गरिएको छैन।"
-
-#, fuzzy
-#~| msgid "Table comments:"
-#~ msgid "Table comments: "
-#~ msgstr "टेबलको टिप्पणीहरु:"
-
-#, fuzzy
-#~| msgid "Table"
-#~ msgid "tables"
-#~ msgstr "टेबल"
-
-#, fuzzy
-#~| msgid "Action"
-#~ msgid "functions"
-#~ msgstr "कार्य"
-
-#~ msgid "Select All"
-#~ msgstr "सबै चयन गर्नुहोस"
-
-#~ msgid "Delete tracking data for this table"
-#~ msgstr "यो तालिकाको लागि ट्रैकिंग डेटा मेट्नुहोस्"

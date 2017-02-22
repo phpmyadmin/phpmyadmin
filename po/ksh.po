@@ -15604,21 +15604,3 @@ msgstr ""
 #: libraries/advisory_rules.txt:446
 msgid "concurrent_insert is set to 0"
 msgstr ""
-
-#, fuzzy
-#~| msgid "Column"
-#~ msgid "Column parser"
-#~ msgstr "Kolonn"
-
-#, fuzzy
-#~| msgid "The database name is empty!"
-#~ msgid "A table name was expected."
-#~ msgstr "Kein Name för di Dahtebangk!"
-
-#~ msgid "Select All"
-#~ msgstr "Alle ußwähle"
-
-#, fuzzy
-#~| msgid "Select All"
-#~ msgid "Select one ..."
-#~ msgstr "Alle ußwähle"

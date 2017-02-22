@@ -15512,6 +15512,3 @@ msgstr ""
 #: libraries/advisory_rules.txt:446
 msgid "concurrent_insert is set to 0"
 msgstr ""
-
-#~ msgid "Wiki"
-#~ msgstr "Wiki"

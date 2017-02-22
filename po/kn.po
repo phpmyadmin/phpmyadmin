@@ -15549,16 +15549,3 @@ msgstr ""
 #: libraries/advisory_rules.txt:446
 msgid "concurrent_insert is set to 0"
 msgstr ""
-
-#, fuzzy
-#~| msgid "Column"
-#~ msgid "Column parser"
-#~ msgstr "ಅಂಕಣ"
-
-#, fuzzy
-#~| msgid "No tables selected."
-#~ msgid "A table name was expected."
-#~ msgstr "ಯಾವುದೇ ಕೋಷ್ಟಕಗಳು ಆಯ್ಕೆ ಮಾಡಲಿಲ್ಲ."
-
-#~ msgid "Select All"
-#~ msgstr "ಎಲ್ಲಾ ಆಯ್ಕೆ ಮಾಡಿ"
