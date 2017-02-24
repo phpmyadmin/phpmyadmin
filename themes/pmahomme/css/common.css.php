@@ -463,6 +463,7 @@ th.left, td.left {
 
 th.center, td.center {
     text-align: center;
+    vertical-align: top;
 }
 
 th.right, td.right {
@@ -542,7 +543,7 @@ button.mult_submit {
 table tbody:first-of-type tr:nth-child(odd),
 table tbody:first-of-type tr:nth-child(odd) th {
     background: #fff;
-} 
+}
 
 /* even items 2,4,6,8,... */
 table tbody:first-of-type tr:nth-child(even),
