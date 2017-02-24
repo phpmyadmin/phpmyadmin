@@ -340,6 +340,7 @@ fieldset .inline_errors { /* field error list */
 
 table caption, table th, table td {
     text-shadow: 0 1px 0 #FFFFFF;
+    vertical-align: top;
 }
 
 fieldset th {

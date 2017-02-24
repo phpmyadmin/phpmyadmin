@@ -463,6 +463,7 @@ th.left, td.left {
 
 th.center, td.center {
     text-align: center;
+    vertical-align: top;
 }
 
 th.right, td.right {
