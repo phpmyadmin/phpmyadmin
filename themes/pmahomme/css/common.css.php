@@ -542,7 +542,7 @@ button.mult_submit {
 table tbody:first-of-type tr:nth-child(odd),
 table tbody:first-of-type tr:nth-child(odd) th {
     background: #fff;
-} 
+}
 
 /* even items 2,4,6,8,... */
 table tbody:first-of-type tr:nth-child(even),
@@ -2593,6 +2593,11 @@ fieldset .disabled-field td {
     -ms-box-sizing: border-box;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
+}
+
+table#foreign_keys td,
+table.relationalTable td {
+    vertical-align: top;
 }
 
 #placeholder {
