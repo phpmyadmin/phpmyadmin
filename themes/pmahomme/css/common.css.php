@@ -2596,11 +2596,6 @@ fieldset .disabled-field td {
     -webkit-box-sizing: border-box;
 }
 
-table#foreign_keys td,
-table.relationalTable td {
-    vertical-align: top;
-}
-
 #placeholder {
     position: relative;
     border: 1px solid #aaa;
@@ -2914,6 +2909,11 @@ table.relationalTable td {
 .saving_edited_data {
     background: url(<?php echo $_SESSION['PMA_Theme']->getImgPath('ajax_clock_small.gif');?>) no-repeat left;
     padding-<?php echo $left; ?>: 20px;
+}
+
+table#foreign_keys td,
+table.relationalTable td {
+    vertical-align: top;
 }
 
 .relationalTable select {
