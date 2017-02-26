@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-02-22 08:57+0100\n"
-"PO-Revision-Date: 2017-02-22 09:00+0000\n"
-"Last-Translator: Сергій Педько <nitrotoll@gmail.com>\n"
+"PO-Revision-Date: 2017-02-26 17:28+0000\n"
+"Last-Translator: Володимир <bardvv@gmail.com>\n"
 "Language-Team: Ukrainian "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/uk/>\n"
 "Language: uk\n"
@@ -27,11 +27,11 @@ msgstr ""
 
 #: db_central_columns.php:108
 msgid "The central list of columns for the current database is empty."
-msgstr "Центральний перелік колонок для поточної бази даних порожній."
+msgstr "Основний список стовпців для поточної бази даних порожній."
 
 #: db_central_columns.php:133
 msgid "Click to sort."
-msgstr "Клацніть для сортування."
+msgstr "Натисніть для сортування."
 
 #: db_central_columns.php:150
 #, php-format
@@ -570,7 +570,7 @@ msgstr "Закладку %s створено."
 msgid "Import has been successfully finished, %d query executed."
 msgid_plural "Import has been successfully finished, %d queries executed."
 msgstr[0] "Імпорт завершився вдало, %d запит виконано."
-msgstr[1] "Імпорт завершився вдало, %d запитів виконано."
+msgstr[1] "Імпорт завершився вдало, %d запити виконано."
 msgstr[2] "Імпорт завершився вдало, %d запитів виконано."
 
 #: import.php:619
@@ -743,23 +743,17 @@ msgstr ""
 "такi як звiт про помилку або перевiрка версiї вимкнено."
 
 #: index.php:484
-#, fuzzy
-#| msgid ""
-#| "Your PHP parameter [a@https://secure.php.net/manual/en/session."
-#| "configuration.php#ini.session.gc-maxlifetime@_blank]session."
-#| "gc_maxlifetime[/a] is lower than cookie validity configured in "
-#| "phpMyAdmin, because of this, your login will expire sooner than "
-#| "configured in phpMyAdmin."
 msgid ""
 "Your PHP parameter [a@https://secure.php.net/manual/en/session.configuration."
 "php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
 "than cookie validity configured in phpMyAdmin, because of this, your login "
 "might expire sooner than configured in phpMyAdmin."
 msgstr ""
-"Параметр PHP [a@https://secure.php.net/manual/en/session.configuration."
-"php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] менший, ніж "
-"термін придатності cookie в phpMyAdmin, через це термін дії вашої сесії "
-"закінчиться раніше, ніж налаштовано в phpMyAdmin."
+"Параметр PHP "
+"[a@https://secure.php.net/manual/en/session.configuration.php#ini.session.gc-"
+"maxlifetime@_blank]session.gc_maxlifetime[/a] менший, ніж параметр терміну "
+"зберігання cookie визначений в phpMyAdmin. Тому ваша сесія закінчиться "
+"раніше, ніж налаштовано в phpMyAdmin."
 
 #: index.php:503
 msgid ""
@@ -963,7 +957,6 @@ msgstr ""
 "стовпці функцію редагування ('Змінити') на сторінці структури таблиці.</b>"
 
 #: js/messages.php:107
-#, fuzzy
 msgid ""
 "Are you sure you wish to change all the column collations and convert the "
 "data?"
@@ -971,25 +964,19 @@ msgstr ""
 "Ви впевнені, що хочете змінити всі стовпці співставлення і перетворити дані?"
 
 #: js/messages.php:111
-#, fuzzy
-#| msgid "Save & Close"
 msgid "Save & close"
 msgstr "Зберегти і закрити"
 
 #: js/messages.php:112 libraries/config/FormDisplay.tpl.php:426
 #: libraries/insert_edit.lib.php:1619 prefs_manage.php:374 prefs_manage.php:385
-#, fuzzy
 msgid "Reset"
 msgstr "Скинути"
 
 #: js/messages.php:113
-#, fuzzy
-#| msgid "Reset All"
 msgid "Reset all"
 msgstr "Скинути все"
 
 #: js/messages.php:116
-#, fuzzy
 msgid "Missing value in the form!"
 msgstr "Відсутнє значення в формі!"
 
@@ -999,21 +986,19 @@ msgstr "Виберіть принаймні один із варіантів!"
 
 #: js/messages.php:118
 msgid "Please enter a valid number!"
-msgstr "Введіть вірний номер!"
+msgstr "Будь ласка, введіть правильне числове значення!"
 
 #: js/messages.php:119
 msgid "Please enter a valid length!"
-msgstr "Введіть вірну довжину!"
+msgstr "Будь ласка, введіть припустиму довжину!"
 
 #: js/messages.php:120
 msgid "Add index"
 msgstr "Додати індекс"
 
 #: js/messages.php:121
-#, fuzzy
-#| msgid "Edit Index"
 msgid "Edit index"
-msgstr "Редагувати Індекс"
+msgstr "Редагувати індекс"
 
 #: js/messages.php:122 templates/table/index_form.phtml:235
 #, php-format
@@ -1048,7 +1033,6 @@ msgid "Preview SQL"
 msgstr "Попередній перегляд SQL"
 
 #: js/messages.php:135
-#, fuzzy
 msgid "Simulate query"
 msgstr "Змоделювати запит"
 
@@ -1062,35 +1046,28 @@ msgstr "SQL-запит:"
 
 #. l10n: Default label for the y-Axis of Charts
 #: js/messages.php:141
-#, fuzzy
-#| msgid "Y Values"
 msgid "Y values"
 msgstr "Значення Y"
 
 #: js/messages.php:144
-#, fuzzy
 msgid "The host name is empty!"
 msgstr "Відсутнє ім'я хосту!"
 
 #: js/messages.php:145
-#, fuzzy
 msgid "The user name is empty!"
 msgstr "Відсутнє ім'я користувача!"
 
 #: js/messages.php:146 libraries/server_privileges.lib.php:1868
 #: user_password.php:119
-#, fuzzy
 msgid "The password is empty!"
 msgstr "Відсутній пароль!"
 
 #: js/messages.php:147 libraries/server_privileges.lib.php:1866
 #: user_password.php:123
-#, fuzzy
 msgid "The passwords aren't the same!"
 msgstr "Паролі не співпадають!"
 
 #: js/messages.php:148
-#, fuzzy
 msgid "Removing Selected Users"
 msgstr "Видалення вибраних користувачів"
 
@@ -1104,21 +1081,16 @@ msgid "Template was created."
 msgstr "Шаблон створений."
 
 #: js/messages.php:153
-#, fuzzy
 msgid "Template was loaded."
 msgstr "Шаблон завантажений."
 
 #: js/messages.php:154
-#, fuzzy
-#| msgid "The profile has been updated."
 msgid "Template was updated."
 msgstr "Шаблон оновлено."
 
 #: js/messages.php:155
-#, fuzzy
-#| msgid "The row has been deleted."
 msgid "Template was deleted."
-msgstr "Шаблон видалено."
+msgstr "Шаблон видалений."
 
 #. l10n: Other, small valued, queries
 #: js/messages.php:158 libraries/ServerStatusData.php:132
@@ -1174,10 +1146,9 @@ msgstr "Використано кеш запитів"
 #, fuzzy
 #| msgid "System CPU Usage"
 msgid "System CPU usage"
-msgstr "Використання CPU системою"
+msgstr "Використовувати системний процесор"
 
 #: js/messages.php:181
-#, fuzzy
 msgid "System memory"
 msgstr "Системна пам'ять"
 
@@ -1210,26 +1181,18 @@ msgid "Used memory"
 msgstr "Пам'яті використано"
 
 #: js/messages.php:191
-#, fuzzy
-#| msgid "Total Swap"
 msgid "Total swap"
 msgstr "Загальний Swap"
 
 #: js/messages.php:192
-#, fuzzy
-#| msgid "Cached Swap"
 msgid "Cached swap"
 msgstr "Кешований Swap"
 
 #: js/messages.php:193
-#, fuzzy
-#| msgid "Used Swap"
 msgid "Used swap"
 msgstr "Використаний Swap"
 
 #: js/messages.php:194
-#, fuzzy
-#| msgid "Free Swap"
 msgid "Free swap"
 msgstr "Вільний Swap"
 
@@ -1639,8 +1602,6 @@ msgid "No files available on server for import!"
 msgstr "На сервері немає файлів для імпорту!"
 
 #: js/messages.php:331
-#, fuzzy
-#| msgid "Analyse Query"
 msgid "Analyse query"
 msgstr "Аналізувати запит"
 
@@ -1677,13 +1638,10 @@ msgid "Test"
 msgstr "Тест"
 
 #: js/messages.php:345
-#, fuzzy
 msgid "Formatting SQL…"
 msgstr "Форматування SQL…"
 
 #: js/messages.php:346
-#, fuzzy
-#| msgid "Bad parameters!"
 msgid "No parameters found!"
 msgstr "Параметри не знайдені!"
 
@@ -1703,7 +1661,7 @@ msgstr "Скасувати"
 #, fuzzy
 #| msgid "Change settings"
 msgid "Page-related settings"
-msgstr "Змінити налаштування"
+msgstr "Налаштувати пов'язану сторінку"
 
 #: js/messages.php:354 libraries/config/FormDisplay.tpl.php:424
 msgid "Apply"
@@ -1715,28 +1673,20 @@ msgid "Loading…"
 msgstr "Завантаження…"
 
 #: js/messages.php:358
-#, fuzzy
-#| msgid "Request Aborted!!"
 msgid "Request aborted!!"
 msgstr "Запит скасовано!"
 
 #: js/messages.php:359
-#, fuzzy
-#| msgid "Processing Request"
 msgid "Processing request"
 msgstr "Обробка запиту"
 
 #: js/messages.php:360
-#, fuzzy
-#| msgid "Request Aborted!!"
 msgid "Request failed!!"
 msgstr "Запит скасовано!"
 
 #: js/messages.php:361
-#, fuzzy
-#| msgid "Error in processing request:"
 msgid "Error in processing request"
-msgstr "Помилка при обробці запиту:"
+msgstr "Помилка при обробці запиту"
 
 #: js/messages.php:362
 #, php-format
@@ -1755,14 +1705,10 @@ msgid "No databases selected."
 msgstr "Жодної бази даних не вибрано."
 
 #: js/messages.php:365
-#, fuzzy
-#| msgid "Dropping Column"
 msgid "Dropping column"
 msgstr "Видалення стовпчика"
 
 #: js/messages.php:366
-#, fuzzy
-#| msgid "Add primary key"
 msgid "Adding primary key"
 msgstr "Додати первинний ключ"
 
@@ -1781,26 +1727,18 @@ msgid "Click to dismiss this notification"
 msgstr "Клікніть для пропуску цьго повідомлення"
 
 #: js/messages.php:371
-#, fuzzy
-#| msgid "Renaming Databases"
 msgid "Renaming databases"
-msgstr "Перейменування баз даних"
+msgstr "Перейменувати бази даних"
 
 #: js/messages.php:372
-#, fuzzy
-#| msgid "Copying Database"
 msgid "Copying database"
-msgstr "Копіювання бази даних"
+msgstr "Копіювати базу даних"
 
 #: js/messages.php:373
-#, fuzzy
-#| msgid "Changing Charset"
 msgid "Changing charset"
-msgstr "Зміна Кодування"
+msgstr "Змінити кодування"
 
 #: js/messages.php:377 libraries/Util.php:3079
-#, fuzzy
-#| msgid "Disable foreign key checks"
 msgid "Enable foreign key checks"
 msgstr "Відключити перевірки зовнішніх ключів"
 
@@ -1854,7 +1792,6 @@ msgid "Export"
 msgstr "Експортувати"
 
 #: js/messages.php:395
-#, fuzzy
 msgid "No routine is exportable. Required privileges may be lacking."
 msgstr "Експортування неможливе. Відсутні необхідні привілеї."
 
@@ -1932,15 +1869,13 @@ msgid "Browse foreign values"
 msgstr "Огляд зовнішніх значень"
 
 #: js/messages.php:416
-#, fuzzy
 msgid "No auto-saved query"
 msgstr "Немає автоматичного збереження запиту"
 
 #: js/messages.php:417
-#, fuzzy, php-format
-#| msgid "Variable"
+#, php-format
 msgid "Variable %d:"
-msgstr "Змінна"
+msgstr "Змінна %d:"
 
 #: js/messages.php:420 libraries/normalization.lib.php:884
 msgid "Pick"
@@ -1955,7 +1890,7 @@ msgid "Search this list"
 msgstr "Шукати в цьому списку"
 
 #: js/messages.php:424
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "No columns in the central list. Make sure the Central columns list for "
 "database %s has columns that are not present in the current table."
@@ -2028,8 +1963,8 @@ msgid ""
 "Note: a, b -> d,f implies values of columns a and b combined together can "
 "determine values of column d and column f."
 msgstr ""
-"Зауважте: a, b -> d, f допущені значення стовпців a і b поєднані разом "
-"можуть визначати значення стовпців d та f."
+"Зауважте: a, b -> d, f означає, що поєднані разом значення стовпців a і b "
+"будуть визначати значення стовпців d та f."
 
 #: js/messages.php:450
 msgid "No partial dependencies selected!"
@@ -2197,16 +2132,12 @@ msgid "Geometry"
 msgstr "Геометрія"
 
 #: js/messages.php:518
-#, fuzzy
-#| msgid "Inner Ring"
 msgid "Inner ring"
 msgstr "Внутрішнє кільце"
 
 #: js/messages.php:519
-#, fuzzy
-#| msgid "Outer ring:"
 msgid "Outer ring"
-msgstr "Зовнішнє кільце:"
+msgstr "Зовнішнє кільце"
 
 #: js/messages.php:523
 msgid "Do you want to copy encryption key?"
@@ -2233,7 +2164,6 @@ msgstr ""
 "необхідності введіть  безпосередньо з клавіатури"
 
 #: js/messages.php:540
-#, fuzzy
 msgid ""
 "Indicates that you have made changes to this page; you will be prompted for "
 "confirmation before abandoning changes"
@@ -2242,7 +2172,6 @@ msgstr ""
 "підтвердити, перш ніж відмовитися від змін"
 
 #: js/messages.php:545
-#, fuzzy
 msgid "Select referenced key"
 msgstr "Виберіть системний ключ"
 
@@ -2278,8 +2207,6 @@ msgstr "Зберегти сторінку"
 
 #: js/messages.php:556 templates/database/designer/side_menu.phtml:63
 #: templates/database/designer/side_menu.phtml:66
-#, fuzzy
-#| msgid "Save page"
 msgid "Save page as"
 msgstr "Зберегти сторінку, як"
 
@@ -2409,10 +2336,8 @@ msgstr ""
 "до зависання браузеру."
 
 #: js/messages.php:602
-#, fuzzy
-#| msgid "Original string"
 msgid "Original length"
-msgstr "Початковий рядок"
+msgstr "Початкова довжина"
 
 #: js/messages.php:605
 msgid "cancel"
@@ -2483,14 +2408,10 @@ msgid "More"
 msgstr "Більше"
 
 #: js/messages.php:646
-#, fuzzy
-#| msgid "Show Panel"
 msgid "Show panel"
 msgstr "Показати панель"
 
 #: js/messages.php:647
-#, fuzzy
-#| msgid "Hide Panel"
 msgid "Hide panel"
 msgstr "Приховати панель"
 
@@ -2535,14 +2456,10 @@ msgid "Create view"
 msgstr "Створити подання"
 
 #: js/messages.php:668
-#, fuzzy
-#| msgid "Send error reports"
 msgid "Send error report"
 msgstr "Надіслати звіти про помилку"
 
 #: js/messages.php:669
-#, fuzzy
-#| msgid "Submit Error Report"
 msgid "Submit error report"
 msgstr "Надіслати звіт про помилку"
 
@@ -2554,14 +2471,10 @@ msgstr ""
 "Трапилася фатальна помилка JavaScript. Ви хочете відіслати звіт про неї?"
 
 #: js/messages.php:673
-#, fuzzy
-#| msgid "Change Report Settings"
 msgid "Change report settings"
 msgstr "Змінити налаштування звіту"
 
 #: js/messages.php:674
-#, fuzzy
-#| msgid "Show Report Details"
 msgid "Show report details"
 msgstr "Показати подробиці звіту"
 
@@ -2613,10 +2526,9 @@ msgid "Some error occurred while getting SQL debug info."
 msgstr "Сталася помилка при отриманні відомостей про налагодження SQL."
 
 #: js/messages.php:719
-#, fuzzy, php-format
-#| msgid "Execute"
+#, php-format
 msgid "%s queries executed %s times in %s seconds."
-msgstr "Виконати"
+msgstr "%s запитів виконано %s раз(и) за %s секунд(и)."
 
 #: js/messages.php:720
 #, php-format
@@ -2624,24 +2536,18 @@ msgid "%s argument(s) passed"
 msgstr "%s аргумент(ів) передано"
 
 #: js/messages.php:721
-#, fuzzy
-#| msgid "Table comments"
 msgid "Show arguments"
-msgstr "Коментарі таблиці"
+msgstr "Відобразити аргументи"
 
 #: js/messages.php:722
-#, fuzzy
-#| msgid "Hide search results"
 msgid "Hide arguments"
-msgstr "Сховати результати пошуку"
+msgstr "Сховати аргументи"
 
 #: js/messages.php:723
-#, fuzzy
 msgid "Time taken:"
 msgstr "Час створення:"
 
 #: js/messages.php:724
-#, fuzzy
 msgid ""
 "There was a problem accessing your browser storage, some features may not "
 "work properly for you. It is likely that the browser doesn't support storage "
@@ -2652,25 +2558,19 @@ msgstr ""
 "Виникла проблема доступу до сховища вашого браузера, деякі функції можуть не "
 "працювати належним чином. Цілком імовірно, що браузер не підтримує функцію "
 "зберігання або досягнуто межі квоти. В Firefox, несправність сховища також "
-"може викликати дану проблему, очищення \"Даних в автономному режимі веб-сайту"
-"\" може допомогти. В Safari, такі проблеми часто викликані установкою "
-"\"Приватний режим перегляду\"."
+"може викликати дану проблему, очищення \"Даних в автономному режимі веб-"
+"сайту\" може допомогти. В Safari, такі проблеми часто викликані установкою \""
+"Приватний режим перегляду\"."
 
 #: js/messages.php:726
-#, fuzzy
-#| msgid "Copy database to"
 msgid "Copy tables to"
-msgstr "Копіювати базу даних в"
+msgstr "Копіювати таблицю до"
 
 #: js/messages.php:727
-#, fuzzy
-#| msgid "Add table prefix:"
 msgid "Add table prefix"
-msgstr "Додати префікс таблиці:"
+msgstr "Додати префікс таблиці"
 
 #: js/messages.php:728
-#, fuzzy
-#| msgid "Replace table prefix"
 msgid "Replace table with prefix"
 msgstr "Замінити префікс таблиці"
 
@@ -2694,7 +2594,6 @@ msgid "Weak"
 msgstr "Слабкий"
 
 #: js/messages.php:735
-#, fuzzy
 msgid "Good"
 msgstr "Хороший"
 
@@ -2960,102 +2859,72 @@ msgid "This field is required"
 msgstr "Це поле є обов'язковим"
 
 #: js/messages.php:907
-#, fuzzy
-#| msgid "Use text field"
 msgid "Please fix this field"
-msgstr "Використовувати текстове поле"
+msgstr "Будь ласка, виправте це поле"
 
 #: js/messages.php:908
-#, fuzzy
-#| msgid "Please enter a valid page name"
 msgid "Please enter a valid email address"
-msgstr "Будь-ласка, введіть допустиме ім`я сторінки"
+msgstr "Будь ласка, введіть дійсну адресу електронної пошти"
 
 #: js/messages.php:909
-#, fuzzy
-#| msgid "Please enter a valid number!"
 msgid "Please enter a valid URL"
-msgstr "Введіть вірний номер!"
+msgstr "Введіть дійсний URL"
 
 #: js/messages.php:910
-#, fuzzy
-#| msgid "Please enter a valid page name"
 msgid "Please enter a valid date"
-msgstr "Будь-ласка, введіть допустиме ім`я сторінки"
+msgstr "Будь ласка, введіть дійсну дату"
 
 #: js/messages.php:913
-#, fuzzy
-#| msgid "Please enter a valid page name"
 msgid "Please enter a valid date ( ISO )"
-msgstr "Будь-ласка, введіть допустиме ім`я сторінки"
+msgstr "Будь ласка, введіть правильну дату (ISO)"
 
 #: js/messages.php:915
-#, fuzzy
-#| msgid "Please enter a valid number!"
 msgid "Please enter a valid number"
-msgstr "Введіть вірний номер!"
+msgstr "Будь ласка, введіть дійсний номер"
 
 #: js/messages.php:918
-#, fuzzy
-#| msgid "Please enter a valid number!"
 msgid "Please enter a valid credit card number"
-msgstr "Введіть вірний номер!"
+msgstr "Будь ласка, введіть дійсний номер кредитної картки"
 
 #: js/messages.php:920
-#, fuzzy
-#| msgid "Please enter a valid length!"
 msgid "Please enter only digits"
-msgstr "Введіть вірну довжину!"
+msgstr "Будь ласка, введіть лише цифри"
 
 #: js/messages.php:923
-#, fuzzy
-#| msgid "Please enter a valid page name"
 msgid "Please enter the same value again"
-msgstr "Будь-ласка, введіть допустиме ім`я сторінки"
+msgstr "Будь ласка, введіть те ж значення знову"
 
 #: js/messages.php:927
 msgid "Please enter no more than {0} characters"
 msgstr "Будь ласка, введіть не більше {0} символів"
 
 #: js/messages.php:932
-#, fuzzy
-#| msgid "Please enter a valid page name"
 msgid "Please enter at least {0} characters"
-msgstr "Будь-ласка, введіть допустиме ім`я сторінки"
+msgstr "Будь ласка, введіть принаймні {0} символів"
 
 #: js/messages.php:937
 msgid "Please enter a value between {0} and {1} characters long"
 msgstr "Будь ласка, введіть значення довжиною від {0} до {1} символів"
 
 #: js/messages.php:942
-#, fuzzy
-#| msgid "Please enter a valid page name"
 msgid "Please enter a value between {0} and {1}"
-msgstr "Будь-ласка, введіть допустиме ім`я сторінки"
+msgstr "Будь ласка, введіть значення між {0} і {1}"
 
 #: js/messages.php:947
-#, fuzzy
-#| msgid "Please enter a valid length!"
 msgid "Please enter a value less than or equal to {0}"
-msgstr "Введіть вірну довжину!"
+msgstr "Будь ласка, введіть значення менше або дорівнює {0}"
 
 #: js/messages.php:952
-#, fuzzy
-#| msgid "Please enter a valid page name"
 msgid "Please enter a value greater than or equal to {0}"
-msgstr "Будь-ласка, введіть допустиме ім`я сторінки"
+msgstr "Будь ласка, введіть значення більше або дорівнює {0}"
 
 #: js/messages.php:958
-#, fuzzy
-#| msgid "Please enter a valid page name"
 msgid "Please enter a valid date or time"
-msgstr "Будь-ласка, введіть допустиме ім`я сторінки"
+msgstr "Будь ласка, введіть дійсну дату або час"
 
 #: js/messages.php:963
-#, fuzzy
-#| msgid "Please enter a valid number!"
 msgid "Please enter a valid HEX input"
-msgstr "Введіть вірний номер!"
+msgstr "Будь ласка, введіть правильний вхід HEX"
 
 #: js/messages.php:968 libraries/Message.php:190 libraries/Util.php:566
 #: libraries/core.lib.php:243 libraries/import.lib.php:80
@@ -3089,7 +2958,7 @@ msgid "Failed formatting string for rule '%s'."
 msgstr "Не вдалося виконати форматування рядка для правила '%s'."
 
 #: libraries/Advisor.php:469
-#, fuzzy, php-format
+#, php-format
 msgid "Error in reading file: The file '%s' does not exist or is not readable!"
 msgstr "Помилка при читанні файлу: файл '%s' не існує або не читається!"
 
@@ -3287,10 +3156,8 @@ msgid "multilingual"
 msgstr "багатомовні"
 
 #: libraries/Charsets.php:358
-#, fuzzy
-#| msgid "File name"
 msgid "Vietnamese"
-msgstr "Назва файлу"
+msgstr "В'єтнамська"
 
 #: libraries/Charsets.php:390
 msgid "Central European"
@@ -3338,22 +3205,16 @@ msgid "unknown"
 msgstr "невідоме"
 
 #: libraries/Charsets.php:460
-#, fuzzy
-#| msgid "Collation"
 msgid "binary collation"
-msgstr "Порівняння"
+msgstr "двійкове спідставлення"
 
 #: libraries/Charsets.php:467
-#, fuzzy
-#| msgid "case-insensitive"
 msgid "case-insensitive collation"
-msgstr "нечутливий до регістру"
+msgstr "без урахування регістру співставлення"
 
 #: libraries/Charsets.php:469
-#, fuzzy
-#| msgid "case-sensitive"
 msgid "case-sensitive collation"
-msgstr "чутливий до регістру"
+msgstr "з урахуванням регістру спідставлення"
 
 #: libraries/Config.php:1121
 #, php-format
@@ -3430,10 +3291,8 @@ msgid "Details…"
 msgstr "Деталі…"
 
 #: libraries/DatabaseInterface.php:2350
-#, fuzzy
-#| msgid "Missing parameter:"
 msgid "Missing connection parameters!"
-msgstr "Пропущено параметр:"
+msgstr "Відсутні параметри з'єднання!"
 
 #: libraries/DatabaseInterface.php:2374
 msgid "Connection for controluser as defined in your configuration failed."
@@ -3474,10 +3333,8 @@ msgid "Sort:"
 msgstr "Посортувати:"
 
 #: libraries/DbQbe.php:630
-#, fuzzy
-#| msgid "Sort:"
 msgid "Sort order:"
-msgstr "Посортувати:"
+msgstr "Порядок сортування:"
 
 #: libraries/DbQbe.php:679
 msgid "Show:"
@@ -3541,7 +3398,6 @@ msgid "Submit Query"
 msgstr "Виконати запит"
 
 #: libraries/DbQbe.php:1879
-#, fuzzy
 msgid "Saved bookmarked search:"
 msgstr "Закладка пошуку:"
 
@@ -3629,10 +3485,8 @@ msgstr "Всередині таблиць:"
 
 #: libraries/DbSearch.php:438 libraries/display_export.lib.php:51
 #: libraries/replication_gui.lib.php:381
-#, fuzzy
-#| msgid "Unselect All"
 msgid "Unselect all"
-msgstr "Зняти всі відмітки"
+msgstr "Зняти виділення"
 
 #: libraries/DbSearch.php:443
 msgid "Inside column:"
@@ -3738,10 +3592,8 @@ msgid "Relational key"
 msgstr "Ключ відношення"
 
 #: libraries/DisplayResults.php:1745
-#, fuzzy
-#| msgid "Display foreign key relationships"
 msgid "Display column for relationships"
-msgstr "Відображати відносини зовнішнього ключа"
+msgstr "Відображати стовпець відносин"
 
 #: libraries/DisplayResults.php:1761
 msgid "Show binary contents"
@@ -3830,13 +3682,10 @@ msgstr "З відміченими:"
 #: templates/database/structure/check_all_tables.phtml:4
 #: templates/privileges/global_priv_table.phtml:5 templates/select_all.phtml:4
 #: templates/select_all.phtml:5
-#, fuzzy
-#| msgid "Check All"
 msgid "Check all"
 msgstr "Відмітити все"
 
 #: libraries/DisplayResults.php:5024
-#, fuzzy
 msgid "Copy to clipboard"
 msgstr "Скопіювати до буфера обміну"
 
@@ -3917,7 +3766,6 @@ msgid "Unknown error in file upload."
 msgstr "Невідома помилка під час завантаження файла."
 
 #: libraries/File.php:445
-#, fuzzy
 msgid "File is a symbolic link"
 msgstr "Файл є символічним посиланням"
 
@@ -3934,10 +3782,8 @@ msgid "Error while moving uploaded file."
 msgstr "Помилка під час переміщення завантаженого файла."
 
 #: libraries/File.php:517
-#, fuzzy
-#| msgid "Cannot read (moved) upload file."
 msgid "Cannot read uploaded file."
-msgstr "Не вдалося прочитати (перемістити) завантажений файл."
+msgstr "Неможливо прочитати завантажений файл."
 
 #: libraries/File.php:609
 #, php-format
@@ -4069,7 +3915,6 @@ msgid "Page number:"
 msgstr "Номер сторінки:"
 
 #: libraries/LanguageManager.php:898
-#, fuzzy
 msgid "Ignoring unsupported language code."
 msgstr "Ігнорувати непідтримуваний код мови."
 
@@ -4079,15 +3924,14 @@ msgid "Language"
 msgstr "Мова"
 
 #: libraries/Linter.php:99
-#, fuzzy
 msgid ""
 "Linting is disabled for this query because it exceeds the maximum length."
 msgstr ""
-"Linting вимкнуто для цього запиту, оскільки він перевищує максимальну "
+"Linting вимкнутий для цього запиту, оскільки він перевищує максимальну "
 "довжину."
 
 #: libraries/Linter.php:165
-#, fuzzy, php-format
+#, php-format
 msgid "%1$s (near <code>%2$s</code>)"
 msgstr "%1$s (приблизно <code>%2$s</code>)"
 
@@ -4239,10 +4083,8 @@ msgid "Databases"
 msgstr "Бази даних"
 
 #: libraries/Menu.php:574
-#, fuzzy
-#| msgid "User groups"
 msgid "User accounts"
-msgstr "Групи користувачів"
+msgstr "Облікові записи"
 
 #: libraries/Menu.php:601 libraries/ServerStatusData.php:121
 #: libraries/Util.php:4101 libraries/server_common.lib.php:33
@@ -4343,9 +4185,8 @@ msgid "Favorites"
 msgstr "Уподобання"
 
 #: libraries/SavedSearches.php:256
-#, fuzzy
 msgid "Please provide a name for this bookmarked search."
-msgstr "Вкажіть ім'я для цієї закладки пошуку."
+msgstr "Будь ласка вкажіть ім'я для цієї закладки пошуку."
 
 #: libraries/SavedSearches.php:271
 msgid "Missing information to save the bookmarked search."
@@ -4747,7 +4588,6 @@ msgstr ""
 "відповідає максимальній довжині рядка таблиці"
 
 #: libraries/TypesMySQL.php:131
-#, fuzzy
 msgid ""
 "A TEXT column with a maximum length of 255 (2^8 - 1) characters, stored with "
 "a one-byte prefix indicating the length of the value in bytes"
@@ -4756,31 +4596,28 @@ msgstr ""
 "з однобайтовим префіксом, що вказує довжину значення в байтах"
 
 #: libraries/TypesMySQL.php:137
-#, fuzzy
 msgid ""
 "A TEXT column with a maximum length of 65,535 (2^16 - 1) characters, stored "
 "with a two-byte prefix indicating the length of the value in bytes"
 msgstr ""
 "Колонка TEXT з максимальною довжиною 65,535 (2 ^ 16 - 1) символів, "
-"зберігається з двох-байтовим префіксом, що вказує довжину значення в байтах."
+"зберігається з двох-байтовим префіксом, що вказує довжину значення в байтах"
 
 #: libraries/TypesMySQL.php:143
-#, fuzzy
 msgid ""
 "A TEXT column with a maximum length of 16,777,215 (2^24 - 1) characters, "
 "stored with a three-byte prefix indicating the length of the value in bytes"
 msgstr ""
-"Колонка TEXT з максимальною довжиною 16,777,215 (2^24 - 1) символів, "
+"Сповпець TEXT з максимальною довжиною 16,777,215 (2^24 - 1) символів, "
 "зберігається з трьох-байтовим префіксом, що вказує довжину значення в байтах"
 
 #: libraries/TypesMySQL.php:149
-#, fuzzy
 msgid ""
 "A TEXT column with a maximum length of 4,294,967,295 or 4GiB (2^32 - 1) "
 "characters, stored with a four-byte prefix indicating the length of the "
 "value in bytes"
 msgstr ""
-"Колонка TEXT з максимальною довжиною 4,294,967,295 or 4GiB (2^32 - 1) "
+"Сповпець TEXT з максимальною довжиною 4,294,967,295 чи 4GiB (2^32 - 1) "
 "символів, зберігається з чотирьох-байтовим префіксом, що вказує довжину "
 "значення в байтах"
 
@@ -4801,44 +4638,39 @@ msgstr ""
 "небінарних символів"
 
 #: libraries/TypesMySQL.php:165
-#, fuzzy
 msgid ""
 "A BLOB column with a maximum length of 255 (2^8 - 1) bytes, stored with a "
 "one-byte prefix indicating the length of the value"
 msgstr ""
-"Колонка BLOB з максимальною довжиною  255 (2^8 - 1) байтів, зберігається з "
+"Сповпець BLOB з максимальною довжиною  255 (2^8 - 1) байтів, зберігається з "
 "однобайтовим префіксом, що вказує довжину значення"
 
 #: libraries/TypesMySQL.php:170
-#, fuzzy
 msgid ""
 "A BLOB column with a maximum length of 16,777,215 (2^24 - 1) bytes, stored "
 "with a three-byte prefix indicating the length of the value"
 msgstr ""
-"Колонка BLOB з максимальною довжиною  16,777,215 (2^24 - 1) байтів, "
+"Сповпець BLOB з максимальною довжиною  16,777,215 (2^24 - 1) байтів, "
 "зберігається з трьох-байтовим префіксом, що вказує довжину значення"
 
 #: libraries/TypesMySQL.php:176
-#, fuzzy
 msgid ""
 "A BLOB column with a maximum length of 65,535 (2^16 - 1) bytes, stored with "
 "a two-byte prefix indicating the length of the value"
 msgstr ""
-"Колонка BLOB з максимальною довжиною  65,535 (2^16 - 1) байтів, зберігається "
-"з двох-байтовим префіксом, що вказує довжину значення"
+"Сповпець BLOB з максимальною довжиною  65,535 (2^16 - 1) байтів, "
+"зберігається з двох-байтовим префіксом, що вказує довжину значення"
 
 #: libraries/TypesMySQL.php:181
-#, fuzzy
 msgid ""
 "A BLOB column with a maximum length of 4,294,967,295 or 4GiB (2^32 - 1) "
 "bytes, stored with a four-byte prefix indicating the length of the value"
 msgstr ""
-"Колонка BLOB з максимальною довжиною  4,294,967,295 чи 4GiB (2^32 - 1) "
+"Сповпець BLOB з максимальною довжиною  4,294,967,295 чи 4GiB (2^32 - 1) "
 "байтів, зберігається з чотирьох-байтовим префіксом, що вказує довжину "
 "значення"
 
 #: libraries/TypesMySQL.php:187
-#, fuzzy
 msgid ""
 "An enumeration, chosen from the list of up to 65,535 values or the special "
 "'' error value"
@@ -4847,7 +4679,6 @@ msgstr ""
 "значення помилки"
 
 #: libraries/TypesMySQL.php:191
-#, fuzzy
 msgid "A single value chosen from a set of up to 64 members"
 msgstr "Єдине значення вибирається з набору до 64 елементів"
 
@@ -4884,7 +4715,6 @@ msgid "A collection of geometry objects of any type"
 msgstr "Колекція геометрії об'єктів будь-якого типу"
 
 #: libraries/TypesMySQL.php:212
-#, fuzzy
 msgid ""
 "Stores and enables efficient access to data in JSON (JavaScript Object "
 "Notation) documents"
@@ -4919,13 +4749,11 @@ msgid "Max: %s%s"
 msgstr "Максимум: %s%s"
 
 #: libraries/Util.php:573
-#, fuzzy
-#| msgid "Static data"
 msgid "Static analysis:"
-msgstr "Статичні дані"
+msgstr "Статичний аналіз:"
 
 #: libraries/Util.php:576
-#, fuzzy, php-format
+#, php-format
 msgid "%d errors were found during analysis."
 msgstr "%d помилки знайдені під час аналізу."
 
@@ -4949,25 +4777,19 @@ msgid "Skip Explain SQL"
 msgstr "Не тлумачити SQL"
 
 #: libraries/Util.php:1087
-#, php-format
+#, fuzzy, php-format
 msgid "Analyze Explain at %s"
-msgstr ""
+msgstr "Результати аналіза %s"
 
 #: libraries/Util.php:1120
-#, fuzzy
-#| msgid "Without PHP Code"
 msgid "Without PHP code"
-msgstr "без PHP коду"
+msgstr "Без PHP коду"
 
 #: libraries/Util.php:1132
-#, fuzzy
-#| msgid "Submit Query"
 msgid "Submit query"
-msgstr "Виконати запит"
+msgstr "Відправити запит"
 
 #: libraries/Util.php:1143 libraries/config/messages.inc.php:882
-#, fuzzy
-#| msgid "Create PHP Code"
 msgid "Create PHP code"
 msgstr "Створити PHP код"
 
@@ -4984,11 +4806,9 @@ msgid "Profiling"
 msgstr "Профілювання"
 
 #: libraries/Util.php:1210
-#, fuzzy
-#| msgid "Edit index"
 msgctxt "Inline edit query"
 msgid "Edit inline"
-msgstr "Редагувати індекс"
+msgstr "Порядкове редагування"
 
 #. l10n: Short week day name
 #: libraries/Util.php:1551
@@ -5003,13 +4823,11 @@ msgid "%B %d, %Y at %I:%M %p"
 msgstr "%B %d %Y р., %H:%M"
 
 #: libraries/Util.php:1588
-#, fuzzy
 msgctxt "AM/PM indication in time"
 msgid "PM"
 msgstr "РМ"
 
 #: libraries/Util.php:1590
-#, fuzzy
 msgctxt "AM/PM indication in time"
 msgid "AM"
 msgstr "АМ"
@@ -5099,15 +4917,17 @@ msgid "Use this value"
 msgstr "Використовувати це значення"
 
 #: libraries/central_columns.lib.php:154
+#, fuzzy
 msgid ""
 "The configuration storage is not ready for the central list of columns "
 "feature."
 msgstr ""
+"Сховище конфігурації не готове для основного списку характеристик стовпців."
 
 #: libraries/central_columns.lib.php:282
 #, php-format
 msgid "Could not add %1$s as they already exist in central list!"
-msgstr ""
+msgstr "Не вдалося додати %1$s , так як вони вже існують в основному списку!"
 
 #: libraries/central_columns.lib.php:297
 msgid "Could not add columns!"
@@ -5118,6 +4938,8 @@ msgstr "Не вдалося додати стовпчики!"
 msgid ""
 "Couldn't remove Column(s) %1$s as they don't exist in central columns list!"
 msgstr ""
+"Не вдалося видалити стовпців %1$s , так як вони не існують в основному "
+"списку стовпців!"
 
 #: libraries/central_columns.lib.php:384
 msgid "Could not remove columns!"
@@ -5125,11 +4947,11 @@ msgstr "Не вдалося видалити стовпчики!"
 
 #: libraries/central_columns.lib.php:529
 msgid "YES"
-msgstr ""
+msgstr "ТАК"
 
 #: libraries/central_columns.lib.php:529
 msgid "NO"
-msgstr ""
+msgstr "НІ"
 
 #: libraries/central_columns.lib.php:694 libraries/central_columns.lib.php:1385
 #: libraries/plugins/export/ExportHtmlword.php:485
@@ -5152,14 +4974,12 @@ msgid "Length/Values"
 msgstr "Довжина/Значення"
 
 #: libraries/central_columns.lib.php:705
-#, fuzzy
-#| msgid "Attributes"
 msgid "Attribute"
-msgstr "Атрибути"
+msgstr "Атрибут"
 
 #: libraries/central_columns.lib.php:709 libraries/central_columns.lib.php:1386
 msgid "A_I"
-msgstr ""
+msgstr "A_I"
 
 #: libraries/central_columns.lib.php:749
 msgid "Select a table"
@@ -5216,6 +5036,10 @@ msgid ""
 "setting for [em]$cfg['Servers'][%3$d]['SessionTimeZone'][/em]. phpMyAdmin is "
 "currently using the default time zone of the database server."
 msgstr ""
+"Не вдається застосувати часовий пояс %1$s для сервера %2$d. Будь ласка, "
+"перевірте налаштування конфігурації для "
+"[em]$cfg['Servers'][%3$d]['SessionTimeZone'][/em]. phpMyAdmin в даний час "
+"використовує стандартний часовий пояс сервера бази даних."
 
 #: libraries/common.inc.php:777
 #, php-format
@@ -5277,19 +5101,15 @@ msgstr "заблоковано"
 
 #: libraries/config.values.php:97
 msgid "key"
-msgstr ""
+msgstr "ключ"
 
 #: libraries/config.values.php:98
-#, fuzzy
-#| msgid "Display columns table"
 msgid "display column"
-msgstr "Таблиця з описами полів"
+msgstr "Відобразити стовпець"
 
 #: libraries/config.values.php:102
-#, fuzzy
-#| msgid "Welcome to %s"
 msgid "Welcome"
-msgstr "Ласкаво просимо до %s"
+msgstr "Ласкаво просимо"
 
 #: libraries/config.values.php:122
 msgid "Open"
@@ -5312,22 +5132,16 @@ msgid "Never send error reports"
 msgstr "Ніколи не надсилати звіти про помилки"
 
 #: libraries/config.values.php:132
-#, fuzzy
-#| msgid "Set default"
 msgid "Server default"
-msgstr "Скинути за замовчуванням"
+msgstr "Сервер за замовчуванням"
 
 #: libraries/config.values.php:133
-#, fuzzy
-#| msgid "Enabled"
 msgid "Enable"
-msgstr "дозволено"
+msgstr "Увімкнути"
 
 #: libraries/config.values.php:134
-#, fuzzy
-#| msgid "Disabled"
 msgid "Disable"
-msgstr "заблоковано"
+msgstr "Вимкнути"
 
 #: libraries/config.values.php:163
 #: libraries/plugins/export/ExportHtmlword.php:66
@@ -5463,10 +5277,10 @@ msgid "Allow users to customize this value"
 msgstr "Дозволити користувачам налаштовувати це значення"
 
 #: libraries/config/PageSettings.php:146
-#, fuzzy
-#| msgid "Cannot save settings, submitted form contains errors!"
 msgid "Cannot save settings, submitted configuration form contains errors!"
-msgstr "Неможливо зберегти налаштування, відправлена форма містить помилки!"
+msgstr ""
+"Неможливо зберегти налаштування, відправлена форма конфігурації містить "
+"помилки!"
 
 #: libraries/config/ServerConfigChecks.php:159
 msgid "You should use SSL connections if your database server supports it."
@@ -5479,10 +5293,8 @@ msgid "You allow for connecting to the server without a password."
 msgstr "Ви дозволяєте приєднуватися до сервера без пароля."
 
 #: libraries/config/ServerConfigChecks.php:349
-#, fuzzy
-#| msgid "Key is too short, it should have at least 8 characters."
 msgid "Key is too short, it should have at least 32 characters."
-msgstr "Ключ кодування надто короткий, він має містити не менше 8 символів."
+msgstr "Ключ надто короткий, він має містити не менше 32 символів."
 
 #: libraries/config/ServerConfigChecks.php:359
 msgid "Key should contain letters, numbers [em]and[/em] special characters."
@@ -5490,13 +5302,7 @@ msgstr ""
 "Ключ кодування має містити літери, цифри [em]та[/em] спеціальні символи."
 
 #: libraries/config/ServerConfigChecks.php:384
-#, fuzzy, php-format
-#| msgid ""
-#| "This %soption%s should be disabled as it allows attackers to bruteforce "
-#| "login to any MySQL server. If you feel this is necessary, use %strusted "
-#| "proxies list%s. However, IP-based protection may not be reliable if your "
-#| "IP belongs to an ISP where thousands of users, including you, are "
-#| "connected to."
+#, php-format
 msgid ""
 "This %soption%s should be disabled as it allows attackers to bruteforce "
 "login to any MySQL server. If you feel this is necessary, use %srestrict "
@@ -5504,11 +5310,13 @@ msgid ""
 "protection with trusted proxies list may not be reliable if your IP belongs "
 "to an ISP where thousands of users, including you, are connected to."
 msgstr ""
-"Ця %sопція%s має бути відключена, тому що дозволяє зловмисникам виконувати "
-"перебір облікового імені для будь-якого сервера MySQL. Якщо вже необхідно "
-"активувати дану опцію використовувати %sсписок довірених проксі%s. Однак, "
-"захист на IP-основі, не може бути надійним, якщо ваш IP не є виділеним і "
-"належить провайдеру, до якого приєднані тисячі користувачів разом з вами."
+"Цей %sпараметр%s має бути вимкненим, тому що дозволяє зловмисникам "
+"виконувати повний перебір (метод грубої сили) облікового імені для будь-"
+"якого сервера MySQL. Якщо вже необхідно активувати даний параметр "
+"використовуйте %sщоб обмежити вхід на сервер MySQL%s чи %sсписок довірених "
+"проксі%s. Однак, захист на IP-основі, не є надійним, якщо ваш IP не є "
+"виділеним, а належить провайдеру, до якого приєднані тисячі користувачів "
+"разом з вами."
 
 #: libraries/config/ServerConfigChecks.php:404
 msgid ""
@@ -5568,32 +5376,24 @@ msgstr ""
 "небезпеки через можливість використання сеансу іншою особою."
 
 #: libraries/config/ServerConfigChecks.php:463
-#, fuzzy, php-format
-#| msgid ""
-#| "If using cookie authentication and %sLogin cookie store%s is not 0, "
-#| "%sLogin cookie validity%s must be set to a value less or equal to it."
+#, php-format
 msgid ""
 "If using [kbd]cookie[/kbd] authentication and %sLogin cookie store%s is not "
 "0, %sLogin cookie validity%s must be set to a value less or equal to it."
 msgstr ""
-"Якщо при використанні куки автентифікації %sТермін збереження кукі входу%s "
-"не дорівнює 0, тоді %sТермін придатності кукі входу%s потрібно встановити "
-"меншим або рівним цьому значенню."
+"При використанні [kbd]cookie[/kbd] перевірки автентичності і %sLogin cookie "
+"store%s не  0, %sLogin cookie validity%s повинно бути встановлене на "
+"значення, менше або рівне йому."
 
 #: libraries/config/ServerConfigChecks.php:477
-#, fuzzy, php-format
-#| msgid ""
-#| "If you feel this is necessary, use additional protection settings - "
-#| "%shost authentication%s settings and %strusted proxies list%s. However, "
-#| "IP-based protection may not be reliable if your IP belongs to an ISP "
-#| "where thousands of users, including you, are connected to."
+#, php-format
 msgid ""
 "If you feel this is necessary, use additional protection settings - %shost "
 "authentication%s settings and %strusted proxies list%s. However, IP-based "
 "protection may not be reliable if your IP belongs to an ISP where thousands "
 "of users, including you, are connected to."
 msgstr ""
-"За необхідності можна використати додаткові налаштування захисту - "
+"При необхідності можна використати додаткові налаштування захисту - "
 "налаштування %sавтентифікації хоста%s та  %sсписок довірених проксі%s. "
 "Однак, захист на основі IP не може бути надійним, якщо ваш IP не є "
 "виділеним, а належить провайдеру і через який разом з вами з'єднуються "
@@ -5638,10 +5438,8 @@ msgid "Could not connect to the database server!"
 msgstr "Не вдалося з'єднатися з сервером бази даних!"
 
 #: libraries/config/Validator.php:239
-#, fuzzy
-#| msgid "Authentication type"
 msgid "Invalid authentication type!"
-msgstr "Тип аутентифікації"
+msgstr "Невірний тип аутентифікації!"
 
 #: libraries/config/Validator.php:246
 msgid "Empty username while using [kbd]config[/kbd] authentication method!"
@@ -5702,12 +5500,13 @@ msgid ""
 "MySQL server is enabled by matching the IP or hostname of the MySQL server "
 "to the given regular expression."
 msgstr ""
+"Обмежує доступ до MySQL серверів користувачам, коли авторизація на "
+"довільному MySQL сервері доступна при спідставленні IP-адресу чи на "
+"основному MySQL сервері задано регулярного виразу."
 
 #: libraries/config/messages.inc.php:26
-#, fuzzy
-#| msgid "Cannot log in to the MySQL server"
 msgid "Restrict login to MySQL server"
-msgstr "Не можу зареєструватися на MySQL сервері"
+msgstr "Обмеження входу на сервер MySQL"
 
 #: libraries/config/messages.inc.php:28
 msgid ""
@@ -5756,14 +5555,8 @@ msgid "Highlight pointer"
 msgstr "Покажчик виділення"
 
 #: libraries/config/messages.inc.php:47
-#, fuzzy
-#| msgid ""
-#| "Enable [a@https://en.wikipedia.org/wiki/Bzip2]bzip2[/a] compression for "
-#| "import operations."
 msgid "Enable bzip2 compression for import operations."
-msgstr ""
-"Вімкнути [a@https://en.wikipedia.org/wiki/Bzip2]bzip2[/a] компресію для "
-"операцій імпорту."
+msgstr "Увімкнути стиснення bzip2 для імпортних операцій."
 
 #: libraries/config/messages.inc.php:50
 msgid "Bzip2"
@@ -5788,6 +5581,8 @@ msgid ""
 "Use user-friendly editor for editing SQL queries (CodeMirror) with syntax "
 "highlighting and line numbers."
 msgstr ""
+"Використовувати візуальний редактор для редагування запитів SQL (CodeMirror) "
+"з підсвічуванням синтаксису і нумерацією рядків."
 
 #: libraries/config/messages.inc.php:62
 msgid "Enable CodeMirror"
@@ -5798,12 +5593,12 @@ msgid ""
 "Find any errors in the query before executing it. Requires CodeMirror to be "
 "enabled."
 msgstr ""
+"Перевірити запит на помилки перед його виконанням. Потрібно увімкнути "
+"CodeMirror."
 
 #: libraries/config/messages.inc.php:67
-#, fuzzy
-#| msgid "Enable SQL Validator"
 msgid "Enable linter"
-msgstr "Увімкнути SQL валідатор"
+msgstr "Увімкнути linter"
 
 #: libraries/config/messages.inc.php:69
 msgid ""
@@ -5881,7 +5676,7 @@ msgstr "Підтвердіть DROP запити"
 #: libraries/config/messages.inc.php:97
 msgid ""
 "Log SQL queries and their execution time, to be displayed in the console"
-msgstr ""
+msgstr "Журнал SQL запитів і час виконання, який буде відображатися в консолі"
 
 #: libraries/config/messages.inc.php:99 templates/console/display.phtml:15
 #: templates/console/display.phtml:84
@@ -5913,30 +5708,24 @@ msgid "Default table tab"
 msgstr "Вкладка талиці по замовчуванню"
 
 #: libraries/config/messages.inc.php:110
-#, fuzzy
-#| msgid "Enclose table and column names with backquotes"
 msgid "Autocomplete of the table and column names in the SQL queries."
-msgstr "Візьміть таблицю та імена колонок у зворотні лапки"
+msgstr "Автозаповнення імен таблиць і стовпців в SQL запитах."
 
 #: libraries/config/messages.inc.php:113
-#, fuzzy
-#| msgid "Enclose table and column names with backquotes"
 msgid "Enable autocomplete for table and column names"
-msgstr "Візьміть таблицю та імена колонок у зворотні лапки"
+msgstr "Увімкнути автозаповнення імен таблиць і стовпців"
 
 #: libraries/config/messages.inc.php:116
 msgid "Whether the table structure actions should be hidden."
 msgstr "Дії над структурою таблиці повинні бути приховані."
 
 #: libraries/config/messages.inc.php:117
-#, fuzzy
-#| msgid "Table comments"
 msgid "Show column comments"
-msgstr "Коментарі таблиці"
+msgstr "Показати коментарі стовпців"
 
 #: libraries/config/messages.inc.php:119
 msgid "Whether column comments should be shown in table structure view"
-msgstr ""
+msgstr "Чи показувати коментарі сповпця в структурі таблиці"
 
 #: libraries/config/messages.inc.php:120
 msgid "Hide table structure actions"
@@ -5975,10 +5764,9 @@ msgid "Maximum execution time"
 msgstr "Максимальний час виконання"
 
 #: libraries/config/messages.inc.php:135 libraries/display_export.lib.php:796
-#, fuzzy, php-format
-#| msgid "Add %s statement"
+#, php-format
 msgid "Use %s statement"
-msgstr "Додати оператор %s"
+msgstr "Використати оператор %s"
 
 #: libraries/config/messages.inc.php:137 prefs_manage.php:326
 msgid "Save as file"
@@ -6101,8 +5889,6 @@ msgstr "Тип MIME"
 
 #: libraries/config/messages.inc.php:167 libraries/config/messages.inc.php:180
 #: libraries/config/messages.inc.php:221
-#, fuzzy
-#| msgid "Relations"
 msgid "Relationships"
 msgstr "Зв'язки"
 
@@ -6120,10 +5906,8 @@ msgid "Overwrite existing file(s)"
 msgstr "Перезаписати існуючий файл(и)"
 
 #: libraries/config/messages.inc.php:184
-#, fuzzy
-#| msgid "Export table headers"
 msgid "Export as separate files"
-msgstr "Експортувати заголовки таблиці"
+msgstr "Експорт у вигляді окремих файлів"
 
 #: libraries/config/messages.inc.php:188
 msgid "Remember file name template"
@@ -6162,10 +5946,8 @@ msgid "Export views as tables"
 msgstr "Експорт видів як таблиць"
 
 #: libraries/config/messages.inc.php:198
-#, fuzzy
-#| msgid "Missing phpMyAdmin configuration storage tables"
 msgid "Export related metadata from phpMyAdmin configuration storage"
-msgstr "Відсутня таблиця для збереження конфігурації phpMyAdmin"
+msgstr "Експорт пов'язаних метаданих з сховища конфігурації phpMyAdmin"
 
 #: libraries/config/messages.inc.php:200 libraries/config/messages.inc.php:201
 #: libraries/config/messages.inc.php:203 libraries/config/messages.inc.php:205
@@ -6185,6 +5967,8 @@ msgid ""
 "Add IF NOT EXISTS (less efficient as indexes will be generated during table "
 "creation)"
 msgstr ""
+"Додати IF NOT EXISTS (менш ефективно, чим генерування індексів при створенні "
+"таблиці)"
 
 #: libraries/config/messages.inc.php:214
 msgid "Use ignore inserts"
@@ -6237,12 +6021,12 @@ msgstr "Обмеження зовнішнього ключа"
 #: libraries/config/messages.inc.php:238
 msgid "Default value for foreign key checks checkbox for some queries."
 msgstr ""
+"Значення за замовчанням для зовнішнього ключа деяких запитів відзначається "
+"прапорцями."
 
 #: libraries/config/messages.inc.php:240
-#, fuzzy
-#| msgid "Foreign key check:"
 msgid "Foreign key checks"
-msgstr "Перевірка зовнішніх ключів:"
+msgstr "Перевірка зовнішніх ключів"
 
 #: libraries/config/messages.inc.php:241
 msgid "Browse mode"
@@ -6335,16 +6119,12 @@ msgid "Customize appearance of the navigation panel."
 msgstr "Налаштувати вигляд панелі навігації."
 
 #: libraries/config/messages.inc.php:269
-#, fuzzy
-#| msgid "Navigation panel"
 msgid "Navigation tree"
-msgstr "Оболонка навігації"
+msgstr "Дерево навігації"
 
 #: libraries/config/messages.inc.php:270
-#, fuzzy
-#| msgid "Customize navigation panel"
 msgid "Customize the navigation tree."
-msgstr "Налаштувати панель навігації"
+msgstr "Налаштувати дерево навігації."
 
 #: libraries/config/messages.inc.php:271 libraries/select_server.lib.php:47
 #: setup/frames/index.inc.php:127
@@ -6380,18 +6160,13 @@ msgid "Page titles"
 msgstr "Заголовки сторінки"
 
 #: libraries/config/messages.inc.php:285
-#, fuzzy
-#| msgid ""
-#| "Specify browser's title bar text. Refer to "
-#| "[doc@cfg_TitleTable]documentation[/doc] for magic strings that can be "
-#| "used to get special values."
 msgid ""
 "Specify browser's title bar text. Refer to [doc@faq6-27]documentation[/doc] "
 "for magic strings that can be used to get special values."
 msgstr ""
-"Вкажіть рядку заголовка браузера текст. Відповідно до "
-"[doc@cfg_TitleTable]documentation[/doc] для магічних рядків, які можуть "
-"використовуватися для отримання спеціальних значень."
+"Введіть текст заголовка браузера. Для введення особливих значень "
+"використовуйте підставні рядки, які описані в "
+"[doc@faq6-27]документація[/doc]."
 
 #: libraries/config/messages.inc.php:289
 msgid "Security"
@@ -6563,14 +6338,8 @@ msgid "Disable some of the warnings shown by phpMyAdmin."
 msgstr "Відключити деякі попередження що показуються у phpMyAdmin."
 
 #: libraries/config/messages.inc.php:349
-#, fuzzy
-#| msgid ""
-#| "Enable [a@https://en.wikipedia.org/wiki/Gzip]gzip[/a] compression for "
-#| "import and export operations."
 msgid "Enable gzip compression for import and export operations."
-msgstr ""
-"Включити [a@https://en.wikipedia.org/wiki/Gzip]gzip[/a] стискання для "
-"операцій імпорту та експорту."
+msgstr "Увімкнути GZIP стиснення для операцій імпорту та експорту."
 
 #: libraries/config/messages.inc.php:352
 msgid "GZip"
@@ -6615,11 +6384,11 @@ msgstr "Не переривати коли виникла INSERT помилка"
 
 #: libraries/config/messages.inc.php:370 libraries/config/messages.inc.php:384
 msgid "Add ON DUPLICATE KEY UPDATE"
-msgstr ""
+msgstr "Добавити ВКЛЮЧИТИ ДУБЛІКАТ КЛЮЧА ОБНОВЛЕННЯ"
 
 #: libraries/config/messages.inc.php:372 libraries/config/messages.inc.php:386
 msgid "Update data when duplicate keys found on import"
-msgstr ""
+msgstr "Оновлення даних, коли знайдено дублікати ключів імпорту"
 
 #: libraries/config/messages.inc.php:376
 msgid ""
@@ -6668,10 +6437,8 @@ msgid "Do not use AUTO_INCREMENT for zero values"
 msgstr "Не використовувати AUTO_INCREMENT для нульових значень"
 
 #: libraries/config/messages.inc.php:400
-#, fuzzy
-#| msgid "Read misses"
 msgid "Read as multibytes"
-msgstr "Пропуски читання"
+msgstr "Читайте, як багатобайтові"
 
 #: libraries/config/messages.inc.php:401
 msgid "Initial state for sliders"
@@ -6822,16 +6589,12 @@ msgid "Maximum tables"
 msgstr "Максимально таблиць"
 
 #: libraries/config/messages.inc.php:460
-#, fuzzy
-#| msgid ""
-#| "The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd] "
-#| "([kbd]0[/kbd] for no limit)."
 msgid ""
 "The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd] "
 "([kbd]-1[/kbd] for no limit and [kbd]0[/kbd] for no change)."
 msgstr ""
-"Кількість байтів, що дозволяється виділяти під сценарій, наприклад. "
-"[kbd]32M[/kbd] ([kbd]0[/kbd] без обмежень)."
+"Кількість байтів, що виділяється під сценарій, наприклад: [kbd]32M[/kbd] "
+"([kbd]-1[/kbd] без обмежень і [kbd]0[/kbd] без змін)."
 
 #: libraries/config/messages.inc.php:463
 msgid "Memory limit"
@@ -6839,17 +6602,15 @@ msgstr "Ліміт пам'яті"
 
 #: libraries/config/messages.inc.php:465
 msgid "In the navigation panel, replaces the database tree with a selector"
-msgstr ""
+msgstr "В панель навігації, дерево бази даних замінюються селектором"
 
 #: libraries/config/messages.inc.php:468
-#, fuzzy
-#| msgid "Show hidden navigation tree items."
 msgid "Show databases navigation as tree"
-msgstr "Показати приховані пункти дерева навігації."
+msgstr "Показати навігацію бази даних у вигляді дерева"
 
 #: libraries/config/messages.inc.php:471
 msgid "Link with main panel by highlighting the current database or table."
-msgstr ""
+msgstr "Перехід з головної панелі, виділивши поточну базу даних або таблицю."
 
 #: libraries/config/messages.inc.php:474
 msgid "Show logo in navigation panel."
@@ -6892,10 +6653,8 @@ msgid "Target for quick access icon"
 msgstr "Ціль іконки швидкого доступу"
 
 #: libraries/config/messages.inc.php:489
-#, fuzzy
-#| msgid "Target for quick access icon"
 msgid "Target for second quick access icon"
-msgstr "Ціль іконки швидкого доступу"
+msgstr "Цільовий показник для другого ярлика"
 
 #: libraries/config/messages.inc.php:492
 msgid ""
@@ -6914,16 +6673,12 @@ msgid "Minimum number of databases to display the database filter box"
 msgstr "Мінімальна кількість баз даних для відображення вікна фільтру"
 
 #: libraries/config/messages.inc.php:500
-#, fuzzy
-#| msgid ""
-#| "Group items in the navigation tree (determined by the separator defined "
-#| "below)."
 msgid ""
 "Group items in the navigation tree (determined by the separator defined in "
 "the Databases and Tables tabs above)."
 msgstr ""
-"Групувати пункти у дереві навігації (залежить від розділювача що визначений "
-"нижче)."
+"Угруповання елементів в дереві навігації (залежить від розділювача, що "
+"визначений в закладках баз даних і таблиць вище)."
 
 #: libraries/config/messages.inc.php:503
 msgid "Group items in the tree"
@@ -6958,73 +6713,53 @@ msgid "Enable highlighting"
 msgstr "Включити підсвічування"
 
 #: libraries/config/messages.inc.php:515
-#, fuzzy
-#| msgid "Whether to disable the possibility of database expansion or not."
 msgid ""
 "Whether to offer the possibility of tree expansion in the navigation panel."
-msgstr "Чи потрібно вимкнути можливість розширення бази даних."
+msgstr "Чи потрібно надати можливість розкриття дерева в панелі навігації."
 
 #: libraries/config/messages.inc.php:518
-#, fuzzy
-#| msgid "Table navigation bar"
 msgid "Enable navigation tree expansion"
-msgstr "Таблична панель навігації"
+msgstr "Увімкнути розширення дерева навігації"
 
 #: libraries/config/messages.inc.php:519
-#, fuzzy
-#| msgid "Showing tables:"
 msgid "Show tables in tree"
-msgstr "Показ таблиць:"
+msgstr "Показати таблиці в дереві"
 
 #: libraries/config/messages.inc.php:521
-#, fuzzy
-#| msgid "Whether to disable the possibility of database expansion or not."
 msgid "Whether to show tables under database in the navigation tree"
-msgstr "Чи потрібно вимкнути можливість розширення бази даних."
+msgstr "Чи відображати таблиці під базою даних в дереві навігації"
 
 #: libraries/config/messages.inc.php:522
-#, fuzzy
-#| msgid "Show versions"
 msgid "Show views in tree"
-msgstr "Показати версії"
+msgstr "Показати подання в дереві"
 
 #: libraries/config/messages.inc.php:524
-#, fuzzy
-#| msgid "Show hidden navigation tree items."
 msgid "Whether to show views under database in the navigation tree"
-msgstr "Показати приховані пункти дерева навігації."
+msgstr "Чи відображати перегляди бази даних в дереві навігації"
 
 #: libraries/config/messages.inc.php:525
-#, fuzzy
-#| msgid "Show function fields"
 msgid "Show functions in tree"
-msgstr "Показувати поля функції"
+msgstr "Показати функції в дереві"
 
 #: libraries/config/messages.inc.php:527
 msgid "Whether to show functions under database in the navigation tree"
-msgstr ""
+msgstr "Чи потрібно відображати функції під базою даних в дереві навігації"
 
 #: libraries/config/messages.inc.php:528
-#, fuzzy
-#| msgid "Show processes"
 msgid "Show procedures in tree"
-msgstr "Показати процеси"
+msgstr "Показати процедури в дереві"
 
 #: libraries/config/messages.inc.php:530
 msgid "Whether to show procedures under database in the navigation tree"
-msgstr ""
+msgstr "Чи відображати процедури бази даних в дереві навігації"
 
 #: libraries/config/messages.inc.php:531
-#, fuzzy
-#| msgid "Show versions"
 msgid "Show events in tree"
-msgstr "Показати версії"
+msgstr "Показати події в дереві"
 
 #: libraries/config/messages.inc.php:533
-#, fuzzy
-#| msgid "Show hidden navigation tree items."
 msgid "Whether to show events under database in the navigation tree"
-msgstr "Показати приховані пункти дерева навігації."
+msgstr "Чи відображати події бази даних в дереві навігації"
 
 #: libraries/config/messages.inc.php:535
 msgid "Maximum number of recently used tables; set 0 to disable."
@@ -7050,17 +6785,15 @@ msgstr "Де можна відобразити посилання на рядк�
 
 #: libraries/config/messages.inc.php:543
 msgid "Whether to show row links even in the absence of a unique key."
-msgstr ""
+msgstr "Чи відображати рядок посилань навіть при відсутності унікального ключа."
 
 #: libraries/config/messages.inc.php:545
 msgid "Show row links anyway"
-msgstr ""
+msgstr "Завжди показувати рядок посилань"
 
 #: libraries/config/messages.inc.php:546 libraries/config/messages.inc.php:547
-#, fuzzy
-#| msgid "Disable foreign key checks"
 msgid "Disable shortcut keys"
-msgstr "Відключити перевірки зовнішніх ключів"
+msgstr "Вимкнути скорі клавіші"
 
 #: libraries/config/messages.inc.php:549
 msgid "Use natural order for sorting table and database names."
@@ -7192,13 +6925,11 @@ msgstr "Запам'ятати сортування таблиці"
 
 #: libraries/config/messages.inc.php:598
 msgid "Default sort order for tables with a primary key."
-msgstr ""
+msgstr "За замовчанням порядок сортування таблиць з первинного ключа."
 
 #: libraries/config/messages.inc.php:600
-#, fuzzy
-#| msgid "Default sorting order"
 msgid "Primary key default sort order"
-msgstr "Порядок сортування за замовчуванням"
+msgstr "Первинний ключ Порядок сортування за замовчуванням"
 
 #: libraries/config/messages.inc.php:602
 msgid ""
@@ -7212,19 +6943,15 @@ msgstr "Повторити заголовки"
 
 #: libraries/config/messages.inc.php:605
 msgid "Grid editing: trigger action"
-msgstr ""
+msgstr "Редагування сітки: дія trigger"
 
 #: libraries/config/messages.inc.php:606
-#, fuzzy
-#| msgid "Relational display column"
 msgid "Relational display"
-msgstr "Стовпчик відображення зв'язків"
+msgstr "Реляційне відображення"
 
 #: libraries/config/messages.inc.php:607
-#, fuzzy
-#| msgid "Servers display options."
 msgid "For display Options"
-msgstr "Параметри відображення серверів."
+msgstr "Для відображення Параметри"
 
 #: libraries/config/messages.inc.php:608
 msgid "Grid editing: save all edited cells at once"
@@ -7263,16 +6990,16 @@ msgid "Allow root login"
 msgstr "Дозволити авторизацію для root"
 
 #: libraries/config/messages.inc.php:617
-#, fuzzy
-#| msgid "Session value"
 msgid "Session timezone"
-msgstr "Значення сесії"
+msgstr "Часовий пояс сесії"
 
 #: libraries/config/messages.inc.php:619
 msgid ""
 "Sets the effective timezone; possibly different than the one from your "
 "database server"
 msgstr ""
+"Встановити реальний часовий пояс; можна відмінний, чим на твоєму сервері "
+"бази даних"
 
 #: libraries/config/messages.inc.php:623
 msgid "HTTP Basic Auth Realm name to display when doing HTTP Auth."
@@ -7291,16 +7018,12 @@ msgid "Authentication type"
 msgstr "Тип аутентифікації"
 
 #: libraries/config/messages.inc.php:628
-#, fuzzy
-#| msgid ""
-#| "Leave blank for no [a@https://wiki.phpmyadmin.net/pma/bookmark]bookmark[/"
-#| "a] support, suggested: [kbd]pma__bookmark[/kbd]"
 msgid ""
 "Leave blank for no [doc@bookmarks@]bookmark[/doc] support, suggested: "
 "[kbd]pma__bookmark[/kbd]"
 msgstr ""
-"Залиште порожнім для вимкнення підтримки [a@https://wiki.phpmyadmin.net/pma/"
-"bookmark]bookmark[/a], рекомендується: [kbd]pma__bookmark[/kbd]"
+"Залиште поле пустим для вимкнення підтримки [doc@bookmarks@]закладки[/doc] "
+"рекомендується: [kbd]pma__bookmark[/kbd]"
 
 #: libraries/config/messages.inc.php:631
 msgid "Bookmark table"
@@ -7311,6 +7034,8 @@ msgid ""
 "Leave blank for no column comments/mime types, suggested: "
 "[kbd]pma__column_info[/kbd]."
 msgstr ""
+"Для відключення коментарів / mime типів, залиште поле порожнім, "
+"рекомендується: [kbd]pma__column_info[/kbd]."
 
 #: libraries/config/messages.inc.php:636
 msgid "Column information table"
@@ -7329,17 +7054,12 @@ msgid "Control user password"
 msgstr "Пароль виділеного користувача"
 
 #: libraries/config/messages.inc.php:641
-#, fuzzy
-#| msgid ""
-#| "A special MySQL user configured with limited permissions, more "
-#| "information available on [a@https://wiki.phpmyadmin.net/pma/"
-#| "controluser]wiki[/a]."
 msgid ""
 "A special MySQL user configured with limited permissions, more information "
 "available on [doc@linked-tables]documentation[/doc]."
 msgstr ""
-"Спеціальний користувач MySQL з обмеженими привілеями, детальніше дивіться "
-"[a@https://wiki.phpmyadmin.net/pma/controluser]wiki[/a]."
+"Спеціальний користувач MySQL з обмеженими правами, більш детальна інформація "
+"доступна на [doc@linked-tables]документація[/doc]."
 
 #: libraries/config/messages.inc.php:644
 msgid "Control user"
@@ -7430,49 +7150,39 @@ msgstr "Максимальна кількість властивостей та�
 
 #: libraries/config/messages.inc.php:678
 msgid "QBE saved searches table"
-msgstr ""
+msgstr "QBE таблиця збережених пошукових запитів"
 
 #: libraries/config/messages.inc.php:680
 msgid ""
 "Leave blank for no QBE saved searches support, suggested: "
 "[kbd]pma__savedsearches[/kbd]."
 msgstr ""
+"Для відключення QBE таблиці збереження пошукових запитів, залишіть поле "
+"пустим, рекомендується: [kbd]pma__savedsearches[/kbd]."
 
 #: libraries/config/messages.inc.php:683
-#, fuzzy
-#| msgid "Export views as tables"
 msgid "Export templates table"
-msgstr "Експорт видів як таблиць"
+msgstr "Експорт шаблонів таблиці"
 
 #: libraries/config/messages.inc.php:685
-#, fuzzy
-#| msgid ""
-#| "Leave blank for no SQL query tracking support, suggested: "
-#| "[kbd]pma__tracking[/kbd]."
 msgid ""
 "Leave blank for no export template support, suggested: "
 "[kbd]pma__export_templates[/kbd]."
 msgstr ""
-"Залиште порожнім, щоб вимкнути функцію відстеження SQL запитів, "
-"пропонується: [kbd]pma__tracking[/kbd]."
+"Залиште поле пустим, щоб вимкнути експорт шаблону, пропонується: "
+"[kbd]pma__export_templates[/kbd]."
 
 #: libraries/config/messages.inc.php:688
-#, fuzzy
-#| msgid "Central columns"
 msgid "Central columns table"
-msgstr "Центральні стовпчики"
+msgstr "Основні сповпці таблиці"
 
 #: libraries/config/messages.inc.php:690
-#, fuzzy
-#| msgid ""
-#| "Leave blank to disable configurable menus feature, suggested: "
-#| "[kbd]pma__users[/kbd]"
 msgid ""
 "Leave blank for no central columns support, suggested: "
 "[kbd]pma__central_columns[/kbd]."
 msgstr ""
-"Залиште порожнім, щоб вимкнути функцію налаштовуваних меню, пропонується: "
-"[kbd]pma_userconfig[/kbd]"
+"Залиште поле пустим, щоб вимкнути підтримку основних стовпців, пропонується: "
+"[kbd]pma__central_columns[/kbd]."
 
 #: libraries/config/messages.inc.php:694
 msgid ""
@@ -7500,26 +7210,23 @@ msgstr "Пароль для config auth"
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__pdf_pages[/kbd]."
 msgstr ""
+"Для відключення підтримки PDF схеми, залишіть поле пустим, рекомендується: "
+"[kbd]pma__pdf_pages[/kbd]."
 
 #: libraries/config/messages.inc.php:704
 msgid "PDF schema: pages table"
 msgstr "PDF схема: сторінки таблиці"
 
 #: libraries/config/messages.inc.php:706
-#, fuzzy
-#| msgid ""
-#| "Database used for relations, bookmarks, and PDF features. See [a@https://"
-#| "wiki.phpmyadmin.net/pma/pmadb]pmadb[/a] for complete information. Leave "
-#| "blank for no support. Suggested: [kbd]phpmyadmin[/kbd]."
 msgid ""
 "Database used for relations, bookmarks, and PDF features. See [doc@linked-"
 "tables]pmadb[/doc] for complete information. Leave blank for no support. "
 "Suggested: [kbd]phpmyadmin[/kbd]."
 msgstr ""
 "База даних, що використовується для розширених функцій: зв'язків, закладок і "
-"PDF. Детельніше дивіться [a@https://wiki.phpmyadmin.net/pma/pmadb]pmadb[/a]. "
-"Для відключення підтримки залиште порожнім. Рекомендується: [kbd]phpmyadmin[/"
-"kbd]."
+"PDF. Дивіться [doc@linked-tables]pmadb[/doc] для отримання повної "
+"інформації. Залишіть поле пустим для відключення підтримки. Рекомендується: "
+"[kbd]phpmyadmin[/kbd]."
 
 #: libraries/config/messages.inc.php:710
 #: templates/server/databases/create.phtml:20
@@ -7547,49 +7254,34 @@ msgid "Recently used table"
 msgstr "Нещодавно використані таблиці"
 
 #: libraries/config/messages.inc.php:720
-#, fuzzy
-#| msgid ""
-#| "Leave blank for no \"persistent\" tables' UI preferences across sessions, "
-#| "suggested: [kbd]pma__table_uiprefs[/kbd]."
 msgid ""
 "Leave blank for no \"persistent\" favorite tables across sessions, "
 "suggested: [kbd]pma__favorite[/kbd]."
 msgstr ""
 "Для відключення можливості зберігання налаштувань інтерфейсу таблиць через "
-"сесії залиште поле порожнім, рекомендується: [kbd]pma__table_uiprefs[/kbd]."
+"сесії залиште поле порожнім, рекомендується: [kbd]pma__favorite[/kbd]."
 
 #: libraries/config/messages.inc.php:723
-#, fuzzy
-#| msgid "Favorite tables"
 msgid "Favorites table"
-msgstr "Улюблені таблиці"
+msgstr "Уподобані таблиці"
 
 #: libraries/config/messages.inc.php:725
-#, fuzzy
-#| msgid ""
-#| "Leave blank to disable configurable menus feature, suggested: "
-#| "[kbd]pma__users[/kbd]"
 msgid ""
 "Leave blank for no [doc@relations@]relation-links[/doc] support, suggested: "
 "[kbd]pma__relation[/kbd]."
 msgstr ""
-"Залиште порожнім, щоб вимкнути функцію налаштовуваних меню, пропонується: "
-"[kbd]pma_userconfig[/kbd]"
+"Залишіть поле пустим, щоб вимкнути підтримку [doc@relations@]relation-"
+"links[/doc], рекомендується: [kbd]pma__relation[/kbd]."
 
 #: libraries/config/messages.inc.php:729
 msgid "Relation table"
 msgstr "Таблиця зв'язків"
 
 #: libraries/config/messages.inc.php:731
-#, fuzzy
-#| msgid ""
-#| "See [a@https://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
-#| "types[/a] for an example."
 msgid ""
 "See [doc@authentication-modes]authentication types[/doc] for an example."
 msgstr ""
-"Дивіться [a@https://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
-"types[/a] для прикладу."
+"Дивіться [doc@authentication-modes]authentication types[/doc] для прикладу."
 
 #: libraries/config/messages.inc.php:734
 msgid "Signon session name"
@@ -7622,6 +7314,8 @@ msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__table_coords[/"
 "kbd]."
 msgstr ""
+"Для відключення підтримки PDF схеми залиште поле порожнім, рекомендується: "
+"[kbd]pma__table_coords[/kbd]."
 
 #: libraries/config/messages.inc.php:745
 msgid "Designer and PDF schema: table coordinates"
@@ -7725,6 +7419,8 @@ msgid ""
 "Leave blank for no user preferences storage in database, suggested: "
 "[kbd]pma__userconfig[/kbd]."
 msgstr ""
+"Для відключення можливості зберігати налаштування користувача в базі даних "
+"залиште поле порожнім, рекомендується: [kbd]pma__userconfig[/kbd]."
 
 #: libraries/config/messages.inc.php:790
 msgid "User preferences storage table"
@@ -7736,6 +7432,9 @@ msgid ""
 "configurable menus feature; leaving either one of them blank will disable "
 "this feature, suggested: [kbd]pma__users[/kbd]."
 msgstr ""
+"Таблиця користувачів і таблиця груп користувачів потрібні для включення "
+"можливості налаштувань меню; якщо хоча б одне поле залишите порожнім, то ця "
+"можливість буде відключена, рекомендується: [kbd]pma__users[/kbd]."
 
 #: libraries/config/messages.inc.php:796
 msgid "Users table"
@@ -7747,6 +7446,9 @@ msgid ""
 "menus feature; leaving either one of them blank will disable this feature, "
 "suggested: [kbd]pma__usergroups[/kbd]."
 msgstr ""
+"Таблиця користувачів і таблиця груп користувачів потрібні для включення "
+"можливості налаштувань меню; якщо хоча б одне поле залишите порожнім, то ця "
+"можливість буде відключена, рекомендується: [kbd]pma__usergroups[/kbd]."
 
 #: libraries/config/messages.inc.php:802
 msgid "User groups table"
@@ -7805,25 +7507,19 @@ msgid "Show create database form"
 msgstr "Показати форму для створення бази даних"
 
 #: libraries/config/messages.inc.php:827
-#, fuzzy
-#| msgid ""
-#| "Show or hide a column displaying the Creation timestamp for all tables."
 msgid "Show or hide a column displaying the comments for all tables."
-msgstr "Відобразити або приховати стовпчик \"Час створення\" для всіх таблиць."
+msgstr ""
+"Показати або приховати стовпець відображення коментарів для всіх таблиць."
 
 #: libraries/config/messages.inc.php:829
-#, fuzzy
-#| msgid "Table comments"
 msgid "Show table comments"
-msgstr "Коментарі таблиці"
+msgstr "Показати коментарі таблиці"
 
 #: libraries/config/messages.inc.php:831
 msgid "Show or hide a column displaying the Creation timestamp for all tables."
 msgstr "Відобразити або приховати стовпчик \"Час створення\" для всіх таблиць."
 
 #: libraries/config/messages.inc.php:833
-#, fuzzy
-#| msgid "Show Creation timestamp"
 msgid "Show creation timestamp"
 msgstr "Показати час створення"
 
@@ -7833,10 +7529,8 @@ msgid ""
 msgstr "Відобразити або приховати стовпчик \"Час оновлення\" для всіх таблиць."
 
 #: libraries/config/messages.inc.php:837
-#, fuzzy
-#| msgid "Show Last update timestamp"
 msgid "Show last update timestamp"
-msgstr "Відобразити \"Час останнього оновлення\""
+msgstr "Показати час останнього оновлення"
 
 #: libraries/config/messages.inc.php:839
 msgid ""
@@ -7844,23 +7538,17 @@ msgid ""
 msgstr "Відобразити або приховати стовпчик \"Час перевірки\" для всіх таблиць."
 
 #: libraries/config/messages.inc.php:841
-#, fuzzy
-#| msgid "Show Last check timestamp"
 msgid "Show last check timestamp"
-msgstr "Відобразити \"Час перевірки\""
+msgstr "Показати час остньої перевірки"
 
 #: libraries/config/messages.inc.php:843
-#, fuzzy
-#| msgid ""
-#| "Show or hide a column displaying the Creation timestamp for all tables."
 msgid "Show or hide a column displaying the charset for all tables."
-msgstr "Відобразити або приховати стовпчик \"Час створення\" для всіх таблиць."
+msgstr ""
+"Показати або приховати стовпець, що відображає кодування для всіх таблиць."
 
 #: libraries/config/messages.inc.php:845
-#, fuzzy
-#| msgid "Table comments"
 msgid "Show table charset"
-msgstr "Коментарі таблиці"
+msgstr "Показати таблиці кодування"
 
 #: libraries/config/messages.inc.php:847
 msgid ""
@@ -7891,16 +7579,12 @@ msgid "Show hint"
 msgstr "Відображати підказки"
 
 #: libraries/config/messages.inc.php:858
-#, fuzzy
-#| msgid ""
-#| "Shows link to [a@https://secure.php.net/manual/function.phpinfo."
-#| "php]phpinfo()[/a] output."
 msgid ""
 "Shows link to [a@https://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
 "output."
 msgstr ""
-"Відображає посилання на [a@https://secure.php.net/manual/function.phpinfo."
-"php]phpinfo()[/a]."
+"Показує посилання на "
+"[a@https://php.net/manual/function.phpinfo.php]phpinfo()[/a]."
 
 #: libraries/config/messages.inc.php:861
 msgid "Show phpinfo() link"
@@ -7952,63 +7636,50 @@ msgid "Skip locked tables"
 msgstr "Пропускати заблоковані таблиці"
 
 #: libraries/config/messages.inc.php:884
-#, fuzzy
-#| msgid "A warning is displayed on the main page if Suhosin is detected."
 msgid ""
 "Disable the default warning that is displayed on the main page if Suhosin is "
 "detected."
-msgstr "Виводити попередження на головній сторінці у разі виявлення Suhosin."
+msgstr ""
+"Вимкнути за замовчанням попередження, яке відображається на головній "
+"сторінці, у разі виявлення Suhosin."
 
 #: libraries/config/messages.inc.php:887
 msgid "Suhosin warning"
 msgstr "Попередження про Suhosin"
 
 #: libraries/config/messages.inc.php:889
-#, fuzzy
-#| msgid ""
-#| "Disable the default warning that is displayed on the Structure page if "
-#| "column names in a table are reserved MySQL words."
 msgid ""
 "Disable the default warning that is displayed on the main page if the value "
 "of the PHP setting session.gc_maxlifetime is less than the value of "
 "`LoginCookieValidity`."
 msgstr ""
-"Вимкнути сповіщення, що відображається на сторінці структури бази даних за "
-"наявності стовпців таблиці з іменами, які є зарезервованими словами MySQL."
+"Вимкнути за замовчанням попередження , яке відображається на головній "
+"сторінці, якщо значення налаштувань PHP session.gc_maxlifetime менше, ніж "
+"значення `LoginCookieValidity`."
 
 #: libraries/config/messages.inc.php:894
-#, fuzzy
-#| msgid "Login cookie validity"
 msgid "Login cookie validity warning"
-msgstr "Термін придатності кукі входу"
+msgstr "Попередження про термін дії cookie"
 
 #: libraries/config/messages.inc.php:897
-#, fuzzy
-#| msgid ""
-#| "Textarea size (columns) in edit mode, this value will be emphasized for "
-#| "SQL query textareas (*2) and for query window (*1.25)."
 msgid ""
 "Textarea size (columns) in edit mode, this value will be emphasized for SQL "
 "query textareas (*2)."
 msgstr ""
-"Розмір текстового поля в режимі редагування (у стовпцях); дане значення буде "
-"пріоритетним для текстових полів SQL запиту (*2) та для вікна запиту (*1.25)."
+"Розмір (стовпців) текстового поля в режимі редагування, дане значення буде "
+"пріоритетним для текстових полів SQL запиту (* 2)."
 
 #: libraries/config/messages.inc.php:900
 msgid "Textarea columns"
 msgstr "Стовпців у текстовому полі"
 
 #: libraries/config/messages.inc.php:902
-#, fuzzy
-#| msgid ""
-#| "Textarea size (rows) in edit mode, this value will be emphasized for SQL "
-#| "query textareas (*2) and for query window (*1.25)."
 msgid ""
 "Textarea size (rows) in edit mode, this value will be emphasized for SQL "
 "query textareas (*2)."
 msgstr ""
-"Розмір текстового поля в режимі редагування (в рядках); дане значення буде "
-"пріоритетним для текстових полів SQL запиту (*2) та для вікна запиту (*1.25)."
+"Розмір (рядків) текстового поля в режимі редагування, дане значення буде "
+"пріоритетним для текстових полів SQL запиту (* 2)."
 
 #: libraries/config/messages.inc.php:905
 msgid "Textarea rows"
@@ -8103,6 +7774,10 @@ msgid ""
 "if the server where phpMyAdmin is installed does not have direct access to "
 "the internet. The format is: \"hostname:portnumber\"."
 msgstr ""
+"URL-адрес проксі-сервера, який будуть використовувати при добуванні "
+"інформації про останню версію PhpMyAdmin або при поданні звітів про помилки. "
+"Вам це потрібно, якщо сервер, на якому встановлений PhpMyAdmin не має "
+"прямого доступу до Інтернету.  Формат: «hostname:portnumber»."
 
 #: libraries/config/messages.inc.php:949
 msgid "Proxy url"
@@ -8114,6 +7789,10 @@ msgid ""
 "authentication is performed. If a username is supplied, Basic Authentication "
 "will be performed. No other types of authentication are currently supported."
 msgstr ""
+"Ім'я користувача для аутентифікації на проксі-сервері. За замовчуванням "
+"аутентифікація не виконується. Якщо ім'я користувача заведене, базова "
+"автентифікація буде виконуватися. Ніякі інші типи аутентифікації в даний час "
+"не підтримується."
 
 #: libraries/config/messages.inc.php:956
 msgid "Proxy username"
@@ -8128,14 +7807,8 @@ msgid "Proxy password"
 msgstr "Пароль проксі"
 
 #: libraries/config/messages.inc.php:961
-#, fuzzy
-#| msgid ""
-#| "Enable [a@https://en.wikipedia.org/wiki/Gzip]gzip[/a] compression for "
-#| "import and export operations."
 msgid "Enable ZIP compression for import and export operations."
-msgstr ""
-"Включити [a@https://en.wikipedia.org/wiki/Gzip]gzip[/a] стискання для "
-"операцій імпорту та експорту."
+msgstr "Включити ZIP стиснення для операцій імпорту та експорту."
 
 #: libraries/config/messages.inc.php:964
 msgid "ZIP"
@@ -8170,18 +7843,20 @@ msgid ""
 "Queries are executed by pressing Enter (instead of Ctrl+Enter). New lines "
 "will be inserted with Shift+Enter."
 msgstr ""
+"Запити виконуються натисканням Enter (замість Ctrl+Enter). Нові лінії "
+"вставляються натисканням Shift+Enter."
 
 #: libraries/config/messages.inc.php:983
-#, fuzzy
-#| msgid "Execute"
 msgid "Enter executes queries in console"
-msgstr "Виконати"
+msgstr "Enter виконує запити в консолі"
 
 #: libraries/config/messages.inc.php:986
 msgid ""
 "Enable Zero Configuration mode which lets you setup phpMyAdmin configuration "
 "storage tables automatically."
 msgstr ""
+"Увімкнути режим нульової конфігурації, що дозволяє налаштувати конфігурацію "
+"phpMyAdmin для зберігання таблиць автоматично."
 
 #: libraries/config/messages.inc.php:989
 msgid "Enable Zero Configuration mode"
@@ -8354,16 +8029,13 @@ msgstr ""
 
 #: libraries/controllers/server/ServerDatabasesController.php:582
 #: libraries/controllers/server/ServerDatabasesController.php:588
-#, fuzzy
-#| msgid "Enable Statistics"
 msgid "Enable statistics"
-msgstr "Дозволити статистику"
+msgstr "Увімкнути статистику"
 
 #: libraries/controllers/server/ServerVariablesController.php:113
-#, fuzzy, php-format
-#| msgid "Server variables and settings"
+#, php-format
 msgid "Not enough privilege to view server variables and settings. %s"
-msgstr "Змінні сервера та налаштування"
+msgstr "Недостатньо привілеїв для перегляду серверних змінних і параметрів. %s"
 
 #: libraries/controllers/server/ServerVariablesController.php:231
 msgid "Setting variable failed"
@@ -8372,11 +8044,11 @@ msgstr "Помилка встановлення змінної"
 #: libraries/controllers/table/TableChartController.php:78
 #: libraries/controllers/table/TableGisVisualizationController.php:98
 msgid "No SQL query was set to fetch data."
-msgstr ""
+msgstr "SQL запит не встановлено для вибірки даних."
 
 #: libraries/controllers/table/TableChartController.php:154
 msgid "No numeric columns present in the table to plot."
-msgstr ""
+msgstr "У таблиці відсутні стовпчики чисел для побудови графіка."
 
 #: libraries/controllers/table/TableChartController.php:212
 msgid "No data to display"
@@ -8391,33 +8063,23 @@ msgid "Table %1$s has been altered successfully."
 msgstr "Таблицю %1$s було успішно змінено."
 
 #: libraries/controllers/table/TableRelationController.php:212
-#, fuzzy
-#| msgid "Thread %s was successfully killed."
 msgid "Display column was successfully updated."
-msgstr "Процес %s припинено."
+msgstr "Відображення стовпця успішно оновлено."
 
 #: libraries/controllers/table/TableRelationController.php:282
-#, fuzzy
-#| msgid "Internal relation has been added."
 msgid "Internal relationships were successfully updated."
-msgstr "Внутрішнє відношення додано."
+msgstr "Внутрішні зв'язки були успішно оновлені."
 
 #: libraries/controllers/table/TableSearchController.php:768
-#, fuzzy
-#| msgid "Table Search"
 msgid "Table search"
 msgstr "Пошук в таблиці"
 
 #: libraries/controllers/table/TableSearchController.php:775
-#, fuzzy
-#| msgid "Zoom Search"
 msgid "Zoom search"
-msgstr "Збільшити Пошук"
+msgstr "Розширити пошук"
 
 #: libraries/controllers/table/TableSearchController.php:780
 #: templates/table/search/selection_form.phtml:60
-#, fuzzy
-#| msgid "Find and Replace"
 msgid "Find and replace"
 msgstr "Знайти і замінити"
 
@@ -8425,9 +8087,9 @@ msgstr "Знайти і замінити"
 #, php-format
 msgid "The name '%s' is a MySQL reserved keyword."
 msgid_plural "The names '%s' are MySQL reserved keywords."
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Ім'я '%s' є зарезервованим словом MySQL."
+msgstr[1] "Імена '%s' є зарезервованими словами MySQL."
+msgstr[2] "Імена '%s' є зарезервованими словами MySQL."
 
 #: libraries/controllers/table/TableStructureController.php:250
 msgid "No column selected."
@@ -8444,11 +8106,10 @@ msgid "Query error"
 msgstr "Помилка запиту"
 
 #: libraries/controllers/table/TableStructureController.php:961
-#, fuzzy, php-format
-#| msgid "Table %1$s has been altered successfully."
+#, php-format
 msgid ""
 "Table %1$s has been altered successfully. Privileges have been adjusted."
-msgstr "Таблицю %1$s було успішно змінено."
+msgstr "Таблицю %1$s успішно змінено. Пільги були скориговані."
 
 #: libraries/controllers/table/TableStructureController.php:1181
 #: templates/table/structure/check_all_table_column.phtml:18
@@ -8497,13 +8158,16 @@ msgstr "Змін немає"
 #: libraries/database_interface.inc.php:36
 #, php-format
 msgid "See %sour documentation%s for more information."
-msgstr ""
+msgstr "Дивіться %sнашу документацію%s для отримання додаткової інформації."
 
 #: libraries/database_interface.inc.php:53
 msgid ""
 "You are using the mysql extension which is deprecated in phpMyAdmin. Please "
 "consider installing the mysqli extension."
 msgstr ""
+"Ви використовуєте застаріле mysql розширення, яке не підтримується в "
+"phpMyAdmin. Будь ласка, розгляньте питання про встановлення розширення "
+"mysqli."
 
 #: libraries/db_designer.lib.php:119
 msgid "Could not load schema plugins, please check your installation!"
@@ -8525,7 +8189,7 @@ msgstr "Пароль:"
 
 #: libraries/display_change_password.lib.php:68
 msgid "Enter:"
-msgstr ""
+msgstr "Введіть:"
 
 #: libraries/display_change_password.lib.php:75
 #: libraries/replication_gui.lib.php:865
@@ -8545,6 +8209,9 @@ msgid ""
 "connection that encrypts the password using RSA</i>'; while connecting to "
 "the server."
 msgstr ""
+"Цей метод вимагає використання '<i>SSL з'єднання</i>' або '<i> не "
+"шифрованого з'єднання, яке використовує шифрування паролю за допомогою RSA "
+"</i>'; при підключенні до сервера."
 
 #: libraries/display_export.lib.php:173
 msgid "Exporting databases from the current server"
@@ -8561,22 +8228,16 @@ msgid "Exporting rows from \"%s\" table"
 msgstr "Експортування рядків із таблиці \"%s\""
 
 #: libraries/display_export.lib.php:201
-#, fuzzy
-#| msgid "Export type"
 msgid "Export templates:"
-msgstr "Тип експорту"
+msgstr "Експорт шаблонів:"
 
 #: libraries/display_export.lib.php:206
-#, fuzzy
-#| msgid "File name template:"
 msgid "New template:"
-msgstr "Шаблон назви файлу:"
+msgstr "Новий шаблон:"
 
 #: libraries/display_export.lib.php:209
-#, fuzzy
-#| msgid "Table name"
 msgid "Template name"
-msgstr "Назва таблиці"
+msgstr "Ім'я шаблону"
 
 #: libraries/display_export.lib.php:211
 #: templates/server/databases/create.phtml:22
@@ -8584,34 +8245,24 @@ msgid "Create"
 msgstr "Створити"
 
 #: libraries/display_export.lib.php:218
-#, fuzzy
-#| msgid "File name template:"
 msgid "Existing templates:"
-msgstr "Шаблон назви файлу:"
+msgstr "Наявні шаблони:"
 
 #: libraries/display_export.lib.php:219
-#, fuzzy
-#| msgid "Temp disk rate"
 msgid "Template:"
-msgstr "Співвідношення тимчасових таблиць на диску"
+msgstr "Шаблон:"
 
 #: libraries/display_export.lib.php:224
-#, fuzzy
-#| msgid "Updated"
 msgid "Update"
-msgstr "Оновлено"
+msgstr "Оновлення"
 
 #: libraries/display_export.lib.php:246
-#, fuzzy
-#| msgid "Select a table"
 msgid "Select a template"
-msgstr "Обрати таблицю"
+msgstr "Вибрати шаблон"
 
 #: libraries/display_export.lib.php:295
-#, fuzzy
-#| msgid "Export method"
 msgid "Export method:"
-msgstr "Метод експорту"
+msgstr "Метод експорту:"
 
 #: libraries/display_export.lib.php:305
 msgid "Quick - display only the minimal options"
@@ -8622,10 +8273,8 @@ msgid "Custom - display all possible options"
 msgstr "Звичайний - відображати всі можливі настройки"
 
 #: libraries/display_export.lib.php:339
-#, fuzzy
-#| msgid "Databases"
 msgid "Databases:"
-msgstr "Бази даних"
+msgstr "Бази даних:"
 
 #: libraries/display_export.lib.php:341 libraries/navigation/Navigation.php:197
 msgid "Tables:"
@@ -8731,20 +8380,16 @@ msgid "View output as text"
 msgstr "Відобразити вивід як текст"
 
 #: libraries/display_export.lib.php:751
-#, fuzzy
-#| msgid "Export views as tables"
 msgid "Export databases as separate files"
-msgstr "Експорт видів як таблиць"
+msgstr "Експорт баз даних у вигляді окремих файлів"
 
 #: libraries/display_export.lib.php:753
-#, fuzzy
-#| msgid "Export table headers"
 msgid "Export tables as separate files"
-msgstr "Експортувати заголовки таблиці"
+msgstr "Експорт таблиць у вигляді окремих файлів"
 
 #: libraries/display_export.lib.php:783 libraries/display_export.lib.php:908
 msgid "Rename exported databases/tables/columns"
-msgstr ""
+msgstr "Перейменувати експортовані databases/tables/columns"
 
 #: libraries/display_export.lib.php:808
 msgid "Save output to a file"
@@ -8772,7 +8417,7 @@ msgstr "Ім'я нової таблиці"
 
 #: libraries/display_export.lib.php:987
 msgid "Old column name"
-msgstr ""
+msgstr "Попереднє ім'я стовпця"
 
 #: libraries/display_export.lib.php:988
 msgid "New column name"
@@ -8786,11 +8431,11 @@ msgstr ""
 #: libraries/display_git_revision.lib.php:54
 #, php-format
 msgid "%1$s from %2$s branch"
-msgstr ""
+msgstr "%1$s з %2$s гілки"
 
 #: libraries/display_git_revision.lib.php:56
 msgid "no branch"
-msgstr ""
+msgstr "немає гілки"
 
 #: libraries/display_git_revision.lib.php:62
 msgid "Git revision:"
@@ -8842,22 +8487,18 @@ msgstr ""
 "b>. Приклад: <b>.sql.zip</b>"
 
 #: libraries/display_import.lib.php:224
-#, fuzzy
-#| msgid "File to Import:"
 msgid "File to import:"
 msgstr "Файл для імпорту:"
 
 #: libraries/display_import.lib.php:234 libraries/display_import.lib.php:254
 msgid "You may also drag and drop a file on any page."
-msgstr ""
+msgstr "Ви також можете перетягнути файл на будь-якій сторінці."
 
 #: libraries/display_import.lib.php:257
 msgid "File uploads are not allowed on this server."
 msgstr "Завантаження файлів на цьому сервері не допускаються."
 
 #: libraries/display_import.lib.php:284
-#, fuzzy
-#| msgid "Partial Import:"
 msgid "Partial import:"
 msgstr "Частковий імпорт:"
 
@@ -8881,16 +8522,12 @@ msgstr ""
 "i>"
 
 #: libraries/display_import.lib.php:315
-#, fuzzy
-#| msgid "Number of rows to skip, starting from the first row:"
 msgid "Skip this number of queries (for SQL) starting from the first one:"
-msgstr "Кількість пропущених рядків, починаючи з першого рядка:"
+msgstr "Пропустити вказане число запитів (для SQL), починаючи з першого:"
 
 #: libraries/display_import.lib.php:345
-#, fuzzy
-#| msgid "Options"
 msgid "Other options:"
-msgstr "Параметри"
+msgstr "Інші параметри:"
 
 #: libraries/display_import.lib.php:483
 msgid ""
@@ -8905,7 +8542,7 @@ msgstr ""
 #: libraries/display_import.lib.php:489
 #, php-format
 msgid "%s of %s"
-msgstr ""
+msgstr "%s з %s"
 
 #: libraries/display_import.lib.php:490
 msgid "Uploading your import file…"
@@ -8918,7 +8555,7 @@ msgstr "%s/сек."
 
 #: libraries/display_import.lib.php:492
 msgid "About %MIN min. %SEC sec. remaining."
-msgstr ""
+msgstr "Залишилося %MIN хв. %SEC сек."
 
 #: libraries/display_import.lib.php:493
 msgid "About %SEC sec. remaining."
@@ -9350,6 +8987,7 @@ msgstr "Перейти до подання: %s"
 #: libraries/import.lib.php:1340
 msgid "Only single-table UPDATE and DELETE queries can be simulated."
 msgstr ""
+"Тільки однією з таблиць UPDATE і DELETE запити можуть бути змодельовані."
 
 #: libraries/import.lib.php:1563
 msgid ""
@@ -9435,14 +9073,11 @@ msgid "Edit next row"
 msgstr "Редагувати наступний рядок"
 
 #: libraries/insert_edit.lib.php:1609
-#, fuzzy
-#| msgid ""
-#| "Use TAB key to move from value to value, or CTRL+arrows to move anywhere"
 msgid ""
 "Use TAB key to move from value to value, or CTRL+arrows to move anywhere."
 msgstr ""
-"Для переходу від значення до значення використовуйте TAB, або CTRL+стрілки - "
-"для переміщення куди завгодно"
+"Використовуйте клавішу TAB для переходу від значення до значення, або CTRL+"
+"стрілки, щоб перейти до будь-якого місця."
 
 #: libraries/insert_edit.lib.php:1646 libraries/replication_gui.lib.php:544
 #: libraries/rte/rte_routines.lib.php:1609
@@ -9467,7 +9102,7 @@ msgstr "Ідентифікатор доданого рядка: %1$d"
 
 #: libraries/mult_submits.inc.php:326
 msgid "Success!"
-msgstr ""
+msgstr "Успіх!"
 
 #: libraries/mult_submits.lib.php:345 libraries/operations.lib.php:171
 #: libraries/operations.lib.php:1252 libraries/tracking.lib.php:529
@@ -9485,8 +9120,6 @@ msgid "Data only"
 msgstr "Лише дані"
 
 #: libraries/mult_submits.lib.php:353
-#, fuzzy
-#| msgid "Add AUTO_INCREMENT value"
 msgid "Add AUTO INCREMENT value"
 msgstr "Додати значення AUTO_INCREMENT"
 
@@ -9500,10 +9133,8 @@ msgstr "Додати обмеження"
 #: libraries/operations.lib.php:947 libraries/operations.lib.php:1296
 #: libraries/rte/rte_routines.lib.php:1007
 #: templates/columns_definitions/table_fields_definitions.phtml:47
-#, fuzzy
-#| msgid "Edit Privileges"
 msgid "Adjust privileges"
-msgstr "Редагувати привілеї"
+msgstr "Налаштувати привілеї"
 
 #: libraries/mult_submits.lib.php:379
 msgid "From"
@@ -9523,13 +9154,11 @@ msgstr "Ви насправді хочете  виконати даний зап
 
 #: libraries/navigation/Navigation.php:55
 msgid "An error has occurred while loading the navigation display"
-msgstr ""
+msgstr "При завантаженні панелі навігації сталася помилка"
 
 #: libraries/navigation/Navigation.php:193
-#, fuzzy
-#| msgid "Group name:"
 msgid "Groups:"
-msgstr "Назва групи:"
+msgstr "Групи:"
 
 #: libraries/navigation/Navigation.php:194
 msgid "Events:"
@@ -9561,20 +9190,16 @@ msgid "Log out"
 msgstr "Вийти з системи"
 
 #: libraries/navigation/NavigationHeader.php:172
-#, fuzzy
-#| msgid "Dumping data for table"
 msgid "Empty session data"
-msgstr "Дамп даних таблиці"
+msgstr "Дані сеансу пусті"
 
 #: libraries/navigation/NavigationHeader.php:190
 msgid "phpMyAdmin documentation"
 msgstr "Документація по phpMyAdmin"
 
 #: libraries/navigation/NavigationHeader.php:210
-#, fuzzy
-#| msgid "Navigation panel"
 msgid "Navigation panel settings"
-msgstr "Оболонка навігації"
+msgstr "Настройки панелі навігації"
 
 #: libraries/navigation/NavigationHeader.php:221
 msgid "Reload navigation panel"
@@ -9585,19 +9210,22 @@ msgid ""
 "There are large item groups in navigation panel which may affect the "
 "performance. Consider disabling item grouping in the navigation panel."
 msgstr ""
+"Існують великі групи елементів в панелі навігації, яка може вплинути на "
+"продуктивність. Розглянути питання про відключення групування елементів на "
+"панелі навігації."
 
 #: libraries/navigation/NavigationTree.php:949
 #, php-format
 msgid "%s result found"
 msgid_plural "%s results found"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Знайдено %s результат"
+msgstr[1] "Знайдено %s результати"
+msgstr[2] "Знайдено %s результатів"
 
 #: libraries/navigation/NavigationTree.php:1363
 #: libraries/navigation/NavigationTree.php:1395
 msgid "Type to filter these, Enter to search all"
-msgstr ""
+msgstr "Вибрати фільтр, Enter шукати все"
 
 #: libraries/navigation/NavigationTree.php:1365
 #: libraries/navigation/NavigationTree.php:1396
@@ -9606,19 +9234,19 @@ msgstr "Очистити швидкий фільтр"
 
 #: libraries/navigation/NavigationTree.php:1422
 msgid "Collapse all"
-msgstr ""
+msgstr "Згорнути все"
 
 #. l10n: The word "Node" must not be translated here
 #: libraries/navigation/NodeFactory.php:34
 #, php-format
 msgid "Invalid class name \"%1$s\", using default of \"Node\""
 msgstr ""
+"Неприпустиме ім'я класу \"%1$s\", за замовчуванням використовується \"Node\""
 
 #: libraries/navigation/NodeFactory.php:61
-#, fuzzy, php-format
-#| msgid "Could not add columns!"
+#, php-format
 msgid "Could not load class \"%1$s\""
-msgstr "Не вдалося додати стовпчики!"
+msgstr "Не вдалося завантажити клас \"%1$s\""
 
 #: libraries/navigation/nodes/Node.php:798
 msgid "Expand/Collapse"
@@ -9711,32 +9339,37 @@ msgstr "Нове"
 
 #: libraries/normalization.lib.php:129
 msgid "Make all columns atomic"
-msgstr ""
+msgstr "Зробити всі стовпчики atomic"
 
 #: libraries/normalization.lib.php:131 libraries/normalization.lib.php:808
 msgid "First step of normalization (1NF)"
-msgstr ""
+msgstr "Перший крок нормалізації (1NF)"
 
 #: libraries/normalization.lib.php:134 libraries/normalization.lib.php:185
 #: libraries/normalization.lib.php:233 libraries/normalization.lib.php:271
 msgid "Step 1."
-msgstr ""
+msgstr "Крок 1."
 
 #: libraries/normalization.lib.php:136
 msgid ""
 "Do you have any column which can be split into more than one column? For "
 "example: address can be split into street, city, country and zip."
 msgstr ""
+"Чи є у вас будь-який стовпець, який можна розділити на декілька стовпців? "
+"Наприклад: адреса може бути розділена на вулицю, місто, країну і поштовий "
+"індекс."
 
 #: libraries/normalization.lib.php:143
 msgid "Show me the central list of columns that are not already in this table"
-msgstr ""
+msgstr "Показати стовпці основновного списку, які ще не в цій таблиці"
 
 #: libraries/normalization.lib.php:146
 msgid ""
 "Select a column which can be split into more than one (on select of 'no such "
 "column', it'll move to next step)."
 msgstr ""
+"Виберіть стовпець, який може бути розбитий на декілька стовпців (або "
+"виберіть 'немає такого стовпчика' для переходу до наступного кроку)."
 
 #: libraries/normalization.lib.php:153 normalization.php:19
 msgid "Select one…"
@@ -9748,46 +9381,41 @@ msgstr "Немає такого стовпчика"
 
 #: libraries/normalization.lib.php:161
 msgid "split into "
-msgstr ""
+msgstr "розділити на "
 
 #: libraries/normalization.lib.php:182
-#, fuzzy
-#| msgid "Add primary key"
 msgid "Have a primary key"
-msgstr "Додати первинний ключ"
+msgstr "Містить первинний ключ"
 
 #: libraries/normalization.lib.php:188
-#, fuzzy
-#| msgid "Error: relation already exists."
 msgid "Primary key already exists."
-msgstr "Помилка: зв'язок вже існує."
+msgstr "Первинний ключ вже існує."
 
 #: libraries/normalization.lib.php:193
 msgid ""
 "There is no primary key; please add one.<br/>Hint: A primary key is a column "
 "(or combination of columns) that uniquely identify all rows."
 msgstr ""
+"Немає первинного ключа; будь ласка, додайте.<br/>Підказка: Первинний ключ "
+"являє собою стовпець (або комбінацію стовпців) що однозначно ідентифікують "
+"всі рядки."
 
 #: libraries/normalization.lib.php:200
 msgid "Add a primary key on existing column(s)"
-msgstr ""
+msgstr "Додайте первинний ключ на існуючий стовпець(і)"
 
 #: libraries/normalization.lib.php:205
 msgid ""
 "If it's not possible to make existing column combinations as primary key"
-msgstr ""
+msgstr "Не можливо зробити наявний стовпець як первинний ключ"
 
 #: libraries/normalization.lib.php:209
-#, fuzzy
-#| msgid "Add primary key"
 msgid "+ Add a new primary key column"
-msgstr "Додати первинний ключ"
+msgstr "Додати новий стовпець, як первинний ключ"
 
 #: libraries/normalization.lib.php:232
-#, fuzzy
-#| msgid "Remove chart"
 msgid "Remove redundant columns"
-msgstr "Вилучити діаграму"
+msgstr "Видалити зайві стовпці"
 
 #: libraries/normalization.lib.php:235
 msgid ""
@@ -9795,28 +9423,29 @@ msgid ""
 "For example, if you have first_name, last_name and full_name then combining "
 "first_name and last_name gives full_name which is redundant."
 msgstr ""
+"У вас є група стовпців, які при об'єднанні дають наявний стовпець? "
+"Наприклад, якщо у вас є first_name, last_name і full_name, то при об'єднані  "
+"first_name і last_name виходить, що  full_name являється зайвим."
 
 #: libraries/normalization.lib.php:241
 msgid ""
 "Check the columns which are redundant and click on remove. If no redundant "
 "column, click on 'No redundant column'"
 msgstr ""
+"Перевірте стовпці, які є зайвими і натисніть на Видалити. Якщо немає зайвого "
+"стовпчика, натисніть на 'Немає зайвого стовпця'"
 
 #: libraries/normalization.lib.php:246
-#, fuzzy
-#| msgid "Remove selected users"
 msgid "Remove selected"
-msgstr "Видалити вибраних користувачів"
+msgstr "Видалити вибрані"
 
 #: libraries/normalization.lib.php:247
-#, fuzzy
-#| msgid "Add column"
 msgid "No redundant column"
-msgstr "Додати стовпчик"
+msgstr "Немає зайвого стовпця"
 
 #: libraries/normalization.lib.php:270
 msgid "Move repeating groups"
-msgstr ""
+msgstr "Перемістити повторювані групи"
 
 #: libraries/normalization.lib.php:273
 msgid ""
@@ -9839,7 +9468,7 @@ msgstr ""
 
 #: libraries/normalization.lib.php:316
 msgid "Step 2."
-msgstr ""
+msgstr "Крок 2."
 
 #: libraries/normalization.lib.php:316
 msgid "Find partial dependencies"
@@ -9906,10 +9535,8 @@ msgstr ""
 
 #: libraries/normalization.lib.php:485 libraries/normalization.lib.php:630
 #: libraries/normalization.lib.php:695
-#, fuzzy
-#| msgid "Error in processing request:"
 msgid "Error in processing!"
-msgstr "Помилка при обробці запиту:"
+msgstr "Помилка при обробці!"
 
 #: libraries/normalization.lib.php:531
 #, php-format
@@ -9928,10 +9555,8 @@ msgid "Selected repeating group has been moved to the table '%s'"
 msgstr ""
 
 #: libraries/normalization.lib.php:721
-#, fuzzy
-#| msgid "Sep"
 msgid "Step 3."
-msgstr "Вер"
+msgstr "Крок 3."
 
 #: libraries/normalization.lib.php:721
 msgid "Find transitive dependencies"
@@ -9956,10 +9581,8 @@ msgid "Table is already in Third normal form!"
 msgstr ""
 
 #: libraries/normalization.lib.php:804
-#, fuzzy
-#| msgid "Hide table structure actions"
 msgid "Improve table structure (Normalization):"
-msgstr "Приховати дії над структурою таблиці"
+msgstr "Поліпшення структури таблиці (Нормалізація):"
 
 #: libraries/normalization.lib.php:805
 msgid "Select up to what step you want to normalize"
@@ -9997,12 +9620,12 @@ msgstr "Перейменувати базу даних на"
 #: libraries/operations.lib.php:854 libraries/operations.lib.php:941
 #: libraries/operations.lib.php:1290
 #: templates/columns_definitions/column_adjust_privileges.phtml:16
-#, fuzzy
-#| msgid "You don't have sufficient privileges to be here right now!"
 msgid ""
 "You don't have sufficient privileges to perform this operation; Please refer "
 "to the documentation for more details"
-msgstr "Ви для цього маєте недостатньо прав!"
+msgstr ""
+"У вас немає достатніх прав для виконання цієї операції; Будь ласка, "
+"зверніться до документації для отримання більш докладної інформації"
 
 #: libraries/operations.lib.php:133
 #, php-format
@@ -10086,10 +9709,8 @@ msgstr "Перевірити таблицю"
 
 #: libraries/operations.lib.php:1397
 #: templates/database/structure/check_all_tables.phtml:22
-#, fuzzy
-#| msgid "Check table"
 msgid "Checksum table"
-msgstr "Перевірити таблицю"
+msgstr "Контрольна сума таблиці"
 
 #: libraries/operations.lib.php:1411
 msgid "Defragment table"
@@ -10160,10 +9781,8 @@ msgid "Truncate"
 msgstr ""
 
 #: libraries/operations.lib.php:1579
-#, fuzzy
-#| msgid "Collapse"
 msgid "Coalesce"
-msgstr "Згорнути"
+msgstr "Об'єднати"
 
 #: libraries/operations.lib.php:1588
 msgid "Partition maintenance"
@@ -10192,16 +9811,14 @@ msgid "Can't copy table to same one!"
 msgstr "Не можу скопіювати таблицю саму в себе!"
 
 #: libraries/operations.lib.php:2060
-#, fuzzy, php-format
-#| msgid "Table %s has been moved to %s."
+#, php-format
 msgid "Table %s has been moved to %s. Privileges have been adjusted."
-msgstr "Таблицю %s було перенесено в %s."
+msgstr "Таблицю %s було перенесено в %s. Привілеї були скориговані."
 
 #: libraries/operations.lib.php:2067
-#, fuzzy, php-format
-#| msgid "Table %s has been copied to %s."
+#, php-format
 msgid "Table %s has been copied to %s. Privileges have been adjusted."
-msgstr "Таблицю %s було скопійовано в %s."
+msgstr "Таблицю %s скопійовано в %s. Привілеї були скориговані."
 
 #: libraries/operations.lib.php:2076
 #, php-format
@@ -10310,10 +9927,8 @@ msgid "Please enter correct captcha!"
 msgstr ""
 
 #: libraries/plugins/auth/AuthenticationCookie.php:358
-#, fuzzy
-#| msgid "Cannot log in to the MySQL server"
 msgid "You are not allowed to log in to this MySQL server!"
-msgstr "Не можу зареєструватися на MySQL сервері"
+msgstr "У вас немає прав для підключення до сервера MySQL!"
 
 #: libraries/plugins/auth/AuthenticationHttp.php:85
 msgid "Wrong username/password. Access denied."
@@ -10525,22 +10140,16 @@ msgid "Report title:"
 msgstr "Заголовок звіту:"
 
 #: libraries/plugins/export/ExportPdf.php:233
-#, fuzzy
-#| msgid "Dumping data for table"
 msgid "Dumping data"
-msgstr "Дамп даних таблиці"
+msgstr "Скидання даних"
 
 #: libraries/plugins/export/ExportPdf.php:288
-#, fuzzy
-#| msgid "structure"
 msgid "View structure"
-msgstr "структура"
+msgstr "Перегляд структури"
 
 #: libraries/plugins/export/ExportPdf.php:291
-#, fuzzy
-#| msgid "and then"
 msgid "Stand in"
-msgstr "і потім"
+msgstr "Вставити в"
 
 #: libraries/plugins/export/ExportSql.php:99
 msgid ""
@@ -10563,10 +10172,8 @@ msgstr ""
 "останньої перевірки"
 
 #: libraries/plugins/export/ExportSql.php:172
-#, fuzzy
-#| msgid "Export method"
 msgid "Export metadata"
-msgstr "Метод експорту"
+msgstr "Експорт метаданих"
 
 #: libraries/plugins/export/ExportSql.php:187
 msgid ""
@@ -10594,10 +10201,9 @@ msgid "(less efficient as indexes will be generated during table creation)"
 msgstr ""
 
 #: libraries/plugins/export/ExportSql.php:294
-#, fuzzy, php-format
-#| msgid "Session value"
+#, php-format
 msgid "%s value"
-msgstr "Значення сесії"
+msgstr "%s значення"
 
 #: libraries/plugins/export/ExportSql.php:328
 msgid ""
@@ -10658,17 +10264,12 @@ msgstr ""
 "(7,8,9)</code>"
 
 #: libraries/plugins/export/ExportSql.php:421
-#, fuzzy
-#| msgid ""
-#| "both of the above<br /> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
-#| "tbl_name (col_A,col_B) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 msgid ""
 "both of the above<br /> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name (col_A,col_B,col_C) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 msgstr ""
-"комбінація обох верхніх варіантів <br /> &nbsp; &nbsp; &nbsp; Example: "
-"<code>INSERT INTO tbl_name (col_A,col_B) VALUES (1,2,3), (4,5,6), (7,8,9)</"
-"code>"
+"обидва вищезазначені<br />&nbsp;&nbsp;&nbsp; Наприклад: <code>INSERT INTO "
+"tbl_name (col_A,col_B,col_C) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 
 #: libraries/plugins/export/ExportSql.php:426
 msgid ""
@@ -10706,22 +10307,18 @@ msgid "alias export may not work reliably in all cases."
 msgstr ""
 
 #: libraries/plugins/export/ExportSql.php:1006
-#, fuzzy
-#| msgid "Missing data for %s"
 msgid "Metadata"
-msgstr "Пропущені дані для %s"
+msgstr "Метадані"
 
 #: libraries/plugins/export/ExportSql.php:1076
-#, fuzzy, php-format
-#| msgid "Missing data for %s"
+#, php-format
 msgid "Metadata for table %s"
-msgstr "Пропущені дані для %s"
+msgstr "Метадані таблиці %s"
 
 #: libraries/plugins/export/ExportSql.php:1083
-#, fuzzy, php-format
-#| msgid "Missing data for %s"
+#, php-format
 msgid "Metadata for database %s"
-msgstr "Пропущені дані для %s"
+msgstr "Метадані бази даних %s"
 
 #: libraries/plugins/export/ExportSql.php:1415
 #: libraries/plugins/schema/pdf/PdfRelationSchema.php:603
@@ -10739,10 +10336,9 @@ msgid "Last check:"
 msgstr "Остання перевірка:"
 
 #: libraries/plugins/export/ExportSql.php:1488
-#, fuzzy, php-format
-#| msgid "Table structure for table"
+#, php-format
 msgid "Error reading structure for table %s:"
-msgstr "Структура таблиці"
+msgstr "Помилка читання структури таблиці %s:"
 
 #: libraries/plugins/export/ExportSql.php:1542
 msgid "It appears your database uses views;"
@@ -10777,8 +10373,6 @@ msgid "MIME TYPES FOR TABLE"
 msgstr "MIME-ТИПИ ТАБЛИЦІ"
 
 #: libraries/plugins/export/ExportSql.php:1878
-#, fuzzy
-#| msgid "RELATIONS FOR TABLE"
 msgid "RELATIONSHIPS FOR TABLE"
 msgstr "ЗВ'ЯЗКИ ТАБЛИЦІ"
 
@@ -10796,10 +10390,9 @@ msgid "(See below for the actual view)"
 msgstr ""
 
 #: libraries/plugins/export/ExportSql.php:2204
-#, fuzzy, php-format
-#| msgid "Error reading data:"
+#, php-format
 msgid "Error reading data for table %s:"
-msgstr "Помилка читання даних:"
+msgstr "Помилка читання даних таблиці %s:"
 
 #: libraries/plugins/export/ExportXml.php:97
 msgid "Object creation options (all are recommended)"
@@ -10818,10 +10411,8 @@ msgid "Purpose:"
 msgstr ""
 
 #: libraries/plugins/export/PMA_ExportPdf.php:501
-#, fuzzy
-#| msgid "MIME type"
 msgid "MIME"
-msgstr "Тип MIME"
+msgstr "MIME"
 
 #: libraries/plugins/import/AbstractImportCsv.php:51
 msgid ""
@@ -10981,28 +10572,20 @@ msgstr "Показати сітку"
 
 #: libraries/plugins/schema/SchemaPdf.php:93
 #: templates/database/structure/print_view_data_dictionary_link.phtml:6
-#, fuzzy
-#| msgid "Data Dictionary"
 msgid "Data dictionary"
 msgstr "Словник даних"
 
 #: libraries/plugins/schema/SchemaPdf.php:99
-#, fuzzy
-#| msgid "neither of the above"
 msgid "Order of the tables"
-msgstr "жоден з попередніх"
+msgstr "Порядок таблиць"
 
 #: libraries/plugins/schema/SchemaPdf.php:104
-#, fuzzy
-#| msgid "Ascending"
 msgid "Name (Ascending)"
-msgstr "Зростаючий"
+msgstr "Ім'я (за зростанням)"
 
 #: libraries/plugins/schema/SchemaPdf.php:105
-#, fuzzy
-#| msgid "Descending"
 msgid "Name (Descending)"
-msgstr "Спадаючий"
+msgstr "Ім'я (за спаданням)"
 
 #: libraries/plugins/schema/dia/TableStatsDia.php:74
 #: libraries/plugins/schema/eps/TableStatsEps.php:92
@@ -11019,16 +10602,13 @@ msgid "Schema of the %s database - Page %s"
 msgstr "Схема бази даних %s - Сторінка %s"
 
 #: libraries/plugins/schema/pdf/Pdf.php:238
-#, fuzzy
-#| msgid "Invalid export type"
 msgid "PDF export page"
-msgstr "Невірний тип експорту"
+msgstr "Сторінка експорту PDF"
 
 #: libraries/plugins/schema/pdf/PdfRelationSchema.php:102
-#, fuzzy, php-format
-#| msgid "Schema of the %s database - Page %s"
+#, php-format
 msgid "Schema of the %s database"
-msgstr "Схема бази даних %s - Сторінка %s"
+msgstr "Схема %s бази даних"
 
 #: libraries/plugins/schema/pdf/PdfRelationSchema.php:130
 #: libraries/plugins/schema/pdf/PdfRelationSchema.php:525
@@ -11250,46 +10830,32 @@ msgid "Syntax highlighted CodeMirror editor for XML (and HTML)."
 msgstr ""
 
 #: libraries/plugins/transformations/output/Text_Plain_Binarytoip.php:29
-#, fuzzy
-#| msgid ""
-#| "Converts an (IPv4) Internet network address into a string in Internet "
-#| "standard dotted format."
 msgid ""
 "Converts an Internet network address stored as a binary string into a string "
 "in Internet standard (IPv4/IPv6) format."
 msgstr ""
-"Конвертує мережеву адресу (IPv4) в стандартний рядок з роздільником у "
-"вигляді точки."
+"Перетворення адрес Інтернет-мережі, збережених як двійкові рядки, в рядки "
+"Інтернет стандартного формату (IPv4/IPv6)."
 
 #: libraries/plugins/transformations/output/Text_Plain_Json.php:47
-#, fuzzy
-#| msgid "Formats text as SQL query with syntax highlighting."
 msgid "Formats text as JSON with syntax highlighting."
-msgstr "Форматує текст у вигляді SQL запиту з підсвічуванням синтаксису."
+msgstr "Форматує текст як JSON з підсвічуванням синтаксису."
 
 #: libraries/plugins/transformations/output/Text_Plain_Xml.php:47
-#, fuzzy
-#| msgid "Formats text as SQL query with syntax highlighting."
 msgid "Formats text as XML with syntax highlighting."
-msgstr "Форматує текст у вигляді SQL запиту з підсвічуванням синтаксису."
+msgstr "Форматування тексту як XML з підсвічуванням синтаксису."
 
 #: libraries/pmd_common.php:551
-#, fuzzy
-#| msgid "Error: relation already exists."
 msgid "Error: relationship already exists."
 msgstr "Помилка: зв'язок вже існує."
 
 #: libraries/pmd_common.php:597
-#, fuzzy
-#| msgid "FOREIGN KEY relation has been added."
 msgid "FOREIGN KEY relationship has been added."
-msgstr "FOREIGN KEY відношення додано."
+msgstr "FOREIGN KEY зв'язок додано."
 
 #: libraries/pmd_common.php:603
-#, fuzzy
-#| msgid "Error: Relation could not be added!"
 msgid "Error: FOREIGN KEY relationship could not be added!"
-msgstr "Помилка: Відношення не вдалося додати!"
+msgstr "Помилка: зв'язок не вдалося додати!"
 
 #: libraries/pmd_common.php:608
 msgid "Error: Missing index on column(s)."
@@ -11300,40 +10866,28 @@ msgid "Error: Relational features are disabled!"
 msgstr "Помилка: реляційні функції вимкнені!"
 
 #: libraries/pmd_common.php:635
-#, fuzzy
-#| msgid "Internal relation has been added."
 msgid "Internal relationship has been added."
-msgstr "Внутрішнє відношення додано."
+msgstr "Внутрішні зв'язки були додані."
 
 #: libraries/pmd_common.php:641
-#, fuzzy
-#| msgid "Error: Relation could not be added!"
 msgid "Error: Internal relationship could not be added!"
-msgstr "Помилка: Відношення не вдалося додати!"
+msgstr "Помилка: Зв'язки не вдалося додати!"
 
 #: libraries/pmd_common.php:679
-#, fuzzy
-#| msgid "FOREIGN KEY relation has been added."
 msgid "FOREIGN KEY relationship has been removed."
-msgstr "FOREIGN KEY відношення додано."
+msgstr "FOREIGN KEY зв'язок доданий."
 
 #: libraries/pmd_common.php:685
-#, fuzzy
-#| msgid "Error: Relation could not be added!"
 msgid "Error: FOREIGN KEY relationship could not be removed!"
-msgstr "Помилка: Відношення не вдалося додати!"
+msgstr "Помилка: FOREIGN KEY зв'язок не може бути видалений!"
 
 #: libraries/pmd_common.php:712
-#, fuzzy
-#| msgid "Error: Relation could not be added!"
 msgid "Error: Internal relationship could not be removed!"
-msgstr "Помилка: Відношення не вдалося додати!"
+msgstr "Помилка: Не вдалося видалити всі внутрішні зв'язки!"
 
 #: libraries/pmd_common.php:716
-#, fuzzy
-#| msgid "Internal relation has been added."
 msgid "Internal relationship has been removed."
-msgstr "Внутрішнє відношення додано."
+msgstr "Внутрішні зв'язки будуть видалені."
 
 #: libraries/relation.lib.php:90
 msgid "not OK"
@@ -11349,10 +10903,8 @@ msgid "Enabled"
 msgstr "дозволено"
 
 #: libraries/relation.lib.php:101
-#, fuzzy
-#| msgid "Configuration saved."
 msgid "Configuration of pmadb…"
-msgstr "Конфігурація збережена."
+msgstr "Конфігурація pmadb…"
 
 #: libraries/relation.lib.php:105 libraries/relation.lib.php:141
 msgid "General relation features"
@@ -11363,10 +10915,8 @@ msgid "Display Features"
 msgstr "Показати можливості"
 
 #: libraries/relation.lib.php:169
-#, fuzzy
-#| msgid "Creation of PDFs"
 msgid "Designer and creation of PDFs"
-msgstr "Створити PDF-файл"
+msgstr "Проектувальник створення  PDF-файлів"
 
 #: libraries/relation.lib.php:180
 msgid "Displaying Column Comments"
@@ -11377,13 +10927,8 @@ msgid "Browser transformation"
 msgstr "Перетворення МІМЕ-типу бровзером"
 
 #: libraries/relation.lib.php:193
-#, fuzzy
-#| msgid ""
-#| "Please see the documentation on how to update your column_comments table."
 msgid "Please see the documentation on how to update your column_info table."
-msgstr ""
-"За інформацією як поновити Вашу таблицю Column_comments прошу дивитись у "
-"Документації."
+msgstr "Будь ласка, зверніться до документації, як оновити таблицю column_info."
 
 #: libraries/relation.lib.php:209 libraries/sql_query_form.lib.php:396
 msgid "Bookmarked SQL query"
@@ -11428,29 +10973,21 @@ msgid "Managing Central list of columns"
 msgstr ""
 
 #: libraries/relation.lib.php:336
-#, fuzzy
-#| msgid "Remember table's sorting"
 msgid "Remembering Designer Settings"
-msgstr "Запам'ятати сортування таблиці"
+msgstr "Запам'ятати налаштування проектувальника"
 
 #: libraries/relation.lib.php:347
-#, fuzzy
-#| msgid "Invalid export type"
 msgid "Saving export templates"
-msgstr "Невірний тип експорту"
+msgstr "Збереження шаблонів експорту"
 
 #: libraries/relation.lib.php:355
 msgid "Quick steps to set up advanced features:"
 msgstr "Швидкі кроки до встановлення розширених властивостей:"
 
 #: libraries/relation.lib.php:361
-#, fuzzy, php-format
-#| msgid ""
-#| "Create the needed tables with the <code>examples/create_tables.sql</code>."
+#, php-format
 msgid "Create the needed tables with the <code>%screate_tables.sql</code>."
-msgstr ""
-"Створити необхідні таблиці за допомогою <code>examples/create_tables.sql</"
-"code>."
+msgstr "Створити необхідні таблиці з <code>%s create_tables.sql</code>."
 
 #: libraries/relation.lib.php:366
 msgid "Create a pma user and give access to these tables."
@@ -11481,25 +11018,24 @@ msgid ""
 msgstr ""
 
 #: libraries/relation.lib.php:1987
-#, fuzzy, php-format
-#| msgid "Missing phpMyAdmin configuration storage tables"
+#, php-format
 msgid ""
 "%sCreate%s a database named 'phpmyadmin' and setup the phpMyAdmin "
 "configuration storage there."
-msgstr "Відсутня таблиця для збереження конфігурації phpMyAdmin"
+msgstr ""
+"%sСтворити%s базу даних з ім'ям 'phpmyadmin' і налаштувати там зберігання "
+"конфігурації phpMyAdmin."
 
 #: libraries/relation.lib.php:1995
-#, fuzzy, php-format
-#| msgid "Missing phpMyAdmin configuration storage tables"
+#, php-format
 msgid ""
 "%sCreate%s the phpMyAdmin configuration storage in the current database."
-msgstr "Відсутня таблиця для збереження конфігурації phpMyAdmin"
+msgstr "%sСтворити%s сховище конфігурації phpMyAdmin в поточній базі даних."
 
 #: libraries/relation.lib.php:2003
-#, fuzzy, php-format
-#| msgid "Missing phpMyAdmin configuration storage tables"
+#, php-format
 msgid "%sCreate%s missing phpMyAdmin configuration storage tables."
-msgstr "Відсутня таблиця для збереження конфігурації phpMyAdmin"
+msgstr "%sСтворити%s відсутні таблиці зберігання конфігурації phpMyAdmin."
 
 #: libraries/replication_gui.lib.php:46 libraries/replication_gui.lib.php:345
 #: templates/server/databases/table_header.phtml:28
@@ -11523,13 +11059,6 @@ msgid "Master configuration"
 msgstr "Налаштування головного сервера"
 
 #: libraries/replication_gui.lib.php:90
-#, fuzzy
-#| msgid ""
-#| "This server is not configured as master server in a replication process. "
-#| "You can choose from either replicating all databases and ignoring certain "
-#| "(useful if you want to replicate majority of databases) or you can choose "
-#| "to ignore all databases by default and allow only certain databases to be "
-#| "replicated. Please select the mode:"
 msgid ""
 "This server is not configured as a master server in a replication process. "
 "You can choose from either replicating all databases and ignoring some of "
@@ -11538,8 +11067,8 @@ msgid ""
 "databases to be replicated. Please select the mode:"
 msgstr ""
 "Даний сервер не налаштований в якості головного для процесу реплікації. Ви "
-"можете вибрати реплікацію всіх баз даних з ігноруванням певних "
-"(використовуйте, якщо хочете провести реплікацію більшості баз даних), або "
+"можете вибрати реплікацію всіх баз даних з ігноруванням певних ("
+"використовуйте, якщо хочете провести реплікацію більшості баз даних), або "
 "вибрати ігнорування всіх баз даних за замовчуванням і дозвіл для реплікації "
 "тільки певних. Будь ласка, виберіть бажаний режим:"
 
@@ -11579,10 +11108,8 @@ msgid "Slave replication"
 msgstr "Похідна реплікація"
 
 #: libraries/replication_gui.lib.php:149
-#, fuzzy
-#| msgid "Insecure connection"
 msgid "Master connection:"
-msgstr "Незахищене з'єднання"
+msgstr "Майстер підключення:"
 
 #: libraries/replication_gui.lib.php:216
 msgid "Slave SQL Thread not running!"
@@ -11787,10 +11314,8 @@ msgid "Re-type"
 msgstr "Підтвердження"
 
 #: libraries/replication_gui.lib.php:873
-#, fuzzy
-#| msgid "Generate password"
 msgid "Generate password:"
-msgstr "Згенерувати пароль"
+msgstr "Згенерувати пароль:"
 
 #: libraries/replication_gui.lib.php:905
 msgid ""
@@ -12010,10 +11535,9 @@ msgid "Sorry, we failed to restore the dropped routine."
 msgstr "Вибачте, нам невдалось відновити видалений порядок."
 
 #: libraries/rte/rte_routines.lib.php:435
-#, fuzzy, php-format
-#| msgid "Routine %1$s has been modified."
+#, php-format
 msgid "Routine %1$s has been modified. Privileges have been adjusted."
-msgstr "Порядок %1$s було змінено."
+msgstr "Процедура %1$s була змінена. Привілеї були скориговані."
 
 #: libraries/rte/rte_routines.lib.php:440
 #, php-format
@@ -12184,10 +11708,8 @@ msgid "routine"
 msgstr "порядок"
 
 #: libraries/rte/rte_words.lib.php:32
-#, fuzzy
-#| msgid "You do not have the necessary privileges to create a routine"
 msgid "You do not have the necessary privileges to create a routine."
-msgstr "У вас немає необхідних прав щоб створити порядок"
+msgstr "Ви не маєте необхідних прав для створення процедури."
 
 #: libraries/rte/rte_words.lib.php:35
 #, php-format
@@ -12204,10 +11726,9 @@ msgid ""
 msgstr ""
 
 #: libraries/rte/rte_words.lib.php:42
-#, fuzzy, php-format
-#| msgid "No routine with name %1$s found in database %2$s"
+#, php-format
 msgid "No routine with name %1$s found in database %2$s."
-msgstr "У базі даних %2$s немає порядку з назвою %1$s"
+msgstr "Немає процедури з ім'ям %1$s в базі даних %2$s."
 
 #: libraries/rte/rte_words.lib.php:43
 msgid "There are no routines to display."
@@ -12227,16 +11748,13 @@ msgid "trigger"
 msgstr "тригер"
 
 #: libraries/rte/rte_words.lib.php:54
-#, fuzzy
-#| msgid "You do not have the necessary privileges to create a trigger"
 msgid "You do not have the necessary privileges to create a trigger."
-msgstr "У вас немає необхідних прав щоб створити тригер"
+msgstr "У вас немає необхідних прав для створення тригера."
 
 #: libraries/rte/rte_words.lib.php:56
-#, fuzzy, php-format
-#| msgid "No trigger with name %1$s found in database %2$s"
+#, php-format
 msgid "No trigger with name %1$s found in database %2$s."
-msgstr "У базі даних %2$s немає тригера з назвою %1$s"
+msgstr "Немає тригера з ім'ям %1$s в базі даних %2$s."
 
 #: libraries/rte/rte_words.lib.php:57
 msgid "There are no triggers to display."
@@ -12256,26 +11774,21 @@ msgid "event"
 msgstr "подія"
 
 #: libraries/rte/rte_words.lib.php:68
-#, fuzzy
-#| msgid "You do not have the necessary privileges to create an event"
 msgid "You do not have the necessary privileges to create an event."
-msgstr "У вас немає необхідних прав щоб створити подію"
+msgstr "У вас немає необхідних прав для створення події."
 
 #: libraries/rte/rte_words.lib.php:70
-#, fuzzy, php-format
-#| msgid "No event with name %1$s found in database %2$s"
+#, php-format
 msgid "No event with name %1$s found in database %2$s."
-msgstr "У базі даних %2$s немає події з назвою %1$s"
+msgstr "Немає події з ім'ям %1$s в базі даних %2$s."
 
 #: libraries/rte/rte_words.lib.php:71
 msgid "There are no events to display."
 msgstr "Немає подій."
 
 #: libraries/select_server.lib.php:44 libraries/select_server.lib.php:49
-#, fuzzy
-#| msgid "Current server"
 msgid "Current server:"
-msgstr "Поточний сервер"
+msgstr "Поточний сервер:"
 
 #: libraries/server_common.lib.php:24
 msgid "Server variables and settings"
@@ -12452,16 +11965,12 @@ msgid "Allows executing stored routines."
 msgstr "Дозволяє виконання збережених процедур."
 
 #: libraries/server_privileges.lib.php:713
-#, fuzzy
-#| msgid "Persistent connections"
 msgid "Does not require SSL-encrypted connections."
-msgstr "Постійне з’єднання"
+msgstr "Не вимагає SSL-шифрованих з'єднань."
 
 #: libraries/server_privileges.lib.php:729
-#, fuzzy
-#| msgid "Persistent connections"
 msgid "Requires SSL-encrypted connections."
-msgstr "Постійне з’єднання"
+msgstr "Вимагає SSL-шифрованих з'єднань."
 
 #: libraries/server_privileges.lib.php:743
 msgid "Requires a valid X509 certificate."
@@ -12508,10 +12017,8 @@ msgstr "Обмежити кількість одночасних підключ�
 #: libraries/server_privileges.lib.php:3303
 #: libraries/server_privileges.lib.php:4512
 #: templates/privileges/edit_routine_privileges.phtml:11
-#, fuzzy
-#| msgid "Routines"
 msgid "Routine"
-msgstr "Процедури"
+msgstr "Процедура"
 
 #: libraries/server_privileges.lib.php:927
 msgid ""
@@ -12520,16 +12027,12 @@ msgid ""
 msgstr ""
 
 #: libraries/server_privileges.lib.php:934
-#, fuzzy
-#| msgid "Allows altering and dropping stored routines."
 msgid "Allows altering and dropping this routine."
-msgstr "Дозволяє зміну та видалення збережених процедур."
+msgstr "Дозволяє зміну та видалення цієї процедури."
 
 #: libraries/server_privileges.lib.php:939
-#, fuzzy
-#| msgid "Allows executing stored routines."
 msgid "Allows executing this routine."
-msgstr "Дозволяє виконання збережених процедур."
+msgstr "Дозволяє виконання цієї процедури."
 
 #: libraries/server_privileges.lib.php:989
 #: libraries/server_privileges.lib.php:1158
@@ -12591,10 +12094,8 @@ msgid "Native MySQL authentication"
 msgstr "Авторизація за допомогою cookie"
 
 #: libraries/server_privileges.lib.php:1455
-#, fuzzy
-#| msgid "Signon authentication"
 msgid "SHA256 password authentication"
-msgstr "Авторизація за допомогою Signon"
+msgstr "Аутентифікація на основі пароля SHA256"
 
 #: libraries/server_privileges.lib.php:1489
 #: libraries/server_privileges.lib.php:3058
@@ -12617,35 +12118,27 @@ msgstr ""
 "назвою хоста."
 
 #: libraries/server_privileges.lib.php:1547
-#, fuzzy
-#| msgid "User name:"
 msgid "Host name:"
-msgstr "Ім'я користувача:"
+msgstr "Ім'я хоста:"
 
 #: libraries/server_privileges.lib.php:1552
 #: libraries/server_privileges.lib.php:1637
 #: libraries/server_privileges.lib.php:2528
 #: libraries/server_privileges.lib.php:3489
-#, fuzzy
-#| msgid "Log name"
 msgid "Host name"
-msgstr "Назва журналу"
+msgstr "Ім'я хосту"
 
 #: libraries/server_privileges.lib.php:1660
 msgid "Do not change the password"
 msgstr "Не змінювати пароль"
 
 #: libraries/server_privileges.lib.php:1709
-#, fuzzy
-#| msgid "Authentication"
 msgid "Authentication Plugin"
-msgstr "Аутентифікація"
+msgstr "Плагін аутентифікації"
 
 #: libraries/server_privileges.lib.php:1716
-#, fuzzy
-#| msgid "Password Hashing:"
 msgid "Password Hashing Method"
-msgstr "Хешування паролю:"
+msgstr "Метод хешування паролю"
 
 #: libraries/server_privileges.lib.php:1995
 #, php-format
@@ -12659,16 +12152,12 @@ msgstr "Ви відмінили привілеї для %s."
 
 #: libraries/server_privileges.lib.php:2137
 #: templates/privileges/add_user_fieldset.phtml:7
-#, fuzzy
-#| msgid "Add user group"
 msgid "Add user account"
-msgstr "Додати групу користувачів"
+msgstr "Додати обліковий запис користувача"
 
 #: libraries/server_privileges.lib.php:2146
-#, fuzzy
-#| msgid "Database for user"
 msgid "Database for user account"
-msgstr "База даних для користувача"
+msgstr "База даних для облікового запису користувача"
 
 #: libraries/server_privileges.lib.php:2152
 msgid "Create database with same name and grant all privileges."
@@ -12680,10 +12169,9 @@ msgstr ""
 "Надати всі привілеї на те, що підпадає під шаблон (ім'я користувача\\_%)."
 
 #: libraries/server_privileges.lib.php:2176
-#, fuzzy, php-format
-#| msgid "Grant all privileges on database \"%s\"."
+#, php-format
 msgid "Grant all privileges on database %s."
-msgstr "Надати всі привілеї на базу даних \"%s\"."
+msgstr "Надати всі привілеї на базу даних %s."
 
 #: libraries/server_privileges.lib.php:2338
 #: libraries/server_privileges.lib.php:2409
@@ -12733,10 +12221,8 @@ msgid "table-specific"
 msgstr "специфічний для таблиці"
 
 #: libraries/server_privileges.lib.php:2788
-#, fuzzy
-#| msgid "Edit Privileges:"
 msgid "Edit privileges"
-msgstr "Редагувати привілеї:"
+msgstr "Редагувати привілеї"
 
 #: libraries/server_privileges.lib.php:2791
 msgid "Revoke"
@@ -12770,16 +12256,12 @@ msgstr ""
 "того."
 
 #: libraries/server_privileges.lib.php:3059
-#, fuzzy
-#| msgid "Change Login Information / Copy User"
 msgid "Change login information / Copy user account"
-msgstr "Змінити реєстраційні дані / Копіювати користувача"
+msgstr "Змінити реєстраційні дані / Копіювати обліковий запис користувача"
 
 #: libraries/server_privileges.lib.php:3065
-#, fuzzy
-#| msgid "Create a new user with the same privileges and …"
 msgid "Create a new user account with the same privileges and …"
-msgstr "Створити нового користувача з такими ж правами та …"
+msgstr "Створити новий обліковий запис користувача з такими ж привілеями та …"
 
 #: libraries/server_privileges.lib.php:3302
 #: templates/privileges/edit_routine_privileges.phtml:12
@@ -12838,16 +12320,12 @@ msgid "User"
 msgstr "Користувач"
 
 #: libraries/server_privileges.lib.php:4462
-#, fuzzy
-#| msgid "Edit Privileges:"
 msgid "Edit privileges:"
 msgstr "Редагувати привілеї:"
 
 #: libraries/server_privileges.lib.php:4463
-#, fuzzy
-#| msgid "User groups"
 msgid "User account"
-msgstr "Групи користувачів"
+msgstr "Обліковий запис користувача"
 
 #: libraries/server_privileges.lib.php:4537
 msgid ""
@@ -12856,10 +12334,8 @@ msgid ""
 msgstr ""
 
 #: libraries/server_privileges.lib.php:4557 libraries/server_users.lib.php:22
-#, fuzzy
-#| msgid "Users overview"
 msgid "User accounts overview"
-msgstr "Перегляд користувачів"
+msgstr "Огляд облікових записів користувача"
 
 #: libraries/server_privileges.lib.php:4626
 msgid ""
@@ -12955,10 +12431,8 @@ msgid "Sent"
 msgstr "Відправлено"
 
 #: libraries/server_status.lib.php:240
-#, fuzzy
-#| msgid "max. concurrent connections"
 msgid "Max. concurrent connections"
-msgstr "макс. кількість одночасних підключень"
+msgstr "Максимум одночасних підключень"
 
 #: libraries/server_status.lib.php:250
 msgid "Failed attempts"
@@ -13145,10 +12619,8 @@ msgid "Clear series"
 msgstr "Очистити серії"
 
 #: libraries/server_status_monitor.lib.php:229
-#, fuzzy
-#| msgid "Series in Chart:"
 msgid "Series in chart:"
-msgstr "Серії в графіку:"
+msgstr "Послідовність в графіку:"
 
 #: libraries/server_status_monitor.lib.php:250
 msgid "Start Monitor"
@@ -13192,16 +12664,12 @@ msgid "Reset to default"
 msgstr "Скинути до початкових значень"
 
 #: libraries/server_status_processes.lib.php:24
-#, fuzzy
-#| msgid ""
-#| "Note: Enabling the database statistics here might cause heavy traffic "
-#| "between the web server and the MySQL server."
 msgid ""
 "Note: Enabling the auto refresh here might cause heavy traffic between the "
 "web server and the MySQL server."
 msgstr ""
-"Примітка: Активізація збору статистики бази даних може спричинити значний "
-"трафік між веб сервером та сервером MySQL."
+"Примітка: Увімкнення автоматичного оновлення може спричинити великий трафік "
+"між веб-сервером та сервером MySQL."
 
 #: libraries/server_status_processes.lib.php:68
 msgid "ID"
@@ -13221,10 +12689,8 @@ msgid "Filters"
 msgstr "Фільтри"
 
 #: libraries/server_status_processes.lib.php:238
-#, fuzzy
-#| msgid "Show only alert values"
 msgid "Show only active"
-msgstr "Показати тільки оповіщення значень"
+msgstr "Показати тільки активні"
 
 #: libraries/server_status_queries.lib.php:30
 #, php-format
@@ -14086,8 +13552,8 @@ msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
 "Edit, Copy and Delete features are not available. %s"
 msgstr ""
-"Це виділення не містить унікальні стовпчики. Сітка редагування, прапорець, "
-"функції Редагувати, Копіювати та Видаляти недоступні."
+"Поточне виділення не містить унікального стовпця. Редагування сітки, "
+"прапорець, функції Редагувати, Копіювати та Видалити недоступні. %s"
 
 #: libraries/sql.lib.php:1753
 #, fuzzy, php-format
@@ -14117,10 +13583,9 @@ msgid "Run SQL query/queries on database %s"
 msgstr "Виконати SQL запит/запити у базі даних %s"
 
 #: libraries/sql_query_form.lib.php:177
-#, fuzzy, php-format
-#| msgid "Run SQL query/queries on database %s"
+#, php-format
 msgid "Run SQL query/queries on table %s"
-msgstr "Виконати SQL запит/запити у базі даних %s"
+msgstr "Виконати SQL запит(и) у базі даних %s"
 
 #: libraries/sql_query_form.lib.php:247 setup/frames/index.inc.php:260
 #: templates/console/display.phtml:10
@@ -14132,10 +13597,8 @@ msgid "Get auto-saved query"
 msgstr ""
 
 #: libraries/sql_query_form.lib.php:259
-#, fuzzy
-#| msgid "Bad parameters!"
 msgid "Bind parameters"
-msgstr "Помилкові параметри!"
+msgstr "Прив'язки параметрів"
 
 #: libraries/sql_query_form.lib.php:307
 msgid "Bookmark this SQL query:"
@@ -14171,10 +13634,9 @@ msgid "Create version %1$s of %2$s"
 msgstr "Створити версію %1$s із %2$s"
 
 #: libraries/tracking.lib.php:79
-#, fuzzy, php-format
-#| msgid "Create version"
+#, php-format
 msgid "Create version %1$s"
-msgstr "Створити версію"
+msgstr "Створити версію %1$s"
 
 #: libraries/tracking.lib.php:84
 msgid "Track these data definition statements:"
@@ -14219,10 +13681,8 @@ msgid "Updated"
 msgstr "Оновлено"
 
 #: libraries/tracking.lib.php:295 libraries/tracking.lib.php:362
-#, fuzzy
-#| msgid "Create version"
 msgid "Delete version"
-msgstr "Створити версію"
+msgstr "Видалити версію"
 
 #: libraries/tracking.lib.php:296 libraries/tracking.lib.php:468
 #: libraries/tracking.lib.php:1615
@@ -14352,10 +13812,9 @@ msgid "Tracking for %1$s was deactivated at version %2$s."
 msgstr "Відстеження за %1$s було деактивоване на версії %2$s."
 
 #: libraries/tracking.lib.php:1299
-#, fuzzy, php-format
-#| msgid "Create version %1$s of %2$s"
+#, php-format
 msgid "Version %1$s of %2$s was deleted."
-msgstr "Створити версію %1$s із %2$s"
+msgstr "Версія %1$s з %2$s була видалена."
 
 #: libraries/tracking.lib.php:1330
 #, php-format
@@ -14485,10 +13944,8 @@ msgstr ""
 "наприклад використовуючи %sSetup script%s."
 
 #: prefs_manage.php:331
-#, fuzzy
-#| msgid "Save as file"
 msgid "Save as PHP file"
-msgstr "Зберегти як файл"
+msgstr "Зберегти як PHP файл"
 
 #: prefs_manage.php:336
 msgid "Save to browser's storage"
@@ -14598,10 +14055,8 @@ msgstr ""
 "вище і видаліть каталог конфігурації."
 
 #: setup/frames/index.inc.php:101
-#, fuzzy
-#| msgid "Configuration saved."
 msgid "Configuration not saved!"
-msgstr "Конфігурація збережена."
+msgstr "Конфігурація не збережена!"
 
 #: setup/frames/index.inc.php:104
 msgid ""
@@ -14756,10 +14211,8 @@ msgid "Row: %1$s, Column: %2$s, Error: %3$s"
 msgstr ""
 
 #: tbl_row_action.php:72
-#, fuzzy
-#| msgid "No rows selected"
 msgid "No row selected."
-msgstr "Рядків не вибрано"
+msgstr "Рядок не вибраний."
 
 #: tbl_tracking.php:36
 #, php-format
@@ -14776,7 +14229,7 @@ msgstr "Обраних користувачів видалено вдало."
 #, fuzzy
 #| msgid "No rows selected"
 msgid "No versions selected."
-msgstr "Рядків не вибрано"
+msgstr "Немає вибраних  версій"
 
 #: tbl_tracking.php:141
 msgid "SQL statements executed."
@@ -14801,10 +14254,8 @@ msgid "Add"
 msgstr "Додати"
 
 #: templates/columns_definitions/column_definitions_form.phtml:66
-#, fuzzy
-#| msgid "Columns"
 msgid "column(s)"
-msgstr "Колонки"
+msgstr "стовпець(і)"
 
 #: templates/columns_definitions/column_definitions_form.phtml:93
 msgid "Collation:"
@@ -14815,10 +14266,8 @@ msgid "Storage Engine:"
 msgstr "Тип таблиць:"
 
 #: templates/columns_definitions/column_definitions_form.phtml:102
-#, fuzzy
-#| msgid "Connections"
 msgid "Connection:"
-msgstr "З'єднань"
+msgstr "З'єднання:"
 
 #: templates/columns_definitions/column_definitions_form.phtml:146
 msgid "PARTITION definition:"
@@ -14838,10 +14287,8 @@ msgid "Is a foreign key."
 msgstr "Є зовнішнім ключем."
 
 #: templates/columns_definitions/column_name.phtml:43
-#, fuzzy
-#| msgid "Remove chart"
 msgid "Pick from Central Columns"
-msgstr "Вилучити діаграму"
+msgstr "Вибрати з основних стовців"
 
 #: templates/columns_definitions/column_virtuality.phtml:46
 #: templates/table/structure/display_partitions.phtml:28
@@ -14874,47 +14321,37 @@ msgid "Expression or column list"
 msgstr "Значення для колонки %s"
 
 #: templates/columns_definitions/partitions.phtml:30
-#, fuzzy
-#| msgid "Partition %s"
 msgid "Partitions:"
-msgstr "Розділ %s"
+msgstr "Розділи:"
 
 #: templates/columns_definitions/partitions.phtml:38
 #, fuzzy
 #| msgid "partitioned"
 msgid "Subpartition by:"
-msgstr "розділений"
+msgstr "Підрозділ до:"
 
 #: templates/columns_definitions/partitions.phtml:59
-#, fuzzy
-#| msgid "partitioned"
 msgid "Subpartitions:"
-msgstr "розділений"
+msgstr "Підрозділи:"
 
 #: templates/columns_definitions/partitions.phtml:71
 #: templates/table/structure/display_partitions.phtml:26
-#, fuzzy
-#| msgid "Partition %s"
 msgid "Partition"
-msgstr "Розділ %s"
+msgstr "Розділ"
 
 #: templates/columns_definitions/partitions.phtml:73
-#, fuzzy
-#| msgid "Value"
 msgid "Values"
 msgstr "Значення"
 
 #: templates/columns_definitions/partitions.phtml:76
-#, fuzzy
-#| msgid "partitioned"
 msgid "Subpartition"
-msgstr "розділений"
+msgstr "Підрозділ"
 
 #: templates/columns_definitions/partitions.phtml:78
 #, fuzzy
 #| msgid "Engines"
 msgid "Engine"
-msgstr "Двигуни"
+msgstr "Двигун"
 
 #: templates/columns_definitions/partitions.phtml:80
 #, fuzzy
@@ -17266,21 +16703,15 @@ msgid "Too many connections are aborted."
 msgstr "Забагато перерваних з'єднань."
 
 #: libraries/advisory_rules.txt:385 libraries/advisory_rules.txt:392
-#, fuzzy
-#| msgid ""
-#| "Connections are usually aborted when they cannot be authorized. <a href="
-#| "\"https://www.mysqlperformanceblog.com/2008/08/23/how-to-track-down-the-"
-#| "source-of-aborted_connects/\">This article</a> might help you track down "
-#| "the source."
 msgid ""
 "Connections are usually aborted when they cannot be authorized. <a href="
 "\"https://www.percona.com/blog/2008/08/23/how-to-track-down-the-source-of-"
 "aborted_connects/\">This article</a> might help you track down the source."
 msgstr ""
-"Підключення, зазвичай, перериваються, коли вони не можуть бути авторизовані. "
-"<a href=\"https://www.mysqlperformanceblog.com/2008/08/23/how-to-track-down-"
-"the-source-of-aborted_connects/\">Ця стаття</a> може допомогти відслідкувати "
-"джерело проблеми."
+"Підключення, зазвичай, переривається, коли не вдалося здійснити авторизацію.<"
+"a href=\"https://www.percona.com/blog/2008/08/23/how-to-track-down-the-"
+"source-of-aborted_connects/\">Дана стаття</a> може допомогти вам "
+"відслідковувати джерело проблеми."
 
 #: libraries/advisory_rules.txt:386
 #, php-format
