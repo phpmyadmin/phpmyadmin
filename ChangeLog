@@ -91,6 +91,7 @@ phpMyAdmin - ChangeLog
 - issue #13020 Removed warning about client and server versions mismatch
 - issue        Hide comments on table Structure tab when no comment is set
 - issue        Fixed submission of error reports
+- issue #13033 Use Referrer-Policy header to specify referrer policy
 
 4.6.6 (2017-01-23)
 - issue #12759 Fix Notice regarding 'Undefined index: old_usergroup'
