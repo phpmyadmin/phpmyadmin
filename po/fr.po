@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-02-22 08:56+0100\n"
-"PO-Revision-Date: 2017-03-01 07:52+0000\n"
+"PO-Revision-Date: 2017-03-01 20:26+0000\n"
 "Last-Translator: tmtisfree <tmtisfree@free.fr>\n"
 "Language-Team: French "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-7/fr/>\n"
@@ -13906,7 +13906,7 @@ msgstr "Rapport de suivi"
 #: libraries/tracking.lib.php:299 libraries/tracking.lib.php:834
 #: libraries/tracking.lib.php:1618
 msgid "Structure snapshot"
-msgstr "Instantané"
+msgstr "Instantané de structure"
 
 #: libraries/tracking.lib.php:428 libraries/tracking.lib.php:1427
 #: libraries/tracking.lib.php:1719
@@ -13916,7 +13916,7 @@ msgstr "actif"
 #: libraries/tracking.lib.php:430 libraries/tracking.lib.php:1429
 #: libraries/tracking.lib.php:1714
 msgid "not active"
-msgstr "non activé"
+msgstr "non actif"
 
 #: libraries/tracking.lib.php:472
 msgid "Tracking statements"
@@ -13937,7 +13937,7 @@ msgstr "Afficher %1$s depuis le %2$s jusqu'au %3$s par l'utilisateur %4$s %5$s"
 
 #: libraries/tracking.lib.php:657
 msgid "SQL dump (file download)"
-msgstr "Déchargement SQL (télécharger)"
+msgstr "Déchargement SQL (téléchargement)"
 
 #: libraries/tracking.lib.php:659
 msgid "SQL dump"
@@ -13945,7 +13945,7 @@ msgstr "Déchargement SQL"
 
 #: libraries/tracking.lib.php:662
 msgid "This option will replace your table and contained data."
-msgstr "Cette option remplacera votre table et son contenu."
+msgstr "Cette option remplacera cette table et son contenu."
 
 #: libraries/tracking.lib.php:664
 msgid "SQL execution"
@@ -13996,7 +13996,7 @@ msgid ""
 "You can execute the dump by creating and using a temporary database. Please "
 "ensure that you have the privileges to do so."
 msgstr ""
-"Il est possible d'exécuter ce déchargement en créant une base de données "
+"Il est possible d'exécuter le déchargement en créant une base de données "
 "temporaire. Merci de s'assurer d'avoir les privilèges appropriés pour cette "
 "opération."
 
@@ -14012,7 +14012,7 @@ msgstr ""
 #: libraries/tracking.lib.php:1174
 #, php-format
 msgid "Tracking report for table `%s`"
-msgstr "Rapport de suivi pour la table `%s`"
+msgstr "Rapport de suivi pour la table « %s »"
 
 #: libraries/tracking.lib.php:1204
 #, php-format
@@ -14074,7 +14074,7 @@ msgid ""
 "permanently requires %sphpMyAdmin configuration storage%s."
 msgstr ""
 "Les préférences seront sauvegardées pour la session courante seulement. Un "
-"stockage permanent requiert l'installation de  %sstockage de configurations "
+"stockage permanent requiert l'installation de %sstockage de configurations "
 "phpMyAdmin%s."
 
 #: libraries/user_preferences.lib.php:134
@@ -14136,7 +14136,7 @@ msgstr "Importer depuis le stockage du navigateur"
 #: prefs_manage.php:265
 msgid "Settings will be imported from your browser's local storage."
 msgstr ""
-"Les paramètres seront importés depuis le stockage local de votre navigateur."
+"Les paramètres seront importés depuis le stockage local de ce navigateur."
 
 #: prefs_manage.php:271
 msgid "You have no saved settings!"
@@ -14144,7 +14144,7 @@ msgstr "Il n'y a aucun paramètre enregistré !"
 
 #: prefs_manage.php:276 prefs_manage.php:360
 msgid "This feature is not supported by your web browser"
-msgstr "Cette fonction n'est pas supportée par votre navigateur"
+msgstr "Cette fonction n'est pas prise en charge par ce navigateur"
 
 #: prefs_manage.php:282
 msgid "Merge with current configuration"
@@ -14170,8 +14170,7 @@ msgstr "Sauvegarder dans l'espace de stockage du navigateur"
 #: prefs_manage.php:343
 msgid "Settings will be saved in your browser's local storage."
 msgstr ""
-"Les paramètres seront sauvegardés dans l'espace de stockage de votre "
-"navigateur."
+"Les paramètres seront sauvegardés dans l'espace de stockage de ce navigateur."
 
 #: prefs_manage.php:351
 msgid "Existing settings will be overwritten!"
@@ -14234,24 +14233,24 @@ msgstr "Télécharger"
 #: setup/frames/form.inc.php:25
 msgid "Incorrect formset, check $formsets array in setup/frames/form.inc.php!"
 msgstr ""
-"Jeu de formulaires incorrect, vérifiez le tableau $formsets dans setup/"
-"frames/form.inc.php !"
+"Jeu de formulaires incorrect, vérifier le tableau $formsets dans "
+"setup/frames/form.inc.php !"
 
 #: setup/frames/index.inc.php:53
 msgid ""
 "You are not using a secure connection; all data (including potentially "
 "sensitive information, like passwords) is transferred unencrypted!"
 msgstr ""
-"Votre connexion n'est pas sécurisée; toutes les données sont transférées non-"
-"encryptées !"
+"Cette connexion n'est pas sécurisée ; toutes les données (sensibles comme "
+"les mots de passe) sont transférées non chiffrées !"
 
 #: setup/frames/index.inc.php:58
 msgid ""
 "If your server is also configured to accept HTTPS requests follow this link "
 "to use a secure connection."
 msgstr ""
-"Si votre serveur accepte les requêtes HTTPS, visitez ce lien pour utiliser "
-"une connexion sécurisée."
+"Si le serveur accepte les requêtes HTTPS, suivre ce lien pour utiliser une "
+"connexion sécurisée."
 
 #: setup/frames/index.inc.php:62
 msgid "Insecure connection"
@@ -14266,8 +14265,8 @@ msgid ""
 "Configuration saved to file config/config.inc.php in phpMyAdmin top level "
 "directory, copy it to top level one and delete directory config to use it."
 msgstr ""
-"La configuration a été sauvegardée dans le fichier config/config.inc.php, "
-"copiez ce fichier au répertoire racine de phpMyAdmin et effacez le "
+"La configuration a été sauvegardée dans le fichier config/config.inc.php. "
+"Copier ce fichier dans le répertoire racine de phpMyAdmin et effacer le "
 "répertoire config afin de rendre ce fichier de configuration effectif."
 
 #: setup/frames/index.inc.php:101
@@ -14326,7 +14325,7 @@ msgstr "Afficher"
 
 #: setup/frames/index.inc.php:270
 msgid "phpMyAdmin homepage"
-msgstr "Site de phpMyAdmin"
+msgstr "Page d'accueil de phpMyAdmin"
 
 #: setup/frames/index.inc.php:272
 msgid "Donate"
@@ -14334,7 +14333,7 @@ msgstr "Faire un don"
 
 #: setup/frames/servers.inc.php:32
 msgid "Edit server"
-msgstr "Modifier serveur"
+msgstr "Éditer le serveur"
 
 #: setup/frames/servers.inc.php:42
 msgid "Add a new server"
@@ -14373,7 +14372,9 @@ msgstr "Afficher le formulaire"
 msgid ""
 "Reading of version failed. Maybe you're offline or the upgrade server does "
 "not respond."
-msgstr "Échec lors de la vérification de version."
+msgstr ""
+"Échec lors de la vérification de version. Peut-être hors ligne ou le serveur "
+"de mise à jour ne répond pas."
 
 #: setup/lib/index.lib.php:140
 msgid "Got invalid version string from server"
@@ -14408,7 +14409,7 @@ msgstr "Données erronées ou aucune validation pour %s"
 #: tbl_create.php:32 tbl_get_field.php:26
 #, php-format
 msgid "'%s' database does not exist."
-msgstr "La base de données «%s» n'existe pas."
+msgstr "La base de données « %s » n'existe pas."
 
 #: tbl_create.php:42
 #, php-format
@@ -14489,7 +14490,7 @@ msgstr "Définition de PARTITION : "
 
 #: templates/columns_definitions/column_length.phtml:9
 msgid "Edit ENUM/SET values"
-msgstr "Modifier les valeurs ENUM/SET"
+msgstr "Éditer les valeurs ENUM/SET"
 
 #: templates/columns_definitions/column_name.phtml:6
 #, php-format
@@ -14502,7 +14503,7 @@ msgstr "Est une clé étrangère."
 
 #: templates/columns_definitions/column_name.phtml:43
 msgid "Pick from Central Columns"
-msgstr "Choisissez à partir des colonnes centrales"
+msgstr "Choisir à partir des colonnes centrales"
 
 #: templates/columns_definitions/column_virtuality.phtml:46
 #: templates/table/structure/display_partitions.phtml:28
@@ -14579,7 +14580,7 @@ msgstr "Espace de table"
 
 #: templates/columns_definitions/partitions.phtml:85
 msgid "Node group"
-msgstr "Groupe de noeuds"
+msgstr "Groupe de nœuds"
 
 #: templates/columns_definitions/table_fields_definitions.phtml:16
 msgid ""
@@ -14588,18 +14589,18 @@ msgid ""
 "single quote (\"'\") amongst those values, precede it with a backslash (for "
 "example '\\\\xyz' or 'a\\'b')."
 msgstr ""
-"Les différentes valeurs des colonnes de type enum/set sont à spécifier sous "
-"la forme 'a','b','c'…<br />Pour utiliser un antislash(\"\\\") ou une "
-"apostrophe (\"'\") dans l'une de ces valeurs, faites-le précéder d'un "
-"antislash (par exemple '\\\\xyz' ou 'a\\'b')."
+"Les différentes valeurs des colonnes de type « enum » ou « set » sont à "
+"spécifier sous la forme 'a','b','c'…<br />Pour utiliser une barre oblique (« "
+"\\ ») ou une apostrophe (« ' ») dans l'une de ces valeurs, la faire précéder "
+"d'une barre oblique (par exemple « \\\\xyz » ou « a\\'b »)."
 
 #: templates/columns_definitions/table_fields_definitions.phtml:27
 msgid ""
 "For default values, please enter just a single value, without backslash "
 "escaping or quotes, using this format: a"
 msgstr ""
-"Pour les valeurs par défaut, veuillez ne saisir qu'une seule valeur, sans "
-"caractère d'échappement ou apostrophes, sous la forme: a"
+"Pour les valeurs par défaut, merci de ne saisir qu'une seule valeur, sans "
+"caractère d'échappement ou apostrophes, sous la forme : a"
 
 #: templates/columns_definitions/table_fields_definitions.phtml:70
 msgid "Virtuality"
@@ -14632,9 +14633,9 @@ msgid ""
 "'\\\\xyz' or 'a\\'b')."
 msgstr ""
 "Merci de saisir les valeurs des options de transformation en suivant ce "
-"format : 'a', 100, b,'c'…<br />S'il faut saisir un caractère (« \\ ») ou une "
-"apostrophe (« ' ») parmi ces valeurs, le faire précéder du caractère "
-"d'échappement (par exemple '\\\\xyz' or 'a\\'b')."
+"format : 'a', 100, b,'c'…<br />S'il faut saisir une barre oblique (« \\ ») "
+"ou une apostrophe (« ' ») parmi ces valeurs, la faire précéder du caractère "
+"d'échappement (par exemple « \\\\xyz » or « a\\'b »)."
 
 #: templates/columns_definitions/table_fields_definitions.phtml:107
 #: transformation_overview.php:43
@@ -14676,11 +14677,11 @@ msgstr "Signets"
 
 #: templates/console/display.phtml:26
 msgid "Press Ctrl+Enter to execute query"
-msgstr "Faites Ctrl+Entrée pour exécuter la requête"
+msgstr "Faire Ctrl+Entrée pour exécuter la requête"
 
 #: templates/console/display.phtml:29
 msgid "Press Enter to execute query"
-msgstr "Faites Entrée pour exécuter la requête"
+msgstr "Faire Entrée pour exécuter la requête"
 
 #: templates/console/display.phtml:39
 msgid "During current session"
@@ -14741,11 +14742,11 @@ msgstr "Dissocier les groupes"
 
 #: templates/console/display.phtml:107
 msgid "Show trace"
-msgstr "Afficher la trace"
+msgstr "Afficher le suivi"
 
 #: templates/console/display.phtml:108
 msgid "Hide trace"
-msgstr "Cacher l'itinéraire d'appel"
+msgstr "Masquer le suivi"
 
 #: templates/console/display.phtml:141
 msgid "Add bookmark"
@@ -14765,7 +14766,7 @@ msgstr "Partager ce signet"
 
 #: templates/console/display.phtml:174
 msgid "Set default"
-msgstr "Mettre par défaut"
+msgstr "Définir par défaut"
 
 #: templates/console/display.phtml:181
 msgid "Always expand query messages"
@@ -14773,7 +14774,7 @@ msgstr "Toujours développer les messages"
 
 #: templates/console/display.phtml:185
 msgid "Show query history at start"
-msgstr "Afficher l'historique des requêtes au début"
+msgstr "Afficher l'historique des requêtes au démarrage"
 
 #: templates/console/display.phtml:189
 msgid "Show current browsing query"
@@ -14784,7 +14785,7 @@ msgid ""
 "Execute queries on Enter and insert new line with Shift + Enter. To make "
 "this permanent, view settings."
 msgstr ""
-"Exécuter les requêtes avec Entrée et insérer une nouvelle ligne avec Maj + "
+"Exécuter les requêtes avec Entrée et insérer une nouvelle ligne avec Maj+"
 "Entrée. Ce choix peut être rendu permanent via les paramètres."
 
 #: templates/console/display.phtml:198
@@ -14873,11 +14874,11 @@ msgstr "Nouveau nom"
 
 #: templates/database/designer/page_save_as.phtml:4
 msgid "Save to selected page"
-msgstr "Sauvegarder vers la page sélectionnée"
+msgstr "Enregistrer vers la page sélectionnée"
 
 #: templates/database/designer/page_save_as.phtml:5
 msgid "Create a page and save to it"
-msgstr "Créer une page et sauvegarder"
+msgstr "Créer une page et l'enregistrer"
 
 #: templates/database/designer/page_save_as.phtml:26
 msgid "New page name"
@@ -14885,7 +14886,7 @@ msgstr "Nom de la nouvelle page"
 
 #: templates/database/designer/page_selector.phtml:2
 msgid "Select page"
-msgstr "Choisissez la page"
+msgstr "Sélectionner la page"
 
 #: templates/database/designer/query_details.phtml:10
 msgid "Active options"
@@ -14893,7 +14894,7 @@ msgstr "Options actives"
 
 #: templates/database/designer/schema_export.phtml:4
 msgid "Select Export Relational Type"
-msgstr "Choisissez le type d'exportation des relations"
+msgstr "Sélectionner le type d'exportation des relations"
 
 #: templates/database/designer/side_menu.phtml:19
 #: templates/database/designer/side_menu.phtml:25
@@ -14948,12 +14949,12 @@ msgstr "Accrocher à la grille"
 #: templates/database/designer/side_menu.phtml:128
 #: templates/database/designer/side_menu.phtml:134
 msgid "Small/Big All"
-msgstr "Agrandir/réduire tout"
+msgstr "Agrandir/Réduire tout"
 
 #: templates/database/designer/side_menu.phtml:138
 #: templates/database/designer/side_menu.phtml:141
 msgid "Toggle small/big"
-msgstr "Bascule agrandir/réduire"
+msgstr "Commuter entre agrandir/réduire"
 
 #: templates/database/designer/side_menu.phtml:145
 #: templates/database/designer/side_menu.phtml:148
@@ -15029,7 +15030,7 @@ msgstr "Remplacer le préfixe de table"
 
 #: templates/database/structure/check_all_tables.phtml:35
 msgid "Add columns to central list"
-msgstr "Ajoute les colonnes à la liste centrale"
+msgstr "Ajouter les colonnes à la liste centrale"
 
 #: templates/database/structure/check_all_tables.phtml:36
 msgid "Remove columns from central list"
@@ -15060,7 +15061,7 @@ msgid ""
 "May be approximate. Click on the number to get the exact count. See "
 "[doc@faq3-11]FAQ 3.11[/doc]."
 msgstr ""
-"Peut être approximatif. Cliquez sur le nombre pour obtenir le compte exact. "
+"Peut être approximatif. Cliquer sur le nombre pour obtenir le compte exact. "
 "Voir [doc@faq3-11]FAQ 3.11[/doc]."
 
 #: templates/database/structure/table_header.phtml:66
@@ -15099,7 +15100,7 @@ msgid ""
 msgstr ""
 "Ce rapport inclut des données sur l'erreur, ainsi que des informations sur "
 "les paramètres de configuration pertinents. Il va être transmis à l'équipe "
-"phpMyAdmin pour nous aider à déboguer le problème."
+"phpMyAdmin pour l'aider à déboguer le problème."
 
 #: templates/error/report_form.phtml:14
 msgid ""
@@ -15118,7 +15119,7 @@ msgid ""
 "Your browser has phpMyAdmin configuration for this domain. Would you like to "
 "import it for current session?"
 msgstr ""
-"Le navigateur contient une configuration phpMyAdmin pour ce domaine. Faut-il "
+"Ce navigateur contient une configuration phpMyAdmin pour ce domaine. Faut-il "
 "l'importer dans la session courante ?"
 
 #: templates/prefs_autoload.phtml:14
@@ -15154,12 +15155,12 @@ msgstr "Aucun"
 
 #: templates/privileges/delete_user_fieldset.phtml:3
 msgid "Remove selected user accounts"
-msgstr "Effacer les comptes utilisateurs sélectionnés"
+msgstr "Retirer les comptes utilisateurs sélectionnés"
 
 #: templates/privileges/delete_user_fieldset.phtml:6
 msgid "Revoke all active privileges from the users and delete them afterwards."
 msgstr ""
-"Effacer tous les privilèges de ces utilisateurs, puis effacer les "
+"Révoquer tous les privilèges de ces utilisateurs, puis effacer les "
 "utilisateurs"
 
 #: templates/privileges/delete_user_fieldset.phtml:8
@@ -15178,11 +15179,11 @@ msgstr "Limites de ressources"
 
 #: templates/privileges/resource_limits.phtml:5
 msgid "Note: Setting these options to 0 (zero) removes the limit."
-msgstr "Note: Une valeur de 0 (zero) enlève la limite."
+msgstr "NB : une valeur de 0 (zéro) lève la limite."
 
 #: templates/server/binlog/log_selector.phtml:5
 msgid "Select binary log to view"
-msgstr "Sélectionnez le log binaire à consulter"
+msgstr "Sélectionner le journal binaire à consulter"
 
 #: templates/server/databases/create.phtml:7
 #: templates/server/databases/create.phtml:27
@@ -15196,7 +15197,7 @@ msgstr "Aller à la base de données"
 #: templates/server/databases/table_row.phtml:61
 #, php-format
 msgid "Check privileges for database \"%s\"."
-msgstr "Vérifier les privilèges pour la base de données \"%s\"."
+msgstr "Vérifier les privilèges pour la base de données « %s »."
 
 #: templates/server/databases/table_row.phtml:62
 msgid "Check privileges"
@@ -15249,22 +15250,22 @@ msgstr "Ligne"
 #: templates/table/chart/tbl_chart.phtml:28
 msgctxt "Chart type"
 msgid "Spline"
-msgstr "Spline"
+msgstr "Courbe"
 
 #: templates/table/chart/tbl_chart.phtml:32
 msgctxt "Chart type"
 msgid "Area"
-msgstr "En aires"
+msgstr "Aire"
 
 #: templates/table/chart/tbl_chart.phtml:36
 msgctxt "Chart type"
 msgid "Pie"
-msgstr "Tarte"
+msgstr "Camembert"
 
 #: templates/table/chart/tbl_chart.phtml:40
 msgctxt "Chart type"
 msgid "Timeline"
-msgstr "Moment"
+msgstr "Chronologie"
 
 #: templates/table/chart/tbl_chart.phtml:44
 msgctxt "Chart type"
@@ -15273,7 +15274,7 @@ msgstr "Nuage de points"
 
 #: templates/table/chart/tbl_chart.phtml:49
 msgid "Stacked"
-msgstr "En piles"
+msgstr "Empilés"
 
 #: templates/table/chart/tbl_chart.phtml:52
 msgid "Chart title:"
@@ -15309,7 +15310,7 @@ msgstr "Les noms de la série sont dans une colonne"
 
 #: templates/table/chart/tbl_chart.phtml:119
 msgid "Series column:"
-msgstr "Colonne pour la série :"
+msgstr "Colonne pour les séries :"
 
 #: templates/table/chart/tbl_chart.phtml:133
 msgid "Value Column:"
@@ -15343,7 +15344,8 @@ msgstr "Nom de l'index : "
 msgid ""
 "\"PRIMARY\" <b>must</b> be the name of and <b>only of</b> a primary key!"
 msgstr ""
-"«PRIMARY» <b>doit et ne peut être</b> <b>que</b> le nom d'une clé primaire !"
+"« PRIMARY » <b>doit et ne peut être</b> <b>que</b> le nom d'une clé primaire "
+"!"
 
 #: templates/table/index_form.phtml:40
 msgid "Index choice:"
@@ -15425,7 +15427,7 @@ msgstr ""
 
 #: templates/table/relation/common_form.phtml:115
 msgid "Choose column to display:"
-msgstr "Colonne descriptive : "
+msgstr "Choisir la colonne à afficher :"
 
 #: templates/table/relation/foreign_key_row.phtml:19
 #, php-format
@@ -15442,11 +15444,11 @@ msgstr "+ Ajouter une colonne"
 
 #: templates/table/search/options.phtml:8
 msgid "Select columns (at least one):"
-msgstr "Choisir les colonnes (au moins une) : "
+msgstr "Sélectionner les colonnes (au moins une) :"
 
 #: templates/table/search/options.phtml:37
 msgid "Add search conditions (body of the \"where\" clause):"
-msgstr "Critères de recherche (pour l'énoncé «where») : "
+msgstr "Critères de recherche (pour l'énoncé « where ») :"
 
 #: templates/table/search/options.phtml:45
 msgid "Number of rows per page"
@@ -15504,7 +15506,7 @@ msgstr "Rechercher « par valeur » (passe-partout : « % »)"
 
 #: templates/table/search/zoom_result_form.phtml:7
 msgid "Browse/Edit the points"
-msgstr "Afficher/Modifier les points"
+msgstr "Parcourir/Éditer les points"
 
 #: templates/table/search/zoom_result_form.phtml:15
 msgid "How to use"
@@ -15582,11 +15584,11 @@ msgstr "Partitionner la table"
 #: templates/table/structure/display_partitions.phtml:137
 #: templates/table/structure/partition_definition_form.phtml:7
 msgid "Edit partitioning"
-msgstr "Modifier le partitionnement"
+msgstr "Éditer le partitionnement"
 
 #: templates/table/structure/display_structure.phtml:129 view_create.php:206
 msgid "Edit view"
-msgstr "Modifier la vue"
+msgstr "Éditer la vue"
 
 #: templates/table/structure/display_table_stats.phtml:11
 msgid "Space usage"
@@ -15603,7 +15605,7 @@ msgstr "Déplacer des colonnes"
 
 #: templates/table/structure/move_columns_dialog.phtml:2
 msgid "Move the columns by dragging them up and down."
-msgstr "Déplacez les colonnes en les faisant glisser vers le haut ou le bas."
+msgstr "Déplacer les colonnes en les faisant glisser vers le haut ou le bas."
 
 #: templates/table/structure/optional_action_links.phtml:14
 msgid "Propose table structure"
@@ -15648,11 +15650,11 @@ msgstr "Prochain index automatique"
 #: templates/table/structure/table_structure_row.phtml:51
 #, php-format
 msgid "Column %s has been dropped."
-msgstr "La colonne %s a été effacée."
+msgstr "La colonne %s a été supprimée."
 
 #: templates/toggle_button.phtml:4
 msgid "Click to toggle"
-msgstr "Cliquer pour basculer"
+msgstr "Cliquer pour commuter"
 
 #: themes.php:20 themes.php:25
 msgid "Theme"
@@ -15660,7 +15662,7 @@ msgstr "Thème"
 
 #: themes.php:28
 msgid "Get more themes!"
-msgstr "Obtenez d'autres thèmes !"
+msgstr "Obtenir d'autres thèmes !"
 
 #: transformation_overview.php:23
 msgid "Available MIME types"
@@ -15709,7 +15711,7 @@ msgstr "Noms de colonnes"
 
 #: view_operations.php:111
 msgid "Rename view to"
-msgstr "Changer le nom de la vue pour"
+msgstr "Renommer la vue en"
 
 #: view_operations.php:150
 msgid "Delete the view (DROP)"
@@ -15755,7 +15757,7 @@ msgid ""
 "Let the server run for a longer time until it has executed a greater amount "
 "of queries."
 msgstr ""
-"Laissez le serveur fonctionner plus longtemps jusqu'à ce qu'il ait traité un "
+"Laisser le serveur fonctionner plus longtemps jusqu'à ce qu'il ait traité un "
 "plus grand nombre de requêtes."
 
 #: libraries/advisory_rules.txt:61
@@ -15779,8 +15781,8 @@ msgid ""
 "You might want to increase {long_query_time} or optimize the queries listed "
 "in the slow query log"
 msgstr ""
-"Veuillez augmenter la valeur du paramètre {long_query_time} ou optimiser les "
-"requêtes qui apparaissent dans le journal de requêtes lentes"
+"Il faudrait augmenter la valeur du paramètre {long_query_time} ou optimiser "
+"les requêtes qui apparaissent dans le journal de requêtes lentes"
 
 #: libraries/advisory_rules.txt:68
 #, php-format
@@ -15818,7 +15820,8 @@ msgid ""
 "take above 10 seconds are logged."
 msgstr ""
 "La valeur du paramètre {long_query_time} est de 10 secondes ou plus, donc "
-"seules les requêtes lentes prenant plus de 10 secondes sont mises au journal."
+"seules les requêtes lentes prenant plus de 10 secondes sont inscrites au "
+"journal."
 
 #: libraries/advisory_rules.txt:81
 msgid ""
@@ -15826,45 +15829,46 @@ msgid ""
 "environment. Usually a value of 1-5 seconds is suggested."
 msgstr ""
 "Il est suggéré de donner à {long_query_time} une plus petite valeur, selon "
-"votre environnement. Habituellement une valeur entre 1 et 5 secondes fait "
+"l'environnement. Habituellement une valeur entre 1 et 5 secondes fait "
 "l'affaire."
 
 #: libraries/advisory_rules.txt:82
 #, php-format
 msgid "long_query_time is currently set to %ds."
-msgstr "long_query_time est actuellement  %d seconde(s)."
+msgstr "long_query_time est actuellement défini à %d seconde(s)."
 
 #: libraries/advisory_rules.txt:84 libraries/advisory_rules.txt:91
 msgid "Slow query logging"
-msgstr "Journalisation des requêtes longues"
+msgstr "Journalisation des requêtes lentes"
 
 #: libraries/advisory_rules.txt:87 libraries/advisory_rules.txt:94
 msgid "The slow query log is disabled."
-msgstr "Le journal des requêtes longues est désactivé."
+msgstr "Le journal des requêtes lentes est désactivé."
 
 #: libraries/advisory_rules.txt:88
 msgid ""
 "Enable slow query logging by setting {log_slow_queries} to 'ON'. This will "
 "help troubleshooting badly performing queries."
 msgstr ""
-"Activer la journalisation des requêtes longues en réglant {log_slow_queries} "
-"à « ON ». Ceci aidera à dépanner les problèmes de lenteur de requêtes."
+"Activer la journalisation des requêtes lentes en réglant {log_slow_queries} "
+"à « Activé » (ON). Ceci aidera à dépanner les problèmes de lenteur de "
+"requêtes."
 
 #: libraries/advisory_rules.txt:89
 msgid "log_slow_queries is set to 'OFF'"
-msgstr "log_slow_queries a une valeur de 'OFF'"
+msgstr "log_slow_queries a une valeur définie à « Désactivé » (OFF)"
 
 #: libraries/advisory_rules.txt:95
 msgid ""
 "Enable slow query logging by setting {slow_query_log} to 'ON'. This will "
 "help troubleshooting badly performing queries."
 msgstr ""
-"Activer la journalisation des requêtes longues en réglant {slow_query_log} à "
-"« ON ». Ceci aidera à dépanner les problèmes de lenteur de requêtes."
+"Activer la journalisation des requêtes lentes en réglant {slow_query_log} à «"
+" Activé » (ON). Ceci aidera à dépanner les problèmes de lenteur de requêtes."
 
 #: libraries/advisory_rules.txt:96
 msgid "slow_query_log is set to 'OFF'"
-msgstr "slow_query_log a la valeur 'OFF'"
+msgstr "slow_query_log est défini à la valeur « Désactivé » (OFF)"
 
 #: libraries/advisory_rules.txt:100
 msgid "Release Series"
@@ -15880,7 +15884,7 @@ msgid ""
 "even more so."
 msgstr ""
 "Il faudrait mettre à jour, puisque MySQL 5.1 a une meilleure performance et "
-"MySQL 5.5 est encore meilleur."
+"MySQL 5.5 est encore meilleure."
 
 #: libraries/advisory_rules.txt:105 libraries/advisory_rules.txt:112
 #: libraries/advisory_rules.txt:119
@@ -15903,7 +15907,7 @@ msgid ""
 "performance and MySQL 5.5 even more so."
 msgstr ""
 "Il faudrait mettre à jour, puisque les versions récentes MySQL 5.1 ont une "
-"meilleure performance et MySQL 5.5 est encore meilleur."
+"meilleure performance et MySQL 5.5 est encore meilleure."
 
 #: libraries/advisory_rules.txt:117
 msgid "Version less than 5.5.8 (the first GA release of 5.5)."
@@ -15929,13 +15933,13 @@ msgid ""
 "distribution. The MySQL manual only is accurate for official MySQL binaries, "
 "not any package distributions (such as RedHat, Debian/Ubuntu etc)."
 msgstr ""
-"Si non compilé à partir de la source, un paquet provenant d'un distributeur "
-"tiers est  peut-être utilisé. Le manuel MySQL n'est précis que pour les "
-"versions compilées officielles de MySQL."
+"S'il n'est pas compilé à partir de la source, un paquet provenant d'un "
+"distributeur tiers est peut-être utilisé. Le manuel MySQL n'est précis que "
+"pour les versions compilées officielles de MySQL."
 
 #: libraries/advisory_rules.txt:126
 msgid "'source' found in version_comment"
-msgstr "Le mot «source» a été trouvé dans version_comment"
+msgstr "Le mot « source » a été trouvé dans version_comment"
 
 #: libraries/advisory_rules.txt:131
 msgid "The MySQL manual only is accurate for official MySQL binaries."
@@ -15954,7 +15958,7 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:133
 msgid "'percona' found in version_comment"
-msgstr "Le mot «percona» a été trouvé dans version_comment"
+msgstr "Le mot « percona » a été trouvé dans version_comment"
 
 #: libraries/advisory_rules.txt:135
 msgid "MySQL Architecture"
@@ -15970,9 +15974,9 @@ msgid ""
 "so MySQL might not be able to access all of your memory. You might want to "
 "consider installing the 64-bit version of MySQL."
 msgstr ""
-"Votre serveur a plus de 3 GiB de mémoire (assumant que le serveur tourne sur "
-"localhost), donc MySQL ne peut utliser toute la mémoire. Il est suggéré "
-"d'installer une version 64-bits de MySQL."
+"Le serveur a plus de 3 GiB de mémoire (en supposant que le serveur tourne "
+"sur localhost), donc MySQL ne peut utiliser toute la mémoire. Il est suggéré "
+"d'installer une version 64 bits de MySQL."
 
 #: libraries/advisory_rules.txt:140
 #, php-format
@@ -15981,11 +15985,11 @@ msgstr "Mémoire disponible sur cet hôte : %s"
 
 #: libraries/advisory_rules.txt:146
 msgid "Query cache disabled"
-msgstr "Cache des requêtes désactivée"
+msgstr "Cache des requêtes désactivé"
 
 #: libraries/advisory_rules.txt:149
 msgid "The query cache is not enabled."
-msgstr "La cache des requêtes est désactivée."
+msgstr "Le cache des requêtes est désactivé."
 
 #: libraries/advisory_rules.txt:150
 msgid ""
@@ -15996,12 +16000,14 @@ msgid ""
 msgstr ""
 "Le cache des requêtes améliore la performance lorsque correctement "
 "configuré. L'activer en réglant {query_cache_size} à une valeur de plus de 9 "
-"Mio et {query_cache_type} à « ON ». <b>NB :</b> si memcached, est utilisé, "
-"ignorer cet avis."
+"Mio et {query_cache_type} à « Activé » (ON). <b>NB :</b> si memcached, est "
+"utilisé, ignorer cet avis."
 
 #: libraries/advisory_rules.txt:151
 msgid "query_cache_size is set to 0 or query_cache_type is set to 'OFF'"
-msgstr "query_cache_size a une valeur de 0 ou query_cache_type est à 'OFF'"
+msgstr ""
+"query_cache_size a une valeur de 0 ou query_cache_type est à défini à « "
+"Désactivé » (OFF)"
 
 #: libraries/advisory_rules.txt:153
 msgid "Query caching method"
@@ -16029,19 +16035,19 @@ msgid ""
 "The query cache is enabled and the server receives %d queries per second. "
 "This rule fires if there is more than 100 queries per second."
 msgstr ""
-"La cache de requêtes est activée et le serveur traite %d requêtes par "
+"Le cache de requêtes est activé et le serveur traite %d requêtes par "
 "seconde. Cette règle intervient s'il y a plus de 100 requêtes par seconde."
 
 #: libraries/advisory_rules.txt:160
 #, php-format
 msgid "Query cache efficiency (%%)"
-msgstr "Efficacité de la cache de requêtes (%%)"
+msgstr "Efficacité du cache de requêtes (%%)"
 
 #: libraries/advisory_rules.txt:163
 msgid "Query cache not running efficiently, it has a low hit rate."
 msgstr ""
-"La cache de requêtes ne fonctionne pas efficacement, son taux de réussite "
-"est bas."
+"Le cache de requêtes ne fonctionne pas efficacement, son taux de réussite "
+"est faible."
 
 #: libraries/advisory_rules.txt:164
 msgid "Consider increasing {query_cache_limit}."
@@ -16051,16 +16057,16 @@ msgstr "Il est suggéré d'augmenter {query_cache_limit}."
 #, php-format
 msgid "The current query cache hit rate of %s%% is below 20%%"
 msgstr ""
-"Le taux actuel de réussite de la cache de requêtes (%s%%) est sous les 20%%"
+"Le taux actuel de réussite du cache de requêtes (%s%%) est sous les 20%%"
 
 #: libraries/advisory_rules.txt:167
 msgid "Query Cache usage"
-msgstr "Utilisation de la cache des requêtes"
+msgstr "Utilisation du cache de requêtes"
 
 #: libraries/advisory_rules.txt:170
 #, php-format
 msgid "Less than 80%% of the query cache is being utilized."
-msgstr "Moins de 80%% de la cache des requêtes est utilisé."
+msgstr "Moins de 80%% du cache de requêtes est utilisé."
 
 #: libraries/advisory_rules.txt:171
 msgid ""
@@ -16068,7 +16074,7 @@ msgid ""
 "query cache might help as well."
 msgstr ""
 "Ceci peut être causé par une trop faible valeur de {query_cache_limit}. "
-"Initialiser la cache des requêtes pourrait également aider."
+"Initialiser le cache des requêtes pourrait également aider."
 
 #: libraries/advisory_rules.txt:172
 #, php-format
@@ -16076,16 +16082,16 @@ msgid ""
 "The current ratio of free query cache memory to total query cache size is %s"
 "%%. It should be above 80%%"
 msgstr ""
-"Le ratio actuel de mémoire libre pour la cache de requêtes par rapport à la "
-"mémoire totale de la cache est de %s%%. Il devrait se situer à plus de 80%%"
+"Le ratio actuel de mémoire libre pour le cache de requêtes par rapport à la "
+"mémoire totale du cache est de %s%%. Il devrait se situer à plus de 80%%"
 
 #: libraries/advisory_rules.txt:174
 msgid "Query cache fragmentation"
-msgstr "Fragmentation de la cache des requêtes"
+msgstr "Fragmentation du cache de requêtes"
 
 #: libraries/advisory_rules.txt:177
 msgid "The query cache is considerably fragmented."
-msgstr "La cache des requêtes est très fragmentée."
+msgstr "Le cache de requêtes est très fragmenté."
 
 #: libraries/advisory_rules.txt:178
 msgid ""
@@ -16113,20 +16119,20 @@ msgid ""
 "that the query cache is an alternating pattern of free and used blocks. This "
 "value should be below 20%%."
 msgstr ""
-"La cache est fragmentée à %s%%; une valeur de 100%% signifie qu'elle "
-"contient des blocs libres et occupés en alternance. Cette valeur devrait "
-"être sous les 20%%."
+"Le cache est fragmenté à %s%% ; une valeur de 100%% signifie qu'il contient "
+"des blocs libres et occupés en alternance. Cette valeur devrait être sous "
+"les 20%%."
 
 #: libraries/advisory_rules.txt:181
 msgid "Query cache low memory prunes"
-msgstr "Élagages de mémoire de la cache de requêtes"
+msgstr "Élagages de mémoire du cache de requêtes"
 
 #: libraries/advisory_rules.txt:184
 msgid ""
 "Cached queries are removed due to low query cache memory from the query "
 "cache."
 msgstr ""
-"Les requêtes en cache sont enlevées en raison d'un manque de mémoire dans la "
+"Les requêtes en cache sont retirées en raison d'un manque de mémoire dans le "
 "cache de requêtes."
 
 #: libraries/advisory_rules.txt:185
@@ -16136,8 +16142,8 @@ msgid ""
 "this in small increments and monitor the results."
 msgstr ""
 "Il est possible d'augmenter {query_cache_size}, cependant merci de noter que "
-"la surcharge de maintenance de la cache va augmenter selon sa taille, alors "
-"effectuee cette augmentation petit à petit et surveiller les résultats."
+"la surcharge de maintenance du cache va augmenter selon sa taille, alors "
+"effectuer cette augmentation petit à petit et surveiller les résultats."
 
 #: libraries/advisory_rules.txt:186
 #, php-format
@@ -16145,20 +16151,20 @@ msgid ""
 "The ratio of removed queries to inserted queries is %s%%. The lower this "
 "value is, the better (This rules firing limit: 0.1%%)"
 msgstr ""
-"Le ratio des requêtes enlevées par rapport aux requêtes ajoutées est de %s"
-"%%. Il est souhaitable que cette valeur soit faible (Limite pour cette "
-"règle: 0.1%%)"
+"Le ratio des requêtes retirées par rapport aux requêtes ajoutées est de %s%%"
+". Il est souhaitable que cette valeur soit faible (limite pour cette règle : "
+"0.1%%)"
 
 #: libraries/advisory_rules.txt:188
 msgid "Query cache max size"
-msgstr "Taille maximum de la cache des requêtes"
+msgstr "Taille maximale du cache de requêtes"
 
 #: libraries/advisory_rules.txt:191
 msgid ""
 "The query cache size is above 128 MiB. Big query caches may cause "
 "significant overhead that is required to maintain the cache."
 msgstr ""
-"La taille de la cache de requêtes dépasse 128 Mio. Ceci peut causer une "
+"La taille du cache de requêtes dépasse 128 Mio. Ceci peut causer une "
 "surcharge dans sa maintenance."
 
 #: libraries/advisory_rules.txt:192
@@ -16166,23 +16172,23 @@ msgid ""
 "Depending on your environment, it might be performance increasing to reduce "
 "this value."
 msgstr ""
-"Selon votre environnement, la réduction de cette valeur pourrait améliorer "
-"la performance."
+"Selon l'environnement, la réduction de cette valeur pourrait améliorer la "
+"performance."
 
 #: libraries/advisory_rules.txt:193
 #, php-format
 msgid "Current query cache size: %s"
-msgstr "Taille actuelle de la cache des requêtes : %s"
+msgstr "Taille actuelle du cache de requêtes : %s"
 
 #: libraries/advisory_rules.txt:195
 msgid "Query cache min result size"
-msgstr "Taille minimum de résultats de la cache de requêtes"
+msgstr "Taille minimale de résultats du cache de requêtes"
 
 #: libraries/advisory_rules.txt:198
 msgid ""
 "The max size of the result set in the query cache is the default of 1 MiB."
 msgstr ""
-"La taille maximum d'un jeu de résultats dans la cache de requêtes est la "
+"La taille maximale d'un jeu de résultats dans le cache de requêtes est la "
 "valeur par défaut de 1 Mio."
 
 #: libraries/advisory_rules.txt:199
@@ -16197,11 +16203,11 @@ msgid ""
 "might reduce efficiency."
 msgstr ""
 "Augmenter {query_cache_limit} peut améliorer l'efficacité. Cette variable "
-"détermine la taille maximum qu'un résultat doit avoir pour être inséré dans "
-"la cache de requêtes. Si plusieurs résultats d'une taille supérieure à 1 Mio "
-"qui peuvent être mis en cache (grand nombre de lectures, peu d'écritures), "
-"alors une augmentation de {query_cache_limit} va aider. Dans le cas "
-"contraire, cette augmentation va réduire l'efficacité."
+"détermine la taille maximale qu'un résultat doit avoir pour être inséré dans "
+"le cache de requêtes. S'il existe plusieurs résultats d'une taille "
+"supérieure à 1 Mio qui peuvent être mis en cache (grand nombre de lectures, "
+"peu d'écritures), alors une augmentation de {query_cache_limit} va aider. "
+"Dans le cas contraire, cette augmentation va réduire l'efficacité."
 
 #: libraries/advisory_rules.txt:200
 msgid "query_cache_limit is set to 1 MiB"
@@ -16294,7 +16300,7 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:233
 msgid "Rate of reading first index entry"
-msgstr "Taux de lecture de la première entrée d'index"
+msgstr "Fréquence de lecture de la première entrée d'index"
 
 #: libraries/advisory_rules.txt:236
 msgid "The rate of reading the first index entry is high."
@@ -16324,7 +16330,7 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:240
 msgid "Rate of reading fixed position"
-msgstr "Taux de lecture d'une position fixe"
+msgstr "Fréquence de lecture d'une position fixe"
 
 #: libraries/advisory_rules.txt:243
 msgid "The rate of reading data from a fixed position is high."
@@ -16347,12 +16353,12 @@ msgid ""
 "Rate of reading fixed position average: %s, this value should be less than 1 "
 "per hour"
 msgstr ""
-"Taux de lecture d'une position fixe : %s, devrait être de moins de 1 par "
-"heure"
+"Fréquence de lecture d'une position fixe : %s, devrait être de moins de 1 "
+"par heure"
 
 #: libraries/advisory_rules.txt:247
 msgid "Rate of reading next table row"
-msgstr "Taux de lecture de la ligne suivante"
+msgstr "Fréquence de lecture de la ligne suivante"
 
 #: libraries/advisory_rules.txt:250
 msgid "The rate of reading the next table row is high."
@@ -16371,8 +16377,8 @@ msgstr ""
 msgid ""
 "Rate of reading next table row: %s, this value should be less than 1 per hour"
 msgstr ""
-"Taux de lecture de la prochaine ligne de table : %s, devrait être de moins "
-"de 1 par heure"
+"Fréquence de lecture de la prochaine ligne de table : %s, devrait être de "
+"moins de 1 par heure"
 
 #: libraries/advisory_rules.txt:255
 msgid "Different tmp_table_size and max_heap_table_size"
@@ -16398,7 +16404,7 @@ msgstr ""
 #, php-format
 msgid "Current values are tmp_table_size: %s, max_heap_table_size: %s"
 msgstr ""
-"Les valeurs courantes sont : tmp_table_size: %s, max_heap_table_size: %s"
+"Les valeurs courantes sont tmp_table_size : %s, max_heap_table_size : %s"
 
 #: libraries/advisory_rules.txt:262
 msgid "Percentage of temp tables on disk"
@@ -16442,7 +16448,7 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:269
 msgid "Temp disk rate"
-msgstr "Taux d'écriture des tables temporaires sur disque"
+msgstr "Fréquence d'écriture des tables temporaires sur disque"
 
 #: libraries/advisory_rules.txt:273
 msgid ""
@@ -16487,7 +16493,7 @@ msgid ""
 "Set {key_buffer_size} depending on the size of your MyISAM indexes. 64M is a "
 "good start."
 msgstr ""
-"Régler {key_buffer_size} selon la taille des index MyISAM. 64  Mio est une "
+"Régler {key_buffer_size} selon la taille des index MyISAM. 64 Mio est une "
 "bonne valeur de départ."
 
 #: libraries/advisory_rules.txt:283
@@ -16510,9 +16516,9 @@ msgid ""
 "tables to see if indexes have been removed, or examine queries and "
 "expectations about what indexes are being used."
 msgstr ""
-"Considérer la diminution de la taille de {key_buffer_size}, examiner les "
-"table pour voir si les index ont été enlevés, ou examiner les requêtes pour "
-"voir quels index sont utilisés."
+"Il faudrait considérer la diminution de la taille de {key_buffer_size}, "
+"examiner les table pour voir si les index ont été enlevés, ou examiner les "
+"requêtes pour voir quels index sont utilisés."
 
 #: libraries/advisory_rules.txt:290
 #, php-format
@@ -16544,7 +16550,7 @@ msgstr "Le %% des index qui utilisent la mémoire tampon MySQL est faible."
 
 #: libraries/advisory_rules.txt:304
 msgid "You may need to increase {key_buffer_size}."
-msgstr "Considérer l'augmentation de {key_buffer_size}."
+msgstr "Il faudrait considérer l'augmentation de {key_buffer_size}."
 
 #: libraries/advisory_rules.txt:305
 #, php-format
@@ -16555,11 +16561,11 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:309
 msgid "Rate of table open"
-msgstr "Taux d'ouverture de tables"
+msgstr "Fréquence d'ouverture de tables"
 
 #: libraries/advisory_rules.txt:312
 msgid "The rate of opening tables is high."
-msgstr "Le taux d'ouverture de tables est élevé."
+msgstr "La fréquence d'ouverture de tables est élevée."
 
 #: libraries/advisory_rules.txt:313
 msgid ""
@@ -16573,8 +16579,8 @@ msgstr ""
 #, php-format
 msgid "Opened table rate: %s, this value should be less than 10 per hour"
 msgstr ""
-"Taux d'ouverture des tables : %s, cette valeur ne devrait pas dépasser 10 "
-"par heure"
+"Fréquence d'ouverture des tables : %s, cette valeur ne devrait pas dépasser "
+"10 par heure"
 
 #: libraries/advisory_rules.txt:316
 msgid "Percentage of used open files limit"
@@ -16606,18 +16612,18 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:323
 msgid "Rate of open files"
-msgstr "Taux d'ouverture de fichiers"
+msgstr "Fréquence d'ouverture de fichiers"
 
 #: libraries/advisory_rules.txt:326
 msgid "The rate of opening files is high."
-msgstr "Le taux d'ouverture de fichiers est élevé."
+msgstr "La fréquence d'ouverture de fichiers est élevée."
 
 #: libraries/advisory_rules.txt:328
 #, php-format
 msgid "Opened files rate: %s, this value should be less than 5 per hour"
 msgstr ""
-"Taux d'ouverture de fichiers : %s, cette valeur devrait être moins de 5 à "
-"l'heure"
+"Fréquence d'ouverture de fichiers : %s, cette valeur devrait être moins de 5 "
+"à l'heure"
 
 #: libraries/advisory_rules.txt:330
 #, php-format
@@ -16641,14 +16647,14 @@ msgstr "Verrous de table immédiats : %s%%, cette valeur devrait dépasser 95%%"
 
 #: libraries/advisory_rules.txt:337
 msgid "Table lock wait rate"
-msgstr "Taux d'attente de verrouillage de tables"
+msgstr "Fréquence d'attente de verrouillage de tables"
 
 #: libraries/advisory_rules.txt:342
 #, php-format
 msgid "Table lock wait rate: %s, this value should be less than 1 per hour"
 msgstr ""
-"Taux d'attente de verrouillage de tables : %s, cette valeur devrait être de "
-"moins de 1 à l'heure"
+"Fréquence d'attente de verrouillage de tables : %s, cette valeur devrait "
+"être de moins de 1 à l'heure"
 
 #: libraries/advisory_rules.txt:344
 msgid "Thread cache"
@@ -16688,8 +16694,8 @@ msgstr "Augmenter {thread_cache_size}."
 #, php-format
 msgid "Thread cache hitrate: %s%%, this value should be above 80%%"
 msgstr ""
-"Taux de succès de la cache des fils d'exécution : %s%%, cette valeur devrait "
-"se situer au-dessus de 80%%"
+"Fréquence de succès du cache des fils d'exécution : %s%%, cette valeur "
+"devrait se situer au-dessus de 80%%"
 
 #: libraries/advisory_rules.txt:358
 msgid "Threads that are slow to launch"
@@ -16718,15 +16724,15 @@ msgstr "Durée d'un lancement considéré comme lent"
 
 #: libraries/advisory_rules.txt:368
 msgid "Slow_launch_time is above 2s."
-msgstr "Slow_launch_time dépasse 2s."
+msgstr "Slow_launch_time dépasse 2 s."
 
 #: libraries/advisory_rules.txt:369
 msgid ""
 "Set {slow_launch_time} to 1s or 2s to correctly count threads that are slow "
 "to launch."
 msgstr ""
-"Régler {slow_launch_time} à 1s ou 2s pour compter correctement le nombre de "
-"fils d'exécution qui sont lents à démarrer."
+"Régler {slow_launch_time} à 1 s ou 2 s pour compter correctement le nombre "
+"de fils d'exécution qui sont lents à démarrer."
 
 #: libraries/advisory_rules.txt:370
 #, php-format
@@ -16766,11 +16772,11 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:381
 msgid "Percentage of aborted connections"
-msgstr "Pourcentage de connexions avortées"
+msgstr "Pourcentage de connexions abandonnées"
 
 #: libraries/advisory_rules.txt:384 libraries/advisory_rules.txt:391
 msgid "Too many connections are aborted."
-msgstr "Trop de connexions ont avorté."
+msgstr "Trop de connexions sont abandonnées."
 
 #: libraries/advisory_rules.txt:385 libraries/advisory_rules.txt:392
 msgid ""
@@ -16778,28 +16784,29 @@ msgid ""
 "\"https://www.percona.com/blog/2008/08/23/how-to-track-down-the-source-of-"
 "aborted_connects/\">This article</a> might help you track down the source."
 msgstr ""
-"Les connexions sont généralement avortées lorsqu'elles ne peuvent pas être "
-"autorisées. <a href=\"https://www.percona.com/blog/2008/08/23/how-to-track-"
-"down-the-source-of-aborted_connects/\">Cet article</a> peut vous aider à en "
+"Les connexions sont généralement abandonnées lorsqu'elles ne peuvent pas "
+"être autorisées. <a href=\"https://www.percona.com/blog/2008/08/23/how-to-"
+"track-down-the-source-of-aborted_connects/\">Cet article</a> peut aider à en "
 "trouver la cause."
 
 #: libraries/advisory_rules.txt:386
 #, php-format
 msgid "%s%% of all connections are aborted. This value should be below 1%%"
 msgstr ""
-"%s%% du total des connexions ont avorté. Cette valeur devrait être sous 1%%"
+"%s%% du total des connexions sont abandonnées. Cette valeur devrait être "
+"sous 1%%"
 
 #: libraries/advisory_rules.txt:388
 msgid "Rate of aborted connections"
-msgstr "Taux de connexions avortées"
+msgstr "Fréquence de connexions abandonnées"
 
 #: libraries/advisory_rules.txt:393
 #, php-format
 msgid ""
 "Aborted connections rate is at %s, this value should be less than 1 per hour"
 msgstr ""
-"La fréquence de connexions avortées est de %s, elle devrait être moins de 1 "
-"à l'heure"
+"La fréquence de connexions abandonnées est de %s, elle devrait être moins de "
+"1 à l'heure"
 
 #: libraries/advisory_rules.txt:395
 msgid "Percentage of aborted clients"
@@ -16828,14 +16835,14 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:402
 msgid "Rate of aborted clients"
-msgstr "Taux d'abandon de clients"
+msgstr "Fréquence d'abandon de clients"
 
 #: libraries/advisory_rules.txt:407
 #, php-format
 msgid "Aborted client rate is at %s, this value should be less than 1 per hour"
 msgstr ""
-"Le taux d'abandon de clients est de %s, cette valeur devrait être moins de 1 "
-"à l'heure"
+"La fréquence d'abandon de clients est de %s, cette valeur devrait être moins "
+"de 1 à l'heure"
 
 #: libraries/advisory_rules.txt:411
 msgid "Is InnoDB disabled?"
