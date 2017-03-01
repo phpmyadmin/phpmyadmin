@@ -1497,9 +1497,7 @@ class Config
             $factors[] = 1;
             $factors[] = 5;
             $factors[] = 10;
-            if($value !== 100) {
-                $factors[] = 100 - $value;
-            }
+            $options[100] = "100%";
         } elseif ($unit === 'em') {
             $factors[] = 0.05;
             $factors[] = 0.2;
