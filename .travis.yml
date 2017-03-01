@@ -91,5 +91,3 @@ addons:
     packages:
     - git
     - mysql-server-5.6
-    sources:
-    - git-core
