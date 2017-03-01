@@ -136,14 +136,11 @@ function PMA_initQueryForm($query)
     if (strlen($GLOBALS['db']) === 0) {
         // prepare for server related
         $legend = sprintf(
-            __('Run SQL query/queries on server %s'),
-            sprintf(
-                __('&ldquo;%s&rdquo;'),
-                htmlspecialchars(
-                    ! empty($GLOBALS['cfg']['Servers'][$GLOBALS['server']]['verbose'])
-                    ? $GLOBALS['cfg']['Servers'][$GLOBALS['server']]['verbose']
-                    : $GLOBALS['cfg']['Servers'][$GLOBALS['server']]['host']
-                )
+            __('Run SQL query/queries on server “%s”'),
+            htmlspecialchars(
+                ! empty($GLOBALS['cfg']['Servers'][$GLOBALS['server']]['verbose'])
+                ? $GLOBALS['cfg']['Servers'][$GLOBALS['server']]['verbose']
+                : $GLOBALS['cfg']['Servers'][$GLOBALS['server']]['host']
             )
         );
     } elseif (strlen($GLOBALS['table']) === 0) {
