@@ -20,7 +20,6 @@ sudo: false
 env:
   matrix:
     - CI_MODE=test
-    - CI_MODE=lint
   global:
     - TESTSUITE_USER=root
     - TESTSUITE_PASSWORD=root
@@ -28,7 +27,7 @@ env:
 
 install:
   - ./test/ci-install-$CI_MODE
-  - if [ $TRAVIS_PHP_VERSION != "hhvm" ] ; then phpenv config-add test/php-noprofile.ini ; fi
+  - if [[ "$TRAVIS_OS_NAME" != "osx" ]]; then case "$TRAVIS_PHP_VERSION" in hhvm*) ;; *) phpenv config-add test/php-noprofile.ini ;; esac ; fi
 
 before_script:
   - export PATH=~/.composer/vendor/bin/:$PATH
@@ -38,7 +37,8 @@ before_script:
   - ./test/start-local-server
 
 script:
-  - ant clean
+  - ./scripts/generate-mo --quiet
+  - if [ $CI_MODE = test ] ; then ./test/ci-lint ; fi
   - ./test/ci-$CI_MODE
 
 after_script:
@@ -67,22 +67,23 @@ matrix:
       before_install:
         - brew tap homebrew/php
         - brew update
-        - brew install ant gettext php70 mariadb
+        - brew install gettext php70 mariadb
         - brew link --force gettext
         - curl https://getcomposer.org/installer | php
         - ln -s "`pwd`/composer.phar" /usr/local/bin/composer
         - mysql.server start
 
 cache:
+  pip: true
   directories:
     - $HOME/.composer/cache/
     - $HOME/browserstack
     - $HOME/runkit
-    - $HOME/.cache/pip
+# Install APT packages
+#  - git > 2.5.1 needed for worktrees
 addons:
   apt:
     packages:
     - git
-    - python-coverage
     sources:
     - git-core
