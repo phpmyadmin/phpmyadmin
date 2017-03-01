@@ -7,6 +7,7 @@
  */
 
 use PMA\libraries\DatabaseInterface;
+use PMA\libraries\Util;
 
 require_once 'test/PMATestCase.php';
 
@@ -29,6 +30,47 @@ class DatabaseInterfaceTest extends PMATestCase
     {
         $extension = new PMA\libraries\dbi\DBIDummy();
         $this->_dbi = new PMA\libraries\DatabaseInterface($extension);
+    }
+
+    /**
+     * Tests for DBI::getCurrentUser() method.
+     *
+     * @return void
+     * @test
+     * @dataProvider currentUserData
+     */
+    public function testGetCurrentUser($value, $string, $expected)
+    {
+        Util::cacheUnset('mysql_cur_user');
+
+        $extension = new PMA\libraries\dbi\DBIDummy();
+        $extension->setResult('SELECT CURRENT_USER();', $value);
+
+        $dbi = new PMA\libraries\DatabaseInterface($extension);
+
+        $this->assertEquals(
+            $expected,
+            $dbi->getCurrentUserAndHost()
+        );
+
+        $this->assertEquals(
+            $string,
+            $dbi->getCurrentUser()
+        );
+    }
+
+    /**
+     * Data provider for getCurrentUser() tests.
+     *
+     * @return array
+     */
+    public function currentUserData()
+    {
+        return array(
+            array(array(array('pma@localhost')), 'pma@localhost', array('pma', 'localhost')),
+            array(array(array('@localhost')), '@localhost', array('', 'localhost')),
+            array(false, '@', array('', '')),
+        );
     }
 
     /**
