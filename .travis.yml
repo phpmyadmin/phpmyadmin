@@ -74,15 +74,14 @@ matrix:
         - mysql.server start
 
 cache:
+  pip: true
   directories:
     - $HOME/.composer/cache/
     - $HOME/browserstack
     - $HOME/runkit
-    - $HOME/.cache/pip
 addons:
   apt:
     packages:
     - git
-    - python-coverage
     sources:
     - git-core
