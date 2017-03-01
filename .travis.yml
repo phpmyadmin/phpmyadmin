@@ -67,7 +67,7 @@ matrix:
       before_install:
         - brew tap homebrew/php
         - brew update
-        - brew install ant gettext php70 mariadb
+        - brew install gettext php70 mariadb
         - brew link --force gettext
         - curl https://getcomposer.org/installer | php
         - ln -s "`pwd`/composer.phar" /usr/local/bin/composer
