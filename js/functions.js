@@ -672,7 +672,7 @@ function confirmLink(theLink, theSqlQuery)
  * This function is called by the 'checkSqlQuery()' js function.
  *
  * @param theForm1 object   the form
- * @param sqlQuery1 object  the sql query textarea
+ * @param sqlQuery1 string  the sql query string
  *
  * @return boolean  whether to run the query or not
  *
@@ -697,15 +697,15 @@ function confirmQuery(theForm1, sqlQuery1)
     var do_confirm_re_2 = new RegExp('^\\s*DELETE\\s+FROM\\s', 'i');
     var do_confirm_re_3 = new RegExp('^\\s*TRUNCATE\\s', 'i');
 
-    if (do_confirm_re_0.test(sqlQuery1.value) ||
-        do_confirm_re_1.test(sqlQuery1.value) ||
-        do_confirm_re_2.test(sqlQuery1.value) ||
-        do_confirm_re_3.test(sqlQuery1.value)) {
+    if (do_confirm_re_0.test(sqlQuery1) ||
+        do_confirm_re_1.test(sqlQuery1) ||
+        do_confirm_re_2.test(sqlQuery1) ||
+        do_confirm_re_3.test(sqlQuery1)) {
         var message;
-        if (sqlQuery1.value.length > 100) {
-            message = sqlQuery1.value.substr(0, 100) + '\n    ...';
+        if (sqlQuery1.length > 100) {
+            message = sqlQuery1.substr(0, 100) + '\n    ...';
         } else {
-            message = sqlQuery1.value;
+            message = sqlQuery1;
         }
         var is_confirmed = confirm(PMA_sprintf(PMA_messages.strDoYouReally, message));
         // statement is confirmed -> update the
@@ -718,7 +718,6 @@ function confirmQuery(theForm1, sqlQuery1)
         // statement is rejected -> do not submit the form
         else {
             window.focus();
-            sqlQuery1.focus();
             return false;
         } // end if (handle confirm box result)
     } // end if (display confirm box)
@@ -746,31 +745,30 @@ function checkSqlQuery(theForm)
     } else {
         sqlQuery = theForm.elements.sql_query.value;
     }
-    var isEmpty  = 1;
     var space_re = new RegExp('\\s+');
     if (typeof(theForm.elements.sql_file) != 'undefined' &&
             theForm.elements.sql_file.value.replace(space_re, '') !== '') {
         return true;
     }
-    if (isEmpty && typeof(theForm.elements.id_bookmark) != 'undefined' &&
+    if (typeof(theForm.elements.id_bookmark) != 'undefined' &&
             (theForm.elements.id_bookmark.value !== null || theForm.elements.id_bookmark.value !== '') &&
             theForm.elements.id_bookmark.selectedIndex !== 0) {
         return true;
     }
+    var result = false;
     // Checks for "DROP/DELETE/ALTER" statements
     if (sqlQuery.replace(space_re, '') !== '') {
-        return confirmQuery(theForm, sqlQuery);
-    }
-    theForm.reset();
-    isEmpty = 1;
-
-    if (isEmpty) {
+        result = confirmQuery(theForm, sqlQuery);
+    } else {
         alert(PMA_messages.strFormEmpty);
-        codemirror_editor.focus();
-        return false;
     }
 
-    return true;
+    if (codemirror_editor) {
+        codemirror_editor.focus();
+    } else if (codemirror_inline_editor) {
+        codemirror_inline_editor.focus();
+    }
+    return result;
 } // end of the 'checkSqlQuery()' function
 
 /**
@@ -1911,7 +1909,6 @@ AJAX.registerOnload('functions.js', function () {
     });
 
     $(document).on('click', "input#sql_query_edit_save", function () {
-        $(".success").hide();
         //hide already existing success message
         var sql_query;
         if (codemirror_inline_editor) {
@@ -1932,6 +1929,7 @@ AJAX.registerOnload('functions.js', function () {
         if (! checkSqlQuery($fake_form[0])) {
             return false;
         }
+        $(".success").hide();
         $fake_form.appendTo($('body')).submit();
     });
 
