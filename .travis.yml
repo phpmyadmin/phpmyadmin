@@ -38,7 +38,7 @@ before_script:
 
 script:
   - ant clean
-  - ant locales
+  - ./scripts/generate-mo --quiet
   - if [ $CI_MODE = test ] ; then ./test/ci-lint ; fi
   - ./test/ci-$CI_MODE
 
