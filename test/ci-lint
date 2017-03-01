@@ -6,6 +6,6 @@ else
     FILES=`git diff --name-only $TRAVIS_COMMIT_RANGE -- '*.php'`
 fi
 
-for FILE in FILES ; do
+for FILE in $FILES ; do
     php -l $FILE
 done
