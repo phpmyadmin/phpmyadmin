@@ -47,8 +47,6 @@
                 <directory>test/</directory>
                 <!-- examples for users -->
                 <directory suffix=".php">examples</directory>
-                <!-- maintenance scripts -->
-                <directory suffix=".php">scripts</directory>
             </exclude>
         </whitelist>
     </filter>
