@@ -3,6 +3,8 @@
 # - run lint for every PHP version
 # - run Selenium for single PHP version
 
+dist: trusty
+
 language: php
 
 services:
