@@ -866,6 +866,10 @@ $GLOBALS['dummy_queries'] = array(
         'query' => 'SELECT @@ndb_version_string',
         'result' => array(array('ndb-7.4.10')),
     ),
+    array(
+        'query' => "SELECT *, `COLUMN_NAME` AS `Field`, `COLUMN_TYPE` AS `Type`, `COLLATION_NAME` AS `Collation`, `IS_NULLABLE` AS `Null`, `COLUMN_KEY` AS `Key`, `COLUMN_DEFAULT` AS `Default`, `EXTRA` AS `Extra`, `PRIVILEGES` AS `Privileges`, `COLUMN_COMMENT` AS `Comment` FROM `information_schema`.`COLUMNS` WHERE `TABLE_SCHEMA` = 'information_schema' AND `TABLE_NAME` = 'PMA'",
+        'result' => array(),
+    ),
 );
 /**
  * Current database.
