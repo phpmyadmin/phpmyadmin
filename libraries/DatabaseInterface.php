@@ -284,7 +284,7 @@ class DatabaseInterface
             }
         }
 
-        if ((!empty($result)) && (Tracker::isActive())) {
+        if ($result !== false && Tracker::isActive()) {
             Tracker::handleQuery($query);
         }
 
