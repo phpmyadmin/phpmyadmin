@@ -20,7 +20,6 @@ sudo: false
 env:
   matrix:
     - CI_MODE=test
-    - CI_MODE=lint
   global:
     - TESTSUITE_USER=root
     - TESTSUITE_PASSWORD=root
@@ -39,6 +38,8 @@ before_script:
 
 script:
   - ant clean
+  - ant locales
+  - if [ $CI_MODE = test ] ; then ./test/ci-lint ; fi
   - ./test/ci-$CI_MODE
 
 after_script:

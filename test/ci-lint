@@ -1,4 +1,7 @@
 #!/bin/sh
 
-ant locales lint
-
+if [ -z "$TRAVIS_COMMIT_RANGE" ] ; then
+    ant lint
+else
+    git diff --name-only $TRAVIS_COMMIT_RANGE -- '*.php' | xargs -n1 -r php -l
+fi
