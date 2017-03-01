@@ -5,7 +5,7 @@
         <fieldset>
             <legend><?= __('Foreign key constraints'); ?></legend>
             <table id="foreign_keys" class="relationalTable">
-                <tr>
+                <thead><tr>
                     <th><?= __('Actions'); ?></th>
                     <th><?= __('Constraint properties'); ?></th>
                     <?php if (strtoupper($tbl_storage_engine) == 'INNODB'): ?>
@@ -33,7 +33,7 @@
                     <th><?= __('Database'); ?></th>
                     <th><?= __('Table'); ?></th>
                     <th><?= __('Column'); ?></th>
-                </tr>
+                </tr></thead>
                 <?php $i = 0; ?>
                 <?php if (! empty($existrel_foreign)): ?>
                     <?php foreach ($existrel_foreign as $key => $one_key): ?>
