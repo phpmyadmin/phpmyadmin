@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2017-02-22 08:57+0100\n"
+"POT-Creation-Date: 2017-03-01 18:19+0100\n"
 "PO-Revision-Date: 2017-01-23 21:27+0000\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -48,7 +48,7 @@ msgstr "Commento del base de datos"
 
 #: db_datadict.php:106 libraries/plugins/schema/pdf/PdfRelationSchema.php:596
 #: templates/columns_definitions/column_definitions_form.phtml:89
-#: templates/table/structure/display_table_stats.phtml:4
+#: templates/table/structure/display_table_stats.phtml:5
 msgid "Table comments:"
 msgstr "Commentos de tabella:"
 
@@ -256,9 +256,9 @@ msgstr "Il non ha tabulas in le base de datos."
 msgid "Tables"
 msgstr "Tabellas"
 
-#: db_export.php:66 libraries/Menu.php:330 libraries/Menu.php:437
-#: libraries/Util.php:3180 libraries/Util.php:3190 libraries/Util.php:3196
-#: libraries/Util.php:3476 libraries/Util.php:4109 libraries/Util.php:4126
+#: db_export.php:66 libraries/Menu.php:335 libraries/Menu.php:442
+#: libraries/Util.php:3160 libraries/Util.php:3170 libraries/Util.php:3176
+#: libraries/Util.php:3456 libraries/Util.php:4089 libraries/Util.php:4106
 #: libraries/central_columns.lib.php:727 libraries/config.values.php:38
 #: libraries/config.values.php:46 libraries/config.values.php:109
 #: libraries/config.values.php:115 libraries/config/setup.forms.php:316
@@ -284,7 +284,7 @@ msgstr "Structura"
 #: libraries/config/user_preferences.forms.php:296
 #: libraries/controllers/server/ServerDatabasesController.php:354
 #: libraries/server_privileges.lib.php:1130
-#: templates/table/structure/display_table_stats.phtml:14
+#: templates/table/structure/display_table_stats.phtml:16
 msgid "Data"
 msgstr "Datos"
 
@@ -470,7 +470,7 @@ msgid "Add geometry"
 msgstr "Adde un geometria"
 
 #: gis_data_editor.php:413 js/messages.php:349 libraries/DbSearch.php:455
-#: libraries/DisplayResults.php:1815 libraries/browse_foreigners.lib.php:137
+#: libraries/DisplayResults.php:1812 libraries/browse_foreigners.lib.php:137
 #: libraries/display_change_password.lib.php:148
 #: libraries/display_export.lib.php:402 libraries/display_export.lib.php:408
 #: libraries/display_import.lib.php:399 libraries/index.lib.php:34
@@ -1274,7 +1274,7 @@ msgstr "Demandas"
 msgid "Traffic"
 msgstr "Traffico"
 
-#: js/messages.php:214 libraries/Menu.php:592 libraries/Util.php:4100
+#: js/messages.php:214 libraries/Menu.php:597 libraries/Util.php:4080
 #: libraries/server_status_monitor.lib.php:253
 msgid "Settings"
 msgstr "Preferentias"
@@ -1287,7 +1287,7 @@ msgstr "adde graphico a grillia"
 msgid "Please add at least one variable to the series!"
 msgstr "Pro favor tu adde al minus un variabile al series!"
 
-#: js/messages.php:219 libraries/DisplayResults.php:1494
+#: js/messages.php:219 libraries/DisplayResults.php:1491
 #: libraries/config.values.php:68 libraries/display_export.lib.php:691
 #: libraries/plugins/export/ExportSql.php:2185
 #: libraries/plugins/schema/SchemaPdf.php:103
@@ -1498,7 +1498,7 @@ msgstr "Analysante…"
 msgid "Explain output"
 msgstr "Explica le exito"
 
-#: js/messages.php:291 libraries/Menu.php:558 libraries/Util.php:4096
+#: js/messages.php:291 libraries/Menu.php:563 libraries/Util.php:4076
 #: libraries/config.values.php:104 libraries/rte/rte_events.lib.php:399
 #: libraries/rte/rte_list.lib.php:107
 #: libraries/server_status_processes.lib.php:92 libraries/tracking.lib.php:287
@@ -1598,9 +1598,9 @@ msgstr ""
 "Il falleva construer grillia de graphico con le configuration importate. On "
 "refixa al configuration predefinite…"
 
-#: js/messages.php:325 libraries/Menu.php:365 libraries/Menu.php:467
-#: libraries/Menu.php:588 libraries/Util.php:4099 libraries/Util.php:4114
-#: libraries/Util.php:4131 libraries/config/messages.inc.php:257
+#: js/messages.php:325 libraries/Menu.php:370 libraries/Menu.php:472
+#: libraries/Menu.php:593 libraries/Util.php:4079 libraries/Util.php:4094
+#: libraries/Util.php:4111 libraries/config/messages.inc.php:257
 #: libraries/display_import.lib.php:107
 #: libraries/server_status_monitor.lib.php:313 prefs_manage.php:246
 #: setup/frames/menu.inc.php:27
@@ -1754,7 +1754,7 @@ msgstr "Copiante base de datos"
 msgid "Changing charset"
 msgstr "Modificante insimul de characteres"
 
-#: js/messages.php:377 libraries/Util.php:3079
+#: js/messages.php:377 libraries/Util.php:3059
 msgid "Enable foreign key checks"
 msgstr "Habilita le verificationes sur le clave estranie"
 
@@ -1793,11 +1793,11 @@ msgstr ""
 "Le definition del function immagasinate debe continer un declaration de "
 "RETURN!"
 
-#: js/messages.php:393 libraries/DisplayResults.php:4872
-#: libraries/DisplayResults.php:5155 libraries/Menu.php:357
-#: libraries/Menu.php:458 libraries/Menu.php:584 libraries/Util.php:3483
-#: libraries/Util.php:3484 libraries/Util.php:4098 libraries/Util.php:4113
-#: libraries/Util.php:4130 libraries/config/messages.inc.php:251
+#: js/messages.php:393 libraries/DisplayResults.php:4869
+#: libraries/DisplayResults.php:5152 libraries/Menu.php:362
+#: libraries/Menu.php:463 libraries/Menu.php:589 libraries/Util.php:3463
+#: libraries/Util.php:3464 libraries/Util.php:4078 libraries/Util.php:4093
+#: libraries/Util.php:4110 libraries/config/messages.inc.php:251
 #: libraries/display_export.lib.php:171 libraries/rte/rte_list.lib.php:159
 #: libraries/server_privileges.lib.php:2366
 #: libraries/server_privileges.lib.php:2450
@@ -1852,10 +1852,10 @@ msgstr "Cela quadro de query"
 msgid "Show query box"
 msgstr "Monstra quadro de query"
 
-#: js/messages.php:412 libraries/DisplayResults.php:3493
-#: libraries/DisplayResults.php:4856 libraries/Index.php:709
-#: libraries/Util.php:619 libraries/Util.php:1106 libraries/Util.php:3481
-#: libraries/Util.php:3482 libraries/central_columns.lib.php:848
+#: js/messages.php:412 libraries/DisplayResults.php:3490
+#: libraries/DisplayResults.php:4853 libraries/Index.php:709
+#: libraries/Util.php:619 libraries/Util.php:1106 libraries/Util.php:3461
+#: libraries/Util.php:3462 libraries/central_columns.lib.php:848
 #: libraries/central_columns.lib.php:1195 libraries/config/messages.inc.php:879
 #: libraries/server_user_groups.lib.php:117 setup/frames/index.inc.php:162
 #: templates/console/bookmark_content.phtml:17
@@ -1866,7 +1866,7 @@ msgid "Edit"
 msgstr "Modifica"
 
 #: js/messages.php:413 libraries/DbSearch.php:353
-#: libraries/DisplayResults.php:3562 libraries/DisplayResults.php:4840
+#: libraries/DisplayResults.php:3559 libraries/DisplayResults.php:4837
 #: libraries/central_columns.lib.php:850 libraries/central_columns.lib.php:1199
 #: libraries/display_export.lib.php:226
 #: libraries/server_user_groups.lib.php:127
@@ -1876,8 +1876,8 @@ msgstr "Modifica"
 msgid "Delete"
 msgstr "Dele"
 
-#: js/messages.php:414 libraries/DisplayResults.php:929
-#: libraries/DisplayResults.php:937
+#: js/messages.php:414 libraries/DisplayResults.php:926
+#: libraries/DisplayResults.php:934
 #, php-format
 msgid "%d is not valid row number."
 msgstr "%d non es un valide numero de rangos."
@@ -2135,8 +2135,8 @@ msgstr "Contento del puncto de datos"
 msgid "Ignore"
 msgstr "Ignora"
 
-#: js/messages.php:510 libraries/DisplayResults.php:3496
-#: libraries/DisplayResults.php:4861
+#: js/messages.php:510 libraries/DisplayResults.php:3493
+#: libraries/DisplayResults.php:4858
 msgid "Copy"
 msgstr "Copia"
 
@@ -2152,7 +2152,7 @@ msgstr "Linestring (catena de linea)"
 msgid "Polygon"
 msgstr "Polygono"
 
-#: js/messages.php:517 libraries/DisplayResults.php:1799
+#: js/messages.php:517 libraries/DisplayResults.php:1796
 msgid "Geometry"
 msgstr "Geometria"
 
@@ -2330,7 +2330,7 @@ msgstr ""
 "Pulsa sur le flecha de disrolar<br /> pro commutar le visibilitate del "
 "columna."
 
-#: js/messages.php:591 libraries/DisplayResults.php:1036
+#: js/messages.php:591 libraries/DisplayResults.php:1033
 #: libraries/browse_foreigners.lib.php:283
 #: libraries/browse_foreigners.lib.php:336
 #: templates/privileges/initials_row.phtml:24
@@ -2388,8 +2388,8 @@ msgstr "Depone files hic"
 msgid "Select database first"
 msgstr "Prime selige un base de datos"
 
-#: js/messages.php:614 libraries/DisplayResults.php:5047
-#: libraries/Util.php:3991
+#: js/messages.php:614 libraries/DisplayResults.php:5044
+#: libraries/Util.php:3971
 #: templates/database/structure/print_view_data_dictionary_link.phtml:3
 #: templates/table/structure/optional_action_links.phtml:6
 msgid "Print"
@@ -2478,7 +2478,7 @@ msgstr ", ultime version stabile:"
 msgid "up to date"
 msgstr "actualisate"
 
-#: js/messages.php:665 libraries/DisplayResults.php:4978 view_create.php:206
+#: js/messages.php:665 libraries/DisplayResults.php:4975 view_create.php:206
 msgid "Create view"
 msgstr "Crea vista"
 
@@ -3331,8 +3331,8 @@ msgstr ""
 "Connexion per usatores de controlo de usator (controluser) falleva como in "
 "tu configuration."
 
-#: libraries/DbQbe.php:405 libraries/DisplayResults.php:2281
-#: libraries/DisplayResults.php:2287 libraries/config.values.php:69
+#: libraries/DbQbe.php:405 libraries/DisplayResults.php:2278
+#: libraries/DisplayResults.php:2284 libraries/config.values.php:69
 #: libraries/controllers/server/ServerDatabasesController.php:550
 #: libraries/operations.lib.php:787
 #: libraries/server_status_processes.lib.php:167
@@ -3342,8 +3342,8 @@ msgstr ""
 msgid "Ascending"
 msgstr "Ascendente"
 
-#: libraries/DbQbe.php:408 libraries/DisplayResults.php:2277
-#: libraries/DisplayResults.php:2291 libraries/config.values.php:70
+#: libraries/DbQbe.php:408 libraries/DisplayResults.php:2274
+#: libraries/DisplayResults.php:2288 libraries/config.values.php:70
 #: libraries/controllers/server/ServerDatabasesController.php:550
 #: libraries/operations.lib.php:790
 #: libraries/server_status_processes.lib.php:164
@@ -3485,9 +3485,9 @@ msgid_plural "%1$s matches in <strong>%2$s</strong>"
 msgstr[0] "%1$s correspondentia in <strong>%2$s</strong>"
 msgstr[1] "%1$s correspondentias in <strong>%2$s</strong>"
 
-#: libraries/DbSearch.php:346 libraries/Menu.php:324 libraries/Util.php:3184
-#: libraries/Util.php:3194 libraries/Util.php:3470 libraries/Util.php:3471
-#: libraries/Util.php:4125 libraries/config.values.php:42
+#: libraries/DbSearch.php:346 libraries/Menu.php:329 libraries/Util.php:3164
+#: libraries/Util.php:3174 libraries/Util.php:3450 libraries/Util.php:3451
+#: libraries/Util.php:4105 libraries/config.values.php:42
 #: libraries/config.values.php:50 libraries/config.values.php:119
 #: libraries/navigation/nodes/NodeTable.php:311
 #: templates/table/structure/check_all_table_column.phtml:12
@@ -3523,29 +3523,29 @@ msgstr "Deselige toto"
 msgid "Inside column:"
 msgstr "Intra columna:"
 
-#: libraries/DisplayResults.php:906
+#: libraries/DisplayResults.php:903
 msgid "Save edited data"
 msgstr "Salveguarda datos modificate"
 
-#: libraries/DisplayResults.php:912
+#: libraries/DisplayResults.php:909
 msgid "Restore column order"
 msgstr "Restabili ordine de columna"
 
-#: libraries/DisplayResults.php:960 libraries/central_columns.lib.php:661
+#: libraries/DisplayResults.php:957 libraries/central_columns.lib.php:661
 msgid "Filter rows"
 msgstr "Filtra rangos"
 
-#: libraries/DisplayResults.php:962 libraries/central_columns.lib.php:663
+#: libraries/DisplayResults.php:959 libraries/central_columns.lib.php:663
 msgid "Search this table"
 msgstr "Cerca in iste tabella"
 
-#: libraries/DisplayResults.php:993 libraries/Util.php:2437
+#: libraries/DisplayResults.php:990 libraries/Util.php:2437
 #: libraries/Util.php:2440
 msgctxt "First page"
 msgid "Begin"
 msgstr "Initio"
 
-#: libraries/DisplayResults.php:996 libraries/Util.php:2438
+#: libraries/DisplayResults.php:993 libraries/Util.php:2438
 #: libraries/Util.php:2441
 #: libraries/controllers/server/ServerBinlogController.php:194
 #: libraries/controllers/server/ServerBinlogController.php:196
@@ -3553,7 +3553,7 @@ msgctxt "Previous page"
 msgid "Previous"
 msgstr "Previe"
 
-#: libraries/DisplayResults.php:1062 libraries/Util.php:2469
+#: libraries/DisplayResults.php:1059 libraries/Util.php:2469
 #: libraries/Util.php:2479
 #: libraries/controllers/server/ServerBinlogController.php:228
 #: libraries/controllers/server/ServerBinlogController.php:230
@@ -3561,26 +3561,26 @@ msgctxt "Next page"
 msgid "Next"
 msgstr "Proxime"
 
-#: libraries/DisplayResults.php:1092 libraries/Util.php:2470
+#: libraries/DisplayResults.php:1089 libraries/Util.php:2470
 #: libraries/Util.php:2480
 msgctxt "Last page"
 msgid "End"
 msgstr "Ultime"
 
-#: libraries/DisplayResults.php:1135
+#: libraries/DisplayResults.php:1132
 msgid "All"
 msgstr "Omnes"
 
-#: libraries/DisplayResults.php:1145 libraries/display_export.lib.php:437
+#: libraries/DisplayResults.php:1142 libraries/display_export.lib.php:437
 #: templates/startAndNumberOfRowsPanel.phtml:10
 msgid "Number of rows:"
 msgstr "Numero de rangos:"
 
-#: libraries/DisplayResults.php:1438
+#: libraries/DisplayResults.php:1435
 msgid "Sort by key"
 msgstr "Ordina per clave"
 
-#: libraries/DisplayResults.php:1721 libraries/import.lib.php:1216
+#: libraries/DisplayResults.php:1718 libraries/import.lib.php:1216
 #: libraries/import.lib.php:1251 libraries/mult_submits.lib.php:343
 #: libraries/plugins/export/ExportCodegen.php:84
 #: libraries/plugins/export/ExportCsv.php:48
@@ -3610,56 +3610,56 @@ msgstr "Ordina per clave"
 msgid "Options"
 msgstr "Optiones"
 
-#: libraries/DisplayResults.php:1727 libraries/DisplayResults.php:1848
+#: libraries/DisplayResults.php:1724 libraries/DisplayResults.php:1845
 msgid "Partial texts"
 msgstr "Textos partial"
 
-#: libraries/DisplayResults.php:1728 libraries/DisplayResults.php:1852
+#: libraries/DisplayResults.php:1725 libraries/DisplayResults.php:1849
 msgid "Full texts"
 msgstr "Textos complete"
 
-#: libraries/DisplayResults.php:1744
+#: libraries/DisplayResults.php:1741
 msgid "Relational key"
 msgstr "Clave relational"
 
-#: libraries/DisplayResults.php:1745
+#: libraries/DisplayResults.php:1742
 msgid "Display column for relationships"
 msgstr "Monstra columna pro relationes"
 
-#: libraries/DisplayResults.php:1761
+#: libraries/DisplayResults.php:1758
 msgid "Show binary contents"
 msgstr "Monstra contentos binari"
 
-#: libraries/DisplayResults.php:1772
+#: libraries/DisplayResults.php:1769
 msgid "Show BLOB contents"
 msgstr "Monstra contentos BLOB"
 
-#: libraries/DisplayResults.php:1789
+#: libraries/DisplayResults.php:1786
 msgid "Hide browser transformation"
 msgstr "Cela transformation de navigator"
 
-#: libraries/DisplayResults.php:1800
+#: libraries/DisplayResults.php:1797
 msgid "Well Known Text"
 msgstr "Well Known Text (Texto ben cognoscite)"
 
-#: libraries/DisplayResults.php:1801
+#: libraries/DisplayResults.php:1798
 msgid "Well Known Binary"
 msgstr "Well Known Binary (binari ben cognoscite)"
 
-#: libraries/DisplayResults.php:3538 libraries/DisplayResults.php:3553
+#: libraries/DisplayResults.php:3535 libraries/DisplayResults.php:3550
 msgid "The row has been deleted."
 msgstr "Le rango ha essite delite."
 
-#: libraries/DisplayResults.php:3586 libraries/DisplayResults.php:4840
+#: libraries/DisplayResults.php:3583 libraries/DisplayResults.php:4837
 #: libraries/server_status_processes.lib.php:279
 msgid "Kill"
 msgstr "Remove"
 
-#: libraries/DisplayResults.php:4278
+#: libraries/DisplayResults.php:4275
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
 msgstr "Il pote esser approximate. Vide[doc@faq3-11]FAQ 3.11[/doc]."
 
-#: libraries/DisplayResults.php:4351 libraries/Message.php:171
+#: libraries/DisplayResults.php:4348 libraries/Message.php:171
 #: libraries/controllers/table/TableRelationController.php:253
 #: libraries/controllers/table/TableSearchController.php:570
 #: libraries/rte/rte_routines.lib.php:1445 libraries/sql_query_form.lib.php:92
@@ -3667,7 +3667,7 @@ msgstr "Il pote esser approximate. Vide[doc@faq3-11]FAQ 3.11[/doc]."
 msgid "Your SQL query has been executed successfully."
 msgstr "Le demanda (query) SQL ha essite executate con successo."
 
-#: libraries/DisplayResults.php:4698
+#: libraries/DisplayResults.php:4695
 #: libraries/controllers/database/DatabaseStructureController.php:770
 #, php-format
 msgid ""
@@ -3677,27 +3677,27 @@ msgstr ""
 "Iste vista ha al minus iste numero de rangos. Pro favor refere a "
 "%sdocumentation%s."
 
-#: libraries/DisplayResults.php:4711
+#: libraries/DisplayResults.php:4708
 #, php-format
 msgid "Showing rows %1s - %2s"
 msgstr "Monstrante rangos %1s - %2s"
 
-#: libraries/DisplayResults.php:4726
+#: libraries/DisplayResults.php:4723
 #, php-format
 msgid "%1$d total, %2$d in query"
 msgstr "%1$d total, %2$d in query"
 
-#: libraries/DisplayResults.php:4731
+#: libraries/DisplayResults.php:4728
 #, php-format
 msgid "%d total"
 msgstr "%d total"
 
-#: libraries/DisplayResults.php:4743 libraries/sql.lib.php:1380
+#: libraries/DisplayResults.php:4740 libraries/sql.lib.php:1380
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "Query prendeva %01.4f secundas."
 
-#: libraries/DisplayResults.php:4845 libraries/DisplayResults.php:4852
+#: libraries/DisplayResults.php:4842 libraries/DisplayResults.php:4849
 #: libraries/mult_submits.inc.php:53
 #: templates/database/structure/check_all_tables.phtml:2
 #: templates/database/structure/check_all_tables.phtml:9
@@ -3705,7 +3705,7 @@ msgstr "Query prendeva %01.4f secundas."
 msgid "With selected:"
 msgstr "Si seligite:"
 
-#: libraries/DisplayResults.php:4849 libraries/DisplayResults.php:4851
+#: libraries/DisplayResults.php:4846 libraries/DisplayResults.php:4848
 #: libraries/server_privileges.lib.php:1164
 #: libraries/server_privileges.lib.php:1165
 #: libraries/server_user_groups.lib.php:230
@@ -3716,23 +3716,23 @@ msgstr "Si seligite:"
 msgid "Check all"
 msgstr "Marca omnes"
 
-#: libraries/DisplayResults.php:5024
+#: libraries/DisplayResults.php:5021
 msgid "Copy to clipboard"
 msgstr "Copia a area de transferentia"
 
-#: libraries/DisplayResults.php:5080
+#: libraries/DisplayResults.php:5077
 msgid "Query results operations"
 msgstr "Operationes super exitos de query"
 
-#: libraries/DisplayResults.php:5168 templates/table/chart/tbl_chart.phtml:11
+#: libraries/DisplayResults.php:5165 templates/table/chart/tbl_chart.phtml:11
 msgid "Display chart"
 msgstr "Monstra graphico"
 
-#: libraries/DisplayResults.php:5193
+#: libraries/DisplayResults.php:5190
 msgid "Visualize GIS data"
 msgstr "Monstra datos de GIS"
 
-#: libraries/DisplayResults.php:5379
+#: libraries/DisplayResults.php:5376
 msgid "Link not found!"
 msgstr "Ligamine non trovate!"
 
@@ -3920,7 +3920,7 @@ msgstr "Le clave primari ha essite delite."
 msgid "Index %s has been dropped."
 msgstr "Indice %s ha essite delite."
 
-#: libraries/Index.php:736 libraries/Util.php:3477 libraries/Util.php:3478
+#: libraries/Index.php:736 libraries/Util.php:3457 libraries/Util.php:3458
 #: libraries/controllers/server/ServerDatabasesController.php:402
 #: libraries/controllers/table/TableStructureController.php:1182
 #: libraries/controllers/table/TableStructureController.php:1183
@@ -4018,9 +4018,14 @@ msgstr "Vista"
 msgid "Table"
 msgstr "Tabula"
 
-#: libraries/Menu.php:338 libraries/Menu.php:441 libraries/Menu.php:554
-#: libraries/Util.php:3181 libraries/Util.php:3191 libraries/Util.php:3197
-#: libraries/Util.php:4095 libraries/Util.php:4110 libraries/Util.php:4127
+#: libraries/Menu.php:275 libraries/Menu.php:294
+#, php-format
+msgid "“%s”"
+msgstr ""
+
+#: libraries/Menu.php:343 libraries/Menu.php:446 libraries/Menu.php:559
+#: libraries/Util.php:3161 libraries/Util.php:3171 libraries/Util.php:3177
+#: libraries/Util.php:4075 libraries/Util.php:4090 libraries/Util.php:4107
 #: libraries/config.values.php:39 libraries/config.values.php:47
 #: libraries/config.values.php:110 libraries/config.values.php:116
 #: libraries/config/messages.inc.php:320
@@ -4028,45 +4033,45 @@ msgstr "Tabula"
 msgid "SQL"
 msgstr "SQL"
 
-#: libraries/Menu.php:341 libraries/Menu.php:444 libraries/Util.php:3182
-#: libraries/Util.php:3192 libraries/Util.php:3198 libraries/Util.php:3472
-#: libraries/Util.php:3473 libraries/Util.php:4111 libraries/Util.php:4128
+#: libraries/Menu.php:346 libraries/Menu.php:449 libraries/Util.php:3162
+#: libraries/Util.php:3172 libraries/Util.php:3178 libraries/Util.php:3452
+#: libraries/Util.php:3453 libraries/Util.php:4091 libraries/Util.php:4108
 #: libraries/config.values.php:40 libraries/config.values.php:48
 #: libraries/config.values.php:111 libraries/config.values.php:117
 #: libraries/navigation/nodes/NodeTable.php:296
 msgid "Search"
 msgstr "Cerca"
 
-#: libraries/Menu.php:351 libraries/Util.php:3183 libraries/Util.php:3193
-#: libraries/Util.php:3474 libraries/Util.php:3475 libraries/Util.php:4129
+#: libraries/Menu.php:356 libraries/Util.php:3163 libraries/Util.php:3173
+#: libraries/Util.php:3454 libraries/Util.php:3455 libraries/Util.php:4109
 #: libraries/config.values.php:41 libraries/config.values.php:49
 #: libraries/config.values.php:118 libraries/navigation/nodes/NodeTable.php:302
 #: libraries/sql_query_form.lib.php:289 libraries/sql_query_form.lib.php:292
 msgid "Insert"
 msgstr "Inserta"
 
-#: libraries/Menu.php:375 libraries/Menu.php:479 libraries/Util.php:4116
-#: libraries/Util.php:4132 libraries/config.values.php:106
+#: libraries/Menu.php:380 libraries/Menu.php:484 libraries/Util.php:4096
+#: libraries/Util.php:4112 libraries/config.values.php:106
 #: libraries/server_common.lib.php:48 libraries/server_privileges.lib.php:2530
 #: libraries/server_privileges.lib.php:4371
 #: templates/privileges/privileges_summary.phtml:16
 msgid "Privileges"
 msgstr "Permissiones"
 
-#: libraries/Menu.php:384 libraries/Menu.php:392 libraries/Menu.php:471
-#: libraries/Util.php:3185 libraries/Util.php:3199 libraries/Util.php:4115
-#: libraries/Util.php:4133 libraries/config.values.php:112
+#: libraries/Menu.php:389 libraries/Menu.php:397 libraries/Menu.php:476
+#: libraries/Util.php:3165 libraries/Util.php:3179 libraries/Util.php:4095
+#: libraries/Util.php:4113 libraries/config.values.php:112
 #: view_operations.php:107
 msgid "Operations"
 msgstr "Operationes"
 
-#: libraries/Menu.php:397 libraries/Menu.php:501 libraries/Util.php:4120
-#: libraries/Util.php:4134 libraries/relation.lib.php:264
+#: libraries/Menu.php:402 libraries/Menu.php:506 libraries/Util.php:4100
+#: libraries/Util.php:4114 libraries/relation.lib.php:264
 msgid "Tracking"
 msgstr "Traciamento"
 
-#: libraries/Menu.php:409 libraries/Menu.php:495 libraries/Util.php:4119
-#: libraries/Util.php:4135
+#: libraries/Menu.php:414 libraries/Menu.php:500 libraries/Util.php:4099
+#: libraries/Util.php:4115
 #: libraries/navigation/nodes/NodeTriggerContainer.php:25
 #: libraries/plugins/export/ExportHtmlword.php:578
 #: libraries/plugins/export/ExportOdt.php:713
@@ -4078,20 +4083,20 @@ msgstr "Traciamento"
 msgid "Triggers"
 msgstr "Triggers"
 
-#: libraries/Menu.php:448 libraries/Menu.php:455 libraries/Menu.php:462
+#: libraries/Menu.php:453 libraries/Menu.php:460 libraries/Menu.php:467
 msgid "Database seems to be empty!"
 msgstr "Le base de datos sembla esser vacue!"
 
-#: libraries/Menu.php:451 libraries/Util.php:4112
+#: libraries/Menu.php:456 libraries/Util.php:4092
 msgid "Query"
 msgstr "Query"
 
-#: libraries/Menu.php:484 libraries/Util.php:4117
+#: libraries/Menu.php:489 libraries/Util.php:4097
 #: libraries/rte/rte_words.lib.php:44
 msgid "Routines"
 msgstr "Routines"
 
-#: libraries/Menu.php:489 libraries/Util.php:4118
+#: libraries/Menu.php:494 libraries/Util.php:4098
 #: libraries/navigation/nodes/NodeEventContainer.php:25
 #: libraries/plugins/export/ExportSql.php:961
 #: libraries/plugins/export/ExportXml.php:103
@@ -4099,16 +4104,16 @@ msgstr "Routines"
 msgid "Events"
 msgstr "Eventos"
 
-#: libraries/Menu.php:507 libraries/Util.php:4121
+#: libraries/Menu.php:512 libraries/Util.php:4101
 msgid "Designer"
 msgstr "Designator"
 
-#: libraries/Menu.php:516 libraries/Util.php:4122
+#: libraries/Menu.php:521 libraries/Util.php:4102
 #: templates/database/structure/check_all_tables.phtml:34
 msgid "Central columns"
 msgstr "Columnas central"
 
-#: libraries/Menu.php:550 libraries/Util.php:4094
+#: libraries/Menu.php:555 libraries/Util.php:4074
 #: libraries/config.values.php:103 libraries/config/messages.inc.php:265
 #: libraries/config/messages.inc.php:340
 #: libraries/navigation/NavigationTree.php:1274
@@ -4116,39 +4121,39 @@ msgstr "Columnas central"
 msgid "Databases"
 msgstr "Base de datos"
 
-#: libraries/Menu.php:574
+#: libraries/Menu.php:579
 msgid "User accounts"
 msgstr "Contos de usator"
 
-#: libraries/Menu.php:601 libraries/ServerStatusData.php:121
-#: libraries/Util.php:4101 libraries/server_common.lib.php:33
+#: libraries/Menu.php:606 libraries/ServerStatusData.php:121
+#: libraries/Util.php:4081 libraries/server_common.lib.php:33
 msgid "Binary log"
 msgstr "Registro binari"
 
-#: libraries/Menu.php:607 libraries/ServerStatusData.php:126
-#: libraries/Util.php:4102 libraries/server_common.lib.php:39
+#: libraries/Menu.php:612 libraries/ServerStatusData.php:126
+#: libraries/Util.php:4082 libraries/server_common.lib.php:39
 #: templates/database/structure/body_for_table_summary.phtml:10
 #: templates/database/structure/table_header.phtml:27
 msgid "Replication"
 msgstr "Replication"
 
-#: libraries/Menu.php:612 libraries/ServerStatusData.php:193
-#: libraries/Util.php:4103 libraries/config.values.php:105
+#: libraries/Menu.php:617 libraries/ServerStatusData.php:193
+#: libraries/Util.php:4083 libraries/config.values.php:105
 #: libraries/sql_query_form.lib.php:427
 #: templates/server/engines/engine.phtml:15
 #: templates/server/engines/engine.phtml:18
 msgid "Variables"
 msgstr "Variabiles"
 
-#: libraries/Menu.php:616 libraries/Util.php:4104
+#: libraries/Menu.php:621 libraries/Util.php:4084
 msgid "Charsets"
 msgstr "Insimul de characteres"
 
-#: libraries/Menu.php:620 libraries/Util.php:4106
+#: libraries/Menu.php:625 libraries/Util.php:4086
 msgid "Engines"
 msgstr "Motores"
 
-#: libraries/Menu.php:624 libraries/Util.php:4105
+#: libraries/Menu.php:629 libraries/Util.php:4085
 #: libraries/server_common.lib.php:30
 msgid "Plugins"
 msgstr "Plugins"
@@ -4879,8 +4884,9 @@ msgid "Missing parameter:"
 msgstr "Parametro mancante:"
 
 #: libraries/Util.php:2550
-#, php-format
-msgid "Jump to database \"%s\"."
+#, fuzzy, php-format
+#| msgid "Jump to database \"%s\"."
+msgid "Jump to database “%s”."
 msgstr "Salta al base de datos \"%s\"."
 
 #: libraries/Util.php:2575
@@ -4889,35 +4895,35 @@ msgid "The %s functionality is affected by a known bug, see %s"
 msgstr ""
 "Le functionalitate %s es influentiate per un error cognoscite, tu vide %s"
 
-#: libraries/Util.php:3389 prefs_manage.php:256
+#: libraries/Util.php:3369 prefs_manage.php:256
 msgid "Browse your computer:"
 msgstr "Cerca in tu computator:"
 
-#: libraries/Util.php:3414
+#: libraries/Util.php:3394
 #, php-format
 msgid "Select from the web server upload directory <b>%s</b>:"
 msgstr "Selige ex le directorio de incargamento de servitor web <b>%s</b>:"
 
-#: libraries/Util.php:3443 libraries/insert_edit.lib.php:1233
+#: libraries/Util.php:3423 libraries/insert_edit.lib.php:1233
 msgid "The directory you set for upload work cannot be reached."
 msgstr ""
 "Le directorio que tu fixava pro le travalio de incargar non pote esser "
 "attingite."
 
-#: libraries/Util.php:3454
+#: libraries/Util.php:3434
 msgid "There are no files to upload!"
 msgstr "Il non ha alcun file  de incargar!"
 
-#: libraries/Util.php:3479 libraries/Util.php:3480
+#: libraries/Util.php:3459 libraries/Util.php:3460
 #: templates/database/structure/check_all_tables.phtml:16
 msgid "Empty"
 msgstr "Vacua"
 
-#: libraries/Util.php:3485 libraries/Util.php:3486
+#: libraries/Util.php:3465 libraries/Util.php:3466
 msgid "Execute"
 msgstr "Executa"
 
-#: libraries/Util.php:4097
+#: libraries/Util.php:4077
 msgid "Users"
 msgstr "Usatores"
 
@@ -8085,13 +8091,13 @@ msgstr "Rangos"
 #: libraries/engines/Innodb.php:169 libraries/server_status.lib.php:192
 #: libraries/server_status.lib.php:304
 #: templates/server/databases/table_footer.phtml:7
-#: templates/table/structure/display_table_stats.phtml:42
+#: templates/table/structure/display_table_stats.phtml:44
 msgid "Total"
 msgstr "Total"
 
 #: libraries/controllers/server/ServerDatabasesController.php:369
 #: templates/database/structure/table_header.phtml:74
-#: templates/table/structure/display_table_stats.phtml:29
+#: templates/table/structure/display_table_stats.phtml:31
 msgid "Overhead"
 msgstr "Overhead"
 
@@ -8212,7 +8218,7 @@ msgstr "Modifica"
 #: templates/columns_definitions/table_fields_definitions.phtml:57
 #: templates/table/structure/check_all_table_column.phtml:36
 #: templates/table/structure/display_structure.phtml:67
-#: templates/table/structure/display_table_stats.phtml:21
+#: templates/table/structure/display_table_stats.phtml:23
 msgid "Index"
 msgstr "Indice"
 
@@ -9859,7 +9865,7 @@ msgstr "Initialisa le tabella (FLUSH)"
 
 #: libraries/operations.lib.php:1443
 #: templates/database/structure/check_all_tables.phtml:23
-#: templates/table/structure/display_table_stats.phtml:58
+#: templates/table/structure/display_table_stats.phtml:60
 msgid "Optimize table"
 msgstr "Optimiza tabella"
 
@@ -11090,18 +11096,18 @@ msgstr ""
 msgid "Re-login to phpMyAdmin to load the updated configuration file."
 msgstr ""
 
-#: libraries/relation.lib.php:1679
+#: libraries/relation.lib.php:1692
 msgid "no description"
 msgstr ""
 
-#: libraries/relation.lib.php:1872
+#: libraries/relation.lib.php:1885
 msgid ""
 "You do not have necessary privileges to create a database named "
 "'phpmyadmin'. You may go to 'Operations' tab of any database to set up the "
 "phpMyAdmin configuration storage there."
 msgstr ""
 
-#: libraries/relation.lib.php:1987
+#: libraries/relation.lib.php:2000
 #, php-format
 msgid ""
 "%sCreate%s a database named 'phpmyadmin' and setup the phpMyAdmin "
@@ -11110,7 +11116,7 @@ msgstr ""
 "%sCreate%s un base de datos nominate 'phpmyadmin' e configura le "
 "configuration de immagazinage de phpMyAdmin ci."
 
-#: libraries/relation.lib.php:1995
+#: libraries/relation.lib.php:2008
 #, php-format
 msgid ""
 "%sCreate%s the phpMyAdmin configuration storage in the current database."
@@ -11118,7 +11124,7 @@ msgstr ""
 "%sCrea%s le immagazinage de configuration de phpMyAdmin in le base de datos "
 "currente."
 
-#: libraries/relation.lib.php:2003
+#: libraries/relation.lib.php:2016
 #, php-format
 msgid "%sCreate%s missing phpMyAdmin configuration storage tables."
 msgstr ""
@@ -12385,7 +12391,7 @@ msgstr ""
 #: libraries/server_privileges.lib.php:4668
 #, php-format
 msgid ""
-"Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
+"Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege "
 "tables. The content of these tables may differ from the privileges the "
 "server uses, if they have been changed manually. In this case, you should "
 "%sreload the privileges%s before you continue."
@@ -12393,7 +12399,7 @@ msgstr ""
 
 #: libraries/server_privileges.lib.php:4685
 msgid ""
-"Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
+"Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege "
 "tables. The content of these tables may differ from the privileges the "
 "server uses, if they have been changed manually. In this case, the "
 "privileges have to be reloaded but currently, you don't have the RELOAD "
@@ -13436,9 +13442,10 @@ msgid "Problems with indexes of table `%s`"
 msgstr ""
 
 #: libraries/sql_query_form.lib.php:139
-#, php-format
-msgid "Run SQL query/queries on server %s"
-msgstr ""
+#, fuzzy, php-format
+#| msgid "Run SQL query/queries on table %s"
+msgid "Run SQL query/queries on server “%s”"
+msgstr "Executa query/queries de SQL sur tabella %s"
 
 #: libraries/sql_query_form.lib.php:156
 #, php-format
@@ -15180,11 +15187,11 @@ msgstr "Modifica partitionemento"
 msgid "Edit view"
 msgstr ""
 
-#: templates/table/structure/display_table_stats.phtml:11
+#: templates/table/structure/display_table_stats.phtml:13
 msgid "Space usage"
 msgstr ""
 
-#: templates/table/structure/display_table_stats.phtml:34
+#: templates/table/structure/display_table_stats.phtml:36
 msgid "Effective"
 msgstr "Effective"
 

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2017-02-22 08:57+0100\n"
+"POT-Creation-Date: 2017-03-01 18:19+0100\n"
 "PO-Revision-Date: 2017-02-14 16:32+0000\n"
 "Last-Translator: Siddhesh Rane <kingsid911@gmail.com>\n"
 "Language-Team: Hindi <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -46,7 +46,7 @@ msgstr "डाटाबेस टिप्पणि"
 
 #: db_datadict.php:106 libraries/plugins/schema/pdf/PdfRelationSchema.php:596
 #: templates/columns_definitions/column_definitions_form.phtml:89
-#: templates/table/structure/display_table_stats.phtml:4
+#: templates/table/structure/display_table_stats.phtml:5
 msgid "Table comments:"
 msgstr "तालिका टिप्पणी:"
 
@@ -254,9 +254,9 @@ msgstr "डाटाबेस में कोई टेबल नहीं।"
 msgid "Tables"
 msgstr "टेबल"
 
-#: db_export.php:66 libraries/Menu.php:330 libraries/Menu.php:437
-#: libraries/Util.php:3180 libraries/Util.php:3190 libraries/Util.php:3196
-#: libraries/Util.php:3476 libraries/Util.php:4109 libraries/Util.php:4126
+#: db_export.php:66 libraries/Menu.php:335 libraries/Menu.php:442
+#: libraries/Util.php:3160 libraries/Util.php:3170 libraries/Util.php:3176
+#: libraries/Util.php:3456 libraries/Util.php:4089 libraries/Util.php:4106
 #: libraries/central_columns.lib.php:727 libraries/config.values.php:38
 #: libraries/config.values.php:46 libraries/config.values.php:109
 #: libraries/config.values.php:115 libraries/config/setup.forms.php:316
@@ -282,7 +282,7 @@ msgstr "संरचना"
 #: libraries/config/user_preferences.forms.php:296
 #: libraries/controllers/server/ServerDatabasesController.php:354
 #: libraries/server_privileges.lib.php:1130
-#: templates/table/structure/display_table_stats.phtml:14
+#: templates/table/structure/display_table_stats.phtml:16
 msgid "Data"
 msgstr "डाटा"
 
@@ -461,7 +461,7 @@ msgid "Add geometry"
 msgstr "ज्यामिति जोडें"
 
 #: gis_data_editor.php:413 js/messages.php:349 libraries/DbSearch.php:455
-#: libraries/DisplayResults.php:1815 libraries/browse_foreigners.lib.php:137
+#: libraries/DisplayResults.php:1812 libraries/browse_foreigners.lib.php:137
 #: libraries/display_change_password.lib.php:148
 #: libraries/display_export.lib.php:402 libraries/display_export.lib.php:408
 #: libraries/display_import.lib.php:399 libraries/index.lib.php:34
@@ -1313,7 +1313,7 @@ msgstr "प्रश्न"
 msgid "Traffic"
 msgstr "व्यस्तता"
 
-#: js/messages.php:214 libraries/Menu.php:592 libraries/Util.php:4100
+#: js/messages.php:214 libraries/Menu.php:597 libraries/Util.php:4080
 #: libraries/server_status_monitor.lib.php:253
 msgid "Settings"
 msgstr "सेटिंग्स"
@@ -1328,7 +1328,7 @@ msgstr "चार्ट को जाली (grid) पर लगाएँ"
 msgid "Please add at least one variable to the series!"
 msgstr "कृपया, श्रृंखला में कम से कम एक चर (variable) ज़रूर जोड़ें"
 
-#: js/messages.php:219 libraries/DisplayResults.php:1494
+#: js/messages.php:219 libraries/DisplayResults.php:1491
 #: libraries/config.values.php:68 libraries/display_export.lib.php:691
 #: libraries/plugins/export/ExportSql.php:2185
 #: libraries/plugins/schema/SchemaPdf.php:103
@@ -1543,7 +1543,7 @@ msgstr "विश्लेषण"
 msgid "Explain output"
 msgstr "परिणाम को समझाएँ"
 
-#: js/messages.php:291 libraries/Menu.php:558 libraries/Util.php:4096
+#: js/messages.php:291 libraries/Menu.php:563 libraries/Util.php:4076
 #: libraries/config.values.php:104 libraries/rte/rte_events.lib.php:399
 #: libraries/rte/rte_list.lib.php:107
 #: libraries/server_status_processes.lib.php:92 libraries/tracking.lib.php:287
@@ -1643,9 +1643,9 @@ msgid ""
 "Failed building chart grid with imported config. Resetting to default config…"
 msgstr ""
 
-#: js/messages.php:325 libraries/Menu.php:365 libraries/Menu.php:467
-#: libraries/Menu.php:588 libraries/Util.php:4099 libraries/Util.php:4114
-#: libraries/Util.php:4131 libraries/config/messages.inc.php:257
+#: js/messages.php:325 libraries/Menu.php:370 libraries/Menu.php:472
+#: libraries/Menu.php:593 libraries/Util.php:4079 libraries/Util.php:4094
+#: libraries/Util.php:4111 libraries/config/messages.inc.php:257
 #: libraries/display_import.lib.php:107
 #: libraries/server_status_monitor.lib.php:313 prefs_manage.php:246
 #: setup/frames/menu.inc.php:27
@@ -1824,7 +1824,7 @@ msgstr "डॅटाबेस प्रतिलिपिकरण"
 msgid "Changing charset"
 msgstr "वर्ण समूह बदलाव"
 
-#: js/messages.php:377 libraries/Util.php:3079
+#: js/messages.php:377 libraries/Util.php:3059
 #, fuzzy
 #| msgid "Disable foreign key checks"
 msgid "Enable foreign key checks"
@@ -1865,11 +1865,11 @@ msgstr "इस %s टेबल से मैच हटाएँ?"
 msgid "The definition of a stored function must contain a RETURN statement!"
 msgstr "एक संगृहीत फंक्शन की परिभाषा (definition) में RETURN कथन होना आवश्यक है!"
 
-#: js/messages.php:393 libraries/DisplayResults.php:4872
-#: libraries/DisplayResults.php:5155 libraries/Menu.php:357
-#: libraries/Menu.php:458 libraries/Menu.php:584 libraries/Util.php:3483
-#: libraries/Util.php:3484 libraries/Util.php:4098 libraries/Util.php:4113
-#: libraries/Util.php:4130 libraries/config/messages.inc.php:251
+#: js/messages.php:393 libraries/DisplayResults.php:4869
+#: libraries/DisplayResults.php:5152 libraries/Menu.php:362
+#: libraries/Menu.php:463 libraries/Menu.php:589 libraries/Util.php:3463
+#: libraries/Util.php:3464 libraries/Util.php:4078 libraries/Util.php:4093
+#: libraries/Util.php:4110 libraries/config/messages.inc.php:251
 #: libraries/display_export.lib.php:171 libraries/rte/rte_list.lib.php:159
 #: libraries/server_privileges.lib.php:2366
 #: libraries/server_privileges.lib.php:2450
@@ -1922,10 +1922,10 @@ msgstr "क्वॅरी बॉक्स छिपाएँ"
 msgid "Show query box"
 msgstr "क्वॅरी बॉक्स दिखाएँ"
 
-#: js/messages.php:412 libraries/DisplayResults.php:3493
-#: libraries/DisplayResults.php:4856 libraries/Index.php:709
-#: libraries/Util.php:619 libraries/Util.php:1106 libraries/Util.php:3481
-#: libraries/Util.php:3482 libraries/central_columns.lib.php:848
+#: js/messages.php:412 libraries/DisplayResults.php:3490
+#: libraries/DisplayResults.php:4853 libraries/Index.php:709
+#: libraries/Util.php:619 libraries/Util.php:1106 libraries/Util.php:3461
+#: libraries/Util.php:3462 libraries/central_columns.lib.php:848
 #: libraries/central_columns.lib.php:1195 libraries/config/messages.inc.php:879
 #: libraries/server_user_groups.lib.php:117 setup/frames/index.inc.php:162
 #: templates/console/bookmark_content.phtml:17
@@ -1936,7 +1936,7 @@ msgid "Edit"
 msgstr "सम्पादन"
 
 #: js/messages.php:413 libraries/DbSearch.php:353
-#: libraries/DisplayResults.php:3562 libraries/DisplayResults.php:4840
+#: libraries/DisplayResults.php:3559 libraries/DisplayResults.php:4837
 #: libraries/central_columns.lib.php:850 libraries/central_columns.lib.php:1199
 #: libraries/display_export.lib.php:226
 #: libraries/server_user_groups.lib.php:127
@@ -1946,8 +1946,8 @@ msgstr "सम्पादन"
 msgid "Delete"
 msgstr "मिटाएँ"
 
-#: js/messages.php:414 libraries/DisplayResults.php:929
-#: libraries/DisplayResults.php:937
+#: js/messages.php:414 libraries/DisplayResults.php:926
+#: libraries/DisplayResults.php:934
 #, php-format
 msgid "%d is not valid row number."
 msgstr "%d एक वैध पंक्ति संख्या नहीं है।"
@@ -2228,8 +2228,8 @@ msgstr "डॅटा बिन्दु सामग्री"
 msgid "Ignore"
 msgstr "उपेक्षा करें"
 
-#: js/messages.php:510 libraries/DisplayResults.php:3496
-#: libraries/DisplayResults.php:4861
+#: js/messages.php:510 libraries/DisplayResults.php:3493
+#: libraries/DisplayResults.php:4858
 msgid "Copy"
 msgstr "प्रतिलिपि करें"
 
@@ -2247,7 +2247,7 @@ msgstr "लाईन समाप्त होता है"
 msgid "Polygon"
 msgstr "बहुभुज"
 
-#: js/messages.php:517 libraries/DisplayResults.php:1799
+#: js/messages.php:517 libraries/DisplayResults.php:1796
 msgid "Geometry"
 msgstr "ज्यामिति"
 
@@ -2451,7 +2451,7 @@ msgstr "कोलम के नाम"
 msgid "Click the drop-down arrow<br />to toggle column's visibility."
 msgstr "कॉलम को दिखने / छुपाने के लिए <br /> ड्रॉप-डाउन तीर पर क्लिक करें"
 
-#: js/messages.php:591 libraries/DisplayResults.php:1036
+#: js/messages.php:591 libraries/DisplayResults.php:1033
 #: libraries/browse_foreigners.lib.php:283
 #: libraries/browse_foreigners.lib.php:336
 #: templates/privileges/initials_row.phtml:24
@@ -2512,8 +2512,8 @@ msgstr ""
 msgid "Select database first"
 msgstr "टेबल चुनिये"
 
-#: js/messages.php:614 libraries/DisplayResults.php:5047
-#: libraries/Util.php:3991
+#: js/messages.php:614 libraries/DisplayResults.php:5044
+#: libraries/Util.php:3971
 #: templates/database/structure/print_view_data_dictionary_link.phtml:3
 #: templates/table/structure/optional_action_links.phtml:6
 msgid "Print"
@@ -2607,7 +2607,7 @@ msgstr "नवीनतम स्थिर संस्करण:"
 msgid "up to date"
 msgstr "अद्यतन"
 
-#: js/messages.php:665 libraries/DisplayResults.php:4978 view_create.php:206
+#: js/messages.php:665 libraries/DisplayResults.php:4975 view_create.php:206
 msgid "Create view"
 msgstr "दृश्य बनाइये"
 
@@ -3504,8 +3504,8 @@ msgstr "नियमित कार्य"
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr ""
 
-#: libraries/DbQbe.php:405 libraries/DisplayResults.php:2281
-#: libraries/DisplayResults.php:2287 libraries/config.values.php:69
+#: libraries/DbQbe.php:405 libraries/DisplayResults.php:2278
+#: libraries/DisplayResults.php:2284 libraries/config.values.php:69
 #: libraries/controllers/server/ServerDatabasesController.php:550
 #: libraries/operations.lib.php:787
 #: libraries/server_status_processes.lib.php:167
@@ -3515,8 +3515,8 @@ msgstr ""
 msgid "Ascending"
 msgstr "आरोही"
 
-#: libraries/DbQbe.php:408 libraries/DisplayResults.php:2277
-#: libraries/DisplayResults.php:2291 libraries/config.values.php:70
+#: libraries/DbQbe.php:408 libraries/DisplayResults.php:2274
+#: libraries/DisplayResults.php:2288 libraries/config.values.php:70
 #: libraries/controllers/server/ServerDatabasesController.php:550
 #: libraries/operations.lib.php:790
 #: libraries/server_status_processes.lib.php:164
@@ -3684,9 +3684,9 @@ msgid_plural "%1$s matches in <strong>%2$s</strong>"
 msgstr[0] "<i>%s</i> टेबल के अंदर %s मैच हैं."
 msgstr[1] "<i>%s</i> टेबल के अंदर %s मैच हैं."
 
-#: libraries/DbSearch.php:346 libraries/Menu.php:324 libraries/Util.php:3184
-#: libraries/Util.php:3194 libraries/Util.php:3470 libraries/Util.php:3471
-#: libraries/Util.php:4125 libraries/config.values.php:42
+#: libraries/DbSearch.php:346 libraries/Menu.php:329 libraries/Util.php:3164
+#: libraries/Util.php:3174 libraries/Util.php:3450 libraries/Util.php:3451
+#: libraries/Util.php:4105 libraries/config.values.php:42
 #: libraries/config.values.php:50 libraries/config.values.php:119
 #: libraries/navigation/nodes/NodeTable.php:311
 #: templates/table/structure/check_all_table_column.phtml:12
@@ -3724,31 +3724,31 @@ msgstr "सभी को रद्द करें"
 msgid "Inside column:"
 msgstr "काँलम के अंदर:"
 
-#: libraries/DisplayResults.php:906
+#: libraries/DisplayResults.php:903
 #, fuzzy
 #| msgid "Save directory"
 msgid "Save edited data"
 msgstr "निर्देशिका बचाना"
 
-#: libraries/DisplayResults.php:912
+#: libraries/DisplayResults.php:909
 #, fuzzy
 #| msgid "Textarea columns"
 msgid "Restore column order"
 msgstr "पाठ क्षेत्रपाठ क्षेत्र कोलम"
 
-#: libraries/DisplayResults.php:960 libraries/central_columns.lib.php:661
+#: libraries/DisplayResults.php:957 libraries/central_columns.lib.php:661
 #, fuzzy
 #| msgid "Filter"
 msgid "Filter rows"
 msgstr "फ़िल्टर"
 
-#: libraries/DisplayResults.php:962 libraries/central_columns.lib.php:663
+#: libraries/DisplayResults.php:959 libraries/central_columns.lib.php:663
 #, fuzzy
 #| msgid "Search in database"
 msgid "Search this table"
 msgstr "डाटाबेस में खोजें"
 
-#: libraries/DisplayResults.php:993 libraries/Util.php:2437
+#: libraries/DisplayResults.php:990 libraries/Util.php:2437
 #: libraries/Util.php:2440
 #, fuzzy
 #| msgid "Begin"
@@ -3756,7 +3756,7 @@ msgctxt "First page"
 msgid "Begin"
 msgstr "प्रारंभ"
 
-#: libraries/DisplayResults.php:996 libraries/Util.php:2438
+#: libraries/DisplayResults.php:993 libraries/Util.php:2438
 #: libraries/Util.php:2441
 #: libraries/controllers/server/ServerBinlogController.php:194
 #: libraries/controllers/server/ServerBinlogController.php:196
@@ -3766,7 +3766,7 @@ msgctxt "Previous page"
 msgid "Previous"
 msgstr "पिछला"
 
-#: libraries/DisplayResults.php:1062 libraries/Util.php:2469
+#: libraries/DisplayResults.php:1059 libraries/Util.php:2469
 #: libraries/Util.php:2479
 #: libraries/controllers/server/ServerBinlogController.php:228
 #: libraries/controllers/server/ServerBinlogController.php:230
@@ -3776,7 +3776,7 @@ msgctxt "Next page"
 msgid "Next"
 msgstr "अगला"
 
-#: libraries/DisplayResults.php:1092 libraries/Util.php:2470
+#: libraries/DisplayResults.php:1089 libraries/Util.php:2470
 #: libraries/Util.php:2480
 #, fuzzy
 #| msgid "End"
@@ -3784,20 +3784,20 @@ msgctxt "Last page"
 msgid "End"
 msgstr "आखरी"
 
-#: libraries/DisplayResults.php:1135
+#: libraries/DisplayResults.php:1132
 msgid "All"
 msgstr "सभी"
 
-#: libraries/DisplayResults.php:1145 libraries/display_export.lib.php:437
+#: libraries/DisplayResults.php:1142 libraries/display_export.lib.php:437
 #: templates/startAndNumberOfRowsPanel.phtml:10
 msgid "Number of rows:"
 msgstr "पंक्तियोंकी की संख्या:"
 
-#: libraries/DisplayResults.php:1438
+#: libraries/DisplayResults.php:1435
 msgid "Sort by key"
 msgstr "कुंजी सॉर्ट"
 
-#: libraries/DisplayResults.php:1721 libraries/import.lib.php:1216
+#: libraries/DisplayResults.php:1718 libraries/import.lib.php:1216
 #: libraries/import.lib.php:1251 libraries/mult_submits.lib.php:343
 #: libraries/plugins/export/ExportCodegen.php:84
 #: libraries/plugins/export/ExportCsv.php:48
@@ -3827,64 +3827,64 @@ msgstr "कुंजी सॉर्ट"
 msgid "Options"
 msgstr "विकल्प"
 
-#: libraries/DisplayResults.php:1727 libraries/DisplayResults.php:1848
+#: libraries/DisplayResults.php:1724 libraries/DisplayResults.php:1845
 msgid "Partial texts"
 msgstr "आंशिक पाठ"
 
-#: libraries/DisplayResults.php:1728 libraries/DisplayResults.php:1852
+#: libraries/DisplayResults.php:1725 libraries/DisplayResults.php:1849
 msgid "Full texts"
 msgstr "पूर्ण पाठ"
 
-#: libraries/DisplayResults.php:1744
+#: libraries/DisplayResults.php:1741
 msgid "Relational key"
 msgstr "कुंजी संबंधपरक"
 
-#: libraries/DisplayResults.php:1745
+#: libraries/DisplayResults.php:1742
 #, fuzzy
 #| msgid "Displaying Column Comments"
 msgid "Display column for relationships"
 msgstr "काँलम सामग्री प्रदर्शित"
 
-#: libraries/DisplayResults.php:1761
+#: libraries/DisplayResults.php:1758
 msgid "Show binary contents"
 msgstr "द्विआधारी सामग्री दिखाने"
 
-#: libraries/DisplayResults.php:1772
+#: libraries/DisplayResults.php:1769
 msgid "Show BLOB contents"
 msgstr "BLOB सामग्री दिखाने"
 
-#: libraries/DisplayResults.php:1789
+#: libraries/DisplayResults.php:1786
 #, fuzzy
 #| msgid "Browser transformation"
 msgid "Hide browser transformation"
 msgstr "सामग्री दिखाने"
 
-#: libraries/DisplayResults.php:1800
+#: libraries/DisplayResults.php:1797
 msgid "Well Known Text"
 msgstr ""
 
-#: libraries/DisplayResults.php:1801
+#: libraries/DisplayResults.php:1798
 msgid "Well Known Binary"
 msgstr ""
 
-#: libraries/DisplayResults.php:3538 libraries/DisplayResults.php:3553
+#: libraries/DisplayResults.php:3535 libraries/DisplayResults.php:3550
 #, fuzzy
 #| msgid "The row has been deleted."
 msgid "The row has been deleted."
 msgstr "रौ को डिलीट कर दिया"
 
-#: libraries/DisplayResults.php:3586 libraries/DisplayResults.php:4840
+#: libraries/DisplayResults.php:3583 libraries/DisplayResults.php:4837
 #: libraries/server_status_processes.lib.php:279
 msgid "Kill"
 msgstr ""
 
-#: libraries/DisplayResults.php:4278
+#: libraries/DisplayResults.php:4275
 #, fuzzy
 #| msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]"
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
 msgstr "शायद अनुमानित हैं. [doc@faq3-11]FAQ 3.11[/doc] देखें"
 
-#: libraries/DisplayResults.php:4351 libraries/Message.php:171
+#: libraries/DisplayResults.php:4348 libraries/Message.php:171
 #: libraries/controllers/table/TableRelationController.php:253
 #: libraries/controllers/table/TableSearchController.php:570
 #: libraries/rte/rte_routines.lib.php:1445 libraries/sql_query_form.lib.php:92
@@ -3894,7 +3894,7 @@ msgstr "शायद अनुमानित हैं. [doc@faq3-11]FAQ 3.11[/
 msgid "Your SQL query has been executed successfully."
 msgstr "आपकी SQL कुएरी सफलता के साथ पूरी की गई है"
 
-#: libraries/DisplayResults.php:4698
+#: libraries/DisplayResults.php:4695
 #: libraries/controllers/database/DatabaseStructureController.php:770
 #, php-format
 msgid ""
@@ -3902,30 +3902,30 @@ msgid ""
 "%s."
 msgstr "इस द्रश्य में कम से कम इतनी रो हैं. और जानने के लिए %s दस्तावेज़%s  पढ़ें."
 
-#: libraries/DisplayResults.php:4711
+#: libraries/DisplayResults.php:4708
 #, fuzzy, php-format
 #| msgid "Showing rows"
 msgid "Showing rows %1s - %2s"
 msgstr "रौ देखिये"
 
-#: libraries/DisplayResults.php:4726
+#: libraries/DisplayResults.php:4723
 #, php-format
 msgid "%1$d total, %2$d in query"
 msgstr ""
 
-#: libraries/DisplayResults.php:4731
+#: libraries/DisplayResults.php:4728
 #, fuzzy, php-format
 #| msgid "total"
 msgid "%d total"
 msgstr "कुल"
 
-#: libraries/DisplayResults.php:4743 libraries/sql.lib.php:1380
+#: libraries/DisplayResults.php:4740 libraries/sql.lib.php:1380
 #, fuzzy, php-format
 #| msgid "Query took %01.4f sec"
 msgid "Query took %01.4f seconds."
 msgstr "क्वरी को %01.4f सेकेंड का समय लगा"
 
-#: libraries/DisplayResults.php:4845 libraries/DisplayResults.php:4852
+#: libraries/DisplayResults.php:4842 libraries/DisplayResults.php:4849
 #: libraries/mult_submits.inc.php:53
 #: templates/database/structure/check_all_tables.phtml:2
 #: templates/database/structure/check_all_tables.phtml:9
@@ -3933,7 +3933,7 @@ msgstr "क्वरी को %01.4f सेकेंड का समय लग
 msgid "With selected:"
 msgstr "चुने हुओं को:"
 
-#: libraries/DisplayResults.php:4849 libraries/DisplayResults.php:4851
+#: libraries/DisplayResults.php:4846 libraries/DisplayResults.php:4848
 #: libraries/server_privileges.lib.php:1164
 #: libraries/server_privileges.lib.php:1165
 #: libraries/server_user_groups.lib.php:230
@@ -3946,25 +3946,25 @@ msgstr "चुने हुओं को:"
 msgid "Check all"
 msgstr "सभी को चेक करें"
 
-#: libraries/DisplayResults.php:5024
+#: libraries/DisplayResults.php:5021
 msgid "Copy to clipboard"
 msgstr ""
 
-#: libraries/DisplayResults.php:5080
+#: libraries/DisplayResults.php:5077
 msgid "Query results operations"
 msgstr ""
 
-#: libraries/DisplayResults.php:5168 templates/table/chart/tbl_chart.phtml:11
+#: libraries/DisplayResults.php:5165 templates/table/chart/tbl_chart.phtml:11
 #, fuzzy
 #| msgid "Display Features"
 msgid "Display chart"
 msgstr "फीचरस दिखाओ"
 
-#: libraries/DisplayResults.php:5193
+#: libraries/DisplayResults.php:5190
 msgid "Visualize GIS data"
 msgstr ""
 
-#: libraries/DisplayResults.php:5379
+#: libraries/DisplayResults.php:5376
 #, fuzzy
 #| msgid "Link not found"
 msgid "Link not found!"
@@ -4163,7 +4163,7 @@ msgstr "प्राथमिक कुंजी गिरा दी गयी �
 msgid "Index %s has been dropped."
 msgstr "सूचकांक %s गिरा दिया गया है."
 
-#: libraries/Index.php:736 libraries/Util.php:3477 libraries/Util.php:3478
+#: libraries/Index.php:736 libraries/Util.php:3457 libraries/Util.php:3458
 #: libraries/controllers/server/ServerDatabasesController.php:402
 #: libraries/controllers/table/TableStructureController.php:1182
 #: libraries/controllers/table/TableStructureController.php:1183
@@ -4257,9 +4257,14 @@ msgstr "दृश्य"
 msgid "Table"
 msgstr "टेबल"
 
-#: libraries/Menu.php:338 libraries/Menu.php:441 libraries/Menu.php:554
-#: libraries/Util.php:3181 libraries/Util.php:3191 libraries/Util.php:3197
-#: libraries/Util.php:4095 libraries/Util.php:4110 libraries/Util.php:4127
+#: libraries/Menu.php:275 libraries/Menu.php:294
+#, php-format
+msgid "“%s”"
+msgstr ""
+
+#: libraries/Menu.php:343 libraries/Menu.php:446 libraries/Menu.php:559
+#: libraries/Util.php:3161 libraries/Util.php:3171 libraries/Util.php:3177
+#: libraries/Util.php:4075 libraries/Util.php:4090 libraries/Util.php:4107
 #: libraries/config.values.php:39 libraries/config.values.php:47
 #: libraries/config.values.php:110 libraries/config.values.php:116
 #: libraries/config/messages.inc.php:320
@@ -4267,45 +4272,45 @@ msgstr "टेबल"
 msgid "SQL"
 msgstr "SQL"
 
-#: libraries/Menu.php:341 libraries/Menu.php:444 libraries/Util.php:3182
-#: libraries/Util.php:3192 libraries/Util.php:3198 libraries/Util.php:3472
-#: libraries/Util.php:3473 libraries/Util.php:4111 libraries/Util.php:4128
+#: libraries/Menu.php:346 libraries/Menu.php:449 libraries/Util.php:3162
+#: libraries/Util.php:3172 libraries/Util.php:3178 libraries/Util.php:3452
+#: libraries/Util.php:3453 libraries/Util.php:4091 libraries/Util.php:4108
 #: libraries/config.values.php:40 libraries/config.values.php:48
 #: libraries/config.values.php:111 libraries/config.values.php:117
 #: libraries/navigation/nodes/NodeTable.php:296
 msgid "Search"
 msgstr "ढूंढें"
 
-#: libraries/Menu.php:351 libraries/Util.php:3183 libraries/Util.php:3193
-#: libraries/Util.php:3474 libraries/Util.php:3475 libraries/Util.php:4129
+#: libraries/Menu.php:356 libraries/Util.php:3163 libraries/Util.php:3173
+#: libraries/Util.php:3454 libraries/Util.php:3455 libraries/Util.php:4109
 #: libraries/config.values.php:41 libraries/config.values.php:49
 #: libraries/config.values.php:118 libraries/navigation/nodes/NodeTable.php:302
 #: libraries/sql_query_form.lib.php:289 libraries/sql_query_form.lib.php:292
 msgid "Insert"
 msgstr "इनसर्ट"
 
-#: libraries/Menu.php:375 libraries/Menu.php:479 libraries/Util.php:4116
-#: libraries/Util.php:4132 libraries/config.values.php:106
+#: libraries/Menu.php:380 libraries/Menu.php:484 libraries/Util.php:4096
+#: libraries/Util.php:4112 libraries/config.values.php:106
 #: libraries/server_common.lib.php:48 libraries/server_privileges.lib.php:2530
 #: libraries/server_privileges.lib.php:4371
 #: templates/privileges/privileges_summary.phtml:16
 msgid "Privileges"
 msgstr "प्रिविलेज"
 
-#: libraries/Menu.php:384 libraries/Menu.php:392 libraries/Menu.php:471
-#: libraries/Util.php:3185 libraries/Util.php:3199 libraries/Util.php:4115
-#: libraries/Util.php:4133 libraries/config.values.php:112
+#: libraries/Menu.php:389 libraries/Menu.php:397 libraries/Menu.php:476
+#: libraries/Util.php:3165 libraries/Util.php:3179 libraries/Util.php:4095
+#: libraries/Util.php:4113 libraries/config.values.php:112
 #: view_operations.php:107
 msgid "Operations"
 msgstr "कार्रवाई"
 
-#: libraries/Menu.php:397 libraries/Menu.php:501 libraries/Util.php:4120
-#: libraries/Util.php:4134 libraries/relation.lib.php:264
+#: libraries/Menu.php:402 libraries/Menu.php:506 libraries/Util.php:4100
+#: libraries/Util.php:4114 libraries/relation.lib.php:264
 msgid "Tracking"
 msgstr "नज़र रखना"
 
-#: libraries/Menu.php:409 libraries/Menu.php:495 libraries/Util.php:4119
-#: libraries/Util.php:4135
+#: libraries/Menu.php:414 libraries/Menu.php:500 libraries/Util.php:4099
+#: libraries/Util.php:4115
 #: libraries/navigation/nodes/NodeTriggerContainer.php:25
 #: libraries/plugins/export/ExportHtmlword.php:578
 #: libraries/plugins/export/ExportOdt.php:713
@@ -4317,20 +4322,20 @@ msgstr "नज़र रखना"
 msgid "Triggers"
 msgstr "ट्रिगर"
 
-#: libraries/Menu.php:448 libraries/Menu.php:455 libraries/Menu.php:462
+#: libraries/Menu.php:453 libraries/Menu.php:460 libraries/Menu.php:467
 msgid "Database seems to be empty!"
 msgstr "डाटाबेस खाली लग रहा है!"
 
-#: libraries/Menu.php:451 libraries/Util.php:4112
+#: libraries/Menu.php:456 libraries/Util.php:4092
 msgid "Query"
 msgstr "क्वरी"
 
-#: libraries/Menu.php:484 libraries/Util.php:4117
+#: libraries/Menu.php:489 libraries/Util.php:4097
 #: libraries/rte/rte_words.lib.php:44
 msgid "Routines"
 msgstr "नियमित कार्य"
 
-#: libraries/Menu.php:489 libraries/Util.php:4118
+#: libraries/Menu.php:494 libraries/Util.php:4098
 #: libraries/navigation/nodes/NodeEventContainer.php:25
 #: libraries/plugins/export/ExportSql.php:961
 #: libraries/plugins/export/ExportXml.php:103
@@ -4338,18 +4343,18 @@ msgstr "नियमित कार्य"
 msgid "Events"
 msgstr ""
 
-#: libraries/Menu.php:507 libraries/Util.php:4121
+#: libraries/Menu.php:512 libraries/Util.php:4101
 msgid "Designer"
 msgstr "डिजाइनर"
 
-#: libraries/Menu.php:516 libraries/Util.php:4122
+#: libraries/Menu.php:521 libraries/Util.php:4102
 #: templates/database/structure/check_all_tables.phtml:34
 #, fuzzy
 #| msgid "Textarea columns"
 msgid "Central columns"
 msgstr "पाठ क्षेत्रपाठ क्षेत्र कोलम"
 
-#: libraries/Menu.php:550 libraries/Util.php:4094
+#: libraries/Menu.php:555 libraries/Util.php:4074
 #: libraries/config.values.php:103 libraries/config/messages.inc.php:265
 #: libraries/config/messages.inc.php:340
 #: libraries/navigation/NavigationTree.php:1274
@@ -4357,41 +4362,41 @@ msgstr "पाठ क्षेत्रपाठ क्षेत्र कोल
 msgid "Databases"
 msgstr "डाटाबेस"
 
-#: libraries/Menu.php:574
+#: libraries/Menu.php:579
 #, fuzzy
 #| msgid "User"
 msgid "User accounts"
 msgstr "यूसर"
 
-#: libraries/Menu.php:601 libraries/ServerStatusData.php:121
-#: libraries/Util.php:4101 libraries/server_common.lib.php:33
+#: libraries/Menu.php:606 libraries/ServerStatusData.php:121
+#: libraries/Util.php:4081 libraries/server_common.lib.php:33
 msgid "Binary log"
 msgstr "बाइनरी लोग"
 
-#: libraries/Menu.php:607 libraries/ServerStatusData.php:126
-#: libraries/Util.php:4102 libraries/server_common.lib.php:39
+#: libraries/Menu.php:612 libraries/ServerStatusData.php:126
+#: libraries/Util.php:4082 libraries/server_common.lib.php:39
 #: templates/database/structure/body_for_table_summary.phtml:10
 #: templates/database/structure/table_header.phtml:27
 msgid "Replication"
 msgstr "प्रतिकृति"
 
-#: libraries/Menu.php:612 libraries/ServerStatusData.php:193
-#: libraries/Util.php:4103 libraries/config.values.php:105
+#: libraries/Menu.php:617 libraries/ServerStatusData.php:193
+#: libraries/Util.php:4083 libraries/config.values.php:105
 #: libraries/sql_query_form.lib.php:427
 #: templates/server/engines/engine.phtml:15
 #: templates/server/engines/engine.phtml:18
 msgid "Variables"
 msgstr "प्रक्रियां"
 
-#: libraries/Menu.php:616 libraries/Util.php:4104
+#: libraries/Menu.php:621 libraries/Util.php:4084
 msgid "Charsets"
 msgstr "चरित्र सेट"
 
-#: libraries/Menu.php:620 libraries/Util.php:4106
+#: libraries/Menu.php:625 libraries/Util.php:4086
 msgid "Engines"
 msgstr "इंजन"
 
-#: libraries/Menu.php:624 libraries/Util.php:4105
+#: libraries/Menu.php:629 libraries/Util.php:4085
 #: libraries/server_common.lib.php:30
 msgid "Plugins"
 msgstr ""
@@ -5113,8 +5118,9 @@ msgid "Missing parameter:"
 msgstr "नियमित कार्य"
 
 #: libraries/Util.php:2550
-#, php-format
-msgid "Jump to database \"%s\"."
+#, fuzzy, php-format
+#| msgid "Jump to database \"%s\"."
+msgid "Jump to database “%s”."
 msgstr "\"%s\" डेटाबेस पर जायें;."
 
 #: libraries/Util.php:2575
@@ -5122,35 +5128,35 @@ msgstr "\"%s\" डेटाबेस पर जायें;."
 msgid "The %s functionality is affected by a known bug, see %s"
 msgstr "%s कार्यक्षमताएक एक बग के द्वारा जनि जाती है| %s पर ध्यान दे"
 
-#: libraries/Util.php:3389 prefs_manage.php:256
+#: libraries/Util.php:3369 prefs_manage.php:256
 msgid "Browse your computer:"
 msgstr "अपना कंप्यूटर ब्राउज़ करें:"
 
-#: libraries/Util.php:3414
+#: libraries/Util.php:3394
 #, php-format
 msgid "Select from the web server upload directory <b>%s</b>:"
 msgstr "अपने वेब सर्वर की अपलोड डिरेक्टरी से चुने <b>%s</b>:"
 
-#: libraries/Util.php:3443 libraries/insert_edit.lib.php:1233
+#: libraries/Util.php:3423 libraries/insert_edit.lib.php:1233
 msgid "The directory you set for upload work cannot be reached."
 msgstr "आपकी अपलोड दिरेक्टोरी तक पहुंचा नहीं जा सकता."
 
-#: libraries/Util.php:3454
+#: libraries/Util.php:3434
 #, fuzzy
 #| msgid "There are no files to upload"
 msgid "There are no files to upload!"
 msgstr "अपलोड करने के लिए फाइल उपलब्ध नहीं"
 
-#: libraries/Util.php:3479 libraries/Util.php:3480
+#: libraries/Util.php:3459 libraries/Util.php:3460
 #: templates/database/structure/check_all_tables.phtml:16
 msgid "Empty"
 msgstr "खाली"
 
-#: libraries/Util.php:3485 libraries/Util.php:3486
+#: libraries/Util.php:3465 libraries/Util.php:3466
 msgid "Execute"
 msgstr ""
 
-#: libraries/Util.php:4097
+#: libraries/Util.php:4077
 #, fuzzy
 #| msgid "User"
 msgid "Users"
@@ -8578,13 +8584,13 @@ msgstr "रो"
 #: libraries/engines/Innodb.php:169 libraries/server_status.lib.php:192
 #: libraries/server_status.lib.php:304
 #: templates/server/databases/table_footer.phtml:7
-#: templates/table/structure/display_table_stats.phtml:42
+#: templates/table/structure/display_table_stats.phtml:44
 msgid "Total"
 msgstr "कुल"
 
 #: libraries/controllers/server/ServerDatabasesController.php:369
 #: templates/database/structure/table_header.phtml:74
-#: templates/table/structure/display_table_stats.phtml:29
+#: templates/table/structure/display_table_stats.phtml:31
 msgid "Overhead"
 msgstr "जरूरत से ज्यादा"
 
@@ -8723,7 +8729,7 @@ msgstr "बदलें"
 #: templates/columns_definitions/table_fields_definitions.phtml:57
 #: templates/table/structure/check_all_table_column.phtml:36
 #: templates/table/structure/display_structure.phtml:67
-#: templates/table/structure/display_table_stats.phtml:21
+#: templates/table/structure/display_table_stats.phtml:23
 msgid "Index"
 msgstr "सूची"
 
@@ -10369,7 +10375,7 @@ msgstr "टेबल को Flush करें (\"FLUSH\")"
 
 #: libraries/operations.lib.php:1443
 #: templates/database/structure/check_all_tables.phtml:23
-#: templates/table/structure/display_table_stats.phtml:58
+#: templates/table/structure/display_table_stats.phtml:60
 msgid "Optimize table"
 msgstr "टेबल को अनुकूलित करें"
 
@@ -11698,18 +11704,18 @@ msgstr ""
 msgid "Re-login to phpMyAdmin to load the updated configuration file."
 msgstr ""
 
-#: libraries/relation.lib.php:1679
+#: libraries/relation.lib.php:1692
 msgid "no description"
 msgstr "कोई विवरण नहीं"
 
-#: libraries/relation.lib.php:1872
+#: libraries/relation.lib.php:1885
 msgid ""
 "You do not have necessary privileges to create a database named "
 "'phpmyadmin'. You may go to 'Operations' tab of any database to set up the "
 "phpMyAdmin configuration storage there."
 msgstr ""
 
-#: libraries/relation.lib.php:1987
+#: libraries/relation.lib.php:2000
 #, fuzzy, php-format
 #| msgid "Missing phpMyAdmin configuration storage tables"
 msgid ""
@@ -11717,14 +11723,14 @@ msgid ""
 "configuration storage there."
 msgstr "phpMyAdmin विन्यास भंडारण टेबल लापता"
 
-#: libraries/relation.lib.php:1995
+#: libraries/relation.lib.php:2008
 #, fuzzy, php-format
 #| msgid "Missing phpMyAdmin configuration storage tables"
 msgid ""
 "%sCreate%s the phpMyAdmin configuration storage in the current database."
 msgstr "phpMyAdmin विन्यास भंडारण टेबल लापता"
 
-#: libraries/relation.lib.php:2003
+#: libraries/relation.lib.php:2016
 #, fuzzy, php-format
 #| msgid "Missing phpMyAdmin configuration storage tables"
 msgid "%sCreate%s missing phpMyAdmin configuration storage tables."
@@ -13166,7 +13172,7 @@ msgstr ""
 #: libraries/server_privileges.lib.php:4668
 #, php-format
 msgid ""
-"Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
+"Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege "
 "tables. The content of these tables may differ from the privileges the "
 "server uses, if they have been changed manually. In this case, you should "
 "%sreload the privileges%s before you continue."
@@ -13174,7 +13180,7 @@ msgstr ""
 
 #: libraries/server_privileges.lib.php:4685
 msgid ""
-"Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
+"Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege "
 "tables. The content of these tables may differ from the privileges the "
 "server uses, if they have been changed manually. In this case, the "
 "privileges have to be reloaded but currently, you don't have the RELOAD "
@@ -14322,8 +14328,9 @@ msgid "Problems with indexes of table `%s`"
 msgstr "`%s` टेबल के अनुक्रमित के साथ समस्याएँ"
 
 #: libraries/sql_query_form.lib.php:139
-#, php-format
-msgid "Run SQL query/queries on server %s"
+#, fuzzy, php-format
+#| msgid "Run SQL query/queries on server %s"
+msgid "Run SQL query/queries on server “%s”"
 msgstr "%s सर्वर पर SQL प्रशन चलेयें"
 
 #: libraries/sql_query_form.lib.php:156
@@ -16416,11 +16423,11 @@ msgstr "विभाजन हटायें"
 msgid "Edit view"
 msgstr "छपाई द्रश्य."
 
-#: templates/table/structure/display_table_stats.phtml:11
+#: templates/table/structure/display_table_stats.phtml:13
 msgid "Space usage"
 msgstr "स्थान उपयोग"
 
-#: templates/table/structure/display_table_stats.phtml:34
+#: templates/table/structure/display_table_stats.phtml:36
 msgid "Effective"
 msgstr "वास्तविक"
 
