@@ -79,6 +79,8 @@ cache:
     - $HOME/.composer/cache/
     - $HOME/browserstack
     - $HOME/runkit
+# Install APT packages
+#  - git > 2.5.1 needed for worktrees
 addons:
   apt:
     packages:
