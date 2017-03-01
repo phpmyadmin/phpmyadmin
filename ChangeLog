@@ -95,6 +95,7 @@ phpMyAdmin - ChangeLog
 - issue        Fixed javascript confirmation of dangerous queries
 - issue #13040 Compatibility with hhvm 3.18
 - issue #13031 Fixed displaying of all rows
+- issue #12967 Fixed related field selection for native relations
 
 4.6.6 (2017-01-23)
 - issue #12759 Fix Notice regarding 'Undefined index: old_usergroup'
