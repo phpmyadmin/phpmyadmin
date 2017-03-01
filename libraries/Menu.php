@@ -272,7 +272,7 @@ class Menu
                     $retval .= '<span class="table_comment"';
                     $retval .= ' id="span_table_comment">';
                     $retval .= sprintf(
-                        __('&ldquo;%s&rdquo;'), htmlspecialchars($show_comment)
+                        __('“%s”'), htmlspecialchars($show_comment)
                     );
                     $retval .= '</span>';
                 } // end if
@@ -291,7 +291,7 @@ class Menu
                         $retval .= '<span class="table_comment"'
                             . ' id="span_table_comment">'
                             . sprintf(
-                                __('&ldquo;%s&rdquo;'),
+                                __('“%s”'),
                                 htmlspecialchars($comment)
                             )
                             . '</span>';
