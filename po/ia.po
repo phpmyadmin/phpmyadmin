@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-03-01 18:19+0100\n"
-"PO-Revision-Date: 2017-01-23 21:27+0000\n"
+"PO-Revision-Date: 2017-03-01 21:09+0000\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
-"Language-Team: Interlingua <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/ia/>\n"
+"Language-Team: Interlingua "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/ia/>\n"
 "Language: ia\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.11-dev\n"
+"X-Generator: Weblate 2.12-dev\n"
 
 #: changelog.php:39 license.php:34
 #, php-format
@@ -3961,8 +3961,8 @@ msgstr "Linguage"
 msgid ""
 "Linting is disabled for this query because it exceeds the maximum length."
 msgstr ""
-"Linting, i.e. le controlo syntactic, es dishabilitate pro iste query proque "
-"il excede le longitude maxime."
+"Linting, i.e. le controlo syntactic, es deactivate pro iste query proque il "
+"excede le longitude maxime."
 
 #: libraries/Linter.php:165
 #, php-format
@@ -4019,9 +4019,9 @@ msgid "Table"
 msgstr "Tabula"
 
 #: libraries/Menu.php:275 libraries/Menu.php:294
-#, php-format
+#, fuzzy, php-format
 msgid "“%s”"
-msgstr ""
+msgstr "“%s”"
 
 #: libraries/Menu.php:343 libraries/Menu.php:446 libraries/Menu.php:559
 #: libraries/Util.php:3161 libraries/Util.php:3171 libraries/Util.php:3177
@@ -4865,14 +4865,16 @@ msgid "%B %d, %Y at %I:%M %p"
 msgstr "%B %d, %Y a %I:%M %p"
 
 #: libraries/Util.php:1588
+#, fuzzy
 msgctxt "AM/PM indication in time"
 msgid "PM"
-msgstr ""
+msgstr "PM"
 
 #: libraries/Util.php:1590
+#, fuzzy
 msgctxt "AM/PM indication in time"
 msgid "AM"
-msgstr ""
+msgstr "AM"
 
 #: libraries/Util.php:1966
 #, php-format
@@ -4884,10 +4886,9 @@ msgid "Missing parameter:"
 msgstr "Parametro mancante:"
 
 #: libraries/Util.php:2550
-#, fuzzy, php-format
-#| msgid "Jump to database \"%s\"."
+#, php-format
 msgid "Jump to database “%s”."
-msgstr "Salta al base de datos \"%s\"."
+msgstr "Salta a base de dats “%s”."
 
 #: libraries/Util.php:2575
 #, php-format
@@ -13442,10 +13443,9 @@ msgid "Problems with indexes of table `%s`"
 msgstr ""
 
 #: libraries/sql_query_form.lib.php:139
-#, fuzzy, php-format
-#| msgid "Run SQL query/queries on table %s"
+#, php-format
 msgid "Run SQL query/queries on server “%s”"
-msgstr "Executa query/queries de SQL sur tabella %s"
+msgstr "Executa query/queries de SQL sur servitor \"%s\""
 
 #: libraries/sql_query_form.lib.php:156
 #, php-format
