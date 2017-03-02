@@ -42,12 +42,6 @@ class PluginPropertyItemTest extends PHPUnit_Framework_TestCase
      */
     public function testGetPropertyType()
     {
-        if ((defined('HHVM_VERSION')
-            && (version_compare(constant('HHVM_VERSION'), '3.8', 'lt')))
-        ) {
-            $this->markTestSkipped('Due to a bug in early versions of HHVM, this test cannot be completed.');
-        }
-
         $this->assertEquals(
             "plugin",
             $this->stub->getPropertyType()
