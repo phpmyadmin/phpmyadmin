@@ -3,6 +3,8 @@
 # - run lint for every PHP version
 # - run Selenium for single PHP version
 
+dist: trusty
+
 language: php
 
 services:
@@ -13,9 +15,11 @@ php:
   - "7.0"
   - "5.6"
   - "5.5"
-  - hhvm
+  - hhvm-3.3
+  - hhvm-3.12
+  - hhvm-3.18
 
-sudo: false
+sudo: required
 
 env:
   matrix:
@@ -45,6 +49,7 @@ after_script:
   - if [ -f vendor/bin/coveralls ] ; then php vendor/bin/coveralls -v || true ; fi
   - if [ -f vendor/bin/codacycoverage ] ; then php vendor/bin/codacycoverage clover || true ; fi
   - if [ -f php.log ] ; then cat php.log ; fi
+  - if [ -f build/logs/phpunit.json ] ; then ./scripts/phpunit-top-tests build/logs/phpunit.json ; fi
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
@@ -81,9 +86,9 @@ cache:
     - $HOME/runkit
 # Install APT packages
 #  - git > 2.5.1 needed for worktrees
+#  - mysql server does not seem to be always present on Travis Trusty environment
 addons:
   apt:
     packages:
     - git
-    sources:
-    - git-core
+    - mysql-server-5.6
