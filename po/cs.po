@@ -7,7 +7,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-03-01 18:19+0100\n"
 "PO-Revision-Date: 2017-03-02 10:08+0000\n"
-"Last-Translator: anonymous <>\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Czech "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/cs/>\n"
 "Language: cs\n"
@@ -818,7 +818,7 @@ msgstr "Chystáte se ZRUŠIT celou databázi!"
 #: js/messages.php:48
 msgid "Cannot rename database to the same name. Change the name and try again"
 msgstr ""
-"Nemohu přejmenovat databázi na to samé jméno. Změnte jméno a zkuste to znovu"
+"Nemohu přejmenovat databázi na to samé jméno. Změňte jméno a zkuste to znovu"
 
 #: js/messages.php:50
 msgid "You are about to DESTROY a complete table!"
