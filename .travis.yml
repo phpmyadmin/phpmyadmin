@@ -19,7 +19,7 @@ php:
   - hhvm-3.12
   - hhvm-3.18
 
-sudo: false
+sudo: required
 
 env:
   matrix:
