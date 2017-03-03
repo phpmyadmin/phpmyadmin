@@ -98,6 +98,7 @@ phpMyAdmin - ChangeLog
 - issue #12967 Fixed related field selection for native relations
 - issue #13045 Properly escape MIME transformatoin names
 - issue #13028 Always show 100% in font selector
+- issue #13047 Fix query simulating for more servers
 
 4.6.6 (2017-01-23)
 - issue #12759 Fix Notice regarding 'Undefined index: old_usergroup'

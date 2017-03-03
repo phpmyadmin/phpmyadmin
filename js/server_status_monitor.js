@@ -1350,6 +1350,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
             chart_data: 1,
             type: 'chartgrid',
             requiredData: JSON.stringify(runtime.dataList),
+            server: PMA_commonParams.get('server'),
             token: PMA_commonParams.get('token')
         }, function (data) {
             var chartData;
@@ -1983,6 +1984,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
             query_analyzer: true,
             query: codemirror_editor ? codemirror_editor.getValue() : $('#sqlquery').val(),
             database: db,
+            server: PMA_commonParams.get('server'),
             token: PMA_commonParams.get('token')
         }, function (data) {
             var i, l;
