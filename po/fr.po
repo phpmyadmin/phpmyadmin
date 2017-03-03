@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-03-01 18:19+0100\n"
-"PO-Revision-Date: 2017-03-01 20:37+0000\n"
+"PO-Revision-Date: 2017-03-03 14:32+0000\n"
 "Last-Translator: tmtisfree <tmtisfree@free.fr>\n"
 "Language-Team: French "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/fr/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 2.12-dev\n"
+"X-Generator: Weblate 2.12\n"
 
 #: changelog.php:39 license.php:34
 #, php-format
@@ -15171,7 +15171,7 @@ msgstr "Retirer les comptes utilisateurs sélectionnés"
 #: templates/privileges/delete_user_fieldset.phtml:6
 msgid "Revoke all active privileges from the users and delete them afterwards."
 msgstr ""
-"Révoquer tous les privilèges de ces utilisateurs, puis effacer les "
+"Révoquer tous les privilèges actifs de ces utilisateurs, puis effacer les "
 "utilisateurs"
 
 #: templates/privileges/delete_user_fieldset.phtml:8
