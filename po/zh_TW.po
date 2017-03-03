@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-beta1\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2017-02-22 08:56+0100\n"
+"POT-Creation-Date: 2017-03-03 14:49+0100\n"
 "PO-Revision-Date: 2017-02-18 09:04+0000\n"
 "Last-Translator: hd hd <hd@cgsword.com>\n"
 "Language-Team: Chinese (Taiwan) <https://hosted.weblate.org/projects/"
@@ -41,7 +41,7 @@ msgstr "資料庫備註"
 
 #: db_datadict.php:106 libraries/plugins/schema/pdf/PdfRelationSchema.php:596
 #: templates/columns_definitions/column_definitions_form.phtml:89
-#: templates/table/structure/display_table_stats.phtml:4
+#: templates/table/structure/display_table_stats.phtml:5
 msgid "Table comments:"
 msgstr "資料表備註："
 
@@ -277,7 +277,7 @@ msgstr "結構"
 #: libraries/config/user_preferences.forms.php:296
 #: libraries/controllers/server/ServerDatabasesController.php:354
 #: libraries/server_privileges.lib.php:1130
-#: templates/table/structure/display_table_stats.phtml:14
+#: templates/table/structure/display_table_stats.phtml:16
 msgid "Data"
 msgstr "資料"
 
@@ -453,7 +453,7 @@ msgid "Add geometry"
 msgstr "新增幾何形"
 
 #: gis_data_editor.php:413 js/messages.php:349 libraries/DbSearch.php:455
-#: libraries/DisplayResults.php:1815 libraries/browse_foreigners.lib.php:137
+#: libraries/DisplayResults.php:1812 libraries/browse_foreigners.lib.php:137
 #: libraries/display_change_password.lib.php:148
 #: libraries/display_export.lib.php:402 libraries/display_export.lib.php:408
 #: libraries/display_import.lib.php:399 libraries/index.lib.php:34
@@ -1237,7 +1237,7 @@ msgstr "新增圖表至格線"
 msgid "Please add at least one variable to the series!"
 msgstr "請至少增加一個變數到資料序列！"
 
-#: js/messages.php:219 libraries/DisplayResults.php:1494
+#: js/messages.php:219 libraries/DisplayResults.php:1491
 #: libraries/config.values.php:68 libraries/display_export.lib.php:691
 #: libraries/plugins/export/ExportSql.php:2185
 #: libraries/plugins/schema/SchemaPdf.php:103
@@ -1724,8 +1724,8 @@ msgstr "刪除 %s 資料表中符合的資料?"
 msgid "The definition of a stored function must contain a RETURN statement!"
 msgstr "Stored Function 的定義中必須要有 RETURN 敘述句！"
 
-#: js/messages.php:393 libraries/DisplayResults.php:4872
-#: libraries/DisplayResults.php:5155 libraries/Menu.php:357
+#: js/messages.php:393 libraries/DisplayResults.php:4869
+#: libraries/DisplayResults.php:5152 libraries/Menu.php:357
 #: libraries/Menu.php:458 libraries/Menu.php:584 libraries/Util.php:3483
 #: libraries/Util.php:3484 libraries/Util.php:4098 libraries/Util.php:4113
 #: libraries/Util.php:4130 libraries/config/messages.inc.php:251
@@ -1779,8 +1779,8 @@ msgstr "隱藏查詢框"
 msgid "Show query box"
 msgstr "顯示查詢框"
 
-#: js/messages.php:412 libraries/DisplayResults.php:3493
-#: libraries/DisplayResults.php:4856 libraries/Index.php:709
+#: js/messages.php:412 libraries/DisplayResults.php:3490
+#: libraries/DisplayResults.php:4853 libraries/Index.php:709
 #: libraries/Util.php:619 libraries/Util.php:1106 libraries/Util.php:3481
 #: libraries/Util.php:3482 libraries/central_columns.lib.php:848
 #: libraries/central_columns.lib.php:1195 libraries/config/messages.inc.php:879
@@ -1793,7 +1793,7 @@ msgid "Edit"
 msgstr "編輯"
 
 #: js/messages.php:413 libraries/DbSearch.php:353
-#: libraries/DisplayResults.php:3562 libraries/DisplayResults.php:4840
+#: libraries/DisplayResults.php:3559 libraries/DisplayResults.php:4837
 #: libraries/central_columns.lib.php:850 libraries/central_columns.lib.php:1199
 #: libraries/display_export.lib.php:226
 #: libraries/server_user_groups.lib.php:127
@@ -1803,8 +1803,8 @@ msgstr "編輯"
 msgid "Delete"
 msgstr "刪除"
 
-#: js/messages.php:414 libraries/DisplayResults.php:929
-#: libraries/DisplayResults.php:937
+#: js/messages.php:414 libraries/DisplayResults.php:926
+#: libraries/DisplayResults.php:934
 #, php-format
 msgid "%d is not valid row number."
 msgstr "%d 不是有效的資料列號。"
@@ -2050,8 +2050,8 @@ msgstr "資料點內容"
 msgid "Ignore"
 msgstr "略過"
 
-#: js/messages.php:510 libraries/DisplayResults.php:3496
-#: libraries/DisplayResults.php:4861
+#: js/messages.php:510 libraries/DisplayResults.php:3493
+#: libraries/DisplayResults.php:4858
 msgid "Copy"
 msgstr "複製"
 
@@ -2067,7 +2067,7 @@ msgstr "一維折線"
 msgid "Polygon"
 msgstr "多邊形"
 
-#: js/messages.php:517 libraries/DisplayResults.php:1799
+#: js/messages.php:517 libraries/DisplayResults.php:1796
 msgid "Geometry"
 msgstr "幾何形"
 
@@ -2233,7 +2233,7 @@ msgstr "雙擊點選以複製欄位名稱。"
 msgid "Click the drop-down arrow<br />to toggle column's visibility."
 msgstr "點選下拉箭頭<br />以切換欄位的顯示程度。"
 
-#: js/messages.php:591 libraries/DisplayResults.php:1036
+#: js/messages.php:591 libraries/DisplayResults.php:1033
 #: libraries/browse_foreigners.lib.php:283
 #: libraries/browse_foreigners.lib.php:336
 #: templates/privileges/initials_row.phtml:24
@@ -2286,7 +2286,7 @@ msgstr "將檔案拖曳至此處"
 msgid "Select database first"
 msgstr "請先選擇資料庫"
 
-#: js/messages.php:614 libraries/DisplayResults.php:5047
+#: js/messages.php:614 libraries/DisplayResults.php:5044
 #: libraries/Util.php:3991
 #: templates/database/structure/print_view_data_dictionary_link.phtml:3
 #: templates/table/structure/optional_action_links.phtml:6
@@ -2367,7 +2367,7 @@ msgstr "，最新的穩定版:"
 msgid "up to date"
 msgstr "最新"
 
-#: js/messages.php:665 libraries/DisplayResults.php:4978 view_create.php:206
+#: js/messages.php:665 libraries/DisplayResults.php:4975 view_create.php:206
 msgid "Create view"
 msgstr "新增檢視表"
 
@@ -3145,7 +3145,7 @@ msgid ""
 "shown below."
 msgstr "此情況通常是有語法錯誤，請檢查下列顯示的錯誤。"
 
-#: libraries/Config.php:1559
+#: libraries/Config.php:1560
 msgid "Font size"
 msgstr "字體大小"
 
@@ -3193,8 +3193,8 @@ msgstr "缺少連接參數！"
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr "使用設定檔案中定義的控制使用者連線失敗。"
 
-#: libraries/DbQbe.php:405 libraries/DisplayResults.php:2281
-#: libraries/DisplayResults.php:2287 libraries/config.values.php:69
+#: libraries/DbQbe.php:405 libraries/DisplayResults.php:2278
+#: libraries/DisplayResults.php:2284 libraries/config.values.php:69
 #: libraries/controllers/server/ServerDatabasesController.php:550
 #: libraries/operations.lib.php:787
 #: libraries/server_status_processes.lib.php:167
@@ -3204,8 +3204,8 @@ msgstr "使用設定檔案中定義的控制使用者連線失敗。"
 msgid "Ascending"
 msgstr "遞增"
 
-#: libraries/DbQbe.php:408 libraries/DisplayResults.php:2277
-#: libraries/DisplayResults.php:2291 libraries/config.values.php:70
+#: libraries/DbQbe.php:408 libraries/DisplayResults.php:2274
+#: libraries/DisplayResults.php:2288 libraries/config.values.php:70
 #: libraries/controllers/server/ServerDatabasesController.php:550
 #: libraries/operations.lib.php:790
 #: libraries/server_status_processes.lib.php:164
@@ -3383,29 +3383,29 @@ msgstr "全部取消"
 msgid "Inside column:"
 msgstr "於下列欄位中:"
 
-#: libraries/DisplayResults.php:906
+#: libraries/DisplayResults.php:903
 msgid "Save edited data"
 msgstr "儲存"
 
-#: libraries/DisplayResults.php:912
+#: libraries/DisplayResults.php:909
 msgid "Restore column order"
 msgstr "還原欄位的順序"
 
-#: libraries/DisplayResults.php:960 libraries/central_columns.lib.php:661
+#: libraries/DisplayResults.php:957 libraries/central_columns.lib.php:661
 msgid "Filter rows"
 msgstr "搜尋資料列"
 
-#: libraries/DisplayResults.php:962 libraries/central_columns.lib.php:663
+#: libraries/DisplayResults.php:959 libraries/central_columns.lib.php:663
 msgid "Search this table"
 msgstr "搜尋此資料表"
 
-#: libraries/DisplayResults.php:993 libraries/Util.php:2437
+#: libraries/DisplayResults.php:990 libraries/Util.php:2437
 #: libraries/Util.php:2440
 msgctxt "First page"
 msgid "Begin"
 msgstr "最前頁"
 
-#: libraries/DisplayResults.php:996 libraries/Util.php:2438
+#: libraries/DisplayResults.php:993 libraries/Util.php:2438
 #: libraries/Util.php:2441
 #: libraries/controllers/server/ServerBinlogController.php:194
 #: libraries/controllers/server/ServerBinlogController.php:196
@@ -3414,7 +3414,7 @@ msgid "Previous"
 msgstr "上一頁"
 
 # 這應該使用於選擇日期的小月曆
-#: libraries/DisplayResults.php:1062 libraries/Util.php:2469
+#: libraries/DisplayResults.php:1059 libraries/Util.php:2469
 #: libraries/Util.php:2479
 #: libraries/controllers/server/ServerBinlogController.php:228
 #: libraries/controllers/server/ServerBinlogController.php:230
@@ -3422,26 +3422,26 @@ msgctxt "Next page"
 msgid "Next"
 msgstr "下一頁"
 
-#: libraries/DisplayResults.php:1092 libraries/Util.php:2470
+#: libraries/DisplayResults.php:1089 libraries/Util.php:2470
 #: libraries/Util.php:2480
 msgctxt "Last page"
 msgid "End"
 msgstr "最末頁"
 
-#: libraries/DisplayResults.php:1135
+#: libraries/DisplayResults.php:1132
 msgid "All"
 msgstr "全部"
 
-#: libraries/DisplayResults.php:1145 libraries/display_export.lib.php:437
+#: libraries/DisplayResults.php:1142 libraries/display_export.lib.php:437
 #: templates/startAndNumberOfRowsPanel.phtml:10
 msgid "Number of rows:"
 msgstr "資料列數:"
 
-#: libraries/DisplayResults.php:1438
+#: libraries/DisplayResults.php:1435
 msgid "Sort by key"
 msgstr "依主鍵排序"
 
-#: libraries/DisplayResults.php:1721 libraries/import.lib.php:1216
+#: libraries/DisplayResults.php:1718 libraries/import.lib.php:1216
 #: libraries/import.lib.php:1251 libraries/mult_submits.lib.php:343
 #: libraries/plugins/export/ExportCodegen.php:84
 #: libraries/plugins/export/ExportCsv.php:48
@@ -3471,56 +3471,56 @@ msgstr "依主鍵排序"
 msgid "Options"
 msgstr "選項"
 
-#: libraries/DisplayResults.php:1727 libraries/DisplayResults.php:1848
+#: libraries/DisplayResults.php:1724 libraries/DisplayResults.php:1845
 msgid "Partial texts"
 msgstr "部分內容"
 
-#: libraries/DisplayResults.php:1728 libraries/DisplayResults.php:1852
+#: libraries/DisplayResults.php:1725 libraries/DisplayResults.php:1849
 msgid "Full texts"
 msgstr "完整內容"
 
-#: libraries/DisplayResults.php:1744
+#: libraries/DisplayResults.php:1741
 msgid "Relational key"
 msgstr "關聯鍵"
 
-#: libraries/DisplayResults.php:1745
+#: libraries/DisplayResults.php:1742
 msgid "Display column for relationships"
 msgstr "顯示關聯的欄位"
 
-#: libraries/DisplayResults.php:1761
+#: libraries/DisplayResults.php:1758
 msgid "Show binary contents"
 msgstr "顯示二進位內容"
 
-#: libraries/DisplayResults.php:1772
+#: libraries/DisplayResults.php:1769
 msgid "Show BLOB contents"
 msgstr "顯示 BLOB 內容"
 
-#: libraries/DisplayResults.php:1789
+#: libraries/DisplayResults.php:1786
 msgid "Hide browser transformation"
 msgstr "隱藏瀏覽器轉換"
 
-#: libraries/DisplayResults.php:1800
+#: libraries/DisplayResults.php:1797
 msgid "Well Known Text"
 msgstr "易懂的文字"
 
-#: libraries/DisplayResults.php:1801
+#: libraries/DisplayResults.php:1798
 msgid "Well Known Binary"
 msgstr "易懂的二進位檔"
 
-#: libraries/DisplayResults.php:3538 libraries/DisplayResults.php:3553
+#: libraries/DisplayResults.php:3535 libraries/DisplayResults.php:3550
 msgid "The row has been deleted."
 msgstr "已刪除該行。"
 
-#: libraries/DisplayResults.php:3586 libraries/DisplayResults.php:4840
+#: libraries/DisplayResults.php:3583 libraries/DisplayResults.php:4837
 #: libraries/server_status_processes.lib.php:279
 msgid "Kill"
 msgstr "中止"
 
-#: libraries/DisplayResults.php:4278
+#: libraries/DisplayResults.php:4275
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
 msgstr "可能為近似值，請參考 [doc@faq3-11]FAQ 3.11[/doc]。"
 
-#: libraries/DisplayResults.php:4351 libraries/Message.php:171
+#: libraries/DisplayResults.php:4348 libraries/Message.php:171
 #: libraries/controllers/table/TableRelationController.php:253
 #: libraries/controllers/table/TableSearchController.php:570
 #: libraries/rte/rte_routines.lib.php:1445 libraries/sql_query_form.lib.php:92
@@ -3528,7 +3528,7 @@ msgstr "可能為近似值，請參考 [doc@faq3-11]FAQ 3.11[/doc]。"
 msgid "Your SQL query has been executed successfully."
 msgstr "您的 SQL 語法已順利執行。"
 
-#: libraries/DisplayResults.php:4698
+#: libraries/DisplayResults.php:4695
 #: libraries/controllers/database/DatabaseStructureController.php:770
 #, php-format
 msgid ""
@@ -3536,27 +3536,27 @@ msgid ""
 "%s."
 msgstr "這個檢視表至少需有此數量的資料列，請參考%sdocumentation%s。"
 
-#: libraries/DisplayResults.php:4711
+#: libraries/DisplayResults.php:4708
 #, php-format
 msgid "Showing rows %1s - %2s"
 msgstr "顯示第 %1s - %2s 列"
 
-#: libraries/DisplayResults.php:4726
+#: libraries/DisplayResults.php:4723
 #, php-format
 msgid "%1$d total, %2$d in query"
 msgstr "總計 %1$d 筆，目前查詢 %2$d 筆"
 
-#: libraries/DisplayResults.php:4731
+#: libraries/DisplayResults.php:4728
 #, php-format
 msgid "%d total"
 msgstr "總計 %d 筆"
 
-#: libraries/DisplayResults.php:4743 libraries/sql.lib.php:1380
+#: libraries/DisplayResults.php:4740 libraries/sql.lib.php:1380
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "查詢花費 %01.4f 秒。"
 
-#: libraries/DisplayResults.php:4845 libraries/DisplayResults.php:4852
+#: libraries/DisplayResults.php:4842 libraries/DisplayResults.php:4849
 #: libraries/mult_submits.inc.php:53
 #: templates/database/structure/check_all_tables.phtml:2
 #: templates/database/structure/check_all_tables.phtml:9
@@ -3564,7 +3564,7 @@ msgstr "查詢花費 %01.4f 秒。"
 msgid "With selected:"
 msgstr "已選擇項目:"
 
-#: libraries/DisplayResults.php:4849 libraries/DisplayResults.php:4851
+#: libraries/DisplayResults.php:4846 libraries/DisplayResults.php:4848
 #: libraries/server_privileges.lib.php:1164
 #: libraries/server_privileges.lib.php:1165
 #: libraries/server_user_groups.lib.php:230
@@ -3575,23 +3575,23 @@ msgstr "已選擇項目:"
 msgid "Check all"
 msgstr "全選"
 
-#: libraries/DisplayResults.php:5024
+#: libraries/DisplayResults.php:5021
 msgid "Copy to clipboard"
 msgstr "複製到剪貼簿"
 
-#: libraries/DisplayResults.php:5080
+#: libraries/DisplayResults.php:5077
 msgid "Query results operations"
 msgstr "查詢結果選項"
 
-#: libraries/DisplayResults.php:5168 templates/table/chart/tbl_chart.phtml:11
+#: libraries/DisplayResults.php:5165 templates/table/chart/tbl_chart.phtml:11
 msgid "Display chart"
 msgstr "顯示圖表"
 
-#: libraries/DisplayResults.php:5193
+#: libraries/DisplayResults.php:5190
 msgid "Visualize GIS data"
 msgstr "視覺化的 GIS 資料"
 
-#: libraries/DisplayResults.php:5379
+#: libraries/DisplayResults.php:5376
 msgid "Link not found!"
 msgstr "無此連結！"
 
@@ -7667,13 +7667,13 @@ msgstr "資料列數"
 #: libraries/engines/Innodb.php:169 libraries/server_status.lib.php:192
 #: libraries/server_status.lib.php:304
 #: templates/server/databases/table_footer.phtml:7
-#: templates/table/structure/display_table_stats.phtml:42
+#: templates/table/structure/display_table_stats.phtml:44
 msgid "Total"
 msgstr "總計"
 
 #: libraries/controllers/server/ServerDatabasesController.php:369
 #: templates/database/structure/table_header.phtml:74
-#: templates/table/structure/display_table_stats.phtml:29
+#: templates/table/structure/display_table_stats.phtml:31
 msgid "Overhead"
 msgstr "資料分散"
 
@@ -7788,7 +7788,7 @@ msgstr "修改"
 #: templates/columns_definitions/table_fields_definitions.phtml:57
 #: templates/table/structure/check_all_table_column.phtml:36
 #: templates/table/structure/display_structure.phtml:67
-#: templates/table/structure/display_table_stats.phtml:21
+#: templates/table/structure/display_table_stats.phtml:23
 msgid "Index"
 msgstr "索引"
 
@@ -9340,7 +9340,7 @@ msgstr "更新資料表 (FLUSH)"
 
 #: libraries/operations.lib.php:1443
 #: templates/database/structure/check_all_tables.phtml:23
-#: templates/table/structure/display_table_stats.phtml:58
+#: templates/table/structure/display_table_stats.phtml:60
 msgid "Optimize table"
 msgstr "最佳化資料表"
 
@@ -10570,11 +10570,11 @@ msgstr ""
 msgid "Re-login to phpMyAdmin to load the updated configuration file."
 msgstr "請重新登入 phpMyAdmin 以載入新設定並使其生效。"
 
-#: libraries/relation.lib.php:1679
+#: libraries/relation.lib.php:1692
 msgid "no description"
 msgstr "無說明"
 
-#: libraries/relation.lib.php:1872
+#: libraries/relation.lib.php:1885
 msgid ""
 "You do not have necessary privileges to create a database named "
 "'phpmyadmin'. You may go to 'Operations' tab of any database to set up the "
@@ -10583,7 +10583,7 @@ msgstr ""
 "您沒有權限建立名稱為 'phpmyadmin' 的資料庫。您可能需至 '操作' 頁籤設定 "
 "phpMyAdmin 設定儲存空間。"
 
-#: libraries/relation.lib.php:1987
+#: libraries/relation.lib.php:2000
 #, php-format
 msgid ""
 "%sCreate%s a database named 'phpmyadmin' and setup the phpMyAdmin "
@@ -10592,13 +10592,13 @@ msgstr ""
 "%s建立%s名稱為 'phpmyadmin' 的資料庫並安裝 phpMyAdmin 設定儲存空間於該資料"
 "庫。"
 
-#: libraries/relation.lib.php:1995
+#: libraries/relation.lib.php:2008
 #, php-format
 msgid ""
 "%sCreate%s the phpMyAdmin configuration storage in the current database."
 msgstr "於目前資料庫%s建立%s phpMyAdmin 設定儲存空間。"
 
-#: libraries/relation.lib.php:2003
+#: libraries/relation.lib.php:2016
 #, php-format
 msgid "%sCreate%s missing phpMyAdmin configuration storage tables."
 msgstr "%s建立%s缺少的 phpMyAdmin 設定儲存空間資料表。"
@@ -14807,11 +14807,11 @@ msgstr "編輯分區"
 msgid "Edit view"
 msgstr "編輯檢視表"
 
-#: templates/table/structure/display_table_stats.phtml:11
+#: templates/table/structure/display_table_stats.phtml:13
 msgid "Space usage"
 msgstr "已用空間"
 
-#: templates/table/structure/display_table_stats.phtml:34
+#: templates/table/structure/display_table_stats.phtml:36
 msgid "Effective"
 msgstr "有效"
 
