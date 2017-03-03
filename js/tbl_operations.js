@@ -137,6 +137,7 @@ AJAX.registerOnload('tbl_operations.js', function () {
         //variables which stores the common attributes
         var params = {
             ajax_request: 1,
+            server: PMA_commonParams.get('server'),
             token: PMA_commonParams.get('token')
         };
         $.post($(this).attr('href'), params, function (data) {

@@ -4223,6 +4223,7 @@ AJAX.registerOnload('functions.js', function () {
                     ? window.localStorage.favorite_tables
                     : '',
                 token: PMA_commonParams.get('token'),
+                server: PMA_commonParams.get('server'),
                 no_debug: true
             },
             success: function (data) {
