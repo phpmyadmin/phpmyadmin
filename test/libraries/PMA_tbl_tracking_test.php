@@ -47,6 +47,7 @@ class PMA_TblTrackingTest extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['ServerDefault'] = "server";
         $GLOBALS['cfg']['ActionLinksMode'] = 'both';
         $GLOBALS['cfg']['MaxCharactersInDisplayedSQL'] = 1000;
+        $GLOBALS['cfg']['NavigationTreeTableSeparator'] = "_";
 
         $_SESSION['relation'][$GLOBALS['server']] = array(
             'PMA_VERSION' => PMA_VERSION,
@@ -110,6 +111,46 @@ class PMA_TblTrackingTest extends PHPUnit_Framework_TestCase
         $this->assertEquals(
             'statement1',
             $ret[0]['statement']
+        );
+    }
+
+    /**
+     * Tests for PMA_extractTableNames() method from nested table_list.
+     *
+     * @return void
+     * @test
+     */
+    public function testPMAextractTableNames()
+    {
+        $table_list = array(
+            "hello_"=>array(
+                "is_group"=>1,
+                "lovely_"=>array(
+                    "is_group"=>1,
+                    "hello_lovely_world"=>array(
+                        "Name"=>"hello_lovely_world"
+                    ),
+                    "hello_lovely_world2"=>array(
+                        "Name"=>"hello_lovely_world2"
+                    )
+                ),
+                "hello_world"=>array(
+                    "Name"=>"hello_world"
+                )
+            )
+        );
+        $untracked_tables = PMA_extractTableNames($table_list, 'db', true);
+        $this->assertContains(
+            "hello_world",
+            $untracked_tables
+        );
+        $this->assertContains(
+            "hello_lovely_world",
+            $untracked_tables
+        );
+        $this->assertContains(
+            "hello_lovely_world2",
+            $untracked_tables
         );
     }
 
