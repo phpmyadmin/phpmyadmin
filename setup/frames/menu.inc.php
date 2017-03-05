@@ -29,8 +29,7 @@ $formsets = array(
 );
 
 foreach ($formsets as $formset => $label) {
-    echo '<li><a href="' , URL::getCommon() , $separator , 'page=form'
-        , $separator , 'formset=' , $formset , '" '
+    echo '<li><a href="index.php' , URL::getCommon(array('page' => 'form', 'formset' => $formset)) , '" '
         , ($formset_id === $formset ? ' class="active' : '')
         , '">' , $label , '</a></li>';
 }
