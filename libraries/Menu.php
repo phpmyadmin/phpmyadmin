@@ -236,8 +236,7 @@ class Menu
                     $GLOBALS['db'],
                     $GLOBALS['table']
                 );
-                $reread_info = $table_class_object->getStatusInfo(null, true);
-                $GLOBALS['showtable'] = $table_class_object->getStatusInfo(null, (isset($reread_info) && $reread_info ? true : false));
+                $GLOBALS['showtable'] = $table_class_object->getStatusInfo(null, true);
                 if ($table_class_object->isView()) {
                     $tbl_is_view = true;
                     $show_comment = null;
