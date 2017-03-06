@@ -221,7 +221,7 @@ if ($reread_info) {
         $show_comment = null;
     } else {
         $tbl_is_view = false;
-        $tbl_storage_engine = $pma_table->getTableStorageEngine();
+        $tbl_storage_engine = $pma_table->getStorageEngine();
         $show_comment = $pma_table->getShowComment();
     }
     $tbl_collation = $pma_table->getTableCollation();

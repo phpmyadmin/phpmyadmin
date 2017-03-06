@@ -1203,11 +1203,11 @@ class TableTest extends PMATestCase
     }
 
     /**
-     * Test for getTableStorageEngine
+     * Test for getStorageEngine
      *
      * @return void
      */
-    public function testGetTableStorageEngine(){
+    public function testGetStorageEngine(){
         $target_table = 'table1';
         $target_db = 'pma_test';
         $tbl_object = new Table($target_db, $target_table);
@@ -1218,7 +1218,7 @@ class TableTest extends PMATestCase
         $tbl_storage_engine = $dbi->getTable(
             $target_db,
             $target_table
-        )->getTableStorageEngine();
+        )->getStorageEngine();
         $this->assertEquals(
             $expect,
             $tbl_storage_engine

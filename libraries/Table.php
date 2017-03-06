@@ -172,9 +172,7 @@ class Table
      */
     public function isEngine($engine)
     {
-        $tbl_storage_engine = strtoupper(
-            $this->getStatusInfo('ENGINE', false, true)
-        );
+        $tbl_storage_engine = $this->getStorageEngine();
 
         if (is_array($engine)){
             foreach($engine as $e){
@@ -327,11 +325,12 @@ class Table
      * @return   string               Return storage engine info if it is set for
      *                                the selected table else return blank.
      */
-    public function getTableStorageEngine() {
+    public function getStorageEngine() {
         $table_storage_engine = $this->getStatusInfo('ENGINE', false, true);
         if ($table_storage_engine === false) {
-            return isset($table_storage_engine)? mb_strtoupper($table_storage_engine): '';
+            return '';
         }
+        return strtoupper($table_storage_engine);
     }
 
     /**

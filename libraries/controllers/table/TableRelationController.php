@@ -146,8 +146,7 @@ class TableRelationController extends TableController
         }
 
         // display secondary level tabs if necessary
-        $engine = $this->dbi->getTable($this->db, $this->table)
-            ->getStatusInfo('ENGINE');
+        $engine = $this->dbi->getTable($this->db, $this->table)->getStorageEngine();
 
         $this->response->addHTML(
             Template::get('table/secondary_tabs')->render(

@@ -75,7 +75,7 @@ class TableIndexesController extends TableController
             $show_comment = null;
         } else {
             $tbl_is_view = false;
-            $tbl_storage_engine = $table_class_object->getTableStorageEngine();
+            $tbl_storage_engine = $table_class_object->getStorageEngine();
             $show_comment = $table_class_object->getShowComment();
         }
         $tbl_collation = $table_class_object->getTableCollation();
