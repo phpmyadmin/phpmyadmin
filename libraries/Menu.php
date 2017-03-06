@@ -231,7 +231,6 @@ class Menu
             if (strlen($this->_table) > 0
                 && ! (isset($_REQUEST['purge']) && $_REQUEST['purge'] == '1')
             ) {
-                // include './libraries/tbl_info.inc.php';
                 $table_class_object = $GLOBALS['dbi']->getTable(
                     $GLOBALS['db'],
                     $GLOBALS['table']
