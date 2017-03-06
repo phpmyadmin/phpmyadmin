@@ -352,11 +352,12 @@ class Table
      * @param Current table properties.
      * @return Return blank if collation is empty else return the collation info from table info.
      */
-    public function getTableCollation() {
+    public function getCollation() {
         $table_collation = $this->getStatusInfo('COLLATION', false, true);
         if ($table_collation === false) {
-            return empty($table_collation) ? '' : $table_collation;
+            return '';
         }
+        return $table_collation;
     }
 
     /**

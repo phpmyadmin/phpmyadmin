@@ -205,7 +205,7 @@ if ($reread_info) {
         $tbl_storage_engine = $pma_table->getStorageEngine();
         $show_comment = $pma_table->getComment();
     }
-    $tbl_collation = $pma_table->getTableCollation();
+    $tbl_collation = $pma_table->getCollation();
     $table_info_num_rows = $pma_table->getTableNumRowInfo();
     $row_format = $pma_table->getTableRowFormat();
     $auto_increment = $pma_table->getAutoIncrementInfo();
