@@ -91,8 +91,7 @@ class Table
      *
      * @see Table::getName()
      * @return string  table name
-    */
-
+     */
     public function __toString()
     {
         return $this->getName();
@@ -322,11 +321,12 @@ class Table
     }
 
     /**
-    * Returns the Table storage Engine for current table.
-    * @param  array $showtable       Current table properties.
-    *
-    * @return   string               Return storage engine info if it is set for *                                the selected table else return blank.
-    */
+     * Returns the Table storage Engine for current table.
+     * @param  array $showtable       Current table properties.
+     *
+     * @return   string               Return storage engine info if it is set for
+     *                                the selected table else return blank.
+     */
     public function getTableStorageEngine() {
         $table_storage_engine = $this->getStatusInfo('ENGINE', false, true);
         if ($table_storage_engine === false) {
@@ -335,11 +335,11 @@ class Table
     }
 
     /**
-    * Returns the comments for current table.
-    * @param  array $showtable  Current table properties.
-    *
-    * @return string  Return comment info if it is set for the selected table or return blank.
-    */
+     * Returns the comments for current table.
+     * @param  array $showtable  Current table properties.
+     *
+     * @return string  Return comment info if it is set for the selected table or return blank.
+     */
     public function getShowComment() {
         $table_comment = $this->getStatusInfo('COMMENT', false, true);
         if ($table_comment === false) {
@@ -348,10 +348,10 @@ class Table
     }
 
     /**
-    * Returns the collation for current table.
-    * @param Current table properties.
-    * @return Return blank if collation is empty else return the collation info from table info.
-    */
+     * Returns the collation for current table.
+     * @param Current table properties.
+     * @return Return blank if collation is empty else return the collation info from table info.
+     */
     public function getTableCollation() {
         $table_collation = $this->getStatusInfo('COLLATION', false, true);
         if ($table_collation === false) {
@@ -360,10 +360,10 @@ class Table
     }
 
     /**
-    * Returns the info about no of rows for current table.
-    * @param Current table properties.
-    * @return Return no of rows info if it is not null for the selected table or return 0.
-    */
+     * Returns the info about no of rows for current table.
+     * @param Current table properties.
+     * @return Return no of rows info if it is not null for the selected table or return 0.
+     */
     public function getTableNumRowInfo() {
         $table_num_row_info = $this->getStatusInfo('TABLE_ROWS', false, true);
         if (null === $table_num_row_info) {
@@ -375,10 +375,10 @@ class Table
     }
 
     /**
-    * Returns the Row format for current table.
-    * @param Current table properties.
-    * @return Return table row format info if it is set for the selected table or return blank.
-    */
+     * Returns the Row format for current table.
+     * @param Current table properties.
+     * @return Return table row format info if it is set for the selected table or return blank.
+     */
     public function getTableRowFormat() {
         $table_row_format = $this->getStatusInfo('ROW_FORMAT', false, true);
         return isset($table_row_format)
@@ -387,20 +387,20 @@ class Table
     }
 
     /**
-    * Returns the auto increment option for current table.
-    * @param Current table properties.
-    * @return Return auto increment info if it is set for the selected table or return blank.
-    */
+     * Returns the auto increment option for current table.
+     * @param Current table properties.
+     * @return Return auto increment info if it is set for the selected table or return blank.
+     */
     public function getAutoIncrementInfo() {
         $table_auto_increment = $this->getStatusInfo('AUTO_INCREMENT', false, true);
         return isset($table_auto_increment) ? $table_auto_increment : '';
     }
 
     /**
-    * Returns the array for CREATE statement for current table.
-    * @param Current table properties.
-    * @return Return options array info if it is set for the selected table or return blank.
-    */
+     * Returns the array for CREATE statement for current table.
+     * @param Current table properties.
+     * @return Return options array info if it is set for the selected table or return blank.
+     */
     public function createOptionsArray() {
         $table_options = $this->getStatusInfo('CREATE_OPTIONS', false, true);
         $create_options_tmp = isset($table_options)
