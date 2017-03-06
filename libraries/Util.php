@@ -4794,6 +4794,8 @@ class Util
         }
         $response = @curl_exec($curl_handle);
         if ($response === false) {
+            /* Debug code! */
+            echo curl_error($curl_handle);
             return null;
         }
         $http_status = curl_getinfo($curl_handle, CURLINFO_HTTP_CODE);
