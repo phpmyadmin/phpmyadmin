@@ -365,14 +365,13 @@ class Table
      * @param Current table properties.
      * @return Return no of rows info if it is not null for the selected table or return 0.
      */
-    public function getTableNumRowInfo() {
+    public function getNumRows() {
         $table_num_row_info = $this->getStatusInfo('TABLE_ROWS', false, true);
-        if (null === $table_num_row_info) {
-            $table_num_row_info   = $this->_dbi
-            ->getTable($this->_db_name, $showtable['Name'])
+        if (false === $table_num_row_info) {
+            $table_num_row_info = $this->_dbi->getTable($this->_db_name, $showtable['Name'])
             ->countRecords(true);
         }
-        return isset($table_num_row_info) ? $table_num_row_info : 0 ;
+        return $table_num_row_info ? $table_num_row_info : 0 ;
     }
 
     /**

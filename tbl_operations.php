@@ -225,7 +225,7 @@ if ($reread_info) {
         $show_comment = $pma_table->getComment();
     }
     $tbl_collation = $pma_table->getCollation();
-    $table_info_num_rows = $pma_table->getTableNumRowInfo();
+    $table_info_num_rows = $pma_table->getNumRows();
     $row_format = $pma_table->getTableRowFormat();
     $auto_increment = $pma_table->getAutoIncrementInfo();
     $create_options = $pma_table->createOptionsArray();
