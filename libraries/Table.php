@@ -335,7 +335,7 @@ class Table
     /**
      * Returns the comments for current table.
      *
-     * @return string  Return comment info if it is set for the selected table or return blank.
+     * @return string Return comment info if it is set for the selected table or return blank.
      */
     public function getComment() {
         $table_comment = $this->getStatusInfo('COMMENT', false, true);
@@ -348,7 +348,7 @@ class Table
     /**
      * Returns the collation for current table.
      *
-     * @return Return blank if collation is empty else return the collation info from table info.
+     * @return string Return blank if collation is empty else return the collation info from table info.
      */
     public function getCollation() {
         $table_collation = $this->getStatusInfo('COLLATION', false, true);
@@ -361,7 +361,7 @@ class Table
     /**
      * Returns the info about no of rows for current table.
      *
-     * @return Return no of rows info if it is not null for the selected table or return 0.
+     * @return integer Return no of rows info if it is not null for the selected table or return 0.
      */
     public function getNumRows() {
         $table_num_row_info = $this->getStatusInfo('TABLE_ROWS', false, true);
@@ -375,7 +375,7 @@ class Table
     /**
      * Returns the Row format for current table.
      *
-     * @return Return table row format info if it is set for the selected table or return blank.
+     * @return string Return table row format info if it is set for the selected table or return blank.
      */
     public function getRowFormat() {
         $table_row_format = $this->getStatusInfo('ROW_FORMAT', false, true);
@@ -388,7 +388,7 @@ class Table
     /**
      * Returns the auto increment option for current table.
      *
-     * @return Return auto increment info if it is set for the selected table or return blank.
+     * @return integer Return auto increment info if it is set for the selected table or return blank.
      */
     public function getAutoIncrement() {
         $table_auto_increment = $this->getStatusInfo('AUTO_INCREMENT', false, true);
@@ -397,7 +397,7 @@ class Table
 
     /**
      * Returns the array for CREATE statement for current table.
-     * @return Return options array info if it is set for the selected table or return blank.
+     * @return array Return options array info if it is set for the selected table or return blank.
      */
     public function getCreateOptions() {
         $table_options = $this->getStatusInfo('CREATE_OPTIONS', false, true);
