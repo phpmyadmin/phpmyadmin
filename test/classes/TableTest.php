@@ -1249,11 +1249,11 @@ class TableTest extends PMATestCase
     }
 
      /**
-     * Test for getTableCollation
+     * Test for getCollation
      *
      * @return void
      */
-    public function testGetTableCollation(){
+    public function testGetCollation(){
         $target_table = 'table1';
         $target_db = 'pma_test';
         $tbl_object = new Table($target_db, $target_table);
@@ -1264,7 +1264,7 @@ class TableTest extends PMATestCase
         $tbl_collation = $dbi->getTable(
             $target_db,
             $target_table
-        )->getTableCollation();
+        )->getCollation();
         $this->assertEquals(
             $expect,
             $tbl_collation
