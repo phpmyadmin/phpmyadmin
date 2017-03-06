@@ -320,7 +320,6 @@ class Table
 
     /**
      * Returns the Table storage Engine for current table.
-     * @param  array $showtable       Current table properties.
      *
      * @return   string               Return storage engine info if it is set for
      *                                the selected table else return blank.
@@ -335,7 +334,6 @@ class Table
 
     /**
      * Returns the comments for current table.
-     * @param  array $showtable  Current table properties.
      *
      * @return string  Return comment info if it is set for the selected table or return blank.
      */
@@ -349,7 +347,7 @@ class Table
 
     /**
      * Returns the collation for current table.
-     * @param Current table properties.
+     *
      * @return Return blank if collation is empty else return the collation info from table info.
      */
     public function getCollation() {
@@ -362,7 +360,7 @@ class Table
 
     /**
      * Returns the info about no of rows for current table.
-     * @param Current table properties.
+     *
      * @return Return no of rows info if it is not null for the selected table or return 0.
      */
     public function getNumRows() {
@@ -376,7 +374,7 @@ class Table
 
     /**
      * Returns the Row format for current table.
-     * @param Current table properties.
+     *
      * @return Return table row format info if it is set for the selected table or return blank.
      */
     public function getRowFormat() {
@@ -389,7 +387,7 @@ class Table
 
     /**
      * Returns the auto increment option for current table.
-     * @param Current table properties.
+     *
      * @return Return auto increment info if it is set for the selected table or return blank.
      */
     public function getAutoIncrement() {
@@ -399,7 +397,6 @@ class Table
 
     /**
      * Returns the array for CREATE statement for current table.
-     * @param Current table properties.
      * @return Return options array info if it is set for the selected table or return blank.
      */
     public function getCreateOptions() {
