@@ -392,7 +392,7 @@ class Table
      * @param Current table properties.
      * @return Return auto increment info if it is set for the selected table or return blank.
      */
-    public function getAutoIncrementInfo() {
+    public function getAutoIncrement() {
         $table_auto_increment = $this->getStatusInfo('AUTO_INCREMENT', false, true);
         return isset($table_auto_increment) ? $table_auto_increment : '';
     }
@@ -402,11 +402,9 @@ class Table
      * @param Current table properties.
      * @return Return options array info if it is set for the selected table or return blank.
      */
-    public function createOptionsArray() {
+    public function getCreateOptions() {
         $table_options = $this->getStatusInfo('CREATE_OPTIONS', false, true);
-        $create_options_tmp = isset($table_options)
-        ? explode(' ', $table_options)
-        : array();
+        $create_options_tmp = empty($table_options) ? array() : explode(' ', $table_options);
         $create_options = array();
         // export create options by its name as variables into global namespace
         // f.e. pack_keys=1 becomes available as $pack_keys with value of '1'
@@ -422,7 +420,6 @@ class Table
         $create_options['pack_keys'] = (! isset($create_options['pack_keys']) || strlen($create_options['pack_keys']) == 0)
             ? 'DEFAULT'
             : $create_options['pack_keys'];
-        unset($create_options_tmp, $each_create_option);
         return $create_options;
     }
 

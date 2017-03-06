@@ -227,8 +227,8 @@ if ($reread_info) {
     $tbl_collation = $pma_table->getCollation();
     $table_info_num_rows = $pma_table->getNumRows();
     $row_format = $pma_table->getRowFormat();
-    $auto_increment = $pma_table->getAutoIncrementInfo();
-    $create_options = $pma_table->createOptionsArray();
+    $auto_increment = $pma_table->getAutoIncrement();
+    $create_options = $pma_table->getCreateOptions();
 }
 unset($reread_info);
 
