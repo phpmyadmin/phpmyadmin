@@ -18,7 +18,7 @@
                 <input type="text" name="new_db" value="<?= htmlspecialchars($GLOBALS['db_to_create']); ?>"
                        maxlength="64" class="textfield" id="text_create_db" required
                        placeholder="<?= __('Database name'); ?>" />
-                <?= PMA\libraries\Charsets::getCollationDropdownBox('db_collation', null, null, true); ?>
+                <?= PMA\libraries\Charsets::getCollationDropdownBox('db_collation', null, null, false); ?>
                 <input type="submit" value="<?= __('Create'); ?>" id="buttonGo" />
             </form>
         <?php else: ?>
