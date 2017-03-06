@@ -4797,6 +4797,13 @@ class Util
         if ($response === false) {
             /* Debug code! */
             echo curl_error($curl_handle);
+            echo "\n";
+            echo 'cafile=' . ini_get('curl.cafile');
+            echo "\n";
+            echo 'cainfo=' . ini_get('curl.cainfo');
+            echo "\n";
+            echo 'capath=' . ini_get('curl.capath');
+            echo "\n";
             return null;
         }
         $http_status = curl_getinfo($curl_handle, CURLINFO_HTTP_CODE);
