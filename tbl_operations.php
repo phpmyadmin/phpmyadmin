@@ -68,7 +68,7 @@ $pma_table = $GLOBALS['dbi']->getTable(
     $GLOBALS['db'],
     $GLOBALS['table']
 );
-$reread_info = $pma_table->getStatusInfo(null, false);
+$reread_info = false;
 $table_alters = array();
 
 /**
@@ -114,7 +114,7 @@ if (isset($_REQUEST['submitoptions'])) {
             $_message .= $pma_table->getLastMessage();
             $result = true;
             $GLOBALS['table'] = $pma_table->getName();
-            $reread_info = $pma_table->getStatusInfo(null, true);
+            $reread_info = true;
             $reload = true;
         } else {
             $_message .= $pma_table->getLastError();
@@ -195,7 +195,7 @@ if ($reread_info) {
     // a change, clear the cache
     $GLOBALS['dbi']->clearTableCache();
     $GLOBALS['dbi']->selectDb($GLOBALS['db']);
-    $GLOBALS['showtable'] = $pma_table->getStatusInfo(null, (isset($reread_info) && $reread_info ? true : false));
+    $GLOBALS['showtable'] = $pma_table->getStatusInfo(null, true);
     if ($pma_table->isView()) {
         $tbl_is_view = true;
         $tbl_storage_engine = __('View');
@@ -211,6 +211,7 @@ if ($reread_info) {
     $auto_increment = $pma_table->getAutoIncrementInfo();
     $create_options = $pma_table->createOptionsArray();
 }
+unset($reread_info);
 
 if (isset($result) && empty($message_to_show)) {
     if (empty($_message)) {

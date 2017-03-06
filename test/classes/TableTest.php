@@ -1211,7 +1211,7 @@ class TableTest extends PMATestCase
         $target_table = 'table1';
         $target_db = 'pma_test';
         $tbl_object = new Table($target_db, $target_table);
-        $reread_info = $tbl_object->getStatusInfo(null, true);
+        $tbl_object->getStatusInfo(null, true);
         $extension = new PMA\libraries\dbi\DBIDummy();
         $dbi = new PMA\libraries\DatabaseInterface($extension);
         $expect = '';
@@ -1234,7 +1234,7 @@ class TableTest extends PMATestCase
         $target_table = 'table1';
         $target_db = 'pma_test';
         $tbl_object = new Table($target_db, $target_table);
-        $reread_info = $tbl_object->getStatusInfo(null, true);
+        $tbl_object->getStatusInfo(null, true);
         $extension = new PMA\libraries\dbi\DBIDummy();
         $dbi = new PMA\libraries\DatabaseInterface($extension);
         $expect = '';
@@ -1257,7 +1257,7 @@ class TableTest extends PMATestCase
         $target_table = 'table1';
         $target_db = 'pma_test';
         $tbl_object = new Table($target_db, $target_table);
-        $reread_info = $tbl_object->getStatusInfo(null, true);
+        $tbl_object->getStatusInfo(null, true);
         $extension = new PMA\libraries\dbi\DBIDummy();
         $dbi = new PMA\libraries\DatabaseInterface($extension);
         $expect = '';
@@ -1280,7 +1280,7 @@ class TableTest extends PMATestCase
         $target_table = 'table1';
         $target_db = 'pma_test';
         $tbl_object = new Table($target_db, $target_table);
-        $reread_info = $tbl_object->getStatusInfo(null, true);
+        $tbl_object->getStatusInfo(null, true);
         $extension = new PMA\libraries\dbi\DBIDummy();
         $dbi = new PMA\libraries\DatabaseInterface($extension);
         $expect = '';
@@ -1303,7 +1303,7 @@ class TableTest extends PMATestCase
         $target_table = 'table1';
         $target_db = 'pma_test';
         $tbl_object = new Table($target_db, $target_table);
-        $reread_info = $tbl_object->getStatusInfo(null, true);
+        $tbl_object->getStatusInfo(null, true);
         $extension = new PMA\libraries\dbi\DBIDummy();
         $dbi = new PMA\libraries\DatabaseInterface($extension);
         $expect = '';
@@ -1326,7 +1326,7 @@ class TableTest extends PMATestCase
         $target_table = 'table1';
         $target_db = 'pma_test';
         $tbl_object = new Table($target_db, $target_table);
-        $reread_info = $tbl_object->getStatusInfo(null, true);
+        $tbl_object->getStatusInfo(null, true);
         $extension = new PMA\libraries\dbi\DBIDummy();
         $dbi = new PMA\libraries\DatabaseInterface($extension);
         $expect = array('pack_keys' => 'DEFAULT');
