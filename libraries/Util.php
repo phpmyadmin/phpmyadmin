@@ -4170,30 +4170,6 @@ class Util
         }
         return $context;
     }
-    /**
-     * Updates an existing curl as necessary
-     *
-     * @param resource $curl_handle A curl_handle resource
-     *                              created by curl_init which should
-     *                              have several options set
-     *
-     * @return resource curl_handle with updated options
-     */
-    public static function configureCurl($curl_handle)
-    {
-        if (strlen($GLOBALS['cfg']['ProxyUrl']) > 0) {
-            curl_setopt($curl_handle, CURLOPT_PROXY, $GLOBALS['cfg']['ProxyUrl']);
-            if (strlen($GLOBALS['cfg']['ProxyUser']) > 0) {
-                curl_setopt(
-                    $curl_handle,
-                    CURLOPT_PROXYUSERPWD,
-                    $GLOBALS['cfg']['ProxyUser'] . ':' . $GLOBALS['cfg']['ProxyPass']
-                );
-            }
-        }
-        curl_setopt($curl_handle, CURLOPT_USERAGENT, 'phpMyAdmin/' . PMA_VERSION);
-        return $curl_handle;
-    }
 
     /**
      * Add fractional seconds to time, datetime and timestamp strings.
@@ -4772,7 +4748,17 @@ class Util
         if ($curl_handle === false) {
             return null;
         }
-        $curl_handle = Util::configureCurl($curl_handle);
+        if (strlen($GLOBALS['cfg']['ProxyUrl']) > 0) {
+            curl_setopt($curl_handle, CURLOPT_PROXY, $GLOBALS['cfg']['ProxyUrl']);
+            if (strlen($GLOBALS['cfg']['ProxyUser']) > 0) {
+                curl_setopt(
+                    $curl_handle,
+                    CURLOPT_PROXYUSERPWD,
+                    $GLOBALS['cfg']['ProxyUser'] . ':' . $GLOBALS['cfg']['ProxyPass']
+                );
+            }
+        }
+        curl_setopt($curl_handle, CURLOPT_USERAGENT, 'phpMyAdmin/' . PMA_VERSION);
 
         if ($method != "GET") {
             curl_setopt($curl_handle, CURLOPT_CUSTOMREQUEST, $method);
