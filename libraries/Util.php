@@ -4719,40 +4719,42 @@ class Util
      * @param bool   $return_only_status If set to true, the method would only return response status
      * @param mixed  $content            Content to be sent with HTTP request
      * @param string $header             Header to be set for the HTTP request
+     * @param int    $ssl                SSL mode to use
      *
      * @return mixed
      */
-    public static function httpRequestCurl($url, $method, $return_only_status = false, $content = null, $header = "")
+    public static function httprequestcurl($url, $method, $return_only_status = false, $content = null, $header = "", $ssl = 0)
     {
         $curl_handle = curl_init($url);
         if ($curl_handle === false) {
             return null;
         }
+        $curl_status = true;
         if (strlen($GLOBALS['cfg']['ProxyUrl']) > 0) {
-            curl_setopt($curl_handle, CURLOPT_PROXY, $GLOBALS['cfg']['ProxyUrl']);
+            $curl_status &= curl_setopt($curl_handle, CURLOPT_PROXY, $GLOBALS['cfg']['ProxyUrl']);
             if (strlen($GLOBALS['cfg']['ProxyUser']) > 0) {
-                curl_setopt(
+                $curl_status &= curl_setopt(
                     $curl_handle,
                     CURLOPT_PROXYUSERPWD,
                     $GLOBALS['cfg']['ProxyUser'] . ':' . $GLOBALS['cfg']['ProxyPass']
                 );
             }
         }
-        curl_setopt($curl_handle, CURLOPT_USERAGENT, 'phpMyAdmin/' . PMA_VERSION);
+        $curl_status &= curl_setopt($curl_handle, CURLOPT_USERAGENT, 'phpMyAdmin/' . PMA_VERSION);
 
         if ($method != "GET") {
-            curl_setopt($curl_handle, CURLOPT_CUSTOMREQUEST, $method);
+            $curl_status &= curl_setopt($curl_handle, CURLOPT_CUSTOMREQUEST, $method);
         }
         if ($header) {
-            curl_setopt($curl_handle, CURLOPT_HTTPHEADER, array($header));
+            $curl_status &= curl_setopt($curl_handle, CURLOPT_HTTPHEADER, array($header));
         }
 
         if ($method == "POST") {
-            curl_setopt($curl_handle, CURLOPT_POSTFIELDS, $content);
+            $curl_status &= curl_setopt($curl_handle, CURLOPT_POSTFIELDS, $content);
         }
 
-        curl_setopt($curl_handle, CURLOPT_SSL_VERIFYHOST, '2');
-        curl_setopt($curl_handle, CURLOPT_SSL_VERIFYPEER, '1');
+        $curl_status &= curl_setopt($curl_handle, CURLOPT_SSL_VERIFYHOST, '2');
+        $curl_status &= curl_setopt($curl_handle, CURLOPT_SSL_VERIFYPEER, '1');
 
         /**
          * Configure ISRG Root X1 to be able to verify Let's Encrypt SSL
@@ -4760,15 +4762,44 @@ class Util
          *
          * See https://letsencrypt.org/certificates/
          */
-        curl_setopt($curl_handle, CURLOPT_CAINFO, dirname(__file__) . '/' . 'isrgrootx1.pem');
+        $certs_dir = dirname(__file__) . '/certs/';
+        /* See code below for logic */
+        if ($ssl == CURLOPT_CAPATH) {
+            $curl_status &= curl_setopt($curl_handle, CURLOPT_CAPATH, $certs_dir);
+        } elseif ($ssl == CURLOPT_CAINFO) {
+            $curl_status &= curl_setopt($curl_handle, CURLOPT_CAINFO, $certs_dir . 'isrgrootx1.pem');
+        }
 
-        curl_setopt($curl_handle, CURLOPT_RETURNTRANSFER,true);
-        curl_setopt($curl_handle, CURLOPT_FOLLOWLOCATION, 0);
-        curl_setopt($curl_handle, CURLOPT_IPRESOLVE, CURL_IPRESOLVE_V4);
-        curl_setopt($curl_handle, CURLOPT_TIMEOUT, 10);
-        curl_setopt($curl_handle, CURLOPT_CONNECTTIMEOUT, 10);
+        $curl_status &= curl_setopt($curl_handle, CURLOPT_RETURNTRANSFER,true);
+        $curl_status &= curl_setopt($curl_handle, CURLOPT_FOLLOWLOCATION, 0);
+        $curl_status &= curl_setopt($curl_handle, CURLOPT_IPRESOLVE, CURL_IPRESOLVE_V4);
+        $curl_status &= curl_setopt($curl_handle, CURLOPT_TIMEOUT, 10);
+        $curl_status &= curl_setopt($curl_handle, CURLOPT_CONNECTTIMEOUT, 10);
+
+        if (! $curl_status) {
+            return null;
+        }
         $response = @curl_exec($curl_handle);
         if ($response === false) {
+            /*
+             * In case of SSL verification failure let's try configuring curl
+             * certificate verification. Unfortunately it is tricky as setting
+             * options incompatible with PHP build settings can lead to failure.
+             *
+             * So let's rather try the options one by one.
+             *
+             * 1. Try using system SSL storage.
+             * 2. Try setting CURLOPT_CAINFO.
+             * 3. Try setting CURLOPT_CAPATH.
+             * 4. Fail.
+             */
+            if (curl_getinfo($curl_handle, CURLINFO_SSL_VERIFYRESULT) != 0) {
+                if ($ssl == 0) {
+                    self::httpRequestCurl($url, $method, $return_only_status, $content, $header, CURLOPT_CAINFO);
+                } elseif ($ssl == CURLOPT_CAINFO) {
+                    self::httpRequestCurl($url, $method, $return_only_status, $content, $header, CURLOPT_CAPATH);
+                }
+            }
             return null;
         }
         $http_status = curl_getinfo($curl_handle, CURLINFO_HTTP_CODE);
