@@ -91,7 +91,8 @@ class Table
      *
      * @see Table::getName()
      * @return string  table name
-     */
+    */
+
     public function __toString()
     {
         return $this->getName();
@@ -318,6 +319,110 @@ class Table
         }
 
         return $this->_dbi->getCachedTableContent(array($db, $table, $info));
+    }
+
+    /**
+    * Returns the Table storage Engine for current table.
+    * @param  array $showtable       Current table properties.
+    *
+    * @return   string               Return storage engine info if it is set for *                                the selected table else return blank.
+    */
+    public function getTableStorageEngine() {
+        $table_storage_engine = $this->getStatusInfo('ENGINE', false, true);
+        if ($table_storage_engine === false) {
+            return isset($table_storage_engine)? mb_strtoupper($table_storage_engine): '';
+        }
+    }
+
+    /**
+    * Returns the comments for current table.
+    * @param  array $showtable  Current table properties.
+    *
+    * @return string  Return comment info if it is set for the selected table or return blank.
+    */
+    public function getShowComment() {
+        $table_comment = $this->getStatusInfo('COMMENT', false, true);
+        if ($table_comment === false) {
+            return isset($table_comment) ? $table_comment : '';
+        }
+    }
+
+    /**
+    * Returns the collation for current table.
+    * @param Current table properties.
+    * @return Return blank if collation is empty else return the collation info from table info.
+    */
+    public function getTableCollation() {
+        $table_collation = $this->getStatusInfo('COLLATION', false, true);
+        if ($table_collation === false) {
+            return empty($table_collation) ? '' : $table_collation;
+        }
+    }
+
+    /**
+    * Returns the info about no of rows for current table.
+    * @param Current table properties.
+    * @return Return no of rows info if it is not null for the selected table or return 0.
+    */
+    public function getTableNumRowInfo() {
+        $table_num_row_info = $this->getStatusInfo('TABLE_ROWS', false, true);
+        if (null === $table_num_row_info) {
+            $table_num_row_info   = $this->_dbi
+            ->getTable($this->_db_name, $showtable['Name'])
+            ->countRecords(true);
+        }
+        return isset($table_num_row_info) ? $table_num_row_info : 0 ;
+    }
+
+    /**
+    * Returns the Row format for current table.
+    * @param Current table properties.
+    * @return Return table row format info if it is set for the selected table or return blank.
+    */
+    public function getTableRowFormat() {
+        $table_row_format = $this->getStatusInfo('ROW_FORMAT', false, true);
+        return isset($table_row_format)
+        ? $table_row_format
+        : '';
+    }
+
+    /**
+    * Returns the auto increment option for current table.
+    * @param Current table properties.
+    * @return Return auto increment info if it is set for the selected table or return blank.
+    */
+    public function getAutoIncrementInfo() {
+        $table_auto_increment = $this->getStatusInfo('AUTO_INCREMENT', false, true);
+        return isset($table_auto_increment) ? $table_auto_increment : '';
+    }
+
+    /**
+    * Returns the array for CREATE statement for current table.
+    * @param Current table properties.
+    * @return Return options array info if it is set for the selected table or return blank.
+    */
+    public function createOptionsArray() {
+        $table_options = $this->getStatusInfo('CREATE_OPTIONS', false, true);
+        $create_options_tmp = isset($table_options)
+        ? explode(' ', $table_options)
+        : array();
+        $create_options = array();
+        // export create options by its name as variables into global namespace
+        // f.e. pack_keys=1 becomes available as $pack_keys with value of '1'
+        // unset($pack_keys);
+        foreach ($create_options_tmp as $each_create_option) {
+            $each_create_option = explode('=', $each_create_option);
+            if (isset($each_create_option[1])) {
+                // ensure there is no ambiguity for PHP 5 and 7
+                $create_options[$each_create_option[0]] = $each_create_option[1];
+            }
+        }
+        // we need explicit DEFAULT value here (different from '0')
+        $create_options['pack_keys'] = (! isset($create_options['pack_keys']) || strlen($create_options['pack_keys']) == 0)
+            ? 'DEFAULT'
+            : $create_options['pack_keys'];
+        unset($create_options_tmp, $each_create_option);
+        return $create_options;
     }
 
     /**

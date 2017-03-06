@@ -64,7 +64,11 @@ if ($pma_table->isEngine('ARIA')) {
     $create_options['page_checksum'] = (isset($create_options['page_checksum'])) ? $create_options['page_checksum'] : '';
 }
 
-$reread_info = false;
+$pma_table = $GLOBALS['dbi']->getTable(
+    $GLOBALS['db'],
+    $GLOBALS['table']
+);
+$reread_info = $pma_table->getStatusInfo(null, false);
 $table_alters = array();
 
 /**
@@ -107,11 +111,10 @@ if (isset($_REQUEST['submitoptions'])) {
             // Reselect the original DB
             $GLOBALS['db'] = $oldDb;
             $GLOBALS['dbi']->selectDb($oldDb);
-
             $_message .= $pma_table->getLastMessage();
             $result = true;
             $GLOBALS['table'] = $pma_table->getName();
-            $reread_info = true;
+            $reread_info = $pma_table->getStatusInfo(null, true);
             $reload = true;
         } else {
             $_message .= $pma_table->getLastError();
@@ -191,9 +194,23 @@ if ($reread_info) {
     // to avoid showing the old value (for example the AUTO_INCREMENT) after
     // a change, clear the cache
     $GLOBALS['dbi']->clearTableCache();
-    include 'libraries/tbl_info.inc.php';
+    $GLOBALS['dbi']->selectDb($GLOBALS['db']);
+    $GLOBALS['showtable'] = $pma_table->getStatusInfo(null, (isset($reread_info) && $reread_info ? true : false));
+    if ($pma_table->isView()) {
+        $tbl_is_view = true;
+        $tbl_storage_engine = __('View');
+        $show_comment = null;
+    } else {
+        $tbl_is_view = false;
+        $tbl_storage_engine = $pma_table->getTableStorageEngine();
+        $show_comment = $pma_table->getShowComment();
+    }
+    $tbl_collation = $pma_table->getTableCollation();
+    $table_info_num_rows = $pma_table->getTableNumRowInfo();
+    $row_format = $pma_table->getTableRowFormat();
+    $auto_increment = $pma_table->getAutoIncrementInfo();
+    $create_options = $pma_table->createOptionsArray();
 }
-unset($reread_info);
 
 if (isset($result) && empty($message_to_show)) {
     if (empty($_message)) {

@@ -231,8 +231,20 @@ class Menu
             if (strlen($this->_table) > 0
                 && ! (isset($_REQUEST['purge']) && $_REQUEST['purge'] == '1')
             ) {
-                include './libraries/tbl_info.inc.php';
-
+                // include './libraries/tbl_info.inc.php';
+                $table_class_object = $GLOBALS['dbi']->getTable(
+                    $GLOBALS['db'],
+                    $GLOBALS['table']
+                );
+                $reread_info = $table_class_object->getStatusInfo(null, true);
+                $GLOBALS['showtable'] = $table_class_object->getStatusInfo(null, (isset($reread_info) && $reread_info ? true : false));
+                if ($table_class_object->isView()) {
+                    $tbl_is_view = true;
+                    $show_comment = null;
+                } else {
+                    $tbl_is_view = false;
+                    $show_comment = $table_class_object->getShowComment();
+                }
                 $retval .= $separator;
                 if (Util::showIcons('TabsMode')) {
                     $icon = $tbl_is_view ? 'b_views.png' : 's_tbl.png';
