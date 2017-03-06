@@ -4739,10 +4739,11 @@ class Util
      * @param bool   $return_only_status If set to true, the method would only return response status
      * @param mixed  $content            Content to be sent with HTTP request
      * @param string $header             Header to be set for the HTTP request
+     * @param int    $ssl                SSL mode to use
      *
      * @return mixed
      */
-    public static function httpRequestCurl($url, $method, $return_only_status = false, $content = null, $header = "")
+    public static function httprequestcurl($url, $method, $return_only_status = false, $content = null, $header = "", $ssl = 0)
     {
         $curl_handle = curl_init($url);
         if ($curl_handle === false) {
@@ -4782,7 +4783,12 @@ class Util
          * See https://letsencrypt.org/certificates/
          */
         $certs_dir = dirname(__file__) . '/certs/';
-        $curl_status &= curl_setopt($curl_handle, CURLOPT_CAPATH, $certs_dir);
+        /* See code below for logic */
+        if ($ssl == CURLOPT_CAPATH) {
+            $curl_status &= curl_setopt($curl_handle, CURLOPT_CAPATH, $certs_dir);
+        } elseif ($ssl == CURLOPT_CAINFO) {
+            $curl_status &= curl_setopt($curl_handle, CURLOPT_CAINFO, $certs_dir . 'isrgrootx1.pem');
+        }
 
         $curl_status &= curl_setopt($curl_handle, CURLOPT_RETURNTRANSFER,true);
         $curl_status &= curl_setopt($curl_handle, CURLOPT_FOLLOWLOCATION, 0);
@@ -4795,15 +4801,25 @@ class Util
         }
         $response = @curl_exec($curl_handle);
         if ($response === false) {
-            /* Debug code! */
-            echo curl_error($curl_handle);
-            echo "\n";
-            echo 'cafile=' . ini_get('curl.cafile');
-            echo "\n";
-            echo 'cainfo=' . ini_get('curl.cainfo');
-            echo "\n";
-            echo 'capath=' . ini_get('curl.capath');
-            echo "\n";
+            /*
+             * In case of SSL verification failure let's try configuring curl
+             * certificate verification. Unfortunately it is tricky as setting
+             * options incompatible with PHP build settings can lead to failure.
+             *
+             * So let's rather try the options one by one.
+             *
+             * 1. Try using system SSL storage.
+             * 2. Try setting CURLOPT_CAINFO.
+             * 3. Try setting CURLOPT_CAPATH.
+             * 4. Fail.
+             */
+            if (curl_getinfo($curl_handle, CURLINFO_SSL_VERIFYRESULT) != 0) {
+                if ($ssl == 0) {
+                    self::httpRequestCurl($url, $method, $return_only_status, $content, $header, CURLOPT_CAINFO);
+                } elseif ($ssl == CURLOPT_CAINFO) {
+                    self::httpRequestCurl($url, $method, $return_only_status, $content, $header, CURLOPT_CAPATH);
+                }
+            }
             return null;
         }
         $http_status = curl_getinfo($curl_handle, CURLINFO_HTTP_CODE);
