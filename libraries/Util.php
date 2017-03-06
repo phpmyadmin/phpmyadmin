@@ -4781,7 +4781,8 @@ class Util
          *
          * See https://letsencrypt.org/certificates/
          */
-        $curl_status &= curl_setopt($curl_handle, CURLOPT_CAINFO, dirname(__file__) . '/' . 'isrgrootx1.pem');
+        $certs_dir = dirname(__file__) . '/certs/';
+        $curl_status &= curl_setopt($curl_handle, CURLOPT_CAPATH, $certs_dir);
 
         $curl_status &= curl_setopt($curl_handle, CURLOPT_RETURNTRANSFER,true);
         $curl_status &= curl_setopt($curl_handle, CURLOPT_FOLLOWLOCATION, 0);
