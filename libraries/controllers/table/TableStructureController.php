@@ -252,7 +252,7 @@ class TableStructureController extends TableController
         }
 
         // display secondary level tabs if necessary
-        $engine = $this->table_obj->getStatusInfo('ENGINE');
+        $engine = $this->table_obj->getStorageEngine();
         $this->response->addHTML(
             Template::get('table/secondary_tabs')->render(
                 array(
