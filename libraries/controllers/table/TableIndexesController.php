@@ -80,7 +80,7 @@ class TableIndexesController extends TableController
         }
         $tbl_collation = $table_class_object->getCollation();
         $table_info_num_rows = $table_class_object->getNumRows();
-        $row_format = $table_class_object->getTableRowFormat();
+        $row_format = $table_class_object->getRowFormat();
         $auto_increment = $table_class_object->getAutoIncrementInfo();
         $create_options = $table_class_object->createOptionsArray();
         $add_fields = 0;

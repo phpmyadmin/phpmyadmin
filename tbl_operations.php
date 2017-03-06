@@ -158,7 +158,7 @@ if (isset($_REQUEST['submitoptions'])) {
 
     $row_format = (isset($create_options['row_format']))
         ? $create_options['row_format']
-        : $pma_table->getStatusInfo('ROW_FORMAT');
+        : $pma_table->getRowFormat();
 
     $table_alters = PMA_getTableAltersArray(
         $pma_table,
@@ -226,7 +226,7 @@ if ($reread_info) {
     }
     $tbl_collation = $pma_table->getCollation();
     $table_info_num_rows = $pma_table->getNumRows();
-    $row_format = $pma_table->getTableRowFormat();
+    $row_format = $pma_table->getRowFormat();
     $auto_increment = $pma_table->getAutoIncrementInfo();
     $create_options = $pma_table->createOptionsArray();
 }

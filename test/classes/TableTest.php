@@ -1272,11 +1272,11 @@ class TableTest extends PMATestCase
     }
 
     /**
-     * Test for getTableRowFormat
+     * Test for getRowFormat
      *
      * @return void
      */
-    public function testGetTableRowFormat(){
+    public function testGetRowFormat(){
         $target_table = 'table1';
         $target_db = 'pma_test';
         $tbl_object = new Table($target_db, $target_table);
@@ -1287,7 +1287,7 @@ class TableTest extends PMATestCase
         $row_format = $dbi->getTable(
             $target_db,
             $target_table
-        )->getTableRowFormat();
+        )->getRowFormat();
         $this->assertEquals(
             $expect,
             $row_format
