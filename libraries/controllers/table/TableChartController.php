@@ -128,7 +128,7 @@ class TableChartController extends TableController
             } else {
                 $tbl_is_view = false;
                 $tbl_storage_engine = $table_class_object->getStorageEngine();
-                $show_comment = $table_class_object->getShowComment();
+                $show_comment = $table_class_object->getComment();
             }
             $tbl_collation = $table_class_object->getTableCollation();
             $table_info_num_rows = $table_class_object->getTableNumRowInfo();
