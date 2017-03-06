@@ -4150,30 +4150,6 @@ class Util
         }
         return $context;
     }
-    /**
-     * Updates an existing curl as necessary
-     *
-     * @param resource $curl_handle A curl_handle resource
-     *                              created by curl_init which should
-     *                              have several options set
-     *
-     * @return resource curl_handle with updated options
-     */
-    public static function configureCurl($curl_handle)
-    {
-        if (strlen($GLOBALS['cfg']['ProxyUrl']) > 0) {
-            curl_setopt($curl_handle, CURLOPT_PROXY, $GLOBALS['cfg']['ProxyUrl']);
-            if (strlen($GLOBALS['cfg']['ProxyUser']) > 0) {
-                curl_setopt(
-                    $curl_handle,
-                    CURLOPT_PROXYUSERPWD,
-                    $GLOBALS['cfg']['ProxyUser'] . ':' . $GLOBALS['cfg']['ProxyPass']
-                );
-            }
-        }
-        curl_setopt($curl_handle, CURLOPT_USERAGENT, 'phpMyAdmin/' . PMA_VERSION);
-        return $curl_handle;
-    }
 
     /**
      * Add fractional seconds to time, datetime and timestamp strings.
@@ -4752,7 +4728,17 @@ class Util
         if ($curl_handle === false) {
             return null;
         }
-        $curl_handle = Util::configureCurl($curl_handle);
+        if (strlen($GLOBALS['cfg']['ProxyUrl']) > 0) {
+            curl_setopt($curl_handle, CURLOPT_PROXY, $GLOBALS['cfg']['ProxyUrl']);
+            if (strlen($GLOBALS['cfg']['ProxyUser']) > 0) {
+                curl_setopt(
+                    $curl_handle,
+                    CURLOPT_PROXYUSERPWD,
+                    $GLOBALS['cfg']['ProxyUser'] . ':' . $GLOBALS['cfg']['ProxyPass']
+                );
+            }
+        }
+        curl_setopt($curl_handle, CURLOPT_USERAGENT, 'phpMyAdmin/' . PMA_VERSION);
 
         if ($method != "GET") {
             curl_setopt($curl_handle, CURLOPT_CUSTOMREQUEST, $method);
@@ -4767,6 +4753,14 @@ class Util
 
         curl_setopt($curl_handle, CURLOPT_SSL_VERIFYHOST, '2');
         curl_setopt($curl_handle, CURLOPT_SSL_VERIFYPEER, '1');
+
+        /**
+         * Configure ISRG Root X1 to be able to verify Let's Encrypt SSL
+         * certificates even without properly configured curl in PHP.
+         *
+         * See https://letsencrypt.org/certificates/
+         */
+        curl_setopt($curl_handle, CURLOPT_CAINFO, dirname(__file__) . '/' . 'isrgrootx1.pem');
 
         curl_setopt($curl_handle, CURLOPT_RETURNTRANSFER,true);
         curl_setopt($curl_handle, CURLOPT_FOLLOWLOCATION, 0);
