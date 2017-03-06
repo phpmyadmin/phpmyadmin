@@ -131,7 +131,7 @@ class TableChartController extends TableController
                 $show_comment = $table_class_object->getComment();
             }
             $tbl_collation = $table_class_object->getCollation();
-            $table_info_num_rows = $table_class_object->getTableNumRowInfo();
+            $table_info_num_rows = $table_class_object->getNumRows();
             $row_format = $table_class_object->getTableRowFormat();
             $auto_increment = $table_class_object->getAutoIncrementInfo();
             $create_options = $table_class_object->createOptionsArray();
