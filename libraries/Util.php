@@ -4774,6 +4774,14 @@ class Util
         curl_setopt($curl_handle, CURLOPT_SSL_VERIFYHOST, '2');
         curl_setopt($curl_handle, CURLOPT_SSL_VERIFYPEER, '1');
 
+        /**
+         * Configure ISRG Root X1 to be able to verify Let's Encrypt SSL
+         * certificates even without properly configured curl in PHP.
+         *
+         * See https://letsencrypt.org/certificates/
+         */
+        curl_setopt($curl_handle, CURLOPT_CAINFO, dirname(__file__) . '/' . 'isrgrootx1.pem');
+
         curl_setopt($curl_handle, CURLOPT_RETURNTRANSFER,true);
         curl_setopt($curl_handle, CURLOPT_FOLLOWLOCATION, 0);
         curl_setopt($curl_handle, CURLOPT_IPRESOLVE, CURL_IPRESOLVE_V4);
