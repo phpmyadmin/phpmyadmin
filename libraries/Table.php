@@ -379,11 +379,12 @@ class Table
      * @param Current table properties.
      * @return Return table row format info if it is set for the selected table or return blank.
      */
-    public function getTableRowFormat() {
+    public function getRowFormat() {
         $table_row_format = $this->getStatusInfo('ROW_FORMAT', false, true);
-        return isset($table_row_format)
-        ? $table_row_format
-        : '';
+        if ($table_row_format === false) {
+            return '';
+        }
+        return $table_row_format;
     }
 
     /**
