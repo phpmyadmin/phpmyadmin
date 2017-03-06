@@ -82,8 +82,8 @@ class TableIndexesController extends TableController
         $tbl_collation = $table_class_object->getCollation();
         $table_info_num_rows = $table_class_object->getNumRows();
         $row_format = $table_class_object->getRowFormat();
-        $auto_increment = $table_class_object->getAutoIncrementInfo();
-        $create_options = $table_class_object->createOptionsArray();
+        $auto_increment = $table_class_object->getAutoIncrement();
+        $create_options = $table_class_object->getCreateOptions();
         $add_fields = 0;
         if (isset($_REQUEST['index']) && is_array($_REQUEST['index'])) {
             // coming already from form

@@ -1295,11 +1295,11 @@ class TableTest extends PMATestCase
     }
 
     /**
-     * Test for getAutoIncrementInfo
+     * Test for getAutoIncrement
      *
      * @return void
      */
-    public function testGetAutoIncrementInfo(){
+    public function testGetAutoIncrement(){
         $target_table = 'table1';
         $target_db = 'pma_test';
         $tbl_object = new Table($target_db, $target_table);
@@ -1310,7 +1310,7 @@ class TableTest extends PMATestCase
         $auto_increment = $dbi->getTable(
             $target_db,
             $target_table
-        )->getAutoIncrementInfo();
+        )->getAutoIncrement();
         $this->assertEquals(
             $expect,
             $auto_increment
@@ -1318,11 +1318,11 @@ class TableTest extends PMATestCase
     }
 
     /**
-     * Test for createOptionsArray
+     * Test for getCreateOptions
      *
      * @return void
      */
-    public function testCreateOptionsArray(){
+    public function testGetCreateOptions(){
         $target_table = 'table1';
         $target_db = 'pma_test';
         $tbl_object = new Table($target_db, $target_table);
@@ -1333,7 +1333,7 @@ class TableTest extends PMATestCase
         $create_options = $dbi->getTable(
             $target_db,
             $target_table
-        )->createOptionsArray();
+        )->getCreateOptions();
         $this->assertEquals(
             $expect,
             $create_options
