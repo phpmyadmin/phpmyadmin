@@ -240,7 +240,7 @@ class Menu
                     $show_comment = null;
                 } else {
                     $tbl_is_view = false;
-                    $show_comment = $table_class_object->getShowComment();
+                    $show_comment = $table_class_object->getComment();
                 }
                 $retval .= $separator;
                 if (Util::showIcons('TabsMode')) {

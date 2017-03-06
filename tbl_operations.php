@@ -203,7 +203,7 @@ if ($reread_info) {
     } else {
         $tbl_is_view = false;
         $tbl_storage_engine = $pma_table->getStorageEngine();
-        $show_comment = $pma_table->getShowComment();
+        $show_comment = $pma_table->getComment();
     }
     $tbl_collation = $pma_table->getTableCollation();
     $table_info_num_rows = $pma_table->getTableNumRowInfo();

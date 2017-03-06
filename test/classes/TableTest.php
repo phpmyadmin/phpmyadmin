@@ -1226,11 +1226,11 @@ class TableTest extends PMATestCase
     }
 
     /**
-     * Test for getShowComment
+     * Test for getComment
      *
      * @return void
      */
-    public function testGetShowComment(){
+    public function testGetComment(){
         $target_table = 'table1';
         $target_db = 'pma_test';
         $tbl_object = new Table($target_db, $target_table);
@@ -1241,7 +1241,7 @@ class TableTest extends PMATestCase
         $show_comment = $dbi->getTable(
             $target_db,
             $target_table
-        )->getShowComment();
+        )->getComment();
         $this->assertEquals(
             $expect,
             $show_comment
