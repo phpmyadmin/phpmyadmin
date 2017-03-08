@@ -7,14 +7,15 @@
  */
 namespace PMA\libraries\di;
 
+use Psr\Container\ContainerInterface;
+
 /**
  * Class Container
  *
  * @package PMA\libraries\di
  */
-class Container
+class Container implements ContainerInterface
 {
-
     /**
      * @var Item[] $content
      */
@@ -46,19 +47,58 @@ class Container
      * @param string $name   Name
      * @param array  $params Parameters
      *
+     * @throws NotFoundException  No entry was found for **this** identifier.
+     * @throws ContainerException Error while retrieving the entry.
+     *
      * @return mixed
      */
     public function get($name, $params = array())
     {
+        try {
+            if (!$this->has($name)) {
+                throw new NotFoundException("No entry was found for $name identifier.");
+            }
+        } catch (NotFoundException $e) {
+            echo $e->getMessage();
+            return null;
+        }
+
+        try {
+            if (isset($this->content[$name])) {
+                return $this->content[$name]->get($params);
+            } else if (isset($GLOBALS[$name])) {
+                return $GLOBALS[$name];
+            } else {
+                throw new ContainerException("Error while retrieving the entry.");
+            }
+        } catch (ContainerException $e) {
+            echo $e->getMessage();
+            return null;
+        }
+    }
+
+    /**
+     * Returns true if the container can return an entry for the given identifier.
+     * Returns false otherwise.
+     *
+     * `has($name)` returning true does not mean that `get($name)` will not throw an exception.
+     * It does however mean that `get($name)` will not throw a `NotFoundException`.
+     *
+     * @param string $name Identifier of the entry to look for.
+     *
+     * @return bool
+     */
+    public function has($name)
+    {
         if (isset($this->content[$name])) {
-            return $this->content[$name]->get($params);
+            return true;
         }
 
         if (isset($GLOBALS[$name])) {
-            return $GLOBALS[$name];
+            return true;
         }
 
-        return null;
+        return false;
     }
 
     /**
