@@ -14,8 +14,7 @@ use Psr\Container\NotFoundExceptionInterface;
  *
  * @package PMA\libraries\di
  */
- class NotFoundException extends ContainerException implements NotFoundExceptionInterface
- {
+class NotFoundException extends ContainerException implements NotFoundExceptionInterface
+{
 
- }
- 
+}

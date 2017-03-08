@@ -15,8 +15,7 @@ use Psr\Container\ContainerExceptionInterface;
  *
  * @package PMA\libraries\di
  */
- class ContainerException extends Exception implements ContainerExceptionInterface
- {
+class ContainerException extends Exception implements ContainerExceptionInterface
+{
 
- }
- 
+}
