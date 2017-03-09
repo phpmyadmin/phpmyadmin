@@ -798,8 +798,8 @@ function savePrefsToLocalStorage(form)
         type: 'POST',
         data: {
             ajax_request: true,
-            server: $form.find('input[name=server]').val(),
-            token: $form.find('input[name=token]').val(),
+            server: PMA_commonParams.get('server'),
+            token: PMA_commonParams.get('token'),
             submit_get_json: true
         },
         success: function (data) {
@@ -853,7 +853,8 @@ function offerPrefsAutoimport()
         if ($a.attr('href') == '#no') {
             $cnt.remove();
             $.post('index.php', {
-                token: $cnt.find('input[name=token]').val(),
+                token: PMA_commonParams.get('token'),
+                server: PMA_commonParams.get('server'),
                 prefs_autoload: 'hide'
             }, null, 'html');
             return;
@@ -861,7 +862,8 @@ function offerPrefsAutoimport()
             $cnt.remove();
             localStorage.clear();
             $.post('index.php', {
-                token: $cnt.find('input[name=token]').val(),
+                token: PMA_commonParams.get('token'),
+                server: PMA_commonParams.get('server'),
                 prefs_autoload: 'hide'
             }, null, 'html');
             return;

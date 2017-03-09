@@ -7,7 +7,7 @@
  */
 namespace PMA\libraries;
 
-use SqlParser\Utils\Query;
+use PhpMyAdmin\SqlParser\Utils\Query;
 use PMA\libraries\plugins\transformations\Text_Plain_Link;
 use PMA\libraries\URL;
 use PMA\libraries\Sanitize;
@@ -867,13 +867,10 @@ class DisplayResults
         }
 
         // Move to the next page or to the last one
-        $endpos = $_SESSION['tmpval']['pos']
-            + $_SESSION['tmpval']['max_rows'];
-
         if ($this->__get('unlim_num_rows') === false // view with unknown number of rows
-            || ($endpos < $this->__get('unlim_num_rows')
-            && $this->__get('num_rows') >= $_SESSION['tmpval']['max_rows']
-            && $_SESSION['tmpval']['max_rows'] != self::ALL_ROWS)
+            || ($_SESSION['tmpval']['max_rows'] != self::ALL_ROWS
+            && $_SESSION['tmpval']['pos'] + $_SESSION['tmpval']['max_rows'] < $this->__get('unlim_num_rows')
+            && $this->__get('num_rows') >= $_SESSION['tmpval']['max_rows'])
         ) {
 
             $table_navigation_html
@@ -1742,7 +1739,7 @@ class DisplayResults
             $options_html .= '<div class="formelement">';
             $choices = array(
                 'K'   => __('Relational key'),
-                'D'   => __('Display column for relations')
+                'D'   => __('Display column for relationships')
             );
 
             $options_html .= Util::getRadioFields(
@@ -4247,7 +4244,7 @@ class DisplayResults
 
         /**
          * The statement this table is built for.
-         * @var \SqlParser\Statements\SelectStatement
+         * @var \PhpMyAdmin\SqlParser\Statements\SelectStatement
          */
         $statement = $analyzed_sql_results['statement'];
 

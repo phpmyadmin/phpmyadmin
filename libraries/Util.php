@@ -8,15 +8,15 @@
 namespace PMA\libraries;
 
 use PMA\libraries\plugins\ImportPlugin;
-use SqlParser\Context;
-use SqlParser\Lexer;
-use SqlParser\Parser;
-use SqlParser\Token;
+use PhpMyAdmin\SqlParser\Context;
+use PhpMyAdmin\SqlParser\Lexer;
+use PhpMyAdmin\SqlParser\Parser;
+use PhpMyAdmin\SqlParser\Token;
 use stdClass;
-use SqlParser\Utils\Error as ParserError;
 use PMA\libraries\URL;
 use PMA\libraries\Sanitize;
 use PMA\libraries\Template;
+use PhpMyAdmin\SqlParser\Utils\Error as ParserError;
 
 if (! defined('PHPMYADMIN')) {
     exit;
@@ -934,27 +934,6 @@ class Util
     } // end of the 'backquoteCompat()' function
 
     /**
-     * Defines the <CR><LF> value depending on the user OS.
-     *
-     * @return string   the <CR><LF> value to use
-     *
-     * @access  public
-     */
-    public static function whichCrlf()
-    {
-        // The 'PMA_USR_OS' constant is defined in "libraries/Config.php"
-        // Win case
-        if (PMA_USR_OS == 'Win') {
-            $the_crlf = "\r\n";
-        } else {
-            // Others
-            $the_crlf = "\n";
-        }
-
-        return $the_crlf;
-    } // end of the 'whichCrlf()' function
-
-    /**
      * Prepare the message and the query
      * usually the message is the result of the query executed
      *
@@ -1602,6 +1581,15 @@ class Util
             $month[(int)strftime('%m', $timestamp)-1],
             $date
         );
+
+        /* Fill in AM/PM */
+        $hours = (int)date('H', $timestamp);
+        if ($hours >= 12) {
+            $am_pm = _pgettext('AM/PM indication in time', 'PM');
+        } else {
+            $am_pm = _pgettext('AM/PM indication in time', 'AM');
+        }
+        $date = preg_replace('@%[pP]@', $am_pm, $date);
 
         $ret = strftime($date, $timestamp);
         // Some OSes such as Win8.1 Traditional Chinese version did not produce UTF-8
@@ -2559,7 +2547,7 @@ class Util
             . URL::getCommon(array('db' => $database)) . '" title="'
             . htmlspecialchars(
                 sprintf(
-                    __('Jump to database "%s".'),
+                    __('Jump to database “%s”.'),
                     $database
                 )
             )
@@ -2616,40 +2604,31 @@ class Util
 
         foreach ($choices as $choice_value => $choice_label) {
 
-            if (! empty($class)) {
-                $radio_html .= '<div class="' . $class . '">';
-            }
-
             if (! $id_prefix) {
                 $id_prefix = $html_field_name;
             }
             $html_field_id = $id_prefix . '_' . $choice_value;
-            $radio_html .= '<input type="radio" name="' . $html_field_name . '" id="'
-                        . $html_field_id . '" value="'
-                        . htmlspecialchars($choice_value) . '"';
 
-            if ($choice_value == $checked_choice) {
-                $radio_html .= ' checked="checked"';
+            if ($choice_value == $checked_choice){
+                $checked = 1;
             }
-
-            $radio_html .= ' />' . "\n"
-                        . '<label for="' . $html_field_id . '">'
-                        . ($escape_label
-                        ? htmlspecialchars($choice_label)
-                        : $choice_label)
-                        . '</label>';
-
-            if ($line_break) {
-                $radio_html .= '<br />';
+            else{
+                $checked = 0;
             }
-
-            if (! empty($class)) {
-                $radio_html .= '</div>';
-            }
-            $radio_html .= "\n";
+            $radio_html .= Template::get('radio_fields')->render([
+                            'class' =>  $class,
+                            'html_field_name'   =>  $html_field_name,
+                            'html_field_id' => $html_field_id,
+                            'choice_value' => $choice_value,
+                            'is_line_break' => $line_break,
+                            'choice_label'  => $choice_label,
+                            'escape_label'  => $escape_label,
+                            'checked' => $checked
+                        ]);
         }
 
         return $radio_html;
+
     }
 
     /**
@@ -2672,38 +2651,27 @@ class Util
     public static function getDropdown(
         $select_name, $choices, $active_choice, $id, $class = '', $placeholder = null
     ) {
-        $result = '<select'
-            . ' name="' . htmlspecialchars($select_name) . '"'
-            . ' id="' . htmlspecialchars($id) . '"'
-            . (! empty($class) ? ' class="' . htmlspecialchars($class) . '"' : '')
-            . '>';
-
-        $resultOptions = '';
+        $resultOptions = [];
         $selected = false;
 
         foreach ($choices as $one_choice_value => $one_choice_label) {
-            $resultOptions .= '<option value="'
-                . htmlspecialchars($one_choice_value) . '"';
+            $resultOptions[$one_choice_value]['value'] = $one_choice_value;
+            $resultOptions[$one_choice_value]['selected'] = false;
 
             if ($one_choice_value == $active_choice) {
-                $resultOptions .= ' selected="selected"';
+                $resultOptions[$one_choice_value]['selected'] = true;
                 $selected = true;
             }
-            $resultOptions .= '>' . htmlspecialchars($one_choice_label)
-                . '</option>';
+            $resultOptions[$one_choice_value]['label'] = $one_choice_label;
         }
-
-        if (!empty($placeholder)) {
-            $resultOptions = '<option value="" disabled="disabled"'
-                . ( !$selected ? ' selected="selected"' : '' )
-                . '>' . $placeholder . '</option>'
-                . $resultOptions;
-        }
-
-        $result .= $resultOptions
-            . '</select>';
-
-        return $result;
+        return Template::get('dropdown')->render([
+                'select_name' => $select_name,
+                'id'    => $id,
+                'class' => $class,
+                'placeholder' => $placeholder,
+                'selected'  => $selected,
+                'resultOptions' => $resultOptions,
+            ]);
     }
 
     /**
@@ -4791,7 +4759,6 @@ class Util
         }
         if ($header) {
             curl_setopt($curl_handle, CURLOPT_HTTPHEADER, array($header));
-            curl_setopt($curl_handle, CURLOPT_HEADER, true);
         }
 
         if ($method == "POST") {

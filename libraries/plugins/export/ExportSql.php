@@ -21,11 +21,11 @@ use PMA\libraries\plugins\ExportPlugin;
 use PMA\libraries\Util;
 use PMA\libraries\properties\options\items\RadioPropertyItem;
 use PMA\libraries\properties\options\items\SelectPropertyItem;
-use SqlParser\Components\CreateDefinition;
-use SqlParser\Context;
-use SqlParser\Parser;
-use SqlParser\Statements\SelectStatement;
-use SqlParser\Token;
+use PhpMyAdmin\SqlParser\Components\CreateDefinition;
+use PhpMyAdmin\SqlParser\Context;
+use PhpMyAdmin\SqlParser\Parser;
+use PhpMyAdmin\SqlParser\Statements\SelectStatement;
+use PhpMyAdmin\SqlParser\Token;
 use PMA\libraries\properties\options\items\TextPropertyItem;
 
 /**
@@ -1875,7 +1875,7 @@ class ExportSql extends ExportPlugin
             $schema_create .= $this->_possibleCRLF()
                 . $this->_exportComment()
                 . $this->_exportComment(
-                    __('RELATIONS FOR TABLE') . ' '
+                    __('RELATIONSHIPS FOR TABLE') . ' '
                     . Util::backquote($table_alias, $sql_backquotes)
                     . ':'
                 );
@@ -2664,7 +2664,7 @@ class ExportSql extends ExportPlugin
         /**
          * The statement that represents the query.
          *
-         * @var \SqlParser\Statements\CreateStatement $statement
+         * @var \PhpMyAdmin\SqlParser\Statements\CreateStatement $statement
          */
         $statement = $parser->statements[0];
 

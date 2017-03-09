@@ -146,8 +146,7 @@ class TableRelationController extends TableController
         }
 
         // display secondary level tabs if necessary
-        $engine = $this->dbi->getTable($this->db, $this->table)
-            ->getStatusInfo('ENGINE');
+        $engine = $this->dbi->getTable($this->db, $this->table)->getStorageEngine();
 
         $this->response->addHTML(
             Template::get('table/secondary_tabs')->render(
@@ -276,7 +275,7 @@ class TableRelationController extends TableController
         ) {
             $this->response->addHTML(
                 Util::getMessage(
-                    __('Internal relations were successfully updated.'),
+                    __('Internal relationships were successfully updated.'),
                     '', 'success'
                 )
             );
@@ -303,6 +302,9 @@ class TableRelationController extends TableController
         $columns = array();
         foreach ($columnList as $column) {
             $columns[] = htmlspecialchars($column);
+        }
+        if ($GLOBALS['cfg']['NaturalOrder']) {
+            uksort($columns, 'strnatcasecmp');
         }
         $this->response->addJSON('columns', $columns);
 
@@ -353,6 +355,9 @@ class TableRelationController extends TableController
             while ($row = $this->dbi->fetchArray($tables_rs)) {
                 $tables[] = htmlspecialchars($row[0]);
             }
+        }
+        if ($GLOBALS['cfg']['NaturalOrder']) {
+            uksort($tables, 'strnatcasecmp');
         }
         $this->response->addJSON('tables', $tables);
     }

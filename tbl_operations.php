@@ -83,6 +83,11 @@ if ($pma_table->isEngine('ARIA')) {
     $create_options['page_checksum'] = (isset($create_options['page_checksum'])) ? $create_options['page_checksum'] : '';
 }
 
+$pma_table = $GLOBALS['dbi']->getTable(
+    $GLOBALS['db'],
+    $GLOBALS['table']
+);
+$reread_info = false;
 $table_alters = array();
 
 /**
@@ -128,7 +133,7 @@ if (isset($_REQUEST['submitoptions'])) {
             $_message .= $pma_table->getLastMessage();
             $result = true;
             $GLOBALS['table'] = $pma_table->getName();
-            $reread_info = $pma_table->getStatusInfo(null, true);
+            $reread_info = true;
             $reload = true;
         } else {
             $_message .= $pma_table->getLastError();
@@ -151,13 +156,17 @@ if (isset($_REQUEST['submitoptions'])) {
         $new_tbl_storage_engine = '';
     }
 
+    $row_format = (isset($create_options['row_format']))
+        ? $create_options['row_format']
+        : $pma_table->getRowFormat();
+
     $table_alters = PMA_getTableAltersArray(
         $pma_table,
         $create_options['pack_keys'],
         (empty($create_options['checksum']) ? '0' : '1'),
         ((isset($create_options['page_checksum'])) ? $create_options['page_checksum'] : ''),
         (empty($create_options['delay_key_write']) ? '0' : '1'),
-        $create_options['row_format'],
+        $row_format,
         $new_tbl_storage_engine,
         ((isset($create_options['transactional']) && $create_options['transactional'] == '0') ? '0' : '1'),
         $tbl_collation
@@ -205,22 +214,23 @@ if ($reread_info) {
     // a change, clear the cache
     $GLOBALS['dbi']->clearTableCache();
     $GLOBALS['dbi']->selectDb($GLOBALS['db']);
-    $GLOBALS['showtable'] = $pma_table->getStatusInfo(null, (isset($reread_info) && $reread_info ? true : false));
+    $GLOBALS['showtable'] = $pma_table->getStatusInfo(null, true);
     if ($pma_table->isView()) {
         $tbl_is_view = true;
         $tbl_storage_engine = __('View');
         $show_comment = null;
     } else {
         $tbl_is_view = false;
-        $tbl_storage_engine = $pma_table->getTableStorageEngine();
-        $show_comment = $pma_table->getShowComment();
+        $tbl_storage_engine = $pma_table->getStorageEngine();
+        $show_comment = $pma_table->getComment();
     }
-    $tbl_collation = $pma_table->getTableCollation();
-    $table_info_num_rows = $pma_table->getTableNumRowInfo();
-    $row_format = $pma_table->getTableRowFormat();
-    $auto_increment = $pma_table->getAutoIncrementInfo();
-    $create_options = $pma_table->createOptionsArray();
+    $tbl_collation = $pma_table->getCollation();
+    $table_info_num_rows = $pma_table->getNumRows();
+    $row_format = $pma_table->getRowFormat();
+    $auto_increment = $pma_table->getAutoIncrement();
+    $create_options = $pma_table->getCreateOptions();
 }
+unset($reread_info);
 
 if (isset($result) && empty($message_to_show)) {
     if (empty($_message)) {

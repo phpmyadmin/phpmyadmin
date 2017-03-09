@@ -47,13 +47,12 @@ class AuthenticationHttpTest extends PMATestCase
      */
     public function tearDown()
     {
+        parent::tearDown();
         unset($this->object);
     }
 
     public function doMockResponse($set_minimal, $body_id, $set_title)
     {
-        $restoreInstance = PMA\libraries\Response::getInstance();
-
         // mock footer
         $mockFooter = $this->getMockBuilder('PMA\libraries\Footer')
             ->disableOriginalConstructor()
@@ -86,10 +85,8 @@ class AuthenticationHttpTest extends PMATestCase
             ->with();
 
         // set mocked headers and footers
-        $mockResponse = $this->getMockBuilder('PMA\libraries\Response')
-            ->disableOriginalConstructor()
-            ->setMethods(array('getHeader', 'getFooter', 'addHTML', 'header', 'headersSent'))
-            ->getMock();
+        $headers = array_slice(func_get_args(), 3);
+        $mockResponse = $this->mockResponse($headers);
 
         $mockResponse->expects($this->exactly($set_title))
             ->method('getFooter')
@@ -101,36 +98,16 @@ class AuthenticationHttpTest extends PMATestCase
             ->with()
             ->will($this->returnValue($mockHeader));
 
-        $mockResponse->expects($this->any())
-            ->method('headersSent')
-            ->with()
-            ->will($this->returnValue(false));
-
         $mockResponse->expects($this->exactly($set_title * 7))
             ->method('addHTML')
             ->with();
 
-        $attrInstance = new ReflectionProperty('PMA\libraries\Response', '_instance');
-        $attrInstance->setAccessible(true);
-        $attrInstance->setValue($mockResponse);
-
-        $headers = array_slice(func_get_args(), 3);
-
-        $header_method = $mockResponse->expects($this->exactly(count($headers)))
-            ->method('header');
-
-        call_user_func_array(array($header_method, 'withConsecutive'), $headers);
-
-        try {
-            if (!empty($_REQUEST['old_usr'])) {
-                $this->object->logOut();
-            } else {
-                $this->assertFalse(
-                    $this->object->auth()
-                );
-            }
-        } finally {
-            $attrInstance->setValue($restoreInstance);
+        if (!empty($_REQUEST['old_usr'])) {
+            $this->object->logOut();
+        } else {
+            $this->assertFalse(
+                $this->object->auth()
+            );
         }
     }
 
@@ -159,8 +136,8 @@ class AuthenticationHttpTest extends PMATestCase
         $this->doMockResponse(
             1, 1, 1,
             array('WWW-Authenticate: Basic realm="phpMyAdmin verboseMessag"'),
-            array('HTTP/1.0 401 Unauthorized'),
-            array('status: 401 Unauthorized')
+            array('status: 401 Unauthorized'),
+            401
         );
     }
 
@@ -172,8 +149,8 @@ class AuthenticationHttpTest extends PMATestCase
         $this->doMockResponse(
             1, 1, 1,
             array('WWW-Authenticate: Basic realm="phpMyAdmin hst"'),
-            array('HTTP/1.0 401 Unauthorized'),
-            array('status: 401 Unauthorized')
+            array('status: 401 Unauthorized'),
+            401
         );
     }
 
@@ -185,8 +162,8 @@ class AuthenticationHttpTest extends PMATestCase
         $this->doMockResponse(
             1, 1, 1,
             array('WWW-Authenticate: Basic realm="realmmessage"'),
-            array('HTTP/1.0 401 Unauthorized'),
-            array('status: 401 Unauthorized')
+            array('status: 401 Unauthorized'),
+            401
         );
     }
 

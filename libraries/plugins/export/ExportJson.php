@@ -43,13 +43,18 @@ class ExportJson extends ExportPlugin
      */
     public function encode($data)
     {
+        $options = 0;
         if (isset($GLOBALS['json_pretty_print'])
             && $GLOBALS['json_pretty_print']
         ) {
-            return json_encode($data, JSON_PRETTY_PRINT);
-        } else {
-            return json_encode($data);
+            $options |= JSON_PRETTY_PRINT;
         }
+        if (isset($GLOBALS['json_unicode'])
+            && $GLOBALS['json_unicode']
+        ) {
+            $options |= JSON_UNESCAPED_UNICODE;
+        }
+        return json_encode($data, $options);
     }
 
     /**
@@ -81,6 +86,12 @@ class ExportJson extends ExportPlugin
         $leaf = new BoolPropertyItem(
             'pretty_print',
             __('Output pretty-printed JSON (Use human-readable formatting)')
+        );
+        $generalOptions->addProperty($leaf);
+
+        $leaf = new BoolPropertyItem(
+            'unicode',
+            __('Output unicode characters unescaped')
         );
         $generalOptions->addProperty($leaf);
 

@@ -103,7 +103,7 @@ class Config
      */
     public function checkSystem()
     {
-        $this->set('PMA_VERSION', '4.7.0-dev');
+        $this->set('PMA_VERSION', '4.8.0-dev');
         /**
          * @deprecated
          */
@@ -788,6 +788,27 @@ class Config
             $this->error_config_file = false;
             $this->source_mtime = filemtime($this->getSource());
         }
+
+        /**
+         * Ignore keys with / as we do not use these
+         *
+         * These can be confusing for user configuration layer as it
+         * flatten array using / and thus don't see difference between
+         * $cfg['Export/method'] and $cfg['Export']['method'], while rest
+         * of thre code uses the setting only in latter form.
+         *
+         * This could be removed once we consistently handle both values
+         * in the functional code as well.
+         *
+         * It could use array_filter(...ARRAY_FILTER_USE_KEY), but it's not
+         * supported on PHP 5.5 and HHVM.
+         */
+        $matched_keys = array_filter(
+            array_keys($cfg),
+            function ($key) {return strpos($key, '/') === false;}
+        );
+
+        $cfg = array_intersect_key($cfg, array_flip($matched_keys));
 
         /**
          * Backward compatibility code
@@ -1476,6 +1497,7 @@ class Config
             $factors[] = 1;
             $factors[] = 5;
             $factors[] = 10;
+            $options['100'] = '100%';
         } elseif ($unit === 'em') {
             $factors[] = 0.05;
             $factors[] = 0.2;

@@ -193,6 +193,7 @@ var PMA_console = {
                     var data = JSON.parse(xhr.responseText);
                     PMA_console.ajaxCallback(data);
                 } catch (e) {
+                    console.trace();
                     console.log("Invalid JSON!" + e.message);
                     if (AJAX.xhr && AJAX.xhr.status === 0 && AJAX.xhr.statusText !== 'abort') {
                         PMA_ajaxShowMessage($('<div />',{'class':'error','html':PMA_messages.strRequestFailed+' ( '+escapeHtml(AJAX.xhr.statusText)+' )'}));
@@ -249,7 +250,7 @@ var PMA_console = {
         if (options && options.profiling === true) {
             PMA_console.$requestForm.append('<input name="profiling" value="on">');
         }
-        if (! confirmQuery(PMA_console.$requestForm[0], PMA_console.$requestForm.children('textarea')[0])) {
+        if (! confirmQuery(PMA_console.$requestForm[0], PMA_console.$requestForm.children('textarea')[0].value)) {
             return;
         }
         PMA_console.$requestForm.children('[name=console_message_id]')

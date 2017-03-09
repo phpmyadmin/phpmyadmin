@@ -17,7 +17,7 @@ require_once 'setup/lib/form_processing.lib.php';
  *
  * @package PhpMyAdmin-test
  */
-class PMA_Form_Processing_Test extends PHPUnit_Framework_TestCase
+class PMA_Form_Processing_Test extends PMATestCase
 {
     /**
      * Prepares environment for the test.
@@ -37,28 +37,13 @@ class PMA_Form_Processing_Test extends PHPUnit_Framework_TestCase
      */
     public function testProcessFormSet()
     {
-        $restoreInstance = PMA\libraries\Response::getInstance();
-
-        $mockResponse = $this->getMockBuilder('PMA\libraries\Response')
-            ->disableOriginalConstructor()
-            ->setMethods(array('header', 'headersSent'))
-            ->getMock();
-
-        $mockResponse->expects($this->exactly(2))
-            ->method('header')
-            ->withConsecutive(
-                ['HTTP/1.1 303 See Other'],
-                ['Location: index.php?lang=en']
+        $this->mockResponse(
+            array(
+                array('status: 303 See Other'),
+                array('Location: index.php?lang=en'),
+                303
+                )
             );
-
-        $mockResponse->expects($this->any())
-            ->method('headersSent')
-            ->with()
-            ->will($this->returnValue(false));
-
-        $attrInstance = new ReflectionProperty('PMA\libraries\Response', '_instance');
-        $attrInstance->setAccessible(true);
-        $attrInstance->setValue($mockResponse);
 
         // case 1
         $formDisplay = $this->getMockBuilder('PMA\libraries\config\FormDisplay')

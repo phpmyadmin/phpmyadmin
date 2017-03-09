@@ -252,6 +252,7 @@ class Header
             'pftext' => $pftext,
             'confirm' => $GLOBALS['cfg']['Confirm'],
             'LoginCookieValidity' => $GLOBALS['cfg']['LoginCookieValidity'],
+            'session_gc_maxlifetime' => (int)@ini_get('session.gc_maxlifetime'),
             'logged_in' => isset($GLOBALS['userlink']) ? true : false,
             'PMA_VERSION' => PMA_VERSION
         );
@@ -536,6 +537,7 @@ class Header
                 'X-Frame-Options: DENY'
             );
         }
+        header('Referrer-Policy: no-referrer');
         header(
             "Content-Security-Policy: default-src 'self' "
             . $captcha_url
@@ -548,7 +550,6 @@ class Header
             . $captcha_url
             . $GLOBALS['cfg']['CSPAllow']
             . ";"
-            . "referrer no-referrer;"
             . "img-src 'self' data: "
             . $GLOBALS['cfg']['CSPAllow']
             . $map_tile_urls

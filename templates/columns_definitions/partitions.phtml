@@ -28,7 +28,7 @@ $valueTypeOptions = array('', 'LESS THAN', 'LESS THAN MAXVALUE', 'IN');
     </tr>
     <tr class="vmiddle">
         <td><label for="partition_count"><?= __('Partitions:'); ?></label></td>
-        <td>
+        <td colspan="2">
             <input name="partition_count" type="number" min="2"
                    value="<?= htmlspecialchars($partitionDetails['partition_count']); ?>" />
         </td>
@@ -57,17 +57,17 @@ $valueTypeOptions = array('', 'LESS THAN', 'LESS THAN MAXVALUE', 'IN');
         </tr>
         <tr class="vmiddle">
             <td><label for="subpartition_count"><?= __('Subpartitions:'); ?></label></td>
-            <td>
+            <td colspan="2">
                 <input name="subpartition_count" type="number" min="2"
                        value="<?= htmlspecialchars($partitionDetails['subpartition_count']); ?>" />
             </td>
         </tr>
     <?php endif; ?>
 </table>
-
+<br />
 <?php if ($partitionDetails['partition_count'] > 1): ?>
     <table id="partition_definition_table">
-        <tr>
+        <thead><tr>
             <th><?= __('Partition'); ?></th>
             <?php if ($partitionDetails['value_enabled']): ?>
                 <th><?= __('Values'); ?></th>
@@ -83,7 +83,7 @@ $valueTypeOptions = array('', 'LESS THAN', 'LESS THAN MAXVALUE', 'IN');
             <th><?= __('Min rows'); ?></th>
             <th><?= __('Table space'); ?></th>
             <th><?= __('Node group'); ?></th>
-        </tr>
+        </tr></thead>
         <?php foreach ($partitionDetails['partitions'] as $partition): ?>
             <?php $rowspan = ! empty($partition['subpartition_count']) ? ($partition['subpartition_count'] + 1) : 2; ?>
             <tr>

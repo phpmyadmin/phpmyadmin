@@ -93,6 +93,7 @@ class TableChartController extends TableController
                 'jqplot/plugins/jqplot.dateAxisRenderer.js',
                 'jqplot/plugins/jqplot.pointLabels.js',
                 'jqplot/plugins/jqplot.pieRenderer.js',
+                'jqplot/plugins/jqplot.enhancedPieLegendRenderer.js',
                 'jqplot/plugins/jqplot.highlighter.js'
             )
         );
@@ -119,22 +120,21 @@ class TableChartController extends TableController
                 $GLOBALS['db'],
                 $GLOBALS['table']
             );
-            $reread_info = $table_class_object->getStatusInfo(null, true);
-            $GLOBALS['showtable'] = $table_class_object->getStatusInfo(null, (isset($reread_info) && $reread_info ? true : false));
+            $GLOBALS['showtable'] = $table_class_object->getStatusInfo(null, true);
             if ($table_class_object->isView()) {
                 $tbl_is_view = true;
                 $tbl_storage_engine = __('View');
                 $show_comment = null;
             } else {
                 $tbl_is_view = false;
-                $tbl_storage_engine = $table_class_object->getTableStorageEngine();
-                $show_comment = $table_class_object->getShowComment();
+                $tbl_storage_engine = $table_class_object->getStorageEngine();
+                $show_comment = $table_class_object->getComment();
             }
-            $tbl_collation = $table_class_object->getTableCollation();
-            $table_info_num_rows = $table_class_object->getTableNumRowInfo();
-            $row_format = $table_class_object->getTableRowFormat();
-            $auto_increment = $table_class_object->getAutoIncrementInfo();
-            $create_options = $table_class_object->createOptionsArray();
+            $tbl_collation = $table_class_object->getCollation();
+            $table_info_num_rows = $table_class_object->getNumRows();
+            $row_format = $table_class_object->getRowFormat();
+            $auto_increment = $table_class_object->getAutoIncrement();
+            $create_options = $table_class_object->getCreateOptions();
         } elseif (strlen($this->db) > 0) {
             $url_params['goto'] = Util::getScriptNameForOption(
                 $this->cfg['DefaultTabDatabase'], 'database'

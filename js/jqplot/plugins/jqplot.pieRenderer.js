@@ -129,7 +129,7 @@
         // prop: dataLabelThreshold
         // Threshhold in percentage (0-100) of pie area, below which no label will be displayed.
         // This applies to all label types, not just to percentage labels.
-        this.dataLabelThreshold = 3;
+        this.dataLabelThreshold = 2.5;
         // prop: dataLabelPositionFactor
         // A Multiplier (0-1) of the pie radius which controls position of label on slice.
         // Increasing will slide label toward edge of pie, decreasing will slide label toward center of pie.
@@ -236,6 +236,23 @@
     };
     
     $.jqplot.PieRenderer.prototype.makeGridData = function(data, plot) {
+
+        var hdt = document.getElementsByClassName("jqplot-table-legend-label jqplot-seriesToggle jqplot-series-hidden");
+
+        var ndt = this.data.map(function(arr) {
+                    return arr.slice();
+        });
+
+      if (hdt[0] != null) {
+            for(i=0;i<hdt.length;i++){
+                for(j=0;j<ndt.length;j++){
+                    if(hdt[i].innerText == ndt[j][0]){
+                        ndt[j][1] = 0;
+                    }
+                }
+            }
+        }
+
         var stack = [];
         var td = [];
         var tot = 0;
@@ -247,19 +264,20 @@
                 // we have data, O.K. to draw.
                 this._drawData = true;
             }
-            stack.push(data[i][1]);
-            td.push([data[i][0]]);
+            stack.push(ndt[i][1]);
+            td.push([ndt[i][0]]);
             if (i>0) {
                 stack[i] += stack[i-1];
             }
-            tot += data[i][1];
+            tot += ndt[i][1];
         }
         var fact = Math.PI*2/stack[stack.length - 1];
         
         for (var i=0; i<stack.length; i++) {
             td[i][1] = stack[i] * fact;
-            td[i][2] = data[i][1]/tot;
+            td[i][2] = ndt[i][1]/tot;
         }
+
         return td;
     };
 

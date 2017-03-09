@@ -9,7 +9,7 @@
  */
 namespace PMA\libraries\plugins\import;
 
-use ShapeFile\ShapeFile;
+use PhpMyAdmin\ShapeFile\ShapeFile;
 
 class ShapeFileImport extends ShapeFile
 {

@@ -29,6 +29,11 @@ class ErrorHandler
     protected $hide_location = false;
 
     /**
+     * Initial error reporting state
+     */
+    protected $error_reporting = 0;
+
+    /**
      * Constructor - set PHP error handler
      *
      */
@@ -43,6 +48,7 @@ class ErrorHandler
         if (!defined('TESTSUITE')) {
             set_error_handler(array($this, 'handleError'));
         }
+        $this->error_reporting = error_reporting();
     }
 
     /**
@@ -149,8 +155,14 @@ class ErrorHandler
      */
     public function handleError($errno, $errstr, $errfile, $errline)
     {
-        // check if Error Control Operator (@) was used.
-        if (error_reporting() == 0) {
+        /**
+         * Check if Error Control Operator (@) was used, but still show
+         * user errors even in this case.
+         */
+        if (error_reporting() == 0 &&
+            $this->error_reporting != 0 &&
+            ($errno & (E_USER_WARNING | E_USER_ERROR | E_USER_NOTICE)) == 0
+        ) {
             return;
         }
         $this->addError($errstr, $errno, $errfile, $errline, true);
@@ -314,20 +326,12 @@ class ErrorHandler
      */
     public function getDispErrors()
     {
-        // Not sure why but seen in https://reports.phpmyadmin.net/
-        if (empty($GLOBALS['cfg']['SendErrorReports'])) {
-            $GLOBALS['cfg']['SendErrorReports'] = 'ask';
-        }
         $retval = '';
         // display errors if SendErrorReports is set to 'ask'.
         if ($GLOBALS['cfg']['SendErrorReports'] != 'never') {
             foreach ($this->getErrors() as $error) {
-                if ($error instanceof Error) {
-                    if (! $error->isDisplayed()) {
-                        $retval .= $error->getDisplay();
-                    }
-                } else {
-                    $retval .= var_export($error, true);
+                if (! $error->isDisplayed()) {
+                    $retval .= $error->getDisplay();
                 }
             }
         } else {
@@ -399,7 +403,6 @@ class ErrorHandler
                     $this->errors[$hash] = $error;
                 }
             }
-            //$this->errors = array_merge($_SESSION['errors'], $this->errors);
 
             // delete stored errors
             $_SESSION['errors'] = array();

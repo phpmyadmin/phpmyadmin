@@ -423,6 +423,18 @@ class Sanitize
         // do not check only $_REQUEST because it could have been overwritten
         // and use type casting because the variables could have become
         // strings
+        if (! isset($_REQUEST)) {
+            $_REQUEST = array();
+        }
+        if (! isset($_GET)) {
+            $_GET = array();
+        }
+        if (! isset($_POST)) {
+            $_POST = array();
+        }
+        if (! isset($_COOKIE)) {
+            $_COOKIE = array();
+        }
         $keys = array_keys(
             array_merge((array)$_REQUEST, (array)$_GET, (array)$_POST, (array)$_COOKIE)
         );

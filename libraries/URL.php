@@ -63,8 +63,6 @@ class URL
             $params['collation_connection'] = $GLOBALS['collation_connection'];
         }
 
-        $params['token'] = $_SESSION[' PMA_token '];
-
         if (! is_array($skip)) {
             if (isset($params[$skip])) {
                 unset($params[$skip]);
@@ -113,6 +111,11 @@ class URL
     public static function getHiddenFields($values, $pre = '')
     {
         $fields = '';
+
+        /* Always include token in plain forms */
+        if ($pre === '') {
+            $values['token'] = $_SESSION[' PMA_token '];
+        }
 
         foreach ($values as $name => $value) {
             if (! empty($pre)) {
@@ -220,7 +223,13 @@ class URL
             $params['collation_connection'] = $GLOBALS['collation_connection'];
         }
 
-        return $divider . http_build_query($params, null, $separator);
+        $query = http_build_query($params, null, $separator);
+
+        if ($divider != '?' || strlen($query) > 0) {
+            return $divider . $query;
+        }
+
+        return '';
     }
 
     /**

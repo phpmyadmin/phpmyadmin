@@ -27,7 +27,7 @@ function PMA_parseAnalyze($sql_query, $db)
     $GLOBALS['unparsed_sql'] = $sql_query;
 
     // Get details about the SQL query.
-    $analyzed_sql_results = SqlParser\Utils\Query::getAll($sql_query);
+    $analyzed_sql_results = PhpMyAdmin\SqlParser\Utils\Query::getAll($sql_query);
 
     extract($analyzed_sql_results);
     $table = '';

@@ -1634,7 +1634,7 @@ function PMA_getHtmlForLoginInformationFields(
         . $hostname_length . '" value="'
         // use default value of '%' to match with the default 'Any host'
         . htmlspecialchars(isset($GLOBALS['hostname']) ? $GLOBALS['hostname'] : '%')
-        . '" title="' . __('Host name')
+        . '" title="' . __('Host name') . '" '
         . ((isset($GLOBALS['pred_hostname'])
                 && $GLOBALS['pred_hostname'] == 'userdefined'
             )
@@ -4665,8 +4665,8 @@ function PMA_getHtmlForUserOverview($pmaThemeImage, $text_dir)
             if ($GLOBALS['is_reload_priv']) {
                 $flushnote = new Message(
                     __(
-                        'Note: phpMyAdmin gets the users\' privileges directly '
-                        . 'from MySQL\'s privilege tables. The content of these '
+                        'Note: phpMyAdmin gets the users’ privileges directly '
+                        . 'from MySQL’s privilege tables. The content of these '
                         . 'tables may differ from the privileges the server uses, '
                         . 'if they have been changed manually. In this case, '
                         . 'you should %sreload the privileges%s before you continue.'
@@ -4682,8 +4682,8 @@ function PMA_getHtmlForUserOverview($pmaThemeImage, $text_dir)
             } else {
                 $flushnote = new Message(
                     __(
-                        'Note: phpMyAdmin gets the users\' privileges directly '
-                        . 'from MySQL\'s privilege tables. The content of these '
+                        'Note: phpMyAdmin gets the users’ privileges directly '
+                        . 'from MySQL’s privilege tables. The content of these '
                         . 'tables may differ from the privileges the server uses, '
                         . 'if they have been changed manually. In this case, '
                         . 'the privileges have to be reloaded but currently, you '

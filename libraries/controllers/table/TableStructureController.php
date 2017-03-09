@@ -15,8 +15,9 @@ use PMA\libraries\Message;
 use PMA\libraries\Template;
 use PMA\libraries\Util;
 use PMA\Util as Util_lib;
-use SqlParser;
-use SqlParser\Statements\CreateStatement;
+use PhpMyAdmin\SqlParser;
+use PhpMyAdmin\SqlParser\Statements\CreateStatement;
+use PhpMyAdmin\SqlParser\Utils\Table as SqlTable;
 use PMA\libraries\Table;
 use PMA\libraries\controllers\TableController;
 use PMA\libraries\URL;
@@ -145,11 +146,11 @@ class TableStructureController extends TableController
                 $columns_names = $_REQUEST['field_name'];
                 $reserved_keywords_names = array();
                 foreach ($columns_names as $column) {
-                    if (SqlParser\Context::isKeyword(trim($column), true)) {
+                    if (\PhpMyAdmin\SqlParser\Context::isKeyword(trim($column), true)) {
                         $reserved_keywords_names[] = trim($column);
                     }
                 }
-                if (SqlParser\Context::isKeyword(trim($this->table), true)) {
+                if (\PhpMyAdmin\SqlParser\Context::isKeyword(trim($this->table), true)) {
                     $reserved_keywords_names[] = trim($this->table);
                 }
                 if (count($reserved_keywords_names) == 0) {
@@ -251,7 +252,7 @@ class TableStructureController extends TableController
         }
 
         // display secondary level tabs if necessary
-        $engine = $this->table_obj->getStatusInfo('ENGINE');
+        $engine = $this->table_obj->getStorageEngine();
         $this->response->addHTML(
             Template::get('table/secondary_tabs')->render(
                 array(
@@ -543,9 +544,9 @@ class TableStructureController extends TableController
             return null;
         }
 
-        $parser = new SqlParser\Parser($createTable);
+        $parser = new \PhpMyAdmin\SqlParser\Parser($createTable);
         /**
-         * @var $stmt SqlParser\Statements\CreateStatement
+         * @var $stmt PhpMyAdmin\SqlParser\Statements\CreateStatement
          */
         $stmt = $parser->statements[0];
 

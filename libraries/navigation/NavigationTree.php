@@ -17,6 +17,8 @@ use PMA\libraries\Response;
 use PMA\libraries\Util;
 use PMA\libraries\URL;
 
+require_once 'libraries/check_user_privileges.lib.php';
+
 /**
  * Displays a collapsible of database objects in the navigation frame
  *
@@ -172,10 +174,13 @@ class NavigationTree
          * @todo describe a scenario where this code is executed
          */
         if (!$GLOBALS['cfg']['Server']['DisableIS']) {
+            $dbSeparator = $GLOBALS['dbi']->escapeString(
+                $GLOBALS['cfg']['NavigationTreeDbSeparator']
+            );
             $query = "SELECT (COUNT(DB_first_level) DIV %d) * %d ";
             $query .= "from ( ";
             $query .= " SELECT distinct SUBSTRING_INDEX(SCHEMA_NAME, ";
-            $query .= " '" . $GLOBALS['dbi']->escapeString($GLOBALS['cfg']['NavigationTreeDbSeparator']) . "', 1) ";
+            $query .= " '%s', 1) ";
             $query .= " DB_first_level ";
             $query .= " FROM INFORMATION_SCHEMA.SCHEMATA ";
             $query .= " WHERE `SCHEMA_NAME` < '%s' ";
@@ -186,6 +191,7 @@ class NavigationTree
                     $query,
                     (int)$GLOBALS['cfg']['FirstLevelNavigationItems'],
                     (int)$GLOBALS['cfg']['FirstLevelNavigationItems'],
+                    $dbSeparator,
                     $GLOBALS['dbi']->escapeString($GLOBALS['db'])
                 )
             );
@@ -1257,7 +1263,6 @@ class NavigationTree
             array('dbselector')
         );
         $children = $this->_tree->children;
-        array_shift($children);
         $url_params = array(
             'server' => $GLOBALS['server'],
         );

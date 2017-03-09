@@ -301,7 +301,8 @@ AJAX.registerOnload('tbl_select.js', function () {
                 url: 'tbl_select.php',
                 type: 'POST',
                 data: {
-                    token: $('input[name="token"]').val(),
+                    server: PMA_commonParams.get('server'),
+                    token: PMA_commonParams.get('token'),
                     ajax_request: 1,
                     db: $('input[name="db"]').val(),
                     table: $('input[name="table"]').val(),

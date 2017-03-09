@@ -55,13 +55,11 @@ AJAX.registerOnload('tbl_operations.js', function () {
     $(document).on('submit', "#moveTableForm", function (event) {
         event.preventDefault();
         var $form = $(this);
-        var db = $form.find('select[name=target_db]').val();
-        var tbl = $form.find('input[name=new_name]').val();
         PMA_prepareForAjaxRequest($form);
         $.post($form.attr('action'), $form.serialize() + "&submit_move=1", function (data) {
             if (typeof data !== 'undefined' && data.success === true) {
-                PMA_commonParams.set('db', db);
-                PMA_commonParams.set('table', tbl);
+                PMA_commonParams.set('db', data._params.db);
+                PMA_commonParams.set('table', data._params.tbl);
                 PMA_commonActions.refreshMain(false, function () {
                     PMA_ajaxShowMessage(data.message);
                 });
@@ -139,6 +137,7 @@ AJAX.registerOnload('tbl_operations.js', function () {
         //variables which stores the common attributes
         var params = {
             ajax_request: 1,
+            server: PMA_commonParams.get('server'),
             token: PMA_commonParams.get('token')
         };
         $.post($(this).attr('href'), params, function (data) {

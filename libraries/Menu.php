@@ -235,14 +235,12 @@ class Menu
                     $GLOBALS['db'],
                     $GLOBALS['table']
                 );
-                $reread_info = $table_class_object->getStatusInfo(null, true);
-                $GLOBALS['showtable'] = $table_class_object->getStatusInfo(null, (isset($reread_info) && $reread_info ? true : false));
                 if ($table_class_object->isView()) {
                     $tbl_is_view = true;
                     $show_comment = null;
                 } else {
                     $tbl_is_view = false;
-                    $show_comment = $table_class_object->getShowComment();
+                    $show_comment = $table_class_object->getComment();
                 }
                 $retval .= $separator;
                 if (Util::showIcons('TabsMode')) {
@@ -281,9 +279,11 @@ class Menu
                         );
                     }
                     $retval .= '<span class="table_comment"';
-                    $retval .= ' id="span_table_comment">&quot;';
-                    $retval .= htmlspecialchars($show_comment);
-                    $retval .= '&quot;</span>';
+                    $retval .= ' id="span_table_comment">';
+                    $retval .= sprintf(
+                        __('“%s”'), htmlspecialchars($show_comment)
+                    );
+                    $retval .= '</span>';
                 } // end if
             } else {
                 // no table selected, display database comment if present
@@ -298,9 +298,12 @@ class Menu
                      */
                     if (! empty($comment)) {
                         $retval .= '<span class="table_comment"'
-                            . ' id="span_table_comment">&quot;'
-                            . htmlspecialchars($comment)
-                            . '&quot;</span>';
+                            . ' id="span_table_comment">'
+                            . sprintf(
+                                __('“%s”'),
+                                htmlspecialchars($comment)
+                            )
+                            . '</span>';
                     } // end if
                 }
             }

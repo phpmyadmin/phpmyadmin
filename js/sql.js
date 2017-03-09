@@ -585,7 +585,8 @@ AJAX.registerOnload('sql.js', function () {
             type: 'POST',
             url: $form.attr('action'),
             data: {
-                token: $form.find('input[name="token"]').val(),
+                token: PMA_commonParams.get('token'),
+                server: PMA_commonParams.get('server'),
                 db: db_name,
                 ajax_request: '1',
                 simulate_dml: '1',

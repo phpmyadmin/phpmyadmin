@@ -8,7 +8,6 @@
 use PMA\libraries\Message;
 use PMA\libraries\Table;
 use PMA\libraries\RecentFavoriteTable;
-use SqlParser\Statements\CreateStatement;
 use PMA\libraries\URL;
 
 /**
@@ -773,12 +772,12 @@ function PMA_getForeigners($db, $table, $column = '', $source = 'both')
         $tableObj = new Table($table, $db);
         $show_create_table = $tableObj->showCreate();
         if ($show_create_table) {
-            $parser = new SqlParser\Parser($show_create_table);
+            $parser = new \PhpMyAdmin\SqlParser\Parser($show_create_table);
             /**
-             * @var CreateStatement $stmt
+             * @var \PhpMyAdmin\SqlParser\Statements\CreateStatement $stmt
              */
             $stmt = $parser->statements[0];
-            $foreign['foreign_keys_data'] = SqlParser\Utils\Table::getForeignKeys(
+            $foreign['foreign_keys_data'] = \PhpMyAdmin\SqlParser\Utils\Table::getForeignKeys(
                 $stmt
             );
         }
@@ -857,6 +856,19 @@ function PMA_getDisplayField($db, $table)
             return 'DESCRIPTION';
         case 'TABLES':
             return 'TABLE_COMMENT';
+        }
+    }
+
+    /**
+     * Pick first char field
+     */
+    $columns = $GLOBALS['dbi']->getColumnsFull($db, $table);
+    if ($columns) {
+        foreach ($columns as $column) {
+            var_dump($column);
+            if ($GLOBALS['PMA_Types']->getTypeClass($column['DATA_TYPE']) == 'CHAR') {
+                return $column['COLUMN_NAME'];
+            }
         }
     }
 

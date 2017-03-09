@@ -25,9 +25,9 @@ $types = PMA_getAvailableMIMEtypes();
 foreach ($types['mimetype'] as $key => $mimetype) {
 
     if (isset($types['empty_mimetype'][$mimetype])) {
-        echo '<i>' , $mimetype , '</i><br />';
+        echo '<i>' , htmlspecialchars($mimetype) , '</i><br />';
     } else {
-        echo $mimetype , '<br />';
+        echo htmlspecialchars($mimetype) , '<br />';
     }
 
 }
@@ -60,8 +60,8 @@ $th = array(
         $desc = PMA_getTransformationDescription($types[$ttype . '_file'][$key]);
         ?>
         <tr>
-            <td><?php echo $transform; ?></td>
-            <td><?php echo $desc; ?></td>
+            <td><?php echo htmlspecialchars($transform); ?></td>
+            <td><?php echo htmlspecialchars($desc); ?></td>
         </tr>
         <?php
     }
