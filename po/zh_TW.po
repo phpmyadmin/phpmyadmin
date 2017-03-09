@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-beta1\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-03-03 14:49+0100\n"
-"PO-Revision-Date: 2017-03-08 10:49+0000\n"
-"Last-Translator: Chien Wei Lin <cwlin0416@gmail.com>\n"
+"PO-Revision-Date: 2017-03-09 21:08+0000\n"
+"Last-Translator: mao <mao@lins.fju.edu.tw>\n"
 "Language-Team: Chinese (Taiwan) "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-7/zh_TW/>\n"
 "Language: zh_TW\n"
@@ -4821,7 +4821,7 @@ msgstr "屬性"
 
 #: libraries/central_columns.lib.php:709 libraries/central_columns.lib.php:1386
 msgid "A_I"
-msgstr "自動遞增"
+msgstr "A_I"
 
 #: libraries/central_columns.lib.php:749
 msgid "Select a table"
@@ -13606,7 +13606,7 @@ msgstr "錯誤的資料"
 #: setup/validate.php:30
 #, php-format
 msgid "Wrong data or no validation for %s"
-msgstr "資料錯誤或無法檢驗 %s。"
+msgstr "資料錯誤或被 %s 審核未通過"
 
 #: tbl_create.php:32 tbl_get_field.php:26
 #, php-format
