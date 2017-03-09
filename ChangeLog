@@ -96,6 +96,7 @@ phpMyAdmin - ChangeLog
 - issue #13047 Fix query simulating for more servers
 - issue #12846 Fix new version check for sites with wrongly configured curl
 - issue #12951 When exporting to Excel, the default is now to include column names in the first row
+- issue #13059 Removed debugging code
 
 4.6.6 (2017-01-23)
 - issue #12759 Fix Notice regarding 'Undefined index: old_usergroup'
