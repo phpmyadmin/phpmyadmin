@@ -49,14 +49,33 @@ $GLOBALS['dbi']->selectDb($GLOBALS['db']);
 /**
  * Gets tables information
  */
-require 'libraries/tbl_info.inc.php';
+$pma_table = $GLOBALS['dbi']->getTable(
+    $GLOBALS['db'],
+    $GLOBALS['table']
+);
+$reread_info = $pma_table->getStatusInfo(null, false);
+$GLOBALS['showtable'] = $pma_table->getStatusInfo(null, (isset($reread_info) && $reread_info ? true : false));
+if ($pma_table->isView()) {
+    $tbl_is_view = true;
+    $tbl_storage_engine = __('View');
+    $show_comment = null;
+} else {
+    $tbl_is_view = false;
+    $tbl_storage_engine = $pma_table->getTableStorageEngine();
+    $show_comment = $pma_table->getShowComment();
+}
+$tbl_collation = $pma_table->getTableCollation();
+$table_info_num_rows = $pma_table->getTableNumRowInfo();
+$row_format = $pma_table->getTableRowFormat();
+$auto_increment = $pma_table->getAutoIncrementInfo();
+$create_options = $pma_table->createOptionsArray();
 
 // set initial value of these variables, based on the current table engine
 if ($pma_table->isEngine('ARIA')) {
     // the value for transactional can be implicit
     // (no create option found, in this case it means 1)
     // or explicit (option found with a value of 0 or 1)
-    // ($create_options['transactional'] may have been set by libraries/tbl_info.inc.php,
+    // ($create_options['transactional'] may have been set by Table class,
     // from the $create_options)
     $create_options['transactional'] = (isset($create_options['transactional']) && $create_options['transactional'] == '0')
         ? '0'
