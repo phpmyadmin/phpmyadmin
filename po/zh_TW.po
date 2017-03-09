@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-03-01 18:19+0100\n"
-"PO-Revision-Date: 2017-03-08 10:49+0000\n"
-"Last-Translator: Chien Wei Lin <cwlin0416@gmail.com>\n"
+"PO-Revision-Date: 2017-03-09 21:08+0000\n"
+"Last-Translator: mao <mao@lins.fju.edu.tw>\n"
 "Language-Team: Chinese (Taiwan) "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/zh_TW/>\n"
 "Language: zh_TW\n"
@@ -4826,7 +4826,7 @@ msgstr "屬性"
 
 #: libraries/central_columns.lib.php:709 libraries/central_columns.lib.php:1386
 msgid "A_I"
-msgstr "自動遞增"
+msgstr "A_I"
 
 #: libraries/central_columns.lib.php:749
 msgid "Select a table"
@@ -11886,21 +11886,15 @@ msgstr ""
 "允許來自任何(%)地方連線使用者無法使用。"
 
 #: libraries/server_privileges.lib.php:4668
-#, fuzzy, php-format
-#| msgid ""
-#| "Note: phpMyAdmin gets the users' privileges directly from MySQL's "
-#| "privilege tables. The content of these tables may differ from the "
-#| "privileges the server uses, if they have been changed manually. In this "
-#| "case, you should %sreload the privileges%s before you continue."
+#, php-format
 msgid ""
 "Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege "
 "tables. The content of these tables may differ from the privileges the "
 "server uses, if they have been changed manually. In this case, you should "
 "%sreload the privileges%s before you continue."
 msgstr ""
-"注意: phpMyAdmin 直接由 MySQL 權限表取得使用者權限。若有使用者中途手動更改權"
-"限，則表中顯示的內容可能與伺服器實際使用的使用者權限有異。在這種情況下，您應"
-"在繼續前 %s重新載入權限%s。"
+"注意: phpMyAdmin 直接由 MySQL "
+"權限表取得使用者權限。若有使用者中途手動更改權限，則表中顯示的內容可能與伺服器實際使用的使用者權限有異。在這種情況下，您應在繼續前 %s重新載入權限%s。"
 
 #: libraries/server_privileges.lib.php:4685
 msgid ""
@@ -13620,7 +13614,7 @@ msgstr "錯誤的資料"
 #: setup/validate.php:30
 #, php-format
 msgid "Wrong data or no validation for %s"
-msgstr "資料錯誤或無法檢驗 %s。"
+msgstr "資料錯誤或被 %s 審核未通過"
 
 #: tbl_create.php:32 tbl_get_field.php:26
 #, php-format
