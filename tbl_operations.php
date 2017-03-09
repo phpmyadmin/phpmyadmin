@@ -49,7 +49,27 @@ $GLOBALS['dbi']->selectDb($GLOBALS['db']);
 /**
  * Gets tables information
  */
-require 'libraries/tbl_info.inc.php';
+// require 'libraries/tbl_info.inc.php';
+$pma_table = $GLOBALS['dbi']->getTable(
+    $GLOBALS['db'],
+    $GLOBALS['table']
+);
+$reread_info = $pma_table->getStatusInfo(null, false);
+$GLOBALS['showtable'] = $pma_table->getStatusInfo(null, (isset($reread_info) && $reread_info ? true : false));
+if ($pma_table->isView()) {
+    $tbl_is_view = true;
+    $tbl_storage_engine = __('View');
+    $show_comment = null;
+} else {
+    $tbl_is_view = false;
+    $tbl_storage_engine = $pma_table->getTableStorageEngine();
+    $show_comment = $pma_table->getShowComment();
+}
+$tbl_collation = $pma_table->getTableCollation();
+$table_info_num_rows = $pma_table->getTableNumRowInfo();
+$row_format = $pma_table->getTableRowFormat();
+$auto_increment = $pma_table->getAutoIncrementInfo();
+$create_options = $pma_table->createOptionsArray();
 
 // set initial value of these variables, based on the current table engine
 if ($pma_table->isEngine('ARIA')) {
@@ -64,11 +84,6 @@ if ($pma_table->isEngine('ARIA')) {
     $create_options['page_checksum'] = (isset($create_options['page_checksum'])) ? $create_options['page_checksum'] : '';
 }
 
-$pma_table = $GLOBALS['dbi']->getTable(
-    $GLOBALS['db'],
-    $GLOBALS['table']
-);
-$reread_info = $pma_table->getStatusInfo(null, false);
 $table_alters = array();
 
 /**

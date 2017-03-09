@@ -324,11 +324,6 @@ class TableStructureController extends TableController
         $url_params['goto'] = 'tbl_structure.php';
         $url_params['back'] = 'tbl_structure.php';
 
-        /**
-         * Gets tables information
-         */
-        include_once 'libraries/tbl_info.inc.php';
-
         // 2. Gets table keys and retains them
         // @todo should be: $server->db($db)->table($table)->primary()
         $primary = Index::getPrimary($this->table, $this->db);

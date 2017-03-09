@@ -63,7 +63,6 @@ class TableIndexesController extends TableController
      */
     public function displayFormAction()
     {
-        //include_once 'libraries/tbl_info.inc.php';
         $GLOBALS['dbi']->selectDb($GLOBALS['db']);
         $table_class_object = $GLOBALS['dbi']->getTable(
             $GLOBALS['db'],

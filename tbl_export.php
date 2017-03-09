@@ -37,7 +37,6 @@ if (isset($_REQUEST['templateAction']) && $cfgRelation['exporttemplateswork']) {
  */
 require_once 'libraries/tbl_common.inc.php';
 $url_query .= '&amp;goto=tbl_export.php&amp;back=tbl_export.php';
-require_once 'libraries/tbl_info.inc.php';
 
 // Dump of a table
 
