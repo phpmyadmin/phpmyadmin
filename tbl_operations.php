@@ -49,7 +49,6 @@ $GLOBALS['dbi']->selectDb($GLOBALS['db']);
 /**
  * Gets tables information
  */
-// require 'libraries/tbl_info.inc.php';
 $pma_table = $GLOBALS['dbi']->getTable(
     $GLOBALS['db'],
     $GLOBALS['table']
@@ -76,7 +75,7 @@ if ($pma_table->isEngine('ARIA')) {
     // the value for transactional can be implicit
     // (no create option found, in this case it means 1)
     // or explicit (option found with a value of 0 or 1)
-    // ($create_options['transactional'] may have been set by libraries/tbl_info.inc.php,
+    // ($create_options['transactional'] may have been set by Table class,
     // from the $create_options)
     $create_options['transactional'] = (isset($create_options['transactional']) && $create_options['transactional'] == '0')
         ? '0'
