@@ -19,11 +19,9 @@ Credits, in chronological order
 
   * various fixes and improvements
 
-  * :term:`SQL` analyser (most of it)
+  * first version of the :term:`SQL` analyser (most of it)
 
-  * current project maintainer
-
-  * maintains content on our website
+  * maintainer from 2001 to 2015
 
 * Olivier Müller <om\_at\_omnis.ch>
 
