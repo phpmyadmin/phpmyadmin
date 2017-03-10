@@ -207,7 +207,7 @@ class Charsets
                 . __('Collation')
                 . '</option>' . "\n";
         }
-        $return_str .= '<option value=""></option>' . "\n";
+        $default = $GLOBALS['dbi']->getServerCollation();
         foreach (self::$_charsets as $current_charset) {
             $current_cs_descr
                 = empty(self::$_charsets_descriptions[$current_charset])
