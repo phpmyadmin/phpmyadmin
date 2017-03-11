@@ -12,8 +12,6 @@
 require_once 'test/PMATestCase.php';
 
 use PMA\libraries\di\Container;
-use PMA\libraries\di\NotFoundException;
-use Psr\Container\NotFoundExceptionInterface;
 
 /**
  * Tests for PMA\libraries\di\Container class
