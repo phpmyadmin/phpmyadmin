@@ -45,7 +45,7 @@ class Charsets
         'windows-1252' => 'latin1',
         'windows-1256' => 'cp1256',
         'windows-1257' => 'cp1257',
-        );
+    );
 
     private static $_charsets = array();
     private static $_charsets_descriptions = array();
@@ -145,32 +145,32 @@ class Charsets
     public static function getCharsetDropdownBox(
         $name = null, $id = null, $default = null, $label = true,
         $submitOnChange = false
-        ) {
+    ) {
         self::loadCharsets();
         if (empty($name)) {
             $name = 'character_set';
         }
 
         $return_str  = '<select lang="en" dir="ltr" name="'
-        . htmlspecialchars($name) . '"'
-        . (empty($id) ? '' : ' id="' . htmlspecialchars($id) . '"')
-        . ($submitOnChange ? ' class="autosubmit"' : '') . '>' . "\n";
+            . htmlspecialchars($name) . '"'
+            . (empty($id) ? '' : ' id="' . htmlspecialchars($id) . '"')
+            . ($submitOnChange ? ' class="autosubmit"' : '') . '>' . "\n";
         if ($label) {
             $return_str .= '<option value="">'
-            . __('Charset')
-            . '</option>' . "\n";
+                . __('Charset')
+                . '</option>' . "\n";
         }
         $return_str .= '<option value=""></option>' . "\n";
         foreach (self::$_charsets as $current_charset) {
             $current_cs_descr
-            = empty(self::$_charsets_descriptions[$current_charset])
-            ? $current_charset
-            : self::$_charsets_descriptions[$current_charset];
+                = empty(self::$_charsets_descriptions[$current_charset])
+                ? $current_charset
+                : self::$_charsets_descriptions[$current_charset];
 
             $return_str .= '<option value="' . $current_charset
-            . '" title="' . $current_cs_descr . '"'
-            . ($default == $current_charset ? ' selected="selected"' : '') . '>'
-            . $current_charset . '</option>' . "\n";
+                . '" title="' . $current_cs_descr . '"'
+                . ($default == $current_charset ? ' selected="selected"' : '') . '>'
+                . $current_charset . '</option>' . "\n";
         }
         $return_str .= '</select>' . "\n";
 
@@ -191,7 +191,7 @@ class Charsets
     public static function getCollationDropdownBox(
         $name = null, $id = null, $default = null, $label = true,
         $submitOnChange = false
-        ) {
+    ) {
         self::loadCharsets();
         self::loadCollations();
         if (empty($name)) {
@@ -199,32 +199,29 @@ class Charsets
         }
 
         $return_str  = '<select lang="en" dir="ltr" name="'
-        . htmlspecialchars($name) . '"'
-        . (empty($id) ? '' : ' id="' . htmlspecialchars($id) . '"')
-        . ($submitOnChange ? ' class="autosubmit"' : '') . '>' . "\n";
+            . htmlspecialchars($name) . '"'
+            . (empty($id) ? '' : ' id="' . htmlspecialchars($id) . '"')
+            . ($submitOnChange ? ' class="autosubmit"' : '') . '>' . "\n";
         if ($label) {
-
-            $default_collation = $GLOBALS['dbi']->getServerCollation();
-
             $return_str .= '<option value="">'
-            . __($default_collation)
-            . '</option>' . "\n";
+                . __('Collation')
+                . '</option>' . "\n";
         }
         $return_str .= '<option value=""></option>' . "\n";
         foreach (self::$_charsets as $current_charset) {
             $current_cs_descr
-            = empty(self::$_charsets_descriptions[$current_charset])
-            ? $current_charset
-            : self::$_charsets_descriptions[$current_charset];
+                = empty(self::$_charsets_descriptions[$current_charset])
+                ? $current_charset
+                : self::$_charsets_descriptions[$current_charset];
 
             $return_str .= '<optgroup label="' . $current_charset
-            . '" title="' . $current_cs_descr . '">' . "\n";
+                . '" title="' . $current_cs_descr . '">' . "\n";
             foreach (self::$_collations[$current_charset] as $current_collation) {
                 $return_str .= '<option value="' . $current_collation
-                . '" title="' . self::getCollationDescr($current_collation) . '"'
-                . ($default == $current_collation ? ' selected="selected"' : '')
-                . '>'
-                . $current_collation . '</option>' . "\n";
+                    . '" title="' . self::getCollationDescr($current_collation) . '"'
+                    . ($default == $current_collation ? ' selected="selected"' : '')
+                    . '>'
+                    . $current_collation . '</option>' . "\n";
             }
             $return_str .= '</optgroup>' . "\n";
         }
@@ -254,208 +251,208 @@ class Charsets
         }
         $descr = '';
         switch ($parts[1]) {
-            case 'bulgarian':
+        case 'bulgarian':
             $descr = __('Bulgarian');
             break;
-            case 'chinese':
+        case 'chinese':
             if ($parts[0] == 'gb2312' || $parts[0] == 'gbk') {
                 $descr = __('Simplified Chinese');
             } elseif ($parts[0] == 'big5') {
                 $descr = __('Traditional Chinese');
             }
             break;
-            case 'ci':
+        case 'ci':
             $descr = __('case-insensitive');
             break;
-            case 'cs':
+        case 'cs':
             $descr = __('case-sensitive');
             break;
-            case 'croatian':
+        case 'croatian':
             $descr = __('Croatian');
             break;
-            case 'czech':
+        case 'czech':
             $descr = __('Czech');
             break;
-            case 'danish':
+        case 'danish':
             $descr = __('Danish');
             break;
-            case 'english':
+        case 'english':
             $descr = __('English');
             break;
-            case 'esperanto':
+        case 'esperanto':
             $descr = __('Esperanto');
             break;
-            case 'estonian':
+        case 'estonian':
             $descr = __('Estonian');
             break;
-            case 'german1':
+        case 'german1':
             $descr = __('German') . ' (' . __('dictionary') . ')';
             break;
-            case 'german2':
+        case 'german2':
             $descr = __('German') . ' (' . __('phone book') . ')';
             break;
-            case 'hungarian':
+        case 'hungarian':
             $descr = __('Hungarian');
             break;
-            case 'icelandic':
+        case 'icelandic':
             $descr = __('Icelandic');
             break;
-            case 'japanese':
+        case 'japanese':
             $descr = __('Japanese');
             break;
-            case 'latvian':
+        case 'latvian':
             $descr = __('Latvian');
             break;
-            case 'lithuanian':
+        case 'lithuanian':
             $descr = __('Lithuanian');
             break;
-            case 'korean':
+        case 'korean':
             $descr = __('Korean');
             break;
-            case 'myanmar':
+        case 'myanmar':
             $descr = __('Burmese');
             break;
-            case 'persian':
+        case 'persian':
             $descr = __('Persian');
             break;
-            case 'polish':
+        case 'polish':
             $descr = __('Polish');
             break;
-            case 'roman':
+        case 'roman':
             $descr = __('West European');
             break;
-            case 'romanian':
+        case 'romanian':
             $descr = __('Romanian');
             break;
-            case 'sinhala':
+        case 'sinhala':
             $descr = __('Sinhalese');
             break;
-            case 'slovak':
+        case 'slovak':
             $descr = __('Slovak');
             break;
-            case 'slovenian':
+        case 'slovenian':
             $descr = __('Slovenian');
             break;
-            case 'spanish':
+        case 'spanish':
             $descr = __('Spanish');
             break;
-            case 'spanish2':
+        case 'spanish2':
             $descr = __('Traditional Spanish');
             break;
-            case 'swedish':
+        case 'swedish':
             $descr = __('Swedish');
             break;
-            case 'thai':
+        case 'thai':
             $descr = __('Thai');
             break;
-            case 'turkish':
+        case 'turkish':
             $descr = __('Turkish');
             break;
-            case 'ukrainian':
+        case 'ukrainian':
             $descr = __('Ukrainian');
             break;
-            case 'unicode':
+        case 'unicode':
             $descr = __('Unicode') . ' (' . __('multilingual') . ')';
             break;
-            case 'vietnamese':
+        case 'vietnamese':
             $descr = __('Vietnamese');
             break;
-            /** @noinspection PhpMissingBreakStatementInspection */
-            case 'bin':
+        /** @noinspection PhpMissingBreakStatementInspection */
+        case 'bin':
             $is_bin = true;
             // no break; statement here, continuing with 'general' section:
-            case 'general':
+        case 'general':
             switch ($parts[0]) {
             // Unicode charsets
-                case 'ucs2':
-                case 'utf8':
-                case 'utf16':
-                case 'utf16le':
-                case 'utf16be':
-                case 'utf32':
-                case 'utf8mb4':
+            case 'ucs2':
+            case 'utf8':
+            case 'utf16':
+            case 'utf16le':
+            case 'utf16be':
+            case 'utf32':
+            case 'utf8mb4':
                 $descr = __('Unicode') . ' (' . __('multilingual') . ')';
                 break;
             // West European charsets
-                case 'ascii':
-                case 'cp850':
-                case 'dec8':
-                case 'hp8':
-                case 'latin1':
-                case 'macroman':
+            case 'ascii':
+            case 'cp850':
+            case 'dec8':
+            case 'hp8':
+            case 'latin1':
+            case 'macroman':
                 $descr = __('West European') . ' (' . __('multilingual') . ')';
                 break;
             // Central European charsets
-                case 'cp1250':
-                case 'cp852':
-                case 'latin2':
-                case 'macce':
+            case 'cp1250':
+            case 'cp852':
+            case 'latin2':
+            case 'macce':
                 $descr = __('Central European') . ' (' . __('multilingual') . ')';
                 break;
             // Russian charsets
-                case 'cp866':
-                case 'koi8r':
+            case 'cp866':
+            case 'koi8r':
                 $descr = __('Russian');
                 break;
             // Simplified Chinese charsets
-                case 'gb2312':
-                case 'gbk':
+            case 'gb2312':
+            case 'gbk':
                 $descr = __('Simplified Chinese');
                 break;
             // Japanese charsets
-                case 'sjis':
-                case 'ujis':
-                case 'cp932':
-                case 'eucjpms':
+            case 'sjis':
+            case 'ujis':
+            case 'cp932':
+            case 'eucjpms':
                 $descr = __('Japanese');
                 break;
             // Baltic charsets
-                case 'cp1257':
-                case 'latin7':
+            case 'cp1257':
+            case 'latin7':
                 $descr = __('Baltic') . ' (' . __('multilingual') . ')';
                 break;
             // Other
-                case 'armscii8':
-                case 'armscii':
+            case 'armscii8':
+            case 'armscii':
                 $descr = __('Armenian');
                 break;
-                case 'big5':
+            case 'big5':
                 $descr = __('Traditional Chinese');
                 break;
-                case 'cp1251':
+            case 'cp1251':
                 $descr = __('Cyrillic') . ' (' . __('multilingual') . ')';
                 break;
-                case 'cp1256':
+            case 'cp1256':
                 $descr = __('Arabic');
                 break;
-                case 'euckr':
+            case 'euckr':
                 $descr = __('Korean');
                 break;
-                case 'hebrew':
+            case 'hebrew':
                 $descr = __('Hebrew');
                 break;
-                case 'geostd8':
+            case 'geostd8':
                 $descr = __('Georgian');
                 break;
-                case 'greek':
+            case 'greek':
                 $descr = __('Greek');
                 break;
-                case 'keybcs2':
+            case 'keybcs2':
                 $descr = __('Czech-Slovak');
                 break;
-                case 'koi8u':
+            case 'koi8u':
                 $descr = __('Ukrainian');
                 break;
-                case 'latin5':
+            case 'latin5':
                 $descr = __('Turkish');
                 break;
-                case 'swe7':
+            case 'swe7':
                 $descr = __('Swedish');
                 break;
-                case 'tis620':
+            case 'tis620':
                 $descr = __('Thai');
                 break;
-                default:
+            default:
                 $descr = __('unknown');
                 break;
             }
@@ -463,7 +460,7 @@ class Charsets
                 $descr .= ', ' . __('binary collation');
             }
             break;
-            default: $descr = __('unknown');
+        default: $descr = __('unknown');
         }
         if (!empty($parts[2])) {
             if ($parts[2] == 'ci') {
@@ -475,6 +472,4 @@ class Charsets
 
         return $descr;
     }
-
-
 }
