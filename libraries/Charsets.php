@@ -7,6 +7,7 @@
  */
 namespace PMA\libraries;
 use PMA\libraries\Util;
+use PMA\libraries\DatabaseInterface;
 
 /**
  * Class used to manage MySQL charsets
@@ -203,14 +204,8 @@ class Charsets
         . (empty($id) ? '' : ' id="' . htmlspecialchars($id) . '"')
         . ($submitOnChange ? ' class="autosubmit"' : '') . '>' . "\n";
         if ($label) {
-         //Find default collation value
-            $sql = 'SELECT DEFAULT_CHARACTER_SET_NAME, DEFAULT_COLLATION_NAME FROM INFORMATION_SCHEMA.SCHEMATA WHERE SCHEMA_NAME ='.'"information_schema"';
-            $res = $GLOBALS['dbi']->query($sql);
-            $default_collation ='';
-            while ($row = $GLOBALS['dbi']->fetchAssoc($res)) {
-                // $char_set_name = $row['CHARACTER_SET_NAME'];
-                $default_collation = $row['DEFAULT_COLLATION_NAME'];
-            }
+         
+            $default_collation = $GLOBALS['dbi']->getServerCollation();
 
             $return_str .= '<option value="">'
             . __($default_collation)
