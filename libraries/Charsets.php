@@ -7,7 +7,6 @@
  */
 namespace PMA\libraries;
 use PMA\libraries\Util;
-use PMA\libraries\DatabaseInterface;
 
 /**
  * Class used to manage MySQL charsets
