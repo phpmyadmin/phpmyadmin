@@ -7,6 +7,8 @@
  */
 namespace PMA\libraries;
 
+use PMA\libraries\twig\I18nExtension;
+
 /**
  * Class Template
  *
@@ -59,6 +61,7 @@ class Template
         $this->environment = new \Twig_Environment($this->loader, array(
             'cache' => static::BASE_PATH . 'cache',
         ));
+        $this->environment->addExtension(new I18nExtension());
     }
 
     /**
