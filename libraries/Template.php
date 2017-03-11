@@ -31,6 +31,16 @@ class Template
      */
     protected $helperFunctions;
 
+    /**
+     * Twig loader
+     */
+    protected $loader;
+
+    /**
+     * Twig environment
+     */
+    protected $environment;
+
     const BASE_PATH = 'templates/';
 
     /**
@@ -45,6 +55,10 @@ class Template
         $this->name = $name;
         $this->data = $data;
         $this->helperFunctions = $helperFunctions;
+        $this->loader = new \Twig_Loader_Filesystem(static::BASE_PATH);
+        $this->environment = new \Twig_Environment($this->loader, array(
+            'cache' => static::BASE_PATH . 'cache',
+        ));
     }
 
     /**
@@ -139,7 +153,15 @@ class Template
      */
     public function render($data = array(), $helperFunctions = array())
     {
-        $template = static::BASE_PATH . $this->name . '.phtml';
+        $template = static::BASE_PATH . $this->name;
+
+        if (file_exists($template . '.twig')) {
+            $this->set($data);
+            return $this->environment->load($this->name . '.twig')
+                ->render($this->data);
+        }
+
+        $template = $template . '.phtml';
         try {
             $this->set($data);
             $this->helperFunctions = array_merge(

@@ -10,6 +10,8 @@
 /tmp/
 # For setup script
 /config/
+# Template cache
+/templates/cache/
 # ctags
 tags
 # Editor files
