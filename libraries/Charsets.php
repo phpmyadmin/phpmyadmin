@@ -77,7 +77,7 @@ class Charsets
         $GLOBALS['dbi']->freeResult($res);
 
         sort(self::$_charsets, SORT_STRING);
-    }[ \t]+\n
+    }
 
     /**
      * Loads collation data from the MySQL server.
