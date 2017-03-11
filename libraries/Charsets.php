@@ -204,7 +204,7 @@ class Charsets
         . (empty($id) ? '' : ' id="' . htmlspecialchars($id) . '"')
         . ($submitOnChange ? ' class="autosubmit"' : '') . '>' . "\n";
         if ($label) {
-         
+
             $default_collation = $GLOBALS['dbi']->getServerCollation();
 
             $return_str .= '<option value="">'
