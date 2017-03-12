@@ -7,6 +7,7 @@
  */
 namespace PMA\libraries;
 use PMA\libraries\Util;
+
 /**
  * Class used to manage MySQL charsets
  *
@@ -14,6 +15,7 @@ use PMA\libraries\Util;
  */
 class Charsets
 {
+
     /**
      * MySQL charsets map
      *
@@ -44,10 +46,12 @@ class Charsets
         'windows-1256' => 'cp1256',
         'windows-1257' => 'cp1257',
     );
+
     private static $_charsets = array();
     private static $_charsets_descriptions = array();
     private static $_collations = array();
     private static $_default_collations = array();
+
     /**
      * Loads charset data from the MySQL server.
      *
@@ -59,8 +63,10 @@ class Charsets
         if (count(self::$_charsets) > 0) {
             return;
         }
+
         $sql = 'SELECT * FROM information_schema.CHARACTER_SETS';
         $res = $GLOBALS['dbi']->query($sql);
+
         self::$_charsets = array();
         while ($row = $GLOBALS['dbi']->fetchAssoc($res)) {
             $name = $row['CHARACTER_SET_NAME'];
@@ -68,8 +74,10 @@ class Charsets
             self::$_charsets_descriptions[$name] = $row['DESCRIPTION'];
         }
         $GLOBALS['dbi']->freeResult($res);
+
         sort(self::$_charsets, SORT_STRING);
     }
+
     /**
      * Loads collation data from the MySQL server.
      *
@@ -81,6 +89,7 @@ class Charsets
         if (count(self::$_collations) > 0) {
             return;
         }
+
         $sql = 'SELECT * FROM information_schema.COLLATIONS';
         $res = $GLOBALS['dbi']->query($sql);
         while ($row = $GLOBALS['dbi']->fetchAssoc($res)) {
@@ -92,30 +101,36 @@ class Charsets
             }
         }
         $GLOBALS['dbi']->freeResult($res);
+
         foreach (self::$_collations as $key => $value) {
             sort(self::$_collations[$key], SORT_STRING);
         }
     }
+
     public static function getMySQLCharsets()
     {
         self::loadCharsets();
         return self::$_charsets;
     }
+
     public static function getMySQLCharsetsDescriptions()
     {
         self::loadCharsets();
         return self::$_charsets_descriptions;
     }
+
     public static function getMySQLCollations()
     {
         self::loadCollations();
         return self::$_collations;
     }
+
     public static function getMySQLCollationsDefault()
     {
         self::loadCollations();
         return self::$_default_collations;
     }
+
     /**
      * Generate charset dropdown box
      *
@@ -135,6 +150,7 @@ class Charsets
         if (empty($name)) {
             $name = 'character_set';
         }
+
         $return_str  = '<select lang="en" dir="ltr" name="'
             . htmlspecialchars($name) . '"'
             . (empty($id) ? '' : ' id="' . htmlspecialchars($id) . '"')
@@ -150,14 +166,17 @@ class Charsets
                 = empty(self::$_charsets_descriptions[$current_charset])
                 ? $current_charset
                 : self::$_charsets_descriptions[$current_charset];
+
             $return_str .= '<option value="' . $current_charset
                 . '" title="' . $current_cs_descr . '"'
                 . ($default == $current_charset ? ' selected="selected"' : '') . '>'
                 . $current_charset . '</option>' . "\n";
         }
         $return_str .= '</select>' . "\n";
+
         return $return_str;
     }
+
     /**
      * Generate collation dropdown box
      *
@@ -178,6 +197,7 @@ class Charsets
         if (empty($name)) {
             $name = 'collation';
         }
+
         $return_str  = '<select lang="en" dir="ltr" name="'
             . htmlspecialchars($name) . '"'
             . (empty($id) ? '' : ' id="' . htmlspecialchars($id) . '"')
@@ -193,6 +213,7 @@ class Charsets
                 = empty(self::$_charsets_descriptions[$current_charset])
                 ? $current_charset
                 : self::$_charsets_descriptions[$current_charset];
+
             $return_str .= '<optgroup label="' . $current_charset
                 . '" title="' . $current_cs_descr . '">' . "\n";
             foreach (self::$_collations[$current_charset] as $current_collation) {
@@ -205,8 +226,10 @@ class Charsets
             $return_str .= '</optgroup>' . "\n";
         }
         $return_str .= '</select>' . "\n";
+
         return $return_str;
     }
+
     /**
      * returns description for given collation
      *
@@ -446,6 +469,7 @@ class Charsets
                 $descr .= ', ' . __('case-sensitive collation');
             }
         }
+
         return $descr;
     }
 }
