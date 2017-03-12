@@ -4,28 +4,25 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-beta1\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-03-03 14:49+0100\n"
-"PO-Revision-Date: 2016-12-13 11:53+0000\n"
-"Last-Translator: monicagrau <monicagrau@gmail.com>\n"
-"Language-Team: Catalan <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/ca/>\n"
+"PO-Revision-Date: 2017-03-12 22:03+0000\n"
+"Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
+"Language-Team: Catalan "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-7/ca/>\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.10-dev\n"
+"X-Generator: Weblate 2.12\n"
 
 #: changelog.php:39 license.php:34
-#, fuzzy, php-format
-#| msgid ""
-#| "The %s file is not available on this system, please visit www.phpmyadmin."
-#| "net for more information."
+#, php-format
 msgid ""
 "The %s file is not available on this system, please visit %s for more "
 "information."
 msgstr ""
-"L'arxiu %s no es troba en aquest sistema, si us plau, visita www.phpmyadmin."
-"net per a més informació."
+"L'arxiu %s no es troba en aquest sistema, si us plau, visita %s per a més "
+"informació."
 
 #: db_central_columns.php:108
 msgid "The central list of columns for the current database is empty."
@@ -833,6 +830,8 @@ msgstr "Ets a punt de DESTRUIR completament una base de dades!"
 #: js/messages.php:48
 msgid "Cannot rename database to the same name. Change the name and try again"
 msgstr ""
+"No es pot reanomenar la base de dades al mateix nom. Canvía el nom i torna a "
+"provar"
 
 #: js/messages.php:50
 msgid "You are about to DESTROY a complete table!"
@@ -1807,7 +1806,7 @@ msgstr "Exporta"
 
 #: js/messages.php:395
 msgid "No routine is exportable. Required privileges may be lacking."
-msgstr ""
+msgstr "No es pot exportar cap rutina. Potser falten els permissos necessaris."
 
 #: js/messages.php:398 libraries/rte/rte_routines.lib.php:747
 msgid "ENUM/SET editor"
@@ -2166,12 +2165,16 @@ msgid ""
 "MySQL accepts additional values not selectable by the slider; key in those "
 "values directly if desired"
 msgstr ""
+"MySQL accepta valors adicionals que no són seleccionables pel lliscador; "
+"entra aquets valors directament si s'escau"
 
 #: js/messages.php:534
 msgid ""
 "MySQL accepts additional values not selectable by the datepicker; key in "
 "those values directly if desired"
 msgstr ""
+"MySQL accepta valors adicionals que no es poden escollir amb el calendari; "
+"entra aquests valors directament si s'escau"
 
 #: js/messages.php:540
 msgid ""
@@ -2589,23 +2592,23 @@ msgstr "Copia la taula amb prefix"
 
 #: js/messages.php:732
 msgid "Extremely weak"
-msgstr ""
+msgstr "Extremadament debil"
 
 #: js/messages.php:733
 msgid "Very weak"
-msgstr ""
+msgstr "Molt debil"
 
 #: js/messages.php:734
 msgid "Weak"
-msgstr ""
+msgstr "Debil"
 
 #: js/messages.php:735
 msgid "Good"
-msgstr ""
+msgstr "Bó"
 
 #: js/messages.php:736
 msgid "Strong"
-msgstr ""
+msgstr "Fort"
 
 #: js/messages.php:765
 msgctxt "Previous month"
@@ -2965,7 +2968,7 @@ msgstr "Error de format de cadena per a la regla '%s'."
 #: libraries/Advisor.php:469
 #, php-format
 msgid "Error in reading file: The file '%s' does not exist or is not readable!"
-msgstr ""
+msgstr "Error llegint arxiu: L'arxiu '%s 1' no existeix o bé no es pot llegir!"
 
 #: libraries/Advisor.php:494
 #, php-format
@@ -3294,10 +3297,8 @@ msgid "Details…"
 msgstr "Detalls…"
 
 #: libraries/DatabaseInterface.php:2350
-#, fuzzy
-#| msgid "Missing parameter:"
 msgid "Missing connection parameters!"
-msgstr "Falta paràmetre:"
+msgstr "Faltan paràmetres de connexió!"
 
 #: libraries/DatabaseInterface.php:2374
 msgid "Connection for controluser as defined in your configuration failed."
@@ -3597,10 +3598,8 @@ msgid "Relational key"
 msgstr "Clau relacional"
 
 #: libraries/DisplayResults.php:1742
-#, fuzzy
-#| msgid "Display column for relations"
 msgid "Display column for relationships"
-msgstr "Mostra columna per a relacions"
+msgstr "Mostra columna per a les relacions"
 
 #: libraries/DisplayResults.php:1758
 msgid "Show binary contents"
@@ -4834,12 +4833,12 @@ msgstr "%d-%m-%Y a les %H:%M:%S"
 #: libraries/Util.php:1588
 msgctxt "AM/PM indication in time"
 msgid "PM"
-msgstr ""
+msgstr "PM"
 
 #: libraries/Util.php:1590
 msgctxt "AM/PM indication in time"
 msgid "AM"
-msgstr ""
+msgstr "AM"
 
 #: libraries/Util.php:1966
 #, php-format
@@ -5894,8 +5893,6 @@ msgstr "Tipus MIME"
 
 #: libraries/config/messages.inc.php:167 libraries/config/messages.inc.php:180
 #: libraries/config/messages.inc.php:221
-#, fuzzy
-#| msgid "Relations"
 msgid "Relationships"
 msgstr "Relacions"
 
@@ -7576,17 +7573,14 @@ msgid "Show last check timestamp"
 msgstr "Mostra el temps de la darrera comprovació"
 
 #: libraries/config/messages.inc.php:843
-#, fuzzy
-#| msgid "Show or hide a column displaying the comments for all tables."
 msgid "Show or hide a column displaying the charset for all tables."
 msgstr ""
-"Mostrar o amagar una columna mostrant el comentari de totes les taules."
+"Mostrar o amagar una columna mostrant el joc de caracters de totes les "
+"taules."
 
 #: libraries/config/messages.inc.php:845
-#, fuzzy
-#| msgid "Show table comments"
 msgid "Show table charset"
-msgstr "Mostrar comentaris de la taula"
+msgstr "Mostrar el joc de caracters de la taula"
 
 #: libraries/config/messages.inc.php:847
 msgid ""
@@ -7617,16 +7611,12 @@ msgid "Show hint"
 msgstr "Mostra ajudes"
 
 #: libraries/config/messages.inc.php:858
-#, fuzzy
-#| msgid ""
-#| "Shows link to [a@https://secure.php.net/manual/function.phpinfo."
-#| "php]phpinfo()[/a] output."
 msgid ""
 "Shows link to [a@https://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
 "output."
 msgstr ""
-"Mostra l'enllaç a la sortida de [a@https://secure.php.net/manual/function."
-"phpinfo.php]phpinfo()[/a]."
+"Mostra l'enllaç a la sortida de "
+"[a@https://php.net/manual/function.phpinfo.php]phpinfo()[/a]."
 
 #: libraries/config/messages.inc.php:861
 msgid "Show phpinfo() link"
@@ -8108,8 +8098,6 @@ msgid "Display column was successfully updated."
 msgstr "Columna de visualització actualitzada correctament."
 
 #: libraries/controllers/table/TableRelationController.php:282
-#, fuzzy
-#| msgid "Internal relations were successfully updated."
 msgid "Internal relationships were successfully updated."
 msgstr "Relacions internes actualitzades correctament."
 
@@ -8229,7 +8217,7 @@ msgstr "Contrasenya:"
 
 #: libraries/display_change_password.lib.php:68
 msgid "Enter:"
-msgstr ""
+msgstr "Entrar:"
 
 #: libraries/display_change_password.lib.php:75
 #: libraries/replication_gui.lib.php:865
@@ -10413,10 +10401,9 @@ msgid "Last check:"
 msgstr "Darrera comprovació:"
 
 #: libraries/plugins/export/ExportSql.php:1488
-#, fuzzy, php-format
-#| msgid "Table structure for table"
+#, php-format
 msgid "Error reading structure for table %s:"
-msgstr "Estructura de la taula"
+msgstr "Error llegint l'estructura de la taula %s:"
 
 #: libraries/plugins/export/ExportSql.php:1542
 msgid "It appears your database uses views;"
@@ -10451,10 +10438,8 @@ msgid "MIME TYPES FOR TABLE"
 msgstr "TIPUS MIME PER LA TAULA"
 
 #: libraries/plugins/export/ExportSql.php:1878
-#, fuzzy
-#| msgid "RELATIONS FOR TABLE"
 msgid "RELATIONSHIPS FOR TABLE"
-msgstr "RELACIONS DE LA TAULA"
+msgstr "RELACIONS PER A LA TAULA"
 
 #: libraries/plugins/export/ExportSql.php:2059
 msgid "It appears your table uses triggers;"
@@ -10470,10 +10455,9 @@ msgid "(See below for the actual view)"
 msgstr "(Veure a sota per a la visualització actual)"
 
 #: libraries/plugins/export/ExportSql.php:2204
-#, fuzzy, php-format
-#| msgid "Error reading data:"
+#, php-format
 msgid "Error reading data for table %s:"
-msgstr "Error llegint dades:"
+msgstr "Error llegint dades de la taula %s:"
 
 #: libraries/plugins/export/ExportXml.php:97
 msgid "Object creation options (all are recommended)"
@@ -10928,22 +10912,16 @@ msgid "Formats text as XML with syntax highlighting."
 msgstr "Formateig del text com a XML amb resaltat de sintaxi."
 
 #: libraries/pmd_common.php:551
-#, fuzzy
-#| msgid "Error: relation already exists."
 msgid "Error: relationship already exists."
 msgstr "Error: la relació ja existeix."
 
 #: libraries/pmd_common.php:597
-#, fuzzy
-#| msgid "FOREIGN KEY relation has been added."
 msgid "FOREIGN KEY relationship has been added."
 msgstr "S'ha afegit una relació de CLAU EXTERNA."
 
 #: libraries/pmd_common.php:603
-#, fuzzy
-#| msgid "Error: FOREIGN KEY relation could not be added!"
 msgid "Error: FOREIGN KEY relationship could not be added!"
-msgstr "Error: La relació  de CLAU EXTERNA no s'ha afegit!"
+msgstr "Error: La relació  de CLAU EXTERNA no s'ha pogut afegir!"
 
 #: libraries/pmd_common.php:608
 msgid "Error: Missing index on column(s)."
@@ -10954,38 +10932,26 @@ msgid "Error: Relational features are disabled!"
 msgstr "Error: Funcionalitats relacionals desactivades!"
 
 #: libraries/pmd_common.php:635
-#, fuzzy
-#| msgid "Internal relation has been added."
 msgid "Internal relationship has been added."
 msgstr "Afegida relació interna."
 
 #: libraries/pmd_common.php:641
-#, fuzzy
-#| msgid "Error: Internal relation could not be added!"
 msgid "Error: Internal relationship could not be added!"
 msgstr "Error: La relació interna no s'ha pogut afegir!"
 
 #: libraries/pmd_common.php:679
-#, fuzzy
-#| msgid "FOREIGN KEY relation has been removed."
 msgid "FOREIGN KEY relationship has been removed."
 msgstr "Eliminada la relació de CLAU EXTERNA."
 
 #: libraries/pmd_common.php:685
-#, fuzzy
-#| msgid "Error: FOREIGN KEY relation could not be removed!"
 msgid "Error: FOREIGN KEY relationship could not be removed!"
 msgstr "Error: La relació de CLAU EXTERNA no es pot eliminar!"
 
 #: libraries/pmd_common.php:712
-#, fuzzy
-#| msgid "Error: Internal relation could not be removed!"
 msgid "Error: Internal relationship could not be removed!"
 msgstr "Error: La relació interna no es pot eliminar!"
 
 #: libraries/pmd_common.php:716
-#, fuzzy
-#| msgid "Internal relation has been removed."
 msgid "Internal relationship has been removed."
 msgstr "Relació interna eliminada."
 
@@ -11429,6 +11395,8 @@ msgid ""
 "Connection to server is disabled, please enable $cfg['AllowArbitraryServer'] "
 "in phpMyAdmin configuration."
 msgstr ""
+"Connexió al servidor desactivada, activa $cfg['AllowArbitraryServer'] en la "
+"configuració de phpMyAdmin."
 
 #: libraries/replication_gui.lib.php:914
 msgid "Replication started successfully."
@@ -11821,10 +11789,8 @@ msgid "routine"
 msgstr "rutina"
 
 #: libraries/rte/rte_words.lib.php:32
-#, fuzzy
-#| msgid "You do not have the necessary privileges to create a routine"
 msgid "You do not have the necessary privileges to create a routine."
-msgstr "No tens prou permisos per crear una rutina"
+msgstr "No tens prou permisos per crear una rutina."
 
 #: libraries/rte/rte_words.lib.php:35
 #, php-format
@@ -11832,6 +11798,8 @@ msgid ""
 "No routine with name %1$s found in database %2$s. You might be lacking the "
 "necessary privileges to edit this routine."
 msgstr ""
+"No s'ha trobat cap rutina amb el nom %1$s a la base de dades %2$s. Potser "
+"falten el permissos necessaris per a editar aquesta rutina."
 
 #: libraries/rte/rte_words.lib.php:39
 #, php-format
@@ -11839,12 +11807,13 @@ msgid ""
 "No routine with name %1$s found in database %2$s. You might be lacking the "
 "necessary privileges to view/export this routine."
 msgstr ""
+"No s'ha trobat cap rutina amb el nom %1$s a la base de dades %2$s. Potser "
+"falten el permissos necessaris per a veure/exportar  aquesta rutina."
 
 #: libraries/rte/rte_words.lib.php:42
-#, fuzzy, php-format
-#| msgid "No routine with name %1$s found in database %2$s"
+#, php-format
 msgid "No routine with name %1$s found in database %2$s."
-msgstr "No s'ha trobat una rutina de nom %1$s a la base de dades %2$s"
+msgstr "No s'ha trobat una rutina de nom %1$s a la base de dades %2$s."
 
 #: libraries/rte/rte_words.lib.php:43
 msgid "There are no routines to display."
@@ -11864,16 +11833,13 @@ msgid "trigger"
 msgstr "disparador"
 
 #: libraries/rte/rte_words.lib.php:54
-#, fuzzy
-#| msgid "You do not have the necessary privileges to create a trigger"
 msgid "You do not have the necessary privileges to create a trigger."
-msgstr "No tens prou permisos per crear un disparador"
+msgstr "No tens prou permisos per crear un disparador."
 
 #: libraries/rte/rte_words.lib.php:56
-#, fuzzy, php-format
-#| msgid "No trigger with name %1$s found in database %2$s"
+#, php-format
 msgid "No trigger with name %1$s found in database %2$s."
-msgstr "No s'ha trobat un disparador amb nom %1$s a la base de dades %2$s"
+msgstr "No s'ha trobat un disparador amb nom %1$s a la base de dades %2$s."
 
 #: libraries/rte/rte_words.lib.php:57
 msgid "There are no triggers to display."
@@ -11893,16 +11859,13 @@ msgid "event"
 msgstr "esdeveniment"
 
 #: libraries/rte/rte_words.lib.php:68
-#, fuzzy
-#| msgid "You do not have the necessary privileges to create an event"
 msgid "You do not have the necessary privileges to create an event."
-msgstr "No tens prou permisos per crear un esdeveniment"
+msgstr "No tens prou permisos per crear un esdeveniment."
 
 #: libraries/rte/rte_words.lib.php:70
-#, fuzzy, php-format
-#| msgid "No event with name %1$s found in database %2$s"
+#, php-format
 msgid "No event with name %1$s found in database %2$s."
-msgstr "No s'ha trobat un esdeveniment amb nom %1$s a la base de dades %2$s"
+msgstr "No s'ha trobat un esdeveniment amb nom %1$s a la base de dades %2$s."
 
 #: libraries/rte/rte_words.lib.php:71
 msgid "There are no events to display."
@@ -12148,6 +12111,8 @@ msgid ""
 "Allows user to give to other users or remove from other users privileges "
 "that user possess on this routine."
 msgstr ""
+"Permet a l'usuari donar o treure permissos a d'altres usuaris que l'usuari "
+"actual té en aquesta rutina."
 
 #: libraries/server_privileges.lib.php:934
 msgid "Allows altering and dropping this routine."
@@ -12209,6 +12174,8 @@ msgid ""
 "Allows user to give to other users or remove from other users the privileges "
 "that user possess yourself."
 msgstr ""
+"Permet a l'usuari donar o treure els permissos a d'altres usuaris que "
+"l'usuari actual té."
 
 #: libraries/server_privileges.lib.php:1422
 #: libraries/server_privileges.lib.php:1453
@@ -14014,14 +13981,12 @@ msgid "Cannot save settings, submitted form contains errors!"
 msgstr "No es poden desar els paràmetres, el formulari enviat conté errors!"
 
 #: prefs_manage.php:52
-#, fuzzy
-#| msgid "Missing phpMyAdmin configuration storage tables"
 msgid "phpMyAdmin configuration snippet"
-msgstr "Falten taules de l'infraestructura de taules enllaçades de phpMyAdmin"
+msgstr "Fragment de configuració de phpMyAdmin"
 
 #: prefs_manage.php:53
 msgid "Paste it to your config.inc.php"
-msgstr ""
+msgstr "Enganxa aixó al teu arxiu config.inc.php"
 
 #: prefs_manage.php:93
 msgid "Could not import configuration"
@@ -14074,10 +14039,8 @@ msgstr ""
 "%sSetup script%s."
 
 #: prefs_manage.php:331
-#, fuzzy
-#| msgid "Save as file"
 msgid "Save as PHP file"
-msgstr "Desa com a arxiu"
+msgstr "Desa com a arxiu PHP"
 
 #: prefs_manage.php:336
 msgid "Save to browser's storage"
@@ -14159,16 +14122,12 @@ msgstr ""
 "sense xifrar!"
 
 #: setup/frames/index.inc.php:58
-#, fuzzy
-#| msgid ""
-#| "If your server is also configured to accept HTTPS requests follow [a@"
-#| "%s]this link[/a] to use a secure connection."
 msgid ""
 "If your server is also configured to accept HTTPS requests follow this link "
 "to use a secure connection."
 msgstr ""
 "Si el teu servidor també està configurat per a acceptar peticions HTTPS, "
-"segueix [a@%s]aquest enllaç[/a] per a usar una connexió segura."
+"segueix aquest enllaç per a usar una connexió segura."
 
 #: setup/frames/index.inc.php:62
 msgid "Insecure connection"
@@ -14260,7 +14219,7 @@ msgstr "Afegir un nou servidor"
 
 #: setup/index.php:16
 msgid "Configuration already exists, setup is disabled!"
-msgstr ""
+msgstr "La configuració ja existeix i està desactivada!"
 
 #: setup/index.php:26
 msgid "Wrong GET file attribute value"
@@ -14744,8 +14703,6 @@ msgid "See table structure"
 msgstr "Veure l'estructura de taula"
 
 #: templates/database/designer/delete_relation_panel.phtml:21
-#, fuzzy
-#| msgid "Delete relation"
 msgid "Delete relationship"
 msgstr "Esborra la relació"
 
@@ -14774,15 +14731,11 @@ msgstr "subconsulta"
 #: templates/database/designer/new_relation_panel.phtml:22
 #: templates/database/designer/side_menu.phtml:84
 #: templates/database/designer/side_menu.phtml:87
-#, fuzzy
-#| msgid "Create relation"
 msgid "Create relationship"
 msgstr "Crea una relació"
 
 #: templates/database/designer/options_panel.phtml:34
 #: templates/database/designer/options_panel.phtml:200
-#, fuzzy
-#| msgid "Relation operator"
 msgid "Relationship operator"
 msgstr "Operador de relació"
 
@@ -14882,8 +14835,6 @@ msgstr "Canviar petit/gran"
 
 #: templates/database/designer/side_menu.phtml:145
 #: templates/database/designer/side_menu.phtml:148
-#, fuzzy
-#| msgid "Toggle relation lines"
 msgid "Toggle relationship lines"
 msgstr "Canviar línies de relació"
 
@@ -14912,8 +14863,6 @@ msgid "Hide/Show all"
 msgstr "Amaga/Mostra tot"
 
 #: templates/database/designer/table_list.phtml:14
-#, fuzzy
-#| msgid "Hide/Show Tables with no relation"
 msgid "Hide/Show Tables with no relationship"
 msgstr "Amaga/Mostra taules sense relacions"
 
@@ -15051,10 +15000,8 @@ msgstr ""
 "importar-ho per a la sessió actual?"
 
 #: templates/prefs_autoload.phtml:14
-#, fuzzy
-#| msgid "Delete tracking"
 msgid "Delete settings "
-msgstr "Esborra seguiment"
+msgstr "Esborrar configuració "
 
 #: templates/privileges/add_privileges_database.phtml:2
 msgid "Add privileges on the following database(s):"
@@ -15319,6 +15266,9 @@ msgid ""
 "an index on it. Alternatively, you can define an index below, before "
 "creating the foreign key."
 msgstr ""
+"Crear una clau externa sobre una columna no indexada crearía automàticament "
+"un índex en ella. D'altra banda, pots definir un índex a sota, abans de "
+"crear la clau externa."
 
 #: templates/table/relation/common_form.phtml:20
 msgid ""
@@ -15335,8 +15285,6 @@ msgstr "+ Afegeix restricció"
 
 #: templates/table/relation/common_form.phtml:76
 #: templates/table/relation/common_form.phtml:82
-#, fuzzy
-#| msgid "Internal relations"
 msgid "Internal relationships"
 msgstr "Relacions internes"
 
@@ -15625,10 +15573,8 @@ msgid "Password is too long!"
 msgstr "Contrasenya massa llarga!"
 
 #: view_create.php:48
-#, fuzzy
-#| msgid "View name can not be empty"
 msgid "View name can not be empty!"
-msgstr "El nom de la vista no pot estar buit"
+msgstr "El nom de la vista no pot estar buit!"
 
 #: view_create.php:253
 msgid "VIEW name"
