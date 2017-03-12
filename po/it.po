@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-beta1\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-03-03 14:49+0100\n"
-"PO-Revision-Date: 2017-01-23 23:58+0000\n"
-"Last-Translator: Stefano Martinelli <stefano.ste.martinelli@gmail.com>\n"
-"Language-Team: Italian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/it/>\n"
+"PO-Revision-Date: 2017-03-12 08:35+0000\n"
+"Last-Translator: Pietro La Porta <anakin970@gmail.com>\n"
+"Language-Team: Italian "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-7/it/>\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.11-dev\n"
+"X-Generator: Weblate 2.12\n"
 
 #: changelog.php:39 license.php:34
 #, php-format
@@ -3991,7 +3991,7 @@ msgstr "Server"
 #: templates/table/relation/foreign_key_row.phtml:159
 #: templates/table/relation/internal_relational_row.phtml:50
 msgid "Database"
-msgstr "Database"
+msgstr "Base di dati"
 
 #: libraries/Menu.php:256 libraries/navigation/nodes/NodeView.php:30
 #: libraries/tbl_info.inc.php:60
