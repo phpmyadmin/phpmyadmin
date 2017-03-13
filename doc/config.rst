@@ -2062,20 +2062,8 @@ Main panel
     :type: boolean
     :default: false
 
-.. config:option:: $cfg['ShowChgPassword']
-
-    :type: boolean
-    :default: true
-
-.. config:option:: $cfg['ShowCreateDb']
-
-    :type: boolean
-    :default: true
-
-    Defines whether to display the :guilabel:`PHP information` and
-    :guilabel:`Change password` links and form for creating database or not at
-    the starting main (right) frame. This setting does not check MySQL commands
-    entered directly.
+    Defines whether to display the :guilabel:`PHP information` or not at
+    the starting main (right) frame.
 
     Please note that to block the usage of ``phpinfo()`` in scripts, you have to
     put this in your :file:`php.ini`:
@@ -2092,10 +2080,28 @@ Main panel
         This might also make easier some remote attacks on your installations,
         so enable this only when needed.
 
-    Also note that enabling the :guilabel:`Change password` link has no effect
+.. config:option:: $cfg['ShowChgPassword']
+
+    :type: boolean
+    :default: true
+
+    Defines whether to display the :guilabel:`Change password` link or not at
+    the starting main (right) frame. This setting does not check MySQL commands
+    entered directly.
+
+    Please note that enabling the :guilabel:`Change password` link has no effect
     with config authentication mode: because of the hard coded password value
     in the configuration file, end users can't be allowed to change their
     passwords.
+
+.. config:option:: $cfg['ShowCreateDb']
+
+    :type: boolean
+    :default: true
+
+    Defines whether to display the form for creating database or not at the
+    starting main (right) frame. This setting does not check MySQL commands
+    entered directly.
 
 .. config:option:: $cfg['ShowGitRevision']
 
