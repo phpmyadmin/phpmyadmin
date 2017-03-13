@@ -4760,7 +4760,7 @@ class Util
                 );
             }
         }
-        $curl_status &= curl_setopt($curl_handle, CURLOPT_USERAGENT, 'phpMyAdmin/' . PMA_VERSION);
+        $curl_status &= curl_setopt($curl_handle, CURLOPT_USERAGENT, 'phpMyAdmin');
 
         if ($method != "GET") {
             $curl_status &= curl_setopt($curl_handle, CURLOPT_CUSTOMREQUEST, $method);
