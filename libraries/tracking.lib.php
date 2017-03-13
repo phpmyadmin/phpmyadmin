@@ -1524,6 +1524,33 @@ function PMA_displayOneUntrackedTable($db, $tablename, $url_query)
 }
 
 /**
+ * Helper function: Recursive function for getting table names from $table_list
+ *
+ * @param string $db current database
+ *
+ * @return array $untracked_tables
+ */
+function PMA_extractTableNames($table_list, $db, $testing=false) {
+    $untracked_tables = array();
+    $sep = $GLOBALS['cfg']['NavigationTreeTableSeparator'];
+
+    foreach ($table_list as $key => $value) {
+        if (is_array($value) && array_key_exists(('is' . $sep . 'group'), $value)
+            && $value['is' . $sep . 'group']
+        ) {
+            $untracked_tables = array_merge(PMA_extractTableNames($value, $db), $untracked_tables); //Recursion step
+        }
+        else {
+            if (is_array($value) && ($testing || Tracker::getVersion($db, $value['Name']) == -1)) {
+                $untracked_tables[] = $value['Name'];
+            }
+        }
+    }
+    return $untracked_tables;
+}
+
+
+/**
  * Get untracked tables
  *
  * @param string $db current database
@@ -1532,39 +1559,8 @@ function PMA_displayOneUntrackedTable($db, $tablename, $url_query)
  */
 function PMA_getUntrackedTables($db)
 {
-    $untracked_tables = array();
-    $sep = $GLOBALS['cfg']['NavigationTreeTableSeparator'];
-
-    // Get list of tables
     $table_list = PMA\libraries\Util::getTableList($db);
-
-    // For each table try to get the tracking version
-    foreach ($table_list as $key => $value) {
-        // If $value is a table group.
-        if (array_key_exists(('is' . $sep . 'group'), $value)
-            && $value['is' . $sep . 'group']
-        ) {
-            foreach ($value as $temp_table) {
-                // If $temp_table is a table with the value for 'Name' is set,
-                // rather than a property of the table group.
-                if (is_array($temp_table)
-                    && array_key_exists('Name', $temp_table)
-                ) {
-                    $tracking_version = Tracker::getVersion(
-                        $db,
-                        $temp_table['Name']
-                    );
-                    if ($tracking_version == -1) {
-                        $untracked_tables[] = $temp_table['Name'];
-                    }
-                }
-            }
-        } else { // If $value is a table.
-            if (Tracker::getVersion($db, $value['Name']) == -1) {
-                $untracked_tables[] = $value['Name'];
-            }
-        }
-    }
+    $untracked_tables = PMA_extractTableNames($table_list, $db);  //Use helper function to get table list recursively.
     return $untracked_tables;
 }
 
