@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-03-01 18:19+0100\n"
-"PO-Revision-Date: 2017-03-12 13:06+0000\n"
+"PO-Revision-Date: 2017-03-13 07:56+0000\n"
 "Last-Translator: Володимир <bardvv@gmail.com>\n"
 "Language-Team: Ukrainian "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/uk/>\n"
@@ -10411,16 +10411,19 @@ msgstr "Таблиця:"
 
 #: libraries/plugins/export/PMA_ExportPdf.php:120
 msgid "Purpose:"
-msgstr ""
+msgstr "Мета:"
 
 #: libraries/plugins/export/PMA_ExportPdf.php:501
 msgid "MIME"
 msgstr "MIME"
 
 #: libraries/plugins/import/AbstractImportCsv.php:51
+#, fuzzy
 msgid ""
 "Update data when duplicate keys found on import (add ON DUPLICATE KEY UPDATE)"
 msgstr ""
+"Оновлення даних, коли знайдено дублікати ключів на імпорт (додати ДУБЛІКАТ "
+"КЛЮЧА ОНОВЛЕННЯ)"
 
 #: libraries/plugins/import/ImportCsv.php:61
 #: libraries/plugins/import/ImportOds.php:63
@@ -10485,7 +10488,7 @@ msgstr "Таблиця MediaWiki"
 #: libraries/plugins/import/ImportMediawiki.php:275
 #, php-format
 msgid "Invalid format of mediawiki input on line: <br />%s."
-msgstr ""
+msgstr "Неприпустимий формат вводу mediawiki  в рядку: <br />%s."
 
 #: libraries/plugins/import/ImportOds.php:77
 msgid "Import percentages as proper decimals <i>(ex. 12.00% to .12)</i>"
@@ -10567,7 +10570,7 @@ msgstr "Звичайний"
 #: libraries/plugins/schema/SchemaPdf.php:62
 #: libraries/plugins/schema/SchemaSvg.php:61
 msgid "Same width for all tables"
-msgstr ""
+msgstr "Однакова ширина для всіх таблиць"
 
 #: libraries/plugins/schema/SchemaPdf.php:87
 msgid "Show grid"
@@ -10630,10 +10633,13 @@ msgid "Extra"
 msgstr "Додатково"
 
 #: libraries/plugins/transformations/abs/Bool2TextTransformationsPlugin.php:29
+#, fuzzy
 msgid ""
 "Converts Boolean values to text (default 'T' and 'F'). First option is for "
 "TRUE, second for FALSE. Nonzero=true."
 msgstr ""
+"Перетворює значення Boolean на текст (за замовчуванням 'Т' та 'F'). Перший "
+"варіант  для TRUE, другий для FALSE. Ненульові = true."
 
 #: libraries/plugins/transformations/abs/DateFormatTransformationsPlugin.php:30
 msgid ""
