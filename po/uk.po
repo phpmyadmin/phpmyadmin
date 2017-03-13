@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-beta1\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-03-03 14:49+0100\n"
-"PO-Revision-Date: 2017-03-13 07:48+0000\n"
+"PO-Revision-Date: 2017-03-13 08:11+0000\n"
 "Last-Translator: Володимир <bardvv@gmail.com>\n"
 "Language-Team: Ukrainian "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-7/uk/>\n"
@@ -10624,10 +10624,13 @@ msgid "Extra"
 msgstr "Додатково"
 
 #: libraries/plugins/transformations/abs/Bool2TextTransformationsPlugin.php:29
+#, fuzzy
 msgid ""
 "Converts Boolean values to text (default 'T' and 'F'). First option is for "
 "TRUE, second for FALSE. Nonzero=true."
 msgstr ""
+"Перетворює значення Boolean на текст (за замовчуванням 'Т' та 'F'). Перший "
+"варіант  для TRUE, другий для FALSE. Ненульові = true."
 
 #: libraries/plugins/transformations/abs/DateFormatTransformationsPlugin.php:30
 msgid ""
@@ -10719,14 +10722,18 @@ msgid "Displays a link to download this image."
 msgstr "Відображає лінк до цього малюнку (direct blob download, i.e.)."
 
 #: libraries/plugins/transformations/abs/ImageUploadTransformationsPlugin.php:28
+#, fuzzy
 msgid ""
 "Image upload functionality which also displays a thumbnail. The options are "
 "the width and height of the thumbnail in pixels. Defaults to 100 X 100."
 msgstr ""
+"Функціональність завантаження зображень, яка також відображає піктограму. "
+"Параметри ширина і висота піктограми визначаються в пікселях. За "
+"замовчуванням 100 X 100."
 
 #: libraries/plugins/transformations/abs/ImageUploadTransformationsPlugin.php:87
 msgid "Image preview here"
-msgstr ""
+msgstr "Попередній перегляд зображення"
 
 #: libraries/plugins/transformations/abs/InlineTransformationsPlugin.php:35
 msgid ""
@@ -10764,7 +10771,7 @@ msgstr ""
 #: libraries/plugins/transformations/abs/RegexValidationTransformationsPlugin.php:52
 #, php-format
 msgid "Validation failed for the input string %s."
-msgstr ""
+msgstr "Не вдалося виконати перевірку для вхідного рядка %s."
 
 #: libraries/plugins/transformations/abs/SQLTransformationsPlugin.php:29
 msgid "Formats text as SQL query with syntax highlighting."
@@ -10856,7 +10863,7 @@ msgstr "Помилка: зв'язок не вдалося додати!"
 
 #: libraries/pmd_common.php:608
 msgid "Error: Missing index on column(s)."
-msgstr ""
+msgstr "Помилка: Відсутній індекс стовпця (ів)."
 
 #: libraries/pmd_common.php:613
 msgid "Error: Relational features are disabled!"
@@ -10966,7 +10973,7 @@ msgstr ""
 
 #: libraries/relation.lib.php:325
 msgid "Managing Central list of columns"
-msgstr ""
+msgstr "Керування Головним списком стовпців"
 
 #: libraries/relation.lib.php:336
 msgid "Remembering Designer Settings"
@@ -11345,7 +11352,7 @@ msgstr "Помилка скидання реплікації."
 
 #: libraries/replication_gui.lib.php:926
 msgid "Success."
-msgstr ""
+msgstr "Успішно."
 
 #: libraries/replication_gui.lib.php:927
 msgid "Error."
