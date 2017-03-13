@@ -225,11 +225,29 @@ class AuthenticationCookie extends AuthenticationPlugin
             && !empty($GLOBALS['cfg']['CaptchaLoginPublicKey'])
         ) {
             // If enabled show captcha to the user on the login screen.
-            echo '<script src="https://www.google.com/recaptcha/api.js?hl='
-                , $GLOBALS['lang'] , '" async defer></script>';
-            echo '<div class="g-recaptcha" data-sitekey="'
-                , htmlspecialchars($GLOBALS['cfg']['CaptchaLoginPublicKey']) ,
-                '" data-callback="loginButtonEnable" data-expired-callback="loginButtonDisable" captcha="enabled"></div>';
+            $connected = @fsockopen("www.google.com",80, $errno, $errstr, 30); 
+            if(!$connected){
+                echo'<div>ReCaptcha service is unavailable!!! Please try again later</div>';
+                echo '<div class="g-recaptcha" captcha="enabled"></div>';           
+            }
+            else
+            {
+                stream_set_timeout($connected, 30);
+                $info = stream_get_meta_data($connected);
+
+                if($info['timed_out']){
+                    echo'<div>ReCaptcha service is unavailable!!! Please try again later</div>';
+                    echo '<div class="g-recaptcha" captcha="enabled"></div>';
+                
+                }
+                else{
+                     echo '<script src="https://www.google.com/recaptcha/api.js?hl='
+                         , $GLOBALS['lang'] , '" async defer></script>';
+                    echo '<div class="g-recaptcha" data-sitekey="'
+                         , htmlspecialchars($GLOBALS['cfg']['CaptchaLoginPublicKey']) ,
+                        '" data-callback="loginButtonEnable" data-expired-callback="loginButtonDisable" captcha="enabled"></div>'; 
+                }
+            }
         }
 
         echo '</fieldset>
