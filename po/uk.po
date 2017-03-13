@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-03-01 18:19+0100\n"
-"PO-Revision-Date: 2017-03-13 08:11+0000\n"
+"PO-Revision-Date: 2017-03-13 09:07+0000\n"
 "Last-Translator: Володимир <bardvv@gmail.com>\n"
 "Language-Team: Ukrainian "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/uk/>\n"
@@ -529,7 +529,7 @@ msgid ""
 "You probably tried to upload a file that is too large. Please refer to "
 "%sdocumentation%s for a workaround for this limit."
 msgstr ""
-"Імовірно ви намагаєтесь завантажити занадто великий файл. Будь ласка, "
+"Імовірно Ви намагаєтесь завантажити занадто великий файл. Будь ласка, "
 "зверніться до %sдокументації%s для знаходження шляхів вирішення цієї "
 "проблеми."
 
@@ -539,7 +539,7 @@ msgstr "Показані закладки"
 
 #: import.php:392 import.php:573
 msgid "The bookmark has been deleted."
-msgstr "Закладку було видалено."
+msgstr "Закладка видалена."
 
 #: import.php:486
 msgid ""
@@ -547,9 +547,9 @@ msgid ""
 "file size exceeded the maximum size permitted by your PHP configuration. See "
 "[doc@faq1-16]FAQ 1.16[/doc]."
 msgstr ""
-"Немає даних для імпорту. Не було вказано назву файлу або його розмір "
-"перевищив допустимий максимум для вашої PHP конфігурації. Дивіться "
-"[doc@faq1-16]FAQ 1.16[/doc]."
+"Немає даних для імпорту. Не вказано назву файлу або його розмір перевищив "
+"допустимий максимум для вашої PHP конфігурації. Дивіться [doc@faq1-16]FAQ "
+"1.16[/doc]."
 
 #: import.php:538 libraries/display_import.lib.php:665
 msgid "Could not load import plugins, please check your installation!"
@@ -580,6 +580,7 @@ msgstr ""
 "будь ласка %s повторно відправте файл %s і імпорт буде відновлено."
 
 #: import.php:629
+#, fuzzy
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
