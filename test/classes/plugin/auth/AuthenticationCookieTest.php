@@ -1068,19 +1068,13 @@ class AuthenticationCookieTest extends PMATestCase
         );
         $method->setAccessible(true);
 
-        $result = $method->invoke($this->object, null);
-        $GLOBALS['PMA_Config']->setCookie(
-            'testPasswordCookie',
-            $this->object->cookieEncrypt(
-                json_encode($payload),
-                $method->invoke($this->object, null)
-            ),
-            null,
-            $GLOBALS['cfg']['LoginCookieStore']
-        );
+        $encryptedCookie = $this->object->cookieEncrypt(
+                                json_encode($payload),
+                                $method->invoke($this->object, null)
+                            );
         $this->assertEquals(
             $_COOKIE['pmaAuth-' . $GLOBALS['server']],
-            $_COOKIE['testPasswordCookie']
+            $encryptedCookie
         );
     }
     /**
