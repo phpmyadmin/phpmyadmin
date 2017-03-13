@@ -13,7 +13,6 @@ if (!defined('PHPMYADMIN')) {
 
 $formset_id = isset($_GET['formset']) ? $_GET['formset'] : null;
 
-$separator = URL::getArgSeparator('html');
 echo '<ul>';
 echo '<li><a href="index.php' , URL::getCommon() , '"'
     , ($formset_id === null ? ' class="active' : '')
