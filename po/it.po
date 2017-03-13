@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-beta1\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-03-03 14:49+0100\n"
-"PO-Revision-Date: 2017-03-12 08:35+0000\n"
-"Last-Translator: Pietro La Porta <anakin970@gmail.com>\n"
+"PO-Revision-Date: 2017-03-13 07:36+0000\n"
+"Last-Translator: Stefano Martinelli <stefano.ste.martinelli@gmail.com>\n"
 "Language-Team: Italian "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-7/it/>\n"
 "Language: it\n"
@@ -11491,6 +11491,8 @@ msgid ""
 "Connection to server is disabled, please enable $cfg['AllowArbitraryServer'] "
 "in phpMyAdmin configuration."
 msgstr ""
+"La connessione al server è disabilitata, per favore attiva "
+"$cfg['AllowArbitraryServer'] nella configurazione di phpMyAdmin."
 
 #: libraries/replication_gui.lib.php:914
 msgid "Replication started successfully."
@@ -14345,7 +14347,7 @@ msgstr "Aggiungi un nuovo server"
 
 #: setup/index.php:16
 msgid "Configuration already exists, setup is disabled!"
-msgstr ""
+msgstr "La configurazione esiste già, il setup è disabilitato!"
 
 #: setup/index.php:26
 msgid "Wrong GET file attribute value"
