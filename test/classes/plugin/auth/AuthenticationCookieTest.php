@@ -1049,7 +1049,7 @@ class AuthenticationCookieTest extends PMATestCase
         );
     }
 
-    public function testPasswordChange($value='')
+    public function testPasswordChange()
     {
         $newPassword = 'PMAPASSWD2';
         $GLOBALS['cfg']['AllowArbitraryServer'] = true;
@@ -1079,7 +1079,7 @@ class AuthenticationCookieTest extends PMATestCase
             $GLOBALS['cfg']['LoginCookieStore']
         );
         $this->assertEquals(
-            $_COOKIE['pmaAuth-' . $GLOBALS['server']].
+            $_COOKIE['pmaAuth-' . $GLOBALS['server']],
             $_COOKIE['testPasswordCookie']
         );
     }
