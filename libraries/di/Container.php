@@ -54,26 +54,16 @@ class Container implements ContainerInterface
      */
     public function get($name, $params = array())
     {
-        try {
-            if (!$this->has($name)) {
-                throw new NotFoundException("No entry was found for $name identifier.");
-            }
-        } catch (NotFoundException $e) {
-            echo $e->getMessage();
-            return null;
+        if (!$this->has($name)) {
+            throw new NotFoundException("No entry was found for $name identifier.");
         }
 
-        try {
-            if (isset($this->content[$name])) {
-                return $this->content[$name]->get($params);
-            } else if (isset($GLOBALS[$name])) {
-                return $GLOBALS[$name];
-            } else {
-                throw new ContainerException("Error while retrieving the entry.");
-            }
-        } catch (ContainerException $e) {
-            echo $e->getMessage();
-            return null;
+        if (isset($this->content[$name])) {
+            return $this->content[$name]->get($params);
+        } else if (isset($GLOBALS[$name])) {
+            return $GLOBALS[$name];
+        } else {
+            throw new ContainerException("Error while retrieving the entry.");
         }
     }
 
@@ -90,15 +80,7 @@ class Container implements ContainerInterface
      */
     public function has($name)
     {
-        if (isset($this->content[$name])) {
-            return true;
-        }
-
-        if (isset($GLOBALS[$name])) {
-            return true;
-        }
-
-        return false;
+        return isset($this->content[$name]) || isset($GLOBALS[$name]);
     }
 
     /**

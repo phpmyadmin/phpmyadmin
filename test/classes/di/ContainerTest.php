@@ -62,12 +62,13 @@ class ContainerTest extends PMATestCase
 
     /**
      * Test for get
-     * @expectedExceptionMessageRegExp #Right.*#
+     *
      * @return void
      */
-    public function testGetWithInvalidEntry()
+    public function testGetThrowsNotFoundException()
     {
-        $this->assertSame(null, $this->container->get('invalid'));
+        $this->setExpectedException('Psr\Container\NotFoundExceptionInterface');
+        $this->container->get('name');
     }
 
     /**
