@@ -5,6 +5,7 @@ phpMyAdmin - ChangeLog
 - issue #12946 Allow to export JSON with unescaped unicode chars
 - issue #12983 Disable login button without solved reCaptcha
 - issue #12315 Allow to remove individual segments from pie charts
+- issue        Change label from "Improve table structure" to "Normalize" to match standard terminology
 
 4.7.0.0 (not yet released)
 - patch #12233 [Display] Improve message when renaming database to same name
