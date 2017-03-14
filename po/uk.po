@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-beta1\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-03-03 14:49+0100\n"
-"PO-Revision-Date: 2017-03-14 12:29+0000\n"
+"PO-Revision-Date: 2017-03-14 12:50+0000\n"
 "Last-Translator: Володимир <bardvv@gmail.com>\n"
 "Language-Team: Ukrainian "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-7/uk/>\n"
@@ -2018,7 +2018,7 @@ msgstr "Підтвердіть перехресні залежності"
 
 #: js/messages.php:468
 msgid "Selected dependencies are as follows:"
-msgstr "Обрані залежності такі:"
+msgstr "Вибрані залежності такі:"
 
 #: js/messages.php:469
 msgid "No dependencies selected!"
@@ -2048,11 +2048,11 @@ msgstr "Діапазон пошуку"
 
 #: js/messages.php:478
 msgid "Column maximum:"
-msgstr "Максимум стовпчика:"
+msgstr "Максимальний стовпець:"
 
 #: js/messages.php:479
 msgid "Column minimum:"
-msgstr "Мінімум стовпчика:"
+msgstr "Мінімальний стовпець:"
 
 #: js/messages.php:480
 msgid "Minimum value:"
@@ -2088,21 +2088,22 @@ msgstr ""
 "Натисніть кнопку Скидання масштабу, щоб повернутися до початкового стану."
 
 #: js/messages.php:497
+#, fuzzy
 msgid "Click a data point to view and possibly edit the data row."
-msgstr "Клікніть на дані щоб переглянути та можливо редагувати дані рядка."
+msgstr ""
+"Натисніть на точку даних щоб переглянути та можливо редагувати дані рядка."
 
 #: js/messages.php:499
 msgid "The plot can be resized by dragging it along the bottom right corner."
-msgstr ""
-"Розмір графіка може бути змінений шляхом перетягування нижнього правого кута."
+msgstr "Ділянка може бути змінена шляхом перетягування в нижньому правому куті."
 
 #: js/messages.php:502
 msgid "Select two columns"
-msgstr "Виділити дві колонки"
+msgstr "Виберіть два стовпця"
 
 #: js/messages.php:504
 msgid "Select two different columns"
-msgstr "Виділити дві різні колонки"
+msgstr "Виберіть два різних стовпця"
 
 #: js/messages.php:506
 msgid "Data point content"
@@ -2129,7 +2130,7 @@ msgstr "Відрізок"
 
 #: js/messages.php:516
 msgid "Polygon"
-msgstr "Полігон"
+msgstr "Багатокутник"
 
 #: js/messages.php:517 libraries/DisplayResults.php:1796
 msgid "Geometry"
@@ -2185,12 +2186,12 @@ msgstr "Виберіть зовнішній ключ"
 
 #: js/messages.php:548
 msgid "Please select the primary key or a unique key!"
-msgstr "Будь ласка, оберіть первинний ключ або унікальний ключ!"
+msgstr "Будь ласка, виберіть первинний ключ або унікальний ключ!"
 
 #: js/messages.php:549 templates/database/designer/side_menu.phtml:91
 #: templates/database/designer/side_menu.phtml:94
 msgid "Choose column to display"
-msgstr "Виберіть колонку для відображення"
+msgstr "Виберіть стовпець для відображення"
 
 #: js/messages.php:551
 msgid ""
@@ -2212,7 +2213,7 @@ msgstr "Зберегти сторінку"
 #: js/messages.php:556 templates/database/designer/side_menu.phtml:63
 #: templates/database/designer/side_menu.phtml:66
 msgid "Save page as"
-msgstr "Зберегти сторінку, як"
+msgstr "Зберегти сторінку як"
 
 #: js/messages.php:557 templates/database/designer/side_menu.phtml:49
 #: templates/database/designer/side_menu.phtml:52
@@ -2229,7 +2230,7 @@ msgstr "Без назви"
 
 #: js/messages.php:560
 msgid "Please select a page to continue"
-msgstr "Будь ласка, оберіть сторінку для продовження"
+msgstr "Будь ласка, виберіть сторінку для продовження"
 
 #: js/messages.php:561
 msgid "Please enter a valid page name"
@@ -2249,7 +2250,7 @@ msgstr "Експортувати схему зв'язків"
 
 #: js/messages.php:566
 msgid "Modifications have been saved"
-msgstr "Модифікації було збережено"
+msgstr "Зміни збережені"
 
 #: js/messages.php:569
 #, php-format
