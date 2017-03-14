@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-03-01 18:19+0100\n"
-"PO-Revision-Date: 2017-03-14 12:50+0000\n"
+"PO-Revision-Date: 2017-03-14 14:57+0000\n"
 "Last-Translator: Володимир <bardvv@gmail.com>\n"
 "Language-Team: Ukrainian "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/uk/>\n"
@@ -508,8 +508,8 @@ msgid ""
 "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
 "below into the \"Value\" field."
 msgstr ""
-"Оберіть \"GeomFromText\" зі стовпчика \"Функції\" та вставте нижче у поле "
-"\"Значення\"."
+"Оберіть \"GeomFromText\" зі стовпця \"Функції\" та вставте нижче у поле \""
+"Значення\"."
 
 #: import.php:64
 msgid "Succeeded"
@@ -1254,7 +1254,7 @@ msgstr "ЕБ"
 #: js/messages.php:209
 #, php-format
 msgid "%d table(s)"
-msgstr "%d таблиця(таблиць)"
+msgstr "%d таблиця(ь)"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:212
@@ -2076,7 +2076,7 @@ msgstr "Кожна точка являє собою рядок даних."
 
 #: js/messages.php:491
 msgid "Hovering over a point will show its label."
-msgstr "Наведення курсора над крапкою відобразить, її назву."
+msgstr "Наведення курсора над крапкою відобразить її назву."
 
 #: js/messages.php:493
 msgid "To zoom in, select a section of the plot with the mouse."
@@ -2085,7 +2085,7 @@ msgstr "Щоб збільшити масштаб, виберіть ділянк�
 #: js/messages.php:495
 msgid "Click reset zoom button to come back to original state."
 msgstr ""
-"Натисніть кнопку Скидання масштабу, щоб повернутися до початкового стану."
+"Натисніть кнопку скидання масштабу, щоб повернутися до початкового стану."
 
 #: js/messages.php:497
 #, fuzzy
