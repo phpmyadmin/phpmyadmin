@@ -112,9 +112,6 @@ class TableRelationController extends TableController
             )
         );
 
-        // Gets tables information
-        include_once 'libraries/tbl_info.inc.php';
-
         // updates for Internal relations
         if (isset($_POST['destination_db']) && $this->cfgRelation['relwork']) {
             $this->updateForInternalRelationAction();
@@ -149,8 +146,7 @@ class TableRelationController extends TableController
         }
 
         // display secondary level tabs if necessary
-        $engine = $this->dbi->getTable($this->db, $this->table)
-            ->getStatusInfo('ENGINE');
+        $engine = $this->dbi->getTable($this->db, $this->table)->getStorageEngine();
 
         $this->response->addHTML(
             Template::get('table/secondary_tabs')->render(

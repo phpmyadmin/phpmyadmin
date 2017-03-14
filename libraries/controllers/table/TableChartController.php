@@ -14,6 +14,7 @@ use PMA\libraries\Message;
 use PMA\libraries\Response;
 use PMA\libraries\Template;
 use PMA\libraries\Util;
+use PMA\libraries\Table;
 
 
 /**
@@ -114,7 +115,26 @@ class TableChartController extends TableController
             );
             $url_params['back'] = 'tbl_sql.php';
             include 'libraries/tbl_common.inc.php';
-            include 'libraries/tbl_info.inc.php';
+            $GLOBALS['dbi']->selectDb($GLOBALS['db']);
+            $table_class_object = $GLOBALS['dbi']->getTable(
+                $GLOBALS['db'],
+                $GLOBALS['table']
+            );
+            $GLOBALS['showtable'] = $table_class_object->getStatusInfo(null, true);
+            if ($table_class_object->isView()) {
+                $tbl_is_view = true;
+                $tbl_storage_engine = __('View');
+                $show_comment = null;
+            } else {
+                $tbl_is_view = false;
+                $tbl_storage_engine = $table_class_object->getStorageEngine();
+                $show_comment = $table_class_object->getComment();
+            }
+            $tbl_collation = $table_class_object->getCollation();
+            $table_info_num_rows = $table_class_object->getNumRows();
+            $row_format = $table_class_object->getRowFormat();
+            $auto_increment = $table_class_object->getAutoIncrement();
+            $create_options = $table_class_object->getCreateOptions();
         } elseif (strlen($this->db) > 0) {
             $url_params['goto'] = Util::getScriptNameForOption(
                 $this->cfg['DefaultTabDatabase'], 'database'
