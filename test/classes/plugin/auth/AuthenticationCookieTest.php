@@ -1055,6 +1055,7 @@ class AuthenticationCookieTest extends PMATestCase
         $GLOBALS['cfg']['AllowArbitraryServer'] = true;
         $GLOBALS['pma_auth_server'] = 'b 2';
         $_SESSION['encryption_key'] = '';
+        $this->object->setIV('testiv09testiv09');
 
         $this->object->handlePasswordChange($newPassword);
 
