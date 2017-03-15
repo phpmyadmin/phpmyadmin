@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-03-01 18:19+0100\n"
-"PO-Revision-Date: 2017-01-23 23:58+0000\n"
+"PO-Revision-Date: 2017-03-13 07:36+0000\n"
 "Last-Translator: Stefano Martinelli <stefano.ste.martinelli@gmail.com>\n"
-"Language-Team: Italian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/it/>\n"
+"Language-Team: Italian "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/it/>\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.11-dev\n"
+"X-Generator: Weblate 2.12\n"
 
 #: changelog.php:39 license.php:34
 #, php-format
@@ -3991,7 +3991,7 @@ msgstr "Server"
 #: templates/table/relation/foreign_key_row.phtml:159
 #: templates/table/relation/internal_relational_row.phtml:50
 msgid "Database"
-msgstr "Database"
+msgstr "Base di dati"
 
 #: libraries/Menu.php:256 libraries/navigation/nodes/NodeView.php:30
 #: libraries/tbl_info.inc.php:60
@@ -4020,7 +4020,7 @@ msgstr "Tabella"
 #: libraries/Menu.php:275 libraries/Menu.php:294
 #, php-format
 msgid "“%s”"
-msgstr ""
+msgstr "“%s”"
 
 #: libraries/Menu.php:343 libraries/Menu.php:446 libraries/Menu.php:559
 #: libraries/Util.php:3161 libraries/Util.php:3171 libraries/Util.php:3177
@@ -4884,10 +4884,9 @@ msgid "Missing parameter:"
 msgstr "Parametro mancante:"
 
 #: libraries/Util.php:2550
-#, fuzzy, php-format
-#| msgid "Jump to database \"%s\"."
+#, php-format
 msgid "Jump to database “%s”."
-msgstr "Passa al database \"%s\"."
+msgstr "Passa al database “%s”."
 
 #: libraries/Util.php:2575
 #, php-format
@@ -10192,7 +10191,7 @@ msgstr ""
 
 #: libraries/plugins/export/ExportJson.php:94
 msgid "Output unicode characters unescaped"
-msgstr ""
+msgstr "Output caratteri unicode unescaped"
 
 #: libraries/plugins/export/ExportLatex.php:48
 msgid "Content of table @TABLE@"
@@ -11501,6 +11500,8 @@ msgid ""
 "Connection to server is disabled, please enable $cfg['AllowArbitraryServer'] "
 "in phpMyAdmin configuration."
 msgstr ""
+"La connessione al server è disabilitata, per favore attiva "
+"$cfg['AllowArbitraryServer'] nella configurazione di phpMyAdmin."
 
 #: libraries/replication_gui.lib.php:914
 msgid "Replication started successfully."
@@ -12554,31 +12555,19 @@ msgstr ""
 "host qualsiasi (%)."
 
 #: libraries/server_privileges.lib.php:4668
-#, fuzzy, php-format
-#| msgid ""
-#| "Note: phpMyAdmin gets the users' privileges directly from MySQL's "
-#| "privilege tables. The content of these tables may differ from the "
-#| "privileges the server uses, if they have been changed manually. In this "
-#| "case, you should %sreload the privileges%s before you continue."
+#, php-format
 msgid ""
 "Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege "
 "tables. The content of these tables may differ from the privileges the "
 "server uses, if they have been changed manually. In this case, you should "
 "%sreload the privileges%s before you continue."
 msgstr ""
-"N.B.: phpMyAdmin legge i privilegi degli utenti direttamente nella tabella "
-"dei privilegi di MySQL. Il contenuto di questa tabella può differire dai "
-"privilegi usati dal server se sono stati fatti cambiamenti manuali. In "
-"questo caso, Si dovrebbero %srinfrescare i privilegi%s prima di continuare."
+"N.B.: phpMyAdmin legge i privilegi degli utenti direttamente dalle tabelle "
+"dei privilegi di MySQL. Il contenuto di queste tabelle può differire dai "
+"privilegi usati dal server, se sono stati fatti cambiamenti manuali. In "
+"questo caso, dovresti %sricaricare i privilegi%s prima di continuare."
 
 #: libraries/server_privileges.lib.php:4685
-#, fuzzy
-#| msgid ""
-#| "Note: phpMyAdmin gets the users' privileges directly from MySQL's "
-#| "privilege tables. The content of these tables may differ from the "
-#| "privileges the server uses, if they have been changed manually. In this "
-#| "case, the privileges have to be reloaded but currently, you don't have "
-#| "the RELOAD privilege."
 msgid ""
 "Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege "
 "tables. The content of these tables may differ from the privileges the "
@@ -13814,10 +13803,9 @@ msgid "Problems with indexes of table `%s`"
 msgstr "Problemi con gli indici della tabella `%s`"
 
 #: libraries/sql_query_form.lib.php:139
-#, fuzzy, php-format
-#| msgid "Run SQL query/queries on server %s"
+#, php-format
 msgid "Run SQL query/queries on server “%s”"
-msgstr "Eseguendo query SQL sul server %s"
+msgstr "Eseguendo query SQL sul server “%s”"
 
 #: libraries/sql_query_form.lib.php:156
 #, php-format
@@ -14368,7 +14356,7 @@ msgstr "Aggiungi un nuovo server"
 
 #: setup/index.php:16
 msgid "Configuration already exists, setup is disabled!"
-msgstr ""
+msgstr "La configurazione esiste già, il setup è disabilitato!"
 
 #: setup/index.php:26
 msgid "Wrong GET file attribute value"
