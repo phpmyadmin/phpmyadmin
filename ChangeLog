@@ -106,6 +106,7 @@ phpMyAdmin - ChangeLog
 - issue #13029 Fixed table tracking for nested table groups
 - issue #13053 Fixed broken links in setup
 - issue #12708 Removed phpMyAdmin version from User-Agent header
+- issue #13084 Do not point users to setup when it is disabled
 
 4.6.6 (2017-01-23)
 - issue #12759 Fix Notice regarding 'Undefined index: old_usergroup'
