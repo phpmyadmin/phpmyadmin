@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-03-01 18:19+0100\n"
-"PO-Revision-Date: 2017-03-12 20:46+0000\n"
-"Last-Translator: mao <mao@lins.fju.edu.tw>\n"
-"Language-Team: Chinese (Traditional) "
-"<https://hosted.weblate.org/projects/phpmyadmin/master/zh_Hant/>\n"
+"PO-Revision-Date: 2017-02-18 09:04+0000\n"
+"Last-Translator: hd hd <hd@cgsword.com>\n"
+"Language-Team: Chinese (Taiwan) <https://hosted.weblate.org/projects/"
+"phpmyadmin/master/zh_TW/>\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 2.12\n"
+"X-Generator: Weblate 2.12-dev\n"
 
 #: changelog.php:39 license.php:34
 #, php-format
@@ -231,7 +231,7 @@ msgstr "是"
 
 #: db_export.php:47
 msgid "View dump (schema) of database"
-msgstr "檢視資料庫的匯出資料 (結構)"
+msgstr "檢視資料庫結構的匯出資料"
 
 #: db_export.php:51 db_tracking.php:103 export.php:375 libraries/DbQbe.php:326
 #: libraries/controllers/database/DatabaseStructureController.php:156
@@ -795,7 +795,7 @@ msgstr "您正要刪除(DESTROY)一個完整的資料庫！"
 
 #: js/messages.php:48
 msgid "Cannot rename database to the same name. Change the name and try again"
-msgstr "無法修改資料庫為相同名稱。改變名稱後再試"
+msgstr "無法修改數據庫為相同名稱。改變名稱後再試"
 
 #: js/messages.php:50
 msgid "You are about to DESTROY a complete table!"
@@ -2091,7 +2091,7 @@ msgstr "加密金鑰"
 msgid ""
 "MySQL accepts additional values not selectable by the slider; key in those "
 "values directly if desired"
-msgstr "MySQL 接受此 Slider 以外的值，如有需要可直接輸入"
+msgstr "MySQL 接受此滑塊以外的值，如有需要可直接輸入"
 
 #: js/messages.php:534
 msgid ""
@@ -2868,7 +2868,7 @@ msgstr "無法產生規則 '%s' 的格式化文字。"
 #: libraries/Advisor.php:469
 #, php-format
 msgid "Error in reading file: The file '%s' does not exist or is not readable!"
-msgstr "讀取檔案時的錯誤︰檔案 %s 不存在或無法讀取！"
+msgstr "讀取檔案時的錯誤︰檔案 %s 不存在或不可讀！"
 
 #: libraries/Advisor.php:494
 #, php-format
@@ -3871,7 +3871,7 @@ msgstr "資料表"
 #: libraries/Menu.php:275 libraries/Menu.php:294
 #, php-format
 msgid "“%s”"
-msgstr "“%s 1”"
+msgstr ""
 
 #: libraries/Menu.php:343 libraries/Menu.php:446 libraries/Menu.php:559
 #: libraries/Util.php:3161 libraries/Util.php:3171 libraries/Util.php:3177
@@ -3944,7 +3944,7 @@ msgstr "查詢"
 #: libraries/Menu.php:489 libraries/Util.php:4097
 #: libraries/rte/rte_words.lib.php:44
 msgid "Routines"
-msgstr "預存程序"
+msgstr "程序"
 
 #: libraries/Menu.php:494 libraries/Util.php:4098
 #: libraries/navigation/nodes/NodeEventContainer.php:25
@@ -4693,9 +4693,10 @@ msgid "Missing parameter:"
 msgstr "未填寫必要的參數:"
 
 #: libraries/Util.php:2550
-#, php-format
+#, fuzzy, php-format
+#| msgid "Jump to database \"%s\"."
 msgid "Jump to database “%s”."
-msgstr "跳至資料庫 “%s”。"
+msgstr "切換到資料庫「%s」。"
 
 #: libraries/Util.php:2575
 #, php-format
@@ -4826,7 +4827,7 @@ msgstr "屬性"
 
 #: libraries/central_columns.lib.php:709 libraries/central_columns.lib.php:1386
 msgid "A_I"
-msgstr "A_I"
+msgstr "自動增加"
 
 #: libraries/central_columns.lib.php:749
 msgid "Select a table"
@@ -5133,8 +5134,10 @@ msgid "You allow for connecting to the server without a password."
 msgstr "該伺服器現在允許空密碼登入。"
 
 #: libraries/config/ServerConfigChecks.php:349
+#, fuzzy
+#| msgid "Key is too short, it should have at least 8 characters."
 msgid "Key is too short, it should have at least 32 characters."
-msgstr "金鑰太短，至少應有 32 個字元。"
+msgstr "密碼太短，至少應有 32 個字元。"
 
 #: libraries/config/ServerConfigChecks.php:359
 msgid "Key should contain letters, numbers [em]and[/em] special characters."
@@ -5736,7 +5739,7 @@ msgstr "關閉外鍵(Foreign Key)檢查"
 #: libraries/config/messages.inc.php:196
 #: libraries/plugins/export/ExportSql.php:165
 msgid "Export views as tables"
-msgstr "將檢視表匯出成資料表"
+msgstr "將視表匯出成資料表"
 
 #: libraries/config/messages.inc.php:198
 msgid "Export related metadata from phpMyAdmin configuration storage"
@@ -6422,7 +6425,7 @@ msgstr "第二快速存取圖示的目標頁面"
 msgid ""
 "Defines the minimum number of items (tables, views, routines and events) to "
 "display a filter box."
-msgstr "設定顯示搜尋框的項目數量下限 (資料表、檢視表、預存程序和事件) 。"
+msgstr "設定顯示搜尋框的項目數量下限 (資料表、檢視表、程序和事件) 。"
 
 #: libraries/config/messages.inc.php:496
 msgid "Minimum number of items to display the filter box"
@@ -6494,7 +6497,7 @@ msgstr "在導覽樹顯示檢視表"
 
 #: libraries/config/messages.inc.php:524
 msgid "Whether to show views under database in the navigation tree"
-msgstr "在導覽樹是否於於資料庫底下顯示檢視表 (View)"
+msgstr "在導覽樹是否於於資料庫底下顯示檢視表(View)"
 
 #: libraries/config/messages.inc.php:525
 msgid "Show functions in tree"
@@ -7854,7 +7857,7 @@ msgstr "密碼:"
 
 #: libraries/display_change_password.lib.php:68
 msgid "Enter:"
-msgstr "輸入："
+msgstr "輸入︰"
 
 #: libraries/display_change_password.lib.php:75
 #: libraries/replication_gui.lib.php:865
@@ -8038,7 +8041,7 @@ msgstr "gzip 壓縮"
 
 #: libraries/display_export.lib.php:731
 msgid "View output as text"
-msgstr "以文字顯示輸出結果"
+msgstr "直接顯示在文字區塊"
 
 #: libraries/display_export.lib.php:751
 msgid "Export databases as separate files"
@@ -8570,7 +8573,7 @@ msgstr "下列結構被建立或修改。您可以:"
 
 #: libraries/import.lib.php:1207
 msgid "View a structure's contents by clicking on its name."
-msgstr "點選結構的名稱來查看其內容。"
+msgstr "點選結構的名稱查看內容。"
 
 #: libraries/import.lib.php:1210
 msgid ""
@@ -8795,7 +8798,7 @@ msgstr "Procedure："
 
 #: libraries/navigation/Navigation.php:198
 msgid "Views:"
-msgstr "檢視表："
+msgstr "視表："
 
 #: libraries/navigation/Navigation.php:222 libraries/tracking.lib.php:289
 #: libraries/tracking.lib.php:1605 tbl_change.php:156
@@ -8812,7 +8815,7 @@ msgstr "登出"
 
 #: libraries/navigation/NavigationHeader.php:172
 msgid "Empty session data"
-msgstr "清空連線階段資料"
+msgstr "清空會話資料"
 
 #: libraries/navigation/NavigationHeader.php:190
 msgid "phpMyAdmin documentation"
@@ -9648,7 +9651,7 @@ msgstr "輸出格式化的 JSON (使用人可讀的格式)"
 
 #: libraries/plugins/export/ExportJson.php:94
 msgid "Output unicode characters unescaped"
-msgstr "輸出未帶逸出字元的 unicode"
+msgstr ""
 
 #: libraries/plugins/export/ExportLatex.php:48
 msgid "Content of table @TABLE@"
@@ -9902,7 +9905,7 @@ msgstr ""
 
 #: libraries/plugins/export/ExportSql.php:516
 msgid "It appears your database uses routines;"
-msgstr "您的資料庫使用了預存程序 (Routine)；"
+msgstr "您的資料庫使用了程序(Routine)；"
 
 #: libraries/plugins/export/ExportSql.php:519
 #: libraries/plugins/export/ExportSql.php:1545
@@ -9942,11 +9945,11 @@ msgstr "最後檢查:"
 #: libraries/plugins/export/ExportSql.php:1488
 #, php-format
 msgid "Error reading structure for table %s:"
-msgstr "讀取資料表 %s 時出現錯誤："
+msgstr "讀取資料表%s時出現錯誤："
 
 #: libraries/plugins/export/ExportSql.php:1542
 msgid "It appears your database uses views;"
-msgstr "您的資料庫使用了檢視表 (View)；"
+msgstr "您的資料庫使用了檢視表(View)；"
 
 #: libraries/plugins/export/ExportSql.php:1719
 msgid "Constraints for dumped tables"
@@ -9978,7 +9981,7 @@ msgstr "MIME 類型表"
 
 #: libraries/plugins/export/ExportSql.php:1878
 msgid "RELATIONSHIPS FOR TABLE"
-msgstr "資料表的關聯"
+msgstr "表的關聯"
 
 #: libraries/plugins/export/ExportSql.php:2059
 msgid "It appears your table uses triggers;"
@@ -9987,7 +9990,7 @@ msgstr "您的資料表使用了觸發(Trigger)；"
 #: libraries/plugins/export/ExportSql.php:2096
 #, php-format
 msgid "Structure for view %s exported as a table"
-msgstr "將檢視表 %s 結構匯出成資料表"
+msgstr "將視表 %s 結構匯出成資料表"
 
 #: libraries/plugins/export/ExportSql.php:2120
 msgid "(See below for the actual view)"
@@ -9996,7 +9999,7 @@ msgstr "(請參考以下實際畫面)"
 #: libraries/plugins/export/ExportSql.php:2204
 #, php-format
 msgid "Error reading data for table %s:"
-msgstr "讀取資料表 %s 的資料時出現錯誤："
+msgstr "讀取資料表%s的資料時出現錯誤:"
 
 #: libraries/plugins/export/ExportXml.php:97
 msgid "Object creation options (all are recommended)"
@@ -10421,15 +10424,15 @@ msgstr "將文字以 XML 語法醒目提示顯示。"
 
 #: libraries/pmd_common.php:551
 msgid "Error: relationship already exists."
-msgstr "錯誤：關聯已存在。"
+msgstr "錯誤: 關聯已存在。"
 
 #: libraries/pmd_common.php:597
 msgid "FOREIGN KEY relationship has been added."
-msgstr "已新增外鍵 (Foreign Key) 關聯。"
+msgstr "已新增外鍵(Foreign Key)關聯。"
 
 #: libraries/pmd_common.php:603
 msgid "Error: FOREIGN KEY relationship could not be added!"
-msgstr "錯誤: FOREIGN KEY 關聯無法新增！"
+msgstr "錯誤: FOREIGN KEY 關聯無法新增!"
 
 #: libraries/pmd_common.php:608
 msgid "Error: Missing index on column(s)."
@@ -10445,19 +10448,19 @@ msgstr "已新增內部關聯。"
 
 #: libraries/pmd_common.php:641
 msgid "Error: Internal relationship could not be added!"
-msgstr "錯誤：內部關聯無法新增！"
+msgstr "錯誤: 內部關聯無法新增!"
 
 #: libraries/pmd_common.php:679
 msgid "FOREIGN KEY relationship has been removed."
-msgstr "已移除外鍵 (Foreign Key) 關聯。"
+msgstr "已移除外鍵(Foreign Key)關聯。"
 
 #: libraries/pmd_common.php:685
 msgid "Error: FOREIGN KEY relationship could not be removed!"
-msgstr "錯誤：無法移除 FOREIGN KEY 關聯！"
+msgstr "錯誤: 無法移除 FOREIGN KEY 關聯!"
 
 #: libraries/pmd_common.php:712
 msgid "Error: Internal relationship could not be removed!"
-msgstr "錯誤：無法移除內部關聯！"
+msgstr "錯誤: 無法移除內部關聯!"
 
 #: libraries/pmd_common.php:716
 msgid "Internal relationship has been removed."
@@ -11076,41 +11079,42 @@ msgid ""
 "fail![/strong] Please use the improved 'mysqli' extension to avoid any "
 "problems."
 msgstr ""
-"您目前使用 PHP 已不建議使用的擴充套件 'mysql'，該擴充套件無法處理多查詢，並且[strong]在執行某些預存程序 (Stored "
-"routine) 的可能會導致失敗[/strong]，請使用 'mysqli' 擴充套件以避免發生錯誤。"
+"您目前使用 PHP 已不建議使用的擴充套件 'mysql'，該擴充套件無法處理多查詢，並且"
+"[strong]在執行某些預存程序(Stored routine)的可能會導致失敗[/strong]，請使用 "
+"'mysqli' 擴充套件以避免發生錯誤。"
 
 #: libraries/rte/rte_routines.lib.php:129
 msgid "Edit routine"
-msgstr "編輯預存程序"
+msgstr "編輯程序"
 
 #: libraries/rte/rte_routines.lib.php:207
 #: libraries/rte/rte_routines.lib.php:1118
 #, php-format
 msgid "Invalid routine type: \"%s\""
-msgstr "無效的預存程序類型：\"%s\""
+msgstr "無效的程序類型: \"%s\""
 
 #: libraries/rte/rte_routines.lib.php:260
 #, php-format
 msgid "Routine %1$s has been created."
-msgstr "預存程序 %1$s 已建立。"
+msgstr "程序 %1$s 已建立。"
 
 #: libraries/rte/rte_routines.lib.php:379
 msgid "Sorry, we failed to restore the dropped routine."
-msgstr "很抱歉，還原的被刪除的預存程序失敗。"
+msgstr "很抱歉，還原的被刪除的程序失敗。"
 
 #: libraries/rte/rte_routines.lib.php:435
 #, php-format
 msgid "Routine %1$s has been modified. Privileges have been adjusted."
-msgstr "已修改預存程序 %1$s 。已調整權限。"
+msgstr "已修改程序 %1$s 。已調整權限。"
 
 #: libraries/rte/rte_routines.lib.php:440
 #, php-format
 msgid "Routine %1$s has been modified."
-msgstr "預存程序 %1$s 已被修改。"
+msgstr "程序 %1$s 已被修改。"
 
 #: libraries/rte/rte_routines.lib.php:893
 msgid "Routine name"
-msgstr "預存程序名稱"
+msgstr "程序名稱"
 
 #: libraries/rte/rte_routines.lib.php:919
 msgid "Parameters"
@@ -11160,7 +11164,7 @@ msgstr "SQL 資料存取"
 
 #: libraries/rte/rte_routines.lib.php:1125
 msgid "You must provide a routine name!"
-msgstr "您必須填寫預存程序名稱！"
+msgstr "您必須填寫程序名稱！"
 
 #: libraries/rte/rte_routines.lib.php:1159
 #, php-format
@@ -11172,24 +11176,25 @@ msgstr "給予的參數方向 \"%s\" 無效。"
 msgid ""
 "You must provide length/values for routine parameters of type ENUM, SET, "
 "VARCHAR and VARBINARY."
-msgstr "您必須為預存程序提供長度/數值的參數型別為列舉、集合、VARCHAR 和 VARBINARY。"
+msgstr ""
+"您必須為程序提供長度/數值的參數型別為列舉、集合、VARCHAR 和 VARBINARY。"
 
 #: libraries/rte/rte_routines.lib.php:1207
 msgid "You must provide a name and a type for each routine parameter."
-msgstr "你必須提供每個預存程序的參數名稱和類型。"
+msgstr "你必須提供每個程序的參數名稱和類型。"
 
 #: libraries/rte/rte_routines.lib.php:1226
 msgid "You must provide a valid return type for the routine."
-msgstr "您必須提供一個有效的返回類型的預存程序。"
+msgstr "您必須提供一個有效的返回類型的程序。"
 
 #: libraries/rte/rte_routines.lib.php:1286
 msgid "You must provide a routine definition."
-msgstr "您必須提供一個預存程序的定義。"
+msgstr "您必須提供一個程序的定義。"
 
 #: libraries/rte/rte_routines.lib.php:1398
 #, php-format
 msgid "Execution results of routine %s"
-msgstr "執行預存程序 %s 的結果"
+msgstr "執行程序 %s 的結果"
 
 #: libraries/rte/rte_routines.lib.php:1453
 #, php-format
@@ -11200,12 +11205,12 @@ msgstr[0] "最後一筆查詢敘述句共影響 %d 筆資料列。"
 #: libraries/rte/rte_routines.lib.php:1510
 #: libraries/rte/rte_routines.lib.php:1517
 msgid "Execute routine"
-msgstr "執行預存程序"
+msgstr "執行程序"
 
 #: libraries/rte/rte_routines.lib.php:1597
 #: libraries/rte/rte_routines.lib.php:1600
 msgid "Routine parameters"
-msgstr "預存程序的參數"
+msgstr "程序的參數"
 
 #: libraries/rte/rte_triggers.lib.php:106
 msgid "Sorry, we failed to restore the dropped trigger."
@@ -11256,39 +11261,40 @@ msgstr "您必須提供一個觸發器的定義。"
 
 #: libraries/rte/rte_words.lib.php:27
 msgid "Add routine"
-msgstr "新增預存程序"
+msgstr "新增程序"
 
 #: libraries/rte/rte_words.lib.php:29
 #, php-format
 msgid "Export of routine %s"
-msgstr "匯出預存程序 %s"
+msgstr "匯出程序 %s"
 
 #: libraries/rte/rte_words.lib.php:30
 msgid "routine"
-msgstr "預存程序"
+msgstr "程序"
 
 #: libraries/rte/rte_words.lib.php:32
 msgid "You do not have the necessary privileges to create a routine."
-msgstr "您無建立預存程序的權限。"
+msgstr "您無建立程序的權限。"
 
 #: libraries/rte/rte_words.lib.php:35
 #, php-format
 msgid ""
 "No routine with name %1$s found in database %2$s. You might be lacking the "
 "necessary privileges to edit this routine."
-msgstr "資料庫 %2$s 中查無名稱為 %1$s 的預存程序 (Routine)，您可能缺少能夠編輯該程序的權限。"
+msgstr "無法在資料庫%2$s中找到預存程序%1$s，你可能沒有足夠權限修改此預存程序。"
 
 #: libraries/rte/rte_words.lib.php:39
 #, php-format
 msgid ""
 "No routine with name %1$s found in database %2$s. You might be lacking the "
 "necessary privileges to view/export this routine."
-msgstr "在資料庫 %2$s 中查無名稱為 %1$s 的預存程序 (Routine)，您可能缺少能夠檢視/匯出該程序的權限。"
+msgstr ""
 
 #: libraries/rte/rte_words.lib.php:42
-#, php-format
+#, fuzzy, php-format
+#| msgid "No routine with name %1$s found in database %2$s"
 msgid "No routine with name %1$s found in database %2$s."
-msgstr "在資料庫 %2$s 中查無名稱為 %1$s 的預存程序 (Routine)。"
+msgstr "在資料庫 %2$s 中無此程序名稱 %1$s"
 
 #: libraries/rte/rte_words.lib.php:43
 msgid "There are no routines to display."
@@ -11308,13 +11314,16 @@ msgid "trigger"
 msgstr "觸發器"
 
 #: libraries/rte/rte_words.lib.php:54
+#, fuzzy
+#| msgid "You do not have the necessary privileges to create a trigger"
 msgid "You do not have the necessary privileges to create a trigger."
-msgstr "您沒有建立觸發器所需的權限。"
+msgstr "您無建立觸發器的權限"
 
 #: libraries/rte/rte_words.lib.php:56
-#, php-format
+#, fuzzy, php-format
+#| msgid "No trigger with name %1$s found in database %2$s"
 msgid "No trigger with name %1$s found in database %2$s."
-msgstr "在資料庫 %2$s 中查無名稱為 %1$s 的觸發器 (Trigger)。"
+msgstr "資料庫 %2$s 中無此觸發器 %1$s"
 
 #: libraries/rte/rte_words.lib.php:57
 msgid "There are no triggers to display."
@@ -11334,13 +11343,16 @@ msgid "event"
 msgstr "事件"
 
 #: libraries/rte/rte_words.lib.php:68
+#, fuzzy
+#| msgid "You do not have the necessary privileges to create an event"
 msgid "You do not have the necessary privileges to create an event."
-msgstr "您沒有建立事件所需的權限。"
+msgstr "您沒有足夠的權限建立一個事件"
 
 #: libraries/rte/rte_words.lib.php:70
-#, php-format
+#, fuzzy, php-format
+#| msgid "No event with name %1$s found in database %2$s"
 msgid "No event with name %1$s found in database %2$s."
-msgstr "在資料庫 %2$s 中查無名稱為 %1$s 的事件 (Event)。"
+msgstr "在資料庫 %2$s 中找不到名為 %1$s 的事件"
 
 #: libraries/rte/rte_words.lib.php:71
 msgid "There are no events to display."
@@ -11483,7 +11495,7 @@ msgstr "允許使用者查詢次要(Slaves)/主要(masters)備援伺服器在哪
 #: libraries/server_privileges.lib.php:1264
 #: libraries/server_privileges.lib.php:1271 server_privileges.php:66
 msgid "Allows creating new views."
-msgstr "允許建立檢視表 (View)."
+msgstr "允許建立檢視表(View)."
 
 #: libraries/server_privileges.lib.php:395
 #: libraries/server_privileges.lib.php:1278 server_privileges.php:70
@@ -11504,12 +11516,12 @@ msgstr "允許執行 SHOW CREATE VIEW 查詢。"
 #: libraries/server_privileges.lib.php:422
 #: libraries/server_privileges.lib.php:1252 server_privileges.php:62
 msgid "Allows creating stored routines."
-msgstr "允許建立預存程序 (Stored routine)。"
+msgstr "允許建立預存程序(Stored routine)。"
 
 #: libraries/server_privileges.lib.php:427
 #: libraries/server_privileges.lib.php:1256 server_privileges.php:60
 msgid "Allows altering and dropping stored routines."
-msgstr "允許修改或刪除已預存程序 (Stored routine)。"
+msgstr "允許修改或刪除已預存程序(Stored routine)。"
 
 #: libraries/server_privileges.lib.php:432
 #: libraries/server_privileges.lib.php:1363 server_privileges.php:65
@@ -11519,7 +11531,7 @@ msgstr "允許建立、刪除和重新命名使用者帳號。"
 #: libraries/server_privileges.lib.php:437
 #: libraries/server_privileges.lib.php:1258 server_privileges.php:71
 msgid "Allows executing stored routines."
-msgstr "允許執行預存程序 (Stored routine)。"
+msgstr "允許執行預存程序(Stored routine)。"
 
 #: libraries/server_privileges.lib.php:713
 msgid "Does not require SSL-encrypted connections."
@@ -11569,21 +11581,21 @@ msgstr "使用者可同時連線的數量限制。"
 #: libraries/server_privileges.lib.php:4512
 #: templates/privileges/edit_routine_privileges.phtml:11
 msgid "Routine"
-msgstr "預存程序"
+msgstr "程序"
 
 #: libraries/server_privileges.lib.php:927
 msgid ""
 "Allows user to give to other users or remove from other users privileges "
 "that user possess on this routine."
-msgstr "使用者把在此區塊的權限給予或移除至其他使用者。"
+msgstr ""
 
 #: libraries/server_privileges.lib.php:934
 msgid "Allows altering and dropping this routine."
-msgstr "允許修改或刪除此預存程序。"
+msgstr "允許修改或刪除此程序。"
 
 #: libraries/server_privileges.lib.php:939
 msgid "Allows executing this routine."
-msgstr "允許執行此預存程序。"
+msgstr "允許執行此程序。"
 
 #: libraries/server_privileges.lib.php:989
 #: libraries/server_privileges.lib.php:1158
@@ -11634,7 +11646,7 @@ msgstr "允許新增使用者和權限，但不允許重新載入權限表。"
 msgid ""
 "Allows user to give to other users or remove from other users the privileges "
 "that user possess yourself."
-msgstr "允許使用者給予或移除其他讀者的權限。"
+msgstr ""
 
 #: libraries/server_privileges.lib.php:1422
 #: libraries/server_privileges.lib.php:1453
@@ -11807,7 +11819,7 @@ msgstr "建立具有相同權限的新使用者帳號並且 …"
 #: libraries/server_privileges.lib.php:3302
 #: templates/privileges/edit_routine_privileges.phtml:12
 msgid "Routine-specific privileges"
-msgstr "程序特定的權限"
+msgstr "指定程序權限"
 
 #: libraries/server_privileges.lib.php:3497
 #: libraries/server_user_groups.lib.php:76
@@ -11886,17 +11898,30 @@ msgstr ""
 "允許來自任何(%)地方連線使用者無法使用。"
 
 #: libraries/server_privileges.lib.php:4668
-#, php-format
+#, fuzzy, php-format
+#| msgid ""
+#| "Note: phpMyAdmin gets the users' privileges directly from MySQL's "
+#| "privilege tables. The content of these tables may differ from the "
+#| "privileges the server uses, if they have been changed manually. In this "
+#| "case, you should %sreload the privileges%s before you continue."
 msgid ""
 "Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege "
 "tables. The content of these tables may differ from the privileges the "
 "server uses, if they have been changed manually. In this case, you should "
 "%sreload the privileges%s before you continue."
 msgstr ""
-"注意: phpMyAdmin 直接由 MySQL "
-"權限表取得使用者權限。若有使用者中途手動更改權限，則表中顯示的內容可能與伺服器實際使用的使用者權限有異。在這種情況下，您應在繼續前 %s重新載入權限%s。"
+"注意: phpMyAdmin 直接由 MySQL 權限表取得使用者權限。若有使用者中途手動更改權"
+"限，則表中顯示的內容可能與伺服器實際使用的使用者權限有異。在這種情況下，您應"
+"在繼續前 %s重新載入權限%s。"
 
 #: libraries/server_privileges.lib.php:4685
+#, fuzzy
+#| msgid ""
+#| "Note: phpMyAdmin gets the users' privileges directly from MySQL's "
+#| "privilege tables. The content of these tables may differ from the "
+#| "privileges the server uses, if they have been changed manually. In this "
+#| "case, the privileges have to be reloaded but currently, you don't have "
+#| "the RELOAD privilege."
 msgid ""
 "Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege "
 "tables. The content of these tables may differ from the privileges the "
@@ -11904,9 +11929,9 @@ msgid ""
 "privileges have to be reloaded but currently, you don't have the RELOAD "
 "privilege."
 msgstr ""
-"注意：phpMyAdmin 係直接由 MySQL "
-"權限資料表中取得使用者的權限資訊，若有任何手動的修改，這些資料表的內容可能將與伺服器實際使用的權限有所不同。 在此情況下才需要重新整理權限，"
-"目前您並不需要重新整理 (RELOAD) 權限。"
+"注意：phpMyAdmin 係直接由 MySQL 權限資料表中取得使用者的權限資訊，若有任何手"
+"動的修改，這些資料表的內容可能將與伺服器實際使用的權限有所不同。 在此情況下才"
+"需要重新整理權限，目前您並不需要重新整理(RELOAD)權限。"
 
 #: libraries/server_privileges.lib.php:4736
 msgid "The selected user was not found in the privilege table."
@@ -13022,9 +13047,10 @@ msgid "Problems with indexes of table `%s`"
 msgstr "資料表 `%s` 的索引存在問題"
 
 #: libraries/sql_query_form.lib.php:139
-#, php-format
+#, fuzzy, php-format
+#| msgid "Run SQL query/queries on server %s"
 msgid "Run SQL query/queries on server “%s”"
-msgstr "在伺服器 “%s” 執行 SQL 查詢"
+msgstr "在伺服器 %s 執行 SQL 查詢"
 
 #: libraries/sql_query_form.lib.php:156
 #, php-format
@@ -13329,12 +13355,14 @@ msgid "Cannot save settings, submitted form contains errors!"
 msgstr "無法儲存設定，送出的表單內容發生錯誤！"
 
 #: prefs_manage.php:52
+#, fuzzy
+#| msgid "Missing phpMyAdmin configuration storage tables"
 msgid "phpMyAdmin configuration snippet"
-msgstr "phpMyAdmin 設定片段"
+msgstr "缺少 phpMyAdmin 設定儲存空間資料表"
 
 #: prefs_manage.php:53
 msgid "Paste it to your config.inc.php"
-msgstr "貼至您的 config.inc.php"
+msgstr ""
 
 #: prefs_manage.php:93
 msgid "Could not import configuration"
@@ -13386,8 +13414,10 @@ msgstr ""
 "式%s 。"
 
 #: prefs_manage.php:331
+#, fuzzy
+#| msgid "Save as file"
 msgid "Save as PHP file"
-msgstr "儲存為 PHP 檔案"
+msgstr "另存新檔"
 
 #: prefs_manage.php:336
 msgid "Save to browser's storage"
@@ -13407,7 +13437,7 @@ msgstr "您可以重新設定所有設定恢復爲預設值。"
 
 #: server_export.php:27
 msgid "View dump (schema) of databases"
-msgstr "檢視資料庫的匯出資料 (結構)"
+msgstr "檢視資料庫結構的匯出資料"
 
 #: server_privileges.php:133 server_replication.php:33
 #: server_user_groups.php:29 templates/server/databases/create.phtml:32
@@ -13462,10 +13492,16 @@ msgid ""
 msgstr "您現在未使用安全協定連線，所有資料(包括敏感資訊，如密碼)均未加密傳輸！"
 
 #: setup/frames/index.inc.php:58
+#, fuzzy
+#| msgid ""
+#| "If your server is also configured to accept HTTPS requests follow [a@"
+#| "%s]this link[/a] to use a secure connection."
 msgid ""
 "If your server is also configured to accept HTTPS requests follow this link "
 "to use a secure connection."
-msgstr "如果您的伺服器已經設定為接受 HTTPS 協定，請依此處說明以使用安全協定連線。"
+msgstr ""
+"如果您的伺服器已經設定為接受 HTTPS 協定，請依 [a@%s]此處[/a] 說明以使用安全協"
+"定連線。"
 
 #: setup/frames/index.inc.php:62
 msgid "Insecure connection"
@@ -13484,8 +13520,10 @@ msgstr ""
 "刪除 config 目錄。"
 
 #: setup/frames/index.inc.php:101
+#, fuzzy
+#| msgid "Configuration saved."
 msgid "Configuration not saved!"
-msgstr "設定尚未儲存！"
+msgstr "設定已儲存。"
 
 #: setup/frames/index.inc.php:104
 msgid ""
@@ -13554,7 +13592,7 @@ msgstr "新增伺服器"
 
 #: setup/index.php:16
 msgid "Configuration already exists, setup is disabled!"
-msgstr "設定已存在，關閉安裝功能！"
+msgstr ""
 
 #: setup/index.php:26
 msgid "Wrong GET file attribute value"
@@ -13614,7 +13652,7 @@ msgstr "錯誤的資料"
 #: setup/validate.php:30
 #, php-format
 msgid "Wrong data or no validation for %s"
-msgstr "資料錯誤或被 %s 審核未通過"
+msgstr ""
 
 #: tbl_create.php:32 tbl_get_field.php:26
 #, php-format
@@ -13628,7 +13666,7 @@ msgstr "資料表 %s 已存在！"
 
 #: tbl_export.php:44
 msgid "View dump (schema) of table"
-msgstr "檢視資料表的匯出資料 (結構)"
+msgstr "檢視資料表結構的匯出資料"
 
 #: tbl_get_field.php:33
 msgid "Invalid table name"
@@ -13679,8 +13717,10 @@ msgid "Add"
 msgstr "新增"
 
 #: templates/columns_definitions/column_definitions_form.phtml:66
+#, fuzzy
+#| msgid "Add column(s)"
 msgid "column(s)"
-msgstr "欄位"
+msgstr "新增欄位"
 
 #: templates/columns_definitions/column_definitions_form.phtml:93
 msgid "Collation:"
@@ -14031,6 +14071,8 @@ msgid "See table structure"
 msgstr "檢視資料表結構"
 
 #: templates/database/designer/delete_relation_panel.phtml:21
+#, fuzzy
+#| msgid "Delete relation"
 msgid "Delete relationship"
 msgstr "刪除關聯"
 
@@ -14059,11 +14101,15 @@ msgstr "子查詢"
 #: templates/database/designer/new_relation_panel.phtml:22
 #: templates/database/designer/side_menu.phtml:84
 #: templates/database/designer/side_menu.phtml:87
+#, fuzzy
+#| msgid "Create relation"
 msgid "Create relationship"
 msgstr "建立關聯"
 
 #: templates/database/designer/options_panel.phtml:34
 #: templates/database/designer/options_panel.phtml:200
+#, fuzzy
+#| msgid "Relation operator"
 msgid "Relationship operator"
 msgstr "關聯運算子"
 
@@ -14163,8 +14209,10 @@ msgstr "折疊/展開"
 
 #: templates/database/designer/side_menu.phtml:145
 #: templates/database/designer/side_menu.phtml:148
+#, fuzzy
+#| msgid "Toggle relation lines"
 msgid "Toggle relationship lines"
-msgstr "切換關聯線"
+msgstr "請點選關聯行"
 
 #: templates/database/designer/side_menu.phtml:153
 #: templates/database/designer/side_menu.phtml:156
@@ -14191,8 +14239,10 @@ msgid "Hide/Show all"
 msgstr "全部隱藏/顯示"
 
 #: templates/database/designer/table_list.phtml:14
+#, fuzzy
+#| msgid "Hide/Show Tables with no relation"
 msgid "Hide/Show Tables with no relationship"
-msgstr "隱藏/顯示沒有關聯的資料表"
+msgstr "隱藏/顯示沒有關聯的表"
 
 #: templates/database/designer/table_list.phtml:59
 msgid "Number of tables:"
@@ -14322,8 +14372,10 @@ msgid ""
 msgstr "您的瀏覽器中有此網域的 phpMyAdmin 設定，是否匯入到目前的連線階段?"
 
 #: templates/prefs_autoload.phtml:14
+#, fuzzy
+#| msgid "Delete tracking"
 msgid "Delete settings "
-msgstr "刪除設定 "
+msgstr "刪除追蹤資料"
 
 #: templates/privileges/add_privileges_database.phtml:2
 msgid "Add privileges on the following database(s):"
@@ -14335,7 +14387,7 @@ msgstr "要使用萬用字元 _ 和 % 本身，應使用用 \\ 轉義。"
 
 #: templates/privileges/add_privileges_routine.phtml:3
 msgid "Add privileges on the following routine:"
-msgstr "在下列預存程序新增權限："
+msgstr "在下列程序新增權限："
 
 #: templates/privileges/add_privileges_table.phtml:3
 msgid "Add privileges on the following table:"
@@ -14583,7 +14635,7 @@ msgid ""
 "Creating a foreign key over a non-indexed column would automatically create "
 "an index on it. Alternatively, you can define an index below, before "
 "creating the foreign key."
-msgstr "在非索引的欄位建立外鍵會自動在該欄位建立索引 (Index)，或者您可在建立外鍵之前先在下方定義索引。"
+msgstr ""
 
 #: templates/table/relation/common_form.phtml:20
 msgid ""
@@ -14600,6 +14652,8 @@ msgstr "加入限制(Constraint)"
 
 #: templates/table/relation/common_form.phtml:76
 #: templates/table/relation/common_form.phtml:82
+#, fuzzy
+#| msgid "Internal relations"
 msgid "Internal relationships"
 msgstr "內部關聯"
 
@@ -14880,12 +14934,14 @@ msgid "The profile has been updated."
 msgstr "設定檔案己更新。"
 
 #: user_password.php:127
+#, fuzzy
+#| msgid "Password Hashing:"
 msgid "Password is too long!"
-msgstr "密碼過長！"
+msgstr "密碼加密方式："
 
 #: view_create.php:48
 msgid "View name can not be empty!"
-msgstr "檢視表名稱不可以是空的！"
+msgstr ""
 
 #: view_create.php:253
 msgid "VIEW name"

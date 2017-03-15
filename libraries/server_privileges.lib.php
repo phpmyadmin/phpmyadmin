@@ -4607,6 +4607,7 @@ function PMA_getHtmlForUserOverview($pmaThemeImage, $text_dir)
             $raw = 'Your privilege table structure seems to be older than'
                 . ' this MySQL version!<br />'
                 . 'Please run the <code>mysql_upgrade</code> command'
+                . '(<code>mysql_fix_privilege_tables</code> on older systems)'
                 . ' that should be included in your MySQL server distribution'
                 . ' to solve this problem!';
             $html_output .= Message::rawError($raw)->getDisplay();

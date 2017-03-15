@@ -99,12 +99,6 @@ phpMyAdmin - ChangeLog
 - issue #13045 Properly escape MIME transformatoin names
 - issue #13028 Always show 100% in font selector
 - issue #13047 Fix query simulating for more servers
-- issue #12846 Fix new version check for sites with wrongly configured curl
-- issue #12951 When exporting to Excel, the default is now to include column names in the first row
-- issue #13059 Removed debugging code
-- issue #13029 Fixed table tracking for nested table groups
-- issue #13053 Fixed broken links in setup
-- issue #12708 Removed phpMyAdmin version from User-Agent header
 
 4.6.6 (2017-01-23)
 - issue #12759 Fix Notice regarding 'Undefined index: old_usergroup'

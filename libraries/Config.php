@@ -606,7 +606,8 @@ class Config
         ) {
             $is_remote_commit = $_SESSION['PMA_VERSION_REMOTECOMMIT_' . $hash];
         } else {
-            $link = 'https://www.phpmyadmin.net/api/commit/' . $hash . '/';
+            $link = 'https://api.github.com/repos/phpmyadmin/phpmyadmin/git/commits/'
+                . $hash;
             $is_found = Util::httpRequest($link, "GET");
             switch($is_found) {
             case false:
@@ -634,7 +635,8 @@ class Config
             if (isset($_SESSION['PMA_VERSION_REMOTEBRANCH_' . $hash])) {
                 $is_remote_branch = $_SESSION['PMA_VERSION_REMOTEBRANCH_' . $hash];
             } else {
-                $link = 'https://www.phpmyadmin.net/api/tree/' . $branch . '/';
+                $link = 'https://api.github.com/repos/phpmyadmin/phpmyadmin'
+                    . '/git/trees/' . $branch;
                 $is_found = Util::httpRequest($link, "GET", true);
                 switch($is_found) {
                 case true:

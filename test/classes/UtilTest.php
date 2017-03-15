@@ -243,6 +243,8 @@ class UtilTest extends PMATestCase
             array("https://nonexisting.phpmyadmin.net/test/data", "GET", true, null),
             array("https://www.phpmyadmin.net/test/data","GET", false, "TEST DATA"),
             array("https://www.phpmyadmin.net/test/nothing","GET", true, false),
+        // Use rate limit API as it's not subject to rate limiting
+            array("https://api.github.com/rate_limit","GET", false, '"resources"'),
         );
     }
 }

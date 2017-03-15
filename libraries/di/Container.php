@@ -44,7 +44,7 @@ class Container
      * Get an object with given name and parameters
      *
      * @param string $name   Name
-     * @param array  $params Parameters
+     * @param array  $params Paramters
      *
      * @return mixed
      */
