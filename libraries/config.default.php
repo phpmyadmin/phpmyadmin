@@ -1662,7 +1662,7 @@ $cfg['Export']['csv_removeCRLF'] = false;
  *
  * @global boolean $cfg['Export']['excel_columns']
  */
-$cfg['Export']['excel_columns'] = true;
+$cfg['Export']['excel_columns'] = false;
 
 /**
  *

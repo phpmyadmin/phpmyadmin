@@ -975,7 +975,7 @@ AJAX.registerOnload('functions.js', function () {
                 }
             });
     }
-    if (PMA_commonParams.get('logged_in')) {
+    if (PMA_commonParams.get('logged_in') && PMA_commonParams.get('auth_type') == 'cookie') {
         IncInterval = window.setInterval(SetIdleTime, 1000);
         var session_timeout = Math.min(
             PMA_commonParams.get('LoginCookieValidity'),

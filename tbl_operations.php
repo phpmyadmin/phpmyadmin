@@ -61,14 +61,14 @@ if ($pma_table->isView()) {
     $show_comment = null;
 } else {
     $tbl_is_view = false;
-    $tbl_storage_engine = $pma_table->getStorageEngine();
-    $show_comment = $pma_table->getComment();
+    $tbl_storage_engine = $pma_table->getTableStorageEngine();
+    $show_comment = $pma_table->getShowComment();
 }
-$tbl_collation = $pma_table->getCollation();
-$table_info_num_rows = $pma_table->getNumRows();
-$row_format = $pma_table->getRowFormat();
-$auto_increment = $pma_table->getAutoIncrement();
-$create_options = $pma_table->getCreateOptions();
+$tbl_collation = $pma_table->getTableCollation();
+$table_info_num_rows = $pma_table->getTableNumRowInfo();
+$row_format = $pma_table->getTableRowFormat();
+$auto_increment = $pma_table->getAutoIncrementInfo();
+$create_options = $pma_table->createOptionsArray();
 
 // set initial value of these variables, based on the current table engine
 if ($pma_table->isEngine('ARIA')) {

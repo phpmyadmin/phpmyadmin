@@ -41,10 +41,10 @@ if ($table_class_object->isView()) {
     $tbl_storage_engine = __('View');
 } else {
     $tbl_is_view = false;
-    $tbl_storage_engine = $table_class_object->getStorageEngine();
+    $tbl_storage_engine = $table_class_object->getTableStorageEngine();
 }
-$tbl_collation = $table_class_object->getCollation();
-$table_info_num_rows = $table_class_object->getNumRows();
+$tbl_collation = $table_class_object->getTableCollation();
+$table_info_num_rows = $table_class_object->getTableNumRowInfo();
 /* Define dependencies for the concerned controller */
 $dependency_definitions = array(
     'db' => $db,

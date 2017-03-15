@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-03-01 18:19+0100\n"
-"PO-Revision-Date: 2017-03-12 20:27+0000\n"
+"PO-Revision-Date: 2017-01-26 20:37+0000\n"
 "Last-Translator: dingo thirteen <dingo13@gmail.com>\n"
-"Language-Team: Dutch "
-"<https://hosted.weblate.org/projects/phpmyadmin/master/nl/>\n"
+"Language-Team: Dutch <https://hosted.weblate.org/projects/phpmyadmin/master/"
+"nl/>\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.12\n"
+"X-Generator: Weblate 2.11-dev\n"
 
 #: changelog.php:39 license.php:34
 #, php-format
@@ -4001,7 +4001,7 @@ msgstr "Tabel"
 #: libraries/Menu.php:275 libraries/Menu.php:294
 #, php-format
 msgid "“%s”"
-msgstr "“%s”"
+msgstr ""
 
 #: libraries/Menu.php:343 libraries/Menu.php:446 libraries/Menu.php:559
 #: libraries/Util.php:3161 libraries/Util.php:3171 libraries/Util.php:3177
@@ -4867,9 +4867,10 @@ msgid "Missing parameter:"
 msgstr "Ontbrekende parameter:"
 
 #: libraries/Util.php:2550
-#, php-format
+#, fuzzy, php-format
+#| msgid "Jump to database \"%s\"."
 msgid "Jump to database “%s”."
-msgstr "Ga naar database “%s”."
+msgstr "Ga naar database \"%s\"."
 
 #: libraries/Util.php:2575
 #, php-format
@@ -10147,7 +10148,7 @@ msgstr ""
 
 #: libraries/plugins/export/ExportJson.php:94
 msgid "Output unicode characters unescaped"
-msgstr "Uitvoer met onbeschermde unicode lettertekens"
+msgstr ""
 
 #: libraries/plugins/export/ExportLatex.php:48
 msgid "Content of table @TABLE@"
@@ -12499,7 +12500,12 @@ msgstr ""
 "server (%)."
 
 #: libraries/server_privileges.lib.php:4668
-#, php-format
+#, fuzzy, php-format
+#| msgid ""
+#| "Note: phpMyAdmin gets the users' privileges directly from MySQL's "
+#| "privilege tables. The content of these tables may differ from the "
+#| "privileges the server uses, if they have been changed manually. In this "
+#| "case, you should %sreload the privileges%s before you continue."
 msgid ""
 "Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege "
 "tables. The content of these tables may differ from the privileges the "
@@ -12507,12 +12513,19 @@ msgid ""
 "%sreload the privileges%s before you continue."
 msgstr ""
 "Opmerking: phpMyAdmin krijgt de rechten voor de gebruikers uit de MySQL-"
-"privilegestabel. De inhoud van deze tabel kan verschillen met de toegestane "
-"rechten van de server als er handmatig aanpassingen zijn aangebracht. Mocht "
-"dit het geval zijn dan moet men %s de rechtentabel vernieuwen %s voordat men "
-"verder gaat."
+"privilegestabel. De inhoud van deze tabel kan verschillen met de rechten van "
+"de server als er handmatig aanpassingen zijn aangebracht. Mocht dit het "
+"geval zijn dan moet men %sde rechtentabel vernieuwen%s voordat men verder "
+"gaat."
 
 #: libraries/server_privileges.lib.php:4685
+#, fuzzy
+#| msgid ""
+#| "Note: phpMyAdmin gets the users' privileges directly from MySQL's "
+#| "privilege tables. The content of these tables may differ from the "
+#| "privileges the server uses, if they have been changed manually. In this "
+#| "case, the privileges have to be reloaded but currently, you don't have "
+#| "the RELOAD privilege."
 msgid ""
 "Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege "
 "tables. The content of these tables may differ from the privileges the "
@@ -12522,9 +12535,9 @@ msgid ""
 msgstr ""
 "Opmerking: phpMyAdmin krijgt de rechten voor de gebruikers uit de MySQL "
 "gebruikersrechtentabel. De inhoud van deze tabel kan verschillen met de "
-"toegestane rechten van de server als er handmatig aanpassingen zijn "
-"aangebracht. Mocht dit het geval zijn dan moet de gebruikersrechten opnieuw "
-"geladen worden, maar op dit moment heeft u niet het RELOAD gebruikersrecht."
+"rechten van de server als er handmatig aanpassingen zijn aangebracht. Mocht "
+"dit het geval zijn dan moet de gebruikersrechten opnieuw geladen worden, "
+"maar op dit moment heeft u niet het RELOAD gebruikersrecht."
 
 #: libraries/server_privileges.lib.php:4736
 msgid "The selected user was not found in the privilege table."
@@ -13746,9 +13759,10 @@ msgid "Problems with indexes of table `%s`"
 msgstr "Problemen met de indexen van de tabel `%s`"
 
 #: libraries/sql_query_form.lib.php:139
-#, php-format
+#, fuzzy, php-format
+#| msgid "Run SQL query/queries on server %s"
 msgid "Run SQL query/queries on server “%s”"
-msgstr "Voer SQL-query/query's uit op de server “%s”"
+msgstr "Voer SQL-query/query's uit op de server %s"
 
 #: libraries/sql_query_form.lib.php:156
 #, php-format
