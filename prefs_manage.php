@@ -285,9 +285,10 @@ echo '</div>'
     , __('Go') . '" />'
     , '</form>'
     , '</div>';
-if (file_exists('setup/index.php')) {
+if (file_exists('setup/index.php') && ! file_exists(CONFIG_FILE)) {
             // show only if setup script is available, allows to disable this message
             // by simply removing setup directory
+            // Also do not show in config exists (and setup would refuse to work)
             ?>
             <div class="group">
             <h2><?php echo __('More settings') ?></h2>
