@@ -1,19 +1,18 @@
-#
 msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-03-01 18:19+0100\n"
-"PO-Revision-Date: 2017-01-02 16:53+0000\n"
-"Last-Translator: Dadan Setia <da2n_s@yahoo.co.id>\n"
-"Language-Team: Indonesian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/id/>\n"
+"PO-Revision-Date: 2017-03-16 22:50+0700\n"
+"Last-Translator: Arif Budiman <arifpedia@gmail.com>\n"
+"Language-Team: Indonesian "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/id/>\n"
 "Language: id\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 2.11-dev\n"
+"X-Generator: Poedit 1.8.12\n"
 "X-Poedit-Basepath: ../../..\n"
 
 #: changelog.php:39 license.php:34
@@ -1144,9 +1143,8 @@ msgid "Query cache used"
 msgstr "Singgahan kueri terpakai"
 
 #: js/messages.php:180
-#, fuzzy
 msgid "System CPU usage"
-msgstr "Penggunaan CPU."
+msgstr "Penggunaan CPU sistem"
 
 #: js/messages.php:181
 msgid "System memory"
@@ -1185,20 +1183,16 @@ msgid "Total swap"
 msgstr "Total swap"
 
 #: js/messages.php:192
-#, fuzzy
-#| msgid "Cached Swap"
 msgid "Cached swap"
-msgstr "telah melakukan swap cache"
+msgstr "Singgahan swap"
 
 #: js/messages.php:193
-#, fuzzy
-#| msgid "Used Swap"
 msgid "Used swap"
-msgstr "Swap yang terpakai"
+msgstr "Swap terpakai"
 
 #: js/messages.php:194
 msgid "Free swap"
-msgstr "Swap Bebas"
+msgstr "Swap bebas"
 
 #: js/messages.php:196
 msgid "Bytes sent"
@@ -1683,8 +1677,6 @@ msgid "Processing request"
 msgstr "Memproses Permintaan"
 
 #: js/messages.php:360
-#, fuzzy
-#| msgid "Request Failed!!"
 msgid "Request failed!!"
 msgstr "Permintaan gagal!!"
 
@@ -1796,10 +1788,10 @@ msgid "Export"
 msgstr "Ekspor"
 
 #: js/messages.php:395
-#, fuzzy
 msgid "No routine is exportable. Required privileges may be lacking."
 msgstr ""
-"Tidak ada rutin yang dapat diekspor. hak yang diperlukan mungkin kurang."
+"Tidak ada rutin yang dapat diekspor. Hak akses yang diperlukan mungkin "
+"kurang."
 
 #: js/messages.php:398 libraries/rte/rte_routines.lib.php:747
 msgid "ENUM/SET editor"
@@ -1880,10 +1872,9 @@ msgid "No auto-saved query"
 msgstr "jangan otomatis simpan kueri"
 
 #: js/messages.php:417
-#, fuzzy, php-format
-#| msgid "Variable"
+#, php-format
 msgid "Variable %d:"
-msgstr "Variabel"
+msgstr "Variabel %d:"
 
 #: js/messages.php:420 libraries/normalization.lib.php:884
 msgid "Pick"
@@ -2139,16 +2130,12 @@ msgid "Geometry"
 msgstr "Geometri"
 
 #: js/messages.php:518
-#, fuzzy
-#| msgid "Inner Ring"
 msgid "Inner ring"
-msgstr "Lingkar Dalam"
+msgstr "Lingkar dalam"
 
 #: js/messages.php:519
-#, fuzzy
-#| msgid "Outer ring:"
 msgid "Outer ring"
-msgstr "Lingkar Luar:"
+msgstr "Lingkar luar"
 
 #: js/messages.php:523
 msgid "Do you want to copy encryption key?"
@@ -2347,10 +2334,8 @@ msgstr ""
 "peramban lambat."
 
 #: js/messages.php:602
-#, fuzzy
-#| msgid "Original string"
 msgid "Original length"
-msgstr "String asli"
+msgstr "Panjang asli"
 
 #: js/messages.php:605
 msgid "cancel"
@@ -2420,16 +2405,12 @@ msgid "More"
 msgstr "Lainnya"
 
 #: js/messages.php:646
-#, fuzzy
-#| msgid "Show Panel"
 msgid "Show panel"
-msgstr "Tampilkan Panel"
+msgstr "Tampilkan panel"
 
 #: js/messages.php:647
-#, fuzzy
-#| msgid "Hide Panel"
 msgid "Hide panel"
-msgstr "Sembunyikan Panel"
+msgstr "Sembunyikan panel"
 
 #: js/messages.php:648
 msgid "Show hidden navigation tree items."
@@ -2618,12 +2599,10 @@ msgid "Copy table with prefix"
 msgstr "Salin tabel dengan prefiks"
 
 #: js/messages.php:732
-#, fuzzy
 msgid "Extremely weak"
-msgstr "Sangat lemah"
+msgstr "Sangat sangat lemah"
 
 #: js/messages.php:733
-#, fuzzy
 msgid "Very weak"
 msgstr "Sangat lemah"
 
@@ -2896,102 +2875,72 @@ msgid "This field is required"
 msgstr "Wajib diisi"
 
 #: js/messages.php:907
-#, fuzzy
-#| msgid "Use text field"
 msgid "Please fix this field"
-msgstr "Gunakan text field"
+msgstr "Silakan perbaiki kolom ini"
 
 #: js/messages.php:908
-#, fuzzy
-#| msgid "Please enter a valid number"
 msgid "Please enter a valid email address"
-msgstr "Masukan angka yang valid"
+msgstr "Silakan masukkan alamat email yang valid"
 
 #: js/messages.php:909
-#, fuzzy
-#| msgid "Please enter a valid number!"
 msgid "Please enter a valid URL"
-msgstr "Tolong masukkan angka yang valid!"
+msgstr "Silakan masukkan URL yang valid"
 
 #: js/messages.php:910
-#, fuzzy
-#| msgid "Please enter a valid number"
 msgid "Please enter a valid date"
-msgstr "Masukan angka yang valid"
+msgstr "Silakan masukkan tanggal yang valid"
 
 #: js/messages.php:913
-#, fuzzy
-#| msgid "Please enter a valid number"
 msgid "Please enter a valid date ( ISO )"
-msgstr "Masukan angka yang valid"
+msgstr "Silakan masukkan tanggal yang valid (ISO)"
 
 #: js/messages.php:915
-#, fuzzy
-#| msgid "Please enter a valid number!"
 msgid "Please enter a valid number"
-msgstr "Tolong masukkan angka yang valid!"
+msgstr "Silakan masukkan angka yang valid"
 
 #: js/messages.php:918
-#, fuzzy
-#| msgid "Please enter a valid number!"
 msgid "Please enter a valid credit card number"
-msgstr "Tolong masukkan angka yang valid!"
+msgstr "Silakan masukkan nomor kartu kredit yang valid"
 
 #: js/messages.php:920
-#, fuzzy
-#| msgid "Please enter a valid length!"
 msgid "Please enter only digits"
-msgstr "Masukan nilai panjang yang valid!"
+msgstr "Silakan masukkan angka saja"
 
 #: js/messages.php:923
-#, fuzzy
-#| msgid "Please enter a valid number"
 msgid "Please enter the same value again"
-msgstr "Masukan angka yang valid"
+msgstr "Silakan masukkan lagi nilai yang sama"
 
 #: js/messages.php:927
-#, fuzzy
 msgid "Please enter no more than {0} characters"
-msgstr "Silakan masukkan captcha yang benar!"
+msgstr "Silakan masukkan tidak lebih dari {0} karakter"
 
 #: js/messages.php:932
-#, fuzzy
 msgid "Please enter at least {0} characters"
-msgstr "Silakan masukkan captcha yang benar!"
+msgstr "Silakan masukkan setidaknya {0} karakter"
 
 #: js/messages.php:937
 msgid "Please enter a value between {0} and {1} characters long"
-msgstr "Masukkan nilai panjang karakter antara {0} dan {1}"
+msgstr "Silakan masukkan nilai panjang karakter antara {0} dan {1}"
 
 #: js/messages.php:942
-#, fuzzy
-#| msgid "Please enter a valid number"
 msgid "Please enter a value between {0} and {1}"
-msgstr "Masukan angka yang valid"
+msgstr "Silakan masukkan"
 
 #: js/messages.php:947
-#, fuzzy
-#| msgid "Please enter a valid length!"
 msgid "Please enter a value less than or equal to {0}"
-msgstr "Masukan nilai panjang yang valid!"
+msgstr "Silakan masukkan nilai kurang dari atau sama dengan {0}"
 
 #: js/messages.php:952
-#, fuzzy
-#| msgid "Please enter a valid number"
 msgid "Please enter a value greater than or equal to {0}"
-msgstr "Masukan angka yang valid"
+msgstr "Silakan masukkan nilai lebih dari atau sama dengan {0}"
 
 #: js/messages.php:958
-#, fuzzy
-#| msgid "Please enter a valid number"
 msgid "Please enter a valid date or time"
-msgstr "Masukan angka yang valid"
+msgstr "Silakan masukkan tanggal dan jam yang valid"
 
 #: js/messages.php:963
-#, fuzzy
-#| msgid "Please enter a valid number!"
 msgid "Please enter a valid HEX input"
-msgstr "Tolong masukkan angka yang valid!"
+msgstr "Silakan masukkan input HEX yang valid"
 
 #: js/messages.php:968 libraries/Message.php:190 libraries/Util.php:566
 #: libraries/core.lib.php:243 libraries/import.lib.php:80
@@ -3159,9 +3108,8 @@ msgid "Korean"
 msgstr "Korea"
 
 #: libraries/Charsets.php:313
-#, fuzzy
 msgid "Burmese"
-msgstr "Birma"
+msgstr "Myanmar"
 
 #: libraries/Charsets.php:316
 msgid "Persian"
@@ -3180,7 +3128,6 @@ msgid "Romanian"
 msgstr "Romania"
 
 #: libraries/Charsets.php:328
-#, fuzzy
 msgid "Sinhalese"
 msgstr "Sinhala"
 
@@ -3227,10 +3174,8 @@ msgid "multilingual"
 msgstr "berbagai bahasa"
 
 #: libraries/Charsets.php:358
-#, fuzzy
-#| msgid "File name"
 msgid "Vietnamese"
-msgstr "Nama berkas"
+msgstr "Vietnam"
 
 #: libraries/Charsets.php:390
 msgid "Central European"
