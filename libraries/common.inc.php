@@ -242,6 +242,10 @@ if (isset($_COOKIE)) {
     ) {
         // delete all cookies
         foreach ($_COOKIE as $cookie_name => $tmp) {
+            // We ignore cookies not with pma prefix
+            if (strncmp('pma', $cookie_name, 3) != 0) {
+                continue;
+            }
             $GLOBALS['PMA_Config']->removeCookie($cookie_name);
         }
         $_COOKIE = array();
