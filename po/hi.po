@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-01-25 10:08+0100\n"
-"PO-Revision-Date: 2015-10-15 11:29+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Hindi <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"hi/>\n"
+"PO-Revision-Date: 2017-02-14 11:38+0000\n"
+"Last-Translator: Siddhesh Rane <kingsid911@gmail.com>\n"
+"Language-Team: Hindi "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/hi/>\n"
 "Language: hi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.5-dev\n"
+"X-Generator: Weblate 2.12-dev\n"
 
 #: changelog.php:39 license.php:34
 #, fuzzy, php-format
@@ -715,7 +715,7 @@ msgstr "परिवर्तनों की सूची"
 
 #: index.php:433 templates/server/plugins/section.phtml:12
 msgid "License"
-msgstr ""
+msgstr "लाइसेंस"
 
 #: index.php:453
 msgid ""
@@ -732,6 +732,8 @@ msgid ""
 "The curl extension was not found and allow_url_fopen is disabled. Due to "
 "this some features such as error reporting or version check are disabled."
 msgstr ""
+"कर्ल कमान्ड का allow_url_fopen एक्सटेंशन चालू नही है. इसलिये कुछ सुविधाए जैसे"
+" त्रुटि की सूचना देना बंद कि गइ है."
 
 #: index.php:483
 msgid ""
@@ -749,11 +751,11 @@ msgstr ""
 
 #: index.php:517
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
-msgstr ""
+msgstr "कॉन्फ़िगरेशन फ़ाइल को एक गुप्त पदबंध की जरूरत है (ब्लोफिश सिक्रेट)."
 
 #: index.php:524
 msgid "The secret passphrase in configuration (blowfish_secret) is too short."
-msgstr ""
+msgstr "कॉन्फ़िगरेशन फ़ाइल का गुप्त पदबंध छोटा है."
 
 #: index.php:538
 msgid ""

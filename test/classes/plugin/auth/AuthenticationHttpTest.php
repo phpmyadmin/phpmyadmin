@@ -136,8 +136,8 @@ class AuthenticationHttpTest extends PMATestCase
         $this->doMockResponse(
             1, 1, 1,
             array('WWW-Authenticate: Basic realm="phpMyAdmin verboseMessag"'),
-            array('HTTP/1.0 401 Unauthorized'),
-            array('status: 401 Unauthorized')
+            array('status: 401 Unauthorized'),
+            401
         );
     }
 
@@ -149,8 +149,8 @@ class AuthenticationHttpTest extends PMATestCase
         $this->doMockResponse(
             1, 1, 1,
             array('WWW-Authenticate: Basic realm="phpMyAdmin hst"'),
-            array('HTTP/1.0 401 Unauthorized'),
-            array('status: 401 Unauthorized')
+            array('status: 401 Unauthorized'),
+            401
         );
     }
 
@@ -162,8 +162,8 @@ class AuthenticationHttpTest extends PMATestCase
         $this->doMockResponse(
             1, 1, 1,
             array('WWW-Authenticate: Basic realm="realmmessage"'),
-            array('HTTP/1.0 401 Unauthorized'),
-            array('status: 401 Unauthorized')
+            array('status: 401 Unauthorized'),
+            401
         );
     }
 
