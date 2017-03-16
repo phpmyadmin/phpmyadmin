@@ -102,6 +102,7 @@ phpMyAdmin - ChangeLog
 - issue #12708 Removed phpMyAdmin version from User-Agent header
 - issue #13084 Do not point users to setup when it is disabled
 - issue #12660 Delete only phpMyAdmin cookies on upgrade
+- issue #13088 Fixed editing of rows with text primary key
 
 4.6.6 (2017-01-23)
 - issue #12759 Fix Notice regarding 'Undefined index: old_usergroup'
