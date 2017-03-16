@@ -1049,6 +1049,35 @@ class AuthenticationCookieTest extends PMATestCase
         );
     }
 
+    public function testPasswordChange()
+    {
+        $newPassword = 'PMAPASSWD2';
+        $GLOBALS['cfg']['AllowArbitraryServer'] = true;
+        $GLOBALS['pma_auth_server'] = 'b 2';
+        $_SESSION['encryption_key'] = '';
+        $this->object->setIV('testiv09testiv09');
+
+        $this->object->handlePasswordChange($newPassword);
+
+        $payload = array(
+            'password' => $newPassword,
+            'server' => 'b 2'
+        );
+        $method = new \ReflectionMethod(
+            'PMA\libraries\plugins\auth\AuthenticationCookie',
+            '_getSessionEncryptionSecret'
+        );
+        $method->setAccessible(true);
+
+        $encryptedCookie = $this->object->cookieEncrypt(
+                                json_encode($payload),
+                                $method->invoke($this->object, null)
+                            );
+        $this->assertEquals(
+            $_COOKIE['pmaAuth-' . $GLOBALS['server']],
+            $encryptedCookie
+        );
+    }
     /**
      * Data provider for secrets splitting.
      *
