@@ -38,7 +38,6 @@
                 </td>
                 <td id="id_zag_<?= htmlspecialchars($t_n_url); ?>"
                     class="tab_zag nowrap tab_zag_noquery"
-                    onmousedown="cur_click=document.getElementById('<?= $t_n_url; ?>');"
                     table_name="<?= htmlspecialchars($t_n_url); ?>"
                     query_set="<?= isset($_REQUEST['query']) ? 1 : 0 ; ?>" >
                     <span class="owner">
@@ -49,8 +48,7 @@
                 <?php if (isset($_REQUEST['query'])) : ?>
                     <td class="tab_zag tab_zag_query"
                         id="id_zag_<?= htmlspecialchars($t_n_url); ?>_2"
-                        table_name="<?= htmlspecialchars($t_n_url); ?>"
-                        onmousedown="cur_click=document.getElementById('<?= htmlspecialchars($t_n_url); ?>');">
+                        table_name="<?= htmlspecialchars($t_n_url); ?>">
                     </td>
                <?php endif; ?>
             </tr>
