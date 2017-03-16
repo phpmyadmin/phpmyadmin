@@ -347,7 +347,34 @@ class DatabaseInterfaceTest extends PMATestCase
         );
     }
 
+    /**
+     * Test error formatting
+     *
+     * @param int    $error_number  Error code
+     * @param string $error_message Error message as returned by server
+     * @param string $match         Expected text
+     *
+     * @dataProvider errorData
+     */
+    public function testFormatError($error_number, $error_message, $match)
+    {
+        $this->assertContains(
+            $match,
+            DatabaseInterface::formatError($error_number, $error_message)
+        );
+    }
 
+    public function errorData()
+    {
+        return array(
+            array(2002, 'msg', 'The server is not responding'),
+            array(2003, 'msg', 'The server is not responding'),
+            array(1698, 'msg', 'logout.php'),
+            array(1005, 'msg', 'server_engines.php'),
+            array(1005, 'errno: 13', 'Please check privileges'),
+            array(-1, 'error message', 'error message'),
+        );
+    }
 }
 
 /**
