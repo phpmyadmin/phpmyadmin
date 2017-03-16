@@ -4,42 +4,36 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-03-01 18:19+0100\n"
-"PO-Revision-Date: 2015-10-15 11:44+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Bengali <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/bn/>\n"
+"PO-Revision-Date: 2017-03-16 12:19+0000\n"
+"Last-Translator: Progyan Bhattacharya <bprogyan@gmail.com>\n"
+"Language-Team: Bengali "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/bn/>\n"
 "Language: bn\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.5-dev\n"
+"X-Generator: Weblate 2.12\n"
 
 #: changelog.php:39 license.php:34
-#, fuzzy, php-format
-#| msgid ""
-#| "The %s file is not available on this system, please visit www.phpmyadmin."
-#| "net for more information."
+#, php-format
 msgid ""
 "The %s file is not available on this system, please visit %s for more "
 "information."
-msgstr "%s ফাইলটি এখানে নাই, অনুগ্রহ করে www.phpmyadmin.net দেখুন।"
+msgstr "%s ফাইলটি এখানে নাই, অনুগ্রহ করে %s দেখুন।"
 
 #: db_central_columns.php:108
 msgid "The central list of columns for the current database is empty."
-msgstr ""
+msgstr "এই ডেটাবেসে কলামের মূল তালিকা উপলব্ধ নয়"
 
 #: db_central_columns.php:133
-#, fuzzy
-#| msgid "Click to sort"
 msgid "Click to sort."
-msgstr "গুছানোর জন্য ক্লিক করুন"
+msgstr "গুছানোর জন্য ক্লিক করুন."
 
 #: db_central_columns.php:150
-#, fuzzy, php-format
-#| msgid "Showing rows %1s - %2s"
+#, php-format
 msgid "Showing rows %1$s - %2$s."
-msgstr "রো দেখাচ্ছে %1s - %2s"
+msgstr "রো দেখাচ্ছে %1$s - %2$s."
 
 #: db_datadict.php:59 libraries/operations.lib.php:36
 msgid "Database comment"
@@ -289,8 +283,6 @@ msgstr "তথ্য"
 
 #: db_export.php:70 libraries/DbSearch.php:434
 #: libraries/display_export.lib.php:45 libraries/replication_gui.lib.php:379
-#, fuzzy
-#| msgid "Select All"
 msgid "Select all"
 msgstr "সবগুলো নির্বাচন"
 
@@ -299,33 +291,26 @@ msgid "The database name is empty!"
 msgstr "ডাটাবেইজের নাম দেওয়া হয় নাই!"
 
 #: db_operations.php:138
-#, fuzzy, php-format
-#| msgid "Database %1$s has been renamed to %2$s."
+#, php-format
 msgid "Database %1$s has been renamed to %2$s."
-msgstr "ডাটাবেইজ %1$s এর  নতুন নামকরণ %2$s হয়েছে"
+msgstr "ডেটাবেস %1$s এর নতুন নামকরণ হয়েছে %2$s."
 
 #: db_operations.php:150
-#, fuzzy, php-format
-#| msgid "Database %1$s has been copied to %2$s."
+#, php-format
 msgid "Database %1$s has been copied to %2$s."
-msgstr "ডাটাবেইজ %1$s টি  %2$s এ অনুলিপি হয়েছে"
+msgstr "ডেটাবেস %1$s টি ডেটাবেস %2$s এ অনুলিপি হয়েছে."
 
 #: db_operations.php:279
-#, fuzzy, php-format
-#| msgid ""
-#| "The phpMyAdmin configuration storage has been deactivated. To find out "
-#| "why click %shere%s."
+#, php-format
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. %sFind out why%s."
 msgstr ""
-"phpMyAdmin কনফিগারেশন সংরক্ষন ব্যবস্থা কার্যকর নয়। কেন জানার জন্য ক্লীক করুন %shere"
-"%s।"
+"phpMyAdmin কনফিগারেশন সংরক্ষন ব্যবস্থা কার্যকর নয়। %s কেন জানার জন্য ক্লীক "
+"করুন %s।"
 
 #: db_qbe.php:126
-#, fuzzy
-#| msgid "You have to choose at least one column to display"
 msgid "You have to choose at least one column to display!"
-msgstr "দেখানোর জন্য সর্বনীন্ম একটি স্তম্ভ প্রয়োজন"
+msgstr "দেখানোর জন্য সর্বনীন্ম একটি স্তম্ভ প্রয়োজন!"
 
 #: db_qbe.php:144
 #, php-format
@@ -340,35 +325,32 @@ msgid "Access denied!"
 msgstr "প্রবেশ করা যাচ্ছে না"
 
 #: db_tracking.php:53 db_tracking.php:78
-#, fuzzy
-#| msgid "Tracking data definition successfully deleted"
 msgid "Tracking data deleted successfully."
-msgstr "ট্রেকিং তথ্যের বিবরণী সফলভাবে মুছা হয়েছে"
+msgstr "অনুসরণ তথ্যের বিবরণী সফলভাবে মুছা হয়েছে।"
 
 #: db_tracking.php:62
-#, fuzzy, php-format
-#| msgid "Version %1$s was created, tracking for %2$s is active."
+#, php-format
 msgid ""
 "Version %1$s was created for selected tables, tracking is active for them."
-msgstr "%1$s সংস্করন তৈরী করা হয়েছে, %2$s ট্রেকিং কার্য চলছে।"
+msgstr ""
+"উক্ত তালিকাগুলির জন্য %1$s সংস্করন তৈরী করা হয়েছে, তালিকাগুলির জন্য অনুসরণ "
+"কার্য চলছে।"
 
 #: db_tracking.php:93
-#, fuzzy
-#| msgid "No databases selected."
 msgid "No tables selected."
-msgstr "ডাটাবেইজ নিবার্চন করা হয়নি।"
+msgstr "কোনো তালিকা নিবার্চন করা হয়নি।"
 
 #: db_tracking.php:150
 msgid "Database Log"
-msgstr "ডাটাবেইজ লগ"
+msgstr "ডেটাবেস লগ"
 
 #: error_report.php:68
 msgid ""
 "An error has been detected and an error report has been automatically "
 "submitted based on your settings."
 msgstr ""
-"একটি ভুল পাওয়াগেছে এবং আপনার সেটিংসের উপর ভিত্তিকরে একটি প্রতিবেদন স্বয়ংক্রিয় "
-"ভাবে দাখিল করা হয়েছে।"
+"একটি ভুল পাওয়াগেছে এবং আপনার সেটিংসের উপর ভিত্তি করে একটি প্রতিবেদন স্বয়ংক্রি"
+"য় ভাবে দাখিল করা হয়েছে।"
 
 #: error_report.php:72
 msgid "Thank you for submitting this report."
@@ -378,7 +360,9 @@ msgstr "এই প্রতিবেদনটি দাখিলের জন্
 msgid ""
 "An error has been detected and an error report has been generated but failed "
 "to be sent."
-msgstr "একটি ভুল পাওয়াগেছে এবং একটি প্রতিবেদনও তৈরী করা হয়েছে কিন্তু পাঠানো যায়নি।"
+msgstr ""
+"একটি ত্রুটি পাওয়া গেছে এবং একটি প্রতিবেদনও তৈরী করা হয়েছে কিন্তু পাঠানো "
+"যায়নি।"
 
 #: error_report.php:81
 msgid "If you experience any problems please submit a bug report manually."
@@ -522,32 +506,24 @@ msgid "Output"
 msgstr "আউটপুট"
 
 #: gis_data_editor.php:419
-#, fuzzy
-#| msgid ""
-#| "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
-#| "below into the \"Value\" field"
 msgid ""
 "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
 "below into the \"Value\" field."
 msgstr ""
-"\"Function\" স্তম্ভ থেকে \"GeomFromText\" পছন্দ করুন এবং নিচের লেখাটি \"Value\" "
-"স্থানে পেষ্ট করুন"
+"\"Function\" স্তম্ভ থেকে \"GeomFromText\" পছন্দ করুন এবং তার নিচের লেখাটি \""
+"Value\" স্থানে বসান।"
 
 #: import.php:64
-#, fuzzy
-#| msgid "Success."
 msgid "Succeeded"
-msgstr "সফল।"
+msgstr "সফল হয়েছে"
 
 #: import.php:68 js/messages.php:607
 msgid "Failed"
 msgstr ""
 
 #: import.php:72
-#, fuzzy
-#| msgid "complete inserts"
 msgid "Incomplete params"
-msgstr "সম্পুর্ন ইনর্সাট"
+msgstr "প্যারামিটার অসমাপ্ত"
 
 #: import.php:196
 #, php-format
@@ -581,18 +557,17 @@ msgstr ""
 "আমদানি সহায়ক (plugin) পাওয়া যাচ্ছে না, অনুগ্রহ করে আপনার ইন্সষ্টলেশন পরীক্ষা করুন!"
 
 #: import.php:580 libraries/sql.lib.php:788 libraries/sql.lib.php:1564
-#, fuzzy, php-format
-#| msgid "Bookmark %s created"
+#, php-format
 msgid "Bookmark %s has been created."
-msgstr "বুকমার্ক  %s তৈরী করা হয়েছে"
+msgstr "বুকমার্ক %s তৈরী করা হয়েছে।"
 
 #: import.php:590
-#, fuzzy, php-format
-#| msgid "Import has been successfully finished, %d queries executed."
+#, php-format
 msgid "Import has been successfully finished, %d query executed."
 msgid_plural "Import has been successfully finished, %d queries executed."
-msgstr[0] "আমদানি প্রক্রীয়াটি সফলভাবে সম্পন্ন হয়েছে, %d গুলো অনুসন্ধান ব্যবহৃত হয়েছে।"
-msgstr[1] "আমদানি প্রক্রীয়াটি সফলভাবে সম্পন্ন হয়েছে, %d গুলো অনুসন্ধান ব্যবহৃত হয়েছে।"
+msgstr[0] "আমদানি প্রক্রীয়াটি সফলভাবে সম্পন্ন হয়েছে, %d অনুসন্ধান ব্যবহৃত হয়েছে।"
+msgstr[1] ""
+"আমদানি প্রক্রীয়াটি সফলভাবে সম্পন্ন হয়েছে, %d গুলো অনুসন্ধান ব্যবহৃত হয়েছে।"
 
 #: import.php:619
 #, fuzzy, php-format
