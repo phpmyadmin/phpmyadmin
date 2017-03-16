@@ -666,11 +666,11 @@ class AuthenticationCookieTest extends PMATestCase
         $this->object->storeUserCredentials();
 
         $this->assertTrue(
-            isset($_COOKIE['pmaUser-1'])
+            isset($_COOKIE['pmaUser-2'])
         );
 
         $this->assertTrue(
-            isset($_COOKIE['pmaAuth-1'])
+            isset($_COOKIE['pmaAuth-2'])
         );
 
         $arr['password'] = 'testPW';
