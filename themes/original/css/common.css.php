@@ -259,7 +259,7 @@ button.mult_submit {
 
 /* odd items 1,3,5,7,... */
 table tr:nth-child(odd) {
-        background: <?php echo $GLOBALS['cfg']['BgOne']; ?>; 
+        background: <?php echo $GLOBALS['cfg']['BgOne']; ?>;
 }
 
 /* even items 2,4,6,8,... */
@@ -2642,6 +2642,10 @@ div.jqplot-bubble-label.jqplot-bubble-label-highlight {
 div.jqplot-noData-container {
     text-align: center;
     background-color: rgba(96%, 96%, 96%, 0.3);
+}
+
+.relationalTable td {
+    vertical-align: top;
 }
 
 .relationalTable select {

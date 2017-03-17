@@ -542,7 +542,7 @@ button.mult_submit {
 table tbody:first-of-type tr:nth-child(odd),
 table tbody:first-of-type tr:nth-child(odd) th {
     background: #fff;
-} 
+}
 
 /* even items 2,4,6,8,... */
 table tbody:first-of-type tr:nth-child(even),
@@ -2908,6 +2908,10 @@ fieldset .disabled-field td {
 .saving_edited_data {
     background: url(<?php echo $_SESSION['PMA_Theme']->getImgPath('ajax_clock_small.gif');?>) no-repeat left;
     padding-<?php echo $left; ?>: 20px;
+}
+
+.relationalTable td {
+    vertical-align: top;
 }
 
 .relationalTable select {
