@@ -171,7 +171,7 @@ function addDateTimePicker() {
             var showMillisec = false;
             var showMicrosec = false;
             var timeFormat = 'HH:mm:ss';
-			var hourMax = 23;
+            var hourMax = 23;
             // check for decimal places of seconds
             if (decimals > 0 && type.indexOf('time') != -1){
                 if (decimals > 3) {
@@ -183,14 +183,14 @@ function addDateTimePicker() {
                     timeFormat = 'HH:mm:ss.l';
                 }
             }
-			if(type == 'time'){
-				hourMax = 99;
-			}
+            if(type == 'time'){
+                hourMax = 99;
+            }
             PMA_addDatepicker($(this), type, {
                 showMillisec: showMillisec,
                 showMicrosec: showMicrosec,
                 timeFormat: timeFormat,
-				hourMax: hourMax
+                hourMax: hourMax
             });
             // Add a tip regarding entering MySQL allowed-values
             // for TIME and DATE data-type
