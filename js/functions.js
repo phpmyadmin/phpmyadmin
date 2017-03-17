@@ -672,7 +672,7 @@ function confirmLink(theLink, theSqlQuery)
  * This function is called by the 'checkSqlQuery()' js function.
  *
  * @param theForm1 object   the form
- * @param sqlQuery1 object  the sql query textarea
+ * @param sqlQuery1 string  the sql query string
  *
  * @return boolean  whether to run the query or not
  *
@@ -697,15 +697,15 @@ function confirmQuery(theForm1, sqlQuery1)
     var do_confirm_re_2 = new RegExp('^\\s*DELETE\\s+FROM\\s', 'i');
     var do_confirm_re_3 = new RegExp('^\\s*TRUNCATE\\s', 'i');
 
-    if (do_confirm_re_0.test(sqlQuery1.value) ||
-        do_confirm_re_1.test(sqlQuery1.value) ||
-        do_confirm_re_2.test(sqlQuery1.value) ||
-        do_confirm_re_3.test(sqlQuery1.value)) {
+    if (do_confirm_re_0.test(sqlQuery1) ||
+        do_confirm_re_1.test(sqlQuery1) ||
+        do_confirm_re_2.test(sqlQuery1) ||
+        do_confirm_re_3.test(sqlQuery1)) {
         var message;
-        if (sqlQuery1.value.length > 100) {
-            message = sqlQuery1.value.substr(0, 100) + '\n    ...';
+        if (sqlQuery1.length > 100) {
+            message = sqlQuery1.substr(0, 100) + '\n    ...';
         } else {
-            message = sqlQuery1.value;
+            message = sqlQuery1;
         }
         var is_confirmed = confirm(PMA_sprintf(PMA_messages.strDoYouReally, message));
         // statement is confirmed -> update the
@@ -718,7 +718,6 @@ function confirmQuery(theForm1, sqlQuery1)
         // statement is rejected -> do not submit the form
         else {
             window.focus();
-            sqlQuery1.focus();
             return false;
         } // end if (handle confirm box result)
     } // end if (display confirm box)
@@ -746,31 +745,30 @@ function checkSqlQuery(theForm)
     } else {
         sqlQuery = theForm.elements.sql_query.value;
     }
-    var isEmpty  = 1;
     var space_re = new RegExp('\\s+');
     if (typeof(theForm.elements.sql_file) != 'undefined' &&
             theForm.elements.sql_file.value.replace(space_re, '') !== '') {
         return true;
     }
-    if (isEmpty && typeof(theForm.elements.id_bookmark) != 'undefined' &&
+    if (typeof(theForm.elements.id_bookmark) != 'undefined' &&
             (theForm.elements.id_bookmark.value !== null || theForm.elements.id_bookmark.value !== '') &&
             theForm.elements.id_bookmark.selectedIndex !== 0) {
         return true;
     }
+    var result = false;
     // Checks for "DROP/DELETE/ALTER" statements
     if (sqlQuery.replace(space_re, '') !== '') {
-        return confirmQuery(theForm, sqlQuery);
-    }
-    theForm.reset();
-    isEmpty = 1;
-
-    if (isEmpty) {
+        result = confirmQuery(theForm, sqlQuery);
+    } else {
         alert(PMA_messages.strFormEmpty);
-        codemirror_editor.focus();
-        return false;
     }
 
-    return true;
+    if (codemirror_editor) {
+        codemirror_editor.focus();
+    } else if (codemirror_inline_editor) {
+        codemirror_inline_editor.focus();
+    }
+    return result;
 } // end of the 'checkSqlQuery()' function
 
 /**
@@ -918,17 +916,31 @@ AJAX.registerOnload('functions.js', function () {
     document.onkeypress = function() {
         _idleSecondsCounter = 0;
     };
+    function guid() {
+        function s4() {
+            return Math.floor((1 + Math.random()) * 0x10000)
+                .toString(16)
+            .substring(1);
+        }
+        return s4() + s4() + '-' + s4() + '-' + s4() + '-' +
+            s4() + '-' + s4() + s4() + s4();
+    }
 
     function SetIdleTime() {
         _idleSecondsCounter++;
     }
     function UpdateIdleTime() {
         var href = 'index.php';
+        var guid = 'default';
+        if (isStorageSupported('sessionStorage')) {
+            guid = window.sessionStorage.guid;
+        }
         var params = {
                 'ajax_request' : true,
                 'token' : PMA_commonParams.get('token'),
                 'server' : PMA_commonParams.get('server'),
                 'db' : PMA_commonParams.get('db'),
+                'guid': guid,
                 'access_time':_idleSecondsCounter
             };
         $.ajax({
@@ -937,28 +949,42 @@ AJAX.registerOnload('functions.js', function () {
                 data: params,
                 success: function (data) {
                     if (data.success) {
-                        var remaining = PMA_commonParams.get('LoginCookieValidity') - _idleSecondsCounter;
+                        if (PMA_commonParams.get('LoginCookieValidity') - _idleSecondsCounter < 0) {
+                            /* There is other active window, let's reset counter */
+                            _idleSecondsCounter = 0;
+                        }
+                        var remaining = Math.min(
+                            /* Remaining login validity */
+                            PMA_commonParams.get('LoginCookieValidity') - _idleSecondsCounter,
+                            /* Remaining time till session GC */
+                            PMA_commonParams.get('session_gc_maxlifetime')
+                        );
+                        var interval = 1000;
                         if (remaining > 5) {
                             // max value for setInterval() function
-                            var interval = Math.min(remaining * 1000, Math.pow(2, 31) - 1);
-                            updateTimeout = window.setTimeout(UpdateIdleTime, interval);
-                        } else if (remaining > 0) {
-                            // We're close to session expiry
-                            updateTimeout = window.setTimeout(UpdateIdleTime, 2000);
+                            interval = Math.min((remaining - 1) * 1000, Math.pow(2, 31) - 1);
                         }
+                        updateTimeout = window.setTimeout(UpdateIdleTime, interval);
                     } else { //timeout occurred
-                        if(isStorageSupported('sessionStorage')){
+                        clearInterval(IncInterval);
+                        if (isStorageSupported('sessionStorage')){
                             window.sessionStorage.clear();
                         }
                         window.location.reload(true);
-                        clearInterval(IncInterval);
                     }
                 }
             });
     }
-    if (PMA_commonParams.get('logged_in') && PMA_commonParams.get('auth_type') == 'cookie') {
+    if (PMA_commonParams.get('logged_in')) {
         IncInterval = window.setInterval(SetIdleTime, 1000);
-        var interval = (PMA_commonParams.get('LoginCookieValidity') - 5) * 1000;
+        var session_timeout = Math.min(
+            PMA_commonParams.get('LoginCookieValidity'),
+            PMA_commonParams.get('session_gc_maxlifetime')
+        );
+        if (isStorageSupported('sessionStorage')) {
+            window.sessionStorage.setItem('guid', guid());
+        }
+        var interval = (session_timeout - 5) * 1000;
         if (interval > Math.pow(2, 31) - 1) { // max value for setInterval() function
             interval = Math.pow(2, 31) - 1;
         }
@@ -1883,7 +1909,6 @@ AJAX.registerOnload('functions.js', function () {
     });
 
     $(document).on('click', "input#sql_query_edit_save", function () {
-        $(".success").hide();
         //hide already existing success message
         var sql_query;
         if (codemirror_inline_editor) {
@@ -1904,6 +1929,7 @@ AJAX.registerOnload('functions.js', function () {
         if (! checkSqlQuery($fake_form[0])) {
             return false;
         }
+        $(".success").hide();
         $fake_form.appendTo($('body')).submit();
     });
 
@@ -2059,7 +2085,7 @@ function bindCodeMirrorToInlineEditor() {
 
 function catchKeypressesFromSqlInlineEdit(event) {
     // ctrl-enter is 10 in chrome and ie, but 13 in ff
-    if (event.ctrlKey && (event.keyCode == 13 || event.keyCode == 10)) {
+    if ((event.ctrlKey || event.metaKey) && (event.keyCode == 13 || event.keyCode == 10)) {
         $("#sql_query_edit_save").trigger('click');
     }
 }
@@ -2505,7 +2531,7 @@ function PMA_createProfilingChart(target, data)
         },
         legend: {
             show: true,
-            location: 'e',
+            location: 'se',
             rendererOptions: {
                 numberColumns: 2
             }
@@ -2519,7 +2545,6 @@ function PMA_createProfilingChart(target, data)
             '#729fcf',
             '#ad7fa8',
             '#ef2929',
-            '#eeeeec',
             '#888a85',
             '#c4a000',
             '#ce5c00',
@@ -4197,6 +4222,7 @@ AJAX.registerOnload('functions.js', function () {
                     ? window.localStorage.favorite_tables
                     : '',
                 token: PMA_commonParams.get('token'),
+                server: PMA_commonParams.get('server'),
                 no_debug: true
             },
             success: function (data) {
@@ -4994,6 +5020,20 @@ function toggleDatepickerIfInvalid($td, $input_field) {
     }
 }
 
+/*
+ * Function to enable the 'Go' button on login.
+ */
+function loginButtonEnable() {
+    $('#input_go').prop('disabled', false);
+}
+
+/*
+ * Function to disable the 'Go' button on login.
+ */
+function loginButtonDisable() {
+    $('#input_go').prop('disabled', true);
+}
+
 /**
  * Unbind all event handlers before tearing down a page
  */
@@ -5015,6 +5055,13 @@ AJAX.registerOnload('functions.js', function () {
             }
         }
     });
+
+    /*
+     * Setting the 'Go' login button to disable if captcha is enabled.
+     */
+    if ($('.g-recaptcha').attr('captcha') == 'enabled'){
+        loginButtonDisable();
+    }
 });
 
 /**

@@ -307,7 +307,6 @@ th.condition {
  */
 td.null {
     font-style: italic;
-    text-align: <?php echo $right; ?>;
     color: #7d7d7d;
 }
 
@@ -977,10 +976,10 @@ caption a.top {
 }
 
 div#serverstatusquerieschart {
-    float:<?php echo $left; ?>;
-    width:500px;
-    height:350px;
-    padding-<?php echo $left; ?>: 30px;
+    float: <?php echo $left; ?>;
+    width: 500px;
+    height: 350px;
+    margin-<?php echo $right;?>: 50px;
 }
 
 div#serverstatus table#serverstatusqueriesdetails {

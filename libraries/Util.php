@@ -2547,7 +2547,7 @@ class Util
             . URL::getCommon(array('db' => $database)) . '" title="'
             . htmlspecialchars(
                 sprintf(
-                    __('Jump to database "%s".'),
+                    __('Jump to database “%s”.'),
                     $database
                 )
             )
@@ -2604,40 +2604,31 @@ class Util
 
         foreach ($choices as $choice_value => $choice_label) {
 
-            if (! empty($class)) {
-                $radio_html .= '<div class="' . $class . '">';
-            }
-
             if (! $id_prefix) {
                 $id_prefix = $html_field_name;
             }
             $html_field_id = $id_prefix . '_' . $choice_value;
-            $radio_html .= '<input type="radio" name="' . $html_field_name . '" id="'
-                        . $html_field_id . '" value="'
-                        . htmlspecialchars($choice_value) . '"';
 
-            if ($choice_value == $checked_choice) {
-                $radio_html .= ' checked="checked"';
+            if ($choice_value == $checked_choice){
+                $checked = 1;
             }
-
-            $radio_html .= ' />' . "\n"
-                        . '<label for="' . $html_field_id . '">'
-                        . ($escape_label
-                        ? htmlspecialchars($choice_label)
-                        : $choice_label)
-                        . '</label>';
-
-            if ($line_break) {
-                $radio_html .= '<br />';
+            else{
+                $checked = 0;
             }
-
-            if (! empty($class)) {
-                $radio_html .= '</div>';
-            }
-            $radio_html .= "\n";
+            $radio_html .= Template::get('radio_fields')->render([
+                            'class' =>  $class,
+                            'html_field_name'   =>  $html_field_name,
+                            'html_field_id' => $html_field_id,
+                            'choice_value' => $choice_value,
+                            'is_line_break' => $line_break,
+                            'choice_label'  => $choice_label,
+                            'escape_label'  => $escape_label,
+                            'checked' => $checked
+                        ]);
         }
 
         return $radio_html;
+
     }
 
     /**
@@ -2660,38 +2651,27 @@ class Util
     public static function getDropdown(
         $select_name, $choices, $active_choice, $id, $class = '', $placeholder = null
     ) {
-        $result = '<select'
-            . ' name="' . htmlspecialchars($select_name) . '"'
-            . ' id="' . htmlspecialchars($id) . '"'
-            . (! empty($class) ? ' class="' . htmlspecialchars($class) . '"' : '')
-            . '>';
-
-        $resultOptions = '';
+        $resultOptions = [];
         $selected = false;
 
         foreach ($choices as $one_choice_value => $one_choice_label) {
-            $resultOptions .= '<option value="'
-                . htmlspecialchars($one_choice_value) . '"';
+            $resultOptions[$one_choice_value]['value'] = $one_choice_value;
+            $resultOptions[$one_choice_value]['selected'] = false;
 
             if ($one_choice_value == $active_choice) {
-                $resultOptions .= ' selected="selected"';
+                $resultOptions[$one_choice_value]['selected'] = true;
                 $selected = true;
             }
-            $resultOptions .= '>' . htmlspecialchars($one_choice_label)
-                . '</option>';
+            $resultOptions[$one_choice_value]['label'] = $one_choice_label;
         }
-
-        if (!empty($placeholder)) {
-            $resultOptions = '<option value="" disabled="disabled"'
-                . ( !$selected ? ' selected="selected"' : '' )
-                . '>' . $placeholder . '</option>'
-                . $resultOptions;
-        }
-
-        $result .= $resultOptions
-            . '</select>';
-
-        return $result;
+        return Template::get('dropdown')->render([
+                'select_name' => $select_name,
+                'id'    => $id,
+                'class' => $class,
+                'placeholder' => $placeholder,
+                'selected'  => $selected,
+                'resultOptions' => $resultOptions,
+            ]);
     }
 
     /**
@@ -4170,30 +4150,6 @@ class Util
         }
         return $context;
     }
-    /**
-     * Updates an existing curl as necessary
-     *
-     * @param resource $curl_handle A curl_handle resource
-     *                              created by curl_init which should
-     *                              have several options set
-     *
-     * @return resource curl_handle with updated options
-     */
-    public static function configureCurl($curl_handle)
-    {
-        if (strlen($GLOBALS['cfg']['ProxyUrl']) > 0) {
-            curl_setopt($curl_handle, CURLOPT_PROXY, $GLOBALS['cfg']['ProxyUrl']);
-            if (strlen($GLOBALS['cfg']['ProxyUser']) > 0) {
-                curl_setopt(
-                    $curl_handle,
-                    CURLOPT_PROXYUSERPWD,
-                    $GLOBALS['cfg']['ProxyUser'] . ':' . $GLOBALS['cfg']['ProxyPass']
-                );
-            }
-        }
-        curl_setopt($curl_handle, CURLOPT_USERAGENT, 'phpMyAdmin/' . PMA_VERSION);
-        return $curl_handle;
-    }
 
     /**
      * Add fractional seconds to time, datetime and timestamp strings.
@@ -4763,39 +4719,87 @@ class Util
      * @param bool   $return_only_status If set to true, the method would only return response status
      * @param mixed  $content            Content to be sent with HTTP request
      * @param string $header             Header to be set for the HTTP request
+     * @param int    $ssl                SSL mode to use
      *
      * @return mixed
      */
-    public static function httpRequestCurl($url, $method, $return_only_status = false, $content = null, $header = "")
+    public static function httprequestcurl($url, $method, $return_only_status = false, $content = null, $header = "", $ssl = 0)
     {
         $curl_handle = curl_init($url);
         if ($curl_handle === false) {
             return null;
         }
-        $curl_handle = Util::configureCurl($curl_handle);
+        $curl_status = true;
+        if (strlen($GLOBALS['cfg']['ProxyUrl']) > 0) {
+            $curl_status &= curl_setopt($curl_handle, CURLOPT_PROXY, $GLOBALS['cfg']['ProxyUrl']);
+            if (strlen($GLOBALS['cfg']['ProxyUser']) > 0) {
+                $curl_status &= curl_setopt(
+                    $curl_handle,
+                    CURLOPT_PROXYUSERPWD,
+                    $GLOBALS['cfg']['ProxyUser'] . ':' . $GLOBALS['cfg']['ProxyPass']
+                );
+            }
+        }
+        $curl_status &= curl_setopt($curl_handle, CURLOPT_USERAGENT, 'phpMyAdmin');
 
         if ($method != "GET") {
-            curl_setopt($curl_handle, CURLOPT_CUSTOMREQUEST, $method);
+            $curl_status &= curl_setopt($curl_handle, CURLOPT_CUSTOMREQUEST, $method);
         }
         if ($header) {
-            curl_setopt($curl_handle, CURLOPT_HTTPHEADER, array($header));
-            curl_setopt($curl_handle, CURLOPT_HEADER, true);
+            $curl_status &= curl_setopt($curl_handle, CURLOPT_HTTPHEADER, array($header));
         }
 
         if ($method == "POST") {
-            curl_setopt($curl_handle, CURLOPT_POSTFIELDS, $content);
+            $curl_status &= curl_setopt($curl_handle, CURLOPT_POSTFIELDS, $content);
         }
 
-        curl_setopt($curl_handle, CURLOPT_SSL_VERIFYHOST, '2');
-        curl_setopt($curl_handle, CURLOPT_SSL_VERIFYPEER, '1');
+        $curl_status &= curl_setopt($curl_handle, CURLOPT_SSL_VERIFYHOST, '2');
+        $curl_status &= curl_setopt($curl_handle, CURLOPT_SSL_VERIFYPEER, '1');
 
-        curl_setopt($curl_handle, CURLOPT_RETURNTRANSFER,true);
-        curl_setopt($curl_handle, CURLOPT_FOLLOWLOCATION, 0);
-        curl_setopt($curl_handle, CURLOPT_IPRESOLVE, CURL_IPRESOLVE_V4);
-        curl_setopt($curl_handle, CURLOPT_TIMEOUT, 10);
-        curl_setopt($curl_handle, CURLOPT_CONNECTTIMEOUT, 10);
+        /**
+         * Configure ISRG Root X1 to be able to verify Let's Encrypt SSL
+         * certificates even without properly configured curl in PHP.
+         *
+         * See https://letsencrypt.org/certificates/
+         */
+        $certs_dir = dirname(__file__) . '/certs/';
+        /* See code below for logic */
+        if ($ssl == CURLOPT_CAPATH) {
+            $curl_status &= curl_setopt($curl_handle, CURLOPT_CAPATH, $certs_dir);
+        } elseif ($ssl == CURLOPT_CAINFO) {
+            $curl_status &= curl_setopt($curl_handle, CURLOPT_CAINFO, $certs_dir . 'isrgrootx1.pem');
+        }
+
+        $curl_status &= curl_setopt($curl_handle, CURLOPT_RETURNTRANSFER,true);
+        $curl_status &= curl_setopt($curl_handle, CURLOPT_FOLLOWLOCATION, 0);
+        $curl_status &= curl_setopt($curl_handle, CURLOPT_IPRESOLVE, CURL_IPRESOLVE_V4);
+        $curl_status &= curl_setopt($curl_handle, CURLOPT_TIMEOUT, 10);
+        $curl_status &= curl_setopt($curl_handle, CURLOPT_CONNECTTIMEOUT, 10);
+
+        if (! $curl_status) {
+            return null;
+        }
         $response = @curl_exec($curl_handle);
         if ($response === false) {
+            /*
+             * In case of SSL verification failure let's try configuring curl
+             * certificate verification. Unfortunately it is tricky as setting
+             * options incompatible with PHP build settings can lead to failure.
+             *
+             * So let's rather try the options one by one.
+             *
+             * 1. Try using system SSL storage.
+             * 2. Try setting CURLOPT_CAINFO.
+             * 3. Try setting CURLOPT_CAPATH.
+             * 4. Fail.
+             */
+            if (curl_getinfo($curl_handle, CURLINFO_SSL_VERIFYRESULT) != 0) {
+                if ($ssl == 0) {
+                    self::httpRequestCurl($url, $method, $return_only_status, $content, $header, CURLOPT_CAINFO);
+                } elseif ($ssl == CURLOPT_CAINFO) {
+                    self::httpRequestCurl($url, $method, $return_only_status, $content, $header, CURLOPT_CAPATH);
+                }
+            }
             return null;
         }
         $http_status = curl_getinfo($curl_handle, CURLINFO_HTTP_CODE);

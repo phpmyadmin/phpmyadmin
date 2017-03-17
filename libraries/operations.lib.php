@@ -1358,7 +1358,7 @@ function PMA_getListofMaintainActionLink($pma_table, $url_params)
     $html_output = '';
 
     // analyze table
-    if ($pma_table->isEngine(array('MYISAM', 'ARIA', 'INNODB', 'BERKELEYDB'))) {
+    if ($pma_table->isEngine(array('MYISAM', 'ARIA', 'INNODB', 'BERKELEYDB', 'TOKUDB'))) {
         $params = array(
             'sql_query' => 'ANALYZE TABLE '
                 . Util::backquote($GLOBALS['table']),
@@ -1373,7 +1373,7 @@ function PMA_getListofMaintainActionLink($pma_table, $url_params)
     }
 
     // check table
-    if ($pma_table->isEngine(array('MYISAM', 'ARIA', 'INNODB'))) {
+    if ($pma_table->isEngine(array('MYISAM', 'ARIA', 'INNODB', 'TOKUDB'))) {
         $params = array(
             'sql_query' => 'CHECK TABLE '
                 . Util::backquote($GLOBALS['table']),
@@ -1433,7 +1433,7 @@ function PMA_getListofMaintainActionLink($pma_table, $url_params)
     );
 
     // optimize table
-    if ($pma_table->isEngine(array('MYISAM', 'ARIA', 'INNODB', 'BERKELEYDB'))) {
+    if ($pma_table->isEngine(array('MYISAM', 'ARIA', 'INNODB', 'BERKELEYDB', 'TOKUDB'))) {
         $params = array(
             'sql_query' => 'OPTIMIZE TABLE '
                 . Util::backquote($GLOBALS['table']),

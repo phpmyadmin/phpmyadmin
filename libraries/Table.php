@@ -1124,12 +1124,11 @@ class Table
                     . ') ' . ' VALUES(' . '\'' . $GLOBALS['dbi']->escapeString($target_db)
                     . '\',\'' . $GLOBALS['dbi']->escapeString($target_table) . '\',\''
                     . $GLOBALS['dbi']->escapeString($comments_copy_row['column_name'])
+                    . '\',\'' . $GLOBALS['dbi']->escapeString($target_table) . '\',\''
+                    . $GLOBALS['dbi']->escapeString($comments_copy_row['comment'])
                     . '\''
                     . ($GLOBALS['cfgRelation']['mimework']
                         ? ',\'' . $GLOBALS['dbi']->escapeString(
-                            $comments_copy_row['comment']
-                        )
-                        . '\',' . '\'' . $GLOBALS['dbi']->escapeString(
                             $comments_copy_row['mimetype']
                         )
                         . '\',' . '\'' . $GLOBALS['dbi']->escapeString(
@@ -1983,10 +1982,13 @@ class Table
         }
 
         // specifying index type is allowed only for primary, unique and index only
+        // TokuDB is using Fractal Tree, Using Type is not useless
+        // Ref: https://mariadb.com/kb/en/mariadb/storage-engine-index-types/
         $type = $index->getType();
         if ($index->getChoice() != 'SPATIAL'
             && $index->getChoice() != 'FULLTEXT'
             && in_array($type, Index::getIndexTypes())
+            && ! $this->isEngine(array('TOKUDB'))
         ) {
             $sql_query .= ' USING ' . $type;
         }

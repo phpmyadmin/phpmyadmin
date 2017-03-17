@@ -318,8 +318,8 @@ function PMA_showAddIndexDialog(source_array, array_index, target_columns, col_i
     var $table = $('input[name="table"]');
     var table = $table.length > 0 ? $table.val() : '';
     var post_data = {
-        token: $('input[name="token"]').val(),
-        server:  $('input[name="server"]').val(),
+        server: PMA_commonParams.get('server'),
+        token: PMA_commonParams.get('token'),
         db: $('input[name="db"]').val(),
         table: table,
         ajax_request: 1,

@@ -3,6 +3,8 @@
 # - run lint for every PHP version
 # - run Selenium for single PHP version
 
+dist: trusty
+
 language: php
 
 services:
@@ -13,14 +15,15 @@ php:
   - "7.0"
   - "5.6"
   - "5.5"
-  - hhvm
+  - hhvm-3.3
+  - hhvm-3.12
+  - hhvm-3.18
 
-sudo: false
+sudo: required
 
 env:
   matrix:
     - CI_MODE=test
-    - CI_MODE=lint
   global:
     - TESTSUITE_USER=root
     - TESTSUITE_PASSWORD=root
@@ -28,7 +31,7 @@ env:
 
 install:
   - ./test/ci-install-$CI_MODE
-  - if [ $TRAVIS_PHP_VERSION != "hhvm" ] ; then phpenv config-add test/php-noprofile.ini ; fi
+  - if [[ "$TRAVIS_OS_NAME" != "osx" ]]; then case "$TRAVIS_PHP_VERSION" in hhvm*) ;; *) phpenv config-add test/php-noprofile.ini ;; esac ; fi
 
 before_script:
   - export PATH=~/.composer/vendor/bin/:$PATH
@@ -38,13 +41,15 @@ before_script:
   - ./test/start-local-server
 
 script:
-  - ant clean
+  - ./scripts/generate-mo --quiet
+  - if [ $CI_MODE = test ] ; then ./test/ci-lint ; fi
   - ./test/ci-$CI_MODE
 
 after_script:
   - if [ -f vendor/bin/coveralls ] ; then php vendor/bin/coveralls -v || true ; fi
   - if [ -f vendor/bin/codacycoverage ] ; then php vendor/bin/codacycoverage clover || true ; fi
   - if [ -f php.log ] ; then cat php.log ; fi
+  - if [ -f build/logs/phpunit.json ] ; then ./scripts/phpunit-top-tests build/logs/phpunit.json ; fi
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
@@ -67,26 +72,23 @@ matrix:
       before_install:
         - brew tap homebrew/php
         - brew update
-        - brew install ant gettext php70 mariadb
+        - brew install gettext php70 mariadb
         - brew link --force gettext
         - curl https://getcomposer.org/installer | php
         - ln -s "`pwd`/composer.phar" /usr/local/bin/composer
         - mysql.server start
 
 cache:
+  pip: true
   directories:
     - $HOME/.composer/cache/
     - $HOME/browserstack
     - $HOME/runkit
-    - $HOME/.cache/pip
-# trigger Buildtime Trend Service to parse Travis CI log
-notifications:
-  webhooks:
-    - https://buildtimetrend.herokuapp.com/travis
+# Install APT packages
+#  - git > 2.5.1 needed for worktrees
+#  - mysql server does not seem to be always present on Travis Trusty environment
 addons:
   apt:
     packages:
     - git
-    - python-coverage
-    sources:
-    - git-core
+    - mysql-server-5.6

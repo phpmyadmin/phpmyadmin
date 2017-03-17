@@ -250,7 +250,7 @@ var PMA_console = {
         if (options && options.profiling === true) {
             PMA_console.$requestForm.append('<input name="profiling" value="on">');
         }
-        if (! confirmQuery(PMA_console.$requestForm[0], PMA_console.$requestForm.children('textarea')[0])) {
+        if (! confirmQuery(PMA_console.$requestForm[0], PMA_console.$requestForm.children('textarea')[0].value)) {
             return;
         }
         PMA_console.$requestForm.children('[name=console_message_id]')

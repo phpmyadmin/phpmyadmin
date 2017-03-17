@@ -3,6 +3,9 @@ phpMyAdmin - ChangeLog
 
 4.8.0 (not yet released)
 - issue #12946 Allow to export JSON with unescaped unicode chars
+- issue #12983 Disable login button without solved reCaptcha
+- issue #12315 Allow to remove individual segments from pie charts
+- issue        Change label from "Improve table structure" to "Normalize" to match standard terminology
 
 4.7.0.0 (not yet released)
 - patch #12233 [Display] Improve message when renaming database to same name
@@ -78,6 +81,32 @@ phpMyAdmin - ChangeLog
 - issue #12980 Better defaults when creating multi field foreign key
 - issue #12976 Improved foreign key editor behavior
 - issue #12958 Always show error reporting dialog on top
+- issue #12693 Improved support for TokuDB
+- issue #11231 Try harder to honor LoginCookieValidity setting
+- issue #13016 and #13017 Slight improvements to the table layout of Relation view
+- issue #12345 Correctly show affected rows for LOAD DATA queries
+- issue #13010 Copy database: SQL error for copying PMADB metadata
+- issue #13002 Fixed OpenDocument exports
+- issue #13000 Align NULL values according to the column alignment
+- issue #13021 Show phpMyAdmin errors even with error_reporting set to 0
+- issue #13020 Removed warning about client and server versions mismatch
+- issue        Hide comments on table Structure tab when no comment is set
+- issue        Fixed submission of error reports
+- issue #13033 Use Referrer-Policy header to specify referrer policy
+- issue        Fixed javascript confirmation of dangerous queries
+- issue #13040 Compatibility with hhvm 3.18
+- issue #13031 Fixed displaying of all rows
+- issue #12967 Fixed related field selection for native relations
+- issue #13045 Properly escape MIME transformatoin names
+- issue #13028 Always show 100% in font selector
+- issue #13047 Fix query simulating for more servers
+- issue #12846 Fix new version check for sites with wrongly configured curl
+- issue #12951 When exporting to Excel, the default is now to include column names in the first row
+- issue #13059 Removed debugging code
+- issue #13029 Fixed table tracking for nested table groups
+- issue #13053 Fixed broken links in setup
+- issue #12708 Removed phpMyAdmin version from User-Agent header
+- issue #13084 Do not point users to setup when it is disabled
 
 4.6.6 (2017-01-23)
 - issue #12759 Fix Notice regarding 'Undefined index: old_usergroup'

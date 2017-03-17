@@ -59,8 +59,8 @@ class PMA_GetDbLink_Test extends PHPUnit_Framework_TestCase
             )
             . '?db=' . $database
             . '&amp;server=99&amp;lang=en" '
-            . 'title="Jump to database &quot;'
-            . htmlspecialchars($database) . '&quot;.">'
+            . 'title="Jump to database “'
+            . htmlspecialchars($database) . '”.">'
             . htmlspecialchars($database) . '</a>',
             PMA\libraries\Util::getDbLink()
         );
@@ -80,8 +80,8 @@ class PMA_GetDbLink_Test extends PHPUnit_Framework_TestCase
                 $GLOBALS['cfg']['DefaultTabDatabase'], 'database'
             )
             . '?db=' . $database
-            . '&amp;server=99&amp;lang=en" title="Jump to database &quot;'
-            . htmlspecialchars($database) . '&quot;.">'
+            . '&amp;server=99&amp;lang=en" title="Jump to database “'
+            . htmlspecialchars($database) . '”.">'
             . htmlspecialchars($database) . '</a>',
             PMA\libraries\Util::getDbLink($database)
         );
@@ -103,8 +103,8 @@ class PMA_GetDbLink_Test extends PHPUnit_Framework_TestCase
             )
             . '?db='
             . htmlspecialchars(urlencode($database))
-            . '&amp;server=99&amp;lang=en" title="Jump to database &quot;'
-            . htmlspecialchars($database) . '&quot;.">'
+            . '&amp;server=99&amp;lang=en" title="Jump to database “'
+            . htmlspecialchars($database) . '”.">'
             . htmlspecialchars($database) . '</a>',
             PMA\libraries\Util::getDbLink($database)
         );

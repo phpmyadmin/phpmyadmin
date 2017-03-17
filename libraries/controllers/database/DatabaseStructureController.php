@@ -754,9 +754,9 @@ class DatabaseStructureController extends DatabaseController
         if (isset($current_table['TABLE_ROWS'])
             && ($current_table['ENGINE'] != null || $table_is_view)
         ) {
-            // InnoDB table: we did not get an accurate row count
+            // InnoDB/TokuDB table: we did not get an accurate row count
             $approx_rows = !$table_is_view
-                && $current_table['ENGINE'] == 'InnoDB'
+                && in_array($current_table['ENGINE'], array('InnoDB', 'TokuDB'))
                 && !$current_table['COUNTED'];
 
             if ($table_is_view
@@ -943,7 +943,6 @@ class DatabaseStructureController extends DatabaseController
         case 'ARCHIVE' :
         case 'Aria' :
         case 'Maria' :
-        case 'TokuDB' :
             list($current_table, $formatted_size, $unit, $formatted_overhead,
                 $overhead_unit, $overhead_size, $sum_size)
                     = $this->getValuesForAriaTable(
@@ -953,6 +952,7 @@ class DatabaseStructureController extends DatabaseController
             break;
         case 'InnoDB' :
         case 'PBMS' :
+        case 'TokuDB' :
             // InnoDB table: Row count is not accurate but data and index sizes are.
             // PBMS table in Drizzle: TABLE_ROWS is taken from table cache,
             // so it may be unavailable
@@ -1062,7 +1062,7 @@ class DatabaseStructureController extends DatabaseController
     ) {
         $formatted_size = $unit = '';
 
-        if (($current_table['ENGINE'] == 'InnoDB'
+        if ((in_array($current_table['ENGINE'], array('InnoDB', 'TokuDB'))
             && $current_table['TABLE_ROWS'] < $GLOBALS['cfg']['MaxExactCount'])
             || !isset($current_table['TABLE_ROWS'])
         ) {

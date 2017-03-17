@@ -334,7 +334,7 @@ class AuthenticationCookieTest extends PMATestCase
         );
 
         $this->assertContains(
-            '<div class="g-recaptcha" data-sitekey="testpubkey">',
+            '<div class="g-recaptcha" data-sitekey="testpubkey" data-callback="loginButtonEnable" data-expired-callback="loginButtonDisable" captcha="enabled">',
             $result
         );
     }
@@ -562,7 +562,7 @@ class AuthenticationCookieTest extends PMATestCase
         $GLOBALS['cfg']['blowfish_secret'] = 'secret';
         $GLOBALS['cfg']['CaptchaLoginPrivateKey'] = '';
         $GLOBALS['cfg']['CaptchaLoginPublicKey'] = '';
-        $_SESSION['last_access_time'] = time() - 1000;
+        $_SESSION['browser_access_time']['default'] = time() - 1000;
         $GLOBALS['cfg']['LoginCookieValidity'] = 1440;
 
         // mock for blowfish function
@@ -608,7 +608,7 @@ class AuthenticationCookieTest extends PMATestCase
         $GLOBALS['cfg']['CaptchaLoginPrivateKey'] = '';
         $GLOBALS['cfg']['CaptchaLoginPublicKey'] = '';
         $GLOBALS['cfg']['LoginCookieValidity'] = 0;
-        $_SESSION['last_access_time'] = -1;
+        $_SESSION['browser_access_time']['default'] = -1;
         // mock for blowfish function
         $this->object = $this->getMockBuilder('PMA\libraries\plugins\auth\AuthenticationCookie')
             ->disableOriginalConstructor()

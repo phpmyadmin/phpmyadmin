@@ -304,8 +304,8 @@ var ErrorReport = {
 
 };
 
-TraceKit.report.subscribe(ErrorReport.error_handler);
-ErrorReport.set_up_error_reporting();
-$(function () {
+AJAX.registerOnload('error_report.js', function(){
+    TraceKit.report.subscribe(ErrorReport.error_handler);
+    ErrorReport.set_up_error_reporting();
     ErrorReport.wrap_global_functions();
 });

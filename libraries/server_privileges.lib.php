@@ -4607,7 +4607,6 @@ function PMA_getHtmlForUserOverview($pmaThemeImage, $text_dir)
             $raw = 'Your privilege table structure seems to be older than'
                 . ' this MySQL version!<br />'
                 . 'Please run the <code>mysql_upgrade</code> command'
-                . '(<code>mysql_fix_privilege_tables</code> on older systems)'
                 . ' that should be included in your MySQL server distribution'
                 . ' to solve this problem!';
             $html_output .= Message::rawError($raw)->getDisplay();
@@ -4665,8 +4664,8 @@ function PMA_getHtmlForUserOverview($pmaThemeImage, $text_dir)
             if ($GLOBALS['is_reload_priv']) {
                 $flushnote = new Message(
                     __(
-                        'Note: phpMyAdmin gets the users\' privileges directly '
-                        . 'from MySQL\'s privilege tables. The content of these '
+                        'Note: phpMyAdmin gets the users’ privileges directly '
+                        . 'from MySQL’s privilege tables. The content of these '
                         . 'tables may differ from the privileges the server uses, '
                         . 'if they have been changed manually. In this case, '
                         . 'you should %sreload the privileges%s before you continue.'
@@ -4682,8 +4681,8 @@ function PMA_getHtmlForUserOverview($pmaThemeImage, $text_dir)
             } else {
                 $flushnote = new Message(
                     __(
-                        'Note: phpMyAdmin gets the users\' privileges directly '
-                        . 'from MySQL\'s privilege tables. The content of these '
+                        'Note: phpMyAdmin gets the users’ privileges directly '
+                        . 'from MySQL’s privilege tables. The content of these '
                         . 'tables may differ from the privileges the server uses, '
                         . 'if they have been changed manually. In this case, '
                         . 'the privileges have to be reloaded but currently, you '

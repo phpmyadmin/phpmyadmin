@@ -62,14 +62,6 @@ $cfg['SuhosinDisableWarning'] = false;
 $cfg['LoginCookieValidityDisableWarning'] = false;
 
 /**
- * Disable the default warning that is displayed if a difference between
- * the MySQL library and server is detected.
- *
- * @global boolean $cfg['['ServerLibraryDifference_DisableWarning']']
- */
-$cfg['ServerLibraryDifference_DisableWarning'] = false;
-
-/**
  * Disable the default warning about MySQL reserved words in column names
  *
  * @global boolean $cfg['ReservedWordDisableWarning']
@@ -1670,7 +1662,7 @@ $cfg['Export']['csv_removeCRLF'] = false;
  *
  * @global boolean $cfg['Export']['excel_columns']
  */
-$cfg['Export']['excel_columns'] = false;
+$cfg['Export']['excel_columns'] = true;
 
 /**
  *

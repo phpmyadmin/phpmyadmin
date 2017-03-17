@@ -28,6 +28,7 @@ $scripts->addFile('chart.js');
 $scripts->addFile('jqplot/jquery.jqplot.js');
 $scripts->addFile('jqplot/plugins/jqplot.pieRenderer.js');
 $scripts->addFile('jqplot/plugins/jqplot.highlighter.js');
+$scripts->addFile('jqplot/plugins/jqplot.enhancedPieLegendRenderer.js');
 $scripts->addFile('jquery/jquery.tablesorter.js');
 $scripts->addFile('server_status_sorter.js');
 $scripts->addFile('server_status_queries.js');
