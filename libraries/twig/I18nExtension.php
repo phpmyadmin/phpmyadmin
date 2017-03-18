@@ -7,12 +7,15 @@
  */
 namespace PMA\libraries\twig;
 
+use Twig_Extensions_Extension_I18n;
+use Twig_SimpleFilter;
+
 /**
  * Class I18nExtension
  *
  * @package PMA\libraries\twig
  */
-class I18nExtension extends \Twig_Extensions_Extension_I18n
+class I18nExtension extends Twig_Extensions_Extension_I18n
 {
     /**
      * {@inheritdoc}
@@ -28,7 +31,7 @@ class I18nExtension extends \Twig_Extensions_Extension_I18n
     public function getFilters()
     {
         return array(
-             new \Twig_SimpleFilter('trans', '_gettext'),
+             new Twig_SimpleFilter('trans', '_gettext'),
         );
     }
 }

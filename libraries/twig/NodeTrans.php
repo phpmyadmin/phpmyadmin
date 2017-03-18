@@ -7,12 +7,14 @@
  */
 namespace PMA\libraries\twig;
 
+use Twig_Extensions_Node_Trans;
+
 /**
  * Class NodeTrans
  *
  * @package PMA\libraries\twig
  */
-class NodeTrans extends \Twig_Extensions_Node_Trans
+class NodeTrans extends Twig_Extensions_Node_Trans
 {
     /**
      * @param bool $plural Return plural or singular function to use

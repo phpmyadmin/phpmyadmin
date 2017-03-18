@@ -37,7 +37,7 @@
         "phpmyadmin/shapefile": "^2.0",
         "phpseclib/phpseclib": "^2.0",
         "google/recaptcha": "^1.1",
-        "twig/twig": "^2.2",
+        "twig/twig": "^1.32",
         "twig/extensions": "^1.4"
     },
     "conflict": {

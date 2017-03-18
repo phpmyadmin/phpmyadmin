@@ -7,6 +7,7 @@
  */
 namespace PMA\libraries\twig;
 
+use Twig_Extensions_TokenParser_Trans;
 use Twig_Token;
 
 /**
@@ -14,7 +15,7 @@ use Twig_Token;
  *
  * @package PMA\libraries\twig
  */
-class TokenParserTrans extends \Twig_Extensions_TokenParser_Trans
+class TokenParserTrans extends Twig_Extensions_TokenParser_Trans
 {
     /**
      * {@inheritdoc}

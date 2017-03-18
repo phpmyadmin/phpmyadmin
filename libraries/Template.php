@@ -8,6 +8,7 @@
 namespace PMA\libraries;
 
 use PMA\libraries\twig\I18nExtension;
+use PMA\libraries\twig\UrlExtension;
 
 /**
  * Class Template
@@ -57,11 +58,13 @@ class Template
         $this->name = $name;
         $this->data = $data;
         $this->helperFunctions = $helperFunctions;
+
         $this->loader = new \Twig_Loader_Filesystem(static::BASE_PATH);
         $this->environment = new \Twig_Environment($this->loader, array(
             'cache' => static::BASE_PATH . 'cache',
         ));
         $this->environment->addExtension(new I18nExtension());
+        $this->environment->addExtension(new UrlExtension());
     }
 
     /**
