@@ -5027,17 +5027,10 @@ function toggleDatepickerIfInvalid($td, $input_field) {
 }
 
 /*
- * Function to enable the 'Go' button on login.
+ * Function to submit the login form after validation is done.
  */
-function loginButtonEnable() {
-    $('#input_go').prop('disabled', false);
-}
-
-/*
- * Function to disable the 'Go' button on login.
- */
-function loginButtonDisable() {
-    $('#input_go').prop('disabled', true);
+function recaptchaCallback() {
+    $('#login_form').submit();
 }
 
 /**
