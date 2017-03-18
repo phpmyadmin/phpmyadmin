@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-03-01 18:19+0100\n"
-"PO-Revision-Date: 2017-03-18 22:23+0000\n"
+"PO-Revision-Date: 2017-03-18 22:24+0000\n"
 "Last-Translator: Franco <fulanodetal.github1@openaliasbox.org>\n"
 "Language-Team: Spanish "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/es/>\n"
@@ -13812,7 +13812,7 @@ msgstr "Problemas con los índices de la tabla `%s`"
 #: libraries/sql_query_form.lib.php:139
 #, php-format
 msgid "Run SQL query/queries on server “%s”"
-msgstr "Ejecute la o las consultas SQL en el servidor \"%s\""
+msgstr "Ejecute la(s) consulta(s) SQL en el servidor \"%s\""
 
 #: libraries/sql_query_form.lib.php:156
 #, php-format
