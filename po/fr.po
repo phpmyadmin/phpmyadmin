@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-03-01 18:19+0100\n"
-"PO-Revision-Date: 2017-03-03 14:32+0000\n"
+"PO-Revision-Date: 2017-03-19 17:54+0000\n"
 "Last-Translator: tmtisfree <tmtisfree@free.fr>\n"
 "Language-Team: French "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/fr/>\n"
@@ -5008,7 +5008,7 @@ msgstr "NON"
 #: templates/database/create_table.phtml:11
 #: templates/table/structure/table_structure_header.phtml:7
 msgid "Name"
-msgstr "Nom"
+msgstr "Nom&nbsp;"
 
 #: libraries/central_columns.lib.php:698 libraries/central_columns.lib.php:1385
 #: libraries/rte/rte_routines.lib.php:930
@@ -6632,9 +6632,9 @@ msgid ""
 "Number of rows displayed when browsing a result set. If the result set "
 "contains more rows, \"Previous\" and \"Next\" links will be shown."
 msgstr ""
-"Nombre de colonnes affichées lors de la navigation sur un ensemble de "
-"résultats. Si le nombre des colonnes est supérieur, des liens « Suivant » et "
-"« Précédent » seront affichés."
+"Nombre de colonnes affichées lors du parcours d'un ensemble de résultats. Si "
+"le nombre de colonnes est supérieur, des liens « Suivant » et « Précédent » "
+"seront affichés."
 
 #: libraries/config/messages.inc.php:453
 msgid "Maximum number of rows to display"
@@ -8440,7 +8440,7 @@ msgstr ""
 
 #: libraries/display_export.lib.php:624
 msgid "use this for future exports"
-msgstr "utiliser ceci pour les futures exportations"
+msgstr "Utiliser ceci pour les futures exportations"
 
 #: libraries/display_export.lib.php:639 libraries/display_import.lib.php:181
 #: libraries/display_import.lib.php:195
@@ -9785,7 +9785,7 @@ msgstr "Copier la base de données vers"
 
 #: libraries/operations.lib.php:214
 msgid "CREATE DATABASE before copying"
-msgstr "Faire un CREATE DATABASE avant la copie"
+msgstr "Faire CREATE DATABASE avant la copie"
 
 #: libraries/operations.lib.php:255
 msgid "Switch to copied database"
@@ -9987,8 +9987,7 @@ msgstr ""
 #: libraries/plugins/AuthenticationPlugin.php:113
 #, php-format
 msgid "No activity within %s seconds; please log in again."
-msgstr ""
-"Aucune activité depuis %s secondes ou plus,<br />merci de se reconnecter."
+msgstr "Aucune activité depuis %s secondes ou plus, il faut se reconnecter."
 
 #: libraries/plugins/AuthenticationPlugin.php:122
 #: libraries/plugins/AuthenticationPlugin.php:124
@@ -10397,9 +10396,9 @@ msgid ""
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES "
 "(1,2,3)</code>"
 msgstr ""
-"inclure les noms de colonnes dans chaque instruction <code>INSERT</code><br /"
-"> &nbsp; &nbsp; &nbsp; Par exemple : <code>INSERT INTO tbl_name (col_A,col_B,"
-"col_C) VALUES (1,2,3)</code>"
+"inclure les noms de colonnes dans chaque instruction <code>INSERT</code><br "
+"/> &nbsp; &nbsp; &nbsp; Par exemple : <code>INSERT INTO tbl_name "
+"(col_A,col_B,col_C) VALUES (1,2,3)</code>"
 
 #: libraries/plugins/export/ExportSql.php:416
 msgid ""
@@ -10624,7 +10623,7 @@ msgstr "Format invalide pour les données CSV à la ligne %d."
 #: libraries/plugins/import/ImportCsv.php:531
 #, php-format
 msgid "Invalid column count in CSV input on line %d."
-msgstr "Nombre de colonnes invalide dans les données CSV à la ligne %d."
+msgstr "Nombre de colonnes invalides dans les données CSV à la ligne %d."
 
 #: libraries/plugins/import/ImportLdi.php:111
 msgid "This plugin does not support compressed imports!"
@@ -14811,7 +14810,7 @@ msgstr "Nouvelle table"
 
 #: templates/database/create_table.phtml:15
 msgid "Number of columns"
-msgstr "Nombre de colonnes"
+msgstr "Nombre de colonnes&nbsp;"
 
 #: templates/database/designer/aggregate_query_panel.phtml:22
 #: templates/database/designer/options_panel.phtml:100
