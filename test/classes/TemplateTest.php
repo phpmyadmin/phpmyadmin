@@ -18,11 +18,13 @@ class TemplateTest extends PMATestCase
     /**
      * Test for set function
      *
+     * @dataProvider providerTestSet
+     *
      * @return void
      */
-    public function testSet()
+    public function testSet($data)
     {
-        $template = PMA\libraries\Template::get('test/add_data');
+        $template = PMA\libraries\Template::get($data);
         $template->set('variable1', 'value1');
         $template->set(
             array(
@@ -32,6 +34,19 @@ class TemplateTest extends PMATestCase
         $result = $template->render();
         $this->assertContains('value1', $result);
         $this->assertContains('value2', $result);
+    }
+
+    /**
+     * Data provider for testSet
+     *
+     * @return array
+     */
+    public function providerTestSet()
+    {
+        return [
+            ['test/add_data'],
+            ['test/add_data_twig'],
+        ];
     }
 
     /**
@@ -64,6 +79,10 @@ class TemplateTest extends PMATestCase
             'static content',
             PMA\libraries\Template::get('test/static')->render()
         );
+        $this->assertEquals(
+            'static content',
+            PMA\libraries\Template::get('test/static_twig')->render()
+        );
     }
 
     /**
@@ -76,6 +95,14 @@ class TemplateTest extends PMATestCase
         $this->assertEquals(
             'value',
             PMA\libraries\Template::get('test/echo')->render(
+                array(
+                    'variable' => 'value'
+                )
+            )
+        );
+        $this->assertEquals(
+            'value',
+            PMA\libraries\Template::get('test/echo_twig')->render(
                 array(
                     'variable' => 'value'
                 )
