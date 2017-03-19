@@ -107,6 +107,7 @@ phpMyAdmin - ChangeLog
 - issue #13105 Fixed changing attribute for virtual field
 - issue #12757 Fixed setting password on recent MariaDB with non working plugins
 - issue #12349 Fixed undefined variable on import from some formats
+- issue #13103 Do not offer default names for copying/renaming databases
 
 4.6.6 (2017-01-23)
 - issue #12759 Fix Notice regarding 'Undefined index: old_usergroup'
