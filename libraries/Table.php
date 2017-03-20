@@ -371,21 +371,21 @@ class Table
             // so we can't just convert it to integer
             $query .= '(' . $length . ')';
         }
+        if ($attribute != '') {
+            $query .= ' ' . $attribute;
+
+            if ($is_timestamp
+                && preg_match('/TIMESTAMP/i', $attribute)
+                && strlen($length) !== 0
+                && $length !== 0
+            ) {
+                $query .= '(' . $length . ')';
+            }
+        }
 
         if ($virtuality) {
             $query .= ' AS (' . $expression . ') ' . $virtuality;
         } else {
-            if ($attribute != '') {
-                $query .= ' ' . $attribute;
-
-                if ($is_timestamp
-                    && preg_match('/TIMESTAMP/i', $attribute)
-                    && strlen($length) !== 0
-                    && $length !== 0
-                ) {
-                    $query .= '(' . $length . ')';
-                }
-            }
 
             $matches = preg_match(
                 '@^(TINYTEXT|TEXT|MEDIUMTEXT|LONGTEXT|VARCHAR|CHAR|ENUM|SET)$@i',
