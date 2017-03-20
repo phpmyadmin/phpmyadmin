@@ -346,10 +346,9 @@ class RecentFavoriteTable
         if ($server_id == 0) {
             return '';
         }
+        $cfgRelation = PMA_getRelationsParam();
         // Not to show this once list is synchronized.
-        $is_synced = isset($_SESSION['tmpval']['favorites_synced'][$server_id]) ?
-            true : false;
-        if (!$is_synced) {
+        if ($cfgRelation['favoritework'] && ! isset($_SESSION['tmpval']['favorites_synced'][$server_id])) {
             $params  = array('ajax_request' => true, 'favorite_table' => true,
                 'sync_favorite_tables' => true);
             $url     = 'db_structure.php' . URL::getCommon($params);
