@@ -233,7 +233,10 @@ class DatabaseStructureController extends DatabaseController
 
         // Request for Synchronization of favorite tables.
         if (isset($_REQUEST['sync_favorite_tables'])) {
-            $this->synchronizeFavoriteTables($fav_instance, $user, $favorite_tables);
+            $cfgRelation = PMA_getRelationsParam();
+            if ($cfgRelation['favoritework']) {
+                $this->synchronizeFavoriteTables($fav_instance, $user, $favorite_tables);
+            }
             return;
         }
         $changes = true;
