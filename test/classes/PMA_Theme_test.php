@@ -274,12 +274,6 @@ class PMA_ThemeTest extends PHPUnit_Framework_TestCase
             '82%'
         );
 
-        $_COOKIE['pma_fontsize'] = '14px';
-        $this->assertEquals(
-            $this->object->getFontSize(),
-            '14px'
-        );
-
         $GLOBALS['PMA_Config']->set('fontsize', '12px');
         $this->assertEquals(
             $this->object->getFontSize(),
