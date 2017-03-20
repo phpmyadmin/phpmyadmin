@@ -277,7 +277,7 @@ class PMA_DbSearch
             // Gets the SQL statements
             $newsearchsqls = $this->_getSearchSqls($each_table);
             // Executes the "COUNT" statement
-            $res_cnt = PMA_DBI_fetch_value($newsearchsqls['select_count']);
+            $res_cnt = intval(PMA_DBI_fetch_value($newsearchsqls['select_count']));
             $num_search_result_total += $res_cnt;
             // Gets the result row's HTML for a table
             $html_output .= $this->_getResultsRow(
