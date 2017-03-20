@@ -109,4 +109,21 @@ class TemplateTest extends PMATestCase
             )
         );
     }
+
+    /**
+     * Test for render
+     *
+     * @return void
+     */
+    public function testRenderGettext()
+    {
+        $this->assertEquals(
+            'Text',
+            PMA\libraries\Template::get('test/gettext')->render()
+        );
+        $this->assertEquals(
+            'Text',
+            PMA\libraries\Template::get('test/gettext_twig')->render()
+        );
+    }
 }
