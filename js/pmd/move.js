@@ -313,7 +313,6 @@ function Rezize_osn_tab()
     var max_X = 0;
     var max_Y = 0;
     for (var key in j_tabs) {
-        key = Get_html_string(key);
         var k_x = parseInt(document.getElementById(key).style.left, 10) + document.getElementById(key).offsetWidth;
         var k_y = parseInt(document.getElementById(key).style.top, 10) + document.getElementById(key).offsetHeight;
         max_X = max_X < k_x ? k_x : max_X;
@@ -605,7 +604,6 @@ function New()
 function Save(url) // (del?) no for pdf
 {
     for (var key in j_tabs) {
-        key = Get_html_string(key);
         document.getElementById('t_x_' + key + '_').value = parseInt(document.getElementById(key).style.left, 10);
         document.getElementById('t_y_' + key + '_').value = parseInt(document.getElementById(key).style.top, 10);
         document.getElementById('t_v_' + key + '_').value = document.getElementById('id_tbody_' + key).style.display == 'none' ? 0 : 1;
@@ -620,7 +618,6 @@ function Get_url_pos(forceString)
     if (pmd_tables_enabled || forceString) {
         var poststr = '';
         for (var key in j_tabs) {
-            key = Get_html_string(key);
             poststr += '&t_x[' + key + ']=' + parseInt(document.getElementById(key).style.left, 10);
             poststr += '&t_y[' + key + ']=' + parseInt(document.getElementById(key).style.top, 10);
             poststr += '&t_v[' + key + ']=' + (document.getElementById('id_tbody_' + key).style.display == 'none' ? 0 : 1);
@@ -630,7 +627,6 @@ function Get_url_pos(forceString)
     } else {
         var coords = [];
         for (var key in j_tabs) {
-            key = Get_html_string(key);
             if (document.getElementById('check_vis_' + key).checked) {
                 var x = parseInt(document.getElementById(key).style.left, 10);
                 var y = parseInt(document.getElementById(key).style.top, 10);
@@ -1262,7 +1258,6 @@ function Small_tab_all(id_this) // max/min all tables
 
     if (icon.alt == "v") {
         for (key in j_tabs) {
-            key = Get_html_string(key);
             if (document.getElementById('id_hide_tbody_' + key).innerHTML == "v") {
                 Small_tab(key, 0);
             }
@@ -1272,7 +1267,6 @@ function Small_tab_all(id_this) // max/min all tables
         value_sent = 'v';
     } else {
         for (key in j_tabs) {
-            key = Get_html_string(key);
             if (document.getElementById('id_hide_tbody_' + key).innerHTML != "v") {
                 Small_tab(key, 0);
             }
@@ -1290,7 +1284,6 @@ function Small_tab_all(id_this) // max/min all tables
 function Small_tab_invert() // invert max/min all tables
 {
     for (var key in j_tabs) {
-        key = Get_html_string(key);
         Small_tab(key, 0);
     }
     Re_load();
@@ -1305,18 +1298,9 @@ function Relation_lines_invert()
     Re_load();
 }
 
-function Get_html_string(str)
-{
-    var elem = document.createElement('textarea');
-    elem.innerHTML = str;
-    var html_str = elem.value;
-    return html_str;
-}
-
 function Small_tab_refresh()
 {
     for (var key in j_tabs) {
-        key = Get_html_string(key);
         if (document.getElementById('id_hide_tbody_' + key).innerHTML != "v") {
             Small_tab(key, 0);
         }
