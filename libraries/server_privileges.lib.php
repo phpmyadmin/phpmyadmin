@@ -5048,9 +5048,14 @@ function PMA_checkIfMariaDBPwdCheckPluginActive()
         return false;
     }
 
-    $result = $GLOBALS['dbi']->query(
+    $result = $GLOBALS['dbi']->tryQuery(
         'SHOW PLUGINS SONAME LIKE \'%_password_check%\''
     );
+
+    /* Plugins are not working, for example directory does not exists */
+    if ($result === false) {
+        return false;
+    }
 
     while ($row = $GLOBALS['dbi']->fetchAssoc($result)) {
         if ($row['Status'] === 'ACTIVE') {
