@@ -47,10 +47,17 @@ put phpMyAdmin-$REL-all-languages.tar.gz.sha256
 put phpMyAdmin-$REL-english.tar.gz.sha256
 put phpMyAdmin-$REL-all-languages.zip.sha256
 put phpMyAdmin-$REL-english.zip.sha256
+put phpMyAdmin-$REL-all-languages.tar.xz.sha1
+put phpMyAdmin-$REL-english.tar.xz.sha1
+put phpMyAdmin-$REL-all-languages.tar.gz.sha1
+put phpMyAdmin-$REL-english.tar.gz.sha1
+put phpMyAdmin-$REL-all-languages.zip.sha1
+put phpMyAdmin-$REL-english.zip.sha1
 put phpMyAdmin-$REL-notes.html
 put phpMyAdmin-$REL-source.tar.xz
 put phpMyAdmin-$REL-source.tar.xz.asc
 put phpMyAdmin-$REL-source.tar.xz.sha256
+put phpMyAdmin-$REL-source.tar.xz.sha1
 EOT
 
 # Upload to our file server
