@@ -4893,6 +4893,12 @@ AJAX.registerOnload('functions.js', function () {
             $('#input_username').focus();
         }
     }
+    var $https_warning = $('#js-https-mismatch');
+    if ($https_warning.length) {
+        if ((window.location.protocol === 'https:') != PMA_commonParams.get('is_https')) {
+            $https_warning.show();
+        }
+    }
 });
 
 /**

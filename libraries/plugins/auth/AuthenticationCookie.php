@@ -153,6 +153,12 @@ class AuthenticationCookie extends AuthenticationPlugin
         )->display();
         echo "</noscript>\n";
 
+        echo '<div class="hide" id="js-https-mismatch">';
+        Message::error(
+            __("There is mismatch between HTTPS indicated on the server and client. This can lead to non working phpMyAdmin or a security risk. Please fix your server configuration to indicate HTTPS properly.")
+        )->display();
+        echo '</div>';
+
         // Displays the languages form
         $language_manager = LanguageManager::getInstance();
         if (empty($GLOBALS['cfg']['Lang']) && $language_manager->hasChoice()) {
