@@ -382,9 +382,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         /**
          * We don't allow any POST operation parameters if the token is mismatched
          * or is not provided
-         *
          */
-        $whitelist = array();
+        $whitelist = array('ajax_request');
         PMA\libraries\Sanitize::removeRequestVars($whitelist);
     }
 }
