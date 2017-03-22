@@ -2625,10 +2625,10 @@ function PMA_getHtmlTableBodyForSpecificDbOrTablePrivs($privMap, $db)
 /**
  * Get HTML to display privileges
  *
- * @param string  $db                 Database name
- * @param array   $current_privileges List of privileges
- * @param string  $current_user       Current user
- * @param string  $current_host       Current host
+ * @param string $db                 Database name
+ * @param array  $current_privileges List of privileges
+ * @param string $current_user       Current user
+ * @param string $current_host       Current host
  *
  * @return string HTML to display privileges
  */

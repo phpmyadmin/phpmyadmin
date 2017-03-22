@@ -564,10 +564,9 @@ function PMA_RTN_getDataFromRequest()
  * This function will generate the values that are required to complete
  * the "Edit routine" form given the name of a routine.
  *
- * @param string $name    The name of the routine.
- * @param string $type    Type of routine (ROUTINE|PROCEDURE)
- * @param bool   $all     Whether to return all data or just
- *                        the info about parameters.
+ * @param string $name The name of the routine.
+ * @param string $type Type of routine (ROUTINE|PROCEDURE)
+ * @param bool   $all  Whether to return all data or just the info about parameters.
  *
  * @return array    Data necessary to create the routine editor.
  */
@@ -1700,4 +1699,3 @@ function PMA_RTN_getExecuteForm($routine)
 
     return $retval;
 } // end PMA_RTN_getExecuteForm()
-

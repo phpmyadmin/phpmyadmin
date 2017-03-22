@@ -825,10 +825,9 @@ function PMA_getHTMLforAddCentralColumn($total_rows, $pos, $db)
 /**
  * build html for a row in central columns table
  *
- * @param array   $row     array contains complete information of
- * a particular row of central list table
- * @param int     $row_num position the row in the table
- * @param string  $db      current database
+ * @param array  $row     array contains complete information of a particular row of central list table
+ * @param int    $row_num position the row in the table
+ * @param string $db      current database
  *
  * @return string html of a particular row in the central columns table.
  */
@@ -996,9 +995,8 @@ function PMA_getHTMLforCentralColumnsTableRow($row, $row_num, $db)
 /**
  * build html for editing a row in central columns table
  *
- * @param array   $row     array contains complete information of
- * a particular row of central list table
- * @param int     $row_num position the row in the table
+ * @param array $row     array contains complete information of a particular row of central list table
+ * @param int   $row_num position the row in the table
  *
  * @return string html of a particular row in the central columns table.
  */

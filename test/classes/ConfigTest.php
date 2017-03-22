@@ -834,7 +834,6 @@ class ConfigTest extends PMATestCase
     public function testGetThemeUniqueValue()
     {
 
-
         $partial_sum = (
             PHPUnit_Framework_Assert::readAttribute($this->object, 'source_mtime') +
             PHPUnit_Framework_Assert::readAttribute(

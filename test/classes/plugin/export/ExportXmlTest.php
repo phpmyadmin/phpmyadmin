@@ -345,7 +345,6 @@ class ExportXmlTest extends PMATestCase
             't2' => array(null, '"tbl"')
         );
 
-
         $dbi->expects($this->exactly(5))
             ->method('fetchResult')
             ->willReturnOnConsecutiveCalls(

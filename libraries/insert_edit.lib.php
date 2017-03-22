@@ -887,7 +887,7 @@ function PMA_getColumnEnumValues($column, $extracted_columnspec)
  * @param integer $idindex              id index
  * @param string  $data                 data to edit
  * @param array   $column_enum_values   $column['values']
- * @param boolean $readOnly              is column read only or not
+ * @param boolean $readOnly             is column read only or not
  *
  * @return string                       an html snippet
  */
@@ -939,7 +939,7 @@ function PMA_getDropDownDependingOnLength(
  * @param integer $idindex              id index
  * @param string  $data                 data to edit
  * @param array   $column_enum_values   $column['values']
- * @param boolean $readOnly              is column read only or not
+ * @param boolean $readOnly             is column read only or not
  *
  * @return string                       an html snippet
  */
