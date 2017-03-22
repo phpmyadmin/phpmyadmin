@@ -226,14 +226,18 @@ class AuthenticationCookie extends AuthenticationPlugin
             // If enabled show captcha to the user on the login screen.
             $connected = @fsockopen("www.google.com",80, $errno, $errstr, 30); 
             if(!$connected){
-                echo'<div>ReCaptcha service is unavailable!!! Please try again later</div>';
+                Message::error(
+                        __("ReCaptcha service is unavailable!!! Please check your network connection or try again later.")
+                        )->display();
                 echo '<div class="g-recaptcha" captcha="enabled"></div>';           }
             else
             {
                 stream_set_timeout($connected, 30);
                 $info = stream_get_meta_data($connected);
                 if($info['timed_out']){
-                    echo'<div>ReCaptcha service is unavailable!!! Please try again later</div>';
+                    Message::error(
+                        __("ReCaptcha service is unavailable!!! Please check your network connection or try again later.")
+                        )->display();
                     echo '<div class="g-recaptcha" captcha="enabled"></div>';                
                 }
                 else{
