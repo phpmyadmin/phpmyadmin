@@ -910,8 +910,8 @@ function PMA_getHtmlForColumns($columns)
 /**
  * Function to get html for field
  *
- * @param int    $index index
- * @param array  $field field
+ * @param int   $index index
+ * @param array $field field
  *
  * @return string
  */
@@ -996,7 +996,7 @@ function PMA_getHtmlForIndexes($indexes)
 /**
  * Function to get html for an index in schema snapshot
  *
- * @param array  $index index
+ * @param array $index index
  *
  * @return string
  */

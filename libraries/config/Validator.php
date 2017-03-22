@@ -162,12 +162,12 @@ class Validator
     /**
      * Test database connection
      *
-     * @param string $host         host name
-     * @param string $port         tcp port to use
-     * @param string $socket       socket to use
-     * @param string $user         username to use
-     * @param string $pass         password to use
-     * @param string $error_key    key to use in return array
+     * @param string $host      host name
+     * @param string $port      tcp port to use
+     * @param string $socket    socket to use
+     * @param string $user      username to use
+     * @param string $pass      password to use
+     * @param string $error_key key to use in return array
      *
      * @return bool|array
      */

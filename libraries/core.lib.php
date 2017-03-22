@@ -208,8 +208,8 @@ function PMA_securePath($path)
  *
  * loads language file if not loaded already
  *
- * @param string       $error_message  the error message or named error message
- * @param string|array $message_args   arguments applied to $error_message
+ * @param string       $error_message the error message or named error message
+ * @param string|array $message_args  arguments applied to $error_message
  *
  * @return void
  */

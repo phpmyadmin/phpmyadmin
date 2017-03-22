@@ -876,7 +876,6 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
             runkit_constant_redefine('PMA_MYSQL_INT_VERSION', $restoreMySQLVersion);
         }
 
-
         // Case 2 : Test with older versions
         $restoreMySQLVersion = "PMANORESTORE";
         if (! PMA_HAS_RUNKIT) {
@@ -1319,7 +1318,6 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
         $dbi->expects($this->any())
             ->method('escapeString')
             ->will($this->returnArgument(0));
-
 
         $GLOBALS['dbi'] = $dbi;
 
@@ -2570,7 +2568,6 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
             . 'Native MySQL authentication</option>'. "\n" .'</select>',
             $actualHtml
         );
-
 
         /* Assertion 4 */
         $actualHtml = PMA_getHtmlForAuthPluginsDropdown(
