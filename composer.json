@@ -36,7 +36,8 @@
         "phpmyadmin/motranslator": "^3.0",
         "phpmyadmin/shapefile": "^2.0",
         "phpseclib/phpseclib": "^2.0",
-        "google/recaptcha": "^1.1"
+        "google/recaptcha": "^1.1",
+        "psr/container": "^1.0"
     },
     "conflict": {
         "tecnickcom/tcpdf": "<6.2"
