@@ -122,6 +122,8 @@ class Encoding
     /**
      * Setter for engine. Use with caution, mostly useful for testing.
      *
+     * @param int $engine Engine enconding
+     *
      * @return void
      */
     public static function setEngine($engine)
@@ -211,6 +213,8 @@ class Encoding
 
     /**
      * Setter for Kanji encodings. Use with caution, mostly useful for testing.
+     *
+     * @param string $value Kanji encodings list
      *
      * @return void
      */

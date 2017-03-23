@@ -11,8 +11,6 @@ use PMA\libraries\DatabaseInterface;
 use PMA\libraries\di\Container;
 use PMA\libraries\Response;
 
-require_once 'libraries/database_interface.inc.php';
-
 /**
  * Base class for all of controller
  *

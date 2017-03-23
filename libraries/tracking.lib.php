@@ -1526,11 +1526,13 @@ function PMA_displayOneUntrackedTable($db, $tablename, $url_query)
 /**
  * Helper function: Recursive function for getting table names from $table_list
  *
- * @param string $db current database
+ * @param array   $table_list Table list
+ * @param string  $db         Current database
+ * @param boolean $testing    Testing
  *
  * @return array $untracked_tables
  */
-function PMA_extractTableNames($table_list, $db, $testing=false) {
+function PMA_extractTableNames($table_list, $db, $testing = false) {
     $untracked_tables = array();
     $sep = $GLOBALS['cfg']['NavigationTreeTableSeparator'];
 
