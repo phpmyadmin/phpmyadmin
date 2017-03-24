@@ -112,6 +112,9 @@ class TableRelationController extends TableController
             )
         );
 
+        // Set the database
+        $this->dbi->selectDb($this->db);
+
         // updates for Internal relations
         if (isset($_POST['destination_db']) && $this->cfgRelation['relwork']) {
             $this->updateForInternalRelationAction();
