@@ -8,6 +8,7 @@ phpMyAdmin - ChangeLog
 - issue        Change label from "Improve table structure" to "Normalize" to match standard terminology
 - issue #13087 Offer login as different user on access denied from MySQL
 - issue #13110 Indicate when HTTPS is not properly reported on the server
+- issue #13119 No database selected error when adding foreign key
 
 4.7.0.0 (not yet released)
 - patch #12233 [Display] Improve message when renaming database to same name
