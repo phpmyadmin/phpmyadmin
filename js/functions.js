@@ -183,7 +183,7 @@ function addDateTimePicker() {
                     timeFormat = 'HH:mm:ss.l';
                 }
             }
-            if(type == 'time'){
+            if (type == 'time'){
                 hourMax = 99;
             }
             PMA_addDatepicker($(this), type, {
