@@ -333,13 +333,12 @@ class AuthenticationHttpTest extends PMATestCase
                 'user' => 'testUser',
                 'password' => 'testPass',
                 'host' => 'a',
-                'foo' => 'bar'
             ),
             $GLOBALS['cfg']['Server']
         );
 
         $this->assertEquals(
-            1,
+            2,
             $GLOBALS['server']
         );
 

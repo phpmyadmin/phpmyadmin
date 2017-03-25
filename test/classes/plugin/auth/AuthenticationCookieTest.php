@@ -666,11 +666,11 @@ class AuthenticationCookieTest extends PMATestCase
         $this->object->storeUserCredentials();
 
         $this->assertTrue(
-            isset($_COOKIE['pmaUser-1'])
+            isset($_COOKIE['pmaUser-2'])
         );
 
         $this->assertTrue(
-            isset($_COOKIE['pmaAuth-1'])
+            isset($_COOKIE['pmaAuth-2'])
         );
 
         $arr['password'] = 'testPW';
@@ -1049,6 +1049,35 @@ class AuthenticationCookieTest extends PMATestCase
         );
     }
 
+    public function testPasswordChange()
+    {
+        $newPassword = 'PMAPASSWD2';
+        $GLOBALS['cfg']['AllowArbitraryServer'] = true;
+        $GLOBALS['pma_auth_server'] = 'b 2';
+        $_SESSION['encryption_key'] = '';
+        $this->object->setIV('testiv09testiv09');
+
+        $this->object->handlePasswordChange($newPassword);
+
+        $payload = array(
+            'password' => $newPassword,
+            'server' => 'b 2'
+        );
+        $method = new \ReflectionMethod(
+            'PMA\libraries\plugins\auth\AuthenticationCookie',
+            '_getSessionEncryptionSecret'
+        );
+        $method->setAccessible(true);
+
+        $encryptedCookie = $this->object->cookieEncrypt(
+                                json_encode($payload),
+                                $method->invoke($this->object, null)
+                            );
+        $this->assertEquals(
+            $_COOKIE['pmaAuth-' . $GLOBALS['server']],
+            $encryptedCookie
+        );
+    }
     /**
      * Data provider for secrets splitting.
      *

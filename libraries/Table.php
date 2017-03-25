@@ -172,9 +172,7 @@ class Table
      */
     public function isEngine($engine)
     {
-        $tbl_storage_engine = strtoupper(
-            $this->getStatusInfo('ENGINE', false, true)
-        );
+        $tbl_storage_engine = $this->getStorageEngine();
 
         if (is_array($engine)){
             foreach($engine as $e){
@@ -321,6 +319,108 @@ class Table
     }
 
     /**
+     * Returns the Table storage Engine for current table.
+     *
+     * @return   string               Return storage engine info if it is set for
+     *                                the selected table else return blank.
+     */
+    public function getStorageEngine() {
+        $table_storage_engine = $this->getStatusInfo('ENGINE', false, true);
+        if ($table_storage_engine === false) {
+            return '';
+        }
+        return strtoupper($table_storage_engine);
+    }
+
+    /**
+     * Returns the comments for current table.
+     *
+     * @return string Return comment info if it is set for the selected table or return blank.
+     */
+    public function getComment() {
+        $table_comment = $this->getStatusInfo('COMMENT', false, true);
+        if ($table_comment === false) {
+            return '';
+        }
+        return $table_comment;
+    }
+
+    /**
+     * Returns the collation for current table.
+     *
+     * @return string Return blank if collation is empty else return the collation info from table info.
+     */
+    public function getCollation() {
+        $table_collation = $this->getStatusInfo('COLLATION', false, true);
+        if ($table_collation === false) {
+            return '';
+        }
+        return $table_collation;
+    }
+
+    /**
+     * Returns the info about no of rows for current table.
+     *
+     * @return integer Return no of rows info if it is not null for the selected table or return 0.
+     */
+    public function getNumRows() {
+        $table_num_row_info = $this->getStatusInfo('TABLE_ROWS', false, true);
+        if (false === $table_num_row_info) {
+            $table_num_row_info = $this->_dbi->getTable($this->_db_name, $showtable['Name'])
+            ->countRecords(true);
+        }
+        return $table_num_row_info ? $table_num_row_info : 0 ;
+    }
+
+    /**
+     * Returns the Row format for current table.
+     *
+     * @return string Return table row format info if it is set for the selected table or return blank.
+     */
+    public function getRowFormat() {
+        $table_row_format = $this->getStatusInfo('ROW_FORMAT', false, true);
+        if ($table_row_format === false) {
+            return '';
+        }
+        return $table_row_format;
+    }
+
+    /**
+     * Returns the auto increment option for current table.
+     *
+     * @return integer Return auto increment info if it is set for the selected table or return blank.
+     */
+    public function getAutoIncrement() {
+        $table_auto_increment = $this->getStatusInfo('AUTO_INCREMENT', false, true);
+        return isset($table_auto_increment) ? $table_auto_increment : '';
+    }
+
+    /**
+     * Returns the array for CREATE statement for current table.
+     * @return array Return options array info if it is set for the selected table or return blank.
+     */
+    public function getCreateOptions() {
+        $table_options = $this->getStatusInfo('CREATE_OPTIONS', false, true);
+        $create_options_tmp = empty($table_options) ? array() : explode(' ', $table_options);
+        $create_options = array();
+        // export create options by its name as variables into global namespace
+        // f.e. pack_keys=1 becomes available as $pack_keys with value of '1'
+        // unset($pack_keys);
+        foreach ($create_options_tmp as $each_create_option) {
+            $each_create_option = explode('=', $each_create_option);
+            if (isset($each_create_option[1])) {
+                // ensure there is no ambiguity for PHP 5 and 7
+                $create_options[$each_create_option[0]] = $each_create_option[1];
+            }
+        }
+        // we need explicit DEFAULT value here (different from '0')
+        $create_options['pack_keys'] = (! isset($create_options['pack_keys']) || strlen($create_options['pack_keys']) == 0)
+            ? 'DEFAULT'
+            : $create_options['pack_keys'];
+        return $create_options;
+    }
+
+    /**
      * generates column specification for ALTER or CREATE TABLE syntax
      *
      * @param string      $name          name
@@ -371,21 +471,21 @@ class Table
             // so we can't just convert it to integer
             $query .= '(' . $length . ')';
         }
+        if ($attribute != '') {
+            $query .= ' ' . $attribute;
+
+            if ($is_timestamp
+                && preg_match('/TIMESTAMP/i', $attribute)
+                && strlen($length) !== 0
+                && $length !== 0
+            ) {
+                $query .= '(' . $length . ')';
+            }
+        }
 
         if ($virtuality) {
             $query .= ' AS (' . $expression . ') ' . $virtuality;
         } else {
-            if ($attribute != '') {
-                $query .= ' ' . $attribute;
-
-                if ($is_timestamp
-                    && preg_match('/TIMESTAMP/i', $attribute)
-                    && strlen($length) !== 0
-                    && $length !== 0
-                ) {
-                    $query .= '(' . $length . ')';
-                }
-            }
 
             $matches = preg_match(
                 '@^(TINYTEXT|TEXT|MEDIUMTEXT|LONGTEXT|VARCHAR|CHAR|ENUM|SET)$@i',

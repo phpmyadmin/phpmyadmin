@@ -81,7 +81,7 @@ function PMA_getHtmlForRenameDatabase($db)
 
     $html_output .= '<input id="new_db_name" type="text" name="newname" '
         . 'maxlength="64" size="30" class="textfield" required="required" '
-        . 'value="' . htmlspecialchars($db) . '"/>';
+        . 'value=""/>';
 
     if ($GLOBALS['db_priv'] && $GLOBALS['table_priv']
         && $GLOBALS['col_priv'] && $GLOBALS['proc_priv']
@@ -201,7 +201,7 @@ function PMA_getHtmlForCopyDatabase($db)
     $html_output .= __('Copy database to')
         . '</legend>'
         . '<input type="text" maxlength="64" name="newname" size="30" '
-        . 'class="textfield" value="' . htmlspecialchars($db) . '" '
+        . 'class="textfield" value="" '
         . 'required="required" /><br />'
         . Util::getRadioFields(
             'what', $choices, 'data', true
@@ -872,16 +872,16 @@ function PMA_getHtmlForMoveTable()
 /**
  * Get the HTML div for Table option
  *
- * @param Table   $pma_table          Table object
- * @param string  $comment            Comment
- * @param array   $tbl_collation      table collation
- * @param string  $tbl_storage_engine table storage engine
- * @param string  $pack_keys          pack keys
- * @param string  $auto_increment     value of auto increment
- * @param string  $delay_key_write    delay key write
- * @param string  $transactional      value of transactional
- * @param string  $page_checksum      value of page checksum
- * @param string  $checksum           the checksum
+ * @param Table  $pma_table          Table object
+ * @param string $comment            Comment
+ * @param array  $tbl_collation      table collation
+ * @param string $tbl_storage_engine table storage engine
+ * @param string $pack_keys          pack keys
+ * @param string $auto_increment     value of auto increment
+ * @param string $delay_key_write    delay key write
+ * @param string $transactional      value of transactional
+ * @param string $page_checksum      value of page checksum
+ * @param string $checksum           the checksum
  *
  * @return string $html_output
  */
@@ -1011,16 +1011,16 @@ function PMA_getHtmlForPackKeys($current_value)
 /**
  * Get HTML fieldset for Table option, it contains HTML table for options
  *
- * @param Table   $pma_table          Table object
- * @param string  $comment            Comment
- * @param array   $tbl_collation      table collation
- * @param string  $tbl_storage_engine table storage engine
- * @param string  $pack_keys          pack keys
- * @param string  $delay_key_write    delay key write
- * @param string  $auto_increment     value of auto increment
- * @param string  $transactional      value of transactional
- * @param string  $page_checksum      value of page checksum
- * @param string  $checksum           the checksum
+ * @param Table  $pma_table          Table object
+ * @param string $comment            Comment
+ * @param array  $tbl_collation      table collation
+ * @param string $tbl_storage_engine table storage engine
+ * @param string $pack_keys          pack keys
+ * @param string $delay_key_write    delay key write
+ * @param string $auto_increment     value of auto increment
+ * @param string $transactional      value of transactional
+ * @param string $page_checksum      value of page checksum
+ * @param string $checksum           the checksum
  *
  * @return string $html_output
  */
@@ -1323,8 +1323,8 @@ function PMA_getHtmlForCopytable()
 /**
  * Get HTML snippet for table maintenance
  *
- * @param Table   $pma_table  Table object
- * @param array   $url_params array of URL parameters
+ * @param Table $pma_table  Table object
+ * @param array $url_params array of URL parameters
  *
  * @return string $html_output
  */
@@ -1348,8 +1348,8 @@ function PMA_getHtmlForTableMaintenance($pma_table, $url_params)
 /**
  * Get HTML 'li' having a link of maintain action
  *
- * @param Table   $pma_table  Table object
- * @param array   $url_params Array of URL parameters
+ * @param Table $pma_table  Table object
+ * @param array $url_params Array of URL parameters
  *
  * @return string $html_output
  */
@@ -1726,15 +1726,15 @@ function PMA_getQueryAndResultForReorderingTable()
 /**
  * Get table alters array
  *
- * @param Table   $pma_table           The Table object
- * @param string  $pack_keys           pack keys
- * @param string  $checksum            value of checksum
- * @param string  $page_checksum       value of page checksum
- * @param string  $delay_key_write     delay key write
- * @param string  $row_format          row format
- * @param string  $newTblStorageEngine table storage engine
- * @param string  $transactional       value of transactional
- * @param string  $tbl_collation       collation of the table
+ * @param Table  $pma_table           The Table object
+ * @param string $pack_keys           pack keys
+ * @param string $checksum            value of checksum
+ * @param string $page_checksum       value of page checksum
+ * @param string $delay_key_write     delay key write
+ * @param string $row_format          row format
+ * @param string $newTblStorageEngine table storage engine
+ * @param string $transactional       value of transactional
+ * @param string $tbl_collation       collation of the table
  *
  * @return array  $table_alters
  */
@@ -2085,7 +2085,6 @@ function PMA_moveOrCopyTable($db, $table)
             $old = Util::backquote($db) . '.'
                 . Util::backquote($table);
             $message->addParam($old);
-
 
             $new_name = $_REQUEST['new_name'];
             if ($GLOBALS['dbi']->getLowerCaseNames() === '1') {

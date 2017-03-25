@@ -27,21 +27,17 @@
                 <?php endif; ?>
                 <td class="small_tab"
                     title="<?= __('Show/hide columns'); ?>"
-                    id="id_hide_tbody_<?= $t_n_url; ?>"
-                    table_name="<?= htmlspecialchars($t_n_url); ?>"
-                    onmouseover="this.className='small_tab2';"
-                    onmouseout="this.className='small_tab';" ><?= (! isset($tab_pos[$t_n]) || ! empty($tab_pos[$t_n]["V"])) ? 'v' : '&gt;'; ?>
+                    id="id_hide_tbody_<?= htmlspecialchars($t_n_url) ?>"
+                    table_name="<?= htmlspecialchars($t_n_url); ?>">
+                    <?= (! isset($tab_pos[$t_n]) || ! empty($tab_pos[$t_n]["V"])) ? 'v' : '&gt;'; ?>
                 </td>
                 <td class="small_tab_pref small_tab_pref_1"
-                    table_name_small="<?= htmlspecialchars($GLOBALS['PMD_URL']["TABLE_NAME_SMALL"][$i]); ?>"
-                    onmouseover="this.className='small_tab_pref2 small_tab_pref_1';"
-                    onmouseout="this.className='small_tab_pref small_tab_pref_1';" >
+                    table_name_small="<?= htmlspecialchars($GLOBALS['PMD_URL']["TABLE_NAME_SMALL"][$i]); ?>">
                     <img src="<?= $_SESSION['PMA_Theme']->getImgPath('pmd/exec_small.png'); ?>"
                          title="<?= __('See table structure'); ?>" />
                 </td>
                 <td id="id_zag_<?= htmlspecialchars($t_n_url); ?>"
                     class="tab_zag nowrap tab_zag_noquery"
-                    onmousedown="cur_click=document.getElementById('<?= $t_n_url; ?>');"
                     table_name="<?= htmlspecialchars($t_n_url); ?>"
                     query_set="<?= isset($_REQUEST['query']) ? 1 : 0 ; ?>" >
                     <span class="owner">
@@ -52,8 +48,7 @@
                 <?php if (isset($_REQUEST['query'])) : ?>
                     <td class="tab_zag tab_zag_query"
                         id="id_zag_<?= htmlspecialchars($t_n_url); ?>_2"
-                        table_name="<?= htmlspecialchars($t_n_url); ?>"
-                        onmousedown="cur_click=document.getElementById('<?= htmlspecialchars($t_n_url); ?>');">
+                        table_name="<?= htmlspecialchars($t_n_url); ?>">
                     </td>
                <?php endif; ?>
             </tr>
@@ -79,8 +74,6 @@
                 ?>
                 <tr id="id_tr_<?= htmlspecialchars($GLOBALS['PMD_URL']["TABLE_NAME_SMALL"][$i]); ?>.<?= htmlspecialchars($tab_column[$t_n]["COLUMN_NAME"][$j]); ?>"
                     <?= ($display_field == $tab_column[$t_n]["COLUMN_NAME"][$j]) ? 'class="tab_field_3"' : 'class="tab_field"'; ?>
-                    onmouseover="old_class = this.className; this.className = 'tab_field_2';"
-                    onmouseout="this.className = old_class;"
                     click_field_param="<?= htmlspecialchars(implode($click_field_param, ',')); ?>">
                     <?php if (isset($_REQUEST['query'])) : ?>
                         <td class="select_all">
@@ -127,8 +120,6 @@
                     </td>
                     <?php if (isset($_REQUEST['query'])) : ?>
                         <td class="small_tab_pref small_tab_pref_click_opt"
-                            onmouseover="this.className='small_tab_pref2 small_tab_pref_click_opt'"
-                            onmouseout="this.className='small_tab_pref small_tab_pref_click_opt'"
                             Click_option_param="pmd_optionse,<?= urlencode($tab_column[$t_n]['COLUMN_NAME'][$j]); ?>,<?= $GLOBALS['PMD_OUT']['TABLE_NAME_SMALL'][$i]; ?>" >
                             <img src="<?= $_SESSION['PMA_Theme']->getImgPath('pmd/exec_small.png'); ?>" title="options" />
                         </td>

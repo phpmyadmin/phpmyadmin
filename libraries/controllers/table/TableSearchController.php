@@ -265,9 +265,6 @@ class TableSearchController extends TableController
                 return;
             }
 
-            // Gets tables information
-            include_once './libraries/tbl_info.inc.php';
-
             //Set default datalabel if not selected
             if (!isset($_POST['zoom_submit']) || $_POST['dataLabel'] == '') {
                 $dataLabel = PMA_getDisplayField($this->db, $this->table);
@@ -481,8 +478,6 @@ class TableSearchController extends TableController
     public function displaySelectionFormAction($datalabel = null)
     {
         $this->url_query .= '&amp;goto=tbl_select.php&amp;back=tbl_select.php';
-
-        include_once 'libraries/tbl_info.inc.php';
         if (! isset($goto)) {
             $goto = Util::getScriptNameForOption(
                 $GLOBALS['cfg']['DefaultTabTable'], 'table'

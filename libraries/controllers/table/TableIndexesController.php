@@ -63,8 +63,26 @@ class TableIndexesController extends TableController
      */
     public function displayFormAction()
     {
-        include_once 'libraries/tbl_info.inc.php';
-
+        $GLOBALS['dbi']->selectDb($GLOBALS['db']);
+        $table_class_object = $GLOBALS['dbi']->getTable(
+            $GLOBALS['db'],
+            $GLOBALS['table']
+        );
+        $GLOBALS['showtable'] = $table_class_object->getStatusInfo(null, true);
+        if ($table_class_object->isView()) {
+            $tbl_is_view = true;
+            $tbl_storage_engine = __('View');
+            $show_comment = null;
+        } else {
+            $tbl_is_view = false;
+            $tbl_storage_engine = $table_class_object->getStorageEngine();
+            $show_comment = $table_class_object->getComment();
+        }
+        $tbl_collation = $table_class_object->getCollation();
+        $table_info_num_rows = $table_class_object->getNumRows();
+        $row_format = $table_class_object->getRowFormat();
+        $auto_increment = $table_class_object->getAutoIncrement();
+        $create_options = $table_class_object->getCreateOptions();
         $add_fields = 0;
         if (isset($_REQUEST['index']) && is_array($_REQUEST['index'])) {
             // coming already from form

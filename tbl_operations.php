@@ -49,14 +49,33 @@ $GLOBALS['dbi']->selectDb($GLOBALS['db']);
 /**
  * Gets tables information
  */
-require 'libraries/tbl_info.inc.php';
+$pma_table = $GLOBALS['dbi']->getTable(
+    $GLOBALS['db'],
+    $GLOBALS['table']
+);
+$reread_info = $pma_table->getStatusInfo(null, false);
+$GLOBALS['showtable'] = $pma_table->getStatusInfo(null, (isset($reread_info) && $reread_info ? true : false));
+if ($pma_table->isView()) {
+    $tbl_is_view = true;
+    $tbl_storage_engine = __('View');
+    $show_comment = null;
+} else {
+    $tbl_is_view = false;
+    $tbl_storage_engine = $pma_table->getStorageEngine();
+    $show_comment = $pma_table->getComment();
+}
+$tbl_collation = $pma_table->getCollation();
+$table_info_num_rows = $pma_table->getNumRows();
+$row_format = $pma_table->getRowFormat();
+$auto_increment = $pma_table->getAutoIncrement();
+$create_options = $pma_table->getCreateOptions();
 
 // set initial value of these variables, based on the current table engine
 if ($pma_table->isEngine('ARIA')) {
     // the value for transactional can be implicit
     // (no create option found, in this case it means 1)
     // or explicit (option found with a value of 0 or 1)
-    // ($create_options['transactional'] may have been set by libraries/tbl_info.inc.php,
+    // ($create_options['transactional'] may have been set by Table class,
     // from the $create_options)
     $create_options['transactional'] = (isset($create_options['transactional']) && $create_options['transactional'] == '0')
         ? '0'
@@ -64,6 +83,10 @@ if ($pma_table->isEngine('ARIA')) {
     $create_options['page_checksum'] = (isset($create_options['page_checksum'])) ? $create_options['page_checksum'] : '';
 }
 
+$pma_table = $GLOBALS['dbi']->getTable(
+    $GLOBALS['db'],
+    $GLOBALS['table']
+);
 $reread_info = false;
 $table_alters = array();
 
@@ -107,7 +130,6 @@ if (isset($_REQUEST['submitoptions'])) {
             // Reselect the original DB
             $GLOBALS['db'] = $oldDb;
             $GLOBALS['dbi']->selectDb($oldDb);
-
             $_message .= $pma_table->getLastMessage();
             $result = true;
             $GLOBALS['table'] = $pma_table->getName();
@@ -136,7 +158,7 @@ if (isset($_REQUEST['submitoptions'])) {
 
     $row_format = (isset($create_options['row_format']))
         ? $create_options['row_format']
-        : $pma_table->getStatusInfo('ROW_FORMAT');
+        : $pma_table->getRowFormat();
 
     $table_alters = PMA_getTableAltersArray(
         $pma_table,
@@ -191,7 +213,22 @@ if ($reread_info) {
     // to avoid showing the old value (for example the AUTO_INCREMENT) after
     // a change, clear the cache
     $GLOBALS['dbi']->clearTableCache();
-    include 'libraries/tbl_info.inc.php';
+    $GLOBALS['dbi']->selectDb($GLOBALS['db']);
+    $GLOBALS['showtable'] = $pma_table->getStatusInfo(null, true);
+    if ($pma_table->isView()) {
+        $tbl_is_view = true;
+        $tbl_storage_engine = __('View');
+        $show_comment = null;
+    } else {
+        $tbl_is_view = false;
+        $tbl_storage_engine = $pma_table->getStorageEngine();
+        $show_comment = $pma_table->getComment();
+    }
+    $tbl_collation = $pma_table->getCollation();
+    $table_info_num_rows = $pma_table->getNumRows();
+    $row_format = $pma_table->getRowFormat();
+    $auto_increment = $pma_table->getAutoIncrement();
+    $create_options = $pma_table->getCreateOptions();
 }
 unset($reread_info);
 

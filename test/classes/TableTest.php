@@ -1201,6 +1201,145 @@ class TableTest extends PMATestCase
             $GLOBALS['sql_query']
         );
     }
+
+    /**
+     * Test for getStorageEngine
+     *
+     * @return void
+     */
+    public function testGetStorageEngine(){
+        $target_table = 'table1';
+        $target_db = 'pma_test';
+        $tbl_object = new Table($target_db, $target_table);
+        $tbl_object->getStatusInfo(null, true);
+        $extension = new PMA\libraries\dbi\DBIDummy();
+        $dbi = new PMA\libraries\DatabaseInterface($extension);
+        $expect = '';
+        $tbl_storage_engine = $dbi->getTable(
+            $target_db,
+            $target_table
+        )->getStorageEngine();
+        $this->assertEquals(
+            $expect,
+            $tbl_storage_engine
+        );
+    }
+
+    /**
+     * Test for getComment
+     *
+     * @return void
+     */
+    public function testGetComment(){
+        $target_table = 'table1';
+        $target_db = 'pma_test';
+        $tbl_object = new Table($target_db, $target_table);
+        $tbl_object->getStatusInfo(null, true);
+        $extension = new PMA\libraries\dbi\DBIDummy();
+        $dbi = new PMA\libraries\DatabaseInterface($extension);
+        $expect = '';
+        $show_comment = $dbi->getTable(
+            $target_db,
+            $target_table
+        )->getComment();
+        $this->assertEquals(
+            $expect,
+            $show_comment
+        );
+    }
+
+     /**
+     * Test for getCollation
+     *
+     * @return void
+     */
+    public function testGetCollation(){
+        $target_table = 'table1';
+        $target_db = 'pma_test';
+        $tbl_object = new Table($target_db, $target_table);
+        $tbl_object->getStatusInfo(null, true);
+        $extension = new PMA\libraries\dbi\DBIDummy();
+        $dbi = new PMA\libraries\DatabaseInterface($extension);
+        $expect = '';
+        $tbl_collation = $dbi->getTable(
+            $target_db,
+            $target_table
+        )->getCollation();
+        $this->assertEquals(
+            $expect,
+            $tbl_collation
+        );
+    }
+
+    /**
+     * Test for getRowFormat
+     *
+     * @return void
+     */
+    public function testGetRowFormat(){
+        $target_table = 'table1';
+        $target_db = 'pma_test';
+        $tbl_object = new Table($target_db, $target_table);
+        $tbl_object->getStatusInfo(null, true);
+        $extension = new PMA\libraries\dbi\DBIDummy();
+        $dbi = new PMA\libraries\DatabaseInterface($extension);
+        $expect = '';
+        $row_format = $dbi->getTable(
+            $target_db,
+            $target_table
+        )->getRowFormat();
+        $this->assertEquals(
+            $expect,
+            $row_format
+        );
+    }
+
+    /**
+     * Test for getAutoIncrement
+     *
+     * @return void
+     */
+    public function testGetAutoIncrement(){
+        $target_table = 'table1';
+        $target_db = 'pma_test';
+        $tbl_object = new Table($target_db, $target_table);
+        $tbl_object->getStatusInfo(null, true);
+        $extension = new PMA\libraries\dbi\DBIDummy();
+        $dbi = new PMA\libraries\DatabaseInterface($extension);
+        $expect = '';
+        $auto_increment = $dbi->getTable(
+            $target_db,
+            $target_table
+        )->getAutoIncrement();
+        $this->assertEquals(
+            $expect,
+            $auto_increment
+        );
+    }
+
+    /**
+     * Test for getCreateOptions
+     *
+     * @return void
+     */
+    public function testGetCreateOptions(){
+        $target_table = 'table1';
+        $target_db = 'pma_test';
+        $tbl_object = new Table($target_db, $target_table);
+        $tbl_object->getStatusInfo(null, true);
+        $extension = new PMA\libraries\dbi\DBIDummy();
+        $dbi = new PMA\libraries\DatabaseInterface($extension);
+        $expect = array('pack_keys' => 'DEFAULT');
+        $create_options = $dbi->getTable(
+            $target_db,
+            $target_table
+        )->getCreateOptions();
+        $this->assertEquals(
+            $expect,
+            $create_options
+        );
+    }
+
 }
 
 /**

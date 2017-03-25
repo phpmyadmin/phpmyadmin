@@ -26,7 +26,6 @@ env:
     - CI_MODE=test
   global:
     - TESTSUITE_USER=root
-    - TESTSUITE_PASSWORD=root
     - TESTSUITE_URL=http://127.0.0.1:8000
 
 install:
@@ -34,6 +33,7 @@ install:
   - if [[ "$TRAVIS_OS_NAME" != "osx" ]]; then case "$TRAVIS_PHP_VERSION" in hhvm*) ;; *) phpenv config-add test/php-noprofile.ini ;; esac ; fi
 
 before_script:
+  - export TESTSUITE_PASSWORD=`openssl rand -base64 30`
   - export PATH=~/.composer/vendor/bin/:$PATH
   - mysql -uroot -e "CREATE DATABASE IF NOT EXISTS test"
   - mysql -uroot < sql/create_tables.sql

@@ -2625,10 +2625,10 @@ function PMA_getHtmlTableBodyForSpecificDbOrTablePrivs($privMap, $db)
 /**
  * Get HTML to display privileges
  *
- * @param string  $db                 Database name
- * @param array   $current_privileges List of privileges
- * @param string  $current_user       Current user
- * @param string  $current_host       Current host
+ * @param string $db                 Database name
+ * @param array  $current_privileges List of privileges
+ * @param string $current_user       Current user
+ * @param string $current_host       Current host
  *
  * @return string HTML to display privileges
  */
@@ -5048,9 +5048,14 @@ function PMA_checkIfMariaDBPwdCheckPluginActive()
         return false;
     }
 
-    $result = $GLOBALS['dbi']->query(
+    $result = $GLOBALS['dbi']->tryQuery(
         'SHOW PLUGINS SONAME LIKE \'%_password_check%\''
     );
+
+    /* Plugins are not working, for example directory does not exists */
+    if ($result === false) {
+        return false;
+    }
 
     while ($row = $GLOBALS['dbi']->fetchAssoc($result)) {
         if ($row['Status'] === 'ACTIVE') {

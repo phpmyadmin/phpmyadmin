@@ -330,6 +330,8 @@ $run_query = true;
 $charset_conversion = false;
 $reset_charset = false;
 $bookmark_created = false;
+$result = false;
+$msg = 'Sorry an unexpected error happened!';
 
 // Bookmark Support: get a query back from bookmark if required
 if (! empty($_REQUEST['id_bookmark'])) {

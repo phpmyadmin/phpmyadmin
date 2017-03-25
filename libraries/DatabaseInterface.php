@@ -2016,7 +2016,7 @@ class DatabaseInterface
      *
      * @return string HML text with error details
      */
-    public function formatError($error_number, $error_message)
+    public static function formatError($error_number, $error_message)
     {
         $error_message = htmlspecialchars($error_message);
 
@@ -2033,6 +2033,10 @@ class DatabaseInterface
         } elseif ($error_number == 2003) {
             $error .= ' - ' . $error_message;
             $error .= $separator . __('The server is not responding.');
+        } elseif ($error_number == 1698 ) {
+            $error .= ' - ' . $error_message;
+            $error .= $separator . '<a href="logout.php' . URL::getCommon() . '">';
+            $error .= __('Logout and try as another user.') . '</a>';
         } elseif ($error_number == 1005) {
             if (strpos($error_message, 'errno: 13') !== false) {
                 $error .= ' - ' . $error_message;

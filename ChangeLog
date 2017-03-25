@@ -5,6 +5,10 @@ phpMyAdmin - ChangeLog
 - issue #12946 Allow to export JSON with unescaped unicode chars
 - issue #12983 Disable login button without solved reCaptcha
 - issue #12315 Allow to remove individual segments from pie charts
+- issue        Change label from "Improve table structure" to "Normalize" to match standard terminology
+- issue #13087 Offer login as different user on access denied from MySQL
+- issue #13110 Indicate when HTTPS is not properly reported on the server
+- issue #13119 No database selected error when adding foreign key
 
 4.7.0.0 (not yet released)
 - patch #12233 [Display] Improve message when renaming database to same name
@@ -102,6 +106,17 @@ phpMyAdmin - ChangeLog
 - issue #12846 Fix new version check for sites with wrongly configured curl
 - issue #12951 When exporting to Excel, the default is now to include column names in the first row
 - issue #13059 Removed debugging code
+- issue #13029 Fixed table tracking for nested table groups
+- issue #13053 Fixed broken links in setup
+- issue #12708 Removed phpMyAdmin version from User-Agent header
+- issue #13084 Do not point users to setup when it is disabled
+- issue #12660 Delete only phpMyAdmin cookies on upgrade
+- issue #13088 Fixed editing of rows with text primary key
+- issue #13092 Do not try to sync favorite tables if configuration storage is not enabled
+- issue #13105 Fixed changing attribute for virtual field
+- issue #12757 Fixed setting password on recent MariaDB with non working plugins
+- issue #12349 Fixed undefined variable on import from some formats
+- issue #13103 Do not offer default names for copying/renaming databases
 
 4.6.6 (2017-01-23)
 - issue #12759 Fix Notice regarding 'Undefined index: old_usergroup'

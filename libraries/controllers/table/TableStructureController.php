@@ -252,7 +252,7 @@ class TableStructureController extends TableController
         }
 
         // display secondary level tabs if necessary
-        $engine = $this->table_obj->getStatusInfo('ENGINE');
+        $engine = $this->table_obj->getStorageEngine();
         $this->response->addHTML(
             Template::get('table/secondary_tabs')->render(
                 array(
@@ -324,11 +324,6 @@ class TableStructureController extends TableController
         /* The url_params array is initialized in above include */
         $url_params['goto'] = 'tbl_structure.php';
         $url_params['back'] = 'tbl_structure.php';
-
-        /**
-         * Gets tables information
-         */
-        include_once 'libraries/tbl_info.inc.php';
 
         // 2. Gets table keys and retains them
         // @todo should be: $server->db($db)->table($table)->primary()

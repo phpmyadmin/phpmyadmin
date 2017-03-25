@@ -153,6 +153,12 @@ class AuthenticationCookie extends AuthenticationPlugin
         )->display();
         echo "</noscript>\n";
 
+        echo '<div class="hide" id="js-https-mismatch">';
+        Message::error(
+            __("There is mismatch between HTTPS indicated on the server and client. This can lead to non working phpMyAdmin or a security risk. Please fix your server configuration to indicate HTTPS properly.")
+        )->display();
+        echo '</div>';
+
         // Displays the languages form
         $language_manager = LanguageManager::getInstance();
         if (empty($GLOBALS['cfg']['Lang']) && $language_manager->hasChoice()) {
@@ -446,23 +452,6 @@ class AuthenticationCookie extends AuthenticationPlugin
     public function authSetUser()
     {
         global $cfg;
-
-        // Ensures valid authentication mode, 'only_db', bookmark database and
-        // table names and relation table name are used
-        if (! hash_equals($cfg['Server']['user'], $GLOBALS['PHP_AUTH_USER'])) {
-            foreach ($cfg['Servers'] as $idx => $current) {
-                if ($current['host'] == $cfg['Server']['host']
-                    && $current['port'] == $cfg['Server']['port']
-                    && $current['socket'] == $cfg['Server']['socket']
-                    && $current['ssl'] == $cfg['Server']['ssl']
-                    && hash_equals($current['user'], $GLOBALS['PHP_AUTH_USER'])
-                ) {
-                    $GLOBALS['server'] = $idx;
-                    $cfg['Server']     = $current;
-                    break;
-                }
-            } // end foreach
-        } // end if
 
         if ($GLOBALS['cfg']['AllowArbitraryServer']
             && ! empty($GLOBALS['pma_auth_server'])

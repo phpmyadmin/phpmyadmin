@@ -132,6 +132,20 @@ function MouseDown(e)
 {
     Glob_X = dx = isIE ? e.clientX + document.body.scrollLeft : e.pageX;
     Glob_Y = dy = isIE ? e.clientY + document.body.scrollTop : e.pageY;
+
+    if (e.target.tagName == "SPAN") {
+        cur_click = e.target.parentNode.parentNode.parentNode.parentNode;
+    }
+    else if (e.target.className == "tab_zag_2") {
+        cur_click = e.target.parentNode.parentNode.parentNode;
+    }
+    else if (e.target.className == "icon") {
+        layer_menu_cur_click = 1;
+    }
+    else if (e.target.className == "M_butt") {
+        return false;
+    }
+
     if (cur_click !== null) {
         document.getElementById("canvas").style.display = 'none';
         cur_click.style.zIndex = 2;

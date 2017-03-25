@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-03-01 18:19+0100\n"
-"PO-Revision-Date: 2017-02-04 17:56+0000\n"
+"PO-Revision-Date: 2017-03-18 22:24+0000\n"
 "Last-Translator: Franco <fulanodetal.github1@openaliasbox.org>\n"
-"Language-Team: Spanish <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/es/>\n"
+"Language-Team: Spanish "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/es/>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.11\n"
+"X-Generator: Weblate 2.12\n"
 
 #: changelog.php:39 license.php:34
 #, php-format
@@ -4007,7 +4007,7 @@ msgstr "Tabla"
 #: libraries/Menu.php:275 libraries/Menu.php:294
 #, php-format
 msgid "“%s”"
-msgstr ""
+msgstr "\"%s\""
 
 #: libraries/Menu.php:343 libraries/Menu.php:446 libraries/Menu.php:559
 #: libraries/Util.php:3161 libraries/Util.php:3171 libraries/Util.php:3177
@@ -4877,8 +4877,7 @@ msgid "Missing parameter:"
 msgstr "Parámetro faltante:"
 
 #: libraries/Util.php:2550
-#, fuzzy, php-format
-#| msgid "Jump to database \"%s\"."
+#, php-format
 msgid "Jump to database “%s”."
 msgstr "Saltar a la base de datos \"%s\"."
 
@@ -10189,7 +10188,7 @@ msgstr "Impresión de salida JSON (uso de formato legible)"
 
 #: libraries/plugins/export/ExportJson.php:94
 msgid "Output unicode characters unescaped"
-msgstr ""
+msgstr "Salida de caracteres unicode sin escape"
 
 #: libraries/plugins/export/ExportLatex.php:48
 msgid "Content of table @TABLE@"
@@ -12553,32 +12552,20 @@ msgstr ""
 "de su cuenta permite una conexión desde cualquier host (%)."
 
 #: libraries/server_privileges.lib.php:4668
-#, fuzzy, php-format
-#| msgid ""
-#| "Note: phpMyAdmin gets the users' privileges directly from MySQL's "
-#| "privilege tables. The content of these tables may differ from the "
-#| "privileges the server uses, if they have been changed manually. In this "
-#| "case, you should %sreload the privileges%s before you continue."
+#, php-format
 msgid ""
 "Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege "
 "tables. The content of these tables may differ from the privileges the "
 "server uses, if they have been changed manually. In this case, you should "
 "%sreload the privileges%s before you continue."
 msgstr ""
-"Nota: phpMyAdmin obtiene los privilegios de los usuarios 'directamente de "
-"las tablas de privilegios MySQL'. El contenido de estas tablas puede diferir "
-"de los privilegios que usa el servidor si es que se han realizado cambios "
-"manuales en él. En este caso, nuevamente deberá %scargar la página de "
-"privilegios%s antes de continuar."
+"Nota: phpMyAdmin obtiene los privilegios de los usuarios \"directamente de "
+"las tablas de privilegios MySQL\". El contenido de estas tablas puede "
+"diferir de los privilegios que usa el servidor si es que se han realizado "
+"cambios manuales en él. En este caso, nuevamente deberá %scargar la página "
+"de privilegios%s antes de continuar."
 
 #: libraries/server_privileges.lib.php:4685
-#, fuzzy
-#| msgid ""
-#| "Note: phpMyAdmin gets the users' privileges directly from MySQL's "
-#| "privilege tables. The content of these tables may differ from the "
-#| "privileges the server uses, if they have been changed manually. In this "
-#| "case, the privileges have to be reloaded but currently, you don't have "
-#| "the RELOAD privilege."
 msgid ""
 "Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege "
 "tables. The content of these tables may differ from the privileges the "
@@ -12586,11 +12573,11 @@ msgid ""
 "privileges have to be reloaded but currently, you don't have the RELOAD "
 "privilege."
 msgstr ""
-"Nota: phpMyAdmin obtiene los privilegios de los usuarios 'directamente de "
-"las tablas de privilegios MySQL'. El contenido de estas tablas puede diferir "
-"de los privilegios que usa el servidor si es que se han realizado cambios "
-"manuales en él. En este caso, los privilegios deberán actualizarse pero "
-"actualmente, no tiene el privilegio RELOAD."
+"Nota: phpMyAdmin obtiene los privilegios de los usuarios \"directamente de "
+"las tablas de privilegios MySQL\". El contenido de estas tablas puede "
+"diferir de los privilegios que usa el servidor si es que se han realizado "
+"cambios manuales en él. En este caso, los privilegios deberán actualizarse "
+"pero actualmente, no tiene el privilegio RELOAD."
 
 #: libraries/server_privileges.lib.php:4736
 msgid "The selected user was not found in the privilege table."
@@ -13823,10 +13810,9 @@ msgid "Problems with indexes of table `%s`"
 msgstr "Problemas con los índices de la tabla `%s`"
 
 #: libraries/sql_query_form.lib.php:139
-#, fuzzy, php-format
-#| msgid "Run SQL query/queries on server %s"
+#, php-format
 msgid "Run SQL query/queries on server “%s”"
-msgstr "Ejecute la o las consultas SQL en el servidor %s"
+msgstr "Ejecute la(s) consulta(s) SQL en el servidor \"%s\""
 
 #: libraries/sql_query_form.lib.php:156
 #, php-format

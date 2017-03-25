@@ -88,12 +88,16 @@ abstract class ReflectorItem implements Item
             } elseif (is_string($type) && isset($params[$type])) {
                 $args[] = $params[$type];
             } else {
-                $content = $this->_container->get($name);
-                if (isset($content)) {
-                    $args[] = $content;
-                } elseif (is_string($type)) {
-                    $args[] = $this->_container->get($type);
-                } else {
+                try {
+                    $content = $this->_container->get($name);
+                    if (isset($content)) {
+                        $args[] = $content;
+                    } elseif (is_string($type)) {
+                        $args[] = $this->_container->get($type);
+                    } else {
+                        $args[] = null;
+                    }
+                } catch (NotFoundException $e) {
                     $args[] = null;
                 }
             }

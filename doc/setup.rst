@@ -935,6 +935,9 @@ Config authentication mode
   of which are beyond the scope of this manual but easily searchable
   with Google).
 
+
+.. _securing:
+
 Securing your phpMyAdmin installation
 +++++++++++++++++++++++++++++++++++++
 
