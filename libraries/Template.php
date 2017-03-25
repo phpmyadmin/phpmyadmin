@@ -7,6 +7,8 @@
  */
 namespace PMA\libraries;
 
+use Twig_Environment;
+use Twig_Loader_Filesystem;
 use PMA\libraries\twig\I18nExtension;
 use PMA\libraries\twig\UrlExtension;
 
@@ -35,14 +37,9 @@ class Template
     protected $helperFunctions;
 
     /**
-     * Twig loader
-     */
-    protected $loader;
-
-    /**
      * Twig environment
      */
-    protected $environment;
+    protected $twig;
 
     const BASE_PATH = 'templates/';
 
@@ -59,12 +56,13 @@ class Template
         $this->data = $data;
         $this->helperFunctions = $helperFunctions;
 
-        $this->loader = new \Twig_Loader_Filesystem(static::BASE_PATH);
-        $this->environment = new \Twig_Environment($this->loader, array(
-            'cache' => static::BASE_PATH . 'cache',
+        $loader = new Twig_Loader_Filesystem(static::BASE_PATH);
+        $this->twig = new Twig_Environment($loader, array(
+            'debug' => false,
+            'cache' => CACHE_DIR . 'twig',
         ));
-        $this->environment->addExtension(new I18nExtension());
-        $this->environment->addExtension(new UrlExtension());
+        $this->twig->addExtension(new I18nExtension());
+        $this->twig->addExtension(new UrlExtension());
     }
 
     /**
@@ -163,7 +161,7 @@ class Template
 
         if (file_exists($template . '.twig')) {
             $this->set($data);
-            return $this->environment->load($this->name . '.twig')
+            return $this->twig->load($this->name . '.twig')
                 ->render($this->data);
         }
 

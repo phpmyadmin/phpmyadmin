@@ -14,6 +14,11 @@ if (! defined('PHPMYADMIN')) {
 }
 
 /**
+ * Directory where cache files are stored.
+ */
+define('CACHE_DIR', './cache/');
+
+/**
  * Path to changelog file, can be gzip compressed. Useful when you want to
  * have documentation somewhere else, eg. /usr/share/doc.
  */

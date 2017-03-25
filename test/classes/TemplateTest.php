@@ -8,6 +8,8 @@
 
 require_once 'test/PMATestCase.php';
 
+use PMA\libraries\Template;
+
 /**
  * Test for PMA\libraries\Template class
  *
@@ -24,7 +26,7 @@ class TemplateTest extends PMATestCase
      */
     public function testSet($data)
     {
-        $template = PMA\libraries\Template::get($data);
+        $template = Template::get($data);
         $template->set('variable1', 'value1');
         $template->set(
             array(
@@ -56,16 +58,72 @@ class TemplateTest extends PMATestCase
      */
     public function testSetHelper()
     {
-        $template = PMA\libraries\Template::get('test/set_helper');
+        $template = Template::get('test/set_helper');
         $template->setHelper('hello', function ($string) {
             return 'hello ' . $string;
         });
-        $template->set(
-            array(
-                'variable' => 'world'
-            )
-        );
+        $template->set(['variable' => 'world']);
         $this->assertEquals('hello world', $template->render());
+
+        $this->setExpectedException('LogicException');
+        $template->setHelper('hello', 'again');
+    }
+
+    /**
+     * Test for removeHelper
+     *
+     * @return void
+     */
+    public function testRemoveHelper()
+    {
+        $template = Template::get('test/set_helper');
+        $template->setHelper('hello', function ($string) {
+            return 'hello ' . $string;
+        });
+        $template->set(['variable' => 'world']);
+        $template->removeHelper('hello');
+        $this->setExpectedException('LogicException');
+        $template->render();
+    }
+
+    /**
+     * Test for removeHelper
+     *
+     * @return void
+     */
+    public function testRemoveHelperNotFound()
+    {
+        $template = Template::get('test/set_helper');
+        $this->setExpectedException('LogicException');
+        $template->removeHelper('not found');
+    }
+
+    /**
+     * Test for render
+     *
+     * @dataProvider providerTestDynamicRender
+     *
+     * @return void
+     */
+    public function testDynamicRender($templateFile, $key, $value)
+    {
+        $this->assertEquals(
+            $value,
+            Template::get($templateFile)->render([$key => $value])
+        );
+    }
+
+    /**
+     * Data provider for testDynamicRender
+     *
+     * @return array
+     */
+    public function providerTestDynamicRender()
+    {
+        return [
+            ['test/echo', 'variable', 'value'],
+            ['test/echo_twig', 'variable', 'value'],
+        ];
     }
 
     /**
@@ -73,57 +131,70 @@ class TemplateTest extends PMATestCase
      *
      * @return void
      */
-    public function testStaticRender()
+    public function testRenderTemplateNotFound()
     {
-        $this->assertEquals(
-            'static content',
-            PMA\libraries\Template::get('test/static')->render()
-        );
-        $this->assertEquals(
-            'static content',
-            PMA\libraries\Template::get('test/static_twig')->render()
-        );
+        $this->setExpectedException('LogicException');
+        Template::get('template not found')->render();
     }
 
     /**
      * Test for render
      *
+     * @dataProvider providerTestRender
+     *
      * @return void
      */
-    public function testDynamicRender()
+    public function testRender($templateFile, $expectedResult)
     {
         $this->assertEquals(
-            'value',
-            PMA\libraries\Template::get('test/echo')->render(
-                array(
-                    'variable' => 'value'
-                )
-            )
+            $expectedResult,
+            Template::get($templateFile)->render()
         );
-        $this->assertEquals(
-            'value',
-            PMA\libraries\Template::get('test/echo_twig')->render(
-                array(
-                    'variable' => 'value'
-                )
-            )
-        );
+    }
+
+    /**
+     * Data provider for testSet
+     *
+     * @return array
+     */
+    public function providerTestRender()
+    {
+        return [
+            ['test/static', 'static content'],
+            ['test/static_twig', 'static content'],
+        ];
     }
 
     /**
      * Test for render
      *
+     * @dataProvider providerTestRenderGettext
+     *
      * @return void
      */
-    public function testRenderGettext()
+    public function testRenderGettext($templateFile, $renderParams, $expectedResult)
     {
         $this->assertEquals(
-            'Text',
-            PMA\libraries\Template::get('test/gettext')->render()
+            $expectedResult,
+            Template::get($templateFile)->render($renderParams)
         );
-        $this->assertEquals(
-            'Text',
-            PMA\libraries\Template::get('test/gettext_twig')->render()
-        );
+    }
+
+    /**
+     * Data provider for testRenderGettext
+     *
+     * @return array
+     */
+    public function providerTestRenderGettext()
+    {
+        return [
+            ['test/gettext/gettext', [], 'Text'],
+            ['test/gettext/gettext_twig', [], 'Text'],
+            ['test/gettext/notes_twig', [], 'Text'],
+            ['test/gettext/plural_twig', ['table_count' => 1], 'One table'],
+            ['test/gettext/plural_twig', ['table_count' => 2], '2 tables'],
+            ['test/gettext/plural_notes_twig', ['table_count' => 1], 'One table'],
+            ['test/gettext/plural_notes_twig', ['table_count' => 2], '2 tables'],
+        ];
     }
 }
