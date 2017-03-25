@@ -22,7 +22,7 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
      * @access private
      * @var mysqli
      */
-    private $_mysqli;
+    protected $_mysqli;
 
     /**
      * Name of database for the test

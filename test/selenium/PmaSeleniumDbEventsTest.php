@@ -49,6 +49,8 @@ class PMA_SeleniumDbEventsTest extends PMA_SeleniumBase
     public function setUpPage()
     {
         $this->login();
+        $this->waitForElement('byPartialLinkText','Databases')->click();
+        $this->waitForElementNotPresent('byCssSelector', 'div#loading_parent');
         $this->waitForElement('byPartialLinkText', $this->database_name)->click();
         $this->waitForElement(
             "byXPath", "//a[contains(., 'test_table')]"
@@ -66,7 +68,7 @@ class PMA_SeleniumDbEventsTest extends PMA_SeleniumBase
      */
     public function tearDown()
     {
-        if ($this->_mysqli != null) {
+        if (isset($this->_mysqli)) {
             $this->dbQuery("SET GLOBAL event_scheduler=\"OFF\"");
         }
         parent::tearDown();
@@ -193,7 +195,7 @@ class PMA_SeleniumDbEventsTest extends PMA_SeleniumBase
             "SELECT val FROM `" . $this->database_name . "`.`test_table`"
         );
         $row = $result->fetch_assoc();
-        $this->assertGreaterThan(4, $row['val']);
+        $this->assertGreaterThan(2, $row['val']);
     }
 
     /**
