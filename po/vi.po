@@ -9,28 +9,25 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-03-01 18:19+0100\n"
-"PO-Revision-Date: 2016-10-10 19:30+0000\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Vietnamese <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/vi/>\n"
+"PO-Revision-Date: 2017-03-25 13:25+0000\n"
+"Last-Translator: Vuong Phan <thevuong@live.com>\n"
+"Language-Team: Vietnamese "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/vi/>\n"
 "Language: vi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 2.9-dev\n"
+"X-Generator: Weblate 2.12\n"
 
 #: changelog.php:39 license.php:34
-#, fuzzy, php-format
-#| msgid ""
-#| "The %s file is not available on this system, please visit www.phpmyadmin."
-#| "net for more information."
+#, php-format
 msgid ""
 "The %s file is not available on this system, please visit %s for more "
 "information."
 msgstr ""
-"Tập tin %s  không có sẵn trên hệ thống, hãy truy cập www.phpmyadmin.net để "
-"biết thêm thông tin."
+"Tập tin %s  không có sẵn trên hệ thống, hãy truy cập %s để biết thêm thông "
+"tin."
 
 #: db_central_columns.php:108
 msgid "The central list of columns for the current database is empty."
@@ -571,12 +568,10 @@ msgid "Bookmark %s has been created."
 msgstr "Đánh dấu %s đã được tạo ra."
 
 #: import.php:590
-#, fuzzy, php-format
-#| msgid "Import has been successfully finished, %d queries executed."
+#, php-format
 msgid "Import has been successfully finished, %d query executed."
 msgid_plural "Import has been successfully finished, %d queries executed."
-msgstr[0] ""
-"việc nhập vào đã được thực hiện thành công, %d truy vấn đã thực thi."
+msgstr[0] "Việc nhập vào đã được thực hiện thành công, %d truy vấn đã thực thi."
 
 #: import.php:619
 #, php-format
@@ -735,12 +730,18 @@ msgid ""
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
 "split strings correctly and it may result in unexpected results."
 msgstr ""
+"Phần mở rộng PHP mbstring không được tìm thấy và bạn dường như sử dụng một "
+"bộ mã ký tự multibyte. Nếu không có phần mở rộng mbstring phpMyAdmin là "
+"không thể phân chia chuỗi một cách chính xác và nó có thể gây ra kết quả bất "
+"ngờ, rất bất ngờ đó."
 
 #: index.php:469
 msgid ""
 "The curl extension was not found and allow_url_fopen is disabled. Due to "
 "this some features such as error reporting or version check are disabled."
 msgstr ""
+"Không tìm thấy phần mở rộng curl và allow_url_fopen bị tắt. Do đó một số "
+"tính năng như báo cáo lỗi hoặc kiểm tra phiên bản bị vô hiệu."
 
 #: index.php:484
 msgid ""
@@ -749,12 +750,21 @@ msgid ""
 "than cookie validity configured in phpMyAdmin, because of this, your login "
 "might expire sooner than configured in phpMyAdmin."
 msgstr ""
+"Tham số PHP "
+"[a@https://secure.php.net/manual/en/session.configuration.php#ini.session.gc-"
+"maxlifetime@_blank]session.gc_maxlifetime[/a] của bạn thấp hơn giá trị "
+"cookie được đặt cấu hình trong phpMyAdmin, bởi vì điều này nên việc đăng "
+"nhập của bạn có thể hết hạn sớm hơn so với thời hạn cấu hình trong "
+"phpMyAdmin."
 
 #: index.php:503
 msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
 msgstr ""
+"Giá trị cookie đăng nhập thấp hơn giá trị cookie được đặt cấu hình trong "
+"phpMyAdmin, bởi vì điều này, đăng nhập của bạn sẽ hết hạn sớm hơn cấu hình "
+"trong phpMyAdmin."
 
 #: index.php:518
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
@@ -762,7 +772,7 @@ msgstr "Tập tin cấu hình bây giờ cần mật khẩu bí mật (blowfish_
 
 #: index.php:525
 msgid "The secret passphrase in configuration (blowfish_secret) is too short."
-msgstr ""
+msgstr "Cụm từ bí mật trong cấu hình (blowfish_secret) quá ngắn."
 
 #: index.php:539
 msgid ""
@@ -818,6 +828,8 @@ msgstr "Bạn chuẩn bị PHÁ HỦY toàn bộ cơ sở dữ liệu!"
 #: js/messages.php:48
 msgid "Cannot rename database to the same name. Change the name and try again"
 msgstr ""
+"Tên này giống tên ban đầu mà, đâu có đổi tên được đâu. Hãy đổi tên khác đi "
+"và thử lại."
 
 #: js/messages.php:50
 msgid "You are about to DESTROY a complete table!"
