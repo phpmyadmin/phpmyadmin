@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-03-01 18:19+0100\n"
-"PO-Revision-Date: 2017-03-19 17:54+0000\n"
+"PO-Revision-Date: 2017-03-25 18:06+0000\n"
 "Last-Translator: tmtisfree <tmtisfree@free.fr>\n"
 "Language-Team: French "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/fr/>\n"
@@ -3689,7 +3689,7 @@ msgstr "total de %d"
 #: libraries/DisplayResults.php:4740 libraries/sql.lib.php:1380
 #, php-format
 msgid "Query took %01.4f seconds."
-msgstr "Traité en %01.4f seconde(s)."
+msgstr "traité en %01.4f seconde(s)"
 
 #: libraries/DisplayResults.php:4842 libraries/DisplayResults.php:4849
 #: libraries/mult_submits.inc.php:53
@@ -4199,7 +4199,7 @@ msgstr "Il n'y a pas de tables récentes."
 
 #: libraries/RecentFavoriteTable.php:232
 msgid "There are no favorite tables."
-msgstr "Il n'y a pas de tables préférées."
+msgstr "Pas de tables préférées."
 
 #: libraries/RecentFavoriteTable.php:247
 msgid "Recent tables"
@@ -8594,7 +8594,7 @@ msgstr "Importation partielle :"
 msgid ""
 "Previous import timed out, after resubmitting will continue from position %d."
 msgstr ""
-"L'importation précédente a excédé le délai ; retransmettre et le traitement "
+"L'importation précédente a excédé le délai ; retransmettre, et le traitement "
 "reprendra à la position %d."
 
 #: libraries/display_import.lib.php:305
@@ -9027,7 +9027,7 @@ msgstr "Le fichier de déchargement a été enregistré sous %s."
 #: libraries/rte/rte_routines.lib.php:1466 libraries/sql.lib.php:1374
 #: tbl_get_field.php:45
 msgid "MySQL returned an empty result set (i.e. zero rows)."
-msgstr "MySQL a retourné un résultat vide (aucune ligne)."
+msgstr "MySQL a retourné un résultat vide (aucune ligne)"
 
 #: libraries/import.lib.php:258 libraries/sql.lib.php:1388
 msgid "[ROLLBACK occurred.]"
@@ -15171,14 +15171,14 @@ msgstr "Retirer les comptes utilisateurs sélectionnés"
 msgid "Revoke all active privileges from the users and delete them afterwards."
 msgstr ""
 "Révoquer tous les privilèges actifs de ces utilisateurs, puis effacer les "
-"utilisateurs"
+"utilisateurs."
 
 #: templates/privileges/delete_user_fieldset.phtml:8
 #: templates/privileges/delete_user_fieldset.phtml:10
 #: templates/privileges/delete_user_fieldset.phtml:11
 msgid "Drop the databases that have the same names as the users."
 msgstr ""
-"Supprimer les bases de données portant le même nom que les utilisateurs"
+"Supprimer les bases de données portant le même nom que les utilisateurs."
 
 #: templates/privileges/privileges_summary.phtml:21
 msgid "Column-specific privileges"
