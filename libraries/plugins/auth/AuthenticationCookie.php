@@ -301,7 +301,7 @@ class AuthenticationCookie extends AuthenticationPlugin
         $GLOBALS['PHP_AUTH_USER'] = $GLOBALS['PHP_AUTH_PW'] = '';
         $GLOBALS['from_cookie'] = false;
 
-        if (! empty($_REQUEST['pma_username'])) {
+        if (isset($_REQUEST['pma_username']) && strlen($_REQUEST['pma_username']) > 0) {
 
             // Verify Captcha if it is required.
             if (! empty($GLOBALS['cfg']['CaptchaLoginPrivateKey'])
