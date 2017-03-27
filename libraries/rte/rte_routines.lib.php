@@ -1536,8 +1536,7 @@ function PMA_RTN_handleExecute()
 /**
  * Browse row array
  *
- * @param array  $row         Columns
- * @param string $color_class CSS class
+ * @param array $row Columns
  *
  * @return string
  */
@@ -1550,7 +1549,7 @@ function browseRow($row)
         } else {
             $value = htmlspecialchars($value);
         }
-        $output .= "<td class='" . $color_class . "'>" . $value . "</td>";
+        $output .= "<td>" . $value . "</td>";
     }
     return $output;
 }

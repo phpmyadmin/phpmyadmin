@@ -11,10 +11,17 @@ namespace PMA\libraries\plugins\import;
 
 use PhpMyAdmin\ShapeFile\ShapeFile;
 
+/**
+ * ShapeFileImport class
+ *
+ * @package PhpMyAdmin
+ */
 class ShapeFileImport extends ShapeFile
 {
     /**
      * Reads given number of bytes from SHP file
+     *
+     * @param int $bytes number of bytes
      *
      * @return string|false
      */
@@ -35,4 +42,3 @@ class ShapeFileImport extends ShapeFile
         return $eof;
     }
 }
-

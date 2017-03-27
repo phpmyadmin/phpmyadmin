@@ -2735,7 +2735,7 @@ class DatabaseInterface
         return $this->_extension->escapeString($link, $str);
     }
 
-    /*
+    /**
      * Gets correct link object.
      *
      * @param object $link optional database link to use

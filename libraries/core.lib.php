@@ -997,6 +997,16 @@ if(! function_exists('hash_equals')) {
 }
 /* Compatibility with PHP < 5.1 or PHP without hash extension */
 if (! function_exists('hash_hmac')) {
+    /**
+     * Generate a keyed hash value using the HMAC method
+     *
+     * @param string  $algo       Name of selected hashing algorithm
+     * @param string  $data       Message to be hashed
+     * @param string  $key        Shared secret key used for generating the HMAC variant of the message digest
+     * @param boolean $raw_output When set to TRUE, outputs raw binary data. FALSE outputs lowercase hexits
+     *
+     * @return string
+     */
     function hash_hmac($algo, $data, $key, $raw_output = false)
     {
         $algo = strtolower($algo);

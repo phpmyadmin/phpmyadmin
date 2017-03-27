@@ -102,8 +102,6 @@ class PageSettings
      * @param FormDisplay  &$form_display Form
      * @param ConfigFile   &$cf           Configuration file
      * @param Message|null &$error        Error message
-     * @param FormDisplay  $form_display
-     * @param ConfigFile   $cf
      *
      * @return void
      */

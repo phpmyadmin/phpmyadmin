@@ -473,9 +473,11 @@ class TableSearchController extends TableController
     /**
      * Display selection form action
      *
+     * @param string $dataLabel Data label
+     *
      * @return void
      */
-    public function displaySelectionFormAction($datalabel = null)
+    public function displaySelectionFormAction($dataLabel = null)
     {
         $this->url_query .= '&amp;goto=tbl_select.php&amp;back=tbl_select.php';
         if (! isset($goto)) {
@@ -509,7 +511,7 @@ class TableSearchController extends TableController
                         'columnNames'      => $this->_columnNames,
                         'columnTypes'      => $this->_columnTypes,
                         'columnCollations' => $this->_columnCollations,
-                        'dataLabel'        => $datalabel,
+                        'dataLabel'        => $dataLabel,
                     )
                 )
         );

@@ -66,6 +66,8 @@ class Template
      *
      * @param array|string $data  containing data array or data key
      * @param string       $value containing data value
+     *
+     * @return void
      */
     public function set($data, $value = null)
     {
@@ -84,6 +86,8 @@ class Template
      *
      * @param string   $funcName function name
      * @param callable $funcDef  function definition
+     *
+     * @return void
      */
     public function setHelper($funcName, $funcDef)
     {
@@ -100,6 +104,8 @@ class Template
      * Removes a function
      *
      * @param string $funcName function name
+     *
+     * @return void
      */
     public function removeHelper($funcName)
     {
@@ -117,6 +123,8 @@ class Template
      *
      * @param string $funcName  function name
      * @param array  $arguments function arguments
+     *
+     * @return mixed
      */
     public function __call($funcName, $arguments)
     {

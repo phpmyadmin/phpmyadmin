@@ -3790,6 +3790,7 @@ class Util
      * @param array $field       Data about the column for which
      *                           to generate the dropdown
      * @param bool  $insert_mode Whether the operation is 'insert'
+     * @param array $foreignData Foreign data
      *
      * @return string   An HTML snippet of a dropdown list with function
      *                    names appropriate for the requested column.
