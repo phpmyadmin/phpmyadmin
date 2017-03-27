@@ -438,7 +438,7 @@ simple configuration may look like this:
     $i++;
     $cfg['Servers'][$i]['auth_type']     = 'cookie';
     // if you insist on "root" having no password:
-    // $cfg['Servers'][$i]['AllowNoPasswordRoot'] = true; `
+    // $cfg['Servers'][$i]['AllowNoPassword'] = true; `
     ?>
 
 Or, if you prefer to not be prompted every time you log in:
