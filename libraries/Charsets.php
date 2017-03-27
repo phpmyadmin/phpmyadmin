@@ -107,24 +107,44 @@ class Charsets
         }
     }
 
+    /**
+     * Get MySQL charsets
+     *
+     * @return array
+     */
     public static function getMySQLCharsets()
     {
         self::loadCharsets();
         return self::$_charsets;
     }
 
+    /**
+     * Get MySQL charsets descriptions
+     *
+     * @return array
+     */
     public static function getMySQLCharsetsDescriptions()
     {
         self::loadCharsets();
         return self::$_charsets_descriptions;
     }
 
+    /**
+     * Get MySQL collations
+     *
+     * @return array
+     */
     public static function getMySQLCollations()
     {
         self::loadCollations();
         return self::$_collations;
     }
 
+    /**
+     * Get MySQL default collations
+     *
+     * @return array
+     */
     public static function getMySQLCollationsDefault()
     {
         self::loadCollations();

@@ -70,7 +70,13 @@ session_cache_limiter('private');
 // on some servers (for example, sourceforge.net), we get a permission error
 // on the session data directory, so I add some "@"
 
-
+/**
+ * Session failed function
+ *
+ * @param array $errors PMA\libraries\ErrorHandler array
+ *
+ * @return void
+ */
 function PMA_sessionFailed($errors)
 {
     $messages = array();

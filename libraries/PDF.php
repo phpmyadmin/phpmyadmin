@@ -58,6 +58,7 @@ class PDF extends TCPDF
      *
      * @return void
      */
+    // @codingStandardsIgnoreLine
     public function Footer()
     {
         // Check if footer for this page already exists
@@ -119,6 +120,7 @@ class PDF extends TCPDF
      *
      * @return void
      */
+    // @codingStandardsIgnoreLine
     public function Error($error_message = '')
     {
         Message::error(

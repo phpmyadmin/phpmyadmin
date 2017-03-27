@@ -7,6 +7,8 @@
  */
 namespace PMA\libraries;
 
+require_once 'libraries/database_interface.inc.php';
+
 /**
  * Class SystemDatabase
  *
