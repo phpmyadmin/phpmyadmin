@@ -1290,6 +1290,7 @@ function insertValueQuery()
         /* CodeMirror support */
         if (codemirror_editor) {
             codemirror_editor.replaceSelection(columnsList);
+            codemirror_editor.focus();
         //IE support
         } else if (document.selection) {
             myQuery.focus();
