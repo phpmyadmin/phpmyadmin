@@ -1,6 +1,10 @@
 phpMyAdmin - ChangeLog
 ======================
 
+4.0.10.20 (2017-03-28)
+- issue #12881 Fix database search when locale is not 'en'
+- issue        [security] Possible to bypass $cfg['Servers'][$i]['AllowNoPassword'], see PMASA-2017-08
+
 4.0.10.19 (2017-01-23)
 - issue        [security] Multiple vulnerabilities in setup script, see PMASA-2016-44.
 - issue        [security] Open redirect, see PMASA-2017-1.
