@@ -10,15 +10,11 @@
  * Include to test.
  */
 use PMA\libraries\Theme;
+use PMA\libraries\URL;
 
 
-require_once 'libraries/url_generating.lib.php';
 require_once 'libraries/server_status_processes.lib.php';
 require_once 'libraries/database_interface.inc.php';
-
-
-
-require_once 'libraries/sanitizing.lib.php';
 
 /**
  * class PMA_ServerStatusProcesses_Test
@@ -45,8 +41,6 @@ class PMA_ServerStatusProcesses_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['pmaThemeImage'] = 'image';
 
         //$_SESSION
-        $_SESSION['PMA_Theme'] = Theme::load('./themes/pmahomme');
-        $_SESSION['PMA_Theme'] = new Theme();
 
         //Mock DBI
         $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
@@ -194,7 +188,6 @@ class PMA_ServerStatusProcesses_Test extends PHPUnit_Framework_TestCase
             "state" => "State1",
             "time" => "Time1",
         );
-        $odd_row = true;
         $show_full_sql = true;
 
         $_REQUEST['sort_order'] = "desc";
@@ -202,7 +195,7 @@ class PMA_ServerStatusProcesses_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['MaxCharactersInDisplayedSQL'] = 12;
 
         //Call the test function
-        $html = PMA_getHtmlForServerProcessItem($process, $odd_row, $show_full_sql);
+        $html = PMA_getHtmlForServerProcessItem($process, $show_full_sql);
 
         //validate 1: $kill_process
         $url_params = array(
@@ -210,7 +203,7 @@ class PMA_ServerStatusProcesses_Test extends PHPUnit_Framework_TestCase
             'ajax_request' => true
         );
         $kill_process = 'server_status_processes.php'
-            . PMA_URL_getCommon($url_params);
+            . URL::getCommon($url_params);
         $this->assertContains(
             $kill_process,
             $html
@@ -267,7 +260,7 @@ class PMA_ServerStatusProcesses_Test extends PHPUnit_Framework_TestCase
         );
 
         unset($process['info']);
-        $html = PMA_getHtmlForServerProcessItem($process, $odd_row, $show_full_sql);
+        $html = PMA_getHtmlForServerProcessItem($process, $show_full_sql);
 
         $this->assertContains(
             '---',

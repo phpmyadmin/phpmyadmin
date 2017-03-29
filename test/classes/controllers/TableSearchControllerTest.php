@@ -40,13 +40,10 @@ class TableSearchControllerTest extends PMATestCase
         /**
          * SET these to avoid undefined index error
          */
-        $_SESSION['PMA_Theme'] = new Theme();
         $_POST['zoom_submit'] = 'zoom';
 
         $GLOBALS['server'] = 1;
         $GLOBALS['PMA_PHP_SELF'] = 'index.php';
-        $GLOBALS['pmaThemeImage'] = 'themes/dot.gif';
-        $GLOBALS['is_ajax_request'] = false;
         $GLOBALS['cfgRelation'] = PMA_getRelationsParam();
         $GLOBALS['PMA_Types'] = new TypesMySQL();
         $GLOBALS['cfg']['Server']['DisableIS'] = false;

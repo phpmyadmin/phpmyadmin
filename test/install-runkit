@@ -6,9 +6,12 @@ if [ -n "$GATEWAY_INTERFACE" ] ; then
     exit 1
 fi
 
-if [ "$TRAVIS_PHP_VERSION" = "nightly" -o "$TRAVIS_PHP_VERSION" = "hhvm" -o "$TRAVIS_PHP_VERSION" = "7.0" -o "$TRAVIS_PHP_VERSION" = "7.1" ] ; then
-    exit 0
-fi
+# These do not support runkit
+case "$TRAVIS_PHP_VERSION" in
+    hhvm*|7.0|7.1|nightly)
+        exit 0
+        ;;
+esac
 
 set -e
 set -x

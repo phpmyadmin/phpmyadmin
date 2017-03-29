@@ -16,9 +16,9 @@ use PMA\libraries\properties\options\groups\OptionsPropertyMainGroup;
 use PMA\libraries\properties\options\groups\OptionsPropertyRootGroup;
 use PMA\libraries\DatabaseInterface;
 use PMA\libraries\properties\options\items\TextPropertyItem;
+use PMA\libraries\OpenDocument;
 
 $GLOBALS['ods_buffer'] = '';
-require_once 'libraries/opendocument.lib.php';
 
 /**
  * Handles the export for the ODS class
@@ -91,7 +91,7 @@ class ExportOds extends ExportPlugin
     {
         $GLOBALS['ods_buffer'] .= '<?xml version="1.0" encoding="utf-8"?' . '>'
             . '<office:document-content '
-            . $GLOBALS['OpenDocumentNS'] . 'office:version="1.0">'
+            . OpenDocument::NS . ' office:version="1.0">'
             . '<office:automatic-styles>'
             . '<number:date-style style:name="N37"'
             . ' number:automatic-order="true">'
@@ -149,7 +149,7 @@ class ExportOds extends ExportPlugin
             . '</office:body>'
             . '</office:document-content>';
         if (!PMA_exportOutputHandler(
-            PMA_createOpenDocument(
+            OpenDocument::create(
                 'application/vnd.oasis.opendocument.spreadsheet',
                 $GLOBALS['ods_buffer']
             )

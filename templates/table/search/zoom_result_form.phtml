@@ -1,5 +1,5 @@
 <form method="post" action="tbl_zoom_select.php" name="displayResultForm" id="zoom_display_form" class="ajax">
-    <?= PMA_URL_getHiddenInputs($_db, $_table); ?>
+    <?= \PMA\libraries\URL::getHiddenInputs($_db, $_table); ?>
     <input type="hidden" name="goto" value="<?= $goto; ?>" />
     <input type="hidden" name="back" value="tbl_zoom_select.php" />
 
@@ -36,7 +36,6 @@
                 </tr>
                 </thead>
                 <tbody>
-                <?php $odd_row = true; ?>
                 <?php for (
                     $column_index = 0, $nb = count($_columnNames);
                     $column_index < $nb;
@@ -59,8 +58,7 @@
                     <?php
                         $fieldpopup = $_columnNames[$column_index];
                         $foreignData = PMA_getForeignData($_foreigners, $fieldpopup, false, '', '' );?>
-                    <tr class="noclick <?= ($odd_row ? 'odd' : 'even'); ?>">
-                        <?php $odd_row = ! $odd_row; ?>
+                    <tr class="noclick">
                         <!-- Display column Names -->
                         <th><?= htmlspecialchars($_columnNames[$column_index]); ?></th>
                         <!-- Null checkbox if column can be null -->

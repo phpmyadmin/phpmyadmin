@@ -7,6 +7,7 @@
  */
 use PMA\libraries\config\FormDisplay;
 use PMA\setup\lib\ConfigGenerator;
+use PMA\libraries\URL;
 
 /**
  * Core libraries.
@@ -30,7 +31,7 @@ if (PMA_ifSetOr($_POST['submit_clear'], '')) {
     $GLOBALS['ConfigFile']->resetConfigData();
     // drop post data
     header('HTTP/1.1 303 See Other');
-    header('Location: index.php' . PMA_URL_getCommon());
+    header('Location: index.php' . URL::getCommonRaw());
     exit;
 } elseif (PMA_ifSetOr($_POST['submit_download'], '')) {
     //
@@ -44,6 +45,6 @@ if (PMA_ifSetOr($_POST['submit_clear'], '')) {
     // Show generated config file in a <textarea>
     //
     header('HTTP/1.1 303 See Other');
-    header('Location: index.php' . PMA_URL_getCommon() . '&page=config');
+    header('Location: index.php' . URL::getCommonRaw() . '&page=config');
     exit;
 }

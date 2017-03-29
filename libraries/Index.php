@@ -7,6 +7,9 @@
  */
 namespace PMA\libraries;
 
+use PMA\libraries\URL;
+use PMA\libraries\Sanitize;
+
 /**
  * Index manipulation class
  *
@@ -129,7 +132,7 @@ class Index
         Index::_loadIndexes($table, $schema);
         if (! isset(Index::$_registry[$schema][$table][$index_name])) {
             $index = new Index;
-            if (mb_strlen($index_name)) {
+            if (strlen($index_name) > 0) {
                 $index->setName($index_name);
                 Index::$_registry[$schema][$table][$index->getName()] = $index;
             }
@@ -260,7 +263,7 @@ class Index
     public function addColumn($params)
     {
         if (isset($params['Column_name'])
-            && mb_strlen($params['Column_name'])
+            && strlen($params['Column_name']) > 0
         ) {
             $this->_columns[$params['Column_name']] = new IndexColumn($params);
         }
@@ -433,7 +436,7 @@ class Index
     public function getComments()
     {
         $comments = $this->getRemarks();
-        if (mb_strlen($comments)) {
+        if (strlen($comments) > 0) {
             $comments .= "\n";
         }
         $comments .= $this->getComment();
@@ -551,32 +554,18 @@ class Index
     }
 
     /**
-     * Returns 'No'/false if the index is not packed,
+     * Returns 'No' if the index is not packed,
      * how the index is packed if packed
      *
-     * @param boolean $as_text whether to output should be in text
-     *
-     * @return mixed how index is packed
+     * @return string
      */
-    public function isPacked($as_text = false)
+    public function isPacked()
     {
-        if ($as_text) {
-            $r = array(
-                '0' => __('No'),
-                '1' => __('Yes'),
-            );
-        } else {
-            $r = array(
-                '0' => false,
-                '1' => true,
-            );
-        }
-
         if (null === $this->_packed) {
-            return $r[0];
+            return __('No');
         }
 
-        return $this->_packed;
+        return htmlspecialchars($this->_packed);
     }
 
     /**
@@ -703,11 +692,10 @@ class Index
         $r .= '</thead>';
         $r .= '<tbody>';
 
-        $odd_row = true;
         foreach ($indexes as $index) {
             $row_span = ' rowspan="' . $index->getColumnCount() . '" ';
 
-            $r .= '<tr class="noclick ' . ($odd_row ? 'odd' : 'even') . '">';
+            $r .= '<tr class="noclick" >';
 
             if (! $print_mode) {
                 $this_params = $GLOBALS['url_params'];
@@ -717,7 +705,7 @@ class Index
                 $r .= '" ' . $row_span . '>'
                    . '    <a class="';
                 $r .= 'ajax';
-                $r .= '" href="tbl_indexes.php' . PMA_URL_getCommon($this_params)
+                $r .= '" href="tbl_indexes.php' . URL::getCommon($this_params)
                    . '">' . Util::getIcon('b_edit.png', __('Edit')) . '</a>'
                    . '</td>' . "\n";
                 $this_params = $GLOBALS['url_params'];
@@ -727,7 +715,7 @@ class Index
                         . ' DROP PRIMARY KEY;';
                     $this_params['message_to_show']
                         = __('The primary key has been dropped.');
-                    $js_msg = PMA_jsFormat($this_params['sql_query']);
+                    $js_msg = Sanitize::jsFormat($this_params['sql_query']);
                 } else {
                     $this_params['sql_query'] = 'ALTER TABLE '
                         . Util::backquote($table) . ' DROP INDEX '
@@ -735,7 +723,7 @@ class Index
                     $this_params['message_to_show'] = sprintf(
                         __('Index %s has been dropped.'), htmlspecialchars($index->getName())
                     );
-                    $js_msg = PMA_jsFormat($this_params['sql_query']);
+                    $js_msg = Sanitize::jsFormat($this_params['sql_query']);
                 }
 
                 $r .= '<td ' . $row_span . ' class="print_ignore">';
@@ -743,7 +731,7 @@ class Index
                     . ' value="' . $js_msg . '" />';
                 $r .= '    <a class="drop_primary_key_index_anchor';
                 $r .= ' ajax';
-                $r .= '" href="sql.php' . PMA_URL_getCommon($this_params)
+                $r .= '" href="sql.php' . URL::getCommon($this_params)
                    . '" >'
                    . Util::getIcon('b_drop.png', __('Drop'))  . '</a>'
                    . '</td>' . "\n";
@@ -767,11 +755,11 @@ class Index
             }
             $r .= '</td>';
             $r .= '<td ' . $row_span . '>' . $index->isUnique(true) . '</td>';
-            $r .= '<td ' . $row_span . '>' . $index->isPacked(true) . '</td>';
+            $r .= '<td ' . $row_span . '>' . $index->isPacked() . '</td>';
 
             foreach ($index->getColumns() as $column) {
                 if ($column->getSeqInIndex() > 1) {
-                    $r .= '<tr class="noclick ' . ($odd_row ? 'odd' : 'even') . '">';
+                    $r .= '<tr class="noclick" >';
                 }
                 $r .= '<td>' . htmlspecialchars($column->getName());
                 if ($column->getSubPart()) {
@@ -796,7 +784,6 @@ class Index
                 $r .= '</tr>';
             } // end foreach $index['Sequences']
 
-            $odd_row = ! $odd_row;
         } // end while
         $r .= '</tbody>';
         $r .= '</table>';

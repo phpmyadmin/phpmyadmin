@@ -18,18 +18,14 @@ interface DBIExtension
     /**
      * connects to the database server
      *
-     * @param string $user                 user name
-     * @param string $password             user password
-     * @param bool   $is_controluser       whether this is a control user connection
-     * @param array  $server               host/port/socket/persistent
-     * @param bool   $auxiliary_connection (when true, don't go back to login if
-     *                                     connection fails)
+     * @param string $user     user name
+     * @param string $password user password
+     * @param array  $server   host/port/socket/persistent
      *
      * @return mixed false on error or a connection object on success
      */
     public function connect(
-        $user, $password, $is_controluser = false, $server = null,
-        $auxiliary_connection = false
+        $user, $password, $server
     );
 
     /**

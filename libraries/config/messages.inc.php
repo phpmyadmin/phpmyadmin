@@ -164,7 +164,7 @@ $strConfigExport_latex_data_continued_caption_name = __('Continued table caption
 $strConfigExport_latex_data_label_name = __('Label key');
 $strConfigExport_latex_mime_name = __('MIME type');
 $strConfigExport_latex_null_name = __('Replace NULL with');
-$strConfigExport_latex_relation_name = __('Relations');
+$strConfigExport_latex_relation_name = __('Relationships');
 $strConfigExport_latex_structure_caption_name = __('Table caption');
 $strConfigExport_latex_structure_continued_caption_name
     = __('Continued table caption');
@@ -177,7 +177,7 @@ $strConfigExport_odt_columns_name = __('Put columns names in the first row');
 $strConfigExport_odt_comments_name = __('Comments');
 $strConfigExport_odt_mime_name = __('MIME type');
 $strConfigExport_odt_null_name = __('Replace NULL with');
-$strConfigExport_odt_relation_name = __('Relations');
+$strConfigExport_odt_relation_name = __('Relationships');
 $strConfigExport_odt_structure_or_data_name = __('Dump table');
 $strConfigExport_onserver_name = __('Save on server');
 $strConfigExport_onserver_overwrite_name = __('Overwrite existing file(s)');
@@ -218,7 +218,7 @@ $strConfigExport_sql_max_query_size_name = __('Maximal length of created query')
 $strConfigExport_sql_mime_name = __('MIME type');
 $strConfigExport_sql_procedure_function_name
     = sprintf(__('Add %s'), 'CREATE PROCEDURE / FUNCTION / EVENT');
-$strConfigExport_sql_relation_name = __('Relations');
+$strConfigExport_sql_relation_name = __('Relationships');
 $strConfigExport_sql_structure_or_data_name = __('Dump table');
 $strConfigExport_sql_type_name = __('Export type');
 $strConfigExport_sql_use_transaction_name = __('Enclose export in a transaction');
@@ -226,10 +226,6 @@ $strConfigExport_sql_utc_time_name = __('Export time in UTC');
 $strConfigExport_texytext_columns_name = __('Put columns names in the first row');
 $strConfigExport_texytext_null_name = __('Replace NULL with');
 $strConfigExport_texytext_structure_or_data_name = __('Dump table');
-$strConfigExport_xls_columns_name = __('Put columns names in the first row');
-$strConfigExport_xls_null_name = __('Replace NULL with');
-$strConfigExport_xlsx_columns_name = __('Put columns names in the first row');
-$strConfigExport_xlsx_null_name = __('Replace NULL with');
 $strConfigForeignKeyDropdownOrder_desc = __(
     'Sort order for items in a foreign-key dropdown box; [kbd]content[/kbd] is '
     . 'the referenced data, [kbd]id[/kbd] is the key value.'
@@ -402,8 +398,6 @@ $strConfigImport_sql_compatibility_name = __('SQL compatibility mode');
 $strConfigImport_sql_no_auto_value_on_zero_name
     = __('Do not use AUTO_INCREMENT for zero values');
 $strConfigImport_sql_read_as_multibytes_name = __('Read as multibytes');
-$strConfigImport_xls_col_names_name = __('Column names in first row');
-$strConfigImport_xlsx_col_names_name = __('Column names in first row');
 $strConfigInitialSlidersState_name = __('Initial state for sliders');
 $strConfigInsertRows_desc = __('How many rows can be inserted at one time.');
 $strConfigInsertRows_name = __('Number of inserted rows');
@@ -549,6 +543,8 @@ $strConfigRowActionLinksWithoutUnique_desc = __(
     'Whether to show row links even in the absence of a unique key.'
 );
 $strConfigRowActionLinksWithoutUnique_name = __('Show row links anyway');
+$strConfigDisableShortcutKeys_name = __('Disable shortcut keys');
+$strConfigDisableShortcutKeys_desc = __('Disable shortcut keys');
 $strConfigNaturalOrder_desc
     = __('Use natural order for sorting table and database names.');
 $strConfigNaturalOrder_name = __('Natural order');
@@ -572,12 +568,6 @@ $strConfigPmaNoRelation_DisableWarning_desc = __(
 );
 $strConfigPmaNoRelation_DisableWarning_name
     = __('Missing phpMyAdmin configuration storage tables');
-$strConfigServerLibraryDifference_DisableWarning_desc = __(
-    'Disable the default warning that is displayed if a difference between the '
-    . 'MySQL library and server is detected.'
-);
-$strConfigServerLibraryDifference_DisableWarning_name
-    = __('Server/library difference warning');
 $strConfigReservedWordDisableWarning_desc = __(
     'Disable the default warning that is displayed on the Structure page if column '
     . 'names in a table are reserved MySQL words.'
@@ -646,9 +636,6 @@ $strConfigServers_column_info_desc = __(
 $strConfigServers_column_info_name = __('Column information table');
 $strConfigServers_compress_desc = __('Compress connection to MySQL server.');
 $strConfigServers_compress_name = __('Compress connection');
-$strConfigServers_connect_type_desc
-    = __('How to connect to server, keep [kbd]tcp[/kbd] if unsure.');
-$strConfigServers_connect_type_name = __('Connection type');
 $strConfigServers_controlpass_name = __('Control user password');
 $strConfigServers_controluser_desc = __(
     'A special MySQL user configured with limited permissions, more information '
@@ -703,8 +690,6 @@ $strConfigServers_central_columns_desc = __(
     'Leave blank for no central columns support, suggested: '
     . '[kbd]pma__central_columns[/kbd].'
 );
-$strConfigServers_nopassword_desc = __('Try to connect without password.');
-$strConfigServers_nopassword_name = __('Connect without password');
 $strConfigServers_only_db_desc = __(
     'You can use MySQL wildcard characters (% and _), escape them if you want to '
     . 'use their literal instances, i.e. use [kbd]\'my\_db\'[/kbd] and not '
@@ -854,6 +839,10 @@ $strConfigShowDbStructureLastCheck_desc = __(
     'Show or hide a column displaying the Last check timestamp for all tables.'
 );
 $strConfigShowDbStructureLastCheck_name = __('Show last check timestamp');
+$strConfigShowDbStructureCharset_desc = __(
+    'Show or hide a column displaying the charset for all tables.'
+);
+$strConfigShowDbStructureCharset_name = __('Show table charset');
 $strConfigShowFieldTypesInDataEditView_desc = __(
     'Defines whether or not type fields should be initially displayed in ' .
     'edit/insert mode.'

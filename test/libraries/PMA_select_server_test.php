@@ -12,13 +12,9 @@
 use PMA\libraries\Theme;
 
 
-require_once 'libraries/url_generating.lib.php';
 require_once 'libraries/select_server.lib.php';
 
 require_once 'libraries/database_interface.inc.php';
-
-require_once 'libraries/sanitizing.lib.php';
-require_once 'libraries/js_escape.lib.php';
 
 /**
  * PMA_SelectServer_Test class
@@ -52,11 +48,8 @@ class PMA_SelectServer_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['LimitChars'] = 100;
 
         $GLOBALS['table'] = "table";
-        $GLOBALS['pmaThemeImage'] = 'image';
 
         //$_SESSION
-        $_SESSION['PMA_Theme'] = Theme::load('./themes/pmahomme');
-        $_SESSION['PMA_Theme'] = new Theme();
     }
 
     /**

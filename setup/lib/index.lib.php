@@ -7,6 +7,7 @@
  */
 
 use PMA\libraries\VersionInformation;
+use PMA\libraries\Sanitize;
 
 if (!defined('PHPMYADMIN')) {
     exit;
@@ -169,7 +170,7 @@ function PMA_versionCheck()
                 'notice',
                 $message_id,
                 __('Version check'),
-                PMA_sanitize(sprintf(__('You are using Git version, run [kbd]git pull[/kbd] :-)[br]The latest stable version is %s, released on %s.'), $version, $date))
+                Sanitize::sanitize(sprintf(__('You are using Git version, run [kbd]git pull[/kbd] :-)[br]The latest stable version is %s, released on %s.'), $version, $date))
             );
         } else {
             PMA_messagesSet(

@@ -318,8 +318,8 @@ function PMA_showAddIndexDialog(source_array, array_index, target_columns, col_i
     var $table = $('input[name="table"]');
     var table = $table.length > 0 ? $table.val() : '';
     var post_data = {
-        token: $('input[name="token"]').val(),
-        server:  $('input[name="server"]').val(),
+        server: PMA_commonParams.get('server'),
+        token: PMA_commonParams.get('token'),
         db: $('input[name="db"]').val(),
         table: table,
         ajax_request: 1,
@@ -609,7 +609,12 @@ AJAX.registerOnload('indexes.js', function () {
 
         $anchor.PMA_confirm(question, $anchor.attr('href'), function (url) {
             var $msg = PMA_ajaxShowMessage(PMA_messages.strDroppingPrimaryKeyIndex, false);
-            $.post(url, {'is_js_confirmed': 1, 'ajax_request': true}, function (data) {
+            var params = {
+                'is_js_confirmed': 1,
+                'ajax_request': true,
+                'token' : PMA_commonParams.get('token')
+            };
+            $.post(url, params, function (data) {
                 if (typeof data !== 'undefined' && data.success === true) {
                     PMA_ajaxRemoveMessage($msg);
                     var $table_ref = $rows_to_hide.closest('table');
@@ -622,7 +627,6 @@ AJAX.registerOnload('indexes.js', function () {
                         $table_ref.siblings('div.notice').hide('medium');
                     } else {
                         // We are removing some of the rows only
-                        toggleRowColors($rows_to_hide.last().next());
                         $rows_to_hide.hide("medium", function () {
                             $(this).remove();
                         });

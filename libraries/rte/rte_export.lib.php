@@ -24,12 +24,13 @@ function PMA_RTE_handleExport($export_data)
 {
     global $db;
 
+    $response = Response::getInstance();
+
     $item_name = htmlspecialchars(PMA\libraries\Util::backquote($_GET['item_name']));
     if ($export_data !== false) {
         $export_data = htmlspecialchars(trim($export_data));
         $title = sprintf(PMA_RTE_getWord('export'), $item_name);
-        if ($GLOBALS['is_ajax_request'] == true) {
-            $response = PMA\libraries\Response::getInstance();
+        if ($response->isAjax()) {
             $response->addJSON('message', $export_data);
             $response->addJSON('title', $title);
             exit;
@@ -47,8 +48,7 @@ function PMA_RTE_handleExport($export_data)
                   . sprintf(PMA_RTE_getWord('no_view'), $item_name, $_db);
         $message = Message::error($message);
 
-        if ($GLOBALS['is_ajax_request'] == true) {
-            $response = PMA\libraries\Response::getInstance();
+        if ($response->isAjax()) {
             $response->setRequestStatus(false);
             $response->addJSON('message', $message);
             exit;

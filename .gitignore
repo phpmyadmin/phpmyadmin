@@ -34,6 +34,7 @@ web.config
 /js/line_counts.php
 # API documentation
 /apidoc/
+/doc/linkcheck/
 # Demo server
 revision-info.php
 # PHPUnit
@@ -48,5 +49,4 @@ phpunit.xml
 # Ant cache
 cache.properties
 # Composer
-composer.lock
 /vendor/

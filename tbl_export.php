@@ -18,7 +18,7 @@ require_once 'libraries/config/page_settings.forms.php';
 
 PageSettings::showGroup('Export');
 
-$response = PMA\libraries\Response::getInstance();
+$response = Response::getInstance();
 $header   = $response->getHeader();
 $scripts  = $header->getScripts();
 $scripts->addFile('export.js');
@@ -47,10 +47,10 @@ $export_page_title = __('View dump (schema) of table');
 // generate WHERE clause (if we are asked to export specific rows)
 
 if (! empty($sql_query)) {
-    $parser = new SqlParser\Parser($sql_query);
+    $parser = new PhpMyAdmin\SqlParser\Parser($sql_query);
 
     if ((!empty($parser->statements[0]))
-        && ($parser->statements[0] instanceof SqlParser\Statements\SelectStatement)
+        && ($parser->statements[0] instanceof PhpMyAdmin\SqlParser\Statements\SelectStatement)
     ) {
 
         // Finding aliases and removing them, but we keep track of them to be
@@ -72,7 +72,7 @@ if (! empty($sql_query)) {
         ) {
             $replaces = array(
                 array(
-                    'FROM', 'FROM ' . SqlParser\Components\ExpressionArray::build(
+                    'FROM', 'FROM ' . PhpMyAdmin\SqlParser\Components\ExpressionArray::build(
                         $parser->statements[0]->from
                     ),
                 ),
@@ -90,33 +90,33 @@ if (! empty($sql_query)) {
         $replaces[] = array('LIMIT', '');
 
         // Replacing the clauses.
-        $sql_query = SqlParser\Utils\Query::replaceClauses(
+        $sql_query = PhpMyAdmin\SqlParser\Utils\Query::replaceClauses(
             $parser->statements[0],
             $parser->list,
             $replaces
         );
 
         // Removing the aliases by finding the alias followed by a dot.
-        $tokens = SqlParser\Lexer::getTokens($sql_query);
+        $tokens = PhpMyAdmin\SqlParser\Lexer::getTokens($sql_query);
         foreach ($aliases as $alias => $table) {
-            $tokens = SqlParser\Utils\Tokens::replaceTokens(
+            $tokens = PhpMyAdmin\SqlParser\Utils\Tokens::replaceTokens(
                 $tokens,
                 array(
                     array(
                         'value_str' => $alias,
                     ),
                     array(
-                        'type' => SqlParser\Token::TYPE_OPERATOR,
+                        'type' => PhpMyAdmin\SqlParser\Token::TYPE_OPERATOR,
                         'value_str' => '.',
                     )
                 ),
                 array(
-                    new SqlParser\Token($table),
-                    new SqlParser\Token('.',SqlParser\Token::TYPE_OPERATOR)
+                    new PhpMyAdmin\SqlParser\Token($table),
+                    new PhpMyAdmin\SqlParser\Token('.',PhpMyAdmin\SqlParser\Token::TYPE_OPERATOR)
                 )
             );
         }
-        $sql_query = SqlParser\TokensList::build($tokens);
+        $sql_query = PhpMyAdmin\SqlParser\TokensList::build($tokens);
     }
 
     echo PMA\libraries\Util::getMessage(PMA\libraries\Message::success());

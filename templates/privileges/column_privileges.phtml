@@ -1,0 +1,24 @@
+<div class="item" id="div_item_<?= $name ?>">
+    <label for="select_<?= $name ?>_priv">
+        <code><dfn title="<?= $name_for_dfn ?>"><?= $priv_for_header ?></dfn></code>
+    </label>
+    <br/>
+    <select id="select_<?= $name ?>_priv" name="<?= $name_for_select . '[]' ?>" multiple="multiple" size="8">
+        <?php foreach ($columns as $currCol => $currColPrivs) : ?>
+            <option value="<?= htmlspecialchars($currCol) ?>"
+            <?php if ($row[$name_for_select] == 'Y' || $currColPrivs[$name_for_current]) : ?>
+                selected="selected"
+            <?php endif; ?>
+            > <?= htmlspecialchars($currCol) ?>
+            </option>
+        <?php endforeach; ?>
+    </select>
+
+    <i><?= __('Or') ?></i>
+    <label for="checkbox_<?= $name_for_select ?>_none">
+        <input type="checkbox" name="<?= $name_for_select ?>_none"
+            id="checkbox_<?= $name_for_select ?>_none"
+            title="<?=_pgettext('None privileges', 'None')?>" />
+            <?= _pgettext('None privileges', 'None') ?>
+    </label>
+</div>

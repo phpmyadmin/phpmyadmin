@@ -17,9 +17,9 @@ use PMA\libraries\plugins\ExportPlugin;
 use PMA\libraries\Util;
 use PMA\libraries\properties\options\items\RadioPropertyItem;
 use PMA\libraries\properties\options\items\TextPropertyItem;
+use PMA\libraries\OpenDocument;
 
 $GLOBALS['odt_buffer'] = '';
-require_once 'libraries/opendocument.lib.php';
 
 /**
  * Handles the export for the ODT class
@@ -148,7 +148,7 @@ class ExportOdt extends ExportPlugin
     {
         $GLOBALS['odt_buffer'] .= '<?xml version="1.0" encoding="utf-8"?' . '>'
             . '<office:document-content '
-            . $GLOBALS['OpenDocumentNS'] . 'office:version="1.0">'
+            . OpenDocument::NS . ' office:version="1.0">'
             . '<office:body>'
             . '<office:text>';
 
@@ -166,7 +166,7 @@ class ExportOdt extends ExportPlugin
             . '</office:body>'
             . '</office:document-content>';
         if (!PMA_exportOutputHandler(
-            PMA_createOpenDocument(
+            OpenDocument::create(
                 'application/vnd.oasis.opendocument.text',
                 $GLOBALS['odt_buffer']
             )

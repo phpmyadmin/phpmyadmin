@@ -8,12 +8,15 @@
 namespace PMA\libraries;
 
 use PMA\libraries\plugins\ImportPlugin;
-use SqlParser\Context;
-use SqlParser\Lexer;
-use SqlParser\Parser;
-use SqlParser\Token;
+use PhpMyAdmin\SqlParser\Context;
+use PhpMyAdmin\SqlParser\Lexer;
+use PhpMyAdmin\SqlParser\Parser;
+use PhpMyAdmin\SqlParser\Token;
 use stdClass;
-use SqlParser\Utils\Error as ParserError;
+use PMA\libraries\URL;
+use PMA\libraries\Sanitize;
+use PMA\libraries\Template;
+use PhpMyAdmin\SqlParser\Utils\Error as ParserError;
 
 if (! defined('PHPMYADMIN')) {
     exit;
@@ -26,76 +29,6 @@ if (! defined('PHPMYADMIN')) {
  */
 class Util
 {
-
-    /**
-     * Detects which function to use for pow.
-     *
-     * @return string Function name.
-     */
-    public static function detectPow()
-    {
-        if (function_exists('bcpow')) {
-            // BCMath Arbitrary Precision Mathematics Function
-            return 'bcpow';
-        } elseif (function_exists('gmp_pow')) {
-            // GMP Function
-            return 'gmp_pow';
-        } else {
-            // PHP function
-            return 'pow';
-        }
-    }
-
-    /**
-     * Exponential expression / raise number into power
-     *
-     * @param string $base         base to raise
-     * @param string $exp          exponent to use
-     * @param string $use_function pow function to use, or false for auto-detect
-     *
-     * @return mixed string or float
-     */
-    public static function pow($base, $exp, $use_function = '')
-    {
-        static $pow_function = null;
-
-        if ($pow_function == null) {
-            $pow_function = self::detectPow();
-        }
-
-        if (! $use_function) {
-            if ($exp < 0) {
-                $use_function = 'pow';
-            } else {
-                $use_function = $pow_function;
-            }
-        }
-
-        if (($exp < 0) && ($use_function != 'pow')) {
-            return false;
-        }
-
-        switch ($use_function) {
-        case 'bcpow' :
-            // bcscale() needed for testing pow() with base values < 1
-            bcscale(10);
-            $pow = bcpow($base, $exp);
-            break;
-        case 'gmp_pow' :
-             $pow = gmp_strval(gmp_pow($base, $exp));
-            break;
-        case 'pow' :
-            $base = $base;
-            $exp = (int) $exp;
-            $pow = pow($base, $exp);
-            break;
-        default:
-            $pow = $use_function($base, $exp);
-        }
-
-        return $pow;
-    }
-
     /**
      * Checks whether configuration value tells to show icons.
      *
@@ -194,11 +127,7 @@ class Util
             $sprites = array();
             // Try to load the list of sprites
             if (isset($_SESSION['PMA_Theme'])) {
-                $sprite_file = $_SESSION['PMA_Theme']->getPath() . '/sprites.lib.php';
-                if (is_readable($sprite_file)) {
-                    include_once $sprite_file;
-                    $sprites = PMA_sprites();
-                }
+                $sprites = $_SESSION['PMA_Theme']->getSpriteData();
             }
         }
 
@@ -672,18 +601,18 @@ class Util
                     'sql_query' => $sql_query,
                     'show_query' => 1,
                 );
-                if (mb_strlen($table)) {
+                if (strlen($table) > 0) {
                     $_url_params['db'] = $db;
                     $_url_params['table'] = $table;
                     $doedit_goto = '<a href="tbl_sql.php'
-                        . PMA_URL_getCommon($_url_params) . '">';
-                } elseif (mb_strlen($db)) {
+                        . URL::getCommon($_url_params) . '">';
+                } elseif (strlen($db) > 0) {
                     $_url_params['db'] = $db;
                     $doedit_goto = '<a href="db_sql.php'
-                        . PMA_URL_getCommon($_url_params) . '">';
+                        . URL::getCommon($_url_params) . '">';
                 } else {
                     $doedit_goto = '<a href="server_sql.php'
-                        . PMA_URL_getCommon($_url_params) . '">';
+                        . URL::getCommon($_url_params) . '">';
                 }
 
                 $error_msg .= $doedit_goto
@@ -740,8 +669,8 @@ class Util
          * If this is an AJAX request, there is no "Back" link and
          * `Response()` is used to send the response.
          */
-        if (!empty($GLOBALS['is_ajax_request'])) {
-            $response = Response::getInstance();
+        $response = Response::getInstance();
+        if ($response->isAjax()) {
             $response->setRequestStatus(false);
             $response->addJSON('message', $error_msg);
             exit;
@@ -940,7 +869,7 @@ class Util
         }
 
         // '0' is also empty for php :-(
-        if (mb_strlen($a_name) && $a_name !== '*') {
+        if (strlen($a_name) > 0 && $a_name !== '*') {
             return '`' . str_replace('`', '``', $a_name) . '`';
         } else {
             return $a_name;
@@ -997,33 +926,12 @@ class Util
         }
 
         // '0' is also empty for php :-(
-        if (mb_strlen($a_name) && $a_name !== '*') {
+        if (strlen($a_name) > 0 && $a_name !== '*') {
             return $quote . $a_name . $quote;
         } else {
             return $a_name;
         }
     } // end of the 'backquoteCompat()' function
-
-    /**
-     * Defines the <CR><LF> value depending on the user OS.
-     *
-     * @return string   the <CR><LF> value to use
-     *
-     * @access  public
-     */
-    public static function whichCrlf()
-    {
-        // The 'PMA_USR_OS' constant is defined in "libraries/Config.php"
-        // Win case
-        if (PMA_USR_OS == 'Win') {
-            $the_crlf = "\r\n";
-        } else {
-            // Others
-            $the_crlf = "\n";
-        }
-
-        return $the_crlf;
-    } // end of the 'whichCrlf()' function
 
     /**
      * Prepare the message and the query
@@ -1072,61 +980,55 @@ class Util
 
         if ($message instanceof Message) {
             if (isset($GLOBALS['special_message'])) {
-                $message->addMessage($GLOBALS['special_message']);
+                $message->addText($GLOBALS['special_message']);
                 unset($GLOBALS['special_message']);
             }
             $retval .= $message->getDisplay();
         } else {
             $retval .= '<div class="' . $type . '">';
-            $retval .= PMA_sanitize($message);
+            $retval .= Sanitize::sanitize($message);
             if (isset($GLOBALS['special_message'])) {
-                $retval .= PMA_sanitize($GLOBALS['special_message']);
+                $retval .= Sanitize::sanitize($GLOBALS['special_message']);
                 unset($GLOBALS['special_message']);
             }
             $retval .= '</div>';
         }
 
         if ($render_sql) {
+            $query_too_big = false;
+
+            $queryLength = mb_strlen($sql_query);
+            if ($queryLength > $cfg['MaxCharactersInDisplayedSQL']) {
+                // when the query is large (for example an INSERT of binary
+                // data), the parser chokes; so avoid parsing the query
+                $query_too_big = true;
+                $query_base = mb_substr(
+                    $sql_query,
+                    0,
+                    $cfg['MaxCharactersInDisplayedSQL']
+                ) . '[...]';
+            } else {
+                $query_base = $sql_query;
+            }
+
             // Html format the query to be displayed
             // If we want to show some sql code it is easiest to create it here
             /* SQL-Parser-Analyzer */
 
             if (! empty($GLOBALS['show_as_php'])) {
-                $new_line = '\\n"<br />' . "\n"
-                    . '&nbsp;&nbsp;&nbsp;&nbsp;. "';
-                $query_base = htmlspecialchars(addslashes($sql_query));
+                $new_line = '\\n"<br />' . "\n" . '&nbsp;&nbsp;&nbsp;&nbsp;. "';
+                $query_base = '$sql  = \'' . $query_base;
+                $query_base = '<code class="php"><pre>' . "\n"
+                    . htmlspecialchars(addslashes($query_base));
                 $query_base = preg_replace(
                     '/((\015\012)|(\015)|(\012))/',
                     $new_line,
                     $query_base
                 );
+                $query_base = '$sql  = \'' . $query_base . '"';
+            } elseif ($query_too_big) {
+                $query_base = htmlspecialchars($query_base);
             } else {
-                $query_base = $sql_query;
-            }
-
-            $query_too_big = false;
-
-            $queryLength = mb_strlen($query_base);
-            if ($queryLength > $cfg['MaxCharactersInDisplayedSQL']) {
-                // when the query is large (for example an INSERT of binary
-                // data), the parser chokes; so avoid parsing the query
-                $query_too_big = true;
-                $shortened_query_base = nl2br(
-                    htmlspecialchars(
-                        mb_substr(
-                            $sql_query,
-                            0,
-                            $cfg['MaxCharactersInDisplayedSQL']
-                        ) . '[...]'
-                    )
-                );
-            }
-
-            if (! empty($GLOBALS['show_as_php'])) {
-                $query_base = '$sql  = \'' . $query_base;
-                $query_base = '<code class="php"><pre>' . "\n"
-                    . $query_base;
-            } elseif (isset($query_base)) {
                 $query_base = self::formatSql($query_base);
             }
 
@@ -1139,9 +1041,9 @@ class Util
             if (! isset($GLOBALS['db'])) {
                 $GLOBALS['db'] = '';
             }
-            if (mb_strlen($GLOBALS['db'])) {
+            if (strlen($GLOBALS['db']) > 0) {
                 $url_params['db'] = $GLOBALS['db'];
-                if (mb_strlen($GLOBALS['table'])) {
+                if (strlen($GLOBALS['table']) > 0) {
                     $url_params['table'] = $GLOBALS['table'];
                     $edit_link = 'tbl_sql.php';
                 } else {
@@ -1162,7 +1064,7 @@ class Util
                     $explain_params['sql_query'] = 'EXPLAIN ' . $sql_query;
                     $explain_link = ' ['
                         . self::linkOrButton(
-                            'import.php' . PMA_URL_getCommon($explain_params),
+                            'import.php' . URL::getCommon($explain_params),
                             __('Explain SQL')
                         ) . ']';
                 } elseif (preg_match(
@@ -1173,7 +1075,7 @@ class Util
                         = mb_substr($sql_query, 8);
                     $explain_link = ' ['
                         . self::linkOrButton(
-                            'import.php' . PMA_URL_getCommon($explain_params),
+                            'import.php' . URL::getCommon($explain_params),
                             __('Skip Explain SQL')
                         ) . ']';
                     $url = 'https://mariadb.org/explain_analyzer/analyze/'
@@ -1199,7 +1101,7 @@ class Util
             if (! empty($cfg['SQLQuery']['Edit'])
                 && empty($GLOBALS['show_as_php'])
             ) {
-                $edit_link .= PMA_URL_getCommon($url_params) . '#querybox';
+                $edit_link .= URL::getCommon($url_params) . '#querybox';
                 $edit_link = ' ['
                     . self::linkOrButton($edit_link, __('Edit'))
                     . ']';
@@ -1214,7 +1116,7 @@ class Util
                 if (! empty($GLOBALS['show_as_php'])) {
                     $php_link = ' ['
                         . self::linkOrButton(
-                            'import.php' . PMA_URL_getCommon($url_params),
+                            'import.php' . URL::getCommon($url_params),
                             __('Without PHP code'),
                             array(),
                             true,
@@ -1226,7 +1128,7 @@ class Util
 
                     $php_link .= ' ['
                         . self::linkOrButton(
-                            'import.php' . PMA_URL_getCommon($url_params),
+                            'import.php' . URL::getCommon($url_params),
                             __('Submit query'),
                             array(),
                             true,
@@ -1241,7 +1143,7 @@ class Util
                     $_message = __('Create PHP code');
                     $php_link = ' ['
                         . self::linkOrButton(
-                            'import.php' . PMA_URL_getCommon($php_params),
+                            'import.php' . URL::getCommon($php_params),
                             $_message
                         )
                         . ']';
@@ -1255,7 +1157,7 @@ class Util
                 && ! isset($GLOBALS['show_as_php']) // 'Submit query' does the same
                 && preg_match('@^(SELECT|SHOW)[[:space:]]+@i', $sql_query)
             ) {
-                $refresh_link = 'import.php' . PMA_URL_getCommon($url_params);
+                $refresh_link = 'import.php' . URL::getCommon($url_params);
                 $refresh_link = ' ['
                     . self::linkOrButton($refresh_link, __('Refresh')) . ']';
             } else {
@@ -1263,11 +1165,7 @@ class Util
             } //refresh
 
             $retval .= '<div class="sqlOuter">';
-            if ($query_too_big) {
-                $retval .= $shortened_query_base;
-            } else {
-                $retval .= $query_base;
-            }
+            $retval .= $query_base;
 
             //Clean up the end of the PHP
             if (! empty($GLOBALS['show_as_php'])) {
@@ -1278,7 +1176,7 @@ class Util
 
             $retval .= '<div class="tools print_ignore">';
             $retval .= '<form action="sql.php" method="post">';
-            $retval .= PMA_URL_getHiddenInputs($GLOBALS['db'], $GLOBALS['table']);
+            $retval .= URL::getHiddenInputs($GLOBALS['db'], $GLOBALS['table']);
             $retval .= '<input type="hidden" name="sql_query" value="'
                 . htmlspecialchars($sql_query) . '" />';
 
@@ -1286,12 +1184,16 @@ class Util
             // be checked, which would reexecute an INSERT, for example
             if (! empty($refresh_link) && self::profilingSupported()) {
                 $retval .= '<input type="hidden" name="profiling_form" value="1" />';
-                $retval .= self::getCheckbox(
-                    'profiling',
-                    __('Profiling'),
-                    isset($_SESSION['profiling']),
-                    true
-                );
+                $retval .= Template::get('checkbox')
+                    ->render(
+                        array(
+                            'html_field_name'   => 'profiling',
+                            'label'             => __('Profiling'),
+                            'checked'           => isset($_SESSION['profiling']),
+                            'onclick'           => true,
+                            'html_field_id'     => '',
+                        )
+                    );
             }
             $retval .= '</form>';
 
@@ -1318,7 +1220,6 @@ class Util
 
             $retval .= '</div>';
         }
-
 
         return $retval;
     } // end of the 'getMessage()' function
@@ -1420,15 +1321,15 @@ class Util
             __('EiB')
         );
 
-        $dh   = self::pow(10, $comma);
-        $li   = self::pow(10, $limes);
+        $dh   = pow(10, $comma);
+        $li   = pow(10, $limes);
         $unit = $byteUnits[0];
 
         for ($d = 6, $ex = 15; $d >= 1; $d--, $ex-=3) {
-            $unitSize = $li * self::pow(10, $ex);
+            $unitSize = $li * pow(10, $ex);
             if (isset($byteUnits[$d]) && $value >= $unitSize) {
                 // use 1024.0 to avoid integer overflow on 64-bit machines
-                $value = round($value / (self::pow(1024, $d) / $dh)) /$dh;
+                $value = round($value / (pow(1024, $d) / $dh)) /$dh;
                 $unit = $byteUnits[$d];
                 break 1;
             } // end if
@@ -1447,26 +1348,6 @@ class Util
         return array(trim($return_value), $unit);
     } // end of the 'formatByteDown' function
 
-    /**
-     * Changes thousands and decimal separators to locale specific values.
-     *
-     * @param string $value the value
-     *
-     * @return string
-     */
-    public static function localizeNumber($value)
-    {
-        return str_replace(
-            array(',', '.'),
-            array(
-                /* l10n: Thousands separator */
-                __(','),
-                /* l10n: Decimal separator */
-                __('.'),
-            ),
-            $value
-        );
-    }
 
     /**
      * Formats $value to the given length and appends SI prefixes
@@ -1508,11 +1389,18 @@ class Util
         $originalValue = $value;
         //number_format is not multibyte safe, str_replace is safe
         if ($digits_left === 0) {
-            $value = number_format($value, $digits_right);
+            $value = number_format(
+                $value,
+                $digits_right,
+                /* l10n: Decimal separator */
+                __('.'),
+                /* l10n: Thousands separator */
+                __(',')
+            );
             if (($originalValue != 0) && (floatval($value) == 0)) {
-                $value = ' <' . (1 / self::pow(10, $digits_right));
+                $value = ' <' . (1 / pow(10, $digits_right));
             }
-            return self::localizeNumber($value);
+            return $value;
         }
 
         // this units needs no translation, ISO
@@ -1544,7 +1432,7 @@ class Util
             $sign = '';
         }
 
-        $dh = self::pow(10, $digits_right);
+        $dh = pow(10, $digits_right);
 
         /*
          * This gives us the right SI prefix already,
@@ -1556,7 +1444,7 @@ class Util
          * So if we have 3,6,9,12.. free digits ($digits_left - $cur_digits)
          * to use, then lower the SI prefix
          */
-        $cur_digits = floor(log10($value / self::pow(1000, $d, 'pow'))+1);
+        $cur_digits = floor(log10($value / pow(1000, $d))+1);
         if ($digits_left > $cur_digits) {
             $d -= floor(($digits_left - $cur_digits)/3);
         }
@@ -1565,23 +1453,36 @@ class Util
             $d = 0;
         }
 
-        $value = round($value / (self::pow(1000, $d, 'pow') / $dh)) /$dh;
+        $value = round($value / (pow(1000, $d) / $dh)) /$dh;
         $unit = $units[$d];
 
         // number_format is not multibyte safe, str_replace is safe
-        $formattedValue = number_format($value, $digits_right);
+        $formattedValue = number_format(
+            $value,
+            $digits_right,
+            /* l10n: Decimal separator */
+            __('.'),
+            /* l10n: Thousands separator */
+            __(',')
+        );
         // If we don't want any zeros, remove them now
         if ($noTrailingZero && strpos($formattedValue, '.') !== false) {
             $formattedValue = preg_replace('/\.?0+$/', '', $formattedValue);
         }
-        $localizedValue = self::localizeNumber($formattedValue);
 
         if ($originalValue != 0 && floatval($value) == 0) {
-            return ' <' . self::localizeNumber((1 / self::pow(10, $digits_right)))
+            return ' <' . number_format(
+                (1 / pow(10, $digits_right)),
+                $digits_right,
+                /* l10n: Decimal separator */
+                __('.'),
+                /* l10n: Thousands separator */
+                __(',')
+            )
             . ' ' . $unit;
         }
 
-        return $sign . $localizedValue . ' ' . $unit;
+        return $sign . $formattedValue . ' ' . $unit;
     } // end of the 'formatNumber' function
 
     /**
@@ -1597,13 +1498,13 @@ class Util
 
         if (preg_match('/^[0-9]+GB$/', $formatted_size)) {
             $return_value = mb_substr($formatted_size, 0, -2)
-                * self::pow(1024, 3);
+                * pow(1024, 3);
         } elseif (preg_match('/^[0-9]+MB$/', $formatted_size)) {
             $return_value = mb_substr($formatted_size, 0, -2)
-                * self::pow(1024, 2);
+                * pow(1024, 2);
         } elseif (preg_match('/^[0-9]+K$/', $formatted_size)) {
             $return_value = mb_substr($formatted_size, 0, -1)
-                * self::pow(1024, 1);
+                * pow(1024, 1);
         }
         return $return_value;
     }// end of the 'extractValueFromFormattedSize' function
@@ -1662,7 +1563,7 @@ class Util
             __('Sat'));
 
         if ($format == '') {
-            /* l10n: See http://www.php.net/manual/en/function.strftime.php */
+            /* l10n: See https://secure.php.net/manual/en/function.strftime.php */
             $format = __('%B %d, %Y at %I:%M %p');
         }
 
@@ -1680,6 +1581,15 @@ class Util
             $month[(int)strftime('%m', $timestamp)-1],
             $date
         );
+
+        /* Fill in AM/PM */
+        $hours = (int)date('H', $timestamp);
+        if ($hours >= 12) {
+            $am_pm = _pgettext('AM/PM indication in time', 'PM');
+        } else {
+            $am_pm = _pgettext('AM/PM indication in time', 'AM');
+        }
+        $date = preg_replace('@%[pP]@', $am_pm, $date);
 
         $ret = strftime($date, $timestamp);
         // Some OSes such as Win8.1 Traditional Chinese version did not produce UTF-8
@@ -1742,10 +1652,10 @@ class Util
         // build the link
         if (! empty($tab['link'])) {
             $tab['link'] = htmlentities($tab['link']);
-            $tab['link'] = $tab['link'] . PMA_URL_getCommon($url_params);
+            $tab['link'] = $tab['link'] . URL::getCommon($url_params);
             if (! empty($tab['args'])) {
                 foreach ($tab['args'] as $param => $value) {
-                    $tab['link'] .= PMA_URL_getArgSeparator('html')
+                    $tab['link'] .= URL::getArgSeparator('html')
                         . urlencode($param) . '=' . urlencode($value);
                 }
             }
@@ -1870,7 +1780,7 @@ class Util
             $tag_params = array();
             if (! empty($tmp)) {
                 $tag_params['onclick'] = 'return confirmLink(this, \''
-                    . PMA_escapeJsString($tmp) . '\')';
+                    . Sanitize::escapeJsString($tmp) . '\')';
             }
             unset($tmp);
         }
@@ -2008,7 +1918,7 @@ class Util
     public static function splitURLQuery($url)
     {
         // decode encoded url separators
-        $separator = PMA_URL_getArgSeparator();
+        $separator = URL::getArgSeparator();
         // on most places separator is still hard coded ...
         if ($separator !== '&') {
             // ... so always replace & with $separator
@@ -2059,55 +1969,6 @@ class Util
             (string)$minutes,
             (string)$seconds
         );
-    }
-
-    /**
-     * Takes a string and outputs each character on a line for itself. Used
-     * mainly for horizontalflipped display mode.
-     * Takes care of special html-characters.
-     * Fulfills https://sourceforge.net/p/phpmyadmin/feature-requests/164/
-     *
-     * @param string $string    The string
-     * @param string $Separator The Separator (defaults to "<br />\n")
-     *
-     * @access  public
-     * @todo    add a multibyte safe function $GLOBALS['String']->split()
-     *
-     * @return string      The flipped string
-     */
-    public static function flipstring($string, $Separator = "<br />\n")
-    {
-        $format_string = '';
-        $charbuff = false;
-
-        for ($i = 0, $str_len = mb_strlen($string);
-             $i < $str_len;
-             $i++
-        ) {
-            $char = $string{$i};
-            $append = false;
-
-            if ($char == '&') {
-                $format_string .= $charbuff;
-                $charbuff = $char;
-            } elseif ($char == ';' && ! empty($charbuff)) {
-                $format_string .= $charbuff . $char;
-                $charbuff = false;
-                $append = true;
-            } elseif (! empty($charbuff)) {
-                $charbuff .= $char;
-            } else {
-                $format_string .= $char;
-                $append = true;
-            }
-
-            // do not add separator after the last character
-            if ($append && ($i != $str_len - 1)) {
-                $format_string .= $Separator;
-            }
-        }
-
-        return $format_string;
     }
 
     /**
@@ -2199,7 +2060,7 @@ class Util
             $meta        = $fields_meta[$i];
 
             // do not use a column alias in a condition
-            if (! isset($meta->orgname) || ! mb_strlen($meta->orgname)) {
+            if (! isset($meta->orgname) || strlen($meta->orgname) === 0) {
                 $meta->orgname = $meta->name;
 
                 if (!empty($analyzed_sql_results['statement']->expr)) {
@@ -2342,11 +2203,30 @@ class Util
     } // end function
 
     /**
+     * Generate the charset query part
+     *
+     * @param string           $collation Collation
+     * @param boolean optional $override  force 'CHARACTER SET' keyword
+     *
+     * @return string
+     */
+    static function getCharsetQueryPart($collation, $override = false)
+    {
+        list($charset) = explode('_', $collation);
+        $keyword = ' CHARSET=';
+
+        if ($override) {
+            $keyword = ' CHARACTER SET ';
+        }
+        return $keyword . $charset
+            . ($charset == $collation ? '' : ' COLLATE ' . $collation);
+    }
+
+    /**
      * Generate a button or image tag
      *
      * @param string $button_name  name of button element
      * @param string $button_class class of button or image element
-     * @param string $image_name   name of image element
      * @param string $text         text to display
      * @param string $image        image to display
      * @param string $value        value
@@ -2356,36 +2236,21 @@ class Util
      * @access  public
      */
     public static function getButtonOrImage(
-        $button_name, $button_class, $image_name, $text, $image, $value = ''
+        $button_name, $button_class, $text, $image, $value = ''
     ) {
         if ($value == '') {
             $value = $text;
         }
-
         if ($GLOBALS['cfg']['ActionLinksMode'] == 'text') {
             return ' <input type="submit" name="' . $button_name . '"'
                 . ' value="' . htmlspecialchars($value) . '"'
                 . ' title="' . htmlspecialchars($text) . '" />' . "\n";
         }
-
-        /* Opera has trouble with <input type="image"> */
-        /* IE (before version 9) has trouble with <button> */
-        if (PMA_USR_BROWSER_AGENT == 'IE' && PMA_USR_BROWSER_VER < 9) {
-            return '<input type="image" name="' . $image_name
-                . '" class="' . $button_class
-                . '" value="' . htmlspecialchars($value)
-                . '" title="' . htmlspecialchars($text)
-                . '" src="' . $GLOBALS['pmaThemeImage'] . $image . '" />'
-                . ($GLOBALS['cfg']['ActionLinksMode'] == 'both'
-                    ? '&nbsp;' . htmlspecialchars($text)
-                    : '') . "\n";
-        } else {
-            return '<button class="' . $button_class . '" type="submit"'
-                . ' name="' . $button_name . '" value="' . htmlspecialchars($value)
-                . '" title="' . htmlspecialchars($text) . '">' . "\n"
-                . self::getIcon($image, $text)
-                . '</button>' . "\n";
-        }
+        return '<button class="' . $button_class . '" type="submit"'
+            . ' name="' . $button_name . '" value="' . htmlspecialchars($value)
+            . '" title="' . htmlspecialchars($text) . '">' . "\n"
+            . self::getIcon($image, $text)
+            . '</button>' . "\n";
     } // end function
 
     /**
@@ -2577,19 +2442,19 @@ class Util
 
                 $_url_params[$name] = 0;
                 $list_navigator_html .= '<a' . $class . $title1 . ' href="' . $script
-                    . PMA_URL_getCommon($_url_params) . '">' . $caption1
+                    . URL::getCommon($_url_params) . '">' . $caption1
                     . '</a>';
 
                 $_url_params[$name] = $pos - $max_count;
                 $list_navigator_html .= ' <a' . $class . $title2
-                    . ' href="' . $script . PMA_URL_getCommon($_url_params) . '">'
+                    . ' href="' . $script . URL::getCommon($_url_params) . '">'
                     . $caption2 . '</a>';
             }
 
             $list_navigator_html .= '<form action="' . basename($script)
                 . '" method="post">';
 
-            $list_navigator_html .= PMA_URL_getHiddenInputs($_url_params);
+            $list_navigator_html .= URL::getHiddenInputs($_url_params);
             $list_navigator_html .= self::pageselector(
                 $name,
                 $max_count,
@@ -2616,7 +2481,7 @@ class Util
 
                 $_url_params[$name] = $pos + $max_count;
                 $list_navigator_html .= '<a' . $class . $title3 . ' href="' . $script
-                    . PMA_URL_getCommon($_url_params) . '" >' . $caption3
+                    . URL::getCommon($_url_params) . '" >' . $caption3
                     . '</a>';
 
                 $_url_params[$name] = floor($count / $max_count) * $max_count;
@@ -2625,7 +2490,7 @@ class Util
                 }
 
                 $list_navigator_html .= ' <a' . $class . $title4
-                    . ' href="' . $script . PMA_URL_getCommon($_url_params) . '" >'
+                    . ' href="' . $script . URL::getCommon($_url_params) . '" >'
                     . $caption4 . '</a>';
             }
             $list_navigator_html .= '</div>' . "\n";
@@ -2666,8 +2531,8 @@ class Util
      */
     public static function getDbLink($database = null)
     {
-        if (! mb_strlen($database)) {
-            if (! mb_strlen($GLOBALS['db'])) {
+        if (strlen($database) === 0) {
+            if (strlen($GLOBALS['db']) === 0) {
                 return '';
             }
             $database = $GLOBALS['db'];
@@ -2679,7 +2544,7 @@ class Util
             . Util::getScriptNameForOption(
                 $GLOBALS['cfg']['DefaultTabDatabase'], 'database'
             )
-            . PMA_URL_getCommon(array('db' => $database)) . '" title="'
+            . URL::getCommon(array('db' => $database)) . '" title="'
             . htmlspecialchars(
                 sprintf(
                     __('Jump to database "%s".'),
@@ -2714,28 +2579,6 @@ class Util
             );
         }
         return $ext_but_html;
-    }
-
-    /**
-     * Returns a HTML checkbox
-     *
-     * @param string  $html_field_name the checkbox HTML field
-     * @param string  $label           label for checkbox
-     * @param boolean $checked         is it initially checked?
-     * @param boolean $onclick         should it submit the form on click?
-     * @param string  $html_field_id   id for the checkbox
-     *
-     * @return string                  HTML for the checkbox
-     */
-    public static function getCheckbox(
-        $html_field_name, $label, $checked, $onclick, $html_field_id = ''
-    ) {
-        return '<input type="checkbox" name="' . $html_field_name . '"'
-            . ($html_field_id ? ' id="' . $html_field_id . '"' : '')
-            . ($checked ? ' checked="checked"' : '')
-            . ($onclick ? ' class="autosubmit"' : '') . ' />'
-            . '<label' . ($html_field_id ? ' for="' . $html_field_id . '"' : '')
-            . '>' . $label . '</label>';
     }
 
     /**
@@ -2865,26 +2708,11 @@ class Util
      */
     public static function getDivForSliderEffect($id = '', $message = '')
     {
-        if ($GLOBALS['cfg']['InitialSlidersState'] == 'disabled') {
-            return '<div' . ($id ? ' id="' . $id . '"' : '') . '>';
-        }
-        /**
-         * Bad hack on the next line. document.write() conflicts with jQuery,
-         * hence, opening the <div> with PHP itself instead of JavaScript.
-         *
-         * @todo find a better solution that uses $.append(), the recommended
-         * method maybe by using an additional param, the id of the div to
-         * append to
-         */
-
-        return '<div'
-             . ($id ? ' id="' . $id . '"' : '')
-            . (($GLOBALS['cfg']['InitialSlidersState'] == 'closed')
-                ? ' style="display: none; overflow:auto;"'
-                : '')
-            . ' class="pma_auto_slider"'
-            . ($message ? ' title="' . htmlspecialchars($message) . '"' : '')
-            . '>';
+        return Template::get('div_for_slider_effect')->render([
+            'id'                   => $id,
+            'InitialSlidersState'  => $GLOBALS['cfg']['InitialSlidersState'],
+            'message'              => $message,
+        ]);
     }
 
     /**
@@ -2914,42 +2742,19 @@ class Util
             $state = 'on';
         }
 
-        // Generate output
-        return "<!-- TOGGLE START -->\n"
-            . "<div class='wrapper toggleAjax hide'>\n"
-            . "    <div class='toggleButton'>\n"
-            . "        <div title='" . __('Click to toggle')
-            . "' class='container $state'>\n"
-            . "           <img src='" . htmlspecialchars($GLOBALS['pmaThemeImage'])
-            . "toggle-" . htmlspecialchars($GLOBALS['text_dir']) . ".png'\n"
-            . "                 alt='' />\n"
-            . "            <table class='nospacing nopadding'>\n"
-            . "                <tbody>\n"
-            . "                <tr>\n"
-            . "                <td class='toggleOn'>\n"
-            . "                    <span class='hide'>$link_on</span>\n"
-            . "                    <div>"
-            . str_replace(' ', '&nbsp;', htmlspecialchars($options[1]['label']))
-            . "\n" . "                    </div>\n"
-            . "                </td>\n"
-            . "                <td><div>&nbsp;</div></td>\n"
-            . "                <td class='toggleOff'>\n"
-            . "                    <span class='hide'>$link_off</span>\n"
-            . "                    <div>"
-            . str_replace(' ', '&nbsp;', htmlspecialchars($options[0]['label']))
-            . "\n" . "                    </div>\n"
-            . "                </tr>\n"
-            . "                </tbody>\n"
-            . "            </table>\n"
-            . "            <span class='hide callback'>"
-            . htmlspecialchars($callback) . "</span>\n"
-            . "            <span class='hide text_direction'>"
-            . htmlspecialchars($GLOBALS['text_dir']) . "</span>\n"
-            . "        </div>\n"
-            . "    </div>\n"
-            . "</div>\n"
-            . "<!-- TOGGLE END -->";
-
+        return Template::get('toggle_button')->render(
+            [
+                'pmaThemeImage'     => $GLOBALS['pmaThemeImage'],
+                'text_dir'          => $GLOBALS['text_dir'],
+                'link_on'           => $link_on,
+                'toggleOn'          => str_replace(' ', '&nbsp;', htmlspecialchars(
+                                        $options[1]['label'])),
+                'toggleOff'         => str_replace(' ', '&nbsp;', htmlspecialchars(
+                                        $options[0]['label'])),
+                'link_off'          => $link_off,
+                'callback'          => $callback,
+                'state'             => $state
+            ]);
     } // end toggleButton()
 
     /**
@@ -3309,23 +3114,6 @@ class Util
         $GLOBALS['dbi']->setVariable(
             'FOREIGN_KEY_CHECKS', $default_fk_check_value ? 'ON' : 'OFF'
         );
-    }
-
-    /**
-     * Replaces some characters by a displayable equivalent
-     *
-     * @param string $content content
-     *
-     * @return string the content with characters replaced
-     */
-    public static function replaceBinaryContents($content)
-    {
-        $result = str_replace("\x00", '\0', $content);
-        $result = str_replace("\x08", '\b', $result);
-        $result = str_replace("\x0a", '\n', $result);
-        $result = str_replace("\x0d", '\r', $result);
-        $result = str_replace("\x1a", '\Z', $result);
-        return $result;
     }
 
     /**
@@ -4093,20 +3881,16 @@ class Util
     {
         // Get the username for the current user in the format
         // required to use in the information schema database.
-        $user = $GLOBALS['dbi']->fetchValue("SELECT CURRENT_USER();");
-        if ($user === false) {
-            return false;
-        }
+        list($user, $host) = $GLOBALS['dbi']->getCurrentUserAndHost();
 
-        if ($user == '@') { // MySQL is started with --skip-grant-tables
+        if ($user === '') { // MySQL is started with --skip-grant-tables
             return true;
         }
 
-        $user = explode('@', $user);
         $username  = "''";
-        $username .= str_replace("'", "''", $user[0]);
+        $username .= str_replace("'", "''", $user);
         $username .= "''@''";
-        $username .= str_replace("'", "''", $user[1]);
+        $username .= str_replace("'", "''", $host);
         $username .= "''";
 
         // Prepare the query
@@ -4256,7 +4040,7 @@ class Util
 
         }
 
-        if (mb_strlen($buffer) > 0) {
+        if (strlen($buffer) > 0) {
             // The leftovers in the buffer are the last value (if any)
             $values[] = $buffer;
         }
@@ -4371,12 +4155,12 @@ class Util
      */
     public static function handleContext(array $context)
     {
-        if (mb_strlen($GLOBALS['cfg']['ProxyUrl'])) {
+        if (strlen($GLOBALS['cfg']['ProxyUrl']) > 0) {
             $context['http'] = array(
                 'proxy' => $GLOBALS['cfg']['ProxyUrl'],
                 'request_fulluri' => true
             );
-            if (mb_strlen($GLOBALS['cfg']['ProxyUser'])) {
+            if (strlen($GLOBALS['cfg']['ProxyUser']) > 0) {
                 $auth = base64_encode(
                     $GLOBALS['cfg']['ProxyUser'] . ':' . $GLOBALS['cfg']['ProxyPass']
                 );
@@ -4385,30 +4169,6 @@ class Util
             }
         }
         return $context;
-    }
-    /**
-     * Updates an existing curl as necessary
-     *
-     * @param resource $curl_handle A curl_handle resource
-     *                              created by curl_init which should
-     *                              have several options set
-     *
-     * @return resource curl_handle with updated options
-     */
-    public static function configureCurl($curl_handle)
-    {
-        if (mb_strlen($GLOBALS['cfg']['ProxyUrl'])) {
-            curl_setopt($curl_handle, CURLOPT_PROXY, $GLOBALS['cfg']['ProxyUrl']);
-            if (mb_strlen($GLOBALS['cfg']['ProxyUser'])) {
-                curl_setopt(
-                    $curl_handle,
-                    CURLOPT_PROXYUSERPWD,
-                    $GLOBALS['cfg']['ProxyUser'] . ':' . $GLOBALS['cfg']['ProxyPass']
-                );
-            }
-        }
-        curl_setopt($curl_handle, CURLOPT_USERAGENT, 'phpMyAdmin/' . PMA_VERSION);
-        return $curl_handle;
     }
 
     /**
@@ -4588,31 +4348,6 @@ class Util
     }
 
     /**
-     * Returns the HTML for check all check box and with selected text
-     * for multi submits
-     *
-     * @param string $pmaThemeImage path to theme's image folder
-     * @param string $text_dir      text direction
-     * @param string $formName      name of the enclosing form
-     *
-     * @return string HTML
-     */
-    public static function getWithSelected($pmaThemeImage, $text_dir, $formName)
-    {
-        $html = '<img class="selectallarrow" '
-            . 'src="' . $pmaThemeImage . 'arrow_' . $text_dir . '.png" '
-            . 'width="38" height="22" alt="' . __('With selected:') . '" />';
-        $html .= '<input type="checkbox" id="' . $formName . '_checkall" '
-            . 'class="checkall_box" title="' . __('Check all') . '" />'
-            . '<label for="' . $formName . '_checkall">' . __('Check all')
-            . '</label>';
-        $html .= '<i style="margin-left: 2em">'
-            . __('With selected:') . '</i>';
-
-        return $html;
-    }
-
-    /**
      * Function to get html for the start row and number of rows panel
      *
      * @param string $sql_query sql query
@@ -4730,7 +4465,7 @@ class Util
         // Special speedup for newer MySQL Versions (in 4.0 format changed)
         if (true === $cfg['SkipLockedTables']) {
             $db_info_result = $GLOBALS['dbi']->query(
-                'SHOW OPEN TABLES FROM ' . Util::backquote($db) . ';'
+                'SHOW OPEN TABLES FROM ' . Util::backquote($db) . ' WHERE In_use > 0;'
             );
 
             // Blending out tables in use
@@ -4864,10 +4599,7 @@ class Util
         $sot_cache = $tables = array();
 
         while ($tmp = $GLOBALS['dbi']->fetchAssoc($db_info_result)) {
-            // if in use, memorize table name
-            if ($tmp['In_use'] > 0) {
-                $sot_cache[$tmp['Table']] = true;
-            }
+            $sot_cache[$tmp['Table']] = true;
         }
         $GLOBALS['dbi']->freeResult($db_info_result);
 
@@ -4904,21 +4636,10 @@ class Util
             unset($tblGroupSql, $whereAdded);
 
             if ($db_info_result && $GLOBALS['dbi']->numRows($db_info_result) > 0) {
+                $names = array();
                 while ($tmp = $GLOBALS['dbi']->fetchRow($db_info_result)) {
                     if (! isset($sot_cache[$tmp[0]])) {
-                        $sts_result = $GLOBALS['dbi']->query(
-                            "SHOW TABLE STATUS FROM " . Util::backquote($db)
-                            . " LIKE '" . $GLOBALS['dbi']->escapeString($tmp[0])
-                            . "';"
-                        );
-                        $sts_tmp = $GLOBALS['dbi']->fetchAssoc($sts_result);
-                        $GLOBALS['dbi']->freeResult($sts_result);
-                        unset($sts_result);
-
-                        $tableArray = $GLOBALS['dbi']->copyTableProperties(
-                            array($sts_tmp), $db
-                        );
-                                $tables[$sts_tmp['Name']] = $tableArray[0];
+                        $names[] = $tmp[0];
                     } else { // table in use
                         $tables[$tmp[0]] = array(
                             'TABLE_NAME' => $tmp[0],
@@ -4929,6 +4650,12 @@ class Util
                         );
                     }
                 } // end while
+                if (count($names) > 0) {
+                    $tables = array_merge(
+                        $tables,
+                        $GLOBALS['dbi']->getTablesFull($db, $names)
+                    );
+                }
                 if ($GLOBALS['cfg']['NaturalOrder']) {
                     uksort($tables, 'strnatcasecmp');
                 }
@@ -4980,5 +4707,186 @@ class Util
         }
         return trim((string)$value);
     }
-}
 
+    /**
+     * Creates HTTP request using curl
+     *
+     * @param mixed    $response           HTTP response
+     * @param interger $http_status        HTTP response status code
+     * @param bool     $return_only_status If set to true, the method would only return response status
+     *
+     * @return mixed
+     */
+    public static function httpRequestReturn($response, $http_status, $return_only_status)
+    {
+        if ($http_status == 404) {
+            return false;
+        }
+        if ($http_status != 200) {
+            return null;
+        }
+        if ($return_only_status) {
+            return true;
+        }
+        return $response;
+    }
+
+    /**
+     * Creates HTTP request using curl
+     *
+     * @param string $url                Url to send the request
+     * @param string $method             HTTP request method (GET, POST, PUT, DELETE, etc)
+     * @param bool   $return_only_status If set to true, the method would only return response status
+     * @param mixed  $content            Content to be sent with HTTP request
+     * @param string $header             Header to be set for the HTTP request
+     * @param int    $ssl                SSL mode to use
+     *
+     * @return mixed
+     */
+    public static function httprequestcurl($url, $method, $return_only_status = false, $content = null, $header = "", $ssl = 0)
+    {
+        $curl_handle = curl_init($url);
+        if ($curl_handle === false) {
+            return null;
+        }
+        $curl_status = true;
+        if (strlen($GLOBALS['cfg']['ProxyUrl']) > 0) {
+            $curl_status &= curl_setopt($curl_handle, CURLOPT_PROXY, $GLOBALS['cfg']['ProxyUrl']);
+            if (strlen($GLOBALS['cfg']['ProxyUser']) > 0) {
+                $curl_status &= curl_setopt(
+                    $curl_handle,
+                    CURLOPT_PROXYUSERPWD,
+                    $GLOBALS['cfg']['ProxyUser'] . ':' . $GLOBALS['cfg']['ProxyPass']
+                );
+            }
+        }
+        $curl_status &= curl_setopt($curl_handle, CURLOPT_USERAGENT, 'phpMyAdmin');
+
+        if ($method != "GET") {
+            $curl_status &= curl_setopt($curl_handle, CURLOPT_CUSTOMREQUEST, $method);
+        }
+        if ($header) {
+            $curl_status &= curl_setopt($curl_handle, CURLOPT_HTTPHEADER, array($header));
+        }
+
+        if ($method == "POST") {
+            $curl_status &= curl_setopt($curl_handle, CURLOPT_POSTFIELDS, $content);
+        }
+
+        $curl_status &= curl_setopt($curl_handle, CURLOPT_SSL_VERIFYHOST, '2');
+        $curl_status &= curl_setopt($curl_handle, CURLOPT_SSL_VERIFYPEER, '1');
+
+        /**
+         * Configure ISRG Root X1 to be able to verify Let's Encrypt SSL
+         * certificates even without properly configured curl in PHP.
+         *
+         * See https://letsencrypt.org/certificates/
+         */
+        $certs_dir = dirname(__file__) . '/certs/';
+        /* See code below for logic */
+        if ($ssl == CURLOPT_CAPATH) {
+            $curl_status &= curl_setopt($curl_handle, CURLOPT_CAPATH, $certs_dir);
+        } elseif ($ssl == CURLOPT_CAINFO) {
+            $curl_status &= curl_setopt($curl_handle, CURLOPT_CAINFO, $certs_dir . 'isrgrootx1.pem');
+        }
+
+        $curl_status &= curl_setopt($curl_handle, CURLOPT_RETURNTRANSFER,true);
+        $curl_status &= curl_setopt($curl_handle, CURLOPT_FOLLOWLOCATION, 0);
+        $curl_status &= curl_setopt($curl_handle, CURLOPT_IPRESOLVE, CURL_IPRESOLVE_V4);
+        $curl_status &= curl_setopt($curl_handle, CURLOPT_TIMEOUT, 10);
+        $curl_status &= curl_setopt($curl_handle, CURLOPT_CONNECTTIMEOUT, 10);
+
+        if (! $curl_status) {
+            return null;
+        }
+        $response = @curl_exec($curl_handle);
+        if ($response === false) {
+            /*
+             * In case of SSL verification failure let's try configuring curl
+             * certificate verification. Unfortunately it is tricky as setting
+             * options incompatible with PHP build settings can lead to failure.
+             *
+             * So let's rather try the options one by one.
+             *
+             * 1. Try using system SSL storage.
+             * 2. Try setting CURLOPT_CAINFO.
+             * 3. Try setting CURLOPT_CAPATH.
+             * 4. Fail.
+             */
+            if (curl_getinfo($curl_handle, CURLINFO_SSL_VERIFYRESULT) != 0) {
+                if ($ssl == 0) {
+                    self::httpRequestCurl($url, $method, $return_only_status, $content, $header, CURLOPT_CAINFO);
+                } elseif ($ssl == CURLOPT_CAINFO) {
+                    self::httpRequestCurl($url, $method, $return_only_status, $content, $header, CURLOPT_CAPATH);
+                }
+            }
+            return null;
+        }
+        $http_status = curl_getinfo($curl_handle, CURLINFO_HTTP_CODE);
+        return Util::httpRequestReturn($response, $http_status, $return_only_status);
+    }
+
+    /**
+     * Creates HTTP request using file_get_contents
+     *
+     * @param string $url                Url to send the request
+     * @param string $method             HTTP request method (GET, POST, PUT, DELETE, etc)
+     * @param bool   $return_only_status If set to true, the method would only return response status
+     * @param mixed  $content            Content to be sent with HTTP request
+     * @param string $header             Header to be set for the HTTP request
+     *
+     * @return mixed
+     */
+    public static function httpRequestFopen($url, $method, $return_only_status = false, $content = null, $header = "")
+    {
+        $context = array(
+            'http' => array(
+                'method'  => $method,
+                'request_fulluri' => true,
+                'timeout' => 10,
+                'user_agent' => 'phpMyAdmin',
+                'header' => "Accept: */*",
+            )
+        );
+        if ($header) {
+            $context['http']['header'] .= "\n" . $header;
+        }
+        if ($method == "POST") {
+            $context['http']['content'] = $content;
+        }
+
+        $context = Util::handleContext($context);
+        $response = @file_get_contents(
+            $url,
+            false,
+            stream_context_create($context)
+        );
+        if (! isset($http_response_header)) {
+            return null;
+        }
+        preg_match("#HTTP/[0-9\.]+\s+([0-9]+)#", $http_response_header[0], $out );
+        $http_status = intval($out[1]);
+        return Util::httpRequestReturn($response, $http_status, $return_only_status);
+    }
+
+    /**
+     * Creates HTTP request
+     *
+     * @param string $url                Url to send the request
+     * @param string $method             HTTP request method (GET, POST, PUT, DELETE, etc)
+     * @param bool   $return_only_status If set to true, the method would only return response status
+     * @param mixed  $content            Content to be sent with HTTP request
+     * @param string $header             Header to be set for the HTTP request
+     *
+     * @return mixed
+     */
+    public static function httpRequest($url, $method, $return_only_status = false, $content = null, $header = "")
+    {
+        if (function_exists('curl_init')) {
+            return Util::httpRequestCurl($url, $method, $return_only_status, $content, $header);
+        } else if (ini_get('allow_url_fopen')) {
+            return Util::httpRequestFopen($url, $method, $return_only_status, $content, $header);
+        }
+        return null;
+    }
+}

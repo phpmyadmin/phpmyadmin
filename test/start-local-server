@@ -9,7 +9,7 @@ fi
 set -e
 set -x
 
-if [ -z  "$SELENIUM" ] ; then
+if [ "$CI_MODE" != "selenium" -o -z "$TESTSUITE_BROWSERSTACK_KEY" ] ; then
     exit 0
 fi
 

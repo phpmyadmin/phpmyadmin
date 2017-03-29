@@ -11,13 +11,13 @@
  *
  * @package PhpMyAdmin
  */
+use PMA\libraries\Response;
 use PMA\libraries\plugins\export\ExportSql;
 
 /**
  * requirements
  */
 require_once 'libraries/common.inc.php';
-require_once 'libraries/mysql_charsets.inc.php';
 require_once 'libraries/display_create_table.lib.php';
 
 /**
@@ -27,7 +27,7 @@ require_once 'libraries/check_user_privileges.lib.php';
 require_once 'libraries/operations.lib.php';
 
 // add a javascript file for jQuery functions to handle Ajax actions
-$response = PMA\libraries\Response::getInstance();
+$response = Response::getInstance();
 $header = $response->getHeader();
 $scripts = $header->getScripts();
 $scripts->addFile('db_operations.js');
@@ -37,7 +37,7 @@ $sql_query = '';
 /**
  * Rename/move or copy database
  */
-if (mb_strlen($GLOBALS['db'])
+if (strlen($GLOBALS['db']) > 0
     && (! empty($_REQUEST['db_rename']) || ! empty($_REQUEST['db_copy']))
 ) {
     if (! empty($_REQUEST['db_rename'])) {
@@ -46,9 +46,7 @@ if (mb_strlen($GLOBALS['db'])
         $move = false;
     }
 
-    if (! isset($_REQUEST['newname'])
-        || ! mb_strlen($_REQUEST['newname'])
-    ) {
+    if (! isset($_REQUEST['newname']) || strlen($_REQUEST['newname']) === 0) {
         $message = PMA\libraries\Message::error(__('The database name is empty!'));
     } else {
         $_error = false;
@@ -177,8 +175,7 @@ if (mb_strlen($GLOBALS['db'])
      * Database has been successfully renamed/moved.  If in an Ajax request,
      * generate the output with {@link PMA\libraries\Response} and exit
      */
-    if ($GLOBALS['is_ajax_request'] == true) {
-        $response = PMA\libraries\Response::getInstance();
+    if ($response->isAjax()) {
         $response->setRequestStatus($message->isSuccess());
         $response->addJSON('message', $message);
         $response->addJSON('newname', $_REQUEST['newname']);
@@ -230,7 +227,7 @@ if (isset($message)) {
     unset($message);
 }
 
-$_REQUEST['db_collation'] = PMA_getDbCollation($GLOBALS['db']);
+$_REQUEST['db_collation'] = $GLOBALS['dbi']->getDbCollation($GLOBALS['db']);
 $is_information_schema = $GLOBALS['dbi']->isSystemSchema($GLOBALS['db']);
 
 $response->addHTML('<div id="boxContainer" data-box-width="300">');
@@ -283,12 +280,8 @@ if (!$is_information_schema) {
                 '%sFind out why%s.'
             )
         );
-        $message->addParam(
-            '<a href="'
-            . './chk_rel.php' . $url_query . '">',
-            false
-        );
-        $message->addParam('</a>', false);
+        $message->addParamHtml('<a href="./chk_rel.php' . $url_query . '">');
+        $message->addParamHtml('</a>');
         /* Show error if user has configured something, notice elsewhere */
         if (!empty($cfg['Servers'][$server]['pmadb'])) {
             $message->isError(true);

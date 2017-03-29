@@ -96,9 +96,11 @@ class ImportLdi extends AbstractImportCsv
      */
     public function doImport(&$sql_data = array())
     {
-        global $finished, $import_file, $compression, $charset_conversion, $table;
+        global $finished, $import_file, $charset_conversion, $table;
         global $ldi_local_option, $ldi_replace, $ldi_ignore, $ldi_terminated,
                $ldi_enclosed, $ldi_escaped, $ldi_new_line, $skip_queries, $ldi_columns;
+
+        $compression = $GLOBALS['import_handle']->getCompression();
 
         if ($import_file == 'none'
             || $compression != 'none'
@@ -140,7 +142,7 @@ class ImportLdi extends AbstractImportCsv
         if (strlen($ldi_new_line) > 0) {
             if ($ldi_new_line == 'auto') {
                 $ldi_new_line
-                    = (PMA\libraries\Util::whichCrlf() == "\n")
+                    = (PHP_EOL == "\n")
                     ? '\n'
                     : '\r\n';
             }

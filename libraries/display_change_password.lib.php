@@ -6,6 +6,7 @@
  * @package PhpMyAdmin
  */
 use PMA\libraries\Message;
+use PMA\libraries\URL;
 
 /**
   * Get HTML for the Change password dialog
@@ -23,11 +24,7 @@ function PMA_getHtmlForChangePassword($mode, $username, $hostname)
      * autocomplete feature of IE kills the "onchange" event handler and it
      * must be replaced by the "onpropertychange" one in this case
      */
-    $chg_evt_handler = (PMA_USR_BROWSER_AGENT == 'IE'
-        && PMA_USR_BROWSER_VER >= 5
-        && PMA_USR_BROWSER_VER < 7)
-                 ? 'onpropertychange'
-                 : 'onchange';
+    $chg_evt_handler = 'onchange';
 
     $is_privileges = basename($_SERVER['SCRIPT_NAME']) === 'server_privileges.php';
 
@@ -36,7 +33,7 @@ function PMA_getHtmlForChangePassword($mode, $username, $hostname)
         . 'name="chgPassword" '
         . 'class="' . ($is_privileges ? 'submenu-item' : '') . '">';
 
-    $html .= PMA_URL_getHiddenInputs();
+    $html .= URL::getHiddenInputs();
 
     if (strpos($GLOBALS['PMA_PHP_SELF'], 'server_privileges') !== false) {
         $html .= '<input type="hidden" name="username" '
@@ -52,7 +49,7 @@ function PMA_getHtmlForChangePassword($mode, $username, $hostname)
         )
         . '>' . __('Change password') . '</legend>'
         . '<table class="data noclick">'
-        . '<tr class="odd">'
+        . '<tr>'
         . '<td colspan="2">'
         . '<input type="radio" name="nopass" value="1" id="nopass_1" '
         . 'onclick="pma_pw.value = \'\'; pma_pw2.value = \'\'; '
@@ -60,19 +57,23 @@ function PMA_getHtmlForChangePassword($mode, $username, $hostname)
         . '<label for="nopass_1">' . __('No Password') . '</label>'
         . '</td>'
         . '</tr>'
-        . '<tr class="even vmiddle">'
+        . '<tr class="vmiddle">'
         . '<td>'
         . '<input type="radio" name="nopass" value="0" id="nopass_0" '
-        . 'onclick="document.getElementById(\'text_pma_pw\').focus();" '
+        . 'onclick="document.getElementById(\'text_pma_change_pw\').focus();" '
         . 'checked="checked" />'
         . '<label for="nopass_0">' . __('Password:') . '&nbsp;</label>'
         . '</td>'
         . '<td>'
-        . '<input type="password" name="pma_pw" id="text_pma_pw" size="10" '
+        . __('Enter:') . '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp'
+        . '<input type="password" name="pma_pw" id="text_pma_change_pw" size="10" '
         . 'class="textfield"'
         . $chg_evt_handler . '="nopass[1].checked = true" />'
-        . '&nbsp;&nbsp;' . __('Re-type:') . '&nbsp;'
-        . '<input type="password" name="pma_pw2" id="text_pma_pw2" size="10" '
+        . '<span>Strength:</span> '
+        . '<meter max="4" id="change_password_strength_meter" name="pw_meter"></meter> '
+        . '<span id="change_password_strength" name="pw_strength">Good</span>'
+        . '<br>' . __('Re-type:') . '&nbsp;'
+        . '<input type="password" name="pma_pw2" id="text_pma_change_pw2" size="10" '
         . 'class="textfield"'
         . $chg_evt_handler . '="nopass[1].checked = true" />'
         . '</td>'

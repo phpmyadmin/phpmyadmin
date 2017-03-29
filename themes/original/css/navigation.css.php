@@ -196,7 +196,6 @@ if (! defined('PMA_MINIMUM_COMMON') && ! defined('TESTSUITE')) {
 }
 #pma_navigation_tree li {
     white-space: nowrap;
-    padding-bottom: 4px;
     clear: both;
     min-height: 16px;
 }

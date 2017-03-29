@@ -13,9 +13,10 @@
  */
 require_once 'libraries/common.inc.php';
 
+use PMA\libraries\Response;
 use PMA\libraries\DbSearch;
 
-$response = PMA\libraries\Response::getInstance();
+$response = Response::getInstance();
 $header   = $response->getHeader();
 $scripts  = $header->getScripts();
 $scripts->addFile('db_search.js');
@@ -38,7 +39,7 @@ $url_params['goto'] = 'db_search.php';
 $db_search = new DbSearch($GLOBALS['db']);
 
 // Display top links if we are not in an Ajax request
-if ($GLOBALS['is_ajax_request'] != true) {
+if (! $response->isAjax()) {
     list(
         $tables,
         $num_tables,
@@ -55,19 +56,18 @@ if ($GLOBALS['is_ajax_request'] != true) {
 // Main search form has been submitted, get results
 if (isset($_REQUEST['submit_search'])) {
     $response->addHTML($db_search->getSearchResults());
-} else {
-    $response->addHTML('<div id="searchresults"></div>');
 }
 
 // If we are in an Ajax request, we need to exit after displaying all the HTML
-if ($GLOBALS['is_ajax_request'] == true && empty($_REQUEST['ajax_page_request'])) {
+if ($response->isAjax() && empty($_REQUEST['ajax_page_request'])) {
     exit;
 }
 
 // Display the search form
+$response->addHTML($db_search->getSelectionForm());
+$response->addHTML('<div id="searchresults"></div>');
 $response->addHTML(
     '<div id="togglesearchresultsdiv"><a id="togglesearchresultlink"></a></div>'
-    . '<br class="clearfloat" />'
 );
-$response->addHTML($db_search->getSelectionForm());
+$response->addHTML('<br class="clearfloat" />');
 $response->addHTML($db_search->getResultDivs());

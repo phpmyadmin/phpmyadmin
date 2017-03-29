@@ -45,37 +45,6 @@ class PMA_StringOperations_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * data provider for PMA\libraries\Util::flipstring test
-     *
-     * @return array
-     */
-    public function flipStringDataProvider()
-    {
-        return array(
-            array('test', "t<br />\ne<br />\ns<br />\nt"),
-            array(
-                'te&nbsp;;st',
-                "t<br />\ne<br />\n&nbsp;<br />\n;<br />\ns<br />\nt"
-            )
-        );
-    }
-
-    /**
-     * test of changing string from horizontal to vertical orientation
-     *
-     * @param string $a String
-     * @param string $e Expected output
-     *
-     * @return void
-     *
-     * @dataProvider flipStringDataProvider
-     */
-    public function testFlipString($a, $e)
-    {
-        $this->assertEquals($e, PMA\libraries\Util::flipstring($a));
-    }
-
-    /**
      * data provider for PMA\libraries\Util::userDir test
      *
      * @return array
@@ -103,37 +72,6 @@ class PMA_StringOperations_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['Server']['user'] = 'root';
 
         $this->assertEquals($e, PMA\libraries\Util::userDir($a));
-    }
-
-    /**
-     * data provider for replace binary content test
-     *
-     * @return array
-     */
-    public function replaceBinaryContentsDataProvider()
-    {
-        return array(
-            array("\x000", '\00'),
-            array("\x08\x0a\x0d\x1atest", '\b\n\r\Ztest'),
-            array("\ntest", '\ntest')
-        );
-    }
-
-    /**
-     * replace binary contents test
-     *
-     * @param string $a String
-     * @param string $e Expected output
-     *
-     * @return void
-     *
-     * @dataProvider replaceBinaryContentsDataProvider
-     */
-    public function testReplaceBinaryContents($a, $e)
-    {
-        $this->assertEquals(
-            $e, PMA\libraries\Util::replaceBinaryContents($a)
-        );
     }
 
     /**

@@ -55,13 +55,11 @@ AJAX.registerOnload('tbl_operations.js', function () {
     $(document).on('submit', "#moveTableForm", function (event) {
         event.preventDefault();
         var $form = $(this);
-        var db = $form.find('select[name=target_db]').val();
-        var tbl = $form.find('input[name=new_name]').val();
         PMA_prepareForAjaxRequest($form);
         $.post($form.attr('action'), $form.serialize() + "&submit_move=1", function (data) {
             if (typeof data !== 'undefined' && data.success === true) {
-                PMA_commonParams.set('db', db);
-                PMA_commonParams.set('table', tbl);
+                PMA_commonParams.set('db', data._params.db);
+                PMA_commonParams.set('table', data._params.tbl);
                 PMA_commonActions.refreshMain(false, function () {
                     PMA_ajaxShowMessage(data.message);
                 });
@@ -137,7 +135,12 @@ AJAX.registerOnload('tbl_operations.js', function () {
             $(".result_query").remove();
         }
         //variables which stores the common attributes
-        $.post($(this).attr('href'), { ajax_request: 1 }, function (data) {
+        var params = {
+            ajax_request: 1,
+            server: PMA_commonParams.get('server'),
+            token: PMA_commonParams.get('token')
+        };
+        $.post($(this).attr('href'), params, function (data) {
             function scrollToTop() {
                 $('html, body').animate({ scrollTop: 0 });
             }
@@ -206,7 +209,7 @@ AJAX.registerOnload('tbl_operations.js', function () {
         var question = PMA_messages.strDropTableStrongWarning + ' ';
         question += PMA_sprintf(
             PMA_messages.strDoYouReally,
-            'DROP TABLE ' + escapeHtml(PMA_commonParams.get('table'))
+            'DROP TABLE `' + escapeHtml(PMA_commonParams.get('table') + '`')
         ) + getForeignKeyCheckboxLoader();
 
         $(this).PMA_confirm(question, $(this).attr('href'), function (url) {
@@ -214,6 +217,7 @@ AJAX.registerOnload('tbl_operations.js', function () {
             var $msgbox = PMA_ajaxShowMessage(PMA_messages.strProcessingRequest);
 
             var params = getJSConfirmCommonParam(this);
+            params.token = PMA_commonParams.get('token');
 
             $.post(url, params, function (data) {
                 if (typeof data !== 'undefined' && data.success === true) {
@@ -242,13 +246,18 @@ AJAX.registerOnload('tbl_operations.js', function () {
         var question = PMA_messages.strDropTableStrongWarning + ' ';
         question += PMA_sprintf(
             PMA_messages.strDoYouReally,
-            'DROP VIEW ' + escapeHtml(PMA_commonParams.get('table'))
+            'DROP VIEW `' + escapeHtml(PMA_commonParams.get('table') + '`')
         );
 
         $(this).PMA_confirm(question, $(this).attr('href'), function (url) {
 
             var $msgbox = PMA_ajaxShowMessage(PMA_messages.strProcessingRequest);
-            $.post(url, {'is_js_confirmed': '1', 'ajax_request': true}, function (data) {
+            var params = {
+                'is_js_confirmed': '1',
+                'ajax_request': true,
+                'token': PMA_commonParams.get('token')
+            };
+            $.post(url, params, function (data) {
                 if (typeof data !== 'undefined' && data.success === true) {
                     PMA_ajaxRemoveMessage($msgbox);
                     // Table deleted successfully, refresh both the frames
@@ -275,12 +284,13 @@ AJAX.registerOnload('tbl_operations.js', function () {
         var question = PMA_messages.strTruncateTableStrongWarning + ' ';
         question += PMA_sprintf(
             PMA_messages.strDoYouReally,
-            'TRUNCATE ' + escapeHtml(PMA_commonParams.get('table'))
+            'TRUNCATE `' + escapeHtml(PMA_commonParams.get('table') + '`')
         ) + getForeignKeyCheckboxLoader();
         $(this).PMA_confirm(question, $(this).attr('href'), function (url) {
             PMA_ajaxShowMessage(PMA_messages.strProcessingRequest);
 
             var params = getJSConfirmCommonParam(this);
+            params.token = PMA_commonParams.get('token');
 
             $.post(url, params, function (data) {
                 if ($(".sqlqueryresults").length !== 0) {

@@ -6,11 +6,13 @@
  * @todo    add an option to use mm-module for session handler
  *
  * @package PhpMyAdmin
- * @see     https://www.php.net/session
+ * @see     https://secure.php.net/session
  */
 if (! defined('PHPMYADMIN')) {
     exit;
 }
+
+require_once 'libraries/session.lib.php';
 
 // verify if PHP supports session, die if it does not
 
@@ -137,11 +139,7 @@ unset($orig_error_count, $session_result);
  * (we use "space PMA_token space" to prevent overwriting)
  */
 if (! isset($_SESSION[' PMA_token '])) {
-    if (! function_exists('openssl_random_pseudo_bytes')) {
-        $_SESSION[' PMA_token '] = bin2hex(phpseclib\Crypt\Random::string(16));
-    } else {
-        $_SESSION[' PMA_token '] = bin2hex(openssl_random_pseudo_bytes(16));
-    }
+    PMA_generateToken();
 
     /**
      * Check for disk space on session storage by trying to write it.
@@ -157,13 +155,3 @@ if (! isset($_SESSION[' PMA_token '])) {
     }
     session_start();
 }
-/**
- * Check if token is properly generated (both above functions can return false).
- */
-if (empty($_SESSION[' PMA_token '])) {
-    PMA_fatalError(
-        'Failed to generate random CSRF token!'
-    );
-}
-
-require_once 'libraries/session.lib.php';

@@ -8,6 +8,7 @@
 namespace PMA\libraries\navigation\nodes;
 
 use PMA\libraries\Util;
+use PMA\libraries\URL;
 
 /**
  * Represents a database node in the navigation tree
@@ -46,9 +47,9 @@ class NodeDatabase extends Node
         $this->links = array(
             'text'  => $script_name
                 . '?server=' . $GLOBALS['server']
-                . '&amp;db=%1$s&amp;token=' . $_SESSION[' PMA_token '],
+                . '&amp;db=%1$s',
             'icon'  => 'db_operations.php?server=' . $GLOBALS['server']
-                . '&amp;db=%1$s&amp;token=' . $_SESSION[' PMA_token '],
+                . '&amp;db=%1$s&amp;',
             'title' => __('Structure'),
         );
         $this->classes = 'database';
@@ -670,14 +671,16 @@ class NodeDatabase extends Node
         $cfgRelation = PMA_getRelationsParam();
         if ($cfgRelation['navwork']) {
             if ($this->hiddenCount > 0) {
+                $params = array(
+                    'showUnhideDialog' => true,
+                    'dbName' => $this->real_name,
+                );
                 $ret = '<span class="dbItemControls">'
                     . '<a href="navigation.php'
-                    . PMA_URL_getCommon()
-                    . '&showUnhideDialog=true'
-                    . '&dbName=' . urlencode($this->real_name) . '"'
+                    . URL::getCommon($params) . '"'
                     . ' class="showUnhide ajax">'
                     . Util::getImage(
-                        'lightbulb.png',
+                        'show.png',
                         __('Show hidden items')
                     )
                     . '</a></span>';

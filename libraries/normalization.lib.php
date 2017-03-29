@@ -7,6 +7,7 @@
  */
 use PMA\libraries\Message;
 use PMA\libraries\Util;
+use PMA\libraries\URL;
 
 /**
  * build the html for columns of $colTypeCategory category
@@ -482,11 +483,11 @@ function PMA_createNewTablesFor2NF($partialDependencies, $tablesName, $table, $d
     foreach ($queries as $query) {
         if (!$GLOBALS['dbi']->tryQuery($query, $GLOBALS['userlink'])) {
             $message = Message::error(__('Error in processing!'));
-            $message->addMessage('<br /><br />');
             $message->addMessage(
                 Message::rawError(
                     $GLOBALS['dbi']->getError($GLOBALS['userlink'])
-                )
+                ),
+                '<br /><br />'
             );
             $error = true;
             break;
@@ -557,7 +558,7 @@ function PMA_getHtmlForNewTables3NF($dependencies, $tables, $db)
             }
         }
     }
-    return array('html' => $html, 'newTables' => $newTables);
+    return array('html' => $html, 'newTables' => $newTables, 'success' => true);
 }
 
 /**
@@ -627,11 +628,11 @@ function PMA_createNewTablesFor3NF($newTables, $db)
     foreach ($queries as $query) {
         if (!$GLOBALS['dbi']->tryQuery($query, $GLOBALS['userlink'])) {
             $message = Message::error(__('Error in processing!'));
-            $message->addMessage('<br /><br />');
             $message->addMessage(
                 Message::rawError(
                     $GLOBALS['dbi']->getError($GLOBALS['userlink'])
-                )
+                ),
+                '<br /><br />'
             );
             $error = true;
             break;
@@ -692,11 +693,11 @@ function PMA_moveRepeatingGroup(
     foreach ($queries as $query) {
         if (!$GLOBALS['dbi']->tryQuery($query, $GLOBALS['userlink'])) {
             $message = Message::error(__('Error in processing!'));
-            $message->addMessage('<br /><br />');
             $message->addMessage(
                 Message::rawError(
                     $GLOBALS['dbi']->getError($GLOBALS['userlink'])
-                )
+                ),
+                '<br /><br />'
             );
             $error = true;
             break;
@@ -796,7 +797,7 @@ function PMA_getHtmlForNormalizetable()
         . 'name="normalize" '
         . 'id="normalizeTable" '
         . '>'
-        . PMA_URL_getHiddenInputs($GLOBALS['db'], $GLOBALS['table'])
+        . URL::getHiddenInputs($GLOBALS['db'], $GLOBALS['table'])
         . '<input type="hidden" name="step1" value="1">';
     $html_output .= '<fieldset>';
     $html_output .= '<legend>'

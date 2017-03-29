@@ -17,7 +17,7 @@ require_once 'libraries/config/page_settings.forms.php';
 
 PageSettings::showGroup('Import');
 
-$response = PMA\libraries\Response::getInstance();
+$response = Response::getInstance();
 $header   = $response->getHeader();
 $scripts  = $header->getScripts();
 $scripts->addFile('import.js');

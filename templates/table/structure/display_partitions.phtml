@@ -1,5 +1,6 @@
 <?php use PMA\libraries\Message;
-use PMA\libraries\Util; ?>
+use PMA\libraries\Util;
+use PMA\libraries\URL; ?>
 <div id="partitions">
     <fieldset>
         <legend><?= __('Partitions')
@@ -36,9 +37,8 @@ use PMA\libraries\Util; ?>
                     </tr>
                 </thead>
                 <tbody>
-                <?php $odd = true; ?>
                 <?php foreach ($partitions as $partition): ?>
-                    <tr class="noclick <?= ($odd ? 'odd' : 'even') , ($hasSubPartitions ? ' marked' : '') ?>">
+                    <tr class="noclick <?= ($hasSubPartitions ? ' marked' : '') ?>">
                         <?php if ($hasSubPartitions): ?>
                             <td><?= $partition->getOrdinal(); ?></td>
                             <td></td>
@@ -91,7 +91,7 @@ use PMA\libraries\Util; ?>
 
                         <?php if ($hasSubPartitions): ?>
                             <?php foreach ($partition->getSubPartitions() as $subParition): ?>
-                                <tr class="noclick <?= $odd ? 'odd' : 'even' ?>">
+                                <tr class="noclick">
                                     <td></td>
                                     <td><?= $subParition->getOrdinal(); ?></td>
                                     <td><?= htmlspecialchars($subParition->getName()); ?></td>
@@ -121,7 +121,6 @@ use PMA\libraries\Util; ?>
                             <?php endforeach; ?>
                         <?php endif; ?>
                     </tr>
-                    <?php $odd = ! $odd; ?>
                 <?php endforeach; ?>
                 </tbody>
             </table>
@@ -129,7 +128,7 @@ use PMA\libraries\Util; ?>
     </fieldset>
     <fieldset class="tblFooters print_ignore">
         <form action="tbl_structure.php" method="post">
-            <?= PMA_URL_getHiddenInputs($db, $table); ?>
+            <?= URL::getHiddenInputs($db, $table); ?>
             <input type="hidden" name="edit_partitioning" value="true" />
             <?php if (empty($partitions)): ?>
                 <input type="submit" name="edit_partitioning" value="<?= __('Partition table'); ?>" />

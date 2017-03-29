@@ -3,7 +3,7 @@
  * Initialises the data required to run PMD, then fires it up.
  */
 
-var j_tabs, h_tabs, contr, display_field, server, db, token, selected_page, pmd_tables_enabled;
+var j_tabs, h_tabs, contr, display_field, server, db, selected_page, pmd_tables_enabled;
 
 AJAX.registerTeardown('pmd/init.js', function () {
     $(".trigger").unbind('click');
@@ -16,16 +16,15 @@ AJAX.registerOnload('pmd/init.js', function () {
         $('#ab').accordion("refresh");
         return false;
     });
-    var tables_data = $.parseJSON($("#script_tables").html());
+    var tables_data = JSON.parse($("#script_tables").html());
 
     j_tabs             = tables_data.j_tabs;
     h_tabs             = tables_data.h_tabs;
-    contr              = $.parseJSON($("#script_contr").html());
-    display_field      = $.parseJSON($("#script_display_field").html());
+    contr              = JSON.parse($("#script_contr").html());
+    display_field      = JSON.parse($("#script_display_field").html());
 
     server             = $("#script_server").html();
     db                 = $("#script_db").html();
-    token              = $("#script_token").html();
     selected_page      = $("#script_display_page").html() === "" ? "-1" : $("#script_display_page").html();
     pmd_tables_enabled = $("#pmd_tables_enabled").html() === "1";
 

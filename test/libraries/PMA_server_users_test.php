@@ -6,8 +6,6 @@
  * @package PhpMyAdmin-test
  */
 
-require_once 'libraries/url_generating.lib.php';
-
 /*
  * Include to test.
  */

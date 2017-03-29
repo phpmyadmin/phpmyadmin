@@ -213,7 +213,13 @@ AJAX.registerOnload('tbl_structure.js', function () {
         var question = PMA_sprintf(PMA_messages.strDoYouReally, 'ALTER TABLE `' + escapeHtml(curr_table_name) + '` DROP `' + escapeHtml(curr_column_name) + '`;');
         $(this).PMA_confirm(question, $(this).attr('href'), function (url) {
             var $msg = PMA_ajaxShowMessage(PMA_messages.strDroppingColumn, false);
-            $.post(url, {'is_js_confirmed' : 1, 'ajax_request' : true, 'ajax_page_request' : true}, function (data) {
+            var params = {
+                'is_js_confirmed' : 1,
+                'ajax_request' : true,
+                'ajax_page_request' : true,
+                'token': PMA_commonParams.get('token')
+            };
+            $.post(url, params, function (data) {
                 if (typeof data !== 'undefined' && data.success === true) {
                     PMA_ajaxRemoveMessage($msg);
                     if ($('.result_query').length) {
@@ -225,7 +231,6 @@ AJAX.registerOnload('tbl_structure.js', function () {
                             .prependTo('#structure_content');
                         PMA_highlightSQL($('#page_content'));
                     }
-                    toggleRowColors($curr_row.next());
                     // Adjust the row numbers
                     for (var $row = $curr_row.next(); $row.length > 0; $row = $row.next()) {
                         var new_val = parseInt($row.find('td:nth-child(2)').text(), 10) - 1;
@@ -295,7 +300,12 @@ AJAX.registerOnload('tbl_structure.js', function () {
         $(this).PMA_confirm(question, $(this).attr('href'), function (url) {
             PMA_ajaxShowMessage();
             AJAX.source = $this;
-            $.post(url, {'ajax_request' : true, 'ajax_page_request' : true}, AJAX.responseHandler);
+            var params = {
+                'ajax_request' : true,
+                'ajax_page_request' : true,
+                'token': PMA_commonParams.get('token')
+            };
+            $.post(url, params, AJAX.responseHandler);
         }); // end $.PMA_confirm()
     }); //end Add key
 
@@ -450,10 +460,14 @@ AJAX.registerOnload('tbl_structure.js', function () {
         var $link = $(this);
 
         function submitPartitionAction(url) {
-            var submitData = '&ajax_request=true&ajax_page_request=true';
+            var params = {
+                'ajax_request' : true,
+                'ajax_page_request' : true,
+                'token': PMA_commonParams.get('token')
+            };
             PMA_ajaxShowMessage();
             AJAX.source = $link;
-            $.post(url, submitData, AJAX.responseHandler);
+            $.post(url, params, AJAX.responseHandler);
         }
 
         if ($link.is('#partition_action_DROP')) {
@@ -479,10 +493,14 @@ AJAX.registerOnload('tbl_structure.js', function () {
         var $link = $(this);
         var question = PMA_messages.strRemovePartitioningWarning;
         $link.PMA_confirm(question, $link.attr('href'), function (url) {
-            var submitData = '&ajax_request=true&ajax_page_request=true';
+            var params = {
+                'ajax_request' : true,
+                'ajax_page_request' : true,
+                'token': PMA_commonParams.get('token')
+            };
             PMA_ajaxShowMessage();
             AJAX.source = $link;
-            $.post(url, submitData, AJAX.responseHandler);
+            $.post(url, params, AJAX.responseHandler);
         });
     });
 });

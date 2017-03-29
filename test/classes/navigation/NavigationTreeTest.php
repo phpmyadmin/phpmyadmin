@@ -18,7 +18,6 @@ $GLOBALS['cfg']['Server']['DisableIS'] = false;
 
 require_once 'libraries/database_interface.inc.php';
 require_once 'libraries/relation.lib.php';
-require_once 'libraries/url_generating.lib.php';
 require_once 'libraries/check_user_privileges.lib.php';
 require_once 'test/PMATestCase.php';
 
@@ -53,8 +52,6 @@ class NavigationTreeTest extends PMATestCase
         $GLOBALS['cfg']['ShowDatabasesNavigationAsTree']  = true;
 
         $GLOBALS['pmaThemeImage'] = 'image';
-        $_SESSION['PMA_Theme'] = Theme::load('./themes/pmahomme');
-        $_SESSION['PMA_Theme'] = new Theme();
         $this->object = new PMA\libraries\navigation\NavigationTree();
     }
 

@@ -55,6 +55,7 @@ function checkResult($result, $error, $createStatement, $errors)
  */
 function PMA_RTE_sendEditor($type, $mode, $item, $title, $db, $operation = null)
 {
+    $response = Response::getInstance();
     if ($item !== false) {
         // Show form
         if ($type == 'TRI') {
@@ -62,8 +63,7 @@ function PMA_RTE_sendEditor($type, $mode, $item, $title, $db, $operation = null)
         } else { // EVN
             $editor = PMA_EVN_getEditorForm($mode, $operation, $item);
         }
-        if ($GLOBALS['is_ajax_request']) {
-            $response = PMA\libraries\Response::getInstance();
+        if ($response->isAjax()) {
             $response->addJSON('message', $editor);
             $response->addJSON('title', $title);
         } else {
@@ -79,8 +79,7 @@ function PMA_RTE_sendEditor($type, $mode, $item, $title, $db, $operation = null)
             htmlspecialchars(PMA\libraries\Util::backquote($db))
         );
         $message = Message::error($message);
-        if ($GLOBALS['is_ajax_request']) {
-            $response = PMA\libraries\Response::getInstance();
+        if ($response->isAjax()) {
             $response->setRequestStatus(false);
             $response->addJSON('message', $message);
             exit;

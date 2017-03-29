@@ -8,6 +8,8 @@
 use PMA\libraries\Message;
 use PMA\libraries\Response;
 use PMA\libraries\Tracker;
+use PMA\libraries\URL;
+use PMA\libraries\Sanitize;
 
 /**
  * Filters tracking entries
@@ -59,7 +61,7 @@ function PMA_getHtmlForDataDefinitionAndManipulationStatements($url_query,
 ) {
     $html  = '<div id="div_create_version">';
     $html .= '<form method="post" action="' . $url_query . '">';
-    $html .= PMA_URL_getHiddenInputs($db);
+    $html .= URL::getHiddenInputs($db);
     foreach ($selected as $selected_table) {
         $html .= '<input type="hidden" name="selected[]"'
             . ' value="' . htmlspecialchars($selected_table) . '" />';
@@ -197,6 +199,7 @@ function PMA_getHtmlForActivateDeactivateTracking(
 ) {
     $html = '<div>';
     $html .= '<form method="post" action="tbl_tracking.php' . $url_query . '">';
+    $html .= URL::getHiddenInputs($GLOBALS['db'], $GLOBALS['table']);
     $html .= '<fieldset>';
     $html .= '<legend>';
 
@@ -273,7 +276,7 @@ function PMA_getHtmlForTableVersionDetails(
 
     $html  = '<form method="post" action="tbl_tracking.php" name="versionsForm"'
         . ' id="versionsForm" class="ajax">';
-    $html .= PMA_URL_getHiddenInputs($GLOBALS['db'], $GLOBALS['table']);
+    $html .= URL::getHiddenInputs($GLOBALS['db'], $GLOBALS['table']);
     $html .= '<table id="versions" class="data">';
     $html .= '<thead>';
     $html .= '<tr>';
@@ -288,7 +291,6 @@ function PMA_getHtmlForTableVersionDetails(
     $html .= '</thead>';
     $html .= '<tbody>';
 
-    $style = 'odd';
     $GLOBALS['dbi']->dataSeek($sql_result, 0);
     $delete = PMA\libraries\Util::getIcon('b_drop.png', __('Delete version'));
     $report = PMA\libraries\Util::getIcon('b_report.png', __('Tracking report'));
@@ -310,7 +312,7 @@ function PMA_getHtmlForTableVersionDetails(
             . '&amp;submit_delete_version=true';
         $checkbox_id = 'selected_versions_' . htmlspecialchars($version['version']);
 
-        $html .= '<tr class="' . $style . '">';
+        $html .= '<tr>';
         $html .= '<td class="center">';
         $html .= '<input type="checkbox" name="selected_versions[]"'
             . ' class="checkall" id="' . $checkbox_id . '"'
@@ -326,7 +328,7 @@ function PMA_getHtmlForTableVersionDetails(
         $html .= '<td><a class="delete_version_anchor ajax"'
             . ' href="' . $delete_link . '" >' . $delete . '</a></td>';
         $html .= '<td><a href="tbl_tracking.php';
-        $html .= PMA_URL_getCommon(
+        $html .= URL::getCommon(
             $url_params + array(
                 'report' => 'true', 'version' => $version['version']
             )
@@ -334,7 +336,7 @@ function PMA_getHtmlForTableVersionDetails(
         $html .= '">' . $report . '</a>';
         $html .= '&nbsp;&nbsp;';
         $html .= '<a href="tbl_tracking.php';
-        $html .= PMA_URL_getCommon(
+        $html .= URL::getCommon(
             $url_params + array(
                 'snapshot' => 'true', 'version' => $version['version']
             )
@@ -342,24 +344,21 @@ function PMA_getHtmlForTableVersionDetails(
         $html .= '">' . $structure . '</a>';
         $html .= '</td>';
         $html .= '</tr>';
-
-        if ($style == 'even') {
-            $style = 'odd';
-        } else {
-            $style = 'even';
-        }
     }
 
     $html .= '</tbody>';
     $html .= '</table>';
 
-    $html .= PMA\libraries\Util::getWithSelected(
-        $pmaThemeImage,
-        $text_dir,
-        "versionsForm"
-    );
+    $html .= PMA\libraries\Template::get('select_all')
+        ->render(
+            array(
+                'pmaThemeImage' => $pmaThemeImage,
+                'text_dir'      => $text_dir,
+                'formName'      => 'versionsForm',
+            )
+        );
     $html .= PMA\libraries\Util::getButtonOrImage(
-        'submit_mult', 'mult_submit', 'submit_mult_delete_version',
+        'submit_mult', 'mult_submit',
         __('Delete version'), 'b_drop.png', 'delete_version'
     );
 
@@ -422,6 +421,7 @@ function PMA_getSQLResultForSelectableTables()
 function PMA_getHtmlForSelectableTables($selectable_tables_sql_result, $url_query)
 {
     $html = '<form method="post" action="tbl_tracking.php' . $url_query . '">';
+    $html .= URL::getHiddenInputs($GLOBALS['db'], $GLOBALS['table']);
     $html .= '<select name="table" class="autosubmit">';
     while ($entries = $GLOBALS['dbi']->fetchArray($selectable_tables_sql_result)) {
         if (Tracker::isTracked($entries['db_name'], $entries['table_name'])) {
@@ -573,12 +573,13 @@ function PMA_getHtmlForTrackingReportExportForm1(
     $ddlog_count = 0;
 
     $html = '<form method="post" action="tbl_tracking.php'
-        . PMA_URL_getCommon(
+        . URL::getCommon(
             $url_params + array(
                 'report' => 'true', 'version' => $_REQUEST['version']
             )
         )
         . '">';
+    $html .= URL::getHiddenInputs();
 
     $html .= sprintf(
         __('Show %1$s with dates from %2$s to %3$s by user %4$s %5$s'),
@@ -623,12 +624,13 @@ function PMA_getHtmlForTrackingReportExportForm2(
     $url_params, $str1, $str2, $str3, $str4, $str5
 ) {
     $html = '<form method="post" action="tbl_tracking.php'
-        . PMA_URL_getCommon(
+        . URL::getCommon(
             $url_params + array(
                 'report' => 'true', 'version' => $_REQUEST['version']
             )
         )
         . '">';
+    $html .= URL::getHiddenInputs();
     $html .= sprintf(
         __('Show %1$s with dates from %2$s to %3$s by user %4$s %5$s'),
         $str1, $str2, $str3, $str4, $str5
@@ -636,11 +638,12 @@ function PMA_getHtmlForTrackingReportExportForm2(
     $html .= '</form>';
 
     $html .= '<form class="disableAjax" method="post" action="tbl_tracking.php'
-        . PMA_URL_getCommon(
+        . URL::getCommon(
             $url_params
             + array('report' => 'true', 'version' => $_REQUEST['version'])
         )
         . '">';
+    $html .= URL::getHiddenInputs();
     $html .= '<input type="hidden" name="logtype" value="'
         . htmlspecialchars($_REQUEST['logtype']) . '" />';
     $html .= '<input type="hidden" name="date_from" value="'
@@ -655,7 +658,7 @@ function PMA_getHtmlForTrackingReportExportForm2(
         . '</option>'
         . '<option value="sqldump">' . __('SQL dump') . '</option>'
         . '<option value="execution" onclick="alert(\''
-        . PMA_escapeJsString(
+        . Sanitize::escapeJsString(
             __('This option will replace your table and contained data.')
         )
         . '\')">' . __('SQL execution') . '</option>' . '</select>';
@@ -703,7 +706,6 @@ function PMA_getHtmlForDataManipulationStatements($data, $filter_users,
  * @param array  $filter_users       filter users
  * @param int    $filter_ts_from     filter time stamp from
  * @param int    $filter_ts_to       filter time stamp to
- * @param string $style              style
  * @param int    $line_number        line number
  * @param array  $url_params         url parameters
  * @param int    $offset             line number offset
@@ -713,7 +715,7 @@ function PMA_getHtmlForDataManipulationStatements($data, $filter_users,
  * @return string
  */
 function PMA_getHtmlForOneStatement($entry, $filter_users,
-    $filter_ts_from, $filter_ts_to, $style, $line_number, $url_params, $offset,
+    $filter_ts_from, $filter_ts_to, $line_number, $url_params, $offset,
     $drop_image_or_text, $delete_param
 ) {
     $statement  = PMA\libraries\Util::formatSql($entry['statement'], true);
@@ -725,7 +727,7 @@ function PMA_getHtmlForOneStatement($entry, $filter_users,
         && $timestamp <= $filter_ts_to
         && (in_array('*', $filter_users) || $filtered_user)
     ) {
-        $html = '<tr class="noclick ' . $style . '">';
+        $html = '<tr class="noclick">';
         $html .= '<td class="right"><small>' . $line_number . '</small></td>';
         $html .= '<td><small>'
             . htmlspecialchars($entry['date']) . '</small></td>';
@@ -734,7 +736,7 @@ function PMA_getHtmlForOneStatement($entry, $filter_users,
         $html .= '<td>' . $statement . '</td>';
         $html .= '<td class="nowrap"><a  class="delete_entry_anchor ajax"'
             . ' href="tbl_tracking.php'
-            . PMA_URL_getCommon(
+            . URL::getCommon(
                 $url_params + array(
                     'report' => 'true',
                     'version' => $_REQUEST['version'],
@@ -806,18 +808,12 @@ function PMA_getHtmlForDataStatements($data, $filter_users,
     $html .= '</thead>';
     $html .= '<tbody>';
 
-    $style = 'odd';
     foreach ($data[$which_log] as $entry) {
         $html .= PMA_getHtmlForOneStatement(
-            $entry, $filter_users, $filter_ts_from, $filter_ts_to, $style,
+            $entry, $filter_users, $filter_ts_from, $filter_ts_to,
             $line_number, $url_params, $offset, $drop_image_or_text,
             'delete_' . $which_log
         );
-        if ($style == 'even') {
-            $style = 'odd';
-        } else {
-            $style = 'even';
-        }
         $line_number++;
     }
     $html .= '</tbody>';
@@ -900,15 +896,9 @@ function PMA_getHtmlForColumns($columns)
     $html .= '</tr>';
     $html .= '</thead>';
     $html .= '<tbody>';
-    $style = 'odd';
     $index = 1;
     foreach ($columns as $field) {
-        $html .= PMA_getHtmlForField($index++, $field, $style);
-        if ($style == 'even') {
-            $style = 'odd';
-        } else {
-            $style = 'even';
-        }
+        $html .= PMA_getHtmlForField($index++, $field);
     }
 
     $html .= '</tbody>';
@@ -922,13 +912,12 @@ function PMA_getHtmlForColumns($columns)
  *
  * @param int    $index index
  * @param array  $field field
- * @param string $style style
  *
  * @return string
  */
-function PMA_getHtmlForField($index, $field, $style)
+function PMA_getHtmlForField($index, $field)
 {
-    $html = '<tr class="noclick ' . $style . '">';
+    $html = '<tr class="noclick">';
     $html .= '<td>' . $index . '</td>';
     $html .= '<td><b>' . htmlspecialchars($field['Field']);
     if ($field['Key'] == 'PRI') {
@@ -996,14 +985,8 @@ function PMA_getHtmlForIndexes($indexes)
     $html .= '</tr>';
     $html .= '<tbody>';
 
-    $style = 'odd';
     foreach ($indexes as $index) {
-        $html .= PMA_getHtmlForIndex($index, $style);
-        if ($style == 'even') {
-            $style = 'odd';
-        } else {
-            $style = 'even';
-        }
+        $html .= PMA_getHtmlForIndex($index);
     }
     $html .= '</tbody>';
     $html .= '</table>';
@@ -1014,11 +997,10 @@ function PMA_getHtmlForIndexes($indexes)
  * Function to get html for an index in schema snapshot
  *
  * @param array  $index index
- * @param string $style style
  *
  * @return string
  */
-function PMA_getHtmlForIndex($index, $style)
+function PMA_getHtmlForIndex($index)
 {
     if ($index['Non_unique'] == 0) {
         $str_unique = __('Yes');
@@ -1031,7 +1013,7 @@ function PMA_getHtmlForIndex($index, $style)
         $str_packed = __('No');
     }
 
-    $html  = '<tr class="noclick ' . $style . '">';
+    $html  = '<tr class="noclick">';
     $html .= '<td><b>' . htmlspecialchars($index['Key_name']) . '</b></td>';
     $html .= '<td>' . htmlspecialchars($index['Index_type']) . '</td>';
     $html .= '<td>' . $str_unique . '</td>';
@@ -1196,7 +1178,7 @@ function PMA_exportAsFileDownload($entries)
         $dump .= $entry['statement'];
     }
     $filename = 'log_' . $table . '.sql';
-    PMA\libraries\Response::getInstance()->disable();
+    Response::getInstance()->disable();
     PMA_downloadHeader(
         $filename,
         'text/x-sql',
@@ -1467,7 +1449,7 @@ function PMA_displayUntrackedTables(
     <form method="post" action="db_tracking.php" name="untrackedForm"
         id="untrackedForm" class="ajax">
     <?php
-    echo PMA_URL_getHiddenInputs($db)
+    echo URL::getHiddenInputs($db)
     ?>
     <table id="noversions" class="data">
     <thead>
@@ -1481,21 +1463,23 @@ function PMA_displayUntrackedTables(
     <?php
 
     // Print out list of untracked tables
-    $style = 'odd';
     foreach ($untracked_tables as $key => $tablename) {
-        $style = PMA_displayOneUntrackedTable($db, $tablename, $url_query, $style);
+        PMA_displayOneUntrackedTable($db, $tablename, $url_query);
     }
     ?>
     </tbody>
     </table>
     <?php
-    echo PMA\libraries\Util::getWithSelected(
-        $pmaThemeImage,
-        $text_dir,
-        "untrackedForm"
-    );
+    echo PMA\libraries\Template::get('select_all')
+        ->render(
+            array(
+                'pmaThemeImage' => $pmaThemeImage,
+                'text_dir'      => $text_dir,
+                'formName'      => 'untrackedForm',
+            )
+        );
     echo PMA\libraries\Util::getButtonOrImage(
-        'submit_mult', 'mult_submit', 'submit_mult_track',
+        'submit_mult', 'mult_submit',
         __('Track table'), 'eye.png', 'track'
     );
     ?>
@@ -1509,11 +1493,10 @@ function PMA_displayUntrackedTables(
  * @param string $db        current database
  * @param string $tablename the table name for which to display a line
  * @param string $url_query url query string
- * @param string $style     odd|even
  *
- * @return string $style        changed style (even|odd)
+ * @return void
  */
-function PMA_displayOneUntrackedTable($db, $tablename, $url_query, $style)
+function PMA_displayOneUntrackedTable($db, $tablename, $url_query)
 {
     $checkbox_id = "selected_tbl_"
         . htmlspecialchars($tablename);
@@ -1523,7 +1506,7 @@ function PMA_displayOneUntrackedTable($db, $tablename, $url_query, $style)
         $my_link .= PMA\libraries\Util::getIcon('eye.png', __('Track table'));
         $my_link .= '</a>';
         ?>
-        <tr class="<?php echo $style;?>">
+        <tr>
             <td class="center">
                 <input type="checkbox" name="selected_tbl[]"
                     class="checkall" id="<?php echo $checkbox_id;?>"
@@ -1537,14 +1520,35 @@ function PMA_displayOneUntrackedTable($db, $tablename, $url_query, $style)
             <td><?php echo $my_link;?></td>
         </tr>
         <?php
-        if ($style == 'even') {
-            $style = 'odd';
-        } else {
-            $style = 'even';
+    }
+}
+
+/**
+ * Helper function: Recursive function for getting table names from $table_list
+ *
+ * @param string $db current database
+ *
+ * @return array $untracked_tables
+ */
+function PMA_extractTableNames($table_list, $db, $testing=false) {
+    $untracked_tables = array();
+    $sep = $GLOBALS['cfg']['NavigationTreeTableSeparator'];
+
+    foreach ($table_list as $key => $value) {
+        if (is_array($value) && array_key_exists(('is' . $sep . 'group'), $value)
+            && $value['is' . $sep . 'group']
+        ) {
+            $untracked_tables = array_merge(PMA_extractTableNames($value, $db), $untracked_tables); //Recursion step
+        }
+        else {
+            if (is_array($value) && ($testing || Tracker::getVersion($db, $value['Name']) == -1)) {
+                $untracked_tables[] = $value['Name'];
+            }
         }
     }
-    return $style;
+    return $untracked_tables;
 }
+
 
 /**
  * Get untracked tables
@@ -1555,39 +1559,8 @@ function PMA_displayOneUntrackedTable($db, $tablename, $url_query, $style)
  */
 function PMA_getUntrackedTables($db)
 {
-    $untracked_tables = array();
-    $sep = $GLOBALS['cfg']['NavigationTreeTableSeparator'];
-
-    // Get list of tables
     $table_list = PMA\libraries\Util::getTableList($db);
-
-    // For each table try to get the tracking version
-    foreach ($table_list as $key => $value) {
-        // If $value is a table group.
-        if (array_key_exists(('is' . $sep . 'group'), $value)
-            && $value['is' . $sep . 'group']
-        ) {
-            foreach ($value as $temp_table) {
-                // If $temp_table is a table with the value for 'Name' is set,
-                // rather than a property of the table group.
-                if (is_array($temp_table)
-                    && array_key_exists('Name', $temp_table)
-                ) {
-                    $tracking_version = Tracker::getVersion(
-                        $db,
-                        $temp_table['Name']
-                    );
-                    if ($tracking_version == -1) {
-                        $untracked_tables[] = $temp_table['Name'];
-                    }
-                }
-            }
-        } else { // If $value is a table.
-            if (Tracker::getVersion($db, $value['Name']) == -1) {
-                $untracked_tables[] = $value['Name'];
-            }
-        }
-    }
+    $untracked_tables = PMA_extractTableNames($table_list, $db);  //Use helper function to get table list recursively.
     return $untracked_tables;
 }
 
@@ -1613,7 +1586,7 @@ function PMA_displayTrackedTables(
     <form method="post" action="db_tracking.php" name="trackedForm"
         id="trackedForm" class="ajax">
     <?php
-    echo PMA_URL_getHiddenInputs($db)
+    echo URL::getHiddenInputs($db)
     ?>
     <table id="versions" class="data">
     <thead>
@@ -1641,7 +1614,6 @@ function PMA_displayTrackedTables(
         __('Structure snapshot')
     );
 
-    $style = 'odd';
     while ($one_result = $GLOBALS['dbi']->fetchArray($all_tables_result)) {
         list($table_name, $version_number) = $one_result;
         $table_query = ' SELECT * FROM ' .
@@ -1664,7 +1636,7 @@ function PMA_displayTrackedTables(
         $checkbox_id = "selected_tbl_"
             . htmlspecialchars($version_data['table_name']);
         ?>
-        <tr class="<?php echo $style;?>">
+        <tr>
             <td class="center">
                 <input type="checkbox" name="selected_tbl[]"
                 class="checkall" id="<?php echo $checkbox_id;?>"
@@ -1699,23 +1671,21 @@ function PMA_displayTrackedTables(
             , $version_data['version'] , '">' , $structure , '</a>'
             , '</td>'
             , '</tr>';
-        if ($style == 'even') {
-            $style = 'odd';
-        } else {
-            $style = 'even';
-        }
     }
     ?>
     </tbody>
     </table>
     <?php
-    echo PMA\libraries\Util::getWithSelected(
-        $pmaThemeImage,
-        $text_dir,
-        "trackedForm"
-    );
+    echo PMA\libraries\Template::get('select_all')
+        ->render(
+            array(
+                'pmaThemeImage' => $pmaThemeImage,
+                'text_dir'      => $text_dir,
+                'formName'      => 'trackedForm',
+            )
+        );
     echo PMA\libraries\Util::getButtonOrImage(
-        'submit_mult', 'mult_submit', 'submit_mult_delete_tracking',
+        'submit_mult', 'mult_submit',
         __('Delete tracking'), 'b_drop.png', 'delete_tracking'
     );
     ?>

@@ -14,6 +14,7 @@ use PMA\libraries\Index;
 use PMA\libraries\Message;
 use PMA\libraries\Template;
 use PMA\libraries\Util;
+use PMA\libraries\Response;
 
 
 /**
@@ -148,7 +149,8 @@ class TableIndexesController extends TableController
         } elseif (!$error) {
 
             $this->dbi->query($sql_query);
-            if ($GLOBALS['is_ajax_request'] == true) {
+            $response = Response::getInstance();
+            if ($response->isAjax()) {
                 $message = Message::success(
                     __('Table %1$s has been altered successfully.')
                 );

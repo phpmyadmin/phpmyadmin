@@ -7,6 +7,9 @@
  */
 namespace PMA\libraries;
 
+use PMA\libraries\URL;
+use PMA\libraries\Sanitize;
+
 /**
  * Class to handle database search
  *
@@ -213,14 +216,14 @@ class DbSearch
 
         foreach ($search_words as $search_word) {
             // Eliminates empty values
-            if (mb_strlen($search_word) === 0) {
+            if (strlen($search_word) === 0) {
                 continue;
             }
             $likeClausesPerColumn = array();
             // for each column in the table
             foreach ($allColumns as $column) {
                 if (! isset($this->_criteriaColumnName)
-                    || mb_strlen($this->_criteriaColumnName) == 0
+                    || strlen($this->_criteriaColumnName) === 0
                     || $column['Field'] == $this->_criteriaColumnName
                 ) {
                     $column = 'CONVERT(' . Util::backquote($column['Field'])
@@ -269,7 +272,6 @@ class DbSearch
             . '</caption>';
 
         $num_search_result_total = 0;
-        $odd_row = true;
         // For each table selected as search criteria
         foreach ($this->_criteriaTables as $each_table) {
             // Gets the SQL statements
@@ -279,9 +281,8 @@ class DbSearch
             $num_search_result_total += $res_cnt;
             // Gets the result row's HTML for a table
             $html_output .= $this->_getResultsRow(
-                $each_table, $newsearchsqls, $odd_row, $res_cnt
+                $each_table, $newsearchsqls, $res_cnt
             );
-            $odd_row = ! $odd_row;
         } // end for
         $html_output .= '</table>';
         // Displays total number of matches
@@ -306,12 +307,11 @@ class DbSearch
      *
      * @param string  $each_table    One of the tables on which search was performed
      * @param array   $newsearchsqls Contains SQL queries
-     * @param bool    $odd_row       For displaying contrasting table rows
      * @param integer $res_cnt       Number of results found
      *
      * @return string HTML row
      */
-    private function _getResultsRow($each_table, $newsearchsqls, $odd_row, $res_cnt)
+    private function _getResultsRow($each_table, $newsearchsqls, $res_cnt)
     {
         $this_url_params = array(
             'db'    => $GLOBALS['db'],
@@ -321,7 +321,7 @@ class DbSearch
             'is_js_confirmed' => 0,
         );
         // Start forming search results row
-        $html_output = '<tr class="noclick ' . ($odd_row ? 'odd' : 'even') . '">';
+        $html_output = '<tr class="noclick">';
         // Displays results count for a table
         $html_output .= '<td>';
         $html_output .= sprintf(
@@ -336,7 +336,7 @@ class DbSearch
         if ($res_cnt > 0) {
             $this_url_params['db'] = htmlspecialchars($GLOBALS['db']);
             $this_url_params['table'] = htmlspecialchars($each_table);
-            $browse_result_path = 'sql.php' . PMA_URL_getCommon($this_url_params);
+            $browse_result_path = 'sql.php' . URL::getCommon($this_url_params);
             $html_output .= '<td><a name="browse_search" '
                 . ' class="ajax browse_results" href="'
                 . $browse_result_path . '" '
@@ -370,7 +370,7 @@ class DbSearch
         $html_output .= '<form id="db_search_form"'
             . ' class="ajax lock-page"'
             . ' method="post" action="db_search.php" name="db_search">';
-        $html_output .= PMA_URL_getHiddenInputs($GLOBALS['db']);
+        $html_output .= URL::getHiddenInputs($GLOBALS['db']);
         $html_output .= '<fieldset>';
         // set legend caption
         $html_output .= '<legend>' . __('Search in database') . '</legend>';

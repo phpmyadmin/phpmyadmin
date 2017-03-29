@@ -18,14 +18,14 @@ $uri = isset($uri) ? $uri : null;
     <meta http-equiv="Refresh" content="0;url=<?= htmlspecialchars($uri) ?>" />
     <script type="text/javascript">
         //<![CDATA[
-        setTimeout("window.location = decodeURI('<?= PMA_escapeJsString($uri) ?>')", 2000);
+        setTimeout("window.location = decodeURI('<?= PMA\libraries\Sanitize::escapeJsString($uri) ?>')", 2000);
         //]]>
     </script>
 </head>
 <body>
 <script type="text/javascript">
     //<![CDATA[
-    document.write('<p><a href="<?= PMA_escapeJsString(htmlspecialchars($uri)) ?>"><?php echo __('Go') ?></a></p>');
+    document.write('<p><a href="<?= PMA\libraries\Sanitize::escapeJsString(htmlspecialchars($uri)) ?>"><?php echo __('Go') ?></a></p>');
     //]]>
 </script>
 </body>

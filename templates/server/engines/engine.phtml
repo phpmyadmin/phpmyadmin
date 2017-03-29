@@ -14,7 +14,7 @@
             <?php if (empty($_REQUEST['page'])): ?>
                 <strong><?= __('Variables'); ?></strong>
             <?php else: ?>
-                <a href="server_engines.php<?= PMA_URL_getCommon(array('engine' => $_REQUEST['engine'])); ?>">
+                <a href="server_engines.php<?= \PMA\libraries\URL::getCommon(array('engine' => $_REQUEST['engine'])); ?>">
                     <?= __('Variables'); ?>
                 </a>
             <?php endif; ?>
@@ -23,7 +23,7 @@
                 <?php if (isset($_REQUEST['page']) && $_REQUEST['page'] == $current): ?>
                     <strong><?= htmlspecialchars($label); ?></strong>
                 <?php else: ?>
-                    <a href="server_engines.php<?= PMA_URL_getCommon(array('engine' => $_REQUEST['engine'], 'page' => $current)); ?>">
+                    <a href="server_engines.php<?= \PMA\libraries\URL::getCommon(array('engine' => $_REQUEST['engine'], 'page' => $current)); ?>">
                         <?= htmlspecialchars($label); ?>
                     </a>
                 <?php endif; ?>

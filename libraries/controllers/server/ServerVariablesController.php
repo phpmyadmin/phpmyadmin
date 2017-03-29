@@ -11,8 +11,10 @@ namespace PMA\libraries\controllers\server;
 
 use PMA\libraries\controllers\Controller;
 use PMA\libraries\Message;
+use PMA\libraries\Response;
 use PMA\libraries\Template;
 use PMA\libraries\Util;
+use PMA\libraries\URL;
 
 /**
  * Handles viewing and editing server variables
@@ -43,7 +45,8 @@ class ServerVariablesController extends Controller
      */
     public function indexAction()
     {
-        if (! empty($_REQUEST['ajax_request'])
+        $response = Response::getInstance();
+        if ($response->isAjax()
             && isset($_REQUEST['type'])
             && $_REQUEST['type'] === 'getval'
         ) {
@@ -51,7 +54,7 @@ class ServerVariablesController extends Controller
             return;
         }
 
-        if (! empty($_REQUEST['ajax_request'])
+        if ($response->isAjax()
             && isset($_REQUEST['type'])
             && $_REQUEST['type'] === 'setval'
         ) {
@@ -181,7 +184,7 @@ class ServerVariablesController extends Controller
                 'gb' => 3,
                 'gib' => 3
             );
-            $value = floatval($matches[1]) * Util::pow(
+            $value = floatval($matches[1]) * pow(
                 1024,
                 $exp[mb_strtolower($matches[3])]
             );
@@ -204,15 +207,23 @@ class ServerVariablesController extends Controller
                 . $GLOBALS['dbi']->escapeString($_REQUEST['varName'])
                 . '";', 'NUM'
             );
-            $this->response->addJSON(
-                'variable',
-                htmlspecialchars(
-                    $this->_formatVariable(
-                        $_REQUEST['varName'],
-                        $varValue[1]
-                    )
-                )
+            list($formattedValue, $isHtmlFormatted) = $this->_formatVariable(
+                $_REQUEST['varName'], $varValue[1]
             );
+
+            if ($isHtmlFormatted == false) {
+                $this->response->addJSON(
+                    'variable',
+                    htmlspecialchars(
+                        $formattedValue
+                    )
+                );
+            } else {
+                $this->response->addJSON(
+                    'variable',
+                    $formattedValue
+                );
+            }
         } else {
             $this->response->setRequestStatus(false);
             $this->response->addJSON(
@@ -228,23 +239,33 @@ class ServerVariablesController extends Controller
      * @param string  $name  variable name
      * @param integer $value variable value
      *
-     * @return string formatted string
+     * @return array formatted string and bool if string is HTML formatted
      */
     private function _formatVariable($name, $value)
     {
+        $isHtmlFormatted = false;
+        $formattedValue = $value;
+
         if (is_numeric($value)) {
             if (isset($this->variable_doc_links[$name][3])
-                && $this->variable_doc_links[$name][3]=='byte'
+                && $this->variable_doc_links[$name][3] == 'byte'
             ) {
-                return '<abbr title="'
-                    . Util::formatNumber($value, 0) . '">'
-                    . implode(' ', Util::formatByteDown($value, 3, 3))
+                $isHtmlFormatted = true;
+                $formattedValue = '<abbr title="'
+                    . htmlspecialchars(Util::formatNumber($value, 0)) . '">'
+                    . htmlspecialchars(
+                        implode(' ', Util::formatByteDown($value, 3, 3))
+                    )
                     . '</abbr>';
             } else {
-                return Util::formatNumber($value, 0);
+                $formattedValue = Util::formatNumber($value, 0);
             }
         }
-        return $value;
+
+        return array(
+            $formattedValue,
+            $isHtmlFormatted
+        );
     }
 
     /**
@@ -254,7 +275,7 @@ class ServerVariablesController extends Controller
      */
     private function _getHtmlForLinkTemplates()
     {
-        $url = 'server_variables.php' . PMA_URL_getCommon();
+        $url = 'server_variables.php' . URL::getCommon();
         return Template::get('server/variables/link_template')
             ->render(array('url' => $url));
     }
@@ -271,7 +292,7 @@ class ServerVariablesController extends Controller
     {
         // filter
         $filterValue = ! empty($_REQUEST['filter']) ? $_REQUEST['filter'] : '';
-        $output = Template::get('server/variables/variable_filter')
+        $output = Template::get('filter')
             ->render(array('filterValue' => $filterValue));
 
         $output .= '<table id="serverVariables" class="data filteredData noclick">';
@@ -300,25 +321,24 @@ class ServerVariablesController extends Controller
     private function _getHtmlForServerVariablesItems(
         $serverVars, $serverVarsSession
     ) {
-        // list of static system variables
+        // list of static (i.e. non-editable) system variables
         $static_variables = $this->_getStaticSystemVariables();
 
         $output = '';
-        $odd_row = true;
         foreach ($serverVars as $name => $value) {
             $has_session_value = isset($serverVarsSession[$name])
                 && $serverVarsSession[$name] != $value;
-            $row_class = ($odd_row ? ' odd' : ' even')
-                . ($has_session_value ? ' diffSession' : '');
+            $row_class = ($has_session_value ? ' diffSession' : '');
             $docLink = isset($this->variable_doc_links[$name])
                 ? $this->variable_doc_links[$name] : null;
-            $formattedValue = $this->_formatVariable($name, $value);
+
+            list($formattedValue, $isHtmlFormatted) = $this->_formatVariable($name, $value);
 
             $output .= Template::get('server/variables/variable_row')
                 ->render(
                     array(
                         'rowClass'    => $row_class,
-                        'editable'    => !in_array(
+                        'editable'    => ! in_array(
                             strtolower($name),
                             $static_variables
                         ),
@@ -326,11 +346,12 @@ class ServerVariablesController extends Controller
                         'name'        => $name,
                         'value'       => $formattedValue,
                         'isSuperuser' => $this->dbi->isSuperuser(),
+                        'isHtmlFormatted' => $isHtmlFormatted,
                     )
                 );
 
             if ($has_session_value) {
-                $formattedValue = $this->_formatVariable(
+                list($formattedValue, $isHtmlFormatted)= $this->_formatVariable(
                     $name, $serverVarsSession[$name]
                 );
                 $output .= Template::get('server/variables/session_variable_row')
@@ -338,11 +359,11 @@ class ServerVariablesController extends Controller
                         array(
                             'rowClass' => $row_class,
                             'value'    => $formattedValue,
+                            'isHtmlFormatted' => $isHtmlFormatted,
                         )
                     );
             }
 
-            $odd_row = ! $odd_row;
         }
 
         return $output;
@@ -385,6 +406,10 @@ class ServerVariablesController extends Controller
             'automatic_sp_privileges',
             'server-system-variables',
             'sysvar');
+        $variable_doc_links['avoid_temporal_upgrade'] = array(
+            'avoid_temporal_upgrade',
+            'server-system-variables',
+            'sysvar');
         $variable_doc_links['back_log'] = array(
             'back_log',
             'server-system-variables',
@@ -414,9 +439,25 @@ class ServerVariablesController extends Controller
             'binlog_direct_non_transactional_updates',
             'replication-options-binary-log',
             'sysvar');
+        $variable_doc_links['binlog_error_action'] = array(
+            'binlog_error_action',
+            'replication-options-binary-log',
+            'sysvar');
         $variable_doc_links['binlog_format'] = array(
             'binlog-format',
             'server-options',
+            'option_mysqld');
+        $variable_doc_links['binlog_group_commit_sync_delay'] = array(
+            'binlog_group_commit_sync_delay',
+            'replication-options-binary-log',
+            'sysvar');
+        $variable_doc_links['binlog_group_commit_sync_no_delay_count'] = array(
+            'binlog_group_commit_sync_no_delay_count',
+            'replication-options-binary-log',
+            'sysvar');
+        $variable_doc_links['binlog_gtid_simple_recovery'] = array(
+            'binlog_gtid_simple_recovery',
+            'replication-options-gtids',
             'sysvar');
         $variable_doc_links['binlog_max_flush_queue_time'] = array(
             'binlog_max_flush_queue_time',
@@ -480,6 +521,10 @@ class ServerVariablesController extends Controller
             'character-sets-dir',
             'server-options',
             'option_mysqld');
+        $variable_doc_links['check_proxy_users'] = array(
+            'check_proxy_users',
+            'server-system-variables',
+            'sysvar');
         $variable_doc_links['collation_connection'] = array(
             'collation_connection',
             'server-system-variables',
@@ -528,6 +573,14 @@ class ServerVariablesController extends Controller
             'debug_sync',
             'server-system-variables',
             'sysvar');
+        $variable_doc_links['default_authentication_plugin'] = array(
+            'default_authentication_plugin',
+            'server-system-variables',
+            'sysvar');
+        $variable_doc_links['default_password_lifetime'] = array(
+            'default_password_lifetime',
+            'server-system-variables',
+            'sysvar');
         $variable_doc_links['default_storage_engine'] = array(
             'default-storage-engine',
             'server-options',
@@ -554,6 +607,10 @@ class ServerVariablesController extends Controller
             'sysvar');
         $variable_doc_links['delayed_queue_size'] = array(
             'delayed_queue_size',
+            'server-system-variables',
+            'sysvar');
+        $variable_doc_links['disabled_storage_engines'] = array(
+            'disabled_storage_engines',
             'server-system-variables',
             'sysvar');
         $variable_doc_links['disconnect_on_expired_password'] = array(
@@ -648,6 +705,10 @@ class ServerVariablesController extends Controller
             'gtid_executed',
             'replication-options-gtids',
             'sysvar');
+        $variable_doc_links['gtid_executed_compression_period'] = array(
+            'gtid_executed_compression_period',
+            'replication-options-gtids',
+            'sysvar');
         $variable_doc_links['gtid_mode'] = array(
             'gtid_mode',
             'replication-options-gtids',
@@ -712,6 +773,10 @@ class ServerVariablesController extends Controller
             'have_ssl',
             'server-system-variables',
             'sysvar');
+        $variable_doc_links['have_statement_timeout'] = array(
+            'have_statement_timeout',
+            'server-system-variables',
+            'sysvar');
         $variable_doc_links['have_symlink'] = array(
             'have_symlink',
             'server-system-variables',
@@ -760,6 +825,10 @@ class ServerVariablesController extends Controller
             'innodb_adaptive_hash_index',
             'innodb-parameters',
             'sysvar');
+        $variable_doc_links['innodb_adaptive_hash_index_parts'] = array(
+            'innodb_adaptive_hash_index_parts',
+            'innodb-parameters',
+            'sysvar');
         $variable_doc_links['innodb_adaptive_max_sleep_delay'] = array(
             'innodb_adaptive_max_sleep_delay',
             'innodb-parameters',
@@ -797,12 +866,21 @@ class ServerVariablesController extends Controller
             'innodb_autoinc_lock_mode',
             'innodb-parameters',
             'sysvar');
+        $variable_doc_links['innodb_buffer_pool_chunk_size'] = array(
+            'innodb_buffer_pool_chunk_size',
+            'innodb-parameters',
+            'sysvar',
+            'byte');
         $variable_doc_links['innodb_buffer_pool_dump_at_shutdown'] = array(
             'innodb_buffer_pool_dump_at_shutdown',
             'innodb-parameters',
             'sysvar');
         $variable_doc_links['innodb_buffer_pool_dump_now'] = array(
             'innodb_buffer_pool_dump_now',
+            'innodb-parameters',
+            'sysvar');
+        $variable_doc_links['innodb_buffer_pool_dump_pct'] = array(
+            'innodb_buffer_pool_dump_pct',
             'innodb-parameters',
             'sysvar');
         $variable_doc_links['innodb_buffer_pool_filename'] = array(
@@ -906,6 +984,10 @@ class ServerVariablesController extends Controller
             'innodb_file_per_table',
             'innodb-parameters',
             'sysvar');
+        $variable_doc_links['innodb_fill_factor'] = array(
+            'innodb_fill_factor',
+            'innodb-parameters',
+            'sysvar');
         $variable_doc_links['innodb_flush_log_at_timeout'] = array(
             'innodb_flush_log_at_timeout',
             'innodb-parameters',
@@ -920,6 +1002,10 @@ class ServerVariablesController extends Controller
             'sysvar');
         $variable_doc_links['innodb_flush_neighbors'] = array(
             'innodb_flush_neighbors',
+            'innodb-parameters',
+            'sysvar');
+        $variable_doc_links['innodb_flush_sync'] = array(
+            'innodb_flush_sync',
             'innodb-parameters',
             'sysvar');
         $variable_doc_links['innodb_flushing_avg_loops'] = array(
@@ -1007,6 +1093,10 @@ class ServerVariablesController extends Controller
             'innodb-parameters',
             'sysvar',
             'byte');
+        $variable_doc_links['innodb_log_checksum_algorithm'] = array(
+            'innodb_log_checksum_algorithm',
+            'innodb-parameters',
+            'sysvar');
         $variable_doc_links['innodb_log_compressed_pages'] = array(
             'innodb_log_compressed_pages',
             'innodb-parameters',
@@ -1024,6 +1114,11 @@ class ServerVariablesController extends Controller
             'innodb_log_group_home_dir',
             'innodb-parameters',
             'sysvar');
+        $variable_doc_links['innodb_log_write_ahead_size'] = array(
+            'innodb_log_write_ahead_size',
+            'innodb-parameters',
+            'sysvar',
+            'byte');
         $variable_doc_links['innodb_lru_scan_depth'] = array(
             'innodb_lru_scan_depth',
             'innodb-parameters',
@@ -1044,6 +1139,11 @@ class ServerVariablesController extends Controller
             'innodb_max_purge_lag_delay',
             'innodb-parameters',
             'sysvar');
+        $variable_doc_links['innodb_max_undo_log_size'] = array(
+            'innodb_max_undo_log_size',
+            'innodb-parameters',
+            'sysvar',
+            'byte');
         $variable_doc_links['innodb_mirrored_log_groups'] = array(
             'innodb_mirrored_log_groups',
             'innodb-parameters',
@@ -1075,7 +1175,8 @@ class ServerVariablesController extends Controller
         $variable_doc_links['innodb_online_alter_log_max_size'] = array(
             'innodb_online_alter_log_max_size',
             'innodb-parameters',
-            'sysvar');
+            'sysvar',
+            'byte');
         $variable_doc_links['innodb_open_files'] = array(
             'innodb_open_files',
             'innodb-parameters',
@@ -1084,16 +1185,25 @@ class ServerVariablesController extends Controller
             'innodb_optimize_fulltext_only',
             'innodb-parameters',
             'sysvar');
+        $variable_doc_links['innodb_page_cleaners'] = array(
+            'innodb_page_cleaners',
+            'innodb-parameters',
+            'sysvar');
         $variable_doc_links['innodb_page_size'] = array(
             'innodb_page_size',
             'innodb-parameters',
-            'sysvar');
+            'sysvar',
+            'byte');
         $variable_doc_links['innodb_print_all_deadlocks'] = array(
             'innodb_print_all_deadlocks',
             'innodb-parameters',
             'sysvar');
         $variable_doc_links['innodb_purge_batch_size'] = array(
             'innodb_purge_batch_size',
+            'innodb-parameters',
+            'sysvar');
+        $variable_doc_links['innodb_purge_rseg_truncate_frequency'] = array(
+            'innodb_purge_rseg_truncate_frequency',
             'innodb-parameters',
             'sysvar');
         $variable_doc_links['innodb_purge_threads'] = array(
@@ -1131,7 +1241,8 @@ class ServerVariablesController extends Controller
         $variable_doc_links['innodb_sort_buffer_size'] = array(
             'innodb_sort_buffer_size',
             'innodb-parameters',
-            'sysvar');
+            'sysvar',
+            'byte');
         $variable_doc_links['innodb_spin_wait_delay'] = array(
             'innodb_spin_wait_delay',
             'innodb-parameters',
@@ -1192,6 +1303,10 @@ class ServerVariablesController extends Controller
             'innodb_table_locks',
             'innodb-parameters',
             'sysvar');
+        $variable_doc_links['innodb_temp_data_file_path'] = array(
+            'innodb_temp_data_file_path',
+            'innodb-parameters',
+            'sysvar');
         $variable_doc_links['innodb_thread_concurrency'] = array(
             'innodb_thread_concurrency',
             'innodb-parameters',
@@ -1202,6 +1317,10 @@ class ServerVariablesController extends Controller
             'sysvar');
         $variable_doc_links['innodb_undo_directory'] = array(
             'innodb_undo_directory',
+            'innodb-parameters',
+            'sysvar');
+        $variable_doc_links['innodb_undo_log_truncate'] = array(
+            'innodb_undo_log_truncate',
             'innodb-parameters',
             'sysvar');
         $variable_doc_links['innodb_undo_logs'] = array(
@@ -1234,6 +1353,10 @@ class ServerVariablesController extends Controller
             'sysvar');
         $variable_doc_links['interactive_timeout'] = array(
             'interactive_timeout',
+            'server-system-variables',
+            'sysvar');
+        $variable_doc_links['internal_tmp_disk_storage_engine'] = array(
+            'internal_tmp_disk_storage_engine',
             'server-system-variables',
             'sysvar');
         $variable_doc_links['join_buffer_size'] = array(
@@ -1312,6 +1435,10 @@ class ServerVariablesController extends Controller
             'locked_in_memory',
             'server-system-variables',
             'sysvar');
+        $variable_doc_links['log_backward_compatible_user_definitions'] = array(
+            'log_backward_compatible_user_definitions',
+            'server-system-variables',
+            'sysvar');
         $variable_doc_links['log'] = array(
             'log',
             'server-options',
@@ -1344,6 +1471,10 @@ class ServerVariablesController extends Controller
             'log-error',
             'server-options',
             'option_mysqld');
+        $variable_doc_links['log_error_verbosity'] = array(
+            'log_error_verbosity',
+            'server-system-variables',
+            'sysvar');
         $variable_doc_links['log_output'] = array(
             'log-output',
             'server-options',
@@ -1364,8 +1495,28 @@ class ServerVariablesController extends Controller
             'log_slow_slave_statements',
             'replication-options-slave',
             'sysvar');
+        $variable_doc_links['log_syslog'] = array(
+            'log_syslog',
+            'server-system-variables',
+            'sysvar');
+        $variable_doc_links['log_syslog_facility'] = array(
+            'log_syslog_facility',
+            'server-system-variables',
+            'sysvar');
+        $variable_doc_links['log_syslog_include_pid'] = array(
+            'log_syslog_include_pid',
+            'server-system-variables',
+            'sysvar');
+        $variable_doc_links['log_syslog_tag'] = array(
+            'log_syslog_tag',
+            'server-system-variables',
+            'sysvar');
         $variable_doc_links['log_throttle_queries_not_using_indexes'] = array(
             'log_throttle_queries_not_using_indexes',
+            'server-system-variables',
+            'sysvar');
+        $variable_doc_links['log_timestamps'] = array(
+            'log_timestamps',
             'server-system-variables',
             'sysvar');
         $variable_doc_links['log_slow_queries'] = array(
@@ -1435,8 +1586,16 @@ class ServerVariablesController extends Controller
             'max_delayed_threads',
             'server-system-variables',
             'sysvar');
+        $variable_doc_links['max_digest_length'] = array(
+            'max_digest_length',
+            'server-system-variables',
+            'sysvar');
         $variable_doc_links['max_error_count'] = array(
             'max_error_count',
+            'server-system-variables',
+            'sysvar');
+        $variable_doc_links['max_execution_time'] = array(
+            'max_execution_time',
             'server-system-variables',
             'sysvar');
         $variable_doc_links['max_heap_table_size'] = array(
@@ -1454,6 +1613,10 @@ class ServerVariablesController extends Controller
             'sysvar');
         $variable_doc_links['max_length_for_sort_data'] = array(
             'max_length_for_sort_data',
+            'server-system-variables',
+            'sysvar');
+        $variable_doc_links['max_points_in_geometry'] = array(
+            'max_points_in_geometry',
             'server-system-variables',
             'sysvar');
         $variable_doc_links['max_long_data_size'] = array(
@@ -1549,6 +1712,10 @@ class ServerVariablesController extends Controller
             'myisam_use_mmap',
             'server-system-variables',
             'sysvar');
+        $variable_doc_links['mysql_native_password_proxy_users'] = array(
+            'mysql_native_password_proxy_users',
+            'server-system-variables',
+            'sysvar');
         $variable_doc_links['named_pipe'] = array(
             'named_pipe',
             'server-system-variables',
@@ -1571,6 +1738,14 @@ class ServerVariablesController extends Controller
             'sysvar');
         $variable_doc_links['new'] = array(
             'new',
+            'server-system-variables',
+            'sysvar');
+        $variable_doc_links['ngram_token_size'] = array(
+            'ngram_token_size',
+            'server-system-variables',
+            'sysvar');
+        $variable_doc_links['offline_mode'] = array(
+            'offline_mode',
             'server-system-variables',
             'sysvar');
         $variable_doc_links['old'] = array(
@@ -1659,6 +1834,18 @@ class ServerVariablesController extends Controller
                 'performance-schema-system-variables',
                 'sysvar',
             );
+        $variable_doc_links['performance_schema_events_transactions_history_long_size']
+            = array(
+                'performance_schema_events_transactions_history_long_size',
+                'performance-schema-system-variables',
+                'sysvar',
+            );
+        $variable_doc_links['performance_schema_events_transactions_history_size']
+            = array(
+                'performance_schema_events_transactions_history_size',
+                'performance-schema-system-variables',
+                'sysvar',
+            );
         $variable_doc_links['performance_schema_events_waits_history_long_size']
             = array(
                 'performance_schema_events_waits_history_long_size',
@@ -1681,6 +1868,10 @@ class ServerVariablesController extends Controller
             'performance_schema_max_cond_instances',
             'performance-schema-system-variables',
             'sysvar');
+        $variable_doc_links['performance_schema_max_digest_length'] = array(
+            'performance_schema_max_digest_length',
+            'performance-schema-system-variables',
+            'sysvar');
         $variable_doc_links['performance_schema_max_file_classes'] = array(
             'performance_schema_max_file_classes',
             'performance-schema-system-variables',
@@ -1693,12 +1884,32 @@ class ServerVariablesController extends Controller
             'performance_schema_max_file_instances',
             'performance-schema-system-variables',
             'sysvar');
+        $variable_doc_links['performance_schema_max_index_stat'] = array(
+            'performance_schema_max_index_stat',
+            'performance-schema-system-variables',
+            'sysvar');
+        $variable_doc_links['performance_schema_max_memory_classes'] = array(
+            'performance_schema_max_memory_classes',
+            'performance-schema-system-variables',
+            'sysvar');
+        $variable_doc_links['performance_schema_max_metadata_locks'] = array(
+            'performance_schema_max_metadata_locks',
+            'performance-schema-system-variables',
+            'sysvar');
         $variable_doc_links['performance_schema_max_mutex_classes'] = array(
             'performance_schema_max_mutex_classes',
             'performance-schema-system-variables',
             'sysvar');
         $variable_doc_links['performance_schema_max_mutex_instances'] = array(
             'performance_schema_max_mutex_instances',
+            'performance-schema-system-variables',
+            'sysvar');
+        $variable_doc_links['performance_schema_max_prepared_statements_instances'] = array(
+            'performance_schema_max_prepared_statements_instances',
+            'performance-schema-system-variables',
+            'sysvar');
+        $variable_doc_links['performance_schema_max_program_instances'] = array(
+            'performance_schema_max_program_instances',
             'performance-schema-system-variables',
             'sysvar');
         $variable_doc_links['performance_schema_max_rwlock_classes'] = array(
@@ -1717,6 +1928,10 @@ class ServerVariablesController extends Controller
             'performance_schema_max_socket_instances',
             'performance-schema-system-variables',
             'sysvar');
+        $variable_doc_links['performance_schema_max_sql_text_length'] = array(
+            'performance_schema_max_sql_text_length',
+            'performance-schema-system-variables',
+            'sysvar');
         $variable_doc_links['performance_schema_max_stage_classes'] = array(
             'performance_schema_max_stage_classes',
             'performance-schema-system-variables',
@@ -1725,12 +1940,20 @@ class ServerVariablesController extends Controller
             'performance_schema_max_statement_classes',
             'performance-schema-system-variables',
             'sysvar');
+        $variable_doc_links['performance_schema_max_statement_stack'] = array(
+            'performance_schema_max_statement_stack',
+            'performance-schema-system-variables',
+            'sysvar');
         $variable_doc_links['performance_schema_max_table_handles'] = array(
             'performance_schema_max_table_handles',
             'performance-schema-system-variables',
             'sysvar');
         $variable_doc_links['performance_schema_max_table_instances'] = array(
             'performance_schema_max_table_instances',
+            'performance-schema-system-variables',
+            'sysvar');
+        $variable_doc_links['performance_schema_max_table_lock_stat'] = array(
+            'performance_schema_max_table_lock_stat',
             'performance-schema-system-variables',
             'sysvar');
         $variable_doc_links['performance_schema_max_thread_classes'] = array(
@@ -1839,6 +2062,10 @@ class ServerVariablesController extends Controller
             'server-system-variables',
             'sysvar',
             'byte');
+        $variable_doc_links['rbr_exec_mode'] = array(
+            'rbr_exec_mode',
+            'server-system-variables',
+            'sysvar');
         $variable_doc_links['read_buffer_size'] = array(
             'read_buffer_size',
             'server-system-variables',
@@ -1905,6 +2132,10 @@ class ServerVariablesController extends Controller
             'report-user',
             'replication-options-slave',
             'option_mysqld');
+        $variable_doc_links['require_secure_transport'] = array(
+            'require_secure_transport',
+            'server-system-variables',
+            'sysvar');
         $variable_doc_links['rpl_stop_slave_timeout'] = array(
             'rpl_stop_slave_timeout',
             'replication-options-slave',
@@ -1960,6 +2191,38 @@ class ServerVariablesController extends Controller
         $variable_doc_links['server_uuid'] = array(
             'server_uuid',
             'replication-options',
+            'sysvar');
+        $variable_doc_links['session_track_gtids'] = array(
+            'session_track_gtids',
+            'server_system_variables',
+            'sysvar');
+        $variable_doc_links['session_track_schema'] = array(
+            'session_track_schema',
+            'server_system_variables',
+            'sysvar');
+        $variable_doc_links['session_track_state_change'] = array(
+            'session_track_state_change',
+            'server_system_variables',
+            'sysvar');
+        $variable_doc_links['session_track_system_variables'] = array(
+            'session_track_system_variables',
+            'session_system_variables',
+            'sysvar');
+        $variable_doc_links['session_track_transaction_info'] = array(
+            'session_track_transaction_info',
+            'session_system_variables',
+            'sysvar');
+        $variable_doc_links['sha256_password_proxy_users'] = array(
+            'sha256_password_proxy_users',
+            'session_system_variables',
+            'sysvar');
+        $variable_doc_links['show_compatibility_56'] = array(
+            'show_compatibility_56',
+            'session_system_variables',
+            'sysvar');
+        $variable_doc_links['show_old_temporals'] = array(
+            'show_old_temporals',
+            'session_system_variables',
             'sysvar');
         $variable_doc_links['shared_memory'] = array(
             'shared_memory',
@@ -2017,12 +2280,21 @@ class ServerVariablesController extends Controller
             'slave-net-timeout',
             'replication-options-slave',
             'option_mysqld');
+        $variable_doc_links['slave_parallel_type'] = array(
+            'slave_parallel_type',
+            'replication-options-slave',
+            'sysvar');
         $variable_doc_links['slave_parallel_workers'] = array(
             'slave_parallel_workers',
             'replication-options-slave',
             'sysvar');
         $variable_doc_links['slave_pending_jobs_size_max'] = array(
             'slave_pending_jobs_size_max',
+            'replication-options-slave',
+            'sysvar',
+            'byte');
+        $variable_doc_links['slave_preserve_commit_order'] = array(
+            'slave_preserve_commit_order',
             'replication-options-slave',
             'sysvar');
         $variable_doc_links['slave_rows_search_algorithms'] = array(
@@ -2166,6 +2438,10 @@ class ServerVariablesController extends Controller
             'stored_program_cache',
             'server-system-variables',
             'sysvar');
+        $variable_doc_links['super_read_only'] = array(
+            'super_read_only',
+            'server-system-variables',
+            'sysvar');
         $variable_doc_links['sync_binlog'] = array(
             'sync_binlog',
             'replication-options-binary-log',
@@ -2261,6 +2537,10 @@ class ServerVariablesController extends Controller
             'server-system-variables',
             'sysvar',
             'byte');
+        $variable_doc_links['transaction_write_set_extraction'] = array(
+            'transaction_write_set_extraction',
+            'server-system-variables',
+            'sysvar');
         $variable_doc_links['tx_isolation'] = array(
             'tx_isolation',
             'server-system-variables',
@@ -2305,57 +2585,68 @@ class ServerVariablesController extends Controller
     }
 
     /**
-     * Returns array of static system variables (i.e. read-only)
+     * Returns array of static(i.e. non-editable/ read-only) global system variables
+     *
+     * See https://dev.mysql.com/doc/refman/5.6/en/server-system-variables.html
      *
      * @return array
      */
     private function _getStaticSystemVariables()
     {
         $static_variables = array(
+            'audit_log_buffer_size',
+            'audit_log_current_session',
+            'audit_log_file',
+            'audit_log_format',
+            'audit_log_policy',
+            'audit_log_strategy',
+            'auto_generate_certs',
             'back_log',
             'basedir',
             'bind_address',
-            'binlog_row_image',
+            'binlog_gtid_simple_recovery',
             'character_set_system',
             'character_sets_dir',
             'core_file',
+            'daemon_memcached_enable_binlog',
+            'daemon_memcached_engine_lib_name',
+            'daemon_memcached_engine_lib_path',
+            'daemon_memcached_option',
+            'daemon_memcached_r_batch_size',
+            'daemon_memcached_w_batch_size',
             'datadir',
             'date_format',
             'datetime_format',
-            'disconnect_on_expired_password',
-            'engine_condition_pushdown',
-            'error_count',
+            'default_authentication_plugin',
+            'disabled_storage_engines',
             'explicit_defaults_for_timestamp',
-            'external_user',
             'ft_max_word_len',
             'ft_min_word_len',
             'ft_query_expansion_limit',
             'ft_stopword_file',
-            'gtid_executed',
             'gtid_owned',
             'have_compress',
             'have_crypt',
-            'have_csv',
             'have_dynamic_loading',
             'have_geometry',
-            'have_innodb',
-            'have_ndbcluster',
             'have_openssl',
-            'have_partitioning',
             'have_profiling',
             'have_query_cache',
             'have_rtree_keys',
             'have_ssl',
+            'have_statement_timeout',
             'have_symlink',
             'hostname',
             'ignore_builtin_innodb',
             'ignore_db_dirs',
             'init_file',
+            'innodb_adaptive_hash_index_parts',
             'innodb_additional_mem_pool_size',
             'innodb_api_disable_rowlock',
             'innodb_api_enable_binlog',
             'innodb_api_enable_mdl',
             'innodb_autoinc_lock_mode',
+            'innodb_buffer_pool_chunk_size',
             'innodb_buffer_pool_instances',
             'innodb_buffer_pool_load_at_startup',
             'innodb_checksums',
@@ -2376,8 +2667,9 @@ class ServerVariablesController extends Controller
             'innodb_log_file_size',
             'innodb_log_files_in_group',
             'innodb_log_group_home_dir',
-            'innodb_mirrored_log_groups',
+            'innodb_numa_interleave',
             'innodb_open_files',
+            'innodb_page_cleaners',
             'innodb_page_size',
             'innodb_purge_threads',
             'innodb_read_io_threads',
@@ -2385,6 +2677,8 @@ class ServerVariablesController extends Controller
             'innodb_rollback_on_timeout',
             'innodb_sort_buffer_size',
             'innodb_sync_array_size',
+            'innodb_sync_debug',
+            'innodb_temp_data_file_path',
             'innodb_undo_directory',
             'innodb_undo_tablespaces',
             'innodb_use_native_aio',
@@ -2398,30 +2692,45 @@ class ServerVariablesController extends Controller
             'lc_messages_dir',
             'license',
             'locked_in_memory',
-            'log',
-            'log_bin',
             'log-bin',
+            'log_bin',
             'log_bin_basename',
             'log_bin_index',
             'log_bin_use_v1_row_events',
+            'log_bin_use_v1_row_events',
             'log_error',
             'log_slave_updates',
-            'log_slow_queries',
+            'log_slave_updates',
             'lower_case_file_system',
             'lower_case_table_names',
-            'master-bind',
-            'max_long_data_size',
-            'max_tmp_tables',
+            'max_digest_length',
+            'mecab_rc_file',
             'metadata_locks_cache_size',
             'metadata_locks_hash_instances',
-            'memlock',
-            'multi_range_count',
             'myisam_mmap_size',
             'myisam_recover_options',
             'named_pipe',
+            'ndb-batch-size',
+            'ndb-cluster-connection-pool',
+            'ndb-cluster-connection-pool-nodeids',
+            'ndb_log_apply_status',
+            'ndb_log_apply_status',
+            'ndb_log_orig',
+            'ndb_log_orig',
+            'ndb_log_transaction_id',
+            'ndb_log_transaction_id',
+            'ndb_optimized_node_selection',
+            'Ndb_slave_max_replicated_epoch',
+            'ndb_use_copying_alter_table',
+            'ndb_version',
+            'ndb_version_string',
+            'ndb-wait-connected',
+            'ndb-wait-setup',
+            'ndbinfo_database',
+            'ndbinfo_version',
+            'ngram_token_size',
             'old',
             'open_files_limit',
-            'partition',
             'performance_schema',
             'performance_schema_accounts_size',
             'performance_schema_digests_size',
@@ -2429,24 +2738,35 @@ class ServerVariablesController extends Controller
             'performance_schema_events_stages_history_size',
             'performance_schema_events_statements_history_long_size',
             'performance_schema_events_statements_history_size',
+            'performance_schema_events_transactions_history_long_size',
+            'performance_schema_events_transactions_history_size',
             'performance_schema_events_waits_history_long_size',
             'performance_schema_events_waits_history_size',
             'performance_schema_hosts_size',
             'performance_schema_max_cond_classes',
             'performance_schema_max_cond_instances',
+            'performance_schema_max_digest_length',
             'performance_schema_max_file_classes',
             'performance_schema_max_file_handles',
             'performance_schema_max_file_instances',
+            'performance_schema_max_index_stat',
+            'performance_schema_max_memory_classes',
+            'performance_schema_max_metadata_locks',
             'performance_schema_max_mutex_classes',
             'performance_schema_max_mutex_instances',
+            'performance_schema_max_prepared_statements_instances',
+            'performance_schema_max_program_instances',
             'performance_schema_max_rwlock_classes',
             'performance_schema_max_rwlock_instances',
             'performance_schema_max_socket_classes',
             'performance_schema_max_socket_instances',
+            'performance_schema_max_sql_text_length',
             'performance_schema_max_stage_classes',
             'performance_schema_max_statement_classes',
+            'performance_schema_max_statement_stack',
             'performance_schema_max_table_handles',
             'performance_schema_max_table_instances',
+            'performance_schema_max_table_lock_stat',
             'performance_schema_max_thread_classes',
             'performance_schema_max_thread_instances',
             'performance_schema_session_connect_attrs_size',
@@ -2457,40 +2777,35 @@ class ServerVariablesController extends Controller
             'plugin_dir',
             'port',
             'protocol_version',
-            'proxy_user',
             'relay_log',
             'relay_log_basename',
-            'relay-log-index',
+            'relay_log_index',
             'relay_log_index',
             'relay_log_info_file',
             'relay_log_recovery',
             'relay_log_space_limit',
             'report_host',
-            'report_password',
+            'eport_password',
             'report_port',
             'report_user',
-            'rpl_recovery_rank',
-            'safe_show_database',
             'secure_file_priv',
             'server_id_bits',
+            'server_id_bits',
             'server_uuid',
+            'sha256_password_auto_generate_rsa_keys',
+            'sha256_password_private_key_path',
+            'sha256_password_public_key_path',
             'shared_memory',
             'shared_memory_base_name',
+            'simplified_binlog_gtid_recovery',
             'skip_external_locking',
             'skip_name_resolve',
             'skip_networking',
             'skip_show_database',
-            'slave_checkpoint_group',
-            'slave_checkpoint_period',
             'slave_load_tmpdir',
-            'slave_rows_search_algorithms',
             'slave_skip_errors',
             'slave_type_conversions',
             'socket',
-            'sql_big_tables',
-            'sql_log_update',
-            'sql_low_priority_updates',
-            'sql_max_join_size',
             'ssl_ca',
             'ssl_capath',
             'ssl_cert',
@@ -2499,21 +2814,22 @@ class ServerVariablesController extends Controller
             'ssl_crlpath',
             'ssl_key',
             'system_time_zone',
-            'table_lock_wait_timeout',
             'table_open_cache_instances',
-            'table_type',
             'thread_concurrency',
             'thread_handling',
             'thread_stack',
             'time_format',
+            'tls_version',
             'tmpdir',
+            'validate_user_plugins',
             'version',
             'version_comment',
             'version_compile_machine',
             'version_compile_os',
-            'warning_count',
+            'version_tokens_session_number'
         );
 
         return $static_variables;
     }
+
 }

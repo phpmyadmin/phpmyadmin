@@ -11,8 +11,8 @@ if ($GLOBALS['cfg']['NumFavoriteTables'] > 0) {
 }
 ?>
 <form method="post" action="db_structure.php" name="tablesForm" id="tablesForm">
-<?= PMA_URL_getHiddenInputs($db); ?>
-<table class="data">
+<?= PMA\libraries\URL::getHiddenInputs($db); ?>
+<table id="structureTable" class="data">
     <thead>
         <tr>
             <th class="print_ignore"></th>
@@ -38,7 +38,7 @@ if ($GLOBALS['cfg']['NumFavoriteTables'] > 0) {
                         'initial_sort_order' => 'DESC'
                     )
                 ); ?>
-                <?= PMA\libraries\Util::showHint(PMA_sanitize(
+                <?= PMA\libraries\Util::showHint(PMA\libraries\Sanitize::sanitize(
                     __('May be approximate. Click on the number to get the exact'
                         . ' count. See [doc@faq3-11]FAQ 3.11[/doc].'))); ?>
             </th>
@@ -74,6 +74,16 @@ if ($GLOBALS['cfg']['NumFavoriteTables'] > 0) {
                             'title' => __('Overhead'),
                             'sort' => 'overhead',
                             'initial_sort_order' => 'DESC'
+                        )
+                    ); $cnt++; ?></th>
+            <?php endif; ?>
+
+            <?php if ($GLOBALS['cfg']['ShowDbStructureCharset']): ?>
+                <th><?= PMA\libraries\Template::get('database/structure/sortable_header')->render(
+                        array(
+                            'title' => __('Charset'),
+                            'sort' => 'charset',
+                            'initial_sort_order' => 'ASC'
                         )
                     ); $cnt++; ?></th>
             <?php endif; ?>

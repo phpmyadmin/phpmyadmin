@@ -73,6 +73,9 @@ class PMA_FormatNumberByteDown_Test extends PHPUnit_Framework_TestCase
             array(21010101, 0, 2, '21,010,101.00'),
             array(20000, 2, 2, '20 k'),
             array(20011, 2, 2, '20.01 k'),
+            array(123456789, 6, 0, '123,457 k'),
+            array(-123456789, 4, 2, '-123.46 M'),
+            array(0, 6, 0, '0')
         );
     }
 

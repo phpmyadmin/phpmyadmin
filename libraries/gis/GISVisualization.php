@@ -10,6 +10,7 @@ namespace PMA\libraries\gis;
 
 use PMA\libraries\Util;
 use \TCPDF;
+use PMA\libraries\Sanitize;
 
 require_once 'libraries/sql.lib.php';
 
@@ -209,6 +210,10 @@ class GISVisualization
     {
         $modified_result = $GLOBALS['dbi']->tryQuery($this->_modified_sql);
 
+        if ($modified_result === false) {
+            return array();
+        }
+
         $data = array();
         while ($row = $GLOBALS['dbi']->fetchAssoc($modified_result)) {
             $data[] = $row;
@@ -245,7 +250,7 @@ class GISVisualization
      */
     private function _sanitizeName($file_name, $ext)
     {
-        $file_name = PMA_sanitizeFilename($file_name);
+        $file_name = Sanitize::sanitizeFilename($file_name);
 
         // Check if the user already added extension;
         // get the substring where the extension would be if it was included
@@ -467,8 +472,6 @@ class GISVisualization
     public function toFileAsPdf($file_name)
     {
         $this->init();
-
-        include_once TCPDF_INC;
 
         // create pdf
         $pdf = new TCPDF(

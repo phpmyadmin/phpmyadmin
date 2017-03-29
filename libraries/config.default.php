@@ -62,14 +62,6 @@ $cfg['SuhosinDisableWarning'] = false;
 $cfg['LoginCookieValidityDisableWarning'] = false;
 
 /**
- * Disable the default warning that is displayed if a difference between
- * the MySQL library and server is detected.
- *
- * @global boolean $cfg['['ServerLibraryDifference_DisableWarning']']
- */
-$cfg['ServerLibraryDifference_DisableWarning'] = false;
-
-/**
  * Disable the default warning about MySQL reserved words in column names
  *
  * @global boolean $cfg['ReservedWordDisableWarning']
@@ -192,13 +184,6 @@ $cfg['Servers'][$i]['ssl_ciphers'] = null;
 $cfg['Servers'][$i]['ssl_verify'] = true;
 
 /**
- * How to connect to MySQL server ('tcp' or 'socket')
- *
- * @global string $cfg['Servers'][$i]['connect_type']
- */
-$cfg['Servers'][$i]['connect_type'] = 'tcp';
-
-/**
  * Use compressed protocol for the MySQL connection
  *
  * @global boolean $cfg['Servers'][$i]['compress']
@@ -277,6 +262,14 @@ $cfg['Servers'][$i]['password'] = '';
 $cfg['Servers'][$i]['SignonSession'] = '';
 
 /**
+ * Cookie params to match session to use for 'signon' authentication method
+ * It should be an associative array matching result of session_get_cookie_params() in other system
+ *
+ * @global array $cfg['Servers'][$i]['SignonCookieParams']
+ */
+$cfg['Servers'][$i]['SignonCookieParams'] = array();
+
+/**
  * PHP script to use for 'signon' authentication method
  *
  * @global string $cfg['Servers'][$i]['SignonScript']
@@ -296,13 +289,6 @@ $cfg['Servers'][$i]['SignonURL'] = '';
  * @global string $cfg['Servers'][$i]['LogoutURL']
  */
 $cfg['Servers'][$i]['LogoutURL'] = '';
-
-/**
- * Whether to try to connect without password
- *
- * @global boolean $cfg['Servers'][$i]['nopassword']
- */
-$cfg['Servers'][$i]['nopassword'] = false;
 
 /**
  * If set to a db-name, only this db is displayed in navigation panel
@@ -1090,6 +1076,12 @@ $cfg['ShowCreateDb'] = true;
  * Database structure
  */
 
+/** show charset column in database structure (true|false)?
+ *
+ * @global boolean $cfg['ShowDbStructureCharset']
+ */
+$cfg['ShowDbStructureCharset'] = false;
+
 /**
  * show comment column in database structure (true|false)?
  *
@@ -1393,7 +1385,7 @@ $cfg['RowActionType'] = 'both';
 $cfg['Export'] = array();
 
 /**
- * codegen/csv/excel/htmlexcel/htmlword/latex/ods/odt/pdf/sql/texytext/xls/xml/yaml
+ * codegen/csv/excel/htmlexcel/htmlword/latex/ods/odt/pdf/sql/texytext/xml/yaml
  *
  * @global string $cfg['Export']['format']
  */
@@ -1612,48 +1604,6 @@ $cfg['Export']['texytext_null'] = 'NULL';
 /**
  *
  *
- * @global boolean $cfg['Export']['xls_columns']
- */
-$cfg['Export']['xls_columns'] = false;
-
-/**
- *
- *
- * @global string $cfg['Export']['xls_structure_or_data']
- */
-$cfg['Export']['xls_structure_or_data'] = 'data';
-
-/**
- *
- *
- * @global string $cfg['Export']['xls_null']
- */
-$cfg['Export']['xls_null'] = 'NULL';
-
-/**
- *
- *
- * @global boolean $cfg['Export']['xlsx_columns']
- */
-$cfg['Export']['xlsx_columns'] = false;
-
-/**
- *
- *
- * @global string $cfg['Export']['xlsx_structure_or_data']
- */
-$cfg['Export']['xlsx_structure_or_data'] = 'data';
-
-/**
- *
- *
- * @global string $cfg['Export']['xlsx_null']
- */
-$cfg['Export']['xlsx_null'] = 'NULL';
-
-/**
- *
- *
  * @global boolean $cfg['Export']['csv_columns']
  */
 $cfg['Export']['csv_columns'] = false;
@@ -1712,7 +1662,7 @@ $cfg['Export']['csv_removeCRLF'] = false;
  *
  * @global boolean $cfg['Export']['excel_columns']
  */
-$cfg['Export']['excel_columns'] = false;
+$cfg['Export']['excel_columns'] = true;
 
 /**
  *
@@ -1937,7 +1887,7 @@ $cfg['Export']['sql_metadata'] = false;
  *
  * @global boolean $cfg['Export']['sql_use_transaction']
  */
-$cfg['Export']['sql_use_transaction'] = false;
+$cfg['Export']['sql_use_transaction'] = true;
 
 /**
  *
@@ -2365,27 +2315,6 @@ $cfg['Import']['ods_recognize_percentages'] = true;
  * @global string $cfg['Import']['ods_recognize_currency']
  */
 $cfg['Import']['ods_recognize_currency'] = true;
-
-/**
- *
- *
- * @global string $cfg['Import']['xml_col_names']
- */
-$cfg['Import']['xls_col_names'] = false;
-
-/**
- *
- *
- * @global string $cfg['Import']['xml_empty_rows']
- */
-$cfg['Import']['xls_empty_rows'] = true;
-
-/**
- *
- *
- * @global string $cfg['Import']['xlsx_col_names']
- */
-$cfg['Import']['xlsx_col_names'] = false;
 
 /*******************************************************************************
  * Schema export defaults
@@ -2885,13 +2814,6 @@ $cfg['TitleDefault'] = '@HTTP_HOST@ | @PHPMYADMIN@';
  */
 
 /**
- * using themes manager please set up here the path to 'themes' else leave empty
- *
- * @global string $cfg['ThemePath']
- */
-$cfg['ThemePath'] = './themes';
-
-/**
  * if you want to use selectable themes and if ThemesPath not empty
  * set it to true, else set it to false (default is false);
  *
@@ -2900,7 +2822,7 @@ $cfg['ThemePath'] = './themes';
 $cfg['ThemeManager'] = true;
 
 /**
- * set up default theme, if ThemePath not empty you can set up here an valid
+ * set up default theme, you can set up here an valid
  * path to themes or 'original' for the original pma-theme
  *
  * @global string $cfg['ThemeDefault']
@@ -3098,6 +3020,13 @@ $cfg['DBG'] = array();
 $cfg['DBG']['sql'] = false;
 
 /**
+ * Log executed queries and their execution times to syslog
+ *
+ * @global boolean $cfg['DBG']['sql']
+ */
+$cfg['DBG']['sqllog'] = false;
+
+/**
  * Enable to let server present itself as demo server.
  *
  * @global boolean $cfg['DBG']['demo']
@@ -3144,3 +3073,10 @@ $cfg['MysqlMinVersion'] = array(
     'internal' => 50500,
     'human' => '5.5.0'
 );
+
+/**
+ * Disable shortcuts
+ *
+ * @global array $cfg['DisableShortcutKeys']
+ */
+$cfg['DisableShortcutKeys'] = false;

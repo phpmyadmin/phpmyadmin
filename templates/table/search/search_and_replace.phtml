@@ -17,10 +17,13 @@
 </select>
 
 <br>
-<?= PMA\libraries\Util::getCheckbox(
-    'useRegex',
-    __('Use regular expression'),
-    false,
-    false,
-    'useRegex'
+<?= PMA\libraries\Template::get('checkbox')
+->render(
+    array(
+        'html_field_name'   => 'useRegex',
+        'label'             => __('Use regular expression'),
+        'checked'           => false,
+        'onclick'           => false,
+        'html_field_id'     => 'useRegex',
+    )
 ); ?>

@@ -6,6 +6,7 @@
  * @package PhpMyAdmin
  */
 use PMA\libraries\Response;
+use PMA\libraries\URL;
 
 if (! defined('PHPMYADMIN')) {
     exit;
@@ -171,16 +172,16 @@ function PMA_EVN_handleEditor()
                 )
                 . '</b>'
             );
-            $message->addString('<ul>');
+            $message->addHtml('<ul>');
             foreach ($errors as $string) {
-                $message->addString('<li>' . $string . '</li>');
+                $message->addHtml('<li>' . $string . '</li>');
             }
-            $message->addString('</ul>');
+            $message->addHtml('</ul>');
         }
 
         $output = PMA\libraries\Util::getMessage($message, $sql_query);
-        if ($GLOBALS['is_ajax_request']) {
-            $response = PMA\libraries\Response::getInstance();
+        $response = Response::getInstance();
+        if ($response->isAjax()) {
             if ($message->isSuccess()) {
                 $events = $GLOBALS['dbi']->getEvents($db, $_REQUEST['item_name']);
                 $event = $events[0];
@@ -338,6 +339,8 @@ function PMA_EVN_getEditorForm($mode, $operation, $item)
 
     $modeToUpper = mb_strtoupper($mode);
 
+    $response = Response::getInstance();
+
     // Escape special characters
     $need_escape = array(
                        'item_original_name',
@@ -382,7 +385,7 @@ function PMA_EVN_getEditorForm($mode, $operation, $item)
     $retval .= "<form class='rte_form' action='db_events.php' method='post'>\n";
     $retval .= "<input name='{$mode}_item' type='hidden' value='1' />\n";
     $retval .= $original_data;
-    $retval .= PMA_URL_getHiddenInputs($db, $table) . "\n";
+    $retval .= URL::getHiddenInputs($db, $table) . "\n";
     $retval .= "<fieldset>\n";
     $retval .= "<legend>" . __('Details') . "</legend>\n";
     $retval .= "<table class='rte_table' style='width: 100%'>\n";
@@ -410,7 +413,7 @@ function PMA_EVN_getEditorForm($mode, $operation, $item)
     $retval .= "<tr>\n";
     $retval .= "    <td>" . __('Event type') . "</td>\n";
     $retval .= "    <td>\n";
-    if ($GLOBALS['is_ajax_request']) {
+    if ($response->isAjax()) {
         $retval .= "        <select name='item_type'>";
         foreach ($event_type as $key => $value) {
             $selected = "";
@@ -502,7 +505,7 @@ function PMA_EVN_getEditorForm($mode, $operation, $item)
     $retval .= "</tr>\n";
     $retval .= "</table>\n";
     $retval .= "</fieldset>\n";
-    if ($GLOBALS['is_ajax_request']) {
+    if ($response->isAjax()) {
         $retval .= "<input type='hidden' name='editor_process_{$mode}'\n";
         $retval .= "       value='true' />\n";
         $retval .= "<input type='hidden' name='ajax_request' value='true' />\n";

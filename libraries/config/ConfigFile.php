@@ -416,14 +416,12 @@ class ConfigFile
         $dsn = 'mysqli://';
         if ($this->getValue("$path/auth_type") == 'config') {
             $dsn .= $this->getValue("$path/user");
-            if (! $this->getValue("$path/nopassword")
-                || ! empty($this->getValue("$path/password"))
-            ) {
+            if (! empty($this->getValue("$path/password"))) {
                 $dsn .= ':***';
             }
             $dsn .= '@';
         }
-        if ($this->getValue("$path/connect_type") == 'tcp') {
+        if ($this->getValue("$path/host") != 'localhost') {
             $dsn .= $this->getValue("$path/host");
             $port = $this->getValue("$path/port");
             if ($port) {
@@ -528,5 +526,25 @@ class ConfigFile
             unset($c[$map_from]);
         }
         return $c;
+    }
+
+    /**
+     * Returns temporary directory
+     *
+     * @return string
+     */
+    public static function getDefaultTempDirectory()
+    {
+        $tmp_subdir = null;
+        if (! empty($GLOBALS['cfg']['TempDir']) && @is_writable($GLOBALS['cfg']['TempDir'])) {
+            $tmp_subdir = $GLOBALS['cfg']['TempDir'];
+        } else {
+            $tmp_subdir = ini_get('upload_tmp_dir');
+            if (empty($tmp_subdir)) {
+                $tmp_subdir = sys_get_temp_dir();
+            }
+            $tmp_subdir = rtrim($tmp_subdir, DIRECTORY_SEPARATOR);
+        }
+        return $tmp_subdir;
     }
 }

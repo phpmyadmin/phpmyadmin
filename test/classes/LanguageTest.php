@@ -132,6 +132,8 @@ class LanguageTest extends PMATestCase
         $this->assertNotEquals(false, $lang);
         $this->assertEquals('Czech', $lang->getEnglishName());
         $this->assertEquals('Čeština', $lang->getNativeName());
+        $lang = $this->manager->getLanguage('nonexisting');
+        $this->assertEquals(false, $lang);
     }
 
     /**

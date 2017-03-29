@@ -126,7 +126,7 @@ function loadTemplate(id)
     $.post('tbl_export.php', params, function (response) {
         if (response.success === true) {
             var $form = $('form[name="dump"]');
-            var options = $.parseJSON(response.data);
+            var options = JSON.parse(response.data);
             $.each(options, function (key, value) {
                 var $element = $form.find('[name="' + key + '"]');
                 if ($element.length) {
@@ -522,10 +522,13 @@ function check_table_selected(row) {
 
     if (data && structure) {
         table_select.prop({checked: true, indeterminate: false});
+        $row.addClass('marked');
     } else if (data || structure) {
         table_select.prop({checked: true, indeterminate: true});
+        $row.removeClass('marked');
     } else {
         table_select.prop({checked: false, indeterminate: false});
+        $row.removeClass('marked');
     }
 }
 
@@ -535,8 +538,10 @@ function toggle_table_select(row) {
 
     if (table_selected) {
         $row.find('input[type="checkbox"]:not(:disabled)').prop('checked', true);
+        $row.addClass('marked');
     } else {
         $row.find('input[type="checkbox"]:not(:disabled)').prop('checked', false);
+        $row.removeClass('marked');
     }
 }
 

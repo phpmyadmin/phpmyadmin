@@ -7,6 +7,8 @@
  */
 namespace PMA\libraries;
 
+use PMA\libraries\URL;
+
 /**
  * Class for generating the top menu
  *
@@ -95,11 +97,11 @@ class Menu
     {
         $url_params = array('db' => $this->_db);
 
-        if (mb_strlen($this->_table)) {
+        if (strlen($this->_table) > 0) {
             $tabs = $this->_getTableTabs();
             $url_params['table'] = $this->_table;
             $level = 'table';
-        } else if (mb_strlen($this->_db)) {
+        } else if (strlen($this->_db) > 0) {
             $tabs = $this->_getDbTabs();
             $level = 'db';
         } else {
@@ -125,6 +127,10 @@ class Menu
      */
     private function _getAllowedTabs($level)
     {
+        $cache_key = 'menu-levels-' . $level;
+        if (Util::cacheExists($cache_key)) {
+            return Util::cacheGet($cache_key);
+        }
         $allowedTabs = Util::getMenuTabList($level);
         $cfgRelation = PMA_getRelationsParam();
         if ($cfgRelation['menuswork']) {
@@ -152,6 +158,7 @@ class Menu
                 }
             }
         }
+        Util::cacheSet($cache_key, $allowedTabs);
         return $allowedTabs;
     }
 
@@ -196,12 +203,12 @@ class Menu
             Util::getScriptNameForOption(
                 $GLOBALS['cfg']['DefaultTabServer'], 'server'
             ),
-            PMA_URL_getCommon(),
+            URL::getCommon(),
             htmlspecialchars($server_info),
             __('Server')
         );
 
-        if (mb_strlen($this->_db)) {
+        if (strlen($this->_db) > 0) {
             $retval .= $separator;
             if (Util::showIcons('TabsMode')) {
                 $retval .= Util::getImage(
@@ -215,13 +222,13 @@ class Menu
                 Util::getScriptNameForOption(
                     $GLOBALS['cfg']['DefaultTabDatabase'], 'database'
                 ),
-                PMA_URL_getCommon(array('db' => $this->_db)),
+                URL::getCommon(array('db' => $this->_db)),
                 htmlspecialchars($this->_db),
                 __('Database')
             );
             // if the table is being dropped, $_REQUEST['purge'] is set to '1'
             // so do not display the table name in upper div
-            if (mb_strlen($this->_table)
+            if (strlen($this->_table) > 0
                 && ! (isset($_REQUEST['purge']) && $_REQUEST['purge'] == '1')
             ) {
                 include './libraries/tbl_info.inc.php';
@@ -240,7 +247,7 @@ class Menu
                     Util::getScriptNameForOption(
                         $GLOBALS['cfg']['DefaultTabTable'], 'table'
                     ),
-                    PMA_URL_getCommon(
+                    URL::getCommon(
                         array(
                             'db' => $this->_db, 'table' => $this->_table
                         )

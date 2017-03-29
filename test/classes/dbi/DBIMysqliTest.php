@@ -12,7 +12,6 @@ use PMA\libraries\dbi\DBIMysqli;
 use PMA\libraries\Theme;
 
 require_once 'libraries/relation.lib.php';
-require_once 'libraries/url_generating.lib.php';
 require_once 'libraries/database_interface.inc.php';
 require_once 'test/PMATestCase.php';
 
@@ -39,11 +38,8 @@ class DBIMysqliTest extends PMATestCase
     {
         $GLOBALS['cfg']['Server']['ssl'] = false;
         $GLOBALS['cfg']['Server']['compress'] = true;
-        $GLOBALS['pmaThemeImage'] = 'image';
 
         //$_SESSION
-        $_SESSION['PMA_Theme'] = Theme::load('./themes/pmahomme');
-        $_SESSION['PMA_Theme'] = new Theme();
         $this->object = new DBIMysqli();
     }
 
@@ -106,18 +102,17 @@ class DBIMysqliTest extends PMATestCase
 
         $user = 'PMA_user';
         $password = 'PMA_password';
-        $is_controluser = false;
         $server = array(
             'port' => 8080,
             'socket' => 123,
             'host' => 'locahost',
+            'compress' => false,
+            'ssl' => false,
         );
-        $auxiliary_connection = true;
 
         //test for connect
         $ret = $this->object->connect(
-            $user, $password, $is_controluser,
-            $server, $auxiliary_connection
+            $user, $password, $server
         );
         $this->assertEquals(
             'mysqli_init',

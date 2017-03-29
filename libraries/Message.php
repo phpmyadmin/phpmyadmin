@@ -7,6 +7,8 @@
  */
 namespace PMA\libraries;
 
+use PMA\libraries\Sanitize;
+
 /**
  * a single message
  *
@@ -24,12 +26,8 @@ namespace PMA\libraries;
  *
  * more advanced usage example:
  * <code>
- * // create a localized success message
- * $message = Message::success('strSomeLocaleMessage');
- *
  * // create another message, a hint, with a localized string which expects
- * // two parameters: $strSomeTooltip = 'Read the %smanual%s'
- * $hint = Message::notice('strSomeTooltip');
+ * $hint = Message::notice('Read the %smanual%s');
  * // replace placeholders with the following params
  * $hint->addParam('[doc@cfg_Example]');
  * $hint->addParam('[/doc]');
@@ -38,22 +36,6 @@ namespace PMA\libraries;
  *
  * // add the retrieved tooltip reference to the original message
  * $message->addMessage($hint);
- *
- * // create another message ...
- * $more = Message::notice('strSomeMoreLocale');
- * $more->addString('strSomeEvenMoreLocale', '<br />');
- * $more->addParam('parameter for strSomeMoreLocale');
- * $more->addParam('more parameter for strSomeMoreLocale');
- *
- * // and add it also to the original message
- * $message->addMessage($more);
- * // finally add another raw message
- * $message->addMessage('some final words', ' - ');
- *
- * // display() will now print all messages in the same order as they are added
- * $message->display();
- * // strSomeLocaleMessage <sup>1</sup> strSomeMoreLocale<br />
- * // strSomeEvenMoreLocale - some final words
  * </code>
  *
  * @package PhpMyAdmin
@@ -458,51 +440,48 @@ class Message
     }
 
     /**
-     * add parameter, usually in conjunction with strings
+     * add string or Message parameter
      *
      * usage
      * <code>
-     * $message->addParam('strLocale', false);
      * $message->addParam('[em]some string[/em]');
-     * $message->addParam('<img src="img" />', false);
      * </code>
      *
-     * @param mixed   $param parameter to add
-     * @param boolean $raw   whether parameter should be passed as is
-     *                       without html escaping
+     * @param mixed $param parameter to add
      *
      * @return void
      */
-    public function addParam($param, $raw = true)
+    public function addParam($param)
     {
         if ($param instanceof Message) {
             $this->params[] = $param;
-        } elseif ($raw) {
-            $this->params[] = htmlspecialchars($param);
         } else {
-            $this->params[] = Message::notice($param);
+            $this->params[] = htmlspecialchars($param);
         }
     }
 
     /**
-     * add another string to be concatenated on displaying
+     * add parameter as raw HTML, usually in conjunction with strings
      *
-     * @param string $string    to be added
-     * @param string $separator to use between this and previous string/message
+     * usage
+     * <code>
+     * $message->addParamHtml('<img src="img" />');
+     * </code>
+     *
+     * @param string $param parameter to add
      *
      * @return void
      */
-    public function addString($string, $separator = ' ')
+    public function addParamHtml($param)
     {
-        $this->addedMessages[] = $separator;
-        $this->addedMessages[] = Message::notice($string);
+        $this->params[] = Message::notice($param);
     }
 
     /**
      * add a bunch of messages at once
      *
-     * @param array  $messages  to be added
-     * @param string $separator to use between this and previous string/message
+     * @param Message[] $messages  to be added
+     * @param string    $separator to use between this and previous string/message
      *
      * @return void
      */
@@ -514,24 +493,82 @@ class Message
     }
 
     /**
-     * add another raw message to be concatenated on displaying
+     * add a bunch of messages at once
+     *
+     * @param string[] $messages  to be added
+     * @param string   $separator to use between this and previous string/message
+     *
+     * @return void
+     */
+    public function addMessagesString($messages, $separator = ' ')
+    {
+        foreach ($messages as $message) {
+            $this->addText($message, $separator);
+        }
+    }
+
+    /**
+     * Real implementation of adding message
      *
      * @param mixed  $message   to be added
      * @param string $separator to use between this and previous string/message
      *
      * @return void
      */
-    public function addMessage($message, $separator = ' ')
+    private function _addMessage($message, $separator)
     {
-        if (mb_strlen($separator)) {
+        if (!empty($separator)) {
             $this->addedMessages[] = $separator;
         }
+        $this->addedMessages[] = $message;
+    }
 
-        if ($message instanceof Message) {
-            $this->addedMessages[] = $message;
-        } else {
-            $this->addedMessages[] = Message::rawNotice($message);
+    /**
+     * add another raw message to be concatenated on displaying
+     *
+     * @param Message $message   to be added
+     * @param string  $separator to use between this and previous string/message
+     *
+     * @return void
+     */
+    public function addMessage($message, $separator = ' ')
+    {
+        if (!($message instanceof Message)) {
+            trigger_error('Invalid parameter passed to addMessage');
         }
+        $this->_addMessage($message, $separator);
+    }
+
+    /**
+     * add another raw message to be concatenated on displaying
+     *
+     * @param string $message   to be added
+     * @param string $separator to use between this and previous string/message
+     *
+     * @return void
+     */
+    public function addText($message, $separator = ' ')
+    {
+        if (!is_string($message)) {
+            trigger_error('Invalid parameter passed to addMessage');
+        }
+        $this->_addMessage(Message::notice(htmlspecialchars($message)), $separator);
+    }
+
+    /**
+     * add another html message to be concatenated on displaying
+     *
+     * @param string $message   to be added
+     * @param string $separator to use between this and previous string/message
+     *
+     * @return void
+     */
+    public function addHtml($message, $separator = ' ')
+    {
+        if (!is_string($message)) {
+            trigger_error('Invalid parameter passed to addMessage');
+        }
+        $this->_addMessage(Message::rawNotice($message), $separator);
     }
 
     /**
@@ -604,7 +641,7 @@ class Message
      */
     static public function decodeBB($message)
     {
-        return PMA_sanitize($message, false, true);
+        return Sanitize::sanitize($message, false, true);
     }
 
     /**
@@ -650,11 +687,9 @@ class Message
     {
         $message = $this->message;
 
-        if (0 === mb_strlen($message)) {
+        if (strlen($message) === 0) {
             $string = $this->getString();
-            if (isset($GLOBALS[$string])) {
-                $message = $GLOBALS[$string];
-            } elseif (0 === mb_strlen($string)) {
+            if (strlen($string) === 0) {
                 $message = '';
             } else {
                 $message = $string;

@@ -8,6 +8,7 @@
 namespace PMA\libraries\plugins\schema\svg;
 
 use PMA;
+use PMA\libraries\Response;
 use XMLWriter;
 
 /**
@@ -16,7 +17,7 @@ use XMLWriter;
  *
  * @package PhpMyAdmin
  * @access  public
- * @see     https://php.net/manual/en/book.xmlwriter.php
+ * @see     https://secure.php.net/manual/en/book.xmlwriter.php
  */
 class Svg extends XMLWriter
 {
@@ -188,8 +189,7 @@ class Svg extends XMLWriter
     {
         //ob_get_clean();
         $output = $this->flush();
-        PMA\libraries\Response::getInstance()
-            ->disable();
+        Response::getInstance()->disable();
         PMA_downloadHeader(
             $fileName,
             'image/svg+xml',

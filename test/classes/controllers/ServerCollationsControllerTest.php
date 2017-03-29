@@ -25,17 +25,10 @@ $GLOBALS['cfg']['Server'] = array(
 );
 //$_SESSION
 
-$_SESSION['PMA_Theme'] = Theme::load('./themes/pmahomme');
 
 
-require_once 'libraries/url_generating.lib.php';
-
-
-require_once 'libraries/sanitizing.lib.php';
-require_once 'libraries/js_escape.lib.php';
 require_once 'libraries/database_interface.inc.php';
 require_once 'libraries/server_common.inc.php';
-require_once 'libraries/mysql_charsets.inc.php';
 require_once 'test/PMATestCase.php';
 
 /**
@@ -57,9 +50,7 @@ class ServerCollationsControllerTest extends PMATestCase
         $_REQUEST['pos'] = 3;
 
         //$GLOBALS
-        $GLOBALS['is_ajax_request'] = true;
         $GLOBALS['table'] = "table";
-        $GLOBALS['pmaThemeImage'] = 'image';
     }
 
     /**

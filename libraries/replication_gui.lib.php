@@ -6,6 +6,8 @@
  * @package PhpMyAdmin
  */
 use PMA\libraries\Message;
+use PMA\libraries\Response;
+use PMA\libraries\URL;
 
 /**
  * returns HTML for error message
@@ -59,7 +61,7 @@ function PMA_getHtmlForMasterReplication()
         $_url_params['repl_clear_scr'] = true;
 
         $html .= '  <li><a href="server_replication.php';
-        $html .= PMA_URL_getCommon($_url_params)
+        $html .= URL::getCommon($_url_params)
             . '" id="master_addslaveuser_href">';
         $html .= __('Add slave replication user') . '</a></li>';
     }
@@ -116,7 +118,7 @@ function PMA_getHtmlForMasterConfiguration()
     $html .= '</fieldset>';
     $html .= '<fieldset class="tblFooters">';
     $html .= ' <form method="post" action="server_replication.php" >';
-    $html .= PMA_URL_getHiddenInputs('', '');
+    $html .= URL::getHiddenInputs('', '');
     $html .= '  <input type="submit" value="' . __('Go') . '" id="goButton" />';
     $html .= ' </form>';
     $html .= '</fieldset>';
@@ -146,7 +148,7 @@ function PMA_getHtmlForSlaveConfiguration(
     if ($server_slave_multi_replication) {
         $html .= __('Master connection:');
         $html .= '<form method="get" action="server_replication.php">';
-        $html .= PMA_URL_getHiddenInputs($GLOBALS['url_params']);
+        $html .= URL::getHiddenInputs($GLOBALS['url_params']);
         $html .= ' <select name="master_connection">';
         $html .= '<option value="">' . __('Default') . '</option>';
         foreach ($server_slave_multi_replication as $server) {
@@ -175,7 +177,7 @@ function PMA_getHtmlForSlaveConfiguration(
 
         $_url_params['sr_slave_control_parm'] = 'IO_THREAD';
         $slave_control_io_link = 'server_replication.php'
-            . PMA_URL_getCommon($_url_params);
+            . URL::getCommon($_url_params);
 
         if ($server_slave_replication[0]['Slave_SQL_Running'] == 'No') {
             $_url_params['sr_slave_action'] = 'start';
@@ -185,7 +187,7 @@ function PMA_getHtmlForSlaveConfiguration(
 
         $_url_params['sr_slave_control_parm'] = 'SQL_THREAD';
         $slave_control_sql_link = 'server_replication.php'
-            . PMA_URL_getCommon($_url_params);
+            . URL::getCommon($_url_params);
 
         if ($server_slave_replication[0]['Slave_IO_Running'] == 'No'
             || $server_slave_replication[0]['Slave_SQL_Running'] == 'No'
@@ -197,17 +199,17 @@ function PMA_getHtmlForSlaveConfiguration(
 
         $_url_params['sr_slave_control_parm'] = null;
         $slave_control_full_link = 'server_replication.php'
-            . PMA_URL_getCommon($_url_params);
+            . URL::getCommon($_url_params);
 
         $_url_params['sr_slave_action'] = 'reset';
         $slave_control_reset_link = 'server_replication.php'
-            . PMA_URL_getCommon($_url_params);
+            . URL::getCommon($_url_params);
 
         $_url_params = $GLOBALS['url_params'];
         $_url_params['sr_take_action'] = true;
         $_url_params['sr_slave_skip_error'] = true;
         $slave_skip_error_link = 'server_replication.php'
-            . PMA_URL_getCommon($_url_params);
+            . URL::getCommon($_url_params);
 
         if ($server_slave_replication[0]['Slave_SQL_Running'] == 'No') {
             $html .= Message::error(
@@ -225,7 +227,7 @@ function PMA_getHtmlForSlaveConfiguration(
         $_url_params['repl_clear_scr'] = true;
 
         $reconfiguremaster_link = 'server_replication.php'
-            . PMA_URL_getCommon($_url_params);
+            . URL::getCommon($_url_params);
 
         $html .= __(
             'Server is configured as slave in a replication process. Would you ' .
@@ -285,7 +287,7 @@ function PMA_getHtmlForSlaveConfiguration(
                 'This server is not configured as slave in a replication process. '
                 . 'Would you like to <a href="%s">configure</a> it?'
             ),
-            'server_replication.php' . PMA_URL_getCommon($_url_params)
+            'server_replication.php' . URL::getCommon($_url_params)
         );
     }
     $html .= '</fieldset>';
@@ -314,7 +316,7 @@ function PMA_getHtmlForSlaveErrorManagement($slave_skip_error_link)
     $html .= __('Skip current error') . '</a></li>';
     $html .= '   <li>';
     $html .= '    <form method="post" action="server_replication.php">';
-    $html .= PMA_URL_getHiddenInputs('', '');
+    $html .= URL::getHiddenInputs('', '');
     $html .= sprintf(
         __('Skip next %s errors.'),
         '<input type="text" name="sr_skip_errors_count" value="1" '
@@ -346,7 +348,7 @@ function PMA_getHtmlForNotServerReplication()
             'This server is not configured as master in a replication process. '
             . 'Would you like to <a href="%s">configure</a> it?'
         ),
-        'server_replication.php' . PMA_URL_getCommon($_url_params)
+        'server_replication.php' . URL::getCommon($_url_params)
     );
     $html .= '</fieldset>';
     return $html;
@@ -395,7 +397,7 @@ function PMA_getHtmlForReplicationChangeMaster($submitname)
         = PMA_replicationGetUsernameHostnameLength();
 
     $html .= '<form method="post" action="server_replication.php">';
-    $html .= PMA_URL_getHiddenInputs('', '');
+    $html .= URL::getHiddenInputs('', '');
     $html .= ' <fieldset id="fieldset_add_user_login">';
     $html .= '  <legend>' . __('Slave configuration');
     $html .= ' - ' . __('Change or reconfigure master server') . '</legend>';
@@ -544,9 +546,8 @@ function PMA_getHtmlForReplicationStatusTable($type, $hidden = false, $title = t
     $html .= '   </thead>';
     $html .= '   <tbody>';
 
-    $odd_row = true;
     foreach (${"{$type}_variables"} as $variable) {
-        $html .= '   <tr class="' . ($odd_row ? 'odd' : 'even') . '">';
+        $html .= '   <tr>';
         $html .= '     <td class="name">';
         $html .= htmlspecialchars($variable);
         $html .= '     </td>';
@@ -583,8 +584,6 @@ function PMA_getHtmlForReplicationStatusTable($type, $hidden = false, $title = t
 
         $html .= '  </td>';
         $html .= ' </tr>';
-
-        $odd_row = ! $odd_row;
     }
 
     $html .= '   </tbody>';
@@ -621,14 +620,11 @@ function PMA_getHtmlForReplicationSlavesTable($hidden = false)
     $html .= '    </thead>';
     $html .= '    <tbody>';
 
-    $odd_row = true;
     foreach ($data as $slave) {
-        $html .= '    <tr class="' . ($odd_row ? 'odd' : 'even') . '">';
+        $html .= '    <tr>';
         $html .= '      <td class="value">' . $slave['Server_id'] . '</td>';
         $html .= '      <td class="value">' . $slave['Host'] . '</td>';
         $html .= '    </tr>';
-
-        $odd_row = ! $odd_row;
     }
 
     $html .= '    </tbody>';
@@ -685,16 +681,14 @@ function PMA_getHtmlForReplicationMasterAddSlaveuser()
     list($username_length, $hostname_length)
         = PMA_replicationGetUsernameHostnameLength();
 
-    if (isset($_REQUEST['username'])
-        && mb_strlen($_REQUEST['username']) === 0
-    ) {
+    if (isset($_REQUEST['username']) && strlen($_REQUEST['username']) === 0) {
         $GLOBALS['pred_username'] = 'any';
     }
     $html .= '<div id="master_addslaveuser_gui">';
     $html .= '<form autocomplete="off" method="post" ';
     $html .= 'action="server_privileges.php"';
     $html .= ' onsubmit="return checkAddUser(this);">';
-    $html .= PMA_URL_getHiddenInputs('', '');
+    $html .= URL::getHiddenInputs('', '');
     $html .= '<fieldset id="fieldset_add_user_login">'
         . '<legend>' . __('Add slave replication user') . '</legend>'
         . PMA_getHtmlForAddUserLoginForm($username_length)
@@ -938,7 +932,7 @@ function PMA_handleControlRequest()
         }
 
         if ($refresh) {
-            $response = PMA\libraries\Response::getInstance();
+            $response = Response::getInstance();
             if ($response->isAjax()) {
                 $response->setRequestStatus($result);
                 $response->addJSON(
@@ -950,7 +944,7 @@ function PMA_handleControlRequest()
             } else {
                 PMA_sendHeaderLocation(
                     './server_replication.php'
-                    . PMA_URL_getCommon($GLOBALS['url_params'], 'text')
+                    . URL::getCommonRaw($GLOBALS['url_params'])
                 );
             }
         }

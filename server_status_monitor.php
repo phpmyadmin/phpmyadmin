@@ -7,6 +7,7 @@
  */
 
 use PMA\libraries\ServerStatusData;
+use PMA\libraries\Response;
 
 require_once 'libraries/common.inc.php';
 require_once 'libraries/server_common.inc.php';
@@ -14,10 +15,12 @@ require_once 'libraries/server_status_monitor.lib.php';
 require_once 'libraries/replication.inc.php';
 require_once 'libraries/replication_gui.lib.php';
 
+$response = Response::getInstance();
+
 /**
  * Ajax request
  */
-if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
+if ($response->isAjax()) {
     // Send with correct charset
     header('Content-Type: text/html; charset=UTF-8');
 
@@ -26,7 +29,7 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
         switch($_REQUEST['type']) {
         case 'chartgrid': // Data for the monitor
             $ret = PMA_getJsonForChartingData();
-            PMA\libraries\Response::getInstance()->addJSON('message', $ret);
+            $response->addJSON('message', $ret);
             exit;
         }
     }
@@ -38,26 +41,26 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
 
         if ($_REQUEST['type'] == 'slow') {
             $return = PMA_getJsonForLogDataTypeSlow($start, $end);
-            PMA\libraries\Response::getInstance()->addJSON('message', $return);
+            $response->addJSON('message', $return);
             exit;
         }
 
         if ($_REQUEST['type'] == 'general') {
             $return = PMA_getJsonForLogDataTypeGeneral($start, $end);
-            PMA\libraries\Response::getInstance()->addJSON('message', $return);
+            $response->addJSON('message', $return);
             exit;
         }
     }
 
     if (isset($_REQUEST['logging_vars'])) {
         $loggingVars = PMA_getJsonForLoggingVars();
-        PMA\libraries\Response::getInstance()->addJSON('message', $loggingVars);
+        $response->addJSON('message', $loggingVars);
         exit;
     }
 
     if (isset($_REQUEST['query_analyzer'])) {
         $return = PMA_getJsonForQueryAnalyzer();
-        PMA\libraries\Response::getInstance()->addJSON('message', $return);
+        $response->addJSON('message', $return);
         exit;
     }
 }

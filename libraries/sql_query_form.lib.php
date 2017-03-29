@@ -10,6 +10,10 @@
  * @usedby  tbl_tracking.php
  * @package PhpMyAdmin
  */
+use PMA\libraries\Encoding;
+use PMA\libraries\URL;
+use PMA\libraries\Bookmark;
+
 if (! defined('PHPMYADMIN')) {
     exit;
 }
@@ -18,7 +22,6 @@ if (! defined('PHPMYADMIN')) {
  *
  */
 require_once './libraries/file_listing.lib.php'; // used for file listing
-require_once './libraries/bookmark.lib.php'; // used for bookmarks
 
 /**
  * return HTML for the sql query boxes
@@ -59,11 +62,11 @@ function PMA_getHtmlForSqlQueryForm(
 
     $table  = '';
     $db     = '';
-    if (! mb_strlen($GLOBALS['db'])) {
+    if (strlen($GLOBALS['db']) === 0) {
         // prepare for server related
         $goto   = empty($GLOBALS['goto']) ?
                     'server_sql.php' : $GLOBALS['goto'];
-    } elseif (! mb_strlen($GLOBALS['table'])) {
+    } elseif (strlen($GLOBALS['table']) === 0) {
         // prepare for db related
         $db     = $GLOBALS['db'];
         $goto   = empty($GLOBALS['goto']) ?
@@ -81,7 +84,7 @@ function PMA_getHtmlForSqlQueryForm(
     $html .= ' id="sqlqueryform" name="sqlform">' . "\n";
 
     $html .= '<input type="hidden" name="is_js_confirmed" value="0" />'
-        . "\n" . PMA_URL_getHiddenInputs($db, $table) . "\n"
+        . "\n" . URL::getHiddenInputs($db, $table) . "\n"
         . '<input type="hidden" name="pos" value="0" />' . "\n"
         . '<input type="hidden" name="goto" value="'
         . htmlspecialchars($goto) . '" />' . "\n"
@@ -99,15 +102,15 @@ function PMA_getHtmlForSqlQueryForm(
 
     // Bookmark Support
     if ($display_tab === 'full') {
-        $cfgBookmark = PMA_Bookmark_getParams();
+        $cfgBookmark = Bookmark::getParams();
         if ($cfgBookmark) {
             $html .= PMA_getHtmlForSqlQueryFormBookmark();
         }
     }
 
-    // Encoding setting form appended by Y.Kawada
-    if (function_exists('PMA_Kanji_encodingForm')) {
-        $html .= PMA_Kanji_encodingForm();
+    // Japanese encoding setting
+    if (Encoding::canConvertKanji()) {
+        $html .= Encoding::kanjiEncodingForm();
     }
 
     $html .= '</form>' . "\n";
@@ -130,7 +133,7 @@ function PMA_getHtmlForSqlQueryForm(
 function PMA_initQueryForm($query)
 {
     $columns_list    = array();
-    if (! mb_strlen($GLOBALS['db'])) {
+    if (strlen($GLOBALS['db']) === 0) {
         // prepare for server related
         $legend = sprintf(
             __('Run SQL query/queries on server %s'),
@@ -140,14 +143,14 @@ function PMA_initQueryForm($query)
                 : $GLOBALS['cfg']['Servers'][$GLOBALS['server']]['host']
             ) . '&quot;'
         );
-    } elseif (! mb_strlen($GLOBALS['table'])) {
+    } elseif (strlen($GLOBALS['table']) === 0) {
         // prepare for db related
         $db     = $GLOBALS['db'];
         // if you want navigation:
         $tmp_db_link = '<a href="' . PMA\libraries\Util::getScriptNameForOption(
             $GLOBALS['cfg']['DefaultTabDatabase'], 'database'
         )
-            . PMA_URL_getCommon(array('db' => $db)) . '"';
+            . URL::getCommon(array('db' => $db)) . '"';
         $tmp_db_link .= '>'
             . htmlspecialchars($db) . '</a>';
         $legend = sprintf(__('Run SQL query/queries on database %s'), $tmp_db_link);
@@ -168,7 +171,7 @@ function PMA_initQueryForm($query)
 
         $tmp_tbl_link = '<a href="' . PMA\libraries\Util::getScriptNameForOption(
             $GLOBALS['cfg']['DefaultTabTable'], 'table'
-        ) . PMA_URL_getCommon(array('db' => $db, 'table' => $table)) . '" >';
+        ) . URL::getCommon(array('db' => $db, 'table' => $table)) . '" >';
         $tmp_tbl_link .= htmlspecialchars($db)
             . '.' . htmlspecialchars($table) . '</a>';
         $legend = sprintf(__('Run SQL query/queries on table %s'), $tmp_tbl_link);
@@ -271,7 +274,7 @@ function PMA_getHtmlForSqlQueryFormInsert(
                 . PMA\libraries\Util::backquote(htmlspecialchars($field['Field']))
                 . '"';
             if (isset($field['Field'])
-                && mb_strlen($field['Field'])
+                && strlen($field['Field']) > 0
                 && isset($field['Comment'])
             ) {
                 $html .= ' title="' . htmlspecialchars($field['Comment']) . '"';
@@ -296,7 +299,7 @@ function PMA_getHtmlForSqlQueryFormInsert(
     $html .= '<div class="clearfloat"></div>' . "\n";
     $html .= '</div>' . "\n";
 
-    $cfgBookmark = PMA_Bookmark_getParams();
+    $cfgBookmark = Bookmark::getParams();
     if ($cfgBookmark) {
         $html .= '<div id="bookmarkoptions">';
         $html .= '<div class="formelement">';
@@ -383,7 +386,7 @@ function PMA_getHtmlForSqlQueryFormInsert(
  */
 function PMA_getHtmlForSqlQueryFormBookmark()
 {
-    $bookmark_list = PMA_Bookmark_getList($GLOBALS['db']);
+    $bookmark_list = Bookmark::getList($GLOBALS['db']);
     if (empty($bookmark_list) || count($bookmark_list) < 1) {
         return null;
     }
@@ -394,11 +397,13 @@ function PMA_getHtmlForSqlQueryFormBookmark()
     $html .= '<div class="formelement">';
     $html .= '<select name="id_bookmark" id="id_bookmark">' . "\n";
     $html .= '<option value="">&nbsp;</option>' . "\n";
-    foreach ($bookmark_list as $key => $value) {
-        $html .= '<option value="' . htmlspecialchars($key) . '"'
-            . ' data-varcount="' . PMA_Bookmark_getVariableCount($value['query'])
+    foreach ($bookmark_list as $bookmark) {
+        $html .= '<option value="' . htmlspecialchars($bookmark->getId()) . '"'
+            . ' data-varcount="' . $bookmark->getVariableCount()
             . '">'
-            . htmlspecialchars($value['label']) . '</option>' . "\n";
+            . htmlspecialchars($bookmark->getLabel())
+            . (empty($bookmark->getUser()) ? (' (' . __('shared') . ')') : '')
+            . '</option>' . "\n";
     }
     // &nbsp; is required for correct display with styles/line height
     $html .= '</select>&nbsp;' . "\n";

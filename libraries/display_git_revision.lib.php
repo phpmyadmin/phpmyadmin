@@ -5,6 +5,7 @@
  *
  * @package PhpMyAdmin
  */
+use PMA\libraries\Response;
 
 /**
 * Prints details about the current Git commit revision
@@ -14,7 +15,7 @@
 function PMA_printGitRevision()
 {
     if (! $GLOBALS['PMA_Config']->get('PMA_VERSION_GIT')) {
-        $response = PMA\libraries\Response::getInstance();
+        $response = Response::getInstance();
         $response->setRequestStatus(false);
         return;
     }

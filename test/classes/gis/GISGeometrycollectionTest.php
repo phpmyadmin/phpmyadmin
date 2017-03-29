@@ -8,7 +8,6 @@
  */
 use PMA\libraries\gis\GISGeometrycollection;
 
-require_once TCPDF_INC;
 
 /**
  * Tests for PMA\libraries\gis\GISGeometrycollection class

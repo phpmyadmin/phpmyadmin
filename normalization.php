@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin
  */
+use PMA\libraries\URL;
+use PMA\libraries\Response;
 
 /**
  *
@@ -28,7 +30,7 @@ if (isset($_REQUEST['getColumns'])) {
 if (isset($_REQUEST['splitColumn'])) {
     $num_fields = min(4096, intval($_REQUEST['numFields']));
     $html = PMA_getHtmlForCreateNewColumn($num_fields, $db, $table);
-    $html .= PMA_URL_getHiddenInputs($db, $table);
+    $html .= URL::getHiddenInputs($db, $table);
     echo $html;
     exit;
 }
@@ -38,7 +40,7 @@ if (isset($_REQUEST['addNewPrimary'])) {
     $html = PMA_getHtmlForCreateNewColumn(
         $num_fields, $db, $table, $columnMeta
     );
-    $html .= PMA_URL_getHiddenInputs($db, $table);
+    $html .= URL::getHiddenInputs($db, $table);
     echo $html;
     exit;
 }
@@ -55,17 +57,18 @@ if (isset($_REQUEST['getNewTables2NF'])) {
     exit;
 }
 
+$response = Response::getInstance();
+
 if (isset($_REQUEST['getNewTables3NF'])) {
     $dependencies = json_decode($_REQUEST['pd']);
     $tables = json_decode($_REQUEST['tables']);
     $newTables = PMA_getHtmlForNewTables3NF($dependencies, $tables, $db);
-    PMA\libraries\Response::getInstance()->disable();
+    $response->disable();
     PMA_headerJSON();
     echo json_encode($newTables);
     exit;
 }
 
-$response = PMA\libraries\Response::getInstance();
 $header = $response->getHeader();
 $scripts = $header->getScripts();
 $scripts->addFile('normalization.js');

@@ -47,6 +47,9 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
      */
     public static function browsers()
     {
+        if (! empty($GLOBALS['CI_MODE'] && $GLOBALS['CI_MODE'] != 'selenium')) {
+            return;
+        }
         if (! empty($GLOBALS['TESTSUITE_BROWSERSTACK_USER'])
             && ! empty($GLOBALS['TESTSUITE_BROWSERSTACK_KEY'])
         ) {
@@ -532,11 +535,12 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
     /**
      * Type text in textarea (CodeMirror enabled)
      *
-     * @param string $text Text to type
+     * @param string $text  Text to type
+     * @param string $index Index of CodeMirror instance to write to
      *
      * @return void
      */
-    public function typeInTextArea($text)
+    public function typeInTextArea($text, $index=0)
     {
         /**
          * Firefox needs some escaping of a text, see
@@ -552,8 +556,13 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
             );
         }
 
-        $this->byClassName("CodeMirror-scroll")->click();
-        $this->keys($text);
+        $this->execute(
+            array(
+                'script' => "var cm = $('.CodeMirror')[" . $index . "].CodeMirror;"
+                    . "cm.setValue('" . $text . "');",
+                'args' => array()
+            )
+        );
     }
 
     /**
@@ -563,19 +572,17 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
      */
     public function expandMore()
     {
+        $ele = null;
         try {
-            $this->waitForElement('byCssSelector', 'li.submenu > a');
+            $ele = $this->waitForElement('byCssSelector', 'li.submenu > a');
         } catch (PHPUnit_Extensions_Selenium2TestCase_WebDriverException $e) {
             return;
         }
-        /* We need to resize to ensure it fits into accessible area */
-        $this->execute(
-            array(
-                'script' => "$('#topmenu').css('font-size', '50%');"
-                    . "$(window).resize()",
-                'args' => array()
-            )
-        );
+
+        // Will never be 'null' here
+        $ele->click();
+        $this->waitForElement('byCssSelector', 'li.submenuhover > a');
+
         $this->sleep();
     }
 
@@ -611,5 +618,29 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
             "byXPath",
             "//a[@class='tabactive' and contains(., 'Browse')]"
         );
+    }
+
+    /**
+     * Scrolls to a coordinate such that the element with given id is visible
+     *
+     * @param string $element_id Id of the element
+     *
+     * @return void
+     */
+    public function scrollIntoView($element_id)
+    {
+        // 70pt offset so that the topmenu does not cover the element
+        $this->execute(
+            array(
+                'script' => 'var element = document.getElementById("'
+                            . $element_id . '");'
+                            . 'var position = element.getBoundingClientRect();'
+                            . 'var x = position.left;'
+                            . 'var y = position.top;'
+                            . 'window.scrollTo(x, y-70);',
+                'args'   => array()
+            )
+        );
+        usleep(10000);
     }
 }

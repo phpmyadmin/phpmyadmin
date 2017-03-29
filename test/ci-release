@@ -1,0 +1,3 @@
+#!/bin/sh
+
+./scripts/create-release.sh --ci

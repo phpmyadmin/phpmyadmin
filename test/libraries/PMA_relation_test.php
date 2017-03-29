@@ -38,13 +38,12 @@ class PMA_Relation_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['db'] = 'db';
         $GLOBALS['cfg']['Server']['user'] = 'root';
         $GLOBALS['cfg']['Server']['pmadb'] = 'phpmyadmin';
+        $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['cfg']['ZeroConf'] = true;
         $_SESSION['relation'][$GLOBALS['server']] = "PMA_relation";
-        $_SESSION['PMA_Theme'] = new Theme();
         $_SESSION['relation'] = array();
 
         $GLOBALS['pmaThemePath'] = $_SESSION['PMA_Theme']->getPath();
-        $GLOBALS['pmaThemeImage'] = 'theme/';
         $GLOBALS['cfg']['ServerDefault'] = 0;
 
         include_once 'libraries/relation.lib.php';

@@ -7,33 +7,37 @@
  * @package PhpMyAdmin
  */
 
-chdir('..');
+if (!defined('TESTSUITE')) {
+    chdir('..');
 
-// Close session early as we won't write anything there
-session_write_close();
+    // Close session early as we won't write anything there
+    session_write_close();
 
-// Send correct type
-header('Content-Type: text/javascript; charset=UTF-8');
-// Enable browser cache for 1 hour
-header('Expires: ' . gmdate('D, d M Y H:i:s', time() + 3600) . ' GMT');
+    // Send correct type
+    header('Content-Type: text/javascript; charset=UTF-8');
+    // Enable browser cache for 1 hour
+    header('Expires: ' . gmdate('D, d M Y H:i:s', time() + 3600) . ' GMT');
 
-// When a token is not presented, even though whitelisted arrays are removed
-// in PMA_removeRequestVars(). This is a workaround for that.
-$_GET['scripts'] = json_encode($_GET['scripts']);
+    // When a token is not presented, even though whitelisted arrays are removed
+    // in PMA_removeRequestVars(). This is a workaround for that.
+    $_GET['scripts'] = json_encode($_GET['scripts']);
 
-// Avoid loading the full common.inc.php because this would add many
-// non-js-compatible stuff like DOCTYPE
-define('PMA_MINIMUM_COMMON', true);
-define('PMA_PATH_TO_BASEDIR', '../');
-require_once './libraries/common.inc.php';
+    // Avoid loading the full common.inc.php because this would add many
+    // non-js-compatible stuff like DOCTYPE
+    define('PMA_MINIMUM_COMMON', true);
+    define('PMA_PATH_TO_BASEDIR', '../');
+    require_once './libraries/common.inc.php';
+}
 
 $buffer = PMA\libraries\OutputBuffering::getInstance();
 $buffer->start();
-register_shutdown_function(
-    function () {
-        echo PMA\libraries\OutputBuffering::getInstance()->getContents();
-    }
-);
+if (!defined('TESTSUITE')) {
+    register_shutdown_function(
+        function () {
+            echo PMA\libraries\OutputBuffering::getInstance()->getContents();
+        }
+    );
+}
 
 $_GET['scripts'] = json_decode($_GET['scripts']);
 if (! empty($_GET['scripts']) && is_array($_GET['scripts'])) {
@@ -43,7 +47,7 @@ if (! empty($_GET['scripts']) && is_array($_GET['scripts'])) {
         $script_name = 'js';
 
         $path = explode("/", $script);
-        foreach ($path as $index => $filename) {
+        foreach ($path as $filename) {
             // Allow alphanumeric, "." and "-" chars only, no files starting
             // with .
             if (preg_match("@^[\w][\w\.-]+$@", $filename)) {

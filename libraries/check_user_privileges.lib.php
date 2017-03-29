@@ -14,7 +14,13 @@ if (! defined('PHPMYADMIN')) {
  */
 $GLOBALS['is_superuser'] = $GLOBALS['dbi']->isSuperuser();
 
-
+/**
+ * Extracts details from a result row of a SHOW GRANT query
+ *
+ * @param string $row grant row
+ *
+ * @return array
+ */
 function PMA_getItemsFromShowGrantsRow($row)
 {
     $db_name_offset = mb_strpos($row, ' ON ') + 4;
@@ -300,8 +306,8 @@ function PMA_analyseShowGrant()
     PMA\libraries\Util::cacheSet('db_priv', $GLOBALS['db_priv']);
 } // end function
 
-$user = $GLOBALS['dbi']->fetchValue("SELECT CURRENT_USER();");
-if ($user == '@') { // MySQL is started with --skip-grant-tables
+list($username, $hostname) = $GLOBALS['dbi']->getCurrentUserAndHost();
+if ($username === '') { // MySQL is started with --skip-grant-tables
     $GLOBALS['is_create_db_priv'] = true;
     $GLOBALS['is_reload_priv']    = true;
     $GLOBALS['db_to_create']      = '';

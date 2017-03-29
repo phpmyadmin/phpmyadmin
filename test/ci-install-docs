@@ -1,0 +1,5 @@
+#!/bin/sh
+
+# We use 1.5 to be able to deal with gzip only sites in linkcheck (such as tcpdf.org)
+
+pip install --user 'Sphinx' 'requests[security]'

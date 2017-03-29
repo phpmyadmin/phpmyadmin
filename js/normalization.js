@@ -151,7 +151,7 @@ function goToStep3()
             $("#mainContent #extra").html(data.extra);
             $("#mainContent #newCols").html('');
             $('.tblFooters').html('');
-            primary_key = $.parseJSON(data.primary_key);
+            primary_key = JSON.parse(data.primary_key);
             for(var pk in primary_key) {
                 $("#extra input[value='" + escapeJsString(primary_key[pk]) + "']").attr("disabled","disabled");
             }
@@ -303,7 +303,7 @@ function goTo2NFStep2(pd, primary_key)
             "pd": JSON.stringify(pd),
             "getNewTables2NF":1};
         $.ajax({
-            type: "GET",
+            type: "POST",
             url: "normalization.php",
             data: datastring,
             async:false,
@@ -352,12 +352,12 @@ function goTo3NFStep2(pd, tablesTds)
             "pd": JSON.stringify(pd),
             "getNewTables3NF":1};
         $.ajax({
-            type: "GET",
+            type: "POST",
             url: "normalization.php",
             data: datastring,
             async:false,
             success: function(data) {
-                data_parsed = $.parseJSON(data.message);
+                data_parsed = data;
                 if (data.success === true) {
                     extra += data_parsed.html;
                 } else {
@@ -393,7 +393,7 @@ function processDependencies(primary_key, isTransitive)
             tablesTds[tblname].push(primary_key);
         }
         var form_id = $(this).attr('id');
-        $('#' + form_id + ' input[type=checkbox]:not(:checked)').removeAttr('checked');
+        $('#' + form_id + ' input[type=checkbox]:not(:checked)').prop('checked', false);
         dependsOn = '';
         $('#' + form_id + ' input[type=checkbox]:checked').each(function(){
             dependsOn += $(this).val() + ', ';
@@ -637,7 +637,7 @@ AJAX.registerOnload('normalization.js', function() {
                 '( ' + escapeHtml(primary_key.toString()) + ', <input type="text" name="repeatGroupColumn" placeholder="' + PMA_messages.strNewColumnPlaceholder + '" value="' + escapeHtml(newColName) + '">)' +
                 '</ol>';
             $("#newCols").html(confirmStr);
-            $('.tblFooters').html('<input type="submit" value="' + PMA_messages.strCancel + '" onclick="$(\'#newCols\').html(\'\');$(\'#extra input[type=checkbox]\').removeAttr(\'checked\')"/>' +
+            $('.tblFooters').html('<input type="submit" value="' + PMA_messages.strCancel + '" onclick="$(\'#newCols\').html(\'\');$(\'#extra input[type=checkbox]\').prop(\'checked\', false)"/>' +
                 '<input type="submit" value="' + PMA_messages.strGo + '" onclick="moveRepeatingGroup(\'' + escapeJsString(escapeHtml(repeatingCols)) + '\')"/>');
         }
     });

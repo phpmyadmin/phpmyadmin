@@ -5,6 +5,7 @@
  *
  * @package PhpMyAdmin
  */
+use PMA\libraries\URL;
 
 /**
  * Get HTML for display indexes
@@ -13,22 +14,14 @@
  */
 function PMA_getHtmlForDisplayIndexes()
 {
-    $html_output = '<div id="index_div" class="ajax';
-    if ($GLOBALS['cfg']['InitialSlidersState'] != 'disabled') {
-        $html_output .= ' print_ignore';
-    }
-    $html_output .= '" >';
-
-    $html_output .= PMA\libraries\Util::getDivForSliderEffect(
-        'indexes', __('Indexes')
-    );
+    $html_output = '<div id="index_div" class="ajax" >';
     $html_output .= PMA\libraries\Index::getHtmlForIndexes(
         $GLOBALS['table'],
         $GLOBALS['db']
     );
     $html_output .= '<fieldset class="tblFooters print_ignore" style="text-align: '
         . 'left;"><form action="tbl_indexes.php" method="post">';
-    $html_output .= PMA_URL_getHiddenInputs(
+    $html_output .= URL::getHiddenInputs(
         $GLOBALS['db'], $GLOBALS['table']
     );
     $html_output .= sprintf(
@@ -42,7 +35,6 @@ function PMA_getHtmlForDisplayIndexes()
 
     $html_output .= '</form>'
         . '</fieldset>'
-        . '</div>'
         . '</div>';
 
     return $html_output;

@@ -9,7 +9,6 @@
 use PMA\libraries\plugins\auth\AuthenticationSignon;
 
 require_once 'libraries/config.default.php';
-require_once 'libraries/sanitizing.lib.php';
 require_once 'test/PMATestCase.php';
 
 /**
@@ -41,6 +40,7 @@ class AuthenticationSignonTest extends PMATestCase
      */
     public function tearDown()
     {
+        parent::tearDown();
         unset($this->object);
     }
 
@@ -70,31 +70,12 @@ class AuthenticationSignonTest extends PMATestCase
      */
     public function testAuthLogoutURL()
     {
-        $restoreInstance = PMA\libraries\Response::getInstance();
+        $this->mockResponse('Location: https://example.com/logoutURL');
 
-        $mockResponse = $this->getMockBuilder('PMA\libraries\Response')
-            ->disableOriginalConstructor()
-            ->setMethods(array('isAjax', 'headersSent', 'header'))
-            ->getMock();
-
-        $mockResponse->expects($this->any())
-            ->method('headersSent')
-            ->with()
-            ->will($this->returnValue(false));
-
-        $mockResponse->expects($this->once())
-            ->method('header')
-            ->with('Location: https://example.com/logoutURL');
-
-        $attrInstance = new ReflectionProperty('PMA\libraries\Response', '_instance');
-        $attrInstance->setAccessible(true);
-        $attrInstance->setValue($mockResponse);
         $GLOBALS['cfg']['Server']['SignonURL'] = 'https://example.com/SignonURL';
         $GLOBALS['cfg']['Server']['LogoutURL'] = 'https://example.com/logoutURL';
 
         $this->object->logOut();
-
-        $attrInstance->setValue($restoreInstance);
     }
 
     /**
@@ -104,32 +85,13 @@ class AuthenticationSignonTest extends PMATestCase
      */
     public function testAuthLogout()
     {
-        $restoreInstance = PMA\libraries\Response::getInstance();
+        $this->mockResponse('Location: https://example.com/SignonURL');
 
-        $mockResponse = $this->getMockBuilder('PMA\libraries\Response')
-            ->disableOriginalConstructor()
-            ->setMethods(array('isAjax', 'headersSent', 'header'))
-            ->getMock();
-
-        $mockResponse->expects($this->any())
-            ->method('headersSent')
-            ->with()
-            ->will($this->returnValue(false));
-
-        $mockResponse->expects($this->once())
-            ->method('header')
-            ->with('Location: https://example.com/SignonURL');
-
-        $attrInstance = new ReflectionProperty('PMA\libraries\Response', '_instance');
-        $attrInstance->setAccessible(true);
-        $attrInstance->setValue($mockResponse);
         $GLOBALS['header'] = array();
         $GLOBALS['cfg']['Server']['SignonURL'] = 'https://example.com/SignonURL';
         $GLOBALS['cfg']['Server']['LogoutURL'] = '';
 
         $this->object->logOut();
-
-        $attrInstance->setValue($restoreInstance);
     }
 
     /**
@@ -158,6 +120,7 @@ class AuthenticationSignonTest extends PMATestCase
         $_SESSION['LAST_SIGNON_URL'] = 'https://example.com/SignonURL';
         $GLOBALS['cfg']['Server']['SignonScript'] = './examples/signon-script.php';
         $GLOBALS['cfg']['Server']['SignonSession'] = 'session123';
+        $GLOBALS['cfg']['Server']['SignonCookieParams'] = array();
         $GLOBALS['cfg']['Server']['host'] = 'localhost';
         $GLOBALS['cfg']['Server']['port'] = '80';
         $GLOBALS['cfg']['Server']['user'] = 'user';
@@ -189,28 +152,11 @@ class AuthenticationSignonTest extends PMATestCase
      */
     public function testAuthCheckToken()
     {
-        $restoreInstance = PMA\libraries\Response::getInstance();
-
-        $mockResponse = $this->getMockBuilder('PMA\libraries\Response')
-            ->disableOriginalConstructor()
-            ->setMethods(array('isAjax', 'headersSent', 'header'))
-            ->getMock();
-
-        $mockResponse->expects($this->any())
-            ->method('headersSent')
-            ->with()
-            ->will($this->returnValue(false));
-
-        $mockResponse->expects($this->once())
-            ->method('header')
-            ->with('Location: https://example.com/SignonURL');
-
-        $attrInstance = new ReflectionProperty('PMA\libraries\Response', '_instance');
-        $attrInstance->setAccessible(true);
-        $attrInstance->setValue($mockResponse);
+        $this->mockResponse('Location: https://example.com/SignonURL');
 
         $GLOBALS['cfg']['Server']['SignonURL'] = 'https://example.com/SignonURL';
         $GLOBALS['cfg']['Server']['SignonSession'] = 'session123';
+        $GLOBALS['cfg']['Server']['SignonCookieParams'] = array();
         $GLOBALS['cfg']['Server']['host'] = 'localhost';
         $GLOBALS['cfg']['Server']['port'] = '80';
         $GLOBALS['cfg']['Server']['user'] = 'user';
@@ -232,6 +178,7 @@ class AuthenticationSignonTest extends PMATestCase
                 'SignonURL' => 'https://example.com/SignonURL',
                 'SignonScript' => '',
                 'SignonSession' => 'session123',
+                'SignonCookieParams' => array(),
                 'host' => 'localhost',
                 'port' => '80',
                 'user' => 'user',
@@ -252,7 +199,6 @@ class AuthenticationSignonTest extends PMATestCase
         $this->assertFalse(
             isset($_SESSION['LAST_SIGNON_URL'])
         );
-        $attrInstance->setValue($restoreInstance);
     }
 
     /**
@@ -264,6 +210,7 @@ class AuthenticationSignonTest extends PMATestCase
     {
         $GLOBALS['cfg']['Server']['SignonURL'] = 'https://example.com/SignonURL';
         $GLOBALS['cfg']['Server']['SignonSession'] = 'session123';
+        $GLOBALS['cfg']['Server']['SignonCookieParams'] = array();
         $GLOBALS['cfg']['Server']['host'] = 'localhost';
         $GLOBALS['cfg']['Server']['port'] = '80';
         $GLOBALS['cfg']['Server']['user'] = 'user';

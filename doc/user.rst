@@ -5,6 +5,9 @@ User Guide
     :maxdepth: 2
 
     transformations
+    bookmarks
     privileges
-    other
+    relations
+    charts
     import_export
+    other

@@ -36,7 +36,9 @@ class PMA_SeleniumDbEventsTest extends PMA_SeleniumBase
         $this->dbQuery(
             "INSERT INTO `test_table` (val) VALUES (2);"
         );
-
+        $this->dbQuery(
+            "SET GLOBAL event_scheduler=\"ON\""
+        );
     }
 
     /**
@@ -47,11 +49,27 @@ class PMA_SeleniumDbEventsTest extends PMA_SeleniumBase
     public function setUpPage()
     {
         $this->login();
-        $this->waitForElement('byLinkText', $this->database_name)->click();
+        $this->waitForElement('byPartialLinkText', $this->database_name)->click();
         $this->waitForElement(
             "byXPath", "//a[contains(., 'test_table')]"
         );
+
+        // Let the Database page load
+        $this->waitForElementNotPresent('byId', 'ajax_message_num_1');
         $this->expandMore();
+    }
+
+    /**
+     * Tear Down function for test cases
+     *
+     * @return void
+     */
+    public function tearDown()
+    {
+        if ($this->_mysqli != null) {
+            $this->dbQuery("SET GLOBAL event_scheduler=\"OFF\"");
+        }
+        parent::tearDown();
     }
 
     /**
@@ -65,7 +83,7 @@ class PMA_SeleniumDbEventsTest extends PMA_SeleniumBase
         $end = date('Y-m-d H:i:s', strtotime('+1 day'));
 
         $this->dbQuery(
-            "CREATE EVENT `test_event` ON SCHEDULE EVERY 2 MINUTE_SECOND STARTS "
+            "CREATE EVENT `test_event` ON SCHEDULE EVERY 1 MINUTE_SECOND STARTS "
             . "'$start' ENDS '$end' ON COMPLETION NOT PRESERVE ENABLE "
             . "DO UPDATE `" . $this->database_name
             . "`.`test_table` SET val = val + 1"
@@ -84,20 +102,20 @@ class PMA_SeleniumDbEventsTest extends PMA_SeleniumBase
         $ele = $this->waitForElement("byPartialLinkText", "Events");
         $ele->click();
 
-        $ele = $this->waitForElement("byLinkText", "Add event");
+        $ele = $this->waitForElement("byPartialLinkText", "Add event");
         $ele->click();
 
         $this->waitForElement("byClassName", "rte_form");
 
-        $this->byName("item_name")->value("test_event");
-
         $this->select($this->byName("item_type"))
             ->selectOptionByLabel("RECURRING");
 
-        $this->byName("item_interval_value")->value("1");
-
+        $this->byName("item_name")->value("test_event");
         $this->select($this->byName("item_interval_field"))
             ->selectOptionByLabel("MINUTE_SECOND");
+
+        $ele = $this->waitForElement('byName', "item_interval_value");
+        $ele->value('1');
 
         $this->byName("item_starts")
             ->value(date('Y-m-d H:i:s', strtotime('-1 day')));
@@ -106,7 +124,7 @@ class PMA_SeleniumDbEventsTest extends PMA_SeleniumBase
             ->value(date('Y-m-d H:i:s', strtotime('+1 day')));
 
         $proc = "UPDATE " . $this->database_name . ".`test_table` SET val=val+1";
-        $this->typeInTextArea($proc);
+        $this->typeInTextArea($proc, 2);
 
         $this->byXPath("//button[contains(., 'Go')]")->click();
 
@@ -155,13 +173,13 @@ class PMA_SeleniumDbEventsTest extends PMA_SeleniumBase
             "//legend[contains(., 'Events')]"
         );
 
-        $this->byLinkText("Edit")->click();
+        $this->byPartialLinkText("Edit")->click();
 
         $this->waitForElement("byClassName", "rte_form");
         $this->byName("item_interval_value")->clear();
-        $this->byName("item_interval_value")->value("1");
-        $this->typeInTextArea("00");
+        $this->byName("item_interval_value")->value("2");
 
+        $this->sleep();
         $this->byXPath("//button[contains(., 'Go')]")->click();
 
         $ele = $this->waitForElement(
@@ -170,12 +188,12 @@ class PMA_SeleniumDbEventsTest extends PMA_SeleniumBase
             . "'Event `test_event` has been modified')]"
         );
 
-        usleep(2000000);
+        usleep(2200000);
         $result = $this->dbQuery(
             "SELECT val FROM `" . $this->database_name . "`.`test_table`"
         );
         $row = $result->fetch_assoc();
-        $this->assertGreaterThan(100, $row['val']);
+        $this->assertGreaterThan(4, $row['val']);
     }
 
     /**
@@ -195,9 +213,9 @@ class PMA_SeleniumDbEventsTest extends PMA_SeleniumBase
             "//legend[contains(., 'Events')]"
         );
 
-        $this->byLinkText("Drop")->click();
+        $this->byPartialLinkText("Drop")->click();
         $this->waitForElement(
-            "byXPath", "//button[contains(., 'OK')]"
+            "byClassName", "submitOK"
         )->click();
 
         $this->waitForElement("byId", "nothing2display");

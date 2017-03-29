@@ -2,7 +2,7 @@
       action="tbl_find_replace.php"
       name="previewForm"
       id="previewForm">
-    <?= PMA_URL_getHiddenInputs($db, $table); ?>
+    <?= \PMA\libraries\URL::getHiddenInputs($db, $table); ?>
     <input type="hidden" name="replace" value="true" />
     <input type="hidden" name="columnIndex" value="<?= $columnIndex; ?>" />
     <input type="hidden" name="findString" value="<?= htmlspecialchars($find); ?>" />
@@ -20,16 +20,14 @@
             </tr>
             </thead>
             <tbody>
-            <?php $odd = true; ?>
             <?php if (is_array($result)): ?>
                 <?php foreach ($result as $row): ?>
                     <?php $val = $row[0]; $replaced = $row[1]; $count = $row[2]; ?>
-                    <tr class="<?= ($odd ? 'odd' : 'even'); ?>">
+                    <tr>
                         <td class="right"><?= htmlspecialchars($count); ?></td>
                         <td><?= htmlspecialchars($val); ?></td>
                         <td><?= htmlspecialchars($replaced); ?></td>
                     </tr>
-                    <?php $odd = ! $odd; ?>
                 <?php endforeach; ?>
             <?php endif; ?>
             </tbody>

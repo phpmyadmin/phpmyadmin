@@ -10,17 +10,13 @@
  * Include to test.
  */
 use PMA\libraries\Theme;
+use PMA\libraries\URL;
 
-
-require_once 'libraries/url_generating.lib.php';
 
 require_once 'libraries/display_export.lib.php';
 
 require_once 'libraries/database_interface.inc.php';
-require_once 'libraries/charset_conversion.lib.php';
 require_once 'libraries/plugin_interface.lib.php';
-require_once 'libraries/sanitizing.lib.php';
-require_once 'libraries/js_escape.lib.php';
 require_once 'libraries/relation.lib.php';
 
 /**
@@ -61,12 +57,9 @@ class PMA_DisplayExport_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['server'] = 0;
 
         $GLOBALS['table'] = "table";
-        $GLOBALS['pmaThemeImage'] = 'image';
         $GLOBALS['db'] = "PMA";
 
         //$_SESSION
-        $_SESSION['PMA_Theme'] = Theme::load('./themes/pmahomme');
-        $_SESSION['PMA_Theme'] = new Theme();
         $_SESSION['relation'][$GLOBALS['server']] = "";
 
         $pmaconfig = $this->getMockBuilder('PMA\libraries\Config')
@@ -102,7 +95,7 @@ class PMA_DisplayExport_Test extends PHPUnit_Framework_TestCase
             $sql_query_str
         );
 
-        //validate 1: PMA_URL_getHiddenInputs
+        //validate 1: URL::getHiddenInputs
         //$single_table
         $this->assertContains(
             '<input type="hidden" name="single_table" value="TRUE"',

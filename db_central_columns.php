@@ -6,6 +6,9 @@
  *
  * @package PhpMyAdmin
  */
+use PMA\libraries\URL;
+use PMA\libraries\Response;
+
 /**
  * Gets some core libraries
  */
@@ -55,7 +58,7 @@ if (isset($_POST['add_column'])) {
     $selected_col[] = $_POST['column-select'];
     $tmp_msg = PMA_syncUniqueColumns($selected_col, false, $selected_tbl);
 }
-$response = PMA\libraries\Response::getInstance();
+$response = Response::getInstance();
 $header = $response->getHeader();
 $scripts = $header->getScripts();
 $scripts->addFile('jquery/jquery.uitablefilter.js');
@@ -97,7 +100,7 @@ if (PMA_isValid($_REQUEST['pos'], 'integer')) {
 } else {
     $pos = 0;
 }
-$addNewColumn = PMA_getHTMLforAddNewColumn($db);
+$addNewColumn = PMA_getHTMLforAddNewColumn($db, $total_rows);
 $response->addHTML($addNewColumn);
 if ($total_rows <= 0) {
     $response->addHTML(
@@ -114,7 +117,7 @@ $response->addHTML($table_navigation_html);
 $columnAdd = PMA_getHTMLforAddCentralColumn($total_rows, $pos, $db);
 $response->addHTML($columnAdd);
 $deleteRowForm = '<form method="post" id="del_form" action="db_central_columns.php">'
-        . PMA_URL_getHiddenInputs(
+        . URL::getHiddenInputs(
             $db
         )
         . '<input id="del_col_name" type="hidden" name="col_name" value="">'
@@ -131,14 +134,12 @@ $tableheader = PMA_getCentralColumnsTableHeader(
 );
 $response->addHTML($tableheader);
 $result = PMA_getColumnsList($db, $pos, $max_rows);
-$odd_row = true;
 $row_num = 0;
 foreach ($result as $row) {
     $tableHtmlRow = PMA_getHTMLforCentralColumnsTableRow(
-        $row, $odd_row, $row_num, $db
+        $row, $row_num, $db
     );
     $response->addHTML($tableHtmlRow);
-    $odd_row = !$odd_row;
     $row_num++;
 }
 $response->addHTML('</table>');

@@ -7,6 +7,7 @@
  */
 use PMA\libraries\Partition;
 use PMA\libraries\Table;
+use PMA\libraries\Response;
 
 /**
  *
@@ -24,7 +25,7 @@ $pma_table = new Table($GLOBALS['table'], $GLOBALS['db']);
 /**
  * Load JavaScript files
  */
-$response = PMA\libraries\Response::getInstance();
+$response = Response::getInstance();
 $header   = $response->getHeader();
 $scripts  = $header->getScripts();
 $scripts->addFile('tbl_operations.js');
@@ -41,11 +42,6 @@ $url_params['goto'] = $url_params['back'] = 'tbl_operations.php';
  */
 $cfgRelation = PMA_getRelationsParam();
 
-/**
- * Gets available MySQL charsets and storage engines
- */
-require_once 'libraries/mysql_charsets.inc.php';
-
 // reselect current db (needed in some cases probably due to
 // the calling of relation.lib.php)
 $GLOBALS['dbi']->selectDb($GLOBALS['db']);
@@ -56,11 +52,7 @@ $GLOBALS['dbi']->selectDb($GLOBALS['db']);
 require 'libraries/tbl_info.inc.php';
 
 // set initial value of these variables, based on the current table engine
-list($is_myisam_or_aria, $is_innodb, $is_isam,
-    $is_berkeleydb, $is_aria, $is_pbxt
-) = PMA_setGlobalVariablesForEngine($tbl_storage_engine);
-
-if ($is_aria) {
+if ($pma_table->isEngine('ARIA')) {
     // the value for transactional can be implicit
     // (no create option found, in this case it means 1)
     // or explicit (option found with a value of 0 or 1)
@@ -131,12 +123,8 @@ if (isset($_REQUEST['submitoptions'])) {
         && mb_strtoupper($_REQUEST['new_tbl_storage_engine']) !== $tbl_storage_engine
     ) {
         $new_tbl_storage_engine = mb_strtoupper($_REQUEST['new_tbl_storage_engine']);
-        // reset the globals for the new engine
-        list($is_myisam_or_aria, $is_innodb, $is_isam,
-            $is_berkeleydb, $is_aria, $is_pbxt
-        ) = PMA_setGlobalVariablesForEngine($new_tbl_storage_engine);
 
-        if ($is_aria) {
+        if ($pma_table->isEngine('ARIA')) {
             $create_options['transactional'] = (isset($create_options['transactional']) && $create_options['transactional'] == '0')
                 ? '0'
                 : '1';
@@ -151,12 +139,12 @@ if (isset($_REQUEST['submitoptions'])) {
         : $pma_table->getStatusInfo('ROW_FORMAT');
 
     $table_alters = PMA_getTableAltersArray(
-        $is_myisam_or_aria, $is_isam, $create_options['pack_keys'],
+        $pma_table,
+        $create_options['pack_keys'],
         (empty($create_options['checksum']) ? '0' : '1'),
-        $is_aria,
         ((isset($create_options['page_checksum'])) ? $create_options['page_checksum'] : ''),
         (empty($create_options['delay_key_write']) ? '0' : '1'),
-        $is_innodb, $is_pbxt, $row_format,
+        $row_format,
         $new_tbl_storage_engine,
         ((isset($create_options['transactional']) && $create_options['transactional'] == '0') ? '0' : '1'),
         $tbl_collation
@@ -217,10 +205,7 @@ if (isset($result) && empty($message_to_show)) {
                 : PMA\libraries\Message::error();
         }
 
-        if (isset($GLOBALS['ajax_request'])
-            && $GLOBALS['ajax_request'] == true
-        ) {
-            $response = PMA\libraries\Response::getInstance();
+        if ($response->isAjax()) {
             $response->setRequestStatus($_message->isSuccess());
             $response->addJSON('message', $_message);
             if (!empty($sql_query)) {
@@ -238,12 +223,9 @@ if (isset($result) && empty($message_to_show)) {
 
     if (! empty($warning_messages)) {
         $_message = new PMA\libraries\Message;
-        $_message->addMessages($warning_messages);
+        $_message->addMessagesString($warning_messages);
         $_message->isError(true);
-        if (isset($GLOBALS['ajax_request'])
-            && $GLOBALS['ajax_request'] == true
-        ) {
-            $response = PMA\libraries\Response::getInstance();
+        if ($response->isAjax()) {
             $response->setRequestStatus(false);
             $response->addJSON('message', $_message);
             if (!empty($sql_query)) {
@@ -342,13 +324,13 @@ if (mb_strstr($show_comment, '; InnoDB free') === false) {
 
 $response->addHTML(
     PMA_getTableOptionDiv(
-        $comment, $tbl_collation, $tbl_storage_engine,
-        $is_myisam_or_aria, $is_isam, $create_options['pack_keys'],
+        $pma_table, $comment, $tbl_collation, $tbl_storage_engine,
+        $create_options['pack_keys'],
         $auto_increment,
         (empty($create_options['delay_key_write']) ? '0' : '1'),
         ((isset($create_options['transactional']) && $create_options['transactional'] == '0') ? '0' : '1'),
         ((isset($create_options['page_checksum'])) ? $create_options['page_checksum'] : ''),
-        $is_innodb, $is_pbxt, $is_aria, (empty($create_options['checksum']) ? '0' : '1')
+        (empty($create_options['checksum']) ? '0' : '1')
     )
 );
 
@@ -361,12 +343,7 @@ $response->addHTML(PMA_getHtmlForCopytable());
  * Table maintenance
  */
 $response->addHTML(
-    PMA_getHtmlForTableMaintenance(
-        $is_myisam_or_aria,
-        $is_innodb,
-        $is_berkeleydb,
-        $url_params
-    )
+    PMA_getHtmlForTableMaintenance($pma_table, $url_params)
 );
 
 if (! (isset($db_is_system_schema) && $db_is_system_schema)) {
@@ -439,7 +416,7 @@ unset($partition_names);
 // so I assume that if the current table is InnoDB, I don't display
 // this choice (InnoDB maintains integrity by itself)
 
-if ($cfgRelation['relwork'] && ! $is_innodb) {
+if ($cfgRelation['relwork'] && ! $pma_table->isEngine("INNODB")) {
     $GLOBALS['dbi']->selectDb($GLOBALS['db']);
     $foreign = PMA_getForeigners($GLOBALS['db'], $GLOBALS['table'], '', 'internal');
 

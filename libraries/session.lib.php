@@ -19,9 +19,30 @@ function PMA_secureSession()
     if (session_status() === PHP_SESSION_ACTIVE && ! defined('TESTSUITE')) {
         session_regenerate_id(true);
     }
-    if (! function_exists('openssl_random_pseudo_bytes')) {
+    PMA_generateToken();
+}
+
+
+/**
+ * Generates PMA_token session variable.
+ *
+ * @return void
+ */
+function PMA_generateToken()
+{
+    if (class_exists('phpseclib\Crypt\Random')) {
         $_SESSION[' PMA_token '] = bin2hex(phpseclib\Crypt\Random::string(16));
     } else {
         $_SESSION[' PMA_token '] = bin2hex(openssl_random_pseudo_bytes(16));
+    }
+
+    /**
+     * Check if token is properly generated (the genration can fail, for example
+     * due to missing /dev/random for openssl).
+     */
+    if (empty($_SESSION[' PMA_token '])) {
+        PMA_fatalError(
+            'Failed to generate random CSRF token!'
+        );
     }
 }

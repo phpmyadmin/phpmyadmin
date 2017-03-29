@@ -20,13 +20,24 @@
         "source": "https://github.com/phpmyadmin/phpmyadmin"
     },
     "non-feature-branches": ["RELEASE_.*"],
+    "autoload": {
+        "psr-4": {
+            "PMA\\": "./"
+        }
+    },
     "require": {
         "php": ">=5.5.0",
         "ext-mbstring": "*",
         "ext-mysqli": "*",
         "ext-xml": "*",
         "ext-pcre": "*",
-        "ext-json": "*"
+        "ext-json": "*",
+        "phpmyadmin/sql-parser": "^4.1.2",
+        "phpmyadmin/motranslator": "^3.0",
+        "phpmyadmin/shapefile": "^2.0",
+        "tecnickcom/tcpdf": "^6.2",
+        "phpseclib/phpseclib": "^2.0",
+        "google/recaptcha": "^1.1"
     },
     "suggest": {
         "ext-openssl": "Cookie encryption",
@@ -35,10 +46,11 @@
         "ext-zlib": "For gz import and export",
         "ext-bz2": "For bzip2 import and export",
         "ext-zip": "For zip import and export",
-        "ext-gd2": "For image transformations"
+        "ext-gd2": "For image transformations",
+        "tecnickcom/tcpdf": "For PDF support"
     },
     "require-dev": {
-        "satooshi/php-coveralls": "~0.6",
+        "satooshi/php-coveralls": "^1.0",
         "phpunit/phpunit": "~4.1",
         "codacy/coverage": "dev-master",
         "phpunit/phpunit-selenium": "~1.2",

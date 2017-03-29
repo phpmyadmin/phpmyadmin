@@ -5,7 +5,7 @@
       class="ajax"
       onsubmit="if (typeof(this.elements['index[Key_name]'].disabled) != 'undefined') this.elements['index[Key_name]'].disabled = false;">
 
-    <?= PMA_URL_getHiddenInputs($form_params); ?>
+    <?= PMA\libraries\URL::getHiddenInputs($form_params); ?>
 
     <fieldset id="index_edit_fields">
         <div class="index_info">
@@ -128,7 +128,7 @@
                     </th>
                 </tr>
             </thead>
-            <?php $odd_row = true;
+            <?php
             $spatial_types = array(
                 'geometry',
                 'point',
@@ -144,7 +144,7 @@
                 <?php /* @var $column PMA\libraries\IndexColumn */
                 foreach ($index->getColumns() as $column): ?>
 
-                    <tr class="<?= $odd_row ? 'odd' : 'even'; ?>noclick">
+                    <tr class="noclick">
                         <td>
                             <span class="drag_icon" title="<?= __('Drag to reorder') ?>"></span>
                         </td>
@@ -184,13 +184,12 @@
                     </tr>
 
                     <?php
-                    $odd_row = !$odd_row;
 
                 endforeach;
 
                 for ($i = 0; $i < $add_fields; $i++): ?>
 
-                    <tr class="<?= $odd_row ? 'odd' : 'even'; ?>noclick">
+                    <tr class="noclick">
                         <td>
                             <span class="drag_icon" title="<?= __('Drag to reorder') ?>"></span>
                         </td>
@@ -223,7 +222,6 @@
                         </td>
                     </tr>
                     <?php
-                    $odd_row = !$odd_row;
                  endfor; ?>
 
             </tbody>

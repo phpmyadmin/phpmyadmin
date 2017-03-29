@@ -171,7 +171,12 @@ AJAX.registerOnload('sql.js', function () {
             if ($link.hasClass('formLinkSubmit')) {
                 submitFormLink($link);
             } else {
-                $.post(url, {'ajax_request': true, 'is_js_confirmed': true}, function (data) {
+                var params = {
+                    'ajax_request': true,
+                    'is_js_confirmed': true,
+                    'token': PMA_commonParams.get('token')
+                };
+                $.post(url, params, function (data) {
                     if (data.success) {
                         PMA_ajaxShowMessage(data.message);
                         $link.closest('tr').remove();
@@ -580,7 +585,8 @@ AJAX.registerOnload('sql.js', function () {
             type: 'POST',
             url: $form.attr('action'),
             data: {
-                token: $form.find('input[name="token"]').val(),
+                token: PMA_commonParams.get('token'),
+                server: PMA_commonParams.get('server'),
                 db: db_name,
                 ajax_request: '1',
                 simulate_dml: '1',
@@ -788,7 +794,7 @@ function makeProfilingChart()
     }
 
     var data = [];
-    $.each(jQuery.parseJSON($('#profilingChartData').html()), function (key, value) {
+    $.each(JSON.parse($('#profilingChartData').html()), function (key, value) {
         data.push([key, parseFloat(value)]);
     });
 

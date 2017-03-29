@@ -5,12 +5,15 @@
  *
  * @package PhpMyAdmin
  */
+use PMA\libraries\ThemeManager;
+use PMA\libraries\Response;
 
 /**
  * get some globals
  */
 require './libraries/common.inc.php';
-$response = PMA\libraries\Response::getInstance();
+
+$response = Response::getInstance();
 $response->getFooter()->setMinimal();
 $header = $response->getHeader();
 $header->setBodyId('bodythemes');
@@ -25,6 +28,6 @@ $output .= '<a href="' . $url . '" rel="noopener noreferrer" target="_blank">';
 $output .= __('Get more themes!');
 $output .= '</a>';
 $output .= '</p>';
-$output .= $_SESSION['PMA_Theme_Manager']->getPrintPreviews();
+$output .= ThemeManager::getInstance()->getPrintPreviews();
 
 $response->addHTML($output);

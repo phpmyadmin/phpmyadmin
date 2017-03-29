@@ -30,6 +30,7 @@ AJAX.registerTeardown('db_structure.js', function () {
     $('a.real_row_count').off('click');
     $('a.row_count_sum').off('click');
     $('select[name=submit_mult]').unbind('change');
+    $("#filterText").unbind('keyup');
 });
 
 /**
@@ -211,15 +212,37 @@ AJAX.registerOnload('db_structure.js', function () {
     };
 
 /**
+* Filtering tables on table listing of particular database
+*
+*/
+    $("#filterText").keyup(function() {
+        var filterInput = $(this).val().toUpperCase();
+        var structureTable = $('#structureTable')[0];
+        $('#structureTable tbody tr').each(function() {
+            var tr = $(this);
+            var a = tr.find('a')[0];
+            if (a) {
+                if (a.text.trim().toUpperCase().indexOf(filterInput) > -1) {
+                    tr[0].style.display = "";
+                } else {
+                    tr[0].style.display = "none";
+                }
+            }
+        });
+    });
+
+/**
  *  Event handler on select of "Make consistent with central list"
  */
     $('select[name=submit_mult]').change(function(event) {
         if ($(this).val() === 'make_consistent_with_central_list') {
             event.preventDefault();
             event.stopPropagation();
-            jqConfirm(PMA_messages.makeConsistentMessage, function(){
-                        $('#tablesForm').submit();
-                    });
+            jqConfirm(
+                PMA_messages.makeConsistentMessage, function(){
+                    $('#tablesForm').submit();
+                }
+            );
             return false;
         }
         else if ($(this).val() === 'copy_tbl' || $(this).val() === 'add_prefix_tbl' || $(this).val() === 'replace_prefix_tbl' || $(this).val() === 'copy_tbl_change_prefix') {
@@ -295,7 +318,7 @@ AJAX.registerOnload('db_structure.js', function () {
          * @var question    String containing the question to be asked for confirmation
          */
         var question = PMA_messages.strTruncateTableStrongWarning + ' ' +
-            PMA_sprintf(PMA_messages.strDoYouReally, 'TRUNCATE ' + escapeHtml(curr_table_name)) +
+            PMA_sprintf(PMA_messages.strDoYouReally, 'TRUNCATE `' + escapeHtml(curr_table_name) + '`') +
             getForeignKeyCheckboxLoader();
 
         $this_anchor.PMA_confirm(question, $this_anchor.attr('href'), function (url) {
@@ -303,6 +326,7 @@ AJAX.registerOnload('db_structure.js', function () {
             PMA_ajaxShowMessage(PMA_messages.strProcessingRequest);
 
             var params = getJSConfirmCommonParam(this);
+            params.token = PMA_commonParams.get('token');
 
             $.post(url, params, function (data) {
                 if (typeof data !== 'undefined' && data.success === true) {
@@ -354,10 +378,10 @@ AJAX.registerOnload('db_structure.js', function () {
         var question;
         if (! is_view) {
             question = PMA_messages.strDropTableStrongWarning + ' ' +
-                PMA_sprintf(PMA_messages.strDoYouReally, 'DROP TABLE ' + escapeHtml(curr_table_name));
+                PMA_sprintf(PMA_messages.strDoYouReally, 'DROP TABLE `' + escapeHtml(curr_table_name) + '`');
         } else {
             question =
-                PMA_sprintf(PMA_messages.strDoYouReally, 'DROP VIEW ' + escapeHtml(curr_table_name));
+                PMA_sprintf(PMA_messages.strDoYouReally, 'DROP VIEW `' + escapeHtml(curr_table_name) + '`');
         }
         question += getForeignKeyCheckboxLoader();
 
@@ -366,11 +390,11 @@ AJAX.registerOnload('db_structure.js', function () {
             var $msg = PMA_ajaxShowMessage(PMA_messages.strProcessingRequest);
 
             var params = getJSConfirmCommonParam(this);
+            params.token = PMA_commonParams.get('token');
 
             $.post(url, params, function (data) {
                 if (typeof data !== 'undefined' && data.success === true) {
                     PMA_ajaxShowMessage(data.message);
-                    toggleRowColors($curr_row.next());
                     $curr_row.hide("medium").remove();
                     PMA_adjustTotals();
                     PMA_reloadNavigation();

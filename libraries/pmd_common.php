@@ -548,7 +548,7 @@ function PMA_addNewRelation($db, $T1, $F1, $T2, $F2, $on_delete, $on_update)
         if ($foreigner
             && isset($foreigner['constraint'])
         ) {
-            return array(false, __('Error: relation already exists.'));
+            return array(false, __('Error: relationship already exists.'));
         }
         // note: in InnoDB, the index does not requires to be on a PRIMARY
         // or UNIQUE key
@@ -594,13 +594,13 @@ function PMA_addNewRelation($db, $T1, $F1, $T2, $F2, $on_delete, $on_update)
             }
             $upd_query .= ';';
             if ($GLOBALS['dbi']->tryQuery($upd_query)) {
-                return array(true, __('FOREIGN KEY relation has been added.'));
+                return array(true, __('FOREIGN KEY relationship has been added.'));
             }
 
             $error = $GLOBALS['dbi']->getError();
             return array(
                 false,
-                __('Error: FOREIGN KEY relation could not be added!')
+                __('Error: FOREIGN KEY relationship could not be added!')
                 . "<br/>" . $error
             );
         }
@@ -632,13 +632,13 @@ function PMA_addNewRelation($db, $T1, $F1, $T2, $F2, $on_delete, $on_update)
 
     if (PMA_queryAsControlUser($q, false, PMA\libraries\DatabaseInterface::QUERY_STORE)
     ) {
-        return array(true, __('Internal relation has been added.'));
+        return array(true, __('Internal relationship has been added.'));
     }
 
     $error = $GLOBALS['dbi']->getError($GLOBALS['controllink']);
     return array(
         false,
-        __('Error: Internal relation could not be added!')
+        __('Error: Internal relationship could not be added!')
         . "<br/>" . $error
     );
 }
@@ -676,13 +676,13 @@ function PMA_removeRelation($T1, $F1, $T2, $F2)
                 . '.' . PMA\libraries\Util::backquote($T2) . ' DROP FOREIGN KEY '
                 . PMA\libraries\Util::backquote($foreigner['constraint']) . ';';
             if ($GLOBALS['dbi']->query($upd_query)) {
-                return array(true, __('FOREIGN KEY relation has been removed.'));
+                return array(true, __('FOREIGN KEY relationship has been removed.'));
             }
 
             $error = $GLOBALS['dbi']->getError();
             return array(
                 false,
-                __('Error: FOREIGN KEY relation could not be removed!')
+                __('Error: FOREIGN KEY relationship could not be removed!')
                 . "<br/>" . $error
             );
         }
@@ -709,11 +709,11 @@ function PMA_removeRelation($T1, $F1, $T2, $F2)
         $error = $GLOBALS['dbi']->getError($GLOBALS['controllink']);
         return array(
             false,
-            __('Error: Internal relation could not be removed!') . "<br/>" . $error
+            __('Error: Internal relationship could not be removed!') . "<br/>" . $error
         );
     }
 
-    return array(true, __('Internal relation has been removed.'));
+    return array(true, __('Internal relationship has been removed.'));
 }
 
 /**

@@ -10,13 +10,13 @@
 use PMA\libraries\config\PageSettings;
 use PMA\libraries\Response;
 use PMA\libraries\Util;
+use PMA\libraries\URL;
 
 /**
  * Gets some core libraries
  */
 require_once 'libraries/common.inc.php';
 require_once 'libraries/check_user_privileges.lib.php';
-require_once 'libraries/bookmark.lib.php';
 require_once 'libraries/sql.lib.php';
 require_once 'libraries/config/user_preferences.forms.php';
 require_once 'libraries/config/page_settings.forms.php';
@@ -60,9 +60,9 @@ if (empty($goto)) {
 
 if (! isset($err_url)) {
     $err_url = (! empty($back) ? $back : $goto)
-        . '?' . PMA_URL_getCommon(array('db' => $GLOBALS['db']))
+        . '?' . URL::getCommon(array('db' => $GLOBALS['db']))
         . ((mb_strpos(' ' . $goto, 'db_') != 1
-            && mb_strlen($table))
+            && strlen($table) > 0)
             ? '&amp;table=' . urlencode($table)
             : ''
         );
@@ -122,9 +122,7 @@ if (isset($_REQUEST['set_col_prefs']) && $_REQUEST['set_col_prefs'] == true) {
 
 // Default to browse if no query set and we have table
 // (needed for browsing from DefaultTabTable)
-$tableLength = mb_strlen($table);
-$dbLength = mb_strlen($db);
-if (empty($sql_query) && $tableLength && $dbLength) {
+if (empty($sql_query) && strlen($table) > 0 && strlen($db) > 0) {
     $sql_query = PMA_getDefaultSqlQueryForBrowse($db, $table);
 
     // set $goto to what will be displayed if query returns 0 rows
@@ -191,7 +189,7 @@ if (isset($_POST['store_bkm'])) {
  */
 if ($goto == 'sql.php') {
     $is_gotofile = false;
-    $goto = 'sql.php' . PMA_URL_getCommon(
+    $goto = 'sql.php' . URL::getCommon(
         array(
             'db' => $db,
             'table' => $table,

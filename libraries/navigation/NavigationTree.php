@@ -15,6 +15,7 @@ use PMA\libraries\navigation\nodes\NodeViewContainer;
 use PMA\libraries\RecentFavoriteTable;
 use PMA\libraries\Response;
 use PMA\libraries\Util;
+use PMA\libraries\URL;
 
 require_once 'libraries/check_user_privileges.lib.php';
 
@@ -1036,9 +1037,10 @@ class NavigationTree
         if ($node->hasSiblings()
             || $node->realParent() === false
         ) {
+            $response = Response::getInstance();
             if ($node->type == Node::CONTAINER
                 && count($node->children) == 0
-                && $GLOBALS['is_ajax_request'] != true
+                && ! $response->isAjax()
             ) {
                 return '';
             }
@@ -1261,14 +1263,12 @@ class NavigationTree
             array('dbselector')
         );
         $children = $this->_tree->children;
-        array_shift($children);
         $url_params = array(
-            'token'  => $_SESSION[' PMA_token '],
             'server' => $GLOBALS['server'],
         );
         $retval .= '<div id="pma_navigation_db_select">';
         $retval .= '<form action="index.php">';
-        $retval .= PMA_getHiddenFields($url_params);
+        $retval .= URL::getHiddenFields($url_params);
         $retval .= '<select name="db" class="hide" id="navi_db_select">'
             . '<option value="" dir="' . $GLOBALS['text_dir'] . '">'
             . '(' . __('Databases') . ') ...</option>' . "\n";
@@ -1356,17 +1356,10 @@ class NavigationTree
             );
             $retval .= '<li class="fast_filter db_fast_filter">';
             $retval .= '<form class="ajax fast_filter">';
-            $retval .= PMA_getHiddenFields($url_params);
+            $retval .= URL::getHiddenInputs($url_params);
             $retval .= '<input class="searchClause" type="text"';
             $retval .= ' name="searchClause" accesskey="q"';
-            // allow html5 placeholder attribute
-            $placeholder_key = 'value';
-            if (PMA_USR_BROWSER_AGENT !== 'IE'
-                || PMA_USR_BROWSER_VER > 9
-            ) {
-                $placeholder_key = 'placeholder';
-            }
-            $retval .= " $placeholder_key='"
+            $retval .= " placeholder='"
                 . __("Type to filter these, Enter to search all");
             $retval .= "' />";
             $retval .= '<span title="' . __('Clear fast filter') . '">X</span>';
@@ -1395,15 +1388,10 @@ class NavigationTree
             );
             $retval .= "<li class='fast_filter'>";
             $retval .= "<form class='ajax fast_filter'>";
-            $retval .= PMA_getHiddenFields($url_params);
+            $retval .= URL::getHiddenFields($url_params);
             $retval .= "<input class='searchClause' type='text'";
             $retval .= " name='searchClause2'";
-            // allow html5 placeholder attribute
-            $placeholder_key = 'value';
-            if (PMA_USR_BROWSER_AGENT !== 'IE' || PMA_USR_BROWSER_VER > 9) {
-                $placeholder_key = 'placeholder';
-            }
-            $retval .= " $placeholder_key='"
+            $retval .= " placeholder='"
                 . __("Type to filter these, Enter to search all") . "' />";
             $retval .= "<span title='" . __('Clear fast filter') . "'>X</span>";
             $retval .= "</form>";

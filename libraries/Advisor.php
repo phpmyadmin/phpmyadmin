@@ -9,6 +9,7 @@
 namespace PMA\libraries;
 
 use \Exception;
+use PMA\libraries\URL;
 
 require_once 'libraries/advisor.lib.php';
 
@@ -326,7 +327,7 @@ class Advisor
             // linking to server_variables.php
             $rule['recommendation'] = preg_replace(
                 '/\{([a-z_0-9]+)\}/Ui',
-                '<a href="server_variables.php' . PMA_URL_getCommon()
+                '<a href="server_variables.php' . URL::getCommon()
                 . '&filter=\1">\1</a>',
                 $this->translate($rule['recommendation'])
             );
@@ -428,6 +429,7 @@ class Advisor
         // Actually evaluate the code
         ob_start();
         try {
+            // TODO: replace by using symfony/expression-language
             eval('$value = ' . $expr . ';');
             $err = ob_get_contents();
         } catch (Exception $e) {

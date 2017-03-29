@@ -5,8 +5,10 @@
  *
  * @package PhpMyAdmin
  */
+use PMA\libraries\Response;
 use PMA\libraries\gis\GISFactory;
 use PMA\libraries\gis\GISVisualization;
+use PMA\libraries\URL;
 
 /**
  * Escapes special characters if the variable is set.
@@ -100,7 +102,7 @@ if (isset($_REQUEST['generate']) && $_REQUEST['generate'] == true) {
         'visualization' => $visualization,
         'openLayers'    => $open_layers,
     );
-    $response = PMA\libraries\Response::getInstance();
+    $response = Response::getInstance();
     $response->addJSON($extra_data);
     exit;
 }
@@ -127,7 +129,7 @@ if (isset($_REQUEST['input_name'])) {
     echo '<input type="hidden" name="input_name" value="'
         , htmlspecialchars($_REQUEST['input_name']) , '" />';
 }
-echo PMA_URL_getHiddenInputs();
+echo URL::getHiddenInputs();
 
 echo '<!-- Visualization section -->';
 echo '<div id="placeholder" style="width:450px;height:300px;'
@@ -426,5 +428,5 @@ echo '</div>';
 echo '</div>';
 echo '</form>';
 
-PMA\libraries\Response::getInstance()->addJSON('gis_editor', ob_get_contents());
+Response::getInstance()->addJSON('gis_editor', ob_get_contents());
 ob_end_clean();

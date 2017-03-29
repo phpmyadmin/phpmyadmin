@@ -117,9 +117,9 @@ foreach ($tables as $each_table) {
         $data_checked = $is_checked;
     }
     $table_html   = htmlspecialchars($each_table['Name']);
-    $multi_values .= '<tr>';
+    $multi_values .= '<tr class="marked">';
     $multi_values .= '<td><input type="checkbox" name="table_select[]"'
-        . ' value="' . $table_html . '"' . $is_checked . ' /></td>';
+        . ' value="' . $table_html . '"' . $is_checked . ' class="checkall"/></td>';
     $multi_values .= '<td class="export_table_name">'
         . str_replace(' ', '&nbsp;', $table_html) . '</td>';
     $multi_values .= '<td class="export_structure">'

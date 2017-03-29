@@ -41,7 +41,7 @@ function PMA_Transformation_getOptions($option_string)
 {
     $result = array();
 
-    if (! mb_strlen($option_string)
+    if (strlen($option_string) === 0
         || ! $transform_options = preg_split('/,/', $option_string)
     ) {
         return $result;
@@ -49,9 +49,9 @@ function PMA_Transformation_getOptions($option_string)
 
     while (($option = array_shift($transform_options)) !== null) {
         $trimmed = trim($option);
-        if (mb_strlen($trimmed) > 1
+        if (strlen($trimmed) > 1
             && $trimmed[0] == "'"
-            && $trimmed[mb_strlen($trimmed) - 1] == "'"
+            && $trimmed[strlen($trimmed) - 1] == "'"
         ) {
             // '...'
             $option = mb_substr($trimmed, 1, -1);
@@ -62,7 +62,7 @@ function PMA_Transformation_getOptions($option_string)
                 // ...,
                 $trimmed .= ',' . $option;
                 $rtrimmed = rtrim($trimmed);
-                if ($rtrimmed[mb_strlen($rtrimmed) - 1] == "'") {
+                if ($rtrimmed[strlen($rtrimmed) - 1] == "'") {
                     // ,...'
                     break;
                 }
@@ -343,11 +343,11 @@ function PMA_setMIME($db, $table, $key, $mimetype, $transformation,
         $row = @$GLOBALS['dbi']->fetchAssoc($test_rs);
         $GLOBALS['dbi']->freeResult($test_rs);
 
-        $transformationLength = mb_strlen($transformation);
         if (! $forcedelete
-            && (mb_strlen($mimetype) || $transformationLength
-            || mb_strlen($transformationOpts)
-            || mb_strlen($row['comment']))
+            && (strlen($mimetype) > 0
+            || strlen($transformation) > 0
+            || strlen($transformationOpts) > 0
+            || strlen($row['comment']) > 0)
         ) {
             $upd_query = 'UPDATE '
                 . PMA\libraries\Util::backquote($cfgRelation['db']) . '.'
@@ -374,9 +374,9 @@ function PMA_setMIME($db, $table, $key, $mimetype, $transformation,
                 . '\'
               AND `column_name` = \'' . $GLOBALS['dbi']->escapeString($key)
                 . '\'';
-    } elseif (mb_strlen($mimetype)
-        || mb_strlen($transformation)
-        || mb_strlen($transformationOpts)
+    } elseif (strlen($mimetype) > 0
+        || strlen($transformation) > 0
+        || strlen($transformationOpts) > 0
     ) {
 
         $upd_query = 'INSERT INTO '

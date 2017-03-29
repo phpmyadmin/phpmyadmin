@@ -5,8 +5,7 @@
  *
  * @package PhpMyAdmin-test
  */
-
-require_once 'libraries/url_generating.lib.php';
+use PMA\libraries\Response;
 
 /*
  * Include to test.
@@ -59,7 +58,6 @@ class PMA_EVN_GetEditorForm_Test extends PHPUnit_Framework_TestCase
      */
     public function testgetEditorFormAdd($data, $matcher)
     {
-        $GLOBALS['is_ajax_request'] = false;
         PMA_EVN_setGlobals();
         $this->assertContains(
             $matcher,
@@ -147,7 +145,6 @@ class PMA_EVN_GetEditorForm_Test extends PHPUnit_Framework_TestCase
      */
     public function testgetEditorFormEdit($data, $matcher)
     {
-        $GLOBALS['is_ajax_request'] = false;
         PMA_EVN_setGlobals();
         $this->assertContains(
             $matcher,
@@ -235,12 +232,13 @@ class PMA_EVN_GetEditorForm_Test extends PHPUnit_Framework_TestCase
      */
     public function testgetEditorFormAjax($data, $matcher)
     {
-        $GLOBALS['is_ajax_request'] = true;
+        Response::getInstance()->setAjax(true);
         PMA_EVN_setGlobals();
         $this->assertContains(
             $matcher,
             PMA_EVN_getEditorForm('edit', 'change', $data)
         );
+        Response::getInstance()->setAjax(false);
     }
 
     /**

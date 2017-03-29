@@ -7,6 +7,8 @@
  */
 namespace PMA\libraries\plugins;
 
+use PMA\libraries\Sanitize;
+
 /**
  * Provides a common interface that will have to be implemented by all of the
  * authentication plugins.
@@ -143,17 +145,23 @@ abstract class AuthenticationPlugin
      *
      * @return void
      */
-     public function setSessionAccessTime()
-     {
+    public function setSessionAccessTime()
+    {
+        if (isset($_REQUEST['guid'])) {
+            $guid = (string)$_REQUEST['guid'];
+        } else {
+            $guid = 'default';
+        }
         if (isset($_REQUEST['access_time'])) {
             // Ensure access_time is in range <0, LoginCookieValidity + 1>
             // to avoid excessive extension of validity.
             //
             // Negative values can cause session expiry extension
             // Too big values can cause overflow and lead to same
-            $_SESSION['last_access_time'] = time() - min(max(0, intval($_REQUEST['access_time'])), $GLOBALS['cfg']['LoginCookieValidity'] + 1);
+            $time = time() - min(max(0, intval($_REQUEST['access_time'])), $GLOBALS['cfg']['LoginCookieValidity'] + 1);
         } else {
-            $_SESSION['last_access_time'] = time();
+            $time = time();
         }
+        $_SESSION['browser_access_time'][$guid] = $time;
      }
 }
