@@ -1,7 +1,7 @@
 phpMyAdmin - ChangeLog
 ======================
 
-4.7.0.0 (not yet released)
+4.7.0 (2017-03-28)
 - patch #12233 [Display] Improve message when renaming database to same name
 - issue #6146  Log authentication attempts to syslog
 - issue #11981 Remove support for Swekey authentication
