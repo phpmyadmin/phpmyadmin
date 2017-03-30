@@ -546,7 +546,6 @@ class Header
             . "script-src 'self' 'unsafe-inline' 'unsafe-eval' "
             . $captcha_url
             . $GLOBALS['cfg']['CSPAllow'] . ';'
-            . ";"
             . "style-src 'self' 'unsafe-inline' "
             . $captcha_url
             . $GLOBALS['cfg']['CSPAllow']
@@ -556,6 +555,7 @@ class Header
             . $map_tile_urls
             . $captcha_url
             . ";"
+            . "object-src 'none';"
         );
         header(
             "X-Content-Security-Policy: default-src 'self' "
@@ -568,6 +568,7 @@ class Header
             . $map_tile_urls
             . $captcha_url
             . ";"
+            . "object-src 'none';"
         );
         header(
             "X-WebKit-CSP: default-src 'self' "
@@ -586,6 +587,7 @@ class Header
             . $map_tile_urls
             . $captcha_url
             . ";"
+            . "object-src 'none';"
         );
         // Re-enable possible disabled XSS filters
         // see https://www.owasp.org/index.php/List_of_useful_HTTP_headers
