@@ -190,6 +190,8 @@ class TemplateTest extends PMATestCase
         return [
             ['test/gettext/gettext', [], 'Text'],
             ['test/gettext/gettext_twig', [], 'Text'],
+            ['test/gettext/pgettext', [], 'Text'],
+            ['test/gettext/pgettext_twig', [], 'Text'],
             ['test/gettext/notes_twig', [], 'Text'],
             ['test/gettext/plural_twig', ['table_count' => 1], 'One table'],
             ['test/gettext/plural_twig', ['table_count' => 2], '2 tables'],
