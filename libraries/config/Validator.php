@@ -179,6 +179,11 @@ class Validator
         $pass = null,
         $error_key = 'Server'
     ) {
+        if ($GLOBALS['cfg']['DBG']['demo']) {
+            // Connection test disabled on the demo server!
+            return true;
+        }
+
         //    static::testPHPErrorMsg();
         $error = null;
         $host = PMA_sanitizeMySQLHost($host);

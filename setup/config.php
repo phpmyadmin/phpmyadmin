@@ -46,6 +46,6 @@ if (PMA_ifSetOr($_POST['submit_clear'], '')) {
     //
     // Show generated config file in a <textarea>
     //
-    $response->generateHeader303('index.php' . URL::getCommonRaw() . '&page=config');
+    $response->generateHeader303('index.php' . URL::getCommonRaw(array('page' => 'config')));
     exit;
 }

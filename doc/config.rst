@@ -3219,6 +3219,7 @@ Developer
     * There is welcome message on the main page.
     * There is footer information about demo server and used git revision.
     * The setup script is enabled even with existing configuration.
+    * The setup does not try to connect to the MySQL server.
 
 .. _config-examples:
 

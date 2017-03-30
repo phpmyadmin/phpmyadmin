@@ -13,6 +13,7 @@ phpMyAdmin - ChangeLog
 4.7.1 (not yet released)
 - issue #13132 Always execute tracking queries as controluser
 - issue #13125 Focus on SQL editor after inserting field name
+- issue #13133 Fixed broken links in setup
 
 4.7.0 (2017-03-28)
 - patch #12233 [Display] Improve message when renaming database to same name
