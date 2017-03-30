@@ -1296,7 +1296,6 @@ function insertValueQuery()
             myQuery.focus();
             var sel = document.selection.createRange();
             sel.text = columnsList;
-            document.sqlform.insert.focus();
         }
         //MOZILLA/NETSCAPE support
         else if (document.sqlform.sql_query.selectionStart || document.sqlform.sql_query.selectionStart == "0") {
@@ -1305,6 +1304,7 @@ function insertValueQuery()
             var SqlString = document.sqlform.sql_query.value;
 
             myQuery.value = SqlString.substring(0, startPos) + columnsList + SqlString.substring(endPos, SqlString.length);
+            myQuery.focus();
         } else {
             myQuery.value += columnsList;
         }
