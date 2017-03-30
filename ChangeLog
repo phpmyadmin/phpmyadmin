@@ -10,7 +10,10 @@ phpMyAdmin - ChangeLog
 - issue #13110 Indicate when HTTPS is not properly reported on the server
 - issue #13119 No database selected error when adding foreign key
 
-4.7.0.0 (not yet released)
+4.7.1 (not yet released)
+- issue #13132 Always execute tracking queries as controluser
+
+4.7.0 (2017-03-28)
 - patch #12233 [Display] Improve message when renaming database to same name
 - issue #6146  Log authentication attempts to syslog
 - issue #11981 Remove support for Swekey authentication
@@ -117,6 +120,7 @@ phpMyAdmin - ChangeLog
 - issue #12757 Fixed setting password on recent MariaDB with non working plugins
 - issue #12349 Fixed undefined variable on import from some formats
 - issue #13103 Do not offer default names for copying/renaming databases
+- issue        [security] Possible to bypass $cfg['Servers'][$i]['AllowNoPassword'], see PMASA-2017-08
 
 4.6.6 (2017-01-23)
 - issue #12759 Fix Notice regarding 'Undefined index: old_usergroup'
