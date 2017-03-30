@@ -12,7 +12,7 @@
  */
 require './lib/common.inc.php';
 
-if (file_exists(CONFIG_FILE)) {
+if (file_exists(CONFIG_FILE) && ! $cfg['DBG']['demo']) {
     PMA_fatalError(__('Configuration already exists, setup is disabled!'));
 }
 

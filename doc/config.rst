@@ -3214,6 +3214,12 @@ Developer
     Enable to let server present itself as demo server.
     This is used for `phpMyAdmin demo server <https://www.phpmyadmin.net/try/>`_.
 
+    It currently changes following behavior:
+
+    * There is welcome message on the main page.
+    * There is footer information about demo server and used git revision.
+    * The setup script is enabled even with existing configuration.
+
 .. _config-examples:
 
 Examples
