@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-03-03 14:49+0100\n"
-"PO-Revision-Date: 2017-03-25 18:06+0000\n"
+"PO-Revision-Date: 2017-03-30 09:48+0000\n"
 "Last-Translator: tmtisfree <tmtisfree@free.fr>\n"
 "Language-Team: French "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-7/fr/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 2.12\n"
+"X-Generator: Weblate 2.13-dev\n"
 
 #: changelog.php:39 license.php:34
 #, php-format
@@ -3527,7 +3527,7 @@ msgstr "Restaurer l'ordre des colonnes"
 
 #: libraries/DisplayResults.php:957 libraries/central_columns.lib.php:661
 msgid "Filter rows"
-msgstr "Filtrer les lignes"
+msgstr "Filtrer les lignes&nbsp;"
 
 #: libraries/DisplayResults.php:959 libraries/central_columns.lib.php:663
 msgid "Search this table"
