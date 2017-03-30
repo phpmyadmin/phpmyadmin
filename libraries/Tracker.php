@@ -127,7 +127,7 @@ class Tracker
         " AND table_name = '" . $GLOBALS['dbi']->escapeString($tablename) . "' " .
         " ORDER BY version DESC LIMIT 1";
 
-        $result = $GLOBALS['dbi']->fetchValue($sql_query);
+        $result = $GLOBALS['dbi']->fetchValue($sql_query, 0, 0, $GLOBALS['controllink']);
 
         return ($result == 1);
     }
