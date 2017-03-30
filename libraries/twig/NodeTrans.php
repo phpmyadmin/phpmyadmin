@@ -45,11 +45,7 @@ class NodeTrans extends Twig_Extensions_Node_Trans
             $nodes['notes'] = $notes;
         }
 
-        $twigNodeConstructor = new \ReflectionMethod(
-            get_parent_class(get_parent_class($this)),
-            '__construct'
-        );
-        $twigNodeConstructor->invoke($this, $nodes, array(), $lineno, $tag);
+        Twig_Node::__construct($nodes, array(), $lineno, $tag);
     }
 
     /**
