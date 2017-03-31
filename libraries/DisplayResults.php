@@ -3177,11 +3177,9 @@ class DisplayResults
 
             // in some situations (issue 11406), numeric returns 1
             // even for a string type
-            // same condition which were being checked by _getClassForNumericColumnType()
-            if (preg_match(
-                '@int|decimal|float|double|real|bit|boolean|serial@i',
-                $meta->type
-            )) {
+            // for decimal numeric is returning 1
+            // have to improve logic
+            if ($meta->type == 'real' || $meta->numeric == 1 && $meta->type != 'string') {
                 // n u m e r i c
 
                 $display_params['data'][$row_no][$i]
