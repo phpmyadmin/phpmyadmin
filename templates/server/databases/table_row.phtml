@@ -31,7 +31,7 @@
 
         <td class="value">
             <?php if (isset($stat['description_function'])): ?>
-                <dfn title="<?= $stat['description_function']($stat['footer']); ?>">
+                <dfn title="<?= $stat['description_function']($current[$stat_name]); ?>">
                     <?= $value; ?>
                 </dfn>
             <?php else: ?>
