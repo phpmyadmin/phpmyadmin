@@ -781,7 +781,7 @@ $(document).on('submit', 'form', AJAX.requestHandler);
  * (e.g: 500 - Internal server error)
  */
 $(document).ajaxError(function (event, request, settings) {
-    if (request.status !== 0) { // Don't handle aborted requests
+     if (!(request.status == 200 && request.status < 300)) {
         var errorCode = PMA_sprintf(PMA_messages.strErrorCode, request.status);
         var errorText = PMA_sprintf(PMA_messages.strErrorText, request.statusText);
         PMA_ajaxShowMessage(
@@ -791,7 +791,9 @@ $(document).ajaxError(function (event, request, settings) {
             '<div>' + escapeHtml(errorText) + '</div>' +
             '</div>',
             false
-        );
+            );
         AJAX.active = false;
+    } else if(request.status == 0) {
+        PMA_ajaxShowMessage('An unexpected error happened!');
     }
 });
