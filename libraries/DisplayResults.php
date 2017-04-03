@@ -3177,7 +3177,9 @@ class DisplayResults
 
             // in some situations (issue 11406), numeric returns 1
             // even for a string type
-            if ($meta->numeric == 1 && $meta->type != 'string') {
+            // for decimal numeric is returning 1
+            // have to improve logic
+            if (($meta->numeric == 1 && $meta->type != 'string') || $meta->type == 'real') {
                 // n u m e r i c
 
                 $display_params['data'][$row_no][$i]
