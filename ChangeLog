@@ -15,6 +15,7 @@ phpMyAdmin - ChangeLog
 - issue #13125 Focus on SQL editor after inserting field name
 - issue #13133 Fixed broken links in setup
 - issue #13135 Database list Tooltips: Show wrong value
+- issue #13150 Fixed pagination while browsing resuls
 
 4.7.0 (2017-03-28)
 - patch #12233 [Display] Improve message when renaming database to same name
