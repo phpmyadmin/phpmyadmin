@@ -793,7 +793,5 @@ $(document).ajaxError(function (event, request, settings) {
             false
             );
         AJAX.active = false;
-    } else if(request.status == 0) {
-        PMA_ajaxShowMessage('An unexpected error happened!');
     }
 });
