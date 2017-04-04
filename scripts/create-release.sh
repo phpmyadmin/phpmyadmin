@@ -211,7 +211,7 @@ if [ ! -d libraries/tcpdf ] ; then
     # suggested package. Let's require it and then revert
     # composer.json to original state.
     cp composer.json composer.json.backup
-    composer require tecnickcom/tcpdf
+    composer require --update-no-dev tecnickcom/tcpdf
     mv composer.json.backup composer.json
     echo "* Cleanup of composer packages"
     rm -rf \

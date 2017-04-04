@@ -793,9 +793,8 @@ class DisplayResults
 
             //<form> to keep the form alignment of button < and <<
             // and also to know what to execute when the selector changes
-            $table_navigation_html .= '<form action="sql.php'
-                . URL::getCommon($_url_params)
-                . '" method="post">';
+            $table_navigation_html .= '<form action="sql.php" method="post">';
+            $table_navigation_html .= URL::getHiddenInputs($_url_params);
 
             $table_navigation_html .= Util::pageselector(
                 'pos',
@@ -3177,7 +3176,9 @@ class DisplayResults
 
             // in some situations (issue 11406), numeric returns 1
             // even for a string type
-            if ($meta->numeric == 1 && $meta->type != 'string') {
+            // for decimal numeric is returning 1
+            // have to improve logic
+            if (($meta->numeric == 1 && $meta->type != 'string') || $meta->type == 'real') {
                 // n u m e r i c
 
                 $display_params['data'][$row_no][$i]
