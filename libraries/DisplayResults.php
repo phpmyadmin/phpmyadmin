@@ -793,9 +793,8 @@ class DisplayResults
 
             //<form> to keep the form alignment of button < and <<
             // and also to know what to execute when the selector changes
-            $table_navigation_html .= '<form action="sql.php'
-                . URL::getCommon($_url_params)
-                . '" method="post">';
+            $table_navigation_html .= '<form action="sql.php" method="post">';
+            $table_navigation_html .= URL::getHiddenInputs($_url_params);
 
             $table_navigation_html .= Util::pageselector(
                 'pos',
