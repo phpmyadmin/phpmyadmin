@@ -797,5 +797,6 @@ $(document).ajaxError(function (event, request, settings) {
             false
         );
         AJAX.active = false;
+        AJAX.xhr = null;
     }
 });
