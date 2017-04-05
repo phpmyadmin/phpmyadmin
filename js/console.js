@@ -189,17 +189,15 @@ var PMA_console = {
                 if (ajaxOptions.dataType && ajaxOptions.dataType.indexOf('json') != -1) {
                     return;
                 }
+                if (xhr.status !== 200) {
+                    return;
+                }
                 try {
                     var data = JSON.parse(xhr.responseText);
                     PMA_console.ajaxCallback(data);
                 } catch (e) {
                     console.trace();
-                    console.log("Invalid JSON!" + e.message);
-                    if (AJAX.xhr && AJAX.xhr.status === 0 && AJAX.xhr.statusText !== 'abort') {
-                        PMA_ajaxShowMessage($('<div />',{'class':'error','html':PMA_messages.strRequestFailed+' ( '+escapeHtml(AJAX.xhr.statusText)+' )'}));
-                        AJAX.active = false;
-                        AJAX.xhr = null;
-                    }
+                    console.log("Failed to parse JSON: " + e.message);
                 }
             });
 
