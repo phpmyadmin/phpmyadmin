@@ -781,6 +781,9 @@ $(document).on('submit', 'form', AJAX.requestHandler);
  * (e.g: 500 - Internal server error)
  */
 $(document).ajaxError(function (event, request, settings) {
+    if (AJAX._debug) {
+        console.log('AJAX error: status=' + request.status + ', text=' + request.statusText);
+    }
     // Don't handle aborted requests
     if (request.status !== 0 || request.statusText !== 'abort') {
         var errorCode = PMA_sprintf(PMA_messages.strErrorCode, request.status);
