@@ -1849,7 +1849,7 @@ class Table
             // check if the table has not been modified
             if ($this->getStatusInfo('Create_time') == $this->uiprefs['CREATE_TIME']
             ) {
-                return $this->uiprefs[$property];
+                return array_map('intval', $this->uiprefs[$property]);
             }
 
             // remove the property, since the table has been modified
