@@ -22,7 +22,7 @@ class I18nExtension extends Twig_Extensions_Extension_I18n
      */
     public function getTokenParsers()
     {
-        return array(new TokenParserTrans());
+        return array(new i18n\TokenParserTrans());
     }
 
     /**

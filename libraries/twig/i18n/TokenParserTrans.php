@@ -1,11 +1,11 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * hold PMA\libraries\twig\TokenParserTrans class
+ * hold PMA\libraries\twig\i18n\TokenParserTrans class
  *
- * @package PMA\libraries\twig
+ * @package PMA\libraries\twig\i18n
  */
-namespace PMA\libraries\twig;
+namespace PMA\libraries\twig\i18n;
 
 use Twig_Extensions_TokenParser_Trans;
 use Twig_Token;
@@ -13,7 +13,7 @@ use Twig_Token;
 /**
  * Class TokenParserTrans
  *
- * @package PMA\libraries\twig
+ * @package PMA\libraries\twig\i18n
  */
 class TokenParserTrans extends Twig_Extensions_TokenParser_Trans
 {

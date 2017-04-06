@@ -11,6 +11,9 @@ fi
 # Exit on failure
 set -e
 
+# Generate Twig template cache
+php ./scripts/generate-twig-cache
+
 # Update pot (template), ensure that advisor is at the end
 LOCS=`ls po/*.po | sed 's@.*/\(.*\)\.po@\1@'`
 xgettext \

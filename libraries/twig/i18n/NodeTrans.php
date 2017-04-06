@@ -1,11 +1,11 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * hold PMA\libraries\twig\NodeTrans class
+ * hold PMA\libraries\twig\i18n\NodeTrans class
  *
- * @package PMA\libraries\twig
+ * @package PMA\libraries\twig\i18n
  */
-namespace PMA\libraries\twig;
+namespace PMA\libraries\twig\i18n;
 
 use Twig_Compiler;
 use Twig_Extensions_Node_Trans;
@@ -15,7 +15,7 @@ use Twig_Node_Expression;
 /**
  * Class NodeTrans
  *
- * @package PMA\libraries\twig
+ * @package PMA\libraries\twig\i18n
  */
 class NodeTrans extends Twig_Extensions_Node_Trans
 {

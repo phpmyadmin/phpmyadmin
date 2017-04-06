@@ -17,28 +17,36 @@ use Twig_SimpleFunction;
  */
 class UrlExtension extends Twig_Extension
 {
+    /**
+     * {@inheritdoc}
+     */
     public function getFunctions()
     {
         return array(
             new Twig_SimpleFunction(
                 'URL_getHiddenInputs',
-                'PMA\libraries\URL::getHiddenInputs'
+                'PMA\libraries\URL::getHiddenInputs',
+                array('is_safe' => array('html'))
             ),
             new Twig_SimpleFunction(
                 'URL_getHiddenFields',
-                'PMA\libraries\URL::getHiddenFields'
+                'PMA\libraries\URL::getHiddenFields',
+                array('is_safe' => array('html'))
             ),
             new Twig_SimpleFunction(
                 'URL_getCommon',
-                'PMA\libraries\URL::getCommon'
+                'PMA\libraries\URL::getCommon',
+                array('is_safe' => array('html'))
             ),
             new Twig_SimpleFunction(
                 'URL_getCommonRaw',
-                'PMA\libraries\URL::getCommonRaw'
+                'PMA\libraries\URL::getCommonRaw',
+                array('is_safe' => array('html'))
             ),
             new Twig_SimpleFunction(
                 'URL_getArgSeparator',
-                'PMA\libraries\URL::getArgSeparator'
+                'PMA\libraries\URL::getArgSeparator',
+                array('is_safe' => array('html'))
             ),
         );
     }

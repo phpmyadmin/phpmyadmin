@@ -1,0 +1,31 @@
+<?php
+/* vim: set expandtab sw=4 ts=4 sts=4 ft=php: */
+define('PHPMYADMIN', 1);
+require_once 'vendor/autoload.php';
+require_once 'libraries/vendor_config.php';
+
+use PMA\libraries\twig\I18nExtension;
+use PMA\libraries\twig\UrlExtension;
+
+$tplDir = dirname(__FILE__) . '/../templates';
+$tmpDir = dirname(__FILE__) . '/../' . CACHE_DIR . 'twig';
+$loader = new Twig_Loader_Filesystem($tplDir);
+
+// force auto-reload to always have the latest version of the template
+$twig = new Twig_Environment($loader, array(
+    'cache' => $tmpDir,
+    'auto_reload' => true
+));
+$twig->addExtension(new I18nExtension());
+$twig->addExtension(new UrlExtension());
+
+// iterate over all templates
+foreach (new RecursiveIteratorIterator(
+    new RecursiveDirectoryIterator($tplDir),
+    RecursiveIteratorIterator::LEAVES_ONLY
+) as $file) {
+    // force compilation
+    if ($file->isFile() && $file->getExtension() == 'twig') {
+        $twig->loadTemplate(str_replace($tplDir.'/', '', $file));
+    }
+}

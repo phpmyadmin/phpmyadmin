@@ -58,8 +58,9 @@ class Template
 
         $loader = new Twig_Loader_Filesystem(static::BASE_PATH);
         $this->twig = new Twig_Environment($loader, array(
-            'debug' => false,
+            'auto_reload' => true,
             'cache' => CACHE_DIR . 'twig',
+            'debug' => false,
         ));
         $this->twig->addExtension(new I18nExtension());
         $this->twig->addExtension(new UrlExtension());
