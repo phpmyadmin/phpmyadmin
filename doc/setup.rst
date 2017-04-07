@@ -209,7 +209,7 @@ You can configure several phpMyAdmin features using environment variables:
     
     Port of the database server to use.
 
-.. envvar:: PMA_HOSTS
+.. envvar:: PMA_PORTS
     
     Comma-separated ports of the database server to use.
 
