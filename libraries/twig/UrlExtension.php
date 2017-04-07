@@ -37,17 +37,7 @@ class UrlExtension extends Twig_Extension
                 'URL_getCommon',
                 'PMA\libraries\URL::getCommon',
                 array('is_safe' => array('html'))
-            ),
-            new Twig_SimpleFunction(
-                'URL_getCommonRaw',
-                'PMA\libraries\URL::getCommonRaw',
-                array('is_safe' => array('html'))
-            ),
-            new Twig_SimpleFunction(
-                'URL_getArgSeparator',
-                'PMA\libraries\URL::getArgSeparator',
-                array('is_safe' => array('html'))
-            ),
+            )
         );
     }
 }
