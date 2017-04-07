@@ -7,6 +7,11 @@
  */
 namespace PMA\libraries;
 
+use Twig_Environment;
+use Twig_Loader_Filesystem;
+use PMA\libraries\twig\I18nExtension;
+use PMA\libraries\twig\UrlExtension;
+
 /**
  * Class Template
  *
@@ -31,6 +36,11 @@ class Template
      */
     protected $helperFunctions;
 
+    /**
+     * Twig environment
+     */
+    protected $twig;
+
     const BASE_PATH = 'templates/';
 
     /**
@@ -45,6 +55,15 @@ class Template
         $this->name = $name;
         $this->data = $data;
         $this->helperFunctions = $helperFunctions;
+
+        $loader = new Twig_Loader_Filesystem(static::BASE_PATH);
+        $this->twig = new Twig_Environment($loader, array(
+            'auto_reload' => true,
+            'cache' => CACHE_DIR . 'twig',
+            'debug' => false,
+        ));
+        $this->twig->addExtension(new I18nExtension());
+        $this->twig->addExtension(new UrlExtension());
     }
 
     /**
@@ -147,7 +166,15 @@ class Template
      */
     public function render($data = array(), $helperFunctions = array())
     {
-        $template = static::BASE_PATH . $this->name . '.phtml';
+        $template = static::BASE_PATH . $this->name;
+
+        if (file_exists($template . '.twig')) {
+            $this->set($data);
+            return $this->twig->load($this->name . '.twig')
+                ->render($this->data);
+        }
+
+        $template = $template . '.phtml';
         try {
             $this->set($data);
             $this->helperFunctions = array_merge(
