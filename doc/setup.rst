@@ -209,6 +209,12 @@ You can configure several phpMyAdmin features using environment variables:
     
     Port of the database server to use.
 
+.. envvar:: PMA_HOSTS
+    
+    Comma-separated ports of the database server to use.
+
+    .. note:: Used only if :envvar:`PMA_PORT` is empty.
+
 .. envvar:: PMA_ABSOLUTE_URI
    
     The fully-qualified path (``https://pma.example.net/``) where the reverse
