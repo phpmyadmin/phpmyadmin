@@ -34,7 +34,7 @@ msgstr "القائمة المركزية لأعمدة قاعدة البيانات
 
 #: db_central_columns.php:133
 msgid "Click to sort."
-msgstr "إضغط للترتيب."
+msgstr "اضغط للترتيب."
 
 #: db_central_columns.php:150
 #, php-format
@@ -142,7 +142,7 @@ msgstr "خالي"
 #: templates/database/structure/body_for_table_summary.phtml:55
 #: templates/table/structure/table_structure_header.phtml:12
 msgid "Default"
-msgstr "إفتراضي"
+msgstr "افتراضي"
 
 #: db_datadict.php:120 libraries/plugins/export/ExportHtmlword.php:399
 #: libraries/plugins/export/ExportLatex.php:528
@@ -296,7 +296,7 @@ msgstr "تحديد الكل"
 
 #: db_operations.php:50 tbl_create.php:23
 msgid "The database name is empty!"
-msgstr "إسم قاعدة البيانات خالي!"
+msgstr "اسم قاعدة البيانات خالي!"
 
 #: db_operations.php:138
 #, php-format
@@ -338,11 +338,11 @@ msgstr "تم مسح بيانات تتبع التغيرات بنجاح ."
 #, php-format
 msgid ""
 "Version %1$s was created for selected tables, tracking is active for them."
-msgstr "الإصدار %1$s  تم إنشاءه للجداول المحدده , التتبع نشط للجداول."
+msgstr "الإصدار %1$s  تم إنشاءه للجداول المحددة، التتبع نشط للجداول."
 
 #: db_tracking.php:93
 msgid "No tables selected."
-msgstr "لم يتم تحديد أى جداول ."
+msgstr "لم يتم تحديد أى جداول."
 
 #: db_tracking.php:150
 msgid "Database Log"
@@ -362,11 +362,11 @@ msgstr "شكرا لك لتقديم هذا التقرير."
 msgid ""
 "An error has been detected and an error report has been generated but failed "
 "to be sent."
-msgstr "لقد وقع خطء و لقد تم انشاء التقرير و لكن لم نتمكّن من إرساله."
+msgstr "لقد وقع خطأ و لقد تم إنشاء التقرير ولكن لم نتمكّن من إرساله."
 
 #: error_report.php:81
 msgid "If you experience any problems please submit a bug report manually."
-msgstr "عند ملاحضة أي مشكلة نرجو منكم ان تعلنوا عنه يدويا."
+msgstr "عند ملاحظة أي مشكلة نرجو منكم أن تعلنوا عنها يدويا."
 
 #: error_report.php:85
 msgid "You may want to refresh the page."
@@ -388,7 +388,7 @@ msgstr "قيمة العمود \"%s\""
 #: gis_data_editor.php:147
 #: templates/table/gis_visualization/gis_visualization.phtml:38
 msgid "Use OpenStreetMaps as Base Layer"
-msgstr "إستعمل خريطة الشوارع الحرة كطبقة أساسية"
+msgstr "استعمل خريطة الشوارع الحرة كطبقة أساسية"
 
 #. l10n: Spatial Reference System Identifier
 #: gis_data_editor.php:169
@@ -498,7 +498,7 @@ msgstr "أضف هندسة"
 #: templates/table/structure/add_column.phtml:25 view_create.php:300
 #: view_operations.php:121
 msgid "Go"
-msgstr "إنطلق"
+msgstr "انطلق"
 
 #: gis_data_editor.php:416
 msgid "Output"
@@ -548,7 +548,7 @@ msgid ""
 "file size exceeded the maximum size permitted by your PHP configuration. See "
 "[doc@faq1-16]FAQ 1.16[/doc]."
 msgstr ""
-"لم يتلقئ اي بيانات لاستيراد. أما قدم لا اسم الملف أو حجم الملف يتجاوز الحد "
+"لم يتم تلَقَّي أي بيانات لاستيراد. أما قدم لا اسم الملف أو حجم الملف يتجاوز الحد "
 "الأقصى لحجم يسمح بتكوين PHP الخاص بك. انظر[doc@faq1-16] أسئلة وأجوبة 1.16[/"
 "doc]"
 
@@ -565,12 +565,12 @@ msgstr "تم إنشاء العلامة المرجعية %s."
 #, php-format
 msgid "Import has been successfully finished, %d query executed."
 msgid_plural "Import has been successfully finished, %d queries executed."
-msgstr[0] "الإستيراد إنتهى بنجاح , %d إستعلام تم تنفيذه."
-msgstr[1] "الإستيراد إنتهى بنجاح , %d إستعلام تم تنفيذه."
-msgstr[2] "الإستيراد إنتهى بنجاح , %d إستعلام تم تنفيذه."
-msgstr[3] "الإستيراد إنتهى بنجاح , %d إستعلام تم تنفيذه."
-msgstr[4] "الإستيراد إنتهى بنجاح , %d إستعلام تم تنفيذه."
-msgstr[5] "الإستيراد إنتهى بنجاح , %d إستعلام تم تنفيذه."
+msgstr[0] "انتهى الإستيراد بنجاح، %d استعلام تم تنفيذه."
+msgstr[1] "انتهى الإستيراد بنجاح، %d استعلام تم تنفيذه."
+msgstr[2] "انتهى الإستيراد بنجاح، %d استعلام تم تنفيذه."
+msgstr[3] "انتهى الإستيراد بنجاح، %d استعلام تم تنفيذه."
+msgstr[4] "انتهى الإستيراد بنجاح، %d استعلام تم تنفيذه."
+msgstr[5] "انتهى الإستيراد بنجاح، %d استعلام تم تنفيذه."
 
 #: import.php:619
 #, php-format
@@ -579,7 +579,7 @@ msgid ""
 "same file%s and import will resume."
 msgstr ""
 "انتهت مهلة البرنامج النصي، إذا كنت ترغب في إنهاء الاستيراد، الرجاء %s إعادة "
-"إرسال نفس الملف%s وسوف تستأنف الاستيراد."
+"إرسال نفس الملف %s وسوف تستأنف الاستيراد."
 
 #: import.php:629
 msgid ""
@@ -627,7 +627,7 @@ msgstr "تغيير كلمة السر"
 
 #: index.php:214
 msgid "Server connection collation"
-msgstr "إعدادات الأتصال بالخادم"
+msgstr "إعدادات الاتصال بالخادم"
 
 #: index.php:235
 #, fuzzy
@@ -649,25 +649,25 @@ msgstr "الخادم:"
 
 #: index.php:297
 msgid "Server type:"
-msgstr "نوع الخادم :"
+msgstr "نوع الخادم:"
 
 #: index.php:301 libraries/plugins/export/ExportLatex.php:220
 #: libraries/plugins/export/ExportSql.php:701
 #: libraries/plugins/export/ExportXml.php:242
 msgid "Server version:"
-msgstr "إصدار الخادم :"
+msgstr "إصدار الخادم:"
 
 #: index.php:307
 msgid "Protocol version:"
-msgstr "نسخة البروتوكول :"
+msgstr "نسخة البروتوكول:"
 
 #: index.php:311
 msgid "User:"
-msgstr "المستخدم :"
+msgstr "المستخدم:"
 
 #: index.php:316
 msgid "Server charset:"
-msgstr "مجموعة أحرف الخادم :"
+msgstr "مجموعة أحرف الخادم:"
 
 #: index.php:329
 msgid "Web server"
@@ -675,11 +675,11 @@ msgstr "خادم الويب"
 
 #: index.php:340
 msgid "Database client version:"
-msgstr "إصدار عميل قاعدة البيانات :"
+msgstr "إصدار عميل قاعدة البيانات:"
 
 #: index.php:344
 msgid "PHP extension:"
-msgstr "PHP إمتداد:"
+msgstr "PHP امتداد:"
 
 #: index.php:358
 msgid "PHP version:"
@@ -687,7 +687,7 @@ msgstr "PHP إصدار :"
 
 #: index.php:369
 msgid "Show PHP information"
-msgstr "عرض المعلومات المتعلقة ب  PHP"
+msgstr "عرض المعلومات المتعلقة بـPHP"
 
 #: index.php:388
 msgid "Version information:"
@@ -703,15 +703,15 @@ msgstr "مستندات وثائقية"
 
 #: index.php:406
 msgid "Official Homepage"
-msgstr "الصفحة الرئيسية الرسمية لـ phpMyAdmin"
+msgstr "الصفحة الرئيسة لـphpMyAdmin"
 
 #: index.php:413
 msgid "Contribute"
-msgstr "مشاركه"
+msgstr "مشاركة"
 
 #: index.php:420
 msgid "Get support"
-msgstr "اجلب دعم"
+msgstr "جلب دعم"
 
 #: index.php:427
 msgid "List of changes"
@@ -773,7 +773,7 @@ msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
 "extended features have been deactivated. %sFind out why%s. "
 msgstr ""
-"تم تعطيل المزايا الإضافية للعمل بالجداول المترابطة. لمعرفة السبب اضغط %sهنا"
+"تم تعطيل المزايا الإضافية للعمل بالجداول المترابطة. لمعرفة السبب اضغط %s هنا"
 "%s."
 
 #: index.php:562
@@ -853,11 +853,11 @@ msgstr "حذف المفتاح الرئيسي مفتاح/فهرس"
 #, fuzzy
 #| msgid "Select Foreign Key"
 msgid "Dropping Foreign key."
-msgstr "إختيار المفتاح الغريب"
+msgstr "اختيار المفتاح الغريب"
 
 #: js/messages.php:65
 msgid "This operation could take a long time. Proceed anyway?"
-msgstr "هذه العملية قد تأخذ وقت طويل , متابعة على أي حال ؟"
+msgstr "هذه العملية قد تستغرق وقتا طويلا، متابعة على أي حال؟"
 
 #: js/messages.php:67
 #, fuzzy, php-format
@@ -878,7 +878,7 @@ msgstr "هل تريد فعلاً تنفيذ  \"%s\"؟"
 #| "want to leave this page before saving the data?"
 msgid "You have unsaved changes; are you sure you want to leave this page?"
 msgstr ""
-"لقد تم التعديل على بعض البيانات ولم يتم حفظها. هل تريد ترك هذه الصفحة بدون "
+"لقد تم التعديل على بعض البيانات ولم يتم حفظها. هل تريد ترك هذه الصفحة دون "
 "حفظ البيانات الجديدة؟"
 
 #: js/messages.php:73
@@ -1009,7 +1009,7 @@ msgstr "حرّر الفهرس"
 #, fuzzy, php-format
 #| msgid "Add %d column(s) to index"
 msgid "Add %s column(s) to index"
-msgstr "أضف %d عمود/عواميد إلى الفهرس"
+msgstr "أضف %d عمود/أعمدة إلى الفهرس"
 
 #: js/messages.php:123
 #, fuzzy
@@ -1033,7 +1033,7 @@ msgstr "حقل محاط بـ"
 #, fuzzy
 #| msgid "Add %d column(s) to index"
 msgid "Please select column(s) for the index."
-msgstr "أضف %d عمود/عواميد إلى الفهرس"
+msgstr "أضف %d عمود/أعمدة إلى الفهرس"
 
 #: js/messages.php:129 templates/table/structure/add_column.phtml:1
 #, fuzzy
@@ -1075,21 +1075,21 @@ msgstr "القيمة"
 
 #: js/messages.php:144
 msgid "The host name is empty!"
-msgstr "إسم المستضيف فارغ!"
+msgstr "اسم المستضيف فارغ!"
 
 #: js/messages.php:145
 msgid "The user name is empty!"
-msgstr "إسم المستخدم فارغ!"
+msgstr "اسم المستخدم فارغ!"
 
 #: js/messages.php:146 libraries/server_privileges.lib.php:1868
 #: user_password.php:119
 msgid "The password is empty!"
-msgstr "كلمة المرور فارغة !"
+msgstr "كلمة المرور فارغة!"
 
 #: js/messages.php:147 libraries/server_privileges.lib.php:1866
 #: user_password.php:123
 msgid "The passwords aren't the same!"
-msgstr "كلمتا المرور غير متشابهتان !"
+msgstr "كلمتا المرور مختلفتان!"
 
 #: js/messages.php:148
 msgid "Removing Selected Users"
@@ -1098,7 +1098,7 @@ msgstr "حذف المستخدمين المحددين"
 #: js/messages.php:149 js/messages.php:216 libraries/tracking.lib.php:469
 #: libraries/tracking.lib.php:835
 msgid "Close"
-msgstr "أغلاق"
+msgstr "إغلاق"
 
 #: js/messages.php:152
 #, fuzzy
@@ -1161,21 +1161,21 @@ msgstr ""
 
 #: js/messages.php:176
 msgid "Query cache efficiency"
-msgstr "فعالية خابية المسائلة"
+msgstr "فعالية طلب بحث ذاكرة التخزين المؤقتة"
 
 #: js/messages.php:177
 msgid "Query cache usage"
-msgstr "إستعمال خابية المسائلة"
+msgstr "استعمال طلب بحث ذاكرة التخزين المؤقتة"
 
 #: js/messages.php:178
 msgid "Query cache used"
-msgstr "خابية المسائلة المستعملة"
+msgstr "طلب بحث ذاكرة التخزين المؤقتة المستعملة"
 
 #: js/messages.php:180
 #, fuzzy
 #| msgid "System CPU Usage"
 msgid "System CPU usage"
-msgstr "إستخدام النظام للمعالج (CPU)"
+msgstr "استخدام النظام للمعالج (CPU)"
 
 #: js/messages.php:181
 msgid "System memory"
@@ -1219,7 +1219,7 @@ msgstr "مجموع المقايدة"
 #, fuzzy
 #| msgid "Cached Swap"
 msgid "Cached swap"
-msgstr "المقايدة في الخابية"
+msgstr "المقايدة في ذاكرة التخزين المؤقتة"
 
 #: js/messages.php:193
 #, fuzzy
@@ -1315,7 +1315,7 @@ msgstr "أضف تخطيط إلى المشبكة"
 #, fuzzy
 #| msgid "Please add at least one variable to the series"
 msgid "Please add at least one variable to the series!"
-msgstr "فضلا , أضف متغير واحد على الأقل للسلسلة"
+msgstr "من فضلك اضف متغير واحد على الأقل للسلسلة"
 
 #: js/messages.php:219 libraries/DisplayResults.php:1491
 #: libraries/config.values.php:68 libraries/display_export.lib.php:691
@@ -1333,7 +1333,7 @@ msgstr "لا شيء"
 
 #: js/messages.php:220
 msgid "Resume monitor"
-msgstr "إستئناف المراقبة"
+msgstr "استئناف المراقبة"
 
 #: js/messages.php:221
 msgid "Pause monitor"
