@@ -84,6 +84,7 @@ exit;
  */
 function PMA_getChangePassMessage($change_password_message, $sql_query = '')
 {
+    $response = Response::getInstance();
     if ($response->isAjax()) {
         /**
          * If in an Ajax request, we don't need to show the rest of the page
