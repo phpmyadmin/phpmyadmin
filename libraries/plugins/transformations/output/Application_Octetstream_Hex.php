@@ -16,6 +16,7 @@ use PMA\libraries\plugins\transformations\abs\HexTransformationsPlugin;
  * @package    PhpMyAdmin-Transformations
  * @subpackage Hex
  */
+// @codingStandardsIgnoreLine
 class Application_Octetstream_Hex extends HexTransformationsPlugin
 {
     /**

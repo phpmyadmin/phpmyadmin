@@ -16,6 +16,7 @@ use PMA\libraries\plugins\transformations\abs\SubstringTransformationsPlugin;
  * @package    PhpMyAdmin-Transformations
  * @subpackage Substring
  */
+// @codingStandardsIgnoreLine
 class Text_Plain_Substring extends SubstringTransformationsPlugin
 {
     /**

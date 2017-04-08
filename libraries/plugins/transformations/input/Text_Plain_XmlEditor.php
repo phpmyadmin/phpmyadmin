@@ -16,6 +16,7 @@ use PMA\libraries\plugins\transformations\abs\CodeMirrorEditorTransformationPlug
  * @package    PhpMyAdmin-Transformations
  * @subpackage XML
  */
+// @codingStandardsIgnoreLine
 class Text_Plain_XmlEditor extends CodeMirrorEditorTransformationPlugin
 {
     /**

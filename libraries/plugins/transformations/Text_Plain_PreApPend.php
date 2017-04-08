@@ -17,6 +17,7 @@ use PMA\libraries\plugins\transformations\abs\PreApPendTransformationsPlugin;
  * @package    PhpMyAdmin-Transformations
  * @subpackage PreApPend
  */
+// @codingStandardsIgnoreLine
 class Text_Plain_PreApPend extends PreApPendTransformationsPlugin
 {
     /**
