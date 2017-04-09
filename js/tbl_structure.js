@@ -75,6 +75,44 @@ function checkFirst() {
         $("input[name=field_where]").val('after');
     }
 }
+
+function defaultEnumPopulate() {
+    $default_field = $('#field_0_4');
+    $default_field.empty();
+    vals = $('#field_0_3').val().split(',');
+    $default_field.append($('<option>', {
+        value: 'NULL',
+        text: 'NULL'
+    }));
+    $.each(vals, function(index, val){
+        $default_field.append($('<option>', {
+            value: val,
+            text: val
+        }));
+    });
+}
+
+function defaultEnumUnpopulate() {
+    $default_field = $('#field_0_4');
+    $default_field.empty();
+    $default_field.append($('<option>', {
+        value: 'NONE',
+        text: 'None'
+    }));
+    $default_field.append($('<option>', {
+        value: 'USER_DEFINED',
+        text: 'As defined:'
+    }));
+    $default_field.append($('<option>', {
+        value: 'NULL',
+        text: 'NULL'
+    }));
+    $default_field.append($('<option>', {
+        value: 'CURRENT_TIMESTAMP',
+        text: 'CURRENT_TIMESTAMP'
+    }));
+}
+
 /**
  * Unbind all event handlers before tearing down a page
  */
@@ -100,6 +138,26 @@ AJAX.registerOnload('tbl_structure.js', function () {
     /**
      *Ajax action for submitting the "Column Change" and "Add Column" form
      */
+    if ($('#page_type').length != 0) {
+        page_type = $('#page_type').val();
+        if (page_type == 'change_column') {
+            if ($('#field_0_2').val() == 'ENUM') {
+                defaultEnumPopulate();
+            }
+            $(document).on('focusout', '#field_0_3', function() {
+                if ($('#field_0_2').val() == 'ENUM') {
+                    defaultEnumPopulate();
+                }
+            });
+            $(document).on('change', '#field_0_2', function() {
+                if ($('#field_0_2').val() == 'ENUM') {
+                    defaultEnumPopulate();
+                } else {
+                    defaultEnumUnpopulate();
+                }
+            });
+        }
+    }
     $(".append_fields_form.ajax").off();
     $(document).on('submit', ".append_fields_form.ajax", function (event) {
         event.preventDefault();
