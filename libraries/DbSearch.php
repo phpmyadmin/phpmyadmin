@@ -82,6 +82,13 @@ class DbSearch
     public function __construct($db)
     {
         $this->_db = $db;
+        $this->_searchTypes = array(
+            '1' => __('at least one of the words'),
+            '2' => __('all of the words'),
+            '3' => __('the exact phrase as substring'),
+            '4' => __('the exact phrase as whole field'),
+            '5' => __('as regular expression'),
+        );
         // Sets criteria parameters
         $this->_setSearchParams();
     }
@@ -94,13 +101,6 @@ class DbSearch
     private function _setSearchParams()
     {
         $this->_tables_names_only = $GLOBALS['dbi']->getTables($this->_db);
-
-        $this->_searchTypes = array(
-            '1' => __('at least one of the words'),
-            '2' => __('all words'),
-            '3' => __('the exact phrase'),
-            '4' => __('as regular expression'),
-        );
 
         if (empty($_REQUEST['criteriaSearchType'])
             || ! is_string($_REQUEST['criteriaSearchType'])
@@ -201,9 +201,9 @@ class DbSearch
         $allColumns = $GLOBALS['dbi']->getColumns($GLOBALS['db'], $table);
         $likeClauses = array();
         // Based on search type, decide like/regex & '%'/''
-        $like_or_regex   = (($this->_criteriaSearchType == 4) ? 'REGEXP' : 'LIKE');
-        $automatic_wildcard   = (($this->_criteriaSearchType < 3) ? '%' : '');
-        // For "as regular expression" (search option 4), LIKE won't be used
+        $like_or_regex   = (($this->_criteriaSearchType == 5) ? 'REGEXP' : 'LIKE');
+        $automatic_wildcard   = (($this->_criteriaSearchType < 4) ? '%' : '');
+        // For "as regular expression" (search option 5), LIKE won't be used
         // Usage example: If user is searching for a literal $ in a regexp search,
         // he should enter \$ as the value.
         $criteriaSearchStringEscaped = $GLOBALS['dbi']->escapeString(
@@ -389,16 +389,17 @@ class DbSearch
         $html_output .= '<td class="right vtop">' . __('Find:') . '</td>';
         $html_output .= '<td>';
         $choices = array(
-            '1' => __('at least one of the words')
+            '1' => $this->_searchTypes[1] . ' '
                 . Util::showHint(
                     __('Words are separated by a space character (" ").')
                 ),
-            '2' => __('all words')
+            '2' => $this->_searchTypes[2] . ' '
                 . Util::showHint(
                     __('Words are separated by a space character (" ").')
                 ),
-            '3' => __('the exact phrase'),
-            '4' => __('as regular expression') . ' '
+            '3' => $this->_searchTypes[3],
+            '4' => $this->_searchTypes[4],
+            '5' => $this->_searchTypes[5] . ' '
                 . Util::showMySQLDocu('Regexp')
         );
         // 4th parameter set to true to add line breaks

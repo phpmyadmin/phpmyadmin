@@ -9,6 +9,7 @@ phpMyAdmin - ChangeLog
 - issue #13087 Offer login as different user on access denied from MySQL
 - issue #13110 Indicate when HTTPS is not properly reported on the server
 - issue #13119 No database selected error when adding foreign key
+- issue #12388 Improved database search to allow search for exact phrase match
 
 4.7.1 (not yet released)
 - issue #13132 Always execute tracking queries as controluser
