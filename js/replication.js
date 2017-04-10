@@ -32,17 +32,17 @@ function update_config()
  * Unbind all event handlers before tearing down a page
  */
 AJAX.registerTeardown('replication.js', function () {
-    $('#db_type').unbind('change');
-    $('#db_select').unbind('change');
-    $('#master_status_href').unbind('click');
-    $('#master_slaves_href').unbind('click');
-    $('#slave_status_href').unbind('click');
-    $('#slave_control_href').unbind('click');
-    $('#slave_errormanagement_href').unbind('click');
-    $('#slave_synchronization_href').unbind('click');
-    $('#db_reset_href').unbind('click');
-    $('#db_select_href').unbind('click');
-    $('#reset_slave').unbind('click');
+    $('#db_type').off('change');
+    $('#db_select').off('change');
+    $('#master_status_href').off('click');
+    $('#master_slaves_href').off('click');
+    $('#slave_status_href').off('click');
+    $('#slave_control_href').off('click');
+    $('#slave_errormanagement_href').off('click');
+    $('#slave_synchronization_href').off('click');
+    $('#db_reset_href').off('click');
+    $('#db_select_href').off('click');
+    $('#reset_slave').off('click');
 });
 
 AJAX.registerOnload('replication.js', function () {

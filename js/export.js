@@ -217,13 +217,13 @@ function deleteTemplate(id)
  * Unbind all event handlers before tearing down a page
  */
 AJAX.registerTeardown('export.js', function () {
-    $("#plugins").unbind('change');
-    $("input[type='radio'][name='sql_structure_or_data']").unbind('change');
+    $("#plugins").off('change');
+    $("input[type='radio'][name='sql_structure_or_data']").off('change');
     $("input[type='radio'][name$='_structure_or_data']").off('change');
-    $("input[type='radio'][name='output_format']").unbind('change');
-    $("#checkbox_sql_include_comments").unbind('change');
-    $("input[type='radio'][name='quick_or_custom']").unbind('change');
-    $("input[type='radio'][name='allrows']").unbind('change');
+    $("input[type='radio'][name='output_format']").off('change');
+    $("#checkbox_sql_include_comments").off('change');
+    $("input[type='radio'][name='quick_or_custom']").off('change');
+    $("input[type='radio'][name='allrows']").off('change');
     $('#btn_alias_config').off('click');
     $('#db_alias_select').off('change');
     $('.table_alias_select').off('change');

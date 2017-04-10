@@ -2,8 +2,8 @@
  * Unbind all event handlers before tearing down a page
  */
 AJAX.registerTeardown('tbl_find_replace.js', function () {
-    $('#find_replace_form').unbind('submit');
-    $('#toggle_find').unbind('click');
+    $('#find_replace_form').off('submit');
+    $('#toggle_find').off('click');
 });
 
 /**

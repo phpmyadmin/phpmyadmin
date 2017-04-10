@@ -6,7 +6,7 @@
 var j_tabs, h_tabs, contr, display_field, server, db, selected_page, pmd_tables_enabled;
 
 AJAX.registerTeardown('pmd/init.js', function () {
-    $(".trigger").unbind('click');
+    $(".trigger").off('click');
 });
 
 AJAX.registerOnload('pmd/init.js', function () {

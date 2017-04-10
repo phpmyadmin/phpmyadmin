@@ -1851,25 +1851,25 @@ AJAX.registerTeardown('functions.js', function () {
     $(document).off('click', "a.inline_edit_sql");
     $(document).off('click', "input#sql_query_edit_save");
     $(document).off('click', "input#sql_query_edit_discard");
-    $('input.sqlbutton').unbind('click');
+    $('input.sqlbutton').off('click');
     if (codemirror_editor) {
         codemirror_editor.off('blur');
     } else {
         $(document).off('blur', '#sqlquery');
     }
     $(document).off('change', '#parameterized');
-    $('#sqlquery').unbind('keydown');
-    $('#sql_query_edit').unbind('keydown');
+    $('#sqlquery').off('keydown');
+    $('#sql_query_edit').off('keydown');
 
     if (codemirror_inline_editor) {
         // Copy the sql query to the text area to preserve it.
         $('#sql_query_edit').text(codemirror_inline_editor.getValue());
-        $(codemirror_inline_editor.getWrapperElement()).unbind('keydown');
+        $(codemirror_inline_editor.getWrapperElement()).off('keydown');
         codemirror_inline_editor.toTextArea();
         codemirror_inline_editor = false;
     }
     if (codemirror_editor) {
-        $(codemirror_editor.getWrapperElement()).unbind('keydown');
+        $(codemirror_editor.getWrapperElement()).off('keydown');
     }
 });
 
@@ -2075,11 +2075,11 @@ function bindCodeMirrorToInlineEditor() {
             codemirror_inline_editor.refresh();
             codemirror_inline_editor.focus();
             $(codemirror_inline_editor.getWrapperElement())
-                .bind('keydown', catchKeypressesFromSqlInlineEdit);
+                .on('keydown', catchKeypressesFromSqlInlineEdit);
         } else {
             $inline_editor
                 .focus()
-                .bind('keydown', catchKeypressesFromSqlInlineEdit);
+                .on('keydown', catchKeypressesFromSqlInlineEdit);
         }
     }
 }
@@ -3237,7 +3237,7 @@ AJAX.registerOnload('functions.js', function () {
                 .find("input#text_pma_pw").focus();
             $('#fieldset_change_password_footer').hide();
             PMA_ajaxRemoveMessage($msgbox);
-            $('#change_password_form').bind('submit', function (e) {
+            $('#change_password_form').on('submit', function (e) {
                 e.preventDefault();
                 $(this)
                     .closest('.ui-dialog')
@@ -4117,7 +4117,7 @@ var toggleButton = function ($obj) {
  * Unbind all event handlers before tearing down a page
  */
 AJAX.registerTeardown('functions.js', function () {
-    $('div.container').unbind('click');
+    $('div.container').off('click');
 });
 /**
  * Initialise all toggle buttons
@@ -4143,8 +4143,8 @@ AJAX.registerOnload('functions.js', function () {
 AJAX.registerTeardown('functions.js', function () {
     $(document).off('change', 'select.pageselector');
     $(document).off('click', 'a.formLinkSubmit');
-    $('#update_recent_tables').unbind('ready');
-    $('#sync_favorite_tables').unbind('ready');
+    $('#update_recent_tables').off('ready');
+    $('#sync_favorite_tables').off('ready');
 });
 
 AJAX.registerOnload('functions.js', function () {
@@ -4407,8 +4407,7 @@ AJAX.registerOnload('functions.js', function () {
             codemirror_editor.on("blur", updateQueryParameters);
         } else {
             // without codemirror
-            $elm.focus()
-                .bind('blur', updateQueryParameters);
+            $elm.focus().on('blur', updateQueryParameters);
         }
     }
     PMA_highlightSQL($('body'));
@@ -4483,7 +4482,7 @@ $(window).on('popstate', function (event, data) {
 AJAX.registerTeardown('functions.js', function () {
     $(document).off('click', 'a.themeselect');
     $(document).off('change', '.autosubmit');
-    $('a.take_theme').unbind('click');
+    $('a.take_theme').off('click');
 });
 
 AJAX.registerOnload('functions.js', function () {
@@ -4667,7 +4666,7 @@ function copyToClipboard()
  * Unbind all event handlers before tearing down a page
  */
 AJAX.registerTeardown('functions.js', function () {
-    $('input#print').unbind('click');
+    $('input#print').off('click');
     $(document).off('click', 'a.create_view.ajax');
     $(document).off('keydown', '#createViewDialog input, #createViewDialog select');
     $(document).off('change', '#fkc_checkbox');
@@ -4792,7 +4791,7 @@ $(function () {
  * Scrolls the page to the top if clicking the serverinfo bar
  */
 $(function () {
-    $(document).delegate("#serverinfo, #goto_pagetop", "click", function (event) {
+    $(document).on("click", "#serverinfo, #goto_pagetop", function (event) {
         event.preventDefault();
         $('html, body').animate({scrollTop: 0}, 'fast');
     });

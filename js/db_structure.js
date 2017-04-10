@@ -29,8 +29,8 @@ AJAX.registerTeardown('db_structure.js', function () {
     $(document).off('click', '#printView');
     $('a.real_row_count').off('click');
     $('a.row_count_sum').off('click');
-    $('select[name=submit_mult]').unbind('change');
-    $("#filterText").unbind('keyup');
+    $('select[name=submit_mult]').off('change');
+    $("#filterText").off('keyup');
 });
 
 /**

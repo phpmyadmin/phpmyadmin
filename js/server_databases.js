@@ -14,7 +14,7 @@
 AJAX.registerTeardown('server_databases.js', function () {
     $(document).off('submit', "#dbStatsForm");
     $(document).off('submit', '#create_database_form.ajax');
-    $('#filterText').unbind('keyup');
+    $('#filterText').off('keyup');
 });
 
 /**

@@ -17,20 +17,20 @@
  */
 
 AJAX.registerTeardown('db_central_columns.js', function () {
-    $(".edit").unbind('click');
-    $(".edit_save_form").unbind('click');
-    $('.edit_cancel_form').unbind('click');
-    $(".del_row").unbind('click');
+    $(".edit").off('click');
+    $(".edit_save_form").off('click');
+    $('.edit_cancel_form').off('click');
+    $(".del_row").off('click');
     $(document).off("keyup", ".filter_rows");
-    $('.edit_cancel_form').unbind('click');
-    $('#table-select').unbind('change');
-    $('#column-select').unbind('change');
-    $("#add_col_div").find(">a").unbind('click');
-    $('#add_new').unbind('submit');
-    $('#multi_edit_central_columns').unbind('submit');
-    $("select.default_type").unbind('change');
-    $("button[name='delete_central_columns']").unbind('click');
-    $("button[name='edit_central_columns']").unbind('click');
+    $('.edit_cancel_form').off('click');
+    $('#table-select').off('change');
+    $('#column-select').off('change');
+    $("#add_col_div").find(">a").off('click');
+    $('#add_new').off('submit');
+    $('#multi_edit_central_columns').off('submit');
+    $("select.default_type").off('change');
+    $("button[name='delete_central_columns']").off('click');
+    $("button[name='edit_central_columns']").off('click');
 });
 
 AJAX.registerOnload('db_central_columns.js', function () {

@@ -87,7 +87,7 @@ AJAX.registerTeardown('server_privileges.js', function () {
     $(document).off('click', "button.mult_submit[value=export]");
     $(document).off('click', "a.export_user_anchor.ajax");
     $(document).off('click',  "#initials_table a.ajax");
-    $('#checkbox_drop_users_db').unbind('click');
+    $('#checkbox_drop_users_db').off('click');
     $(document).off("click", ".checkall_box");
     $(document).off('change', '#checkbox_SSL_priv');
     $(document).off('change', 'input[name="ssl_type"]');

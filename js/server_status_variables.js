@@ -9,10 +9,10 @@
  * Unbind all event handlers before tearing down a page
  */
 AJAX.registerTeardown('server_status_variables.js', function () {
-    $('#filterAlert').unbind('change');
-    $('#filterText').unbind('keyup');
-    $('#filterCategory').unbind('change');
-    $('#dontFormat').unbind('change');
+    $('#filterAlert').off('change');
+    $('#filterText').off('keyup');
+    $('#filterCategory').off('change');
+    $('#dontFormat').off('change');
 });
 
 AJAX.registerOnload('server_status_variables.js', function () {

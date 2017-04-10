@@ -846,10 +846,10 @@ AJAX.registerTeardown('pmd/history.js', function () {
     vqb_editor = null;
     history_array = [];
     select_field = [];
-    $("#ok_edit_rename").unbind('click');
-    $("#ok_edit_having").unbind('click');
-    $("#ok_edit_Aggr").unbind('click');
-    $("#ok_edit_where").unbind('click');
+    $("#ok_edit_rename").off('click');
+    $("#ok_edit_having").off('click');
+    $("#ok_edit_Aggr").off('click');
+    $("#ok_edit_where").off('click');
 });
 
 AJAX.registerOnload('pmd/history.js', function () {

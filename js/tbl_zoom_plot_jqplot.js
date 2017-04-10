@@ -109,16 +109,16 @@ function scrollToChart() {
  * Unbind all event handlers before tearing down a page
  */
 AJAX.registerTeardown('tbl_zoom_plot_jqplot.js', function () {
-    $('#tableid_0').unbind('change');
-    $('#tableid_1').unbind('change');
-    $('#tableid_2').unbind('change');
-    $('#tableid_3').unbind('change');
-    $('#inputFormSubmitId').unbind('click');
-    $('#togglesearchformlink').unbind('click');
+    $('#tableid_0').off('change');
+    $('#tableid_1').off('change');
+    $('#tableid_2').off('change');
+    $('#tableid_3').off('change');
+    $('#inputFormSubmitId').off('click');
+    $('#togglesearchformlink').off('click');
     $(document).off('keydown', "#dataDisplay :input");
-    $('button.button-reset').unbind('click');
-    $('div#resizer').unbind('resizestop');
-    $('div#querychart').unbind('jqplotDataClick');
+    $('button.button-reset').off('click');
+    $('div#resizer').off('resizestop');
+    $('div#querychart').off('jqplotDataClick');
 });
 
 AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function () {
