@@ -18,7 +18,9 @@ use Twig_SimpleFilter;
 class I18nExtension extends Twig_Extensions_Extension_I18n
 {
     /**
-     * {@inheritdoc}
+     * Returns the token parser instances to add to the existing list.
+     *
+     * @return Twig_TokenParserInterface[]
      */
     public function getTokenParsers()
     {
@@ -26,7 +28,9 @@ class I18nExtension extends Twig_Extensions_Extension_I18n
     }
 
     /**
-     * {@inheritdoc}
+     * Returns a list of filters to add to the existing list.
+     *
+     * @return Twig_SimpleFilter[]
      */
     public function getFilters()
     {

@@ -18,7 +18,13 @@ use Twig_Token;
 class TokenParserTrans extends Twig_Extensions_TokenParser_Trans
 {
     /**
-     * {@inheritdoc}
+     * Parses a token and returns a node.
+     *
+     * @param Twig_Token $token Twig token to parse
+     *
+     * @return Twig_NodeInterface
+     *
+     * @throws Twig_Error_Syntax
      */
     public function parse(Twig_Token $token)
     {
@@ -62,7 +68,11 @@ class TokenParserTrans extends Twig_Extensions_TokenParser_Trans
     }
 
     /**
-     * {@inheritdoc}
+     * Tests the current token for a type.
+     *
+     * @param Twig_Token $token Twig token to test
+     *
+     * @return bool
      */
     public function decideForFork(Twig_Token $token)
     {

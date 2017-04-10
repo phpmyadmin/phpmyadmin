@@ -18,7 +18,9 @@ use Twig_SimpleFunction;
 class UrlExtension extends Twig_Extension
 {
     /**
-     * {@inheritdoc}
+     * Returns a list of functions to add to the existing list.
+     *
+     * @return Twig_SimpleFunction[]
      */
     public function getFunctions()
     {
