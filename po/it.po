@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.1-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-04-10 13:08+0200\n"
-"PO-Revision-Date: 2017-03-13 07:36+0000\n"
+"PO-Revision-Date: 2017-04-10 12:49+0000\n"
 "Last-Translator: Stefano Martinelli <stefano.ste.martinelli@gmail.com>\n"
-"Language-Team: Italian <https://hosted.weblate.org/projects/phpmyadmin/4-7/"
-"it/>\n"
+"Language-Team: Italian "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-7/it/>\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.12\n"
+"X-Generator: Weblate 2.13-dev\n"
 
 #: changelog.php:39 license.php:34
 #, php-format
@@ -960,11 +960,11 @@ msgid ""
 msgstr ""
 "Con questa operazione, MySQL cerca di mappare i valori dei dati tra le "
 "collation. Se i set di caratteri sono incompatibili, potrebbe esserci "
-"perdita di dati e questi dati persi potrebbero <b>NON</b>  essere "
-"recuperabili tramite un semplice ripristino della collation del/dei campo(i)."
-"<b> Per convertire i dati esistenti, si suggerisce di usare le funzioni di "
-"editing dei campi (il Link \"Modifica\") sulla pagina di struttura della "
-"tabella. </b>"
+"perdita di dati e questi dati persi potrebbero <b>NON</b> essere "
+"recuperabili tramite un semplice ripristino della collation del/dei "
+"campo(i).<b> Per convertire i dati esistenti, si suggerisce di usare le "
+"funzioni di editing dei campi (il Link \"Modifica\") sulla pagina di "
+"struttura della tabella. </b>"
 
 #: js/messages.php:107
 msgid ""
@@ -2194,7 +2194,7 @@ msgstr ""
 
 #: js/messages.php:545
 msgid "Select referenced key"
-msgstr "Seleziona le chiavi referenziali"
+msgstr "Seleziona la chiave referenziale"
 
 #: js/messages.php:546
 msgid "Select Foreign Key"
@@ -6886,7 +6886,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:555
 msgid "GZip output buffering"
-msgstr "utilizza il buffer di uscita GZip"
+msgstr "buffer di uscita GZip"
 
 #: libraries/config/messages.inc.php:557
 msgid ""
@@ -10169,7 +10169,7 @@ msgstr "Struttura della tabella"
 #: libraries/plugins/export/ExportSql.php:2072
 #: libraries/plugins/export/ExportTexytext.php:538
 msgid "Structure for view"
-msgstr "Struttura per la vista"
+msgstr "Struttura per vista"
 
 #: libraries/plugins/export/ExportHtmlword.php:599
 #: libraries/plugins/export/ExportOdt.php:744
@@ -10891,8 +10891,8 @@ msgid ""
 "Displays a clickable thumbnail. The options are the maximum width and height "
 "in pixels. The original aspect ratio is preserved."
 msgstr ""
-"Mostra un anteprima cliccabile. Le opzioni sono: larghezza ed altezza in "
-"pixel. La proporzione originale é mantenuta."
+"Mostra un'anteprima cliccabile. Le opzioni sono: massima larghezza ed "
+"altezza in pixel. La proporzione originale é mantenuta."
 
 #: libraries/plugins/transformations/abs/LongToIPv4TransformationsPlugin.php:28
 msgid ""
@@ -12949,8 +12949,8 @@ msgid ""
 "The number of connections that were aborted because the client died without "
 "closing the connection properly."
 msgstr ""
-"Il numero di connessioni fallite perché il cliente é morto senza chiudere la "
-"connessione correttemente."
+"Numero di connessioni fallite perché il client si é disconnesso senza "
+"chiudere la connessione correttamente."
 
 #: libraries/server_status_variables.lib.php:332
 msgid "The number of failed attempts to connect to the MySQL server."
@@ -13615,10 +13615,11 @@ msgid ""
 "should first optimize your queries, and then either split your table or "
 "tables or use replication."
 msgstr ""
-"Il numero di volte che un table lock è stato eseguito immediatamente ed era "
-"necessaria un'attesa. Se è alto, potresti avere dei problemi con le "
-"performance, dovresti prima ottimizzare le query, oppure sia utilizzare le "
-"repliche, sia dividere le tabelle."
+"Numero di volte in cui un blocco tabella (table lock) non poteva essere "
+"eseguito immediatamente ed è stato necessario un ciclo  di attesa. Se questo "
+"valore è alto, e hai problemi di performance, dovresti per prima cosa "
+"ottimizzare le tue query, poi  suddividere la tua o le tue tabelle, oppure "
+"utilizzare la replicazione."
 
 #: libraries/server_status_variables.lib.php:741
 msgid ""
