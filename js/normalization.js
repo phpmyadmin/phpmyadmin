@@ -466,7 +466,7 @@ function moveRepeatingGroup(repeatingCols) {
 }
 AJAX.registerTeardown('normalization.js', function () {
     $("#extra").off("click", "#selectNonAtomicCol");
-    $("#splitGo").unbind('click');
+    $("#splitGo").off('click');
     $('.tblFooters').off("click", "#saveSplit");
     $("#extra").off("click", "#addNewPrimary");
     $(".tblFooters").off("click", "#saveNewPrimary");

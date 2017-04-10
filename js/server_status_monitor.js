@@ -19,8 +19,8 @@ AJAX.registerOnload('server_status_monitor.js', function () {
 AJAX.registerTeardown('server_status_monitor.js', function () {
     $('#emptyDialog').remove();
     $('#addChartDialog').remove();
-    $('a.popupLink').unbind('click');
-    $('body').unbind('click');
+    $('a.popupLink').off('click');
+    $('body').off('click');
 });
 /**
  * Popup behaviour
@@ -58,26 +58,26 @@ AJAX.registerOnload('server_status_monitor.js', function () {
 });
 
 AJAX.registerTeardown('server_status_monitor.js', function () {
-    $('a[href="#rearrangeCharts"], a[href="#endChartEditMode"]').unbind('click');
-    $('div.popupContent select[name="chartColumns"]').unbind('change');
-    $('div.popupContent select[name="gridChartRefresh"]').unbind('change');
-    $('a[href="#addNewChart"]').unbind('click');
-    $('a[href="#exportMonitorConfig"]').unbind('click');
-    $('a[href="#importMonitorConfig"]').unbind('click');
-    $('a[href="#clearMonitorConfig"]').unbind('click');
-    $('a[href="#pauseCharts"]').unbind('click');
-    $('a[href="#monitorInstructionsDialog"]').unbind('click');
-    $('input[name="chartType"]').unbind('click');
-    $('input[name="useDivisor"]').unbind('click');
-    $('input[name="useUnit"]').unbind('click');
-    $('select[name="varChartList"]').unbind('click');
-    $('a[href="#kibDivisor"]').unbind('click');
-    $('a[href="#mibDivisor"]').unbind('click');
-    $('a[href="#submitClearSeries"]').unbind('click');
-    $('a[href="#submitAddSeries"]').unbind('click');
+    $('a[href="#rearrangeCharts"], a[href="#endChartEditMode"]').off('click');
+    $('div.popupContent select[name="chartColumns"]').off('change');
+    $('div.popupContent select[name="gridChartRefresh"]').off('change');
+    $('a[href="#addNewChart"]').off('click');
+    $('a[href="#exportMonitorConfig"]').off('click');
+    $('a[href="#importMonitorConfig"]').off('click');
+    $('a[href="#clearMonitorConfig"]').off('click');
+    $('a[href="#pauseCharts"]').off('click');
+    $('a[href="#monitorInstructionsDialog"]').off('click');
+    $('input[name="chartType"]').off('click');
+    $('input[name="useDivisor"]').off('click');
+    $('input[name="useUnit"]').off('click');
+    $('select[name="varChartList"]').off('click');
+    $('a[href="#kibDivisor"]').off('click');
+    $('a[href="#mibDivisor"]').off('click');
+    $('a[href="#submitClearSeries"]').off('click');
+    $('a[href="#submitAddSeries"]').off('click');
     // $("input#variableInput").destroy();
-    $('#chartPreset').unbind('click');
-    $('#chartStatusVar').unbind('click');
+    $('#chartPreset').off('click');
+    $('#chartStatusVar').off('click');
     destroyGrid();
 });
 
@@ -1223,7 +1223,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
         }
 
         // time span selection
-        $('#gridchart' + runtime.chartAI).bind('jqplotMouseDown', function (ev, gridpos, datapos, neighbor, plot) {
+        $('#gridchart' + runtime.chartAI).on('jqplotMouseDown', function (ev, gridpos, datapos, neighbor, plot) {
             drawTimeSpan = true;
             selectionTimeDiff.push(datapos.xaxis);
             if ($('#selection_box').length) {
@@ -1242,7 +1242,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
                 .fadeIn();
         });
 
-        $('#gridchart' + runtime.chartAI).bind('jqplotMouseUp', function (ev, gridpos, datapos, neighbor, plot) {
+        $('#gridchart' + runtime.chartAI).on('jqplotMouseUp', function (ev, gridpos, datapos, neighbor, plot) {
             if (! drawTimeSpan || editMode) {
                 return;
             }
@@ -1261,7 +1261,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
             drawTimeSpan = false;
         });
 
-        $('#gridchart' + runtime.chartAI).bind('jqplotMouseMove', function (ev, gridpos, datapos, neighbor, plot) {
+        $('#gridchart' + runtime.chartAI).on('jqplotMouseMove', function (ev, gridpos, datapos, neighbor, plot) {
             if (! drawTimeSpan || editMode) {
                 return;
             }
@@ -1274,7 +1274,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
             }
         });
 
-        $('#gridchart' + runtime.chartAI).bind('jqplotMouseLeave', function (ev, gridpos, datapos, neighbor, plot) {
+        $('#gridchart' + runtime.chartAI).on('jqplotMouseLeave', function (ev, gridpos, datapos, neighbor, plot) {
             drawTimeSpan = false;
         });
 

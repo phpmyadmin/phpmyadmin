@@ -90,7 +90,7 @@ var PMA_console = {
             '">' +
             '</form>'
         );
-        PMA_console.$requestForm.bind('submit', AJAX.requestHandler);
+        PMA_console.$requestForm.on('submit', AJAX.requestHandler);
 
         // Event binds shouldn't run again
         if (PMA_console.isInitialized === false) {
@@ -453,7 +453,7 @@ var PMA_consoleResizer = {
         $(document).mousemove(PMA_consoleResizer._mousemove);
         $(document).mouseup(PMA_consoleResizer._mouseup);
         // Disable text selection while resizing
-        $(document).bind('selectstart', function() { return false; });
+        $(document).on('selectstart', function() { return false; });
     },
     /**
      * Mousemove event handler for bind to resizer
@@ -489,9 +489,9 @@ var PMA_consoleResizer = {
     _mouseup: function() {
         $.cookie('pma_console_height', PMA_consoleResizer._resultHeight);
         PMA_console.show();
-        $(document).unbind('mousemove');
-        $(document).unbind('mouseup');
-        $(document).unbind('selectstart');
+        $(document).off('mousemove');
+        $(document).off('mouseup');
+        $(document).off('selectstart');
     },
     /**
      * Used for console resizer initialize
@@ -499,7 +499,7 @@ var PMA_consoleResizer = {
      * @return void
      */
     initialize: function() {
-        $('#pma_console').find('.toolbar').unbind('mousedown');
+        $('#pma_console').find('.toolbar').off('mousedown');
         $('#pma_console').find('.toolbar').mousedown(PMA_consoleResizer._mousedown);
     }
 };

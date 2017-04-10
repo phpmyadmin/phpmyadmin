@@ -33,13 +33,13 @@ function isStorageSupported(type, warn)
  * Unbind all event handlers before tearing down a page
  */
 AJAX.registerTeardown('config.js', function () {
-    $('.optbox input[id], .optbox select[id], .optbox textarea[id]').unbind('change').unbind('keyup');
-    $('.optbox input[type=button][name=submit_reset]').unbind('click');
-    $('div.tabs_contents').undelegate();
-    $('#import_local_storage, #export_local_storage').unbind('click');
-    $('form.prefs-form').unbind('change').unbind('submit');
+    $('.optbox input[id], .optbox select[id], .optbox textarea[id]').off('change').off('keyup');
+    $('.optbox input[type=button][name=submit_reset]').off('click');
+    $('div.tabs_contents').off();
+    $('#import_local_storage, #export_local_storage').off('click');
+    $('form.prefs-form').off('change').off('submit');
     $(document).off('click', 'div.click-hide-message');
-    $('#prefs_autoload').find('a').unbind('click');
+    $('#prefs_autoload').find('a').off('click');
 });
 
 AJAX.registerOnload('config.js', function () {
@@ -526,7 +526,7 @@ function setupValidation() {
     $elements.each(function () {
         markField(this);
         var $el = $(this);
-        $el.bind('change', function () {
+        $el.on('change', function () {
             validate_field_and_fieldset(this, false);
             markField(this);
         });
@@ -681,13 +681,13 @@ function restoreField(field_id)
 
 function setupRestoreField() {
     $('div.tabs_contents')
-        .delegate('.restore-default, .set-value', 'mouseenter', function () {
+        .on('mouseenter', '.restore-default, .set-value', function () {
             $(this).css('opacity', 1);
         })
-        .delegate('.restore-default, .set-value', 'mouseleave', function () {
+        .on('mouseleave', '.restore-default, .set-value', function () {
             $(this).css('opacity', 0.25);
         })
-        .delegate('.restore-default, .set-value', 'click', function (e) {
+        .on('click', '.restore-default, .set-value', function (e) {
             e.preventDefault();
             var href = $(this).attr('href');
             var field_sel;

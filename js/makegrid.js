@@ -1069,7 +1069,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                     // unbind the mousedown event to prevent the problem of
                     // datepicker getting closed, needs to be checked for any
                     // change in names when updating
-                    $(document).unbind('mousedown', $.datepicker._checkExternalClick);
+                    $(document).off('mousedown', $.datepicker._checkExternalClick);
 
                     //move ui-datepicker-div inside cEdit div
                     var datepicker_div = $('#ui-datepicker-div');
@@ -1330,8 +1330,8 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                                     // update delete confirmation in Delete link
                                     if ($(this).attr('href').indexOf('DELETE') > -1) {
                                         $(this).removeAttr('onclick')
-                                            .unbind('click')
-                                            .bind('click', function () {
+                                            .off('click')
+                                            .on('click', function () {
                                                 return confirmLink(this, 'DELETE FROM `' + g.db + '`.`' + g.table + '` WHERE ' +
                                                        decoded_new_clause + (is_unique ? '' : ' LIMIT 1'));
                                             });
@@ -1639,7 +1639,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
             $(g.gDiv).append(g.cCpy);
 
             // prevent default "dragstart" event when dragging a link
-            $(g.t).find('th a').bind('dragstart', function () {
+            $(g.t).find('th a').on('dragstart', function () {
                 return false;
             });
 
@@ -2094,7 +2094,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                 g.hideEditCell();
                 g.postEditedCell();
             });
-            $(window).bind('beforeunload', function () {
+            $(window).on('beforeunload', function () {
                 if (g.isCellEdited) {
                     return g.saveCellWarning;
                 }
@@ -2255,16 +2255,12 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
         if (prevent) {
             return this.each(function () {
                 if (is_msie || is_safari) {
-                    $(this).bind('selectstart', function () {
-                        return false;
-                    });
+                    $(this).on('selectstart', false);
                 } else if (is_firefox) {
                     $(this).css('MozUserSelect', 'none');
                     $('body').trigger('focus');
                 } else if (is_opera) {
-                    $(this).bind('mousedown', function () {
-                        return false;
-                    });
+                    $(this).on('mousedown', false);
                 } else {
                     $(this).attr('unselectable', 'on');
                 }
@@ -2272,11 +2268,11 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
         } else {
             return this.each(function () {
                 if (is_msie || is_safari) {
-                    $(this).unbind('selectstart');
+                    $(this).off('selectstart');
                 } else if (is_firefox) {
                     $(this).css('MozUserSelect', 'inherit');
                 } else if (is_opera) {
-                    $(this).unbind('mousedown');
+                    $(this).off('mousedown');
                 } else {
                     $(this).removeAttr('unselectable');
                 }

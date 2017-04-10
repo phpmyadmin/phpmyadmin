@@ -50,9 +50,9 @@ function PMA_checkIfDataTypeNumericOrDate(data_type)
  * Unbind all event handlers before tearing down a page
  */
 AJAX.registerTeardown('tbl_select.js', function () {
-    $('#togglesearchformlink').unbind('click');
+    $('#togglesearchformlink').off('click');
     $(document).off('submit', "#tbl_search_form.ajax");
-    $('select.geom_func').unbind('change');
+    $('select.geom_func').off('change');
     $(document).off('click', 'span.open_search_gis_editor');
     $('body').off('click', 'select[name*="criteriaColumnOperators"]');
 });
@@ -69,7 +69,7 @@ AJAX.registerOnload('tbl_select.js', function () {
 
     $('#togglesearchformlink')
         .html(PMA_messages.strShowSearchCriteria)
-        .bind('click', function () {
+        .on('click', function () {
             var $link = $(this);
             $('#tbl_search_form').slideToggle();
             if ($link.text() == PMA_messages.strHideSearchCriteria) {

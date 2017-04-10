@@ -9,7 +9,7 @@
  * Unbind all event handlers before tearing down a page
  */
 AJAX.registerTeardown('server_status_advisor.js', function () {
-    $('a[href="#openAdvisorInstructions"]').unbind('click');
+    $('a[href="#openAdvisorInstructions"]').off('click');
     $('#statustabs_advisor').html('');
     $('#advisorDialog').remove();
     $('#instructionsDialog').remove();

@@ -1201,9 +1201,9 @@ var ResizeHandler = function () {
     this.mousedown = function (event) {
         event.preventDefault();
         $(document)
-            .bind('mousemove', {'resize_handler': event.data.resize_handler},
+            .on('mousemove', {'resize_handler': event.data.resize_handler},
                 $.throttle(event.data.resize_handler.mousemove, 4))
-            .bind('mouseup', {'resize_handler': event.data.resize_handler},
+            .on('mouseup', {'resize_handler': event.data.resize_handler},
                 event.data.resize_handler.mouseup);
         $('body').css('cursor', 'col-resize');
     };
@@ -1219,8 +1219,8 @@ var ResizeHandler = function () {
         $.cookie('pma_navi_width', event.data.resize_handler.getPos(event));
         $('#topmenu').menuResizer('resize');
         $(document)
-            .unbind('mousemove')
-            .unbind('mouseup');
+            .off('mousemove')
+            .off('mouseup');
     };
     /**
      * Event handler for updating the panel during a resize operation

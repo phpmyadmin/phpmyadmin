@@ -19,12 +19,12 @@
  * Unbind all event handlers before tearing down a page
  */
 AJAX.registerTeardown('db_search.js', function () {
-    $('a.browse_results').unbind('click');
-    $('a.delete_results').unbind('click');
-    $('#buttonGo').unbind('click');
-    $('#togglesearchresultlink').unbind('click');
-    $("#togglequerybox").unbind('click');
-    $('#togglesearchformlink').unbind('click');
+    $('a.browse_results').off('click');
+    $('a.delete_results').off('click');
+    $('#buttonGo').off('click');
+    $('#togglesearchresultlink').off('click');
+    $("#togglequerybox").off('click');
+    $('#togglesearchformlink').off('click');
     $(document).off('submit', "#db_search_form.ajax");
 });
 
@@ -53,7 +53,7 @@ AJAX.registerOnload('db_search.js', function () {
      */
     $('#togglesearchresultlink')
     .html(PMA_messages.strHideSearchResults)
-    .bind('click', function () {
+    .on('click', function () {
         var $link = $(this);
         $('#searchresults').slideToggle();
         if ($link.text() == PMA_messages.strHideSearchResults) {
@@ -78,7 +78,7 @@ AJAX.registerOnload('db_search.js', function () {
      */
     $("#togglequerybox")
     .hide()
-    .bind('click', function () {
+    .on('click', function () {
         var $link = $(this);
         $('#sqlqueryform').slideToggle("medium");
         if ($link.text() == PMA_messages.strHideQueryBox) {
@@ -98,7 +98,7 @@ AJAX.registerOnload('db_search.js', function () {
      */
     $('#togglesearchformlink')
        .html(PMA_messages.strShowSearchCriteria)
-       .bind('click', function () {
+       .on('click', function () {
             var $link = $(this);
             $('#db_search_form').slideToggle();
             if ($link.text() == PMA_messages.strHideSearchCriteria) {
