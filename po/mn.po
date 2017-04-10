@@ -1,9 +1,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 4.7.0-beta1\n"
+"Project-Id-Version: phpMyAdmin 4.7.1-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2017-03-03 14:49+0100\n"
+"POT-Creation-Date: 2017-04-10 13:08+0200\n"
 "PO-Revision-Date: 2015-10-15 11:25+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Mongolian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -476,7 +476,7 @@ msgid "Add geometry"
 msgstr "Геометр нэмэх"
 
 #: gis_data_editor.php:413 js/messages.php:349 libraries/DbSearch.php:455
-#: libraries/DisplayResults.php:1812 libraries/browse_foreigners.lib.php:137
+#: libraries/DisplayResults.php:1811 libraries/browse_foreigners.lib.php:137
 #: libraries/display_change_password.lib.php:148
 #: libraries/display_export.lib.php:402 libraries/display_export.lib.php:408
 #: libraries/display_import.lib.php:399 libraries/index.lib.php:34
@@ -500,7 +500,7 @@ msgstr "Геометр нэмэх"
 #: libraries/server_user_groups.lib.php:285
 #: libraries/sql_query_form.lib.php:373 libraries/sql_query_form.lib.php:435
 #: libraries/tracking.lib.php:544 libraries/tracking.lib.php:667
-#: prefs_manage.php:285 prefs_manage.php:368 server_privileges.php:307
+#: prefs_manage.php:285 prefs_manage.php:369 server_privileges.php:307
 #: templates/columns_definitions/column_definitions_form.phtml:69
 #: templates/database/create_table.phtml:21 templates/header_location.phtml:28
 #: templates/privileges/delete_user_fieldset.phtml:16
@@ -556,32 +556,32 @@ msgstr ""
 "Хэтэрхий том хэмжээтэй файл ачаалахыг оролдсон бололтой. Үүнийг хэрхэн "
 "шийдэхийг %sбаримтжуулалт%s-с уншина уу."
 
-#: import.php:376 import.php:577
+#: import.php:378 import.php:579
 msgid "Showing bookmark"
 msgstr "Хавчуургыг харуулж байна"
 
-#: import.php:392 import.php:573
+#: import.php:394 import.php:575
 msgid "The bookmark has been deleted."
 msgstr "Хавчуурга устлаа."
 
-#: import.php:486
+#: import.php:488
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
 "[doc@faq1-16]FAQ 1.16[/doc]."
 msgstr ""
 
-#: import.php:538 libraries/display_import.lib.php:665
+#: import.php:540 libraries/display_import.lib.php:665
 msgid "Could not load import plugins, please check your installation!"
 msgstr "Оруулах нэмэлтүүд дуудагдсангүй, суулгацаа шалгана уу!"
 
-#: import.php:580 libraries/sql.lib.php:788 libraries/sql.lib.php:1564
+#: import.php:582 libraries/sql.lib.php:788 libraries/sql.lib.php:1564
 #, fuzzy, php-format
 #| msgid "Bookmark %s created"
 msgid "Bookmark %s has been created."
 msgstr "Тэмдэглэл %s нь үүсгэгдлээ"
 
-#: import.php:590
+#: import.php:592
 #, fuzzy, php-format
 #| msgid "Import has been successfully finished, %d queries executed."
 msgid "Import has been successfully finished, %d query executed."
@@ -589,20 +589,20 @@ msgid_plural "Import has been successfully finished, %d queries executed."
 msgstr[0] "Оруулалт амжилттай дууслаа, %d асуудал ажиллав."
 msgstr[1] "Оруулалт амжилттай дууслаа, %d асуудал ажиллав."
 
-#: import.php:619
+#: import.php:621
 #, php-format
 msgid ""
 "Script timeout passed, if you want to finish import, please %sresubmit the "
 "same file%s and import will resume."
 msgstr ""
 
-#: import.php:629
+#: import.php:631
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
 msgstr ""
 
-#: import.php:700 sql.php:163
+#: import.php:702 sql.php:163
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "\"ӨС устгах\" нь хаалттай."
 
@@ -612,7 +612,7 @@ msgstr ""
 
 #: import_status.php:114 js/messages.php:451 js/messages.php:615
 #: libraries/Util.php:689 libraries/export.lib.php:518
-#: libraries/plugins/schema/ExportRelationSchema.php:298 user_password.php:299
+#: libraries/plugins/schema/ExportRelationSchema.php:298 user_password.php:300
 msgid "Back"
 msgstr "Өмнөх"
 
@@ -636,7 +636,7 @@ msgstr "Ерөнхий хамаатай онцлог"
 
 #: index.php:197 js/messages.php:640
 #: libraries/display_change_password.lib.php:47
-#: libraries/display_change_password.lib.php:50 user_password.php:293
+#: libraries/display_change_password.lib.php:50 user_password.php:294
 msgid "Change password"
 msgstr "Нууц үг солих"
 
@@ -652,7 +652,7 @@ msgstr "MySQL холболтын кодлол"
 msgid "Appearance settings"
 msgstr "Ерөнхий хамаатай онцлог"
 
-#: index.php:268 prefs_manage.php:293
+#: index.php:268 prefs_manage.php:294
 #, fuzzy
 #| msgid "General relation features"
 msgid "More settings"
@@ -1013,7 +1013,7 @@ msgid "Save & close"
 msgstr "Илгээх"
 
 #: js/messages.php:112 libraries/config/FormDisplay.tpl.php:426
-#: libraries/insert_edit.lib.php:1619 prefs_manage.php:374 prefs_manage.php:385
+#: libraries/insert_edit.lib.php:1619 prefs_manage.php:375 prefs_manage.php:386
 msgid "Reset"
 msgstr "Да.эхлэх"
 
@@ -1134,12 +1134,12 @@ msgid "The user name is empty!"
 msgstr "Хэрэглэгчийн нэр хоосон!"
 
 #: js/messages.php:146 libraries/server_privileges.lib.php:1868
-#: user_password.php:119
+#: user_password.php:120
 msgid "The password is empty!"
 msgstr "Нууц үг хоосон байна!"
 
 #: js/messages.php:147 libraries/server_privileges.lib.php:1866
-#: user_password.php:123
+#: user_password.php:124
 msgid "The passwords aren't the same!"
 msgstr "Нууц їгнїїд ялгаатай байна!"
 
@@ -1385,7 +1385,7 @@ msgstr ""
 msgid "Please add at least one variable to the series!"
 msgstr ""
 
-#: js/messages.php:219 libraries/DisplayResults.php:1491
+#: js/messages.php:219 libraries/DisplayResults.php:1490
 #: libraries/config.values.php:68 libraries/display_export.lib.php:691
 #: libraries/plugins/export/ExportSql.php:2185
 #: libraries/plugins/schema/SchemaPdf.php:103
@@ -1600,7 +1600,7 @@ msgstr "SQL тайлбар"
 #: libraries/config.values.php:104 libraries/rte/rte_events.lib.php:399
 #: libraries/rte/rte_list.lib.php:107
 #: libraries/server_status_processes.lib.php:92 libraries/tracking.lib.php:287
-#: libraries/tracking.lib.php:1603
+#: libraries/tracking.lib.php:1599
 msgid "Status"
 msgstr "Статус"
 
@@ -1711,7 +1711,7 @@ msgstr ""
 #: libraries/Util.php:4131 libraries/config/messages.inc.php:257
 #: libraries/display_import.lib.php:107
 #: libraries/server_status_monitor.lib.php:313 prefs_manage.php:246
-#: setup/frames/menu.inc.php:27
+#: setup/frames/menu.inc.php:26
 msgid "Import"
 msgstr "Оруулах"
 
@@ -1944,8 +1944,8 @@ msgstr "Хүснэгтийн өгөгдлийг устгах"
 msgid "The definition of a stored function must contain a RETURN statement!"
 msgstr ""
 
-#: js/messages.php:393 libraries/DisplayResults.php:4869
-#: libraries/DisplayResults.php:5152 libraries/Menu.php:357
+#: js/messages.php:393 libraries/DisplayResults.php:4868
+#: libraries/DisplayResults.php:5151 libraries/Menu.php:357
 #: libraries/Menu.php:458 libraries/Menu.php:584 libraries/Util.php:3483
 #: libraries/Util.php:3484 libraries/Util.php:4098 libraries/Util.php:4113
 #: libraries/Util.php:4130 libraries/config/messages.inc.php:251
@@ -1954,8 +1954,8 @@ msgstr ""
 #: libraries/server_privileges.lib.php:2450
 #: libraries/server_privileges.lib.php:2794
 #: libraries/server_privileges.lib.php:3521
-#: libraries/server_status_monitor.lib.php:317 prefs_manage.php:311
-#: setup/frames/menu.inc.php:28
+#: libraries/server_status_monitor.lib.php:317 prefs_manage.php:312
+#: setup/frames/menu.inc.php:27
 #: templates/database/structure/check_all_tables.phtml:12
 msgid "Export"
 msgstr "Гаргах"
@@ -2005,12 +2005,12 @@ msgstr "асуултад"
 msgid "Show query box"
 msgstr "SQL асуудал харуулах"
 
-#: js/messages.php:412 libraries/DisplayResults.php:3490
-#: libraries/DisplayResults.php:4853 libraries/Index.php:709
+#: js/messages.php:412 libraries/DisplayResults.php:3489
+#: libraries/DisplayResults.php:4852 libraries/Index.php:709
 #: libraries/Util.php:619 libraries/Util.php:1106 libraries/Util.php:3481
 #: libraries/Util.php:3482 libraries/central_columns.lib.php:848
 #: libraries/central_columns.lib.php:1195 libraries/config/messages.inc.php:879
-#: libraries/server_user_groups.lib.php:117 setup/frames/index.inc.php:162
+#: libraries/server_user_groups.lib.php:117 setup/frames/index.inc.php:160
 #: templates/console/bookmark_content.phtml:17
 #: templates/console/display.phtml:51 templates/console/display.phtml:213
 #: templates/server/variables/variable_row.phtml:4
@@ -2019,18 +2019,18 @@ msgid "Edit"
 msgstr "Засах"
 
 #: js/messages.php:413 libraries/DbSearch.php:353
-#: libraries/DisplayResults.php:3559 libraries/DisplayResults.php:4837
+#: libraries/DisplayResults.php:3558 libraries/DisplayResults.php:4836
 #: libraries/central_columns.lib.php:850 libraries/central_columns.lib.php:1199
 #: libraries/display_export.lib.php:226
 #: libraries/server_user_groups.lib.php:127
 #: libraries/sql_query_form.lib.php:422 libraries/tracking.lib.php:488
-#: setup/frames/index.inc.php:166 templates/console/bookmark_content.phtml:18
+#: setup/frames/index.inc.php:163 templates/console/bookmark_content.phtml:18
 #: templates/database/designer/delete_relation_panel.phtml:27
 msgid "Delete"
 msgstr "Устгах"
 
-#: js/messages.php:414 libraries/DisplayResults.php:926
-#: libraries/DisplayResults.php:934
+#: js/messages.php:414 libraries/DisplayResults.php:925
+#: libraries/DisplayResults.php:933
 #, php-format
 msgid "%d is not valid row number."
 msgstr "%d нь мөрийн буруу дугаар байна."
@@ -2312,8 +2312,8 @@ msgstr "Өгөгдөл заагчийн хэмжээ"
 msgid "Ignore"
 msgstr "Үл тоох"
 
-#: js/messages.php:510 libraries/DisplayResults.php:3493
-#: libraries/DisplayResults.php:4858
+#: js/messages.php:510 libraries/DisplayResults.php:3492
+#: libraries/DisplayResults.php:4857
 msgid "Copy"
 msgstr "Хуулах"
 
@@ -2329,7 +2329,7 @@ msgstr "Шугам"
 msgid "Polygon"
 msgstr "Олон өнцөгт"
 
-#: js/messages.php:517 libraries/DisplayResults.php:1796
+#: js/messages.php:517 libraries/DisplayResults.php:1795
 msgid "Geometry"
 msgstr "Геометр"
 
@@ -2519,7 +2519,7 @@ msgstr "Баганын нэрс"
 msgid "Click the drop-down arrow<br />to toggle column's visibility."
 msgstr ""
 
-#: js/messages.php:591 libraries/DisplayResults.php:1033
+#: js/messages.php:591 libraries/DisplayResults.php:1032
 #: libraries/browse_foreigners.lib.php:283
 #: libraries/browse_foreigners.lib.php:336
 #: templates/privileges/initials_row.phtml:24
@@ -2578,7 +2578,7 @@ msgstr ""
 msgid "Select database first"
 msgstr "Хүснэгтүүд сонго"
 
-#: js/messages.php:614 libraries/DisplayResults.php:5044
+#: js/messages.php:614 libraries/DisplayResults.php:5043
 #: libraries/Util.php:3991
 #: templates/database/structure/print_view_data_dictionary_link.phtml:3
 #: templates/table/structure/optional_action_links.phtml:6
@@ -2644,13 +2644,13 @@ msgid "Show hidden navigation tree items."
 msgstr "Тор харуулах"
 
 #: js/messages.php:649 libraries/config/messages.inc.php:473
-#: libraries/navigation/NavigationTree.php:1428
+#: libraries/navigation/NavigationTree.php:1431
 #, fuzzy
 #| msgid "Use text field"
 msgid "Link with main panel"
 msgstr "Бичвэр талбар хэрэглэх"
 
-#: js/messages.php:650 libraries/navigation/NavigationTree.php:1431
+#: js/messages.php:650 libraries/navigation/NavigationTree.php:1434
 #, fuzzy
 #| msgid "Use text field"
 msgid "Unlink from main panel"
@@ -2680,7 +2680,7 @@ msgstr ""
 msgid "up to date"
 msgstr "ӨС байхгүй"
 
-#: js/messages.php:665 libraries/DisplayResults.php:4975 view_create.php:206
+#: js/messages.php:665 libraries/DisplayResults.php:4974 view_create.php:206
 #, fuzzy
 #| msgid "Create"
 msgid "Create view"
@@ -3521,7 +3521,7 @@ msgid "Czech-Slovak"
 msgstr "Чехословак"
 
 #: libraries/Charsets.php:456 libraries/Charsets.php:463
-#: libraries/controllers/database/DatabaseStructureController.php:986
+#: libraries/controllers/database/DatabaseStructureController.php:989
 msgid "unknown"
 msgstr "үлмэдэх"
 
@@ -3543,34 +3543,34 @@ msgstr "Том жижиг хамаагүй"
 msgid "case-sensitive collation"
 msgstr "Том жижиг хамаатай"
 
-#: libraries/Config.php:1121
+#: libraries/Config.php:1119
 #, php-format
 msgid "Existing configuration file (%s) is not readable."
 msgstr ""
 
-#: libraries/Config.php:1151
+#: libraries/Config.php:1149
 msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr ""
 
-#: libraries/Config.php:1171
+#: libraries/Config.php:1169
 #, fuzzy, php-format
 #| msgid "Could not load default configuration from: \"%1$s\""
 msgid "Could not load default configuration from: %1$s"
 msgstr "Анхдагч тохиргоо дуудагдсангүй нь: \"%1$s\""
 
-#: libraries/Config.php:1178
+#: libraries/Config.php:1176
 #, fuzzy
 #| msgid "Could not load default configuration from: \"%1$s\""
 msgid "Failed to read configuration file!"
 msgstr "Анхдагч тохиргоо дуудагдсангүй нь: \"%1$s\""
 
-#: libraries/Config.php:1181
+#: libraries/Config.php:1179
 msgid ""
 "This usually means there is a syntax error in it, please check any errors "
 "shown below."
 msgstr ""
 
-#: libraries/Config.php:1560
+#: libraries/Config.php:1558
 msgid "Font size"
 msgstr "Үсгийн хэмжээ"
 
@@ -3631,8 +3631,8 @@ msgstr "Шинэ талбар нэмэх"
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr ""
 
-#: libraries/DbQbe.php:405 libraries/DisplayResults.php:2278
-#: libraries/DisplayResults.php:2284 libraries/config.values.php:69
+#: libraries/DbQbe.php:405 libraries/DisplayResults.php:2277
+#: libraries/DisplayResults.php:2283 libraries/config.values.php:69
 #: libraries/controllers/server/ServerDatabasesController.php:550
 #: libraries/operations.lib.php:787
 #: libraries/server_status_processes.lib.php:167
@@ -3642,8 +3642,8 @@ msgstr ""
 msgid "Ascending"
 msgstr "Өсөхөөр"
 
-#: libraries/DbQbe.php:408 libraries/DisplayResults.php:2274
-#: libraries/DisplayResults.php:2288 libraries/config.values.php:70
+#: libraries/DbQbe.php:408 libraries/DisplayResults.php:2273
+#: libraries/DisplayResults.php:2287 libraries/config.values.php:70
 #: libraries/controllers/server/ServerDatabasesController.php:550
 #: libraries/operations.lib.php:790
 #: libraries/server_status_processes.lib.php:164
@@ -3861,29 +3861,29 @@ msgstr "Бүх сонгосныг болих"
 msgid "Inside column:"
 msgstr "Хүснэгт(үүд) дотор:"
 
-#: libraries/DisplayResults.php:903
+#: libraries/DisplayResults.php:902
 msgid "Save edited data"
 msgstr ""
 
-#: libraries/DisplayResults.php:909
+#: libraries/DisplayResults.php:908
 #, fuzzy
 #| msgid "Add/Delete Field Columns"
 msgid "Restore column order"
 msgstr "Багана нэмэх/устгах"
 
-#: libraries/DisplayResults.php:957 libraries/central_columns.lib.php:661
+#: libraries/DisplayResults.php:956 libraries/central_columns.lib.php:661
 #, fuzzy
 #| msgid "Files"
 msgid "Filter rows"
 msgstr "Файлууд"
 
-#: libraries/DisplayResults.php:959 libraries/central_columns.lib.php:663
+#: libraries/DisplayResults.php:958 libraries/central_columns.lib.php:663
 #, fuzzy
 #| msgid "Search in database"
 msgid "Search this table"
 msgstr "Өгөгдлийн санд хайх"
 
-#: libraries/DisplayResults.php:990 libraries/Util.php:2437
+#: libraries/DisplayResults.php:989 libraries/Util.php:2437
 #: libraries/Util.php:2440
 #, fuzzy
 #| msgid "Begin"
@@ -3891,7 +3891,7 @@ msgctxt "First page"
 msgid "Begin"
 msgstr "Эхлэл"
 
-#: libraries/DisplayResults.php:993 libraries/Util.php:2438
+#: libraries/DisplayResults.php:992 libraries/Util.php:2438
 #: libraries/Util.php:2441
 #: libraries/controllers/server/ServerBinlogController.php:194
 #: libraries/controllers/server/ServerBinlogController.php:196
@@ -3901,7 +3901,7 @@ msgctxt "Previous page"
 msgid "Previous"
 msgstr "Өмнөх"
 
-#: libraries/DisplayResults.php:1059 libraries/Util.php:2469
+#: libraries/DisplayResults.php:1058 libraries/Util.php:2469
 #: libraries/Util.php:2479
 #: libraries/controllers/server/ServerBinlogController.php:228
 #: libraries/controllers/server/ServerBinlogController.php:230
@@ -3911,7 +3911,7 @@ msgctxt "Next page"
 msgid "Next"
 msgstr "Цааш"
 
-#: libraries/DisplayResults.php:1089 libraries/Util.php:2470
+#: libraries/DisplayResults.php:1088 libraries/Util.php:2470
 #: libraries/Util.php:2480
 #, fuzzy
 #| msgid "End"
@@ -3919,22 +3919,22 @@ msgctxt "Last page"
 msgid "End"
 msgstr "Төгс"
 
-#: libraries/DisplayResults.php:1132
+#: libraries/DisplayResults.php:1131
 msgid "All"
 msgstr "Бүх"
 
-#: libraries/DisplayResults.php:1142 libraries/display_export.lib.php:437
+#: libraries/DisplayResults.php:1141 libraries/display_export.lib.php:437
 #: templates/startAndNumberOfRowsPanel.phtml:10
 #, fuzzy
 #| msgid "Number of fields"
 msgid "Number of rows:"
 msgstr "Талбаруудын тоо"
 
-#: libraries/DisplayResults.php:1435
+#: libraries/DisplayResults.php:1434
 msgid "Sort by key"
 msgstr "Түлхүүрээр эрэмбэлэх"
 
-#: libraries/DisplayResults.php:1718 libraries/import.lib.php:1216
+#: libraries/DisplayResults.php:1717 libraries/import.lib.php:1216
 #: libraries/import.lib.php:1251 libraries/mult_submits.lib.php:343
 #: libraries/plugins/export/ExportCodegen.php:84
 #: libraries/plugins/export/ExportCsv.php:48
@@ -3964,66 +3964,66 @@ msgstr "Түлхүүрээр эрэмбэлэх"
 msgid "Options"
 msgstr "Сонголтууд"
 
-#: libraries/DisplayResults.php:1724 libraries/DisplayResults.php:1845
+#: libraries/DisplayResults.php:1723 libraries/DisplayResults.php:1844
 #, fuzzy
 #| msgid "Partial Texts"
 msgid "Partial texts"
 msgstr "Бичвэрийн зарим хэсэг"
 
-#: libraries/DisplayResults.php:1725 libraries/DisplayResults.php:1849
+#: libraries/DisplayResults.php:1724 libraries/DisplayResults.php:1848
 #, fuzzy
 #| msgid "Full Texts"
 msgid "Full texts"
 msgstr "Бүтэн бичвэр"
 
-#: libraries/DisplayResults.php:1741
+#: libraries/DisplayResults.php:1740
 msgid "Relational key"
 msgstr ""
 
-#: libraries/DisplayResults.php:1742
+#: libraries/DisplayResults.php:1741
 #, fuzzy
 #| msgid "Disable foreign key checks"
 msgid "Display column for relationships"
 msgstr "Гадаад түлхүүр шалгалтыг хаах"
 
-#: libraries/DisplayResults.php:1758
+#: libraries/DisplayResults.php:1757
 msgid "Show binary contents"
 msgstr ""
 
-#: libraries/DisplayResults.php:1769
+#: libraries/DisplayResults.php:1768
 msgid "Show BLOB contents"
 msgstr ""
 
-#: libraries/DisplayResults.php:1786
+#: libraries/DisplayResults.php:1785
 #, fuzzy
 #| msgid "Browser transformation"
 msgid "Hide browser transformation"
 msgstr "Хөтчийн өөрчлөл"
 
-#: libraries/DisplayResults.php:1797
+#: libraries/DisplayResults.php:1796
 msgid "Well Known Text"
 msgstr ""
 
-#: libraries/DisplayResults.php:1798
+#: libraries/DisplayResults.php:1797
 msgid "Well Known Binary"
 msgstr ""
 
-#: libraries/DisplayResults.php:3535 libraries/DisplayResults.php:3550
+#: libraries/DisplayResults.php:3534 libraries/DisplayResults.php:3549
 #, fuzzy
 #| msgid "The row has been deleted."
 msgid "The row has been deleted."
 msgstr "Мөр устгагдсан"
 
-#: libraries/DisplayResults.php:3583 libraries/DisplayResults.php:4837
+#: libraries/DisplayResults.php:3582 libraries/DisplayResults.php:4836
 #: libraries/server_status_processes.lib.php:279
 msgid "Kill"
 msgstr "Алах"
 
-#: libraries/DisplayResults.php:4275
+#: libraries/DisplayResults.php:4274
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
 msgstr ""
 
-#: libraries/DisplayResults.php:4348 libraries/Message.php:171
+#: libraries/DisplayResults.php:4347 libraries/Message.php:171
 #: libraries/controllers/table/TableRelationController.php:253
 #: libraries/controllers/table/TableSearchController.php:570
 #: libraries/rte/rte_routines.lib.php:1445 libraries/sql_query_form.lib.php:92
@@ -4033,38 +4033,38 @@ msgstr ""
 msgid "Your SQL query has been executed successfully."
 msgstr "Таны SQL-асуулт амжилттай ажиллав"
 
-#: libraries/DisplayResults.php:4695
-#: libraries/controllers/database/DatabaseStructureController.php:770
+#: libraries/DisplayResults.php:4694
+#: libraries/controllers/database/DatabaseStructureController.php:773
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to %sdocumentation"
 "%s."
 msgstr ""
 
-#: libraries/DisplayResults.php:4708
+#: libraries/DisplayResults.php:4707
 #, fuzzy, php-format
 #| msgid "Showing rows"
 msgid "Showing rows %1s - %2s"
 msgstr "Мөрүүдийг харуулж байна"
 
-#: libraries/DisplayResults.php:4723
+#: libraries/DisplayResults.php:4722
 #, php-format
 msgid "%1$d total, %2$d in query"
 msgstr ""
 
-#: libraries/DisplayResults.php:4728
+#: libraries/DisplayResults.php:4727
 #, fuzzy, php-format
 #| msgid "total"
 msgid "%d total"
 msgstr "Нийт"
 
-#: libraries/DisplayResults.php:4740 libraries/sql.lib.php:1380
+#: libraries/DisplayResults.php:4739 libraries/sql.lib.php:1380
 #, fuzzy, php-format
 #| msgid "Query took %01.4f sec"
 msgid "Query took %01.4f seconds."
 msgstr "Асуулт нь %01.4f сек авлаа"
 
-#: libraries/DisplayResults.php:4842 libraries/DisplayResults.php:4849
+#: libraries/DisplayResults.php:4841 libraries/DisplayResults.php:4848
 #: libraries/mult_submits.inc.php:53
 #: templates/database/structure/check_all_tables.phtml:2
 #: templates/database/structure/check_all_tables.phtml:9
@@ -4072,7 +4072,7 @@ msgstr "Асуулт нь %01.4f сек авлаа"
 msgid "With selected:"
 msgstr "Сонгогдсонтой:"
 
-#: libraries/DisplayResults.php:4846 libraries/DisplayResults.php:4848
+#: libraries/DisplayResults.php:4845 libraries/DisplayResults.php:4847
 #: libraries/server_privileges.lib.php:1164
 #: libraries/server_privileges.lib.php:1165
 #: libraries/server_user_groups.lib.php:230
@@ -4085,25 +4085,25 @@ msgstr "Сонгогдсонтой:"
 msgid "Check all"
 msgstr "Бүгдийг чагтлах"
 
-#: libraries/DisplayResults.php:5021
+#: libraries/DisplayResults.php:5020
 msgid "Copy to clipboard"
 msgstr ""
 
-#: libraries/DisplayResults.php:5077
+#: libraries/DisplayResults.php:5076
 msgid "Query results operations"
 msgstr "Асуудлын үр дүнгийн үйлдэл"
 
-#: libraries/DisplayResults.php:5165 templates/table/chart/tbl_chart.phtml:11
+#: libraries/DisplayResults.php:5164 templates/table/chart/tbl_chart.phtml:11
 #, fuzzy
 #| msgid "Display PDF schema"
 msgid "Display chart"
 msgstr "PDF-схем харуулах"
 
-#: libraries/DisplayResults.php:5190
+#: libraries/DisplayResults.php:5189
 msgid "Visualize GIS data"
 msgstr ""
 
-#: libraries/DisplayResults.php:5376
+#: libraries/DisplayResults.php:5375
 #, fuzzy
 #| msgid "Link not found"
 msgid "Link not found!"
@@ -4250,7 +4250,7 @@ msgstr "Индексүүд"
 #: libraries/server_privileges.lib.php:3501
 #: libraries/server_user_groups.lib.php:80 libraries/tracking.lib.php:288
 #: libraries/tracking.lib.php:806 libraries/tracking.lib.php:1459
-#: libraries/tracking.lib.php:1604
+#: libraries/tracking.lib.php:1600
 #: templates/database/structure/table_header.phtml:30
 #: templates/privileges/privileges_summary.phtml:23
 #: templates/server/databases/table_header.phtml:37
@@ -4331,7 +4331,7 @@ msgid "Ignoring unsupported language code."
 msgstr ""
 
 #: libraries/LanguageManager.php:925 libraries/LanguageManager.php:926
-#: setup/frames/index.inc.php:67
+#: setup/frames/index.inc.php:66
 msgid "Language"
 msgstr "Хэл"
 
@@ -4386,7 +4386,7 @@ msgstr "Харц"
 #: libraries/server_privileges.lib.php:3295
 #: libraries/server_privileges.lib.php:3297
 #: libraries/server_privileges.lib.php:4497 libraries/tracking.lib.php:1458
-#: libraries/tracking.lib.php:1599
+#: libraries/tracking.lib.php:1595
 #: templates/database/structure/table_header.phtml:21
 #: templates/table/relation/common_form.phtml:34
 #: templates/table/relation/foreign_key_row.phtml:170
@@ -5372,7 +5372,7 @@ msgstr ""
 #: libraries/plugins/export/PMA_ExportPdf.php:312
 #: libraries/rte/rte_list.lib.php:79 libraries/rte/rte_list.lib.php:91
 #: libraries/rte/rte_list.lib.php:106 libraries/rte/rte_routines.lib.php:928
-#: libraries/rte/rte_routines.lib.php:1604 setup/frames/index.inc.php:145
+#: libraries/rte/rte_routines.lib.php:1604 setup/frames/index.inc.php:144
 #: templates/columns_definitions/table_fields_definitions.phtml:8
 #: templates/database/create_table.phtml:11
 #: templates/table/structure/table_structure_header.phtml:7
@@ -5428,7 +5428,7 @@ msgstr "%s талбар(ууд) нэмэх"
 msgid "Attributes"
 msgstr "Атрибутууд"
 
-#: libraries/common.inc.php:464
+#: libraries/common.inc.php:467
 msgid ""
 "You have enabled mbstring.func_overload in your PHP configuration. This "
 "option is incompatible with phpMyAdmin and might cause some data to be "
@@ -5437,23 +5437,23 @@ msgstr ""
 "Таны PHP тохируулгад mbstring.func_overload нээлттэй байна. Энэ сонголт "
 "phpMyAdmin -д бүрэн боломжгүй бөгөөд зарим өгөгдөл алдагдаж болзошгүй!"
 
-#: libraries/common.inc.php:498
+#: libraries/common.inc.php:501
 #, fuzzy, php-format
 #| msgid "Invalid server index: \"%s\""
 msgid "Invalid server index: %s"
 msgstr "Сервэрийн буруу индекс нь: \"%s\""
 
-#: libraries/common.inc.php:511
+#: libraries/common.inc.php:514
 #, fuzzy, php-format
 #| msgid "Server"
 msgid "Server %d"
 msgstr "Сервэр"
 
-#: libraries/common.inc.php:635
+#: libraries/common.inc.php:638
 msgid "Invalid authentication method set in configuration:"
 msgstr "Тохиргоонд сонгогдсон буруу зөвшөөрлийн арга:"
 
-#: libraries/common.inc.php:739
+#: libraries/common.inc.php:742
 #, php-format
 msgid ""
 "Unable to use timezone %1$s for server %2$d. Please check your configuration "
@@ -5461,20 +5461,20 @@ msgid ""
 "currently using the default time zone of the database server."
 msgstr ""
 
-#: libraries/common.inc.php:777
+#: libraries/common.inc.php:780
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "Та хувилбар %s -г %s -ээр сайжруулах хэрэгтэй эсвэл дараа."
 
-#: libraries/common.inc.php:863
+#: libraries/common.inc.php:866
 msgid "Error: Token mismatch"
 msgstr ""
 
-#: libraries/common.inc.php:881
+#: libraries/common.inc.php:884
 msgid "GLOBALS overwrite attempt"
 msgstr ""
 
-#: libraries/common.inc.php:888
+#: libraries/common.inc.php:891
 msgid "possible exploit"
 msgstr ""
 
@@ -5646,26 +5646,26 @@ msgstr ""
 msgid "neither of the above"
 msgstr ""
 
-#: libraries/config/FormDisplay.php:99 libraries/config/Validator.php:515
+#: libraries/config/FormDisplay.php:99 libraries/config/Validator.php:520
 msgid "Not a positive number!"
 msgstr ""
 
-#: libraries/config/FormDisplay.php:100 libraries/config/Validator.php:537
+#: libraries/config/FormDisplay.php:100 libraries/config/Validator.php:542
 msgid "Not a non-negative number!"
 msgstr ""
 
-#: libraries/config/FormDisplay.php:101 libraries/config/Validator.php:493
+#: libraries/config/FormDisplay.php:101 libraries/config/Validator.php:498
 #, fuzzy
 #| msgid "%d is not valid row number."
 msgid "Not a valid port number!"
 msgstr "%d нь мөрийн буруу дугаар байна."
 
 #: libraries/config/FormDisplay.php:102 libraries/config/FormDisplay.php:659
-#: libraries/config/Validator.php:558
+#: libraries/config/Validator.php:563
 msgid "Incorrect value!"
 msgstr ""
 
-#: libraries/config/FormDisplay.php:103 libraries/config/Validator.php:574
+#: libraries/config/FormDisplay.php:103 libraries/config/Validator.php:579
 #, php-format
 msgid "Value must be equal or lower than %s!"
 msgstr ""
@@ -5832,46 +5832,46 @@ msgid ""
 "system."
 msgstr ""
 
-#: libraries/config/Validator.php:199 libraries/config/Validator.php:206
+#: libraries/config/Validator.php:204 libraries/config/Validator.php:211
 msgid "Could not connect to the database server!"
 msgstr ""
 
-#: libraries/config/Validator.php:239
+#: libraries/config/Validator.php:244
 #, fuzzy
 #| msgid "Invalid export type"
 msgid "Invalid authentication type!"
 msgstr "Буруу экспортын төрөл"
 
-#: libraries/config/Validator.php:246
+#: libraries/config/Validator.php:251
 msgid "Empty username while using [kbd]config[/kbd] authentication method!"
 msgstr ""
 
-#: libraries/config/Validator.php:254
+#: libraries/config/Validator.php:259
 msgid ""
 "Empty signon session name while using [kbd]signon[/kbd] authentication "
 "method!"
 msgstr ""
 
-#: libraries/config/Validator.php:263
+#: libraries/config/Validator.php:268
 msgid "Empty signon URL while using [kbd]signon[/kbd] authentication method!"
 msgstr ""
 
-#: libraries/config/Validator.php:316
+#: libraries/config/Validator.php:321
 msgid ""
 "Empty phpMyAdmin control user while using phpMyAdmin configuration storage!"
 msgstr ""
 
-#: libraries/config/Validator.php:323
+#: libraries/config/Validator.php:328
 msgid ""
 "Empty phpMyAdmin control user password while using phpMyAdmin configuration "
 "storage!"
 msgstr ""
 
-#: libraries/config/Validator.php:421
+#: libraries/config/Validator.php:426
 msgid "Incorrect value:"
 msgstr ""
 
-#: libraries/config/Validator.php:430
+#: libraries/config/Validator.php:435
 #, php-format
 msgid "Incorrect IP address: %s"
 msgstr ""
@@ -6035,7 +6035,7 @@ msgid "Compress on the fly"
 msgstr ""
 
 #: libraries/config/messages.inc.php:90 setup/frames/config.inc.php:21
-#: setup/frames/index.inc.php:195
+#: setup/frames/index.inc.php:192
 msgid "Configuration file"
 msgstr ""
 
@@ -6153,7 +6153,7 @@ msgstr ""
 msgid "Use %s statement"
 msgstr "Баримтжуулал"
 
-#: libraries/config/messages.inc.php:137 prefs_manage.php:326
+#: libraries/config/messages.inc.php:137 prefs_manage.php:327
 msgid "Save as file"
 msgstr "Илгээх"
 
@@ -6489,7 +6489,7 @@ msgid "Customize default export options."
 msgstr "Асуудлын үр дүнгийн үйлдэл"
 
 #: libraries/config/messages.inc.php:254 libraries/config/messages.inc.php:315
-#: setup/frames/menu.inc.php:23
+#: setup/frames/menu.inc.php:22
 msgid "Features"
 msgstr ""
 
@@ -6531,7 +6531,7 @@ msgstr "LaTeX"
 msgid "Databases display options."
 msgstr "ӨС гаргах сонголтууд"
 
-#: libraries/config/messages.inc.php:267 setup/frames/menu.inc.php:25
+#: libraries/config/messages.inc.php:267 setup/frames/menu.inc.php:24
 msgid "Navigation panel"
 msgstr ""
 
@@ -6554,7 +6554,7 @@ msgid "Customize the navigation tree."
 msgstr "Бичвэр талбар хэрэглэх"
 
 #: libraries/config/messages.inc.php:271 libraries/select_server.lib.php:47
-#: setup/frames/index.inc.php:127
+#: setup/frames/index.inc.php:126
 msgid "Servers"
 msgstr "Сервэрүүд"
 
@@ -6570,7 +6570,7 @@ msgstr "Хамааралтай схем"
 msgid "Tables display options."
 msgstr "Хүснэгтийн сонголтууд"
 
-#: libraries/config/messages.inc.php:275 setup/frames/menu.inc.php:26
+#: libraries/config/messages.inc.php:275 setup/frames/menu.inc.php:25
 #, fuzzy
 #| msgid "Add new field"
 msgid "Main panel"
@@ -6686,7 +6686,7 @@ msgid "Customize main panel"
 msgstr "Бичвэр талбар хэрэглэх"
 
 #: libraries/config/messages.inc.php:319 libraries/config/messages.inc.php:324
-#: setup/frames/menu.inc.php:24
+#: setup/frames/menu.inc.php:23
 msgid "SQL queries"
 msgstr ""
 
@@ -7460,7 +7460,7 @@ msgstr ""
 msgid "Authentication method to use."
 msgstr "Баримт"
 
-#: libraries/config/messages.inc.php:626 setup/frames/index.inc.php:146
+#: libraries/config/messages.inc.php:626 setup/frames/index.inc.php:145
 msgid "Authentication type"
 msgstr ""
 
@@ -8147,7 +8147,7 @@ msgstr ""
 msgid "Enable the Developer tab in settings"
 msgstr ""
 
-#: libraries/config/messages.inc.php:938 setup/frames/index.inc.php:274
+#: libraries/config/messages.inc.php:938 setup/frames/index.inc.php:271
 msgid "Check for latest version"
 msgstr ""
 
@@ -8305,24 +8305,24 @@ msgstr "Microsoft Word 2000"
 msgid "OpenDocument Text"
 msgstr "Баримт"
 
-#: libraries/controllers/database/DatabaseStructureController.php:271
+#: libraries/controllers/database/DatabaseStructureController.php:274
 msgid "Favorite List is full!"
 msgstr ""
 
-#: libraries/controllers/database/DatabaseStructureController.php:560
+#: libraries/controllers/database/DatabaseStructureController.php:563
 #: tbl_operations.php:365
 #, php-format
 msgid "Table %s has been emptied."
 msgstr "Хүснэгт %s нь хоослогдлоо."
 
-#: libraries/controllers/database/DatabaseStructureController.php:581
+#: libraries/controllers/database/DatabaseStructureController.php:584
 #: tbl_operations.php:383 view_operations.php:136
 #, fuzzy, php-format
 #| msgid "View %s has been dropped."
 msgid "View %s has been dropped."
 msgstr "Харц %s нь устгагдсан"
 
-#: libraries/controllers/database/DatabaseStructureController.php:582
+#: libraries/controllers/database/DatabaseStructureController.php:585
 #: tbl_operations.php:384
 #, fuzzy, php-format
 #| msgid "Table %s has been dropped."
@@ -9660,7 +9660,7 @@ msgid "Views:"
 msgstr "Харц"
 
 #: libraries/navigation/Navigation.php:222 libraries/tracking.lib.php:289
-#: libraries/tracking.lib.php:1605 tbl_change.php:156
+#: libraries/tracking.lib.php:1601 tbl_change.php:156
 msgid "Show"
 msgstr "Харах"
 
@@ -9707,19 +9707,19 @@ msgid_plural "%s results found"
 msgstr[0] ""
 msgstr[1] ""
 
-#: libraries/navigation/NavigationTree.php:1363
-#: libraries/navigation/NavigationTree.php:1395
+#: libraries/navigation/NavigationTree.php:1366
+#: libraries/navigation/NavigationTree.php:1398
 msgid "Type to filter these, Enter to search all"
 msgstr ""
 
-#: libraries/navigation/NavigationTree.php:1365
-#: libraries/navigation/NavigationTree.php:1396
+#: libraries/navigation/NavigationTree.php:1368
+#: libraries/navigation/NavigationTree.php:1399
 #, fuzzy
 #| msgid "Save as file"
 msgid "Clear fast filter"
 msgstr "Илгээх"
 
-#: libraries/navigation/NavigationTree.php:1422
+#: libraries/navigation/NavigationTree.php:1425
 msgid "Collapse all"
 msgstr ""
 
@@ -11646,31 +11646,31 @@ msgstr ""
 msgid "Re-login to phpMyAdmin to load the updated configuration file."
 msgstr ""
 
-#: libraries/relation.lib.php:1692
+#: libraries/relation.lib.php:1691
 msgid "no description"
 msgstr "тайлбаргүй"
 
-#: libraries/relation.lib.php:1885
+#: libraries/relation.lib.php:1884
 msgid ""
 "You do not have necessary privileges to create a database named "
 "'phpmyadmin'. You may go to 'Operations' tab of any database to set up the "
 "phpMyAdmin configuration storage there."
 msgstr ""
 
-#: libraries/relation.lib.php:2000
+#: libraries/relation.lib.php:1999
 #, php-format
 msgid ""
 "%sCreate%s a database named 'phpmyadmin' and setup the phpMyAdmin "
 "configuration storage there."
 msgstr ""
 
-#: libraries/relation.lib.php:2008
+#: libraries/relation.lib.php:2007
 #, php-format
 msgid ""
 "%sCreate%s the phpMyAdmin configuration storage in the current database."
 msgstr ""
 
-#: libraries/relation.lib.php:2016
+#: libraries/relation.lib.php:2015
 #, php-format
 msgid "%sCreate%s missing phpMyAdmin configuration storage tables."
 msgstr ""
@@ -13093,14 +13093,14 @@ msgstr ""
 msgid "User accounts overview"
 msgstr "User overview"
 
-#: libraries/server_privileges.lib.php:4626
+#: libraries/server_privileges.lib.php:4625
 msgid ""
 "A user account allowing any user from localhost to connect is present. This "
 "will prevent other users from connecting if the host part of their account "
 "allows a connection from any (%) host."
 msgstr ""
 
-#: libraries/server_privileges.lib.php:4668
+#: libraries/server_privileges.lib.php:4667
 #, php-format
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
@@ -13113,7 +13113,7 @@ msgstr ""
 "агуулга нь сервэрт хэрэглэгдэж буйгаас өөр байна. Энэ тохиолдолд %sдахин "
 "дуудаж%s үргэлжлүүлнэ үү."
 
-#: libraries/server_privileges.lib.php:4685
+#: libraries/server_privileges.lib.php:4684
 #, fuzzy
 #| msgid ""
 #| "Note: phpMyAdmin gets the users' privileges directly from MySQL's "
@@ -13132,11 +13132,11 @@ msgstr ""
 "агуулга нь сервэрт хэрэглэгдэж буйгаас өөр байна. Энэ тохиолдолд %sдахин "
 "дуудаж%s үргэлжлүүлнэ үү."
 
-#: libraries/server_privileges.lib.php:4736
+#: libraries/server_privileges.lib.php:4735
 msgid "The selected user was not found in the privilege table."
 msgstr "Сонгогдсон хэрэглэгч онцгой эрхийн хүснэгтэд алга байна."
 
-#: libraries/server_privileges.lib.php:4956
+#: libraries/server_privileges.lib.php:4955
 msgid "You have added a new user."
 msgstr "Шинэ хэрэглэгч нэмэгдлээ."
 
@@ -14316,7 +14316,7 @@ msgstr "Өгөгдлийн сан %s дээрх SQL асуултыг ажилл�
 msgid "Run SQL query/queries on table %s"
 msgstr "Өгөгдлийн сан %s дээрх SQL асуултыг ажиллуулах"
 
-#: libraries/sql_query_form.lib.php:247 setup/frames/index.inc.php:260
+#: libraries/sql_query_form.lib.php:247 setup/frames/index.inc.php:257
 #: templates/console/display.phtml:10
 msgid "Clear"
 msgstr ""
@@ -14407,11 +14407,11 @@ msgstr ""
 msgid "Version"
 msgstr ""
 
-#: libraries/tracking.lib.php:285 libraries/tracking.lib.php:1601
+#: libraries/tracking.lib.php:285 libraries/tracking.lib.php:1597
 msgid "Created"
 msgstr "Үүссэн"
 
-#: libraries/tracking.lib.php:286 libraries/tracking.lib.php:1602
+#: libraries/tracking.lib.php:286 libraries/tracking.lib.php:1598
 msgid "Updated"
 msgstr "Шинэчлэгдсэн"
 
@@ -14422,22 +14422,22 @@ msgid "Delete version"
 msgstr "Холбоог устгах"
 
 #: libraries/tracking.lib.php:296 libraries/tracking.lib.php:468
-#: libraries/tracking.lib.php:1615
+#: libraries/tracking.lib.php:1611
 msgid "Tracking report"
 msgstr "Хөөлтын илтгэл"
 
 #: libraries/tracking.lib.php:299 libraries/tracking.lib.php:834
-#: libraries/tracking.lib.php:1618
+#: libraries/tracking.lib.php:1614
 msgid "Structure snapshot"
 msgstr "Бүтцийн тойм"
 
 #: libraries/tracking.lib.php:428 libraries/tracking.lib.php:1427
-#: libraries/tracking.lib.php:1719
+#: libraries/tracking.lib.php:1715
 msgid "active"
 msgstr "идэвхитэй"
 
 #: libraries/tracking.lib.php:430 libraries/tracking.lib.php:1429
-#: libraries/tracking.lib.php:1714
+#: libraries/tracking.lib.php:1710
 msgid "not active"
 msgstr "идэвхигүй"
 
@@ -14569,21 +14569,21 @@ msgstr "Хөөгөөгүй хүснэгтүүд"
 msgid "Track table"
 msgstr "Хүснэгтийг хөөх"
 
-#: libraries/tracking.lib.php:1588
+#: libraries/tracking.lib.php:1584
 msgid "Tracked tables"
 msgstr "Хөөсөн хүснэгтүүд"
 
-#: libraries/tracking.lib.php:1600
+#: libraries/tracking.lib.php:1596
 msgid "Last version"
 msgstr "Сүүлийн хувилбар"
 
-#: libraries/tracking.lib.php:1613 libraries/tracking.lib.php:1693
+#: libraries/tracking.lib.php:1609 libraries/tracking.lib.php:1689
 #, fuzzy
 #| msgid "Allows inserting and replacing data."
 msgid "Delete tracking"
 msgstr "Өгөгдөл нэмэх, солихыг зөвшөөрөх."
 
-#: libraries/tracking.lib.php:1614
+#: libraries/tracking.lib.php:1610
 msgid "Versions"
 msgstr "Хувилбарууд"
 
@@ -14593,7 +14593,7 @@ msgstr "Хувилбарууд"
 msgid "Manage your settings"
 msgstr "Ерөнхий хамаатай онцлог"
 
-#: libraries/user_preferences.inc.php:57 prefs_manage.php:315
+#: libraries/user_preferences.inc.php:57 prefs_manage.php:316
 #, fuzzy
 #| msgid "Modifications have been saved"
 msgid "Configuration has been saved."
@@ -14675,7 +14675,7 @@ msgstr ""
 msgid "You have no saved settings!"
 msgstr ""
 
-#: prefs_manage.php:276 prefs_manage.php:360
+#: prefs_manage.php:276 prefs_manage.php:361
 msgid "This feature is not supported by your web browser"
 msgstr ""
 
@@ -14683,32 +14683,32 @@ msgstr ""
 msgid "Merge with current configuration"
 msgstr ""
 
-#: prefs_manage.php:298
+#: prefs_manage.php:299
 #, php-format
 msgid ""
 "You can set more settings by modifying config.inc.php, eg. by using %sSetup "
 "script%s."
 msgstr ""
 
-#: prefs_manage.php:331
+#: prefs_manage.php:332
 #, fuzzy
 #| msgid "Save as file"
 msgid "Save as PHP file"
 msgstr "Илгээх"
 
-#: prefs_manage.php:336
+#: prefs_manage.php:337
 msgid "Save to browser's storage"
 msgstr ""
 
-#: prefs_manage.php:343
+#: prefs_manage.php:344
 msgid "Settings will be saved in your browser's local storage."
 msgstr ""
 
-#: prefs_manage.php:351
+#: prefs_manage.php:352
 msgid "Existing settings will be overwritten!"
 msgstr ""
 
-#: prefs_manage.php:379
+#: prefs_manage.php:380
 msgid "You can reset all your settings and restore them to default values."
 msgstr ""
 
@@ -14755,7 +14755,7 @@ msgstr ""
 msgid "Not enough privilege to view status variables."
 msgstr ""
 
-#: setup/frames/config.inc.php:38 setup/frames/index.inc.php:258
+#: setup/frames/config.inc.php:38 setup/frames/index.inc.php:255
 msgid "Download"
 msgstr ""
 
@@ -14763,92 +14763,92 @@ msgstr ""
 msgid "Incorrect formset, check $formsets array in setup/frames/form.inc.php!"
 msgstr ""
 
-#: setup/frames/index.inc.php:53
+#: setup/frames/index.inc.php:52
 msgid ""
 "You are not using a secure connection; all data (including potentially "
 "sensitive information, like passwords) is transferred unencrypted!"
 msgstr ""
 
-#: setup/frames/index.inc.php:58
+#: setup/frames/index.inc.php:57
 msgid ""
 "If your server is also configured to accept HTTPS requests follow this link "
 "to use a secure connection."
 msgstr ""
 
-#: setup/frames/index.inc.php:62
+#: setup/frames/index.inc.php:61
 msgid "Insecure connection"
 msgstr ""
 
-#: setup/frames/index.inc.php:88
+#: setup/frames/index.inc.php:87
 #, fuzzy
 #| msgid "Modifications have been saved"
 msgid "Configuration saved."
 msgstr "Өөрчлөлт хадгалагдав"
 
-#: setup/frames/index.inc.php:91
+#: setup/frames/index.inc.php:90
 msgid ""
 "Configuration saved to file config/config.inc.php in phpMyAdmin top level "
 "directory, copy it to top level one and delete directory config to use it."
 msgstr ""
 
-#: setup/frames/index.inc.php:101
+#: setup/frames/index.inc.php:100
 #, fuzzy
 #| msgid "Modifications have been saved"
 msgid "Configuration not saved!"
 msgstr "Өөрчлөлт хадгалагдав"
 
-#: setup/frames/index.inc.php:104
+#: setup/frames/index.inc.php:103
 msgid ""
 "Please create web server writable folder [em]config[/em] in phpMyAdmin top "
 "level directory as described in [doc@setup_script]documentation[/doc]. "
 "Otherwise you will be only able to download or display it."
 msgstr ""
 
-#: setup/frames/index.inc.php:116 setup/frames/menu.inc.php:20
+#: setup/frames/index.inc.php:115 setup/frames/menu.inc.php:19
 msgid "Overview"
 msgstr ""
 
-#: setup/frames/index.inc.php:123
+#: setup/frames/index.inc.php:122
 msgid "Show hidden messages (#MSG_COUNT)"
 msgstr ""
 
-#: setup/frames/index.inc.php:176
+#: setup/frames/index.inc.php:173
 msgid "There are no configured servers"
 msgstr ""
 
-#: setup/frames/index.inc.php:185
+#: setup/frames/index.inc.php:182
 msgid "New server"
 msgstr ""
 
-#: setup/frames/index.inc.php:214
+#: setup/frames/index.inc.php:211
 msgid "Default language"
 msgstr ""
 
-#: setup/frames/index.inc.php:224
+#: setup/frames/index.inc.php:221
 msgid "let the user choose"
 msgstr ""
 
-#: setup/frames/index.inc.php:235
+#: setup/frames/index.inc.php:232
 msgid "- none -"
 msgstr ""
 
-#: setup/frames/index.inc.php:239
+#: setup/frames/index.inc.php:236
 msgid "Default server"
 msgstr ""
 
-#: setup/frames/index.inc.php:251
+#: setup/frames/index.inc.php:248
 msgid "End of line"
 msgstr ""
 
-#: setup/frames/index.inc.php:257
+#: setup/frames/index.inc.php:254
 msgid "Display"
 msgstr ""
 
-#: setup/frames/index.inc.php:270
+#: setup/frames/index.inc.php:267
 msgid "phpMyAdmin homepage"
 msgstr ""
 
-#: setup/frames/index.inc.php:272
+#: setup/frames/index.inc.php:269
 msgid "Donate"
 msgstr ""
 
@@ -14868,23 +14868,23 @@ msgstr ""
 msgid "Wrong GET file attribute value"
 msgstr ""
 
-#: setup/lib/form_processing.lib.php:52
+#: setup/lib/form_processing.lib.php:49
 msgid "Warning"
 msgstr ""
 
-#: setup/lib/form_processing.lib.php:53
+#: setup/lib/form_processing.lib.php:50
 msgid "Submitted form contains errors"
 msgstr ""
 
-#: setup/lib/form_processing.lib.php:55
+#: setup/lib/form_processing.lib.php:52
 msgid "Try to revert erroneous fields to their default values"
 msgstr ""
 
-#: setup/lib/form_processing.lib.php:60
+#: setup/lib/form_processing.lib.php:57
 msgid "Ignore errors"
 msgstr ""
 
-#: setup/lib/form_processing.lib.php:64
+#: setup/lib/form_processing.lib.php:61
 msgid "Show form"
 msgstr ""
 
@@ -16504,11 +16504,11 @@ msgstr "Хөөлтын илтгэл"
 msgid "You don't have sufficient privileges to be here right now!"
 msgstr "Танд хангалттай эрх байхгүй!"
 
-#: user_password.php:115
+#: user_password.php:116
 msgid "The profile has been updated."
 msgstr "Профиль шинэчлэгдлээ."
 
-#: user_password.php:127
+#: user_password.php:128
 #, fuzzy
 #| msgid "Password Hashing"
 msgid "Password is too long!"
