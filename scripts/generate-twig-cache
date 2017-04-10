@@ -24,6 +24,10 @@ foreach (new RecursiveIteratorIterator(
     new RecursiveDirectoryIterator($tplDir),
     RecursiveIteratorIterator::LEAVES_ONLY
 ) as $file) {
+    // Skip test files
+    if (strpos($file, '/test/') !== false) {
+        continue;
+    }
     // force compilation
     if ($file->isFile() && $file->getExtension() == 'twig') {
         $twig->loadTemplate(str_replace($tplDir.'/', '', $file));
