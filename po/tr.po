@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-04-10 13:13+0200\n"
-"PO-Revision-Date: 2017-03-01 18:13+0000\n"
+"PO-Revision-Date: 2017-04-10 12:47+0000\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
-"Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/tr/>\n"
+"Language-Team: Turkish "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/tr/>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 2.12-dev\n"
+"X-Generator: Weblate 2.13-dev\n"
 
 #: changelog.php:39 license.php:34
 #, php-format
@@ -3273,7 +3273,7 @@ msgstr "Sunucu yanıt vermiyor."
 
 #: libraries/DatabaseInterface.php:2039
 msgid "Logout and try as another user."
-msgstr ""
+msgstr "Oturumu kapatın ve başka bir kullanıcı olarak deneyin."
 
 #: libraries/DatabaseInterface.php:2045
 msgid "Please check privileges of directory containing database."
@@ -3417,22 +3417,16 @@ msgid "at least one of the words"
 msgstr "kelimelerin en az birini"
 
 #: libraries/DbSearch.php:87
-#, fuzzy
-#| msgid "at least one of the words"
 msgid "all of the words"
-msgstr "kelimelerin en az birini"
+msgstr "kelimelerin tümü"
 
 #: libraries/DbSearch.php:88
-#, fuzzy
-#| msgid "the exact phrase"
 msgid "the exact phrase as substring"
-msgstr "kesin ifade"
+msgstr "alt dizge olarak kesin ifade"
 
 #: libraries/DbSearch.php:89
-#, fuzzy
-#| msgid "the exact phrase"
 msgid "the exact phrase as whole field"
-msgstr "kesin ifade"
+msgstr "bütün alan olarak kesin ifade"
 
 #: libraries/DbSearch.php:90
 msgid "as regular expression"
@@ -15461,7 +15455,7 @@ msgstr "Tablo yapısı öner"
 
 #: templates/table/structure/optional_action_links.phtml:28
 msgid "Normalize"
-msgstr ""
+msgstr "Normalleştir"
 
 #: templates/table/structure/optional_action_links.phtml:34
 msgid "Track view"
@@ -15501,8 +15495,6 @@ msgid "Column %s has been dropped."
 msgstr "%s sütunu kaldırıldı."
 
 #: templates/test/gettext/pgettext.phtml:1
-#, fuzzy
-#| msgid "Text"
 msgctxt "Text context"
 msgid "Text"
 msgstr "Metin"
