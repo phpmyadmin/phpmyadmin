@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-04-10 13:13+0200\n"
-"PO-Revision-Date: 2017-04-10 12:47+0000\n"
+"PO-Revision-Date: 2017-04-12 07:45+0000\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/tr/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 2.13-dev\n"
+"X-Generator: Weblate 2.13\n"
 
 #: changelog.php:39 license.php:34
 #, php-format
@@ -9948,6 +9948,9 @@ msgid ""
 "lead to non working phpMyAdmin or a security risk. Please fix your server "
 "configuration to indicate HTTPS properly."
 msgstr ""
+"İstemci ve sunucu üzerinde HTTPS arasında gösterilen uyumsuzluk var. Bu, "
+"çalışmayan phpMyAdmin veya bir güvenlik riskine neden olabilir. Lütfen "
+"HTTPS'yi düzgün bir şekilde göstermesi için sunucu yapılandırmanızı düzeltin."
 
 #: libraries/plugins/auth/AuthenticationCookie.php:177
 msgid "Log in"
