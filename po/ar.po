@@ -4,28 +4,25 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.1-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-04-10 13:08+0200\n"
-"PO-Revision-Date: 2016-11-17 22:26+0000\n"
-"Last-Translator: Boussaid Mustafa <bousali@gmail.com>\n"
-"Language-Team: Arabic <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"ar/>\n"
+"PO-Revision-Date: 2017-04-10 20:33+0000\n"
+"Last-Translator: Atef Ben Ali <atef.bettaib@gmail.com>\n"
+"Language-Team: Arabic "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-7/ar/>\n"
 "Language: ar\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
-"X-Generator: Weblate 2.10-dev\n"
+"X-Generator: Weblate 2.13-dev\n"
 
 #: changelog.php:39 license.php:34
-#, fuzzy, php-format
-#| msgid ""
-#| "The %s file is not available on this system, please visit www.phpmyadmin."
-#| "net for more information."
+#, php-format
 msgid ""
 "The %s file is not available on this system, please visit %s for more "
 "information."
 msgstr ""
-"الملف %s غير متوفر في هذا النظام، المرجو مراجعة www.phpmyadmin.net للمزيد من "
+"الملف %s غير متوفر في هذا النظام، المرجو مراجعة www.phpmyadmin.net لمزيد من "
 "المعلومات."
 
 #: db_central_columns.php:108
@@ -542,15 +539,14 @@ msgid "The bookmark has been deleted."
 msgstr "لقد حذفت العلامة المرجعية."
 
 #: import.php:488
-#, fuzzy
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
 "[doc@faq1-16]FAQ 1.16[/doc]."
 msgstr ""
-"لم يتلقئ اي بيانات لاستيراد. أما قدم لا اسم الملف أو حجم الملف يتجاوز الحد "
-"الأقصى لحجم يسمح بتكوين PHP الخاص بك. انظر[doc@faq1-16] أسئلة وأجوبة 1.16[/"
-"doc]"
+"لم يتم تلَقَّي أي بيانات للاستيراد. أما لم يتم إرسال اسم الملف، أو حجم الملف "
+"يتجاوز الحجم الأقصى المسموح به من قبل إعداد PHP الخاص بك. انظر [doc@faq1-16] "
+"أسئلة وأجوبة 1.16[/doc]."
 
 #: import.php:540 libraries/display_import.lib.php:665
 msgid "Could not load import plugins, please check your installation!"
@@ -586,6 +582,8 @@ msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
 msgstr ""
+"على كل حال عند آخر معالجة لم يتم تحليل أي معلومات، هذا يعني أن phpMyAdmin لا "
+"يستطيع استكمال هذا الاستيراد، ما لم يتم زيادة حد وقت PHP."
 
 #: import.php:702 sql.php:163
 msgid "\"DROP DATABASE\" statements are disabled."
@@ -593,7 +591,7 @@ msgstr "أمر \"حذف قاعدة البيانات\" معطل."
 
 #: import_status.php:105
 msgid "Could not load the progress of the import."
-msgstr ""
+msgstr "تعذّر تحميل حالة تقدم الاستيراد."
 
 #: import_status.php:114 js/messages.php:451 js/messages.php:615
 #: libraries/Util.php:689 libraries/export.lib.php:518
@@ -612,6 +610,8 @@ msgid ""
 "change root, debian-sys-maint and pma users. More information is available "
 "at %s."
 msgstr ""
+"تم تشغيل خادم العرض. يمكن عمل كل شيء هنا، لكن لا تقم بغيير المستخدمين "
+"المسؤولين، مستخدمو debian-sys-maint و pma. مزيد من المعلومات متوفرة هنا %s."
 
 #: index.php:167
 #, fuzzy
@@ -727,12 +727,17 @@ msgid ""
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
 "split strings correctly and it may result in unexpected results."
 msgstr ""
+"لم يتم العثور على إضافة PHP mbstring ويبدو أنك تستعمل طقم محارف متعدد "
+"البايتات. دون إضافة mbstring لا يستطيع phpMyAdmin إدارة النصوص بشكل فعَّال، "
+"مما قد يُظهِـر نتائج غير متوقعة."
 
 #: index.php:469
 msgid ""
 "The curl extension was not found and allow_url_fopen is disabled. Due to "
 "this some features such as error reporting or version check are disabled."
 msgstr ""
+"لم يتم العثور على إضافة curl وallow_url_fopen غير مفعل. نتيجة لذلك بعض "
+"الميزات مثل تقارير الأخطاء أو التحقق من الإصدار مُعَطَّلة."
 
 #: index.php:484
 msgid ""
@@ -741,12 +746,20 @@ msgid ""
 "than cookie validity configured in phpMyAdmin, because of this, your login "
 "might expire sooner than configured in phpMyAdmin."
 msgstr ""
+"قيمة العامل "
+"[a@https://secure.php.net/manual/fr/session.configuration.php#ini.session.gc-"
+"maxlifetime@_blank]session.gc_maxlifetime[/a] الخاص بـPHP أصغر من مدة صلاحية "
+"«الكعكات» التي تم إعدادها بواسطة phpMyAdmin، جلسة العمل يمكن أن تنتهي أسرع "
+"مما قد تم إعداده بواسطة phpMyAdmin."
 
 #: index.php:503
 msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
 msgstr ""
+"قيمة العامل LoginCookieStore أصغر من مدة صلاحية الكعكات التي تم إعدادها "
+"بواسطة phpMyAdmin، نتيجة لذلك جلسة العمل يمكن أن تنتهي أسرع مما قد تم إعداده "
+"بواسطة phpMyAdmin."
 
 #: index.php:518
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
@@ -754,7 +767,7 @@ msgstr "يحتاج ملف الإعداد الآن إلى كلمة المرور �
 
 #: index.php:525
 msgid "The secret passphrase in configuration (blowfish_secret) is too short."
-msgstr ""
+msgstr "جملة المرور السرية الخاصة بالإعدادت (blowfish_secret) قصيرة جدا."
 
 #: index.php:539
 msgid ""
@@ -763,23 +776,25 @@ msgid ""
 "once phpMyAdmin has been configured. Otherwise the security of your server "
 "may be compromised by unauthorized people downloading your configuration."
 msgstr ""
+"الملف [code]config[/code] المستعمل من قبل نص الإعدادات مازال موجودا في مجلد "
+"phpMyAdmin. يُـوصى بفسخه عندما يتم إعداد phpMyAdmin. إذا لم يتم ذلك فحماية "
+"الخادم قد يتعرض للخطر من أشخاص غير مرخصين قد يحَمِّلون إعداداتك."
 
 #: index.php:555
-#, fuzzy, php-format
-#| msgid ""
-#| " additional features for working with linked tables have been ctivated. "
-#| "To find out why click %shere%s."
+#, php-format
 msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
 "extended features have been deactivated. %sFind out why%s. "
 msgstr ""
-"تم تعطيل المزايا الإضافية للعمل بالجداول المترابطة. لمعرفة السبب اضغط %sهنا"
-"%s."
+"إعدادت التخزين لـphpMyAdmin ليست مكتملة، بعض الميزات تم تعطيلها. لمعرفة "
+"السبب اضغط %s هنا%s. "
 
 #: index.php:562
 msgid ""
 "Or alternately go to 'Operations' tab of any database to set it up there."
 msgstr ""
+"أو عليك التوجه إلى التبويب «العمليات» لأي قاعدة بيانات لتحديدها في ذلك "
+"المكان."
 
 #: index.php:587
 #, php-format
@@ -787,6 +802,8 @@ msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
 "issues."
 msgstr ""
+"الخادم يستعمل Suhosin. رجاء عليك الرجوع إلى %sالتوثيق%s لمعرفة العواقب "
+"المحتملة."
 
 #: js/messages.php:43
 msgid "Confirm"
@@ -803,7 +820,7 @@ msgstr "أنت على وشك إزالة كامل قاعدة البيانات !"
 
 #: js/messages.php:48
 msgid "Cannot rename database to the same name. Change the name and try again"
-msgstr ""
+msgstr "لا يمكن تسمية قاعدة بيانات بنفس الاسم. عَدِّل على الاسم وحاول مجددا"
 
 #: js/messages.php:50
 msgid "You are about to DESTROY a complete table!"
@@ -818,16 +835,12 @@ msgid "Delete tracking data for this table?"
 msgstr "حذف بيانات التتبع لهذا الجدول ؟"
 
 #: js/messages.php:55
-#, fuzzy
-#| msgid "Delete tracking data for this table"
 msgid "Delete tracking data for these tables?"
-msgstr "حذف بيانات التتبع لهذا الجدول"
+msgstr "حذف بيانات التتبع لهذا الجدول؟"
 
 #: js/messages.php:57
-#, fuzzy
-#| msgid "Delete tracking data for this table"
 msgid "Delete tracking data for this version?"
-msgstr "حذف بيانات التتبع لهذا الجدول"
+msgstr "حذف بيانات التتبع لهذه النسخة؟"
 
 #: js/messages.php:59
 #, fuzzy
