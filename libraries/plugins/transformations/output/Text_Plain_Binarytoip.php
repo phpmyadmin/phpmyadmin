@@ -16,6 +16,7 @@ use PMA\libraries\plugins\TransformationsPlugin;
  * @package    PhpMyAdmin-Transformations
  * @subpackage BinaryToIP
  */
+// @codingStandardsIgnoreLine
 class Text_Plain_Binarytoip extends TransformationsPlugin
 {
     /**

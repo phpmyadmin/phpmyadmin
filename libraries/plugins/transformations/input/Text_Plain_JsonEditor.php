@@ -16,6 +16,7 @@ use PMA\libraries\plugins\transformations\abs\CodeMirrorEditorTransformationPlug
  * @package    PhpMyAdmin-Transformations
  * @subpackage JSON
  */
+// @codingStandardsIgnoreLine
 class Text_Plain_JsonEditor extends CodeMirrorEditorTransformationPlugin
 {
     /**

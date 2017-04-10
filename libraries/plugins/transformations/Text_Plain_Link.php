@@ -16,6 +16,7 @@ use PMA\libraries\plugins\transformations\abs\TextLinkTransformationsPlugin;
  * @package    PhpMyAdmin-Transformations
  * @subpackage Link
  */
+// @codingStandardsIgnoreLine
 class Text_Plain_Link extends TextLinkTransformationsPlugin
 {
     /**

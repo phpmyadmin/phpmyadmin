@@ -16,6 +16,7 @@ use PMA\libraries\plugins\transformations\abs\SQLTransformationsPlugin;
  * @package    PhpMyAdmin-Transformations
  * @subpackage SQL
  */
+// @codingStandardsIgnoreLine
 class Text_Octetstream_Sql extends SQLTransformationsPlugin
 {
     /**

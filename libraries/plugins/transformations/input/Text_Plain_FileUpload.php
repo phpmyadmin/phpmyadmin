@@ -16,6 +16,7 @@ use PMA\libraries\plugins\transformations\abs\TextFileUploadTransformationsPlugi
  * @package    PhpMyAdmin-Transformations
  * @subpackage TextFileUpload
  */
+// @codingStandardsIgnoreLine
 class Text_Plain_FileUpload extends TextFileUploadTransformationsPlugin
 {
     /**
