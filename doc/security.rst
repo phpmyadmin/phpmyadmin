@@ -70,6 +70,20 @@ through DatabaseInterface::escapeSring().
 
     `SQL injection on Wikipedia <https://en.wikipedia.org/wiki/SQL_injection>`_
 
+Brute force attack
+++++++++++++++++++
+
+phpMyAdmin on it's own does not rate limit authentication attempts in any way.
+This is caused by need to work in stateless environment, where there is no way
+to protect against such kind of things.
+
+To mitigate this, you can use Captcha or utilize external tools such as
+fail2ban, this is more details described in :ref:`securing`.
+
+.. seealso::
+
+    `Brute force attach on Wikipedia <https://en.wikipedia.org/wiki/Brute-force_attack>`_
+
 .. _reporting-security:
 
 Reporting security issues
