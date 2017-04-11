@@ -10,7 +10,6 @@ namespace PMA\libraries;
 use PMA\libraries\dbi\DBIExtension;
 use PMA\libraries\LanguageManager;
 use PMA\libraries\URL;
-use PMA\libraries\Logging;
 
 require_once './libraries/util.lib.php';
 
