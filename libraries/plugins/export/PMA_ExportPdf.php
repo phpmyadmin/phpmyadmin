@@ -86,6 +86,7 @@ class PMA_ExportPdf extends PDF
      *
      * @return void
      */
+    // @codingStandardsIgnoreLine
     public function Header()
     {
         global $maxY;

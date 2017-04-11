@@ -20,7 +20,18 @@ use Twig_Node_Expression;
 class NodeTrans extends Twig_Extensions_Node_Trans
 {
     /**
-     * {@inheritdoc}
+     * Constructor.
+     *
+     * The nodes are automatically made available as properties ($this->node).
+     * The attributes are automatically made available as array items ($this['name']).
+     *
+     * @param Twig_Node            $body    Body of node trans
+     * @param Twig_Node            $plural  Node plural
+     * @param Twig_Node_Expression $count   Node count
+     * @param Twig_Node            $context Node context
+     * @param Twig_Node            $notes   Node notes
+     * @param int                  $lineno  The line number
+     * @param string               $tag     The tag name associated with the Node
      */
     public function __construct(
         Twig_Node $body,
@@ -49,7 +60,11 @@ class NodeTrans extends Twig_Extensions_Node_Trans
     }
 
     /**
-     * {@inheritdoc}
+     * Compiles the node to PHP.
+     *
+     * @param Twig_Compiler $compiler Node compiler
+     *
+     * @return void
      */
     public function compile(Twig_Compiler $compiler)
     {
