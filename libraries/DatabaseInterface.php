@@ -1341,6 +1341,19 @@ class DatabaseInterface
     }
 
     /**
+     * Convert version string to integer.
+     *
+     * @param string $version MySQL server version
+     *
+     * @return int
+     */
+    public static function versionToInt($version)
+    {
+        $match = explode('.', $version);
+        return (int) sprintf('%d%02d%02d', $match[0], $match[1], intval($match[2]));
+    }
+
+    /**
      * Function called just after a connection to the MySQL database server has
      * been established. It sets the connection collation, and determines the
      * version of MySQL which is running.
@@ -1359,19 +1372,11 @@ class DatabaseInterface
             );
 
             if ($version) {
-                $match = explode('.', $version['@@version']);
-                define('PMA_MYSQL_MAJOR_VERSION', (int)$match[0]);
-                define(
-                    'PMA_MYSQL_INT_VERSION',
-                    (int) sprintf(
-                        '%d%02d%02d', $match[0], $match[1], intval($match[2])
-                    )
-                );
+                $ver_int = self::versionToInt($version['@@version']);
+                define('PMA_MYSQL_MAJOR_VERSION', intdiv($ver_int, 10000));
+                define('PMA_MYSQL_INT_VERSION', $ver_int);
                 define('PMA_MYSQL_STR_VERSION', $version['@@version']);
-                define(
-                    'PMA_MYSQL_VERSION_COMMENT',
-                    $version['@@version_comment']
-                );
+                define('PMA_MYSQL_VERSION_COMMENT', $version['@@version_comment']);
             } else {
                 define('PMA_MYSQL_INT_VERSION', 50501);
                 define('PMA_MYSQL_MAJOR_VERSION', 5);

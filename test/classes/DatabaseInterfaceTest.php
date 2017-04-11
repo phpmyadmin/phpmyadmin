@@ -375,6 +375,36 @@ class DatabaseInterfaceTest extends PMATestCase
             array(-1, 'error message', 'error message'),
         );
     }
+
+    /**
+     * Test for version parsing
+     *
+     * @param string $version  version to parse
+     * @param int    $expected expected numeric version
+     * @param int    $major    expected major version
+     * @param bool   $upgrade  whether upgrade should ne needed
+     *
+     * @return void
+     *
+     * @dataProvider versionData
+     */
+    public function testVersion($version, $expected, $major, $upgrade)
+    {
+        $ver_int = DatabaseInterface::versionToInt($version);
+        $this->assertEquals($expected, $ver_int);
+        $this->assertEquals($major, intdiv($ver_int, 10000));
+        $this->assertEquals($upgrade, $ver_int < $GLOBALS['cfg']['MysqlMinVersion']['internal']);
+    }
+
+    public function versionData()
+    {
+        return array(
+            array('5.0.5', 50005, 5, true),
+            array('5.05.01', 50501, 5, false),
+            array('5.6.35', 50635, 5, false),
+            array('10.1.22-MariaDB-', 100122, 10, false),
+        );
+    }
 }
 
 /**
