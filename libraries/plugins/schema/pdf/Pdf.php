@@ -228,6 +228,7 @@ class Pdf extends PDF_lib
      *
      * @see TCPDF::Header()
      */
+    // @codingStandardsIgnoreLine
     public function Header()
     {
         // We only show this if we find something in the new pdf_pages table
@@ -261,6 +262,7 @@ class Pdf extends PDF_lib
      *
      * @see PDF::Footer()
      */
+    // @codingStandardsIgnoreLine
     public function Footer()
     {
         if ($this->_withDoc) {
