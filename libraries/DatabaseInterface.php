@@ -2355,10 +2355,6 @@ class DatabaseInterface
         list($user, $password, $server) = $this->getConnectionParams($mode, $server);
 
         if (is_null($user) || is_null($password)) {
-            if ($mode == DatabaseInterface::CONNECT_USER) {
-                Logging::logUser($user, 'mysql-denied');
-                $GLOBALS['auth_plugin']->authFails();
-            }
             trigger_error(
                 __('Missing connection parameters!'),
                 E_USER_WARNING
@@ -2395,9 +2391,6 @@ class DatabaseInterface
             // (currently used only in unit testing)
             return false;
         }
-
-        Logging::logUser($user, 'mysql-denied');
-        $GLOBALS['auth_plugin']->authFails();
 
         return $result;
     }

@@ -729,6 +729,11 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         /** @var DatabaseInterface $userlink */
         $userlink = $GLOBALS['dbi']->connect(DatabaseInterface::CONNECT_USER);
 
+        if ($userlink === false) {
+            Logging::logUser($user, 'mysql-denied');
+            $GLOBALS['auth_plugin']->authFails();
+        }
+
         // Set timestamp for the session, if required.
         if ($cfg['Server']['SessionTimeZone'] != '') {
             $sql_query_tz = 'SET ' . Util::backquote('time_zone') . ' = '
