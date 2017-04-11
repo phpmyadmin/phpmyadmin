@@ -1372,7 +1372,7 @@ class DatabaseInterface
 
             if ($version) {
                 $ver_int = self::versionToInt($version['@@version']);
-                define('PMA_MYSQL_MAJOR_VERSION', intdiv($ver_int, 10000));
+                define('PMA_MYSQL_MAJOR_VERSION', (int)($ver_int / 10000));
                 define('PMA_MYSQL_INT_VERSION', $ver_int);
                 define('PMA_MYSQL_STR_VERSION', $version['@@version']);
                 define('PMA_MYSQL_VERSION_COMMENT', $version['@@version_comment']);
