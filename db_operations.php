@@ -48,6 +48,10 @@ if (strlen($GLOBALS['db']) > 0
 
     if (! isset($_REQUEST['newname']) || strlen($_REQUEST['newname']) === 0) {
         $message = PMA\libraries\Message::error(__('The database name is empty!'));
+    } else if($_REQUEST['newname'] === $_REQUEST['db']) {
+        $message = PMA\libraries\Message::error(
+            __('Cannot copy database to the same name. Change the name and try again.')
+        );
     } else {
         $_error = false;
         if ($move || ! empty($_REQUEST['create_database_before_copying'])) {
