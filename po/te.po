@@ -7,16 +7,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.1-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-04-10 13:08+0200\n"
-"PO-Revision-Date: 2015-10-15 11:05+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Telugu <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"te/>\n"
+"PO-Revision-Date: 2017-04-12 15:07+0000\n"
+"Last-Translator: bhargavi sabbisetty <bhargavi_sabbisetty@yahoo.in>\n"
+"Language-Team: Telugu "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-7/te/>\n"
 "Language: te\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.5-dev\n"
+"X-Generator: Weblate 2.13\n"
 
 #: changelog.php:39 license.php:34
 #, php-format
@@ -24,10 +24,12 @@ msgid ""
 "The %s file is not available on this system, please visit %s for more "
 "information."
 msgstr ""
+"%s1 ఫైలు ఈ సిస్టంలో అందుబాటులో లేదు, దయచేసి మరింత సమాచారం కొరకు %s2 "
+"సందర్శించండి."
 
 #: db_central_columns.php:108
 msgid "The central list of columns for the current database is empty."
-msgstr ""
+msgstr "ప్రస్తుత డేటాబేస్ కోసం నిలువు కేంద్ర జాబితా ఖాళీగా ఉంది."
 
 #: db_central_columns.php:133
 msgid "Click to sort."
@@ -41,7 +43,7 @@ msgstr "మరిన్ని అమరికలు"
 
 #: db_datadict.php:59 libraries/operations.lib.php:36
 msgid "Database comment"
-msgstr "డేటాబేస్ వ్యాఖ్య"
+msgstr "డేటాబేస్ వ్యాఖ్యను"
 
 #: db_datadict.php:106 libraries/plugins/schema/pdf/PdfRelationSchema.php:596
 #: templates/columns_definitions/column_definitions_form.phtml:89
