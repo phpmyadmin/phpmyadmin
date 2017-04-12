@@ -80,8 +80,7 @@ function PMA_getHtmlForRenameDatabase($db)
         . '</legend>';
 
     $html_output .= '<input id="new_db_name" type="text" name="newname" '
-        . 'maxlength="64" size="30" class="textfield" required="required" '
-        . 'value=""/>';
+        . 'maxlength="64" size="30" class="textfield" required="required"/>';
 
     if ($GLOBALS['db_priv'] && $GLOBALS['table_priv']
         && $GLOBALS['col_priv'] && $GLOBALS['proc_priv']
@@ -201,8 +200,7 @@ function PMA_getHtmlForCopyDatabase($db)
     $html_output .= __('Copy database to')
         . '</legend>'
         . '<input type="text" maxlength="64" name="newname" size="30" '
-        . 'class="textfield" value="" '
-        . 'required="required" /><br />'
+        . 'class="textfield" required="required" /><br />'
         . Util::getRadioFields(
             'what', $choices, 'data', true
         );

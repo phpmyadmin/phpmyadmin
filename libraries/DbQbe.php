@@ -524,8 +524,7 @@ class DbQbe
             ) {
                 $html_output .= '<td class="center">';
                 $html_output .= '<input type="text"'
-                    . ' name="criteriaAlias[' . $new_column_count . ']"'
-                    . ' value="" />';
+                    . ' name="criteriaAlias[' . $new_column_count . ']" />';
                 $html_output .= '</td>';
                 $new_column_count++;
             } // end if
@@ -739,7 +738,6 @@ class DbQbe
                 $html_output .= '<td class="center">';
                 $html_output .= '<input type="text"'
                     . ' name="criteria[' . $new_column_count . ']"'
-                    . ' value=""'
                     . ' class="textfield"'
                     . ' style="width: ' . $this->_realwidth . '"'
                     . ' size="20" />';
