@@ -183,6 +183,27 @@ function PMA_fetchRealRowCount($target)
     });
 }
 
+/* Support Ctrl + C event for copying multiple tables */
+$(document).ready(function() {
+    var ctrlDown = false;
+    var ctrlKey = 17, cKey = 67;
+
+    $(document).keydown(function(e) {
+
+        if (e.keyCode == ctrlKey) {
+            ctrlDown = true;
+        }
+        if(ctrlDown==true&&e.keyCode==cKey) {
+            $('select[name=submit_mult]').val('copy_tbl');
+            $('select[name=submit_mult]').trigger('change');
+        }
+    }).keyup(function(e) {
+        if (e.keyCode == ctrlKey) {
+            ctrlDown = false;
+        }
+    });
+});
+
 AJAX.registerOnload('db_structure.js', function () {
 /**
  * function to open the confirmation dialog for making table consistent with central list
