@@ -277,7 +277,7 @@ function PMA_getHtmlForSqlQueryFormInsert(
                 && strlen($field['Field']) > 0
                 && isset($field['Comment'])
             ) {
-                $html .= ' title="' . htmlspecialchars($field['Comment']) . '"';
+                $html .=  ' title="' . htmlspecialchars($field['Comment']) . '"';
             }
             $html .= '>' . htmlspecialchars($field['Field']) . '</option>' . "\n";
         }
