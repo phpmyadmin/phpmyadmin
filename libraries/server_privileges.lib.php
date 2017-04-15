@@ -3579,7 +3579,8 @@ function PMA_getHtmlTableBodyForUserRights($db_rights)
                 . (empty($host['User'])
                     ? '<span style="color: #FF0000">' . __('Any') . '</span>'
                     : htmlspecialchars($host['User'])) . '</label></td>' . "\n"
-                . '<td>' . htmlspecialchars($host['Host']) . '</td>' . "\n";
+                . '<td><a href=user_info.php?user=' .$host['User']. '&host=' .$host['Host']. '&token=' .$_SESSION[' PMA_token ']. '>'
+                . htmlspecialchars($host['Host']) . '</a></td>' . "\n";
 
             $html_output .= '<td>';
 
