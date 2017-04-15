@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * PMA\libraries\plugins\export\TableProperty class
+ * PMA\libraries\plugins\export\PdfExport class
  *
  * @package    PhpMyAdmin-Export
  * @subpackage PDF
@@ -19,7 +19,7 @@ use TCPDF_STATIC;
  * @package    PhpMyAdmin-Export
  * @subpackage PDF
  */
-class PMA_ExportPdf extends PDF
+class PdfExport extends PDF
 {
     var $tablewidths;
     var $headerset;
@@ -809,4 +809,4 @@ class PMA_ExportPdf extends PDF
         $this->morepagestable($this->FontSizePt);
         $GLOBALS['dbi']->freeResult($this->results);
     } // end of mysqlReport function
-} // end of PMA_Export_PDF class
+} // end of PdfExport class

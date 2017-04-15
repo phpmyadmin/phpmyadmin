@@ -133,11 +133,11 @@ class StorageEngineTest extends PMATestCase
             array('PMA\libraries\engines\Innodb', 'Innodb'),
             array('PMA\libraries\engines\Memory', 'Memory'),
             array('PMA\libraries\engines\Merge', 'Merge'),
-            array('PMA\libraries\engines\Mrg_Myisam', 'Mrg_Myisam'),
+            array('PMA\libraries\engines\MrgMyisam', 'Mrg_Myisam'),
             array('PMA\libraries\engines\Myisam', 'Myisam'),
             array('PMA\libraries\engines\Ndbcluster', 'Ndbcluster'),
             array('PMA\libraries\engines\Pbxt', 'Pbxt'),
-            array('PMA\libraries\engines\Performance_Schema', 'Performance_Schema'),
+            array('PMA\libraries\engines\PerformanceSchema', 'Performance_Schema'),
         );
     }
 

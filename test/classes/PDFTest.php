@@ -52,7 +52,7 @@ class PDFTest extends PMATestCase
     public function testAlias()
     {
         $arr = new PDF();
-        $arr->SetAlias('{00}', '32');
+        $arr->setAlias('{00}', '32');
         $this->assertContains('PDF', $arr->getPDFData());
     }
 

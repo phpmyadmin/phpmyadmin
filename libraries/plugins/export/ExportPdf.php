@@ -12,7 +12,7 @@ use PMA\libraries\plugins\ExportPlugin;
 use PMA\libraries\properties\plugins\ExportPluginProperties;
 use PMA\libraries\properties\options\groups\OptionsPropertyMainGroup;
 use PMA\libraries\properties\options\groups\OptionsPropertyRootGroup;
-use PMA\libraries\plugins\export\PMA_ExportPdf;
+use PMA\libraries\plugins\export\PdfExport;
 use PMA\libraries\properties\options\items\RadioPropertyItem;
 use PMA\libraries\properties\options\items\TextPropertyItem;
 
@@ -35,9 +35,9 @@ require_once 'libraries/transformations.lib.php';
 class ExportPdf extends ExportPlugin
 {
     /**
-     * PMA\libraries\plugins\export\PMA_ExportPdf instance
+     * PMA\libraries\plugins\export\PdfExport instance
      *
-     * @var PMA_ExportPdf
+     * @var PdfExport
      */
     private $_pdf;
     /**
@@ -68,7 +68,7 @@ class ExportPdf extends ExportPlugin
         if (!empty($_POST['pdf_report_title'])) {
             $this->_setPdfReportTitle($_POST['pdf_report_title']);
         }
-        $this->_setPdf(new PMA_ExportPdf('L', 'pt', 'A3'));
+        $this->_setPdf(new PdfExport('L', 'pt', 'A3'));
     }
 
     /**
@@ -345,9 +345,9 @@ class ExportPdf extends ExportPlugin
     /* ~~~~~~~~~~~~~~~~~~~~ Getters and Setters ~~~~~~~~~~~~~~~~~~~~ */
 
     /**
-     * Gets the PMA\libraries\plugins\export\PMA_ExportPdf instance
+     * Gets the PMA\libraries\plugins\export\PdfExport instance
      *
-     * @return PMA_ExportPdf
+     * @return PdfExport
      */
     private function _getPdf()
     {
@@ -355,9 +355,9 @@ class ExportPdf extends ExportPlugin
     }
 
     /**
-     * Instantiates the PMA\libraries\plugins\export\PMA_ExportPdf class
+     * Instantiates the PMA\libraries\plugins\export\PdfExport class
      *
-     * @param PMA_ExportPdf $pdf The instance
+     * @param PdfExport $pdf The instance
      *
      * @return void
      */

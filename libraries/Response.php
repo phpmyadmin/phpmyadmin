@@ -464,7 +464,7 @@ class Response
      *
      * @return void
      */
-    public function http_response_code($response_code)
+    public function httpResponseCode($response_code)
     {
         http_response_code($response_code);
     }
@@ -476,9 +476,9 @@ class Response
      *
      * @return void
      */
-    public function set_http_response_code($response_code)
+    public function setHttpResponseCode($response_code)
     {
-        $this->http_response_code($response_code);
+        $this->httpResponseCode($response_code);
         switch ($response_code) {
             case 100: $httpStatusMsg = ' Continue'; break;
             case 101: $httpStatusMsg = ' Switching Protocols'; break;
@@ -533,7 +533,7 @@ class Response
      */
     public function generateHeader303($location)
     {
-        $this->set_http_response_code(303);
+        $this->setHttpResponseCode(303);
         $this->header('Location: '.$location);
         if (!defined('TESTSUITE')) {
             exit;
