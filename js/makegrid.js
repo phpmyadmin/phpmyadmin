@@ -1347,6 +1347,8 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                                     $checkbox.val(checkbox_value.replace(decoded_old_clause, decoded_new_clause));
                                 });
                             });
+                            //save the old query command
+                            var old_sql_query = $('#result_query').children(":nth-child(2)").html();
                             // update the display of executed SQL query command
                             if (typeof data.sql_query != 'undefined') {
                                 //extract query box
@@ -1368,6 +1370,13 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                                     PMA_highlightSQL($existing_query);
                                 }
                             }
+                            // Animate the query container inside result_query and replace with old query
+                            $('#result_query').children(":nth-child(3)").delay(1500).slideUp();
+                            $('#result_query').children(":nth-child(2)").delay(1500).slideUp("slow",function() {
+	                            $(this).html(old_sql_query);
+	                            $(this).slideDown();
+	                            $(this).next().slideDown();
+                            });
                             // hide and/or update the successfully saved cells
                             g.hideEditCell(true, data);
 
