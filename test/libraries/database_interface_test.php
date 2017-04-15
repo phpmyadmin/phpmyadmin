@@ -43,6 +43,68 @@ class PMA_DBI_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * Simple test for realMultiQuery
+     *
+     * This relies on dummy driver internals
+     *
+     * @return void
+     */
+    function testRealMultiQuery()
+    {
+        $this->assertFalse($GLOBALS['dbi']->tryMultiQuery('SELECT 1'));
+    }
+
+    /**
+     * Simple test for dataSeek
+     *
+     * This relies on dummy driver internals
+     *
+     * @return void
+     */
+    function testDataSeek()
+    {
+        $this->assertFalse($GLOBALS['dbi']->dataSeek(0, 2));
+        $this->assertTrue($GLOBALS['dbi']->dataSeek(0, 0));
+    }
+
+    /**
+     * Simple test for empty methods
+     *
+     * This relies on dummy driver internals
+     *
+     * @return void
+     */
+    function testEmptyMethod()
+    {
+        $this->assertFalse($GLOBALS['dbi']->moreResults());
+        $this->assertFalse($GLOBALS['dbi']->nextResult());
+        $this->assertFalse($GLOBALS['dbi']->storeResult());
+        $this->assertEquals('', $GLOBALS['dbi']->getHostInfo());
+        $this->assertEquals(-1, $GLOBALS['dbi']->getProtoInfo());
+        $this->assertEquals('', $GLOBALS['dbi']->getClientInfo());
+        $this->assertFalse($GLOBALS['dbi']->getError());
+        $this->assertEquals('', $GLOBALS['dbi']->getClientInfo());
+        $this->assertEquals(-1, $GLOBALS['dbi']->insertId());
+        $this->assertEquals(array(), $GLOBALS['dbi']->getFieldsMeta(1));
+        $this->assertEquals(-1, $GLOBALS['dbi']->fieldLen(1, 0));
+        $this->assertEquals('', $GLOBALS['dbi']->fieldName(1, 0));
+        $this->assertEquals('', $GLOBALS['dbi']->fieldFlags(1, 0));
+    }
+
+    /**
+     * Simple test for numFields
+     *
+     * This relies on dummy driver internals
+     *
+     * @return void
+     */
+    function testNumFields()
+    {
+        $this->assertEquals(0, $GLOBALS['dbi']->numFields(0));
+        $this->assertEquals(6, $GLOBALS['dbi']->numFields(14));
+    }
+
+    /**
      * Simple test for fetching results of query
      *
      * This relies on dummy driver internals
