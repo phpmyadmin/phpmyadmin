@@ -256,7 +256,10 @@ if (isset($_REQUEST['revokeall'])) {
 /**
  * Updates the password
  */
-if (isset($_REQUEST['change_pw'])) {
+if (isset($_REQUEST['change_pw'])
+    || (isset($_REQUEST['change_copy'])
+    && 'keep' != $_REQUEST['pred_password'])
+) {
     $message = PMA_updatePassword(
         $err_url, $username, $hostname
     );
@@ -267,7 +270,8 @@ if (isset($_REQUEST['change_pw'])) {
  *   (Changes / copies a user, part IV)
  */
 if (isset($_REQUEST['delete'])
-    || (isset($_REQUEST['change_copy']) && $_REQUEST['mode'] < 4)
+    || (isset($_REQUEST['change_copy']) && $_REQUEST['mode'] < 4
+    && ($username != $_POST['old_username'] || $hostname != $_POST['old_hostname']))
 ) {
     include_once 'libraries/relation_cleanup.lib.php';
     $queries = PMA_getDataForDeleteUsers($queries);
