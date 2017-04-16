@@ -14,8 +14,7 @@ if (isset($submit_attribute) && $submit_attribute != false) {
 
 $attribute = mb_strtoupper($attribute);
 ?>
-<select style="width: 7em;"
-        name="field_attribute[<?= $columnNumber; ?>]"
+<select name="field_attribute[<?= $columnNumber; ?>]"
         id="field_<?= $columnNumber; ?>_<?= ($ci - $ci_offset); ?>">
     <?php for ($j = 0; $j < $cnt_attribute_types; $j++): ?>
         <option value="<?= $attribute_types[$j];?>"
