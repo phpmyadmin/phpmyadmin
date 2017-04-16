@@ -29,7 +29,7 @@ if (! PMA_isValid($_REQUEST['url'])
     //  then web browser sometimes does not change the HTTP_REFERER
     //  field and so with old URL as Referer, token also goes to
     //  external site.
-    echo "<script type='text/javascript'>
+    echo "<meta charset='utf-8'> <script type='text/javascript'>
             window.onload=function(){
                 window.location='" , Sanitize::escapeJsString($_REQUEST['url']) , "';
             }
