@@ -167,6 +167,9 @@ var PMA_console = {
             $('#pma_console_options').find('.switch_button').click(function() {
                 PMA_console.hideCard($(this).closest('.card'));
             });
+            $('#pma_console_options .switch_button').click(function() {
+                PMA_console.hideCard($(this).closest('.card'));
+            });
 
             $('#pma_console_options').find('input[type=checkbox]').change(function() {
                 PMA_console.updateConfig();
