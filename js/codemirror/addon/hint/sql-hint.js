@@ -215,6 +215,7 @@
     for (var i = 0; i < query.length; i++) {
       var lineText = query[i];
       eachWord(lineText, function(word) {
+        word = cleanName(word);
         var wordUpperCase = word.toUpperCase();
         if (wordUpperCase === aliasUpperCase && getTable(previousWord))
           table = previousWord;
