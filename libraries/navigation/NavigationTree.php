@@ -846,14 +846,6 @@ class NavigationTree
     {
         $this->_buildPath();
         $retval = $this->_quickWarp();
-        $retval .= '<div class="clearfloat"></div>';
-        $retval .= '<ul>';
-        $retval .= $this->_fastFilterHtml($this->_tree);
-        if ($GLOBALS['cfg']['NavigationTreeEnableExpansion']
-        ) {
-            $retval .= $this->_controls();
-        }
-        $retval .= '</ul>';
         $retval .= $this->_getPageSelector($this->_tree);
         $this->groupTree();
         $retval .= "<div id='pma_navigation_tree_content'><ul>";

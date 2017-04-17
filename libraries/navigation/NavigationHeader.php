@@ -223,6 +223,22 @@ class NavigationHeader
             's_reload.png',
             'pma_navigation_reload'
         );
+        $retval .= PMA\libraries\Util::getNavigationLink(
+            '#',
+            $showText,
+            __('Link with main panel'),
+            $showIcon,
+            's_unlink.png',
+            'pma_navigation_sync'
+        );
+        $retval .= PMA\libraries\Util::getNavigationLink(
+            '#',
+            $showText,
+            __('Collapse all'),
+            $showIcon,
+            's_collapseall.png',
+            'pma_navigation_collapse'
+        );
         $retval .= '</div>';
         $retval .= '<!-- LINKS ENDS -->';
 
