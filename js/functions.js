@@ -75,6 +75,11 @@ var fulltext_indexes = [];
 var spatial_indexes = [];
 
 /**
+ * @var cookieObj object to hold cookies.
+ */
+var cookieObj = {};
+
+/**
  * Make sure that ajax requests will not be cached
  * by appending a random variable to their parameters
  */
@@ -5091,3 +5096,39 @@ AJAX.registerOnload('functions.js', function(){
         }
     });
 });
+
+function setCookieArr(arrayname,key, value) {
+    var size ;
+    switch (arrayname) {
+
+    case 'pmaConfig':size = 2 ;
+    break;
+
+    default:size = 1 ;
+    break;
+    }
+    if (Object.keys(cookieObj).length!= size) {
+        cookieObj[key] = value;
+    }
+
+    if (Object.keys(cookieObj).length == size){
+
+        var JSONText = JSON.stringify(cookieObj);
+        $.cookie(arrayname,JSONText);
+    }
+
+}
+
+function getCookieArr(arrayname,key){
+    var arr = $.cookie(arrayname);
+    if (typeof arr !='undefined'){
+        var jsonDecoded = JSON.parse(arr);
+        var value = jsonDecoded[String(key)];
+    }
+
+    if (typeof value =='undefined'){
+        return(null);
+    }
+    else
+        return(value);
+}

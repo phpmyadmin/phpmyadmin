@@ -64,12 +64,11 @@ var PMA_console = {
         PMA_console.isEnabled = true;
 
         // Cookie var checks and init
-        if (! $.cookie('pma_console_height')) {
-            $.cookie('pma_console_height', 92);
-        }
-        if (! $.cookie('pma_console_mode')) {
-            $.cookie('pma_console_mode', 'info');
-        }
+
+            setCookieArr('pmaConfig','pma_console_height', 92);
+
+            setCookieArr('pmaConfig','pma_console_mode', 'info');
+
 
         // Vars init
         PMA_console.$consoleToolbar = $("#pma_console").find(">.toolbar");
@@ -205,13 +204,13 @@ var PMA_console = {
         }
 
         // Change console mode from cookie
-        switch($.cookie('pma_console_mode')) {
+        switch(getCookieArr('pmaConfig','pma_console_mode')) {
             case 'collapse':
                 PMA_console.collapse();
                 break;
             /* jshint -W086 */// no break needed in default section
             default:
-                $.cookie('pma_console_mode', 'info');
+                setCookieArr('pmaConfig','pma_console_mode', 'info');
             case 'info':
             /* jshint +W086 */
                 PMA_console.info();
@@ -274,11 +273,12 @@ var PMA_console = {
      * @return void
      */
     collapse: function() {
-        $.cookie('pma_console_mode', 'collapse');
-        var pmaConsoleHeight = $.cookie('pma_console_height');
+
+        setCookieArr('pmaConfig','pma_console_mode', 'collapse');
+        var pmaConsoleHeight = getCookieArr('pmaConfig','pma_console_height');
 
         if (pmaConsoleHeight < 32) {
-            $.cookie('pma_console_height', 92);
+            setCookieArr('pmaConfig','pma_console_height', 92);
         }
         PMA_console.$consoleToolbar.addClass('collapsed');
         PMA_console.$consoleAllContents.height(pmaConsoleHeight);
@@ -297,12 +297,11 @@ var PMA_console = {
      * @return void
      */
     show: function(inputFocus) {
-        $.cookie('pma_console_mode', 'show');
-
-        var pmaConsoleHeight = $.cookie('pma_console_height');
+        setCookieArr('pmaConfig','pma_console_mode', 'show');
+        var pmaConsoleHeight =  getCookieArr('pmaConfig','pma_console_height');
 
         if (pmaConsoleHeight < 32) {
-            $.cookie('pma_console_height', 32);
+            setCookieArr('pmaConfig','pma_console_height', 32);
             PMA_console.collapse();
             return;
         }
@@ -338,7 +337,7 @@ var PMA_console = {
      * @return void
      */
     toggle: function() {
-        switch($.cookie('pma_console_mode')) {
+        switch( getCookieArr('pmaConfig','pma_console_mode')) {
             case 'collapse':
             case 'info':
                 PMA_console.show(true);
@@ -445,7 +444,7 @@ var PMA_consoleResizer = {
      * @return void
      */
     _mousedown: function(event) {
-        if ($.cookie('pma_console_mode') !== 'show') {
+        if (getCookieArr('pmaConfig','pma_console_mode') !== 'show') {
             return;
         }
         PMA_consoleResizer._posY = event.pageY;
@@ -487,7 +486,7 @@ var PMA_consoleResizer = {
      * @return void
      */
     _mouseup: function() {
-        $.cookie('pma_console_height', PMA_consoleResizer._resultHeight);
+        setCookieArr('pmaConfig','pma_console_height',PMA_consoleResizer._resultHeight);
         PMA_console.show();
         $(document).off('mousemove');
         $(document).off('mouseup');
