@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.1-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-04-10 13:08+0200\n"
-"PO-Revision-Date: 2017-01-27 13:17+0000\n"
-"Last-Translator: Diogo Millnitz <diogo.millnitzz@gmail.com>\n"
-"Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
-"phpmyadmin/4-7/pt_BR/>\n"
+"PO-Revision-Date: 2017-04-19 19:13+0000\n"
+"Last-Translator: Danilo D. de Godoy <danilo.doring@gmail.com>\n"
+"Language-Team: Portuguese (Brazil) "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-7/pt_BR/>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 2.11-dev\n"
+"X-Generator: Weblate 2.14-dev\n"
 
 #: changelog.php:39 license.php:34
 #, php-format
@@ -4856,12 +4856,12 @@ msgstr "%d/%m/%Y às %H:%M"
 #: libraries/Util.php:1588
 msgctxt "AM/PM indication in time"
 msgid "PM"
-msgstr ""
+msgstr "PM"
 
 #: libraries/Util.php:1590
 msgctxt "AM/PM indication in time"
 msgid "AM"
-msgstr ""
+msgstr "AM"
 
 #: libraries/Util.php:1966
 #, php-format
@@ -8319,8 +8319,9 @@ msgid "Password:"
 msgstr "Senha:"
 
 #: libraries/display_change_password.lib.php:68
+#, fuzzy
 msgid "Enter:"
-msgstr ""
+msgstr "Entrar:"
 
 #: libraries/display_change_password.lib.php:75
 #: libraries/replication_gui.lib.php:865
@@ -11639,6 +11640,8 @@ msgid ""
 "Connection to server is disabled, please enable $cfg['AllowArbitraryServer'] "
 "in phpMyAdmin configuration."
 msgstr ""
+"A conexão com o servidor está desabilitada. Por favor habilite em "
+"$cfg['AllowArbitraryServer'] nas configurações do phpMyAdmin."
 
 #: libraries/replication_gui.lib.php:914
 msgid "Replication started successfully."
@@ -12042,6 +12045,8 @@ msgid ""
 "No routine with name %1$s found in database %2$s. You might be lacking the "
 "necessary privileges to edit this routine."
 msgstr ""
+"Nenhum rotina com o nome %1$s encontrada no banco de dados %2$s. Você pode "
+"não ter os privilégios necessários para editar essa rotina."
 
 #: libraries/rte/rte_words.lib.php:39
 #, php-format
@@ -12049,6 +12054,8 @@ msgid ""
 "No routine with name %1$s found in database %2$s. You might be lacking the "
 "necessary privileges to view/export this routine."
 msgstr ""
+"Nenhum rotina com o nome %1$s encontrada no banco de dados %2$s. Você pode "
+"não ter os privilégios necessários para visualizar/exportar essa rotina."
 
 #: libraries/rte/rte_words.lib.php:42
 #, fuzzy, php-format
@@ -12309,7 +12316,7 @@ msgstr "Requer conexões criptografadas SSL."
 
 #: libraries/server_privileges.lib.php:743
 msgid "Requires a valid X509 certificate."
-msgstr ""
+msgstr "Requer um certificado X509 válido."
 
 #: libraries/server_privileges.lib.php:768
 msgid "Requires that a specific cipher method be used for a connection."
@@ -12362,6 +12369,8 @@ msgid ""
 "Allows user to give to other users or remove from other users privileges "
 "that user possess on this routine."
 msgstr ""
+"Permite ao usuário dar a outros usuários ou remover de outros usuários "
+"privilégios que o usuário possui nesta rotina."
 
 #: libraries/server_privileges.lib.php:934
 #, fuzzy
@@ -12427,6 +12436,8 @@ msgid ""
 "Allows user to give to other users or remove from other users the privileges "
 "that user possess yourself."
 msgstr ""
+"Permite que o usuário dê a outros usuários ou remova de outros usuários os "
+"privilégios que ele mesmo possui."
 
 #: libraries/server_privileges.lib.php:1422
 #: libraries/server_privileges.lib.php:1453
