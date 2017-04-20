@@ -33,7 +33,7 @@ class PMA_GetDropdownTest extends PHPUnit_Framework_TestCase
         $id = "test_&lt;dropdown&gt;_name";
 
         $result = '<select name="' . htmlspecialchars($name) . '" id="'
-            . htmlspecialchars($id) . '" >' . "\n" . '</select>';
+            . htmlspecialchars($id) . '">' . "\n" . '</select>' . "\n";
 
         $this->assertEquals(
             $result,
@@ -56,7 +56,7 @@ class PMA_GetDropdownTest extends PHPUnit_Framework_TestCase
         $id = "test_&lt;dropdown&gt;_name";
 
         $result = '<select name="' . htmlspecialchars($name) . '" id="'
-            . htmlspecialchars($id) . '" >';
+            . htmlspecialchars($id) . '">';
         foreach ($choices as $one_choice_value => $one_choice_label) {
             $result .= "\n" . '<option value="' . htmlspecialchars($one_choice_value) . '"';
             if ($one_choice_value == $active_choice) {
@@ -64,7 +64,7 @@ class PMA_GetDropdownTest extends PHPUnit_Framework_TestCase
             }
             $result .= '>' . htmlspecialchars($one_choice_label) . '</option>';
         }
-        $result .= "\n" . '</select>';
+        $result .= "\n" . '</select>' . "\n";
 
         $this->assertEquals(
             $result,
@@ -87,7 +87,7 @@ class PMA_GetDropdownTest extends PHPUnit_Framework_TestCase
         $id = "test_&lt;dropdown&gt;_name";
 
         $result = '<select name="' . htmlspecialchars($name) . '" id="'
-            . htmlspecialchars($id) . '" >';
+            . htmlspecialchars($id) . '">';
         foreach ($choices as $one_choice_value => $one_choice_label) {
             $result .= "\n";
             $result .= '<option value="' . htmlspecialchars($one_choice_value) . '"';
@@ -97,7 +97,7 @@ class PMA_GetDropdownTest extends PHPUnit_Framework_TestCase
             $result .= '>' . htmlspecialchars($one_choice_label) . '</option>';
         }
         $result .= "\n";
-        $result .= '</select>';
+        $result .= '</select>' . "\n";
 
         $this->assertEquals(
             $result,

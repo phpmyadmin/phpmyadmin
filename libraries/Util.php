@@ -4350,7 +4350,7 @@ class Util
             }
         }
 
-        return Template::get('startAndNumberOfRowsPanel')
+        return Template::get('start_and_number_of_rows_panel')
             ->render(
                 array(
                     'pos' => $pos,

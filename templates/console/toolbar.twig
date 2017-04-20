@@ -1,0 +1,10 @@
+<div class="toolbar {{ parentDivClasses }}">
+    {% for content in contentArray %}
+        {% if content is defined %}
+        <div class="{{ content[0] }}">
+            {{ content['image'] ? content['image'] }}
+            <span>{{ content[1] }}</span>
+        </div>
+        {% endif %}
+    {% endfor %}
+</div>

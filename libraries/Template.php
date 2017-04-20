@@ -11,6 +11,7 @@ use Twig_Environment;
 use Twig_Loader_Filesystem;
 use PMA\libraries\twig\I18nExtension;
 use PMA\libraries\twig\UrlExtension;
+use PMA\libraries\twig\UtilExtension;
 
 /**
  * Class Template
@@ -64,6 +65,7 @@ class Template
         ));
         $this->twig->addExtension(new I18nExtension());
         $this->twig->addExtension(new UrlExtension());
+        $this->twig->addExtension(new UtilExtension());
     }
 
     /**

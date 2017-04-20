@@ -1,8 +1,0 @@
-<select name="<?= htmlspecialchars($select_name) ?>" id="<?= htmlspecialchars($id) ?>" <?= !empty($class) ? 'class="' . htmlspecialchars($class) . '"' : '' ?>>
-<?php  if (!empty($placeholder)): ?>
-    <option value="" disabled="disabled" <?= !$selected ? ' selected="selected"' : '' ?> > <?= $placeholder?> </option>
-<?php endif ?>
-<?php foreach( $resultOptions as $option): ?>
-<option value="<?=htmlspecialchars($option['value'])?>"<?= $option['selected']? ' selected="selected"' : '' ?>><?=htmlspecialchars($option['label']) ?></option>
-<?php endforeach ?>
-</select>

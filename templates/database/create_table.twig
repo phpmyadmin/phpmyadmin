@@ -1,23 +1,23 @@
 <form id="create_table_form_minimal" method="post" action="tbl_create.php" class="lock-page">
     <fieldset>
         <legend>
-        <?php if (PMA\libraries\Util::showIcons('ActionLinksMode')): ?>
-            <?= PMA\libraries\Util::getImage('b_table_add.png'); ?>&nbsp
-        <?php endif; ?>
-        <?= __('Create table'); ?>
+        {% if Util_showIcons('ActionLinksMode') -%}
+            {{ Util_getImage('b_table_add.png') }}
+        {%- endif %}
+        {% trans "Create table" %}
         </legend>
-        <?= PMA\libraries\URL::getHiddenInputs($db); ?>
+        {{ URL_getHiddenInputs(db) }}
         <div class="formelement">
-            <?= __('Name'); ?>:
+            {% trans "Name" %}:
             <input type="text" name="table" maxlength="64" size="30" required="required" />
         </div>
         <div class="formelement">
-            <?= __('Number of columns'); ?>:
+            {% trans "Number of columns" %}:
             <input type="number" min="1" name="num_fields" value="4" required="required" />
         </div>
         <div class="clearfloat"></div>
     </fieldset>
     <fieldset class="tblFooters">
-        <input type="submit" value="<?= __('Go'); ?>" />
+        <input type="submit" value="{% trans "Go" %}" />
     </fieldset>
 </form>

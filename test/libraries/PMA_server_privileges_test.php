@@ -2527,13 +2527,14 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
             'new'
         );
         $this->assertEquals(
-            '<select name="authentication_plugin" id="select_authentication_plugin" >'
+            '<select name="authentication_plugin" id="select_authentication_plugin">'
             . "\n"
             . '<option value="mysql_native_password" selected="selected">'
             . 'Native MySQL authentication</option>'
             . "\n"
             . '<option value="sha256_password">'
-            . 'SHA256 password authentication</option>' . "\n" . '</select>',
+            . 'SHA256 password authentication</option>' . "\n" . '</select>'
+            . "\n",
             $actualHtml
         );
 
@@ -2545,12 +2546,13 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
         );
         $this->assertEquals(
             '<select name="authentication_plugin" '
-            . 'id="select_authentication_plugin_cp" >'
+            . 'id="select_authentication_plugin_cp">'
             . "\n" . '<option '
             . 'value="mysql_native_password" selected="selected">'
             . 'Native MySQL authentication</option>'
             . "\n" . '<option value="sha256_password">'
-            . 'SHA256 password authentication</option>' . "\n" . '</select>',
+            . 'SHA256 password authentication</option>' . "\n" . '</select>'
+            . "\n",
             $actualHtml
         );
 
@@ -2562,10 +2564,11 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
         );
         $this->assertEquals(
             '<select name="authentication_plugin" '
-            . 'id="select_authentication_plugin" >'
+            . 'id="select_authentication_plugin">'
             . "\n" . '<option '
             . 'value="mysql_native_password" selected="selected">'
-            . 'Native MySQL authentication</option>'. "\n" .'</select>',
+            . 'Native MySQL authentication</option>'. "\n" .'</select>'
+            . "\n",
             $actualHtml
         );
 
@@ -2577,11 +2580,12 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
         );
         $this->assertEquals(
             '<select name="authentication_plugin" '
-            . 'id="select_authentication_plugin_cp" >'
+            . 'id="select_authentication_plugin_cp">'
             . "\n"
             . '<option value="mysql_native_password" selected="selected">'
             . 'Native MySQL authentication</option>'
-            . "\n" . '</select>',
+            . "\n" . '</select>'
+            . "\n",
             $actualHtml
         );
 
