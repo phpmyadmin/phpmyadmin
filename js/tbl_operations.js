@@ -209,7 +209,7 @@ AJAX.registerOnload('tbl_operations.js', function () {
         var question = PMA_messages.strDropTableStrongWarning + ' ';
         question += PMA_sprintf(
             PMA_messages.strDoYouReally,
-            'DROP TABLE `' + escapeHtml(PMA_commonParams.get('table') + '`')
+            'DROP TABLE `'  + escapeHtml(PMA_commonParams.get('db')) + '`.`' + escapeHtml(PMA_commonParams.get('table') + '`')
         ) + getForeignKeyCheckboxLoader();
 
         $(this).PMA_confirm(question, $(this).attr('href'), function (url) {
@@ -284,7 +284,7 @@ AJAX.registerOnload('tbl_operations.js', function () {
         var question = PMA_messages.strTruncateTableStrongWarning + ' ';
         question += PMA_sprintf(
             PMA_messages.strDoYouReally,
-            'TRUNCATE `' + escapeHtml(PMA_commonParams.get('table') + '`')
+            'TRUNCATE `' + escapeHtml(PMA_commonParams.get('db')) + '`.`' + escapeHtml(PMA_commonParams.get('table') + '`')
         ) + getForeignKeyCheckboxLoader();
         $(this).PMA_confirm(question, $(this).attr('href'), function (url) {
             PMA_ajaxShowMessage(PMA_messages.strProcessingRequest);
