@@ -324,7 +324,7 @@ AJAX.registerOnload('sql.js', function () {
         $varDiv.empty();
         for (var i = 1; i <= varCount; i++) {
             $varDiv.append($('<label for="bookmark_variable_' + i + '">' + PMA_sprintf(PMA_messages.strBookmarkVariable, i) + '</label>'));
-            $varDiv.append($('<input type="text" size="10" name="bookmark_variable[' + i + ']" id="bookmark_variable_' + i + '"></input>'));
+            $varDiv.append($('<input type="text" size="10" name="bookmark_variable[' + i + ']" id="bookmark_variable_' + i + '"/>'));
         }
 
         if (varCount == 0) {
