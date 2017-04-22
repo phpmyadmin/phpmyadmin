@@ -4,17 +4,17 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.1-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-04-10 13:08+0200\n"
-"PO-Revision-Date: 2015-05-15 14:28+0200\n"
-"Last-Translator: Viktar Palstsiuk <vipals@gmail.com>\n"
-"Language-Team: Belarusian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/be/>\n"
+"PO-Revision-Date: 2017-04-22 21:46+0000\n"
+"Last-Translator: Viktar Vauchkevich <victorenator@gmail.com>\n"
+"Language-Team: Belarusian "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-7/be/>\n"
 "Language: be\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 2.3-dev\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
+"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 2.14-dev\n"
 
 #: changelog.php:39 license.php:34
 #, fuzzy, php-format
@@ -6344,7 +6344,7 @@ msgstr ""
 #: libraries/config/messages.inc.php:183 libraries/config/messages.inc.php:187
 #: libraries/display_export.lib.php:503 libraries/display_export.lib.php:538
 msgid "Overwrite existing file(s)"
-msgstr "Перазапісваць існуючы(я) файл(ы)"
+msgstr "Перазапісваць наяўны(я) файл(ы)"
 
 #: libraries/config/messages.inc.php:184
 #, fuzzy
