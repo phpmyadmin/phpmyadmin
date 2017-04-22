@@ -1967,7 +1967,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
 
             // adjust g.cEditStd
             g.cEditStd.className = 'cEdit';
-            $(g.cEditStd).html('<input class="edit_box" rows="1" ></input><div class="edit_area" />');
+            $(g.cEditStd).html('<input class="edit_box" rows="1" /><div class="edit_area" />');
             $(g.cEditStd).hide();
 
             // adjust g.cEdit
