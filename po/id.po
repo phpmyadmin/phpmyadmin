@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.1-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-04-10 13:08+0200\n"
-"PO-Revision-Date: 2017-03-16 16:01+0000\n"
-"Last-Translator: Arif Budiman <arifpedia@gmail.com>\n"
-"Language-Team: Indonesian <https://hosted.weblate.org/projects/"
-"phpmyadmin/4-7/id/>\n"
+"PO-Revision-Date: 2017-04-22 23:01+0000\n"
+"Last-Translator: Dadan Setia <da2n_s@yahoo.co.id>\n"
+"Language-Team: Indonesian "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-7/id/>\n"
 "Language: id\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 2.12\n"
+"X-Generator: Weblate 2.14-dev\n"
 "X-Poedit-Basepath: ../../..\n"
 
 #: changelog.php:39 license.php:34
@@ -4866,14 +4866,16 @@ msgid "%B %d, %Y at %I:%M %p"
 msgstr "%d %B %Y pada %H.%M"
 
 #: libraries/Util.php:1588
+#, fuzzy
 msgctxt "AM/PM indication in time"
 msgid "PM"
-msgstr ""
+msgstr "PM"
 
 #: libraries/Util.php:1590
+#, fuzzy
 msgctxt "AM/PM indication in time"
 msgid "AM"
-msgstr ""
+msgstr "AM"
 
 #: libraries/Util.php:1966
 #, php-format
@@ -12111,6 +12113,8 @@ msgid ""
 "Connection to server is disabled, please enable $cfg['AllowArbitraryServer'] "
 "in phpMyAdmin configuration."
 msgstr ""
+"Koneksi ke server di non-aktifkan, silahkan aktifkan "
+"$cfg['AllowArbitraryServer'] pada konfigurasi phpMyAdmin."
 
 #: libraries/replication_gui.lib.php:914
 #, fuzzy
@@ -15242,7 +15246,7 @@ msgstr "Tambahkan server baru"
 
 #: setup/index.php:16
 msgid "Configuration already exists, setup is disabled!"
-msgstr ""
+msgstr "Konfigurasi sudah ada, persiapan di non-aktifkan!"
 
 #: setup/index.php:26
 #, fuzzy
