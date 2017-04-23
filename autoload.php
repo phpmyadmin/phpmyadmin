@@ -8,4 +8,4 @@
  * @see libraries/common.inc.php
  */
 
-return require __DIR__ . '/vendor/autoload.php';
+require __DIR__ . '/vendor/autoload.php';
