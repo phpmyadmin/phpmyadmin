@@ -34,6 +34,16 @@ class UtilExtension extends Twig_Extension
                 'PMA\libraries\Util::getImage',
                 array('is_safe' => array('html'))
             ),
+            new Twig_SimpleFunction(
+                'Util_formatSql',
+                'PMA\libraries\Util::formatSql',
+                array('is_safe' => array('html'))
+            ),
+            new Twig_SimpleFunction(
+                'Util_getHtmlTab',
+                'PMA\libraries\Util::getHtmlTab',
+                array('is_safe' => array('html'))
+            ),
         );
     }
 }
