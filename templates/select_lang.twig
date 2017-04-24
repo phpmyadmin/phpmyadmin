@@ -3,10 +3,10 @@
 
     {% if use_fieldset %}
         <fieldset>
-            <legend lang="en" dir="ltr">{{ language_title }}</legend>
+            <legend lang="en" dir="ltr">{{ language_title|raw }}</legend>
     {% else %}
         <bdo lang="en" dir="ltr">
-            <label for="sel-lang">{{ language_title }}</label>
+            <label for="sel-lang">{{ language_title|raw }}</label>
         </bdo>
     {% endif %}
 
@@ -19,7 +19,7 @@
                 selected="selected"
             {%- endif -%}
             >
-        {{ language.getName() }}
+        {{ language.getName()|raw }}
         </option>
     {% endfor %}
 
