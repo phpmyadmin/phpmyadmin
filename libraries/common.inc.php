@@ -75,14 +75,14 @@ require_once './libraries/vendor_config.php';
 /**
  * Activate autoloader
  */
-if (! @is_readable('./vendor/autoload.php')) {
+if (! @is_readable(AUTOLOAD_FILE)) {
     die(
-        'File <tt>./vendor/autoload.php</tt> missing or not readable. <br />'
+        'File <tt>' . AUTOLOAD_FILE . '</tt> missing or not readable. <br />'
         . 'Most likely you did not run Composer to '
         . '<a href="https://docs.phpmyadmin.net/en/latest/setup.html#installing-from-git">install library files</a>.'
     );
 }
-require_once './vendor/autoload.php';
+require_once AUTOLOAD_FILE;
 
 /**
  * Load gettext functions.
