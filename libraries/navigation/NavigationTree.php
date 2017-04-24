@@ -874,6 +874,7 @@ class NavigationTree
                 }
             }
         }
+        $retval .= $this->_getPageSelector($this->_tree);
         $retval .= "</ul></div>";
 
         return $retval;
@@ -912,6 +913,7 @@ class NavigationTree
                     $listContent .= $this->_renderNode($children[$i], true, 'last');
                 }
             }
+            $listContent .= $this->_getPageSelector($node);
             $retval .= $listContent;
             $retval .= "</ul>";
             if (!$GLOBALS['cfg']['ShowDatabasesNavigationAsTree']) {
@@ -1228,6 +1230,7 @@ class NavigationTree
                 $retval .= $this->_fastFilterHtml($node);
                 $retval .= $this->_getPageSelector($node);
                 $retval .= $buffer;
+                $retval .= $this->_getPageSelector($node);
                 if ($wrap) {
                     $retval .= "</ul></div>";
                 }
