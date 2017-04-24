@@ -14,6 +14,12 @@ if (! defined('PHPMYADMIN')) {
 }
 
 /**
+ * Path to vendor autoload file. Useful when you want to
+ * have have vendor dependencies somewhere else.
+ */
+define('AUTOLOAD_FILE', './../vendor/autoload.php');
+
+/**
  * Directory where cache files are stored.
  */
 define('CACHE_DIR', './cache/');
