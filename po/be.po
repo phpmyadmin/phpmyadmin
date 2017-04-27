@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-04-10 13:13+0200\n"
-"PO-Revision-Date: 2017-04-22 21:46+0000\n"
+"PO-Revision-Date: 2017-04-27 18:46+0000\n"
 "Last-Translator: Viktar Vauchkevich <victorenator@gmail.com>\n"
 "Language-Team: Belarusian "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/be/>\n"
@@ -17,16 +17,11 @@ msgstr ""
 "X-Generator: Weblate 2.14-dev\n"
 
 #: changelog.php:39 license.php:34
-#, fuzzy, php-format
-#| msgid ""
-#| "The %s file is not available on this system, please visit www.phpmyadmin."
-#| "net for more information."
+#, php-format
 msgid ""
 "The %s file is not available on this system, please visit %s for more "
 "information."
-msgstr ""
-"Файл %s недаступны на гэтай сістэме, падрабязнасці на сайце www.phpmyadmin."
-"net."
+msgstr "Файл %s недаступны на гэтай сістэме, падрабязнасці на %s."
 
 #: db_central_columns.php:108
 msgid "The central list of columns for the current database is empty."
@@ -289,8 +284,6 @@ msgstr "Дадзеныя"
 
 #: db_export.php:70 libraries/DbSearch.php:435
 #: libraries/display_export.lib.php:45 libraries/replication_gui.lib.php:379
-#, fuzzy
-#| msgid "Select All"
 msgid "Select all"
 msgstr "Выбраць усё"
 
@@ -319,10 +312,9 @@ msgid "You have to choose at least one column to display!"
 msgstr "Вам неабходна выбраць прынамсі адну калёнку для адлюстраваньня!"
 
 #: db_qbe.php:144
-#, fuzzy, php-format
-#| msgid "Switch to copied table"
+#, php-format
 msgid "Switch to %svisual builder%s"
-msgstr "Перайсьці да скапіяванай табліцы"
+msgstr "Перайсьці да %sвізуальнага канструктара%s"
 
 #: db_search.php:32 libraries/plugins/AuthenticationPlugin.php:110
 #: libraries/plugins/auth/AuthenticationConfig.php:89
