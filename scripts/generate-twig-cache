@@ -6,6 +6,7 @@ require_once 'libraries/vendor_config.php';
 
 use PMA\libraries\twig\I18nExtension;
 use PMA\libraries\twig\UrlExtension;
+use PMA\libraries\twig\UtilExtension;
 
 $tplDir = dirname(__FILE__) . '/../templates';
 $tmpDir = dirname(__FILE__) . '/../' . CACHE_DIR . 'twig';
@@ -18,6 +19,7 @@ $twig = new Twig_Environment($loader, array(
 ));
 $twig->addExtension(new I18nExtension());
 $twig->addExtension(new UrlExtension());
+$twig->addExtension(new UtilExtension());
 
 // iterate over all templates
 foreach (new RecursiveIteratorIterator(
