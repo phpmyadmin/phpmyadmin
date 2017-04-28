@@ -99,8 +99,7 @@ class Text_Plain_Iptobinary extends IOTransformationsPlugin
             . ' dir="' . $text_dir . '"'
             . ' class="' . $class . '"'
             . ' id="field_' . ($idindex) . '_3"'
-            . ' tabindex="' . ($tabindex + $tabindex_for_value) . '">'
-            . '</input>';
+            . ' tabindex="' . ($tabindex + $tabindex_for_value) . '" />';
 
         return $html;
     }

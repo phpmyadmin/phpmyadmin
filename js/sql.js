@@ -109,7 +109,7 @@ AJAX.registerTeardown('sql.js', function () {
     $("#togglequerybox").off('click');
     $(document).off('click', "#button_submit_query");
     $(document).off('change', '#id_bookmark');
-    $("input[name=bookmark_variable]").off("keypress");
+    $("input[name='bookmark_variable']").off("keypress");
     $(document).off('submit', "#sqlqueryform.ajax");
     $(document).off('click', "input[name=navig].ajax");
     $(document).off('submit', "form[name='displayOptionsForm'].ajax");
@@ -125,7 +125,7 @@ AJAX.registerTeardown('sql.js', function () {
         $('#sqlquery').off('input propertychange');
     }
     $('body').off('click', '.navigation .showAllRows');
-    $('body').off('click','a.browse_foreign');
+    $('body').off('click', 'a.browse_foreign');
     $('body').off('click', '#simulate_dml');
     $('body').off('keyup', '#sqlqueryform');
     $('body').off('click', 'form[name="resultsForm"].ajax button[name="submit_mult"], form[name="resultsForm"].ajax input[name="submit_mult"]');
@@ -324,7 +324,7 @@ AJAX.registerOnload('sql.js', function () {
         $varDiv.empty();
         for (var i = 1; i <= varCount; i++) {
             $varDiv.append($('<label for="bookmark_variable_' + i + '">' + PMA_sprintf(PMA_messages.strBookmarkVariable, i) + '</label>'));
-            $varDiv.append($('<input type="text" size="10" name="bookmark_variable[' + i + ']" id="bookmark_variable_' + i + '"></input>'));
+            $varDiv.append($('<input type="text" size="10" name="bookmark_variable[' + i + ']" id="bookmark_variable_' + i + '"/>'));
         }
 
         if (varCount == 0) {
