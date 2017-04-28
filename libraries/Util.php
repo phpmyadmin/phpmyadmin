@@ -1858,6 +1858,7 @@ class Util
                 }
                 $ret = '<form action="' . $url_parts['path'] . '" class="link"'
                      . ' method="post"' . $target . ' style="display: inline;">';
+                $ret .= URL::getHiddenInputs();
                 $subname_open   = '';
                 $subname_close  = '';
                 $submit_link    = '#';
