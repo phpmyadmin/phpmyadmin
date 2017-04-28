@@ -13,7 +13,7 @@ phpMyAdmin - ChangeLog
 - issue #13130 Fixed handling of errors in AJAX requests
 - issue #13152 Fixed PHP error in case of invalid table preferences
 - issue #13154 Fixed PHP error on password change
-- issue        Fix Refresh of Process List
+- issue #13219 Fix Refresh of Process List
 - issue #13182 Fix refresh of long queries
 
 4.7.0 (2017-03-28)
