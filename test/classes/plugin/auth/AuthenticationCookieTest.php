@@ -352,6 +352,27 @@ class AuthenticationCookieTest extends PMATestCase
         $this->mockResponse('Location: https://example.com/logout');
 
         $GLOBALS['cfg']['Server']['LogoutURL'] = 'https://example.com/logout';
+        $GLOBALS['cfg']['Server']['auth_type'] = 'cookie';
+
+        $this->object->logOut();
+    }
+
+    /**
+     * Test for PMA\libraries\plugins\auth\AuthenticationConfig::auth with headers
+     *
+     * @return void
+     */
+    public function testAuthHeaderPartial()
+    {
+        $GLOBALS['cfg']['LoginCookieDeleteAll'] = false;
+        $GLOBALS['cfg']['Servers'] = array(1, 2, 3);
+        $GLOBALS['cfg']['Server']['LogoutURL'] = 'https://example.com/logout';
+        $GLOBALS['cfg']['Server']['auth_type'] = 'cookie';
+        $GLOBALS['collation_connection'] = 'utf-8';
+
+        $_COOKIE['pmaAuth-2'] = '';
+
+        $this->mockResponse('Location: /phpmyadmin/index.php?server=2&lang=en&collation_connection=utf-8');
 
         $this->object->logOut();
     }
@@ -417,6 +438,7 @@ class AuthenticationCookieTest extends PMATestCase
         $GLOBALS['PMA_Config']->set('PmaAbsoluteUri', '');
         $GLOBALS['cfg']['Servers'] = array(1);
         $GLOBALS['server'] = 1;
+        $GLOBALS['cfg']['Server'] = array('auth_type' => 'cookie');
 
         $_COOKIE['pmaAuth-1'] = 'test';
 
