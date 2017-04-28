@@ -74,9 +74,17 @@ abstract class AuthenticationPlugin
         $PHP_AUTH_USER = '';
         $PHP_AUTH_PW = '';
 
+        /* Get a logged-in server count */
+        $servers = 0;
+        foreach ($GLOBALS['cfg']['Servers'] as $key => $val) {
+            if (isset($_COOKIE['pmaAuth-' . $key])) {
+                $servers++;
+            }
+        }
+
         /* delete user's choices that were stored in session */
-        $_SESSION = array();
-        if (!defined('TESTSUITE')) {
+        if ($servers === 0 and ! defined('TESTSUITE')) {
+            $_SESSION = array();
             session_destroy();
         }
 
