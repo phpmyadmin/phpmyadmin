@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-04-10 13:13+0200\n"
-"PO-Revision-Date: 2017-04-27 18:46+0000\n"
+"PO-Revision-Date: 2017-04-28 21:12+0000\n"
 "Last-Translator: Viktar Vauchkevich <victorenator@gmail.com>\n"
 "Language-Team: Belarusian "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/be/>\n"
@@ -335,15 +335,12 @@ msgid ""
 msgstr ""
 
 #: db_tracking.php:93
-#, fuzzy
-#| msgid "No databases selected."
 msgid "No tables selected."
-msgstr "Ня выбраная база дадзеных."
+msgstr "Не выбрана ніводнай табліцы."
 
 #: db_tracking.php:150
-#, fuzzy
 msgid "Database Log"
-msgstr "База дадзеных"
+msgstr "Журнал базы дадзеных"
 
 #: error_report.php:68
 msgid ""
@@ -370,15 +367,12 @@ msgid "You may want to refresh the page."
 msgstr ""
 
 #: export.php:192 schema_export.php:64
-#, fuzzy
 msgid "Bad type!"
-msgstr "Тып запыту"
+msgstr "Памылковы тып!"
 
 #: export.php:275
-#, fuzzy
-#| msgid "Add new field"
 msgid "Bad parameters!"
-msgstr "Дадаць новае поле"
+msgstr "Памылковыя параметры!"
 
 #: gis_data_editor.php:119
 #, php-format
@@ -422,16 +416,13 @@ msgstr ""
 
 #: gis_data_editor.php:256 gis_data_editor.php:312 gis_data_editor.php:390
 #: js/messages.php:520
-#, fuzzy
-#| msgid "Add new field"
 msgid "Add a point"
-msgstr "Дадаць новае поле"
+msgstr "Дадаць кропку"
 
 #: gis_data_editor.php:273
-#, fuzzy, php-format
-#| msgid "Lines terminated by"
+#, php-format
 msgid "Linestring %d:"
-msgstr "Радкі падзеленыя"
+msgstr "Адрэзак %d:"
 
 #: gis_data_editor.php:276 gis_data_editor.php:353
 msgid "Outer ring:"
@@ -443,33 +434,25 @@ msgid "Inner ring %d:"
 msgstr ""
 
 #: gis_data_editor.php:315
-#, fuzzy
-#| msgid "Add a new User"
 msgid "Add a linestring"
-msgstr "Дадаць новага карыстальніка"
+msgstr "Дадаць адрэзак"
 
 #: gis_data_editor.php:316 gis_data_editor.php:395 js/messages.php:521
-#, fuzzy
-#| msgid "Add a new User"
 msgid "Add an inner ring"
-msgstr "Дадаць новага карыстальніка"
+msgstr "Дадаць унутранае кальцо"
 
 #: gis_data_editor.php:337
-#, fuzzy, php-format
-#| msgid "Add %s field(s)"
+#, php-format
 msgid "Polygon %d:"
-msgstr "Дадаць %s новыя палі"
+msgstr "Шматкутнік %d:"
 
 #: gis_data_editor.php:401
-#, fuzzy
-#| msgid "Add %s field(s)"
 msgid "Add a polygon"
-msgstr "Дадаць %s новыя палі"
+msgstr "Дадаць шматкутнік"
 
 #: gis_data_editor.php:407
-#, fuzzy
 msgid "Add geometry"
-msgstr "Дадаць новага карыстальніка"
+msgstr "Дадаць геаметрыю"
 
 #: gis_data_editor.php:413 js/messages.php:349 libraries/DbSearch.php:456
 #: libraries/DisplayResults.php:1811 libraries/browse_foreigners.lib.php:137
@@ -522,32 +505,25 @@ msgid ""
 msgstr ""
 
 #: import.php:64
-#, fuzzy
-#| msgid "Access denied!"
 msgid "Succeeded"
-msgstr "У доступе адмоўлена!"
+msgstr "Паспяхова"
 
 #: import.php:68 js/messages.php:607
 msgid "Failed"
 msgstr ""
 
 #: import.php:72
-#, fuzzy
-#| msgid "Complete inserts"
 msgid "Incomplete params"
-msgstr "Поўная ўстаўка"
+msgstr "Няпоўныя параметры"
 
 #: import.php:196
-#, fuzzy, php-format
-#| msgid ""
-#| "You probably tried to upload too large file. Please refer to "
-#| "%sdocumentation%s for ways to workaround this limit."
+#, php-format
 msgid ""
 "You probably tried to upload a file that is too large. Please refer to "
 "%sdocumentation%s for a workaround for this limit."
 msgstr ""
 "Вы, мусіць, паспрабавалі загрузіць вельмі вялікі файл. Калі ласка, "
-"зьвярніцеся да %sдакумэнтацыі%s для высьвятленьня спосабаў абыйсьці гэтае "
+"звярніцеся да %sдакументацыі%s для высвятлення спосабаў абыйсьці гэтае "
 "абмежаваньне."
 
 #: import.php:378 import.php:579
@@ -574,31 +550,27 @@ msgstr ""
 "Немагчыма загрузіць плагіны імпартаваньня, калі ласка, праверце ўсталёўку!"
 
 #: import.php:582 libraries/sql.lib.php:788 libraries/sql.lib.php:1564
-#, fuzzy, php-format
-#| msgid "Bookmark %s created"
+#, php-format
 msgid "Bookmark %s has been created."
-msgstr "Закладка %s створаная"
+msgstr "Закладка %s створаная."
 
 #: import.php:592
-#, fuzzy, php-format
-#| msgid "Import has been successfully finished, %d queries executed."
+#, php-format
 msgid "Import has been successfully finished, %d query executed."
 msgid_plural "Import has been successfully finished, %d queries executed."
-msgstr[0] "Імпартраваньне пасьпяхова завершанае, выканана %d запытаў."
-msgstr[1] "Імпартраваньне пасьпяхова завершанае, выканана %d запытаў."
+msgstr[0] "Імпартраваньне пасьпяхова завершанае, выканана %d запыт."
+msgstr[1] "Імпартраваньне пасьпяхова завершанае, выканана %d запыта."
 msgstr[2] "Імпартраваньне пасьпяхова завершанае, выканана %d запытаў."
 
 #: import.php:621
-#, fuzzy, php-format
-#| msgid ""
-#| "Script timeout passed, if you want to finish import, please resubmit same "
-#| "file and import will resume."
+#, php-format
 msgid ""
 "Script timeout passed, if you want to finish import, please %sresubmit the "
 "same file%s and import will resume."
 msgstr ""
 "Выйшаў дазволены час выкананьня скрыпта. Калі вы хочаце завершыць "
-"імпартаваньне, калі ласка, загрузіце файл зноў і імпартаваньне ўзнавіцца."
+"імпартаваньне, калі ласка, %s загрузіце файл %s зноў і імпартаваньне "
+"ўзнавіцца."
 
 #: import.php:631
 msgid ""
@@ -624,9 +596,8 @@ msgid "Back"
 msgstr "Назад"
 
 #: index.php:153 libraries/Footer.php:69
-#, fuzzy
 msgid "phpMyAdmin Demo Server"
-msgstr "Дакумэнтацыя па phpMyAdmin"
+msgstr "Дэма-сервер phpMyAdmin"
 
 #: index.php:157
 #, php-format
@@ -637,10 +608,8 @@ msgid ""
 msgstr ""
 
 #: index.php:167
-#, fuzzy
-#| msgid "General relation features"
 msgid "General settings"
-msgstr "Магчымасьці асноўных сувязяў"
+msgstr "Асноўныя налады"
 
 #: index.php:197 js/messages.php:640
 #: libraries/display_change_password.lib.php:47
@@ -649,93 +618,70 @@ msgid "Change password"
 msgstr "Зьмяніць пароль"
 
 #: index.php:214
-#, fuzzy
-#| msgid "MySQL connection collation"
 msgid "Server connection collation"
-msgstr "Супастаўленьне падлучэньня да MySQL"
+msgstr "Супастаўленьне сервернага падлучэньня"
 
 #: index.php:235
-#, fuzzy
-#| msgid "General relation features"
 msgid "Appearance settings"
-msgstr "Магчымасьці асноўных сувязяў"
+msgstr "Налады выгляду"
 
 #: index.php:268 prefs_manage.php:294
-#, fuzzy
-#| msgid "General relation features"
 msgid "More settings"
-msgstr "Магчымасьці асноўных сувязяў"
+msgstr "Дадатковыя налады"
 
 #: index.php:290
-#, fuzzy
-#| msgid "Database for user"
 msgid "Database server"
-msgstr "База дадзеных для карыстальніка"
+msgstr "Сервер базы дадзеных"
 
 #: index.php:293 libraries/plugins/auth/AuthenticationCookie.php:188
 msgid "Server:"
 msgstr "Сэрвэр:"
 
 #: index.php:297
-#, fuzzy
 msgid "Server type:"
-msgstr "ID сэрвэра"
+msgstr "Тып сервера:"
 
 #: index.php:301 libraries/plugins/export/ExportLatex.php:220
 #: libraries/plugins/export/ExportSql.php:701
 #: libraries/plugins/export/ExportXml.php:242
-#, fuzzy
-#| msgid "Server version"
 msgid "Server version:"
-msgstr "Вэрсія сэрвэра"
+msgstr "Версія сервера:"
 
 #: index.php:307
-#, fuzzy
-#| msgid "Protocol version"
 msgid "Protocol version:"
-msgstr "Вэрсія пратаколу"
+msgstr "Вэрсія пратаколу:"
 
 #: index.php:311
-#, fuzzy
-#| msgid "User"
 msgid "User:"
-msgstr "Карыстальнік"
+msgstr "Карыстальнік:"
 
 #: index.php:316
-#, fuzzy
 msgid "Server charset:"
-msgstr "Выбар сэрвэра"
+msgstr "Кадаванне сэрвэра:"
 
 #: index.php:329
 msgid "Web server"
 msgstr "Вэб-сэрвэр"
 
 #: index.php:340
-#, fuzzy
 msgid "Database client version:"
-msgstr "Вэрсія кліента MySQL"
+msgstr "Вэрсія кліента базы даных:"
 
 #: index.php:344
-#, fuzzy
-#| msgid "PHP extension"
 msgid "PHP extension:"
-msgstr "Пашырэньне PHP"
+msgstr "PHP-пашырэньні:"
 
 #: index.php:358
-#, fuzzy
-#| msgid "PHP Version"
 msgid "PHP version:"
-msgstr "Вэрсія PHP"
+msgstr "Вэрсія PHP:"
 
 #: index.php:369
 msgid "Show PHP information"
 msgstr "Паказаць інфармацыю пра PHP"
 
 #: index.php:388
-#, fuzzy
-#| msgid "Version information"
 msgid "Version information:"
-msgstr "Інфармацыя пра вэрсію"
+msgstr "Інфармацыя пра вэрсію:"
 
 #: index.php:397 libraries/Sanitize.php:189 libraries/Util.php:336
 #: libraries/Util.php:403 libraries/config/FormDisplay.tpl.php:165
@@ -750,20 +696,16 @@ msgid "Official Homepage"
 msgstr "Афіцыйная старонка phpMyAdmin"
 
 #: index.php:413
-#, fuzzy
-#| msgid "Attributes"
 msgid "Contribute"
-msgstr "Атрыбуты"
+msgstr "Удзельнічаць"
 
 #: index.php:420
 msgid "Get support"
 msgstr ""
 
 #: index.php:427
-#, fuzzy
-#| msgid "No change"
 msgid "List of changes"
-msgstr "Няма зьменаў"
+msgstr "Спіс зьменаў"
 
 #: index.php:434 templates/server/plugins/section.phtml:12
 msgid "License"
