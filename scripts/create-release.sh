@@ -250,6 +250,7 @@ fi
 # Remove git metadata
 rm .git
 find . -name .gitignore -print0 | xargs -0 -r rm -f
+find . -name .gitattributes -print0 | xargs -0 -r rm -f
 
 if [ $do_test -eq 1 ] ; then
     composer update
