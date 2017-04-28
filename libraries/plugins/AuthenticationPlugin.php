@@ -8,6 +8,7 @@
 namespace PMA\libraries\plugins;
 
 use PMA\libraries\Sanitize;
+use PMA\libraries\URL;
 
 /**
  * Provides a common interface that will have to be implemented by all of the
@@ -74,22 +75,36 @@ abstract class AuthenticationPlugin
         $PHP_AUTH_USER = '';
         $PHP_AUTH_PW = '';
 
-        /* Get a logged-in server count */
-        $servers = 0;
-        foreach ($GLOBALS['cfg']['Servers'] as $key => $val) {
-            if (isset($_COOKIE['pmaAuth-' . $key])) {
-                $servers++;
+        /*
+         * Get a logged-in server count in case of LoginCookieDeleteAll is disabled.
+         */
+        $server = 0;
+        if ($GLOBALS['cfg']['LoginCookieDeleteAll'] === false
+            && $GLOBALS['cfg']['Server']['auth_type'] == 'cookie'
+        ) {
+            foreach ($GLOBALS['cfg']['Servers'] as $key => $val) {
+                if (isset($_COOKIE['pmaAuth-' . $key])) {
+                    $server = $key;
+                }
             }
         }
 
-        /* delete user's choices that were stored in session */
-        if ($servers === 0 and ! defined('TESTSUITE')) {
-            $_SESSION = array();
-            session_destroy();
-        }
+        if ($server === 0) {
+            /* delete user's choices that were stored in session */
+            if (! defined('TESTSUITE')) {
+                $_SESSION = array();
+                session_destroy();
+            }
 
-        /* Redirect to login form (or configured URL) */
-        PMA_sendHeaderLocation($redirect_url);
+            /* Redirect to login form (or configured URL) */
+            PMA_sendHeaderLocation($redirect_url);
+        } else {
+            /* Redirect to other autenticated server */
+            $_SESSION['partial_logout'] = true;
+            PMA_sendHeaderLocation(
+                './index.php' . URL::getCommonRaw(array('server' => $server))
+            );
+        }
     }
 
     /**

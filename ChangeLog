@@ -15,6 +15,7 @@ phpMyAdmin - ChangeLog
 - issue #13154 Fixed PHP error on password change
 - issue #13219 Fix Refresh of Process List
 - issue #13182 Fix refresh of long queries
+- issue #12301 Improved handling of logout with disabled LoginCookieDeleteAll
 
 4.7.0 (2017-03-28)
 - patch #12233 [Display] Improve message when renaming database to same name
