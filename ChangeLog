@@ -11,6 +11,7 @@ phpMyAdmin - ChangeLog
 - issue #13119 No database selected error when adding foreign key
 - issue #12388 Improved database search to allow search for exact phrase match
 - issue #13099 Report error when trying to copy database to same name
+- issue #13225 Run Twig in degraded mode if cache is not available
 
 4.7.1 (not yet released)
 - issue #13132 Always execute tracking queries as controluser
