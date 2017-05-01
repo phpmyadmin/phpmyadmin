@@ -12,6 +12,10 @@ use PMA\libraries\properties\plugins\ImportPluginProperties;
 use PMA;
 use PMA\libraries\plugins\ImportPlugin;
 
+if (! defined('PHPMYADMIN')) {
+    exit;
+}
+
 /**
  * Handles the import for the MediaWiki format
  *

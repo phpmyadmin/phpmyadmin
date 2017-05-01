@@ -13,7 +13,7 @@ use PMA;
 use PMA\libraries\plugins\import\AbstractImportCsv;
 use PMA\libraries\properties\options\items\TextPropertyItem;
 
-if (!defined('PHPMYADMIN')) {
+if (! defined('PHPMYADMIN')) {
     exit;
 }
 

@@ -16,6 +16,10 @@ use PMA\libraries\properties\options\groups\OptionsPropertyMainGroup;
 use PMA\libraries\properties\options\groups\OptionsPropertyRootGroup;
 use PMA;
 
+if (! defined('PHPMYADMIN')) {
+    exit;
+}
+
 /**
  * Handles the export for the PHP Array class
  *

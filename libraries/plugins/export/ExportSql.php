@@ -28,6 +28,10 @@ use PhpMyAdmin\SqlParser\Statements\SelectStatement;
 use PhpMyAdmin\SqlParser\Token;
 use PMA\libraries\properties\options\items\TextPropertyItem;
 
+if (! defined('PHPMYADMIN')) {
+    exit;
+}
+
 /**
  * Handles the export for the SQL class
  *

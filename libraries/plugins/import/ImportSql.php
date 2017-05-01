@@ -16,6 +16,10 @@ use PMA;
 use PMA\libraries\plugins\ImportPlugin;
 use PMA\libraries\properties\options\items\SelectPropertyItem;
 
+if (! defined('PHPMYADMIN')) {
+    exit;
+}
+
 /**
  * Handles the import for the SQL format
  *

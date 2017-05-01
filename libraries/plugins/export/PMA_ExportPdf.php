@@ -13,6 +13,10 @@ use PMA\libraries\PDF;
 use PMA\libraries\Util;
 use TCPDF_STATIC;
 
+if (! defined('PHPMYADMIN')) {
+    exit;
+}
+
 /**
  * Adapted from a LGPL script by Philip Clarke
  *

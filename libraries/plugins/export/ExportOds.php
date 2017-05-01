@@ -18,6 +18,10 @@ use PMA\libraries\DatabaseInterface;
 use PMA\libraries\properties\options\items\TextPropertyItem;
 use PMA\libraries\OpenDocument;
 
+if (! defined('PHPMYADMIN')) {
+    exit;
+}
+
 $GLOBALS['ods_buffer'] = '';
 
 /**
