@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.1-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-04-10 13:08+0200\n"
-"PO-Revision-Date: 2017-04-28 21:12+0000\n"
+"PO-Revision-Date: 2017-05-03 22:14+0000\n"
 "Last-Translator: Viktar Vauchkevich <victorenator@gmail.com>\n"
 "Language-Team: Belarusian "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-7/be/>\n"
@@ -324,9 +324,8 @@ msgid "Access denied!"
 msgstr "У доступе адмоўлена!"
 
 #: db_tracking.php:53 db_tracking.php:78
-#, fuzzy
 msgid "Tracking data deleted successfully."
-msgstr "Рэплікацыя"
+msgstr "Даныя адсочвання паспяхова выдаленыя."
 
 #: db_tracking.php:62
 #, php-format
@@ -759,16 +758,13 @@ msgid ""
 msgstr ""
 
 #: index.php:555
-#, fuzzy, php-format
-#| msgid ""
-#| " additional features for working with linked tables have been ctivated. "
-#| "To find out why click %shere%s."
+#, php-format
 msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
 "extended features have been deactivated. %sFind out why%s. "
 msgstr ""
-"Дадатковыя магчымасьці работы з зьвязанымі табліцамі былі адключаныя. Каб "
-"высьветліць чаму, націсьніце %sтут%s."
+"Сховішча канфігурацыі phpMyAdmin не поўнасцю наладжана — некаторыя пашыраныя "
+"функцыі дэактываваліся. %sДаведайцеся чаму%s. "
 
 #: index.php:562
 msgid ""
@@ -789,10 +785,9 @@ msgid "Confirm"
 msgstr ""
 
 #: js/messages.php:44
-#, fuzzy, php-format
-#| msgid "Do you really want to "
+#, php-format
 msgid "Do you really want to execute \"%s\"?"
-msgstr "Ці сапраўды вы жадаеце "
+msgstr "Ці сапраўды вы жадаеце выканаць «%s»?"
 
 #: js/messages.php:46 libraries/mult_submits.lib.php:444
 msgid "You are about to DESTROY a complete database!"
@@ -803,100 +798,74 @@ msgid "Cannot rename database to the same name. Change the name and try again"
 msgstr ""
 
 #: js/messages.php:50
-#, fuzzy
-#| msgid "You are about to DESTROY a complete database!"
 msgid "You are about to DESTROY a complete table!"
-msgstr "Вы зьбіраеце ВЫДАЛІЦЬ базу дадзеных цалкам!"
+msgstr "Вы зьбіраеце ВЫДАЛІЦЬ табліцу цалкам!"
 
 #: js/messages.php:52
-#, fuzzy
-#| msgid "You are about to DESTROY a complete database!"
 msgid "You are about to TRUNCATE a complete table!"
-msgstr "Вы зьбіраеце ВЫДАЛІЦЬ базу дадзеных цалкам!"
+msgstr "Вы зьбіраеце УСЯЧЫ табліцу цалкам!"
 
 #: js/messages.php:53
-#, fuzzy
-#| msgid "Dumping data for table"
 msgid "Delete tracking data for this table?"
-msgstr "Дамп дадзеных табліцы"
+msgstr "Выдаліць даныя адсочвання для гэтай табліцы?"
 
 #: js/messages.php:55
-#, fuzzy
-#| msgid "Dumping data for table"
 msgid "Delete tracking data for these tables?"
-msgstr "Дамп дадзеных табліцы"
+msgstr "Выдаліць даныя адсочвання для гэтах табліц?"
 
 #: js/messages.php:57
-#, fuzzy
-#| msgid "Allows inserting and replacing data."
 msgid "Delete tracking data for this version?"
-msgstr "Дазваляе ўстаўляць і замяняць дадзеныя."
+msgstr "Выдаліць даныя адсочвання для гэтай версіі?"
 
 #: js/messages.php:59
-#, fuzzy
-#| msgid "Allows inserting and replacing data."
 msgid "Delete tracking data for these versions?"
-msgstr "Дазваляе ўстаўляць і замяняць дадзеныя."
+msgstr "Выдаліць даныя адсочвання для гэтых версій?"
 
 #: js/messages.php:60
-#, fuzzy
-#| msgid "Allows inserting and replacing data."
 msgid "Delete entry from tracking report?"
-msgstr "Дазваляе ўстаўляць і замяняць дадзеныя."
+msgstr "Выдаліць запіс са справаздача адсочвання?"
 
 #: js/messages.php:61
-#, fuzzy
-#| msgid "Allows inserting and replacing data."
 msgid "Deleting tracking data"
-msgstr "Дазваляе ўстаўляць і замяняць дадзеныя."
+msgstr "Выдаленне даныя адсочвання"
 
 #: js/messages.php:62
 msgid "Dropping Primary Key/Index"
 msgstr ""
 
 #: js/messages.php:63
-#, fuzzy
-#| msgid "Select Foreign Key"
 msgid "Dropping Foreign key."
-msgstr "Выберыце зьнешні ключ"
+msgstr "Выдаленне знешняга ключа."
 
 #: js/messages.php:65
 msgid "This operation could take a long time. Proceed anyway?"
 msgstr "Гэтая апэрацыя можа заняць шмат часу. Працягваць?"
 
 #: js/messages.php:67
-#, fuzzy, php-format
-#| msgid "Do you really want to "
+#, php-format
 msgid "Do you really want to delete user group \"%s\"?"
-msgstr "Ці сапраўды вы жадаеце "
+msgstr "Ці сапраўды вы жадаеце выдаліць групу карыстальнікаў «%s»?"
 
 #: js/messages.php:69
-#, fuzzy, php-format
-#| msgid "Do you really want to "
+#, php-format
 msgid "Do you really want to delete the search \"%s\"?"
-msgstr "Ці сапраўды вы жадаеце "
+msgstr "Ці сапраўды вы жадаеце выдаліць пошук «%s»?"
 
 #: js/messages.php:71
 msgid "You have unsaved changes; are you sure you want to leave this page?"
 msgstr ""
 
 #: js/messages.php:73
-#, fuzzy
-#| msgid "Do you really want to "
 msgid "Do you really want to revoke the selected user(s) ?"
-msgstr "Ці сапраўды вы жадаеце "
+msgstr "Ці сапраўды вы жадаеце адклікаць абранага(ых) карыстальніка(аў)?"
 
 #: js/messages.php:75
-#, fuzzy
-#| msgid "Do you really want to "
 msgid "Do you really want to delete this central column?"
-msgstr "Ці сапраўды вы жадаеце "
+msgstr "Ці сапраўды вы жадаеце выдаліць гэты цэнтральны слупок?"
 
 #: js/messages.php:77
-#, fuzzy
-#| msgid "Do you really want to "
 msgid "Do you really want to delete the selected items?"
-msgstr "Ці сапраўды вы жадаеце "
+msgstr "Ці сапраўды вы жадаеце выдаліць абраныя элементы?"
 
 #: js/messages.php:79
 msgid ""
@@ -905,22 +874,16 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:83
-#, fuzzy
-#| msgid "Do you really want to "
 msgid "Do you really want to TRUNCATE the selected partition(s)?"
-msgstr "Ці сапраўды вы жадаеце "
+msgstr "Ці сапраўды вы жадаеце ўсекчы абраны раздзел(ы)?"
 
 #: js/messages.php:85
-#, fuzzy
-#| msgid "Do you really want to "
 msgid "Do you really want to remove partitioning?"
-msgstr "Ці сапраўды вы жадаеце "
+msgstr "Ці сапраўды вы жадаеце выдаліць раздзелы?"
 
 #: js/messages.php:86
-#, fuzzy
-#| msgid "Do you really want to "
 msgid "Do you really want to RESET SLAVE?"
-msgstr "Ці сапраўды вы жадаеце "
+msgstr "Ці сапраўды вы жадаеце СКІНУЦЬ ПАДНАЧАЛЕНЫ СЕРВЕР?"
 
 #: js/messages.php:88
 msgid ""
@@ -956,10 +919,8 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:111
-#, fuzzy
-#| msgid "Save as file"
 msgid "Save & close"
-msgstr "Захаваць як файл"
+msgstr "Захаваць і закрыць"
 
 #: js/messages.php:112 libraries/config/FormDisplay.tpl.php:426
 #: libraries/insert_edit.lib.php:1619 prefs_manage.php:375 prefs_manage.php:386
@@ -967,80 +928,57 @@ msgid "Reset"
 msgstr "Скінуць"
 
 #: js/messages.php:113
-#, fuzzy
-#| msgid "Select All"
 msgid "Reset all"
-msgstr "Выбраць усё"
+msgstr "Скінуць усё"
 
 #: js/messages.php:116
 msgid "Missing value in the form!"
 msgstr "Не зададзенае значэньне ў форме!"
 
 #: js/messages.php:117
-#, fuzzy
-#| msgid "at least one of the words"
 msgid "Select at least one of the options!"
-msgstr "прынамсі адно з словаў"
+msgstr "Абырыце прынамсі адзін з варыянтаў!"
 
 #: js/messages.php:118
-#, fuzzy
-#| msgid "%d is not valid row number."
 msgid "Please enter a valid number!"
-msgstr "%d не зьяўляецца карэктным нумарам радка."
+msgstr "Калі ласка, увядіце карэктны лік!"
 
 #: js/messages.php:119
-#, fuzzy
-#| msgid "%d is not valid row number."
 msgid "Please enter a valid length!"
-msgstr "%d не зьяўляецца карэктным нумарам радка."
+msgstr "Калі ласка, увядзіце карэктную даўжыню!"
 
 #: js/messages.php:120
-#, fuzzy
-#| msgid "Add new field"
 msgid "Add index"
-msgstr "Дадаць новае поле"
+msgstr "Дадаць індэкс"
 
 #: js/messages.php:121
-#, fuzzy
-#| msgid "Edit next row"
 msgid "Edit index"
-msgstr "Рэдагаваць наступны радок"
+msgstr "Рэдагаваць індэкс"
 
 #: js/messages.php:122 templates/table/index_form.phtml:235
-#, fuzzy, php-format
-#| msgid "Add %s field(s)"
+#, php-format
 msgid "Add %s column(s) to index"
-msgstr "Дадаць %s новыя палі"
+msgstr "Дадаць %s слупок(і) да індэкса"
 
 #: js/messages.php:123
-#, fuzzy
-#| msgid "Create routine"
 msgid "Create single-column index"
-msgstr "Стварыць сувязь"
+msgstr "Стварыць індэкс па адным слупку"
 
 #: js/messages.php:124
-#, fuzzy
-#| msgid "Create routine"
 msgid "Create composite index"
-msgstr "Стварыць сувязь"
+msgstr "Стварыць складаны індэкс"
 
 #: js/messages.php:125
-#, fuzzy
-#| msgid "Fields enclosed by"
 msgid "Composite with:"
-msgstr "Палі ўзятыя ў"
+msgstr "Складаецца з:"
 
 #: js/messages.php:126
-#, fuzzy
-#| msgid "Add %s field(s)"
 msgid "Please select column(s) for the index."
-msgstr "Дадаць %s новыя палі"
+msgstr "Калі ласка, абярыце слупок(і) для індэкса."
 
 #: js/messages.php:129 templates/table/structure/add_column.phtml:1
-#, fuzzy
-#| msgid "You have to add at least one field."
 msgid "You have to add at least one column."
-msgstr "Трэба дадаць прынамсі адно поле."
+msgstr "Трэба дадаць прынамсі адзін слупок."
 
 #: js/messages.php:132 libraries/insert_edit.lib.php:1617
 #: templates/columns_definitions/column_definitions_form.phtml:163
@@ -1050,29 +988,21 @@ msgid "Preview SQL"
 msgstr ""
 
 #: js/messages.php:135
-#, fuzzy
-#| msgid "in query"
 msgid "Simulate query"
-msgstr "па запыту"
+msgstr "Сімуляваць запыт"
 
 #: js/messages.php:136
-#, fuzzy
-#| msgid "Latched pages"
 msgid "Matched rows:"
-msgstr "Фіксаваныя старонкі"
+msgstr "Закранута радкоў:"
 
 #: js/messages.php:137 libraries/Util.php:590
-#, fuzzy
-#| msgid "SQL query"
 msgid "SQL query:"
-msgstr "SQL-запыт"
+msgstr "SQL-запыт:"
 
 #. l10n: Default label for the y-Axis of Charts
 #: js/messages.php:141
-#, fuzzy
-#| msgid "Value"
 msgid "Y values"
-msgstr "Значэньне"
+msgstr "Значэнне Y"
 
 #: js/messages.php:144
 msgid "The host name is empty!"
@@ -1093,10 +1023,8 @@ msgid "The passwords aren't the same!"
 msgstr "Паролі не супадаюць!"
 
 #: js/messages.php:148
-#, fuzzy
-#| msgid "Remove selected users"
 msgid "Removing Selected Users"
-msgstr "Выдаліць выбраных карыстальнікаў"
+msgstr "Выдаленне абраных карыстальнікаў"
 
 #: js/messages.php:149 js/messages.php:216 libraries/tracking.lib.php:469
 #: libraries/tracking.lib.php:835
@@ -1104,26 +1032,20 @@ msgid "Close"
 msgstr ""
 
 #: js/messages.php:152
-#, fuzzy
-#| msgid "The number of pages created."
 msgid "Template was created."
-msgstr "Колькасьць створаных старонак."
+msgstr "Шаблон створаны."
 
 #: js/messages.php:153
 msgid "Template was loaded."
 msgstr ""
 
 #: js/messages.php:154
-#, fuzzy
-#| msgid "The profile has been updated."
 msgid "Template was updated."
-msgstr "Профіль быў адноўлены."
+msgstr "Шаблон быў абноўлены."
 
 #: js/messages.php:155
-#, fuzzy
-#| msgid "The row has been deleted."
 msgid "Template was deleted."
-msgstr "Радок быў выдалены"
+msgstr "Шаблон быў выдалены."
 
 #. l10n: Other, small valued, queries
 #: js/messages.php:158 libraries/ServerStatusData.php:132
@@ -1144,16 +1066,12 @@ msgid "."
 msgstr "."
 
 #: js/messages.php:164
-#, fuzzy
-#| msgid "Connections"
 msgid "Connections / Processes"
-msgstr "Падлучэньні"
+msgstr "Злучэньні / Працэсы"
 
 #: js/messages.php:168
-#, fuzzy
-#| msgid "Could not load default configuration from: \"%1$s\""
 msgid "Local monitor configuration incompatible!"
-msgstr "Немагчыма загрузіць канфігурацыю па змоўчаньні з: \"%1$s\""
+msgstr "Несумясцімая канфігурацыя лакальнага манітора!"
 
 #: js/messages.php:170
 msgid ""
@@ -1164,28 +1082,20 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:176
-#, fuzzy
-#| msgid "Query cache"
 msgid "Query cache efficiency"
-msgstr "Кэш запытаў"
+msgstr "Эфектыўнасць кэшу запытаў"
 
 #: js/messages.php:177
-#, fuzzy
-#| msgid "Query cache"
 msgid "Query cache usage"
-msgstr "Кэш запытаў"
+msgstr "Выкарыстанне кэшу запытаў"
 
 #: js/messages.php:178
-#, fuzzy
-#| msgid "Query cache"
 msgid "Query cache used"
-msgstr "Кэш запытаў"
+msgstr "Выкарыстаны кэш запытаў"
 
 #: js/messages.php:180
-#, fuzzy
-#| msgid "CPU Usage"
 msgid "System CPU usage"
-msgstr "Выкарыстаньне"
+msgstr "Выкарыстаньне сістэмнага працэсара"
 
 #: js/messages.php:181
 msgid "System memory"
@@ -1200,20 +1110,16 @@ msgid "Average load"
 msgstr ""
 
 #: js/messages.php:185
-#, fuzzy
-#| msgid "Log file count"
 msgid "Total memory"
-msgstr "Колькасьць файлаў логу"
+msgstr "Агульны аб'ём памяці"
 
 #: js/messages.php:186
 msgid "Cached memory"
 msgstr ""
 
 #: js/messages.php:187
-#, fuzzy
-#| msgid "Buffer Pool"
 msgid "Buffered memory"
-msgstr "Пул буфэру"
+msgstr "Буферная памяць"
 
 #: js/messages.php:188
 msgid "Free memory"
@@ -1224,36 +1130,28 @@ msgid "Used memory"
 msgstr ""
 
 #: js/messages.php:191
-#, fuzzy
-#| msgid "Total"
 msgid "Total swap"
-msgstr "Агулам"
+msgstr "Агульны аб'ём свапа"
 
 #: js/messages.php:192
-#, fuzzy
-#| msgid "memcached usage"
 msgid "Cached swap"
-msgstr "Выкарыстаньне прасторы"
+msgstr "Закэшыраваны аб'ём свапа"
 
 #: js/messages.php:193
 msgid "Used swap"
 msgstr ""
 
 #: js/messages.php:194
-#, fuzzy
-#| msgid "Free pages"
 msgid "Free swap"
-msgstr "Вольных старонак"
+msgstr "Вольны аб'ём свапа"
 
 #: js/messages.php:196
 msgid "Bytes sent"
 msgstr ""
 
 #: js/messages.php:197
-#, fuzzy
-#| msgid "Received"
 msgid "Bytes received"
-msgstr "Атрымана"
+msgstr "Атрымана байтаў"
 
 #: js/messages.php:198 libraries/server_status.lib.php:232
 msgid "Connections"
@@ -1303,16 +1201,14 @@ msgid "EiB"
 msgstr "ЭіБ"
 
 #: js/messages.php:209
-#, fuzzy, php-format
-#| msgid "%s table(s)"
+#, php-format
 msgid "%d table(s)"
-msgstr "%s табліц(ы)"
+msgstr "%d табліц(a,ы)"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:212
-#, fuzzy
 msgid "Questions"
-msgstr "Пэрсыдзкая"
+msgstr "Пытанні"
 
 #: js/messages.php:213 libraries/server_status.lib.php:140
 msgid "Traffic"
@@ -1320,16 +1216,12 @@ msgstr "Трафік"
 
 #: js/messages.php:214 libraries/Menu.php:592 libraries/Util.php:4100
 #: libraries/server_status_monitor.lib.php:253
-#, fuzzy
-#| msgid "General relation features"
 msgid "Settings"
-msgstr "Магчымасьці асноўных сувязяў"
+msgstr "Налады"
 
 #: js/messages.php:215
-#, fuzzy
-#| msgid "Snap to grid"
 msgid "Add chart to grid"
-msgstr "Зьвяць зь сеткай"
+msgstr "Дадаць графік да сеткі"
 
 #: js/messages.php:218
 msgid "Please add at least one variable to the series!"
@@ -1410,31 +1302,27 @@ msgstr ""
 
 #. l10n: %s is FILE or TABLE
 #: js/messages.php:242
-#, fuzzy, php-format
-#| msgid "Save as file"
+#, php-format
 msgid "Set log_output to %s"
-msgstr "Захаваць як файл"
+msgstr "Задаць log_output у %s"
 
 #. l10n: Enable in this context means setting a status variable to ON
 #: js/messages.php:244
-#, fuzzy, php-format
-#| msgid "Enabled"
+#, php-format
 msgid "Enable %s"
-msgstr "Уключана"
+msgstr "Уключана %s"
 
 #. l10n: Disable in this context means setting a status variable to OFF
 #: js/messages.php:246
-#, fuzzy, php-format
-#| msgid "Disable"
+#, php-format
 msgid "Disable %s"
-msgstr "Адключана"
+msgstr "Адключана %s"
 
 #. l10n: %d seconds
 #: js/messages.php:248
-#, fuzzy, php-format
-#| msgid "Query took %01.4f sec"
+#, php-format
 msgid "Set long_query_time to %d seconds."
-msgstr "Запыт выконваўся %01.4f сэк"
+msgstr "Задаць long_query_time у %d секунд."
 
 #: js/messages.php:250
 msgid ""
@@ -1443,22 +1331,16 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:253
-#, fuzzy
-#| msgid "General relation features"
 msgid "Change settings"
-msgstr "Магчымасьці асноўных сувязяў"
+msgstr "Наладзіць"
 
 #: js/messages.php:254
-#, fuzzy
-#| msgid "General relation features"
 msgid "Current settings"
-msgstr "Магчымасьці асноўных сувязяў"
+msgstr "Дзейсныя налады"
 
 #: js/messages.php:256
-#, fuzzy
-#| msgid "Report title"
 msgid "Chart title"
-msgstr "Загаловак справаздачы"
+msgstr "Загаловак графіка"
 
 #. l10n: As in differential values
 #: js/messages.php:258
@@ -1487,19 +1369,16 @@ msgid "The database name is not known for this query in the server's logs."
 msgstr ""
 
 #: js/messages.php:267
-#, fuzzy
 msgid "Analysing logs"
-msgstr "Лякальны"
+msgstr "Аналіз журналаў"
 
 #: js/messages.php:269
 msgid "Analysing & loading logs. This may take a while."
 msgstr ""
 
 #: js/messages.php:270
-#, fuzzy
-#| msgid "Read requests"
 msgid "Cancel request"
-msgstr "Запыты чытаньня"
+msgstr "Скасаваць запыт"
 
 #: js/messages.php:272
 msgid ""
@@ -1520,31 +1399,24 @@ msgid "Log data loaded. Queries executed in this time span:"
 msgstr ""
 
 #: js/messages.php:284
-#, fuzzy
 msgid "Jump to Log table"
-msgstr "Базы дадзеных адсутнічаюць"
+msgstr "Перайсці да табліцы журнала"
 
 #: js/messages.php:285
-#, fuzzy
-#| msgid "No databases"
 msgid "No data found"
-msgstr "Базы дадзеных адсутнічаюць"
+msgstr "Няма даных"
 
 #: js/messages.php:287
 msgid "Log analysed, but no data found in this time span."
 msgstr ""
 
 #: js/messages.php:289
-#, fuzzy
-#| msgid "Analyze"
 msgid "Analyzing…"
-msgstr "Прааналізаваць"
+msgstr "Аналіз…"
 
 #: js/messages.php:290
-#, fuzzy
-#| msgid "Explain SQL"
 msgid "Explain output"
-msgstr "Тлумачыць SQL"
+msgstr "Патлумачыць вынік"
 
 #: js/messages.php:291 libraries/Menu.php:558 libraries/Util.php:4096
 #: libraries/config.values.php:104 libraries/rte/rte_events.lib.php:399
@@ -1565,41 +1437,31 @@ msgid "Time"
 msgstr "Час"
 
 #: js/messages.php:293
-#, fuzzy
-#| msgid "Total"
 msgid "Total time:"
-msgstr "Агулам"
+msgstr "Агульны час:"
 
 #: js/messages.php:294
-#, fuzzy
-#| msgid "Profiling"
 msgid "Profiling results"
-msgstr "Прафіляваньне"
+msgstr "Прафіляваньне вынікаў"
 
 #: js/messages.php:295
-#, fuzzy
-#| msgid "Table"
 msgctxt "Display format"
 msgid "Table"
 msgstr "Табліца"
 
 #: js/messages.php:296
-#, fuzzy
-#| msgid "Charset"
 msgid "Chart"
-msgstr "Кадыроўка"
+msgstr "Графік"
 
 #. l10n: A collection of available filters
 #: js/messages.php:299
-#, fuzzy
 msgid "Log table filter options"
-msgstr "Налады экспарту базы дадзеных"
+msgstr "Параметры фільтра табліцы журнала"
 
 #. l10n: Filter as in "Start Filtering"
 #: js/messages.php:301
-#, fuzzy
 msgid "Filter"
-msgstr "Файлы"
+msgstr "Фільтр"
 
 #: js/messages.php:302
 msgid "Filter queries by word/regexp:"
@@ -1610,20 +1472,16 @@ msgid "Group queries, ignoring variable data in WHERE clauses"
 msgstr ""
 
 #: js/messages.php:305
-#, fuzzy
 msgid "Sum of grouped rows:"
-msgstr "Колькасьць адсартаваных радкоў."
+msgstr "Сума згрупаваных радкоў:"
 
 #: js/messages.php:306
-#, fuzzy
-#| msgid "Total"
 msgid "Total:"
-msgstr "Агулам"
+msgstr "Агулам:"
 
 #: js/messages.php:308
-#, fuzzy
 msgid "Loading logs"
-msgstr "Лякальны"
+msgstr "Загрузка журналаў"
 
 #: js/messages.php:309
 msgid "Monitor refresh failed"
@@ -1637,10 +1495,8 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:315
-#, fuzzy
-#| msgid "Reload"
 msgid "Reload page"
-msgstr "Абнавіць"
+msgstr "Абнавіць старонку"
 
 #: js/messages.php:317
 msgid "Affected rows:"
@@ -1665,26 +1521,20 @@ msgid "Import"
 msgstr "Імрарт"
 
 #: js/messages.php:326
-#, fuzzy
-#| msgid "Could not load default configuration from: \"%1$s\""
 msgid "Import monitor configuration"
-msgstr "Немагчыма загрузіць канфігурацыю па змоўчаньні з: \"%1$s\""
+msgstr "Імпарт канфігурацыі манітора"
 
 #: js/messages.php:328
-#, fuzzy
-#| msgid "Please select the primary key or a unique key"
 msgid "Please select the file you want to import."
-msgstr "Калі ласка, выберыце першасны (PRIMARY) альбо ўнікальны ключ (UNIQUE)"
+msgstr "Калі ласка, выберыце файл, які вы жадаеце імпартаваць."
 
 #: js/messages.php:329
 msgid "No files available on server for import!"
 msgstr ""
 
 #: js/messages.php:331
-#, fuzzy
-#| msgid "Update Query"
 msgid "Analyse query"
-msgstr "Абнавіць запыт"
+msgstr "Аналізаваць запыт"
 
 #: js/messages.php:335
 msgid "Advisor system"
@@ -1699,21 +1549,16 @@ msgid "Issue"
 msgstr ""
 
 #: js/messages.php:338
-#, fuzzy
-#| msgid "Documentation"
 msgid "Recommendation"
-msgstr "Дакумэнтацыя"
+msgstr "Рэкамендацыя"
 
 #: js/messages.php:339
-#, fuzzy
-#| msgid "Details…"
 msgid "Rule details"
-msgstr "Падрабязьней…"
+msgstr "Дэталі правіла"
 
 #: js/messages.php:340
-#, fuzzy
 msgid "Justification"
-msgstr "Аўтэнтыфікацыя…"
+msgstr "Абгрунтаванне"
 
 #: js/messages.php:341
 msgid "Used variable / formula"
@@ -1728,10 +1573,8 @@ msgid "Formatting SQL…"
 msgstr ""
 
 #: js/messages.php:346
-#, fuzzy
-#| msgid "Add new field"
 msgid "No parameters found!"
-msgstr "Дадаць новае поле"
+msgstr "Параметры не знойдзены!"
 
 #: js/messages.php:350
 #: templates/database/designer/aggregate_query_panel.phtml:63
@@ -1746,10 +1589,8 @@ msgid "Cancel"
 msgstr "Скасаваць"
 
 #: js/messages.php:353 libraries/Header.php:455
-#, fuzzy
-#| msgid "General relation features"
 msgid "Page-related settings"
-msgstr "Магчымасьці асноўных сувязяў"
+msgstr "Налады старонкі"
 
 #: js/messages.php:354 libraries/config/FormDisplay.tpl.php:424
 msgid "Apply"
@@ -1757,31 +1598,24 @@ msgstr ""
 
 #: js/messages.php:357 libraries/navigation/NavigationHeader.php:60
 #: libraries/server_status_monitor.lib.php:119
-#, fuzzy
 msgid "Loading…"
-msgstr "Лякальны"
+msgstr "Загрузка…"
 
 #: js/messages.php:358
 msgid "Request aborted!!"
 msgstr ""
 
 #: js/messages.php:359
-#, fuzzy
-#| msgid "Processes"
 msgid "Processing request"
-msgstr "Працэсы"
+msgstr "Апрацоўка запыту"
 
 #: js/messages.php:360
-#, fuzzy
-#| msgid "Query cache"
 msgid "Request failed!!"
-msgstr "Кэш запытаў"
+msgstr "Няўдалы запыт!!"
 
 #: js/messages.php:361
-#, fuzzy
-#| msgid "Processes"
 msgid "Error in processing request"
-msgstr "Працэсы"
+msgstr "Памылка апрацоўкі запыту"
 
 #: js/messages.php:362
 #, php-format
@@ -1800,16 +1634,12 @@ msgid "No databases selected."
 msgstr "Ня выбраная база дадзеных."
 
 #: js/messages.php:365
-#, fuzzy
-#| msgid "Dropping Procedure"
 msgid "Dropping column"
-msgstr "Працэдуры"
+msgstr "Выдаленне слупка"
 
 #: js/messages.php:366
-#, fuzzy
-#| msgid "Add %s field(s)"
 msgid "Adding primary key"
-msgstr "Дадаць %s новыя палі"
+msgstr "Даданне першаснага ключа"
 
 #: js/messages.php:367
 #: templates/database/designer/aggregate_query_panel.phtml:59
@@ -1826,67 +1656,49 @@ msgid "Click to dismiss this notification"
 msgstr ""
 
 #: js/messages.php:371
-#, fuzzy
-#| msgid "Rename database to"
 msgid "Renaming databases"
-msgstr "Перайменаваць базу дадзеных у"
+msgstr "Перайменаваць базы дадзеных"
 
 #: js/messages.php:372
-#, fuzzy
-#| msgid "Copy database to"
 msgid "Copying database"
-msgstr "Капіяваць базу дадзеных у"
+msgstr "Капіяваць базу дадзеных"
 
 #: js/messages.php:373
-#, fuzzy
-#| msgid "Charset"
 msgid "Changing charset"
-msgstr "Кадыроўка"
+msgstr "Змена кадавання"
 
 #: js/messages.php:377 libraries/Util.php:3079
-#, fuzzy
-#| msgid "Disable foreign key checks"
 msgid "Enable foreign key checks"
-msgstr "Адключыць праверку зьнешніх ключоў"
+msgstr "Уключыць праверку знешніх ключоў"
 
 #: js/messages.php:380
-#, fuzzy
 msgid "Failed to get real row count."
-msgstr "Памылка запісу на дыск."
+msgstr "Не ўдалося атрымаць рэальную колькасць радкоў."
 
 #: js/messages.php:383
-#, fuzzy
-#| msgid "Search"
 msgid "Searching"
 msgstr "Пошук"
 
 #: js/messages.php:384
-#, fuzzy
 msgid "Hide search results"
-msgstr "SQL-запыт"
+msgstr "Схаваць вынікі пошуку"
 
 #: js/messages.php:385
-#, fuzzy
 msgid "Show search results"
-msgstr "SQL-запыт"
+msgstr "Паказаць вынікі пошуку"
 
 #: js/messages.php:386
-#, fuzzy
-#| msgid "Browse"
 msgid "Browsing"
 msgstr "Прагляд"
 
 #: js/messages.php:387
-#, fuzzy
-#| msgid "Deleting %s"
 msgid "Deleting"
-msgstr "Выдаленьне %s"
+msgstr "Выдаленне"
 
 #: js/messages.php:388
-#, fuzzy, php-format
-#| msgid "Dumping data for table"
+#, php-format
 msgid "Delete the matches for the %s table?"
-msgstr "Дамп дадзеных табліцы"
+msgstr "Выдаліць адпаведнасць для табліцы %s?"
 
 #: js/messages.php:392
 msgid "The definition of a stored function must contain a RETURN statement!"
