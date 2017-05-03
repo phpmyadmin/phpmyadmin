@@ -1114,6 +1114,7 @@ div#tablestatistics table {
 #topmenucontainer {
     padding-<?php echo $right; ?>: 1em;
     width: 100%;
+    border-bottom:1px solid #CCC;
 }
 
 #serverinfo {
