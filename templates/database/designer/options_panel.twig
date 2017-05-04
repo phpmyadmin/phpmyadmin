@@ -31,7 +31,7 @@
                         </tr>
                         <tr>
                             <td width="58" class="nowrap">
-                                <?= __('Relationship operator'); ?>
+                                {% trans 'Relationship operator' %}
                             </td>
                             <td width="102">
                                 <select name="rel_opt" id="rel_opt">
@@ -60,7 +60,7 @@
                                         IN
                                     </option>
                                     <option value="EXCEPT">
-                                        <?= __('Except'); ?>
+                                        {% trans 'Except' %}
                                     </option>
                                     <option value="NOT IN">
                                         NOT IN
@@ -70,9 +70,9 @@
                         </tr>
                         <tr>
                             <td class="nowrap">
-                                <?= __('Value'); ?>
+                                {% trans 'Value' %}
                                 <br />
-                                <?= __('subquery'); ?>
+                                {% trans 'subquery' %}
                             </td>
                             <td>
                                 <textarea id="Query" cols="18">
@@ -82,13 +82,13 @@
                         <tr>
                             <td class="center nowrap">
                                 <b>
-                                    <?= __('Rename to'); ?>
+                                    {% trans 'Rename to' %}
                                 </b>
                             </td>
                         </tr>
                         <tr>
                             <td width="58" class="nowrap">
-                                <?= __('New name'); ?>
+                                {% trans 'New name' %}
                             </td>
                             <td width="102">
                                 <input type="text" id="new_name"/>
@@ -97,13 +97,13 @@
                         <tr>
                             <td class="center nowrap">
                                 <b>
-                                    <?= __('Aggregate'); ?>
+                                    {% trans 'Aggregate' %}
                                 </b>
                             </td>
                         </tr>
                         <tr>
                             <td width="58" class="nowrap">
-                                <?= __('Operator'); ?>
+                                {% trans 'Operator' %}
                             </td>
                             <td width="102">
                                 <select name="operator" id="operator">
@@ -167,7 +167,7 @@
                         </tr>
                         <tr>
                             <td width="58" class="nowrap">
-                                <?= __('Operator'); ?>
+                                {% trans 'Operator' %}
                             </td>
                             <td width="102">
                                 <select name="h_operator" id="h_operator">
@@ -175,7 +175,7 @@
                                         ---
                                     </option>
                                     <option value="None" >
-                                        <?= __('None'); ?>
+                                        {% trans 'None' %}
                                     </option>
                                     <option value="sum" >
                                         SUM
@@ -197,7 +197,7 @@
                         </tr>
                         <tr>
                             <td width="58" class="nowrap">
-                                <?= __('Relationship operator'); ?>
+                                {% trans 'Relationship operator' %}
                             </td>
                             <td width="102">
                                 <select name="h_rel_opt" id="h_rel_opt">
@@ -226,7 +226,7 @@
                                         IN
                                     </option>
                                     <option value="EXCEPT">
-                                        <?= __('Except'); ?>
+                                        {% trans 'Except' %}
                                     </option>
                                     <option value="NOT IN">
                                         NOT IN
@@ -236,9 +236,9 @@
                         </tr>
                         <tr>
                             <td width="58" class="nowrap">
-                                <?= __('Value'); ?>
+                                {% trans 'Value' %}
                                 <br/>
-                                <?= __('subquery'); ?>
+                                {% trans 'subquery' %}
                             </td>
                             <td width="102">
                                 <textarea id="having" cols="18">
@@ -249,8 +249,10 @@
                     <tbody>
                         <tr>
                             <td colspan="2" class="center nowrap">
-                                <input type="button" id="ok_add_object" class="butt" name="Button" value="<?= __('OK'); ?>" />
-                                <input type="button" id="cancel_close_option" class="butt" name="Button" value="<?= __('Cancel'); ?>" />
+                                <input type="button" id="ok_add_object" class="butt"
+                                    name="Button" value="{% trans 'OK' %}" />
+                                <input type="button" id="cancel_close_option" class="butt"
+                                    name="Button" value="{% trans 'Cancel' %}" />
                             </td>
                         </tr>
                     </tbody>

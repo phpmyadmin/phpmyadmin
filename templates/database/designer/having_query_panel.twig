@@ -27,7 +27,7 @@
                     <tbody id="rename_to">
                         <tr>
                             <td width="58" class="nowrap">
-                                <?= __('Operator'); ?>
+                                {% trans 'Operator' %}
                             </td>
                             <td width="102">
                                 <select name="hoperator" id="hoperator">
@@ -58,7 +58,7 @@
                         <tr>
                             <tr>
                                 <td width="58" class="nowrap">
-                                    <?= __('Operator'); ?>
+                                    {% trans 'Operator' %}
                                 </td>
                                 <td width="102">
                                     <select name="hrel_opt" id="hrel_opt">
@@ -87,7 +87,7 @@
                                             IN
                                         </option>
                                         <option value="EXCEPT">
-                                            <?= __('Except'); ?>
+                                            {% trans 'Except' %}
                                         </option>
                                         <option value="NOT IN">
                                             NOT IN
@@ -97,9 +97,9 @@
                         </tr>
                         <tr>
                             <td class="nowrap">
-                                <?= __('Value'); ?>
+                                {% trans 'Value' %}
                                 <br />
-                                <?= __('subquery'); ?>
+                                {% trans 'subquery' %}
                             </td>
                             <td>
                                 <textarea id="hQuery" cols="18">
@@ -110,12 +110,13 @@
                     <tbody>
                         <tr>
                             <td colspan="2" class="center nowrap">
-                                <input type="button" id="ok_edit_having" class="butt" name="Button" value="<?= __('OK'); ?>" />
+                                <input type="button" id="ok_edit_having" class="butt"
+                                    name="Button" value="{% trans 'OK' %}" />
                                 <input type="button"
-                                       class="butt"
-                                       name="Button"
-                                       value="<?= __('Cancel'); ?>"
-                                       onclick="document.getElementById('query_having').style.display = 'none';" />
+                                    class="butt"
+                                    name="Button"
+                                    value="{% trans 'Cancel' %}"
+                                    onclick="document.getElementById('query_having').style.display = 'none';" />
                             </td>
                         </tr>
                     </tbody>

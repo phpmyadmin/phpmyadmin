@@ -1,8 +1,0 @@
-<select class="column_type"
-        name="field_type[<?= $columnNumber; ?>]"
-        id="field_<?= $columnNumber; ?>_<?= ($ci - $ci_offset); ?>"
-        <?php if (isset($columnMeta['column_status']) && !$columnMeta['column_status']['isEditable']): ?>
-            disabled="disabled"
-        <?php endif; ?>>
-    <?= PMA\libraries\Util::getSupportedDatatypes(true, $type_upper); ?>
-</select>

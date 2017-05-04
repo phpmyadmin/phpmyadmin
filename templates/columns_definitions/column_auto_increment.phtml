@@ -1,8 +1,0 @@
-<input name="field_extra[<?= $columnNumber; ?>]"
-       id="field_<?= $columnNumber?>_<?= ($ci - $ci_offset); ?>"
-       <?php if (isset($columnMeta['Extra'])
-                    && mb_strtolower($columnMeta['Extra']) == 'auto_increment'): ?>
-           checked="checked"
-       <?php endif; ?>
-       type="checkbox"
-       value="AUTO_INCREMENT" />

@@ -26,15 +26,6 @@ class UtilExtension extends Twig_Extension
     {
         return array(
             new Twig_SimpleFunction(
-                'Util_showIcons',
-                'PMA\libraries\Util::showIcons'
-            ),
-            new Twig_SimpleFunction(
-                'Util_getImage',
-                'PMA\libraries\Util::getImage',
-                array('is_safe' => array('html'))
-            ),
-            new Twig_SimpleFunction(
                 'Util_formatSql',
                 'PMA\libraries\Util::formatSql',
                 array('is_safe' => array('html'))
@@ -43,6 +34,25 @@ class UtilExtension extends Twig_Extension
                 'Util_getHtmlTab',
                 'PMA\libraries\Util::getHtmlTab',
                 array('is_safe' => array('html'))
+            ),
+            new Twig_SimpleFunction(
+                'Util_getIcon',
+                'PMA\libraries\Util::getIcon',
+                array('is_safe' => array('html'))
+            ),
+            new Twig_SimpleFunction(
+                'Util_getImage',
+                'PMA\libraries\Util::getImage',
+                array('is_safe' => array('html'))
+            ),
+            new Twig_SimpleFunction(
+                'Util_getSupportedDatatypes',
+                'PMA\libraries\Util::getSupportedDatatypes',
+                array('is_safe' => array('html'))
+            ),
+            new Twig_SimpleFunction(
+                'Util_showIcons',
+                'PMA\libraries\Util::showIcons'
             ),
         );
     }

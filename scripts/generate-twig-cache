@@ -5,6 +5,7 @@ require_once 'libraries/vendor_config.php';
 require_once AUTOLOAD_FILE;
 
 use PMA\libraries\twig\I18nExtension;
+use PMA\libraries\twig\SanitizeExtension;
 use PMA\libraries\twig\UrlExtension;
 use PMA\libraries\twig\UtilExtension;
 
@@ -18,6 +19,7 @@ $twig = new Twig_Environment($loader, array(
     'auto_reload' => true
 ));
 $twig->addExtension(new I18nExtension());
+$twig->addExtension(new SanitizeExtension());
 $twig->addExtension(new UrlExtension());
 $twig->addExtension(new UtilExtension());
 
