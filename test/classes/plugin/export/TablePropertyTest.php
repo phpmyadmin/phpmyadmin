@@ -1,17 +1,17 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * tests for PMA\libraries\plugins\export\TableProperty class
+ * tests for PMA\libraries\plugins\export\helpers\TableProperty class
  *
  * @package PhpMyAdmin-test
  */
-use PMA\libraries\plugins\export\TableProperty;
+use PMA\libraries\plugins\export\helpers\TableProperty;
 
 require_once 'libraries/config.default.php';
 require_once 'test/PMATestCase.php';
 
 /**
- * tests for PMA\libraries\plugins\export\TableProperty class
+ * tests for PMA\libraries\plugins\export\helpers\TableProperty class
  *
  * @package PhpMyAdmin-test
  */
@@ -42,7 +42,7 @@ class TablePropertyTest extends PMATestCase
     }
 
     /**
-     * Test for PMA\libraries\plugins\export\TableProperty::__construct
+     * Test for PMA\libraries\plugins\export\helpers\TableProperty::__construct
      *
      * @return void
     */
@@ -80,7 +80,7 @@ class TablePropertyTest extends PMATestCase
     }
 
     /**
-     * Test for PMA\libraries\plugins\export\TableProperty::getPureType
+     * Test for PMA\libraries\plugins\export\helpers\TableProperty::getPureType
      *
      * @return void
     */
@@ -102,7 +102,7 @@ class TablePropertyTest extends PMATestCase
     }
 
     /**
-     * Test for PMA\libraries\plugins\export\TableProperty::isNotNull
+     * Test for PMA\libraries\plugins\export\helpers\TableProperty::isNotNull
      *
      * @param string $nullable nullable value
      * @param string $expected expected output
@@ -135,7 +135,7 @@ class TablePropertyTest extends PMATestCase
     }
 
     /**
-     * Test for PMA\libraries\plugins\export\TableProperty::isUnique
+     * Test for PMA\libraries\plugins\export\helpers\TableProperty::isUnique
      *
      * @param string $key      key value
      * @param string $expected expected output
@@ -170,7 +170,7 @@ class TablePropertyTest extends PMATestCase
     }
 
     /**
-     * Test for PMA\libraries\plugins\export\TableProperty::getDotNetPrimitiveType
+     * Test for PMA\libraries\plugins\export\helpers\TableProperty::getDotNetPrimitiveType
      *
      * @param string $type     type value
      * @param string $expected expected output
@@ -211,7 +211,7 @@ class TablePropertyTest extends PMATestCase
     }
 
     /**
-     * Test for PMA\libraries\plugins\export\TableProperty::getDotNetObjectType
+     * Test for PMA\libraries\plugins\export\helpers\TableProperty::getDotNetObjectType
      *
      * @param string $type     type value
      * @param string $expected expected output
@@ -252,7 +252,7 @@ class TablePropertyTest extends PMATestCase
     }
 
     /**
-     * Test for PMA\libraries\plugins\export\TableProperty::getIndexName
+     * Test for PMA\libraries\plugins\export\helpers\TableProperty::getIndexName
      *
      * @return void
      */
@@ -275,7 +275,7 @@ class TablePropertyTest extends PMATestCase
     }
 
     /**
-     * Test for PMA\libraries\plugins\export\TableProperty::isPK
+     * Test for PMA\libraries\plugins\export\helpers\TableProperty::isPK
      *
      * @return void
      */
@@ -295,7 +295,7 @@ class TablePropertyTest extends PMATestCase
     }
 
     /**
-     * Test for PMA\libraries\plugins\export\TableProperty::formatCs
+     * Test for PMA\libraries\plugins\export\helpers\TableProperty::formatCs
      *
      * @return void
     */
@@ -310,7 +310,7 @@ class TablePropertyTest extends PMATestCase
     }
 
     /**
-     * Test for PMA\libraries\plugins\export\TableProperty::formatXml
+     * Test for PMA\libraries\plugins\export\helpers\TableProperty::formatXml
      *
      * @return void
     */
@@ -325,7 +325,7 @@ class TablePropertyTest extends PMATestCase
     }
 
     /**
-     * Test for PMA\libraries\plugins\export\TableProperty::format
+     * Test for PMA\libraries\plugins\export\helpers\TableProperty::format
      *
      * @return void
     */

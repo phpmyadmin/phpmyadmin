@@ -6,7 +6,7 @@
  * @package PhpMyAdmin-test
  */
 use PMA\libraries\plugins\export\ExportPdf;
-use PMA\libraries\plugins\export\PdfExport;
+use PMA\libraries\plugins\export\helpers\Pdf;
 
 require_once 'libraries/export.lib.php';
 require_once 'libraries/config.default.php';
@@ -181,7 +181,7 @@ class ExportPdfTest extends PMATestCase
      */
     public function testExportHeader()
     {
-        $pdf = $this->getMockBuilder('PMA\libraries\plugins\export\PdfExport')
+        $pdf = $this->getMockBuilder('PMA\libraries\plugins\export\helpers\Pdf')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -210,7 +210,7 @@ class ExportPdfTest extends PMATestCase
      */
     public function testExportFooter()
     {
-        $pdf = $this->getMockBuilder('PMA\libraries\plugins\export\PdfExport')
+        $pdf = $this->getMockBuilder('PMA\libraries\plugins\export\helpers\Pdf')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -269,7 +269,7 @@ class ExportPdfTest extends PMATestCase
      */
     public function testExportData()
     {
-        $pdf = $this->getMockBuilder('PMA\libraries\plugins\export\PdfExport')
+        $pdf = $this->getMockBuilder('PMA\libraries\plugins\export\helpers\Pdf')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -309,12 +309,12 @@ class ExportPdfTest extends PMATestCase
     {
         $setter = new ReflectionMethod('PMA\libraries\plugins\export\ExportPdf', '_setPdf');
         $setter->setAccessible(true);
-        $setter->invoke($this->object, new PdfExport);
+        $setter->invoke($this->object, new Pdf);
 
         $getter = new ReflectionMethod('PMA\libraries\plugins\export\ExportPdf', '_getPdf');
         $getter->setAccessible(true);
         $this->assertInstanceOf(
-            'PMA\libraries\plugins\export\PdfExport',
+            'PMA\libraries\plugins\export\helpers\Pdf',
             $getter->invoke($this->object)
         );
     }

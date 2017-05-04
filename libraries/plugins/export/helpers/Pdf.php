@@ -1,15 +1,15 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * PMA\libraries\plugins\export\PdfExport class
+ * PMA\libraries\plugins\export\helpers\Pdf class
  *
  * @package    PhpMyAdmin-Export
  * @subpackage PDF
  */
-namespace PMA\libraries\plugins\export;
+namespace PMA\libraries\plugins\export\helpers;
 
 use PMA\libraries\DatabaseInterface;
-use PMA\libraries\PDF;
+use PMA\libraries\PDF as PdfLib;
 use PMA\libraries\Util;
 use TCPDF_STATIC;
 
@@ -19,7 +19,7 @@ use TCPDF_STATIC;
  * @package    PhpMyAdmin-Export
  * @subpackage PDF
  */
-class PdfExport extends PDF
+class Pdf extends PdfLib
 {
     var $tablewidths;
     var $headerset;
@@ -104,14 +104,14 @@ class PdfExport extends PDF
             $this->SetY(($this->tMargin) - ($this->FontSizePt / $this->k) * 5);
             $this->cellFontSize = $this->FontSizePt;
             $this->SetFont(
-                PDF::PMA_PDF_FONT,
+                PdfLib::PMA_PDF_FONT,
                 '',
                 ($this->titleFontSize
                     ? $this->titleFontSize
                     : $this->FontSizePt)
             );
             $this->Cell(0, $this->FontSizePt, $this->titleText, 0, 1, 'C');
-            $this->SetFont(PDF::PMA_PDF_FONT, '', $this->cellFontSize);
+            $this->SetFont(PdfLib::PMA_PDF_FONT, '', $this->cellFontSize);
             $this->SetY(($this->tMargin) - ($this->FontSizePt / $this->k) * 2.5);
             $this->Cell(
                 0,
@@ -328,7 +328,7 @@ class PdfExport extends PDF
 
         $this->setY($this->tMargin);
         $this->AddPage();
-        $this->SetFont(PDF::PMA_PDF_FONT, '', 9);
+        $this->SetFont(PdfLib::PMA_PDF_FONT, '', 9);
 
         $l = $this->lMargin;
         $startheight = $h = $this->dataY;
@@ -510,7 +510,7 @@ class PdfExport extends PDF
 
         $this->setY($this->tMargin);
         $this->AddPage();
-        $this->SetFont(PDF::PMA_PDF_FONT, '', 9);
+        $this->SetFont(PdfLib::PMA_PDF_FONT, '', 9);
 
         // Now let's start to write the table structure
 
@@ -805,8 +805,8 @@ class PdfExport extends PDF
         );
         $this->setY($this->tMargin);
         $this->AddPage();
-        $this->SetFont(PDF::PMA_PDF_FONT, '', 9);
+        $this->SetFont(PdfLib::PMA_PDF_FONT, '', 9);
         $this->morepagestable($this->FontSizePt);
         $GLOBALS['dbi']->freeResult($this->results);
     } // end of mysqlReport function
-} // end of PdfExport class
+} // end of Pdf class

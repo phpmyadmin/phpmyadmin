@@ -15,7 +15,7 @@ use PMA\libraries\properties\options\groups\OptionsPropertyMainGroup;
 use PMA\libraries\properties\options\groups\OptionsPropertyRootGroup;
 use PMA;
 use PMA\libraries\properties\options\items\SelectPropertyItem;
-use PMA\libraries\plugins\export\TableProperty;
+use PMA\libraries\plugins\export\helpers\TableProperty;
 
 /**
  * Handles the export for the CodeGen class
