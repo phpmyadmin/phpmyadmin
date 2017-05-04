@@ -1,4 +1,3 @@
-
 <table id="query_rename_to" style="display:none;" width="5%" cellpadding="0" cellspacing="0">
     <tbody>
         <tr>
@@ -20,7 +19,7 @@
                         <tr>
                             <td colspan="2" class="center nowrap">
                                 <strong>
-                                    <?= __('Rename to'); ?>
+                                    {% trans 'Rename to' %}
                                 </strong>
                             </td>
                         </tr>
@@ -28,7 +27,7 @@
                     <tbody id="rename_to">
                         <tr>
                             <td width="58" class="nowrap">
-                                <?= __('New name'); ?>
+                                {% trans 'New name' %}
                             </td>
                             <td width="102">
                                 <input type="text" id="e_rename"/>
@@ -38,12 +37,13 @@
                     <tbody>
                         <tr>
                             <td colspan="2" class="center nowrap">
-                                <input type="button" id="ok_edit_rename" class="butt" name="Button" value="<?= __('OK'); ?>" />
+                                <input type="button" id="ok_edit_rename" class="butt"
+                                    name="Button" value="{% trans 'OK' %}" />
                                 <input type="button"
-                                       class="butt"
-                                       name="Button"
-                                       value="<?= __('Cancel'); ?>"
-                                       onclick="document.getElementById('query_rename_to').style.display = 'none';" />
+                                    class="butt"
+                                    name="Button"
+                                    value="{% trans 'Cancel' %}"
+                                    onclick="document.getElementById('query_rename_to').style.display = 'none';" />
                             </td>
                         </tr>
                     </tbody>

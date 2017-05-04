@@ -1,0 +1,7 @@
+<a href="tbl_tracking.php{{ url_query }}&amp;table={{ truename }}">
+    {% if is_tracked -%}
+        {{ Util_getImage('eye.png', 'Tracking is active.'|trans) }}
+    {%- else -%}
+        {{ Util_getImage('eye_grey.png', 'Tracking is not active.'|trans) }}
+    {%- endif %}
+</a>

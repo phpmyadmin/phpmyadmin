@@ -18,14 +18,16 @@
                     <tr>
                         <td colspan="3" class="center nowrap">
                             <strong>
-                                <?= __('Delete relationship'); ?>
+                                {% trans 'Delete relationship' %}
                             </strong>
                         </td>
                     </tr>
                     <tr>
                         <td colspan="3" class="center nowrap">
-                            <input id="del_button" name="Button" type="button" class="butt" value="<?= __('Delete'); ?>" />
-                            <input id="cancel_button" type="button" class="butt" name="Button" value="<?= __('Cancel'); ?>" />
+                            <input id="del_button" name="Button" type="button"
+                                class="butt" value="{% trans 'Delete' %}" />
+                            <input id="cancel_button" type="button" class="butt"
+                                name="Button" value="{% trans 'Cancel' %}" />
                         </td>
                     </tr>
                 </table>

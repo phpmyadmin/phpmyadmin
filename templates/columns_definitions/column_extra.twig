@@ -1,0 +1,7 @@
+<input name="col_extra[{{ columnNumber }}]"
+    id="field_{{ columnNumber }}_{{ ci - ci_offset }}"
+    {% if columnMeta['Extra'] is not empty and columnMeta['Extra'] == 'auto_increment' -%}
+        checked="checked"
+    {%- endif %}
+    type="checkbox"
+    value="auto_increment" />

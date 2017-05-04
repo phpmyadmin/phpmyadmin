@@ -19,7 +19,7 @@
                         <tr>
                             <td colspan="2" class="center nowrap">
                                 <strong>
-                                    <?= __('Create relationship'); ?>
+                                    {% trans 'Create relationship' %}
                                 </strong>
                             </td>
                         </tr>
@@ -84,8 +84,10 @@
                     <tbody>
                         <tr>
                             <td colspan="2" class="center nowrap">
-                                <input type="button" id="ok_new_rel_panel" class="butt" name="Button" value="<?= __('OK'); ?>" />
-                                <input type="button" id="cancel_new_rel_panel" class="butt" name="Button" value="<?= __('Cancel'); ?>" />
+                                <input type="button" id="ok_new_rel_panel" class="butt"
+                                    name="Button" value="{% trans 'OK' %}" />
+                                <input type="button" id="cancel_new_rel_panel"
+                                    class="butt" name="Button" value="{% trans 'Cancel' %}" />
                             </td>
                         </tr>
                     </tbody>
