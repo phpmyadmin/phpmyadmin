@@ -10,7 +10,7 @@ use PMA\libraries\twig\UrlExtension;
 use PMA\libraries\twig\UtilExtension;
 
 $tplDir = dirname(__FILE__) . '/../templates';
-$tmpDir = dirname(__FILE__) . '/../' . CACHE_DIR . 'twig';
+$tmpDir = dirname(__FILE__) . '/../' . TEMP_DIR . 'twig';
 $loader = new Twig_Loader_Filesystem($tplDir);
 
 // force auto-reload to always have the latest version of the template

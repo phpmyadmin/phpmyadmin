@@ -483,7 +483,7 @@ class File
             return true;
         }
 
-        $tmp_subdir = ConfigFile::getDefaultTempDirectory();
+        $tmp_subdir = $GLOBALS['PMA_Config']->getUploadTempDir();
         if (@is_writable($tmp_subdir)) {
             // cannot create directory or access, point user to FAQ 1.11
             $this->_error_message = Message::error(__(

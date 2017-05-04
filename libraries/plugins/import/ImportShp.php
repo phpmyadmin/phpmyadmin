@@ -85,12 +85,10 @@ class ImportShp extends ImportPlugin
         $temp_dbf_file = false;
         // We need dbase extension to handle .dbf file
         if (extension_loaded('dbase')) {
+            $temp = $GLOBALS['PMA_Config']->getTempDir('shp');
             // If we can extract the zip archive to 'TempDir'
             // and use the files in it for import
-            if ($compression == 'application/zip'
-                && !empty($GLOBALS['cfg']['TempDir'])
-                && @is_writable($GLOBALS['cfg']['TempDir'])
-            ) {
+            if ($compression == 'application/zip' && ! is_null($temp)) {
                 $dbf_file_name = PMA_findFileFromZipArchive(
                     '/^.*\.dbf$/i',
                     $import_file
@@ -103,8 +101,7 @@ class ImportShp extends ImportPlugin
                         $dbf_file_name
                     );
                     if ($extracted !== false) {
-                        $dbf_file_path = realpath($GLOBALS['cfg']['TempDir'])
-                            . (PMA_IS_WINDOWS ? '\\' : '/')
+                        $dbf_file_path = $temp . (PMA_IS_WINDOWS ? '\\' : '/')
                             . Sanitize::sanitizeFilename($dbf_file_name, true);
                         $handle = fopen($dbf_file_path, 'wb');
                         if ($handle !== false) {

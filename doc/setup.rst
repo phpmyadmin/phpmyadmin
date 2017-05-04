@@ -994,6 +994,8 @@ are always ways to make your installation more secure:
   scripting vulnerabilities that might happen to be found in that code. For the
   Apache webserver, this is often accomplished with a :term:`.htaccess` file in
   those directories.
+* Deny access to temporary files, see :config:option:`$cfg['TempDir']` (if that
+  is placed inside your web root, see also :ref:`web-dirs`.
 * It is generally a good idea to protect a public phpMyAdmin installation
   against access by robots as they usually can not do anything good there. You
   can do this using ``robots.txt`` file in root of your webserver or limit
