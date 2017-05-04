@@ -345,7 +345,9 @@ Running behind haproxy in a subdirectory
 
 When you want to expose phpMyAdmin running in a Docker container in a
 subdirectory, you need to rewrite the request path in the server proxying the
-requests. For example using haproxy it can be done as:
+requests. 
+
+For example using haproxy it can be done as:
 
 .. code-block:: text
 
@@ -368,6 +370,30 @@ requests. For example using haproxy it can be done as:
 
         # phpMyAdmin container IP
         server localhost     172.30.21.21:80                
+
+When using traefik, something like following should work:
+
+.. code-block:: text
+
+    defaultEntryPoints = ["http"]
+    [entryPoints]
+      [entryPoints.http]
+      address = ":80"
+        [entryPoints.http.redirect]
+          regex = "(http:\\/\\/[^\\/]+\\/([^\\?\\.]+)[^\\/])$"
+          replacement = "$1/"
+
+    [backends]
+      [backends.myadmin]
+        [backends.myadmin.servers.myadmin]
+        url="http://internal.address.to.pma"
+
+    [frontends]
+       [frontends.myadmin]
+       backend = "myadmin"
+       passHostHeader = true
+         [frontends.myadmin.routes.default]
+         rule="PathPrefixStrip:/phpmyadmin/;AddPrefix:/"
 
 You then should specify :envvar:`PMA_ABSOLUTE_URI` in the docker-compose
 configuration:
