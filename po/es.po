@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-04-10 13:13+0200\n"
-"PO-Revision-Date: 2017-03-18 22:24+0000\n"
+"PO-Revision-Date: 2017-05-04 18:57+0000\n"
 "Last-Translator: Franco <fulanodetal.github1@openaliasbox.org>\n"
-"Language-Team: Spanish <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/es/>\n"
+"Language-Team: Spanish "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/es/>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.12\n"
+"X-Generator: Weblate 2.14-dev\n"
 
 #: changelog.php:39 license.php:34
 #, php-format
@@ -3296,7 +3296,7 @@ msgstr "El servidor no está respondiendo."
 
 #: libraries/DatabaseInterface.php:2039
 msgid "Logout and try as another user."
-msgstr ""
+msgstr "Cierre la sesión e intente con otro usuario."
 
 #: libraries/DatabaseInterface.php:2045
 msgid "Please check privileges of directory containing database."
@@ -3440,22 +3440,16 @@ msgid "at least one of the words"
 msgstr "al menos una de estas palabras"
 
 #: libraries/DbSearch.php:87
-#, fuzzy
-#| msgid "at least one of the words"
 msgid "all of the words"
-msgstr "al menos una de estas palabras"
+msgstr "todas las palabras"
 
 #: libraries/DbSearch.php:88
-#, fuzzy
-#| msgid "the exact phrase"
 msgid "the exact phrase as substring"
-msgstr "La frase exacta"
+msgstr "la frase exacta como subcadena"
 
 #: libraries/DbSearch.php:89
-#, fuzzy
-#| msgid "the exact phrase"
 msgid "the exact phrase as whole field"
-msgstr "La frase exacta"
+msgstr "la frase exacta como campo entero"
 
 #: libraries/DbSearch.php:90
 msgid "as regular expression"
@@ -10072,6 +10066,9 @@ msgid ""
 "lead to non working phpMyAdmin or a security risk. Please fix your server "
 "configuration to indicate HTTPS properly."
 msgstr ""
+"Los HTTPS en el servidor y el cliente son incompatibles. Esto puede conducir "
+"que phpMyAdmin no funcione o haya un riesgo de seguridad. Por favor corrija "
+"la configuración del servidor para indicar HTTPS correctamente."
 
 #: libraries/plugins/auth/AuthenticationCookie.php:177
 msgid "Log in"
@@ -15669,7 +15666,7 @@ msgstr "Planteamiento de la estructura de tabla"
 
 #: templates/table/structure/optional_action_links.phtml:28
 msgid "Normalize"
-msgstr ""
+msgstr "Normalizar"
 
 #: templates/table/structure/optional_action_links.phtml:34
 msgid "Track view"
@@ -15709,8 +15706,6 @@ msgid "Column %s has been dropped."
 msgstr "Se ha eliminado la columna %s."
 
 #: templates/test/gettext/pgettext.phtml:1
-#, fuzzy
-#| msgid "Text"
 msgctxt "Text context"
 msgid "Text"
 msgstr "Texto"
