@@ -1,8 +1,8 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4 ft=php: */
 define('PHPMYADMIN', 1);
-require_once 'vendor/autoload.php';
 require_once 'libraries/vendor_config.php';
+require_once AUTOLOAD_FILE;
 
 use PMA\libraries\twig\I18nExtension;
 use PMA\libraries\twig\UrlExtension;
