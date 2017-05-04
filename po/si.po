@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-04-10 13:13+0200\n"
-"PO-Revision-Date: 2016-03-24 04:14+0000\n"
-"Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
-"Language-Team: Sinhala <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/si/>\n"
+"PO-Revision-Date: 2017-05-04 09:28+0000\n"
+"Last-Translator: Isuru Udana Palihawadana <isuruudana@gmail.com>\n"
+"Language-Team: Sinhala "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/si/>\n"
 "Language: si\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.6-dev\n"
+"X-Generator: Weblate 2.14-dev\n"
 
 #: changelog.php:39 license.php:34
 #, fuzzy, php-format
@@ -120,7 +120,7 @@ msgstr "වර්ගය"
 #: templates/table/search/zoom_result_form.phtml:34
 #: templates/table/structure/table_structure_header.phtml:11
 msgid "Null"
-msgstr "Null"
+msgstr "ශුන්‍ය"
 
 #: db_datadict.php:118 libraries/central_columns.lib.php:700
 #: libraries/central_columns.lib.php:1383
@@ -350,6 +350,8 @@ msgid ""
 "An error has been detected and an error report has been automatically "
 "submitted based on your settings."
 msgstr ""
+"දෝෂයක් වාර්තාවී ඇති අතර දෝෂයක් වාර්තාව ස්වයංක්රීයව ඔබගේ සැකසුම් මත පදනම් "
+"ඉදිරිපත් කර ඇත."
 
 #: error_report.php:72
 msgid "Thank you for submitting this report."
@@ -360,14 +362,15 @@ msgid ""
 "An error has been detected and an error report has been generated but failed "
 "to be sent."
 msgstr ""
+"දෝෂයක් වාර්තාවී ඇත හා දෝෂ වාර්තාව ජනනය කර ඇති නමුත් එය යැවීමට අසමත් විය."
 
 #: error_report.php:81
 msgid "If you experience any problems please submit a bug report manually."
-msgstr ""
+msgstr "ඔබ යම් දෝෂ වලට මුහුණදී නම් ඔබ විසින්ම දෝෂ වාර්තාවක් ඉදිරිපත් කරන්න."
 
 #: error_report.php:85
 msgid "You may want to refresh the page."
-msgstr ""
+msgstr "ඔබ පිටුව ප්‍රතිපුර්ණය කිරීමට ඔබට අවශ්ය විය හැක."
 
 #: export.php:192 schema_export.php:64
 msgid "Bad type!"
