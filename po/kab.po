@@ -1,34 +1,25 @@
-# phpMyAdmin translation.
-# Copyright (C) 2003 - 2016 phpMyAdmin devel team
-# This file is distributed under the same license as the phpMyAdmin package.
-# Automatically generated, 2016.
-#
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 4.7.1-dev\n"
+"Project-Id-Version: Kabyle (phpMyAdmin)\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2017-04-10 13:08+0200\n"
-"PO-Revision-Date: 2016-08-02 17:22+0000\n"
-"Last-Translator: Belkacem Mohammed <belkacem77@gmail.com>\n"
-"Language-Team: Kabyle <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"kab/>\n"
+"POT-Creation-Date: 2017-05-03 15:20+0200\n"
+"PO-Revision-Date: 2017-05-04 08:38+0000\n"
+"Last-Translator: Muḥend Belqasem <belkacem77@gmail.com>\n"
+"Language-Team: Kabyle "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-7/kab/>\n"
 "Language: kab\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.8-dev\n"
+"X-Generator: Weblate 2.14-dev\n"
 
 #: changelog.php:39 license.php:34
-#, fuzzy, php-format
-#| msgid ""
-#| "The %s file is not available on this system, please visit www.phpmyadmin."
-#| "net for more information."
+#, php-format
 msgid ""
 "The %s file is not available on this system, please visit %s for more "
 "information."
-msgstr ""
-"Afaylu %sulac-it deg unagraw agi, ugar n telɣut, ddu ɣer www.phpmyadmin.net ."
+msgstr "Afaylu %s ulac-it deg unagraw agi, ugar n telɣut, ddu ɣer %s."
 
 #: db_central_columns.php:108
 msgid "The central list of columns for the current database is empty."
@@ -154,7 +145,7 @@ msgstr "Amezwer"
 #: libraries/plugins/schema/pdf/PdfRelationSchema.php:635
 #: libraries/plugins/schema/pdf/PdfRelationSchema.php:658
 msgid "Links to"
-msgstr ""
+msgstr "Iseɣwan ar"
 
 #: db_datadict.php:122 libraries/config/messages.inc.php:161
 #: libraries/config/messages.inc.php:177 libraries/config/messages.inc.php:215
@@ -168,7 +159,7 @@ msgstr ""
 #: templates/columns_definitions/table_fields_definitions.phtml:65
 #: templates/table/structure/table_structure_header.phtml:14
 msgid "Comments"
-msgstr ""
+msgstr "Iwenniten"
 
 #: db_datadict.php:154
 #: libraries/controllers/table/TableStructureController.php:1184
@@ -178,7 +169,7 @@ msgstr ""
 #: templates/table/structure/check_all_table_column.phtml:28
 #: templates/table/structure/display_structure.phtml:62
 msgid "Primary"
-msgstr ""
+msgstr "Amenzu"
 
 #: db_datadict.php:164 js/messages.php:374 libraries/Index.php:565
 #: libraries/Index.php:593 libraries/IndexColumn.php:141
@@ -202,7 +193,7 @@ msgstr ""
 #: templates/privileges/privileges_summary_row.phtml:9
 #: templates/table/structure/table_structure_row.phtml:24
 msgid "No"
-msgstr ""
+msgstr "Uhu"
 
 #: db_datadict.php:164 js/messages.php:522 libraries/Index.php:592
 #: libraries/IndexColumn.php:143 libraries/central_columns.lib.php:963
@@ -235,17 +226,17 @@ msgstr ""
 #: templates/privileges/privileges_summary_row.phtml:9
 #: templates/table/structure/table_structure_row.phtml:24
 msgid "Yes"
-msgstr ""
+msgstr "Ih"
 
 #: db_export.php:47
 msgid "View dump (schema) of database"
-msgstr ""
+msgstr "Sken dump (azenziɣ) n taffa n isefka"
 
 #: db_export.php:51 db_tracking.php:103 export.php:374 libraries/DbQbe.php:326
 #: libraries/controllers/database/DatabaseStructureController.php:156
 #: libraries/navigation/NavigationTree.php:924
 msgid "No tables found in database."
-msgstr ""
+msgstr "Ulac tifelwiyin yettwafen di taffa n isefka"
 
 #: db_export.php:65 libraries/ServerStatusData.php:128
 #: libraries/config/messages.inc.php:273
@@ -255,7 +246,7 @@ msgstr ""
 #: libraries/plugins/export/ExportXml.php:118
 #: templates/database/structure/show_create.phtml:18
 msgid "Tables"
-msgstr ""
+msgstr "Tifelwiyin"
 
 #: db_export.php:66 libraries/Menu.php:330 libraries/Menu.php:437
 #: libraries/Util.php:3180 libraries/Util.php:3190 libraries/Util.php:3196
@@ -292,43 +283,43 @@ msgstr ""
 #: db_export.php:70 libraries/DbSearch.php:434
 #: libraries/display_export.lib.php:45 libraries/replication_gui.lib.php:379
 msgid "Select all"
-msgstr ""
+msgstr "Fren akk"
 
 #: db_operations.php:50 tbl_create.php:23
 msgid "The database name is empty!"
-msgstr ""
+msgstr "Isem n taffa n isefka d ilem!"
 
 #: db_operations.php:138
 #, php-format
 msgid "Database %1$s has been renamed to %2$s."
-msgstr ""
+msgstr "Taffa n isefka %1$s tuɣal d  %2$s."
 
 #: db_operations.php:150
 #, php-format
 msgid "Database %1$s has been copied to %2$s."
-msgstr ""
+msgstr "Taffa n isefka %1$s tettwanɣel ar %2$s."
 
 #: db_operations.php:279
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. %sFind out why%s."
-msgstr ""
+msgstr "Asakles n twila n phpMyAdmin insa. %sAf-d acuɣeṛ%s."
 
 #: db_qbe.php:126
 msgid "You have to choose at least one column to display!"
-msgstr ""
+msgstr "Tferneḍ xarṣum yiwet n tgejdit ara d-sekneḍ!"
 
 #: db_qbe.php:144
 #, php-format
 msgid "Switch to %svisual builder%s"
-msgstr ""
+msgstr "Ddu ar %sumakras umma%s"
 
 #: db_search.php:32 libraries/plugins/AuthenticationPlugin.php:110
 #: libraries/plugins/auth/AuthenticationConfig.php:89
 #: libraries/plugins/auth/AuthenticationConfig.php:104
 #: libraries/plugins/auth/AuthenticationHttp.php:78
 msgid "Access denied!"
-msgstr ""
+msgstr "Anekcum igdel!"
 
 #: db_tracking.php:53 db_tracking.php:78
 msgid "Tracking data deleted successfully."
@@ -401,18 +392,19 @@ msgid "Geometry %d:"
 msgstr ""
 
 #: gis_data_editor.php:217
+#, fuzzy
 msgid "Point:"
-msgstr ""
+msgstr "Agaz :"
 
 #: gis_data_editor.php:218 gis_data_editor.php:245 gis_data_editor.php:301
 #: gis_data_editor.php:374 js/messages.php:511
 msgid "X"
-msgstr ""
+msgstr "X"
 
 #: gis_data_editor.php:221 gis_data_editor.php:249 gis_data_editor.php:305
 #: gis_data_editor.php:380 js/messages.php:512
 msgid "Y"
-msgstr ""
+msgstr "Y"
 
 #: gis_data_editor.php:243 gis_data_editor.php:299 gis_data_editor.php:372
 #: js/messages.php:514
@@ -497,12 +489,14 @@ msgstr ""
 #: templates/table/search/selection_form.phtml:78
 #: templates/table/structure/add_column.phtml:25 view_create.php:300
 #: view_operations.php:121
+#, fuzzy
 msgid "Go"
-msgstr ""
+msgstr "Bdu"
 
 #: gis_data_editor.php:416
+#, fuzzy
 msgid "Output"
-msgstr ""
+msgstr "Tuffɣa"
 
 #: gis_data_editor.php:419
 msgid ""
@@ -512,11 +506,12 @@ msgstr ""
 
 #: import.php:64
 msgid "Succeeded"
-msgstr ""
+msgstr "Yedda"
 
 #: import.php:68 js/messages.php:607
+#, fuzzy
 msgid "Failed"
-msgstr ""
+msgstr "Ur yeddi ara"
 
 #: import.php:72
 msgid "Incomplete params"
@@ -584,8 +579,9 @@ msgstr ""
 #: import_status.php:114 js/messages.php:451 js/messages.php:615
 #: libraries/Util.php:689 libraries/export.lib.php:518
 #: libraries/plugins/schema/ExportRelationSchema.php:298 user_password.php:300
+#, fuzzy
 msgid "Back"
-msgstr ""
+msgstr "Ɣeṛ &deffir"
 
 #: index.php:153 libraries/Footer.php:69
 msgid "phpMyAdmin Demo Server"
@@ -600,14 +596,16 @@ msgid ""
 msgstr ""
 
 #: index.php:167
+#, fuzzy
 msgid "General settings"
-msgstr ""
+msgstr "Iɣewwaren imuta"
 
 #: index.php:197 js/messages.php:640
 #: libraries/display_change_password.lib.php:47
 #: libraries/display_change_password.lib.php:50 user_password.php:294
+#, fuzzy
 msgid "Change password"
-msgstr ""
+msgstr "Senfel awal uffir"
 
 #: index.php:214
 msgid "Server connection collation"
@@ -626,12 +624,14 @@ msgid "Database server"
 msgstr ""
 
 #: index.php:293 libraries/plugins/auth/AuthenticationCookie.php:182
+#, fuzzy
 msgid "Server:"
-msgstr ""
+msgstr "Aqeddac :"
 
 #: index.php:297
+#, fuzzy
 msgid "Server type:"
-msgstr ""
+msgstr "Anaw n uqeddac :"
 
 #: index.php:301 libraries/plugins/export/ExportLatex.php:220
 #: libraries/plugins/export/ExportSql.php:701
@@ -644,8 +644,9 @@ msgid "Protocol version:"
 msgstr ""
 
 #: index.php:311
+#, fuzzy
 msgid "User:"
-msgstr ""
+msgstr "Isem n useqdac :"
 
 #: index.php:316
 msgid "Server charset:"
@@ -672,24 +673,27 @@ msgid "Show PHP information"
 msgstr ""
 
 #: index.php:388
+#, fuzzy
 msgid "Version information:"
-msgstr ""
+msgstr "Talɣut ɣef lqem"
 
 #: index.php:397 libraries/Sanitize.php:189 libraries/Util.php:336
 #: libraries/Util.php:403 libraries/config/FormDisplay.tpl.php:165
 #: libraries/display_export.lib.php:577 libraries/engines/Pbxt.php:166
 #: libraries/navigation/NavigationHeader.php:200
 #: templates/server/variables/link_template.phtml:9
+#, fuzzy
 msgid "Documentation"
-msgstr ""
+msgstr "Tasemlit"
 
 #: index.php:406
 msgid "Official Homepage"
 msgstr ""
 
 #: index.php:413
+#, fuzzy
 msgid "Contribute"
-msgstr ""
+msgstr "Tteki"
 
 #: index.php:420
 msgid "Get support"
@@ -700,8 +704,9 @@ msgid "List of changes"
 msgstr ""
 
 #: index.php:434 templates/server/plugins/section.phtml:12
+#, fuzzy
 msgid "License"
-msgstr ""
+msgstr "Turagt"
 
 #: index.php:454
 msgid ""
@@ -766,8 +771,9 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:43
+#, fuzzy
 msgid "Confirm"
-msgstr ""
+msgstr "Sentem"
 
 #: js/messages.php:44
 #, php-format
@@ -909,8 +915,9 @@ msgstr ""
 
 #: js/messages.php:112 libraries/config/FormDisplay.tpl.php:426
 #: libraries/insert_edit.lib.php:1619 prefs_manage.php:375 prefs_manage.php:386
+#, fuzzy
 msgid "Reset"
-msgstr ""
+msgstr "Ales awennez"
 
 #: js/messages.php:113
 msgid "Reset all"
@@ -1013,8 +1020,9 @@ msgstr ""
 
 #: js/messages.php:149 js/messages.php:216 libraries/tracking.lib.php:469
 #: libraries/tracking.lib.php:835
+#, fuzzy
 msgid "Close"
-msgstr ""
+msgstr "Fermer"
 
 #: js/messages.php:152
 msgid "Template was created."
@@ -1035,14 +1043,15 @@ msgstr ""
 #. l10n: Other, small valued, queries
 #: js/messages.php:158 libraries/ServerStatusData.php:132
 #: libraries/server_status_queries.lib.php:139
+#, fuzzy
 msgid "Other"
-msgstr ""
+msgstr "Ayen-nniḍen"
 
 #. l10n: Thousands separator
 #: js/messages.php:160 libraries/Util.php:1398 libraries/Util.php:1466
 #: libraries/Util.php:1480
 msgid ","
-msgstr ""
+msgstr ","
 
 #. l10n: Decimal separator
 #: js/messages.php:162 libraries/Util.php:1396 libraries/Util.php:1464
@@ -1140,7 +1149,7 @@ msgstr ""
 
 #: js/messages.php:198 libraries/server_status.lib.php:232
 msgid "Connections"
-msgstr ""
+msgstr "Tuqqniwin"
 
 #: js/messages.php:199 libraries/ServerStatusData.php:429
 #: libraries/server_status_processes.lib.php:130
@@ -1150,50 +1159,50 @@ msgstr ""
 #. l10n: shortcuts for Byte
 #: js/messages.php:202 libraries/Util.php:1309
 msgid "B"
-msgstr ""
+msgstr "AṬ"
 
 #. l10n: shortcuts for Kilobyte
 #: js/messages.php:203 libraries/Util.php:1311
 #: libraries/server_status_monitor.lib.php:213
 msgid "KiB"
-msgstr ""
+msgstr "KAṬ"
 
 #. l10n: shortcuts for Megabyte
 #: js/messages.php:204 libraries/Util.php:1313
 #: libraries/display_export.lib.php:842
 #: libraries/server_status_monitor.lib.php:214
 msgid "MiB"
-msgstr ""
+msgstr "MAṬ"
 
 #. l10n: shortcuts for Gigabyte
 #: js/messages.php:205 libraries/Util.php:1315
 msgid "GiB"
-msgstr ""
+msgstr "GAṬ"
 
 #. l10n: shortcuts for Terabyte
 #: js/messages.php:206 libraries/Util.php:1317
 msgid "TiB"
-msgstr ""
+msgstr "TAṬ"
 
 #. l10n: shortcuts for Petabyte
 #: js/messages.php:207 libraries/Util.php:1319
 msgid "PiB"
-msgstr ""
+msgstr "PAṬ"
 
 #. l10n: shortcuts for Exabyte
 #: js/messages.php:208 libraries/Util.php:1321
 msgid "EiB"
-msgstr ""
+msgstr "EAṬ"
 
 #: js/messages.php:209
 #, php-format
 msgid "%d table(s)"
-msgstr ""
+msgstr "%d tfelwit(yin)"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:212
 msgid "Questions"
-msgstr ""
+msgstr "Isteqsiyen"
 
 #: js/messages.php:213 libraries/server_status.lib.php:140
 msgid "Traffic"
@@ -1202,7 +1211,7 @@ msgstr ""
 #: js/messages.php:214 libraries/Menu.php:592 libraries/Util.php:4100
 #: libraries/server_status_monitor.lib.php:253
 msgid "Settings"
-msgstr ""
+msgstr "Iɣewaren"
 
 #: js/messages.php:215
 msgid "Add chart to grid"
@@ -1224,7 +1233,7 @@ msgstr ""
 #: templates/table/search/options_zoom.phtml:12
 #: templates/table/search/rows_zoom.phtml:24
 msgid "None"
-msgstr ""
+msgstr "Ula yiwen"
 
 #: js/messages.php:220
 msgid "Resume monitor"
@@ -1316,8 +1325,9 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:253
+#, fuzzy
 msgid "Change settings"
-msgstr ""
+msgstr "Snifel ta&wila"
 
 #: js/messages.php:254
 msgid "Current settings"
@@ -1338,8 +1348,9 @@ msgid "Divided by %s"
 msgstr ""
 
 #: js/messages.php:260
+#, fuzzy
 msgid "Unit"
-msgstr ""
+msgstr "Aferdis :"
 
 #: js/messages.php:262
 msgid "From slow log"
@@ -1408,8 +1419,9 @@ msgstr ""
 #: libraries/rte/rte_list.lib.php:107
 #: libraries/server_status_processes.lib.php:92 libraries/tracking.lib.php:287
 #: libraries/tracking.lib.php:1599
+#, fuzzy
 msgid "Status"
-msgstr ""
+msgstr "Aẓayer"
 
 #: js/messages.php:292 js/messages.php:892
 #: libraries/plugins/export/ExportHtmlword.php:486
@@ -1418,8 +1430,9 @@ msgstr ""
 #: libraries/plugins/export/PMA_ExportPdf.php:314
 #: libraries/rte/rte_list.lib.php:96
 #: libraries/server_status_processes.lib.php:88 libraries/sql.lib.php:241
+#, fuzzy
 msgid "Time"
-msgstr ""
+msgstr "Akud"
 
 #: js/messages.php:293
 msgid "Total time:"
@@ -1432,11 +1445,12 @@ msgstr ""
 #: js/messages.php:295
 msgctxt "Display format"
 msgid "Table"
-msgstr ""
+msgstr "Tafelwit"
 
 #: js/messages.php:296
+#, fuzzy
 msgid "Chart"
-msgstr ""
+msgstr "Udlif"
 
 #. l10n: A collection of available filters
 #: js/messages.php:299
@@ -1445,8 +1459,9 @@ msgstr ""
 
 #. l10n: Filter as in "Start Filtering"
 #: js/messages.php:301
+#, fuzzy
 msgid "Filter"
-msgstr ""
+msgstr "Zizdeg"
 
 #: js/messages.php:302
 msgid "Filter queries by word/regexp:"
@@ -1461,8 +1476,9 @@ msgid "Sum of grouped rows:"
 msgstr ""
 
 #: js/messages.php:306
+#, fuzzy
 msgid "Total:"
-msgstr ""
+msgstr "Asemday"
 
 #: js/messages.php:308
 msgid "Loading logs"
@@ -1480,8 +1496,9 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:315
+#, fuzzy
 msgid "Reload page"
-msgstr ""
+msgstr "Ales asali n usebter"
 
 #: js/messages.php:317
 msgid "Affected rows:"
@@ -1502,8 +1519,9 @@ msgstr ""
 #: libraries/display_import.lib.php:107
 #: libraries/server_status_monitor.lib.php:313 prefs_manage.php:246
 #: setup/frames/menu.inc.php:26
+#, fuzzy
 msgid "Import"
-msgstr ""
+msgstr "Kter"
 
 #: js/messages.php:326
 msgid "Import monitor configuration"
@@ -1530,8 +1548,9 @@ msgid "Possible performance issues"
 msgstr ""
 
 #: js/messages.php:337
+#, fuzzy
 msgid "Issue"
-msgstr ""
+msgstr "ugur"
 
 #: js/messages.php:338
 msgid "Recommendation"
@@ -1550,8 +1569,9 @@ msgid "Used variable / formula"
 msgstr ""
 
 #: js/messages.php:342
+#, fuzzy
 msgid "Test"
-msgstr ""
+msgstr "Sekyed"
 
 #: js/messages.php:345
 msgid "Formatting SQL…"
@@ -1578,13 +1598,15 @@ msgid "Page-related settings"
 msgstr ""
 
 #: js/messages.php:354 libraries/config/FormDisplay.tpl.php:424
+#, fuzzy
 msgid "Apply"
-msgstr ""
+msgstr "Appliquer"
 
 #: js/messages.php:357 libraries/navigation/NavigationHeader.php:60
 #: libraries/server_status_monitor.lib.php:119
+#, fuzzy
 msgid "Loading…"
-msgstr ""
+msgstr "Asali…"
 
 #: js/messages.php:358
 msgid "Request aborted!!"
@@ -1595,8 +1617,9 @@ msgid "Processing request"
 msgstr ""
 
 #: js/messages.php:360
+#, fuzzy
 msgid "Request failed!!"
-msgstr ""
+msgstr "Anezri n tuttra n Proxy : %s"
 
 #: js/messages.php:361
 msgid "Error in processing request"
@@ -1633,8 +1656,9 @@ msgstr ""
 #: templates/database/designer/options_panel.phtml:252
 #: templates/database/designer/rename_to_panel.phtml:41
 #: templates/database/designer/where_query_panel.phtml:82
+#, fuzzy
 msgid "OK"
-msgstr ""
+msgstr "IH"
 
 #: js/messages.php:368
 msgid "Click to dismiss this notification"
@@ -1661,8 +1685,9 @@ msgid "Failed to get real row count."
 msgstr ""
 
 #: js/messages.php:383
+#, fuzzy
 msgid "Searching"
-msgstr ""
+msgstr "Anadi…"
 
 #: js/messages.php:384
 msgid "Hide search results"
@@ -1673,12 +1698,14 @@ msgid "Show search results"
 msgstr ""
 
 #: js/messages.php:386
+#, fuzzy
 msgid "Browsing"
-msgstr ""
+msgstr "Seqdec inig yemtawan"
 
 #: js/messages.php:387
+#, fuzzy
 msgid "Deleting"
-msgstr ""
+msgstr "tukksa n ukaram %S…"
 
 #: js/messages.php:388
 #, php-format
@@ -1702,8 +1729,9 @@ msgstr ""
 #: libraries/server_status_monitor.lib.php:317 prefs_manage.php:312
 #: setup/frames/menu.inc.php:27
 #: templates/database/structure/check_all_tables.phtml:12
+#, fuzzy
 msgid "Export"
-msgstr ""
+msgstr "Sifeḍ"
 
 #: js/messages.php:395
 msgid "No routine is exportable. Required privileges may be lacking."
@@ -1754,8 +1782,9 @@ msgstr ""
 #: templates/console/display.phtml:51 templates/console/display.phtml:213
 #: templates/server/variables/variable_row.phtml:4
 #: templates/server/variables/variable_row.phtml:7
+#, fuzzy
 msgid "Edit"
-msgstr ""
+msgstr "Amaẓrag"
 
 #: js/messages.php:413 libraries/DbSearch.php:353
 #: libraries/DisplayResults.php:3558 libraries/DisplayResults.php:4836
@@ -1765,8 +1794,9 @@ msgstr ""
 #: libraries/sql_query_form.lib.php:422 libraries/tracking.lib.php:488
 #: setup/frames/index.inc.php:163 templates/console/bookmark_content.phtml:18
 #: templates/database/designer/delete_relation_panel.phtml:27
+#, fuzzy
 msgid "Delete"
-msgstr ""
+msgstr "Sfeḍ"
 
 #: js/messages.php:414 libraries/DisplayResults.php:925
 #: libraries/DisplayResults.php:933
@@ -1791,8 +1821,9 @@ msgid "Variable %d:"
 msgstr ""
 
 #: js/messages.php:420 libraries/normalization.lib.php:884
+#, fuzzy
 msgid "Pick"
-msgstr ""
+msgstr "_Fren..."
 
 #: js/messages.php:421
 msgid "Column selector"
@@ -1810,12 +1841,17 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:427
+#, fuzzy
 msgid "See more"
 msgstr ""
+"Ces instructions sont la façon la plus rapide d'activer les touches de la "
+"souris en utilisant seulement le clavier. Sélectionnez <gui>Paramètres "
+"d'accès universel</gui> pour voir plus d'options d'accessibilité."
 
 #: js/messages.php:428
+#, fuzzy
 msgid "Are you sure?"
-msgstr ""
+msgstr "S tidett?"
 
 #: js/messages.php:430
 msgid ""
@@ -1824,8 +1860,9 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:433
+#, fuzzy
 msgid "Continue"
-msgstr ""
+msgstr "Kemmel"
 
 #: js/messages.php:436
 msgid "Add primary key"
@@ -1856,8 +1893,9 @@ msgstr ""
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:443 js/messages.php:761 libraries/normalization.lib.php:286
+#, fuzzy
 msgid "Done"
-msgstr ""
+msgstr "Immed"
 
 #: js/messages.php:444
 msgid "Confirm partial dependencies"
@@ -1931,8 +1969,9 @@ msgstr ""
 #: templates/table/gis_visualization/gis_visualization.phtml:48
 #: templates/table/relation/common_form.phtml:132
 #: templates/table/structure/partition_definition_form.phtml:11
+#, fuzzy
 msgid "Save"
-msgstr ""
+msgstr "Sauvegarder"
 
 #: js/messages.php:475
 msgid "Hide search criteria"
@@ -2009,29 +2048,34 @@ msgstr ""
 #: js/messages.php:509 js/messages.php:675 js/messages.php:692
 #: libraries/ErrorHandler.php:370 libraries/insert_edit.lib.php:2644
 #: templates/table/index_form.phtml:154 templates/table/index_form.phtml:198
+#, fuzzy
 msgid "Ignore"
-msgstr ""
+msgstr "Ignorer"
 
 #: js/messages.php:510 libraries/DisplayResults.php:3492
 #: libraries/DisplayResults.php:4857
+#, fuzzy
 msgid "Copy"
-msgstr ""
+msgstr "Copier"
 
 #: js/messages.php:513
+#, fuzzy
 msgid "Point"
-msgstr ""
+msgstr "taneqqiṭ"
 
 #: js/messages.php:515
 msgid "Linestring"
 msgstr ""
 
 #: js/messages.php:516
+#, fuzzy
 msgid "Polygon"
-msgstr ""
+msgstr "Polygone"
 
 #: js/messages.php:517 libraries/DisplayResults.php:1795
+#, fuzzy
 msgid "Geometry"
-msgstr ""
+msgstr "TANZEGGIT"
 
 #: js/messages.php:518
 msgid "Inner ring"
@@ -2096,13 +2140,15 @@ msgstr ""
 
 #: js/messages.php:555 templates/database/designer/side_menu.phtml:56
 #: templates/database/designer/side_menu.phtml:59
+#, fuzzy
 msgid "Save page"
-msgstr ""
+msgstr "Kles asebtar"
 
 #: js/messages.php:556 templates/database/designer/side_menu.phtml:63
 #: templates/database/designer/side_menu.phtml:66
+#, fuzzy
 msgid "Save page as"
-msgstr ""
+msgstr "Kles asebtar daw"
 
 #: js/messages.php:557 templates/database/designer/side_menu.phtml:49
 #: templates/database/designer/side_menu.phtml:52
@@ -2110,12 +2156,14 @@ msgid "Open page"
 msgstr ""
 
 #: js/messages.php:558
+#, fuzzy
 msgid "Delete page"
-msgstr ""
+msgstr "Kkes angaz n usebter"
 
 #: js/messages.php:559 templates/database/designer/side_menu.phtml:10
+#, fuzzy
 msgid "Untitled"
-msgstr ""
+msgstr "War issem"
 
 #: js/messages.php:560
 msgid "Please select a page to continue"
@@ -2153,7 +2201,7 @@ msgstr ""
 
 #: js/messages.php:571 libraries/sql_query_form.lib.php:414
 msgid "Submit"
-msgstr ""
+msgstr "Azen"
 
 #: js/messages.php:574
 msgid "Press escape to cancel editing."
@@ -2196,8 +2244,9 @@ msgstr ""
 #: libraries/browse_foreigners.lib.php:283
 #: libraries/browse_foreigners.lib.php:336
 #: templates/privileges/initials_row.phtml:24
+#, fuzzy
 msgid "Show all"
-msgstr ""
+msgstr "Sken imaṛṛa"
 
 #: js/messages.php:593
 msgid ""
@@ -2224,12 +2273,13 @@ msgid "cancel"
 msgstr ""
 
 #: js/messages.php:606 libraries/server_status.lib.php:277
+#, fuzzy
 msgid "Aborted"
-msgstr ""
+msgstr "Abeqeḍ n ugbur n ukaram yettwaḥbes sɣur aseqdac"
 
 #: js/messages.php:608
 msgid "Success"
-msgstr ""
+msgstr "Yedda"
 
 #: js/messages.php:609
 msgid "Import status"
@@ -2247,8 +2297,9 @@ msgstr ""
 #: libraries/Util.php:3991
 #: templates/database/structure/print_view_data_dictionary_link.phtml:3
 #: templates/table/structure/optional_action_links.phtml:6
+#, fuzzy
 msgid "Print"
-msgstr ""
+msgstr "Siggez"
 
 #: js/messages.php:621
 msgid "You can also edit most values<br />by double-clicking directly on them."
@@ -2271,24 +2322,28 @@ msgid "Right-click the column name to copy it to your clipboard."
 msgstr ""
 
 #: js/messages.php:638
+#, fuzzy
 msgid "Generate password"
-msgstr ""
+msgstr "Sirew awal uffir"
 
 #: js/messages.php:639 libraries/replication_gui.lib.php:877
+#, fuzzy
 msgid "Generate"
-msgstr ""
+msgstr "&Générer une matrice à partir d'une expression…"
 
 #: js/messages.php:643
+#, fuzzy
 msgid "More"
-msgstr ""
+msgstr "Ugar"
 
 #: js/messages.php:646
 msgid "Show panel"
 msgstr ""
 
 #: js/messages.php:647
+#, fuzzy
 msgid "Hide panel"
-msgstr ""
+msgstr "Γumm s wudem awurman"
 
 #: js/messages.php:648
 msgid "Show hidden navigation tree items."
@@ -2320,12 +2375,14 @@ msgid ", latest stable version:"
 msgstr ""
 
 #: js/messages.php:663
+#, fuzzy
 msgid "up to date"
-msgstr ""
+msgstr "Lqem inek n wxMaximar d aneggaru."
 
 #: js/messages.php:665 libraries/DisplayResults.php:4974 view_create.php:206
+#, fuzzy
 msgid "Create view"
-msgstr ""
+msgstr "Rnu timeẓri..."
 
 #: js/messages.php:668
 msgid "Send error report"
@@ -2447,94 +2504,114 @@ msgid "Very weak"
 msgstr ""
 
 #: js/messages.php:734
+#, fuzzy
 msgid "Weak"
-msgstr ""
+msgstr "D uḍɛif"
 
 #: js/messages.php:735
+#, fuzzy
 msgid "Good"
-msgstr ""
+msgstr "Igerrez"
 
 #: js/messages.php:736
+#, fuzzy
 msgid "Strong"
-msgstr ""
+msgstr "Iǧhedd"
 
 #: js/messages.php:765
+#, fuzzy
 msgctxt "Previous month"
 msgid "Prev"
-msgstr ""
+msgstr "Ɣer deffir"
 
 #: js/messages.php:770
+#, fuzzy
 msgctxt "Next month"
 msgid "Next"
-msgstr ""
+msgstr "Ɣeṛ zdat"
 
 #. l10n: Display text for current month link in calendar
 #: js/messages.php:773
+#, fuzzy
 msgid "Today"
-msgstr ""
+msgstr "Assa"
 
 #: js/messages.php:777
+#, fuzzy
 msgid "January"
-msgstr ""
+msgstr "Yennayer"
 
 #: js/messages.php:778
+#, fuzzy
 msgid "February"
-msgstr ""
+msgstr "Fuṛaṛ"
 
 #: js/messages.php:779
+#, fuzzy
 msgid "March"
-msgstr ""
+msgstr "Meɣres"
 
 #: js/messages.php:780
+#, fuzzy
 msgid "April"
-msgstr ""
+msgstr "Yebrir"
 
 #: js/messages.php:781
+#, fuzzy
 msgid "May"
-msgstr ""
+msgstr "Mayu"
 
 #: js/messages.php:782
+#, fuzzy
 msgid "June"
-msgstr ""
+msgstr "Yunyu"
 
 #: js/messages.php:783
+#, fuzzy
 msgid "July"
-msgstr ""
+msgstr "Yulyu"
 
 #: js/messages.php:784
+#, fuzzy
 msgid "August"
-msgstr ""
+msgstr "Ɣuct"
 
 #: js/messages.php:785
+#, fuzzy
 msgid "September"
-msgstr ""
+msgstr "Ctember"
 
 #: js/messages.php:786
+#, fuzzy
 msgid "October"
-msgstr ""
+msgstr "Tuber"
 
 #: js/messages.php:787
+#, fuzzy
 msgid "November"
-msgstr ""
+msgstr "Wambeṛ"
 
 #: js/messages.php:788
 msgid "December"
-msgstr ""
+msgstr "Dujambeṛ"
 
 #. l10n: Short month name
 #: js/messages.php:795 libraries/Util.php:1526
+#, fuzzy
 msgid "Jan"
-msgstr ""
+msgstr "Yen"
 
 #. l10n: Short month name
 #: js/messages.php:797 libraries/Util.php:1528
+#, fuzzy
 msgid "Feb"
-msgstr ""
+msgstr "Fuṛ"
 
 #. l10n: Short month name
 #: js/messages.php:799 libraries/Util.php:1530
+#, fuzzy
 msgid "Mar"
-msgstr ""
+msgstr "MEɣ"
 
 #. l10n: Short month name
 #: js/messages.php:801 libraries/Util.php:1532
@@ -2543,9 +2620,10 @@ msgstr ""
 
 #. l10n: Short month name
 #: js/messages.php:803 libraries/Util.php:1534
+#, fuzzy
 msgctxt "Short month name"
 msgid "May"
-msgstr ""
+msgstr "Mayu"
 
 #. l10n: Short month name
 #: js/messages.php:805 libraries/Util.php:1536
@@ -2584,11 +2662,12 @@ msgstr ""
 
 #: js/messages.php:823
 msgid "Sunday"
-msgstr ""
+msgstr "Acer"
 
 #: js/messages.php:824
+#, fuzzy
 msgid "Monday"
-msgstr ""
+msgstr "Arim"
 
 #: js/messages.php:825
 msgid "Tuesday"
@@ -2613,7 +2692,7 @@ msgstr ""
 #. l10n: Short week day name
 #: js/messages.php:836
 msgid "Sun"
-msgstr ""
+msgstr "Iṭij"
 
 #. l10n: Short week day name
 #: js/messages.php:838 libraries/Util.php:1553
@@ -2662,8 +2741,9 @@ msgstr ""
 
 #. l10n: Minimal week day name
 #: js/messages.php:861
+#, fuzzy
 msgid "We"
-msgstr ""
+msgstr "Asuref, ur nezmir ara ad neqqen ɣer Skype."
 
 #. l10n: Minimal week day name
 #: js/messages.php:863
@@ -2694,21 +2774,25 @@ msgstr "calendar-month-year"
 
 #. l10n: Year suffix for calendar, "none" is empty.
 #: js/messages.php:881
+#, fuzzy
 msgctxt "Year suffix"
 msgid "none"
-msgstr ""
+msgstr "Ula yiwen"
 
 #: js/messages.php:893
+#, fuzzy
 msgid "Hour"
-msgstr ""
+msgstr "Asrag"
 
 #: js/messages.php:894
+#, fuzzy
 msgid "Minute"
-msgstr ""
+msgstr "Tasdat"
 
 #: js/messages.php:895
+#, fuzzy
 msgid "Second"
-msgstr ""
+msgstr "Tasint"
 
 #: js/messages.php:906
 msgid "This field is required"
@@ -2719,8 +2803,9 @@ msgid "Please fix this field"
 msgstr ""
 
 #: js/messages.php:908
+#, fuzzy
 msgid "Please enter a valid email address"
-msgstr ""
+msgstr "Ma ulac aɣilif, sekcem tansa imayl tameɣtut."
 
 #: js/messages.php:909
 msgid "Please enter a valid URL"
@@ -2785,8 +2870,9 @@ msgstr ""
 #: js/messages.php:968 libraries/Message.php:190 libraries/Util.php:566
 #: libraries/core.lib.php:243 libraries/import.lib.php:80
 #: libraries/insert_edit.lib.php:1232 view_operations.php:78
+#, fuzzy
 msgid "Error"
-msgstr ""
+msgstr "Tuccḍa"
 
 #: libraries/Advisor.php:163
 #, php-format
@@ -2841,8 +2927,9 @@ msgstr ""
 
 #: libraries/Charsets.php:160
 #: templates/database/structure/table_header.phtml:84
+#, fuzzy
 msgid "Charset"
-msgstr ""
+msgstr "Tagrumma n isekkilen"
 
 #: libraries/Charsets.php:207 libraries/Index.php:688
 #: libraries/central_columns.lib.php:702 libraries/central_columns.lib.php:1386
@@ -2859,124 +2946,148 @@ msgid "Collation"
 msgstr ""
 
 #: libraries/Charsets.php:243 libraries/insert_edit.lib.php:402
+#, fuzzy
 msgid "Binary"
-msgstr ""
+msgstr "Imisin"
 
 #: libraries/Charsets.php:255
+#, fuzzy
 msgid "Bulgarian"
-msgstr ""
+msgstr "Tabulgarit"
 
 #: libraries/Charsets.php:259 libraries/Charsets.php:400
+#, fuzzy
 msgid "Simplified Chinese"
-msgstr ""
+msgstr "Tacinit taḥerfit"
 
 #: libraries/Charsets.php:261 libraries/Charsets.php:420
+#, fuzzy
 msgid "Traditional Chinese"
-msgstr ""
+msgstr "Tacinit tamensayt"
 
 #: libraries/Charsets.php:265
+#, fuzzy
 msgid "case-insensitive"
-msgstr ""
+msgstr "Insensible à la casse"
 
 #: libraries/Charsets.php:268
+#, fuzzy
 msgid "case-sensitive"
-msgstr ""
+msgstr "Sensible à la casse"
 
 #: libraries/Charsets.php:271
 msgid "Croatian"
-msgstr ""
+msgstr "Takarwaṣit"
 
 #: libraries/Charsets.php:274
 msgid "Czech"
-msgstr ""
+msgstr "Tačikit"
 
 #: libraries/Charsets.php:277
 msgid "Danish"
-msgstr ""
+msgstr "Tadanit"
 
 #: libraries/Charsets.php:280
+#, fuzzy
 msgid "English"
-msgstr ""
+msgstr "Anglais"
 
 #: libraries/Charsets.php:283
+#, fuzzy
 msgid "Esperanto"
-msgstr ""
+msgstr "Taspirantit"
 
 #: libraries/Charsets.php:286
+#, fuzzy
 msgid "Estonian"
-msgstr ""
+msgstr "Tasṭunit"
 
 #: libraries/Charsets.php:289 libraries/Charsets.php:292
+#, fuzzy
 msgid "German"
-msgstr ""
+msgstr "Talmanit"
 
 #: libraries/Charsets.php:289
+#, fuzzy
 msgid "dictionary"
-msgstr ""
+msgstr "Amawal"
 
 #: libraries/Charsets.php:292
 msgid "phone book"
 msgstr ""
 
 #: libraries/Charsets.php:295
+#, fuzzy
 msgid "Hungarian"
-msgstr ""
+msgstr "Tahungaṛit"
 
 #: libraries/Charsets.php:298
+#, fuzzy
 msgid "Icelandic"
-msgstr ""
+msgstr "Taṣlandit"
 
 #: libraries/Charsets.php:301 libraries/Charsets.php:407
+#, fuzzy
 msgid "Japanese"
-msgstr ""
+msgstr "Tajapunit"
 
 #: libraries/Charsets.php:304
+#, fuzzy
 msgid "Latvian"
-msgstr ""
+msgstr "Taletvanit"
 
 #: libraries/Charsets.php:307
+#, fuzzy
 msgid "Lithuanian"
-msgstr ""
+msgstr "Talitwanit"
 
 #: libraries/Charsets.php:310 libraries/Charsets.php:429
+#, fuzzy
 msgid "Korean"
-msgstr ""
+msgstr "Takurit"
 
 #: libraries/Charsets.php:313
+#, fuzzy
 msgid "Burmese"
-msgstr ""
+msgstr "Tabirmant"
 
 #: libraries/Charsets.php:316
+#, fuzzy
 msgid "Persian"
-msgstr ""
+msgstr "Tafarsit"
 
 #: libraries/Charsets.php:319
+#, fuzzy
 msgid "Polish"
-msgstr ""
+msgstr "Tapolunit"
 
 #: libraries/Charsets.php:322 libraries/Charsets.php:383
 msgid "West European"
 msgstr ""
 
 #: libraries/Charsets.php:325
+#, fuzzy
 msgid "Romanian"
-msgstr ""
+msgstr "Tarumanit"
 
 #: libraries/Charsets.php:328
 msgid "Sinhalese"
 msgstr ""
 
 #: libraries/Charsets.php:331
+#, fuzzy
 msgid "Slovak"
-msgstr ""
+msgstr "Tasluvakt"
 
 #: libraries/Charsets.php:334
+#, fuzzy
 msgid "Slovenian"
-msgstr ""
+msgstr "Tasluvinit"
 
 #: libraries/Charsets.php:337
+#, fuzzy
 msgid "Spanish"
-msgstr ""
+msgstr "Espagnol"
 
 #: libraries/Charsets.php:340
 msgid "Traditional Spanish"
@@ -2984,23 +3095,27 @@ msgstr ""
 
 #: libraries/Charsets.php:343 libraries/Charsets.php:450
 msgid "Swedish"
-msgstr ""
+msgstr "Taswidit"
 
 #: libraries/Charsets.php:346 libraries/Charsets.php:453
+#, fuzzy
 msgid "Thai"
-msgstr ""
+msgstr "Tataylandit"
 
 #: libraries/Charsets.php:349 libraries/Charsets.php:447
+#, fuzzy
 msgid "Turkish"
-msgstr ""
+msgstr "Taṭurkit"
 
 #: libraries/Charsets.php:352 libraries/Charsets.php:444
+#, fuzzy
 msgid "Ukrainian"
-msgstr ""
+msgstr "Takrinit"
 
 #: libraries/Charsets.php:355 libraries/Charsets.php:374
+#, fuzzy
 msgid "Unicode"
-msgstr ""
+msgstr "Unicode"
 
 #: libraries/Charsets.php:355 libraries/Charsets.php:374
 #: libraries/Charsets.php:383 libraries/Charsets.php:390
@@ -3009,44 +3124,53 @@ msgid "multilingual"
 msgstr ""
 
 #: libraries/Charsets.php:358
+#, fuzzy
 msgid "Vietnamese"
-msgstr ""
+msgstr "Tavyiṭnamit"
 
 #: libraries/Charsets.php:390
+#, fuzzy
 msgid "Central European"
-msgstr ""
+msgstr "Turuft talemmast"
 
 #: libraries/Charsets.php:395
+#, fuzzy
 msgid "Russian"
-msgstr ""
+msgstr "Russe"
 
 #: libraries/Charsets.php:412
+#, fuzzy
 msgid "Baltic"
-msgstr ""
+msgstr "Abaltik"
 
 #: libraries/Charsets.php:417
+#, fuzzy
 msgid "Armenian"
-msgstr ""
+msgstr "Taṛminit"
 
 #: libraries/Charsets.php:423
 msgid "Cyrillic"
-msgstr ""
+msgstr "Asirilik"
 
 #: libraries/Charsets.php:426
+#, fuzzy
 msgid "Arabic"
-msgstr ""
+msgstr "Taɛrabt"
 
 #: libraries/Charsets.php:432
+#, fuzzy
 msgid "Hebrew"
-msgstr ""
+msgstr "Taɛebrit"
 
 #: libraries/Charsets.php:435
+#, fuzzy
 msgid "Georgian"
-msgstr ""
+msgstr "Tajyuṛjit"
 
 #: libraries/Charsets.php:438
+#, fuzzy
 msgid "Greek"
-msgstr ""
+msgstr "Tagrigit"
 
 #: libraries/Charsets.php:441
 msgid "Czech-Slovak"
@@ -3054,8 +3178,9 @@ msgstr ""
 
 #: libraries/Charsets.php:456 libraries/Charsets.php:463
 #: libraries/controllers/database/DatabaseStructureController.php:989
+#, fuzzy
 msgid "unknown"
-msgstr ""
+msgstr "arussin"
 
 #: libraries/Charsets.php:460
 msgid "binary collation"
@@ -3094,8 +3219,9 @@ msgid ""
 msgstr ""
 
 #: libraries/Config.php:1558
+#, fuzzy
 msgid "Font size"
-msgstr ""
+msgstr "Teɣzi n tsefsit"
 
 #: libraries/Console.php:86
 #, php-format
@@ -3105,8 +3231,9 @@ msgstr[0] ""
 msgstr[1] ""
 
 #: libraries/Console.php:93
+#, fuzzy
 msgid "No bookmarks"
-msgstr ""
+msgstr "Ti_craḍ n isebtar:"
 
 #: libraries/Console.php:128
 msgid "SQL Query Console"
@@ -3131,8 +3258,9 @@ msgid "Please check privileges of directory containing database."
 msgstr ""
 
 #: libraries/DatabaseInterface.php:2052
+#, fuzzy
 msgid "Details…"
-msgstr ""
+msgstr "Talqayt..."
 
 #: libraries/DatabaseInterface.php:2350
 msgid "Missing connection parameters!"
@@ -3165,28 +3293,36 @@ msgid "Descending"
 msgstr ""
 
 #: libraries/DbQbe.php:467 templates/table/search/search_and_replace.phtml:6
+#, fuzzy
 msgid "Column:"
-msgstr ""
+msgstr "Tigejdit:"
 
 #: libraries/DbQbe.php:513
+#, fuzzy
 msgid "Alias:"
-msgstr ""
+msgstr "Tabzimt:"
 
 #: libraries/DbQbe.php:566
+#, fuzzy
 msgid "Sort:"
-msgstr ""
+msgstr "Asmizzwer"
 
 #: libraries/DbQbe.php:630
+#, fuzzy
 msgid "Sort order:"
 msgstr ""
+"Définir l'affichage, la manière de trier et les niveaux de zoom par défaut "
+"du gestionnaire de fichiers."
 
 #: libraries/DbQbe.php:679
+#, fuzzy
 msgid "Show:"
-msgstr ""
+msgstr "Beqqeḍ"
 
 #: libraries/DbQbe.php:728
+#, fuzzy
 msgid "Criteria:"
-msgstr ""
+msgstr "asebdad"
 
 #: libraries/DbQbe.php:797
 msgid "Add/Delete criteria rows"
@@ -3213,24 +3349,28 @@ msgid "And:"
 msgstr ""
 
 #: libraries/DbQbe.php:886
+#, fuzzy
 msgid "Ins"
-msgstr ""
+msgstr "Kkes armad n izegrar"
 
 #: libraries/DbQbe.php:889
 msgid "Del"
-msgstr ""
+msgstr "Kkes"
 
 #: libraries/DbQbe.php:905
+#, fuzzy
 msgid "Modify:"
-msgstr ""
+msgstr "~Modifier"
 
 #: libraries/DbQbe.php:968
+#, fuzzy
 msgid "Ins:"
-msgstr ""
+msgstr "Kkes armad n izegrar"
 
 #: libraries/DbQbe.php:983
+#, fuzzy
 msgid "Del:"
-msgstr ""
+msgstr "Kkes"
 
 #: libraries/DbQbe.php:1846
 #, php-format
@@ -3246,8 +3386,9 @@ msgid "Saved bookmarked search:"
 msgstr ""
 
 #: libraries/DbQbe.php:1881
+#, fuzzy
 msgid "New bookmark"
-msgstr ""
+msgstr "Amenyaf amaynut"
 
 #: libraries/DbQbe.php:1907
 msgid "Create bookmark"
@@ -3258,8 +3399,9 @@ msgid "Update bookmark"
 msgstr ""
 
 #: libraries/DbQbe.php:1912
+#, fuzzy
 msgid "Delete bookmark"
-msgstr ""
+msgstr "Kkes asɣal: $1"
 
 #: libraries/DbSearch.php:99 libraries/DbSearch.php:392
 msgid "at least one of the words"
@@ -3274,8 +3416,9 @@ msgid "the exact phrase"
 msgstr ""
 
 #: libraries/DbSearch.php:102 libraries/DbSearch.php:401
+#, fuzzy
 msgid "as regular expression"
-msgstr ""
+msgstr "Expression régulière"
 
 #: libraries/DbSearch.php:268
 #, php-format
@@ -3302,8 +3445,9 @@ msgstr[1] ""
 #: libraries/config.values.php:50 libraries/config.values.php:119
 #: libraries/navigation/nodes/NodeTable.php:311
 #: templates/table/structure/check_all_table_column.phtml:12
+#, fuzzy
 msgid "Browse"
-msgstr ""
+msgstr "Parcourir"
 
 #: libraries/DbSearch.php:376
 msgid "Search in database"
@@ -3314,8 +3458,9 @@ msgid "Words or values to search for (wildcard: \"%\"):"
 msgstr ""
 
 #: libraries/DbSearch.php:389 templates/table/search/search_and_replace.phtml:1
+#, fuzzy
 msgid "Find:"
-msgstr ""
+msgstr "Rechercher:"
 
 #: libraries/DbSearch.php:394 libraries/DbSearch.php:398
 msgid "Words are separated by a space character (\" \")."
@@ -3352,40 +3497,46 @@ msgstr ""
 
 #: libraries/DisplayResults.php:989 libraries/Util.php:2437
 #: libraries/Util.php:2440
+#, fuzzy
 msgctxt "First page"
 msgid "Begin"
-msgstr ""
+msgstr "Bdu"
 
 #: libraries/DisplayResults.php:992 libraries/Util.php:2438
 #: libraries/Util.php:2441
 #: libraries/controllers/server/ServerBinlogController.php:194
 #: libraries/controllers/server/ServerBinlogController.php:196
+#, fuzzy
 msgctxt "Previous page"
 msgid "Previous"
-msgstr ""
+msgstr "Ɣer deffir"
 
 #: libraries/DisplayResults.php:1058 libraries/Util.php:2469
 #: libraries/Util.php:2479
 #: libraries/controllers/server/ServerBinlogController.php:228
 #: libraries/controllers/server/ServerBinlogController.php:230
+#, fuzzy
 msgctxt "Next page"
 msgid "Next"
-msgstr ""
+msgstr "Ɣeṛ zdat"
 
 #: libraries/DisplayResults.php:1088 libraries/Util.php:2470
 #: libraries/Util.php:2480
+#, fuzzy
 msgctxt "Last page"
 msgid "End"
-msgstr ""
+msgstr "Tagara"
 
 #: libraries/DisplayResults.php:1131
+#, fuzzy
 msgid "All"
-msgstr ""
+msgstr "Tous"
 
 #: libraries/DisplayResults.php:1141 libraries/display_export.lib.php:437
 #: templates/startAndNumberOfRowsPanel.phtml:10
+#, fuzzy
 msgid "Number of rows:"
-msgstr ""
+msgstr "Amḍan n izirigen"
 
 #: libraries/DisplayResults.php:1434
 msgid "Sort by key"
@@ -3418,8 +3569,9 @@ msgstr ""
 #: templates/console/display.phtml:173 templates/table/index_form.phtml:49
 #: templates/table/search/options.phtml:2
 #: templates/table/structure/row_stats_table.phtml:19
+#, fuzzy
 msgid "Options"
-msgstr ""
+msgstr "Iɣewwaṛen :"
 
 #: libraries/DisplayResults.php:1723 libraries/DisplayResults.php:1844
 msgid "Partial texts"
@@ -3512,7 +3664,7 @@ msgstr ""
 #: templates/database/structure/check_all_tables.phtml:9
 #: templates/select_all.phtml:2 templates/select_all.phtml:7
 msgid "With selected:"
-msgstr ""
+msgstr "S ufran:"
 
 #: libraries/DisplayResults.php:4845 libraries/DisplayResults.php:4847
 #: libraries/server_privileges.lib.php:1164
@@ -3526,8 +3678,9 @@ msgid "Check all"
 msgstr ""
 
 #: libraries/DisplayResults.php:5020
+#, fuzzy
 msgid "Copy to clipboard"
-msgstr ""
+msgstr "Copier dans le presse-papiers"
 
 #: libraries/DisplayResults.php:5076
 msgid "Query results operations"
@@ -3547,9 +3700,10 @@ msgstr ""
 
 #. l10n: This is currently used only in Japanese locales
 #: libraries/Encoding.php:313
+#, fuzzy
 msgctxt "None encoding conversion"
 msgid "None"
-msgstr ""
+msgstr "Aucun"
 
 #. l10n: This is currently used only in Japanese locales
 #: libraries/Encoding.php:324
@@ -3561,8 +3715,9 @@ msgid "Too many error messages, some are not displayed."
 msgstr ""
 
 #: libraries/ErrorHandler.php:359
+#, fuzzy
 msgid "Report"
-msgstr ""
+msgstr "Aneqqis"
 
 #: libraries/ErrorHandler.php:364 templates/error/report_form.phtml:27
 msgid "Automatically send report next time"
@@ -3607,8 +3762,9 @@ msgid "File is a symbolic link"
 msgstr ""
 
 #: libraries/File.php:450 libraries/File.php:542
+#, fuzzy
 msgid "File could not be read!"
-msgstr ""
+msgstr "D awezɣi tɣuri n ufaylu"
 
 #: libraries/File.php:490
 msgid "Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc]."
@@ -3679,8 +3835,9 @@ msgstr ""
 #: templates/server/variables/variable_table_head.phtml:3
 #: templates/table/structure/display_partitions.phtml:35
 #: templates/table/structure/table_structure_header.phtml:25
+#, fuzzy
 msgid "Action"
-msgstr ""
+msgstr "Tigawt"
 
 #: libraries/Index.php:682 libraries/browse_foreigners.lib.php:154
 #: libraries/browse_foreigners.lib.php:158 libraries/tracking.lib.php:976
@@ -3693,8 +3850,9 @@ msgstr ""
 #: libraries/tracking.lib.php:978
 #: templates/columns_definitions/column_indexes.phtml:11
 #: templates/table/structure/check_all_table_column.phtml:32
+#, fuzzy
 msgid "Unique"
-msgstr ""
+msgstr "Remplacer automatiquement toutes les entrées uniques"
 
 #: libraries/Index.php:685 libraries/tracking.lib.php:979
 msgid "Packed"
@@ -3710,8 +3868,9 @@ msgstr ""
 #: templates/columns_definitions/partitions.phtml:79
 #: templates/database/structure/table_header.phtml:94
 #: templates/table/structure/display_partitions.phtml:33
+#, fuzzy
 msgid "Comment"
-msgstr ""
+msgstr "Awennit"
 
 #: libraries/Index.php:717
 msgid "The primary key has been dropped."
@@ -3731,8 +3890,9 @@ msgstr ""
 #: templates/table/relation/foreign_key_row.phtml:85
 #: templates/table/structure/check_all_table_column.phtml:22
 #: templates/table/structure/display_structure.phtml:181
+#, fuzzy
 msgid "Drop"
-msgstr ""
+msgstr "Fssi"
 
 #: libraries/Index.php:852
 #, php-format
@@ -3745,8 +3905,9 @@ msgstr ""
 #: libraries/browse_foreigners.lib.php:320
 #: libraries/plugins/schema/pdf/PdfRelationSchema.php:495
 #: libraries/plugins/schema/pdf/PdfRelationSchema.php:520
+#, fuzzy
 msgid "Page number:"
-msgstr ""
+msgstr "_Uṭṭun n usebter"
 
 #: libraries/LanguageManager.php:898
 msgid "Ignoring unsupported language code."
@@ -3754,8 +3915,9 @@ msgstr ""
 
 #: libraries/LanguageManager.php:925 libraries/LanguageManager.php:926
 #: setup/frames/index.inc.php:66
+#, fuzzy
 msgid "Language"
-msgstr ""
+msgstr "Tutlayt"
 
 #: libraries/Linter.php:99
 msgid ""
@@ -3769,8 +3931,9 @@ msgstr ""
 
 #: libraries/Menu.php:208 libraries/ServerStatusData.php:425
 #: libraries/config/messages.inc.php:917
+#, fuzzy
 msgid "Server"
-msgstr ""
+msgstr "Aqeddac"
 
 #: libraries/Menu.php:227 libraries/config/messages.inc.php:909
 #: libraries/mult_submits.lib.php:338
@@ -3790,14 +3953,15 @@ msgstr ""
 #: templates/table/relation/foreign_key_row.phtml:159
 #: templates/table/relation/internal_relational_row.phtml:50
 msgid "Database"
-msgstr ""
+msgstr "Taffa n isefka"
 
 #: libraries/Menu.php:256 libraries/navigation/nodes/NodeView.php:30
 #: libraries/tbl_info.inc.php:60
 #: templates/database/structure/structure_table_row.phtml:97
 #: templates/database/structure/structure_table_row.phtml:167
+#, fuzzy
 msgid "View"
-msgstr ""
+msgstr "Timeẓriwt"
 
 #: libraries/Menu.php:256 libraries/config/messages.inc.php:919
 #: libraries/plugins/export/ExportXml.php:493 libraries/rte/rte_list.lib.php:93
@@ -3814,7 +3978,7 @@ msgstr ""
 #: templates/table/relation/foreign_key_row.phtml:170
 #: templates/table/relation/internal_relational_row.phtml:58
 msgid "Table"
-msgstr ""
+msgstr "Tafelwit"
 
 #: libraries/Menu.php:338 libraries/Menu.php:441 libraries/Menu.php:554
 #: libraries/Util.php:3181 libraries/Util.php:3191 libraries/Util.php:3197
@@ -3823,8 +3987,9 @@ msgstr ""
 #: libraries/config.values.php:110 libraries/config.values.php:116
 #: libraries/config/messages.inc.php:320
 #: libraries/navigation/nodes/NodeTable.php:306
+#, fuzzy
 msgid "SQL"
-msgstr ""
+msgstr "SQL"
 
 #: libraries/Menu.php:341 libraries/Menu.php:444 libraries/Util.php:3182
 #: libraries/Util.php:3192 libraries/Util.php:3198 libraries/Util.php:3472
@@ -3832,36 +3997,41 @@ msgstr ""
 #: libraries/config.values.php:40 libraries/config.values.php:48
 #: libraries/config.values.php:111 libraries/config.values.php:117
 #: libraries/navigation/nodes/NodeTable.php:296
+#, fuzzy
 msgid "Search"
-msgstr ""
+msgstr "Recherche"
 
 #: libraries/Menu.php:351 libraries/Util.php:3183 libraries/Util.php:3193
 #: libraries/Util.php:3474 libraries/Util.php:3475 libraries/Util.php:4129
 #: libraries/config.values.php:41 libraries/config.values.php:49
 #: libraries/config.values.php:118 libraries/navigation/nodes/NodeTable.php:302
 #: libraries/sql_query_form.lib.php:289 libraries/sql_query_form.lib.php:292
+#, fuzzy
 msgid "Insert"
-msgstr ""
+msgstr "Ger"
 
 #: libraries/Menu.php:375 libraries/Menu.php:479 libraries/Util.php:4116
 #: libraries/Util.php:4132 libraries/config.values.php:106
 #: libraries/server_common.lib.php:48 libraries/server_privileges.lib.php:2530
 #: libraries/server_privileges.lib.php:4371
 #: templates/privileges/privileges_summary.phtml:16
+#, fuzzy
 msgid "Privileges"
-msgstr ""
+msgstr "Tisegluyin"
 
 #: libraries/Menu.php:384 libraries/Menu.php:392 libraries/Menu.php:471
 #: libraries/Util.php:3185 libraries/Util.php:3199 libraries/Util.php:4115
 #: libraries/Util.php:4133 libraries/config.values.php:112
 #: view_operations.php:107
+#, fuzzy
 msgid "Operations"
-msgstr ""
+msgstr "Timhalin n ufaylu"
 
 #: libraries/Menu.php:397 libraries/Menu.php:501 libraries/Util.php:4120
 #: libraries/Util.php:4134 libraries/relation.lib.php:264
+#, fuzzy
 msgid "Tracking"
-msgstr ""
+msgstr "Aḍfaṛ"
 
 #: libraries/Menu.php:409 libraries/Menu.php:495 libraries/Util.php:4119
 #: libraries/Util.php:4135
@@ -3881,8 +4051,9 @@ msgid "Database seems to be empty!"
 msgstr ""
 
 #: libraries/Menu.php:451 libraries/Util.php:4112
+#, fuzzy
 msgid "Query"
-msgstr ""
+msgstr "Tuttra"
 
 #: libraries/Menu.php:484 libraries/Util.php:4117
 #: libraries/rte/rte_words.lib.php:44
@@ -3894,8 +4065,9 @@ msgstr ""
 #: libraries/plugins/export/ExportSql.php:961
 #: libraries/plugins/export/ExportXml.php:103
 #: libraries/rte/rte_words.lib.php:72
+#, fuzzy
 msgid "Events"
-msgstr ""
+msgstr "Tidyanin"
 
 #: libraries/Menu.php:507 libraries/Util.php:4121
 msgid "Designer"
@@ -3912,11 +4084,12 @@ msgstr ""
 #: libraries/navigation/NavigationTree.php:1274
 #: libraries/server_common.lib.php:45 libraries/server_privileges.lib.php:4483
 msgid "Databases"
-msgstr ""
+msgstr "Taffiwin n isefka"
 
 #: libraries/Menu.php:574
+#, fuzzy
 msgid "User accounts"
-msgstr ""
+msgstr "Comptes utilisateurs"
 
 #: libraries/Menu.php:601 libraries/ServerStatusData.php:121
 #: libraries/Util.php:4101 libraries/server_common.lib.php:33
@@ -3927,16 +4100,18 @@ msgstr ""
 #: libraries/Util.php:4102 libraries/server_common.lib.php:39
 #: templates/database/structure/body_for_table_summary.phtml:10
 #: templates/database/structure/table_header.phtml:27
+#, fuzzy
 msgid "Replication"
-msgstr ""
+msgstr "Asefrurex LDAP n imedlis n tensa"
 
 #: libraries/Menu.php:612 libraries/ServerStatusData.php:193
 #: libraries/Util.php:4103 libraries/config.values.php:105
 #: libraries/sql_query_form.lib.php:427
 #: templates/server/engines/engine.phtml:15
 #: templates/server/engines/engine.phtml:18
+#, fuzzy
 msgid "Variables"
-msgstr ""
+msgstr "Imuttiyen"
 
 #: libraries/Menu.php:616 libraries/Util.php:4104
 msgid "Charsets"
@@ -3948,8 +4123,9 @@ msgstr ""
 
 #: libraries/Menu.php:624 libraries/Util.php:4105
 #: libraries/server_common.lib.php:30
+#, fuzzy
 msgid "Plugins"
-msgstr ""
+msgstr "Izegrar"
 
 #: libraries/Message.php:246
 #, php-format
@@ -3986,8 +4162,9 @@ msgstr ""
 
 #: libraries/RecentFavoriteTable.php:209
 #: templates/database/structure/favorite_anchor.phtml:12
+#, fuzzy
 msgid "Remove from Favorites"
-msgstr ""
+msgstr "Kkes seg ismenyifen"
 
 #: libraries/RecentFavoriteTable.php:231
 msgid "There are no recent tables."
@@ -4002,16 +4179,18 @@ msgid "Recent tables"
 msgstr ""
 
 #: libraries/RecentFavoriteTable.php:249
+#, fuzzy
 msgid "Recent"
-msgstr ""
+msgstr "Melmi kan"
 
 #: libraries/RecentFavoriteTable.php:251 libraries/config/messages.inc.php:539
 msgid "Favorite tables"
 msgstr ""
 
 #: libraries/RecentFavoriteTable.php:253
+#, fuzzy
 msgid "Favorites"
-msgstr ""
+msgstr "Inurifen"
 
 #: libraries/SavedSearches.php:256
 msgid "Please provide a name for this bookmarked search."
@@ -4043,16 +4222,21 @@ msgid "SQL query"
 msgstr ""
 
 #: libraries/ServerStatusData.php:118
+#, fuzzy
 msgid "Handler"
 msgstr ""
+"Asuter n usewḥel n usewwaṛ yegdel acku Element.requestPointerLock() ur d "
+"ttusawel ara deg ugensu n umsesfer n tedyant n useqdac uselkem wezzilen, "
+"udiɣ isemli ulaci-it deg ugdil aččuṛan."
 
 #: libraries/ServerStatusData.php:119
 msgid "Query cache"
 msgstr ""
 
 #: libraries/ServerStatusData.php:120
+#, fuzzy
 msgid "Threads"
-msgstr ""
+msgstr "Sken ikalan ifessasen n yizen"
 
 #: libraries/ServerStatusData.php:122
 msgid "Temporary data"
@@ -4071,8 +4255,9 @@ msgid "Joins"
 msgstr ""
 
 #: libraries/ServerStatusData.php:127
+#, fuzzy
 msgid "Sorting"
-msgstr ""
+msgstr "Afran"
 
 #: libraries/ServerStatusData.php:129
 msgid "Transaction coordinator"
@@ -4080,8 +4265,9 @@ msgstr ""
 
 #: libraries/ServerStatusData.php:130
 #: templates/server/binlog/log_selector.phtml:19
+#, fuzzy
 msgid "Files"
-msgstr ""
+msgstr "Ifuyla"
 
 #: libraries/ServerStatusData.php:146
 msgid "Flush (close) all tables"
@@ -4120,12 +4306,14 @@ msgid "All status variables"
 msgstr ""
 
 #: libraries/ServerStatusData.php:441
+#, fuzzy
 msgid "Monitor"
-msgstr ""
+msgstr "Asefrak"
 
 #: libraries/ServerStatusData.php:445
+#, fuzzy
 msgid "Advisor"
-msgstr ""
+msgstr "aweṣṣay"
 
 #: libraries/ServerStatusData.php:489
 #, php-format
@@ -4245,8 +4433,9 @@ msgid "No preview available."
 msgstr ""
 
 #: libraries/Theme.php:464
+#, fuzzy
 msgid "take it"
-msgstr ""
+msgstr "Ṭṭef-d tuddma n wegdil i kra n teɣzut"
 
 #: libraries/ThemeManager.php:148
 #, php-format
@@ -4264,8 +4453,9 @@ msgid "Theme path not found for theme %s!"
 msgstr ""
 
 #: libraries/ThemeManager.php:377
+#, fuzzy
 msgid "Theme:"
-msgstr ""
+msgstr "Asentel :"
 
 #: libraries/TypesMySQL.php:31
 msgid ""
@@ -4461,8 +4651,9 @@ msgid "A curve with linear interpolation between points"
 msgstr ""
 
 #: libraries/TypesMySQL.php:199
+#, fuzzy
 msgid "A polygon"
-msgstr ""
+msgstr "Ɣer u~geddis"
 
 #: libraries/TypesMySQL.php:201
 msgid "A collection of points"
@@ -4487,20 +4678,22 @@ msgid ""
 msgstr ""
 
 #: libraries/TypesMySQL.php:479
+#, fuzzy
 msgctxt "numeric types"
 msgid "Numeric"
-msgstr ""
+msgstr "Umḍin"
 
 #: libraries/TypesMySQL.php:497
 msgctxt "date and time types"
 msgid "Date and time"
-msgstr ""
+msgstr "Azemz d wakud"
 
 #: libraries/TypesMySQL.php:506 libraries/normalization.lib.php:158
 #: normalization.php:25
+#, fuzzy
 msgctxt "string types"
 msgid "String"
-msgstr ""
+msgstr "AZrar"
 
 #: libraries/TypesMySQL.php:527
 msgctxt "spatial types"
@@ -4561,8 +4754,9 @@ msgstr ""
 #: libraries/server_status_processes.lib.php:233
 #: libraries/server_status_variables.lib.php:40
 #: templates/console/display.phtml:125
+#, fuzzy
 msgid "Refresh"
-msgstr ""
+msgstr "Smiren"
 
 #: libraries/Util.php:1191 libraries/sql.lib.php:230
 #: templates/console/display.phtml:53 templates/console/display.phtml:215
@@ -4578,23 +4772,26 @@ msgstr ""
 #: libraries/Util.php:1551
 msgctxt "Short week day name"
 msgid "Sun"
-msgstr ""
+msgstr "Iṭij"
 
 #. l10n: See https://secure.php.net/manual/en/function.strftime.php
 #: libraries/Util.php:1567
 #: libraries/plugins/transformations/abs/DateFormatTransformationsPlugin.php:68
+#, fuzzy
 msgid "%B %d, %Y at %I:%M %p"
-msgstr ""
+msgstr "%b %-d %Y ɣef %-I:%M %p"
 
 #: libraries/Util.php:1588
+#, fuzzy
 msgctxt "AM/PM indication in time"
 msgid "PM"
-msgstr ""
+msgstr "iḍelli af 00:00:00 PM"
 
 #: libraries/Util.php:1590
+#, fuzzy
 msgctxt "AM/PM indication in time"
 msgid "AM"
-msgstr ""
+msgstr "Sken ticki ttaruɣ"
 
 #: libraries/Util.php:1966
 #, php-format
@@ -4634,24 +4831,28 @@ msgstr ""
 
 #: libraries/Util.php:3479 libraries/Util.php:3480
 #: templates/database/structure/check_all_tables.phtml:16
+#, fuzzy
 msgid "Empty"
-msgstr ""
+msgstr "Ilem"
 
 #: libraries/Util.php:3485 libraries/Util.php:3486
+#, fuzzy
 msgid "Execute"
-msgstr ""
+msgstr "Selkem"
 
 #: libraries/Util.php:4097
+#, fuzzy
 msgid "Users"
-msgstr ""
+msgstr "Iseqdacen"
 
 #: libraries/advisor.lib.php:20
 msgid "per second"
 msgstr ""
 
 #: libraries/advisor.lib.php:23
+#, fuzzy
 msgid "per minute"
-msgstr ""
+msgstr "%s di tesdat"
 
 #: libraries/advisor.lib.php:26 libraries/server_status.lib.php:149
 #: libraries/server_status.lib.php:234
@@ -4664,8 +4865,9 @@ msgid "per day"
 msgstr ""
 
 #: libraries/browse_foreigners.lib.php:131
+#, fuzzy
 msgid "Search:"
-msgstr ""
+msgstr "_Nadi"
 
 #: libraries/browse_foreigners.lib.php:155
 #: libraries/browse_foreigners.lib.php:157
@@ -4673,8 +4875,9 @@ msgstr ""
 #: templates/server/collations/charsets.phtml:5
 #: templates/server/engines/engines.phtml:5
 #: templates/server/plugins/section.phtml:9
+#, fuzzy
 msgid "Description"
-msgstr ""
+msgstr "aglam"
 
 #: libraries/browse_foreigners.lib.php:251
 msgid "Use this value"
@@ -4724,8 +4927,9 @@ msgstr ""
 #: templates/columns_definitions/table_fields_definitions.phtml:8
 #: templates/database/create_table.phtml:11
 #: templates/table/structure/table_structure_header.phtml:7
+#, fuzzy
 msgid "Name"
-msgstr ""
+msgstr "ISem"
 
 #: libraries/central_columns.lib.php:698 libraries/central_columns.lib.php:1385
 #: libraries/rte/rte_routines.lib.php:930
@@ -4734,16 +4938,19 @@ msgid "Length/Values"
 msgstr ""
 
 #: libraries/central_columns.lib.php:705
+#, fuzzy
 msgid "Attribute"
-msgstr ""
+msgstr "Ayla"
 
 #: libraries/central_columns.lib.php:709 libraries/central_columns.lib.php:1386
+#, fuzzy
 msgid "A_I"
-msgstr ""
+msgstr "^i"
 
 #: libraries/central_columns.lib.php:749
+#, fuzzy
 msgid "Select a table"
-msgstr ""
+msgstr "Fren akk tafelwit"
 
 #: libraries/central_columns.lib.php:803
 #: templates/table/structure/add_column.phtml:4
@@ -4751,8 +4958,9 @@ msgid "Add column"
 msgstr ""
 
 #: libraries/central_columns.lib.php:815
+#, fuzzy
 msgid "Select a column."
-msgstr ""
+msgstr "Fren tigejdit n tfelwit"
 
 #: libraries/central_columns.lib.php:1264
 msgid "Add new column"
@@ -4763,8 +4971,9 @@ msgstr ""
 #: libraries/plugins/schema/pdf/PdfRelationSchema.php:654
 #: templates/columns_definitions/table_fields_definitions.phtml:36
 #: templates/table/structure/table_structure_header.phtml:10
+#, fuzzy
 msgid "Attributes"
-msgstr ""
+msgstr "Imyerren"
 
 #: libraries/common.inc.php:467
 msgid ""
@@ -4814,38 +5023,45 @@ msgstr ""
 
 #: libraries/config.values.php:55 libraries/config.values.php:75
 #: libraries/config.values.php:87
+#, fuzzy
 msgid "Icons"
-msgstr ""
+msgstr "Tignitin"
 
 #: libraries/config.values.php:56 libraries/config.values.php:76
 #: libraries/config.values.php:88
+#, fuzzy
 msgid "Text"
-msgstr ""
+msgstr "Texte"
 
 #: libraries/config.values.php:57 libraries/config.values.php:65
 #: libraries/config.values.php:77 libraries/config.values.php:89
+#, fuzzy
 msgid "Both"
-msgstr ""
+msgstr "Di sin"
 
 #: libraries/config.values.php:62
 msgid "Nowhere"
 msgstr ""
 
 #: libraries/config.values.php:63
+#, fuzzy
 msgid "Left"
-msgstr ""
+msgstr "Yefus"
 
 #: libraries/config.values.php:64
+#, fuzzy
 msgid "Right"
-msgstr ""
+msgstr "Ayefus"
 
 #: libraries/config.values.php:92
+#, fuzzy
 msgid "Click"
-msgstr ""
+msgstr "Sit"
 
 #: libraries/config.values.php:93
+#, fuzzy
 msgid "Double click"
-msgstr ""
+msgstr "Akliki snat n tikkal"
 
 #: libraries/config.values.php:94 libraries/config.values.php:124
 #: libraries/config/FormDisplay.tpl.php:236 libraries/relation.lib.php:98
@@ -4854,8 +5070,9 @@ msgid "Disabled"
 msgstr ""
 
 #: libraries/config.values.php:97
+#, fuzzy
 msgid "key"
-msgstr ""
+msgstr "Taqeffalt:"
 
 #: libraries/config.values.php:98
 msgid "display column"
@@ -4863,15 +5080,17 @@ msgstr ""
 
 #: libraries/config.values.php:102
 msgid "Welcome"
-msgstr ""
+msgstr "Anṣuf"
 
 #: libraries/config.values.php:122
+#, fuzzy
 msgid "Open"
-msgstr ""
+msgstr "Ouvrir"
 
 #: libraries/config.values.php:123
+#, fuzzy
 msgid "Closed"
-msgstr ""
+msgstr "Iccaren imedlen &melmi kan"
 
 #: libraries/config.values.php:127
 msgid "Ask before sending error reports"
@@ -4890,12 +5109,14 @@ msgid "Server default"
 msgstr ""
 
 #: libraries/config.values.php:133
+#, fuzzy
 msgid "Enable"
-msgstr ""
+msgstr "Rmed"
 
 #: libraries/config.values.php:134
+#, fuzzy
 msgid "Disable"
-msgstr ""
+msgstr "ssens"
 
 #: libraries/config.values.php:163
 #: libraries/plugins/export/ExportHtmlword.php:66
@@ -4967,8 +5188,9 @@ msgid "Not a non-negative number!"
 msgstr ""
 
 #: libraries/config/FormDisplay.php:101 libraries/config/Validator.php:498
+#, fuzzy
 msgid "Not a valid port number!"
-msgstr ""
+msgstr "Ma ulac aɣilif, sekcem uṭṭun n tiliɣri ameɣtu."
 
 #: libraries/config/FormDisplay.php:102 libraries/config/FormDisplay.php:659
 #: libraries/config/Validator.php:563
@@ -4987,8 +5209,9 @@ msgstr ""
 
 #: libraries/config/FormDisplay.php:809 libraries/config/FormDisplay.php:815
 #: libraries/config/FormDisplay.php:822
+#, fuzzy
 msgid "unavailable"
-msgstr ""
+msgstr "ulac-it"
 
 #: libraries/config/FormDisplay.php:811 libraries/config/FormDisplay.php:817
 #: libraries/config/FormDisplay.php:824
@@ -5334,8 +5557,9 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:90 setup/frames/config.inc.php:21
 #: setup/frames/index.inc.php:192
+#, fuzzy
 msgid "Configuration file"
-msgstr ""
+msgstr "Afaylu n twila"
 
 #: libraries/config/messages.inc.php:92
 msgid ""
@@ -5449,12 +5673,14 @@ msgstr ""
 #: libraries/config/messages.inc.php:139 libraries/config/messages.inc.php:155
 #: libraries/sql_query_form.lib.php:250
 #: templates/table/structure/row_stats_table.phtml:6
+#, fuzzy
 msgid "Format"
-msgstr ""
+msgstr "Amasal"
 
 #: libraries/config/messages.inc.php:140
+#, fuzzy
 msgid "Compression"
-msgstr ""
+msgstr "Asekkussem"
 
 #: libraries/config/messages.inc.php:141 libraries/config/messages.inc.php:148
 #: libraries/config/messages.inc.php:156 libraries/config/messages.inc.php:160
@@ -5540,7 +5766,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:162 libraries/config/messages.inc.php:168
 msgid "Table caption"
-msgstr ""
+msgstr "Azwel n tfelwit"
 
 #: libraries/config/messages.inc.php:163 libraries/config/messages.inc.php:170
 msgid "Continued table caption"
@@ -5554,8 +5780,9 @@ msgstr ""
 #: libraries/config/messages.inc.php:218
 #: libraries/plugins/export/ExportOdt.php:504
 #: templates/columns_definitions/table_fields_definitions.phtml:82
+#, fuzzy
 msgid "MIME type"
-msgstr ""
+msgstr "Type MIME"
 
 #: libraries/config/messages.inc.php:167 libraries/config/messages.inc.php:180
 #: libraries/config/messages.inc.php:221
@@ -5712,16 +5939,18 @@ msgid "CSV"
 msgstr ""
 
 #: libraries/config/messages.inc.php:247
+#, fuzzy
 msgid "Developer"
-msgstr ""
+msgstr "Nermes akked uneflay"
 
 #: libraries/config/messages.inc.php:248
 msgid "Settings for phpMyAdmin developers."
 msgstr ""
 
 #: libraries/config/messages.inc.php:249
+#, fuzzy
 msgid "Edit mode"
-msgstr ""
+msgstr "Askar n teẓrigt"
 
 #: libraries/config/messages.inc.php:250
 msgid "Customize edit mode."
@@ -5737,12 +5966,14 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:254 libraries/config/messages.inc.php:315
 #: setup/frames/menu.inc.php:22
+#, fuzzy
 msgid "Features"
-msgstr ""
+msgstr "Caractéristiques"
 
 #: libraries/config/messages.inc.php:255
+#, fuzzy
 msgid "General"
-msgstr ""
+msgstr "Amatu"
 
 #: libraries/config/messages.inc.php:256
 msgid "Set some commonly used options."
@@ -5757,8 +5988,9 @@ msgid "Customize default common import options."
 msgstr ""
 
 #: libraries/config/messages.inc.php:260
+#, fuzzy
 msgid "Import / export"
-msgstr ""
+msgstr "Kter/Sifeḍ"
 
 #: libraries/config/messages.inc.php:262
 msgid "Set import and export directories and compression options."
@@ -5790,8 +6022,9 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:271 libraries/select_server.lib.php:47
 #: setup/frames/index.inc.php:126
+#, fuzzy
 msgid "Servers"
-msgstr ""
+msgstr "Iqeddacen..."
 
 #: libraries/config/messages.inc.php:272
 msgid "Servers display options."
@@ -5806,8 +6039,9 @@ msgid "Main panel"
 msgstr ""
 
 #: libraries/config/messages.inc.php:276
+#, fuzzy
 msgid "Microsoft Office"
-msgstr ""
+msgstr "Microsoft Office"
 
 #: libraries/config/messages.inc.php:280
 msgid "Other core settings"
@@ -5828,8 +6062,9 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:289
+#, fuzzy
 msgid "Security"
-msgstr ""
+msgstr "Taɣellist"
 
 #: libraries/config/messages.inc.php:291
 msgid ""
@@ -5842,8 +6077,9 @@ msgid "Basic settings"
 msgstr ""
 
 #: libraries/config/messages.inc.php:295
+#, fuzzy
 msgid "Authentication"
-msgstr ""
+msgstr "Asesteb"
 
 #: libraries/config/messages.inc.php:296
 msgid "Authentication settings."
@@ -5918,8 +6154,9 @@ msgid "SQL queries settings."
 msgstr ""
 
 #: libraries/config/messages.inc.php:326
+#, fuzzy
 msgid "Startup"
-msgstr ""
+msgstr "Di tnekra:"
 
 #: libraries/config/messages.inc.php:327
 msgid "Customize startup page."
@@ -5945,8 +6182,9 @@ msgid "Settings for the table structure (list of columns)."
 msgstr ""
 
 #: libraries/config/messages.inc.php:334
+#, fuzzy
 msgid "Tabs"
-msgstr ""
+msgstr "Iccaren"
 
 #: libraries/config/messages.inc.php:335
 msgid "Choose how you want tabs to work."
@@ -5959,12 +6197,14 @@ msgstr ""
 #: libraries/config/messages.inc.php:338
 #: libraries/plugins/schema/SchemaDia.php:72
 #: libraries/plugins/schema/SchemaPdf.php:80
+#, fuzzy
 msgid "Paper size"
-msgstr ""
+msgstr "Teɣzi n lkaɣeḍ:"
 
 #: libraries/config/messages.inc.php:341
+#, fuzzy
 msgid "Text fields"
-msgstr ""
+msgstr "Cochez la case <gui>Le curseur clignote dans les champs texte</gui>."
 
 #: libraries/config/messages.inc.php:342
 msgid "Customize text input fields."
@@ -5979,8 +6219,9 @@ msgid "Customize default options"
 msgstr ""
 
 #: libraries/config/messages.inc.php:345
+#, fuzzy
 msgid "Warnings"
-msgstr ""
+msgstr "Icaɣliyen"
 
 #: libraries/config/messages.inc.php:347
 msgid "Disable some of the warnings shown by phpMyAdmin."
@@ -6709,8 +6950,9 @@ msgid "Hostname where MySQL server is running."
 msgstr ""
 
 #: libraries/config/messages.inc.php:670
+#, fuzzy
 msgid "Server hostname"
-msgstr ""
+msgstr "Asenneftaɣ aqeddac"
 
 #: libraries/config/messages.inc.php:671
 msgid "Logout URL"
@@ -6860,8 +7102,9 @@ msgid "Enable SSL for connection to MySQL server."
 msgstr ""
 
 #: libraries/config/messages.inc.php:740
+#, fuzzy
 msgid "Use SSL"
-msgstr ""
+msgstr "Seqdec SSL"
 
 #: libraries/config/messages.inc.php:742
 msgid ""
@@ -7289,8 +7532,9 @@ msgid "The password for authenticating with the proxy."
 msgstr ""
 
 #: libraries/config/messages.inc.php:958
+#, fuzzy
 msgid "Proxy password"
-msgstr ""
+msgstr "%w - Awal n uɛeddi Proxy"
 
 #: libraries/config/messages.inc.php:961
 msgid "Enable ZIP compression for import and export operations."
@@ -7298,7 +7542,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:964
 msgid "ZIP"
-msgstr ""
+msgstr "Tangalt n lpusṭa"
 
 #: libraries/config/messages.inc.php:966
 msgid "Enter your public key for your domain reCaptcha service."
@@ -7364,18 +7608,20 @@ msgstr ""
 #: libraries/config/setup.forms.php:279 libraries/config/setup.forms.php:377
 #: libraries/config/user_preferences.forms.php:183
 #: libraries/config/user_preferences.forms.php:280
+#, fuzzy
 msgid "OpenDocument Spreadsheet"
-msgstr ""
+msgstr "Ambellez OpenDocument"
 
 #: libraries/config/setup.forms.php:286
 #: libraries/config/user_preferences.forms.php:190
+#, fuzzy
 msgid "Quick"
-msgstr ""
+msgstr "Afegg n ifecka n imzideg"
 
 #: libraries/config/setup.forms.php:290
 #: libraries/config/user_preferences.forms.php:194
 msgid "Custom"
-msgstr ""
+msgstr "Udmawan"
 
 #: libraries/config/setup.forms.php:349
 #: libraries/config/user_preferences.forms.php:252
@@ -7389,8 +7635,9 @@ msgstr ""
 
 #: libraries/config/setup.forms.php:381
 #: libraries/config/user_preferences.forms.php:284
+#, fuzzy
 msgid "OpenDocument Text"
-msgstr ""
+msgstr "Aḍris OpenDocument "
 
 #: libraries/controllers/database/DatabaseStructureController.php:274
 msgid "Favorite List is full!"
@@ -7419,8 +7666,9 @@ msgid "Log name"
 msgstr ""
 
 #: libraries/controllers/server/ServerBinlogController.php:153
+#, fuzzy
 msgid "Position"
-msgstr ""
+msgstr "ideg"
 
 #: libraries/controllers/server/ServerBinlogController.php:154
 #: libraries/rte/rte_events.lib.php:414
@@ -7438,8 +7686,9 @@ msgstr ""
 
 #: libraries/controllers/server/ServerBinlogController.php:157
 #: templates/table/structure/display_table_stats.phtml:3
+#, fuzzy
 msgid "Information"
-msgstr ""
+msgstr "Talɣut"
 
 #: libraries/controllers/server/ServerBinlogController.php:207
 #: libraries/server_status_processes.lib.php:178
@@ -7452,8 +7701,9 @@ msgid "Show Full Queries"
 msgstr ""
 
 #: libraries/controllers/server/ServerDatabasesController.php:125
+#, fuzzy
 msgid "No databases"
-msgstr ""
+msgstr "Taffa n isefka"
 
 #: libraries/controllers/server/ServerDatabasesController.php:167
 #, php-format
@@ -7473,16 +7723,18 @@ msgstr[1] ""
 #: templates/table/structure/actions_in_table_structure.phtml:111
 #: templates/table/structure/display_partitions.phtml:30
 #: templates/table/structure/row_stats_table.phtml:41
+#, fuzzy
 msgid "Rows"
-msgstr ""
+msgstr "Izirigen"
 
 #: libraries/controllers/server/ServerDatabasesController.php:364
 #: libraries/engines/Innodb.php:169 libraries/server_status.lib.php:192
 #: libraries/server_status.lib.php:304
 #: templates/server/databases/table_footer.phtml:7
 #: templates/table/structure/display_table_stats.phtml:44
+#, fuzzy
 msgid "Total"
-msgstr ""
+msgstr "Asemday"
 
 #: libraries/controllers/server/ServerDatabasesController.php:369
 #: templates/database/structure/table_header.phtml:74
@@ -7559,8 +7811,9 @@ msgstr ""
 
 #: libraries/controllers/table/TableSearchController.php:780
 #: templates/table/search/selection_form.phtml:60
+#, fuzzy
 msgid "Find and replace"
-msgstr ""
+msgstr "Nadi & semselsi"
 
 #: libraries/controllers/table/TableStructureController.php:162
 #, php-format
@@ -7591,8 +7844,9 @@ msgstr ""
 
 #: libraries/controllers/table/TableStructureController.php:1181
 #: templates/table/structure/check_all_table_column.phtml:18
+#, fuzzy
 msgid "Change"
-msgstr ""
+msgstr "Snifel"
 
 #: libraries/controllers/table/TableStructureController.php:1185
 #: libraries/controllers/table/TableStructureController.php:1190
@@ -7602,8 +7856,9 @@ msgstr ""
 #: templates/table/structure/check_all_table_column.phtml:36
 #: templates/table/structure/display_structure.phtml:67
 #: templates/table/structure/display_table_stats.phtml:23
+#, fuzzy
 msgid "Index"
-msgstr ""
+msgstr "Amatar"
 
 #: libraries/controllers/table/TableStructureController.php:1187
 #: libraries/controllers/table/TableStructureController.php:1192
@@ -7619,8 +7874,9 @@ msgid "Fulltext"
 msgstr ""
 
 #: libraries/controllers/table/TableStructureController.php:1196
+#, fuzzy
 msgid "Distinct values"
-msgstr ""
+msgstr "Valeurs distinctes"
 
 #: libraries/core.lib.php:296
 #, php-format
@@ -7629,8 +7885,9 @@ msgstr ""
 
 #: libraries/core.lib.php:788 libraries/mult_submits.inc.php:329
 #: tbl_operations.php:201 tbl_replace.php:314 templates/preview_sql.phtml:3
+#, fuzzy
 msgid "No change"
-msgstr ""
+msgstr "Beddel..."
 
 #: libraries/database_interface.inc.php:36
 #, php-format
@@ -7650,25 +7907,29 @@ msgstr ""
 #: libraries/display_change_password.lib.php:57
 #: libraries/replication_gui.lib.php:854
 #: libraries/server_privileges.lib.php:1667
+#, fuzzy
 msgid "No Password"
-msgstr ""
+msgstr "A_wal uffir..."
 
 #: libraries/display_change_password.lib.php:65
 #: libraries/plugins/auth/AuthenticationCookie.php:200
 #: libraries/replication_gui.lib.php:424 libraries/replication_gui.lib.php:845
 #: libraries/server_privileges.lib.php:1654
+#, fuzzy
 msgid "Password:"
-msgstr ""
+msgstr "Awal uffir:"
 
 #: libraries/display_change_password.lib.php:68
+#, fuzzy
 msgid "Enter:"
-msgstr ""
+msgstr "Kcem"
 
 #: libraries/display_change_password.lib.php:75
 #: libraries/replication_gui.lib.php:865
 #: libraries/server_privileges.lib.php:1686
+#, fuzzy
 msgid "Re-type:"
-msgstr ""
+msgstr "Sekcem tikelt nniḍen"
 
 #: libraries/display_change_password.lib.php:106
 #: libraries/display_change_password.lib.php:139
@@ -7702,8 +7963,9 @@ msgid "Export templates:"
 msgstr ""
 
 #: libraries/display_export.lib.php:206
+#, fuzzy
 msgid "New template:"
-msgstr ""
+msgstr "Création d'un nouveau modèle"
 
 #: libraries/display_export.lib.php:209
 msgid "Template name"
@@ -7711,20 +7973,23 @@ msgstr ""
 
 #: libraries/display_export.lib.php:211
 #: templates/server/databases/create.phtml:22
+#, fuzzy
 msgid "Create"
-msgstr ""
+msgstr "Rnu"
 
 #: libraries/display_export.lib.php:218
 msgid "Existing templates:"
 msgstr ""
 
 #: libraries/display_export.lib.php:219
+#, fuzzy
 msgid "Template:"
-msgstr ""
+msgstr "&Taneɣruft"
 
 #: libraries/display_export.lib.php:224
+#, fuzzy
 msgid "Update"
-msgstr ""
+msgstr "Muceḍ"
 
 #: libraries/display_export.lib.php:246
 msgid "Select a template"
@@ -7744,16 +8009,18 @@ msgstr ""
 
 #: libraries/display_export.lib.php:339
 msgid "Databases:"
-msgstr ""
+msgstr "Taffiwin n isefka:"
 
 #: libraries/display_export.lib.php:341 libraries/navigation/Navigation.php:197
+#, fuzzy
 msgid "Tables:"
-msgstr ""
+msgstr "T~ifelwiyin"
 
 #: libraries/display_export.lib.php:361 libraries/display_import.lib.php:364
 #: libraries/plugins/export/ExportCodegen.php:100
+#, fuzzy
 msgid "Format:"
-msgstr ""
+msgstr "Amasal:"
 
 #: libraries/display_export.lib.php:377 libraries/display_import.lib.php:370
 msgid "Format-specific options:"
@@ -7770,8 +8037,9 @@ msgid "Encoding Conversion:"
 msgstr ""
 
 #: libraries/display_export.lib.php:426
+#, fuzzy
 msgid "Rows:"
-msgstr ""
+msgstr "Lignes :"
 
 #: libraries/display_export.lib.php:434
 msgid "Dump some row(s)"
@@ -7786,8 +8054,9 @@ msgid "Dump all rows"
 msgstr ""
 
 #: libraries/display_export.lib.php:483 libraries/display_export.lib.php:772
+#, fuzzy
 msgid "Output:"
-msgstr ""
+msgstr "Tuffɣa"
 
 #: libraries/display_export.lib.php:492 libraries/display_export.lib.php:527
 #, php-format
@@ -7804,11 +8073,11 @@ msgstr ""
 
 #: libraries/display_export.lib.php:561
 msgid ", @DATABASE@ will become the database name"
-msgstr ""
+msgstr ", @DATABASE@ ad yuɣal d isem n taffa n isefka"
 
 #: libraries/display_export.lib.php:563
 msgid ", @TABLE@ will become the table name"
-msgstr ""
+msgstr ", @TABLE@ ad yuɣal d isem n taffa n isefka"
 
 #: libraries/display_export.lib.php:569
 #, php-format
@@ -7828,8 +8097,9 @@ msgid "Character set of the file:"
 msgstr ""
 
 #: libraries/display_export.lib.php:689
+#, fuzzy
 msgid "Compression:"
-msgstr ""
+msgstr "Asekkussem"
 
 #: libraries/display_export.lib.php:697
 msgid "zipped"
@@ -7864,12 +8134,14 @@ msgid "Skip tables larger than"
 msgstr ""
 
 #: libraries/display_export.lib.php:935
+#, fuzzy
 msgid "Select database"
-msgstr ""
+msgstr "Fren azilal n taffa n isefka"
 
 #: libraries/display_export.lib.php:937
+#, fuzzy
 msgid "Select table"
-msgstr ""
+msgstr "Fren tafelwit"
 
 #: libraries/display_export.lib.php:953
 msgid "New database name"
@@ -7946,8 +8218,9 @@ msgid ""
 msgstr ""
 
 #: libraries/display_import.lib.php:224
+#, fuzzy
 msgid "File to import:"
-msgstr ""
+msgstr "Fren afaylu i wekter n iɣwaren"
 
 #: libraries/display_import.lib.php:234 libraries/display_import.lib.php:254
 msgid "You may also drag and drop a file on any page."
@@ -7990,9 +8263,9 @@ msgid ""
 msgstr ""
 
 #: libraries/display_import.lib.php:489
-#, php-format
+#, fuzzy, php-format
 msgid "%s of %s"
-msgstr ""
+msgstr "%s si %s"
 
 #: libraries/display_import.lib.php:490
 msgid "Uploading your import file…"
@@ -8016,8 +8289,9 @@ msgid "The file is being processed, please be patient."
 msgstr ""
 
 #: libraries/engines/Bdb.php:28
+#, fuzzy
 msgid "Version information"
-msgstr ""
+msgstr "Talɣut ɣef lqem"
 
 #: libraries/engines/Innodb.php:29
 msgid "Data home directory"
@@ -8060,8 +8334,9 @@ msgid "Buffer Pool Usage"
 msgstr ""
 
 #: libraries/engines/Innodb.php:175
+#, fuzzy
 msgid "pages"
-msgstr ""
+msgstr "ISEBTAR"
 
 #: libraries/engines/Innodb.php:189
 msgid "Free pages"
@@ -8399,15 +8674,17 @@ msgstr ""
 #: libraries/insert_edit.lib.php:234
 #: libraries/navigation/nodes/NodeDatabaseChild.php:53
 #: templates/database/designer/table_list.phtml:40
+#, fuzzy
 msgid "Hide"
-msgstr ""
+msgstr "Ffer"
 
 #: libraries/insert_edit.lib.php:250
 #: libraries/navigation/nodes/NodeFunction.php:30
 #: libraries/rte/rte_routines.lib.php:1607
 #: templates/table/search/table_header.phtml:4
+#, fuzzy
 msgid "Function"
-msgstr ""
+msgstr "Tawuri"
 
 #: libraries/insert_edit.lib.php:605
 msgid "Because of its length,<br /> this column might not be editable."
@@ -8482,8 +8759,9 @@ msgstr ""
 #: templates/database/designer/where_query_panel.phtml:69
 #: templates/table/search/table_header.phtml:10
 #: templates/table/search/zoom_result_form.phtml:35
+#, fuzzy
 msgid "Value"
-msgstr ""
+msgstr "Valeur"
 
 #: libraries/insert_edit.lib.php:2008 libraries/sql.lib.php:1371
 msgid "Showing SQL query"
@@ -8496,7 +8774,7 @@ msgstr ""
 
 #: libraries/mult_submits.inc.php:326
 msgid "Success!"
-msgstr ""
+msgstr "Yedda!"
 
 #: libraries/mult_submits.lib.php:345 libraries/operations.lib.php:171
 #: libraries/operations.lib.php:1252 libraries/tracking.lib.php:529
@@ -8511,7 +8789,7 @@ msgstr ""
 #: libraries/mult_submits.lib.php:349 libraries/operations.lib.php:173
 #: libraries/operations.lib.php:1254 libraries/tracking.lib.php:532
 msgid "Data only"
-msgstr ""
+msgstr "Isefka kan"
 
 #: libraries/mult_submits.lib.php:353
 msgid "Add AUTO INCREMENT value"
@@ -8531,8 +8809,9 @@ msgid "Adjust privileges"
 msgstr ""
 
 #: libraries/mult_submits.lib.php:379
+#, fuzzy
 msgid "From"
-msgstr ""
+msgstr "Si"
 
 #: libraries/mult_submits.lib.php:385
 msgid "To"
@@ -8551,37 +8830,43 @@ msgid "An error has occurred while loading the navigation display"
 msgstr ""
 
 #: libraries/navigation/Navigation.php:193
+#, fuzzy
 msgid "Groups:"
-msgstr ""
+msgstr "Igrawen:"
 
 #: libraries/navigation/Navigation.php:194
 msgid "Events:"
-msgstr ""
+msgstr "Tidyanin:"
 
 #: libraries/navigation/Navigation.php:195
+#, fuzzy
 msgid "Functions:"
-msgstr ""
+msgstr "Tiwuriwin"
 
 #: libraries/navigation/Navigation.php:196
 msgid "Procedures:"
 msgstr ""
 
 #: libraries/navigation/Navigation.php:198
+#, fuzzy
 msgid "Views:"
-msgstr ""
+msgstr "Timezriyin"
 
 #: libraries/navigation/Navigation.php:222 libraries/tracking.lib.php:289
 #: libraries/tracking.lib.php:1601 tbl_change.php:156
+#, fuzzy
 msgid "Show"
-msgstr ""
+msgstr "sken"
 
 #: libraries/navigation/NavigationHeader.php:162
+#, fuzzy
 msgid "Home"
-msgstr ""
+msgstr "Agejdan"
 
 #: libraries/navigation/NavigationHeader.php:170
+#, fuzzy
 msgid "Log out"
-msgstr ""
+msgstr "Ffeɣ"
 
 #: libraries/navigation/NavigationHeader.php:172
 msgid "Empty session data"
@@ -8623,8 +8908,9 @@ msgid "Clear fast filter"
 msgstr ""
 
 #: libraries/navigation/NavigationTree.php:1425
+#, fuzzy
 msgid "Collapse all"
-msgstr ""
+msgstr "Fne&ẓ akk"
 
 #. l10n: The word "Node" must not be translated here
 #: libraries/navigation/NodeFactory.php:34
@@ -8644,13 +8930,15 @@ msgstr ""
 #: libraries/navigation/nodes/NodeColumnContainer.php:26
 #: libraries/navigation/nodes/NodeColumnContainer.php:27
 #: libraries/sql_query_form.lib.php:268
+#, fuzzy
 msgid "Columns"
-msgstr ""
+msgstr "Tigejda"
 
 #: libraries/navigation/nodes/NodeColumnContainer.php:36
+#, fuzzy
 msgctxt "Create new column"
 msgid "New"
-msgstr ""
+msgstr "Nouveau"
 
 #: libraries/navigation/nodes/NodeDatabase.php:40
 msgid "Database operations"
@@ -8661,35 +8949,41 @@ msgid "Show hidden items"
 msgstr ""
 
 #: libraries/navigation/nodes/NodeDatabaseContainer.php:36
+#, fuzzy
 msgctxt "Create new database"
 msgid "New"
-msgstr ""
+msgstr "Nouveau"
 
 #: libraries/navigation/nodes/NodeEventContainer.php:37
+#, fuzzy
 msgctxt "Create new event"
 msgid "New"
-msgstr ""
+msgstr "Nouveau"
 
 #: libraries/navigation/nodes/NodeFunctionContainer.php:25
 #: libraries/navigation/nodes/NodeFunctionContainer.php:28
 #: libraries/plugins/export/ExportSql.php:570
 #: libraries/plugins/export/ExportXml.php:108
+#, fuzzy
 msgid "Functions"
-msgstr ""
+msgstr "Tiwuriwin"
 
 #: libraries/navigation/nodes/NodeFunctionContainer.php:38
+#, fuzzy
 msgctxt "Create new function"
 msgid "New"
-msgstr ""
+msgstr "Nouveau"
 
 #: libraries/navigation/nodes/NodeIndexContainer.php:35
+#, fuzzy
 msgctxt "Create new index"
 msgid "New"
-msgstr ""
+msgstr "Nouveau"
 
 #: libraries/navigation/nodes/NodeProcedure.php:32
+#, fuzzy
 msgid "Procedure"
-msgstr ""
+msgstr "tasekkirt"
 
 #: libraries/navigation/nodes/NodeProcedureContainer.php:25
 #: libraries/navigation/nodes/NodeProcedureContainer.php:28
@@ -8700,31 +8994,36 @@ msgstr ""
 
 #: libraries/navigation/nodes/NodeProcedureContainer.php:38
 #: libraries/rte/rte_footer.lib.php:29
+#, fuzzy
 msgctxt "Create new procedure"
 msgid "New"
-msgstr ""
+msgstr "Nouveau"
 
 #: libraries/navigation/nodes/NodeTableContainer.php:36
+#, fuzzy
 msgctxt "Create new table"
 msgid "New"
-msgstr ""
+msgstr "Nouveau"
 
 #: libraries/navigation/nodes/NodeTriggerContainer.php:37
+#, fuzzy
 msgctxt "Create new trigger"
 msgid "New"
-msgstr ""
+msgstr "Nouveau"
 
 #: libraries/navigation/nodes/NodeViewContainer.php:25
 #: libraries/navigation/nodes/NodeViewContainer.php:26
 #: libraries/plugins/export/ExportXml.php:128
 #: templates/database/structure/show_create.phtml:29
+#, fuzzy
 msgid "Views"
-msgstr ""
+msgstr "Timezriyin"
 
 #: libraries/navigation/nodes/NodeViewContainer.php:36
+#, fuzzy
 msgctxt "Create new view"
 msgid "New"
-msgstr ""
+msgstr "Nouveau"
 
 #: libraries/normalization.lib.php:129
 msgid "Make all columns atomic"
@@ -8760,12 +9059,14 @@ msgid "Select one…"
 msgstr ""
 
 #: libraries/normalization.lib.php:154 normalization.php:20
+#, fuzzy
 msgid "No such column"
-msgstr ""
+msgstr "% seg tgejdit"
 
 #: libraries/normalization.lib.php:161
+#, fuzzy
 msgid "split into "
-msgstr ""
+msgstr "~Gzem..."
 
 #: libraries/normalization.lib.php:182
 msgid "Have a primary key"
@@ -8812,8 +9113,9 @@ msgid ""
 msgstr ""
 
 #: libraries/normalization.lib.php:246
+#, fuzzy
 msgid "Remove selected"
-msgstr ""
+msgstr "Kkes ayen yettwafernen"
 
 #: libraries/normalization.lib.php:247
 msgid "No redundant column"
@@ -9044,7 +9346,7 @@ msgstr ""
 
 #: libraries/operations.lib.php:964
 msgid "Table comments"
-msgstr ""
+msgstr "Iwenniten n tfelwiyin"
 
 #: libraries/operations.lib.php:1033
 msgid "Table options"
@@ -9126,13 +9428,15 @@ msgstr ""
 
 #: libraries/operations.lib.php:1560
 #: templates/table/structure/display_structure.phtml:173
+#, fuzzy
 msgid "Analyze"
-msgstr ""
+msgstr "sleḍ"
 
 #: libraries/operations.lib.php:1561
 #: templates/table/structure/display_structure.phtml:174
+#, fuzzy
 msgid "Check"
-msgstr ""
+msgstr "Ṛrcem"
 
 #: libraries/operations.lib.php:1562
 #: templates/table/structure/display_structure.phtml:175
@@ -9279,8 +9583,9 @@ msgid "You can enter hostname/IP address and port separated by space."
 msgstr ""
 
 #: libraries/plugins/auth/AuthenticationCookie.php:194
+#, fuzzy
 msgid "Username:"
-msgstr ""
+msgstr "Isem n useqdac:"
 
 #: libraries/plugins/auth/AuthenticationCookie.php:206
 msgid "Server Choice:"
@@ -9375,7 +9680,7 @@ msgstr ""
 #: libraries/rte/rte_events.lib.php:486 libraries/rte/rte_routines.lib.php:993
 #: libraries/rte/rte_triggers.lib.php:381
 msgid "Definition"
-msgstr ""
+msgstr "tabadut"
 
 #: libraries/plugins/export/ExportHtmlword.php:560
 #: libraries/plugins/export/ExportOdt.php:690
@@ -9408,7 +9713,7 @@ msgstr ""
 
 #: libraries/plugins/export/ExportLatex.php:49
 msgid "(continued)"
-msgstr ""
+msgstr "(ittkemmil)"
 
 #: libraries/plugins/export/ExportLatex.php:50
 msgid "Structure of table @TABLE@"
@@ -9423,7 +9728,7 @@ msgstr ""
 #: libraries/plugins/export/ExportLatex.php:118
 #: libraries/plugins/export/ExportLatex.php:170
 msgid "Table caption:"
-msgstr ""
+msgstr "Azwel n tfelwit:"
 
 #: libraries/plugins/export/ExportLatex.php:124
 #: libraries/plugins/export/ExportLatex.php:176
@@ -9460,8 +9765,9 @@ msgstr ""
 #: libraries/plugins/export/ExportSql.php:691
 #: libraries/plugins/export/ExportXml.php:235
 #: libraries/replication_gui.lib.php:435 libraries/replication_gui.lib.php:697
+#, fuzzy
 msgid "Host:"
-msgstr ""
+msgstr "Asenneftaɣ:"
 
 #: libraries/plugins/export/ExportLatex.php:218
 #: libraries/plugins/export/ExportSql.php:697
@@ -9480,16 +9786,16 @@ msgstr ""
 #: libraries/plugins/export/ExportXml.php:404
 #: libraries/plugins/export/PMA_ExportPdf.php:118
 msgid "Database:"
-msgstr ""
+msgstr "Taffa n isefka:"
 
 #: libraries/plugins/export/ExportLatex.php:324
 #: libraries/plugins/export/ExportSql.php:2185
 msgid "Data:"
-msgstr ""
+msgstr "Isefka :"
 
 #: libraries/plugins/export/ExportLatex.php:504
 msgid "Structure:"
-msgstr ""
+msgstr "Taɣessa:"
 
 #: libraries/plugins/export/ExportMediawiki.php:79
 msgid "Export table names"
@@ -9649,8 +9955,9 @@ msgid "alias export may not work reliably in all cases."
 msgstr ""
 
 #: libraries/plugins/export/ExportSql.php:1006
+#, fuzzy
 msgid "Metadata"
-msgstr ""
+msgstr "Aɣef-isefka"
 
 #: libraries/plugins/export/ExportSql.php:1076
 #, php-format
@@ -9664,8 +9971,9 @@ msgstr ""
 
 #: libraries/plugins/export/ExportSql.php:1415
 #: libraries/plugins/schema/pdf/PdfRelationSchema.php:603
+#, fuzzy
 msgid "Creation:"
-msgstr ""
+msgstr "Azemz  n tmerna"
 
 #: libraries/plugins/export/ExportSql.php:1428
 #: libraries/plugins/schema/pdf/PdfRelationSchema.php:610
@@ -9745,16 +10053,25 @@ msgid "Export contents"
 msgstr ""
 
 #: libraries/plugins/export/PMA_ExportPdf.php:119
+#, fuzzy
 msgid "Table:"
-msgstr ""
+msgstr "Ta&felwit"
 
 #: libraries/plugins/export/PMA_ExportPdf.php:120
+#, fuzzy
 msgid "Purpose:"
 msgstr ""
+"Recherchez le groupe <gui>Position de la touche compose</gui>. Activez la ou "
+"les touches qui devront se comporter comme une touche compose. Vous pouvez "
+"choisir des touches comme <key>Verr. Num.</key>, une des touches "
+"<key>Alt</key> ou la touche <key>Menu</key>. Toute touche sélectionnée "
+"n'aura plus dorénavant que compose comme fonction et ne pourra plus être "
+"utilisée pour sa fonction d'origine."
 
 #: libraries/plugins/export/PMA_ExportPdf.php:501
+#, fuzzy
 msgid "MIME"
-msgstr ""
+msgstr "Anaw MIME arussin"
 
 #: libraries/plugins/import/AbstractImportCsv.php:51
 msgid ""
@@ -9868,7 +10185,7 @@ msgstr ""
 
 #: libraries/plugins/import/ImportXml.php:43
 msgid "XML"
-msgstr ""
+msgstr "XML"
 
 #: libraries/plugins/schema/ExportRelationSchema.php:289
 msgid "SCHEMA ERROR: "
@@ -9877,20 +10194,23 @@ msgstr ""
 #: libraries/plugins/schema/SchemaDia.php:60
 #: libraries/plugins/schema/SchemaEps.php:68
 #: libraries/plugins/schema/SchemaPdf.php:68
+#, fuzzy
 msgid "Orientation"
-msgstr ""
+msgstr "Orientation"
 
 #: libraries/plugins/schema/SchemaDia.php:64
 #: libraries/plugins/schema/SchemaEps.php:72
 #: libraries/plugins/schema/SchemaPdf.php:72
+#, fuzzy
 msgid "Landscape"
-msgstr ""
+msgstr "S tehri"
 
 #: libraries/plugins/schema/SchemaDia.php:65
 #: libraries/plugins/schema/SchemaEps.php:73
 #: libraries/plugins/schema/SchemaPdf.php:73
+#, fuzzy
 msgid "Portrait"
-msgstr ""
+msgstr "S teɣzi"
 
 #: libraries/plugins/schema/SchemaEps.php:62
 #: libraries/plugins/schema/SchemaPdf.php:62
@@ -9955,8 +10275,9 @@ msgstr ""
 #: libraries/plugins/schema/pdf/PdfRelationSchema.php:657
 #: libraries/tracking.lib.php:894
 #: templates/table/structure/table_structure_header.phtml:16
+#, fuzzy
 msgid "Extra"
-msgstr ""
+msgstr "Anef-asent i tallulin nniḍen"
 
 #: libraries/plugins/transformations/abs/Bool2TextTransformationsPlugin.php:29
 msgid ""
@@ -10166,13 +10487,15 @@ msgid "not OK"
 msgstr ""
 
 #: libraries/relation.lib.php:94
+#, fuzzy
 msgctxt "Correctly working"
 msgid "OK"
-msgstr ""
+msgstr "IH"
 
 #: libraries/relation.lib.php:97
+#, fuzzy
 msgid "Enabled"
-msgstr ""
+msgstr "Urmid"
 
 #: libraries/relation.lib.php:101
 msgid "Configuration of pmadb…"
@@ -10274,8 +10597,9 @@ msgid "Re-login to phpMyAdmin to load the updated configuration file."
 msgstr ""
 
 #: libraries/relation.lib.php:1691
+#, fuzzy
 msgid "no description"
-msgstr ""
+msgstr "Aglam:"
 
 #: libraries/relation.lib.php:1884
 msgid ""
@@ -10462,8 +10786,9 @@ msgstr ""
 
 #: libraries/replication_gui.lib.php:412 libraries/replication_gui.lib.php:782
 #: libraries/server_privileges.lib.php:1492
+#, fuzzy
 msgid "User name:"
-msgstr ""
+msgstr "Isem n use_qdac:"
 
 #: libraries/replication_gui.lib.php:418 libraries/replication_gui.lib.php:786
 #: libraries/replication_gui.lib.php:799
@@ -10471,20 +10796,23 @@ msgstr ""
 #: libraries/server_privileges.lib.php:1519
 #: libraries/server_privileges.lib.php:2527
 #: libraries/server_privileges.lib.php:3488
+#, fuzzy
 msgid "User name"
-msgstr ""
+msgstr "Isem n useqdac"
 
 #: libraries/replication_gui.lib.php:429 libraries/replication_gui.lib.php:849
 #: libraries/replication_gui.lib.php:861
 #: libraries/server_privileges.lib.php:1658
 #: libraries/server_privileges.lib.php:1675
 #: libraries/server_privileges.lib.php:3490
+#, fuzzy
 msgid "Password"
-msgstr ""
+msgstr "Mot de passe"
 
 #: libraries/replication_gui.lib.php:447
+#, fuzzy
 msgid "Port:"
-msgstr ""
+msgstr "Tawwurt :"
 
 #: libraries/replication_gui.lib.php:531
 msgid "Master status"
@@ -10497,14 +10825,16 @@ msgstr ""
 #: libraries/replication_gui.lib.php:543
 #: libraries/server_status_variables.lib.php:217
 #: templates/server/variables/variable_table_head.phtml:4
+#, fuzzy
 msgid "Variable"
-msgstr ""
+msgstr "Amutti"
 
 #: libraries/replication_gui.lib.php:618 libraries/replication_gui.lib.php:701
 #: libraries/replication_gui.lib.php:834
 #: libraries/server_status_processes.lib.php:76
+#, fuzzy
 msgid "Host"
-msgstr ""
+msgstr "Asenneftaɣ"
 
 #: libraries/replication_gui.lib.php:635
 msgid ""
@@ -10519,13 +10849,15 @@ msgstr ""
 
 #: libraries/replication_gui.lib.php:744
 #: libraries/server_privileges.lib.php:1601
+#, fuzzy
 msgid "Local"
-msgstr ""
+msgstr "Adigan"
 
 #: libraries/replication_gui.lib.php:751
 #: libraries/server_privileges.lib.php:1610
+#, fuzzy
 msgid "This Host"
-msgstr ""
+msgstr "Asneftaɣ :"
 
 #: libraries/replication_gui.lib.php:790
 #: libraries/server_privileges.lib.php:1503
@@ -10552,12 +10884,14 @@ msgstr ""
 
 #: libraries/replication_gui.lib.php:869
 #: libraries/server_privileges.lib.php:1690
+#, fuzzy
 msgid "Re-type"
-msgstr ""
+msgstr "Sekcem tikelt nniḍen"
 
 #: libraries/replication_gui.lib.php:873
+#, fuzzy
 msgid "Generate password:"
-msgstr ""
+msgstr "Sirew awal uffir"
 
 #: libraries/replication_gui.lib.php:905
 msgid ""
@@ -10591,15 +10925,17 @@ msgstr ""
 
 #: libraries/replication_gui.lib.php:926
 msgid "Success."
-msgstr ""
+msgstr "Yedda,"
 
 #: libraries/replication_gui.lib.php:927
+#, fuzzy
 msgid "Error."
-msgstr ""
+msgstr "Tuccḍa!"
 
 #: libraries/replication_gui.lib.php:972
+#, fuzzy
 msgid "Unknown error"
-msgstr ""
+msgstr "Tuccḍa d tarussint"
 
 #: libraries/replication_gui.lib.php:982
 #, php-format
@@ -10656,8 +10992,9 @@ msgstr ""
 
 #: libraries/rte/rte_events.lib.php:390 libraries/rte/rte_routines.lib.php:890
 #: libraries/rte/rte_triggers.lib.php:327 view_create.php:205
+#, fuzzy
 msgid "Details"
-msgstr ""
+msgstr "Isalen"
 
 #: libraries/rte/rte_events.lib.php:393
 msgid "Event name"
@@ -10670,21 +11007,23 @@ msgstr ""
 
 #: libraries/rte/rte_events.lib.php:442
 msgid "Execute at"
-msgstr ""
+msgstr "Selkem"
 
 #: libraries/rte/rte_events.lib.php:450
 msgid "Execute every"
 msgstr ""
 
 #: libraries/rte/rte_events.lib.php:469
+#, fuzzy
 msgctxt "Start of recurring event"
 msgid "Start"
-msgstr ""
+msgstr "Bdu"
 
 #: libraries/rte/rte_events.lib.php:478
+#, fuzzy
 msgctxt "End of recurring event"
 msgid "End"
-msgstr ""
+msgstr "Tagara"
 
 #: libraries/rte/rte_events.lib.php:492
 msgid "On completion preserve"
@@ -10728,8 +11067,9 @@ msgid "Error in processing request:"
 msgstr ""
 
 #: libraries/rte/rte_footer.lib.php:94
+#, fuzzy
 msgid "OFF"
-msgstr ""
+msgstr "yensa"
 
 #: libraries/rte/rte_footer.lib.php:99
 msgid "ON"
@@ -10744,8 +11084,9 @@ msgid "The backed up query was:"
 msgstr ""
 
 #: libraries/rte/rte_list.lib.php:82
+#, fuzzy
 msgid "Returns"
-msgstr ""
+msgstr "Renvoie une valeur suivant une régression linéaire"
 
 #: libraries/rte/rte_routines.lib.php:78
 msgid ""
@@ -10789,12 +11130,14 @@ msgid "Routine name"
 msgstr ""
 
 #: libraries/rte/rte_routines.lib.php:919
+#, fuzzy
 msgid "Parameters"
-msgstr ""
+msgstr "Iɣewwaṛen"
 
 #: libraries/rte/rte_routines.lib.php:927
+#, fuzzy
 msgid "Direction"
-msgstr ""
+msgstr "tanila"
 
 #: libraries/rte/rte_routines.lib.php:948
 msgid "Add parameter"
@@ -10907,9 +11250,10 @@ msgid "Trigger name"
 msgstr ""
 
 #: libraries/rte/rte_triggers.lib.php:353
+#, fuzzy
 msgctxt "Trigger action time"
 msgid "Time"
-msgstr ""
+msgstr "Akud"
 
 #: libraries/rte/rte_triggers.lib.php:433
 msgid "You must provide a trigger name!"
@@ -10981,8 +11325,9 @@ msgid "Export of trigger %s"
 msgstr ""
 
 #: libraries/rte/rte_words.lib.php:52
+#, fuzzy
 msgid "trigger"
-msgstr ""
+msgstr "Amendaḥ"
 
 #: libraries/rte/rte_words.lib.php:54
 msgid "You do not have the necessary privileges to create a trigger."
@@ -11044,8 +11389,9 @@ msgid "Databases statistics"
 msgstr ""
 
 #: libraries/server_privileges.lib.php:209 server_privileges.php:113
+#, fuzzy
 msgid "No privileges."
-msgstr ""
+msgstr "Tise&glutin…"
 
 #: libraries/server_privileges.lib.php:218 server_privileges.php:58
 msgid "Includes all privileges except GRANT."
@@ -11275,8 +11621,9 @@ msgid "Note: MySQL privilege names are expressed in English."
 msgstr ""
 
 #: libraries/server_privileges.lib.php:1132
+#, fuzzy
 msgid "Administration"
-msgstr ""
+msgstr "Tadbelt"
 
 #: libraries/server_privileges.lib.php:1152
 #: libraries/server_privileges.lib.php:3491
@@ -11322,8 +11669,9 @@ msgstr ""
 
 #: libraries/server_privileges.lib.php:1489
 #: libraries/server_privileges.lib.php:3058
+#, fuzzy
 msgid "Login Information"
-msgstr ""
+msgstr "Talɣut n unekcum"
 
 #: libraries/server_privileges.lib.php:1512
 #: libraries/server_privileges.lib.php:1670
@@ -11421,8 +11769,9 @@ msgstr ""
 #: libraries/server_privileges.lib.php:2596
 #: libraries/server_privileges.lib.php:2916
 #: libraries/server_privileges.lib.php:3580
+#, fuzzy
 msgid "Any"
-msgstr ""
+msgstr "Win illan"
 
 #: libraries/server_privileges.lib.php:2647
 msgid "global"
@@ -11509,9 +11858,9 @@ msgid "You have updated the privileges for %s."
 msgstr ""
 
 #: libraries/server_privileges.lib.php:3991
-#, php-format
+#, fuzzy, php-format
 msgid "Deleting %s"
-msgstr ""
+msgstr "Tukksa n \"%s\""
 
 #: libraries/server_privileges.lib.php:4021
 msgid "The privileges were reloaded successfully."
@@ -11530,16 +11879,18 @@ msgstr ""
 #: libraries/server_privileges.lib.php:4394
 #: libraries/server_status_processes.lib.php:72
 #: libraries/server_user_groups.lib.php:37
+#, fuzzy
 msgid "User"
-msgstr ""
+msgstr "Aseqdac"
 
 #: libraries/server_privileges.lib.php:4462
 msgid "Edit privileges:"
 msgstr ""
 
 #: libraries/server_privileges.lib.php:4463
+#, fuzzy
 msgid "User account"
-msgstr ""
+msgstr "Amiḍan n useqdac"
 
 #: libraries/server_privileges.lib.php:4537
 msgid ""
@@ -11619,12 +11970,14 @@ msgid ""
 msgstr ""
 
 #: libraries/server_status.lib.php:154
+#, fuzzy
 msgid "Received"
-msgstr ""
+msgstr "Iţwarmes"
 
 #: libraries/server_status.lib.php:173
+#, fuzzy
 msgid "Sent"
-msgstr ""
+msgstr "Ţwaznen"
 
 #: libraries/server_status.lib.php:240
 msgid "Max. concurrent connections"
@@ -11726,8 +12079,12 @@ msgid ""
 msgstr ""
 
 #: libraries/server_status_monitor.lib.php:143
+#, fuzzy
 msgid "Please note:"
 msgstr ""
+"Notez que la conservation des horodatages des envois sur les serveurs FTP, "
+"FTPS and FTPES ne fonctionne uniquement que si la commande MFMT est "
+"supportée."
 
 #: libraries/server_status_monitor.lib.php:146
 msgid ""
@@ -11826,8 +12183,9 @@ msgid ""
 msgstr ""
 
 #: libraries/server_status_monitor.lib.php:321
+#, fuzzy
 msgid "Reset to default"
-msgstr ""
+msgstr "Err-d azalen s lexṣas"
 
 #: libraries/server_status_processes.lib.php:24
 msgid ""
@@ -11836,21 +12194,25 @@ msgid ""
 msgstr ""
 
 #: libraries/server_status_processes.lib.php:68
+#, fuzzy
 msgid "ID"
-msgstr ""
+msgstr "Asulay"
 
 #: libraries/server_status_processes.lib.php:84
+#, fuzzy
 msgid "Command"
-msgstr ""
+msgstr "Taladna"
 
 #: libraries/server_status_processes.lib.php:96
+#, fuzzy
 msgid "Progress"
-msgstr ""
+msgstr "Asfari"
 
 #: libraries/server_status_processes.lib.php:230
 #: libraries/server_status_variables.lib.php:37 templates/filter.phtml:2
+#, fuzzy
 msgid "Filters"
-msgstr ""
+msgstr "Imzizdigen"
 
 #: libraries/server_status_processes.lib.php:238
 msgid "Show only active"
@@ -11866,8 +12228,9 @@ msgid "per hour:"
 msgstr ""
 
 #: libraries/server_status_queries.lib.php:44
+#, fuzzy
 msgid "per minute:"
-msgstr ""
+msgstr "%s di tesdat"
 
 #: libraries/server_status_queries.lib.php:51
 msgid "per second:"
@@ -12515,8 +12878,9 @@ msgid "User group menu assignments"
 msgstr ""
 
 #: libraries/server_user_groups.lib.php:234
+#, fuzzy
 msgid "Group name:"
-msgstr ""
+msgstr "Isem n ugraw"
 
 #: libraries/server_user_groups.lib.php:272
 msgid "Server-level tabs"
@@ -12535,12 +12899,14 @@ msgid "Detailed profile"
 msgstr ""
 
 #: libraries/sql.lib.php:236
+#, fuzzy
 msgid "Order"
-msgstr ""
+msgstr "Amizzwer"
 
 #: libraries/sql.lib.php:238 libraries/sql.lib.php:254
+#, fuzzy
 msgid "State"
-msgstr ""
+msgstr "Aɣir(Wilaya)"
 
 #: libraries/sql.lib.php:251
 msgid "Summary by state"
@@ -12551,12 +12917,14 @@ msgid "Total Time"
 msgstr ""
 
 #: libraries/sql.lib.php:259
+#, fuzzy
 msgid "% Time"
-msgstr ""
+msgstr "(Akud)"
 
 #: libraries/sql.lib.php:261
+#, fuzzy
 msgid "Calls"
-msgstr ""
+msgstr "Isawalen"
 
 #: libraries/sql.lib.php:263
 msgid "ø Time"
@@ -12567,8 +12935,9 @@ msgid "Bookmark this SQL query"
 msgstr ""
 
 #: libraries/sql.lib.php:573
+#, fuzzy
 msgid "Label:"
-msgstr ""
+msgstr "Tabzimt:"
 
 #: libraries/sql.lib.php:580 libraries/sql_query_form.lib.php:315
 msgid "Let every user access this bookmark"
@@ -12623,8 +12992,9 @@ msgstr ""
 
 #: libraries/sql_query_form.lib.php:247 setup/frames/index.inc.php:257
 #: templates/console/display.phtml:10
+#, fuzzy
 msgid "Clear"
-msgstr ""
+msgstr "Effacer"
 
 #: libraries/sql_query_form.lib.php:253
 msgid "Get auto-saved query"
@@ -12655,8 +13025,9 @@ msgid "Rollback when finished"
 msgstr ""
 
 #: libraries/sql_query_form.lib.php:405
+#, fuzzy
 msgid "shared"
-msgstr ""
+msgstr "Ur bḍin ara talɣut leqqayen n unermes"
 
 #: libraries/sql_query_form.lib.php:418
 msgid "View only"
@@ -12703,16 +13074,19 @@ msgid "Deactivate now"
 msgstr ""
 
 #: libraries/tracking.lib.php:284 templates/server/plugins/section.phtml:10
+#, fuzzy
 msgid "Version"
-msgstr ""
+msgstr "Lqem"
 
 #: libraries/tracking.lib.php:285 libraries/tracking.lib.php:1597
+#, fuzzy
 msgid "Created"
-msgstr ""
+msgstr "Yettwarna"
 
 #: libraries/tracking.lib.php:286 libraries/tracking.lib.php:1598
+#, fuzzy
 msgid "Updated"
-msgstr ""
+msgstr "Yettusnifel"
 
 #: libraries/tracking.lib.php:295 libraries/tracking.lib.php:362
 msgid "Delete version"
@@ -12730,13 +13104,15 @@ msgstr ""
 
 #: libraries/tracking.lib.php:428 libraries/tracking.lib.php:1427
 #: libraries/tracking.lib.php:1715
+#, fuzzy
 msgid "active"
-msgstr ""
+msgstr "urmid"
 
 #: libraries/tracking.lib.php:430 libraries/tracking.lib.php:1429
 #: libraries/tracking.lib.php:1710
+#, fuzzy
 msgid "not active"
-msgstr ""
+msgstr "Urmid"
 
 #: libraries/tracking.lib.php:472
 msgid "Tracking statements"
@@ -12747,8 +13123,9 @@ msgid "Delete tracking data row from report"
 msgstr ""
 
 #: libraries/tracking.lib.php:495
+#, fuzzy
 msgid "No data"
-msgstr ""
+msgstr "Ulac isefka"
 
 #: libraries/tracking.lib.php:585 libraries/tracking.lib.php:635
 #, php-format
@@ -12772,9 +13149,9 @@ msgid "SQL execution"
 msgstr ""
 
 #: libraries/tracking.lib.php:669
-#, php-format
+#, fuzzy, php-format
 msgid "Export as %s"
-msgstr ""
+msgstr "Sifeḍ ar %s"
 
 #: libraries/tracking.lib.php:695
 msgid "Data manipulation statement"
@@ -12785,12 +13162,14 @@ msgid "Data definition statement"
 msgstr ""
 
 #: libraries/tracking.lib.php:803
+#, fuzzy
 msgid "Date"
-msgstr ""
+msgstr "Azemz"
 
 #: libraries/tracking.lib.php:804
+#, fuzzy
 msgid "Username"
-msgstr ""
+msgstr "Isem n useqdac"
 
 #: libraries/tracking.lib.php:852
 #, php-format
@@ -12799,9 +13178,10 @@ msgstr ""
 
 #: libraries/tracking.lib.php:952
 #: templates/table/structure/table_structure_row.phtml:33
+#, fuzzy
 msgctxt "None for default"
 msgid "None"
-msgstr ""
+msgstr "Aucun"
 
 #: libraries/tracking.lib.php:1047
 msgid "Tracking data definition successfully deleted"
@@ -12872,8 +13252,9 @@ msgid "Delete tracking"
 msgstr ""
 
 #: libraries/tracking.lib.php:1610
+#, fuzzy
 msgid "Versions"
-msgstr ""
+msgstr "Ileqman"
 
 #: libraries/user_preferences.inc.php:32
 msgid "Manage your settings"
@@ -12936,8 +13317,9 @@ msgid "Saved on: @DATE@"
 msgstr ""
 
 #: prefs_manage.php:254
+#, fuzzy
 msgid "Import from file"
-msgstr ""
+msgstr "Kter-d si kra n ufaylu"
 
 #: prefs_manage.php:262
 msgid "Import from browser's storage"
@@ -12992,8 +13374,9 @@ msgstr ""
 
 #: server_privileges.php:133 server_replication.php:33
 #: server_user_groups.php:29 templates/server/databases/create.phtml:32
+#, fuzzy
 msgid "No Privileges"
-msgstr ""
+msgstr "Tise&glutin…"
 
 #: server_privileges.php:149
 msgid ""
@@ -13029,8 +13412,9 @@ msgid "Not enough privilege to view status variables."
 msgstr ""
 
 #: setup/frames/config.inc.php:38 setup/frames/index.inc.php:255
+#, fuzzy
 msgid "Download"
-msgstr ""
+msgstr "Sider"
 
 #: setup/frames/form.inc.php:25
 msgid "Incorrect formset, check $formsets array in setup/frames/form.inc.php!"
@@ -13074,8 +13458,9 @@ msgid ""
 msgstr ""
 
 #: setup/frames/index.inc.php:115 setup/frames/menu.inc.php:19
+#, fuzzy
 msgid "Overview"
-msgstr ""
+msgstr "Apercu"
 
 #: setup/frames/index.inc.php:122
 msgid "Show hidden messages (#MSG_COUNT)"
@@ -13090,36 +13475,41 @@ msgid "New server"
 msgstr ""
 
 #: setup/frames/index.inc.php:211
+#, fuzzy
 msgid "Default language"
-msgstr ""
+msgstr "Tutlayt tamezwert"
 
 #: setup/frames/index.inc.php:221
 msgid "let the user choose"
 msgstr ""
 
 #: setup/frames/index.inc.php:232
+#, fuzzy
 msgid "- none -"
-msgstr ""
+msgstr "- ula yiwen -"
 
 #: setup/frames/index.inc.php:236
+#, fuzzy
 msgid "Default server"
-msgstr ""
+msgstr "Seqdec aqeddac amezwer"
 
 #: setup/frames/index.inc.php:248
 msgid "End of line"
 msgstr ""
 
 #: setup/frames/index.inc.php:254
+#, fuzzy
 msgid "Display"
-msgstr ""
+msgstr "Sken"
 
 #: setup/frames/index.inc.php:267
 msgid "phpMyAdmin homepage"
 msgstr ""
 
 #: setup/frames/index.inc.php:269
+#, fuzzy
 msgid "Donate"
-msgstr ""
+msgstr "Mudd tawsa!"
 
 #: setup/frames/servers.inc.php:32
 msgid "Edit server"
@@ -13138,8 +13528,9 @@ msgid "Wrong GET file attribute value"
 msgstr ""
 
 #: setup/lib/form_processing.lib.php:49
+#, fuzzy
 msgid "Warning"
-msgstr ""
+msgstr "ɣuṛ-ek"
 
 #: setup/lib/form_processing.lib.php:50
 msgid "Submitted form contains errors"
@@ -13236,28 +13627,32 @@ msgid "SQL statements executed."
 msgstr ""
 
 #: templates/columns_definitions/column_default.phtml:6
+#, fuzzy
 msgctxt "for default"
 msgid "None"
-msgstr ""
+msgstr "Aucun"
 
 #: templates/columns_definitions/column_default.phtml:7
+#, fuzzy
 msgid "As defined:"
-msgstr ""
+msgstr "Non défini"
 
 #: templates/columns_definitions/column_definitions_form.phtml:49
+#, fuzzy
 msgid "Table name"
-msgstr ""
+msgstr "Isem n tfelwit"
 
 #: templates/columns_definitions/column_definitions_form.phtml:58
 #: templates/console/display.phtml:126
+#, fuzzy
 msgid "Add"
-msgstr ""
+msgstr "Ajouter"
 
 #: templates/columns_definitions/column_definitions_form.phtml:66
 #, fuzzy
 #| msgid "Column"
 msgid "column(s)"
-msgstr "Tigejdit"
+msgstr "Tigejdit (t-yin)"
 
 #: templates/columns_definitions/column_definitions_form.phtml:93
 msgid "Collation:"
@@ -13268,8 +13663,9 @@ msgid "Storage Engine:"
 msgstr ""
 
 #: templates/columns_definitions/column_definitions_form.phtml:102
+#, fuzzy
 msgid "Connection:"
-msgstr ""
+msgstr "Tuqqna"
 
 #: templates/columns_definitions/column_definitions_form.phtml:146
 msgid "PARTITION definition:"
@@ -13294,12 +13690,14 @@ msgstr ""
 
 #: templates/columns_definitions/column_virtuality.phtml:46
 #: templates/table/structure/display_partitions.phtml:28
+#, fuzzy
 msgid "Expression"
-msgstr ""
+msgstr "Expression"
 
 #: templates/columns_definitions/move_column.phtml:7
+#, fuzzy
 msgid "first"
-msgstr ""
+msgstr "amezwaru"
 
 #: templates/columns_definitions/move_column.phtml:12
 #: templates/table/structure/add_column.phtml:21
@@ -13334,16 +13732,18 @@ msgid "Partition"
 msgstr ""
 
 #: templates/columns_definitions/partitions.phtml:73
+#, fuzzy
 msgid "Values"
-msgstr ""
+msgstr "Azalen"
 
 #: templates/columns_definitions/partitions.phtml:76
 msgid "Subpartition"
 msgstr ""
 
 #: templates/columns_definitions/partitions.phtml:78
+#, fuzzy
 msgid "Engine"
-msgstr ""
+msgstr "Sagen amsedday inek n unadi"
 
 #: templates/columns_definitions/partitions.phtml:80
 msgid "Data directory"
@@ -13426,14 +13826,16 @@ msgstr ""
 #: templates/console/bookmark_content.phtml:14
 #: templates/console/display.phtml:48 templates/console/display.phtml:105
 #: templates/console/display.phtml:210
+#, fuzzy
 msgid "Collapse"
-msgstr ""
+msgstr "Sneḍfas"
 
 #: templates/console/bookmark_content.phtml:15
 #: templates/console/display.phtml:49 templates/console/display.phtml:106
 #: templates/console/display.phtml:211
+#, fuzzy
 msgid "Expand"
-msgstr ""
+msgstr "Snefli"
 
 #: templates/console/bookmark_content.phtml:16
 #: templates/console/display.phtml:50 templates/console/display.phtml:212
@@ -13441,16 +13843,19 @@ msgid "Requery"
 msgstr ""
 
 #: templates/console/display.phtml:9
+#, fuzzy
 msgid "Console"
-msgstr ""
+msgstr "Tadiwent"
 
 #: templates/console/display.phtml:11
+#, fuzzy
 msgid "History"
-msgstr ""
+msgstr "Amazray"
 
 #: templates/console/display.phtml:14 templates/console/display.phtml:124
+#, fuzzy
 msgid "Bookmarks"
-msgstr ""
+msgstr "Ticraḍ"
 
 #: templates/console/display.phtml:26
 msgid "Press Ctrl+Enter to execute query"
@@ -13465,20 +13870,24 @@ msgid "During current session"
 msgstr ""
 
 #: templates/console/display.phtml:52 templates/console/display.phtml:214
+#, fuzzy
 msgid "Explain"
-msgstr ""
+msgstr "Segzu"
 
 #: templates/console/display.phtml:55 templates/console/display.phtml:217
+#, fuzzy
 msgid "Bookmark"
-msgstr ""
+msgstr "Tacṛeṭ"
 
 #: templates/console/display.phtml:56 templates/console/display.phtml:218
+#, fuzzy
 msgid "Query failed"
-msgstr ""
+msgstr "Tuttra tecceḍ"
 
 #: templates/console/display.phtml:58 templates/console/display.phtml:220
+#, fuzzy
 msgid "Queried time"
-msgstr ""
+msgstr "Akkud n tuttra"
 
 #: templates/console/display.phtml:81
 msgid "ascending"
@@ -13489,13 +13898,15 @@ msgid "descending"
 msgstr ""
 
 #: templates/console/display.phtml:83
+#, fuzzy
 msgid "Order:"
-msgstr ""
+msgstr "Amizzwer:"
 
 #: templates/console/display.phtml:85 templates/console/display.phtml:109
 #: templates/table/search/replace_preview.phtml:17
+#, fuzzy
 msgid "Count"
-msgstr ""
+msgstr "Amḍan"
 
 #: templates/console/display.phtml:86
 msgid "Execution order"
@@ -13522,16 +13933,19 @@ msgid "Show trace"
 msgstr ""
 
 #: templates/console/display.phtml:108
+#, fuzzy
 msgid "Hide trace"
-msgstr ""
+msgstr "ffer lǧeṛṛa"
 
 #: templates/console/display.phtml:141
+#, fuzzy
 msgid "Add bookmark"
-msgstr ""
+msgstr "Rnu tacreṭ"
 
 #: templates/console/display.phtml:149
+#, fuzzy
 msgid "Label"
-msgstr ""
+msgstr "Tabzimt"
 
 #: templates/console/display.phtml:152
 msgid "Target database"
@@ -13542,8 +13956,9 @@ msgid "Share this bookmark"
 msgstr ""
 
 #: templates/console/display.phtml:174
+#, fuzzy
 msgid "Set default"
-msgstr ""
+msgstr "&Sbadu amezwer"
 
 #: templates/console/display.phtml:181
 msgid "Always expand query messages"
@@ -13570,8 +13985,9 @@ msgstr ""
 #: templates/database/create_table.phtml:7
 #: templates/database/designer/side_menu.phtml:77
 #: templates/database/designer/side_menu.phtml:80
+#, fuzzy
 msgid "Create table"
-msgstr ""
+msgstr "Créer une table"
 
 #: templates/database/create_table.phtml:15
 msgid "Number of columns"
@@ -13589,8 +14005,9 @@ msgstr ""
 #: templates/database/designer/options_panel.phtml:170
 #: templates/database/designer/where_query_panel.phtml:30
 #: templates/table/search/table_header.phtml:9
+#, fuzzy
 msgid "Operator"
-msgstr ""
+msgstr "Amahal"
 
 #: templates/database/designer/database_tables.phtml:29
 msgid "Show/hide columns"
@@ -13616,8 +14033,9 @@ msgstr ""
 #: templates/database/designer/options_panel.phtml:63
 #: templates/database/designer/options_panel.phtml:229
 #: templates/database/designer/where_query_panel.phtml:59
+#, fuzzy
 msgid "Except"
-msgstr ""
+msgstr "Tasureft"
 
 #: templates/database/designer/having_query_panel.phtml:102
 #: templates/database/designer/options_panel.phtml:75
@@ -13639,13 +14057,15 @@ msgstr ""
 
 #: templates/database/designer/options_panel.phtml:85
 #: templates/database/designer/rename_to_panel.phtml:23
+#, fuzzy
 msgid "Rename to"
-msgstr ""
+msgstr "Snifel isem ɣer"
 
 #: templates/database/designer/options_panel.phtml:91
 #: templates/database/designer/rename_to_panel.phtml:31
+#, fuzzy
 msgid "New name"
-msgstr ""
+msgstr "isem amaynut"
 
 #: templates/database/designer/page_save_as.phtml:4
 msgid "Save to selected page"
@@ -13660,8 +14080,9 @@ msgid "New page name"
 msgstr ""
 
 #: templates/database/designer/page_selector.phtml:2
+#, fuzzy
 msgid "Select page"
-msgstr ""
+msgstr "Fren asebter"
 
 #: templates/database/designer/query_details.phtml:10
 msgid "Active options"
@@ -13683,13 +14104,15 @@ msgid "View in fullscreen"
 msgstr ""
 
 #: templates/database/designer/side_menu.phtml:34
+#, fuzzy
 msgid "Exit fullscreen"
-msgstr ""
+msgstr "Ffeɣ seg ugdil ačuṛan"
 
 #: templates/database/designer/side_menu.phtml:41
 #: templates/database/designer/side_menu.phtml:45
+#, fuzzy
 msgid "New page"
-msgstr ""
+msgstr "Rnu as~ebter"
 
 #: templates/database/designer/side_menu.phtml:70
 #: templates/database/designer/side_menu.phtml:73
@@ -13698,13 +14121,15 @@ msgstr ""
 
 #: templates/database/designer/side_menu.phtml:98
 #: templates/database/designer/side_menu.phtml:101
+#, fuzzy
 msgid "Reload"
-msgstr ""
+msgstr "S&miren"
 
 #: templates/database/designer/side_menu.phtml:107
 #: templates/database/designer/side_menu.phtml:110
+#, fuzzy
 msgid "Help"
-msgstr ""
+msgstr "tallalt"
 
 #: templates/database/designer/side_menu.phtml:115
 #: templates/database/designer/side_menu.phtml:118
@@ -13718,8 +14143,9 @@ msgstr ""
 
 #: templates/database/designer/side_menu.phtml:122
 #: templates/database/designer/side_menu.phtml:124
+#, fuzzy
 msgid "Snap to grid"
-msgstr ""
+msgstr "Reyyec ɣer iẓiki"
 
 #: templates/database/designer/side_menu.phtml:128
 #: templates/database/designer/side_menu.phtml:134
@@ -13748,8 +14174,9 @@ msgstr ""
 
 #: templates/database/designer/side_menu.phtml:173
 #: templates/database/designer/side_menu.phtml:177
+#, fuzzy
 msgid "Move Menu"
-msgstr ""
+msgstr "Senkez umuɣ"
 
 #: templates/database/designer/side_menu.phtml:181
 #: templates/database/designer/side_menu.phtml:186
@@ -13776,8 +14203,9 @@ msgstr[0] ""
 msgstr[1] ""
 
 #: templates/database/structure/body_for_table_summary.phtml:17
+#, fuzzy
 msgid "Sum"
-msgstr ""
+msgstr "Timernit"
 
 #: templates/database/structure/check_all_tables.phtml:6
 msgid "Check tables having overhead"
@@ -13792,8 +14220,9 @@ msgid "Show create"
 msgstr ""
 
 #: templates/database/structure/check_all_tables.phtml:26
+#, fuzzy
 msgid "Prefix"
-msgstr ""
+msgstr "Azwir n unadi n unɣel n ugdil"
 
 #: templates/database/structure/check_all_tables.phtml:27
 msgid "Add prefix to table"
@@ -13816,20 +14245,23 @@ msgid "Make consistent with central list"
 msgstr ""
 
 #: templates/database/structure/favorite_anchor.phtml:12
+#, fuzzy
 msgid "Add to Favorites"
-msgstr ""
+msgstr "Rnu ɣeṛ ismenyifen"
 
 #: templates/database/structure/show_create.phtml:2
 msgid "Showing create queries"
 msgstr ""
 
 #: templates/database/structure/sortable_header.phtml:13
+#, fuzzy
 msgid "Sort"
-msgstr ""
+msgstr "Asmizzwer"
 
 #: templates/database/structure/structure_table_row.phtml:194
+#, fuzzy
 msgid "in use"
-msgstr ""
+msgstr "Yettwaseqdac akka tura"
 
 #: templates/database/structure/table_header.phtml:42
 msgid ""
@@ -13839,13 +14271,15 @@ msgstr ""
 
 #: templates/database/structure/table_header.phtml:66
 #: templates/table/index_form.phtml:127
+#, fuzzy
 msgid "Size"
-msgstr ""
+msgstr "Teɣzi"
 
 #: templates/database/structure/table_header.phtml:105
 #: templates/table/structure/row_stats_table.phtml:79
+#, fuzzy
 msgid "Creation"
-msgstr ""
+msgstr "Azemz  n tmerna"
 
 #: templates/database/structure/table_header.phtml:116
 #: templates/table/structure/row_stats_table.phtml:86
@@ -13909,15 +14343,17 @@ msgid "Add privileges on the following table:"
 msgstr ""
 
 #: templates/privileges/add_user_fieldset.phtml:2
+#, fuzzy
 msgctxt "Create new user"
 msgid "New"
-msgstr ""
+msgstr "Nouveau"
 
 #: templates/privileges/column_privileges.phtml:21
 #: templates/privileges/column_privileges.phtml:22
+#, fuzzy
 msgctxt "None privileges"
 msgid "None"
-msgstr ""
+msgstr "Aucun"
 
 #: templates/privileges/delete_user_fieldset.phtml:3
 msgid "Remove selected user accounts"
@@ -13951,8 +14387,9 @@ msgstr ""
 
 #: templates/server/databases/create.phtml:7
 #: templates/server/databases/create.phtml:27
+#, fuzzy
 msgid "Create database"
-msgstr ""
+msgstr "Snulfu-d azday n uzadur n isefka"
 
 #: templates/server/databases/table_row.phtml:15
 msgid "Jump to database"
@@ -13968,12 +14405,14 @@ msgid "Check privileges"
 msgstr ""
 
 #: templates/server/plugins/section.phtml:8
+#, fuzzy
 msgid "Plugin"
-msgstr ""
+msgstr "Azegrir amernan"
 
 #: templates/server/plugins/section.phtml:11
+#, fuzzy
 msgid "Author"
-msgstr ""
+msgstr "Ameskar"
 
 #: templates/server/plugins/section.phtml:21
 msgid "disabled"
@@ -13997,34 +14436,40 @@ msgid "Start row:"
 msgstr ""
 
 #: templates/table/chart/tbl_chart.phtml:16
+#, fuzzy
 msgctxt "Chart type"
 msgid "Bar"
-msgstr ""
+msgstr "tafeggagt"
 
 #: templates/table/chart/tbl_chart.phtml:20
+#, fuzzy
 msgctxt "Chart type"
 msgid "Column"
-msgstr ""
+msgstr "Ajgu"
 
 #: templates/table/chart/tbl_chart.phtml:24
+#, fuzzy
 msgctxt "Chart type"
 msgid "Line"
-msgstr ""
+msgstr "Ajerriḍ"
 
 #: templates/table/chart/tbl_chart.phtml:28
+#, fuzzy
 msgctxt "Chart type"
 msgid "Spline"
-msgstr ""
+msgstr "Spline B"
 
 #: templates/table/chart/tbl_chart.phtml:32
+#, fuzzy
 msgctxt "Chart type"
 msgid "Area"
-msgstr ""
+msgstr "Tajumma"
 
 #: templates/table/chart/tbl_chart.phtml:36
+#, fuzzy
 msgctxt "Chart type"
 msgid "Pie"
-msgstr ""
+msgstr "Agzum"
 
 #: templates/table/chart/tbl_chart.phtml:40
 msgctxt "Chart type"
@@ -14037,28 +14482,32 @@ msgid "Scatter"
 msgstr ""
 
 #: templates/table/chart/tbl_chart.phtml:49
+#, fuzzy
 msgid "Stacked"
-msgstr ""
+msgstr "Yettwasemnenna"
 
 #: templates/table/chart/tbl_chart.phtml:52
 msgid "Chart title:"
 msgstr ""
 
 #: templates/table/chart/tbl_chart.phtml:57
+#, fuzzy
 msgid "X-Axis:"
-msgstr ""
+msgstr "_Agellus X:"
 
 #: templates/table/chart/tbl_chart.phtml:72
+#, fuzzy
 msgid "Series:"
-msgstr ""
+msgstr "Imazraren"
 
 #: templates/table/chart/tbl_chart.phtml:103
 msgid "X-Axis label:"
 msgstr ""
 
 #: templates/table/chart/tbl_chart.phtml:105
+#, fuzzy
 msgid "X Values"
-msgstr ""
+msgstr "Azalen X"
 
 #: templates/table/chart/tbl_chart.phtml:108
 msgid "Y-Axis label:"
@@ -14093,8 +14542,9 @@ msgid "Label column"
 msgstr ""
 
 #: templates/table/gis_visualization/gis_visualization.phtml:11
+#, fuzzy
 msgid "-- None --"
-msgstr ""
+msgstr "- ula yiwen -"
 
 #: templates/table/gis_visualization/gis_visualization.phtml:19
 msgid "Spatial column"
@@ -14126,8 +14576,9 @@ msgid "Parser:"
 msgstr ""
 
 #: templates/table/index_form.phtml:102
+#, fuzzy
 msgid "Comment:"
-msgstr ""
+msgstr "Awennit:"
 
 #: templates/table/index_form.phtml:149 templates/table/index_form.phtml:194
 msgid "Drag to reorder"
@@ -14138,8 +14589,9 @@ msgid "Foreign key constraints"
 msgstr ""
 
 #: templates/table/relation/common_form.phtml:9
+#, fuzzy
 msgid "Actions"
-msgstr ""
+msgstr "Tigawin"
 
 #: templates/table/relation/common_form.phtml:10
 msgid "Constraint properties"
@@ -14234,16 +14686,18 @@ msgid "Replaced string"
 msgstr ""
 
 #: templates/table/search/replace_preview.phtml:38
+#, fuzzy
 msgid "Replace"
-msgstr ""
+msgstr "Remplacer"
 
 #: templates/table/search/rows_zoom.phtml:15
 msgid "Additional search criteria"
 msgstr ""
 
 #: templates/table/search/search_and_replace.phtml:3
+#, fuzzy
 msgid "Replace with:"
-msgstr ""
+msgstr "Remplacer par:"
 
 #: templates/table/search/search_and_replace.phtml:24
 msgid "Use regular expression"
@@ -14348,8 +14802,12 @@ msgid "Space usage"
 msgstr ""
 
 #: templates/table/structure/display_table_stats.phtml:36
+#, fuzzy
 msgid "Effective"
 msgstr ""
+"Ammesten n tebniqt tetteddu kan seld tiferkit tamirant ig ttummetnen.\n"
+"\n"
+"Fren 'Mmesten isemli' seg umuɣ 'Ifecka',sakin mudd-d 'Tiferkit'."
 
 #: templates/table/structure/move_columns_dialog.phtml:1
 #: templates/table/structure/optional_action_links.phtml:25
@@ -14381,8 +14839,9 @@ msgid "static"
 msgstr ""
 
 #: templates/table/structure/row_stats_table.phtml:10
+#, fuzzy
 msgid "dynamic"
-msgstr ""
+msgstr "amussan"
 
 #: templates/table/structure/row_stats_table.phtml:21
 msgid "partitioned"
@@ -14410,8 +14869,9 @@ msgid "Click to toggle"
 msgstr ""
 
 #: themes.php:20 themes.php:25
+#, fuzzy
 msgid "Theme"
-msgstr ""
+msgstr "Asentel :"
 
 #: themes.php:28
 msgid "Get more themes!"
@@ -14430,9 +14890,10 @@ msgid "Available input transformations"
 msgstr ""
 
 #: transformation_overview.php:54
+#, fuzzy
 msgctxt "for MIME transformation"
 msgid "Description"
-msgstr ""
+msgstr "aglam"
 
 #: url.php:39
 msgid "Taking you to the target site."
@@ -14455,8 +14916,9 @@ msgid "View name can not be empty!"
 msgstr ""
 
 #: view_create.php:253
+#, fuzzy
 msgid "VIEW name"
-msgstr ""
+msgstr "Isem n tmeẓri"
 
 #: view_create.php:264
 msgid "Column names"
@@ -14638,8 +15100,9 @@ msgid "You should upgrade, to a stable version of MySQL 5.5."
 msgstr ""
 
 #: libraries/advisory_rules.txt:121 libraries/advisory_rules.txt:128
+#, fuzzy
 msgid "Distribution"
-msgstr ""
+msgstr "Tussa"
 
 #: libraries/advisory_rules.txt:124
 msgid "Version is compiled from source, not a MySQL official binary."
