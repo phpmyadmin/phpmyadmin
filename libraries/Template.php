@@ -174,8 +174,26 @@ class Template
 
         if (file_exists($template . '.twig')) {
             $this->set($data);
-            return $this->twig->load($this->name . '.twig')
-                ->render($this->data);
+            try {
+                $template = $this->twig->load($this->name . '.twig');
+            } catch (\RuntimeException $e) {
+                /* Retry with disabled cache */
+                $this->twig->setCache(false);
+                $template = $this->twig->load($this->name . '.twig');
+                /*
+                 * The trigger error is intentionally after second load
+                 * to avoid triggering error when disabling cache does not
+                 * solve it.
+                 */
+                trigger_error(
+                    sprintf(
+                        __('Error while working with template cache: %s'),
+                        $e->getMessage()
+                    ),
+                    E_USER_WARNING
+                );
+            }
+            return $template->render($this->data);
         }
 
         $template = $template . '.phtml';
