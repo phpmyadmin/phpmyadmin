@@ -66,7 +66,7 @@ class Template
         }
         $this->twig = new Twig_Environment($loader, array(
             'auto_reload' => true,
-            'cache' => ,
+            'cache' => $cache_dir,
             'debug' => false,
         ));
         $this->twig->addExtension(new I18nExtension());
