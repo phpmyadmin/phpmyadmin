@@ -1744,6 +1744,54 @@ class Config
     {
         return self::_renderCustom(CUSTOM_HEADER_FILE, 'pma_header');
     }
+
+    /**
+     * Returns temporary dir path
+     *
+     * @param string $name Directory name
+     *
+     * @return string|null
+     */
+    public function getTempDir($name)
+    {
+        $path = $this->get('TempDir');
+        if (empty($path)) {
+            return null;
+        }
+
+        $path .= '/' . $name;
+        if (! @is_dir($path)) {
+            @mkdir($path, 0770, true);
+        }
+        if (! @is_dir($path) || ! @is_writable($path)) {
+            return null;
+        }
+
+        return $path;
+    }
+
+    /**
+     * Returns temporary directory
+     *
+     * @return string
+     */
+    public function getUploadTempDir()
+    {
+        // First try configured temp dir
+        $path = $this->getTempDir('upload');
+
+        // Fallback to PHP upload_tmp_dir
+        if (is_null($path)) {
+            $path = ini_get('upload_tmp_dir');
+        }
+
+        // Last resort is systemp temporary directory
+        if (empty($path)) {
+            $path = sys_get_temp_dir();
+        }
+
+        return rtrim($path, DIRECTORY_SEPARATOR);
+    }
 }
 
 if (!defined('TESTSUITE')) {

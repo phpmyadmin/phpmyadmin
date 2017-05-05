@@ -61,7 +61,7 @@ class Template
         $loader = new Twig_Loader_Filesystem(static::BASE_PATH);
         $this->twig = new Twig_Environment($loader, array(
             'auto_reload' => true,
-            'cache' => CACHE_DIR . 'twig',
+            'cache' => $GLOBALS['PMA_Config']->getTempDir('twig'),
             'debug' => false,
         ));
         $this->twig->addExtension(new I18nExtension());

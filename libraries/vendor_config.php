@@ -22,7 +22,7 @@ define('AUTOLOAD_FILE', './vendor/autoload.php');
 /**
  * Directory where cache files are stored.
  */
-define('CACHE_DIR', './cache/');
+define('TEMP_DIR', './tmp/');
 
 /**
  * Path to changelog file, can be gzip compressed. Useful when you want to

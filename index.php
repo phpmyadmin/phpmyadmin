@@ -601,6 +601,17 @@ if ($cfg['SuhosinDisableWarning'] == false
     );
 }
 
+/* Missing template cache */
+if (is_null($GLOBALS['PMA_Config']->getTempDir('twig'))) {
+    trigger_error(
+        sprintf(
+            __('The $cfg[\'TempDir\'] (%s) is not accessible. phpMyAdmin is not able to cache templates and will be slow because of this.'),
+            $GLOBALS['PMA_Config']->get('TempDir')
+        ),
+        E_USER_WARNING
+    );
+}
+
 /**
  * Warning about incomplete translations.
  *

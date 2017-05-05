@@ -2955,13 +2955,15 @@ the files.
 .. config:option:: $cfg['TempDir']
 
     :type: string
-    :default: ``''``
+    :default: ``'./tmp/'``
 
-    The name of the directory where temporary files can be stored.
+    The name of the directory where temporary files can be stored. It is used
+    for several purposes, currently:
 
-    This is needed for importing ESRI Shapefiles, see :ref:`faq6_30` and to
-    work around limitations of ``open_basedir`` for uploaded files, see
-    :ref:`faq1_11`.
+    * The templates cache which speeds up page loading.
+    * ESRI Shapefiles import, see :ref:`faq6_30`.
+    * To work around limitations of ``open_basedir`` for uploaded files, see
+      :ref:`faq1_11`.
 
     This directory should have as strict permissions as possible as the only
     user required to access this directory is the one who runs the webserver.
