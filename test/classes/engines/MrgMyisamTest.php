@@ -1,6 +1,6 @@
 <?php
 /**
- * Tests for PMA\libraries\engines\Mrg_Myisam
+ * Tests for PMA\libraries\engines\MrgMyisam
  *
  * @package PhpMyAdmin-test
  */
@@ -9,17 +9,17 @@
  * Include to test.
  */
 
-use PMA\libraries\engines\Mrg_Myisam;
+use PMA\libraries\engines\MrgMyisam;
 
 require_once 'libraries/database_interface.inc.php';
 require_once 'test/PMATestCase.php';
 
 /**
- * Tests for PMA\libraries\engines\Mrg_Myisam
+ * Tests for PMA\libraries\engines\MrgMyisam
  *
  * @package PhpMyAdmin-test
  */
-class Mrg_MyisamTest extends PMATestCase
+class MrgMyisamTest extends PMATestCase
 {
     /**
      * @access protected
@@ -36,7 +36,7 @@ class Mrg_MyisamTest extends PMATestCase
     protected function setUp()
     {
         $GLOBALS['server'] = 0;
-        $this->object = new Mrg_Myisam('mrg_myisam');
+        $this->object = new MrgMyisam('mrg_myisam');
     }
 
     /**

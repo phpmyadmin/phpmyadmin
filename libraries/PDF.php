@@ -87,7 +87,7 @@ class PDF extends TCPDF
      *
      * @return void
      */
-    public function SetAlias($name, $value)
+    public function setAlias($name, $value)
     {
         $name = TCPDF_FONTS::UTF8ToUTF16BE(
             $name, false, true, $this->CurrentFont
@@ -136,7 +136,7 @@ class PDF extends TCPDF
      *
      * @return void
      */
-    public function Download($filename)
+    public function download($filename)
     {
         $pdfData = $this->getPDFData();
         Response::getInstance()->disable();

@@ -17,11 +17,11 @@ use PMA\libraries\engines\Innobase;
 use PMA\libraries\engines\Innodb;
 use PMA\libraries\engines\Memory;
 use PMA\libraries\engines\Merge;
-use PMA\libraries\engines\Mrg_Myisam;
+use PMA\libraries\engines\MrgMyisam;
 use PMA\libraries\engines\Myisam;
 use PMA\libraries\engines\Ndbcluster;
 use PMA\libraries\engines\Pbxt;
-use PMA\libraries\engines\Performance_Schema;
+use PMA\libraries\engines\PerformanceSchema;
 
 define('PMA_ENGINE_SUPPORT_NO', 0);
 define('PMA_ENGINE_SUPPORT_DISABLED', 1);
@@ -203,7 +203,7 @@ class StorageEngine
         case 'merge':
             return new Merge($engine);
         case 'mrg_myisam':
-            return new Mrg_Myisam($engine);
+            return new MrgMyisam($engine);
         case 'myisam':
             return new Myisam($engine);
         case 'ndbcluster':
@@ -211,7 +211,7 @@ class StorageEngine
         case 'pbxt':
             return new Pbxt($engine);
         case 'performance_schema':
-            return new Performance_Schema($engine);
+            return new PerformanceSchema($engine);
         default:
             return new StorageEngine($engine);
         }
@@ -458,4 +458,3 @@ class StorageEngine
         return $this->$id();
     }
 }
-
