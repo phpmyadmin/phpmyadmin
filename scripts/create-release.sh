@@ -72,7 +72,7 @@ while [ $# -gt 0 ] ; do
             ;;
         *)
             if [ -z "$version" ] ; then
-                version=`echo $1 | tr -d -c '0-9a-z.-'`
+                version=`echo $1 | tr -d -c '0-9a-z.+-'`
                 if [ "x$version" != "x$1" ] ; then
                     echo "Invalid version: $1"
                     exit 1
