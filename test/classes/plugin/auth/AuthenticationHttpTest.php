@@ -52,7 +52,7 @@ class AuthenticationHttpTest extends PMATestCase
         unset($this->object);
     }
 
-    public function doMockResponse($set_minimal, $body_id, $set_title)
+    public function doMockResponse($set_minimal, $body_id, $set_title, ...$headers)
     {
         // mock footer
         $mockFooter = $this->getMockBuilder('PMA\libraries\Footer')
@@ -86,7 +86,6 @@ class AuthenticationHttpTest extends PMATestCase
             ->with();
 
         // set mocked headers and footers
-        $headers = array_slice(func_get_args(), 3);
         $mockResponse = $this->mockResponse($headers);
 
         $mockResponse->expects($this->exactly($set_title))

@@ -57,10 +57,10 @@ abstract class ListAbstract extends ArrayObject
      *
      * @return boolean true if all items exists, otherwise false
      */
-    public function exists()
+    public function exists(...$params)
     {
         $this_elements = $this->getArrayCopy();
-        foreach (func_get_args() as $result) {
+        foreach ($params as $result) {
             if (! in_array($result, $this_elements)) {
                 return false;
             }

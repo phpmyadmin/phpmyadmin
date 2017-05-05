@@ -649,9 +649,8 @@ class Message
      *
      * @return string formatted
      */
-    static public function format()
+    static public function format(...$params)
     {
-        $params = func_get_args();
         if (isset($params[1]) && is_array($params[1])) {
             array_unshift($params[1], $params[0]);
             $params = $params[1];

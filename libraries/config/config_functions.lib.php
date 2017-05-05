@@ -16,18 +16,16 @@ use PMA\libraries\Sanitize;
  *
  * @return string
  */
-function PMA_lang($lang_key)
+function PMA_lang($lang_key, ...$args)
 {
     $message = isset($GLOBALS["strConfig$lang_key"])
         ? $GLOBALS["strConfig$lang_key"] : $lang_key;
 
     $message = Sanitize::sanitize($message);
 
-    if (func_num_args() == 1) {
+    if (count($args) == 0) {
         return $message;
     } else {
-        $args = func_get_args();
-        array_shift($args);
         return vsprintf($message, $args);
     }
 }
