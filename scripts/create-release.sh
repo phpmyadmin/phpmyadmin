@@ -28,6 +28,8 @@ do_tag=0
 do_stable=0
 do_test=0
 do_ci=0
+do_sign=1
+do_pull=0
 
 while [ $# -gt 0 ] ; do
     case "$1" in
@@ -39,6 +41,11 @@ while [ $# -gt 0 ] ; do
             ;;
         --test)
             do_test=1
+            ;;
+        --daily)
+            do_ci=1
+            do_sign=0
+            do_pull=1
             ;;
         --ci)
             do_test=1
@@ -150,6 +157,9 @@ fi
 # Add worktree with chosen branch
 git worktree add --force $workdir $branch
 cd $workdir
+if [ $do_pull -eq 0 ] ; then
+    git pull
+fi
 
 # Check release version
 if [ $do_ci -eq 0 ] ; then
@@ -352,12 +362,14 @@ rm -rf phpMyAdmin-${version}
 git worktree prune
 
 # Signing of files with default GPG key
-echo "* Signing files"
-for file in *.gz *.zip *.xz ; do
-    gpg --detach-sign --armor $file
-    sha1sum $file > $file.sha1
-    sha256sum $file > $file.sha256
-done
+if [ $do_sign -eq 1 ] ; then
+    echo "* Signing files"
+    for file in *.gz *.zip *.xz ; do
+        gpg --detach-sign --armor $file
+        sha1sum $file > $file.sha1
+        sha256sum $file > $file.sha256
+    done
+fi
 
 
 echo ""
