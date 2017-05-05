@@ -4,6 +4,13 @@
     "description": "MySQL web administration tool",
     "keywords": ["phpmyadmin","mysql","web"],
     "homepage": "https://www.phpmyadmin.net/",
+    "support": {
+        "forum": "https://www.phpmyadmin.net/support/",
+        "issues": "https://github.com/phpmyadmin/phpmyadmin/issues",
+        "wiki": "https://wiki.phpmyadmin.net/",
+        "docs": "https://docs.phpmyadmin.net/",
+        "source": "https://github.com/phpmyadmin/phpmyadmin"
+    },
     "license": "GPL-2.0+",
     "authors": [
         {
@@ -12,19 +19,18 @@
             "homepage": "https://www.phpmyadmin.net/team/"
         }
     ],
-    "support": {
-        "forum": "https://www.phpmyadmin.net/support/",
-        "issues": "https://github.com/phpmyadmin/phpmyadmin/issues",
-        "wiki": "https://wiki.phpmyadmin.net/",
-        "docs": "https://docs.phpmyadmin.net/",
-        "source": "https://github.com/phpmyadmin/phpmyadmin"
-    },
     "non-feature-branches": ["RELEASE_.*"],
     "autoload": {
         "psr-4": {
             "PMA\\": "./"
         }
     },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://www.phpmyadmin.net"
+        }
+    ],
     "require": {
         "php": ">=5.5.0",
         "ext-mbstring": "*",
@@ -56,11 +62,5 @@
         "phpunit/phpunit-selenium": "~1.2",
         "squizlabs/php_codesniffer": "2.*",
         "phpmyadmin/coding-standard": ">=0.1.0"
-    },
-    "repositories": [
-        {
-            "type": "composer",
-            "url": "https://www.phpmyadmin.net"
-        }
-    ]
+    }
 }
