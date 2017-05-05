@@ -1,6 +1,6 @@
 {
     "name": "phpmyadmin/phpmyadmin",
-    "type": "application",
+    "type": "project",
     "description": "MySQL web administration tool",
     "keywords": ["phpmyadmin","mysql","web"],
     "homepage": "https://www.phpmyadmin.net/",
