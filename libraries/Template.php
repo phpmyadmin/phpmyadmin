@@ -59,9 +59,10 @@ class Template
         $this->helperFunctions = $helperFunctions;
 
         $loader = new Twig_Loader_Filesystem(static::BASE_PATH);
+        $cache_dir = CACHE_DIR . 'twig';
         $this->twig = new Twig_Environment($loader, array(
             'auto_reload' => true,
-            'cache' => CACHE_DIR . 'twig',
+            'cache' => is_writable($cache_dir) ? $cache_dir : false,
             'debug' => false,
         ));
         $this->twig->addExtension(new I18nExtension());
