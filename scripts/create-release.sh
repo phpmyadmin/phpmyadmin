@@ -367,14 +367,14 @@ rm -rf phpMyAdmin-${version}
 git worktree prune
 
 # Signing of files with default GPG key
-if [ $do_sign -eq 1 ] ; then
-    echo "* Signing files"
-    for file in *.gz *.zip *.xz ; do
+echo "* Signing files"
+for file in *.gz *.zip *.xz ; do
+    if [ $do_sign -eq 1 ] ; then
         gpg --detach-sign --armor $file
-        sha1sum $file > $file.sha1
-        sha256sum $file > $file.sha256
-    done
-fi
+    fi
+    sha1sum $file > $file.sha1
+    sha256sum $file > $file.sha256
+done
 
 
 echo ""
