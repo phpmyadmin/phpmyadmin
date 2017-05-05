@@ -59,9 +59,14 @@ class Template
         $this->helperFunctions = $helperFunctions;
 
         $loader = new Twig_Loader_Filesystem(static::BASE_PATH);
+        $cache_dir = $GLOBALS['PMA_Config']->getTempDir('twig');
+        /* Twig expects false when cache is not configured */
+        if (is_null($cache_dir)) {
+            $cache_dir = false;
+        }
         $this->twig = new Twig_Environment($loader, array(
             'auto_reload' => true,
-            'cache' => $GLOBALS['PMA_Config']->getTempDir('twig'),
+            'cache' => ,
             'debug' => false,
         ));
         $this->twig->addExtension(new I18nExtension());
