@@ -128,7 +128,7 @@ class PdfRelationSchema extends ExportRelationSchema
         if ($this->_withDoc) {
             $this->diagram->SetLink($this->diagram->PMA_links['RT']['-'], -1);
             $this->diagram->Bookmark(__('Relational schema'));
-            $this->diagram->SetAlias('{00}', $this->diagram->PageNo());
+            $this->diagram->setAlias('{00}', $this->diagram->PageNo());
             $this->_topMargin = 28;
             $this->_bottomMargin = 28;
         }
@@ -307,7 +307,7 @@ class PdfRelationSchema extends ExportRelationSchema
      */
     public function showOutput()
     {
-        $this->diagram->Download($this->getFileName('.pdf'));
+        $this->diagram->download($this->getFileName('.pdf'));
     }
 
     /**
@@ -531,7 +531,7 @@ class PdfRelationSchema extends ExportRelationSchema
             $this->diagram->SetAutoPageBreak(true, 15);
             $this->diagram->addpage($this->orientation);
             $this->diagram->Bookmark($table);
-            $this->diagram->SetAlias(
+            $this->diagram->setAlias(
                 '{' . sprintf("%02d", $z) . '}', $this->diagram->PageNo()
             );
             $this->diagram->PMA_links['RT'][$table]['-']
@@ -645,7 +645,7 @@ class PdfRelationSchema extends ExportRelationSchema
                 }
                 $this->diagram->Cell($comments_width, 8, __('Comments'), 1, 0, 'C');
                 $this->diagram->Cell(45, 8, 'MIME', 1, 1, 'C');
-                $this->diagram->SetWidths(
+                $this->diagram->setWidths(
                     array(25, 20, 20, 10, 20, 25, 45, $comments_width, 45)
                 );
             } else {
@@ -658,7 +658,7 @@ class PdfRelationSchema extends ExportRelationSchema
                 $this->diagram->Cell(30, 8, __('Links to'), 1, 0, 'C');
                 $this->diagram->Cell(30, 8, __('Comments'), 1, 0, 'C');
                 $this->diagram->Cell(30, 8, 'MIME', 1, 1, 'C');
-                $this->diagram->SetWidths(array(20, 20, 20, 10, 15, 15, 30, 30, 30));
+                $this->diagram->setWidths(array(20, 20, 20, 10, 15, 15, 30, 30, 30));
             }
             $this->diagram->SetFont($this->_ff, '');
 
@@ -724,7 +724,7 @@ class PdfRelationSchema extends ExportRelationSchema
                 } else {
                     unset($links[6]);
                 }
-                $this->diagram->Row($this->diagram_row, $links);
+                $this->diagram->row($this->diagram_row, $links);
             } // end foreach
             $this->diagram->SetFont($this->_ff, '', 14);
         } //end each

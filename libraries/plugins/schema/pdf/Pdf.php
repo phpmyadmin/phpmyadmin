@@ -277,7 +277,7 @@ class Pdf extends PDF_lib
      *
      * @return void
      */
-    public function SetWidths($w)
+    public function setWidths($w)
     {
         // column widths
         $this->widths = $w;
@@ -291,13 +291,13 @@ class Pdf extends PDF_lib
      *
      * @return void
      */
-    public function Row($data, $links)
+    public function row($data, $links)
     {
         // line height
         $nb = 0;
         $data_cnt = count($data);
         for ($i = 0;$i < $data_cnt;$i++) {
-            $nb = max($nb, $this->NbLines($this->widths[$i], $data[$i]));
+            $nb = max($nb, $this->numLines($this->widths[$i], $data[$i]));
         }
         $il = $this->FontSize;
         $h = ($il + 1) * $nb;
@@ -332,7 +332,7 @@ class Pdf extends PDF_lib
      *
      * @return int
      */
-    public function NbLines($w, $txt)
+    public function numLines($w, $txt)
     {
         $cw = &$this->CurrentFont['cw'];
         if ($w == 0) {
