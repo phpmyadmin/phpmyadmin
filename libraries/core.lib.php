@@ -978,23 +978,6 @@ function PMA_getIp()
 } // end of the 'PMA_getIp()' function
 
 
-/* Compatibility with PHP < 5.6 */
-if(! function_exists('hash_equals')) {
-
-    /**
-     * Timing attack safe string comparison
-     *
-     * @param string $a first string
-     * @param string $b second string
-     *
-     * @return boolean whether they are equal
-     */
-    function hash_equals($a, $b) {
-        $ret = strlen($a) ^ strlen($b);
-        $ret |= array_sum(unpack("C*", $a ^ $b));
-        return ! $ret;
-    }
-}
 /* Compatibility with PHP < 5.1 or PHP without hash extension */
 if (! function_exists('hash_hmac')) {
     /**
