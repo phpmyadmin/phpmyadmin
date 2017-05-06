@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-04-10 13:13+0200\n"
-"PO-Revision-Date: 2017-05-06 21:10+0000\n"
+"PO-Revision-Date: 2017-05-06 21:11+0000\n"
 "Last-Translator: Cindy Dallaire <c.dallaire93@gmail.com>\n"
 "Language-Team: French "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/fr/>\n"
@@ -3697,7 +3697,7 @@ msgstr "total de %d"
 #: libraries/DisplayResults.php:4741 libraries/sql.lib.php:1380
 #, php-format
 msgid "Query took %01.4f seconds."
-msgstr "traité en %01.4f seconde(s)"
+msgstr "traité en %01.4f seconde(s)."
 
 #: libraries/DisplayResults.php:4843 libraries/DisplayResults.php:4850
 #: libraries/mult_submits.inc.php:53
@@ -8649,7 +8649,7 @@ msgstr "Envoi du fichier d'importation en cours…"
 #: libraries/display_import.lib.php:491
 #, php-format
 msgid "%s/sec."
-msgstr "%s/seconde"
+msgstr "%s/seconde."
 
 #: libraries/display_import.lib.php:492
 msgid "About %MIN min. %SEC sec. remaining."
