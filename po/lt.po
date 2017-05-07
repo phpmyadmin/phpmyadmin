@@ -4,29 +4,26 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.1-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-04-10 13:08+0200\n"
-"PO-Revision-Date: 2015-10-15 11:20+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Lithuanian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/lt/>\n"
+"PO-Revision-Date: 2017-05-07 09:06+0000\n"
+"Last-Translator: Justas Vilimas <justas@vilimas.eu>\n"
+"Language-Team: Lithuanian "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-7/lt/>\n"
 "Language: lt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n"
-"%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 2.5-dev\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"(n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 2.14-dev\n"
 
 #: changelog.php:39 license.php:34
-#, fuzzy, php-format
-#| msgid ""
-#| "The %s file is not available on this system, please visit www.phpmyadmin."
-#| "net for more information."
+#, php-format
 msgid ""
 "The %s file is not available on this system, please visit %s for more "
 "information."
 msgstr ""
 "Failas %s nėra prieinamas šioje sistemoje, norint sužinoti daugiau prašome "
-"apsilankyti www.phpmyadmin.net."
+"apsilankyti %s."
 
 #: db_central_columns.php:108
 msgid "The central list of columns for the current database is empty."
@@ -34,9 +31,8 @@ msgstr ""
 
 #: db_central_columns.php:133
 #, fuzzy
-#| msgid "Click to sort"
 msgid "Click to sort."
-msgstr "Spustelėkite, kad surūšiuoti"
+msgstr "Spustelėkite, kad surikiuoti"
 
 #: db_central_columns.php:150
 #, php-format
@@ -333,10 +329,8 @@ msgid "Access denied!"
 msgstr "Priėjimas uždraustas!"
 
 #: db_tracking.php:53 db_tracking.php:78
-#, fuzzy
-#| msgid "Replication status"
 msgid "Tracking data deleted successfully."
-msgstr "Dauginimo būsena"
+msgstr "Sekimo duomenys ištrinti sėkmingai."
 
 #: db_tracking.php:62
 #, php-format
@@ -345,10 +339,8 @@ msgid ""
 msgstr ""
 
 #: db_tracking.php:93
-#, fuzzy
-#| msgid "No databases selected."
 msgid "No tables selected."
-msgstr "Nepažymėjote duomenų bazės."
+msgstr "Nėra pažymėtų lentelių."
 
 #: db_tracking.php:150
 msgid "Database Log"
@@ -359,24 +351,30 @@ msgid ""
 "An error has been detected and an error report has been automatically "
 "submitted based on your settings."
 msgstr ""
+"Buvo aptikta klaida ir automatiškai pateikta klaidos ataskaita remiantis "
+"jūsų nustatymais."
 
 #: error_report.php:72
 msgid "Thank you for submitting this report."
-msgstr ""
+msgstr "Ačiū, kad pateikėte šią ataskaitą."
 
 #: error_report.php:76
 msgid ""
 "An error has been detected and an error report has been generated but failed "
 "to be sent."
 msgstr ""
+"Buvo aptikta klaida ir sugeneruota klaidos ataskaita, bet jos išsiųsti "
+"nepavyko."
 
 #: error_report.php:81
 msgid "If you experience any problems please submit a bug report manually."
 msgstr ""
+"Jei patiriate kokių nors problemų, prašome klaidos ataskaitą pateikti "
+"rankiniu būdu."
 
 #: error_report.php:85
 msgid "You may want to refresh the page."
-msgstr ""
+msgstr "Galite norėti atnaujinti puslapį."
 
 #: export.php:191 schema_export.php:64
 msgid "Bad type!"
@@ -432,10 +430,9 @@ msgid "Add a point"
 msgstr "Pridėti tašką"
 
 #: gis_data_editor.php:273
-#, fuzzy, php-format
-#| msgid "Linestring"
+#, php-format
 msgid "Linestring %d:"
-msgstr "Atkarpų seka"
+msgstr "Eilučių seka %d:"
 
 #: gis_data_editor.php:276 gis_data_editor.php:353
 msgid "Outer ring:"
@@ -526,10 +523,8 @@ msgid "Failed"
 msgstr "Nepavyko"
 
 #: import.php:72
-#, fuzzy
-#| msgid "complete inserts"
 msgid "Incomplete params"
-msgstr "užbaigti įterpimus"
+msgstr "Neišbaigti parametrai"
 
 #: import.php:196
 #, php-format
@@ -563,25 +558,20 @@ msgid "Could not load import plugins, please check your installation!"
 msgstr "Nepavyko įkelti importuotų įskiepių, prašome patikrinti įdiegimą!"
 
 #: import.php:582 libraries/sql.lib.php:788 libraries/sql.lib.php:1564
-#, fuzzy, php-format
-#| msgid "Bookmark %s created"
+#, php-format
 msgid "Bookmark %s has been created."
-msgstr "Žymė %s sukurta"
+msgstr "Žymė %s sukurta."
 
 #: import.php:592
-#, fuzzy, php-format
-#| msgid "Import has been successfully finished, %d queries executed."
+#, php-format
 msgid "Import has been successfully finished, %d query executed."
 msgid_plural "Import has been successfully finished, %d queries executed."
-msgstr[0] "Importavimas sėkmingai baigtas, įvykdyta %d užklausų."
-msgstr[1] "Importavimas sėkmingai baigtas, įvykdyta %d užklausų."
+msgstr[0] "Importavimas sėkmingai baigtas, įvykdyta %d užklausa."
+msgstr[1] "Importavimas sėkmingai baigtas, įvykdyta %d užklausos."
 msgstr[2] "Importavimas sėkmingai baigtas, įvykdyta %d užklausų."
 
 #: import.php:621
-#, fuzzy, php-format
-#| msgid ""
-#| "Script timeout passed, if you want to finish import, please resubmit same "
-#| "file and import will resume."
+#, php-format
 msgid ""
 "Script timeout passed, if you want to finish import, please %sresubmit the "
 "same file%s and import will resume."
