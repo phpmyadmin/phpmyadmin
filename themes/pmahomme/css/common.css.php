@@ -388,6 +388,7 @@ table td {
 /* 3.4 */
 table {
     border-collapse: collapse;
+    border: 1px solid #DFDFDF;
 }
 
 thead th {
