@@ -44,10 +44,10 @@ while [ $# -gt 0 ] ; do
             do_test=1
             ;;
         --daily)
-            do_ci=1
             do_sign=0
             do_pull=1
             do_daily=1
+            do_test=1
             ;;
         --ci)
             do_test=1
@@ -127,7 +127,7 @@ else
     CONFIG_LIB=libraries/Config.class.php
 fi
 
-if [ $do_ci -eq 0 ] ; then
+if [ $do_ci -eq 0 -a -$do_daily -eq 0 ] ; then
     cat <<END
 
 Please ensure you have incremented rc count or version in the repository :
@@ -167,7 +167,7 @@ if [ $do_daily -eq 1 ] ; then
 fi
 
 # Check release version
-if [ $do_ci -eq 0 ] ; then
+if [ $do_ci -eq 0 -a -$do_daily -eq 0 ] ; then
     if ! grep -q "'PMA_VERSION', '$version'" $CONFIG_LIB ; then
         echo "There seems to be wrong version in $CONFIG_LIB!"
         exit 2
