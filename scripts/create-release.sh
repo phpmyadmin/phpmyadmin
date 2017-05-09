@@ -289,6 +289,7 @@ if [ $do_test -eq 1 ] ; then
         exit $test_ret
     fi
     # Remove libs installed for testing
+    rm -rf build
     if [ ! -d libraries/tcpdf ] ; then
         composer update --no-dev
     fi
