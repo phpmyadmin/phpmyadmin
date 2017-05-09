@@ -347,7 +347,42 @@ class DatabaseInterfaceTest extends PMATestCase
         );
     }
 
+    /**
+     * Tests for DBI::isAmazonRds() method.
+     *
+     * @return void
+     * @test
+     * @dataProvider isAmazonRdsData
+     */
+    public function atestIsAmazonRdsData($value, $expected)
+    {
+        Util::cacheUnset('is_amazon_rds');
 
+        $extension = new PMA\libraries\dbi\DBIDummy();
+        $extension->setResult('SELECT @@basedir', $value);
+
+        $dbi = new PMA\libraries\DatabaseInterface($extension);
+
+        $this->assertEquals(
+            $expected,
+            $dbi->isAmazonRds()
+        );
+    }
+
+    /**
+     * Data provider for isAmazonRds() tests.
+     *
+     * @return array
+     */
+    public function isAmazonRdsData()
+    {
+        return array(
+            array(array(array('/usr')), false),
+            array(array(array('E:/mysql')), false),
+            array(array(array('/rdsdbbin/mysql/')), true),
+            array(array(array('/rdsdbbin/mysql-5.7.18/')), true),
+        );
+    }
 }
 
 /**
