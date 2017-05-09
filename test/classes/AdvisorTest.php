@@ -247,9 +247,9 @@ class AdvisorTest extends PMATestCase
                     'recommendation' => 'Recommend'
                 ),
                 array(),
-                'Failed formatting string for rule \'Failure\'. PHP threw ' .
-                'following error: Use of undefined constant fsafdsa - ' .
-                'assumed \'fsafdsa\'<br />Executed code: $value = array(fsafdsa);',
+                'Failed formatting string for rule \'Failure\'. ' .
+                'Error when evaluating: Variable "fsafdsa" is not ' .
+                'valid around position 2 for expression `[fsafdsa]`.'
             ),
             array(
                 array(

@@ -45,7 +45,8 @@
         "google/recaptcha": "^1.1",
         "psr/container": "^1.0",
         "twig/twig": "^1.32",
-        "twig/extensions": "~1.4.1"
+        "twig/extensions": "~1.4.1",
+        "symfony/expression-language": "^3.2"
     },
     "conflict": {
         "tecnickcom/tcpdf": "<6.2"
