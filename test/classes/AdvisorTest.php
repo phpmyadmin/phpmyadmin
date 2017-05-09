@@ -268,6 +268,57 @@ class AdvisorTest extends PMATestCase
                 ),
                 null,
             ),
+            array(
+                array(
+                    'justification' => 'Timestamp (%s) | ADVISOR_timespanFormat(1377027)',
+                    'name' => 'Distribution',
+                    'issue' => 'official MySQL binaries.',
+                    'recommendation' => 'See <a href="https://example.com/">web</a>',
+                ),
+                array(
+                    'justification' => 'Timestamp (15 days, 22 hours, 30 minutes and 27 seconds)',
+                    'name' => 'Distribution',
+                    'issue' => 'official MySQL binaries.',
+                    'recommendation' => 'See <a href="./url.php?url=https%3A%2F%2F' .
+                        'example.com%2F" target="_blank" rel="noopener noreferrer">web</a>',
+                    'id' => 'Distribution'
+                ),
+                null,
+            ),
+            array(
+                array(
+                    'justification' => 'Memory: %s | ADVISOR_formatByteDown(1000000, 2, 2)',
+                    'name' => 'Distribution',
+                    'issue' => 'official MySQL binaries.',
+                    'recommendation' => 'See <a href="https://example.com/">web</a>',
+                ),
+                array(
+                    'justification' => 'Memory: 0.95 MiB',
+                    'name' => 'Distribution',
+                    'issue' => 'official MySQL binaries.',
+                    'recommendation' => 'See <a href="./url.php?url=https%3A%2F%2F' .
+                        'example.com%2F" target="_blank" rel="noopener noreferrer">web</a>',
+                    'id' => 'Distribution'
+                ),
+                null,
+            ),
+            array(
+                array(
+                    'justification' => 'Time: %s | ADVISOR_bytime(0.02, 2)',
+                    'name' => 'Distribution',
+                    'issue' => 'official MySQL binaries.',
+                    'recommendation' => 'See <a href="https://example.com/">web</a>',
+                ),
+                array(
+                    'justification' => 'Time: 1.2 per minute',
+                    'name' => 'Distribution',
+                    'issue' => 'official MySQL binaries.',
+                    'recommendation' => 'See <a href="./url.php?url=https%3A%2F%2F' .
+                        'example.com%2F" target="_blank" rel="noopener noreferrer">web</a>',
+                    'id' => 'Distribution'
+                ),
+                null,
+            ),
         );
     }
 }
