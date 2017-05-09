@@ -65,6 +65,7 @@ PhpMyAdmin\MoTranslator\Loader::loadFunctions();
 $CFG = new PMA\libraries\Config();
 // Initialize PMA_VERSION variable
 define('PMA_VERSION', $CFG->get('PMA_VERSION'));
+define('PMA_MAJOR_VERSION', $CFG->get('PMA_MAJOR_VERSION'));
 unset($CFG);
 
 /* Ensure default langauge is active */
