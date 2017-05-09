@@ -12,8 +12,6 @@ use \Exception;
 use PMA\libraries\URL;
 use Symfony\Component\ExpressionLanguage\ExpressionLanguage;
 
-require_once 'libraries/advisor.lib.php';
-
 /**
  * Advisor class
  *
@@ -62,21 +60,21 @@ class Advisor
             'ADVISOR_bytime',
             function (){},
             function ($arguments, $num, $precision) {
-                return ADVISOR_bytime($num, $precision);
+                return self::bytime($num, $precision);
             }
         );
         $this->expression->register(
             'ADVISOR_timespanFormat',
             function (){},
             function ($arguments, $seconds) {
-                return ADVISOR_timespanFormat($seconds);
+                return self::timespanFormat($seconds);
             }
         );
         $this->expression->register(
             'ADVISOR_formatByteDown',
             function (){},
             function ($arguments, $value, $limes = 6, $comma = 0) {
-                return ADVISOR_formatByteDown($value, $limes, $comma);
+                return self::formatByteDown($value, $limes, $comma);
             }
         );
         $this->expression->register(
@@ -564,5 +562,67 @@ class Advisor
         }
 
         return array('rules' => $rules, 'lines' => $lines, 'errors' => $errors);
+    }
+
+    /**
+     * Formats interval like 10 per hour
+     *
+     * @param integer $num       number to format
+     * @param integer $precision required precision
+     *
+     * @return string formatted string
+     */
+    public static function bytime($num, $precision)
+    {
+        if ($num >= 1) { // per second
+            $per = __('per second');
+        } elseif ($num * 60 >= 1) { // per minute
+            $num = $num * 60;
+            $per = __('per minute');
+        } elseif ($num * 60 * 60 >= 1 ) { // per hour
+            $num = $num * 60 * 60;
+            $per = __('per hour');
+        } else {
+            $num = $num * 60 * 60 * 24;
+            $per = __('per day');
+        }
+
+        $num = round($num, $precision);
+
+        if ($num == 0) {
+            $num = '<' . pow(10, -$precision);
+        }
+
+        return "$num $per";
+    }
+
+    /**
+     * Wrapper for PMA\libraries\Util::timespanFormat
+     *
+     * This function is used when evaluating advisory_rules.txt
+     *
+     * @param int $seconds the timespan
+     *
+     * @return string  the formatted value
+     */
+    public static function timespanFormat($seconds)
+    {
+        return Util::timespanFormat($seconds);
+    }
+
+    /**
+     * Wrapper around PMA\libraries\Util::formatByteDown
+     *
+     * This function is used when evaluating advisory_rules.txt
+     *
+     * @param double $value the value to format
+     * @param int    $limes the sensitiveness
+     * @param int    $comma the number of decimals to retain
+     *
+     * @return string the formatted value with unit
+     */
+    public static function formatByteDown($value, $limes = 6, $comma = 0)
+    {
+        return implode(' ', Util::formatByteDown($value, $limes, $comma));
     }
 }
