@@ -274,7 +274,7 @@ find . -name .gitattributes -print0 | xargs -0 -r rm -f
 
 if [ $do_test -eq 1 ] ; then
     composer update
-    ant phpunit-nocoverage
+    ./vendor/bin/phpunit --configuration phpunit.xml.nocoverage --exclude-group selenium
     test_ret=$?
     if [ $do_ci -eq 1 ] ; then
         cd ../..
