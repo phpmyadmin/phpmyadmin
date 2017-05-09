@@ -30,6 +30,7 @@ do_test=0
 do_ci=0
 do_sign=1
 do_pull=0
+do_daily=0
 
 while [ $# -gt 0 ] ; do
     case "$1" in
@@ -46,6 +47,7 @@ while [ $# -gt 0 ] ; do
             do_ci=1
             do_sign=0
             do_pull=1
+            do_daily=1
             ;;
         --ci)
             do_test=1
@@ -159,6 +161,9 @@ git worktree add --force $workdir $branch
 cd $workdir
 if [ $do_pull -eq 0 ] ; then
     git pull
+fi
+if [ $do_daily -eq 1 ] ; then
+    git_head=`git log -n 1 --format=%H`
 fi
 
 # Check release version
@@ -375,6 +380,16 @@ for file in *.gz *.zip *.xz ; do
     sha1sum $file > $file.sha1
     sha256sum $file > $file.sha256
 done
+
+if [ $do_daily -eq 1 ] ; then
+    cat > phpMyAdmin-${version}.json << EOT
+{
+    "date": "`date --iso-8601=seconds`",
+    "commit": "$git_head"
+}
+EOT
+    exit 0
+fi
 
 
 echo ""
