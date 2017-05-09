@@ -28,18 +28,66 @@ To create a theme:
 * edit the css-files in "your\_theme\_name/css"
 * put your new images in "your\_theme\_name/img"
 * edit :file:`layout.inc.php` in "your\_theme\_name"
-* edit :file:`info.inc.php` in "your\_theme\_name" to contain your chosen
-  theme name, that will be visible in user interface
+* edit :file:`theme.json` in "your\_theme\_name" to contain theme metadata (see below)
 * make a new screenshot of your theme and save it under
   "your\_theme\_name/screen.png"
 
-In theme directory there is file :file:`info.inc.php` which contains theme
-verbose name, theme generation and theme version. These versions and
-generations are enumerated from 1 and do not have any direct
-dependence on phpMyAdmin version. Themes within same generation should
-be backwards compatible - theme with version 2 should work in
-phpMyAdmin requiring version 1. Themes with different generation are
-incompatible.
+Theme metadata
+++++++++++++++
+
+.. versionchanged:: 4.8.0
+
+    Before 4.8.0 the theme metadata was passed in the :file:`info.inc.php` file.
+    It has been replaced by :file:`theme.json` to allow easier parsing (without
+    need to handle PHP code) and to support additional features.
+
+
+In theme directory there is file :file:`theme.json` which contains theme
+metadata. Currently it consists of:
+
+.. describe:: name
+
+    Display name of the theme.
+
+    **This field is required.**
+
+.. describe:: version
+
+    Theme version, can be quite arbirary and does not have to match phpMyAdmin version.
+
+    **This field is required.**
+
+.. describe:: author
+
+    Theme author name.
+
+    **This field is required.**
+
+.. describe:: url
+
+    Link to theme author website. It's good idea to have way for getting
+    support there.
+
+.. describe:: supports
+
+    Array of supported phpMyAdmin major versions.
+
+    **This field is required.**
+
+For example, the definition for Original theme shipped with phpMyAdnin 4.8:
+
+.. code-block:: json
+
+    {
+        "name": "Original",
+        "version": "4.8",
+        "author": "phpMyAdmin developers",
+        "url": "https://www.phpmyadmin.net/",
+        "supports": ["4.8"]
+    }
+
+Sharing images
+++++++++++++++
 
 If you do not want to use your own symbols and buttons, remove the
 directory "img" in "your\_theme\_name". phpMyAdmin will use the

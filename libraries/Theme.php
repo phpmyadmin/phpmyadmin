@@ -88,30 +88,45 @@ class Theme
      */
     function loadInfo()
     {
-        if (! file_exists($this->getPath() . '/info.inc.php')) {
+        $infofile = $this->getPath() . '/theme.json';
+        if (! file_exists($infofile)) {
             return false;
         }
 
-        if ($this->mtime_info === filemtime($this->getPath() . '/info.inc.php')) {
+        if ($this->mtime_info === filemtime($infofile)) {
             return true;
         }
+        $content = @file_get_contents($infofile);
+        if ($content === false) {
+            return false;
+        }
+        $data = json_decode($content, true);
 
-        @include $this->getPath() . '/info.inc.php';
+        // Did we get expected data?
+        if (! is_array($data)) {
+            return false;
+        }
+        // Check that all required data are there
+        $members = array('name', 'version', 'supports');
+        foreach ($members as $member) {
+            if (! isset($data[$member])) {
+                return false;
+            }
+        }
 
-        // was it set correctly?
-        if (! isset($theme_name)) {
+        // Version check
+        if (! is_array($data['supports'])) {
+            return false;
+        }
+        if (! in_array(PMA_MAJOR_VERSION, $data['supports'])) {
             return false;
         }
 
-        $this->mtime_info = filemtime($this->getPath() . '/info.inc.php');
-        $this->filesize_info = filesize($this->getPath() . '/info.inc.php');
+        $this->mtime_info = filemtime($infofile);
+        $this->filesize_info = filesize($infofile);
 
-        if (isset($theme_full_version)) {
-            $this->setVersion($theme_full_version);
-        } elseif (isset($theme_generation, $theme_version)) {
-            $this->setVersion($theme_generation . '.' . $theme_version);
-        }
-        $this->setName($theme_name);
+        $this->setVersion($data['version']);
+        $this->setName($data['name']);
 
         return true;
     }
