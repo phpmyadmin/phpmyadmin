@@ -2768,7 +2768,7 @@ class DatabaseInterface
         }
         $sql = 'SELECT @@basedir';
         $result = $this->fetchResult($sql);
-        $rds = ($result[0] == '/rdsdbbin/mysql/');
+        $rds = (substr($result[0], 0, 10) == '/rdsdbbin/');
         Util::cacheSet('is_amazon_rds', $rds);
 
         return $rds;
