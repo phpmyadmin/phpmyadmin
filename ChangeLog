@@ -20,6 +20,7 @@ phpMyAdmin - ChangeLog
 - issue #13218 Fixed rendering of phpMyAdmin logos
 - issue #13234 Properly report not working sessions
 - issue #13256 Fixed password check on server replication
+- issue #13252 Fixed grid editing time column
 
 4.7.0 (2017-03-28)
 - patch #12233 [Display] Improve message when renaming database to same name
