@@ -101,7 +101,7 @@ class ServerDatabasesController extends Controller
             $html .= Template::get('server/databases/create')->render();
         }
 
-        $html .= Template::get('filter')->render(array('filterValue'=>''));
+        $html .= Template::get('filter')->render(array('filter_value'=>''));
 
         /**
          * Gets the databases list
@@ -390,9 +390,9 @@ class ServerDatabasesController extends Controller
         $html = Template::get('select_all')
             ->render(
                 array(
-                    'pmaThemeImage' => $GLOBALS['pmaThemeImage'],
-                    'text_dir'      => $GLOBALS['text_dir'],
-                    'formName'      => 'dbStatsForm',
+                    'pma_theme_image' => $GLOBALS['pmaThemeImage'],
+                    'text_dir'        => $GLOBALS['text_dir'],
+                    'form_name'       => 'dbStatsForm',
                 )
             );
 

@@ -149,9 +149,9 @@ function PMA_RTE_getList($type, $items)
         $retval .= Template::get('select_all')
             ->render(
                 array(
-                    'pmaThemeImage' => $GLOBALS['pmaThemeImage'],
-                    'text_dir'      => $GLOBALS['text_dir'],
-                    'formName'      => 'rteListForm',
+                    'pma_theme_image' => $GLOBALS['pmaThemeImage'],
+                    'text_dir'        => $GLOBALS['text_dir'],
+                    'form_name'       => 'rteListForm',
                 )
             );
         $retval .= PMA\libraries\Util::getButtonOrImage(
@@ -480,4 +480,3 @@ function PMA_EVN_getRowForList($event, $rowclass = '')
 
     return $retval;
 } // end PMA_EVN_getRowForList()
-

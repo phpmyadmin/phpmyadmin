@@ -1,13 +1,13 @@
 {% if privs_available %}
-    <input name="field_adjust_privileges[{{ columnNumber }}]"
-        id="field_{{ columnNumber }}_{{ ci - ci_offset }}"
+    <input name="field_adjust_privileges[{{ column_number }}]"
+        id="field_{{ column_number }}_{{ ci - ci_offset }}"
         checked="checked"
         type="checkbox"
         value="NULL"
         class="allow_null"/>
 {% else %}
-    <input name="field_adjust_privileges[{{ columnNumber }}]"
-        id="field_{{ columnNumber }}_{{ ci - ci_offset }}"
+    <input name="field_adjust_privileges[{{ column_number }}]"
+        id="field_{{ column_number }}_{{ ci - ci_offset }}"
         disabled
         type="checkbox"
         value="NULL"

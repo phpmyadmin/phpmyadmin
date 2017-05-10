@@ -284,7 +284,7 @@ function PMA_userprefsAutoloadGetHeader()
     return PMA\libraries\Template::get('prefs_autoload')
         ->render(
             array(
-                'hiddenInputs' => URL::getHiddenInputs(),
+                'hidden_inputs' => URL::getHiddenInputs(),
                 'return_url' => $return_url,
             )
         );

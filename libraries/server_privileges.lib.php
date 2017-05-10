@@ -2356,9 +2356,9 @@ function PMA_getHtmlForSpecificDbPrivileges($db)
         $html_output .= Template::get('select_all')
             ->render(
                 array(
-                    'pmaThemeImage' => $GLOBALS['pmaThemeImage'],
-                    'text_dir'      => $GLOBALS['text_dir'],
-                    'formName'      => "usersForm",
+                    'pma_theme_image' => $GLOBALS['pmaThemeImage'],
+                    'text_dir'        => $GLOBALS['text_dir'],
+                    'form_name'       => "usersForm",
                 )
             );
         $html_output .= Util::getButtonOrImage(
@@ -2440,9 +2440,9 @@ function PMA_getHtmlForSpecificTablePrivileges($db, $table)
         $html_output .= Template::get('select_all')
             ->render(
                 array(
-                    'pmaThemeImage' => $GLOBALS['pmaThemeImage'],
-                    'text_dir'      => $GLOBALS['text_dir'],
-                    'formName'      => "usersForm",
+                    'pma_theme_image' => $GLOBALS['pmaThemeImage'],
+                    'text_dir'        => $GLOBALS['text_dir'],
+                    'form_name'       => "usersForm",
                 )
             );
         $html_output .= Util::getButtonOrImage(
@@ -3511,9 +3511,9 @@ function PMA_getUsersOverview($result, $db_rights, $pmaThemeImage, $text_dir)
         . Template::get('select_all')
             ->render(
                 array(
-                    'pmaThemeImage' => $pmaThemeImage,
-                    'text_dir'      => $text_dir,
-                    'formName'      => 'usersForm',
+                    'pma_theme_image' => $pmaThemeImage,
+                    'text_dir'        => $text_dir,
+                    'form_name'       => 'usersForm',
                 )
             ) . "\n";
     $html_output .= Util::getButtonOrImage(

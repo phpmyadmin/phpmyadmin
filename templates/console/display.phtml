@@ -4,8 +4,8 @@
         <?= PMA\libraries\Template::get('console/toolbar')
         ->render(
             array(
-                'parentDivClasses'  => 'collapsed',
-                'contentArray'      => [
+                'parent_div_classes' => 'collapsed',
+                'content_array'      => [
                     ['switch_button console_switch',    __('Console'),'image'=> $image],
                     ['button clear',                    __('Clear')],
                     ['button history',                  __('History')],
@@ -43,8 +43,8 @@
                         <?= PMA\libraries\Template::get('console/query_action')
                             ->render(
                                 array(
-                                    'parentDivClasses'  => 'action_content',
-                                    'contentArray'      => [
+                                    'parent_div_classes' => 'action_content',
+                                    'content_array'      => [
                                         ['action collapse',     __('Collapse')],
                                         ['action expand',       __('Expand')],
                                         ['action requery',      __('Requery')],
@@ -76,8 +76,8 @@
             <?= PMA\libraries\Template::get('console/toolbar')
                 ->render(
                     array(
-                        'parentDivClasses'  => '',
-                        'contentArray'      => [
+                        'parent_div_classes' => '',
+                        'content_array'      => [
                             ['button order order_asc',      __('ascending')],
                             ['button order order_desc',     __('descending')],
                             ['text',                        __('Order:')],
@@ -100,8 +100,8 @@
                 <?= PMA\libraries\Template::get('console/query_action')
                 ->render(
                     array(
-                        'parentDivClasses'  => 'debug_query action_content',
-                        'contentArray'      => [
+                        'parent_div_classes' => 'debug_query action_content',
+                        'content_array'      => [
                             ['action collapse',         __('Collapse')],
                             ['action expand',           __('Expand')],
                             ['action dbg_show_trace',   __('Show trace')],
@@ -119,8 +119,8 @@
             <?= PMA\libraries\Template::get('console/toolbar')
             ->render(
                 array(
-                    'parentDivClasses'  => '',
-                    'contentArray'      => [
+                    'parent_div_classes' => '',
+                    'content_array'      => [
                         ['switch_button',   __('Bookmarks')],
                         ['button refresh',  __('Refresh')],
                         ['button add',      __('Add')],
@@ -136,8 +136,8 @@
                 <?= PMA\libraries\Template::get('console/toolbar')
                 ->render(
                     array(
-                        'parentDivClasses'  => '',
-                        'contentArray'      => [
+                        'parent_div_classes' => '',
+                        'content_array'      => [
                             ['switch_button',   __('Add bookmark')]
                         ]
                     )
@@ -168,8 +168,8 @@
             <?= PMA\libraries\Template::get('console/toolbar')
             ->render(
                 array(
-                    'parentDivClasses'  => '',
-                    'contentArray'      => [
+                    'parent_div_classes' => '',
+                    'content_array'      => [
                         ['switch_button',   __('Options')],
                         ['button default',  __('Set default')]
                     ]
@@ -205,8 +205,8 @@
             <?= PMA\libraries\Template::get('console/query_action')
                 ->render(
                     array(
-                        'parentDivClasses'  => 'query_actions',
-                        'contentArray'      => [
+                        'parent_div_classes' => 'query_actions',
+                        'content_array'      => [
                             ['action collapse',     __('Collapse')],
                             ['action expand',       __('Expand')],
                             ['action requery',      __('Requery')],

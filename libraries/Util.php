@@ -2671,7 +2671,7 @@ class Util
                 'class' => $class,
                 'placeholder' => $placeholder,
                 'selected'  => $selected,
-                'resultOptions' => $resultOptions,
+                'result_options' => $resultOptions,
             ]);
     }
 
@@ -2690,9 +2690,9 @@ class Util
     public static function getDivForSliderEffect($id = '', $message = '')
     {
         return Template::get('div_for_slider_effect')->render([
-            'id'                   => $id,
-            'InitialSlidersState'  => $GLOBALS['cfg']['InitialSlidersState'],
-            'message'              => $message,
+            'id'                    => $id,
+            'initial_sliders_state' => $GLOBALS['cfg']['InitialSlidersState'],
+            'message'               => $message,
         ]);
     }
 
@@ -2725,16 +2725,16 @@ class Util
 
         return Template::get('toggle_button')->render(
             [
-                'pmaThemeImage'     => $GLOBALS['pmaThemeImage'],
-                'text_dir'          => $GLOBALS['text_dir'],
-                'link_on'           => $link_on,
-                'toggleOn'          => str_replace(' ', '&nbsp;', htmlspecialchars(
+                'pma_theme_image' => $GLOBALS['pmaThemeImage'],
+                'text_dir'        => $GLOBALS['text_dir'],
+                'link_on'         => $link_on,
+                'toggle_on'       => str_replace(' ', '&nbsp;', htmlspecialchars(
                                         $options[1]['label'])),
-                'toggleOff'         => str_replace(' ', '&nbsp;', htmlspecialchars(
+                'toggle_off'      => str_replace(' ', '&nbsp;', htmlspecialchars(
                                         $options[0]['label'])),
-                'link_off'          => $link_off,
-                'callback'          => $callback,
-                'state'             => $state
+                'link_off'        => $link_off,
+                'callback'        => $callback,
+                'state'           => $state
             ]);
     } // end toggleButton()
 

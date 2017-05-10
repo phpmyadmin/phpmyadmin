@@ -369,7 +369,7 @@ class DatabaseStructureController extends DatabaseController
     {
         // filtering
         $this->response->addHTML(
-            Template::get('filter')->render(array('filterValue'=>''))
+            Template::get('filter')->render(array('filter_value'=>''))
         );
         // table form
         $this->response->addHTML(
