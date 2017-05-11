@@ -26,8 +26,17 @@ class UtilExtension extends Twig_Extension
     {
         return array(
             new Twig_SimpleFunction(
+                'Util_escapeMysqlWildcards',
+                'PMA\libraries\Util::escapeMysqlWildcards'
+            ),
+            new Twig_SimpleFunction(
                 'Util_formatSql',
                 'PMA\libraries\Util::formatSql',
+                array('is_safe' => array('html'))
+            ),
+            new Twig_SimpleFunction(
+                'Util_getDropdown',
+                'PMA\libraries\Util::getDropdown',
                 array('is_safe' => array('html'))
             ),
             new Twig_SimpleFunction(
@@ -48,6 +57,11 @@ class UtilExtension extends Twig_Extension
             new Twig_SimpleFunction(
                 'Util_getSupportedDatatypes',
                 'PMA\libraries\Util::getSupportedDatatypes',
+                array('is_safe' => array('html'))
+            ),
+            new Twig_SimpleFunction(
+                'Util_showHint',
+                'PMA\libraries\Util::showHint',
                 array('is_safe' => array('html'))
             ),
             new Twig_SimpleFunction(

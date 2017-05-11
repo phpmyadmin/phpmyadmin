@@ -540,8 +540,8 @@ function PMA_getHtmlToChooseUserGroup($username)
 
     // render the template
     $data = array(
-        'allUserGroups'   => $allUserGroups,
-        'userGroup'       => $userGroup,
+        'all_user_groups' => $allUserGroups,
+        'user_group'      => $userGroup,
         'params'          => array('username' => $username)
     );
     $html_output = Template::get('privileges/choose_user_group')
@@ -902,8 +902,8 @@ function PMA_getHtmlForRoutineSpecificPrivilges(
         'hostname'       => $hostname,
         'database'       => $db,
         'routine'        => $routine,
-        'grantCount'     => count($privs),
-        'privCheckboxes' => $privCheckboxes,
+        'grant_count'     => count($privs),
+        'priv_checkboxes' => $privCheckboxes,
         'header'         => $header,
     );
     $html_output = Template::get('privileges/edit_routine_privileges')
