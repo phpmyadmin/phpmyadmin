@@ -115,7 +115,7 @@ class ServerCollationsControllerTest extends PMATestCase
         );
         //validate 2: Charset Item
         $this->assertContains(
-            '<i>PMA_armscii8_general_ci</i>',
+            '<em>PMA_armscii8_general_ci</em>',
             $html
         );
         $this->assertContains(
@@ -123,7 +123,7 @@ class ServerCollationsControllerTest extends PMATestCase
             $html
         );
         $this->assertContains(
-            '<i>PMA_ascii_general_ci</i>',
+            '<em>PMA_ascii_general_ci</em>',
             $html
         );
         $this->assertContains(
@@ -131,7 +131,7 @@ class ServerCollationsControllerTest extends PMATestCase
             $html
         );
         $this->assertContains(
-            '<i>PMA_big5_general_ci</i>',
+            '<em>PMA_big5_general_ci</em>',
             $html
         );
         $this->assertContains(

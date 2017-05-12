@@ -9,6 +9,7 @@ namespace PMA\libraries;
 
 use Twig_Environment;
 use Twig_Loader_Filesystem;
+use PMA\libraries\twig\CharsetsExtension;
 use PMA\libraries\twig\I18nExtension;
 use PMA\libraries\twig\SanitizeExtension;
 use PMA\libraries\twig\UrlExtension;
@@ -69,6 +70,7 @@ class Template
             'cache' => $cache_dir,
             'debug' => false,
         ));
+        $this->twig->addExtension(new CharsetsExtension());
         $this->twig->addExtension(new I18nExtension());
         $this->twig->addExtension(new SanitizeExtension());
         $this->twig->addExtension(new UrlExtension());

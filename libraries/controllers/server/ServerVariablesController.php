@@ -357,9 +357,9 @@ class ServerVariablesController extends Controller
                 $output .= Template::get('server/variables/session_variable_row')
                     ->render(
                         array(
-                            'rowClass' => $row_class,
-                            'value'    => $formattedValue,
-                            'isHtmlFormatted' => $isHtmlFormatted,
+                            'row_class'         => $row_class,
+                            'value'             => $formattedValue,
+                            'is_html_formatted' => $isHtmlFormatted,
                         )
                     );
             }
