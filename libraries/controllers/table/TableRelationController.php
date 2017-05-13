@@ -158,7 +158,8 @@ class TableRelationController extends TableController
                         'db' => $GLOBALS['db'],
                         'table' => $GLOBALS['table']
                     ),
-                    'engine' => $engine
+                    'is_foreign_key_supported' => Util::isForeignKeySupported($engine),
+                    'cfg_relation' => PMA_getRelationsParam(),
                 )
             )
         );
