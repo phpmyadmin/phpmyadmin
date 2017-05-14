@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-04-10 13:13+0200\n"
-"PO-Revision-Date: 2016-11-18 10:30+0000\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Hungarian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/hu/>\n"
+"PO-Revision-Date: 2017-05-14 17:04+0000\n"
+"Last-Translator: Balázs Úr <urbalazs@gmail.com>\n"
+"Language-Team: Hungarian "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/hu/>\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.10-dev\n"
+"X-Generator: Weblate 2.14-dev\n"
 
 #: changelog.php:39 license.php:34
 #, php-format
@@ -1797,7 +1797,7 @@ msgstr "Exportálás"
 
 #: js/messages.php:395
 msgid "No routine is exportable. Required privileges may be lacking."
-msgstr ""
+msgstr "Nincs exportálható eljárás. Talán hiányoznak a szükséges jogosultságok."
 
 #: js/messages.php:398 libraries/rte/rte_routines.lib.php:746
 msgid "ENUM/SET editor"
@@ -3420,22 +3420,16 @@ msgid "at least one of the words"
 msgstr "legalább az egyik szó"
 
 #: libraries/DbSearch.php:87
-#, fuzzy
-#| msgid "at least one of the words"
 msgid "all of the words"
-msgstr "legalább az egyik szó"
+msgstr "az összes szó"
 
 #: libraries/DbSearch.php:88
-#, fuzzy
-#| msgid "the exact phrase"
 msgid "the exact phrase as substring"
-msgstr "a pontos kifejezés"
+msgstr "a pontos kifejezés részszövegként"
 
 #: libraries/DbSearch.php:89
-#, fuzzy
-#| msgid "the exact phrase"
 msgid "the exact phrase as whole field"
-msgstr "a pontos kifejezés"
+msgstr "a pontos kifejezés teljes mezőként"
 
 #: libraries/DbSearch.php:90
 msgid "as regular expression"
@@ -3598,8 +3592,6 @@ msgid "Relational key"
 msgstr "Relációs kulcs"
 
 #: libraries/DisplayResults.php:1741
-#, fuzzy
-#| msgid "Display column for relations"
 msgid "Display column for relationships"
 msgstr "Oszlop megjelenítése a kapcsolatokhoz"
 
@@ -4854,10 +4846,9 @@ msgid "Missing parameter:"
 msgstr "Hiányzó paraméter:"
 
 #: libraries/Util.php:2550
-#, fuzzy, php-format
-#| msgid "Jump to database \"%s\"."
+#, php-format
 msgid "Jump to database “%s”."
-msgstr "Ugrás a(z) \"%s\" adatbázishoz."
+msgstr "Ugrás a(z) „%s” adatbázishoz."
 
 #: libraries/Util.php:2575
 #, php-format
@@ -5910,8 +5901,6 @@ msgstr "MIME-típus"
 
 #: libraries/config/messages.inc.php:167 libraries/config/messages.inc.php:180
 #: libraries/config/messages.inc.php:221
-#, fuzzy
-#| msgid "Relations"
 msgid "Relationships"
 msgstr "Kapcsolatok"
 
@@ -7622,16 +7611,12 @@ msgid "Show hint"
 msgstr "Segítség megjelenítése"
 
 #: libraries/config/messages.inc.php:858
-#, fuzzy
-#| msgid ""
-#| "Shows link to [a@https://secure.php.net/manual/function.phpinfo."
-#| "php]phpinfo()[/a] output."
 msgid ""
 "Shows link to [a@https://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
 "output."
 msgstr ""
-"Megjeleníti a [a@https://secure.php.net/manual/function.phpinfo.php]phpinfo()"
-"[/a] kimenetre mutató hivatkozást."
+"Megjeleníti a [a@https://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
+"kimenetre mutató hivatkozást."
 
 #: libraries/config/messages.inc.php:861
 msgid "Show phpinfo() link"
@@ -8116,8 +8101,6 @@ msgid "Display column was successfully updated."
 msgstr "A megjelenített oszlop sikeresen frissítve."
 
 #: libraries/controllers/table/TableRelationController.php:281
-#, fuzzy
-#| msgid "Internal relations were successfully updated."
 msgid "Internal relationships were successfully updated."
 msgstr "A belső kapcsolatok sikeresen frissítve."
 
@@ -10477,8 +10460,6 @@ msgid "MIME TYPES FOR TABLE"
 msgstr "Tábla MIME-típusok"
 
 #: libraries/plugins/export/ExportSql.php:1878
-#, fuzzy
-#| msgid "RELATIONS FOR TABLE"
 msgid "RELATIONSHIPS FOR TABLE"
 msgstr "TÁBLA KAPCSOLATAI"
 
@@ -10958,20 +10939,14 @@ msgid "Formats text as XML with syntax highlighting."
 msgstr "XML-ként formázza a szöveget szintaxis kiemeléssel."
 
 #: libraries/pmd_common.php:551
-#, fuzzy
-#| msgid "Error: relation already exists."
 msgid "Error: relationship already exists."
-msgstr "Hiba: A kapcsolat már létezik."
+msgstr "Hiba: a kapcsolat már létezik."
 
 #: libraries/pmd_common.php:597
-#, fuzzy
-#| msgid "FOREIGN KEY relation has been added."
 msgid "FOREIGN KEY relationship has been added."
 msgstr "Az IDEGEN KULCS kapcsolat hozzáadása megtörtént."
 
 #: libraries/pmd_common.php:603
-#, fuzzy
-#| msgid "Error: FOREIGN KEY relation could not be added!"
 msgid "Error: FOREIGN KEY relationship could not be added!"
 msgstr "Hiba: nem sikerült hozzáadni az IDEGEN KULCS kapcsolatot!"
 
@@ -10984,38 +10959,26 @@ msgid "Error: Relational features are disabled!"
 msgstr "Hiba: a relációs szolgáltatások le vannak tiltva!"
 
 #: libraries/pmd_common.php:635
-#, fuzzy
-#| msgid "Internal relation has been added."
 msgid "Internal relationship has been added."
 msgstr "A belső kapcsolat hozzáadása megtörtént."
 
 #: libraries/pmd_common.php:641
-#, fuzzy
-#| msgid "Error: Internal relation could not be added!"
 msgid "Error: Internal relationship could not be added!"
 msgstr "Hiba: nem sikerült hozzáadni a belső kapcsolatot!"
 
 #: libraries/pmd_common.php:679
-#, fuzzy
-#| msgid "FOREIGN KEY relation has been removed."
 msgid "FOREIGN KEY relationship has been removed."
 msgstr "Az IDEGEN KULCS kapcsolat eltávolítása megtörtént."
 
 #: libraries/pmd_common.php:685
-#, fuzzy
-#| msgid "Error: FOREIGN KEY relation could not be removed!"
 msgid "Error: FOREIGN KEY relationship could not be removed!"
 msgstr "Hiba: nem sikerült eltávolítani az IDEGEN KULCS kapcsolatot!"
 
 #: libraries/pmd_common.php:712
-#, fuzzy
-#| msgid "Error: Internal relation could not be removed!"
 msgid "Error: Internal relationship could not be removed!"
 msgstr "Hiba: nem sikerült eltávolítani a belső kapcsolatot!"
 
 #: libraries/pmd_common.php:716
-#, fuzzy
-#| msgid "Internal relation has been removed."
 msgid "Internal relationship has been removed."
 msgstr "A belső kapcsolat eltávolítása megtörtént."
 
@@ -11849,10 +11812,8 @@ msgid "routine"
 msgstr "eljárás"
 
 #: libraries/rte/rte_words.lib.php:32
-#, fuzzy
-#| msgid "You do not have the necessary privileges to create a routine"
 msgid "You do not have the necessary privileges to create a routine."
-msgstr "Önnek nincs meg a szükséges jogosultsága eljárás létrehozásához"
+msgstr "Önnek nincs meg a szükséges jogosultsága eljárás létrehozásához."
 
 #: libraries/rte/rte_words.lib.php:35
 #, php-format
@@ -11869,10 +11830,9 @@ msgid ""
 msgstr ""
 
 #: libraries/rte/rte_words.lib.php:42
-#, fuzzy, php-format
-#| msgid "No routine with name %1$s found in database %2$s"
+#, php-format
 msgid "No routine with name %1$s found in database %2$s."
-msgstr "Nem található %1$s nevű eljárás a(z) %2$s adatbázisban"
+msgstr "Nem található %1$s nevű eljárás a(z) %2$s adatbázisban."
 
 #: libraries/rte/rte_words.lib.php:43
 msgid "There are no routines to display."
@@ -11892,16 +11852,13 @@ msgid "trigger"
 msgstr "eseményindító"
 
 #: libraries/rte/rte_words.lib.php:54
-#, fuzzy
-#| msgid "You do not have the necessary privileges to create a trigger"
 msgid "You do not have the necessary privileges to create a trigger."
-msgstr "Önnek nincs meg a szükséges jogosultsága eseményindító létrehozásához"
+msgstr "Önnek nincs meg a szükséges jogosultsága eseményindító létrehozásához."
 
 #: libraries/rte/rte_words.lib.php:56
-#, fuzzy, php-format
-#| msgid "No trigger with name %1$s found in database %2$s"
+#, php-format
 msgid "No trigger with name %1$s found in database %2$s."
-msgstr "Nem található %1$s nevű eseményindító a(z) %2$s adatbázisban"
+msgstr "Nem található %1$s nevű eseményindító a(z) %2$s adatbázisban."
 
 #: libraries/rte/rte_words.lib.php:57
 msgid "There are no triggers to display."
@@ -11921,16 +11878,13 @@ msgid "event"
 msgstr "esemény"
 
 #: libraries/rte/rte_words.lib.php:68
-#, fuzzy
-#| msgid "You do not have the necessary privileges to create an event"
 msgid "You do not have the necessary privileges to create an event."
-msgstr "Önnek nincs meg a szükséges jogosultsága esemény létrehozásához"
+msgstr "Önnek nincs meg a szükséges jogosultsága esemény létrehozásához."
 
 #: libraries/rte/rte_words.lib.php:70
-#, fuzzy, php-format
-#| msgid "No event with name %1$s found in database %2$s"
+#, php-format
 msgid "No event with name %1$s found in database %2$s."
-msgstr "Nem található %1$s nevű esemény a(z) %2$s adatbázisban"
+msgstr "Nem található %1$s nevű esemény a(z) %2$s adatbázisban."
 
 #: libraries/rte/rte_words.lib.php:71
 msgid "There are no events to display."
@@ -12503,12 +12457,7 @@ msgstr ""
 "(%) gépről."
 
 #: libraries/server_privileges.lib.php:4667
-#, fuzzy, php-format
-#| msgid ""
-#| "Note: phpMyAdmin gets the users' privileges directly from MySQL's "
-#| "privilege tables. The content of these tables may differ from the "
-#| "privileges the server uses, if they have been changed manually. In this "
-#| "case, you should %sreload the privileges%s before you continue."
+#, php-format
 msgid ""
 "Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege "
 "tables. The content of these tables may differ from the privileges the "
@@ -12517,17 +12466,10 @@ msgid ""
 msgstr ""
 "Megjegyzés: a phpMyAdmin a felhasználók jogait közvetlenül a MySQL "
 "privilégium táblákból veszi. Ezen táblák tartalma eltérhet a szerver által "
-"használt jogoktól, ha a módosításuk kézzel történt. Ebben az esetben "
-"%stöltse be újra a jogokat%s a folytatás előtt."
+"használt jogoktól, ha a módosításuk kézzel történt. Ebben az esetben %"
+"stöltse be újra a jogokat%s a folytatás előtt."
 
 #: libraries/server_privileges.lib.php:4684
-#, fuzzy
-#| msgid ""
-#| "Note: phpMyAdmin gets the users' privileges directly from MySQL's "
-#| "privilege tables. The content of these tables may differ from the "
-#| "privileges the server uses, if they have been changed manually. In this "
-#| "case, the privileges have to be reloaded but currently, you don't have "
-#| "the RELOAD privilege."
 msgid ""
 "Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege "
 "tables. The content of these tables may differ from the privileges the "
@@ -13747,10 +13689,9 @@ msgid "Problems with indexes of table `%s`"
 msgstr "Probléma a(z) `%s` tábla indexeivel"
 
 #: libraries/sql_query_form.lib.php:139
-#, fuzzy, php-format
-#| msgid "Run SQL query/queries on server %s"
+#, php-format
 msgid "Run SQL query/queries on server “%s”"
-msgstr "A(z) %s szerveren lefuttatandó SQL lekérdezés(ek)"
+msgstr "A(z) „%s” szerveren lefuttatandó SQL lekérdezés(ek)"
 
 #: libraries/sql_query_form.lib.php:156
 #, php-format
@@ -14202,16 +14143,12 @@ msgstr ""
 "bizalmasakat, mint a jelszavak) átvitele titkosítatlanul történik!"
 
 #: setup/frames/index.inc.php:57
-#, fuzzy
-#| msgid ""
-#| "If your server is also configured to accept HTTPS requests follow [a@"
-#| "%s]this link[/a] to use a secure connection."
 msgid ""
 "If your server is also configured to accept HTTPS requests follow this link "
 "to use a secure connection."
 msgstr ""
-"Ha a szervert a HTTPS-kérések fogadására is beállították, akkor biztonságos "
-"kapcsolat használatához kövesse [a@%s]ezt a hivatkozást[/a]."
+"Ha a kiszolgálót a HTTPS-kérések fogadására is beállították, akkor "
+"biztonságos kapcsolat használatához kövesse ezt a hivatkozást."
 
 #: setup/frames/index.inc.php:61
 msgid "Insecure connection"
@@ -14786,8 +14723,6 @@ msgid "See table structure"
 msgstr "Táblaszerkezet megtekintése"
 
 #: templates/database/designer/delete_relation_panel.phtml:21
-#, fuzzy
-#| msgid "Delete relation"
 msgid "Delete relationship"
 msgstr "Kapcsolat törlése"
 
@@ -14816,15 +14751,11 @@ msgstr "allekérdezés"
 #: templates/database/designer/new_relation_panel.phtml:22
 #: templates/database/designer/side_menu.phtml:84
 #: templates/database/designer/side_menu.phtml:87
-#, fuzzy
-#| msgid "Create relation"
 msgid "Create relationship"
 msgstr "Kapcsolat létrehozása"
 
 #: templates/database/designer/options_panel.phtml:34
 #: templates/database/designer/options_panel.phtml:200
-#, fuzzy
-#| msgid "Relation operator"
 msgid "Relationship operator"
 msgstr "Kapcsolat operátor"
 
@@ -14924,10 +14855,8 @@ msgstr "Kicsi/nagy kapcsoló"
 
 #: templates/database/designer/side_menu.phtml:145
 #: templates/database/designer/side_menu.phtml:148
-#, fuzzy
-#| msgid "Toggle relation lines"
 msgid "Toggle relationship lines"
-msgstr "Relációs vonalak átállítása"
+msgstr "Kapcsolatvonalak átállítása"
 
 #: templates/database/designer/side_menu.phtml:153
 #: templates/database/designer/side_menu.phtml:156
@@ -14954,8 +14883,6 @@ msgid "Hide/Show all"
 msgstr "Minden elrejtése/megjelenítése"
 
 #: templates/database/designer/table_list.phtml:14
-#, fuzzy
-#| msgid "Hide/Show Tables with no relation"
 msgid "Hide/Show Tables with no relationship"
 msgstr "A kapcsolat nélküli táblák megjelenítése/elrejtése"
 
@@ -15093,10 +15020,8 @@ msgstr ""
 "importálni azt a jelenlegi munkamenethez?"
 
 #: templates/prefs_autoload.phtml:14
-#, fuzzy
-#| msgid "Delete tracking"
 msgid "Delete settings "
-msgstr "Nyomkövetés törlése"
+msgstr "Beállítások törlése "
 
 #: templates/privileges/add_privileges_database.phtml:2
 msgid "Add privileges on the following database(s):"
@@ -15380,8 +15305,6 @@ msgstr "+ Megszorítás hozzáadása"
 
 #: templates/table/relation/common_form.phtml:76
 #: templates/table/relation/common_form.phtml:82
-#, fuzzy
-#| msgid "Internal relations"
 msgid "Internal relationships"
 msgstr "Belső kapcsolatok"
 
@@ -15625,8 +15548,6 @@ msgid "Column %s has been dropped."
 msgstr "A(z) %s oszlop eldobása megtörtént."
 
 #: templates/test/gettext/pgettext.phtml:1
-#, fuzzy
-#| msgid "Text"
 msgctxt "Text context"
 msgid "Text"
 msgstr "Szöveg"
@@ -15677,10 +15598,8 @@ msgid "Password is too long!"
 msgstr "A jelszó túl hosszú!"
 
 #: view_create.php:48
-#, fuzzy
-#| msgid "View name can not be empty"
 msgid "View name can not be empty!"
-msgstr "A nézet neve nem lehet üres"
+msgstr "A nézet neve nem lehet üres!"
 
 #: view_create.php:253
 msgid "VIEW name"
