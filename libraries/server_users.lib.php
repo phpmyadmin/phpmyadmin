@@ -19,14 +19,16 @@ function PMA_getHtmlForSubMenusOnUsersPage($selfUrl)
     $items = array(
         array(
             'name' => __('User accounts overview'),
-            'url' => 'server_privileges.php' . URL::getCommon(array('viewing_mode' => 'server')),
+            'url' => 'server_privileges.php',
+            'params' => URL::getCommon(array('viewing_mode' => 'server')),
         )
     );
 
     if ($GLOBALS['is_superuser']) {
         $items[] = array(
             'name' => __('User groups'),
-            'url' => 'server_user_groups.php' . URL::getCommon(),
+            'url' => 'server_user_groups.php',
+            'params' => URL::getCommon(),
         );
     }
 
@@ -38,7 +40,7 @@ function PMA_getHtmlForSubMenusOnUsersPage($selfUrl)
         }
         $retval .= '<li>';
         $retval .= '<a' . $class;
-        $retval .= ' href="' . $item['url'] . '">';
+        $retval .= ' href="' . $item['url'] . $item['params'] . '">';
         $retval .= $item['name'];
         $retval .= '</a>';
         $retval .= '</li>';
