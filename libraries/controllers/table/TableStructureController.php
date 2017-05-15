@@ -260,7 +260,8 @@ class TableStructureController extends TableController
                         'db' => $this->db,
                         'table' => $this->table
                     ),
-                    'engine' => $engine
+                    'is_foreign_key_supported' => Util::isForeignKeySupported($engine),
+                    'cfg_relation' => PMA_getRelationsParam(),
                 )
             )
         );

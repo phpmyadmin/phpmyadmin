@@ -879,11 +879,11 @@ function PMA_getHTMLforCentralColumnsTableRow($row, $row_num, $db)
         . PMA\libraries\Template::get('columns_definitions/column_type')
             ->render(
                 array(
-                'columnNumber' => $row_num,
+                'column_number' => $row_num,
                 'ci' => 1,
                 'ci_offset' => 0,
                 'type_upper' => mb_strtoupper($row['col_type']),
-                'columnMeta' => array()
+                'column_meta' => array()
                 )
             )
         . '</td>';
@@ -893,7 +893,7 @@ function PMA_getHTMLforCentralColumnsTableRow($row, $row_num, $db)
         . '</span>'
         . PMA\libraries\Template::get('columns_definitions/column_length')->render(
             array(
-                'columnNumber' => $row_num,
+                'column_number' => $row_num,
                 'ci' => 2,
                 'ci_offset' => 0,
                 'length_values_input_size' => 8,
@@ -964,10 +964,10 @@ function PMA_getHTMLforCentralColumnsTableRow($row, $row_num, $db)
         . PMA\libraries\Template::get('columns_definitions/column_null')
             ->render(
                 array(
-                'columnNumber' => $row_num,
+                'column_number' => $row_num,
                 'ci' => 6,
                 'ci_offset' => 0,
-                'columnMeta' => array(
+                'column_meta' => array(
                     'Null' => $row['col_isNull']
                 )
                 )
@@ -979,10 +979,10 @@ function PMA_getHTMLforCentralColumnsTableRow($row, $row_num, $db)
         . htmlspecialchars($row['col_extra']) . '</span>'
         . PMA\libraries\Template::get('columns_definitions/column_extra')->render(
             array(
-                'columnNumber' => $row_num,
+                'column_number' => $row_num,
                 'ci' => 7,
                 'ci_offset' => 0,
-                'columnMeta' => array('Extra'=>$row['col_extra'])
+                'column_meta' => array('Extra'=>$row['col_extra'])
             )
         )
         . '</td>';
@@ -1026,11 +1026,11 @@ function PMA_getHTMLforCentralColumnsEditTableRow($row, $row_num)
         . PMA\libraries\Template::get('columns_definitions/column_type')
             ->render(
                 array(
-                'columnNumber' => $row_num,
+                'column_number' => $row_num,
                 'ci' => 1,
                 'ci_offset' => 0,
                 'type_upper' => mb_strtoupper($row['col_type']),
-                'columnMeta' => array()
+                'column_meta' => array()
                 )
             )
         . '</td>';
@@ -1038,7 +1038,7 @@ function PMA_getHTMLforCentralColumnsEditTableRow($row, $row_num)
         '<td class="nowrap" name="col_length">'
         . PMA\libraries\Template::get('columns_definitions/column_length')->render(
             array(
-                'columnNumber' => $row_num,
+                'column_number' => $row_num,
                 'ci' => 2,
                 'ci_offset' => 0,
                 'length_values_input_size' => 8,
@@ -1100,10 +1100,10 @@ function PMA_getHTMLforCentralColumnsEditTableRow($row, $row_num)
         . PMA\libraries\Template::get('columns_definitions/column_null')
             ->render(
                 array(
-                'columnNumber' => $row_num,
+                'column_number' => $row_num,
                 'ci' => 6,
                 'ci_offset' => 0,
-                'columnMeta' => array(
+                'column_meta' => array(
                     'Null' => $row['col_isNull']
                 )
                 )
@@ -1114,10 +1114,10 @@ function PMA_getHTMLforCentralColumnsEditTableRow($row, $row_num)
         '<td class="nowrap" name="col_extra">'
         . PMA\libraries\Template::get('columns_definitions/column_extra')->render(
             array(
-                'columnNumber' => $row_num,
+                'column_number' => $row_num,
                 'ci' => 7,
                 'ci_offset' => 0,
-                'columnMeta' => array('Extra' => $row['col_extra'])
+                'column_meta' => array('Extra' => $row['col_extra'])
             )
         )
         . '</td>';
@@ -1183,9 +1183,9 @@ function PMA_getCentralColumnsTableFooter($pmaThemeImage, $text_dir)
     $html_output = PMA\libraries\Template::get('select_all')
         ->render(
             array(
-                'pmaThemeImage' => $pmaThemeImage,
-                'text_dir'      => $text_dir,
-                'formName'      => 'tableslistcontainer',
+                'pma_theme_image' => $pmaThemeImage,
+                'text_dir'        => $text_dir,
+                'form_name'       => 'tableslistcontainer',
             )
         );
     $html_output .= Util::getButtonOrImage(
@@ -1289,18 +1289,18 @@ function PMA_getHTMLforAddNewColumn($db, $total_rows)
         . PMA\libraries\Template::get('columns_definitions/column_type')
             ->render(
                 array(
-                'columnNumber' => 0,
+                'column_number' => 0,
                 'ci' => 1,
                 'ci_offset' => 0,
                 'type_upper' => '',
-                'columnMeta' => array()
+                'column_meta' => array()
                 )
             )
         . '</td>'
         . '<td class="nowrap" name="col_length">'
         . PMA\libraries\Template::get('columns_definitions/column_length')->render(
             array(
-                'columnNumber' => 0,
+                'column_number' => 0,
                 'ci' => 2,
                 'ci_offset' => 0,
                 'length_values_input_size' => 8,
@@ -1343,20 +1343,20 @@ function PMA_getHTMLforAddNewColumn($db, $total_rows)
         . PMA\libraries\Template::get('columns_definitions/column_null')
             ->render(
                 array(
-                'columnNumber' => 0,
+                'column_number' => 0,
                 'ci' => 6,
                 'ci_offset' => 0,
-                'columnMeta' => array()
+                'column_meta' => array()
                 )
             )
         . '</td>'
         . '<td class="nowrap" name="col_extra">'
         . PMA\libraries\Template::get('columns_definitions/column_extra')->render(
             array(
-                'columnNumber' => 0,
+                'column_number' => 0,
                 'ci' => 7,
                 'ci_offset' => 0,
-                'columnMeta' => array()
+                'column_meta' => array()
             )
         )
         . '</td>'

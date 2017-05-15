@@ -1,6 +1,6 @@
-<input name="field_null[{{ columnNumber }}]"
-    id="field_{{ columnNumber }}_{{ ci - ci_offset }}"
-    {% if columnMeta['Null'] is not empty and columnMeta['Null'] != 'NO' and columnMeta['Null'] != 'NOT NULL' -%}
+<input name="field_null[{{ column_number }}]"
+    id="field_{{ column_number }}_{{ ci - ci_offset }}"
+    {% if column_meta['Null'] is not empty and column_meta['Null'] != 'NO' and column_meta['Null'] != 'NOT NULL' -%}
         checked="checked"
     {%- endif %}
     type="checkbox"

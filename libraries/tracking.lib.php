@@ -352,9 +352,9 @@ function PMA_getHtmlForTableVersionDetails(
     $html .= PMA\libraries\Template::get('select_all')
         ->render(
             array(
-                'pmaThemeImage' => $pmaThemeImage,
-                'text_dir'      => $text_dir,
-                'formName'      => 'versionsForm',
+                'pma_theme_image' => $pmaThemeImage,
+                'text_dir'        => $text_dir,
+                'form_name'       => 'versionsForm',
             )
         );
     $html .= PMA\libraries\Util::getButtonOrImage(
@@ -1473,9 +1473,9 @@ function PMA_displayUntrackedTables(
     echo PMA\libraries\Template::get('select_all')
         ->render(
             array(
-                'pmaThemeImage' => $pmaThemeImage,
-                'text_dir'      => $text_dir,
-                'formName'      => 'untrackedForm',
+                'pma_theme_image' => $pmaThemeImage,
+                'text_dir'        => $text_dir,
+                'form_name'       => 'untrackedForm',
             )
         );
     echo PMA\libraries\Util::getButtonOrImage(
@@ -1681,9 +1681,9 @@ function PMA_displayTrackedTables(
     echo PMA\libraries\Template::get('select_all')
         ->render(
             array(
-                'pmaThemeImage' => $pmaThemeImage,
-                'text_dir'      => $text_dir,
-                'formName'      => 'trackedForm',
+                'pma_theme_image' => $pmaThemeImage,
+                'text_dir'        => $text_dir,
+                'form_name'       => 'trackedForm',
             )
         );
     echo PMA\libraries\Util::getButtonOrImage(

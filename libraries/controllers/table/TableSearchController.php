@@ -614,10 +614,10 @@ class TableSearchController extends TableController
             array(
                 'db' => $this->db,
                 'table' => $this->table,
-                'columnIndex' => $columnIndex,
+                'column_index' => $columnIndex,
                 'find' => $find,
-                'replaceWith' => $replaceWith,
-                'useRegex' => $useRegex,
+                'replace_with' => $replaceWith,
+                'use_regex' => $useRegex,
                 'result' => $result
             )
         );

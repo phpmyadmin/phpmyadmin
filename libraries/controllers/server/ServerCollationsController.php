@@ -58,10 +58,10 @@ class ServerCollationsController extends Controller
     ) {
         return Template::get('server/collations/charsets')->render(
             array(
-                'mysqlCharsets' => $mysqlCharsets,
-                'mysqlCollations' => $mysqlCollations,
-                'mysqlCharsetsDesc' => $mysqlCharsetsDesc,
-                'mysqlDftCollations' => $mysqlDftCollations,
+                'mysql_charsets' => $mysqlCharsets,
+                'mysql_collations' => $mysqlCollations,
+                'mysql_charsets_desc' => $mysqlCharsetsDesc,
+                'mysql_dft_collations' => $mysqlDftCollations,
             )
         );
     }
