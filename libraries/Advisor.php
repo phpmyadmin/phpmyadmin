@@ -60,7 +60,7 @@ class Advisor
             'ADVISOR_bytime',
             function (){},
             function ($arguments, $num, $precision) {
-                return self::bytime($num, $precision);
+                return self::byTime($num, $precision);
             }
         );
         $this->expression->register(
@@ -572,7 +572,7 @@ class Advisor
      *
      * @return string formatted string
      */
-    public static function bytime($num, $precision)
+    public static function byTime($num, $precision)
     {
         if ($num >= 1) { // per second
             $per = __('per second');

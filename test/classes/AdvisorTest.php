@@ -76,19 +76,19 @@ class AdvisorTest extends PMATestCase
     }
 
     /**
-     * test for Advisor::bytime
+     * test for Advisor::byTime
      *
      * @return void
      */
     public function testAdvisorBytime()
     {
-        $result = Advisor::bytime(10, 2);
+        $result = Advisor::byTime(10, 2);
         $this->assertEquals("10 per second", $result);
 
-        $result = Advisor::bytime(0.02, 2);
+        $result = Advisor::byTime(0.02, 2);
         $this->assertEquals("1.2 per minute", $result);
 
-        $result = Advisor::bytime(0.003, 2);
+        $result = Advisor::byTime(0.003, 2);
         $this->assertEquals("10.8 per hour", $result);
     }
 
