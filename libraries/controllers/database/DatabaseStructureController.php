@@ -146,6 +146,18 @@ class DatabaseStructureController extends DatabaseController
         // Gets the database structure
         $this->_getDbInfo('_structure');
 
+        // Checks if there are any tables to be shown on current page.
+        // If there are no tables, the user is redirected to the last page
+        // having any.
+        if ($this->_total_num_tables > 0 && $this->_pos > $this->_total_num_tables) {
+            $uri = './db_structure.php' . URL::getCommonRaw(array(
+                'db' => $this->db,
+                'pos' => max(0, $this->_total_num_tables - $GLOBALS['cfg']['MaxTableList']),
+                'reload' => 1
+            ));
+            PMA_sendHeaderLocation($uri);
+        }
+
         include_once 'libraries/replication.inc.php';
 
         PageSettings::showGroup('DbStructure');
