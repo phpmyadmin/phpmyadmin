@@ -159,8 +159,8 @@ fi
 # Add worktree with chosen branch
 git worktree add --force $workdir $branch
 cd $workdir
-if [ $do_pull -eq 0 ] ; then
-    git pull
+if [ $do_pull -eq 1 ] ; then
+    git pull -q
 fi
 if [ $do_daily -eq 1 ] ; then
     git_head=`git log -n 1 --format=%H`
