@@ -326,6 +326,28 @@ class AdvisorTest extends PMATestCase
                 ),
                 null,
             ),
+            array(
+                array(
+                    'justification' => 'Current version: %s | value',
+                    'name' => 'Minor Version',
+                    'precondition' => '! fired(\'Release Series\')',
+                    'issue' => 'Version less than 5.1.30',
+                    'recommendation' => 'You should upgrade',
+                    'formula' => 'version',
+                    'test' => "substr(value,0,2) <= '5.' && substr(value,2,1) <= 1 && substr(value,4,2) < 30",
+                ),
+                array(
+                    'justification' => 'Current version: 0',
+                    'name' => 'Minor Version',
+                    'issue' => 'Version less than 5.1.30',
+                    'recommendation' => 'You should upgrade',
+                    'id' => 'Minor Version',
+                    'precondition' => '! fired(\'Release Series\')',
+                    'formula' => 'version',
+                    'test' => "substr(value,0,2) <= '5.' && substr(value,2,1) <= 1 && substr(value,4,2) < 30",
+                ),
+                null,
+            ),
         );
     }
 }
