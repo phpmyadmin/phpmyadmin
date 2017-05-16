@@ -10,8 +10,7 @@ namespace PMA\libraries;
 
 use \Exception;
 use PMA\libraries\URL;
-
-require_once 'libraries/advisor.lib.php';
+use Symfony\Component\ExpressionLanguage\ExpressionLanguage;
 
 /**
  * Advisor class
@@ -21,8 +20,87 @@ require_once 'libraries/advisor.lib.php';
 class Advisor
 {
     protected $variables;
+    protected $globals;
     protected $parseResult;
     protected $runResult;
+    protected $expression;
+
+    /**
+     * Constructor.
+     */
+    public function __construct()
+    {
+        $this->expression = new ExpressionLanguage();
+        /*
+         * Register functions for ExpressionLanguage, we intentionally
+         * do not implement support for compile as we do not use it.
+         */
+        $this->expression->register(
+            'round',
+            function (){},
+            function ($arguments, $num) {
+                return round($num);
+            }
+        );
+        $this->expression->register(
+            'substr',
+            function (){},
+            function ($arguments, $string, $start, $length) {
+                return substr($string, $start, $length);
+            }
+        );
+        $this->expression->register(
+            'preg_match',
+            function (){},
+            function ($arguments, $pattern , $subject) {
+                return preg_match($pattern, $subject);
+            }
+        );
+        $this->expression->register(
+            'ADVISOR_bytime',
+            function (){},
+            function ($arguments, $num, $precision) {
+                return self::byTime($num, $precision);
+            }
+        );
+        $this->expression->register(
+            'ADVISOR_timespanFormat',
+            function (){},
+            function ($arguments, $seconds) {
+                return self::timespanFormat($seconds);
+            }
+        );
+        $this->expression->register(
+            'ADVISOR_formatByteDown',
+            function (){},
+            function ($arguments, $value, $limes = 6, $comma = 0) {
+                return self::formatByteDown($value, $limes, $comma);
+            }
+        );
+        $this->expression->register(
+            'fired',
+            function (){},
+            function ($arguments, $value) {
+                if (!isset($this->runResult['fired'])) {
+                    return 0;
+                }
+
+                // Did matching rule fire?
+                foreach ($this->runResult['fired'] as $rule) {
+                    if ($rule['id'] == $value) {
+                        return '1';
+                    }
+                }
+
+                return '0';
+            }
+        );
+        /* Some global variables for advisor */
+        $this->globals = array(
+            'PMA_MYSQL_INT_VERSION' => PMA_MYSQL_INT_VERSION,
+        );
+
+    }
 
     /**
      * Get variables
@@ -160,7 +238,7 @@ class Advisor
         $this->runResult['errors'][] = $description
             . ' '
             . sprintf(
-                __('PHP threw following error: %s'),
+                __('Error when evaluating: %s'),
                 $exception->getMessage()
             );
     }
@@ -263,7 +341,7 @@ class Advisor
     {
         $string = _gettext(self::escapePercent($str));
         if (! is_null($param)) {
-            $params = $this->ruleExprEvaluate('array(' . $param . ')');
+            $params = $this->ruleExprEvaluate('[' . $param . ']');
         } else {
             $params = array();
         }
@@ -357,49 +435,6 @@ class Advisor
     }
 
     /**
-     * Callback for evaluating fired() condition.
-     *
-     * @param array $matches List of matched elements form preg_replace_callback
-     *
-     * @return string Replacement value
-     */
-    private function ruleExprEvaluateFired($matches)
-    {
-        // No list of fired rules
-        if (!isset($this->runResult['fired'])) {
-            return '0';
-        }
-
-        // Did matching rule fire?
-        foreach ($this->runResult['fired'] as $rule) {
-            if ($rule['id'] == $matches[2]) {
-                return '1';
-            }
-        }
-
-        return '0';
-    }
-
-    /**
-     * Callback for evaluating variables in expression.
-     *
-     * @param array $matches List of matched elements form preg_replace_callback
-     *
-     * @return string Replacement value
-     */
-    private function ruleExprEvaluateVariable($matches)
-    {
-        if (! isset($this->variables[$matches[1]])) {
-            return $matches[1];
-        }
-        if (is_numeric($this->variables[$matches[1]])) {
-            return $this->variables[$matches[1]];
-        } else {
-            return '\'' . addslashes($this->variables[$matches[1]]) . '\'';
-        }
-    }
-
-    /**
      * Runs a code expression, replacing variable names with their respective
      * values
      *
@@ -411,41 +446,13 @@ class Advisor
      */
     public function ruleExprEvaluate($expr)
     {
-        // Evaluate fired() conditions
-        $expr = preg_replace_callback(
-            '/fired\s*\(\s*(\'|")(.*)\1\s*\)/Ui',
-            array($this, 'ruleExprEvaluateFired'),
-            $expr
-        );
-        // Evaluate variables
-        $expr = preg_replace_callback(
-            '/\b(\w+)\b/',
-            array($this, 'ruleExprEvaluateVariable'),
-            $expr
-        );
-        $value = 0;
-        $err = 0;
-
         // Actually evaluate the code
-        ob_start();
-        try {
-            // TODO: replace by using symfony/expression-language
-            eval('$value = ' . $expr . ';');
-            $err = ob_get_contents();
-        } catch (Exception $e) {
-            // In normal operation, there is just output in the buffer,
-            // but when running under phpunit, error in eval raises exception
-            $err = $e->getMessage();
-        }
-        ob_end_clean();
+        // This can throw exception
+        $value = $this->expression->evaluate(
+            $expr,
+            array_merge($this->variables, $this->globals)
+        );
 
-        // Error handling
-        if ($err) {
-            throw new Exception(
-                strip_tags($err)
-                . '<br />Executed code: $value = ' . htmlspecialchars($expr) . ';'
-            );
-        }
         return $value;
     }
 
@@ -555,5 +562,67 @@ class Advisor
         }
 
         return array('rules' => $rules, 'lines' => $lines, 'errors' => $errors);
+    }
+
+    /**
+     * Formats interval like 10 per hour
+     *
+     * @param integer $num       number to format
+     * @param integer $precision required precision
+     *
+     * @return string formatted string
+     */
+    public static function byTime($num, $precision)
+    {
+        if ($num >= 1) { // per second
+            $per = __('per second');
+        } elseif ($num * 60 >= 1) { // per minute
+            $num = $num * 60;
+            $per = __('per minute');
+        } elseif ($num * 60 * 60 >= 1 ) { // per hour
+            $num = $num * 60 * 60;
+            $per = __('per hour');
+        } else {
+            $num = $num * 60 * 60 * 24;
+            $per = __('per day');
+        }
+
+        $num = round($num, $precision);
+
+        if ($num == 0) {
+            $num = '<' . pow(10, -$precision);
+        }
+
+        return "$num $per";
+    }
+
+    /**
+     * Wrapper for PMA\libraries\Util::timespanFormat
+     *
+     * This function is used when evaluating advisory_rules.txt
+     *
+     * @param int $seconds the timespan
+     *
+     * @return string  the formatted value
+     */
+    public static function timespanFormat($seconds)
+    {
+        return Util::timespanFormat($seconds);
+    }
+
+    /**
+     * Wrapper around PMA\libraries\Util::formatByteDown
+     *
+     * This function is used when evaluating advisory_rules.txt
+     *
+     * @param double $value the value to format
+     * @param int    $limes the sensitiveness
+     * @param int    $comma the number of decimals to retain
+     *
+     * @return string the formatted value with unit
+     */
+    public static function formatByteDown($value, $limes = 6, $comma = 0)
+    {
+        return implode(' ', Util::formatByteDown($value, $limes, $comma));
     }
 }

@@ -76,33 +76,40 @@ class AdvisorTest extends PMATestCase
     }
 
     /**
-     * test for ADVISOR_bytime
+     * test for Advisor::byTime
      *
      * @return void
+     *
+     * @dataProvider advisorTimes
      */
-    public function testAdvisorBytime()
+    public function testAdvisorBytime($time, $expected)
     {
-        $result = ADVISOR_bytime(10, 2);
-        $this->assertEquals("10 per second", $result);
+        $result = Advisor::byTime($time, 2);
+        $this->assertEquals($expected, $result);
+    }
 
-        $result = ADVISOR_bytime(0.02, 2);
-        $this->assertEquals("1.2 per minute", $result);
-
-        $result = ADVISOR_bytime(0.003, 2);
-        $this->assertEquals("10.8 per hour", $result);
+    public function advisorTimes()
+    {
+        return array(
+            array(10, "10 per second"),
+            array(0.02, "1.2 per minute"),
+            array(0.003, "10.8 per hour"),
+            array(0.00003, "2.59 per day"),
+            array(0.0000000003, "<0.01 per day"),
+        );
     }
 
     /**
-     * test for ADVISOR_timespanFormat
+     * test for Advisor::timespanFormat
      *
      * @return void
      */
     public function testAdvisorTimespanFormat()
     {
-        $result = ADVISOR_timespanFormat(1200);
+        $result = Advisor::timespanFormat(1200);
         $this->assertEquals("0 days, 0 hours, 20 minutes and 0 seconds", $result);
 
-        $result = ADVISOR_timespanFormat(100);
+        $result = Advisor::timespanFormat(100);
         $this->assertEquals("0 days, 0 hours, 1 minutes and 40 seconds", $result);
     }
 
@@ -247,9 +254,9 @@ class AdvisorTest extends PMATestCase
                     'recommendation' => 'Recommend'
                 ),
                 array(),
-                'Failed formatting string for rule \'Failure\'. PHP threw ' .
-                'following error: Use of undefined constant fsafdsa - ' .
-                'assumed \'fsafdsa\'<br />Executed code: $value = array(fsafdsa);',
+                'Failed formatting string for rule \'Failure\'. ' .
+                'Error when evaluating: Variable "fsafdsa" is not ' .
+                'valid around position 2 for expression `[fsafdsa]`.'
             ),
             array(
                 array(
@@ -265,6 +272,79 @@ class AdvisorTest extends PMATestCase
                     'recommendation' => 'See <a href="./url.php?url=https%3A%2F%2F' .
                         'example.com%2F" target="_blank" rel="noopener noreferrer">web</a>',
                     'id' => 'Distribution'
+                ),
+                null,
+            ),
+            array(
+                array(
+                    'justification' => 'Timestamp (%s) | ADVISOR_timespanFormat(1377027)',
+                    'name' => 'Distribution',
+                    'issue' => 'official MySQL binaries.',
+                    'recommendation' => 'See <a href="https://example.com/">web</a>',
+                ),
+                array(
+                    'justification' => 'Timestamp (15 days, 22 hours, 30 minutes and 27 seconds)',
+                    'name' => 'Distribution',
+                    'issue' => 'official MySQL binaries.',
+                    'recommendation' => 'See <a href="./url.php?url=https%3A%2F%2F' .
+                        'example.com%2F" target="_blank" rel="noopener noreferrer">web</a>',
+                    'id' => 'Distribution'
+                ),
+                null,
+            ),
+            array(
+                array(
+                    'justification' => 'Memory: %s | ADVISOR_formatByteDown(1000000, 2, 2)',
+                    'name' => 'Distribution',
+                    'issue' => 'official MySQL binaries.',
+                    'recommendation' => 'See <a href="https://example.com/">web</a>',
+                ),
+                array(
+                    'justification' => 'Memory: 0.95 MiB',
+                    'name' => 'Distribution',
+                    'issue' => 'official MySQL binaries.',
+                    'recommendation' => 'See <a href="./url.php?url=https%3A%2F%2F' .
+                        'example.com%2F" target="_blank" rel="noopener noreferrer">web</a>',
+                    'id' => 'Distribution'
+                ),
+                null,
+            ),
+            array(
+                array(
+                    'justification' => 'Time: %s | ADVISOR_bytime(0.02, 2)',
+                    'name' => 'Distribution',
+                    'issue' => 'official MySQL binaries.',
+                    'recommendation' => 'See <a href="https://example.com/">web</a>',
+                ),
+                array(
+                    'justification' => 'Time: 1.2 per minute',
+                    'name' => 'Distribution',
+                    'issue' => 'official MySQL binaries.',
+                    'recommendation' => 'See <a href="./url.php?url=https%3A%2F%2F' .
+                        'example.com%2F" target="_blank" rel="noopener noreferrer">web</a>',
+                    'id' => 'Distribution'
+                ),
+                null,
+            ),
+            array(
+                array(
+                    'justification' => 'Current version: %s | value',
+                    'name' => 'Minor Version',
+                    'precondition' => '! fired(\'Release Series\')',
+                    'issue' => 'Version less than 5.1.30',
+                    'recommendation' => 'You should upgrade',
+                    'formula' => 'version',
+                    'test' => "substr(value,0,2) <= '5.' && substr(value,2,1) <= 1 && substr(value,4,2) < 30",
+                ),
+                array(
+                    'justification' => 'Current version: 0',
+                    'name' => 'Minor Version',
+                    'issue' => 'Version less than 5.1.30',
+                    'recommendation' => 'You should upgrade',
+                    'id' => 'Minor Version',
+                    'precondition' => '! fired(\'Release Series\')',
+                    'formula' => 'version',
+                    'test' => "substr(value,0,2) <= '5.' && substr(value,2,1) <= 1 && substr(value,4,2) < 30",
                 ),
                 null,
             ),
