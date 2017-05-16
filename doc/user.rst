@@ -10,4 +10,5 @@ User Guide
     relations
     charts
     import_export
+    themes
     other

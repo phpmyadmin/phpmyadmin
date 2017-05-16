@@ -1,0 +1,8 @@
+{
+    "name": "pmahomme",
+    "version": "4.8",
+    "author": "phpMyAdmin developers",
+    "url": "https://www.phpmyadmin.net/",
+    "supports": ["4.8"]
+}
+

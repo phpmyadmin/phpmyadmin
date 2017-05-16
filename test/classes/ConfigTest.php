@@ -78,9 +78,8 @@ class ConfigTest extends PMATestCase
     {
         $this->object->checkSystem();
 
-        $this->assertNotNull($this->object->get('PMA_VERSION'));
-        $this->assertNotEmpty($this->object->get('PMA_THEME_VERSION'));
-        $this->assertNotEmpty($this->object->get('PMA_THEME_GENERATION'));
+        $this->assertNotEmpty($this->object->get('PMA_VERSION'));
+        $this->assertNotEmpty($this->object->get('PMA_MAJOR_VERSION'));
     }
 
     /**
@@ -624,8 +623,7 @@ class ConfigTest extends PMATestCase
 
         $defines = array(
             'PMA_VERSION',
-            'PMA_THEME_VERSION',
-            'PMA_THEME_GENERATION',
+            'PMA_MAJOR_VERSION',
             'PMA_IS_WINDOWS',
             'PMA_IS_GD2',
             'PMA_USR_OS',

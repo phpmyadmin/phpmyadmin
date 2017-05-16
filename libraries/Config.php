@@ -104,14 +104,11 @@ class Config
     public function checkSystem()
     {
         $this->set('PMA_VERSION', '4.8.0-dev');
-        /**
-         * @deprecated
-         */
-        $this->set('PMA_THEME_VERSION', 2);
-        /**
-         * @deprecated
-         */
-        $this->set('PMA_THEME_GENERATION', 2);
+        /* Major version */
+        $this->set(
+            'PMA_MAJOR_VERSION',
+            implode('.', array_slice(explode('.', $this->get('PMA_VERSION'), 3), 0, 2))
+        );
 
         $this->checkWebServerOs();
         $this->checkWebServer();

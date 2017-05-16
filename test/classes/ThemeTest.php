@@ -92,7 +92,7 @@ class ThemeTest extends PMATestCase
         $this->object->setPath('./test/classes/_data/gen_version_info');
         $this->assertTrue($this->object->loadInfo());
         $this->assertEquals('Test Theme', $this->object->getName());
-        $this->assertEquals('2.0.3', $this->object->getVersion());
+        $this->assertEquals('4.8', $this->object->getVersion());
     }
 
     /**
@@ -103,7 +103,7 @@ class ThemeTest extends PMATestCase
     public function testLoadInfo()
     {
         $this->object->setPath('./themes/original');
-        $infofile = $this->object->getPath() . '/info.inc.php';
+        $infofile = $this->object->getPath() . '/theme.json';
         $this->assertTrue($this->object->loadInfo());
 
         $this->assertEquals(
