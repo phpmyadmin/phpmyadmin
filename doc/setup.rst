@@ -130,11 +130,24 @@ by invoking:
 Installing using Composer
 +++++++++++++++++++++++++
 
-You can install phpMyAdmin using `Composer tool`_, however it's currently not
-available in the default `Packagist`_ repository due to its technical
-limitations.
+You can install phpMyAdmin using `Composer tool`_, since 4.7.0 the releases
+are automatically mirrorred to the default `Packagist`_ repository.
 
-The installation is possible by adding our own repository
+.. note::
+
+    The content of the Composer repository is automatically generated
+    separately from the releases, so the content doesn't have to be
+    100% same as when you download the tarball. There should be no
+    functional differences though.
+
+To install phpMyAdmin simply run:
+
+.. code-block:: sh
+
+    composer create-project phpmyadmin/phpmyadmin
+
+Alternatively you can use our own composer repository, which contains
+the release tarballs and is available at
 <https://www.phpmyadmin.net/packages.json>:
 
 .. code-block:: sh
