@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-04-10 13:13+0200\n"
-"PO-Revision-Date: 2017-05-12 21:45+0000\n"
+"PO-Revision-Date: 2017-05-16 19:14+0000\n"
 "Last-Translator: Viktar Vauchkevich <victorenator@gmail.com>\n"
 "Language-Team: Belarusian "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/be/>\n"
@@ -9901,35 +9901,29 @@ msgid "(See below for the actual view)"
 msgstr ""
 
 #: libraries/plugins/export/ExportSql.php:2204
-#, fuzzy, php-format
-#| msgid "Allows reading data."
+#, php-format
 msgid "Error reading data for table %s:"
-msgstr "Дазваляе чытаць дадзеныя."
+msgstr "Памылка чытання даных табліц %s:"
 
 #: libraries/plugins/export/ExportXml.php:97
 msgid "Object creation options (all are recommended)"
 msgstr ""
 
 #: libraries/plugins/export/ExportXml.php:140
-#, fuzzy
 msgid "Export contents"
-msgstr "Тып экспарту"
+msgstr "Экспартаваць змест"
 
 #: libraries/plugins/export/PMA_ExportPdf.php:119
-#, fuzzy
-#| msgid "Table"
 msgid "Table:"
-msgstr "Табліца"
+msgstr "Табліца:"
 
 #: libraries/plugins/export/PMA_ExportPdf.php:120
 msgid "Purpose:"
 msgstr ""
 
 #: libraries/plugins/export/PMA_ExportPdf.php:501
-#, fuzzy
-#| msgid "MIME type"
 msgid "MIME"
-msgstr "MIME-тып"
+msgstr "MIME"
 
 #: libraries/plugins/import/AbstractImportCsv.php:51
 msgid ""
@@ -9952,10 +9946,8 @@ msgstr ""
 
 #: libraries/plugins/import/ImportCsv.php:78
 #: libraries/plugins/import/ImportLdi.php:73
-#, fuzzy
-#| msgid "Column names"
 msgid "Column names: "
-msgstr "Назвы калёнак"
+msgstr "Назвы слупкоў: "
 
 #: libraries/plugins/import/ImportCsv.php:118
 #: libraries/plugins/import/ImportCsv.php:133
@@ -9979,10 +9971,9 @@ msgid "Invalid format of CSV input on line %d."
 msgstr "Некарэктны фармат CSV-дадзеных у радку %d."
 
 #: libraries/plugins/import/ImportCsv.php:531
-#, fuzzy, php-format
-#| msgid "Invalid field count in CSV input on line %d."
+#, php-format
 msgid "Invalid column count in CSV input on line %d."
-msgstr "Няправільная колькасьць палёў у CSV-дадзеных у радку %d."
+msgstr "Няправільная колькасць слупкоў у CSV уводзе ў радку %d."
 
 #: libraries/plugins/import/ImportLdi.php:111
 msgid "This plugin does not support compressed imports!"
@@ -9993,10 +9984,9 @@ msgid "MediaWiki Table"
 msgstr ""
 
 #: libraries/plugins/import/ImportMediawiki.php:275
-#, fuzzy, php-format
-#| msgid "Invalid format of CSV input on line %d."
+#, php-format
 msgid "Invalid format of mediawiki input on line: <br />%s."
-msgstr "Некарэктны фармат CSV-дадзеных у радку %d."
+msgstr "Некарэктны фармат mediawiki у радку: <br />%s."
 
 #: libraries/plugins/import/ImportOds.php:77
 msgid "Import percentages as proper decimals <i>(ex. 12.00% to .12)</i>"
@@ -10015,10 +10005,8 @@ msgid ""
 msgstr ""
 
 #: libraries/plugins/import/ImportOds.php:162
-#, fuzzy
-#| msgid "Open Document Spreadsheet"
 msgid "Could not parse OpenDocument Spreadsheet!"
-msgstr "Спэцыфікацыя Open Document"
+msgstr "Немагчыма разабраць OpenDocument Spreadsheet!"
 
 #: libraries/plugins/import/ImportShp.php:45
 msgid "ESRI Shape File"
@@ -10036,16 +10024,12 @@ msgid "MySQL Spatial Extension does not support ESRI type \"%s\"."
 msgstr ""
 
 #: libraries/plugins/import/ImportShp.php:230
-#, fuzzy
-#| msgid "File %s does not contain any key id"
 msgid "The imported file does not contain any data!"
-msgstr "Файл %s ня ўтрымлівае ніякага ідэнтыфікатара ключа"
+msgstr "Імпартаваны файл не ўтрымлівае даных!"
 
 #: libraries/plugins/import/ImportSql.php:67
-#, fuzzy
-#| msgid "SQL compatibility mode"
 msgid "SQL compatibility mode:"
-msgstr "Рэжым сумяшчальнасьці SQL"
+msgstr "Рэжым сумяшчальнасці SQL:"
 
 #: libraries/plugins/import/ImportSql.php:79
 msgid "Do not use <code>AUTO_INCREMENT</code> for zero values"
@@ -10062,10 +10046,8 @@ msgstr ""
 #: libraries/plugins/schema/SchemaDia.php:60
 #: libraries/plugins/schema/SchemaEps.php:68
 #: libraries/plugins/schema/SchemaPdf.php:68
-#, fuzzy
-#| msgid "Creation"
 msgid "Orientation"
-msgstr "Створаная"
+msgstr "Арыентацыя"
 
 #: libraries/plugins/schema/SchemaDia.php:64
 #: libraries/plugins/schema/SchemaEps.php:72
@@ -10091,55 +10073,43 @@ msgstr "Паказаць сетку"
 
 #: libraries/plugins/schema/SchemaPdf.php:93
 #: templates/database/structure/print_view_data_dictionary_link.phtml:6
-#, fuzzy
-#| msgid "Data Dictionary"
 msgid "Data dictionary"
-msgstr "Слоўнік дадзеных"
+msgstr "Слоўнік даных"
 
 #: libraries/plugins/schema/SchemaPdf.php:99
-#, fuzzy
-#| msgid "Number of tables"
 msgid "Order of the tables"
-msgstr "Колькасьць табліц"
+msgstr "Парадак табліц"
 
 #: libraries/plugins/schema/SchemaPdf.php:104
-#, fuzzy
-#| msgid "Ascending"
 msgid "Name (Ascending)"
-msgstr "прамы"
+msgstr "Назва (па ўзрастанню)"
 
 #: libraries/plugins/schema/SchemaPdf.php:105
-#, fuzzy
-#| msgid "Descending"
 msgid "Name (Descending)"
-msgstr "адваротны"
+msgstr "Назва (па ўбыванню)"
 
 #: libraries/plugins/schema/dia/TableStatsDia.php:74
 #: libraries/plugins/schema/eps/TableStatsEps.php:92
 #: libraries/plugins/schema/pdf/TableStatsPdf.php:94
 #: libraries/plugins/schema/svg/TableStatsSvg.php:92
-#, fuzzy, php-format
-#| msgid "The \"%s\" table doesn't exist!"
+#, php-format
 msgid "The %s table doesn't exist!"
-msgstr "Табліцы \"%s\" не існуе!"
+msgstr "Табліца «%s» не існуе!"
 
 #: libraries/plugins/schema/eps/EpsRelationSchema.php:64
 #: libraries/plugins/schema/svg/SvgRelationSchema.php:68
-#, fuzzy, php-format
-#| msgid "Schema of the \"%s\" database - Page %s"
+#, php-format
 msgid "Schema of the %s database - Page %s"
-msgstr "Структура базы \"%s\" — старонка %s"
+msgstr "Схема базы даных «%s» — старонка %s"
 
 #: libraries/plugins/schema/pdf/Pdf.php:238
-#, fuzzy
 msgid "PDF export page"
-msgstr "Тып экспарту"
+msgstr "Старонка экспарту PDF"
 
 #: libraries/plugins/schema/pdf/PdfRelationSchema.php:102
-#, fuzzy, php-format
-#| msgid "Schema of the \"%s\" database - Page %s"
+#, php-format
 msgid "Schema of the %s database"
-msgstr "Структура базы \"%s\" — старонка %s"
+msgstr "Схема базы даных «%s»"
 
 #: libraries/plugins/schema/pdf/PdfRelationSchema.php:130
 #: libraries/plugins/schema/pdf/PdfRelationSchema.php:525
@@ -10164,16 +10134,6 @@ msgid ""
 msgstr ""
 
 #: libraries/plugins/transformations/abs/DateFormatTransformationsPlugin.php:30
-#, fuzzy
-#| msgid ""
-#| "plays a TIME, TIMESTAMP, DATETIME or numeric unix timestamp field as "
-#| "matted date. The first option is the offset (in hours) which will be ed "
-#| "to the timestamp (Default: 0). Use second option to specify a ferent date/"
-#| "time format string. Third option determines whether you t to see local "
-#| "date or UTC one (use \"local\" or \"utc\" strings) for t. According to "
-#| "that, date format has different value - for \"local\"  the documentation "
-#| "for PHP's strftime() function and for \"utc\" it is e using gmdate() "
-#| "function."
 msgid ""
 "Displays a TIME, TIMESTAMP, DATETIME or numeric unix timestamp column as "
 "formatted date. The first option is the offset (in hours) which will be "
@@ -10184,15 +10144,14 @@ msgid ""
 "documentation for PHP's strftime() function and for \"utc\" it is done using "
 "gmdate() function."
 msgstr ""
-"Паказвае TIME, TIMESTAMP, DATETIME альбо лікавую метку часу Unix як "
-"адфарматаваную дату. Першы парамэтар — гэта колькасьць гадзінаў, якія будуць "
-"дададзеныя да меткі часу (па змоўчаньні — 0). Другі парамэтар "
-"выкарыстоўвайце, каб пазначыць іншы фармат даты/часу. Трэці парамэтар "
-"вызначае тып даты, якая будзе паказаная: вашая лякальная дата альбо дата UTC "
-"(выкарыстоўвайце для гэтага парамэтры «local» і «utc» адпаведна). У "
-"залежнасьці ад гэтага фармат даты мае розныя значэньні: для атрыманьня "
-"парамэтраў лякальнай даты глядзіце дакумэнтацыю для функцыі PHP strftime(), "
-"а для грынвіцкага часу (парамэтар «utc») — дакумэнтацыю функцыі gmdate()."
+"Паказвае TIME, TIMESTAMP, DATETIME альбо лікавы час Unix як адфарматаваную "
+"дату. Першы параметр — гэта колькасць гадзінаў, якія будуць дададзеныя да "
+"меткі часу (агадана: 0). Другі параметр выкарыстоўвайце, каб пазначыць іншы "
+"фармат даты/часу. Трэці параметр вызначае, ці хочаце вы ўбачыць лакальную "
+"дату альбо дату UTC (ужывайце для гэтага параметра «local» і «utc» адпаведна)"
+". У залежнасьці ад гэтага фармат даты мае розныя значэнні: для атрымання "
+"параметраў лакальнай даты глядзіце дакументацыю для функцыі PHP strftime(), "
+"а для грынвіцкага часу (параметр «utc») — дакументацыю функцыі gmdate()."
 
 #: libraries/plugins/transformations/abs/DownloadTransformationsPlugin.php:28
 #, fuzzy
