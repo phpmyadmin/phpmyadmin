@@ -35,6 +35,7 @@ phpMyAdmin - ChangeLog
 - issue #13258 Fixed detection of Amazon RDS
 - issue #13241 Redirect user to last page that has any tables to display
 - issue #13266 Fix link to User accounts overview page
+- issue #13274 Fix error in query builder
 
 4.7.0 (2017-03-28)
 - patch #12233 [Display] Improve message when renaming database to same name
