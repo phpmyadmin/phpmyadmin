@@ -57,6 +57,12 @@ metadata. Currently it consists of:
 
     **This field is required.**
 
+.. describe:: desciption
+
+    Theme description. this will be shown on the website.
+
+    **This field is required.**
+
 .. describe:: author
 
     Theme author name.
@@ -81,6 +87,7 @@ For example, the definition for Original theme shipped with phpMyAdnin 4.8:
     {
         "name": "Original",
         "version": "4.8",
+        "description": "Original phpMyAdmin theme",
         "author": "phpMyAdmin developers",
         "url": "https://www.phpmyadmin.net/",
         "supports": ["4.8"]
