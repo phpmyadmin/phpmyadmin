@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-05-17 09:24+0200\n"
-"PO-Revision-Date: 2017-05-17 10:53+0000\n"
+"PO-Revision-Date: 2017-05-17 19:21+0000\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
 "Language-Team: Estonian "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/et/>\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.14-dev\n"
+"X-Generator: Weblate 2.14\n"
 
 #: changelog.php:39 license.php:34
 #, php-format
@@ -297,12 +297,10 @@ msgid "The database name is empty!"
 msgstr "Andmebaasi nimi on tühi!"
 
 #: db_operations.php:53
-#, fuzzy
-#| msgid ""
-#| "Cannot rename database to the same name. Change the name and try again"
 msgid "Cannot copy database to the same name. Change the name and try again."
 msgstr ""
-"Andmebaasi uus nimi ei saa olla ta vana nimi. Muuda uut nime ja proovi uuesti"
+"Andmebaasi koopia nimi ei saa olla ta vana nimi. Muuda koopia nime ja proovi "
+"uuesti."
 
 #: db_operations.php:142
 #, php-format
@@ -614,6 +612,8 @@ msgid ""
 "You were logged out from one server, to logout completely from phpMyAdmin, "
 "you need to logout from all servers."
 msgstr ""
+"Sind logiti väja ühest serverist. phpMyAdminist täielikuks välja logimiseks "
+"pead logima välja kõigist serveritest."
 
 #: index.php:160 libraries/Footer.php:69
 msgid "phpMyAdmin Demo Server"
@@ -824,6 +824,8 @@ msgid ""
 "The $cfg['TempDir'] (%s) is not accessible. phpMyAdmin is not able to cache "
 "templates and will be slow because of this."
 msgstr ""
+"$cfg['TempDir'] (%s) ei ole kasutatav. phpMyAdmin ei saa malle puhvermälus "
+"hoida ja on seetõttu aeglane."
 
 #: js/messages.php:43
 msgid "Confirm"
@@ -2931,10 +2933,9 @@ msgid "Error"
 msgstr "Viga"
 
 #: libraries/Advisor.php:241
-#, fuzzy, php-format
-#| msgid "Error while creating PDF:"
+#, php-format
 msgid "Error when evaluating: %s"
-msgstr "PDF loomisel esines viga:"
+msgstr "Viga väärtuse leidmisel: %s"
 
 #: libraries/Advisor.php:272
 #, php-format
@@ -3069,99 +3070,71 @@ msgid "Armenian"
 msgstr "Armeenia"
 
 #: libraries/Charsets.php:337
-#, fuzzy
-#| msgid "Traditional Chinese"
 msgctxt "Collation"
 msgid "Traditional Chinese"
-msgstr "Traditsiooniline Hiina"
+msgstr "Hiina (traditsiooniline)"
 
 #: libraries/Charsets.php:340
-#, fuzzy
-#| msgid "Cyrillic"
 msgctxt "Collation"
 msgid "Cyrillic"
 msgstr "Kirillitsa"
 
 #: libraries/Charsets.php:343
-#, fuzzy
-#| msgid "Arabic"
 msgctxt "Collation"
 msgid "Arabic"
 msgstr "Araabia"
 
 #: libraries/Charsets.php:346 libraries/Charsets.php:457
-#, fuzzy
-#| msgid "Korean"
 msgctxt "Collation"
 msgid "Korean"
 msgstr "Korea"
 
 #: libraries/Charsets.php:349
-#, fuzzy
-#| msgid "Hebrew"
 msgctxt "Collation"
 msgid "Hebrew"
 msgstr "Heebrea"
 
 #: libraries/Charsets.php:352
-#, fuzzy
-#| msgid "Georgian"
 msgctxt "Collation"
 msgid "Georgian"
 msgstr "Gruusia"
 
 #: libraries/Charsets.php:355
-#, fuzzy
-#| msgid "Greek"
 msgctxt "Collation"
 msgid "Greek"
 msgstr "Kreeka"
 
 #: libraries/Charsets.php:358
-#, fuzzy
-#| msgid "Czech-Slovak"
 msgctxt "Collation"
 msgid "Czech-Slovak"
 msgstr "Tsehhi-Slovaki"
 
 #: libraries/Charsets.php:361 libraries/Charsets.php:512
-#, fuzzy
-#| msgid "Ukrainian"
 msgctxt "Collation"
 msgid "Ukrainian"
 msgstr "Ukraina"
 
 #: libraries/Charsets.php:364 libraries/Charsets.php:508
-#, fuzzy
-#| msgid "Turkish"
 msgctxt "Collation"
 msgid "Turkish"
 msgstr "Türgi"
 
 #: libraries/Charsets.php:367 libraries/Charsets.php:500
-#, fuzzy
-#| msgid "Swedish"
 msgctxt "Collation"
 msgid "Swedish"
 msgstr "Rootsi"
 
 #: libraries/Charsets.php:370 libraries/Charsets.php:504
-#, fuzzy
-#| msgid "Thai"
 msgctxt "Collation"
 msgid "Thai"
 msgstr "Tai"
 
 #: libraries/Charsets.php:373
-#, fuzzy
-#| msgid "unknown"
 msgctxt "Collation"
 msgid "Unknown"
-msgstr "tundmatu"
+msgstr "Tundmatu"
 
 #: libraries/Charsets.php:389
-#, fuzzy
-#| msgid "Bulgarian"
 msgctxt "Collation"
 msgid "Bulgarian"
 msgstr "Bulgaaria"
@@ -3169,72 +3142,54 @@ msgstr "Bulgaaria"
 #: libraries/Charsets.php:394
 msgctxt "Collation"
 msgid "Chinese"
-msgstr ""
+msgstr "Hiina"
 
 #: libraries/Charsets.php:399
-#, fuzzy
-#| msgid "Croatian"
 msgctxt "Collation"
 msgid "Croatian"
-msgstr "Horvaatia"
+msgstr "Horvaadi"
 
 #: libraries/Charsets.php:403
-#, fuzzy
-#| msgid "Czech"
 msgctxt "Collation"
 msgid "Czech"
 msgstr "Tšehhi"
 
 #: libraries/Charsets.php:407
-#, fuzzy
-#| msgid "Danish"
 msgctxt "Collation"
 msgid "Danish"
 msgstr "Taani"
 
 #: libraries/Charsets.php:411
-#, fuzzy
-#| msgid "English"
 msgctxt "Collation"
 msgid "English"
 msgstr "Inglise"
 
 #: libraries/Charsets.php:415
-#, fuzzy
-#| msgid "Esperanto"
 msgctxt "Collation"
 msgid "Esperanto"
 msgstr "Esperanto"
 
 #: libraries/Charsets.php:419
-#, fuzzy
-#| msgid "Estonian"
 msgctxt "Collation"
 msgid "Estonian"
 msgstr "Eesti"
 
 #: libraries/Charsets.php:422 libraries/Charsets.php:539
-#, fuzzy
-#| msgid "Data dictionary"
 msgctxt "Collation"
 msgid "German (dictionary order)"
-msgstr "Andmesõnastik"
+msgstr "Saksa (sõnaraamatu järjestus)"
 
 #: libraries/Charsets.php:425 libraries/Charsets.php:536
 msgctxt "Collation"
 msgid "German (phone book order)"
-msgstr ""
+msgstr "Saksa (telefoniraamatu järjekord)"
 
 #: libraries/Charsets.php:434
-#, fuzzy
-#| msgid "Hungarian"
 msgctxt "Collation"
 msgid "Hungarian"
 msgstr "Ungari"
 
 #: libraries/Charsets.php:438
-#, fuzzy
-#| msgid "Icelandic"
 msgctxt "Collation"
 msgid "Icelandic"
 msgstr "Islandi"
@@ -3242,136 +3197,102 @@ msgstr "Islandi"
 #: libraries/Charsets.php:445
 msgctxt "Collation"
 msgid "Classical Latin"
-msgstr ""
+msgstr "Ladina (klassikaline)"
 
 #: libraries/Charsets.php:449
-#, fuzzy
-#| msgid "Latvian"
 msgctxt "Collation"
 msgid "Latvian"
 msgstr "Läti"
 
 #: libraries/Charsets.php:453
-#, fuzzy
-#| msgid "Lithuanian"
 msgctxt "Collation"
 msgid "Lithuanian"
 msgstr "Leedu"
 
 #: libraries/Charsets.php:461
-#, fuzzy
-#| msgid "Burmese"
 msgctxt "Collation"
 msgid "Burmese"
-msgstr "birma keel"
+msgstr "Birma"
 
 #: libraries/Charsets.php:464
-#, fuzzy
-#| msgid "Persian"
 msgctxt "Collation"
 msgid "Persian"
 msgstr "Pärsia"
 
 #: libraries/Charsets.php:468
-#, fuzzy
-#| msgid "Polish"
 msgctxt "Collation"
 msgid "Polish"
 msgstr "Poola"
 
 #: libraries/Charsets.php:475
-#, fuzzy
-#| msgid "Romanian"
 msgctxt "Collation"
 msgid "Romanian"
 msgstr "Rumeenia"
 
 #: libraries/Charsets.php:479
-#, fuzzy
-#| msgid "Sinhalese"
 msgctxt "Collation"
 msgid "Sinhalese"
-msgstr "singali keel"
+msgstr "Singali"
 
 #: libraries/Charsets.php:483
-#, fuzzy
-#| msgid "Slovak"
 msgctxt "Collation"
 msgid "Slovak"
 msgstr "Slovaki"
 
 #: libraries/Charsets.php:487
-#, fuzzy
-#| msgid "Slovenian"
 msgctxt "Collation"
 msgid "Slovenian"
 msgstr "Sloveenia"
 
 #: libraries/Charsets.php:490 libraries/Charsets.php:550
-#, fuzzy
-#| msgid "Spanish"
 msgctxt "Collation"
 msgid "Spanish (modern)"
-msgstr "Hispaania"
+msgstr "Hispaania (kaasaegne)"
 
 #: libraries/Charsets.php:497 libraries/Charsets.php:547
 msgctxt "Collation"
 msgid "Spanish (traditional)"
-msgstr ""
+msgstr "Hispaania (traditsiooniline)"
 
 #: libraries/Charsets.php:516
-#, fuzzy
-#| msgid "Vietnamese"
 msgctxt "Collation"
 msgid "Vietnamese"
 msgstr "Vietnami"
 
 #: libraries/Charsets.php:583
-#, fuzzy
-#| msgid "case-insensitive"
 msgctxt "Collation variant"
 msgid "case-insensitive"
 msgstr "tõstutundetu"
 
 #: libraries/Charsets.php:586
-#, fuzzy
-#| msgid "case-sensitive"
 msgctxt "Collation variant"
 msgid "case-sensitive"
 msgstr "tõstutundlik"
 
 #: libraries/Charsets.php:589
-#, fuzzy
-#| msgid "case-insensitive"
 msgctxt "Collation variant"
 msgid "accent-insensitive"
-msgstr "tõstutundetu"
+msgstr "diakriitikute tundetu"
 
 #: libraries/Charsets.php:592
-#, fuzzy
-#| msgid "case-sensitive"
 msgctxt "Collation variant"
 msgid "accent-sensitive"
-msgstr "tõstutundlik"
+msgstr "diakriitikute tundlik"
 
 #: libraries/Charsets.php:595
-#, fuzzy
-#| msgid "Height"
 msgctxt "Collation variant"
 msgid "weight=2"
-msgstr "Kõrgus"
+msgstr "kaal=2"
 
 #: libraries/Charsets.php:598
 msgctxt "Collation variant"
 msgid "level=2"
-msgstr ""
+msgstr "tase=2"
 
 #: libraries/Charsets.php:601
-#, fuzzy
-#| msgid "Binary"
 msgctxt "Collation variant"
 msgid "binary"
-msgstr "Binaarne"
+msgstr "binaarne"
 
 #: libraries/Config.php:1116
 #, php-format
@@ -3437,7 +3358,7 @@ msgstr "Server ei vasta."
 
 #: libraries/DatabaseInterface.php:2043
 msgid "Logout and try as another user."
-msgstr ""
+msgstr "Logi välja ja proovi teise kasutajana."
 
 #: libraries/DatabaseInterface.php:2049
 msgid "Please check privileges of directory containing database."
@@ -3579,22 +3500,16 @@ msgid "at least one of the words"
 msgstr "vähemalt üks sõna"
 
 #: libraries/DbSearch.php:87
-#, fuzzy
-#| msgid "at least one of the words"
 msgid "all of the words"
-msgstr "vähemalt üks sõna"
+msgstr "kõik sõnad"
 
 #: libraries/DbSearch.php:88
-#, fuzzy
-#| msgid "the exact phrase"
 msgid "the exact phrase as substring"
-msgstr "täpne vaste"
+msgstr "täpne vaste alamsõnena"
 
 #: libraries/DbSearch.php:89
-#, fuzzy
-#| msgid "the exact phrase"
 msgid "the exact phrase as whole field"
-msgstr "täpne vaste"
+msgstr "täpne vaste terve väljana"
 
 #: libraries/DbSearch.php:90
 msgid "as regular expression"
@@ -4153,7 +4068,7 @@ msgstr "Tabel"
 #: libraries/Menu.php:284 libraries/Menu.php:303
 #, php-format
 msgid "“%s”"
-msgstr ""
+msgstr "\"%s\""
 
 #: libraries/Menu.php:352 libraries/Menu.php:455 libraries/Menu.php:568
 #: libraries/Util.php:3162 libraries/Util.php:3172 libraries/Util.php:3178
@@ -4579,10 +4494,9 @@ msgid "Error creating foreign key on %1$s (check data types)"
 msgstr "Viga võõrvõtme loomisel kohas %1$s (kontrolli andmete tüüpe)"
 
 #: libraries/Template.php:197
-#, fuzzy, php-format
-#| msgid "Error while loading the search."
+#, php-format
 msgid "Error while working with template cache: %s"
-msgstr "Otsingu laadimisel esines viga."
+msgstr "Viga mallide vahemäluga töötamisel: %s"
 
 #: libraries/Theme.php:183
 #, php-format
@@ -5009,10 +4923,9 @@ msgid "Missing parameter:"
 msgstr "Puudulik parameeter:"
 
 #: libraries/Util.php:2551
-#, fuzzy, php-format
-#| msgid "Jump to database \"%s\"."
+#, php-format
 msgid "Jump to database “%s”."
-msgstr "Mine \"%s\" andmebaasi."
+msgstr "Mine andmebaasi \"%s\"."
 
 #: libraries/Util.php:2576
 #, php-format
@@ -10033,6 +9946,9 @@ msgid ""
 "lead to non working phpMyAdmin or a security risk. Please fix your server "
 "configuration to indicate HTTPS properly."
 msgstr ""
+"Tuvastati serveri ja kliendi vahelise HTTPS ühenduse mittevastavus. See võib "
+"viia kasutuskõlbmatu phpMyAdminini või turvariskini. Palun paranda oma "
+"serveri häälestus, et HTTPS ühendus tuvastataks korrektselt."
 
 #: libraries/plugins/auth/AuthenticationCookie.php:177
 msgid "Log in"
@@ -10169,7 +10085,7 @@ msgstr "Väljasta viisakas JSON (inimloetav vormindus)"
 
 #: libraries/plugins/export/ExportJson.php:94
 msgid "Output unicode characters unescaped"
-msgstr ""
+msgstr "Väljasta Unicode märgid paojadadeta"
 
 #: libraries/plugins/export/ExportLatex.php:48
 msgid "Content of table @TABLE@"
@@ -12479,30 +12395,18 @@ msgstr ""
 "pool lubab ühenduda suvalisest (%) masinast."
 
 #: libraries/server_privileges.lib.php:4667
-#, fuzzy, php-format
-#| msgid ""
-#| "Note: phpMyAdmin gets the users' privileges directly from MySQL's "
-#| "privilege tables. The content of these tables may differ from the "
-#| "privileges the server uses, if they have been changed manually. In this "
-#| "case, you should %sreload the privileges%s before you continue."
+#, php-format
 msgid ""
 "Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege "
 "tables. The content of these tables may differ from the privileges the "
 "server uses, if they have been changed manually. In this case, you should "
 "%sreload the privileges%s before you continue."
 msgstr ""
-"Märkus: phpMyAdmin võtab kasutajate õigused otse MySQL'i õiguste tabelist. "
-"Tabelite sisu võib erineda sellest, mida server kasutab, kui neid on käsitsi "
+"Märkus: phpMyAdmin võtab kasutajate õigused otse MySQLi õiguste tabelist. "
+"Tabelite sisu võib erineda serveri kasutatavatest, kui neid on käsitsi "
 "muudetud. Sellisel juhul peaksid enne jätkamist %sõigused uuesti laadima%s."
 
 #: libraries/server_privileges.lib.php:4684
-#, fuzzy
-#| msgid ""
-#| "Note: phpMyAdmin gets the users' privileges directly from MySQL's "
-#| "privilege tables. The content of these tables may differ from the "
-#| "privileges the server uses, if they have been changed manually. In this "
-#| "case, the privileges have to be reloaded but currently, you don't have "
-#| "the RELOAD privilege."
 msgid ""
 "Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege "
 "tables. The content of these tables may differ from the privileges the "
@@ -12510,10 +12414,10 @@ msgid ""
 "privileges have to be reloaded but currently, you don't have the RELOAD "
 "privilege."
 msgstr ""
-"Märkus: phpMyAdmin võtab kasutajate õigused otse MySQL'i õiguste tabelist. "
-"Tabelite sisu võib erineda sellest, mida server kasutab, kui neid on käsitsi "
+"Märkus: phpMyAdmin võtab kasutajate õigused otse MySQLi õiguste tabelist. "
+"Tabelite sisu võib erineda serveri kasutatavatest, kui neid on käsitsi "
 "muudetud. Sellisel juhul peab õigused uuesti laadima, kuid hetkel puudub sul "
-"uuesti laadimise õigus."
+"uuesti laadimise (RELOAD) õigus."
 
 #: libraries/server_privileges.lib.php:4735
 msgid "The selected user was not found in the privilege table."
@@ -13700,10 +13604,9 @@ msgid "Problems with indexes of table `%s`"
 msgstr "Probleemid `%s` tabeli indeksitega"
 
 #: libraries/sql_query_form.lib.php:139
-#, fuzzy, php-format
-#| msgid "Run SQL query/queries on server %s"
+#, php-format
 msgid "Run SQL query/queries on server “%s”"
-msgstr "Teosta SQL päring(ud) %s serveris"
+msgstr "Teosta SQL päring(ud) serveris \"%s\""
 
 #: libraries/sql_query_form.lib.php:156
 #, php-format
@@ -13713,7 +13616,7 @@ msgstr "Teosta SQL päring(ud) %s andmebaasis"
 #: libraries/sql_query_form.lib.php:177
 #, php-format
 msgid "Run SQL query/queries on table %s"
-msgstr "Teosta SQL päring(ud) tabelis %s"
+msgstr "Teosta SQL päring(ud) tabelil %s"
 
 #: libraries/sql_query_form.lib.php:247 setup/frames/index.inc.php:257
 #: templates/console/display.phtml:10
@@ -15340,7 +15243,7 @@ msgstr "Soovita tabeli struktuuri"
 
 #: templates/table/structure/optional_action_links.phtml:28
 msgid "Normalize"
-msgstr ""
+msgstr "Normaliseeri"
 
 #: templates/table/structure/optional_action_links.phtml:34
 msgid "Track view"
@@ -15380,8 +15283,6 @@ msgid "Column %s has been dropped."
 msgstr "Veerg %s on kustutatud."
 
 #: templates/test/gettext/pgettext.phtml:1
-#, fuzzy
-#| msgid "Text"
 msgctxt "Text context"
 msgid "Text"
 msgstr "Tekst"
@@ -15587,10 +15488,8 @@ msgstr ""
 "soovid selle importida praeguse seansi jaoks?"
 
 #: templates/prefs_autoload.twig:46
-#, fuzzy
-#| msgid "Delete settings "
 msgid "Delete settings"
-msgstr "Kustuta sätted "
+msgstr "Kustuta sätted"
 
 #: url.php:39
 msgid "Taking you to the target site."
