@@ -84,10 +84,6 @@ class EncodingTest extends PHPUnit_Framework_TestCase
 
     public function testMbstring()
     {
-        if (! @function_exists('mb_convert_encoding')) {
-            $this->markTestSkipped('mbstring extension missing');
-        }
-
         Encoding::setEngine(Encoding::ENGINE_MB);
         $this->assertEquals(
             "This is the Euro symbol '?'.",
