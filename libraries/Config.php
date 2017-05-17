@@ -1456,6 +1456,7 @@ class Config
 
         $defines = array(
             'PMA_VERSION',
+            'PMA_MAJOR_VERSION',
             'PMA_THEME_VERSION',
             'PMA_THEME_GENERATION',
             'PMA_IS_WINDOWS',
