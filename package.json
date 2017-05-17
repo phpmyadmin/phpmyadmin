@@ -1,0 +1,22 @@
+{
+  "name": "phpmyadmin",
+  "version": "4.8.0-dev",
+  "description": "A web interface for MySQL and MariaDB",
+  "repository": "https://github.com/phpmyadmin/phpmyadmin.git",
+  "author": "The phpMyAdmin Team <developers@phpmyadmin.net> (https://www.phpmyadmin.net/team/)",
+  "license": "GPL-2.0",
+  "dependencies": {
+    "codemirror": "^5.22.1",
+    "jquery": "^3.1.1",
+    "jquery-migrate": "^3.0.0",
+    "jquery-mousewheel": "^3.1.13",
+    "jquery-ui-dist": "^1.12.1",
+    "jquery-ui-timepicker-addon": "^1.6.3",
+    "jquery-validation": "^1.15.1",
+    "tracekit": "^0.4.4",
+    "zxcvbn": "^4.4.2"
+  },
+  "scripts": {
+    "postinstall": "./scripts/npm-postinstall"
+  }
+}

@@ -3,7 +3,7 @@ imports:
     - javascript
     - php
 filter:
-    excluded_paths: [js/jquery/*, js/jqplot/*, js/openlayers/*, js/codemirror/*, js/canvg/*, js/tracekit/*, js/sprintf.js]
+    excluded_paths: [js/jquery/*, js/jqplot/*, js/openlayers/*, js/codemirror/*, js/canvg/*, js/vendor/*, js/sprintf.js]
 build:
     dependencies:
         before:
