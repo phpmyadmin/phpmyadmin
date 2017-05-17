@@ -18,11 +18,6 @@ if (! defined('PHPMYADMIN')) {
 }
 
 /**
- * String handling (security)
- */
-require_once 'libraries/string.lib.php';
-
-/**
  * checks given $var and returns it if valid, or $default of not valid
  * given $var is also checked for type being 'similar' as $default
  * or against any other type if $type is provided
@@ -235,15 +230,7 @@ function PMA_fatalError($error_message, $message_args = null) {
         $response->addJSON('message', PMA\libraries\Message::error($error_message));
     } else {
         $error_message = strtr($error_message, array('<br />' => '[br]'));
-
-        // these variables are used in the included file libraries/error.inc.php
-        //first check if php-mbstring is available
-        if (function_exists('mb_detect_encoding')) {
-            //If present use gettext
-            $error_header = __('Error');
-        } else {
-            $error_header = 'Error';
-        }
+        $error_header = __('Error');
         $lang = isset($GLOBALS['lang']) ? $GLOBALS['lang'] : 'en';
         $dir = isset($GLOBALS['text_dir']) ? $GLOBALS['text_dir'] : 'ltr';
 
@@ -916,7 +903,7 @@ function PMA_checkExtensions()
      * Warning about mbstring.
      */
     if (! function_exists('mb_detect_encoding')) {
-        PMA_warnMissingExtension('mbstring', true);
+        PMA_warnMissingExtension('mbstring');
     }
 
     /**
