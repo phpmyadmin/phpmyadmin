@@ -192,15 +192,7 @@ function PMA_getHtmlForDisplayedExportFooter($back_button)
         . '    </form>'
         // bottom back button
         . $back_button
-        . '</div>'
-        . '<script type="text/javascript">' . "\n"
-        . '//<![CDATA[' . "\n"
-        . 'var $body = $("body");' . "\n"
-        . '$("#textSQLDUMP")' . "\n"
-        . '.width($body.width() - 50)' . "\n"
-        . '.height($body.height() - 100);' . "\n"
-        . '//]]>' . "\n"
-        . '</script>' . "\n";
+        . '</div>';
     return $html;
 }
 
