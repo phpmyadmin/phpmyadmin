@@ -3,7 +3,7 @@
         value="Y" title="{{ priv[2] }}" {{ checked }} />
     <label for="checkbox_{{ priv[0] }}_priv">
         <code>
-            {{ formatted_priv }}
+            {{ formatted_priv|raw }}
         </code>
     </label>
 </div>
