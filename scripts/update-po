@@ -11,7 +11,8 @@ fi
 # Exit on failure
 set -e
 
-# Generate Twig template cache
+# Generate Twig template cache in clean dir
+rm -rf twig-templates/
 php ./scripts/generate-twig-cache
 
 # Update pot (template), ensure that advisor is at the end
@@ -25,10 +26,22 @@ xgettext \
     --add-location \
     --debug \
     --from-code=utf-8 \
-    --keyword=__ --keyword=_pgettext:1c,2 --keyword=_ngettext:1,2 \
+    --keyword=__ --keyword=_gettext --keyword=_pgettext:1c,2 --keyword=_ngettext:1,2 \
     --copyright-holder="phpMyAdmin devel team" \
-    `find \( -name '*.php' -o -name '*.phtml' \) -not -path './test/*' -not -path './po/*' \( -not -path './release/*' -not -path './vendor/*' \) | sort`
+    `find \( -name '*.php' -o -name '*.phtml' \) -not -path './test/*' -not -path './po/*' -not -path './tmp/*' -not -path './release/*' -not -path './vendor/*' | sort`
 
+# Fixup filenames for Twig templates
+find twig-templates -type f | while read name ; do
+    original=`sed -n 's@.*Twig_Source.*templates/\([^\"]*\)".*@\1@p' $name`
+    if [ -z "$original" ] ; then
+        echo "Failed to figure our original name of $name!" >&2
+    else
+        sed -i "s@$name@templates/$original@g" po/phpmyadmin.pot
+    fi
+done
+
+# Remote twig templates
+rm -rf twig-templates/
 
 # Generate PHP code for advisor rules
 php ./scripts/advisor2po >> po/phpmyadmin.pot
