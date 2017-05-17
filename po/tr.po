@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-05-17 09:24+0200\n"
-"PO-Revision-Date: 2017-04-12 07:45+0000\n"
+"PO-Revision-Date: 2017-05-17 08:29+0000\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
-"Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/tr/>\n"
+"Language-Team: Turkish "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/tr/>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 2.13\n"
+"X-Generator: Weblate 2.14-dev\n"
 
 #: changelog.php:39 license.php:34
 #, php-format
@@ -293,12 +293,8 @@ msgid "The database name is empty!"
 msgstr "Veritabanı adı boş!"
 
 #: db_operations.php:53
-#, fuzzy
-#| msgid ""
-#| "Cannot rename database to the same name. Change the name and try again"
 msgid "Cannot copy database to the same name. Change the name and try again."
-msgstr ""
-"Veritabanı aynı isme yeniden adlandırılamaz. Adı değiştirin ve tekrar deneyin"
+msgstr "Veritabanı aynı isimde kopyalanamaz. Adı değiştirin ve tekrar deneyin."
 
 #: db_operations.php:142
 #, php-format
@@ -613,6 +609,8 @@ msgid ""
 "You were logged out from one server, to logout completely from phpMyAdmin, "
 "you need to logout from all servers."
 msgstr ""
+"Bir sunucudan oturumu kapattınız, phpMyAdmin'den tamamen oturumu kapatmak "
+"için tüm sunuculardan oturumu kapatmanız gerekir."
 
 #: index.php:160 libraries/Footer.php:69
 msgid "phpMyAdmin Demo Server"
@@ -825,6 +823,8 @@ msgid ""
 "The $cfg['TempDir'] (%s) is not accessible. phpMyAdmin is not able to cache "
 "templates and will be slow because of this."
 msgstr ""
+"$cfg['TempDir'] (%s) erişilebilir değil. phpMyAdmin şablonları "
+"önbellekleyemez ve bu nedenle yavaş olacaktır."
 
 #: js/messages.php:43
 msgid "Confirm"
@@ -2946,10 +2946,9 @@ msgid "Error"
 msgstr "Hata"
 
 #: libraries/Advisor.php:241
-#, fuzzy, php-format
-#| msgid "Error while creating PDF:"
+#, php-format
 msgid "Error when evaluating: %s"
-msgstr "PDF oluşturulurken hata:"
+msgstr "Değerlendirilirken hata: %s"
 
 #: libraries/Advisor.php:272
 #, php-format
@@ -3037,168 +3036,120 @@ msgid "Collation"
 msgstr "Karşılaştırma"
 
 #: libraries/Charsets.php:264
-#, fuzzy
-#| msgid "unknown"
 msgid "Unknonwn"
-msgstr "bilinmiyor"
+msgstr "Bilinmiyor"
 
 #: libraries/Charsets.php:278
-#, fuzzy
-#| msgid "Binary"
 msgctxt "Collation"
 msgid "Binary"
 msgstr "İkili Değer"
 
 #: libraries/Charsets.php:290 libraries/Charsets.php:520
-#, fuzzy
-#| msgid "Unicode"
 msgctxt "Collation"
 msgid "Unicode"
 msgstr "Evrensel Kod"
 
 #: libraries/Charsets.php:300 libraries/Charsets.php:471
-#, fuzzy
-#| msgid "West European"
 msgctxt "Collation"
 msgid "West European"
 msgstr "Batı Avrupa"
 
 #: libraries/Charsets.php:307
-#, fuzzy
-#| msgid "Central European"
 msgctxt "Collation"
 msgid "Central European"
 msgstr "Orta Avrupa"
 
 #: libraries/Charsets.php:312
-#, fuzzy
-#| msgid "Russian"
 msgctxt "Collation"
 msgid "Russian"
 msgstr "Rusça"
 
 #: libraries/Charsets.php:317
-#, fuzzy
-#| msgid "Simplified Chinese"
 msgctxt "Collation"
 msgid "Simplified Chinese"
 msgstr "Basitleştirilmiş Çince"
 
 #: libraries/Charsets.php:324 libraries/Charsets.php:442
-#, fuzzy
-#| msgid "Japanese"
 msgctxt "Collation"
 msgid "Japanese"
 msgstr "Japonca"
 
 #: libraries/Charsets.php:329
-#, fuzzy
-#| msgid "Baltic"
 msgctxt "Collation"
 msgid "Baltic"
-msgstr "Baltık"
+msgstr "Baltık dili"
 
 #: libraries/Charsets.php:334
-#, fuzzy
-#| msgid "Armenian"
 msgctxt "Collation"
 msgid "Armenian"
 msgstr "Ermenice"
 
 #: libraries/Charsets.php:337
-#, fuzzy
-#| msgid "Traditional Chinese"
 msgctxt "Collation"
 msgid "Traditional Chinese"
 msgstr "Geleneksel Çince"
 
 #: libraries/Charsets.php:340
-#, fuzzy
-#| msgid "Cyrillic"
 msgctxt "Collation"
 msgid "Cyrillic"
 msgstr "Kiril"
 
 #: libraries/Charsets.php:343
-#, fuzzy
-#| msgid "Arabic"
 msgctxt "Collation"
 msgid "Arabic"
 msgstr "Arapça"
 
 #: libraries/Charsets.php:346 libraries/Charsets.php:457
-#, fuzzy
-#| msgid "Korean"
 msgctxt "Collation"
 msgid "Korean"
 msgstr "Korece"
 
 #: libraries/Charsets.php:349
-#, fuzzy
-#| msgid "Hebrew"
 msgctxt "Collation"
 msgid "Hebrew"
 msgstr "İbranice"
 
 #: libraries/Charsets.php:352
-#, fuzzy
-#| msgid "Georgian"
 msgctxt "Collation"
 msgid "Georgian"
 msgstr "Gürcüce"
 
 #: libraries/Charsets.php:355
-#, fuzzy
-#| msgid "Greek"
 msgctxt "Collation"
 msgid "Greek"
 msgstr "Yunanca"
 
 #: libraries/Charsets.php:358
-#, fuzzy
-#| msgid "Czech-Slovak"
 msgctxt "Collation"
 msgid "Czech-Slovak"
 msgstr "Çekçe-Slovakça"
 
 #: libraries/Charsets.php:361 libraries/Charsets.php:512
-#, fuzzy
-#| msgid "Ukrainian"
 msgctxt "Collation"
 msgid "Ukrainian"
 msgstr "Ukraynaca"
 
 #: libraries/Charsets.php:364 libraries/Charsets.php:508
-#, fuzzy
-#| msgid "Turkish"
 msgctxt "Collation"
 msgid "Turkish"
 msgstr "Türkçe"
 
 #: libraries/Charsets.php:367 libraries/Charsets.php:500
-#, fuzzy
-#| msgid "Swedish"
 msgctxt "Collation"
 msgid "Swedish"
 msgstr "İsveççe"
 
 #: libraries/Charsets.php:370 libraries/Charsets.php:504
-#, fuzzy
-#| msgid "Thai"
 msgctxt "Collation"
 msgid "Thai"
 msgstr "Tayca"
 
 #: libraries/Charsets.php:373
-#, fuzzy
-#| msgid "unknown"
 msgctxt "Collation"
 msgid "Unknown"
-msgstr "bilinmiyor"
+msgstr "Bilinmiyor"
 
 #: libraries/Charsets.php:389
-#, fuzzy
-#| msgid "Bulgarian"
 msgctxt "Collation"
 msgid "Bulgarian"
 msgstr "Bulgarca"
@@ -3206,72 +3157,54 @@ msgstr "Bulgarca"
 #: libraries/Charsets.php:394
 msgctxt "Collation"
 msgid "Chinese"
-msgstr ""
+msgstr "Çince"
 
 #: libraries/Charsets.php:399
-#, fuzzy
-#| msgid "Croatian"
 msgctxt "Collation"
 msgid "Croatian"
 msgstr "Hırvatça"
 
 #: libraries/Charsets.php:403
-#, fuzzy
-#| msgid "Czech"
 msgctxt "Collation"
 msgid "Czech"
 msgstr "Çekçe"
 
 #: libraries/Charsets.php:407
-#, fuzzy
-#| msgid "Danish"
 msgctxt "Collation"
 msgid "Danish"
 msgstr "Danca"
 
 #: libraries/Charsets.php:411
-#, fuzzy
-#| msgid "English"
 msgctxt "Collation"
 msgid "English"
 msgstr "İngilizce"
 
 #: libraries/Charsets.php:415
-#, fuzzy
-#| msgid "Esperanto"
 msgctxt "Collation"
 msgid "Esperanto"
 msgstr "Esperanto"
 
 #: libraries/Charsets.php:419
-#, fuzzy
-#| msgid "Estonian"
 msgctxt "Collation"
 msgid "Estonian"
 msgstr "Estçe"
 
 #: libraries/Charsets.php:422 libraries/Charsets.php:539
-#, fuzzy
-#| msgid "Data dictionary"
 msgctxt "Collation"
 msgid "German (dictionary order)"
-msgstr "Veri sözlüğü"
+msgstr "Almanca (sözlük sırası)"
 
 #: libraries/Charsets.php:425 libraries/Charsets.php:536
 msgctxt "Collation"
 msgid "German (phone book order)"
-msgstr ""
+msgstr "Almanca (telefon rehberi sırası)"
 
 #: libraries/Charsets.php:434
-#, fuzzy
-#| msgid "Hungarian"
 msgctxt "Collation"
 msgid "Hungarian"
 msgstr "Macarca"
 
 #: libraries/Charsets.php:438
-#, fuzzy
-#| msgid "Icelandic"
 msgctxt "Collation"
 msgid "Icelandic"
 msgstr "İzlandaca"
@@ -3279,136 +3212,102 @@ msgstr "İzlandaca"
 #: libraries/Charsets.php:445
 msgctxt "Collation"
 msgid "Classical Latin"
-msgstr ""
+msgstr "Klasik Latince"
 
 #: libraries/Charsets.php:449
-#, fuzzy
-#| msgid "Latvian"
 msgctxt "Collation"
 msgid "Latvian"
-msgstr "Litvanyaca"
+msgstr "Letonca"
 
 #: libraries/Charsets.php:453
-#, fuzzy
-#| msgid "Lithuanian"
 msgctxt "Collation"
 msgid "Lithuanian"
 msgstr "Litvanyaca"
 
 #: libraries/Charsets.php:461
-#, fuzzy
-#| msgid "Burmese"
 msgctxt "Collation"
 msgid "Burmese"
 msgstr "Birmanca"
 
 #: libraries/Charsets.php:464
-#, fuzzy
-#| msgid "Persian"
 msgctxt "Collation"
 msgid "Persian"
 msgstr "Farsça"
 
 #: libraries/Charsets.php:468
-#, fuzzy
-#| msgid "Polish"
 msgctxt "Collation"
 msgid "Polish"
 msgstr "Lehçe"
 
 #: libraries/Charsets.php:475
-#, fuzzy
-#| msgid "Romanian"
 msgctxt "Collation"
 msgid "Romanian"
-msgstr "Romence"
+msgstr "Rumence"
 
 #: libraries/Charsets.php:479
-#, fuzzy
-#| msgid "Sinhalese"
 msgctxt "Collation"
 msgid "Sinhalese"
 msgstr "Seylanca"
 
 #: libraries/Charsets.php:483
-#, fuzzy
-#| msgid "Slovak"
 msgctxt "Collation"
 msgid "Slovak"
 msgstr "Slovakça"
 
 #: libraries/Charsets.php:487
-#, fuzzy
-#| msgid "Slovenian"
 msgctxt "Collation"
 msgid "Slovenian"
 msgstr "Slovence"
 
 #: libraries/Charsets.php:490 libraries/Charsets.php:550
-#, fuzzy
-#| msgid "Spanish"
 msgctxt "Collation"
 msgid "Spanish (modern)"
-msgstr "İspanyolca"
+msgstr "İspanyolca (modern)"
 
 #: libraries/Charsets.php:497 libraries/Charsets.php:547
 msgctxt "Collation"
 msgid "Spanish (traditional)"
-msgstr ""
+msgstr "İspanyolca (geleneksel)"
 
 #: libraries/Charsets.php:516
-#, fuzzy
-#| msgid "Vietnamese"
 msgctxt "Collation"
 msgid "Vietnamese"
 msgstr "Vietnamca"
 
 #: libraries/Charsets.php:583
-#, fuzzy
-#| msgid "case-insensitive"
 msgctxt "Collation variant"
 msgid "case-insensitive"
-msgstr "büyük küçük harfe duyarsız"
+msgstr "büyük-küçük harf duyarsız"
 
 #: libraries/Charsets.php:586
-#, fuzzy
-#| msgid "case-sensitive"
 msgctxt "Collation variant"
 msgid "case-sensitive"
-msgstr "büyük küçük harfe duyarlı"
+msgstr "büyük-küçük harf duyarlı"
 
 #: libraries/Charsets.php:589
-#, fuzzy
-#| msgid "case-insensitive"
 msgctxt "Collation variant"
 msgid "accent-insensitive"
-msgstr "büyük küçük harfe duyarsız"
+msgstr "vurgu duyarsız"
 
 #: libraries/Charsets.php:592
-#, fuzzy
-#| msgid "case-sensitive"
 msgctxt "Collation variant"
 msgid "accent-sensitive"
-msgstr "büyük küçük harfe duyarlı"
+msgstr "vurgu duyarlı"
 
 #: libraries/Charsets.php:595
-#, fuzzy
-#| msgid "Height"
 msgctxt "Collation variant"
 msgid "weight=2"
-msgstr "Yükseklik"
+msgstr "yükseklik=2"
 
 #: libraries/Charsets.php:598
 msgctxt "Collation variant"
 msgid "level=2"
-msgstr ""
+msgstr "seviye=2"
 
 #: libraries/Charsets.php:601
-#, fuzzy
-#| msgid "Binary"
 msgctxt "Collation variant"
 msgid "binary"
-msgstr "İkili Değer"
+msgstr "ikili değer"
 
 #: libraries/Config.php:1116
 #, php-format
@@ -4614,10 +4513,9 @@ msgstr ""
 "%1$s üzerinde dış anahtar oluşturma hatası (veri türlerini kontrol edin)"
 
 #: libraries/Template.php:197
-#, fuzzy, php-format
-#| msgid "Error while loading the search."
+#, php-format
 msgid "Error while working with template cache: %s"
-msgstr "Arama yüklenirken hata oldu."
+msgstr "Şablon önbelleği ile çalışırken hata: %s"
 
 #: libraries/Theme.php:183
 #, php-format
@@ -15724,10 +15622,8 @@ msgstr ""
 "oturum için bunu içe aktarmak istiyor musunuz?"
 
 #: templates/prefs_autoload.twig:46
-#, fuzzy
-#| msgid "Delete settings "
 msgid "Delete settings"
-msgstr "Ayarları sil "
+msgstr "Ayarları sil"
 
 #: url.php:39
 msgid "Taking you to the target site."
