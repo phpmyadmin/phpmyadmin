@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2017-04-10 13:13+0200\n"
+"POT-Creation-Date: 2017-05-17 09:24+0200\n"
 "PO-Revision-Date: 2017-02-13 14:29+0000\n"
 "Last-Translator: Yungu Kim <crimsonpi@gmail.com>\n"
 "Language-Team: Korean <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -57,7 +57,7 @@ msgstr "테이블 설명:"
 #: libraries/plugins/export/ExportOdt.php:480
 #: libraries/plugins/export/ExportTexytext.php:284
 #: libraries/plugins/export/ExportTexytext.php:375
-#: libraries/plugins/export/PMA_ExportPdf.php:472
+#: libraries/plugins/export/helpers/Pdf.php:473
 #: libraries/plugins/schema/pdf/PdfRelationSchema.php:629
 #: libraries/plugins/schema/pdf/PdfRelationSchema.php:652
 #: libraries/tracking.lib.php:889 libraries/tracking.lib.php:980
@@ -70,8 +70,8 @@ msgstr "테이블 설명:"
 #: templates/table/relation/foreign_key_row.phtml:188
 #: templates/table/relation/foreign_key_row.phtml:200
 #: templates/table/relation/internal_relational_row.phtml:66
-#: templates/table/search/table_header.phtml:6
 #: templates/table/search/zoom_result_form.phtml:33
+#: templates/table/search/table_header.twig:32
 msgid "Column"
 msgstr "컬럼명"
 
@@ -85,7 +85,7 @@ msgstr "컬럼명"
 #: libraries/plugins/export/ExportOdt.php:483
 #: libraries/plugins/export/ExportTexytext.php:285
 #: libraries/plugins/export/ExportTexytext.php:376
-#: libraries/plugins/export/PMA_ExportPdf.php:474
+#: libraries/plugins/export/helpers/Pdf.php:475
 #: libraries/plugins/schema/pdf/PdfRelationSchema.php:630
 #: libraries/plugins/schema/pdf/PdfRelationSchema.php:653
 #: libraries/rte/rte_list.lib.php:81 libraries/rte/rte_list.lib.php:109
@@ -96,8 +96,8 @@ msgstr "컬럼명"
 #: libraries/tracking.lib.php:977
 #: templates/columns_definitions/table_fields_definitions.phtml:11
 #: templates/database/structure/table_header.phtml:48
-#: templates/table/search/table_header.phtml:7
 #: templates/table/structure/table_structure_header.phtml:8
+#: templates/table/search/table_header.twig:36
 msgid "Type"
 msgstr "종류"
 
@@ -111,7 +111,7 @@ msgstr "종류"
 #: libraries/plugins/export/ExportOdt.php:486
 #: libraries/plugins/export/ExportTexytext.php:286
 #: libraries/plugins/export/ExportTexytext.php:377
-#: libraries/plugins/export/PMA_ExportPdf.php:476
+#: libraries/plugins/export/helpers/Pdf.php:477
 #: libraries/plugins/schema/pdf/PdfRelationSchema.php:632
 #: libraries/plugins/schema/pdf/PdfRelationSchema.php:655
 #: libraries/tracking.lib.php:892 libraries/tracking.lib.php:983
@@ -130,7 +130,7 @@ msgstr "Null"
 #: libraries/plugins/export/ExportOdt.php:489
 #: libraries/plugins/export/ExportTexytext.php:287
 #: libraries/plugins/export/ExportTexytext.php:378
-#: libraries/plugins/export/PMA_ExportPdf.php:478
+#: libraries/plugins/export/helpers/Pdf.php:479
 #: libraries/plugins/schema/pdf/PdfRelationSchema.php:633
 #: libraries/plugins/schema/pdf/PdfRelationSchema.php:656
 #: libraries/replication_gui.lib.php:153 libraries/tracking.lib.php:893
@@ -144,7 +144,7 @@ msgstr "기본값"
 #: libraries/plugins/export/ExportLatex.php:528
 #: libraries/plugins/export/ExportOdt.php:493
 #: libraries/plugins/export/ExportTexytext.php:380
-#: libraries/plugins/export/PMA_ExportPdf.php:487
+#: libraries/plugins/export/helpers/Pdf.php:488
 #: libraries/plugins/schema/pdf/PdfRelationSchema.php:635
 #: libraries/plugins/schema/pdf/PdfRelationSchema.php:658
 msgid "Links to"
@@ -156,7 +156,7 @@ msgstr "링크 대상"
 #: libraries/plugins/export/ExportLatex.php:531
 #: libraries/plugins/export/ExportOdt.php:498
 #: libraries/plugins/export/ExportTexytext.php:383
-#: libraries/plugins/export/PMA_ExportPdf.php:494
+#: libraries/plugins/export/helpers/Pdf.php:495
 #: libraries/plugins/schema/pdf/PdfRelationSchema.php:646
 #: libraries/plugins/schema/pdf/PdfRelationSchema.php:659
 #: templates/columns_definitions/table_fields_definitions.phtml:65
@@ -165,12 +165,12 @@ msgid "Comments"
 msgstr "설명"
 
 #: db_datadict.php:154
-#: libraries/controllers/table/TableStructureController.php:1179
-#: libraries/controllers/table/TableStructureController.php:1184
+#: libraries/controllers/table/TableStructureController.php:1180
+#: libraries/controllers/table/TableStructureController.php:1185
 #: libraries/tracking.lib.php:925
-#: templates/columns_definitions/column_indexes.phtml:6
 #: templates/table/structure/check_all_table_column.phtml:28
 #: templates/table/structure/display_structure.phtml:62
+#: templates/columns_definitions/column_indexes.twig:36
 msgid "Primary"
 msgstr "기본"
 
@@ -190,11 +190,11 @@ msgstr "기본"
 #: libraries/server_privileges.lib.php:3608
 #: libraries/server_privileges.lib.php:3631 libraries/tracking.lib.php:936
 #: libraries/tracking.lib.php:1008 libraries/tracking.lib.php:1013
-#: prefs_manage.php:150 templates/prefs_autoload.phtml:13
-#: templates/privileges/privileges_summary_row.phtml:4
-#: templates/privileges/privileges_summary_row.phtml:7
-#: templates/privileges/privileges_summary_row.phtml:9
-#: templates/table/structure/table_structure_row.phtml:24
+#: prefs_manage.php:150 templates/table/structure/table_structure_row.phtml:24
+#: templates/privileges/privileges_summary_row.twig:30
+#: templates/privileges/privileges_summary_row.twig:38
+#: templates/privileges/privileges_summary_row.twig:45
+#: templates/prefs_autoload.twig:42
 msgid "No"
 msgstr "아니오"
 
@@ -202,12 +202,12 @@ msgstr "아니오"
 #: libraries/IndexColumn.php:143 libraries/central_columns.lib.php:962
 #: libraries/config/FormDisplay.tpl.php:282
 #: libraries/controllers/server/ServerDatabasesController.php:200
-#: libraries/controllers/table/TableStructureController.php:752
-#: libraries/controllers/table/TableStructureController.php:1429
-#: libraries/controllers/table/TableStructureController.php:1438
-#: libraries/controllers/table/TableStructureController.php:1443
-#: libraries/controllers/table/TableStructureController.php:1448
-#: libraries/controllers/table/TableStructureController.php:1453
+#: libraries/controllers/table/TableStructureController.php:753
+#: libraries/controllers/table/TableStructureController.php:1430
+#: libraries/controllers/table/TableStructureController.php:1439
+#: libraries/controllers/table/TableStructureController.php:1444
+#: libraries/controllers/table/TableStructureController.php:1449
+#: libraries/controllers/table/TableStructureController.php:1454
 #: libraries/mult_submits.inc.php:85 libraries/mult_submits.inc.php:212
 #: libraries/mult_submits.lib.php:359 libraries/mult_submits.lib.php:392
 #: libraries/mult_submits.lib.php:421 libraries/mult_submits.lib.php:448
@@ -223,11 +223,11 @@ msgstr "아니오"
 #: libraries/server_privileges.lib.php:3605
 #: libraries/server_privileges.lib.php:3631 libraries/tracking.lib.php:936
 #: libraries/tracking.lib.php:1006 libraries/tracking.lib.php:1011
-#: prefs_manage.php:148 templates/prefs_autoload.phtml:12
-#: templates/privileges/privileges_summary_row.phtml:4
-#: templates/privileges/privileges_summary_row.phtml:7
-#: templates/privileges/privileges_summary_row.phtml:9
-#: templates/table/structure/table_structure_row.phtml:24
+#: prefs_manage.php:148 templates/table/structure/table_structure_row.phtml:24
+#: templates/privileges/privileges_summary_row.twig:30
+#: templates/privileges/privileges_summary_row.twig:38
+#: templates/privileges/privileges_summary_row.twig:45
+#: templates/prefs_autoload.twig:38
 msgid "Yes"
 msgstr "예"
 
@@ -235,8 +235,8 @@ msgstr "예"
 msgid "View dump (schema) of database"
 msgstr "데이터베이스의 덤프(스키마) 데이터 보기"
 
-#: db_export.php:51 db_tracking.php:103 export.php:375 libraries/DbQbe.php:326
-#: libraries/controllers/database/DatabaseStructureController.php:156
+#: db_export.php:51 db_tracking.php:103 export.php:375 libraries/DbQbe.php:327
+#: libraries/controllers/database/DatabaseStructureController.php:168
 #: libraries/navigation/NavigationTree.php:924
 msgid "No tables found in database."
 msgstr "데이터베이스에 테이블이 없습니다."
@@ -252,8 +252,8 @@ msgid "Tables"
 msgstr "테이블"
 
 #: db_export.php:66 libraries/Menu.php:344 libraries/Menu.php:451
-#: libraries/Util.php:3160 libraries/Util.php:3170 libraries/Util.php:3176
-#: libraries/Util.php:3456 libraries/Util.php:4090 libraries/Util.php:4107
+#: libraries/Util.php:3161 libraries/Util.php:3171 libraries/Util.php:3177
+#: libraries/Util.php:3457 libraries/Util.php:4091 libraries/Util.php:4108
 #: libraries/central_columns.lib.php:727 libraries/config.values.php:38
 #: libraries/config.values.php:46 libraries/config.values.php:109
 #: libraries/config.values.php:115 libraries/config/setup.forms.php:316
@@ -292,17 +292,26 @@ msgstr "모두 선택"
 msgid "The database name is empty!"
 msgstr "데이터베이스명이 없습니다!"
 
-#: db_operations.php:138
+#: db_operations.php:53
+#, fuzzy
+#| msgid ""
+#| "Cannot rename database to the same name. Change the name and try again"
+msgid "Cannot copy database to the same name. Change the name and try again."
+msgstr ""
+"같은 이름으로 데이터베이스의 이름을 변경할 수 없습니다. 이름을 바꾸어 다시 시"
+"도해 주세요"
+
+#: db_operations.php:142
 #, php-format
 msgid "Database %1$s has been renamed to %2$s."
 msgstr "데이터베이스 %1$s 의 이름을 %2$s 로 변경하였습니다."
 
-#: db_operations.php:150
+#: db_operations.php:154
 #, php-format
 msgid "Database %1$s has been copied to %2$s."
 msgstr "데이터베이스 %1$s 을(를) %2$s 로 복사하였습니다."
 
-#: db_operations.php:279
+#: db_operations.php:283
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. %sFind out why%s."
@@ -319,7 +328,7 @@ msgstr "출력하려면 적어도 1개 이상의 열을 선택해야 합니다!"
 msgid "Switch to %svisual builder%s"
 msgstr "%s비주얼 쿼리 빌더%s로 전환"
 
-#: db_search.php:32 libraries/plugins/AuthenticationPlugin.php:110
+#: db_search.php:32 libraries/plugins/AuthenticationPlugin.php:133
 #: libraries/plugins/auth/AuthenticationConfig.php:89
 #: libraries/plugins/auth/AuthenticationConfig.php:104
 #: libraries/plugins/auth/AuthenticationHttp.php:75
@@ -464,11 +473,11 @@ msgstr "공간 데이터를 추가"
 #: libraries/display_import.lib.php:399 libraries/index.lib.php:34
 #: libraries/insert_edit.lib.php:1615 libraries/insert_edit.lib.php:1652
 #: libraries/normalization.lib.php:163 libraries/normalization.lib.php:820
-#: libraries/operations.lib.php:43 libraries/operations.lib.php:108
-#: libraries/operations.lib.php:258 libraries/operations.lib.php:300
-#: libraries/operations.lib.php:794 libraries/operations.lib.php:864
-#: libraries/operations.lib.php:909 libraries/operations.lib.php:1315
-#: libraries/operations.lib.php:1628
+#: libraries/operations.lib.php:43 libraries/operations.lib.php:107
+#: libraries/operations.lib.php:256 libraries/operations.lib.php:298
+#: libraries/operations.lib.php:792 libraries/operations.lib.php:862
+#: libraries/operations.lib.php:907 libraries/operations.lib.php:1313
+#: libraries/operations.lib.php:1626
 #: libraries/plugins/auth/AuthenticationCookie.php:243
 #: libraries/replication_gui.lib.php:122 libraries/replication_gui.lib.php:161
 #: libraries/replication_gui.lib.php:326 libraries/replication_gui.lib.php:463
@@ -484,15 +493,15 @@ msgstr "공간 데이터를 추가"
 #: libraries/tracking.lib.php:544 libraries/tracking.lib.php:667
 #: prefs_manage.php:285 prefs_manage.php:369 server_privileges.php:307
 #: templates/columns_definitions/column_definitions_form.phtml:69
-#: templates/database/create_table.phtml:21 templates/header_location.phtml:28
-#: templates/privileges/delete_user_fieldset.phtml:16
-#: templates/privileges/edit_routine_privileges.phtml:23
 #: templates/privileges/privileges_summary.phtml:63
 #: templates/server/binlog/log_selector.phtml:25
-#: templates/startAndNumberOfRowsPanel.phtml:14
 #: templates/table/index_form.phtml:241
 #: templates/table/search/selection_form.phtml:78
-#: templates/table/structure/add_column.phtml:25 view_create.php:300
+#: templates/table/structure/add_column.phtml:25
+#: templates/privileges/edit_routine_privileges.twig:76
+#: templates/start_and_number_of_rows_panel.twig:51
+#: templates/database/create_table.twig:56 templates/header_location.twig:45
+#: templates/privileges/delete_user_fieldset.twig:52 view_create.php:300
 #: view_operations.php:115
 msgid "Go"
 msgstr "실행"
@@ -590,15 +599,21 @@ msgstr "가져오기에 필요한 절차를 로드할 수 없습니다."
 
 #: import_status.php:114 js/messages.php:451 js/messages.php:615
 #: libraries/Util.php:689 libraries/export.lib.php:518
-#: libraries/plugins/schema/ExportRelationSchema.php:298 user_password.php:300
+#: libraries/plugins/schema/ExportRelationSchema.php:298 user_password.php:299
 msgid "Back"
 msgstr "뒤로"
 
-#: index.php:153 libraries/Footer.php:69
+#: index.php:116
+msgid ""
+"You were logged out from one server, to logout completely from phpMyAdmin, "
+"you need to logout from all servers."
+msgstr ""
+
+#: index.php:160 libraries/Footer.php:69
 msgid "phpMyAdmin Demo Server"
 msgstr "phpMyAdmin 데모 서버"
 
-#: index.php:157
+#: index.php:164
 #, php-format
 msgid ""
 "You are using the demo server. You can do anything here, but please do not "
@@ -608,111 +623,111 @@ msgstr ""
 "데모서버를 사용중입니다. 뭐든지 할 수있으나 root, debian-sys-maint, pma사용자"
 "는 변경하지 마세요. 추가정보는 %s에서 있습니다."
 
-#: index.php:167
+#: index.php:174
 msgid "General settings"
 msgstr "일반 설정"
 
-#: index.php:197 js/messages.php:640
+#: index.php:204 js/messages.php:640
 #: libraries/display_change_password.lib.php:47
-#: libraries/display_change_password.lib.php:50 user_password.php:294
+#: libraries/display_change_password.lib.php:50 user_password.php:293
 msgid "Change password"
 msgstr "암호 변경"
 
-#: index.php:214
+#: index.php:221
 msgid "Server connection collation"
 msgstr "서버 연결 콜레이션(언어)"
 
-#: index.php:235
+#: index.php:242
 msgid "Appearance settings"
 msgstr "외관 설정"
 
-#: index.php:268 prefs_manage.php:294
+#: index.php:275 prefs_manage.php:294
 msgid "More settings"
 msgstr "자세한 설정"
 
-#: index.php:290
+#: index.php:297
 msgid "Database server"
 msgstr "데이터베이스 서버"
 
-#: index.php:293 libraries/plugins/auth/AuthenticationCookie.php:188
+#: index.php:300 libraries/plugins/auth/AuthenticationCookie.php:188
 msgid "Server:"
 msgstr "서버:"
 
-#: index.php:297
+#: index.php:304
 msgid "Server type:"
 msgstr "서버 타입:"
 
-#: index.php:301 libraries/plugins/export/ExportLatex.php:220
+#: index.php:308 libraries/plugins/export/ExportLatex.php:220
 #: libraries/plugins/export/ExportSql.php:701
 #: libraries/plugins/export/ExportXml.php:242
 msgid "Server version:"
 msgstr "서버 버전:"
 
-#: index.php:307
+#: index.php:314
 msgid "Protocol version:"
 msgstr "제품 버전:"
 
-#: index.php:311
+#: index.php:318
 msgid "User:"
 msgstr "사용자:"
 
-#: index.php:316
+#: index.php:323
 msgid "Server charset:"
 msgstr "서버 문자셋:"
 
-#: index.php:329
+#: index.php:336
 msgid "Web server"
 msgstr "웹 서버"
 
-#: index.php:340
+#: index.php:347
 msgid "Database client version:"
 msgstr "데이터베이스 클라이언트 버전:"
 
-#: index.php:344
+#: index.php:351
 msgid "PHP extension:"
 msgstr "PHP 확장:"
 
-#: index.php:358
+#: index.php:365
 msgid "PHP version:"
 msgstr "PHP 버전:"
 
-#: index.php:369
+#: index.php:376
 msgid "Show PHP information"
 msgstr "PHP 정보 보기"
 
-#: index.php:388
+#: index.php:395
 msgid "Version information:"
 msgstr "버전 정보:"
 
-#: index.php:397 libraries/Sanitize.php:189 libraries/Util.php:336
+#: index.php:404 libraries/Sanitize.php:189 libraries/Util.php:336
 #: libraries/Util.php:403 libraries/config/FormDisplay.tpl.php:165
 #: libraries/display_export.lib.php:577 libraries/engines/Pbxt.php:166
 #: libraries/navigation/NavigationHeader.php:200
-#: templates/server/variables/link_template.phtml:9
+#: templates/server/variables/link_template.twig:35
 msgid "Documentation"
 msgstr "문서"
 
-#: index.php:406
+#: index.php:413
 msgid "Official Homepage"
 msgstr "phpMyAdmin 공식 홈"
 
-#: index.php:413
+#: index.php:420
 msgid "Contribute"
 msgstr "기여"
 
-#: index.php:420
+#: index.php:427
 msgid "Get support"
 msgstr "지원 받기"
 
-#: index.php:427
+#: index.php:434
 msgid "List of changes"
 msgstr "변경 목록"
 
-#: index.php:434 templates/server/plugins/section.phtml:12
+#: index.php:441 templates/server/plugins/section.phtml:12
 msgid "License"
 msgstr "라이선스"
 
-#: index.php:454
+#: index.php:461
 msgid ""
 "The mbstring PHP extension was not found and you seem to be using a "
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
@@ -722,7 +737,7 @@ msgstr ""
 "니다. mbstring PHP extension 이 없다면 phpMyAdmin 에서 문자열을 정확하게 나"
 "눌 수 없으며 이로 인해 예상하지 못한 결과가 발생 할 수 있습니다."
 
-#: index.php:469
+#: index.php:476
 msgid ""
 "The curl extension was not found and allow_url_fopen is disabled. Due to "
 "this some features such as error reporting or version check are disabled."
@@ -730,7 +745,7 @@ msgstr ""
 "curl 확장 기능이 발견되지 않았고 allow_url_fopen 이 비활성화 되어있습니다. 이"
 "로 인해 오류 보고나 버전 체크와 같은 기능들이 제한됩니다."
 
-#: index.php:484
+#: index.php:491
 msgid ""
 "Your PHP parameter [a@https://secure.php.net/manual/en/session.configuration."
 "php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
@@ -742,7 +757,7 @@ msgstr ""
 "phpMyAdmin 의 cookie 유효기간보다 작게 설정되어 있어, 로그인이 phpMyAdmin 설"
 "정값보다 빨리 만료될 수 있습니다."
 
-#: index.php:503
+#: index.php:510
 msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
@@ -750,15 +765,15 @@ msgstr ""
 "로그인 쿠키의 저장 시간이 phpMyAdmin에서 설정한 쿠키 유효 시간보다 짧게 설정"
 "되어 있어, 로그인이 설정한 것보다 일찍 만료됩니다."
 
-#: index.php:518
+#: index.php:525
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
 msgstr "이제 설정 파일은 암호화 문자열(blowfish_secret)을 필요로 합니다."
 
-#: index.php:525
+#: index.php:532
 msgid "The secret passphrase in configuration (blowfish_secret) is too short."
 msgstr "설정 파일의 암호 (blowfish_secret)가 너무 짧습니다."
 
-#: index.php:539
+#: index.php:546
 msgid ""
 "Directory [code]config[/code], which is used by the setup script, still "
 "exists in your phpMyAdmin directory. It is strongly recommended to remove it "
@@ -769,7 +784,7 @@ msgstr ""
 "도 존재합니다. phpMyAdmin 설정 완료후 꼭 삭제하세요. 그렇지 않으며 보안에 취"
 "약해 집니다."
 
-#: index.php:555
+#: index.php:562
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
@@ -778,12 +793,12 @@ msgstr ""
 "phpMyAdmin 설정 스토리지가 완전히 설정되지 않아, 일부 확장 기능들이 비활성화 "
 "된 상태입니다. 원인을 확인하려면 %s여기%s를 클릭하세요. "
 
-#: index.php:562
+#: index.php:569
 msgid ""
 "Or alternately go to 'Operations' tab of any database to set it up there."
 msgstr "대신 데이터베이스 작업 탭을 사용하여 설정할 수도 있습니다."
 
-#: index.php:587
+#: index.php:594
 #, php-format
 msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
@@ -791,6 +806,13 @@ msgid ""
 msgstr ""
 "Server 가 Suhosin 으로 운영중입니다. 이로 인해 발생할 수 있는 문제는 "
 "%sdocumentation%s 에서 확인이 가능합니다."
+
+#: index.php:608
+#, php-format
+msgid ""
+"The $cfg['TempDir'] (%s) is not accessible. phpMyAdmin is not able to cache "
+"templates and will be slow because of this."
+msgstr ""
 
 #: js/messages.php:43
 msgid "Confirm"
@@ -1038,12 +1060,12 @@ msgid "The user name is empty!"
 msgstr "사용자명이 없습니다!"
 
 #: js/messages.php:146 libraries/server_privileges.lib.php:1868
-#: user_password.php:120
+#: user_password.php:119
 msgid "The password is empty!"
 msgstr "암호가 없습니다!"
 
 #: js/messages.php:147 libraries/server_privileges.lib.php:1866
-#: user_password.php:124
+#: user_password.php:123
 msgid "The passwords aren't the same!"
 msgstr "암호가 동일하지 않습니다!"
 
@@ -1242,7 +1264,7 @@ msgstr "질의"
 msgid "Traffic"
 msgstr "소통량"
 
-#: js/messages.php:214 libraries/Menu.php:606 libraries/Util.php:4081
+#: js/messages.php:214 libraries/Menu.php:606 libraries/Util.php:4082
 #: libraries/server_status_monitor.lib.php:253
 msgid "Settings"
 msgstr "설정"
@@ -1262,10 +1284,10 @@ msgstr "하나 이상의 변수를 시리즈에 추가하십시오!"
 #: libraries/server_status_monitor.lib.php:232
 #: libraries/server_status_processes.lib.php:285
 #: templates/columns_definitions/transformation.phtml:4
-#: templates/database/designer/options_panel.phtml:178
 #: templates/privileges/privileges_summary.phtml:31
 #: templates/table/search/options_zoom.phtml:12
 #: templates/table/search/rows_zoom.phtml:24
+#: templates/database/designer/options_panel.twig:225
 msgid "None"
 msgstr "없음"
 
@@ -1458,7 +1480,7 @@ msgstr "분석중…"
 msgid "Explain output"
 msgstr "SQL 해석"
 
-#: js/messages.php:291 libraries/Menu.php:572 libraries/Util.php:4077
+#: js/messages.php:291 libraries/Menu.php:572 libraries/Util.php:4078
 #: libraries/config.values.php:104 libraries/rte/rte_events.lib.php:399
 #: libraries/rte/rte_list.lib.php:107
 #: libraries/server_status_processes.lib.php:92 libraries/tracking.lib.php:287
@@ -1470,7 +1492,7 @@ msgstr "상태"
 #: libraries/plugins/export/ExportHtmlword.php:486
 #: libraries/plugins/export/ExportOdt.php:605
 #: libraries/plugins/export/ExportTexytext.php:447
-#: libraries/plugins/export/PMA_ExportPdf.php:314
+#: libraries/plugins/export/helpers/Pdf.php:315
 #: libraries/rte/rte_list.lib.php:96
 #: libraries/server_status_processes.lib.php:88 libraries/sql.lib.php:241
 msgid "Time"
@@ -1555,8 +1577,8 @@ msgid ""
 msgstr "가져온 설정과 차트 격자를 그리는데 실패했습니다. 기본 설정으로 적용중…"
 
 #: js/messages.php:325 libraries/Menu.php:379 libraries/Menu.php:481
-#: libraries/Menu.php:602 libraries/Util.php:4080 libraries/Util.php:4095
-#: libraries/Util.php:4112 libraries/config/messages.inc.php:257
+#: libraries/Menu.php:602 libraries/Util.php:4081 libraries/Util.php:4096
+#: libraries/Util.php:4113 libraries/config/messages.inc.php:257
 #: libraries/display_import.lib.php:107
 #: libraries/server_status_monitor.lib.php:313 prefs_manage.php:246
 #: setup/frames/menu.inc.php:26
@@ -1619,15 +1641,14 @@ msgstr "SQL을 정렬하고 있습니다…"
 msgid "No parameters found!"
 msgstr "파라미터를 찾을 수 없습니다!"
 
-#: js/messages.php:350
-#: templates/database/designer/aggregate_query_panel.phtml:63
-#: templates/database/designer/delete_relation_panel.phtml:28
-#: templates/database/designer/having_query_panel.phtml:117
-#: templates/database/designer/new_relation_panel.phtml:88
-#: templates/database/designer/options_panel.phtml:253
-#: templates/database/designer/rename_to_panel.phtml:45
-#: templates/database/designer/where_query_panel.phtml:83
-#: templates/server/variables/link_template.phtml:5
+#: js/messages.php:350 templates/database/designer/rename_to_panel.twig:74
+#: templates/database/designer/options_panel.twig:320
+#: templates/database/designer/where_query_panel.twig:119
+#: templates/database/designer/delete_relation_panel.twig:56
+#: templates/database/designer/having_query_panel.twig:156
+#: templates/database/designer/new_relation_panel.twig:116
+#: templates/database/designer/aggregate_query_panel.twig:93
+#: templates/server/variables/link_template.twig:30
 msgid "Cancel"
 msgstr "취소"
 
@@ -1684,13 +1705,12 @@ msgstr "열 삭제 중"
 msgid "Adding primary key"
 msgstr "기본키 추가 중"
 
-#: js/messages.php:367
-#: templates/database/designer/aggregate_query_panel.phtml:59
-#: templates/database/designer/having_query_panel.phtml:113
-#: templates/database/designer/new_relation_panel.phtml:87
-#: templates/database/designer/options_panel.phtml:252
-#: templates/database/designer/rename_to_panel.phtml:41
-#: templates/database/designer/where_query_panel.phtml:82
+#: js/messages.php:367 templates/database/designer/rename_to_panel.twig:67
+#: templates/database/designer/options_panel.twig:315
+#: templates/database/designer/where_query_panel.twig:115
+#: templates/database/designer/having_query_panel.twig:149
+#: templates/database/designer/new_relation_panel.twig:111
+#: templates/database/designer/aggregate_query_panel.twig:86
 msgid "OK"
 msgstr "확인"
 
@@ -1710,7 +1730,7 @@ msgstr "데이터베이스 복사 중"
 msgid "Changing charset"
 msgstr "문자셋 변경 중"
 
-#: js/messages.php:377 libraries/Util.php:3059
+#: js/messages.php:377 libraries/Util.php:3060
 msgid "Enable foreign key checks"
 msgstr "외래 키(foreign key) 점검 사용"
 
@@ -1749,9 +1769,9 @@ msgstr "저장 함수의 정의는 RETURN문을 포함해야 합니다!"
 
 #: js/messages.php:393 libraries/DisplayResults.php:4870
 #: libraries/DisplayResults.php:5153 libraries/Menu.php:371
-#: libraries/Menu.php:472 libraries/Menu.php:598 libraries/Util.php:3463
-#: libraries/Util.php:3464 libraries/Util.php:4079 libraries/Util.php:4094
-#: libraries/Util.php:4111 libraries/config/messages.inc.php:251
+#: libraries/Menu.php:472 libraries/Menu.php:598 libraries/Util.php:3464
+#: libraries/Util.php:3465 libraries/Util.php:4080 libraries/Util.php:4095
+#: libraries/Util.php:4112 libraries/config/messages.inc.php:251
 #: libraries/display_export.lib.php:171 libraries/rte/rte_list.lib.php:159
 #: libraries/server_privileges.lib.php:2366
 #: libraries/server_privileges.lib.php:2450
@@ -1804,8 +1824,8 @@ msgstr "질의 상자 보이기"
 
 #: js/messages.php:412 libraries/DisplayResults.php:3491
 #: libraries/DisplayResults.php:4854 libraries/Index.php:709
-#: libraries/Util.php:619 libraries/Util.php:1106 libraries/Util.php:3461
-#: libraries/Util.php:3462 libraries/central_columns.lib.php:847
+#: libraries/Util.php:619 libraries/Util.php:1106 libraries/Util.php:3462
+#: libraries/Util.php:3463 libraries/central_columns.lib.php:847
 #: libraries/central_columns.lib.php:1193 libraries/config/messages.inc.php:879
 #: libraries/server_user_groups.lib.php:117 setup/frames/index.inc.php:160
 #: templates/console/bookmark_content.phtml:17
@@ -1822,7 +1842,7 @@ msgstr "수정"
 #: libraries/server_user_groups.lib.php:127
 #: libraries/sql_query_form.lib.php:422 libraries/tracking.lib.php:488
 #: setup/frames/index.inc.php:163 templates/console/bookmark_content.phtml:18
-#: templates/database/designer/delete_relation_panel.phtml:27
+#: templates/database/designer/delete_relation_panel.twig:51
 msgid "Delete"
 msgstr "삭제"
 
@@ -1992,10 +2012,10 @@ msgstr "의존성이 선택되지 않았습니다!"
 #: js/messages.php:472 libraries/central_columns.lib.php:1213
 #: libraries/insert_edit.lib.php:1527
 #: templates/columns_definitions/column_definitions_form.phtml:166
-#: templates/server/variables/link_template.phtml:2
 #: templates/table/gis_visualization/gis_visualization.phtml:48
 #: templates/table/relation/common_form.phtml:132
 #: templates/table/structure/partition_definition_form.phtml:11
+#: templates/server/variables/link_template.twig:24
 msgid "Save"
 msgstr "저장"
 
@@ -2330,9 +2350,9 @@ msgid "Select database first"
 msgstr "데이터베이스를 먼저 선택하세요"
 
 #: js/messages.php:614 libraries/DisplayResults.php:5045
-#: libraries/Util.php:3972
-#: templates/database/structure/print_view_data_dictionary_link.phtml:3
+#: libraries/Util.php:3973
 #: templates/table/structure/optional_action_links.phtml:6
+#: templates/database/structure/print_view_data_dictionary_link.twig:23
 msgid "Print"
 msgstr "인쇄"
 
@@ -2885,58 +2905,77 @@ msgstr "올바른 HEX값을 입력하세요"
 msgid "Error"
 msgstr "오류"
 
-#: libraries/Advisor.php:163
-#, php-format
-msgid "PHP threw following error: %s"
-msgstr "PHP에서 다음과 같은 오류가 발생했습니다: %s"
+#: libraries/Advisor.php:241
+#, fuzzy, php-format
+#| msgid "Error while creating PDF:"
+msgid "Error when evaluating: %s"
+msgstr "PDF 생성 중 오류 발생 :"
 
-#: libraries/Advisor.php:194
+#: libraries/Advisor.php:272
 #, php-format
 msgid "Failed evaluating precondition for rule '%s'."
 msgstr "규칙 '%s'에 대한 precondition 계산 실패."
 
-#: libraries/Advisor.php:211
+#: libraries/Advisor.php:289
 #, php-format
 msgid "Failed calculating value for rule '%s'."
 msgstr "규칙 '%s'에 대한 값 계산 실패."
 
-#: libraries/Advisor.php:230
+#: libraries/Advisor.php:308
 #, php-format
 msgid "Failed running test for rule '%s'."
 msgstr "규칙 '%s'에 대한 테스트를 실행 못 함."
 
-#: libraries/Advisor.php:310
+#: libraries/Advisor.php:388
 #, php-format
 msgid "Failed formatting string for rule '%s'."
 msgstr "규칙 '%s'를 변환하는데 실패했습니다."
 
-#: libraries/Advisor.php:469
+#: libraries/Advisor.php:476
 #, php-format
 msgid "Error in reading file: The file '%s' does not exist or is not readable!"
 msgstr "파일 읽기 오류: 파일 '%s'는 존재하지 않거나 읽을 수 없는 상태입니다!"
 
-#: libraries/Advisor.php:494
+#: libraries/Advisor.php:501
 #, php-format
 msgid ""
 "Invalid rule declaration on line %1$s, expected line %2$s of previous rule."
 msgstr "%1$s 행의 규칙이 잘못됨, 이전 규칙의 %2$s 행일 수 있음."
 
-#: libraries/Advisor.php:513
+#: libraries/Advisor.php:520
 #, php-format
 msgid "Invalid rule declaration on line %s."
 msgstr "%s 행에 잘못된 규칙 선언."
 
-#: libraries/Advisor.php:521
+#: libraries/Advisor.php:528
 #, php-format
 msgid "Unexpected characters on line %s."
 msgstr "%s 라인에 알 수 없는 문자가 있습니다."
 
-#: libraries/Advisor.php:536
+#: libraries/Advisor.php:543
 #, php-format
 msgid "Unexpected character on line %1$s. Expected tab, but found \"%2$s\"."
 msgstr ""
 "%1$s 행에 알 수 없는 문자가 있습니다. 탭 문자가 있어야 하지만, \"%2$s\"가 있"
 "습니다."
+
+#: libraries/Advisor.php:578
+msgid "per second"
+msgstr "초당"
+
+#: libraries/Advisor.php:581
+msgid "per minute"
+msgstr "분당"
+
+#: libraries/Advisor.php:584 libraries/server_status.lib.php:149
+#: libraries/server_status.lib.php:234
+#: libraries/server_status_queries.lib.php:93
+msgid "per hour"
+msgstr "시간당"
+
+#: libraries/Advisor.php:587
+msgid "per day"
+msgstr "하루당"
 
 #: libraries/Charsets.php:180
 #: templates/database/structure/table_header.phtml:84
@@ -2946,248 +2985,411 @@ msgstr "문자셋"
 #: libraries/Charsets.php:227 libraries/Index.php:688
 #: libraries/central_columns.lib.php:702 libraries/central_columns.lib.php:1384
 #: libraries/controllers/server/ServerDatabasesController.php:338
-#: libraries/operations.lib.php:288 libraries/operations.lib.php:1051
+#: libraries/operations.lib.php:286 libraries/operations.lib.php:1049
 #: libraries/tracking.lib.php:891 libraries/tracking.lib.php:982
 #: templates/columns_definitions/table_fields_definitions.phtml:33
 #: templates/database/structure/table_header.phtml:55
-#: templates/server/collations/charsets.phtml:4
-#: templates/table/search/table_header.phtml:8
 #: templates/table/structure/row_stats_table.phtml:30
 #: templates/table/structure/table_structure_header.phtml:9
+#: templates/table/search/table_header.twig:40
+#: templates/server/collations/charsets.twig:24
 msgid "Collation"
 msgstr "데이터정렬방식"
 
-#: libraries/Charsets.php:263 libraries/insert_edit.lib.php:402
+#: libraries/Charsets.php:264
+#, fuzzy
+#| msgid "unknown"
+msgid "Unknonwn"
+msgstr "알수없음"
+
+#: libraries/Charsets.php:278
+#, fuzzy
+#| msgid "Binary"
+msgctxt "Collation"
 msgid "Binary"
 msgstr "바이너리"
 
-#: libraries/Charsets.php:275
-msgid "Bulgarian"
-msgstr "불가리아어"
-
-#: libraries/Charsets.php:279 libraries/Charsets.php:420
-msgid "Simplified Chinese"
-msgstr "한문 (간자체)"
-
-#: libraries/Charsets.php:281 libraries/Charsets.php:440
-msgid "Traditional Chinese"
-msgstr "한문 (번자체)"
-
-#: libraries/Charsets.php:285
-msgid "case-insensitive"
-msgstr "대소문자 구분안함"
-
-#: libraries/Charsets.php:288
-msgid "case-sensitive"
-msgstr "대소문자 구분"
-
-#: libraries/Charsets.php:291
-msgid "Croatian"
-msgstr "크로아티아어"
-
-#: libraries/Charsets.php:294
-msgid "Czech"
-msgstr "체코어"
-
-#: libraries/Charsets.php:297
-msgid "Danish"
-msgstr "덴마크어"
-
-#: libraries/Charsets.php:300
-msgid "English"
-msgstr "영어"
-
-#: libraries/Charsets.php:303
-msgid "Esperanto"
-msgstr "에스페란토어"
-
-#: libraries/Charsets.php:306
-msgid "Estonian"
-msgstr "에스토니아어"
-
-#: libraries/Charsets.php:309 libraries/Charsets.php:312
-msgid "German"
-msgstr "독일어"
-
-#: libraries/Charsets.php:309
-msgid "dictionary"
-msgstr "사전"
-
-#: libraries/Charsets.php:312
-msgid "phone book"
-msgstr "전화번호부"
-
-#: libraries/Charsets.php:315
-msgid "Hungarian"
-msgstr "헝가리어"
-
-#: libraries/Charsets.php:318
-msgid "Icelandic"
-msgstr "아이슬란드어"
-
-#: libraries/Charsets.php:321 libraries/Charsets.php:427
-msgid "Japanese"
-msgstr "일본어"
-
-#: libraries/Charsets.php:324
-msgid "Latvian"
-msgstr "라트비아어"
-
-#: libraries/Charsets.php:327
-msgid "Lithuanian"
-msgstr "리투아니아어"
-
-#: libraries/Charsets.php:330 libraries/Charsets.php:449
-msgid "Korean"
-msgstr "한국어"
-
-#: libraries/Charsets.php:333
-msgid "Burmese"
-msgstr "버마어"
-
-#: libraries/Charsets.php:336
-msgid "Persian"
-msgstr "페르시아어"
-
-#: libraries/Charsets.php:339
-msgid "Polish"
-msgstr "폴란드어"
-
-#: libraries/Charsets.php:342 libraries/Charsets.php:403
-msgid "West European"
-msgstr "서유럽어"
-
-#: libraries/Charsets.php:345
-msgid "Romanian"
-msgstr "루마니어어"
-
-#: libraries/Charsets.php:348
-msgid "Sinhalese"
-msgstr "싱할라어"
-
-#: libraries/Charsets.php:351
-msgid "Slovak"
-msgstr "슬로바키아어"
-
-#: libraries/Charsets.php:354
-msgid "Slovenian"
-msgstr "슬로베니아어"
-
-#: libraries/Charsets.php:357
-msgid "Spanish"
-msgstr "스페인어"
-
-#: libraries/Charsets.php:360
-msgid "Traditional Spanish"
-msgstr "정통 스페인어"
-
-#: libraries/Charsets.php:363 libraries/Charsets.php:470
-msgid "Swedish"
-msgstr "스웨덴어"
-
-#: libraries/Charsets.php:366 libraries/Charsets.php:473
-msgid "Thai"
-msgstr "타이어"
-
-#: libraries/Charsets.php:369 libraries/Charsets.php:467
-msgid "Turkish"
-msgstr "터키어"
-
-#: libraries/Charsets.php:372 libraries/Charsets.php:464
-msgid "Ukrainian"
-msgstr "우크라이나어"
-
-#: libraries/Charsets.php:375 libraries/Charsets.php:394
+#: libraries/Charsets.php:290 libraries/Charsets.php:520
+#, fuzzy
+#| msgid "Unicode"
+msgctxt "Collation"
 msgid "Unicode"
 msgstr "유니코드"
 
-#: libraries/Charsets.php:375 libraries/Charsets.php:394
-#: libraries/Charsets.php:403 libraries/Charsets.php:410
-#: libraries/Charsets.php:432 libraries/Charsets.php:443
-msgid "multilingual"
-msgstr "다국어"
+#: libraries/Charsets.php:300 libraries/Charsets.php:471
+#, fuzzy
+#| msgid "West European"
+msgctxt "Collation"
+msgid "West European"
+msgstr "서유럽어"
 
-#: libraries/Charsets.php:378
-msgid "Vietnamese"
-msgstr "베트남어"
-
-#: libraries/Charsets.php:410
+#: libraries/Charsets.php:307
+#, fuzzy
+#| msgid "Central European"
+msgctxt "Collation"
 msgid "Central European"
 msgstr "중부유럽어"
 
-#: libraries/Charsets.php:415
+#: libraries/Charsets.php:312
+#, fuzzy
+#| msgid "Russian"
+msgctxt "Collation"
 msgid "Russian"
 msgstr "러시아어"
 
-#: libraries/Charsets.php:432
+#: libraries/Charsets.php:317
+#, fuzzy
+#| msgid "Simplified Chinese"
+msgctxt "Collation"
+msgid "Simplified Chinese"
+msgstr "한문 (간자체)"
+
+#: libraries/Charsets.php:324 libraries/Charsets.php:442
+#, fuzzy
+#| msgid "Japanese"
+msgctxt "Collation"
+msgid "Japanese"
+msgstr "일본어"
+
+#: libraries/Charsets.php:329
+#, fuzzy
+#| msgid "Baltic"
+msgctxt "Collation"
 msgid "Baltic"
 msgstr "발트어"
 
-#: libraries/Charsets.php:437
+#: libraries/Charsets.php:334
+#, fuzzy
+#| msgid "Armenian"
+msgctxt "Collation"
 msgid "Armenian"
 msgstr "아르메니아어"
 
-#: libraries/Charsets.php:443
+#: libraries/Charsets.php:337
+#, fuzzy
+#| msgid "Traditional Chinese"
+msgctxt "Collation"
+msgid "Traditional Chinese"
+msgstr "한문 (번자체)"
+
+#: libraries/Charsets.php:340
+#, fuzzy
+#| msgid "Cyrillic"
+msgctxt "Collation"
 msgid "Cyrillic"
 msgstr "키릴어"
 
-#: libraries/Charsets.php:446
+#: libraries/Charsets.php:343
+#, fuzzy
+#| msgid "Arabic"
+msgctxt "Collation"
 msgid "Arabic"
 msgstr "아라비아어"
 
-#: libraries/Charsets.php:452
+#: libraries/Charsets.php:346 libraries/Charsets.php:457
+#, fuzzy
+#| msgid "Korean"
+msgctxt "Collation"
+msgid "Korean"
+msgstr "한국어"
+
+#: libraries/Charsets.php:349
+#, fuzzy
+#| msgid "Hebrew"
+msgctxt "Collation"
 msgid "Hebrew"
 msgstr "히브리어"
 
-#: libraries/Charsets.php:455
+#: libraries/Charsets.php:352
+#, fuzzy
+#| msgid "Georgian"
+msgctxt "Collation"
 msgid "Georgian"
 msgstr "조지아어"
 
-#: libraries/Charsets.php:458
+#: libraries/Charsets.php:355
+#, fuzzy
+#| msgid "Greek"
+msgctxt "Collation"
 msgid "Greek"
 msgstr "그리스어"
 
-#: libraries/Charsets.php:461
+#: libraries/Charsets.php:358
+#, fuzzy
+#| msgid "Czech-Slovak"
+msgctxt "Collation"
 msgid "Czech-Slovak"
 msgstr "체코슬로바키아어"
 
-#: libraries/Charsets.php:476 libraries/Charsets.php:483
-#: libraries/controllers/database/DatabaseStructureController.php:989
-msgid "unknown"
+#: libraries/Charsets.php:361 libraries/Charsets.php:512
+#, fuzzy
+#| msgid "Ukrainian"
+msgctxt "Collation"
+msgid "Ukrainian"
+msgstr "우크라이나어"
+
+#: libraries/Charsets.php:364 libraries/Charsets.php:508
+#, fuzzy
+#| msgid "Turkish"
+msgctxt "Collation"
+msgid "Turkish"
+msgstr "터키어"
+
+#: libraries/Charsets.php:367 libraries/Charsets.php:500
+#, fuzzy
+#| msgid "Swedish"
+msgctxt "Collation"
+msgid "Swedish"
+msgstr "스웨덴어"
+
+#: libraries/Charsets.php:370 libraries/Charsets.php:504
+#, fuzzy
+#| msgid "Thai"
+msgctxt "Collation"
+msgid "Thai"
+msgstr "타이어"
+
+#: libraries/Charsets.php:373
+#, fuzzy
+#| msgid "unknown"
+msgctxt "Collation"
+msgid "Unknown"
 msgstr "알수없음"
 
-#: libraries/Charsets.php:480
-msgid "binary collation"
-msgstr "바이너리 정렬 방식"
+#: libraries/Charsets.php:389
+#, fuzzy
+#| msgid "Bulgarian"
+msgctxt "Collation"
+msgid "Bulgarian"
+msgstr "불가리아어"
+
+#: libraries/Charsets.php:394
+msgctxt "Collation"
+msgid "Chinese"
+msgstr ""
+
+#: libraries/Charsets.php:399
+#, fuzzy
+#| msgid "Croatian"
+msgctxt "Collation"
+msgid "Croatian"
+msgstr "크로아티아어"
+
+#: libraries/Charsets.php:403
+#, fuzzy
+#| msgid "Czech"
+msgctxt "Collation"
+msgid "Czech"
+msgstr "체코어"
+
+#: libraries/Charsets.php:407
+#, fuzzy
+#| msgid "Danish"
+msgctxt "Collation"
+msgid "Danish"
+msgstr "덴마크어"
+
+#: libraries/Charsets.php:411
+#, fuzzy
+#| msgid "English"
+msgctxt "Collation"
+msgid "English"
+msgstr "영어"
+
+#: libraries/Charsets.php:415
+#, fuzzy
+#| msgid "Esperanto"
+msgctxt "Collation"
+msgid "Esperanto"
+msgstr "에스페란토어"
+
+#: libraries/Charsets.php:419
+#, fuzzy
+#| msgid "Estonian"
+msgctxt "Collation"
+msgid "Estonian"
+msgstr "에스토니아어"
+
+#: libraries/Charsets.php:422 libraries/Charsets.php:539
+#, fuzzy
+#| msgid "Data Dictionary"
+msgctxt "Collation"
+msgid "German (dictionary order)"
+msgstr "데이터 사전 (전체 구조보기)"
+
+#: libraries/Charsets.php:425 libraries/Charsets.php:536
+msgctxt "Collation"
+msgid "German (phone book order)"
+msgstr ""
+
+#: libraries/Charsets.php:434
+#, fuzzy
+#| msgid "Hungarian"
+msgctxt "Collation"
+msgid "Hungarian"
+msgstr "헝가리어"
+
+#: libraries/Charsets.php:438
+#, fuzzy
+#| msgid "Icelandic"
+msgctxt "Collation"
+msgid "Icelandic"
+msgstr "아이슬란드어"
+
+#: libraries/Charsets.php:445
+msgctxt "Collation"
+msgid "Classical Latin"
+msgstr ""
+
+#: libraries/Charsets.php:449
+#, fuzzy
+#| msgid "Latvian"
+msgctxt "Collation"
+msgid "Latvian"
+msgstr "라트비아어"
+
+#: libraries/Charsets.php:453
+#, fuzzy
+#| msgid "Lithuanian"
+msgctxt "Collation"
+msgid "Lithuanian"
+msgstr "리투아니아어"
+
+#: libraries/Charsets.php:461
+#, fuzzy
+#| msgid "Burmese"
+msgctxt "Collation"
+msgid "Burmese"
+msgstr "버마어"
+
+#: libraries/Charsets.php:464
+#, fuzzy
+#| msgid "Persian"
+msgctxt "Collation"
+msgid "Persian"
+msgstr "페르시아어"
+
+#: libraries/Charsets.php:468
+#, fuzzy
+#| msgid "Polish"
+msgctxt "Collation"
+msgid "Polish"
+msgstr "폴란드어"
+
+#: libraries/Charsets.php:475
+#, fuzzy
+#| msgid "Romanian"
+msgctxt "Collation"
+msgid "Romanian"
+msgstr "루마니어어"
+
+#: libraries/Charsets.php:479
+#, fuzzy
+#| msgid "Sinhalese"
+msgctxt "Collation"
+msgid "Sinhalese"
+msgstr "싱할라어"
+
+#: libraries/Charsets.php:483
+#, fuzzy
+#| msgid "Slovak"
+msgctxt "Collation"
+msgid "Slovak"
+msgstr "슬로바키아어"
 
 #: libraries/Charsets.php:487
-msgid "case-insensitive collation"
-msgstr "대소문자 구분 없는 정렬 방식"
+#, fuzzy
+#| msgid "Slovenian"
+msgctxt "Collation"
+msgid "Slovenian"
+msgstr "슬로베니아어"
 
-#: libraries/Charsets.php:489
-msgid "case-sensitive collation"
-msgstr "대소문자 구분 있는 정렬 방식"
+#: libraries/Charsets.php:490 libraries/Charsets.php:550
+#, fuzzy
+#| msgid "Spanish"
+msgctxt "Collation"
+msgid "Spanish (modern)"
+msgstr "스페인어"
 
-#: libraries/Config.php:1119
+#: libraries/Charsets.php:497 libraries/Charsets.php:547
+msgctxt "Collation"
+msgid "Spanish (traditional)"
+msgstr ""
+
+#: libraries/Charsets.php:516
+#, fuzzy
+#| msgid "Vietnamese"
+msgctxt "Collation"
+msgid "Vietnamese"
+msgstr "베트남어"
+
+#: libraries/Charsets.php:583
+#, fuzzy
+#| msgid "case-insensitive"
+msgctxt "Collation variant"
+msgid "case-insensitive"
+msgstr "대소문자 구분안함"
+
+#: libraries/Charsets.php:586
+#, fuzzy
+#| msgid "case-sensitive"
+msgctxt "Collation variant"
+msgid "case-sensitive"
+msgstr "대소문자 구분"
+
+#: libraries/Charsets.php:589
+#, fuzzy
+#| msgid "case-insensitive"
+msgctxt "Collation variant"
+msgid "accent-insensitive"
+msgstr "대소문자 구분안함"
+
+#: libraries/Charsets.php:592
+#, fuzzy
+#| msgid "case-sensitive"
+msgctxt "Collation variant"
+msgid "accent-sensitive"
+msgstr "대소문자 구분"
+
+#: libraries/Charsets.php:595
+#, fuzzy
+#| msgid "Right"
+msgctxt "Collation variant"
+msgid "weight=2"
+msgstr "오른쪽"
+
+#: libraries/Charsets.php:598
+msgctxt "Collation variant"
+msgid "level=2"
+msgstr ""
+
+#: libraries/Charsets.php:601
+#, fuzzy
+#| msgid "Binary"
+msgctxt "Collation variant"
+msgid "binary"
+msgstr "바이너리"
+
+#: libraries/Config.php:1116
 #, php-format
 msgid "Existing configuration file (%s) is not readable."
 msgstr "이미 존재하고 있는 환경설정 파일 (%s) 을 읽을 수 없습니다."
 
-#: libraries/Config.php:1149
+#: libraries/Config.php:1146
 msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr ""
 "설정 파일에 잘못된 권한이 지정되어있습니다. 익명 쓰기 권한이면 안됩니다!"
 
-#: libraries/Config.php:1169
+#: libraries/Config.php:1166
 #, php-format
 msgid "Could not load default configuration from: %1$s"
 msgstr "기본 설정을 가져올 수 없습니다: %1$s"
 
-#: libraries/Config.php:1176
+#: libraries/Config.php:1173
 msgid "Failed to read configuration file!"
 msgstr "설정 파일을 읽는데 실패했습니다!"
 
-#: libraries/Config.php:1179
+#: libraries/Config.php:1176
 msgid ""
 "This usually means there is a syntax error in it, please check any errors "
 "shown below."
@@ -3195,7 +3397,7 @@ msgstr ""
 "일반적으로 이것은 문법 오류가 있음을 의미합니다. 다음의 모든 오류를 확인하십"
 "시오."
 
-#: libraries/Config.php:1558
+#: libraries/Config.php:1555
 msgid "Font size"
 msgstr "글꼴 크기"
 
@@ -3213,11 +3415,11 @@ msgstr "북마크 없음"
 msgid "SQL Query Console"
 msgstr "SQL 질의 콘솔"
 
-#: libraries/DatabaseInterface.php:1418
+#: libraries/DatabaseInterface.php:1422
 msgid "Failed to set configured collation connection!"
 msgstr "정렬 방식 연결을 구성하는데 실패했습니다!"
 
-#: libraries/DatabaseInterface.php:2030
+#: libraries/DatabaseInterface.php:2034
 msgid ""
 "The server is not responding (or the local server's socket is not correctly "
 "configured)."
@@ -3225,34 +3427,34 @@ msgstr ""
 "서버가 응답하지 않습니다 (또는 로컬 서버의 소켓이 현재 제대로 구성되어 있지 "
 "않습니다)."
 
-#: libraries/DatabaseInterface.php:2035
+#: libraries/DatabaseInterface.php:2039
 msgid "The server is not responding."
 msgstr "서버가 응답하지 않습니다."
 
-#: libraries/DatabaseInterface.php:2039
+#: libraries/DatabaseInterface.php:2043
 msgid "Logout and try as another user."
 msgstr ""
 
-#: libraries/DatabaseInterface.php:2045
+#: libraries/DatabaseInterface.php:2049
 msgid "Please check privileges of directory containing database."
 msgstr "디렉토리를 포함하는 데이터베이스의 권한을 확인하십시오."
 
-#: libraries/DatabaseInterface.php:2056
+#: libraries/DatabaseInterface.php:2060
 msgid "Details…"
 msgstr "자세히…"
 
-#: libraries/DatabaseInterface.php:2354
+#: libraries/DatabaseInterface.php:2358
 msgid "Missing connection parameters!"
 msgstr "연결의 파라미터가 없습니다!"
 
-#: libraries/DatabaseInterface.php:2378
+#: libraries/DatabaseInterface.php:2382
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr "관리사용자(controluser, 설정에 정의됨)로서의 접속에 실패."
 
-#: libraries/DbQbe.php:405 libraries/DisplayResults.php:2277
+#: libraries/DbQbe.php:406 libraries/DisplayResults.php:2277
 #: libraries/DisplayResults.php:2283 libraries/config.values.php:69
 #: libraries/controllers/server/ServerDatabasesController.php:550
-#: libraries/operations.lib.php:787
+#: libraries/operations.lib.php:785
 #: libraries/server_status_processes.lib.php:167
 #: templates/database/structure/sortable_header.phtml:21
 #: templates/database/structure/sortable_header.phtml:38
@@ -3260,10 +3462,10 @@ msgstr "관리사용자(controluser, 설정에 정의됨)로서의 접속에 실
 msgid "Ascending"
 msgstr "오름차순"
 
-#: libraries/DbQbe.php:408 libraries/DisplayResults.php:2273
+#: libraries/DbQbe.php:409 libraries/DisplayResults.php:2273
 #: libraries/DisplayResults.php:2287 libraries/config.values.php:70
 #: libraries/controllers/server/ServerDatabasesController.php:550
-#: libraries/operations.lib.php:790
+#: libraries/operations.lib.php:788
 #: libraries/server_status_processes.lib.php:164
 #: templates/database/structure/sortable_header.phtml:26
 #: templates/database/structure/sortable_header.phtml:43
@@ -3271,11 +3473,11 @@ msgstr "오름차순"
 msgid "Descending"
 msgstr "내림차순"
 
-#: libraries/DbQbe.php:467 templates/table/search/search_and_replace.phtml:6
+#: libraries/DbQbe.php:468 templates/table/search/search_and_replace.phtml:6
 msgid "Column:"
 msgstr "컬럼명:"
 
-#: libraries/DbQbe.php:513
+#: libraries/DbQbe.php:514
 msgid "Alias:"
 msgstr "별칭:"
 
@@ -3295,76 +3497,76 @@ msgstr "보기:"
 msgid "Criteria:"
 msgstr "조건:"
 
-#: libraries/DbQbe.php:797
+#: libraries/DbQbe.php:796
 msgid "Add/Delete criteria rows"
 msgstr "조건행 추가/삭제"
 
-#: libraries/DbQbe.php:797
+#: libraries/DbQbe.php:796
 msgid "Add/Delete columns"
 msgstr "컬럼 추가/삭제"
 
-#: libraries/DbQbe.php:824 libraries/DbQbe.php:856
+#: libraries/DbQbe.php:823 libraries/DbQbe.php:855
 msgid "Update Query"
 msgstr "질의 업데이트"
 
-#: libraries/DbQbe.php:839
+#: libraries/DbQbe.php:838
 msgid "Use Tables"
 msgstr "사용할 테이블"
 
-#: libraries/DbQbe.php:877 libraries/DbQbe.php:988
+#: libraries/DbQbe.php:876 libraries/DbQbe.php:987
 msgid "Or:"
 msgstr "또는:"
 
-#: libraries/DbQbe.php:881 libraries/DbQbe.php:973
+#: libraries/DbQbe.php:880 libraries/DbQbe.php:972
 msgid "And:"
 msgstr "그리고:"
 
-#: libraries/DbQbe.php:886
+#: libraries/DbQbe.php:885
 msgid "Ins"
 msgstr "삽입"
 
-#: libraries/DbQbe.php:889
+#: libraries/DbQbe.php:888
 msgid "Del"
 msgstr "삭제"
 
-#: libraries/DbQbe.php:905
+#: libraries/DbQbe.php:904
 msgid "Modify:"
 msgstr "수정:"
 
-#: libraries/DbQbe.php:968
+#: libraries/DbQbe.php:967
 msgid "Ins:"
 msgstr "삽입:"
 
-#: libraries/DbQbe.php:983
+#: libraries/DbQbe.php:982
 msgid "Del:"
 msgstr "삭제:"
 
-#: libraries/DbQbe.php:1846
+#: libraries/DbQbe.php:1845
 #, php-format
 msgid "SQL query on database <b>%s</b>:"
 msgstr "데이터베이스 <b>%s</b>에 SQL 질의:"
 
-#: libraries/DbQbe.php:1865
+#: libraries/DbQbe.php:1864
 msgid "Submit Query"
 msgstr "질의 실행"
 
-#: libraries/DbQbe.php:1879
+#: libraries/DbQbe.php:1878
 msgid "Saved bookmarked search:"
 msgstr "저장된 북마크 검색:"
 
-#: libraries/DbQbe.php:1881
+#: libraries/DbQbe.php:1880
 msgid "New bookmark"
 msgstr "새 북마크"
 
-#: libraries/DbQbe.php:1907
+#: libraries/DbQbe.php:1906
 msgid "Create bookmark"
 msgstr "북마크 생성"
 
-#: libraries/DbQbe.php:1910
+#: libraries/DbQbe.php:1909
 msgid "Update bookmark"
 msgstr "북마크 업데이트"
 
-#: libraries/DbQbe.php:1912
+#: libraries/DbQbe.php:1911
 msgid "Delete bookmark"
 msgstr "북마크 삭제"
 
@@ -3411,9 +3613,9 @@ msgid "%1$s match in <strong>%2$s</strong>"
 msgid_plural "%1$s matches in <strong>%2$s</strong>"
 msgstr[0] "<strong>%2$s</strong> 에서 %1$s 건 일치"
 
-#: libraries/DbSearch.php:346 libraries/Menu.php:338 libraries/Util.php:3164
-#: libraries/Util.php:3174 libraries/Util.php:3450 libraries/Util.php:3451
-#: libraries/Util.php:4106 libraries/config.values.php:42
+#: libraries/DbSearch.php:346 libraries/Menu.php:338 libraries/Util.php:3165
+#: libraries/Util.php:3175 libraries/Util.php:3451 libraries/Util.php:3452
+#: libraries/Util.php:4107 libraries/config.values.php:42
 #: libraries/config.values.php:50 libraries/config.values.php:119
 #: libraries/navigation/nodes/NodeTable.php:311
 #: templates/table/structure/check_all_table_column.phtml:12
@@ -3465,30 +3667,30 @@ msgstr "행 필터링"
 msgid "Search this table"
 msgstr "현재 테이블 검색"
 
-#: libraries/DisplayResults.php:989 libraries/Util.php:2437
-#: libraries/Util.php:2440
+#: libraries/DisplayResults.php:989 libraries/Util.php:2438
+#: libraries/Util.php:2441
 msgctxt "First page"
 msgid "Begin"
 msgstr "처음"
 
-#: libraries/DisplayResults.php:992 libraries/Util.php:2438
-#: libraries/Util.php:2441
+#: libraries/DisplayResults.php:992 libraries/Util.php:2439
+#: libraries/Util.php:2442
 #: libraries/controllers/server/ServerBinlogController.php:194
 #: libraries/controllers/server/ServerBinlogController.php:196
 msgctxt "Previous page"
 msgid "Previous"
 msgstr "이전"
 
-#: libraries/DisplayResults.php:1058 libraries/Util.php:2469
-#: libraries/Util.php:2479
+#: libraries/DisplayResults.php:1058 libraries/Util.php:2470
+#: libraries/Util.php:2480
 #: libraries/controllers/server/ServerBinlogController.php:228
 #: libraries/controllers/server/ServerBinlogController.php:230
 msgctxt "Next page"
 msgid "Next"
 msgstr "다음"
 
-#: libraries/DisplayResults.php:1088 libraries/Util.php:2470
-#: libraries/Util.php:2480
+#: libraries/DisplayResults.php:1088 libraries/Util.php:2471
+#: libraries/Util.php:2481
 msgctxt "Last page"
 msgid "End"
 msgstr "마지막"
@@ -3498,7 +3700,7 @@ msgid "All"
 msgstr "모두"
 
 #: libraries/DisplayResults.php:1141 libraries/display_export.lib.php:437
-#: templates/startAndNumberOfRowsPanel.phtml:10
+#: templates/start_and_number_of_rows_panel.twig:41
 msgid "Number of rows:"
 msgstr "행 갯수:"
 
@@ -3588,7 +3790,7 @@ msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
 msgstr "근사값입니다. [doc@faq3-11]FAQ 3.11[/doc]를 참조하세요."
 
 #: libraries/DisplayResults.php:4349 libraries/Message.php:171
-#: libraries/controllers/table/TableRelationController.php:252
+#: libraries/controllers/table/TableRelationController.php:253
 #: libraries/controllers/table/TableSearchController.php:567
 #: libraries/rte/rte_routines.lib.php:1444 libraries/sql_query_form.lib.php:92
 #: tbl_row_action.php:141 view_operations.php:69
@@ -3596,7 +3798,7 @@ msgid "Your SQL query has been executed successfully."
 msgstr "쿼리가 성공적으로 실행되었습니다."
 
 #: libraries/DisplayResults.php:4696
-#: libraries/controllers/database/DatabaseStructureController.php:773
+#: libraries/controllers/database/DatabaseStructureController.php:785
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to %sdocumentation"
@@ -3628,7 +3830,7 @@ msgstr "질의 실행시간 %01.4f 초."
 #: libraries/mult_submits.inc.php:53
 #: templates/database/structure/check_all_tables.phtml:2
 #: templates/database/structure/check_all_tables.phtml:9
-#: templates/select_all.phtml:2 templates/select_all.phtml:7
+#: templates/select_all.twig:26 templates/select_all.twig:44
 msgid "With selected:"
 msgstr "선택한 것을:"
 
@@ -3638,8 +3840,8 @@ msgstr "선택한 것을:"
 #: libraries/server_user_groups.lib.php:230
 #: templates/database/structure/check_all_tables.phtml:3
 #: templates/database/structure/check_all_tables.phtml:4
-#: templates/privileges/global_priv_table.phtml:5 templates/select_all.phtml:4
-#: templates/select_all.phtml:5
+#: templates/privileges/global_priv_table.phtml:5 templates/select_all.twig:34
+#: templates/select_all.twig:40
 msgid "Check all"
 msgstr "모두 체크"
 
@@ -3682,7 +3884,7 @@ msgstr "오류메시지가 너무 많기 때문에 일부 메시지는 출력되
 msgid "Report"
 msgstr "보고"
 
-#: libraries/ErrorHandler.php:364 templates/error/report_form.phtml:27
+#: libraries/ErrorHandler.php:364 templates/error/report_form.twig:55
 msgid "Automatically send report next time"
 msgstr "다음부터 보고를 자동으로 보내기"
 
@@ -3799,9 +4001,9 @@ msgstr "인덱스"
 #: templates/database/structure/table_header.phtml:30
 #: templates/privileges/privileges_summary.phtml:23
 #: templates/server/databases/table_header.phtml:37
-#: templates/server/variables/variable_table_head.phtml:3
 #: templates/table/structure/display_partitions.phtml:35
 #: templates/table/structure/table_structure_header.phtml:25
+#: templates/server/variables/variable_table_head.twig:23
 msgid "Action"
 msgstr "실행"
 
@@ -3811,11 +4013,11 @@ msgid "Keyname"
 msgstr "키 이름"
 
 #: libraries/Index.php:684
-#: libraries/controllers/table/TableStructureController.php:1181
-#: libraries/controllers/table/TableStructureController.php:1186
+#: libraries/controllers/table/TableStructureController.php:1182
+#: libraries/controllers/table/TableStructureController.php:1187
 #: libraries/tracking.lib.php:978
-#: templates/columns_definitions/column_indexes.phtml:11
 #: templates/table/structure/check_all_table_column.phtml:32
+#: templates/columns_definitions/column_indexes.twig:47
 msgid "Unique"
 msgstr "고유값"
 
@@ -3845,11 +4047,11 @@ msgstr "기본 키를 제거했습니다."
 msgid "Index %s has been dropped."
 msgstr "인덱스 %s 를 제거했습니다."
 
-#: libraries/Index.php:736 libraries/Util.php:3457 libraries/Util.php:3458
+#: libraries/Index.php:736 libraries/Util.php:3458 libraries/Util.php:3459
 #: libraries/controllers/server/ServerDatabasesController.php:402
-#: libraries/controllers/table/TableStructureController.php:1177
 #: libraries/controllers/table/TableStructureController.php:1178
-#: libraries/operations.lib.php:1577 libraries/rte/rte_list.lib.php:163
+#: libraries/controllers/table/TableStructureController.php:1179
+#: libraries/operations.lib.php:1575 libraries/rte/rte_list.lib.php:163
 #: templates/database/structure/check_all_tables.phtml:17
 #: templates/table/relation/foreign_key_row.phtml:85
 #: templates/table/structure/check_all_table_column.phtml:22
@@ -3865,7 +4067,7 @@ msgid ""
 msgstr ""
 "인덱스 %1$s와 %2$s는 동일한 것으로, 두 가지 중 하나는 제거해도 상관없습니다."
 
-#: libraries/Language.php:194 libraries/PDF.php:70 libraries/Util.php:2426
+#: libraries/Language.php:194 libraries/PDF.php:70 libraries/Util.php:2427
 #: libraries/browse_foreigners.lib.php:320
 #: libraries/plugins/schema/pdf/PdfRelationSchema.php:495
 #: libraries/plugins/schema/pdf/PdfRelationSchema.php:520
@@ -3949,8 +4151,8 @@ msgid "“%s”"
 msgstr ""
 
 #: libraries/Menu.php:352 libraries/Menu.php:455 libraries/Menu.php:568
-#: libraries/Util.php:3161 libraries/Util.php:3171 libraries/Util.php:3177
-#: libraries/Util.php:4076 libraries/Util.php:4091 libraries/Util.php:4108
+#: libraries/Util.php:3162 libraries/Util.php:3172 libraries/Util.php:3178
+#: libraries/Util.php:4077 libraries/Util.php:4092 libraries/Util.php:4109
 #: libraries/config.values.php:39 libraries/config.values.php:47
 #: libraries/config.values.php:110 libraries/config.values.php:116
 #: libraries/config/messages.inc.php:320
@@ -3958,25 +4160,25 @@ msgstr ""
 msgid "SQL"
 msgstr "SQL"
 
-#: libraries/Menu.php:355 libraries/Menu.php:458 libraries/Util.php:3162
-#: libraries/Util.php:3172 libraries/Util.php:3178 libraries/Util.php:3452
-#: libraries/Util.php:3453 libraries/Util.php:4092 libraries/Util.php:4109
+#: libraries/Menu.php:355 libraries/Menu.php:458 libraries/Util.php:3163
+#: libraries/Util.php:3173 libraries/Util.php:3179 libraries/Util.php:3453
+#: libraries/Util.php:3454 libraries/Util.php:4093 libraries/Util.php:4110
 #: libraries/config.values.php:40 libraries/config.values.php:48
 #: libraries/config.values.php:111 libraries/config.values.php:117
 #: libraries/navigation/nodes/NodeTable.php:296
 msgid "Search"
 msgstr "검색"
 
-#: libraries/Menu.php:365 libraries/Util.php:3163 libraries/Util.php:3173
-#: libraries/Util.php:3454 libraries/Util.php:3455 libraries/Util.php:4110
+#: libraries/Menu.php:365 libraries/Util.php:3164 libraries/Util.php:3174
+#: libraries/Util.php:3455 libraries/Util.php:3456 libraries/Util.php:4111
 #: libraries/config.values.php:41 libraries/config.values.php:49
 #: libraries/config.values.php:118 libraries/navigation/nodes/NodeTable.php:302
 #: libraries/sql_query_form.lib.php:289 libraries/sql_query_form.lib.php:292
 msgid "Insert"
 msgstr "삽입"
 
-#: libraries/Menu.php:389 libraries/Menu.php:493 libraries/Util.php:4097
-#: libraries/Util.php:4113 libraries/config.values.php:106
+#: libraries/Menu.php:389 libraries/Menu.php:493 libraries/Util.php:4098
+#: libraries/Util.php:4114 libraries/config.values.php:106
 #: libraries/server_common.lib.php:48 libraries/server_privileges.lib.php:2530
 #: libraries/server_privileges.lib.php:4371
 #: templates/privileges/privileges_summary.phtml:16
@@ -3984,19 +4186,19 @@ msgid "Privileges"
 msgstr "권한"
 
 #: libraries/Menu.php:398 libraries/Menu.php:406 libraries/Menu.php:485
-#: libraries/Util.php:3165 libraries/Util.php:3179 libraries/Util.php:4096
-#: libraries/Util.php:4114 libraries/config.values.php:112
+#: libraries/Util.php:3166 libraries/Util.php:3180 libraries/Util.php:4097
+#: libraries/Util.php:4115 libraries/config.values.php:112
 #: view_operations.php:101
 msgid "Operations"
 msgstr "테이블 작업"
 
-#: libraries/Menu.php:411 libraries/Menu.php:515 libraries/Util.php:4101
-#: libraries/Util.php:4115 libraries/relation.lib.php:264
+#: libraries/Menu.php:411 libraries/Menu.php:515 libraries/Util.php:4102
+#: libraries/Util.php:4116 libraries/relation.lib.php:264
 msgid "Tracking"
 msgstr "SQL 명령어 트래킹"
 
-#: libraries/Menu.php:423 libraries/Menu.php:509 libraries/Util.php:4100
-#: libraries/Util.php:4116
+#: libraries/Menu.php:423 libraries/Menu.php:509 libraries/Util.php:4101
+#: libraries/Util.php:4117
 #: libraries/navigation/nodes/NodeTriggerContainer.php:25
 #: libraries/plugins/export/ExportHtmlword.php:578
 #: libraries/plugins/export/ExportOdt.php:713
@@ -4012,16 +4214,16 @@ msgstr "트리거"
 msgid "Database seems to be empty!"
 msgstr "데이터베이스가 비어있는 것 같습니다!"
 
-#: libraries/Menu.php:465 libraries/Util.php:4093
+#: libraries/Menu.php:465 libraries/Util.php:4094
 msgid "Query"
 msgstr "질의 마법사"
 
-#: libraries/Menu.php:498 libraries/Util.php:4098
+#: libraries/Menu.php:498 libraries/Util.php:4099
 #: libraries/rte/rte_words.lib.php:44
 msgid "Routines"
 msgstr "루틴"
 
-#: libraries/Menu.php:503 libraries/Util.php:4099
+#: libraries/Menu.php:503 libraries/Util.php:4100
 #: libraries/navigation/nodes/NodeEventContainer.php:25
 #: libraries/plugins/export/ExportSql.php:961
 #: libraries/plugins/export/ExportXml.php:103
@@ -4029,16 +4231,16 @@ msgstr "루틴"
 msgid "Events"
 msgstr "이벤트"
 
-#: libraries/Menu.php:521 libraries/Util.php:4102
+#: libraries/Menu.php:521 libraries/Util.php:4103
 msgid "Designer"
 msgstr "디자이너"
 
-#: libraries/Menu.php:530 libraries/Util.php:4103
+#: libraries/Menu.php:530 libraries/Util.php:4104
 #: templates/database/structure/check_all_tables.phtml:34
 msgid "Central columns"
 msgstr "중심 열"
 
-#: libraries/Menu.php:564 libraries/Util.php:4075
+#: libraries/Menu.php:564 libraries/Util.php:4076
 #: libraries/config.values.php:103 libraries/config/messages.inc.php:265
 #: libraries/config/messages.inc.php:340
 #: libraries/navigation/NavigationTree.php:1274
@@ -4051,34 +4253,34 @@ msgid "User accounts"
 msgstr "사용자 계정"
 
 #: libraries/Menu.php:615 libraries/ServerStatusData.php:121
-#: libraries/Util.php:4082 libraries/server_common.lib.php:33
+#: libraries/Util.php:4083 libraries/server_common.lib.php:33
 msgid "Binary log"
 msgstr "바이너리 로그"
 
 #: libraries/Menu.php:621 libraries/ServerStatusData.php:126
-#: libraries/Util.php:4083 libraries/server_common.lib.php:39
+#: libraries/Util.php:4084 libraries/server_common.lib.php:39
 #: templates/database/structure/body_for_table_summary.phtml:10
 #: templates/database/structure/table_header.phtml:27
 msgid "Replication"
 msgstr "복제"
 
 #: libraries/Menu.php:626 libraries/ServerStatusData.php:193
-#: libraries/Util.php:4084 libraries/config.values.php:105
+#: libraries/Util.php:4085 libraries/config.values.php:105
 #: libraries/sql_query_form.lib.php:427
 #: templates/server/engines/engine.phtml:15
 #: templates/server/engines/engine.phtml:18
 msgid "Variables"
 msgstr "환경설정값"
 
-#: libraries/Menu.php:630 libraries/Util.php:4085
+#: libraries/Menu.php:630 libraries/Util.php:4086
 msgid "Charsets"
 msgstr "문자셋"
 
-#: libraries/Menu.php:634 libraries/Util.php:4087
+#: libraries/Menu.php:634 libraries/Util.php:4088
 msgid "Engines"
 msgstr "엔진"
 
-#: libraries/Menu.php:638 libraries/Util.php:4086
+#: libraries/Menu.php:638 libraries/Util.php:4087
 #: libraries/server_common.lib.php:30
 msgid "Plugins"
 msgstr "플러그인"
@@ -4366,16 +4568,22 @@ msgstr "인덱스 부분의 정의가 없음!"
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr "%1$s의 외래키 생성 에러 (데이터 타입을 확인하세요)"
 
-#: libraries/Theme.php:168
+#: libraries/Template.php:197
+#, fuzzy, php-format
+#| msgid "Error while loading the search."
+msgid "Error while working with template cache: %s"
+msgstr "검색을 불러오는 중에 오류가 발생하였습니다."
+
+#: libraries/Theme.php:183
 #, php-format
 msgid "No valid image path for theme %s found!"
 msgstr "%s 테마를 위한 올바른 이미지 경로를 찾을 수 없습니다!"
 
-#: libraries/Theme.php:462
+#: libraries/Theme.php:477
 msgid "No preview available."
 msgstr "가능한 미리보기가 없습니다."
 
-#: libraries/Theme.php:464
+#: libraries/Theme.php:479
 msgid "take it"
 msgstr "사용하기"
 
@@ -4774,73 +4982,55 @@ msgctxt "AM/PM indication in time"
 msgid "AM"
 msgstr ""
 
-#: libraries/Util.php:1966
+#: libraries/Util.php:1967
 #, php-format
 msgid "%s days, %s hours, %s minutes and %s seconds"
 msgstr "%s일 %s시간 %s분 %s초"
 
-#: libraries/Util.php:2013
+#: libraries/Util.php:2014
 msgid "Missing parameter:"
 msgstr "매개 변수 누락:"
 
-#: libraries/Util.php:2550
+#: libraries/Util.php:2551
 #, fuzzy, php-format
 #| msgid "Jump to database \"%s\"."
 msgid "Jump to database “%s”."
 msgstr "데이터베이스 \"%s\" 로 이동."
 
-#: libraries/Util.php:2575
+#: libraries/Util.php:2576
 #, php-format
 msgid "The %s functionality is affected by a known bug, see %s"
 msgstr "%s 기능은 알려진 버그가 있습니다. %s 문서를 참조하십시오"
 
-#: libraries/Util.php:3369 prefs_manage.php:256
+#: libraries/Util.php:3370 prefs_manage.php:256
 msgid "Browse your computer:"
 msgstr "업로드 파일:"
 
-#: libraries/Util.php:3394
+#: libraries/Util.php:3395
 #, php-format
 msgid "Select from the web server upload directory <b>%s</b>:"
 msgstr "웹 서버 업로드 디렉토리중 <b>%s</b>에서 선택:"
 
-#: libraries/Util.php:3423 libraries/insert_edit.lib.php:1233
+#: libraries/Util.php:3424 libraries/insert_edit.lib.php:1233
 msgid "The directory you set for upload work cannot be reached."
 msgstr "설정한 업로드 디렉토리에 접근할 수 없습니다."
 
-#: libraries/Util.php:3434
+#: libraries/Util.php:3435
 msgid "There are no files to upload!"
 msgstr "업로드할 파일이 없습니다!"
 
-#: libraries/Util.php:3459 libraries/Util.php:3460
+#: libraries/Util.php:3460 libraries/Util.php:3461
 #: templates/database/structure/check_all_tables.phtml:16
 msgid "Empty"
 msgstr "비우기"
 
-#: libraries/Util.php:3465 libraries/Util.php:3466
+#: libraries/Util.php:3466 libraries/Util.php:3467
 msgid "Execute"
 msgstr "실행하기"
 
-#: libraries/Util.php:4078
+#: libraries/Util.php:4079
 msgid "Users"
 msgstr "사용자"
-
-#: libraries/advisor.lib.php:20
-msgid "per second"
-msgstr "초당"
-
-#: libraries/advisor.lib.php:23
-msgid "per minute"
-msgstr "분당"
-
-#: libraries/advisor.lib.php:26 libraries/server_status.lib.php:149
-#: libraries/server_status.lib.php:234
-#: libraries/server_status_queries.lib.php:93
-msgid "per hour"
-msgstr "시간당"
-
-#: libraries/advisor.lib.php:29
-msgid "per day"
-msgstr "하루당"
 
 #: libraries/browse_foreigners.lib.php:131
 msgid "Search:"
@@ -4849,9 +5039,9 @@ msgstr "검색:"
 #: libraries/browse_foreigners.lib.php:155
 #: libraries/browse_foreigners.lib.php:157
 #: libraries/server_status_variables.lib.php:219
-#: templates/server/collations/charsets.phtml:5
-#: templates/server/engines/engines.phtml:5
 #: templates/server/plugins/section.phtml:9
+#: templates/server/collations/charsets.twig:28
+#: templates/server/engines/engines.twig:28
 msgid "Description"
 msgstr "설명"
 
@@ -4896,13 +5086,13 @@ msgstr "아니오"
 #: libraries/plugins/export/ExportHtmlword.php:485
 #: libraries/plugins/export/ExportOdt.php:602
 #: libraries/plugins/export/ExportTexytext.php:446
-#: libraries/plugins/export/PMA_ExportPdf.php:312
+#: libraries/plugins/export/helpers/Pdf.php:313
 #: libraries/rte/rte_list.lib.php:79 libraries/rte/rte_list.lib.php:91
 #: libraries/rte/rte_list.lib.php:106 libraries/rte/rte_routines.lib.php:927
 #: libraries/rte/rte_routines.lib.php:1602 setup/frames/index.inc.php:144
 #: templates/columns_definitions/table_fields_definitions.phtml:8
-#: templates/database/create_table.phtml:11
 #: templates/table/structure/table_structure_header.phtml:7
+#: templates/database/create_table.twig:40
 msgid "Name"
 msgstr "이름"
 
@@ -4968,7 +5158,7 @@ msgstr "서버 %d"
 msgid "Invalid authentication method set in configuration:"
 msgstr "설정 파일에 잘못된 인증 방식 설정되어 있습니다.:"
 
-#: libraries/common.inc.php:742
+#: libraries/common.inc.php:747
 #, php-format
 msgid ""
 "Unable to use timezone %1$s for server %2$d. Please check your configuration "
@@ -4976,20 +5166,20 @@ msgid ""
 "currently using the default time zone of the database server."
 msgstr ""
 
-#: libraries/common.inc.php:780
+#: libraries/common.inc.php:785
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "%s를 %s 이상으로 업그레이드 하십시오."
 
-#: libraries/common.inc.php:866
+#: libraries/common.inc.php:871
 msgid "Error: Token mismatch"
 msgstr "오류: 토큰 불일치"
 
-#: libraries/common.inc.php:884
+#: libraries/common.inc.php:889
 msgid "GLOBALS overwrite attempt"
 msgstr "GLOBALS 덮어쓰기 시도"
 
-#: libraries/common.inc.php:891
+#: libraries/common.inc.php:896
 msgid "possible exploit"
 msgstr "어떤 공격을 받고있을 가능성이 있습니다"
 
@@ -5816,8 +6006,8 @@ msgstr "분리된 파일로 내보내기"
 msgid "Remember file name template"
 msgstr "파일명 템플릿을 저장하기"
 
-#: libraries/config/messages.inc.php:189 libraries/operations.lib.php:223
-#: libraries/operations.lib.php:842 libraries/operations.lib.php:1269
+#: libraries/config/messages.inc.php:189 libraries/operations.lib.php:221
+#: libraries/operations.lib.php:840 libraries/operations.lib.php:1267
 msgid "Add AUTO_INCREMENT value"
 msgstr "AUTO_INCREMENT 값 추가"
 
@@ -5855,8 +6045,8 @@ msgstr "phpMyAdmin 설정 공간으로부터 관련 메타데이터 내보내기
 #: libraries/config/messages.inc.php:200 libraries/config/messages.inc.php:201
 #: libraries/config/messages.inc.php:203 libraries/config/messages.inc.php:205
 #: libraries/config/messages.inc.php:206 libraries/config/messages.inc.php:208
-#: libraries/config/messages.inc.php:220 libraries/operations.lib.php:218
-#: libraries/operations.lib.php:1265
+#: libraries/config/messages.inc.php:220 libraries/operations.lib.php:216
+#: libraries/operations.lib.php:1263
 #, php-format
 msgid "Add %s"
 msgstr "%s 추가"
@@ -6177,7 +6367,7 @@ msgstr "데이터베이스 구조(테이블 목록)란에서 어떤 정보를 �
 
 #: libraries/config/messages.inc.php:331
 #: libraries/plugins/export/ExportPdf.php:282
-#: templates/table/secondary_tabs.phtml:8
+#: templates/table/secondary_tabs.twig:24
 msgid "Table structure"
 msgstr "테이블 구조"
 
@@ -7773,29 +7963,33 @@ msgstr "Microsoft Word 2000"
 msgid "OpenDocument Text"
 msgstr "OpenDocument 형식"
 
-#: libraries/controllers/database/DatabaseStructureController.php:274
+#: libraries/controllers/database/DatabaseStructureController.php:286
 msgid "Favorite List is full!"
 msgstr "즐겨찾기 목록이 가득 찼습니다!"
 
-#: libraries/controllers/database/DatabaseStructureController.php:563
+#: libraries/controllers/database/DatabaseStructureController.php:575
 #: tbl_operations.php:402
 #, php-format
 msgid "Table %s has been emptied."
 msgstr "테이블 %s 을 비웠습니다."
 
-#: libraries/controllers/database/DatabaseStructureController.php:584
+#: libraries/controllers/database/DatabaseStructureController.php:596
 #: tbl_operations.php:420 view_operations.php:130
 #, fuzzy, php-format
 #| msgid "View %s has been dropped."
 msgid "View %s has been dropped."
 msgstr "뷰 %s가 제거되었습니다."
 
-#: libraries/controllers/database/DatabaseStructureController.php:585
+#: libraries/controllers/database/DatabaseStructureController.php:597
 #: tbl_operations.php:421
 #, fuzzy, php-format
 #| msgid "Table %s has been dropped."
 msgid "Table %s has been dropped."
 msgstr "테이블 %s를 삭제했습니다."
+
+#: libraries/controllers/database/DatabaseStructureController.php:1001
+msgid "unknown"
+msgstr "알수없음"
 
 #: libraries/controllers/server/ServerBinlogController.php:152
 msgid "Log name"
@@ -7920,20 +8114,20 @@ msgid "No data to display"
 msgstr "표시할 데이터 없음"
 
 #: libraries/controllers/table/TableIndexesController.php:173
-#: libraries/controllers/table/TableStructureController.php:713
-#: libraries/controllers/table/TableStructureController.php:962
+#: libraries/controllers/table/TableStructureController.php:714
+#: libraries/controllers/table/TableStructureController.php:963
 #: tbl_addfield.php:95
 #, php-format
 msgid "Table %1$s has been altered successfully."
 msgstr "테이블 %1$s 가 성공적으로 수정되었습니다."
 
-#: libraries/controllers/table/TableRelationController.php:211
+#: libraries/controllers/table/TableRelationController.php:212
 #, fuzzy
 #| msgid "Thread %s was successfully killed."
 msgid "Display column was successfully updated."
 msgstr "쓰레드 %s 를 죽였습니다."
 
-#: libraries/controllers/table/TableRelationController.php:281
+#: libraries/controllers/table/TableRelationController.php:282
 #, fuzzy
 #| msgid "Internal relations were successfully updated."
 msgid "Internal relationships were successfully updated."
@@ -7962,53 +8156,53 @@ msgstr[0] "'%s'라는 명칭은 MySQL 예약어입니다."
 msgid "No column selected."
 msgstr "선택된 열이 없습니다."
 
-#: libraries/controllers/table/TableStructureController.php:460
+#: libraries/controllers/table/TableStructureController.php:461
 msgid "The columns have been moved successfully."
 msgstr "컬럼을 이동했습니다."
 
-#: libraries/controllers/table/TableStructureController.php:724
-#: libraries/controllers/table/TableStructureController.php:1011
+#: libraries/controllers/table/TableStructureController.php:725
+#: libraries/controllers/table/TableStructureController.php:1012
 #: libraries/tracking.lib.php:1092
 msgid "Query error"
 msgstr "질의 오류"
 
-#: libraries/controllers/table/TableStructureController.php:956
+#: libraries/controllers/table/TableStructureController.php:957
 #, fuzzy, php-format
 #| msgid "Table %1$s has been altered successfully."
 msgid ""
 "Table %1$s has been altered successfully. Privileges have been adjusted."
 msgstr "테이블 %1$s 가 성공적으로 수정되었습니다."
 
-#: libraries/controllers/table/TableStructureController.php:1176
+#: libraries/controllers/table/TableStructureController.php:1177
 #: templates/table/structure/check_all_table_column.phtml:18
 msgid "Change"
 msgstr "변경"
 
-#: libraries/controllers/table/TableStructureController.php:1180
-#: libraries/controllers/table/TableStructureController.php:1185
+#: libraries/controllers/table/TableStructureController.php:1181
+#: libraries/controllers/table/TableStructureController.php:1186
 #: libraries/navigation/nodes/NodeIndex.php:30 libraries/tracking.lib.php:929
-#: templates/columns_definitions/column_indexes.phtml:16
 #: templates/columns_definitions/table_fields_definitions.phtml:57
 #: templates/table/structure/check_all_table_column.phtml:36
 #: templates/table/structure/display_structure.phtml:67
 #: templates/table/structure/display_table_stats.phtml:23
+#: templates/columns_definitions/column_indexes.twig:58
 msgid "Index"
 msgstr "인덱스"
 
-#: libraries/controllers/table/TableStructureController.php:1182
-#: libraries/controllers/table/TableStructureController.php:1187
-#: templates/columns_definitions/column_indexes.phtml:26
+#: libraries/controllers/table/TableStructureController.php:1183
+#: libraries/controllers/table/TableStructureController.php:1188
+#: templates/columns_definitions/column_indexes.twig:80
 msgid "Spatial"
 msgstr ""
 
-#: libraries/controllers/table/TableStructureController.php:1183
-#: libraries/controllers/table/TableStructureController.php:1188
-#: templates/columns_definitions/column_indexes.phtml:21
+#: libraries/controllers/table/TableStructureController.php:1184
+#: libraries/controllers/table/TableStructureController.php:1189
 #: templates/table/structure/check_all_table_column.phtml:45
+#: templates/columns_definitions/column_indexes.twig:69
 msgid "Fulltext"
 msgstr "Fulltext"
 
-#: libraries/controllers/table/TableStructureController.php:1191
+#: libraries/controllers/table/TableStructureController.php:1192
 msgid "Distinct values"
 msgstr "중복되지 않은 값"
 
@@ -8018,7 +8212,7 @@ msgid "The %s extension is missing. Please check your PHP configuration."
 msgstr "%s 확장기능이 설치되지 않았습니다. PHP의 설정을 확인하십시오."
 
 #: libraries/core.lib.php:788 libraries/mult_submits.inc.php:328
-#: tbl_operations.php:238 tbl_replace.php:314 templates/preview_sql.phtml:3
+#: tbl_operations.php:238 tbl_replace.php:314 templates/preview_sql.twig:25
 msgid "No change"
 msgstr "변화 없음"
 
@@ -8861,9 +9055,13 @@ msgstr "숨기기"
 #: libraries/insert_edit.lib.php:250
 #: libraries/navigation/nodes/NodeFunction.php:30
 #: libraries/rte/rte_routines.lib.php:1605
-#: templates/table/search/table_header.phtml:4
+#: templates/table/search/table_header.twig:26
 msgid "Function"
 msgstr "함수"
+
+#: libraries/insert_edit.lib.php:402
+msgid "Binary"
+msgstr "바이너리"
 
 #: libraries/insert_edit.lib.php:605
 msgid "Because of its length,<br /> this column might not be editable."
@@ -8873,9 +9071,8 @@ msgstr "컬럼의 길이 때문에,<br />이 컬럼을 편집할 수 없을 수�
 msgid "Binary - do not edit"
 msgstr "바이너리 - 편집 금지"
 
-#: libraries/insert_edit.lib.php:1236
-#: templates/privileges/column_privileges.phtml:17
-#: templates/table/search/options.phtml:36
+#: libraries/insert_edit.lib.php:1236 templates/table/search/options.phtml:36
+#: templates/privileges/column_privileges.twig:73
 msgid "Or"
 msgstr "또는"
 
@@ -8935,12 +9132,12 @@ msgstr "TAB 키나 CTRL+화살표로 값 사이를 이동할 수 있습니다"
 #: libraries/insert_edit.lib.php:1646 libraries/replication_gui.lib.php:544
 #: libraries/rte/rte_routines.lib.php:1607
 #: libraries/server_status_variables.lib.php:218
-#: templates/database/designer/having_query_panel.phtml:100
-#: templates/database/designer/options_panel.phtml:73
-#: templates/database/designer/options_panel.phtml:239
-#: templates/database/designer/where_query_panel.phtml:69
-#: templates/table/search/table_header.phtml:10
 #: templates/table/search/zoom_result_form.phtml:35
+#: templates/database/designer/options_panel.twig:99
+#: templates/database/designer/options_panel.twig:295
+#: templates/table/search/table_header.twig:48
+#: templates/database/designer/where_query_panel.twig:95
+#: templates/database/designer/having_query_panel.twig:129
 msgid "Value"
 msgstr "값"
 
@@ -8957,18 +9154,18 @@ msgstr "삽입된 행의 id: %1$d"
 msgid "Success!"
 msgstr "성공!"
 
-#: libraries/mult_submits.lib.php:345 libraries/operations.lib.php:171
-#: libraries/operations.lib.php:1252 libraries/tracking.lib.php:529
+#: libraries/mult_submits.lib.php:345 libraries/operations.lib.php:170
+#: libraries/operations.lib.php:1250 libraries/tracking.lib.php:529
 msgid "Structure only"
 msgstr "구조만"
 
-#: libraries/mult_submits.lib.php:347 libraries/operations.lib.php:172
-#: libraries/operations.lib.php:1253 libraries/tracking.lib.php:535
+#: libraries/mult_submits.lib.php:347 libraries/operations.lib.php:171
+#: libraries/operations.lib.php:1251 libraries/tracking.lib.php:535
 msgid "Structure and data"
 msgstr "구조와 데이터 모두"
 
-#: libraries/mult_submits.lib.php:349 libraries/operations.lib.php:173
-#: libraries/operations.lib.php:1254 libraries/tracking.lib.php:532
+#: libraries/mult_submits.lib.php:349 libraries/operations.lib.php:172
+#: libraries/operations.lib.php:1252 libraries/tracking.lib.php:532
 msgid "Data only"
 msgstr "데이터만"
 
@@ -8978,14 +9175,14 @@ msgstr "데이터만"
 msgid "Add AUTO INCREMENT value"
 msgstr "AUTO_INCREMENT 값 추가"
 
-#: libraries/mult_submits.lib.php:355 libraries/operations.lib.php:227
-#: libraries/operations.lib.php:1277
+#: libraries/mult_submits.lib.php:355 libraries/operations.lib.php:225
+#: libraries/operations.lib.php:1275
 msgid "Add constraints"
 msgstr "제약조건 추가"
 
-#: libraries/mult_submits.lib.php:357 libraries/operations.lib.php:102
-#: libraries/operations.lib.php:245 libraries/operations.lib.php:860
-#: libraries/operations.lib.php:947 libraries/operations.lib.php:1296
+#: libraries/mult_submits.lib.php:357 libraries/operations.lib.php:101
+#: libraries/operations.lib.php:243 libraries/operations.lib.php:858
+#: libraries/operations.lib.php:945 libraries/operations.lib.php:1294
 #: libraries/rte/rte_routines.lib.php:1006
 #: templates/columns_definitions/table_fields_definitions.phtml:47
 #, fuzzy
@@ -9478,10 +9675,10 @@ msgstr ""
 msgid "Rename database to"
 msgstr "데이터베이스 이름을 변경합니다"
 
-#: libraries/operations.lib.php:95 libraries/operations.lib.php:239
-#: libraries/operations.lib.php:854 libraries/operations.lib.php:941
-#: libraries/operations.lib.php:1290
-#: templates/columns_definitions/column_adjust_privileges.phtml:16
+#: libraries/operations.lib.php:94 libraries/operations.lib.php:237
+#: libraries/operations.lib.php:852 libraries/operations.lib.php:939
+#: libraries/operations.lib.php:1288
+#: templates/columns_definitions/column_adjust_privileges.twig:52
 msgid ""
 "You don't have sufficient privileges to perform this operation; Please refer "
 "to the documentation for more details"
@@ -9489,210 +9686,210 @@ msgstr ""
 "이 작업을 진행하기 위해 필요한 권한이 없습니다. 자세한 사항은 문서를 참고하세"
 "요"
 
-#: libraries/operations.lib.php:133
+#: libraries/operations.lib.php:132
 #, php-format
 msgid "Database %s has been dropped."
 msgstr "데이터베이스 %s 를 제거했습니다."
 
-#: libraries/operations.lib.php:145
+#: libraries/operations.lib.php:144
 msgid "Remove database"
 msgstr "데이터베이스 제거"
 
-#: libraries/operations.lib.php:151
+#: libraries/operations.lib.php:150
 msgid "Drop the database (DROP)"
 msgstr "데이터베이스 제거 (DROP)"
 
-#: libraries/operations.lib.php:201
+#: libraries/operations.lib.php:200
 msgid "Copy database to"
 msgstr "데이터베이스를 복사합니다"
 
-#: libraries/operations.lib.php:214
+#: libraries/operations.lib.php:212
 msgid "CREATE DATABASE before copying"
 msgstr "복사 전에 CREATE DATABASE 실행"
 
-#: libraries/operations.lib.php:255
+#: libraries/operations.lib.php:253
 msgid "Switch to copied database"
 msgstr "복사한 테이블로 옮겨감"
 
-#: libraries/operations.lib.php:775
+#: libraries/operations.lib.php:773
 msgid "Alter table order by"
 msgstr "다음 순서대로 테이블 정렬(변경)"
 
-#: libraries/operations.lib.php:783
+#: libraries/operations.lib.php:781
 msgid "(singly)"
 msgstr "(단독으로)"
 
-#: libraries/operations.lib.php:819
+#: libraries/operations.lib.php:817
 msgid "Move table to (database<b>.</b>table)"
 msgstr "테이블 이동 (데이터베이스명<b>.</b>테이블명)"
 
-#: libraries/operations.lib.php:924
+#: libraries/operations.lib.php:922
 msgid "Rename table to"
 msgstr "테이블 이름 바꾸기"
 
-#: libraries/operations.lib.php:964
+#: libraries/operations.lib.php:962
 msgid "Table comments"
 msgstr "테이블 설명"
 
-#: libraries/operations.lib.php:1033
+#: libraries/operations.lib.php:1031
 msgid "Table options"
 msgstr "테이블 옵션"
 
-#: libraries/operations.lib.php:1040 templates/server/engines/engines.phtml:4
+#: libraries/operations.lib.php:1038 templates/server/engines/engines.twig:24
 msgid "Storage Engine"
 msgstr "스토리지 엔진"
 
-#: libraries/operations.lib.php:1064
+#: libraries/operations.lib.php:1062
 msgid "Change all column collations"
 msgstr ""
 
-#: libraries/operations.lib.php:1235
+#: libraries/operations.lib.php:1233
 msgid "Copy table to (database<b>.</b>table)"
 msgstr "테이블 복사 (데이터베이스명<b>.</b>테이블명)"
 
-#: libraries/operations.lib.php:1311
+#: libraries/operations.lib.php:1309
 msgid "Switch to copied table"
 msgstr "복사한 테이블로 옮겨감"
 
-#: libraries/operations.lib.php:1335
+#: libraries/operations.lib.php:1333
 #: templates/database/structure/check_all_tables.phtml:19
 msgid "Table maintenance"
 msgstr "테이블 유지보수"
 
-#: libraries/operations.lib.php:1368
+#: libraries/operations.lib.php:1366
 #: templates/database/structure/check_all_tables.phtml:20
 msgid "Analyze table"
 msgstr "테이블 분석"
 
-#: libraries/operations.lib.php:1383
+#: libraries/operations.lib.php:1381
 #: templates/database/structure/check_all_tables.phtml:21
 msgid "Check table"
 msgstr "테이블 검사"
 
-#: libraries/operations.lib.php:1397
+#: libraries/operations.lib.php:1395
 #: templates/database/structure/check_all_tables.phtml:22
 msgid "Checksum table"
 msgstr "체크섬 테이블"
 
-#: libraries/operations.lib.php:1411
+#: libraries/operations.lib.php:1409
 msgid "Defragment table"
 msgstr "테이블 단편화 제거"
 
-#: libraries/operations.lib.php:1423
+#: libraries/operations.lib.php:1421
 #, php-format
 msgid "Table %s has been flushed."
 msgstr "테이블 %s을 플러시 했습니다."
 
-#: libraries/operations.lib.php:1429
+#: libraries/operations.lib.php:1427
 msgid "Flush the table (FLUSH)"
 msgstr "테이블 갱신 (캐시 삭제)"
 
-#: libraries/operations.lib.php:1443
+#: libraries/operations.lib.php:1441
 #: templates/database/structure/check_all_tables.phtml:23
 #: templates/table/structure/display_table_stats.phtml:60
 msgid "Optimize table"
 msgstr "테이블 최적화"
 
-#: libraries/operations.lib.php:1458
+#: libraries/operations.lib.php:1456
 #: templates/database/structure/check_all_tables.phtml:24
 msgid "Repair table"
 msgstr "테이블 복구"
 
-#: libraries/operations.lib.php:1504
+#: libraries/operations.lib.php:1502
 #: templates/database/structure/check_all_tables.phtml:15
 #: view_operations.php:138
 msgid "Delete data or table"
 msgstr "데이터나 테이블 삭제"
 
-#: libraries/operations.lib.php:1512
+#: libraries/operations.lib.php:1510
 msgid "Empty the table (TRUNCATE)"
 msgstr "테이블 내용 비우기(TRUNCATE)"
 
-#: libraries/operations.lib.php:1520
+#: libraries/operations.lib.php:1518
 msgid "Delete the table (DROP)"
 msgstr "테이블 삭제(DROP)"
 
-#: libraries/operations.lib.php:1560
+#: libraries/operations.lib.php:1558
 #: templates/table/structure/display_structure.phtml:173
 msgid "Analyze"
 msgstr "분석"
 
-#: libraries/operations.lib.php:1561
+#: libraries/operations.lib.php:1559
 #: templates/table/structure/display_structure.phtml:174
 msgid "Check"
 msgstr "검사"
 
-#: libraries/operations.lib.php:1562
+#: libraries/operations.lib.php:1560
 #: templates/table/structure/display_structure.phtml:175
 msgid "Optimize"
 msgstr "옵티마이저"
 
-#: libraries/operations.lib.php:1563
+#: libraries/operations.lib.php:1561
 #: templates/table/structure/display_structure.phtml:176
 msgid "Rebuild"
 msgstr "리빌드"
 
-#: libraries/operations.lib.php:1564
+#: libraries/operations.lib.php:1562
 #: templates/table/structure/display_structure.phtml:177
 msgid "Repair"
 msgstr "복구"
 
-#: libraries/operations.lib.php:1565
+#: libraries/operations.lib.php:1563
 #: templates/table/structure/display_structure.phtml:178
 msgid "Truncate"
 msgstr "초기화"
 
-#: libraries/operations.lib.php:1579
+#: libraries/operations.lib.php:1577
 msgid "Coalesce"
 msgstr "병합"
 
-#: libraries/operations.lib.php:1588
+#: libraries/operations.lib.php:1586
 msgid "Partition maintenance"
 msgstr "파티션 유지 보수"
 
-#: libraries/operations.lib.php:1605
+#: libraries/operations.lib.php:1603
 #, php-format
 msgid "Partition %s"
 msgstr "파티션 %s"
 
-#: libraries/operations.lib.php:1623
+#: libraries/operations.lib.php:1621
 #: templates/table/structure/display_partitions.phtml:136
 msgid "Remove partitioning"
 msgstr "파티셔닝 삭제"
 
-#: libraries/operations.lib.php:1649
+#: libraries/operations.lib.php:1647
 msgid "Check referential integrity:"
 msgstr "referential 무결성 검사:"
 
-#: libraries/operations.lib.php:2034
+#: libraries/operations.lib.php:2032
 msgid "Can't move table to same one!"
 msgstr "같은 테이블이 있어 옮길 수 없음!"
 
-#: libraries/operations.lib.php:2036
+#: libraries/operations.lib.php:2034
 msgid "Can't copy table to same one!"
 msgstr "같은 테이블이 있어 복사할 수 없음!"
 
-#: libraries/operations.lib.php:2060
+#: libraries/operations.lib.php:2058
 #, php-format
 msgid "Table %s has been moved to %s. Privileges have been adjusted."
 msgstr "테이블 %s 을 %s 로 옮겼습니다. 권한설정을 조정하였습니다."
 
-#: libraries/operations.lib.php:2067
+#: libraries/operations.lib.php:2065
 #, php-format
 msgid "Table %s has been copied to %s. Privileges have been adjusted."
 msgstr "%s 테이블을 %s 으로 복사하였습니다. 권한설정을 조정하였습니다."
 
-#: libraries/operations.lib.php:2076
+#: libraries/operations.lib.php:2074
 #, php-format
 msgid "Table %s has been moved to %s."
 msgstr "테이블 %s 을 %s 로 옮겼습니다."
 
-#: libraries/operations.lib.php:2080
+#: libraries/operations.lib.php:2078
 #, php-format
 msgid "Table %s has been copied to %s."
 msgstr "%s 테이블이 %s 으로 복사되었습니다."
 
-#: libraries/operations.lib.php:2108
+#: libraries/operations.lib.php:2106
 msgid "The table name is empty!"
 msgstr "테이블명이 없습니다!"
 
@@ -9700,21 +9897,21 @@ msgstr "테이블명이 없습니다!"
 msgid "This format has no options"
 msgstr "이 형식은 옵션이 없음"
 
-#: libraries/plugins/AuthenticationPlugin.php:106
+#: libraries/plugins/AuthenticationPlugin.php:129
 msgid ""
 "Login without a password is forbidden by configuration (see AllowNoPassword)"
 msgstr ""
 "암호가 없는 로그인이 설정으로 차단되어 있습니다 (AllowNoLogin 항목을 참조하세"
 "요)"
 
-#: libraries/plugins/AuthenticationPlugin.php:113
+#: libraries/plugins/AuthenticationPlugin.php:136
 #, php-format
 msgid "No activity within %s seconds; please log in again."
 msgstr ""
 "최근 %s초 동안 아무 동작이 없어 로그아웃 되었습니다. 다시 로그인해주세요."
 
-#: libraries/plugins/AuthenticationPlugin.php:122
-#: libraries/plugins/AuthenticationPlugin.php:124
+#: libraries/plugins/AuthenticationPlugin.php:145
+#: libraries/plugins/AuthenticationPlugin.php:147
 msgid "Cannot log in to the MySQL server"
 msgstr "MySQL 서버에 로그인할 수 없습니다"
 
@@ -9866,7 +10063,7 @@ msgstr "테이블의 덤프 데이터"
 #: libraries/plugins/export/ExportHtmlword.php:487
 #: libraries/plugins/export/ExportOdt.php:608
 #: libraries/plugins/export/ExportTexytext.php:448
-#: libraries/plugins/export/PMA_ExportPdf.php:316
+#: libraries/plugins/export/helpers/Pdf.php:317
 #: libraries/rte/rte_list.lib.php:97 libraries/rte/rte_triggers.lib.php:367
 msgid "Event"
 msgstr "이벤트"
@@ -9874,7 +10071,7 @@ msgstr "이벤트"
 #: libraries/plugins/export/ExportHtmlword.php:488
 #: libraries/plugins/export/ExportOdt.php:611
 #: libraries/plugins/export/ExportTexytext.php:449
-#: libraries/plugins/export/PMA_ExportPdf.php:318
+#: libraries/plugins/export/helpers/Pdf.php:319
 #: libraries/rte/rte_events.lib.php:486 libraries/rte/rte_routines.lib.php:992
 #: libraries/rte/rte_triggers.lib.php:381
 msgid "Definition"
@@ -9987,7 +10184,7 @@ msgstr "PHP 버전:"
 #: libraries/plugins/export/ExportLatex.php:251
 #: libraries/plugins/export/ExportSql.php:892
 #: libraries/plugins/export/ExportXml.php:404
-#: libraries/plugins/export/PMA_ExportPdf.php:118
+#: libraries/plugins/export/helpers/Pdf.php:119
 msgid "Database:"
 msgstr "데이터베이스:"
 
@@ -10277,15 +10474,15 @@ msgstr ""
 msgid "Export contents"
 msgstr "내용 내보내기"
 
-#: libraries/plugins/export/PMA_ExportPdf.php:119
+#: libraries/plugins/export/helpers/Pdf.php:120
 msgid "Table:"
 msgstr "테이블:"
 
-#: libraries/plugins/export/PMA_ExportPdf.php:120
+#: libraries/plugins/export/helpers/Pdf.php:121
 msgid "Purpose:"
 msgstr ""
 
-#: libraries/plugins/export/PMA_ExportPdf.php:501
+#: libraries/plugins/export/helpers/Pdf.php:502
 msgid "MIME"
 msgstr "MIME 형식"
 
@@ -10383,17 +10580,17 @@ msgid "ESRI Shape File"
 msgstr "ESRI Shapefile"
 
 #: libraries/plugins/import/ImportShp.php:77
-#: libraries/plugins/import/ImportShp.php:153
+#: libraries/plugins/import/ImportShp.php:150
 #, php-format
 msgid "There was an error importing the ESRI shape file: \"%s\"."
 msgstr "ESRI 형태의 파일을 가져오는 도중 에러가 발생했습니다: \"%s\"."
 
-#: libraries/plugins/import/ImportShp.php:183
+#: libraries/plugins/import/ImportShp.php:180
 #, php-format
 msgid "MySQL Spatial Extension does not support ESRI type \"%s\"."
 msgstr ""
 
-#: libraries/plugins/import/ImportShp.php:230
+#: libraries/plugins/import/ImportShp.php:227
 msgid "The imported file does not contain any data!"
 msgstr "가져온 파일에 아무런 데이터도 없습니다!"
 
@@ -10446,7 +10643,7 @@ msgid "Show grid"
 msgstr "grid 보기"
 
 #: libraries/plugins/schema/SchemaPdf.php:93
-#: templates/database/structure/print_view_data_dictionary_link.phtml:6
+#: templates/database/structure/print_view_data_dictionary_link.twig:32
 #, fuzzy
 #| msgid "Data Dictionary"
 msgid "Data dictionary"
@@ -10484,7 +10681,7 @@ msgstr "%s 테이블이 존재하지 않습니다!"
 msgid "Schema of the %s database - Page %s"
 msgstr "데이터베이스 %s의 스키마 - 페이지 %s"
 
-#: libraries/plugins/schema/pdf/Pdf.php:238
+#: libraries/plugins/schema/pdf/Pdf.php:239
 #, fuzzy
 #| msgid "Invalid export type"
 msgid "PDF export page"
@@ -11107,7 +11304,7 @@ msgstr "슬레이브 상태"
 
 #: libraries/replication_gui.lib.php:543
 #: libraries/server_status_variables.lib.php:217
-#: templates/server/variables/variable_table_head.phtml:4
+#: templates/server/variables/variable_table_head.twig:27
 msgid "Variable"
 msgstr "변수"
 
@@ -11894,7 +12091,7 @@ msgstr "Limits the number of new connections the user may open per hour."
 #: libraries/server_privileges.lib.php:3301
 #: libraries/server_privileges.lib.php:3303
 #: libraries/server_privileges.lib.php:4512
-#: templates/privileges/edit_routine_privileges.phtml:11
+#: templates/privileges/edit_routine_privileges.twig:52
 #, fuzzy
 #| msgid "Routines"
 msgid "Routine"
@@ -11926,7 +12123,7 @@ msgstr "테이블에 관한 권한"
 #: libraries/server_privileges.lib.php:992
 #: libraries/server_privileges.lib.php:1168
 #: libraries/server_privileges.lib.php:3493
-#: templates/privileges/edit_routine_privileges.phtml:16
+#: templates/privileges/edit_routine_privileges.twig:63
 msgid "Note: MySQL privilege names are expressed in English."
 msgstr "주의: MySQL 권한 이름은 영어로 표시됩니다."
 
@@ -11987,8 +12184,8 @@ msgstr "로그인 정보"
 
 #: libraries/server_privileges.lib.php:1512
 #: libraries/server_privileges.lib.php:1670
-#: templates/privileges/add_privileges_routine.phtml:7
-#: templates/privileges/add_privileges_table.phtml:7
+#: templates/privileges/add_privileges_table.twig:33
+#: templates/privileges/add_privileges_routine.twig:33
 msgid "Use text field"
 msgstr "텍스트 입력 필드를 사용"
 
@@ -12034,7 +12231,7 @@ msgid "You have revoked the privileges for %s."
 msgstr "%s의 권한을 제거했습니다."
 
 #: libraries/server_privileges.lib.php:2137
-#: templates/privileges/add_user_fieldset.phtml:7
+#: templates/privileges/add_user_fieldset.twig:42
 msgid "Add user account"
 msgstr "사용자 추가"
 
@@ -12154,7 +12351,7 @@ msgid "Create a new user account with the same privileges and …"
 msgstr "새로운 사용자 계정을 동일한 권한으로 생성하고 …"
 
 #: libraries/server_privileges.lib.php:3302
-#: templates/privileges/edit_routine_privileges.phtml:12
+#: templates/privileges/edit_routine_privileges.twig:56
 #, fuzzy
 #| msgid "Column-specific privileges"
 msgid "Routine-specific privileges"
@@ -12162,8 +12359,8 @@ msgstr "열(칼럼)에 관한 권한"
 
 #: libraries/server_privileges.lib.php:3497
 #: libraries/server_user_groups.lib.php:76
-#: templates/privileges/choose_user_group.phtml:4
-#: templates/privileges/choose_user_group.phtml:5
+#: templates/privileges/choose_user_group.twig:27
+#: templates/privileges/choose_user_group.twig:31
 msgid "User group"
 msgstr ""
 
@@ -12223,7 +12420,7 @@ msgid ""
 "currently logged in."
 msgstr "주의: 지금 로그인된 사용자의 권한을 수정할려고 합니다."
 
-#: libraries/server_privileges.lib.php:4557 libraries/server_users.lib.php:22
+#: libraries/server_privileges.lib.php:4557 libraries/server_users.lib.php:21
 msgid "User accounts overview"
 msgstr "사용자 개요"
 
@@ -12566,7 +12763,7 @@ msgid "Progress"
 msgstr ""
 
 #: libraries/server_status_processes.lib.php:230
-#: libraries/server_status_variables.lib.php:37 templates/filter.phtml:2
+#: libraries/server_status_variables.lib.php:37 templates/filter.twig:22
 msgid "Filters"
 msgstr "검색어"
 
@@ -12602,7 +12799,7 @@ msgstr "명세"
 msgid "#"
 msgstr "#"
 
-#: libraries/server_status_variables.lib.php:42 templates/filter.phtml:4
+#: libraries/server_status_variables.lib.php:42 templates/filter.twig:27
 msgid "Containing the word:"
 msgstr "포함하고 있는 단어:"
 
@@ -13216,7 +13413,7 @@ msgstr ""
 msgid "No users were found belonging to this user group."
 msgstr ""
 
-#: libraries/server_user_groups.lib.php:62 libraries/server_users.lib.php:30
+#: libraries/server_user_groups.lib.php:62 libraries/server_users.lib.php:29
 msgid "User groups"
 msgstr "사용자 그룹"
 
@@ -13778,7 +13975,7 @@ msgstr "모든 설정을 초기화할 수 있습니다."
 msgid "View dump (schema) of databases"
 msgstr "데이터베이스의 덤프(스키마) 데이터 보기"
 
-#: server_privileges.php:133 server_replication.php:33
+#: server_privileges.php:133 server_replication.php:34
 #: server_user_groups.php:29 templates/server/databases/create.phtml:32
 msgid "No Privileges"
 msgstr "권한 없음"
@@ -14084,10 +14281,6 @@ msgstr "연결 수"
 msgid "PARTITION definition:"
 msgstr ""
 
-#: templates/columns_definitions/column_length.phtml:9
-msgid "Edit ENUM/SET values"
-msgstr ""
-
 #: templates/columns_definitions/column_name.phtml:6
 #, fuzzy, php-format
 #| msgid "Select referenced key"
@@ -14351,7 +14544,7 @@ msgid "Order:"
 msgstr "순서:"
 
 #: templates/console/display.phtml:85 templates/console/display.phtml:109
-#: templates/table/search/replace_preview.phtml:17
+#: templates/table/search/replace_preview.twig:55
 msgid "Count"
 msgstr "개수"
 
@@ -14427,31 +14620,6 @@ msgstr ""
 msgid "Switch to dark theme"
 msgstr "어두운 테마로 변경"
 
-#: templates/database/create_table.phtml:7
-#: templates/database/designer/side_menu.phtml:77
-#: templates/database/designer/side_menu.phtml:80
-msgid "Create table"
-msgstr "새 테이블 만들기"
-
-#: templates/database/create_table.phtml:15
-msgid "Number of columns"
-msgstr "컬럼수"
-
-#: templates/database/designer/aggregate_query_panel.phtml:22
-#: templates/database/designer/options_panel.phtml:100
-msgid "Aggregate"
-msgstr "합계"
-
-#: templates/database/designer/aggregate_query_panel.phtml:30
-#: templates/database/designer/having_query_panel.phtml:30
-#: templates/database/designer/having_query_panel.phtml:61
-#: templates/database/designer/options_panel.phtml:106
-#: templates/database/designer/options_panel.phtml:170
-#: templates/database/designer/where_query_panel.phtml:30
-#: templates/table/search/table_header.phtml:9
-msgid "Operator"
-msgstr "연산자"
-
 #: templates/database/designer/database_tables.phtml:29
 #, fuzzy
 #| msgid "Move columns"
@@ -14464,12 +14632,6 @@ msgstr "컬럼 이동"
 msgid "See table structure"
 msgstr "테이블 구조"
 
-#: templates/database/designer/delete_relation_panel.phtml:21
-#, fuzzy
-#| msgid "Delete relation"
-msgid "Delete relationship"
-msgstr "관계(relation) 삭제"
-
 #: templates/database/designer/edit_delete_pages.phtml:7
 msgid "Page to open"
 msgstr "열 페이지"
@@ -14477,45 +14639,6 @@ msgstr "열 페이지"
 #: templates/database/designer/edit_delete_pages.phtml:7
 msgid "Page to delete"
 msgstr "삭제할 페이지"
-
-#: templates/database/designer/having_query_panel.phtml:90
-#: templates/database/designer/options_panel.phtml:63
-#: templates/database/designer/options_panel.phtml:229
-#: templates/database/designer/where_query_panel.phtml:59
-msgid "Except"
-msgstr "제외"
-
-#: templates/database/designer/having_query_panel.phtml:102
-#: templates/database/designer/options_panel.phtml:75
-#: templates/database/designer/options_panel.phtml:241
-#: templates/database/designer/where_query_panel.phtml:71
-msgid "subquery"
-msgstr "서브쿼리"
-
-#: templates/database/designer/new_relation_panel.phtml:22
-#: templates/database/designer/side_menu.phtml:84
-#: templates/database/designer/side_menu.phtml:87
-#, fuzzy
-#| msgid "Create relation"
-msgid "Create relationship"
-msgstr "관계 생성"
-
-#: templates/database/designer/options_panel.phtml:34
-#: templates/database/designer/options_panel.phtml:200
-#, fuzzy
-#| msgid "Relation operator"
-msgid "Relationship operator"
-msgstr "관계 연산"
-
-#: templates/database/designer/options_panel.phtml:85
-#: templates/database/designer/rename_to_panel.phtml:23
-msgid "Rename to"
-msgstr "바뀔 이름"
-
-#: templates/database/designer/options_panel.phtml:91
-#: templates/database/designer/rename_to_panel.phtml:31
-msgid "New name"
-msgstr "새 이름"
 
 #: templates/database/designer/page_save_as.phtml:4
 msgid "Save to selected page"
@@ -14565,6 +14688,20 @@ msgstr "새 페이지"
 #: templates/database/designer/side_menu.phtml:73
 msgid "Delete pages"
 msgstr "페이지 삭제"
+
+#: templates/database/designer/side_menu.phtml:77
+#: templates/database/designer/side_menu.phtml:80
+#: templates/database/create_table.twig:30
+msgid "Create table"
+msgstr "새 테이블 만들기"
+
+#: templates/database/designer/side_menu.phtml:84
+#: templates/database/designer/side_menu.phtml:87
+#: templates/database/designer/new_relation_panel.twig:42
+#, fuzzy
+#| msgid "Create relation"
+msgid "Create relationship"
+msgstr "관계 생성"
 
 #: templates/database/designer/side_menu.phtml:98
 #: templates/database/designer/side_menu.phtml:101
@@ -14748,90 +14885,6 @@ msgstr "마지막 업데이트"
 msgid "Last check"
 msgstr "마지막 검사"
 
-#: templates/database/structure/tracking_icon.phtml:4
-msgid "Tracking is active."
-msgstr "트래킹이 활성화되었습니다."
-
-#: templates/database/structure/tracking_icon.phtml:8
-msgid "Tracking is not active."
-msgstr "트래킹이 활성화되어 있지 않습니다."
-
-#: templates/error/report_form.phtml:7
-msgid ""
-"This report automatically includes data about the error and information "
-"about relevant configuration settings. It will be sent to the phpMyAdmin "
-"team for debugging the error."
-msgstr ""
-
-#: templates/error/report_form.phtml:14
-msgid ""
-"Can you tell us the steps leading to this error? It decisively helps in "
-"debugging:"
-msgstr ""
-
-#: templates/error/report_form.phtml:21
-msgid "You may examine the data in the error report:"
-msgstr ""
-
-#: templates/prefs_autoload.phtml:8
-msgid ""
-"Your browser has phpMyAdmin configuration for this domain. Would you like to "
-"import it for current session?"
-msgstr ""
-"당신의 브라우저에 현재 도메인을 위한 phpMyAdmin 설정이 존재합니다. 현재 세션"
-"을 위해 이를 불러오시겠습니까?"
-
-#: templates/prefs_autoload.phtml:14
-#, fuzzy
-#| msgid "Delete tracking"
-msgid "Delete settings "
-msgstr "추적 데이터 삭제"
-
-#: templates/privileges/add_privileges_database.phtml:2
-msgid "Add privileges on the following database(s):"
-msgstr "다음 데이터베이스들에 대한 권한 추가:"
-
-#: templates/privileges/add_privileges_database.phtml:16
-msgid "Wildcards % and _ should be escaped with a \\ to use them literally."
-msgstr "%와 _는 와일드카드입니다. 일반 문자처럼 사용하려면 \\를 앞에 붙이세요."
-
-#: templates/privileges/add_privileges_routine.phtml:3
-#, fuzzy
-#| msgid "Add privileges on the following table:"
-msgid "Add privileges on the following routine:"
-msgstr "다음 테이블에 대한 권한 추가:"
-
-#: templates/privileges/add_privileges_table.phtml:3
-msgid "Add privileges on the following table:"
-msgstr "다음 테이블에 대한 권한 추가:"
-
-#: templates/privileges/add_user_fieldset.phtml:2
-msgctxt "Create new user"
-msgid "New"
-msgstr ""
-
-#: templates/privileges/column_privileges.phtml:21
-#: templates/privileges/column_privileges.phtml:22
-#, fuzzy
-#| msgid "None"
-msgctxt "None privileges"
-msgid "None"
-msgstr "없음"
-
-#: templates/privileges/delete_user_fieldset.phtml:3
-msgid "Remove selected user accounts"
-msgstr "선택한 사용자를 삭제"
-
-#: templates/privileges/delete_user_fieldset.phtml:6
-msgid "Revoke all active privileges from the users and delete them afterwards."
-msgstr "모든 활성화된 권한을 박탈하고 사용자를 삭제함."
-
-#: templates/privileges/delete_user_fieldset.phtml:8
-#: templates/privileges/delete_user_fieldset.phtml:10
-#: templates/privileges/delete_user_fieldset.phtml:11
-msgid "Drop the databases that have the same names as the users."
-msgstr "사용자명과 같은 이름의 데이터베이스를 삭제합니다."
-
 #: templates/privileges/privileges_summary.phtml:21
 msgid "Column-specific privileges"
 msgstr "열(칼럼)에 관한 권한"
@@ -14878,22 +14931,9 @@ msgstr "저자"
 msgid "disabled"
 msgstr "사용불가"
 
-#: templates/server/variables/session_variable_row.phtml:3
-#: templates/server/variables/variable_table_head.phtml:5
-msgid "Session value"
-msgstr "세션 값"
-
 #: templates/server/variables/variable_row.phtml:6
 msgid "This is a read-only variable and can not be edited"
 msgstr ""
-
-#: templates/server/variables/variable_table_head.phtml:5
-msgid "Global value"
-msgstr ""
-
-#: templates/startAndNumberOfRowsPanel.phtml:3
-msgid "Start row:"
-msgstr "시작 행:"
 
 #: templates/table/chart/tbl_chart.phtml:16
 msgctxt "Chart type"
@@ -15143,22 +15183,6 @@ msgstr "다음 컬럼을 통해 각 포인트 레이블"
 msgid "Maximum rows to plot"
 msgstr "표시할 최대 열(row) 수"
 
-#: templates/table/search/replace_preview.phtml:13
-msgid "Find and replace - preview"
-msgstr "찾기 및 바꾸기 - 미리보기"
-
-#: templates/table/search/replace_preview.phtml:18
-msgid "Original string"
-msgstr "원본 문자열"
-
-#: templates/table/search/replace_preview.phtml:19
-msgid "Replaced string"
-msgstr "문자열 변경"
-
-#: templates/table/search/replace_preview.phtml:38
-msgid "Replace"
-msgstr "변경"
-
 #: templates/table/search/rows_zoom.phtml:15
 msgid "Additional search criteria"
 msgstr "추가적인 검색 조건"
@@ -15190,10 +15214,6 @@ msgstr "사용방법"
 #: templates/table/search/zoom_result_form.phtml:23
 msgid "Reset zoom"
 msgstr "줌 초기화"
-
-#: templates/table/secondary_tabs.phtml:14
-msgid "Relation view"
-msgstr "릴레이션 뷰"
 
 #: templates/table/structure/actions_in_table_structure.phtml:15
 #, php-format
@@ -15334,10 +15354,6 @@ msgctxt "Text context"
 msgid "Text"
 msgstr "텍스트"
 
-#: templates/toggle_button.phtml:4
-msgid "Click to toggle"
-msgstr "토글하려면 클릭"
-
 #: themes.php:20 themes.php:25
 msgid "Theme"
 msgstr "테마"
@@ -15363,6 +15379,187 @@ msgctxt "for MIME transformation"
 msgid "Description"
 msgstr "설명"
 
+#: templates/error/report_form.twig:26
+msgid ""
+"This report automatically includes data about the error and information "
+"about relevant configuration settings. It will be sent to the phpMyAdmin "
+"team for debugging the error."
+msgstr ""
+
+#: templates/error/report_form.twig:33
+msgid ""
+"Can you tell us the steps leading to this error? It decisively helps in "
+"debugging:"
+msgstr ""
+
+#: templates/error/report_form.twig:43
+msgid "You may examine the data in the error report:"
+msgstr ""
+
+#: templates/database/designer/rename_to_panel.twig:42
+#: templates/database/designer/options_panel.twig:117
+msgid "Rename to"
+msgstr "바뀔 이름"
+
+#: templates/database/designer/rename_to_panel.twig:53
+#: templates/database/designer/options_panel.twig:126
+msgid "New name"
+msgstr "새 이름"
+
+#: templates/database/structure/tracking_icon.twig:28
+msgid "Tracking is active."
+msgstr "트래킹이 활성화되었습니다."
+
+#: templates/database/structure/tracking_icon.twig:31
+msgid "Tracking is not active."
+msgstr "트래킹이 활성화되어 있지 않습니다."
+
+#: templates/privileges/add_privileges_table.twig:25
+msgid "Add privileges on the following table:"
+msgstr "다음 테이블에 대한 권한 추가:"
+
+#: templates/server/variables/variable_table_head.twig:31
+#: templates/server/variables/session_variable_row.twig:25
+msgid "Session value"
+msgstr "세션 값"
+
+#: templates/server/variables/variable_table_head.twig:33
+msgid "Global value"
+msgstr ""
+
+#: templates/privileges/add_user_fieldset.twig:22
+msgctxt "Create new user"
+msgid "New"
+msgstr ""
+
+#: templates/privileges/add_privileges_routine.twig:25
+#, fuzzy
+#| msgid "Add privileges on the following table:"
+msgid "Add privileges on the following routine:"
+msgstr "다음 테이블에 대한 권한 추가:"
+
+#: templates/toggle_button.twig:24
+msgid "Click to toggle"
+msgstr "토글하려면 클릭"
+
+#: templates/database/designer/options_panel.twig:54
+#: templates/database/designer/options_panel.twig:250
+#, fuzzy
+#| msgid "Relation operator"
+msgid "Relationship operator"
+msgstr "관계 연산"
+
+#: templates/database/designer/options_panel.twig:86
+#: templates/database/designer/options_panel.twig:282
+#: templates/database/designer/where_query_panel.twig:82
+#: templates/database/designer/having_query_panel.twig:116
+msgid "Except"
+msgstr "제외"
+
+#: templates/database/designer/options_panel.twig:104
+#: templates/database/designer/options_panel.twig:300
+#: templates/database/designer/where_query_panel.twig:100
+#: templates/database/designer/having_query_panel.twig:134
+msgid "subquery"
+msgstr "서브쿼리"
+
+#: templates/database/designer/options_panel.twig:138
+#: templates/database/designer/aggregate_query_panel.twig:42
+msgid "Aggregate"
+msgstr "합계"
+
+#: templates/database/designer/options_panel.twig:147
+#: templates/database/designer/options_panel.twig:214
+#: templates/table/search/table_header.twig:44
+#: templates/database/designer/where_query_panel.twig:50
+#: templates/database/designer/having_query_panel.twig:50
+#: templates/database/designer/having_query_panel.twig:84
+#: templates/database/designer/aggregate_query_panel.twig:53
+msgid "Operator"
+msgstr "연산자"
+
+#: templates/columns_definitions/column_length.twig:47
+msgid "Edit ENUM/SET values"
+msgstr ""
+
+#: templates/database/designer/delete_relation_panel.twig:41
+#, fuzzy
+#| msgid "Delete relation"
+msgid "Delete relationship"
+msgstr "관계(relation) 삭제"
+
+#: templates/privileges/add_privileges_database.twig:20
+msgid "Add privileges on the following database(s):"
+msgstr "다음 데이터베이스들에 대한 권한 추가:"
+
+#: templates/privileges/add_privileges_database.twig:53
+msgid "Wildcards % and _ should be escaped with a \\ to use them literally."
+msgstr "%와 _는 와일드카드입니다. 일반 문자처럼 사용하려면 \\를 앞에 붙이세요."
+
+#: templates/start_and_number_of_rows_panel.twig:23
+msgid "Start row:"
+msgstr "시작 행:"
+
+#: templates/table/secondary_tabs.twig:29
+msgid "Relation view"
+msgstr "릴레이션 뷰"
+
+#: templates/database/create_table.twig:47
+msgid "Number of columns"
+msgstr "컬럼수"
+
+#: templates/table/search/replace_preview.twig:48
+msgid "Find and replace - preview"
+msgstr "찾기 및 바꾸기 - 미리보기"
+
+#: templates/table/search/replace_preview.twig:59
+msgid "Original string"
+msgstr "원본 문자열"
+
+#: templates/table/search/replace_preview.twig:63
+msgid "Replaced string"
+msgstr "문자열 변경"
+
+#: templates/table/search/replace_preview.twig:108
+msgid "Replace"
+msgstr "변경"
+
+#: templates/privileges/column_privileges.twig:89
+#: templates/privileges/column_privileges.twig:93
+#, fuzzy
+#| msgid "None"
+msgctxt "None privileges"
+msgid "None"
+msgstr "없음"
+
+#: templates/privileges/delete_user_fieldset.twig:24
+msgid "Remove selected user accounts"
+msgstr "선택한 사용자를 삭제"
+
+#: templates/privileges/delete_user_fieldset.twig:30
+msgid "Revoke all active privileges from the users and delete them afterwards."
+msgstr "모든 활성화된 권한을 박탈하고 사용자를 삭제함."
+
+#: templates/privileges/delete_user_fieldset.twig:34
+#: templates/privileges/delete_user_fieldset.twig:40
+#: templates/privileges/delete_user_fieldset.twig:44
+msgid "Drop the databases that have the same names as the users."
+msgstr "사용자명과 같은 이름의 데이터베이스를 삭제합니다."
+
+#: templates/prefs_autoload.twig:33
+msgid ""
+"Your browser has phpMyAdmin configuration for this domain. Would you like to "
+"import it for current session?"
+msgstr ""
+"당신의 브라우저에 현재 도메인을 위한 phpMyAdmin 설정이 존재합니다. 현재 세션"
+"을 위해 이를 불러오시겠습니까?"
+
+#: templates/prefs_autoload.twig:46
+#, fuzzy
+#| msgid "Delete tracking"
+msgid "Delete settings"
+msgstr "추적 데이터 삭제"
+
 #: url.php:39
 msgid "Taking you to the target site."
 msgstr "해당 사이트로 가는 중."
@@ -15371,11 +15568,11 @@ msgstr "해당 사이트로 가는 중."
 msgid "You don't have sufficient privileges to be here right now!"
 msgstr "어떻게 들어오셨어요? 지금 여기 있을 권한이 없습니다!"
 
-#: user_password.php:116
+#: user_password.php:115
 msgid "The profile has been updated."
 msgstr "프로파일을 업데이트했습니다."
 
-#: user_password.php:128
+#: user_password.php:127
 msgid "Password is too long!"
 msgstr "비밀번호가 너무 길어요!"
 
@@ -16607,6 +16804,33 @@ msgstr ""
 #: libraries/advisory_rules.txt:446
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert가 0으로 설정되었습니다"
+
+#~ msgid "PHP threw following error: %s"
+#~ msgstr "PHP에서 다음과 같은 오류가 발생했습니다: %s"
+
+#~ msgid "German"
+#~ msgstr "독일어"
+
+#~ msgid "dictionary"
+#~ msgstr "사전"
+
+#~ msgid "phone book"
+#~ msgstr "전화번호부"
+
+#~ msgid "Traditional Spanish"
+#~ msgstr "정통 스페인어"
+
+#~ msgid "multilingual"
+#~ msgstr "다국어"
+
+#~ msgid "binary collation"
+#~ msgstr "바이너리 정렬 방식"
+
+#~ msgid "case-insensitive collation"
+#~ msgstr "대소문자 구분 없는 정렬 방식"
+
+#~ msgid "case-sensitive collation"
+#~ msgstr "대소문자 구분 있는 정렬 방식"
 
 #~ msgid "all words"
 #~ msgstr "모든 단어"
