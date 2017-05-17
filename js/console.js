@@ -215,6 +215,7 @@ var PMA_console = {
             case 'info':
             /* jshint +W086 */
                 PMA_console.info();
+                $(window).scrollTop(0);
                 break;
             case 'show':
                 PMA_console.show(true);
@@ -342,6 +343,7 @@ var PMA_console = {
             case 'collapse':
             case 'info':
                 PMA_console.show(true);
+                $(window).scrollTop(0);
                 break;
             case 'show':
                 PMA_console.collapse();
