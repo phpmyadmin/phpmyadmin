@@ -4,17 +4,17 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-05-17 09:24+0200\n"
-"PO-Revision-Date: 2017-05-16 19:14+0000\n"
+"PO-Revision-Date: 2017-05-17 19:34+0000\n"
 "Last-Translator: Viktar Vauchkevich <victorenator@gmail.com>\n"
-"Language-Team: Belarusian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/be/>\n"
+"Language-Team: Belarusian "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/be/>\n"
 "Language: be\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 2.14-dev\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
+"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 2.14\n"
 
 #: changelog.php:39 license.php:34
 #, php-format
@@ -2821,10 +2821,9 @@ msgid "Error"
 msgstr "Памылка"
 
 #: libraries/Advisor.php:241
-#, fuzzy, php-format
-#| msgid "Error while creating PDF:"
+#, php-format
 msgid "Error when evaluating: %s"
-msgstr "Памылка падчас стварэння PDF:"
+msgstr "Памылка пры вызначэнні: %s"
 
 #: libraries/Advisor.php:272
 #, php-format
@@ -2910,171 +2909,123 @@ msgid "Collation"
 msgstr "Супастаўленьне"
 
 #: libraries/Charsets.php:264
-#, fuzzy
-#| msgid "unknown"
 msgid "Unknonwn"
-msgstr "невядома"
+msgstr "Невядома"
 
 #: libraries/Charsets.php:278
-#, fuzzy
-#| msgid "Binary"
 msgctxt "Collation"
 msgid "Binary"
 msgstr "Двайковы"
 
 #: libraries/Charsets.php:290 libraries/Charsets.php:520
-#, fuzzy
-#| msgid "Unicode"
 msgctxt "Collation"
 msgid "Unicode"
 msgstr "Юнікод"
 
 #: libraries/Charsets.php:300 libraries/Charsets.php:471
-#, fuzzy
-#| msgid "West European"
 msgctxt "Collation"
 msgid "West European"
-msgstr "Заходнеэўрапейская"
+msgstr "Заходне-еўрапейская"
 
 #: libraries/Charsets.php:307
-#, fuzzy
-#| msgid "Central European"
 msgctxt "Collation"
 msgid "Central European"
-msgstr "Цэнтральнаэўрапейская"
+msgstr "Цэнтральна-еўрапейская"
 
 #: libraries/Charsets.php:312
-#, fuzzy
-#| msgid "Russian"
 msgctxt "Collation"
 msgid "Russian"
 msgstr "Расейская"
 
 #: libraries/Charsets.php:317
-#, fuzzy
-#| msgid "Simplified Chinese"
 msgctxt "Collation"
 msgid "Simplified Chinese"
 msgstr "Кітайская спрошчаная"
 
 #: libraries/Charsets.php:324 libraries/Charsets.php:442
-#, fuzzy
-#| msgid "Japanese"
 msgctxt "Collation"
 msgid "Japanese"
 msgstr "Японская"
 
 #: libraries/Charsets.php:329
-#, fuzzy
-#| msgid "Baltic"
 msgctxt "Collation"
 msgid "Baltic"
 msgstr "Балтыйская"
 
 #: libraries/Charsets.php:334
-#, fuzzy
-#| msgid "Armenian"
 msgctxt "Collation"
 msgid "Armenian"
 msgstr "Армянская"
 
 #: libraries/Charsets.php:337
-#, fuzzy
-#| msgid "Traditional Chinese"
 msgctxt "Collation"
 msgid "Traditional Chinese"
 msgstr "Традыцыйная кітайская"
 
 #: libraries/Charsets.php:340
-#, fuzzy
-#| msgid "Cyrillic"
 msgctxt "Collation"
 msgid "Cyrillic"
 msgstr "Кірылічная"
 
 #: libraries/Charsets.php:343
-#, fuzzy
-#| msgid "Arabic"
 msgctxt "Collation"
 msgid "Arabic"
 msgstr "Арабская"
 
 #: libraries/Charsets.php:346 libraries/Charsets.php:457
-#, fuzzy
-#| msgid "Korean"
 msgctxt "Collation"
 msgid "Korean"
 msgstr "Карэйская"
 
 #: libraries/Charsets.php:349
-#, fuzzy
-#| msgid "Hebrew"
 msgctxt "Collation"
 msgid "Hebrew"
 msgstr "Габрэйская"
 
 #: libraries/Charsets.php:352
-#, fuzzy
-#| msgid "Georgian"
 msgctxt "Collation"
 msgid "Georgian"
 msgstr "Грузінская"
 
 #: libraries/Charsets.php:355
-#, fuzzy
-#| msgid "Greek"
 msgctxt "Collation"
 msgid "Greek"
 msgstr "Грэцкая"
 
 #: libraries/Charsets.php:358
-#, fuzzy
-#| msgid "Czech-Slovak"
 msgctxt "Collation"
 msgid "Czech-Slovak"
 msgstr "Чэхаславацкая"
 
 #: libraries/Charsets.php:361 libraries/Charsets.php:512
-#, fuzzy
-#| msgid "Ukrainian"
 msgctxt "Collation"
 msgid "Ukrainian"
 msgstr "Украінская"
 
 #: libraries/Charsets.php:364 libraries/Charsets.php:508
-#, fuzzy
-#| msgid "Turkish"
 msgctxt "Collation"
 msgid "Turkish"
 msgstr "Турэцкая"
 
 #: libraries/Charsets.php:367 libraries/Charsets.php:500
-#, fuzzy
-#| msgid "Swedish"
 msgctxt "Collation"
 msgid "Swedish"
-msgstr "Швэдзкая"
+msgstr "Шведская"
 
 #: libraries/Charsets.php:370 libraries/Charsets.php:504
-#, fuzzy
-#| msgid "Thai"
 msgctxt "Collation"
 msgid "Thai"
-msgstr "Тайляндзкая"
+msgstr "Тайландская"
 
 #: libraries/Charsets.php:373
-#, fuzzy
-#| msgid "unknown"
 msgctxt "Collation"
 msgid "Unknown"
-msgstr "невядома"
+msgstr "Невядома"
 
 #: libraries/Charsets.php:389
-#, fuzzy
-#| msgid "Bulgarian"
 msgctxt "Collation"
 msgid "Bulgarian"
-msgstr "Баўгарская"
+msgstr "Балгарская"
 
 #: libraries/Charsets.php:394
 msgctxt "Collation"
@@ -3082,53 +3033,39 @@ msgid "Chinese"
 msgstr ""
 
 #: libraries/Charsets.php:399
-#, fuzzy
-#| msgid "Croatian"
 msgctxt "Collation"
 msgid "Croatian"
 msgstr "Харвацкая"
 
 #: libraries/Charsets.php:403
-#, fuzzy
-#| msgid "Czech"
 msgctxt "Collation"
 msgid "Czech"
 msgstr "Чэская"
 
 #: libraries/Charsets.php:407
-#, fuzzy
-#| msgid "Danish"
 msgctxt "Collation"
 msgid "Danish"
 msgstr "Дацкая"
 
 #: libraries/Charsets.php:411
-#, fuzzy
-#| msgid "English"
 msgctxt "Collation"
 msgid "English"
 msgstr "Ангельская"
 
 #: libraries/Charsets.php:415
-#, fuzzy
-#| msgid "Esperanto"
 msgctxt "Collation"
 msgid "Esperanto"
-msgstr "Эспэранта"
+msgstr "Эсперанта"
 
 #: libraries/Charsets.php:419
-#, fuzzy
-#| msgid "Estonian"
 msgctxt "Collation"
 msgid "Estonian"
 msgstr "Эстонская"
 
 #: libraries/Charsets.php:422 libraries/Charsets.php:539
-#, fuzzy
-#| msgid "Data dictionary"
 msgctxt "Collation"
 msgid "German (dictionary order)"
-msgstr "Слоўнік даных"
+msgstr "Нямецкая (парадак слоўніка)"
 
 #: libraries/Charsets.php:425 libraries/Charsets.php:536
 msgctxt "Collation"
@@ -3136,18 +3073,14 @@ msgid "German (phone book order)"
 msgstr ""
 
 #: libraries/Charsets.php:434
-#, fuzzy
-#| msgid "Hungarian"
 msgctxt "Collation"
 msgid "Hungarian"
 msgstr "Вугорская"
 
 #: libraries/Charsets.php:438
-#, fuzzy
-#| msgid "Icelandic"
 msgctxt "Collation"
 msgid "Icelandic"
-msgstr "Ісьляндзкая"
+msgstr "Ісландская"
 
 #: libraries/Charsets.php:445
 msgctxt "Collation"
@@ -3155,15 +3088,11 @@ msgid "Classical Latin"
 msgstr ""
 
 #: libraries/Charsets.php:449
-#, fuzzy
-#| msgid "Latvian"
 msgctxt "Collation"
 msgid "Latvian"
 msgstr "Латвійская"
 
 #: libraries/Charsets.php:453
-#, fuzzy
-#| msgid "Lithuanian"
 msgctxt "Collation"
 msgid "Lithuanian"
 msgstr "Літоўская"
@@ -3174,22 +3103,16 @@ msgid "Burmese"
 msgstr ""
 
 #: libraries/Charsets.php:464
-#, fuzzy
-#| msgid "Persian"
 msgctxt "Collation"
 msgid "Persian"
-msgstr "Пэрсыдзкая"
+msgstr "Персідская"
 
 #: libraries/Charsets.php:468
-#, fuzzy
-#| msgid "Polish"
 msgctxt "Collation"
 msgid "Polish"
 msgstr "Польская"
 
 #: libraries/Charsets.php:475
-#, fuzzy
-#| msgid "Romanian"
 msgctxt "Collation"
 msgid "Romanian"
 msgstr "Румынская"
@@ -3200,25 +3123,19 @@ msgid "Sinhalese"
 msgstr ""
 
 #: libraries/Charsets.php:483
-#, fuzzy
-#| msgid "Slovak"
 msgctxt "Collation"
 msgid "Slovak"
 msgstr "Славацкая"
 
 #: libraries/Charsets.php:487
-#, fuzzy
-#| msgid "Slovenian"
 msgctxt "Collation"
 msgid "Slovenian"
 msgstr "Славенская"
 
 #: libraries/Charsets.php:490 libraries/Charsets.php:550
-#, fuzzy
-#| msgid "Spanish"
 msgctxt "Collation"
 msgid "Spanish (modern)"
-msgstr "Гішпанская"
+msgstr "Іспанская (мадэрн)"
 
 #: libraries/Charsets.php:497 libraries/Charsets.php:547
 msgctxt "Collation"
@@ -3226,39 +3143,29 @@ msgid "Spanish (traditional)"
 msgstr ""
 
 #: libraries/Charsets.php:516
-#, fuzzy
-#| msgid "Vietnamese"
 msgctxt "Collation"
 msgid "Vietnamese"
 msgstr "В'етнамская"
 
 #: libraries/Charsets.php:583
-#, fuzzy
-#| msgid "case-insensitive"
 msgctxt "Collation variant"
 msgid "case-insensitive"
 msgstr "без уліку рэгістру"
 
 #: libraries/Charsets.php:586
-#, fuzzy
-#| msgid "case-sensitive"
 msgctxt "Collation variant"
 msgid "case-sensitive"
 msgstr "з улікам рэгістру"
 
 #: libraries/Charsets.php:589
-#, fuzzy
-#| msgid "case-insensitive"
 msgctxt "Collation variant"
 msgid "accent-insensitive"
-msgstr "без уліку рэгістру"
+msgstr "без уліку акцэнту"
 
 #: libraries/Charsets.php:592
-#, fuzzy
-#| msgid "case-sensitive"
 msgctxt "Collation variant"
 msgid "accent-sensitive"
-msgstr "з улікам рэгістру"
+msgstr "з улікам акцэнту"
 
 #: libraries/Charsets.php:595
 msgctxt "Collation variant"
@@ -3271,11 +3178,9 @@ msgid "level=2"
 msgstr ""
 
 #: libraries/Charsets.php:601
-#, fuzzy
-#| msgid "Binary"
 msgctxt "Collation variant"
 msgid "binary"
-msgstr "Двайковы"
+msgstr "двайковы"
 
 #: libraries/Config.php:1116
 #, php-format
@@ -4488,10 +4393,9 @@ msgid "Error creating foreign key on %1$s (check data types)"
 msgstr "Памылка стварэньня зьнешняга ключа на %1$s (праверце тыпы калёнак)"
 
 #: libraries/Template.php:197
-#, fuzzy, php-format
-#| msgid "Error while loading the search."
+#, php-format
 msgid "Error while working with template cache: %s"
-msgstr "Памылка падчас загрузкі пошука."
+msgstr "Памылка падчас працы з кэшам шаблонаў: %s"
 
 #: libraries/Theme.php:183
 #, php-format
@@ -10339,36 +10243,18 @@ msgstr ""
 "gmdate()."
 
 #: libraries/plugins/transformations/abs/DownloadTransformationsPlugin.php:28
-#, fuzzy
-#| msgid ""
-#| "plays a link to download the binary data of the field. You can use the st "
-#| "option to specify the filename, or use the second option as the e of a "
-#| "field which contains the filename. If you use the second ion, you need to "
-#| "set the first option to the empty string."
 msgid ""
 "Displays a link to download the binary data of the column. You can use the "
 "first option to specify the filename, or use the second option as the name "
 "of a column which contains the filename. If you use the second option, you "
 "need to set the first option to the empty string."
 msgstr ""
-"Паказвае спасылку для загрузкі двайковых дадзеных поля. Вы можаце "
-"выкарыстоўваць першую опцыю для вызначэньня імя файла або выкарыстоўвайце "
-"другую опцыю як імя поля, якое ўтрымлівае імя файла. Калі вы выкарыстоўваеце "
-"другую опцыю, вам трэба пакінуць першае поле пустым"
+"Паказвае спасылку для загрузкі двайковых даных слупка. Вы можаце "
+"выкарыстоўваць першую опцыю для вызначэння назвы файла або другую — як назву "
+"слупка, які ўтрымлівае назву файла. Калі вы выкарыстоўваеце другую опцыю, "
+"вам трэба пакінуць першую пустым."
 
 #: libraries/plugins/transformations/abs/ExternalTransformationsPlugin.php:28
-#, fuzzy
-#| msgid ""
-#| "UX ONLY: Launches an external application and feeds it the field data  "
-#| "standard input. Returns the standard output of the application. The ault "
-#| "is Tidy, to pretty-print HTML code. For security reasons, you e to "
-#| "manually edit the file libraries/transformations/t_plain__external.inc."
-#| "php and list the tools you want to make ilable. The first option is then "
-#| "the number of the program you want to  and the second option is the "
-#| "parameters for the program. The third ion, if set to 1, will convert the "
-#| "output using htmlspecialchars() fault 1). The fourth option, if set to 1, "
-#| "will prevent wrapping and ure that the output appears all on one line "
-#| "(Default 1)."
 msgid ""
 "LINUX ONLY: Launches an external application and feeds it the column data "
 "via standard input. Returns the standard output of the application. The "
@@ -10381,17 +10267,17 @@ msgid ""
 "option, if set to 1, will prevent wrapping and ensure that the output "
 "appears all on one line (Default 1)."
 msgstr ""
-"ТОЛЬКІ ДЛЯ LINUX: Запускае зьнешнюю праграму і перадае ёй дадзеныя поля праз "
-"стандартны ўвод. Вяртае стандартны вывад праграмы. Праграма па змоўчаньні — "
-"Tidy, якая друкуе чысты HTML-код. Зь меркаваньняў бясьпекі, вам трэба "
-"ўручную адрэдагаваць файл libraries/transformations/text_plain__external.inc."
-"php і пазначыць сьпіс праграмаў, якія вы хочаце зрабіць даступнымі. Першая "
-"опцыя — тады нумар праграмы, якую вы хочаце выкарыстоўваць, другая опцыя — "
-"парамэтры для праграмы. Трэцяя опцыя, калі вызначаная як 1, сканвэртуе "
-"дадзеныя з стандартнага вываду выкарыстоўваючы htmlspecialchars() (Па "
-"змоўчаньні 1). Чацьвертая опцыя, калі вызначаная як 1, прадухіліць перанос "
-"па словах, каб пераканацца, што ўвесь выхадны паток будзе выведзены ў адзін "
-"радок (Па змоўчаньні 1)."
+"ТОЛЬКІ ДЛЯ LINUX: Запускае зьнешнюю праграму і перадае ёй даныя слупка праз "
+"стандартны ўвод. Вяртае стандартны вывад праграмы. Агаданая праграма — Tidy, "
+"якая друкуе прыемны HTML-код. З меркаванняў бяспекі, вам трэба ўручную "
+"адрэдагаваць файл libraries/plugins/transformations/output/"
+"Text_Plain_External.php і пазначыць спіс праграмаў, якія вы хочаце зрабіць "
+"даступнымі. Першая опцыя — нумар праграмы, якую вы хочаце выкарыстоўваць, "
+"другая — параметры для праграмы. Трэцяя опцыя, калі вызначаная як 1, "
+"сканвертуе даныя з стандартнага вываду выкарыстоўваючы htmlspecialchars() ("
+"Агадана 1). Чацвёртая опцыя, калі вызначаная як 1, прадухіліць перанос па "
+"словах, каб пераканацца, што выхадны паток будзе выведзены ў адзін радок ("
+"Агадана 1)."
 
 #: libraries/plugins/transformations/abs/FormattedTransformationsPlugin.php:28
 #, fuzzy
