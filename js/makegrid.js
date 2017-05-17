@@ -2079,7 +2079,8 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                 // hide edit cell if the click is not fromDat edit area
                 if ($(e.target).parents().index($(g.cEdit)) == -1 &&
                     !$(e.target).parents('.ui-datepicker-header').length &&
-                    !$('.browse_foreign_modal.ui-dialog:visible').length
+                    !$('.browse_foreign_modal.ui-dialog:visible').length &&
+                    !$(e.target).hasClass('error')
                 ) {
                     g.hideEditCell();
                 }
