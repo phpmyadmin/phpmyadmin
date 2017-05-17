@@ -4,17 +4,17 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-05-17 09:24+0200\n"
-"PO-Revision-Date: 2017-04-10 14:57+0000\n"
+"PO-Revision-Date: 2017-05-17 18:24+0000\n"
 "Last-Translator: Domen <mitenem@outlook.com>\n"
-"Language-Team: Slovenian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/sl/>\n"
+"Language-Team: Slovenian "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/sl/>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
-"%100==4 ? 2 : 3;\n"
-"X-Generator: Weblate 2.13-dev\n"
+"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
+"n%100==4 ? 2 : 3;\n"
+"X-Generator: Weblate 2.14\n"
 
 #: changelog.php:39 license.php:34
 #, php-format
@@ -294,13 +294,10 @@ msgid "The database name is empty!"
 msgstr "Ime zbirke podatkov je prazno!"
 
 #: db_operations.php:53
-#, fuzzy
-#| msgid ""
-#| "Cannot rename database to the same name. Change the name and try again"
 msgid "Cannot copy database to the same name. Change the name and try again."
 msgstr ""
-"Zbirke podatkov ne moremo preimenovati na isto ime. Spremenite ime in "
-"poskusite znova"
+"Zbirke podatkov ne moremo kopirati na isto ime. Spremenite ime in poskusite "
+"znova."
 
 #: db_operations.php:142
 #, php-format
@@ -617,6 +614,8 @@ msgid ""
 "You were logged out from one server, to logout completely from phpMyAdmin, "
 "you need to logout from all servers."
 msgstr ""
+"Odjavili ste se z enega strežnika; da se popolnoma odjavite iz phpMyAdmina, "
+"se morate odjaviti z vseh strežnikov."
 
 #: index.php:160 libraries/Footer.php:69
 msgid "phpMyAdmin Demo Server"
@@ -831,6 +830,8 @@ msgid ""
 "The $cfg['TempDir'] (%s) is not accessible. phpMyAdmin is not able to cache "
 "templates and will be slow because of this."
 msgstr ""
+"$cfg['TempDir'] (%s) ni dostopen. phpMyAdmin ne more predpomniti predlog in "
+"bo zaradi tega počasen."
 
 #: js/messages.php:43
 msgid "Confirm"
@@ -2947,10 +2948,9 @@ msgid "Error"
 msgstr "Napaka"
 
 #: libraries/Advisor.php:241
-#, fuzzy, php-format
-#| msgid "Error while creating PDF:"
+#, php-format
 msgid "Error when evaluating: %s"
-msgstr "Napaka med ustvarjanjem PDF:"
+msgstr "Napaka med vrednotenjem: %s"
 
 #: libraries/Advisor.php:272
 #, php-format
@@ -3041,168 +3041,120 @@ msgid "Collation"
 msgstr "Pravilo za razvrščanje znakov"
 
 #: libraries/Charsets.php:264
-#, fuzzy
-#| msgid "unknown"
 msgid "Unknonwn"
-msgstr "neznano"
+msgstr "Neznano"
 
 #: libraries/Charsets.php:278
-#, fuzzy
-#| msgid "Binary"
 msgctxt "Collation"
 msgid "Binary"
 msgstr "Dvojiško"
 
 #: libraries/Charsets.php:290 libraries/Charsets.php:520
-#, fuzzy
-#| msgid "Unicode"
 msgctxt "Collation"
 msgid "Unicode"
 msgstr "Unikod"
 
 #: libraries/Charsets.php:300 libraries/Charsets.php:471
-#, fuzzy
-#| msgid "West European"
 msgctxt "Collation"
 msgid "West European"
-msgstr "Zahodno evropsko"
+msgstr "Zahodnoevropsko"
 
 #: libraries/Charsets.php:307
-#, fuzzy
-#| msgid "Central European"
 msgctxt "Collation"
 msgid "Central European"
-msgstr "Centralno evropsko"
+msgstr "Srednjeevropsko"
 
 #: libraries/Charsets.php:312
-#, fuzzy
-#| msgid "Russian"
 msgctxt "Collation"
 msgid "Russian"
 msgstr "Rusko"
 
 #: libraries/Charsets.php:317
-#, fuzzy
-#| msgid "Simplified Chinese"
 msgctxt "Collation"
 msgid "Simplified Chinese"
 msgstr "Poenostavljeno kitajsko"
 
 #: libraries/Charsets.php:324 libraries/Charsets.php:442
-#, fuzzy
-#| msgid "Japanese"
 msgctxt "Collation"
 msgid "Japanese"
 msgstr "Japonsko"
 
 #: libraries/Charsets.php:329
-#, fuzzy
-#| msgid "Baltic"
 msgctxt "Collation"
 msgid "Baltic"
 msgstr "Baltsko"
 
 #: libraries/Charsets.php:334
-#, fuzzy
-#| msgid "Armenian"
 msgctxt "Collation"
 msgid "Armenian"
 msgstr "Armensko"
 
 #: libraries/Charsets.php:337
-#, fuzzy
-#| msgid "Traditional Chinese"
 msgctxt "Collation"
 msgid "Traditional Chinese"
 msgstr "Tradicionalno kitajsko"
 
 #: libraries/Charsets.php:340
-#, fuzzy
-#| msgid "Cyrillic"
 msgctxt "Collation"
 msgid "Cyrillic"
 msgstr "Cirilica"
 
 #: libraries/Charsets.php:343
-#, fuzzy
-#| msgid "Arabic"
 msgctxt "Collation"
 msgid "Arabic"
 msgstr "Arabsko"
 
 #: libraries/Charsets.php:346 libraries/Charsets.php:457
-#, fuzzy
-#| msgid "Korean"
 msgctxt "Collation"
 msgid "Korean"
 msgstr "Korejsko"
 
 #: libraries/Charsets.php:349
-#, fuzzy
-#| msgid "Hebrew"
 msgctxt "Collation"
 msgid "Hebrew"
 msgstr "Hebrejsko"
 
 #: libraries/Charsets.php:352
-#, fuzzy
-#| msgid "Georgian"
 msgctxt "Collation"
 msgid "Georgian"
 msgstr "Gruzijsko"
 
 #: libraries/Charsets.php:355
-#, fuzzy
-#| msgid "Greek"
 msgctxt "Collation"
 msgid "Greek"
 msgstr "Grško"
 
 #: libraries/Charsets.php:358
-#, fuzzy
-#| msgid "Czech-Slovak"
 msgctxt "Collation"
 msgid "Czech-Slovak"
 msgstr "Češkoslovaško"
 
 #: libraries/Charsets.php:361 libraries/Charsets.php:512
-#, fuzzy
-#| msgid "Ukrainian"
 msgctxt "Collation"
 msgid "Ukrainian"
 msgstr "Ukrajinsko"
 
 #: libraries/Charsets.php:364 libraries/Charsets.php:508
-#, fuzzy
-#| msgid "Turkish"
 msgctxt "Collation"
 msgid "Turkish"
 msgstr "Turško"
 
 #: libraries/Charsets.php:367 libraries/Charsets.php:500
-#, fuzzy
-#| msgid "Swedish"
 msgctxt "Collation"
 msgid "Swedish"
 msgstr "Švedsko"
 
 #: libraries/Charsets.php:370 libraries/Charsets.php:504
-#, fuzzy
-#| msgid "Thai"
 msgctxt "Collation"
 msgid "Thai"
 msgstr "Tajsko"
 
 #: libraries/Charsets.php:373
-#, fuzzy
-#| msgid "unknown"
 msgctxt "Collation"
 msgid "Unknown"
-msgstr "neznano"
+msgstr "Neznano"
 
 #: libraries/Charsets.php:389
-#, fuzzy
-#| msgid "Bulgarian"
 msgctxt "Collation"
 msgid "Bulgarian"
 msgstr "Bolgarsko"
@@ -3210,72 +3162,54 @@ msgstr "Bolgarsko"
 #: libraries/Charsets.php:394
 msgctxt "Collation"
 msgid "Chinese"
-msgstr ""
+msgstr "Kitajsko"
 
 #: libraries/Charsets.php:399
-#, fuzzy
-#| msgid "Croatian"
 msgctxt "Collation"
 msgid "Croatian"
 msgstr "Hrvaško"
 
 #: libraries/Charsets.php:403
-#, fuzzy
-#| msgid "Czech"
 msgctxt "Collation"
 msgid "Czech"
 msgstr "Češko"
 
 #: libraries/Charsets.php:407
-#, fuzzy
-#| msgid "Danish"
 msgctxt "Collation"
 msgid "Danish"
 msgstr "Dansko"
 
 #: libraries/Charsets.php:411
-#, fuzzy
-#| msgid "English"
 msgctxt "Collation"
 msgid "English"
 msgstr "Angleško"
 
 #: libraries/Charsets.php:415
-#, fuzzy
-#| msgid "Esperanto"
 msgctxt "Collation"
 msgid "Esperanto"
 msgstr "Esperanto"
 
 #: libraries/Charsets.php:419
-#, fuzzy
-#| msgid "Estonian"
 msgctxt "Collation"
 msgid "Estonian"
 msgstr "Estonsko"
 
 #: libraries/Charsets.php:422 libraries/Charsets.php:539
-#, fuzzy
-#| msgid "Data dictionary"
 msgctxt "Collation"
 msgid "German (dictionary order)"
-msgstr "Slovar podatkov"
+msgstr "Nemško (razvrščanje kot v slovarju)"
 
 #: libraries/Charsets.php:425 libraries/Charsets.php:536
 msgctxt "Collation"
 msgid "German (phone book order)"
-msgstr ""
+msgstr "Nemško (razvrščanje kot v telefonskem imeniku)"
 
 #: libraries/Charsets.php:434
-#, fuzzy
-#| msgid "Hungarian"
 msgctxt "Collation"
 msgid "Hungarian"
 msgstr "Madžarsko"
 
 #: libraries/Charsets.php:438
-#, fuzzy
-#| msgid "Icelandic"
 msgctxt "Collation"
 msgid "Icelandic"
 msgstr "Islandsko"
@@ -3283,136 +3217,102 @@ msgstr "Islandsko"
 #: libraries/Charsets.php:445
 msgctxt "Collation"
 msgid "Classical Latin"
-msgstr ""
+msgstr "Klasično latinsko"
 
 #: libraries/Charsets.php:449
-#, fuzzy
-#| msgid "Latvian"
 msgctxt "Collation"
 msgid "Latvian"
 msgstr "Latvijsko"
 
 #: libraries/Charsets.php:453
-#, fuzzy
-#| msgid "Lithuanian"
 msgctxt "Collation"
 msgid "Lithuanian"
 msgstr "Litvansko"
 
 #: libraries/Charsets.php:461
-#, fuzzy
-#| msgid "Burmese"
 msgctxt "Collation"
 msgid "Burmese"
-msgstr "burmanščina"
+msgstr "Burmensko"
 
 #: libraries/Charsets.php:464
-#, fuzzy
-#| msgid "Persian"
 msgctxt "Collation"
 msgid "Persian"
 msgstr "Perzijsko"
 
 #: libraries/Charsets.php:468
-#, fuzzy
-#| msgid "Polish"
 msgctxt "Collation"
 msgid "Polish"
 msgstr "Poljsko"
 
 #: libraries/Charsets.php:475
-#, fuzzy
-#| msgid "Romanian"
 msgctxt "Collation"
 msgid "Romanian"
 msgstr "Romunsko"
 
 #: libraries/Charsets.php:479
-#, fuzzy
-#| msgid "Sinhalese"
 msgctxt "Collation"
 msgid "Sinhalese"
-msgstr "singalščina"
+msgstr "Singalsko"
 
 #: libraries/Charsets.php:483
-#, fuzzy
-#| msgid "Slovak"
 msgctxt "Collation"
 msgid "Slovak"
 msgstr "Slovaško"
 
 #: libraries/Charsets.php:487
-#, fuzzy
-#| msgid "Slovenian"
 msgctxt "Collation"
 msgid "Slovenian"
 msgstr "Slovensko"
 
 #: libraries/Charsets.php:490 libraries/Charsets.php:550
-#, fuzzy
-#| msgid "Spanish"
 msgctxt "Collation"
 msgid "Spanish (modern)"
-msgstr "Špansko"
+msgstr "Špansko (sodobno)"
 
 #: libraries/Charsets.php:497 libraries/Charsets.php:547
 msgctxt "Collation"
 msgid "Spanish (traditional)"
-msgstr ""
+msgstr "Špansko (tradicionalno)"
 
 #: libraries/Charsets.php:516
-#, fuzzy
-#| msgid "Vietnamese"
 msgctxt "Collation"
 msgid "Vietnamese"
 msgstr "Vietnamsko"
 
 #: libraries/Charsets.php:583
-#, fuzzy
-#| msgid "case-insensitive"
 msgctxt "Collation variant"
 msgid "case-insensitive"
-msgstr "ne razlikuj velikih in malih črk"
+msgstr "ne razlikuje velikih in malih črk"
 
 #: libraries/Charsets.php:586
-#, fuzzy
-#| msgid "case-sensitive"
 msgctxt "Collation variant"
 msgid "case-sensitive"
-msgstr "razlikuj velike in male črke"
+msgstr "razlikuje velike in male črke"
 
 #: libraries/Charsets.php:589
-#, fuzzy
-#| msgid "case-insensitive"
 msgctxt "Collation variant"
 msgid "accent-insensitive"
-msgstr "ne razlikuj velikih in malih črk"
+msgstr "ne razlikuje med naglasnimi znamenji"
 
 #: libraries/Charsets.php:592
-#, fuzzy
-#| msgid "case-sensitive"
 msgctxt "Collation variant"
 msgid "accent-sensitive"
-msgstr "razlikuj velike in male črke"
+msgstr "razlikuje med naglasnimi znamenji"
 
 #: libraries/Charsets.php:595
-#, fuzzy
-#| msgid "Height"
 msgctxt "Collation variant"
 msgid "weight=2"
-msgstr "Višina"
+msgstr "teža=2"
 
 #: libraries/Charsets.php:598
 msgctxt "Collation variant"
 msgid "level=2"
-msgstr ""
+msgstr "stopnja=2"
 
 #: libraries/Charsets.php:601
-#, fuzzy
-#| msgid "Binary"
 msgctxt "Collation variant"
 msgid "binary"
-msgstr "Dvojiško"
+msgstr "dvojiško"
 
 #: libraries/Config.php:1116
 #, php-format
@@ -4634,10 +4534,9 @@ msgstr ""
 "Napaka pri ustvarjanju tujega ključa na %1$s (preverite vrste podatkov)"
 
 #: libraries/Template.php:197
-#, fuzzy, php-format
-#| msgid "Error while loading the search."
+#, php-format
 msgid "Error while working with template cache: %s"
-msgstr "Napaka pri nalaganju iskanja."
+msgstr "Napaka med delom s predpomnilnikom predlog: %s"
 
 #: libraries/Theme.php:183
 #, php-format
@@ -15707,10 +15606,8 @@ msgstr ""
 "uvoziti za trenutno sejo?"
 
 #: templates/prefs_autoload.twig:46
-#, fuzzy
-#| msgid "Delete settings "
 msgid "Delete settings"
-msgstr "Izbriši nastavitve "
+msgstr "Izbriši nastavitve"
 
 #: url.php:39
 msgid "Taking you to the target site."
