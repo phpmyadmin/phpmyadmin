@@ -411,6 +411,7 @@ class FormDisplayTest extends PMATestCase
         $opts = array('values' => array());
         $opts['values']['iconv'] = 'testIconv';
         $opts['values']['recode'] = 'testRecode';
+        $opts['values']['mb'] = 'testMB';
 
         $expect = $opts;
 

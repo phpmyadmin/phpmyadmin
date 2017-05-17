@@ -195,10 +195,7 @@ class Encoding
      */
     public static function canConvertKanji()
     {
-        return (
-            $GLOBALS['lang'] == 'ja' &&
-            function_exists('mb_convert_encoding')
-        );
+        return $GLOBALS['lang'] == 'ja';
     }
 
     /**
