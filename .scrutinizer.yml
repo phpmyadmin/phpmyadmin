@@ -5,6 +5,9 @@ imports:
 filter:
     excluded_paths: [js/jquery/*, js/jqplot/*, js/openlayers/*, js/codemirror/*, js/canvg/*, js/tracekit/*, js/sprintf.js]
 build:
+    environment:
+        php:
+            version: 7.1
     dependencies:
         before:
             - composer install

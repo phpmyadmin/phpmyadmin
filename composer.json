@@ -32,7 +32,7 @@
         }
     ],
     "require": {
-        "php": ">=5.5.0",
+        "php": ">=5.6.0",
         "ext-mbstring": "*",
         "ext-mysqli": "*",
         "ext-xml": "*",
@@ -63,7 +63,7 @@
     },
     "require-dev": {
         "satooshi/php-coveralls": "^1.0",
-        "phpunit/phpunit": "~4.1",
+        "phpunit/phpunit": "~5.7",
         "codacy/coverage": "dev-master",
         "phpunit/phpunit-selenium": "~1.2",
         "squizlabs/php_codesniffer": "2.*",

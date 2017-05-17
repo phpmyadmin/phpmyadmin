@@ -27,7 +27,7 @@ class PMATestCase extends PHPUnit_Framework_TestCase
      *
      * @return void
      */
-    public function mockResponse()
+    public function mockResponse(...$param)
     {
         $this->restoreInstance = PMA\libraries\Response::getInstance();
 
@@ -44,8 +44,6 @@ class PMATestCase extends PHPUnit_Framework_TestCase
             ->method('headersSent')
             ->with()
             ->will($this->returnValue(false));
-
-        $param = func_get_args();
 
         if (count($param) > 0) {
             if (is_array($param[0])) {
