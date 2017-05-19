@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-05-17 09:24+0200\n"
-"PO-Revision-Date: 2017-05-17 19:34+0000\n"
+"PO-Revision-Date: 2017-05-19 20:19+0000\n"
 "Last-Translator: Viktar Vauchkevich <victorenator@gmail.com>\n"
 "Language-Team: Belarusian "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/be/>\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
 "4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 2.14\n"
+"X-Generator: Weblate 2.14.1-dev\n"
 
 #: changelog.php:39 license.php:34
 #, php-format
@@ -232,13 +232,13 @@ msgstr "Так"
 
 #: db_export.php:47
 msgid "View dump (schema) of database"
-msgstr "Праглядзець дамп (схему) базы дадзеных"
+msgstr "Праглядзець дамп (схему) базы даных"
 
 #: db_export.php:51 db_tracking.php:103 export.php:375 libraries/DbQbe.php:327
 #: libraries/controllers/database/DatabaseStructureController.php:168
 #: libraries/navigation/NavigationTree.php:924
 msgid "No tables found in database."
-msgstr "У базе дадзеных табліц ня выяўлена."
+msgstr "У базе даных табліц не выяўлена."
 
 #: db_export.php:65 libraries/ServerStatusData.php:128
 #: libraries/config/messages.inc.php:273
@@ -248,7 +248,7 @@ msgstr "У базе дадзеных табліц ня выяўлена."
 #: libraries/plugins/export/ExportXml.php:118
 #: templates/database/structure/show_create.phtml:18
 msgid "Tables"
-msgstr "Табліц"
+msgstr "Табліцы"
 
 #: db_export.php:66 libraries/Menu.php:344 libraries/Menu.php:451
 #: libraries/Util.php:3161 libraries/Util.php:3171 libraries/Util.php:3177
@@ -280,7 +280,7 @@ msgstr "Структура"
 #: libraries/server_privileges.lib.php:1130
 #: templates/table/structure/display_table_stats.phtml:16
 msgid "Data"
-msgstr "Дадзеныя"
+msgstr "Даныя"
 
 #: db_export.php:70 libraries/DbSearch.php:435
 #: libraries/display_export.lib.php:45 libraries/replication_gui.lib.php:379
@@ -289,21 +289,23 @@ msgstr "Выбраць усё"
 
 #: db_operations.php:50 tbl_create.php:23
 msgid "The database name is empty!"
-msgstr "Імя базы дадзеных не пазначанае!"
+msgstr "Назва базы даных пустая!"
 
 #: db_operations.php:53
 msgid "Cannot copy database to the same name. Change the name and try again."
 msgstr ""
+"Не магчыма скапіяваць базу даных з гэтай жа назвай. Змяніце назву і "
+"паспрабуйце яшчэ раз."
 
 #: db_operations.php:142
 #, php-format
 msgid "Database %1$s has been renamed to %2$s."
-msgstr "База дадзеных %1$s была перайменаваная ў %2$s."
+msgstr "База даных %1$s была перайменаваная ў %2$s."
 
 #: db_operations.php:154
 #, php-format
 msgid "Database %1$s has been copied to %2$s."
-msgstr "База дадзеных %1$s была скапіяваная ў %2$s."
+msgstr "База даных %1$s была скапіяваная ў %2$s."
 
 #: db_operations.php:283
 #, php-format
@@ -2828,33 +2830,35 @@ msgstr "Памылка пры вызначэнні: %s"
 #: libraries/Advisor.php:272
 #, php-format
 msgid "Failed evaluating precondition for rule '%s'."
-msgstr ""
+msgstr "Не атрымалася вызначыць прадумову для правіла «%s»."
 
 #: libraries/Advisor.php:289
 #, php-format
 msgid "Failed calculating value for rule '%s'."
-msgstr ""
+msgstr "Не атрымалася вылічыць значэнне для правіла «%s»."
 
 #: libraries/Advisor.php:308
 #, php-format
 msgid "Failed running test for rule '%s'."
-msgstr ""
+msgstr "Не атрымалася выканаць тэст для правіла «%s»."
 
 #: libraries/Advisor.php:388
 #, php-format
 msgid "Failed formatting string for rule '%s'."
-msgstr ""
+msgstr "Не атрымаляся фарматаваць радок для правіла «%s»."
 
 #: libraries/Advisor.php:476
 #, php-format
 msgid "Error in reading file: The file '%s' does not exist or is not readable!"
-msgstr ""
+msgstr "Памылка пры чытанні файла: файл «%s» не існуе ці не чытаецца!"
 
 #: libraries/Advisor.php:501
 #, php-format
 msgid ""
 "Invalid rule declaration on line %1$s, expected line %2$s of previous rule."
 msgstr ""
+"Некарэктная дэкларацыя правіла ў радку %1$s, чакаецца радок %2$s папярэдняга "
+"правіла."
 
 #: libraries/Advisor.php:520
 #, php-format
@@ -2864,16 +2868,16 @@ msgstr "Некарэктнае азначэнне правіла ў радку %
 #: libraries/Advisor.php:528
 #, php-format
 msgid "Unexpected characters on line %s."
-msgstr ""
+msgstr "Нечаканыя знакі ў радку %s."
 
 #: libraries/Advisor.php:543
 #, php-format
 msgid "Unexpected character on line %1$s. Expected tab, but found \"%2$s\"."
-msgstr ""
+msgstr "Нечаканы знак у радку %1$s. Чакаецца табуляцыя, а знойдзена «%2$s»."
 
 #: libraries/Advisor.php:578
 msgid "per second"
-msgstr "у сэкунду"
+msgstr "у секунду"
 
 #: libraries/Advisor.php:581
 msgid "per minute"
@@ -2887,12 +2891,12 @@ msgstr "у гадзіну"
 
 #: libraries/Advisor.php:587
 msgid "per day"
-msgstr ""
+msgstr "у дзень"
 
 #: libraries/Charsets.php:180
 #: templates/database/structure/table_header.phtml:84
 msgid "Charset"
-msgstr "Кадыроўка"
+msgstr "Знаказбор"
 
 #: libraries/Charsets.php:227 libraries/Index.php:688
 #: libraries/central_columns.lib.php:702 libraries/central_columns.lib.php:1384
@@ -2906,7 +2910,7 @@ msgstr "Кадыроўка"
 #: templates/table/search/table_header.twig:40
 #: templates/server/collations/charsets.twig:24
 msgid "Collation"
-msgstr "Супастаўленьне"
+msgstr "Параўноўванне"
 
 #: libraries/Charsets.php:264
 msgid "Unknonwn"
@@ -3030,7 +3034,7 @@ msgstr "Балгарская"
 #: libraries/Charsets.php:394
 msgctxt "Collation"
 msgid "Chinese"
-msgstr ""
+msgstr "Кітайская"
 
 #: libraries/Charsets.php:399
 msgctxt "Collation"
@@ -3070,7 +3074,7 @@ msgstr "Нямецкая (парадак слоўніка)"
 #: libraries/Charsets.php:425 libraries/Charsets.php:536
 msgctxt "Collation"
 msgid "German (phone book order)"
-msgstr ""
+msgstr "Нямецкая (парадак тэлефоннай кнігі)"
 
 #: libraries/Charsets.php:434
 msgctxt "Collation"
@@ -3085,7 +3089,7 @@ msgstr "Ісландская"
 #: libraries/Charsets.php:445
 msgctxt "Collation"
 msgid "Classical Latin"
-msgstr ""
+msgstr "Лацінская класічная"
 
 #: libraries/Charsets.php:449
 msgctxt "Collation"
@@ -3100,7 +3104,7 @@ msgstr "Літоўская"
 #: libraries/Charsets.php:461
 msgctxt "Collation"
 msgid "Burmese"
-msgstr ""
+msgstr "Бірманская"
 
 #: libraries/Charsets.php:464
 msgctxt "Collation"
@@ -3120,7 +3124,7 @@ msgstr "Румынская"
 #: libraries/Charsets.php:479
 msgctxt "Collation"
 msgid "Sinhalese"
-msgstr ""
+msgstr "Сінгальская"
 
 #: libraries/Charsets.php:483
 msgctxt "Collation"
@@ -3140,7 +3144,7 @@ msgstr "Іспанская (мадэрн)"
 #: libraries/Charsets.php:497 libraries/Charsets.php:547
 msgctxt "Collation"
 msgid "Spanish (traditional)"
-msgstr ""
+msgstr "Іспанская (традыцыйная)"
 
 #: libraries/Charsets.php:516
 msgctxt "Collation"
@@ -3170,12 +3174,12 @@ msgstr "з улікам акцэнту"
 #: libraries/Charsets.php:595
 msgctxt "Collation variant"
 msgid "weight=2"
-msgstr ""
+msgstr "вага=2"
 
 #: libraries/Charsets.php:598
 msgctxt "Collation variant"
 msgid "level=2"
-msgstr ""
+msgstr "узровень=2"
 
 #: libraries/Charsets.php:601
 msgctxt "Collation variant"
@@ -3185,11 +3189,12 @@ msgstr "двайковы"
 #: libraries/Config.php:1116
 #, php-format
 msgid "Existing configuration file (%s) is not readable."
-msgstr ""
+msgstr "Існы файл канфігурацыі (%s) не чытаецца."
 
 #: libraries/Config.php:1146
 msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr ""
+"Няправільныя дазволы ў файла канфігурацыі, ён не павінен змяняцца ўсімі!"
 
 #: libraries/Config.php:1166
 #, php-format
@@ -3198,13 +3203,15 @@ msgstr "Немагчыма загрузіць агаданую канфігур�
 
 #: libraries/Config.php:1173
 msgid "Failed to read configuration file!"
-msgstr "Не атрымалася прачытаць канфігурацыйны файл!"
+msgstr "Не атрымалася прачытаць файл канфігурацый!"
 
 #: libraries/Config.php:1176
 msgid ""
 "This usually means there is a syntax error in it, please check any errors "
 "shown below."
 msgstr ""
+"Звычайна гэта азначае наяўнасць сінтаксічных памылак. Калі ласка, праверце "
+"памылкі, паказаныя ніжэй."
 
 #: libraries/Config.php:1555
 msgid "Font size"
@@ -3214,9 +3221,9 @@ msgstr "Памер шрыфта"
 #, php-format
 msgid "Showing %1$d bookmark (both private and shared)"
 msgid_plural "Showing %1$d bookmarks (both private and shared)"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Паказваецца %1$d закладка (прыватная ці агульная)"
+msgstr[1] "Паказваюцца %1$d закладкі (прыватныя ці агульныя)"
+msgstr[2] "Паказваюцца %1$d закладак (прыватныя ці агульныя)"
 
 #: libraries/Console.php:93
 msgid "No bookmarks"
@@ -3228,7 +3235,7 @@ msgstr "Кансоль SQL-запыту"
 
 #: libraries/DatabaseInterface.php:1422
 msgid "Failed to set configured collation connection!"
-msgstr "Не атрымалася ўстанавіць кафігурацыю супастаўлення злучэння!"
+msgstr "Не атрымалася ўстанавіць кафігурацыю параўноўвання злучэння!"
 
 #: libraries/DatabaseInterface.php:2034
 msgid ""
@@ -3240,19 +3247,19 @@ msgstr ""
 
 #: libraries/DatabaseInterface.php:2039
 msgid "The server is not responding."
-msgstr "Сэрвэр не адказвае."
+msgstr "Сервер не адказвае."
 
 #: libraries/DatabaseInterface.php:2043
 msgid "Logout and try as another user."
-msgstr ""
+msgstr "Выйсці і паспрабаваць у якасці іншага карыстальніка."
 
 #: libraries/DatabaseInterface.php:2049
 msgid "Please check privileges of directory containing database."
-msgstr ""
+msgstr "Калі ласка, праверце прывілеі каталога, што змяшчае базу даных."
 
 #: libraries/DatabaseInterface.php:2060
 msgid "Details…"
-msgstr "Падрабязьней…"
+msgstr "Дэталі…"
 
 #: libraries/DatabaseInterface.php:2358
 msgid "Missing connection parameters!"
@@ -3292,7 +3299,7 @@ msgstr "Слупок:"
 
 #: libraries/DbQbe.php:514
 msgid "Alias:"
-msgstr ""
+msgstr "Псеўданім:"
 
 #: libraries/DbQbe.php:566
 msgid "Sort:"
@@ -3308,11 +3315,11 @@ msgstr "Паказаць:"
 
 #: libraries/DbQbe.php:728
 msgid "Criteria:"
-msgstr "Крытэр:"
+msgstr "Крытэрый:"
 
 #: libraries/DbQbe.php:796
 msgid "Add/Delete criteria rows"
-msgstr "Дадаць/выдаліць радкі крытэру"
+msgstr "Дадаць/выдаліць радкі крытэрыю"
 
 #: libraries/DbQbe.php:796
 msgid "Add/Delete columns"
@@ -3332,7 +3339,7 @@ msgstr "Або:"
 
 #: libraries/DbQbe.php:880 libraries/DbQbe.php:972
 msgid "And:"
-msgstr ""
+msgstr "І:"
 
 #: libraries/DbQbe.php:885
 msgid "Ins"
@@ -3348,16 +3355,16 @@ msgstr "Змяніць:"
 
 #: libraries/DbQbe.php:967
 msgid "Ins:"
-msgstr ""
+msgstr "Уставіць:"
 
 #: libraries/DbQbe.php:982
 msgid "Del:"
-msgstr ""
+msgstr "Выдаліць:"
 
 #: libraries/DbQbe.php:1845
 #, php-format
 msgid "SQL query on database <b>%s</b>:"
-msgstr "SQL-запыт да БД <b>%s</b>:"
+msgstr "SQL-запыт да базы даных <b>%s</b>:"
 
 #: libraries/DbQbe.php:1864
 msgid "Submit Query"
@@ -3406,7 +3413,7 @@ msgstr "рэгулярны выраз"
 #: libraries/DbSearch.php:268
 #, php-format
 msgid "Search results for \"<i>%s</i>\" %s:"
-msgstr "Вынікі пошуку \"<i>%s</i>\" %s:"
+msgstr "Вынікі пошуку «<i>%s</i>» %s:"
 
 #: libraries/DbSearch.php:293
 #, php-format
@@ -3443,7 +3450,7 @@ msgstr "Словы або значэнні для пошуку (падстано
 
 #: libraries/DbSearch.php:389 templates/table/search/search_and_replace.phtml:1
 msgid "Find:"
-msgstr "Знайсьці:"
+msgstr "Знайсці:"
 
 #: libraries/DbSearch.php:394 libraries/DbSearch.php:398
 msgid "Words are separated by a space character (\" \")."
@@ -3464,7 +3471,7 @@ msgstr "Унутры слупка:"
 
 #: libraries/DisplayResults.php:902
 msgid "Save edited data"
-msgstr "Захаваць рэдагаваныя даныю"
+msgstr "Захаваць рэдагаваныя даныя"
 
 #: libraries/DisplayResults.php:908
 msgid "Restore column order"
@@ -3567,11 +3574,11 @@ msgstr "Адлюстроўваць слупок адносін"
 
 #: libraries/DisplayResults.php:1757
 msgid "Show binary contents"
-msgstr ""
+msgstr "Паказаць двайковы змест"
 
 #: libraries/DisplayResults.php:1768
 msgid "Show BLOB contents"
-msgstr ""
+msgstr "Паказаць BLOB-змест"
 
 #: libraries/DisplayResults.php:1785
 msgid "Hide browser transformation"
@@ -3579,11 +3586,11 @@ msgstr "Схаваць ператварэнне"
 
 #: libraries/DisplayResults.php:1796
 msgid "Well Known Text"
-msgstr ""
+msgstr "Добра вядомы тэкст"
 
 #: libraries/DisplayResults.php:1797
 msgid "Well Known Binary"
-msgstr ""
+msgstr "Добра вядомыя двайковыя даныя"
 
 #: libraries/DisplayResults.php:3536 libraries/DisplayResults.php:3551
 msgid "The row has been deleted."
@@ -10280,16 +10287,12 @@ msgstr ""
 "Агадана 1)."
 
 #: libraries/plugins/transformations/abs/FormattedTransformationsPlugin.php:28
-#, fuzzy
-#| msgid ""
-#| "plays the contents of the field as-is, without running it through "
-#| "lspecialchars(). That is, the field is assumed to contain valid HTML."
 msgid ""
 "Displays the contents of the column as-is, without running it through "
 "htmlspecialchars(). That is, the column is assumed to contain valid HTML."
 msgstr ""
-"Паказвае зьмесьціва поля як ёсьць, без апрацоўкі яго функцыяй "
-"htmlspecialchars(). Таму разумеецца, што поле ўтрымлівае карэктны HTML-код."
+"Паказвае змесціва слупка як ёсць, без апрацоўкі яго функцыяй "
+"htmlspecialchars(). Таму разумеецца, што слупок ўтрымлівае карэктны HTML-код."
 
 #: libraries/plugins/transformations/abs/HexTransformationsPlugin.php:28
 msgid ""
@@ -10370,32 +10373,22 @@ msgid ""
 msgstr ""
 
 #: libraries/plugins/transformations/abs/TextImageLinkTransformationsPlugin.php:33
-#, fuzzy
-#| msgid ""
-#| "plays an image and a link; the field contains the filename. The first ion "
-#| "is a URL prefix like \"https://www.example.com/\". The second and rd "
-#| "options are the width and the height in pixels."
 msgid ""
 "Displays an image and a link; the column contains the filename. The first "
 "option is a URL prefix like \"https://www.example.com/\". The second and "
 "third options are the width and the height in pixels."
 msgstr ""
-"Паказвае малюнак і спасылку, поле зьмяшчае назву файла. Першая опцыя — "
-"прэфікс адрасу кшталту \"https://www.example.com/\". Другая і трэцяя опцыі — "
-"шырыня і вышыня ў піксэлах."
+"Паказвае малюнак і спасылку, слупок змяшчае назву файла. Першая опцыя — "
+"прэфікс адраса кшталту \"https://www.example.com/\". Другая і трэцяя опцыі — "
+"шырыня і вышыня ў пікселах."
 
 #: libraries/plugins/transformations/abs/TextLinkTransformationsPlugin.php:33
-#, fuzzy
-#| msgid ""
-#| "plays a link; the field contains the filename. The first option is a  "
-#| "prefix like \"https://www.example.com/\". The second option is a title  "
-#| "the link."
 msgid ""
 "Displays a link; the column contains the filename. The first option is a URL "
 "prefix like \"https://www.example.com/\". The second option is a title for "
 "the link."
 msgstr ""
-"Паказвае спасылку; поле зьмяшчае назву файла. Першая опцыя — прэфікс адрасу "
+"Паказвае спасылку; слупок змяшчае назву файла. Першая опцыя — прэфікс адраса "
 "кшталту \"https://www.example.com/\". Другая опцыя — назва спасылкі."
 
 #: libraries/plugins/transformations/input/Text_Plain_Iptobinary.php:30
@@ -10421,101 +10414,73 @@ msgid ""
 msgstr ""
 
 #: libraries/plugins/transformations/output/Text_Plain_Json.php:48
-#, fuzzy
-#| msgid "Formats text as SQL query with syntax highlighting."
 msgid "Formats text as JSON with syntax highlighting."
-msgstr "Фарматуе тэкст як SQL-запыт з падсьвечаным сынтаксісам."
+msgstr "Фарматуе тэкст як JSON з падсвечаным сінтаксісам."
 
 #: libraries/plugins/transformations/output/Text_Plain_Xml.php:48
-#, fuzzy
-#| msgid "Formats text as SQL query with syntax highlighting."
 msgid "Formats text as XML with syntax highlighting."
-msgstr "Фарматуе тэкст як SQL-запыт з падсьвечаным сынтаксісам."
+msgstr "Фарматуе тэкст як XML з падсвечаным сінтаксісам."
 
 #: libraries/pmd_common.php:551
-#, fuzzy
-#| msgid "Error: relation already exists."
 msgid "Error: relationship already exists."
 msgstr "Памылка: сувязь ужо існуе."
 
 #: libraries/pmd_common.php:597
-#, fuzzy
-#| msgid "FOREIGN KEY relation added"
 msgid "FOREIGN KEY relationship has been added."
-msgstr "Сувязь FOREIGN KEY была дададзеная"
+msgstr "Сувязь FOREIGN KEY была дададзеная."
 
 #: libraries/pmd_common.php:603
-#, fuzzy
-#| msgid "Error: Relation not added."
 msgid "Error: FOREIGN KEY relationship could not be added!"
-msgstr "Памылка: сувязь не дададзеная."
+msgstr "Памылка: сувязь FOREIGN KEY не дададзеная!"
 
 #: libraries/pmd_common.php:608
 msgid "Error: Missing index on column(s)."
 msgstr ""
 
 #: libraries/pmd_common.php:613
-#, fuzzy
-#| msgid "Error: Relation not added."
 msgid "Error: Relational features are disabled!"
-msgstr "Памылка: сувязь не дададзеная."
+msgstr "Памылка: рэляцыйныя функцыі адключаныя!"
 
 #: libraries/pmd_common.php:635
-#, fuzzy
-#| msgid "Internal relation added"
 msgid "Internal relationship has been added."
-msgstr "Унутраная сувязь дададзеная"
+msgstr "Унутраная сувязь дададзеная."
 
 #: libraries/pmd_common.php:641
-#, fuzzy
-#| msgid "Error: Relation not added."
 msgid "Error: Internal relationship could not be added!"
-msgstr "Памылка: сувязь не дададзеная."
+msgstr "Памылка: унутраная сувязь не дададзеная!"
 
 #: libraries/pmd_common.php:679
-#, fuzzy
-#| msgid "FOREIGN KEY relation added"
 msgid "FOREIGN KEY relationship has been removed."
-msgstr "Сувязь FOREIGN KEY была дададзеная"
+msgstr "Сувязь FOREIGN KEY была выдаленыя."
 
 #: libraries/pmd_common.php:685
-#, fuzzy
-#| msgid "Error: Relation not added."
 msgid "Error: FOREIGN KEY relationship could not be removed!"
-msgstr "Памылка: сувязь не дададзеная."
+msgstr "Памылка: сувязь FOREIGN KEY не можа быць выдаленая!"
 
 #: libraries/pmd_common.php:712
-#, fuzzy
-#| msgid "Error: Relation not added."
 msgid "Error: Internal relationship could not be removed!"
-msgstr "Памылка: сувязь не дададзеная."
+msgstr "Памылка: унутраная сувязь не можа быць выдаленая!"
 
 #: libraries/pmd_common.php:716
-#, fuzzy
-#| msgid "Internal relation added"
 msgid "Internal relationship has been removed."
-msgstr "Унутраная сувязь дададзеная"
+msgstr "Унутраная сувязь выдаленая."
 
 #: libraries/relation.lib.php:90
 msgid "not OK"
 msgstr "не OK"
 
 #: libraries/relation.lib.php:94
-#, fuzzy
-#| msgid "OK"
 msgctxt "Correctly working"
 msgid "OK"
-msgstr "OK"
+msgstr "Добра"
 
 #: libraries/relation.lib.php:97
 msgid "Enabled"
 msgstr "Уключана"
 
 #: libraries/relation.lib.php:101
-#, fuzzy
-#| msgid "Modifications have been saved"
 msgid "Configuration of pmadb…"
-msgstr "Мадыфікацыі былі захаваныя"
+msgstr "Канфігурацыя pmadb…"
 
 #: libraries/relation.lib.php:105 libraries/relation.lib.php:141
 msgid "General relation features"
@@ -10526,10 +10491,8 @@ msgid "Display Features"
 msgstr "Паказваць магчымасьці"
 
 #: libraries/relation.lib.php:169
-#, fuzzy
-#| msgid "Creation of PDFs"
 msgid "Designer and creation of PDFs"
-msgstr "Стварэньне PDF-файлаў"
+msgstr "Дызайнер і стварэнне PDF-файлаў"
 
 #: libraries/relation.lib.php:180
 msgid "Displaying Column Comments"
@@ -10540,13 +10503,10 @@ msgid "Browser transformation"
 msgstr "Пераўтварэньне MIME-тыпу браўзэрам"
 
 #: libraries/relation.lib.php:193
-#, fuzzy
-#| msgid ""
-#| "Please see the documentation on how to update your column_comments table."
 msgid "Please see the documentation on how to update your column_info table."
 msgstr ""
-"За інфармацыяй як абнавіць табліцу column_comments зьвярніцеся, калі ласка, "
-"да дакумэнтацыі."
+"За інфармацыяй як абнавіць табліцу column_comments звярніцеся, калі ласка, "
+"да дакументацыі."
 
 #: libraries/relation.lib.php:209 libraries/sql_query_form.lib.php:396
 msgid "Bookmarked SQL query"
@@ -10561,9 +10521,8 @@ msgid "Persistent recently used tables"
 msgstr ""
 
 #: libraries/relation.lib.php:242
-#, fuzzy
 msgid "Persistent favorite tables"
-msgstr "Праверыць табліцу"
+msgstr "Устойлівыя ўлюблёныя табліцы"
 
 #: libraries/relation.lib.php:253
 msgid "Persistent tables' UI preferences"
@@ -10574,10 +10533,8 @@ msgid "User preferences"
 msgstr ""
 
 #: libraries/relation.lib.php:292
-#, fuzzy
-#| msgid "Modifications have been saved"
 msgid "Configurable menus"
-msgstr "Мадыфікацыі былі захаваныя"
+msgstr "Наладжвальныя меню"
 
 #: libraries/relation.lib.php:303
 msgid "Hide/show navigation items"
@@ -10592,15 +10549,12 @@ msgid "Managing Central list of columns"
 msgstr ""
 
 #: libraries/relation.lib.php:336
-#, fuzzy
-#| msgid "Rename table to"
 msgid "Remembering Designer Settings"
-msgstr "Перайменаваць табліцу ў"
+msgstr "Запамінанне налад дызайнера"
 
 #: libraries/relation.lib.php:347
-#, fuzzy
 msgid "Saving export templates"
-msgstr "Тып экспарту"
+msgstr "Захаванне шаблонаў экспарту"
 
 #: libraries/relation.lib.php:355
 msgid "Quick steps to set up advanced features:"
@@ -10693,9 +10647,8 @@ msgid "Ignore all databases; Replicate:"
 msgstr ""
 
 #: libraries/replication_gui.lib.php:105
-#, fuzzy
 msgid "Please select databases:"
-msgstr "Калі ласка, выберыце базу дадзеных"
+msgstr "Калі ласка, выберыце базу даных:"
 
 #: libraries/replication_gui.lib.php:109
 msgid ""
@@ -10716,10 +10669,8 @@ msgid "Slave replication"
 msgstr ""
 
 #: libraries/replication_gui.lib.php:149
-#, fuzzy
-#| msgid "% aborted connections"
 msgid "Master connection:"
-msgstr "максымум адначасовых злучэньняў"
+msgstr "Галоўнае злучэнне:"
 
 #: libraries/replication_gui.lib.php:216
 msgid "Slave SQL Thread not running!"
@@ -10743,34 +10694,28 @@ msgid "Control slave:"
 msgstr ""
 
 #: libraries/replication_gui.lib.php:250
-#, fuzzy
 msgid "Full start"
-msgstr "Поўнатэкстэкставае"
+msgstr "Поўны запуск"
 
 #: libraries/replication_gui.lib.php:251
-#, fuzzy
 msgid "Full stop"
-msgstr "Поўнатэкстэкставае"
+msgstr "Поўны прыпынак"
 
 #: libraries/replication_gui.lib.php:254
 msgid "Reset slave"
 msgstr ""
 
 #: libraries/replication_gui.lib.php:257
-#, fuzzy
-#| msgid "Structure only"
 msgid "Start SQL Thread only"
-msgstr "Толькі структуру"
+msgstr "Запусціць толькі SQL-паток"
 
 #: libraries/replication_gui.lib.php:260
 msgid "Stop SQL Thread only"
 msgstr ""
 
 #: libraries/replication_gui.lib.php:264
-#, fuzzy
-#| msgid "Structure only"
 msgid "Start IO Thread only"
-msgstr "Толькі структуру"
+msgstr "Запусціць толькі IO-паток"
 
 #: libraries/replication_gui.lib.php:267
 msgid "Stop IO Thread only"
@@ -10823,10 +10768,8 @@ msgstr ""
 
 #: libraries/replication_gui.lib.php:412 libraries/replication_gui.lib.php:782
 #: libraries/server_privileges.lib.php:1492
-#, fuzzy
-#| msgid "User name"
 msgid "User name:"
-msgstr "Імя карыстальніка"
+msgstr "Імя карыстальніка:"
 
 #: libraries/replication_gui.lib.php:418 libraries/replication_gui.lib.php:786
 #: libraries/replication_gui.lib.php:799
@@ -10846,19 +10789,16 @@ msgid "Password"
 msgstr "Пароль"
 
 #: libraries/replication_gui.lib.php:447
-#, fuzzy
 msgid "Port:"
-msgstr "Парадак"
+msgstr "Порт:"
 
 #: libraries/replication_gui.lib.php:531
-#, fuzzy
 msgid "Master status"
-msgstr "Паказаць стан залежных сэрвэраў"
+msgstr "Стан галоўнага сервера"
 
 #: libraries/replication_gui.lib.php:534
-#, fuzzy
 msgid "Slave status"
-msgstr "Паказаць стан залежных сэрвэраў"
+msgstr "Стан залежнага сервера"
 
 #: libraries/replication_gui.lib.php:543
 #: libraries/server_status_variables.lib.php:217
@@ -10901,10 +10841,8 @@ msgstr "Любы карыстальнік"
 #: libraries/replication_gui.lib.php:795 libraries/replication_gui.lib.php:828
 #: libraries/replication_gui.lib.php:857
 #: libraries/server_privileges.lib.php:1629
-#, fuzzy
-#| msgid "Use text field"
 msgid "Use text field:"
-msgstr "Выкарыстоўваць тэкставае поле"
+msgstr "Выкарыстоўваць тэкставае поле:"
 
 #: libraries/replication_gui.lib.php:822
 #: libraries/server_privileges.lib.php:1620
@@ -10924,10 +10862,8 @@ msgid "Re-type"
 msgstr "Пацьверджаньне"
 
 #: libraries/replication_gui.lib.php:873
-#, fuzzy
-#| msgid "Generate Password"
 msgid "Generate password:"
-msgstr "Згенэраваць пароль"
+msgstr "Згенераваць пароль:"
 
 #: libraries/replication_gui.lib.php:905
 msgid ""
@@ -10936,28 +10872,24 @@ msgid ""
 msgstr ""
 
 #: libraries/replication_gui.lib.php:914
-#, fuzzy
 msgid "Replication started successfully."
-msgstr "Рэплікацыя"
+msgstr "Рэплікацыя паспяхова запусцілася."
 
 #: libraries/replication_gui.lib.php:915
 msgid "Error starting replication."
 msgstr ""
 
 #: libraries/replication_gui.lib.php:918
-#, fuzzy
-#| msgid "Chart generated successfully."
 msgid "Replication stopped successfully."
-msgstr "Прывілеі былі пасьпяхова перазагружаныя."
+msgstr "Рэплікацыя паспяхова спынілася."
 
 #: libraries/replication_gui.lib.php:919
 msgid "Error stopping replication."
 msgstr ""
 
 #: libraries/replication_gui.lib.php:922
-#, fuzzy
 msgid "Replication resetting successfully."
-msgstr "Рэплікацыя"
+msgstr "Рэплікацыя паспяхова скінулася."
 
 #: libraries/replication_gui.lib.php:923
 msgid "Error resetting replication."
@@ -10968,10 +10900,8 @@ msgid "Success."
 msgstr ""
 
 #: libraries/replication_gui.lib.php:927
-#, fuzzy
-#| msgid "Error"
 msgid "Error."
-msgstr "Памылка"
+msgstr "Памылка."
 
 #: libraries/replication_gui.lib.php:972
 msgid "Unknown error"
