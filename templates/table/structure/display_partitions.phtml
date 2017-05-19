@@ -11,12 +11,12 @@ use PMA\libraries\URL; ?>
         <?php else: ?>
             <p>
                 <?= __('Partitioned by:');?>
-                <code><?= htmlspecialchars($partitionMethod) , '(' , htmlspecialchars($partitionExpression) , ' )'; ?></code>
+                <code><?= htmlspecialchars($partitionMethod) , '(' , htmlspecialchars($partitionExpression) , ')'; ?></code>
             </p>
             <?php if ($hasSubPartitions): ?>
                 <p>
                     <?= __('Sub partitioned by:'); ?>
-                    <code><?= htmlspecialchars($subPartitionMethod) , '(' , htmlspecialchars($subPartitionExpression) , ' )'; ?></code>
+                    <code><?= htmlspecialchars($subPartitionMethod) , '(' , htmlspecialchars($subPartitionExpression) , ')'; ?></code>
                 <p>
             <?php endif; ?>
             <table>
