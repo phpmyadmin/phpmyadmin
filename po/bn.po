@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-05-17 09:24+0200\n"
-"PO-Revision-Date: 2017-03-16 12:19+0000\n"
-"Last-Translator: Progyan Bhattacharya <bprogyan@gmail.com>\n"
-"Language-Team: Bengali <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/bn/>\n"
+"PO-Revision-Date: 2017-05-20 07:00+0000\n"
+"Last-Translator: imran hadid <imranhadid03@gmail.com>\n"
+"Language-Team: Bengali "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/bn/>\n"
 "Language: bn\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.12\n"
+"X-Generator: Weblate 2.14.1-dev\n"
 
 #: changelog.php:39 license.php:34
 #, php-format
@@ -136,7 +136,7 @@ msgstr "নাল"
 #: templates/database/structure/body_for_table_summary.phtml:55
 #: templates/table/structure/table_structure_header.phtml:12
 msgid "Default"
-msgstr "স্বাভাবিক"
+msgstr "ডিফল্ট"
 
 #: db_datadict.php:120 libraries/plugins/export/ExportHtmlword.php:399
 #: libraries/plugins/export/ExportLatex.php:528
