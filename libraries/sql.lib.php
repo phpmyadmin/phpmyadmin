@@ -2177,6 +2177,7 @@ function PMA_executeQueryAndGetQueryResponse($analyzed_sql_results,
             $pmaThemeImage, isset($result) ? $result : null,
             $sql_query, isset($complete_query) ? $complete_query : null
         );
+        unset($GLOBALS['message']);
     } else {
         // At least one row is returned -> displays a table with results
         $html_output = PMA_getQueryResponseForResultsReturned(
