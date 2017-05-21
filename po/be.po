@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-05-17 09:24+0200\n"
-"PO-Revision-Date: 2017-05-19 20:19+0000\n"
+"PO-Revision-Date: 2017-05-21 14:15+0000\n"
 "Last-Translator: Viktar Vauchkevich <victorenator@gmail.com>\n"
 "Language-Team: Belarusian "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/be/>\n"
@@ -10922,10 +10922,9 @@ msgid "Unable to change master!"
 msgstr ""
 
 #: libraries/replication_gui.lib.php:1015
-#, fuzzy, php-format
-#| msgid "The privileges were reloaded successfully."
+#, php-format
 msgid "Master server changed successfully to %s."
-msgstr "Прывілеі былі пасьпяхова перазагружаныя."
+msgstr "Галоўны сервер паспяхова зменены на %s."
 
 #: libraries/rte/rte_events.lib.php:110 libraries/rte/rte_events.lib.php:119
 #: libraries/rte/rte_events.lib.php:150 libraries/rte/rte_routines.lib.php:226
@@ -10943,16 +10942,14 @@ msgid "Sorry, we failed to restore the dropped event."
 msgstr ""
 
 #: libraries/rte/rte_events.lib.php:137
-#, fuzzy, php-format
-#| msgid "Table %s has been dropped."
+#, php-format
 msgid "Event %1$s has been modified."
-msgstr "Табліца %s была выдаленая"
+msgstr "Падзея %1$s была змененая."
 
 #: libraries/rte/rte_events.lib.php:157
-#, fuzzy, php-format
-#| msgid "Table %1$s has been created."
+#, php-format
 msgid "Event %1$s has been created."
-msgstr "Табліца %1$s створаная."
+msgstr "Падзея %1$s створаная."
 
 #: libraries/rte/rte_events.lib.php:171 libraries/rte/rte_routines.lib.php:273
 #: libraries/rte/rte_triggers.lib.php:147
@@ -10960,57 +10957,44 @@ msgid "One or more errors have occurred while processing your request:"
 msgstr ""
 
 #: libraries/rte/rte_events.lib.php:224
-#, fuzzy
 msgid "Edit event"
-msgstr "Вэб-сэрвэр"
+msgstr "Рэдагаваць падзею"
 
 #: libraries/rte/rte_events.lib.php:390 libraries/rte/rte_routines.lib.php:889
 #: libraries/rte/rte_triggers.lib.php:327 view_create.php:205
-#, fuzzy
-#| msgid "Details…"
 msgid "Details"
-msgstr "Падрабязьней…"
+msgstr "Дэталі"
 
 #: libraries/rte/rte_events.lib.php:393
-#, fuzzy
-#| msgid "Event type"
 msgid "Event name"
-msgstr "Тып падзеі"
+msgstr "Назва падзеі"
 
 #: libraries/rte/rte_events.lib.php:436 libraries/rte/rte_routines.lib.php:912
-#, fuzzy, php-format
-#| msgid "Change"
+#, php-format
 msgid "Change to %s"
-msgstr "Зьмяніць"
+msgstr "Змяніць на %s"
 
 #: libraries/rte/rte_events.lib.php:442
 msgid "Execute at"
 msgstr ""
 
 #: libraries/rte/rte_events.lib.php:450
-#, fuzzy
-#| msgid "Execute bookmarked query"
 msgid "Execute every"
-msgstr "Выканаць запыт з закладак"
+msgstr "Выканаць кожны"
 
 #: libraries/rte/rte_events.lib.php:469
-#, fuzzy
 msgctxt "Start of recurring event"
 msgid "Start"
-msgstr "Стан"
+msgstr "Пачатак"
 
 #: libraries/rte/rte_events.lib.php:478
-#, fuzzy
-#| msgid "End"
 msgctxt "End of recurring event"
 msgid "End"
-msgstr "Апошняя старонка"
+msgstr "Канец"
 
 #: libraries/rte/rte_events.lib.php:492
-#, fuzzy
-#| msgid "Complete inserts"
 msgid "On completion preserve"
-msgstr "Поўная ўстаўка"
+msgstr "Па завяршэнні захавання"
 
 #: libraries/rte/rte_events.lib.php:497 libraries/rte/rte_routines.lib.php:1027
 #: libraries/rte/rte_triggers.lib.php:387 view_create.php:234
@@ -11023,10 +11007,8 @@ msgid "The definer must be in the \"username@hostname\" format!"
 msgstr ""
 
 #: libraries/rte/rte_events.lib.php:548
-#, fuzzy
-#| msgid "Invalid table name"
 msgid "You must provide an event name!"
-msgstr "Некарэктнае імя табліцы"
+msgstr "Неабходна задаць назву падзеі!"
 
 #: libraries/rte/rte_events.lib.php:563
 msgid "You must provide a valid interval value for the event."
@@ -11048,10 +11030,8 @@ msgstr ""
 #: libraries/rte/rte_routines.lib.php:158
 #: libraries/rte/rte_routines.lib.php:1311
 #: libraries/rte/rte_routines.lib.php:1521
-#, fuzzy
-#| msgid "Processes"
 msgid "Error in processing request:"
-msgstr "Працэсы"
+msgstr "Памылка пры апрацоўцы запыту:"
 
 #: libraries/rte/rte_footer.lib.php:94
 msgid "OFF"
@@ -11070,10 +11050,8 @@ msgid "The backed up query was:"
 msgstr ""
 
 #: libraries/rte/rte_list.lib.php:82
-#, fuzzy
-#| msgid "Return type"
 msgid "Returns"
-msgstr "Тып працэдуры"
+msgstr "Вяртае"
 
 #: libraries/rte/rte_routines.lib.php:78
 msgid ""
@@ -11084,82 +11062,65 @@ msgid ""
 msgstr ""
 
 #: libraries/rte/rte_routines.lib.php:129
-#, fuzzy
 msgid "Edit routine"
-msgstr "Вэб-сэрвэр"
+msgstr "Рэдагаваць працэдуру"
 
 #: libraries/rte/rte_routines.lib.php:207
 #: libraries/rte/rte_routines.lib.php:1117
-#, fuzzy, php-format
-#| msgid "Invalid server index: \"%s\""
+#, php-format
 msgid "Invalid routine type: \"%s\""
-msgstr "Некарэктны індэкс сэрвэра: \"%s\""
+msgstr "Некарэктны тып працэдуры: «%s»"
 
 #: libraries/rte/rte_routines.lib.php:260
-#, fuzzy, php-format
-#| msgid "Table %1$s has been created."
+#, php-format
 msgid "Routine %1$s has been created."
-msgstr "Табліца %1$s створаная."
+msgstr "Працэдура %1$s створаная."
 
 #: libraries/rte/rte_routines.lib.php:379
 msgid "Sorry, we failed to restore the dropped routine."
 msgstr ""
 
 #: libraries/rte/rte_routines.lib.php:435
-#, fuzzy, php-format
-#| msgid "Table %s has been dropped."
+#, php-format
 msgid "Routine %1$s has been modified. Privileges have been adjusted."
-msgstr "Табліца %s была выдаленая"
+msgstr "Працэдура %1$s была змененая. Прывілеі абноўленыя."
 
 #: libraries/rte/rte_routines.lib.php:440
-#, fuzzy, php-format
-#| msgid "Table %s has been dropped."
+#, php-format
 msgid "Routine %1$s has been modified."
-msgstr "Табліца %s была выдаленая"
+msgstr "Працэдура %1$s была змененая."
 
 #: libraries/rte/rte_routines.lib.php:892
-#, fuzzy
-#| msgid "Routines"
 msgid "Routine name"
-msgstr "Працэдуры"
+msgstr "Назва працэдуры"
 
 #: libraries/rte/rte_routines.lib.php:918
 msgid "Parameters"
 msgstr ""
 
 #: libraries/rte/rte_routines.lib.php:926
-#, fuzzy
-#| msgid "Direct links"
 msgid "Direction"
-msgstr "Прамыя лініі сувязяў"
+msgstr "Напрамак"
 
 #: libraries/rte/rte_routines.lib.php:947
-#, fuzzy
-#| msgid "Add new field"
 msgid "Add parameter"
-msgstr "Дадаць новае поле"
+msgstr "Дадаць параметр"
 
 #: libraries/rte/rte_routines.lib.php:951
-#, fuzzy
-#| msgid "Rename database to"
 msgid "Remove last parameter"
-msgstr "Перайменаваць базу дадзеных у"
+msgstr "Выдаліць апошні параметр"
 
 #: libraries/rte/rte_routines.lib.php:956
 msgid "Return type"
 msgstr "Тып працэдуры"
 
 #: libraries/rte/rte_routines.lib.php:962
-#, fuzzy
-#| msgid "Length/Values"
 msgid "Return length/values"
-msgstr "Даўжыня/Значэньні*"
+msgstr "Вярнуць даўжыню/значэнні"
 
 #: libraries/rte/rte_routines.lib.php:968
-#, fuzzy
-#| msgid "Table options"
 msgid "Return options"
-msgstr "Опцыі табліцы"
+msgstr "Вярнуць опцыі"
 
 #: libraries/rte/rte_routines.lib.php:998
 msgid "Is deterministic"
@@ -11172,20 +11133,16 @@ msgid ""
 msgstr ""
 
 #: libraries/rte/rte_routines.lib.php:1032
-#, fuzzy
-#| msgid "Query type"
 msgid "Security type"
-msgstr "Тып запыту"
+msgstr "Тып бяспекі"
 
 #: libraries/rte/rte_routines.lib.php:1041
 msgid "SQL data access"
 msgstr ""
 
 #: libraries/rte/rte_routines.lib.php:1124
-#, fuzzy
-#| msgid "Invalid table name"
 msgid "You must provide a routine name!"
-msgstr "Некарэктнае імя табліцы"
+msgstr "Неабходна задаць назву працэдуры!"
 
 #: libraries/rte/rte_routines.lib.php:1158
 #, php-format
@@ -11212,10 +11169,9 @@ msgid "You must provide a routine definition."
 msgstr ""
 
 #: libraries/rte/rte_routines.lib.php:1397
-#, fuzzy, php-format
-#| msgid "Allows executing stored routines."
+#, php-format
 msgid "Execution results of routine %s"
-msgstr "Дазваляе выкананьне праграмаў, якія захоўваюцца."
+msgstr "Вынікі выканання працэдуры %s"
 
 #: libraries/rte/rte_routines.lib.php:1452
 #, php-format
@@ -11232,95 +11188,72 @@ msgstr ""
 
 #: libraries/rte/rte_routines.lib.php:1595
 #: libraries/rte/rte_routines.lib.php:1598
-#, fuzzy
-#| msgid "Routines"
 msgid "Routine parameters"
-msgstr "Працэдуры"
+msgstr "Параметры працэдуры"
 
 #: libraries/rte/rte_triggers.lib.php:106
 msgid "Sorry, we failed to restore the dropped trigger."
 msgstr ""
 
 #: libraries/rte/rte_triggers.lib.php:113
-#, fuzzy, php-format
-#| msgid "Table %s has been dropped."
+#, php-format
 msgid "Trigger %1$s has been modified."
-msgstr "Табліца %s была выдаленая"
+msgstr "Трыгер %1$s быў зменены."
 
 #: libraries/rte/rte_triggers.lib.php:133
-#, fuzzy, php-format
-#| msgid "Table %1$s has been created."
+#, php-format
 msgid "Trigger %1$s has been created."
-msgstr "Табліца %1$s створаная."
+msgstr "Трыгер %1$s створаны."
 
 #: libraries/rte/rte_triggers.lib.php:209
-#, fuzzy
 msgid "Edit trigger"
-msgstr "Дадаць новага карыстальніка"
+msgstr "Рэдагаваць трыгер"
 
 #: libraries/rte/rte_triggers.lib.php:330
-#, fuzzy
-#| msgid "Triggers"
 msgid "Trigger name"
-msgstr "Трыгеры"
+msgstr "Назва трыгера"
 
 #: libraries/rte/rte_triggers.lib.php:353
-#, fuzzy
-#| msgid "Time"
 msgctxt "Trigger action time"
 msgid "Time"
 msgstr "Час"
 
 #: libraries/rte/rte_triggers.lib.php:433
-#, fuzzy
-#| msgid "Invalid table name"
 msgid "You must provide a trigger name!"
-msgstr "Некарэктнае імя табліцы"
+msgstr "Неабходна задаць назву трыгера!"
 
 #: libraries/rte/rte_triggers.lib.php:440
-#, fuzzy
-#| msgid "Invalid table name"
 msgid "You must provide a valid timing for the trigger!"
-msgstr "Некарэктнае імя табліцы"
+msgstr "Неабходна задаць правільны час выканання трыгера!"
 
 #: libraries/rte/rte_triggers.lib.php:447
-#, fuzzy
-#| msgid "Invalid table name"
 msgid "You must provide a valid event for the trigger!"
-msgstr "Некарэктнае імя табліцы"
+msgstr "Неабходна задаць правільную падзею для трыгера!"
 
 #: libraries/rte/rte_triggers.lib.php:455
-#, fuzzy
-#| msgid "Invalid table name"
 msgid "You must provide a valid table name!"
-msgstr "Некарэктнае імя табліцы"
+msgstr "Неабходна задаць правільную назву табліцы!"
 
 #: libraries/rte/rte_triggers.lib.php:461
 msgid "You must provide a trigger definition."
 msgstr ""
 
 #: libraries/rte/rte_words.lib.php:27
-#, fuzzy
-#| msgid "Add new field"
 msgid "Add routine"
-msgstr "Дадаць новае поле"
+msgstr "Дадаць працэдуру"
 
 #: libraries/rte/rte_words.lib.php:29
-#, fuzzy, php-format
+#, php-format
 msgid "Export of routine %s"
-msgstr "Імпартаваць файлы"
+msgstr "Экспартаваць працэдуру %s"
 
 #: libraries/rte/rte_words.lib.php:30
-#, fuzzy
-#| msgid "Routines"
 msgid "routine"
-msgstr "Працэдуры"
+msgstr "працэдура"
 
 #: libraries/rte/rte_words.lib.php:32
-#, fuzzy
-#| msgid "You don't have sufficient privileges to be here right now!"
 msgid "You do not have the necessary privileges to create a routine."
-msgstr "Вы ня маеце дастатковых прывілеяў быць у гэтым месцы ў гэты час!"
+msgstr "Вы не маеце дастатковых прывілеяў для стварэння працэдуры."
 
 #: libraries/rte/rte_words.lib.php:35
 #, php-format
@@ -11337,88 +11270,69 @@ msgid ""
 msgstr ""
 
 #: libraries/rte/rte_words.lib.php:42
-#, fuzzy, php-format
-#| msgid "No tables found in database."
+#, php-format
 msgid "No routine with name %1$s found in database %2$s."
-msgstr "У базе дадзеных табліц ня выяўлена."
+msgstr "Працэдуры з назвай %1$s няма ў базе даных %2$s."
 
 #: libraries/rte/rte_words.lib.php:43
-#, fuzzy
 msgid "There are no routines to display."
-msgstr "Праверыць табліцу"
+msgstr "Няма працэдур для адлюстравання."
 
 #: libraries/rte/rte_words.lib.php:49
-#, fuzzy
 msgid "Add trigger"
-msgstr "Дадаць новага карыстальніка"
+msgstr "Дадаць трыгер"
 
 #: libraries/rte/rte_words.lib.php:51
-#, fuzzy, php-format
-#| msgid "Export triggers"
+#, php-format
 msgid "Export of trigger %s"
-msgstr "Тып экспарту"
+msgstr "Экспартаваць трыгер %s"
 
 #: libraries/rte/rte_words.lib.php:52
-#, fuzzy
-#| msgid "Triggers"
 msgid "trigger"
-msgstr "Трыгеры"
+msgstr "трыгер"
 
 #: libraries/rte/rte_words.lib.php:54
-#, fuzzy
-#| msgid "You don't have sufficient privileges to be here right now!"
 msgid "You do not have the necessary privileges to create a trigger."
-msgstr "Вы ня маеце дастатковых прывілеяў быць у гэтым месцы ў гэты час!"
+msgstr "Вы не маеце дастатковых прывілеяў для стварэння трыгера."
 
 #: libraries/rte/rte_words.lib.php:56
-#, fuzzy, php-format
-#| msgid "No tables found in database."
+#, php-format
 msgid "No trigger with name %1$s found in database %2$s."
-msgstr "У базе дадзеных табліц ня выяўлена."
+msgstr "Трыгера з назвай %1$s няма ў базе даных %2$s."
 
 #: libraries/rte/rte_words.lib.php:57
-#, fuzzy
 msgid "There are no triggers to display."
-msgstr "Праверыць табліцу"
+msgstr "Няма трыгераў для адлюстравання."
 
 #: libraries/rte/rte_words.lib.php:63
-#, fuzzy
 msgid "Add event"
-msgstr "Дадаць новага карыстальніка"
+msgstr "Дадаць падзею"
 
 #: libraries/rte/rte_words.lib.php:65
-#, fuzzy, php-format
+#, php-format
 msgid "Export of event %s"
-msgstr "Тып экспарту"
+msgstr "Экспартаваць падзею %s"
 
 #: libraries/rte/rte_words.lib.php:66
-#, fuzzy
-#| msgid "Event"
 msgid "event"
-msgstr "Падзея"
+msgstr "падзея"
 
 #: libraries/rte/rte_words.lib.php:68
-#, fuzzy
-#| msgid "You don't have sufficient privileges to be here right now!"
 msgid "You do not have the necessary privileges to create an event."
-msgstr "Вы ня маеце дастатковых прывілеяў быць у гэтым месцы ў гэты час!"
+msgstr "Вы не маеце дастатковых прывілеяў для стварэння падзеі."
 
 #: libraries/rte/rte_words.lib.php:70
-#, fuzzy, php-format
-#| msgid "No tables found in database."
+#, php-format
 msgid "No event with name %1$s found in database %2$s."
-msgstr "У базе дадзеных табліц ня выяўлена."
+msgstr "Падзеі з назвай %1$s няма ў базе даных %2$s."
 
 #: libraries/rte/rte_words.lib.php:71
-#, fuzzy
 msgid "There are no events to display."
-msgstr "Праверыць табліцу"
+msgstr "Няма падзей для адлюстравання."
 
 #: libraries/select_server.lib.php:44 libraries/select_server.lib.php:49
-#, fuzzy
-#| msgid "Server"
 msgid "Current server:"
-msgstr "Сэрвэр"
+msgstr "Дзейны сервер:"
 
 #: libraries/server_common.lib.php:24
 msgid "Server variables and settings"
@@ -11489,10 +11403,8 @@ msgstr "Дазваляе спыняць сэрвэр."
 
 #: libraries/server_privileges.lib.php:331
 #: libraries/server_privileges.lib.php:1318 server_privileges.php:93
-#, fuzzy
-#| msgid "Allows viewing processes of all users"
 msgid "Allows viewing processes of all users."
-msgstr "Дазваляе праглядаць працэсы ўсіх карыстальнікаў"
+msgstr "Дазваляе праглядаць працэсы ўсіх карыстальнікаў."
 
 #: libraries/server_privileges.lib.php:336
 #: libraries/server_privileges.lib.php:1206 server_privileges.php:72
@@ -11561,17 +11473,13 @@ msgstr "Дазваляе ствараць новыя прагляды."
 
 #: libraries/server_privileges.lib.php:395
 #: libraries/server_privileges.lib.php:1278 server_privileges.php:70
-#, fuzzy
-#| msgid "Allows to set up events for the event scheduler"
 msgid "Allows to set up events for the event scheduler."
-msgstr "Дазваляе ствараць падзеі ў пляніроўніку падзеяў"
+msgstr "Дазваляе наладжваць падзеі ў планавальніку."
 
 #: libraries/server_privileges.lib.php:400
 #: libraries/server_privileges.lib.php:1282 server_privileges.php:111
-#, fuzzy
-#| msgid "Allows creating and dropping triggers"
 msgid "Allows creating and dropping triggers."
-msgstr "Дазваляе стварэньне і выдаленьне трыгераў"
+msgstr "Дазваляе стварэнне і выдаленне трыгераў."
 
 #: libraries/server_privileges.lib.php:411
 #: libraries/server_privileges.lib.php:417
@@ -11601,16 +11509,12 @@ msgid "Allows executing stored routines."
 msgstr "Дазваляе выкананьне праграмаў, якія захоўваюцца."
 
 #: libraries/server_privileges.lib.php:713
-#, fuzzy
-#| msgid "max. concurrent connections"
 msgid "Does not require SSL-encrypted connections."
-msgstr "максымум адначасовых злучэньняў"
+msgstr "Не патрабуе SSL-злучэнняў."
 
 #: libraries/server_privileges.lib.php:729
-#, fuzzy
-#| msgid "max. concurrent connections"
 msgid "Requires SSL-encrypted connections."
-msgstr "максымум адначасовых злучэньняў"
+msgstr "Патрабуе SSL-злучэнняў."
 
 #: libraries/server_privileges.lib.php:743
 msgid "Requires a valid X509 certificate."
@@ -11658,10 +11562,8 @@ msgstr ""
 #: libraries/server_privileges.lib.php:3303
 #: libraries/server_privileges.lib.php:4512
 #: templates/privileges/edit_routine_privileges.twig:52
-#, fuzzy
-#| msgid "Routines"
 msgid "Routine"
-msgstr "Працэдуры"
+msgstr "Працэдура"
 
 #: libraries/server_privileges.lib.php:927
 msgid ""
@@ -11670,16 +11572,12 @@ msgid ""
 msgstr ""
 
 #: libraries/server_privileges.lib.php:934
-#, fuzzy
-#| msgid "Allows altering and dropping stored routines."
 msgid "Allows altering and dropping this routine."
-msgstr "Дазваляе зьмяняць і выдаляць праграмы, якія захоўваюцца."
+msgstr "Дазваляе змяняць і выдаляць гэтую працэдуру."
 
 #: libraries/server_privileges.lib.php:939
-#, fuzzy
-#| msgid "Allows executing stored routines."
 msgid "Allows executing this routine."
-msgstr "Дазваляе выкананьне праграмаў, якія захоўваюцца."
+msgstr "Дазваляе выкананне гэтай працэдуры."
 
 #: libraries/server_privileges.lib.php:989
 #: libraries/server_privileges.lib.php:1158
@@ -11692,10 +11590,8 @@ msgstr "Прывілеі, спэцыфічныя для табліцы"
 #: libraries/server_privileges.lib.php:1168
 #: libraries/server_privileges.lib.php:3493
 #: templates/privileges/edit_routine_privileges.twig:63
-#, fuzzy
-#| msgid "Note: MySQL privilege names are expressed in English"
 msgid "Note: MySQL privilege names are expressed in English."
-msgstr "Заўвага: імёны прывілеяў MySQL задаюцца па-ангельску"
+msgstr "Заўвага: назвы прывілеяў MySQL задаюцца па-ангельску."
 
 #: libraries/server_privileges.lib.php:1132
 msgid "Administration"
@@ -11707,10 +11603,8 @@ msgid "Global privileges"
 msgstr "Глябальныя прывілеі"
 
 #: libraries/server_privileges.lib.php:1153
-#, fuzzy
-#| msgid "global"
 msgid "Global"
-msgstr "глябальны"
+msgstr "Глабальны"
 
 #: libraries/server_privileges.lib.php:1155
 #: libraries/server_privileges.lib.php:3290
@@ -11740,14 +11634,12 @@ msgstr ""
 
 #: libraries/server_privileges.lib.php:1422
 #: libraries/server_privileges.lib.php:1453
-#, fuzzy
 msgid "Native MySQL authentication"
-msgstr "Апаратная аўтэнтыфікацыя скончылася няўдала"
+msgstr "Уласная аўтэнтыфікацыя MySQL"
 
 #: libraries/server_privileges.lib.php:1455
-#, fuzzy
 msgid "SHA256 password authentication"
-msgstr "Апаратная аўтэнтыфікацыя скончылася няўдала"
+msgstr "Парольная аўтэнтыфікацыя SHA256"
 
 #: libraries/server_privileges.lib.php:1489
 #: libraries/server_privileges.lib.php:3058
@@ -11768,34 +11660,27 @@ msgid ""
 msgstr ""
 
 #: libraries/server_privileges.lib.php:1547
-#, fuzzy
-#| msgid "User name"
 msgid "Host name:"
-msgstr "Імя карыстальніка"
+msgstr "Назва хаста:"
 
 #: libraries/server_privileges.lib.php:1552
 #: libraries/server_privileges.lib.php:1637
 #: libraries/server_privileges.lib.php:2528
 #: libraries/server_privileges.lib.php:3489
-#, fuzzy
-#| msgid "Log name"
 msgid "Host name"
-msgstr "Імя логу"
+msgstr "Назва хаста"
 
 #: libraries/server_privileges.lib.php:1660
 msgid "Do not change the password"
 msgstr "Не зьмяняць пароль"
 
 #: libraries/server_privileges.lib.php:1709
-#, fuzzy
 msgid "Authentication Plugin"
-msgstr "Аўтэнтыфікацыя…"
+msgstr "Плагін аўтэнтыфікацыі"
 
 #: libraries/server_privileges.lib.php:1716
-#, fuzzy
-#| msgid "Password Hashing"
 msgid "Password Hashing Method"
-msgstr "Хэшаваньне паролю"
+msgstr "Метад хэшыраванага пароля"
 
 #: libraries/server_privileges.lib.php:1995
 #, php-format
@@ -11809,16 +11694,12 @@ msgstr "Вы анулявалі прывілеі для %s."
 
 #: libraries/server_privileges.lib.php:2137
 #: templates/privileges/add_user_fieldset.twig:42
-#, fuzzy
-#| msgid "Any user"
 msgid "Add user account"
-msgstr "Любы карыстальнік"
+msgstr "Дадаць конт карыстальніка"
 
 #: libraries/server_privileges.lib.php:2146
-#, fuzzy
-#| msgid "Database for user"
 msgid "Database for user account"
-msgstr "База дадзеных для карыстальніка"
+msgstr "База даных для конта карыстальніка"
 
 #: libraries/server_privileges.lib.php:2152
 msgid "Create database with same name and grant all privileges."
@@ -11831,9 +11712,9 @@ msgstr ""
 "Надзяліць усімі прывілеямі базы з іменамі па масцы (імя карыстальніка_%)."
 
 #: libraries/server_privileges.lib.php:2176
-#, fuzzy, php-format
+#, php-format
 msgid "Grant all privileges on database %s."
-msgstr "Праверыць прывілеі для базы \"%s\"."
+msgstr "Надаць усе прывілеі для базы даных «%s»."
 
 #: libraries/server_privileges.lib.php:2338
 #: libraries/server_privileges.lib.php:2409
@@ -11842,10 +11723,8 @@ msgid "Users having access to \"%s\""
 msgstr "Карыстальнікі з правамі доступу да \"%s\""
 
 #: libraries/server_privileges.lib.php:2379
-#, fuzzy
-#| msgid "View %s has been dropped."
 msgid "User has been added."
-msgstr "Выгляд %s быў выдалены"
+msgstr "Карыстальнік быў даданы."
 
 #: libraries/server_privileges.lib.php:2531
 #: libraries/server_privileges.lib.php:3499
@@ -11859,10 +11738,8 @@ msgstr ""
 
 #: libraries/server_privileges.lib.php:2565
 #: libraries/server_privileges.lib.php:3914
-#, fuzzy
-#| msgid "No user(s) found."
 msgid "No user found."
-msgstr "Не знойдзены карыстальнік."
+msgstr "Карыстальнік не знойдзены."
 
 #: libraries/server_privileges.lib.php:2596
 #: libraries/server_privileges.lib.php:2916
@@ -11883,14 +11760,10 @@ msgid "wildcard"
 msgstr "шаблён"
 
 #: libraries/server_privileges.lib.php:2658
-#, fuzzy
-#| msgid "database-specific"
 msgid "table-specific"
-msgstr "спэцыфічны для базы дадзеных"
+msgstr "спецыфічны для табліцы"
 
 #: libraries/server_privileges.lib.php:2788
-#, fuzzy
-#| msgid "Edit Privileges"
 msgid "Edit privileges"
 msgstr "Рэдагаваць прывілеі"
 
@@ -11899,9 +11772,8 @@ msgid "Revoke"
 msgstr "Ануляваць"
 
 #: libraries/server_privileges.lib.php:2815
-#, fuzzy
 msgid "Edit user group"
-msgstr "Вэб-сэрвэр"
+msgstr "Рэдагаваць групу карыстальнікаў"
 
 #: libraries/server_privileges.lib.php:3030
 msgid "… keep the old one."
@@ -11924,23 +11796,17 @@ msgstr ""
 "… выдаліць старога з табліцы карыстальнікаў і пасьля перазагрузіць прывілеі."
 
 #: libraries/server_privileges.lib.php:3059
-#, fuzzy
-#| msgid "Change Login Information / Copy User"
 msgid "Change login information / Copy user account"
-msgstr "Зьмяніць рэгістрацыйную інфармацыю / Капіяваць карыстальніка"
+msgstr "Змяніць рэгістрацыйную інфармацыю / Капіяваць конт карыстальніка"
 
 #: libraries/server_privileges.lib.php:3065
-#, fuzzy
-#| msgid "Create a new user with the same privileges and …"
 msgid "Create a new user account with the same privileges and …"
-msgstr "Стварыць новага карыстальніка з такімі ж прывілеямі і …"
+msgstr "Стварыць новы конт карыстальніка з такімі ж прывілеямі і …"
 
 #: libraries/server_privileges.lib.php:3302
 #: templates/privileges/edit_routine_privileges.twig:56
-#, fuzzy
-#| msgid "Column-specific privileges"
 msgid "Routine-specific privileges"
-msgstr "Спэцыфічныя прывілеі калёнак"
+msgstr "Прывілеі працэдур"
 
 #: libraries/server_privileges.lib.php:3497
 #: libraries/server_user_groups.lib.php:76
@@ -11981,10 +11847,9 @@ msgid "The user %s already exists!"
 msgstr "Карыстальнік %s ужо існуе!"
 
 #: libraries/server_privileges.lib.php:4385
-#, fuzzy, php-format
-#| msgid "Privileges"
+#, php-format
 msgid "Privileges for %s"
-msgstr "Прывілеі"
+msgstr "Прывілеі для %s"
 
 #: libraries/server_privileges.lib.php:4394
 #: libraries/server_status_processes.lib.php:72
@@ -11993,16 +11858,12 @@ msgid "User"
 msgstr "Карыстальнік"
 
 #: libraries/server_privileges.lib.php:4462
-#, fuzzy
-#| msgid "Edit Privileges"
 msgid "Edit privileges:"
-msgstr "Рэдагаваць прывілеі"
+msgstr "Рэдагаваць прывілеі:"
 
 #: libraries/server_privileges.lib.php:4463
-#, fuzzy
-#| msgid "User"
 msgid "User account"
-msgstr "Карыстальнік"
+msgstr "Конт карыстальніка"
 
 #: libraries/server_privileges.lib.php:4537
 msgid ""
@@ -12011,10 +11872,8 @@ msgid ""
 msgstr ""
 
 #: libraries/server_privileges.lib.php:4557 libraries/server_users.lib.php:21
-#, fuzzy
-#| msgid "User overview"
 msgid "User accounts overview"
-msgstr "Карыстальнікі"
+msgstr "Агляд контаў карыстальнікаў"
 
 #: libraries/server_privileges.lib.php:4625
 msgid ""
@@ -12024,12 +11883,7 @@ msgid ""
 msgstr ""
 
 #: libraries/server_privileges.lib.php:4667
-#, fuzzy, php-format
-#| msgid ""
-#| "Note: phpMyAdmin gets the users' privileges directly from MySQL's "
-#| "privilege tables. The content of these tables may differ from the "
-#| "privileges the server uses, if they have been changed manually. In this "
-#| "case, you should %sreload the privileges%s before you continue."
+#, php-format
 msgid ""
 "Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege "
 "tables. The content of these tables may differ from the privileges the "
@@ -12037,17 +11891,11 @@ msgid ""
 "%sreload the privileges%s before you continue."
 msgstr ""
 "Заўвага: phpMyAdmin атрымлівае прывілеі карыстальнікаў наўпростава з табліц "
-"прывілеяў MySQL. Зьмесьціва гэтых табліц можа адрозьнівацца ад прывілеяў, "
-"якія выкарыстоўвае сэрвэр, калі яны былі зьмененыя ўручную. У гэтым выпадку "
-"вам трэба %sперазагрузіць прывілеі%s да таго, як вы працягнеце."
+"прывілеяў MySQL. Змесціва гэтых табліц можа адрознівацца ад прывілеяў, якія "
+"выкарыстоўвае сервер, калі яны былі змененыя ўручную. У гэтым выпадку вам "
+"трэба %sперазагрузіць прывілеі%s да таго, як вы працягнеце."
 
 #: libraries/server_privileges.lib.php:4684
-#, fuzzy
-#| msgid ""
-#| "Note: phpMyAdmin gets the users' privileges directly from MySQL's "
-#| "privilege tables. The content of these tables may differ from the "
-#| "privileges the server uses, if they have been changed manually. In this "
-#| "case, you should %sreload the privileges%s before you continue."
 msgid ""
 "Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege "
 "tables. The content of these tables may differ from the privileges the "
@@ -12056,9 +11904,9 @@ msgid ""
 "privilege."
 msgstr ""
 "Заўвага: phpMyAdmin атрымлівае прывілеі карыстальнікаў наўпростава з табліц "
-"прывілеяў MySQL. Зьмесьціва гэтых табліц можа адрозьнівацца ад прывілеяў, "
-"якія выкарыстоўвае сэрвэр, калі яны былі зьмененыя ўручную. У гэтым выпадку "
-"вам трэба %sперазагрузіць прывілеі%s да таго, як вы працягнеце."
+"прывілеяў MySQL. Змесціва гэтых табліц можа адрознівацца ад прывілеяў, якія "
+"выкарыстоўвае сервер, калі яны былі змененыя ўручную. У гэтым выпадку вам "
+"трэба %sперазагрузіць прывілеі%s, але цяпер у вас няма прывілеі RELOAD."
 
 #: libraries/server_privileges.lib.php:4735
 msgid "The selected user was not found in the privilege table."
@@ -12074,10 +11922,9 @@ msgid "Network traffic since startup: %s"
 msgstr ""
 
 #: libraries/server_status.lib.php:70
-#, fuzzy, php-format
-#| msgid "This MySQL server has been running for %s. It started up on %s."
+#, php-format
 msgid "This MySQL server has been running for %1$s. It started up on %2$s."
-msgstr "Гэты сэрвэр MySQL працуе %s. Ён быў запушчаны %s."
+msgstr "Гэты сервер MySQL працуе %1$s. Ён быў запушчаны %2$s."
 
 #: libraries/server_status.lib.php:91
 msgid ""
@@ -12094,9 +11941,8 @@ msgid "This MySQL server works as <b>slave</b> in <b>replication</b> process."
 msgstr ""
 
 #: libraries/server_status.lib.php:113
-#, fuzzy
 msgid "Replication status"
-msgstr "Рэплікацыя"
+msgstr "Стан рэплікацыі"
 
 #: libraries/server_status.lib.php:143
 msgid ""
@@ -12115,20 +11961,16 @@ msgid "Sent"
 msgstr "Адпраўлена"
 
 #: libraries/server_status.lib.php:240
-#, fuzzy
-#| msgid "max. concurrent connections"
 msgid "Max. concurrent connections"
-msgstr "максымум адначасовых злучэньняў"
+msgstr "Максімум адначасовых злучэнняў"
 
 #: libraries/server_status.lib.php:250
 msgid "Failed attempts"
 msgstr "Няўдалых спробаў"
 
 #: libraries/server_status_advisor.lib.php:19
-#, fuzzy
-#| msgid "Functions"
 msgid "Instructions"
-msgstr "Функцыі"
+msgstr "Інструкцыі"
 
 #: libraries/server_status_advisor.lib.php:25
 msgid ""
@@ -12158,15 +12000,12 @@ msgid ""
 msgstr ""
 
 #: libraries/server_status_monitor.lib.php:62
-#, fuzzy
 msgid "Log statistics"
-msgstr "Статыстыка радку"
+msgstr "Статыстыка журнала"
 
 #: libraries/server_status_monitor.lib.php:63
-#, fuzzy
-#| msgid "Select All"
 msgid "Selected time range:"
-msgstr "Выбраць усё"
+msgstr "Выбраны прамежак часу:"
 
 #: libraries/server_status_monitor.lib.php:71
 msgid "Only retrieve SELECT,INSERT,UPDATE and DELETE Statements"
@@ -12185,10 +12024,8 @@ msgid "Results are grouped by query text."
 msgstr ""
 
 #: libraries/server_status_monitor.lib.php:89
-#, fuzzy
-#| msgid "Query type"
 msgid "Query analyzer"
-msgstr "Тып запыту"
+msgstr "Аналізатар запыту"
 
 #: libraries/server_status_monitor.lib.php:106
 msgid "Monitor Instructions"
@@ -12236,42 +12073,32 @@ msgstr ""
 
 #: libraries/server_status_monitor.lib.php:167
 #: libraries/server_status_monitor.lib.php:275
-#, fuzzy
-#| msgid "Add new field"
 msgid "Add chart"
-msgstr "Дадаць новае поле"
+msgstr "Дадаць графік"
 
 #: libraries/server_status_monitor.lib.php:170
-#, fuzzy
-#| msgid "Report title"
 msgid "Chart Title"
-msgstr "Загаловак справаздачы"
+msgstr "Загаловак графіка"
 
 #: libraries/server_status_monitor.lib.php:173
-#, fuzzy
-#| msgid "Rename database to"
 msgid "Preset chart"
-msgstr "Перайменаваць базу дадзеных у"
+msgstr "Загатоўка графіка"
 
 #: libraries/server_status_monitor.lib.php:178
 msgid "Status variable(s)"
 msgstr ""
 
 #: libraries/server_status_monitor.lib.php:181
-#, fuzzy
-#| msgid "Select Tables"
 msgid "Select series:"
-msgstr "Выберыце табліцу(ы)"
+msgstr "Выберыце паслядоўнасць:"
 
 #: libraries/server_status_monitor.lib.php:183
 msgid "Commonly monitored"
 msgstr ""
 
 #: libraries/server_status_monitor.lib.php:199
-#, fuzzy
-#| msgid "Invalid table name"
 msgid "or type variable name:"
-msgstr "Некарэктнае імя табліцы"
+msgstr "ці ўвядзіце назву зменнай:"
 
 #: libraries/server_status_monitor.lib.php:206
 msgid "Display as differential value"
@@ -12286,24 +12113,20 @@ msgid "Append unit to data values"
 msgstr ""
 
 #: libraries/server_status_monitor.lib.php:224
-#, fuzzy
 msgid "Add this series"
-msgstr "Дадаць новага карыстальніка"
+msgstr "Дадаць гэту паслядоўнась"
 
 #: libraries/server_status_monitor.lib.php:226
 msgid "Clear series"
 msgstr ""
 
 #: libraries/server_status_monitor.lib.php:229
-#, fuzzy
 msgid "Series in chart:"
-msgstr "SQL-запыт"
+msgstr "Паслядоўнасць у графіку:"
 
 #: libraries/server_status_monitor.lib.php:250
-#, fuzzy
-#| msgid "Start"
 msgid "Start Monitor"
-msgstr "Суб"
+msgstr "Запусціць манітор"
 
 #: libraries/server_status_monitor.lib.php:256
 msgid "Instructions/Setup"
@@ -12319,15 +12142,12 @@ msgstr ""
 
 #: libraries/server_status_monitor.lib.php:283
 #: libraries/server_status_processes.lib.php:29
-#, fuzzy
 msgid "Refresh rate"
-msgstr "Абнавіць"
+msgstr "Інтэрвал абнаўлення"
 
 #: libraries/server_status_monitor.lib.php:292
-#, fuzzy
-#| msgid "Add/Delete Field Columns"
 msgid "Chart columns"
-msgstr "Дадаць/выдаліць калёнку крытэру"
+msgstr "Слупкі графіка"
 
 #: libraries/server_status_monitor.lib.php:304
 msgid "Chart arrangement"
@@ -12344,16 +12164,12 @@ msgid "Reset to default"
 msgstr ""
 
 #: libraries/server_status_processes.lib.php:24
-#, fuzzy
-#| msgid ""
-#| "Note: Enabling the database statistics here might cause heavy traffic "
-#| "between the web server and the MySQL server."
 msgid ""
 "Note: Enabling the auto refresh here might cause heavy traffic between the "
 "web server and the MySQL server."
 msgstr ""
-"Заўвага: Уключэньне статыстыкі базы дадзеных можа выклікаць вялікую "
-"колькасьць трафіку паміж вэб-сэрвэрам і сэрвэрам MySQL."
+"Заўвага: Уключэнне аўтаматычнага абнаўлення можа выклікаць вялікую колькасць "
+"трафіку паміж вэб-серверам і серверам MySQL."
 
 #: libraries/server_status_processes.lib.php:68
 msgid "ID"
@@ -12369,15 +12185,12 @@ msgstr ""
 
 #: libraries/server_status_processes.lib.php:230
 #: libraries/server_status_variables.lib.php:37 templates/filter.twig:22
-#, fuzzy
 msgid "Filters"
-msgstr "Файлы"
+msgstr "Фільтры"
 
 #: libraries/server_status_processes.lib.php:238
-#, fuzzy
-#| msgid "Show open tables"
 msgid "Show only active"
-msgstr "Паказаць адкрытыя табліцы"
+msgstr "Паказаць толькі актыўныя"
 
 #: libraries/server_status_queries.lib.php:30
 #, php-format
@@ -12385,22 +12198,16 @@ msgid "Questions since startup: %s"
 msgstr ""
 
 #: libraries/server_status_queries.lib.php:41
-#, fuzzy
-#| msgid "per hour"
 msgid "per hour:"
-msgstr "у гадзіну"
+msgstr "у гадзіну:"
 
 #: libraries/server_status_queries.lib.php:44
-#, fuzzy
-#| msgid "per minute"
 msgid "per minute:"
-msgstr "у хвіліну"
+msgstr "у хвіліну:"
 
 #: libraries/server_status_queries.lib.php:51
-#, fuzzy
-#| msgid "per second"
 msgid "per second:"
-msgstr "у сэкунду"
+msgstr "у секунду:"
 
 #: libraries/server_status_queries.lib.php:88
 msgid "Statements"
@@ -12412,32 +12219,24 @@ msgid "#"
 msgstr ""
 
 #: libraries/server_status_variables.lib.php:42 templates/filter.twig:27
-#, fuzzy
-#| msgid "Do not change the password"
 msgid "Containing the word:"
-msgstr "Не зьмяняць пароль"
+msgstr "Змяшчае слова:"
 
 #: libraries/server_status_variables.lib.php:50
-#, fuzzy
-#| msgid "Show open tables"
 msgid "Show only alert values"
-msgstr "Паказаць адкрытыя табліцы"
+msgstr "Паказаць толькі трывожныя значэнні"
 
 #: libraries/server_status_variables.lib.php:55
 msgid "Filter by category…"
 msgstr ""
 
 #: libraries/server_status_variables.lib.php:76
-#, fuzzy
-#| msgid "Show open tables"
 msgid "Show unformatted values"
-msgstr "Паказаць адкрытыя табліцы"
+msgstr "Паказаць нефарматаваныя значэнні"
 
 #: libraries/server_status_variables.lib.php:96
-#, fuzzy
-#| msgid "Relations"
 msgid "Related links:"
-msgstr "Сувязі"
+msgstr "Звязаныя спасылкі:"
 
 #: libraries/server_status_variables.lib.php:328
 msgid ""
@@ -12446,10 +12245,8 @@ msgid ""
 msgstr ""
 
 #: libraries/server_status_variables.lib.php:332
-#, fuzzy
-#| msgid "The number of fsync() writes done to the log file."
 msgid "The number of failed attempts to connect to the MySQL server."
-msgstr "Колькасьць сынхранізавыных запісаў, зробленых у лог-файл."
+msgstr "Колькасць няўдалых спроб злучэння з серверам MySQL."
 
 #: libraries/server_status_variables.lib.php:335
 msgid ""
@@ -12866,10 +12663,8 @@ msgstr ""
 "блёкаў, якія выкарастоўваліся адначасова."
 
 #: libraries/server_status_variables.lib.php:594
-#, fuzzy
-#| msgid "Format of imported file"
 msgid "Percentage of used key cache (calculated value)"
-msgstr "Фармат імпартаванага файла"
+msgstr "Адсотак выкарыстання кэшу (вылічанае значэнне)"
 
 #: libraries/server_status_variables.lib.php:597
 msgid "The number of requests to read a key block from the cache."
@@ -13135,10 +12930,8 @@ msgstr ""
 "павелічэньня прадукцыйнасьці, калі прысутнічае добрая рэалізацыя патокаў.)"
 
 #: libraries/server_status_variables.lib.php:756
-#, fuzzy
-#| msgid "Key cache"
 msgid "Thread cache hit rate (calculated value)"
-msgstr "Кэш ключоў"
+msgstr "Адносныя пападанні ў кэш патоку (вылічанае значэнне)"
 
 #: libraries/server_status_variables.lib.php:759
 msgid "The number of threads that are not sleeping."
@@ -13154,41 +12947,29 @@ msgid "No users were found belonging to this user group."
 msgstr ""
 
 #: libraries/server_user_groups.lib.php:62 libraries/server_users.lib.php:29
-#, fuzzy
-#| msgid "User"
 msgid "User groups"
-msgstr "Карыстальнік"
+msgstr "Групы карыстальнікаў"
 
 #: libraries/server_user_groups.lib.php:77
-#, fuzzy
-#| msgid "Server version"
 msgid "Server level tabs"
-msgstr "Вэрсія сэрвэра"
+msgstr "Укладкі сервернага ўзроўня"
 
 #: libraries/server_user_groups.lib.php:78
-#, fuzzy
-#| msgid "Database for user"
 msgid "Database level tabs"
-msgstr "База дадзеных для карыстальніка"
+msgstr "Укладкі ўзроўня базы даных"
 
 #: libraries/server_user_groups.lib.php:79
-#, fuzzy
-#| msgid "Table removal"
 msgid "Table level tabs"
-msgstr "Імя табліцы"
+msgstr "Укладкі таблічнага ўзроўня"
 
 #: libraries/server_user_groups.lib.php:107
-#, fuzzy
-#| msgid "View"
 msgid "View users"
-msgstr "Выгляд"
+msgstr "Паглядзець карыстальнікаў"
 
 #: libraries/server_user_groups.lib.php:143
 #: libraries/server_user_groups.lib.php:207
-#, fuzzy
-#| msgid "Any user"
 msgid "Add user group"
-msgstr "Любы карыстальнік"
+msgstr "Дадаць групу карыстальнікаў"
 
 #: libraries/server_user_groups.lib.php:210
 #, php-format
@@ -13196,47 +12977,34 @@ msgid "Edit user group: '%s'"
 msgstr ""
 
 #: libraries/server_user_groups.lib.php:226
-#, fuzzy
-#| msgid "No privileges."
 msgid "User group menu assignments"
-msgstr "Без прывілеяў."
+msgstr "Прызначэнні меню груп карыстальнікаў"
 
 #: libraries/server_user_groups.lib.php:234
-#, fuzzy
-#| msgid "Column names"
 msgid "Group name:"
-msgstr "Назвы калёнак"
+msgstr "Назва групы:"
 
 #: libraries/server_user_groups.lib.php:272
-#, fuzzy
-#| msgid "Server version"
 msgid "Server-level tabs"
-msgstr "Вэрсія сэрвэра"
+msgstr "Укладкі сервернага ўзроўню"
 
 #: libraries/server_user_groups.lib.php:275
-#, fuzzy
-#| msgid "Database for user"
 msgid "Database-level tabs"
-msgstr "База дадзеных для карыстальніка"
+msgstr "Укладкі ўзроўню базы даных"
 
 #: libraries/server_user_groups.lib.php:278
-#, fuzzy
-#| msgid "Table removal"
 msgid "Table-level tabs"
-msgstr "Імя табліцы"
+msgstr "Укладкі таблічнага ўзроўню"
 
 #: libraries/sql.lib.php:233
-#, fuzzy
-#| msgid "Data file grow size"
 msgid "Detailed profile"
-msgstr "Памер павелічэньня файлаў з дадзенымі"
+msgstr "Дэталёвы профіль"
 
 #: libraries/sql.lib.php:236
 msgid "Order"
 msgstr ""
 
 #: libraries/sql.lib.php:238 libraries/sql.lib.php:254
-#, fuzzy
 msgid "State"
 msgstr "Стан"
 
@@ -13245,46 +13013,36 @@ msgid "Summary by state"
 msgstr ""
 
 #: libraries/sql.lib.php:257
-#, fuzzy
-#| msgid "Total"
 msgid "Total Time"
-msgstr "Агулам"
+msgstr "Агульны час"
 
 #: libraries/sql.lib.php:259
-#, fuzzy
-#| msgid "Time"
 msgid "% Time"
-msgstr "Час"
+msgstr "% часу"
 
 #: libraries/sql.lib.php:261
 msgid "Calls"
 msgstr ""
 
 #: libraries/sql.lib.php:263
-#, fuzzy
-#| msgid "Time"
 msgid "ø Time"
-msgstr "Час"
+msgstr "ø час"
 
 #: libraries/sql.lib.php:569 libraries/sql.lib.php:587
 msgid "Bookmark this SQL query"
 msgstr "Дадаць гэты SQL-запыт у закладкі"
 
 #: libraries/sql.lib.php:573
-#, fuzzy
-#| msgid "Label"
 msgid "Label:"
-msgstr "Метка"
+msgstr "Метка:"
 
 #: libraries/sql.lib.php:580 libraries/sql_query_form.lib.php:315
 msgid "Let every user access this bookmark"
 msgstr "Даць кожнаму карыстальніку доступ да гэтай закладкі"
 
 #: libraries/sql.lib.php:792
-#, fuzzy
-#| msgid "Bookmark %s created"
 msgid "Bookmark not created!"
-msgstr "Закладка %s створаная"
+msgstr "Закладка не створаная!"
 
 #: libraries/sql.lib.php:900
 #, php-format
@@ -13315,10 +13073,9 @@ msgid "Problems with indexes of table `%s`"
 msgstr "Праблемы з індэксамі для табліцы `%s`"
 
 #: libraries/sql_query_form.lib.php:139
-#, fuzzy, php-format
-#| msgid "Run SQL query/queries on server %s"
+#, php-format
 msgid "Run SQL query/queries on server “%s”"
-msgstr "Выканаць SQL-запыт(ы) на сэрвэры %s"
+msgstr "Выканаць SQL-запыт(ы) на серверы «%s»"
 
 #: libraries/sql_query_form.lib.php:156
 #, php-format
@@ -13326,32 +13083,26 @@ msgid "Run SQL query/queries on database %s"
 msgstr "Выканаць SQL-запыт(ы) на базе дадзеных %s"
 
 #: libraries/sql_query_form.lib.php:177
-#, fuzzy, php-format
-#| msgid "Run SQL query/queries on database %s"
+#, php-format
 msgid "Run SQL query/queries on table %s"
-msgstr "Выканаць SQL-запыт(ы) на базе дадзеных %s"
+msgstr "Выканаць SQL-запыт(ы) у табліцы %s"
 
 #: libraries/sql_query_form.lib.php:247 setup/frames/index.inc.php:257
 #: templates/console/display.phtml:10
-#, fuzzy
 msgid "Clear"
-msgstr "Каляндар"
+msgstr "Ачысціць"
 
 #: libraries/sql_query_form.lib.php:253
 msgid "Get auto-saved query"
 msgstr ""
 
 #: libraries/sql_query_form.lib.php:259
-#, fuzzy
-#| msgid "Add new field"
 msgid "Bind parameters"
-msgstr "Дадаць новае поле"
+msgstr "Прывязаць параметры"
 
 #: libraries/sql_query_form.lib.php:307
-#, fuzzy
-#| msgid "Bookmark this SQL query"
 msgid "Bookmark this SQL query:"
-msgstr "Дадаць гэты SQL-запыт у закладкі"
+msgstr "Дадаць гэты SQL-запыт у закладкі:"
 
 #: libraries/sql_query_form.lib.php:321
 msgid "Replace existing bookmark of same name"
@@ -13378,14 +13129,14 @@ msgid "View only"
 msgstr "Толькі прагляд"
 
 #: libraries/tracking.lib.php:74
-#, fuzzy, php-format
+#, php-format
 msgid "Create version %1$s of %2$s"
-msgstr "Стварыць сувязь"
+msgstr "Стварыць версію %1$s з %2$s"
 
 #: libraries/tracking.lib.php:79
-#, fuzzy, php-format
+#, php-format
 msgid "Create version %1$s"
-msgstr "Стварыць сувязь"
+msgstr "Стварыць версію %1$s"
 
 #: libraries/tracking.lib.php:84
 msgid "Track these data definition statements:"
@@ -13396,9 +13147,8 @@ msgid "Track these data manipulation statements:"
 msgstr ""
 
 #: libraries/tracking.lib.php:179
-#, fuzzy
 msgid "Create version"
-msgstr "Стварыць сувязь"
+msgstr "Стварыць версію"
 
 #: libraries/tracking.lib.php:208
 #, php-format
@@ -13419,23 +13169,20 @@ msgid "Deactivate now"
 msgstr ""
 
 #: libraries/tracking.lib.php:284 templates/server/plugins/section.phtml:10
-#, fuzzy
 msgid "Version"
-msgstr "Пэрсыдзкая"
+msgstr "Версія"
 
 #: libraries/tracking.lib.php:285 libraries/tracking.lib.php:1599
-#, fuzzy
 msgid "Created"
-msgstr "Стварыць"
+msgstr "Створаная"
 
 #: libraries/tracking.lib.php:286 libraries/tracking.lib.php:1600
 msgid "Updated"
 msgstr ""
 
 #: libraries/tracking.lib.php:295 libraries/tracking.lib.php:362
-#, fuzzy
 msgid "Delete version"
-msgstr "Стварыць сувязь"
+msgstr "Выдаліць версію"
 
 #: libraries/tracking.lib.php:296 libraries/tracking.lib.php:468
 #: libraries/tracking.lib.php:1613
