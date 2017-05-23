@@ -310,7 +310,7 @@ if (file_exists('setup/index.php') && ! file_exists(CONFIG_FILE)) {
     <div id="main_pane_right">
         <div class="group">
             <h2><?php echo __('Export'); ?></h2>
-            <div class="click-hide-message group-cnt" style="display:none">
+            <div class="click-hide-message group-cnt hide">
                 <?php
                 Message::rawSuccess(
                     __('Configuration has been saved.')
