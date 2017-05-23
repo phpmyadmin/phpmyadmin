@@ -111,13 +111,13 @@ You can clone current phpMyAdmin source from
 
     git clone https://github.com/phpmyadmin/phpmyadmin.git
 
-Additionally you need to install dependencies using `Composer tool`_:
+Additionally you need to install dependencies using the `Composer tool`_:
 
 .. code-block:: sh
 
     composer update
 
-If you do not intend to develop, you can skip installation of developer tools
+If you do not intend to develop, you can skip the installation of developer tools
 by invoking:
 
 .. code-block:: sh
@@ -130,8 +130,8 @@ by invoking:
 Installing using Composer
 +++++++++++++++++++++++++
 
-You can install phpMyAdmin using `Composer tool`_, since 4.7.0 the releases
-are automatically mirrorred to the default `Packagist`_ repository.
+You can install phpMyAdmin using the `Composer tool`_, since 4.7.0 the releases
+are automatically mirrored to the default `Packagist`_ repository.
 
 .. note::
 
