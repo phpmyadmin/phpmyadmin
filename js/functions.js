@@ -2995,11 +2995,6 @@ AJAX.registerOnload('functions.js', function () {
      */
     $(document).on('click', "form.create_table_form.ajax input[name=submit_num_fields]", function (event) {
         event.preventDefault();
-
-        if (!checkFormElementInRange(this.form, 'added_fields', PMA_messages.strLeastColumnError, 1)) {
-            return;
-        }
-
         submitChangesInCreateTableForm('submit_num_fields=1');
     }); // end create table form (add fields)
 

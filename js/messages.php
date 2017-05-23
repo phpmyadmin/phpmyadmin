@@ -125,9 +125,6 @@ $js_messages['strCreateCompositeIndex'] = __('Create composite index');
 $js_messages['strCompositeWith'] = __('Composite with:');
 $js_messages['strMissingColumn'] = __('Please select column(s) for the index.');
 
-/* For Create Table */
-$js_messages['strLeastColumnError'] = __('You have to add at least one column.');
-
 /* For Preview SQL*/
 $js_messages['strPreviewSQL'] = __('Preview SQL');
 
