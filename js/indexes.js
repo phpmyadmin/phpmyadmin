@@ -756,5 +756,10 @@ AJAX.registerOnload('indexes.js', function () {
         }
 
         PMA_showAddIndexDialog(source_array, array_index, target_columns, -1, source_array[array_index]);
-    })
+    });
+
+    $('#index_frm').on('submit', function () {
+        if (typeof(this.elements['index[Key_name]'].disabled) != 'undefined')
+            this.elements['index[Key_name]'].disabled = false;
+    });
 });

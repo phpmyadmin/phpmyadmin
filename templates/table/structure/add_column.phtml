@@ -1,4 +1,4 @@
-<form method="post" action="tbl_addfield.php" id="addColumns" name="addColumns" onsubmit="return checkFormElementInRange(this, 'num_fields', '<?= str_replace('\'', '\\\'', __('You have to add at least one column.')); ?>', 1)">
+<form method="post" action="tbl_addfield.php" id="addColumns" name="addColumns">
     <?= PMA\libraries\URL::getHiddenInputs($GLOBALS['db'], $GLOBALS['table']); ?>
     <?php if (PMA\libraries\Util::showIcons('ActionLinksMode')): ?>
         <?= PMA\libraries\Util::getImage('b_insrow.png', __('Add column')); ?>&nbsp;
