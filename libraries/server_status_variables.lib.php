@@ -91,8 +91,7 @@ function PMA_getHtmlForFilter($ServerStatusData)
  */
 function PMA_getHtmlForLinkSuggestions($ServerStatusData)
 {
-    $retval  = '<div id="linkSuggestions" class="defaultLinks" '
-        . 'style="display:none">';
+    $retval  = '<div id="linkSuggestions" class="defaultLinks hide">';
     $retval .= '<p class="notice">' . __('Related links:');
     foreach ($ServerStatusData->links as $section_name => $section_links) {
         $retval .= '<span class="status_' . $section_name . '"> ';
@@ -274,7 +273,7 @@ function PMA_getHtmlForRenderVariables($ServerStatusData, $alerts, $strShowStatu
             $retval .= '</span>';
         }
         $retval .= '</span>';
-        $retval .= '<span style="display:none;" class="original">';
+        $retval .= '<span class="original hide">';
         if (isset($alerts[$name])) {
             if ($value > $alerts[$name]) {
                 $retval .= '<span class="attention">';
@@ -760,4 +759,3 @@ function PMA_getStatusVariablesDescriptions()
         )
     );
 }
-

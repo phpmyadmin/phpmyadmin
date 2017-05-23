@@ -278,10 +278,10 @@ EOT;
         $profiling_table .= "<div class='clearfloat'></div>";
 
         //require_once 'libraries/chart.lib.php';
-        $profiling_table .= '<div id="profilingChartData" style="display:none;">';
+        $profiling_table .= '<div id="profilingChartData" class="hide">';
         $profiling_table .= json_encode($chart_json);
         $profiling_table .= '</div>';
-        $profiling_table .= '<div id="profilingchart" style="display:none;">';
+        $profiling_table .= '<div id="profilingchart" class="hide">';
         $profiling_table .= '</div>';
         $profiling_table .= '<script type="text/javascript">';
         $profiling_table .= "AJAX.registerOnload('sql.js', function () {";
@@ -334,7 +334,7 @@ function PMA_analyzeAndGetTableHtmlForProfilingResults(
             . '</td>' . "\n";
         $table .= '<td class="right">'
             . (PMA\libraries\Util::formatNumber($one_result['Duration'], 3, 1))
-            . 's<span style="display:none;" class="rawvalue">'
+            . 's<span class="rawvalue hide">'
             . $one_result['Duration'] . '</span></td>' . "\n";
         if (isset($chart_json[ucwords($one_result['Status'])])) {
             $chart_json[ucwords($one_result['Status'])]
@@ -362,7 +362,7 @@ function PMA_getTableHtmlForProfilingSummaryByState($profiling_stats)
         $table .= '<td>' . $name . '</td>' . "\n";
         $table .= '<td align="right">'
             . PMA\libraries\Util::formatNumber($stats['total_time'], 3, 1)
-            . 's<span style="display:none;" class="rawvalue">'
+            . 's<span class="rawvalue hide">'
             . $stats['total_time'] . '</span></td>' . "\n";
         $table .= '<td align="right">'
             . PMA\libraries\Util::formatNumber(
@@ -376,7 +376,7 @@ function PMA_getTableHtmlForProfilingSummaryByState($profiling_stats)
             . PMA\libraries\Util::formatNumber(
                 $stats['total_time'] / $stats['calls'], 3, 1
             )
-            . 's<span style="display:none;" class="rawvalue">'
+            . 's<span class="rawvalue hide">'
             . number_format($stats['total_time'] / $stats['calls'], 8, '.', '')
             . '</span></td>' . "\n";
         $table .= ' </tr>' . "\n";

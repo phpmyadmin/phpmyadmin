@@ -892,7 +892,7 @@ class NavigationTree
             $retval = false;
         } else {
             $this->groupTree();
-            $retval = "<div class='list_container' style='display: none;'>";
+            $retval = "<div class='list_container hide'>";
             if (!empty($this->_searchClause) || !empty($this->_searchClause2)) {
                 $retval .= "<ul class='search_results'>";
             } else {

@@ -109,9 +109,9 @@ function PMA_getHtmlForChangePassword($mode, $username, $hostname)
                 . '<tr id="tr_element_before_generate_password"></tr>'
                 . '</table>';
 
-            $html .= '<div '
+            $html .= '<div'
                 . ($orig_auth_plugin != 'sha256_password'
-                    ? 'style="display:none"'
+                    ? ' class="hide"'
                     : '')
                 . ' id="ssl_reqd_warning_cp">'
                 . Message::notice(

@@ -31,20 +31,20 @@
                     <input type="radio" name="chartType" value="area" id="radio_area" />
                     <label for ="radio_area"><?= _pgettext('Chart type', 'Area') ?></label>
                 </div>
-                <span class="span_pie" style="display:none;">
+                <span class="span_pie hide">
                     <input type="radio" name="chartType" value="pie" id="radio_pie" />
                     <label for ="radio_pie"><?= _pgettext('Chart type', 'Pie') ?></label>
                 </span>
-                <span class="span_timeline" style="display:none;">
+                <span class="span_timeline hide">
                     <input type="radio" name="chartType" value="timeline" id="radio_timeline" />
                     <label for ="radio_timeline"><?= _pgettext('Chart type', 'Timeline') ?></label>
                 </span>
-                <span class="span_scatter" style="display:none;">
+                <span class="span_scatter hide">
                 <input type="radio" name="chartType" value="scatter" id="radio_scatter" />
                 <label for ="radio_scatter"><?= _pgettext('Chart type', 'Scatter') ?></label>
                 </span>
                 <br /><br />
-                <span class="barStacked" style="display:none;">
+                <span class="barStacked hide">
                     <input type="checkbox" name="barStacked" value="1" id="checkbox_barStacked" />
                     <label for ="checkbox_barStacked"><?= __('Stacked') ?></label>
                 </span>
@@ -110,7 +110,7 @@
                 <input type="text" name="yaxis_label" id="yaxis_label" value="<?= __('Y Values'); ?>" />
                 <br />
             </div>
-            <p style="clear:both;">&nbsp;</p>
+            <div class="clearfloat"></div>
             <div>
                 <input type="checkbox" id="chkAlternative" name="chkAlternative" value="alternativeFormat" />
                 <label for="chkAlternative"><?= __('Series names are in a column'); ?></label>
@@ -146,7 +146,7 @@
                 </select>
             </div>
             <?= PMA\libraries\Util::getStartAndNumberOfRowsPanel($sql_query); ?>
-            <p style="clear:both;">&nbsp;</p>
+            <div class="clearfloat"></div>
             <div id="resizer" style="width:600px; height:400px;">
                 <div style="position: absolute; right: 10px; top: 10px; cursor: pointer; z-index: 1000;">
                     <a class="disableAjax" id="saveChart" href="#" download="chart.png">

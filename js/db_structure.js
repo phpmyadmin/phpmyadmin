@@ -192,7 +192,7 @@ AJAX.registerOnload('db_structure.js', function () {
  *
  */
     var jqConfirm = function(msg, success) {
-        var dialogObj = $("<div style='display:none'>"+msg+"</div>");
+        var dialogObj = $("<div class='hide'>"+msg+"</div>");
         $('body').append(dialogObj);
         var buttonOptions = {};
         buttonOptions[PMA_messages.strContinue] = function () {
@@ -273,7 +273,7 @@ AJAX.registerOnload('db_structure.js', function () {
 
             }).done(function(data) {
 
-                var dialogObj = $("<div style='display:none'>"+data+"</div>");
+                var dialogObj = $("<div class='hide'>"+data+"</div>");
                 $('body').append(dialogObj);
                 var buttonOptions = {};
                 buttonOptions[PMA_messages.strContinue] = function () {

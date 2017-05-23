@@ -59,7 +59,7 @@ function PMA_getHtmlForMonitor($ServerStatusData)
 function PMA_getHtmlForAnalyseDialog()
 {
     $retval  = '<div id="logAnalyseDialog" title="';
-    $retval .= __('Log statistics') . '" style="display:none;">';
+    $retval .= __('Log statistics') . '" class="hide">';
     $retval .= '<p>' . __('Selected time range:');
     $retval .= '<input type="text" name="dateStart"'
         . ' class="datetimefield" value="" /> - ';
@@ -86,7 +86,7 @@ function PMA_getHtmlForAnalyseDialog()
     $retval .= '</p>';
     $retval .= '</div>';
     $retval .= '<div id="queryAnalyzerDialog" title="';
-    $retval .= __('Query analyzer') . '" style="display:none;">';
+    $retval .= __('Query analyzer') . '" class="hide">';
     $retval .= '<textarea id="sqlquery"> </textarea>';
     $retval .= '<p></p>';
     $retval .= '<div class="placeHolder"></div>';
@@ -103,7 +103,7 @@ function PMA_getHtmlForAnalyseDialog()
 function PMA_getHtmlForInstructionsDialog()
 {
     $retval  = '<div id="monitorInstructionsDialog" title="';
-    $retval .= __('Monitor Instructions') . '" style="display:none;">';
+    $retval .= __('Monitor Instructions') . '" class="hide">';
     $retval .= __(
         'The phpMyAdmin Monitor can assist you in optimizing the server'
         . ' configuration and track down time intensive queries. For the latter you'
@@ -118,7 +118,7 @@ function PMA_getHtmlForInstructionsDialog()
     $retval .= $GLOBALS['pmaThemeImage'] . 'ajax_clock_small.gif"';
     $retval .= ' alt="' . __('Loading…') . '" />';
     $retval .= '<div class="ajaxContent"></div>';
-    $retval .= '<div class="monitorUse" style="display:none;">';
+    $retval .= '<div class="monitorUse hide">';
     $retval .= '<p></p>';
     $retval .= '<strong>';
     $retval .= __('Using the monitor:');
@@ -164,7 +164,7 @@ function PMA_getHtmlForInstructionsDialog()
 function PMA_getHtmlForAddChartDialog()
 {
     $retval  = '<div id="addChartDialog" title="'
-        . __('Add chart') . '" style="display:none;">';
+        . __('Add chart') . '" class="hide">';
     $retval .= '<div id="tabGridVariables">';
     $retval .= '<p><input type="text" name="chartTitle" value="'
         . __('Chart Title') . '" /></p>';
@@ -208,7 +208,7 @@ function PMA_getHtmlForAddChartDialog()
     $retval .= '<input type="checkbox" id="useDivisor"'
         . ' name="useDivisor" value="1" />';
     $retval .= '<label for="useDivisor">' . __('Apply a divisor') . '</label>';
-    $retval .= '<span class="divisorInput" style="display:none;">';
+    $retval .= '<span class="divisorInput hide">';
     $retval .= '<input type="text" name="valueDivisor" size="4" value="1" />';
     $retval .= '(<a href="#kibDivisor">' . __('KiB') . '</a>, ';
     $retval .= '<a href="#mibDivisor">' . __('MiB') . '</a>)';
@@ -217,12 +217,12 @@ function PMA_getHtmlForAddChartDialog()
     $retval .= '<label for="useUnit">';
     $retval .= __('Append unit to data values');
     $retval .= '</label>';
-    $retval .= '<span class="unitInput" style="display:none;">';
+    $retval .= '<span class="unitInput hide">';
     $retval .= '<input type="text" name="valueUnit" size="4" value="" />';
     $retval .= '</span>';
     $retval .= '<p>';
     $retval .= '<a href="#submitAddSeries"><b>' . __('Add this series') . '</b></a>';
-    $retval .= '<span id="clearSeriesLink" style="display:none;">';
+    $retval .= '<span id="clearSeriesLink" class="hide">';
     $retval .= ' | <a href="#submitClearSeries">' . __('Clear series') . '</a>';
     $retval .= '</span>';
     $retval .= '</p>';
@@ -254,7 +254,7 @@ function PMA_getHtmlForTabLinks()
     $retval .= '</a>';
     $retval .= '<a href="#monitorInstructionsDialog">';
     $retval .= Util::getImage('b_help.png') . __('Instructions/Setup');
-    $retval .= '<a href="#endChartEditMode" style="display:none;">';
+    $retval .= '<a href="#endChartEditMode" class="hide">';
     $retval .= Util::getImage('s_okay.png');
     $retval .= __('Done dragging (rearranging) charts');
     $retval .= '</a>';
@@ -816,4 +816,3 @@ function PMA_getJsonForQueryAnalyzer()
     }
     return $return;
 }
-

@@ -198,7 +198,7 @@ class PMA_FormDisplay_Tpl_Test extends PHPUnit_Framework_TestCase
         );
 
         $this->assertContains(
-            '<a class="restore-default" href="#test/path"',
+            '<a class="restore-default hide" href="#test/path"',
             $result
         );
 
@@ -247,8 +247,8 @@ class PMA_FormDisplay_Tpl_Test extends PHPUnit_Framework_TestCase
         );
 
         $this->assertContains(
-            '<a class="set-value" href="#test/path=setVal" ' .
-            'title="Set value: setVal" style="display:none">',
+            '<a class="set-value hide" href="#test/path=setVal" ' .
+            'title="Set value: setVal">',
             $result
         );
 
