@@ -1560,7 +1560,7 @@ class DbQbe
         if (empty($from_clause)) {
             // Create cartesian product
             $from_clause = implode(
-                ", ", array_map('Util::backquote', $search_tables)
+                ", ", array_map(array('Util', 'backquote'), $search_tables)
             );
         }
 
@@ -1666,7 +1666,7 @@ class DbQbe
             if (count($unfinalized) > 0) {
                 // Add these tables as cartesian product before joined tables
                 $join .= implode(
-                    ', ', array_map('Util::backquote', $unfinalized)
+                    ', ', array_map(array('Util', 'backquote'), $unfinalized)
                 );
             }
         }
