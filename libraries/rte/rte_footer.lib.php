@@ -120,10 +120,9 @@ function PMA_EVN_getFooterLinks()
     );
     $retval .= "        </div>\n";
     $retval .= "    </fieldset>\n";
-    $retval .= "    <div style='clear: both;'></div>\n";
+    $retval .= "    <div class='clearfloat'></div>\n";
     $retval .= "</div>";
     $retval .= "<!-- FOOTER LINKS END -->\n";
 
     return $retval;
 } // end PMA_EVN_getFooterLinks()
-

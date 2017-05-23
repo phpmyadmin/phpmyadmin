@@ -328,15 +328,14 @@ function PMA_displayInput($path, $name, $type, $value, $description = '',
             . $icons['tblops'] . '</a>';
     }
     if (isset($opts['setvalue']) && $opts['setvalue']) {
-        $htmlOutput .= '<a class="set-value" href="#'
+        $htmlOutput .= '<a class="set-value hide" href="#'
             . htmlspecialchars("$path={$opts['setvalue']}") . '" title="'
             . sprintf(__('Set value: %s'), htmlspecialchars($opts['setvalue']))
-            . '" style="display:none">' . $icons['edit'] . '</a>';
+            . '">' . $icons['edit'] . '</a>';
     }
     if (isset($opts['show_restore_default']) && $opts['show_restore_default']) {
-        $htmlOutput .= '<a class="restore-default" href="#' . $path . '" title="'
-            .  __('Restore default value') . '" style="display:none">'
-            . $icons['reload'] . '</a>';
+        $htmlOutput .= '<a class="restore-default hide" href="#' . $path . '" title="'
+            .  __('Restore default value') . '">' . $icons['reload'] . '</a>';
     }
     // this must match with displayErrors() in scripts/config.js
     if ($has_errors) {

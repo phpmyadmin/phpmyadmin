@@ -347,7 +347,7 @@ class ErrorHandler
                     . ' id="pma_report_errors_form"';
             if ($GLOBALS['cfg']['SendErrorReports'] == 'always') {
                 // in case of 'always', generate 'invisible' form.
-                $retval .= ' style="display:none;"';
+                $retval .= ' class="hide"';
             }
             $retval .=  '>'
                     . '<input type="hidden" name="token" value="'

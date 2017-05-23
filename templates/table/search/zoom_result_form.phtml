@@ -15,7 +15,7 @@
                             <?= __('How to use'); ?>
                         </a>
                     </center>
-                    <div id="querydata" style="display:none">
+                    <div id="querydata" class="hide">
                         <?= htmlspecialchars(json_encode($data)); ?>
                     </div>
                     <div id="querychart"></div>
@@ -26,7 +26,7 @@
         </center>
 
     <!-- Displays rows in point edit form -->
-        <div id="dataDisplay" style="display:none">
+        <div id="dataDisplay" class="hide">
             <table>
                 <thead>
                 <tr>

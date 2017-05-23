@@ -424,11 +424,11 @@ function PMA_getHtmlForImport(
     global $SESSION_KEY;
     $html  = '';
     $html .= '<iframe id="import_upload_iframe" name="import_upload_iframe" '
-        . 'width="1" height="1" style="display: none;"></iframe>';
-    $html .= '<div id="import_form_status" style="display: none;"></div>';
+        . 'width="1" height="1" class="hide"></iframe>';
+    $html .= '<div id="import_form_status" class="hide"></div>';
     $html .= '<div id="importmain">';
     $html .= '    <img src="' . $GLOBALS['pmaThemeImage'] . 'ajax_clock_small.gif" '
-        . 'width="16" height="16" alt="ajax clock" style="display: none;" />';
+        . 'width="16" height="16" alt="ajax clock" class="hide" />';
 
     $html .= PMA_getHtmlForImportJS($upload_id);
 

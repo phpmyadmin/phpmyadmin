@@ -242,7 +242,7 @@ function PMA_getHtmlForSlaveConfiguration(
 
         $html .= ' <li><a href="#slave_control_href" id="slave_control_href">';
         $html .= __('Control slave:') . '</a>';
-        $html .= ' <div id="slave_control_gui" style="display: none">';
+        $html .= ' <div id="slave_control_gui" class="hide">';
         $html .= '  <ul>';
         $html .= '   <li><a href="' . $slave_control_full_link . '">';
         $html .= (($server_slave_replication[0]['Slave_IO_Running'] == 'No' ||
@@ -307,7 +307,7 @@ function PMA_getHtmlForSlaveErrorManagement($slave_skip_error_link)
     $html  = '<a href="#slave_errormanagement_href" '
         . 'id="slave_errormanagement_href">';
     $html .= __('Error management:') . '</a>';
-    $html .= ' <div id="slave_errormanagement_gui" style="display: none">';
+    $html .= ' <div id="slave_errormanagement_gui" class="hide">';
     $html .= Message::error(
         __('Skipping errors might lead into unsynchronized master and slave!')
     )->getDisplay();

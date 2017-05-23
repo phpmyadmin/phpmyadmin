@@ -3368,8 +3368,8 @@ class Util
         }
 
         $block_html .= __("Browse your computer:") . '</label>'
-            . '<div id="upload_form_status" style="display: none;"></div>'
-            . '<div id="upload_form_status_info" style="display: none;"></div>'
+            . '<div id="upload_form_status" class="hide"></div>'
+            . '<div id="upload_form_status_info" class="hide"></div>'
             . '<input type="file" name="import_file" id="input_import_file" />'
             . self::getFormattedMaximumUploadSize($max_upload_size) . "\n"
             // some browsers should respect this :)

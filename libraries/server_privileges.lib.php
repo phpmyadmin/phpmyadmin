@@ -1532,7 +1532,7 @@ function PMA_getHtmlForLoginInformationFields(
             : '') . ' />' . "\n";
 
     $html_output .= '<div id="user_exists_warning"'
-        . ' name="user_exists_warning" style="display:none;">'
+        . ' name="user_exists_warning" class="hide">'
         . Message::notice(
             __(
                 'An account already exists with the same username '
@@ -1721,8 +1721,8 @@ function PMA_getHtmlForLoginInformationFields(
     }
     $html_output .= $auth_plugin_dropdown;
 
-    $html_output .= '<div '
-        . ($orig_auth_plugin != 'sha256_password' ? 'style="display:none"' : '')
+    $html_output .= '<div'
+        . ($orig_auth_plugin != 'sha256_password' ? ' class="hide"' : '')
         . ' id="ssl_reqd_warning">'
         . Message::notice(
             __(
@@ -3523,7 +3523,7 @@ function PMA_getUsersOverview($result, $db_rights, $pmaThemeImage, $text_dir)
     $html_output .= '<input type="hidden" name="initial" '
         . 'value="' . (isset($_GET['initial']) ? htmlspecialchars($_GET['initial']) : '') . '" />';
     $html_output .= '</div>'
-        . '<div class="clear_both" style="clear:both"></div>';
+        . '<div class="clearfloat"></div>';
 
     // add/delete user fieldset
     $html_output .= PMA_getFieldsetForAddDeleteUser();

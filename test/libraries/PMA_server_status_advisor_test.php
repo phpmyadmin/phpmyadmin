@@ -158,7 +158,7 @@ class PMA_ServerStatusAdvisor_Test extends PHPUnit_Framework_TestCase
         //Advisor datas, we just validate that the Advisor Array is right
         //Advisor logic related with OS should be validate on class Advisor
         $this->assertContains(
-            '<div id="advisorData" style="display:none;">',
+            '<div id="advisorData" class="hide">',
             $html
         );
 

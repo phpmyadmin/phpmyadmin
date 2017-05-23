@@ -688,7 +688,7 @@ function PMA_getCentralColumnsTableHeader($class='', $title='', $actionCount=0)
     $tableheader = '<thead>';
     $tableheader .= '<tr>'
         . '<th class="' . $class . '"></th>'
-        . '<th class="" style="display:none"></th>'
+        . '<th class="hide"></th>'
         . $action
         . '<th class="' . $class . '" title="' . $title . '" data-column="name">'
         . __('Name') . '<div class="sorticon"></div></th>'
@@ -849,7 +849,7 @@ function PMA_getHTMLforCentralColumnsTableRow($row, $row_num, $db)
         . '<a hrf="#">' . Util::getIcon('b_drop.png', __('Delete')) . '</a>'
         . '<input type="submit" data-rownum = "' . $row_num . '"'
         . ' class="edit_cancel_form" value="Cancel"></td>'
-        . '<td id="save_' . $row_num . '" style="display:none">'
+        . '<td id="save_' . $row_num . '" class="hide">'
         . '<input type="submit" data-rownum = "' . $row_num . '"'
         . ' class="edit_save_form" value="Save"></td>';
 

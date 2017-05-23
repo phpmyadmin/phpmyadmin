@@ -198,7 +198,7 @@ class PMA_ServerStatusVariables_Test extends PHPUnit_Framework_TestCase
 
         //validate 1: PMA_getHtmlForLinkSuggestions
         $this->assertContains(
-            '<div id="linkSuggestions" class="defaultLinks"',
+            '<div id="linkSuggestions" class="defaultLinks hide"',
             $html
         );
         //validate 2: linkSuggestions
