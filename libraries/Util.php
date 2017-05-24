@@ -1882,7 +1882,7 @@ class Util
                 $ret .= '<input type="hidden" name="' . $subname_open . $eachvar
                     . $subname_close . '" value="'
                     . htmlspecialchars(urldecode($eachval)) . '" />';
-            } // end while
+            } // end foreach
 
             if (empty($tag_params['class'])) {
                 $tag_params['class'] = 'formLinkSubmit';
