@@ -1875,6 +1875,8 @@ class Util
                     . ']=1';
             }
 
+            $query_parts[] = 'token=' . $_SESSION[' PMA_token '];
+
             foreach ($query_parts as $query_pair) {
                 list($eachvar, $eachval) = explode('=', $query_pair);
                 $ret .= '<input type="hidden" name="' . $subname_open . $eachvar
