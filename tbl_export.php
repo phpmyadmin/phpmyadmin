@@ -57,8 +57,7 @@ if (! empty($sql_query)) {
         $aliases = array();
         foreach ($parser->statements[0]->from as $from) {
             if ((!empty($from->table)) && (!empty($from->alias))) {
-                $aliases[$from->alias] = $from->table;
-                
+                $aliases[$from->alias] = $from->table;         
                 $from->expr = null; // Force rebuild.
             }
         }
