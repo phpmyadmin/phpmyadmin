@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-05-17 09:24+0200\n"
-"PO-Revision-Date: 2016-12-24 08:03+0000\n"
-"Last-Translator: ctyzxx <ctyzxx@126.com>\n"
-"Language-Team: Chinese (China) <https://hosted.weblate.org/projects/"
-"phpmyadmin/master/zh_CN/>\n"
+"PO-Revision-Date: 2017-05-25 10:45+0000\n"
+"Last-Translator: Tobby Guo <tobbyguo@gmail.com>\n"
+"Language-Team: Chinese (Simplified) "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/zh_Hans/>\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 2.11-dev\n"
+"X-Generator: Weblate 2.14.1\n"
 
 #: changelog.php:39 license.php:34
 #, php-format
@@ -292,7 +292,7 @@ msgstr "数据库名不能为空！"
 
 #: db_operations.php:53
 msgid "Cannot copy database to the same name. Change the name and try again."
-msgstr ""
+msgstr "要复制的数据库已存在, 请更换名字再试."
 
 #: db_operations.php:142
 #, php-format
@@ -591,7 +591,7 @@ msgstr "返回"
 msgid ""
 "You were logged out from one server, to logout completely from phpMyAdmin, "
 "you need to logout from all servers."
-msgstr ""
+msgstr "注销成功, 要完全登出phpMyAdmin, 您需要从所有服务器依次注销."
 
 #: index.php:160 libraries/Footer.php:69
 msgid "phpMyAdmin Demo Server"
@@ -791,7 +791,7 @@ msgstr "服务器上运行了 Suhosin。请查看%s文档%s了解可能发生的
 msgid ""
 "The $cfg['TempDir'] (%s) is not accessible. phpMyAdmin is not able to cache "
 "templates and will be slow because of this."
-msgstr ""
+msgstr "$cfg['TempDir'] (%s) 读取失败且不能建立缓存, phpMyAdmin运行速度将受影响."
 
 #: js/messages.php:43
 msgid "Confirm"
@@ -808,7 +808,7 @@ msgstr "您将要完全删除一个数据库！"
 
 #: js/messages.php:48
 msgid "Cannot rename database to the same name. Change the name and try again"
-msgstr ""
+msgstr "数据库名称已存在. 请更换名字再试"
 
 #: js/messages.php:50
 msgid "You are about to DESTROY a complete table!"
