@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.1-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-05-17 09:06+0200\n"
-"PO-Revision-Date: 2016-08-21 12:25+0000\n"
-"Last-Translator: Satnam S Virdi <pika10singh@gmail.com>\n"
-"Language-Team: Punjabi <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/pa/>\n"
+"PO-Revision-Date: 2017-05-25 23:25+0000\n"
+"Last-Translator: singh jashan <singhjashan151@gmail.com>\n"
+"Language-Team: Punjabi "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-7/pa/>\n"
 "Language: pa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.8-dev\n"
+"X-Generator: Weblate 2.14.1\n"
 
 #: changelog.php:39 license.php:34
 #, php-format
@@ -25,10 +25,11 @@ msgid ""
 "The %s file is not available on this system, please visit %s for more "
 "information."
 msgstr ""
+"%s੧ ਫਾਇਲ ਇਸ ਸਿਸਟਮ ਤੇ ਉਪਲੱਬਧ ਨਹੀਂ ਹੈ, ਵਧੇਰੇ ਜਾਣਕਾਰੀ ਲਈ ਕਿਰਪਾ ਕਰਕੇ % s ੨ ਵੇਖੋ."
 
 #: db_central_columns.php:108
 msgid "The central list of columns for the current database is empty."
-msgstr ""
+msgstr "ਮੌਜੂਦਾ ਡਾਟਾਬੇਸ ਲਈ ਕਾਲਮ ਦੀ ਕੇਂਦਰੀ ਸੂਚੀ ਖਾਲੀ ਹੈ."
 
 #: db_central_columns.php:133
 msgid "Click to sort."
@@ -37,7 +38,7 @@ msgstr "ਟਿਕਾਉਣ ਲਈ ਕਲਿੱਕ ਕਰੋ।"
 #: db_central_columns.php:150
 #, php-format
 msgid "Showing rows %1$s - %2$s."
-msgstr ""
+msgstr "ਕਤਾਰਾਂ ਵੇਖੋ %੧$s੧ -%੨$s੨."
 
 #: db_datadict.php:59 libraries/operations.lib.php:36
 msgid "Database comment"
@@ -47,7 +48,7 @@ msgstr "ਡਾਟਾਬੇਸ ਟਿੱਪਣੀ"
 #: templates/columns_definitions/column_definitions_form.phtml:89
 #: templates/table/structure/display_table_stats.phtml:5
 msgid "Table comments:"
-msgstr ""
+msgstr "ਟੇਬਲ ਟਿੱਪਣੀ:"
 
 #: db_datadict.php:115 libraries/Index.php:686
 #: libraries/insert_edit.lib.php:1636
