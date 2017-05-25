@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.1-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-05-17 09:06+0200\n"
-"PO-Revision-Date: 2017-05-20 07:00+0000\n"
-"Last-Translator: imran hadid <imranhadid03@gmail.com>\n"
+"PO-Revision-Date: 2017-05-25 23:22+0000\n"
+"Last-Translator: Sifat Ahmed Khan <ahmed.sifat01@gmail.com>\n"
 "Language-Team: Bengali "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-7/bn/>\n"
 "Language: bn\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.14.1-dev\n"
+"X-Generator: Weblate 2.14.1\n"
 
 #: changelog.php:39 license.php:34
 #, php-format
@@ -517,7 +517,7 @@ msgstr "সফল হয়েছে"
 
 #: import.php:68 js/messages.php:607
 msgid "Failed"
-msgstr ""
+msgstr "ব্যর্থ"
 
 #: import.php:72
 msgid "Incomplete params"
@@ -590,7 +590,7 @@ msgstr "\"DROP DATABASE\" অকার্যকর করা আছে।"
 
 #: import_status.php:105
 msgid "Could not load the progress of the import."
-msgstr ""
+msgstr "ইম্পোর্ট অগ্রগতি লোড করা যায়নি।"
 
 #: import_status.php:114 js/messages.php:451 js/messages.php:615
 #: libraries/Util.php:689 libraries/export.lib.php:518
@@ -603,6 +603,8 @@ msgid ""
 "You were logged out from one server, to logout completely from phpMyAdmin, "
 "you need to logout from all servers."
 msgstr ""
+"আপনি একটি সার্ভার থেকে লগ আউট হয়, তারপর আপনি Phpmyadmin থেকে জটিলতা খুঁজে "
+"পেতে পারেন, আপনি সব সার্ভার থেকে জানতে হবে।"
 
 #: index.php:160 libraries/Footer.php:69
 msgid "phpMyAdmin Demo Server"
