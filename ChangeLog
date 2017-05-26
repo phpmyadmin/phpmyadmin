@@ -1,6 +1,32 @@
 phpMyAdmin - ChangeLog
 ======================
 
+4.7.1 (2017-05-25)
+- issue #13132 Always execute tracking queries as controluser
+- issue #13125 Focus on SQL editor after inserting field name
+- issue #13133 Fixed broken links in setup
+- issue #13135 Database list Tooltips: Show wrong value
+- issue #13150 Fixed pagination while browsing resuls
+- issue #13149 Fixed outbound links in changelog.php
+- issue #13146 Do not include devel dependencies in the release
+- issue #13144 Do not show New as a database in database dropdown
+- issue #13130 Fixed handling of errors in AJAX requests
+- issue #13152 Fixed PHP error in case of invalid table preferences
+- issue #13154 Fixed PHP error on password change
+- issue #13219 Fix Refresh of Process List
+- issue #13182 Fix refresh of long queries
+- issue #12301 Improved handling of logout with disabled LoginCookieDeleteAll
+- issue #13216 Add support for MySQL 8.0 collations
+- issue #13218 Fixed rendering of phpMyAdmin logos
+- issue #13234 Properly report not working sessions
+- issue #13256 Fixed password check on server replication
+- issue #13252 Fixed grid editing time column
+- issue #13258 Fixed detection of Amazon RDS
+- issue #13241 Redirect user to last page that has any tables to display
+- issue #13266 Fix link to User accounts overview page
+- issue #13274 Fix error in query builder
+- issue #13177 Grid editing repeats action after error
+
 4.7.0 (2017-03-28)
 - patch #12233 [Display] Improve message when renaming database to same name
 - issue #6146  Log authentication attempts to syslog

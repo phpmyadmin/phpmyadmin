@@ -138,7 +138,7 @@ unset($orig_error_count, $session_result);
  * Token which is used for authenticating access queries.
  * (we use "space PMA_token space" to prevent overwriting)
  */
-if (! isset($_SESSION[' PMA_token '])) {
+if (empty($_SESSION[' PMA_token '])) {
     PMA_generateToken();
 
     /**
@@ -154,4 +154,10 @@ if (! isset($_SESSION[' PMA_token '])) {
         PMA_sessionFailed($errors);
     }
     session_start();
+    if (empty($_SESSION[' PMA_token '])) {
+        PMA_fatalError(
+            'Failed to store CSRF token in session! ' .
+            'Probably sessions are not working properly.'
+        );
+    }
 }

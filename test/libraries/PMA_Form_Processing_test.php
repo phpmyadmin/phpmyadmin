@@ -85,17 +85,17 @@ class PMA_Form_Processing_Test extends PMATestCase
         );
 
         $this->assertContains(
-            '<a href="?lang=en&amp;page=&amp;mode=revert">',
+            'mode=revert',
             $result
         );
 
         $this->assertContains(
-            '<a class="btn" href="index.php?lang=en">',
+            '<a class="btn" href="index.php?',
             $result
         );
 
         $this->assertContains(
-            '<a class="btn" href="?lang=en&amp;page=&amp;mode=edit">',
+            'mode=edit',
             $result
         );
 

@@ -146,6 +146,18 @@ class DatabaseStructureController extends DatabaseController
         // Gets the database structure
         $this->_getDbInfo('_structure');
 
+        // Checks if there are any tables to be shown on current page.
+        // If there are no tables, the user is redirected to the last page
+        // having any.
+        if ($this->_total_num_tables > 0 && $this->_pos > $this->_total_num_tables) {
+            $uri = './db_structure.php' . URL::getCommonRaw(array(
+                'db' => $this->db,
+                'pos' => max(0, $this->_total_num_tables - $GLOBALS['cfg']['MaxTableList']),
+                'reload' => 1
+            ));
+            PMA_sendHeaderLocation($uri);
+        }
+
         include_once 'libraries/replication.inc.php';
 
         PageSettings::showGroup('DbStructure');
@@ -405,9 +417,9 @@ class DatabaseStructureController extends DatabaseController
             $overhead = '';
 
             $table_is_view = false;
-            $table_encoded = urlencode($current_table['TABLE_NAME']);
             // Sets parameters for links
-            $tbl_url_query = $this->_url_query . '&amp;table=' . $table_encoded;
+            $tbl_url_query = $this->_url_query
+                . '&amp;table=' . htmlspecialchars($current_table['TABLE_NAME']);
             // do not list the previous table's size info for a view
 
             list($current_table, $formatted_size, $unit, $formatted_overhead,

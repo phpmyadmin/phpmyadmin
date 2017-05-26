@@ -506,7 +506,6 @@ Following people have contributed to translation of phpMyAdmin:
 
     * Albert Song <albb0920\_at\_gmail.com>
     * Chien Wei Lin <cwlin0416\_at\_gmail.com>
-    * LNDDYL <lnddyl\_at\_outlook.com>
     * Peter Dave Hello <xs910203\_at\_gmail.com>
 
 

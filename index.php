@@ -5,6 +5,7 @@
  *
  * @package PhpMyAdmin
  */
+use PMA\libraries\Message;
 use PMA\libraries\Response;
 use PMA\libraries\RecentFavoriteTable;
 use PMA\libraries\URL;
@@ -109,6 +110,12 @@ $show_query = '1';
 if (! empty($message)) {
     echo PMA\libraries\Util::getMessage($message);
     unset($message);
+}
+if (isset($_SESSION['partial_logout'])) {
+    Message::success(
+        __('You were logged out from one server, to logout completely from phpMyAdmin, you need to logout from all servers.')
+    )->display();
+    unset($_SESSION['partial_logout']);
 }
 
 $common_url_query =  URL::getCommon();

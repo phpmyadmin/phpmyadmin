@@ -712,7 +712,7 @@ function PMA_hasNoRightsToDropDatabase($analyzed_sql_results,
  */
 function PMA_setColumnProperty($pmatable, $request_index)
 {
-    $property_value = explode(',', $_REQUEST[$request_index]);
+    $property_value = array_map('intval', explode(',', $_REQUEST[$request_index]));
     switch($request_index) {
     case 'col_order':
         $property_to_set = Table::PROP_COLUMN_ORDER;

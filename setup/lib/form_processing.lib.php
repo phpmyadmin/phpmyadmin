@@ -37,21 +37,18 @@ function PMA_Process_formset(FormDisplay $form_display)
     }
 
     // form has errors, show warning
-    $separator = URL::getArgSeparator('html');
-    $page = isset($_GET['page']) ? htmlspecialchars($_GET['page']) : null;
-    $formset = isset($_GET['formset']) ? htmlspecialchars($_GET['formset']) : null;
-    $formset = $formset ? "{$separator}formset=$formset" : '';
-    $formId = PMA_isValid($_GET['id'], 'numeric') ? $_GET['id'] : null;
+    $page = isset($_GET['page']) ? $_GET['page'] : '';
+    $formset = isset($_GET['formset']) ? $_GET['formset'] : '';
+    $formId = PMA_isValid($_GET['id'], 'numeric') ? $_GET['id'] : '';
     if ($formId === null && $page == 'servers') {
         // we've just added a new server, get its id
         $formId = $form_display->getConfigFile()->getServerCount();
     }
-    $formId = $formId ? "{$separator}id=$formId" : '';
     ?>
     <div class="error">
         <h4><?php echo __('Warning') ?></h4>
         <?php echo __('Submitted form contains errors') ?><br />
-        <a href="<?php echo URL::getCommon() , $separator ?>page=<?php echo $page , $formset , $formId , $separator ?>mode=revert">
+        <a href="<?php echo URL::getCommon(array('page' => $page, 'formset' => $formset, 'id' => $formId, 'mode' => 'revert')) ?>">
             <?php echo __('Try to revert erroneous fields to their default values') ?>
         </a>
     </div>
@@ -60,7 +57,7 @@ function PMA_Process_formset(FormDisplay $form_display)
         <?php echo __('Ignore errors') ?>
     </a>
     &nbsp;
-    <a class="btn" href="<?php echo URL::getCommon() , $separator ?>page=<?php echo $page , $formset , $formId , $separator ?>mode=edit">
+    <a class="btn" href="<?php echo URL::getCommon(array('page' => $page, 'formset' => $formset, 'id' => $formId, 'mode' => 'edit')) ?>">
         <?php echo __('Show form') ?>
     </a>
     <?php

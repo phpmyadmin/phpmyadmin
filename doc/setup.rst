@@ -111,13 +111,13 @@ You can clone current phpMyAdmin source from
 
     git clone https://github.com/phpmyadmin/phpmyadmin.git
 
-Additionally you need to install dependencies using `Composer tool`_:
+Additionally you need to install dependencies using the `Composer tool`_:
 
 .. code-block:: sh
 
     composer update
 
-If you do not intend to develop, you can skip installation of developer tools
+If you do not intend to develop, you can skip the installation of developer tools
 by invoking:
 
 .. code-block:: sh
@@ -130,11 +130,24 @@ by invoking:
 Installing using Composer
 +++++++++++++++++++++++++
 
-You can install phpMyAdmin using `Composer tool`_, however it's currently not
-available in the default `Packagist`_ repository due to its technical
-limitations.
+You can install phpMyAdmin using the `Composer tool`_, since 4.7.0 the releases
+are automatically mirrored to the default `Packagist`_ repository.
 
-The installation is possible by adding our own repository
+.. note::
+
+    The content of the Composer repository is automatically generated
+    separately from the releases, so the content doesn't have to be
+    100% same as when you download the tarball. There should be no
+    functional differences though.
+
+To install phpMyAdmin simply run:
+
+.. code-block:: sh
+
+    composer create-project phpmyadmin/phpmyadmin
+
+Alternatively you can use our own composer repository, which contains
+the release tarballs and is available at
 <https://www.phpmyadmin.net/packages.json>:
 
 .. code-block:: sh
@@ -153,11 +166,11 @@ download it using:
 
     docker pull phpmyadmin/phpmyadmin
 
-The phpMyAdmin server will be executed on port 80. It supports several ways of
+The phpMyAdmin server will listen on port 80. It supports several ways of
 configuring the link to the database server, either by Docker's link feature
 by linking your database container to ``db`` for phpMyAdmin (by specifying
 ``--link your_db_host:db``) or by environment variables (in this case it's up
-to you to setup networking in Docker to allow phpMyAdmin container to access
+to you to set up networking in Docker to allow the phpMyAdmin container to access
 the database container over network).
 
 .. _docker-vars:
@@ -169,7 +182,7 @@ You can configure several phpMyAdmin features using environment variables:
 
 .. envvar:: PMA_ARBITRARY
 
-    Allows you to enter database server hostname on login form.
+    Allows you to enter a database server hostname on login form.
     
     .. seealso:: :config:option:`$cfg['AllowArbitraryServer']`
 
@@ -181,19 +194,19 @@ You can configure several phpMyAdmin features using environment variables:
 
 .. envvar:: PMA_HOSTS
     
-    Comma separated host names or IP addresses of the database servers to use.
+    Comma-separated host names or IP addresses of the database servers to use.
 
     .. note:: Used only if :envvar:`PMA_HOST` is empty.
 
 .. envvar:: PMA_VERBOSE
     
-    Verbose name the database server.
+    Verbose name of the database server.
 
     .. seealso:: :config:option:`$cfg['Servers'][$i]['verbose']`
 
 .. envvar:: PMA_VERBOSES
     
-    Comma separated verbose name the database servers.
+    Comma-separated verbose name of the database servers.
 
     .. note:: Used only if :envvar:`PMA_VERBOSE` is empty.
 
@@ -207,7 +220,13 @@ You can configure several phpMyAdmin features using environment variables:
 
 .. envvar:: PMA_PORT
     
-    Port of the databse server to use.
+    Port of the database server to use.
+
+.. envvar:: PMA_PORTS
+    
+    Comma-separated ports of the database server to use.
+
+    .. note:: Used only if :envvar:`PMA_PORT` is empty.
 
 .. envvar:: PMA_ABSOLUTE_URI
    
@@ -221,9 +240,9 @@ By default, :ref:`cookie` is used, but if :envvar:`PMA_USER` and
 
 .. note::
 
-    The credentials you need to login are stored in the MySQL server, in case
+    The credentials you need to log in are stored in the MySQL server, in case
     of Docker image there are various ways to set it (for example
-    :samp:`MYSQL_ROOT_PASSWORD` when starting MySQL container). Please check 
+    :samp:`MYSQL_ROOT_PASSWORD` when starting the MySQL container). Please check 
     documentation for `MariaDB container <https://hub.docker.com/r/_/mariadb/>`_
     or `MySQL container <https://hub.docker.com/r/_/mysql/>`_.
 
@@ -233,9 +252,9 @@ Customizing configuration
 -------------------------
 
 Additionally configuration can be tweaked by :file:`/etc/phpmyadmin/config.user.inc.php`. If
-this file exists, it will be loaded after configuration generated from above
+this file exists, it will be loaded after configuration is generated from above
 environment variables, so you can override any configuration variable. This
-configuraiton can be added as a volume when invoking docker using 
+configuration can be added as a volume when invoking docker using 
 `-v /some/local/directory/config.user.inc.php:/etc/phpmyadmin/config.user.inc.php` parameters.
 
 Note that the supplied configuration file is applied after :ref:`docker-vars`,
@@ -257,7 +276,7 @@ configuration file:
 Docker Volumes
 --------------
 
-You can use following volumes to customise image behavior:
+You can use following volumes to customize image behavior:
 
 :file:`/etc/phpmyadmin/config.user.inc.php`
 
@@ -266,12 +285,12 @@ You can use following volumes to customise image behavior:
 :file:`/sessions/`
 
     Directory where PHP sessions are stored. You might want to share this 
-    for example when uswing :ref:`auth_signon`.
+    for example when using :ref:`auth_signon`.
 
 Docker Examples
 ---------------
 
-To connect phpMyAdmin to given server use:
+To connect phpMyAdmin to a given server use:
 
 .. code-block:: sh
 
@@ -305,7 +324,7 @@ Using docker-compose
 --------------------
 
 Alternatively you can also use docker-compose with the docker-compose.yml from
-<https://github.com/phpmyadmin/docker>.  This will run phpMyAdmin with
+<https://github.com/phpmyadmin/docker>.  This will run phpMyAdmin with an
 arbitrary server - allowing you to specify MySQL/MariaDB server on login page.
 
 .. code-block:: sh
@@ -315,8 +334,8 @@ arbitrary server - allowing you to specify MySQL/MariaDB server on login page.
 Customizing configuration file using docker-compose
 ---------------------------------------------------
 
-You can use external file to customize phpMyAdmin configuration and pass it
-using volumes directive:
+You can use an external file to customize phpMyAdmin configuration and pass it
+using the volumes directive:
 
 .. code-block:: yaml
 

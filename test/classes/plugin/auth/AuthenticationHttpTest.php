@@ -32,6 +32,7 @@ class AuthenticationHttpTest extends PMATestCase
     {
         $GLOBALS['PMA_Config'] = new PMA\libraries\Config;
         $GLOBALS['PMA_Config']->enableBc();
+        $GLOBALS['cfg']['Servers'] = array();
         $GLOBALS['server'] = 0;
         $GLOBALS['lang'] = "en";
         $GLOBALS['text_dir'] = "ltr";

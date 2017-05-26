@@ -2346,6 +2346,10 @@ class DatabaseInterface
         list($user, $password, $server) = $this->getConnectionParams($mode, $server);
 
         if (is_null($user) || is_null($password)) {
+            if ($mode == DatabaseInterface::CONNECT_USER) {
+                Logging::logUser($user, 'mysql-denied');
+                $GLOBALS['auth_plugin']->authFails();
+            }
             trigger_error(
                 __('Missing connection parameters!'),
                 E_USER_WARNING
@@ -2762,8 +2766,8 @@ class DatabaseInterface
             return Util::cacheGet('is_amazon_rds');
         }
         $sql = 'SELECT @@basedir';
-        $result = $this->fetchResult($sql);
-        $rds = ($result[0] == '/rdsdbbin/mysql/');
+        $result = $this->fetchValue($sql);
+        $rds = (substr($result, 0, 10) == '/rdsdbbin/');
         Util::cacheSet('is_amazon_rds', $rds);
 
         return $rds;

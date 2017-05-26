@@ -45,6 +45,6 @@ if (PMA_ifSetOr($_POST['submit_clear'], '')) {
     // Show generated config file in a <textarea>
     //
     header('HTTP/1.1 303 See Other');
-    header('Location: index.php' . URL::getCommonRaw() . '&page=config');
+    header('Location: index.php' . URL::getCommonRaw(array('page' => 'config')));
     exit;
 }

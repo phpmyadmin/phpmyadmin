@@ -153,7 +153,7 @@ function PMA_addDatepicker($this_element, type, options)
     else if (type == "time") {
         $this_element.timepicker($.extend(defaultOptions, options));
         // Add a tip regarding entering MySQL allowed-values for TIME data-type
-        PMA_tooltip($this_element, 'input', PMA_messages.strMysqlAllowedValuesTip);
+        PMA_tooltip($this_element, 'input', PMA_messages.strMysqlAllowedValuesTipTime);
     }
 }
 
@@ -1290,12 +1290,12 @@ function insertValueQuery()
         /* CodeMirror support */
         if (codemirror_editor) {
             codemirror_editor.replaceSelection(columnsList);
+            codemirror_editor.focus();
         //IE support
         } else if (document.selection) {
             myQuery.focus();
             var sel = document.selection.createRange();
             sel.text = columnsList;
-            document.sqlform.insert.focus();
         }
         //MOZILLA/NETSCAPE support
         else if (document.sqlform.sql_query.selectionStart || document.sqlform.sql_query.selectionStart == "0") {
@@ -1304,6 +1304,7 @@ function insertValueQuery()
             var SqlString = document.sqlform.sql_query.value;
 
             myQuery.value = SqlString.substring(0, startPos) + columnsList + SqlString.substring(endPos, SqlString.length);
+            myQuery.focus();
         } else {
             myQuery.value += columnsList;
         }

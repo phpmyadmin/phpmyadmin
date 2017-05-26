@@ -239,237 +239,358 @@ class Charsets
      */
     public static function getCollationDescr($collation)
     {
-        if ($collation == 'binary') {
-            return __('Binary');
-        }
         $parts = explode('_', $collation);
-        if (count($parts) == 1) {
-            $parts[1] = 'general';
-        } elseif ($parts[1] == 'ci' || $parts[1] == 'cs') {
-            $parts[2] = $parts[1];
-            $parts[1] = 'general';
-        }
-        $descr = '';
-        switch ($parts[1]) {
-        case 'bulgarian':
-            $descr = __('Bulgarian');
-            break;
-        case 'chinese':
-            if ($parts[0] == 'gb2312' || $parts[0] == 'gbk') {
-                $descr = __('Simplified Chinese');
-            } elseif ($parts[0] == 'big5') {
-                $descr = __('Traditional Chinese');
+
+        $name = __('Unknonwn');
+        $variant = null;
+        $suffixes = array();
+        $unicode = false;
+        $unknown = false;
+
+        $level = 0;
+        foreach ($parts as $part) {
+            if ($level == 0) {
+                /* Next will be language */
+                $level = 1;
+                /* First should be charset */
+                switch ($part) {
+                    case 'binary':
+                        $name = _pgettext('Collation', 'Binary');
+                        break;
+                    // Unicode charsets
+                    case 'utf8mb4':
+                        $variant = 'UCA 4.0.0';
+                        // Fall through to other unicode
+                    case 'ucs2':
+                    case 'utf8':
+                    case 'utf16':
+                    case 'utf16le':
+                    case 'utf16be':
+                    case 'utf32':
+                        $name = _pgettext('Collation', 'Unicode');
+                        $unicode = true;
+                        break;
+                    // West European charsets
+                    case 'ascii':
+                    case 'cp850':
+                    case 'dec8':
+                    case 'hp8':
+                    case 'latin1':
+                    case 'macroman':
+                        $name = _pgettext('Collation', 'West European');
+                        break;
+                    // Central European charsets
+                    case 'cp1250':
+                    case 'cp852':
+                    case 'latin2':
+                    case 'macce':
+                        $name = _pgettext('Collation', 'Central European');
+                        break;
+                    // Russian charsets
+                    case 'cp866':
+                    case 'koi8r':
+                        $name = _pgettext('Collation', 'Russian');
+                        break;
+                    // Simplified Chinese charsets
+                    case 'gb2312':
+                    case 'gbk':
+                        $name = _pgettext('Collation', 'Simplified Chinese');
+                        break;
+                    // Japanese charsets
+                    case 'sjis':
+                    case 'ujis':
+                    case 'cp932':
+                    case 'eucjpms':
+                        $name = _pgettext('Collation', 'Japanese');
+                        break;
+                    // Baltic charsets
+                    case 'cp1257':
+                    case 'latin7':
+                        $name = _pgettext('Collation', 'Baltic');
+                        break;
+                    // Other
+                    case 'armscii8':
+                    case 'armscii':
+                        $name = _pgettext('Collation', 'Armenian');
+                        break;
+                    case 'big5':
+                        $name = _pgettext('Collation', 'Traditional Chinese');
+                        break;
+                    case 'cp1251':
+                        $name = _pgettext('Collation', 'Cyrillic');
+                        break;
+                    case 'cp1256':
+                        $name = _pgettext('Collation', 'Arabic');
+                        break;
+                    case 'euckr':
+                        $name = _pgettext('Collation', 'Korean');
+                        break;
+                    case 'hebrew':
+                        $name = _pgettext('Collation', 'Hebrew');
+                        break;
+                    case 'geostd8':
+                        $name = _pgettext('Collation', 'Georgian');
+                        break;
+                    case 'greek':
+                        $name = _pgettext('Collation', 'Greek');
+                        break;
+                    case 'keybcs2':
+                        $name = _pgettext('Collation', 'Czech-Slovak');
+                        break;
+                    case 'koi8u':
+                        $name = _pgettext('Collation', 'Ukrainian');
+                        break;
+                    case 'latin5':
+                        $name = _pgettext('Collation', 'Turkish');
+                        break;
+                    case 'swe7':
+                        $name = _pgettext('Collation', 'Swedish');
+                        break;
+                    case 'tis620':
+                        $name = _pgettext('Collation', 'Thai');
+                        break;
+                    default:
+                        $name = _pgettext('Collation', 'Unknown');
+                        $unknown = true;
+                        break;
+                }
+                continue;
             }
-            break;
-        case 'ci':
-            $descr = __('case-insensitive');
-            break;
-        case 'cs':
-            $descr = __('case-sensitive');
-            break;
-        case 'croatian':
-            $descr = __('Croatian');
-            break;
-        case 'czech':
-            $descr = __('Czech');
-            break;
-        case 'danish':
-            $descr = __('Danish');
-            break;
-        case 'english':
-            $descr = __('English');
-            break;
-        case 'esperanto':
-            $descr = __('Esperanto');
-            break;
-        case 'estonian':
-            $descr = __('Estonian');
-            break;
-        case 'german1':
-            $descr = __('German') . ' (' . __('dictionary') . ')';
-            break;
-        case 'german2':
-            $descr = __('German') . ' (' . __('phone book') . ')';
-            break;
-        case 'hungarian':
-            $descr = __('Hungarian');
-            break;
-        case 'icelandic':
-            $descr = __('Icelandic');
-            break;
-        case 'japanese':
-            $descr = __('Japanese');
-            break;
-        case 'latvian':
-            $descr = __('Latvian');
-            break;
-        case 'lithuanian':
-            $descr = __('Lithuanian');
-            break;
-        case 'korean':
-            $descr = __('Korean');
-            break;
-        case 'myanmar':
-            $descr = __('Burmese');
-            break;
-        case 'persian':
-            $descr = __('Persian');
-            break;
-        case 'polish':
-            $descr = __('Polish');
-            break;
-        case 'roman':
-            $descr = __('West European');
-            break;
-        case 'romanian':
-            $descr = __('Romanian');
-            break;
-        case 'sinhala':
-            $descr = __('Sinhalese');
-            break;
-        case 'slovak':
-            $descr = __('Slovak');
-            break;
-        case 'slovenian':
-            $descr = __('Slovenian');
-            break;
-        case 'spanish':
-            $descr = __('Spanish');
-            break;
-        case 'spanish2':
-            $descr = __('Traditional Spanish');
-            break;
-        case 'swedish':
-            $descr = __('Swedish');
-            break;
-        case 'thai':
-            $descr = __('Thai');
-            break;
-        case 'turkish':
-            $descr = __('Turkish');
-            break;
-        case 'ukrainian':
-            $descr = __('Ukrainian');
-            break;
-        case 'unicode':
-            $descr = __('Unicode') . ' (' . __('multilingual') . ')';
-            break;
-        case 'vietnamese':
-            $descr = __('Vietnamese');
-            break;
-        /** @noinspection PhpMissingBreakStatementInspection */
-        case 'bin':
-            $is_bin = true;
-            // no break; statement here, continuing with 'general' section:
-        case 'general':
-            switch ($parts[0]) {
-            // Unicode charsets
-            case 'ucs2':
-            case 'utf8':
-            case 'utf16':
-            case 'utf16le':
-            case 'utf16be':
-            case 'utf32':
-            case 'utf8mb4':
-                $descr = __('Unicode') . ' (' . __('multilingual') . ')';
-                break;
-            // West European charsets
-            case 'ascii':
-            case 'cp850':
-            case 'dec8':
-            case 'hp8':
-            case 'latin1':
-            case 'macroman':
-                $descr = __('West European') . ' (' . __('multilingual') . ')';
-                break;
-            // Central European charsets
-            case 'cp1250':
-            case 'cp852':
-            case 'latin2':
-            case 'macce':
-                $descr = __('Central European') . ' (' . __('multilingual') . ')';
-                break;
-            // Russian charsets
-            case 'cp866':
-            case 'koi8r':
-                $descr = __('Russian');
-                break;
-            // Simplified Chinese charsets
-            case 'gb2312':
-            case 'gbk':
-                $descr = __('Simplified Chinese');
-                break;
-            // Japanese charsets
-            case 'sjis':
-            case 'ujis':
-            case 'cp932':
-            case 'eucjpms':
-                $descr = __('Japanese');
-                break;
-            // Baltic charsets
-            case 'cp1257':
-            case 'latin7':
-                $descr = __('Baltic') . ' (' . __('multilingual') . ')';
-                break;
-            // Other
-            case 'armscii8':
-            case 'armscii':
-                $descr = __('Armenian');
-                break;
-            case 'big5':
-                $descr = __('Traditional Chinese');
-                break;
-            case 'cp1251':
-                $descr = __('Cyrillic') . ' (' . __('multilingual') . ')';
-                break;
-            case 'cp1256':
-                $descr = __('Arabic');
-                break;
-            case 'euckr':
-                $descr = __('Korean');
-                break;
-            case 'hebrew':
-                $descr = __('Hebrew');
-                break;
-            case 'geostd8':
-                $descr = __('Georgian');
-                break;
-            case 'greek':
-                $descr = __('Greek');
-                break;
-            case 'keybcs2':
-                $descr = __('Czech-Slovak');
-                break;
-            case 'koi8u':
-                $descr = __('Ukrainian');
-                break;
-            case 'latin5':
-                $descr = __('Turkish');
-                break;
-            case 'swe7':
-                $descr = __('Swedish');
-                break;
-            case 'tis620':
-                $descr = __('Thai');
-                break;
-            default:
-                $descr = __('unknown');
-                break;
+            if ($level == 1) {
+                /* Next will be variant unless changed later */
+                $level = 4;
+                /* Locale name or code */
+                $found = true;
+                switch ($part) {
+                    case 'general':
+                        break;
+                    case 'bulgarian':
+                    case 'bg':
+                        $name = _pgettext('Collation', 'Bulgarian');
+                        break;
+                    case 'chinese':
+                    case 'cn':
+                        if ($unicode) {
+                            $name = _pgettext('Collation', 'Chinese');
+                        }
+                        break;
+                    case 'croatian':
+                    case 'hr':
+                        $name = _pgettext('Collation', 'Croatian');
+                        break;
+                    case 'czech':
+                    case 'cs':
+                        $name = _pgettext('Collation', 'Czech');
+                        break;
+                    case 'danish':
+                    case 'da':
+                        $name = _pgettext('Collation', 'Danish');
+                        break;
+                    case 'english':
+                    case 'en':
+                        $name = _pgettext('Collation', 'English');
+                        break;
+                    case 'esperanto':
+                    case 'eo':
+                        $name = _pgettext('Collation', 'Esperanto');
+                        break;
+                    case 'estonian':
+                    case 'et':
+                        $name = _pgettext('Collation', 'Estonian');
+                        break;
+                    case 'german1':
+                        $name = _pgettext('Collation', 'German (dictionary order)');
+                        break;
+                    case 'german2':
+                        $name = _pgettext('Collation', 'German (phone book order)');
+                        break;
+                    case 'german':
+                    case 'de':
+                        /* Name is set later */
+                        $level = 2;
+                        break;
+                    case 'hungarian':
+                    case 'hu':
+                        $name = _pgettext('Collation', 'Hungarian');
+                        break;
+                    case 'icelandic':
+                    case 'is':
+                        $name = _pgettext('Collation', 'Icelandic');
+                        break;
+                    case 'japanese':
+                    case 'ja':
+                        $name = _pgettext('Collation', 'Japanese');
+                        break;
+                    case 'la':
+                        $name = _pgettext('Collation', 'Classical Latin');
+                        break;
+                    case 'latvian':
+                    case 'lv':
+                        $name = _pgettext('Collation', 'Latvian');
+                        break;
+                    case 'lithuanian':
+                    case 'lt':
+                        $name = _pgettext('Collation', 'Lithuanian');
+                        break;
+                    case 'korean':
+                    case 'ko':
+                        $name = _pgettext('Collation', 'Korean');
+                        break;
+                    case 'myanmar':
+                    case 'my':
+                        $name = _pgettext('Collation', 'Burmese');
+                        break;
+                    case 'persian':
+                        $name = _pgettext('Collation', 'Persian');
+                        break;
+                    case 'polish':
+                    case 'pl':
+                        $name = _pgettext('Collation', 'Polish');
+                        break;
+                    case 'roman':
+                        $name = _pgettext('Collation', 'West European');
+                        break;
+                    case 'romanian':
+                    case 'ro':
+                        $name = _pgettext('Collation', 'Romanian');
+                        break;
+                    case 'si':
+                    case 'sinhala':
+                        $name = _pgettext('Collation', 'Sinhalese');
+                        break;
+                    case 'slovak':
+                    case 'sl':
+                        $name = _pgettext('Collation', 'Slovak');
+                        break;
+                    case 'slovenian':
+                    case 'sl':
+                        $name = _pgettext('Collation', 'Slovenian');
+                        break;
+                    case 'spanish':
+                        $name = _pgettext('Collation', 'Spanish (modern)');
+                        break;
+                    case 'es':
+                        /* Name is set later */
+                        $level = 3;
+                        break;
+                    case 'spanish2':
+                        $name = _pgettext('Collation', 'Spanish (traditional)');
+                        break;
+                    case 'swedish':
+                        $name = _pgettext('Collation', 'Swedish');
+                        break;
+                    case 'thai':
+                    case 'th':
+                        $name = _pgettext('Collation', 'Thai');
+                        break;
+                    case 'turkish':
+                    case 'tr':
+                        $name = _pgettext('Collation', 'Turkish');
+                        break;
+                    case 'ukrainian':
+                    case 'uk':
+                        $name = _pgettext('Collation', 'Ukrainian');
+                        break;
+                    case 'vietnamese':
+                    case 'vi':
+                        $name = _pgettext('Collation', 'Vietnamese');
+                        break;
+                    case 'unicode':
+                        if ($unknown) {
+                            $name = _pgettext('Collation', 'Unicode');
+                        }
+                        break;
+                    default:
+                        $found = false;
+                }
+                if ($found) {
+                    continue;
+                }
+                // Not parsed token, fall to next level
             }
-            if (!empty($is_bin)) {
-                $descr .= ', ' . __('binary collation');
+            if ($level == 2) {
+                /* Next will be variant */
+                $level = 4;
+                /* Germal variant */
+                if ($part == 'pb') {
+                    $name = _pgettext('Collation', 'German (phone book order)');
+                    continue;
+                }
+                $name = _pgettext('Collation', 'German (dictionary order)');
+                // Not parsed token, fall to next level
             }
-            break;
-        default: $descr = __('unknown');
-        }
-        if (!empty($parts[2])) {
-            if ($parts[2] == 'ci') {
-                $descr .= ', ' . __('case-insensitive collation');
-            } elseif ($parts[2] == 'cs') {
-                $descr .= ', ' . __('case-sensitive collation');
+            if ($level == 3) {
+                /* Next will be variant */
+                $level = 4;
+                /* Spanish variant */
+                if ($part == 'trad') {
+                    $name = _pgettext('Collation', 'Spanish (traditional)');
+                    continue;
+                }
+                $name = _pgettext('Collation', 'Spanish (modern)');
+                // Not parsed token, fall to next level
+            }
+            if ($level == 4) {
+                /* Next will be suffix */
+                $level = 5;
+                /* Variant */
+                $found = true;
+                switch ($part) {
+                    case '0900':
+                        $variant = 'UCA 9.0.0';
+                        break;
+                    case '520':
+                        $variant = 'UCA 5.2.0';
+                        break;
+                    case 'mysql561':
+                        $variant = 'MySQL 5.6.1';
+                        break;
+                    case 'mysql500':
+                        $variant = 'MySQL 5.0.0';
+                        break;
+                    default:
+                        $found = false;
+                }
+                if ($found) {
+                    continue;
+                }
+                // Not parsed token, fall to next level
+            }
+            if ($level == 5) {
+                /* Suffixes */
+                switch ($part) {
+                    case 'ci':
+                        $suffixes[] = _pgettext('Collation variant', 'case-insensitive');
+                        break;
+                    case 'cs':
+                        $suffixes[] = _pgettext('Collation variant', 'case-sensitive');
+                        break;
+                    case 'ai':
+                        $suffixes[] = _pgettext('Collation variant', 'accent-insensitive');
+                        break;
+                    case 'as':
+                        $suffixes[] = _pgettext('Collation variant', 'accent-sensitive');
+                        break;
+                    case 'w2':
+                        $suffixes[] = _pgettext('Collation variant', 'weight=2');
+                        break;
+                    case 'l2':
+                        $suffixes[] = _pgettext('Collation variant', 'level=2');
+                        break;
+                    case 'bin':
+                        $suffixes[] = _pgettext('Collation variant', 'binary');
+                        break;
+                }
             }
         }
 
-        return $descr;
+        $result = $name;
+        if (! is_null($variant)) {
+            $result .= ' (' . $variant . ')';
+        }
+        if (count($suffixes) > 0) {
+            $result .= ', ' . implode(', ', $suffixes);
+        }
+        return $result;
     }
 }

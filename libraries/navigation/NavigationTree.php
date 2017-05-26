@@ -1274,6 +1274,9 @@ class NavigationTree
             . '(' . __('Databases') . ') ...</option>' . "\n";
         $selected = $GLOBALS['db'];
         foreach ($children as $node) {
+            if ($node->isNew) {
+                continue;
+            }
             $paths = $node->getPaths();
             if (isset($node->links['text'])) {
                 $title = empty($node->links['title']) ? '' : $node->links['title'];
