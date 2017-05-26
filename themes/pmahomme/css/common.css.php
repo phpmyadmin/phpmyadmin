@@ -1961,7 +1961,8 @@ select.invalid_value,
     margin-bottom: 0;
     margin-<?php echo $left; ?>: auto;
     padding: 5px;   /** Keep a little space on the sides of the text */
-    width: 350px;
+    width: 258px;
+    height: 70px;
 
     z-index: 1100;      /** If this is not kept at a high z-index, the jQueryUI modal dialogs (z-index: 1000) might hide this */
     text-align: center;
@@ -1971,21 +1972,21 @@ select.invalid_value,
     background-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath('ajax_clock_small.gif');?>);
     background-repeat: no-repeat;
     background-position: 2%;
-    border: 1px solid #e2b709;
+
  }
 
 /* additional styles */
 .ajax_notification {
     margin-top: 200px;
-    background: #ffe57e;
-    border-radius: 5px;
-    -moz-border-radius: 5px;
-    -webkit-border-radius: 5px;
-    box-shadow: 0 5px 90px #888;
-    -moz-box-shadow: 0 5px 90px #888;
-    -webkit-box-shadow: 0 5px 90px #888;
-}
+    background: #ffffff;
+border-radius: 3px 3px 3px 3px;
+-moz-border-radius: 3px 3px 3px 3px;
+-webkit-border-radius: 3px 3px 3px 3px;
+-webkit-box-shadow: 0px 9px 30px 4px rgba(50, 50, 50, 1);
+-moz-box-shadow:    0px 9px 30px 4px rgba(50, 50, 50, 1);
+box-shadow:         0px 9px 30px 4px rgba(50, 50, 50, 1);
 
+}
 #loading_parent {
     /** Need this parent to properly center the notification division */
     position: relative;

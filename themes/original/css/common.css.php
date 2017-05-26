@@ -1500,26 +1500,40 @@ select.invalid_value,
 /**
   *  Ajax notification styling
   */
- .ajax_notification {
+  .ajax_notification {
     top: 0;           /** The notification needs to be shown on the top of the page */
     position: fixed;
     margin-top: 0;
     margin-right: auto;
     margin-bottom: 0;
-    margin-left: auto;
-    padding: 3px 5px;   /** Keep a little space on the sides of the text */
-    width: 350px;
-    background-color: #FFD700;
-    z-index: 1100;      /** If this is not kept at a high z-index, the jQueryUI modal dialogs (z-index:1000) might hide this */
+    margin-<?php echo $left; ?>: auto;
+    padding: 5px;   /** Keep a little space on the sides of the text */
+    width: 258px;
+    height: 70px;
+
+    z-index: 1100;      /** If this is not kept at a high z-index, the jQueryUI modal dialogs (z-index: 1000) might hide this */
     text-align: center;
-    display: block;
+    display: inline;
     left: 0;
     right: 0;
     background-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath('ajax_clock_small.gif');?>);
     background-repeat: no-repeat;
     background-position: 2%;
+
  }
 
+/* additional styles */
+.ajax_notification {
+    margin-top: 200px;
+    background: #ffffff;
+border-radius: 3px 3px 3px 3px;
+-moz-border-radius: 3px 3px 3px 3px;
+-webkit-border-radius: 3px 3px 3px 3px;
+-webkit-box-shadow: 0px 9px 30px 4px rgba(50, 50, 50, 1);
+-moz-box-shadow:    0px 9px 30px 4px rgba(50, 50, 50, 1);
+box-shadow:         0px 9px 30px 4px rgba(50, 50, 50, 1);
+
+}
  #loading_parent {
     /** Need this parent to properly center the notification division */
     position: relative;

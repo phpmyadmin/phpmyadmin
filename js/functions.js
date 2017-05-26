@@ -2331,7 +2331,7 @@ function PMA_ajaxShowMessage(message, timeout, type)
     )
     .hide()
     .appendTo("#loading_parent")
-    .html(message)
+    .html('<link type="text/css" rel="stylesheet" href="materialize/css/materialize.css"  media="screen,projection"/> <div class="preloader-wrapper small active" style="position: relative; top:8px"> <div class="spinner-layer spinner-blue-only"><div class="circle-clipper left"> <div class="circle"></div></div><div class="gap-patch"><div class="circle"></div></div><div class="circle-clipper right">    <div class="circle"></div></div></div></div>&nbsp; &nbsp; &nbsp; <h4 style="color: black">'+ message+ '</h4>')) //Adding a css division for loader with the message
     .show();
     // If the notification is self-closing we should create a callback to remove it
     if (self_closing) {
