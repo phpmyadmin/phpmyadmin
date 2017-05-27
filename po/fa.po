@@ -4,28 +4,25 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.1-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-05-17 09:06+0200\n"
-"PO-Revision-Date: 2015-11-21 11:45+0000\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Persian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/fa/>\n"
+"PO-Revision-Date: 2017-05-27 21:57+0000\n"
+"Last-Translator: Hamid Khanahmadloo <h.khanahmadloo@gmail.com>\n"
+"Language-Team: Persian "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-7/fa/>\n"
 "Language: fa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.5-dev\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 2.14.1\n"
 
 #: changelog.php:39 license.php:34
-#, fuzzy, php-format
-#| msgid ""
-#| "The %s file is not available on this system, please visit www.phpmyadmin."
-#| "net for more information."
+#, php-format
 msgid ""
 "The %s file is not available on this system, please visit %s for more "
 "information."
 msgstr ""
 "فایل %s بر روی این سیستم موجود نمی باشد، جهت کسب اطلاعات بیشتر به وب سایت "
-"www.phpmyadmin.net مراجعه نمایید."
+"www.phpmyadmin.net%s مراجعه نمایید."
 
 #: db_central_columns.php:108
 msgid "The central list of columns for the current database is empty."
@@ -290,8 +287,6 @@ msgstr "داده"
 
 #: db_export.php:70 libraries/DbSearch.php:434
 #: libraries/display_export.lib.php:45 libraries/replication_gui.lib.php:379
-#, fuzzy
-#| msgid "Select All"
 msgid "Select all"
 msgstr "انتخاب همه"
 
@@ -300,8 +295,7 @@ msgid "The database name is empty!"
 msgstr "نام پایگاه داده وارد نشده‌ است!"
 
 #: db_operations.php:138
-#, fuzzy, php-format
-#| msgid "Database %1$s has been renamed to %2$s."
+#, php-format
 msgid "Database %1$s has been renamed to %2$s."
 msgstr "نام پایگاه داده %1$s به %2$s تغییر داده شد."
 
@@ -639,8 +633,6 @@ msgstr ""
 "بیشتر رجوع کنید به %s."
 
 #: index.php:174
-#, fuzzy
-#| msgid "General Settings"
 msgid "General settings"
 msgstr "تنظیمات عمومی"
 
@@ -655,8 +647,6 @@ msgid "Server connection collation"
 msgstr "Collation اتصال سرور"
 
 #: index.php:242
-#, fuzzy
-#| msgid "Appearance Settings"
 msgid "Appearance settings"
 msgstr "تنظیمات ظاهری"
 
@@ -4184,7 +4174,7 @@ msgstr "اطلاعات نسخه"
 
 #: libraries/Footer.php:195 libraries/Footer.php:199 libraries/Footer.php:202
 msgid "Open new phpMyAdmin window"
-msgstr ""
+msgstr "باز کردن phpMyAdmin در پنجره جدید"
 
 #: libraries/Header.php:383
 msgid "Print view"
@@ -4301,7 +4291,7 @@ msgstr ""
 #: libraries/LanguageManager.php:925 libraries/LanguageManager.php:926
 #: setup/frames/index.inc.php:66
 msgid "Language"
-msgstr ""
+msgstr "زبان"
 
 #: libraries/Linter.php:99
 msgid ""
@@ -4463,10 +4453,8 @@ msgid "Databases"
 msgstr "پايگاههاي داده"
 
 #: libraries/Menu.php:574
-#, fuzzy
-#| msgid "User"
 msgid "User accounts"
-msgstr "كاربر"
+msgstr "حساب های كاربری"
 
 #: libraries/Menu.php:601 libraries/ServerStatusData.php:121
 #: libraries/Util.php:4102 libraries/server_common.lib.php:33
@@ -4486,13 +4474,12 @@ msgstr "تکرار"
 #: libraries/sql_query_form.lib.php:427
 #: templates/server/engines/engine.phtml:15
 #: templates/server/engines/engine.phtml:18
-#, fuzzy
 msgid "Variables"
-msgstr "متغییر"
+msgstr "متغییرها"
 
 #: libraries/Menu.php:616 libraries/Util.php:4105
 msgid "Charsets"
-msgstr ""
+msgstr "مجموعه کاراکترهای"
 
 #: libraries/Menu.php:620 libraries/Util.php:4107
 msgid "Engines"
@@ -4501,14 +4488,14 @@ msgstr "موتور"
 #: libraries/Menu.php:624 libraries/Util.php:4106
 #: libraries/server_common.lib.php:30
 msgid "Plugins"
-msgstr ""
+msgstr "پلاگین ها"
 
 #: libraries/Message.php:246
 #, php-format
 msgid "%1$d row affected."
 msgid_plural "%1$d rows affected."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1$d ردیف تحت تاثیر."
+msgstr[1] "%1$d ردیف تحت تاثیر."
 
 #: libraries/Message.php:265
 #, php-format
@@ -4529,55 +4516,41 @@ msgid "Error while creating PDF:"
 msgstr "PDF خطا در موقع درست کردن:"
 
 #: libraries/RecentFavoriteTable.php:135
-#, fuzzy
-#| msgid "Could not save recent table"
 msgid "Could not save recent table!"
-msgstr "جدول اخیر ذخیره نشد"
+msgstr "ناتوانی در ذخیره جدول اخیر!"
 
 #: libraries/RecentFavoriteTable.php:139
-#, fuzzy
-#| msgid "Could not save recent table"
 msgid "Could not save favorite table!"
-msgstr "جدول اخیر ذخیره نشد"
+msgstr "ناتوانی در ذخیره جدول مورد علاقه!"
 
 #: libraries/RecentFavoriteTable.php:209
 #: templates/database/structure/favorite_anchor.phtml:12
-#, fuzzy
-#| msgid "Remove chart"
 msgid "Remove from Favorites"
-msgstr "حذف نمودار"
+msgstr "حذف از مورد علاقه"
 
 #: libraries/RecentFavoriteTable.php:231
-#, fuzzy
-#| msgid "There are no recent tables"
 msgid "There are no recent tables."
-msgstr "جدول های اخیری وجود ندارد"
+msgstr "جداول اخیری وجود ندارد."
 
 #: libraries/RecentFavoriteTable.php:232
-#, fuzzy
-#| msgid "There are no recent tables"
 msgid "There are no favorite tables."
-msgstr "جدول های اخیری وجود ندارد"
+msgstr "جداول مورد علاقه ای وجود ندارد."
 
 #: libraries/RecentFavoriteTable.php:247
 msgid "Recent tables"
-msgstr "جدول های اخیر"
+msgstr "جداول اخیر"
 
 #: libraries/RecentFavoriteTable.php:249
-#, fuzzy
-#| msgid "Reset"
 msgid "Recent"
-msgstr "پاک سازی"
+msgstr "اخیر"
 
 #: libraries/RecentFavoriteTable.php:251 libraries/config/messages.inc.php:539
-#, fuzzy
 msgid "Favorite tables"
-msgstr "متغییر"
+msgstr "جداول مورد علاقه"
 
 #: libraries/RecentFavoriteTable.php:253
-#, fuzzy
 msgid "Favorites"
-msgstr "متغییر"
+msgstr "مورد علاقه"
 
 #: libraries/SavedSearches.php:256
 msgid "Please provide a name for this bookmarked search."
@@ -4850,10 +4823,8 @@ msgid "Theme path not found for theme %s!"
 msgstr "مسیر برای تم  %s یافت نشد!"
 
 #: libraries/ThemeManager.php:377
-#, fuzzy
-#| msgid "Theme"
 msgid "Theme:"
-msgstr "تم"
+msgstr "تم:"
 
 #: libraries/TypesMySQL.php:31
 msgid ""
@@ -6485,7 +6456,7 @@ msgstr "گزینه های نمایش پایگاه داده"
 
 #: libraries/config/messages.inc.php:267 setup/frames/menu.inc.php:24
 msgid "Navigation panel"
-msgstr ""
+msgstr "پانل ناوبری"
 
 #: libraries/config/messages.inc.php:268
 #, fuzzy
@@ -6511,10 +6482,8 @@ msgid "Servers"
 msgstr "سرور"
 
 #: libraries/config/messages.inc.php:272
-#, fuzzy
-#| msgid "Databases display options"
 msgid "Servers display options."
-msgstr "گزینه های نمایش پایگاه داده"
+msgstr "گزینه های نمایش سرورها."
 
 #: libraries/config/messages.inc.php:274
 #, fuzzy
@@ -8805,10 +8774,8 @@ msgid "New database name"
 msgstr "نام پايگاه داده"
 
 #: libraries/display_export.lib.php:977
-#, fuzzy
-#| msgid "New table"
 msgid "New table name"
-msgstr "No tables"
+msgstr "نام جدول جدید"
 
 #: libraries/display_export.lib.php:987
 #, fuzzy
@@ -9401,7 +9368,7 @@ msgstr "درج به عنوان يك سطر جديد"
 
 #: libraries/insert_edit.lib.php:1533
 msgid "Insert as new row and ignore errors"
-msgstr ""
+msgstr "درج به عنوان سطر جدید و صرفنظر از خطاها"
 
 #: libraries/insert_edit.lib.php:1536
 msgid "Show insert query"
@@ -9427,6 +9394,8 @@ msgstr "ویرایش کردن ردیف بعدی"
 msgid ""
 "Use TAB key to move from value to value, or CTRL+arrows to move anywhere."
 msgstr ""
+"استفاده از کلید Tab برای جابجایی بین مقادیر، یا CTRL + فلش ها برای جابجایی "
+"به هر نقطه."
 
 #: libraries/insert_edit.lib.php:1646 libraries/replication_gui.lib.php:544
 #: libraries/rte/rte_routines.lib.php:1609
@@ -9442,16 +9411,16 @@ msgstr "مقدار"
 
 #: libraries/insert_edit.lib.php:2008 libraries/sql.lib.php:1371
 msgid "Showing SQL query"
-msgstr ""
+msgstr "نمایش پرس و جو SQL"
 
 #: libraries/insert_edit.lib.php:2033 libraries/sql.lib.php:1349
 #, php-format
 msgid "Inserted row id: %1$d"
-msgstr ""
+msgstr "درج شناسه ردیف: %1$d"
 
 #: libraries/mult_submits.inc.php:326
 msgid "Success!"
-msgstr ""
+msgstr "موفق!"
 
 #: libraries/mult_submits.lib.php:345 libraries/operations.lib.php:171
 #: libraries/operations.lib.php:1252 libraries/tracking.lib.php:529
@@ -9469,10 +9438,8 @@ msgid "Data only"
 msgstr "فقط داده‌ها"
 
 #: libraries/mult_submits.lib.php:353
-#, fuzzy
-#| msgid "Add AUTO_INCREMENT value"
 msgid "Add AUTO INCREMENT value"
-msgstr "مقدار افزایشی خودکار اضافه شود"
+msgstr "افزودن ارزش افزایش بصورت خودکار"
 
 #: libraries/mult_submits.lib.php:355 libraries/operations.lib.php:227
 #: libraries/operations.lib.php:1277
@@ -9484,63 +9451,48 @@ msgstr "اعمال محدودیت ها"
 #: libraries/operations.lib.php:947 libraries/operations.lib.php:1296
 #: libraries/rte/rte_routines.lib.php:1007
 #: templates/columns_definitions/table_fields_definitions.phtml:47
-#, fuzzy
-#| msgid "Edit Privileges"
 msgid "Adjust privileges"
-msgstr "ويرايش امتيازات"
+msgstr "تنظیم امتیازات"
 
 #: libraries/mult_submits.lib.php:379
-#, fuzzy
-#| msgid "Fri"
 msgid "From"
-msgstr "جمعه"
+msgstr "از"
 
 #: libraries/mult_submits.lib.php:385
 msgid "To"
-msgstr ""
+msgstr "به"
 
 #: libraries/mult_submits.lib.php:413
 msgid "Add prefix"
-msgstr ""
+msgstr "افزودن پیشوند"
 
 #: libraries/mult_submits.lib.php:446
-#, fuzzy
-#| msgid "Do you really want to "
 msgid "Do you really want to execute the following query?"
-msgstr "آيا مطمئن هستيد "
+msgstr "آیا مطمئن هستید، می خواهید پرس و جوی پیش رو اجرا شود؟"
 
 #: libraries/navigation/Navigation.php:55
 msgid "An error has occurred while loading the navigation display"
-msgstr ""
+msgstr "یک خطا هنگام بارگذاری صفحه ناوبری رخ داده است"
 
 #: libraries/navigation/Navigation.php:193
-#, fuzzy
-#| msgid "Column names"
 msgid "Groups:"
-msgstr "نام ستونها"
+msgstr "گروه ها:"
 
 #: libraries/navigation/Navigation.php:194
-#, fuzzy
-#| msgid "Events"
 msgid "Events:"
-msgstr "رویدادها"
+msgstr "رویدادها:"
 
 #: libraries/navigation/Navigation.php:195
-#, fuzzy
 msgid "Functions:"
-msgstr "تابع"
+msgstr "توابع:"
 
 #: libraries/navigation/Navigation.php:196
-#, fuzzy
-#| msgid "Processes"
 msgid "Procedures:"
-msgstr "پروسه ها"
+msgstr "پروسه ها:"
 
 #: libraries/navigation/Navigation.php:198
-#, fuzzy
-#| msgid "View"
 msgid "Views:"
-msgstr "نمایش"
+msgstr "مشاهده ها:"
 
 #: libraries/navigation/Navigation.php:222 libraries/tracking.lib.php:289
 #: libraries/tracking.lib.php:1601 tbl_change.php:156
@@ -9556,26 +9508,20 @@ msgid "Log out"
 msgstr "خروج"
 
 #: libraries/navigation/NavigationHeader.php:172
-#, fuzzy
-#| msgid "Dumping data for table"
 msgid "Empty session data"
-msgstr "حذف داده‌هاي جدول"
+msgstr "خال کردن داده های جلسه"
 
 #: libraries/navigation/NavigationHeader.php:190
 msgid "phpMyAdmin documentation"
 msgstr "مستندات phpMyAdmin"
 
 #: libraries/navigation/NavigationHeader.php:210
-#, fuzzy
-#| msgid "Customize text input fields"
 msgid "Navigation panel settings"
-msgstr "سفارشی کردن فیلدهای ورودی متن"
+msgstr "تنظیمات پانل ناوبری"
 
 #: libraries/navigation/NavigationHeader.php:221
-#, fuzzy
-#| msgid "Customize text input fields"
 msgid "Reload navigation panel"
-msgstr "سفارشی کردن فیلدهای ورودی متن"
+msgstr "بارگذاری مجدد پانل ناوبری"
 
 #: libraries/navigation/NavigationTree.php:755
 msgid ""
@@ -13124,7 +13070,7 @@ msgstr ""
 
 #: libraries/server_status_monitor.lib.php:321
 msgid "Reset to default"
-msgstr ""
+msgstr "تنظیم به عنوان پیش فرض"
 
 #: libraries/server_status_processes.lib.php:24
 #, fuzzy
@@ -13148,17 +13094,16 @@ msgstr "دستور"
 
 #: libraries/server_status_processes.lib.php:96
 msgid "Progress"
-msgstr ""
+msgstr "پیشرفت"
 
 #: libraries/server_status_processes.lib.php:230
 #: libraries/server_status_variables.lib.php:37 templates/filter.phtml:2
 msgid "Filters"
-msgstr ""
+msgstr "فیلترها"
 
 #: libraries/server_status_processes.lib.php:238
-#, fuzzy
 msgid "Show only active"
-msgstr "نمايش جدولها"
+msgstr "فقط نمایش فعال"
 
 #: libraries/server_status_queries.lib.php:30
 #, php-format
