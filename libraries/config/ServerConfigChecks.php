@@ -218,7 +218,7 @@ class ServerConfigChecks
         if ($cookieAuthServer && $blowfishSecret === null) {
             $blowfishSecret = '';
             while (strlen($blowfishSecret) < 32) {
-                if (class_exists('phpseclib\Crypt\Random')) {
+                if (is_callable(array('phpseclib\Crypt\Random', 'string'))) {
                     $byte = phpseclib\Crypt\Random::string(1);
                 } else {
                     $byte = openssl_random_pseudo_bytes(1);
