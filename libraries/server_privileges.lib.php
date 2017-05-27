@@ -3614,6 +3614,12 @@ function PMA_getHtmlTableBodyForUserRights($db_rights)
                 break;
             } // end switch
 
+            if(!isset($host['Select_priv'])){
+                $html_output .= Util::showHint(
+                    __('Note: User exists in some tables but not the user table.')
+                );
+            }
+
             $html_output .= '</td>' . "\n";
 
             $html_output .= '<td><code>' . "\n"
