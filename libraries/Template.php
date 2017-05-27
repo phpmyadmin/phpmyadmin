@@ -11,6 +11,7 @@ use Twig_Environment;
 use Twig_Loader_Filesystem;
 use PMA\libraries\twig\CharsetsExtension;
 use PMA\libraries\twig\I18nExtension;
+use PMA\libraries\twig\MessageExtension;
 use PMA\libraries\twig\SanitizeExtension;
 use PMA\libraries\twig\UrlExtension;
 use PMA\libraries\twig\UtilExtension;
@@ -72,6 +73,7 @@ class Template
         ));
         $this->twig->addExtension(new CharsetsExtension());
         $this->twig->addExtension(new I18nExtension());
+        $this->twig->addExtension(new MessageExtension());
         $this->twig->addExtension(new SanitizeExtension());
         $this->twig->addExtension(new UrlExtension());
         $this->twig->addExtension(new UtilExtension());

@@ -845,13 +845,14 @@ class TableSearchController extends TableController
         $type = $this->_columnTypes[$column_index];
         $collation = $this->_columnCollations[$column_index];
         //Gets column's comparison operators depending on column type
+        $typeOperators = $GLOBALS['PMA_Types']->getTypeOperatorsHtml(
+            preg_replace('@\(.*@s', '', $this->_columnTypes[$column_index]),
+            $this->_columnNullFlags[$column_index], $selected_operator
+        );
         $func = Template::get('table/search/column_comparison_operators')->render(
             array(
                 'search_index' => $search_index,
-                'columnTypes' => $this->_columnTypes,
-                'column_index' => $column_index,
-                'columnNullFlags' => $this->_columnNullFlags,
-                'selected_operator' => $selected_operator
+                'type_operators' => $typeOperators
             )
         );
         //Gets link to browse foreign data(if any) and criteria inputbox

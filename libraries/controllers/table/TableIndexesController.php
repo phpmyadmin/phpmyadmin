@@ -132,7 +132,8 @@ class TableIndexesController extends TableController
                     'fields' => $fields,
                     'index' => $this->index,
                     'form_params' => $form_params,
-                    'add_fields' => $add_fields
+                    'add_fields' => $add_fields,
+                    'create_edit_table' => isset($_REQUEST['create_edit_table'])
                 )
             )
         );

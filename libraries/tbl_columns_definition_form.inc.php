@@ -389,15 +389,17 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
     );
 } // end for
 
+include 'libraries/tbl_partition_definition.inc.php';
 $html = PMA\libraries\Template::get('columns_definitions/column_definitions_form')
     ->render(
         array(
-            'is_backup'     => $is_backup,
-            'fields_meta'   => isset($fields_meta) ? $fields_meta : null,
-            'mimework'      => $cfgRelation['mimework'],
-            'action'        => $action,
-            'form_params'   => $form_params,
-            'content_cells' => $content_cells,
+            'is_backup'        => $is_backup,
+            'fields_meta'      => isset($fields_meta) ? $fields_meta : null,
+            'mimework'         => $cfgRelation['mimework'],
+            'action'           => $action,
+            'form_params'      => $form_params,
+            'content_cells'    => $content_cells,
+            'partitionDetails' => $partitionDetails
         )
     );
 

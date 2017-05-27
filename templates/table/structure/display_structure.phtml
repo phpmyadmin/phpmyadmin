@@ -1,6 +1,7 @@
 <?php
 use PMA\libraries\Partition;
 use PMA\libraries\Template;
+use PMA\libraries\Tracker;
 use PMA\libraries\Util;
 use PMA\libraries\URL;
 
@@ -20,7 +21,8 @@ $rownum = 0; ?>
         <?= PMA\libraries\Template::get('table/structure/table_structure_header')->render(
             array(
                 'db_is_system_schema' => $db_is_system_schema,
-                'tbl_is_view' => $tbl_is_view
+                'tbl_is_view' => $tbl_is_view,
+                'show_column_comments' => $GLOBALS['cfg']['ShowColumnComments']
             )
         ); ?>
         <tbody>
@@ -73,19 +75,26 @@ $rownum = 0; ?>
                 array(
                     'row' => $row,
                     'rownum' => $rownum,
-                    'displayed_field_name' => $displayed_field_name,
+                    'displayed_field_name' => preg_replace(
+                        '/[\x00-\x1F]/',
+                        '&#x2051;',
+                        $displayed_field_name
+                    ),
                     'type_nowrap' => Util::getClassForType($extracted_columnspec['type']),
                     'extracted_columnspec' => $extracted_columnspec,
                     'attribute' => $attribute,
                     'tbl_is_view' => $tbl_is_view,
                     'db_is_system_schema' => $db_is_system_schema,
                     'url_query' => $url_query,
-                    'field_encoded' => urlencode($row['Field']),
                     'titles' => $titles,
                     'table' => $table,
                     'tbl_storage_engine' => $tbl_storage_engine,
                     'field_charset' => $field_charset,
-                    'comments' => $comments
+                    'comments' => $comments,
+                    'show_column_comments' => $GLOBALS['cfg']['ShowColumnComments'],
+                    'relation_commwork' => $GLOBALS['cfgRelation']['commwork'],
+                    'relation_mimework' => $GLOBALS['cfgRelation']['mimework'],
+                    'browse_mime' => $GLOBALS['cfg']['BrowseMIME']
                 )
             ); ?>
             <?php if (! $tbl_is_view && ! $db_is_system_schema): ?>
@@ -101,7 +110,10 @@ $rownum = 0; ?>
                         'row' => $row,
                         'rownum' => $rownum,
                         'columns_with_unique_index' => $columns_with_unique_index,
-                        'isInCentralColumns' => in_array($row['Field'], $central_list) ? true : false
+                        'is_in_central_columns' => in_array($row['Field'], $central_list) ? true : false,
+                        'central_columns_work' => $GLOBALS['cfgRelation']['centralcolumnswork'],
+                        'table' => $GLOBALS['table'],
+                        'mysql_int_version' => PMA_MYSQL_INT_VERSION
                     )
                 ); ?>
             <?php endif; ?>
@@ -111,16 +123,20 @@ $rownum = 0; ?>
     </table>
     <?= Template::get('table/structure/check_all_table_column')->render(
         array(
-            'pmaThemeImage' => $GLOBALS['pmaThemeImage'],
+            'pma_theme_image' => $GLOBALS['pmaThemeImage'],
             'text_dir' => $GLOBALS['text_dir'],
             'tbl_is_view' => $tbl_is_view,
             'db_is_system_schema' => $db_is_system_schema,
-            'tbl_storage_engine' => $tbl_storage_engine
+            'tbl_storage_engine' => $tbl_storage_engine,
+            'central_columns_work' => $GLOBALS['cfgRelation']['centralcolumnswork']
         )
     ); ?>
 </form>
 <hr class="print_ignore"/>
-<?= Template::get('table/structure/move_columns_dialog')->render(); ?>
+<?= Template::get('table/structure/move_columns_dialog')->render(array(
+    'db' => $GLOBALS['db'],
+    'table' => $GLOBALS['table'],
+)); ?>
 <!--Work on the table-->
 <div id="structure-action-links">
     <?php if ($tbl_is_view && ! $db_is_system_schema): ?>
@@ -133,15 +149,19 @@ $rownum = 0; ?>
         array(
             'url_query' => $url_query,
             'tbl_is_view' => $tbl_is_view,
-            'db_is_system_schema' => $db_is_system_schema
+            'db_is_system_schema' => $db_is_system_schema,
+            'table' => $GLOBALS['table'],
+            'is_active' => Tracker::isActive()
         )
     ); ?>
 </div>
 <?php if (! $tbl_is_view && ! $db_is_system_schema): ?>
     <br />
-    <?= Template::get('table/structure/add_column')->render(
-        array('columns_list' => $columns_list)
-    ); ?>
+    <?= Template::get('table/structure/add_column')->render(array(
+        'columns_list' => $columns_list,
+        'db' => $GLOBALS['db'],
+        'table' => $GLOBALS['table']
+    )); ?>
 <?php endif; ?>
 
 <!--Displays indexes-->
@@ -196,15 +216,15 @@ $rownum = 0; ?>
                 'table' => $table,
                 'url_query'  => $url_query,
                 'partitions' => $partitions,
-                'partitionMethod' => $firstPartition->getMethod(),
-                'partitionExpression' => $firstPartition->getExpression(),
-                'hasDescription' => ! empty($tmp_partition_description),
-                'hasSubPartitions' => $hasSubPartitions,
-                'subPartitionMethod' => $hasSubPartitions ? $firstSubPartition->getMethod() : null,
-                'subPartitionExpression' => $hasSubPartitions ? $firstSubPartition->getExpression() : null,
-                'actionIcons' => $actionIcons,
-                'rangeOrList' => $rangeOrList,
-                'removeUrl' => $removeUrl,
+                'partition_method' => $firstPartition->getMethod(),
+                'partition_expression' => $firstPartition->getExpression(),
+                'has_description' => ! empty($tmp_partition_description),
+                'has_sub_partitions' => $hasSubPartitions,
+                'sub_partition_method' => $hasSubPartitions ? $firstSubPartition->getMethod() : null,
+                'sub_partition_expression' => $hasSubPartitions ? $firstSubPartition->getExpression() : null,
+                'action_icons' => $actionIcons,
+                'range_or_list' => $rangeOrList,
+                'remove_url' => $removeUrl,
             )
         );
     else:
