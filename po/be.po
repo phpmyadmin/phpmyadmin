@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-05-17 09:24+0200\n"
-"PO-Revision-Date: 2017-05-21 14:15+0000\n"
+"PO-Revision-Date: 2017-05-28 16:14+0000\n"
 "Last-Translator: Viktar Vauchkevich <victorenator@gmail.com>\n"
 "Language-Team: Belarusian "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/be/>\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
 "4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 2.14.1-dev\n"
+"X-Generator: Weblate 2.14.1\n"
 
 #: changelog.php:39 license.php:34
 #, php-format
@@ -13191,9 +13191,8 @@ msgstr ""
 
 #: libraries/tracking.lib.php:299 libraries/tracking.lib.php:834
 #: libraries/tracking.lib.php:1616
-#, fuzzy
 msgid "Structure snapshot"
-msgstr "Толькі структуру"
+msgstr "Здымак структуры"
 
 #: libraries/tracking.lib.php:428 libraries/tracking.lib.php:1427
 #: libraries/tracking.lib.php:1717
@@ -13210,16 +13209,12 @@ msgid "Tracking statements"
 msgstr ""
 
 #: libraries/tracking.lib.php:484
-#, fuzzy
-#| msgid "Allows inserting and replacing data."
 msgid "Delete tracking data row from report"
-msgstr "Дазваляе ўстаўляць і замяняць дадзеныя."
+msgstr "Выдаліць радок даных сачэння са справаздачы"
 
 #: libraries/tracking.lib.php:495
-#, fuzzy
-#| msgid "No databases"
 msgid "No data"
-msgstr "Базы дадзеных адсутнічаюць"
+msgstr "Няма даных"
 
 #: libraries/tracking.lib.php:585 libraries/tracking.lib.php:635
 #, php-format
@@ -13243,9 +13238,9 @@ msgid "SQL execution"
 msgstr ""
 
 #: libraries/tracking.lib.php:669
-#, fuzzy, php-format
+#, php-format
 msgid "Export as %s"
-msgstr "Тып экспарту"
+msgstr "Экспартаваць як %s"
 
 #: libraries/tracking.lib.php:695
 msgid "Data manipulation statement"
@@ -13256,14 +13251,12 @@ msgid "Data definition statement"
 msgstr ""
 
 #: libraries/tracking.lib.php:803
-#, fuzzy
 msgid "Date"
-msgstr "Дадзеныя"
+msgstr "Дата"
 
 #: libraries/tracking.lib.php:804
-#, fuzzy
 msgid "Username"
-msgstr "Імя карыстальніка:"
+msgstr "Імя карыстальніка"
 
 #: libraries/tracking.lib.php:852
 #, php-format
@@ -13272,8 +13265,6 @@ msgstr ""
 
 #: libraries/tracking.lib.php:952
 #: templates/table/structure/table_structure_row.phtml:33
-#, fuzzy
-#| msgid "None"
 msgctxt "None for default"
 msgid "None"
 msgstr "Няма"
@@ -13316,9 +13307,9 @@ msgid "Tracking for %1$s was deactivated at version %2$s."
 msgstr ""
 
 #: libraries/tracking.lib.php:1299
-#, fuzzy, php-format
+#, php-format
 msgid "Version %1$s of %2$s was deleted."
-msgstr "Стварыць сувязь"
+msgstr "Версія %1$s з %2$s выдаленая."
 
 #: libraries/tracking.lib.php:1330
 #, php-format
@@ -13326,48 +13317,37 @@ msgid "Version %1$s was created, tracking for %2$s is active."
 msgstr ""
 
 #: libraries/tracking.lib.php:1448
-#, fuzzy
 msgid "Untracked tables"
-msgstr "Праверыць табліцу"
+msgstr "Неадсочваемыя табліцы"
 
 #: libraries/tracking.lib.php:1483 libraries/tracking.lib.php:1506
 #: templates/table/structure/optional_action_links.phtml:21
-#, fuzzy
 msgid "Track table"
-msgstr "Праверыць табліцу"
+msgstr "Адсочваць табліцу"
 
 #: libraries/tracking.lib.php:1586
-#, fuzzy
 msgid "Tracked tables"
-msgstr "Праверыць табліцу"
+msgstr "Адсочваемыя табліцы"
 
 #: libraries/tracking.lib.php:1598
-#, fuzzy
 msgid "Last version"
-msgstr "Стварыць сувязь"
+msgstr "Апошняя версія"
 
 #: libraries/tracking.lib.php:1611 libraries/tracking.lib.php:1691
-#, fuzzy
-#| msgid "Allows inserting and replacing data."
 msgid "Delete tracking"
-msgstr "Дазваляе ўстаўляць і замяняць дадзеныя."
+msgstr "Выдаліць адсочванне"
 
 #: libraries/tracking.lib.php:1612
-#, fuzzy
 msgid "Versions"
-msgstr "Пэрсыдзкая"
+msgstr "Версіі"
 
 #: libraries/user_preferences.inc.php:32
-#, fuzzy
-#| msgid "General relation features"
 msgid "Manage your settings"
-msgstr "Магчымасьці асноўных сувязяў"
+msgstr "Кіраваць наладамі"
 
 #: libraries/user_preferences.inc.php:57 prefs_manage.php:316
-#, fuzzy
-#| msgid "Modifications have been saved"
 msgid "Configuration has been saved."
-msgstr "Мадыфікацыі былі захаваныя"
+msgstr "Канфігурацыя захаваная."
 
 #: libraries/user_preferences.inc.php:78
 #, php-format
@@ -13377,10 +13357,8 @@ msgid ""
 msgstr ""
 
 #: libraries/user_preferences.lib.php:134
-#, fuzzy
-#| msgid "Could not load default configuration from: \"%1$s\""
 msgid "Could not save configuration"
-msgstr "Немагчыма загрузіць канфігурацыю па змоўчаньні з: \"%1$s\""
+msgstr "Не атрымалася захаваць канфігурацыю"
 
 #: libraries/zip_extension.lib.php:27 libraries/zip_extension.lib.php:80
 #: libraries/zip_extension.lib.php:83
@@ -13400,20 +13378,16 @@ msgid "Cannot save settings, submitted form contains errors!"
 msgstr ""
 
 #: prefs_manage.php:52
-#, fuzzy
-#| msgid "phpMyAdmin documentation"
 msgid "phpMyAdmin configuration snippet"
-msgstr "Дакумэнтацыя па phpMyAdmin"
+msgstr "Фрагмент дакументацыі phpMyAdmin"
 
 #: prefs_manage.php:53
 msgid "Paste it to your config.inc.php"
 msgstr ""
 
 #: prefs_manage.php:93
-#, fuzzy
-#| msgid "Could not load default configuration from: \"%1$s\""
 msgid "Could not import configuration"
-msgstr "Немагчыма загрузіць канфігурацыю па змоўчаньні з: \"%1$s\""
+msgstr "Не атрымалася імпартаваць канфігурацыю"
 
 #: prefs_manage.php:126
 msgid "Configuration contains incorrect data for some fields."
@@ -13428,10 +13402,8 @@ msgid "Saved on: @DATE@"
 msgstr ""
 
 #: prefs_manage.php:254
-#, fuzzy
-#| msgid "Import files"
 msgid "Import from file"
-msgstr "Імпартаваць файлы"
+msgstr "Імпартаваць з файла"
 
 #: prefs_manage.php:262
 msgid "Import from browser's storage"
@@ -13461,10 +13433,8 @@ msgid ""
 msgstr ""
 
 #: prefs_manage.php:332
-#, fuzzy
-#| msgid "Save as file"
 msgid "Save as PHP file"
-msgstr "Захаваць як файл"
+msgstr "Захаваць як PHP-файл"
 
 #: prefs_manage.php:337
 msgid "Save to browser's storage"
@@ -13549,10 +13519,8 @@ msgid "Insecure connection"
 msgstr ""
 
 #: setup/frames/index.inc.php:87
-#, fuzzy
-#| msgid "Modifications have been saved"
 msgid "Configuration saved."
-msgstr "Мадыфікацыі былі захаваныя"
+msgstr "Канфігурацыя захаваная."
 
 #: setup/frames/index.inc.php:90
 msgid ""
@@ -13561,10 +13529,8 @@ msgid ""
 msgstr ""
 
 #: setup/frames/index.inc.php:100
-#, fuzzy
-#| msgid "Modifications have been saved"
 msgid "Configuration not saved!"
-msgstr "Мадыфікацыі былі захаваныя"
+msgstr "Канфігурацыя не захаваная!"
 
 #: setup/frames/index.inc.php:103
 msgid ""
@@ -13586,9 +13552,8 @@ msgid "There are no configured servers"
 msgstr ""
 
 #: setup/frames/index.inc.php:182
-#, fuzzy
 msgid "New server"
-msgstr "Вэб-сэрвэр"
+msgstr "Новы сервер"
 
 #: setup/frames/index.inc.php:211
 msgid "Default language"
@@ -13615,24 +13580,20 @@ msgid "Display"
 msgstr ""
 
 #: setup/frames/index.inc.php:267
-#, fuzzy
 msgid "phpMyAdmin homepage"
-msgstr "Дакумэнтацыя па phpMyAdmin"
+msgstr "Хатняя старонка phpMyAdmin"
 
 #: setup/frames/index.inc.php:269
-#, fuzzy
 msgid "Donate"
-msgstr "Дадзеныя"
+msgstr "Ахвяраваць"
 
 #: setup/frames/servers.inc.php:32
-#, fuzzy
 msgid "Edit server"
-msgstr "Вэб-сэрвэр"
+msgstr "Рэдагаваць сервер"
 
 #: setup/frames/servers.inc.php:42
-#, fuzzy
 msgid "Add a new server"
-msgstr "Дадаць новага карыстальніка"
+msgstr "Дадаць новы сервер"
 
 #: setup/index.php:16
 msgid "Configuration already exists, setup is disabled!"
@@ -13659,9 +13620,8 @@ msgid "Ignore errors"
 msgstr ""
 
 #: setup/lib/form_processing.lib.php:63
-#, fuzzy
 msgid "Show form"
-msgstr "Паказаць колер"
+msgstr "Паказаць форму"
 
 #: setup/lib/index.lib.php:118
 msgid ""
@@ -13689,10 +13649,8 @@ msgid "No newer stable version is available"
 msgstr ""
 
 #: setup/validate.php:24
-#, fuzzy
-#| msgid "No databases"
 msgid "Wrong data"
-msgstr "Базы дадзеных адсутнічаюць"
+msgstr "Памылковыя даныя"
 
 #: setup/validate.php:30
 #, php-format
@@ -13723,10 +13681,8 @@ msgid "Row: %1$s, Column: %2$s, Error: %3$s"
 msgstr ""
 
 #: tbl_row_action.php:72
-#, fuzzy
-#| msgid "No rows selected"
 msgid "No row selected."
-msgstr "Ніводны радок ня выбраны"
+msgstr "Радок не выбраны."
 
 #: tbl_tracking.php:36
 #, php-format
@@ -13734,24 +13690,18 @@ msgid "Tracking of %s is activated."
 msgstr ""
 
 #: tbl_tracking.php:105
-#, fuzzy
-#| msgid "The selected users have been deleted successfully."
 msgid "Tracking versions deleted successfully."
-msgstr "Выбраныя карыстальнікі былі пасьпяхова выдаленыя."
+msgstr "Версіі, што адсочваюцца, былі паспяхова выдаленыя."
 
 #: tbl_tracking.php:110
-#, fuzzy
-#| msgid "No rows selected"
 msgid "No versions selected."
-msgstr "Ніводны радок ня выбраны"
+msgstr "Версіі не выбраныя."
 
 #: tbl_tracking.php:141
 msgid "SQL statements executed."
 msgstr ""
 
 #: templates/columns_definitions/column_default.phtml:6
-#, fuzzy
-#| msgid "None"
 msgctxt "for default"
 msgid "None"
 msgstr "Няма"
@@ -13766,40 +13716,28 @@ msgstr "Імя табліцы"
 
 #: templates/columns_definitions/column_definitions_form.phtml:58
 #: templates/console/display.phtml:126
-#, fuzzy
-#| msgid "And"
 msgid "Add"
-msgstr "І"
+msgstr "Дадаць"
 
 #: templates/columns_definitions/column_definitions_form.phtml:66
-#, fuzzy
-#| msgid "Column names"
 msgid "column(s)"
-msgstr "Назвы калёнак"
+msgstr "слупок(і)"
 
 #: templates/columns_definitions/column_definitions_form.phtml:93
-#, fuzzy
-#| msgid "Collation"
 msgid "Collation:"
-msgstr "Супастаўленьне"
+msgstr "Параўноўванне:"
 
 #: templates/columns_definitions/column_definitions_form.phtml:97
-#, fuzzy
-#| msgid "Storage Engine"
 msgid "Storage Engine:"
-msgstr "Машына захаваньня дадзеных"
+msgstr "Механізм захоўвання:"
 
 #: templates/columns_definitions/column_definitions_form.phtml:102
-#, fuzzy
-#| msgid "Connections"
 msgid "Connection:"
-msgstr "Падлучэньні"
+msgstr "Злучэнне:"
 
 #: templates/columns_definitions/column_definitions_form.phtml:146
-#, fuzzy
-#| msgid "PARTITION definition"
 msgid "PARTITION definition:"
-msgstr "Азначэньне PARTITION"
+msgstr "Азначэнне раздзелаў (PARTITION):"
 
 #: templates/columns_definitions/column_name.phtml:6
 #, fuzzy, php-format
