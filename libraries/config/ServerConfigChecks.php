@@ -7,6 +7,7 @@
  */
 namespace PMA\libraries\config;
 
+use phpseclib\Crypt;
 use PMA\libraries\URL;
 
 /**
@@ -218,8 +219,8 @@ class ServerConfigChecks
         if ($cookieAuthServer && $blowfishSecret === null) {
             $blowfishSecret = '';
             while (strlen($blowfishSecret) < 32) {
-                if (is_callable('random_bytes')) {
-                    $byte = random_bytes(1);
+                if (is_callable('Crypt\Random::string')) {
+                    $byte = Crypt\Random::string(1);
                 } else {
                     $byte = openssl_random_pseudo_bytes(1);
                 }
