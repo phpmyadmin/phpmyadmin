@@ -118,7 +118,7 @@ class Theme
         if (! is_array($data['supports'])) {
             return false;
         }
-        if (! in_array(PMA_MAJOR_VERSION, $data['supports'])) {
+        if (! in_array($GLOBALS['PMA_Config']->get('PMA_MAJOR_VERSION'), $data['supports'])) {
             return false;
         }
 
