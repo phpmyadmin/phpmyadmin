@@ -144,12 +144,7 @@ function PMA_getHtmlForServerProcesslist()
 
         $retval .= '<th>';
         $columnUrl = URL::getCommon($column);
-        $retval .= '<a href="server_status_processes.php' . $columnUrl . '" ';
-        if ($is_sorted) {
-            $retval .= 'onmouseout="$(\'.soimg\').toggle()" '
-                . 'onmouseover="$(\'.soimg\').toggle()"';
-        }
-        $retval .= '>';
+        $retval .= '<a href="server_status_processes.php' . $columnUrl . '">';
 
         $retval .= $column['column_name'];
 
