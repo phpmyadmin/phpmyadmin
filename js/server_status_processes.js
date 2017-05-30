@@ -173,6 +173,14 @@ AJAX.registerOnload('server_status_processes.js', function() {
     $('#tableprocesslist').on('click', 'thead a', function() {
         processList.refreshUrl = $(this).attr('href');
     });
+
+    // Bind event handlers for toggling sort icon
+    $('#tableprocesslist').on('mouseover', 'thead a', function() {
+        $(this).children('.soimg').toggle();
+    });
+    $('#tableprocesslist').on('mouseout', 'thead a', function() {
+        $(this).children('.soimg').toggle();
+    });
 });
 
 /**
