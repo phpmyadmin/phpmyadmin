@@ -97,12 +97,12 @@ function display(init, finit)
             if (history_array[i].get_type() == "GroupBy" || history_array[i].get_type() == "OrderBy") {
                 str += '<td class="center">' + PMA_getImage('s_info.png', detail(i)) + '</td>' +
                     '<td title="' + detail(i) + '">' + history_array[i].get_type() + '</td>' +
-                    '<td onmouseover="this.className=\'history_table\';" onmouseout="this.className=\'history_table2\'" onclick=history_delete(' + i + ')>' + PMA_getImage('b_drop.png', PMA_messages.strDelete) + '</td>';
+                    '<td onclick=history_delete(' + i + ')>' + PMA_getImage('b_drop.png', PMA_messages.strDelete) + '</td>';
             } else {
                 str += '<td class="center">' + PMA_getImage('s_info.png', detail(i)) + '</td>' +
                     '<td title="' + detail(i) + '">' + history_array[i].get_type() + '</td>' +
-                    '<td onmouseover="this.className=\'history_table\';" onmouseout="this.className=\'history_table2\'" onclick=history_edit(' + i + ')>' + PMA_getImage('b_edit.png', PMA_messages.strEdit) + '</td>' +
-                    '<td onmouseover="this.className=\'history_table\';" onmouseout="this.className=\'history_table2\'" onclick=history_delete(' + i + ')>' + PMA_getImage('b_drop.png', PMA_messages.strDelete) + '</td>';
+                    '<td onclick=history_edit(' + i + ')>' + PMA_getImage('b_edit.png', PMA_messages.strEdit) + '</td>' +
+                    '<td onclick=history_delete(' + i + ')>' + PMA_getImage('b_drop.png', PMA_messages.strDelete) + '</td>';
             }
             str += '</tr></thead>';
             i++;

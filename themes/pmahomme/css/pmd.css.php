@@ -442,13 +442,13 @@ a.active.trigger:hover {
 
 .history_table {
     text-align: center;
-    background-color: #9999CC;
-    cursor: pointer;
+    background-color: #DBE4E8;
 }
 
-.history_table2 {
+.history_table:hover {
     text-align: center;
-    background-color: #DBE4E8;
+    background-color: #9999CC;
+    cursor: pointer;
 }
 
 #ab {
