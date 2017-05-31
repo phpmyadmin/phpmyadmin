@@ -12,7 +12,6 @@ require_once 'libraries/plugins/export/ExportOdt.php';
 require_once 'libraries/export.lib.php';
 require_once 'libraries/config.default.php';
 require_once 'libraries/relation.lib.php';
-require_once 'libraries/transformations.lib.php';
 require_once 'test/PMATestCase.php';
 
 /**

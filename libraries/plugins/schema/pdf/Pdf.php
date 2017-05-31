@@ -25,8 +25,6 @@ if (getcwd() == dirname(__FILE__)) {
     die('Attack stopped');
 }
 
-require_once 'libraries/transformations.lib.php';
-
 /**
  * Extends the "TCPDF" class and helps
  * in developing the structure of PDF Schema Export

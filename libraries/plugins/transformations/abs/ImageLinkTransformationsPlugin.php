@@ -14,9 +14,6 @@ if (!defined('PHPMYADMIN')) {
     exit;
 }
 
-/* For PMA_Transformation_globalHtmlReplace */
-require_once 'libraries/transformations.lib.php';
-
 /**
  * Provides common methods for all of the link transformations plugins.
  *
