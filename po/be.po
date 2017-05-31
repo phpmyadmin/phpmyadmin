@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.1-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-05-17 09:06+0200\n"
-"PO-Revision-Date: 2017-05-28 16:14+0000\n"
+"PO-Revision-Date: 2017-05-31 21:08+0000\n"
 "Last-Translator: Viktar Vauchkevich <victorenator@gmail.com>\n"
 "Language-Team: Belarusian "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-7/be/>\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
 "4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 2.14.1\n"
+"X-Generator: Weblate 2.15-dev\n"
 
 #: changelog.php:39 license.php:34
 #, php-format
@@ -13707,29 +13707,22 @@ msgid "Edit ENUM/SET values"
 msgstr ""
 
 #: templates/columns_definitions/column_name.phtml:6
-#, fuzzy, php-format
-#| msgid "Select referenced key"
+#, php-format
 msgid "Referenced by %s."
-msgstr "Выберыце спасылкавы ключ"
+msgstr "Спасылаецца на %s."
 
 #: templates/columns_definitions/column_name.phtml:14
-#, fuzzy
-#| msgid "Select Foreign Key"
 msgid "Is a foreign key."
-msgstr "Выберыце зьнешні ключ"
+msgstr "Гэта знешні ключ."
 
 #: templates/columns_definitions/column_name.phtml:43
-#, fuzzy
-#| msgid "Rename database to"
 msgid "Pick from Central Columns"
-msgstr "Перайменаваць базу дадзеных у"
+msgstr "Выбраць з цэнтральных слупкоў"
 
 #: templates/columns_definitions/column_virtuality.phtml:46
 #: templates/table/structure/display_partitions.phtml:28
-#, fuzzy
-#| msgid "Compression"
 msgid "Expression"
-msgstr "Сьціск"
+msgstr "Выраз"
 
 #: templates/columns_definitions/move_column.phtml:7
 msgid "first"
@@ -13737,101 +13730,71 @@ msgstr ""
 
 #: templates/columns_definitions/move_column.phtml:12
 #: templates/table/structure/add_column.phtml:21
-#, fuzzy, php-format
-#| msgid "After %s"
+#, php-format
 msgid "after %s"
-msgstr "Пасьля %s"
+msgstr "пасля %s"
 
 #: templates/columns_definitions/partitions.phtml:9
-#, fuzzy
-#| msgid "partitioned"
 msgid "Partition by:"
-msgstr "падзеленая на сэкцыі"
+msgstr "Раздзел:"
 
 #: templates/columns_definitions/partitions.phtml:25
 #: templates/columns_definitions/partitions.phtml:54
-#, fuzzy
-#| msgid "Number of fields"
 msgid "Expression or column list"
-msgstr "Колькасьць палёў"
+msgstr "Выраз ці спіс слупкоў"
 
 #: templates/columns_definitions/partitions.phtml:30
-#, fuzzy
-#| msgid "Partition %s"
 msgid "Partitions:"
-msgstr "Падзел %s"
+msgstr "Раздзелы:"
 
 #: templates/columns_definitions/partitions.phtml:38
-#, fuzzy
-#| msgid "partitioned"
 msgid "Subpartition by:"
-msgstr "падзеленая на сэкцыі"
+msgstr "Падраздзел:"
 
 #: templates/columns_definitions/partitions.phtml:59
-#, fuzzy
-#| msgid "partitioned"
 msgid "Subpartitions:"
-msgstr "падзеленая на сэкцыі"
+msgstr "Падраздзелы:"
 
 #: templates/columns_definitions/partitions.phtml:71
 #: templates/table/structure/display_partitions.phtml:26
-#, fuzzy
-#| msgid "Partition %s"
 msgid "Partition"
-msgstr "Падзел %s"
+msgstr "Раздзел"
 
 #: templates/columns_definitions/partitions.phtml:73
-#, fuzzy
-#| msgid "Value"
 msgid "Values"
-msgstr "Значэньне"
+msgstr "Значэнні"
 
 #: templates/columns_definitions/partitions.phtml:76
-#, fuzzy
-#| msgid "partitioned"
 msgid "Subpartition"
-msgstr "падзеленая на сэкцыі"
+msgstr "Падраздзел"
 
 #: templates/columns_definitions/partitions.phtml:78
-#, fuzzy
-#| msgid "Engines"
 msgid "Engine"
-msgstr "Машыны"
+msgstr "Механізм"
 
 #: templates/columns_definitions/partitions.phtml:80
-#, fuzzy
-#| msgid "Data home directory"
 msgid "Data directory"
-msgstr "Хатняя тэчка дадзеных"
+msgstr "Каталог даных"
 
 #: templates/columns_definitions/partitions.phtml:81
-#, fuzzy
 msgid "Index directory"
-msgstr "Хатняя тэчка дадзеных"
+msgstr "Каталог індэксаў"
 
 #: templates/columns_definitions/partitions.phtml:82
-#, fuzzy
-#| msgid "Latched pages"
 msgid "Max rows"
-msgstr "Фіксаваныя старонкі"
+msgstr "Максімум радкоў"
 
 #: templates/columns_definitions/partitions.phtml:83
-#, fuzzy
-#| msgid "rows"
 msgid "Min rows"
-msgstr "Прагляд"
+msgstr "Мінімум радкоў"
 
 #: templates/columns_definitions/partitions.phtml:84
-#, fuzzy
-#| msgid "Search"
 msgid "Table space"
-msgstr "Пошук"
+msgstr "Таблічная прастора"
 
 #: templates/columns_definitions/partitions.phtml:85
-#, fuzzy
-#| msgid "User"
 msgid "Node group"
-msgstr "Карыстальнік"
+msgstr "Група вузлоў"
 
 #: templates/columns_definitions/table_fields_definitions.phtml:16
 #, fuzzy
