@@ -5,15 +5,16 @@
  *
  * @package PhpMyAdmin
  */
-use PMA\libraries\SavedSearches;
-use PMA\libraries\URL;
+
 use PMA\libraries\Response;
+use PMA\libraries\SavedSearches;
+use PMA\libraries\Sql;
+use PMA\libraries\URL;
 
 /**
  * requirements
  */
 require_once 'libraries/common.inc.php';
-require_once 'libraries/sql.lib.php';
 
 $response = Response::getInstance();
 
@@ -81,7 +82,7 @@ if (isset($_REQUEST['submit_sql']) && ! empty($sql_query)) {
         $message_to_display = true;
     } else {
         $goto = 'db_sql.php';
-        PMA_executeQueryAndSendQueryResponse(
+        Sql::executeQueryAndSendQueryResponse(
             null, // analyzed_sql_results
             false, // is_gotofile
             $_REQUEST['db'], // db

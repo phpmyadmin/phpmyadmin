@@ -5,14 +5,15 @@
  *
  * @package PhpMyAdmin
  */
-use PMA\libraries\URL;
+
 use PMA\libraries\Response;
+use PMA\libraries\Sql;
+use PMA\libraries\URL;
 
 /**
  *
  */
 require_once 'libraries/common.inc.php';
-require_once 'libraries/sql.lib.php';
 
 if (isset($_REQUEST['submit_mult'])) {
     $submit_mult = $_REQUEST['submit_mult'];
@@ -151,7 +152,7 @@ if (!empty($submit_mult)) {
         }
 
         $active_page = 'sql.php';
-        PMA_executeQueryAndSendQueryResponse(
+        Sql::executeQueryAndSendQueryResponse(
             null, // analyzed_sql_results
             false, // is_gotofile
             $db, // db

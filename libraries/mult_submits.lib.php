@@ -7,6 +7,8 @@
  *
  * @package PhpMyAdmin
  */
+
+use PMA\libraries\Sql;
 use PMA\libraries\Table;
 use PMA\libraries\URL;
 
@@ -305,7 +307,7 @@ function PMA_buildOrExecuteQueryForMulti(
     } // end for
 
     if ($deletes && ! empty($_REQUEST['pos'])) {
-        $_REQUEST['pos'] = PMA_calculatePosForLastPage(
+        $_REQUEST['pos'] = Sql::calculatePosForLastPage(
             $db, $table, isset($_REQUEST['pos']) ? $_REQUEST['pos'] : null
         );
     }
@@ -575,4 +577,3 @@ function PMA_getQueryFromSelected($what, $table, $selected, $views)
 
     return array($full_query, $reload, $full_query_views);
 }
-

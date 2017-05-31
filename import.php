@@ -5,12 +5,14 @@
  *
  * @package PhpMyAdmin
  */
-use PMA\libraries\Response;
-use PMA\libraries\Encoding;
-use PMA\libraries\plugins\ImportPlugin;
-use PMA\libraries\File;
-use PMA\libraries\URL;
+
 use PMA\libraries\Bookmark;
+use PMA\libraries\Encoding;
+use PMA\libraries\File;
+use PMA\libraries\plugins\ImportPlugin;
+use PMA\libraries\Response;
+use PMA\libraries\Sql;
+use PMA\libraries\URL;
 
 /* Enable LOAD DATA LOCAL INFILE for LDI plugin */
 if (isset($_POST['format']) && $_POST['format'] == 'ldi') {
@@ -21,8 +23,6 @@ if (isset($_POST['format']) && $_POST['format'] == 'ldi') {
  * Get the variables sent or posted to this script and a core script
  */
 require_once 'libraries/common.inc.php';
-require_once 'libraries/sql.lib.php';
-//require_once 'libraries/display_import_functions.lib.php';
 
 if (isset($_REQUEST['show_as_php'])) {
     $GLOBALS['show_as_php'] = $_REQUEST['show_as_php'];
@@ -695,7 +695,7 @@ if ($go_sql) {
         extract($analyzed_sql_results);
 
         // Check if User is allowed to issue a 'DROP DATABASE' Statement
-        if (PMA_hasNoRightsToDropDatabase(
+        if (Sql::hasNoRightsToDropDatabase(
             $analyzed_sql_results, $cfg['AllowUserDropDatabase'], $GLOBALS['is_superuser']
         )) {
             PMA\libraries\Util::mysqlDie(
@@ -711,7 +711,7 @@ if ($go_sql) {
             $table = $table_from_sql;
         }
 
-        $html_output .= PMA_executeQueryAndGetQueryResponse(
+        $html_output .= Sql::executeQueryAndGetQueryResponse(
             $analyzed_sql_results, // analyzed_sql_results
             false, // is_gotofile
             $db, // db
@@ -733,12 +733,12 @@ if ($go_sql) {
         );
     }
 
-    // sql_query_for_bookmark is not included in PMA_executeQueryAndGetQueryResponse
+    // sql_query_for_bookmark is not included in Sql::executeQueryAndGetQueryResponse
     // since only one bookmark has to be added for all the queries submitted through
     // the SQL tab
     if (! empty($_POST['bkm_label']) && ! empty($import_text)) {
         $cfgBookmark = Bookmark::getParams();
-        PMA_storeTheQueryAsBookmark(
+        Sql::storeTheQueryAsBookmark(
             $db, $cfgBookmark['user'],
             $_REQUEST['sql_query'], $_POST['bkm_label'],
             isset($_POST['bkm_replace']) ? $_POST['bkm_replace'] : null
@@ -753,7 +753,7 @@ if ($go_sql) {
     // Save a Bookmark with more than one queries (if Bookmark label given).
     if (! empty($_POST['bkm_label']) && ! empty($import_text)) {
         $cfgBookmark = Bookmark::getParams();
-        PMA_storeTheQueryAsBookmark(
+        Sql::storeTheQueryAsBookmark(
             $db, $cfgBookmark['user'],
             $_REQUEST['sql_query'], $_POST['bkm_label'],
             isset($_POST['bkm_replace']) ? $_POST['bkm_replace'] : null

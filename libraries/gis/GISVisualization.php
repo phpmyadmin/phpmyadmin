@@ -12,8 +12,6 @@ use PMA\libraries\Util;
 use \TCPDF;
 use PMA\libraries\Sanitize;
 
-require_once 'libraries/sql.lib.php';
-
 /**
  * Handles visualization of GIS data
  *

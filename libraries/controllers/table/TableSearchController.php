@@ -8,12 +8,11 @@
 
 namespace PMA\libraries\controllers\table;
 
-use PMA\libraries\Util;
-use PMA\libraries\Template;
 use PMA\libraries\controllers\TableController;
 use PMA\libraries\DatabaseInterface;
-
-require_once 'libraries/sql.lib.php';
+use PMA\libraries\Sql;
+use PMA\libraries\Template;
+use PMA\libraries\Util;
 
 /**
  * Class TableSearchController
@@ -448,7 +447,7 @@ class TableSearchController extends TableController
          */
         $db = $this->db;
 
-        PMA_executeQueryAndSendQueryResponse(
+        Sql::executeQueryAndSendQueryResponse(
             null, // analyzed_sql_results
             false, // is_gotofile
             $this->db, // db

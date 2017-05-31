@@ -4,7 +4,7 @@
  * Handles table search tab
  *
  * display table search form, create SQL query from form data
- * and call PMA_executeQueryAndSendQueryResponse() to execute it
+ * and call Sql::executeQueryAndSendQueryResponse() to execute it
  *
  * @package PhpMyAdmin
  */
