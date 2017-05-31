@@ -1743,6 +1743,12 @@ li.no_bullets {
     width: 35%;
 }
 
+.operations_container {
+    min-width: 450px;
+    max-width: 450px;
+    margin: 20px;
+}
+
 .operations_half_width {
     width: 48%;
     float: <?php echo $left; ?>;
