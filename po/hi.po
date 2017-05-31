@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-05-17 09:24+0200\n"
-"PO-Revision-Date: 2017-05-19 00:06+0000\n"
+"PO-Revision-Date: 2017-05-31 08:26+0000\n"
 "Last-Translator: Rajat Sharma <rajatsharmaaero@gmail.com>\n"
 "Language-Team: Hindi "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/hi/>\n"
@@ -13,19 +13,16 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.14\n"
+"X-Generator: Weblate 2.14.1\n"
 
 #: changelog.php:39 license.php:34
 #, fuzzy, php-format
-#| msgid ""
-#| "The %s file is not available on this system, please visit www.phpmyadmin."
-#| "net for more information."
 msgid ""
 "The %s file is not available on this system, please visit %s for more "
 "information."
 msgstr ""
-"%s फ़ाइल सिस्टम  में उपलब्ध नहीं है, कृपया अधिक जानकारी के लिए www.phpmyadmin.net "
-"वेबसाईट पर जाएँ।"
+"%s फ़ाइल सिस्टम  में उपलब्ध नहीं है, कृपया अधिक जानकारी के लिए "
+"www.phpmyadmin.net वेबसाईट पर जाएँ।"
 
 #: db_central_columns.php:108
 msgid "The central list of columns for the current database is empty."
@@ -567,8 +564,7 @@ msgid "Bookmark %s has been created."
 msgstr "पृष्ठचिन्ह  %s बनाया."
 
 #: import.php:592
-#, fuzzy, php-format
-#| msgid "Import has been successfully finished, %d queries executed."
+#, php-format
 msgid "Import has been successfully finished, %d query executed."
 msgid_plural "Import has been successfully finished, %d queries executed."
 msgstr[0] "आयात सफलतापूर्वक समाप्त हो गया है,%d कुएरी चलाई गयी हैं."
@@ -752,18 +748,28 @@ msgstr ""
 "सूचना देना बंद कि गइ है."
 
 #: index.php:491
+#, fuzzy
 msgid ""
 "Your PHP parameter [a@https://secure.php.net/manual/en/session.configuration."
 "php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
 "than cookie validity configured in phpMyAdmin, because of this, your login "
 "might expire sooner than configured in phpMyAdmin."
 msgstr ""
+"आपका PHP पैरामीटर [a https: "
+"//secure.php.net/manual/en/session.configuration.php#ini.session.gc-"
+"maxlifetime@_blank] 1session.gc_maxlifetime [/ a] 2 कुकी की वैधता की तुलना "
+"में कम है PhpMyAdmin में, इस वजह से, आपका लॉगिन phpMyAdmin में कॉन्फ़िगर की "
+"तुलना में जल्दी समाप्त हो सकता है।"
 
 #: index.php:510
+#, fuzzy
 msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
 msgstr ""
+"लॉगिन कुकी स्टोर phpMyAdmin में कॉन्फ़िगर की गई कुकी की वैधता से कम है, इस "
+"वजह से, आपका लॉगिन phpMyAdmin में कॉन्फ़िगर की तुलना में शीघ्र ही समाप्त हो "
+"जाएगा।"
 
 #: index.php:525
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
@@ -794,8 +800,8 @@ msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
 "extended features have been deactivated. %sFind out why%s. "
 msgstr ""
-"लिंक्ड टेबलओं के साथ काम करने के लिए अतिरिक्त सुविधाओं को निष्क्रिय कर दिया गया है. क्यों ये "
-"किया गया है, जानने के लिए %shere%s पर क्लिक करें."
+"लिंक्ड टेबलओं के साथ काम करने के लिए अतिरिक्त सुविधाओं को निष्क्रिय कर दिया "
+"गया है. क्यों ये किया गया है, जानने के लिए %shere%s पर क्लिक करें. "
 
 #: index.php:569
 msgid ""
@@ -848,16 +854,12 @@ msgid "Delete tracking data for this table?"
 msgstr "इस टेबल के लिए ट्रैकिंग डेटा हटाएँ"
 
 #: js/messages.php:55
-#, fuzzy
-#| msgid "Delete tracking data for this table"
 msgid "Delete tracking data for these tables?"
-msgstr "इस टेबल के लिए ट्रैकिंग डेटा हटाएँ"
+msgstr "इन तालिकाओं के लिए ट्रैकिंग डेटा हटाएं?"
 
 #: js/messages.php:57
-#, fuzzy
-#| msgid "Delete tracking data for this table"
 msgid "Delete tracking data for this version?"
-msgstr "इस टेबल के लिए ट्रैकिंग डेटा हटाएँ"
+msgstr "इस संस्करण के लिए ट्रैकिंग डेटा हटाएं?"
 
 #: js/messages.php:59
 #, fuzzy
