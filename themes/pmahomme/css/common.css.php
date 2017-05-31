@@ -513,6 +513,9 @@ fieldset.tblFooters {
     -moz-border-radius: 0 0 4px 4px;
     border-radius: 0 0 4px 5px;
 }
+fieldset.tblFooters.narrow {
+    padding: 5px;
+}
 
 div.null_div {
     height: 20px;

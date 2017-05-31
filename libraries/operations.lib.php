@@ -25,7 +25,7 @@ use PMA\libraries\URL;
  */
 function PMA_getHtmlForDatabaseComment($db)
 {
-    $html_output = '<div class="operations_half_width">'
+    $html_output = '<div>'
         . '<form method="post" action="db_operations.php" id="formDatabaseComment">'
         . URL::getHiddenInputs($db)
         . '<fieldset>'
@@ -39,7 +39,7 @@ function PMA_getHtmlForDatabaseComment($db)
         . 'class="textfield" size="30"'
         . 'value="' . htmlspecialchars(PMA_getDBComment($db)) . '" />'
         . '</fieldset>';
-    $html_output .= '<fieldset class="tblFooters">'
+    $html_output .= '<fieldset class="tblFooters narrow">'
         . '<input type="submit" value="' . __('Go') . '" />'
         . '</fieldset>'
         . '</form>'
@@ -57,7 +57,7 @@ function PMA_getHtmlForDatabaseComment($db)
  */
 function PMA_getHtmlForRenameDatabase($db)
 {
-    $html_output = '<div class="operations_half_width">'
+    $html_output = '<div>'
         . '<form id="rename_db_form" '
         . 'class="ajax" '
         . 'method="post" action="db_operations.php" '
@@ -103,7 +103,7 @@ function PMA_getHtmlForRenameDatabase($db)
 
     $html_output .= ''
         . '</fieldset>'
-        . '<fieldset class="tblFooters">'
+        . '<fieldset class="tblFooters narrow">'
         . '<input id="rename_db_input" type="submit" value="' . __('Go') . '" />'
         . '</fieldset>'
         . '</form>'
@@ -135,7 +135,7 @@ function PMA_getHtmlForDropDatabaseLink($db)
         'db' => null,
     );
 
-    $html_output = '<div class="operations_half_width">'
+    $html_output = '<div>'
         . '<fieldset class="caution">';
     $html_output .= '<legend>';
     if (Util::showIcons('ActionLinksMode')) {
@@ -179,7 +179,7 @@ function PMA_getHtmlForCopyDatabase($db)
         $pma_switch_to_new = 'true';
     }
 
-    $html_output = '<div class="operations_half_width clearfloat">';
+    $html_output = '<div class="clearfloat">';
     $html_output .= '<form id="copy_db_form" '
         . 'class="ajax" '
         . 'method="post" action="db_operations.php" '
@@ -252,7 +252,7 @@ function PMA_getHtmlForCopyDatabase($db)
     $html_output .= '<label for="checkbox_switch">'
         . __('Switch to copied database') . '</label>'
         . '</fieldset>';
-    $html_output .= '<fieldset class="tblFooters">'
+    $html_output .= '<fieldset class="tblFooters narrow">'
         . '<input type="submit" name="submit_copy" value="' . __('Go') . '" />'
         . '</fieldset>'
         . '</form>'
@@ -271,7 +271,7 @@ function PMA_getHtmlForCopyDatabase($db)
  */
 function PMA_getHtmlForChangeDatabaseCharset($db, $table)
 {
-    $html_output = '<div class="operations_half_width">'
+    $html_output = '<div>'
         . '<form id="change_db_charset_form" ';
     $html_output .= 'class="ajax" ';
     $html_output .= 'method="post" action="db_operations.php">';
@@ -293,7 +293,7 @@ function PMA_getHtmlForChangeDatabaseCharset($db, $table)
             false
         )
         . '</fieldset>'
-        . '<fieldset class="tblFooters">'
+        . '<fieldset class="tblFooters narrow">'
         . '<input type="submit" name="submitcollation"'
         . ' value="' . __('Go') . '" />' . "\n"
         . '</fieldset>' . "\n"
@@ -763,7 +763,7 @@ function PMA_duplicateBookmarks($_error, $db)
  */
 function PMA_getHtmlForOrderTheTable($columns)
 {
-    $html_output = '<div class="operations_half_width">';
+    $html_output = '<div>';
     $html_output .= '<form method="post" id="alterTableOrderby" '
         . 'action="tbl_operations.php">';
     $html_output .= URL::getHiddenInputs(
@@ -787,7 +787,7 @@ function PMA_getHtmlForOrderTheTable($columns)
         . ' type="radio" value="desc" />'
         . '<label for="order_order_desc">' . __('Descending') . '</label>'
         . '</fieldset>'
-        . '<fieldset class="tblFooters">'
+        . '<fieldset class="tblFooters narrow">'
         . '<input type="hidden" name="submitorderby" value="1" />'
         . '<input type="submit" value="' . __('Go') . '" />'
         . '</fieldset>'
@@ -804,7 +804,7 @@ function PMA_getHtmlForOrderTheTable($columns)
  */
 function PMA_getHtmlForMoveTable()
 {
-    $html_output = '<div class="operations_half_width">';
+    $html_output = '<div>';
     $html_output .= '<form method="post" action="tbl_operations.php"'
         . ' id="moveTableForm" class="ajax"'
         . ' onsubmit="return emptyCheckTheField(this, \'new_name\')">'
@@ -858,7 +858,7 @@ function PMA_getHtmlForMoveTable()
         . __('Adjust privileges') . Util::showDocu('faq', 'faq6-39')
         . '</label><br />';
 
-    $html_output .= '</fieldset><fieldset class="tblFooters">'
+    $html_output .= '</fieldset><fieldset class="tblFooters narrow">'
         . '<input type="submit" name="submit_move" value="' . __('Go') . '" />'
         . '</fieldset>'
         . '</form>'
@@ -887,7 +887,7 @@ function PMA_getTableOptionDiv($pma_table, $comment, $tbl_collation, $tbl_storag
     $pack_keys, $auto_increment, $delay_key_write,
     $transactional, $page_checksum, $checksum
 ) {
-    $html_output = '<div class="operations_half_width clearfloat">';
+    $html_output = '<div class="clearfloat">';
     $html_output .= '<form method="post" action="tbl_operations.php"';
     $html_output .= ' id="tableOptionsForm" class="ajax">';
     $html_output .= URL::getHiddenInputs(
@@ -902,7 +902,7 @@ function PMA_getTableOptionDiv($pma_table, $comment, $tbl_collation, $tbl_storag
         $checksum
     );
 
-    $html_output .= '<fieldset class="tblFooters">'
+    $html_output .= '<fieldset class="tblFooters narrow">'
         . '<input type="hidden" name="submitoptions" value="1" />'
         . '<input type="submit" value="' . __('Go') . '" />'
         . '</fieldset>'
@@ -1219,7 +1219,7 @@ function PMA_getPossibleRowFormat()
  */
 function PMA_getHtmlForCopytable()
 {
-    $html_output = '<div class="operations_half_width">';
+    $html_output = '<div>';
     $html_output .= '<form method="post" action="tbl_operations.php" '
         . 'name="copyTable" '
         . 'id="copyTable" '
@@ -1309,7 +1309,7 @@ function PMA_getHtmlForCopytable()
         . __('Switch to copied table') . '</label>'
         . '</fieldset>';
 
-    $html_output .= '<fieldset class="tblFooters">'
+    $html_output .= '<fieldset class="tblFooters narrow">'
         . '<input type="submit" name="submit_copy" value="' . __('Go') . '" />'
         . '</fieldset>'
         . '</form>'
@@ -1328,7 +1328,7 @@ function PMA_getHtmlForCopytable()
  */
 function PMA_getHtmlForTableMaintenance($pma_table, $url_params)
 {
-    $html_output = '<div class="operations_half_width">';
+    $html_output = '<div>';
     $html_output .= '<fieldset>'
         . '<legend>' . __('Table maintenance') . '</legend>';
     $html_output .= '<ul id="tbl_maintenance">';
@@ -1497,7 +1497,7 @@ function PMA_getHtmlForDeleteDataOrTable(
     $truncate_table_url_params,
     $dropTableUrlParams
 ) {
-    $html_output = '<div class="operations_half_width">'
+    $html_output = '<div>'
         . '<fieldset class="caution">'
         . '<legend>' . __('Delete data or table') . '</legend>';
 
@@ -1577,7 +1577,7 @@ function PMA_getHtmlForPartitionMaintenance($partition_names, $url_params)
         $choices['COALESCE'] = __('Coalesce');
     }
 
-    $html_output = '<div class="operations_half_width">'
+    $html_output = '<div>'
         . '<form id="partitionsForm" class="ajax" '
         . 'method="post" action="tbl_operations.php" >'
         . URL::getHiddenInputs($GLOBALS['db'], $GLOBALS['table'])
@@ -1621,7 +1621,7 @@ function PMA_getHtmlForPartitionMaintenance($partition_names, $url_params)
         . __('Remove partitioning') . '</a>';
 
     $html_output .= '</fieldset>'
-        . '<fieldset class="tblFooters">'
+        . '<fieldset class="tblFooters narrow">'
         . '<input type="hidden" name="submit_partition" value="1">'
         . '<input type="submit" value="' . __('Go') . '" />'
         . '</fieldset>'
@@ -1642,7 +1642,7 @@ function PMA_getHtmlForPartitionMaintenance($partition_names, $url_params)
  */
 function PMA_getHtmlForReferentialIntegrityCheck($foreign, $url_params)
 {
-    $html_output = '<div class="operations_half_width">'
+    $html_output = '<div>'
         . '<fieldset>'
         . '<legend>' . __('Check referential integrity:') . '</legend>';
 
