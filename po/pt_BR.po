@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.1-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-05-17 09:06+0200\n"
-"PO-Revision-Date: 2017-05-09 07:43+0000\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
-"phpmyadmin/4-7/pt_BR/>\n"
+"PO-Revision-Date: 2017-05-31 20:50+0000\n"
+"Last-Translator: davipatury <davi.patury@yahoo.com.br>\n"
+"Language-Team: Portuguese (Brazil) "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-7/pt_BR/>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 2.14-dev\n"
+"X-Generator: Weblate 2.15-dev\n"
 
 #: changelog.php:39 license.php:34
 #, php-format
@@ -608,6 +608,8 @@ msgid ""
 "You were logged out from one server, to logout completely from phpMyAdmin, "
 "you need to logout from all servers."
 msgstr ""
+"Você foi desconectado de um servidor, para desconectar-se completamente do "
+"phpMyAdmin, você precisa desconectar-se de todos os servidores."
 
 #: index.php:160 libraries/Footer.php:69
 msgid "phpMyAdmin Demo Server"
@@ -3031,10 +3033,8 @@ msgid "Collation"
 msgstr "Colação"
 
 #: libraries/Charsets.php:244
-#, fuzzy
-#| msgid "unknown"
 msgid "Unknonwn"
-msgstr "desconhecido"
+msgstr "Desconhecido"
 
 #: libraries/Charsets.php:258
 #, fuzzy
@@ -3079,8 +3079,6 @@ msgid "Simplified Chinese"
 msgstr "Chinês simplificado"
 
 #: libraries/Charsets.php:304 libraries/Charsets.php:422
-#, fuzzy
-#| msgid "Japanese"
 msgctxt "Collation"
 msgid "Japanese"
 msgstr "Japonês"
@@ -3093,8 +3091,6 @@ msgid "Baltic"
 msgstr "Báltico"
 
 #: libraries/Charsets.php:314
-#, fuzzy
-#| msgid "Armenian"
 msgctxt "Collation"
 msgid "Armenian"
 msgstr "Armênio"
@@ -3200,7 +3196,7 @@ msgstr "Búlgaro"
 #: libraries/Charsets.php:374
 msgctxt "Collation"
 msgid "Chinese"
-msgstr ""
+msgstr "Chinês"
 
 #: libraries/Charsets.php:379
 #, fuzzy
@@ -3252,9 +3248,10 @@ msgid "German (dictionary order)"
 msgstr "Dicionário de dados"
 
 #: libraries/Charsets.php:405 libraries/Charsets.php:516
+#, fuzzy
 msgctxt "Collation"
 msgid "German (phone book order)"
-msgstr ""
+msgstr "Alemão (ordem da agenda)"
 
 #: libraries/Charsets.php:414
 #, fuzzy
@@ -3273,7 +3270,7 @@ msgstr "Islandês"
 #: libraries/Charsets.php:425
 msgctxt "Collation"
 msgid "Classical Latin"
-msgstr ""
+msgstr "Latim Clássico"
 
 #: libraries/Charsets.php:429
 #, fuzzy
@@ -3346,9 +3343,10 @@ msgid "Spanish (modern)"
 msgstr "Espanhol"
 
 #: libraries/Charsets.php:477 libraries/Charsets.php:527
+#, fuzzy
 msgctxt "Collation"
 msgid "Spanish (traditional)"
-msgstr ""
+msgstr "Espanhol (tradicional)"
 
 #: libraries/Charsets.php:496
 #, fuzzy
@@ -12877,11 +12875,15 @@ msgid "User accounts overview"
 msgstr "Visão geral dos usuários"
 
 #: libraries/server_privileges.lib.php:4625
+#, fuzzy
 msgid ""
 "A user account allowing any user from localhost to connect is present. This "
 "will prevent other users from connecting if the host part of their account "
 "allows a connection from any (%) host."
 msgstr ""
+"Uma conta de usuário que permite que qualquer usuário de localhost se "
+"conecte está presente. Isso impedirá que outros usuários se conectem se a "
+"parte do host de sua conta permitir uma conexão de qualquer host (%)."
 
 #: libraries/server_privileges.lib.php:4667
 #, php-format
@@ -13236,7 +13238,7 @@ msgstr "Comando"
 
 #: libraries/server_status_processes.lib.php:96
 msgid "Progress"
-msgstr ""
+msgstr "Progresso"
 
 #: libraries/server_status_processes.lib.php:230
 #: libraries/server_status_variables.lib.php:37 templates/filter.phtml:2
@@ -14457,8 +14459,9 @@ msgid "phpMyAdmin configuration snippet"
 msgstr "Tabelas do armazenamento de configurações do phpMyAdmin faltando"
 
 #: prefs_manage.php:53
+#, fuzzy
 msgid "Paste it to your config.inc.php"
-msgstr ""
+msgstr "Cole isso em seu config.inc.php"
 
 #: prefs_manage.php:93
 msgid "Could not import configuration"
@@ -14544,10 +14547,13 @@ msgid "No Privileges"
 msgstr "Sem privilégios"
 
 #: server_privileges.php:149
+#, fuzzy
 msgid ""
 "Username and hostname didn't change. If you only want to change the "
 "password, 'Change password' tab should be used."
 msgstr ""
+"O nome de usuário e o hostname não mudaram. Se você quiser apenas alterar a "
+"senha, a guia \"Alterar senha\" deve ser usada."
 
 #: server_status.php:36
 #, fuzzy
@@ -14707,8 +14713,9 @@ msgid "Add a new server"
 msgstr "Adicionar novo servidor"
 
 #: setup/index.php:16
+#, fuzzy
 msgid "Configuration already exists, setup is disabled!"
-msgstr ""
+msgstr "Configuração já existe, instalação está desabilitada!"
 
 #: setup/index.php:26
 msgid "Wrong GET file attribute value"
