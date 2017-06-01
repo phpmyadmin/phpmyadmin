@@ -5,7 +5,9 @@
  *
  * @package PhpMyAdmin
  */
+
 use PMA\libraries\Response;
+use PMA\libraries\Transformations;
 
 /**
  *
@@ -16,7 +18,7 @@ define('IS_TRANSFORMATION_WRAPPER', true);
  * Gets a core script and starts output buffering work
  */
 require_once './libraries/common.inc.php';
-require_once './libraries/transformations.lib.php'; // Transformations
+
 $cfgRelation = PMA_getRelationsParam();
 
 /**
@@ -82,8 +84,8 @@ if (! $row) {
 $default_ct = 'application/octet-stream';
 
 if ($cfgRelation['commwork'] && $cfgRelation['mimework']) {
-    $mime_map = PMA_getMime($db, $table);
-    $mime_options = PMA_Transformation_getOptions(
+    $mime_map = Transformations::getMIME($db, $table);
+    $mime_options = Transformations::getOptions(
         isset($mime_map[$transform_key]['transformation_options'])
         ? $mime_map[$transform_key]['transformation_options'] : ''
     );

@@ -5,8 +5,10 @@
  *
  * @package PhpMyAdmin
  */
-use PMA\libraries\URL;
+
 use PMA\libraries\Response;
+use PMA\libraries\Transformations;
+use PMA\libraries\URL;
 
 /**
  * Gets the variables sent or posted to this script, then displays headers
@@ -36,8 +38,6 @@ $header->enablePrintView();
  * Gets the relations settings
  */
 $cfgRelation  = PMA_getRelationsParam();
-
-require_once 'libraries/transformations.lib.php';
 
 /**
  * Check parameters
@@ -186,7 +186,7 @@ foreach ($tables as $table) {
         }
         echo '</td>' , "\n";
         if ($cfgRelation['mimework']) {
-            $mime_map = PMA_getMIME($db, $table, true);
+            $mime_map = Transformations::getMIME($db, $table, true);
 
             echo '    <td>';
             if (isset($mime_map[$column_name])) {

@@ -7,9 +7,10 @@
  */
 namespace PMA\libraries\plugins\schema\pdf;
 
-use PMA\libraries\plugins\schema\ExportRelationSchema;
-use PMA\libraries\Util;
 use PMA\libraries\PDF as PDF_lib;
+use PMA\libraries\plugins\schema\ExportRelationSchema;
+use PMA\libraries\Transformations;
+use PMA\libraries\Util;
 
 /**
  * Skip the plugin if TCPDF is not available.
@@ -25,8 +26,6 @@ if (! class_exists('TCPDF')) {
 if (getcwd() == dirname(__FILE__)) {
     die('Attack stopped');
 }
-
-require_once 'libraries/transformations.lib.php';
 
 /**
  * Pdf Relation Schema Class
@@ -550,7 +549,7 @@ class PdfRelationSchema extends ExportRelationSchema
             $cfgRelation = PMA_getRelationsParam();
             $comments = PMA_getComments($this->db, $table);
             if ($cfgRelation['mimework']) {
-                $mime_map = PMA_getMIME($this->db, $table, true);
+                $mime_map = Transformations::getMIME($this->db, $table, true);
             }
 
             /**

@@ -12,7 +12,6 @@ use PMA\libraries\Response;
  *
  */
 require_once 'libraries/common.inc.php';
-require_once 'libraries/transformations.lib.php';
 require_once 'libraries/normalization.lib.php';
 
 if (isset($_REQUEST['getColumns'])) {

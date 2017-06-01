@@ -18,7 +18,6 @@ use PMA\libraries\TypesMySQL;
 require_once 'libraries/insert_edit.lib.php';
 require_once 'libraries/database_interface.inc.php';
 require_once 'libraries/relation.lib.php';
-require_once 'libraries/transformations.lib.php';
 
 /**
  * Tests for libraries/insert_edit.lib.php

@@ -5,12 +5,14 @@
  *
  * @package PhpMyAdmin
  */
+
+use PMA\libraries\Bookmark;
 use PMA\libraries\DisplayResults;
 use PMA\libraries\Message;
-use PMA\libraries\Table;
 use PMA\libraries\Response;
+use PMA\libraries\Table;
+use PMA\libraries\Transformations;
 use PMA\libraries\URL;
-use PMA\libraries\Bookmark;
 
 /**
  * Parses and analyzes the given SQL query.
@@ -1297,14 +1299,13 @@ function PMA_executeTheQuery($analyzed_sql_results, $full_sql_query, $is_gotofil
  */
 function PMA_deleteTransformationInfo($db, $table, $analyzed_sql_results)
 {
-    include_once 'libraries/transformations.lib.php';
     $statement = $analyzed_sql_results['statement'];
     if ($statement instanceof PhpMyAdmin\SqlParser\Statements\AlterStatement) {
         if (!empty($statement->altered[0])
             && $statement->altered[0]->options->has('DROP')
         ) {
             if (!empty($statement->altered[0]->field->column)) {
-                PMA_clearTransformations(
+                Transformations::clear(
                     $db,
                     $table,
                     $statement->altered[0]->field->column
@@ -1312,7 +1313,7 @@ function PMA_deleteTransformationInfo($db, $table, $analyzed_sql_results)
             }
         }
     } elseif ($statement instanceof PhpMyAdmin\SqlParser\Statements\DropStatement) {
-        PMA_clearTransformations($db, $table);
+        Transformations::clear($db, $table);
     }
 }
 

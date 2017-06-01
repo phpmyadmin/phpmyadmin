@@ -8,6 +8,7 @@
  * @package PhpMyAdmin
  */
 use PMA\libraries\Table;
+use PMA\libraries\Transformations;
 use PMA\libraries\URL;
 
 /**
@@ -295,11 +296,11 @@ function PMA_buildOrExecuteQueryForMulti(
             $result = $GLOBALS['dbi']->query($a_query);
 
             if ($query_type == 'drop_db') {
-                PMA_clearTransformations($selected[$i]);
+                Transformations::clear($selected[$i]);
             } elseif ($query_type == 'drop_tbl') {
-                PMA_clearTransformations($db, $selected[$i]);
+                Transformations::clear($db, $selected[$i]);
             } else if ($query_type == 'drop_fld') {
-                PMA_clearTransformations($db, $table, $selected[$i]);
+                Transformations::clear($db, $table, $selected[$i]);
             }
         } // end if
     } // end for
@@ -575,4 +576,3 @@ function PMA_getQueryFromSelected($what, $table, $selected, $views)
 
     return array($full_query, $reload, $full_query_views);
 }
-

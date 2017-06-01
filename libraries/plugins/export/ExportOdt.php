@@ -8,16 +8,17 @@
  */
 namespace PMA\libraries\plugins\export;
 
-use PMA\libraries\properties\options\items\BoolPropertyItem;
+use PMA\libraries\DatabaseInterface;
+use PMA\libraries\plugins\ExportPlugin;
 use PMA\libraries\properties\plugins\ExportPluginProperties;
 use PMA\libraries\properties\options\groups\OptionsPropertyMainGroup;
 use PMA\libraries\properties\options\groups\OptionsPropertyRootGroup;
-use PMA\libraries\DatabaseInterface;
-use PMA\libraries\plugins\ExportPlugin;
-use PMA\libraries\Util;
+use PMA\libraries\properties\options\items\BoolPropertyItem;
 use PMA\libraries\properties\options\items\RadioPropertyItem;
 use PMA\libraries\properties\options\items\TextPropertyItem;
 use PMA\libraries\OpenDocument;
+use PMA\libraries\Transformations;
+use PMA\libraries\Util;
 
 $GLOBALS['odt_buffer'] = '';
 
@@ -503,7 +504,7 @@ class ExportOdt extends ExportPlugin
             $GLOBALS['odt_buffer'] .= '<table:table-cell office:value-type="string">'
                 . '<text:p>' . __('MIME type') . '</text:p>'
                 . '</table:table-cell>';
-            $mime_map = PMA_getMIME($db, $table, true);
+            $mime_map = Transformations::getMIME($db, $table, true);
         }
         $GLOBALS['odt_buffer'] .= '</table:table-row>';
 

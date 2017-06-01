@@ -407,9 +407,6 @@ do {
     if ($do_relation || $do_comments || $do_mime) {
         $cfgRelation = PMA_getRelationsParam();
     }
-    if ($do_mime) {
-        include_once 'libraries/transformations.lib.php';
-    }
 
     // Include dates in export?
     $do_dates = isset($GLOBALS[$what . '_dates']);
