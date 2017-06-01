@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-05-17 09:24+0200\n"
-"PO-Revision-Date: 2017-05-31 21:08+0000\n"
+"PO-Revision-Date: 2017-06-01 17:51+0000\n"
 "Last-Translator: Viktar Vauchkevich <victorenator@gmail.com>\n"
 "Language-Team: Belarusian "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/be/>\n"
@@ -13830,21 +13830,15 @@ msgid "Node group"
 msgstr "Група вузлоў"
 
 #: templates/columns_definitions/table_fields_definitions.phtml:16
-#, fuzzy
-#| msgid ""
-#| "field type is \"enum\" or \"set\", please enter the values using this "
-#| "mat: 'a','b','c'…<br />If you ever need to put a backslash (\"\\\") a "
-#| "single quote (\"'\") amongst those values, precede it with a kslash (for "
-#| "example '\\\\xyz' or 'a\\'b')."
 msgid ""
 "If column type is \"enum\" or \"set\", please enter the values using this "
 "format: 'a','b','c'…<br />If you ever need to put a backslash (\"\\\") or a "
 "single quote (\"'\") amongst those values, precede it with a backslash (for "
 "example '\\\\xyz' or 'a\\'b')."
 msgstr ""
-"Калі тып поля \"enum\" або \"set\", калі ласка, уводзьце значэньні "
+"Калі тып слупка «enum» або «set», калі ласка, уводзьце значэнні "
 "выкарыстоўваючы гэты фармат: 'a','b','c'…<br />Калі вам патрэбна ўжыць "
-"зваротны слэш (\"\\\") або апостраф (\"'\") сярод гэтых значэньняў, пастаўце "
+"зваротны слэш («\\») або апостраф («'») сярод гэтых значэнняў, пастаўце "
 "перад імі зваротны слэш (напрыклад, '\\\\xyz' або 'a\\'b')."
 
 #: templates/columns_definitions/table_fields_definitions.phtml:27
@@ -13860,30 +13854,22 @@ msgid "Virtuality"
 msgstr ""
 
 #: templates/columns_definitions/table_fields_definitions.phtml:76
-#, fuzzy
-#| msgid "Add/Delete Field Columns"
 msgid "Move column"
-msgstr "Дадаць/выдаліць калёнку крытэру"
+msgstr "Перамясціць слупок"
 
 #: templates/columns_definitions/table_fields_definitions.phtml:86
 #: templates/columns_definitions/table_fields_definitions.phtml:105
-#, fuzzy
-#| msgid "Available transformations"
 msgid "List of available transformations and their options"
-msgstr "Даступныя пераўтварэньні"
+msgstr "Спіс даступных пераўтварэнняў і іх параметры"
 
 #: templates/columns_definitions/table_fields_definitions.phtml:88
 #: transformation_overview.php:42
-#, fuzzy
-#| msgid "Browser transformation"
 msgid "Browser display transformation"
-msgstr "Пераўтварэньне MIME-тыпу браўзэрам"
+msgstr "Пераўтварэнне адлюстравання браўзерам"
 
 #: templates/columns_definitions/table_fields_definitions.phtml:92
-#, fuzzy
-#| msgid "Browser transformation"
 msgid "Browser display transformation options"
-msgstr "Пераўтварэньне MIME-тыпу браўзэрам"
+msgstr "Параметры пераўтварэння адлюстравання браўзерам"
 
 #: templates/columns_definitions/table_fields_definitions.phtml:95
 #: templates/columns_definitions/table_fields_definitions.phtml:114
@@ -13900,16 +13886,12 @@ msgstr ""
 
 #: templates/columns_definitions/table_fields_definitions.phtml:107
 #: transformation_overview.php:43
-#, fuzzy
-#| msgid "Browser transformation"
 msgid "Input transformation"
-msgstr "Пераўтварэньне MIME-тыпу браўзэрам"
+msgstr "Пераўтварэнне ўвода"
 
 #: templates/columns_definitions/table_fields_definitions.phtml:111
-#, fuzzy
-#| msgid "Transformation options"
 msgid "Input transformation options"
-msgstr "Опцыі пераўтварэньня"
+msgstr "Параметры пераўтварэння ўвода"
 
 #: templates/console/bookmark_content.phtml:14
 #: templates/console/display.phtml:48 templates/console/display.phtml:105
@@ -13925,74 +13907,54 @@ msgstr ""
 
 #: templates/console/bookmark_content.phtml:16
 #: templates/console/display.phtml:50 templates/console/display.phtml:212
-#, fuzzy
-#| msgid "in query"
 msgid "Requery"
-msgstr "па запыту"
+msgstr "Паўтарыць запыт"
 
 #: templates/console/display.phtml:9
 msgid "Console"
 msgstr ""
 
 #: templates/console/display.phtml:11
-#, fuzzy
-#| msgid "SQL history"
 msgid "History"
-msgstr "Гісторыя SQL"
+msgstr "Гісторыя"
 
 #: templates/console/display.phtml:14 templates/console/display.phtml:124
-#, fuzzy
-#| msgid "Delete relation"
 msgid "Bookmarks"
-msgstr "Выдаліць сувязь"
+msgstr "Закладкі"
 
 #: templates/console/display.phtml:26
-#, fuzzy
-#| msgid "Execute bookmarked query"
 msgid "Press Ctrl+Enter to execute query"
-msgstr "Выканаць запыт з закладак"
+msgstr "Націсніце Ctrl+Enter каб выканаць запыт"
 
 #: templates/console/display.phtml:29
-#, fuzzy
-#| msgid "Execute bookmarked query"
 msgid "Press Enter to execute query"
-msgstr "Выканаць запыт з закладак"
+msgstr "Націсніце Enter каб выканаць запыт"
 
 #: templates/console/display.phtml:39
 msgid "During current session"
 msgstr ""
 
 #: templates/console/display.phtml:52 templates/console/display.phtml:214
-#, fuzzy
-#| msgid "Explain SQL"
 msgid "Explain"
-msgstr "Тлумачыць SQL"
+msgstr "Тлумачыць"
 
 #: templates/console/display.phtml:55 templates/console/display.phtml:217
-#, fuzzy
-#| msgid "Delete relation"
 msgid "Bookmark"
-msgstr "Выдаліць сувязь"
+msgstr "Закладка"
 
 #: templates/console/display.phtml:56 templates/console/display.phtml:218
-#, fuzzy
-#| msgid "Query cache"
 msgid "Query failed"
-msgstr "Кэш запытаў"
+msgstr "Збой запыту"
 
 #: templates/console/display.phtml:58 templates/console/display.phtml:220
 msgid "Queried time"
 msgstr ""
 
 #: templates/console/display.phtml:81
-#, fuzzy
-#| msgid "Ascending"
 msgid "ascending"
 msgstr "прамы"
 
 #: templates/console/display.phtml:82
-#, fuzzy
-#| msgid "Descending"
 msgid "descending"
 msgstr "адваротны"
 
@@ -14002,16 +13964,12 @@ msgstr ""
 
 #: templates/console/display.phtml:85 templates/console/display.phtml:109
 #: templates/table/search/replace_preview.twig:55
-#, fuzzy
-#| msgid "Column names"
 msgid "Count"
-msgstr "Назвы калёнак"
+msgstr "Колькасць"
 
 #: templates/console/display.phtml:86
-#, fuzzy
-#| msgid "Execute bookmarked query"
 msgid "Execution order"
-msgstr "Выканаць запыт з закладак"
+msgstr "Парадак выканання"
 
 #: templates/console/display.phtml:87 templates/console/display.phtml:110
 msgid "Time taken"
@@ -14022,64 +13980,48 @@ msgid "Order by:"
 msgstr ""
 
 #: templates/console/display.phtml:89
-#, fuzzy
 msgid "Group queries"
-msgstr "SQL-запыт"
+msgstr "Групаваць запыты"
 
 #: templates/console/display.phtml:90
-#, fuzzy
 msgid "Ungroup queries"
-msgstr "SQL-запыт"
+msgstr "Разгрупаваць запыты"
 
 #: templates/console/display.phtml:107
-#, fuzzy
-#| msgid "Show color"
 msgid "Show trace"
-msgstr "Паказаць колер"
+msgstr "Паказаць трасіроўку"
 
 #: templates/console/display.phtml:108
-#, fuzzy
-#| msgid "Add new field"
 msgid "Hide trace"
-msgstr "Дадаць новае поле"
+msgstr "Схаваць трасіроўку"
 
 #: templates/console/display.phtml:141
-#, fuzzy
-#| msgid "Delete relation"
 msgid "Add bookmark"
-msgstr "Выдаліць сувязь"
+msgstr "Дадаць закладку"
 
 #: templates/console/display.phtml:149
-#, fuzzy
-#| msgid "Label"
 msgid "Label"
 msgstr "Метка"
 
 #: templates/console/display.phtml:152
-#, fuzzy
 msgid "Target database"
-msgstr "Пошук у базе дадзеных"
+msgstr "Мэтавая база даных"
 
 #: templates/console/display.phtml:155
-#, fuzzy
-#| msgid "Delete relation"
 msgid "Share this bookmark"
-msgstr "Выдаліць сувязь"
+msgstr "Падзяліцца гэтай закладкай"
 
 #: templates/console/display.phtml:174
-#, fuzzy
 msgid "Set default"
-msgstr "Імпартаваць файлы"
+msgstr "Устанавіць агаданае значэнне"
 
 #: templates/console/display.phtml:181
 msgid "Always expand query messages"
 msgstr ""
 
 #: templates/console/display.phtml:185
-#, fuzzy
-#| msgid "Flush query cache"
 msgid "Show query history at start"
-msgstr "Скінуць кэш запытаў"
+msgstr "Паказаць гісторыю запытаў ад пачатку"
 
 #: templates/console/display.phtml:189
 msgid "Show current browsing query"
@@ -14092,10 +14034,8 @@ msgid ""
 msgstr ""
 
 #: templates/console/display.phtml:198
-#, fuzzy
-#| msgid "Switch to copied table"
 msgid "Switch to dark theme"
-msgstr "Перайсьці да скапіяванай табліцы"
+msgstr "Пераключыць на цёмную тэму"
 
 #: templates/database/designer/database_tables.phtml:29
 #, fuzzy
