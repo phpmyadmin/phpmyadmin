@@ -24,8 +24,6 @@ if (! class_exists('TCPDF')) {
     return;
 }
 
-require_once 'libraries/transformations.lib.php';
-
 /**
  * Handles the export for the PDF class
  *

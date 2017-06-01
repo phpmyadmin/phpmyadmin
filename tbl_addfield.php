@@ -5,8 +5,10 @@
  *
  * @package PhpMyAdmin
  */
-use PMA\libraries\URL;
+
 use PMA\libraries\Response;
+use PMA\libraries\Transformations;
+use PMA\libraries\URL;
 
 /**
  * Get some core libraries
@@ -65,9 +67,6 @@ if (isset($_REQUEST['do_save_data'])) {
     list($result, $sql_query) = PMA_tryColumnCreationQuery($db, $table, $err_url);
 
     if ($result === true) {
-        // If comments were sent, enable relation stuff
-        include_once 'libraries/transformations.lib.php';
-
         // Update comment table for mime types [MIME]
         if (isset($_REQUEST['field_mimetype'])
             && is_array($_REQUEST['field_mimetype'])
@@ -77,7 +76,7 @@ if (isset($_REQUEST['do_save_data'])) {
                 if (isset($_REQUEST['field_name'][$fieldindex])
                     && strlen($_REQUEST['field_name'][$fieldindex]) > 0
                 ) {
-                    PMA_setMIME(
+                    Transformations::setMIME(
                         $db, $table,
                         $_REQUEST['field_name'][$fieldindex],
                         $mimetype,

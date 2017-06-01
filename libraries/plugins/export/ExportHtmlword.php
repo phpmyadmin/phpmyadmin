@@ -8,15 +8,16 @@
  */
 namespace PMA\libraries\plugins\export;
 
-use PMA\libraries\properties\options\items\BoolPropertyItem;
-use PMA\libraries\properties\options\groups\OptionsPropertyMainGroup;
-use PMA\libraries\properties\options\groups\OptionsPropertyRootGroup;
+use PMA\libraries\DatabaseInterface;
 use PMA\libraries\plugins\ExportPlugin;
 use PMA\libraries\properties\plugins\ExportPluginProperties;
-use PMA\libraries\DatabaseInterface;
-use PMA\libraries\Util;
+use PMA\libraries\properties\options\groups\OptionsPropertyMainGroup;
+use PMA\libraries\properties\options\groups\OptionsPropertyRootGroup;
+use PMA\libraries\properties\options\items\BoolPropertyItem;
 use PMA\libraries\properties\options\items\RadioPropertyItem;
 use PMA\libraries\properties\options\items\TextPropertyItem;
+use PMA\libraries\Transformations;
+use PMA\libraries\Util;
 
 /**
  * Handles the export for the HTML-Word format
@@ -409,7 +410,7 @@ class ExportHtmlword extends ExportPlugin
             $schema_insert .= '<td class="print"><strong>'
                 . htmlspecialchars('MIME')
                 . '</strong></td>';
-            $mime_map = PMA_getMIME($db, $table, true);
+            $mime_map = Transformations::getMIME($db, $table, true);
         }
         $schema_insert .= '</tr>';
 

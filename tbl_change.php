@@ -28,7 +28,6 @@ require_once 'libraries/db_table_exists.inc.php';
  * functions implementation for this script
  */
 require_once 'libraries/insert_edit.lib.php';
-require_once 'libraries/transformations.lib.php';
 
 /**
  * Determine whether Insert or Edit and set global variables

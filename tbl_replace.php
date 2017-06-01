@@ -14,6 +14,7 @@
 use PMA\libraries\plugins\IOTransformationsPlugin;
 use PMA\libraries\Response;
 use PMA\libraries\Table;
+use PMA\libraries\Transformations;
 
 /**
  * Gets some core libraries
@@ -24,7 +25,6 @@ require_once 'libraries/common.inc.php';
  * functions implementation for this script
  */
 require_once 'libraries/insert_edit.lib.php';
-require_once 'libraries/transformations.lib.php';
 
 // Check parameters
 PMA\libraries\Util::checkParameters(array('db', 'table', 'goto'));
@@ -127,7 +127,7 @@ $gis_from_wkb_functions = array(
 );
 
 //if some posted fields need to be transformed.
-$mime_map = PMA_getMIME($GLOBALS['db'], $GLOBALS['table']);
+$mime_map = Transformations::getMIME($GLOBALS['db'], $GLOBALS['table']);
 if ($mime_map === false) {
     $mime_map = array();
 }
@@ -219,10 +219,10 @@ foreach ($loop_array as $rownumber => $where_clause) {
                 . $mime_map[$column_name]['input_transformation'];
             if (is_file($filename)) {
                 include_once $filename;
-                $classname = PMA_getTransformationClassName($filename);
+                $classname = Transformations::getClassName($filename);
                 /** @var IOTransformationsPlugin $transformation_plugin */
                 $transformation_plugin = new $classname();
-                $transformation_options = PMA_Transformation_getOptions(
+                $transformation_options = Transformations::getOptions(
                     $mime_map[$column_name]['input_transformation_options']
                 );
                 $current_value = $transformation_plugin->applyTransformation(

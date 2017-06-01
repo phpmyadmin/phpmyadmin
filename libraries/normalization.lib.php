@@ -6,8 +6,9 @@
  * @package PhpMyAdmin
  */
 use PMA\libraries\Message;
-use PMA\libraries\Util;
+use PMA\libraries\Transformations;
 use PMA\libraries\URL;
+use PMA\libraries\Util;
 
 /**
  * build the html for columns of $colTypeCategory category
@@ -78,8 +79,8 @@ function PMA_getHtmlForCreateNewColumn(
     $available_mime = array();
     $mime_map = array();
     if ($cfgRelation['mimework'] && $GLOBALS['cfg']['BrowseMIME']) {
-        $mime_map = PMA_getMIME($db, $table);
-        $available_mime = PMA_getAvailableMIMEtypes();
+        $mime_map = Transformations::getMIME($db, $table);
+        $available_mime = Transformations::getAvailableMIMEtypes();
     }
     $comments_map = PMA_getComments($db, $table);
     for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
