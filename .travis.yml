@@ -15,9 +15,8 @@ php:
   - "7.0"
   - "5.6"
   - "5.5"
-  - hhvm-3.3
-  - hhvm-3.12
-  - hhvm-3.18
+  - "hhvm-3.12"
+  - "hhvm-3.18"
 
 sudo: required
 
