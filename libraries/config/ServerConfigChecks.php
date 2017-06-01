@@ -7,6 +7,7 @@
  */
 namespace PMA\libraries\config;
 
+use phpseclib\Crypt;
 use PMA\libraries\URL;
 
 /**
@@ -217,16 +218,16 @@ class ServerConfigChecks
     ) {
         if ($cookieAuthServer && $blowfishSecret === null) {
             $blowfishSecret = '';
-            if (! function_exists('openssl_random_pseudo_bytes')) {
-                $random_func = 'phpseclib\\Crypt\\Random::string';
-            } else {
-                $random_func = 'openssl_random_pseudo_bytes';
-            }
             while (strlen($blowfishSecret) < 32) {
-                $byte = $random_func(1);
+                if (is_callable('Crypt\Random::string')) {
+                    $byte = Crypt\Random::string(1);
+                } else {
+                    $byte = openssl_random_pseudo_bytes(1);
+                }
                 // We want only ASCII chars
-                if (ord($byte) > 32 && ord($byte) < 127) {
-                    $blowfishSecret .= $byte;
+                $byte = ord($byte) >> 1;
+                if ($byte > 32 && $byte < 127) {
+                    $blowfishSecret .= chr($byte);
                 }
             }
 
