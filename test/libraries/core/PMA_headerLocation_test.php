@@ -117,7 +117,7 @@ class PMA_HeaderLocation_Test extends PMATestCase
             . "\n    <meta http-equiv=\"Cache-Control\" content=\"no-cache\" />"
             . "\n    <meta http-equiv=\"Refresh\" content=\"0;url=" . $testUri_html . "\" />"
             . "\n    <script type=\"text/javascript\">\n        //<![CDATA[
-        setTimeout(\"window.location = decodeURI('" . $testUri_js . "')\", 2000);
+        setTimeout(function() { window.location = decodeURI('" . $testUri_js . "'); }, 2000);
         //]]>\n    </script>\n</head>
 <body>\n<script type=\"text/javascript\">\n    //<![CDATA[
     document.write('<p><a href=\"" . $testUri_html . "\">" . __('Go') . "</a></p>');

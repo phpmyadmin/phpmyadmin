@@ -8,7 +8,7 @@
     <meta http-equiv="Refresh" content="0;url={{ uri }}" />
     <script type="text/javascript">
         //<![CDATA[
-        setTimeout("window.location = decodeURI('{{ Sanitize_escapeJsString(uri) }}')", 2000);
+        setTimeout(function() { window.location = decodeURI('{{ Sanitize_escapeJsString(uri) }}'); }, 2000);
         //]]>
     </script>
 </head>
