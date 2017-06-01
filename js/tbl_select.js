@@ -81,6 +81,13 @@ AJAX.registerOnload('tbl_select.js', function () {
             return false;
         });
 
+    var tableRows = $('#fieldset_table_qbe select');
+    $.each(tableRows, function(index, item){
+        $(item).on("change", function() {
+            changeValueFieldType(this, index);
+        });
+    });
+
     /**
      * Ajax event handler for Table search
      */
