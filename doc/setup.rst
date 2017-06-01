@@ -267,7 +267,7 @@ configuration file:
 
     <?php
     $cfg['Export']['csv_columns'] = true;
-
+    ?>
 
 .. seealso:: 
    
@@ -286,6 +286,12 @@ You can use following volumes to customize image behavior:
 
     Directory where PHP sessions are stored. You might want to share this 
     for example when using :ref:`auth_signon`.
+
+:file:`/www/themes/`
+
+    Directory where phpMyAdmin looks for themes. By default only ones shipped
+    with phpMyAdmin are included, but you can include additional phpMyAdmin
+    themes (see :ref:`themes`) by using Docker volumes.
 
 Docker Examples
 ---------------
@@ -320,6 +326,12 @@ Running with additional configuration:
 
     docker run --name phpmyadmin -d --link mysql_db_server:db -p 8080:80 -v /some/local/directory/config.user.inc.php:/etc/phpmyadmin/config.user.inc.php phpmyadmin/phpmyadmin
 
+Running with additional theme:
+
+.. code-block:: sh
+
+    docker run --name phpmyadmin -d --link mysql_db_server:db -p 8080:80 -v /custom/phpmyadmin/theme/:/www/themes/theme/ phpmyadmin/phpmyadmin
+
 Using docker-compose
 --------------------
 
@@ -350,6 +362,7 @@ using the volumes directive:
         volumes:
          - /sessions
          - ~/docker/phpmyadmin/config.user.inc.php:/etc/phpmyadmin/config.user.inc.php
+         - /custom/phpmyadmin/theme/:/www/themes/theme/
 
 .. seealso:: :ref:`docker-custom`
 
