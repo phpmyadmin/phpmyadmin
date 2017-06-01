@@ -4882,7 +4882,7 @@ class Util
     public static function generateRandom($length)
     {
         $result = '';
-        if (! function_exists('openssl_random_pseudo_bytes')) {
+        if (class_exists('phpseclib\\Crypt\\Random')) {
             $random_func = 'phpseclib\\Crypt\\Random::string';
         } else {
             $random_func = 'openssl_random_pseudo_bytes';
