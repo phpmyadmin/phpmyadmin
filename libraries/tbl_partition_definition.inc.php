@@ -6,8 +6,6 @@
  * @package PhpMyAdmin
  */
 
-use PMA\libraries\Template;
-
 if (!isset($partitionDetails)) {
 
     $partitionDetails = array();
@@ -141,6 +139,3 @@ if (!isset($partitionDetails)) {
         $partitionDetails['partitions'] = $partitions;
     }
 }
-
-echo Template::get('columns_definitions/partitions')
-    ->render(array('partitionDetails' => $partitionDetails));

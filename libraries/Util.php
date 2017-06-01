@@ -4871,4 +4871,31 @@ class Util
         }
         return null;
     }
+
+    /**
+     * Generates random string consisting of ASCII chars
+     *
+     * @param integer $length Length of string
+     *
+     * @return string
+     */
+    public static function generateRandom($length)
+    {
+        $result = '';
+        if (class_exists('phpseclib\\Crypt\\Random')) {
+            $random_func = 'phpseclib\\Crypt\\Random::string';
+        } else {
+            $random_func = 'openssl_random_pseudo_bytes';
+        }
+        while (strlen($result) < $length) {
+            // Get random byte and strip highest bit
+            // to get ASCII only range
+            $byte = ord($random_func(1)) & 0x7f;
+            // We want only ASCII chars
+            if ($byte > 32) {
+                $result .= chr($byte);
+            }
+        }
+        return $result;
+    }
 }

@@ -8,25 +8,26 @@
  */
 namespace PMA\libraries\plugins\export;
 
-use PMA\libraries\properties\options\items\BoolPropertyItem;
-use PMA\libraries\properties\plugins\ExportPluginProperties;
-use PMA\libraries\properties\options\items\MessageOnlyPropertyItem;
-use PMA\libraries\properties\options\items\NumberPropertyItem;
-use PMA\libraries\properties\options\groups\OptionsPropertyMainGroup;
-use PMA\libraries\properties\options\groups\OptionsPropertyRootGroup;
-use PMA\libraries\properties\options\groups\OptionsPropertySubgroup;
-use PMA\libraries\Charsets;
-use PMA\libraries\DatabaseInterface;
-use PMA\libraries\plugins\ExportPlugin;
-use PMA\libraries\Util;
-use PMA\libraries\properties\options\items\RadioPropertyItem;
-use PMA\libraries\properties\options\items\SelectPropertyItem;
 use PhpMyAdmin\SqlParser\Components\CreateDefinition;
 use PhpMyAdmin\SqlParser\Context;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Statements\SelectStatement;
 use PhpMyAdmin\SqlParser\Token;
+use PMA\libraries\Charsets;
+use PMA\libraries\DatabaseInterface;
+use PMA\libraries\plugins\ExportPlugin;
+use PMA\libraries\properties\plugins\ExportPluginProperties;
+use PMA\libraries\properties\options\groups\OptionsPropertyMainGroup;
+use PMA\libraries\properties\options\groups\OptionsPropertyRootGroup;
+use PMA\libraries\properties\options\groups\OptionsPropertySubgroup;
+use PMA\libraries\properties\options\items\BoolPropertyItem;
+use PMA\libraries\properties\options\items\MessageOnlyPropertyItem;
+use PMA\libraries\properties\options\items\NumberPropertyItem;
+use PMA\libraries\properties\options\items\RadioPropertyItem;
+use PMA\libraries\properties\options\items\SelectPropertyItem;
 use PMA\libraries\properties\options\items\TextPropertyItem;
+use PMA\libraries\Transformations;
+use PMA\libraries\Util;
 
 /**
  * Handles the export for the SQL class
@@ -1843,7 +1844,7 @@ class ExportSql extends ExportPlugin
         );
 
         if ($do_mime && $cfgRelation['mimework']) {
-            if (!($mime_map = PMA_getMIME($db, $table, true))) {
+            if (!($mime_map = Transformations::getMIME($db, $table, true))) {
                 unset($mime_map);
             }
         }

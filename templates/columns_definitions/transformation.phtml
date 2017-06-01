@@ -1,3 +1,4 @@
+<?php use PMA\libraries\Transformations; ?>
 <select id="field_<?= $columnNumber; ?>_<?= ($ci - $ci_offset); ?>"
         size="1"
         name="field_<?= $type;?>[<?= $columnNumber;?>]">
@@ -9,11 +10,11 @@
                          && isset($mime_map[$columnMeta['Field']][$type])
                          && preg_match('@' . preg_quote($available_mime[$type . '_file'][$mimekey], '@') . '3?@i',
                                         $mime_map[$columnMeta['Field']][$type]) ? 'selected ' : '';
-                $tooltip = PMA_getTransformationDescription(
+                $tooltip = Transformations::getDescription(
                     $available_mime[$type . '_file'][$mimekey]
                 );
                 $parts = explode(":", $transform);
-                $name = PMA_getTransformationName(
+                $name = Transformations::getName(
                     $available_mime[$type . '_file'][$mimekey]
                 ) . ' (' . strtolower($parts[0]) . ":" . $parts[1] . ')';
             ?>

@@ -14,8 +14,11 @@ phpMyAdmin - ChangeLog
 - issue #13167 Themes now have to contain metadata in theme.json
 - issue #6363  phpMyAdmin no longer requires eval() in PHP
 - issue #12386 The mbstring dependency is now optional
+- issue #13269 Small refactoring in preparation to CSP
 
-4.7.1 (not yet released)
+4.7.2 (not yet released)
+
+4.7.1 (2017-05-25)
 - issue #13132 Always execute tracking queries as controluser
 - issue #13125 Focus on SQL editor after inserting field name
 - issue #13133 Fixed broken links in setup

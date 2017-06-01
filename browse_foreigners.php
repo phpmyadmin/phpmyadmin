@@ -8,7 +8,6 @@
 use PMA\libraries\Response;
 
 require_once 'libraries/common.inc.php';
-require_once 'libraries/transformations.lib.php';
 require_once 'libraries/browse_foreigners.lib.php';
 
 /**

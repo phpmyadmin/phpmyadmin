@@ -18,6 +18,7 @@ use PMA\libraries\Index;
 use PMA\libraries\Message;
 use PMA\libraries\Response;
 use PMA\libraries\Table;
+use PMA\libraries\Transformations;
 use PMA\libraries\URL;
 use PMA\libraries\Util;
 
@@ -1313,14 +1314,13 @@ EOT;
      */
     public static function deleteTransformationInfo($db, $table, $analyzed_sql_results)
     {
-        include_once 'libraries/transformations.lib.php';
         $statement = $analyzed_sql_results['statement'];
         if ($statement instanceof AlterStatement) {
             if (!empty($statement->altered[0])
                 && $statement->altered[0]->options->has('DROP')
             ) {
                 if (!empty($statement->altered[0]->field->column)) {
-                    PMA_clearTransformations(
+                    Transformations::clear(
                         $db,
                         $table,
                         $statement->altered[0]->field->column
@@ -1328,7 +1328,7 @@ EOT;
                 }
             }
         } elseif ($statement instanceof DropStatement) {
-            PMA_clearTransformations($db, $table);
+            Transformations::clear($db, $table);
         }
     }
 

@@ -1,6 +1,25 @@
+<?php
+$scriptName = '';
+$formId = '';
+switch ($searchType) {
+    case 'normal' :
+        $scriptName = 'tbl_select.php';
+        $formId = 'tbl_search_form';
+        break;
+    case 'zoom' :
+        $scriptName = 'tbl_zoom_select.php';
+        $formId = 'zoom_search_form';
+        break;
+    case 'replace' :
+        $scriptName = 'tbl_find_replace.php';
+        $formId = 'find_replace_form';
+        break;
+}
+?>
 <?= PMA\libraries\Template::get('table/search/form_tag')
     ->render(array(
-        'searchType' => $searchType,
+        'script_name' => $scriptName,
+        'form_id' => $formId,
         'db' => $db,
         'table' => $table,
         'goto' => $goto

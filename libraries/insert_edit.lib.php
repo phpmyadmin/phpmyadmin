@@ -8,8 +8,9 @@
 use PMA\libraries\Message;
 use PMA\libraries\plugins\TransformationsPlugin;
 use PMA\libraries\Response;
-use PMA\libraries\URL;
 use PMA\libraries\Sanitize;
+use PMA\libraries\Transformations;
+use PMA\libraries\URL;
 
 /**
  * Retrieve form parameters for insert/edit form
@@ -2182,14 +2183,13 @@ function PMA_transformEditedValues($db, $table,
             'where_clause'  => $_REQUEST['where_clause'],
             'transform_key' => $column_name
         );
-        $transform_options  = PMA_Transformation_getOptions(
+        $transform_options = Transformations::getOptions(
             isset($transformation[$type . '_options'])
             ? $transformation[$type . '_options']
             : ''
         );
-        $transform_options['wrapper_link']
-            = URL::getCommon($_url_params);
-        $class_name = PMA_getTransformationClassName($include_file);
+        $transform_options['wrapper_link'] = URL::getCommon($_url_params);
+        $class_name = Transformations::getClassName($include_file);
         /** @var TransformationsPlugin $transformation_plugin */
         $transformation_plugin = new $class_name();
 
@@ -2887,9 +2887,9 @@ function PMA_getHtmlForInsertEditFormColumn($table_columns, $column_number,
         $include_file = 'libraries/plugins/transformations/' . $file;
         if (is_file($include_file)) {
             include_once $include_file;
-            $class_name = PMA_getTransformationClassName($include_file);
+            $class_name = Transformations::getClassName($include_file);
             $transformation_plugin = new $class_name();
-            $transformation_options = PMA_Transformation_getOptions(
+            $transformation_options = Transformations::getOptions(
                 $column_mime['input_transformation_options']
             );
             $_url_params = array(
@@ -2977,7 +2977,7 @@ function PMA_getHtmlForInsertEditRow($url_params, $table_columns,
 
     //store the default value for CharEditing
     $default_char_editing  = $GLOBALS['cfg']['CharEditing'];
-    $mime_map = PMA_getMIME($db, $table);
+    $mime_map = Transformations::getMIME($db, $table);
     $where_clause = '';
     if (isset($where_clause_array[$row_id])) {
         $where_clause = $where_clause_array[$row_id];

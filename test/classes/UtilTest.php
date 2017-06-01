@@ -245,4 +245,13 @@ class UtilTest extends PMATestCase
             array("https://www.phpmyadmin.net/test/nothing","GET", true, false),
         );
     }
+
+    /**
+     * Test for random generation
+     */
+    public function testGenerateRandom()
+    {
+        $this->assertEquals(32, strlen(PMA\libraries\Util::generateRandom(32)));
+        $this->assertEquals(16, strlen(PMA\libraries\Util::generateRandom(16)));
+    }
 }

@@ -7,11 +7,11 @@
  */
 
 use PMA\libraries\Theme;
+use PMA\libraries\Transformations;
 
 /*
  * Include to test.
  */
-require_once 'libraries/transformations.lib.php';
 require_once 'libraries/database_interface.inc.php';
 require_once 'libraries/relation.lib.php';
 
@@ -20,9 +20,8 @@ require_once 'libraries/relation.lib.php';
  *
  * @package PhpMyAdmin-test
  */
-class PMA_Transformation_Test extends PHPUnit_Framework_TestCase
+class TransformationsTest extends PHPUnit_Framework_TestCase
 {
-
     /**
      * Set up global environment.
      *
@@ -63,7 +62,7 @@ class PMA_Transformation_Test extends PHPUnit_Framework_TestCase
     {
         $this->assertEquals(
             $expected,
-            PMA_Transformation_getOptions($input)
+            Transformations::getOptions($input)
         );
     }
 
@@ -168,7 +167,7 @@ class PMA_Transformation_Test extends PHPUnit_Framework_TestCase
                     'Text_Plain_Substring.php',
                 ),
             ),
-            PMA_getAvailableMIMEtypes()
+            Transformations::getAvailableMIMEtypes()
         );
     }
 
@@ -203,16 +202,16 @@ class PMA_Transformation_Test extends PHPUnit_Framework_TestCase
                     'input_transformation_options' => '',
                 ),
             ),
-            PMA_getMIME('pma_test', 'table1')
+            Transformations::getMIME('pma_test', 'table1')
         );
     }
 
     /**
-     * Test for PMA_clearTransformations
+     * Test for Transformations::clear
      *
      * @return void
      */
-    public function testClearTransformations()
+    public function testClear()
     {
         // Mock dbi
         $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
@@ -224,7 +223,7 @@ class PMA_Transformation_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['dbi'] = $dbi;
 
         // Case 1 : no configuration storage
-        $actual = PMA_clearTransformations('db');
+        $actual = Transformations::clear('db');
         $this->assertEquals(
             false,
             $actual
@@ -235,21 +234,21 @@ class PMA_Transformation_Test extends PHPUnit_Framework_TestCase
         $_SESSION['relation'][$GLOBALS['server']]['db'] = "pmadb";
 
         // Case 2 : database delete
-        $actual = PMA_clearTransformations('db');
+        $actual = Transformations::clear('db');
         $this->assertEquals(
             true,
             $actual
         );
 
         // Case 3 : table delete
-        $actual = PMA_clearTransformations('db', 'table');
+        $actual = Transformations::clear('db', 'table');
         $this->assertEquals(
             true,
             $actual
         );
 
         // Case 4 : column delete
-        $actual = PMA_clearTransformations('db', 'table', 'col');
+        $actual = Transformations::clear('db', 'table', 'col');
         $this->assertEquals(
             true,
             $actual

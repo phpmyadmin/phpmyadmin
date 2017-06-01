@@ -8,6 +8,7 @@
  */
 use PMA\libraries\Response;
 use PMA\libraries\Table;
+use PMA\libraries\Transformations;
 use PMA\Util;
 
 if (!defined('PHPMYADMIN')) {
@@ -83,7 +84,6 @@ if (isset($selected) && is_array($selected)) {
 
 $is_backup = ($action != 'tbl_create.php' && $action != 'tbl_addfield.php');
 
-require_once './libraries/transformations.lib.php';
 $cfgRelation = PMA_getRelationsParam();
 
 $comments_map = PMA_getComments($db, $table);
@@ -97,8 +97,8 @@ if (isset($fields_meta)) {
 
 $available_mime = array();
 if ($cfgRelation['mimework'] && $GLOBALS['cfg']['BrowseMIME']) {
-    $mime_map = PMA_getMIME($db, $table);
-    $available_mime = PMA_getAvailableMIMEtypes();
+    $mime_map = Transformations::getMIME($db, $table);
+    $available_mime = Transformations::getAvailableMIMEtypes();
 }
 
 //  workaround for field_fulltext, because its submitted indices contain
@@ -389,15 +389,17 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
     );
 } // end for
 
+include 'libraries/tbl_partition_definition.inc.php';
 $html = PMA\libraries\Template::get('columns_definitions/column_definitions_form')
     ->render(
         array(
-            'is_backup'     => $is_backup,
-            'fields_meta'   => isset($fields_meta) ? $fields_meta : null,
-            'mimework'      => $cfgRelation['mimework'],
-            'action'        => $action,
-            'form_params'   => $form_params,
-            'content_cells' => $content_cells,
+            'is_backup'        => $is_backup,
+            'fields_meta'      => isset($fields_meta) ? $fields_meta : null,
+            'mimework'         => $cfgRelation['mimework'],
+            'action'           => $action,
+            'form_params'      => $form_params,
+            'content_cells'    => $content_cells,
+            'partitionDetails' => $partitionDetails
         )
     );
 

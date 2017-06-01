@@ -15,8 +15,8 @@ php:
   - "7.0"
   - "5.6"
   - "5.5"
-  - hhvm-3.12
-  - hhvm-3.18
+  - "hhvm-3.12"
+  - "hhvm-3.18"
 
 sudo: required
 
@@ -73,6 +73,7 @@ matrix:
         - brew update
         - brew install gettext php70 mariadb
         - brew link --force gettext
+        - sed -i 's/^memory_limit = .*/memory_limit = -1/' /usr/local/etc/php/7.0/php.ini
         - curl https://getcomposer.org/installer | php
         - ln -s "`pwd`/composer.phar" /usr/local/bin/composer
         - mysql.server start

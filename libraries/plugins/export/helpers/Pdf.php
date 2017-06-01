@@ -10,6 +10,7 @@ namespace PMA\libraries\plugins\export\helpers;
 
 use PMA\libraries\DatabaseInterface;
 use PMA\libraries\PDF as PdfLib;
+use PMA\libraries\Transformations;
 use PMA\libraries\Util;
 use TCPDF_STATIC;
 
@@ -518,7 +519,7 @@ class Pdf extends PdfLib
             $comments = PMA_getComments($db, $table);
         }
         if ($do_mime && $cfgRelation['mimework']) {
-            $mime_map = PMA_getMIME($db, $table, true);
+            $mime_map = Transformations::getMIME($db, $table, true);
         }
 
         $columns = $GLOBALS['dbi']->getColumns($db, $table);

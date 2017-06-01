@@ -11,9 +11,8 @@ use PhpMyAdmin\SqlParser\Utils\Query;
 use PMA\libraries\plugins\transformations\Text_Plain_Link;
 use PMA\libraries\Sanitize;
 use PMA\libraries\Sql;
+use PMA\libraries\Transformations;
 use PMA\libraries\URL;
-
-require_once './libraries/transformations.lib.php';
 
 /**
  * Handle all the functionalities related to displaying results
@@ -2916,7 +2915,7 @@ class DisplayResults
             ) {
                 $mimeMap = array_merge(
                     $mimeMap,
-                    PMA_getMIME($this->__get('db'), $meta->orgtable, false, true)
+                    Transformations::getMIME($this->__get('db'), $meta->orgtable, false, true)
                 );
                 $added[$orgFullTableName] = true;
             }
@@ -3061,14 +3060,14 @@ class DisplayResults
                     if (file_exists($include_file)) {
 
                         include_once $include_file;
-                        $class_name = PMA_getTransformationClassName($include_file);
+                        $class_name = Transformations::getClassName($include_file);
                         // todo add $plugin_manager
                         $plugin_manager = null;
                         $transformation_plugin = new $class_name(
                             $plugin_manager
                         );
 
-                        $transform_options  = PMA_Transformation_getOptions(
+                        $transform_options  = Transformations::getOptions(
                             isset(
                                 $mime_map[$orgFullColName]
                                 ['transformation_options']
@@ -3101,7 +3100,7 @@ class DisplayResults
                 $transformation_plugin = new $this->transformation_info
                     [$dbLower][$tblLower][$nameLower][1](null);
 
-                $transform_options  = PMA_Transformation_getOptions(
+                $transform_options  = Transformations::getOptions(
                     isset($mime_map[$orgFullColName]['transformation_options'])
                     ? $mime_map[$orgFullColName]['transformation_options']
                     : ''
