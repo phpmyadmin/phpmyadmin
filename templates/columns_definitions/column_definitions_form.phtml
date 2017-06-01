@@ -150,7 +150,8 @@ use PMA\libraries\URL;
                 </tr>
                 <tr>
                     <td colspan="5">
-                        <?php include 'libraries/tbl_partition_definition.inc.php'; ?>
+                        <?= PMA\libraries\Template::get('columns_definitions/partitions')
+                            ->render(array('partitionDetails' => $partitionDetails)); ?>
                     </td>
                 </tr>
             <?php endif; ?>

@@ -521,6 +521,7 @@ class TableStructureController extends TableController
         }
 
         include_once 'libraries/StorageEngine.php';
+        include 'libraries/tbl_partition_definition.inc.php';
         $this->response->addHTML(
             Template::get('table/structure/partition_definition_form')
                 ->render(
@@ -1371,7 +1372,8 @@ class TableStructureController extends TableController
                 'effect_size' => $effect_size,
                 'effect_unit' => $effect_unit,
                 'tot_size' => $tot_size,
-                'tot_unit' => $tot_unit
+                'tot_unit' => $tot_unit,
+                'table' => $GLOBALS['table']
             )
         );
     }
