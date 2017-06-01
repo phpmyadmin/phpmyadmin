@@ -8,6 +8,7 @@
 namespace PMA\libraries\config;
 
 use PMA\libraries\URL;
+use PMA\libraries\Util;
 
 /**
  * Performs various compatibility, security and consistency checks on current config
@@ -216,24 +217,8 @@ class ServerConfigChecks
         $blowfishSecret, $cookieAuthServer, $blowfishSecretSet
     ) {
         if ($cookieAuthServer && $blowfishSecret === null) {
-            $blowfishSecret = '';
-            if (! function_exists('openssl_random_pseudo_bytes')) {
-                $random_func = 'phpseclib\\Crypt\\Random::string';
-            } else {
-                $random_func = 'openssl_random_pseudo_bytes';
-            }
-            while (strlen($blowfishSecret) < 32) {
-                // Get random byte and strip highest bit
-                // to get ASCII only range
-                $byte = ord($random_func(1)) & 0x7f;
-                // We want only ASCII chars
-                if ($byte > 32) {
-                    $blowfishSecret .= chr($byte);
-                }
-            }
-
             $blowfishSecretSet = true;
-            $this->cfg->set('blowfish_secret', $blowfishSecret);
+            $this->cfg->set('blowfish_secret', Util::generateRandom(32));
         }
         return array($blowfishSecret, $blowfishSecretSet);
     }
