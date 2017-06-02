@@ -49,4 +49,5 @@ phpunit.xml
 # Ant cache
 cache.properties
 # Composer
+composer.lock
 /vendor/
