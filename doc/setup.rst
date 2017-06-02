@@ -289,7 +289,7 @@ You can use following volumes to customize image behavior:
 
 :file:`/www/themes/`
 
-    Directory where phpMyAdmin looks for themes. By default only ones shipped
+    Directory where phpMyAdmin looks for themes. By default only those shipped
     with phpMyAdmin are included, but you can include additional phpMyAdmin
     themes (see :ref:`themes`) by using Docker volumes.
 
@@ -326,7 +326,7 @@ Running with additional configuration:
 
     docker run --name phpmyadmin -d --link mysql_db_server:db -p 8080:80 -v /some/local/directory/config.user.inc.php:/etc/phpmyadmin/config.user.inc.php phpmyadmin/phpmyadmin
 
-Running with additional theme:
+Running with additional themes:
 
 .. code-block:: sh
 
