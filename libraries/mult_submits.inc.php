@@ -5,14 +5,15 @@
  *
  * @package PhpMyAdmin
  */
+
 use PMA\libraries\Message;
 use PMA\libraries\Response;
+use PMA\libraries\Sql;
 
 if (! defined('PHPMYADMIN')) {
     exit;
 }
 
-require_once 'libraries/sql.lib.php';
 require_once 'libraries/mult_submits.lib.php';
 
 $request_params = array(
@@ -266,7 +267,7 @@ if (!empty($submit_mult) && !empty($what)) {
     }
 
     if ($execute_query_later) {
-        PMA_executeQueryAndSendQueryResponse(
+        Sql::executeQueryAndSendQueryResponse(
             null, // analyzed_sql_results
             false, // is_gotofile
             $db, // db

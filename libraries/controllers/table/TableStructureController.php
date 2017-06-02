@@ -9,19 +9,20 @@
 
 namespace PMA\libraries\controllers\table;
 
-use PMA\libraries\config\PageSettings;
-use PMA\libraries\Index;
-use PMA\libraries\Message;
-use PMA\libraries\Template;
-use PMA\libraries\Util;
-use PMA\Util as Util_lib;
 use PhpMyAdmin\SqlParser;
 use PhpMyAdmin\SqlParser\Statements\CreateStatement;
 use PhpMyAdmin\SqlParser\Utils\Table as SqlTable;
-use PMA\libraries\Table;
-use PMA\libraries\Transformations;
+use PMA\libraries\config\PageSettings;
 use PMA\libraries\controllers\TableController;
+use PMA\libraries\Index;
+use PMA\libraries\Message;
+use PMA\libraries\Sql;
+use PMA\libraries\Table;
+use PMA\libraries\Template;
+use PMA\libraries\Transformations;
 use PMA\libraries\URL;
+use PMA\libraries\Util;
+use PMA\Util as Util_lib;
 
 require_once 'libraries/util.lib.php';
 require_once 'libraries/config/messages.inc.php';
@@ -118,7 +119,6 @@ class TableStructureController extends TableController
          */
         include_once 'libraries/check_user_privileges.lib.php';
         include_once 'libraries/index.lib.php';
-        include_once 'libraries/sql.lib.php';
 
         $this->response->getHeader()->getScripts()->addFiles(
             array(
@@ -794,10 +794,8 @@ class TableStructureController extends TableController
         // @todo: possibly refactor
         extract($analyzed_sql_results);
 
-        include_once 'libraries/sql.lib.php';
-
         $this->response->addHTML(
-            PMA_executeQueryAndGetQueryResponse(
+            Sql::executeQueryAndGetQueryResponse(
                 isset($analyzed_sql_results) ? $analyzed_sql_results : '',
                 false, // is_gotofile
                 $this->db, // db

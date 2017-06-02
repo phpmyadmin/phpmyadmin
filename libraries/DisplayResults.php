@@ -10,6 +10,7 @@ namespace PMA\libraries;
 use PhpMyAdmin\SqlParser\Utils\Query;
 use PMA\libraries\plugins\transformations\Text_Plain_Link;
 use PMA\libraries\Sanitize;
+use PMA\libraries\Sql;
 use PMA\libraries\Transformations;
 use PMA\libraries\URL;
 
@@ -1428,7 +1429,7 @@ class DisplayResults
             . URL::getHiddenInputs(
                 $this->__get('db'), $this->__get('table')
             )
-            // to avoid calling PMA_handleSortOrder() later
+            // to avoid calling Sql::handleSortOrder() later
             . URL::getHiddenFields(array('sort_by_key' => '1'))
             . __('Sort by key')
             . ': <select name="sql_query" class="autosubmit">' . "\n";
@@ -4255,9 +4256,6 @@ class DisplayResults
         $showtable = $this->__get('showtable');
         $printview = $this->__get('printview');
 
-        // why was this called here? (already called from sql.php)
-        //$this->setConfigParamsForDisplayTable();
-
         /**
          * @todo move this to a central place
          * @todo for other future table types
@@ -4265,9 +4263,7 @@ class DisplayResults
         $is_innodb = (isset($showtable['Type'])
             && $showtable['Type'] == self::TABLE_TYPE_INNO_DB);
 
-        if ($is_innodb
-            && PMA_isJustBrowsing($analyzed_sql_results, true)
-        ) {
+        if ($is_innodb && Sql::isJustBrowsing($analyzed_sql_results, true)) {
             // "j u s t   b r o w s i n g"
             $pre_count = '~';
             $after_count = Util::showHint(
