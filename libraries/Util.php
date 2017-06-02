@@ -4883,7 +4883,7 @@ class Util
     {
         $result = '';
         if (class_exists('phpseclib\\Crypt\\Random')) {
-            $random_func = 'phpseclib\\Crypt\\Random::string';
+            $random_func = array('phpseclib\\Crypt\\Random', 'string');
         } else {
             $random_func = 'openssl_random_pseudo_bytes';
         }
