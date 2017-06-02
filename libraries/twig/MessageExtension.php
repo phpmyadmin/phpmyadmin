@@ -9,6 +9,7 @@ namespace PMA\libraries\twig;
 
 use Twig_Extension;
 use Twig_SimpleFunction;
+use PMA\libraries\Message;
 
 /**
  * Class MessageExtension
@@ -27,7 +28,9 @@ class MessageExtension extends Twig_Extension
         return array(
             new Twig_SimpleFunction(
                 'Message_notice',
-                'PMA\libraries\Message::notice',
+                function ($string) {
+                    return Message::notice($string)->getDisplay();
+                },
                 array('is_safe' => array('html'))
             ),
         );
