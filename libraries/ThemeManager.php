@@ -367,8 +367,9 @@ class ThemeManager
         $select_box = '';
 
         if ($form) {
-            $select_box .= '<form name="setTheme" method="get"';
+            $select_box .= '<form name="setTheme" method="post"';
             $select_box .= ' action="index.php" class="disableAjax">';
+            $select_box .= URL::getHiddenInputs();
         }
 
         $theme_preview_path= './themes.php';
