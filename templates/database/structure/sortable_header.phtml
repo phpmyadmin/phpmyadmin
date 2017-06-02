@@ -1,4 +1,6 @@
 <?php
+use PMA\libraries\Core;
+
 $requested_sort = 'table';
 $requested_sort_order = $future_sort_order = $initial_sort_order;
 // If the user requested a sort
@@ -56,7 +58,7 @@ $_url_params = array(
     'sort_order' => $future_sort_order,
 );
 
-if (PMA_isValid($_REQUEST['tbl_type'], array('view', 'table'))) {
+if (Core::isValid($_REQUEST['tbl_type'], array('view', 'table'))) {
      $_url_params['tbl_type'] = $_REQUEST['tbl_type'];
 }
 if (! empty($_REQUEST['tbl_group'])) {

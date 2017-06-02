@@ -12,6 +12,7 @@ namespace PMA\libraries\controllers\database;
 use PMA\libraries\config\PageSettings;
 use PMA\libraries\controllers\DatabaseController;
 use PMA\libraries\Charsets;
+use PMA\libraries\Core;
 use PMA\libraries\Message;
 use PMA\libraries\RecentFavoriteTable;
 use PMA\libraries\Response;
@@ -155,7 +156,7 @@ class DatabaseStructureController extends DatabaseController
                 'pos' => max(0, $this->_total_num_tables - $GLOBALS['cfg']['MaxTableList']),
                 'reload' => 1
             ));
-            PMA_sendHeaderLocation($uri);
+            Core::sendHeaderLocation($uri);
         }
 
         include_once 'libraries/replication.inc.php';

@@ -7,6 +7,7 @@
  */
 namespace PMA\libraries;
 
+use PMA\libraries\Core;
 use PMA\libraries\URL;
 use PMA\libraries\Util;
 
@@ -264,12 +265,12 @@ class DbQbe
     {
         $criteriaColumnCount = $this->_initializeCriteriasCount();
 
-        $this->_criteriaColumnInsert = PMA_ifSetOr(
+        $this->_criteriaColumnInsert = Core::ifSetOr(
             $_REQUEST['criteriaColumnInsert'],
             null,
             'array'
         );
-        $this->_criteriaColumnDelete = PMA_ifSetOr(
+        $this->_criteriaColumnDelete = Core::ifSetOr(
             $_REQUEST['criteriaColumnDelete'],
             null,
             'array'
@@ -312,7 +313,7 @@ class DbQbe
     private function _setCriteriaTablesAndColumns()
     {
         // The tables list sent by a previously submitted form
-        if (PMA_isValid($_REQUEST['TableList'], 'array')) {
+        if (Core::isValid($_REQUEST['TableList'], 'array')) {
             foreach ($_REQUEST['TableList'] as $each_table) {
                 $this->_criteriaTables[$each_table] = ' selected="selected"';
             }
@@ -1922,12 +1923,12 @@ class DbQbe
     private function _initializeCriteriasCount()
     {
         // sets column count
-        $criteriaColumnCount = PMA_ifSetOr(
+        $criteriaColumnCount = Core::ifSetOr(
             $_REQUEST['criteriaColumnCount'],
             3,
             'numeric'
         );
-        $criteriaColumnAdd = PMA_ifSetOr(
+        $criteriaColumnAdd = Core::ifSetOr(
             $_REQUEST['criteriaColumnAdd'],
             0,
             'numeric'
@@ -1938,8 +1939,8 @@ class DbQbe
         );
 
         // sets row count
-        $rows = PMA_ifSetOr($_REQUEST['rows'], 0, 'numeric');
-        $criteriaRowAdd = PMA_ifSetOr($_REQUEST['criteriaRowAdd'], 0, 'numeric');
+        $rows = Core::ifSetOr($_REQUEST['rows'], 0, 'numeric');
+        $criteriaRowAdd = Core::ifSetOr($_REQUEST['criteriaRowAdd'], 0, 'numeric');
         $this->_criteria_row_count = min(
             100,
             max($rows + $criteriaRowAdd, 0)

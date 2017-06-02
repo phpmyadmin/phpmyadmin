@@ -7,6 +7,7 @@
  */
 namespace PMA\libraries;
 
+use PMA\libraries\Core;
 use PMA\libraries\dbi\DBIExtension;
 use PMA\libraries\LanguageManager;
 use PMA\libraries\URL;
@@ -1809,7 +1810,7 @@ class DatabaseInterface
                 . " FROM `information_schema`.`ROUTINES`"
                 . " WHERE `ROUTINE_SCHEMA` " . Util::getCollateForIS()
                 . " = '" . $GLOBALS['dbi']->escapeString($db) . "'";
-            if (PMA_isValid($which, array('FUNCTION','PROCEDURE'))) {
+            if (Core::isValid($which, array('FUNCTION','PROCEDURE'))) {
                 $query .= " AND `ROUTINE_TYPE` = '" . $which . "'";
             }
             if (! empty($name)) {

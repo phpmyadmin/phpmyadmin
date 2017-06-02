@@ -8,7 +8,9 @@
  *
  * @package PhpMyAdmin
  */
+
 use PMA\libraries\Charsets;
+use PMA\libraries\Core;
 use PMA\libraries\Encoding;
 use PMA\libraries\Message;
 use PMA\libraries\plugins\ImportPlugin;
@@ -668,7 +670,7 @@ function PMA_getImportDisplay($import_type, $db, $table, $max_upload_size)
         exit;
     }
 
-    if (PMA_isValid($_REQUEST['offset'], 'numeric')) {
+    if (Core::isValid($_REQUEST['offset'], 'numeric')) {
         $offset = intval($_REQUEST['offset']);
     }
     if (isset($_REQUEST['timeout_passed'])) {

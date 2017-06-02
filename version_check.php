@@ -6,7 +6,7 @@
  * @package PhpMyAdmin
  */
 
-// Sets up the session
+use PMA\libraries\Core;
 use PMA\libraries\VersionInformation;
 use PMA\libraries\Response;
 
@@ -18,7 +18,7 @@ require_once 'libraries/common.inc.php';
 Response::getInstance()->disable();
 
 // Always send the correct headers
-PMA_headerJSON();
+Core::headerJSON();
 
 $versionInformation = new VersionInformation();
 $versionDetails = $versionInformation->getLatestVersion();

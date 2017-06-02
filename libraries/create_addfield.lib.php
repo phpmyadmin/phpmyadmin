@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin
  */
+
+use PMA\libraries\Core;
 use PMA\libraries\Table;
 use PMA\libraries\Util;
 
@@ -487,7 +489,7 @@ function PMA_tryColumnCreationQuery($db, $table, $err_url)
         PMA\libraries\Util::backquote($table) . ' ' . $sql_statement . ';';
     // If there is a request for SQL previewing.
     if (isset($_REQUEST['preview_sql'])) {
-        PMA_previewSQL($sql_query);
+        Core::previewSQL($sql_query);
     }
     return array($GLOBALS['dbi']->tryQuery($sql_query) , $sql_query);
 }

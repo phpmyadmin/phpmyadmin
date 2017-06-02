@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin
  */
+
+use PMA\libraries\Core;
 use PMA\libraries\Message;
 use PMA\libraries\Response;
 use PMA\libraries\Tracker;
@@ -856,7 +858,7 @@ function PMA_getHtmlForSchemaSnapshot($url_query)
     );
 
     // Unserialize snapshot
-    $temp = PMA_safeUnserialize($data['schema_snapshot']);
+    $temp = Core::safeUnserialize($data['schema_snapshot']);
     if ($temp === null) {
         $temp = array('COLUMNS' => array(), 'INDEXES' => array());
     }
@@ -1179,7 +1181,7 @@ function PMA_exportAsFileDownload($entries)
     }
     $filename = 'log_' . $table . '.sql';
     Response::getInstance()->disable();
-    PMA_downloadHeader(
+    Core::downloadHeader(
         $filename,
         'text/x-sql',
         strlen($dump)

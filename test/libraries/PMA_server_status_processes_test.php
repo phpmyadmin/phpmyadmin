@@ -6,9 +6,7 @@
  * @package PhpMyAdmin-test
  */
 
-/*
- * Include to test.
- */
+use PMA\libraries\Core;
 use PMA\libraries\Theme;
 use PMA\libraries\URL;
 
@@ -33,7 +31,7 @@ class PMA_ServerStatusProcesses_Test extends PHPUnit_Framework_TestCase
     public function setUp()
     {
         $GLOBALS['cfg']['Server']['host'] = "localhost";
-        $GLOBALS['PMA_PHP_SELF'] = PMA_getenv('PHP_SELF');
+        $GLOBALS['PMA_PHP_SELF'] = Core::getenv('PHP_SELF');
         $GLOBALS['replication_info']['master']['status'] = true;
         $GLOBALS['replication_info']['slave']['status'] = false;
         $GLOBALS['replication_types'] = array();

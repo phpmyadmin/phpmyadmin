@@ -6,6 +6,7 @@
  * @package PhpMyAdmin
  */
 
+use PMA\libraries\Core;
 use PMA\libraries\Response;
 use PMA\libraries\Transformations;
 use PMA\libraries\URL;
@@ -62,7 +63,7 @@ if (isset($_REQUEST['do_save_data'])) {
 
     // If there is a request for SQL previewing.
     if (isset($_REQUEST['preview_sql'])) {
-        PMA_previewSQL($sql_query);
+        Core::previewSQL($sql_query);
     }
     // Executes the query
     $result = $GLOBALS['dbi']->tryQuery($sql_query);

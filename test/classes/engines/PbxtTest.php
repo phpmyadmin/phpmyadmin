@@ -10,6 +10,7 @@
  * Include to test.
  */
 
+use PMA\libraries\Core;
 use PMA\libraries\engines\Pbxt;
 
 require_once 'libraries/database_interface.inc.php';
@@ -251,7 +252,7 @@ class PbxtTest extends PMATestCase
                     'Documentation and further information about PBXT'
                     . ' can be found on the %sPrimeBase XT Home Page%s.'
                 ),
-                '<a href="' . PMA_linkURL('https://mariadb.com/kb/en/mariadb/about-pbxt/')
+                '<a href="' . Core::linkURL('https://mariadb.com/kb/en/mariadb/about-pbxt/')
                 . '" rel="noopener noreferrer" target="_blank">',
                 '</a>'
             )

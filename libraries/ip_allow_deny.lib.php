@@ -7,6 +7,10 @@
  * @package PhpMyAdmin
  */
 
+use PMA\libraries\Core;
+
+require_once './libraries/core.lib.php';
+
 /**
  * Matches for IPv4 or IPv6 addresses
  *
@@ -222,14 +226,14 @@ function PMA_ipv6MaskTest($test_range, $ip_to_test)
  *
  * @access  public
  *
- * @see     PMA_getIp()
+ * @see     Core::getIp()
  */
 function PMA_allowDeny($type)
 {
     global $cfg;
 
     // Grabs true IP of the user and returns if it can't be found
-    $remote_ip = PMA_getIp();
+    $remote_ip = Core::getIp();
     if (empty($remote_ip)) {
         return false;
     }
@@ -254,10 +258,10 @@ function PMA_allowDeny($type)
     );
 
     // Provide some useful shortcuts if server gives us address:
-    if (PMA_getenv('SERVER_ADDR')) {
-        $shortcuts['localnetA'] = PMA_getenv('SERVER_ADDR') . '/8';
-        $shortcuts['localnetB'] = PMA_getenv('SERVER_ADDR') . '/16';
-        $shortcuts['localnetC'] = PMA_getenv('SERVER_ADDR') . '/24';
+    if (Core::getenv('SERVER_ADDR')) {
+        $shortcuts['localnetA'] = Core::getenv('SERVER_ADDR') . '/8';
+        $shortcuts['localnetB'] = Core::getenv('SERVER_ADDR') . '/16';
+        $shortcuts['localnetC'] = Core::getenv('SERVER_ADDR') . '/24';
     }
 
     foreach ($rules as $rule) {
@@ -298,4 +302,3 @@ function PMA_allowDeny($type)
 
     return false;
 } // end of the "PMA_AllowDeny()" function
-

@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin
  */
+
+use PMA\libraries\Core;
 use PMA\libraries\Response;
 
 /**
@@ -48,7 +50,7 @@ $post_patterns = array(
     '/^max_/i'
 );
 
-PMA_setPostAsGlobal($post_patterns);
+Core::setPostAsGlobal($post_patterns);
 
 require 'libraries/server_common.inc.php';
 

@@ -7,6 +7,7 @@
  */
 namespace PMA\libraries\config;
 
+use PMA\libraries\Core;
 use PMA\libraries\Message;
 use PMA\libraries\Response;
 
@@ -113,7 +114,7 @@ class PageSettings
             if ($result === true) {
                 // reload page
                 $response = Response::getInstance();
-                PMA_sendHeaderLocation(
+                Core::sendHeaderLocation(
                     $response->getFooter()->getSelfUrl('unencoded')
                 );
                 exit();

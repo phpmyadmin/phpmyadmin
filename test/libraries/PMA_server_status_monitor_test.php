@@ -6,15 +6,11 @@
  * @package PhpMyAdmin-test
  */
 
-/*
- * Include to test.
- */
+use PMA\libraries\Core;
 use PMA\libraries\ServerStatusData;
 use PMA\libraries\Theme;
 
-
 require_once 'libraries/server_status_monitor.lib.php';
-
 require_once 'libraries/database_interface.inc.php';
 
 /**
@@ -53,7 +49,7 @@ class PMA_ServerStatusMonitor_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['ShowSQL'] = true;
         $GLOBALS['cfg']['Server']['host'] = "localhost";
         $GLOBALS['cfg']['ShowHint'] = true;
-        $GLOBALS['PMA_PHP_SELF'] = PMA_getenv('PHP_SELF');
+        $GLOBALS['PMA_PHP_SELF'] = Core::getenv('PHP_SELF');
         $GLOBALS['replication_info']['master']['status'] = false;
         $GLOBALS['replication_info']['slave']['status'] = false;
 

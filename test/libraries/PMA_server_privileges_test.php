@@ -6,9 +6,7 @@
  * @package PhpMyAdmin-test
  */
 
-/*
- * Include to test.
- */
+use PMA\libraries\Core;
 use PMA\libraries\Theme;
 use PMA\libraries\URL;
 
@@ -72,7 +70,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfgRelation'] = array();
         $GLOBALS['cfgRelation']['menuswork'] = false;
         $GLOBALS['table'] = "table";
-        $GLOBALS['PMA_PHP_SELF'] = PMA_getenv('PHP_SELF');
+        $GLOBALS['PMA_PHP_SELF'] = Core::getenv('PHP_SELF');
         $GLOBALS['pmaThemeImage'] = 'image';
         $GLOBALS['server'] = 1;
         $GLOBALS['hostname'] = "hostname";

@@ -7,6 +7,7 @@
  */
 namespace PMA\libraries;
 
+use PMA\libraries\Core;
 use PMA\libraries\config\ConfigFile;
 
 /**
@@ -103,7 +104,7 @@ class Encoding
                 self::$_engine = self::$_enginemap[$engine][1];
                 return;
             } else {
-                PMA_warnMissingExtension(self::$_enginemap[$engine][2]);
+                Core::warnMissingExtension(self::$_enginemap[$engine][2]);
             }
         }
 

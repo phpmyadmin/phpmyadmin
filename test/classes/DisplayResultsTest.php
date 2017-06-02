@@ -8,6 +8,7 @@
 /*
  * Include to test.
  */
+use PMA\libraries\Core;
 use PMA\libraries\plugins\transformations\Text_Plain_Link;
 
 require_once 'libraries/relation.lib.php';
@@ -1311,9 +1312,9 @@ class DisplayResultsTest extends PMATestCase
                 true,
                 'BLOB',
                 '1001',
-                'PMA_mimeDefaultFunction',
+                [Core::class, 'mimeDefaultFunction'],
                 '',
-                'PMA_mimeDefaultFunction',
+                [Core::class, 'mimeDefaultFunction'],
                 $meta,
                 $url_params,
                 null,
@@ -1326,9 +1327,9 @@ class DisplayResultsTest extends PMATestCase
                 true,
                 'BLOB',
                 hex2bin('123456'),
-                'PMA_mimeDefaultFunction',
+                [Core::class, 'mimeDefaultFunction'],
                 '',
-                'PMA_mimeDefaultFunction',
+                [Core::class, 'mimeDefaultFunction'],
                 $meta,
                 $url_params,
                 null,
@@ -1341,9 +1342,9 @@ class DisplayResultsTest extends PMATestCase
                 false,
                 'BLOB',
                 '1001',
-                'PMA_mimeDefaultFunction',
+                [Core::class, 'mimeDefaultFunction'],
                 '',
-                'PMA_mimeDefaultFunction',
+                [Core::class, 'mimeDefaultFunction'],
                 $meta,
                 $url_params,
                 null,
@@ -1358,7 +1359,7 @@ class DisplayResultsTest extends PMATestCase
                 '1001',
                 $transformation_plugin,
                 '',
-                'PMA_mimeDefaultFunction',
+                [Core::class, 'mimeDefaultFunction'],
                 $meta,
                 $url_params,
                 null,
@@ -1371,7 +1372,7 @@ class DisplayResultsTest extends PMATestCase
                 null,
                 '',
                 '',
-                'PMA_mimeDefaultFunction',
+                [Core::class, 'mimeDefaultFunction'],
                 $meta,
                 $url_params,
                 null,
@@ -1390,7 +1391,7 @@ class DisplayResultsTest extends PMATestCase
      * @param string  $content               the binary content
      * @param string  $transformation_plugin transformation plugin.
      *                                       Can also be the default function:
-     *                                       PMA_mimeDefaultFunction
+     *                                       PMA\libraries\Core::mimeDefaultFunction
      * @param string  $transform_options     transformation parameters
      * @param string  $default_function      default transformation function
      * @param object  $meta                  the meta-information about the field
@@ -1462,8 +1463,8 @@ class DisplayResultsTest extends PMATestCase
                 array(),
                 $url_params,
                 false,
-                'PMA_mimeDefaultFunction',
-                'PMA_mimeDefaultFunction',
+                [Core::class, 'mimeDefaultFunction'],
+                [Core::class, 'mimeDefaultFunction'],
                 array('https://www.example.com/'),
                 false,
                 array(),
@@ -1484,7 +1485,7 @@ class DisplayResultsTest extends PMATestCase
                 $url_params,
                 false,
                 $transformation_plugin,
-                'PMA_mimeDefaultFunction',
+                [Core::class, 'mimeDefaultFunction'],
                 '',
                 false,
                 array(),
@@ -1502,7 +1503,7 @@ class DisplayResultsTest extends PMATestCase
                 $url_params,
                 false,
                 $transformation_plugin,
-                'PMA_mimeDefaultFunction',
+                [Core::class, 'mimeDefaultFunction'],
                 '',
                 false,
                 array(),
@@ -1519,8 +1520,8 @@ class DisplayResultsTest extends PMATestCase
                 array(),
                 $url_params,
                 false,
-                'PMA_mimeDefaultFunction',
-                'PMA_mimeDefaultFunction',
+                [Core::class, 'mimeDefaultFunction'],
+                [Core::class, 'mimeDefaultFunction'],
                 '',
                 false,
                 array(),

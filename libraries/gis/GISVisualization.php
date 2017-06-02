@@ -8,6 +8,7 @@
 
 namespace PMA\libraries\gis;
 
+use PMA\libraries\Core;
 use PMA\libraries\Util;
 use \TCPDF;
 use PMA\libraries\Sanitize;
@@ -280,7 +281,7 @@ class GISVisualization
     private function _toFile($file_name, $type, $ext)
     {
         $file_name = $this->_sanitizeName($file_name, $ext);
-        PMA_downloadHeader($file_name, $type);
+        Core::downloadHeader($file_name, $type);
     }
 
     /**

@@ -6,6 +6,8 @@
  *
  * @package PhpMyAdmin
  */
+
+use PMA\libraries\Core;
 use PMA\libraries\URL;
 use PMA\libraries\Response;
 
@@ -203,7 +205,7 @@ function PMA_changePassword($password, $message, $change_password_message)
  */
 function PMA_changePassHashingFunction()
 {
-    if (PMA_isValid(
+    if (Core::isValid(
         $_REQUEST['authentication_plugin'], 'identical', 'mysql_old_password'
     )) {
         $hashing_function = 'OLD_PASSWORD';

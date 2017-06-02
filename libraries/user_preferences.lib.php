@@ -6,6 +6,7 @@
  * @package PhpMyAdmin
  */
 use PMA\libraries\config\ConfigFile;
+use PMA\libraries\Core;
 use PMA\libraries\Message;
 use PMA\libraries\URL;
 
@@ -171,7 +172,7 @@ function PMA_applyUserprefs(array $config_data)
         if (! isset($whitelist[$path]) || isset($blacklist[$path])) {
             continue;
         }
-        PMA_arrayWrite($path, $cfg, $value);
+        Core::arrayWrite($path, $cfg, $value);
     }
     return $cfg;
 }
@@ -256,7 +257,7 @@ function PMA_userprefsRedirect($file_name,
     if ($hash) {
         $hash = '#' . urlencode($hash);
     }
-    PMA_sendHeaderLocation('./' . $file_name
+    Core::sendHeaderLocation('./' . $file_name
         . URL::getCommonRaw($url_params) . $hash
     );
 }

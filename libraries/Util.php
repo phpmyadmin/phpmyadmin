@@ -13,6 +13,7 @@ use PhpMyAdmin\SqlParser\Lexer;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Token;
 use stdClass;
+use PMA\libraries\Core;
 use PMA\libraries\URL;
 use PMA\libraries\Sanitize;
 use PMA\libraries\Template;
@@ -373,7 +374,7 @@ class Util
             $url .= '#' . $anchor;
         }
 
-        return PMA_linkURL($url);
+        return Core::linkURL($url);
     }
 
     /**
@@ -425,7 +426,7 @@ class Util
         /* Check if we have built local documentation */
         if (defined('TESTSUITE')) {
             /* Provide consistent URL for testsuite */
-            return PMA_linkURL('https://docs.phpmyadmin.net/en/latest/' . $url);
+            return Core::linkURL('https://docs.phpmyadmin.net/en/latest/' . $url);
         } elseif (@file_exists('doc/html/index.html')) {
             if (defined('PMA_SETUP')) {
                 return '../doc/html/' . $url;
@@ -434,7 +435,7 @@ class Util
             }
         } else {
             /* TODO: Should link to correct branch for released versions */
-            return PMA_linkURL('https://docs.phpmyadmin.net/en/latest/' . $url);
+            return Core::linkURL('https://docs.phpmyadmin.net/en/latest/' . $url);
         }
     }
 
@@ -465,7 +466,7 @@ class Util
      */
     public static function showPHPDocu($target)
     {
-        $url = PMA_getPHPDocLink($target);
+        $url = Core::getPHPDocLink($target);
 
         return self::showDocLink($url);
     } // end of the 'showPHPDocu()' function
@@ -1633,7 +1634,7 @@ class Util
         // determine additional style-class
         if (empty($tab['class'])) {
             if (! empty($tab['active'])
-                || PMA_isValid($GLOBALS['active_page'], 'identical', $tab['link'])
+                || Core::isValid($GLOBALS['active_page'], 'identical', $tab['link'])
             ) {
                 $tab['class'] = 'active';
             } elseif (is_null($tab['active']) && empty($GLOBALS['active_page'])
@@ -2019,7 +2020,7 @@ class Util
             }
         }
         if ($found_error) {
-            PMA_fatalError($error_message);
+            Core::fatalError($error_message);
         }
     } // end function
 
@@ -2520,7 +2521,7 @@ class Util
             $dir .= '/';
         }
 
-        return str_replace('%u', PMA_securePath($GLOBALS['cfg']['Server']['user']), $dir);
+        return str_replace('%u', Core::securePath($GLOBALS['cfg']['Server']['user']), $dir);
     }
 
     /**
@@ -2575,7 +2576,7 @@ class Util
                 sprintf(
                     __('The %s functionality is affected by a known bug, see %s'),
                     $functionality,
-                    PMA_linkURL('https://bugs.mysql.com/') . $bugref
+                    Core::linkURL('https://bugs.mysql.com/') . $bugref
                 )
             );
         }
@@ -3264,7 +3265,7 @@ class Util
     ) {
         /* Content */
         $vars = array();
-        $vars['http_host'] = PMA_getenv('HTTP_HOST');
+        $vars['http_host'] = Core::getenv('HTTP_HOST');
         $vars['server_name'] = $GLOBALS['cfg']['Server']['host'];
         $vars['server_verbose'] = $GLOBALS['cfg']['Server']['verbose'];
 
@@ -4589,7 +4590,7 @@ class Util
         if (isset($sot_cache)) {
             $tblGroupSql = "";
             $whereAdded = false;
-            if (PMA_isValid($_REQUEST['tbl_group'])) {
+            if (Core::isValid($_REQUEST['tbl_group'])) {
                 $group = Util::escapeMysqlWildcards($_REQUEST['tbl_group']);
                 $groupWithSeparator = Util::escapeMysqlWildcards(
                     $_REQUEST['tbl_group']
@@ -4603,7 +4604,7 @@ class Util
                     . " LIKE '" . $group . "')";
                 $whereAdded = true;
             }
-            if (PMA_isValid($_REQUEST['tbl_type'], array('table', 'view'))) {
+            if (Core::isValid($_REQUEST['tbl_type'], array('table', 'view'))) {
                 $tblGroupSql .= $whereAdded ? " AND" : " WHERE";
                 if ($_REQUEST['tbl_type'] == 'view') {
                     $tblGroupSql .= " `Table_type` != 'BASE TABLE'";

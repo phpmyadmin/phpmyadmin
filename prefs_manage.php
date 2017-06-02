@@ -7,6 +7,7 @@
  */
 use PMA\libraries\config\ConfigFile;
 use PMA\libraries\config\FormDisplay;
+use PMA\libraries\Core;
 use PMA\libraries\File;
 use PMA\libraries\Message;
 use PMA\libraries\Response;
@@ -35,8 +36,8 @@ if (isset($_POST['submit_export'])
 ) {
     // export to JSON file
     $response->disable();
-    $filename = 'phpMyAdmin-config-' . urlencode(PMA_getenv('HTTP_HOST')) . '.json';
-    PMA_downloadHeader($filename, 'application/json');
+    $filename = 'phpMyAdmin-config-' . urlencode(Core::getenv('HTTP_HOST')) . '.json';
+    Core::downloadHeader($filename, 'application/json');
     $settings = PMA_loadUserprefs();
     echo json_encode($settings['config_data'], JSON_PRETTY_PRINT);
     exit;
@@ -46,8 +47,8 @@ if (isset($_POST['submit_export'])
 ) {
     // export to JSON file
     $response->disable();
-    $filename = 'phpMyAdmin-config-' . urlencode(PMA_getenv('HTTP_HOST')) . '.php';
-    PMA_downloadHeader($filename, 'application/php');
+    $filename = 'phpMyAdmin-config-' . urlencode(Core::getenv('HTTP_HOST')) . '.php';
+    Core::downloadHeader($filename, 'application/php');
     $settings = PMA_loadUserprefs();
     echo '/* ' . _('phpMyAdmin configuration snippet') . " */\n\n";
     echo '/* ' . _('Paste it to your config.inc.php') . " */\n\n";

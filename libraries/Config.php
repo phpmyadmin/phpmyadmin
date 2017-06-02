@@ -8,6 +8,7 @@
 namespace PMA\libraries;
 
 use DirectoryIterator;
+use PMA\libraries\Core;
 use PMA\libraries\URL;
 use PMA\libraries\ThemeManager;
 
@@ -172,8 +173,8 @@ class Config
      */
     public function checkClient()
     {
-        if (PMA_getenv('HTTP_USER_AGENT')) {
-            $HTTP_USER_AGENT = PMA_getenv('HTTP_USER_AGENT');
+        if (Core::getenv('HTTP_USER_AGENT')) {
+            $HTTP_USER_AGENT = Core::getenv('HTTP_USER_AGENT');
         } else {
             $HTTP_USER_AGENT = '';
         }
@@ -312,9 +313,9 @@ class Config
     {
         // some versions return Microsoft-IIS, some Microsoft/IIS
         // we could use a preg_match() but it's slower
-        if (PMA_getenv('SERVER_SOFTWARE')
-            && stristr(PMA_getenv('SERVER_SOFTWARE'), 'Microsoft')
-            && stristr(PMA_getenv('SERVER_SOFTWARE'), 'IIS')
+        if (Core::getenv('SERVER_SOFTWARE')
+            && stristr(Core::getenv('SERVER_SOFTWARE'), 'Microsoft')
+            && stristr(Core::getenv('SERVER_SOFTWARE'), 'IIS')
         ) {
             $this->set('PMA_IS_IIS', 1);
         } else {
@@ -1030,19 +1031,19 @@ class Config
         if ($prefs_type) {
             include_once './libraries/user_preferences.lib.php';
             if ($default_value === null) {
-                $default_value = PMA_arrayRead($cfg_path, $this->default);
+                $default_value = Core::arrayRead($cfg_path, $this->default);
             }
             PMA_persistOption($cfg_path, $new_cfg_value, $default_value);
         }
         if ($prefs_type != 'db' && $cookie_name) {
             // fall back to cookies
             if ($default_value === null) {
-                $default_value = PMA_arrayRead($cfg_path, $this->settings);
+                $default_value = Core::arrayRead($cfg_path, $this->settings);
             }
             $this->setCookie($cookie_name, $new_cfg_value, $default_value);
         }
-        PMA_arrayWrite($cfg_path, $GLOBALS['cfg'], $new_cfg_value);
-        PMA_arrayWrite($cfg_path, $this->settings, $new_cfg_value);
+        Core::arrayWrite($cfg_path, $GLOBALS['cfg'], $new_cfg_value);
+        Core::arrayWrite($cfg_path, $this->settings, $new_cfg_value);
     }
 
     /**
@@ -1110,7 +1111,7 @@ class Config
             }
             if ($contents === false) {
                 $this->source_mtime = 0;
-                PMA_fatalError(
+                Core::fatalError(
                     sprintf(
                         function_exists('__')
                         ? __('Existing configuration file (%s) is not readable.')
@@ -1141,7 +1142,7 @@ class Config
                 $this->checkWebServerOs();
                 if ($this->get('PMA_IS_WINDOWS') == 0) {
                     $this->source_mtime = 0;
-                    PMA_fatalError(
+                    Core::fatalError(
                         __(
                             'Wrong permissions on configuration file, '
                             . 'should not be world writable!'
@@ -1161,7 +1162,7 @@ class Config
     public function checkErrors()
     {
         if ($this->error_config_default_file) {
-            PMA_fatalError(
+            Core::fatalError(
                 sprintf(
                     __('Could not load default configuration from: %1$s'),
                     $this->default_source
@@ -1344,10 +1345,10 @@ class Config
         if ($postsize = ini_get('post_max_size')) {
             $this->set(
                 'max_upload_size',
-                min(PMA_getRealSize($filesize), PMA_getRealSize($postsize))
+                min(Core::getRealSize($filesize), Core::getRealSize($postsize))
             );
         } else {
-            $this->set('max_upload_size', PMA_getRealSize($filesize));
+            $this->set('max_upload_size', Core::getRealSize($filesize));
         }
     }
 
@@ -1370,20 +1371,20 @@ class Config
         $is_https = false;
         if (! empty($url) && parse_url($url, PHP_URL_SCHEME) === 'https') {
             $is_https = true;
-        } elseif (strtolower(PMA_getenv('HTTP_SCHEME')) == 'https') {
+        } elseif (strtolower(Core::getenv('HTTP_SCHEME')) == 'https') {
             $is_https = true;
-        } elseif (strtolower(PMA_getenv('HTTPS')) == 'on') {
+        } elseif (strtolower(Core::getenv('HTTPS')) == 'on') {
             $is_https = true;
-        } elseif (substr(strtolower(PMA_getenv('REQUEST_URI')), 0, 6) == 'https:') {
+        } elseif (substr(strtolower(Core::getenv('REQUEST_URI')), 0, 6) == 'https:') {
             $is_https = true;
-        } elseif (strtolower(PMA_getenv('HTTP_HTTPS_FROM_LB')) == 'on') {
+        } elseif (strtolower(Core::getenv('HTTP_HTTPS_FROM_LB')) == 'on') {
             // A10 Networks load balancer
             $is_https = true;
-        } elseif (strtolower(PMA_getenv('HTTP_FRONT_END_HTTPS')) == 'on') {
+        } elseif (strtolower(Core::getenv('HTTP_FRONT_END_HTTPS')) == 'on') {
             $is_https = true;
-        } elseif (strtolower(PMA_getenv('HTTP_X_FORWARDED_PROTO')) == 'https') {
+        } elseif (strtolower(Core::getenv('HTTP_X_FORWARDED_PROTO')) == 'https') {
             $is_https = true;
-        } elseif (PMA_getenv('SERVER_PORT') == 443) {
+        } elseif (Core::getenv('SERVER_PORT') == 443) {
             $is_https = true;
         }
 
@@ -1691,7 +1692,7 @@ class Config
             return;
         }
 
-        PMA_fatalError(
+        Core::fatalError(
             sprintf(
                 'Failed to load phpMyAdmin configuration (%s:%s): %s',
                 Error::relPath($error['file']),

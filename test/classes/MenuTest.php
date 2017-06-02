@@ -9,6 +9,7 @@
 /*
  * Include to test.
  */
+use PMA\libraries\Core;
 use PMA\libraries\Menu;
 use PMA\libraries\Theme;
 
@@ -37,7 +38,7 @@ class MenuTest extends PMATestCase
         $GLOBALS['server'] = 0;
         $GLOBALS['cfg']['Server']['verbose'] = 'verbose host';
         $GLOBALS['pmaThemePath'] = $_SESSION['PMA_Theme']->getPath();
-        $GLOBALS['PMA_PHP_SELF'] = PMA_getenv('PHP_SELF');
+        $GLOBALS['PMA_PHP_SELF'] = Core::getenv('PHP_SELF');
         $GLOBALS['server'] = 'server';
         $GLOBALS['db'] = 'pma_test';
         $GLOBALS['table'] = 'table1';

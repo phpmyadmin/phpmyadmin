@@ -10,6 +10,7 @@
 namespace PMA\libraries\controllers\table;
 
 use PMA\libraries\controllers\TableController;
+use PMA\libraries\Core;
 use PMA\libraries\Message;
 use PMA\libraries\Template;
 use PMA\libraries\gis\GISVisualization;
@@ -117,7 +118,7 @@ class TableGisVisualizationController extends TableController
         }
 
         // Get settings if any posted
-        if (PMA_isValid($_REQUEST['visualizationSettings'], 'array')) {
+        if (Core::isValid($_REQUEST['visualizationSettings'], 'array')) {
             $this->visualizationSettings = $_REQUEST['visualizationSettings'];
         }
 

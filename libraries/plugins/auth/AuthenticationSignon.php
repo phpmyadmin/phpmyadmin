@@ -8,6 +8,7 @@
  */
 namespace PMA\libraries\plugins\auth;
 
+use PMA\libraries\Core;
 use PMA\libraries\plugins\AuthenticationPlugin;
 use PMA;
 
@@ -27,9 +28,9 @@ class AuthenticationSignon extends AuthenticationPlugin
     {
         unset($_SESSION['LAST_SIGNON_URL']);
         if (empty($GLOBALS['cfg']['Server']['SignonURL'])) {
-            PMA_fatalError('You must set SignonURL!');
+            Core::fatalError('You must set SignonURL!');
         } else {
-            PMA_sendHeaderLocation($GLOBALS['cfg']['Server']['SignonURL']);
+            Core::sendHeaderLocation($GLOBALS['cfg']['Server']['SignonURL']);
         }
 
         if (!defined('TESTSUITE')) {
@@ -83,7 +84,7 @@ class AuthenticationSignon extends AuthenticationPlugin
         /* Handle script based auth */
         if (!empty($script_name)) {
             if (!file_exists($script_name)) {
-                PMA_fatalError(
+                Core::fatalError(
                     __('Can not find signon authentication script:')
                     . ' ' . $script_name
                 );

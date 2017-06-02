@@ -6,6 +6,8 @@
  *
  * @package PhpMyAdmin
  */
+
+use PMA\libraries\Core;
 use PMA\libraries\Message;
 use PMA\libraries\Response;
 use PMA\libraries\URL;
@@ -42,7 +44,7 @@ if (empty($is_db)) {
                 if (isset($show_as_php)) {
                     $url_params['show_as_php'] = $show_as_php;
                 }
-                PMA_sendHeaderLocation(
+                Core::sendHeaderLocation(
                     './index.php'
                     . URL::getCommonRaw($url_params)
                 );

@@ -6,10 +6,10 @@
  * @package PhpMyAdmin-test
  */
 
+use PMA\libraries\Core;
 use PMA\libraries\di\Container;
 use PMA\libraries\Theme;
 use PMA\libraries\URL;
-
 
 require_once 'libraries/database_interface.inc.php';
 require_once 'test/libraries/stubs/ResponseStub.php';
@@ -39,7 +39,7 @@ class ServerVariablesControllerTest extends PMATestCase
         $_REQUEST['pos'] = 3;
 
         //$GLOBALS
-        $GLOBALS['PMA_PHP_SELF'] = PMA_getenv('PHP_SELF');
+        $GLOBALS['PMA_PHP_SELF'] = Core::getenv('PHP_SELF');
         $GLOBALS['server'] = 1;
         $GLOBALS['table'] = "table";
 

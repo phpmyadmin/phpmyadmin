@@ -6,6 +6,7 @@
  * @package PhpMyAdmin
  */
 
+use PMA\libraries\Core;
 use PMA\libraries\Response;
 use PMA\libraries\Transformations;
 
@@ -111,7 +112,7 @@ if (isset($ct) && ! empty($ct)) {
     . (isset($mime_options['charset']) ? $mime_options['charset'] : '');
 }
 
-PMA_downloadHeader($cn, $mime_type);
+Core::downloadHeader($cn, $mime_type);
 
 if (! isset($_REQUEST['resize'])) {
     if (stripos($mime_type, 'html') === false) {

@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin
  */
+
+use PMA\libraries\Core;
 use PMA\libraries\Message;
 use PMA\libraries\Response;
 use PMA\libraries\URL;
@@ -942,7 +944,7 @@ function PMA_handleControlRequest()
                     : Message::error($messageError)
                 );
             } else {
-                PMA_sendHeaderLocation(
+                Core::sendHeaderLocation(
                     './server_replication.php'
                     . URL::getCommonRaw($GLOBALS['url_params'])
                 );

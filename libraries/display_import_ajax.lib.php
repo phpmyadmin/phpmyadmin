@@ -6,6 +6,8 @@
 * @package PhpMyAdmin
 */
 
+use PMA\libraries\Core;
+
 /**
  * Sets up some variables for upload progress
  *
@@ -128,7 +130,7 @@ function PMA_Import_nopluginCheck()
   */
 function PMA_importAjaxStatus($id)
 {
-    PMA_headerJSON();
+    Core::headerJSON();
     echo json_encode(
         $_SESSION[$GLOBALS['SESSION_KEY']]['handler']::getUploadStatus($id)
     );

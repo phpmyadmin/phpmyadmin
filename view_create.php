@@ -7,6 +7,8 @@
  * @todo (also validate if js is disabled, after form submission?)
  * @package PhpMyAdmin
  */
+
+use PMA\libraries\Core;
 use PMA\libraries\URL;
 use PMA\libraries\Response;
 
@@ -69,7 +71,7 @@ if (isset($_REQUEST['createview']) || isset($_REQUEST['alterview'])) {
         $sql_query = 'ALTER';
     }
 
-    if (PMA_isValid($_REQUEST['view']['algorithm'], $view_algorithm_options)) {
+    if (Core::isValid($_REQUEST['view']['algorithm'], $view_algorithm_options)) {
         $sql_query .= $sep . ' ALGORITHM = ' . $_REQUEST['view']['algorithm'];
     }
 
@@ -185,7 +187,7 @@ $view = array(
     'with' => '',
 );
 
-if (PMA_isValid($_REQUEST['view'], 'array')) {
+if (Core::isValid($_REQUEST['view'], 'array')) {
     $view = array_merge($view, $_REQUEST['view']);
 }
 

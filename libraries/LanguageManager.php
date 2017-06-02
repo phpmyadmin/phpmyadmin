@@ -7,6 +7,7 @@
  */
 namespace PMA\libraries;
 
+use PMA\libraries\Core;
 use PMA\libraries\Language;
 use PMA\libraries\URL;
 
@@ -851,7 +852,7 @@ class LanguageManager
         $langs = $this->availableLanguages();
 
         // try to find out user's language by checking its HTTP_ACCEPT_LANGUAGE variable;
-        $accepted_languages = PMA_getenv('HTTP_ACCEPT_LANGUAGE');
+        $accepted_languages = Core::getenv('HTTP_ACCEPT_LANGUAGE');
         if ($accepted_languages) {
             foreach (explode(',', $accepted_languages) as $header) {
                 foreach ($langs as $language) {
@@ -863,7 +864,7 @@ class LanguageManager
         }
 
         // try to find out user's language by checking its HTTP_USER_AGENT variable
-        $user_agent = PMA_getenv('HTTP_USER_AGENT');
+        $user_agent = Core::getenv('HTTP_USER_AGENT');
         if (! empty($user_agent)) {
             foreach ($langs as $language) {
                 if ($language->matchesUserAgent($user_agent)) {

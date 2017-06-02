@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin
  */
+
+use PMA\libraries\Core;
 use PMA\libraries\Linter;
 use PMA\libraries\Response;
 
@@ -32,7 +34,7 @@ $sql_query = !empty($_POST['sql_query']) ? $_POST['sql_query'] : '';
 // Disabling standard response.
 Response::getInstance()->disable();
 
-PMA_headerJSON();
+Core::headerJSON();
 
 if (! empty($_POST['options'])) {
     $options = $_POST['options'];

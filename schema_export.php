@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin
  */
+
+use PMA\libraries\Core;
 use PMA\libraries\plugins\SchemaPlugin;
 
 /**
@@ -49,7 +51,7 @@ function PMA_processExportSchema($export_type)
     }
 
     // sanitize this parameter which will be used below in a file inclusion
-    $export_type = PMA_securePath($export_type);
+    $export_type = Core::securePath($export_type);
 
     // get the specific plugin
     /* @var $export_plugin SchemaPlugin */
@@ -61,7 +63,7 @@ function PMA_processExportSchema($export_type)
 
     // Check schema export type
     if (! isset($export_plugin)) {
-        PMA_fatalError(__('Bad type!'));
+        Core::fatalError(__('Bad type!'));
     }
 
     $GLOBALS['dbi']->selectDb($GLOBALS['db']);

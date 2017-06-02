@@ -8,7 +8,8 @@
  */
 namespace PMA\libraries;
 
-use \Exception;
+use Exception;
+use PMA\libraries\Core;
 use PMA\libraries\URL;
 use Symfony\Component\ExpressionLanguage\ExpressionLanguage;
 
@@ -410,7 +411,7 @@ class Advisor
                 $this->translate($rule['recommendation'])
             );
 
-            // Replaces external Links with PMA_linkURL() generated links
+            // Replaces external Links with Core::linkURL() generated links
             $rule['recommendation'] = preg_replace_callback(
                 '#href=("|\')(https?://[^\1]+)\1#i',
                 array($this, 'replaceLinkURL'),
@@ -423,7 +424,7 @@ class Advisor
     }
 
     /**
-     * Callback for wrapping links with PMA_linkURL
+     * Callback for wrapping links with Core::linkURL
      *
      * @param array $matches List of matched elements form preg_replace_callback
      *
@@ -431,7 +432,7 @@ class Advisor
      */
     private function replaceLinkURL($matches)
     {
-        return 'href="' . PMA_linkURL($matches[2]) . '" target="_blank" rel="noopener noreferrer"';
+        return 'href="' . Core::linkURL($matches[2]) . '" target="_blank" rel="noopener noreferrer"';
     }
 
     /**

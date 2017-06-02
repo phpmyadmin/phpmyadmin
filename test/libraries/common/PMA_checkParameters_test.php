@@ -10,6 +10,7 @@
 /*
  * Include to test.
  */
+use PMA\libraries\Core;
 use PMA\libraries\Theme;
 
 /**
@@ -39,7 +40,7 @@ class PMA_CheckParameters_Test extends PHPUnit_Framework_TestCase
      */
     function testCheckParameterMissing()
     {
-        $GLOBALS['PMA_PHP_SELF'] = PMA_getenv('PHP_SELF');
+        $GLOBALS['PMA_PHP_SELF'] = Core::getenv('PHP_SELF');
         $GLOBALS['pmaThemePath'] = $_SESSION['PMA_Theme']->getPath();
 
         $this->expectOutputRegex("/Missing parameter: field/");
@@ -56,7 +57,7 @@ class PMA_CheckParameters_Test extends PHPUnit_Framework_TestCase
      */
     function testCheckParameter()
     {
-        $GLOBALS['PMA_PHP_SELF'] = PMA_getenv('PHP_SELF');
+        $GLOBALS['PMA_PHP_SELF'] = Core::getenv('PHP_SELF');
         $GLOBALS['pmaThemePath'] = $_SESSION['PMA_Theme']->getPath();
         $GLOBALS['db'] = "dbDatabase";
         $GLOBALS['table'] = "tblTable";

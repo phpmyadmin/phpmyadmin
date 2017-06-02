@@ -7,6 +7,7 @@
  */
 namespace PMA\libraries\config;
 
+use PMA\libraries\Core;
 use PMA\libraries\DatabaseInterface;
 use PMA\libraries\Util;
 
@@ -59,7 +60,7 @@ class Validator
                 }
                 for ($i = 1, $nb = count($uv); $i < $nb; $i++) {
                     if (mb_substr($uv[$i], 0, 6) == 'value:') {
-                        $uv[$i] = PMA_arrayRead(
+                        $uv[$i] = Core::arrayRead(
                             mb_substr($uv[$i], 6),
                             $GLOBALS['PMA_Config']->base_settings
                         );
@@ -186,7 +187,7 @@ class Validator
 
         //    static::testPHPErrorMsg();
         $error = null;
-        $host = PMA_sanitizeMySQLHost($host);
+        $host = Core::sanitizeMySQLHost($host);
 
         if (DatabaseInterface::checkDbExtension('mysqli')) {
             $socket = empty($socket) ? null : $socket;

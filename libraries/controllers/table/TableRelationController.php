@@ -11,6 +11,7 @@ namespace PMA\libraries\controllers\table;
 require_once 'libraries/index.lib.php';
 
 use PMA\libraries\controllers\TableController;
+use PMA\libraries\Core;
 use PMA\libraries\DatabaseInterface;
 use PMA\libraries\Index;
 use PMA\libraries\Table;
@@ -243,7 +244,7 @@ class TableRelationController extends TableController
 
         // If there is a request for SQL previewing.
         if (isset($_REQUEST['preview_sql'])) {
-            PMA_previewSQL($preview_sql_data);
+            Core::previewSQL($preview_sql_data);
         }
 
         if (!empty($display_query) && !$seen_error) {

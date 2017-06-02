@@ -8,6 +8,7 @@
 namespace PMA\libraries\config;
 
 use PMA\libraries\Config;
+use PMA\libraries\Core;
 
 /**
  * Config file management class.
@@ -94,7 +95,7 @@ class ConfigFile
         // apply default values overrides
         if (count($cfg_db['_overrides'])) {
             foreach ($cfg_db['_overrides'] as $path => $value) {
-                PMA_arrayWrite($path, $cfg, $value);
+                Core::arrayWrite($path, $cfg, $value);
             }
         }
 
@@ -209,7 +210,7 @@ class ConfigFile
         }
         // if the path isn't protected it may be removed
         if (isset($this->_persistKeys[$canonical_path])) {
-            PMA_arrayWrite($path, $_SESSION[$this->_id], $value);
+            Core::arrayWrite($path, $_SESSION[$this->_id], $value);
             return;
         }
 
@@ -223,7 +224,7 @@ class ConfigFile
             // get original config values not overwritten by user
             // preferences to allow for overwriting options set in
             // config.inc.php with default values
-            $instance_default_value = PMA_arrayRead(
+            $instance_default_value = Core::arrayRead(
                 $canonical_path,
                 $this->_baseCfg
             );
@@ -233,11 +234,11 @@ class ConfigFile
                 && ($instance_default_value === $default_value);
         }
         if ($remove_path) {
-            PMA_arrayRemove($path, $_SESSION[$this->_id]);
+            Core::arrayRemove($path, $_SESSION[$this->_id]);
             return;
         }
 
-        PMA_arrayWrite($path, $_SESSION[$this->_id], $value);
+        Core::arrayWrite($path, $_SESSION[$this->_id], $value);
     }
 
     /**
@@ -313,7 +314,7 @@ class ConfigFile
      */
     public function get($path, $default = null)
     {
-        return PMA_arrayRead($path, $_SESSION[$this->_id], $default);
+        return Core::arrayRead($path, $_SESSION[$this->_id], $default);
     }
 
     /**
@@ -328,7 +329,7 @@ class ConfigFile
      */
     public function getDefault($canonical_path, $default = null)
     {
-        return PMA_arrayRead($canonical_path, $this->_defaultCfg, $default);
+        return Core::arrayRead($canonical_path, $this->_defaultCfg, $default);
     }
 
     /**
@@ -342,7 +343,7 @@ class ConfigFile
      */
     public function getValue($path, $default = null)
     {
-        $v = PMA_arrayRead($path, $_SESSION[$this->_id], null);
+        $v = Core::arrayRead($path, $_SESSION[$this->_id], null);
         if ($v !== null) {
             return $v;
         }
@@ -372,7 +373,7 @@ class ConfigFile
      */
     public function getDbEntry($path, $default = null)
     {
-        return PMA_arrayRead($path, $this->_cfgDb, $default);
+        return Core::arrayRead($path, $this->_cfgDb, $default);
     }
 
     /**
@@ -490,9 +491,9 @@ class ConfigFile
         $c = $_SESSION[$this->_id];
         foreach ($this->_cfgUpdateReadMapping as $map_to => $map_from) {
             // if the key $c exists in $map_to
-            if (PMA_arrayRead($map_to, $c) !== null) {
-                PMA_arrayWrite($map_to, $c, PMA_arrayRead($map_from, $c));
-                PMA_arrayRemove($map_from, $c);
+            if (Core::arrayRead($map_to, $c) !== null) {
+                Core::arrayWrite($map_to, $c, Core::arrayRead($map_from, $c));
+                Core::arrayRemove($map_from, $c);
             }
         }
         return $c;

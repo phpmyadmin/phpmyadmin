@@ -5,9 +5,11 @@
  *
  * @package PhpMyAdmin
  */
-use PMA\libraries\Response;
+
+use PMA\libraries\Core;
 use PMA\libraries\gis\GISFactory;
 use PMA\libraries\gis\GISVisualization;
+use PMA\libraries\Response;
 use PMA\libraries\URL;
 
 /**
@@ -31,7 +33,7 @@ if (! isset($_REQUEST['field'])) {
 
 // Get data if any posted
 $gis_data = array();
-if (PMA_isValid($_REQUEST['gis_data'], 'array')) {
+if (Core::isValid($_REQUEST['gis_data'], 'array')) {
     $gis_data = $_REQUEST['gis_data'];
 }
 

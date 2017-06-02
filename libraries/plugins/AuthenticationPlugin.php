@@ -7,6 +7,7 @@
  */
 namespace PMA\libraries\plugins;
 
+use PMA\libraries\Core;
 use PMA\libraries\Sanitize;
 use PMA\libraries\URL;
 
@@ -97,11 +98,11 @@ abstract class AuthenticationPlugin
             }
 
             /* Redirect to login form (or configured URL) */
-            PMA_sendHeaderLocation($redirect_url);
+            Core::sendHeaderLocation($redirect_url);
         } else {
             /* Redirect to other autenticated server */
             $_SESSION['partial_logout'] = true;
-            PMA_sendHeaderLocation(
+            Core::sendHeaderLocation(
                 './index.php' . URL::getCommonRaw(array('server' => $server))
             );
         }

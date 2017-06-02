@@ -7,6 +7,7 @@
  */
 namespace PMA\libraries;
 
+use PMA\libraries\Core;
 use PMA\libraries\Util;
 
 /**
@@ -109,7 +110,7 @@ class Sanitize
 
         /* Construct url */
         if (substr($found[1], 0, 4) == 'http') {
-            $url = PMA_linkURL($found[1]);
+            $url = Core::linkURL($found[1]);
         } else {
             $url = $found[1];
         }
