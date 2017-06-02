@@ -409,6 +409,8 @@ if [ $do_tag -eq 1 ] ; then
     echo "* Tagging release as $tagname"
     git tag -s -a -m "Released $version" $tagname $branch
     echo "   Dont forget to push tags using: git push --tags"
+    git rm --force composer.lock
+    git commit -s -m "Removing composer.lock"
 fi
 
 # Mark as stable release
