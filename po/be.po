@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-05-17 09:24+0200\n"
-"PO-Revision-Date: 2017-06-01 17:51+0000\n"
+"PO-Revision-Date: 2017-06-02 18:27+0000\n"
 "Last-Translator: Viktar Vauchkevich <victorenator@gmail.com>\n"
 "Language-Team: Belarusian "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/be/>\n"
@@ -14038,58 +14038,40 @@ msgid "Switch to dark theme"
 msgstr "Пераключыць на цёмную тэму"
 
 #: templates/database/designer/database_tables.phtml:29
-#, fuzzy
-#| msgid "Add %s field(s)"
 msgid "Show/hide columns"
-msgstr "Дадаць %s новыя палі"
+msgstr "Паказаць/Схаваць слупкі"
 
 #: templates/database/designer/database_tables.phtml:37
-#, fuzzy
-#| msgid "Database for user"
 msgid "See table structure"
-msgstr "База дадзеных для карыстальніка"
+msgstr "Глядзець структуру табліцы"
 
 #: templates/database/designer/edit_delete_pages.phtml:7
-#, fuzzy
-#| msgid "Page number:"
 msgid "Page to open"
-msgstr "Старонка:"
+msgstr "Старонка для адкрыцця"
 
 #: templates/database/designer/edit_delete_pages.phtml:7
-#, fuzzy
-#| msgid "Relation deleted"
 msgid "Page to delete"
-msgstr "Сувязь выдаленая"
+msgstr "Старонка для выдалення"
 
 #: templates/database/designer/page_save_as.phtml:4
-#, fuzzy
-#| msgid "Export/Import to scale"
 msgid "Save to selected page"
-msgstr "Маштаб"
+msgstr "Захаваць на абраную старонку"
 
 #: templates/database/designer/page_save_as.phtml:5
-#, fuzzy
-#| msgid "Create a new index"
 msgid "Create a page and save to it"
-msgstr "Стварыць новы індэкс"
+msgstr "Стварыць старонку і запісаць на яе"
 
 #: templates/database/designer/page_save_as.phtml:26
-#, fuzzy
-#| msgid "User name"
 msgid "New page name"
-msgstr "Імя карыстальніка"
+msgstr "Назва новай старонкі"
 
 #: templates/database/designer/page_selector.phtml:2
-#, fuzzy
-#| msgid "Select All"
 msgid "Select page"
-msgstr "Выбраць усё"
+msgstr "Выбраць старонку"
 
 #: templates/database/designer/query_details.phtml:10
-#, fuzzy
-#| msgid "Table options"
 msgid "Active options"
-msgstr "Опцыі табліцы"
+msgstr "Актыўная опцыі"
 
 #: templates/database/designer/schema_export.phtml:4
 msgid "Select Export Relational Type"
@@ -14097,10 +14079,8 @@ msgstr ""
 
 #: templates/database/designer/side_menu.phtml:19
 #: templates/database/designer/side_menu.phtml:25
-#, fuzzy
-#| msgid "Show tables"
 msgid "Show/Hide tables list"
-msgstr "Паказаць табліцы"
+msgstr "Паказаць/Схаваць спіс табліц"
 
 #: templates/database/designer/side_menu.phtml:29
 #: templates/database/designer/side_menu.phtml:35
@@ -14114,17 +14094,13 @@ msgstr ""
 
 #: templates/database/designer/side_menu.phtml:41
 #: templates/database/designer/side_menu.phtml:45
-#, fuzzy
-#| msgid "User name"
 msgid "New page"
-msgstr "Імя карыстальніка"
+msgstr "Новая старонка"
 
 #: templates/database/designer/side_menu.phtml:70
 #: templates/database/designer/side_menu.phtml:73
-#, fuzzy
-#| msgid "Select All"
 msgid "Delete pages"
-msgstr "Выбраць усё"
+msgstr "Выдаліць старонкі"
 
 #: templates/database/designer/side_menu.phtml:77
 #: templates/database/designer/side_menu.phtml:80
@@ -14135,8 +14111,6 @@ msgstr "Стварыць табліцу"
 #: templates/database/designer/side_menu.phtml:84
 #: templates/database/designer/side_menu.phtml:87
 #: templates/database/designer/new_relation_panel.twig:42
-#, fuzzy
-#| msgid "Create relation"
 msgid "Create relationship"
 msgstr "Стварыць сувязь"
 
@@ -14177,25 +14151,18 @@ msgstr "Пераключыць маленькі/вялікі"
 
 #: templates/database/designer/side_menu.phtml:145
 #: templates/database/designer/side_menu.phtml:148
-#, fuzzy
-#| msgid "To select relation, click :"
 msgid "Toggle relationship lines"
-msgstr ""
-"Каб выбраць сувязь, націсьніце на кропцы злучэньня, як паказана на выяве:"
+msgstr "Пераключыць лініі сувязі"
 
 #: templates/database/designer/side_menu.phtml:153
 #: templates/database/designer/side_menu.phtml:156
-#, fuzzy
-#| msgid "Export"
 msgid "Export schema"
-msgstr "Экспарт"
+msgstr "Экспартаваць схему"
 
 #: templates/database/designer/side_menu.phtml:164
 #: templates/database/designer/side_menu.phtml:167
-#, fuzzy
-#| msgid "Submit Query"
 msgid "Build Query"
-msgstr "Выканаць запыт"
+msgstr "Скласці запыт"
 
 #: templates/database/designer/side_menu.phtml:172
 #: templates/database/designer/side_menu.phtml:176
@@ -14204,26 +14171,20 @@ msgstr "Перасунуць мэню"
 
 #: templates/database/designer/side_menu.phtml:180
 #: templates/database/designer/side_menu.phtml:185
-#, fuzzy
-#| msgid "Partial Texts"
 msgid "Pin text"
-msgstr "Частковыя тэксты"
+msgstr "Прымацаваць тэкст"
 
 #: templates/database/designer/table_list.phtml:4
 msgid "Hide/Show all"
 msgstr "Схаваць/паказаць усе табліцы"
 
 #: templates/database/designer/table_list.phtml:14
-#, fuzzy
-#| msgid "Hide/Show Tables with no relation"
 msgid "Hide/Show Tables with no relationship"
-msgstr "Схаваць/паказаць табліцы бяз сувязяў"
+msgstr "Схаваць/паказаць табліцы без сувязяў"
 
 #: templates/database/designer/table_list.phtml:55
-#, fuzzy
-#| msgid "Number of tables"
 msgid "Number of tables:"
-msgstr "Колькасьць табліц"
+msgstr "Колькасць табліц:"
 
 #: templates/database/structure/body_for_table_summary.phtml:6
 #, php-format
@@ -14242,10 +14203,8 @@ msgid "Check tables having overhead"
 msgstr "Адзначыць тыя, што патрабуюць аптымізацыі"
 
 #: templates/database/structure/check_all_tables.phtml:10
-#, fuzzy
-#| msgid "No tables"
 msgid "Copy table"
-msgstr "Няма табліц"
+msgstr "Капіяваць табліцу"
 
 #: templates/database/structure/check_all_tables.phtml:11
 #, fuzzy
