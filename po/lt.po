@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-05-17 09:06+0200\n"
 "PO-Revision-Date: 2017-06-03 12:36+0000\n"
-"Last-Translator: Dovydas <dovy.buz@gmail.com>\n"
+"Last-Translator: Justas Vilimas <justas@vilimas.eu>\n"
 "Language-Team: Lithuanian "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-7/lt/>\n"
 "Language: lt\n"
@@ -27,7 +27,7 @@ msgstr ""
 
 #: db_central_columns.php:108
 msgid "The central list of columns for the current database is empty."
-msgstr ""
+msgstr "Pagrindinis einamosios duomenų bazės stulpelių sąrašas yra tuščias."
 
 #: db_central_columns.php:133
 msgid "Click to sort."
