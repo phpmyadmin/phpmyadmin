@@ -4,17 +4,17 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-05-17 09:24+0200\n"
-"PO-Revision-Date: 2017-03-02 19:43+0000\n"
-"Last-Translator: Andrzej Pauli <andrzej.pauli@gmail.com>\n"
-"Language-Team: Polish <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"pl/>\n"
+"PO-Revision-Date: 2017-06-03 09:31+0000\n"
+"Last-Translator: Stanisław Krukowski <ack0079@riseup.net>\n"
+"Language-Team: Polish "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/pl/>\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 2.12-dev\n"
+"X-Generator: Weblate 2.15-dev\n"
 
 #: changelog.php:39 license.php:34
 #, php-format
@@ -618,6 +618,8 @@ msgid ""
 "You were logged out from one server, to logout completely from phpMyAdmin, "
 "you need to logout from all servers."
 msgstr ""
+"Wylogowałeś się z jednego serwera. Aby się całkowicie wylogować z "
+"phpMyAdmin, musisz wylogować się ze wszystkich serwerów."
 
 #: index.php:160 libraries/Footer.php:69
 msgid "phpMyAdmin Demo Server"
@@ -1820,6 +1822,7 @@ msgstr "Eksport"
 #: js/messages.php:395
 msgid "No routine is exportable. Required privileges may be lacking."
 msgstr ""
+"Nie można wyeksportować żadnej procedury. Może brakować wymaganych uprawnień."
 
 #: js/messages.php:398 libraries/rte/rte_routines.lib.php:746
 msgid "ENUM/SET editor"
@@ -2189,12 +2192,16 @@ msgid ""
 "MySQL accepts additional values not selectable by the slider; key in those "
 "values directly if desired"
 msgstr ""
+"MySQL akceptuje dodatkowe wartości nie wybrane przez suwak; w razie potrzeby "
+"wprowadź te wartości"
 
 #: js/messages.php:534
 msgid ""
 "MySQL accepts additional values not selectable by the datepicker; key in "
 "those values directly if desired"
 msgstr ""
+"MySQL akceptuje dodatkowe wartości nie wybieralne przez wybieracz danych; w "
+"razie potrzeby wprowadź te wartości"
 
 #: js/messages.php:540
 msgid ""
@@ -2320,6 +2327,10 @@ msgid ""
 ">- Ctrl+Click or Alt+Click (Mac: Shift+Option+Click) to remove column from "
 "ORDER BY clause"
 msgstr ""
+"Skrót klawiszowy Shift+Kliknięcie dodaje tę kolumnę do przypadku ORDER BY "
+"lub przełącza ASC/DESC. <br /> Skrót klawiaturowy CTRL+Kliknięcie lub Alt+"
+"Kliknięcie (Mac: Shift+Opcja+Kliknięcie) usuwa te kolumnę z przypadku ORDER "
+"BY"
 
 #: js/messages.php:586
 msgid "Click to mark/unmark."
@@ -3222,7 +3233,7 @@ msgstr "Bułgarski"
 #: libraries/Charsets.php:394
 msgctxt "Collation"
 msgid "Chinese"
-msgstr ""
+msgstr "Język chiński"
 
 #: libraries/Charsets.php:399
 #, fuzzy
@@ -3276,7 +3287,7 @@ msgstr "Słownik danych"
 #: libraries/Charsets.php:425 libraries/Charsets.php:536
 msgctxt "Collation"
 msgid "German (phone book order)"
-msgstr ""
+msgstr "Język niemiecki (kolejność w telefonicznej książce adresowej)"
 
 #: libraries/Charsets.php:434
 #, fuzzy
@@ -3295,7 +3306,7 @@ msgstr "Islandzki"
 #: libraries/Charsets.php:445
 msgctxt "Collation"
 msgid "Classical Latin"
-msgstr ""
+msgstr "Język łaciński klasyczny"
 
 #: libraries/Charsets.php:449
 #, fuzzy
@@ -3368,7 +3379,7 @@ msgstr "Hiszpański"
 #: libraries/Charsets.php:497 libraries/Charsets.php:547
 msgctxt "Collation"
 msgid "Spanish (traditional)"
-msgstr ""
+msgstr "Język hiszpański (tradycyjny)"
 
 #: libraries/Charsets.php:516
 #, fuzzy
@@ -3415,7 +3426,7 @@ msgstr "Wysokość"
 #: libraries/Charsets.php:598
 msgctxt "Collation variant"
 msgid "level=2"
-msgstr ""
+msgstr "poziom=2"
 
 #: libraries/Charsets.php:601
 #, fuzzy
@@ -3458,9 +3469,9 @@ msgstr "Rozmiar czcionki"
 #, php-format
 msgid "Showing %1$d bookmark (both private and shared)"
 msgid_plural "Showing %1$d bookmarks (both private and shared)"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Pokazywanie %1$d zakładki (zarówno prywatnej, jak i współdzielonej)"
+msgstr[1] "Pokazywanie %1$d zakładek (zarówno prywatnych, jak i współdzielonych)"
+msgstr[2] "Pokazywanie %1$d zakładek (zarówno prywatnych, jak i współdzielonych)"
 
 #: libraries/Console.php:93
 msgid "No bookmarks"
@@ -4025,7 +4036,7 @@ msgstr ""
 #: libraries/Footer.php:73
 #, php-format
 msgid "Currently running Git revision %1$s from the %2$s branch."
-msgstr ""
+msgstr "Obecnie jest uruchomiona wersja Git %1$s z gałęzi %2$s."
 
 #: libraries/Footer.php:80
 msgid "Git information missing!"
