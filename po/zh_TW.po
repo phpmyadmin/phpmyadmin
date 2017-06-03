@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.1-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-05-17 09:06+0200\n"
-"PO-Revision-Date: 2017-04-27 10:34+0000\n"
-"Last-Translator: Chien Wei Lin <cwlin0416@gmail.com>\n"
-"Language-Team: Chinese (Traditional) <http://hosted.weblate.org/projects/"
-"phpmyadmin/4-7/zh_Hant/>\n"
+"PO-Revision-Date: 2017-06-03 10:16+0000\n"
+"Last-Translator: 某玩家 <bckps7336@gmail.com>\n"
+"Language-Team: Chinese (Traditional) "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-7/zh_Hant/>\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 2.14-dev\n"
+"X-Generator: Weblate 2.15-dev\n"
 
 #: changelog.php:39 license.php:34
 #, php-format
@@ -586,10 +586,13 @@ msgid "Back"
 msgstr "返回"
 
 #: index.php:116
+#, fuzzy
 msgid ""
 "You were logged out from one server, to logout completely from phpMyAdmin, "
 "you need to logout from all servers."
 msgstr ""
+"已經中斷與資料庫的連接。\n"
+"如要完全登出phpMyAdmin，則需要中斷與其他資料庫的連接。"
 
 #: index.php:160 libraries/Footer.php:69
 msgid "phpMyAdmin Demo Server"
@@ -2923,11 +2926,9 @@ msgid "Unknonwn"
 msgstr "未知"
 
 #: libraries/Charsets.php:258
-#, fuzzy
-#| msgid "Binary"
 msgctxt "Collation"
 msgid "Binary"
-msgstr "二進位"
+msgstr "二進制碼"
 
 #: libraries/Charsets.php:270 libraries/Charsets.php:500
 #, fuzzy
@@ -2937,18 +2938,14 @@ msgid "Unicode"
 msgstr "Unicode"
 
 #: libraries/Charsets.php:280 libraries/Charsets.php:451
-#, fuzzy
-#| msgid "West European"
 msgctxt "Collation"
 msgid "West European"
 msgstr "西歐"
 
 #: libraries/Charsets.php:287
-#, fuzzy
-#| msgid "Central European"
 msgctxt "Collation"
 msgid "Central European"
-msgstr "中歐"
+msgstr "中歐語系"
 
 #: libraries/Charsets.php:292
 #, fuzzy
