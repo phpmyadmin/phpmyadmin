@@ -1724,15 +1724,19 @@ class Util
 
         $tab_navigation = '<div id="' . htmlentities($menu_id)
             . 'container" class="menucontainer">'
-            . '<ul id="' . htmlentities($menu_id) . '" ' . $class . '>';
+            . '<i class="scrollindicator scrollindicator--left"><a href="#" class="tab"></a></i>'
+            . '<div class="navigationbar"><ul id="' . htmlentities($menu_id) . '" ' . $class . '>';
 
+        //$tab_navigation .= '<span class="scrollindicator--left" style="padding: 0;position: absolute;"><a href="#" class="tab"><img src="themes/pmahomme/img/b_left.png" title="Databases" alt="Databases"></a></span>';
         foreach ($tabs as $tab) {
             $tab_navigation .= self::getHtmlTab($tab, $url_params);
         }
+        $tab_navigation .= '';
 
         $tab_navigation .=
               '<div class="clearfloat"></div>'
-            . '</ul>' . "\n"
+            . '</ul></div>' . "\n"
+            . '<i class="scrollindicator scrollindicator--right"><a href="#" class="tab"></a></i>'
             . '</div>' . "\n";
 
         return $tab_navigation;

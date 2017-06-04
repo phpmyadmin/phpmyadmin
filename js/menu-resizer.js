@@ -24,6 +24,22 @@
         var self = this;
         self.$container = $container;
         self.widthCalculator = widthCalculator;
+        // Sets the image for the left and right scroll indicator
+        $(PMA_getImage('b_right.png').toString()).prependTo($('.scrollindicator--right'));
+        $(PMA_getImage('b_left.png').toString()).prependTo($('.scrollindicator--left'));
+
+        // Set the width of the navigation bar without scroll indicator
+        $('.navigationbar').css({'width': widthCalculator.call($container) - 58});
+
+        // Scroll the navigation bar on click
+        $('.scrollindicator--right')
+            .click(function () {
+                $('.navigationbar').scrollLeft($('.navigationbar').scrollLeft() + 10);
+            });
+        $('.scrollindicator--left')
+            .click(function () {
+                $('.navigationbar').scrollLeft($('.navigationbar').scrollLeft() - 10);
+            });
         // create submenu container
         var link = $('<a />', {href: '#', 'class': 'tab nowrap'})
             .text(PMA_messages.strMore)
@@ -32,7 +48,8 @@
         if (img.length) {
             $(PMA_getImage('b_more.png').toString()).prependTo(link);
         }
-        var $submenu = $('<li />', {'class': 'submenu'})
+        //$('.navigation').css({'width': $('#topmenucontainer').width() - 50});
+        /*var $submenu = $('<li />', {'class': 'submenu'})
             .append(link)
             .append($('<ul />'))
             .mouseenter(function() {
@@ -50,15 +67,16 @@
                     .find('> a')
                     .removeClass('tabactive');
                 }
-            });
-        $container.children('.clearfloat').remove();
-        $container.append($submenu).append("<div class='clearfloat'></div>");
+            });*/
+        //$container.children('.clearfloat').remove();
+        //$container.append($submenu).append("<div class='clearfloat'></div>");
         setTimeout(function () {
             self.resize();
         }, 4);
     }
     MenuResizer.prototype.resize = function () {
         var wmax = this.widthCalculator.call(this.$container);
+        $('.navigationbar').css({'width': wmax - 58});
         var $submenu = this.$container.find('.submenu:last');
         var submenu_w = $submenu.outerWidth(true);
         var $submenu_ul = $submenu.find('ul');
@@ -72,6 +90,7 @@
         for (i = 0; i < l; i++) {
             total_len += $($li[i]).outerWidth(true);
         }
+        //console.log(wmax);
         // Now hide menu elements that don't fit into the menubar
         var hidden = false; // Whether we have hidden any tabs
         while (total_len >= wmax && --l >= 0) { // Process the tabs backwards
