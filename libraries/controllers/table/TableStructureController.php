@@ -118,7 +118,6 @@ class TableStructureController extends TableController
          * Function implementations for this script
          */
         include_once 'libraries/check_user_privileges.lib.php';
-        include_once 'libraries/index.lib.php';
 
         $this->response->getHeader()->getScripts()->addFiles(
             array(
