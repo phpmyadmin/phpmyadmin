@@ -3504,3 +3504,16 @@ body .ui-dialog .ui-dialog-buttonpane .ui-dialog-buttonset {
     float: <?php echo $right; ?>;
 }
 /* end of styles for jQuery-ui to support rtl languages */
+
+@media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+    #main_pane_left {
+        width: 100%;
+    }
+
+    #main_pane_right {
+        padding-top: 0;
+        padding-<?php echo $left; ?>: 1px;
+        padding-<?php echo $right; ?>: 1px;
+    }
+}
