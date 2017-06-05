@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-05-17 09:24+0200\n"
-"PO-Revision-Date: 2017-06-02 18:27+0000\n"
+"PO-Revision-Date: 2017-06-05 21:25+0000\n"
 "Last-Translator: Viktar Vauchkevich <victorenator@gmail.com>\n"
 "Language-Team: Belarusian "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/be/>\n"
@@ -14207,53 +14207,40 @@ msgid "Copy table"
 msgstr "Капіяваць табліцу"
 
 #: templates/database/structure/check_all_tables.phtml:11
-#, fuzzy
-#| msgid "Show color"
 msgid "Show create"
-msgstr "Паказаць колер"
+msgstr "Паказаць стварэнне"
 
 #: templates/database/structure/check_all_tables.phtml:26
-#, fuzzy
-#| msgid "Add new field"
 msgid "Prefix"
-msgstr "Дадаць новае поле"
+msgstr "Прэфікс"
 
 #: templates/database/structure/check_all_tables.phtml:27
-#, fuzzy
 msgid "Add prefix to table"
-msgstr "Базы дадзеных адсутнічаюць"
+msgstr "Дадаць прэфікс да табліцы"
 
 #: templates/database/structure/check_all_tables.phtml:28
-#, fuzzy
-#| msgid "Replace table data with file"
 msgid "Replace table prefix"
-msgstr "Замяніць дадзеныя табліцы дадзенымі з файла"
+msgstr "Замяніць прэфікс табліцы"
 
 #: templates/database/structure/check_all_tables.phtml:35
-#, fuzzy
-#| msgid "Add %s field(s)"
 msgid "Add columns to central list"
-msgstr "Дадаць %s новыя палі"
+msgstr "Дадаць слупкі ў галоўны спіс"
 
 #: templates/database/structure/check_all_tables.phtml:36
 msgid "Remove columns from central list"
 msgstr ""
 
 #: templates/database/structure/check_all_tables.phtml:37
-#, fuzzy
-#| msgid "Add %s field(s)"
 msgid "Make consistent with central list"
-msgstr "Дадаць %s новыя палі"
+msgstr "Зрабіць у адпаведнасці з галоўныс спісам"
 
 #: templates/database/structure/favorite_anchor.phtml:12
-#, fuzzy
 msgid "Add to Favorites"
-msgstr "Дадаць новага карыстальніка"
+msgstr "Дадаць да абранага"
 
 #: templates/database/structure/show_create.phtml:2
-#, fuzzy
 msgid "Showing create queries"
-msgstr "Паказаць поўныя запыты"
+msgstr "Паказваюцца запыты стварэння"
 
 #: templates/database/structure/sortable_header.phtml:13
 msgid "Sort"
@@ -14264,12 +14251,12 @@ msgid "in use"
 msgstr "выкарыстоўваецца"
 
 #: templates/database/structure/table_header.phtml:42
-#, fuzzy
-#| msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]"
 msgid ""
 "May be approximate. Click on the number to get the exact count. See "
 "[doc@faq3-11]FAQ 3.11[/doc]."
-msgstr "Значэньне можа быць прыблізным. Гл. [doc@faq3-11]FAQ 3.11[/doc]"
+msgstr ""
+"Можа быць прыблізным. Націсніце на нумар, каб атрымаць дакладную колькасць. "
+"Глядзіце [doc@faq3-11]FAQ 3.11[/doc]."
 
 #: templates/database/structure/table_header.phtml:66
 #: templates/table/index_form.phtml:127
@@ -14309,15 +14296,12 @@ msgstr "Вылучыце двайковы лог для прагляду"
 
 #: templates/server/databases/create.phtml:7
 #: templates/server/databases/create.phtml:27
-#, fuzzy
-#| msgid "Create new database"
 msgid "Create database"
-msgstr "Стварыць новую базу дадзеных"
+msgstr "Стварыць базу даных"
 
 #: templates/server/databases/table_row.phtml:15
-#, fuzzy
 msgid "Jump to database"
-msgstr "Базы дадзеных адсутнічаюць"
+msgstr "Перайсці ў базу даных"
 
 #: templates/server/databases/table_row.phtml:61
 #, php-format
@@ -14325,8 +14309,6 @@ msgid "Check privileges for database \"%s\"."
 msgstr "Праверыць прывілеі для базы \"%s\"."
 
 #: templates/server/databases/table_row.phtml:62
-#, fuzzy
-#| msgid "Check Privileges"
 msgid "Check privileges"
 msgstr "Праверыць прывілеі"
 
@@ -14339,147 +14321,116 @@ msgid "Author"
 msgstr ""
 
 #: templates/server/plugins/section.phtml:21
-#, fuzzy
-#| msgid "Disabled"
 msgid "disabled"
-msgstr "Адключана"
+msgstr "адключана"
 
 #: templates/server/variables/variable_row.phtml:6
 msgid "This is a read-only variable and can not be edited"
 msgstr ""
 
 #: templates/table/chart/tbl_chart.phtml:16
-#, fuzzy
-#| msgid "Mar"
 msgctxt "Chart type"
 msgid "Bar"
-msgstr "Сак"
+msgstr "Гістаграма"
 
 #: templates/table/chart/tbl_chart.phtml:20
-#, fuzzy
-#| msgid "Column names"
 msgctxt "Chart type"
 msgid "Column"
-msgstr "Назвы калёнак"
+msgstr "Слупковая"
 
 #: templates/table/chart/tbl_chart.phtml:24
 msgctxt "Chart type"
 msgid "Line"
-msgstr ""
+msgstr "Графік"
 
 #: templates/table/chart/tbl_chart.phtml:28
-#, fuzzy
-#| msgid "Engines"
 msgctxt "Chart type"
 msgid "Spline"
-msgstr "Машыны"
+msgstr "Сплайнавая"
 
 #: templates/table/chart/tbl_chart.phtml:32
 msgctxt "Chart type"
 msgid "Area"
-msgstr ""
+msgstr "Вобласці"
 
 #: templates/table/chart/tbl_chart.phtml:36
-#, fuzzy
-#| msgid "PiB"
 msgctxt "Chart type"
 msgid "Pie"
-msgstr "ПіБ"
+msgstr "Кругавая"
 
 #: templates/table/chart/tbl_chart.phtml:40
-#, fuzzy
-#| msgid "Time"
 msgctxt "Chart type"
 msgid "Timeline"
-msgstr "Час"
+msgstr "Часовая шкала"
 
 #: templates/table/chart/tbl_chart.phtml:44
 msgctxt "Chart type"
 msgid "Scatter"
-msgstr ""
+msgstr "Пунктавая"
 
 #: templates/table/chart/tbl_chart.phtml:49
-#, fuzzy
-#| msgid "Packed"
 msgid "Stacked"
-msgstr "Сьціснутая"
+msgstr "Сціснутая"
 
 #: templates/table/chart/tbl_chart.phtml:52
-#, fuzzy
-#| msgid "Report title"
 msgid "Chart title:"
-msgstr "Загаловак справаздачы"
+msgstr "Загаловак дыяграмы:"
 
 #: templates/table/chart/tbl_chart.phtml:57
 msgid "X-Axis:"
-msgstr ""
+msgstr "Вось X:"
 
 #: templates/table/chart/tbl_chart.phtml:72
-#, fuzzy
 msgid "Series:"
-msgstr "SQL-запыт"
+msgstr "Серыі:"
 
 #: templates/table/chart/tbl_chart.phtml:103
 msgid "X-Axis label:"
-msgstr ""
+msgstr "Метка восі X:"
 
 #: templates/table/chart/tbl_chart.phtml:105
-#, fuzzy
-#| msgid "Value"
 msgid "X Values"
-msgstr "Значэньне"
+msgstr "Значэнні X"
 
 #: templates/table/chart/tbl_chart.phtml:108
 msgid "Y-Axis label:"
-msgstr ""
+msgstr "Метка восі Y:"
 
 #: templates/table/chart/tbl_chart.phtml:110
-#, fuzzy
-#| msgid "Value"
 msgid "Y Values"
-msgstr "Значэньне"
+msgstr "Значэнні Y"
 
 #: templates/table/chart/tbl_chart.phtml:116
 msgid "Series names are in a column"
 msgstr ""
 
 #: templates/table/chart/tbl_chart.phtml:119
-#, fuzzy
-#| msgid "Inside field:"
 msgid "Series column:"
-msgstr "Унутры поля:"
+msgstr "Слупок серыі:"
 
 #: templates/table/chart/tbl_chart.phtml:133
-#, fuzzy
-#| msgid "Number of fields"
 msgid "Value Column:"
-msgstr "Колькасьць палёў"
+msgstr "Слупок значэнняў:"
 
 #: templates/table/chart/tbl_chart.phtml:153
-#, fuzzy
-#| msgid "Save as file"
 msgid "Save chart as image"
-msgstr "Захаваць як файл"
+msgstr "Захаваць дыяграму як выяву"
 
 #: templates/table/gis_visualization/gis_visualization.phtml:3
 msgid "Display GIS Visualization"
 msgstr ""
 
 #: templates/table/gis_visualization/gis_visualization.phtml:8
-#, fuzzy
-#| msgid "Add/Delete Field Columns"
 msgid "Label column"
-msgstr "Дадаць/выдаліць калёнку крытэру"
+msgstr "Слупок меткі"
 
 #: templates/table/gis_visualization/gis_visualization.phtml:11
 msgid "-- None --"
 msgstr ""
 
 #: templates/table/gis_visualization/gis_visualization.phtml:19
-#, fuzzy
-#| msgid "Log file count"
 msgid "Spatial column"
-msgstr "Колькасьць файлаў логу"
+msgstr "Прасторавы слупок"
 
 #: templates/table/index_form.phtml:16
 msgid "Index name:"
@@ -14492,10 +14443,8 @@ msgstr ""
 "\"PRIMARY\" <b>мусіць</b> быць імем першаснага ключа і <b>толькі</b> яго!"
 
 #: templates/table/index_form.phtml:40
-#, fuzzy
-#| msgid "Index cache size"
 msgid "Index choice:"
-msgstr "Памер кэшу індэксаў"
+msgstr "Выбар індэксу:"
 
 #: templates/table/index_form.phtml:57
 msgid "Key block size:"
@@ -14506,10 +14455,8 @@ msgid "Index type:"
 msgstr "Тып індэкса:"
 
 #: templates/table/index_form.phtml:86
-#, fuzzy
-#| msgid "User"
 msgid "Parser:"
-msgstr "Карыстальнік"
+msgstr "Аналізатар:"
 
 #: templates/table/index_form.phtml:102
 #, fuzzy
